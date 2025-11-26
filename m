@@ -4,59 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 166C6D11195
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 20:00:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDF18D11195
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 20:02:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wi8uih8ofLo5efaX/ubMnimRmRfmY8bXqmgKuWa3CVc=; b=OxNFOzO4zf3A3W1x1ucZtt/8sX
-	PulNXBx3uOJHn0xxCVnoQajeR2PGYhY6kQr0CdcJplXCDm3emf4GFwovyCXIH7MIiQvBQxvZ2stfU
-	8JeVpHvkWw8qi5q3gII87iK3SplziV1v+P+4/GLomBcQsGsA1RNMmTzq2lA6xQ5Rlps2wwy0HUxtN
-	Oxod6UfxWA+VNw6wUeA0EHyiFMqUmmKp/liCDqyj8/TLz224pJcWefidiKQ8K4nh8WDLv26wlvAtd
-	LNAgU/+fcDSy4CuCx99HazJwp3Ftl0tpclXrFZ8C9w16qRTHBJi78gwFsm4mkgup0lUYiIjZlkjxV
-	JXdo4GLg==;
+	bh=o4aSs3i8MxSsH9LQQdFXRZ1BuzBNVqWnsabFj67iIHM=; b=bYIev/JVRuJcE2rD9n9jYfE/pe
+	DNDs5vPJWrFX85SfCeCWYPAvII2/k55NRB9YKdFu4s9TI0jd8Xc9ZuwV7/jPGr0Kr2VrxEgm+954q
+	BXbfII/ovvDArVl1voxutGgHYam4s9lZ/N+WgQGD+zQokPonqps6VJ/iyEn8j65paqbiCVaEYksRF
+	wp3bP/sqv0P7b3g6ci/xKkGqFQF8jEvD5xed9SPwjxLanI09vDLjOT20HSv1hu2zN93/jL1+kQmJv
+	83Wsh8Dpd4yV60la/ZtS+JYcJqCBia9Z88/PL5JeHpAZ/+lDTxM/y4xppxmQBeDfO+SiHsF9RG39A
+	P8EdLP3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOLgp-0000000FaOd-1IaK;
-	Wed, 26 Nov 2025 20:00:35 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vOLie-0000000Fahl-08Ls;
+	Wed, 26 Nov 2025 20:02:28 +0000
+Received: from zeniv.linux.org.uk ([2a03:a000:7:0:5054:ff:fe1c:15ff])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOLgn-0000000FaOE-2SFX;
-	Wed, 26 Nov 2025 20:00:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B17E160139;
-	Wed, 26 Nov 2025 20:00:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98B21C4CEF7;
-	Wed, 26 Nov 2025 20:00:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764187232;
-	bh=R2AGU5XnORZusZ1iGFwJY7bQHmgaVS26nysHAWjHEZU=;
-	h=Date:From:To:cc:Subject:In-Reply-To:References:From;
-	b=OiC5469NkF4URpfQxVhISBbvN9Wlj4COaxPmDOmpqX9Je9mrZq0t8wEeFdRxkE5AC
-	 ADwdtpeKcrjTBxUE0NeUXamP5TMq7NMXzJP07tTUsEWZrOcYT4kNlC6sZ2a1DrCf6o
-	 5X+R6ScykcAahBHN7Q/dMZ5KZ/GluORcTWH11Gv+hzY+H7XpduiuILm+vWWF6JDwh3
-	 lrMA6Hnx+2B+Gs0eBRGMsqfkr4F95LIXIUYmrMuedGvuLzWH/dm/es9ZGIGidP348z
-	 i4r2C4ECAh0UdAH0YHsOYDY7Bk6Z/Pitnm8ybxXCObnxSt9pICI8/i+v9vWwwoXgYP
-	 ep0ohDllFnRHg==
-Date: Wed, 26 Nov 2025 13:00:28 -0700 (MST)
-From: Paul Walmsley <pjw@kernel.org>
-To: =?ISO-8859-15?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-cc: Paul Walmsley <pjw@kernel.org>, linux-riscv@lists.infradead.org, 
-    paul.walmsley@sifive.com, palmer@dabbelt.com, linux-kernel@vger.kernel.org, 
-    linux-arm-kernel@lists.infradead.org, hchauhan@ventanamicro.com, 
-    apatel@ventanamicro.com, luxu.kernel@bytedance.com, atishp@atishpatra.org, 
-    bjorn@rivosinc.com, cuiyunhui@bytedance.com, 
-    =?GB2312?B?1cXVucX0?= <zhangzhanpeng.jasper@bytedance.com>
-Subject: Re: [PATCH v8 0/5] riscv: add support for SBI Supervisor Software
- Events
-In-Reply-To: <4b22e7c4-4d3d-43b9-bc27-ffd7a86ad26a@rivosinc.com>
-Message-ID: <39079362-64ce-e951-6906-0302b1e9e55d@kernel.org>
-References: <20251105082639.342973-1-cleger@rivosinc.com> <176355541775.758643.18140349571928540394.git-patchwork-notify@kernel.org> <350edd01-56ce-6558-1473-4b9231647e1e@kernel.org> <4b22e7c4-4d3d-43b9-bc27-ffd7a86ad26a@rivosinc.com>
+	id 1vOLic-0000000FahK-1TEW
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Nov 2025 20:02:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=linux.org.uk; s=zeniv-20220401; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=o4aSs3i8MxSsH9LQQdFXRZ1BuzBNVqWnsabFj67iIHM=; b=LZmCZ9GqC2htrAE0BVjhaPqHbm
+	INkERVhSMY1db6iQJ4Ngu9AKIvVQpb9JE8xz31dPizJduLq671DX531BBB+KJV1Sjyi/sey8w80IQ
+	YOooCFH/lLeUp17ag+6xUA8yKj8RZDwMFNUSsjcs8VJMcvgbypRlKTy66U0t99XSc8VTR1NQehinX
+	SKIa6txZRdmeT3ZKSTGrp4Wk3OXxlT1Stsz9j2rwT5sTQN4R4aAYzSJbTvsx88Wgb9TMv6xbiMhs5
+	v6200KJYAwWcQ8YmK66v/BuAUrigq0ReBXRDD+8ti0UsNN07jiln45kL/AfUkfpouHzXAAC6n4Y5x
+	st2zoTKw==;
+Received: from viro by zeniv.linux.org.uk with local (Exim 4.99 #2 (Red Hat Linux))
+	id 1vOLiX-00000001VKP-2ggS;
+	Wed, 26 Nov 2025 20:02:21 +0000
+Date: Wed, 26 Nov 2025 20:02:21 +0000
+From: Al Viro <viro@zeniv.linux.org.uk>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Xie Yuanbin <xieyuanbin1@huawei.com>, brauner@kernel.org, jack@suse.cz,
+	will@kernel.org, nico@fluxnic.net, akpm@linux-foundation.org,
+	hch@lst.de, jack@suse.com, wozizhi@huaweicloud.com,
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	lilinjie8@huawei.com, liaohua4@huawei.com,
+	wangkefeng.wang@huawei.com, pangliyuan1@huawei.com
+Subject: Re: [RFC PATCH] vfs: Fix might sleep in load_unaligned_zeropad()
+ with rcu read lock held
+Message-ID: <20251126200221.GE3538@ZenIV>
+References: <20251126090505.3057219-1-wozizhi@huaweicloud.com>
+ <20251126101952.174467-1-xieyuanbin1@huawei.com>
+ <20251126181031.GA3538@ZenIV>
+ <20251126184820.GB3538@ZenIV>
+ <aSdPYYqPD5V7Yeh6@shell.armlinux.org.uk>
+ <20251126192640.GD3538@ZenIV>
+ <aSdaWjgqP4IVivlN@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="8323329-1617688475-1764187232=:894490"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aSdaWjgqP4IVivlN@shell.armlinux.org.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251126_120226_391042_7F9BA339 
+X-CRM114-Status: GOOD (  19.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,69 +81,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+On Wed, Nov 26, 2025 at 07:51:54PM +0000, Russell King (Oracle) wrote:
 
---8323329-1617688475-1764187232=:894490
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 8BIT
-
-Hi Clément,
-
-On Wed, 26 Nov 2025, Clément Léger wrote:
-
-> On 11/19/25 16:52, Paul Walmsley wrote:
-> > 
-> > To add more context:
-> > 
-> > On Wed, 19 Nov 2025, patchwork-bot+linux-riscv@kernel.org wrote:
-> > 
-> >> This series was applied to riscv/linux.git (for-next)
-> >> by Paul Walmsley <pjw@kernel.org>:
-> >>
-> >> On Wed,  5 Nov 2025 08:26:32 +0000 you wrote:
-> >>> The SBI Supervisor Software Events (SSE) extensions provides a mechanism
-> >>> to inject software events from an SBI implementation to supervisor
-> >>> software such that it preempts all other supervisor level traps and
-> >>> interrupts. This extension is introduced by the SBI v3.0 specification[1].
-> >>>
-> >>> Various events are defined and can be send asynchronously to supervisor
-> >>> software (RAS, PMU, DEBUG, Asynchronous page fault) from SBI as well
-> >>> as platform specific events. Events can be either local (per-hart) or
-> >>> global. Events can be nested on top of each other based on priority and
-> >>> can interrupt the kernel at any time.
-> >>>
-> >>> [...]
-> >>
-> >> Here is the summary with links:
-> >>   - [v8,1/5] riscv: add SBI SSE extension definitions
-> >>     https://git.kernel.org/riscv/c/7bba38249b8a
-> >>   - [v8,2/5] riscv: add support for SBI Supervisor Software Events extension
-> >>     https://git.kernel.org/riscv/c/b52179e6de7d
-> >>   - [v8,3/5] drivers: firmware: add riscv SSE support
-> >>     https://git.kernel.org/riscv/c/5ffe60d26107
-> >>   - [v8,4/5] perf: RISC-V: add support for SSE event
-> >>     https://git.kernel.org/riscv/c/c6f3f04d2a9c
-> >>   - [v8,5/5] selftests/riscv: add SSE test module
-> >>     https://git.kernel.org/riscv/c/a123316660af
-> > 
-> > This is a pretty sophisticated series.  I was hoping to get more test 
-> > reports on it and reviews (as Clément requested as well). In the meantime 
-> > I've pulled them into for-next in the hopes that it might increase the 
-> > number of potential testers.  Am still very much interested in any test 
-> > reports or additional reviews; if they come in this week, I'll consider 
-> > rebuilding for-next to add them.
+> I don't understand how that helps. Wasn't the report that the filename
+> crosses a page boundary in userspace, but the following page is
+> inaccessible which causes a fault to be taken (as it always would do).
+> Thus, wouldn't "addr" be a userspace address (that the kernel is
+> accessing) and thus be below TASK_SIZE ?
 > 
-> Since we gathered additional bug/starvation reports with SSE from
-> Zhanpeng, it would be preferable to remove this series from your branch
-> if still possible. I'm not currently really available (just had a
-> newborn) so I won't be able to fix this quickly.
+> I'm also confused - if we can't take a fault and handle it while
+> reading the filename from userspace, how are pages that have been
+> swapped out or evicted from the page cache read back in from storage
+> which invariably results in sleeping - which we can't do here because
+> of the RCU context (not that I've ever understood RCU, which is why
+> I've always referred those bugs to Paul.)
 
-No problem, we'll drop it.
+No, the filename is already copied in kernel space *and* it's long enough
+to end right next to the end of page.  There's NUL before the end of page,
+at that, with '/' a couple of bytes prior.  We attempt to save on memory
+accesses, doing word-by-word fetches, starting from the beginning of
+component.  We *will* detect NUL and ignore all subsequent bytes; the
+problem is that the last 3 bytes of page might be '/', 'x' and '\0'.
+We call load_unaligned_zeropad() on page + PAGE_SIZE - 2.  And get
+a fetch that spans the end of page.
 
+We don't care what's in the next page, if there is one mapped there
+to start with.  If there's nothing mapped, we want zeroes read from
+it, but all we really care about is having the bytes within *our*
+page read correctly - and no oops happening, obviously.
 
-Congratulations on the new addition to your family,
-
-- Paul
---8323329-1617688475-1764187232=:894490--
+That fault is an extremely cold case on a fairly hot path.  We don't
+want to mess with disabling pagefaults, etc. - not for the sake
+of that.
 
