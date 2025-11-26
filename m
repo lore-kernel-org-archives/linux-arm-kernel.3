@@ -4,73 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62E0CD111A7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 22:59:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2DF6D111A7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 23:10:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SYeM/H7hoSwQ1s8BIcONkWDUv2mIXaREYQrutx2cl7c=; b=RWP+h82/Q4RYZKblgqFUEpTmVR
-	QqhspGOTrkduT8XDSrPGF3GWWysD+UYloJF0dz/Y+J6BXuK5/iqJOhOC0PIndlSxt91982hiLaFTB
-	iAVgqkjym5fYChU9jtL6qn1H1Vg3GtEqTvUQoBpcXVvlnM6G5LkMRBRi6R5sKoX73PXu/cGpPOeb3
-	+HXYsYPodtMk1o9tihIchnu/HkjkVanuwffgNr0gV+dgcW6UIX1FAoCOKDr0mn2wsOpLLwmoph232
-	z2UMMDQ3pG4hpu4eYhcC/8QxjLc9FLII3L4VounEIq6Wu3pXpF2LCqKn5gXy4AAdHjDIPUQLt1UTT
-	DFuPhAuw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NPueFMP8zr9ixlLxuRFFtrM4qKgsXQNTW6I5E7fZYTk=; b=LU/rcdj0gWM3IatWisKciraFPS
+	iBWxToqCALu5sOeM53e3r6P0MQAZ7jgcJNGGb1jtylfdasSLA6RPqziPgymtET0OsStKBm6NjHDf4
+	rTOSIpyu8JiKDFXHK28QsoP7m67mgDsC/LjVUj4KP/mOoxCeQqYx2/GIGSyhgLPv82jPypBvv0OwG
+	CDQon/m/iFFPXb/VhJLxl1hcsvqpN/iG+mbj4YmuYmsc+nI9msYtM2Cgc52igbod2S/PAz9QPSqS8
+	flglcCQxWnI3OMJE6bWR+USTJbu8l7GzdfSv8y+O5rpgzhfNSc6w4SfMyFhUBFPzz9sdxjxZGLGtf
+	tYpWHJWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOOTQ-0000000FjnR-24xz;
-	Wed, 26 Nov 2025 22:58:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vOOeU-0000000FkMs-1fvz;
+	Wed, 26 Nov 2025 23:10:22 +0000
+Received: from ip-94-112-25-9.bb.vodafone.cz ([94.112.25.9] helo=ixit.cz)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOOTP-0000000FjnL-1PjW
+	id 1vOOeR-0000000FkMX-2DPm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 22:58:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6BF4760215
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 22:58:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23F47C116D0
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 22:58:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764197934;
-	bh=L813tODdIN+ImpneORlFGowuRI/q2D8Ym10x3oV2La4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=vAIWn0U2p7v55HMWL/0p3Hamw5T6RHqlorJnXy6S2Kr7Cvwe2923lkqpVTjGQc7Cc
-	 KIOYUr4lIIQZvS3NJ6J69VNA371YKP0/UyCh2oCmzD8qJv0St1dCQsDlxRizlIKajQ
-	 48mHUdluaTBcAcSYO9zv6O1srInlzd3D3cMsl4PYtit19vH2fCFKl3l5Rcx04+afvN
-	 6gGJRPWRookaomk1ns5TI3xXlUDCzuiTUfKWYUbVFbZ9/JEm5XYft1XEHVOIy5Fou9
-	 BOqpcJVM0ehN3BuOqaRpVzofvl2Qd038LvoCUduxxyTQyLiY5aaa8ITiLFjIofKY7o
-	 cW47uXcbhUXMw==
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5958232f806so329362e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 14:58:54 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCV+RyJK+RGpiIGfXxEP5Y5TY0rqhMMwQO9ahsgT0zhQtWfw9MPUSF4YzvKR5pdGF5m2V1vFJ1cgTS5DG3MYrCWm@lists.infradead.org
-X-Gm-Message-State: AOJu0YzcvuYpAuZ9KAMweQUibstKIRc1YOaZA1fVxXL2jN5puTlj0tmy
-	tR7tshsadxGUcddbXfV/fdbxOYaku7d2S9zTeEnJsxZHG/FAly05ikmPk8wXXA0Idh28tNlh6rm
-	ukUryMGhitXWn2YfW+3wIGNY40cJnBSs=
-X-Google-Smtp-Source: AGHT+IGLdlWOWJULGEin2lIfqefxm9QpDU7p9Yr+3YjaGMHHTSXy0CPUSapsMjX4emcGY/VefStPPuvOCU0JQ7TJGC4=
-X-Received: by 2002:a05:6512:308d:b0:594:2cdf:1941 with SMTP id
- 2adb3069b0e04-596a3ed702amr6770855e87.31.1764197932426; Wed, 26 Nov 2025
- 14:58:52 -0800 (PST)
+	Wed, 26 Nov 2025 23:10:21 +0000
+Received: from [10.0.0.200] (unknown [10.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519)
+	(No client certificate requested)
+	by ixit.cz (Postfix) with ESMTPSA id 57F865340144;
+	Thu, 27 Nov 2025 00:10:14 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
+	t=1764198614;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=NPueFMP8zr9ixlLxuRFFtrM4qKgsXQNTW6I5E7fZYTk=;
+	b=tDHvVjlkoK/0Syp2CpMFQaIpJsH6m/6ARly12dyRYOO4ZqyLgWSiSaHrGSsuT8XNLaTvQx
+	s5bQwWwSdNgUFDs87aCmVEdNJb9D0m7o/Q7saD4fnCSm/zhj6hNzhLFSISNs1Bs/gMIP0A
+	Q1SERYTjnu5z/F/Jz2qeNOxDRU8yxYg=
+Message-ID: <3e808b6a-9dba-4b48-bc39-c0a8aa674d24@ixit.cz>
+Date: Thu, 27 Nov 2025 00:10:14 +0100
 MIME-Version: 1.0
-References: <66c4e2a0-c7fb-46c2-acce-8a040a71cd8e@arm.com> <dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com>
- <aSRtaVjfNc11EtKg@willie-the-truck> <B696956E-579E-412E-B774-AAADCFA4B31C@kernel.org>
- <ecc11ec7-ba00-41f1-8a2a-8f3a83c9ffd9@arm.com> <202511241250.EB2ADED@keescook>
- <d9b18b84-22ab-4bc8-b55f-804e0607cec6@arm.com>
-In-Reply-To: <d9b18b84-22ab-4bc8-b55f-804e0607cec6@arm.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Wed, 26 Nov 2025 23:58:40 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXG4ELUdxGMp0+tNiV+7ygfHbe-u_pGPMTVj6UNdzQ+sDQ@mail.gmail.com>
-X-Gm-Features: AWmQ_bnItg4JNA7SlvAXZ9P22v_iE-okvlUGOC4Oq9LI808wEwFF_tBC0b75U1Y
-Message-ID: <CAMj1kXG4ELUdxGMp0+tNiV+7ygfHbe-u_pGPMTVj6UNdzQ+sDQ@mail.gmail.com>
-Subject: Re: [DISCUSSION] kstack offset randomization: bugs and performance
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Kees Cook <kees@kernel.org>, Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Jeremy Linton <jeremy.linton@arm.com>, Catalin Marinas <Catalin.Marinas@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH QUESTION] arm64: configs: Add Snapdragon 845 config
+ fragment
+To: Catalin Marinas <catalin.marinas@arm.com>,
+ David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Casey Connolly
+ <casey.connolly@linaro.org>, Casey Connolly <casey@connolly.tech>,
+ Joel Selvaraj <foss@joelselvaraj.com>,
+ Alexander Martinz <amartinz@shiftphones.com>,
+ Dzmitry Sankouski <dsankouski@gmail.com>,
+ =?UTF-8?Q?Pablo_Correa_G=C3=B3mez?= <ablocorrea@hotmail.com>,
+ =?UTF-8?Q?Guido_G=C3=BCnther?= <agx@sigxcpu.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ phone-devel@vger.kernel.org, Arnd Bergmann <arnd@arndb.de>
+References: <20251126-sdm845-config-question-v1-1-ffa91ed53095@ixit.cz>
+ <aSdCryMAOb7Qk-qq@arm.com>
+Content-Language: en-US
+From: David Heidelberg <david@ixit.cz>
+Autocrypt: addr=david@ixit.cz; keydata=
+ xsFNBF5v1x4BEADS3EddwsNsvVAI1XF8uQKbdYPY/GhjaSLziwVnbwv5BGwqB1tfXoHnccoA
+ 9kTgKAbiXG/CiZFhD6l4WCIskQDKzyQN3JhCUIxh16Xyw0lECI7iqoW9LmMoN1dNKcUmCO9g
+ lZxQaOl+1bY/7ttd7DapLh9rmBXJ2lKiMEaIpUwb/Nw0d7Enp4Jy2TpkhPywIpUn8CoJCv3/
+ 61qbvI9y5utB/UhfMAUXsaAgwEJyGPAqHlC0YZjaTwOu+YQUE3AFzhCbksq95CwDz4U4gdls
+ dmv9tkATfu2OmzERZQ6vJTehK0Pu4l5KmCAzYg42I9Dy4E6b17x6NncKbcByQFOXMtG0qVUk
+ F1yeeOQUHwu+8t3ZDMBUhCkRL/juuoqLmyDWKMc0hKNNeZ9BNXgB8fXkRLWEUfgDXsFyEkKp
+ NxUy5bDRlivf6XfExnikk5kj9l2gGlNQwqROti/46bfbmlmc/a2GM4k8ZyalHNEAdwtXYSpP
+ 8JJmlbQ7hNTLkc3HQLRsIocN5th/ur7pPMz1Beyp0gbE9GcOceqmdZQB80vJ01XDyCAihf6l
+ AMnzwpXZsjqIqH9r7T7tM6tVEVbPSwPt4eZYXSoJijEBC/43TBbmxDX+5+3txRaSCRQrG9dY
+ k3mMGM3xJLCps2KnaqMcgUnvb1KdTgEFUZQaItw7HyRd6RppewARAQABzSBEYXZpZCBIZWlk
+ ZWxiZXJnIDxkYXZpZEBpeGl0LmN6PsLBlAQTAQgAPgIbAwULCQgHAgYVCgkICwIEFgIDAQIe
+ AQIXgBYhBNd6Cc/u3Cu9U6cEdGACP8TTSSByBQJl+KksBQkPDaAOAAoJEGACP8TTSSBy6IAQ
+ AMqFqVi9LLxCEcUWBn82ssQGiVSDniKpFE/tp7lMXflwhjD5xoftoWOmMYkiWE86t5x5Fsp7
+ afALx7SEDz599F1K1bLnaga+budu55JEAYGudD2WwpLJ0kPzRhqBwGFIx8k6F+goZJzxPDsf
+ loAtXQE62UvEKa4KRRcZmF0GGoRsgA7vE7OnV8LMeocdD3eb2CuXLzauHAfdvqF50IfPH/sE
+ jbzROiAZU+WgrwU946aOzrN8jVU+Cy8XAccGAZxsmPBfhTY5f2VN1IqvfaRdkKKlmWVJWGw+
+ ycFpAEJKFRdfcc5PSjUJcALn5C+hxzL2hBpIZJdfdfStn+DWHXNgBeRDiZj1x6vvyaC43RAb
+ VXvRzOQfG4EaMVMIOvBjBA/FtIpb1gtXA42ewhvPnd5RVCqD9YYUxsVpJ9d+XsAy7uib3BsV
+ W2idAEsPtoqhVhq8bCUs/G4sC2DdyGZK8MRFDJqciJSUbqA+5z1ZCuE8UOPDpZKiW6H/OuOM
+ zDcjh0lOzr4p+/1TSg1PbUh7fQ+nbMuiT044sC1lLtJK0+Zyn0GwhR82oNM4fldNsaHRW42w
+ QGD35+eNo5Pvb3We5XRMlBdhFnj7Siggp4J8/PJ6MJvRyC+RIJPGtbdMB2/RxWunFLn87e5w
+ UgwR9jPMHAstuTR1yR23c4SIYoQ2fzkrRzuazsFNBF5v1x4BEADnlrbta2WL87BlEOotZUh0
+ zXANMrNV15WxexsirLetfqbs0AGCaTRNj+uWlTUDJRXOVIwzmF76Us3I2796+Od2ocNpLheZ
+ 7EIkq8budtLVd1c06qJ+GMraz51zfgSIazVInNMPk9T6fz0lembji5yEcNPNNBA4sHiFmXfo
+ IhepHFOBApjS0CiOPqowYxSTPe/DLcJ/LDwWpTi37doKPhBwlHev1BwVCbrLEIFjY0MLM0aT
+ jiBBlyLJaTqvE48gblonu2SGaNmGtkC3VoQUQFcVYDXtlL9CVbNo7BAt5gwPcNqEqkUL60Jh
+ FtvVSKyQh6gn7HHsyMtgltjZ3NKjv8S3yQd7zxvCn79tCKwoeNevsvoMq/bzlKxc9QiKaRPO
+ aDj3FtW7R/3XoKJBY8Hckyug6uc2qYWRpnuXc0as6S0wfek6gauExUttBKrtSbPPHiuTeNHt
+ NsT4+dyvaJtQKPBTbPHkXpTO8e1+YAg7kPj3aKFToE/dakIh8iqUHLNxywDAamRVn8Ha67WO
+ AEAA3iklJ49QQk2ZyS1RJ2Ul28ePFDZ3QSr9LoJiOBZv9XkbhXS164iRB7rBZk6ZRVgCz3V6
+ hhhjkipYvpJ/fpjXNsVL8jvel1mYNf0a46T4QQDQx4KQj0zXJbC2fFikAtu1AULktF4iEXEI
+ rSjFoqhd4euZ+QARAQABwsF8BBgBCAAmAhsMFiEE13oJz+7cK71TpwR0YAI/xNNJIHIFAmX4
+ qVAFCQ8NoDIACgkQYAI/xNNJIHKN4A/+Ine2Ii7JiuGITjJkcV6pgKlfwYdEs4eFD1pTRb/K
+ 5dprUz3QSLP41u9OJQ23HnESMvn31UENk9ffebNoW7WxZ/8cTQY0JY/cgTTrlNXtyAlGbR3/
+ 3Q/VBJptf04Er7I6TaKAmqWzdVeKTw33LljpkHp02vrbOdylb4JQG/SginLV9purGAFptYRO
+ 8JNa2J4FAQtQTrfOUjulOWMxy7XRkqK3QqLcPW79/CFn7q1yxamPkpoXUJq9/fVjlhk7P+da
+ NYQpe4WQQnktBY29SkFnvfIAwqIVU8ix5Oz8rghuCcAdR7lEJ7hCX9bR0EE05FOXdZy5FWL9
+ GHvFa/Opkq3DPmFl/0nt4HJqq1Nwrr+WR6d0414oo1n2hPEllge/6iD3ZYwptTvOFKEw/v0A
+ yqOoYSiKX9F7Ko7QO+VnYeVDsDDevKic2T/4GDpcSVd9ipiKxCQvUAzKUH7RUpqDTa+rYurm
+ zRKcgRumz2Tc1ouHj6qINlzEe3a5ldctIn/dvR1l2Ko7GBTG+VGp9U5NOAEkGpxHG9yg6eeY
+ fFYnMme51H/HKiyUlFiE3yd5LSmv8Dhbf+vsI4x6BOOOq4Iyop/Exavj1owGxW0hpdUGcCl1
+ ovlwVPO/6l/XLAmSGwdnGqok5eGZQzSst0tj9RC9O0dXO1TZocOsf0tJ8dR2egX4kxM=
+In-Reply-To: <aSdCryMAOb7Qk-qq@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251126_151019_802716_2F4CD477 
+X-CRM114-Status: GOOD (  25.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,89 +127,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Nov 2025 at 12:15, Ryan Roberts <ryan.roberts@arm.com> wrote:
->
-> On 24/11/2025 20:51, Kees Cook wrote:
-> > On Mon, Nov 24, 2025 at 05:50:14PM +0000, Ryan Roberts wrote:
-> >> On 24/11/2025 17:11, Kees Cook wrote:
-> >>>
-> >>>
-> >>> On November 24, 2025 6:36:25 AM PST, Will Deacon <will@kernel.org> wrote:
-> >>>> On Mon, Nov 17, 2025 at 11:31:22AM +0000, Ryan Roberts wrote:
-> >>>>> On 17/11/2025 11:30, Ryan Roberts wrote:
-> >>>>>> Could this give us a middle ground between strong-crng and
-> >>>>>> weak-timestamp-counter? Perhaps the main issue is that we need to store the
-> >>>>>> secret key for a long period?
-> >>>>>>
-> >>>>>>
-> >>>>>> Anyway, I plan to work up a series with the bugfixes and performance
-> >>>>>> improvements. I'll add the siphash approach as an experimental addition and get
-> >>>>>> some more detailed numbers for all the options. But wanted to raise it all here
-> >>>>>> first to get any early feedback.
-> >>>>
-> >>>> FWIW, I share Mark's concerns about using a counter for this. Given that
-> >>>> the feature currently appears to be both slow _and_ broken I'd vote for
-> >>>> either removing it or switching over to per-thread offsets as a first
-> >>>> step.
-> >>>
-> >>> That it has potential weaknesses doesn't mean it should be entirely removed.
-> >>>
-> >>>> We already have a per-task stack canary with
-> >>>> CONFIG_STACKPROTECTOR_PER_TASK so I don't understand the reluctance to
-> >>>> do something similar here.
-> >>>
-> >>> That's not a reasonable comparison: the stack canary cannot change arbitrarily for a task or it would immediately crash on a function return. :)
-> >>>
-> >>>> Speeding up the crypto feels like something that could happen separately.
-> >>>
-> >>> Sure. But let's see what Ryan's patches look like. The suggested changes sound good to me.
-> >>
-> >> Just to say I haven't forgotten about this; I ended up having to switch to
-> >> something more urgent. Hoping to get back to it later this week. I don't think
-> >> this is an urgent issue, so hopefully folks are ok waiting.
-> >>
-> >> I propose to post whatever I end up with then we can all disscuss from there.
-> >> But the rough shape so far:
-> >>
-> >> Fixes:
-> >>  - Remove choose_random_kstack_offset()
-> >>  - arch passes random into add_random_kstack_offset() (fixes migration bypass)
-> >>  - Move add_random_kstack_offset() to el0_svc()/el0_svc_compat() (before
-> >>    enabling interrupts) to fix non-preemption requirement (arm64)
-> >
-> > I thought we'd keep choose_random_kstack_offset() and just move
-> > everything into a per-task location? (And for arm64 only)
->
-> Err... I thought you were the one arguing against per-task state? I'm not really
-> keen on having arm64 do a completely different thing to everyone else; It seems
-> reasonable to me that we only need to (continue to) abstract the random source
-> per-arch and the rest should remain common?
->
-> Per my previous mails, I'm not really sure what choose_random_kstack_offset() is
-> giving us in practice. Why not simplify?
->
+On 26/11/2025 19:10, Catalin Marinas wrote:
+> On Wed, Nov 26, 2025 at 05:19:20PM +0100, David Heidelberg via B4 Relay wrote:
+>> From: Casey Connolly <casey.connolly@linaro.org>
+>>
+>> This fragment provides reasonable default for the mobile devices
+>> based on Snapdragon 845 architecture. While default config could be
+>> used, the reality is it brings many issues to the development workflows,
+>> which are much harder to address than on generic boards or devices with
+>> available UART console.
+>>
+>> This config fragment produces the .config used by distributions.
+>> It is designed to be fairly minimal and specific to the
+>> supported SDM845 devices whilst offering all the features you would
+>> expect.
+>>
+>> It disables other arm64 architectures to speed up build times and
+>> decrease the size of the kernel image.
+>>
+>> To generate a .config use "make defconfig sdm845.config"
+>>
+>> [David]
+>>   - Dropped distribution specific options.
+>>   - Added entry into the MAINTAINERS file.
+> [...]
+>>   MAINTAINERS                      |    5 +
+>>   arch/arm64/configs/sdm845.config | 1048 ++++++++++++++++++++++++++++++++++++++
+>>   2 files changed, 1053 insertions(+)
+> 
+> I really don't think the kernel should carry configs other than the
+> generic ones used by developers. We had this on arm32 but mostly because
+> we didn't have a single kernel image for a long time (and when we got
+> it, it was mostly for v7 cores). I don't want to get back to hosting a
+> multitude of configs in mainline.
+> 
 
-It seems to me that arm64 inherited a lot of complexity from other
-architectures that rely on a counter. AIUI, the 'non-preemption
-requirement' and the 'migration bypass' issues are both a result of
-the fact that the syscall duration is relied upon to provide more
-pseudo-randomness, which is recorded in a per-CPU counter when the
-syscall completes and carried over to the next invocation. (I don't
-really buy the idea that having the next offset in memory for a
-shorter time buys us anything in terms of robustness tbh)
+On the arm32 it was custom defconfigs.
+Here we use default defconfig with the sdm845 fragment to accommodate 
+mobile devices (e.g. `make defconfig sdm845.config`).
 
-I have some patches that make get_random_uXX()'s fast path lockless
-that I will send out shortly (assuming no hate mail from the bots in
-the mean time), which should make it suitable for general use as the
-entropy source for kstack randomization on all architectures, modulo
-the tail latency issue, but I'm not sure I understand why that is a
-problem to begin with if it occurs sufficiently rarely. Is that a
-PREEMPT_RT issue? Would it be better if the refill of the per-CPU
-batched entropy buffers was relegated to some kind of kthread so it
-can be scheduled independently? (Those buffers are all the same size
-so we could easily keep a few hot spares)
+So far, I would say phones based on sdm845 are one of the most popular 
+for daily-driving, thus I think giving it extra care until the drivers 
+gets rock solid to work with default defconfig would make sense.
 
-TL;DR I agree with Ryan but I'd like to fix it across the board, i.e.,
-get rid of the per-CPU variable entirely and all the dodgy uses of
-counters.
+We could have sdm845 config in a separate git tree and developers would 
+contribute to it, but why not have it inside the mainline itself?
+We have the SoC, drivers, most of stuff  needed to get the phones 
+running, why keep the latest piece of puzzle out of kernel?
+
+One of the best outcomes in long-term would be get rid of it, but we're 
+not there yet.
+
+Example: In -next tree for sdm845, I recently had to enable 
+`REGULATOR_QCOM_REFGEN=y`, but that means I need to communicate with 
+everyone else trying to use sdm845.config that they need to enable it 
+with 6.19 or their -next tree experiments.
+If it was in mainline, people carrying custom changes on top of sdm845 
+fragment or combining it with distribution fragment would get it 
+together with 6.19 prior without effort with clear commit why this 
+option was enabled instead of fixing/squashing commits.
+
+Do you think the fragment could cause some issues for people working on 
+things outside sdm845 phones area? Or the concert was more about 
+possible precedent?
+
+David
 
