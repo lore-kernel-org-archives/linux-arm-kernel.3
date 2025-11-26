@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B53E5D10F22
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9F24D10F27
 	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 10:58:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,72 +12,87 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bwt8cEG57tdOF8BASxzVxlljz5Pjbs6lZvjUWFDTXHg=; b=AZl4AmD43/xXPDmGWZrxkfO4SL
-	Jc7TCnY2eN+yHDN4TSGos8GrNnunNPZxNSSzf69amo2mS+tar5jIZthbcqSZMhgQdRRFUXm/JD7Z4
-	oV6q6KxeksffCIFJhGF3y/uDeO55tdAZVAcg3+020dMGzouXCDmEDaUhOVlCnnYW8xpzo82mPg0zl
-	k0PUcl8ylFUSWDLkXgu8w6DQEc4jYLv0l8hP3zejT/tKam00XThElqvKuUaH7qhjMc9oqryRwwABV
-	6SBHol4Amw1WgK9YYRrcNVKkg1moYlha1MZ9572vS693H4L5q54MzabmMH5+QMMK1vr6QqfIEUm5c
-	Kuqs5GcQ==;
+	bh=9NYmdp5K7GoriQTdww1h5siZo6lfJrXIe/VnMyhW40E=; b=5F7ZMXKgbpPGc7iPqceseMaA/X
+	B4T5OXK1hzF4X5qeZRMTWTJuoYIfbi4H7ht3nSrn+dd9gGZCqFse49uOMZ4jYI60zaMHOcMGPAqX5
+	uagCH+6C/3KPh/8R0Zv6OyFqUssDl0bzO5CKklBUwayl4cDjNH1PdkJDlPCXgHn1Wadd8zemZhRP3
+	EPq6hEw1Dqe1Xx6I4BQAjo0nAvsTE1YZDGSf8AlDFp88OZDLBKS4uYdA/dLmqlHtw3pmg0bJBulrF
+	rbCs225T6azSwgSm5PUyQDn+yTWoFMdhG2eioALKzr1VsycF/thN1R+jlYPsESNocfsVI7wm+Kx38
+	AGL3ZU4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vODE1-0000000ErI2-1NRd;
-	Wed, 26 Nov 2025 10:58:17 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1vODE2-0000000ErJu-37K2;
+	Wed, 26 Nov 2025 10:58:18 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vODDf-0000000EqyF-22tN
+	id 1vODDm-0000000Er67-0kjC
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 26 Nov 2025 10:58:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
+	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=9NYmdp5K7GoriQTdww1h5siZo6lfJrXIe/VnMyhW40E=; b=tWYn3/rCAzWvY0x4ignGQRTqeR
+	M8HCnl2hPf68jU9S7Y8QWgMcUrIMR/nNEfxzSa4amB31w8hBmFC199UNpY2wb5UXvaMyzRVV1SvcA
+	Ljr4YjXo7e5YJePkpqRZGCzF6+QZcMibQ6niCd6cy4MshpnUxluWQOtkqXoTJzG96VCfS2uAGKjhW
+	3fMT2O5LqagaO7b9pNIMmPSXrZ/ZW2zmu3mFY8edEZt0Zn0GF8mN2Zve7vCRNpDdw9DrQO91CwOxh
+	6FLmH5anmr2DSszymF2WzZRdjV1hZtRjJbTxjtvBoOl97gRigkrhMZJygyXjUf2LtOqC0CVp67FBi
+	Unnx2Qxg==;
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vODDi-00000009ywD-2DX5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 10:57:56 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-4777771ed1aso43377215e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 02:57:55 -0800 (PST)
+	Wed, 26 Nov 2025 10:58:00 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-477632d9326so39305795e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 02:57:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764154674; x=1764759474; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1764154676; x=1764759476; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Bwt8cEG57tdOF8BASxzVxlljz5Pjbs6lZvjUWFDTXHg=;
-        b=aa4aBGgROMLcGXt6dlKPxxaUqCWp3uSHn82f5r7jTLQG3SoAT9ZQIlHOPAboVDzwqv
-         8gvhsnUJtDW/gt/EFyF/tdFo6BRnWJEpXlSipJZkjbOcpA3LgnUSXwXsYwjT494rhe1c
-         9dVOshJg1wdqwcf+eZZpVj//Do3u3Yu95H9CcHrC08NxWM+1S050yEYxA9ekGDM+t4uW
-         IShIuAujK/tQa8+0nR2i5KkmfEwlQT+kmoYqH4NDIiMzcee950/t1vZhTJXs+Oz11mFc
-         VewqnRPBNL6pqzKIBI3GqhiOe+Gp6jqBHmHR9gOl0dht6suOTXxwAMaSFAn9/fVxg3ps
-         fClA==
+        bh=9NYmdp5K7GoriQTdww1h5siZo6lfJrXIe/VnMyhW40E=;
+        b=KLwgtanu/JYhmexv9mXC80Ln2hy2qwyiTLCc59jIjsEUgJqQxu15pl9w9oK8w+O+xh
+         gD9ffYGDB7pbbDP0tcvn3hGndnBa4WvgQHXAGjKf1hwUhjv/bHtWZr13Nt+SyW+jPOR1
+         2FFKmlptaR1VDDcoSeKn1DuFU7klJ9Ezdc1fY7RA92nSNApHM/d9hMgm1XG+j/3OYG+H
+         EaF4+EivQWkNRLiwF8ydcxUN4CUUeJkYnxzOmk+9RrSYqTNrPgz8qK5t4pC4XxhTZVVe
+         8b1wfTK4xiNqNs/nfVmiTnh5KZIvxpclaT2i5tlUq33retANQAgNokYh3/75CCYqbKp4
+         A5fQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764154674; x=1764759474;
+        d=1e100.net; s=20230601; t=1764154676; x=1764759476;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=Bwt8cEG57tdOF8BASxzVxlljz5Pjbs6lZvjUWFDTXHg=;
-        b=sShq+Jb5YeRXziQialah3AUfpU1evBnUszRhoe4549Kw6C+JumfmppysXq72PwZFbd
-         W61g50AlB5YaRRTa5GIvKZM9stkrlrHJEFv76CiWj7adwS40JGS7XxFTOz3i0QoWFKjv
-         gzGcdMkQJZtBXY4bKi1W8uS53u1TyzjpTru9LLGWw3+1rXunT3wsMMhXEIJH9eoWrKrC
-         c+O085rEKvA4Mdus3L+/oSGH2lLy9NtCUqKIPVy7LmSFrI3hUCCNinZlGMwH4cYLfxnZ
-         Md/xjGhIjvdNznzg62+aKM1QYo65Vp3G7aiWG036Nu7DpKhgXPC4vE0OHWO+jzqcreaL
-         JhBA==
-X-Forwarded-Encrypted: i=1; AJvYcCX+O/9izcvgZEVpD5jXcR0I6MsuXilSi7D8cIILVL0gRdH7FmtlSF3KGM0W3wkfTjxcIaXmHguKQs7/QvEq0RyU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRbQIM/I+SDh1FafuQAdsOOqyR4AYNUpj1Jh7RLW8TcbGbdKL2
-	JC0wcWnhJYJM6Df5wgPR2uJQkFQSRIVczUDerHxRPpw4QtUVxblTThQDBxAo5Vnguxs=
-X-Gm-Gg: ASbGncsNih1CEeFIzf8qSupDF0IVyZxDTpEkGOD07nGuGlnN/uGLpEmoRHElALOzhjJ
-	ndK9APukcSOOENfhdsYHRUMFyeO6YkqX5HdKz3Pvd5VRYzIUEIsU4NeZGU6z1uyvr9BZHbMG1ZI
-	HEul7Ihb23+wY50yT3NC4OJyHnxS3AhmdjIdoysyyXV7qoMYwgIFlVCCyiV4AMIkJ9GL8fSSCHg
-	lPIq74vyV0zrsIhKBk2I8qS2c2SF8RttTHFSsIltWxOhT2k4lvO/A/iaJeYjadLuc5t10+Q2v0U
-	/gYeE1GrdWRrWOcCe4DT/B29C1vSH29GNlowM3b2fJ5U5ZTUHAsqBCtbRaoC27G6T5h0yz+dIrR
-	X1jTclfWUrqhqs5o/79sBqVyTGyafJADuJjMyH/3Sxxf/vLHxKoDzg3UH6zs8pT5T7pj7UDz+Cq
-	9l0HYx6A6dpnCtM3oG+mkE
-X-Google-Smtp-Source: AGHT+IHu3VMV/nia9zExacgXf1CG1quUw46Gmf589tkbMqB6kt7gsqIoCudhkMzjlBbUakuyMJJKdA==
-X-Received: by 2002:a05:600c:4ec7:b0:46f:b32e:5094 with SMTP id 5b1f17b1804b1-477c01ea075mr176599335e9.32.1764154673792;
-        Wed, 26 Nov 2025 02:57:53 -0800 (PST)
+        bh=9NYmdp5K7GoriQTdww1h5siZo6lfJrXIe/VnMyhW40E=;
+        b=jSPxzFAQo5roLT+xxQJ1zh8CRqSrtJhhVWgVdUKvtVa2vdkgWvKB+wpP8QlxylLy7r
+         dLmmUKE4O6wgDpbqpuJa7BON36HVo7ysvP4BSZ48tdFRujZLFWAzZlXJYjmJEA7gXnmD
+         l2l5Gh4SwnkLgT1d/AXy0FPgpe0+XYYhaaEOlzj0u/RkkmuP0u4piOOAsdv6arXIELNn
+         Oav6W5IS+8AAGjNdNkKfj+Z27CU/Xf2fYAwBXWjJNNz1RMYnEbpkf2JfwVF6U5fm91sk
+         3R7l5joG10kmoEWLYGvusQYyLcvdJb+i+BOakkB7b/jbnQDNYIddXuTxjt5x0V+cSDEs
+         EVig==
+X-Forwarded-Encrypted: i=1; AJvYcCVWSxRsU2q5YTsbflsgpKnRpE/ViLco+M7xXlQNLU/2xLfU8ZYm5n9gPDkrM7QPHR2JkelUiGEVpyU9LFNB1ta/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy004h7nhrjd9wBeXTzwtNVFYb6PQ/UoQo+bAPbdlDwcjtdTic3
+	jyCd/QbdDM8qu3ffVxtqzCFS8HjuWb2Eafe1/B8QWN5BMyv3det9+PH7AzKvPz3ZgDs=
+X-Gm-Gg: ASbGncuhtqquiI8CFt2RwLRNh3BAHFgSNOPz3LEaYXqeQNU/JZmp5byks3BimvfSfmL
+	gtbQeW2Pps9MdV1OO+TisJ0L6CYfFeR87hive1YKVE/avB6iUvBO16K3vu+LR99ojKzBZK6G2kq
+	a3tErHbJ5XG25BYqyQk67ro/CrQUZid3/KLaAyJnWyzAzYruP7jSm53oZ8sA1equQSHELigDy76
+	+tbmYad+CzxmgCEXUzBeS5nub7Atrua7a7kQ8ZrGjXefTEISKlw4vg8CcOibO82XwiseObCg8AB
+	KvGa0OUk58KHgPaF280uy+mxsUJ9cHO9l9RbpapEZXgpFM2yq3a8JLMMbvCGNKqSehjetVSsfmg
+	aP25O9LkSfndFysSqh/X4zD1m4Sw8YOkSjAJ0ntigLd6ZgWdNsWi6IZFh1PfD+CYEf0Qnw04JSu
+	KKLt1hPD9uCPu1BXRKjNFKkB7zAkNh430=
+X-Google-Smtp-Source: AGHT+IGI5q1kexToJTcX1Yl/7hYBxLHl5Npy8jahQMf8CLbNWSX46wWWQuRfFFyKaMWwDJ+DY4kHYg==
+X-Received: by 2002:a7b:c011:0:b0:477:7cac:508d with SMTP id 5b1f17b1804b1-477c01d4ac6mr163405625e9.16.1764154675634;
+        Wed, 26 Nov 2025 02:57:55 -0800 (PST)
 Received: from ho-tower-lan.lan ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4790ade13ddsm36991765e9.8.2025.11.26.02.57.52
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4790ade13ddsm36991765e9.8.2025.11.26.02.57.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Nov 2025 02:57:53 -0800 (PST)
+        Wed, 26 Nov 2025 02:57:55 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
-Date: Wed, 26 Nov 2025 10:54:40 +0000
-Subject: [PATCH v7 11/13] coresight: Extend width of timestamp format
- attribute
+Date: Wed, 26 Nov 2025 10:54:42 +0000
+Subject: [PATCH v7 13/13] coresight: docs: Document etm4x timestamp
+ interval option
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251126-james-cs-syncfreq-v7-11-7fae5e0e5e16@linaro.org>
+Message-Id: <20251126-james-cs-syncfreq-v7-13-7fae5e0e5e16@linaro.org>
 References: <20251126-james-cs-syncfreq-v7-0-7fae5e0e5e16@linaro.org>
 In-Reply-To: <20251126-james-cs-syncfreq-v7-0-7fae5e0e5e16@linaro.org>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -90,8 +105,8 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_025755_570646_564C26AF 
-X-CRM114-Status: GOOD (  20.42  )
+X-CRM114-CacheID: sfid-20251126_105758_582946_CE529F60 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,110 +121,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-'timestamp' is currently 1 bit wide for on/off. To enable setting
-different intervals in a later commit, extend it to 4 bits wide. Keep
-the old bit position for backward compatibility but don't publish in the
-format/ folder. It will be removed from the documentation and can be
-removed completely after enough time has passed.
+Document how the new field is used, maximum value and the interaction
+with SYNC timestamps.
 
-ETM3x doesn't support different intervals, so validate that the value is
-either 0 or 1.
-
-Tools that read the bit positions from the format/ folder will continue
-to work as before, setting either 0 or 1 for off/on. Tools that
-incorrectly didn't do this and set the ETM_OPT_TS bit directly will also
-continue to work because that old bit is still checked.
-
-This avoids adding a second timestamp attribute for setting the
-interval. This would be awkward to use because tools would have to be
-updated to ensure that the timestamps are always enabled when an
-interval is set, and the driver would have to validate that both options
-are provided together. All this does is implement the semantics of a
-single enum but spread over multiple fields.
-
-Reviewed-by: Leo Yan <leo.yan@arm.com>
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- drivers/hwtracing/coresight/coresight-etm-perf.h   | 13 ++++++++++---
- drivers/hwtracing/coresight/coresight-etm3x-core.c |  9 ++++++++-
- drivers/hwtracing/coresight/coresight-etm4x-core.c |  4 +++-
- 3 files changed, 21 insertions(+), 5 deletions(-)
+ Documentation/trace/coresight/coresight.rst | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.h b/drivers/hwtracing/coresight/coresight-etm-perf.h
-index c794087a0e99..24d929428633 100644
---- a/drivers/hwtracing/coresight/coresight-etm-perf.h
-+++ b/drivers/hwtracing/coresight/coresight-etm-perf.h
-@@ -23,6 +23,9 @@ struct cscfg_config_desc;
- #define ATTR_CFG_FLD_preset_CFG			config
- #define ATTR_CFG_FLD_preset_LO			0
- #define ATTR_CFG_FLD_preset_HI			3
-+#define ATTR_CFG_FLD_timestamp_CFG		config
-+#define ATTR_CFG_FLD_timestamp_LO		4
-+#define ATTR_CFG_FLD_timestamp_HI		7
- #define ATTR_CFG_FLD_branch_broadcast_CFG	config
- #define ATTR_CFG_FLD_branch_broadcast_LO	8
- #define ATTR_CFG_FLD_branch_broadcast_HI	8
-@@ -35,9 +38,13 @@ struct cscfg_config_desc;
- #define ATTR_CFG_FLD_contextid2_CFG		config
- #define ATTR_CFG_FLD_contextid2_LO		15
- #define ATTR_CFG_FLD_contextid2_HI		15
--#define ATTR_CFG_FLD_timestamp_CFG		config
--#define ATTR_CFG_FLD_timestamp_LO		28
--#define ATTR_CFG_FLD_timestamp_HI		28
-+/*
-+ * Old position of 'timestamp' and not published in sysfs. Remove at a later
-+ * date if necessary.
-+ */
-+#define ATTR_CFG_FLD_deprecated_timestamp_CFG	config
-+#define ATTR_CFG_FLD_deprecated_timestamp_LO	28
-+#define ATTR_CFG_FLD_deprecated_timestamp_HI	28
- #define ATTR_CFG_FLD_retstack_CFG		config
- #define ATTR_CFG_FLD_retstack_LO		29
- #define ATTR_CFG_FLD_retstack_HI		29
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-index 584d653eda81..d4c04e563bf6 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-@@ -338,9 +338,16 @@ static int etm_parse_event_config(struct etm_drvdata *drvdata,
- 	if (ATTR_CFG_GET_FLD(attr, cycacc))
- 		config->ctrl |= ETMCR_CYC_ACC;
- 
--	if (ATTR_CFG_GET_FLD(attr, timestamp))
-+	if (ATTR_CFG_GET_FLD(attr, deprecated_timestamp) ||
-+	    ATTR_CFG_GET_FLD(attr, timestamp))
- 		config->ctrl |= ETMCR_TIMESTAMP_EN;
- 
-+	if (ATTR_CFG_GET_FLD(attr, timestamp) > 1) {
-+		dev_dbg(&drvdata->csdev->dev,
-+			"timestamp format attribute should be 0 (off) or 1 (on)\n");
-+		return -EINVAL;
-+	}
+diff --git a/Documentation/trace/coresight/coresight.rst b/Documentation/trace/coresight/coresight.rst
+index 806699871b80..d461de4e067e 100644
+--- a/Documentation/trace/coresight/coresight.rst
++++ b/Documentation/trace/coresight/coresight.rst
+@@ -613,8 +613,20 @@ They are also listed in the folder /sys/bus/event_source/devices/cs_etm/format/
+      - Session local version of the system wide setting: :ref:`ETM_MODE_RETURNSTACK
+        <coresight-return-stack>`
+    * - timestamp
+-     - Session local version of the system wide setting: :ref:`ETMv4_MODE_TIMESTAMP
+-       <coresight-timestamp>`
++     - Controls generation and interval of timestamps.
 +
- 	/*
- 	 * Possible to have cores with PTM (supports ret stack) and ETM (never
- 	 * has ret stack) on the same SoC. So only enable when it can be honored
-diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-index b457f182efbe..c7bf73c8f2d7 100644
---- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-@@ -28,6 +28,7 @@
- #include <linux/amba/bus.h>
- #include <linux/seq_file.h>
- #include <linux/uaccess.h>
-+#include <linux/perf/arm_pmu.h>
- #include <linux/perf_event.h>
- #include <linux/perf/arm_pmu.h>
- #include <linux/platform_device.h>
-@@ -791,7 +792,8 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
- 			cc_threshold = drvdata->ccitmin;
- 		config->ccctlr = cc_threshold;
- 	}
--	if (ATTR_CFG_GET_FLD(attr, timestamp)) {
-+	if (ATTR_CFG_GET_FLD(attr, deprecated_timestamp) ||
-+	    ATTR_CFG_GET_FLD(attr, timestamp)) {
- 		/*
- 		 * Configure timestamps to be emitted at regular intervals in
- 		 * order to correlate instructions executed on different CPUs
++       0 = off, 1 = minimum interval .. 15 = maximum interval.
++
++       Values 1 - 14 use a counter that decrements every cycle to generate a
++       timestamp on underflow. The reload value for the counter is 2 ^ (interval
++       - 1). If the value is 1 then the reload value is 1, if the value is 11
++       then the reload value is 1024 etc.
++
++       Setting the maximum interval (15) will disable the counter generated
++       timestamps, freeing the counter resource, leaving only ones emitted when
++       a SYNC packet is generated. The sync interval is controlled with
++       TRCSYNCPR.PERIOD which is every 4096 bytes of trace by default.
++
+    * - cc_threshold
+      - Cycle count threshold value. If nothing is provided here or the provided value is 0, then the
+        default value i.e 0x100 will be used. If provided value is less than minimum cycles threshold
 
 -- 
 2.34.1
