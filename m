@@ -4,90 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4A51D1119B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 22:31:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37806D111A7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 22:33:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=06gB16fa6KS/zoSWFVr7c45ocEVqzhsuohxeJKfmG+g=; b=Pjk8hkAe8lD3aKE4SKMd1QtBxo
-	b3vR+6Fo0ISfdRpK7e5utTHTQY0FRFTuboIuiCQpab6lh6qAN3dPgi50qDvzQ8Reg8ZhVm4JowQYm
-	7sY0mGVWcEquwz2ej2KOTvjfo0jJ1Qlf9L/uP1xG50qQ3VN0aWC0ZAkeIa613eWJ1MW/IFuqV3d/h
-	2xHafmonZlm2pYNsRBKi2J5vFPg6DNfjCAmUtRpzzJUk7iDPRn26zap22tVnADJ9gnFmPtGLKlemo
-	EPOP2oE2MB5JG8vOUC/jKpBu0IGDurZVUjHm0ToFuGCaBtuB3OEaA2QA3cLAONpAfKdFTEZ7GkBNn
-	zaWIeRhQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mDzAY5BQNTDP+ZymhsBaphBdvEkLLREriCn5MDuFOK4=; b=IXh5NGxmCV8yM8Pi8gb4mw9xQ2
+	CuyfDEMQ/78t0jPzkWWYgofy1z3gMJGAaJaPTW5pMQ4iew0xnBRDrIQrCxX1TgSTQaEFjxBrwhdFJ
+	UuOcA0TF8kdztQffaTcpqjRZi2GQHCtVpzPBJesdimF3memR6m877fRP1KsgyGHXPSJWPMzyb4fYi
+	d86Oj98bXxuI7uKDPVBUqoUDqakCLIqvAXI9FA7y0StG+NHgxjTwK1HJckqgU09pPe6WKHFhewhRM
+	XZGrgqMAVuDM86VKzaU7YOHgEbw27EOjsEHRLlu/1fZS0uHg1fIqX2LR1ZSDxNQ/eTGJy0h9Ha7Xu
+	NSryFdYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOO33-0000000Fimt-2Jqh;
-	Wed, 26 Nov 2025 22:31:41 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1vOO4c-0000000Fiu4-3xKO;
+	Wed, 26 Nov 2025 22:33:18 +0000
+Received: from ip-94-112-25-9.bb.vodafone.cz ([94.112.25.9] helo=ixit.cz)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOO30-0000000Fima-2sjb
+	id 1vOO4Z-0000000Fite-0mk8
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 22:31:39 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-42b3ad51fecso239378f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 14:31:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764196297; x=1764801097; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=06gB16fa6KS/zoSWFVr7c45ocEVqzhsuohxeJKfmG+g=;
-        b=UZtKqkHxreBIm6Xv8JDfs/yVWLhyNl0+Uv8l1BiFy905OczqbL/qMhS3phDwz7IzO1
-         lPpaDY60VaKMSAoALkSdvlS/Ww20vjrFtPN1aOWbpdFyOxRE7Kdzy69THN1WRWGe8lXn
-         2T4V6D5YvkfqtvD+XVgSFL93O6AN+m+4xPhd6VugvC/yhGjWG5+RdFaclhaF+wn7/kIl
-         xWjqgUHyM47yZXl7NRcYZ6/fprqfLJjQSkS+QrVTkuOgtjU8V7l1KxvKap1fRcUQDtBI
-         ZsYi19UNhi9bUKrpW3ZzCxWUKG8HUf/MeaKnnevSmCilgGOXZExzXupWxkE7kYTcuUub
-         g6zQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764196297; x=1764801097;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=06gB16fa6KS/zoSWFVr7c45ocEVqzhsuohxeJKfmG+g=;
-        b=EQ6sL0ji/XBJTWpA88L+NoSjS62evbNzKg2KUwAaY9mzGjUF4Tx2gvLOgKq8OLiLRh
-         drX1uUtoNl9pq4nWApZXEOAMUxuyrFePbbkZ9UnYZncbelUUU2ELx7HFkP1sgzqS1JK9
-         oXuqR9DG99bT5ZAKE8YhqtRxU7yS/FL2BkR096ZIMYNR7fYVjpgd/uPBW6qx+xnbctGy
-         U3q39qMQZp89a5+AII76IWmyhPWHFzW+nK2aV2Nmm9eXDX6gZVLWzMjmCvkmARyMyfVq
-         TYMhXliBWuauGEGMZ2TPMVT84R+cYR37G/jMVyGgvkn2SNrFASgjLaqKjGPMCDaE82IQ
-         4dxg==
-X-Gm-Message-State: AOJu0YxkWqdGjBqCPjk1+r2Lgn+FBYK2hsHuw8br3m3KQS6pXX+lEb8P
-	v6H26OK+QyCeJsz8I20bFfq5ffDZB5sB2MJbi4+tT7Nx+BQkJWVigy0W
-X-Gm-Gg: ASbGncv7N+FJGZfnYP4tiJAk4H9xb639SKQPg/P91DP88DKgkrkzkuR6mii2DLH8nPe
-	SxUgfKbC2JwdTuMcstWd7sEN1ULYs0+IeWk2LC81aU8/Rwk/hyMYsBpS/RpaKzULzX3AxuATtyl
-	T+wjJZH+kaNxf6ZeHf4bGA3V9Vms21X+G7Tki9x0Wxl27fMNG1AwdXdWksngO0k29n9W9m2deAa
-	0xaghPh5k/8vbK5nHHvcafa8DPYG1sz9aq/ZMUFIvAA0Boj5ObxZRqGNrS21nzX+/ZdI28CIqg9
-	PVAZv/EAaurar4ayTTU6h/X9qMAjodA1aHbdPHmbiVBtGZKlmUMzD8e34uHDyY663jZtNQCCi8o
-	Q7D15XeT7OUqmRGpwa5f6koi1A7bE1tx58R/owrP0Awpf3cW4OeydyJtpmXLFbouCYrWuPln9VR
-	ip6s4XW4wHxnMts1o=
-X-Google-Smtp-Source: AGHT+IFTq8xGRpCwoprbCeF3K9a3D/FqGda4o3Yl7FBKNxyW3D3EyyqfUlnqh/otuuy2/Zh5V/gmtg==
-X-Received: by 2002:a5d:5d08:0:b0:42b:41d3:daf9 with SMTP id ffacd0b85a97d-42e0f1d5993mr9362364f8f.2.1764196296510;
-        Wed, 26 Nov 2025 14:31:36 -0800 (PST)
-Received: from osama.. ([2c0f:fc89:129:990a:83a3:6137:cef9:6de9])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7fa3592sm41705453f8f.21.2025.11.26.14.31.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Nov 2025 14:31:36 -0800 (PST)
-From: Osama Abdelkader <osama.abdelkader@gmail.com>
-To: mhiramat@kernel.org,
-	oleg@redhat.com,
-	peterz@infradead.org,
-	catalin.marinas@arm.com,
-	will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	Osama Abdelkader <osama.abdelkader@gmail.com>
-Subject: [PATCH] arm64: simplify arch_uprobe_xol_was_trapped return
-Date: Thu, 27 Nov 2025 00:31:30 +0200
-Message-ID: <20251126223130.216302-1-osama.abdelkader@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 26 Nov 2025 22:33:17 +0000
+Received: from [10.0.0.200] (unknown [10.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange x25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by ixit.cz (Postfix) with ESMTPSA id 73B195341212;
+	Wed, 26 Nov 2025 23:33:07 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
+	t=1764196387;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=mDzAY5BQNTDP+ZymhsBaphBdvEkLLREriCn5MDuFOK4=;
+	b=coLOGpXuIFgIQyK824bTAuEq7YC6YLNMupKzK46/B5lSv8hlx0SG3v8vz5gKe3a4vGhDpQ
+	29W0N54doDNwfk6MHd8qmvRU9RU7thek7Na6t9qENDRiWcFHPrDEB7Q9MpiAVsMlqq7qdU
+	K3WWWvT7Uu5BasAHin6jV05kTMbin/U=
+Message-ID: <a243e024-c7df-4a3d-a855-4738a4970de2@ixit.cz>
+Date: Wed, 26 Nov 2025 23:33:07 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH QUESTION] arm64: configs: Add Snapdragon 845 config
+ fragment
+To: Casey Connolly <casey.connolly@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Joel Selvaraj <foss@joelselvaraj.com>,
+ Alexander Martinz <amartinz@shiftphones.com>,
+ Dzmitry Sankouski <dsankouski@gmail.com>,
+ =?UTF-8?Q?Pablo_Correa_G=C3=B3mez?= <ablocorrea@hotmail.com>
+Cc: =?UTF-8?Q?Guido_G=C3=BCnther?= <agx@sigxcpu.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ phone-devel@vger.kernel.org
+References: <20251126-sdm845-config-question-v1-1-ffa91ed53095@ixit.cz>
+ <9c3f64b4-adb3-450c-b1e6-d6731b723215@linaro.org>
+Content-Language: en-US
+From: David Heidelberg <david@ixit.cz>
+Autocrypt: addr=david@ixit.cz; keydata=
+ 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
+In-Reply-To: <9c3f64b4-adb3-450c-b1e6-d6731b723215@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_143138_737299_494625CC 
-X-CRM114-Status: UNSURE (   9.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251126_143315_624927_143A9995 
+X-CRM114-Status: GOOD (  41.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,32 +125,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-convert arch_uprobe_xol_was_trapped() from explicit if/return true
-return false pattern to direct boolean expression return in
-arch/arm64/kernel/probes/uprobes.c
+On 26/11/2025 20:03, Casey Connolly wrote:
+> Hi David,
+> 
+> On 26/11/2025 17:19, David Heidelberg via B4 Relay wrote:
+>> From: Casey Connolly <casey.connolly@linaro.org>
+> 
+> It's not the first time you're sending patches with my authorship and
+> SoB upstream without even a heads up... fixes and minor feature
+> additions I can understand (particularly if you're doing the work to
+> polish them off and get them accepted), but frankly I think it's little
+> unprofessional to post a very clearly "never-intended-for-upstream"
+> patch verbatim to the list, particularly when it has someone elses name
+> on it.
 
-Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
----
- arch/arm64/kernel/probes/uprobes.c | 5 +----
- 1 file changed, 1 insertion(+), 4 deletions(-)
+I wanted to use the patch as starting point for the discussion, not a 
+patch to get things upstreamed right away.
 
-diff --git a/arch/arm64/kernel/probes/uprobes.c b/arch/arm64/kernel/probes/uprobes.c
-index 2799bdb2fb82..b38c1dab7eb4 100644
---- a/arch/arm64/kernel/probes/uprobes.c
-+++ b/arch/arm64/kernel/probes/uprobes.c
-@@ -103,10 +103,7 @@ bool arch_uprobe_xol_was_trapped(struct task_struct *t)
- 	 * insn itself is trapped, then detect the case with the help of
- 	 * invalid fault code which is being set in arch_uprobe_pre_xol
- 	 */
--	if (t->thread.fault_code != UPROBE_INV_FAULT_CODE)
--		return true;
--
--	return false;
-+	return t->thread.fault_code != UPROBE_INV_FAULT_CODE;
- }
- 
- bool arch_uprobe_skip_sstep(struct arch_uprobe *auprobe, struct pt_regs *regs)
--- 
-2.43.0
+I respect the original authorship. I wouldn't feel comfortable send code 
+someone else wrote with my name.
+Other remaining option here would be never send it, but I think people 
+could benefit from the config fragment.
 
+Here, I wanted to have a discussion (thus it's marked as [QUESTION]) 
+what is the best way how to address this fragment, while not end up 
+being separated from the mainline development.
+
+I and many others see a value to keep this file upstream and care about 
+the file there, as that would ease changes done to upstream defconfig to 
+be reflected onto sdm845 fragment, when bigger changes are introduced to 
+the Linux kernel.
+
+> 
+>>
+>> This fragment provides reasonable default for the mobile devices
+>> based on Snapdragon 845 architecture. While default config could be
+>> used, the reality is it brings many issues to the development workflows,
+>> which are much harder to address than on generic boards or devices with
+>> available UART console.
+>>
+>> This config fragment produces the .config used by distributions.
+>> It is designed to be fairly minimal and specific to the
+>> supported SDM845 devices whilst offering all the features you would
+>> expect.
+> 
+> I wrote this like 4+ years ago and it's even more wrong now than it was
+> then (not least because I eventually found the UART XD).
+
+Yeah, but since then people continue activelycontribute to it, so 
+generally it's pretty up-to-date =)
+
+>>
+>> It disables other arm64 architectures to speed up build times and
+>> decrease the size of the kernel image.
+>>
+>> To generate a .config use "make defconfig sdm845.config"
+>>
+>> [David]
+>>   - Dropped distribution specific options.
+>>   - Added entry into the MAINTAINERS file.
+>>
+>> Signed-off-by: Casey Connolly <casey@connolly.tech>
+>> Co-developed-by: Joel Selvaraj <foss@joelselvaraj.com>
+>> Signed-off-by: Joel Selvaraj <foss@joelselvaraj.com>
+>> Co-developed-by: Alexander Martinz <amartinz@shiftphones.com>
+>> Signed-off-by: Alexander Martinz <amartinz@shiftphones.com>
+>> Co-developed-by: Dzmitry Sankouski <dsankouski@gmail.com>
+>> Signed-off-by: Dzmitry Sankouski <dsankouski@gmail.com>
+>> Co-developed-by: Pablo Correa Gómez <ablocorrea@hotmail.com>
+>> Signed-off-by: Pablo Correa Gómez <ablocorrea@hotmail.com>
+>> Co-developed-by: David Heidelberg <david@ixit.cz>
+>> Signed-off-by: David Heidelberg <david@ixit.cz>
+>> ---
+>> This patch is a question, if it would be viable to introduce this
+>> configuration fragment as part of mainline kernel, so keeping it in sync
+>> with recent kernel updates would be more straighforward.
+>>
+>> When this file is kept by distributions, it cannot be reused on latest
+>> releases and for building latest kernels, as the options gets
+>> desynchronized.>
+>> I offer to maintain this file within the mainline kernel, and I believe
+>> most likely some of the co-authors of the file will likely step up to
+>> keep it up-to-date, so people who want to contribute can avoid fighting
+> 
+> The same co-authors who knew you were going to post this??
+
+I assume people who made it may want this to become useful for others. 
+If not, I said I offer maintaining it.
+
+> 
+>> with old configuration file downloaded from downstream project and can
+>> focus on fixing actual bugs.
+>>
+>> In case this fragment gets unmaintained status in the future, there
+>> shouldn't be any issues to just remove it from the kernel.
+>>
+>> What do you think?
+> 
+> I don't think it makes sense to put a platform+distro-specific (read:
+> opinionated) config fragment into the kernel, any distro trying to use
+> this would likely always find themselves carrying patches (sending a
+> patch to enable a driver or whatever just doesn't scale very well),
+> nevermind if multiple distros with different requirements tried to use it.
+
+I tried to shave the distro specific bits to keep only the HW relevant 
+changes. I think each distro can apply the specific bits themselves and 
+keep here the sdm845 generics.
+
+I would like to reduce the fragmentation and leverage good review 
+process of the mainline kernel.
+
+Distributions should really apply only their custom changes, not some 
+version of sdm845.config fragment based on very different 
+sdm845-mainline versions (multiple currently) or sdm845-next version.
+
+How can we version the sdm845.config, while keeping configs from:
+1. generic stable releases
+2. generic development / -next versions
+3. distributions optimized configs
+
+IMHO would be nice to have one source of truth, at least for base option 
+related to one upstream kernel version which makes the hardware works.
+
+With upstreaming the fragment, we can use mainline and `Fixes / Cc: 
+stable` tags to mark what should belong where without confusion.
+
+David
+
+[...]
 
