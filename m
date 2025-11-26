@@ -4,66 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D66B2D1037E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 05:30:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48491D1037E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 05:41:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qLvSRiNEkjQwYv9rHqZs7Cd/sAeizIgY1FHze5NDxl8=; b=5BfS4n3SYvG5BbCiwwV1mLFjQ1
-	fWfAa1Fq0c/RQmsD93Hv6IvA3LmvnaBKwtOQympDxoRHEBCmhEd8H8x23323dh31k7TVNLNtlNum3
-	9UJcqXs85CmmOcTofD6lt8uiSKoJBGKTfcN4ObsdjZfCMVuRPY0Pm28aNCmi8ykhzyOyyV2nn8bED
-	xwOOsitqPnsjMma58nrW/mIG92c7Um2Qx9Jo0dxIoHPDmgX7ms1tL4guH/1kH3jNszXBy4iI5Z8YV
-	by4sYqvUc55VKCqep0gMGv5lbJf8cdJ+PW7HMj4/ZM4zJtnMMKBsm3QtRc/mIZ6n46zUscC+wPiJu
-	OBqc2R3A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QW5cVIdovQWDv+bqBSbnBeQJjt2jpyUHW2uxiLg7ptY=; b=Mb/V7VyDWs8m50u746cb4e6lTc
+	Fm65kIN4sGm4JXfUrjA/pI9H74Lx+H42135h2rRR0JKs0+khE2cVkA+Vn40qWiBnEjk7EdSiYDc6A
+	wms6xF7QPvMnjZmdkfylIbfmMnFEM59LXTqKdW7DqSblk5+FP6gFm5xu6xMyaX1Vl5qNaU1morE5Y
+	xavsJz6Sr1fiXsZiuilGdkUNRmoN4/SDlS97mgLjq22x4r0bkUbTKoKu9CLb8brAdkUnLprXg4von
+	DWLyXf70SOZKWuBCgOKPNQyKHLcd8G7aTu20ABd6GgA1wc68/ekkm0pKKlBxmjBXy+g1liUTRedIg
+	2O3iEjvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO86L-0000000EOjN-2dW4;
-	Wed, 26 Nov 2025 05:30:01 +0000
-Received: from out-183.mta1.migadu.com ([2001:41d0:203:375::b7])
+	id 1vO8He-0000000EPAt-2shf;
+	Wed, 26 Nov 2025 05:41:42 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO86I-0000000EOiO-3IV9
+	id 1vO8Hb-0000000EPA4-1xkg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 05:30:00 +0000
-Message-ID: <aef3f079-c81f-4e3e-8484-d02fca793c20@packett.cool>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=packett.cool;
-	s=key1; t=1764134977;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=qLvSRiNEkjQwYv9rHqZs7Cd/sAeizIgY1FHze5NDxl8=;
-	b=F4fk6Ow+XzA9seczvFgSd6MmILJQza2HhxAQ3VCkDklx28lclHX+eKhv6qAjl/min4owss
-	fFbK6w/P1CPAE+5t4E5FJSEcaSydWTE/P+XnwIY7WPktFc02fhmJzLD221sXMWBdYDv8Ri
-	t/BNEYFnkoOJP2LlcGlGsRBbx3S4AGGefIJkqDSViWHAzqtu+bEIAIzL3NK36eIVZygnFh
-	sPIRBp1P/vtRxBnJFnfNMPnftCAEJ2iLhUJm/8aIC+EN+22EqVMAN0aRC6fyZ2ew0ct/QW
-	PiPT9FM4oS2UyT4aCbqLxTHt22KT4TCqSeYV+5ar0lgJrl8HDBS7g5lxyIV8fA==
-Date: Wed, 26 Nov 2025 02:29:25 -0300
+	Wed, 26 Nov 2025 05:41:41 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-42b3ac40ae4so3524789f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 25 Nov 2025 21:41:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764135697; x=1764740497; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=QW5cVIdovQWDv+bqBSbnBeQJjt2jpyUHW2uxiLg7ptY=;
+        b=iNAfPyavoIsky3lrkpUEssx7UqQE6LVBOlcCLgZt0LXIWlBi8cQNCvDo6DwzcarMRI
+         IT+Jpl/97Cz6whdP3T+orFGy/wteHwKltIyWwyZsT9yPnzuzuvigRHUnkSovgsiRG9Qo
+         7Iaeo1FS6ggozxG0Sv3q3JRLA0lXkGT6Z0bndvUASB7/DVtLeoky28lWgNDap3yYzR+M
+         uiqKUzGgvkSgAHQrPCKTIZYbMELPNLPFW8R3/4N9qbxpFBSJOvoaW3OOlnJn+yl1TpBe
+         SKX4i89w8xIEZY8FIuoBzLLoaJ/aqnp3+OPrnkXWehe711nse5uHrzK0PJoCpUmN1EY5
+         3g/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764135697; x=1764740497;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QW5cVIdovQWDv+bqBSbnBeQJjt2jpyUHW2uxiLg7ptY=;
+        b=vvwcIh6stxW9LzcaYYVVLCNpaqj0kdDguOYNPo1XqMSxzJSYJZ2C6xbSMdlOQ1x5oA
+         qDek885J+snsOxOU/QOh0MV5dqhQT4vzPJR1PG/LpFLmlY2T4hdHTyipoGaqb6Js2BqF
+         E+MBW8vl6iHbrFrbeGarHcqDQzwSOZOTBgYh2Xbsme30M8dW3IcbY9WTRvOtoQCsRze9
+         1OxLK0p9jwLpepy8dnrAEtHIGf6vVah5bgnO4EU/xyBIzhyGDCmpBBM5d0s+AKtf8xoN
+         BjxdwHYh1cSdd321P+VD3uB/Ck/ruOElKVtnZOb+KJYsGApbABVszOj9GF7+Xc2MgRF2
+         JMNg==
+X-Forwarded-Encrypted: i=1; AJvYcCW4vD491oTasIFjkp/bVFvJW1Kbt1oRaRPJQsLDSKX7p+5JVdcCrbSbTriLCXQYk2e5/B6XruU3q7TlrZNHeAWG@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDAE71Fede2q9llwe1tCjUhAbO77nynACu2ydUnqKfZYSHpDuQ
+	YDXqynIxJId1LildHR11woz5aZiqopBHekN5M/nRiBmqSBL181qwWxJY
+X-Gm-Gg: ASbGncvJcKihU6nlcze8os+3u/wvrLPWNpTpJ7RoOTF3Jhg/k8QPNW6vwpQvUJu0jbJ
+	/lmtXG40NB/stOgOWFvkzExAUbt/EdQwrlYk3KsUYbIFVgxdztHWsgR7y89rGHM4/XGv7VtFX8s
+	cwWdKoWXo8Ixu74EwgpAFu4bXfO2qRR1ewP+ffpzQKUa9qC+ZiTgxdqYFzwFaN4SADa0XsBQOWo
+	HH1YPupLq+R2L8EtEHctTU2o3ZTuUDTRZQnMq7swVMbmDPRzA2M3p3q1NCf3hE8O+umPvWaVEWb
+	ItL2fCtRaZXa1h5bW2a/Tx/aLsXm+ExCExIpdOtv8BWnXO3rDZyg7qPvoaWxYA3K06hcim78dTX
+	8QWbKVPQxaWb7CwcMrYi3YFzZueaAgLAD/K1PEJgAXmQIWjMq5/1AHMo6558SBj+l9L4K1b9WOf
+	8ZLr9E6XZNCXkD
+X-Google-Smtp-Source: AGHT+IF5V48oVy47DDAvZnj5lN2hPNi8IKQoV7v+luO0VgruXL17m6le0MnbAaH8JmcsbJdk8AXskQ==
+X-Received: by 2002:a05:6000:240b:b0:42b:3661:304a with SMTP id ffacd0b85a97d-42cc1d08715mr20198687f8f.38.1764135696988;
+        Tue, 25 Nov 2025 21:41:36 -0800 (PST)
+Received: from gmail.com ([147.161.143.89])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42cb7f363b0sm38658536f8f.13.2025.11.25.21.41.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 25 Nov 2025 21:41:36 -0800 (PST)
+From: hariconscious@gmail.com
+To: lgirdwood@gmail.com,
+	broonie@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com
+Cc: perex@perex.cz,
+	tiwai@suse.com,
+	khalid@kernel.org,
+	shuah@kernel.org,
+	david.hunter.linux@gmail.com,
+	linux-sound@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	HariKrishna Sagala <hariconscious@gmail.com>
+Subject: [PATCH] ASoC: mediatek: mt8195: optimize property formatting error handling by using scnprintf()
+Date: Wed, 26 Nov 2025 11:05:02 +0530
+Message-ID: <20251126053500.56353-3-hariconscious@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Subject: Re: [PATCH v1] cpuidle: Warn instead of bailing out if target
- residency check fails
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
- Christian Loehle <christian.loehle@arm.com>,
- Artem Bityutskiy <artem.bityutskiy@linux.intel.com>,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, linux-pm@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20251121010756.6687-1-val@packett.cool>
- <CAJZ5v0h1VTozCKweKvma3dQiUCz8KkR88Hue1cL_jDaKiP+BEw@mail.gmail.com>
- <2808566.mvXUDI8C0e@rafael.j.wysocki>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Val Packett <val@packett.cool>
-In-Reply-To: <2808566.mvXUDI8C0e@rafael.j.wysocki>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_212959_425672_7863A299 
-X-CRM114-Status: GOOD (  20.42  )
+X-CRM114-CacheID: sfid-20251125_214139_514340_422D7235 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,62 +107,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: HariKrishna Sagala <hariconscious@gmail.com>
 
-On 11/25/25 1:23 PM, Rafael J. Wysocki wrote:
-> On Friday, November 21, 2025 2:10:57 PM CET Rafael J. Wysocki wrote:
->> On Fri, Nov 21, 2025 at 2:08 AM Val Packett <val@packett.cool> wrote:
->>> On Device Tree platforms, the latency and target residency values come
->>> directly from device trees, which are numerous and weren't all written
->>> with cpuidle invariants in mind. For example, qcom/hamoa.dtsi currently
->>> trips this check: exit latency 680000 > residency 600000.
->> So this breaks cpuidle expectations and it doesn't work correctly on
->> the affected platforms.
->>
->>> Instead of harshly rejecting the entire cpuidle driver with a mysterious
->>> error message, print a warning and set the target residency value to be
->>> equal to the exit latency.
->> This generally doesn't work because the new target residency may be
->> greater than the target residency of the next state.
->>
->>> Fixes: 76934e495cdc ("cpuidle: Add sanity check for exit latency and target residency")
->>> Signed-off-by: Val Packett <val@packett.cool>
->>> ---
->>>   drivers/cpuidle/driver.c | 7 +++++--
->>>   1 file changed, 5 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/drivers/cpuidle/driver.c b/drivers/cpuidle/driver.c
->>> index 1c295a93d582..06aeb59c1017 100644
->>> --- a/drivers/cpuidle/driver.c
->>> +++ b/drivers/cpuidle/driver.c
->>> @@ -199,8 +199,11 @@ static int __cpuidle_driver_init(struct cpuidle_driver *drv)
->>>                   * exceed its target residency which is assumed in cpuidle in
->>>                   * multiple places.
->>>                   */
->>> -               if (s->exit_latency_ns > s->target_residency_ns)
->>> -                       return -EINVAL;
->>> +               if (s->exit_latency_ns > s->target_residency_ns) {
->>> +                       pr_warn("cpuidle: state %d: exit latency %lld > residency %lld (fixing)\n",
->>> +                               i, s->exit_latency_ns, s->target_residency_ns);
->>> +                       s->target_residency_ns = s->exit_latency_ns;
->> And you also need to update s->target_residency.
->>
->> Moreover, that needs to be done when all of the target residency and
->> exit latency values have been computed and full sanitization of all
->> the states would need to be done (including the ordering checks), but
->> the kernel has insufficient information to do that (for instance, if
->> the ordering is not as expected, it is not clear how to fix it up).
->> Even the above sanitization is unlikely to result in the intended
->> behavior.
->>
->> So if returning the error code doesn't work, printing a warning is as
->> much as can be done, like in the attached patch.
->>
->> If this works for you, I'll submit it properly later.
->>
-> No response, so I assume no objections. [..]
+Replace snprintf() with scnprintf() when constructing the property
+and remove negative return error handling as scnprintf() returns the
+actual number of bytes written to buffer.
 
-Right, only printing a warning is fine of course.
+snprintf() as defined by the C99 standard,returns the number of 
+characters that *would have been* written if enough space were 
+available.Use scnprintf() that returns the actual number of 
+characters written.
 
-~val
+Link: https://github.com/KSPP/linux/issues/105
+Signed-off-by: HariKrishna Sagala <hariconscious@gmail.com>
+---
+This patch optimizes the error handling part of property formatting
+using the scnrpintf().
+Removed the error check ret < 0 as scnprintf() doesn't return the
+negative value as per contract.
+https://www.kernel.org/doc/html/latest/core-api/kernel-api.html#c.scnprintf
+
+Thank you.
+
+ sound/soc/mediatek/mt8195/mt8195-dai-etdm.c | 44 ++++++---------------
+ 1 file changed, 12 insertions(+), 32 deletions(-)
+
+diff --git a/sound/soc/mediatek/mt8195/mt8195-dai-etdm.c b/sound/soc/mediatek/mt8195/mt8195-dai-etdm.c
+index fd4f9f8f032d..77c58c9ec3e2 100644
+--- a/sound/soc/mediatek/mt8195/mt8195-dai-etdm.c
++++ b/sound/soc/mediatek/mt8195/mt8195-dai-etdm.c
+@@ -2652,14 +2652,9 @@ static void mt8195_dai_etdm_parse_of(struct mtk_base_afe *afe)
+ 
+ 		etdm_data = afe_priv->dai_priv[dai_id];
+ 
+-		ret = snprintf(prop, sizeof(prop),
+-			       "mediatek,%s-mclk-always-on-rate",
+-			       of_afe_etdms[i].name);
+-		if (ret < 0) {
+-			dev_info(afe->dev, "%s snprintf err=%d\n",
+-				 __func__, ret);
+-			return;
+-		}
++		scnprintf(prop, sizeof(prop),
++			    "mediatek,%s-mclk-always-on-rate",
++			    of_afe_etdms[i].name);
+ 		ret = of_property_read_u32(of_node, prop, &sel);
+ 		if (ret == 0) {
+ 			etdm_data->mclk_dir = SND_SOC_CLOCK_OUT;
+@@ -2668,24 +2663,14 @@ static void mt8195_dai_etdm_parse_of(struct mtk_base_afe *afe)
+ 					 __func__, sel);
+ 		}
+ 
+-		ret = snprintf(prop, sizeof(prop),
+-			       "mediatek,%s-multi-pin-mode",
+-			       of_afe_etdms[i].name);
+-		if (ret < 0) {
+-			dev_info(afe->dev, "%s snprintf err=%d\n",
+-				 __func__, ret);
+-			return;
+-		}
++		scnprintf(prop, sizeof(prop),
++			    "mediatek,%s-multi-pin-mode",
++			    of_afe_etdms[i].name);
+ 		etdm_data->data_mode = of_property_read_bool(of_node, prop);
+ 
+-		ret = snprintf(prop, sizeof(prop),
+-			       "mediatek,%s-cowork-source",
+-			       of_afe_etdms[i].name);
+-		if (ret < 0) {
+-			dev_info(afe->dev, "%s snprintf err=%d\n",
+-				 __func__, ret);
+-			return;
+-		}
++		scnprintf(prop, sizeof(prop),
++			    "mediatek,%s-cowork-source",
++			    of_afe_etdms[i].name);
+ 		ret = of_property_read_u32(of_node, prop, &sel);
+ 		if (ret == 0) {
+ 			if (sel >= MT8195_AFE_IO_ETDM_NUM) {
+@@ -2707,14 +2692,9 @@ static void mt8195_dai_etdm_parse_of(struct mtk_base_afe *afe)
+ 		dai_id = ETDM_TO_DAI_ID(i);
+ 		etdm_data = afe_priv->dai_priv[dai_id];
+ 
+-		ret = snprintf(prop, sizeof(prop),
+-			       "mediatek,%s-chn-disabled",
+-			       of_afe_etdms[i].name);
+-		if (ret < 0) {
+-			dev_info(afe->dev, "%s snprintf err=%d\n",
+-				 __func__, ret);
+-			return;
+-		}
++		scnprintf(prop, sizeof(prop),
++			    "mediatek,%s-chn-disabled",
++			    of_afe_etdms[i].name);
+ 		ret = of_property_read_variable_u8_array(of_node, prop,
+ 							 disable_chn,
+ 							 1, max_chn);
+
+base-commit: 30f09200cc4aefbd8385b01e41bde2e4565a6f0e
+-- 
+2.43.0
 
 
