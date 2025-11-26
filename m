@@ -4,107 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64185D1038C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 08:11:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8470D1038B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 08:12:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L18TXH1N1Sa2VLPNphOpl1AmhAR02/DRmr4yXBbFJEE=; b=pWTceemNpVYvUPrC44xGuqwZvs
-	l5pvZMUUXC7iDJqb/wP2Df3UuoQxb6DizXuGDm67HOEU7ymKH3uRxOaRCB8fBYAgusAGc4bUZF6fh
-	c9rgDVNgId10P+ksImENnlPJRZS/C0Hs9AAPx3q1Gx8pUa+MXp1K7Enl0FE9bb4MvgDPhg8IFYZw/
-	DDa+vs/gAamUDSWIda/VPVgMayp0XhYyU78oV6M7XyxSP0mp+KFQ8io0ffmyk5PRwUF8NMASfldoL
-	QxzXW641PzKNpkhCrGHJ52FpB5sz1WrG+OQmgbwL7Zd7tMZ1oav+MRa/3kqJ/zcqs8jvZcK2Qv8bP
-	Ejjppv6Q==;
+	bh=nDSL4bS2GPzDDS9LlCeFEC6yf1d7WKWTth2wMoJmVmU=; b=tShmUpaP/n/f10T8GLm/Nd/KiU
+	CTS+BkSEkmvm1ua7jjVEKgpZN1nw1fMRCo3OeNlXrAZGLs/0NFNDaqAAI3jh6z5G7a10QgUYIIpdW
+	NK+FdSyB4HASIRw2cRRTExiaNXca0yWx4CyL8zHqZJNgnezc9hQjTszGDIJTi+KJZBH2WPI7cXjiu
+	KWrocbu3dbXCWy7I0tX7LFpAct349qGf0QJzhrpTeMKZ/QaUdjfnTyC+/9MqxX+8rkfk7OFuucwg8
+	z3fjAPn5bca3iZGkPq1fI5mVL2EyjtW8iYPkKIv9QuorqyLufTYbAxfBwu7Pjy9aVXrMHrkfistcb
+	y1wW783w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOAcr-0000000EaAT-43Id;
-	Wed, 26 Nov 2025 08:11:45 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vOAdA-0000000EaIY-3IuT;
+	Wed, 26 Nov 2025 08:12:04 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOAcp-0000000Ea9J-1AkW
+	id 1vOAd8-0000000EaGl-1IQq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 26 Nov 2025 08:11:44 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AQ5tak72655532;
-	Wed, 26 Nov 2025 08:11:35 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	L18TXH1N1Sa2VLPNphOpl1AmhAR02/DRmr4yXBbFJEE=; b=ejs2Lh5Bq80NPkA0
-	9Q90t4C8+weg1ZHjQDuN6KFJD+k3XtDO3v0cQZpEiJUWkmXJpKn2yVnrVZ7CqeJt
-	T4ZewQnQpJB7k2McqlN4qGOmesdTH0+/uLwDXPbr1nBrV6KO72jkgFQiElzVDnT3
-	4/Wkcc+8zHBVP8bcH2dsnOl2u7ehrV1EnmrWWJdnGif14WqzMOmwi2jAacsiJyXk
-	py0+KdREEtwmH6bfztKLbxt7oGzrx86bIVciTJHrNozOYrQWM7dLjBHsrL8DsOjk
-	CW9ivKDKaZ0aYo78axYSwTalhy1Kl91WLkf8FNAyQLEZKiHv0m6cJXt3EKCGHxjK
-	mS/cng==
-Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4an9fxujdx-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 26 Nov 2025 08:11:35 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5AQ8BYcc017762
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 26 Nov 2025 08:11:34 GMT
-Received: from hu-vikramsa-hyd.qualcomm.com (10.80.80.8) by
- nasanex01b.na.qualcomm.com (10.46.141.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Wed, 26 Nov 2025 00:11:28 -0800
-From: Vikram Sharma <quic_vikramsa@quicinc.com>
-To: <rfoss@kernel.org>, <todor.too@gmail.com>, <bryan.odonoghue@linaro.org>,
-        <mchehab@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <andersson@kernel.org>,
-        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
-        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
-        <will@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <quic_vikramsa@quicinc.com>,
-        <nihalkum@qti.qualcomm.com>, <linux-media@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>,
-        Ravi Shankar <quic_rshankar@quicinc.com>,
-        Vishal Verma <quic_vishverm@quicinc.com>,
-        Vladimir Zapolskiy
-	<vladimir.zapolskiy@linaro.org>
-Subject: [PATCH v6 3/3] arm64: dts: qcom: monaco-evk-camera: Add DT overlay
-Date: Wed, 26 Nov 2025 13:40:57 +0530
-Message-ID: <20251126081057.4191122-4-quic_vikramsa@quicinc.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20251126081057.4191122-1-quic_vikramsa@quicinc.com>
-References: <20251126081057.4191122-1-quic_vikramsa@quicinc.com>
+	Wed, 26 Nov 2025 08:12:03 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1vOAd3-0002rl-DL; Wed, 26 Nov 2025 09:11:57 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1vOAd2-002Z6r-34;
+	Wed, 26 Nov 2025 09:11:56 +0100
+Received: from pengutronix.de (p54b152ce.dip0.t-ipconnect.de [84.177.82.206])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 934EF4A8744;
+	Wed, 26 Nov 2025 08:11:56 +0000 (UTC)
+Date: Wed, 26 Nov 2025 09:11:56 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Carlos Song <carlos.song@nxp.com>
+Cc: broonie@kernel.org, frank.li@nxp.com, hawnguo@kernel.org, 
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com, 
+	linux-spi@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 5/6] spi: imx: support dynamic burst length for ECSPI DMA
+ mode
+Message-ID: <20251126-defiant-swift-of-domination-afa2c9-mkl@pengutronix.de>
+References: <20251125100618.2159770-1-carlos.song@nxp.com>
+ <20251125100618.2159770-6-carlos.song@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=I6tohdgg c=1 sm=1 tr=0 ts=6926b637 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=6UeiqGixMTsA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=COk6AnOGAAAA:8 a=KKAkSRfTAAAA:8 a=UCIxLOB1EF4ELhZYz8wA:9
- a=TjNXssC_j7lpFel5tvFf:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTI2MDA2NiBTYWx0ZWRfX1UtjZUewWrXB
- 7XZRz4jCFZTuwf8J7IPJqouYG9wFCXwWlP0xRDRUOe3sWJxAmQvD8KhE3oVFX0+tgIEKBTSAycM
- fLnu5w8PWFhGFajusPaZtM4SUsk/19lalIFIm1FupjXh6tbVp9ifflSzkOtFWaAc2EOqqGaNBeY
- 5xNOVpf8FaaCFBPMMpr2eICCWOoUeqTa+QSM17sYfFazD0STGKTJ3thqy/Tn12NeD2MwOUdRMgj
- n88G6vW+QqXTx/toASyWbfh0YXslnzBp8Je9ht2j9ymqfmsYFgGXPZCUSbKGlGLeE3oT/w7RF/H
- FFs6gLGsgVjnqZQlpQxoMDcnLj+QVFipI0k2S6Srw==
-X-Proofpoint-ORIG-GUID: csKmrBvp-eZZsnAHyu9G3XUS47bT2dVf
-X-Proofpoint-GUID: csKmrBvp-eZZsnAHyu9G3XUS47bT2dVf
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-25_02,2025-11-25_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 suspectscore=0 phishscore=0 spamscore=0 adultscore=0
- malwarescore=0 bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
- definitions=main-2511260066
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="2xakqceqe3dflkps"
+Content-Disposition: inline
+In-Reply-To: <20251125100618.2159770-6-carlos.song@nxp.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_001143_351221_7CCD7637 
-X-CRM114-Status: GOOD (  16.76  )
+X-CRM114-CacheID: sfid-20251126_001202_350608_8F468A9B 
+X-CRM114-Status: GOOD (  19.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,151 +83,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
 
-Monaco EVK board does not include a camera sensor in its default hardware
-configuration. Introducing a device tree overlay to support optional
-integration of the IMX577 sensor via CSIPHY1.
+--2xakqceqe3dflkps
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 5/6] spi: imx: support dynamic burst length for ECSPI DMA
+ mode
+MIME-Version: 1.0
 
-Camera reset is handled through an I2C expander, and power is enabled
-via TLMM GPIO74.
+On 25.11.2025 18:06:17, Carlos Song wrote:
+> +static int spi_imx_dma_transfer(struct spi_imx_data *spi_imx,
+> +				struct spi_transfer *transfer)
+> +{
+> +	bool word_delay =3D transfer->word_delay.value !=3D 0;
+> +	int ret;
+> +	int i;
+> +
+> +	ret =3D spi_imx_dma_data_prepare(spi_imx, transfer, word_delay);
+> +	if (ret < 0) {
+> +		transfer->error |=3D SPI_TRANS_FAIL_NO_START;
+> +		dev_err(spi_imx->dev, "DMA data prepare fail\n");
+> +		goto fallback_pio;
+> +	}
+> +
+> +	spi_imx->rx_offset =3D 0;
+> +
+> +	/* Each dma_package performs a separate DMA transfer once */
+> +	for (i =3D 0; i < spi_imx->dma_package_num; i++) {
+> +		ret =3D spi_imx_dma_map(spi_imx, &spi_imx->dma_data[i]);
+> +		if (ret < 0) {
+> +			transfer->error |=3D SPI_TRANS_FAIL_NO_START;
+> +			dev_err(spi_imx->dev, "DMA map fail\n");
+> +			break;
+> +		}
+> +
+> +		/* Update the CTRL register BL field */
+> +		writel(spi_imx->dma_data[i].cmd_word, spi_imx->base + MX51_ECSPI_CTRL);
+> +
+> +		ret =3D spi_imx_dma_package_transfer(spi_imx, &spi_imx->dma_data[i],
+> +						   transfer, word_delay);
+> +
+> +		/* Whether the dma transmission is successful or not, dma unmap is nec=
+essary */
+> +		spi_imx_dma_unmap(spi_imx, &spi_imx->dma_data[i]);
+> +
+> +		if (ret < 0) {
+> +			dev_dbg(spi_imx->dev, "DMA %d transfer not really finish\n", i);
+> +			break;
+> +		}
+> +	}
+> +
+> +	for (int j =3D 0; j < spi_imx->dma_package_num; j++) {
+> +		kfree(spi_imx->dma_data[j].dma_tx_buf);
+> +		kfree(spi_imx->dma_data[j].dma_rx_buf);
+> +	}
+> +	kfree(spi_imx->dma_data);
+> +
+> +fallback_pio:
+> +	/* If no any dma package data is transferred, fallback to PIO mode tran=
+sfer */
+> +	if ((transfer->error & SPI_TRANS_FAIL_NO_START) && i !=3D 0)
+> +		transfer->error &=3D !SPI_TRANS_FAIL_NO_START;
+                                   ^
+this doesn't look correct, you probably want to use a "~", right?
 
-An example media-ctl pipeline for the imx577 is:
+Marc
 
-media-ctl --reset
-media-ctl -V '"imx577 3-001a":0[fmt:SRGGB10/4056x3040 field:none]'
-media-ctl -V '"msm_csiphy1":0[fmt:SRGGB10/4056x3040]'
-media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
-media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
-media-ctl -l '"msm_csiphy1":1->"msm_csid0":0[1]'
-media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
-yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video1
 
-Signed-off-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
-Co-developed-by: Ravi Shankar <quic_rshankar@quicinc.com>
-Signed-off-by: Ravi Shankar <quic_rshankar@quicinc.com>
-Co-developed-by: Vishal Verma <quic_vishverm@quicinc.com>
-Signed-off-by: Vishal Verma <quic_vishverm@quicinc.com>
-Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
----
- arch/arm64/boot/dts/qcom/Makefile             |  4 ++
- .../dts/qcom/monaco-evk-camera-imx577.dtso    | 67 +++++++++++++++++++
- arch/arm64/boot/dts/qcom/monaco-evk.dts       | 10 +++
- 3 files changed, 81 insertions(+)
- create mode 100644 arch/arm64/boot/dts/qcom/monaco-evk-camera-imx577.dtso
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
 
-diff --git a/arch/arm64/boot/dts/qcom/Makefile b/arch/arm64/boot/dts/qcom/Makefile
-index 6f34d5ed331c..b1ba182a0d8d 100644
---- a/arch/arm64/boot/dts/qcom/Makefile
-+++ b/arch/arm64/boot/dts/qcom/Makefile
-@@ -38,6 +38,10 @@ lemans-evk-camera-dtbs	:= lemans-evk.dtb lemans-evk-camera.dtbo
- dtb-$(CONFIG_ARCH_QCOM)	+= lemans-evk-camera-csi1-imx577.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= lemans-evk-camera.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= monaco-evk.dtb
-+
-+monaco-evk-camera-imx577-dtbs	:= monaco-evk.dtb monaco-evk-camera-imx577.dtbo
-+dtb-$(CONFIG_ARCH_QCOM)	+= monaco-evk-camera-imx577.dtb
-+
- dtb-$(CONFIG_ARCH_QCOM)	+= msm8216-samsung-fortuna3g.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-acer-a1-724.dtb
- dtb-$(CONFIG_ARCH_QCOM)	+= msm8916-alcatel-idol347.dtb
-diff --git a/arch/arm64/boot/dts/qcom/monaco-evk-camera-imx577.dtso b/arch/arm64/boot/dts/qcom/monaco-evk-camera-imx577.dtso
-new file mode 100644
-index 000000000000..351eb5ee70ba
---- /dev/null
-+++ b/arch/arm64/boot/dts/qcom/monaco-evk-camera-imx577.dtso
-@@ -0,0 +1,67 @@
-+// SPDX-License-Identifier: BSD-3-Clause
-+/*
-+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
-+ */
-+
-+/dts-v1/;
-+/plugin/;
-+
-+#include <dt-bindings/clock/qcom,sa8775p-camcc.h>
-+#include <dt-bindings/gpio/gpio.h>
-+
-+&camss {
-+	vdda-phy-supply = <&vreg_l4a>;
-+	vdda-pll-supply = <&vreg_l5a>;
-+
-+	status = "okay";
-+
-+	ports {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		port@1 {
-+			reg = <1>;
-+
-+			csiphy1_ep: endpoint {
-+				clock-lanes = <7>;
-+				data-lanes = <0 1 2 3>;
-+				remote-endpoint = <&imx577_ep1>;
-+			};
-+		};
-+	};
-+};
-+
-+&cci1 {
-+	pinctrl-0 = <&cci1_0_default>;
-+	pinctrl-1 = <&cci1_0_sleep>;
-+
-+	status = "okay";
-+};
-+
-+&cci1_i2c0 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	camera@1a {
-+		compatible = "sony,imx577";
-+		reg = <0x1a>;
-+
-+		reset-gpios = <&expander2 1 GPIO_ACTIVE_LOW>;
-+		pinctrl-0 = <&cam1_default>;
-+		pinctrl-names = "default";
-+
-+		clocks = <&camcc CAM_CC_MCLK1_CLK>;
-+		assigned-clocks = <&camcc CAM_CC_MCLK1_CLK>;
-+		assigned-clock-rates = <24000000>;
-+
-+		avdd-supply = <&vreg_cam1_2p8>;
-+
-+		port {
-+			imx577_ep1: endpoint {
-+				link-frequencies = /bits/ 64 <600000000>;
-+				data-lanes = <0 1 2 3>;
-+				remote-endpoint = <&csiphy1_ep>;
-+			};
-+		};
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/qcom/monaco-evk.dts b/arch/arm64/boot/dts/qcom/monaco-evk.dts
-index bb35893da73d..b1d34c1248d3 100644
---- a/arch/arm64/boot/dts/qcom/monaco-evk.dts
-+++ b/arch/arm64/boot/dts/qcom/monaco-evk.dts
-@@ -76,6 +76,16 @@ platform {
- 			};
- 		};
- 	};
-+
-+	vreg_cam1_2p8: vreg-cam1-2p8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vreg_cam1_2p8";
-+		startup-delay-us = <10000>;
-+		enable-active-high;
-+		gpio = <&tlmm 74 GPIO_ACTIVE_HIGH>;
-+		pinctrl-0 = <&cam1_avdd_2v8_en_default>;
-+		pinctrl-names = "default";
-+	};
- };
- 
- &apps_rsc {
--- 
-2.34.1
+--2xakqceqe3dflkps
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmkmtkkACgkQDHRl3/mQ
+kZwc4Af/TNDPHIaoFGGl6ukBcKwe8NM2ZOe/tGDo2HCK+tEBzyKnR/UMtPbCOOts
+ZbjuXQ0I3FXFZ80z0XyTiZJIlyLnVI74JGUIIPLdsryOBBmeELwu6BN99f5FZ5qa
+x0uG2iyheamGFhetK3zt8F2DObqtEGQJ7JUEVBowUnNNk5wJoLHWYAzLu2qwtOWg
+ffAd70VNxPoudzUoTvB87+Aa9mB6MIw2I58WgPP3sUuxDiA8rK+Lj/W2qfYwqynH
+vifXpU/gvihUDPS01sKBLg6otQlel2d/ZHHErwemrz11TFgQKuHGz8I4tmZdtn5B
+OH4pou7EUL69TVMsJaL2e/xFecR3dQ==
+=X/RP
+-----END PGP SIGNATURE-----
+
+--2xakqceqe3dflkps--
 
