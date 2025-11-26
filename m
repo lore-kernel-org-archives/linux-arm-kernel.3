@@ -4,78 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44501D1036E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 06:15:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B52CDD1037E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 06:18:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E6LSysDobRnthSd72nEmOzvteCi+xEJb90N+EReU/z0=; b=bGxbiZ7DbOf+t3oX/soINznYt5
-	73xmPTjcVZ6OvLhn+qgI6tL8TnK5qeUNcawyI3LACwqLXF/8fIpMsghdo3a09BJWgqzj/wJypkZlM
-	UjBGSFuIh3VU5s6DwSGp6uw5IHi9Gq+PKzio8oqEKR4PMuTDcjI7OYaeI/BAOYTP4orMGVhCK+RmJ
-	YuXhHruZ2DoX9WaToXvFwklzjk+cwZm+sDJCMJakKdreJDb7PaIVcbpdWW9tWeuVLQfWzpBjKX7aR
-	qhFYyDIfh8AUr75bysKhJc1idFviMsbP7YuDpvjfyfez5cF1DL1sdf6liH6Mk1qTV9bVrjSkIp1ew
-	gGU8kidQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=njRL/wp1iCkqO69EYYorLtrNKLXhDungO1SZ8XuDZA4=; b=l94swZBaN4tsA3W//KegTxxHFR
+	jV3Ewj6jO4t5PVrZSw0a5UILToxvox+kPcxJO3En/czTOFjUvJj5b//lvnLkmI3YvSZjZucPJM3g2
+	ZO0r5ZCnHJhbjtTJyLfMhPEKilGjfCmBImXqDcxgv3TBA1S9XxZuEjOUDST2+aOwZleXs/a/YJPHo
+	8Qa3fHSLkIWljUmpIbRoJQBJtjUAPEyO4A8NUoDIderW6+HeNbykBHdzLiZ4Q3c5dEBKaQ4Um4BNu
+	iK5NmLa4j+tRmDirgibN0Xii6OWIfqGZRqPXkYfD3q0dlCyGjbijxIHpWe1QGuLpMMiMDkdlvB0kS
+	6rWxmYlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO8nq-0000000EQaC-2wOU;
-	Wed, 26 Nov 2025 06:14:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vO8qm-0000000EQms-121v;
+	Wed, 26 Nov 2025 06:18:00 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vO8nn-0000000EQZk-3UyN;
-	Wed, 26 Nov 2025 06:14:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BE6C144202;
-	Wed, 26 Nov 2025 06:14:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59CE4C116B1;
-	Wed, 26 Nov 2025 06:14:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764137694;
-	bh=KHq6RTmFZreZl8Ny8VrKdwkCEv/KsgDv4Jdqciors9A=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=r2+Jm4tmyRBJyvRBKWgA2qSpM20+vvWUXMfz2qKCywFp+YE9w+vvTBW6dznpcY0JY
-	 DfxsT1iMWt8T3Jdc4dJwm5C20DI9y9BRD/VqahlJp57I3dc8vKhgRJtVbUJ8bnKmX7
-	 frEyCAgrrwKREbYV8nkcNrx3KRlQcFogb8mhnbz54xVcfxdQ8qTqrm+AwW2rm2tGzq
-	 YASMR7YJLted08W83SurUyWyhCbKmn05bK7cCsp5+1vkAjRzAa6d5gKgOnCBUq9Hzy
-	 iWToWEeahr6AlFK5fcaeSN/hgVTKtL3yBnlodlxVH/bwoulwIDVhfvvm2O/MibDea2
-	 oHKq232o9k83A==
-Date: Wed, 26 Nov 2025 08:14:38 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Usama Arif <usamaarif642@gmail.com>
-Cc: Pratyush Yadav <pratyush@kernel.org>,
-	Changyuan Lyu <changyuanl@google.com>, akpm@linux-foundation.org,
-	linux-kernel@vger.kernel.org, anthony.yznaga@oracle.com,
-	arnd@arndb.de, ashish.kalra@amd.com, benh@kernel.crashing.org,
-	bp@alien8.de, catalin.marinas@arm.com, corbet@lwn.net,
-	dave.hansen@linux.intel.com, devicetree@vger.kernel.org,
-	dwmw2@infradead.org, ebiederm@xmission.com, graf@amazon.com,
-	hpa@zytor.com, jgowans@amazon.com, kexec@lists.infradead.org,
-	krzk@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, luto@kernel.org,
-	mark.rutland@arm.com, mingo@redhat.com, pasha.tatashin@soleen.com,
-	pbonzini@redhat.com, peterz@infradead.org, robh@kernel.org,
-	rostedt@goodmis.org, saravanak@google.com,
-	skinsburskii@linux.microsoft.com, tglx@linutronix.de,
-	thomas.lendacky@amd.com, will@kernel.org, x86@kernel.org,
-	Breno Leitao <leitao@debian.org>, thevlad@meta.com
-Subject: Re: [PATCH v8 12/17] x86/e820: temporarily enable KHO scratch for
- memory below 1M
-Message-ID: <aSaazgjKX8PfFDXf@kernel.org>
-References: <20250509074635.3187114-1-changyuanl@google.com>
- <20250509074635.3187114-13-changyuanl@google.com>
- <a0f875f1-45ad-4dfc-b5c8-ecb51b242523@gmail.com>
- <mafs01plmxngp.fsf@kernel.org>
- <aSW0MF9BXjLnY2Fr@kernel.org>
- <ba690e06-c2a1-4d2e-9428-9ca2ea9f2b86@gmail.com>
+	id 1vO8qi-0000000EQlB-1Aho
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Nov 2025 06:17:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
+	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=njRL/wp1iCkqO69EYYorLtrNKLXhDungO1SZ8XuDZA4=; b=2l2h4cR5ky5UT9XKYNwy6qYVCs
+	EdUZbSUh33sqPEbmFDUcMNYEuBH57fiRShFcqlYAybcHXehJ0zKE0JMofbMDm8AXPFIQjG0VxhSYY
+	uPtjR7jqeSlw9InYP2ZwLOceL2BsOYajBJBn75xe7E+Rmg9gSdOWPdgeiSVXQKOjBB3nbHXDMAFh3
+	SYnLiJBt0D48nISo0G6xN8TFviRGHu+XKASW/5n8u0oijbSCwNSNiqyDd6D+VxbYyEe9MHUDjJWob
+	chj/IQmppUdrs66AdVGGY99JQmJMn+DyW2kcuQttfgyimLcl3B1pKhLGvvKkkRzkvRoYndO7MlaHo
+	FeTR4p+g==;
+Received: from [122.175.9.182] (port=41747 helo=zimbra.couthit.local)
+	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1vO8pz-0000000CBjb-49pf;
+	Wed, 26 Nov 2025 01:17:12 -0500
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id 762FE1A820EA;
+	Wed, 26 Nov 2025 11:47:04 +0530 (IST)
+Received: from zimbra.couthit.local ([127.0.0.1])
+ by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10032)
+ with ESMTP id 1-IdLgzFHwXl; Wed, 26 Nov 2025 11:47:04 +0530 (IST)
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id 21E931A820E7;
+	Wed, 26 Nov 2025 11:47:04 +0530 (IST)
+X-Virus-Scanned: amavis at couthit.local
+Received: from zimbra.couthit.local ([127.0.0.1])
+ by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10026)
+ with ESMTP id qG9HVHOSzlBM; Wed, 26 Nov 2025 11:47:04 +0530 (IST)
+Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
+	by zimbra.couthit.local (Postfix) with ESMTP id F405A1A820EA;
+	Wed, 26 Nov 2025 11:47:03 +0530 (IST)
+Date: Wed, 26 Nov 2025 11:47:03 +0530 (IST)
+From: Parvathi Pudi <parvathi@couthit.com>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Parvathi Pudi <parvathi@couthit.com>, andrew+netdev <andrew+netdev@lunn.ch>, 
+	davem <davem@davemloft.net>, edumazet <edumazet@google.com>, 
+	pabeni <pabeni@redhat.com>, danishanwar <danishanwar@ti.com>, 
+	rogerq <rogerq@kernel.org>, pmohan <pmohan@couthit.com>, 
+	basharath <basharath@couthit.com>, afd <afd@ti.com>, 
+	linux-kernel <linux-kernel@vger.kernel.org>, 
+	netdev <netdev@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	ALOK TIWARI <alok.a.tiwari@oracle.com>, horms <horms@kernel.org>, 
+	pratheesh <pratheesh@ti.com>, j-rameshbabu <j-rameshbabu@ti.com>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, 
+	srk <srk@ti.com>, rogerq <rogerq@ti.com>, 
+	krishna <krishna@couthit.com>, mohan <mohan@couthit.com>
+Message-ID: <1268174479.21081.1764137823922.JavaMail.zimbra@couthit.local>
+In-Reply-To: <20251124200322.615773bb@kernel.org>
+References: <20251124135800.2219431-1-parvathi@couthit.com> <20251124135800.2219431-3-parvathi@couthit.com> <20251124200322.615773bb@kernel.org>
+Subject: Re: [PATCH net-next v6 2/3] net: ti: icssm-prueth: Adds switchdev
+ support for icssm_prueth driver
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ba690e06-c2a1-4d2e-9428-9ca2ea9f2b86@gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Originating-IP: [10.10.10.233]
+X-Mailer: Zimbra 9.0.0_ZEXTRAS_20240927 (ZimbraWebClient - GC138 (Linux)/9.0.0_ZEXTRAS_20240927)
+Thread-Topic: icssm-prueth: Adds switchdev support for icssm_prueth driver
+Thread-Index: MhmPbhazM+vc1QgT/0XqLnqRaUMf+A==
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
+X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251125_221455_958997_3B941AA9 
-X-CRM114-Status: GOOD (  47.88  )
+X-CRM114-CacheID: sfid-20251125_221756_359649_C61FADFB 
+X-CRM114-Status: UNSURE (   7.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,221 +117,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 25, 2025 at 06:47:15PM +0000, Usama Arif wrote:
-> 
-> 
-> On 25/11/2025 13:50, Mike Rapoport wrote:
-> > Hi,
-> > 
-> > On Tue, Nov 25, 2025 at 02:15:34PM +0100, Pratyush Yadav wrote:
-> >> On Mon, Nov 24 2025, Usama Arif wrote:
-> > 
-> >>>> --- a/arch/x86/realmode/init.c
-> >>>> +++ b/arch/x86/realmode/init.c
-> >>>> @@ -65,6 +65,8 @@ void __init reserve_real_mode(void)
-> >>>>  	 * setup_arch().
-> >>>>  	 */
-> >>>>  	memblock_reserve(0, SZ_1M);
-> >>>> +
-> >>>> +	memblock_clear_kho_scratch(0, SZ_1M);
-> >>>>  }
-> >>>>  
-> >>>>  static void __init sme_sev_setup_real_mode(struct trampoline_header *th)
-> >>>
-> >>> Hello!
-> >>>
-> >>> I am working with Breno who reported that we are seeing the below warning at boot
-> >>> when rolling out 6.16 in Meta fleet. It is difficult to reproduce on a single host
-> >>> manually but we are seeing this several times a day inside the fleet.
-> >>>
-> >>>  20:16:33  ------------[ cut here ]------------
-> >>>  20:16:33  WARNING: CPU: 0 PID: 0 at mm/memblock.c:668 memblock_add_range+0x316/0x330
-> >>>  20:16:33  Modules linked in:
-> >>>  20:16:33  CPU: 0 UID: 0 PID: 0 Comm: swapper Tainted: G S                  6.16.1-0_fbk0_0_gc0739ee5037a #1 NONE 
-> >>>  20:16:33  Tainted: [S]=CPU_OUT_OF_SPEC
-> >>>  20:16:33  RIP: 0010:memblock_add_range+0x316/0x330
-> >>>  20:16:33  Code: ff ff ff 89 5c 24 08 41 ff c5 44 89 6c 24 10 48 63 74 24 08 48 63 54 24 10 e8 26 0c 00 00 e9 41 ff ff ff 0f 0b e9 af fd ff ff <0f> 0b e9 b7 fd ff ff 0f 0b 0f 0b cc cc cc cc cc cc cc cc cc cc cc
-> >>>  20:16:33  RSP: 0000:ffffffff83403dd8 EFLAGS: 00010083 ORIG_RAX: 0000000000000000
-> >>>  20:16:33  RAX: ffffffff8476ff90 RBX: 0000000000001c00 RCX: 0000000000000002
-> >>>  20:16:33  RDX: 00000000ffffffff RSI: 0000000000000000 RDI: ffffffff83bad4d8
-> >>>  20:16:33  RBP: 000000000009f000 R08: 0000000000000020 R09: 8000000000097101
-> >>>  20:16:33  R10: ffffffffff2004b0 R11: 203a6d6f646e6172 R12: 000000000009ec00
-> >>>  20:16:33  R13: 0000000000000002 R14: 0000000000100000 R15: 000000000009d000
-> >>>  20:16:33  FS:  0000000000000000(0000) GS:0000000000000000(0000) knlGS:0000000000000000
-> >>>  20:16:33  CR2: ffff888065413ff8 CR3: 00000000663b7000 CR4: 00000000000000b0
-> >>>  20:16:33  Call Trace:
-> >>>  20:16:33   <TASK>
-> >>>  20:16:33   ? __memblock_reserve+0x75/0x80
-> > 
-> > Do you have faddr2line for this?
-> > >>>  20:16:33   ? setup_arch+0x30f/0xb10
-> > 
-> > And this?
-> > 
-> 
-> 
-> Thanks for this! I think it helped narrow down the problem.
-> 
-> The stack is:
-> 
-> 20:16:33 ? __memblock_reserve (mm/memblock.c:936) 
-> 20:16:33 ? setup_arch (arch/x86/kernel/setup.c:413 arch/x86/kernel/setup.c:499 arch/x86/kernel/setup.c:956) 
-> 20:16:33 ? start_kernel (init/main.c:922) 
-> 20:16:33 ? x86_64_start_reservations (arch/x86/kernel/ebda.c:57) 
-> 20:16:33 ? x86_64_start_kernel (arch/x86/kernel/head64.c:231) 
-> 20:16:33 ? common_startup_64 (arch/x86/kernel/head_64.S:419) 
-> 
-> This is 6.16 kernel.
-> 
-> 20:16:33 ? __memblock_reserve (mm/memblock.c:936) 
-> Thats memblock_add_range call in memblock_reserve
-> 
-> 20:16:33 ? setup_arch (arch/x86/kernel/setup.c:413 arch/x86/kernel/setup.c:499 arch/x86/kernel/setup.c:956) 
-> That is parse_setup_data -> add_early_ima_buffer -> add_early_ima_buffer -> memblock_reserve_kern
-> 
-> 
-> I put a simple print like below:
-> 
-> diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
-> index 680d1b6dfea41..cc97ffc0083c7 100644
-> --- a/arch/x86/kernel/setup.c
-> +++ b/arch/x86/kernel/setup.c
-> @@ -409,6 +409,7 @@ static void __init add_early_ima_buffer(u64 phys_addr)
->         }
->  
->         if (data->size) {
-> +               pr_err("PPP %s %s %d data->addr %llx, data->size %llx \n", __FILE__, __func__, __LINE__, data->addr, data->size);
->                 memblock_reserve_kern(data->addr, data->size);
->                 ima_kexec_buffer_phys = data->addr;
->                 ima_kexec_buffer_size = data->size;
-> 
-> 
-> and I see (without replicating the warning):
-> 
-> [    0.000000] PPP arch/x86/kernel/setup.c add_early_ima_buffer 412 data->addr 9e000, data->size 1000                                                                                          
-> ....
+Hi,
 
-So it looks like in cases when the warning reproduces there's something
-that reserves memory overlapping with IMA buffer before
-add_early_ima_buffer().
+> On Mon, 24 Nov 2025 19:25:11 +0530 Parvathi Pudi wrote:
+>> Subject: [PATCH net-next v6 2/3] net: ti: icssm-prueth: Adds switchdev s=
+upport
+>> for icssm_prueth driver
+>=20
+> Adds -> Add
+>=20
+>> This patch adds support for offloading the RSTP switch feature to the
+>=20
+> s/This patch adds/Add/
+>=20
+> imperative mood, please..
+>=20
 
-> 
-> [    0.000348] MEMBLOCK configuration:
-> [    0.000348]  memory size = 0x0000003fea329ff0 reserved size = 0x00000000050c969b
-> [    0.000350]  memory.cnt  = 0x5
-> [    0.000351]  memory[0x0]     [0x0000000000001000-0x000000000009ffff], 0x000000000009f000 bytes flags: 0x40
-> [    0.000353]  memory[0x1]     [0x0000000000100000-0x0000000067c65fff], 0x0000000067b66000 bytes flags: 0x0
-> [    0.000355]  memory[0x2]     [0x000000006d8db000-0x000000006fffffff], 0x0000000002725000 bytes flags: 0x0
-> [    0.000356]  memory[0x3]     [0x0000000100000000-0x000000407fff8fff], 0x0000003f7fff9000 bytes flags: 0x0
-> [    0.000358]  memory[0x4]     [0x000000407fffa000-0x000000407fffffff], 0x0000000000006000 bytes flags: 0x0
-> [    0.000359]  reserved.cnt  = 0x7
-> 
-> 
-> So MEMBLOCK_RSRV_KERN and MEMBLOCK_KHO_SCRATCH seem to overlap..
+Sure, we will address this in the next version.
 
-It does not matter, they are set on different arrays. RSRV_KERN is set on
-regions in memblock.reserved and KHO_SCRATCH is set on regions in
-memblock.memory.
+>> +static void icssm_prueth_sw_fdb_work(struct work_struct *work)
+>> +{
+>> +=09struct icssm_prueth_sw_fdb_work *fdb_work =3D
+>> +=09=09container_of(work, struct icssm_prueth_sw_fdb_work, work);
+>> +=09struct prueth_emac *emac =3D fdb_work->emac;
+>> +
+>> +=09rtnl_lock();
+>> +
+>> +=09/* Interface is not up */
+>> +=09if (!emac->prueth->fdb_tbl)
+>> +=09=09goto free;
+>> +
+>> +=09switch (fdb_work->event) {
+>> +=09case FDB_LEARN:
+>> +=09=09icssm_prueth_sw_insert_fdb_entry(emac, fdb_work->addr, 0);
+>> +=09=09break;
+>> +=09case FDB_PURGE:
+>> +=09=09icssm_prueth_sw_do_purge_fdb(emac);
+>> +=09=09break;
+>> +=09default:
+>> +=09=09break;
+>> +=09}
+>> +
+>> +free:
+>> +=09rtnl_unlock();
+>> +=09kfree(fdb_work);
+>> +=09dev_put(emac->ndev);
+>=20
+> please use netdev_put() and a netdev tracker
+>=20
 
-So dumping memblock.memory is completely irrelevant, you need to check
-memblock.reserved for potential conflicts.
- 
-> >>>  20:16:33   ? start_kernel+0x58/0x960
-> >>>  20:16:33   ? x86_64_start_reservations+0x20/0x20
-> >>>  20:16:33   ? x86_64_start_kernel+0x13d/0x140
-> >>>  20:16:33   ? common_startup_64+0x13e/0x140
-> >>>  20:16:33   </TASK>
-> >>>  20:16:33  ---[ end trace 0000000000000000 ]--- 
-> >>>
-> >>>
-> >>> Rolling out with memblock=debug is not really an option in a large scale fleet due to the
-> >>> time added to boot. But I did try on one of the hosts (without reproducing the issue) and I see:
-> > 
-> > Is it a problem to roll out a kernel that has additional debug printouts as
-> > Breno suggested earlier? I.e.
-> > 
-> > 	if (flags != MEMBLOCK_NONE && flags != rgn->flags) {
-> > 		pr_warn("memblock: Flag mismatch at region [%pa-%pa]\n",
-> > 			&rgn->base, &rend);
-> > 		pr_warn("  Existing region flags: %#x\n", rgn->flags);
-> > 		pr_warn("  New range flags: %#x\n", flags);
-> > 		pr_warn("  New range: [%pa-%pa]\n", &base, &end);
-> > 		WARN_ON_ONCE(1);
-> > 	}
-> > 
-> 
-> I can add this, but the only thing is that it might be several weeks between me putting this in the
-> kernel and that kernel being deployed to enough machines that it starts to show up. I think the IMA coinciding
-> with memblock_mark_kho_scratch in e820__memblock_setup could be the reason for the warning. It might be better to
-> fix that case and deploy it to see if the warnings still show up?
-> I can add these prints as well incase it doesnt fix the problem.
- 
-I really don't think that effectively disabling memblock_mark_kho_scratch()
-when KHO is disabled will solve the problem because as I said the flags it
-sets are on different structure than the flags set by
-memblock_reserve_kern().
+We will replace dev_put() with netdev_put() as shown below and
+add a netdevice_tracker to the icssm_prueth_sw_fdb_work struct.
 
-> > If you have the logs from failing boots up to the point where SLUB reports
-> > about it's initialization, e.g. 
-> > 
-> > [    0.134377] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=8, Nodes=1
-> > 
-> > something there may hint about what's the issue. 
-> 
-> So the boot doesnt fail, its just giving warnings in the fleet.
-> I have added the dmesg to the end of the mail.
- 
-Thanks, unfortunately nothing jumped at me there.
+"netdev_put(emac->ndev, &fdb_work=E2=86=92ndev_tracker);"
 
-> Does something like this look good? I can try deploying this (although it will take sometime to find out).
-> We can get it upstream as well as that makes backports easier.
-> 
-> diff --git a/mm/memblock.c b/mm/memblock.c
-> index 154f1d73b61f2..257c6f0eee03d 100644
-> --- a/mm/memblock.c
-> +++ b/mm/memblock.c
-> @@ -1119,8 +1119,13 @@ int __init_memblock memblock_reserved_mark_noinit(phys_addr_t base, phys_addr_t
->   */
->  __init int memblock_mark_kho_scratch(phys_addr_t base, phys_addr_t size)
->  {
-> -       return memblock_setclr_flag(&memblock.memory, base, size, 1,
-> -                                   MEMBLOCK_KHO_SCRATCH);
-> +#ifdef CONFIG_MEMBLOCK_KHO_SCRATCH
-> +       if (is_kho_boot())
+We will address this in the next version.
 
-Please use 
+>> +}
+>> +
+>> +int icssm_prueth_sw_learn_fdb(struct prueth_emac *emac, u8 *src_mac)
+>> +{
+>> +=09struct icssm_prueth_sw_fdb_work *fdb_work;
+>> +
+>> +=09fdb_work =3D kzalloc(sizeof(*fdb_work), GFP_ATOMIC);
+>> +=09if (WARN_ON(!fdb_work))
+>> +=09=09return -ENOMEM;
+>> +
+>> +=09INIT_WORK(&fdb_work->work, icssm_prueth_sw_fdb_work);
+>> +
+>> +=09fdb_work->event =3D FDB_LEARN;
+>> +=09fdb_work->emac  =3D emac;
+>> +=09ether_addr_copy(fdb_work->addr, src_mac);
+>> +
+>> +=09dev_hold(emac->ndev);
+>=20
+> same here.
+>=20
+> This significantly helps debugging in case some code leaks a reference.
+> --
+> pw-bot: cr
 
-	if (IS_ENABLED(CONFIG_MEMBLOCK_KHO_SCRATCH)
 
-instead of indef.
+Here as well, we will replace dev_hold() with netdev_hold() as shown below
+and will address this in next version.
 
-If you send a formal patch with it, I'll take it.
-I'd suggest still deploying additional debug printouts internally.
+"netdev_hold(emac->ndev, &fdb_work->ndev_tracker, GFP_ATOMIC);"
 
-> +               return memblock_setclr_flag(&memblock.memory, base, size, 1,
-> +                                           MEMBLOCK_KHO_SCRATCH);
-> +#else
-> +       return 0;
-> +#endif
->  }
->  
->  /**
-> @@ -1133,8 +1138,13 @@ __init int memblock_mark_kho_scratch(phys_addr_t base, phys_addr_t size)
->   */
->  __init int memblock_clear_kho_scratch(phys_addr_t base, phys_addr_t size)
->  {
-> -       return memblock_setclr_flag(&memblock.memory, base, size, 0,
-> -                                   MEMBLOCK_KHO_SCRATCH);
-> +#ifdef CONFIG_MEMBLOCK_KHO_SCRATCH
-> +       if (is_kho_boot())
-> +               return memblock_setclr_flag(&memblock.memory, base, size, 0,
-> +                                           MEMBLOCK_KHO_SCRATCH);
-> +#else
 
-If nothing sets the flag _clear is anyway nop, but let's update it as well
-for symmetry.
-
--- 
-Sincerely yours,
-Mike.
+Thanks and Regards,
+Parvathi.
 
