@@ -4,61 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDFEBD11192
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 19:12:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B922FD1118E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 19:15:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZCsO/Nsbka1ldntG+T+8tVsZbJQlp5WWWZK1eiUSa7U=; b=Hf8dPXQKksg+D519mtWoy1P1mY
-	XVt/sFb9JfB5XpQyIGGJHH7dbIZtLnl4zA5J2LsY65o/F2Skp17PcpXzAeHZkSsH2kb168Gelu5ba
-	h5X76oPGD+fWKF2NuQ1/2+sX6PbhlB3rlTSgPpPhTSrj9Mb9qk7KZ81mR3cyYhTjCWqA+YIzEbpFg
-	zrHcMUxTItHPGtQ5k41VgPCwxCxQbZ+kjIHyGWXOifRpUjEggKSpKo+3tz6W+W501ja1PDjv4Lnml
-	61nLQVcJXwd6tgFF32jikufN5RrkCpr9wCPx6H+ZMDRBdmUuFlFHH8jKpuwdK3esGX4R9jTmvviSb
-	dIBJNgjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KTe3t3TVsb+fEajvHj3NCEBIuG8sr3/4QPiIddSnnn4=; b=2ug8yrYpVtrT6eMUZW5dOV1G7r
+	in0A15ycL+Ln4W50ucaZ619JHj0j/DZKXcW8I+BfEzEa6Xi4RLKyToQLC7clmmvtVuCGJDRCpptiJ
+	JrvjKlfKMW8yyMKru46ui4m33+pHxoDI1Y+CUS+pzxUYEWuzieqAv/EwUSroDH74r0r8NWYL4Lwys
+	2RoAs9VaMrHhL89hxjvO2OTF+cN/4vzmR4diitfNu/Rniz6mD7QvJgrwzS+WGloraEQl+k/e4ym4x
+	6KsW6uK9lq5rBsNQIRkQOXQwlVYUcWpOBVUHUtRr+NpK/GFuwBKrpmhLKtmjhzfmABBVD7P1UjdhD
+	nWy22s9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOKwa-0000000FXY7-0LLy;
-	Wed, 26 Nov 2025 19:12:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vOKz0-0000000FXih-3em2;
+	Wed, 26 Nov 2025 19:15:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOKwY-0000000FXXv-1w52;
-	Wed, 26 Nov 2025 19:12:46 +0000
+	id 1vOKyx-0000000FXiK-3gOe
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 26 Nov 2025 19:15:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 69B1B60240;
-	Wed, 26 Nov 2025 19:12:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9736C4CEF8;
-	Wed, 26 Nov 2025 19:12:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3258444007;
+	Wed, 26 Nov 2025 19:15:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2B32CC4CEF7;
+	Wed, 26 Nov 2025 19:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764184365;
-	bh=sWWXp3sv6vfsWvCEZUjz8CmJ0VK8ViosU6u8p8WK57w=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=Ju2pT6Azp7yo6k1D5f0cG+rlRn5zuLUrevCfMZNmQuf+hzPNgPcMbQwwKwNSgiwc5
-	 UaBtW2k2+qFOkRTCxJImD00d+gDOQDBLj4pS67mxN9hNnQ2/Er1zx+dwhJfVJejMtY
-	 Q0qODMulspHUVxNjpAYZi2Dc0s91nKUxFPHO5lXbJyAyDcdty9L395tp6j6okow+Qc
-	 DBD4ox4lV9U+BMwC4nNIpuwU8Fnnap7QuG7mWXrJj2wdjYb1c8Nunlo2PcmKunIwaH
-	 jtUJVfMWIX2oqJhnYkipmt4PWd+BY5h4dFRWml/jEe/OtjlvWzqXd4BxYKCImlvJZd
-	 Zrq37EJ3X5RTA==
-From: Mark Brown <broonie@kernel.org>
-To: Cyril Chao <Cyril.Chao@mediatek.com>, 
- Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- linux-sound@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- kernel-janitors@vger.kernel.org
-In-Reply-To: <aScUKqCEhSIZoOmg@stanley.mountain>
-References: <aScUKqCEhSIZoOmg@stanley.mountain>
-Subject: Re: [PATCH] ASoC: mediatek: mt8189: remove unnecessary NULL check
-Message-Id: <176418436269.117076.14309249489407966858.b4-ty@kernel.org>
-Date: Wed, 26 Nov 2025 19:12:42 +0000
+	s=k20201202; t=1764184515;
+	bh=YV4pjAqMNH1e8RyHMHOeLoCuMUlXuCmev7wEOw+8lts=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LzxXgapT5UAmitacwrTn7wIBEWHn94AQ18oypryE31BJUDw8zdKDGI0Je2Pc1tQK9
+	 qkN1yY+zTBnZJcFEmMfBzwjtybACmegBWSzrvQ/fiKKt7BzFAEs8Rb81mPnsEejvR7
+	 A7S/x+NcPoLijEBK8EApQBIDu1rT2YtLi/3K9xTEnOAK/b2s/ultsTsbbCTVOzkRWs
+	 2KWKgEy/ene5Y+5CQsn2o1rsEvcoHO7MByF8Chdp6yXoi5TLOm6rTVyIuqFOUPcgA4
+	 1xT+YYMxGPID0h5jtA0mFS9pSks0fz34spTbRZQzdLf141aeLRmnTBZcEy3T6UojXx
+	 F4QFAV+84rgog==
+Date: Wed, 26 Nov 2025 19:15:10 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Gary Yang <gary.yang@cixtech.com>
+Cc: "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	cix-kernel-upstream <cix-kernel-upstream@cixtech.com>
+Subject: Re: =?utf-8?B?5Zue5aSNOiBbUEFUQw==?= =?utf-8?Q?H?= v3 1/3]
+ dt-bindings: reset: add sky1 reset controller
+Message-ID: <20251126-dreamily-shorty-cb543d993e7a@spud>
+References: <20251124063235.952136-1-gary.yang@cixtech.com>
+ <20251124063235.952136-2-gary.yang@cixtech.com>
+ <20251124-selector-blemish-ec6e9a356bc6@spud>
+ <PUZPR06MB5887CB84BC4D006EC594B654EFD1A@PUZPR06MB5887.apcprd06.prod.outlook.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-88d78
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="9Jh5ZsEUVAe/DzXG"
+Content-Disposition: inline
+In-Reply-To: <PUZPR06MB5887CB84BC4D006EC594B654EFD1A@PUZPR06MB5887.apcprd06.prod.outlook.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251126_111515_965447_DB779FBA 
+X-CRM114-Status: GOOD (  38.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,40 +82,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 26 Nov 2025 17:52:26 +0300, Dan Carpenter wrote:
-> Smatch complains that the call to snd_soc_component_get_drvdata(component)
-> will dereference "component" so this NULL check is too late.  The probe()
-> function will never be called with a NULL component pointer so just
-> delete the check.
-> 
-> 
 
-Applied to
+--9Jh5ZsEUVAe/DzXG
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+On Tue, Nov 25, 2025 at 02:12:23PM +0000, Gary Yang wrote:
+> Hi Conor:
+>=20
+> Thanks for your comments
+>=20
+> > -----=E9=82=AE=E4=BB=B6=E5=8E=9F=E4=BB=B6-----
+> > =E5=8F=91=E4=BB=B6=E4=BA=BA: Conor Dooley <conor@kernel.org>
+> > =E5=8F=91=E9=80=81=E6=97=B6=E9=97=B4: 2025=E5=B9=B411=E6=9C=8825=E6=97=
+=A5 3:54
+> > =E6=94=B6=E4=BB=B6=E4=BA=BA: Gary Yang <gary.yang@cixtech.com>
+> > =E6=8A=84=E9=80=81: p.zabel@pengutronix.de; robh@kernel.org; krzk+dt@ke=
+rnel.org;
+> > conor+dt@kernel.org; devicetree@vger.kernel.org;
+> > linux-kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
+> > cix-kernel-upstream <cix-kernel-upstream@cixtech.com>
+> > =E4=B8=BB=E9=A2=98: Re: [PATCH v3 1/3] dt-bindings: reset: add sky1 res=
+et controller
+> >=20
+> > On Mon, Nov 24, 2025 at 02:32:33PM +0800, Gary Yang wrote:
+> > > There are two reset controllers on Cix sky1 Soc.
+> > > One is located in S0 domain, and the other is located in S5 domain.
+> > >
+> > > Signed-off-by: Gary Yang <gary.yang@cixtech.com>
+> > > ---
+> > >  .../bindings/reset/cix,sky1-rst.yaml          |  50 ++++++
+> > >  include/dt-bindings/reset/cix,sky1-rst-fch.h  |  42 +++++
+> > >  include/dt-bindings/reset/cix,sky1-rst.h      | 164 ++++++++++++++++=
+++
+> > >  3 files changed, 256 insertions(+)
+> > >  create mode 100644
+> > > Documentation/devicetree/bindings/reset/cix,sky1-rst.yaml
+> > >  create mode 100644 include/dt-bindings/reset/cix,sky1-rst-fch.h
+> > >  create mode 100644 include/dt-bindings/reset/cix,sky1-rst.h
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/reset/cix,sky1-rst.yaml
+> > > b/Documentation/devicetree/bindings/reset/cix,sky1-rst.yaml
+> > > new file mode 100644
+> > > index 000000000000..a28f938a283d
+> > > --- /dev/null
+> > > +++ b/Documentation/devicetree/bindings/reset/cix,sky1-rst.yaml
+> > > @@ -0,0 +1,50 @@
+> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) %YAML 1.2
+> > > +---
+> > > +$id: http://devicetree.org/schemas/reset/cix,sky1-rst.yaml#
+> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > > +
+> > > +title: CIX Sky1 Reset Controller
+> > > +
+> > > +maintainers:
+> > > +  - Gary Yang <gary.yang@cixtech.com>
+> > > +
+> > > +description: |
+> > > +  CIX Sky1 reset controller can be used to reset various set of peri=
+pherals.
+> > > +  There are two reset controllers, one is located in S0 domain, the
+> > > +other
+> > > +  is located in S5 domain.
+> > > +
+> > > +  See also:
+> > > +  - include/dt-bindings/reset/cix,sky1-rst.h
+> > > +
+> > > +properties:
+> > > +  compatible:
+> > > +    items:
+> > > +      - enum:
+> > > +          - cix,sky1-rst
+> > > +          - cix,sky1-rst-fch
+> >=20
+> > You've not addressed my v2 commentary:
+> > https://lore.kernel.org/all/20251114-problem-overbook-383f8e45cd0b@spud
+> > /
+> > I asked what else the device does, but you didn't answer me. Dropping t=
+he
+> > syscon doesn't make sense if the device genuinely has other functions.
+> >=20
+>=20
+> First I'm sorry for not responding your questions earlier. We agree the f=
+act the register space of reset should not depends on other modules.
+> We found that while the reset register spaces on the sky1 platform are no=
+n-contiguous, a specific register space among them is exclusively used by r=
+eset.
+> So we can remove syscon property and split serval register spaces. All ri=
+ght?
 
-Thanks!
+No, not all right, sorry.
+It's perfectly okay for some region to do multiple things, most SoCs have
+multiple regions exactly like this.
+The normal thing to do is to treat these regions as a syscon like your
+earlier version did. The problem with your v1 was that you called the
+whole thing a reset, when it isn't just that.
+There's plenty of examples using mfd for how these kinds of devices are
+handled in the kernel. There's some using the simple-mfd compatible,
+which is for when there are subdevices with their own nodes and other
+defining mfd_cells and calling mfd_add_devices() when the subdevices do
+not have enough complexity for a node (like your reset controller that
+has one property and is unlikely to be reusable on another platform).
 
-[1/1] ASoC: mediatek: mt8189: remove unnecessary NULL check
-      commit: 9d3fcd0ebe91c2079b4aeaffc7493a0bb2ad45f2
+> > > +  reg:
+> > > +    minItems: 1
+> > > +    maxItems: 3
+> > > +
+> > > +  '#reset-cells':
+> > > +    const: 1
+> > > +
+> > > +required:
+> > > +  - compatible
+> > > +  - reg
+> > > +  - '#reset-cells'
+> > > +
+> > > +additionalProperties: false
+> > > +
+> > > +examples:
+> > > +  - |
+> > > +    #include <dt-bindings/reset/cix,sky1-rst.h>
+> > > +    reset-controller@16000304 {
+> > > +      compatible =3D "cix,sky1-rst";
+> >=20
+> > > +      reg =3D <0x16000304 0xc>,
+> > > +            <0x16000400 0x10>,
+> > > +            <0x16000800 0x8>;
+> >=20
+> > This is also highly suspect, and I believe what you had before was prob=
+ably
+> > much more realistic.
+> > Do things properly and fully *now*, rather than pay the price of unrave=
+lling it
+> > all later. I just did this for one of my own platforms, and putting in =
+the effort to
+> > completely describe stuff up front is actually worth it rather than hav=
+ing to
+> > refactor years down the line.
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+> Yes, I agree your view.=20
+> This scheme is discussed in our team. It is our decision, not only mine.
+> There are some modules here that haven't been pushed upstream yet.
+> If we take them as our internal names, maybe make you confuse. For exampl=
+e,
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+If the naming is going to be confusing, then explain things in the
+description property.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+> The register space based 0x16000000 belongs to PMCTRL_S5. It is a system =
+power control module, not SCP.
+> It not only includes reset controller, but also some usb control, wakeup =
+sources, clk gates, sleep states settings,
+> generic registers for software, and so on. But In kernel, we mainly focus=
+ on reset controller and usb control.
+> They are controlled by the different registers. So we decide to adopt thi=
+s scheme.
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+This is all very normal stuff that syscons are used for on other
+platforms. Describe the register region based on what it contains, not
+based on what you currently thing that linux is going to use. Maybe
+later you'll need the other functions either in linux, or in other
+projects (like u-boot) that import our devicetrees.
 
-Thanks,
-Mark
+> If you have any questions, please let us know. If make any mistakes, plea=
+se remind me kindly.=20
 
+--9Jh5ZsEUVAe/DzXG
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaSdRvgAKCRB4tDGHoIJi
+0hKhAQCmbr+7ztWuuydaMxE6QdXogDKJNwiNrECRbFXrMJrPgAEAxXl9/vmMAbon
+99sfh1Atv25w8arcMrKKyKA+l5ptWw8=
+=4RAm
+-----END PGP SIGNATURE-----
+
+--9Jh5ZsEUVAe/DzXG--
 
