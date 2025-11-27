@@ -4,61 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07520D10375
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 06:37:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34316CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 06:44:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fgodkdvxFslYjYvAp7cxMq5/AH0TWVDsyHdrx+MM6Cg=; b=LRGrSaN838v7kvJKhssq70IQVH
-	MTKPjknTv1GftuPbU9ubEOum6fX8xcGrySGIpjyubJrPFhmhBVjXCfTYumoxcqEilPBhL7u1mdiOr
-	erPA+QAJrWTsqV34lxQCO4eoZ8tujEnnUy60e9wSGaEkpxQUOKQFcpZPpXXFD6zs3h+X44f1FIXRX
-	UZrLjV88hN/inGQuIflSX9WP6ZsR1RrUz/7AIPCvHnOr4ZYd3cWAzMJsihTBfPUmGt79zL+cjQN1Q
-	2Jx+5pzc62XGLaCLgPIyHFGdg/oJptLHFYUAOwjwyCFybE8R7vPHH9RZR8nUDlysf5Xlq8lOnZIKw
-	Jr8v5tlg==;
+	bh=Hy6i4BHIBv92ivIvbJli4o+aE+p41yraaT/sJ5nA6dY=; b=f3Bi3UOjLaG+uyfrIxZ+TKEQty
+	a73tGJv9hQKc1feQwgXbOcBpq/qsZTsxYY+XfQorOTtZSi5UA4JskQnyXbEzfgG2YbToT4EGGeQck
+	QUSDbqTLOev2J+FUOvaV00XOanhVjr2Iov4YUU4uMfgCvrca3p5op2hNAj47buIfQpG92PEFYYZlj
+	8dG8tplEe8Va67iNgiks2q+CUHFR2MtskR/1hkwjaCEBfspLyyVRvSzG0isT24txOp/DcSAZxqZxS
+	nHRJ2DZdGVWFU6AKZUd9/LL45jgk9SX9Fqa3rieHN2hUVwrg2gBw1k3UbRkZT3YQiAg/mFgctIVHK
+	JVYPL37A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOVcz-0000000G3fC-1Uq0;
-	Thu, 27 Nov 2025 06:37:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vOVjQ-0000000G3uy-1Zkt;
+	Thu, 27 Nov 2025 06:43:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOVcy-0000000G3f5-06N3
+	id 1vOVjN-0000000G3uY-44DO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 06:37:16 +0000
+	Thu, 27 Nov 2025 06:43:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 259A66016E;
-	Thu, 27 Nov 2025 06:37:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAEB2C4CEF8;
-	Thu, 27 Nov 2025 06:37:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 94F49418C7;
+	Thu, 27 Nov 2025 06:43:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51061C4CEF8;
+	Thu, 27 Nov 2025 06:43:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764225434;
-	bh=sxm/pZRxFK+AZN/1aSkLmnFO7vK7xwxEtuumkKqVWs4=;
+	s=k20201202; t=1764225832;
+	bh=nJ1AksxvkgzgI5yArHPx9UP569L+VBn2SNhrNoTyxVI=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=secg8Oj4iwk0hBvUbPFzz+j+hhH6cmpWPfG/YpGNTbMPOY3RnYZ5N4OjH7wwZS0Co
-	 qCvrNf0E9cD1di0gSesJU3RyjrhKOYZsd+otKZvo+lyVA5MUzLWzlDCuyXuyIDU+Um
-	 +XLT8oepfwvxr9eZ40IOFdemjnuEN/by4VV2XT+c1R1sQHrI4zgP+UHtbAiy+/RwiI
-	 TOeJdje3X5DO1cAwEc26uND4nbttPkuEo/u4p9KYUyMa0r8uCpua2rDGf9CM7BduHI
-	 FkETw4oXtXVDPhGx2crT5UJtTaqNYbmGsQs6eTReE4JJEEaWSSQQTIo6Gv2+lYbQCJ
-	 aTKPQFA/phqgA==
-Date: Wed, 26 Nov 2025 22:37:13 -0800
+	b=qySN6j7BCWXiirX2iH/LbdQY7BIP5AOhi3DKO0XaIffn/BuecmPdQ0LTgTFiENeFq
+	 9/JJxc9Jl7VZeJ63qj2hlNfnBm5PhhX/HHaRvyB0KdZy8os65NiC+CFYvCtCgsTKIY
+	 /+POJMGyTBi1RHY6gjObEjdi9euL37hb6FfgOpuMtQFY41tZ+0SSM4e3Hzrb9KPV9C
+	 of1CkzsjphU4N8MgwcJvIp9MSwdLZ7bw+f0D7Wh1EicNNTdrlmShRqOZcWwdRJG8w4
+	 pPE2jVZA2R+3bqktm0J+WtRqITdWnWaNfk3WJcZy1VsRI/Nv/43GLz11YavGKBAt/a
+	 7aKiQgm9c1kfA==
+Date: Wed, 26 Nov 2025 22:43:51 -0800
 From: Oliver Upton <oupton@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+To: Yao Yuan <yaoyuan@linux.alibaba.com>
+Cc: Marc Zyngier <maz@kernel.org>, kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>, Ben Horgan <ben.horgan@arm.com>
-Subject: Re: [PATCH v2 2/5] KVM: arm64: Force trap of GMID_EL1 when the guest
- doesn't have MTE
-Message-ID: <aSfxmQptJlCHhb0M@kernel.org>
+Subject: Re: [PATCH v2 4/5] KVM: arm64: Report optional ID register traps
+ with a 0x18 syndrome
+Message-ID: <aSfzJxBfdI17pyPD@kernel.org>
 References: <20251126155951.1146317-1-maz@kernel.org>
- <20251126155951.1146317-3-maz@kernel.org>
+ <20251126155951.1146317-5-maz@kernel.org>
+ <dk6bwi72nwfty6qpbh2eaeubznqt74gjffas2rclrrwjn5tr6j@mjitrla3p3d7>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251126155951.1146317-3-maz@kernel.org>
+In-Reply-To: <dk6bwi72nwfty6qpbh2eaeubznqt74gjffas2rclrrwjn5tr6j@mjitrla3p3d7>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251126_224354_059246_30D3ABE3 
+X-CRM114-Status: GOOD (  21.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,32 +77,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 26, 2025 at 03:59:48PM +0000, Marc Zyngier wrote:
-> If our host has MTE, but the guest doesn't, make sure we set HCR_EL2.TID5
-> to force GMID_EL1 being trapped.
+On Thu, Nov 27, 2025 at 02:07:08PM +0800, Yao Yuan wrote:
+> On Wed, Nov 26, 2025 at 03:59:50PM +0800, Marc Zyngier wrote:
+> > With FEAT_IDST, unimplemented system registers in the feature ID space
+> > must be reported using EC=0x18 at the closest handling EL, rather than
+> > with an UNDEF.
+> >
+> > Most of these system registers are always implemented thanks to their
+> > dependency on FEAT_AA64, except for a set of (currently) three registers:
+> > GMID_EL1 (depending on MTE2), CCSIDR2_EL1 (depending on FEAT_CCIDX),
+> > and SMIDR_EL1 (depending on SME).
+> >
+> > For these three registers, report their trap as EC=0x18 if they
+> > end-up trapping into KVM and that FEAT_IDST is not implemented in the
+> > guest. Otherwise, just make them UNDEF.
+> >
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/kvm/sys_regs.c | 16 +++++++++++++---
+> >  1 file changed, 13 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> > index 2ca6862e935b5..7705f703e7c6d 100644
+> > --- a/arch/arm64/kvm/sys_regs.c
+> > +++ b/arch/arm64/kvm/sys_regs.c
+> > @@ -82,6 +82,16 @@ static bool write_to_read_only(struct kvm_vcpu *vcpu,
+> >  			"sys_reg write to read-only register");
+> >  }
+> >
+> > +static bool idst_access(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+> > +			const struct sys_reg_desc *r)
+> > +{
+> > +	if (kvm_has_feat_enum(vcpu->kvm, ID_AA64MMFR2_EL1, IDS, 0x0))
 > 
-> Reviewed-by: Joey Gouly <joey.gouly@arm.com>
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/kvm/sys_regs.c | 2 ++
->  1 file changed, 2 insertions(+)
+> Hi Marc,
 > 
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 9e4c46fbfd802..2ca6862e935b5 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -5561,6 +5561,8 @@ static void vcpu_set_hcr(struct kvm_vcpu *vcpu)
->  
->  	if (kvm_has_mte(vcpu->kvm))
->  		vcpu->arch.hcr_el2 |= HCR_ATA;
-> +	else if (id_aa64pfr1_mte(read_sanitised_ftr_reg(SYS_ID_AA64PFR1_EL1)))
+> Minor: maybe beter readability if use NI instead of 0x0, just like
+> things in feat_nv2() below, but depends on you.
 
-This helper is ugly!
-
-> +		vcpu->arch.hcr_el2 |= HCR_TID5;
-
-How about setting the trap unconditionally when !kvm_has_mte()? Even in
-the case of asymmetry we'd want GMID_EL1 to trap.
++1, using the ESR value as an identifier in the sysreg tables is just
+terrible. This reads like a literal.
 
 Thanks,
 Oliver
