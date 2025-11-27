@@ -4,84 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EBA4D116E2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 14:28:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8AD0CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 14:30:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c+QeMOJOnfslgDcfNzsZCKnwETDURGiBqjri2tCUFfk=; b=kOdLXipxHsfLYGRUx+I66GWvkP
-	eQZJhq+jJG+M8zaVKgiFzQNirxyaMpi1TtN9NsHRLbyEN9B4FpUfhnvTGZDtpZPPmHOUBfoV8IonP
-	IVLlQl6y+Xs3ATdIcWkqpmkkEuWAfds8XDS6AW1myLOBqPsqpMc+z/ou4E4td55pGrYH/GKp1Bb3s
-	j5tAzApOfVP0b/buc0+OTT4+a8U6+xhZdJWGSGsGZZGBTfhAjnOFZwCTPW+WxsR2y6UBbc9PPiPId
-	RUax+2xNLlDABV2B9h8m3xtvCfK94uF5ucCqgYRyZrBNjcDN/MDSHNRmABq8dBJfHBpofvwLyZShF
-	Whe7lEdg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TuYGBer9JF3CpxBE7lkRwytVDZxUS4o8rVZ18yi57hM=; b=pfvdoYyYH8h2haWNWqU9BbgBLE
+	18iOUUx1y3d5kOGUF6l5zxkPHFiMGABDANFaVsgn6ABCobXSbGk325QPjwbY83iyqgpHFKokfCooS
+	/wVECzPTfxQktoHUAYMeCdgaliqlfc9Ljf7Kt2TBuq9bJLfMO02wxB34KZCtsz5U/N5fEC3OccIEK
+	Wfv/goOhxyyjwvNo0DG+4PzmX9Nw//JCVXHmZWxzpgCFTLOg4B1x5IplktksEOYVwS3GAoy2oSdRE
+	UMCs9ikwGNokCl0bkFkC/bAiSD1qmd768m6f6jqvJhY6GL6qXWwt3mZbGgu5vTJfjv0kiJ1y2XJLr
+	kCLi+WYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOczJ-0000000GmPf-2aJc;
-	Thu, 27 Nov 2025 14:28:49 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1vOd0Y-0000000GmXx-1Aw9;
+	Thu, 27 Nov 2025 14:30:06 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOczG-0000000GmPF-2Voo
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 14:28:48 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20251127142840euoutp02db1bdb378563cba69938fc67c3969683~742k7u32y2890528905euoutp02y
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 14:28:40 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20251127142840euoutp02db1bdb378563cba69938fc67c3969683~742k7u32y2890528905euoutp02y
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1764253720;
-	bh=c+QeMOJOnfslgDcfNzsZCKnwETDURGiBqjri2tCUFfk=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=erbwpoODj8qo874optlioim476oOShFTEsV3Ii2jsn23RSu2+ZqD/Byawvhgk9B9y
-	 8GKnMWuwLJ8Iga9mkAgXYi8I7oqYCCBi7g0JqpaqvnXzJjhKcm0qtB14Eu9mnTXfmB
-	 /fKBWfHcgCCVRO6fXtKiJOBP8NR400dWaL9LnMok=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20251127142839eucas1p186846c6c1ea1d9e43369fbba9bb5d17c~742kOva7m0371103711eucas1p14;
-	Thu, 27 Nov 2025 14:28:39 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20251127142836eusmtip20607f11d6d5e39787db9d5c4efbb27f3~742huJECq1704117041eusmtip2Y;
-	Thu, 27 Nov 2025 14:28:36 +0000 (GMT)
-Message-ID: <674efe8d-c299-4ce9-bf6b-c1920a5393eb@samsung.com>
-Date: Thu, 27 Nov 2025 15:28:35 +0100
+	id 1vOd0V-0000000GmXH-11m0;
+	Thu, 27 Nov 2025 14:30:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1764253803; x=1795789803;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=wV3E8BYGDfNKefQX/rsj0hZUZjUWd8J11Hu9YUDDBXM=;
+  b=RaBbs55bbMKY0QLUducebivkE8m4iKkQuZhwcw6xwxO7LqFJBanVS+x2
+   xi23WRKT0H0WyI/3PRlLbxZ8R4j9da3qZK4zfzDNKWKVDp/yZ6P1P28Qf
+   0yBzkO0LzxPj+QnEfyQL0DIU12dxo/rBTi1HuIe+sH8BpBh32ZCcE7AK9
+   oVKvctngCaEvEcBTGtBxnwFeuqITEamqW6MKiKJOEV1ZpqcmkqJwQ8Bju
+   yb/OKQvuMRE3k1ZFBe6QlYq0wk/ELszEhJriIaPNPquG26m07U7r7U8iI
+   alKeGYiTSkeVLz8VQazHmXHJmNLcTkzfhhWheb3/jOvE980EFo8a/aXwn
+   Q==;
+X-CSE-ConnectionGUID: a4GkvJYSSpCkZBmdrauPzw==
+X-CSE-MsgGUID: H0cUCTwVR4eVQnAcIXngVQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11625"; a="77662593"
+X-IronPort-AV: E=Sophos;i="6.20,231,1758610800"; 
+   d="scan'208";a="77662593"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2025 06:30:01 -0800
+X-CSE-ConnectionGUID: A4KmkT6hSRCb9jEmqznsow==
+X-CSE-MsgGUID: K4CHSgcNSc+gBla+AVuQ4w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,231,1758610800"; 
+   d="scan'208";a="198188135"
+Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.225])
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2025 06:29:56 -0800
+Date: Thu, 27 Nov 2025 16:29:54 +0200
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+Cc: Linus Walleij <linusw@kernel.org>, Lei Xue <lei.xue@mediatek.com>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Sean Wang <sean.wang@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	yong.mao@mediatek.com, qingliang.li@mediatek.com,
+	Fred-WY.Chen@mediatek.com, ot_cathy.xu@mediatek.com,
+	ot_shunxi.zhang@mediatek.com, ot_yaoy.wang@mediatek.com,
+	ot_ye.wang@mediatek.com, linux-acpi@vger.kernel.org,
+	robh@kernel.org
+Subject: Re: [PATCH 2/3] pinctrl: mediatek: Add acpi support
+Message-ID: <aShgYukPRfDkq_Z0@smile.fi.intel.com>
+References: <20251125023639.2416546-1-lei.xue@mediatek.com>
+ <20251125023639.2416546-3-lei.xue@mediatek.com>
+ <CAD++jL=h4ZEgrjgGOfgFyAXBM7EL91ZD-La82UQ7GPOXv8h9WQ@mail.gmail.com>
+ <aScwaxBG53dnZ4a4@lpieralisi>
+ <aSdBu-B9mwU2-1_S@smile.fi.intel.com>
+ <aSgipbe75hrwhTD7@lpieralisi>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v7 2/2] remoteproc: qcom: Use of_reserved_mem_region_*
- functions for "memory-region"
-To: "Rob Herring (Arm)" <robh@kernel.org>, Bjorn Andersson
-	<andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, Shawn
-	Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>, Magnus
-	Damm <magnus.damm@gmail.com>, Patrice Chotard <patrice.chotard@foss.st.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
-	<alexandre.torgue@foss.st.com>
-Cc: Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, Peng Fan
-	<peng.fan@nxp.com>, Beleswar Padhi <b-padhi@ti.com>,
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-msm@vger.kernel.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20251124182751.507624-2-robh@kernel.org>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20251127142839eucas1p186846c6c1ea1d9e43369fbba9bb5d17c
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20251127142839eucas1p186846c6c1ea1d9e43369fbba9bb5d17c
-X-EPHeader: CA
-X-CMS-RootMailID: 20251127142839eucas1p186846c6c1ea1d9e43369fbba9bb5d17c
-References: <20251124182751.507624-1-robh@kernel.org>
-	<20251124182751.507624-2-robh@kernel.org>
-	<CGME20251127142839eucas1p186846c6c1ea1d9e43369fbba9bb5d17c@eucas1p1.samsung.com>
+In-Reply-To: <aSgipbe75hrwhTD7@lpieralisi>
+Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
+ krs, Bertel Jungin Aukio 5, 02600 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_062847_239792_FD620A78 
-X-CRM114-Status: GOOD (  27.54  )
+X-CRM114-CacheID: sfid-20251127_063003_327157_5B8D89CF 
+X-CRM114-Status: GOOD (  33.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,143 +102,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
+On Thu, Nov 27, 2025 at 11:06:29AM +0100, Lorenzo Pieralisi wrote:
+> On Wed, Nov 26, 2025 at 08:06:51PM +0200, Andy Shevchenko wrote:
 
-On 24.11.2025 19:27, Rob Herring (Arm) wrote:
-> Use the newly added of_reserved_mem_region_to_resource() and
-> of_reserved_mem_region_count() functions to handle "memory-region"
-> properties.
->
-> The error handling is a bit different in some cases. Often
-> "memory-region" is optional, so failed lookup is not an error. But then
-> an error in of_reserved_mem_lookup() is treated as an error. However,
-> that distinction is not really important. Either the region is available
-> and usable or it is not. So now, it is just
-> of_reserved_mem_region_to_resource() which is checked for an error.
->
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+[...]
 
-This patch landed in today's linux-next as commit c70b9d5fdcd7 
-("remoteproc: qcom: Use of_reserved_mem_region_* functions for 
-"memory-region""). In my tests I found that it breaks booting of 
-DragonBoard410c (arch/arm64/boot/dts/qcom/apq8016-sbc.dts) by causing 
-the NULL pointer dereference. The issue is caused by replacing 
-devm_ioremap_wc() with devm_ioremap_resource_wc(), which fails on 
-devm_request_mem_region(), see comment in the code below. It looks that 
-the error handling is somewhere broken. Here is the the kernel log:
+> > > I also assume/hope that we don't want to add a "reg-names" _DSD property either
+> > > in ACPI to deal with this seamlessly in DT/ACPI (that was done for
+> > > "interrupt-names"):
+> > > 
+> > > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/firmware-guide/acpi/enumeration.rst?h=v6.18-rc7#n188
+> > 
+> > Hmm... Why not?
+> 
+> What's the policy there ?
 
-remoteproc remoteproc0: 4080000.remoteproc is available
-qcom-wcnss-pil a204000.remoteproc: error -EBUSY: can't request region 
-for resource [mem 0x8e200000-0x8e7fffff]
-remoteproc remoteproc1: a204000.remoteproc is available
-remoteproc remoteproc1: powering up a204000.remoteproc
-remoteproc remoteproc1: Booting fw image qcom/apq8016/wcnss.mbn, size 
-4111376
-Unable to handle kernel paging request at virtual address fffffffffffffff0
-Mem abort info:
-...
-Internal error: Oops: 0000000096000046 [#1]  SMP
-Modules linked in: cpufreq_powersave qcom_wcnss_pil cpufreq_conservative 
-coresight_stm coresight_replicator coresight_tmc coresight_tpiu stm_core 
-coresight_funnel coresight_cpu_debug coresight_cti(+) adv7511 coresight 
-nfc rfkill msm snd_soc_lpass_apq8016 snd_soc_apq8016_sbc 
-snd_soc_lpass_cpu snd_soc_msm8916_analog snd_soc_msm8916_digital 
-snd_soc_qcom_common snd_soc_lpass_platform snd_soc_core qrtr ubwc_config 
-snd_compress llcc_qcom snd_pcm_dmaengine qcom_q6v5_mss snd_pcm ocmem 
-qcom_pil_info qcom_spmi_vadc qcom_camss drm_gpuvm qcom_pon rtc_pm8xxx 
-qcom_q6v5 qcom_spmi_temp_alarm venus_core qcom_vadc_common snd_timer 
-drm_exec qcom_sysmon snd qcom_common gpu_sched videobuf2_dma_sg 
-v4l2_mem2mem qcom_glink_smem v4l2_fwnode soundcore drm_dp_aux_bus 
-qmi_helpers mdt_loader v4l2_async videobuf2_memops videobuf2_v4l2 
-videodev qnoc_msm8916 videobuf2_common qcom_rng drm_display_helper mc 
-qcom_stats rpmsg_ctrl rpmsg_char display_connector ramoops socinfo 
-rmtfs_mem reed_solomon ax88796b asix usbnet phy_qcom_usb_hs ipv6 libsha1
-CPU: 2 UID: 0 PID: 28 Comm: kworker/2:0 Tainted: G W           
-6.18.0-rc1+ #16209 PREEMPT
-Tainted: [W]=WARN
-lr : __qcom_mdt_load+0x210/0x304 [mdt_loader]
-Call trace:
-  __pi_memcpy_generic+0x128/0x22c (P)
-  qcom_mdt_load+0x68/0x60c [mdt_loader]
-  wcnss_load+0x2c/0x5c [qcom_wcnss_pil]
-  rproc_start+0x30/0x1b4
-  rproc_boot+0x19c/0x560
-  rproc_auto_boot_callback+0x1c/0x34
-  request_firmware_work_func+0x4c/0x98
-  process_one_work+0x208/0x60c
-  worker_thread+0x244/0x388
-  kthread+0x150/0x228
-  ret_from_fork+0x10/0x20
-Code: 927cec03 cb0e0021 8b0e0042 a9411c26 (a900340c)
----[ end trace 0000000000000000 ]---
+> Half of the ACPI bindings for an interrupt
+> descriptor are defined in the ACPI specs (ie _CRS) and the other half
+> (ie "interrupt-names") is documented in the Linux kernel (or are we
+> documenting this elsewhere ?) ?
 
+Yeah, nobody pursued ACPI specification updates / addendum to make it fully
+official. _De facto_ we have established practice for GPIOs enumeration
+(as most used resources in the OSes), Linux official for PWM, I�C muxes,
+multi-functional HW (such as Diolan DLN-2, LJCA), Microsoft defined for
+so called "USB hardwired" devices, Linux defined for LEDs and GPIO keys,
+sensor mount matrix as per "most used" cases + DT analogue works just
+because we have agnostic APIs in IIO to retrieve that. There are maybe
+more, but don't remember
 
-> ---
-> v7:
->   - Split QCom to separate patch
-> ---
->   drivers/remoteproc/qcom_q6v5_adsp.c | 24 ++++------
->   drivers/remoteproc/qcom_q6v5_mss.c  | 60 ++++++++-----------------
->   drivers/remoteproc/qcom_q6v5_pas.c  | 69 +++++++++++------------------
->   drivers/remoteproc/qcom_q6v5_wcss.c | 25 +++++------
->   drivers/remoteproc/qcom_wcnss.c     | 23 ++++------
->   5 files changed, 72 insertions(+), 129 deletions(-)
->
+So, I think the practical "policies" are that:
+- if it's defined in ACPI spec, we use the spec
+- if there is Microsoft addendum, we rely on what Windows does
+- WMI, EFI, and other "windoze"-like vendor defined cases
+- if it makes sense, we establish practice from Linux perspective
+- the rest, every vendor does what it does
 
-> ...
+That said, for the first two we expect OEMs to follow, for the third one
+depends, but there are established WMI calls and other more or less "standard"
+interfaces, so like the first two.
 
-> diff --git a/drivers/remoteproc/qcom_wcnss.c b/drivers/remoteproc/qcom_wcnss.c
-> index 2c7e519a2254..14005fb049a2 100644
-> --- a/drivers/remoteproc/qcom_wcnss.c
-> +++ b/drivers/remoteproc/qcom_wcnss.c
-> @@ -526,25 +526,20 @@ static int wcnss_request_irq(struct qcom_wcnss *wcnss,
->   
->   static int wcnss_alloc_memory_region(struct qcom_wcnss *wcnss)
->   {
-> -	struct reserved_mem *rmem = NULL;
-> -	struct device_node *node;
-> -
-> -	node = of_parse_phandle(wcnss->dev->of_node, "memory-region", 0);
-> -	if (node)
-> -		rmem = of_reserved_mem_lookup(node);
-> -	of_node_put(node);
-> +	struct resource res;
-> +	int ret;
->   
-> -	if (!rmem) {
-> +	ret = of_reserved_mem_region_to_resource(wcnss->dev->of_node, 0, &res);
-> +	if (ret) {
->   		dev_err(wcnss->dev, "unable to resolve memory-region\n");
-> -		return -EINVAL;
-> +		return ret;
->   	}
->   
-> -	wcnss->mem_phys = wcnss->mem_reloc = rmem->base;
-> -	wcnss->mem_size = rmem->size;
-> -	wcnss->mem_region = devm_ioremap_wc(wcnss->dev, wcnss->mem_phys, wcnss->mem_size);
-> +	wcnss->mem_phys = wcnss->mem_reloc = res.start;
-> +	wcnss->mem_size = resource_size(&res);
-> +	wcnss->mem_region = devm_ioremap_resource_wc(wcnss->dev, &res);
+For the fourth one (Linux) we do, but living in the expectation that some or
+more vendors fall to the fifth category and we might need to support that if
+we want their HW work in Linux.
 
-The above line causes the failure. After restoring it to:
+> Or we are saying that "interrupt-names" properties are added by kernel
+> code _only_ (through software nodes, to make parsing seamless between DT
+> and ACPI) based on hardcoded name values in drivers ?
 
-wcnss->mem_region = devm_ioremap_wc(wcnss->dev, wcnss->mem_phys, wcnss->mem_size);
+No, the idea behind software nodes is to "fix" the FW nodes in case the FW
+description can not be modified (and that might well happen to even DT in some
+cases AFAIH). So, if some driver hard codes "interrupt-names" we expect that
+new versions of the FW that support the HW that needs the property will be
+amended accordingly.
 
-the mentioned board boots fine again. I'm not sure about other drivers, 
-if they also fail the same way as they might not be used on the tested 
-board.
+"interrupt-names" has been established for ACPI to support a separate SMB alert
+interrupt. However, I haven't heard any development of that IRL (for real
+devices in ACPI environment).
 
->   	if (!wcnss->mem_region) {
-> -		dev_err(wcnss->dev, "unable to map memory region: %pa+%zx\n",
-> -			&rmem->base, wcnss->mem_size);
-> +		dev_err(wcnss->dev, "unable to map memory region: %pR\n", &res);
->   		return -EBUSY;
->   	}
->   
+> I don't think I can grok any example of the latter in the mainline.
+> 
+> I am asking because I'd need to add something similar shortly to make parsing
+> of platform devices created out of ACPI static tables easier (I guess we
+> can postpone discussion till I post the code but I thought I'd ask).
 
-Best regards
+Oh, I can go ahead and tell you, try to avoid that. Why?! Whatever,
+indeed, please Cc me to that, I will be glad to study the case and
+try to be helpful.
+
+(Have you considered DT overlays instead? There is a big pending support for
+ that for _ACPI_ platforms.)
+
+> Are we going to do the same for "reg-names" ?
+
+If it makes sense and we expect some vendor to follow that _in ACPI_,
+why not?
+
+> Most importantly, what is DT maintainers stance on the matter ?
+
+AFAIK They don't care as long as there is a schema provided, accepted and
+used in DT, if it's ACPI-only thing, then it most likely should be done
+in ACPI-like way (see above the first two / three items: spec, MS, WMI/EFI).
+
+> > > I am sorry I have got more questions than answers here - it would be good
+> > > to understand where the line is drawn when it comes to OF/ACPI and fwnode
+> > > heuristics compatibility.
+
 -- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+With Best Regards,
+Andy Shevchenko
+
 
 
