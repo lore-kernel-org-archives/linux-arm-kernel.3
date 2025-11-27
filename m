@@ -4,61 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86D7FD11183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 13:22:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4086D11183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 13:25:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P6FXAJgkkzG4zg/OhYkDtMBzoiFKim//OBB3h/UAam8=; b=C/j5ihQSo7IjlZfK3OD6k33MRs
-	/ZdRalkucnkUdH2hBSD6ivLCWTox/GNaoT7hHmD8iT0bCWfEBZe5slYVrhRW12nzK4XGz4tU80XEr
-	yXW3l8GajmDM/YAmZxxfO+K5PjRo5hQnKgof4PEeq7Pvf7vHL2mTSQwBHtae/GwVzGmAmMumkZ3vS
-	EitadwtqMzZ42tmHiCNWmIhF6FBCkwxRxt9YyjCACcbDZx6WiMcJdWNXkmyHUvH0ySggy0qQA3l2i
-	ruxNGwfx6yUJAIshgbYdxYN23acu1Gc2a+xlKrsbnPh0RsmeUN26IKq4/W4TOPPcmiRCYrBLJRHle
-	B/rtd5og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cr+5Rr5BPGPR1wepA4s78G0eot3R+UDHLBx6NzzwIjI=; b=xNHP85DdAOhaOXCTIhPosNj72f
+	7OaEiJRjhOAAZ9A87jiW19EfdxBA0v2XFdKeKwTrOmCL97eRSycnvhhUScTDEKHfXMMRz/8GtR60j
+	zlCI4u1SpuJ1hA+FhFWIN/Bmf2kQ33ovQ/WyRAgA8cpkOk9oDQoNrKJTr+Jimpn4bHfGVjesRm61k
+	RmSOcCzibw1jSM6WTOPjQ7jscXd0KATl92tntaMKZSQhMLm+uMGaR8BiL0FtrReZ5PxMamqY800gb
+	+z6fREAgfmmlG+MdTyLxeU3qcLi76uPKqd4L391FrttOw4sazgYp62Eh7KOONxxa92jXc2y00RNnV
+	lKjXu+Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vObxV-0000000Gf6O-1p3K;
-	Thu, 27 Nov 2025 13:22:53 +0000
-Received: from akranes.kaiser.cx ([2a0a:4cc0:1:11ef:4484:ccff:febf:ddfa])
+	id 1vObzd-0000000GfL1-3zFc;
+	Thu, 27 Nov 2025 13:25:05 +0000
+Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vObxS-0000000Gf5v-3wsP
+	id 1vObza-0000000GfJV-1nXt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 13:22:52 +0000
-Received: from martin by akranes.kaiser.cx with local (Exim 4.96)
-	(envelope-from <martin@akranes.kaiser.cx>)
-	id 1vObxC-0007Pt-0N;
-	Thu, 27 Nov 2025 14:22:34 +0100
-Date: Thu, 27 Nov 2025 14:22:34 +0100
-From: Martin Kaiser <martin@kaiser.cx>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Jean-Michel Hautbois via B4 Relay <devnull+jeanmichel.hautbois.yoseli.org@kernel.org>,
-	Greg Ungerer <gerg@linux-m68k.org>,
-	Olivia Mackall <olivia@selenic.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-m68k@lists.linux-m68k.org,
-	linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v4 1/2] hwrng: imx-rngc: Use optional clock
-Message-ID: <aShQmqUfT5OQFf0N@akranes.kaiser.cx>
-References: <20251126-b4-m5441x-add-rng-support-v4-0-5309548c9555@yoseli.org>
- <20251126-b4-m5441x-add-rng-support-v4-1-5309548c9555@yoseli.org>
- <aSdjT9BLzGF3_5PB@akranes.kaiser.cx>
- <CAMuHMdUGmw+Pa43oqcGzt0x7ED2FGw0=U7XddvdaUZ3GFmsxsQ@mail.gmail.com>
+	Thu, 27 Nov 2025 13:25:04 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Cr+5Rr5BPGPR1wepA4s78G0eot3R+UDHLBx6NzzwIjI=;
+	b=YL5fV4xE2L/eeoILrrBxV1N7dJlTDocQg0tVtTBqhVHiGJrFZMev0VDQVSkZDLhAl5URyZjV6
+	VQCw6nI6aUOb4X9C0BIMdUaw/4AdNcInkYZSSv1Kdl5IBbQh+bdShVt+y1tS1SvduD4FKY51aMv
+	3Z8zAxjGW7zojq71QEmAais=
+Received: from mail.maildlp.com (unknown [172.19.163.44])
+	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4dHHDQ5hXhzKm4J;
+	Thu, 27 Nov 2025 21:23:02 +0800 (CST)
+Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
+	by mail.maildlp.com (Postfix) with ESMTPS id 1009E1401F4;
+	Thu, 27 Nov 2025 21:24:52 +0800 (CST)
+Received: from [10.67.120.103] (10.67.120.103) by
+ kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.36; Thu, 27 Nov 2025 21:24:51 +0800
+Message-ID: <694b6f79-8306-46fb-9f4b-c30afd114210@huawei.com>
+Date: Thu, 27 Nov 2025 21:24:50 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMuHMdUGmw+Pa43oqcGzt0x7ED2FGw0=U7XddvdaUZ3GFmsxsQ@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/5] KVM: arm64: Add support for FEAT_HDBSS
+To: Marc Zyngier <maz@kernel.org>, Tian Zheng <zhengtian10@huawei.com>
+CC: <oliver.upton@linux.dev>, <catalin.marinas@arm.com>, <corbet@lwn.net>,
+	<pbonzini@redhat.com>, <will@kernel.org>, <linux-kernel@vger.kernel.org>,
+	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <yezhenyu2@huawei.com>,
+	<xiexiangyou@huawei.com>, <zhengchuan@huawei.com>, <joey.gouly@arm.com>,
+	<kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<suzuki.poulose@arm.com>
+References: <20251121092342.3393318-1-zhengtian10@huawei.com>
+ <20251121092342.3393318-4-zhengtian10@huawei.com>
+ <86tsymqjwb.wl-maz@kernel.org>
+From: Tian Zheng <zhengtian10@huawei.com>
+In-Reply-To: <86tsymqjwb.wl-maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.120.103]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_052251_009720_489D44FB 
-X-CRM114-Status: GOOD (  23.05  )
+X-CRM114-CacheID: sfid-20251127_052503_140281_95FCFF1A 
+X-CRM114-Status: GOOD (  32.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,57 +84,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
 
-Thus wrote Geert Uytterhoeven (geert@linux-m68k.org):
 
-> Hi Martin,
+On 2025/11/22 21:25, Marc Zyngier wrote:
+> On Fri, 21 Nov 2025 09:23:40 +0000,
+> Tian Zheng <zhengtian10@huawei.com> wrote:
+>>
+>> From: eillon <yezhenyu2@huawei.com>
+>>
+>> Armv9.5 introduces the Hardware Dirty Bit State Structure (HDBSS) feature,
+>> indicated by ID_AA64MMFR1_EL1.HAFDBS == 0b0100.
+>>
+>> Add the Kconfig for FEAT_HDBSS and support detecting and enabling the
+>> feature. A CPU capability is added to notify the user of the feature.
+>>
+>> Add KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl and basic framework for
+>> ARM64 HDBSS support. Since the HDBSS buffer size is configurable and
+>> cannot be determined at KVM initialization, an IOCTL interface is
+>> required.
+>>
+>> Actually exposing the new capability to user space happens in a later
+>> patch.
+>>
+>> Signed-off-by: eillon <yezhenyu2@huawei.com>
+>> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
+>> ---
+>>   arch/arm64/Kconfig                  | 14 ++++++++++++++
+>>   arch/arm64/include/asm/cpucaps.h    |  2 ++
+>>   arch/arm64/include/asm/cpufeature.h |  5 +++++
+>>   arch/arm64/include/asm/kvm_host.h   |  4 ++++
+>>   arch/arm64/include/asm/sysreg.h     | 12 ++++++++++++
+>>   arch/arm64/kernel/cpufeature.c      |  9 +++++++++
+>>   arch/arm64/tools/cpucaps            |  1 +
+>>   include/uapi/linux/kvm.h            |  1 +
+>>   tools/include/uapi/linux/kvm.h      |  1 +
+>>   9 files changed, 49 insertions(+)
+>>
+>> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+>> index 6663ffd23f25..1edf75888a09 100644
+>> --- a/arch/arm64/Kconfig
+>> +++ b/arch/arm64/Kconfig
+>> @@ -2201,6 +2201,20 @@ config ARM64_GCS
+>>
+>>   endmenu # "ARMv9.4 architectural features"
+>>
+>> +menu "ARMv9.5 architectural features"
+>> +
+>> +config ARM64_HDBSS
+>> +	bool "Enable support for Hardware Dirty state tracking Structure (HDBSS)"
+>> +	help
+>> +	  Hardware Dirty state tracking Structure(HDBSS) enhances tracking
+>> +	  translation table descriptors' dirty state to reduce the cost of
+>> +	  surveying for dirtied granules.
+>> +
+>> +	  The feature introduces new assembly registers (HDBSSBR_EL2 and
+>> +	  HDBSSPROD_EL2), which are accessed via generated register accessors.
+> 
+> This last but means nothing to most people.
+> 
+> But more importantly, I really don't want to see this as a config
+> option. KVM comes with "battery included", and all features should be
+> available at all times.
+HDBSS is only designed for KVM, and I agree that it shouldn't be
+controlled by a config option. I will remove it.
 
-> On Wed, 26 Nov 2025 at 21:30, Martin Kaiser <martin@kaiser.cx> wrote:
-> > Thus wrote Jean-Michel Hautbois via B4 Relay (devnull+jeanmichel.hautbois.yoseli.org@kernel.org):
+By the way, I would like to ask for your advice. I have been a bit
+confused about when exactly it is necessary to add a config option in
+Kconfig for a feature.
+> 
+>> +
+>> +endmenu # "ARMv9.5 architectural features"
+>> +
+>>   config ARM64_SVE
+>>   	bool "ARM Scalable Vector Extension support"
+>>   	default y
+>> diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
+>> index 9d769291a306..5e5a26f28dec 100644
+>> --- a/arch/arm64/include/asm/cpucaps.h
+>> +++ b/arch/arm64/include/asm/cpucaps.h
+>> @@ -48,6 +48,8 @@ cpucap_is_possible(const unsigned int cap)
+>>   		return IS_ENABLED(CONFIG_ARM64_GCS);
+>>   	case ARM64_HAFT:
+>>   		return IS_ENABLED(CONFIG_ARM64_HAFT);
+>> +	case ARM64_HAS_HDBSS:
+>> +		return IS_ENABLED(CONFIG_ARM64_HDBSS);
+>>   	case ARM64_UNMAP_KERNEL_AT_EL0:
+>>   		return IS_ENABLED(CONFIG_UNMAP_KERNEL_AT_EL0);
+>>   	case ARM64_WORKAROUND_843419:
+>> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+>> index e223cbf350e4..b231415a2b76 100644
+>> --- a/arch/arm64/include/asm/cpufeature.h
+>> +++ b/arch/arm64/include/asm/cpufeature.h
+>> @@ -856,6 +856,11 @@ static inline bool system_supports_haft(void)
+>>   	return cpus_have_final_cap(ARM64_HAFT);
+>>   }
+>>
+>> +static inline bool system_supports_hdbss(void)
+>> +{
+>> +	return cpus_have_final_cap(ARM64_HAS_HDBSS);
+>> +}
+>> +
+>>   static __always_inline bool system_supports_mpam(void)
+>>   {
+>>   	return alternative_has_cap_unlikely(ARM64_MPAM);
+>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+>> index 64302c438355..d962932f0e5f 100644
+>> --- a/arch/arm64/include/asm/kvm_host.h
+>> +++ b/arch/arm64/include/asm/kvm_host.h
+>> @@ -60,6 +60,10 @@
+>>
+>>   #define KVM_HAVE_MMU_RWLOCK
+>>
+>> +/* HDBSS entry field definitions */
+>> +#define HDBSS_ENTRY_VALID BIT(0)
+>> +#define HDBSS_ENTRY_IPA GENMASK_ULL(55, 12)
+>> +
+> 
+> None of this is used here. Move it to the patch where it belongs.
+I will move HDBSS_ENTRY_VALID and HDBSS_ENTRY_IPA to next patch.
+> 
+>>   /*
+>>    * Mode of operation configurable with kvm-arm.mode early param.
+>>    * See Documentation/admin-guide/kernel-parameters.txt for more information.
+>> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+>> index c231d2a3e515..3511edea1fbc 100644
+>> --- a/arch/arm64/include/asm/sysreg.h
+>> +++ b/arch/arm64/include/asm/sysreg.h
+>> @@ -1129,6 +1129,18 @@
+>>   #define gicr_insn(insn)			read_sysreg_s(GICV5_OP_GICR_##insn)
+>>   #define gic_insn(v, insn)		write_sysreg_s(v, GICV5_OP_GIC_##insn)
+>>
+>> +/*
+>> + * Definitions for the HDBSS feature
+>> + */
+>> +#define HDBSS_MAX_SIZE		HDBSSBR_EL2_SZ_2MB
+>> +
+>> +#define HDBSSBR_EL2(baddr, sz)	(((baddr) & GENMASK(55, 12 + sz)) | \
+>> +				 FIELD_PREP(HDBSSBR_EL2_SZ_MASK, sz))
+>> +#define HDBSSBR_BADDR(br)	((br) & GENMASK(55, (12 + HDBSSBR_SZ(br))))
+>> +#define HDBSSBR_SZ(br)		FIELD_GET(HDBSSBR_EL2_SZ_MASK, br)
+> 
+> This is a bit backward. When would you need to read-back and mask
+> random bits off the register?
+I will delete the definitions of HDBSSBR_BADDR and HDBSSBR_SZ.
+> 
+>> +
+>> +#define HDBSSPROD_IDX(prod)	FIELD_GET(HDBSSPROD_EL2_INDEX_MASK, prod)
+>> +
+> 
+> As previously said, these definitions don't serve any purpose here,
+> and would be better in the following patch.
+I will move all the HDBSS definitions to the next patch where they
+are actually used.
+> 
+>>   #define ARM64_FEATURE_FIELD_BITS	4
+>>
+>>   #ifdef __ASSEMBLY__
+>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+>> index e25b0f84a22d..f39973b68bdb 100644
+>> --- a/arch/arm64/kernel/cpufeature.c
+>> +++ b/arch/arm64/kernel/cpufeature.c
+>> @@ -2710,6 +2710,15 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+>>   		.matches = has_cpuid_feature,
+>>   		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HAFT)
+>>   	},
+>> +#endif
+>> +#ifdef CONFIG_ARM64_HDBSS
+>> +	{
+>> +		.desc = "Hardware Dirty state tracking structure (HDBSS)",
+>> +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+>> +		.capability = ARM64_HAS_HDBSS,
+>> +		.matches = has_cpuid_feature,
+>> +		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HDBSS)
+>> +	},
+> 
+> I think this is one of the features we should restrict to VHE. I don't
+> imagine pKVM ever making use of this, and no non-VHE HW will ever
+> build this.
+> 
+> Thanks,
+I will add a new helper function that checks both VHE and the CPUID
+feature, and use it in place of has_cpuid_feature in the .matches field.
+> 
+> 	M.
+> 
 
-> > > From: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-
-> > > Change devm_clk_get() to devm_clk_get_optional() to support platforms
-> > > where the RNG clock is always enabled and not exposed via the clock
-> > > framework (such as ColdFire MCF54418).
-
-> > > Reviewed-by: Frank Li <Frank.Li@nxp.com>
-> > > Signed-off-by: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-> > > ---
-> > >  drivers/char/hw_random/imx-rngc.c | 2 +-
-> > >  1 file changed, 1 insertion(+), 1 deletion(-)
-
-> > > diff --git a/drivers/char/hw_random/imx-rngc.c b/drivers/char/hw_random/imx-rngc.c
-> > > index 241664a9b5d9..d6a847e48339 100644
-> > > --- a/drivers/char/hw_random/imx-rngc.c
-> > > +++ b/drivers/char/hw_random/imx-rngc.c
-> > > @@ -259,7 +259,7 @@ static int __init imx_rngc_probe(struct platform_device *pdev)
-> > >       if (IS_ERR(rngc->base))
-> > >               return PTR_ERR(rngc->base);
-
-> > > -     rngc->clk = devm_clk_get(&pdev->dev, NULL);
-> > > +     rngc->clk = devm_clk_get_optional(&pdev->dev, NULL);
-> > >       if (IS_ERR(rngc->clk))
-> > >               return dev_err_probe(&pdev->dev, PTR_ERR(rngc->clk), "Cannot get rng_clk\n");
-
-> > The clock is not optional on a standard imx25 system. If it's missing in the
-> > device tree, the rngb will not work and we should not load the driver.
-
-> As the clocks property is marked required in
-> Documentation/devicetree/bindings/rng/imx-rng.yaml, "make dtbs_check"
-> should flag a missing clock.
-
-> > Should we call devm_clk_get or devm_clk_get_optional, depending on the
-> > detected device?
-
-> That can quickly lead to complex code.  Nowadays it is fine to rely on
-> "make dtbs_check" for some part of the validation.
-
-ok, understood. With this clarification, I'm happy with the patch.
-
-Reviewed-by: Martin Kaiser <martin@kaiser.cx>
-
-Thanks,
-Martin
 
