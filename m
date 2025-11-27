@@ -4,81 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E391CD116E2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 07:09:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38115CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 07:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MEgql2RjEPQnq4TcSo4Zcz1aExil9ZMRbcIeSUjJfSw=; b=WYqhhoCxzzqQfdC/7JcUcRdxfZ
-	sfqBH+uKMopUHs9shHyHVZuuYdJs4xHrK42PVJWeJ869iQFW5IYCCHFPr11fg/wlbLq1+u2ezB98D
-	pj/Kj5eXEBJsM/N/+NOeiCUjececJCFg37L3q6fR2AJ7YFjpwdfgyoznKKJO511bM5TfgwEoQNxDV
-	TfYzm7PMngk+tDEwVS8RHmfaeKlT+SuSDX9XrWyA0TzvOumOUo+zF6UCi3Zi8YXwS6YnYarP6LZPB
-	kUpQ2HVGC31pFQPl5BosozTRZed7/FourBxp3cGZKK0dOxxq7HV+AL4JXA/zpoSxmGu3YHieciR1B
-	8ncdy0VA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2dVF2KlYm35Amf2a5Gnk993yXcXd/prgPbjpDZiGmKM=; b=erPDPrY25pJaHnbJ24UVaYABOf
+	tFWy99jaigLfHI2hfWCc0UI8IhpppD4k7gLH0RbMxq6+d4hIgrr1lsyF3iqDlpadXz802TR5Fzmn4
+	UnZDPkrQPCi2G59DNKIC21n+FVVPu4MH/E5ATsk7ogjQi8Rg6jbCqJRX5fzuoHWOTQtgKHguC92jr
+	iPiRy7Fpv1yeA/jQeTuk7x7J1rdyXtPILw7oEXeOezDFU+WGbjILElf3ht6BPd68atB1nx5xsAWdO
+	5rojnP51rhISAU3yC73WZX1K1Jn99e5evix88lDheu0uQi6NbfZHJCidKPLF6vpjghRVK3FGyxDeW
+	C0xtee0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOW8L-0000000G5ue-1hwL;
-	Thu, 27 Nov 2025 07:09:41 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
+	id 1vOWCf-0000000G6aL-3AAp;
+	Thu, 27 Nov 2025 07:14:09 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOW8H-0000000G5rn-45D7
+	id 1vOWCd-0000000G6Zq-0n3t
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 07:09:39 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 6E3405BCC4;
-	Thu, 27 Nov 2025 07:09:36 +0000 (UTC)
-Authentication-Results: smtp-out2.suse.de;
-	none
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 1B2CC3EA63;
-	Thu, 27 Nov 2025 07:09:36 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id rslFBTD5J2njXAAAD6G6ig
-	(envelope-from <jgross@suse.com>); Thu, 27 Nov 2025 07:09:36 +0000
-From: Juergen Gross <jgross@suse.com>
-To: linux-kernel@vger.kernel.org,
-	virtualization@lists.linux.dev,
-	x86@kernel.org
-Cc: Juergen Gross <jgross@suse.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Ajay Kaher <ajay.kaher@broadcom.com>,
-	Alexey Makhalov <alexey.makhalov@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	linux-arm-kernel@lists.infradead.org,
-	"Peter Zijlstra (Intel)" <peterz@infradead.org>
-Subject: [PATCH v4 08/21] arm64/paravirt: Use common code for paravirt_steal_clock()
-Date: Thu, 27 Nov 2025 08:08:31 +0100
-Message-ID: <20251127070844.21919-9-jgross@suse.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251127070844.21919-1-jgross@suse.com>
-References: <20251127070844.21919-1-jgross@suse.com>
+	Thu, 27 Nov 2025 07:14:08 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-47798ded6fcso2137305e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 23:14:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1764227645; x=1764832445; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=2dVF2KlYm35Amf2a5Gnk993yXcXd/prgPbjpDZiGmKM=;
+        b=Unu8QbudH/K/lwzJ2bRpJRaw0d9OCcHUkt4aqRo/bWjqv9rEIA7mnRt8TCzgpJiRJT
+         vwvy8ROj194Of1JAjt+tmG6awrYlqPH1sjVMK718fQ4oecNfUY3ceQKmpFX4BreOT1X+
+         aHkFiZngpaU/4Z/k2WU1+eFl/YqaLMA4x1HQ6cmN/QZczeo0MlTJ57H7ZHRfixvVWKd/
+         TtnLiwCly+I/sol8VsxexNClR0j14wAjpcXcrdJxBfHjQhMhlcsggjXLXBJDSiyWrUIT
+         HFc8MimLTsXgNZwvIv5RBr5xiMINA79t0KvrRPnCk00gLC/D327fHSIjyBTNHCR1roa6
+         O2EA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764227645; x=1764832445;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2dVF2KlYm35Amf2a5Gnk993yXcXd/prgPbjpDZiGmKM=;
+        b=JavEXS+W1qQ5Ko8lMM5ApwqzTwdcT/2GWLvibae9y+hVOUF9nHOQE6F0vMu6u8VQUl
+         6WLih1Rzefy7kO+x9sCaLX3D9rWctmyAt2aF2opWpslZSK+7eu5YQXxf6svzO5gryyFI
+         GGHR/m/1zqkE8Pjvj9Fd3gVVP/N3hnaiabwDsVyoHop7TJcKny/5RHj7EwdMAzVJMWOy
+         6IUWtarOxRT1bRfzqn1KjPuqzMF1smpxabMcTuE/nS7oNNNnIBYx0c5wtaxWefqFKvxA
+         t8NArKKBekxD4OzdlhAzdIsinLmZ4i9Rb9VCc+DzvVpjSTXv5/oQOSdjdRhL2c0WR2VX
+         XEdg==
+X-Forwarded-Encrypted: i=1; AJvYcCUuf4cdLxxxbxLmfHuSjdzLBIIG9Aa6N8sHDsiLcZOKfxHsFa6h/Jq+o89D/g0ma90Hp1tRMB02T8/x/R8qmuyu@lists.infradead.org
+X-Gm-Message-State: AOJu0YzD9d4trvmdFqigwYJwcxs7g9o2LkuZTlsoEJAX3tR/9ru5qMM9
+	gd6LS2kJcHwip5qRCbn9jmLeXhf9KBRnS/zs26EnyvrbEu7XsrlOiT5xSDCe4FBG4wM=
+X-Gm-Gg: ASbGncvNwRXl+dq9I1lVO/KVRRYxVr96rejdYFS9f2kDpxO3NA1MuYk9Y4JqtYvD4z8
+	p0LOKCjkkFLmHGnb7wz0zzQGO0xYgMDtTEsPEeOsGRrIV/XhYzW6nHt5qxmA6o+gitG+V7E5ECn
+	Ws0ToG3MpYfFV+LDZvWjqrJKF827Wp4umWvybclPki5On3QpmgjWYlbvxp9GAlCeV1XfCf7l8vQ
+	iUGiiZlRzhk325Oj7puhEMTKYLDe7fN1lysnl9lKCwyLBAZdRRun57vHAU++dmffQiChIJcY8Py
+	abXEvh8Z7VRxd+9SpmFQxF71GfhsNDlIK6rQ50TYOQVawNa8IepVFAUBO6MNguwBJxcEzwfQOa2
+	UaR3KhKbmu97ohWfJotcpZqhq3VUuR3ctaQX1CTG3e9gxDsNAqp8fahVdTL/gfiK3nuiLBzV4Rt
+	JAKVL7JTnPWyCBg453
+X-Google-Smtp-Source: AGHT+IHh2yafLn0h6WCQ3rAqHrBsqui/zuUk1dGdvyyNWo27ENOUkyCq/IzM8raGe5NR4RM82hlgnQ==
+X-Received: by 2002:a05:600c:1f94:b0:471:1765:839c with SMTP id 5b1f17b1804b1-477c1117949mr172473655e9.20.1764227645302;
+        Wed, 26 Nov 2025 23:14:05 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-479110b6da9sm17043815e9.0.2025.11.26.23.14.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 26 Nov 2025 23:14:04 -0800 (PST)
+Date: Thu, 27 Nov 2025 10:14:01 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Rob Herring <robh@kernel.org>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org
+Subject: [PATCH next] remoteproc: imx_dsp_rproc: Fix NULL vs IS_ERR() bug in
+ imx_dsp_rproc_add_carveout()
+Message-ID: <aSf6OerBbPcxBUVt@stanley.mountain>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Spamd-Result: default: False [-4.00 / 50.00];
-	REPLY(-4.00)[]
-X-Rspamd-Queue-Id: 6E3405BCC4
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-Mailer: git-send-email haha only kidding
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_230938_156670_93881AB7 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20251126_231407_234669_86B3A0AE 
+X-CRM114-Status: GOOD (  12.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,68 +107,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the arch specific variant of paravirt_steal_clock() and use
-the common one instead.
+The devm_ioremap_resource_wc() function never returns NULL, it returns
+error pointers.  Update the error checking to match.
 
-Signed-off-by: Juergen Gross <jgross@suse.com>
-Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Fixes: 67a7bc7f0358 ("remoteproc: Use of_reserved_mem_region_* functions for "memory-region"")
+Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 ---
- arch/arm64/Kconfig                |  1 +
- arch/arm64/include/asm/paravirt.h | 10 ----------
- arch/arm64/kernel/paravirt.c      |  7 -------
- 3 files changed, 1 insertion(+), 17 deletions(-)
+ drivers/remoteproc/imx_dsp_rproc.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 6663ffd23f25..3a463027538e 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -1560,6 +1560,7 @@ config CC_HAVE_SHADOW_CALL_STACK
+diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
+index be83b5f20f15..5130a35214c9 100644
+--- a/drivers/remoteproc/imx_dsp_rproc.c
++++ b/drivers/remoteproc/imx_dsp_rproc.c
+@@ -710,9 +710,9 @@ static int imx_dsp_rproc_add_carveout(struct imx_dsp_rproc *priv)
+ 			return -EINVAL;
  
- config PARAVIRT
- 	bool "Enable paravirtualization code"
-+	select HAVE_PV_STEAL_CLOCK_GEN
- 	help
- 	  This changes the kernel so it can modify itself when it is run
- 	  under a hypervisor, potentially improving performance significantly
-diff --git a/arch/arm64/include/asm/paravirt.h b/arch/arm64/include/asm/paravirt.h
-index c9f7590baacb..cb037e742372 100644
---- a/arch/arm64/include/asm/paravirt.h
-+++ b/arch/arm64/include/asm/paravirt.h
-@@ -3,16 +3,6 @@
- #define _ASM_ARM64_PARAVIRT_H
+ 		cpu_addr = devm_ioremap_resource_wc(dev, &res);
+-		if (!cpu_addr) {
++		if (IS_ERR(cpu_addr)) {
+ 			dev_err(dev, "failed to map memory %pR\n", &res);
+-			return -ENOMEM;
++			return PTR_ERR(cpu_addr);
+ 		}
  
- #ifdef CONFIG_PARAVIRT
--#include <linux/static_call_types.h>
--
--u64 dummy_steal_clock(int cpu);
--
--DECLARE_STATIC_CALL(pv_steal_clock, dummy_steal_clock);
--
--static inline u64 paravirt_steal_clock(int cpu)
--{
--	return static_call(pv_steal_clock)(cpu);
--}
- 
- int __init pv_time_init(void);
- 
-diff --git a/arch/arm64/kernel/paravirt.c b/arch/arm64/kernel/paravirt.c
-index 943b60ce12f4..572efb96b23f 100644
---- a/arch/arm64/kernel/paravirt.c
-+++ b/arch/arm64/kernel/paravirt.c
-@@ -25,13 +25,6 @@
- #include <asm/pvclock-abi.h>
- #include <asm/smp_plat.h>
- 
--static u64 native_steal_clock(int cpu)
--{
--	return 0;
--}
--
--DEFINE_STATIC_CALL(pv_steal_clock, native_steal_clock);
--
- struct pv_time_stolen_time_region {
- 	struct pvclock_vcpu_stolen_time __rcu *kaddr;
- };
+ 		/* Register memory region */
 -- 
 2.51.0
 
