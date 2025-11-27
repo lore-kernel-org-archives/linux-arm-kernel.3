@@ -4,56 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7490CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 05:57:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19E4CD10375
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 06:03:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4QKv6ZOvX2SBICDdmwi+E+eWq1SX0cudMyw17vPaerg=; b=ZS6Txn10dHK0d4hPaJwO7pE8pK
-	hqpoS615a8YImJH5n3MUBPHa/eZSX7Chul+hnROWpvtRgglJbk3n5GErrNH3sj2tpKDh8ydndvawu
-	s0OG7jlvJPW2wxlOcwaYdP7xvs19uA4OTuwP07wWB1D37fWuU2YofkbTm122BCg5Iwvulo/EE2E/+
-	VIPvg6uVjA/YLNnW0J74iV0GIZ0yKwfhlLhUqCNHcs7Gc2psAvg096zif9ZvM+6Iv2jnzMaF/wgSp
-	EBhVED5Niex/SkG+QCmv4UMUpTVgb0zkNyCnXzT4ZnEW4yx+zQv2a2BRU7IFU992Vrd+GenQA6/JM
-	m41/XISQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=Qv72eaRmqkaycHNsibcCq6bjdrJSSd7d60nyQyGqTZs=; b=CCS0CacZCl+M0869fsJQ16JhSF
+	iXz9dEEOP/4R6XCY6llN8+fleLIjPkganAl7iox++y9/6aG+q6oXGGaHgrzj64SY7OlvoYlqvW7JU
+	6ZHCpA/XJTanw9qCeW7FLqEFl/bXQyl4q9oD/oEKemjQfMpX73I902hjp6K9kCHxLJRbDWZGFgqxu
+	gGTNaHyHCymRD/fJSHhRXIX9JITViSlStWOj1adgaNT6rXiPcEGG24uhD/bXKl8Tj1w52UPEtUDtt
+	ZwY/8gf5tjjZeBCqhwnrhK3+9qeFsTDoEmijizcmQUQY2olL2KR6/X5nXWbidaPFzljAR8BodRgph
+	+/BMc9Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOV0U-0000000G1Br-0nxX;
-	Thu, 27 Nov 2025 05:57:30 +0000
-Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
+	id 1vOV5n-0000000G1Y2-3suw;
+	Thu, 27 Nov 2025 06:02:59 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOV0S-0000000G1BR-0b4S
+	id 1vOV5k-0000000G1XS-23TG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 05:57:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1764223046; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=4QKv6ZOvX2SBICDdmwi+E+eWq1SX0cudMyw17vPaerg=;
-	b=Br6h3imQQqGqHlTr+D/1cQ1BOCghNbSQoyEjevfkt6+Qs2qgYlOzL/3QJYT90SfAJORG6DUjGFMGWS/3wApnME4EbzjMbwiV/FRh7SH3WEYL3b0aL2LOg9cslQBUEW0dRObhfC+I9sLei8BuTIXKSVtPSnp5utUHYbK40xVSWVM=
-Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0WtVwrDT_1764223044 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 27 Nov 2025 13:57:24 +0800
-Date: Thu, 27 Nov 2025 13:57:24 +0800
-From: Yao Yuan <yaoyuan@linux.alibaba.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Ben Horgan <ben.horgan@arm.com>
-Subject: Re: [PATCH v2 3/5] KVM: arm64: Add a generic synchronous exception
- injection primitive
-Message-ID: <5f65l5sg5xxxzoh3uuqixwqrvkuwfvaqhkz2u4mme2jw2rcfzq@oq4lhswlquxt>
-References: <20251126155951.1146317-1-maz@kernel.org>
- <20251126155951.1146317-4-maz@kernel.org>
+	Thu, 27 Nov 2025 06:02:58 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20251127060247epoutp0259e719ca8a479774b23c3c3fc674ab5a~7x85QLV9m0481104811epoutp02h
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 06:02:47 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20251127060247epoutp0259e719ca8a479774b23c3c3fc674ab5a~7x85QLV9m0481104811epoutp02h
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1764223368;
+	bh=Qv72eaRmqkaycHNsibcCq6bjdrJSSd7d60nyQyGqTZs=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=V7R/StFtmBdjyXAwoc8kMz8y2BfkICw+SaaIeKfiRbQ3gwt4pQ9Wv7vEBJRngi0Lh
+	 AGFv1K0KE3GFlgTY7Io/q9ofnbUR0Ijl4jB/6NhvayXa/hYV/SHF+0qBNyJLpWaPfk
+	 1P4H3fK0oH9mLCW3smazBBxyA2tGmLeObVhpIi+0=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20251127060247epcas5p15ae952aea1de396692c29ad82e3c4588~7x84mc_Oa2012320123epcas5p1h;
+	Thu, 27 Nov 2025 06:02:47 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4dH5SR1hD8z2SSKb; Thu, 27 Nov
+	2025 06:02:47 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20251127060246epcas5p3f7b044dec5c4860399801a811a04155d~7x84VQZRf0400104001epcas5p3V;
+	Thu, 27 Nov 2025 06:02:46 +0000 (GMT)
+Received: from localhost.localdomain (unknown [107.109.224.44]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20251127060243epsmtip2e34c82509ef4b8fd806cddaa6f922a3e~7x803uInl1215212152epsmtip2C;
+	Thu, 27 Nov 2025 06:02:43 +0000 (GMT)
+From: Onkarnath <onkarnath.1@samsung.com>
+To: catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com,
+	ada.coupriediaz@arm.com, thuth@redhat.com, onkarnath.1@samsung.com,
+	broonie@kernel.org, song@kernel.org, yeoreum.yun@arm.com,
+	kevin.brodsky@arm.com, ryan.roberts@arm.com, jeremy.linton@arm.com,
+	maz@kernel.org, smostafa@google.com, leitao@debian.org,
+	bigeasy@linutronix.de, kees@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	maninder1.s@samsung.com, r.thapliyal@samsung.com, Sarvesh Kadam
+	<s.kadam@samsung.com>
+Subject: [PATCH 1/1] arm64: Print slab alloc and free paths for addresses in
+ registers
+Date: Thu, 27 Nov 2025 11:32:27 +0530
+Message-Id: <20251127060227.3575956-1-onkarnath.1@samsung.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251126155951.1146317-4-maz@kernel.org>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20251127060246epcas5p3f7b044dec5c4860399801a811a04155d
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+X-CMS-RootMailID: 20251127060246epcas5p3f7b044dec5c4860399801a811a04155d
+References: <CGME20251127060246epcas5p3f7b044dec5c4860399801a811a04155d@epcas5p3.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_215728_558028_29435DCC 
-X-CRM114-Status: GOOD (  16.02  )
+X-CRM114-CacheID: sfid-20251126_220257_198788_948B46A3 
+X-CRM114-Status: GOOD (  15.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,71 +93,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 26, 2025 at 03:59:49PM +0800, Marc Zyngier wrote:
-> Maybe in a surprising way, we don't currently have a generic way
-> to inject a synchronous exception at the EL the vcpu is currently
-> running at.
+When debugging use-after-free kernel oopses, knowing the allocation and
+freeing paths of an object is crucial. Like arm this patch enhances arm64
+debugging by checking if register addresses belong to a slab and printing
+their corresponding alloc and free paths.
 
-Hi Marc,
+For example x21 prints alloc and free path:
 
-Thanks for bring this in generic way.
+pc : crash_init+0x44/0x64 [crash]
+lr : crash_init+0x34/0x64 [crash]
+.....
+Register x21 information: slab task_struct start ffff0000c3cc7000 data offset 64 pointer offset 0 size 3904 allocated at copy_process+0x1ac/0x14a4
+    kmem_cache_alloc_node_noprof+0x208/0x4a8
+    copy_process+0x1ac/0x14a4
+    kernel_clone+0x70/0x380
+    __arm64_sys_fork+0x40/0x7c
+    invoke_syscall+0x48/0x104
+    el0_svc_common.constprop.0+0x40/0xe0
+    do_el0_svc_compat+0x1c/0x34
+    el0_svc_compat+0x2c/0x90
+    el0t_32_sync_handler+0x88/0xac
+    el0t_32_sync+0x19c/0x1a0
+ Free path:
+    kmem_cache_free+0x3c0/0x430
+    free_task+0x54/0x80
+    __put_task_struct+0x100/0x15c
+    __put_task_struct_rcu_cb+0x14/0x20
+    rcu_core+0x264/0x680
+    rcu_core_si+0x10/0x1c
+    handle_softirqs+0x100/0x244
+    __do_softirq+0x14/0x20
 
-Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+Co-developed-by: Sarvesh Kadam <s.kadam@samsung.com>
+Signed-off-by: Sarvesh Kadam <s.kadam@samsung.com>
+Signed-off-by: Onkarnath <onkarnath.1@samsung.com>
+---
+ arch/arm64/include/asm/system_misc.h |  1 +
+ arch/arm64/kernel/process.c          | 11 +++++++++++
+ arch/arm64/kernel/traps.c            |  2 +-
+ 3 files changed, 13 insertions(+), 1 deletion(-)
 
->
-> Extract such primitive from the UNDEF injection code.
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/include/asm/kvm_emulate.h |  1 +
->  arch/arm64/kvm/inject_fault.c        | 10 +++++++---
->  2 files changed, 8 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> index c9eab316398e2..df20d47f0d256 100644
-> --- a/arch/arm64/include/asm/kvm_emulate.h
-> +++ b/arch/arm64/include/asm/kvm_emulate.h
-> @@ -45,6 +45,7 @@ bool kvm_condition_valid32(const struct kvm_vcpu *vcpu);
->  void kvm_skip_instr32(struct kvm_vcpu *vcpu);
->
->  void kvm_inject_undefined(struct kvm_vcpu *vcpu);
-> +void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr);
->  int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr);
->  int kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr);
->  void kvm_inject_size_fault(struct kvm_vcpu *vcpu);
-> diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
-> index dfcd66c655179..7102424a3fa5e 100644
-> --- a/arch/arm64/kvm/inject_fault.c
-> +++ b/arch/arm64/kvm/inject_fault.c
-> @@ -162,12 +162,16 @@ static void inject_abt64(struct kvm_vcpu *vcpu, bool is_iabt, unsigned long addr
->  	vcpu_write_sys_reg(vcpu, esr, exception_esr_elx(vcpu));
->  }
->
-> +void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr)
-> +{
-> +	pend_sync_exception(vcpu);
-> +	vcpu_write_sys_reg(vcpu, esr, exception_esr_elx(vcpu));
-> +}
-> +
->  static void inject_undef64(struct kvm_vcpu *vcpu)
->  {
->  	u64 esr = (ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT);
->
-> -	pend_sync_exception(vcpu);
-> -
->  	/*
->  	 * Build an unknown exception, depending on the instruction
->  	 * set.
-> @@ -175,7 +179,7 @@ static void inject_undef64(struct kvm_vcpu *vcpu)
->  	if (kvm_vcpu_trap_il_is32bit(vcpu))
->  		esr |= ESR_ELx_IL;
->
-> -	vcpu_write_sys_reg(vcpu, esr, exception_esr_elx(vcpu));
-> +	kvm_inject_sync(vcpu, esr);
->  }
->
->  #define DFSR_FSC_EXTABT_LPAE	0x10
-> --
-> 2.47.3
->
+diff --git a/arch/arm64/include/asm/system_misc.h b/arch/arm64/include/asm/system_misc.h
+index d316a804eb38..9cb9749d8853 100644
+--- a/arch/arm64/include/asm/system_misc.h
++++ b/arch/arm64/include/asm/system_misc.h
+@@ -27,6 +27,7 @@ void arm64_notify_die(const char *str, struct pt_regs *regs,
+ 
+ struct mm_struct;
+ extern void __show_regs(struct pt_regs *);
++extern void __show_regs_alloc_free(struct pt_regs *regs);
+ 
+ #endif	/* __ASSEMBLER__ */
+ 
+diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+index fba7ca102a8c..7738ec8e5cd5 100644
+--- a/arch/arm64/kernel/process.c
++++ b/arch/arm64/kernel/process.c
+@@ -199,6 +199,17 @@ static void print_pstate(struct pt_regs *regs)
+ 	}
+ }
+ 
++void __show_regs_alloc_free(struct pt_regs *regs)
++{
++	int i;
++
++	/* check for x0 - x31 only */
++	for (i = 0; i < 31; i++) {
++		pr_alert("Register x%d information:", i);
++		mem_dump_obj((void *)regs->regs[i]);
++	}
++}
++
+ void __show_regs(struct pt_regs *regs)
+ {
+ 	int i, top_reg;
+diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
+index 914282016069..3b01379b8880 100644
+--- a/arch/arm64/kernel/traps.c
++++ b/arch/arm64/kernel/traps.c
+@@ -189,7 +189,7 @@ static int __die(const char *str, long err, struct pt_regs *regs)
+ 
+ 	print_modules();
+ 	show_regs(regs);
+-
++	__show_regs_alloc_free(regs);
+ 	if (user_mode(regs))
+ 		return ret;
+ 
+-- 
+2.25.1
+
 
