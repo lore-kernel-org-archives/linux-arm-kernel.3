@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F728CFD2F6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CAD2D116F5
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 09:23:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,66 +12,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wzVFhaCJ4tPvEzjzVh2/FLJsOENJe5tM82eV69ICp3w=; b=JMwOQNU7yuHJGjbeS4qCC0ruZi
-	XKhW4WspZqEDWXdxZglIA5JHzES3KipOjQj1WtrcslYeaE6RwN+/vXINoli6R0u5Fdlp4x7CCsQNj
-	tMhEAfuk/p+nc3h7TJrGCtV+e1Rp2li2N0CKtMpKnv4tZoJCNLtXjtJt3FQ9NQ8ECbWRTR0reBk/S
-	XzvcifTv85tbFK7mFL4HmbI+jITyc1LmbpvufDbnMJgtoSgqrd4SatU/9sJ1Rk4lkINKaWYqNrVVl
-	lWfx6ltWR8yp0swub9MTKTrSV2uxLjuWsf4cXAobe9dBuTA/u27IH69j54hZu28LHD2zzx2kSPgVm
-	Ohpc1gAQ==;
+	bh=G8PUYE65+35CiVgD1jp+ggIop/9/H10ihf2g4jePZBk=; b=OFo6BxkTCfPsRW2EeQGfO+SQ94
+	DSXmBqaItAmsSaEwC8f3NDj3KQrzc5DWnyVZedzABDHFvPzs/lCx96T2X2QGfth8+e0Py9UnGdGJ8
+	nv8+4xUQVjx08CkBRRB4rPIMHDRsBmPB4iJOD/e1/b7N5OTJg9bSL3ac3zgckGlju2JI0O0rPi11H
+	GaMdqwGTBejDJn9h9OU0Gh0ye4pGlNGObG9+AS4Ebsre3Y+lnEp2csJ0SMfVz+Fbzl5T/ONqfNnv+
+	ZOMrXeFXVsKMJiTewzV9TZRKqCv7lm6pvUjJRmlq+28ZNE6qBocP+Nu2II7BMZ7rb78KrFeJ8cp1+
+	/Psk3EHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOYDQ-0000000GHgg-1n4g;
+	id 1vOYDQ-0000000GHgE-0KP1;
 	Thu, 27 Nov 2025 09:23:04 +0000
-Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOYDK-0000000GHbZ-398b
+	id 1vOYDK-0000000GHb1-1jy4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 09:23:00 +0000
-Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-429c5da68e5so499999f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 01:22:58 -0800 (PST)
+	Thu, 27 Nov 2025 09:22:59 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-47799717212so3900795e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 01:22:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764235377; x=1764840177; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1764235376; x=1764840176; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=wzVFhaCJ4tPvEzjzVh2/FLJsOENJe5tM82eV69ICp3w=;
-        b=e4c7Ng65fg4kVvn1YBvBFdtiXPkIToeRJH5GrOc+dhkSs7dxekgAGS5Wh3pjaQ3hAz
-         9craiypUAHt0JV493R50w65kYg+4oEO/xoX9zvEjnVCEdd1tiiyEB/z55AyOWTDTpi+h
-         nH5qKPP9sJBlKeZJrzRUYiZTLj7z7XpR3AAeth/U2bhM7+iFDLg+e7+xODSycdhoGJjs
-         FAIYvAZNpMG/Sl+xIV46ziwHvAr0iKY09H3MFJ/2uyf01Gs8IwO1fJ5LuWVi/Gap+BYt
-         KSPfJo/SBoQW4CVFH6xRop/oJenjdLi/RedLv4XprlztuseMVPsbf1FJmbd+qUYJOsWf
-         OlYQ==
+        bh=G8PUYE65+35CiVgD1jp+ggIop/9/H10ihf2g4jePZBk=;
+        b=t4Fm0uSnfgvmkJKiciupuTVg5Oe3svr5cSILP4izAA6ggqo9NQa9lzuYtjttyjZ93B
+         c7IGel95g6fohVyxT2Dx4hFaJINcWETdIzPhw7NPPcUTBuATGhZFZUAJZXO9gqKVwqq+
+         YqVxLQV7d13+4/nF2UT9/3u4Yi73LQkyD3inEJWhn0z8TG3L/2Ej4OJRhJHkyusYK5KW
+         2/zFtWnBryjGXYJ1bhm7LIE/VS/duNXQgD/PIc7h+bIrxXu0Gk/mzhrzx/0iVI9TzKK3
+         mnVq6ck0kVk5CL1ptLgvMLqSHJZylGwDZfSCnnRx5DL0tR9+7NpSt7Sbpw0/dO/UQiKQ
+         a8yw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764235377; x=1764840177;
+        d=1e100.net; s=20230601; t=1764235376; x=1764840176;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=wzVFhaCJ4tPvEzjzVh2/FLJsOENJe5tM82eV69ICp3w=;
-        b=nVTgM5Qdck1H86FOt5RCmnn3Hr8E4k+7xDQwD94r9H1wgeNsWyz3lLBSgbN7ZBUQeW
-         9ryjQTBLSx08HSoT4bq8lb9RpW2f36HEuiWd3BUliB31cnVQ1MZgJbKhFLAvrM8xpRpR
-         rwLBUOYdzTwAqWwyXBtlQGiTPXE5tXqXDSSQhBkO/bmuCrm3I7hwIXdLTHFTE6zOxd75
-         FxC4zlSo66iTl8z1vniD1OFZmgWBBerXxpvhJQIkyx/728uoJvjr/JNm9815sN47THwD
-         wgf4XWRzkKsqs4YxPLD/cLHTbFlYCZ/ZxWRNGq4HzIolFZqSt6KTU34+RSqnwobiObI8
-         PAqA==
-X-Gm-Message-State: AOJu0YwiRmkgFssjXJfkCm5t/Vlm3HJlqAfwqdgWFTmXpjpsor4Ga2J7
-	zXtIv2YzLZojCBIyXlgZo//Qw24czieacbF4KKOciDef0jixpv+qD6fjoCzWhKZK81Y0WoyLzg=
+        bh=G8PUYE65+35CiVgD1jp+ggIop/9/H10ihf2g4jePZBk=;
+        b=X4W5Hqiv2biDRCQHkFnSnpoD2tUyg2lcekiT7FDjAb2mBZCudLCOxE6wECF4YlRDTM
+         T3Xuiv5xbKGMAkxhGWg3Yi01TBdYGLx3nRwHFHEziznlj2pTW84p6yjgQayGKHkRqn/m
+         EUPJet5BY7nfERpwAuZjB0h4nciBPHYQLGQFr797QILVgNvOsWySTMXpT9iFggZgZsmp
+         zKRKMVbVtSltIJpzn5tq0t/FLY36ufKce6YhhgiuKa9BBjXLOGCPnjJpDWwgRQx9s02R
+         ie/DJHm5CA2qfqAR+mQzl6/mOfpSe5JRvokYFa4lJbOQ8FGbaCO+mH4/c2UiZxK1+dbP
+         yPIw==
+X-Gm-Message-State: AOJu0Yyhm21MbBz+qfntJ9e7NDquAImN5mHWCE93WZi2JKdShbw0BO5D
+	QPWko0/P/XiWMvZ/Walc00FELueqbcgpSO5uTH7BS7LDJ+wk5tIhqlBPzQYRA7GSJKvLtOg45Q=
 	=
-X-Google-Smtp-Source: AGHT+IGd+iJrVyefWu9xcpdYdKEXoxro/lG9n2ewRU/WJbCL+3bUle2bLSXZHjm1+EN52LuTQiG20BfQ
-X-Received: from wrqr7.prod.google.com ([2002:a5d:4987:0:b0:42b:b28a:6746])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:4010:b0:42b:3dbe:3a37
- with SMTP id ffacd0b85a97d-42cc1302285mr26345067f8f.10.1764235376919; Thu, 27
+X-Google-Smtp-Source: AGHT+IHGmStaBw0kw+zywe3YOqYeTN7JkzcsA1+VS2rjrhQpPUmECbRNT13sfo28k0MCm5UyvTanyD0N
+X-Received: from wmbh15.prod.google.com ([2002:a05:600c:a10f:b0:477:988a:7675])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:1382:b0:477:a977:b8a7
+ with SMTP id 5b1f17b1804b1-477c1117956mr205200185e9.19.1764235376129; Thu, 27
  Nov 2025 01:22:56 -0800 (PST)
-Date: Thu, 27 Nov 2025 10:22:31 +0100
+Date: Thu, 27 Nov 2025 10:22:30 +0100
 In-Reply-To: <20251127092226.1439196-8-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20251127092226.1439196-8-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4605; i=ardb@kernel.org;
- h=from:subject; bh=2kdRtRT+6jrXGVJpTsN6JRllZWlsEfiMzJMbIKIwLig=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIVNDItKrV2/nxk2T1FL2Pt6aq6pVO+2PRuinE8KPNTo6a
- 3nj3j3uKGVhEONikBVTZBGY/ffdztMTpWqdZ8nCzGFlAhnCwMUpABPp8mFkuDohVFskVsdiR1zu
- wmdCi5KUPl1VU7Fe/dFZccnmV/sc3jEynJLJaUjTW3hYn2F3RubPpNRt29cIn9B6cfPQJ+dKTzk BPgA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1946; i=ardb@kernel.org;
+ h=from:subject; bh=39kBqCzlZF8SLfFJgWsjj400jCEDRYRkq2STbPbbenE=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIVNDIqI3ZHbml073v/KHdtpnHfpRm/Py3LMdqh9Sljd+f
+ rhn84cNHaUsDGJcDLJiiiwCs/++23l6olSt8yxZmDmsTCBDGLg4BWAi7oYM/0M7zlcnzJvAe846
+ 80bGvn+b3uxjbs5YvCouYfXjnXIBr/4yMixpPnD96cT+y7kXZlzTaJTelrqtrYVD1/PozHcXtNf yb2UEAA==
 X-Mailer: git-send-email 2.52.0.107.ga0afd4fd5b-goog
-Message-ID: <20251127092226.1439196-12-ardb+git@google.com>
-Subject: [RFC/RFT PATCH 4/6] random: Use a lockless fast path for get_random_uXX()
+Message-ID: <20251127092226.1439196-11-ardb+git@google.com>
+Subject: [RFC/RFT PATCH 3/6] random: Use u32 to keep track of batched entropy generation
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-hardening@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
@@ -81,8 +81,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	"Jason A. Donenfeld" <Jason@zx2c4.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_012258_825273_316F6B65 
-X-CRM114-Status: GOOD (  19.21  )
+X-CRM114-CacheID: sfid-20251127_012258_473629_A826990F 
+X-CRM114-Status: GOOD (  14.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,120 +99,53 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Currently, the implementations of the get_random_uXX() API protect their
-critical section with a local lock and disabling interrupts, to ensure
-that the code does not race with itself when called from interrupt
-context.
+The batched entropy containers each have a generation field, to keep
+track of the base_crng generation from which it was last reseeded.
 
-Given that the fast path does nothing more than read a single uXX
-quantity from a linear buffer and bump the position pointer, poking the
-hardware registers to disable and re-enable interrupts is
-disproportionately costly, and best avoided.
+This use case does not require all bits of the unsigned long to be
+stored: storing only 32 bits is sufficient to determine whether or not
+we're at most 4 billion generations behind, which seems ample.
 
-There are two conditions under which the batched entropy buffer is
-replenished, which is what forms the critical section:
-- the buffer is exhausted
-- the base_crng generation counter has incremented.
-
-By combining the position and generation counters into a single u64, we
-can use compare and exchange to implement the fast path without taking
-the local lock or disabling interrupts. By constructing the expected and
-next values carefully, the compare and exchange will only succeed if
-- we did not race with ourselves, i.e., the compare and exchange
-  increments the position counter by exactly 1;
-- the buffer is not exhausted
-- the generation counter equals the base_crng generation counter.
-
-Only if the compare and exchange fails is the original slow path taken,
-and only in that case do we take the local lock. This results in a
-considerable speedup (3-5x) when benchmarking get_random_u8() in a tight
-loop.
+So use an unsigned int instead: this will allow a future patch to treat
+the generation and position as a single 64-bit quantity, which can be
+used locklessly in a compare-and-exchange() operation.
 
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- drivers/char/random.c | 44 ++++++++++++++------
- 1 file changed, 31 insertions(+), 13 deletions(-)
+ drivers/char/random.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/char/random.c b/drivers/char/random.c
-index 0e04bc60d034..71bd74871540 100644
+index b8b24b6ed3fe..0e04bc60d034 100644
 --- a/drivers/char/random.c
 +++ b/drivers/char/random.c
-@@ -496,6 +496,12 @@ static ssize_t get_random_bytes_user(struct iov_iter *iter)
-  * should be called and return 0 at least once at any point prior.
-  */
- 
-+#ifdef __LITTLE_ENDIAN
-+#define LOHI(lo, hi)	lo, hi
-+#else
-+#define LOHI(lo, hi)	hi, lo
-+#endif
-+
- #define DEFINE_BATCHED_ENTROPY(type)						\
- struct batch_ ##type {								\
- 	/*									\
-@@ -507,8 +513,12 @@ struct batch_ ##type {								\
+@@ -507,7 +507,7 @@ struct batch_ ##type {								\
  	 */									\
  	type entropy[CHACHA_BLOCK_SIZE * 3 / (2 * sizeof(type))];		\
  	local_lock_t lock;							\
--	unsigned int generation;						\
--	unsigned int position;							\
-+	union {									\
-+		struct {							\
-+			unsigned int LOHI(position, generation);		\
-+		};								\
-+		u64 posgen;							\
-+	};									\
+-	unsigned long generation;						\
++	unsigned int generation;						\
+ 	unsigned int position;							\
  };										\
  										\
- static DEFINE_PER_CPU(struct batch_ ##type, batched_entropy_ ##type) = {	\
-@@ -522,6 +532,7 @@ type get_random_ ##type(void)							\
+@@ -521,7 +521,7 @@ type get_random_ ##type(void)							\
+ 	type ret;								\
  	unsigned long flags;							\
  	struct batch_ ##type *batch;						\
- 	unsigned int next_gen;							\
-+	u64 next;								\
+-	unsigned long next_gen;							\
++	unsigned int next_gen;							\
  										\
  	warn_unseeded_randomness();						\
  										\
-@@ -530,21 +541,28 @@ type get_random_ ##type(void)							\
- 		return ret;							\
- 	}									\
+@@ -533,7 +533,7 @@ type get_random_ ##type(void)							\
+ 	local_lock_irqsave(&batched_entropy_ ##type.lock, flags);		\
+ 	batch = raw_cpu_ptr(&batched_entropy_##type);				\
  										\
--	local_lock_irqsave(&batched_entropy_ ##type.lock, flags);		\
--	batch = raw_cpu_ptr(&batched_entropy_##type);				\
-+	batch = &get_cpu_var(batched_entropy_##type);				\
- 										\
- 	next_gen = (unsigned int)READ_ONCE(base_crng.generation);		\
--	if (batch->position >= ARRAY_SIZE(batch->entropy) ||			\
--	    next_gen != batch->generation) {					\
--		_get_random_bytes(batch->entropy, sizeof(batch->entropy));	\
--		batch->position = 0;						\
--		batch->generation = next_gen;					\
-+	next = (u64)next_gen << 32;						\
-+	if (likely(batch->position < ARRAY_SIZE(batch->entropy))) {		\
-+		next |=	batch->position + 1; /* next-1 is bogus otherwise */	\
-+		ret = batch->entropy[batch->position];				\
-+	}									\
-+	if (cmpxchg64_local(&batch->posgen, next, next - 1) != next - 1) {	\
-+		local_lock_irqsave(&batched_entropy_ ##type.lock, flags);	\
-+		if (batch->position >= ARRAY_SIZE(batch->entropy) ||		\
-+		    next_gen != batch->generation) {				\
-+			_get_random_bytes(batch->entropy, sizeof(batch->entropy));\
-+			batch->position = 0;					\
-+			batch->generation = next_gen;				\
-+		}								\
-+		ret = batch->entropy[batch->position++];			\
-+		local_unlock_irqrestore(&batched_entropy_ ##type.lock, flags);	\
- 	}									\
- 										\
--	ret = batch->entropy[batch->position];					\
--	batch->entropy[batch->position] = 0;					\
--	++batch->position;							\
--	local_unlock_irqrestore(&batched_entropy_ ##type.lock, flags);		\
-+	batch->entropy[batch->position - 1] = 0;				\
-+	put_cpu_var(batched_entropy_##type);					\
- 	return ret;								\
- }										\
- EXPORT_SYMBOL(get_random_ ##type);
+-	next_gen = READ_ONCE(base_crng.generation);				\
++	next_gen = (unsigned int)READ_ONCE(base_crng.generation);		\
+ 	if (batch->position >= ARRAY_SIZE(batch->entropy) ||			\
+ 	    next_gen != batch->generation) {					\
+ 		_get_random_bytes(batch->entropy, sizeof(batch->entropy));	\
 -- 
 2.52.0.107.ga0afd4fd5b-goog
 
