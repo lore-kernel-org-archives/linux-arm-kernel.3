@@ -4,61 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29EE6D111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 15:57:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DEADCFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 16:02:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bg1owQV5V7behflaSwXEAFke18eD2nGFCLjM9u9H2Xo=; b=pRezHlXmY6a75VKN94MRMiFo8g
-	baVgx9gXrYW5tpK6VR0nxvz4FuFci1VV7JPD4YyQwWH2f7iDarXDpbY1Y0ZW6D0z5gXxdHlDAf8pX
-	W/FvZEUBcjNf5Zya6KkRfev5v5dBeYfbYvQbhMuwaIObn3Ay0FewBPLFRSfFOUV+d092FYSluMQHV
-	PIeMczVDe4TRVxmd/YVcjLhDUZAZtP7SKzPRtNVgDmsfFVcX9oAiEGNZaXsOZnVRuXQDb8FiK8t3A
-	v52tLWzkiT935eR8CtdAO7KsAL3KAfpa3m37wunCfmdH7ZYQmj5lOzxGUKoHbO3nbHPgqhwIUgBQp
-	rmbDlT+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mY7k8e6rh86X1KFsb+QPer9lTYgSo+le4387o1pHLfg=; b=yIRMNdmAe1YkkpwsMt6Y3/VHMg
+	LStql9XxN76XJZoiuBJhT2eM2ntK/kiZjScryB/9mqxNK1J0JPLKjbDJmudNRfZXw113l6F7vgyVz
+	qykktzlWrZgiLwriWPy4UrIsGsWgdBidI9sWYYZdKYCR4qzORQ3P95U8G4JxKLJnHIDycJGjJBVVP
+	KcF0sKf0T7bCAlldF7bE1qb61CZRkZUHVW9U7W8SHxg4Zo1qpfkxLKs3mGYNOncbcMJtkIaJylBgu
+	xdTujTDqXXHpqH7cFgfK8l5eLLE1ca0Tyh+XN2dE3QXZh8LHKmohCen2QVLW3MWhWyzlFzpe4t/7g
+	Tkw2jc7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOeMk-0000000Gt2J-1ZKb;
-	Thu, 27 Nov 2025 15:57:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOeMh-0000000Gt1j-3JZV
+	id 1vOeS3-0000000GtcR-36vx;
+	Thu, 27 Nov 2025 16:02:35 +0000
+Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOeS1-0000000Gtc5-31ER
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 15:57:05 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 87DC6176A;
-	Thu, 27 Nov 2025 07:56:55 -0800 (PST)
-Received: from [10.57.87.167] (unknown [10.57.87.167])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1DBFC3F73B;
-	Thu, 27 Nov 2025 07:57:00 -0800 (PST)
-Message-ID: <f95593ac-d4cf-4e06-9a94-cc5133897c59@arm.com>
-Date: Thu, 27 Nov 2025 15:56:59 +0000
+	Thu, 27 Nov 2025 16:02:34 +0000
+Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-297f35be2ffso15503765ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 08:02:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1764259353; x=1764864153; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=mY7k8e6rh86X1KFsb+QPer9lTYgSo+le4387o1pHLfg=;
+        b=YFbmrSgw6cRWG+57MBYCgBfXIn3vK8e0u7zuiSyJcxZiYwJX5N4O2AfEoit1Z0uHwk
+         dI/5CRMlL+wDAKceZli/7vXMVI90VIAZ+fs0d37xLegbBAzJcz8L6tFnQsQcV0FIHlg+
+         Cs67VveHIcDD4KO3fWwG8wSKZYwvF2GxpQwf+eYwCPln5x7VdA1f53oUzE+oVVrb815v
+         CNQSw0TAl1RE4GNFFuAhmRkJRWGUWlkvGqPWlZUh7jTba/B08FLVpu0TygpqmEU5nOge
+         Qeb1fsZCIrvRDeqAFow/caeEA+pRGQrzox1/y2W8fVoEY1QLfo4YTTWqOAo1GoCci30b
+         THkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764259353; x=1764864153;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mY7k8e6rh86X1KFsb+QPer9lTYgSo+le4387o1pHLfg=;
+        b=rQcYoKZn9KUzIEj4tUzSdW+DXuY5idmUMV1O+vMnR3tECcTWaeAHJhJbcQnYPH1lJm
+         M2w7BCLn4uDH2ECKo0H3ye9N7CgcF0gbmoct7NO25kDaWFPP69QD3NSmMl3pAykpGpoO
+         23hAtYih9PCS/8JsgY7J2OWdmx7Jgt0hkKO+XLUZDo9ZB7ZPz4WYwRBgndf6z5ljKdzx
+         73ZktZWaUfwHZGXLsP8ztStKQLSqANiA8HeGQtx7dXh2eE2aq9iKdBUbf371kCk3iPeX
+         0wkHHvzYgz7zzGJY1yN2p4B6MBvNnGeo5oi/pvrWSkS39iWkv0Sk7bnNWI3RS49+W8Qp
+         T7RA==
+X-Forwarded-Encrypted: i=1; AJvYcCUnqRcKXnWCoF2vQLAnNb2JfV4xuDd5XxOqUTTwi+ElRGrKbvp3SCROzAqIlI+hZtdUmZvN5gLeTNUyXcDJzyEY@lists.infradead.org
+X-Gm-Message-State: AOJu0YwcYgGXuFthIC2DLi9XTyJx3AXpGXmPrbT8/x+DCEFTdDGwKrwf
+	qFtzNyTu5+M1mWl0kPWWCQwFfj3t1eyMvH8IZ9y4+nYoFFSgldna+dx1MYfIRUoQG1U=
+X-Gm-Gg: ASbGncsf596rVp+qdYNM7dkncDa6TssQxUwf5zp8f47thXzjdqViSS+t6qjxq4bnGU9
+	zRqziuwX14x2BBbca9NBbo8aPvqcO5vHaxGR0uaPa92x/emjCJcdS0KPgRHqHKh67gOyOBkPHsf
+	UPu/rfljex9nO7r9ghMvsEVBzdDnmkTe7u+4q0BSe9dBAgYYuDHY4mUvhBkXfUVPdgowXvmQasn
+	zep5sId3NFm1dmCkfRd8LDj8h4f2RNTpsoe16/mkaIlaRpEBsCPM3ubiUs/3SjD1HIYrkMyj/SI
+	SQhiJ1Ux7BE2CWb97x8dHneCKUlBc+Jx1VN3hdKo2Xp78Ukttxx75/hYSrx5OdP7hN0kak5zfYT
+	pO5ynhAMCx8dWD8RYTtVhlVYqtQYhTzUAiiPueBYCLlk7sGADHP9fsuSlOxf2y0txR7pNq6C8sb
+	II17j6Xy+bLWswnkrrSwzaMjKh
+X-Google-Smtp-Source: AGHT+IEBS49WXHa1OQkXmOSzrd/2INN0XNe3pKmNT4J9ufCzVEdO1kJQ5meC0md/PjmvEoKECkjFdA==
+X-Received: by 2002:a17:903:292:b0:290:2a14:2ed5 with SMTP id d9443c01a7336-29b6c3dc29fmr271962935ad.4.1764259352803;
+        Thu, 27 Nov 2025 08:02:32 -0800 (PST)
+Received: from p14s ([2604:3d09:148c:c800:9ef4:efaa:23ae:f181])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29bce4703a9sm21523835ad.42.2025.11.27.08.02.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 27 Nov 2025 08:02:32 -0800 (PST)
+Date: Thu, 27 Nov 2025 09:02:29 -0700
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org
+Subject: Re: [PATCH next] remoteproc: imx_dsp_rproc: Fix NULL vs IS_ERR() bug
+ in imx_dsp_rproc_add_carveout()
+Message-ID: <aSh2FVTS8jGUSInR@p14s>
+References: <aSf6OerBbPcxBUVt@stanley.mountain>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC/RFT PATCH 0/6] Improve get_random_u8() for use in randomize
- kstack
-Content-Language: en-GB
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-hardening@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Kees Cook <kees@kernel.org>, Will Deacon <will@kernel.org>,
- Arnd Bergmann <arnd@arndb.de>, Jeremy Linton <jeremy.linton@arm.com>,
- Catalin Marinas <Catalin.Marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, "Jason A. Donenfeld" <Jason@zx2c4.com>
-References: <20251127092226.1439196-8-ardb+git@google.com>
- <b1dae5a7-27bd-42de-bcce-9fd3c2b1c178@arm.com>
- <CAMj1kXE-Qm4DQNAcg8Tg7YM4EMdLBu_UJm7M8Cpk3t5g7XqP5w@mail.gmail.com>
- <e996fdd5-7113-4327-a884-336dd5f77c4d@arm.com>
- <CAMj1kXGyYMy2xhcdNicHkMfWBnEjyhc+xg8ciuR-6WXDxDpZxg@mail.gmail.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <CAMj1kXGyYMy2xhcdNicHkMfWBnEjyhc+xg8ciuR-6WXDxDpZxg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aSf6OerBbPcxBUVt@stanley.mountain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_075703_936538_4FE19360 
-X-CRM114-Status: GOOD (  27.39  )
+X-CRM114-CacheID: sfid-20251127_080233_790160_874ED7D8 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,114 +107,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/11/2025 15:03, Ard Biesheuvel wrote:
-> On Thu, 27 Nov 2025 at 15:18, Ryan Roberts <ryan.roberts@arm.com> wrote:
->>
->> On 27/11/2025 12:28, Ard Biesheuvel wrote:
->>> On Thu, 27 Nov 2025 at 13:12, Ryan Roberts <ryan.roberts@arm.com> wrote:
->>>>
->>>> On 27/11/2025 09:22, Ard Biesheuvel wrote:
->>>>> From: Ard Biesheuvel <ardb@kernel.org>
->>>>>
->>>>> Ryan reports that get_random_u16() is dominant in the performance
->>>>> profiling of syscall entry when kstack randomization is enabled [0].
->>>>>
->>>>> This is the reason many architectures rely on a counter instead, and
->>>>> that, in turn, is the reason for the convoluted way the (pseudo-)entropy
->>>>> is gathered and recorded in a per-CPU variable.
->>>>>
->>>>> Let's try to make the get_random_uXX() fast path faster, and switch to
->>>>> get_random_u8() so that we'll hit the slow path 2x less often. Then,
->>>>> wire it up in the syscall entry path, replacing the per-CPU variable,
->>>>> making the logic at syscall exit redundant.
->>>>
->>>> I ran the same set of syscall benchmarks for this series as I've done for my
->>>> series.
->>>>
->>>
->>> Thanks!
->>>
->>>
->>>> The baseline is v6.18-rc5 with stack randomization turned *off*. So I'm showing
->>>> performance cost of turning it on without any changes to the implementation,
->>>> then the reduced performance cost of turning it on with my changes applied, and
->>>> finally cost of turning it on with Ard's changes applied:
->>>>
->>>> arm64 (AWS Graviton3):
->>>> +-----------------+--------------+-------------+---------------+-----------------+
->>>> | Benchmark       | Result Class |   v6.18-rc5 | per-task-prng | fast-get-random |
->>>> |                 |              | rndstack-on |               |                 |
->>>> +=================+==============+=============+===============+=================+
->>>> | syscall/getpid  | mean (ns)    |  (R) 15.62% |     (R) 3.43% |      (R) 11.93% |
->>>> |                 | p99 (ns)     | (R) 155.01% |     (R) 3.20% |      (R) 11.00% |
->>>> |                 | p99.9 (ns)   | (R) 156.71% |     (R) 2.93% |      (R) 11.39% |
->>>> +-----------------+--------------+-------------+---------------+-----------------+
->>>> | syscall/getppid | mean (ns)    |  (R) 14.09% |     (R) 2.12% |      (R) 10.44% |
->>>> |                 | p99 (ns)     | (R) 152.81% |         1.55% |       (R) 9.94% |
->>>> |                 | p99.9 (ns)   | (R) 153.67% |         1.77% |       (R) 9.83% |
->>>> +-----------------+--------------+-------------+---------------+-----------------+
->>>> | syscall/invalid | mean (ns)    |  (R) 13.89% |     (R) 3.32% |      (R) 10.39% |
->>>> |                 | p99 (ns)     | (R) 165.82% |     (R) 3.51% |      (R) 10.72% |
->>>> |                 | p99.9 (ns)   | (R) 168.83% |     (R) 3.77% |      (R) 11.03% |
->>>> +-----------------+--------------+-------------+---------------+-----------------+
->>>>
->>>
->>> What does the (R) mean?
->>>
->>>> So this fixes the tail problem. I guess get_random_u8() only takes the slow path
->>>> every 768 calls, whereas get_random_u16() took it every 384 calls. I'm not sure
->>>> that fully explains it though.
->>>>
->>>> But it's still a 10% cost on average.
->>>>
->>>> Personally I think 10% syscall cost is too much to pay for 6 bits of stack
->>>> randomisation. 3% is better, but still higher than we would all prefer, I'm sure.
->>>>
->>>
->>> Interesting!
->>>
->>> So the only thing that get_random_u8() does that could explain the
->>> delta is calling into the scheduler on preempt_enable(), given that it
->>> does very little beyond that.
->>>
->>> Would you mind repeating this experiment after changing the
->>> put_cpu_var() to preempt_enable_no_resched(), to test this theory?
->>
->> This has no impact on performance.
->>
+On Thu, Nov 27, 2025 at 10:14:01AM +0300, Dan Carpenter wrote:
+> The devm_ioremap_resource_wc() function never returns NULL, it returns
+> error pointers.  Update the error checking to match.
 > 
-> Thanks. But this is really rather surprising: what else could be
-> taking up that time, given that on the fast path, there are only some
-> loads and stores to the buffer, and a cmpxchg64_local(). Could it be
-> the latter that is causing so much latency? I suppose the local
-> cmpxchg() semantics don't really exist on arm64, and this uses the
-> exact same LSE instruction that would be used for an ordinary
-> cmpxchg(), unlike on x86 where it appears to omit the LOCK prefix.
+> Fixes: 67a7bc7f0358 ("remoteproc: Use of_reserved_mem_region_* functions for "memory-region"")
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+> ---
+>  drivers/remoteproc/imx_dsp_rproc.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 > 
-> In any case, there is no debate that your code is faster on arm64. 
+> diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
+> index be83b5f20f15..5130a35214c9 100644
+> --- a/drivers/remoteproc/imx_dsp_rproc.c
+> +++ b/drivers/remoteproc/imx_dsp_rproc.c
+> @@ -710,9 +710,9 @@ static int imx_dsp_rproc_add_carveout(struct imx_dsp_rproc *priv)
+>  			return -EINVAL;
+>  
+>  		cpu_addr = devm_ioremap_resource_wc(dev, &res);
+> -		if (!cpu_addr) {
+> +		if (IS_ERR(cpu_addr)) {
+>  			dev_err(dev, "failed to map memory %pR\n", &res);
+> -			return -ENOMEM;
+> +			return PTR_ERR(cpu_addr);
 
-The results I have for x86 show it's faster than the rdtsc too, although that's
-also somewhat surprising. I'll run your series on x86 to get the equivalent data.
-
-> I
-> also think that using prandom for this purpose is perfectly fine, even
-> without reseeding: with a 2^113 period and only 6 observable bits per
-> 32 bit sample, predicting the next value reliably is maybe not
-> impossible, but hardly worth the extensive effort, given that we're
-> not generating cryptographic keys here.
-> 
-> So the question is really whether we want to dedicate 16 bytes per
-> task for this. I wouldn't mind personally, but it is something our
-> internal QA engineers tend to obsess over.
-
-Yeah that's a good point. Is this something we could potentially keep at the
-start of the kstack? Is there any precident for keeping state there at the
-moment? For arm64, I know there is a general feeling that 16K for the stack more
-than enough (but we are stuck with it because 8K isn't quite enough). So it
-would be "for free". I guess it would be tricky to do this in an arch-agnostic
-way though...
+Applied.
 
 Thanks,
-Ryan
+Mathieu
 
+>  		}
+>  
+>  		/* Register memory region */
+> -- 
+> 2.51.0
+> 
 
