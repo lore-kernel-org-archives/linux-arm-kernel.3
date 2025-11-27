@@ -4,64 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D496D11183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 13:25:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8883FD11183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 13:27:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=moEVtDcL42IP0HcsenV6WOiAqpgmM02qs5Y6D1+1cNo=; b=uIWCrDGA8jnhtQdX7By2oFSgoi
-	C0DzjtSHCDs15KZD34zotolGTyK81oB0mFnzoCz0ivwPyBON8uSoJLBiT75pgnmX/hX+YwElQsSM2
-	wzj3PQsO4PUrHrbswgmnHHzKjyLF7fGW1TGZZMn+guE6OE+PnVWByWM9rWJXEJi0pqttU0cCDrKs1
-	tTmIl7Fpd7NODmYF9W1MvclhURfFIsf4aFVDUqFpOVDENv/Ukg8z3f3E/MzvZ3XtZRzxHJKbT8/EE
-	9EcYljZ8SUaWy7DZZ2bZEj5IJX82QWl8fpKy8ONQtxKVFwr6tVcFRMr+sdq8jfR+bZC8dpWeMRYhN
-	1rHs8cGQ==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6rtcZQijsbNR4SvHFlyMnK0uSHhB9Vb6dKP1JGm7lsA=; b=XVWwr/+PcbUPCu0mcIRLT7hevb
+	+iGVxJSrPSH1X97PI8G3MraOGWwz89Y8O6XGJLnqmJQXvhut610/aVE1dy/ZsUtS3Cjr08haP9gsk
+	JriVNcPuRhfQtBViZfEuevQICcMRG19m9ZkOCc/JR/ViC5weBE4dh/94LciqsrCi4vRyyPe16ZoIo
+	NULMvnOe5+qaNNRjHi82GZaWWWApU953oK+WkizTNv7W8JSkMMzh7uIFM/WpXZv7yf7/7fB2DdktO
+	QKZ3M+4iTF/mnfTPAwPUlof84OWU7XuPWEwv2/4SoJTlb5q+10j5GS+pqYq9HGoC1TwKNH1vuvdFL
+	js9IqDzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOc06-0000000GfQa-3omK;
-	Thu, 27 Nov 2025 13:25:34 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOc02-0000000GfPK-30NY;
-	Thu, 27 Nov 2025 13:25:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1764249927;
-	bh=aEiQVMDoMgNcxL4GiRqNIJWzllGGLe7RboB7EQdNgAI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AZzbizIkgAjmlxdMrCRH9UpGgY4MV+GjkNFPdScQP/b3jx/kYcK2Dafll06rvzl5l
-	 Dwy5k0aDjZcLSaCr5/DhtxRTfOPLQExZm6jh7bmQSd9C/ca1XjVH7GDgniahP1bXmR
-	 +ldD2Sl3F2bmpvdNgdFttemhwq0mKYaDROEQ9VJWdo9xdWYGSSPod7wYIqmQHp0mF8
-	 2Y0FpjWm/exFALIMAMKG45up+DO54QVk8M8+QOgkp/B+Maer7LvwDu715bw05gOBdD
-	 /7JCrJDdSdfSzYxc0nszBqn/46vwNg473QJnte8AnaTZS6HVAdC2QnTiN4VTHiOSyy
-	 rXhtGXcgIQETA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id D28DD17E0117;
-	Thu, 27 Nov 2025 14:25:26 +0100 (CET)
-Message-ID: <fc5febc7-d1ee-4b93-81c7-eca7134e9c39@collabora.com>
-Date: Thu, 27 Nov 2025 14:25:26 +0100
+	id 1vOc2G-0000000Gfg2-3eD7;
+	Thu, 27 Nov 2025 13:27:48 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOc2E-0000000Gffb-0fLu
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Nov 2025 13:27:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6412E1477;
+	Thu, 27 Nov 2025 05:27:37 -0800 (PST)
+Received: from [10.57.43.59] (unknown [10.57.43.59])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DEED13F66E;
+	Thu, 27 Nov 2025 05:27:38 -0800 (PST)
+Message-ID: <b907563a-43e7-4a17-abdd-cdabc3113992@arm.com>
+Date: Thu, 27 Nov 2025 14:27:36 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: mediatek: mt8195: Fix address range for JPEG
- decoder core 1
-To: Chen-Yu Tsai <wenst@chromium.org>,
- Matthias Brugger <matthias.bgg@gmail.com>, Arnd Bergmann <arnd@kernel.org>
-Cc: linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org, soc@kernel.org
-References: <20251127100044.612825-1-wenst@chromium.org>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20251127100044.612825-1-wenst@chromium.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v8 01/12] arm64: Remove unused _TIF_WORK_MASK
+To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
+ will@kernel.org, oleg@redhat.com, tglx@linutronix.de, peterz@infradead.org,
+ luto@kernel.org, shuah@kernel.org, kees@kernel.org, wad@chromium.org,
+ charlie@rivosinc.com, akpm@linux-foundation.org, ldv@strace.io,
+ macro@orcam.me.uk, deller@gmx.de, mark.rutland@arm.com, efault@gmx.de,
+ song@kernel.org, mbenes@suse.cz, ryan.roberts@arm.com,
+ ada.coupriediaz@arm.com, anshuman.khandual@arm.com, broonie@kernel.org,
+ pengcan@kylinos.cn, dvyukov@google.com, kmal@cock.li,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org
+References: <20251126071446.3234218-1-ruanjinjie@huawei.com>
+ <20251126071446.3234218-2-ruanjinjie@huawei.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <20251126071446.3234218-2-ruanjinjie@huawei.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_052530_920870_DBFB977D 
-X-CRM114-Status: GOOD (  20.55  )
+X-CRM114-CacheID: sfid-20251127_052746_251586_CF0BDEFC 
+X-CRM114-Status: GOOD (  11.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,59 +72,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 27/11/25 11:00, Chen-Yu Tsai ha scritto:
-> The base address of JPEG decoder core 1 should start at 0x10000, and
-> have a size of 0x10000, i.e. it is right after core 0.
-> 
-> Instead the core has  the same base address as core 0, and with a crazy
-> large size. This looks like a mixup of address and size cells when the
-> ranges were converted.
-> 
-> This causes the kernel to fail to register the second core due to sysfs
-> name conflicts:
-> 
->      sysfs: cannot create duplicate filename '/devices/platform/soc/soc:jpeg-decoder@1a040000/1a040000.jpgdec'
-> 
-> Fix up the address range.
-> 
-> Fixes: a9eac43d039f ("arm64: dts: mediatek: mt8195: Fix ranges for jpeg enc/decoder nodes")
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+On 26/11/2025 08:14, Jinjie Ruan wrote:
+> Since commit b3cf07851b6c ("arm64: entry: Switch to generic IRQ
+> entry"), _TIF_WORK_MASK is never used, so remove it.
+>
+> Fixes: b3cf07851b6c ("arm64: entry: Switch to generic IRQ entry")
 
-Acked-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+I'm not sure a Fixes: tag is warranted - this has no functional effect
+and doesn't need to be backported.
 
+Otherwise:
+
+Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
+
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 > ---
-> This was introduced in v6.18-rc1.
-> 
-> Maybe have the soc maintainers take this directly instead of waiting?
-
-I'm fine with that; if Arnd wants to take it directly, that'd be easier for me as
-I really don't expect any other Fixes commits for the moment (and I'm currently in
-a very, very... very busy "moment").
-
-Cheers,
-Angelo
-
-> 
-> Also, I'm not sure if this error could mess up the JPEG decoder driver's
-> internal tracking.
-> 
->   arch/arm64/boot/dts/mediatek/mt8195.dtsi | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8195.dtsi b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-> index ec452d657031..c7adafaa8328 100644
-> --- a/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-> +++ b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
-> @@ -3067,7 +3067,7 @@ jpgdec@0,0 {
->   
->   			jpgdec@0,10000 {
->   				compatible = "mediatek,mt8195-jpgdec-hw";
-> -				reg = <0 0 0x10000 0x10000>;/* JPGDEC_C1 */
-> +				reg = <0 0x10000 0 0x10000>;/* JPGDEC_C1 */
->   				iommus = <&iommu_vdo M4U_PORT_L19_JPGDEC_WDMA0>,
->   					 <&iommu_vdo M4U_PORT_L19_JPGDEC_BSDMA0>,
->   					 <&iommu_vdo M4U_PORT_L19_JPGDEC_WDMA1>,
-
-
--- 
+>  arch/arm64/include/asm/thread_info.h | 6 ------
+>  1 file changed, 6 deletions(-)
+>
+> diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
+> index f241b8601ebd..ff4998fa1844 100644
+> --- a/arch/arm64/include/asm/thread_info.h
+> +++ b/arch/arm64/include/asm/thread_info.h
+> @@ -106,12 +106,6 @@ void arch_setup_new_exec(void);
+>  #define _TIF_NOTIFY_SIGNAL	(1 << TIF_NOTIFY_SIGNAL)
+>  #define _TIF_TSC_SIGSEGV	(1 << TIF_TSC_SIGSEGV)
+>  
+> -#define _TIF_WORK_MASK		(_TIF_NEED_RESCHED | _TIF_NEED_RESCHED_LAZY | \
+> -				 _TIF_NOTIFY_RESUME | _TIF_FOREIGN_FPSTATE | \
+> -				 _TIF_UPROBE | _TIF_MTE_ASYNC_FAULT | \
+> -				 _TIF_NOTIFY_SIGNAL | _TIF_SIGPENDING | \
+> -				 _TIF_PATCH_PENDING)
+> -
+>  #define _TIF_SYSCALL_WORK	(_TIF_SYSCALL_TRACE | _TIF_SYSCALL_AUDIT | \
+>  				 _TIF_SYSCALL_TRACEPOINT | _TIF_SECCOMP | \
+>  				 _TIF_SYSCALL_EMU)
 
