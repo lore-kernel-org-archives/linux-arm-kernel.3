@@ -4,91 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 936B9CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 10:09:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AC0CD11183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 10:11:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4OCgpDbPUdB6E76FQAFcSl2BlXtdK16tW3oWJzKooEM=; b=XmiCH57yjlqHuU60+tORhTL07q
-	e4erTCIFqbSsUz2m1DS41TSZj5WdRL28IWNAR58BURAkVYGtAixtnTPneHWZaBle8GyPIH0iIk8P+
-	ecxk1B1oh3Rs8xy93SeEVcx5jTR8JTveOzKxSvGu7ZublIeuDfKOyrMNVFirQDEVtvpc2IqykFvwu
-	fY+JMxt87LWwCxjbDGJqyx5432qHRciRSsjqU7VmdJ5HqzBBKqjv+u20PV/vppw0ffDvkJliaMXCn
-	bee4IN7FAF9roTR6p44DfK7dPc38DIMwTa7L47icH8spP8RV2EUFLbligVM39DZHxm+prPFT2fl53
-	4h1DhcfA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3UuhlMt+xKMZUo21Zwoyz9Z0SmtmmUjCG1ylmETi6EM=; b=F7OhIsmQDcq4+SN1fEu5+Z8ttg
+	p9JPFyvNhm0RpY7aiJshhziJBhiajiXeVvvJPfJ7pxomXQt0bQtjT17Qo6ijh2hT9EbwZtHwyIP5w
+	OjVCEC8bdRJl6XSncyzKb+UY8ODEZAshmBDwY/6QNxGPSHmMrKnSWvowyuQQ+57PQCSM19jhOyR2X
+	0w/5tOVhED1gmL3lU37Wq2TV7RbTkd3wDBcszyTbWreRa8LBxa/Kl3j6OD8evwrm1o4jFZDBETGIU
+	DzHqnZl4bz6dR0eHmb/CqbNBSfhDJ+/7Jx9EcioaOKLIQgRaGfS6weej0yEmS8ysUJgU9qsYVddD8
+	ZtJ5G2Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOYwB-0000000GLcw-3E0o;
-	Thu, 27 Nov 2025 10:09:19 +0000
-Received: from mail-oo1-xc34.google.com ([2607:f8b0:4864:20::c34])
+	id 1vOYy5-0000000GLrC-2ZkN;
+	Thu, 27 Nov 2025 10:11:17 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOYw8-0000000GLc8-41Qy
+	id 1vOYy2-0000000GLqH-1PyM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 10:09:18 +0000
-Received: by mail-oo1-xc34.google.com with SMTP id 006d021491bc7-6593155d8d6so346901eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 02:09:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1764238152; x=1764842952; darn=lists.infradead.org;
-        h=content-transfer-encoding:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4OCgpDbPUdB6E76FQAFcSl2BlXtdK16tW3oWJzKooEM=;
-        b=e8LBBdqZ3En7duXQdBu+bKHTlXiynPBOV3B1kIBvYIBS+f4uSwKs92xqb2KxpsnxuF
-         FGq08OEnS6R+eZPnPQbSI8BTLO1JuRMtIsWVHiieigHNCg+QfXTN2HNxBSzTOGDp0wQu
-         lRvFUxAy+eVt2n7bOZBgOtNZU7WujpAKH2yz0+aJdegewqPUg3XpJs4gFfx4CvCISbJY
-         VUt1h+1e2KZdplFXkK9NIJmfr+JUP5vcerulJsHt6+NaA9/oTJiOLJn8WXJHmrNxBoct
-         f7vAmlbtQPSbZOEoqxUDhYMxj728N62DJ6LuDXGDcF1s0jVm4klje76SJxgtL0Y9sKwP
-         UJug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764238152; x=1764842952;
-        h=content-transfer-encoding:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=4OCgpDbPUdB6E76FQAFcSl2BlXtdK16tW3oWJzKooEM=;
-        b=OL5jUGwzF/UbMA5YSv9QYkwYL3aNgT6QpztLd34ezvByfeNW8yeNxX/CkPoz2r7aR2
-         S+iSfyPS4fo8iq97UzBOpCl5kTYU1ojnBUEsMciQeh3xjk35H5F8po3YNtRKKJ08qksr
-         bfaNuShSv9DXExV/ITY2zF5Dra8GSkA7KDASI2DhRG1t70GTZaQw0PD9xHS/m43BCJac
-         SwAZSHwipwk5m6wKcN5y0PNe6zggaus+ZYQ+QfyMB3fq37JPuE+DK6CkCGoXD7T3VTRX
-         63IlrkiR9cegGIQZ4yfWHvf3/ji8f9B80MFx2bY1KWHrVFRoEvzvU/1SGq+IIiWjMxDJ
-         H6tQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWy2Z4nrk2bhzQcZa5eaF9MruOCFRq51CH5t4ywvhLG+bXG4cgUkUzDKhiXSotyWjaADEVChf8AsNpu7jeBKlQe@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNJAC8BxuPbvMx7yEmonw8Fp6jqWFd+6I1m7RuXr9E/Z0TD2gO
-	HsgUJZmgXPYLy1VoOmtlLGMgE81v2LuM56hpIhhnqU012ago61ReTCSVkjTr4M0Mn7GtAtYRByN
-	Wz/3G9+Q9/uAB3C8lVqnd/ptBz/xd63e37E8XMDcqRg==
-X-Gm-Gg: ASbGncvLSuATvMb6CxdlxYKpQ24LEckmrZjyOyvvBmlDwLyqzWOSvbJquASB4pg7U0c
-	iJZ4b/MHZUGeRFDFUcRwHilBI8MBVOMOoA18vGncP95D9t/FTjn8yuenpJAqDdE50W8PYylOzKD
-	fG+PRlLAYo4egb0gd7U2y1x9FWomYxBaaGj2nfBD1cpEK9RwfHqHvTJ47KloMOM5v1fwpZ9uXEk
-	3J37L4f96H5pzHC+Byax4XDOpYzH3kJwdT+DgZ03HnqGWJfygECqJ2EJeHYqTWYjaEU3wVwWuKF
-	kg==
-X-Google-Smtp-Source: AGHT+IGONwSzZ9LgdJ8zM0FNTrtiuhBEH34P9VeB3GuFWjKl3lmYrzQGYx3VeBpsWXFXXVS0pOwjQu37mNii5jdXqMg=
-X-Received: by 2002:a05:6808:2386:b0:450:cc88:ecdf with SMTP id
- 5614622812f47-45115b5d282mr8574199b6e.45.1764238151795; Thu, 27 Nov 2025
- 02:09:11 -0800 (PST)
+	Thu, 27 Nov 2025 10:11:16 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id AC3B6C16A1B;
+	Thu, 27 Nov 2025 10:10:48 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 7ABC06068C;
+	Thu, 27 Nov 2025 10:11:11 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 813CE102F275A;
+	Thu, 27 Nov 2025 11:11:00 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1764238270; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=3UuhlMt+xKMZUo21Zwoyz9Z0SmtmmUjCG1ylmETi6EM=;
+	b=Idmcn53QlfBfCgbcymkMTd0ok7+aou9cOVD0Hlxmegy9ogCg3hnJIYpRN9wkK5QRcyAbHV
+	VeYPG/lv+3K4E5atdFIx5vbbTSTWoI5Et1hxldmQI63H8ZT8ZpISh8W12V1IBP7TLjVVGx
+	qNJWvt8vA5+6Yfudrvf6DeYftZrLLSevl7NARl3PS1m4wgCt61KAWPZR6qXNFJr6oteavV
+	7G+SOjSoV5eqnHW7zbJ3KaFD66CejCXEUihtV8DmVuI81n4Pj0CMZ/l605ffTIDW2LssuQ
+	Cuw/bB6b1tFMv9dJJfE8o2rCAeZlyeS7i+vH2tINTIS+baB12qkYubtEuxdYcg==
+Message-ID: <966bb724-59bd-4f45-a2a6-89a1967a851e@bootlin.com>
+Date: Thu, 27 Nov 2025 11:10:59 +0100
 MIME-Version: 1.0
-References: <20251118025015.42491-1-cuiyunhui@bytedance.com> <20251118025015.42491-2-cuiyunhui@bytedance.com>
-In-Reply-To: <20251118025015.42491-2-cuiyunhui@bytedance.com>
-From: yunhui cui <cuiyunhui@bytedance.com>
-Date: Thu, 27 Nov 2025 18:09:00 +0800
-X-Gm-Features: AWmQ_bkjKxIacrqpNOQ3UrqKR-Al6mUUx9ZRSm8dR0DI6I2AZuuVwq_RhgAhyJA
-Message-ID: <CAEEQ3w=Wy9J1q-n+iPu2ZeTLnoY63y+7iCFyAPe_r7v4hC9y8g@mail.gmail.com>
-Subject: Re: [PATCH v2 1/8] drivers: firmware: riscv: add SSE NMI support
-To: conor@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, alex@ghiti.fr, cuiyunhui@bytedance.com, 
-	luxu.kernel@bytedance.com, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, jassisinghbrar@gmail.com, 
-	conor.dooley@microchip.com, valentina.fernandezalanis@microchip.com, 
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org, 
-	timothy.hayes@arm.com, lpieralisi@kernel.org, arnd@arndb.de, kees@kernel.org, 
-	tglx@linutronix.de, viresh.kumar@linaro.org, boqun.feng@gmail.com, 
-	linux-arm-kernel@lists.infradead.org, cleger@rivosinc.com, 
-	atishp@rivosinc.com, ajones@ventanamicro.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v19 00/15] net: phy: Introduce PHY ports
+ representation
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: davem@davemloft.net, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
+ Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>,
+ =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>,
+ =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>,
+ Oleksij Rempel <o.rempel@pengutronix.de>,
+ =?UTF-8?Q?Nicol=C3=B2_Veronese?= <nicveronese@gmail.com>,
+ Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+ Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ Romain Gantois <romain.gantois@bootlin.com>,
+ Daniel Golle <daniel@makrotopia.org>,
+ Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
+ Tariq Toukan <tariqt@nvidia.com>
+References: <20251122124317.92346-1-maxime.chevallier@bootlin.com>
+ <20251126190035.2a4e0558@kernel.org>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20251126190035.2a4e0558@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_020917_190030_E1BED5CE 
-X-CRM114-Status: GOOD (  25.56  )
+X-CRM114-CacheID: sfid-20251127_021114_548842_AE27554F 
+X-CRM114-Status: GOOD (  12.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,224 +98,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+Hi Jakub,
 
-On Tue, Nov 18, 2025 at 10:50=E2=80=AFAM Yunhui Cui <cuiyunhui@bytedance.co=
-m> wrote:
->
-> Add support for handling Non-Maskable Interrupts (NMIs) through the
-> RISC-V Supervisor Software Events (SSE) framework. Add basic NMI
-> functionality via SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED registration
-> and enabling.
->
-> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
-> ---
->  MAINTAINERS                            |  8 +++
->  drivers/firmware/riscv/Kconfig         | 10 +++
->  drivers/firmware/riscv/Makefile        |  1 +
->  drivers/firmware/riscv/riscv_sse_nmi.c | 89 ++++++++++++++++++++++++++
->  include/linux/riscv_sse_nmi.h          | 26 ++++++++
->  5 files changed, 134 insertions(+)
->  create mode 100644 drivers/firmware/riscv/riscv_sse_nmi.c
->  create mode 100644 include/linux/riscv_sse_nmi.h
->
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 8bf5416953f45..c06658da8af96 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -22057,6 +22057,14 @@ S:     Maintained
->  F:     drivers/firmware/riscv/riscv_sse.c
->  F:     include/linux/riscv_sse.h
->
-> +RISC-V SSE NMI SUPPORT
-> +M:     Yunhui Cui <cuiyunhui@bytedance.com>
-> +R:     Xu Lu <luxu.kernel@bytedance.com>
-> +L:     linux-riscv@lists.infradead.org
-> +S:     Maintained
-> +F:     drivers/firmware/riscv/riscv_sse_nmi.c
-> +F:     include/linux/riscv_sse_nmi.h
-> +
->  RISC-V THEAD SoC SUPPORT
->  M:     Drew Fustini <fustini@kernel.org>
->  M:     Guo Ren <guoren@kernel.org>
-> diff --git a/drivers/firmware/riscv/Kconfig b/drivers/firmware/riscv/Kcon=
-fig
-> index ed5b663ac5f91..6c77c7823571a 100644
-> --- a/drivers/firmware/riscv/Kconfig
-> +++ b/drivers/firmware/riscv/Kconfig
-> @@ -12,4 +12,14 @@ config RISCV_SBI_SSE
->           this option provides support to register callbacks on specific =
-SSE
->           events.
->
-> +config RISCV_SSE_NMI
-> +       bool "Enable SBI Supervisor Software Events NMI support"
-> +       depends on RISCV_SBI_SSE && SMP
-> +       default y
-> +       help
-> +         This option enables support for delivering Non-Maskable Interru=
-pt
-> +         (NMI) notifications through the Supervisor Software Events (SSE=
-)
-> +         framework. When enabled, the system can deliver local, unknown =
-and
-> +         other types of NMIs.
-> +
->  endmenu
-> diff --git a/drivers/firmware/riscv/Makefile b/drivers/firmware/riscv/Mak=
-efile
-> index c8795d4bbb2ea..fbc182b53ae53 100644
-> --- a/drivers/firmware/riscv/Makefile
-> +++ b/drivers/firmware/riscv/Makefile
-> @@ -1,3 +1,4 @@
->  # SPDX-License-Identifier: GPL-2.0
->
->  obj-$(CONFIG_RISCV_SBI_SSE)            +=3D riscv_sbi_sse.o
-> +obj-$(CONFIG_RISCV_SSE_NMI)            +=3D riscv_sse_nmi.o
-> diff --git a/drivers/firmware/riscv/riscv_sse_nmi.c b/drivers/firmware/ri=
-scv/riscv_sse_nmi.c
-> new file mode 100644
-> index 0000000000000..1763f43961ab6
-> --- /dev/null
-> +++ b/drivers/firmware/riscv/riscv_sse_nmi.c
-> @@ -0,0 +1,89 @@
-> +/* SPDX-License-Identifier: GPL-2.0-or-later */
-> +
-> +#define pr_fmt(fmt) "SSE NMI: " fmt
-> +
-> +#include <linux/atomic.h>
-> +#include <linux/riscv_sbi_sse.h>
-> +#include <linux/riscv_sse_nmi.h>
-> +
-> +#include <asm/irq_regs.h>
-> +#include <asm/sbi.h>
-> +#include <asm/smp.h>
-> +
-> +bool nmi_available;
-> +static struct sse_event *local_nmi_evt;
-> +static atomic_t local_nmi_arg =3D ATOMIC_INIT(LOCAL_NMI_NONE);
-> +
-> +bool nmi_support(void)
-> +{
-> +       return READ_ONCE(nmi_available);
-> +}
-> +
-> +static inline struct sbiret sbi_sse_ecall(int fid, unsigned long arg0,
-> +                                         unsigned long arg1)
-> +{
-> +       return sbi_ecall(SBI_EXT_SSE, fid, arg0, arg1, 0, 0, 0, 0);
-> +}
-> +
-> +void send_nmi_single(unsigned int cpu, enum local_nmi_type type)
-> +{
-> +       unsigned int hart_id =3D cpuid_to_hartid_map(cpu);
-> +       u32 evt =3D SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED;
-> +       struct sbiret ret;
-> +
-> +       atomic_or(type, &local_nmi_arg);
-> +       ret =3D sbi_sse_ecall(SBI_SSE_EVENT_INJECT, evt, hart_id);
-> +       if (ret.error)
-> +               pr_err("Failed to signal event %x to hartid %d, error %ld=
-\n",
-> +                      evt, hart_id, ret.error);
-> +}
-> +
-> +void send_nmi_mask(cpumask_t *mask, enum local_nmi_type type)
-> +{
-> +       unsigned int cpu;
-> +
-> +       for_each_cpu(cpu, mask)
-> +               send_nmi_single(cpu, type);
-> +}
-> +
-> +static int local_nmi_handler(u32 evt, void *arg, struct pt_regs *regs)
-> +{
-> +       return 0;
-> +}
-> +
-> +static int __init local_nmi_init(void)
-> +{
-> +       int ret;
-> +
-> +       local_nmi_evt =3D sse_event_register(SBI_SSE_EVENT_LOCAL_SOFTWARE=
-_INJECTED, 0,
-> +                                          local_nmi_handler, &local_nmi_=
-arg);
+On 27/11/2025 04:00, Jakub Kicinski wrote:
+> On Sat, 22 Nov 2025 13:42:59 +0100 Maxime Chevallier wrote:
+>> This is v19 of the phy_port work. Patches 2 and 3 lack PHY maintainers reviews.
+>>
+>> This v19 has no changes compared to v18, but patch 2 was rebased on top
+>> of the recent 1.6T linkmodes.
+>>
+>> Thanks for everyone's patience and reviews on that work ! Now, the
+>> usual blurb for the series description.
+> 
+> Hopefully we can still make v6.19, but we hooked up Claude Code review
+> to patchwork this week, and it points out some legit issues here :(
+> Some look transient but others are definitely legit, please look thru
+> this:
+> 
+> https://netdev-ai.bots.linux.dev/ai-review.html?id=5388d317-98c9-458e-8655-d60f31112574
 
-local_nmi_arg is used to represent the local NMI types (Crash, Stop,
-Backtrace, Kgdb) for multiple CPUs, which may lead to certain issues:
-for example, if CPU A sends a Backtrace to CPU C and CPU B sends a
-Stop to CPU D, both CPU C and CPU D may end up responding to both
-Backtrace and Stop. It is preferable to use the per-CPU variable
-local_nmi_type instead of local_nmi_arg.
+Is there a canonical way to reply to these reviews ? Some are good, some
+aren't.
 
-> +       if (IS_ERR(local_nmi_evt))
-> +               return PTR_ERR(local_nmi_evt);
-> +
-> +       ret =3D sse_event_enable(local_nmi_evt);
-> +       if (ret) {
-> +               sse_event_unregister(local_nmi_evt);
-> +               return ret;
-> +       }
-> +
-> +       pr_info("Using SSE for Local NMI event delivery\n");
-> +
-> +       return 0;
-> +}
-> +
-> +static int __init sse_nmi_init(void)
-> +{
-> +       int ret;
-> +
-> +       ret =3D local_nmi_init();
-> +       if (ret) {
-> +               pr_err("Local_nmi_init failed with error %d\n", ret);
-> +               return ret;
-> +       }
-> +
-> +       WRITE_ONCE(nmi_available, true);
-> +
-> +       return 0;
-> +}
-> +
-> +late_initcall(sse_nmi_init);
-> diff --git a/include/linux/riscv_sse_nmi.h b/include/linux/riscv_sse_nmi.=
-h
-> new file mode 100644
-> index 0000000000000..16db85c5162f5
-> --- /dev/null
-> +++ b/include/linux/riscv_sse_nmi.h
-> @@ -0,0 +1,26 @@
-> +/* SPDX-License-Identifier: GPL-2.0-or-later */
-> +
-> +#ifndef __LINUX_RISCV_SSE_NMI_H
-> +#define __LINUX_RISCV_SSE_NMI_H
-> +
-> +#include <linux/cpumask.h>
-> +
-> +enum local_nmi_type {
-> +       LOCAL_NMI_NONE          =3D 0U,
-> +       LOCAL_NMI_STOP          =3D BIT(0),
-> +       LOCAL_NMI_CRASH         =3D BIT(1),
-> +       LOCAL_NMI_BACKTRACE     =3D BIT(2),
-> +       LOCAL_NMI_KGDB          =3D BIT(3),
-> +};
-> +
-> +#ifdef CONFIG_RISCV_SSE_NMI
-> +bool nmi_support(void);
-> +void send_nmi_mask(cpumask_t *mask, enum local_nmi_type type);
-> +void send_nmi_single(unsigned int cpu, enum local_nmi_type type);
-> +#else
-> +static inline bool nmi_support(void) { return false; }
-> +static inline void send_nmi_mask(cpumask_t *mask) { };
-> +static inline void send_nmi_single(unsigned int cpu) { };
-> +#endif
-> +
-> +#endif
-> --
-> 2.39.5
->
+I'll summarize what I've done in the changelog, but it skips any
+potential discussions that could've been triggered by these reviews. I
+guess this is a matter of letting this process stabilize :)
 
-Thanks,
-Yunhui
+Anyhow I'm impressed by what it found (when correct), that's pretty nice.
+
+Maxime
+
+
 
