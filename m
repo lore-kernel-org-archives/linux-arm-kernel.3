@@ -4,92 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44E4DCFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 15:36:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C09F9CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 15:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6siSnDiVGTZsS7iG2F0xSpzoZMH3VN+sYpf9IBWS2/I=; b=rAse74iVhlFFtxnJTJsW0QMWAU
-	kRZLE1YibvPmMrImMOvGk8h8YZKluDy49hTkYvDHXIckjs/HD0aasSo543YsEW9yaW9vcF4SdZ4S/
-	E9HcSB93fimJtVL5eZ4+27AzwhljZeTbQrRu66E4uRYDzJu/rbHBR1MJ9lC6fA4+3MrHnFrEaoYZd
-	RGsr5aAtERrmpZJzFUIM7budAWob41aTGGR6CXZ71/TvzDrv3+bbfK18i4ALWZ/NtuK4KmmnqrJNp
-	JNWZw7XhoG97hwLr+9teZ4sNtj/ahA4VOyZ58M1i2it7iEPeIlXBmDmyOjc2H1gEWTbwtPY/C3KVn
-	t5VuYl5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dxIWjPBGhLqirusiYQWh0zD4NLTdP1tL9Ws8Ps5bJY8=; b=MW5GS8Y8fzIP98Foq4edByKX1L
+	G+Uku+RvMIqiYDL8frBatmCmWB2HETThzDqUtvxhTPowGr1fMVkIWJeb0dzy3uWxE1pc9aP1WK+vT
+	a6CMe+Rnaqmm+rqT6EDsjkN9Suswvs01SaqUpm3Ywdoi1wKHL6s+zbk3yc+zcwFLDNAWgq3/t14Yr
+	8mL7h53JElQcIjqTSr/HC8Golql5Ftyw4viQCrFg8FkKHTkApaiaO+PGzakNTkR65ZZf7Uh2VUs5A
+	QDQHKC9q9ak1Qw4pXgZvzVciqFlbcfM3HSxCkb5JoVbqSpQHsxMy62GpqhzR7a1AnBDfgvkagHBUn
+	vVt3Yo+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOe2i-0000000Gqtv-0XiT;
-	Thu, 27 Nov 2025 15:36:24 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	id 1vOe4Z-0000000Gr3Y-2geG;
+	Thu, 27 Nov 2025 15:38:19 +0000
+Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOe2f-0000000GqtQ-1YAW
+	id 1vOe4X-0000000Gr3D-2RNJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 15:36:22 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-343d73d08faso522911a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 07:36:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764257780; x=1764862580; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=6siSnDiVGTZsS7iG2F0xSpzoZMH3VN+sYpf9IBWS2/I=;
-        b=jEZpjV/kPCWY3bIeXOq09n+ksHZCQqV+57ruSqEMsy9m31KsO5sA49k+JP9rnHfp3O
-         Fgq7nCPmruKgXhEESCrcqJ48/HIgDEF5SBf4n34ut0TGzP1rZlxFE2w7ajVk+SpAG/pj
-         ujMyT0yFTy1MTT9zjnomWuo3cnON4zl234Ldj0WlwDL2zkzAnQLPqmqasmgg/Zx+p4GA
-         CyyQj9NE42GJjrA8v9bTEk3cRglxodTCMx9+D9RRE9wuJKRw5GKd00ki04Z5bx1A3z2e
-         quv39LIfjSJOeCxasumVu5VZ5riuo2wxFrUKOl+eqDJkwIRdP/0qApVrDOX24A+ulwVu
-         2piw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764257780; x=1764862580;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6siSnDiVGTZsS7iG2F0xSpzoZMH3VN+sYpf9IBWS2/I=;
-        b=dqcGQiuCHd2IXselLKcdO3cZPwDKFy6OWVgOSFfx/AMBC6cu0Z2yf/JVlGUCgpgbJD
-         lbYw1/AsNoxGJrP9wjVwLUm24wa049wXR3wtD8hkQGgHhQzYSG1YUEBB7sNI70OLQCjf
-         GLcI6AYnv54o+m+DYvqG/qMLJttE8GleSa6vDf/rewj+u5YEgGMeObY+0VpgPuXri+fY
-         3hAIWlMCUD5x/xlTZwo+TU5hpXbnBoGMzO0d3tsPwdfiBIB5et3VC5kjoHWKjt5UIygN
-         PHx5t1o5eMS7UIGCDsDoxXMkCNCEGIkzUO7o5xfJ4HyRoUv+f7vDBDtF1VtkvKZMJeys
-         A8GQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWLk6542lP/7eq0V0wTxz8+um/j26Sgd5nZxILHwj9lXiZN80EPHn8VtXDkirMvmZJiffqQe8Hk3lCPo+U5XLTo@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGcyzPMLQC1oy5H2nJLlCj6cHZy6CE6k0S/mudSiHilha/SGDJ
-	3mCaQlNodw0+MVs9FFco4eqkDxr6uotZhvIcsTpm2fVY7q7885hhqU0Zwb6axGhABIghyyMAqu3
-	Tr0Pbvn4=
-X-Gm-Gg: ASbGncuGpQVlx6NpkbzJ01y303+bYo6Op2AqleQki+DBZXDYav+sLPXZfw+BXpfHIL9
-	9UglTho6czkENt4yjK+P5VByUtRElq5ohNide+Zm/wONifa0J1PSaU3Z/yuJhzfr5GEp6pOrfLU
-	pacuWsUr+ilkUO25sCG4fdxyIfXDL8tbuQL/ll+BzFto6tqIHrtaUMxStsV2BDU5SKwzq6wZPrz
-	5RGEiIgcapM3JndkokjN5kt879UcRP4JqNrZOkb+2KsxmXxM0iguUekVSwteh1RkC/YSA8ne9od
-	pZKd4QEnCuFR5a0+J53JXobM9k60gKNFT1SOldv1X0AfoJ+ZJl+EptEWXsFiNNL0LiZB664KQKX
-	ozxLHw391XvkYuJ5cAVVyJoog3znhLkoL7kr1zYJFUNfOabNiaLj7wImGDGW1RyMP2DGLe/q0Sv
-	k8Pj/ceOY9/URE5g==
-X-Google-Smtp-Source: AGHT+IFazut7ZcKlnL0DT/Iw4tQemIOZ/nMnozSi86+NKtlcAazOOXJ8k38JC8Q24R2278AB7f5H0Q==
-X-Received: by 2002:a17:90b:38ca:b0:32e:23c9:6f41 with SMTP id 98e67ed59e1d1-347331be358mr22188175a91.5.1764257780482;
-        Thu, 27 Nov 2025 07:36:20 -0800 (PST)
-Received: from p14s ([2604:3d09:148c:c800:9ef4:efaa:23ae:f181])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3475e87fc99sm5019619a91.0.2025.11.27.07.36.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Nov 2025 07:36:19 -0800 (PST)
-Date: Thu, 27 Nov 2025 08:36:17 -0700
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
-Cc: Patrice Chotard <patrice.chotard@foss.st.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	"Rob Herring (Arm)" <robh@kernel.org>,
-	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] remoteproc: st: Fix indexing of memory-regions
-Message-ID: <aShv8UtdOKcN0Pof@p14s>
-References: <20251126-st-remoteproc-double-index-v1-1-3b0a8b21ac18@oss.qualcomm.com>
+	Thu, 27 Nov 2025 15:38:19 +0000
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id B7C0F7A0126;
+	Thu, 27 Nov 2025 10:38:13 -0500 (EST)
+Received: from phl-imap-17 ([10.202.2.105])
+  by phl-compute-04.internal (MEProxy); Thu, 27 Nov 2025 10:38:14 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1764257893;
+	 x=1764344293; bh=dxIWjPBGhLqirusiYQWh0zD4NLTdP1tL9Ws8Ps5bJY8=; b=
+	MXUBqTnhL80pbDYq2c9mJSiDZKB/Spt/2KRmSohMbMLBYzn7otF6j01dJXJEhBp1
+	MXfpZy9jLFGHAD2iBmJ9p3g0TBNntTSbqIcxlNtjcQ3VStgsglYyY1BHAII+ZcTJ
+	8Aqptn7bMfnuIt6bR2aqkhWrZkSYUBS8z1EZ8fJdX4Io5CUzBphp1UYTM8NBObVR
+	BGICDy2Aqrc/fCgXULFFTChJi/x8TgMVeaHSW1Z0fs2xshFn8jg1KE0Hiwr8LA+B
+	l6M+0Lgxhjj7PDQMdir3QNKRsP/NsMddheX3WpgilRffYHgRqQ7eJ/JVpi1A10eN
+	iv6QBFZlyVDozuR8giluSw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1764257893; x=
+	1764344293; bh=dxIWjPBGhLqirusiYQWh0zD4NLTdP1tL9Ws8Ps5bJY8=; b=P
+	ktqK9pETnOqgA2r+v36e69n6z5F2YQ5NWM7ovRmwMC5r4Tn3LArx/aRqdvVKNA1g
+	JyxLKsOBI06lRumrdOt7p1J0zkkqGRBJObiNai6TwrwNSqHD0fyOBzOKoP5IhKRE
+	uw0fuJDVHQ31IcwACcIbByaI1Pm79Destz5TQJYksfoSIEmN6Q9LamFerst73epd
+	tyc3SUo5qlKPbIYXX92Z2upoqnttlcIh6WBH4zu2FOOuJenm6k+e6LiNQsfqzqIz
+	A86pcsfP0HRyxZjulz988xiJLDuCoTbdSZ7iDJt72S0tzZeqLtKkBuSlXmI5HGZp
+	28IUaX6p39fpL4NfIiR0g==
+X-ME-Sender: <xms:ZHAoaaBWlmXvpPv8MSs-ViZuwv-5vqcOpaWW2n3TKVlm18jD_Jgfkw>
+    <xme:ZHAoafV15cnWaaVHjIyBZanelgMUNTY9W5apUslvyTh-Rvm3UyED6mKlTrwCXAsth
+    uG9WYWkiNqAWyUQnm4B2XWR_4TCa2RP5qAXoOm05Hcx1eU48japlDd2>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvgeejiedtucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
+    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
+    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
+    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
+    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepudefpdhmohguvgepshhmthhpohhu
+    thdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtg
+    hpthhtohepjhhovgihrdhgohhulhihsegrrhhmrdgtohhmpdhrtghpthhtohepshhuiihu
+    khhirdhpohhulhhoshgvsegrrhhmrdgtohhmpdhrtghpthhtohephigrnhhghigttggttg
+    gtsehgmhgrihhlrdgtohhmpdhrtghpthhtohepphhrihhmvgdriigvnhhgsehhihhsihhl
+    ihgtohhnrdgtohhmpdhrtghpthhtohepfigrnhhgiihhohhuudeshhhishhilhhitghonh
+    drtghomhdprhgtphhtthhopeiguhifvghiheeshhhurgifvghirdgtohhmpdhrtghpthht
+    ohephihuiigvnhhghhhuiheshhhurgifvghirdgtohhmpdhrtghpthhtohepmhgriieskh
+    gvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:ZHAoaa0iIW4tV2GHXtFQgKhm_O7xU6GoRLsemfjPg3GBWiNeiuhLjA>
+    <xmx:ZHAoaZx9abQzh8TTJQhzI1BzhcKLhjvX2y74ZMESs0htQjKC6RNo7g>
+    <xmx:ZHAoaWyGgiX8XUpfe1fWyhV5qufRD5R3P5upuBoU17fPr1NfHuiu9w>
+    <xmx:ZHAoaV83rm6bglzYST8WmbJ1q9usejJR9paY01u8L4q_zls_HG29Lg>
+    <xmx:ZXAoaWhRIC9dggdsX3mrSi7-resIy4q8QxAt_ZDkVDFlb0QUv_5JdlzM>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 52CABC40054; Thu, 27 Nov 2025 10:38:12 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251126-st-remoteproc-double-index-v1-1-3b0a8b21ac18@oss.qualcomm.com>
+X-ThreadId: ALjut8WcExBk
+Date: Thu, 27 Nov 2025 16:37:42 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Zhou Wang" <wangzhou1@hisilicon.com>, "Marc Zyngier" <maz@kernel.org>
+Cc: "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Will Deacon" <will@kernel.org>, "Oliver Upton" <oliver.upton@linux.dev>,
+ "Joey Gouly" <joey.gouly@arm.com>,
+ "Suzuki K Poulose" <suzuki.poulose@arm.com>,
+ "Zenghui Yu" <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, "Yicong Yang" <yangyccccc@gmail.com>,
+ prime.zeng@hisilicon.com, xuwei5@huawei.com
+Message-Id: <7d2ea8c6-e54f-4a57-843c-e0c6c33c02c5@app.fastmail.com>
+In-Reply-To: <e6cffbce-7cd4-3fe3-a9bd-935efedaebd0@hisilicon.com>
+References: <20251107072127.448953-1-wangzhou1@hisilicon.com>
+ <20251107072127.448953-6-wangzhou1@hisilicon.com>
+ <861pm4vn02.wl-maz@kernel.org>
+ <b1407660-9b69-7e21-328a-0f969fffa554@hisilicon.com>
+ <c72411f9-a77e-4a72-a401-5110b919a2df@app.fastmail.com>
+ <1ed610f5-3f0b-614d-5e7f-2c643238bec3@hisilicon.com>
+ <113db0fb-d879-49d7-a5f2-7755558f29dd@app.fastmail.com>
+ <6d6fad8d-e4e4-b973-6431-34a37003d363@hisilicon.com>
+ <f641d3f2-dac9-4a9e-92a4-0805e6561418@app.fastmail.com>
+ <e6cffbce-7cd4-3fe3-a9bd-935efedaebd0@hisilicon.com>
+Subject: Re: [PATCH v7 5/7] arm64: Add support for FEAT_{LS64, LS64_V}
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_073621_436203_213DDF08 
-X-CRM114-Status: GOOD (  19.63  )
+X-CRM114-CacheID: sfid-20251127_073818_065610_14098A43 
+X-CRM114-Status: GOOD (  22.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,48 +128,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 26, 2025 at 12:17:59PM -0600, Bjorn Andersson wrote:
-> The recent transition to use of_reserved_mem_region_to_resource()
-> changes the while loop to a for loop, but the increment of the "index"
-> variable was left behind at the end of the loop, as highlighted by the
-> following error/warning:
-> 
->   error: variable 'index' is incremented both in the loop header and in the loop body [-Werror,-Wfor-loop-analysis]
-> 
-> Drop the extra increment to avoid skipping over every other
-> memory-region in the loop.
-> 
-> Fixes: 67a7bc7f0358 ("remoteproc: Use of_reserved_mem_region_* functions for "memory-region"")
-> Signed-off-by: Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
-> ---
->  drivers/remoteproc/st_remoteproc.c | 1 -
->  1 file changed, 1 deletion(-)
-> 
-> diff --git a/drivers/remoteproc/st_remoteproc.c b/drivers/remoteproc/st_remoteproc.c
-> index 747bbe7f6f7c6be160f4f6a0202eb8df20dc5bc9..a07edf7217d21a3f08d26592e8a14814608507f8 100644
-> --- a/drivers/remoteproc/st_remoteproc.c
-> +++ b/drivers/remoteproc/st_remoteproc.c
-> @@ -155,7 +155,6 @@ static int st_rproc_parse_fw(struct rproc *rproc, const struct firmware *fw)
->  			return -ENOMEM;
->  
->  		rproc_add_carveout(rproc, mem);
-> -		index++;
+On Thu, Nov 27, 2025, at 04:51, Zhou Wang wrote:
+> On 2025/11/18 15:36, Arnd Bergmann wrote:
+>> On Tue, Nov 18, 2025, at 03:31, Zhou Wang wrote:
+>>
+>> The easiest setup I can think of that still supports your machine
+>> would look something like:
+>> 
+>> - have the kernel choose between st64bv and st64bv0 at early boot,
+>>   based on platform configuration, use st64bv0 by default if
+>>   available in hardware and not disabled in EL3, EL2 or kernel
+>>   command line.
+>> - Change pasid handling in iommu_sva_bind_device() so drivers
+>>   have to explicitly request one of the modes before establishing
+>>   a pasid, refuse this on incompatible systems, update the
+>>   three existing callers (idxd, amdxdna, uacce) accordingly.
+>> - on systems with st64bv but no st64bv0, enable st64bv for
+>>   all CPUs at boot time to avoid context switch overhead, but
+>>   forbid mapping shared hardware workqueues into userspace.
+>> - postpone full support for st64bv0 until we have a device that
+>>   actually uses this and can be tested. I think most of it is
+>>   already there in the iommu code, but the ACCDATA setup needs
+>>   to be integrated into the switch_mm()/__switch_to() code
+>>   and possibly a trap handler like on x86.
+>
+> Hi Arnd,
+>
+> Sorry for late to reply, I double checked with our SoC and device
+> colleagues, currently only st64b has been used in our system.
+>
+> So I think we could upstream FEAT_LS64 firstly as it seems easy
+> to be merged. After this, we continue to discuss FEAT_LS64V and
+> FEAT_LS64_ACCDATA solution if there is a real system need them.
 
-Really good - applied.
+As I understand it, using ST64B is usually more efficient than
+ST64BV if you can use either, since it is a normal posted bus
+transaction rather than a synchronous atomic. If that works for
+you, I think what we should plan for is to let you use ST64B
+on this particular hardware and never support ST64BV from
+userspace, the same way we do it on Intel hardware with ENQCMD.
 
-Thanks,
-Mathieu
+As there are already CPUs out there that do include ST64BV0,
+I think we also want to support those soon. Not having to
+support both ST64BV and ST64BV0 from userspace makes it a lot
+easier, but I think we'd still want to only enable ST64BV0
+on a per-task base when mapping a shared workqueued into the
+user address space on a task that has an active mm->iommu_mm.
 
->  	}
->  
->  	return rproc_elf_load_rsc_table(rproc, fw);
-> 
-> ---
-> base-commit: 663d0d1af3faefe673cabf4b6b077149a87ad71f
-> change-id: 20251126-st-remoteproc-double-index-29a2e40e74bb
-> 
-> Best regards,
-> -- 
-> Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
-> 
+If that makes sense to you, I can try to come up with a
+prototype based on your current patches to add the context
+switching and enable logic.
+
+      Arnd
 
