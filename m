@@ -4,72 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA5E0D11183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 10:11:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5795FD11183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 10:14:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b+HGqQCZc4eTZBJ9S6jotkuvef/+Q9e4UGutZNIsM0k=; b=aSv9fGe5huVWtuY6AssdCrVlcQ
-	icmC+ByhgQqOZGLx42EROSZE4y92yVSWyaJZO/wcFILbZa+VA7vHPC/Qjmqbol6Ve3VG14zFtVwv5
-	/n25ojiiAk9gFyi47CfL8Neutc4/+NwZQdboFOp6gv0u6YSei4Oz7eV+KrlILRHyG02Yd37NNCslG
-	U+hWvmWSDm6zDaUvG/Rb8PUkGGhg67z0IYFDNd3Yg06O5caJStSMz+XtX4zvn0j6bEGhhVBBZgXAh
-	+jkLZedNuY2rNFwFH7RegpsYPvyH8I46VEu7zhRe7ttwbF4vd3DtoaqutHFvodU/U2YU+/1nEfQkj
-	OKgMj1OA==;
+	Content-Type:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n8C/8vYpZ3lt1x50MRO8vehvZVw1jN1RA/JwkPqP+uE=; b=GR/uPNap7RX1FdK7DVKQPLbQv0
+	DB9TpfQcicJJBYoaew/HLiCXIdTCVbTI1kTWB7mkkpVLoopkhwUyG2E7iLyEmi7NL9sY7Mup/SAM3
+	krDrXrQCwLMaMcwnwpM2gaY7aIsPAjqQa6DNZbDgjVd/LzHeYRimgKRR6V40uLKX4qYSeHLJL6z1s
+	+MIS9+FOONFXLLiVbChnrIDsDvpO5j3umq2cyE87uLP9LWpJlgt7NhELqh+t+WAFCTU8kdICYrIDi
+	YyXcbPggCRl78B+ZhqhZ2ejJWmBCgBgQoUwAl52qIOXmlLS0OOfIMKIEzlFt2ovnuYydY8FO6618b
+	2fiqriTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOYyc-0000000GLva-0Ju7;
-	Thu, 27 Nov 2025 10:11:50 +0000
-Received: from mailtransmit05.runbox.com ([2a0c:5a00:149::26])
+	id 1vOZ0q-0000000GM9o-1w6r;
+	Thu, 27 Nov 2025 10:14:08 +0000
+Received: from mail-oo1-xc2a.google.com ([2607:f8b0:4864:20::c2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOYyZ-0000000GLuV-0SxR
+	id 1vOZ0n-0000000GM8r-1SJ3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 10:11:48 +0000
-Received: from mailtransmit02.runbox ([10.9.9.162] helo=aibo.runbox.com)
-	by mailtransmit05.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.93)
-	(envelope-from <david.laight@runbox.com>)
-	id 1vOYyT-00CAuu-Mr; Thu, 27 Nov 2025 11:11:41 +0100
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=runbox.com;
-	 s=selector1; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date;
-	bh=b+HGqQCZc4eTZBJ9S6jotkuvef/+Q9e4UGutZNIsM0k=; b=gleEvVb8YL3YCbwWkElFc3dyIE
-	Bho6Zzifao6+XVQ3u1y7HfFoL9IPTQCfi2OP1SBZ4fITVbrZMZigVd0zXUH+3ZiLR0l+UQMI1KbG4
-	RS1qbgRTzKI8Pi2TYR0gdURbDV9pGjFFSOiQSCwYUOpWAvxs/bO6zYJ0O6qbqPcNvw+5MOfy6aEuk
-	oK8g6jUlfFxnXfxox9tj3xmLKyL5zSe2lct3Wv5Dxg45KTZKwqK921Fe76eROzzxjp8ijCmSDWuZj
-	wTBIoy8WPAoPbkc87rEm3oRsPfRhtBA0kJ2/7fZkMA6ud3wE1maTh26BupWtyiphT+44azPZXnePY
-	SJD/cZVg==;
-Received: from [10.9.9.74] (helo=submission03.runbox)
-	by mailtransmit02.runbox with esmtp (Exim 4.86_2)
-	(envelope-from <david.laight@runbox.com>)
-	id 1vOYyS-0005Hs-Ie; Thu, 27 Nov 2025 11:11:40 +0100
-Received: by submission03.runbox with esmtpsa  [Authenticated ID (1493616)]  (TLS1.2:ECDHE_SECP256R1__RSA_SHA256__AES_256_GCM:256)
-	(Exim 4.93)
-	id 1vOYyK-00FsJI-6T; Thu, 27 Nov 2025 11:11:32 +0100
-Date: Thu, 27 Nov 2025 10:11:29 +0000
-From: david laight <david.laight@runbox.com>
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-hardening@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>, Kees Cook
- <kees@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, Will Deacon
- <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Jeremy Linton
- <jeremy.linton@arm.com>, Catalin Marinas <Catalin.Marinas@arm.com>, Mark
- Rutland <mark.rutland@arm.com>, "Jason A. Donenfeld" <Jason@zx2c4.com>
-Subject: Re: [RFC/RFT PATCH 3/6] random: Use u32 to keep track of batched
- entropy generation
-Message-ID: <20251127101129.204c6c5a@pumpkin>
-In-Reply-To: <20251127092226.1439196-11-ardb+git@google.com>
-References: <20251127092226.1439196-8-ardb+git@google.com>
-	<20251127092226.1439196-11-ardb+git@google.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	Thu, 27 Nov 2025 10:14:07 +0000
+Received: by mail-oo1-xc2a.google.com with SMTP id 006d021491bc7-656d9230cf2so353782eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 02:14:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1764238444; x=1764843244; darn=lists.infradead.org;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=n8C/8vYpZ3lt1x50MRO8vehvZVw1jN1RA/JwkPqP+uE=;
+        b=kuLHn0clhVDfSFBl06KWglabY8vWj1buSPGQXjX5+afXP7bQW+gdf+U40CF4cTU6DE
+         PCitYJ308p4YFjfs6vWKkAIouqawzQa4JiJ91WAO4d/WLJEzCU1fZq7Pg3tCfFDeAWBL
+         o/sv9w1nWMU4FOnp9+dxSP9Slap3aUMep5s+p2ZLOIhopVmnsWS+/6fuHW26Uc4JrFPS
+         QlTEDPnqhnYVf1PPzi4dYZsGRp6JJYsa64pejChW7WyndaHMHriIVlpJilBMVJfEY89q
+         q5TQwsQaYoSzchwHPNVfSBX74lOmWZejaP2R8QzXF6fXJB4KqBx6BOKPPQgNPq5pBFfX
+         mXuw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764238444; x=1764843244;
+        h=content-transfer-encoding:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=n8C/8vYpZ3lt1x50MRO8vehvZVw1jN1RA/JwkPqP+uE=;
+        b=HyR8Mx8J9eJvCKj58OQvgNOIXCnnl92mySWV6z5PcRb6QLsmFzTBdlSKZJyOaI+rKy
+         2ozAJDSiCAEHBlHN0FTGtEt48wfAmV3BYU1BcDZ21SV+0jmDZ/qcSh0MdLzz1y+5CjUG
+         iRehVfVdHemR2EzBlwKAv0CGFx6rNlsZ1DU8N4HqJiUavK99ZT2bZKhmimByc+sfhPXZ
+         R8pLbQiBqniWPzxOSuDyMmzqL5BLrM1incjBcf2rqZyBCMwN79y+KlgBNc+n0mtzTYwm
+         e6IKqF+OZmPY7BMI1fCGYH9kSRbdQHWp+KFliy8GkpvNKbSzc8i9A5OG/n+utfMNh4PQ
+         UJdQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX6Q2M/CXZBCtARArQcBlEXplwnH7BZKGhseayoA5QRbjlJVrhZYb+Q2FhOsQghgpSgtgttn7Rz6xstVJojcqnW@lists.infradead.org
+X-Gm-Message-State: AOJu0YzA4UGCN38ok4EIhNPgVZngmZLrldWK/JqODixKmJHz3VG6Cy50
+	oTaGgj5vdFU0pxMFvPqpQx1GNuMW3moueSJuigtm5NwX1KvEACuGX5Xn9LiX9oGBinEMyv0DOpG
+	V2dfBDrVv5HGcIf+K0/syf2pJmI3ow7ciw9viIY0ozw==
+X-Gm-Gg: ASbGncsJFp/aWl04szCJDQu6o4QToXjvPfVYMOYl/Gmb9qhGON6B6B2GRNjg2ERqYbr
+	otnt6MBrHiVkhacOBS6VemXGdcm7pw1UXJaczkALFcihQRVZqq0FuHlW8bRSTEa4Ik2N2X+6/xS
+	1A9NVxxpOSSta59d0JK6mZP4Pmy83I9uDNXhfIeEG31FH8u9p9LpxTlkG512aZA0obEk1oSAR8u
+	JHxwPrABYuUP2dJ520VJ3n0u75b3ayNi6C+dKpkVhVF2c7GnVaas+qfCaG+F8+XRbMTkN6YfhQq
+	LTeHdOis
+X-Google-Smtp-Source: AGHT+IGBVIdlBmUiqlH23Jgnqg+vCTkZchSIIr25/2FLye0Tk4Kz4LKKfhIVPsQEIjNUDRjnb1zBkemke4S1rnl41Nk=
+X-Received: by 2002:a05:6808:250d:b0:450:7169:810e with SMTP id
+ 5614622812f47-45115b24dc1mr9824305b6e.41.1764238444270; Thu, 27 Nov 2025
+ 02:14:04 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+References: <20251118025015.42491-1-cuiyunhui@bytedance.com> <20251118025015.42491-5-cuiyunhui@bytedance.com>
+In-Reply-To: <20251118025015.42491-5-cuiyunhui@bytedance.com>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Thu, 27 Nov 2025 18:13:51 +0800
+X-Gm-Features: AWmQ_bkhXe-IUa1j5RwqVU5YALRpKBW_makLPEfBh7aEKWFJIRg3x1qGcDHPwo8
+Message-ID: <CAEEQ3wkpWExOg+xLEy18Le+89kowgu6LOj0HMCVcqJKG+7Wdhg@mail.gmail.com>
+Subject: Re: [PATCH v2 4/8] riscv: smp: use NMI for crash stop
+To: conor@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, alex@ghiti.fr, cuiyunhui@bytedance.com, 
+	luxu.kernel@bytedance.com, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, jassisinghbrar@gmail.com, 
+	conor.dooley@microchip.com, valentina.fernandezalanis@microchip.com, 
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org, 
+	timothy.hayes@arm.com, lpieralisi@kernel.org, arnd@arndb.de, kees@kernel.org, 
+	tglx@linutronix.de, viresh.kumar@linaro.org, boqun.feng@gmail.com, 
+	linux-arm-kernel@lists.infradead.org, cleger@rivosinc.com, 
+	atishp@rivosinc.com, ajones@ventanamicro.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_021147_311625_E9408EFF 
-X-CRM114-Status: GOOD (  20.77  )
+X-CRM114-CacheID: sfid-20251127_021405_530727_73C3272A 
+X-CRM114-Status: GOOD (  20.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,67 +103,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Nov 2025 10:22:30 +0100
-Ard Biesheuvel <ardb+git@google.com> wrote:
+Hi All,
 
-> From: Ard Biesheuvel <ardb@kernel.org>
-> 
-> The batched entropy containers each have a generation field, to keep
-> track of the base_crng generation from which it was last reseeded.
-> 
-> This use case does not require all bits of the unsigned long to be
-> stored: storing only 32 bits is sufficient to determine whether or not
-> we're at most 4 billion generations behind, which seems ample.
-> 
-> So use an unsigned int instead: this will allow a future patch to treat
-> the generation and position as a single 64-bit quantity, which can be
-> used locklessly in a compare-and-exchange() operation.
-
-Probably best to use a u32.
-While it will always(?) be the same as 'unsigned int' it is more
-descriptive.
-
-> 
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+On Tue, Nov 18, 2025 at 10:51=E2=80=AFAM Yunhui Cui <cuiyunhui@bytedance.co=
+m> wrote:
+>
+> Use NMI instead of IPI for crash stop if RISC-V SSE NMI is supported.
+>
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 > ---
->  drivers/char/random.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/char/random.c b/drivers/char/random.c
-> index b8b24b6ed3fe..0e04bc60d034 100644
-> --- a/drivers/char/random.c
-> +++ b/drivers/char/random.c
-> @@ -507,7 +507,7 @@ struct batch_ ##type {								\
->  	 */									\
->  	type entropy[CHACHA_BLOCK_SIZE * 3 / (2 * sizeof(type))];		\
->  	local_lock_t lock;							\
-> -	unsigned long generation;						\
-> +	unsigned int generation;						\
->  	unsigned int position;							\
->  };										\
->  										\
-> @@ -521,7 +521,7 @@ type get_random_ ##type(void)							\
->  	type ret;								\
->  	unsigned long flags;							\
->  	struct batch_ ##type *batch;						\
-> -	unsigned long next_gen;							\
-> +	unsigned int next_gen;							\
->  										\
->  	warn_unseeded_randomness();						\
->  										\
-> @@ -533,7 +533,7 @@ type get_random_ ##type(void)							\
->  	local_lock_irqsave(&batched_entropy_ ##type.lock, flags);		\
->  	batch = raw_cpu_ptr(&batched_entropy_##type);				\
->  										\
-> -	next_gen = READ_ONCE(base_crng.generation);				\
-> +	next_gen = (unsigned int)READ_ONCE(base_crng.generation);		\
+>  arch/riscv/kernel/smp.c                | 14 +++++++++++++-
+>  drivers/firmware/riscv/riscv_sse_nmi.c | 10 ++++++++++
+>  2 files changed, 23 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+> index 669325e68a21a..07ccc28f52172 100644
+> --- a/arch/riscv/kernel/smp.c
+> +++ b/arch/riscv/kernel/smp.c
+> @@ -16,6 +16,7 @@
+>  #include <linux/kgdb.h>
+>  #include <linux/percpu.h>
+>  #include <linux/profile.h>
+> +#include <linux/riscv_sse_nmi.h>
+>  #include <linux/smp.h>
+>  #include <linux/sched.h>
+>  #include <linux/seq_file.h>
+> @@ -300,7 +301,18 @@ void crash_smp_send_stop(void)
+>         atomic_set(&waiting_for_crash_ipi, num_other_online_cpus());
+>
+>         pr_crit("SMP: stopping secondary CPUs\n");
+> -       send_ipi_mask(&mask, IPI_CPU_CRASH_STOP);
+> +
+> +       /*
+> +        * IPI performs better than NMI, but attempting IPI first and
+> +        * falling back to NMI on failure requires recording CPUs that fa=
+iled
+> +        * to stop. This adds complexity to cpu_crash_stop(). Since this =
+operation
+> +        * is rare and typically in the final phase, directly replace IPI
+> +        * with NMI.
+> +        */
+> +       if (!nmi_support())
+> +               send_ipi_mask(&mask, IPI_CPU_CRASH_STOP);
+> +       else
+> +               send_nmi_mask(&mask, LOCAL_NMI_CRASH);
+>
+>         /* Wait up to one second for other CPUs to stop */
+>         timeout =3D USEC_PER_SEC;
+> diff --git a/drivers/firmware/riscv/riscv_sse_nmi.c b/drivers/firmware/ri=
+scv/riscv_sse_nmi.c
+> index 1763f43961ab6..e4c20dce40f9a 100644
+> --- a/drivers/firmware/riscv/riscv_sse_nmi.c
+> +++ b/drivers/firmware/riscv/riscv_sse_nmi.c
+> @@ -10,6 +10,9 @@
+>  #include <asm/sbi.h>
+>  #include <asm/smp.h>
+>
+> +#define NMI_HANDLE(mask, func, ...) \
+> +       do { if (type & (mask)) func(__VA_ARGS__); } while (0)
+> +
+>  bool nmi_available;
+>  static struct sse_event *local_nmi_evt;
+>  static atomic_t local_nmi_arg =3D ATOMIC_INIT(LOCAL_NMI_NONE);
+> @@ -48,6 +51,13 @@ void send_nmi_mask(cpumask_t *mask, enum local_nmi_typ=
+e type)
+>
+>  static int local_nmi_handler(u32 evt, void *arg, struct pt_regs *regs)
+>  {
+> +       enum local_nmi_type type =3D atomic_read((atomic_t *)arg);
+> +       unsigned int cpu =3D smp_processor_id();
+> +
+> +       NMI_HANDLE(LOCAL_NMI_CRASH, cpu_crash_stop, cpu, regs);
+> +
+> +       atomic_set(&local_nmi_arg, LOCAL_NMI_NONE);
 
-Isn't that cast pointless?
+Do not perform direct zero clearing on local_nmi_arg; instead, only
+clear the processed bits. Otherwise, it may miss responses to some NMI
+types.
 
-	David
+> +
+>         return 0;
+>  }
+>
+> --
+> 2.39.5
+>
 
->  	if (batch->position >= ARRAY_SIZE(batch->entropy) ||			\
->  	    next_gen != batch->generation) {					\
->  		_get_random_bytes(batch->entropy, sizeof(batch->entropy));	\
-
+Thanks,
+Yunhui
 
