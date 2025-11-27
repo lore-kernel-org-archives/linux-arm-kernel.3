@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0435D116E2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 14:49:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B5BD116E2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 14:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7NGhO3m20hNBLQgRoRe5aCNIWN6lSYGzFhhL4/I6i0M=; b=rvAU5RwN08PI4eNLytxNmLqm0m
-	n5aTU37LW9EKL50h7qY175ySkGMZq4e8FH8k+ZZpVWSqMoUTK+R2SRU42DzRhYYoQZIYkseYW3VpH
-	r6ldrC9CjtLMxnAqEvJnVD+5bqDUOsjhZSmM3WqGcw/7Ss4cuFy/zBbiqsZOoEQUbwjGLKkxn2YQV
-	gmBIDDK4KLQkxBKbt81Za1FmcupQUf1QBjCsNRE0i+/f1SuXxCoVn2HjB5Y0fV9DKEIxDd2mMjHwZ
-	to+uwaYrCnybFZ6JE4J3niiztj9sP0FZ44AgB574HwPWiCMo14k6oSkVfvMaE1XdGyvaOLg6fy9We
-	RsgpmjXQ==;
+	bh=dZiGM0rgOh8rCPA4Chxa2korgREX/RFMjcGVwmNVipY=; b=ZHJYA1firsJcBvtQao9mw/4CC3
+	adTjT0Jt9Vk8DuCAf0rcbmc1Kr0M+uCuTX7Q7dVUh4KvEeYx7kHiUaGOqAKQFvGrOVQduV4W+L0Zs
+	bQz9eY0jXwBZXE3x4ZeD/7P7gq3lMaS7gLDQxcgnT0pLCbHnoaIUVGyX5TAZaC1uUc0qZLmoaRHBh
+	rNF8cFdeKQCmINZ/tZXg3SX0Jcc+7jpQUBJ7xE6YltqmjimEWcCNRKuUHhVM6X9MkeyNDblTxvdLn
+	VhOu9i5hpd03h+kKhOSPx+C7ustI369tNTA7ajv9Ygb8uECgwd/ZqlsRd1GMTOPHwb7q+WXSKegtk
+	zYcL3lgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOdJA-0000000Go3u-11TC;
-	Thu, 27 Nov 2025 14:49:20 +0000
+	id 1vOdLJ-0000000GoIj-0Qwe;
+	Thu, 27 Nov 2025 14:51:33 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOdJ8-0000000Go3S-0Heq
+	id 1vOdLH-0000000GoIL-1odo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 14:49:19 +0000
-Date: Thu, 27 Nov 2025 15:49:13 +0100
+	Thu, 27 Nov 2025 14:51:32 +0000
+Date: Thu, 27 Nov 2025 15:51:27 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1764254955;
+	s=2020; t=1764255089;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=7NGhO3m20hNBLQgRoRe5aCNIWN6lSYGzFhhL4/I6i0M=;
-	b=Pliw/Hg2CT43fdJgplojXUFqZWA2AK9IGFihMdPAPz54Y8g0mjc85DdYd2Uo6AllcFjoiT
-	9VFWW866CG15H8AZg/JOkeXYUoDhKfKcxkPBufmmf31b+Tni2xhvwJ6vE14mXJrqCOEcP0
-	d+Jt8lZF5hv5n1mjHJ0kkReygCl30hEonK/PRRaU104CqK4tSZLtYY/ytzUKnDDAFYM56t
-	nSDG11BcPSSmZC+LG4P3Ucp1u/pEVab4lb9MPVaD/bferdR2FOke+brgUytotq5Sev6xIe
-	1uaZtYHsYuGKahn5mbDONskt7U1CBXWwRR4AMWm1Cw9C0rCqvWuWOYljP/axIA==
+	bh=dZiGM0rgOh8rCPA4Chxa2korgREX/RFMjcGVwmNVipY=;
+	b=hbwvzb365mil7ujSwC8oJpF8CtccBGMjUFmYcTY7jCpfPuJm1qBs5AaPCZPMADrLTWU3TA
+	vn13NSp93U+rAvnpb7CJ0J+MVeIUYV+xdakfOm1+LMSRjb7xUMuysNXNhTsWsNcMQiPtCy
+	mgyDlVsWbMeHTe0PUshZ5WZZiozDAxx4FSniJOK3nA7unx7A7VajLGUwsB5JV00+dV+U67
+	UiuDXqGtIZWaUf7Govw33nazqzbo1QKrSKB2ROJ7mNru2DaY0svMNx441cxH6kdtMmp89s
+	7AROEeoJjjKgBMjjOE8d7wS5gvIildHIZSqs4jTxKPt9HJQaFfYb+OOYc2OWfQ==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1764254955;
+	s=2020e; t=1764255089;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=7NGhO3m20hNBLQgRoRe5aCNIWN6lSYGzFhhL4/I6i0M=;
-	b=tk/qR6wXFEg1BUpfHcBHWK5zjR3/ybtkL+SBbbbMbUDbtuwWcXISYr74nD3EOKGwFa5B+2
-	Kr1OcIdXS+VWX2CQ==
+	bh=dZiGM0rgOh8rCPA4Chxa2korgREX/RFMjcGVwmNVipY=;
+	b=p9WbnQvb7y0LNdkXZr9Yzo0gHnHa6g+Z2WXDmZUBwgqVuoqJOXmUV0kOAeAdzwMXc7ytE7
+	mse1wFdfR5DBq6Bg==
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 To: Xie Yuanbin <xieyuanbin1@huawei.com>
 Cc: viro@zeniv.linux.org.uk, will@kernel.org, nico@fluxnic.net,
@@ -60,19 +60,17 @@ Cc: viro@zeniv.linux.org.uk, will@kernel.org, nico@fluxnic.net,
 	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
 	wozizhi@huaweicloud.com, liaohua4@huawei.com, lilinjie8@huawei.com,
 	pangliyuan1@huawei.com, wangkefeng.wang@huawei.com
-Subject: Re: [RFC PATCH v2 2/2] ARM/mm/fault: Enable interrupts before
- sending signal
-Message-ID: <20251127144913.arc7keYZ@linutronix.de>
+Subject: Re: [RFC PATCH v2 1/2] ARM/mm/fault: always goto bad_area when
+ handling with page faults of kernel address
+Message-ID: <20251127145127.qUXs_UAE@linutronix.de>
 References: <20251127140109.191657-1-xieyuanbin1@huawei.com>
- <20251127140109.191657-2-xieyuanbin1@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251127140109.191657-2-xieyuanbin1@huawei.com>
+In-Reply-To: <20251127140109.191657-1-xieyuanbin1@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_064918_272304_0A1BB6F1 
-X-CRM114-Status: UNSURE (   8.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251127_065131_638033_BF4BE829 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,26 +85,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-11-27 22:01:09 [+0800], Xie Yuanbin wrote:
+On 2025-11-27 22:01:08 [+0800], Xie Yuanbin wrote:
 > --- a/arch/arm/mm/fault.c
 > +++ b/arch/arm/mm/fault.c
-> @@ -184,10 +184,13 @@ __do_user_fault(unsigned long addr, unsigned int fsr, unsigned int sig,
->  	struct task_struct *tsk = current;
+> @@ -270,10 +270,15 @@ do_page_fault(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
+>  	vm_flags_t vm_flags = VM_ACCESS_FLAGS;
 >  
->  	if (addr > TASK_SIZE)
->  		harden_branch_predictor();
+>  	if (kprobe_page_fault(regs, fsr))
+>  		return 0;
 >  
-> +	if (IS_ENABLED(CONFIG_PREEMPT_RT))
-> +		local_irq_enable();
+> +	if (unlikely(addr >= TASK_SIZE)) {
+> +		fault = 0;
+> +		code = SEGV_MAPERR;
+> +		goto bad_area;
+> +	}
+>  
+>  	/* Enable interrupts if they were enabled in the parent context. */
+>  	if (interrupts_enabled(regs))
+>  		local_irq_enable();
 
-This shouldn't be limited to CONFIG_PREEMPT_RT. There is nothing wrong
-with enabling it unconditionally.
-
->  #ifdef CONFIG_DEBUG_USER
->  	if (((user_debug & UDBG_SEGV) && (sig == SIGSEGV)) ||
->  	    ((user_debug & UDBG_BUS)  && (sig == SIGBUS))) {
->  		pr_err("8<--- cut here ---\n");
->  		pr_err("%s: unhandled page fault (%d) at 0x%08lx, code 0x%03x\n",
+What is with the patch I sent wrong?
 
 Sebastian
 
