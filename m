@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29960D116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 09:22:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E77DCFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 09:22:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LUO1z9qwbt9OCCzyz5bCMm+KUuBCR4sEqoSJH822mh0=; b=zJ3SYrsRy5Ezusxk9FpzoChyGN
-	pFx+v8Czi0DGSa1OU0ngiYDE6XF0lQSNulwxsU/9ekR6x42s/Y29eNAob4fPfiyTJV1IQG0wX8feb
-	XJ0xzAxw283ESz9yX18zwzn5QbUTL1NMkZi6xs3zE+4kxxAe4FG3AWDeEhhHMMH+/5Gvzue5W2Umk
-	jA+kaJJX1dhnqKcwzolCoCF5jNCdVolaFe2HfHD9guq+tF18QqS9Ltxr2nVlA1u+nyy9bObXuBRRQ
-	+HHwQt3I+om0LQXuAPbUXjU4uf9H9SkBL2ImjUJHmBCsonWqnnqGebg70Sn6zBNlcHxTIgP6q8zxH
-	0n/ZpM4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HBNoX/Meqdbif041retDcNWehJcXmgAAGm+bCdn/H9I=; b=xAZMKJtKpy7IXeRlvKJrT+A7u2
+	OSu0MY3cnKjrvKOxmOkEKX2LaQhfWnaeMXtRYYykY+U8LARne/phqaLF99NU3DM1h/uz8Zrs0/ML3
+	vQdCPeJIPlcHV9WtrMVhfVNAhvCpAtjsQGX4ngUchtMCc+21VBEtJhoGwG61yoPVDhlMpF5jncr5E
+	sWeG9e/feTj004gXsLH2WZxn3/LcjHzh3S/R9r4bkxEZF5GSTCfzMaIgi/Ftcw40BuCCmNNYEfzqi
+	Td5VDBwco+0wDdaWrn7XBUhT10FKUuT6a07j4ycjlb9F/+sLpR8M2NGaCsyo0EYhb1O8D6Ou+5k7O
+	jkgpCpHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOYCv-0000000GHRf-10ub;
-	Thu, 27 Nov 2025 09:22:33 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOYCs-0000000GHQU-0PBu
+	id 1vOYD1-0000000GHUX-20Bo;
+	Thu, 27 Nov 2025 09:22:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOYCx-0000000GHT0-1fGO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 09:22:32 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id DD987C16A17;
-	Thu, 27 Nov 2025 09:22:02 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id AE8DB6068C;
-	Thu, 27 Nov 2025 09:22:25 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 20965102F260E;
-	Thu, 27 Nov 2025 10:22:19 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764235344; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=LUO1z9qwbt9OCCzyz5bCMm+KUuBCR4sEqoSJH822mh0=;
-	b=eqhjdvXZnUp9AmLT5/lJ7M6Z4Pq+LxgKF4WrneIblNx6/isXh+q272Pc5de5vlJP67QIod
-	DFU8sAzqbvx7hYfQIAbxZVtXu5ur9wHEeKdpDjlOODOwNrqUFrd3NmrdHOyDFH08bQws28
-	0oLC85B8sKuwjnU33G0LkCCYE42UpG3pbGxxAUin2woUQAZxEkAGHk0HQgTVF5nClGO32d
-	16vRV1tKmrJLnQ1GKHdAQLyB0ZtTKbK6YgHVIn3JqX/QN3dtxuQjA8uddrokH/SyRy3IqM
-	sauT/xOWlNe3hehmB09YO5g+IYyiYJ4hsc4uYwaNdNjVN4EZhQAykkYYebXKnA==
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 27 Nov 2025 10:22:18 +0100
-Message-Id: <DEJD8DJZFNZO.11B1UBXJBN7MO@bootlin.com>
-Subject: Re: [PATCH 1/2] phy: rockchip: inno-usb2: fix disconnection in
- gadget mode
-Cc: "Kever Yang" <kever.yang@rock-chips.com>, "Minas Harutyunyan"
- <Minas.Harutyunyan@synopsys.com>, "Alan Stern" <stern@rowland.harvard.edu>,
- "Louis Chauvet" <louis.chauvet@bootlin.com>, =?utf-8?q?Herv=C3=A9_Codina?=
- <herve.codina@bootlin.com>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, <linux-phy@lists.infradead.org>,
- <linux-rockchip@lists.infradead.org>, <linux-usb@vger.kernel.org>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-To: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, "Vinod Koul"
- <vkoul@kernel.org>, "Kishon Vijay Abraham I" <kishon@kernel.org>, "Heiko
- Stuebner" <heiko@sntech.de>, "William Wu" <wulf@rock-chips.com>
-From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
-X-Mailer: aerc 0.20.1
-References: <20250722-rk3308-fix-usb-gadget-phy-disconnect-v1-0-239872f05f17@bootlin.com> <20250722-rk3308-fix-usb-gadget-phy-disconnect-v1-1-239872f05f17@bootlin.com> <DEHVRC8CY12S.3LSC6UVSMU0C1@bootlin.com>
-In-Reply-To: <DEHVRC8CY12S.3LSC6UVSMU0C1@bootlin.com>
-X-Last-TLS-Session-Version: TLSv1.3
+	Thu, 27 Nov 2025 09:22:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 55FD91570;
+	Thu, 27 Nov 2025 01:22:26 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 61E463F66E;
+	Thu, 27 Nov 2025 01:22:33 -0800 (PST)
+Date: Thu, 27 Nov 2025 09:22:31 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Kuan-Wei Chiu <visitorckw@gmail.com>
+Cc: James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, suzuki.poulose@arm.com,
+	alexander.shishkin@linux.intel.com, pratikp@codeaurora.org,
+	mathieu.poirier@linaro.org, gregkh@linuxfoundation.org,
+	jserv@ccns.ncku.edu.tw, marscheng@google.com, ericchancf@google.com,
+	milesjiang@google.com, nickpan@google.com,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] coresight: etm3x: Fix buffer overwrite in cntr_val_show()
+Message-ID: <20251127092231.GN724103@e132581.arm.com>
+References: <20251121002350.1166758-1-visitorckw@gmail.com>
+ <172ca2d9-4a6f-4498-bdfd-8aa7428581ce@linaro.org>
+ <aSCbJR9aT1vOpz0a@google.com>
+ <05babb6d-a588-49f8-a34a-c82d5f58adf5@linaro.org>
+ <CAJ9a7VipxW5-2roAQA3y212sQWr1kq2HNbLK1jmLNP1jFseYiQ@mail.gmail.com>
+ <68efd5a2-3b65-4f37-9bf0-40c4e5ade480@linaro.org>
+ <aSgPhd4u3Oqi3Ymy@google.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aSgPhd4u3Oqi3Ymy@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_012230_332639_025ED41B 
-X-CRM114-Status: GOOD (  13.70  )
+X-CRM114-CacheID: sfid-20251127_012235_488909_37DD256E 
+X-CRM114-Status: GOOD (  21.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,48 +74,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Th=C3=A9o,
+On Thu, Nov 27, 2025 at 04:44:53PM +0800, Kuan-Wei Chiu wrote:
 
-thanks for reviewing this series!
-
-On Tue Nov 25, 2025 at 4:28 PM CET, Th=C3=A9o Lebrun wrote:
 [...]
->> The problem was observed on a Radxa Rock Pi S board, which can only be
->> powered by the only USB-C connector. That connector is the only one usab=
-le
->
-> "which can only be powered by the only USB-C connector"
-> double "only" makes it a super exclusive connector!
 
-Hehe, indeed! :-)
+> I don't feel it is my place to say whether the etm3x driver should be
+> removed entirely.
 
->> The code already checks for !rport->suspended, so add a guard for VBUS a=
-s
->> well to avoid a disconnection when a cable is connected.
->
-> Your commit message was clear but I was missing one key point: what
-> rport->suspended means. It isn't what I first thought. Instead it means
-> phy is powered off. Naming is bad but unrelated to your series. Maybe
-> add a comment to your commit message like the following?
->
->   The code already checks for !rport->suspended (PHY is powered on), ...
+Sorry for confusion.  Your fix patch is welcome, this is useful no
+matter if remove the ETMv3 driver or not.
 
-You are right. I have added a slightly longer text:
+> However, if we decide to keep it, I agree that aligning cntr_val_show
+> with the cntr_val_store behavior (using cntr_idx) makes more sense.
+> 
+> Here is my plan for v2:
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+> index 762109307b86..77578885e8f3 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+> @@ -717,26 +717,19 @@ static DEVICE_ATTR_RW(cntr_rld_event);
+>  static ssize_t cntr_val_show(struct device *dev,
+>  			     struct device_attribute *attr, char *buf)
+>  {
+> -	int i, ret = 0;
+>  	u32 val;
+>  	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>  	struct etm_config *config = &drvdata->config;
+>  
+>  	if (!coresight_get_mode(drvdata->csdev)) {
+>  		spin_lock(&drvdata->spinlock);
+> -		for (i = 0; i < drvdata->nr_cntr; i++)
+> -			ret += sprintf(buf, "counter %d: %x\n",
+> -				       i, config->cntr_val[i]);
+> +		val = config->cntr_val[config->cntr_idx];
+>  		spin_unlock(&drvdata->spinlock);
+> -		return ret;
+> -	}
+> -
+> -	for (i = 0; i < drvdata->nr_cntr; i++) {
+> -		val = etm_readl(drvdata, ETMCNTVRn(i));
+> -		ret += sprintf(buf, "counter %d: %x\n", i, val);
+> +		return sprintf(buf, "%x\n", val);
+>  	}
+>  
+> -	return ret;
+> +	val = etm_readl(drvdata, ETMCNTVRn(config->cntr_idx));
 
-  The code already checks for !rport->suspended (which, somewhat
-  counter-intuitively, means the PHY is powered on), ...
+It is not right to read register at here (it cannot promise to read the
+CPU (cp14) register on the target CPU).
 
-Still worth your Reviewed-by?
+Please refer to the same function in coresight-etm4x-sysfs.c. I think
+we can do the same thing at here.
 
-I fixed the other issues you have reported, for patch 2 as well.
+> +	return sprintf(buf, "%x\n", val);
+>  }
+>  
+>  static ssize_t cntr_val_store(struct device *dev,
+> 
+> 
+> Given the upcoming merge window, I plan to submit this v2 after -rc1
+> is released.
+> 
+> Alternatively, if the consensus is to drop the driver, I am happy to
+> submit a patch for that instead.
 
-I also added the Cc: stable@vger.kernel.org line, which I noticed being
-missing.
+Please continue this patch.  Thanks a lot!
 
-Luca
-
---
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Leo
 
