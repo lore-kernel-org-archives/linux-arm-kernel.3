@@ -4,149 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EAB2D11183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 07:43:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37ABDD11183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 07:43:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WyScJv6L7nzXkZtam1LWxY9xGCwufyeEcL9m/K/r7IE=; b=Z2uQzoXZIu79bpUZXUF73wNfQm
-	g/OulHyoaCZd4B78gKgoIOBXeYPylAzE21yPyvIkO6zZQuA+tn8dPF4xNLR2iR+23nuZ1mgzk9/1J
-	mYYj5SnjFEdYzaZ9ZDr5ESVVz9UshcRZfjXlOERiALHCTrQuyapPznEZuXzjkSqDhrBEPXosBy6Nf
-	WxtRLJ6Gp2dIXhZGXd5iVlFsK+WNXtsEq0YXrpnF8CnE+6FG1dWjcaUmyUggYHV9cflWo0UUWZRNJ
-	jC4KNT5ilIcpqTxQJ/0KOBcnf+Q9OfiN8CmDiOqImsYoD8ODepjOVIbASPdmbcHBAqCZMXhM8vMJz
-	ZQw2qEfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4wLSBnq8oeMzP9p15fmO0cpo9Sed7ESZOAMG1zbdo/Y=; b=dCuhYrs3qTjRj1yZiF5quV9PBk
+	nERCLvidEDcqBRXZ6PtK5nW15mLxkDDPmBa9f4Qgm1RRkee19rXwdc53d0K+FLQaxvrCNk2jAXNRX
+	RReB7Ve/+jd17M9s3FCr5hVz0+nN9q/2UFVngJZ93WEHBemmrrikNpg7tzeZvuevB1Wq8siD+pAqp
+	gyQR2tCeur8y8RA3yHIdA2C0zS9JkRbRPxnJUrcWF8Xq6Q2QilyXTlhy8gXxUUE69Sww/5/vp9UzF
+	MHjwrAt/6KPNYgZ0quZtbrZQTR2nqZtwuYnLzxdqAMrJluwl8Z4Ce3oW8PdTHi7miPd5HaNeGSVl6
+	sEO7zlsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOWf3-0000000G94O-32cU;
-	Thu, 27 Nov 2025 07:43:29 +0000
-Received: from smtp-out2.suse.de ([195.135.223.131])
+	id 1vOWfN-0000000G97y-0J19;
+	Thu, 27 Nov 2025 07:43:49 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOWf0-0000000G93e-1YeL
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 07:43:28 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 7CBC85BCC4;
-	Thu, 27 Nov 2025 07:43:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1764229402; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=WyScJv6L7nzXkZtam1LWxY9xGCwufyeEcL9m/K/r7IE=;
-	b=tHKYVma4XZcx7EoM5DNtmhDH8d9dYIT1zjyPWiuzOKkrRbwdogT20g9OvB1gPa65N29ize
-	4GtRmeOztqDc1JFFXCNPXnbPEn6m/rt5ROFlvRnW8gSriK+vchWuJejUle4Bf0lctpAMe0
-	BsoNiayfk0hMxzZbyHAvwrSNJm15elw=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1764229402;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=WyScJv6L7nzXkZtam1LWxY9xGCwufyeEcL9m/K/r7IE=;
-	b=sSfQgU6T/Yx+fCh1hUALVRAufEwp3ATFz5uXMj/P6VqdhPQInFT9HtHsc4EUhWkDPLvvYo
-	oVeaJ0hOAb6l9vDg==
-Authentication-Results: smtp-out2.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1764229402; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=WyScJv6L7nzXkZtam1LWxY9xGCwufyeEcL9m/K/r7IE=;
-	b=tHKYVma4XZcx7EoM5DNtmhDH8d9dYIT1zjyPWiuzOKkrRbwdogT20g9OvB1gPa65N29ize
-	4GtRmeOztqDc1JFFXCNPXnbPEn6m/rt5ROFlvRnW8gSriK+vchWuJejUle4Bf0lctpAMe0
-	BsoNiayfk0hMxzZbyHAvwrSNJm15elw=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1764229402;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=WyScJv6L7nzXkZtam1LWxY9xGCwufyeEcL9m/K/r7IE=;
-	b=sSfQgU6T/Yx+fCh1hUALVRAufEwp3ATFz5uXMj/P6VqdhPQInFT9HtHsc4EUhWkDPLvvYo
-	oVeaJ0hOAb6l9vDg==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 0A0413EA63;
-	Thu, 27 Nov 2025 07:43:22 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id DU/CABoBKGnXfAAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Thu, 27 Nov 2025 07:43:22 +0000
-Message-ID: <fc4ea259-3389-46e2-b860-972aa8179507@suse.de>
-Date: Thu, 27 Nov 2025 08:43:21 +0100
+	id 1vOWfM-0000000G97a-23MR;
+	Thu, 27 Nov 2025 07:43:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 95E8F60178;
+	Thu, 27 Nov 2025 07:43:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C097C4CEF8;
+	Thu, 27 Nov 2025 07:43:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764229427;
+	bh=stfZYo+TOb5/udfo8Ni52S3dEgdKEJoaTftGPEkaTEk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=n2qhreBZ6hx5qKaCQD/Ummy08gyYqCO2jKo6y4KlAWs6fsaomo28Rkfmj8hLIA7Ro
+	 ua3cW71SxmOAIGMzNb+r/J73tDPM0Jb3kHqqC+Ek6jHOhtj94HTgQ7ZHjJJeBuY3fK
+	 8L2DRE+BkndgKHhIDgVfwtVNbHlSya8cCZwdkV4iKC1Ii75+ISf+nxYHzWhAc4ld31
+	 EQQRHl+kbzAhd89CDlVtnrDnMFc28chxSunAM/vnmu9Xu3QUsrTI+ksnEP7mOWaNwB
+	 U7on4MYwJ/qEX92ONC+CrvivQHzi3tOqNaQs0SzMFnlE1cKMCF+4WgEhB/0tdw7Qtq
+	 suC8JCokvLrfA==
+Date: Thu, 27 Nov 2025 08:43:41 +0100
+From: Niklas Cassel <cassel@kernel.org>
+To: FUKAUMI Naoki <naoki@radxa.com>
+Cc: Manivannan Sadhasivam <mani@kernel.org>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Shawn Lin <shawn.lin@rock-chips.com>,
+	Krishna chaitanya chundru <quic_krichai@quicinc.com>,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH 0/6] PCI: dwc: Revert Link Up IRQ support
+Message-ID: <aSgBLQ7rDOiEFhMB@ryzen>
+References: <20251111105100.869997-8-cassel@kernel.org>
+ <mt7miqkipr4dvxemftq6octxqzauueln252ncrcwy6i2t7wfhi@jtwokeilhwsi>
+ <aSRli_Mb6qoQ9TZO@ryzen>
+ <7667E818D7D31A4E+cf7c83d4-b99c-469d-8d46-588fc95b843f@radxa.com>
+ <F11F0D13437B012D+0c15c5ca-f64f-49f1-9ff5-26b88d59ff59@radxa.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/9] arch,sysfb,efi: Support EDID on non-x86 EFI
- systems
-To: Richard Lyu <richard.lyu@suse.com>, ardb@kernel.org, javierm@redhat.com,
- arnd@arndb.de, helgaas@kernel.org
-Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org,
- loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
- dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
- linux-pci@vger.kernel.org, linux-fbdev@vger.kernel.org
-References: <20251126160854.553077-1-tzimmermann@suse.de>
- <aSe1ZBXa3JBidhem@r1chard>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <aSe1ZBXa3JBidhem@r1chard>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Spamd-Result: default: False [-4.30 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[15];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.de:mid,suse.com:url]
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_234326_607382_CA05B54E 
-X-CRM114-Status: GOOD (  23.44  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <F11F0D13437B012D+0c15c5ca-f64f-49f1-9ff5-26b88d59ff59@radxa.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,145 +79,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+Hello FUKAUMI Naoki,
 
-Am 27.11.25 um 03:20 schrieb Richard Lyu:
-> Hi Thomas,
->
-> I am attempting to test this patch series but encountered merge conflicts when applying it to various trees.
-> Could you please clarify the specific base commit (or branch/tag) this series was generated against?
+On Thu, Nov 27, 2025 at 04:34:53PM +0900, FUKAUMI Naoki wrote:
+> Hi all,
+> 
+> I'm very sorry, but my ROCK 5C appears to be unreliable. (It worked fine
+> with vanilla v6.13, so I thought it was fine.)
+> 
+> I replaced it with another 5C (Lite), and now every method (Niklas's patch,
+> Shawn's patch, and applying patch 1 and 2) seems to work.
 
-Thanks for testing.
+Could you please give us some more information.
 
->
-> When testing on the next branch on commits 7a2ff00 and e41ef37, I hit a conflict on PATCH v3 4/9:
-> patching file drivers/pci/vgaarb.c
-> Hunk #2 FAILED at 557.
-> 1 out of 2 hunks FAILED -- rejects in file drivers/pci/vgaarb.c
->
-> When testing against 3a86608 (Linux 6.18-rc1), the following conflicts occurred:
-> patching file drivers/gpu/drm/sysfb/efidrm.c
-> Hunk #1 FAILED at 24.
-> 1 out of 2 hunks FAILED -- rejects in file drivers/gpu/drm/sysfb/efidrm.c
-> patching file drivers/gpu/drm/sysfb/vesadrm.c
-> Hunk #1 FAILED at 25.
-> 1 out of 2 hunks FAILED -- rejects in file drivers/gpu/drm/sysfb/vesadrm.c
->
-> Please let me know the correct base, and I will retest.
+Does the Rock 5C Lite have a PCIe switch?
 
-It's in the cover letter: d724c6f85e80a23ed46b7ebc6e38b527c09d64f5 The 
-commit is in linux-next. The idea is that the EFI tree can pick up the 
-changes easily in the next cycle. linux-next seemed like the best 
-choice. Best regards Thomas
->
-> Thanks,
-> Richard Lyu
->
-> On 2025/11/26 17:03, Thomas Zimmermann wrote:
->> Replace screen_info and edid_info with sysfb_primary_device of type
->> struct sysfb_display_info. Update all users. Then implement EDID support
->> in the kernel EFI code.
->>
->> Sysfb DRM drivers currently fetch the global edid_info directly, when
->> they should get that information together with the screen_info from their
->> device. Wrapping screen_info and edid_info in sysfb_primary_display and
->> passing this to drivers enables this.
->>
->> Replacing both with sysfb_primary_display has been motivate by the EFI
->> stub. EFI wants to transfer EDID via config table in a single entry.
->> Using struct sysfb_display_info this will become easily possible. Hence
->> accept some churn in architecture code for the long-term improvements.
->>
->> Patches 1 and 2 reduce the exposure of screen_info in EFI-related code.
->>
->> Patch 3 adds struct sysfb_display_info.
->>
->> Patch 4 replaces scren_info with sysfb_primary_display. This results in
->> several changes throught the kernel, but is really just a refactoring.
->>
->> Patch 5 updates sysfb to transfer sysfb_primary_display to the related
->> drivers.
->>
->> Patch 6 moves edid_info into sysfb_primary_display. This resolves some
->> drivers' reference to the global edid_info, but also makes the EDID data
->> available on non-x86 architectures.
->>
->> Patches 7 and 8 add support for EDID transfers on non-x86 EFI systems.
->>
->> Patch 9 cleans up the config-table allocation to be easier to understand.
->>
->> v3:
->> - replace SCREEN_INFO table entry (Ard)
->> - merge libstub patch into kernel patch
->> v2:
->> - combine v1 of the series at [1] plus changes from [2] and [3].
->>
->> [1] https://lore.kernel.org/dri-devel/20251121135624.494768-1-tzimmermann@suse.de/
->> [2] https://lore.kernel.org/dri-devel/20251015160816.525825-1-tzimmermann@suse.de/
->> [3] https://lore.kernel.org/linux-efi/20251119123011.1187249-5-ardb+git@google.com/
->>
->> Thomas Zimmermann (9):
->>    efi: earlycon: Reduce number of references to global screen_info
->>    efi: sysfb_efi: Reduce number of references to global screen_info
->>    sysfb: Add struct sysfb_display_info
->>    sysfb: Replace screen_info with sysfb_primary_display
->>    sysfb: Pass sysfb_primary_display to devices
->>    sysfb: Move edid_info into sysfb_primary_display
->>    efi: Refactor init_primary_display() helpers
->>    efi: Support EDID information
->>    efi: libstub: Simplify interfaces for primary_display
->>
->>   arch/arm64/kernel/image-vars.h                |  2 +-
->>   arch/loongarch/kernel/efi.c                   | 38 ++++-----
->>   arch/loongarch/kernel/image-vars.h            |  2 +-
->>   arch/riscv/kernel/image-vars.h                |  2 +-
->>   arch/x86/kernel/kexec-bzimage64.c             |  4 +-
->>   arch/x86/kernel/setup.c                       | 16 ++--
->>   arch/x86/video/video-common.c                 |  4 +-
->>   drivers/firmware/efi/earlycon.c               | 42 +++++-----
->>   drivers/firmware/efi/efi-init.c               | 46 ++++++-----
->>   drivers/firmware/efi/efi.c                    |  4 +-
->>   drivers/firmware/efi/libstub/Makefile         |  2 +-
->>   drivers/firmware/efi/libstub/efi-stub-entry.c | 36 +++++++--
->>   drivers/firmware/efi/libstub/efi-stub.c       | 49 +++++++----
->>   drivers/firmware/efi/libstub/efistub.h        |  7 +-
->>   .../firmware/efi/libstub/primary_display.c    | 41 ++++++++++
->>   drivers/firmware/efi/libstub/screen_info.c    | 53 ------------
->>   drivers/firmware/efi/libstub/zboot.c          |  6 +-
->>   drivers/firmware/efi/sysfb_efi.c              | 81 ++++++++++---------
->>   drivers/firmware/sysfb.c                      | 13 +--
->>   drivers/firmware/sysfb_simplefb.c             |  2 +-
->>   drivers/gpu/drm/sysfb/efidrm.c                | 14 ++--
->>   drivers/gpu/drm/sysfb/vesadrm.c               | 14 ++--
->>   drivers/hv/vmbus_drv.c                        |  6 +-
->>   drivers/pci/vgaarb.c                          |  4 +-
->>   drivers/video/Kconfig                         |  8 +-
->>   drivers/video/fbdev/core/fbmon.c              |  8 +-
->>   drivers/video/fbdev/efifb.c                   | 10 ++-
->>   drivers/video/fbdev/vesafb.c                  | 10 ++-
->>   drivers/video/fbdev/vga16fb.c                 |  8 +-
->>   drivers/video/screen_info_pci.c               |  5 +-
->>   include/linux/efi.h                           |  9 ++-
->>   include/linux/screen_info.h                   |  2 -
->>   include/linux/sysfb.h                         | 23 ++++--
->>   include/video/edid.h                          |  4 -
->>   34 files changed, 321 insertions(+), 254 deletions(-)
->>   create mode 100644 drivers/firmware/efi/libstub/primary_display.c
->>   delete mode 100644 drivers/firmware/efi/libstub/screen_info.c
->>
->>
->> base-commit: d724c6f85e80a23ed46b7ebc6e38b527c09d64f5
->> -- 
->> 2.51.1
->>
-
--- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstr. 146, 90461 Nürnberg, Germany, www.suse.com
-GF: Jochen Jaser, Andrew McDonald, Werner Knoblich, (HRB 36809, AG Nürnberg)
+Does Rock 5C Lite work fine with the current code in mainline?
+(i.e. with bus enumeration when Link Up IRQ is triggered).
 
 
+Kind regards,
+Niklas
 
