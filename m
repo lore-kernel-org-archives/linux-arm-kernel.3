@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 455CCD11183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 12:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E84CD11183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 12:53:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yk19cubzYI59vS2m7ARmuI6dwPXbjagJNzaP0UWxsjY=; b=zVVweJIy8DyAQkX9NpmdQA4r+e
-	1iqjaoBxIY2unItaohZCuJRyXyIf/WXb/2uX7xPfJsM7OYT/6mMlb26PdUyZ28IPa2klVDnRTGsGz
-	KxzgyFuhtomTgzILeOgVbEhs5MoA0+U9kOL+wyphVs7qHuOGALMJbJIzWxZRzurPDAhdhBXf4PLSx
-	5fzDcsRNA0BnlEyDcFqiq+yhbcTYPkQwg31M6Vxc9OJWCrw3LREsOqGqJ9B3cyy82yFPWt9i+WYlI
-	D59inrBrvAgOCmtDRXzJok5X+yEWCvB9iXJq7z7kIyyWfxtvyZ8XYhfkZr1yYn//JBCNzda2HPdnH
-	ukEsdx6A==;
+	bh=ekEUQQGglKUm+pQmuNFUFd1vkJX+rIRh1mBD2DC3QW8=; b=V0BBliSDWiM+i1mYOXVUXqbFGm
+	02vRD9YK6Ttvs3JOrFTcAtXe+au+MIEuuIaNHePdApWcRGEyfqX4NkAiAWcjqaj3oBcMxF/EL7HhA
+	ZMlpfVnVMJDsC0BBrYnLW/ttlET8o/AKR3HkE6Yd6vrdFB2ySYAfbRmvzGeirV4KDwAFFr/rpRUlx
+	N6FUz5yjBlrUP/sHGvyWkxslH8oG1HI5RjIBErkktqZq39TyK8oEeg/EG0PattT3qn0KBB2KBZYal
+	PEbdCfDBscm0qQ1XcOTXfFkzhVmJu3+DjHGLBAdw0mgzSa1T5mhPsTEtBuoaTY3oboiNScxIeSbzk
+	t4xStMjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vObVL-0000000GbRC-1KoW;
-	Thu, 27 Nov 2025 12:53:47 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1vObVU-0000000GbZ0-0ptm;
+	Thu, 27 Nov 2025 12:53:56 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vObVI-0000000GbOB-2Uyh
+	id 1vObVQ-0000000GbVq-45s5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 12:53:45 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2981f9ce15cso9064225ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 04:53:44 -0800 (PST)
+	Thu, 27 Nov 2025 12:53:55 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-298145fe27eso13687625ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 04:53:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1764248024; x=1764852824; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1764248032; x=1764852832; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=yk19cubzYI59vS2m7ARmuI6dwPXbjagJNzaP0UWxsjY=;
-        b=aEcPtIwZIkZxDRBT4dLbGiadEtXMC+p9ai77PQ6xti4N9yF8Q41PPn1NOfvhxFjVEd
-         b70F+0mf6vfWgubzs0xn9ZF6sD4zllrZ2zWYYy3Kd5xemJcYbWhd0G55Oc7BV4T7j9tD
-         G63q2QcVTSpNKw5KplVTwPATChTZ7XhGPR46nBQsTFwj1JW08qMOsEnPDkdsVZRKea/p
-         pBPRPho2+8+6GTVI2HDGrWgC/q96fiiiRpxquppN9lZibjl+vUleAHtA4ujvgF/3IWPH
-         KVPy4NPu7uEBwbzPvIpNkf5Et+4ZZUzzapvtRVZPHVklCSA7+BjoLkYvHBBaJ+ZNFkkB
-         m8CQ==
+        bh=ekEUQQGglKUm+pQmuNFUFd1vkJX+rIRh1mBD2DC3QW8=;
+        b=J7yuUJ7QQSVO8DnWZwLFGtDTpWoUXLbL+kD+aEPVnJQiyHkkvc0KIESMHP3PzwTE1b
+         X4a6v8pF6AZCKxmJd8TkGZXmnEZ5k/x5FkWtKZmo+6Ck9G+tRfgdR32ZvEYUAm6dN8my
+         HqUqsxIK8gfOidH2XhtC8zG2/pNl8sRQve8+p6ZOgf4gB+yNgD62SPybIGiMapQ+0HjH
+         SZqMdioGMCig2EIUG+RHU2Kij/JHGf9lBJH7ywQE4Zhgl4D63Vx5RX6nuG92zy9b9hZp
+         jjlagMeBwpAja8angAgsgEYGJaDRu76uoVchW2ZsnZBnmkckcHUB8oQy1sbNx84wUgbU
+         kbsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764248024; x=1764852824;
+        d=1e100.net; s=20230601; t=1764248032; x=1764852832;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=yk19cubzYI59vS2m7ARmuI6dwPXbjagJNzaP0UWxsjY=;
-        b=Qh3X7xmr5lcmp33eSg0S6PNzcD2dHg+n8ikHqgRKYsdrrefzzSWAi+gEX4AelCHhIC
-         9jX+7E51oe8IHSlxOCnrsqYTmXPC2JJ0kUdbWDgYLoQJUjggFr5PXlommcaKWd2UMHr5
-         vqSLTOLjet8KNGiPTBN78A6s3itsyZXFkBGTRl8kG/AbfdPYXBq9fuch36DPEoXJeKHc
-         QF3fVVOA7eh5njLbCnyFvq4SdUd9n6V+3UpePwp7gOQp8xiBssQ1zBtNUEfRmldwz6Pl
-         Acd3Xu3zopwNT9IyqqlRNOgIPsO4vEkkiNPQD+Ha/bCrZitVGIctDRpwz3/jo36OKyd6
-         Xj3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVQS2qAawqIEYbMEOCzn46hud7CiFvfCPgE1q+AVBKZRlnKTJQ5SCvIOSDk+ygmILv6Y7Y50hTUOKo3MZDHmob1@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9qPeJfgTNzrUXc/by8qQXfhiJ2lsYLl9eLRwJNHnqMYh4J3bK
-	2IfG2JRL4iJ3KXDr0mnUHOUm4TR6AbUUAiF42pruldb2JtzP1jwf3InFSG1DCnKyMIk=
-X-Gm-Gg: ASbGncspKctIZ1gzjLcYz42ND3czYAiZHm79TWJKRCwcdS0g5FzQGqG0sol0jqTygGH
-	OUPamwiZapfH8pxiK0UVXzXmW/0Fc0OcYHWfIkbIcWvm8X/zaHdtOV07nF9dklstRaeHjLf2usZ
-	CMfIsYmKsMaNKJGfPyO9I2FTItdCej6pzkX5TnM37xKEpICaAHegnXFdxalQCrzlk6DN3FO6Y9r
-	kDytrFXcvyJ0ikQVzY254g4JJA8WJyIP6/Vu4/5v6YwiE9qzQlb0U3OT7qt4AT2PyjskL900FQ0
-	xDph9QhDAKTQdMp4ydVu7MfS4/EdcL4y/nLDt4NC2JWRZWnKWffbkz/hq7ED7JYQ+uYQ66IqSKe
-	q07PzJ/Xl+Z1Wh22wMBkL9Fn7HRbTxNlteI7/tzPSL1wsFleJYEFmpcfEMGdhXtGW/Iv6+tgc0F
-	Ijrl4X8nJXxAr5VwbixbKsA+BcLusuPPTA60gIEXkBPOQkscNg6UTDizs=
-X-Google-Smtp-Source: AGHT+IFWj/Ge/LlTmUk4BGvK2jv7sYmbYypwkakcaLNVvSYRcxAzMelD2Tv37gWsl3Gu0g8hT2LecA==
-X-Received: by 2002:a17:903:98d:b0:297:fec4:1557 with SMTP id d9443c01a7336-29b6bfaf6c0mr239034795ad.60.1764248023704;
-        Thu, 27 Nov 2025 04:53:43 -0800 (PST)
+        bh=ekEUQQGglKUm+pQmuNFUFd1vkJX+rIRh1mBD2DC3QW8=;
+        b=m3XJqJbBAYdL2tZo7YNNfHVzZDFGuXTZRFstl5l5YcJQr67dgCnIqPAKi59QicK47y
+         euYDblcijyRfRT2EesLHil+4yp+GpOQ0pzI/gr9PcEFu5hWdplFQGXFLH+TmR3n0Nt8g
+         qs91ZeGPJPOyAFBuzIFrfhfIqCdX+v8fDNadwS9H+v2/OIP7TxCB4becf/3cD+mBAw6I
+         176ZRaMY6j5LunRPPFbyfbZuH9F6r5H6XKqWjc9+N92l8+Nr7c1AgSrR4b5cmCTt9ERM
+         tfw7kK/fSXOXIEQykDV5IMBUyNuW180TXE+X0xdjrrEWCfIpcDsMpKT2eL+u/WbXEy7k
+         tPnA==
+X-Forwarded-Encrypted: i=1; AJvYcCUINnDaPOwTj6am5Es/UibPFf9cS3Gbd1tkIZ3wu4T2VPW/KO0blr1DDWC9Gr6wKk9jo7T9EKfGy7iHMorljP45@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoJZBZVpzNtBf5ZfIUyle+XBooSiv6RABkfMa42s21bcicEY1H
+	h6KDsUdQiCbTsPRlL56vFO4xVx3KH1VcDHlxa5/ZD62CcAkOeO1OwhILOklAXUWxDGk=
+X-Gm-Gg: ASbGncsi7fXn3IEEz9ZGd00jfzKvGZ6x68UJcXB4WwOgrUOK3QZgwukXYAskQGcpolr
+	Tbcm1D7McDfcZs0LfWsEhTlVRB5/nJ6j0f4HOy8ODQ/Fn6aCbabmDo1Gc4OpcJH/0OTs/b6rnYz
+	Ldu76GpAPQJkC/ohC0gdz+hHqvGMi5kSkDHvcQa8BCqfOhsEhLXrmqYbCIxoP6HyzmXbv/+RGdu
+	vtX4nAfrhLFGSHFAlN1Izuzt06k/vZ3MLO3Hx3M8JJs8I3TeJtWBqtOJvRq91ckrz8h0nwudOGE
+	SwAsf/8rPr4lWkS/ykjgxxgV8NvdidFqcLc3Mca3t8huRoV8knTe/1z4CK1SdYEQ0kVifQyJa6U
+	b/C/bv3EkeCJ57xxECHAH+a7rm6DeRterZb0nRrj3bObdF3YuFiNQSG7bGyBTE+Hki5er3ToNf+
+	OHx5s1SuUjNulBxVqsp8qmuZq+dqkXFZNY0UVoYkzzIRYX
+X-Google-Smtp-Source: AGHT+IGkFjWMbmIGHNf6UcjgbW4i6Qoh9WFvC99RcWljyWTEaWXbPXGfrJnhhVQpJadpguwolGNYMg==
+X-Received: by 2002:a17:902:c44a:b0:295:34ba:7afa with SMTP id d9443c01a7336-29bab19b21emr77811615ad.43.1764248031954;
+        Thu, 27 Nov 2025 04:53:51 -0800 (PST)
 Received: from L6YN4KR4K9.bytedance.net ([139.177.225.225])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29bce470347sm17771255ad.41.2025.11.27.04.53.36
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29bce470347sm17771255ad.41.2025.11.27.04.53.44
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 27 Nov 2025 04:53:43 -0800 (PST)
+        Thu, 27 Nov 2025 04:53:51 -0800 (PST)
 From: Yunhui Cui <cuiyunhui@bytedance.com>
 To: conor@kernel.org,
 	paul.walmsley@sifive.com,
@@ -97,17 +97,17 @@ To: conor@kernel.org,
 	cleger@rivosinc.com,
 	atishp@rivosinc.com,
 	ajones@ventanamicro.com
-Subject: [PATCH v3 3/8] smp: move num_other_online_cpus() into smp.h
-Date: Thu, 27 Nov 2025 20:53:00 +0800
-Message-Id: <20251127125305.89961-4-cuiyunhui@bytedance.com>
+Subject: [PATCH v3 4/8] riscv: smp: use NMI for crash stop
+Date: Thu, 27 Nov 2025 20:53:01 +0800
+Message-Id: <20251127125305.89961-5-cuiyunhui@bytedance.com>
 X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 In-Reply-To: <20251127125305.89961-1-cuiyunhui@bytedance.com>
 References: <20251127125305.89961-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_045344_650226_F4BCF162 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20251127_045353_041633_F5F5F0A3 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,82 +122,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove duplicate definitions from arm64/riscv, add unified
-implementation in smp.h.
+Use NMI instead of IPI for crash stop if RISC-V SSE NMI is supported.
 
 Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 ---
- arch/arm64/kernel/smp.c | 11 -----------
- arch/riscv/kernel/smp.c | 11 -----------
- include/linux/smp.h     | 11 +++++++++++
- 3 files changed, 11 insertions(+), 22 deletions(-)
+ arch/riscv/kernel/smp.c                | 11 ++++++++++-
+ drivers/firmware/riscv/riscv_sse_nmi.c | 12 ++++++++++++
+ 2 files changed, 22 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 68cea3a4a35ca..2d1e7839dc9b0 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -1171,17 +1171,6 @@ void tick_broadcast(const struct cpumask *mask)
- }
- #endif
- 
--/*
-- * The number of CPUs online, not counting this CPU (which may not be
-- * fully online and so not counted in num_online_cpus()).
-- */
--static inline unsigned int num_other_online_cpus(void)
--{
--	unsigned int this_cpu_online = cpu_online(smp_processor_id());
--
--	return num_online_cpus() - this_cpu_online;
--}
--
- void smp_send_stop(void)
- {
- 	static unsigned long stop_in_progress;
 diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index 9dbcb9a06a96d..669325e68a21a 100644
+index 669325e68a21a..1b8cf986abbd0 100644
 --- a/arch/riscv/kernel/smp.c
 +++ b/arch/riscv/kernel/smp.c
-@@ -272,17 +272,6 @@ void smp_send_stop(void)
+@@ -16,6 +16,7 @@
+ #include <linux/kgdb.h>
+ #include <linux/percpu.h>
+ #include <linux/profile.h>
++#include <linux/riscv_sse_nmi.h>
+ #include <linux/smp.h>
+ #include <linux/sched.h>
+ #include <linux/seq_file.h>
+@@ -300,7 +301,15 @@ void crash_smp_send_stop(void)
+ 	atomic_set(&waiting_for_crash_ipi, num_other_online_cpus());
+ 
+ 	pr_crit("SMP: stopping secondary CPUs\n");
+-	send_ipi_mask(&mask, IPI_CPU_CRASH_STOP);
++
++	/*
++	 * Not a high frequency operation and is in final state, directly use
++	 * NMI instead of IPI to ensure reliability.
++	 */
++	if (!nmi_support())
++		send_ipi_mask(&mask, IPI_CPU_CRASH_STOP);
++	else
++		send_nmi_mask(&mask, LOCAL_NMI_CRASH);
+ 
+ 	/* Wait up to one second for other CPUs to stop */
+ 	timeout = USEC_PER_SEC;
+diff --git a/drivers/firmware/riscv/riscv_sse_nmi.c b/drivers/firmware/riscv/riscv_sse_nmi.c
+index 752ee88b230da..add028efd25a0 100644
+--- a/drivers/firmware/riscv/riscv_sse_nmi.c
++++ b/drivers/firmware/riscv/riscv_sse_nmi.c
+@@ -10,6 +10,9 @@
+ #include <asm/sbi.h>
+ #include <asm/smp.h>
+ 
++#define NMI_HANDLE(mask, func, ...) \
++	do { if (type & (mask)) func(__VA_ARGS__); } while (0)
++
+ static bool nmi_available;
+ static struct sse_event *local_nmi_evt;
+ static DEFINE_PER_CPU(atomic_t, local_nmi) = ATOMIC_INIT(LOCAL_NMI_NONE);
+@@ -49,6 +52,15 @@ void send_nmi_mask(cpumask_t *mask, enum local_nmi_type type)
+ 
+ static int local_nmi_handler(u32 evt, void *arg, struct pt_regs *regs)
+ {
++	enum local_nmi_type type;
++	unsigned int cpu = smp_processor_id();
++
++	type = atomic_read(this_cpu_ptr(&local_nmi));
++
++	NMI_HANDLE(LOCAL_NMI_CRASH, cpu_crash_stop, cpu, regs);
++
++	atomic_andnot(type, this_cpu_ptr(&local_nmi));
++
+ 	return 0;
  }
  
- #ifdef CONFIG_KEXEC_CORE
--/*
-- * The number of CPUs online, not counting this CPU (which may not be
-- * fully online and so not counted in num_online_cpus()).
-- */
--static inline unsigned int num_other_online_cpus(void)
--{
--	unsigned int this_cpu_online = cpu_online(smp_processor_id());
--
--	return num_online_cpus() - this_cpu_online;
--}
--
- void crash_smp_send_stop(void)
- {
- 	static int cpus_stopped;
-diff --git a/include/linux/smp.h b/include/linux/smp.h
-index 18e9c918325e5..5300c5c14232b 100644
---- a/include/linux/smp.h
-+++ b/include/linux/smp.h
-@@ -275,6 +275,17 @@ static inline int get_boot_cpu_id(void)
- #define get_cpu()		({ preempt_disable(); __smp_processor_id(); })
- #define put_cpu()		preempt_enable()
- 
-+/*
-+ * The number of CPUs online, not counting this CPU (which may not be
-+ * fully online and so not counted in num_online_cpus()).
-+ */
-+static inline unsigned int num_other_online_cpus(void)
-+{
-+	unsigned int this_cpu_online = cpu_online(smp_processor_id());
-+
-+	return num_online_cpus() - this_cpu_online;
-+}
-+
- /*
-  * Callback to arch code if there's nosmp or maxcpus=0 on the
-  * boot command line:
 -- 
 2.39.5
 
