@@ -4,100 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23839D11183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 09:30:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6A5DD11183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 09:38:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LtTjB6Sx5erYKk3Ax2gxl821BwwmVPc6hYwHiojJ3es=; b=msrcj+jaD6N7iTslQiGsb4mLFc
-	1j5baGjFMCjMYIQ0UGCVppu2Ii9I3pjiEAd8KN0VuWz7KoMo0ddWQTavpicfYulCseFNiwWwUzNak
-	e+pqewDJJ63FsvYqCfrdtzz1zMKdvW28wgm3KJwpxRGRepnxXKiB1OJPcjhryo2NAYMfgw2ppdmX+
-	hD74+GbOEA/dDRWjzC1U1NWb6inBqckOMeT4/j/5RTTpYmgfBhNuBn016C76HFakOBl7yodTmDOAF
-	MMx84KssIh/O9s1uJOzDDsXweWdy9K8Z/mRFZb6i8UVki1aVw01u0H3AXtxNVXQwEl8dGy/UG/Cf6
-	s0xdDP8w==;
+	bh=L9S1rZGl/rz9YmM+17xHKDLknXmtbmaZyBYHTmnGq6Y=; b=4IByhlRba2k/a5RDgLmlGd43nn
+	09GPtfn2l0YCTmlXA3R3v116Ufs8Rd6xLfx2f1HmT2G+9ONBW0z+AHbyAJRBRFt1w1oYorQ4x56O+
+	aOUwvZ/vmVb4hSpY/hnVB4CeQQNJErgr+wHZx5XVoSd1K6CFGs3LfWgUqG2L2aRxT2vkSlCyifPzw
+	3dwUPOucVac3j9K+qHenbDWLVSmCXs6pY9iW8S/gSz4lpds3GmBQeuie+rxChC0TiOyDufji1FeGQ
+	hOVsanarGpE3RZZXoF9nYUtJlCtgU3i80f7d2F90UGeiFjz9B6SnS2wRTbzxRDWgrlAiG6ngzBRQF
+	RMNhhnnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOYKh-0000000GJ6V-1Ox3;
-	Thu, 27 Nov 2025 09:30:35 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1vOYRs-0000000GJXq-0EN4;
+	Thu, 27 Nov 2025 09:38:00 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOYKe-0000000GJ5l-3W8f
+	id 1vOYRp-0000000GJXM-1RKp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 09:30:34 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-477aa218f20so3421925e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 01:30:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764235831; x=1764840631; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=LtTjB6Sx5erYKk3Ax2gxl821BwwmVPc6hYwHiojJ3es=;
-        b=LglozVBgH+fvqUTAIr52N5+Sn+aai5j7YTUZ7EQGiwMr2IbsiE7ar3w/r1GdtfCdki
-         qXBGMrUBdJTgGl5YY30reRRxnVHuu0fNuk3rzSo5USPxPVU2vLbM7MNxznKXuGViMnyC
-         KEK7rGSYboOwk2Pj4eQ2fwbnmBTO+RxlsYlsAxy+DwFltVDEiQbVUW502Q4iLrt4/6Z7
-         uaKgcsqWbP2Gu2qlcGD7onLUXbS3MbtU50Er3kux8oqQarMH+/jTDOBpEMViDaQ0Okq+
-         jFKEu34qATWCrTeTBNU89Ts2HL+G6NRgS27rrGe5cxupxbdcUCliUqUm4Y26tiVePXCO
-         2grg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764235831; x=1764840631;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=LtTjB6Sx5erYKk3Ax2gxl821BwwmVPc6hYwHiojJ3es=;
-        b=HrhcylPWu/FbEUZRt3supV48XWkO33vEfw/YNxyZ3Ofsgg6DJxu1Svaw60uMYVeBQX
-         VJdoxyfnt9tMvTeDvl0i/3iRJ2MKF6uMJXh0EWaNM6FIAAG7Uapbd/Piu7GbPo7C8SfL
-         CSytdSbZrC7NX2MhFEvYq2YAt6Bsabsv0HR6SneGeM175aEUQN2vweBRneXeVhpZ2Tdr
-         6INlTvd/VenOKyG5nWlmTF6hRw1/3BSYejWTUyODRKeae5a1Hd5B9gKJ5WRGy9RFmbaK
-         xbqY9kX2Hm2nS4YXaT4CyIb+A0AlsfSxZCI/B2C1m0qSB9KuXVVjOqRqglrFFfg6cmp/
-         a2AQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUA/TohKvKLw4YnoYYNf22pr/L8W5t/NcIDAq9ByE7EkH7ZwF0eLxSyQPLuDlXeehBNuBJJCzrvDcTvoP3spJPI@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2onGjiN3mlubs5Ho7DxC7fIkKcl71Qpfsn4U7sYh0WvsD4v3z
-	SNriXj4p6OC6sEUzFsdGwzAMkyXllNhQpoTPUofeSgpRkvBSvJEXgn4GUt7M5TbChRI=
-X-Gm-Gg: ASbGncs+NKSBQHA3I61nikSX35GG7KNXW9kq41n8ucEaPUhnQEU43FIfCmGfPFTmIIO
-	Nt0nQzjQ7mfWFvzYPERwnqL0Xwe7Y14c9wETlrU1p3++rq0yjTM9VOsTaqhFpiz4nax0A7KomES
-	WfNdm9pEeUZ8QS6lUARP47fzPAKRq6A49pP6Bt7RflpgG64NJaEflR3cNxC+G3svZPISN2aFvyD
-	ObJOueY5clTNBN7V2SYbY8yNgNonxN1r8yV/7z25VWGoR8EwZXI3xaeVPvFB4wAAVeMskWSL00F
-	jV/LD1s6alSr6HSEeSExwF+pz6WfiNNub/FPNkJ/lAkBfr5o9oqYpUlbFzQa6gbZt1RBIwLIkG/
-	OqJ9RKcuGGzRY78xsJPM7CiLStWkVw2zxoEbGbc9JlvPaqmyyzDGQ8EJviJ8aMUYqQ3QoYXkhC+
-	5KqFr9jMBclpOLBVRJ8GmYEaiO5pM=
-X-Google-Smtp-Source: AGHT+IFcl0miy3Ysfcfm+o+Ga8ivsKmS01lnAk51q/lkIWAfpN1T1O+2M+fFwyIHwSA/yfDLAw2R6g==
-X-Received: by 2002:a05:600c:1994:b0:477:7af8:c88b with SMTP id 5b1f17b1804b1-477c01740e1mr217044285e9.11.1764235830914;
-        Thu, 27 Nov 2025 01:30:30 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4790b0cc186sm82555375e9.13.2025.11.27.01.30.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 27 Nov 2025 01:30:30 -0800 (PST)
-Message-ID: <bed84247-c3c0-47b8-a491-9af9e51ca5a7@linaro.org>
-Date: Thu, 27 Nov 2025 09:30:28 +0000
+	Thu, 27 Nov 2025 09:37:59 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 28AF11A1DA3;
+	Thu, 27 Nov 2025 09:37:55 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id EDAD46068C;
+	Thu, 27 Nov 2025 09:37:54 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4E220102F260E;
+	Thu, 27 Nov 2025 10:37:48 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1764236273; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=L9S1rZGl/rz9YmM+17xHKDLknXmtbmaZyBYHTmnGq6Y=;
+	b=As4k8cuN5pEobUrrB5p5aNhgjO75O4U+DBpJNotM5YUCxyK0GtFJZ4JzIIWdJEmCQ1PyX/
+	Zp2y39HKpUoIchvF1tSu70/0a7GUdW8jtFoCOJNREtHW0x67OZXfM+cmUnVhUDoW+rzwlC
+	qA3sX7z9yr4imuwTY/i/4M5dA+fAYPVgaYzJzurRGjpRcFIVx4qAz+9eFYTyryyHqHe8WU
+	3vfBu/b8T96rzP4XrywexXFog2TH/83l4GEfzOouJQwTwk+0dhnDraNMm76UttUoAVNmUH
+	dGQhhUfrG12gVjO74EWiTalQrmTEZa0iPtjz0M+O1hZCvSLkDvAseQCzeLQenw==
+Date: Thu, 27 Nov 2025 10:37:45 +0100
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Jyri Sarha <jyri.sarha@iki.fi>, Tomi Valkeinen
+ <tomi.valkeinen@ideasonboard.com>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Russell
+ King <linux@armlinux.org.uk>, Bartosz Golaszewski <brgl@bgdev.pl>, Tony
+ Lindgren <tony@atomide.com>, Andrzej Hajda <andrzej.hajda@intel.com>, Neil
+ Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+ <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Markus
+ Schneider-Pargmann <msp@baylibre.com>, Luca Ceresoli
+ <luca.ceresoli@bootlin.com>, Louis Chauvet <louis.chauvet@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Miguel Gazquez
+ <miguel.gazquez@bootlin.com>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org
+Subject: Re: [PATCH 02/21] dt-bindings: display: tilcdc: Add fifo-threshold
+ property
+Message-ID: <20251127103745.7c5d55e6@kmaincent-XPS-13-7390>
+In-Reply-To: <20251127-subtle-prophetic-corgi-68aab1@kuoka>
+References: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
+	<20251126-feature_tilcdc-v1-2-49b9ef2e3aa0@bootlin.com>
+	<20251127-subtle-prophetic-corgi-68aab1@kuoka>
+Organization: bootlin
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: etm3x: Fix buffer overwrite in cntr_val_show()
-To: Leo Yan <leo.yan@arm.com>, Kuan-Wei Chiu <visitorckw@gmail.com>
-Cc: Mike Leach <mike.leach@linaro.org>, suzuki.poulose@arm.com,
- alexander.shishkin@linux.intel.com, pratikp@codeaurora.org,
- mathieu.poirier@linaro.org, gregkh@linuxfoundation.org,
- jserv@ccns.ncku.edu.tw, marscheng@google.com, ericchancf@google.com,
- milesjiang@google.com, nickpan@google.com, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251121002350.1166758-1-visitorckw@gmail.com>
- <172ca2d9-4a6f-4498-bdfd-8aa7428581ce@linaro.org>
- <aSCbJR9aT1vOpz0a@google.com>
- <05babb6d-a588-49f8-a34a-c82d5f58adf5@linaro.org>
- <CAJ9a7VipxW5-2roAQA3y212sQWr1kq2HNbLK1jmLNP1jFseYiQ@mail.gmail.com>
- <68efd5a2-3b65-4f37-9bf0-40c4e5ade480@linaro.org>
- <aSgPhd4u3Oqi3Ymy@google.com> <20251127092231.GN724103@e132581.arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20251127092231.GN724103@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_013032_905360_CDA8671A 
-X-CRM114-Status: GOOD (  26.59  )
+X-CRM114-CacheID: sfid-20251127_013757_557889_A1168AFF 
+X-CRM114-Status: GOOD (  25.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,82 +94,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 27 Nov 2025 09:22:56 +0100
+Krzysztof Kozlowski <krzk@kernel.org> wrote:
+
+> On Wed, Nov 26, 2025 at 06:35:44PM +0100, Kory Maincent (TI.com) wrote:
+> > Add the fifo-threshold property to control the DMA FIFO threshold level,
+> > which specifies the number of words that must be loaded before the DMA
+> > FIFO becomes ready.
+> >=20
+> > This property is needed to support the da850-evm board configuration
+> > which requires a non-default FIFO threshold value. Currently, this value
+> > is specified through the deprecated ti,tilcdc,panel binding. Adding this
+> > property to the tilcdc binding allows for proper configuration while
+> > migrating away from the non-standard panel binding.
+> >=20
+> > The default value is 8 words, with valid values being powers of 2 from
+> > 8 to 512.
+> >=20
+> > Related commit: 55da73fa7a68c ("ARM: dts: davinci: da850-evm: Increase
+> > fifo threshold") =20
+>=20
+> Please use syntax pointed out by checkpatch. The checkpatch error (not
+> even a warning) is there for reason, so we can apply filter/grep
+> easily.
+>=20
+> >=20
+> > Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
+> > ---
+> >  Documentation/devicetree/bindings/display/tilcdc/tilcdc.yaml | 7 +++++=
+++
+> >  1 file changed, 7 insertions(+)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/display/tilcdc/tilcdc.ya=
+ml
+> > b/Documentation/devicetree/bindings/display/tilcdc/tilcdc.yaml index
+> > 34ac1fd04d5c6..bf6d506e25e17 100644 ---
+> > a/Documentation/devicetree/bindings/display/tilcdc/tilcdc.yaml +++
+> > b/Documentation/devicetree/bindings/display/tilcdc/tilcdc.yaml @@ -46,6
+> > +46,13 @@ properties: The maximum pixel clock that can be supported by =
+the
+> > lcd controller in KHz.
+> > =20
+> > +  fifo-threshold: =20
+>=20
+> Why this is not deducible from the compatible? Feels like a specific SoC
+> issue.
+
+This is indeed deductible from the compatible as ti,da850-tilcdc is only us=
+e in
+the related devicetree. Thanks for the pointer this will avoid adding a new=
+ dt
+parameter.
+
+>=20
+> Anyway, missing vendor prefix
+>=20
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    enum: [8, 16, 32, 64, 128, 256, 512]
+> > +    description:
+> > +      Number of words loaded before the DMA fifo becomes ready. The de=
+fault
+> > +      value is 8. =20
+>=20
+> missing default and drop free form text in description.
+>=20
+> > +
+> >    blue-and-red-wiring:
+> >      enum: [straight, crossed]
+> >      description:
+> >=20
+> > --=20
+> > 2.43.0
+> >  =20
 
 
-On 27/11/2025 9:22 am, Leo Yan wrote:
-> On Thu, Nov 27, 2025 at 04:44:53PM +0800, Kuan-Wei Chiu wrote:
-> 
-> [...]
-> 
->> I don't feel it is my place to say whether the etm3x driver should be
->> removed entirely.
-> 
-> Sorry for confusion.  Your fix patch is welcome, this is useful no
-> matter if remove the ETMv3 driver or not.
-> 
->> However, if we decide to keep it, I agree that aligning cntr_val_show
->> with the cntr_val_store behavior (using cntr_idx) makes more sense.
->>
->> Here is my plan for v2:
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
->> index 762109307b86..77578885e8f3 100644
->> --- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
->> +++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
->> @@ -717,26 +717,19 @@ static DEVICE_ATTR_RW(cntr_rld_event);
->>   static ssize_t cntr_val_show(struct device *dev,
->>   			     struct device_attribute *attr, char *buf)
->>   {
->> -	int i, ret = 0;
->>   	u32 val;
->>   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
->>   	struct etm_config *config = &drvdata->config;
->>   
->>   	if (!coresight_get_mode(drvdata->csdev)) {
->>   		spin_lock(&drvdata->spinlock);
->> -		for (i = 0; i < drvdata->nr_cntr; i++)
->> -			ret += sprintf(buf, "counter %d: %x\n",
->> -				       i, config->cntr_val[i]);
->> +		val = config->cntr_val[config->cntr_idx];
->>   		spin_unlock(&drvdata->spinlock);
->> -		return ret;
->> -	}
->> -
->> -	for (i = 0; i < drvdata->nr_cntr; i++) {
->> -		val = etm_readl(drvdata, ETMCNTVRn(i));
->> -		ret += sprintf(buf, "counter %d: %x\n", i, val);
->> +		return sprintf(buf, "%x\n", val);
->>   	}
->>   
->> -	return ret;
->> +	val = etm_readl(drvdata, ETMCNTVRn(config->cntr_idx));
-> 
-> It is not right to read register at here (it cannot promise to read the
-> CPU (cp14) register on the target CPU).
-> 
-> Please refer to the same function in coresight-etm4x-sysfs.c. I think
-> we can do the same thing at here.
-> 
 
-That's a different fix than the display bug though. This change doesn't 
-change that if it's already wrong. The display fix should go in alone 
-and then if there is an issue with not running things on the right CPU 
-that should go in separately.
-
->> +	return sprintf(buf, "%x\n", val);
->>   }
->>   
->>   static ssize_t cntr_val_store(struct device *dev,
->>
->>
->> Given the upcoming merge window, I plan to submit this v2 after -rc1
->> is released.
->>
->> Alternatively, if the consensus is to drop the driver, I am happy to
->> submit a patch for that instead.
-> 
-> Please continue this patch.  Thanks a lot!
-> 
-> Leo
-
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
