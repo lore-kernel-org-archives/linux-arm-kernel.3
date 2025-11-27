@@ -4,56 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C881CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 06:07:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05974D10375
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 06:26:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=68ao8jnY/7hrInorg0kQFScLwkWgUiyORrqNpknEw0Q=; b=Mnf6hbHwJV/Z/iV4eq+aAZrt2N
-	U1fYFX1h6LLdOPkYTLbXJymLXYVxrFie+6gbS97ebzIU56uvdhJ738GlN9veU/eh6LUQj8D4JRdih
-	/Ghm97NKRVKW1tf21l4jr3Y2W4AhTRoZWWmMqzHaDqDAkRIGObw3Y3b7MhdfNxD2PdugzLWAS8svf
-	YCHZuCxqchpAIaQtIHG/Iq1jJG7g6utNaLD332jtkeIfzxbMVBgGAuBnOkZUZctA80YpzzQvwuVJa
-	KbNbndSNakx0gJmT3UKc++wTBwo9989xZOngB7h/QuRWD3P4AI1i2R62HWlnUR0zAZX6uOjS151Dq
-	W0zZPRYg==;
+	bh=xO3M9bvoRJsOaEEeuSrleP65nQq5qE6zfFwVwcTwieI=; b=x29kAf3OgmfCAmQ/eDyTanyUk8
+	W8lIKdo9l0G8xAhPGnOGL7uSJjFXKj7cse7EejcELkyfb+EEyVbQOI2znLCHqPrbLFffbLKsYc6/A
+	cGGaU/tiBlWgyzxkjdQwqmztQ3A8Zl7AQ2UhC+sguO2DODi9m+eTIvWh6Vwetz4qCqxfKxdTW/hSp
+	GUPCwamP/elDKgG47ya0y94npfBemKIwttx1h5C+Gn4Qdo+VRIJ5ygOG4DTCidzgJ5JO7fvg0curY
+	TEwV2Mk7Jl/lPIg6xVErWzM+TiGR10oZFvvh8pGNioHD3HydJZltWyn6gWn43WlT2vqa38PpUslOf
+	aPVoc4iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOV9w-0000000G1sO-2Zfo;
-	Thu, 27 Nov 2025 06:07:16 +0000
-Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
+	id 1vOVSs-0000000G34A-3OrL;
+	Thu, 27 Nov 2025 06:26:50 +0000
+Received: from sender3-of-o54.zoho.com ([136.143.184.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOV9t-0000000G1rv-1tmp
+	id 1vOVSq-0000000G33i-1MCR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 06:07:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1764223631; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=68ao8jnY/7hrInorg0kQFScLwkWgUiyORrqNpknEw0Q=;
-	b=AMxy3DtyICMvurXFBaUnxDCXz9EM6YbgkwNbDGPG3IwZIHZBLfu3svhihUNWAgrolARtmV2LSDBEOQSWJDX2AIriBS7ILkQcTj58pPXP/wG0tRLb3niDCxJzIXiMaTP9RlnGoC0xK733T4d/nj42eco9hpX/JAmH+yK0N2JGOvk=
-Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0WtVv285_1764223628 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Thu, 27 Nov 2025 14:07:08 +0800
-Date: Thu, 27 Nov 2025 14:07:08 +0800
-From: Yao Yuan <yaoyuan@linux.alibaba.com>
+	Thu, 27 Nov 2025 06:26:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1764224786; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=dE3lq7tv3WQRQfECKsEi0hDF4pwVV163Ye3Z1xfhudGgqBuQM0UqaAprpuKtXfRpPKUJDz1Abug7/uXKgO+5U/7hEBsQiOjN2FGoapLQe0I7OfB00Ht8Q2f+cdVVcxH7RdyGXmAUhCFsn75OQX6gX/tBubpoqrQbUUEBikhDD6Q=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1764224786; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=xO3M9bvoRJsOaEEeuSrleP65nQq5qE6zfFwVwcTwieI=; 
+	b=ZBWfA8pCpGTm0dpkMRTefwIlntWw5EcPAVSUU/T9osBHUdFO8OaQjsNb5KpOKw566hGCTBZlrvbklJe7lDbP6QPSCW/8UctpE7O91NJOJNgBFksDrIPhYy3PSdNTkTB9wgswpVEFXdy2eq5+qLNSVSt5eUIglR1WsRRx+/GHOts=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=anirudhrb.com;
+	spf=pass  smtp.mailfrom=anirudh@anirudhrb.com;
+	dmarc=pass header.from=<anirudh@anirudhrb.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1764224786;
+	s=zoho; d=anirudhrb.com; i=anirudh@anirudhrb.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=xO3M9bvoRJsOaEEeuSrleP65nQq5qE6zfFwVwcTwieI=;
+	b=GOt4N6OMOHfzkAK0kZCguNHuDlcLhKDVb7Q7QLg6N+VwKHJoIV9GoD9BnCn0H7uV
+	uUBgeKT+epT9Kg4+V76ysHCTPFlcH/lOJaOJ3RjR4hClbcvbduvNervAYHcnqlwdVzy
+	Y9Sj76CLyw2McOIzdviaWLHGUKW1VpH5icW2Cp+A=
+Received: by mx.zohomail.com with SMTPS id 1764224784283849.3243083730232;
+	Wed, 26 Nov 2025 22:26:24 -0800 (PST)
+Date: Thu, 27 Nov 2025 06:26:16 +0000
+From: Anirudh Rayabharam <anirudh@anirudhrb.com>
 To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Ben Horgan <ben.horgan@arm.com>
-Subject: Re: [PATCH v2 4/5] KVM: arm64: Report optional ID register traps
- with a 0x18 syndrome
-Message-ID: <dk6bwi72nwfty6qpbh2eaeubznqt74gjffas2rclrrwjn5tr6j@mjitrla3p3d7>
-References: <20251126155951.1146317-1-maz@kernel.org>
- <20251126155951.1146317-5-maz@kernel.org>
+Cc: kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
+	decui@microsoft.com, longli@microsoft.com, catalin.marinas@arm.com,
+	will@kernel.org, tglx@linutronix.de, Arnd Bergmann <arnd@arndb.de>,
+	akpm@linux-foundation.org, agordeev@linux.ibm.com,
+	guoweikang.kernel@gmail.com, osandov@fb.com, bsz@amazon.de,
+	linux-hyperv@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org
+Subject: Re: [PATCH 2/3] irqchip/gic-v3: allocate one SGI for MSHV
+Message-ID: <aSfvCBYySLGpyk1L@anirudh-surface.localdomain>
+References: <20251125170124.2443340-1-anirudh@anirudhrb.com>
+ <20251125170124.2443340-3-anirudh@anirudhrb.com>
+ <86bjkqq9dp.wl-maz@kernel.org>
+ <aSa_rxG80LDXDlhr@anirudh-surface.localdomain>
+ <86a509qi8p.wl-maz@kernel.org>
+ <aSbahzqu_3GN-PPJ@anirudh-surface.localdomain>
+ <87bjkofpsc.wl-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251126155951.1146317-5-maz@kernel.org>
+In-Reply-To: <87bjkofpsc.wl-maz@kernel.org>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_220713_775327_E702A7F0 
-X-CRM114-Status: GOOD (  20.20  )
+X-CRM114-CacheID: sfid-20251126_222648_589947_74CF351C 
+X-CRM114-Status: GOOD (  47.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,78 +88,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 26, 2025 at 03:59:50PM +0800, Marc Zyngier wrote:
-> With FEAT_IDST, unimplemented system registers in the feature ID space
-> must be reported using EC=0x18 at the closest handling EL, rather than
-> with an UNDEF.
->
-> Most of these system registers are always implemented thanks to their
-> dependency on FEAT_AA64, except for a set of (currently) three registers:
-> GMID_EL1 (depending on MTE2), CCSIDR2_EL1 (depending on FEAT_CCIDX),
-> and SMIDR_EL1 (depending on SME).
->
-> For these three registers, report their trap as EC=0x18 if they
-> end-up trapping into KVM and that FEAT_IDST is not implemented in the
-> guest. Otherwise, just make them UNDEF.
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/kvm/sys_regs.c | 16 +++++++++++++---
->  1 file changed, 13 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 2ca6862e935b5..7705f703e7c6d 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -82,6 +82,16 @@ static bool write_to_read_only(struct kvm_vcpu *vcpu,
->  			"sys_reg write to read-only register");
->  }
->
-> +static bool idst_access(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
-> +			const struct sys_reg_desc *r)
-> +{
-> +	if (kvm_has_feat_enum(vcpu->kvm, ID_AA64MMFR2_EL1, IDS, 0x0))
+On Wed, Nov 26, 2025 at 09:27:15PM +0000, Marc Zyngier wrote:
+> On Wed, 26 Nov 2025 10:46:31 +0000,
+> Anirudh Rayabharam <anirudh@anirudhrb.com> wrote:
+> > 
+> > On Wed, Nov 26, 2025 at 09:02:30AM +0000, Marc Zyngier wrote:
+> > > On Wed, 26 Nov 2025 08:51:59 +0000,
+> > > Anirudh Rayabharam <anirudh@anirudhrb.com> wrote:
+> > > > 
+> > > > On Tue, Nov 25, 2025 at 06:01:38PM +0000, Marc Zyngier wrote:
+> > > > > On Tue, 25 Nov 2025 17:01:23 +0000,
+> > > > > Anirudh Raybharam <anirudh@anirudhrb.com> wrote:
+> > > > > > 
+> > > > > > From: Anirudh Rayabharam <anirudh@anirudhrb.com>
+> > > > > > 
+> > > > > > From: Anirudh Rayabharam (Microsoft) <anirudh@anirudhrb.com>
+> > > > > > 
+> > > > > > Currently SGIs are allocated only for the smp subsystem. The MSHV
+> > > > > > (Microsoft Hypervisor aka Hyper-V) code also needs an SGI that can be
+> > > > > > programmed into the SYNIC to receive intercepts from the hypervisor. The
+> > > > > > hypervisor would then assert this SGI whenever there is a guest
+> > > > > > VMEXIT.
+> > > > > > 
+> > > > > > Allocate one SGI for MSHV use in addition to the SGIs allocated for
+> > > > > > IPIs. When running under MSHV, the full SGI range can be used i.e. no
+> > > > > > need to reserve SGIs 8-15 for the secure firmware.
+> > > > > > 
+> > > > > > Since this SGI is needed only when running as a parent partition (i.e.
+> > > > > > we can create guest partitions), check for it before allocating an SGI.
+> > > > > 
+> > > > > Sorry, but that's not an acceptable situation.
+> > > > > 
+> > > > > SGIs are for Linux to use, nobody else, and that allocation must be
+> > > > 
+> > > > Why does this restriction exist? In the code SGIs 8-15 are left for
+> > > > secure firmware. So, things other than Linux can use SGIs. Why not MSHV
+> > > > then?
+> > > 
+> > > Because SGIs are for *internal* usage. Not usage from another random
+> > > piece of SW. The ACPI tables explicitly don't describe SGIs. DT
+> > > explicitly don't describe SGIs. Do you get the clue?
+> > 
+> > The name Software Generated Interrupts suggests that it is supposed to be
+> > used by pieces of SW.
+> 
+> I'm so glad you spell it out for me, I had no idea. I can't help but
+> notice that it is not called SGIFRPOSIDKA (Software Generated
+> Interrupt From Random Piece Of Software I Don't Know About).
 
-Hi Marc,
+Haha.
 
-Minor: maybe beter readability if use NI instead of 0x0, just like
-things in feat_nv2() below, but depends on you.
+> 
+> Linux owns the SGIs, full stop. If you want to generate interrupts
+> from outside of Linux, use a standard interrupts. Not rocket science.
+> 
+> > Yes, ACPI/DT don't describe SGIs because they're not supposed to be used
+> > by devices. SW has full control over SGIs and it is up to the SW to
+> > assign meaning to them, isn't it?
+> 
+> No. It means that a single *consistent* software agent *owns* these
+> interrupts and doesn't have to let *anyone* else use them from outer
+> space.
 
-static bool feat_nv2(struct kvm *kvm)
-{
-	return ((kvm_has_feat(kvm, ID_AA64MMFR4_EL1, NV_frac, NV2_ONLY) &&
-		 kvm_has_feat_enum(kvm, ID_AA64MMFR2_EL1, NV, NI)) ||
-		kvm_has_feat(kvm, ID_AA64MMFR2_EL1, NV, NV2));
-}
+Okay, got it.
 
+> 
+> > > > > the same irrespective of whether Linux runs virtualised or not. This
+> > > > > also won't work with GICv5 (there are no SGIs at all), so this is
+> > > > > doomed from the very start, and would immediately create technical
+> > > > > debt.
+> > > > 
+> > > > Hyper-V always presents a GICv3 so we don't need to worry about GICv5.
+> > > 
+> > > Well, that's pretty short sighted of you, and eventually you'll have
+> > > to support it, or just die. So do the right thing from the beginning.
+> > 
+> > Well, we don't when or if that will happen. But if it does happen, we
+> > can solve it in a way that makes sense for GICv5. If there are no SGIs
+> > at all, great, maybe we'll have a nicer solution then.
+> 
+> Great. See you then. In the meantime, I have no interest in this sort
+> of sorry hacks polluting the stuff I maintain.
+> 
+> > > > > If you want to signal an interrupt to Linux, expose a device with an
+> > > > > interrupt in a firmware table (i.e. not an SGI), and use that in your
+> > > > > driver.
+> > > > 
+> > > > You mean in the ACPI tables? That would require us to modify the
+> > > > firmware to expose this virtual device right?
+> > > 
+> > > Yes. How is that surprising?
+> > 
+> > It's not ideal that we would need some custom firmware to run Linux on
+> > MSHV (as a parent). Do you think there could be some other possible solution
+> > for handling this in the kernel? Maybe by thinking of it as a platform specific
+> > quirk or something?
+> 
+> You either do it the *correct* way, by exposing a virtual device, with
+> an edge-triggered PPI, just like other hypervisors have done, or you
+> keep your toy to yourself.  It is that simple. We don't have to accept
+> ugly crap in Linux just for the sake of you not having to do the right
+> thing in your firmware.
+> 
+> Feel free to post a new series once you have something that matches
+> the above expectations.
 
-For others(except the "not" mentioned by Ben):
+Okay got it, I'll come up with a series that reads PPIs from ACPI.
 
-Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+Thanks for your feedback!
 
-> +		return undef_access(vcpu, p, r);
-> +
-> +	kvm_inject_sync(vcpu, kvm_vcpu_get_esr(vcpu));
-> +	return false;
-> +}
-> +
->  enum sr_loc_attr {
->  	SR_LOC_MEMORY	= 0,	  /* Register definitely in memory */
->  	SR_LOC_LOADED	= BIT(0), /* Register on CPU, unless it cannot */
-> @@ -3399,9 +3409,9 @@ static const struct sys_reg_desc sys_reg_descs[] = {
->  	{ SYS_DESC(SYS_CCSIDR_EL1), access_ccsidr },
->  	{ SYS_DESC(SYS_CLIDR_EL1), access_clidr, reset_clidr, CLIDR_EL1,
->  	  .set_user = set_clidr, .val = ~CLIDR_EL1_RES0 },
-> -	{ SYS_DESC(SYS_CCSIDR2_EL1), undef_access },
-> -	{ SYS_DESC(SYS_GMID_EL1), undef_access },
-> -	{ SYS_DESC(SYS_SMIDR_EL1), undef_access },
-> +	{ SYS_DESC(SYS_CCSIDR2_EL1), idst_access },
-> +	{ SYS_DESC(SYS_GMID_EL1), idst_access },
-> +	{ SYS_DESC(SYS_SMIDR_EL1), idst_access },
->  	IMPLEMENTATION_ID(AIDR_EL1, GENMASK_ULL(63, 0)),
->  	{ SYS_DESC(SYS_CSSELR_EL1), access_csselr, reset_unknown, CSSELR_EL1 },
->  	ID_FILTERED(CTR_EL0, ctr_el0,
-> --
-> 2.47.3
->
+Anirudh.
+
+> 
+> 	M.
+> 
+> -- 
+> Jazz isn't dead. It just smells funny.
 
