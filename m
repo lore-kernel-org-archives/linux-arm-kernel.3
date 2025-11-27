@@ -4,74 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8AC2D11183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 10:26:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3FE3CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 10:27:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lFvV4pIsDLWnAbmZyAdOTJZYJAocNppm+NL9MdS0/y0=; b=Sob83+S+42KET6xHbnLRarHeDd
-	nB2q1s3dkNIhqVUoc/k2vsb/578P1nn/Mgz+AzfDrjO0q3H84gbN+KR/+PyinuneF+K8VBSLuhSEP
-	SmWXPOefpjXaG093lZoOlDlm8V/j4ps/pwpRNgJL5etGOnK7UhHrN8638dwyaHZK9NtKj9XUzO/6j
-	80Jl4BUlPtQH8u6pm53sYL5FYPhP1FQWGEgaW7y+MrpnBnHB6+M705qwKTOrBP8ce9Vq9wR3rKAvg
-	LOa4UvZ1u+0CftxqTtaSySo1TaeLDRjGu2ln0UB3rGstGn2RYof2ncI5MnWZSzqNdOdMP6BtEXkmD
-	CprZ/vxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mrv1YCp2fM14t6zKAfz6O2nTZwDL8cvvdkwi+ppBORc=; b=qxdNU8A3U6FoNuytZwP67XTxek
+	jrybdz1kbmIaSxj0QlYLt+h7UhOoVAgWqZELxJ8FX3T5DBS4YurpQL/IYStgTNi8AXQEujqf/WL8I
+	crad4gwNMAoG+tgZxqEGNZE2OYfj1XCBTwWmnwHZ7IhaYmbHu8jYN9TPhvgfpk1UTYl9EhRkn6mgk
+	EOp7KnVLMFcZQplem244nKLGCrK3LjRxphzQPzy+sYU99lgqnkYjBuwZ93/bcUFSsNiEHH8VnuGOS
+	JgarZDW4GwqWb0JREQlLX4o1wUKHOqZvGPb+uZ7b7zeVlPfCWHkJbcEjAc9l/JW4lDyunmKtKrBxP
+	abljFW5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOZD6-0000000GNP4-3OAs;
-	Thu, 27 Nov 2025 10:26:48 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vOZE1-0000000GNhi-3l7s;
+	Thu, 27 Nov 2025 10:27:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOZD3-0000000GNM4-1PeY;
-	Thu, 27 Nov 2025 10:26:46 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 33335C16A1C;
-	Thu, 27 Nov 2025 10:26:20 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 708376072A;
-	Thu, 27 Nov 2025 10:26:35 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4C0F0102F275A;
-	Thu, 27 Nov 2025 11:26:32 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764239194; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=lFvV4pIsDLWnAbmZyAdOTJZYJAocNppm+NL9MdS0/y0=;
-	b=lWPPtEyMjs2+lAQ/ndRPyoApXSxEuBSRuO5MvPTgTBY/+XSq1eerRt7s6xaVmkjelp7W1f
-	416ddSEWPnyfxy4eSHgieZcESh1ye8Jjzs4dxgw8CjIVnCZKAHqwlY7fkvF//WZhv8F2Ad
-	wA6bfpUEykr7Oz+av1gpGrfAq6flT3j41e7Gts9tO4cXi/sh+GmQ0o/AhaQ4PPArA7xqUO
-	Gy4X6znMCIR/9+FIqxfI8hJd/loPoc2HvirkiHOUiIzqEALJ8WZ3eq4eJtN218LFOy1++a
-	qUAILd+aYh5OyQwTdP381XxKUcDw3FicZEA7AbqpgFrAdiaBpKByeF+ffzBmjw==
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Date: Thu, 27 Nov 2025 11:26:17 +0100
-Subject: [PATCH v2 2/2] phy: rockchip: inno-usb2: fix communication
- disruption in gadget mode
+	id 1vOZDy-0000000GNgK-2OXv
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Nov 2025 10:27:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9698D434D6;
+	Thu, 27 Nov 2025 10:27:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 722A5C4CEF8;
+	Thu, 27 Nov 2025 10:27:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764239261;
+	bh=l8MEnU38WJNtf21NpEjwBL/C3hT0xHnCDwlp6PtWU+o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aMDXxtUZ8/H79/ftA1Ipmizsq/K2CMzQSUfqW4dB9GN9S2NleHqRTFJSC8JoWzJNo
+	 XIsGgUZtni1MjlQdl0AiMCIxHLNgV2YwjtfT/j/VxFsJof0lR/DOLFeMoauZCZfFNo
+	 oO3GIOwsQ7iPwUXMEKp8QxCQ0pGIxrQlDxqu6hebAQtuY+rdlOWDJruNmH4+9M+7yk
+	 WQcKvpgWKzUKcTmqlsrcfHlkDFI2cSsTBeNhcsienM+iaNPcZ07oVcK7jJ2AS2Nlsg
+	 9IXHtOt+e1S23JWeIWiAdywkb6peRVNp6O9GoNCTO4iaCPFpBbm/4RcIYjaHesPUMg
+	 9noFk2DVFrT1A==
+Date: Thu, 27 Nov 2025 10:27:34 +0000
+From: Will Deacon <will@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Zizhi Wo <wozizhi@huaweicloud.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>, jack@suse.com,
+	brauner@kernel.org, hch@lst.de, akpm@linux-foundation.org,
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+	yangerkun@huawei.com, wangkefeng.wang@huawei.com,
+	pangliyuan1@huawei.com, xieyuanbin1@huawei.com
+Subject: Re: [Bug report] hash_name() may cross page boundary and trigger
+ sleep in RCU context
+Message-ID: <aSgnlmQi_UPsugNU@willie-the-truck>
+References: <20251126090505.3057219-1-wozizhi@huaweicloud.com>
+ <33ab4aef-020e-49e7-8539-31bf78dac61a@huaweicloud.com>
+ <CAHk-=wh1Wfwt9OFB4AfBbjyeu4JVZuSWQ4A8OoT3W6x9btddfw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251127-rk3308-fix-usb-gadget-phy-disconnect-v2-2-dac8a02cd2ca@bootlin.com>
-References: <20251127-rk3308-fix-usb-gadget-phy-disconnect-v2-0-dac8a02cd2ca@bootlin.com>
-In-Reply-To: <20251127-rk3308-fix-usb-gadget-phy-disconnect-v2-0-dac8a02cd2ca@bootlin.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, William Wu <wulf@rock-chips.com>
-Cc: Kever Yang <kever.yang@rock-chips.com>, 
- Minas Harutyunyan <Minas.Harutyunyan@synopsys.com>, 
- Alan Stern <stern@rowland.harvard.edu>, 
- Louis Chauvet <louis.chauvet@bootlin.com>, 
- =?utf-8?q?Herv=C3=A9_Codina?= <herve.codina@bootlin.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
- linux-phy@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- stable@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
+In-Reply-To: <CAHk-=wh1Wfwt9OFB4AfBbjyeu4JVZuSWQ4A8OoT3W6x9btddfw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_022645_673288_90CFFDD0 
-X-CRM114-Status: GOOD (  16.95  )
+X-CRM114-CacheID: sfid-20251127_022742_645505_4E22308E 
+X-CRM114-Status: GOOD (  25.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,75 +81,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the OTG USB port is used to power to SoC, configured as peripheral and
-used in gadget mode, communication stops without notice about 6 seconds
-after the gadget is configured and enumerated.
+On Wed, Nov 26, 2025 at 01:12:38PM -0800, Linus Torvalds wrote:
+> On Wed, 26 Nov 2025 at 02:27, Zizhi Wo <wozizhi@huaweicloud.com> wrote:
+> >
+> > 在 2025/11/26 17:05, Zizhi Wo 写道:
+> > > We're running into the following issue on an ARM32 platform with the linux
+> > > 5.10 kernel:
+> > >
+> > > During the execution of hash_name()->load_unaligned_zeropad(), a potential
+> > > memory access beyond the PAGE boundary may occur.
+> 
+> That is correct.
+> 
+> However:
+> 
+> > >                This triggers a page fault,
+> > > which leads to a call to do_page_fault()->mmap_read_trylock().
+> 
+> That should *not* happen.  For kernel addresses, mmap_read_trylock()
+> should never trigger, much less the full mmap_read_lock().
+> 
+> See for example the x86 fault handling in  handle_page_fault():
+> 
+>         if (unlikely(fault_in_kernel_space(address))) {
+>                 do_kern_addr_fault(regs, error_code, address);
+> 
+> and the kernel address case never triggers the mmap lock, because
+> while faults on kernel addresses can happen for various reasons, they
+> are never memory mappings.
+> 
+> I'm seeing similar logic in the arm tree, although the check is
+> different. do_translation_fault() checks for TASK_SIZE.
+> 
+>         if (addr < TASK_SIZE)
+>                 return do_page_fault(addr, fsr, regs);
+> 
+> but it appears that there are paths to do_page_fault() that do not
+> have this check, ie that do_DataAbort() function does
+> 
+>         if (!inf->fn(addr, fsr & ~FSR_LNX_PF, regs))
+>                 return;
+> 
+> 
+> and It's not immediately obvious, but that can call do_page_fault()
+> too though the fsr_info[] and ifsr_info[] arrays in
+> arch/arm/mm/fsr-2level.c.
+> 
+> The arm64 case looks like it might have similar issues, but while I'm
+> more familiar with arm than I _used_ to be, I do not know the
+> low-level exception handling code at all, so I'm just adding Russell,
+> Catalin and Will to the participants.
+> 
+> Catalin, Will - the arm64 case uses
+> 
+>         if (is_ttbr0_addr(addr))
+>                 return do_page_fault(far, esr, regs);
+> 
+> instead, but like the 32-bit code that is only triggered for
+> do_translation_fault().  That may all be ok, because the other cases
+> seem to be "there is a TLB entry, but we lack privileges", so maybe
+> will never trigger for a kernel access to a kernel area because they
+> either do not exist, or we have permissions?
 
-The problem was observed on a Radxa Rock Pi S board, which can only be
-powered by the only USB-C connector. That connector is the only one usable
-in gadget mode. This implies the USB cable is connected from before boot
-and never disconnects while the kernel runs.
+Right, I think the access flag / permission fault case will end up
+trying to resolve the VMA for a kernel address but I can't think why
+we'd ever run into one of those faults for load_unaligned_zeropad().
 
-The related code flow in the PHY driver code can be summarized as:
+Valid kernel mappings are always young (AF set) and, although we can
+muck around with permissions, valid mappings are always readable.
 
- * the first time chg_detect_work starts (6 seconds after gadget is
-   configured and enumerated)
-   -> rockchip_chg_detect_work():
-       if chg_state is UNDEFINED:
-          property_enable(base, &rphy->phy_cfg->chg_det.opmode, false); [Y]
-
- * rockchip_chg_detect_work() changes state and re-triggers itself a few
-   times until it reaches the DETECTED state:
-   -> rockchip_chg_detect_work():
-       if chg_state is DETECTED:
-          property_enable(base, &rphy->phy_cfg->chg_det.opmode, true); [Z]
-
-At [Y] all existing communications stop. E.g. using a CDC serial gadget,
-the /dev/tty* devices are still present on both host and device, but no
-data is transferred anymore. The later call with a 'true' argument at [Z]
-does not restore it.
-
-Due to the lack of documentation, what chg_det.opmode does exactly is not
-clear, however by code inspection it seems reasonable that is disables
-something needed to keep the communication working, and testing proves that
-disabling these lines lets gadget mode keep working. So prevent changes to
-chg_det.opmode when there is a cable connected (VBUS present).
-
-Fixes: 98898f3bc83c ("phy: rockchip-inno-usb2: support otg-port for rk3399")
-Cc: stable@vger.kernel.org
-Closes: https://lore.kernel.org/lkml/20250414185458.7767aabc@booty/
-Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Reviewed-by: Théo Lebrun <theo.lebrun@bootlin.com>
----
- drivers/phy/rockchip/phy-rockchip-inno-usb2.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-index 0106d7b7ae24..e5efae7b0135 100644
---- a/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-+++ b/drivers/phy/rockchip/phy-rockchip-inno-usb2.c
-@@ -833,7 +833,8 @@ static void rockchip_chg_detect_work(struct work_struct *work)
- 		if (!rport->suspended && !vbus_attach)
- 			rockchip_usb2phy_power_off(rport->phy);
- 		/* put the controller in non-driving mode */
--		property_enable(base, &rphy->phy_cfg->chg_det.opmode, false);
-+		if (!vbus_attach)
-+			property_enable(base, &rphy->phy_cfg->chg_det.opmode, false);
- 		/* Start DCD processing stage 1 */
- 		rockchip_chg_enable_dcd(rphy, true);
- 		rphy->chg_state = USB_CHG_STATE_WAIT_FOR_DCD;
-@@ -896,7 +897,8 @@ static void rockchip_chg_detect_work(struct work_struct *work)
- 		fallthrough;
- 	case USB_CHG_STATE_DETECTED:
- 		/* put the controller in normal mode */
--		property_enable(base, &rphy->phy_cfg->chg_det.opmode, true);
-+		if (!vbus_attach)
-+			property_enable(base, &rphy->phy_cfg->chg_det.opmode, true);
- 		rockchip_usb2phy_otg_sm_work(&rport->otg_sm_work.work);
- 		dev_dbg(&rport->phy->dev, "charger = %s\n",
- 			 chg_to_string(rphy->chg_type));
-
--- 
-2.51.1
-
+Will
 
