@@ -4,88 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 382C2D116EA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 20:29:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FA5DD116EA
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 20:29:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BMTw1kDL8EKjTOAtowuEddJlwPoqJdeq89qWoiUPpVg=; b=tv+EtUFDFBbaJAACDTp0qKtqjN
-	tBFKHAd14Wi8ASNE0cc+hKnO5s2dw7fILdEIkPeWGbnke928SUw5j0RWXYgKhfT4Wu1zSoG67PzyH
-	zrPmqRg75/ZAH6dsY+v2UTOIoF1SPkH1ruuidY+QbkndOcHn3X6V98zdZ1JLQU4e0qK+6mGF6q6Sm
-	AmWfM4CbdtIW7AGEsbzKXye2b1bqaEfbgNznhMnK7gJ5VLnY4NJmPClbb2uL2aMSm01cMiF8wA0oK
-	qy5CQ20lMv5mMgToCa/s3vCsuxnHhPDIeiNYwTYxZbEcPpubwphgSyw7T0QPIrjxhPq1HvJAes4nc
-	qNnneH9A==;
+	bh=Yd13Nfp4oksgRJLK18sDWP0myaxbW5mj/m/FYQoCxqg=; b=x1tvrjNYNfKUHiJrY+/m5rrAzm
+	khd19M1bIH41svXOwFKMNWRubr6wV6afd2c72QA6qHIruudu3QOcvBnhs61knJ9RB4KhVW9HKkJ3f
+	P4vtpmbh9JzAbpaKhhFIA3v5eJAfeUyIkB2St+6pkUcNTun+NKMuQOKr3qJTLiP0mwkclORhytBdg
+	hOyw6oXoDIjTmXIXZpOYiyE099O0C2dIvIsg/ouLV6noi2PIf+bJZUXghLii65xmN3CjWHhK5glf2
+	F14S0rg67nZmuYzJrxRKwlLXbrS6Ab0HXGPtbrZPiHDKzhETo2Akf2n79iSUuGkLDH7NlKEvZriwc
+	gFMHzboQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOicN-0000000HC3E-1ARP;
-	Thu, 27 Nov 2025 20:29:31 +0000
-Received: from mail-qv1-xf2f.google.com ([2607:f8b0:4864:20::f2f])
+	id 1vOicj-0000000HC7e-3nBI;
+	Thu, 27 Nov 2025 20:29:53 +0000
+Received: from mout.gmx.net ([212.227.17.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOicL-0000000HC2T-0bo5
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 20:29:30 +0000
-Received: by mail-qv1-xf2f.google.com with SMTP id 6a1803df08f44-880576ebe38so12295066d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 12:29:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764275368; x=1764880168; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BMTw1kDL8EKjTOAtowuEddJlwPoqJdeq89qWoiUPpVg=;
-        b=glGu3j/sbwJP9ugyr9ppE0wQSdNNUmPqilAdAs+RYyi0tkB6x/6cXR2xEpyDpwQK0P
-         REvHP9dAc9KL+ncaOucm6IkMwIBdBcZa6U+AandaMxyEys//mpHfX/5vdYIzRRXMM7yZ
-         QXZ+m2V9csiZpZUqyfzPsYQq5AGoRYiBJiFv6lDuI1ude0Ah2ZSRXEZdRXyAHkyYluwn
-         aYKOfeQ9Cbk0nnyUQ9MunYirGxkvCeJT1gdiE43xA8g1T2omz2p+3Y6TgqUngJ6+h5/X
-         YbCu9kFq/vMCNqphAFrlW5tFmPPuHQN1uBp31qeiMSWLtmGKlv8ZHRNFNYGJERNzdxIr
-         I3mg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764275368; x=1764880168;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=BMTw1kDL8EKjTOAtowuEddJlwPoqJdeq89qWoiUPpVg=;
-        b=hxD4wdj/srJ30tD7uTIdprAjC3+vBo2r2jAtbmJGxVrqZvZMKr/vo8VtlQU7ot6tyN
-         M0LQdxOUotaEzTdtVvXG20tYINaozP4TxfPi/0aMKTybGfS8zO/vzYzFBNNvG8PZENJo
-         C89LB6UnlGLp9+CQPfuWwVifanm8q+PnjXTb70uoKsGAWHzNiC9s6xCGT1DAor3ywuAl
-         8tiPTnTV/IxSiexKz0jh2LvkvZX41Hblr4XAt9o6U5z5zJOltKnPR24T0qJVjrlKolRb
-         oYGlRM449kLQbthzqjlA8bWxCDFABOUpgXTo7sOGnlAUUf3OQtTYb3TLHk2iDnD70IIp
-         c48w==
-X-Forwarded-Encrypted: i=1; AJvYcCUXSXS/CTtx0ZIyUPr2ljzVfpUxBIcmLfvrQKl8NzTqK1tje0VTE0NAa1wXnUTgZgO976dRYD16gjo16Nv/PPDK@lists.infradead.org
-X-Gm-Message-State: AOJu0YykDiItXP7TUFTSV+3IJALbsXrniCe8/SKuk9cKjRmEh3ZpPQqz
-	KkzEogngX4902RJL7TP1ocnXI82okf2sIhwAw+HDPM/GVYWfdt8if62K9faUg627CTfrwHZRNBd
-	bn6SqKWwywScr0eAQ3MZiFTYdP4V6CHg=
-X-Gm-Gg: ASbGncuBLoa9XgwhnYJBcc/XDLIVXMvJu/pFog8LaBH8OOpdV0exe0zG8z9Xqcb/uhI
-	UOcAxmW6EPSOIzn2qypPD20S5vKWjivoUJxcdO3wyYeqbC1KvCM4iIIkqJz1Ohqd/3O0yM88GSN
-	2hbPPU9Qz/j++nEwpWNgWoA/Job0tNUK2oo3eWZg10xJk0j+NJY4EKBnm6R1OfbfaQZNt+B9PA+
-	i8ywMltmjGzRpzgmEVxOAPeCPqxc3nbAFta5WQnb9HJior4nygeSQM/ojomm6ija/Vl9Q==
-X-Google-Smtp-Source: AGHT+IG5GcGrOmVVsePre6BxCVhrhKY7NJnCRBVNCLt/HcgbymNTTZVjYmvrDTtjRkuAQ9GKsIJdwvx3BNDYrNQPC88=
-X-Received: by 2002:a05:6214:234f:b0:880:486d:18dc with SMTP id
- 6a1803df08f44-8863afb4d8fmr176925236d6.58.1764275367501; Thu, 27 Nov 2025
- 12:29:27 -0800 (PST)
+	id 1vOicg-0000000HC66-0Eo4;
+	Thu, 27 Nov 2025 20:29:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
+	s=s31663417; t=1764275362; x=1764880162; i=w_armin@gmx.de;
+	bh=Yd13Nfp4oksgRJLK18sDWP0myaxbW5mj/m/FYQoCxqg=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=rTJnv/NaVpg2R5keG7D8J5cSpYaN4U9bOtgfHX5mvkcguQlWmQdQuqk6dfU6AhNG
+	 59FQWFhB4NyrAnwcmeQwN7v21qAWh1574dK0+dyVi/OO7sPniSXY4ao7Vu71Kwa6k
+	 jUNJpd1xWwJ6vtDEmUrQnWr0+02OA/mD1F0QcHTUyGCW9iTeukWzQJcZ0jrkIQof4
+	 Ob0jgbiHF77i2HkIIP1RNgUYS5r/B8bsUeA84OCG4FMbTM/YpvoDFwJoi9v3DdwTH
+	 HsUojQr/3+8iVuK/XCUg8fRt1HEaler3P0++tFQqXAuwyKEvVnM3c4K3KSzSWKtEU
+	 zvzTVbwOHe8nLm1tWg==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from [192.168.0.69] ([93.202.247.91]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1N6KYb-1w950F1mY5-00s55S; Thu, 27
+ Nov 2025 21:29:22 +0100
+Message-ID: <cf86344b-d9f1-4d3c-9fe9-deeb4ade9304@gmx.de>
+Date: Thu, 27 Nov 2025 21:29:15 +0100
 MIME-Version: 1.0
-References: <20251127011438.6918-1-21cnbao@gmail.com> <aSfO7fA-04SBtTug@casper.infradead.org>
- <CAGsJ_4zyZeLtxVe56OSYQx0OcjETw2ru1FjZjBOnTszMe_MW2g@mail.gmail.com> <aSip2mWX13sqPW_l@casper.infradead.org>
-In-Reply-To: <aSip2mWX13sqPW_l@casper.infradead.org>
-From: Barry Song <21cnbao@gmail.com>
-Date: Fri, 28 Nov 2025 04:29:16 +0800
-X-Gm-Features: AWmQ_bn_b-JGqeMVPQ751bNAv2Qsiauy9g_kN3cQ2gR4dkmeqYmOBAyRrjCf_ew
-Message-ID: <CAGsJ_4zWGYiu1wv=D7bV5zd0h8TEHTCARhyu_9_gL36PiNvbHQ@mail.gmail.com>
-Subject: Re: [RFC PATCH 0/2] mm: continue using per-VMA lock when retrying
- page faults after I/O
-To: Matthew Wilcox <willy@infradead.org>
-Cc: akpm@linux-foundation.org, linux-mm@kvack.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC RESEND 0/8] thermal: core: Allow setting the parent
+ device of thermal zone/cooling devices
+To: "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+ Len Brown <lenb@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ Ido Schimmel <idosch@nvidia.com>, Petr Machata <petrm@nvidia.com>,
+ linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ etnaviv@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+ linux-tegra@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-doc@vger.kernel.org, netdev@vger.kernel.org,
+ linux-wireless@vger.kernel.org, ath10k@lists.infradead.org,
+ ath11k@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, platform-driver-x86@vger.kernel.org,
+ linux-pci@vger.kernel.org, imx@lists.linux.dev,
+ linux-renesas-soc@vger.kernel.org
+References: <20251120-thermal-device-v1-0-bbdad594d57a@gmx.de>
+ <CAJZ5v0jOPrBcozzJMsB1eE12MuZRWDAV-+=jfrhJbi=S0p5J9Q@mail.gmail.com>
+ <5f3ef610-4024-4ca0-a934-2649f5d25f40@gmx.de>
+ <CAJZ5v0hdqY-=O5Ai6c5qjMr_pRFc+SDyV1QruM=ZeHH9Z=guSg@mail.gmail.com>
+Content-Language: en-US
+From: Armin Wolf <W_Armin@gmx.de>
+In-Reply-To: <CAJZ5v0hdqY-=O5Ai6c5qjMr_pRFc+SDyV1QruM=ZeHH9Z=guSg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:ze+2vo8ED78xoOrvJ36miC1oEQfJjNTUlWuWjASXtJHjsrUA405
+ YZDMIbIrWzGit90P9Czhl0GttAUpo1b392W4Ymvc5mXeA8zW+l1CJc6HzQ+E3iBdUMok7pZ
+ QDWa0aCmsN6V1X7AxbYNlL/KNIB46dtMpZQ7sakxcltUWF7mpHpZ5XlckY+5ozbWDBX1v4H
+ 4rvQFhr2LYkgKymN5+Ucg==
+UI-OutboundReport: notjunk:1;M01:P0:F6q/9h+YC/0=;971bq6CGsSOcPgES6YNWNdeOwg+ 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 0gcrLdnv8iX/IozjTfxNPakm5wgdn
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_122929_221306_EA16CB5D 
-X-CRM114-Status: GOOD (  37.17  )
+X-CRM114-CacheID: sfid-20251127_122950_385403_071673BA 
+X-CRM114-Status: GOOD (  47.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,98 +96,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 28, 2025 at 3:43=E2=80=AFAM Matthew Wilcox <willy@infradead.org=
-> wrote:
+Am 27.11.25 um 19:22 schrieb Rafael J. Wysocki:
+
+> On Sat, Nov 22, 2025 at 3:18=E2=80=AFPM Armin Wolf <W_Armin@gmx.de> wrot=
+e:
+>> Am 21.11.25 um 21:35 schrieb Rafael J. Wysocki:
+>>
+>>> On Thu, Nov 20, 2025 at 4:41=E2=80=AFAM Armin Wolf <W_Armin@gmx.de> wr=
+ote:
+> [...]
 >
-> [dropping individuals, leaving only mailing lists.  please don't send
-> this kind of thing to so many people in future]
+>>>> ---
+>>>> Armin Wolf (8):
+>>>>         thermal: core: Allow setting the parent device of cooling dev=
+ices
+>>>>         thermal: core: Set parent device in thermal_of_cooling_device=
+_register()
+>>>>         ACPI: processor: Stop creating "device" sysfs link
+>>> That link is not to the cooling devices' parent, but to the ACPI
+>>> device object (a struct acpi_device) that corresponds to the parent.
+>>> The parent of the cooling device should be the processor device, not
+>>> its ACPI companion, so I'm not sure why there would be a conflict.
+>>   From the perspective of the Linux device core, a parent device does n=
+ot have to be
+>> a "physical" device. In the case of the ACPI processor driver, the ACPI=
+ device is used,
+>> so the cooling device registered by said driver belongs to the ACPI dev=
+ice.
+> Well, that's a problem.  A struct acpi_device should not be a parent
+> of anything other than a struct acpi_device.
+
+Understandable, in this case we should indeed use the the CPU device, espe=
+cially since the fwnode
+associated with it already points to the correct ACPI processor object (at=
+ least on my machine).
+
+>> I agree that using the Linux processor device would make more sense, bu=
+t this will require
+>> changes inside the ACPI processor driver.
+> So be it.
+
+OK.
+
+>> As for the "device" symlink: The conflict would be a naming conflict, a=
+s both "device" symlinks
+>> (the one created by the ACPI processor driver and the one created by th=
+e device core) will
+>> be created in the same directory (which is the directory of the cooling=
+ device).
+> I see.
 >
-> On Thu, Nov 27, 2025 at 12:22:16PM +0800, Barry Song wrote:
-> > On Thu, Nov 27, 2025 at 12:09=E2=80=AFPM Matthew Wilcox <willy@infradea=
-d.org> wrote:
-> > >
-> > > On Thu, Nov 27, 2025 at 09:14:36AM +0800, Barry Song wrote:
-> > > > There is no need to always fall back to mmap_lock if the per-VMA
-> > > > lock was released only to wait for pagecache or swapcache to
-> > > > become ready.
-> > >
-> > > Something I've been wondering about is removing all the "drop the MM
-> > > locks while we wait for I/O" gunk.  It's a nice amount of code remove=
-d:
-> >
-> > I think the point is that page fault handlers should avoid holding the =
-VMA
-> > lock or mmap_lock for too long while waiting for I/O. Otherwise, those
-> > writers and readers will be stuck for a while.
+> But why is the new symlink needed in the first place?  If the device
+> has a parent, it will appear under that parent in /sys/devices/, won't
+> it?
 >
-> There's a usecase some of us have been discussing off-list for a few
-> weeks that our current strategy pessimises.  It's a process with
-> thousands (maybe tens of thousands) of threads.  It has much more mapped
-> files than it has memory that cgroups will allow it to use.  So on a
-> page fault, we drop the vma lock, allocate a page of ram, kick off the
-> read, sleep waiting for the folio to come uptodate, once it is return,
-> expecting the page to still be there when we reenter filemap_fault.
-> But it's under so much memory pressure that it's already been reclaimed
-> by the time we get back to it.  So all the threads just batter the
-> storage re-reading data.
-
-Is this entirely the fault of re-entering the page fault? Under extreme
-memory pressure, even if we map the pages, they can still be reclaimed
-quickly?
-
+> Currently, all of the thermal class devices appear under
+> /sys/devices/virtual/thermal/ because they have no parents and they
+> all get a class parent kobject under /sys/devices/virtual/, as that's
+> what get_device_parent() does.
 >
-> If we don't drop the vma lock, we can insert the pages in the page table
-> and return, maybe getting some work done before this thread is
-> descheduled.
+> If they have real parents, they will appear under those parents, so
+> why will the parents need to be pointed to additionally?
 
-If we need to protect the page from being reclaimed too early, the fix
-should reside within LRU management, not in page fault handling.
+The "device" smylink is a comfort feature provided by the device core itse=
+lf to allow user space
+application to traverse the device tree from bottom to top, like a double-=
+linked list. We cannot
+disable the creation of this symlink, nor should we.
 
-Also, I gave an example where we may not drop the VMA lock if the folio is
-already up to date. That likely corresponds to waiting for the PTE mapping =
-to
-complete.
+> BTW, this means that the layout of /sys/devices/ will change when
+> thermal devices get real parents.  I'm not sure if this is a problem,
+> but certainly something to note.
 
+I know, most applications likely use /sys/class/thermal/, so they are not =
+impacted by this. I will
+note this in the cover letter of the next revision.
+
+>>>>         ACPI: fan: Stop creating "device" sysfs link
+>>>>         ACPI: video: Stop creating "device" sysfs link
+>>> Analogously in the above two cases AFAICS.
+>>>
+>>> The parent of a cooling device should be a "physical" device object,
+>>> like a platform device or a PCI device or similar, not a struct
+>>> acpi_device (which in fact is not a device even).
+>>   From the perspective of the Linux device core, a ACPI device is a per=
+fectly valid device.
+> The driver core is irrelevant here.
 >
-> This use case also manages to get utterly hung-up trying to do reclaim
-> today with the mmap_lock held.  SO it manifests somewhat similarly to
-> your problem (everybody ends up blocked on mmap_lock) but it has a
-> rather different root cause.
+> As I said before, a struct acpi_device object should not be a parent
+> of anything other than a struct acpi_device object.  Those things are
+> not devices and they cannot be used for representing PM dependencies,
+> for example.
 >
-> > I agree there=E2=80=99s room for improvement, but merely removing the "=
-drop the MM
-> > locks while waiting for I/O" code is unlikely to improve performance.
+>> I agree that using a platform device or PCI device is better, but this =
+already happens
+>> inside the ACPI fan driver (platform device).
+> So it should not happen there.
+
+I meant that the ACPI fan driver already uses the platform device as the p=
+arent device of the
+cooling device, so the ACPI device is only used for interacting with the A=
+CPI control methods
+(and registering sysfs attributes i think).
+
+>> Only the ACPI video driver created a "device" sysfs link that points to=
+ the ACPI device
+>> instead of the PCI device. I just noticed that i accidentally changed t=
+his by using the
+>> PCI device as the parent device for the cooling device.
+>>
+>> If you want then we can keep this change.
+> The PCI device should be its parent.
+
+Alright, i will note this in the patch description.
+
+>>>>         thermal: core: Set parent device in thermal_cooling_device_re=
+gister()
+>>>>         ACPI: thermal: Stop creating "device" sysfs link
+>>> And this link is to the struct acpi_device representing the thermal zo=
+ne itself.
+>> Correct, the ACPI thermal zone driver is a ACPI driver, meaning that he=
+ binds to
+>> ACPI devices. Because of this all (thermal zone) devices created by an =
+instance of
+>> said driver are descendants of the ACPI device said instance is bound t=
+o.
+>>
+>> We can of course convert the ACPI thermal zone driver into a platform d=
+river, but
+>> this would be a separate patch series.
+> If you want parents, this needs to be done first, but I'm still not
+> sure what the parent of a thermal zone would represent.
 >
-> I'm not sure it'd hurt performance.  The "drop mmap locks for I/O" code
-> was written before the VMA locking code was written.  I don't know that
-> it's actually helping these days.
+> In the ACPI case it is kind of easy - it would be the (platform)
+> device corresponding to a given ThermalZone object in the ACPI
+> namespace - but it only has a practical meaning if that device has a
+> specific parent.  For example, if the corresponding ThermalZone object
+> is present in the \_SB scope, the presence of the thermal zone parent
+> won't provide any additional information.
 
-I am concerned that other write paths may still need to modify the VMA, for
-example during splitting. Tail latency has long been a significant issue fo=
-r
-Android users, and we have observed it even with folio_lock, which has much
-finer granularity than the VMA lock.
+To the device core it will, as the platform device will need to be suspend=
+ed
+after the thermal zone device has been suspended, among other things.
 
+> Unfortunately, the language in the specification isn't particularly
+> helpful here: "Thermal zone objects should appear in the namespace
+> under the portion of the system that comprises the thermal zone. For
+> example, a thermal zone that is isolated to a docking station should
+> be defined within the scope of the docking station device."  To me
+> "the portion of the system" is not too meaningful unless it is just
+> one device without children.  That's why _TZD has been added AFAICS.
+
+I think you are confusing the parent device of the ThermalZone ACPI device
+with the parent device of the struct thermal_zone_device.
+
+I begin to wonder if mentioning the ACPI ThermalZone device together with =
+the
+struct thermal_zone_device was a bad idea on my side xd.
+
+>>>>         thermal: core: Allow setting the parent device of thermal zon=
+e devices
+>>> I'm not sure if this is a good idea, at least until it is clear what
+>>> the role of a thermal zone parent device should be.
+>> Take a look at my explanation with the Intel Wifi driver.
+> I did and I think that you want the parent to be a device somehow
+> associated with the thermal zone, but how exactly?  What should that
+> be in the Wifi driver case, the PCI device or something else?
 >
-> > The change would be much more complex, so I=E2=80=99d prefer to land th=
-e current
-> > patchset first. At least this way, we avoid falling back to mmap_lock a=
-nd
-> > causing contention or priority inversion, with minimal changes.
+> And what if the thermal zone affects multiple devices?  Which of them
+> (if any) would be its parent?  And would it be consistent with the
+> ACPI case described above?
 >
-> Uh, this is an RFC patchset.  I'm giving you my comment, which is that I
-> don't think this is the right direction to go in.  Any talk of "landing"
-> these patches is extremely premature.
+> All of that needs consideration IMV.
 
-While I agree that there are other approaches worth exploring, I
-remain entirely unconvinced that this patchset is the wrong
-direction. With the current retry logic, it substantially reduces
-mmap_lock acquisitions and represents a clear low-hanging fruit.
+I agree, but there is a difference between "this struct thermal_zone_devic=
+e depends on
+device X to be operational" and "this thermal zone affects device X, devic=
+e Y and device Z".
 
-Also, I am not referring to landing the RFC itself, but to a subsequent for=
-mal
-patchset that retries using the per-VMA lock.
+This patch series exclusively deals with telling the driver core that "thi=
+s struct thermal_zone_device
+depends on device X to be operational".
 
-Thanks
-Barry
+Thanks,
+Armin Wolf
+
 
