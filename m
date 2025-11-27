@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5E74D111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 17:18:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E156DCFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 17:18:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EguoN5UoBIxCjveRFklA6CdlXXdagmARsUp7EB8KNWQ=; b=b74pRtaCynIXq6SVj679ckoZJd
-	FcXu2upFBf1d4TXtRm9t1+Axplw39o9ydQkTxHab6jwV7YxdhVhTDBxr13+aqcbzY65j4KmlCfQjH
-	MNmfI35ktmRhwOdQyr3c9Omo4jIRMBZ+SUr1lpcX9MJrPo/vmOVJmDESzThByeviKgnJLoOCjE3LO
-	CxQszyWofbJFBPEwGrBYKZ+0RdB4dovRGkDMHKrqD7KgflF4Na4obWuMmjwr+NMtul+Gb7zwZxosW
-	dFOL+fbeptxqLC8EW1KaH6MzeSJ52oftwWcql+qwRp4vwrCtUTaFyYupdzW68GlolU3n9zlgaic+R
-	4Vcw9Yfw==;
+	bh=KSlMJCkHN3qoiesq+GZbeTPd6cykEBxG8JM7oiO9bAg=; b=eEQtCaJrgwXV5wz7tMEx00IlGw
+	VrS1Ev8aZMi/8MX1zn5n0sx2pjSDwFrHoNafwKddHLzO9MaCZzyhj9mUd84bnmRylzJHCDl74KHtf
+	Ua0BXWqTpnr3f9Zwf7+rAvstqYaaCk9cQoD4NiiVopO7uJUfNccrLGWmPPF0RYpsYfaySJINFWv32
+	AscDv0QRCjQD52ttIg36TPyu3H54UlEqr7OrNp2PI6EPO7OV5rzN+DUPOtBVCSNgOQw0Rvf8Y+mx9
+	f5YT1ztwiNplS0VA5/Jbzo5YLhLyK5El5tx2ZsszMW7HsEeqQyxXrgegmR9r2A02fzWHQXNhTTZIS
+	FWiHQSNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOfdk-0000000Gz0t-44qZ;
+	id 1vOfdk-0000000Gz0S-2Nsy;
 	Thu, 27 Nov 2025 17:18:44 +0000
 Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOfdd-0000000GyvR-21RN
+	id 1vOfda-0000000GytV-0zeh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 17:18:41 +0000
+	Thu, 27 Nov 2025 17:18:36 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id EDD83C16A23;
-	Thu, 27 Nov 2025 17:18:12 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id B2CFBC16A1F;
+	Thu, 27 Nov 2025 17:18:09 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C76F960722;
-	Thu, 27 Nov 2025 17:18:35 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 81081103C8C5E;
-	Thu, 27 Nov 2025 18:18:31 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 8AE0B60722;
+	Thu, 27 Nov 2025 17:18:32 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EBC65103C8C74;
+	Thu, 27 Nov 2025 18:18:25 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764263914; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1764263911; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=EguoN5UoBIxCjveRFklA6CdlXXdagmARsUp7EB8KNWQ=;
-	b=pdQrA7+hD55v9W2EHhvxCVC0DDtXcIC0waYtiyuoNdVqsin/PP7GSVYgf66bYkhrM08vEB
-	y1MqsIGq5LMOkuGGVSArs0QC3MplF1mUbnb2NSeEeNUV9kym2V4yt10BBL29/AAEBaVGoy
-	3FuO27gFPbdrTLtvu690fMrOQKs0aW/+JY0MAgW5MtxwDTbwQgkqhWPt7Hjy7IjwurLKhq
-	ye4ucHq7UbxD2D8NBnxrZcVroO4PFyQ5h2DVnyk7fx3c7YCS6+O06X74MuY2byPv77LE2v
-	tHsdr3t89bsiBNudJBRM7CQOz2RU3bDDs5did/iKszesNBqvD7ty7PG6gC+0dg==
+	bh=KSlMJCkHN3qoiesq+GZbeTPd6cykEBxG8JM7oiO9bAg=;
+	b=12bPwSc7Nqb+YrcpVCHKiUoNOxvqGgkIrIKuDClKIvVyQMRbB3dK2oEIPmUAT49/aBv7qx
+	r5BV3HGJsxGPUJcLrKF1+7ztz9aOw7EaMEFcOLKDGlpH0PhEhgQbMKI7em3i1sLw2wgPh/
+	j8jVj+F5u4oAxOU/D8tcjAYv9SlhEd0Gv89gLYmDbD7i/fArUwgEu/3msLgbO/B1QPK7yZ
+	ychpnKloLn52BgyrjmJjHWvgvU3B/Ht3B7MZ8nsuaXyLGZ9RUQEgz/0XMXe+qbrhPIs0bM
+	8ei4fJHQ6f4yiO2BVlXgIsN+YVEXl15N3wfDepvb6kV64lMarYb/jyQ3qWHmUQ==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -77,9 +77,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Daniel Golle <daniel@makrotopia.org>,
 	Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
 	Tariq Toukan <tariqt@nvidia.com>
-Subject: [PATCH net-next v20 05/14] dt-bindings: net: dp83822: Deprecate ti,fiber-mode
-Date: Thu, 27 Nov 2025 18:17:48 +0100
-Message-ID: <20251127171800.171330-6-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v20 04/14] net: phy: dp83822: Add support for phy_port representation
+Date: Thu, 27 Nov 2025 18:17:47 +0100
+Message-ID: <20251127171800.171330-5-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20251127171800.171330-1-maxime.chevallier@bootlin.com>
 References: <20251127171800.171330-1-maxime.chevallier@bootlin.com>
@@ -87,9 +87,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_091837_703144_31D8A3D5 
-X-CRM114-Status: UNSURE (   9.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251127_091834_611231_2ADC3DF7 
+X-CRM114-Status: GOOD (  20.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,45 +103,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The newly added ethernet-connector binding allows describing an Ethernet
-connector with greater precision, and in a more generic manner, than
-ti,fiber-mode. Deprecate this property.
+With the phy_port representation introduced, we can use .attach_port to
+populate the port information based on either the straps or the
+ti,fiber-mode property. This allows simplifying the probe function and
+allow users to override the strapping configuration.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Tested-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- Documentation/devicetree/bindings/net/ti,dp83822.yaml | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ drivers/net/phy/dp83822.c | 71 +++++++++++++++++++++++++--------------
+ 1 file changed, 45 insertions(+), 26 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/net/ti,dp83822.yaml b/Documentation/devicetree/bindings/net/ti,dp83822.yaml
-index 28a0bddb9af9..23c70d863c39 100644
---- a/Documentation/devicetree/bindings/net/ti,dp83822.yaml
-+++ b/Documentation/devicetree/bindings/net/ti,dp83822.yaml
-@@ -47,6 +47,9 @@ properties:
-        is disabled.
-        In fiber mode, auto-negotiation is disabled and the PHY can only work in
-        100base-fx (full and half duplex) modes.
-+       This property is deprecated, for details please refer to
-+       Documentation/devicetree/bindings/net/ethernet-connector.yaml
-+    deprecated: true
+diff --git a/drivers/net/phy/dp83822.c b/drivers/net/phy/dp83822.c
+index 33db21251f2e..c012dfab3171 100644
+--- a/drivers/net/phy/dp83822.c
++++ b/drivers/net/phy/dp83822.c
+@@ -11,6 +11,7 @@
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/phy.h>
++#include <linux/phy_port.h>
+ #include <linux/netdevice.h>
+ #include <linux/bitfield.h>
  
-   rx-internal-delay-ps:
-     description: |
-@@ -141,7 +144,11 @@ examples:
-         tx-internal-delay-ps = <1>;
-         ti,gpio2-clk-out = "xi";
-         mac-termination-ohms = <43>;
-+        mdi {
-+          connector-0 {
-+            media = "BaseF";
-+          };
-+        };
-       };
-     };
+@@ -811,17 +812,6 @@ static int dp83822_of_init(struct phy_device *phydev)
+ 	int i, ret;
+ 	u32 val;
+ 
+-	/* Signal detection for the PHY is only enabled if the FX_EN and the
+-	 * SD_EN pins are strapped. Signal detection can only enabled if FX_EN
+-	 * is strapped otherwise signal detection is disabled for the PHY.
+-	 */
+-	if (dp83822->fx_enabled && dp83822->fx_sd_enable)
+-		dp83822->fx_signal_det_low = device_property_present(dev,
+-								     "ti,link-loss-low");
+-	if (!dp83822->fx_enabled)
+-		dp83822->fx_enabled = device_property_present(dev,
+-							      "ti,fiber-mode");
 -
- ...
+ 	if (!device_property_read_string(dev, "ti,gpio2-clk-out", &of_val)) {
+ 		if (strcmp(of_val, "mac-if") == 0) {
+ 			dp83822->gpio2_clk_out = DP83822_CLK_SRC_MAC_IF;
+@@ -950,6 +940,48 @@ static int dp83822_read_straps(struct phy_device *phydev)
+ 	return 0;
+ }
+ 
++static int dp83822_attach_mdi_port(struct phy_device *phydev,
++				   struct phy_port *port)
++{
++	struct dp83822_private *dp83822 = phydev->priv;
++	int ret;
++
++	if (port->mediums) {
++		if (phy_port_is_fiber(port))
++			dp83822->fx_enabled = true;
++	} else {
++		ret = dp83822_read_straps(phydev);
++		if (ret)
++			return ret;
++
++#if IS_ENABLED(CONFIG_OF_MDIO)
++		if (dp83822->fx_enabled && dp83822->fx_sd_enable)
++			dp83822->fx_signal_det_low =
++				device_property_present(&phydev->mdio.dev,
++							"ti,link-loss-low");
++
++		/* ti,fiber-mode is still used for backwards compatibility, but
++		 * has been replaced with the mdi node definition, see
++		 * ethernet-port.yaml
++		 */
++		if (!dp83822->fx_enabled)
++			dp83822->fx_enabled =
++				device_property_present(&phydev->mdio.dev,
++							"ti,fiber-mode");
++#endif /* CONFIG_OF_MDIO */
++
++		if (dp83822->fx_enabled) {
++			port->mediums = BIT(ETHTOOL_LINK_MEDIUM_BASEF);
++		} else {
++			/* This PHY can only to 100BaseTX max, so on 2 pairs */
++			port->pairs = 2;
++			port->mediums = BIT(ETHTOOL_LINK_MEDIUM_BASET);
++		}
++	}
++
++	return 0;
++}
++
+ static int dp8382x_probe(struct phy_device *phydev)
+ {
+ 	struct dp83822_private *dp83822;
+@@ -968,27 +1000,13 @@ static int dp8382x_probe(struct phy_device *phydev)
+ 
+ static int dp83822_probe(struct phy_device *phydev)
+ {
+-	struct dp83822_private *dp83822;
+ 	int ret;
+ 
+ 	ret = dp8382x_probe(phydev);
+ 	if (ret)
+ 		return ret;
+ 
+-	dp83822 = phydev->priv;
+-
+-	ret = dp83822_read_straps(phydev);
+-	if (ret)
+-		return ret;
+-
+-	ret = dp83822_of_init(phydev);
+-	if (ret)
+-		return ret;
+-
+-	if (dp83822->fx_enabled)
+-		phydev->port = PORT_FIBRE;
+-
+-	return 0;
++	return dp83822_of_init(phydev);
+ }
+ 
+ static int dp83826_probe(struct phy_device *phydev)
+@@ -1172,6 +1190,7 @@ static int dp83822_led_hw_control_get(struct phy_device *phydev, u8 index,
+ 		.led_hw_is_supported = dp83822_led_hw_is_supported,	\
+ 		.led_hw_control_set = dp83822_led_hw_control_set,	\
+ 		.led_hw_control_get = dp83822_led_hw_control_get,	\
++		.attach_mdi_port = dp83822_attach_mdi_port		\
+ 	}
+ 
+ #define DP83825_PHY_DRIVER(_id, _name)				\
 -- 
 2.49.0
 
