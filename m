@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A8A1D116E6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 01:55:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E701BD116E4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 02:00:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SqD764/xYsxDahcoC1aGtQmXnKzmk/gUF12psLzzltQ=; b=JipMe7VA0ZdVYD4+/c5YPHdoOt
-	x/27Xw4XWhx01oYvfMgfLI7hdZgsWFW6OG+GzXA3wYJqVvJmUbXAy7/UmkE0eAC4ohXn+jOpaeVqY
-	9W4ic1NgFbvuEOWTKv6FzTiioxd2FMBc8JtkI8CcO9CsvpBDFjpLwQA1RK7QX6fCknmppGrgmRFD8
-	OTy4v5CmWh4sLg5SXhSTOXR/qoSz9XTdf3iYAJzBdLEenePIkgPoRbmtsXABlFXX5zAsJjNkn8mRV
-	lTgOvmo1ovwdcxI8XQCW3bD7a9sYLjD7zoOIYGtNZvwOadpVW2P+naT+LBUFRDSrD+F7U1z3hc5gQ
-	9sL2gGXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uYQo3s2RRlNPnlVoz1rpCtx9jvNzDfsvI29ReIeH2rc=; b=JTqpasq1ArM2Yt6DfCZqCKaSZA
+	uLCLzuViSPHYCRIkkEgDAtxC6lI5Np9vGUwn2gt22+9u5s/MBgSW39EP2hLyit1ZhLfyczU5WU3tB
+	s8QfGrpJ95DVolfakMFDjwNPh50LXLew7xjGzdqry4JaQVLvEVciloke6SBDnl7VW3UivxnGrkqU4
+	FZ83XfW66KwmkopilBicK0+D4l66lsQLr2JkotgZrAgq9qfRBDML5ddL0gXX6bG4LqMPwSWU2Vu3K
+	coVFsGMmVbmqcRb8DBon6obU90qTscJgQaoSQFYS04ftOXlkGlLPkO7Gvi3baKUYIaDwZ43trv8Qx
+	TtnIVOaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vORDx-0000000Fri9-2Ejm;
-	Thu, 27 Nov 2025 01:55:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vORJJ-0000000Fs0p-3YAk;
+	Thu, 27 Nov 2025 02:00:41 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vORDt-0000000Frhf-0OI9;
-	Thu, 27 Nov 2025 01:55:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4C1B04387C;
-	Thu, 27 Nov 2025 01:55:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E68CBC4CEF7;
-	Thu, 27 Nov 2025 01:55:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764208504;
-	bh=/NqG17rwpRoq7YYKDty/OdxHUk6Tf8IpKhsClBMsOkg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EzYiOJa3YR9H6eZ8HCr1KToCFxIEO+ew/BcLqhj57zGekCM/ZK/Pr/eiTyQaXGvgv
-	 T5AhkQWLJvlTEBoFbvcJIDxxsmF6ndlEpDBQa/hmxDBJwgIigrTpQ6ZUOYPPt18jo7
-	 Kvd50M/qhN6chJCvZYY53aFrtDgpreG0isN+lQBIPAgnmshLUwdbUPoYSQ1au2st5M
-	 XXwsiF2q1J6/YoAI/TVrenCyJT3o9zykMk5Ki9Xk4l7s5zZMQDnA7G66aQgLnvVp/I
-	 1Xu19QcNEw7OTPqMlsFElD0TE/oyVjCXOQkJBWKAWcEvy0dGi9DPjnF/cVS+mfBIuW
-	 9b8HslW/nh5yQ==
-Date: Wed, 26 Nov 2025 19:55:02 -0600
-From: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Saravana Kannan <saravanak@google.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Viresh Kumar <viresh.kumar@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Yangtao Li <tiny.windzz@gmail.com>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Maximilian Luz <luzmaximilian@gmail.com>,
-	Hans de Goede <hansg@kernel.org>,
-	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
-	Daniel Lezcano <daniel.lezcano@kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org, platform-driver-x86@vger.kernel.org,
-	linux-tegra@vger.kernel.org,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Subject: Re: [PATCH v2 00/11] of: Add wrappers to match root node with OF
- device ID tables
-Message-ID: <20251127015502.GA3141507-robh@kernel.org>
-References: <20251112-b4-of-match-matchine-data-v2-0-d46b72003fd6@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251112-b4-of-match-matchine-data-v2-0-d46b72003fd6@linaro.org>
+	id 1vORJH-0000000Fryx-2FNS
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Nov 2025 02:00:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1764208840; x=1795744840;
+  h=date:from:to:cc:subject:message-id;
+  bh=N0Z0uAkUpQtI8p3O3eD/dRQcSnpMxca7UqlP7oxxaDE=;
+  b=QUuGNht20Msg0cPiJmKpyKg84BH5DXlkOfzhYezJv25tfRBKI/fTsW5+
+   NZhJJ0/ZX0bgwYTUnAZawGCzSen3x7lRt8s/g6F8kQYjjiJTGrXxUL3pq
+   Et6/1VUDgbRFdbSOVzmtcNS3PCz3pmJVZNdR9pj5/7phH4EVm6tapfgPL
+   qhrK88afIUFUSZoAPr5TqDkeTS/oboz73/dv2s4LTdr9iyw57naUaXg1H
+   4mqG40/pTNkPmyeh4CgxRo7yl/UywEh5rvbfuImwdonpzM0YYobKZQ1QP
+   r24Tg/gveI0uXTwuNJIn7ZOIi+F1lIxtn4NBi2Bbwl1PT8GrbX0HMwNdQ
+   Q==;
+X-CSE-ConnectionGUID: JG7UgMx6Qn+aWaeOU/K5sA==
+X-CSE-MsgGUID: HXF5ydvtRuu/TxMrSxMBdA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11625"; a="53821299"
+X-IronPort-AV: E=Sophos;i="6.20,229,1758610800"; 
+   d="scan'208";a="53821299"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2025 18:00:38 -0800
+X-CSE-ConnectionGUID: AyvSl5yiQZ6hFvF2XeZ/cQ==
+X-CSE-MsgGUID: uhs1KKeGQauQhjY1WaAz0A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,229,1758610800"; 
+   d="scan'208";a="197582510"
+Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
+  by orviesa004.jf.intel.com with ESMTP; 26 Nov 2025 18:00:36 -0800
+Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vORJB-000000003Yz-1y69;
+	Thu, 27 Nov 2025 02:00:33 +0000
+Date: Thu, 27 Nov 2025 10:00:09 +0800
+From: kernel test robot <lkp@intel.com>
+To: Vignesh Raghavendra <vigneshr@ti.com>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:k3/dt] BUILD SUCCESS
+ 00fb4c73b67d36783c5ab95a830f0cf0142b9fc3
+Message-ID: <202511271004.JITIcIt9-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_175505_173936_5E51ED95 
-X-CRM114-Status: GOOD (  22.80  )
+X-CRM114-CacheID: sfid-20251126_180039_580912_E844DD6B 
+X-CRM114-Status: UNSURE (   5.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,73 +83,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 12, 2025 at 11:28:45AM +0100, Krzysztof Kozlowski wrote:
-> Changes in v2:
-> - Drop cpufreq/ti change: not correct.
-> - Drop soc/qcom/qcom_pd_mapper.c - objections from Dmitry and I think
->   better to drop the patch in such case.
-> - I did not implement feedback for first patch to make the
->   of_machine_compatible_match() matching machines in arbitrary nodes,
->   because there is no such use case possible and no arguments were provided.
->   I also did not use cleanup.h in first patch because existing code
->   of_device_get_match_data() does not use it and I prefer uniformity.
-> 
-> - Add Ack/Rb tags.
-> - Link to v1: https://patch.msgid.link/20251106-b4-of-match-matchine-data-v1-0-d780ea1780c2@linaro.org
-> 
-> Dependency/merging
-> ==================
-> All patches depend on the first patch, thus everything could go via
-> Rob's tree with people's acks.
-> 
-> Description
-> ===========
-> Several drivers duplicate same code for getting reference to the root
-> node, matching it against 'struct of_device_id' table and getting out
-> the match data from the table entry.
-> 
-> There is a of_machine_compatible_match() wrapper but it takes array of
-> strings, which is not suitable for many drivers since they want the
-> driver data associated with each compatible.
-> 
-> Add two wrappers, similar to existing of_device_get_match_data():
-> 1. of_machine_device_match() doing only matching against 'struct
->    of_device_id' and returning bool.
-> 2. of_machine_get_match_data() doing the matching and returning
->    associated driver data for found compatible.
-> 
-> Best regards,
-> Krzysztof
-> 
-> ---
-> Krzysztof Kozlowski (11):
->       of: Add wrappers to match root node with OF device ID tables
->       cpufreq: dt-platdev: Simplify with of_machine_get_match_data()
->       cpufreq: mediatek: Simplify with of_machine_get_match_data()
->       cpufreq: sun50i: Simplify with of_machine_device_match()
->       cpuidle: big_little: Simplify with of_machine_device_match()
->       firmware: qcom: scm: Simplify with of_machine_device_match()
->       irqchip/atmel-aic: Simplify with of_machine_get_match_data()
->       platform: surface: Simplify with of_machine_get_match_data()
->       powercap: dtpm: Simplify with of_machine_get_match_data()
->       soc: qcom: ubwc: Simplify with of_machine_get_match_data()
->       soc: tegra: Simplify with of_machine_device_match()
-> 
->  drivers/cpufreq/cpufreq-dt-platdev.c               | 15 ++-----
->  drivers/cpufreq/mediatek-cpufreq.c                 | 12 +-----
->  drivers/cpufreq/sun50i-cpufreq-nvmem.c             | 11 +----
->  drivers/cpuidle/cpuidle-big_little.c               | 11 +----
->  drivers/firmware/qcom/qcom_scm.c                   | 17 +-------
->  drivers/irqchip/irq-atmel-aic-common.c             | 15 ++-----
->  drivers/of/base.c                                  | 47 ++++++++++++++++++++++
->  .../platform/surface/surface_aggregator_registry.c | 13 +-----
->  drivers/powercap/dtpm.c                            | 16 +-------
->  drivers/soc/qcom/ubwc_config.c                     | 14 ++-----
->  drivers/soc/tegra/common.c                         | 12 +-----
->  include/linux/of.h                                 | 13 ++++++
->  12 files changed, 79 insertions(+), 117 deletions(-)
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git k3/dt
+branch HEAD: 00fb4c73b67d36783c5ab95a830f0cf0142b9fc3  arm64: dts: ti: k3-am62l: add initial reference board file
 
-Applied, thanks.
+elapsed time: 7712m
 
-Rob
+configs tested: 61
+configs skipped: 0
+
+The following configs have been built successfully.
+More configs may be tested in the coming days.
+
+tested configs:
+alpha                   allnoconfig    gcc-15.1.0
+alpha                  allyesconfig    gcc-15.1.0
+arc                    allmodconfig    gcc-15.1.0
+arc                     allnoconfig    gcc-15.1.0
+arc                    allyesconfig    gcc-15.1.0
+arm                     allnoconfig    clang-22
+arm                    allyesconfig    gcc-15.1.0
+arm64                  allmodconfig    clang-19
+arm64                   allnoconfig    gcc-15.1.0
+csky                   allmodconfig    gcc-15.1.0
+csky                    allnoconfig    gcc-15.1.0
+hexagon                allmodconfig    clang-17
+hexagon                 allnoconfig    clang-22
+hexagon     randconfig-001-20251122    clang-22
+hexagon     randconfig-002-20251122    clang-17
+i386                   allmodconfig    gcc-14
+i386                    allnoconfig    gcc-14
+i386                   allyesconfig    gcc-14
+loongarch              allmodconfig    clang-19
+loongarch               allnoconfig    clang-22
+loongarch   randconfig-001-20251122    gcc-12.5.0
+loongarch   randconfig-002-20251122    gcc-14.3.0
+m68k                   allmodconfig    gcc-15.1.0
+m68k                    allnoconfig    gcc-15.1.0
+m68k                   allyesconfig    gcc-15.1.0
+microblaze              allnoconfig    gcc-15.1.0
+microblaze             allyesconfig    gcc-15.1.0
+mips                   allmodconfig    gcc-15.1.0
+mips                    allnoconfig    gcc-15.1.0
+mips                   allyesconfig    gcc-15.1.0
+nios2                  allmodconfig    gcc-11.5.0
+nios2                   allnoconfig    gcc-11.5.0
+nios2       randconfig-001-20251122    gcc-11.5.0
+nios2       randconfig-002-20251122    gcc-8.5.0
+openrisc               allmodconfig    gcc-15.1.0
+openrisc                allnoconfig    gcc-15.1.0
+parisc                 allmodconfig    gcc-15.1.0
+parisc                  allnoconfig    gcc-15.1.0
+parisc                 allyesconfig    gcc-15.1.0
+powerpc                allmodconfig    gcc-15.1.0
+powerpc                 allnoconfig    gcc-15.1.0
+riscv                  allmodconfig    clang-22
+riscv                   allnoconfig    gcc-15.1.0
+riscv                  allyesconfig    clang-16
+s390                   allmodconfig    clang-18
+s390                    allnoconfig    clang-22
+s390                   allyesconfig    gcc-15.1.0
+sh                     allmodconfig    gcc-15.1.0
+sh                      allnoconfig    gcc-15.1.0
+sh                     allyesconfig    gcc-15.1.0
+sparc                   allnoconfig    gcc-15.1.0
+sparc64                allmodconfig    clang-22
+um                     allmodconfig    clang-19
+um                      allnoconfig    clang-22
+um                     allyesconfig    gcc-14
+x86_64                 allmodconfig    clang-20
+x86_64                  allnoconfig    clang-20
+x86_64                 allyesconfig    clang-20
+x86_64                rhel-9.4-rust    clang-20
+xtensa                  allnoconfig    gcc-15.1.0
+xtensa                 allyesconfig    gcc-15.1.0
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
