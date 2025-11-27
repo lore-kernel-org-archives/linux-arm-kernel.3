@@ -4,86 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AC0CD11183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 10:11:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA5E0D11183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 10:11:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3UuhlMt+xKMZUo21Zwoyz9Z0SmtmmUjCG1ylmETi6EM=; b=F7OhIsmQDcq4+SN1fEu5+Z8ttg
-	p9JPFyvNhm0RpY7aiJshhziJBhiajiXeVvvJPfJ7pxomXQt0bQtjT17Qo6ijh2hT9EbwZtHwyIP5w
-	OjVCEC8bdRJl6XSncyzKb+UY8ODEZAshmBDwY/6QNxGPSHmMrKnSWvowyuQQ+57PQCSM19jhOyR2X
-	0w/5tOVhED1gmL3lU37Wq2TV7RbTkd3wDBcszyTbWreRa8LBxa/Kl3j6OD8evwrm1o4jFZDBETGIU
-	DzHqnZl4bz6dR0eHmb/CqbNBSfhDJ+/7Jx9EcioaOKLIQgRaGfS6weej0yEmS8ysUJgU9qsYVddD8
-	ZtJ5G2Pg==;
+	bh=b+HGqQCZc4eTZBJ9S6jotkuvef/+Q9e4UGutZNIsM0k=; b=aSv9fGe5huVWtuY6AssdCrVlcQ
+	icmC+ByhgQqOZGLx42EROSZE4y92yVSWyaJZO/wcFILbZa+VA7vHPC/Qjmqbol6Ve3VG14zFtVwv5
+	/n25ojiiAk9gFyi47CfL8Neutc4/+NwZQdboFOp6gv0u6YSei4Oz7eV+KrlILRHyG02Yd37NNCslG
+	U+hWvmWSDm6zDaUvG/Rb8PUkGGhg67z0IYFDNd3Yg06O5caJStSMz+XtX4zvn0j6bEGhhVBBZgXAh
+	+jkLZedNuY2rNFwFH7RegpsYPvyH8I46VEu7zhRe7ttwbF4vd3DtoaqutHFvodU/U2YU+/1nEfQkj
+	OKgMj1OA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOYy5-0000000GLrC-2ZkN;
-	Thu, 27 Nov 2025 10:11:17 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vOYyc-0000000GLva-0Ju7;
+	Thu, 27 Nov 2025 10:11:50 +0000
+Received: from mailtransmit05.runbox.com ([2a0c:5a00:149::26])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOYy2-0000000GLqH-1PyM
+	id 1vOYyZ-0000000GLuV-0SxR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 10:11:16 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id AC3B6C16A1B;
-	Thu, 27 Nov 2025 10:10:48 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 7ABC06068C;
-	Thu, 27 Nov 2025 10:11:11 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 813CE102F275A;
-	Thu, 27 Nov 2025 11:11:00 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764238270; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=3UuhlMt+xKMZUo21Zwoyz9Z0SmtmmUjCG1ylmETi6EM=;
-	b=Idmcn53QlfBfCgbcymkMTd0ok7+aou9cOVD0Hlxmegy9ogCg3hnJIYpRN9wkK5QRcyAbHV
-	VeYPG/lv+3K4E5atdFIx5vbbTSTWoI5Et1hxldmQI63H8ZT8ZpISh8W12V1IBP7TLjVVGx
-	qNJWvt8vA5+6Yfudrvf6DeYftZrLLSevl7NARl3PS1m4wgCt61KAWPZR6qXNFJr6oteavV
-	7G+SOjSoV5eqnHW7zbJ3KaFD66CejCXEUihtV8DmVuI81n4Pj0CMZ/l605ffTIDW2LssuQ
-	Cuw/bB6b1tFMv9dJJfE8o2rCAeZlyeS7i+vH2tINTIS+baB12qkYubtEuxdYcg==
-Message-ID: <966bb724-59bd-4f45-a2a6-89a1967a851e@bootlin.com>
-Date: Thu, 27 Nov 2025 11:10:59 +0100
+	Thu, 27 Nov 2025 10:11:48 +0000
+Received: from mailtransmit02.runbox ([10.9.9.162] helo=aibo.runbox.com)
+	by mailtransmit05.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.93)
+	(envelope-from <david.laight@runbox.com>)
+	id 1vOYyT-00CAuu-Mr; Thu, 27 Nov 2025 11:11:41 +0100
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=runbox.com;
+	 s=selector1; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date;
+	bh=b+HGqQCZc4eTZBJ9S6jotkuvef/+Q9e4UGutZNIsM0k=; b=gleEvVb8YL3YCbwWkElFc3dyIE
+	Bho6Zzifao6+XVQ3u1y7HfFoL9IPTQCfi2OP1SBZ4fITVbrZMZigVd0zXUH+3ZiLR0l+UQMI1KbG4
+	RS1qbgRTzKI8Pi2TYR0gdURbDV9pGjFFSOiQSCwYUOpWAvxs/bO6zYJ0O6qbqPcNvw+5MOfy6aEuk
+	oK8g6jUlfFxnXfxox9tj3xmLKyL5zSe2lct3Wv5Dxg45KTZKwqK921Fe76eROzzxjp8ijCmSDWuZj
+	wTBIoy8WPAoPbkc87rEm3oRsPfRhtBA0kJ2/7fZkMA6ud3wE1maTh26BupWtyiphT+44azPZXnePY
+	SJD/cZVg==;
+Received: from [10.9.9.74] (helo=submission03.runbox)
+	by mailtransmit02.runbox with esmtp (Exim 4.86_2)
+	(envelope-from <david.laight@runbox.com>)
+	id 1vOYyS-0005Hs-Ie; Thu, 27 Nov 2025 11:11:40 +0100
+Received: by submission03.runbox with esmtpsa  [Authenticated ID (1493616)]  (TLS1.2:ECDHE_SECP256R1__RSA_SHA256__AES_256_GCM:256)
+	(Exim 4.93)
+	id 1vOYyK-00FsJI-6T; Thu, 27 Nov 2025 11:11:32 +0100
+Date: Thu, 27 Nov 2025 10:11:29 +0000
+From: david laight <david.laight@runbox.com>
+To: Ard Biesheuvel <ardb+git@google.com>
+Cc: linux-hardening@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>, Kees Cook
+ <kees@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, Will Deacon
+ <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Jeremy Linton
+ <jeremy.linton@arm.com>, Catalin Marinas <Catalin.Marinas@arm.com>, Mark
+ Rutland <mark.rutland@arm.com>, "Jason A. Donenfeld" <Jason@zx2c4.com>
+Subject: Re: [RFC/RFT PATCH 3/6] random: Use u32 to keep track of batched
+ entropy generation
+Message-ID: <20251127101129.204c6c5a@pumpkin>
+In-Reply-To: <20251127092226.1439196-11-ardb+git@google.com>
+References: <20251127092226.1439196-8-ardb+git@google.com>
+	<20251127092226.1439196-11-ardb+git@google.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v19 00/15] net: phy: Introduce PHY ports
- representation
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: davem@davemloft.net, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- thomas.petazzoni@bootlin.com, Andrew Lunn <andrew@lunn.ch>,
- Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
- Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>,
- Heiner Kallweit <hkallweit1@gmail.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>,
- =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>,
- Oleksij Rempel <o.rempel@pengutronix.de>,
- =?UTF-8?Q?Nicol=C3=B2_Veronese?= <nicveronese@gmail.com>,
- Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
- Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- Romain Gantois <romain.gantois@bootlin.com>,
- Daniel Golle <daniel@makrotopia.org>,
- Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
- Tariq Toukan <tariqt@nvidia.com>
-References: <20251122124317.92346-1-maxime.chevallier@bootlin.com>
- <20251126190035.2a4e0558@kernel.org>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20251126190035.2a4e0558@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_021114_548842_AE27554F 
-X-CRM114-Status: GOOD (  12.44  )
+X-CRM114-CacheID: sfid-20251127_021147_311625_E9408EFF 
+X-CRM114-Status: GOOD (  20.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,35 +84,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakub,
+On Thu, 27 Nov 2025 10:22:30 +0100
+Ard Biesheuvel <ardb+git@google.com> wrote:
 
-On 27/11/2025 04:00, Jakub Kicinski wrote:
-> On Sat, 22 Nov 2025 13:42:59 +0100 Maxime Chevallier wrote:
->> This is v19 of the phy_port work. Patches 2 and 3 lack PHY maintainers reviews.
->>
->> This v19 has no changes compared to v18, but patch 2 was rebased on top
->> of the recent 1.6T linkmodes.
->>
->> Thanks for everyone's patience and reviews on that work ! Now, the
->> usual blurb for the series description.
+> From: Ard Biesheuvel <ardb@kernel.org>
 > 
-> Hopefully we can still make v6.19, but we hooked up Claude Code review
-> to patchwork this week, and it points out some legit issues here :(
-> Some look transient but others are definitely legit, please look thru
-> this:
+> The batched entropy containers each have a generation field, to keep
+> track of the base_crng generation from which it was last reseeded.
 > 
-> https://netdev-ai.bots.linux.dev/ai-review.html?id=5388d317-98c9-458e-8655-d60f31112574
+> This use case does not require all bits of the unsigned long to be
+> stored: storing only 32 bits is sufficient to determine whether or not
+> we're at most 4 billion generations behind, which seems ample.
+> 
+> So use an unsigned int instead: this will allow a future patch to treat
+> the generation and position as a single 64-bit quantity, which can be
+> used locklessly in a compare-and-exchange() operation.
 
-Is there a canonical way to reply to these reviews ? Some are good, some
-aren't.
+Probably best to use a u32.
+While it will always(?) be the same as 'unsigned int' it is more
+descriptive.
 
-I'll summarize what I've done in the changelog, but it skips any
-potential discussions that could've been triggered by these reviews. I
-guess this is a matter of letting this process stabilize :)
+> 
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> ---
+>  drivers/char/random.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/char/random.c b/drivers/char/random.c
+> index b8b24b6ed3fe..0e04bc60d034 100644
+> --- a/drivers/char/random.c
+> +++ b/drivers/char/random.c
+> @@ -507,7 +507,7 @@ struct batch_ ##type {								\
+>  	 */									\
+>  	type entropy[CHACHA_BLOCK_SIZE * 3 / (2 * sizeof(type))];		\
+>  	local_lock_t lock;							\
+> -	unsigned long generation;						\
+> +	unsigned int generation;						\
+>  	unsigned int position;							\
+>  };										\
+>  										\
+> @@ -521,7 +521,7 @@ type get_random_ ##type(void)							\
+>  	type ret;								\
+>  	unsigned long flags;							\
+>  	struct batch_ ##type *batch;						\
+> -	unsigned long next_gen;							\
+> +	unsigned int next_gen;							\
+>  										\
+>  	warn_unseeded_randomness();						\
+>  										\
+> @@ -533,7 +533,7 @@ type get_random_ ##type(void)							\
+>  	local_lock_irqsave(&batched_entropy_ ##type.lock, flags);		\
+>  	batch = raw_cpu_ptr(&batched_entropy_##type);				\
+>  										\
+> -	next_gen = READ_ONCE(base_crng.generation);				\
+> +	next_gen = (unsigned int)READ_ONCE(base_crng.generation);		\
 
-Anyhow I'm impressed by what it found (when correct), that's pretty nice.
+Isn't that cast pointless?
 
-Maxime
+	David
 
+>  	if (batch->position >= ARRAY_SIZE(batch->entropy) ||			\
+>  	    next_gen != batch->generation) {					\
+>  		_get_random_bytes(batch->entropy, sizeof(batch->entropy));	\
 
 
