@@ -4,76 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78D35CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 19:01:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A61BDCFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 19:03:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pyik1ppWsyn99IJmPwJb8rPtQa356xa43z61sJ0psZA=; b=AruENwCYAEFXP0xfInljM9Hnuv
-	8twPVBSzRiODfOIMWBAt8ViKxL+RMbjT6cIRHgT1cbmDA83OTD0wJcgmJFitnx/0thvaXGr3Ed1Fi
-	1c5NFFCUyf532i8Ah1dpBmtDbdLz35EP8UbUiFgQrZfZEsPqGDu47GhlogPOGqJtvwvvuddzjpEGi
-	N7w4ybaJ/Uwcg+6dW+USRJ1a7EXutuFiKkb614vjlPIPWMPGcD1Bv4aAUAfhwZZntMo6A0GDTgTQH
-	uZQUQT+i7bqF/HdYraL68lzBiWBZqv1aYjtEHnhCUNlMw8+83Q+vc0ajiiAUozSZieUTrHy/MTpzR
-	Wq1zX88A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=12NHg5mpkkfFuDbyCvK5djSM2M++P/Z48X9ciVtOpl4=; b=rsZC/kDj49iJQ6iHd13rByWRVy
+	qSzexG0dYj8fuQ+66B1LclGbRsXpxDda806dX+APqB9jun7lxLgcnuiwNx0BXQjUM0rE/gs/uL+eF
+	+jQLeWHIT5Rq9WIAX+ROnIZAiyguN+BFcyfgOgR2PEgd1C31B/eBHzOCu5Z+RD7H7tYVvO56ofUOy
+	e3gTHNq+yTzsg1tgRgKwYZgHtInWZuJhAUHf746UBGwikEn3fgoqkelPm8dbC7toSGT1i8CWNFCGf
+	MFhZPxgHQi1WhxYz/YGzCyvk1wxeAUqGXS2BRift9Cnku1FZkUt9CRqJhTrKjIc1THMj2aMPdbpik
+	2rczgIWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOhFP-0000000H5pZ-37io;
-	Thu, 27 Nov 2025 19:01:43 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vOhGr-0000000H62U-2djW;
+	Thu, 27 Nov 2025 19:03:13 +0000
+Received: from smtp1.ms.mff.cuni.cz ([2001:718:1e03:801::4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOhFM-0000000H5oy-2yni
+	id 1vOhGo-0000000H61j-3g7t
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 19:01:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 178D14170E
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 19:01:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED906C113D0
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 19:01:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764270100;
-	bh=pyik1ppWsyn99IJmPwJb8rPtQa356xa43z61sJ0psZA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Vd08SOMlOgwGw5/+/GvAcXLiRh+3UiHakhJGwaq7DkutarH+xGtveL0OcdQW+C2wR
-	 HslVDSCTWkDhes4fzOLL9pRjnXcUouVIuP6rQ32t7Kw7WLuisK2UvZbxRREieyZZFV
-	 aCOAYyzamwmv/p6K+Ejv8J8BKQhqN2DAPB9+S/vGmFzw1A2uFR1rz4dIeFS21SKMYQ
-	 /ZwDAEjHYVwia2F7ENmsgCu1yJ4ZmmLXjslYDCtoZaKR62LKhM3KBFuRJle8gQsA51
-	 vrrsY3UsrrM0m6gXDZVNXzUMNkaQW5gl0zhZKdDLcTpnMrBoCR2RCrtM+jjxDQ7OSu
-	 uoZq2xbJo6SJw==
-Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-37a875e3418so8060091fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 11:01:39 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCX68bdcKhv+QEuppEjkRF+SkqMIHFHY4n/svkq3jg/j5ibRAE1ejkPzT566qc+62T2A/vz5iaY2OGczmAY27ThE@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIp3Lu9Kfx5/49Wc7lXWAYFfQ1NrH637uxAsWisAnSAe8ip58s
-	63dYEtBWTYTftbifhoMN1p9p0h4kglfSJbMxIJIvw5oGlqvbtdPCKL6ZYHY7588R6gkObx08Ohm
-	jibDkBwVKScXmlm73pO9yBKLBo37+cso=
-X-Google-Smtp-Source: AGHT+IGwO8km+DEKBaxbbTEf6xRCO3rvZTLW39354N1V9n8/1e78+i+7IjvkI/cbPpzn3XbNIhdZrrNc3oe68ND8ySE=
-X-Received: by 2002:ac2:4e08:0:b0:577:285f:32bd with SMTP id
- 2adb3069b0e04-596b526cc5fmr4598727e87.26.1764270098336; Thu, 27 Nov 2025
- 11:01:38 -0800 (PST)
+	Thu, 27 Nov 2025 19:03:12 +0000
+X-SubmittedBy: id balejk@matfyz.cz subject /postalCode=110+2000/O=Univerzita+20Karlova/street=Ovocn+5CxC3+5CxBD+20trh+20560+5C/5/ST=Praha,+20Hlavn+5CxC3+5CxAD+20m+5CxC4+5Cx9Bsto/C=CZ/CN=Karel+20Balej/emailAddress=balejk@matfyz.cz
+	serial F5FD910E8FE2121B897F7E55B84E351D
+	issued by /C=NL/O=GEANT+20Vereniging/CN=GEANT+20Personal+20CA+204
+	auth type TLS.CUNI
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mff.cuni.cz;
+	s=submission; t=1764270177; x=1765570177;
+	bh=12NHg5mpkkfFuDbyCvK5djSM2M++P/Z48X9ciVtOpl4=; h=From;
+	b=Vv4DYNI2rWg9QpBcBsDdAWrqJa5Wu67LMVgifVZOx5r4yu6PrSmW8afuQu5z7TMSJ
+	 xnyrJvrsGi1/oOI7eVkD1IvZgzzkjgtpYdoJSctWaM+YodaneOmndrblSKjP5IysgI
+	 zgjs5d/+jl8nZRwBIv5OYvk4xyz3RY+RlZcezbGwuZ7g6U3LbwV5qCNoJWOVQAZJOV
+	 /nzojzoFyRQHF4Dwugu/1Z+dmRyWs75j4yobsFKv8HO9Ci7veMLN4tlKDoKin45PtP
+	 KUc39RlSwV6RYes+Af14y/bk7fCpn5mgum03Mt2ZMZktr/smAXGKhOEgc6XdPyTGb6
+	 ojQ0UMV4XEcbA==
+Received: from localhost (nat2.prg.suse.com [195.250.132.146])
+	(authenticated)
+	by smtp1.ms.mff.cuni.cz (8.18.1/8.18.1) with ESMTPS id 5ARJ2tWM008160
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=OK);
+	Thu, 27 Nov 2025 20:02:57 +0100 (CET)
+	(envelope-from balejk@matfyz.cz)
+From: Karel Balej <balejk@matfyz.cz>
+To: =?UTF-8?q?Duje=20Mihanovi=C4=87?= <duje@dujemihanovic.xyz>,
+        Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
+        Karel Balej <balejk@matfyz.cz>
+Subject: [PATCH 2/2] pmdomain: add audio power island for Marvell PXA1908 SoC
+Date: Thu, 27 Nov 2025 20:02:03 +0100
+Message-ID: <20251127190237.745-2-balejk@matfyz.cz>
+X-Mailer: git-send-email 2.51.2
+In-Reply-To: <20251127190237.745-1-balejk@matfyz.cz>
+References: <20251127190237.745-1-balejk@matfyz.cz>
 MIME-Version: 1.0
-References: <20251127092226.1439196-8-ardb+git@google.com> <b1dae5a7-27bd-42de-bcce-9fd3c2b1c178@arm.com>
- <CAMj1kXE-Qm4DQNAcg8Tg7YM4EMdLBu_UJm7M8Cpk3t5g7XqP5w@mail.gmail.com>
- <e996fdd5-7113-4327-a884-336dd5f77c4d@arm.com> <CAMj1kXGyYMy2xhcdNicHkMfWBnEjyhc+xg8ciuR-6WXDxDpZxg@mail.gmail.com>
- <f95593ac-d4cf-4e06-9a94-cc5133897c59@arm.com> <aSiDSp8NpqJkr1oD@J2N7QTR9R3>
-In-Reply-To: <aSiDSp8NpqJkr1oD@J2N7QTR9R3>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 27 Nov 2025 20:01:25 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXF9-tXVQS-_p8c058ssn80xaiDu+01SR98=yQ004xevng@mail.gmail.com>
-X-Gm-Features: AWmQ_blCzWooEduQY70i7aS-W3HH2XR2ydJyogg_jetISwCHw8QoRgAWB6Ylzzs
-Message-ID: <CAMj1kXF9-tXVQS-_p8c058ssn80xaiDu+01SR98=yQ004xevng@mail.gmail.com>
-Subject: Re: [RFC/RFT PATCH 0/6] Improve get_random_u8() for use in randomize kstack
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>, Ard Biesheuvel <ardb+git@google.com>, 
-	linux-hardening@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Kees Cook <kees@kernel.org>, 
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Jeremy Linton <jeremy.linton@arm.com>, 
-	Catalin Marinas <Catalin.Marinas@arm.com>, "Jason A. Donenfeld" <Jason@zx2c4.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_110140_813140_3D3D61FF 
-X-CRM114-Status: GOOD (  28.79  )
+X-CRM114-CacheID: sfid-20251127_110311_208946_0DFF0553 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,42 +80,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Nov 2025 at 17:58, Mark Rutland <mark.rutland@arm.com> wrote:
->
-> On Thu, Nov 27, 2025 at 03:56:59PM +0000, Ryan Roberts wrote:
-> > On 27/11/2025 15:03, Ard Biesheuvel wrote:
-> > > So the question is really whether we want to dedicate 16 bytes per
-> > > task for this. I wouldn't mind personally, but it is something our
-> > > internal QA engineers tend to obsess over.
-> >
-> > Yeah that's a good point.
->
-> I think it's a fair point that some people will obsesses over this, but
-> I think the concern is misplaced.
->
-> I know that people were very happy for the kernel FPSIMD context to
-> disappear from task_struct, but 16 bytes is a fair amount smaller, and
-> I'm pretty sure we can offset that with a small/moderate amount of work.
->
-> AFAICT there are extant holes in task_struct that could easily account
-> for 16 bytes. I can also see a few ways to rework arm64's thread_info
-> and thread_struct (which are both embedded within task_struct) to save
-> some space.
->
+Define power domain which needs to be enabled in order for audio to work
+on the PXA1908-based samsung,coreprimevelte smartphone. In the
+downstream code, this power-on method is marked as specific to the ulcx
+series which is likely some variant of the board or some part of it. No
+other audio components needed for sound to work on this phone are
+currently available mainline but some successful testing was performed
+with the vendor variants of the respective drivers and with the domain
+forced always-on.
 
-Oh, I completely agree. But it is going to come up one way or the other.
+Signed-off-by: Karel Balej <balejk@matfyz.cz>
+---
+ .../marvell/pxa1908-power-controller.c        | 38 +++++++++++++++++--
+ 1 file changed, 34 insertions(+), 4 deletions(-)
 
-> > Is this something we could potentially keep at the start of the
-> > kstack? Is there any precident for keeping state there at the moment?
-> > For arm64, I know there is a general feeling that 16K for the stack
-> > more than enough (but we are stuck with it because 8K isn't quite
-> > enough). So it would be "for free". I guess it would be tricky to do
-> > this in an arch-agnostic way though...
->
-> We went out of our way to stop playing silly games like that when we
-> moved thread_info into task_struct; please let's not bring that back.
->
+diff --git a/drivers/pmdomain/marvell/pxa1908-power-controller.c b/drivers/pmdomain/marvell/pxa1908-power-controller.c
+index ff5e6e82d3f8..e32eb227f235 100644
+--- a/drivers/pmdomain/marvell/pxa1908-power-controller.c
++++ b/drivers/pmdomain/marvell/pxa1908-power-controller.c
+@@ -29,7 +29,10 @@
+ #define POWER_POLL_TIMEOUT_US	(25 * USEC_PER_MSEC)
+ #define POWER_POLL_SLEEP_US	6
+ 
+-#define NR_DOMAINS	5
++#define APMU_AUD_CLK		0x80
++#define AUDIO_ULCX_ENABLE	0x0d
++
++#define NR_DOMAINS	6
+ 
+ #define to_pxa1908_pd(_genpd) container_of(_genpd, struct pxa1908_pd, genpd)
+ 
+@@ -59,9 +62,13 @@ static inline bool pxa1908_pd_is_on(struct pxa1908_pd *pd)
+ {
+ 	struct pxa1908_pd_ctrl *ctrl = pd->ctrl;
+ 
+-	return pd->data.id != PXA1908_POWER_DOMAIN_DSI
+-		? regmap_test_bits(ctrl->base, APMU_PWR_STATUS_REG, pd->data.pwr_state)
+-		: regmap_test_bits(ctrl->base, APMU_DEBUG, DSI_PHY_DVM_MASK);
++	switch (pd->data.id) {
++	case PXA1908_POWER_DOMAIN_AUDIO:
++		return regmap_test_bits(ctrl->base, APMU_AUD_CLK, AUDIO_ULCX_ENABLE);
++	case PXA1908_POWER_DOMAIN_DSI:
++		return regmap_test_bits(ctrl->base, APMU_DEBUG, DSI_PHY_DVM_MASK);
++	}
++	return regmap_test_bits(ctrl->base, APMU_PWR_STATUS_REG, pd->data.pwr_state);
+ }
+ 
+ static int pxa1908_pd_power_on(struct generic_pm_domain *genpd)
+@@ -123,6 +130,22 @@ static inline int pxa1908_dsi_power_off(struct generic_pm_domain *genpd)
+ 	return regmap_clear_bits(ctrl->base, APMU_DEBUG, DSI_PHY_DVM_MASK);
+ }
+ 
++static inline int pxa1908_audio_power_on(struct generic_pm_domain *genpd)
++{
++	struct pxa1908_pd *pd = to_pxa1908_pd(genpd);
++	struct pxa1908_pd_ctrl *ctrl = pd->ctrl;
++
++	return regmap_set_bits(ctrl->base, APMU_AUD_CLK, AUDIO_ULCX_ENABLE);
++}
++
++static inline int pxa1908_audio_power_off(struct generic_pm_domain *genpd)
++{
++	struct pxa1908_pd *pd = to_pxa1908_pd(genpd);
++	struct pxa1908_pd_ctrl *ctrl = pd->ctrl;
++
++	return regmap_clear_bits(ctrl->base, APMU_AUD_CLK, AUDIO_ULCX_ENABLE);
++}
++
+ #define DOMAIN(_id, _name, ctrl, mode, state) \
+ 	[_id] = { \
+ 		.data = { \
+@@ -159,6 +182,13 @@ static struct pxa1908_pd domains[NR_DOMAINS] = {
+ 			.keep_on = true,
+ 		},
+ 	},
++	[PXA1908_POWER_DOMAIN_AUDIO] = {
++		.genpd = {
++			.name = "audio",
++			.power_on = pxa1908_audio_power_on,
++			.power_off = pxa1908_audio_power_off,
++		},
++	},
+ };
+ 
+ static void pxa1908_pd_remove(struct auxiliary_device *auxdev)
+-- 
+2.51.2
 
-Agreed. (after just having moved the kernel mode FP/SIMD buffer from
-task_struct to the kernel mode stack :-))
 
