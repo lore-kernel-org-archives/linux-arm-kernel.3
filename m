@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4086D11183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 13:25:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D496D11183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 13:25:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cr+5Rr5BPGPR1wepA4s78G0eot3R+UDHLBx6NzzwIjI=; b=xNHP85DdAOhaOXCTIhPosNj72f
-	7OaEiJRjhOAAZ9A87jiW19EfdxBA0v2XFdKeKwTrOmCL97eRSycnvhhUScTDEKHfXMMRz/8GtR60j
-	zlCI4u1SpuJ1hA+FhFWIN/Bmf2kQ33ovQ/WyRAgA8cpkOk9oDQoNrKJTr+Jimpn4bHfGVjesRm61k
-	RmSOcCzibw1jSM6WTOPjQ7jscXd0KATl92tntaMKZSQhMLm+uMGaR8BiL0FtrReZ5PxMamqY800gb
-	+z6fREAgfmmlG+MdTyLxeU3qcLi76uPKqd4L391FrttOw4sazgYp62Eh7KOONxxa92jXc2y00RNnV
-	lKjXu+Fw==;
+	bh=moEVtDcL42IP0HcsenV6WOiAqpgmM02qs5Y6D1+1cNo=; b=uIWCrDGA8jnhtQdX7By2oFSgoi
+	C0DzjtSHCDs15KZD34zotolGTyK81oB0mFnzoCz0ivwPyBON8uSoJLBiT75pgnmX/hX+YwElQsSM2
+	wzj3PQsO4PUrHrbswgmnHHzKjyLF7fGW1TGZZMn+guE6OE+PnVWByWM9rWJXEJi0pqttU0cCDrKs1
+	tTmIl7Fpd7NODmYF9W1MvclhURfFIsf4aFVDUqFpOVDENv/Ukg8z3f3E/MzvZ3XtZRzxHJKbT8/EE
+	9EcYljZ8SUaWy7DZZ2bZEj5IJX82QWl8fpKy8ONQtxKVFwr6tVcFRMr+sdq8jfR+bZC8dpWeMRYhN
+	1rHs8cGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vObzd-0000000GfL1-3zFc;
-	Thu, 27 Nov 2025 13:25:05 +0000
-Received: from canpmsgout11.his.huawei.com ([113.46.200.226])
+	id 1vOc06-0000000GfQa-3omK;
+	Thu, 27 Nov 2025 13:25:34 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vObza-0000000GfJV-1nXt
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 13:25:04 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Cr+5Rr5BPGPR1wepA4s78G0eot3R+UDHLBx6NzzwIjI=;
-	b=YL5fV4xE2L/eeoILrrBxV1N7dJlTDocQg0tVtTBqhVHiGJrFZMev0VDQVSkZDLhAl5URyZjV6
-	VQCw6nI6aUOb4X9C0BIMdUaw/4AdNcInkYZSSv1Kdl5IBbQh+bdShVt+y1tS1SvduD4FKY51aMv
-	3Z8zAxjGW7zojq71QEmAais=
-Received: from mail.maildlp.com (unknown [172.19.163.44])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4dHHDQ5hXhzKm4J;
-	Thu, 27 Nov 2025 21:23:02 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 1009E1401F4;
-	Thu, 27 Nov 2025 21:24:52 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Thu, 27 Nov 2025 21:24:51 +0800
-Message-ID: <694b6f79-8306-46fb-9f4b-c30afd114210@huawei.com>
-Date: Thu, 27 Nov 2025 21:24:50 +0800
+	id 1vOc02-0000000GfPK-30NY;
+	Thu, 27 Nov 2025 13:25:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1764249927;
+	bh=aEiQVMDoMgNcxL4GiRqNIJWzllGGLe7RboB7EQdNgAI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=AZzbizIkgAjmlxdMrCRH9UpGgY4MV+GjkNFPdScQP/b3jx/kYcK2Dafll06rvzl5l
+	 Dwy5k0aDjZcLSaCr5/DhtxRTfOPLQExZm6jh7bmQSd9C/ca1XjVH7GDgniahP1bXmR
+	 +ldD2Sl3F2bmpvdNgdFttemhwq0mKYaDROEQ9VJWdo9xdWYGSSPod7wYIqmQHp0mF8
+	 2Y0FpjWm/exFALIMAMKG45up+DO54QVk8M8+QOgkp/B+Maer7LvwDu715bw05gOBdD
+	 /7JCrJDdSdfSzYxc0nszBqn/46vwNg473QJnte8AnaTZS6HVAdC2QnTiN4VTHiOSyy
+	 rXhtGXcgIQETA==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id D28DD17E0117;
+	Thu, 27 Nov 2025 14:25:26 +0100 (CET)
+Message-ID: <fc5febc7-d1ee-4b93-81c7-eca7134e9c39@collabora.com>
+Date: Thu, 27 Nov 2025 14:25:26 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/5] KVM: arm64: Add support for FEAT_HDBSS
-To: Marc Zyngier <maz@kernel.org>, Tian Zheng <zhengtian10@huawei.com>
-CC: <oliver.upton@linux.dev>, <catalin.marinas@arm.com>, <corbet@lwn.net>,
-	<pbonzini@redhat.com>, <will@kernel.org>, <linux-kernel@vger.kernel.org>,
-	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <yezhenyu2@huawei.com>,
-	<xiexiangyou@huawei.com>, <zhengchuan@huawei.com>, <joey.gouly@arm.com>,
-	<kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<suzuki.poulose@arm.com>
-References: <20251121092342.3393318-1-zhengtian10@huawei.com>
- <20251121092342.3393318-4-zhengtian10@huawei.com>
- <86tsymqjwb.wl-maz@kernel.org>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <86tsymqjwb.wl-maz@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Subject: Re: [PATCH] arm64: dts: mediatek: mt8195: Fix address range for JPEG
+ decoder core 1
+To: Chen-Yu Tsai <wenst@chromium.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Arnd Bergmann <arnd@kernel.org>
+Cc: linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, soc@kernel.org
+References: <20251127100044.612825-1-wenst@chromium.org>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20251127100044.612825-1-wenst@chromium.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.120.103]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemr100010.china.huawei.com (7.202.195.125)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_052503_140281_95FCFF1A 
-X-CRM114-Status: GOOD (  32.37  )
+X-CRM114-CacheID: sfid-20251127_052530_920870_DBFB977D 
+X-CRM114-Status: GOOD (  20.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,189 +76,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Il 27/11/25 11:00, Chen-Yu Tsai ha scritto:
+> The base address of JPEG decoder core 1 should start at 0x10000, and
+> have a size of 0x10000, i.e. it is right after core 0.
+> 
+> Instead the core has  the same base address as core 0, and with a crazy
+> large size. This looks like a mixup of address and size cells when the
+> ranges were converted.
+> 
+> This causes the kernel to fail to register the second core due to sysfs
+> name conflicts:
+> 
+>      sysfs: cannot create duplicate filename '/devices/platform/soc/soc:jpeg-decoder@1a040000/1a040000.jpgdec'
+> 
+> Fix up the address range.
+> 
+> Fixes: a9eac43d039f ("arm64: dts: mediatek: mt8195: Fix ranges for jpeg enc/decoder nodes")
+> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+
+Acked-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+
+> ---
+> This was introduced in v6.18-rc1.
+> 
+> Maybe have the soc maintainers take this directly instead of waiting?
+
+I'm fine with that; if Arnd wants to take it directly, that'd be easier for me as
+I really don't expect any other Fixes commits for the moment (and I'm currently in
+a very, very... very busy "moment").
+
+Cheers,
+Angelo
+
+> 
+> Also, I'm not sure if this error could mess up the JPEG decoder driver's
+> internal tracking.
+> 
+>   arch/arm64/boot/dts/mediatek/mt8195.dtsi | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/boot/dts/mediatek/mt8195.dtsi b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
+> index ec452d657031..c7adafaa8328 100644
+> --- a/arch/arm64/boot/dts/mediatek/mt8195.dtsi
+> +++ b/arch/arm64/boot/dts/mediatek/mt8195.dtsi
+> @@ -3067,7 +3067,7 @@ jpgdec@0,0 {
+>   
+>   			jpgdec@0,10000 {
+>   				compatible = "mediatek,mt8195-jpgdec-hw";
+> -				reg = <0 0 0x10000 0x10000>;/* JPGDEC_C1 */
+> +				reg = <0 0x10000 0 0x10000>;/* JPGDEC_C1 */
+>   				iommus = <&iommu_vdo M4U_PORT_L19_JPGDEC_WDMA0>,
+>   					 <&iommu_vdo M4U_PORT_L19_JPGDEC_BSDMA0>,
+>   					 <&iommu_vdo M4U_PORT_L19_JPGDEC_WDMA1>,
 
 
-On 2025/11/22 21:25, Marc Zyngier wrote:
-> On Fri, 21 Nov 2025 09:23:40 +0000,
-> Tian Zheng <zhengtian10@huawei.com> wrote:
->>
->> From: eillon <yezhenyu2@huawei.com>
->>
->> Armv9.5 introduces the Hardware Dirty Bit State Structure (HDBSS) feature,
->> indicated by ID_AA64MMFR1_EL1.HAFDBS == 0b0100.
->>
->> Add the Kconfig for FEAT_HDBSS and support detecting and enabling the
->> feature. A CPU capability is added to notify the user of the feature.
->>
->> Add KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl and basic framework for
->> ARM64 HDBSS support. Since the HDBSS buffer size is configurable and
->> cannot be determined at KVM initialization, an IOCTL interface is
->> required.
->>
->> Actually exposing the new capability to user space happens in a later
->> patch.
->>
->> Signed-off-by: eillon <yezhenyu2@huawei.com>
->> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
->> ---
->>   arch/arm64/Kconfig                  | 14 ++++++++++++++
->>   arch/arm64/include/asm/cpucaps.h    |  2 ++
->>   arch/arm64/include/asm/cpufeature.h |  5 +++++
->>   arch/arm64/include/asm/kvm_host.h   |  4 ++++
->>   arch/arm64/include/asm/sysreg.h     | 12 ++++++++++++
->>   arch/arm64/kernel/cpufeature.c      |  9 +++++++++
->>   arch/arm64/tools/cpucaps            |  1 +
->>   include/uapi/linux/kvm.h            |  1 +
->>   tools/include/uapi/linux/kvm.h      |  1 +
->>   9 files changed, 49 insertions(+)
->>
->> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
->> index 6663ffd23f25..1edf75888a09 100644
->> --- a/arch/arm64/Kconfig
->> +++ b/arch/arm64/Kconfig
->> @@ -2201,6 +2201,20 @@ config ARM64_GCS
->>
->>   endmenu # "ARMv9.4 architectural features"
->>
->> +menu "ARMv9.5 architectural features"
->> +
->> +config ARM64_HDBSS
->> +	bool "Enable support for Hardware Dirty state tracking Structure (HDBSS)"
->> +	help
->> +	  Hardware Dirty state tracking Structure(HDBSS) enhances tracking
->> +	  translation table descriptors' dirty state to reduce the cost of
->> +	  surveying for dirtied granules.
->> +
->> +	  The feature introduces new assembly registers (HDBSSBR_EL2 and
->> +	  HDBSSPROD_EL2), which are accessed via generated register accessors.
-> 
-> This last but means nothing to most people.
-> 
-> But more importantly, I really don't want to see this as a config
-> option. KVM comes with "battery included", and all features should be
-> available at all times.
-HDBSS is only designed for KVM, and I agree that it shouldn't be
-controlled by a config option. I will remove it.
-
-By the way, I would like to ask for your advice. I have been a bit
-confused about when exactly it is necessary to add a config option in
-Kconfig for a feature.
-> 
->> +
->> +endmenu # "ARMv9.5 architectural features"
->> +
->>   config ARM64_SVE
->>   	bool "ARM Scalable Vector Extension support"
->>   	default y
->> diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
->> index 9d769291a306..5e5a26f28dec 100644
->> --- a/arch/arm64/include/asm/cpucaps.h
->> +++ b/arch/arm64/include/asm/cpucaps.h
->> @@ -48,6 +48,8 @@ cpucap_is_possible(const unsigned int cap)
->>   		return IS_ENABLED(CONFIG_ARM64_GCS);
->>   	case ARM64_HAFT:
->>   		return IS_ENABLED(CONFIG_ARM64_HAFT);
->> +	case ARM64_HAS_HDBSS:
->> +		return IS_ENABLED(CONFIG_ARM64_HDBSS);
->>   	case ARM64_UNMAP_KERNEL_AT_EL0:
->>   		return IS_ENABLED(CONFIG_UNMAP_KERNEL_AT_EL0);
->>   	case ARM64_WORKAROUND_843419:
->> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
->> index e223cbf350e4..b231415a2b76 100644
->> --- a/arch/arm64/include/asm/cpufeature.h
->> +++ b/arch/arm64/include/asm/cpufeature.h
->> @@ -856,6 +856,11 @@ static inline bool system_supports_haft(void)
->>   	return cpus_have_final_cap(ARM64_HAFT);
->>   }
->>
->> +static inline bool system_supports_hdbss(void)
->> +{
->> +	return cpus_have_final_cap(ARM64_HAS_HDBSS);
->> +}
->> +
->>   static __always_inline bool system_supports_mpam(void)
->>   {
->>   	return alternative_has_cap_unlikely(ARM64_MPAM);
->> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
->> index 64302c438355..d962932f0e5f 100644
->> --- a/arch/arm64/include/asm/kvm_host.h
->> +++ b/arch/arm64/include/asm/kvm_host.h
->> @@ -60,6 +60,10 @@
->>
->>   #define KVM_HAVE_MMU_RWLOCK
->>
->> +/* HDBSS entry field definitions */
->> +#define HDBSS_ENTRY_VALID BIT(0)
->> +#define HDBSS_ENTRY_IPA GENMASK_ULL(55, 12)
->> +
-> 
-> None of this is used here. Move it to the patch where it belongs.
-I will move HDBSS_ENTRY_VALID and HDBSS_ENTRY_IPA to next patch.
-> 
->>   /*
->>    * Mode of operation configurable with kvm-arm.mode early param.
->>    * See Documentation/admin-guide/kernel-parameters.txt for more information.
->> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
->> index c231d2a3e515..3511edea1fbc 100644
->> --- a/arch/arm64/include/asm/sysreg.h
->> +++ b/arch/arm64/include/asm/sysreg.h
->> @@ -1129,6 +1129,18 @@
->>   #define gicr_insn(insn)			read_sysreg_s(GICV5_OP_GICR_##insn)
->>   #define gic_insn(v, insn)		write_sysreg_s(v, GICV5_OP_GIC_##insn)
->>
->> +/*
->> + * Definitions for the HDBSS feature
->> + */
->> +#define HDBSS_MAX_SIZE		HDBSSBR_EL2_SZ_2MB
->> +
->> +#define HDBSSBR_EL2(baddr, sz)	(((baddr) & GENMASK(55, 12 + sz)) | \
->> +				 FIELD_PREP(HDBSSBR_EL2_SZ_MASK, sz))
->> +#define HDBSSBR_BADDR(br)	((br) & GENMASK(55, (12 + HDBSSBR_SZ(br))))
->> +#define HDBSSBR_SZ(br)		FIELD_GET(HDBSSBR_EL2_SZ_MASK, br)
-> 
-> This is a bit backward. When would you need to read-back and mask
-> random bits off the register?
-I will delete the definitions of HDBSSBR_BADDR and HDBSSBR_SZ.
-> 
->> +
->> +#define HDBSSPROD_IDX(prod)	FIELD_GET(HDBSSPROD_EL2_INDEX_MASK, prod)
->> +
-> 
-> As previously said, these definitions don't serve any purpose here,
-> and would be better in the following patch.
-I will move all the HDBSS definitions to the next patch where they
-are actually used.
-> 
->>   #define ARM64_FEATURE_FIELD_BITS	4
->>
->>   #ifdef __ASSEMBLY__
->> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->> index e25b0f84a22d..f39973b68bdb 100644
->> --- a/arch/arm64/kernel/cpufeature.c
->> +++ b/arch/arm64/kernel/cpufeature.c
->> @@ -2710,6 +2710,15 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
->>   		.matches = has_cpuid_feature,
->>   		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HAFT)
->>   	},
->> +#endif
->> +#ifdef CONFIG_ARM64_HDBSS
->> +	{
->> +		.desc = "Hardware Dirty state tracking structure (HDBSS)",
->> +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
->> +		.capability = ARM64_HAS_HDBSS,
->> +		.matches = has_cpuid_feature,
->> +		ARM64_CPUID_FIELDS(ID_AA64MMFR1_EL1, HAFDBS, HDBSS)
->> +	},
-> 
-> I think this is one of the features we should restrict to VHE. I don't
-> imagine pKVM ever making use of this, and no non-VHE HW will ever
-> build this.
-> 
-> Thanks,
-I will add a new helper function that checks both VHE and the CPUID
-feature, and use it in place of has_cpuid_feature in the .matches field.
-> 
-> 	M.
-> 
-
+-- 
 
