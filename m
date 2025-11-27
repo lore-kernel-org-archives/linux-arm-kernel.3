@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CAD2D116F5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 09:23:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92EBCD11183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 09:23:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G8PUYE65+35CiVgD1jp+ggIop/9/H10ihf2g4jePZBk=; b=OFo6BxkTCfPsRW2EeQGfO+SQ94
-	DSXmBqaItAmsSaEwC8f3NDj3KQrzc5DWnyVZedzABDHFvPzs/lCx96T2X2QGfth8+e0Py9UnGdGJ8
-	nv8+4xUQVjx08CkBRRB4rPIMHDRsBmPB4iJOD/e1/b7N5OTJg9bSL3ac3zgckGlju2JI0O0rPi11H
-	GaMdqwGTBejDJn9h9OU0Gh0ye4pGlNGObG9+AS4Ebsre3Y+lnEp2csJ0SMfVz+Fbzl5T/ONqfNnv+
-	ZOMrXeFXVsKMJiTewzV9TZRKqCv7lm6pvUjJRmlq+28ZNE6qBocP+Nu2II7BMZ7rb78KrFeJ8cp1+
-	/Psk3EHw==;
+	bh=EUL0bXq8chbknjAsMuUQFU4e6lGXKM8WYzXlQLV3Sa4=; b=cvoF2ejKaOSz3wQGQTeYnrNdgk
+	JgEC7lBRqRVfiAaCiGOlXCFPa5dRx5nvY9CsH6GNxCNHcIWvvvCJ1d5I3aXhgm2GPq30ZsKTLXB8J
+	eyHDrrHeVDEqpbuCvoG219cRUBU31eODbl1JE4RTuLwt2aF3rg9OFEAfh001CSVu6gFPNFYXqxzHz
+	NOGvIoG4SzP9LzlTVwBCxwrtT5RS3h6hA3+1g2e0N3V5kLrYlO/qOED63WDFgR1QtlXULJrj43ucs
+	PWQ05vcYjE8FWRFfe0YNp8o+TYB+Xl0E5h9gOxEuquvL4c/0CytU1ivYOVpN9jorYsOeRyhVdgJrU
+	DPyPrlKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOYDQ-0000000GHgE-0KP1;
-	Thu, 27 Nov 2025 09:23:04 +0000
+	id 1vOYDk-0000000GHxB-3QII;
+	Thu, 27 Nov 2025 09:23:24 +0000
 Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOYDK-0000000GHb1-1jy4
+	id 1vOYDN-0000000GHdd-1OJ5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 09:22:59 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-47799717212so3900795e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 01:22:57 -0800 (PST)
+	Thu, 27 Nov 2025 09:23:02 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-477939321e6so3389055e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 01:23:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764235376; x=1764840176; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1764235379; x=1764840179; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=G8PUYE65+35CiVgD1jp+ggIop/9/H10ihf2g4jePZBk=;
-        b=t4Fm0uSnfgvmkJKiciupuTVg5Oe3svr5cSILP4izAA6ggqo9NQa9lzuYtjttyjZ93B
-         c7IGel95g6fohVyxT2Dx4hFaJINcWETdIzPhw7NPPcUTBuATGhZFZUAJZXO9gqKVwqq+
-         YqVxLQV7d13+4/nF2UT9/3u4Yi73LQkyD3inEJWhn0z8TG3L/2Ej4OJRhJHkyusYK5KW
-         2/zFtWnBryjGXYJ1bhm7LIE/VS/duNXQgD/PIc7h+bIrxXu0Gk/mzhrzx/0iVI9TzKK3
-         mnVq6ck0kVk5CL1ptLgvMLqSHJZylGwDZfSCnnRx5DL0tR9+7NpSt7Sbpw0/dO/UQiKQ
-         a8yw==
+        bh=EUL0bXq8chbknjAsMuUQFU4e6lGXKM8WYzXlQLV3Sa4=;
+        b=aKMiz5mmZZu+XeWjH8FCVBv14mgRyWiFTFGF/gIZXdXdyYkRf2vOAQrqJCKzJO08cB
+         QSDetxLZTbmfrdsvWi8x+r282Sa3RflSy49TxdX24ZTE7pFHz8s17IOAlfd5A+qQIREC
+         6OEQxY24pwqpY6TsKTVvBMdhEGinKErmO6oeS8kjwerm9xjyfX+3exGlahH4hAquW78V
+         Szpbv4wVp9fO1+kLKD6Y+vyiOPQWcW5kEAX2uIq1EYNzEKEQ1yQc1ySXU+sUNsR35Ibb
+         ZSJNxm8J6vPodFk2kdSdBXwQTCz7A7sTO4gSp5GS82tdom4NyD9TQuscgeTKwSvzvYyF
+         g44w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764235376; x=1764840176;
+        d=1e100.net; s=20230601; t=1764235379; x=1764840179;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=G8PUYE65+35CiVgD1jp+ggIop/9/H10ihf2g4jePZBk=;
-        b=X4W5Hqiv2biDRCQHkFnSnpoD2tUyg2lcekiT7FDjAb2mBZCudLCOxE6wECF4YlRDTM
-         T3Xuiv5xbKGMAkxhGWg3Yi01TBdYGLx3nRwHFHEziznlj2pTW84p6yjgQayGKHkRqn/m
-         EUPJet5BY7nfERpwAuZjB0h4nciBPHYQLGQFr797QILVgNvOsWySTMXpT9iFggZgZsmp
-         zKRKMVbVtSltIJpzn5tq0t/FLY36ufKce6YhhgiuKa9BBjXLOGCPnjJpDWwgRQx9s02R
-         ie/DJHm5CA2qfqAR+mQzl6/mOfpSe5JRvokYFa4lJbOQ8FGbaCO+mH4/c2UiZxK1+dbP
-         yPIw==
-X-Gm-Message-State: AOJu0Yyhm21MbBz+qfntJ9e7NDquAImN5mHWCE93WZi2JKdShbw0BO5D
-	QPWko0/P/XiWMvZ/Walc00FELueqbcgpSO5uTH7BS7LDJ+wk5tIhqlBPzQYRA7GSJKvLtOg45Q=
+        bh=EUL0bXq8chbknjAsMuUQFU4e6lGXKM8WYzXlQLV3Sa4=;
+        b=hGoDKB2oJHAbca60Z34/COoDDvFfBQNe7IKJWCTm6fKX2TyaA95+7HME+paOuTl6ti
+         WyVU1TsjY/wcMHB0GwfhOXdrVNN4iH5WQc1dHUBqw6rOmUK2/72qG/FJDWXVIQlCHhik
+         HY2LO3ad2l0oYQUohliRTb8z9S82KfnpMAUuwMAiWN8cIMVOFUYXuCuLqn6qhSfGlZ1C
+         J635NHwhsmtYSbWtAq8JbtqghKXj9Tu+MhpUNhpgyJkRuxJ/M/SHtXXTur4NT1STvuoA
+         kT2rghfYTq1L/7tzM4v3lzlYVUODsSxCfLa+m6rGyaeGGoegILhPL5bGSQU4zqVaeY4S
+         tXGg==
+X-Gm-Message-State: AOJu0YzwDH2IXRLaFwhuWOEBn5Tgz7ytYEaBqsoHMbJm1lGJkSthHmvb
+	6s7uQaVkQf4P74Ca+gCgXYGaYWVOn4M5dQQXui3C5lALIw6XTtSX5a2BwPox5Pp/ndRptinzdg=
 	=
-X-Google-Smtp-Source: AGHT+IHGmStaBw0kw+zywe3YOqYeTN7JkzcsA1+VS2rjrhQpPUmECbRNT13sfo28k0MCm5UyvTanyD0N
-X-Received: from wmbh15.prod.google.com ([2002:a05:600c:a10f:b0:477:988a:7675])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:1382:b0:477:a977:b8a7
- with SMTP id 5b1f17b1804b1-477c1117956mr205200185e9.19.1764235376129; Thu, 27
- Nov 2025 01:22:56 -0800 (PST)
-Date: Thu, 27 Nov 2025 10:22:30 +0100
+X-Google-Smtp-Source: AGHT+IEj3dusT3MDvpMgsbHZIfe/XZF/uYEQTBHV/zXh1M/+kIcSqUep12/hQYGAypuqMk42bH+W9Glh
+X-Received: from wmri12-n2.prod.google.com ([2002:a05:600c:8a0c:20b0:477:9a28:9ea7])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4ed3:b0:477:b734:8c22
+ with SMTP id 5b1f17b1804b1-47904ad05bbmr93756915e9.8.1764235379306; Thu, 27
+ Nov 2025 01:22:59 -0800 (PST)
+Date: Thu, 27 Nov 2025 10:22:33 +0100
 In-Reply-To: <20251127092226.1439196-8-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20251127092226.1439196-8-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1946; i=ardb@kernel.org;
- h=from:subject; bh=39kBqCzlZF8SLfFJgWsjj400jCEDRYRkq2STbPbbenE=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIVNDIqI3ZHbml073v/KHdtpnHfpRm/Py3LMdqh9Sljd+f
- rhn84cNHaUsDGJcDLJiiiwCs/++23l6olSt8yxZmDmsTCBDGLg4BWAi7oYM/0M7zlcnzJvAe846
- 80bGvn+b3uxjbs5YvCouYfXjnXIBr/4yMixpPnD96cT+y7kXZlzTaJTelrqtrYVD1/PozHcXtNf yb2UEAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5832; i=ardb@kernel.org;
+ h=from:subject; bh=8GaMUTgdagAMtzY89sbLAS19s1WTGVeC8Lgqk53nbS8=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIVNDImbL21N8hQ7vpnw54rsvfi1f31pm9QU1E1ScxBx79
+ eeeOqXQUcrCIMbFICumyCIw+++7nacnStU6z5KFmcPKBDKEgYtTACai6cHwTz1Igemqx8v3z7Zv
+ 10zom521SvxatNkqR5cSmfPekY8+nmFkOKutlWi8pZ79TQHDv40xK48GnP8TPXNRmZZEU2Ppcpt tHAA=
 X-Mailer: git-send-email 2.52.0.107.ga0afd4fd5b-goog
-Message-ID: <20251127092226.1439196-11-ardb+git@google.com>
-Subject: [RFC/RFT PATCH 3/6] random: Use u32 to keep track of batched entropy generation
+Message-ID: <20251127092226.1439196-14-ardb+git@google.com>
+Subject: [RFC/RFT PATCH 6/6] randomize_kstack: Use get_random_u8() at entry
+ for entropy
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-hardening@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
@@ -81,8 +82,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	"Jason A. Donenfeld" <Jason@zx2c4.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_012258_473629_A826990F 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20251127_012301_412509_5D56C992 
+X-CRM114-Status: GOOD (  26.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,53 +100,133 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-The batched entropy containers each have a generation field, to keep
-track of the base_crng generation from which it was last reseeded.
+The randomize kstack code has a couple of sharp edges, which are due to
+the fact that a counter was considered more suitable for providing
+entropy than the kernel's RNG.
 
-This use case does not require all bits of the unsigned long to be
-stored: storing only 32 bits is sufficient to determine whether or not
-we're at most 4 billion generations behind, which seems ample.
+Given that kstack randomization only requires 6-8 bits of entropy,
+get_random_u8() is more suitable here, and its fast path has been made
+lockless so that there is no overhead beyond a preempt_dis/enable and
+a local 64-bit cmpxchg() to update the RNG's internal state.
 
-So use an unsigned int instead: this will allow a future patch to treat
-the generation and position as a single 64-bit quantity, which can be
-used locklessly in a compare-and-exchange() operation.
+This means there is no need to defer sampling the counter until syscall
+exit, which also removes the need for a per-CPU variable to carry that
+value over to the next syscall on the same CPU. That works around some
+issues identified by Ryan in [0].
+
+So replace the use of the per-CPU variable in add_random_kstack_offset()
+with a direct use of get_random_u8() for all users, and turn
+choose_kstack_random_offset() into an empty stub so that each arch can
+get rid of it individually.
+
+[0] https://lore.kernel.org/all/dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com/
 
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- drivers/char/random.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ arch/Kconfig                     |  9 +++--
+ include/linux/randomize_kstack.h | 36 +++-----------------
+ init/main.c                      |  1 -
+ 3 files changed, 8 insertions(+), 38 deletions(-)
 
-diff --git a/drivers/char/random.c b/drivers/char/random.c
-index b8b24b6ed3fe..0e04bc60d034 100644
---- a/drivers/char/random.c
-+++ b/drivers/char/random.c
-@@ -507,7 +507,7 @@ struct batch_ ##type {								\
- 	 */									\
- 	type entropy[CHACHA_BLOCK_SIZE * 3 / (2 * sizeof(type))];		\
- 	local_lock_t lock;							\
--	unsigned long generation;						\
-+	unsigned int generation;						\
- 	unsigned int position;							\
- };										\
- 										\
-@@ -521,7 +521,7 @@ type get_random_ ##type(void)							\
- 	type ret;								\
- 	unsigned long flags;							\
- 	struct batch_ ##type *batch;						\
--	unsigned long next_gen;							\
-+	unsigned int next_gen;							\
- 										\
- 	warn_unseeded_randomness();						\
- 										\
-@@ -533,7 +533,7 @@ type get_random_ ##type(void)							\
- 	local_lock_irqsave(&batched_entropy_ ##type.lock, flags);		\
- 	batch = raw_cpu_ptr(&batched_entropy_##type);				\
- 										\
--	next_gen = READ_ONCE(base_crng.generation);				\
-+	next_gen = (unsigned int)READ_ONCE(base_crng.generation);		\
- 	if (batch->position >= ARRAY_SIZE(batch->entropy) ||			\
- 	    next_gen != batch->generation) {					\
- 		_get_random_bytes(batch->entropy, sizeof(batch->entropy));	\
+diff --git a/arch/Kconfig b/arch/Kconfig
+index 61130b88964b..baea154f833e 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -1520,12 +1520,11 @@ config HAVE_ARCH_RANDOMIZE_KSTACK_OFFSET
+ 	help
+ 	  An arch should select this symbol if it can support kernel stack
+ 	  offset randomization with calls to add_random_kstack_offset()
+-	  during syscall entry and choose_random_kstack_offset() during
+-	  syscall exit. Careful removal of -fstack-protector-strong and
++	  during syscall entry. Careful removal of -fstack-protector-strong and
+ 	  -fstack-protector should also be applied to the entry code and
+-	  closely examined, as the artificial stack bump looks like an array
+-	  to the compiler, so it will attempt to add canary checks regardless
+-	  of the static branch state.
++	  closely examined, as the artificial stack bump looks like an array to
++	  the compiler, so it will attempt to add canary checks regardless of
++	  the static branch state.
+ 
+ config RANDOMIZE_KSTACK_OFFSET
+ 	bool "Support for randomizing kernel stack offset on syscall entry" if EXPERT
+diff --git a/include/linux/randomize_kstack.h b/include/linux/randomize_kstack.h
+index 1d982dbdd0d0..db1f056e61ec 100644
+--- a/include/linux/randomize_kstack.h
++++ b/include/linux/randomize_kstack.h
+@@ -9,7 +9,6 @@
+ 
+ DECLARE_STATIC_KEY_MAYBE(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,
+ 			 randomize_kstack_offset);
+-DECLARE_PER_CPU(u32, kstack_offset);
+ 
+ /*
+  * Do not use this anywhere else in the kernel. This is used here because
+@@ -50,49 +49,22 @@ DECLARE_PER_CPU(u32, kstack_offset);
+  * add_random_kstack_offset - Increase stack utilization by previously
+  *			      chosen random offset
+  *
+- * This should be used in the syscall entry path when interrupts and
+- * preempt are disabled, and after user registers have been stored to
+- * the stack. For testing the resulting entropy, please see:
++ * This should be used in the syscall entry path after user registers have been
++ * stored to the stack. For testing the resulting entropy, please see:
+  * tools/testing/selftests/lkdtm/stack-entropy.sh
+  */
+ #define add_random_kstack_offset() do {					\
+ 	if (static_branch_maybe(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,	\
+ 				&randomize_kstack_offset)) {		\
+-		u32 offset = raw_cpu_read(kstack_offset);		\
++		u32 offset = get_random_u8() << 2;			\
+ 		u8 *ptr = __kstack_alloca(KSTACK_OFFSET_MAX(offset));	\
+ 		/* Keep allocation even after "ptr" loses scope. */	\
+ 		asm volatile("" :: "r"(ptr) : "memory");		\
+ 	}								\
+ } while (0)
+-
+-/**
+- * choose_random_kstack_offset - Choose the random offset for the next
+- *				 add_random_kstack_offset()
+- *
+- * This should only be used during syscall exit when interrupts and
+- * preempt are disabled. This position in the syscall flow is done to
+- * frustrate attacks from userspace attempting to learn the next offset:
+- * - Maximize the timing uncertainty visible from userspace: if the
+- *   offset is chosen at syscall entry, userspace has much more control
+- *   over the timing between choosing offsets. "How long will we be in
+- *   kernel mode?" tends to be more difficult to predict than "how long
+- *   will we be in user mode?"
+- * - Reduce the lifetime of the new offset sitting in memory during
+- *   kernel mode execution. Exposure of "thread-local" memory content
+- *   (e.g. current, percpu, etc) tends to be easier than arbitrary
+- *   location memory exposure.
+- */
+-#define choose_random_kstack_offset(rand) do {				\
+-	if (static_branch_maybe(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,	\
+-				&randomize_kstack_offset)) {		\
+-		u32 offset = raw_cpu_read(kstack_offset);		\
+-		offset = ror32(offset, 5) ^ (rand);			\
+-		raw_cpu_write(kstack_offset, offset);			\
+-	}								\
+-} while (0)
+ #else /* CONFIG_RANDOMIZE_KSTACK_OFFSET */
+ #define add_random_kstack_offset()		do { } while (0)
+-#define choose_random_kstack_offset(rand)	do { } while (0)
+ #endif /* CONFIG_RANDOMIZE_KSTACK_OFFSET */
++#define choose_random_kstack_offset(rand)	do { } while (0)
+ 
+ #endif
+diff --git a/init/main.c b/init/main.c
+index 07a3116811c5..048a62538242 100644
+--- a/init/main.c
++++ b/init/main.c
+@@ -830,7 +830,6 @@ static inline void initcall_debug_enable(void)
+ #ifdef CONFIG_RANDOMIZE_KSTACK_OFFSET
+ DEFINE_STATIC_KEY_MAYBE_RO(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,
+ 			   randomize_kstack_offset);
+-DEFINE_PER_CPU(u32, kstack_offset);
+ 
+ static int __init early_randomize_kstack_offset(char *buf)
+ {
 -- 
 2.52.0.107.ga0afd4fd5b-goog
 
