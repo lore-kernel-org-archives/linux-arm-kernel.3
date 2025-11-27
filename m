@@ -4,50 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C70AFD11183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 09:16:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C48BAD11183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 09:17:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To
-	:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sHwvf2EyY5z8rGajo/bIcYXP7ktW3zH8ZISFpKuiCuc=; b=Ac46Uwto5+JhPhws8xWEMgf7ea
-	mwxFN6J576Td8r4mhnQ7PnmnJPTGfwsCn9ZKDDR0f2jvbknTM5FwKUbu6oF9A2O/2+IVox0NYs6Kl
-	W7FTsXsGx/Z1ZUC6QnVfAAHL37GdgaSDWsac7YYiCwkhgIXsJpdKMzq7VqDJ03y6CbzXfXux6pFWO
-	ojY3SJcqeOnt8HkpTb9nqD/lcRR+alXmKbyQ6LREq38RPysCLY2b5j+hi+mLDlfNY8WnwVx13yXpy
-	cCQrcoPSg4tvyhTNT38/Rk+E2woZrFYfVB2w9zmSE72QoRcT7RiCe746wPaMSarrOrcYwJ9AHT0+i
-	d7cWLNHw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R7s6cE++aqSUFKnBMsR0G5G74lCzGeUp9KJnQeOz+5E=; b=v6EFWW22iZPbJ8QnTTAenctBG0
+	d194MuliDMO3DxqcsC3XfaIjmuI/d2yq35GjrI0E3dsOr/QVE9pZaAasvDT5+O4CufXP9y0jBoEEb
+	K8x5cDAsrBXg5KCJ5VzipczCNUIQ7cfu7N6xtbmGKeWS/XoMnEJxHicVoZqUvls12jq5lTa2yYugd
+	eIjtWDYr9G+zFsQu94Vl6opaE3JbDWsEScYN6X9h7By19tpTf7AUN61pHzDQKN5YrD1cYJlVCrlD5
+	xnuPyBk8oPaSQvqirM3Krj5KI0VrMSjrLh+JNhthkfh2OijwP214y29O864SA0dP6PV3Ud9iV+zcV
+	ZECee8Qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOY6d-0000000GGOx-2QO8;
-	Thu, 27 Nov 2025 09:16:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOY6a-0000000GGOa-1MZe
+	id 1vOY7r-0000000GGWv-0hbM;
+	Thu, 27 Nov 2025 09:17:19 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOY7o-0000000GGWI-1lHZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 09:16:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3AC761477;
-	Thu, 27 Nov 2025 01:15:51 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0D2BF3F66E;
-	Thu, 27 Nov 2025 01:15:54 -0800 (PST)
-Date: Thu, 27 Nov 2025 09:15:49 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Onkarnath <onkarnath.1@samsung.com>
-Subject: Re: [PATCH 1/1] arm64: Print slab alloc and free paths for addresses
- in registers
-Message-ID: <aSgWxZaefCaXQSx8@J2N7QTR9R3>
-References: <CGME20251127060246epcas5p3f7b044dec5c4860399801a811a04155d@epcas5p3.samsung.com>
- <20251127060227.3575956-1-onkarnath.1@samsung.com>
+	Thu, 27 Nov 2025 09:17:17 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-42b2e9ac45aso399052f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 01:17:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1764235034; x=1764839834; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=R7s6cE++aqSUFKnBMsR0G5G74lCzGeUp9KJnQeOz+5E=;
+        b=FL6mWwICsAELFkhHCUfds30YTnwDiggLA9X7uFQUbqeInmLvsrY3Xcvs7x2Xm73XvH
+         +paZnfJ69xyg2tC+4FfXTXEmTOpJPdSlqkF4I9U/VU8yVqQcFBfqlS6gU+GNgcy3DLk6
+         XSR+WXr433WIQiaWIIhDmbJhR6O/s/THATKYV8h15smddHV54ocXTsc+4ig6Ly5sAHKl
+         TjNTRlj68NbqMIE+AyF8a51lU4p0oET/JsxTTPks3BGnJiXeS7WaGxFerPIuGwnNlspc
+         zpydjSTYvUIIaWN5QOT+sFUSKGSQU9CbJKDnDPYDc/LAgZjbOWbVdnsqz1/JztkBgbsG
+         JBPQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764235034; x=1764839834;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=R7s6cE++aqSUFKnBMsR0G5G74lCzGeUp9KJnQeOz+5E=;
+        b=pujuqsfXCGexoNq5AtpsDY8eh3F5BtMdx74+qtk2yG21Q8uhYHv+3XIxpzJb9b218F
+         0egnLQLYTtWyBCYzxkraIiWO3ljtTnCRms8k05NJGOHB/YGeZs0n23SqLNoRpGn2MXdq
+         rADVCSYNhPpJFabqb3SnJXpS3Np0GRKznBljfUTZMhHf4uW2OwfRlLYtDKMkZnvrmEFC
+         eus69uZkGzoUJtXM26Hto4ew5REK1cHAABzLO/tXyc2L2tt5NE5vzl1cqgrlDAiRYpjX
+         k2lBsaoqfV49Hhfret2PgE5KRioq3zCPi7KoZYxdKO92KDf2zTlNlr8zIaeBYmJNxXzL
+         susA==
+X-Forwarded-Encrypted: i=1; AJvYcCVfr5oI315S/Nn7pyzi12gZbSXA+siJ89cipR3ijjLB8llBtRkDu4KtgX+7SEGPxMEo9tX8rW3vz0fFdGoODTN/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmPItn+b5P07Fur46fQmFNfFrQw5FDVGKDNqF3ewHHEs5VNRN/
+	R/HNeV5bDIG7Pte7PcfNMaOyy2MsaNGT74dTMdW7rsZXElODYJlLF2dGnYLlxxthd9w=
+X-Gm-Gg: ASbGnctWYFiK7ZriZaOeb8YUtD/Np70r1AVNNQHtds0nXDqzGBbvmmDugHxNusSfHA2
+	zGr6hcPm2hpmImhijyELb5YfZJl0hIyRShtOhFhx+K8XDCmnizbXrud8Tsc/ecMEluEYKa07apL
+	LAXZLixXV5fvAqW9GtyZR+aTLK1rZbDKXaIGhyxzdcJQTPITlzEddR7OSIAOu3EkRt3AMbquQSk
+	ma1Twuh4erry3fl9sb6gkJiisHX2PqVWZGYxVDf4iIfO338u2RjV9S67EPgX/sm5tcbafKr2GC1
+	TODi2LeNjGSi0+wYe9zNmbLyXDXf2HdFmLKFqKvW7jlMp/42JCGOuvj8uQsPDQZ2JTgOHrwfff5
+	zxizvnXS0d0TnWJvtGgfZHUJVoxuJy6pKWnn/TYhtCU02uvoKt+SBvGqjQE/WY5Tl07/QZSXV4S
+	g7OCxAGPv49hpcmOJm
+X-Google-Smtp-Source: AGHT+IHMYZZ56RtTkgImb02ngxPYjvhlBk8TwzkqtoGo5krRVnM2mglutVBFMQNBv9Z7KKR5+lHRAw==
+X-Received: by 2002:a5d:588c:0:b0:3ee:3dce:f672 with SMTP id ffacd0b85a97d-42e0f1e3428mr10030410f8f.4.1764235034134;
+        Thu, 27 Nov 2025 01:17:14 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42e1cab9af3sm2315819f8f.41.2025.11.27.01.17.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 27 Nov 2025 01:17:13 -0800 (PST)
+Message-ID: <f217cbdc-a350-438e-a1b9-a377e6267337@linaro.org>
+Date: Thu, 27 Nov 2025 09:17:12 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251127060227.3575956-1-onkarnath.1@samsung.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] coresight: etm3x: Fix buffer overwrite in cntr_val_show()
+To: Kuan-Wei Chiu <visitorckw@gmail.com>
+Cc: Mike Leach <mike.leach@linaro.org>, suzuki.poulose@arm.com,
+ alexander.shishkin@linux.intel.com, pratikp@codeaurora.org,
+ mathieu.poirier@linaro.org, gregkh@linuxfoundation.org,
+ jserv@ccns.ncku.edu.tw, marscheng@google.com, ericchancf@google.com,
+ milesjiang@google.com, nickpan@google.com, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251121002350.1166758-1-visitorckw@gmail.com>
+ <172ca2d9-4a6f-4498-bdfd-8aa7428581ce@linaro.org>
+ <aSCbJR9aT1vOpz0a@google.com>
+ <05babb6d-a588-49f8-a34a-c82d5f58adf5@linaro.org>
+ <CAJ9a7VipxW5-2roAQA3y212sQWr1kq2HNbLK1jmLNP1jFseYiQ@mail.gmail.com>
+ <68efd5a2-3b65-4f37-9bf0-40c4e5ade480@linaro.org>
+ <aSgPhd4u3Oqi3Ymy@google.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <aSgPhd4u3Oqi3Ymy@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_011600_528498_190749FB 
-X-CRM114-Status: GOOD (  23.64  )
+X-CRM114-CacheID: sfid-20251127_011716_516845_60BF9725 
+X-CRM114-Status: GOOD (  49.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -59,116 +109,204 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: thuth@redhat.com, smostafa@google.com, ryan.roberts@arm.com, Sarvesh Kadam <s.kadam@samsung.com>, kees@kernel.org, catalin.marinas@arm.com, yeoreum.yun@arm.com, kevin.brodsky@arm.com, linux-kernel@vger.kernel.org, jeremy.linton@arm.com, song@kernel.org, broonie@kernel.org, r.thapliyal@samsung.com, maz@kernel.org, leitao@debian.org, maninder1.s@samsung.com, will@kernel.org, bigeasy@linutronix.de, linux-arm-kernel@lists.infradead.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 27, 2025 at 11:32:27AM +0530, Onkarnath wrote:
-> When debugging use-after-free kernel oopses, knowing the allocation and
-> freeing paths of an object is crucial. Like arm this patch enhances arm64
-> debugging by checking if register addresses belong to a slab and printing
-> their corresponding alloc and free paths.
+
+
+On 27/11/2025 8:44 am, Kuan-Wei Chiu wrote:
+> On Wed, Nov 26, 2025 at 10:57:23AM +0000, James Clark wrote:
+>>
+>>
+>> On 26/11/2025 10:49 am, Mike Leach wrote:
+>>> Hi,
+>>>
+>>> On Mon, 24 Nov 2025 at 16:12, James Clark <james.clark@linaro.org> wrote:
+>>>>
+>>>>
+>>>>
+>>>> On 21/11/2025 5:02 pm, Kuan-Wei Chiu wrote:
+>>>>> Hi James,
+>>>>>
+>>>>> On Fri, Nov 21, 2025 at 09:50:03AM +0000, James Clark wrote:
+>>>>>>
+>>>>>>
+>>>>>> On 21/11/2025 12:23 am, Kuan-Wei Chiu wrote:
+>>>>>>> The cntr_val_show() function is meant to display the values of all
+>>>>>>> available counters. However, the sprintf() call inside the loop was
+>>>>>>> always writing to the beginning of the buffer, causing the output of
+>>>>>>> previous iterations to be overwritten. As a result, only the value of
+>>>>>>> the last counter was actually returned to the user.
+>>>>>>>
+>>>>>>> Fix this by using the return value of sprintf() to calculate the
+>>>>>>> correct offset into the buffer for the next write, ensuring that all
+>>>>>>> counter values are appended sequentially.
+>>>>>>>
+>>>>>>> Fixes: a939fc5a71ad ("coresight-etm: add CoreSight ETM/PTM driver")
+>>>>>>> Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
+>>>>>>> ---
+>>>>>>> Build tested only. I do not have the hardware to run the etm3x driver,
+>>>>>>> so I would be grateful if someone could verify this on actual hardware.
+>>>>>>>
+>>>>>>> I noticed this issue while browsing the coresight code after attending
+>>>>>>> a technical talk on the subject. This code dates back to the initial
+>>>>>>> driver submission over 10 years ago, so I was surprised it hadn't been
+>>>>>>> caught earlier. Although I cannot perform runtime testing, the logic
+>>>>>>> error seems obvious to me, so I still decided to submit this patch.
+>>>>>>
+>>>>>> Nice find. I think the point that it wasn't caught changes how we fix it.
+>>>>>> Either nobody used it ever - so we can just delete it. Or someone was using
+>>>>>> it and they expect it to always return a single entry with the value of the
+>>>>>> last counter and this is a potentially breaking change. So maybe instead of
+>>>>>> fixing this we should add a new cntr_vals_show() which works correctly. But
+>>>>>> then again if nobody is using it we shouldn't do that either.
+>>>>>
+>>>>> Thanks for your feedback.
+>>>>>
+>>>>> I agree that if any tool relies on the current behavior, this patch
+>>>>> would break the ABI and violate the hard rule that we must never break
+>>>>> userspace.
+>>>>>
+>>>>> However, I am not sure how to determine if any userspace tools are
+>>>>> actually using this sysfs interface. Is there a recommended way to
+>>>>> verify this, or a standard procedure/convention to follow in this
+>>>>> situation?
+>>>>>
+>>>>> Regards,
+>>>>> Kuan-Wei
+>>>>>
+>>>>
+>>>> There's no way of knowing apart from deducing that there are 0 users of
+>>>> the 'correct' version of the API because it never existed. This isn't
+>>>> even a regression, it was broken from the beginning.
+>>>>
+>>>> I suppose it does work when hardware only has one counter, but I don't
+>>>> know how likely that is?
+>>>>
+>>>> Looking at cntr_val_store() I think I was wrong before when I said it
+>>>> should be a separate file for each counter. Writing to it already writes
+>>>> to the counter currently selected by cntr_idx and splitting it out to
+>>>> separate files would have to break that too. So we can fix the display
+>>>> bug by making show operate on the currently selected counter in the same
+>>>> way as store. Then it makes a bit more sense and we can delete the
+>>>> "counter %d: " prefix.
+>>>>
+>>>> ETM4 already does it this way too.
+>>>>
+>>> I agree with this.
+>>>
+>>> The difficulty in having a file per counter is that different
+>>> implementations have different numbers of counters. Rather than
+>>> complicate the driver by dynamically generating the sysfs files, the
+>>
+>> It wouldn't be that hard because there is a maximum number of counters.
+>> You'd generate them all and then use the is_visible() thing to hide ones
+>> that didn't exist on that device.
+>>
+>> But it looks like we don't want to do it that way for other reasons anyway.
+>>
 > 
-> For example x21 prints alloc and free path:
+> I don't feel it is my place to say whether the etm3x driver should be
+> removed entirely.
 > 
-> pc : crash_init+0x44/0x64 [crash]
-> lr : crash_init+0x34/0x64 [crash]
-> .....
-
-These dots are hiding *tonnes* of lines.
-
-Please see my response from the last time this was proposed:
-  
-  https://lore.kernel.org/linux-arm-kernel/ZcDa2RXC6z7XuwAD@FVFF77S0Q05N/
-
-At a high level, I still don't think this is a good idea.
-
-> Register x21 information: slab task_struct start ffff0000c3cc7000 data offset 64 pointer offset 0 size 3904 allocated at copy_process+0x1ac/0x14a4
->     kmem_cache_alloc_node_noprof+0x208/0x4a8
->     copy_process+0x1ac/0x14a4
->     kernel_clone+0x70/0x380
->     __arm64_sys_fork+0x40/0x7c
->     invoke_syscall+0x48/0x104
->     el0_svc_common.constprop.0+0x40/0xe0
->     do_el0_svc_compat+0x1c/0x34
->     el0_svc_compat+0x2c/0x90
->     el0t_32_sync_handler+0x88/0xac
->     el0t_32_sync+0x19c/0x1a0
->  Free path:
->     kmem_cache_free+0x3c0/0x430
->     free_task+0x54/0x80
->     __put_task_struct+0x100/0x15c
->     __put_task_struct_rcu_cb+0x14/0x20
->     rcu_core+0x264/0x680
->     rcu_core_si+0x10/0x1c
->     handle_softirqs+0x100/0x244
->     __do_softirq+0x14/0x20
+> However, if we decide to keep it, I agree that aligning cntr_val_show
+> with the cntr_val_store behavior (using cntr_idx) makes more sense.
 > 
-> Co-developed-by: Sarvesh Kadam <s.kadam@samsung.com>
-> Signed-off-by: Sarvesh Kadam <s.kadam@samsung.com>
-> Signed-off-by: Onkarnath <onkarnath.1@samsung.com>
-> ---
->  arch/arm64/include/asm/system_misc.h |  1 +
->  arch/arm64/kernel/process.c          | 11 +++++++++++
->  arch/arm64/kernel/traps.c            |  2 +-
->  3 files changed, 13 insertions(+), 1 deletion(-)
+> Here is my plan for v2:
 > 
-> diff --git a/arch/arm64/include/asm/system_misc.h b/arch/arm64/include/asm/system_misc.h
-> index d316a804eb38..9cb9749d8853 100644
-> --- a/arch/arm64/include/asm/system_misc.h
-> +++ b/arch/arm64/include/asm/system_misc.h
-> @@ -27,6 +27,7 @@ void arm64_notify_die(const char *str, struct pt_regs *regs,
->  
->  struct mm_struct;
->  extern void __show_regs(struct pt_regs *);
-> +extern void __show_regs_alloc_free(struct pt_regs *regs);
->  
->  #endif	/* __ASSEMBLER__ */
->  
-> diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-> index fba7ca102a8c..7738ec8e5cd5 100644
-> --- a/arch/arm64/kernel/process.c
-> +++ b/arch/arm64/kernel/process.c
-> @@ -199,6 +199,17 @@ static void print_pstate(struct pt_regs *regs)
->  	}
->  }
->  
-> +void __show_regs_alloc_free(struct pt_regs *regs)
-> +{
-> +	int i;
-> +
-> +	/* check for x0 - x31 only */
-> +	for (i = 0; i < 31; i++) {
-> +		pr_alert("Register x%d information:", i);
-> +		mem_dump_obj((void *)regs->regs[i]);
-> +	}
-> +}
-
-The comment should say 'x31' rather than 'x30'.
-
-> +
->  void __show_regs(struct pt_regs *regs)
->  {
->  	int i, top_reg;
-> diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
-> index 914282016069..3b01379b8880 100644
-> --- a/arch/arm64/kernel/traps.c
-> +++ b/arch/arm64/kernel/traps.c
-> @@ -189,7 +189,7 @@ static int __die(const char *str, long err, struct pt_regs *regs)
->  
->  	print_modules();
->  	show_regs(regs);
+> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+> index 762109307b86..77578885e8f3 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+> @@ -717,26 +717,19 @@ static DEVICE_ATTR_RW(cntr_rld_event);
+>   static ssize_t cntr_val_show(struct device *dev,
+>   			     struct device_attribute *attr, char *buf)
+>   {
+> -	int i, ret = 0;
+>   	u32 val;
+>   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+>   	struct etm_config *config = &drvdata->config;
+>   
+>   	if (!coresight_get_mode(drvdata->csdev)) {
+>   		spin_lock(&drvdata->spinlock);
+> -		for (i = 0; i < drvdata->nr_cntr; i++)
+> -			ret += sprintf(buf, "counter %d: %x\n",
+> -				       i, config->cntr_val[i]);
+> +		val = config->cntr_val[config->cntr_idx];
+>   		spin_unlock(&drvdata->spinlock);
+> -		return ret;
+> -	}
 > -
-> +	__show_regs_alloc_free(regs);
->  	if (user_mode(regs))
->  		return ret;
+> -	for (i = 0; i < drvdata->nr_cntr; i++) {
+> -		val = etm_readl(drvdata, ETMCNTVRn(i));
+> -		ret += sprintf(buf, "counter %d: %x\n", i, val);
+> +		return sprintf(buf, "%x\n", val);
+>   	}
+>   
+> -	return ret;
+> +	val = etm_readl(drvdata, ETMCNTVRn(config->cntr_idx));
+> +	return sprintf(buf, "%x\n", val);
+>   }
+>   
+>   static ssize_t cntr_val_store(struct device *dev,
+> 
+> 
+> Given the upcoming merge window, I plan to submit this v2 after -rc1
+> is released.
+> 
+> Alternatively, if the consensus is to drop the driver, I am happy to
+> submit a patch for that instead.
+> 
+> Regards,
+> Kuan-Wei
+> 
+> 
 
-If the regs are user regs, then the registers do not contain kernel
-addresses. We shouldn't interpret the registers in that case.
+The change looks good. I wouldn't wait for rc1, nobody else is touching 
+these files so nothing will change, so makes sense to send it now.
 
-We use die() and __die() for many exceptions that are entirely unrelated
-to use-after-free (e.g. BTI exceptions), so this is going to be noisy
-for no benefit.
+>>> single file + selector paradigm makes things easier. The index is
+>>> validated against the actual number of counters for this instance, and
+>>> read/write occurs for the selected one.
+>>>
+>>> Regards
+>>>
+>>> Mike
+>>>
+>>>>>>
+>>>>>> The interface isn't even that great, it should be a separate file per
+>>>>>> counter. You don't want to be parsing strings and colons to try to read a
+>>>>>> single value, especially in C. Separate files allows you to read it directly
+>>>>>> without any hassle.
+>>>>>>
+>>>>>>>
+>>>>>>>      drivers/hwtracing/coresight/coresight-etm3x-sysfs.c | 4 ++--
+>>>>>>>      1 file changed, 2 insertions(+), 2 deletions(-)
+>>>>>>>
+>>>>>>> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+>>>>>>> index 762109307b86..312033e74b7a 100644
+>>>>>>> --- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+>>>>>>> +++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+>>>>>>> @@ -725,7 +725,7 @@ static ssize_t cntr_val_show(struct device *dev,
+>>>>>>>       if (!coresight_get_mode(drvdata->csdev)) {
+>>>>>>>               spin_lock(&drvdata->spinlock);
+>>>>>>>               for (i = 0; i < drvdata->nr_cntr; i++)
+>>>>>>> -                   ret += sprintf(buf, "counter %d: %x\n",
+>>>>>>> +                   ret += sprintf(buf + ret, "counter %d: %x\n",
+>>>>>>>                                      i, config->cntr_val[i]);
+>>>>>>>               spin_unlock(&drvdata->spinlock);
+>>>>>>>               return ret;
+>>>>>>> @@ -733,7 +733,7 @@ static ssize_t cntr_val_show(struct device *dev,
+>>>>>>>       for (i = 0; i < drvdata->nr_cntr; i++) {
+>>>>>>>               val = etm_readl(drvdata, ETMCNTVRn(i));
+>>>>>>> -           ret += sprintf(buf, "counter %d: %x\n", i, val);
+>>>>>>> +           ret += sprintf(buf + ret, "counter %d: %x\n", i, val);
+>>>>>>>       }
+>>>>>>>       return ret;
+>>>>>>
+>>>>
+>>>
+>>>
+>>
 
-Mark.
 
