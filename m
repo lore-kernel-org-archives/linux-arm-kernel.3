@@ -4,73 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16906D116EA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 10:33:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98D5BD116F5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 10:33:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yj0DwM0kmy2Yo4EUKJA10mFHO95mGhwL55QGFaYl808=; b=JwR+C45YvjquAeUpA1pxLrLcit
-	zFSmsOtIQHCuaZO1sBbBNP8hMiMQcZ7s30geo2LqRXWB3dxELLDkwVI2PutcFwSSkOHv7GjVjNUae
-	dkf+SAZXnCdabCJVloQvjSnrJd3EC3bxet6t0/yCbJ7Hai80/g81xyxQ1Run981eKXVKIs9EfnqbL
-	GOU8l1O6uPlYpbo2AqAJvT50J5uPDgvwvuiMviDx+xVlJTR1SYZfmNjObFNVYSqklUOlcmTRl0FOR
-	nhLEqZTgfoz2fWaPlWxvDvgBu6MCc60bkwISpB9UU80wpsq0EDdUvzglZp4jL+q2COHvMjHHeu0eh
-	n0rt8nPA==;
+	bh=AigTY7YHBfN6vgkzuQZA/EXjGm2wTYxbOCJv9+KEmGM=; b=UH273TFtgqb/uhXUyB+TQ5aoEr
+	NZ1GfNlVLZc/m4kuBuh3g2cCfxuL02iQ2Pz9pXywCqSM54iJ24uSsN673z3O4nTTlaEQQBgQxNx7q
+	m9MXaCQ0mK56gIowO2wicOJAk+sf19yl70xxognVbCPtbb3Rcauufqk+LtyFOJzgO4rRSoPwk/N6s
+	P96QgZoiYce68L7Fsr7RsJUnYVCndrSZJ2Z96vbmaKBZdsvehJRUXzsp94wTQEZfBr3RoaNH69Y9g
+	+gQE+WrdCvrmtjXQ3HZqzlR2K2AwATGbbGsLHx/D1bjJOQGnlMLriOVJIKDm1sJJNqk3iVvHWheXY
+	xdtcpoIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOZJB-0000000GO9e-3KJu;
-	Thu, 27 Nov 2025 10:33:05 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOZJ9-0000000GO96-42IW
+	id 1vOZJC-0000000GO9u-0Rl0;
+	Thu, 27 Nov 2025 10:33:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOZJ8-0000000GO8R-2Fit
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 27 Nov 2025 10:33:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DA1A743835
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 10:33:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7E3DC4AF0B
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 10:33:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764239582;
-	bh=0TxRubWAllRCmV83+NRFzCjjIujms3H3INEK9PMJybg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=F5rWq+AfjxKjPH97NaV/FEzQg5Fzu/NiWq+7lCj+FZQzgUKBs+2kcqYUT8iZJ9/MJ
-	 JMOG85sXgkP5ZDql11NOaKFcngcF2bECaZeSWkVXbIyTZrBOeLov7yesFJ6uKbCePR
-	 1aA0tQ5d0FqHAJ2Ge7t3DeHtOKzpSgheZIpqp6HzBXrV471BIFRQj5WXTCrxFvjXCg
-	 oyOv+k2auvAvpnmNmGy2TGKUWReZ/5EupKCsrTp9vCAFAxwwdiqSvtQ41EHTyNrGHX
-	 ohvbo+Y2KUHWWn8iA81AejRoGPtChliT8PdqRoogPeVpHY4NN6pnmscu7y6GO6gNIO
-	 XgUWw2Bow1K4Q==
-Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-37b9d8122fdso6125251fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 02:33:02 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUvlt+IuBl4moGNF7ur/mIROZbSvxBP+rb5WMQuiqNsaLdB02q3UxxqHaWE372687XEFxa6gPr6gHxkOuu+xQFO@lists.infradead.org
-X-Gm-Message-State: AOJu0YzqrJkM4uU3N3XNYFvazY6CkRfpUjYjNS3Uek/ND9QegPLUVzs8
-	DD3Yp5dS70bn9T3RSkU66dMenMOaPU2msegWnDGgt7Nj/4gKhBrRa+SA4tkREi0Bss+TzQxtXe4
-	uyldIAy+35qfyLDrJir8gmfuFXTHmJmw=
-X-Google-Smtp-Source: AGHT+IEKCHipYZEh6JGsjNNER5z+3CKP1etWl09QVeM3YONGTfjUvI5U4hE+viZw/8MZx/dyAn9ZkNQ4h/KuZvrnm+8=
-X-Received: by 2002:a2e:7c05:0:b0:37a:47a4:d5cb with SMTP id
- 38308e7fff4ca-37cd91b06d2mr59772791fa.11.1764239581012; Thu, 27 Nov 2025
- 02:33:01 -0800 (PST)
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4F4131477;
+	Thu, 27 Nov 2025 02:32:53 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 603373F6A8;
+	Thu, 27 Nov 2025 02:33:00 -0800 (PST)
+Date: Thu, 27 Nov 2025 10:32:58 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Al Grant <Al.Grant@arm.com>
+Cc: James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	"coresight@lists.linaro.org" <coresight@lists.linaro.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>
+Subject: Re: [PATCH v7 13/13] coresight: docs: Document etm4x timestamp
+ interval option
+Message-ID: <20251127103258.GQ724103@e132581.arm.com>
+References: <20251126-james-cs-syncfreq-v7-0-7fae5e0e5e16@linaro.org>
+ <20251126-james-cs-syncfreq-v7-13-7fae5e0e5e16@linaro.org>
+ <20251126140154.GK724103@e132581.arm.com>
+ <CAJ9a7VgcAiw_h=OTxOK0Vcv=9WFCbdb-+RzDKYhigZZhepM7xg@mail.gmail.com>
+ <20251126144437.GL724103@e132581.arm.com>
+ <5096f4ba-913a-477f-bfe7-f2a6bb563d30@linaro.org>
+ <GV1PR08MB1093237396B35459656FF82CA86DEA@GV1PR08MB10932.eurprd08.prod.outlook.com>
 MIME-Version: 1.0
-References: <20251127092226.1439196-8-ardb+git@google.com> <20251127092226.1439196-12-ardb+git@google.com>
-In-Reply-To: <20251127092226.1439196-12-ardb+git@google.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 27 Nov 2025 11:32:48 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXGLYYn9Fa+dbB2EWNbwJ6+PhKBz3vd=gUJDizvYwVSjfw@mail.gmail.com>
-X-Gm-Features: AWmQ_blfqnL18qgHU_wCogCb4XqLMnCZzL8QS8DPfq2a28ZnCAui83obnxxDWCs
-Message-ID: <CAMj1kXGLYYn9Fa+dbB2EWNbwJ6+PhKBz3vd=gUJDizvYwVSjfw@mail.gmail.com>
-Subject: Re: [RFC/RFT PATCH 4/6] random: Use a lockless fast path for get_random_uXX()
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-hardening@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Kees Cook <kees@kernel.org>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Jeremy Linton <jeremy.linton@arm.com>, Catalin Marinas <Catalin.Marinas@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, "Jason A. Donenfeld" <Jason@zx2c4.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <GV1PR08MB1093237396B35459656FF82CA86DEA@GV1PR08MB10932.eurprd08.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_023304_054635_027FCD77 
-X-CRM114-Status: GOOD (  24.28  )
+X-CRM114-CacheID: sfid-20251127_023302_692928_8240EA73 
+X-CRM114-Status: GOOD (  31.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,68 +77,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Nov 2025 at 10:22, Ard Biesheuvel <ardb+git@google.com> wrote:
->
-> From: Ard Biesheuvel <ardb@kernel.org>
->
-> Currently, the implementations of the get_random_uXX() API protect their
-> critical section with a local lock and disabling interrupts, to ensure
-> that the code does not race with itself when called from interrupt
-> context.
->
-> Given that the fast path does nothing more than read a single uXX
-> quantity from a linear buffer and bump the position pointer, poking the
-> hardware registers to disable and re-enable interrupts is
-> disproportionately costly, and best avoided.
->
-> There are two conditions under which the batched entropy buffer is
-> replenished, which is what forms the critical section:
-> - the buffer is exhausted
-> - the base_crng generation counter has incremented.
->
-> By combining the position and generation counters into a single u64, we
-> can use compare and exchange to implement the fast path without taking
-> the local lock or disabling interrupts. By constructing the expected and
-> next values carefully, the compare and exchange will only succeed if
-> - we did not race with ourselves, i.e., the compare and exchange
->   increments the position counter by exactly 1;
-> - the buffer is not exhausted
-> - the generation counter equals the base_crng generation counter.
->
-> Only if the compare and exchange fails is the original slow path taken,
-> and only in that case do we take the local lock. This results in a
-> considerable speedup (3-5x) when benchmarking get_random_u8() in a tight
-> loop.
->
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
->  drivers/char/random.c | 44 ++++++++++++++------
->  1 file changed, 31 insertions(+), 13 deletions(-)
->
+On Wed, Nov 26, 2025 at 03:36:58PM +0000, Al Grant wrote:
 
-This needs the following applied to ensure correct behavior when first
-called after the base_crng generation has already incremented to 1.
+[...]
 
-diff --git a/drivers/char/random.c b/drivers/char/random.c
-index e8ba460c5c9c..dddbec7cf856 100644
---- a/drivers/char/random.c
-+++ b/drivers/char/random.c
-@@ -523,7 +523,7 @@ struct batch_ ##type {
-                                 \
+> > >> As far as I recall when this command line parameter was a bool then:
+> > >> perf -e cs_etm/timestamp/ <program>
+> > >> is sufficient to turn on timestamping.
+> > >
+> > > Hmm... with the latest perf, we must assign value to `timestamp`,
+> > > otherwise perf will report error:
+> > >
+> > >    # /mnt/build/perf record -e cs_etm/timestamp/ -C 0 -- taskset -c 0 ls
+> > >    event syntax error: 'cs_etm/timestamp/'
+> > >                         \___ Bad event or PMU
+> > >
+> > >    Unable to find PMU or event on a PMU of 'cs_etm'
+> > >
+> > >    event syntax error: 'cs_etm/timestamp/'
+> > >                         \___ no value assigned for term
+> > >
+> > >    event syntax error: 'cs_etm/timestamp/'
+> > >                         \___ no value assigned for term
+> > >    Run 'perf list' for a list of valid events
+> > >
+> > >
+> > 
+> > That's unfortunate and not what I expected. And I don't think it makes sense to
+> > remove that validation from Perf. The test uses "timestamp=1"
+> > so I didn't notice.
+> > 
+> > Can we accept that people are most likely using the defaults so timestamps are
+> > already on and they wouldn't be using it? The only real use case of that at the
+> > moment is to do timestamp=0 and that doesn't fail.
+> > 
+> > Although it's not the default for per-thread mode and I did find the OpenCSD
+> > HOWTO.md uses it as an example. timestamps make less sense in per-thread
+> > mode as you don't need to correlate between CPUs or watch for context
+> > switches.
+> 
+> Timestamps have a more specialised use in per-thread mode, they are
+> as you say less essential for switching in the right context to decode
+> the trace, and less relevant to BOLT/AutoFDO style usage where the
+> trace is collapsed into a heat-map profile.
+> 
+> But trace can also be used to get a detailed timeline of CPU activity -
+> a non-invasive timeline that can trace even through interrupt-disabled
+> kernel code. And for that, having a global constant-frequency timebase
+> becomes more useful, both in its own right, and to line up traces
+> from each CPU with other CPUs and system-level traces.
+> It's also the only way we have to indirectly observe CPU frequency
+> adjustments. (Intel's Processor Trace, which is generally similar to
+> ETM/ETE, has specific packets that trace CPU frequency changes.)
 
-         \
- static DEFINE_PER_CPU(struct batch_ ##type, batched_entropy_ ##type)
-= {       \
-        .lock = INIT_LOCAL_LOCK(batched_entropy_ ##type.lock),
-         \
--       .position = UINT_MAX
-         \
-+       .position = ARRAY_SIZE(batched_entropy_ ##type.entropy),
-         \
- };
-         \
+Just clarify a bit to make sure us on the same page.
 
-         \
- type get_random_ ##type(void)
-         \
+This series does not break timestamp functionality, it just changes the
+PMU format 'timestamp' from 1-bit to 4-bits for counter support.  The
+updated 'timestamp' format still supports per-thread mode and CPU wise
+trace modes.
+
+The only difference is now users need to specify 'cs_etm/timestamp=1/'
+rather than 'cs_etm/timestamp/' when enabling timestamp.  Given PMU
+format is not an ABI, it is fine for me for the updated format.
+
+To avoid confusion for users, a well-written document is deserved —
+which is exactly this patch for.  And perf log would be helpful.  I
+think we are well prepared for the change.
+
+Thanks,
+Leo
 
