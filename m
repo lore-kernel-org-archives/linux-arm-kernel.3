@@ -4,64 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C2D2D116E0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 26 Nov 2025 23:54:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED0ED116E1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 00:09:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=ZZ0phuZgX22EeC5jqvr0+xobTopn6OyGqzoURnCrk4A=; b=ccIZhyDWn7/2Dz
-	slNTrZEfIgxLIY6xDcVmrfZuGt7d7SvD9La+4ggtK05DpN3AyM+JSvY/sch9FdLpRIQtXQ5fk6bYw
-	MeDvZaeWG131gj5yV3Q3SgJtfN4z6Mowh8/jrILwNdH9kBuXtIb7ShBn4sQRnvmaX2fTMC9nBlRmL
-	QGntghbU3ncphaUQwBYyiHeYJBYRvvoBlvtuYtAXlalnEgnKEPUHjN+RTGfnCCTBEvDZNF/igj35j
-	tM+L4TlJ4w9TfUVvDSdmJdZHGaIkofSWanliCjA/GM5AH2KbkGIyzskJcfo7cNrrS7v2a+Fs2pyDm
-	5tDPzIkiwuY8FUdlE3eg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YSyiRW1FlOenglm2u/M08PCHR36GOfF+K01IO6BA5Ig=; b=Zmkt+EhoF5m4Z5VNqp+I9TgwYD
+	E4rjCpqPhEYY9PANVXbLttzoVYdtooz0LnBKtqbTGId7jbsAlz8Xh1Hdb8FGoM3KlY+3LyJLWgPnr
+	2uVRZsnwrionA05emjYOdBhQJ0ONb6CnppMEE8wjXiDR7loZlfkZjAi04A7efC28eg3nCA4Qde85C
+	EA1ZFtDu+3HCMH411MCYsXiCQderinPaZI7xcodYV4DaF4j4M2sv1s7p+MGv0vAR3ZqmKToG15Pnn
+	KEdnc0jC+7JnSYtEfThEZ9W6lmi9vHjb/jo8IWL3bu5qn4s/fCYjjh7TuHPnaK+2EYqrslxb8L68a
+	eGCXydVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOPLJ-0000000FmRV-2qhX;
-	Wed, 26 Nov 2025 23:54:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vOPZf-0000000Fn4n-35rW;
+	Thu, 27 Nov 2025 00:09:27 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOPLG-0000000FmQy-3mFr;
-	Wed, 26 Nov 2025 23:54:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 027DE4197D;
-	Wed, 26 Nov 2025 23:54:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A5A68C4CEF7;
-	Wed, 26 Nov 2025 23:54:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764201273;
-	bh=g9nM4cO2Nu/TJJjgqtJ77MJB0fTDSxhxd0RQ+LzrMi4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=RQCfpfeZnsMlL2sUCsmFtjvqUATIhGbpQyu2dIi70gm8+BkN4dpSOM8JiXvAM5ZkP
-	 BoBfquJLzroZc5wGIAhoeSIkCUnY0qS/5icO4JnicFJ0PPsD5DfEBBC7hBmvplQj5F
-	 ri2lDTXygjlNAnWYiAyrbQd22ZR9ML4QDBiPfJIqcB9nPwDfqKnpAU2yVmhPKxrPRg
-	 2EumjNk/YuuXvFGVk84zVWHzVu4QY6ZGevOp5ULfj/A+7wtKaM0W8Gbch+y00woMe/
-	 yBcP4f8YtTSAWZMVLl6ZP0I+y/MtkKXo+hfPfxFy9bKI4FmbV42CSLYgrYvTEV6ahp
-	 pmVD44qu7aO0w==
-Date: Wed, 26 Nov 2025 17:54:32 -0600
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Hans Zhang <18255117159@163.com>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, bhelgaas@google.com,
-	heiko@sntech.de, mani@kernel.org, yue.wang@amlogic.com,
-	pali@kernel.org, neil.armstrong@linaro.org, robh@kernel.org,
-	jingoohan1@gmail.com, khilman@baylibre.com, jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com, cassel@kernel.org,
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v6 1/2] PCI: Configure Root Port MPS during host probing
-Message-ID: <20251126235432.GA2726707@bhelgaas>
+	id 1vOPZd-0000000Fn4I-1rIU
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Nov 2025 00:09:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1764202163;
+	bh=YSyiRW1FlOenglm2u/M08PCHR36GOfF+K01IO6BA5Ig=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=GE6RTA37oHwxcE3MmkkWQlnKhuyPc50WN4YCD/uIHWekOMcWGHMBIGnpSh1ZsGjMS
+	 E02qnWPiyPhJhhkwPiSyk78cnsjwNYsrG/kw6LC3VY9bABUGr+oDRPu56YGv/jXufh
+	 VYNSHsscnTxRPnQfhJ/i9BgcRJoGkmvZgZ+ToNgyGbR1Nc9HahM2nUq2V8wK48tR4O
+	 dcrbhTSJ/nK9Fiu3RFwsJ4ls6ouGdG3x0Kf1OjgXsp51P7vQoIY5ldZcNuvkUaEW38
+	 NE5NhVKc+DLl0fz7jxGireNzjoHA4gwQ8YodAMcnzgRFLzKN5ilGl4ot+C47c8FAcm
+	 6jgH2SBAy/bvg==
+Received: from [192.168.68.115] (unknown [180.150.112.38])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id D1CE36561D;
+	Thu, 27 Nov 2025 08:09:22 +0800 (AWST)
+Message-ID: <f1a18e7b8deb5987164b4506f8400dcad67a8862.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v4 2/2] dts: aspeed: Add a dts for the nvidia msx4 hpm
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Marc Olberding <molberding@nvidia.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski
+	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Joel Stanley
+	 <joel@jms.id.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Date: Thu, 27 Nov 2025 10:39:22 +1030
+In-Reply-To: <20251124-msx1_devicetree-v4-2-a3ebe3110a67@nvidia.com>
+References: <20251124-msx1_devicetree-v4-0-a3ebe3110a67@nvidia.com>
+	 <20251124-msx1_devicetree-v4-2-a3ebe3110a67@nvidia.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251104165125.174168-2-18255117159@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_155434_983171_AC023225 
-X-CRM114-Status: GOOD (  22.11  )
+X-CRM114-CacheID: sfid-20251126_160925_682597_74579ABA 
+X-CRM114-Status: GOOD (  11.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,81 +74,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 05, 2025 at 12:51:24AM +0800, Hans Zhang wrote:
-> Current PCIe initialization logic may leave Root Ports (root bridges)
-> operating with non-optimal Maximum Payload Size (MPS) settings. Existing
-> code in pci_configure_mps() returns early for devices without an upstream
-> bridge (!bridge) which includes Root Ports, so their MPS values remain
-> at firmware/hardware defaults. This fails to utilize the controller's full
-> capabilities, leading to suboptimal data transfer efficiency across the
-> PCIe hierarchy.
-> 
-> With this patch, during the host controller probing phase:
-> - When PCIe bus tuning is enabled (not PCIE_BUS_TUNE_OFF), and
-> - The device is a Root Port without an upstream bridge (!bridge),
-> The Root Port's MPS is set to its hardware-supported maximum value
-> (128 << dev->pcie_mpss).
-> 
-> Note that this initial maximum MPS setting may be reduced later, during
-> downstream device enumeration, if any downstream device does not suppor
-> the Root Port's maximum MPS.
-> 
-> This change ensures Root Ports are properly initialized before downstream
-> devices negotiate MPS, while maintaining backward compatibility via the
-> PCIE_BUS_TUNE_OFF check.
+Hi Marc,
 
-"Properly" is sort of a junk word for me because all it really says is
-we were stupid before, and we're smarter now, but it doesn't explain
-exactly *what* was wrong and why this new thing is "proper."
+On Mon, 2025-11-24 at 15:14 -0800, Marc Olberding wrote:
+> Adds a dts for the nvidia mgx pcie switchboard reference
+> platformi hpm. This is a dual socket granite rapids based platform.
 
-It's obvious that the Max_Payload_Size power-on default (128 bytes) is
-suboptimal in some situations, so you don't even need to say that.
-And I think 128 bytes *is* optimal in the PCIE_BUS_PEER2PEER case.
+I was looking to apply this, and set about tweaking the commit message
+in the process, but the more I tweaked the more I felt I needed to
+tweak. So rather than do all that myself, I'll ask that you work
+through these requests :)
 
-s/Root Ports (root bridges)/Root Ports/
-s/bridge (!bridge)/bridge/     # a couple times
-s/hardware-supported//         # unnecessary
-s/(128 << dev->pcie_mpss)//    # we can read the spec
-s/suppor/support/
+The things that I'd like addressed are:
 
-> Suggested-by: Niklas Cassel <cassel@kernel.org>
-> Suggested-by: Manivannan Sadhasivam <mani@kernel.org>
-> Signed-off-by: Hans Zhang <18255117159@163.com>
-> ---
->  drivers/pci/probe.c | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
-> 
-> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-> index 0ce98e18b5a8..2459def3af9b 100644
-> --- a/drivers/pci/probe.c
-> +++ b/drivers/pci/probe.c
-> @@ -2196,6 +2196,18 @@ static void pci_configure_mps(struct pci_dev *dev)
->  		return;
->  	}
->  
-> +	/*
-> +	 * Unless MPS strategy is PCIE_BUS_TUNE_OFF (don't touch MPS at all),
-> +	 * start off by setting Root Ports' MPS to MPSS. This only applies to
-> +	 * Root Ports without an upstream bridge (root bridges), as other Root
-> +	 * Ports will have downstream bridges.
+1. The subject prefix needs to begin with "ARM: ", so:
 
-I can't parse this sentence.  *No* Root Port has an upstream bridge.
-So I don't know what "other Root Ports" would be or why they would
-have downstream bridges (any Root Port is likely to have downstream
-endpoints or bridges).
+   ARM: dts: aspeed: ...
 
-> +	   ... Depending on the MPS strategy
-> +	 * and MPSS of downstream devices, the Root Port's MPS may be
-> +	 * overridden later.
-> +	 */
-> +	if (!bridge && pci_pcie_type(dev) == PCI_EXP_TYPE_ROOT_PORT &&
-> +	    pcie_bus_config != PCIE_BUS_TUNE_OFF)
-> +		pcie_set_mps(dev, 128 << dev->pcie_mpss);
-> +
->  	if (!bridge || !pci_is_pcie(bridge))
->  		return;
->  
-> -- 
-> 2.34.1
-> 
+2. I'd rather stick to formalised naming and capitalisation, so NVIDIA,
+MSX4, and HPM, Granite Rapids etc
+
+3. "Add a dts for" in the subject is a bit redundant, as we already
+have "dts" in the prefix. We can trim that out:
+
+   ARM: dts: aspeed: Add NVIDIA MSX4 HPM platform
+
+4. "HPM" hasn't yet been expanded anywhere and it's still a mystery to
+me. Can we unpack that in the commit message?
+
+5. "Adds a dts for ..." in the commit message is self-evident from the
+patch. Rather, can you please talk a bit more about the purpose of the
+platform? I'd like to see discussion of its use cases and any
+interesting points of design or implementation.
+
+Cheers,
+
+Andrew
 
