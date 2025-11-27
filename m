@@ -4,71 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1D22D11183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 09:01:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF4FFCFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 09:02:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nsIW7IAg+g/gXVSRmFLOK91Nrr9aPAD8bMkAZqYMoEA=; b=mKluKIChX5aj/+hiodvieBUL7q
-	aQR1X3CgZlbjtW8Q5jtx6eWe52lUSxiFEYTkkrsLftqrDcFCbuCM1paCAsAzix8Khj0iScJ3N2dOV
-	eCriltWGCcVS7rYtxYivxEDUCHaXwSfGbWs2tQIQ0QrX9i+QeJVoI7A+olSuyWu+QZ6ae8JVyptjL
-	HeCZu+KIqEic5lui2MsB3Ax1XtEYgTFGB5HjffT323lJah6Mzp0Mw88TBbDvhOvasWSDwAWsozNtt
-	LpdFdOQjF86hw3KFJmd9ICa6Ok57hqw8MyzxyiAjl3tA+Hsje3znkj8N0Z0uMYMgFWmEKtEU75ZlP
-	3S0+PAIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YSY12wujyQqkN0s0ZCmyYYswJOo3iF7QtRvGpJcpmMY=; b=KY0EFqFJkQqB4PE8k2wmt5Za9k
+	USqivuhpdPFgZ3gdfQpEDUy7kNoT62wvZwjl3VWv9Mf6Tv6+iL6ZZxIkTZXIX8G3Icut5EyZ4onEN
+	jZWSIj1IMOujmadA2kK5MIJ1YHtDLP99JZuoPSqUkIIFK13VixIugGXK15I9PnZBT1abhKi5cPQfk
+	5uBVliMyAdVyekH4ezgkbjSEc8pK1rEtKgDfiEH9m+n58vSUaZ6iEz8IA0uWmS95ey8hUXCLUVSz3
+	jJGKH5sidzTKSlvWTc0muoWYb9Rao+hpqwA7hGdpnw0YxhGnAdRyU6cBLP6dlj/BL6iTD8nwsmhsP
+	T3dlCSvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOXsC-0000000GF7s-3eg3;
-	Thu, 27 Nov 2025 09:01:08 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1vOXtj-0000000GFFs-1JDq;
+	Thu, 27 Nov 2025 09:02:43 +0000
+Received: from mail-vs1-f44.google.com ([209.85.217.44])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOXsA-0000000GF7R-1yhf
+	id 1vOXtg-0000000GFFP-2TIN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 09:01:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1764234066; x=1795770066;
-  h=date:from:to:cc:subject:message-id;
-  bh=QQ6GVheKpTay9XIQn6vW79eNyTyksEN2SY4LLdKh8x8=;
-  b=DZa1QayO5zKXiRrgUB6waXrNvChHmNF4fMeeAuJTY8Mg2pfGikpNuyHk
-   vfY4B+RtEeg9Qk+4m2ynCbhHRGGt3fU9YNqgIx17RwRqlBfp4RZEvwY+r
-   Whobgb+2S5rq2Q+n/AaozoUiZCbVe+08gEhHki4IXRx4NTIEyOWodPUvh
-   +f10c6BjZnxzoQMUXVT33gZokEpbXAONfyPzFmNC0WOf09QEal80mqov5
-   AKAVpwwUkMuf+uUsuVVzLH54H96s3GjZm+6jOxFyOcUKPZapYX2Q3Bgh/
-   36zd92HTnBmohUO74D3yKPhzSFCBine3R2uJ+U8E46D9ZgJkvqESPh75X
-   w==;
-X-CSE-ConnectionGUID: 8vNfeHP0S6Whd64nFJYsew==
-X-CSE-MsgGUID: ufR3km8ARXqfXbPCbXMsPw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11625"; a="66438848"
-X-IronPort-AV: E=Sophos;i="6.20,230,1758610800"; 
-   d="scan'208";a="66438848"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2025 01:01:06 -0800
-X-CSE-ConnectionGUID: sOadcZlpSDCTRppp52M7Hg==
-X-CSE-MsgGUID: Bvut67BzSbaAK6h3lxXYvw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,230,1758610800"; 
-   d="scan'208";a="216530445"
-Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 27 Nov 2025 01:01:04 -0800
-Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vOXs6-0000000044X-0my2;
-	Thu, 27 Nov 2025 09:01:02 +0000
-Date: Thu, 27 Nov 2025 17:00:12 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:arm/fixes] BUILD SUCCESS
- e9191383d28da31831cee84bb04029d0e46c514b
-Message-ID: <202511271706.MKGAN0h0-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Thu, 27 Nov 2025 09:02:41 +0000
+Received: by mail-vs1-f44.google.com with SMTP id ada2fe7eead31-5e18598b9b1so448429137.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 01:02:40 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764234159; x=1764838959;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=YSY12wujyQqkN0s0ZCmyYYswJOo3iF7QtRvGpJcpmMY=;
+        b=bl9FfazsuljhK+SENNycEBHiSK9qWs2NTjjtnCq5XsAyUjggmYOfqHJdOqd4/Fo4uE
+         njkZ+8OTWyE677BvJSSQxzeHGBpcSvomE0Sz5d6elaSPPlzsX2u7tYaN68RsnVNxI9LX
+         ekruc1oobeR6XmYzxjiM50z/G/YxcCmCgktyfmU0JCD5zJl//tCm8kOBBejN74GtEWOI
+         NnbOCDIQ3hGysp1YD8wT1Ce/YPuWZmhejmOjI7C6fB568imgwt7Aynhl1y89fWDpOty+
+         rCjQIt03Qd0QUxIi5tAP8emmQa5yWd27ucKtAch//ymGVWyMxrKHY/t8SDBUcYTLgcoD
+         Qadw==
+X-Forwarded-Encrypted: i=1; AJvYcCWwumDqR9gMlfx4H3SO8OKAZu0drRBQoVv6r58IgGme28pcPVBC4Q73Ecu+Mt7NrH+IzIP3YbbFCJpLStcqerTY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1sSVbKtuF0G3ycahrrnAWfdS4GmC3YlqfWv7bt3oaWG1XaqSr
+	59Dha8syNEFwdrewoxyactdsL/osQ4C16rUnsJFyVU2WiNW8kK9yC+JA+q1E1ezy
+X-Gm-Gg: ASbGncvOyCUzueAnoxM5u3l+5DGVql6jxEJyCQjPokJMJKHy66Vh0pviPcyC/6xbGMl
+	iEG7hRK0dxLjynkCrmFReJJaW/pileqfiNRWXXlnlaoCKC03x+CHj6Lf8MxoD0Do+TmFmRjFTPH
+	OPi8XHyvz7JbcKIgXOOBMt/etmWQZk2V3gJ34lcjOH7DNp667btivRm45LsXsv/uoMxhjdvz4NA
+	qdxwFpDvhY1Tke2CzuXSfydCFlgc9fYDGiuYGfpaYl5zTF5zPnc1AjUOQB8b1aJZI1lLU5zj2/W
+	IVfQ/fIWmlWulNsdMUIEjQ3SQbzaM7IvNqdVymPftMF9cPwhtmEu43lmfCCsnrcl72yeUXgJiDa
+	plYVSIPLM3UmxKv9B4JZIMWdhdI4LIetF4CFiD5wsbygMiBq1fH/c1vO4I5zuLTRyl4kqN448qr
+	DcPswrr98ama/aN8BMBRMA7n4BDLMNjsUkW9N4P/eCFCspSBcUNmzbVx/2aXxXVdY=
+X-Google-Smtp-Source: AGHT+IFTadLe513I3BAT4oSNQNyksVpIeChvlh82PgZW4tR+gQu1W9QAHqu9uSl3/3AY0d3gB/LcjQ==
+X-Received: by 2002:a05:6102:3909:b0:5db:f615:1821 with SMTP id ada2fe7eead31-5e1de088006mr7482190137.10.1764234159162;
+        Thu, 27 Nov 2025 01:02:39 -0800 (PST)
+Received: from mail-vk1-f174.google.com (mail-vk1-f174.google.com. [209.85.221.174])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5e24d9391f8sm310504137.5.2025.11.27.01.02.37
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 27 Nov 2025 01:02:37 -0800 (PST)
+Received: by mail-vk1-f174.google.com with SMTP id 71dfb90a1353d-55b1dde0961so481656e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 01:02:37 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCX9230iQ2m6st77Ix4SrJM61PNLXIk/unCkB/kb0sOwBTm1X+KJNkiXAKjTR4ohcrgEk8J3YYTp7OiTwyByqEdR@lists.infradead.org
+X-Received: by 2002:a67:e108:0:b0:5df:c33d:6e54 with SMTP id
+ ada2fe7eead31-5e1de0099d7mr8404976137.3.1764234157141; Thu, 27 Nov 2025
+ 01:02:37 -0800 (PST)
+MIME-Version: 1.0
+References: <20251126182257.157439-4-krzysztof.kozlowski@oss.qualcomm.com> <20251126182257.157439-6-krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20251126182257.157439-6-krzysztof.kozlowski@oss.qualcomm.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 27 Nov 2025 10:02:26 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdX7t=mabqFE5O-Cii3REMuyaePHmqX+j_mqyrn6XXzsoA@mail.gmail.com>
+X-Gm-Features: AWmQ_bmLgGar4dfe4FpC2atA-pkz10WbT4MOeIioGse4jPHnHaBNPYet7pQnslE
+Message-ID: <CAMuHMdX7t=mabqFE5O-Cii3REMuyaePHmqX+j_mqyrn6XXzsoA@mail.gmail.com>
+Subject: Re: [PATCH 3/3] i2c: rcar: Fix Wvoid-pointer-to-enum-cast warning
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Andi Shyti <andi.shyti@kernel.org>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, linux-i2c@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, llvm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_010106_556612_A8BF1AC7 
-X-CRM114-Status: UNSURE (   5.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251127_010240_633984_BE5A816A 
+X-CRM114-Status: GOOD (  22.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,158 +102,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git arm/fixes
-branch HEAD: e9191383d28da31831cee84bb04029d0e46c514b  Merge tag 'sunxi-fixes-for-6.18' of https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux into arm/fixes
+Hi Krzysztof,
 
-elapsed time: 2460m
+On Wed, 26 Nov 2025 at 19:23, Krzysztof Kozlowski
+<krzysztof.kozlowski@oss.qualcomm.com> wrote:
+> 'i2c_types' is an enum, thus cast of pointer on 64-bit compile test with
+> clang and W=1 causes:
+>
+>   i2c-rcar.c:1144:18: error: cast to smaller integer type 'enum rcar_i2c_type' from 'const void *' [-Werror,-Wvoid-pointer-to-enum-cast]
+>
+> One of the discussions in 2023 on LKML suggested warning is not suitable
+> for kernel.  Nothing changed in this regard since that time, so assume
+> the warning will stay and we want to have warnings-free builds.
+>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-configs tested: 138
-configs skipped: 0
+Thanks for your patch!
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+=
+> --- a/drivers/i2c/busses/i2c-rcar.c
+> +++ b/drivers/i2c/busses/i2c-rcar.c
+> @@ -1141,7 +1141,7 @@ static int rcar_i2c_probe(struct platform_device *pdev)
+>         if (IS_ERR(priv->io))
+>                 return PTR_ERR(priv->io);
+>
+> -       priv->devtype = (enum rcar_i2c_type)of_device_get_match_data(dev);
+> +       priv->devtype = (kernel_ulong_t)of_device_get_match_data(dev);
 
-tested configs:
-alpha                             allnoconfig    gcc-15.1.0
-alpha                               defconfig    gcc-15.1.0
-arc                               allnoconfig    gcc-15.1.0
-arc                                 defconfig    gcc-15.1.0
-arc                   randconfig-001-20251126    gcc-13.4.0
-arc                   randconfig-001-20251127    clang-22
-arc                   randconfig-002-20251126    gcc-11.5.0
-arc                   randconfig-002-20251127    clang-22
-arm                               allnoconfig    clang-22
-arm                               allnoconfig    gcc-15.1.0
-arm                         axm55xx_defconfig    clang-19
-arm                                 defconfig    gcc-15.1.0
-arm                            mmp2_defconfig    clang-19
-arm                         mv78xx0_defconfig    clang-19
-arm                   randconfig-001-20251126    clang-22
-arm                   randconfig-001-20251127    clang-22
-arm                   randconfig-002-20251126    clang-22
-arm                   randconfig-002-20251127    clang-22
-arm                   randconfig-003-20251126    clang-19
-arm                   randconfig-003-20251127    clang-22
-arm                   randconfig-004-20251126    clang-22
-arm                   randconfig-004-20251127    clang-22
-arm64                             allnoconfig    gcc-15.1.0
-arm64                               defconfig    gcc-15.1.0
-arm64                 randconfig-001-20251127    gcc-15.1.0
-arm64                 randconfig-002-20251127    gcc-15.1.0
-arm64                 randconfig-003-20251127    gcc-15.1.0
-arm64                 randconfig-004-20251127    gcc-15.1.0
-csky                              allnoconfig    gcc-15.1.0
-csky                                defconfig    gcc-15.1.0
-csky                  randconfig-001-20251127    gcc-15.1.0
-csky                  randconfig-002-20251127    gcc-15.1.0
-hexagon                           allnoconfig    clang-22
-hexagon                           allnoconfig    gcc-15.1.0
-hexagon                             defconfig    gcc-15.1.0
-hexagon               randconfig-001-20251126    clang-22
-hexagon               randconfig-001-20251127    gcc-15.1.0
-hexagon               randconfig-002-20251126    clang-22
-hexagon               randconfig-002-20251127    gcc-15.1.0
-i386                              allnoconfig    gcc-14
-i386                              allnoconfig    gcc-15.1.0
-i386        buildonly-randconfig-001-20251127    clang-20
-i386        buildonly-randconfig-002-20251127    clang-20
-i386        buildonly-randconfig-003-20251127    clang-20
-i386        buildonly-randconfig-004-20251127    clang-20
-i386        buildonly-randconfig-005-20251127    clang-20
-i386        buildonly-randconfig-006-20251127    clang-20
-i386                                defconfig    gcc-15.1.0
-loongarch                         allnoconfig    clang-22
-loongarch                         allnoconfig    gcc-15.1.0
-loongarch                           defconfig    clang-19
-loongarch             randconfig-001-20251126    gcc-15.1.0
-loongarch             randconfig-001-20251127    gcc-15.1.0
-loongarch             randconfig-002-20251126    clang-22
-loongarch             randconfig-002-20251127    gcc-15.1.0
-m68k                              allnoconfig    gcc-15.1.0
-m68k                                defconfig    clang-19
-microblaze                        allnoconfig    gcc-15.1.0
-microblaze                          defconfig    clang-19
-mips                              allnoconfig    gcc-15.1.0
-mips                          ath79_defconfig    clang-19
-nios2                             allnoconfig    clang-22
-nios2                             allnoconfig    gcc-11.5.0
-nios2                               defconfig    clang-19
-nios2                 randconfig-001-20251126    gcc-11.5.0
-nios2                 randconfig-001-20251127    gcc-15.1.0
-nios2                 randconfig-002-20251126    gcc-9.5.0
-nios2                 randconfig-002-20251127    gcc-15.1.0
-openrisc                          allnoconfig    clang-22
-openrisc                          allnoconfig    gcc-15.1.0
-parisc                            allnoconfig    clang-22
-parisc                            allnoconfig    gcc-15.1.0
-parisc                randconfig-001-20251126    gcc-8.5.0
-parisc                randconfig-001-20251127    gcc-13.4.0
-parisc                randconfig-002-20251126    gcc-15.1.0
-parisc                randconfig-002-20251127    gcc-13.4.0
-parisc64                            defconfig    clang-19
-powerpc                           allnoconfig    clang-22
-powerpc                           allnoconfig    gcc-15.1.0
-powerpc               randconfig-001-20251126    gcc-10.5.0
-powerpc               randconfig-001-20251127    gcc-13.4.0
-powerpc               randconfig-002-20251126    gcc-8.5.0
-powerpc               randconfig-002-20251127    gcc-13.4.0
-powerpc                      tqm8xx_defconfig    clang-19
-powerpc                        warp_defconfig    clang-19
-powerpc64             randconfig-001-20251126    clang-19
-powerpc64             randconfig-001-20251127    gcc-13.4.0
-powerpc64             randconfig-002-20251126    clang-22
-powerpc64             randconfig-002-20251127    gcc-13.4.0
-riscv                             allnoconfig    clang-22
-riscv                             allnoconfig    gcc-15.1.0
-riscv                 randconfig-001-20251126    gcc-10.5.0
-riscv                 randconfig-001-20251127    gcc-12.5.0
-riscv                 randconfig-002-20251126    clang-22
-riscv                 randconfig-002-20251127    gcc-12.5.0
-s390                              allnoconfig    clang-22
-s390                  randconfig-001-20251126    gcc-8.5.0
-s390                  randconfig-001-20251127    gcc-12.5.0
-s390                  randconfig-002-20251126    gcc-8.5.0
-s390                  randconfig-002-20251127    gcc-12.5.0
-sh                                allnoconfig    clang-22
-sh                                allnoconfig    gcc-15.1.0
-sh                                  defconfig    gcc-14
-sh                    randconfig-001-20251126    gcc-14.3.0
-sh                    randconfig-001-20251127    gcc-12.5.0
-sh                    randconfig-002-20251126    gcc-11.5.0
-sh                    randconfig-002-20251127    gcc-12.5.0
-sh                   secureedge5410_defconfig    clang-19
-sparc                             allnoconfig    clang-22
-sparc                             allnoconfig    gcc-15.1.0
-sparc                 randconfig-001-20251127    clang-22
-sparc                 randconfig-002-20251127    clang-22
-sparc64                             defconfig    gcc-14
-sparc64               randconfig-001-20251127    clang-22
-sparc64               randconfig-002-20251127    clang-22
-um                                allnoconfig    clang-22
-um                                  defconfig    gcc-14
-um                             i386_defconfig    gcc-14
-um                    randconfig-001-20251127    clang-22
-um                    randconfig-002-20251127    clang-22
-um                           x86_64_defconfig    gcc-14
-x86_64                            allnoconfig    clang-20
-x86_64                            allnoconfig    clang-22
-x86_64                              defconfig    gcc-14
-x86_64                                  kexec    clang-20
-x86_64                randconfig-001-20251127    gcc-14
-x86_64                randconfig-002-20251127    gcc-14
-x86_64                randconfig-003-20251127    gcc-14
-x86_64                randconfig-004-20251127    gcc-14
-x86_64                randconfig-005-20251127    gcc-14
-x86_64                randconfig-006-20251127    gcc-14
-x86_64                               rhel-9.4    clang-20
-x86_64                          rhel-9.4-func    clang-20
-x86_64                    rhel-9.4-kselftests    clang-20
-xtensa                            allnoconfig    clang-22
-xtensa                            allnoconfig    gcc-15.1.0
-xtensa                randconfig-001-20251127    clang-22
-xtensa                randconfig-002-20251127    clang-22
+Any specific reason you picked "kernel_ulong_t" instead of "unsigned long"?
+The former seems to be the least common option.
+FWIW, the most common option is "uintptr_t", which torvalds doesn't like...
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>         init_waitqueue_head(&priv->wait);
+>
+>         adap = &priv->adap;
+
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
