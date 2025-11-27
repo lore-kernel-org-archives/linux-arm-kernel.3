@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80664CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 18:02:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C195ED111A8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 18:05:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yVdDa+AOG7bxWU39wPpsETVv0gcMopDlgo6rv4+/GLk=; b=4dJan7nFqy9bruT9+iZtCqlIny
-	QMgIZ75MRMB0jjFXx9dfXUmPbnhbO7d64YKKZ7AJ8opr6Fs2nV3Q10nnOxGSkeiKgD00Dd0+zXuav
-	LCtVn2RyeVf7Wjg+0ADFfQwHAHrPZSJYADB9SxgqCB1ilsysrlDOpQ6cVe0Rp9T8o/GvHZ9l5Yh1s
-	xGy5HffzsoNIilW4Q4CnqlI66LGYvmVWDrE4sYfwaWnpzg2iRsayhwgFsw0mAqdLBGPL20Inl0Eo8
-	fw4wJGG/c4UkSn+U/CuLlIxNdZoRGlC38ESDuNqCTHaIU78h7XdiT/HOXvPGbnVl1XLsEQal02Uj1
-	tM7f8IVw==;
+	bh=EvV1w4cAULv5qSHvIlf1UNf4JtPT19KI5eOxlCJ4tWA=; b=xn+JaA22gc/MxaQa2D25DIuVtH
+	SGvSQnN8HQy48adbuQJSSaYq7CiBS8hQnuKw9RBNRGjotA6eU9smflQKFe+pcLZxacp8Raasf4IBY
+	J2SPCtNIbwqJZoHdUFLG9f20pr4m33DX/Iaa8H1rNDrBaCeBzCjEZKt3Vkg+oLF8I2gJEUkjY+dkM
+	wzPvQ7pcuSom5kHKUczA71pLG+wA8FaYffwX3XOJmrAtxBZjjPTE1R3rnYaOQYesYCpwkLBjnHLoH
+	8Dr1nUs6Es+AXlse7PsURgdF6NHz7zTeS2FDEMbcVIlnLnp6e5OoPRMj24AXVRQlFYTWKW+PigDlj
+	LG5RiT1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOgKP-0000000H2d6-2LY3;
-	Thu, 27 Nov 2025 18:02:49 +0000
+	id 1vOgMc-0000000H2wV-2Tsf;
+	Thu, 27 Nov 2025 18:05:06 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOgKM-0000000H2cc-1wc9
+	id 1vOgMZ-0000000H2vd-1lNw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 18:02:47 +0000
+	Thu, 27 Nov 2025 18:05:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
 	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=yVdDa+AOG7bxWU39wPpsETVv0gcMopDlgo6rv4+/GLk=; b=gvrmCN0Zi73LvKtmWnZsdXwbhE
-	VipcmGRjHq0XseALF1uILbX2uMIKqrWTRWnrNc9qcJWUKoAUHIjtVpIkBIkmi8t4LeptiTKkWrxtM
-	+dctiqLiZUtvmEkHwbQeoBMFFE+Ocz+TnechLPiolnGtBfMzRXbFNrlQg45T6rjMEx8mE1I7JVTJU
-	SFISvjY8LzPKivCBFAgsP+hqJiitfWl3JQKv9U2puBiDBuxCLsH/DT33udPcpZxDVe+R/alQd3H6K
-	yA75fj55BGkUmYcI8yavLJ4DTLatLEplEVjk5hqfzfntWnr6BDiVJQjR6s1qO9GTVrmGfdIezJdw+
-	mI1+nC1Q==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:50158)
+	bh=EvV1w4cAULv5qSHvIlf1UNf4JtPT19KI5eOxlCJ4tWA=; b=E/WGvUO0zODvpejzuuJAosSxXI
+	iFqcj14LgqeI5b4CMhcAFYvNJNtPr/B8w3KNcBxAZqcXP+XFkZpLwQrhkmhgLcGYNjUdnkqzt12Dk
+	5CBA+U+vk0kdLeeWzH9zoHUJsqicpqOa9iJv8NQhieYPif5d8/MauMU9LlOu8xAMTqbNC1l/qX4Fu
+	fym+Npr21c7gk+4bn9CLtZ4o0h5qvf7hWxMHInKycDIBXnwA34CxjWBLrzV2SWwAjmV07If9JBQxW
+	mNb21q0UHBKtVyPyXgE80fwKVYLKTjrXgJHs9/wrKzip3pvC5vXHEd/quSFNJ3d4fZh+ToXqlOcdB
+	h9Deqrtg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:55118)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <linux@armlinux.org.uk>)
-	id 1vOgKB-000000005at-0qZB;
-	Thu, 27 Nov 2025 18:02:35 +0000
+	id 1vOgMS-000000005bY-30fO;
+	Thu, 27 Nov 2025 18:04:56 +0000
 Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vOgK5-000000002rM-06I7;
-	Thu, 27 Nov 2025 18:02:29 +0000
-Date: Thu, 27 Nov 2025 18:02:28 +0000
+	id 1vOgMP-000000002rV-16BZ;
+	Thu, 27 Nov 2025 18:04:53 +0000
+Date: Thu, 27 Nov 2025 18:04:53 +0000
 From: "Russell King (Oracle)" <linux@armlinux.org.uk>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Cc: davem@davemloft.net, netdev@vger.kernel.org,
@@ -76,18 +76,18 @@ Cc: davem@davemloft.net, netdev@vger.kernel.org,
 	Daniel Golle <daniel@makrotopia.org>,
 	Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
 	Tariq Toukan <tariqt@nvidia.com>
-Subject: Re: [PATCH net-next v20 02/14] net: ethtool: Introduce
- ETHTOOL_LINK_MEDIUM_* values
-Message-ID: <aSiSNA1PaM5Md8ju@shell.armlinux.org.uk>
+Subject: Re: [PATCH net-next v20 03/14] net: phy: Introduce PHY ports
+ representation
+Message-ID: <aSiSxbE-XY_zxMBC@shell.armlinux.org.uk>
 References: <20251127171800.171330-1-maxime.chevallier@bootlin.com>
- <20251127171800.171330-3-maxime.chevallier@bootlin.com>
+ <20251127171800.171330-4-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251127171800.171330-3-maxime.chevallier@bootlin.com>
+In-Reply-To: <20251127171800.171330-4-maxime.chevallier@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_100246_504616_4C163364 
-X-CRM114-Status: GOOD (  14.11  )
+X-CRM114-CacheID: sfid-20251127_100503_461228_C077FDCA 
+X-CRM114-Status: GOOD (  16.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,47 +102,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 27, 2025 at 06:17:45PM +0100, Maxime Chevallier wrote:
-> In an effort to have a better representation of Ethernet ports,
-> introduce enumeration values representing the various ethernet Mediums.
+On Thu, Nov 27, 2025 at 06:17:46PM +0100, Maxime Chevallier wrote:
+> Ethernet provides a wide variety of layer 1 protocols and standards for
+> data transmission. The front-facing ports of an interface have their own
+> complexity and configurability.
 > 
-> This is part of the 802.3 naming convention, for example :
+> Introduce a representation of these front-facing ports. The current code
+> is minimalistic and only support ports controlled by PHY devices, but
+> the plan is to extend that to SFP as well as raw Ethernet MACs that
+> don't use PHY devices.
 > 
-> 1000 Base T 4
->  |    |   | |
->  |    |   | \_ pairs (4)
->  |    |   \___ Medium (T == Twisted Copper Pairs)
->  |    \_______ Baseband transmission
->  \____________ Speed
+> This minimal port representation allows describing the media and number
+> of pairs of a BaseT port. From that information, we can derive the
+> linkmodes usable on the port, which can be used to limit the
+> capabilities of an interface.
 > 
->  Other example :
+> For now, the port pairs and medium is derived from devicetree, defined
+> by the PHY driver, or populated with default values (as we assume that
+> all PHYs expose at least one port).
 > 
-> 10000 Base K X 4
->            | | \_ lanes (4)
->            | \___ encoding (BaseX is 8b/10b while BaseR is 66b/64b)
->            \_____ Medium (K is backplane ethernet)
-> 
-> In the case of representing a physical port, only the medium and number
-> of pairs should be relevant. One exception would be 1000BaseX, which is
-> currently also used as a medium in what appears to be any of
-> 1000BaseSX, 1000BaseCX and 1000BaseLX. This was reflected in the mediums
-> associated with the 1000BaseX linkmode.
+> The typical example is 100M ethernet. 100BaseT can work using only 2
+> pairs on a Cat 5 cables.
 
-There's more than just those three for 1000BASE-X:
-	SX
-	LX
-	CX
-	EX
-	BX10 - single fibre strand, single mode, 1310nm and 1490nm over
-		10km.
-
-to name a few more. SFP modules don't have a way to indicate EX, but do
-have a way to indicate 1000BASE-BX10 (BaseBX10 bit set with the rate
-indicating 1000M.)
-
-Also note that 100BASE-T encompasses 100BASE-TX (what we generally see
-as fast ethernet), 100BASE-T4, etc. Should we be getting these
-descriptions correct as we're introducing this level of detail?
+Correction: 100BASE-TX. 100BASE-T, which covers the family of 100BASE-T
+media, includes 100BASE-T4 which is over all four pairs of the cable.
 
 -- 
 RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
