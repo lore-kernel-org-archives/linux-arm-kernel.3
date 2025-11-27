@@ -4,61 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC450D11183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 11:49:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21554D11183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 11:50:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5mZsplBCRwX+WcRF8Ggqr0MqXJ3iJ+az1Q4IhqCDbrQ=; b=tZ0eF5WIXVtmSG1nn8RuNNEEI0
-	AV3fClJNHAcb/k7q5V1QaUMWv0T7OwMt2pg/GpIgmrGwVxcKpq67yDsl6HI5azuHEs9/dYt2VhEO5
-	GuCq9kqV8CGdvuSmRduIUVj+bznogNiNeBepjYAVtAjXc8RqufxweixhGJztslI/OW8sWp7wW/VNR
-	h2a4SjtxYvuXIOwOArE9YPZ2KOMmI4KOnLf0LNJS5xAIfPKOAn04R2sY+rnEA5ECzA/jInOCTCKd0
-	nwYb7B09gvoDXAERAeWXEnqnbQsHrt6MuLu1V1593BvJgE68ndw2NPwaI+IVDh5vdiDqU2N5rm0/i
-	BhZyc1ig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ibcuwO6xfJfZ456dbZYjIw+Q+yMPtQjnoZOZn1zqnCA=; b=sh9LOPH6VS/t8RsD7UyT10OCtQ
+	6sYnXc1xyonPcFa2nzDsZNHHPXS2P7JKrce2tMtFAFUoQIY3bPwQZjr549fwcP6KEJ86JxyVoqIwb
+	CFSJOwRwbzhafKS5N8gJ04RjysNNQ7xbBIKQ8ELJsjpkfAzUy9nF0x1omKK1eJ0Rc4HEV6s64IZwT
+	iuWCesv+GA4pMlHRI/hsp/Th7Tw815iD644s5pD4aQYEDyHmvDeU2wBTjQIYSnPChQ6qvlxqCcGxr
+	5IzBipo4VFzL0SDrMBmjnrMRTWMI8tRoFgOa2F2Nh2fv64IoihGpPRNrgvVCgPX6pI04BR/UwbYmv
+	TApmOmsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOaUs-0000000GUS5-3ALE;
-	Thu, 27 Nov 2025 11:49:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOaUq-0000000GURJ-1iBU
+	id 1vOaVq-0000000GUit-0Npz;
+	Thu, 27 Nov 2025 11:50:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOaVn-0000000GUh7-1r5x
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 11:49:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A691143C3E;
-	Thu, 27 Nov 2025 11:49:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89531C4CEF8;
-	Thu, 27 Nov 2025 11:49:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764244151;
-	bh=a/kReGcHVvaERE9/x1uk/qCU7+Pg0X/4SJddlzphN8U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pN0oEcxHvXSVWBR+Tg/We3L+BzPX064pT28Fb9XMIND2buLCcWRwlJHh6PNGulnoV
-	 nT+/whAlG8jXGNmtaGJz9J2QIE7f7FatKzleLv4w3xjYfwNlNAVBZQkNXk0G3ypq61
-	 T6x3KQXcyqX0wfu9DmYdOl8VCpwt9gp713Xi9JpKk3sDbzKxW1zODHjkh0m62Z6YEC
-	 WUG0kJLo+1bM4ep1sNaCS4vV97PX7jdfLmw+ahhXKPwh46iEY+yar9tt+T8rdaOUb3
-	 r22Zj1Wjsb/P2CKKWLOR4clQ9bzYaaYWNfL1ND1jv3ENWNEdlz7HjfjCG0C/vHulZ6
-	 spJ9VJcPdMitg==
-Date: Thu, 27 Nov 2025 11:49:07 +0000
-From: Will Deacon <will@kernel.org>
-To: cki-project@redhat.com
-Cc: catalin.marinas@arm.com, yoyang@redhat.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: =?utf-8?Q?=E2=9D=8C_FAIL=3A_Test_repor?= =?utf-8?Q?t?= for
- for-kernelci (6.18.0-rc7, upstream-arm-next, b5fb0949)
-Message-ID: <aSg6s9gsWz8_1Q8O@willie-the-truck>
-References: <15220.125112518430500117@us-mta-125.us.mimecast.lan>
+	Thu, 27 Nov 2025 11:50:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 16FFD1477;
+	Thu, 27 Nov 2025 03:50:00 -0800 (PST)
+Received: from [10.57.87.167] (unknown [10.57.87.167])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 15DCD3F66E;
+	Thu, 27 Nov 2025 03:50:05 -0800 (PST)
+Message-ID: <a5afc696-b288-433c-8fda-12b9126c02f1@arm.com>
+Date: Thu, 27 Nov 2025 11:50:04 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <15220.125112518430500117@us-mta-125.us.mimecast.lan>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [DISCUSSION] kstack offset randomization: bugs and performance
+To: Kees Cook <kees@kernel.org>, Ard Biesheuvel <ardb@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Jeremy Linton <jeremy.linton@arm.com>,
+ Catalin Marinas <Catalin.Marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+References: <66c4e2a0-c7fb-46c2-acce-8a040a71cd8e@arm.com>
+ <dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com>
+ <aSRtaVjfNc11EtKg@willie-the-truck>
+ <B696956E-579E-412E-B774-AAADCFA4B31C@kernel.org>
+ <ecc11ec7-ba00-41f1-8a2a-8f3a83c9ffd9@arm.com>
+ <202511241250.EB2ADED@keescook>
+ <d9b18b84-22ab-4bc8-b55f-804e0607cec6@arm.com>
+ <CAMj1kXG4ELUdxGMp0+tNiV+7ygfHbe-u_pGPMTVj6UNdzQ+sDQ@mail.gmail.com>
+ <202511262358.1B99951@keescook>
+From: Ryan Roberts <ryan.roberts@arm.com>
+Content-Language: en-GB
+In-Reply-To: <202511262358.1B99951@keescook>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_034912_488614_EE09ED65 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251127_035011_567668_B1E06E0C 
+X-CRM114-Status: GOOD (  38.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,40 +77,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 25, 2025 at 11:43:01PM -0000, cki-project@redhat.com wrote:
-> Hi, we tested your kernel and here are the results:
-> 
->     Overall result: FAILED
->              Merge: OK
->            Compile: OK
->               Test: FAILED
-> 
-> 
-> Kernel information:
->     Commit message: Merge branch 'for-next/core' into for-kernelci
-> 
-> You can find all the details about the test run at
->     https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2179290550
+On 27/11/2025 08:00, Kees Cook wrote:
+> On Wed, Nov 26, 2025 at 11:58:40PM +0100, Ard Biesheuvel wrote:
+>> On Tue, 25 Nov 2025 at 12:15, Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>>
+>>> On 24/11/2025 20:51, Kees Cook wrote:
+>>>> On Mon, Nov 24, 2025 at 05:50:14PM +0000, Ryan Roberts wrote:
+>>>>> On 24/11/2025 17:11, Kees Cook wrote:
+>>>>>>
+>>>>>>
+>>>>>> On November 24, 2025 6:36:25 AM PST, Will Deacon <will@kernel.org> wrote:
+>>>>>>> On Mon, Nov 17, 2025 at 11:31:22AM +0000, Ryan Roberts wrote:
+>>>>>>>> On 17/11/2025 11:30, Ryan Roberts wrote:
+>>>>>>>>> Could this give us a middle ground between strong-crng and
+>>>>>>>>> weak-timestamp-counter? Perhaps the main issue is that we need to store the
+>>>>>>>>> secret key for a long period?
+>>>>>>>>>
+>>>>>>>>>
+>>>>>>>>> Anyway, I plan to work up a series with the bugfixes and performance
+>>>>>>>>> improvements. I'll add the siphash approach as an experimental addition and get
+>>>>>>>>> some more detailed numbers for all the options. But wanted to raise it all here
+>>>>>>>>> first to get any early feedback.
+>>>>>>>
+>>>>>>> FWIW, I share Mark's concerns about using a counter for this. Given that
+>>>>>>> the feature currently appears to be both slow _and_ broken I'd vote for
+>>>>>>> either removing it or switching over to per-thread offsets as a first
+>>>>>>> step.
+>>>>>>
+>>>>>> That it has potential weaknesses doesn't mean it should be entirely removed.
+>>>>>>
+>>>>>>> We already have a per-task stack canary with
+>>>>>>> CONFIG_STACKPROTECTOR_PER_TASK so I don't understand the reluctance to
+>>>>>>> do something similar here.
+>>>>>>
+>>>>>> That's not a reasonable comparison: the stack canary cannot change arbitrarily for a task or it would immediately crash on a function return. :)
+>>>>>>
+>>>>>>> Speeding up the crypto feels like something that could happen separately.
+>>>>>>
+>>>>>> Sure. But let's see what Ryan's patches look like. The suggested changes sound good to me.
+>>>>>
+>>>>> Just to say I haven't forgotten about this; I ended up having to switch to
+>>>>> something more urgent. Hoping to get back to it later this week. I don't think
+>>>>> this is an urgent issue, so hopefully folks are ok waiting.
+>>>>>
+>>>>> I propose to post whatever I end up with then we can all disscuss from there.
+>>>>> But the rough shape so far:
+>>>>>
+>>>>> Fixes:
+>>>>>  - Remove choose_random_kstack_offset()
+>>>>>  - arch passes random into add_random_kstack_offset() (fixes migration bypass)
+>>>>>  - Move add_random_kstack_offset() to el0_svc()/el0_svc_compat() (before
+>>>>>    enabling interrupts) to fix non-preemption requirement (arm64)
+>>>>
+>>>> I thought we'd keep choose_random_kstack_offset() and just move
+>>>> everything into a per-task location? (And for arm64 only)
+>>>
+>>> Err... I thought you were the one arguing against per-task state? I'm not really
+>>> keen on having arm64 do a completely different thing to everyone else; It seems
+>>> reasonable to me that we only need to (continue to) abstract the random source
+>>> per-arch and the rest should remain common?
+>>>
+>>> Per my previous mails, I'm not really sure what choose_random_kstack_offset() is
+>>> giving us in practice. Why not simplify?
+>>>
+>>
+>> It seems to me that arm64 inherited a lot of complexity from other
+>> architectures that rely on a counter. AIUI, the 'non-preemption
+>> requirement' and the 'migration bypass' issues are both a result of
+>> the fact that the syscall duration is relied upon to provide more
+>> pseudo-randomness, which is recorded in a per-CPU counter when the
+>> syscall completes and carried over to the next invocation. (I don't
+>> really buy the idea that having the next offset in memory for a
+>> shorter time buys us anything in terms of robustness tbh)
 
-Looks like LTP fails to compile?
+Agreed.
 
-Building ltp
-    [CC]    growfiles
-growfiles.c: In function 'main':
-growfiles.c:289:15: error: macro 'strrchr' requires 2 arguments, but only 1 given
-  289 | char *strrchr();
-      |               ^
-In file included from ../src/global.h:83,
-                 from growfiles.c:44:
-/usr/include/string.h:291:11: note: macro 'strrchr' defined here
-  291 | #  define strrchr(S, C)                                         \
-      |           ^~~~~~~
-In file included from /usr/include/features.h:540,
-                 from /usr/include/sys/types.h:25,
-                 from /usr/include/uuid/uuid.h:38,
-                 from /usr/include/xfs/linux.h:13,
-                 from /usr/include/xfs/xfs.h:9,
-                 from ../src/global.h:18:
+>>
+>> I have some patches that make get_random_uXX()'s fast path lockless
+>> that I will send out shortly (assuming no hate mail from the bots in
+>> the mean time), which should make it suitable for general use as the
+>> entropy source for kstack randomization on all architectures, modulo
+>> the tail latency issue, but I'm not sure I understand why that is a
+>> problem to begin with if it occurs sufficiently rarely. Is that a
+>> PREEMPT_RT issue? 
 
-Will
+Yes; RT was Jeremy's original motivation for looking at the prng approach.
+
+For the issue I see, improving the mean would be sufficient, but improving the
+tail too is a bonus.
+
+>> Would it be better if the refill of the per-CPU
+>> batched entropy buffers was relegated to some kind of kthread so it
+>> can be scheduled independently? (Those buffers are all the same size
+>> so we could easily keep a few hot spares)
+
+That came up in Jeremy's thread last year. My understanding was that this would
+not help because either the thread is lower priority, in which case you can't
+guarrantee it will run, or it is higher priority, in which case the RT thread
+still takes the glitch. (But I'm hand waving - I'm not expert on the details).
+
+>>
+>> TL;DR I agree with Ryan but I'd like to fix it across the board, i.e.,
+>> get rid of the per-CPU variable entirely and all the dodgy uses of
+>> counters.
+> 
+> Right, the whole design of picking the next random number after the
+> syscall is to try to reduce the control an attacker would have given an
+> instruction counter is the randomness source in most cases (during the
+> original design no one could agree on a fast enough randomness source).
+> 
+> If we can fix that then we can fix this for all architectures and all
+> randomness users generally.
+> 
+> -Kees
+> 
+
 
