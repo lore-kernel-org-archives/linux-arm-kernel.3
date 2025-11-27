@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3301D11183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 14:01:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D434D11183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 14:09:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HrE4rUXPZp1XpbiyX6WwgbU4cqV3RKFH7cwbdgk9P1g=; b=tCC1ldw+QOBDjmGIiwhzXOSDGA
-	SDpniAoB6fFi65wGiQj3n8FUMMO/4KgmlHhbM8+GFylKsbDVh5O+SoOwVKEqvEldN+/OrLkg85nwb
-	r+OiRYc/uavluV0RW3/L9kYgZEbckuJ6KwC6xF/q+hiN2yOtnn6q+dWobrVT4uVCZR24hq4MAOZpF
-	FbZwcc3X2KhYzUaND1CiJ407fMnq+Lhyd9tGGBia0I6V0wdj2WXHHxfqV5l8DhuUVC1T6hXEQXcAk
-	CVKLAaMOSuueH0QAeweviXjWSyIl540GJZEpFPz9Yb4z3glz1qWjF3XWCPatr9E0PFHjzDGPWAH3w
-	iScNYc7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+LwCUb2ua9xMSKFKu7L6e5TuCh/Qq2yXGxRx0iIJg5E=; b=JJ00y3ucJ/abTI1wmE12bWnUiw
+	h4b241bFPQlZdNYEvDdHnNmiAOxjICODbkn2ddGHr/duQYBKKGWrz6/L8S8duPu8FtpoQ/wmf5N1Q
+	MSkYyipoyArR21wk7CrnJPCVnjTpOHLrPxhA1/em8B/DEMIxFp5ToXfEXBLmpdgCfvccTv9bJXImS
+	Sqt0PCdm0aAav0XPKSAP+xB+uXV5pVyhpLlFlysJ8aKNe4UTrcityxo2l89T6KwUrXDvFaJAb8/gG
+	KvypEKIgc29MVbHanSjgMzC35gTxiLEe4MT4TQEKts34qtpLfko+LaPEnuHOVgp7+0BODhtjlHqUi
+	hXiJZZsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOcZ7-0000000Gj9A-06fl;
-	Thu, 27 Nov 2025 14:01:45 +0000
-Received: from canpmsgout10.his.huawei.com ([113.46.200.225])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOcZ3-0000000Gj8C-2bxl
+	id 1vOcgK-0000000Gjnh-3D9G;
+	Thu, 27 Nov 2025 14:09:12 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOcgH-0000000Gjm3-0Sm3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 14:01:43 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=HrE4rUXPZp1XpbiyX6WwgbU4cqV3RKFH7cwbdgk9P1g=;
-	b=lCyyQzXjxE9WjklT4d7Hh0khMwXm87ExzrIDAJYID/dXzRDZatbnwFJAlsX+KsW8hqjPGoHmJ
-	y3tTWh7ufpuHPtsBebWigWmZYt4HtnbkvXCmBvpmOf+IvABTdDLIU1MBKXnAMACcy93EHuF8inh
-	flxzzjfU9byFcB/hveSW7TY=
-Received: from mail.maildlp.com (unknown [172.19.88.234])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4dHJ2k53jcz1K96R;
-	Thu, 27 Nov 2025 21:59:42 +0800 (CST)
-Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
-	by mail.maildlp.com (Postfix) with ESMTPS id B60CA1402C4;
-	Thu, 27 Nov 2025 22:01:29 +0800 (CST)
-Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
- kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 27 Nov 2025 22:01:28 +0800
-From: Xie Yuanbin <xieyuanbin1@huawei.com>
-To: <viro@zeniv.linux.org.uk>, <will@kernel.org>, <nico@fluxnic.net>,
-	<rmk+kernel@armlinux.org.uk>, <linux@armlinux.org.uk>,
-	<david.laight@runbox.com>, <rppt@kernel.org>, <vbabka@suse.cz>,
-	<pfalcato@suse.de>, <brauner@kernel.org>, <lorenzo.stoakes@oracle.com>,
-	<kuninori.morimoto.gx@renesas.com>, <tony@atomide.com>, <arnd@arndb.de>,
-	<bigeasy@linutronix.de>, <akpm@linux-foundation.org>,
-	<punitagrawal@gmail.com>, <hch@lst.de>, <jack@suse.com>, <rjw@rjwysocki.net>,
-	<marc.zyngier@arm.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-mm@kvack.org>,
-	<linux-kernel@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
-	<wozizhi@huaweicloud.com>, <liaohua4@huawei.com>, <lilinjie8@huawei.com>,
-	<xieyuanbin1@huawei.com>, <pangliyuan1@huawei.com>,
-	<wangkefeng.wang@huawei.com>
-Subject: [RFC PATCH v2 1/2] ARM/mm/fault: always goto bad_area when handling with page faults of kernel address
-Date: Thu, 27 Nov 2025 22:01:08 +0800
-Message-ID: <20251127140109.191657-1-xieyuanbin1@huawei.com>
-X-Mailer: git-send-email 2.51.0
+	Thu, 27 Nov 2025 14:09:11 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A33C1176A;
+	Thu, 27 Nov 2025 06:08:59 -0800 (PST)
+Received: from [10.57.87.167] (unknown [10.57.87.167])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A32273F73B;
+	Thu, 27 Nov 2025 06:09:05 -0800 (PST)
+Message-ID: <cc9cd056-3786-42db-8e40-bb0425dfe142@arm.com>
+Date: Thu, 27 Nov 2025 14:09:04 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.109.17]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemj100009.china.huawei.com (7.202.194.3)
+User-Agent: Mozilla Thunderbird
+From: Ryan Roberts <ryan.roberts@arm.com>
+Subject: Re: [DISCUSSION] kstack offset randomization: bugs and performance
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Kees Cook <kees@kernel.org>, Will Deacon <will@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Jeremy Linton <jeremy.linton@arm.com>,
+ Catalin Marinas <Catalin.Marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+References: <66c4e2a0-c7fb-46c2-acce-8a040a71cd8e@arm.com>
+ <dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com>
+ <aSRtaVjfNc11EtKg@willie-the-truck>
+ <B696956E-579E-412E-B774-AAADCFA4B31C@kernel.org>
+ <ecc11ec7-ba00-41f1-8a2a-8f3a83c9ffd9@arm.com>
+ <202511241250.EB2ADED@keescook>
+ <d9b18b84-22ab-4bc8-b55f-804e0607cec6@arm.com>
+ <CAMj1kXG4ELUdxGMp0+tNiV+7ygfHbe-u_pGPMTVj6UNdzQ+sDQ@mail.gmail.com>
+ <202511262358.1B99951@keescook>
+ <a5afc696-b288-433c-8fda-12b9126c02f1@arm.com>
+ <CAMj1kXEJSmYXPNiHO4woBE8rVFOxkfuKOJ9JGacVC76GqkqY+w@mail.gmail.com>
+Content-Language: en-GB
+In-Reply-To: <CAMj1kXEJSmYXPNiHO4woBE8rVFOxkfuKOJ9JGacVC76GqkqY+w@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_060142_097214_B49C4910 
-X-CRM114-Status: GOOD (  19.58  )
+X-CRM114-CacheID: sfid-20251127_060909_292172_30676ADF 
+X-CRM114-Status: GOOD (  30.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,236 +79,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Two bugs are related to this patch.
+On 27/11/2025 12:19, Ard Biesheuvel wrote:
+> On Thu, 27 Nov 2025 at 12:50, Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>
+>> On 27/11/2025 08:00, Kees Cook wrote:
+>>> On Wed, Nov 26, 2025 at 11:58:40PM +0100, Ard Biesheuvel wrote:
+> ...
+>>>> the tail latency issue, but I'm not sure I understand why that is a
+>>>> problem to begin with if it occurs sufficiently rarely. Is that a
+>>>> PREEMPT_RT issue?
+>>
+>> Yes; RT was Jeremy's original motivation for looking at the prng approach.
+>>
+>> For the issue I see, improving the mean would be sufficient, but improving the
+>> tail too is a bonus.
+>>
+>>>> Would it be better if the refill of the per-CPU
+>>>> batched entropy buffers was relegated to some kind of kthread so it
+>>>> can be scheduled independently? (Those buffers are all the same size
+>>>> so we could easily keep a few hot spares)
+>>
+>> That came up in Jeremy's thread last year. My understanding was that this would
+>> not help because either the thread is lower priority, in which case you can't
+>> guarrantee it will run, or it is higher priority, in which case the RT thread
+>> still takes the glitch. (But I'm hand waving - I'm not expert on the details).
+>>
+> 
+> PREEMPT_RT is generally more concerned about the worst case latency
+> being bounded rather than being as low as possible.
 
-BUG1:
-On arm32, a page fault may cause the current thread to sleep inside
-mmap_read_lock_killable(). This can happen even if the addr is a kernel
-address.
+Sure, but if you can reduce the tail, that's still "better" right?
 
-When opening a file, if the path is initialized with LOOKUP_RCU flag in
-path_init(), the rcu read lock will be acquired. Inside the rcu critical
-section, load_unaligned_zeropad() may be called.
+> 
+> The get_random fallback runs a few rounds of chacha20, which takes
+> more time than just reading the next value and bumping the position
+> counter. But that does not imply it fails to meet RT constraints.
+> 
+> And if a thread running ChaCha20 in the background fails to get enough
+> cycles, it is not an RT problem, it is an ordinary starvation problem,
+> which can only be achieved by doing less work in total. But cranking
+> prandom_u32_state() on every syscall is not free either.
 
-According to the comments of load_unaligned_zeropad(), when loading the
-memory, a page fault may be triggered in the very unlikely case. When
-CONFIG_KFENCE=y, page faults are more likely to occur in this scenario.
+Indeed, but it's  a lot cheaper than get_random. See:
 
-If CONFIG_PREEMPT_RCU=y, the following warning may be triggered:
-```log
-[   16.923630] WARNING: kernel/rcu/tree_plugin.h:332 at rcu_note_context_switch+0x408/0x610, CPU#0: test/68
-[   16.924780] Voluntary context switch within RCU read-side critical section!
-[   16.924887] Modules linked in:
-[   16.925670] CPU: 0 UID: 0 PID: 68 Comm: test Tainted: G        W           6.18.0-rc6-next-20251124 #28 PREEMPT
-[   16.926120] Tainted: [W]=WARN
-[   16.926257] Hardware name: Generic DT based system
-[   16.926474] Call trace:
-[   16.926487]  unwind_backtrace from show_stack+0x10/0x14
-[   16.926899]  show_stack from dump_stack_lvl+0x50/0x5c
-[   16.927318]  dump_stack_lvl from __warn+0xf8/0x200
-[   16.927696]  __warn from warn_slowpath_fmt+0x180/0x208
-[   16.928060]  warn_slowpath_fmt from rcu_note_context_switch+0x408/0x610
-[   16.928768]  rcu_note_context_switch from __schedule+0xe4/0xa58
-[   16.928917]  __schedule from schedule+0x70/0x124
-[   16.929197]  schedule from schedule_preempt_disabled+0x14/0x20
-[   16.929514]  schedule_preempt_disabled from rwsem_down_read_slowpath+0x26c/0x4e4
-[   16.929875]  rwsem_down_read_slowpath from down_read_killable+0x58/0x10c
-[   16.930320]  down_read_killable from mmap_read_lock_killable+0x24/0x84
-[   16.930761]  mmap_read_lock_killable from lock_mm_and_find_vma+0x164/0x18c
-[   16.931101]  lock_mm_and_find_vma from do_page_fault+0x1d4/0x4a0
-[   16.931354]  do_page_fault from do_DataAbort+0x30/0xa8
-[   16.931649]  do_DataAbort from __dabt_svc+0x44/0x60
-[   16.931862] Exception stack(0xf0b41d88 to 0xf0b41dd0)
-[   16.932063] 1d80:                   c3219088 eec5dffd f0b41ec0 00000002 c3219118 00000010
-[   16.933732] 1da0: c321913c 00000002 00007878 c2da86c0 00000000 00000002 b8009440 f0b41ddc
-[   16.934019] 1dc0: eec5dffd c0677300 60000013 ffffffff
-[   16.934294]  __dabt_svc from __d_lookup_rcu+0xc4/0x10c
-[   16.934468]  __d_lookup_rcu from lookup_fast+0xa0/0x190
-[   16.934720]  lookup_fast from path_openat+0x154/0xe18
-[   16.934953]  path_openat from do_filp_open+0x94/0x134
-[   16.935141]  do_filp_open from do_sys_openat2+0x9c/0xf0
-[   16.935384]  do_sys_openat2 from sys_openat+0x80/0xa0
-[   16.935547]  sys_openat from ret_fast_syscall+0x0/0x4c
-[   16.935799] Exception stack(0xf0b41fa8 to 0xf0b41ff0)
-[   16.936007] 1fa0:                   00000000 00000000 ffffff9c beb27d0c 00000242 000001b6
-[   16.936293] 1fc0: 00000000 00000000 000c543c 00000142 00027e85 00000002 00000002 00000000
-[   16.936624] 1fe0: beb27c20 beb27c0c 0006ea80 00072e78
-[   16.936780] ---[ end trace 0000000000000000 ]---
-```
+https://lore.kernel.org/all/20251127105958.2427758-1-ryan.roberts@arm.com/
 
-If CONFIG_DEBUG_ATOMIC_SLEEP=y, the following warning will be triggered:
-```log
-[   16.243462] BUG: sleeping function called from invalid context at kernel/locking/rwsem.c:1559
-[   16.245271] in_atomic(): 0, irqs_disabled(): 0, non_block: 0, pid: 68, name: test
-[   16.246219] preempt_count: 0, expected: 0
-[   16.246582] RCU nest depth: 1, expected: 0
-[   16.247262] CPU: 0 UID: 0 PID: 68 Comm: test Not tainted 6.18.0-rc6-next-20251124 #28 PREEMPT
-[   16.247432] Hardware name: Generic DT based system
-[   16.247549] Call trace:
-[   16.247618]  unwind_backtrace from show_stack+0x10/0x14
-[   16.248442]  show_stack from dump_stack_lvl+0x50/0x5c
-[   16.248458]  dump_stack_lvl from __might_resched+0x174/0x188
-[   16.248475]  __might_resched from down_read_killable+0x18/0x10c
-[   16.248490]  down_read_killable from mmap_read_lock_killable+0x24/0x84
-[   16.248504]  mmap_read_lock_killable from lock_mm_and_find_vma+0x164/0x18c
-[   16.248516]  lock_mm_and_find_vma from do_page_fault+0x1d4/0x4a0
-[   16.248529]  do_page_fault from do_DataAbort+0x30/0xa8
-[   16.248549]  do_DataAbort from __dabt_svc+0x44/0x60
-[   16.248597] Exception stack(0xf0b41da0 to 0xf0b41de8)
-[   16.248675] 1da0: c20b34f0 c3f23bf8 00000000 c389be50 f0b41e90 00000501 61c88647 00000000
-[   16.248698] 1dc0: 80808080 fefefeff 2f2f2f2f eec51ffd c3219088 f0b41df0 c066d3e4 c066d218
-[   16.248705] 1de0: 60000013 ffffffff
-[   16.248736]  __dabt_svc from link_path_walk+0xa8/0x444
-[   16.248752]  link_path_walk from path_openat+0xac/0xe18
-[   16.248764]  path_openat from do_filp_open+0x94/0x134
-[   16.248775]  do_filp_open from do_sys_openat2+0x9c/0xf0
-[   16.248785]  do_sys_openat2 from sys_openat+0x80/0xa0
-[   16.248806]  sys_openat from ret_fast_syscall+0x0/0x4c
-[   16.248814] Exception stack(0xf0b41fa8 to 0xf0b41ff0)
-[   16.248825] 1fa0:                   00000000 00000000 ffffff9c beb27d0c 00000242 000001b6
-[   16.248834] 1fc0: 00000000 00000000 000c543c 00000142 00027e85 00000002 00000002 00000000
-[   16.248841] 1fe0: beb27c20 beb27c0c 0006ea80 00072e78
-```
+> 
+> In summary, it would be good to have a better problem statement wrt RT
+> constraints before assuming that 99% tail latency is something to
+> obsess about, especially given the fact het getpid() is not that
+> representative a syscall to begin with.
 
-BUG2:
-When a user program try to access any valid kernel address and attacks
-the kernel, it may run into the do_page_fault(). Before
-harden_branch_predictor(), the thread might be migrated to another cpu,
-which causes the mitigation meaningless.
+I think that's a fair point. But I also think the results I link above show very
+clearly that one approach is more performant than the other, in terms of the
+overhead of syscall entry and exit. And as I said when starting this thread,
+that is something we have had complaints about from partners.
 
-If CONFIG_PREEMPT=y, CONFIG_DEBUG_PREEMPT=y, CONFIG_ARM_LPAE=y,
-the following warning will be triggered:
-```log
-[    1.089103] BUG: using smp_processor_id() in preemptible [00000000] code: init/1
-[    1.093367] caller is __do_user_fault+0x20/0x6c
-[    1.094355] CPU: 0 UID: 0 PID: 1 Comm: init Not tainted 6.14.3 #7
-[    1.094585] Hardware name: Generic DT based system
-[    1.094706] Call trace:
-[    1.095211]  unwind_backtrace from show_stack+0x10/0x14
-[    1.095329]  show_stack from dump_stack_lvl+0x50/0x5c
-[    1.095352]  dump_stack_lvl from check_preemption_disabled+0x104/0x108
-[    1.095448]  check_preemption_disabled from __do_user_fault+0x20/0x6c
-[    1.095459]  __do_user_fault from do_page_fault+0x334/0x3dc
-[    1.095505]  do_page_fault from do_DataAbort+0x30/0xa8
-[    1.095528]  do_DataAbort from __dabt_usr+0x54/0x60
-[    1.095570] Exception stack(0xf0825fb0 to 0xf0825ff8)
-```
+Personally, based on that data, I think we could reduce it to this decision tree:
 
-Always goto bad_area before local_irq_enable() to handle these two
-scenarios, just like what x86 does.
+is a prng good enough for kstack offset randomization?
+  yes: is 3% syscall entry/exit overhead a reasonable price?
+    yes: Land my series
+    no: rip out kstack offset randomization
+  no: is 10% syscall entry/exit overhead a reasonable price?
+    yes: Land Ard's series
+    no: rip out kstack offset randomization
 
-Fixes: b9a50f74905a ("ARM: 7450/1: dcache: select DCACHE_WORD_ACCESS for little-endian ARMv6+ CPUs")
-Fixes: f5fe12b1eaee ("ARM: spectre-v2: harden user aborts in kernel space")
+For the avoidance of doubt, my opinion is that prng is good enough for 6 bits.
 
-Closes: https://lore.kernel.org/20251126090505.3057219-1-wozizhi@huaweicloud.com
-Suggested-by: Al Viro <viro@zeniv.linux.org.uk>
-Co-developed-by: Liyuan Pang <pangliyuan1@huawei.com>
-Signed-off-by: Liyuan Pang <pangliyuan1@huawei.com>
-Signed-off-by: Xie Yuanbin <xieyuanbin1@huawei.com>
-Cc: Al Viro <viro@zeniv.linux.org.uk>
-Cc: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Cc: Will Deacon <will@kernel.org>
-Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
----
-V1->V2: https://lore.kernel.org/20251126101952.174467-1-xieyuanbin1@huawei.com
-  - Fix the bug in arm/mm, instead of vfs
-  - Update git message
-  - Also fix https://lore.kernel.org/20251016121622.8957-1-xieyuanbin1@huawei.com
+By the way, my sense is that we won't get much below 3% no matter what we do. It
+looks to me like it could be bottlenecked on __alloca() which forces any
+speculation using the incorrect stack address to be abandoned. So I don't think
+offloading to a thread will end up helping us much. I don't have data that shows
+that conclusively, but that's my intuition from some earlier benchmarking.
 
-For this patch, the only thing I'm unsure about is `if (fsr & FSR_LNX_PF)`.
-I'm not sure whether skipping this check might have some side effects.
-This patch also skips local_irq_enable() when addr >= TASK_SIZE, but I
-think it is ok, __do_kernel_fault() can be called with interrupts
-disabled, and both do_bad_area() and do_sect_fault() do this.
-
-Test cases for reproduction:
-kernel source: latest linux-next branch, use default arm32's
-multi_v7_defconfig, and setting CONFIG_PREEMPT=y, CONFIG_DEBUG_PREEMPT=y,
-CONFIG_ARM_LPAE=y, CONFIG_KFENCE=y, CONFIG_DEBUG_ATOMIC_SLEEP=y,
-CONFIG_ARM_PAN=n.
-
-BUG1:
-```c
-static void *thread(void *arg)
-{
-	while (1) {
-		void *p = mmap(NULL, 4096, PROT_READ | PROT_WRITE, MAP_ANON | MAP_PRIVATE, -1, 0);
-
-		assert(p != (void *)-1);
-		__asm__ volatile ("":"+r"(p)::"memory");
-
-		munmap(p, 4096);
-	}
-}
-
-int main(void)
-{
-	pthread_t th;
-	int ret;
-	char path[4096] = "/tmp";
-
-	for (size_t i = 0; i < 2044; ++i) {
-		strcat(path, "/x");
-		ret = mkdir(path, 0755);
-		assert(ret == 0 || errno == EEXIST);
-	}
-	strcat(path, "/xx");
-
-	assert(strlen(path) == 4095);
-
-	assert(pthread_create(&th, NULL, thread, NULL) == 0);
-
-	while (1) {
-		FILE *fp = fopen(path, "wb+");
-
-		assert(fp);
-		fclose(fp);
-	}
-	return 0;
-}
-```
-
-BUG2:
-```c
-static void han(int x)
-{
-	while (1);
-}
-
-int main(void)
-{
-	signal(SIGSEGV, han);
-	/* 0xc0331fd4 is just a kernel address in kernel .text section */
-	__asm__ volatile (""::"r"(*(int *)(uintptr_t)0xc0331fd4):"memory");
-	while (1);
-	return 0;
-}
-```
-
- arch/arm/mm/fault.c | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
-index 2bc828a1940c..5c58072d8235 100644
---- a/arch/arm/mm/fault.c
-+++ b/arch/arm/mm/fault.c
-@@ -270,10 +270,15 @@ do_page_fault(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
- 	vm_flags_t vm_flags = VM_ACCESS_FLAGS;
- 
- 	if (kprobe_page_fault(regs, fsr))
- 		return 0;
- 
-+	if (unlikely(addr >= TASK_SIZE)) {
-+		fault = 0;
-+		code = SEGV_MAPERR;
-+		goto bad_area;
-+	}
- 
- 	/* Enable interrupts if they were enabled in the parent context. */
- 	if (interrupts_enabled(regs))
- 		local_irq_enable();
- 
--- 
-2.51.0
+Thanks,
+Ryan
 
 
