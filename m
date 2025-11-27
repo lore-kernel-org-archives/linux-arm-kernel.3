@@ -4,125 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A27CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 12:54:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 246A1D11183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 12:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fWkOyJ5AcV33EEWNye1AG75lZoiCez1+DCGpMn2n8h0=; b=tkPwg679M0mCE61OlmXaMIFVa9
-	viaX1wAWmNy6oba5+jzz3MoT4xP5VlBxuIeLdg0IJr9LHZ0abB0CTLVkG4aoPsiiMResYWKpikDzQ
-	wvRXI3db1KS4Zbza1J7dU8iSCmlWFI2f/lXO/8SxxPv1YJLQ2J+8curPj6k8AKD46vPDQTNvZYfUp
-	p7PxrPKjoYSA6mBZcfwFi16Rj3jFrCL1Z0PbY9GCsy0Tr0xvUocFdH5eq60XlhINgFA0meujfJ6kI
-	+sxja9UhQv1j7OG+DlKZgoGeO2Hm/E6xu4Tcn80ACrcDC3vJRm2Uw0+899PO4d5WG6xENkiU2/cB0
-	yZ8zzVpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bjYT7JRJe3Gqrk9ZtGCdcYVgPeOXASFBXLgUHTdPheE=; b=LG6HfN9P5xcdSZ+/F6XOYrT3cD
+	mAzJnQg6qY8NSamBehLyAEMJG9CUNvp39MCGUjddlUH2pNr13OHrjfTsZZ23VxipteUFzifShaC8Q
+	mmVbrVaRFQBmMydl85NPuF45vxxIz40dWDSEkIqsBYRMxB80tnibAA0XiDZhx2GDuam0iU/25duZi
+	kZSfd/4f+kKJ2VYfSxWIy44B9DXYRDQ8VwvKX40YCffHalGYTvMGPz2xeS3HBlYSI1mdUYD6vfD57
+	93P6vBg7cbjlCi+nChbrU5uoQEbKLhOiOqzUdTmXTk9f5ytvbmpaOHbQGi1E7yh2zBjalLTVfZFsG
+	tVkUxieA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vObWC-0000000GcER-3DuQ;
-	Thu, 27 Nov 2025 12:54:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vObZb-0000000GcrG-3Gby;
+	Thu, 27 Nov 2025 12:58:11 +0000
+Received: from mail-ot1-f46.google.com ([209.85.210.46])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vObWB-0000000GcCX-0tAo
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 27 Nov 2025 12:54:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:To:From:Sender:Reply-To:Cc:
-	Content-Type:Content-ID:Content-Description;
-	bh=fWkOyJ5AcV33EEWNye1AG75lZoiCez1+DCGpMn2n8h0=; b=BjNOpvCjnjFrGF+/nh95Cax5FA
-	R8kKXIKHfnYW9hiqQUZNYQxRt7/Wg7EmJkxWGd5cezKqe2VimYrtMhu44A23DiPSNTutI9GX6NDOc
-	No60hd7YB/wPQEqBCGYYk/22I0U2IwfdJp/JQBJ3+ctA0qDyvEf9L3D02GrQnZpKgVjoRoInK2ppK
-	AfWgWKzFv3f5WS2JAvIIb7F0yVbhyxOQ2amfJGdkQRb3MlqIRyfHgFXr8pfLOLKWiPYZWJpTdKNLg
-	93gPHfj2W00EhwR4gZDF7G5a+C2F5hX9FbtkBzrdANKX/hbFOvGpJcfgyZAm4/GF6Sjdmm6BquEIo
-	SVh3G0AQ==;
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOaeL-0000000A6OG-3eJX
+	id 1vObZY-0000000Gcqh-2Oyz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 11:59:07 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-298250d7769so6055555ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 04:54:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1764248057; x=1764852857; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fWkOyJ5AcV33EEWNye1AG75lZoiCez1+DCGpMn2n8h0=;
-        b=PLKD+fqbTAB/pT71uz4lS3Db86JwkoVk0jvdfkv0k0URFBf3Px12vrljRyzJw6oy5b
-         R9SMnIYPTrVcWC0diZF9fi5cS+5PMWFwgUQ1953YDDI6k3W5sg8Uv5k+UEQkf0WnvyQN
-         pXEpOV2q5ZA5BS75qiRt2adOlU3U8+hNUBWB3/hfeT3pt7Qt+QUPu5PcpF3ArcLzLZTi
-         xBrky9BdJkyNDvTJRiJ6IgZqoHlZWcDKlskDN5vxdOG6vt1HA8nnjKP644yj0H4a9Tzf
-         kIbiTWsdWejlOWqBUBPN6ZnZlGXRI+Q7JoV/GfPH+cxRSIbs/puLMoWdp1o981T1oTUS
-         xDIA==
+	Thu, 27 Nov 2025 12:58:10 +0000
+Received: by mail-ot1-f46.google.com with SMTP id 46e09a7af769-7c6e9538945so1004517a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 04:58:08 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764248057; x=1764852857;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=fWkOyJ5AcV33EEWNye1AG75lZoiCez1+DCGpMn2n8h0=;
-        b=Jy7XjhSDRfWLvUtqb2OWuml2suc6EhJPwVQ3BBAjGDrfm3BZ9Tr5lmw8O8lhvM7aCy
-         ql+zlkoz9B1GIG6+CrVhDdI7vAbMWNVoVZPdG7Emnp8sNabvvzo9JNOSEWCBhYFEhQxH
-         3x9l2TOV5IXZjfGaOBbiSVkI0HL5yY4DEFXSOJ3i6ulMKuLgePHWFieKsL0doUagRJTu
-         pOmqEe3AERkJmp0zxQJrTo8Uo6mxDyuTk3Un25b6AAzGE+OJ+2zOYq76qXG2IQRc245q
-         +wWOV0FhgOA4ocD93GWxuxOso5pjMCYpavAUc9TdP9uAOQgKl4DfSZwUuzfUr5LYhLty
-         T1fQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUOYX2qbRgqabGF9LPcqKaRNySuLhmbUGVLSqhdqoTeBKEPjJuL2OrQP15vlePdydUySHLFe5qkPPE4ec1htUP1@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqWzV80lBaHaK4+91/R2ptV+yQu7EVduVi+FjYMlUad8pVxxvY
-	B0VvqxVO1wVR5VidcOgdzEXIIq+k1IrrpOz08rCGNmhMLH2eRSegiSzOWdwbDjUxXCY=
-X-Gm-Gg: ASbGncvwwg9x6aL/iHtNZY0QJN2ArfHRcd2TyePVXzQttIZ13LWeZ0hkCx9QpMugXdV
-	x3pb88k/yBLrnOQ+uYhhNlG3tpqcfUAokZtYiag1am7hcriUiS6CCdicJttxw4X3vT1/dmmJgxR
-	I2O+CR8bOo/+LwfedOX74bYuLBBLnBoh50s/hzgHk5Ck95kJBfv0roAcStYHN3utHp+1Ng2C3HV
-	WWXoKB5azBqxjsg5cccPiF6kFaGI2xdNTc2JmfNRuq3IjHikL2pF5wnVt9zONX3pIopBkXimN5D
-	2qXl1BREkGpYDb+fc2TZ79oT7plqofgRshhDYU4f2gjoQDhyMZ/ic7YcD3Cp2AluIqU1iQg1OPs
-	HoJ+iqcHeXLToQOPVJQDeJKDknhLRl5SAhsudj5Th9KvSEfyiTCm8uQLdHG4sNLDlQkgXxez5dQ
-	hin2O9XDJJpULNSPIXQJM0AoHps6YzqAnccSsmCcWgJhOC
-X-Google-Smtp-Source: AGHT+IHfDsQKz8tAmdnpj9oG+MYaFIwY7KvVCZ53LvFxGr4u9uSgj1+YFJnBx9PPYOIc/+SZwAFzqw==
-X-Received: by 2002:a17:903:292:b0:298:43f4:cc4b with SMTP id d9443c01a7336-29b6c50c632mr250127435ad.26.1764248056650;
-        Thu, 27 Nov 2025 04:54:16 -0800 (PST)
-Received: from L6YN4KR4K9.bytedance.net ([139.177.225.225])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29bce470347sm17771255ad.41.2025.11.27.04.54.08
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 27 Nov 2025 04:54:16 -0800 (PST)
-From: Yunhui Cui <cuiyunhui@bytedance.com>
-To: conor@kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	cuiyunhui@bytedance.com,
-	luxu.kernel@bytedance.com,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	jassisinghbrar@gmail.com,
-	conor.dooley@microchip.com,
-	valentina.fernandezalanis@microchip.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	maz@kernel.org,
-	timothy.hayes@arm.com,
-	lpieralisi@kernel.org,
-	arnd@arndb.de,
-	kees@kernel.org,
-	tglx@linutronix.de,
-	viresh.kumar@linaro.org,
-	boqun.feng@gmail.com,
-	linux-arm-kernel@lists.infradead.org,
-	cleger@rivosinc.com,
-	atishp@rivosinc.com,
-	ajones@ventanamicro.com
-Subject: [PATCH v3 7/8] riscv: smp: kgdb: use NMI for CPU roundup
-Date: Thu, 27 Nov 2025 20:53:04 +0800
-Message-Id: <20251127125305.89961-8-cuiyunhui@bytedance.com>
-X-Mailer: git-send-email 2.39.2 (Apple Git-143)
-In-Reply-To: <20251127125305.89961-1-cuiyunhui@bytedance.com>
-References: <20251127125305.89961-1-cuiyunhui@bytedance.com>
+        d=1e100.net; s=20230601; t=1764248287; x=1764853087;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bjYT7JRJe3Gqrk9ZtGCdcYVgPeOXASFBXLgUHTdPheE=;
+        b=XJi3c9FdRyWlTurASOfxBxa0qeLzLXodzKtT6apXN/5xDbdoRK6DaT2aet+uO1+Gwh
+         LSqd423pkqmjFqNqBxTd5gXcQf65lSs+ef4fIEJfyA0O4bySBOrZ795LiMY2WAc/cpDs
+         g+fGV6r01LLrsxN1ZvFEUY7kuL2huJyP5voL9qsgq4n/++evw3H83Ayuj+cI5yJ/nbjl
+         j85o149XHGsnVsDldJHaSw8ejOWMQD6ODWxeXB/XY1T+1XnOgHki0+waO7n+X3ez6XzY
+         L2o/VKphm9utIJDUvcGJu4jj/vvxijv0OfAzQ13RwVSJJC1ocOjddX4C+198tsxkCWwy
+         zctQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVikEgvAmgskJLjHy7Nnb4z9FNNL7phykYQBv24RHx08oX8x95TlwgCWViDqvqlGu7od4mnvlVt4kNHhrwxvc8H@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHr308qZyR11KNU0nvwTwRVl5LQ/29OZbA6e5gfWwfs6gCrQUO
+	sLz+EafOM5T6W8wXIyaydzuHzRCBfzDTYl2Bk6BL4mZ6bzVLxHVLzfEtPZ9WEBPc
+X-Gm-Gg: ASbGnctD1RROkWCry1eB+39s/xIOavX0WSSQGk3qXL0osa6Z5kNu5z+MtFXx1uTFXMh
+	USf8TRwrVUtLGzxn+HkoJpH87D/1rcEMhiM4amg8tjMnE/usVyQYjWFFZcvyk5WtH0shxwB28zS
+	uiuZ69NkqvAYI79gcr7kvfcWR8oVv8j3BFPyTEdVw3FUrmZWxPXBgnZChEk/ZpSevpjELSvQQKz
+	QwrLPBOt+5OpdjfzuFdg8e6gIqVjRDmFhuimiwHgMll+rv50flE12z12cHO3UkSpDQ1ueqWOKbX
+	S466d17f5l3Q4sKE2GVylIXUlhkd8l2TqhCtUn416WhrTfjnhQI2WsvKyE/KGgMYe+vAsd4yu1X
+	ELRUcN3RAlry9roh90i4a868JXji1qKteiFUS5xVaGzefCXWUfVhC3q32p14U91th8EYVsgTJ2n
+	AnnFTPq4h089OES+cZQZVEHj9xUZ68QbwmaFKWlEYfW6gTtPVR
+X-Google-Smtp-Source: AGHT+IG8Ju9r9MlKJJXocMV1WVPBiLOOuYw6n/iOrKlXwV9/VDMLMa13X4YBn3ouctiP8hzpusjAjg==
+X-Received: by 2002:a9d:6a95:0:b0:7c7:6b2e:2c4c with SMTP id 46e09a7af769-7c78ea79101mr9397221a34.2.1764248287149;
+        Thu, 27 Nov 2025 04:58:07 -0800 (PST)
+Received: from mail-oo1-f44.google.com (mail-oo1-f44.google.com. [209.85.161.44])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7c90f5d7b27sm511870a34.4.2025.11.27.04.58.06
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 27 Nov 2025 04:58:06 -0800 (PST)
+Received: by mail-oo1-f44.google.com with SMTP id 006d021491bc7-65752954c43so318138eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 04:58:06 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWNKuPopnW/N3BiRz1okaRmF9D/4rWdvsIdh9fUspT9SoDSLvJvIt7BNaTIafItud2OCriusavV3VKraGAdiyTe@lists.infradead.org
+X-Received: by 2002:a05:6102:4492:b0:5db:dad4:840 with SMTP id
+ ada2fe7eead31-5e1c40dc2ffmr11440563137.12.1764247933503; Thu, 27 Nov 2025
+ 04:52:13 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20251126182257.157439-4-krzysztof.kozlowski@oss.qualcomm.com>
+ <20251126182257.157439-6-krzysztof.kozlowski@oss.qualcomm.com>
+ <CAMuHMdX7t=mabqFE5O-Cii3REMuyaePHmqX+j_mqyrn6XXzsoA@mail.gmail.com>
+ <dbb94fb1-2f78-4bd2-9254-c435ab3325c0@oss.qualcomm.com> <0e90817e-1c05-4fa3-a6fd-8e755608a2c9@oss.qualcomm.com>
+In-Reply-To: <0e90817e-1c05-4fa3-a6fd-8e755608a2c9@oss.qualcomm.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 27 Nov 2025 13:52:02 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdX2qv2YBbvkM8tkSTWDPe-paMp5=fdv=4tGKheTseK9Pw@mail.gmail.com>
+X-Gm-Features: AWmQ_bkZiOzXPS0HFic3DjDBZhimEkCswEaupj15K-zH3plFs36PgNAI9kUlDvg
+Message-ID: <CAMuHMdX2qv2YBbvkM8tkSTWDPe-paMp5=fdv=4tGKheTseK9Pw@mail.gmail.com>
+Subject: Re: [PATCH 3/3] i2c: rcar: Fix Wvoid-pointer-to-enum-cast warning
+To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Cc: Andi Shyti <andi.shyti@kernel.org>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, 
+	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, linux-i2c@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, llvm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_115905_651501_CCED0E33 
-X-CRM114-Status: GOOD (  11.18  )
+X-CRM114-CacheID: sfid-20251127_045808_643710_2E5EDD7A 
+X-CRM114-Status: GOOD (  29.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,51 +105,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use NMI for kgdb CPU roundup if RISC-V SSE NMI is available.
+Hi Krzysztof,
 
-Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
----
- arch/riscv/kernel/smp.c                | 5 ++++-
- drivers/firmware/riscv/riscv_sse_nmi.c | 2 ++
- 2 files changed, 6 insertions(+), 1 deletion(-)
+On Thu, 27 Nov 2025 at 12:48, Krzysztof Kozlowski
+<krzysztof.kozlowski@oss.qualcomm.com> wrote:
+> On 27/11/2025 12:42, Krzysztof Kozlowski wrote:
+> >>> --- a/drivers/i2c/busses/i2c-rcar.c
+> >>> +++ b/drivers/i2c/busses/i2c-rcar.c
+> >>> @@ -1141,7 +1141,7 @@ static int rcar_i2c_probe(struct platform_device *pdev)
+> >>>         if (IS_ERR(priv->io))
+> >>>                 return PTR_ERR(priv->io);
+> >>>
+> >>> -       priv->devtype = (enum rcar_i2c_type)of_device_get_match_data(dev);
+> >>> +       priv->devtype = (kernel_ulong_t)of_device_get_match_data(dev);
+> >>
+> >> Any specific reason you picked "kernel_ulong_t" instead of "unsigned long"?
+> >> The former seems to be the least common option.
+> >
+> > As I wrote in the first patch, because to my knowledge it is the
 
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index 6d9a67c2c2a6e..84436e348b6ea 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -368,7 +368,10 @@ void kgdb_roundup_cpus(void)
- 		if (cpu == this_cpu)
- 			continue;
- 
--		send_ipi_single(cpu, IPI_KGDB_ROUNDUP);
-+		if (!nmi_support())
-+			send_ipi_single(cpu, IPI_KGDB_ROUNDUP);
-+		else
-+			send_nmi_single(cpu, LOCAL_NMI_KGDB);
- 	}
- }
- #endif
-diff --git a/drivers/firmware/riscv/riscv_sse_nmi.c b/drivers/firmware/riscv/riscv_sse_nmi.c
-index a138d6bdbc0d1..85aa65f31943b 100644
---- a/drivers/firmware/riscv/riscv_sse_nmi.c
-+++ b/drivers/firmware/riscv/riscv_sse_nmi.c
-@@ -3,6 +3,7 @@
- #define pr_fmt(fmt) "SSE NMI: " fmt
- 
- #include <linux/atomic.h>
-+#include <linux/kgdb.h>
- #include <linux/nmi.h>
- #include <linux/riscv_sbi_sse.h>
- #include <linux/riscv_sse_nmi.h>
-@@ -61,6 +62,7 @@ static int local_nmi_handler(u32 evt, void *arg, struct pt_regs *regs)
- 	NMI_HANDLE(LOCAL_NMI_CRASH, cpu_crash_stop, cpu, regs);
- 	NMI_HANDLE(LOCAL_NMI_STOP, cpu_stop);
- 	NMI_HANDLE(LOCAL_NMI_BACKTRACE, nmi_cpu_backtrace, regs);
-+	NMI_HANDLE(LOCAL_NMI_KGDB, kgdb_nmicallback, cpu, regs);
- 
- 	atomic_andnot(type, this_cpu_ptr(&local_nmi));
- 
+I don't see that written in the first patch; it has the same patch description
+as the other patches in the series (mutatis mutandis)?
+
+> > preferred form for holding driver data which are in general pointers. We
+> > do not store pointers as unsigned long. It is also already used for the
+> > driver data types - see include/linux/mod_devicetable.h.
+>
+> ... and in case it is still not obvious: I do not cast here to final
+> type, because that cast is the reason for the warning.
+>
+> I cast to an intermediary type to help compiler suppressing the warning
+
+I know...
+
+> - to integer representing the pointer. Unsigned long is not representing
+> pointers in the kernel. Integer type representing the pointer is
+
+"unsigned long" indeed does not represent a pointer, but in the Linux
+kernel, it is guaranteed to be the same size as a pointer.
+
+'"unsigned long" is superior'
+https://lore.kernel.org/CAHk-=wj2OHy-5e+srG1fy+ZU00TmZ1NFp6kFLbVLMXHe7A1d-g@mail.gmail.com
+(he doesn't seem to have said anything about kernel_ulong_t)
+
+> kernel_ulong_t, I think.
+
+include/linux/mod_devicetable.h:typedef unsigned long kernel_ulong_t;
+
+IIRC, it was introduced originally because "unsigned long" might have
+a different size in userspace.  Nowadays (for x32), uapi uses
+__kernel_ulong_t, though.
+
+> Once you have integer type representing the pointer, you do not need
+> further casts to enum.
+
+True.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
 -- 
-2.39.5
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
