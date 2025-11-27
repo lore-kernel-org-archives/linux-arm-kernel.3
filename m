@@ -4,106 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0D74CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 04:15:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73569CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 04:33:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TkXUCD/sfJEqbYrrabHICoE25LMTNly9IBUsbDSuWOk=; b=vRzLXfsM3b+D9NP1YqUEFM2m8P
-	kTExYbx2DP4jlsFHlYLzoX8vFBgKo6kMadUNfeow97CSZv29+DQBs7g0Sl3VHJt6zCKyBCfgEU4iK
-	E64WSb1m3sTLSo+P93MmXFV8Cb7n63zu4d79ErvX1Un8Vvnyw1AiEnrpxtqvnKrLc3eDIzAzND4X+
-	pLB6R7voNR/ZKJakORBcVPYmvW7EDbj8dL9PBjJsuZO8w4MmLgz7pgNrIqrYG9Nsp1o3qNe1+FSUa
-	7h31Fi0T/VEGTJp0ZoQ3HQH2DrImWMSwl1Qa00k3ptDEIIdNnwX/D2QeqtGQvZJm4EPTDNYCuSovp
-	gYpeYWug==;
+	bh=CPMwb3T+SE4qsqbo/CfyQHn/8u+JJB3BBnhM5wlyZok=; b=P53DOA5HA7wkYHg7BBBogD5Qm8
+	vabnF6mVYTH2aY3ye1VqYe9ZMfam7nN4rGnW6QF5GBu5S/g4vWnUtGjEX/Ti1F7Sr/Un09/pQ4piy
+	2Hzo6GiOYhWh5Xem5N2unNdBn9ZXo17gk9WBdlRznhTQhfW29Di+sb1jIFV92hsCqDlqEBP+YZ7zf
+	76kFiU3/KxCn94p/2wBBVwQ7FdTS2ij4C8T3vSHkrrBziRBvGO/HOls+5HB7bWvm8z+tr2s2iYT2j
+	cuUYZifHRG/5Q5g8z1On6qbJlgA/40AWgRSW63d5GykwlT1uMwFV3hrlYGJvfelgTOheFKoG08Rzb
+	aJez71TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOTQ0-0000000FxWJ-2FbE;
-	Thu, 27 Nov 2025 04:15:44 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1vOTgg-0000000Fy9I-3Rmf;
+	Thu, 27 Nov 2025 04:32:58 +0000
+Received: from mail-m49221.qiye.163.com ([45.254.49.221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOTPx-0000000FxVv-2b7u
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 04:15:42 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-bddba676613so303563a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 20:15:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764216941; x=1764821741; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=TkXUCD/sfJEqbYrrabHICoE25LMTNly9IBUsbDSuWOk=;
-        b=jlRNeKvwjFwknFTEtU5j/mQqhQ3PM8WbJvxXAmCnQZ5mwK+F+BBFXcNOf26ZJguHOj
-         LUpIGIXlPviT/tPw6suNkaVKC9IfM0O+K5avlSdX5tx8m19xEhEytrRdTovi4l8KF71G
-         /yFWe75tZx06IJ7d5z4TAQWG4+qcDEM3opbZ+KoPuOGLTn1XDrtYDN8+mfJ7KsQWXyVU
-         t4AZ5NY6zLakZhvX9vb/d7w9g/6tX/SbY9Pp9zwyRvAi+0YKLWkloGIAcowb3uMwnZld
-         DYqTE1VAGy7przL+kc9svCxUn04oAD/0QZesiQPzr5qKCHax9LAfRiUSHXea7uqGKa57
-         PyWA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764216941; x=1764821741;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=TkXUCD/sfJEqbYrrabHICoE25LMTNly9IBUsbDSuWOk=;
-        b=mKuE2yRkzaVkK6ZCAfYq9H2j6VKXfGQ0iieQDBO8uVNFEA+nrppE4xifYFieS/ULEm
-         n7G5IB9+bOsIB/JvhIk3QvtxDJGUCs+ZPlbBHgHvcWXCsej1Mk+wSrxA0ciQVgm6skTy
-         P1gcCUABp7UJbOqPHAR4VUVffqf/B18BaYLAGaoaTkX2oTSYi/YV11yLp4Ir/sJugTRa
-         pg/BtW1mV5BR67LrxtO2JL7qZ0zcnjBLRqYJD5QML/AvKLSE+zVL6tjFENfeytvZxDBo
-         nTnAgcTl4LKuKyW2eqEBGQWiLL6EBY+rjPxt8oTDcL/PvYgD42zEb5spOOXPP7+xIqak
-         N0hw==
-X-Forwarded-Encrypted: i=1; AJvYcCX7OYFHeRV0GfCKEvN5YwEwU1Th1xPvNcXuqIfdjHOhzvzH0YrPnqkH0NnwgLuyPjelXHc5UGZxZ4+QGu+I58UX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+JOh1rydTmnYGaadYnfci5d8g5TD1pYXtQe7bPVAilu+hpL70
-	ldrCVoLdI/6raPD3R/EDsO5o872jQo9r5HGi8gNxQT+GetURKT8C3isKNLovYuhk+Q==
-X-Gm-Gg: ASbGncsWA/H+OfRUqUu+C2j0yGRHomUMf+NqbRDs4RO3kueIEsh9sNjOzh3U6uoTmEQ
-	a17sVYn1mEWlVVOFa0svoY4OF8mcW9X0+H9fAXdfZTwxq4F1JG2VTYnzdoCCA2UDgwp/e+M3kNf
-	DV2aUr8873phuWxbxEloTCqZwutF8Qi/Rwgi3Koc0VnXjj3xyaYv98jvgyMqZiQbkicPUpKnSgT
-	GFGcJvb9S7zvi4ZWwf9rVNwsJE3IPy1VYsuUNyhUjI1UCq+ZRJH2AZCvLX+T+p1r7GYcYK5qB7w
-	aNezfRpgnmolT50v/rqnp1XNyhmPr8OlxOo1dciAP1nkzGlqqaG7rP/u9uteQ/VwVMxZmN77fUo
-	c5WGytMCxeV4V+23bHhHOGwSJQgTw5zJwklXyzi3R5hveN+SmHTDpzknx8ANRt1Hdit+2e2iYSQ
-	Fzk9/fgD6c/ekVLWTGCxh0U/B2ht/5OUs2mk2PnrKk9cwrkrIxEdXljeeg5KBdVEv0gJZF0909+
-	afXFFVkjQ12xQ==
-X-Google-Smtp-Source: AGHT+IGdB7ijJFvVK8Snhgzlb9iXXr21271jtHTPlPGlAm0Ty7r+mUpMoHeF2HI52zomvLA2TJb3xQ==
-X-Received: by 2002:a05:7300:d405:b0:2a4:3593:c7d6 with SMTP id 5a478bee46e88-2a7195cb23fmr12999898eec.22.1764216940215;
-        Wed, 26 Nov 2025 20:15:40 -0800 (PST)
-Received: from ?IPV6:2a00:79e0:2e7c:8:c116:b1c9:632d:a902? ([2a00:79e0:2e7c:8:c116:b1c9:632d:a902])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2a965b47caasm2419198eec.6.2025.11.26.20.15.39
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 26 Nov 2025 20:15:39 -0800 (PST)
-Message-ID: <6f2f075b-3570-4424-9cc7-695fb8c3b988@google.com>
-Date: Wed, 26 Nov 2025 20:15:38 -0800
+	id 1vOTgc-0000000Fy8B-2Z8Y;
+	Thu, 27 Nov 2025 04:32:56 +0000
+Received: from [192.168.61.151] (unknown [110.83.51.2])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2b1179e84;
+	Thu, 27 Nov 2025 12:32:45 +0800 (GMT+08:00)
+Message-ID: <075100c0-b4af-4077-bd3c-dd9407524671@rock-chips.com>
+Date: Thu, 27 Nov 2025 12:32:44 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/6] mfd: max77759: modify irq configs
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Badhri Jagan Sridharan <badhri@google.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- RD Babiera <rdbabiera@google.com>, Kyle Tso <kyletso@google.com>
-References: <20251123-max77759-charger-v1-0-6b2e4b8f7f54@google.com>
- <20251123-max77759-charger-v1-4-6b2e4b8f7f54@google.com>
- <5c901a6c831775a04924880cc9f783814f75b6aa.camel@linaro.org>
- <aa7bdeb1-c8a9-4353-af56-869f16a083c2@google.com>
- <e25ff0e5ff103433942fc7744eea4a3c61ce1daf.camel@linaro.org>
-Content-Language: en-US
-From: Amit Sunil Dhamne <amitsd@google.com>
-In-Reply-To: <e25ff0e5ff103433942fc7744eea4a3c61ce1daf.camel@linaro.org>
+Cc: shawn.lin@rock-chips.com, iommu@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Simon Xue <xxm@rock-chips.com>,
+ kernel@pengutronix.de
+Subject: Re: [PATCH] iommu/rockchip: disable fetch dte time limit
+To: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>,
+ Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, Heiko Stuebner <heiko@sntech.de>
+References: <20251126-spu-iommudtefix-v1-1-f90003dbfcc4@pengutronix.de>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <20251126-spu-iommudtefix-v1-1-f90003dbfcc4@pengutronix.de>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9ac395cbcb09cckunm7f6f53a15f3a0c
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDSE9CVkIYQhpNTkkfSUtDHlYVFAkWGhdVEwETFh
+	oSFyQUDg9ZV1kYEgtZQVlKSktVQ0hVTkpVSVlXWRYaDxIVHRRZQVlPS0hVSktJT09PSFVKS0tVSk
+	JLS1kG
+DKIM-Signature: a=rsa-sha256;
+	b=eQP9SGLqV2ppZ/YwPz3e2r8dHL9TDguKTD8HJIs+TWpIAeYRQE4xRVZf8ErbAJ+F/vUCPNZ2DzNq5pG/r11S0Se3XvEI7had5VkA3lz9lbuGkNG1AQqx4C0MFBna63eggrBNyRALz4GyVMUTK+kRjQCNm+TQNuRwjl48SDNwMAI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=CPMwb3T+SE4qsqbo/CfyQHn/8u+JJB3BBnhM5wlyZok=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_201541_702845_BDDF8388 
-X-CRM114-Status: GOOD (  28.10  )
+X-CRM114-CacheID: sfid-20251126_203255_256879_940EA520 
+X-CRM114-Status: GOOD (  29.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,125 +73,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+在 2025/11/26 星期三 19:45, Sven Püschel 写道:
+> From: Simon Xue <xxm@rock-chips.com>
+> 
+> Disable the Bit 31 of the AUTO_GATING iommu register, as it causes
+> hangups with the RGA3 (Raster Graphics Acceleration 3) peripheral.
+> The RGA3 register description of the TRM already states that the bit
+> must be set to 1. The vendor kernel sets the bit unconditionally to
+> 1 to fix VOP (Video Output Processor) screen black issues. This patch
+> squashes the 2 vendor kernel commits with the following commit messages:
+> 
+> Master fetch data and cpu update page table may work in parallel, may
+> have the following procedure:
+> 
+> 	master                  cpu
+> 	fetch dte               update page tabl
+> 	        |                       |
+> 	(make dte invalid)  <-  zap iotlb entry
+> 	        |                       |
+> 	fetch dte again
+> 	(make dte invalid)  <-  zap iotlb entry
+> 	        |                       |
+> 	fetch dte again
+> 	(make dte invalid)  <-  zap iotlb entry
+> 	        |                       |
+> 	fetch dte again
+> 	(make iommu block)  <-  zap iotlb entry
+> 
+> New iommu version has the above bug, if fetch dte consecutively four
+> times, then it will be blocked. Fortunately, we can set bit 31 of
+> register MMU_AUTO_GATING to 1 to make it work as old version which does
+> not have this issue.
+> 
+> This issue only appears on RV1126 so far, so make a workaround dedicated
+> to "rockchip,rv1126" machine type.
+> 
+> iommu/rockchip: fix vop blocked and screen black on RK356X and RK3588
+> 
+> RK3568 and RK3588 has the same issue as RV1126/RV1109 that caused by
+> dte fetch time limit, So we can set BIT(31) of register 0x24 default
+> to 1 as a workaround.
+> 
+> Signed-off-by: Simon Xue <xxm@rock-chips.com>
+> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+> ---
+> During testing of a newly developed driver for the RGA3 peripheral [1]
+> (Raster Graphic Acceleration 3) of the RK3588 some sporadic hangs
+> have been observed. The upstream rockchip-iommu driver is used to handle
+> the RGA3 IOMMU register space.
+> 
+> After a closer look at the TRM for the RK3588, the RGA3 iommu register
+> description of the RGA3_MMU_AUTO_GATING register (offset 0x24) mentions
 
-On 11/25/25 10:44 PM, André Draszik wrote:
-> Hi Amit,
->
-> On Tue, 2025-11-25 at 17:10 -0800, Amit Sunil Dhamne wrote:
->> Hi André,
->>
->> On 11/23/25 10:21 PM, André Draszik wrote:
->>> Hi Amit,
->>>
->>> Thanks for your patches to enable the charger!
->> Ack!
->>
->>
->>>> From: Amit Sunil Dhamne <amitsd@google.com>
->>>>
->>>> Define specific bit-level masks for charger's registers and modify the
->>>> irq mask for charger irq_chip. Also, configure the max77759 interrupt
->>>> lines as active low to all interrupt registrations to ensure the
->>>> interrupt controllers are configured with the correct trigger type.
->>>>
->>>> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
->>>> ---
->>>>    drivers/mfd/max77759.c       | 24 +++++++++++++++++-------
->>>>    include/linux/mfd/max77759.h |  9 +++++++++
->>>>    2 files changed, 26 insertions(+), 7 deletions(-)
->>>>
->>>> diff --git a/drivers/mfd/max77759.c b/drivers/mfd/max77759.c
->>>> index 6cf6306c4a3b..5fe22884f362 100644
->>>> --- a/drivers/mfd/max77759.c
->>>> +++ b/drivers/mfd/max77759.c
->>>> @@ -256,8 +256,17 @@ static const struct regmap_irq max77759_topsys_irqs[] = {
->>>>    };
->>>>    
->>>>    static const struct regmap_irq max77759_chgr_irqs[] = {
->>>> -	REGMAP_IRQ_REG(MAX77759_CHARGER_INT_1, 0, GENMASK(7, 0)),
->>>> -	REGMAP_IRQ_REG(MAX77759_CHARGER_INT_2, 1, GENMASK(7, 0)),
->>>> +	REGMAP_IRQ_REG(MAX77759_CHARGER_INT_1, 0,
->>>> +		       MAX77759_CHGR_REG_CHG_INT_AICL |
->>>> +		       MAX77759_CHGR_REG_CHG_INT_CHGIN |
->>>> +		       MAX77759_CHGR_REG_CHG_INT_CHG |
->>>> +		       MAX77759_CHGR_REG_CHG_INT_INLIM),
->>>> +	REGMAP_IRQ_REG(MAX77759_CHARGER_INT_2, 1,
->>>> +		       MAX77759_CHGR_REG_CHG_INT2_BAT_OILO |
->>>> +		       MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CC |
->>>> +		       MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CV |
->>>> +		       MAX77759_CHGR_REG_CHG_INT2_CHG_STA_TO |
->>>> +		       MAX77759_CHGR_REG_CHG_INT2_CHG_STA_DONE),
->>>>    };
-> You should also add the remaining bits in each register here, so that the
-> regulator-irq can mask them when no user exists. It will only touch the
-> bits it knows about, so the state of the mask register is non-
-> deterministic with this change as-is (depends on how the bootloader
-> configured it).
->
-> [...]
+It's 0xF24 per RGA3 chapter.
 
-I see what you're saying. I will remove this and keep it the way it was 
-before.
+> a mmu_bug_fixed_disable bit, which must be set to 1 but defaults to 0.
+> 
+> Looking at the commits in the vendor kernel, the bit is unconditionally
+> set to 1 and mentions that it fixes a blocked VOP (Video Output
+> Processor) [3]. Therefore squash the relevant vendor commits
+> [2] and [3] into a single patch, combine the commit messages and keep
+> the Signed-off-by line from the original author.
+> 
+> [1] https://lore.kernel.org/all/20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de/
+> [2] https://github.com/rockchip-linux/kernel/commit/7f8158fb41b5cc8e738aaeebc3637c50ebd74cae
+> [3] https://github.com/rockchip-linux/kernel/commit/6a355e5f9a2069a2309e240791bc3aad63b7324e
+> ---
+>   drivers/iommu/rockchip-iommu.c | 8 ++++++++
+>   1 file changed, 8 insertions(+)
+> 
+> diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
+> index 0861dd469bd86..2d0dabb0d101a 100644
+> --- a/drivers/iommu/rockchip-iommu.c
+> +++ b/drivers/iommu/rockchip-iommu.c
+> @@ -76,6 +76,8 @@
+>   #define SPAGE_ORDER 12
+>   #define SPAGE_SIZE (1 << SPAGE_ORDER)
+>   
+> +#define DISABLE_FETCH_DTE_TIME_LIMIT BIT(31)
+> +
+>    /*
+>     * Support mapping any size that fits in one page table:
+>     *   4 KiB to 4 MiB
+> @@ -930,6 +932,7 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
+>   	struct iommu_domain *domain = iommu->domain;
+>   	struct rk_iommu_domain *rk_domain = to_rk_domain(domain);
+>   	int ret, i;
+> +	u32 auto_gate;
+>   
+>   	ret = clk_bulk_enable(iommu->num_clocks, iommu->clocks);
+>   	if (ret)
+> @@ -948,6 +951,11 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
+>   			       rk_ops->mk_dtentries(rk_domain->dt_dma));
+>   		rk_iommu_base_command(iommu->bases[i], RK_MMU_CMD_ZAP_CACHE);
+>   		rk_iommu_write(iommu->bases[i], RK_MMU_INT_MASK, RK_MMU_IRQ_MASK);
+> +
+> +		/* Workaround for iommu blocked, BIT(31) default to 1 */
+> +		auto_gate = rk_iommu_read(iommu->bases[i], RK_MMU_AUTO_GATING);
+> +		auto_gate |= DISABLE_FETCH_DTE_TIME_LIMIT;
+> +		rk_iommu_write(iommu->bases[i], RK_MMU_AUTO_GATING, auto_gate);
+>   	}
+>   
+>   	ret = rk_iommu_enable_paging(iommu);
+> 
+> ---
+> base-commit: 30f09200cc4aefbd8385b01e41bde2e4565a6f0e
+> change-id: 20251126-spu-iommudtefix-cd0c5244c74a
+> 
+> Best regards,
 
-
->
->>>
->>>> diff --git a/include/linux/mfd/max77759.h b/include/linux/mfd/max77759.h
->>>> index c6face34e385..0ef29a48deec 100644
->>>> --- a/include/linux/mfd/max77759.h
->>>> +++ b/include/linux/mfd/max77759.h
->>>> @@ -62,7 +62,16 @@
->>>>    #define MAX77759_CHGR_REG_CHG_INT               0xb0
->>>>    #define MAX77759_CHGR_REG_CHG_INT2              0xb1
->>>>    #define MAX77759_CHGR_REG_CHG_INT_MASK          0xb2
->>>> +#define MAX77759_CHGR_REG_CHG_INT_AICL          BIT(7)
->>>> +#define MAX77759_CHGR_REG_CHG_INT_CHGIN         BIT(6)
->>>> +#define MAX77759_CHGR_REG_CHG_INT_CHG           BIT(4)
->>>> +#define MAX77759_CHGR_REG_CHG_INT_INLIM         BIT(2)
->>>>    #define MAX77759_CHGR_REG_CHG_INT2_MASK         0xb3
->>>> +#define MAX77759_CHGR_REG_CHG_INT2_BAT_OILO     BIT(4)
->>>> +#define MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CC   BIT(3)
->>>> +#define MAX77759_CHGR_REG_CHG_INT2_CHG_STA_CV   BIT(2)
->>>> +#define MAX77759_CHGR_REG_CHG_INT2_CHG_STA_TO   BIT(1)
->>>> +#define MAX77759_CHGR_REG_CHG_INT2_CHG_STA_DONE BIT(0)
->>> Even if wireless out of scope, it'd still be nice to add macros for
->>> the remaining bits to make this complete and avoid having to update
->>> these again in case wireless support gets added in the future.
->> I would prefer to only define the macros I am currently using to keep
->> the review focused, unless you consider this a strict requirement.
-> It makes sense to add them now, as per above.
-
-Okay. I will add them.
-
-
->
->
->
->>> Also, would be nice to keep existing style and indent the bits from
->>> the registers (see existing bit definitions in this file a few lines
->>> further up).
->>> Finally, can you add the bits below the respective register (0xb0 / 0xb1)
->>> please, to keep suffix meaningful, and to follow existing style for cases
->>> like this (see MAX77759_MAXQ_REG_UIC_INT1).
->> I will fix the indentation and ordering in the next revision.
->>
->> Regarding bit definitions: In [PATCH 5/6], the max77759_charger.c driver
->> defines bits for the register addresses defined in this file. Currently,
->> those macros are only used locally by the max77759 charger driver. Would
->> you prefer I move those definitions to this header file as well?
-> Yes, would be nice to have them all in one place (in this file). That said,
-> CHG_INT, CHG_INT_MASK, and CHG_INT_OK all have the same layout and share
-> the same bits, so I personally would probably reuse the ones you added for
-> INT for all three of them - MASK (as you did already), and also for the OK
-> register. But up to you.
-
-Sounds good.
-
-
-Thanks,
-
-Amit
-
-> Cheers,
-> Andre'
 
