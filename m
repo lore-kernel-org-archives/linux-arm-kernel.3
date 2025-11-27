@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F1D0D116F6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 09:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F728CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 09:23:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JB581+q6d8JNHOaG4/CmEZh7pybRjg32PuHi0tZmZIA=; b=d6ChZtMFbcsjgp+U0us+KK4gns
-	pewqn6fWr7bdmmPl3I0I3o76et9n8qY5zKwnSjq3Zo8xQrjddVhDUSahrCFSwwBE3S2LdTgMZueW1
-	xs6AQ6GX3G7zdfwee7g3f/cuCwwMZpwD4YuMTw3SDPAGJCG7wxTmRcmFIvAU+eruaRtRrfFIVaU0Q
-	GU+cW5fEwyBnB7HGA7tXGZnxljricHfce12F0dbTPWy1U8zbxd0Rk3ZoQdy/C8ivGyzprcr93QXvT
-	6DJzohI+NDB1M/Izp9gV9SRfei1kgwn1vQZM7bLmHdEbz0deDhoxZ993em8RLrXPzBa20z/W+h50q
-	xMUtyGqg==;
+	bh=wzVFhaCJ4tPvEzjzVh2/FLJsOENJe5tM82eV69ICp3w=; b=JMwOQNU7yuHJGjbeS4qCC0ruZi
+	XKhW4WspZqEDWXdxZglIA5JHzES3KipOjQj1WtrcslYeaE6RwN+/vXINoli6R0u5Fdlp4x7CCsQNj
+	tMhEAfuk/p+nc3h7TJrGCtV+e1Rp2li2N0CKtMpKnv4tZoJCNLtXjtJt3FQ9NQ8ECbWRTR0reBk/S
+	XzvcifTv85tbFK7mFL4HmbI+jITyc1LmbpvufDbnMJgtoSgqrd4SatU/9sJ1Rk4lkINKaWYqNrVVl
+	lWfx6ltWR8yp0swub9MTKTrSV2uxLjuWsf4cXAobe9dBuTA/u27IH69j54hZu28LHD2zzx2kSPgVm
+	Ohpc1gAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOYDQ-0000000GHhP-3B4J;
+	id 1vOYDQ-0000000GHgg-1n4g;
 	Thu, 27 Nov 2025 09:23:04 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOYDM-0000000GHcO-0ygC
+	id 1vOYDK-0000000GHbZ-398b
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 09:23:01 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-47799717212so3901055e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 01:22:59 -0800 (PST)
+	Thu, 27 Nov 2025 09:23:00 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-429c5da68e5so499999f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 01:22:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764235378; x=1764840178; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1764235377; x=1764840177; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=JB581+q6d8JNHOaG4/CmEZh7pybRjg32PuHi0tZmZIA=;
-        b=HE2DtAVDv4sS7Vj7F5XvMn5qzSQW26G47Wv8peJYDqnkCnjKAPxWntiBRlTdhDwAcp
-         8Rk2L7gA3+kjUwz4enV5ee4tCzPrXYBGTDPK8OPiGz4/1ebceDjYSgHzL3Gm5w2MjCEJ
-         YZjgFMsZrCQ/CKdhAd9G4nCiCKFgytZLNII+lLiWhLrT6t2/cRGlpWTp8GO2D3so8g0A
-         M9874c7S9wOf3dxqtMXkalK0G/Ng6IqiksrKoH0c/VOo8aoxRFJmsxzmHpz8qpChwaVf
-         C9W1iaTgb0w4vDV1a+I6KUI79pgNiKhKHdGdRC8cumqGkEr4JGNnk6jb7RxyRMvT4OOc
-         +wbg==
+        bh=wzVFhaCJ4tPvEzjzVh2/FLJsOENJe5tM82eV69ICp3w=;
+        b=e4c7Ng65fg4kVvn1YBvBFdtiXPkIToeRJH5GrOc+dhkSs7dxekgAGS5Wh3pjaQ3hAz
+         9craiypUAHt0JV493R50w65kYg+4oEO/xoX9zvEjnVCEdd1tiiyEB/z55AyOWTDTpi+h
+         nH5qKPP9sJBlKeZJrzRUYiZTLj7z7XpR3AAeth/U2bhM7+iFDLg+e7+xODSycdhoGJjs
+         FAIYvAZNpMG/Sl+xIV46ziwHvAr0iKY09H3MFJ/2uyf01Gs8IwO1fJ5LuWVi/Gap+BYt
+         KSPfJo/SBoQW4CVFH6xRop/oJenjdLi/RedLv4XprlztuseMVPsbf1FJmbd+qUYJOsWf
+         OlYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764235378; x=1764840178;
+        d=1e100.net; s=20230601; t=1764235377; x=1764840177;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=JB581+q6d8JNHOaG4/CmEZh7pybRjg32PuHi0tZmZIA=;
-        b=ikwdaJWiKmphLcW5q0kJI2gKVOaTrUbeRoU8QuOV6UU8j9Y3qFwHEUMPqyD8RWSSy8
-         nglJfUtNiEcUiLgtCuvUJLtLzjJ2GQ1TJNJzCNT3Ts5Vskjx2SL86BLVZ7eRIDnU7ma/
-         1fL7yKlScaf35wDfO01r3ZmIdlro4FDGFmVdcM+70c6WQErgWuN5D+j8MTwa7SW8Tv/s
-         LF5g5viXjwwEWjSeHIkVopKb0OEkEZXx3pxuFBGnfM5aHBBFFi7BDe1OoMW2SsodGBcn
-         zHeF/Y5OHy5lErl09UWoHCblCabGOGGbI+KINumZ0Me74uASBY3QGsFBgP5K9nyKJnAT
-         AgVQ==
-X-Gm-Message-State: AOJu0YxSq2KP1MffwuObR8R6aTjbVN8SbP1j6g48W58+OjCr7jmCevFT
-	AEdM+DOyk0l8b5oapNzoL3XRBxPHJYNbD3agb7oa/X6tC499NhBxsGNVMN4HgIQ/aeB1DnH68g=
+        bh=wzVFhaCJ4tPvEzjzVh2/FLJsOENJe5tM82eV69ICp3w=;
+        b=nVTgM5Qdck1H86FOt5RCmnn3Hr8E4k+7xDQwD94r9H1wgeNsWyz3lLBSgbN7ZBUQeW
+         9ryjQTBLSx08HSoT4bq8lb9RpW2f36HEuiWd3BUliB31cnVQ1MZgJbKhFLAvrM8xpRpR
+         rwLBUOYdzTwAqWwyXBtlQGiTPXE5tXqXDSSQhBkO/bmuCrm3I7hwIXdLTHFTE6zOxd75
+         FxC4zlSo66iTl8z1vniD1OFZmgWBBerXxpvhJQIkyx/728uoJvjr/JNm9815sN47THwD
+         wgf4XWRzkKsqs4YxPLD/cLHTbFlYCZ/ZxWRNGq4HzIolFZqSt6KTU34+RSqnwobiObI8
+         PAqA==
+X-Gm-Message-State: AOJu0YwiRmkgFssjXJfkCm5t/Vlm3HJlqAfwqdgWFTmXpjpsor4Ga2J7
+	zXtIv2YzLZojCBIyXlgZo//Qw24czieacbF4KKOciDef0jixpv+qD6fjoCzWhKZK81Y0WoyLzg=
 	=
-X-Google-Smtp-Source: AGHT+IFYv0kogWxmcupk5m1hglVZfqkLWIq7UCyp+YAuGkotWUr1R/Sn1oljNF0wCvZqVj/2EKsscbj3
-X-Received: from wmcn10.prod.google.com ([2002:a05:600c:c0ca:b0:477:afa:d217])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:5489:b0:477:b0b8:4dd0
- with SMTP id 5b1f17b1804b1-477c1119c31mr210109105e9.17.1764235378167; Thu, 27
- Nov 2025 01:22:58 -0800 (PST)
-Date: Thu, 27 Nov 2025 10:22:32 +0100
+X-Google-Smtp-Source: AGHT+IGd+iJrVyefWu9xcpdYdKEXoxro/lG9n2ewRU/WJbCL+3bUle2bLSXZHjm1+EN52LuTQiG20BfQ
+X-Received: from wrqr7.prod.google.com ([2002:a5d:4987:0:b0:42b:b28a:6746])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:4010:b0:42b:3dbe:3a37
+ with SMTP id ffacd0b85a97d-42cc1302285mr26345067f8f.10.1764235376919; Thu, 27
+ Nov 2025 01:22:56 -0800 (PST)
+Date: Thu, 27 Nov 2025 10:22:31 +0100
 In-Reply-To: <20251127092226.1439196-8-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20251127092226.1439196-8-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1326; i=ardb@kernel.org;
- h=from:subject; bh=RU3u+df4cRqtBp/zfgIcQz76smq5xWuDnV7q7Ms5D20=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIVNDIrr465FjPcfCXNcVfxHj4EvKbXd52VbuPb/gSv/TG
- XXn23d0lLIwiHExyIopsgjM/vtu5+mJUrXOs2Rh5rAygQxh4OIUgImUFTH8j/4n/GKfxT4FdwFR
- 3ZtT2XVftd3pMVD/b7vd89W/09tYChkZzgTY/PHoy9xc3v9lheV8neWin38fWBntofx47Zr7DX8 +MgIA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4605; i=ardb@kernel.org;
+ h=from:subject; bh=2kdRtRT+6jrXGVJpTsN6JRllZWlsEfiMzJMbIKIwLig=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIVNDItKrV2/nxk2T1FL2Pt6aq6pVO+2PRuinE8KPNTo6a
+ 3nj3j3uKGVhEONikBVTZBGY/ffdztMTpWqdZ8nCzGFlAhnCwMUpABPp8mFkuDohVFskVsdiR1zu
+ wmdCi5KUPl1VU7Fe/dFZccnmV/sc3jEynJLJaUjTW3hYn2F3RubPpNRt29cIn9B6cfPQJ+dKTzk BPgA=
 X-Mailer: git-send-email 2.52.0.107.ga0afd4fd5b-goog
-Message-ID: <20251127092226.1439196-13-ardb+git@google.com>
-Subject: [RFC/RFT PATCH 5/6] random: Plug race in preceding patch
+Message-ID: <20251127092226.1439196-12-ardb+git@google.com>
+Subject: [RFC/RFT PATCH 4/6] random: Use a lockless fast path for get_random_uXX()
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-hardening@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
@@ -81,8 +81,8 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	"Jason A. Donenfeld" <Jason@zx2c4.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_012300_352137_52D2CAA3 
-X-CRM114-Status: GOOD (  14.16  )
+X-CRM114-CacheID: sfid-20251127_012258_825273_316F6B65 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,34 +99,120 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-The lockless get_random_uXX() reads the next value from the linear
-buffer and then overwrites it with a 0x0 value. This is racy, as the
-code might be re-entered by an interrupt handler, and so the store might
-redundantly wipe the location accessed by the interrupt context rather
-than the interrupted context.
+Currently, the implementations of the get_random_uXX() API protect their
+critical section with a local lock and disabling interrupts, to ensure
+that the code does not race with itself when called from interrupt
+context.
 
-To plug this race, wipe the preceding location when reading the next
-value from the linear buffer. Given that the position is always non-zero
-outside of the critical section, this is guaranteed to be safe, and
-ensures that the produced values are always wiped from the buffer.
+Given that the fast path does nothing more than read a single uXX
+quantity from a linear buffer and bump the position pointer, poking the
+hardware registers to disable and re-enable interrupts is
+disproportionately costly, and best avoided.
+
+There are two conditions under which the batched entropy buffer is
+replenished, which is what forms the critical section:
+- the buffer is exhausted
+- the base_crng generation counter has incremented.
+
+By combining the position and generation counters into a single u64, we
+can use compare and exchange to implement the fast path without taking
+the local lock or disabling interrupts. By constructing the expected and
+next values carefully, the compare and exchange will only succeed if
+- we did not race with ourselves, i.e., the compare and exchange
+  increments the position counter by exactly 1;
+- the buffer is not exhausted
+- the generation counter equals the base_crng generation counter.
+
+Only if the compare and exchange fails is the original slow path taken,
+and only in that case do we take the local lock. This results in a
+considerable speedup (3-5x) when benchmarking get_random_u8() in a tight
+loop.
 
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- drivers/char/random.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/char/random.c | 44 ++++++++++++++------
+ 1 file changed, 31 insertions(+), 13 deletions(-)
 
 diff --git a/drivers/char/random.c b/drivers/char/random.c
-index 71bd74871540..e8ba460c5c9c 100644
+index 0e04bc60d034..71bd74871540 100644
 --- a/drivers/char/random.c
 +++ b/drivers/char/random.c
-@@ -547,6 +547,7 @@ type get_random_ ##type(void)							\
- 	next = (u64)next_gen << 32;						\
- 	if (likely(batch->position < ARRAY_SIZE(batch->entropy))) {		\
- 		next |=	batch->position + 1; /* next-1 is bogus otherwise */	\
-+		batch->entropy[batch->position - 1] = 0;			\
- 		ret = batch->entropy[batch->position];				\
+@@ -496,6 +496,12 @@ static ssize_t get_random_bytes_user(struct iov_iter *iter)
+  * should be called and return 0 at least once at any point prior.
+  */
+ 
++#ifdef __LITTLE_ENDIAN
++#define LOHI(lo, hi)	lo, hi
++#else
++#define LOHI(lo, hi)	hi, lo
++#endif
++
+ #define DEFINE_BATCHED_ENTROPY(type)						\
+ struct batch_ ##type {								\
+ 	/*									\
+@@ -507,8 +513,12 @@ struct batch_ ##type {								\
+ 	 */									\
+ 	type entropy[CHACHA_BLOCK_SIZE * 3 / (2 * sizeof(type))];		\
+ 	local_lock_t lock;							\
+-	unsigned int generation;						\
+-	unsigned int position;							\
++	union {									\
++		struct {							\
++			unsigned int LOHI(position, generation);		\
++		};								\
++		u64 posgen;							\
++	};									\
+ };										\
+ 										\
+ static DEFINE_PER_CPU(struct batch_ ##type, batched_entropy_ ##type) = {	\
+@@ -522,6 +532,7 @@ type get_random_ ##type(void)							\
+ 	unsigned long flags;							\
+ 	struct batch_ ##type *batch;						\
+ 	unsigned int next_gen;							\
++	u64 next;								\
+ 										\
+ 	warn_unseeded_randomness();						\
+ 										\
+@@ -530,21 +541,28 @@ type get_random_ ##type(void)							\
+ 		return ret;							\
  	}									\
- 	if (cmpxchg64_local(&batch->posgen, next, next - 1) != next - 1) {	\
+ 										\
+-	local_lock_irqsave(&batched_entropy_ ##type.lock, flags);		\
+-	batch = raw_cpu_ptr(&batched_entropy_##type);				\
++	batch = &get_cpu_var(batched_entropy_##type);				\
+ 										\
+ 	next_gen = (unsigned int)READ_ONCE(base_crng.generation);		\
+-	if (batch->position >= ARRAY_SIZE(batch->entropy) ||			\
+-	    next_gen != batch->generation) {					\
+-		_get_random_bytes(batch->entropy, sizeof(batch->entropy));	\
+-		batch->position = 0;						\
+-		batch->generation = next_gen;					\
++	next = (u64)next_gen << 32;						\
++	if (likely(batch->position < ARRAY_SIZE(batch->entropy))) {		\
++		next |=	batch->position + 1; /* next-1 is bogus otherwise */	\
++		ret = batch->entropy[batch->position];				\
++	}									\
++	if (cmpxchg64_local(&batch->posgen, next, next - 1) != next - 1) {	\
++		local_lock_irqsave(&batched_entropy_ ##type.lock, flags);	\
++		if (batch->position >= ARRAY_SIZE(batch->entropy) ||		\
++		    next_gen != batch->generation) {				\
++			_get_random_bytes(batch->entropy, sizeof(batch->entropy));\
++			batch->position = 0;					\
++			batch->generation = next_gen;				\
++		}								\
++		ret = batch->entropy[batch->position++];			\
++		local_unlock_irqrestore(&batched_entropy_ ##type.lock, flags);	\
+ 	}									\
+ 										\
+-	ret = batch->entropy[batch->position];					\
+-	batch->entropy[batch->position] = 0;					\
+-	++batch->position;							\
+-	local_unlock_irqrestore(&batched_entropy_ ##type.lock, flags);		\
++	batch->entropy[batch->position - 1] = 0;				\
++	put_cpu_var(batched_entropy_##type);					\
+ 	return ret;								\
+ }										\
+ EXPORT_SYMBOL(get_random_ ##type);
 -- 
 2.52.0.107.ga0afd4fd5b-goog
 
