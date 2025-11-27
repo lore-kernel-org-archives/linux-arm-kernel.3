@@ -4,97 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53E8FCFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 15:26:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45ECFD111A8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 15:30:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	Subject:Cc:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U9Sd2Vih8qCT8Sm8DHyp6voQA1fNVa6aZXqM7Jub6wE=; b=hsih/BOjSwd92TiEGfQgv3hKzF
-	1rs3NF+PXdEJd0xJiTpYFMaSailgBuJQLeNr0j8Ec7TetY2MS6Vw3aBd5m0W0+0AIChkuKlVGU+pR
-	tSugJKhXRbrsn1n01wUiSbPz1NaC4DAH1MO9J9sICxis8XqXk593D1VGKwnCqvy5e3gV8xcBdYEM9
-	QqY91vOlzYgXqWncycZAARcCAXarplPQOSH7VU6Ye7XYfo7rTYs3a6oDvqLz5pFmml8jXKFJ0XWE7
-	wHEI/7WzNOj0NhdwDC0cXJK6DUApnmkeFe3JyPjzxjCrzHH1lg0Pv+eiFhz/c0qYSZ/+ZJUe2932W
-	tbbmwUjQ==;
+	bh=SNgekyZISVjxqm05oCPnxWNr0tSC3ioQWMN6SqIjea0=; b=vkEI9+MQeweGwSonMGWi3wXc33
+	pqkThLEmlO/NP5+FmfTYs+fFHn+J3/mMP+EzVxfWaKb2jhlBjlMWzCz61jmMH9F1Lh3uDt0NEOUtQ
+	ayfbT1tSf7/aRTxcJQLqR5uCuUOg1KynYjREcAst5e+6vAFmsLHAwcjFEYSzPZkRRF3cHW3ZxBf39
+	nHPBIRSfX6SK3em/8AnuZcxHJqfCtMkDFpDZfM82cWMnacr1vzSo86C6ooApJ9NeWHzSaAZQsqUUR
+	IaZXO/pUE31mGNlbbN+uGxgOH+rNrOg4dlhGyjs0DqZFwhbNqhcrxril9JaKGBUwmXfXs0Zb5KdOx
+	8nCROhGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOdtG-0000000GqHC-2gmX;
-	Thu, 27 Nov 2025 15:26:38 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1vOdwo-0000000GqSl-0k09;
+	Thu, 27 Nov 2025 15:30:18 +0000
+Received: from smtp1.ms.mff.cuni.cz ([2001:718:1e03:801::4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOdtD-0000000GqGp-1OT9
+	id 1vOdwl-0000000GqS2-02b1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 15:26:36 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-47789cd2083so4832595e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 07:26:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764257193; x=1764861993; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=U9Sd2Vih8qCT8Sm8DHyp6voQA1fNVa6aZXqM7Jub6wE=;
-        b=bNUz39P6VZMI5o3gEVELbP+y303wlTdpWuEyCieF9xDa1lVZCVII6nNByS/LT54m2L
-         8l03yScgbljXx4P4iqBzLeufTzE3St3PT74KpCH3I0G8PRojKGHo8gcrCumrnofOb7Xg
-         t/ipm2KWZzvFkMXg/UWUlUDSo9RPjZjECSz1uxojjAdfp8VXTzIm0v/QSQGjz8EHZw60
-         lw58KND4haFG50Jlz3tx/CI17J+OmUJ6jEKfKMnVJwdRkYjW/NK/G+orEzkup/X6oan9
-         dq3v5sUEAqwV6Tc9RA+ndE9gKKBfjBpURolXjStEknafx+Aork/KJB9hePuKsQ3Hpjo3
-         9AxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764257193; x=1764861993;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=U9Sd2Vih8qCT8Sm8DHyp6voQA1fNVa6aZXqM7Jub6wE=;
-        b=rAiEZYsWeAYDvVM/AoSsxWALK6J0Ycyw/8H8jhvQnkFmVIHou1HSeZg0o8nD6qFheo
-         XlBW8v5N3M0kPyclio4hzAmcuncYWxGD1bsDXLJWVunafqVp5CriARu39fjf68itECFg
-         CUdPzKgE1PnNSiBiFTeBxwIUPkUbAwgAJ8kCBzRVpxrJM5+MiNRAvEMGU9K7KVyq0LsV
-         uyH/OkV3iskLDBss5G1obhkY3uzhQ8+IwrOjYaxTBU2vr37GObgAg5tSozDmtlKWJQul
-         ItB/e4iXSkYcsSvM5mPF66gv/CMSNSAudiBpjjCBvb94WvlpbF5vreLqcBlUt5Y9+MZy
-         H5qQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWZh+AOduaFYy1Szb1YI7wXjS/QAerRjBMLf+MFD1Jnu/v9PNZA0Az2l5KyrFE84AMW0dwjD/TKtDp2ozGRSwzC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6LDEy4f+R+kkZn2N+hQtQEfFULT/wbfPkyrJHJaHZ7Qoo99vw
-	SiMxNZuPon0WjjK8tg3G75VUZgkJ+xjOecUWGSBUD7sE/02GS0ewt3oeV66lceyVhYs=
-X-Gm-Gg: ASbGncuptuHbhH5UrkKqeUOdgOdOTrqUIJVyb/RTz9Bq4jpgHZw2gOLEXs4CzBs+lcN
-	3nQh1HhJ6Eo2ZwoH1ZnjwbSpF+Xy5S7aMZ8hTVgz8/hS+24giH441Q/UawopB013sInXMz15Luj
-	uH9x+3Q9ttZJSjnvmUa6vx+4/yNRdRfGq9ha+1pYEAb9teCLlLUZzZj7bhpyhX8Zby1VDKFB/Yz
-	JpmutqSfloLKrKf/3JttFncshnZx4IcjR+X1vId4yPO+xx9pJ45CYvzaw2sc8Y+otzu+mQDSvXk
-	C3d35KLiy21O2cbHt48yaX3FnMt09fb7urPQ0G7QgiqXDPcyuo/4JwMZir7v7de0G6wOm1+yLML
-	Ykc4pqwwyAXvdUEnEpX5fHJ0iZoW4ehOjaTWomzke11wxzLyibpNKcuWu2yWIFwijxjaBtcL9CY
-	bGkRug+L5xNhczB/t1fmHpD7fZlhA=
-X-Google-Smtp-Source: AGHT+IFE9u2XY1HoDD/zsyLLeGS8NDSHbZP5RWiZbNOjKUta7mf7Tb07oyyYOwPyJfOjFkNhODLj5g==
-X-Received: by 2002:a05:600c:35cf:b0:46e:4a13:e6c6 with SMTP id 5b1f17b1804b1-477c114476fmr266244525e9.19.1764257192799;
-        Thu, 27 Nov 2025 07:26:32 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42e1c5d607csm4470702f8f.15.2025.11.27.07.26.31
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 27 Nov 2025 07:26:32 -0800 (PST)
-Message-ID: <7f1c187b-0f94-49c5-b4c9-2f414ab0ac8a@linaro.org>
-Date: Thu, 27 Nov 2025 15:26:31 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/9] KVM: arm64: Fix Trace Buffer trap polarity for
- protected VMs
-To: Fuad Tabba <tabba@google.com>, Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- oliver.upton@linux.dev, will@kernel.org, joey.gouly@arm.com,
- suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com,
- vladimir.murzin@arm.com
-References: <20251118103807.707500-1-tabba@google.com>
- <20251118103807.707500-3-tabba@google.com> <868qftqehe.wl-maz@kernel.org>
- <CA+EHjTwHrLhdHrNSA8f-+bCZ1-QEuNocQQxeiaaost9oLwaG5A@mail.gmail.com>
- <865xaxqal2.wl-maz@kernel.org>
- <CA+EHjTxhOvu-733Z-gJgc6f_EAs-tksA6u5KuQZeimP6T6M-fQ@mail.gmail.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <CA+EHjTxhOvu-733Z-gJgc6f_EAs-tksA6u5KuQZeimP6T6M-fQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	Thu, 27 Nov 2025 15:30:17 +0000
+X-SubmittedBy: id balejk@matfyz.cz subject /postalCode=110+2000/O=Univerzita+20Karlova/street=Ovocn+5CxC3+5CxBD+20trh+20560+5C/5/ST=Praha,+20Hlavn+5CxC3+5CxAD+20m+5CxC4+5Cx9Bsto/C=CZ/CN=Karel+20Balej/emailAddress=balejk@matfyz.cz
+	serial F5FD910E8FE2121B897F7E55B84E351D
+	issued by /C=NL/O=GEANT+20Vereniging/CN=GEANT+20Personal+20CA+204
+	auth type TLS.CUNI
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mff.cuni.cz;
+	s=submission; t=1764257355; x=1765557355;
+	bh=SNgekyZISVjxqm05oCPnxWNr0tSC3ioQWMN6SqIjea0=; h=From;
+	b=Iq2jQwiMkEupB6ek14Ce9g+vzS695Dld/mYbROgXY5HV05aKY1uf5WgGM9SgPS4oj
+	 BjAdt+Y4gDElC7WIlQiD1UZ0JKPSaRYy73kVRi7GkUHmxmLGp0kvCXo4STQeaT1et/
+	 2KHhZpEx+x2rclO9FG2fMtyypT+pgidn7MMbr4NW8kOPT3xMmc69keOhfdJHYe8W7u
+	 EuHLaR5s1lNnqmEOW7U1g2dJIt+7vaMSOIDYYgE0DYdBMgI635NUE5lA5wq+jTk0fm
+	 a3YO4bLStTFVVuQEiW2fPSVOw0dVGdjHP2fXG0q9yUoux2ivIh1olMaq0IOrgp5tJV
+	 ARSc5uU222j8Q==
+Received: from localhost (nat2.prg.suse.com [195.250.132.146])
+	(authenticated)
+	by smtp1.ms.mff.cuni.cz (8.18.1/8.18.1) with ESMTPS id 5ARFTCcb000418
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=OK);
+	Thu, 27 Nov 2025 16:29:13 +0100 (CET)
+	(envelope-from balejk@matfyz.cz)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 27 Nov 2025 16:29:12 +0100
+Message-Id: <DEJL1ATTQMVE.120JV9YW59I27@matfyz.cz>
+From: "Karel Balej" <balejk@matfyz.cz>
+Cc: <~postmarketos/upstreaming@lists.sr.ht>, <phone-devel@vger.kernel.org>,
+        "Karel Balej" <balejk@matfyz.cz>, "Jeff Chen" <jeff.chen_1@nxp.com>,
+        "Peng
+ Fan" <peng.fan@nxp.com>, <david@ixit.cz>
+Subject: Re: [DONOTAPPLY RFC PATCH v2 0/4] WiFi support for
+ samsung,coreprimevelte
+To: "Johannes Berg" <johannes@sipsolutions.net>,
+        "Rob Herring"
+ <robh@kernel.org>,
+        "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+        "Conor
+ Dooley" <conor+dt@kernel.org>,
+        =?utf-8?q?Duje_Mihanovi=C4=87?=
+ <duje@dujemihanovic.xyz>,
+        "Andrew Lunn" <andrew@lunn.ch>,
+        "Gregory Clement"
+ <gregory.clement@bootlin.com>,
+        "Sebastian Hesselbarth"
+ <sebastian.hesselbarth@gmail.com>,
+        "Brian Norris"
+ <briannorris@chromium.org>,
+        "Francesco Dolcini" <francesco@dolcini.it>,
+        "Ulf Hansson" <ulf.hansson@linaro.org>, "Frank Li" <Frank.Li@nxp.com>,
+        <linux-wireless@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-mmc@vger.kernel.org>
+References: <20251026182602.26464-1-balejk@matfyz.cz>
+In-Reply-To: <20251026182602.26464-1-balejk@matfyz.cz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_072635_399960_3911EF46 
-X-CRM114-Status: GOOD (  20.58  )
+X-CRM114-CacheID: sfid-20251127_073015_790336_B8A39450 
+X-CRM114-Status: GOOD (  27.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,86 +97,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello,
 
+Karel Balej, 2025-10-26T19:20:37+01:00:
+> this series adds support for WiFi to the samsung,coreprimevelte
+> smartphone (and can be straightforwardly reused for the other known
+> Marvell PXA1908-based smartphones).
+>
+> The series is currently not intended for application as indicated in the
+> subject prefix as the firmware necessary for the operation of the chip is=
+ not
+> available in linux-firmware.
+>
+> Instead, my intentions are to publish the recent developments regarding
+> the chip support (see the third patch of the series) and offer them for
+> others to use and if possible get some feedback on them and also
+> hopefully to spark some conversation with NXP regarding getting the FW
+> into linux-firmware which would allow this series to be mainlined.
+>
+> Regarding the firmware I have been in contact with Jeff Chen of NXP some
+> time ago who promised to ask about it internally =E2=80=93 I am thus now =
+gently
+> reminding Jeff of the matter. I will also appreciate input from anyone
+> else who may help with upstreaming whichever version of the firmware.
+>
+> The trouble of upstreaming the FW is mostly a legal one (although an up
+> to date version of it would also be very welcome) as it is available as
+> part of the stock Android of the devices with this chip and can thus be
+> used on individual basis, it cannot however be submitted to
+> linux-firmware by myself for instance as the license is not known
+> (although probably is the same as for the other blobs in the mrvl
+> directory) and as the submission would require a sign-off from someone
+> involved with NXP.
+>
+> The third patch in this series fixes a serious issue with the WiFi
+> observed on the phone (see the relevant commit message). The form is
+> however not directly usptreamable and it is not clear to me how to best
+> make it be since it involves changing a data type which probably cannot
+> be easily be special-cased for the new chip and would likely break the
+> other chips the mwifiex driver supports if applied as is. I will thus
+> welcome suggestions on this, although I'm also hopeful that a possible
+> reasonably up to date FW would not require this workaround at all.
+>
+> The series is based on the pxa1908-dt-for-6.19 tag of Duje's tree [1] as
+> it contains the necessary SDIO description in the phone's device tree.
+>
+> I have not applied the trailers sent in response to v1 as it has been
+> some time and as this is not expected to be applied anyway.
+>
+> [1] https://gitlab.com/pxa1908-mainline/linux/-/commits/pxa1908-dt-for-6.=
+19
 
-On 26/11/2025 11:48 am, Fuad Tabba wrote:
-> On Wed, 26 Nov 2025 at 11:47, Marc Zyngier <maz@kernel.org> wrote:
->>
->> On Wed, 26 Nov 2025 10:37:57 +0000,
->> Fuad Tabba <tabba@google.com> wrote:
->>>
->>> Hi Marc,
->>>
->>> On Wed, 26 Nov 2025 at 10:23, Marc Zyngier <maz@kernel.org> wrote:
->>>>
->>>> On Tue, 18 Nov 2025 10:37:59 +0000,
->>>> Fuad Tabba <tabba@google.com> wrote:
->>>>>
->>>>> The E2TB bits in MDCR_EL2 control trapping of Trace Buffer system
->>>>> register accesses. These accesses are trapped to EL2 when the bits are
->>>>> clear.
->>>>>
->>>>> The trap initialization logic for protected VMs in pvm_init_traps_mdcr()
->>>>> had the polarity inverted. When a guest did not support the Trace Buffer
->>>>> feature, the code was setting E2TB. This incorrectly disabled the trap,
->>>>> potentially allowing a protected guest to access registers for a feature
->>>>> it was not given.
->>>>>
->>>>> Fix this by inverting the operation.
->>>>>
->>>>> Fixes: f50758260bff ("KVM: arm64: Group setting traps for protected VMs by control register")
->>>>> Signed-off-by: Fuad Tabba <tabba@google.com>
->>>>> ---
->>>>>   arch/arm64/kvm/hyp/nvhe/pkvm.c | 2 +-
->>>>>   1 file changed, 1 insertion(+), 1 deletion(-)
->>>>>
->>>>> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
->>>>> index 8d06a246dfd1..f6f8996c4f97 100644
->>>>> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
->>>>> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
->>>>> @@ -118,7 +118,7 @@ static void pvm_init_traps_mdcr(struct kvm_vcpu *vcpu)
->>>>>                val |= MDCR_EL2_TTRF;
->>>>>
->>>>>        if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, TraceBuffer, IMP))
->>>>> -             val |= MDCR_EL2_E2TB_MASK;
->>>>> +             val &= ~MDCR_EL2_E2TB_MASK;
->>>>
->>>> This does not only change the trapping logic (bit 24). It also change
->>>> the ownership of the buffer (bit 25). I wonder whether you should do
->>>> something for that, maybe by clearing TRBLIMITR_EL1.E, because
->>>> otherwise, you keep tracing, but using an EL2 VA. What could possibly
->>>> go wrong?
->>>>
->>>> Overall, I'm very uneasy about TRBE in the context of pKVM.
->>>
->>> So should we clear/restore TRBLIMITR_EL1.E on guest entry/exit in
->>> protected mode?
->>
->> I think you need something of the sort, yes. Overall, SPE and TRBE
->> should be aligned on what they are allowed to do, as they are two
->> sides of the same ugly coin.
-> 
-> I'll fix this (or add a patch to do this, depending on how it looks)
-> when I respin.
-> 
-> Cheers,
-> /fuad
-> 
+could I please get some feedback on this?
 
-To understand this, is it just belt-and-braces because you don't trust 
-the current filter clearing in TRFCR_EL1? And to reduce the potential 
-for mistakes leading to trace leakages? I suppose even the hardware 
-itself could have some errata where it tries to access the buffer, even 
-if we've completely filtered out trace and flushed before going into the 
-guest.
+Mainly I'm wondering whether there is some way I could get this in (the
+basic support, without the hack in the third patch) without the firmware
+as I have unfortunately not been successful in my communication with NXP
+yet.=20
 
-Thanks
-James
+To reiterate, the firmware is generally available but is not part of
+linux-firmware and the entire process of upstreaming the chipset support
+is stuck on that.
 
->>          M.
->>
->> --
->> Without deviation from the norm, progress is not possible.
-> 
-
+Thank you, best regards,
+K. B.
 
