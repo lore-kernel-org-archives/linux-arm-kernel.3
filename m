@@ -4,58 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3A6AD116E2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 15:06:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25BD6CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 15:07:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LnkmBTHe5A+63RxAC5xy8ww+MylUyAg/x2AtpzBuqc0=; b=3dtMku0U5JO3cHtTjQOin4IUrF
-	rC7R8th2OgPpLILxv0aGZBlhh4VxQd7gLm06otvGbaU8KtgYpWgblUb81IdadqLGFLoIwnH1ht4Tz
-	DBPiSGKezWRuSCbdzSohWAlNomQlmZLtWE9a214Nl2eG3U80idD0Rc4aB3AB9mjbJXGvpMk5B2ylg
-	OOc+9e0Q9lh0KxheaNNcz6XLOSB98aVfxp8SUs1QlcmeRTMaHoHBzWLhv+jXgmfxmGTHTPXetZKKO
-	xo1e1HJh9LikAg3yiyjDbJAWyX3/k07z6KLFHZfi+W4mdyY1l/0a/QN9rTlaAzTL3f3WQjBYFooGa
-	yTDmVc7A==;
+	bh=o9j9JckZewB0T/evvAwAYflbY/oMjYUWYlwvg8R/JAM=; b=cYukQLSxabVAsdUZcZbiZ1pnX7
+	kFa+XRKBEscHDZllEfzYZBldBUSxwYmEjMc9t6bwP31C4H1EFPsx3cAXZiXqj5/hx+NwTEAmF0f/V
+	XHqmOXsUX4MeGjzEK93QowbKWdmvT8JHtmNCUzvH0BDhITcJwjm6UrWmeVuZ61+QdYHTa0ZCAxSv6
+	WJz41KzxoP0hRpKUkpSkhsmnHGb89ZFlHnq//qTXxkrmrcXrGv9jf/iiddqXL2dpB6ByZef5prM0A
+	GKUu4QAzzqmpaYR1p8lzGVs2UQSmYjnTW+sRqaJtGtwq95JLKA3uYcbET5HfAPh9KgXQvhD7wdKib
+	gNmDMXIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOdZl-0000000Gox0-3GId;
-	Thu, 27 Nov 2025 15:06:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOdZj-0000000GowR-2JBe
+	id 1vOdaM-0000000Gp1E-2PSi;
+	Thu, 27 Nov 2025 15:07:06 +0000
+Received: from mail-yx1-xb134.google.com ([2607:f8b0:4864:20::b134])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOdaK-0000000Gp0f-134F
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 15:06:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E84211063;
-	Thu, 27 Nov 2025 07:06:15 -0800 (PST)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3461F3F66E;
-	Thu, 27 Nov 2025 07:06:21 -0800 (PST)
-Date: Thu, 27 Nov 2025 15:06:14 +0000
-From: Joey Gouly <joey.gouly@arm.com>
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-hardening@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	Kees Cook <kees@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Catalin Marinas <Catalin.Marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>
-Subject: Re: [RFC/RFT PATCH 2/6] arc: Wire up cmpxchg64_local() to generic
- implementation
-Message-ID: <20251127150614.GA3271003@e124191.cambridge.arm.com>
-References: <20251127092226.1439196-8-ardb+git@google.com>
- <20251127092226.1439196-10-ardb+git@google.com>
+	Thu, 27 Nov 2025 15:07:05 +0000
+Received: by mail-yx1-xb134.google.com with SMTP id 956f58d0204a3-640c9c85255so1320502d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 07:07:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1764256023; x=1764860823; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=o9j9JckZewB0T/evvAwAYflbY/oMjYUWYlwvg8R/JAM=;
+        b=KOdfRbPmqcD/+ydvH7mPKtIeobIZ/69MQDfBRqmYEFo7AFWc7hogPHTTuKkAClgRAF
+         7H5jFodumG6wHph7xV5T7CjyPWu67CWgPm7XIAvDHpW5YBhpJKFrCukt7TmkfzvY+Sdd
+         xKfWkzIvfwpOl00+ewBXxP2vpe8NoU1JaNXgCF9hflJnabryhAvWOAul1lSYmzae+8zD
+         2pDoDqIeG0tiCSXIvFEFVYIAOQ/Z4DPuDeVRT6qAKs7ljz69EmCZ94eaM545RLemT1Z7
+         A3wucggLfUx02pBuDkV/YuiKfmNjHHOEyMoKvTAKW+htI6upvTwPyL3zd17KfLNL/YTd
+         toCQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764256023; x=1764860823;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=o9j9JckZewB0T/evvAwAYflbY/oMjYUWYlwvg8R/JAM=;
+        b=Fz+Sl9XYL2p8YsQJPFgfbULsSFGyovRx77QDo3ppR4CFEGMQtMFoWkomPH+7L4M412
+         wVjkfCQZKeZ4j+zMfv50ysoTW9ZZTJ+poru8HD0KWYHS5rPn4gySYeuPxEYXIxf62unZ
+         nrzvDSaJOu0iKHq5EONOtK5AxK1YykV/zuPN/5hONRPAwFXsdnpsy89gxLpiKmku19G/
+         +sMNhwpS5D46509Bbp0PfYMYlMYj2Wx2Khyh/fd+KAmiFQyUvFCisZDf//pA3o1P6Wx4
+         OHcamWmWW10+T9bhcKApS0WgZPJu2hySSygMV4Rc304v8bnJtkoJbhe/JETA5feEnFU5
+         SiHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW+5IK9zmI05rZgakzPOQAY2N+bxq2y8FmIdEU7j1Z3n694yaKaP/5vdW8Qqrb76nrJNQAnU0Koig5Zk0MUpRs8@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZK8CwE8ppyFMFsLtCumXbVUghRihy42Sj2DCAgjQri3PaM9mV
+	x+IeYryecdu00Si7J/zgRVsZs0LmkC9bftNfOgToNvpBJNqqTK2QZxFV2BeQYZXe7lwZPIBjqIi
+	5tmcX5gSuvkuQhPjkomvqLc8wdLZQl7BjKUKP5kd7bg==
+X-Gm-Gg: ASbGncv/GHwmpkBRIrZrynXI2pGt1KiM/YiB8X2LP+LooeRQ7/4E4+wRmvhq3ag6a/b
+	lBufabzwYAGuqzfTGbNKgf6nzuuwhw4EO9Izb+IHkgj6tZSJJ/tcwSuEoU+bBgFQ1PzZnwHjc99
+	RCZFp9iA/71Gyr/o5DS+AA8f7H+wTSf0EIEuaFzCRTsZURPWaubTFXgx9lVBb9hnNXW5fMOZuAI
+	ZElcR2zm/hGYo79bHPT+AoSo05afrL1aJk/ptiPUI9lScY3kB4++5kmxtAUOHb5mPCLnXOi
+X-Google-Smtp-Source: AGHT+IHOZv1XVUaCpJ1GafgJ+Q4ufaODDINZzVe7OUjEEvUjTH0ObsXn/Gn7AJqtRSZdFMpWXb50BEdfVotDE3qezIw=
+X-Received: by 2002:a05:690e:1581:10b0:641:f5bc:68d3 with SMTP id
+ 956f58d0204a3-6432940d24amr6552660d50.80.1764256022644; Thu, 27 Nov 2025
+ 07:07:02 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251127092226.1439196-10-ardb+git@google.com>
+References: <20250902-kvm-arm64-sme-v8-0-2cb2199c656c@kernel.org>
+ <20250902-kvm-arm64-sme-v8-11-2cb2199c656c@kernel.org> <CAFEAcA_GJ7gzn7aMCZYxHnJWvx4tHSHBKsOxtQ7NTb4gPjkMJQ@mail.gmail.com>
+ <df712591-397e-422b-b9c9-fbf080cad9aa@sirena.org.uk>
+In-Reply-To: <df712591-397e-422b-b9c9-fbf080cad9aa@sirena.org.uk>
+From: Peter Maydell <peter.maydell@linaro.org>
+Date: Thu, 27 Nov 2025 15:06:50 +0000
+X-Gm-Features: AWmQ_blQNCtlqrFl6oR-29ayIeVzxjSMrcpdxqL32ABrh38kpa7m6Xz9ardxRBI
+Message-ID: <CAFEAcA8LGwm-6JEhtKTq1E_da-T=H-aBX9-8LMJOAQpK5J+NfQ@mail.gmail.com>
+Subject: Re: [PATCH v8 11/29] KVM: arm64: Document the KVM ABI for SME
+To: Mark Brown <broonie@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Will Deacon <will@kernel.org>, 
+	Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
+	Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>, 
+	Mark Rutland <mark.rutland@arm.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	Eric Auger <eric.auger@redhat.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_070627_634420_AD8941CE 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20251127_070704_316014_8B645383 
+X-CRM114-Status: GOOD (  24.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,44 +102,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 27, 2025 at 10:22:29AM +0100, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
-> 
-> Provide cmpxchg64_local() for hexagon so we can start using it in
-> generic code.
+On Mon, 24 Nov 2025 at 20:13, Mark Brown <broonie@kernel.org> wrote:
+>
+> On Mon, Nov 24, 2025 at 03:48:06PM +0000, Peter Maydell wrote:
+> > On Tue, 2 Sept 2025 at 12:45, Mark Brown <broonie@kernel.org> wrote:
+>
+> > > SME, the Scalable Matrix Extension, is an arm64 extension which adds
+> > > support for matrix operations, with core concepts patterned after SVE.
+>
+> > I haven't actually tried writing any code that uses this proposed
+> > ABI, but mostly it looks OK to me. I have a few nits below, but
+> > my main concern is the bits of text that say (or seem to say --
+> > maybe I'm misinterpreting them) that various parts of how userspace
+> > accesses the guest state (e.g. the fp regs) depend on the current
+> > state of the vcpu, rather than being only a function of how the
+> > vcpu was configured. That seems to me like it's unnecessarily awkward.
+> > (More detail below.)
+>
+> That was deliberate and I agree it is awkward, it was introduced as a
+> result of earlier review comments.  I had originally implemented an ABI
+> where the VL for the vector registers was the maximum of the SVE and SME
+> VLs but the feedback was that the ABI should instead follow what the
+> architecture does with the vector length and potentially presence of the
+> vector registers depending on the current streaming mode configuration.
+> It sounds like you would prefer something more like what was there
+> originally?
 
-nit: this is for arc, not hexagon.
+Yes, that's what I would prefer. The "varies by current CPU state"
+approach seems to me to be not the way we do things right now,
+and to be awkward for the VMM side, so it ought to have a really
+strong justification for why we need it.
 
-Thanks,
-Joey
+Generally the VMM doesn't care about the actual current state of the
+CPU, it just wants all the data (e.g. to send for migration). We don't
+make the current SVE accessors change based on what the current SVE
+vq length is or whether the guest has set the SVE enable bits -- we
+have "if the vcpu supports SVE at all, data is always accessed via
+the SVE accessors, and it's always the max_vq length, regardless of
+how the vcpu has set its current vq length".
 
-> 
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
->  arch/arc/include/asm/cmpxchg.h | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/arch/arc/include/asm/cmpxchg.h b/arch/arc/include/asm/cmpxchg.h
-> index 76f43db0890f..f2d55823645c 100644
-> --- a/arch/arc/include/asm/cmpxchg.h
-> +++ b/arch/arc/include/asm/cmpxchg.h
-> @@ -12,6 +12,7 @@
->  
->  #include <asm/barrier.h>
->  #include <asm/smp.h>
-> +#include <asm-generic/cmpxchg-local.h>
->  
->  #ifdef CONFIG_ARC_HAS_LLSC
->  
-> @@ -142,4 +143,6 @@
->  
->  #endif
->  
-> +#define arch_cmpxchg64_local __generic_cmpxchg64_local
-> +
->  #endif
-> -- 
-> 2.52.0.107.ga0afd4fd5b-goog
-> 
-> 
+What's the benefit of making the way KVM exposes the data
+bounce around based on the current CPU state? Does that
+make things easier for the kernel internally?
+
+-- PMM
 
