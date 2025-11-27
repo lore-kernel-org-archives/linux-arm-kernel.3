@@ -4,74 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9B01D111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 15:54:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29EE6D111A8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 15:57:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8l9LWCP9+TsEq7Plg/TVOSpIDqtezTybfhT9PqGli1g=; b=eYBXXSrMlpCuvuXaFPlJPqEUUU
-	5/mrDQWsfln0NGwkr3ffbC36GJT3gu5uAJLcliwslkbHGOIh4Gi/xJvitlgE3168r5Vj+fFyA4aMe
-	iu9Xw4ttbACiG0IIlingHqlKiUPPgR/8JYW+RtyWyI8Y2klznivhUx7SNRmI15WhLi9itTGT6W2oF
-	V38ZbyQNIWQ8MuPYiD+V8DNq0oPflK4Oaodw+bBBwXQbFkRHDETmxygpa7xBHGNrAXoIsHiCCRFYh
-	I7XYMyCqe8SsAQhgWvIN3uJWNq7X9hvmiVLFEPO3QbM4ZxgwF3sc0DkyClBeDwO6VNo2cVveKmcv0
-	hu/hwrKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bg1owQV5V7behflaSwXEAFke18eD2nGFCLjM9u9H2Xo=; b=pRezHlXmY6a75VKN94MRMiFo8g
+	baVgx9gXrYW5tpK6VR0nxvz4FuFci1VV7JPD4YyQwWH2f7iDarXDpbY1Y0ZW6D0z5gXxdHlDAf8pX
+	W/FvZEUBcjNf5Zya6KkRfev5v5dBeYfbYvQbhMuwaIObn3Ay0FewBPLFRSfFOUV+d092FYSluMQHV
+	PIeMczVDe4TRVxmd/YVcjLhDUZAZtP7SKzPRtNVgDmsfFVcX9oAiEGNZaXsOZnVRuXQDb8FiK8t3A
+	v52tLWzkiT935eR8CtdAO7KsAL3KAfpa3m37wunCfmdH7ZYQmj5lOzxGUKoHbO3nbHPgqhwIUgBQp
+	rmbDlT+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOeJs-0000000GsBS-2oVs;
-	Thu, 27 Nov 2025 15:54:08 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOeJq-0000000GsBA-3v8H;
-	Thu, 27 Nov 2025 15:54:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BCC9760224;
-	Thu, 27 Nov 2025 15:54:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73E5FC4CEF8;
-	Thu, 27 Nov 2025 15:53:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764258845;
-	bh=XZh8Am0flcWfvfawgkFuAwpjKDq4TvWS83SNiDd6NuM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FYpXrYRbASFQ/9C7rRjqhxSeT8JnwjTbo4WJZiENuT7AhCcej8OJBAsDWtVvVmn5i
-	 +UtH1RmYTAlvNsvN6yCy0IJyC8UNmxTRoWVYCTJdUB+5v2A5idsCX2R2CE8MFBaqKR
-	 w3cF4GwCXK/hTW2vp0Fnoi29iGXNwjOjDK4KBFKiBQoNSbUAWkIYMRKHgDuN1ONAck
-	 QP8rn/5x9NVcW2CNY+Juz82e3owgEu2GOj0w/J/l60+dhxszr0VU6bwF1J1WHn6QCE
-	 2mAsHwIsZKFZiT9oDVPtPWrySL9normVU7tUlcJXeYLk+A351eDTpTLrCKX8XYTcgy
-	 b/aMZxFMxgwYg==
-Date: Thu, 27 Nov 2025 16:53:55 +0100
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Linus Walleij <linusw@kernel.org>, Lei Xue <lei.xue@mediatek.com>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Sean Wang <sean.wang@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	yong.mao@mediatek.com, qingliang.li@mediatek.com,
-	Fred-WY.Chen@mediatek.com, ot_cathy.xu@mediatek.com,
-	ot_shunxi.zhang@mediatek.com, ot_yaoy.wang@mediatek.com,
-	ot_ye.wang@mediatek.com, linux-acpi@vger.kernel.org,
-	robh@kernel.org
-Subject: Re: [PATCH 2/3] pinctrl: mediatek: Add acpi support
-Message-ID: <aSh0EyGm9ZHAc3dN@lpieralisi>
-References: <20251125023639.2416546-1-lei.xue@mediatek.com>
- <20251125023639.2416546-3-lei.xue@mediatek.com>
- <CAD++jL=h4ZEgrjgGOfgFyAXBM7EL91ZD-La82UQ7GPOXv8h9WQ@mail.gmail.com>
- <aScwaxBG53dnZ4a4@lpieralisi>
- <aSdBu-B9mwU2-1_S@smile.fi.intel.com>
- <aSgipbe75hrwhTD7@lpieralisi>
- <aShgYukPRfDkq_Z0@smile.fi.intel.com>
+	id 1vOeMk-0000000Gt2J-1ZKb;
+	Thu, 27 Nov 2025 15:57:06 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOeMh-0000000Gt1j-3JZV
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Nov 2025 15:57:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 87DC6176A;
+	Thu, 27 Nov 2025 07:56:55 -0800 (PST)
+Received: from [10.57.87.167] (unknown [10.57.87.167])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1DBFC3F73B;
+	Thu, 27 Nov 2025 07:57:00 -0800 (PST)
+Message-ID: <f95593ac-d4cf-4e06-9a94-cc5133897c59@arm.com>
+Date: Thu, 27 Nov 2025 15:56:59 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aShgYukPRfDkq_Z0@smile.fi.intel.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC/RFT PATCH 0/6] Improve get_random_u8() for use in randomize
+ kstack
+Content-Language: en-GB
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Ard Biesheuvel <ardb+git@google.com>, linux-hardening@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Kees Cook <kees@kernel.org>, Will Deacon <will@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Jeremy Linton <jeremy.linton@arm.com>,
+ Catalin Marinas <Catalin.Marinas@arm.com>,
+ Mark Rutland <mark.rutland@arm.com>, "Jason A. Donenfeld" <Jason@zx2c4.com>
+References: <20251127092226.1439196-8-ardb+git@google.com>
+ <b1dae5a7-27bd-42de-bcce-9fd3c2b1c178@arm.com>
+ <CAMj1kXE-Qm4DQNAcg8Tg7YM4EMdLBu_UJm7M8Cpk3t5g7XqP5w@mail.gmail.com>
+ <e996fdd5-7113-4327-a884-336dd5f77c4d@arm.com>
+ <CAMj1kXGyYMy2xhcdNicHkMfWBnEjyhc+xg8ciuR-6WXDxDpZxg@mail.gmail.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <CAMj1kXGyYMy2xhcdNicHkMfWBnEjyhc+xg8ciuR-6WXDxDpZxg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251127_075703_936538_4FE19360 
+X-CRM114-Status: GOOD (  27.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,155 +73,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 27, 2025 at 04:29:54PM +0200, Andy Shevchenko wrote:
-> On Thu, Nov 27, 2025 at 11:06:29AM +0100, Lorenzo Pieralisi wrote:
-> > On Wed, Nov 26, 2025 at 08:06:51PM +0200, Andy Shevchenko wrote:
+On 27/11/2025 15:03, Ard Biesheuvel wrote:
+> On Thu, 27 Nov 2025 at 15:18, Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>
+>> On 27/11/2025 12:28, Ard Biesheuvel wrote:
+>>> On Thu, 27 Nov 2025 at 13:12, Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>>>
+>>>> On 27/11/2025 09:22, Ard Biesheuvel wrote:
+>>>>> From: Ard Biesheuvel <ardb@kernel.org>
+>>>>>
+>>>>> Ryan reports that get_random_u16() is dominant in the performance
+>>>>> profiling of syscall entry when kstack randomization is enabled [0].
+>>>>>
+>>>>> This is the reason many architectures rely on a counter instead, and
+>>>>> that, in turn, is the reason for the convoluted way the (pseudo-)entropy
+>>>>> is gathered and recorded in a per-CPU variable.
+>>>>>
+>>>>> Let's try to make the get_random_uXX() fast path faster, and switch to
+>>>>> get_random_u8() so that we'll hit the slow path 2x less often. Then,
+>>>>> wire it up in the syscall entry path, replacing the per-CPU variable,
+>>>>> making the logic at syscall exit redundant.
+>>>>
+>>>> I ran the same set of syscall benchmarks for this series as I've done for my
+>>>> series.
+>>>>
+>>>
+>>> Thanks!
+>>>
+>>>
+>>>> The baseline is v6.18-rc5 with stack randomization turned *off*. So I'm showing
+>>>> performance cost of turning it on without any changes to the implementation,
+>>>> then the reduced performance cost of turning it on with my changes applied, and
+>>>> finally cost of turning it on with Ard's changes applied:
+>>>>
+>>>> arm64 (AWS Graviton3):
+>>>> +-----------------+--------------+-------------+---------------+-----------------+
+>>>> | Benchmark       | Result Class |   v6.18-rc5 | per-task-prng | fast-get-random |
+>>>> |                 |              | rndstack-on |               |                 |
+>>>> +=================+==============+=============+===============+=================+
+>>>> | syscall/getpid  | mean (ns)    |  (R) 15.62% |     (R) 3.43% |      (R) 11.93% |
+>>>> |                 | p99 (ns)     | (R) 155.01% |     (R) 3.20% |      (R) 11.00% |
+>>>> |                 | p99.9 (ns)   | (R) 156.71% |     (R) 2.93% |      (R) 11.39% |
+>>>> +-----------------+--------------+-------------+---------------+-----------------+
+>>>> | syscall/getppid | mean (ns)    |  (R) 14.09% |     (R) 2.12% |      (R) 10.44% |
+>>>> |                 | p99 (ns)     | (R) 152.81% |         1.55% |       (R) 9.94% |
+>>>> |                 | p99.9 (ns)   | (R) 153.67% |         1.77% |       (R) 9.83% |
+>>>> +-----------------+--------------+-------------+---------------+-----------------+
+>>>> | syscall/invalid | mean (ns)    |  (R) 13.89% |     (R) 3.32% |      (R) 10.39% |
+>>>> |                 | p99 (ns)     | (R) 165.82% |     (R) 3.51% |      (R) 10.72% |
+>>>> |                 | p99.9 (ns)   | (R) 168.83% |     (R) 3.77% |      (R) 11.03% |
+>>>> +-----------------+--------------+-------------+---------------+-----------------+
+>>>>
+>>>
+>>> What does the (R) mean?
+>>>
+>>>> So this fixes the tail problem. I guess get_random_u8() only takes the slow path
+>>>> every 768 calls, whereas get_random_u16() took it every 384 calls. I'm not sure
+>>>> that fully explains it though.
+>>>>
+>>>> But it's still a 10% cost on average.
+>>>>
+>>>> Personally I think 10% syscall cost is too much to pay for 6 bits of stack
+>>>> randomisation. 3% is better, but still higher than we would all prefer, I'm sure.
+>>>>
+>>>
+>>> Interesting!
+>>>
+>>> So the only thing that get_random_u8() does that could explain the
+>>> delta is calling into the scheduler on preempt_enable(), given that it
+>>> does very little beyond that.
+>>>
+>>> Would you mind repeating this experiment after changing the
+>>> put_cpu_var() to preempt_enable_no_resched(), to test this theory?
+>>
+>> This has no impact on performance.
+>>
 > 
-> [...]
+> Thanks. But this is really rather surprising: what else could be
+> taking up that time, given that on the fast path, there are only some
+> loads and stores to the buffer, and a cmpxchg64_local(). Could it be
+> the latter that is causing so much latency? I suppose the local
+> cmpxchg() semantics don't really exist on arm64, and this uses the
+> exact same LSE instruction that would be used for an ordinary
+> cmpxchg(), unlike on x86 where it appears to omit the LOCK prefix.
 > 
-> > > > I also assume/hope that we don't want to add a "reg-names" _DSD property either
-> > > > in ACPI to deal with this seamlessly in DT/ACPI (that was done for
-> > > > "interrupt-names"):
-> > > > 
-> > > > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/firmware-guide/acpi/enumeration.rst?h=v6.18-rc7#n188
-> > > 
-> > > Hmm... Why not?
-> > 
-> > What's the policy there ?
+> In any case, there is no debate that your code is faster on arm64. 
+
+The results I have for x86 show it's faster than the rdtsc too, although that's
+also somewhat surprising. I'll run your series on x86 to get the equivalent data.
+
+> I
+> also think that using prandom for this purpose is perfectly fine, even
+> without reseeding: with a 2^113 period and only 6 observable bits per
+> 32 bit sample, predicting the next value reliably is maybe not
+> impossible, but hardly worth the extensive effort, given that we're
+> not generating cryptographic keys here.
 > 
-> > Half of the ACPI bindings for an interrupt
-> > descriptor are defined in the ACPI specs (ie _CRS) and the other half
-> > (ie "interrupt-names") is documented in the Linux kernel (or are we
-> > documenting this elsewhere ?) ?
-> 
-> Yeah, nobody pursued ACPI specification updates / addendum to make it fully
-> official. _De facto_ we have established practice for GPIOs enumeration
-> (as most used resources in the OSes), Linux official for PWM, I²C muxes,
-> multi-functional HW (such as Diolan DLN-2, LJCA), Microsoft defined for
-> so called "USB hardwired" devices, Linux defined for LEDs and GPIO keys,
-> sensor mount matrix as per "most used" cases + DT analogue works just
-> because we have agnostic APIs in IIO to retrieve that. There are maybe
-> more, but don't remember
-> 
-> So, I think the practical "policies" are that:
-> - if it's defined in ACPI spec, we use the spec
-> - if there is Microsoft addendum, we rely on what Windows does
-> - WMI, EFI, and other "windoze"-like vendor defined cases
-> - if it makes sense, we establish practice from Linux perspective
-> - the rest, every vendor does what it does
-> 
-> That said, for the first two we expect OEMs to follow, for the third one
-> depends, but there are established WMI calls and other more or less "standard"
-> interfaces, so like the first two.
-> 
-> For the fourth one (Linux) we do, but living in the expectation that some or
-> more vendors fall to the fifth category and we might need to support that if
-> we want their HW work in Linux.
-> 
-> > Or we are saying that "interrupt-names" properties are added by kernel
-> > code _only_ (through software nodes, to make parsing seamless between DT
-> > and ACPI) based on hardcoded name values in drivers ?
-> 
-> No, the idea behind software nodes is to "fix" the FW nodes in case the FW
-> description can not be modified (and that might well happen to even DT in some
-> cases AFAIH). So, if some driver hard codes "interrupt-names" we expect that
-> new versions of the FW that support the HW that needs the property will be
-> amended accordingly.
-> 
-> "interrupt-names" has been established for ACPI to support a separate SMB alert
-> interrupt. However, I haven't heard any development of that IRL (for real
-> devices in ACPI environment).
-> 
-> > I don't think I can grok any example of the latter in the mainline.
-> > 
-> > I am asking because I'd need to add something similar shortly to make parsing
-> > of platform devices created out of ACPI static tables easier (I guess we
-> > can postpone discussion till I post the code but I thought I'd ask).
-> 
-> Oh, I can go ahead and tell you, try to avoid that. Why?! Whatever,
-> indeed, please Cc me to that, I will be glad to study the case and
-> try to be helpful.
-> 
-> (Have you considered DT overlays instead? There is a big pending support for
->  that for _ACPI_ platforms.)
+> So the question is really whether we want to dedicate 16 bytes per
+> task for this. I wouldn't mind personally, but it is something our
+> internal QA engineers tend to obsess over.
 
-Long story short: we do need to create platform devices out of static
-table (eg ARM64 IORT) entries. Current code parses the table entries and
-try to map the devices IRQs (ie acpi_register_gsi()) when the platform
-device is created. Now, the interrupt controller that device IRQ's is
-routed to might not have probed yet. We have to defer probing and later,
-when the platform driver probes, map the IRQ.
-
-Issue is: for OF nodes and ACPI devices, behind the platform device
-firmware node there is a standard firmware object, so implementing
-fwnode_irq_get() is trivial. For the devices I am talking about,
-the data providing GSI info (hwirq, trigger/polarity) is static
-table specific, so the idea was to stash that data and embed it in
-fwnode_static along with a irq_get() fwnode_operations function
-specific to that piece of data so that device drivers can actually do:
-
-fwnode_irq_get()
-
-on the fwnode _seamlessly_ (if you still do wonder: those platform
-devices created out of static table entries in ACPI in OF are
-of_node(s)).
-
-There is a less convoluted solution (that is what some platform
-drivers in ACPI do today), that is, we pass the static table
-data in pdev->dev.platform_data and each platform_driver parses it differently.
-
-That works but that also means the in the respective device drivers
-OF and ACPI IRQ (and MMIO) parsing differ (which is not necessarily
-a problem I just have to rewrite them all).
-
-Now - when it comes to "interrupt-names". Some of the device drivers
-I mention do:
-
-eg platform_get_irq_byname_optional()
-
-that expects the IRQ to be mapped and stored in a named platform device resource.
-
-That's easy in DT - for two reasons:
-
-(1) "interrupt-names"
-(2) standard properties behind the of_node
-
-how to do that for fwnodes that aren't backed by either OF nodes or ACPI
-devices (that do use "interrupt-names" _DSD property) is a question.
-
-Mind, the "interrupt-names" thing is a detail in the whole mechanism.
-
-DT overlays to represent in ACPI those static table entries ?
-
-I vividly remember the days ACPI for ARM64 was being merged - that's what
-our crystal ball predicted :)
-
-This delayed IRQ mapping notwithstanding, I read what you wrote and took
-note. The worry is, this fwnode_*() (on ACPI nodes) interface trickling
-into subsystems where it should not (ie PCI, clocks, regulators) - hopefully
-the respective maintainers are keeping an eye on it.
+Yeah that's a good point. Is this something we could potentially keep at the
+start of the kstack? Is there any precident for keeping state there at the
+moment? For arm64, I know there is a general feeling that 16K for the stack more
+than enough (but we are stuck with it because 8K isn't quite enough). So it
+would be "for free". I guess it would be tricky to do this in an arch-agnostic
+way though...
 
 Thanks,
-Lorenzo
+Ryan
 
-> > Are we going to do the same for "reg-names" ?
-> 
-> If it makes sense and we expect some vendor to follow that _in ACPI_,
-> why not?
-> 
-> > Most importantly, what is DT maintainers stance on the matter ?
-> 
-> AFAIK They don't care as long as there is a schema provided, accepted and
-> used in DT, if it's ACPI-only thing, then it most likely should be done
-> in ACPI-like way (see above the first two / three items: spec, MS, WMI/EFI).
-> 
-> > > > I am sorry I have got more questions than answers here - it would be good
-> > > > to understand where the line is drawn when it comes to OF/ACPI and fwnode
-> > > > heuristics compatibility.
-> 
-> -- 
-> With Best Regards,
-> Andy Shevchenko
-> 
-> 
 
