@@ -4,71 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5955CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 04:48:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F2BCD10375
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 05:42:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WjPu5iTRlEfW02VCExNqXC/gyJXQLZHRT4jdYn7b6q4=; b=3LDWOeZc1PHK4NWkiQNha2ayX4
-	7mZzxvXoFlUw7BvkrKGa1cILD0IeeVI6MYoKWXk5kjTeYrkNh4cAHefuVZppeOe7rip+cl5IXhJ/k
-	euxddmZ/2oFzkhDzhuQO3a1xLISQiRgpe/fLV6Ahcx9vF/kDMhTxCMLY5SN57JaSjbwVdA5QO3Iep
-	fVdnF0G0XgLNPx37RJXo6wXMLfn3hvy5iUcXvzQfYsIG8HMCw7ylTrV6W/nr32vO4efKWq+6NG2Ks
-	vfw9/+0m0NeQHt26u/LIfz+zincFkNaYQsxk99nquh9f4d+GyuuJJ+evDpHwsRl2R5BCr+3DDb9py
-	zOwksEBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pkdPotq4J7OiZrvFjNi/z6yKQ2bfC1Ibf8nUJvrfels=; b=CBdIGutsF6lbWvQOU/iObEIj2B
+	TAZ5J1+PcRJ6+w7Q4Jzhv1barymgMr4AlzkqjFaWyzYG+AWnTLkwO7gcULpH8spTEj3UVne4rHB+W
+	XHTT5w4TquDBEaPY5KrUCB4yRNatAc+c9BqGR1Q/jPrhicbBx9TFviEQU7zc5MahmlDsi1ICVCFUU
+	VT7sIg8AQm/zCQOB9g98+zozEyAA1/kJTWWya/n3LE/sWbC96F6CmhIljsMhfRaqyakc5Iu/59jHY
+	ve9yPPmBq/WENseOHy20ZHUdgFQZ9I+ihVccdKV7YetkIjIFkdXU3H1YR5p+8SsN4wj4zqFa7Ml/F
+	HR/TtSDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOTvz-0000000Fyly-1uWV;
-	Thu, 27 Nov 2025 04:48:47 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOTvx-0000000Fylf-0Y8V
+	id 1vOUlO-0000000G0Qq-3Mjp;
+	Thu, 27 Nov 2025 05:41:54 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOUl1-0000000G0PY-2uEo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 04:48:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1764218925; x=1795754925;
-  h=date:from:to:cc:subject:message-id;
-  bh=M32/aiISx/hwXPym06dKVWHiYLDL6hs5GfpdhcRs0eA=;
-  b=Ge2Qsh17clRf/Oq3VnuPMy7/IC+8Ban1TNuqSx6ufhE+COKPqmOsqbWd
-   dyBrekGZ6zXK9At7i3dWrxKlyyInI4PnmnYQAveSr4eQeuDN4pEG3hBnC
-   e4yDxIHV+VtNMj/QNthJqZCmNKbuW55YmBbD1qsmelzEgIUXt6Zu4x/37
-   tYXe7YXKlWD/AWORkux5k6QHSeOUU+gg1+i7ZsjCH9W9wkTWODBA+vwJ7
-   cRz5RhVSaCkSZA5Sc7YV7vTRLirmEAChBTpC0mkXzfr13EpCZWYyeQLXj
-   WpBzPHeDW9bq0j/cUYD/1+qfSfRr1mHQw1f6Orv2fzUvk+dDYJ3+DM/a8
-   A==;
-X-CSE-ConnectionGUID: 4q9p2fNaQYuoBFNz0Pnp4Q==
-X-CSE-MsgGUID: SdwxQrGbSragZdlxnVDK0g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11625"; a="66209983"
-X-IronPort-AV: E=Sophos;i="6.20,230,1758610800"; 
-   d="scan'208";a="66209983"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2025 20:48:44 -0800
-X-CSE-ConnectionGUID: yH3G5wE0SV6ovZhrq+bayw==
-X-CSE-MsgGUID: y0q2a9FlQNeZc5sp/inhlQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,230,1758610800"; 
-   d="scan'208";a="192944977"
-Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
-  by orviesa009.jf.intel.com with ESMTP; 26 Nov 2025 20:48:43 -0800
-Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vOTvs-000000003hJ-1vSo;
-	Thu, 27 Nov 2025 04:48:40 +0000
-Date: Thu, 27 Nov 2025 12:48:06 +0800
-From: kernel test robot <lkp@intel.com>
-To: Vignesh Raghavendra <vigneshr@ti.com>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:k3/dt-2] BUILD SUCCESS
- 56baa9190988f35d53b1479a87c1bf44f6c979c6
-Message-ID: <202511271200.zEkDWunm-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	Thu, 27 Nov 2025 05:41:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 027EC1477;
+	Wed, 26 Nov 2025 21:41:22 -0800 (PST)
+Received: from [10.163.48.177] (unknown [10.163.48.177])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B54343F66E;
+	Wed, 26 Nov 2025 21:41:26 -0800 (PST)
+Message-ID: <efb12f46-37e1-44b7-b73f-48dead4e4da8@arm.com>
+Date: Thu, 27 Nov 2025 11:11:20 +0530
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: mm: Fix kexec failure after pte_mkwrite_novma()
+ change
+To: Jianpeng Chang <jianpeng.chang.cn@windriver.com>,
+ catalin.marinas@arm.com, will@kernel.org, ardb@kernel.org,
+ ying.huang@linux.alibaba.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251127034350.3600454-1-jianpeng.chang.cn@windriver.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20251127034350.3600454-1-jianpeng.chang.cn@windriver.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_204845_265833_46353803 
-X-CRM114-Status: UNSURE (   5.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251126_214131_857365_FDBFF5B3 
+X-CRM114-Status: GOOD (  25.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,102 +66,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git k3/dt-2
-branch HEAD: 56baa9190988f35d53b1479a87c1bf44f6c979c6  arm64: dts: ti: k3-am62l: Fix unit address of cbass_wakeup
 
-elapsed time: 7660m
 
-configs tested: 82
-configs skipped: 1
+On 27/11/25 9:13 AM, Jianpeng Chang wrote:
+> Commit 143937ca51cc ("arm64, mm: avoid always making PTE dirty in
+> pte_mkwrite()") modified pte_mkwrite_novma() to only clear PTE_RDONLY
+> when the page is already dirty (PTE_DIRTY is set). While this optimization
+> prevents unnecessary dirty page marking in normal memory management paths,
+> it breaks kexec on some platforms like NXP LS1043.
+> 
+> The issue occurs in the kexec code path:
+> 1. machine_kexec_post_load() calls trans_pgd_create_copy() to create a
+>    writable copy of the linear mapping
+> 2. _copy_pte() calls pte_mkwrite_novma() to ensure all pages in the copy
+>    are writable for the new kernel image copying
+> 3. With the new logic, clean pages (without PTE_DIRTY) remain read-only
+> 4. When kexec tries to copy the new kernel image through the linear
+>    mapping, it fails on read-only pages, causing the system to hang
+>    after "Bye!"
+> 
+> The same issue affects hibernation which uses the same trans_pgd code path.
+> 
+> Fix this by explicitly clearing PTE_RDONLY in _copy_pte() for both
+> kexec and hibernation, ensuring all pages in the temporary mapping are
+> writable regardless of their dirty state. This preserves the original
+> commit's optimization for normal memory management while fixing the
+> kexec/hibernation regression.
+> 
+> Fixes: 143937ca51cc ("arm64, mm: avoid always making PTE dirty in pte_mkwrite()")
+> Signed-off-by: Jianpeng Chang <jianpeng.chang.cn@windriver.com>
+> ---
+>  arch/arm64/mm/trans_pgd.c | 12 ++++++++++--
+>  1 file changed, 10 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/trans_pgd.c b/arch/arm64/mm/trans_pgd.c
+> index 18543b603c77..ad4e5e4fcc91 100644
+> --- a/arch/arm64/mm/trans_pgd.c
+> +++ b/arch/arm64/mm/trans_pgd.c
+> @@ -40,8 +40,13 @@ static void _copy_pte(pte_t *dst_ptep, pte_t *src_ptep, unsigned long addr)
+>  		 * Resume will overwrite areas that may be marked
+>  		 * read only (code, rodata). Clear the RDONLY bit from
+>  		 * the temporary mappings we use during restore.
+> +		 *
+> +		 * For kexec/hibernation, we need writable access regardless
+> +		 * of the page's dirty state, so force clear PTE_RDONLY.
+>  		 */
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+Hence pte_mkwrite_novma() helper cannot be used here as would have
+normally expected. Might be good idea to add to the above comment.
 
-tested configs:
-alpha                             allnoconfig    gcc-15.1.0
-alpha                            allyesconfig    gcc-15.1.0
-arc                              allmodconfig    gcc-15.1.0
-arc                               allnoconfig    gcc-15.1.0
-arc                              allyesconfig    gcc-15.1.0
-arm                               allnoconfig    clang-22
-arm                              allyesconfig    clang-16
-arm64                            allmodconfig    clang-16
-arm64                             allnoconfig    gcc-15.1.0
-csky                             allmodconfig    gcc-15.1.0
-csky                              allnoconfig    gcc-15.1.0
-hexagon                          allmodconfig    clang-17
-hexagon                           allnoconfig    clang-22
-hexagon               randconfig-001-20251122    clang-22
-hexagon               randconfig-002-20251122    clang-17
-i386                             allmodconfig    gcc-14
-i386                              allnoconfig    gcc-14
-i386        buildonly-randconfig-001-20251127    clang-20
-i386        buildonly-randconfig-002-20251127    clang-20
-i386        buildonly-randconfig-003-20251127    clang-20
-i386        buildonly-randconfig-004-20251127    clang-20
-i386        buildonly-randconfig-005-20251127    clang-20
-i386        buildonly-randconfig-006-20251127    clang-20
-i386                  randconfig-011-20251127    clang-20
-i386                  randconfig-012-20251127    clang-20
-i386                  randconfig-013-20251127    clang-20
-i386                  randconfig-014-20251127    clang-20
-i386                  randconfig-015-20251127    clang-20
-i386                  randconfig-016-20251127    clang-20
-i386                  randconfig-017-20251127    clang-20
-loongarch                        allmodconfig    clang-19
-loongarch                         allnoconfig    clang-22
-loongarch             randconfig-001-20251122    gcc-12.5.0
-loongarch             randconfig-002-20251122    gcc-14.3.0
-m68k                             allmodconfig    gcc-15.1.0
-m68k                              allnoconfig    gcc-15.1.0
-m68k                             allyesconfig    gcc-15.1.0
-microblaze                        allnoconfig    gcc-15.1.0
-microblaze                       allyesconfig    gcc-15.1.0
-mips                             allmodconfig    gcc-15.1.0
-mips                              allnoconfig    gcc-15.1.0
-mips                             allyesconfig    gcc-15.1.0
-nios2                            allmodconfig    gcc-11.5.0
-nios2                             allnoconfig    gcc-11.5.0
-nios2                 randconfig-001-20251122    gcc-11.5.0
-nios2                 randconfig-002-20251122    gcc-8.5.0
-openrisc                         allmodconfig    gcc-15.1.0
-openrisc                          allnoconfig    gcc-15.1.0
-openrisc                            defconfig    gcc-15.1.0
-parisc                           allmodconfig    gcc-15.1.0
-parisc                            allnoconfig    gcc-15.1.0
-parisc                           allyesconfig    gcc-15.1.0
-parisc                              defconfig    gcc-15.1.0
-powerpc                          allmodconfig    gcc-15.1.0
-powerpc                           allnoconfig    gcc-15.1.0
-riscv                            allmodconfig    clang-16
-riscv                             allnoconfig    gcc-15.1.0
-riscv                            allyesconfig    clang-16
-riscv                               defconfig    gcc-15.1.0
-s390                             allmodconfig    clang-18
-s390                              allnoconfig    clang-22
-s390                             allyesconfig    gcc-15.1.0
-s390                                defconfig    gcc-15.1.0
-sh                               allmodconfig    gcc-15.1.0
-sh                                allnoconfig    gcc-15.1.0
-sh                               allyesconfig    gcc-15.1.0
-sparc                             allnoconfig    gcc-15.1.0
-sparc                               defconfig    gcc-15.1.0
-sparc64                          allmodconfig    clang-22
-um                               allmodconfig    clang-19
-um                                allnoconfig    clang-22
-um                               allyesconfig    gcc-14
-x86_64                            allnoconfig    clang-20
-x86_64                randconfig-001-20251127    gcc-14
-x86_64                randconfig-002-20251127    gcc-14
-x86_64                randconfig-003-20251127    gcc-14
-x86_64                randconfig-004-20251127    gcc-14
-x86_64                randconfig-005-20251127    gcc-14
-x86_64                randconfig-006-20251127    gcc-14
-x86_64                          rhel-9.4-rust    clang-20
-xtensa                            allnoconfig    gcc-15.1.0
-xtensa                           allyesconfig    gcc-15.1.0
+> -		__set_pte(dst_ptep, pte_mkwrite_novma(pte));
+> +		pte = set_pte_bit(pte, __pgprot(PTE_WRITE));
+> +		pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
+> +		__set_pte(dst_ptep, pte);
+>  	} else if (!pte_none(pte)) {
+>  		/*
+>  		 * debug_pagealloc will removed the PTE_VALID bit if
+> @@ -57,7 +62,10 @@ static void _copy_pte(pte_t *dst_ptep, pte_t *src_ptep, unsigned long addr)
+>  		 */
+>  		BUG_ON(!pfn_valid(pte_pfn(pte)));
+>  
+> -		__set_pte(dst_ptep, pte_mkvalid(pte_mkwrite_novma(pte)));
+> +		pte = pte_mkvalid(pte);
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Probably better to move pte_mkvalid() just after clearing PTE_RDONLY.
+
+> +		pte = set_pte_bit(pte, __pgprot(PTE_WRITE));
+> +		pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
+> +		__set_pte(dst_ptep, pte);
+>  	}
+>  }
+>  
+
+Just wondering if it would be worth adding a local helper for the set
+PTE_WRITE --> clear PTR_RDONLY sequence describing its difference with
+now updated pte_mkwrite_novma() helper with the earlier comment.
 
