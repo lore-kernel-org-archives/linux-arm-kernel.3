@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B937AD116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 17:10:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A71DD116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 17:10:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p4BEwT/W3XQBlce+4mMjg1k8Az7t6B/IA1oEwR7bxT4=; b=PoltIgL+yBEMPFX/YsShVhpkYS
-	/n1yZFDZH4onc+mdOzl1vlvUy2wKTD3LGqg0YsA3/+u/Eboc94xylQxUtUEvh56+naPSXRizB4agI
-	stwYWZgZS1mVAAgaHQLpwDg7zySTaWilQE/wRYvIGBuvyCDvU5IotpCCUquBtHbI1uhwqQKHaatEb
-	e8BqOq84QdO5uMO/lH01Imx31atfmU6kbSe7aQttEASrL+ulVyLeGvbHpGMAnyD3Pu+U+JnPYFR6I
-	iGwExB48VkJY9mlLczUk6xHIDrmugDh99mjsXP424k0UeidC3qIuHB9DbeR5BwfNVBLdR1XwPJadD
-	rg/wiIvg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=V/pS6w4rFfk/7ExZrmkUZsh7BR5ggFxkvqiAgus5FlI=; b=WaQFIeDSg04RZxOuSticLikDoL
+	9o6/x51/PlmME3A+dV/f1zQHpjyfF5TeGuGIa2sQG6Nwzpvd4YZwicQWtjidoRPmgc1Pe2K4QfThN
+	v68+fuydEdA3n6bPj7+4/DzkUPxuYRsjJ6h8/csP+l/Hdr2Ov6H6IN9jap/jpwK1WbsxLNEYVgmq4
+	7qujHy/KXuxqf5ks0R+mkXx1upBINvlU/jP1yS7324DlP6ZXmwlsNA4+/9XbzJgyjYHcVET6hSB9G
+	dauwCACVE9S+bwoC1yCkhhr7uETK+sB3+RkAUx4+uHY10JnyVIWJZvmtEz1INwG8j2bOUV1Xow4HK
+	LkMVvkEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOfVN-0000000Gy0H-36np;
-	Thu, 27 Nov 2025 17:10:05 +0000
-Received: from m16.mail.163.com ([220.197.31.3])
+	id 1vOfVT-0000000Gy45-2f3y;
+	Thu, 27 Nov 2025 17:10:11 +0000
+Received: from m16.mail.163.com ([117.135.210.2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOfVL-0000000GxyD-2D65;
-	Thu, 27 Nov 2025 17:10:04 +0000
+	id 1vOfVR-0000000Gy1P-1vdq;
+	Thu, 27 Nov 2025 17:10:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=p4
-	BEwT/W3XQBlce+4mMjg1k8Az7t6B/IA1oEwR7bxT4=; b=HPevv09xcNHbDY2eOg
-	1Rf/8YCvaecuIRMb7ZFfrihMYAcMaBYOXZftMvF+9CZRbAH9rQ5e69LQa2iM0ESw
-	EMCAV0+/TjKJ343vJmy2vI5MCqzrahW3Of4mWqy3amrcEl/DBj/TpCzVfLA8WzPH
-	m3t96BHgcbyp1bpBnUsaA/xj4=
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=V/
+	pS6w4rFfk/7ExZrmkUZsh7BR5ggFxkvqiAgus5FlI=; b=WxY1kTW5iD9Tag5MVL
+	3PylHmgbmRIRcRPR6+vagTaDcVMoEPC5XqUe4bxk0/ooFObo+PjdSxQjd0lt3qrm
+	Ko9ErzZE/EBVpHEGXNoArMyB8r0Z+rDevDBDdy1YZ6MRy4G9AstEZ+3UH8l/S4uR
+	L5ErgPhHu6fGR5W3q5YNnzauA=
 Received: from zhb.. (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wDX71K2hShpkFjfDA--.43603S3;
-	Fri, 28 Nov 2025 01:09:13 +0800 (CST)
+	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wDX71K2hShpkFjfDA--.43603S2;
+	Fri, 28 Nov 2025 01:09:11 +0800 (CST)
 From: Hans Zhang <18255117159@163.com>
 To: lpieralisi@kernel.org,
 	kwilczynski@kernel.org,
@@ -56,27 +56,24 @@ Cc: pali@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-amlogic@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
-	Hans Zhang <18255117159@163.com>,
-	Mahesh Vaidya <mahesh.vaidya@altera.com>,
-	Shawn Lin <shawn.lin@rock-chips.com>
-Subject: [PATCH v7 1/2] PCI: Configure Root Port MPS during host probing
-Date: Fri, 28 Nov 2025 01:09:07 +0800
-Message-Id: <20251127170908.14850-2-18255117159@163.com>
+	Hans Zhang <18255117159@163.com>
+Subject: [PATCH v7 0/2] PCI: Configure Root Port MPS during host probing
+Date: Fri, 28 Nov 2025 01:09:06 +0800
+Message-Id: <20251127170908.14850-1-18255117159@163.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251127170908.14850-1-18255117159@163.com>
-References: <20251127170908.14850-1-18255117159@163.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wDX71K2hShpkFjfDA--.43603S3
-X-Coremail-Antispam: 1Uf129KBjvJXoW7WF1DCr43Xr1rAr4DKFy7Awb_yoW8KFyDpa
-	yUWanYyFn7GF43ZanrA3W0vFyYqF93ArW3GrZYv34qvan8AryDJrW7ta95Jwn7GrWI9Fya
-	vFn8try7CasFvF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piPCztUUUUU=
+X-CM-TRANSID: _____wDX71K2hShpkFjfDA--.43603S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxCw1DXr45CF1fAr1kGr1DAwb_yoW5urWkpF
+	WFgws3Gr4xGF15Ga9rGa1jkFy5Xas7GFW3GrZ8GwnxZan0vF1UXryv9a1Fyry7XrWS9a12
+	vr9FqryxC3Wqva7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pEtCzPUUUUU=
 X-Originating-IP: [240e:b8f:927e:1000:9218:e74d:98cf:7e7c]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/1tbiOh4To2kohTEP5AAAsK
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCxBjzl2kohbgRVAAA3B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_091003_899918_5BD40814 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20251127_091009_922390_76088DB8 
+X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,61 +88,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Current PCIe initialization logic may leave Root Ports operating with
-non-optimal Maximum Payload Size (MPS) settings. The existing code in
-pci_configure_mps() returns early for devices without an upstream bridge
-which includes Root Ports, so their MPS values remain at firmware
-defaults. This fails to utilize the controller's full capabilities,
-leading to suboptimal data transfer efficiency across the PCIe hierarchy.
+Current PCIe initialization exhibits a key optimization gap: Root Ports
+may operate with non-optimal Maximum Payload Size (MPS) settings. While
+downstream device configuration is handled during bus enumeration, Root
+Port MPS values inherited from firmware or hardware defaults often fail
+to utilize the full capabilities supported by controller hardware. This
+results in suboptimal data transfer efficiency throughout the PCIe
+hierarchy.
 
-With this patch, during the host controller probing phase:
-- When PCIe bus tuning is enabled (not PCIE_BUS_TUNE_OFF) and not
-  PCIE_BUS_PEER2PEER (which requires the default 128 bytes for optimal
-  peer-to-peer operation), and
-- The device is a Root Port, the Root Port's MPS is set to its maximum
-  supported value.
+This patch series addresses this by:
 
-Note that this initial maximum MPS setting may be reduced later, during
-downstream device enumeration, if any downstream device does not support
-the Root Port's maximum MPS.
+1. Core PCI enhancement (Patch 1):
+- Proactively configures Root Port MPS during host controller probing
+- Sets initial MPS to hardware maximum (128 << dev->pcie_mpss)
+- Conditional on PCIe bus tuning being enabled (PCIE_BUS_TUNE_OFF unset)
+  and not in PCIE_BUS_PEER2PEER mode (which requires default 128 bytes)
+- Maintains backward compatibility via PCIE_BUS_TUNE_OFF check
+- Preserves standard MPS negotiation during downstream enumeration
 
-This change ensures Root Ports are initialized to their maximum MPS before
-downstream devices negotiate MPS, while maintaining backward compatibility
-via the PCIE_BUS_TUNE_OFF check and not interfering with the
-PCIE_BUS_PEER2PEER strategy.
+2. Driver cleanup (Patch 2):
+- Removes redundant MPS configuration from Meson PCIe controller driver
+- Functionality is now centralized in PCI core
+- Simplifies driver maintenance long-term
 
-Suggested-by: Niklas Cassel <cassel@kernel.org>
-Suggested-by: Manivannan Sadhasivam <mani@kernel.org>
-Signed-off-by: Hans Zhang <18255117159@163.com>
-Tested-by: Mahesh Vaidya <mahesh.vaidya@altera.com>
-Tested-by: Shawn Lin <shawn.lin@rock-chips.com>
 ---
- drivers/pci/probe.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+Changes in v7:
+- Exclude PCIE_BUS_PEER2PEER mode from Root Port MPS configuration
+- Remove redundant check for upstream bridge (Root Ports don't have one)
+- Improve commit message and code comments as per Bjorn.
 
-diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-index 9cd032dff31e..3970d964d868 100644
---- a/drivers/pci/probe.c
-+++ b/drivers/pci/probe.c
-@@ -2203,6 +2203,18 @@ static void pci_configure_mps(struct pci_dev *dev)
- 		return;
- 	}
- 
-+	/*
-+	 * Unless MPS strategy is PCIE_BUS_TUNE_OFF (don't touch MPS at all) or
-+	 * PCIE_BUS_PEER2PEER (use minimum MPS for peer-to-peer), set Root Ports'
-+	 * MPS to their maximum supported value. Depending on the MPS strategy
-+	 * and MPSS of downstream devices, a Root Port's MPS may be reduced
-+	 * later during device enumeration.
-+	 */
-+	if (pci_pcie_type(dev) == PCI_EXP_TYPE_ROOT_PORT &&
-+	    pcie_bus_config != PCIE_BUS_TUNE_OFF &&
-+	    pcie_bus_config != PCIE_BUS_PEER2PEER)
-+		pcie_set_mps(dev, 128 << dev->pcie_mpss);
-+
- 	if (!bridge || !pci_is_pcie(bridge))
- 		return;
- 
+Changes for v6:
+https://patchwork.kernel.org/project/linux-pci/patch/20251104165125.174168-1-18255117159@163.com/
+
+- Modify the commit message and comments. (Bjorn)
+- Patch 1/2 code logic: Add !bridge check to configure MPS only for Root Ports
+  without an upstream bridge (root bridges), avoiding incorrect handling of
+  non-root-bridge Root Ports (Niklas).
+
+Changes for v5:
+https://patchwork.kernel.org/project/linux-pci/patch/20250620155507.1022099-1-18255117159@163.com/
+
+- Use pcie_set_mps directly instead of pcie_write_mps.
+- The patch 1 commit message were modified.
+
+Changes for v4:
+https://patchwork.kernel.org/project/linux-pci/patch/20250510155607.390687-1-18255117159@163.com/
+
+- The patch [v4 1/2] add a comment to explain why it was done this way.
+- The patch [v4 2/2] have not been modified.
+- Drop patch [v3 3/3]. The Maintainer of the pci-aardvark.c file suggests
+  that this patch cannot be submitted. In addition, Mani also suggests
+  dropping this patch until this series of issues is resolved.
+
+Changes for v3:
+https://patchwork.kernel.org/project/linux-pci/patch/20250506173439.292460-1-18255117159@163.com/
+
+- The new split is patch 2/3 and 3/3.
+- Modify the patch 1/3 according to Niklas' suggestion.
+
+Changes for v2:
+https://patchwork.kernel.org/project/linux-pci/patch/20250425095708.32662-1-18255117159@163.com/
+
+- According to the Maintainer's suggestion, limit the setting of MPS
+  changes to platforms with controller drivers.
+- Delete the MPS code set by the SOC manufacturer.
+---
+
+Hans Zhang (2):
+  PCI: Configure Root Port MPS during host probing
+  PCI: dwc: Remove redundant MPS configuration
+
+ drivers/pci/controller/dwc/pci-meson.c | 17 -----------------
+ drivers/pci/probe.c                    | 12 ++++++++++++
+ 2 files changed, 12 insertions(+), 17 deletions(-)
+
+
+base-commit: 765e56e41a5af2d456ddda6cbd617b9d3295ab4e
 -- 
 2.34.1
 
