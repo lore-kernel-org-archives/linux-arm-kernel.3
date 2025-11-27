@@ -4,66 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82E3FD111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 19:03:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A60CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 19:15:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bbDeeML+5/PqsYJ+tyaJ3n3d7uxwNPB/ux5rFNomCWA=; b=SFzOYC8kkpCobN43+xlce+iVyS
-	8SpJukWzEIHPN0bQ8qA+2QFkkoEhrIps99ZBsoViWu0LPpcz9w/Ogt/sZ43ROf1SAPI/CVQK3T/Jx
-	e7qmdhvsBublhXvBdJnrO9Po2NRXjMIjUKANl1fBSajhEHVTbXZPYeSU7WfTm9zhhS35jOMpoWHya
-	pqFssWNGHY08CgQyV1nk+lQbdBs3vLcwOtF++qI+lpLdYGR9vdZlXw5q1HSHaMiZmPetDCrIikyIt
-	sRqyNYeLcejsmze3drqm9jpCPPcad0018kOQi/nRcbmGqhzo6Vazi4doCwB2qjGiHTXxTXbkchkJV
-	JSCplk2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h6IjfoiiLQP40oNop437fQZU0Vc3aVU3mWXyy0kdQbE=; b=gziol4nFOBAhEB7rnVrhKpMYRa
+	cy86/z7pgfjfN5P9a57fLujJyLXUuqu+je1FituICH/eqs2CKRUsJeeyfdMaUo4lU52oK53utiWSn
+	rgAqueMOGZYuGn/1J3UCW0HbZBnZTXvddfSjYvwaXejjo8TqjVjyAlVVQLWI9t6POK310/wAc1LyK
+	WPCIP99nBTPQIKH+Xu2EFoorG6r5YoTM1QfU1qZuZSdf789vGjUJKOj3g2oXZu1nX/Jzq4ZA/mZH0
+	F7JpHewbzt4Dkd3He00asnOvZG9aOKBuVE3t0wSnVb7FhKQ0iaWt775KXJjY0JXGg9elKdUvLmqoF
+	H1Ve8sVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOhGv-0000000H63s-3qwJ;
-	Thu, 27 Nov 2025 19:03:17 +0000
-Received: from smtp1.ms.mff.cuni.cz ([2001:718:1e03:801::4])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOhGo-0000000H61g-3fWW
+	id 1vOhT0-0000000H7Yi-0RBl;
+	Thu, 27 Nov 2025 19:15:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOhSx-0000000H7YH-0WXp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 19:03:13 +0000
-X-SubmittedBy: id balejk@matfyz.cz subject /postalCode=110+2000/O=Univerzita+20Karlova/street=Ovocn+5CxC3+5CxBD+20trh+20560+5C/5/ST=Praha,+20Hlavn+5CxC3+5CxAD+20m+5CxC4+5Cx9Bsto/C=CZ/CN=Karel+20Balej/emailAddress=balejk@matfyz.cz
-	serial F5FD910E8FE2121B897F7E55B84E351D
-	issued by /C=NL/O=GEANT+20Vereniging/CN=GEANT+20Personal+20CA+204
-	auth type TLS.CUNI
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mff.cuni.cz;
-	s=submission; t=1764270174; x=1765570174;
-	bh=bbDeeML+5/PqsYJ+tyaJ3n3d7uxwNPB/ux5rFNomCWA=; h=From;
-	b=h/ey+QDyOMcWQcdbkE8ek4GGzy1XZshTm5L0n32Yl3nI/SmWo7NrnIYNYNzqOlN+h
-	 zuT4nzBeYjCaZTrZ5EYPLqr74Yi1ViAODeVDK6LV55/BCS9lPG3zbqXMT2HZPi5ZvO
-	 WrBglNjewAq4elAGQQ6XecpIK/IwEABTiMAEtc+0g9+eNrteL5w6+kwd0hdkyis61r
-	 mYSAzyNOPAybpJtVIbHoMVzbs0xCtUAv7BtDZ5w1HwYDRYzzG3M6QKC4mOQyy7tIA4
-	 Tn9ZIKGLR+9ydOKGCTL0agcr/gUHoTnAOWsT0DrkiJXh9NXdNKn73bpv8AVE2TFy62
-	 h3WMxBNXLw1IA==
-Received: from localhost (nat2.prg.suse.com [195.250.132.146])
-	(authenticated)
-	by smtp1.ms.mff.cuni.cz (8.18.1/8.18.1) with ESMTPS id 5ARJ2rYV008156
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=OK);
-	Thu, 27 Nov 2025 20:02:54 +0100 (CET)
-	(envelope-from balejk@matfyz.cz)
-From: Karel Balej <balejk@matfyz.cz>
-To: =?UTF-8?q?Duje=20Mihanovi=C4=87?= <duje@dujemihanovic.xyz>,
-        Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
-        Karel Balej <balejk@matfyz.cz>
-Subject: [PATCH 1/2] dt-bindings: power: define ID for Marvell PXA1908 audio domain
-Date: Thu, 27 Nov 2025 20:02:02 +0100
-Message-ID: <20251127190237.745-1-balejk@matfyz.cz>
-X-Mailer: git-send-email 2.51.2
+	Thu, 27 Nov 2025 19:15:44 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8C874176A;
+	Thu, 27 Nov 2025 11:15:32 -0800 (PST)
+Received: from arm.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DA7743F66E;
+	Thu, 27 Nov 2025 11:15:38 -0800 (PST)
+Date: Thu, 27 Nov 2025 19:15:36 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: will@kernel.org, peterz@infradead.org, boqun.feng@gmail.com,
+	mark.rutland@arm.com, gary@garyguo.net,
+	Seongsu Park <sgsu.park@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] arm64: atomics: lse: Remove unused parameters from
+ ATOMIC_FETCH_OP_AND macros
+Message-ID: <176427091973.1018443.13188495898174660504.b4-ty@arm.com>
+References: <CGME20251126021037epcas1p2c5caf948ede87748ee1d4ef536a62126@epcas1p2.samsung.com>
+ <20251126021025.3239562-1-sgsu.park@samsung.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251126021025.3239562-1-sgsu.park@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_110311_202438_A58991C4 
-X-CRM114-Status: UNSURE (   7.15  )
+X-CRM114-CacheID: sfid-20251127_111543_200533_0F7B691B 
+X-CRM114-Status: UNSURE (   7.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,26 +66,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Define an identifier for the SoC's audio power island so that it can be
-referenced through device tree.
+On Wed, 26 Nov 2025 11:10:25 +0900, Seongsu Park wrote:
+> The ATOMIC_FETCH_OP_AND and ATOMIC64_FETCH_OP_AND macros accept 'mb' and
+> 'cl' parameters but never use them in their implementation. These macros
+> simply delegate to the corresponding andnot functions, which handle the
+> actual atomic operations and memory barriers.
+> 
+> 
 
-Signed-off-by: Karel Balej <balejk@matfyz.cz>
----
- include/dt-bindings/power/marvell,pxa1908-power.h | 1 +
- 1 file changed, 1 insertion(+)
+Applied to arm64 (for-next/misc), thanks!
 
-diff --git a/include/dt-bindings/power/marvell,pxa1908-power.h b/include/dt-bindings/power/marvell,pxa1908-power.h
-index 19b088351af1..173f47e0e69d 100644
---- a/include/dt-bindings/power/marvell,pxa1908-power.h
-+++ b/include/dt-bindings/power/marvell,pxa1908-power.h
-@@ -13,5 +13,6 @@
- #define PXA1908_POWER_DOMAIN_GPU2D	2
- #define PXA1908_POWER_DOMAIN_DSI	3
- #define PXA1908_POWER_DOMAIN_ISP	4
-+#define PXA1908_POWER_DOMAIN_AUDIO	5
- 
- #endif
+[1/1] arm64: atomics: lse: Remove unused parameters from ATOMIC_FETCH_OP_AND macros
+      https://git.kernel.org/arm64/c/c86d9f8764ba
+
 -- 
-2.51.2
-
+Catalin
 
