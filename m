@@ -4,88 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A50D3D116E2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 14:44:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0435D116E2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 14:49:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:CC:To:Subject:From:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Yb36xAodD5X+V0YdcWw6D1tyh3fN8c2aGFyosNCj9Ls=; b=b5BTCcZ3mw5gtmtdr1l8smQD3z
-	XdDWie6yCWhBI+HVe80irXoc/A0kQ2Va0guk4b8AvMpLFAcXjzeO6QgE9Y2R5Vwi69buXigunZTp6
-	AkArDoCwRxtM8IVRy+brQvPUtUCaoGOW5ynvuFkfd7AAWI7B+LatmIr9qVnaQnhKPAEj1UMrvrig6
-	CfjitTrjkVrK5CGSxuVreJiStsQgCHn7zDWuYnbbDxrmmGxc8vgo24V0T7aWwn3qIwFkL40lQLxNA
-	8vtDilBMM5BlMOxHVtD+ckdACL6VVpPGpa2+ZEwMeODqa1hEevfXs+IQ412Azo1hMk/Fz8sSGAwyw
-	y4B14Wmg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7NGhO3m20hNBLQgRoRe5aCNIWN6lSYGzFhhL4/I6i0M=; b=rvAU5RwN08PI4eNLytxNmLqm0m
+	n5aTU37LW9EKL50h7qY175ySkGMZq4e8FH8k+ZZpVWSqMoUTK+R2SRU42DzRhYYoQZIYkseYW3VpH
+	r6ldrC9CjtLMxnAqEvJnVD+5bqDUOsjhZSmM3WqGcw/7Ss4cuFy/zBbiqsZOoEQUbwjGLKkxn2YQV
+	gmBIDDK4KLQkxBKbt81Za1FmcupQUf1QBjCsNRE0i+/f1SuXxCoVn2HjB5Y0fV9DKEIxDd2mMjHwZ
+	to+uwaYrCnybFZ6JE4J3niiztj9sP0FZ44AgB574HwPWiCMo14k6oSkVfvMaE1XdGyvaOLg6fy9We
+	RsgpmjXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOdEO-0000000Gngy-2cSe;
-	Thu, 27 Nov 2025 14:44:24 +0000
-Received: from mx01.omp.ru ([90.154.21.10])
+	id 1vOdJA-0000000Go3u-11TC;
+	Thu, 27 Nov 2025 14:49:20 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOdEJ-0000000GnfY-2nxs;
-	Thu, 27 Nov 2025 14:44:22 +0000
-Received: from [192.168.2.104] (213.87.138.55) by msexch01.omp.ru
- (10.188.4.12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.1258.12; Thu, 27 Nov
- 2025 17:43:56 +0300
-Message-ID: <8753beda-f74c-41b5-b9ad-823fdf227215@omp.ru>
-Date: Thu, 27 Nov 2025 17:43:55 +0300
+	id 1vOdJ8-0000000Go3S-0Heq
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Nov 2025 14:49:19 +0000
+Date: Thu, 27 Nov 2025 15:49:13 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1764254955;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7NGhO3m20hNBLQgRoRe5aCNIWN6lSYGzFhhL4/I6i0M=;
+	b=Pliw/Hg2CT43fdJgplojXUFqZWA2AK9IGFihMdPAPz54Y8g0mjc85DdYd2Uo6AllcFjoiT
+	9VFWW866CG15H8AZg/JOkeXYUoDhKfKcxkPBufmmf31b+Tni2xhvwJ6vE14mXJrqCOEcP0
+	d+Jt8lZF5hv5n1mjHJ0kkReygCl30hEonK/PRRaU104CqK4tSZLtYY/ytzUKnDDAFYM56t
+	nSDG11BcPSSmZC+LG4P3Ucp1u/pEVab4lb9MPVaD/bferdR2FOke+brgUytotq5Sev6xIe
+	1uaZtYHsYuGKahn5mbDONskt7U1CBXWwRR4AMWm1Cw9C0rCqvWuWOYljP/axIA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1764254955;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=7NGhO3m20hNBLQgRoRe5aCNIWN6lSYGzFhhL4/I6i0M=;
+	b=tk/qR6wXFEg1BUpfHcBHWK5zjR3/ybtkL+SBbbbMbUDbtuwWcXISYr74nD3EOKGwFa5B+2
+	Kr1OcIdXS+VWX2CQ==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Xie Yuanbin <xieyuanbin1@huawei.com>
+Cc: viro@zeniv.linux.org.uk, will@kernel.org, nico@fluxnic.net,
+	rmk+kernel@armlinux.org.uk, linux@armlinux.org.uk,
+	david.laight@runbox.com, rppt@kernel.org, vbabka@suse.cz,
+	pfalcato@suse.de, brauner@kernel.org, lorenzo.stoakes@oracle.com,
+	kuninori.morimoto.gx@renesas.com, tony@atomide.com, arnd@arndb.de,
+	akpm@linux-foundation.org, punitagrawal@gmail.com, hch@lst.de,
+	jack@suse.com, rjw@rjwysocki.net, marc.zyngier@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+	wozizhi@huaweicloud.com, liaohua4@huawei.com, lilinjie8@huawei.com,
+	pangliyuan1@huawei.com, wangkefeng.wang@huawei.com
+Subject: Re: [RFC PATCH v2 2/2] ARM/mm/fault: Enable interrupts before
+ sending signal
+Message-ID: <20251127144913.arc7keYZ@linutronix.de>
+References: <20251127140109.191657-1-xieyuanbin1@huawei.com>
+ <20251127140109.191657-2-xieyuanbin1@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Sergey Shtylyov <s.shtylyov@omp.ru>
-Subject: [PATCH] drm/rockchip: vop: avoid division by 0 in scl_cal_scale*()
-To: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
-	<heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, <dri-devel@lists.freedesktop.org>,
-	<linux-rockchip@lists.infradead.org>
-CC: Mark Yao <markyao0591@gmail.com>, <linux-arm-kernel@lists.infradead.org>,
-	Karina Yankevich <k.yankevich@omp.ru>, <lvc-project@linuxtesting.org>
-Content-Language: en-US
-Organization: Open Mobile Platform
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [213.87.138.55]
-X-ClientProxiedBy: msexch01.omp.ru (10.188.4.12) To msexch01.omp.ru
- (10.188.4.12)
-X-KSE-ServerInfo: msexch01.omp.ru, 9
-X-KSE-AntiSpam-Interceptor-Info: scan successful
-X-KSE-AntiSpam-Version: 6.1.1, Database issued on: 11/27/2025 14:27:21
-X-KSE-AntiSpam-Status: KAS_STATUS_NOT_DETECTED
-X-KSE-AntiSpam-Method: none
-X-KSE-AntiSpam-Rate: 0
-X-KSE-AntiSpam-Info: Lua profiles 198483 [Nov 27 2025]
-X-KSE-AntiSpam-Info: Version: 6.1.1.20
-X-KSE-AntiSpam-Info: Envelope from: s.shtylyov@omp.ru
-X-KSE-AntiSpam-Info: LuaCore: 81 0.3.81
- 2adfceff315e7344370a427642ad41a4cfd99e1f
-X-KSE-AntiSpam-Info: {rep_avail}
-X-KSE-AntiSpam-Info: {Tracking_uf_ne_domains}
-X-KSE-AntiSpam-Info: {Tracking_from_domain_doesnt_match_to}
-X-KSE-AntiSpam-Info: omp.ru:7.1.1;127.0.0.199:7.1.2;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;lore.kernel.org:7.1.1
-X-KSE-AntiSpam-Info: {Tracking_ip_hunter}
-X-KSE-AntiSpam-Info: FromAlignment: s
-X-KSE-AntiSpam-Info: ApMailHostAddress: 213.87.138.55
-X-KSE-AntiSpam-Info: Rate: 0
-X-KSE-AntiSpam-Info: Status: not_detected
-X-KSE-AntiSpam-Info: Method: none
-X-KSE-AntiSpam-Info: Auth:dmarc=temperror header.from=omp.ru;spf=temperror
- smtp.mailfrom=omp.ru;dkim=none
-X-KSE-Antiphishing-Info: Clean
-X-KSE-Antiphishing-ScanningType: Heuristic
-X-KSE-Antiphishing-Method: None
-X-KSE-Antiphishing-Bases: 11/27/2025 14:30:00
-X-KSE-Antivirus-Interceptor-Info: scan successful
-X-KSE-Antivirus-Info: Clean, bases: 11/27/2025 9:47:00 AM
-X-KSE-Attachment-Filter-Triggered-Rules: Clean
-X-KSE-Attachment-Filter-Triggered-Filters: Clean
-X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251127140109.191657-2-xieyuanbin1@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_064419_715077_E3416077 
-X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-CacheID: sfid-20251127_064918_272304_0A1BB6F1 
+X-CRM114-Status: UNSURE (   8.00  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,55 +87,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In scl_cal_scale*(), if the dst parameter equals 1, then division by 0
-will happen. We'll have to add a check for the destination rectangle's
-width/height being < 2 in vop_plane_atomic_check(), just like the VOP2
-driver has to check for the width/height being < 4...
+On 2025-11-27 22:01:09 [+0800], Xie Yuanbin wrote:
+> --- a/arch/arm/mm/fault.c
+> +++ b/arch/arm/mm/fault.c
+> @@ -184,10 +184,13 @@ __do_user_fault(unsigned long addr, unsigned int fsr, unsigned int sig,
+>  	struct task_struct *tsk = current;
+>  
+>  	if (addr > TASK_SIZE)
+>  		harden_branch_predictor();
+>  
+> +	if (IS_ENABLED(CONFIG_PREEMPT_RT))
+> +		local_irq_enable();
 
-Found by Linux Verification Center (linuxtesting.org) with the Svace static
-analysis tool.
+This shouldn't be limited to CONFIG_PREEMPT_RT. There is nothing wrong
+with enabling it unconditionally.
 
-Fixes: 4c156c21c794 ("drm/rockchip: vop: support plane scale")
-Signed-off-by: Sergey Shtylyov <s.shtylyov@omp.ru>
-Cc: stable@vger.kernel.org
+>  #ifdef CONFIG_DEBUG_USER
+>  	if (((user_debug & UDBG_SEGV) && (sig == SIGSEGV)) ||
+>  	    ((user_debug & UDBG_BUS)  && (sig == SIGBUS))) {
+>  		pr_err("8<--- cut here ---\n");
+>  		pr_err("%s: unhandled page fault (%d) at 0x%08lx, code 0x%03x\n",
 
----
-The patch is against the drm-misc-fixes branch of the DRM kernel.git repo
-on gitlab.freedesktop.org.  It replaces [1] for which I've got no neither
-feedback nor testing...
-
-[1] https://lore.kernel.org/all/40da59f8-10e9-49b0-9f25-1474067625f6@omp.ru/
-
- drivers/gpu/drm/rockchip/rockchip_drm_vop.c |   11 +++++++++++
- 1 file changed, 11 insertions(+)
-
-Index: kernel/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-===================================================================
---- kernel.orig/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-+++ kernel/drivers/gpu/drm/rockchip/rockchip_drm_vop.c
-@@ -817,6 +817,7 @@ static int vop_plane_atomic_check(struct
- 	struct drm_framebuffer *fb = new_plane_state->fb;
- 	struct vop_win *vop_win = to_vop_win(plane);
- 	const struct vop_win_data *win = vop_win->data;
-+	struct drm_rect *dest = &new_plane_state->dst;
- 	int ret;
- 	int min_scale = win->phy->scl ? FRAC_16_16(1, 8) :
- 					DRM_PLANE_NO_SCALING;
-@@ -844,6 +845,16 @@ static int vop_plane_atomic_check(struct
- 	if (ret < 0)
- 		return ret;
- 
-+	if (win->phy->scl) {
-+		/* Disallow width/height < 2 to avoid division by 0. */
-+		if (drm_rect_width(dest) < 2 || drm_rect_height(dest) < 2) {
-+			DRM_DEBUG_KMS("Invalid dest size: %dx%d, min size is 2x2\n",
-+				      drm_rect_width(dest), drm_rect_height(dest));
-+			new_plane_state->visible = false;
-+			return 0;
-+		}
-+	}
-+
- 	/*
- 	 * Src.x1 can be odd when do clip, but yuv plane start point
- 	 * need align with 2 pixel.
+Sebastian
 
