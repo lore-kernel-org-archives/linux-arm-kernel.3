@@ -4,86 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92EBCD11183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 09:23:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A91BCFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 09:25:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EUL0bXq8chbknjAsMuUQFU4e6lGXKM8WYzXlQLV3Sa4=; b=cvoF2ejKaOSz3wQGQTeYnrNdgk
-	JgEC7lBRqRVfiAaCiGOlXCFPa5dRx5nvY9CsH6GNxCNHcIWvvvCJ1d5I3aXhgm2GPq30ZsKTLXB8J
-	eyHDrrHeVDEqpbuCvoG219cRUBU31eODbl1JE4RTuLwt2aF3rg9OFEAfh001CSVu6gFPNFYXqxzHz
-	NOGvIoG4SzP9LzlTVwBCxwrtT5RS3h6hA3+1g2e0N3V5kLrYlO/qOED63WDFgR1QtlXULJrj43ucs
-	PWQ05vcYjE8FWRFfe0YNp8o+TYB+Xl0E5h9gOxEuquvL4c/0CytU1ivYOVpN9jorYsOeRyhVdgJrU
-	DPyPrlKQ==;
+	bh=gvaDduLsMJ2iqsK4R1vPoYFep9361xsT72NIMen+dRQ=; b=Sz4dV4/GQBaZ9aXn7kblt2qm9u
+	J939GrQ28i+r/oidZAsRJyAdl4h8DTJ8liBtBgCGh5EovHj120qkFp3skYCZoaFbeOHSWZXKuHLju
+	zhUK6UPth1JefYeimZEFeDRInyBfnH71CCTMV+EYpH+pROCsOb+Qe9pFl9kdhtQVmJtFg+JawhIVu
+	qbFxkmtIo6Gi4DP2N1qxwJ9kA9mRtVzbvMMRW27fUwdXT9HTHaMg/iBkC6TzBkSLWEoaJ467JLTIm
+	I8xeYlndAfvA2dHrk3ozjm0sz6ntURgaISrmcKONOTYtYT7vUxAWIh6ZlgVi3mHdBbuX/ZVgvhi6o
+	uDntX5iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOYDk-0000000GHxB-3QII;
-	Thu, 27 Nov 2025 09:23:24 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1vOYFk-0000000GIPb-2ktq;
+	Thu, 27 Nov 2025 09:25:28 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOYDN-0000000GHdd-1OJ5
+	id 1vOYFh-0000000GIPG-2aKC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 09:23:02 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-477939321e6so3389055e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 01:23:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764235379; x=1764840179; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=EUL0bXq8chbknjAsMuUQFU4e6lGXKM8WYzXlQLV3Sa4=;
-        b=aKMiz5mmZZu+XeWjH8FCVBv14mgRyWiFTFGF/gIZXdXdyYkRf2vOAQrqJCKzJO08cB
-         QSDetxLZTbmfrdsvWi8x+r282Sa3RflSy49TxdX24ZTE7pFHz8s17IOAlfd5A+qQIREC
-         6OEQxY24pwqpY6TsKTVvBMdhEGinKErmO6oeS8kjwerm9xjyfX+3exGlahH4hAquW78V
-         Szpbv4wVp9fO1+kLKD6Y+vyiOPQWcW5kEAX2uIq1EYNzEKEQ1yQc1ySXU+sUNsR35Ibb
-         ZSJNxm8J6vPodFk2kdSdBXwQTCz7A7sTO4gSp5GS82tdom4NyD9TQuscgeTKwSvzvYyF
-         g44w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764235379; x=1764840179;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=EUL0bXq8chbknjAsMuUQFU4e6lGXKM8WYzXlQLV3Sa4=;
-        b=hGoDKB2oJHAbca60Z34/COoDDvFfBQNe7IKJWCTm6fKX2TyaA95+7HME+paOuTl6ti
-         WyVU1TsjY/wcMHB0GwfhOXdrVNN4iH5WQc1dHUBqw6rOmUK2/72qG/FJDWXVIQlCHhik
-         HY2LO3ad2l0oYQUohliRTb8z9S82KfnpMAUuwMAiWN8cIMVOFUYXuCuLqn6qhSfGlZ1C
-         J635NHwhsmtYSbWtAq8JbtqghKXj9Tu+MhpUNhpgyJkRuxJ/M/SHtXXTur4NT1STvuoA
-         kT2rghfYTq1L/7tzM4v3lzlYVUODsSxCfLa+m6rGyaeGGoegILhPL5bGSQU4zqVaeY4S
-         tXGg==
-X-Gm-Message-State: AOJu0YzwDH2IXRLaFwhuWOEBn5Tgz7ytYEaBqsoHMbJm1lGJkSthHmvb
-	6s7uQaVkQf4P74Ca+gCgXYGaYWVOn4M5dQQXui3C5lALIw6XTtSX5a2BwPox5Pp/ndRptinzdg=
-	=
-X-Google-Smtp-Source: AGHT+IEj3dusT3MDvpMgsbHZIfe/XZF/uYEQTBHV/zXh1M/+kIcSqUep12/hQYGAypuqMk42bH+W9Glh
-X-Received: from wmri12-n2.prod.google.com ([2002:a05:600c:8a0c:20b0:477:9a28:9ea7])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4ed3:b0:477:b734:8c22
- with SMTP id 5b1f17b1804b1-47904ad05bbmr93756915e9.8.1764235379306; Thu, 27
- Nov 2025 01:22:59 -0800 (PST)
-Date: Thu, 27 Nov 2025 10:22:33 +0100
-In-Reply-To: <20251127092226.1439196-8-ardb+git@google.com>
-Mime-Version: 1.0
-References: <20251127092226.1439196-8-ardb+git@google.com>
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5832; i=ardb@kernel.org;
- h=from:subject; bh=8GaMUTgdagAMtzY89sbLAS19s1WTGVeC8Lgqk53nbS8=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIVNDImbL21N8hQ7vpnw54rsvfi1f31pm9QU1E1ScxBx79
- eeeOqXQUcrCIMbFICumyCIw+++7nacnStU6z5KFmcPKBDKEgYtTACai6cHwTz1Igemqx8v3z7Zv
- 10zom521SvxatNkqR5cSmfPekY8+nmFkOKutlWi8pZ79TQHDv40xK48GnP8TPXNRmZZEU2Ppcpt tHAA=
-X-Mailer: git-send-email 2.52.0.107.ga0afd4fd5b-goog
-Message-ID: <20251127092226.1439196-14-ardb+git@google.com>
-Subject: [RFC/RFT PATCH 6/6] randomize_kstack: Use get_random_u8() at entry
- for entropy
-From: Ard Biesheuvel <ardb+git@google.com>
-To: linux-hardening@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Ard Biesheuvel <ardb@kernel.org>, Kees Cook <kees@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, 
-	Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, Jeremy Linton <jeremy.linton@arm.com>, 
-	Catalin Marinas <Catalin.Marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	"Jason A. Donenfeld" <Jason@zx2c4.com>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 27 Nov 2025 09:25:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1764235524; x=1795771524;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=zGs0fOo6tXBdm2tLzw1qB8zGuJHcZAMDiT7yFjCFgFM=;
+  b=dpZLFUnvjk5HhlRxHoxqgv7MguI5cxo4WrNSXGKtmo8DZnwJNDHfaEdm
+   A3D4dPL7aSICsxyfy6oxKAR4ZZdMdoDwGY3OmVM6efNDecNFXX4bseFwu
+   KBj3SOx8dqOKVaFQgkjTBjMX6RmeJFeQFyVSM6ZwXZwhVpYj2wC4CQhlw
+   TDfRulEhHdJK6oEaTZC7vA5upwjgy/1CZf8GHRjxcpR+/AZ7TxwUoF9pQ
+   u3QWJIs9DTrscTcxZXG/P2szGDNmaIH6iBhCvOhT7XR7CVF9F6UDmZDG1
+   JsiPzK+6ZuUUw6gOZBYC5o+2dOYUAp+fKU7Guk6yACv52Z/wVekFpB4wO
+   A==;
+X-CSE-ConnectionGUID: h4V7cGYyRjS5kOD0W8j29A==
+X-CSE-MsgGUID: RAgQNsCSRsK43X2m+wdQWg==
+X-IronPort-AV: E=Sophos;i="6.20,230,1758610800"; 
+   d="scan'208";a="56355110"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 27 Nov 2025 02:25:22 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Thu, 27 Nov 2025 02:24:56 -0700
+Received: from localhost (10.10.85.11) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Thu, 27 Nov 2025 02:24:55 -0700
+Date: Thu, 27 Nov 2025 10:24:50 +0100
+From: Horatiu Vultur <horatiu.vultur@microchip.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <wsa+renesas@sang-engineering.com>,
+	<Ryan.Wanner@microchip.com>, <romain.sioen@microchip.com>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 2/2] ARM: dts: Add support for pcb8385
+Message-ID: <20251127092450.h3t5vxdfvseartx2@DEN-DL-M31836.microchip.com>
+References: <20251126100151.1559590-1-horatiu.vultur@microchip.com>
+ <20251126100151.1559590-3-horatiu.vultur@microchip.com>
+ <4702976d-1b08-4565-88a5-d9a1b36582f9@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+In-Reply-To: <4702976d-1b08-4565-88a5-d9a1b36582f9@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_012301_412509_5D56C992 
-X-CRM114-Status: GOOD (  26.06  )
+X-CRM114-CacheID: sfid-20251127_012525_889478_6A5DAB06 
+X-CRM114-Status: GOOD (  15.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,136 +89,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ard Biesheuvel <ardb@kernel.org>
+The 11/26/2025 11:24, Krzysztof Kozlowski wrote:
+> 
 
-The randomize kstack code has a couple of sharp edges, which are due to
-the fact that a counter was considered more suitable for providing
-entropy than the kernel's RNG.
+Hi Krzysztof,
 
-Given that kstack randomization only requires 6-8 bits of entropy,
-get_random_u8() is more suitable here, and its fast path has been made
-lockless so that there is no overhead beyond a preempt_dis/enable and
-a local 64-bit cmpxchg() to update the RNG's internal state.
+> > +
+> > +&flx0 {
+> > +     atmel,flexcom-mode = <ATMEL_FLEXCOM_MODE_TWI>;
+> > +     status = "okay";
+> > +
+> > +     i2c0: i2c@600 {
+> 
+> You added a label, so this feels like a new node, but then you miss
+> compatible and status feels redundant.
 
-This means there is no need to defer sampling the counter until syscall
-exit, which also removes the need for a per-CPU variable to carry that
-value over to the next syscall on the same CPU. That works around some
-issues identified by Ryan in [0].
+Ah.. OK. I didn't want to add a new node.
 
-So replace the use of the per-CPU variable in add_random_kstack_offset()
-with a direct use of get_random_u8() for all users, and turn
-choose_kstack_random_offset() into an empty stub so that each arch can
-get rid of it individually.
+> 
+> If this is override, you should rather override by labels/phandles in
+> the first place. Even when overriding by full node path, you should not
+> add custom labels - they belong to the base SoC.
 
-[0] https://lore.kernel.org/all/dd8c37bc-795f-4c7a-9086-69e584d8ab24@arm.com/
+I can remove the label.
+So, when I want to override or extend with new properties I should
+labels?
 
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
- arch/Kconfig                     |  9 +++--
- include/linux/randomize_kstack.h | 36 +++-----------------
- init/main.c                      |  1 -
- 3 files changed, 8 insertions(+), 38 deletions(-)
+> 
+> > +             pinctrl-0 = <&fc0_b_pins>;
+> > +             pinctrl-names = "default";
+> > +             dmas = <0>, <0>;
+> > +             i2c-analog-filter;
+> > +             i2c-digital-filter;
+> > +             i2c-digital-filter-width-ns = <35>;
+> > +             i2c-sda-hold-time-ns = <1500>;
+> > +             status = "okay";
+> 
+> > +
+> > +             eeprom@54 {
+> > +                     compatible = "atmel,24c01";
+> > +                     reg = <0x54>;
+> > +                     status = "okay";
+> 
+> Why? Was it disabled anywhere?
 
-diff --git a/arch/Kconfig b/arch/Kconfig
-index 61130b88964b..baea154f833e 100644
---- a/arch/Kconfig
-+++ b/arch/Kconfig
-@@ -1520,12 +1520,11 @@ config HAVE_ARCH_RANDOMIZE_KSTACK_OFFSET
- 	help
- 	  An arch should select this symbol if it can support kernel stack
- 	  offset randomization with calls to add_random_kstack_offset()
--	  during syscall entry and choose_random_kstack_offset() during
--	  syscall exit. Careful removal of -fstack-protector-strong and
-+	  during syscall entry. Careful removal of -fstack-protector-strong and
- 	  -fstack-protector should also be applied to the entry code and
--	  closely examined, as the artificial stack bump looks like an array
--	  to the compiler, so it will attempt to add canary checks regardless
--	  of the static branch state.
-+	  closely examined, as the artificial stack bump looks like an array to
-+	  the compiler, so it will attempt to add canary checks regardless of
-+	  the static branch state.
- 
- config RANDOMIZE_KSTACK_OFFSET
- 	bool "Support for randomizing kernel stack offset on syscall entry" if EXPERT
-diff --git a/include/linux/randomize_kstack.h b/include/linux/randomize_kstack.h
-index 1d982dbdd0d0..db1f056e61ec 100644
---- a/include/linux/randomize_kstack.h
-+++ b/include/linux/randomize_kstack.h
-@@ -9,7 +9,6 @@
- 
- DECLARE_STATIC_KEY_MAYBE(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,
- 			 randomize_kstack_offset);
--DECLARE_PER_CPU(u32, kstack_offset);
- 
- /*
-  * Do not use this anywhere else in the kernel. This is used here because
-@@ -50,49 +49,22 @@ DECLARE_PER_CPU(u32, kstack_offset);
-  * add_random_kstack_offset - Increase stack utilization by previously
-  *			      chosen random offset
-  *
-- * This should be used in the syscall entry path when interrupts and
-- * preempt are disabled, and after user registers have been stored to
-- * the stack. For testing the resulting entropy, please see:
-+ * This should be used in the syscall entry path after user registers have been
-+ * stored to the stack. For testing the resulting entropy, please see:
-  * tools/testing/selftests/lkdtm/stack-entropy.sh
-  */
- #define add_random_kstack_offset() do {					\
- 	if (static_branch_maybe(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,	\
- 				&randomize_kstack_offset)) {		\
--		u32 offset = raw_cpu_read(kstack_offset);		\
-+		u32 offset = get_random_u8() << 2;			\
- 		u8 *ptr = __kstack_alloca(KSTACK_OFFSET_MAX(offset));	\
- 		/* Keep allocation even after "ptr" loses scope. */	\
- 		asm volatile("" :: "r"(ptr) : "memory");		\
- 	}								\
- } while (0)
--
--/**
-- * choose_random_kstack_offset - Choose the random offset for the next
-- *				 add_random_kstack_offset()
-- *
-- * This should only be used during syscall exit when interrupts and
-- * preempt are disabled. This position in the syscall flow is done to
-- * frustrate attacks from userspace attempting to learn the next offset:
-- * - Maximize the timing uncertainty visible from userspace: if the
-- *   offset is chosen at syscall entry, userspace has much more control
-- *   over the timing between choosing offsets. "How long will we be in
-- *   kernel mode?" tends to be more difficult to predict than "how long
-- *   will we be in user mode?"
-- * - Reduce the lifetime of the new offset sitting in memory during
-- *   kernel mode execution. Exposure of "thread-local" memory content
-- *   (e.g. current, percpu, etc) tends to be easier than arbitrary
-- *   location memory exposure.
-- */
--#define choose_random_kstack_offset(rand) do {				\
--	if (static_branch_maybe(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,	\
--				&randomize_kstack_offset)) {		\
--		u32 offset = raw_cpu_read(kstack_offset);		\
--		offset = ror32(offset, 5) ^ (rand);			\
--		raw_cpu_write(kstack_offset, offset);			\
--	}								\
--} while (0)
- #else /* CONFIG_RANDOMIZE_KSTACK_OFFSET */
- #define add_random_kstack_offset()		do { } while (0)
--#define choose_random_kstack_offset(rand)	do { } while (0)
- #endif /* CONFIG_RANDOMIZE_KSTACK_OFFSET */
-+#define choose_random_kstack_offset(rand)	do { } while (0)
- 
- #endif
-diff --git a/init/main.c b/init/main.c
-index 07a3116811c5..048a62538242 100644
---- a/init/main.c
-+++ b/init/main.c
-@@ -830,7 +830,6 @@ static inline void initcall_debug_enable(void)
- #ifdef CONFIG_RANDOMIZE_KSTACK_OFFSET
- DEFINE_STATIC_KEY_MAYBE_RO(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,
- 			   randomize_kstack_offset);
--DEFINE_PER_CPU(u32, kstack_offset);
- 
- static int __init early_randomize_kstack_offset(char *buf)
- {
+It wasn't disabled anywhere. I will remove this.
+
+> 
+> > +             };
+> > +
+> > +             eeprom@55 {
+> > +                     compatible = "atmel,24c01";
+> > +                     reg = <0x55>;
+> > +                     status = "okay";
+> > +             };
+> > +     };
+> > +};
+> > +
+> 
+> 
+> 
+> Best regards,
+> Krzysztof
+
 -- 
-2.52.0.107.ga0afd4fd5b-goog
-
+/Horatiu
 
