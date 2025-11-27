@@ -4,94 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 389A2D116E3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 01:23:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A8A1D116E6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 01:55:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tNuNk1yaizw865Qq2SQ1TPwZonHkT+uQRcwOIFsLCps=; b=aX7CR1eLRINmUctejYnJzO6D4e
-	wH61ERhwHZVm4BNEwgJTTW8ufV3KTXPRuj+z/P6Di3m2OUWNxNsd1boVJUflJ7P99DiGKJ+bZo1bi
-	FKqonD6hgkuGsbdEyzvHI8sA2JTs1GbJioPnURpIR8ZQMDxW1qDMDHLC+o+ic2dYCm9Tv22NtZHOV
-	PMsY5uluW5dv44LwRc2Vis3XvfZ4YgDDjfXCh1KZajXY/+b58sbVo9daIJ6mG6SE/DUBQWePhXV7Z
-	pRTVXOSaVfKmdNIJc0QJYQTSXsc1Bo6vdrLPLPu8Z1UeE6RHmnz42rW7Nnzp/cQTLRn71mdxCEt/h
-	g50m3sdw==;
+	bh=SqD764/xYsxDahcoC1aGtQmXnKzmk/gUF12psLzzltQ=; b=JipMe7VA0ZdVYD4+/c5YPHdoOt
+	x/27Xw4XWhx01oYvfMgfLI7hdZgsWFW6OG+GzXA3wYJqVvJmUbXAy7/UmkE0eAC4ohXn+jOpaeVqY
+	9W4ic1NgFbvuEOWTKv6FzTiioxd2FMBc8JtkI8CcO9CsvpBDFjpLwQA1RK7QX6fCknmppGrgmRFD8
+	OTy4v5CmWh4sLg5SXhSTOXR/qoSz9XTdf3iYAJzBdLEenePIkgPoRbmtsXABlFXX5zAsJjNkn8mRV
+	lTgOvmo1ovwdcxI8XQCW3bD7a9sYLjD7zoOIYGtNZvwOadpVW2P+naT+LBUFRDSrD+F7U1z3hc5gQ
+	9sL2gGXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOQjN-0000000Fqkf-0ie6;
-	Thu, 27 Nov 2025 01:23:33 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vORDx-0000000Fri9-2Ejm;
+	Thu, 27 Nov 2025 01:55:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOQjK-0000000Fqjs-30AW
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 01:23:31 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4779a637712so1611335e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 17:23:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1764206609; x=1764811409; darn=lists.infradead.org;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:date:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tNuNk1yaizw865Qq2SQ1TPwZonHkT+uQRcwOIFsLCps=;
-        b=CgRciPv7GMQvcCUrxKZnEFY1aP6xtFubok/uWgmcenrLV4Pyqou/WOlhCJyNE6fwGn
-         Rw/frKUjg/P22nu9Iv7w33FsPuX0tB89huHw/lk7MOCXw/MBNuVDBED+sCSsOF311IXs
-         aQAxJmeJmkBVupswsEMJX+HckaGeNF+BJL/szemlLSqU/COkThMv4N/x8Bj3OteqJs5s
-         CugRgwnejTWUeN+2D536a5ulKv/XdBLVm59U1xIIrbddISHzjhRXWU7s3c79qoWNpxty
-         A9Sk12CkKQRo/nT+CLaMrSY1FCdMQrhhhzhvDq8AQa3ZLhIlD2Y88CoOsjK2ZFEPIvjY
-         PhBg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764206609; x=1764811409;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=tNuNk1yaizw865Qq2SQ1TPwZonHkT+uQRcwOIFsLCps=;
-        b=OJcgafOObUlCSnBPglEL476os+KY3baZMgZ6ReEOTcTXVlno46BcDdWLuAc54+sf8p
-         zGk2qS/tnvOEpxG4+1hcLxkzryhj+f3DEYtBJ/881HEIZ6Rn8vEBrqDSFXNRNh0jz75Z
-         u9RZpZFMYws816qY5rY4BrjGvDn8GDn4KdJ+9d27CjPoxt4hOzIw1nAdo/LPOKwuFrzn
-         PMkKaYki/Zd6SnH5A+s4q3emHMo/elkzFWnedG4vy9lh8Lp/kvM6vueNWugulB0NAP8p
-         kw+d7PmFRDmSEDTcKOiSDpSh7lyWU7adyYvSdyhx7UYEeT5OLIHiYQ+mlkceNsyttpkn
-         0zlQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUP44AceYPZW5vXPXtVafdcKhAUcodTphqz1OvlxgYzH88d6CHLasKy9hKaraJ1ieXn92wfI7AkInxjlGpzDlvx@lists.infradead.org
-X-Gm-Message-State: AOJu0YzyW2iDbi7or4+dZDbWbiWPl5pdJYOO4C2QWuYngfdmXEoh6gHT
-	yOD/cTdbL0VZGxw5k8MlXGqf33XMwYH0YHPET0Hx2AMAgEf49HXB1Ho3OBcDVMfbNzg=
-X-Gm-Gg: ASbGncsQ02At0Vq423uTJkWhKcWjQuDgIl/admerWnpNBVsxzMPCnhBftfkA7TUUrJn
-	RaOGrRaB2UXRIcOnIn7ZdN+6W7xLay1vjZIkqJNDClYmTjH8ezSeJF8p5s0urNRP29q3WIB4U6F
-	whFBGkMU7IFbT2vC0yWTxC5P7aL97NBi2tu5rD1ZTZtblb/jGCkd44OPZmSFdWsy2YUiQGouklJ
-	gWHwccpsZc4TAOgOIZTBwgsLt/UZ2V5YrdOB+D0jMuhtVfmIdevMi5NcWujqbX44T3fPDlQlcqI
-	LRfo2Vqij50oXF+GM8LUXiFZuXlhYkQsukhhett7YjJIMp4xWNaYrzg3ju85rP0Si+vOdtabSNI
-	QLmi3DvKwgSUINJwWOSs+Ks6I7KWNeO2WltNYJIyDe5HMAkeK9kBku7rb/OufowpkZM6qD81UHP
-	fjTJagPj4Yncefvcw232NxyeCUoqkQKj0r
-X-Google-Smtp-Source: AGHT+IFAI6GQD9lcY1JxdhkE8Lv0II4oKq4ojcJkBaGXT4DCZOTPlduoBmiQE99ST1DmviiNV2jnsw==
-X-Received: by 2002:a05:600c:450f:b0:46d:ba6d:65bb with SMTP id 5b1f17b1804b1-477c01eb9bdmr241739295e9.31.1764206608732;
-        Wed, 26 Nov 2025 17:23:28 -0800 (PST)
-Received: from r1chard (1-169-246-18.dynamic-ip.hinet.net. [1.169.246.18])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7c3f0243b19sm22661544b3a.37.2025.11.26.17.23.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Nov 2025 17:23:27 -0800 (PST)
-From: Richard Lyu <richard.lyu@suse.com>
-X-Google-Original-From: Richard Lyu <r1chard@r1chard>
-Date: Thu, 27 Nov 2025 09:23:19 +0800
-To: Thomas Zimmermann <tzimmermann@suse.de>, ardb@kernel.org,
-	javierm@redhat.com, arnd@arndb.de, helgaas@kernel.org
-Cc: x86@kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org,
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
-	dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-fbdev@vger.kernel.org
-Subject: Re: [PATCH v3 5/9] sysfb: Pass sysfb_primary_display to devices
-Message-ID: <aSeoB1xf05i4LhCp@r1chard>
-References: <20251126160854.553077-1-tzimmermann@suse.de>
- <20251126160854.553077-6-tzimmermann@suse.de>
+	id 1vORDt-0000000Frhf-0OI9;
+	Thu, 27 Nov 2025 01:55:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4C1B04387C;
+	Thu, 27 Nov 2025 01:55:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E68CBC4CEF7;
+	Thu, 27 Nov 2025 01:55:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764208504;
+	bh=/NqG17rwpRoq7YYKDty/OdxHUk6Tf8IpKhsClBMsOkg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EzYiOJa3YR9H6eZ8HCr1KToCFxIEO+ew/BcLqhj57zGekCM/ZK/Pr/eiTyQaXGvgv
+	 T5AhkQWLJvlTEBoFbvcJIDxxsmF6ndlEpDBQa/hmxDBJwgIigrTpQ6ZUOYPPt18jo7
+	 Kvd50M/qhN6chJCvZYY53aFrtDgpreG0isN+lQBIPAgnmshLUwdbUPoYSQ1au2st5M
+	 XXwsiF2q1J6/YoAI/TVrenCyJT3o9zykMk5Ki9Xk4l7s5zZMQDnA7G66aQgLnvVp/I
+	 1Xu19QcNEw7OTPqMlsFElD0TE/oyVjCXOQkJBWKAWcEvy0dGi9DPjnF/cVS+mfBIuW
+	 9b8HslW/nh5yQ==
+Date: Wed, 26 Nov 2025 19:55:02 -0600
+From: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Saravana Kannan <saravanak@google.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Yangtao Li <tiny.windzz@gmail.com>, Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Maximilian Luz <luzmaximilian@gmail.com>,
+	Hans de Goede <hansg@kernel.org>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Daniel Lezcano <daniel.lezcano@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org, platform-driver-x86@vger.kernel.org,
+	linux-tegra@vger.kernel.org,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Subject: Re: [PATCH v2 00/11] of: Add wrappers to match root node with OF
+ device ID tables
+Message-ID: <20251127015502.GA3141507-robh@kernel.org>
+References: <20251112-b4-of-match-matchine-data-v2-0-d46b72003fd6@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251126160854.553077-6-tzimmermann@suse.de>
-User-Agent: Mutt/2.2.13 (2024-03-09)
+In-Reply-To: <20251112-b4-of-match-matchine-data-v2-0-d46b72003fd6@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_172330_785512_CC39EAA2 
-X-CRM114-Status: GOOD (  22.30  )
+X-CRM114-CacheID: sfid-20251126_175505_173936_5E51ED95 
+X-CRM114-Status: GOOD (  22.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,225 +98,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-Reviewed-by: Richard Lyu <richard.lyu@suse.com>
-
-On 2025/11/26 17:03, Thomas Zimmermann wrote:
-> Instead of screen_info, store a copy of sysfb_primary_display as
-> device data. Pick it up in drivers. Later changes will add additional
-> data to the display info, such as EDID information.
+On Wed, Nov 12, 2025 at 11:28:45AM +0100, Krzysztof Kozlowski wrote:
+> Changes in v2:
+> - Drop cpufreq/ti change: not correct.
+> - Drop soc/qcom/qcom_pd_mapper.c - objections from Dmitry and I think
+>   better to drop the patch in such case.
+> - I did not implement feedback for first patch to make the
+>   of_machine_compatible_match() matching machines in arbitrary nodes,
+>   because there is no such use case possible and no arguments were provided.
+>   I also did not use cleanup.h in first patch because existing code
+>   of_device_get_match_data() does not use it and I prefer uniformity.
 > 
-> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-> Acked-by: Arnd Bergmann <arnd@arndb.de>
-> Acked-by: Ard Biesheuvel <ardb@kernel.org>
+> - Add Ack/Rb tags.
+> - Link to v1: https://patch.msgid.link/20251106-b4-of-match-matchine-data-v1-0-d780ea1780c2@linaro.org
+> 
+> Dependency/merging
+> ==================
+> All patches depend on the first patch, thus everything could go via
+> Rob's tree with people's acks.
+> 
+> Description
+> ===========
+> Several drivers duplicate same code for getting reference to the root
+> node, matching it against 'struct of_device_id' table and getting out
+> the match data from the table entry.
+> 
+> There is a of_machine_compatible_match() wrapper but it takes array of
+> strings, which is not suitable for many drivers since they want the
+> driver data associated with each compatible.
+> 
+> Add two wrappers, similar to existing of_device_get_match_data():
+> 1. of_machine_device_match() doing only matching against 'struct
+>    of_device_id' and returning bool.
+> 2. of_machine_get_match_data() doing the matching and returning
+>    associated driver data for found compatible.
+> 
+> Best regards,
+> Krzysztof
+> 
 > ---
->  drivers/firmware/sysfb.c        |  5 +++--
->  drivers/gpu/drm/sysfb/efidrm.c  |  9 ++++++---
->  drivers/gpu/drm/sysfb/vesadrm.c |  9 ++++++---
->  drivers/video/fbdev/efifb.c     | 10 ++++++----
->  drivers/video/fbdev/vesafb.c    | 10 ++++++----
->  drivers/video/fbdev/vga16fb.c   |  8 +++++---
->  6 files changed, 32 insertions(+), 19 deletions(-)
+> Krzysztof Kozlowski (11):
+>       of: Add wrappers to match root node with OF device ID tables
+>       cpufreq: dt-platdev: Simplify with of_machine_get_match_data()
+>       cpufreq: mediatek: Simplify with of_machine_get_match_data()
+>       cpufreq: sun50i: Simplify with of_machine_device_match()
+>       cpuidle: big_little: Simplify with of_machine_device_match()
+>       firmware: qcom: scm: Simplify with of_machine_device_match()
+>       irqchip/atmel-aic: Simplify with of_machine_get_match_data()
+>       platform: surface: Simplify with of_machine_get_match_data()
+>       powercap: dtpm: Simplify with of_machine_get_match_data()
+>       soc: qcom: ubwc: Simplify with of_machine_get_match_data()
+>       soc: tegra: Simplify with of_machine_device_match()
 > 
-> diff --git a/drivers/firmware/sysfb.c b/drivers/firmware/sysfb.c
-> index 1f671f9219b0..8833582c1883 100644
-> --- a/drivers/firmware/sysfb.c
-> +++ b/drivers/firmware/sysfb.c
-> @@ -141,7 +141,8 @@ static struct device *sysfb_parent_dev(const struct screen_info *si)
->  
->  static __init int sysfb_init(void)
->  {
-> -	struct screen_info *si = &sysfb_primary_display.screen;
-> +	struct sysfb_display_info *dpy = &sysfb_primary_display;
-> +	struct screen_info *si = &dpy->screen;
->  	struct device *parent;
->  	unsigned int type;
->  	struct simplefb_platform_data mode;
-> @@ -202,7 +203,7 @@ static __init int sysfb_init(void)
->  
->  	sysfb_set_efifb_fwnode(si, pd);
->  
-> -	ret = platform_device_add_data(pd, si, sizeof(*si));
-> +	ret = platform_device_add_data(pd, dpy, sizeof(*dpy));
->  	if (ret)
->  		goto err;
->  
-> diff --git a/drivers/gpu/drm/sysfb/efidrm.c b/drivers/gpu/drm/sysfb/efidrm.c
-> index 1b683d55d6ea..29533ae8fbbf 100644
-> --- a/drivers/gpu/drm/sysfb/efidrm.c
-> +++ b/drivers/gpu/drm/sysfb/efidrm.c
-> @@ -4,7 +4,7 @@
->  #include <linux/efi.h>
->  #include <linux/limits.h>
->  #include <linux/platform_device.h>
-> -#include <linux/screen_info.h>
-> +#include <linux/sysfb.h>
->  
->  #include <drm/clients/drm_client_setup.h>
->  #include <drm/drm_atomic.h>
-> @@ -141,6 +141,7 @@ static const struct drm_mode_config_funcs efidrm_mode_config_funcs = {
->  static struct efidrm_device *efidrm_device_create(struct drm_driver *drv,
->  						  struct platform_device *pdev)
->  {
-> +	const struct sysfb_display_info *dpy;
->  	const struct screen_info *si;
->  	const struct drm_format_info *format;
->  	int width, height, stride;
-> @@ -160,9 +161,11 @@ static struct efidrm_device *efidrm_device_create(struct drm_driver *drv,
->  	size_t nformats;
->  	int ret;
->  
-> -	si = dev_get_platdata(&pdev->dev);
-> -	if (!si)
-> +	dpy = dev_get_platdata(&pdev->dev);
-> +	if (!dpy)
->  		return ERR_PTR(-ENODEV);
-> +	si = &dpy->screen;
-> +
->  	if (screen_info_video_type(si) != VIDEO_TYPE_EFI)
->  		return ERR_PTR(-ENODEV);
->  
-> diff --git a/drivers/gpu/drm/sysfb/vesadrm.c b/drivers/gpu/drm/sysfb/vesadrm.c
-> index 7b7b5ba26317..16fc223f8c5b 100644
-> --- a/drivers/gpu/drm/sysfb/vesadrm.c
-> +++ b/drivers/gpu/drm/sysfb/vesadrm.c
-> @@ -4,7 +4,7 @@
->  #include <linux/ioport.h>
->  #include <linux/limits.h>
->  #include <linux/platform_device.h>
-> -#include <linux/screen_info.h>
-> +#include <linux/sysfb.h>
->  
->  #include <drm/clients/drm_client_setup.h>
->  #include <drm/drm_atomic.h>
-> @@ -391,6 +391,7 @@ static const struct drm_mode_config_funcs vesadrm_mode_config_funcs = {
->  static struct vesadrm_device *vesadrm_device_create(struct drm_driver *drv,
->  						    struct platform_device *pdev)
->  {
-> +	const struct sysfb_display_info *dpy;
->  	const struct screen_info *si;
->  	const struct drm_format_info *format;
->  	int width, height, stride;
-> @@ -410,9 +411,11 @@ static struct vesadrm_device *vesadrm_device_create(struct drm_driver *drv,
->  	size_t nformats;
->  	int ret;
->  
-> -	si = dev_get_platdata(&pdev->dev);
-> -	if (!si)
-> +	dpy = dev_get_platdata(&pdev->dev);
-> +	if (!dpy)
->  		return ERR_PTR(-ENODEV);
-> +	si = &dpy->screen;
-> +
->  	if (screen_info_video_type(si) != VIDEO_TYPE_VLFB)
->  		return ERR_PTR(-ENODEV);
->  
-> diff --git a/drivers/video/fbdev/efifb.c b/drivers/video/fbdev/efifb.c
-> index 0e1bd3dba255..47ebc0107209 100644
-> --- a/drivers/video/fbdev/efifb.c
-> +++ b/drivers/video/fbdev/efifb.c
-> @@ -15,7 +15,7 @@
->  #include <linux/fb.h>
->  #include <linux/platform_device.h>
->  #include <linux/printk.h>
-> -#include <linux/screen_info.h>
-> +#include <linux/sysfb.h>
->  #include <video/vga.h>
->  #include <asm/efi.h>
->  #include <drm/drm_utils.h> /* For drm_get_panel_orientation_quirk */
-> @@ -345,6 +345,7 @@ ATTRIBUTE_GROUPS(efifb);
->  
->  static int efifb_probe(struct platform_device *dev)
->  {
-> +	struct sysfb_display_info *dpy;
->  	struct screen_info *si;
->  	struct fb_info *info;
->  	struct efifb_par *par;
-> @@ -360,10 +361,11 @@ static int efifb_probe(struct platform_device *dev)
->  	 * driver. We get a copy of the attached screen_info, so that we can
->  	 * modify its values without affecting later drivers.
->  	 */
-> -	si = dev_get_platdata(&dev->dev);
-> -	if (!si)
-> +	dpy = dev_get_platdata(&dev->dev);
-> +	if (!dpy)
->  		return -ENODEV;
-> -	si = devm_kmemdup(&dev->dev, si, sizeof(*si), GFP_KERNEL);
-> +
-> +	si = devm_kmemdup(&dev->dev, &dpy->screen, sizeof(*si), GFP_KERNEL);
->  	if (!si)
->  		return -ENOMEM;
->  
-> diff --git a/drivers/video/fbdev/vesafb.c b/drivers/video/fbdev/vesafb.c
-> index f135033c22fb..f84f4db244bf 100644
-> --- a/drivers/video/fbdev/vesafb.c
-> +++ b/drivers/video/fbdev/vesafb.c
-> @@ -20,7 +20,7 @@
->  #include <linux/ioport.h>
->  #include <linux/init.h>
->  #include <linux/platform_device.h>
-> -#include <linux/screen_info.h>
-> +#include <linux/sysfb.h>
->  #include <linux/io.h>
->  
->  #include <video/vga.h>
-> @@ -243,6 +243,7 @@ static int vesafb_setup(char *options)
->  
->  static int vesafb_probe(struct platform_device *dev)
->  {
-> +	struct sysfb_display_info *dpy;
->  	struct screen_info *si;
->  	struct fb_info *info;
->  	struct vesafb_par *par;
-> @@ -257,10 +258,11 @@ static int vesafb_probe(struct platform_device *dev)
->  	 * driver. We get a copy of the attached screen_info, so that we can
->  	 * modify its values without affecting later drivers.
->  	 */
-> -	si = dev_get_platdata(&dev->dev);
-> -	if (!si)
-> +	dpy = dev_get_platdata(&dev->dev);
-> +	if (!dpy)
->  		return -ENODEV;
-> -	si = devm_kmemdup(&dev->dev, si, sizeof(*si), GFP_KERNEL);
-> +
-> +	si = devm_kmemdup(&dev->dev, &dpy->screen, sizeof(*si), GFP_KERNEL);
->  	if (!si)
->  		return -ENOMEM;
->  
-> diff --git a/drivers/video/fbdev/vga16fb.c b/drivers/video/fbdev/vga16fb.c
-> index 6b81337a4909..22085d3668e8 100644
-> --- a/drivers/video/fbdev/vga16fb.c
-> +++ b/drivers/video/fbdev/vga16fb.c
-> @@ -21,7 +21,7 @@
->  #include <linux/ioport.h>
->  #include <linux/init.h>
->  #include <linux/platform_device.h>
-> -#include <linux/screen_info.h>
-> +#include <linux/sysfb.h>
->  
->  #include <asm/io.h>
->  #include <video/vga.h>
-> @@ -1305,15 +1305,17 @@ static const struct fb_ops vga16fb_ops = {
->  
->  static int vga16fb_probe(struct platform_device *dev)
->  {
-> +	struct sysfb_display_info *dpy;
->  	struct screen_info *si;
->  	struct fb_info *info;
->  	struct vga16fb_par *par;
->  	int i;
->  	int ret = 0;
->  
-> -	si = dev_get_platdata(&dev->dev);
-> -	if (!si)
-> +	dpy = dev_get_platdata(&dev->dev);
-> +	if (!dpy)
->  		return -ENODEV;
-> +	si = &dpy->screen;
->  
->  	ret = check_mode_supported(si);
->  	if (ret)
-> -- 
-> 2.51.1
-> 
+>  drivers/cpufreq/cpufreq-dt-platdev.c               | 15 ++-----
+>  drivers/cpufreq/mediatek-cpufreq.c                 | 12 +-----
+>  drivers/cpufreq/sun50i-cpufreq-nvmem.c             | 11 +----
+>  drivers/cpuidle/cpuidle-big_little.c               | 11 +----
+>  drivers/firmware/qcom/qcom_scm.c                   | 17 +-------
+>  drivers/irqchip/irq-atmel-aic-common.c             | 15 ++-----
+>  drivers/of/base.c                                  | 47 ++++++++++++++++++++++
+>  .../platform/surface/surface_aggregator_registry.c | 13 +-----
+>  drivers/powercap/dtpm.c                            | 16 +-------
+>  drivers/soc/qcom/ubwc_config.c                     | 14 ++-----
+>  drivers/soc/tegra/common.c                         | 12 +-----
+>  include/linux/of.h                                 | 13 ++++++
+>  12 files changed, 79 insertions(+), 117 deletions(-)
+
+Applied, thanks.
+
+Rob
 
