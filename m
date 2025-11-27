@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F0D8D11183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 12:53:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 455CCD11183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 12:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kWEVz8RQkOVIjQiYoeWau+DA1cwiHSk9Obrie6fKLfw=; b=ouPRBLhxir//8JwpUrP70VW2Dt
-	lOkloQ7VKk4C9VxO07UHLB5RnuiYk/nCgMj+Rh7zZsYMxT4u9fjt3fVUW1u0/M4Cm/t6QIbgGdFzl
-	0Sc534E9RcZnpiZrMl0hxtIQSspLHYyfRhW1cyWBvDy18+x4X5wDq5h+96VlY0HaA7Sv0B9gsmCTc
-	YRRbdrmD9PvwMZ1UUICYdYHnrb+KhUF4Tuche2MggRkym85Y069bmnUxV/Rt3bKVkXWzfqizMNWCv
-	e2MIQpc6cvnnN4wGfZKJ3vFa3xUENmfwlU61uZNMtdDH0xHl5nxoxeotqPy10b83ZY6rDv2qM/IxY
-	43L2fnoA==;
+	bh=yk19cubzYI59vS2m7ARmuI6dwPXbjagJNzaP0UWxsjY=; b=zVVweJIy8DyAQkX9NpmdQA4r+e
+	1iqjaoBxIY2unItaohZCuJRyXyIf/WXb/2uX7xPfJsM7OYT/6mMlb26PdUyZ28IPa2klVDnRTGsGz
+	KxzgyFuhtomTgzILeOgVbEhs5MoA0+U9kOL+wyphVs7qHuOGALMJbJIzWxZRzurPDAhdhBXf4PLSx
+	5fzDcsRNA0BnlEyDcFqiq+yhbcTYPkQwg31M6Vxc9OJWCrw3LREsOqGqJ9B3cyy82yFPWt9i+WYlI
+	D59inrBrvAgOCmtDRXzJok5X+yEWCvB9iXJq7z7kIyyWfxtvyZ8XYhfkZr1yYn//JBCNzda2HPdnH
+	ukEsdx6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vObVD-0000000GbKW-0Gtu;
-	Thu, 27 Nov 2025 12:53:39 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1vObVL-0000000GbRC-1KoW;
+	Thu, 27 Nov 2025 12:53:47 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vObVA-0000000GbIs-25yb
+	id 1vObVI-0000000GbOB-2Uyh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 12:53:37 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-bbf2c3eccc9so944507a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 04:53:36 -0800 (PST)
+	Thu, 27 Nov 2025 12:53:45 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2981f9ce15cso9064225ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 04:53:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1764248016; x=1764852816; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1764248024; x=1764852824; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=kWEVz8RQkOVIjQiYoeWau+DA1cwiHSk9Obrie6fKLfw=;
-        b=eaCwAPkStbTWMw/7s+N64QR3JtdH48G9sjjj8xAzuCmy8amA3ur5uxD9bbh6TKBD70
-         aL0A+ZHraOV2jtWUlDGdNajuR5v9WXj5gCRr96L1cxx5Lbw9E2vBCxc3ra+NOxgEKtKb
-         o+yb9TlrPuABJ9yZVSk0Xty2WZEgiD5isSOoegUo7I5512Oii6Z357BGwKkUgwXypowe
-         JDcdbXuruhVgZc8HZzpl5F5q2fdwUQUsY6x6zKco0ea6z7wmWFx0j0TcP+31jEtaEsjg
-         v4WI0hfBDEHpqNbX4jcAZe5eApL+5Y/7Rh9fF80Xok/qlbNURwPnc2T8y+mb+a0IORwP
-         2gtQ==
+        bh=yk19cubzYI59vS2m7ARmuI6dwPXbjagJNzaP0UWxsjY=;
+        b=aEcPtIwZIkZxDRBT4dLbGiadEtXMC+p9ai77PQ6xti4N9yF8Q41PPn1NOfvhxFjVEd
+         b70F+0mf6vfWgubzs0xn9ZF6sD4zllrZ2zWYYy3Kd5xemJcYbWhd0G55Oc7BV4T7j9tD
+         G63q2QcVTSpNKw5KplVTwPATChTZ7XhGPR46nBQsTFwj1JW08qMOsEnPDkdsVZRKea/p
+         pBPRPho2+8+6GTVI2HDGrWgC/q96fiiiRpxquppN9lZibjl+vUleAHtA4ujvgF/3IWPH
+         KVPy4NPu7uEBwbzPvIpNkf5Et+4ZZUzzapvtRVZPHVklCSA7+BjoLkYvHBBaJ+ZNFkkB
+         m8CQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764248016; x=1764852816;
+        d=1e100.net; s=20230601; t=1764248024; x=1764852824;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=kWEVz8RQkOVIjQiYoeWau+DA1cwiHSk9Obrie6fKLfw=;
-        b=k3MYaMdaR9SaGup2/UsSsachrG7dj/UqzCgVdHKekTgLwO0PQ806Exgj8M8/Uc2U21
-         7eSkSYnDr/d++4VmoNr7TwW5TuGCi0FErlcgL7OJVKE3ZMBHv5tsi/cKK0ogwRJI0i5B
-         vuL5C4Qo6mMtDZwD/jo6r+fE0f+z0FNBv4Keo2hnLlWHmJuQaPtvWnNXA8rZeVr2fXTr
-         i/mVkaAdeK14NOphtdRu1+1JB8Ogl+EzQh+86mGwOPBWzXoCPYrqjb6k48i4PfaV+Xp9
-         ccFY+PgNuuG/OzHqRQiDrAh1c/MSA8bzRn4dqcut8X9KvPleXijgxNONirOY0y8Dj9wq
-         yL9w==
-X-Forwarded-Encrypted: i=1; AJvYcCWxf1pYgHlKomzHyop6RqG5cUd9FXs0k7bJGpU315GbyU6vz4R/SRXatWCu19GmZcGrkdjpPYQaxoUc7/3WXlGY@lists.infradead.org
-X-Gm-Message-State: AOJu0YwwTOAybw6x/liAPladbdbDK39TPV6czos8Zt0LxvKvar8GPWem
-	5aWTIE02RenXSl/kLTV/vyI6Q603QsIDLDjzPsjFmns/be9H4MKd4brA8+wYrJc0VgI=
-X-Gm-Gg: ASbGncuIIyCvkDZodSlktC7frvsfm4qVb5+Lxm/k18XOBOt4lBbTudG427VMXmmdUM+
-	2NFEQ0f9LnvfA+zfiTf/toZOAM/be8La+jm/eNlyfoLeiEp2Tv+zvxVVrN1MPwl0E3mGE62zPdn
-	pnAsMiVD1ld9N3i1+3t59rNRz323BvlqU47Rxi04MhusaICBonogsPeCaWSS4/8bWWGBkarOqRW
-	FszuBtaPcJwDIeklXQzWXtGsUtOX7rX9fa87myBo5kcuEfIQRbkGBwPBpI8n17PcgMSxEMRuznz
-	GKp6Aj7JjWfNuaxL2xW+rUwxlCsg7sstlAhmN9iFHQiV9t9QZqLPimk8aKonzm3jgP5k5ORs2+G
-	JPFfJFbncyazgmCV6mEwByhOg1sBkP96E/PJfXEZZnmROxtibxuKpQFitUIp+QZOC2QcF3k+Qp5
-	XqvgdleWJgl6g7ZvX/858e3ot3rC9oUiuGIp/n2nSNwTU1
-X-Google-Smtp-Source: AGHT+IFo3oRBJLdJi4pyyDpZGbMQhtVuztEKKK6FGAEfrCPL8DYRN7thK8HfinjkzsY3+0il8FhHiQ==
-X-Received: by 2002:a17:903:384f:b0:29a:4a5:d688 with SMTP id d9443c01a7336-29b5e38c2efmr326573335ad.15.1764248015652;
-        Thu, 27 Nov 2025 04:53:35 -0800 (PST)
+        bh=yk19cubzYI59vS2m7ARmuI6dwPXbjagJNzaP0UWxsjY=;
+        b=Qh3X7xmr5lcmp33eSg0S6PNzcD2dHg+n8ikHqgRKYsdrrefzzSWAi+gEX4AelCHhIC
+         9jX+7E51oe8IHSlxOCnrsqYTmXPC2JJ0kUdbWDgYLoQJUjggFr5PXlommcaKWd2UMHr5
+         vqSLTOLjet8KNGiPTBN78A6s3itsyZXFkBGTRl8kG/AbfdPYXBq9fuch36DPEoXJeKHc
+         QF3fVVOA7eh5njLbCnyFvq4SdUd9n6V+3UpePwp7gOQp8xiBssQ1zBtNUEfRmldwz6Pl
+         Acd3Xu3zopwNT9IyqqlRNOgIPsO4vEkkiNPQD+Ha/bCrZitVGIctDRpwz3/jo36OKyd6
+         Xj3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVQS2qAawqIEYbMEOCzn46hud7CiFvfCPgE1q+AVBKZRlnKTJQ5SCvIOSDk+ygmILv6Y7Y50hTUOKo3MZDHmob1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9qPeJfgTNzrUXc/by8qQXfhiJ2lsYLl9eLRwJNHnqMYh4J3bK
+	2IfG2JRL4iJ3KXDr0mnUHOUm4TR6AbUUAiF42pruldb2JtzP1jwf3InFSG1DCnKyMIk=
+X-Gm-Gg: ASbGncspKctIZ1gzjLcYz42ND3czYAiZHm79TWJKRCwcdS0g5FzQGqG0sol0jqTygGH
+	OUPamwiZapfH8pxiK0UVXzXmW/0Fc0OcYHWfIkbIcWvm8X/zaHdtOV07nF9dklstRaeHjLf2usZ
+	CMfIsYmKsMaNKJGfPyO9I2FTItdCej6pzkX5TnM37xKEpICaAHegnXFdxalQCrzlk6DN3FO6Y9r
+	kDytrFXcvyJ0ikQVzY254g4JJA8WJyIP6/Vu4/5v6YwiE9qzQlb0U3OT7qt4AT2PyjskL900FQ0
+	xDph9QhDAKTQdMp4ydVu7MfS4/EdcL4y/nLDt4NC2JWRZWnKWffbkz/hq7ED7JYQ+uYQ66IqSKe
+	q07PzJ/Xl+Z1Wh22wMBkL9Fn7HRbTxNlteI7/tzPSL1wsFleJYEFmpcfEMGdhXtGW/Iv6+tgc0F
+	Ijrl4X8nJXxAr5VwbixbKsA+BcLusuPPTA60gIEXkBPOQkscNg6UTDizs=
+X-Google-Smtp-Source: AGHT+IFWj/Ge/LlTmUk4BGvK2jv7sYmbYypwkakcaLNVvSYRcxAzMelD2Tv37gWsl3Gu0g8hT2LecA==
+X-Received: by 2002:a17:903:98d:b0:297:fec4:1557 with SMTP id d9443c01a7336-29b6bfaf6c0mr239034795ad.60.1764248023704;
+        Thu, 27 Nov 2025 04:53:43 -0800 (PST)
 Received: from L6YN4KR4K9.bytedance.net ([139.177.225.225])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29bce470347sm17771255ad.41.2025.11.27.04.53.27
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29bce470347sm17771255ad.41.2025.11.27.04.53.36
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 27 Nov 2025 04:53:35 -0800 (PST)
+        Thu, 27 Nov 2025 04:53:43 -0800 (PST)
 From: Yunhui Cui <cuiyunhui@bytedance.com>
 To: conor@kernel.org,
 	paul.walmsley@sifive.com,
@@ -97,17 +97,17 @@ To: conor@kernel.org,
 	cleger@rivosinc.com,
 	atishp@rivosinc.com,
 	ajones@ventanamicro.com
-Subject: [PATCH v3 2/8] riscv: smp: move ipi_cpu_crash_stop() declaration to smp.h
-Date: Thu, 27 Nov 2025 20:52:59 +0800
-Message-Id: <20251127125305.89961-3-cuiyunhui@bytedance.com>
+Subject: [PATCH v3 3/8] smp: move num_other_online_cpus() into smp.h
+Date: Thu, 27 Nov 2025 20:53:00 +0800
+Message-Id: <20251127125305.89961-4-cuiyunhui@bytedance.com>
 X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 In-Reply-To: <20251127125305.89961-1-cuiyunhui@bytedance.com>
 References: <20251127125305.89961-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_045336_547843_8FF3D90D 
-X-CRM114-Status: GOOD (  10.24  )
+X-CRM114-CacheID: sfid-20251127_045344_650226_F4BCF162 
+X-CRM114-Status: GOOD (  11.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,69 +122,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move ipi_cpu_crash_stop() declaration from smp.c to smp.h to enable
-external reference, and rename it to cpu_crash_stop().
+Remove duplicate definitions from arm64/riscv, add unified
+implementation in smp.h.
 
 Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 ---
- arch/riscv/include/asm/smp.h | 9 +++++++++
- arch/riscv/kernel/smp.c      | 9 ++-------
- 2 files changed, 11 insertions(+), 7 deletions(-)
+ arch/arm64/kernel/smp.c | 11 -----------
+ arch/riscv/kernel/smp.c | 11 -----------
+ include/linux/smp.h     | 11 +++++++++++
+ 3 files changed, 11 insertions(+), 22 deletions(-)
 
-diff --git a/arch/riscv/include/asm/smp.h b/arch/riscv/include/asm/smp.h
-index 7ac80e9f22889..f53f1f0e7aa9e 100644
---- a/arch/riscv/include/asm/smp.h
-+++ b/arch/riscv/include/asm/smp.h
-@@ -54,6 +54,15 @@ void riscv_ipi_set_virq_range(int virq, int nr);
- /* Check other CPUs stop or not */
- bool smp_crash_stop_failed(void);
- 
-+#ifdef CONFIG_KEXEC_CORE
-+void cpu_crash_stop(unsigned int cpu, struct pt_regs *regs);
-+#else
-+static inline void cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
-+{
-+	unreachable();
-+}
-+#endif
-+
- /* Secondary hart entry */
- asmlinkage void smp_callin(void);
- 
-diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
-index e650dec448176..9dbcb9a06a96d 100644
---- a/arch/riscv/kernel/smp.c
-+++ b/arch/riscv/kernel/smp.c
-@@ -78,7 +78,7 @@ static void ipi_stop(void)
- #ifdef CONFIG_KEXEC_CORE
- static atomic_t waiting_for_crash_ipi = ATOMIC_INIT(0);
- 
--static inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
-+void cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
- {
- 	crash_save_cpu(regs, cpu);
- 
-@@ -94,11 +94,6 @@ static inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
- 	for(;;)
- 		wait_for_interrupt();
+diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+index 68cea3a4a35ca..2d1e7839dc9b0 100644
+--- a/arch/arm64/kernel/smp.c
++++ b/arch/arm64/kernel/smp.c
+@@ -1171,17 +1171,6 @@ void tick_broadcast(const struct cpumask *mask)
  }
--#else
--static inline void ipi_cpu_crash_stop(unsigned int cpu, struct pt_regs *regs)
--{
--	unreachable();
--}
  #endif
  
- static void send_ipi_mask(const struct cpumask *mask, enum ipi_message_type op)
-@@ -134,7 +129,7 @@ static irqreturn_t handle_IPI(int irq, void *data)
- 		ipi_stop();
- 		break;
- 	case IPI_CPU_CRASH_STOP:
--		ipi_cpu_crash_stop(cpu, get_irq_regs());
-+		cpu_crash_stop(cpu, get_irq_regs());
- 		break;
- 	case IPI_IRQ_WORK:
- 		irq_work_run();
+-/*
+- * The number of CPUs online, not counting this CPU (which may not be
+- * fully online and so not counted in num_online_cpus()).
+- */
+-static inline unsigned int num_other_online_cpus(void)
+-{
+-	unsigned int this_cpu_online = cpu_online(smp_processor_id());
+-
+-	return num_online_cpus() - this_cpu_online;
+-}
+-
+ void smp_send_stop(void)
+ {
+ 	static unsigned long stop_in_progress;
+diff --git a/arch/riscv/kernel/smp.c b/arch/riscv/kernel/smp.c
+index 9dbcb9a06a96d..669325e68a21a 100644
+--- a/arch/riscv/kernel/smp.c
++++ b/arch/riscv/kernel/smp.c
+@@ -272,17 +272,6 @@ void smp_send_stop(void)
+ }
+ 
+ #ifdef CONFIG_KEXEC_CORE
+-/*
+- * The number of CPUs online, not counting this CPU (which may not be
+- * fully online and so not counted in num_online_cpus()).
+- */
+-static inline unsigned int num_other_online_cpus(void)
+-{
+-	unsigned int this_cpu_online = cpu_online(smp_processor_id());
+-
+-	return num_online_cpus() - this_cpu_online;
+-}
+-
+ void crash_smp_send_stop(void)
+ {
+ 	static int cpus_stopped;
+diff --git a/include/linux/smp.h b/include/linux/smp.h
+index 18e9c918325e5..5300c5c14232b 100644
+--- a/include/linux/smp.h
++++ b/include/linux/smp.h
+@@ -275,6 +275,17 @@ static inline int get_boot_cpu_id(void)
+ #define get_cpu()		({ preempt_disable(); __smp_processor_id(); })
+ #define put_cpu()		preempt_enable()
+ 
++/*
++ * The number of CPUs online, not counting this CPU (which may not be
++ * fully online and so not counted in num_online_cpus()).
++ */
++static inline unsigned int num_other_online_cpus(void)
++{
++	unsigned int this_cpu_online = cpu_online(smp_processor_id());
++
++	return num_online_cpus() - this_cpu_online;
++}
++
+ /*
+  * Callback to arch code if there's nosmp or maxcpus=0 on the
+  * boot command line:
 -- 
 2.39.5
 
