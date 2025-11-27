@@ -4,73 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9235DD116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 10:15:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE50CCFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 10:18:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Sx2lyoSFE0HBYyZaT9JBD3xAfR5cSeYMV0uXfqfE0Y0=; b=CBXvno+PSFb2CeH9oJFdkqDq1Q
-	WSu9RFn+dniYtQf8MDYSdZBxbVBG1DAL/BPrh4EN2bBjeWSIzLgkFhH9UB39qFbFeJ5KgWKAGrO+g
-	IWrTq+WtobCzsFUXSE0ywaiyX8PWpOEqM8khcXEMPCDmlRsJ+/iFyRqZ8cOl5ZCmChsIiMGsOD0Xk
-	IuJUzzUEhCeFMibxKIQyE3F8t/1872wfIrqO/F1CrT2xBRVLUf8SNFIz0TIMQw0dx2N7JcDouktJQ
-	77gwL9817dA/bj8PXAfO/laQaX51W3tcuDVLModgaQfy+9j319t9BbawtKZqAqUdi2yUOoo9IEPBa
-	/Vtx9rrw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:From:To:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LgG9gPlkIJWvQG8qqwMiPTiG2WAG9DKgMroYDQ2bIs4=; b=bAAsGRDJu1LbgfRdAdF21dgBh6
+	8Ervv75AwYEVUXS03yVKHTd0TbeFLhkyFCS8kIk4JdxROVdsgnCr2Cf9lpR/Bt3sOJSowIYtyjVo0
+	u27KxhKy+nytyOo3wjRZqSy47Xq2OE6AZVHzLV/EQbAJb/0QWP2hJy0+0kbcrPheBbgWQjg4SsCv3
+	tifJjB2svmVFno7AerPcHgmOvq3hPlpwa/36CheOrNcG+5yS0tMoEO4fVEQlPbdeuXTMyjM10984b
+	3Pe520EPP0MC5pmxOA41Ij00jBEhU5HMXH/QyyQS2i+rgR0aMI7YVnhyZYprKLjLVK9ChvfSD2xgH
+	jab/LvFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOZ2F-0000000GMMi-40FO;
-	Thu, 27 Nov 2025 10:15:35 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vOZ5V-0000000GMfd-0Whr;
+	Thu, 27 Nov 2025 10:18:57 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOZ2E-0000000GMMW-3Vpp
+	id 1vOZ5S-0000000GMeX-1QgE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 10:15:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 06A6B60182
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 10:15:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B03F5C4CEF8
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 10:15:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764238533;
-	bh=UJpbinbR1ahKG3Nc/yCahpF1FlBfQ3b445UjgzZUZE0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=QlxssgiX69krKHlr74WYp/N6dQHdbNDrQlBr7pgf6YPsFui6/T9bwa28C3q1F70Bs
-	 nnaRL6Vom6ecjAqHD88Yv6OjpUC9OUp9GFpm+FXQERqg/ymQJWJ0ZfDJ+bHuhLlEuN
-	 v2YVoxzuF2AkaIExu0n49XGlN3X88R0DdJGEHMn6iR14ePRivFEEhK6iVgIgETQORI
-	 mEvzVGb/tdo/Eu+pMx9o/b/TK/+1GcEovnsL1Ztqf3bBgwlx9JmA+tASG7V5LCR2hQ
-	 aVjlBVOgF6deUzNuXPfHL/VCtU9od73fVtMBm+mL55EZJfl0j+URI7S1RQFvJoyipb
-	 G8kjG7awywHgg==
-Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-37b983fbd45so4732911fa.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 02:15:33 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWa5O5/WdvP2//PAQCXEVfwPHd+aymj1kE0ayLm/L7AeCMQq4B8fpciv2XkceM1uNSo/3heCc6o35wKifyhnXMG@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiujTgZlpTd6P8HMK3XHZJ/QlkBWwsP7/spxrUOkfJteLYxPOP
-	YBbHrkmg16CV6p5+ExDYxvN28cJqmTORCugV4W7nGi1hSQBqZRArIccM3qs5Qh65m6RekPBvTNT
-	6tmhdF1Njl6IKw1DKtD/QlJKfRs6DFs0=
-X-Google-Smtp-Source: AGHT+IEF/zqxtbTowSSIvVe0VYS+EaAMAqgfM/DJ3DSiONHaZO/ZPYdXLt3/VQD0SUb8pmSNkU+2e+YM2/saEGhdMyA=
-X-Received: by 2002:a2e:3c02:0:b0:372:628b:5cb4 with SMTP id
- 38308e7fff4ca-37cd929c848mr53322901fa.45.1764238532050; Thu, 27 Nov 2025
- 02:15:32 -0800 (PST)
-MIME-Version: 1.0
-References: <20251127092226.1439196-8-ardb+git@google.com> <20251127092226.1439196-11-ardb+git@google.com>
- <20251127101129.204c6c5a@pumpkin>
-In-Reply-To: <20251127101129.204c6c5a@pumpkin>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 27 Nov 2025 11:15:20 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXETSPRO9BdUU2=jHn5O=tfB4wvwQE_i332KvEZaeCkTPg@mail.gmail.com>
-X-Gm-Features: AWmQ_bkye94Cr_06CBrv4C4KNIVMtxpDibIKjZgz-At4e4NOWOBUacBwwxky0uM
-Message-ID: <CAMj1kXETSPRO9BdUU2=jHn5O=tfB4wvwQE_i332KvEZaeCkTPg@mail.gmail.com>
-Subject: Re: [RFC/RFT PATCH 3/6] random: Use u32 to keep track of batched
- entropy generation
-To: david laight <david.laight@runbox.com>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-hardening@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Kees Cook <kees@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Jeremy Linton <jeremy.linton@arm.com>, 
-	Catalin Marinas <Catalin.Marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
-	"Jason A. Donenfeld" <Jason@zx2c4.com>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 27 Nov 2025 10:18:55 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 3209B4E4191D;
+	Thu, 27 Nov 2025 10:18:51 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0474D6068C;
+	Thu, 27 Nov 2025 10:18:51 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0A079102F08C5;
+	Thu, 27 Nov 2025 11:18:45 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1764238730; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=LgG9gPlkIJWvQG8qqwMiPTiG2WAG9DKgMroYDQ2bIs4=;
+	b=YrQfQhb+6aDx5eS3gn6+AMkY79V3G5HwUWsG48DP7Ih/mZrx7WTptzXRO827bZSdUtZllW
+	kEUg5cJcFYjDa8na85/pJT2Pfw/MIOpVY/Tb9RJ7joAiKOugYhzu9Lu0s6AfmFvS2aFTsd
+	fTG30Dvk6BijXC7uKs901C/NK3KqDw7AG6N2qSsZ02TBvgPr2+du1ZfwHQMKHVvCHmqCy9
+	nBZZsUcQmH2ycbgM3mzVBeGTtroQY9IJEREPP4Gvg+OebLRWeFj0P0btFjtvy5EyFEMoOi
+	B2moEm7ez2lAOSdFt18NQ2Ek/LaVAov9so6PXi6rAOPAzdCzKX2wpoWmmimRHg==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 27 Nov 2025 11:18:45 +0100
+Message-Id: <DEJEFLKA9IJR.237ZLV8HBD2VS@bootlin.com>
+Cc: "Kever Yang" <kever.yang@rock-chips.com>, "Minas Harutyunyan"
+ <Minas.Harutyunyan@synopsys.com>, "Alan Stern" <stern@rowland.harvard.edu>,
+ "Louis Chauvet" <louis.chauvet@bootlin.com>, =?utf-8?q?Herv=C3=A9_Codina?=
+ <herve.codina@bootlin.com>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, <linux-phy@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-usb@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+To: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, "Vinod Koul"
+ <vkoul@kernel.org>, "Kishon Vijay Abraham I" <kishon@kernel.org>, "Heiko
+ Stuebner" <heiko@sntech.de>, "William Wu" <wulf@rock-chips.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Subject: Re: [PATCH 1/2] phy: rockchip: inno-usb2: fix disconnection in
+ gadget mode
+X-Mailer: aerc 0.20.1
+References: <20250722-rk3308-fix-usb-gadget-phy-disconnect-v1-0-239872f05f17@bootlin.com> <20250722-rk3308-fix-usb-gadget-phy-disconnect-v1-1-239872f05f17@bootlin.com> <DEHVRC8CY12S.3LSC6UVSMU0C1@bootlin.com> <DEJD8DJZFNZO.11B1UBXJBN7MO@bootlin.com> <DEJDSE73CJES.2AB8YSKLW6VE1@bootlin.com>
+In-Reply-To: <DEJDSE73CJES.2AB8YSKLW6VE1@bootlin.com>
+X-Last-TLS-Session-Version: TLSv1.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251127_021854_503407_1B4EA3FE 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,67 +83,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Nov 2025 at 11:11, david laight <david.laight@runbox.com> wrote:
->
-> On Thu, 27 Nov 2025 10:22:30 +0100
-> Ard Biesheuvel <ardb+git@google.com> wrote:
->
-> > From: Ard Biesheuvel <ardb@kernel.org>
-> >
-> > The batched entropy containers each have a generation field, to keep
-> > track of the base_crng generation from which it was last reseeded.
-> >
-> > This use case does not require all bits of the unsigned long to be
-> > stored: storing only 32 bits is sufficient to determine whether or not
-> > we're at most 4 billion generations behind, which seems ample.
-> >
-> > So use an unsigned int instead: this will allow a future patch to treat
-> > the generation and position as a single 64-bit quantity, which can be
-> > used locklessly in a compare-and-exchange() operation.
->
-> Probably best to use a u32.
-> While it will always(?) be the same as 'unsigned int' it is more
-> descriptive.
->
-> >
-> > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> > ---
-> >  drivers/char/random.c | 6 +++---
-> >  1 file changed, 3 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/drivers/char/random.c b/drivers/char/random.c
-> > index b8b24b6ed3fe..0e04bc60d034 100644
-> > --- a/drivers/char/random.c
-> > +++ b/drivers/char/random.c
-> > @@ -507,7 +507,7 @@ struct batch_ ##type {                                                            \
-> >        */                                                                     \
-> >       type entropy[CHACHA_BLOCK_SIZE * 3 / (2 * sizeof(type))];               \
-> >       local_lock_t lock;                                                      \
-> > -     unsigned long generation;                                               \
-> > +     unsigned int generation;                                                \
-> >       unsigned int position;                                                  \
-> >  };                                                                           \
-> >                                                                               \
-> > @@ -521,7 +521,7 @@ type get_random_ ##type(void)                                                     \
-> >       type ret;                                                               \
-> >       unsigned long flags;                                                    \
-> >       struct batch_ ##type *batch;                                            \
-> > -     unsigned long next_gen;                                                 \
-> > +     unsigned int next_gen;                                                  \
-> >                                                                               \
-> >       warn_unseeded_randomness();                                             \
-> >                                                                               \
-> > @@ -533,7 +533,7 @@ type get_random_ ##type(void)                                                     \
-> >       local_lock_irqsave(&batched_entropy_ ##type.lock, flags);               \
-> >       batch = raw_cpu_ptr(&batched_entropy_##type);                           \
-> >                                                                               \
-> > -     next_gen = READ_ONCE(base_crng.generation);                             \
-> > +     next_gen = (unsigned int)READ_ONCE(base_crng.generation);               \
->
-> Isn't that cast pointless?
->
+Hi Th=C3=A9o,
 
-Depends on your definition of pointless :-)
+On Thu Nov 27, 2025 at 10:48 AM CET, Th=C3=A9o Lebrun wrote:
+> On Thu Nov 27, 2025 at 10:22 AM CET, Luca Ceresoli wrote:
+>> On Tue Nov 25, 2025 at 4:28 PM CET, Th=C3=A9o Lebrun wrote:
+>>>> The code already checks for !rport->suspended, so add a guard for VBUS=
+ as
+>>>> well to avoid a disconnection when a cable is connected.
+>>>
+>>> Your commit message was clear but I was missing one key point: what
+>>> rport->suspended means. It isn't what I first thought. Instead it means
+>>> phy is powered off. Naming is bad but unrelated to your series. Maybe
+>>> add a comment to your commit message like the following?
+>>>
+>>>   The code already checks for !rport->suspended (PHY is powered on), ..=
+.
+>>
+>> You are right. I have added a slightly longer text:
+>>
+>>   The code already checks for !rport->suspended (which, somewhat
+>>   counter-intuitively, means the PHY is powered on), ...
+>>
+>> Still worth your Reviewed-by?
+>
+> Even more so.
 
-We're deliberately truncating here, and the cast makes that explicit.
+Thanks, v2 on its way.
+
+>> I also added the Cc: stable@vger.kernel.org line, which I noticed being
+>> missing.
+>
+> I never add that Cc trailer and only rely on `Fixes:`. I thought it
+> used to be documented as an alternative to that Cc trailer but it does
+> not show up in `git log -p Documentation/process/stable-kernel-rules.rst`
+>
+> There is one indirect mention of "scripts that look for commits
+> containing a 'Fixes:' tag":
+> https://elixir.bootlin.com/linux/v6.17.9/source/Documentation/process/sta=
+ble-kernel-rules.rst#L132-L134
+>
+> Anyway, you do right by explicitly tagging `Cc: stable@...`.
+
+Theory says Cc: is needed:
+
+> Note: Attaching a Fixes: tag does not subvert the stable kernel rules
+> process nor the requirement to Cc: stable@vger.kernel.org on all stable
+> patch candidates.
+(https://docs.kernel.org/process/submitting-patches.html#reviewer-s-stateme=
+nt-of-oversight)
+
+But in the practice I happened to forget Cc: stable in the past, the patch
+got applied and the Fixes: tag was enough for correct cherry-pick in stable
+branches.
+
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
