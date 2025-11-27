@@ -4,89 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF68CD10375
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 03:44:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B354D10375
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 03:52:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yRsHdEyyQQTC9xNyCj5ifCZE9pb7MQUReNxi+Mm8TW0=; b=UgUP+9TWEN0DmwdM/q8EDHog1m
-	8cA7kS47jn5GJaeZOVFQbMgG4emAXfYD2aNcz38Jk4TlTSEVhWNvshGI+DzptgLXlzuPVxiX0DRRz
-	sATE20J4ytp7hh9q8fYtGX0rsu8NYZjvU2gcV1CEZPLNLr7V8eStRxcwl2XVhq0WzmkhNyt64icq5
-	ZIW32254nmG9wSl4A9pkwQz31qPHMHeYqHZ48aA0qlWzb3a/c7iOOBCZ0DAxwcaCi1mnDmxDirIq3
-	qYbPtN2tF7rF253Dw/i699ZW3H4MIKU2zlGAs3FYdgfBhenO4R367VL/BAlJJ3zklRsWS4OGR2apb
-	wsF7i1Jw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rq4wOSxHxKRy2Po1BAcWeurBM6TkGpPWijfAu7cagQo=; b=ZBNIP59b0UJRuJqg67qDh7OMSQ
+	STMN0DPImxu6mkf8F+v8VWLbgGwCXtg2N9aqPGnjydxOKJDD1iLll+h3mY9OUH7bz7xVRrvHGYLLw
+	q2qKtJ5d1NAoM1wR/BxXCW8N3XcSJ1b27cpLbFDU42j2wPS82zvwmr123vihJ95gt7m6tBI6X4tVi
+	/8y/B9gMNyApL0QLBaUR4iMizqMJKg7EHi+NB3z0KNOKAkroLcWdlA2++cgxGc1Bs5BQglbcRbFmt
+	7oHpE3cA8nTeF40yGIh/YIla6TxTFVMMbdV5YUMGN0ffvE6VvN4Cjpvhlezpucgru4GoppQvyqQWC
+	0la+o3Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOSvX-0000000FwIm-3C2V;
-	Thu, 27 Nov 2025 03:44:15 +0000
-Received: from mx0a-0064b401.pphosted.com ([205.220.166.238])
+	id 1vOT30-0000000FwWH-3FQf;
+	Thu, 27 Nov 2025 03:51:58 +0000
+Received: from canpmsgout12.his.huawei.com ([113.46.200.227])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOSvT-0000000FwIR-1jwd
+	id 1vOT2w-0000000FwVs-3vID
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 03:44:14 +0000
-Received: from pps.filterd (m0250809.ppops.net [127.0.0.1])
-	by mx0a-0064b401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AR3a8Ht3617043;
-	Wed, 26 Nov 2025 19:43:54 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=windriver.com;
-	 h=cc:content-transfer-encoding:content-type:date:from
-	:message-id:mime-version:subject:to; s=PPS06212021; bh=yRsHdEyyQ
-	QTC9xNyCj5ifCZE9pb7MQUReNxi+Mm8TW0=; b=eD1uuYGM+RdIVZWe/ip6H1Vxs
-	nBVlB3LncN5LTuW5Dnxjd8ylm2TQ3kElZ1nK7UfXfA0UDdSKu/2pPCj3qtnF6AHL
-	BUGCjcH1vN2mQ/xbx7997LnxQ82e6pxYQY9G4LUUylQeXZLLmYPr+TeUg8VGYmfR
-	BEqQEUvkVboYFsumkm5BgRBmpEUvmxZGG8vJrLAFB1wtp+PVgaAjwt6HFVvV7Kwd
-	/eI9PSo7CrSDfl+KYe4eK0JbRiVPqmA8LzYfXpkPSx1K1mmmBNC622F4amS3/cRT
-	KjiPaNPmdd9/fBg+Nzq5kFfIbBvxszVEJo4ISS6Pltu8WdeCTY8c2Ij1EJcEA==
-Received: from ala-exchng01.corp.ad.wrs.com ([128.224.246.36])
-	by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 4akdjjd25t-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Wed, 26 Nov 2025 19:43:54 -0800 (PST)
-Received: from ala-exchng01.corp.ad.wrs.com (10.11.224.121) by
- ala-exchng01.corp.ad.wrs.com (10.11.224.121) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.61; Wed, 26 Nov 2025 19:43:53 -0800
-Received: from pek-lpggp9.wrs.com (10.11.232.110) by
- ala-exchng01.corp.ad.wrs.com (10.11.224.121) with Microsoft SMTP Server id
- 15.1.2507.61 via Frontend Transport; Wed, 26 Nov 2025 19:43:51 -0800
-From: Jianpeng Chang <jianpeng.chang.cn@windriver.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <ardb@kernel.org>,
-        <anshuman.khandual@arm.com>, <ying.huang@linux.alibaba.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Jianpeng Chang <jianpeng.chang.cn@windriver.com>
-Subject: [PATCH] arm64: mm: Fix kexec failure after pte_mkwrite_novma() change
-Date: Thu, 27 Nov 2025 11:43:50 +0800
-Message-ID: <20251127034350.3600454-1-jianpeng.chang.cn@windriver.com>
-X-Mailer: git-send-email 2.51.2
+	Thu, 27 Nov 2025 03:51:57 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4dH2Wc4g04znTW1;
+	Thu, 27 Nov 2025 11:50:20 +0800 (CST)
+Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id D0B471A0188;
+	Thu, 27 Nov 2025 11:51:43 +0800 (CST)
+Received: from kwepemq200004.china.huawei.com (7.202.195.237) by
+ dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 27 Nov 2025 11:51:43 +0800
+Received: from [10.67.121.115] (10.67.121.115) by
+ kwepemq200004.china.huawei.com (7.202.195.237) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 27 Nov 2025 11:51:42 +0800
+Message-ID: <e6cffbce-7cd4-3fe3-a9bd-935efedaebd0@hisilicon.com>
+Date: Thu, 27 Nov 2025 11:51:37 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTI3MDAyNyBTYWx0ZWRfXxGyFFOc7AM0D
- RWwgSJxB6HwMt90jGj74Gw0ur5pol51+IRZBGjzHDibKpHn5YRhI//N1sZH8HoCRyEeNidb99eV
- Bj919Nkg1QJp7po9TvsIeOhIJC1CnQs4CBV4CagzqH6TW+y3iKMYDLcnzOhAFEOpCfMslapr4z5
- zOgUUY+ZNHMvNKWvddc1I0lsyuB7JGamp8LoSv89/7GIP74UfBVji3/gFqtaJB5WOnTdr+RYbAq
- wZCjlNFWCWrcBCtpRXYYFXmd3OT9Pn+hWk0lw2tVYR1o4WMsQXmoeXp36WqihNS19/gNsWxRzA/
- jWkAkeiejbD4cAqd6imQFS/rMXRdac9VCYrff9JrcVaKk7I6LQdPhWAmonHFqgWN/PeL+t1jvZR
- Wgcy3po7ipHBA5/uZrvf/vtMXw1KzA==
-X-Proofpoint-ORIG-GUID: XTfgH7-9FQwWcdGrIourQEenTG2AAVfw
-X-Authority-Analysis: v=2.4 cv=Wq8m8Nfv c=1 sm=1 tr=0 ts=6927c8fa cx=c_pps
- a=AbJuCvi4Y3V6hpbCNWx0WA==:117 a=AbJuCvi4Y3V6hpbCNWx0WA==:17
- a=6UeiqGixMTsA:10 a=VkNPw1HP01LnGYTKEx00:22 a=t7CeM3EgAAAA:8
- a=GyMUyNA6ChXbh4AA4s4A:9 a=FdTzh2GWekK77mhwV6Dw:22
-X-Proofpoint-GUID: XTfgH7-9FQwWcdGrIourQEenTG2AAVfw
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-25_02,2025-11-26_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 phishscore=0 clxscore=1011 lowpriorityscore=0
- priorityscore=1501 impostorscore=0 bulkscore=0 malwarescore=0 spamscore=0
- adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
- definitions=main-2511270027
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.0
+Subject: Re: [PATCH v7 5/7] arm64: Add support for FEAT_{LS64, LS64_V}
+Content-Language: en-US
+To: Arnd Bergmann <arnd@arndb.de>, Marc Zyngier <maz@kernel.org>
+CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>, Yicong Yang
+	<yangyccccc@gmail.com>, <prime.zeng@hisilicon.com>, <xuwei5@huawei.com>
+References: <20251107072127.448953-1-wangzhou1@hisilicon.com>
+ <20251107072127.448953-6-wangzhou1@hisilicon.com>
+ <861pm4vn02.wl-maz@kernel.org>
+ <b1407660-9b69-7e21-328a-0f969fffa554@hisilicon.com>
+ <c72411f9-a77e-4a72-a401-5110b919a2df@app.fastmail.com>
+ <1ed610f5-3f0b-614d-5e7f-2c643238bec3@hisilicon.com>
+ <113db0fb-d879-49d7-a5f2-7755558f29dd@app.fastmail.com>
+ <6d6fad8d-e4e4-b973-6431-34a37003d363@hisilicon.com>
+ <f641d3f2-dac9-4a9e-92a4-0805e6561418@app.fastmail.com>
+From: Zhou Wang <wangzhou1@hisilicon.com>
+In-Reply-To: <f641d3f2-dac9-4a9e-92a4-0805e6561418@app.fastmail.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.115]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ kwepemq200004.china.huawei.com (7.202.195.237)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_194412_436867_BD7D839D 
-X-CRM114-Status: GOOD (  15.76  )
+X-CRM114-CacheID: sfid-20251126_195155_300058_59D201C4 
+X-CRM114-Status: GOOD (  29.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,68 +87,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 143937ca51cc ("arm64, mm: avoid always making PTE dirty in
-pte_mkwrite()") modified pte_mkwrite_novma() to only clear PTE_RDONLY
-when the page is already dirty (PTE_DIRTY is set). While this optimization
-prevents unnecessary dirty page marking in normal memory management paths,
-it breaks kexec on some platforms like NXP LS1043.
+On 2025/11/18 15:36, Arnd Bergmann wrote:
+> On Tue, Nov 18, 2025, at 03:31, Zhou Wang wrote:
+>> On 2025/11/14 17:37, Arnd Bergmann wrote:
+>>> On Fri, Nov 14, 2025, at 10:25, Zhou Wang wrote:
+>>>> On 2025/11/14 0:26, Arnd Bergmann wrote:
+>>>>>
+>>>>> Are you using a particular device, or are you trying to enable
+>>>>> the support in general? If you have a specific device you are
+>>>>> working on, does it use the PASID data or not?
+>>>>
+>>>> Many thanks for your careful explanation! I got the pointer here.
+>>>>
+>>>> We have a real device in our SoC, which supports LS64B/ST64B/ST64BV.
+>>>> For ST64BV, Our device just receives 64B data atomically, not interpret
+>>>> it with PASID data.
+>>>
+>>> Ok, I see. So I assume this is either a kind of dedicated work queue
+>>> where the IOMMU PASID is set up in advance for the user MMIO area,
+>>
+>> Yeah, it is something like you mentioned above. MMIO area is binded with
+>> a work queue, a PASID is set up in advance for this work queue.
+> 
+> Ok, thanks for confirming.
+> 
+>>> or it is a device that does not do any DMA at all, correct?
+>>>
+>>> In this case, would the device also work correctly with ST64BV0 if
+>>> the ACCDATA register is fixed to a value of zero and you can only
+>>> use the upper 480 bits? Would it also work if there is an
+>>> unpredictable value in ACCDATA that may match the PASID of another
+>>> device used by the same process?
+>>
+>> We do not support ST64BV0, so above case will not happen. I think ST64BV0
+>> will trigger a illegal instruction exception in our system.
+> 
+> At least this does make it easier because on your system you would
+> never run into a situation where you want to support both your
+> internal device with st64bv and another device with st64bv0.
+> 
+> The easiest setup I can think of that still supports your machine
+> would look something like:
+> 
+> - have the kernel choose between st64bv and st64bv0 at early boot,
+>   based on platform configuration, use st64bv0 by default if
+>   available in hardware and not disabled in EL3, EL2 or kernel
+>   command line.
+> - Change pasid handling in iommu_sva_bind_device() so drivers
+>   have to explicitly request one of the modes before establishing
+>   a pasid, refuse this on incompatible systems, update the
+>   three existing callers (idxd, amdxdna, uacce) accordingly.
+> - on systems with st64bv but no st64bv0, enable st64bv for
+>   all CPUs at boot time to avoid context switch overhead, but
+>   forbid mapping shared hardware workqueues into userspace.
+> - postpone full support for st64bv0 until we have a device that
+>   actually uses this and can be tested. I think most of it is
+>   already there in the iommu code, but the ACCDATA setup needs
+>   to be integrated into the switch_mm()/__switch_to() code
+>   and possibly a trap handler like on x86.
 
-The issue occurs in the kexec code path:
-1. machine_kexec_post_load() calls trans_pgd_create_copy() to create a
-   writable copy of the linear mapping
-2. _copy_pte() calls pte_mkwrite_novma() to ensure all pages in the copy
-   are writable for the new kernel image copying
-3. With the new logic, clean pages (without PTE_DIRTY) remain read-only
-4. When kexec tries to copy the new kernel image through the linear
-   mapping, it fails on read-only pages, causing the system to hang
-   after "Bye!"
+Hi Arnd,
 
-The same issue affects hibernation which uses the same trans_pgd code path.
+Sorry for late to reply, I double checked with our SoC and device
+colleagues, currently only st64b has been used in our system.
 
-Fix this by explicitly clearing PTE_RDONLY in _copy_pte() for both
-kexec and hibernation, ensuring all pages in the temporary mapping are
-writable regardless of their dirty state. This preserves the original
-commit's optimization for normal memory management while fixing the
-kexec/hibernation regression.
+So I think we could upstream FEAT_LS64 firstly as it seems easy
+to be merged. After this, we continue to discuss FEAT_LS64V and
+FEAT_LS64_ACCDATA solution if there is a real system need them.
 
-Fixes: 143937ca51cc ("arm64, mm: avoid always making PTE dirty in pte_mkwrite()")
-Signed-off-by: Jianpeng Chang <jianpeng.chang.cn@windriver.com>
----
- arch/arm64/mm/trans_pgd.c | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+Best,
+Zhou
 
-diff --git a/arch/arm64/mm/trans_pgd.c b/arch/arm64/mm/trans_pgd.c
-index 18543b603c77..ad4e5e4fcc91 100644
---- a/arch/arm64/mm/trans_pgd.c
-+++ b/arch/arm64/mm/trans_pgd.c
-@@ -40,8 +40,13 @@ static void _copy_pte(pte_t *dst_ptep, pte_t *src_ptep, unsigned long addr)
- 		 * Resume will overwrite areas that may be marked
- 		 * read only (code, rodata). Clear the RDONLY bit from
- 		 * the temporary mappings we use during restore.
-+		 *
-+		 * For kexec/hibernation, we need writable access regardless
-+		 * of the page's dirty state, so force clear PTE_RDONLY.
- 		 */
--		__set_pte(dst_ptep, pte_mkwrite_novma(pte));
-+		pte = set_pte_bit(pte, __pgprot(PTE_WRITE));
-+		pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
-+		__set_pte(dst_ptep, pte);
- 	} else if (!pte_none(pte)) {
- 		/*
- 		 * debug_pagealloc will removed the PTE_VALID bit if
-@@ -57,7 +62,10 @@ static void _copy_pte(pte_t *dst_ptep, pte_t *src_ptep, unsigned long addr)
- 		 */
- 		BUG_ON(!pfn_valid(pte_pfn(pte)));
- 
--		__set_pte(dst_ptep, pte_mkvalid(pte_mkwrite_novma(pte)));
-+		pte = pte_mkvalid(pte);
-+		pte = set_pte_bit(pte, __pgprot(PTE_WRITE));
-+		pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
-+		__set_pte(dst_ptep, pte);
- 	}
- }
- 
--- 
-2.51.2
-
+> 
+> In the current architecture, both FEAT_LS64_V and
+> FEAT_LS64_ACCDATA are optional, so you can continue to
+> produce CPUs that have the former but not the latter, and
+> the logic above will keep that working. However this breaks
+> if you ever want to support FEAT_LS64_ACCDATA in a later
+> CPU but keep the existing driver working with st64bv.
+> 
+>        Arnd
+> .
 
