@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 398CBD111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 15:41:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21DB9D111A8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 15:47:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6Q6Sl3CeL22NIfdaURWlqrrzckNWveDjZnzcXpcCR10=; b=WePmAIVqnTVpPA2V64XPsiD5Xf
-	PgFWfKLFu3sVkSDArkZTB1BncgtogGEJtL0XRgcYuCWuPqDkyi0Z08hv9U/bBoEtnNl9FK9LcGBj/
-	U8/eGhuGrzR2dTzOrJ06o1nvuqvOCclyqod5qcLHoZ3bmhOxQjsadOnfmL7Klz5/gv9SpLLHQu9Nj
-	S0qsAhOHON60xMqzeiFF6STSDuvk5agBp/Wt+Zae1TSpFxVaCVjhbSUS6/8Yd+B0ta5vFNkQdYl1w
-	6XutaYeI+/BGv/HAI5ZAvvSu3LCL8eKzgf9sNFkaUC2toc6i8YssJfgT2lsocjrCt1a53+3pYSmTK
-	3F3CGfCg==;
+	bh=iUiTVNoo+2j/5ASb7vpFIToCKlgeaWHJyLXe92Q7ZMw=; b=xc4wqg3h5uzZXPJoHFT3S8ka5S
+	rhxvVl1g0Za4gS4EgIgUi4sPhFb+Er3fxZNs1hKAhupYkwaR2uLNZZIXLDK03yg8hSNLu1plQkQix
+	+7DeGW0KrYaphiex71xCBRtF1+aKOEJF1rWJRRvsq4R1EMenTqWO+M0oTLFo2FGWXfinpGMai+Vq9
+	17Y4Aqrg32gI/6yGrDT+VPprS8NIx8L2UEbh+yVYAg9AjvReWgxHg1FxkCi21Lv184g3QT7xTjNwu
+	RQRGnmRyRrFt0OLuMkMGucBpZ1BskuG4JRaqBxLLEdQC+n09snCndOcdtByOL86OG7eOr2TLHB2Fg
+	8fxUFwSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOe7E-0000000GrHl-2DlV;
-	Thu, 27 Nov 2025 15:41:04 +0000
+	id 1vOeDd-0000000Greb-3ogh;
+	Thu, 27 Nov 2025 15:47:41 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOe7D-0000000GrHS-0Uhc
+	id 1vOeDc-0000000GreS-2WSz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 15:41:03 +0000
+	Thu, 27 Nov 2025 15:47:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3067060212
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 15:41:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7564C19421
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 15:41:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 65DF360153;
+	Thu, 27 Nov 2025 15:47:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DD71C4CEF8;
+	Thu, 27 Nov 2025 15:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764258061;
-	bh=MpfSOKAMPLrl+kEKU/dvKMcPaBA2LeweC9XjtAj/9Co=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=f9Hk9WrRrnc/iWUI91Ag3YfJ/huXPE6L0n+FngH3dBVz/Gsr6EQKapyclAb2JSYdb
-	 BRqt7P8lXmgJm+kvBk0T41zKN3OdnGRwkZS/iDmAaVF6uz8vPPJVvz+VAB3YyHLuXg
-	 bvBfZtd8CdxgosW++KV8lqud3FB0XcN0YdzUr3Z0rpT7c/iNmEau/uXVJ+Lunp1W8O
-	 dmca7orepRxFtr4hmF6jXmgDcWr4yJQApSXNHqCwa8KVDHXZtLSBT8jlxJZUFJVvaD
-	 NcKpRR3YWjJtYIk+z60NZaQLSB4zIzzQuyaptPu4hERHqTFuYT8YoYj0ZQ52eSJkgR
-	 JkIfrkkHS0Vow==
-Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5957e017378so1149111e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 07:41:01 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUKIgKYgE4K0r/RVPwTInyalo6V9uk/L7iNBJPZ40BPeuqcMMZibYRRDUvRvmmkZ1dN/TrrZyNbt0MpNJP7knHT@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWeaNNvCzE/rLEoCkL29XoF75soM65fnhnwORCDpkqesc+MC09
-	Au4p15b+WCcQrJr2zZxSWw+p8DObzBWtx1KSeaCjCCQcBnqGHPhdrCO3dcNNTPwz0vWm5Of6DwI
-	z4VOihl9rS4l7HJwIn5v2Do/tmstvLZU=
-X-Google-Smtp-Source: AGHT+IEr5iB3y/yhQhlzfLl0WouWT4D2DB6qV4v7yx0qlVJ+llTi3bmx1k8kk/xynOW3ksMDP5G9MaudsgA9JXFjMH8=
-X-Received: by 2002:a05:6512:3188:b0:595:9d90:5dc6 with SMTP id
- 2adb3069b0e04-596a3ecd4d0mr8694338e87.19.1764258060115; Thu, 27 Nov 2025
- 07:41:00 -0800 (PST)
+	s=k20201202; t=1764258459;
+	bh=zimSNrPNbWALPjHaZb84EtxwZFuvvZtvIH/PBijM8S8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YH6TtGylzkH0hTUqSYooUxBPgNrHxvjlNBXCZXXU3A0oMUJqsJ9kRP4xcRXRwHqwY
+	 u4OzAKiU+6vTF/QHkqb5Zx83lrKP0/FNe5DojJqH1/hwpKZ+JlXSiloHd81HDQw+zV
+	 Xl0SeAjacSu+qmb29eOJaWrsUicY3XB0Tdt9H7dd6vpCI4Zhw2K1LjvfJDP+SMS9wR
+	 xXDaB8zMuHYNr2xtg/gw7i5moRI67uLTTd/dPAeNgynml1phdjL6DUvrQ0lj/jJIU/
+	 xbQgAy026KW6FE3g3CrDjv+Y+JHcSqIVF52ARbXHJtnKcbgBF49XxfgkJqvtDqj0lr
+	 hBRBFXON/3HJA==
+Date: Thu, 27 Nov 2025 15:47:32 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Peter Maydell <peter.maydell@linaro.org>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Will Deacon <will@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+	Dave Martin <Dave.Martin@arm.com>, Fuad Tabba <tabba@google.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Eric Auger <eric.auger@redhat.com>
+Subject: Re: [PATCH v8 11/29] KVM: arm64: Document the KVM ABI for SME
+Message-ID: <562a8b3e-b663-4588-8594-059874939749@sirena.org.uk>
+References: <20250902-kvm-arm64-sme-v8-0-2cb2199c656c@kernel.org>
+ <20250902-kvm-arm64-sme-v8-11-2cb2199c656c@kernel.org>
+ <CAFEAcA_GJ7gzn7aMCZYxHnJWvx4tHSHBKsOxtQ7NTb4gPjkMJQ@mail.gmail.com>
+ <df712591-397e-422b-b9c9-fbf080cad9aa@sirena.org.uk>
+ <CAFEAcA8LGwm-6JEhtKTq1E_da-T=H-aBX9-8LMJOAQpK5J+NfQ@mail.gmail.com>
 MIME-Version: 1.0
-References: <20251127092226.1439196-8-ardb+git@google.com> <b1dae5a7-27bd-42de-bcce-9fd3c2b1c178@arm.com>
- <CAMj1kXE-Qm4DQNAcg8Tg7YM4EMdLBu_UJm7M8Cpk3t5g7XqP5w@mail.gmail.com>
- <e996fdd5-7113-4327-a884-336dd5f77c4d@arm.com> <CAMj1kXGyYMy2xhcdNicHkMfWBnEjyhc+xg8ciuR-6WXDxDpZxg@mail.gmail.com>
-In-Reply-To: <CAMj1kXGyYMy2xhcdNicHkMfWBnEjyhc+xg8ciuR-6WXDxDpZxg@mail.gmail.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 27 Nov 2025 16:40:48 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXE0f5j_T6YVGrQF3G+u=QsjAVKdJfdMZ2a_ss7E5-upRA@mail.gmail.com>
-X-Gm-Features: AWmQ_bk7bPe_sQz9kUKjfz_fWU9_uzGqLWbNP8titLOMzUkkNUwQQEvuQp7faTw
-Message-ID: <CAMj1kXE0f5j_T6YVGrQF3G+u=QsjAVKdJfdMZ2a_ss7E5-upRA@mail.gmail.com>
-Subject: Re: [RFC/RFT PATCH 0/6] Improve get_random_u8() for use in randomize kstack
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-hardening@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Kees Cook <kees@kernel.org>, Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Jeremy Linton <jeremy.linton@arm.com>, Catalin Marinas <Catalin.Marinas@arm.com>, 
-	Mark Rutland <mark.rutland@arm.com>, "Jason A. Donenfeld" <Jason@zx2c4.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Q3s/7AjDkfVHD/Ey"
+Content-Disposition: inline
+In-Reply-To: <CAFEAcA8LGwm-6JEhtKTq1E_da-T=H-aBX9-8LMJOAQpK5J+NfQ@mail.gmail.com>
+X-Cookie: But they went to MARS around 1953!!
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,93 +84,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Nov 2025 at 16:03, Ard Biesheuvel <ardb@kernel.org> wrote:
->
-> On Thu, 27 Nov 2025 at 15:18, Ryan Roberts <ryan.roberts@arm.com> wrote:
-> >
-> > On 27/11/2025 12:28, Ard Biesheuvel wrote:
-> > > On Thu, 27 Nov 2025 at 13:12, Ryan Roberts <ryan.roberts@arm.com> wrote:
-> > >>
-> > >> On 27/11/2025 09:22, Ard Biesheuvel wrote:
-> > >>> From: Ard Biesheuvel <ardb@kernel.org>
-> > >>>
-> > >>> Ryan reports that get_random_u16() is dominant in the performance
-> > >>> profiling of syscall entry when kstack randomization is enabled [0].
-> > >>>
-> > >>> This is the reason many architectures rely on a counter instead, and
-> > >>> that, in turn, is the reason for the convoluted way the (pseudo-)entropy
-> > >>> is gathered and recorded in a per-CPU variable.
-> > >>>
-> > >>> Let's try to make the get_random_uXX() fast path faster, and switch to
-> > >>> get_random_u8() so that we'll hit the slow path 2x less often. Then,
-> > >>> wire it up in the syscall entry path, replacing the per-CPU variable,
-> > >>> making the logic at syscall exit redundant.
-> > >>
-> > >> I ran the same set of syscall benchmarks for this series as I've done for my
-> > >> series.
-> > >>
-> > >
-> > > Thanks!
-> > >
-> > >
-> > >> The baseline is v6.18-rc5 with stack randomization turned *off*. So I'm showing
-> > >> performance cost of turning it on without any changes to the implementation,
-> > >> then the reduced performance cost of turning it on with my changes applied, and
-> > >> finally cost of turning it on with Ard's changes applied:
-> > >>
-> > >> arm64 (AWS Graviton3):
-> > >> +-----------------+--------------+-------------+---------------+-----------------+
-> > >> | Benchmark       | Result Class |   v6.18-rc5 | per-task-prng | fast-get-random |
-> > >> |                 |              | rndstack-on |               |                 |
-> > >> +=================+==============+=============+===============+=================+
-> > >> | syscall/getpid  | mean (ns)    |  (R) 15.62% |     (R) 3.43% |      (R) 11.93% |
-> > >> |                 | p99 (ns)     | (R) 155.01% |     (R) 3.20% |      (R) 11.00% |
-> > >> |                 | p99.9 (ns)   | (R) 156.71% |     (R) 2.93% |      (R) 11.39% |
-> > >> +-----------------+--------------+-------------+---------------+-----------------+
-> > >> | syscall/getppid | mean (ns)    |  (R) 14.09% |     (R) 2.12% |      (R) 10.44% |
-> > >> |                 | p99 (ns)     | (R) 152.81% |         1.55% |       (R) 9.94% |
-> > >> |                 | p99.9 (ns)   | (R) 153.67% |         1.77% |       (R) 9.83% |
-> > >> +-----------------+--------------+-------------+---------------+-----------------+
-> > >> | syscall/invalid | mean (ns)    |  (R) 13.89% |     (R) 3.32% |      (R) 10.39% |
-> > >> |                 | p99 (ns)     | (R) 165.82% |     (R) 3.51% |      (R) 10.72% |
-> > >> |                 | p99.9 (ns)   | (R) 168.83% |     (R) 3.77% |      (R) 11.03% |
-> > >> +-----------------+--------------+-------------+---------------+-----------------+
-> > >>
-> > >
-> > > What does the (R) mean?
-> > >
-> > >> So this fixes the tail problem. I guess get_random_u8() only takes the slow path
-> > >> every 768 calls, whereas get_random_u16() took it every 384 calls. I'm not sure
-> > >> that fully explains it though.
-> > >>
-> > >> But it's still a 10% cost on average.
-> > >>
-> > >> Personally I think 10% syscall cost is too much to pay for 6 bits of stack
-> > >> randomisation. 3% is better, but still higher than we would all prefer, I'm sure.
-> > >>
-> > >
-> > > Interesting!
-> > >
-> > > So the only thing that get_random_u8() does that could explain the
-> > > delta is calling into the scheduler on preempt_enable(), given that it
-> > > does very little beyond that.
-> > >
-> > > Would you mind repeating this experiment after changing the
-> > > put_cpu_var() to preempt_enable_no_resched(), to test this theory?
-> >
-> > This has no impact on performance.
-> >
->
-> Thanks. But this is really rather surprising: what else could be
-> taking up that time, given that on the fast path, there are only some
-> loads and stores to the buffer, and a cmpxchg64_local(). Could it be
-> the latter that is causing so much latency? I suppose the local
-> cmpxchg() semantics don't really exist on arm64, and this uses the
-> exact same LSE instruction that would be used for an ordinary
-> cmpxchg(), unlike on x86 where it appears to omit the LOCK prefix.
->
 
-FWIW, my naive get_random_u8() benchmark slows down by 3x on x86 if I
-replace cmpxchg64_local() with cmpxchg64(), so I suspect the above
-comparison will look different on x86 too.
+--Q3s/7AjDkfVHD/Ey
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+On Thu, Nov 27, 2025 at 03:06:50PM +0000, Peter Maydell wrote:
+> On Mon, 24 Nov 2025 at 20:13, Mark Brown <broonie@kernel.org> wrote:
+
+> > That was deliberate and I agree it is awkward, it was introduced as a
+> > result of earlier review comments.  I had originally implemented an ABI
+> > where the VL for the vector registers was the maximum of the SVE and SME
+> > VLs but the feedback was that the ABI should instead follow what the
+> > architecture does with the vector length and potentially presence of the
+> > vector registers depending on the current streaming mode configuration.
+> > It sounds like you would prefer something more like what was there
+> > originally?
+
+> Yes, that's what I would prefer. The "varies by current CPU state"
+> approach seems to me to be not the way we do things right now,
+> and to be awkward for the VMM side, so it ought to have a really
+> strong justification for why we need it.
+
+> Generally the VMM doesn't care about the actual current state of the
+> CPU, it just wants all the data (e.g. to send for migration). We don't
+> make the current SVE accessors change based on what the current SVE
+> vq length is or whether the guest has set the SVE enable bits -- we
+> have "if the vcpu supports SVE at all, data is always accessed via
+> the SVE accessors, and it's always the max_vq length, regardless of
+> how the vcpu has set its current vq length".
+
+OK, that's clear - that was my expectation for what userspace would want
+too FWIW.
+
+> What's the benefit of making the way KVM exposes the data
+> bounce around based on the current CPU state? Does that
+> make things easier for the kernel internally?
+
+Yes, it makes life easier for the kernel internally.  If we expose the
+registers to userspace with a potentially non-native format then we need
+to keep track of the format things are currently stored in and rewrite
+the data between the format we're exposing and the format we're going to
+load/save to/from the hardware when those differ.  It's not an issue in
+the normal fast path for running guests, it's only a concern when
+userspace actually interacts with the affected registers.
+
+This won't have come up in the SVE case since what's exposed is the
+hypervisor view of the registers which doesn't change based on what the
+guest does so you just need a bit of configuration of ZCR_ELx.LEN, with
+SME the current value of PSTATE.SM changes the view of the registers for
+all ELs.
+
+--Q3s/7AjDkfVHD/Ey
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkocpMACgkQJNaLcl1U
+h9Bn3wf8CSMhGABD9kbCE3/pGrY7nWpZoFrW2t/gAZw214NnYmfjLDEktLE9i6C0
+n8vkzzgjgOe8FpQQSj4nX3S88xmywapULp5ff10lC64KBNsiAcZVDtNvtzY5At3z
+NeYolcx5mDHxgZ31ZJigqgjGUpBT0FAD4zfJXU5qeSRAlKUngC4mFhRuv1rj1oTg
+J1WLpHDDdDtQDy+QH2cAV36hPWkwWhoS50m0+AKzSRRY09jlpwv/vHJCPxtN6yC0
+XIjJl4b1m+G5izroyNqAV4sG6RQTrF8rSBuMgB64bon9y06FMFiCjeUw2WRQBgWG
+UrqDMRuG3YduaM/CTwnfxhqgx3HaBA==
+=oDq9
+-----END PGP SIGNATURE-----
+
+--Q3s/7AjDkfVHD/Ey--
 
