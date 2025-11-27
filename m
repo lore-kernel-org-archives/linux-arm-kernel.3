@@ -4,89 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF593D111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 21:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA67BD116F7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 22:14:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jttLJ8TWGePu+ngSo1n4o5hp2pzXFGAv2t0XowsTZMg=; b=k8vBAx3GM1JmOETyOU4HcUDo52
-	i3ckNpAVef9JfxCes7X0/YwGAH3YfH4PjD47vqsJWnGy1eJGgfu5sNdlADUlLEcToKr2K8Cp+4avC
-	z09vphKZJRuu8mMqdNTlbFLcPSNFW20W1sdHuvQinIP68VKqmfg4nXcaB+F7sN+XVcC5/Rr/Db2vq
-	OsatP1ccMFI7MSmopYSgcjoUvPR8czpsLDkpfaxJSarCgVp0DhWChP+35xlFDgEPA4ysci5I3Lhju
-	bQj8Mmmzm2xCIStxXWMLp6MumvRrYmBau+eL7Oyw7FiceIcTo6/FW5yz0l7rz6BiHxT/Wk5r+dahp
-	xK7uWqFA==;
+	bh=x/er++r+GaWvPfnSCQrjwWRWU1OMVfiljpGBi86Uo8g=; b=TSwrc8bEa+lpK+PX1q9rl2Ucxn
+	gp7HEliBKfLQgGUungMz6Mgp6tYzmLhztbMcEncstDs68dg+q880vyhuRzknV6yR8JOyVGXEt8Jzn
+	5/OKs6C4+LpRYUrMgA5dDCUvhf+apNY8niblIR4UBteJbsbD31U6dpVdMFnXIQdYqu1lYIbCfyw2e
+	n7HopgItjIB4mv3S2qgS7u4QZcI2eavhIhd93rxzIMjzcfSJzpo6Eh1OhoS2c273aXHZg/3UTTidC
+	mm3/hbG7vddLrI7xtsvUQNHqdDwlLmM7IZZJVN2ugRXovcdJq5kcFkYCKMoLhFH9dlfU6X043EaYt
+	VjZ55YfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOjv6-0000000HFHl-3EO0;
-	Thu, 27 Nov 2025 21:52:56 +0000
-Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
+	id 1vOkGB-0000000HGCY-11X8;
+	Thu, 27 Nov 2025 22:14:43 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOjv3-0000000HFGz-478p
+	id 1vOkG9-0000000HGBL-19Wv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 21:52:55 +0000
-Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-8804ca2a730so17991856d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 13:52:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764280372; x=1764885172; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jttLJ8TWGePu+ngSo1n4o5hp2pzXFGAv2t0XowsTZMg=;
-        b=f+yrPyopZP0fkW1LQIGWt4Fi8IH5AgO8OEwbVUPtCWKMOPKzLabNst01Q8FDwht9qm
-         h0fQceivTh6onPumDYP/9TOlwHjTsgJCL3qP0lxPjG1x9/eL3lmm45m1oEo3gUbvPvHK
-         X/trKisgZ8xyFTi1wLVrO7wfUGNu4DXDaBodxAz+s4WDEhw3oGgiSo9Arzx8r6E1jNLo
-         rgwRr946rZwvVw8iF8hNkn7WpKVJp73ltZTHIyAz7rISDgX7M7iPVxqkpeaFx+qGDPWe
-         fQQeU3LAkgLHkHa3gu8BXSastNqtfk2bZy+HpGClppaeLSKeTOmBkb4O1f+eUO7fv09H
-         arAA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764280372; x=1764885172;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=jttLJ8TWGePu+ngSo1n4o5hp2pzXFGAv2t0XowsTZMg=;
-        b=q/gkLEZpaFXftod1o8d5/1TMrthMQ//Bvz6fAuLL/BqeymBy1jiKWFR8PlZtrWGK4I
-         dQEJfj6jGa4zPi3TUqBxI9z9gLOtxq/T4H9m0oj/GjtIWPMTUFZE5S4/Dndq0IsC/imY
-         O/45PXL5K/tZqeYZiiUhQBcu1kw74d6apyQQtLkOl4KhjSfvQ0FEMJBCKkuUYhayYMPa
-         DlbL41pYum66SConlvEsVg3peu2WEOf0zMwJgLKGDCESwjJd5eQPHSCJtQpjeJ4X5af+
-         5jXTKyiXMpS6sVSoLcnXXqcYAomsu2A4jawyfi68fpFcn3IjsmkCeA1lhPZqqArhxMpO
-         4MJg==
-X-Forwarded-Encrypted: i=1; AJvYcCX+KmduZwpwqu1PXtirAJmBCIV8ad0XxyUwA5WstMu90Q0uI/GS95SpsVoha/Wm5Cu1NRYk49RH9ioY+l9CWek2@lists.infradead.org
-X-Gm-Message-State: AOJu0YxDy03RUtc5g/I/vRANmubYL3i1/pnfOszny7BS0LISaV422iM6
-	AvxFsuJbTI17ROQkFv/my4CKDPZHN61KbHpjpQj8TUJFDZKV+OiwVfl2rYui70uIFWPs1tPpRFN
-	KgSQLRkGoUUoEu5NWmmA1B3fuicjqQtKQnaa+rtAQ2g==
-X-Gm-Gg: ASbGncugZYbSCMQtj4O2m/BNaIW1c2RayloTkU1Hjly5GeEbLEzw0SlNmJu5BOyoF0x
-	PEjLwhNzQlhS7HBmTkNHxhoA4I4RgPsjXWjxwITJFu8FM+GMry4pgt4i1gbjKllZOV4njG/UP5v
-	kolzRSQH0ALT85as4VSrwk2Vmtiw92FSGcse+M/RzJ3cTo+Yd5WX2R0b/9q5kkHQSI7rw8xRGuY
-	JL68PmxfeR9BGXrh3lrRY7JLCpEurQFAk4FvR96tGXaQGsUmAXg5XCaoLRzJMm1Gze61A==
-X-Google-Smtp-Source: AGHT+IGi53ssJfVFEVeCKpbOH4PM/Uba/gyP2VL/mpIj2xLrn6No0jDJl3wOawm61ht0VMTz1HcUV32B95MPtil1ISg=
-X-Received: by 2002:a05:6214:19c9:b0:880:49bd:e217 with SMTP id
- 6a1803df08f44-8847c486a0bmr364162506d6.10.1764280372486; Thu, 27 Nov 2025
- 13:52:52 -0800 (PST)
+	Thu, 27 Nov 2025 22:14:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 791F74381B
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 22:14:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55616C16AAE
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 22:14:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764281680;
+	bh=eBS0CUizpUI0IUV5eENk604ryPB8tzKxAgoT6Iv/rNI=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=mxXJsiNxhN1S4+aaL4NbV6VQmJPpBrqirZIT11lmoiHRFXWYqOdHgLT8nO/dex4lu
+	 b7GrvOOExqharqQdAnDFbOwJ2/6KIKAoGI8Ov0Jz1/eH7uCa4i3sUatetNWNmLla/b
+	 gmKseYf9lrbt/ekwpRBQ+j5p9AvkGXK0MueOr/uY+Bcmk8YsZ3jw+EmPr5EM9Xyyal
+	 w1SmZZ/DOWEfb+N8J8aZQSBGaoJh/eg6OzG5nfJN1KPSC3nC0ViYIRVVicAehr2FDP
+	 LCDRlTMMeoJ5ENTrtfXzS6KAU7rPSkbbhwwkQO9+40ZZb5aHdlQzERXU+RPoNg/4Gr
+	 IufmTo+X4LXXQ==
+Received: by mail-oo1-f49.google.com with SMTP id 006d021491bc7-65791c35134so551973eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 14:14:40 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUFpjuHGn03EWBGv1e5nmVdcRH4KaHld/N2zDno+D4UgAGqc5wke5dzZ8k8jisvkHMeHI8Ls1k9fP8UqsHUIfxg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0r/VWS4eCeXmxKhNDv9MIYGqem6mX4ql9vfWjO45xwT7GA5mX
+	2TiKIuviHciSNw1qD1AwDLcSMstQe3o+Bmi/zuZ8K3K/Ey/pcD5XfBzW/SAl6VXrZuQ1g1GqdFl
+	egOX4A38XEKSSeasbtoWRn//RxA+qAmc=
+X-Google-Smtp-Source: AGHT+IFwPll0f82sEFyAgxPzXsJ3Sz08LKmddouqPj3T99a8UMq1Mqm0U4kLPk1yoT7JDPl2CGsyiJV/R33trqfiRI4=
+X-Received: by 2002:a05:6820:2982:b0:657:60b8:b07c with SMTP id
+ 006d021491bc7-657bdae7b8bmr3877565eaf.2.1764281679535; Thu, 27 Nov 2025
+ 14:14:39 -0800 (PST)
 MIME-Version: 1.0
-References: <20251127011438.6918-1-21cnbao@gmail.com> <aSfO7fA-04SBtTug@casper.infradead.org>
- <CAGsJ_4zyZeLtxVe56OSYQx0OcjETw2ru1FjZjBOnTszMe_MW2g@mail.gmail.com>
- <aSip2mWX13sqPW_l@casper.infradead.org> <CAGsJ_4zWGYiu1wv=D7bV5zd0h8TEHTCARhyu_9_gL36PiNvbHQ@mail.gmail.com>
-In-Reply-To: <CAGsJ_4zWGYiu1wv=D7bV5zd0h8TEHTCARhyu_9_gL36PiNvbHQ@mail.gmail.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Fri, 28 Nov 2025 05:52:40 +0800
-X-Gm-Features: AWmQ_blYpw-GPSWAvHSSwIXD1PKL1aIx4iCUo78DT2gXpdF1CZ018OhwLE5_XJY
-Message-ID: <CAGsJ_4wvaieWtTrK+koM3SFu9rDExkVHX5eUwYiEotVqP-ndEQ@mail.gmail.com>
-Subject: Re: [RFC PATCH 0/2] mm: continue using per-VMA lock when retrying
- page faults after I/O
-To: Matthew Wilcox <willy@infradead.org>
-Cc: akpm@linux-foundation.org, linux-mm@kvack.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org
+References: <20251120-thermal-device-v1-0-bbdad594d57a@gmx.de>
+ <CAJZ5v0jOPrBcozzJMsB1eE12MuZRWDAV-+=jfrhJbi=S0p5J9Q@mail.gmail.com>
+ <5f3ef610-4024-4ca0-a934-2649f5d25f40@gmx.de> <CAJZ5v0hdqY-=O5Ai6c5qjMr_pRFc+SDyV1QruM=ZeHH9Z=guSg@mail.gmail.com>
+ <cf86344b-d9f1-4d3c-9fe9-deeb4ade9304@gmx.de>
+In-Reply-To: <cf86344b-d9f1-4d3c-9fe9-deeb4ade9304@gmx.de>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Thu, 27 Nov 2025 23:14:27 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0iH8jkqJaSNtqaTHxt_305DeiEq0AqQCo4Eho5hMKkU4Q@mail.gmail.com>
+X-Gm-Features: AWmQ_bnDEMFFW397UhskjKnrkd8ZW685Q6DyeE8xXCdq63xxksrcXk6fCdtHXQ8
+Message-ID: <CAJZ5v0iH8jkqJaSNtqaTHxt_305DeiEq0AqQCo4Eho5hMKkU4Q@mail.gmail.com>
+Subject: Re: [PATCH RFC RESEND 0/8] thermal: core: Allow setting the parent
+ device of thermal zone/cooling devices
+To: Armin Wolf <W_Armin@gmx.de>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Len Brown <lenb@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Ido Schimmel <idosch@nvidia.com>, Petr Machata <petrm@nvidia.com>, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	etnaviv@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+	linux-tegra@vger.kernel.org, linux-acpi@vger.kernel.org, 
+	linux-doc@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-wireless@vger.kernel.org, ath10k@lists.infradead.org, 
+	ath11k@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, platform-driver-x86@vger.kernel.org, 
+	linux-pci@vger.kernel.org, imx@lists.linux.dev, 
+	linux-renesas-soc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_135254_025038_A17A9CD6 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20251127_141441_363918_E985BE80 
+X-CRM114-Status: GOOD (  64.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,39 +97,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 28, 2025 at 4:29=E2=80=AFAM Barry Song <21cnbao@gmail.com> wrot=
-e:
+On Thu, Nov 27, 2025 at 9:29=E2=80=AFPM Armin Wolf <W_Armin@gmx.de> wrote:
 >
-> On Fri, Nov 28, 2025 at 3:43=E2=80=AFAM Matthew Wilcox <willy@infradead.o=
-rg> wrote:
-> >
-> > [dropping individuals, leaving only mailing lists.  please don't send
-> > this kind of thing to so many people in future]
-
-Apologies, I missed this one.
-
-The output comes from ./scripts/get_maintainer.pl. If you think the group i=
-s
-too large, I guess we should at least include Suren, Lorenzo, David, and
-a few others in the discussion?
-
-[...]
-
+> Am 27.11.25 um 19:22 schrieb Rafael J. Wysocki:
 >
+> > On Sat, Nov 22, 2025 at 3:18=E2=80=AFPM Armin Wolf <W_Armin@gmx.de> wro=
+te:
+> >> Am 21.11.25 um 21:35 schrieb Rafael J. Wysocki:
+> >>
+> >>> On Thu, Nov 20, 2025 at 4:41=E2=80=AFAM Armin Wolf <W_Armin@gmx.de> w=
+rote:
+> > [...]
 > >
-> > This use case also manages to get utterly hung-up trying to do reclaim
-> > today with the mmap_lock held.  SO it manifests somewhat similarly to
-> > your problem (everybody ends up blocked on mmap_lock) but it has a
-> > rather different root cause.
+> >>>> ---
+> >>>> Armin Wolf (8):
+> >>>>         thermal: core: Allow setting the parent device of cooling de=
+vices
+> >>>>         thermal: core: Set parent device in thermal_of_cooling_devic=
+e_register()
+> >>>>         ACPI: processor: Stop creating "device" sysfs link
+> >>> That link is not to the cooling devices' parent, but to the ACPI
+> >>> device object (a struct acpi_device) that corresponds to the parent.
+> >>> The parent of the cooling device should be the processor device, not
+> >>> its ACPI companion, so I'm not sure why there would be a conflict.
+> >>   From the perspective of the Linux device core, a parent device does =
+not have to be
+> >> a "physical" device. In the case of the ACPI processor driver, the ACP=
+I device is used,
+> >> so the cooling device registered by said driver belongs to the ACPI de=
+vice.
+> > Well, that's a problem.  A struct acpi_device should not be a parent
+> > of anything other than a struct acpi_device.
+>
+> Understandable, in this case we should indeed use the the CPU device, esp=
+ecially since the fwnode
+> associated with it already points to the correct ACPI processor object (a=
+t least on my machine).
+>
+> >> I agree that using the Linux processor device would make more sense, b=
+ut this will require
+> >> changes inside the ACPI processor driver.
+> > So be it.
+>
+> OK.
+>
+> >> As for the "device" symlink: The conflict would be a naming conflict, =
+as both "device" symlinks
+> >> (the one created by the ACPI processor driver and the one created by t=
+he device core) will
+> >> be created in the same directory (which is the directory of the coolin=
+g device).
+> > I see.
+> >
+> > But why is the new symlink needed in the first place?  If the device
+> > has a parent, it will appear under that parent in /sys/devices/, won't
+> > it?
+> >
+> > Currently, all of the thermal class devices appear under
+> > /sys/devices/virtual/thermal/ because they have no parents and they
+> > all get a class parent kobject under /sys/devices/virtual/, as that's
+> > what get_device_parent() does.
+> >
+> > If they have real parents, they will appear under those parents, so
+> > why will the parents need to be pointed to additionally?
+>
+> The "device" smylink is a comfort feature provided by the device core its=
+elf to allow user space
+> application to traverse the device tree from bottom to top, like a double=
+-linked list. We cannot
+> disable the creation of this symlink, nor should we.
 
-If I understand the use case correctly, I believe retrying with the per-VMA
-lock would also be very helpful. Previously, we always retried using
-mmap_lock, which can be difficult to acquire under heavy contention, leadin=
-g
-to long latency while the pages might be reclaimed. With the per-VMA lock, =
-it
-is much easier to hold and proceed with the work.
+I think you mean device_add_class_symlinks(), but that's just for
+class devices.  Of course, thermal devices are class devices, so
+they'll get those links if they get parents.  Fair enough.
 
-Thanks
-Barry
+> > BTW, this means that the layout of /sys/devices/ will change when
+> > thermal devices get real parents.  I'm not sure if this is a problem,
+> > but certainly something to note.
+>
+> I know, most applications likely use /sys/class/thermal/, so they are not=
+ impacted by this. I will
+> note this in the cover letter of the next revision.
+>
+> >>>>         ACPI: fan: Stop creating "device" sysfs link
+> >>>>         ACPI: video: Stop creating "device" sysfs link
+> >>> Analogously in the above two cases AFAICS.
+> >>>
+> >>> The parent of a cooling device should be a "physical" device object,
+> >>> like a platform device or a PCI device or similar, not a struct
+> >>> acpi_device (which in fact is not a device even).
+> >>   From the perspective of the Linux device core, a ACPI device is a pe=
+rfectly valid device.
+> > The driver core is irrelevant here.
+> >
+> > As I said before, a struct acpi_device object should not be a parent
+> > of anything other than a struct acpi_device object.  Those things are
+> > not devices and they cannot be used for representing PM dependencies,
+> > for example.
+> >
+> >> I agree that using a platform device or PCI device is better, but this=
+ already happens
+> >> inside the ACPI fan driver (platform device).
+> > So it should not happen there.
+>
+> I meant that the ACPI fan driver already uses the platform device as the =
+parent device of the
+> cooling device, so the ACPI device is only used for interacting with the =
+ACPI control methods
+> (and registering sysfs attributes i think).
+
+OK
+
+> >> Only the ACPI video driver created a "device" sysfs link that points t=
+o the ACPI device
+> >> instead of the PCI device. I just noticed that i accidentally changed =
+this by using the
+> >> PCI device as the parent device for the cooling device.
+> >>
+> >> If you want then we can keep this change.
+> > The PCI device should be its parent.
+>
+> Alright, i will note this in the patch description.
+>
+> >>>>         thermal: core: Set parent device in thermal_cooling_device_r=
+egister()
+> >>>>         ACPI: thermal: Stop creating "device" sysfs link
+> >>> And this link is to the struct acpi_device representing the thermal z=
+one itself.
+> >> Correct, the ACPI thermal zone driver is a ACPI driver, meaning that h=
+e binds to
+> >> ACPI devices. Because of this all (thermal zone) devices created by an=
+ instance of
+> >> said driver are descendants of the ACPI device said instance is bound =
+to.
+> >>
+> >> We can of course convert the ACPI thermal zone driver into a platform =
+driver, but
+> >> this would be a separate patch series.
+> > If you want parents, this needs to be done first, but I'm still not
+> > sure what the parent of a thermal zone would represent.
+> >
+> > In the ACPI case it is kind of easy - it would be the (platform)
+> > device corresponding to a given ThermalZone object in the ACPI
+> > namespace - but it only has a practical meaning if that device has a
+> > specific parent.  For example, if the corresponding ThermalZone object
+> > is present in the \_SB scope, the presence of the thermal zone parent
+> > won't provide any additional information.
+>
+> To the device core it will, as the platform device will need to be suspen=
+ded
+> after the thermal zone device has been suspended, among other things.
+
+Let's set suspend aside for now, I think I've explained my viewpoint
+on this enough elsewhere.
+
+> > Unfortunately, the language in the specification isn't particularly
+> > helpful here: "Thermal zone objects should appear in the namespace
+> > under the portion of the system that comprises the thermal zone. For
+> > example, a thermal zone that is isolated to a docking station should
+> > be defined within the scope of the docking station device."  To me
+> > "the portion of the system" is not too meaningful unless it is just
+> > one device without children.  That's why _TZD has been added AFAICS.
+>
+> I think you are confusing the parent device of the ThermalZone ACPI devic=
+e
+> with the parent device of the struct thermal_zone_device.
+
+No, I'm not.
+
+> I begin to wonder if mentioning the ACPI ThermalZone device together with=
+ the
+> struct thermal_zone_device was a bad idea on my side xd.
+
+Maybe.
+
+> >>>>         thermal: core: Allow setting the parent device of thermal zo=
+ne devices
+> >>> I'm not sure if this is a good idea, at least until it is clear what
+> >>> the role of a thermal zone parent device should be.
+> >> Take a look at my explanation with the Intel Wifi driver.
+> > I did and I think that you want the parent to be a device somehow
+> > associated with the thermal zone, but how exactly?  What should that
+> > be in the Wifi driver case, the PCI device or something else?
+> >
+> > And what if the thermal zone affects multiple devices?  Which of them
+> > (if any) would be its parent?  And would it be consistent with the
+> > ACPI case described above?
+> >
+> > All of that needs consideration IMV.
+>
+> I agree, but there is a difference between "this struct thermal_zone_devi=
+ce depends on
+> device X to be operational" and "this thermal zone affects device X, devi=
+ce Y and device Z".
+
+Yes, there is.
+
+> This patch series exclusively deals with telling the driver core that "th=
+is struct thermal_zone_device
+> depends on device X to be operational".
+
+Maybe let's take care of cooling devices first and get back to this later?
 
