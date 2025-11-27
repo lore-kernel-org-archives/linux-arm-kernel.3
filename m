@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99CE4CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 17:19:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39D60D116F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 17:19:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=246FoifQioiJlJKgK0l+PteqgHVK9qea+qwvqnjBY1s=; b=xiZWYK+AIFjxOtJ6xnL2Fk8puy
-	vRKpLsy4nze12U3FUktFdOrUA72VIq6QsSplfUv2y5GcTMbpMNQMsA5PdhsFBuqwa1nF159xC9CmX
-	4REEAlHtO+nIHwT8v5l0q3zR78QM6+UH3UoDMZ9TYYL4yxCnemRlRqfcOrOOHrTpxtMXfN/N6yxlO
-	51/Yj87trLzEQMAEx2TROwqcdTQzZc/+2fqNDNWBigK+qOu8Vxv8z0e5mScW8ccIWFxTGb+clGC3m
-	JdvGe7alveHnL5MO8YFyep/e56WXtC+O9rgkWXJUlwcPepCcTfSfuVrwIbXvK26su9snWoQhELtqk
-	WqQJUnFQ==;
+	bh=U0kyUILWemPPg53yd8Kio777Xm2al4J0axsqNddordE=; b=iYg+kO2OXoRWks49MR6yCGFjgn
+	2XxaVCd7KK4xyHVOV7ExbTelK1EkYrnAAwblRH+lPlvrNlETHmxSwkAoAARLcE3M62UH5I619OxmX
+	reFSUhpRf4gqJPTNwN2QPAGKFdT5/PhbE2LoUfY15tMOFKXjuaXNYgbMtB0HDRjQe7HfET0tRRMWV
+	sQp+XUciJzM4rh54zt9IPX0DZvlMjFWwlLGVuNs8h69Ts0p+5GHPGl/mFjKOI+jj8AXAP1Gsq7xRS
+	YMe2xCqlUzcH5B3P72DIDtJYFNCAjqY42JqF8JqBUkufiPsug9gk/R+emOmQ5Fjlco1q3GagME6wS
+	OGbMFKFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOfeL-0000000GzWJ-48Iy;
-	Thu, 27 Nov 2025 17:19:21 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vOfeO-0000000GzZc-3ZaQ;
+	Thu, 27 Nov 2025 17:19:24 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOfdy-0000000GzAB-0dLg
+	id 1vOfe9-0000000GzLm-1nxY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 17:18:59 +0000
+	Thu, 27 Nov 2025 17:19:11 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id BF0851A1DCC;
-	Thu, 27 Nov 2025 17:18:56 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id C97AEC16A1F;
+	Thu, 27 Nov 2025 17:18:44 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 939A960722;
-	Thu, 27 Nov 2025 17:18:56 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6B515103C8C62;
-	Thu, 27 Nov 2025 18:18:52 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id A162460722;
+	Thu, 27 Nov 2025 17:19:07 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 0BCCF103C8C5F;
+	Thu, 27 Nov 2025 18:19:02 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764263935; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1764263946; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=246FoifQioiJlJKgK0l+PteqgHVK9qea+qwvqnjBY1s=;
-	b=Wc4CRNhs1zrL9fO9ihV/ocVROYrlFooaTnRcFacBzzrYvF9z5/FLe4RM/8RJBK68jJA5fB
-	xLU3XOgj1JsBefwhL7Z0Mo/04QRnqPxWV+A/4zGcjvvCc90JaSHNjY5zzxKauWaxuZ6qzZ
-	IcRhaVFfFjLMqN7bOUe+7y7YTv7HQeB2554CiWLUVttORPTxTdTmhAJKNa4xAGY2wJnIbq
-	y0/Eayx0xZs0kcwUgwzSSb3mr6TzXbW8Ifr8E3xy1WK9ckP1Hl+eAZWOgeT4HRcQzyTdj/
-	StGsAnMVgreHjx6GM8EN4zZpkfM6nBr+ndJ+4vMIM/x+iurvDeElHaahAeKTrw==
+	bh=U0kyUILWemPPg53yd8Kio777Xm2al4J0axsqNddordE=;
+	b=qDJx/e3r/tGrgNs5jIoloYImgzeR5c4Ezg1PEj/SkNMu5+EWAy6CbcfhDt2ohS3f0vueil
+	wIGwVCMYs4sUtwSiS4qzyYM4MStbEi5Y+WA2t+ch6EgGbQSrgKma7Mw5Q6OOjdZFSIWFqM
+	PqPNiaasRL+aSG1eOrr9Unzfy5D5+DbUEYI/6a3d0XKYUP3oqW/t0OmR1wKfa37qIpuk+x
+	4Y9Pg3Hwh2qZD4gJHvjHn20w8KSFbE1/PSMp1VdJVk36EJrcYn0Qn9BsBuDEUuMxDyTuSR
+	kgmov8/1t2RQziStM0sJgbC2Qm/9+KY6tfPST6N8a9c6clf0QmFHvEPMsqTvFA==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -77,9 +77,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Daniel Golle <daniel@makrotopia.org>,
 	Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
 	Tariq Toukan <tariqt@nvidia.com>
-Subject: [PATCH net-next v20 11/14] net: phy: at803x: Support SFP through phy_port interface
-Date: Thu, 27 Nov 2025 18:17:54 +0100
-Message-ID: <20251127171800.171330-12-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v20 14/14] Documentation: networking: Document the phy_port infrastructure
+Date: Thu, 27 Nov 2025 18:17:57 +0100
+Message-ID: <20251127171800.171330-15-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20251127171800.171330-1-maxime.chevallier@bootlin.com>
 References: <20251127171800.171330-1-maxime.chevallier@bootlin.com>
@@ -87,8 +87,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_091858_459415_9201FBE1 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20251127_091909_670680_7803D671 
+X-CRM114-Status: GOOD (  21.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,140 +103,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the at803x driver to use the generic phylib SFP handling, via a
-dedicated .attach_port() callback, populating the supported interfaces.
-
-As these devices are limited to 1000BaseX, a workaround is used to also
-support, in a very limited way, copper modules. This is done by
-supporting SGMII but limiting it to 1G full duplex (in which case it's
-somewhat compatible with 1000BaseX).
+This documentation aims at describing the main goal of the phy_port
+infrastructure.
 
 Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Tested-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- drivers/net/phy/qcom/at803x.c | 77 +++++++++++++++--------------------
- 1 file changed, 32 insertions(+), 45 deletions(-)
+ Documentation/networking/index.rst    |   1 +
+ Documentation/networking/phy-port.rst | 111 ++++++++++++++++++++++++++
+ MAINTAINERS                           |   2 +
+ 3 files changed, 114 insertions(+)
+ create mode 100644 Documentation/networking/phy-port.rst
 
-diff --git a/drivers/net/phy/qcom/at803x.c b/drivers/net/phy/qcom/at803x.c
-index 338acd11a9b6..2995b08bac96 100644
---- a/drivers/net/phy/qcom/at803x.c
-+++ b/drivers/net/phy/qcom/at803x.c
-@@ -20,7 +20,7 @@
- #include <linux/of.h>
- #include <linux/phylink.h>
- #include <linux/reset.h>
--#include <linux/sfp.h>
-+#include <linux/phy_port.h>
- #include <dt-bindings/net/qca-ar803x.h>
- 
- #include "qcom.h"
-@@ -769,57 +769,44 @@ static int at8031_register_regulators(struct phy_device *phydev)
- 	return 0;
- }
- 
--static int at8031_sfp_insert(void *upstream, const struct sfp_eeprom_id *id)
-+static int at803x_configure_mii(struct phy_port *port, bool enable,
-+				phy_interface_t interface)
- {
--	__ETHTOOL_DECLARE_LINK_MODE_MASK(phy_support);
--	__ETHTOOL_DECLARE_LINK_MODE_MASK(sfp_support);
--	struct phy_device *phydev = upstream;
--	const struct sfp_module_caps *caps;
--	phy_interface_t iface;
--
--	linkmode_zero(phy_support);
--	phylink_set(phy_support, 1000baseX_Full);
--	phylink_set(phy_support, 1000baseT_Full);
--	phylink_set(phy_support, Autoneg);
--	phylink_set(phy_support, Pause);
--	phylink_set(phy_support, Asym_Pause);
--
--	caps = sfp_get_module_caps(phydev->sfp_bus);
--	/* Some modules support 10G modes as well as others we support.
--	 * Mask out non-supported modes so the correct interface is picked.
--	 */
--	linkmode_and(sfp_support, phy_support, caps->link_modes);
-+	struct phy_device *phydev = port_phydev(port);
- 
--	if (linkmode_empty(sfp_support)) {
--		dev_err(&phydev->mdio.dev, "incompatible SFP module inserted\n");
--		return -EINVAL;
--	}
-+	if (interface == PHY_INTERFACE_MODE_SGMII)
-+		dev_warn(&phydev->mdio.dev,
-+			 "module may not function if 1000Base-X not supported\n");
+diff --git a/Documentation/networking/index.rst b/Documentation/networking/index.rst
+index 75db2251649b..49fcfa577711 100644
+--- a/Documentation/networking/index.rst
++++ b/Documentation/networking/index.rst
+@@ -96,6 +96,7 @@ Contents:
+    packet_mmap
+    phonet
+    phy-link-topology
++   phy-port
+    pktgen
+    plip
+    ppp_generic
+diff --git a/Documentation/networking/phy-port.rst b/Documentation/networking/phy-port.rst
+new file mode 100644
+index 000000000000..6e28d9094bce
+--- /dev/null
++++ b/Documentation/networking/phy-port.rst
+@@ -0,0 +1,111 @@
++.. SPDX-License-Identifier: GPL-2.0
++.. _phy_port:
 +
-+	return 0;
-+}
- 
--	iface = sfp_select_interface(phydev->sfp_bus, sfp_support);
-+static const struct phy_port_ops at803x_port_ops = {
-+	.configure_mii = at803x_configure_mii,
-+};
- 
--	/* Only 1000Base-X is supported by AR8031/8033 as the downstream SerDes
--	 * interface for use with SFP modules.
--	 * However, some copper modules detected as having a preferred SGMII
--	 * interface do default to and function in 1000Base-X mode, so just
--	 * print a warning and allow such modules, as they may have some chance
--	 * of working.
-+static int at8031_attach_mii_port(struct phy_device *phydev,
-+				  struct phy_port *port)
-+{
-+	linkmode_zero(port->supported);
-+	phylink_set(port->supported, 1000baseX_Full);
-+	phylink_set(port->supported, 1000baseT_Full);
-+	phylink_set(port->supported, Autoneg);
-+	phylink_set(port->supported, Pause);
-+	phylink_set(port->supported, Asym_Pause);
++=================
++Ethernet ports
++=================
 +
-+	/* This device doesn't really support SGMII. However, do our best
-+	 * to be compatible with copper modules (that usually require SGMII),
-+	 * in a degraded mode as we only allow 1000BaseT Full
- 	 */
--	if (iface == PHY_INTERFACE_MODE_SGMII)
--		dev_warn(&phydev->mdio.dev, "module may not function if 1000Base-X not supported\n");
--	else if (iface != PHY_INTERFACE_MODE_1000BASEX)
--		return -EINVAL;
-+	__set_bit(PHY_INTERFACE_MODE_SGMII, port->interfaces);
-+	__set_bit(PHY_INTERFACE_MODE_1000BASEX, port->interfaces);
++This document is a basic description of the phy_port infrastructure,
++introduced to represent physical interfaces of Ethernet devices.
 +
-+	port->ops = &at803x_port_ops;
- 
- 	return 0;
- }
- 
--static const struct sfp_upstream_ops at8031_sfp_ops = {
--	.attach = phy_sfp_attach,
--	.detach = phy_sfp_detach,
--	.module_insert = at8031_sfp_insert,
--	.connect_phy = phy_sfp_connect_phy,
--	.disconnect_phy = phy_sfp_disconnect_phy,
--};
--
- static int at8031_parse_dt(struct phy_device *phydev)
- {
- 	struct device_node *node = phydev->mdio.dev.of_node;
-@@ -840,8 +827,7 @@ static int at8031_parse_dt(struct phy_device *phydev)
- 		return ret;
- 	}
- 
--	/* Only AR8031/8033 support 1000Base-X for SFP modules */
--	return phy_sfp_probe(phydev, &at8031_sfp_ops);
-+	return 0;
- }
- 
- static int at8031_probe(struct phy_device *phydev)
-@@ -1172,6 +1158,7 @@ static struct phy_driver at803x_driver[] = {
- 	.set_tunable		= at803x_set_tunable,
- 	.cable_test_start	= at8031_cable_test_start,
- 	.cable_test_get_status	= at8031_cable_test_get_status,
-+	.attach_mii_port	= at8031_attach_mii_port,
- }, {
- 	/* Qualcomm Atheros AR8032 */
- 	PHY_ID_MATCH_EXACT(ATH8032_PHY_ID),
++Without phy_port, we already have quite a lot of information about what the
++media-facing interface of a NIC can do and looks like, through the
++:c:type:`struct ethtool_link_ksettings <ethtool_link_ksettings>` attributes,
++which includes :
++
++ - What the NIC can do through the :c:member:`supported` field
++ - What the Link Partner advertises through :c:member:`lp_advertising`
++ - Which features we're advertising through :c:member:`advertising`
++
++We also have info about the number of pairs and the PORT type. These settings
++are built by aggregating together information reported by various devices that
++are sitting on the link :
++
++  - The NIC itself, through the :c:member:`get_link_ksettings` callback
++  - Precise information from the MAC and PCS by using phylink in the MAC driver
++  - Information reported by the PHY device
++  - Information reported by an SFP module (which can itself include a PHY)
++
++This model however starts showing its limitations when we consider devices that
++have more than one media interface. In such a case, only information about the
++actively used interface is reported, and it's not possible to know what the
++other interfaces can do. In fact, we have very little information about whether
++or not there are any other media interfaces.
++
++The goal of the phy_port representation is to provide a way of representing a
++physical interface of a NIC, regardless of what is driving the port (NIC through
++a firmware, SFP module, Ethernet PHY).
++
++Multi-port interfaces examples
++==============================
++
++Several cases of multi-interface NICs have been observed so far :
++
++Internal MII Mux::
++
++  +------------------+
++  | SoC              |
++  |          +-----+ |           +-----+
++  | +-----+  |     |-------------| PHY |
++  | | MAC |--| Mux | |   +-----+ +-----+
++  | +-----+  |     |-----| SFP |
++  |          +-----+ |   +-----+
++  +------------------+
++
++Internal Mux with internal PHY::
++
++  +------------------------+
++  | SoC                    |
++  |          +-----+ +-----+
++  | +-----+  |     |-| PHY |
++  | | MAC |--| Mux | +-----+   +-----+
++  | +-----+  |     |-----------| SFP |
++  |          +-----+       |   +-----+
++  +------------------------+
++
++External Mux::
++
++  +---------+
++  | SoC     |  +-----+  +-----+
++  |         |  |     |--| PHY |
++  | +-----+ |  |     |  +-----+
++  | | MAC |----| Mux |  +-----+
++  | +-----+ |  |     |--| PHY |
++  |         |  +-----+  +-----+
++  |         |     |
++  |    GPIO-------+
++  +---------+
++
++Double-port PHY::
++
++  +---------+
++  | SoC     | +-----+
++  |         | |     |--- RJ45
++  | +-----+ | |     |
++  | | MAC |---| PHY |   +-----+
++  | +-----+ | |     |---| SFP |
++  +---------+ +-----+   +-----+
++
++phy_port aims at providing a path to support all the above topologies, by
++representing the media interfaces in a way that's agnostic to what's driving
++the interface. the struct phy_port object has its own set of callback ops, and
++will eventually be able to report its own ksettings::
++
++             _____      +------+
++            (     )-----| Port |
++ +-----+   (       )    +------+
++ | MAC |--(   ???   )
++ +-----+   (       )    +------+
++            (_____)-----| Port |
++                        +------+
++
++Next steps
++==========
++
++As of writing this documentation, only ports controlled by PHY devices are
++supported. The next steps will be to add the Netlink API to expose these
++to userspace and add support for raw ports (controlled by some firmware, and directly
++managed by the NIC driver).
++
++Another parallel task is the introduction of a MII muxing framework to allow the
++control of non-PHY driver multi-port setups.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 7e1489f33c40..3e9c80624888 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -9282,6 +9282,7 @@ F:	Documentation/devicetree/bindings/net/ethernet-connector.yaml
+ F:	Documentation/devicetree/bindings/net/ethernet-phy.yaml
+ F:	Documentation/devicetree/bindings/net/mdio*
+ F:	Documentation/devicetree/bindings/net/qca,ar803x.yaml
++F:	Documentation/networking/phy-port.rst
+ F:	Documentation/networking/phy.rst
+ F:	drivers/net/mdio/
+ F:	drivers/net/mdio/acpi_mdio.c
+@@ -17980,6 +17981,7 @@ F:	net/ethtool/phy.c
+ NETWORKING [ETHTOOL PHY PORT]
+ M:	Maxime Chevallier <maxime.chevallier@bootlin.com>
+ F:	Documentation/devicetree/bindings/net/ethernet-connector.yaml
++F:	Documentation/networking/phy-port.rst
+ F:	drivers/net/phy/phy_port.c
+ F:	include/linux/phy_port.h
+ K:	struct\s+phy_port|phy_port_
 -- 
 2.49.0
 
