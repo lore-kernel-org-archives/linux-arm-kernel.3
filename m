@@ -4,90 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF4FFCFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 09:02:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90390CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 09:05:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YSY12wujyQqkN0s0ZCmyYYswJOo3iF7QtRvGpJcpmMY=; b=KY0EFqFJkQqB4PE8k2wmt5Za9k
-	USqivuhpdPFgZ3gdfQpEDUy7kNoT62wvZwjl3VWv9Mf6Tv6+iL6ZZxIkTZXIX8G3Icut5EyZ4onEN
-	jZWSIj1IMOujmadA2kK5MIJ1YHtDLP99JZuoPSqUkIIFK13VixIugGXK15I9PnZBT1abhKi5cPQfk
-	5uBVliMyAdVyekH4ezgkbjSEc8pK1rEtKgDfiEH9m+n58vSUaZ6iEz8IA0uWmS95ey8hUXCLUVSz3
-	jJGKH5sidzTKSlvWTc0muoWYb9Rao+hpqwA7hGdpnw0YxhGnAdRyU6cBLP6dlj/BL6iTD8nwsmhsP
-	T3dlCSvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qzNVt4edw+6opeQvEovqvvtpzMRtvUD8paPkTQc5bO0=; b=mzwHpJIj/9ns+GCRvIQpJ8FfwQ
+	YkV4B/0QldN0PRj9rFzzKSh4YyDpYAtOuizS5bDGNkHBUxGorjkKQwUS3ulLv3v2bhgpqn+3PqZot
+	Ooe8i9c68Xp+2l4uO1+VxGjDaSf40CP4HHf/OouKrw0i0OXWQ8+OyR4HcL1Ht9fF93wjh6e2UTI7i
+	Mmk7l24D2qq8Xrl21C4fkZorgD0LjkOaAj02qZdPdA8N0+5PbUzQgogNFlMRcwrpMaqCLYrA5eAfb
+	+F0Jb1aCxfKsNVL388ZPvEAHY4n4c55IvHYo7FboZ1Pkff0nEKei4mcbcC8rYScpXva4MQlCtHvfp
+	jNlwDZRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOXtj-0000000GFFs-1JDq;
-	Thu, 27 Nov 2025 09:02:43 +0000
-Received: from mail-vs1-f44.google.com ([209.85.217.44])
+	id 1vOXvw-0000000GFZg-2a4f;
+	Thu, 27 Nov 2025 09:05:00 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOXtg-0000000GFFP-2TIN
+	id 1vOXvt-0000000GFXo-0SX7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 09:02:41 +0000
-Received: by mail-vs1-f44.google.com with SMTP id ada2fe7eead31-5e18598b9b1so448429137.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 01:02:40 -0800 (PST)
+	Thu, 27 Nov 2025 09:04:58 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4779cc419b2so5145395e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 01:04:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1764234295; x=1764839095; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=qzNVt4edw+6opeQvEovqvvtpzMRtvUD8paPkTQc5bO0=;
+        b=dkym0Z+UdVjWv+jf+fu0Omub1/L9/6Ndp8FDoa3k31Sq9BuNCeq/QNWVKNyf9FdqBa
+         9q4oeMF/3HJDe5+uw5XUfxEm/zH9CA1fXJ37UdaaIKsMV4DyPeJ8EPhR1ntUuqAVbd1f
+         OzHRdef2y4JRkqBzoZj1DpGKlM8j6VpBn86LNDduWUSEzpV70rvByLDMTEmXW2mKoV46
+         QgLU8hcFzVIGezw9d6s39m2w9Nx+208yrmS+CfBQjRqdzF5iRjeNOLbR6NNiLBon0TpW
+         86WIZfQF0zbRy/ROaDfx+l6QFxbyCPeGA6rpfFo99AccQOkE2ObhCz3qvnDoDGsPQRDN
+         6Qrg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764234159; x=1764838959;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YSY12wujyQqkN0s0ZCmyYYswJOo3iF7QtRvGpJcpmMY=;
-        b=bl9FfazsuljhK+SENNycEBHiSK9qWs2NTjjtnCq5XsAyUjggmYOfqHJdOqd4/Fo4uE
-         njkZ+8OTWyE677BvJSSQxzeHGBpcSvomE0Sz5d6elaSPPlzsX2u7tYaN68RsnVNxI9LX
-         ekruc1oobeR6XmYzxjiM50z/G/YxcCmCgktyfmU0JCD5zJl//tCm8kOBBejN74GtEWOI
-         NnbOCDIQ3hGysp1YD8wT1Ce/YPuWZmhejmOjI7C6fB568imgwt7Aynhl1y89fWDpOty+
-         rCjQIt03Qd0QUxIi5tAP8emmQa5yWd27ucKtAch//ymGVWyMxrKHY/t8SDBUcYTLgcoD
-         Qadw==
-X-Forwarded-Encrypted: i=1; AJvYcCWwumDqR9gMlfx4H3SO8OKAZu0drRBQoVv6r58IgGme28pcPVBC4Q73Ecu+Mt7NrH+IzIP3YbbFCJpLStcqerTY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1sSVbKtuF0G3ycahrrnAWfdS4GmC3YlqfWv7bt3oaWG1XaqSr
-	59Dha8syNEFwdrewoxyactdsL/osQ4C16rUnsJFyVU2WiNW8kK9yC+JA+q1E1ezy
-X-Gm-Gg: ASbGncvOyCUzueAnoxM5u3l+5DGVql6jxEJyCQjPokJMJKHy66Vh0pviPcyC/6xbGMl
-	iEG7hRK0dxLjynkCrmFReJJaW/pileqfiNRWXXlnlaoCKC03x+CHj6Lf8MxoD0Do+TmFmRjFTPH
-	OPi8XHyvz7JbcKIgXOOBMt/etmWQZk2V3gJ34lcjOH7DNp667btivRm45LsXsv/uoMxhjdvz4NA
-	qdxwFpDvhY1Tke2CzuXSfydCFlgc9fYDGiuYGfpaYl5zTF5zPnc1AjUOQB8b1aJZI1lLU5zj2/W
-	IVfQ/fIWmlWulNsdMUIEjQ3SQbzaM7IvNqdVymPftMF9cPwhtmEu43lmfCCsnrcl72yeUXgJiDa
-	plYVSIPLM3UmxKv9B4JZIMWdhdI4LIetF4CFiD5wsbygMiBq1fH/c1vO4I5zuLTRyl4kqN448qr
-	DcPswrr98ama/aN8BMBRMA7n4BDLMNjsUkW9N4P/eCFCspSBcUNmzbVx/2aXxXVdY=
-X-Google-Smtp-Source: AGHT+IFTadLe513I3BAT4oSNQNyksVpIeChvlh82PgZW4tR+gQu1W9QAHqu9uSl3/3AY0d3gB/LcjQ==
-X-Received: by 2002:a05:6102:3909:b0:5db:f615:1821 with SMTP id ada2fe7eead31-5e1de088006mr7482190137.10.1764234159162;
-        Thu, 27 Nov 2025 01:02:39 -0800 (PST)
-Received: from mail-vk1-f174.google.com (mail-vk1-f174.google.com. [209.85.221.174])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5e24d9391f8sm310504137.5.2025.11.27.01.02.37
-        for <linux-arm-kernel@lists.infradead.org>
+        d=1e100.net; s=20230601; t=1764234295; x=1764839095;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qzNVt4edw+6opeQvEovqvvtpzMRtvUD8paPkTQc5bO0=;
+        b=Sj/MEGR+qWNZcJG9ckCXsX8nJsHN3GDBLEIZNekn9G6rHnEiL6Fia3Ex7xPgntHqNc
+         P59Jr9Nyv7enEoqSC6ihoR5w/sgnNClq0FfEZ38wkiqNboqhQl02axvn7K1VSaQQViaT
+         YRaSvRgIb4ekogXGFDO5/QrduYrlprejvYTLpBzDFzuMaTpPnOqoChTKnlimpxf2gqqu
+         JKa92s5o0OdujgQuRI7HitLgc2qNyCV4KMkYbXz33pF7JnKaMB3f7pDqeSjpj+5FWwz9
+         J0N8cYKY1iNVaTS7dTVVyE1XitQiegF5XUOF2P1z+Fu/P9hhbCW7zzL7AK52J1bYSIY6
+         wHSA==
+X-Forwarded-Encrypted: i=1; AJvYcCUzZvN4UgTjfTMLmdO67fLz7McP19x/gXzu0mOMv1hXui40CWz8NyVsY9XZAbsJZqMNpPP1xxQOrutmqYor5LbI@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJQAHLuEuJuz204hna2Wf7Dhc5+P6h83dCcZonpsPpZ6wQJMXU
+	sttjM6da47YSJ5OQOQWlKtBhNZwcY56cY/fE3WppT/jUmHSzpj8z/QEnla4DCG31PxA=
+X-Gm-Gg: ASbGncvZ7rEBozuYqxM8lxk5d5yxBJMt7FYofqC57CmHIyvyI04Kvhv4LTSwB55HQcK
+	MbREcj0fs3lgxejS/jcjssk1UoX+RKMM3f0EXTo3LxaJXcjxryncGSHAsDjS1XdTePBQGpQPsoN
+	jvLqFze9jzBrf6O+GDv+21/yEpvfGeWY5SX14PIXXy77Ca6OzCeiqabFjs2SPOMFAEYahR612u9
+	3S0eAuo6FyBsg4jFVtrAr7iNcXeKL8yt6LeTsXbobFBHPCTiZk04k6fBHAWpI8qkS0MZXYTB8aL
+	ZaSntqhUXOVL3BaGZtqfS/RlUNb9mvVij9LYvovwWWCIkWUklcmxa8Qc5GdhP6CP6tddBpGdT8r
+	40UDOL3mK+6YW1060qbD78KRvLbEXgpgc8JbxyeiXCeuI8TigHMWPvBqJL1mkjnkXOCcMyfguQl
+	kq1KfYqlKjxCbYTj0l
+X-Google-Smtp-Source: AGHT+IFbciJc0QuPqY8817jh9ayaj34ju268qD8qT/yXzTe2XR/9rQ64lR1MMMrRT5JTdMmt+0pm/A==
+X-Received: by 2002:a05:600c:1c25:b0:46e:4586:57e4 with SMTP id 5b1f17b1804b1-477c114ed70mr327208565e9.24.1764234295194;
+        Thu, 27 Nov 2025 01:04:55 -0800 (PST)
+Received: from [10.11.12.107] ([5.12.85.52])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-479111438b9sm24372775e9.2.2025.11.27.01.04.52
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 27 Nov 2025 01:02:37 -0800 (PST)
-Received: by mail-vk1-f174.google.com with SMTP id 71dfb90a1353d-55b1dde0961so481656e0c.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 01:02:37 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCX9230iQ2m6st77Ix4SrJM61PNLXIk/unCkB/kb0sOwBTm1X+KJNkiXAKjTR4ohcrgEk8J3YYTp7OiTwyByqEdR@lists.infradead.org
-X-Received: by 2002:a67:e108:0:b0:5df:c33d:6e54 with SMTP id
- ada2fe7eead31-5e1de0099d7mr8404976137.3.1764234157141; Thu, 27 Nov 2025
- 01:02:37 -0800 (PST)
+        Thu, 27 Nov 2025 01:04:54 -0800 (PST)
+Message-ID: <1704827d-f273-4360-bcd5-c18818a85034@linaro.org>
+Date: Thu, 27 Nov 2025 11:04:51 +0200
 MIME-Version: 1.0
-References: <20251126182257.157439-4-krzysztof.kozlowski@oss.qualcomm.com> <20251126182257.157439-6-krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20251126182257.157439-6-krzysztof.kozlowski@oss.qualcomm.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 27 Nov 2025 10:02:26 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdX7t=mabqFE5O-Cii3REMuyaePHmqX+j_mqyrn6XXzsoA@mail.gmail.com>
-X-Gm-Features: AWmQ_bmLgGar4dfe4FpC2atA-pkz10WbT4MOeIioGse4jPHnHaBNPYet7pQnslE
-Message-ID: <CAMuHMdX7t=mabqFE5O-Cii3REMuyaePHmqX+j_mqyrn6XXzsoA@mail.gmail.com>
-Subject: Re: [PATCH 3/3] i2c: rcar: Fix Wvoid-pointer-to-enum-cast warning
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Andi Shyti <andi.shyti@kernel.org>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, linux-i2c@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, llvm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 RESEND 2/3] thermal: exynos_tmu: Support new hardware
+ and update TMU interface
+To: =?UTF-8?B?7IaQ7Iug?= <shin.son@samsung.com>,
+ 'Bartlomiej Zolnierkiewicz' <bzolnier@gmail.com>,
+ 'Krzysztof Kozlowski' <krzk@kernel.org>,
+ "'Rafael J . Wysocki'" <rafael@kernel.org>,
+ 'Daniel Lezcano' <daniel.lezcano@linaro.org>,
+ 'Zhang Rui' <rui.zhang@intel.com>, 'Lukasz Luba' <lukasz.luba@arm.com>,
+ 'Rob Herring' <robh@kernel.org>, 'Conor Dooley' <conor+dt@kernel.org>,
+ 'Alim Akhtar' <alim.akhtar@samsung.com>, youngmin.nam@samsung.com
+Cc: 'Henrik Grimler' <henrik@grimler.se>, linux-pm@vger.kernel.org,
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ 'Peter Griffin' <peter.griffin@linaro.org>,
+ =?UTF-8?Q?=27Andr=C3=A9_Draszik=27?= <andre.draszik@linaro.org>,
+ 'William McVicker' <willmcvicker@google.com>, jyescas@google.com
+References: <20251113064022.2701578-1-shin.son@samsung.com>
+ <CGME20251113064044epcas2p1b87addb21473eca7cc52052e4e2e9237@epcas2p1.samsung.com>
+ <20251113064022.2701578-3-shin.son@samsung.com>
+ <5a6a749b-b2b7-41bb-bcb4-a2342e7f4e98@linaro.org>
+ <015501dc5ea5$0c7dd460$25797d20$@samsung.com>
+ <401ed9b9-19a4-4a19-b397-0f353e9f0c97@linaro.org>
+ <019301dc5f4a$e9aadd60$bd009820$@samsung.com>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <019301dc5f4a$e9aadd60$bd009820$@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_010240_633984_BE5A816A 
-X-CRM114-Status: GOOD (  22.92  )
+X-CRM114-CacheID: sfid-20251127_010457_196085_04D926BF 
+X-CRM114-Status: GOOD (  22.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,51 +120,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
 
-On Wed, 26 Nov 2025 at 19:23, Krzysztof Kozlowski
-<krzysztof.kozlowski@oss.qualcomm.com> wrote:
-> 'i2c_types' is an enum, thus cast of pointer on 64-bit compile test with
-> clang and W=1 causes:
->
->   i2c-rcar.c:1144:18: error: cast to smaller integer type 'enum rcar_i2c_type' from 'const void *' [-Werror,-Wvoid-pointer-to-enum-cast]
->
-> One of the discussions in 2023 on LKML suggested warning is not suitable
-> for kernel.  Nothing changed in this regard since that time, so assume
-> the warning will stay and we want to have warnings-free builds.
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-Thanks for your patch!
+On 11/27/25 5:07 AM, 손신 wrote:
+> Hello, Tudor Ambarus
 
-=
-> --- a/drivers/i2c/busses/i2c-rcar.c
-> +++ b/drivers/i2c/busses/i2c-rcar.c
-> @@ -1141,7 +1141,7 @@ static int rcar_i2c_probe(struct platform_device *pdev)
->         if (IS_ERR(priv->io))
->                 return PTR_ERR(priv->io);
->
-> -       priv->devtype = (enum rcar_i2c_type)of_device_get_match_data(dev);
-> +       priv->devtype = (kernel_ulong_t)of_device_get_match_data(dev);
+Hi!
 
-Any specific reason you picked "kernel_ulong_t" instead of "unsigned long"?
-The former seems to be the least common option.
-FWIW, the most common option is "uintptr_t", which torvalds doesn't like...
+> 
+>> -----Original Message-----
+>> From: Tudor Ambarus [mailto:tudor.ambarus@linaro.org]
+>> Sent: Wednesday, November 26, 2025 6:22 PM
+>> To: 손신 <shin.son@samsung.com>; 'Bartlomiej Zolnierkiewicz'
+>> <bzolnier@gmail.com>; 'Krzysztof Kozlowski' <krzk@kernel.org>; 'Rafael J .
+>> Wysocki' <rafael@kernel.org>; 'Daniel Lezcano' <daniel.lezcano@linaro.org>;
+>> 'Zhang Rui' <rui.zhang@intel.com>; 'Lukasz Luba' <lukasz.luba@arm.com>;
+>> 'Rob Herring' <robh@kernel.org>; 'Conor Dooley' <conor+dt@kernel.org>;
+>> 'Alim Akhtar' <alim.akhtar@samsung.com>; youngmin.nam@samsung.com
+>> Cc: 'Henrik Grimler' <henrik@grimler.se>; linux-pm@vger.kernel.org; linux-
+>> samsung-soc@vger.kernel.org; devicetree@vger.kernel.org; linux-arm-
+>> kernel@lists.infradead.org; linux-kernel@vger.kernel.org; 'Peter Griffin'
+>> <peter.griffin@linaro.org>; 'André Draszik' <andre.draszik@linaro.org>;
+>> 'William McVicker' <willmcvicker@google.com>; jyescas@google.com
+>> Subject: Re: [PATCH v7 RESEND 2/3] thermal: exynos_tmu: Support new
+>> hardware and update TMU interface
+>>
+>> Hi, Shin Son,
+>>
+>> On 11/26/25 9:19 AM, 손신 wrote:
+>>>> Looking at the exynosautov9 registers that you described and
+>>>> comparing them with
+>>>> gs101 I see just 2 differences:
+>>>> 1/ exnosautov2 has a TRIMINFO_CONFIG2 register, while gs101 doesn't
+>>>> 2/ EXYNOSAUTOV920_PEND register fields differ from GS101
+>>> TRIMINFO_CONFIG2 doesn't exist on eav920 either; I simply misnamed it.
+>>> However, the PEND register indeed differs from GS101.
+>>>
+>>>> Given the similarities, and considering the EXYNOS9_ registers rename
+>> from:
+>>>> https://lore.kernel.org/linux-samsung-soc/20251117074140.4090939-5-
+>>>> youngmin.nam@samsung.com/
+>>>> would it make sense to use the SoC-era name instead of specific SoC,
+>> i.e.
+>>>> s/EXYNOSAUTOV920_/EXYNOS9_ and use the latter for both exynosautov9
+>>>> and gs101?
+>>>>
+>>> First of all, as far as I know, EXYNOS9 is not the same as exynosautov9,
+>> and exynosautov920 also differs from exynosautov9.
+>>
+>> See also see this patch, or maybe the entire patch set:
+>> https://lore.kernel.org/linux-samsung-soc/20251117074140.4090939-2-
+>> youngmin.nam@samsung.com/
+>>
+>> It's not just autov9 and gs101 that have similar TMU registers (with the
+>> two exceptions AFAICT), it's also exynos850 that seems identical with
+>> autov9.
+> 
+> Yes, Do you have any plans to upstream the GS101 TMU code? From what I understand,
 
->         init_waitqueue_head(&priv->wait);
->
->         adap = &priv->adap;
+Yes, I'm currently working on upstreaming the GS101 TMU code. My plan is to
+do the acpm tmu helpers and then integrate the gs101 TMU support with what
+will be the new exynos TMU driver.
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> Autov9 and exynos850 are unlikely to be upstreamed in their current form.
 
-Gr{oetje,eeting}s,
+From what I understand from your email exchanges with Daniel, you're going to
+propose a new driver. Is my understanding correct? Do you have a timeline for it?
+I'll then follow with the gs101 support.
 
-                        Geert
+> 
+>> All seem to be part of the same "Exynos9-era" SoCs. Let's think about how
+>> gs101/exynos850 TMU addition will follow. Shall one use the EXYNOSAUTOV920
+>> registers? That seems misleading. Shall one redefine the entire register
+>> set?
+>> That won't fly because of the code duplication.
+> 
+> I kind of admit that.
+> 
+>> Thus I propose to use the EXYNOS9 prefix for the register definitions, and
+>> if there are SoCs with slight differences, that can be handled with
+>> compatible match data and specific SoC definitions, but only where things
+>> differ.
+> 
+> However, I am not sure whether Exynos2200, 7885, 990, 9810, 8890, 8895, or FSD share the same TMU hardware layout as exynosautov920.
+> So I’m wondering whether the EXYNOS9 prefix should be limited to GS101 and eav920, or if we should consider a different prefix that better reflects the grouping.
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+exynos850 has the same reg layout as eav920 and gs101 too. If Exynos9-era is
+a common terminology used inside Samsung then we should be good to go with
+Exynos9 prefix I think. Especially since we have a predecessor, the renaming
+tried in pinctrl. But if you're not sure about it, use just EXYNOS_ then.
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+Cheers,
+ta
 
