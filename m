@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 737D6CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 16:59:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF53FD111A8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 16:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OYxHUrhvUcgT5oBRsyiThgUc5t2jF5qQX768Aozw98Y=; b=3aFDYE/EaOlDwCfKKTxrz/2ry4
-	tjkTgK2rTVlXKaT6XCsc9W4OuvOVeHGwYCro5ZbydXrZzPjtKb3CMMr36kK4292Zf1+kU/AnrcF6j
-	gM6Uf5TWe1yjFYpeMca0rHc7i+MnJy10fpciZfvHeEpXMtWxib2Ndax0Htwyvks+LlGEIgBbo3hTj
-	iNGMnfR/6QdE9M58i6kSYQSj6Cmy9hdgqhYHxGB64FVUfHuJdQWQQq5pQ3Wm2KZi5oKzlm0gzwsin
-	iv8bWjtevhB4xiCi6yhUG6YhHDj/JeYlT94Zud4DfrfvbVbtQspfmm4t7PiJhmG8KufoplVwaoXyh
-	CJw2AARg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2B76zoWhuwGSjr962yskSX1jRYL5m0tGEi12IlYEVJk=; b=yyEIk+96WWZ2+RXultM5AtFn3e
+	od51/FU9myVG/bth1qQbR/Wzn/UK7w5AHEcJgraJpYgd+25XkMuHRJtrUJ1B7A/AGqGp+rYeP+Rwq
+	5FMzC1Gk4hYVosdNoKqKGrtHypYvRwMPau7xVi6/9cDOlEKF9PgRFxMwstHkPqdpbxeL28UMYDkmL
+	DaxRX7deiIBRiyM5LlN0sgrXoRXXXhjUf94Zw3BG/J0cbIWC3053NzEwdwJply2Xr/z8Xvj8uno9b
+	hhmBzXOTO7NHxDDG/Wfer7+PJt1oe6lGk0ausIIGL8IGnckWpGLGc4htNG4KlPYxbQXvCPikvV/j4
+	TJOWA56Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOfKe-0000000Gx53-0Mew;
-	Thu, 27 Nov 2025 16:59:00 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOfKc-0000000Gx4T-0Bsy
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 16:58:59 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 55F47176A;
-	Thu, 27 Nov 2025 08:58:48 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8B8CE3F66E;
-	Thu, 27 Nov 2025 08:58:53 -0800 (PST)
-Date: Thu, 27 Nov 2025 16:58:50 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Ard Biesheuvel <ardb+git@google.com>,
-	linux-hardening@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Kees Cook <kees@kernel.org>, Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Catalin Marinas <Catalin.Marinas@arm.com>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>
-Subject: Re: [RFC/RFT PATCH 0/6] Improve get_random_u8() for use in randomize
- kstack
-Message-ID: <aSiDSp8NpqJkr1oD@J2N7QTR9R3>
-References: <20251127092226.1439196-8-ardb+git@google.com>
- <b1dae5a7-27bd-42de-bcce-9fd3c2b1c178@arm.com>
- <CAMj1kXE-Qm4DQNAcg8Tg7YM4EMdLBu_UJm7M8Cpk3t5g7XqP5w@mail.gmail.com>
- <e996fdd5-7113-4327-a884-336dd5f77c4d@arm.com>
- <CAMj1kXGyYMy2xhcdNicHkMfWBnEjyhc+xg8ciuR-6WXDxDpZxg@mail.gmail.com>
- <f95593ac-d4cf-4e06-9a94-cc5133897c59@arm.com>
+	id 1vOfKj-0000000Gx6P-1aCl;
+	Thu, 27 Nov 2025 16:59:05 +0000
+Received: from m16.mail.163.com ([117.135.210.3])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOfKg-0000000Gx4U-13Bi;
+	Thu, 27 Nov 2025 16:59:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=2B76zoWhuwGSjr962yskSX1jRYL5m0tGEi12IlYEVJk=;
+	b=p12BYw7GqhcWlruCyHJfO0Xy44NJmi/ED79T7wyquR1xxPay+JyFOr977QRovt
+	FlxvGdxydBCzFARzCPv+HHBWCOYKhsRYEW6vshFlRNeUpv4rTb+fgRM5y97KVcQd
+	6J48vx8tu+Csg6wBGQG76gJs+4ae+Dhws6WYwI9vdm1H0=
+Received: from [IPV6:240e:b8f:927e:1000:9218:e74d:98cf:7e7c] (unknown [])
+	by gzga-smtp-mtada-g0-2 (Coremail) with SMTP id _____wAHwIcfgyhpz7drCg--.4876S2;
+	Fri, 28 Nov 2025 00:58:08 +0800 (CST)
+Message-ID: <74a61ccd-c694-44d7-a54c-a40da2df823e@163.com>
+Date: Fri, 28 Nov 2025 00:58:07 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <f95593ac-d4cf-4e06-9a94-cc5133897c59@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/2] PCI: Configure Root Port MPS during host probing
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, bhelgaas@google.com,
+ heiko@sntech.de, mani@kernel.org, yue.wang@amlogic.com, pali@kernel.org,
+ neil.armstrong@linaro.org, robh@kernel.org, jingoohan1@gmail.com,
+ khilman@baylibre.com, jbrunet@baylibre.com,
+ martin.blumenstingl@googlemail.com, cassel@kernel.org,
+ linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20251126235432.GA2726707@bhelgaas>
+Content-Language: en-US
+From: Hans Zhang <18255117159@163.com>
+In-Reply-To: <20251126235432.GA2726707@bhelgaas>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID: _____wAHwIcfgyhpz7drCg--.4876S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxGryUXry7CFW3CFW5CFy8Krg_yoW5trWxpa
+	yUXa1FyFs3WryfZayDZ3W5CFy5tayvy3y5tr98trW0vFs8ZFyDJFyqyFZ5G3s7CrWfXw1a
+	vFn8X34xAFn8ZFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UszVnUUUUU=
+X-Originating-IP: [240e:b8f:927e:1000:9218:e74d:98cf:7e7c]
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/1tbiOgITo2kofAzE7wAAsS
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_085858_126863_88F04827 
-X-CRM114-Status: GOOD (  20.27  )
+X-CRM114-CacheID: sfid-20251127_085902_730667_B69329B5 
+X-CRM114-Status: GOOD (  21.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,35 +79,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 27, 2025 at 03:56:59PM +0000, Ryan Roberts wrote:
-> On 27/11/2025 15:03, Ard Biesheuvel wrote:
-> > So the question is really whether we want to dedicate 16 bytes per
-> > task for this. I wouldn't mind personally, but it is something our
-> > internal QA engineers tend to obsess over.
+Hi Bjorn,
+
+Thank you very much for your reply and the problems you pointed out. The 
+next version will modify it.
+
+Best regards,
+Hans
+
+On 2025/11/27 07:54, Bjorn Helgaas wrote:
+> On Wed, Nov 05, 2025 at 12:51:24AM +0800, Hans Zhang wrote:
+>> Current PCIe initialization logic may leave Root Ports (root bridges)
+>> operating with non-optimal Maximum Payload Size (MPS) settings. Existing
+>> code in pci_configure_mps() returns early for devices without an upstream
+>> bridge (!bridge) which includes Root Ports, so their MPS values remain
+>> at firmware/hardware defaults. This fails to utilize the controller's full
+>> capabilities, leading to suboptimal data transfer efficiency across the
+>> PCIe hierarchy.
+>>
+>> With this patch, during the host controller probing phase:
+>> - When PCIe bus tuning is enabled (not PCIE_BUS_TUNE_OFF), and
+>> - The device is a Root Port without an upstream bridge (!bridge),
+>> The Root Port's MPS is set to its hardware-supported maximum value
+>> (128 << dev->pcie_mpss).
+>>
+>> Note that this initial maximum MPS setting may be reduced later, during
+>> downstream device enumeration, if any downstream device does not suppor
+>> the Root Port's maximum MPS.
+>>
+>> This change ensures Root Ports are properly initialized before downstream
+>> devices negotiate MPS, while maintaining backward compatibility via the
+>> PCIE_BUS_TUNE_OFF check.
 > 
-> Yeah that's a good point.
+> "Properly" is sort of a junk word for me because all it really says is
+> we were stupid before, and we're smarter now, but it doesn't explain
+> exactly *what* was wrong and why this new thing is "proper."
+> 
+> It's obvious that the Max_Payload_Size power-on default (128 bytes) is
+> suboptimal in some situations, so you don't even need to say that.
+> And I think 128 bytes *is* optimal in the PCIE_BUS_PEER2PEER case.
+> 
+> s/Root Ports (root bridges)/Root Ports/
+> s/bridge (!bridge)/bridge/     # a couple times
+> s/hardware-supported//         # unnecessary
+> s/(128 << dev->pcie_mpss)//    # we can read the spec
+> s/suppor/support/
+> 
+>> Suggested-by: Niklas Cassel <cassel@kernel.org>
+>> Suggested-by: Manivannan Sadhasivam <mani@kernel.org>
+>> Signed-off-by: Hans Zhang <18255117159@163.com>
+>> ---
+>>   drivers/pci/probe.c | 12 ++++++++++++
+>>   1 file changed, 12 insertions(+)
+>>
+>> diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+>> index 0ce98e18b5a8..2459def3af9b 100644
+>> --- a/drivers/pci/probe.c
+>> +++ b/drivers/pci/probe.c
+>> @@ -2196,6 +2196,18 @@ static void pci_configure_mps(struct pci_dev *dev)
+>>   		return;
+>>   	}
+>>   
+>> +	/*
+>> +	 * Unless MPS strategy is PCIE_BUS_TUNE_OFF (don't touch MPS at all),
+>> +	 * start off by setting Root Ports' MPS to MPSS. This only applies to
+>> +	 * Root Ports without an upstream bridge (root bridges), as other Root
+>> +	 * Ports will have downstream bridges.
+> 
+> I can't parse this sentence.  *No* Root Port has an upstream bridge.
+> So I don't know what "other Root Ports" would be or why they would
+> have downstream bridges (any Root Port is likely to have downstream
+> endpoints or bridges).
+> 
+>> +	   ... Depending on the MPS strategy
+>> +	 * and MPSS of downstream devices, the Root Port's MPS may be
+>> +	 * overridden later.
+>> +	 */
+>> +	if (!bridge && pci_pcie_type(dev) == PCI_EXP_TYPE_ROOT_PORT &&
+>> +	    pcie_bus_config != PCIE_BUS_TUNE_OFF)
+>> +		pcie_set_mps(dev, 128 << dev->pcie_mpss);
+>> +
+>>   	if (!bridge || !pci_is_pcie(bridge))
+>>   		return;
+>>   
+>> -- 
+>> 2.34.1
+>>
 
-I think it's a fair point that some people will obsesses over this, but
-I think the concern is misplaced.
-
-I know that people were very happy for the kernel FPSIMD context to
-disappear from task_struct, but 16 bytes is a fair amount smaller, and
-I'm pretty sure we can offset that with a small/moderate amount of work.
-
-AFAICT there are extant holes in task_struct that could easily account
-for 16 bytes. I can also see a few ways to rework arm64's thread_info
-and thread_struct (which are both embedded within task_struct) to save
-some space.
-
-> Is this something we could potentially keep at the start of the
-> kstack? Is there any precident for keeping state there at the moment?
-> For arm64, I know there is a general feeling that 16K for the stack
-> more than enough (but we are stuck with it because 8K isn't quite
-> enough). So it would be "for free". I guess it would be tricky to do
-> this in an arch-agnostic way though...
-
-We went out of our way to stop playing silly games like that when we
-moved thread_info into task_struct; please let's not bring that back.
-
-Mark.
 
