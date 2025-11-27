@@ -4,95 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DEADCFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 16:02:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52E1DCFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 16:03:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mY7k8e6rh86X1KFsb+QPer9lTYgSo+le4387o1pHLfg=; b=yIRMNdmAe1YkkpwsMt6Y3/VHMg
-	LStql9XxN76XJZoiuBJhT2eM2ntK/kiZjScryB/9mqxNK1J0JPLKjbDJmudNRfZXw113l6F7vgyVz
-	qykktzlWrZgiLwriWPy4UrIsGsWgdBidI9sWYYZdKYCR4qzORQ3P95U8G4JxKLJnHIDycJGjJBVVP
-	KcF0sKf0T7bCAlldF7bE1qb61CZRkZUHVW9U7W8SHxg4Zo1qpfkxLKs3mGYNOncbcMJtkIaJylBgu
-	xdTujTDqXXHpqH7cFgfK8l5eLLE1ca0Tyh+XN2dE3QXZh8LHKmohCen2QVLW3MWhWyzlFzpe4t/7g
-	Tkw2jc7Q==;
+	bh=owe7I/Y8XZS6Idd5CW00nQx+Gv8h1DU+2jb8WZ+oZIQ=; b=3+ZNqHMNVzUzhe9+2F7hCj9meI
+	E15SmrbObgLKn3PoSYcPBnLve9hlViN/6ivnD9IYE7zU/qOvNKZa7ehj5yRWum6fpEBXKocM8eaX4
+	294AdrjnE5czTz8xAMlH2dFNdkQaUXUSRpMMt6LGD+gEkQrp84PON5o31VdwqAZTjUyD4Oskp9j9O
+	3N9QX23oa9Xu/7eaiuQiopiU2T8a5M5b7xfanpjrECVuU7iu8e9OkiWgtHUyT4shVYex3FcazkxrP
+	ygeS2xjIBjrJAj3PVA3y8bu7rajKLz/rRCzcaVKXukbEWxJKTDvB7n9/w0V2i1RTr3EkatSoEEjYE
+	OTYR4GBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOeS3-0000000GtcR-36vx;
-	Thu, 27 Nov 2025 16:02:35 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1vOeSj-0000000GthO-0QI0;
+	Thu, 27 Nov 2025 16:03:17 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOeS1-0000000Gtc5-31ER
+	id 1vOeSg-0000000Gtgr-2Wt3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 16:02:34 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-297f35be2ffso15503765ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 08:02:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764259353; x=1764864153; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=mY7k8e6rh86X1KFsb+QPer9lTYgSo+le4387o1pHLfg=;
-        b=YFbmrSgw6cRWG+57MBYCgBfXIn3vK8e0u7zuiSyJcxZiYwJX5N4O2AfEoit1Z0uHwk
-         dI/5CRMlL+wDAKceZli/7vXMVI90VIAZ+fs0d37xLegbBAzJcz8L6tFnQsQcV0FIHlg+
-         Cs67VveHIcDD4KO3fWwG8wSKZYwvF2GxpQwf+eYwCPln5x7VdA1f53oUzE+oVVrb815v
-         CNQSw0TAl1RE4GNFFuAhmRkJRWGUWlkvGqPWlZUh7jTba/B08FLVpu0TygpqmEU5nOge
-         Qeb1fsZCIrvRDeqAFow/caeEA+pRGQrzox1/y2W8fVoEY1QLfo4YTTWqOAo1GoCci30b
-         THkA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764259353; x=1764864153;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mY7k8e6rh86X1KFsb+QPer9lTYgSo+le4387o1pHLfg=;
-        b=rQcYoKZn9KUzIEj4tUzSdW+DXuY5idmUMV1O+vMnR3tECcTWaeAHJhJbcQnYPH1lJm
-         M2w7BCLn4uDH2ECKo0H3ye9N7CgcF0gbmoct7NO25kDaWFPP69QD3NSmMl3pAykpGpoO
-         23hAtYih9PCS/8JsgY7J2OWdmx7Jgt0hkKO+XLUZDo9ZB7ZPz4WYwRBgndf6z5ljKdzx
-         73ZktZWaUfwHZGXLsP8ztStKQLSqANiA8HeGQtx7dXh2eE2aq9iKdBUbf371kCk3iPeX
-         0wkHHvzYgz7zzGJY1yN2p4B6MBvNnGeo5oi/pvrWSkS39iWkv0Sk7bnNWI3RS49+W8Qp
-         T7RA==
-X-Forwarded-Encrypted: i=1; AJvYcCUnqRcKXnWCoF2vQLAnNb2JfV4xuDd5XxOqUTTwi+ElRGrKbvp3SCROzAqIlI+hZtdUmZvN5gLeTNUyXcDJzyEY@lists.infradead.org
-X-Gm-Message-State: AOJu0YwcYgGXuFthIC2DLi9XTyJx3AXpGXmPrbT8/x+DCEFTdDGwKrwf
-	qFtzNyTu5+M1mWl0kPWWCQwFfj3t1eyMvH8IZ9y4+nYoFFSgldna+dx1MYfIRUoQG1U=
-X-Gm-Gg: ASbGncsf596rVp+qdYNM7dkncDa6TssQxUwf5zp8f47thXzjdqViSS+t6qjxq4bnGU9
-	zRqziuwX14x2BBbca9NBbo8aPvqcO5vHaxGR0uaPa92x/emjCJcdS0KPgRHqHKh67gOyOBkPHsf
-	UPu/rfljex9nO7r9ghMvsEVBzdDnmkTe7u+4q0BSe9dBAgYYuDHY4mUvhBkXfUVPdgowXvmQasn
-	zep5sId3NFm1dmCkfRd8LDj8h4f2RNTpsoe16/mkaIlaRpEBsCPM3ubiUs/3SjD1HIYrkMyj/SI
-	SQhiJ1Ux7BE2CWb97x8dHneCKUlBc+Jx1VN3hdKo2Xp78Ukttxx75/hYSrx5OdP7hN0kak5zfYT
-	pO5ynhAMCx8dWD8RYTtVhlVYqtQYhTzUAiiPueBYCLlk7sGADHP9fsuSlOxf2y0txR7pNq6C8sb
-	II17j6Xy+bLWswnkrrSwzaMjKh
-X-Google-Smtp-Source: AGHT+IEBS49WXHa1OQkXmOSzrd/2INN0XNe3pKmNT4J9ufCzVEdO1kJQ5meC0md/PjmvEoKECkjFdA==
-X-Received: by 2002:a17:903:292:b0:290:2a14:2ed5 with SMTP id d9443c01a7336-29b6c3dc29fmr271962935ad.4.1764259352803;
-        Thu, 27 Nov 2025 08:02:32 -0800 (PST)
-Received: from p14s ([2604:3d09:148c:c800:9ef4:efaa:23ae:f181])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29bce4703a9sm21523835ad.42.2025.11.27.08.02.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Nov 2025 08:02:32 -0800 (PST)
-Date: Thu, 27 Nov 2025 09:02:29 -0700
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Rob Herring <robh@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org
-Subject: Re: [PATCH next] remoteproc: imx_dsp_rproc: Fix NULL vs IS_ERR() bug
- in imx_dsp_rproc_add_carveout()
-Message-ID: <aSh2FVTS8jGUSInR@p14s>
-References: <aSf6OerBbPcxBUVt@stanley.mountain>
+	Thu, 27 Nov 2025 16:03:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=owe7I/Y8XZS6Idd5CW00nQx+Gv8h1DU+2jb8WZ+oZIQ=; b=DHM9AxF5Kp5fPteW+s9ySpUrNc
+	VxKWImbzedUNvBzw0Dzc3MofZMiuN3ZN9vkwDu6t2SVunnj3PcmjJdVloqjR7nvSXvrgSnFIn15aS
+	rAtEHsjFbJKvcWfE3dFE72+9XDhg7/bG1DeP5rHxxhzW/VOeTnGnP/OFT6zCiNg4hPZk=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vOeSY-00FHHL-3U; Thu, 27 Nov 2025 17:03:06 +0100
+Date: Thu, 27 Nov 2025 17:03:06 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Chris Mason <clm@meta.com>, davem@davemloft.net,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, thomas.petazzoni@bootlin.com,
+	Eric Dumazet <edumazet@google.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
+	Tariq Toukan <tariqt@nvidia.com>
+Subject: Re: [PATCH net-next v19 00/15] net: phy: Introduce PHY ports
+ representation
+Message-ID: <92076cf5-e136-4bcb-8ae7-58fdf93dcdf2@lunn.ch>
+References: <20251122124317.92346-1-maxime.chevallier@bootlin.com>
+ <20251126190035.2a4e0558@kernel.org>
+ <f753719e-2370-401d-a001-821bdd5ee838@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aSf6OerBbPcxBUVt@stanley.mountain>
+In-Reply-To: <f753719e-2370-401d-a001-821bdd5ee838@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_080233_790160_874ED7D8 
-X-CRM114-Status: GOOD (  17.40  )
+X-CRM114-CacheID: sfid-20251127_080314_645148_ADC7616E 
+X-CRM114-Status: UNSURE (   9.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,39 +94,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 27, 2025 at 10:14:01AM +0300, Dan Carpenter wrote:
-> The devm_ioremap_resource_wc() function never returns NULL, it returns
-> error pointers.  Update the error checking to match.
-> 
-> Fixes: 67a7bc7f0358 ("remoteproc: Use of_reserved_mem_region_* functions for "memory-region"")
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-> ---
->  drivers/remoteproc/imx_dsp_rproc.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
-> index be83b5f20f15..5130a35214c9 100644
-> --- a/drivers/remoteproc/imx_dsp_rproc.c
-> +++ b/drivers/remoteproc/imx_dsp_rproc.c
-> @@ -710,9 +710,9 @@ static int imx_dsp_rproc_add_carveout(struct imx_dsp_rproc *priv)
->  			return -EINVAL;
->  
->  		cpu_addr = devm_ioremap_resource_wc(dev, &res);
-> -		if (!cpu_addr) {
-> +		if (IS_ERR(cpu_addr)) {
->  			dev_err(dev, "failed to map memory %pR\n", &res);
-> -			return -ENOMEM;
-> +			return PTR_ERR(cpu_addr);
+> It's a bit tricky I guess, as the call-site in question
+> is introduced by a previous patch in the same series though.
 
-Applied.
+That is an interesting point. Does the AI retain its 'memory' when
+processing a patch series. Or does it see each patch individually?
 
-Thanks,
-Mathieu
+We encourage developers to create lots of small patches, in a patch
+series. The AI needs to be able to handle that.
 
->  		}
->  
->  		/* Register memory region */
-> -- 
-> 2.51.0
-> 
+	Andrew
 
