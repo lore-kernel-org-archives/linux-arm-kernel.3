@@ -4,93 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 246A1D11183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 12:58:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE4B8CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 12:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bjYT7JRJe3Gqrk9ZtGCdcYVgPeOXASFBXLgUHTdPheE=; b=LG6HfN9P5xcdSZ+/F6XOYrT3cD
-	mAzJnQg6qY8NSamBehLyAEMJG9CUNvp39MCGUjddlUH2pNr13OHrjfTsZZ23VxipteUFzifShaC8Q
-	mmVbrVaRFQBmMydl85NPuF45vxxIz40dWDSEkIqsBYRMxB80tnibAA0XiDZhx2GDuam0iU/25duZi
-	kZSfd/4f+kKJ2VYfSxWIy44B9DXYRDQ8VwvKX40YCffHalGYTvMGPz2xeS3HBlYSI1mdUYD6vfD57
-	93P6vBg7cbjlCi+nChbrU5uoQEbKLhOiOqzUdTmXTk9f5ytvbmpaOHbQGi1E7yh2zBjalLTVfZFsG
-	tVkUxieA==;
+	bh=rXWxOyVDhhNuII6gzr2ZqIIKMYZWzjDs2IKIrhfkpow=; b=FRiJbiA2/iY6NzMbnxFkltzHML
+	rHETOtOUHfzKIVp3/rhpno/qeVzfyZr01ZgDJMCQhVEl6ddHRF0PIpzzc8G5b1WkWaW6sD+5db49i
+	7dPN5J6mLl1iNf2xCUiPSNn7X/Mlc/6xM4HMYDT28OQlle3mInjhp05zBSiugVsEx8rJ24YEsgblX
+	etWWnvUnB6uKPbDHnkUquiDGeaZomXECBT9m+juO+SW+NF5hPvhDpVzsDkY9ZmO0qAtQw9FpkIEfl
+	+kePzxjPw2zwtAEbq5nOw7esLiOP2arVMlw8vJAaELUFzG3lDwKHKoJiOgXwd5YZeF7LjiSJh/gK6
+	4lF4jG/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vObZb-0000000GcrG-3Gby;
-	Thu, 27 Nov 2025 12:58:11 +0000
-Received: from mail-ot1-f46.google.com ([209.85.210.46])
+	id 1vObau-0000000Gd1f-0DAG;
+	Thu, 27 Nov 2025 12:59:32 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vObZY-0000000Gcqh-2Oyz
+	id 1vObas-0000000Gd1T-0dIB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 12:58:10 +0000
-Received: by mail-ot1-f46.google.com with SMTP id 46e09a7af769-7c6e9538945so1004517a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 04:58:08 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764248287; x=1764853087;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=bjYT7JRJe3Gqrk9ZtGCdcYVgPeOXASFBXLgUHTdPheE=;
-        b=XJi3c9FdRyWlTurASOfxBxa0qeLzLXodzKtT6apXN/5xDbdoRK6DaT2aet+uO1+Gwh
-         LSqd423pkqmjFqNqBxTd5gXcQf65lSs+ef4fIEJfyA0O4bySBOrZ795LiMY2WAc/cpDs
-         g+fGV6r01LLrsxN1ZvFEUY7kuL2huJyP5voL9qsgq4n/++evw3H83Ayuj+cI5yJ/nbjl
-         j85o149XHGsnVsDldJHaSw8ejOWMQD6ODWxeXB/XY1T+1XnOgHki0+waO7n+X3ez6XzY
-         L2o/VKphm9utIJDUvcGJu4jj/vvxijv0OfAzQ13RwVSJJC1ocOjddX4C+198tsxkCWwy
-         zctQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVikEgvAmgskJLjHy7Nnb4z9FNNL7phykYQBv24RHx08oX8x95TlwgCWViDqvqlGu7od4mnvlVt4kNHhrwxvc8H@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHr308qZyR11KNU0nvwTwRVl5LQ/29OZbA6e5gfWwfs6gCrQUO
-	sLz+EafOM5T6W8wXIyaydzuHzRCBfzDTYl2Bk6BL4mZ6bzVLxHVLzfEtPZ9WEBPc
-X-Gm-Gg: ASbGnctD1RROkWCry1eB+39s/xIOavX0WSSQGk3qXL0osa6Z5kNu5z+MtFXx1uTFXMh
-	USf8TRwrVUtLGzxn+HkoJpH87D/1rcEMhiM4amg8tjMnE/usVyQYjWFFZcvyk5WtH0shxwB28zS
-	uiuZ69NkqvAYI79gcr7kvfcWR8oVv8j3BFPyTEdVw3FUrmZWxPXBgnZChEk/ZpSevpjELSvQQKz
-	QwrLPBOt+5OpdjfzuFdg8e6gIqVjRDmFhuimiwHgMll+rv50flE12z12cHO3UkSpDQ1ueqWOKbX
-	S466d17f5l3Q4sKE2GVylIXUlhkd8l2TqhCtUn416WhrTfjnhQI2WsvKyE/KGgMYe+vAsd4yu1X
-	ELRUcN3RAlry9roh90i4a868JXji1qKteiFUS5xVaGzefCXWUfVhC3q32p14U91th8EYVsgTJ2n
-	AnnFTPq4h089OES+cZQZVEHj9xUZ68QbwmaFKWlEYfW6gTtPVR
-X-Google-Smtp-Source: AGHT+IG8Ju9r9MlKJJXocMV1WVPBiLOOuYw6n/iOrKlXwV9/VDMLMa13X4YBn3ouctiP8hzpusjAjg==
-X-Received: by 2002:a9d:6a95:0:b0:7c7:6b2e:2c4c with SMTP id 46e09a7af769-7c78ea79101mr9397221a34.2.1764248287149;
-        Thu, 27 Nov 2025 04:58:07 -0800 (PST)
-Received: from mail-oo1-f44.google.com (mail-oo1-f44.google.com. [209.85.161.44])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7c90f5d7b27sm511870a34.4.2025.11.27.04.58.06
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 27 Nov 2025 04:58:06 -0800 (PST)
-Received: by mail-oo1-f44.google.com with SMTP id 006d021491bc7-65752954c43so318138eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 04:58:06 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWNKuPopnW/N3BiRz1okaRmF9D/4rWdvsIdh9fUspT9SoDSLvJvIt7BNaTIafItud2OCriusavV3VKraGAdiyTe@lists.infradead.org
-X-Received: by 2002:a05:6102:4492:b0:5db:dad4:840 with SMTP id
- ada2fe7eead31-5e1c40dc2ffmr11440563137.12.1764247933503; Thu, 27 Nov 2025
- 04:52:13 -0800 (PST)
+	Thu, 27 Nov 2025 12:59:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2628F60141;
+	Thu, 27 Nov 2025 12:59:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F21B8C4CEF8;
+	Thu, 27 Nov 2025 12:59:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764248368;
+	bh=9FAZ+a3Saa3K2w/qcM5YJymiW3fVjUChcc0PgFLP3kM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=fI4FSWoNziNxUPbDB6JkgJO1Yjnf6Bti878Qij6lf/sDn7w/gHEsxCWtwUKbfzIC7
+	 1qXgeeNkfSyJhRfPo/0VWdYXYX4XMehPWqREme+oOWuyDGHPw8cDGW7ToctKEVSehA
+	 ui5RCOiknFcesTzXJ2Ca6+7A1XjGiV6XEAGWE3VL9D8J+DKMcpJ1Z6B9X3diNElvPw
+	 qwN9QiVjiXoWMzyQg5SknYsw+Gd2nxZApTimNOLjRHI5fhnt7oOZWcydR97/QNxkz7
+	 +PgzdNbs94jarrIsGJ+qTzv5SBvS+hsNRz7eC90oioecBC1ZZaQmSWaMBECtd/ovl+
+	 GIp6SjbV/s45w==
+Date: Thu, 27 Nov 2025 12:59:22 +0000
+From: Will Deacon <will@kernel.org>
+To: Zizhi Wo <wozizhi@huaweicloud.com>
+Cc: jack@suse.com, brauner@kernel.org, hch@lst.de,
+	akpm@linux-foundation.org, linux@armlinux.org.uk,
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+	wozizhi@huawei.com, yangerkun@huawei.com,
+	wangkefeng.wang@huawei.com, pangliyuan1@huawei.com,
+	xieyuanbin1@huawei.com
+Subject: Re: [Bug report] hash_name() may cross page boundary and trigger
+ sleep in RCU context
+Message-ID: <aShLKpTBr9akSuUG@willie-the-truck>
+References: <20251126090505.3057219-1-wozizhi@huaweicloud.com>
 MIME-Version: 1.0
-References: <20251126182257.157439-4-krzysztof.kozlowski@oss.qualcomm.com>
- <20251126182257.157439-6-krzysztof.kozlowski@oss.qualcomm.com>
- <CAMuHMdX7t=mabqFE5O-Cii3REMuyaePHmqX+j_mqyrn6XXzsoA@mail.gmail.com>
- <dbb94fb1-2f78-4bd2-9254-c435ab3325c0@oss.qualcomm.com> <0e90817e-1c05-4fa3-a6fd-8e755608a2c9@oss.qualcomm.com>
-In-Reply-To: <0e90817e-1c05-4fa3-a6fd-8e755608a2c9@oss.qualcomm.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 27 Nov 2025 13:52:02 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdX2qv2YBbvkM8tkSTWDPe-paMp5=fdv=4tGKheTseK9Pw@mail.gmail.com>
-X-Gm-Features: AWmQ_bkZiOzXPS0HFic3DjDBZhimEkCswEaupj15K-zH3plFs36PgNAI9kUlDvg
-Message-ID: <CAMuHMdX2qv2YBbvkM8tkSTWDPe-paMp5=fdv=4tGKheTseK9Pw@mail.gmail.com>
-Subject: Re: [PATCH 3/3] i2c: rcar: Fix Wvoid-pointer-to-enum-cast warning
-To: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: Andi Shyti <andi.shyti@kernel.org>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
-	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, linux-i2c@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, llvm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_045808_643710_2E5EDD7A 
-X-CRM114-Status: GOOD (  29.88  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251126090505.3057219-1-wozizhi@huaweicloud.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,70 +74,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Wed, Nov 26, 2025 at 05:05:05PM +0800, Zizhi Wo wrote:
+> We're running into the following issue on an ARM32 platform with the linux
+> 5.10 kernel:
+> 
+> [<c0300b78>] (__dabt_svc) from [<c0529cb8>] (link_path_walk.part.7+0x108/0x45c)
+> [<c0529cb8>] (link_path_walk.part.7) from [<c052a948>] (path_openat+0xc4/0x10ec)
+> [<c052a948>] (path_openat) from [<c052cf90>] (do_filp_open+0x9c/0x114)
+> [<c052cf90>] (do_filp_open) from [<c0511e4c>] (do_sys_openat2+0x418/0x528)
+> [<c0511e4c>] (do_sys_openat2) from [<c0513d98>] (do_sys_open+0x88/0xe4)
+> [<c0513d98>] (do_sys_open) from [<c03000c0>] (ret_fast_syscall+0x0/0x58)
+> ...
+> [<c0315e34>] (unwind_backtrace) from [<c030f2b0>] (show_stack+0x20/0x24)
+> [<c030f2b0>] (show_stack) from [<c14239f4>] (dump_stack+0xd8/0xf8)
+> [<c14239f4>] (dump_stack) from [<c038d188>] (___might_sleep+0x19c/0x1e4)
+> [<c038d188>] (___might_sleep) from [<c031b6fc>] (do_page_fault+0x2f8/0x51c)
+> [<c031b6fc>] (do_page_fault) from [<c031bb44>] (do_DataAbort+0x90/0x118)
+> [<c031bb44>] (do_DataAbort) from [<c0300b78>] (__dabt_svc+0x58/0x80)
+> ...
+> 
+> During the execution of hash_name()->load_unaligned_zeropad(), a potential
+> memory access beyond the PAGE boundary may occur. For example, when the
+> filename length is near the PAGE_SIZE boundary. This triggers a page fault,
+> which leads to a call to do_page_fault()->mmap_read_trylock(). If we can't
+> acquire the lock, we have to fall back to the mmap_read_lock() path, which
+> calls might_sleep(). This breaks RCU semantics because path lookup occurs
+> under an RCU read-side critical section. In linux-mainline, arm/arm64
+> do_page_fault() still has this problem:
+> 
+> lock_mm_and_find_vma->get_mmap_lock_carefully->mmap_read_lock_killable.
+> 
+> And before commit bfcfaa77bdf0 ("vfs: use 'unsigned long' accesses for
+> dcache name comparison and hashing"), hash_name accessed the name byte by
+> byte.
+> 
+> To prevent load_unaligned_zeropad() from accessing beyond the valid memory
+> region, we would need to intercept such cases beforehand? But doing so
+> would require replicating the internal logic of load_unaligned_zeropad(),
+> including handling endianness and constructing the correct value manually.
+> Given that load_unaligned_zeropad() is used in many places across the
+> kernel, we currently haven't found a good solution to address this cleanly.
+> 
+> What would be the recommended way to handle this situation? Would
+> appreciate any feedback and guidance from the community. Thanks!
 
-On Thu, 27 Nov 2025 at 12:48, Krzysztof Kozlowski
-<krzysztof.kozlowski@oss.qualcomm.com> wrote:
-> On 27/11/2025 12:42, Krzysztof Kozlowski wrote:
-> >>> --- a/drivers/i2c/busses/i2c-rcar.c
-> >>> +++ b/drivers/i2c/busses/i2c-rcar.c
-> >>> @@ -1141,7 +1141,7 @@ static int rcar_i2c_probe(struct platform_device *pdev)
-> >>>         if (IS_ERR(priv->io))
-> >>>                 return PTR_ERR(priv->io);
-> >>>
-> >>> -       priv->devtype = (enum rcar_i2c_type)of_device_get_match_data(dev);
-> >>> +       priv->devtype = (kernel_ulong_t)of_device_get_match_data(dev);
-> >>
-> >> Any specific reason you picked "kernel_ulong_t" instead of "unsigned long"?
-> >> The former seems to be the least common option.
-> >
-> > As I wrote in the first patch, because to my knowledge it is the
+Does it help if you bodge the translation fault handler along the lines
+of the untested diff below?
 
-I don't see that written in the first patch; it has the same patch description
-as the other patches in the series (mutatis mutandis)?
+Will
 
-> > preferred form for holding driver data which are in general pointers. We
-> > do not store pointers as unsigned long. It is also already used for the
-> > driver data types - see include/linux/mod_devicetable.h.
->
-> ... and in case it is still not obvious: I do not cast here to final
-> type, because that cast is the reason for the warning.
->
-> I cast to an intermediary type to help compiler suppressing the warning
+--->8
 
-I know...
+diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
+index bf1577216ffa..b3c81e448798 100644
+--- a/arch/arm/mm/fault.c
++++ b/arch/arm/mm/fault.c
+@@ -407,7 +407,7 @@ do_translation_fault(unsigned long addr, unsigned int fsr,
+        if (addr < TASK_SIZE)
+                return do_page_fault(addr, fsr, regs);
+ 
+-       if (user_mode(regs))
++       if (user_mode(regs) || fsr_fs(fsr) == FSR_FS_INVALID_PAGE)
+                goto bad_area;
+ 
+        index = pgd_index(addr);
+diff --git a/arch/arm/mm/fault.h b/arch/arm/mm/fault.h
+index 9ecc2097a87a..8fb26f85e361 100644
+--- a/arch/arm/mm/fault.h
++++ b/arch/arm/mm/fault.h
+@@ -12,6 +12,8 @@
+ #define FSR_FS3_0              (15)
+ #define FSR_FS5_0              (0x3f)
+ 
++#define FSR_FS_INVALID_PAGE    7
++
+ #ifdef CONFIG_ARM_LPAE
+ #define FSR_FS_AEA             17
+ 
+diff --git a/arch/arm/mm/fsr-2level.c b/arch/arm/mm/fsr-2level.c
+index f2be95197265..c7060da345df 100644
+--- a/arch/arm/mm/fsr-2level.c
++++ b/arch/arm/mm/fsr-2level.c
+@@ -11,7 +11,7 @@ static struct fsr_info fsr_info[] = {
+        { do_bad,               SIGBUS,  0,             "external abort on linefetch"      },
+        { do_translation_fault, SIGSEGV, SEGV_MAPERR,   "section translation fault"        },
+        { do_bad,               SIGBUS,  0,             "external abort on linefetch"      },
+-       { do_page_fault,        SIGSEGV, SEGV_MAPERR,   "page translation fault"           },
++       { do_translation_fault, SIGSEGV, SEGV_MAPERR,   "page translation fault"           },
+        { do_bad,               SIGBUS,  0,             "external abort on non-linefetch"  },
+        { do_bad,               SIGSEGV, SEGV_ACCERR,   "section domain fault"             },
+        { do_bad,               SIGBUS,  0,             "external abort on non-linefetch"  },
+diff --git a/arch/arm/mm/fsr-3level.c b/arch/arm/mm/fsr-3level.c
+index d0ae2963656a..19df4af828bd 100644
+--- a/arch/arm/mm/fsr-3level.c
++++ b/arch/arm/mm/fsr-3level.c
+@@ -7,7 +7,7 @@ static struct fsr_info fsr_info[] = {
+        { do_bad,               SIGBUS,  0,             "reserved translation fault"    },
+        { do_translation_fault, SIGSEGV, SEGV_MAPERR,   "level 1 translation fault"     },
+        { do_translation_fault, SIGSEGV, SEGV_MAPERR,   "level 2 translation fault"     },
+-       { do_page_fault,        SIGSEGV, SEGV_MAPERR,   "level 3 translation fault"     },
++       { do_translation_fault, SIGSEGV, SEGV_MAPERR,   "level 3 translation fault"     },
+        { do_bad,               SIGBUS,  0,             "reserved access flag fault"    },
+        { do_bad,               SIGSEGV, SEGV_ACCERR,   "level 1 access flag fault"     },
+        { do_page_fault,        SIGSEGV, SEGV_ACCERR,   "level 2 access flag fault"     },
 
-> - to integer representing the pointer. Unsigned long is not representing
-> pointers in the kernel. Integer type representing the pointer is
-
-"unsigned long" indeed does not represent a pointer, but in the Linux
-kernel, it is guaranteed to be the same size as a pointer.
-
-'"unsigned long" is superior'
-https://lore.kernel.org/CAHk-=wj2OHy-5e+srG1fy+ZU00TmZ1NFp6kFLbVLMXHe7A1d-g@mail.gmail.com
-(he doesn't seem to have said anything about kernel_ulong_t)
-
-> kernel_ulong_t, I think.
-
-include/linux/mod_devicetable.h:typedef unsigned long kernel_ulong_t;
-
-IIRC, it was introduced originally because "unsigned long" might have
-a different size in userspace.  Nowadays (for x32), uapi uses
-__kernel_ulong_t, though.
-
-> Once you have integer type representing the pointer, you do not need
-> further casts to enum.
-
-True.
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
