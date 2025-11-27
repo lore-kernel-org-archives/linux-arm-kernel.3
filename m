@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8AD0CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 14:30:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2FCFD116E2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 14:31:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TuYGBer9JF3CpxBE7lkRwytVDZxUS4o8rVZ18yi57hM=; b=pfvdoYyYH8h2haWNWqU9BbgBLE
-	18iOUUx1y3d5kOGUF6l5zxkPHFiMGABDANFaVsgn6ABCobXSbGk325QPjwbY83iyqgpHFKokfCooS
-	/wVECzPTfxQktoHUAYMeCdgaliqlfc9Ljf7Kt2TBuq9bJLfMO02wxB34KZCtsz5U/N5fEC3OccIEK
-	Wfv/goOhxyyjwvNo0DG+4PzmX9Nw//JCVXHmZWxzpgCFTLOg4B1x5IplktksEOYVwS3GAoy2oSdRE
-	UMCs9ikwGNokCl0bkFkC/bAiSD1qmd768m6f6jqvJhY6GL6qXWwt3mZbGgu5vTJfjv0kiJ1y2XJLr
-	kCLi+WYQ==;
+	bh=/EI6kgvL/X2FwMq5df3gm5aCyq4yZ+zKdpH3vVyaOUw=; b=ZQ6dl7wXQhTRcCdQt3lyRWBXXS
+	hJbUO33n4Wi6+SFp2+uCOW7LLDnZwfBpoif7Z2ufpBjyS3NYKqQyCjBSrNcBB6Pc8okhBESiCjXA/
+	5WS6DZ/W/8a0yoNC23YD4ZXxgsRsIzbt01ahQ9nvEZ4uI0JFzeTuVlNTrkEyt4vTtOK6Nv93SNGB0
+	6L15dBXqt9CsuqdnabQvhG8fGFielnw/FpEwOdMnIFqB8s1wQs4abLDxN4LFGDJUAEUDvK6FtE674
+	b243WjybAohzhPYqfeiW5Kf5P4ed7clfaLonmwI2gm7y4P3VSphs3tNTwklXZ4RqlV/gfra7RGQNZ
+	FQsZWgsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOd0Y-0000000GmXx-1Aw9;
-	Thu, 27 Nov 2025 14:30:06 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1vOd1S-0000000GmeN-4Att;
+	Thu, 27 Nov 2025 14:31:03 +0000
+Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOd0V-0000000GmXH-11m0;
-	Thu, 27 Nov 2025 14:30:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1764253803; x=1795789803;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=wV3E8BYGDfNKefQX/rsj0hZUZjUWd8J11Hu9YUDDBXM=;
-  b=RaBbs55bbMKY0QLUducebivkE8m4iKkQuZhwcw6xwxO7LqFJBanVS+x2
-   xi23WRKT0H0WyI/3PRlLbxZ8R4j9da3qZK4zfzDNKWKVDp/yZ6P1P28Qf
-   0yBzkO0LzxPj+QnEfyQL0DIU12dxo/rBTi1HuIe+sH8BpBh32ZCcE7AK9
-   oVKvctngCaEvEcBTGtBxnwFeuqITEamqW6MKiKJOEV1ZpqcmkqJwQ8Bju
-   yb/OKQvuMRE3k1ZFBe6QlYq0wk/ELszEhJriIaPNPquG26m07U7r7U8iI
-   alKeGYiTSkeVLz8VQazHmXHJmNLcTkzfhhWheb3/jOvE980EFo8a/aXwn
-   Q==;
-X-CSE-ConnectionGUID: a4GkvJYSSpCkZBmdrauPzw==
-X-CSE-MsgGUID: H0cUCTwVR4eVQnAcIXngVQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11625"; a="77662593"
-X-IronPort-AV: E=Sophos;i="6.20,231,1758610800"; 
-   d="scan'208";a="77662593"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2025 06:30:01 -0800
-X-CSE-ConnectionGUID: A4KmkT6hSRCb9jEmqznsow==
-X-CSE-MsgGUID: K4CHSgcNSc+gBla+AVuQ4w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,231,1758610800"; 
-   d="scan'208";a="198188135"
-Received: from abityuts-desk.ger.corp.intel.com (HELO localhost) ([10.245.245.225])
-  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Nov 2025 06:29:56 -0800
-Date: Thu, 27 Nov 2025 16:29:54 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Linus Walleij <linusw@kernel.org>, Lei Xue <lei.xue@mediatek.com>,
-	Hanjun Guo <guohanjun@huawei.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Sean Wang <sean.wang@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	yong.mao@mediatek.com, qingliang.li@mediatek.com,
-	Fred-WY.Chen@mediatek.com, ot_cathy.xu@mediatek.com,
-	ot_shunxi.zhang@mediatek.com, ot_yaoy.wang@mediatek.com,
-	ot_ye.wang@mediatek.com, linux-acpi@vger.kernel.org,
-	robh@kernel.org
-Subject: Re: [PATCH 2/3] pinctrl: mediatek: Add acpi support
-Message-ID: <aShgYukPRfDkq_Z0@smile.fi.intel.com>
-References: <20251125023639.2416546-1-lei.xue@mediatek.com>
- <20251125023639.2416546-3-lei.xue@mediatek.com>
- <CAD++jL=h4ZEgrjgGOfgFyAXBM7EL91ZD-La82UQ7GPOXv8h9WQ@mail.gmail.com>
- <aScwaxBG53dnZ4a4@lpieralisi>
- <aSdBu-B9mwU2-1_S@smile.fi.intel.com>
- <aSgipbe75hrwhTD7@lpieralisi>
+	id 1vOd1Q-0000000GmdZ-26nJ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Nov 2025 14:31:01 +0000
+Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-8a3eac7ca30so55798485a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 06:30:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1764253859; x=1764858659; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=/EI6kgvL/X2FwMq5df3gm5aCyq4yZ+zKdpH3vVyaOUw=;
+        b=bnp1DBWkowdPtZgJKw87Oeq4SEWST/XVLNoEV2EKNGOx/nXXwdmP8qV/LNS0ANphPU
+         Scsxy6l/PoLdlASBok9laGbWA/qVmn53Rl6IM48w7tAI6rEtgThgc2eojrLLfbSKugBC
+         XE+kWXXMWXyxlgQkN3FKOJRv9ZwHVzNcf+2mh7a+yq3Hr6BejBaoukF0TEJaR1JgYkWY
+         WQqIbsecOagL2cM2LQ7PdKFomBbn3FXYP7Cdz+5SNQY4QPkT6EoA1HRJVJtDRAAhKDs0
+         6ssZb2NFuXCdzUyUvyDVSQsJnLS8rygZAh97z1xMYLnKMtRIkhiHKDQciK4ik7naAMD/
+         IKHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764253859; x=1764858659;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/EI6kgvL/X2FwMq5df3gm5aCyq4yZ+zKdpH3vVyaOUw=;
+        b=pHh6Pb4aZF8prB9DoOSLfBnw0Hjv6zJN5nMYV/dAr0OMxIoRYIuZE+o4nKlh7r+Td6
+         HllIuoDWKz9/Qqfe34No1xonMrFo94VpXr+IGWXH573FYnDmqiXT7kQphAaDVQKn9avh
+         QWSww7xIDNhpVHFwLHgkXZoDLGigcyn64cqPJoKjvF8mILHW/iRtiHkR2LjlzXLgu8eL
+         m4bzOaev4C5w7if6OPgJlzDrCun4V2gNIin34PSV9MCytQ7QFRbHW5Cya1ATgTKkYipo
+         ECF+rFHIDtdjb2cJGeqF7t58clYfPUB7LUvINaiGzTSZYx8u0SPQQnRNMqfsYcZFBluc
+         WJ/g==
+X-Forwarded-Encrypted: i=1; AJvYcCXMgU0atDV5yL8zWIng3CF2MrqhDpGv05lmKZ0OOz2aWQEDJB+a2zf2RAKMhKz+fw4SUVK2mcbIIhkaPfKUs0TS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1CV/j84nKtT7yy0WLneHuyueOkmYk5vZgduL5/jwsL5lNJZ0x
+	0C0VwyeNZifXG7fYm85G8iB0ShoSH0WraZJN2Gwi3czh40PSXgQ019sMEcvddeA95e+LhhybELF
+	BEbsG0YnI9BbVQfoya2hlwqJN4Cz48K8ZScUnq8R8jw==
+X-Gm-Gg: ASbGncuCMhcJmhLM8EVkBjRSwc3tKhsmAP2n/IINaci+Ek3JfpV9MO0GYlhqRiOV9cn
+	RATsrDbujP8zuU+7LKR01JDKyR5YJIk2owJ3p5CdErUa9z1UjUybfKl13G1OQuk4/uFEPKsKR8G
+	5wLQ764Ua6SeBlb1cHzBy1JIY5H79i68Qg7VoBYNw7PafIt/dMyVCNoeSMgsq8PzFo7ArSEYhGF
+	pReady1PBmC0VAC+vM+WLkhZ9L23/8LjH1oE+ndvJVsZf2RGZHX+KsjBO8YX3yPBxaWxIsEnknn
+	tOHnMNXUHQgHxHUSEN28aeTbBGIS
+X-Google-Smtp-Source: AGHT+IGIzNSYZO57m/mmGew+huIHcPsfN7SZ4IBsxq1B3WQsEAznzwipVs8lG/T55jia4L93ypHORv8wCyjNc3IxwYk=
+X-Received: by 2002:a05:620a:1990:b0:892:ce2b:f869 with SMTP id
+ af79cd13be357-8b4ebc446acmr1322259185a.13.1764253858444; Thu, 27 Nov 2025
+ 06:30:58 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aSgipbe75hrwhTD7@lpieralisi>
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6
- krs, Bertel Jungin Aukio 5, 02600 Espoo
+References: <20251121002350.1166758-1-visitorckw@gmail.com>
+ <172ca2d9-4a6f-4498-bdfd-8aa7428581ce@linaro.org> <aSCbJR9aT1vOpz0a@google.com>
+ <05babb6d-a588-49f8-a34a-c82d5f58adf5@linaro.org> <CAJ9a7VipxW5-2roAQA3y212sQWr1kq2HNbLK1jmLNP1jFseYiQ@mail.gmail.com>
+ <68efd5a2-3b65-4f37-9bf0-40c4e5ade480@linaro.org> <aSgPhd4u3Oqi3Ymy@google.com>
+ <20251127092231.GN724103@e132581.arm.com> <bed84247-c3c0-47b8-a491-9af9e51ca5a7@linaro.org>
+In-Reply-To: <bed84247-c3c0-47b8-a491-9af9e51ca5a7@linaro.org>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Thu, 27 Nov 2025 14:30:47 +0000
+X-Gm-Features: AWmQ_bmj8SwFDT4tQzIHgvsq0QFS8SCHH7hwYZpzFI5n1ApZVD_w2HPWV8O6aNA
+Message-ID: <CAJ9a7VgTZqQHUAPPhyuECT+54MRUH-OLs1XdBS=-Jx5oVfoZQw@mail.gmail.com>
+Subject: Re: [PATCH] coresight: etm3x: Fix buffer overwrite in cntr_val_show()
+To: James Clark <james.clark@linaro.org>
+Cc: Leo Yan <leo.yan@arm.com>, Kuan-Wei Chiu <visitorckw@gmail.com>, suzuki.poulose@arm.com, 
+	alexander.shishkin@linux.intel.com, pratikp@codeaurora.org, 
+	mathieu.poirier@linaro.org, gregkh@linuxfoundation.org, 
+	jserv@ccns.ncku.edu.tw, marscheng@google.com, ericchancf@google.com, 
+	milesjiang@google.com, nickpan@google.com, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_063003_327157_5B8D89CF 
-X-CRM114-Status: GOOD (  33.00  )
+X-CRM114-CacheID: sfid-20251127_063100_571249_53CCF60F 
+X-CRM114-Status: GOOD (  36.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,95 +102,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 27, 2025 at 11:06:29AM +0100, Lorenzo Pieralisi wrote:
-> On Wed, Nov 26, 2025 at 08:06:51PM +0200, Andy Shevchenko wrote:
+Slight simplification...
 
-[...]
+On Thu, 27 Nov 2025 at 09:30, James Clark <james.clark@linaro.org> wrote:
+>
+>
+>
+> On 27/11/2025 9:22 am, Leo Yan wrote:
+> > On Thu, Nov 27, 2025 at 04:44:53PM +0800, Kuan-Wei Chiu wrote:
+> >
+> > [...]
+> >
+> >> I don't feel it is my place to say whether the etm3x driver should be
+> >> removed entirely.
+> >
+> > Sorry for confusion.  Your fix patch is welcome, this is useful no
+> > matter if remove the ETMv3 driver or not.
+> >
+> >> However, if we decide to keep it, I agree that aligning cntr_val_show
+> >> with the cntr_val_store behavior (using cntr_idx) makes more sense.
+> >>
+> >> Here is my plan for v2:
+> >>
+> >> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+> >> index 762109307b86..77578885e8f3 100644
+> >> --- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+> >> +++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+> >> @@ -717,26 +717,19 @@ static DEVICE_ATTR_RW(cntr_rld_event);
+> >>   static ssize_t cntr_val_show(struct device *dev,
+> >>                           struct device_attribute *attr, char *buf)
+> >>   {
+> >> -    int i, ret = 0;
+> >>      u32 val;
+> >>      struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> >>      struct etm_config *config = &drvdata->config;
+> >>
+> >>      if (!coresight_get_mode(drvdata->csdev)) {
+> >>              spin_lock(&drvdata->spinlock);
+> >> -            for (i = 0; i < drvdata->nr_cntr; i++)
+> >> -                    ret += sprintf(buf, "counter %d: %x\n",
+> >> -                                   i, config->cntr_val[i]);
+> >> +            val = config->cntr_val[config->cntr_idx];
+> >>              spin_unlock(&drvdata->spinlock);
+> >> -            return ret;
+> >> -    }
+> >> -
+> >> -    for (i = 0; i < drvdata->nr_cntr; i++) {
+> >> -            val = etm_readl(drvdata, ETMCNTVRn(i));
+> >> -            ret += sprintf(buf, "counter %d: %x\n", i, val);
+> >> +            return sprintf(buf, "%x\n", val);
+remove this return...
+> >>      }
+> >>
+> >> -    return ret;
 
-> > > I also assume/hope that we don't want to add a "reg-names" _DSD property either
-> > > in ACPI to deal with this seamlessly in DT/ACPI (that was done for
-> > > "interrupt-names"):
-> > > 
-> > > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/firmware-guide/acpi/enumeration.rst?h=v6.18-rc7#n188
-> > 
-> > Hmm... Why not?
-> 
-> What's the policy there ?
+else here to set val.
 
-> Half of the ACPI bindings for an interrupt
-> descriptor are defined in the ACPI specs (ie _CRS) and the other half
-> (ie "interrupt-names") is documented in the Linux kernel (or are we
-> documenting this elsewhere ?) ?
+> >> +    val = etm_readl(drvdata, ETMCNTVRn(config->cntr_idx));
+> >
+> > It is not right to read register at here (it cannot promise to read the
+> > CPU (cp14) register on the target CPU).
+> >
+> > Please refer to the same function in coresight-etm4x-sysfs.c. I think
+> > we can do the same thing at here.
+> >
+>
+> That's a different fix than the display bug though. This change doesn't
+> change that if it's already wrong. The display fix should go in alone
+> and then if there is an issue with not running things on the right CPU
+> that should go in separately.
+>
+> >> +    return sprintf(buf, "%x\n", val);
 
-Yeah, nobody pursued ACPI specification updates / addendum to make it fully
-official. _De facto_ we have established practice for GPIOs enumeration
-(as most used resources in the OSes), Linux official for PWM, I²C muxes,
-multi-functional HW (such as Diolan DLN-2, LJCA), Microsoft defined for
-so called "USB hardwired" devices, Linux defined for LEDs and GPIO keys,
-sensor mount matrix as per "most used" cases + DT analogue works just
-because we have agnostic APIs in IIO to retrieve that. There are maybe
-more, but don't remember
+just this return point - but emit_sysfs is now the standard way to do
+this, since we are making a change.
 
-So, I think the practical "policies" are that:
-- if it's defined in ACPI spec, we use the spec
-- if there is Microsoft addendum, we rely on what Windows does
-- WMI, EFI, and other "windoze"-like vendor defined cases
-- if it makes sense, we establish practice from Linux perspective
-- the rest, every vendor does what it does
+Mike
 
-That said, for the first two we expect OEMs to follow, for the third one
-depends, but there are established WMI calls and other more or less "standard"
-interfaces, so like the first two.
+> >>   }
+> >>
+> >>   static ssize_t cntr_val_store(struct device *dev,
+> >>
+> >>
+> >> Given the upcoming merge window, I plan to submit this v2 after -rc1
+> >> is released.
+> >>
+> >> Alternatively, if the consensus is to drop the driver, I am happy to
+> >> submit a patch for that instead.
+> >
+> > Please continue this patch.  Thanks a lot!
+> >
+> > Leo
+>
 
-For the fourth one (Linux) we do, but living in the expectation that some or
-more vendors fall to the fifth category and we might need to support that if
-we want their HW work in Linux.
-
-> Or we are saying that "interrupt-names" properties are added by kernel
-> code _only_ (through software nodes, to make parsing seamless between DT
-> and ACPI) based on hardcoded name values in drivers ?
-
-No, the idea behind software nodes is to "fix" the FW nodes in case the FW
-description can not be modified (and that might well happen to even DT in some
-cases AFAIH). So, if some driver hard codes "interrupt-names" we expect that
-new versions of the FW that support the HW that needs the property will be
-amended accordingly.
-
-"interrupt-names" has been established for ACPI to support a separate SMB alert
-interrupt. However, I haven't heard any development of that IRL (for real
-devices in ACPI environment).
-
-> I don't think I can grok any example of the latter in the mainline.
-> 
-> I am asking because I'd need to add something similar shortly to make parsing
-> of platform devices created out of ACPI static tables easier (I guess we
-> can postpone discussion till I post the code but I thought I'd ask).
-
-Oh, I can go ahead and tell you, try to avoid that. Why?! Whatever,
-indeed, please Cc me to that, I will be glad to study the case and
-try to be helpful.
-
-(Have you considered DT overlays instead? There is a big pending support for
- that for _ACPI_ platforms.)
-
-> Are we going to do the same for "reg-names" ?
-
-If it makes sense and we expect some vendor to follow that _in ACPI_,
-why not?
-
-> Most importantly, what is DT maintainers stance on the matter ?
-
-AFAIK They don't care as long as there is a schema provided, accepted and
-used in DT, if it's ACPI-only thing, then it most likely should be done
-in ACPI-like way (see above the first two / three items: spec, MS, WMI/EFI).
-
-> > > I am sorry I have got more questions than answers here - it would be good
-> > > to understand where the line is drawn when it comes to OF/ACPI and fwnode
-> > > heuristics compatibility.
 
 -- 
-With Best Regards,
-Andy Shevchenko
-
-
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
