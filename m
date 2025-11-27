@@ -4,61 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73569CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 04:33:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17AE4CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 04:33:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CPMwb3T+SE4qsqbo/CfyQHn/8u+JJB3BBnhM5wlyZok=; b=P53DOA5HA7wkYHg7BBBogD5Qm8
-	vabnF6mVYTH2aY3ye1VqYe9ZMfam7nN4rGnW6QF5GBu5S/g4vWnUtGjEX/Ti1F7Sr/Un09/pQ4piy
-	2Hzo6GiOYhWh5Xem5N2unNdBn9ZXo17gk9WBdlRznhTQhfW29Di+sb1jIFV92hsCqDlqEBP+YZ7zf
-	76kFiU3/KxCn94p/2wBBVwQ7FdTS2ij4C8T3vSHkrrBziRBvGO/HOls+5HB7bWvm8z+tr2s2iYT2j
-	cuUYZifHRG/5Q5g8z1On6qbJlgA/40AWgRSW63d5GykwlT1uMwFV3hrlYGJvfelgTOheFKoG08Rzb
-	aJez71TQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UMw8o6N4S0/AWNf4E19oUPYvGlQAxW4zrjT3weeGMoo=; b=XsOpH0RAl6wD2TlL8qfE78ECrm
+	9mWDwhEQSe2WxB+lu4IKZVRwMHhL8mu8l2HzoBr4+ZFMPFXRKnfHPkvyQVqZ6axG5uhgk67MlxKpG
+	mRCPEad/tTryGBvl3gRXgCDqal12YKHLqM+NqpfvG/BOCa916XUe1hsRY67TqK7Vf7WvwWCofyCzL
+	w3lArrcjRaWrqF5BIEsyALNayeofF2W8GsyKJs3126NtNR6zZ4LPXcG9KXRwXsymJg4NRJCSc3Kgn
+	+U5PUal6sQxASic1NJYtTFuUqBvYGe9ITyMAFNqWGUpwKJteJm5oJe0bnWqaMseQe56JdHwxv+K5p
+	Zaf4VoAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOTgg-0000000Fy9I-3Rmf;
-	Thu, 27 Nov 2025 04:32:58 +0000
-Received: from mail-m49221.qiye.163.com ([45.254.49.221])
+	id 1vOThR-0000000FyFE-0uZA;
+	Thu, 27 Nov 2025 04:33:45 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOTgc-0000000Fy8B-2Z8Y;
-	Thu, 27 Nov 2025 04:32:56 +0000
-Received: from [192.168.61.151] (unknown [110.83.51.2])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2b1179e84;
-	Thu, 27 Nov 2025 12:32:45 +0800 (GMT+08:00)
-Message-ID: <075100c0-b4af-4077-bd3c-dd9407524671@rock-chips.com>
-Date: Thu, 27 Nov 2025 12:32:44 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, iommu@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Simon Xue <xxm@rock-chips.com>,
- kernel@pengutronix.de
-Subject: Re: [PATCH] iommu/rockchip: disable fetch dte time limit
-To: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>,
- Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>, Heiko Stuebner <heiko@sntech.de>
-References: <20251126-spu-iommudtefix-v1-1-f90003dbfcc4@pengutronix.de>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20251126-spu-iommudtefix-v1-1-f90003dbfcc4@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9ac395cbcb09cckunm7f6f53a15f3a0c
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDSE9CVkIYQhpNTkkfSUtDHlYVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKSktVQ0hVTkpVSVlXWRYaDxIVHRRZQVlPS0hVSktJT09PSFVKS0tVSk
-	JLS1kG
-DKIM-Signature: a=rsa-sha256;
-	b=eQP9SGLqV2ppZ/YwPz3e2r8dHL9TDguKTD8HJIs+TWpIAeYRQE4xRVZf8ErbAJ+F/vUCPNZ2DzNq5pG/r11S0Se3XvEI7had5VkA3lz9lbuGkNG1AQqx4C0MFBna63eggrBNyRALz4GyVMUTK+kRjQCNm+TQNuRwjl48SDNwMAI=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=CPMwb3T+SE4qsqbo/CfyQHn/8u+JJB3BBnhM5wlyZok=;
-	h=date:mime-version:subject:message-id:from;
+	id 1vOThP-0000000FyEs-02GT
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Nov 2025 04:33:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1764218023; x=1795754023;
+  h=date:from:to:cc:subject:message-id;
+  bh=3xmZ22Lfx9JJFL7Z+CNGCU/YJxlR8Bg1mDl+eLWGjaY=;
+  b=CU41CE29JmL9uHA+PHz8OWVl6d0BEWrHyz2zUvX27kXW7QVlDPcmpLoW
+   fIAl4I89yTFzaJOebAU8HPMG+eOZFlYEwFZH3ObWYZ4oGqESSZ4fV+wdD
+   z+2jY7P7J0wgU6YT6BisuQvO0wIYFOEQWMthBOgO+rLuoxyIZ1n8lzrHc
+   2gpxg4v8mkq6AG6l8gnOenGxTETcAXCQ/qdrSZnEEZgcjz+rQIfY/dm+q
+   Kf+VqDAKw0pAbkqqH6VzO451EnQTjCwIJ6T1YiSqbIn5EMO+KXs6V+nx2
+   VSnN9vC57K7xux3IYJartlBEuHIOXcHEbKY3Kt+mBWh9/wXQtqzFUamjx
+   g==;
+X-CSE-ConnectionGUID: VEm7WNxiTDGxhVfgMi+usA==
+X-CSE-MsgGUID: ZKgfmEbXSR6W9w50ZTj4Bw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11625"; a="66146615"
+X-IronPort-AV: E=Sophos;i="6.20,230,1758610800"; 
+   d="scan'208";a="66146615"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2025 20:33:43 -0800
+X-CSE-ConnectionGUID: cgw5ec3CRWqd/RcAnAwoAw==
+X-CSE-MsgGUID: /8NYE3nDTIC7MysPTByC8g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,230,1758610800"; 
+   d="scan'208";a="193228580"
+Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
+  by orviesa008.jf.intel.com with ESMTP; 26 Nov 2025 20:33:42 -0800
+Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vOThK-000000003fp-3cLf;
+	Thu, 27 Nov 2025 04:33:38 +0000
+Date: Thu, 27 Nov 2025 12:33:00 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jens Wiklander <jens.wiklander@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:tee/qcomtee-fixes] BUILD SUCCESS
+ e19d7f7e92e061707252eab2b71d2c3be09b2e96
+Message-ID: <202511271255.2fHX2Vnj-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_203255_256879_940EA520 
-X-CRM114-Status: GOOD (  29.04  )
+X-CRM114-CacheID: sfid-20251126_203343_083048_0AAD33EA 
+X-CRM114-Status: UNSURE (   5.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,113 +83,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2025/11/26 星期三 19:45, Sven Püschel 写道:
-> From: Simon Xue <xxm@rock-chips.com>
-> 
-> Disable the Bit 31 of the AUTO_GATING iommu register, as it causes
-> hangups with the RGA3 (Raster Graphics Acceleration 3) peripheral.
-> The RGA3 register description of the TRM already states that the bit
-> must be set to 1. The vendor kernel sets the bit unconditionally to
-> 1 to fix VOP (Video Output Processor) screen black issues. This patch
-> squashes the 2 vendor kernel commits with the following commit messages:
-> 
-> Master fetch data and cpu update page table may work in parallel, may
-> have the following procedure:
-> 
-> 	master                  cpu
-> 	fetch dte               update page tabl
-> 	        |                       |
-> 	(make dte invalid)  <-  zap iotlb entry
-> 	        |                       |
-> 	fetch dte again
-> 	(make dte invalid)  <-  zap iotlb entry
-> 	        |                       |
-> 	fetch dte again
-> 	(make dte invalid)  <-  zap iotlb entry
-> 	        |                       |
-> 	fetch dte again
-> 	(make iommu block)  <-  zap iotlb entry
-> 
-> New iommu version has the above bug, if fetch dte consecutively four
-> times, then it will be blocked. Fortunately, we can set bit 31 of
-> register MMU_AUTO_GATING to 1 to make it work as old version which does
-> not have this issue.
-> 
-> This issue only appears on RV1126 so far, so make a workaround dedicated
-> to "rockchip,rv1126" machine type.
-> 
-> iommu/rockchip: fix vop blocked and screen black on RK356X and RK3588
-> 
-> RK3568 and RK3588 has the same issue as RV1126/RV1109 that caused by
-> dte fetch time limit, So we can set BIT(31) of register 0x24 default
-> to 1 as a workaround.
-> 
-> Signed-off-by: Simon Xue <xxm@rock-chips.com>
-> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
-> ---
-> During testing of a newly developed driver for the RGA3 peripheral [1]
-> (Raster Graphic Acceleration 3) of the RK3588 some sporadic hangs
-> have been observed. The upstream rockchip-iommu driver is used to handle
-> the RGA3 IOMMU register space.
-> 
-> After a closer look at the TRM for the RK3588, the RGA3 iommu register
-> description of the RGA3_MMU_AUTO_GATING register (offset 0x24) mentions
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tee/qcomtee-fixes
+branch HEAD: e19d7f7e92e061707252eab2b71d2c3be09b2e96  tee: qcomtee: initialize result before use in release worker
 
-It's 0xF24 per RGA3 chapter.
+elapsed time: 7644m
 
-> a mmu_bug_fixed_disable bit, which must be set to 1 but defaults to 0.
-> 
-> Looking at the commits in the vendor kernel, the bit is unconditionally
-> set to 1 and mentions that it fixes a blocked VOP (Video Output
-> Processor) [3]. Therefore squash the relevant vendor commits
-> [2] and [3] into a single patch, combine the commit messages and keep
-> the Signed-off-by line from the original author.
-> 
-> [1] https://lore.kernel.org/all/20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de/
-> [2] https://github.com/rockchip-linux/kernel/commit/7f8158fb41b5cc8e738aaeebc3637c50ebd74cae
-> [3] https://github.com/rockchip-linux/kernel/commit/6a355e5f9a2069a2309e240791bc3aad63b7324e
-> ---
->   drivers/iommu/rockchip-iommu.c | 8 ++++++++
->   1 file changed, 8 insertions(+)
-> 
-> diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
-> index 0861dd469bd86..2d0dabb0d101a 100644
-> --- a/drivers/iommu/rockchip-iommu.c
-> +++ b/drivers/iommu/rockchip-iommu.c
-> @@ -76,6 +76,8 @@
->   #define SPAGE_ORDER 12
->   #define SPAGE_SIZE (1 << SPAGE_ORDER)
->   
-> +#define DISABLE_FETCH_DTE_TIME_LIMIT BIT(31)
-> +
->    /*
->     * Support mapping any size that fits in one page table:
->     *   4 KiB to 4 MiB
-> @@ -930,6 +932,7 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
->   	struct iommu_domain *domain = iommu->domain;
->   	struct rk_iommu_domain *rk_domain = to_rk_domain(domain);
->   	int ret, i;
-> +	u32 auto_gate;
->   
->   	ret = clk_bulk_enable(iommu->num_clocks, iommu->clocks);
->   	if (ret)
-> @@ -948,6 +951,11 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
->   			       rk_ops->mk_dtentries(rk_domain->dt_dma));
->   		rk_iommu_base_command(iommu->bases[i], RK_MMU_CMD_ZAP_CACHE);
->   		rk_iommu_write(iommu->bases[i], RK_MMU_INT_MASK, RK_MMU_IRQ_MASK);
-> +
-> +		/* Workaround for iommu blocked, BIT(31) default to 1 */
-> +		auto_gate = rk_iommu_read(iommu->bases[i], RK_MMU_AUTO_GATING);
-> +		auto_gate |= DISABLE_FETCH_DTE_TIME_LIMIT;
-> +		rk_iommu_write(iommu->bases[i], RK_MMU_AUTO_GATING, auto_gate);
->   	}
->   
->   	ret = rk_iommu_enable_paging(iommu);
-> 
-> ---
-> base-commit: 30f09200cc4aefbd8385b01e41bde2e4565a6f0e
-> change-id: 20251126-spu-iommudtefix-cd0c5244c74a
-> 
-> Best regards,
+configs tested: 87
+configs skipped: 1
 
+The following configs have been built successfully.
+More configs may be tested in the coming days.
+
+tested configs:
+alpha                             allnoconfig    gcc-15.1.0
+alpha                            allyesconfig    gcc-15.1.0
+arc                              allmodconfig    gcc-15.1.0
+arc                               allnoconfig    gcc-15.1.0
+arc                              allyesconfig    gcc-15.1.0
+arc                   randconfig-001-20251122    gcc-14.3.0
+arc                   randconfig-002-20251122    gcc-9.5.0
+arm                               allnoconfig    clang-22
+arm                              allyesconfig    clang-16
+arm                              allyesconfig    gcc-15.1.0
+arm                   randconfig-001-20251122    clang-22
+arm                   randconfig-002-20251122    clang-22
+arm                   randconfig-003-20251122    clang-22
+arm                   randconfig-004-20251122    gcc-12.5.0
+arm64                            allmodconfig    clang-16
+arm64                            allmodconfig    clang-19
+arm64                             allnoconfig    gcc-15.1.0
+csky                             allmodconfig    gcc-15.1.0
+csky                              allnoconfig    gcc-15.1.0
+hexagon                          allmodconfig    clang-17
+hexagon                           allnoconfig    clang-22
+hexagon               randconfig-001-20251122    clang-22
+hexagon               randconfig-002-20251122    clang-17
+i386                              allnoconfig    gcc-14
+i386        buildonly-randconfig-001-20251127    clang-20
+i386        buildonly-randconfig-002-20251127    clang-20
+i386        buildonly-randconfig-003-20251127    clang-20
+i386        buildonly-randconfig-004-20251127    clang-20
+i386        buildonly-randconfig-005-20251127    clang-20
+i386        buildonly-randconfig-006-20251127    clang-20
+i386                  randconfig-011-20251127    clang-20
+i386                  randconfig-012-20251127    clang-20
+i386                  randconfig-013-20251127    clang-20
+i386                  randconfig-014-20251127    clang-20
+i386                  randconfig-015-20251127    clang-20
+i386                  randconfig-016-20251127    clang-20
+i386                  randconfig-017-20251127    clang-20
+loongarch                         allnoconfig    clang-22
+loongarch             randconfig-001-20251122    gcc-12.5.0
+loongarch             randconfig-002-20251122    gcc-14.3.0
+m68k                             allmodconfig    gcc-15.1.0
+m68k                              allnoconfig    gcc-15.1.0
+microblaze                        allnoconfig    gcc-15.1.0
+microblaze                       allyesconfig    gcc-15.1.0
+mips                             allmodconfig    gcc-15.1.0
+mips                              allnoconfig    gcc-15.1.0
+mips                             allyesconfig    gcc-15.1.0
+nios2                            allmodconfig    gcc-11.5.0
+nios2                             allnoconfig    gcc-11.5.0
+nios2                 randconfig-001-20251122    gcc-11.5.0
+nios2                 randconfig-002-20251122    gcc-8.5.0
+openrisc                         allmodconfig    gcc-15.1.0
+openrisc                          allnoconfig    gcc-15.1.0
+openrisc                            defconfig    gcc-15.1.0
+parisc                           allmodconfig    gcc-15.1.0
+parisc                            allnoconfig    gcc-15.1.0
+parisc                           allyesconfig    gcc-15.1.0
+parisc                              defconfig    gcc-15.1.0
+powerpc                          allmodconfig    gcc-15.1.0
+powerpc                           allnoconfig    gcc-15.1.0
+riscv                            allmodconfig    clang-16
+riscv                            allmodconfig    clang-22
+riscv                             allnoconfig    gcc-15.1.0
+riscv                            allyesconfig    clang-16
+riscv                               defconfig    gcc-15.1.0
+s390                             allmodconfig    clang-18
+s390                              allnoconfig    clang-22
+s390                             allyesconfig    gcc-15.1.0
+s390                                defconfig    gcc-15.1.0
+sh                               allmodconfig    gcc-15.1.0
+sh                                allnoconfig    gcc-15.1.0
+sh                               allyesconfig    gcc-15.1.0
+sparc                             allnoconfig    gcc-15.1.0
+sparc                               defconfig    gcc-15.1.0
+sparc64                          allmodconfig    clang-22
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-22
+um                               allyesconfig    gcc-14
+x86_64                            allnoconfig    clang-20
+x86_64                randconfig-001-20251127    gcc-14
+x86_64                randconfig-002-20251127    gcc-14
+x86_64                randconfig-003-20251127    gcc-14
+x86_64                randconfig-004-20251127    gcc-14
+x86_64                randconfig-005-20251127    gcc-14
+x86_64                randconfig-006-20251127    gcc-14
+xtensa                            allnoconfig    gcc-15.1.0
+xtensa                           allyesconfig    gcc-15.1.0
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
