@@ -4,85 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B66DAD11183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 13:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E7CED11183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 14:01:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gnxISG+deFt7GHt3BFpEdGiXVoglGnvqHxBF0MY3fn4=; b=vZRcCiHVQzpbbGl+wcVIZvKf/K
-	C/ExpkTFhc3uIr0yGZjUZQypjmSCuOA85U80FsKrbiXWXCoTFX3EbIYQLTZboLwH6+naS46FAW2uE
-	3q34kCLqmrP2feIEAWUcwZxXbzMzAuR4Ko9dD9pyHjbBPAYYAVtqMu8tKRlULV2+Ky5Fwl6a9tRHH
-	h39lVjiqQMMFCM1IjowZVEqiQXTFTIeFNM+dcXbVj8OYGrNvVvWzRIjsew6qzWlQmAnKOcqvcVxsC
-	WdjlSynAK/ZIawswhc33oRyk9vhy/4m7IZ0fnm2kF0PGU7gUo9YteZKoLyhFsbiVBdvUQvLwLD7St
-	UgOcwAeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5Dqh1/ZwDt2FOZnFxUGnYOMEzfM7bVg75Vg41Zs839w=; b=T207znLFVoRcsqx/JjXq2TFGvQ
+	d4GXIwJge/y4trnom92pD8U86U9bRiNFtUy3ULfMc4Y06Ki4UQl1OPQQS6w/LI2eh11vBfxbtIpiz
+	usyTu2V+R3OckyNaJ5FTZru8Wjt7t0Vbaq96apEEFijrNzHH1NyLH6Kp7w6HW7W/qYPBrqfQDbMXL
+	DsSbmoGnlEeXLhpfTHL1e3b7k6+j0i3/eD4zvQNiDn6eOg66bJELGYcj6yXekFKStF0eu33t0h1t8
+	6tZ2xf9k0OtmChmWB2TMv6qrJj0zvwcfgxVY5XZizr5T6JLYCY2GsfCxJSMGIPUyRrT7PqG93qp7S
+	il7QPROA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOcWV-0000000Giol-43OO;
-	Thu, 27 Nov 2025 13:59:03 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1vOcZ7-0000000Gj9S-1T7y;
+	Thu, 27 Nov 2025 14:01:45 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOcWT-0000000Gio9-0EyO
+	id 1vOcZ3-0000000Gj8B-2bbR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 13:59:02 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-42bb288c17bso596833f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 05:59:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764251939; x=1764856739; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gnxISG+deFt7GHt3BFpEdGiXVoglGnvqHxBF0MY3fn4=;
-        b=JOcZPzNeiEoG6oEfulNdc9D6pGr5oShaWF+UtXWurzOoaxFsx4rsfMLcAR2zH2Vfx+
-         ENCZ0YL3Jm7KCNHPh3AV6iSGwsWBp88Lzno+xOUzf89BXXkjkA3dxQL0kbFFzXDJlfmI
-         bMivRRaR7hnySfJY33dLVlwzs4CoEWpJ6D0d52puHC5ULxtzQWIG1ahiEag97ztrjw9/
-         YYUsWkcb1W9QMVcSCdUobDx4HdDr104mCOcLqVmAXVPQzffRy1cZPdYzce4Qz159I1vQ
-         ym9L9YLHQDc8v6mHlBwQJWU0W2XV1re7AS3RhWYuEIw/DFAHvug08Bxo/Bk+aTFXbSlQ
-         VIQQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764251939; x=1764856739;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=gnxISG+deFt7GHt3BFpEdGiXVoglGnvqHxBF0MY3fn4=;
-        b=BSVwuBjbXURBI2QOJcurVbP7+AwtQqBQxMRONBe6m3l5nGr3lKYBlo/uWcTZwW0imG
-         v3DX6PAhdKWc+SIujQON4Qc0icKrlqN02BZ0fX0d8iGB5brhbWgO/44ybuD4bLVQaPY+
-         G62L6cDkwNApRXem8PPSIzPEMdtvlx/TvvH41+BPbglMIud+3nRvJrZcViz8/2EsV1K7
-         gNXTa0eooEddwKizF9pttuJxSAuAIP9brDKfb/l0V+vx/4fpKbNR6OqZzlMCjCn+HeOm
-         DxCbGzC4IcAp7YL9mY10gydFuZm7QvETO5f2xlgU+y4FCoRkTwRuFmk2vkxyr8dw0O3P
-         +shA==
-X-Forwarded-Encrypted: i=1; AJvYcCUcS3Oprmoe4TZnpcHPld4T2KBceswnOMAnICkJGbl5CERhLDVAARCkkk5tMrNikWgmVlBKGJ2I54MP0gpRR56Y@lists.infradead.org
-X-Gm-Message-State: AOJu0YwB5cUckm8Kku2enfLSwLMa+5CYbzgleJ90iJs1GvlE23mw8iJa
-	XyTdlEABkow8WcrQc4WhXHF7C37Cuvk3sETI36dCAH4lEZricnLc1vrkczEvw3jmAUgdg4aWJob
-	3vSbhioOJrg+BROixKJRFoorLD5aK/+8=
-X-Gm-Gg: ASbGnct2lH0Pa7IPnKngokjRFlnu4Xf/a6GEGU61yliAh/db2EqU8KceAY/+5e3rs0b
-	yT/CUSz3OXezwbDw0nnBYbNFeoUxzZZJNXHXgGGRUoYON+bH04pwVnlHnMLte6M56ihINMrX7OT
-	vjEgU+NRJtp0kNmvqxLGzM4i49xm4Rfs3w4fRW3mxlw/XB1d0q1Bn+k1LPekwWMwNvEJt2pmNBQ
-	oz46UzrrAkFNeuh8QODYR3EgLfLaKGtapx60Z4DA5ZzJ3XGga99oUxC+oS5uDtw512DAD40dw==
-X-Google-Smtp-Source: AGHT+IGNtcCSrgQktFnYqTZxYZ6Hs3cgPF9O8J4034qoPLGkbQ8PDMY04xenTjU1D4sevAYqeeqaV7IhvGcdhUjbwBs=
-X-Received: by 2002:a5d:5f44:0:b0:42b:3701:c4c6 with SMTP id
- ffacd0b85a97d-42cc1cf3c16mr26528101f8f.38.1764251938487; Thu, 27 Nov 2025
- 05:58:58 -0800 (PST)
+	Thu, 27 Nov 2025 14:01:43 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=5Dqh1/ZwDt2FOZnFxUGnYOMEzfM7bVg75Vg41Zs839w=;
+	b=BrKKm1DqDzeaPEp+Ht6Vp/QY+ceSXm0RUwkjGBSqqCOPFcoSOx/71e0Mm1DqOC4+FFZh1hLY7
+	DeUshsfdhtVNukB5sNmzhb4QBQ8AfnDJggNB9pw+skQQpKsXxsvzSyPat63XJ8AQU5aBvI3TFWH
+	MPAJn5/2Zab6HVX1/S+Pimk=
+Received: from mail.maildlp.com (unknown [172.19.162.254])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4dHJ2l63Lrz1prLQ;
+	Thu, 27 Nov 2025 21:59:43 +0800 (CST)
+Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
+	by mail.maildlp.com (Postfix) with ESMTPS id 981F21804F6;
+	Thu, 27 Nov 2025 22:01:33 +0800 (CST)
+Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
+ kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 27 Nov 2025 22:01:32 +0800
+From: Xie Yuanbin <xieyuanbin1@huawei.com>
+To: <viro@zeniv.linux.org.uk>, <will@kernel.org>, <nico@fluxnic.net>,
+	<rmk+kernel@armlinux.org.uk>, <linux@armlinux.org.uk>,
+	<david.laight@runbox.com>, <rppt@kernel.org>, <vbabka@suse.cz>,
+	<pfalcato@suse.de>, <brauner@kernel.org>, <lorenzo.stoakes@oracle.com>,
+	<kuninori.morimoto.gx@renesas.com>, <tony@atomide.com>, <arnd@arndb.de>,
+	<bigeasy@linutronix.de>, <akpm@linux-foundation.org>,
+	<punitagrawal@gmail.com>, <hch@lst.de>, <jack@suse.com>, <rjw@rjwysocki.net>,
+	<marc.zyngier@arm.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-mm@kvack.org>,
+	<linux-kernel@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
+	<wozizhi@huaweicloud.com>, <liaohua4@huawei.com>, <lilinjie8@huawei.com>,
+	<xieyuanbin1@huawei.com>, <pangliyuan1@huawei.com>,
+	<wangkefeng.wang@huawei.com>
+Subject: [RFC PATCH v2 2/2] ARM/mm/fault: Enable interrupts before sending signal
+Date: Thu, 27 Nov 2025 22:01:09 +0800
+Message-ID: <20251127140109.191657-2-xieyuanbin1@huawei.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251127140109.191657-1-xieyuanbin1@huawei.com>
+References: <20251127140109.191657-1-xieyuanbin1@huawei.com>
 MIME-Version: 1.0
-References: <53d45eed3709cba589a4ef3e9ad198d7e44fd9a5.1764249063.git.geert+renesas@glider.be>
-In-Reply-To: <53d45eed3709cba589a4ef3e9ad198d7e44fd9a5.1764249063.git.geert+renesas@glider.be>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Thu, 27 Nov 2025 13:58:32 +0000
-X-Gm-Features: AWmQ_bnedgFk9dq1Mtg11dYj8-7z-L3ilTlE5DIq5awUXGvPaKMvycqmu1EzW3E
-Message-ID: <CA+V-a8uhbh280qUQy0ryHQmQ4qzFELaWcdo0gomsJ32nbsM+0A@mail.gmail.com>
-Subject: Re: [PATCH] ARM: dts: renesas: r9a06g032: Add Ethernet switch interrupts
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>, 
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
-	Magnus Damm <magnus.damm@gmail.com>, linux-renesas-soc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.67.109.17]
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemj100009.china.huawei.com (7.202.194.3)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_055901_116743_B629163C 
-X-CRM114-Status: GOOD (  15.18  )
+X-CRM114-CacheID: sfid-20251127_060142_097330_B9FE7C4E 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,53 +87,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 27, 2025 at 1:13=E2=80=AFPM Geert Uytterhoeven
-<geert+renesas@glider.be> wrote:
->
-> The Ethernet switch device node still lacks interrupts.  Add them.
->
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
-> "[PATCH net-next 04/11] dt-bindings: net: dsa: renesas,rzn1-a5psw: Add
-> RZ/T2H and RZ/N2H ETHSW support"[1] will make interrupts and
-> interrupts-names required.
->
-> Based on the example in the DT bindings[2], Compile-tested only.
-> To be queued in renesas-devel for v6.20.
->
-> [1] https://lore.kernel.org/20251121113553.2955854-5-prabhakar.mahadev-la=
-d.rj@bp.renesas.com
-> [2] Documentation/devicetree/bindings/net/dsa/renesas,rzn1-a5psw.yaml
-> ---
->  arch/arm/boot/dts/renesas/r9a06g032.dtsi | 6 ++++++
->  1 file changed, 6 insertions(+)
->
-Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+From: xieyuanbin1 <xieyuanbin1@huawei.com>
 
-Cheers,
-Prabhakar
+Sending a signal requires to acquire sighand_struct::siglock which is a
+spinlock_t. On PREEMPT_RT spinlock_t becomes a sleeping spin lock which
+requires interrupts to be enabled. Since the calling context is user
+land, interrupts must have been enabled so it is fine to enable them in
+this case.
 
-> diff --git a/arch/arm/boot/dts/renesas/r9a06g032.dtsi b/arch/arm/boot/dts=
-/renesas/r9a06g032.dtsi
-> index 71d655b0565af1a5..5530eb9e891fa45c 100644
-> --- a/arch/arm/boot/dts/renesas/r9a06g032.dtsi
-> +++ b/arch/arm/boot/dts/renesas/r9a06g032.dtsi
-> @@ -453,6 +453,12 @@ switch: switch@44050000 {
->                                  <&sysctrl R9A06G032_CLK_SWITCH>;
->                         clock-names =3D "hclk", "clk";
->                         power-domains =3D <&sysctrl>;
-> +                       interrupts =3D <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>,
-> +                                    <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>,
-> +                                    <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>,
-> +                                    <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>,
-> +                                    <GIC_SPI 45 IRQ_TYPE_LEVEL_HIGH>;
-> +                       interrupt-names =3D "dlr", "switch", "prp", "hub"=
-, "ptrn";
->                         status =3D "disabled";
->
->                         ethernet-ports {
-> --
-> 2.43.0
->
->
+Signed-off-by: xieyuanbin1 <xieyuanbin1@huawei.com>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+---
+This patch depends on patch
+Link: https://lore.kernel.org/20251029155918.503060-6-bigeasy@linutronix.de
+
+The commit message is copy from:
+Link: https://lore.kernel.org/20251029155918.503060-3-bigeasy@linutronix.de
+
+Maybe I should add:
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Or something else? Thanks!
+
+ arch/arm/mm/fault.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
+index 5c58072d8235..f8ee1854c854 100644
+--- a/arch/arm/mm/fault.c
++++ b/arch/arm/mm/fault.c
+@@ -184,10 +184,13 @@ __do_user_fault(unsigned long addr, unsigned int fsr, unsigned int sig,
+ 	struct task_struct *tsk = current;
+ 
+ 	if (addr > TASK_SIZE)
+ 		harden_branch_predictor();
+ 
++	if (IS_ENABLED(CONFIG_PREEMPT_RT))
++		local_irq_enable();
++
+ #ifdef CONFIG_DEBUG_USER
+ 	if (((user_debug & UDBG_SEGV) && (sig == SIGSEGV)) ||
+ 	    ((user_debug & UDBG_BUS)  && (sig == SIGBUS))) {
+ 		pr_err("8<--- cut here ---\n");
+ 		pr_err("%s: unhandled page fault (%d) at 0x%08lx, code 0x%03x\n",
+-- 
+2.51.0
+
 
