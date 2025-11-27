@@ -4,82 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6A5DD11183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 09:38:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14895CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 09:45:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L9S1rZGl/rz9YmM+17xHKDLknXmtbmaZyBYHTmnGq6Y=; b=4IByhlRba2k/a5RDgLmlGd43nn
-	09GPtfn2l0YCTmlXA3R3v116Ufs8Rd6xLfx2f1HmT2G+9ONBW0z+AHbyAJRBRFt1w1oYorQ4x56O+
-	aOUwvZ/vmVb4hSpY/hnVB4CeQQNJErgr+wHZx5XVoSd1K6CFGs3LfWgUqG2L2aRxT2vkSlCyifPzw
-	3dwUPOucVac3j9K+qHenbDWLVSmCXs6pY9iW8S/gSz4lpds3GmBQeuie+rxChC0TiOyDufji1FeGQ
-	hOVsanarGpE3RZZXoF9nYUtJlCtgU3i80f7d2F90UGeiFjz9B6SnS2wRTbzxRDWgrlAiG6ngzBRQF
-	RMNhhnnw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=B7aWgkMd1s3k3QG7Ff/3VcVkI1wHMDyzAgylqZcvSFA=; b=JWv19FgeISwSQL9zQaIOFeswdK
+	3oENDdME2RGjZAqNT894weD1vl6fbH7007qPE7NBS5RhzJ0TQwBNdFHH8XTX1RQRA6dPlkv4i5Kxm
+	2SEw2DYWRzGRh6+4hXFy8xe1UMB8kAKWs2MjKbws6WZJKSIBFw3ncMC5TV4czpjouEVGFJ9A/POn7
+	qCQxuhihbyQXv3lBw5NA4+jjEa0QpQLEam0v0mBMaWpmnFwTQmH53nTCgrZ5R/CROIGSnlKZAePAr
+	yg5d12fWUrIAibbH/lnbJC2jqyVX4tLXbI7yX0NMrKiTetyFpzNHzroynvFrIVhDgkA3rZx9Sn7+7
+	BDKc9xFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOYRs-0000000GJXq-0EN4;
-	Thu, 27 Nov 2025 09:38:00 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vOYYc-0000000GJsR-3sCU;
+	Thu, 27 Nov 2025 09:44:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOYRp-0000000GJXM-1RKp
+	id 1vOYYb-0000000GJsK-0PLK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 09:37:59 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 28AF11A1DA3;
-	Thu, 27 Nov 2025 09:37:55 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id EDAD46068C;
-	Thu, 27 Nov 2025 09:37:54 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4E220102F260E;
-	Thu, 27 Nov 2025 10:37:48 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764236273; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=L9S1rZGl/rz9YmM+17xHKDLknXmtbmaZyBYHTmnGq6Y=;
-	b=As4k8cuN5pEobUrrB5p5aNhgjO75O4U+DBpJNotM5YUCxyK0GtFJZ4JzIIWdJEmCQ1PyX/
-	Zp2y39HKpUoIchvF1tSu70/0a7GUdW8jtFoCOJNREtHW0x67OZXfM+cmUnVhUDoW+rzwlC
-	qA3sX7z9yr4imuwTY/i/4M5dA+fAYPVgaYzJzurRGjpRcFIVx4qAz+9eFYTyryyHqHe8WU
-	3vfBu/b8T96rzP4XrywexXFog2TH/83l4GEfzOouJQwTwk+0dhnDraNMm76UttUoAVNmUH
-	dGQhhUfrG12gVjO74EWiTalQrmTEZa0iPtjz0M+O1hZCvSLkDvAseQCzeLQenw==
-Date: Thu, 27 Nov 2025 10:37:45 +0100
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Jyri Sarha <jyri.sarha@iki.fi>, Tomi Valkeinen
- <tomi.valkeinen@ideasonboard.com>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Russell
- King <linux@armlinux.org.uk>, Bartosz Golaszewski <brgl@bgdev.pl>, Tony
- Lindgren <tony@atomide.com>, Andrzej Hajda <andrzej.hajda@intel.com>, Neil
- Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
- <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Markus
- Schneider-Pargmann <msp@baylibre.com>, Luca Ceresoli
- <luca.ceresoli@bootlin.com>, Louis Chauvet <louis.chauvet@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Miguel Gazquez
- <miguel.gazquez@bootlin.com>, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org
-Subject: Re: [PATCH 02/21] dt-bindings: display: tilcdc: Add fifo-threshold
- property
-Message-ID: <20251127103745.7c5d55e6@kmaincent-XPS-13-7390>
-In-Reply-To: <20251127-subtle-prophetic-corgi-68aab1@kuoka>
-References: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
-	<20251126-feature_tilcdc-v1-2-49b9ef2e3aa0@bootlin.com>
-	<20251127-subtle-prophetic-corgi-68aab1@kuoka>
-Organization: bootlin
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
+	Thu, 27 Nov 2025 09:44:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3958860017;
+	Thu, 27 Nov 2025 09:44:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id D7CA2C4CEF8;
+	Thu, 27 Nov 2025 09:44:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764236695;
+	bh=wDdtL7Ds9riVbV6ICXm79kvDBRYPemWXZfNDHX2irog=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=U0WmI92gGBB9JMQhD9F2KjevMPDcnLEq76dYwYYvD0zUwOAZejibICAiMVofNbMaE
+	 2ph8cSjaZy19bvNlEw5RXLOFHRMWnNK1qnHGmUM/StHniZMaW445Sr5fX2WV+w/ZGA
+	 dO4zILc6K3uUUTm6sXebvZ212A84oQIIHvvjL+adgUXrZLiRmT7LuH38Co4u0Y51Dh
+	 5LTEvZqMKSL4A3o6yM98KLFbtY90x0JUsPAAywIYKqkp/nmKtb1tB8cvJ5skxNohqN
+	 VJLTRm51opPilBcWoQZH5q5OAc7q0iGLD+DhwPpDphlAzblpmqTSmumj/K9ksIaxl6
+	 TV2tsZfbw7Chw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id C1E1BD116E2;
+	Thu, 27 Nov 2025 09:44:55 +0000 (UTC)
+From: Alex Wang via B4 Relay <devnull+alex.ts.wang.fii-foxconn.com@kernel.org>
+Date: Thu, 27 Nov 2025 17:44:51 +0800
+Subject: [PATCH v2] dt: aspeed: clemente: move hdd_led to its own gpio-leds
+ group
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_013757_557889_A1168AFF 
-X-CRM114-Status: GOOD (  25.20  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20251127-leo-dts-add-shunt-resistor-v2-1-c77dfbfb826c@fii-foxconn.com>
+X-B4-Tracking: v=1; b=H4sIAJIdKGkC/42NQQrCMBBFr1Jm7UiSEmldeQ/pIiZTO6CJZGqol
+ N7d2BO4fJ/H+ysIZSaBc7NCpsLCKVYwhwb85OKdkENlMMpYrUyLD0oYZkEXAsr0jjNmEpY5ZTR
+ dNdTJ2eAIauCVaeRlj1+HytOuffavon/rX9miUaMNfd8pd3Ot6i4jM45p8SnGo09PGLZt+wI3H
+ A6KygAAAA==
+X-Change-ID: 20251023-leo-dts-add-shunt-resistor-2810206a5dae
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ george.kw.lee@fii-foxconn.com, Alex Wang <alex.ts.wang@fii-foxconn.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764236694; l=2118;
+ i=alex.ts.wang@fii-foxconn.com; s=20251023; h=from:subject:message-id;
+ bh=XvfoAuDaFi0LEYIxrGZlYJX6g2aVVWHGpukneXb5b2k=;
+ b=SXG/ZRsEzAm0y+7zt1tH9Ydnb+YuQ8Z7nkeAo5L/ekXuavdkD1Ale8faYlW8bQmxmf8E7FYoW
+ 4p9x7BbeD/6BzqaKejgS49RqwnHxC/r9cz33N53NCEPzRlctPJ3nLVM
+X-Developer-Key: i=alex.ts.wang@fii-foxconn.com; a=ed25519;
+ pk=m/IrKXb14uSdDm4KGXemjNIxgL6TrqXCc9NX09SUJp0=
+X-Endpoint-Received: by B4 Relay for alex.ts.wang@fii-foxconn.com/20251023
+ with auth_id=551
+X-Original-From: Alex Wang <alex.ts.wang@fii-foxconn.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,86 +86,67 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: alex.ts.wang@fii-foxconn.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Nov 2025 09:22:56 +0100
-Krzysztof Kozlowski <krzk@kernel.org> wrote:
+From: Alex Wang <alex.ts.wang@fii-foxconn.com>
 
-> On Wed, Nov 26, 2025 at 06:35:44PM +0100, Kory Maincent (TI.com) wrote:
-> > Add the fifo-threshold property to control the DMA FIFO threshold level,
-> > which specifies the number of words that must be loaded before the DMA
-> > FIFO becomes ready.
-> >=20
-> > This property is needed to support the da850-evm board configuration
-> > which requires a non-default FIFO threshold value. Currently, this value
-> > is specified through the deprecated ti,tilcdc,panel binding. Adding this
-> > property to the tilcdc binding allows for proper configuration while
-> > migrating away from the non-standard panel binding.
-> >=20
-> > The default value is 8 words, with valid values being powers of 2 from
-> > 8 to 512.
-> >=20
-> > Related commit: 55da73fa7a68c ("ARM: dts: davinci: da850-evm: Increase
-> > fifo threshold") =20
->=20
-> Please use syntax pointed out by checkpatch. The checkpatch error (not
-> even a warning) is there for reason, so we can apply filter/grep
-> easily.
->=20
-> >=20
-> > Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
-> > ---
-> >  Documentation/devicetree/bindings/display/tilcdc/tilcdc.yaml | 7 +++++=
-++
-> >  1 file changed, 7 insertions(+)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/display/tilcdc/tilcdc.ya=
-ml
-> > b/Documentation/devicetree/bindings/display/tilcdc/tilcdc.yaml index
-> > 34ac1fd04d5c6..bf6d506e25e17 100644 ---
-> > a/Documentation/devicetree/bindings/display/tilcdc/tilcdc.yaml +++
-> > b/Documentation/devicetree/bindings/display/tilcdc/tilcdc.yaml @@ -46,6
-> > +46,13 @@ properties: The maximum pixel clock that can be supported by =
-the
-> > lcd controller in KHz.
-> > =20
-> > +  fifo-threshold: =20
->=20
-> Why this is not deducible from the compatible? Feels like a specific SoC
-> issue.
+The gpio-leds driver requires all GPIOs in a group to be available;
+if any GPIO in the group is not available the whole group will not be
+created. The hdd_led GPIO is only present after standby power is
+enabled, which can prevent other LEDs in the same group from being
+created and blocks properly setting 'bmc_ready_noled'.
 
-This is indeed deductible from the compatible as ti,da850-tilcdc is only us=
-e in
-the related devicetree. Thanks for the pointer this will avoid adding a new=
- dt
-parameter.
+Move the 'hdd_led' node into a separate gpio-leds group so that other
+LEDs are not blocked and the 'bmc_ready_noled' flag can be set
+correctly.
 
->=20
-> Anyway, missing vendor prefix
->=20
-> > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > +    enum: [8, 16, 32, 64, 128, 256, 512]
-> > +    description:
-> > +      Number of words loaded before the DMA fifo becomes ready. The de=
-fault
-> > +      value is 8. =20
->=20
-> missing default and drop free form text in description.
->=20
-> > +
-> >    blue-and-red-wiring:
-> >      enum: [straight, crossed]
-> >      description:
-> >=20
-> > --=20
-> > 2.43.0
-> >  =20
+Signed-off-by: Alex Wang <alex.ts.wang@fii-foxconn.com>
+---
+Changes in v2:
+- I changed “missing” to “not available”. The hdd_led and bmc_ready_noled 
+do not disappear; it's just that hdd_led only becomes available after 
+standby power is enabled, and this process takes some time. The hdd_led 
+becomes available only after bmc_ready_noled is supposed to be set, 
+which causes bmc_ready_noled to fail to be generated and set in time.
+
+- Standby power is enabled during the BMC boot process.
+
+- The hdd_led will only be configured after the BMC boots, when a 
+dedicated service starts and applies the settings.
+
+- Link to v1: https://lore.kernel.org/r/20251023-leo-dts-add-shunt-resistor-v1-1-5d9980aba308@fii-foxconn.com
+---
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
+index dfe8f6d0eeef..ea1bf6f402bd 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
+@@ -96,7 +96,12 @@ led-3 {
+ 			gpios = <&gpio0 ASPEED_GPIO(P, 5) (GPIO_ACTIVE_HIGH|GPIO_TRANSITORY)>;
+ 		};
+ 
+-		led-hdd {
++	};
++
++	hdd-leds {
++		compatible = "gpio-leds";
++
++		led-0 {
+ 			label = "hdd_led";
+ 			gpios = <&io_expander13 1 GPIO_ACTIVE_LOW>;
+ 		};
+
+---
+base-commit: c6fea62a8379f9e24b243ea4ba1fd482f8cd0d83
+change-id: 20251023-leo-dts-add-shunt-resistor-2810206a5dae
+
+Best regards,
+-- 
+Alex Wang <alex.ts.wang@fii-foxconn.com>
 
 
-
---=20
-K=C3=B6ry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
 
