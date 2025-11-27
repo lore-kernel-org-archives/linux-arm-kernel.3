@@ -4,95 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38115CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 07:14:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 039E8D10375
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 07:21:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=2dVF2KlYm35Amf2a5Gnk993yXcXd/prgPbjpDZiGmKM=; b=erPDPrY25pJaHnbJ24UVaYABOf
-	tFWy99jaigLfHI2hfWCc0UI8IhpppD4k7gLH0RbMxq6+d4hIgrr1lsyF3iqDlpadXz802TR5Fzmn4
-	UnZDPkrQPCi2G59DNKIC21n+FVVPu4MH/E5ATsk7ogjQi8Rg6jbCqJRX5fzuoHWOTQtgKHguC92jr
-	iPiRy7Fpv1yeA/jQeTuk7x7J1rdyXtPILw7oEXeOezDFU+WGbjILElf3ht6BPd68atB1nx5xsAWdO
-	5rojnP51rhISAU3yC73WZX1K1Jn99e5evix88lDheu0uQi6NbfZHJCidKPLF6vpjghRVK3FGyxDeW
-	C0xtee0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3Ad8ik7IFSyx7voLIMN7w0BRCBgrkaim2ypdKamKnu4=; b=gt/J1R42gZhLlQFvAGOSWXaSXi
+	si8LH46Bo2hTurL4C8uoNd1IFfQmILVBO5TpvdDR/dqHFloutLM4dZZqXD+GLMF5yf4fkT9IWXduf
+	9vtkHeXGURKvX8Ehb0KlYXg1IzTNuvT4lBsnrN4I1Hahe+Bhhwz4s3cxfXNYoy/Vxpta0R7mnArNd
+	ENm02y+i5oDIINKOe46qsryBst11FXAo+YFam0a+F9DkAbcSPOhUL3MN23ofUQTiFskdLOvgct0O/
+	LjO3grt9NP34jbUiJm5BCwU7gsIyh7bNXhsW2E3d6p06Nlr0QDlRiDNS9c+wNgksHgnaDHD8uUdAj
+	SkImGiaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOWCf-0000000G6aL-3AAp;
-	Thu, 27 Nov 2025 07:14:09 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1vOWJd-0000000G745-1MkH;
+	Thu, 27 Nov 2025 07:21:21 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOWCd-0000000G6Zq-0n3t
+	id 1vOWJa-0000000G738-3NZB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 27 Nov 2025 07:14:08 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-47798ded6fcso2137305e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 26 Nov 2025 23:14:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764227645; x=1764832445; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=2dVF2KlYm35Amf2a5Gnk993yXcXd/prgPbjpDZiGmKM=;
-        b=Unu8QbudH/K/lwzJ2bRpJRaw0d9OCcHUkt4aqRo/bWjqv9rEIA7mnRt8TCzgpJiRJT
-         vwvy8ROj194Of1JAjt+tmG6awrYlqPH1sjVMK718fQ4oecNfUY3ceQKmpFX4BreOT1X+
-         aHkFiZngpaU/4Z/k2WU1+eFl/YqaLMA4x1HQ6cmN/QZczeo0MlTJ57H7ZHRfixvVWKd/
-         TtnLiwCly+I/sol8VsxexNClR0j14wAjpcXcrdJxBfHjQhMhlcsggjXLXBJDSiyWrUIT
-         HFc8MimLTsXgNZwvIv5RBr5xiMINA79t0KvrRPnCk00gLC/D327fHSIjyBTNHCR1roa6
-         O2EA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764227645; x=1764832445;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2dVF2KlYm35Amf2a5Gnk993yXcXd/prgPbjpDZiGmKM=;
-        b=JavEXS+W1qQ5Ko8lMM5ApwqzTwdcT/2GWLvibae9y+hVOUF9nHOQE6F0vMu6u8VQUl
-         6WLih1Rzefy7kO+x9sCaLX3D9rWctmyAt2aF2opWpslZSK+7eu5YQXxf6svzO5gryyFI
-         GGHR/m/1zqkE8Pjvj9Fd3gVVP/N3hnaiabwDsVyoHop7TJcKny/5RHj7EwdMAzVJMWOy
-         6IUWtarOxRT1bRfzqn1KjPuqzMF1smpxabMcTuE/nS7oNNNnIBYx0c5wtaxWefqFKvxA
-         t8NArKKBekxD4OzdlhAzdIsinLmZ4i9Rb9VCc+DzvVpjSTXv5/oQOSdjdRhL2c0WR2VX
-         XEdg==
-X-Forwarded-Encrypted: i=1; AJvYcCUuf4cdLxxxbxLmfHuSjdzLBIIG9Aa6N8sHDsiLcZOKfxHsFa6h/Jq+o89D/g0ma90Hp1tRMB02T8/x/R8qmuyu@lists.infradead.org
-X-Gm-Message-State: AOJu0YzD9d4trvmdFqigwYJwcxs7g9o2LkuZTlsoEJAX3tR/9ru5qMM9
-	gd6LS2kJcHwip5qRCbn9jmLeXhf9KBRnS/zs26EnyvrbEu7XsrlOiT5xSDCe4FBG4wM=
-X-Gm-Gg: ASbGncvNwRXl+dq9I1lVO/KVRRYxVr96rejdYFS9f2kDpxO3NA1MuYk9Y4JqtYvD4z8
-	p0LOKCjkkFLmHGnb7wz0zzQGO0xYgMDtTEsPEeOsGRrIV/XhYzW6nHt5qxmA6o+gitG+V7E5ECn
-	Ws0ToG3MpYfFV+LDZvWjqrJKF827Wp4umWvybclPki5On3QpmgjWYlbvxp9GAlCeV1XfCf7l8vQ
-	iUGiiZlRzhk325Oj7puhEMTKYLDe7fN1lysnl9lKCwyLBAZdRRun57vHAU++dmffQiChIJcY8Py
-	abXEvh8Z7VRxd+9SpmFQxF71GfhsNDlIK6rQ50TYOQVawNa8IepVFAUBO6MNguwBJxcEzwfQOa2
-	UaR3KhKbmu97ohWfJotcpZqhq3VUuR3ctaQX1CTG3e9gxDsNAqp8fahVdTL/gfiK3nuiLBzV4Rt
-	JAKVL7JTnPWyCBg453
-X-Google-Smtp-Source: AGHT+IHh2yafLn0h6WCQ3rAqHrBsqui/zuUk1dGdvyyNWo27ENOUkyCq/IzM8raGe5NR4RM82hlgnQ==
-X-Received: by 2002:a05:600c:1f94:b0:471:1765:839c with SMTP id 5b1f17b1804b1-477c1117949mr172473655e9.20.1764227645302;
-        Wed, 26 Nov 2025 23:14:05 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-479110b6da9sm17043815e9.0.2025.11.26.23.14.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 26 Nov 2025 23:14:04 -0800 (PST)
-Date: Thu, 27 Nov 2025 10:14:01 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org
-Subject: [PATCH next] remoteproc: imx_dsp_rproc: Fix NULL vs IS_ERR() bug in
- imx_dsp_rproc_add_carveout()
-Message-ID: <aSf6OerBbPcxBUVt@stanley.mountain>
+	Thu, 27 Nov 2025 07:21:20 +0000
+Date: Thu, 27 Nov 2025 08:20:57 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1764228059;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3Ad8ik7IFSyx7voLIMN7w0BRCBgrkaim2ypdKamKnu4=;
+	b=fLInNBs8TXqUHGtP3Sh1sI6ytVwTqfBLr12hBnrz+MA8vrF5DTVkSUXNqFbzywP456lNeB
+	ez73iUWVfEsf7FI0j6ikXXxHMfwNimMtiy7rW8tC5ZhcKUxZU29BYos4u2BXpsCC5Ald34
+	Vs0GfoQublaZnEOiSv48K7uNCrPlu07CIS0rI3lgaEBNIk8gpzEjvWrfezSP+0BW7PTEpx
+	J8wjLrzxdRXyxoQKeZi0kBumr+eR2LmUSOrGj8xPUOqnMccqZfx0+qYvS5U941NFYPFFZS
+	PrZb9p0STUdw3Zxv3qYbCkZlJXkHt0KmsNyzGv9MQX3zaLVbHr0vTtdeG4MNJw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1764228059;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3Ad8ik7IFSyx7voLIMN7w0BRCBgrkaim2ypdKamKnu4=;
+	b=dk5SuCbOQvbURXCZeKYw/C9ynGOXmOuzOVf9ofmc8gtUWPcmsiNWWOsyOjHAZ0L3i9i8YU
+	ZNHJRX1mAseyi7CQ==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Xie Yuanbin <xieyuanbin1@huawei.com>
+Cc: viro@zeniv.linux.org.uk, linux@armlinux.org.uk, will@kernel.org,
+	david.laight@runbox.com, rmk+kernel@armlinux.org.uk,
+	brauner@kernel.org, jack@suse.cz, nico@fluxnic.net,
+	akpm@linux-foundation.org, hch@lst.de, jack@suse.com,
+	wozizhi@huaweicloud.com, linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org, catalin.marinas@arm.com, rppt@kernel.org,
+	vbabka@suse.cz, pfalcato@suse.de, lorenzo.stoakes@oracle.com,
+	kuninori.morimoto.gx@renesas.com, tony@atomide.com, arnd@arndb.de,
+	punitagrawal@gmail.com, rjw@rjwysocki.net, marc.zyngier@arm.com,
+	lilinjie8@huawei.com, liaohua4@huawei.com,
+	wangkefeng.wang@huawei.com, pangliyuan1@huawei.com
+Subject: Re: [RFC PATCH] vfs: Fix might sleep in load_unaligned_zeropad()
+ with rcu read lock held
+Message-ID: <20251127072057.EbvhUyG4@linutronix.de>
+References: <aSeNtFxD1WRjFaiR@shell.armlinux.org.uk>
+ <20251127030316.8396-1-xieyuanbin1@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-X-Mailer: git-send-email haha only kidding
+In-Reply-To: <20251127030316.8396-1-xieyuanbin1@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251126_231407_234669_86B3A0AE 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20251126_232119_006616_B79CE004 
+X-CRM114-Status: GOOD (  17.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,32 +87,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The devm_ioremap_resource_wc() function never returns NULL, it returns
-error pointers.  Update the error checking to match.
+On 2025-11-27 11:03:16 [+0800], Xie Yuanbin wrote:
+> On, Wed, 26 Nov 2025 19:26:40 +0000, Al Viro wrote:
+> > For quick and dirty variant (on current tree), how about
+> > adding
+> > 	if (unlikely(addr > TASK_SIZE) && !user_mode(regs))
+> > 		goto no_context;
+> >
+> > right after
+> >
+> > 	if (!ttbr0_usermode_access_allowed(regs))
+> > 		goto no_context;
+> >
+> > in do_page_fault() there?
+> 
+> On, Wed, 26 Nov 2025 23:31:00 +0000, Russell King (Oracle) wrote:
+> > Now, for 32-bit ARM, I think I am coming to the conclusion that Al's
+> > suggestion is probably the easiest solution. However, whether it has
+> > side effects, I couldn't say - the 32-bit ARM fault code has been
+> > modified by quite a few people in ways I don't yet understand, so I
+> > can't be certain at the moment whether it would cause problems.
+> 
+> I think I've already submitted a very similar patch, to fix another bug:
+> On Thu, 16 Oct 2025 20:16:21 +0800, Xie Yuanbin wrote:
+> > +#ifdef CONFIG_HARDEN_BRANCH_PREDICTOR
+> > +	if (unlikely(addr > TASK_SIZE) && user_mode(regs)) {
+> > +		fault = 0;
+> > +		code = SEGV_MAPERR;
+> > +		goto bad_area;
+> > +	}
+> > +#endif
+> Link: https://lore.kernel.org/20250925025744.6807-1-xieyuanbin1@huawei.com
+> 
+> However, the patch seems to have received no response for a very long
+> time.
 
-Fixes: 67a7bc7f0358 ("remoteproc: Use of_reserved_mem_region_* functions for "memory-region"")
-Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
----
- drivers/remoteproc/imx_dsp_rproc.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+This all should be covered by the series here
+	https://lore.kernel.org/all/20251110145555.2555055-1-bigeasy@linutronix.de/
 
-diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
-index be83b5f20f15..5130a35214c9 100644
---- a/drivers/remoteproc/imx_dsp_rproc.c
-+++ b/drivers/remoteproc/imx_dsp_rproc.c
-@@ -710,9 +710,9 @@ static int imx_dsp_rproc_add_carveout(struct imx_dsp_rproc *priv)
- 			return -EINVAL;
- 
- 		cpu_addr = devm_ioremap_resource_wc(dev, &res);
--		if (!cpu_addr) {
-+		if (IS_ERR(cpu_addr)) {
- 			dev_err(dev, "failed to map memory %pR\n", &res);
--			return -ENOMEM;
-+			return PTR_ERR(cpu_addr);
- 		}
- 
- 		/* Register memory region */
--- 
-2.51.0
+or do I miss something.
 
+Sebastian
 
