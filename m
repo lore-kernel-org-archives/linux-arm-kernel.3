@@ -4,76 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A71DD116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 17:10:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DEB0CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 27 Nov 2025 17:18:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=V/pS6w4rFfk/7ExZrmkUZsh7BR5ggFxkvqiAgus5FlI=; b=WaQFIeDSg04RZxOuSticLikDoL
-	9o6/x51/PlmME3A+dV/f1zQHpjyfF5TeGuGIa2sQG6Nwzpvd4YZwicQWtjidoRPmgc1Pe2K4QfThN
-	v68+fuydEdA3n6bPj7+4/DzkUPxuYRsjJ6h8/csP+l/Hdr2Ov6H6IN9jap/jpwK1WbsxLNEYVgmq4
-	7qujHy/KXuxqf5ks0R+mkXx1upBINvlU/jP1yS7324DlP6ZXmwlsNA4+/9XbzJgyjYHcVET6hSB9G
-	dauwCACVE9S+bwoC1yCkhhr7uETK+sB3+RkAUx4+uHY10JnyVIWJZvmtEz1INwG8j2bOUV1Xow4HK
-	LkMVvkEQ==;
+	bh=4F0OUlFox+5b0ri2J8wMl2nQbM8QXCVg4OXGiHOz0Dk=; b=wYb2iWcWKxrX7TpsTGPK0WlT34
+	RPBybkQhQ55Nyf30J2Uhok2QQM8a2RmTFwq0gNIkYN/6xv9LNPi0wBtI4raIUWto7r0g47hNcs4x5
+	FtrhpTBJLbuhBDdlB3sB0FY6yMGUCRumonv9FtaMX3XwTzVH3zlsSnz7UidOoT97N4QIFojNdyF3X
+	zt8fdsao0Q9ZtB+TLThFmfxMYlfY66F5FdGhuwkt4FFj0sxrhzd5GHfkRLuN3jWDTg8q8bB/VodrS
+	56PYMn+iTdsXbxhaLgzg87KX5oRPT8346LLPK5Eca1qDFkm6c0RvmR+Q7ocxgOP238pSGwOv4iYe/
+	bNKY7M7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOfVT-0000000Gy45-2f3y;
-	Thu, 27 Nov 2025 17:10:11 +0000
-Received: from m16.mail.163.com ([117.135.210.2])
+	id 1vOfdN-0000000GynI-33Ma;
+	Thu, 27 Nov 2025 17:18:21 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOfVR-0000000Gy1P-1vdq;
-	Thu, 27 Nov 2025 17:10:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=V/
-	pS6w4rFfk/7ExZrmkUZsh7BR5ggFxkvqiAgus5FlI=; b=WxY1kTW5iD9Tag5MVL
-	3PylHmgbmRIRcRPR6+vagTaDcVMoEPC5XqUe4bxk0/ooFObo+PjdSxQjd0lt3qrm
-	Ko9ErzZE/EBVpHEGXNoArMyB8r0Z+rDevDBDdy1YZ6MRy4G9AstEZ+3UH8l/S4uR
-	L5ErgPhHu6fGR5W3q5YNnzauA=
-Received: from zhb.. (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wDX71K2hShpkFjfDA--.43603S2;
-	Fri, 28 Nov 2025 01:09:11 +0800 (CST)
-From: Hans Zhang <18255117159@163.com>
-To: lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	bhelgaas@google.com,
-	helgaas@kernel.org,
-	heiko@sntech.de,
-	mani@kernel.org,
-	yue.wang@Amlogic.com
-Cc: pali@kernel.org,
-	neil.armstrong@linaro.org,
-	robh@kernel.org,
-	jingoohan1@gmail.com,
-	khilman@baylibre.com,
-	jbrunet@baylibre.com,
-	martin.blumenstingl@googlemail.com,
-	cassel@kernel.org,
-	linux-pci@vger.kernel.org,
+	id 1vOfdJ-0000000Gyma-2Vls
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 27 Nov 2025 17:18:20 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 97FF5C16A1F;
+	Thu, 27 Nov 2025 17:17:51 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 5792960722;
+	Thu, 27 Nov 2025 17:18:14 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7AB35103C8C5E;
+	Thu, 27 Nov 2025 18:18:02 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1764263892; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=4F0OUlFox+5b0ri2J8wMl2nQbM8QXCVg4OXGiHOz0Dk=;
+	b=czfM30rCkSCHDHQAuCTQm32czsNAasfAyU63CP+vcaE0tJS0Y2/jlnKllBN/NmbRBubCLa
+	nNVbI8pK1dVG2uyHQ3Z5Aee0qPw3sRR8m37fxWvtXMafva+s50B6K/HhFHkz3v/La/GaPJ
+	zxhmdVwQHrxybQbH5Od57PVmgLOruOeUZdsWyN+zvIvGNewOO72hlZyRJDudjbypUOgMwK
+	Fgi6bNSxG2W9HdQHfHKuX4nC/P8V/+c9KCS5wBaLV5+aC9NjSIg950C+UzfZ8swadZhQwE
+	2oHi0hU4tj1dUuoWL3n6roKrGvWnffrCq5i5QM3SlblMFj3FC/rEO1NL1a2HNg==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: davem@davemloft.net
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	thomas.petazzoni@bootlin.com,
+	Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Russell King <linux@armlinux.org.uk>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Hans Zhang <18255117159@163.com>
-Subject: [PATCH v7 0/2] PCI: Configure Root Port MPS during host probing
-Date: Fri, 28 Nov 2025 01:09:06 +0800
-Message-Id: <20251127170908.14850-1-18255117159@163.com>
-X-Mailer: git-send-email 2.34.1
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
+	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	=?UTF-8?q?Nicol=C3=B2=20Veronese?= <nicveronese@gmail.com>,
+	Simon Horman <horms@kernel.org>,
+	mwojtas@chromium.org,
+	Antoine Tenart <atenart@kernel.org>,
+	devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
+	Tariq Toukan <tariqt@nvidia.com>
+Subject: [PATCH net-next v20 00/14] net: phy: Introduce PHY ports representation 
+Date: Thu, 27 Nov 2025 18:17:43 +0100
+Message-ID: <20251127171800.171330-1-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wDX71K2hShpkFjfDA--.43603S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxCw1DXr45CF1fAr1kGr1DAwb_yoW5urWkpF
-	WFgws3Gr4xGF15Ga9rGa1jkFy5Xas7GFW3GrZ8GwnxZan0vF1UXryv9a1Fyry7XrWS9a12
-	vr9FqryxC3Wqva7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pEtCzPUUUUU=
-X-Originating-IP: [240e:b8f:927e:1000:9218:e74d:98cf:7e7c]
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbCxBjzl2kohbgRVAAA3B
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_091009_922390_76088DB8 
-X-CRM114-Status: UNSURE (   9.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251127_091818_328453_7EFC4796 
+X-CRM114-Status: GOOD (  37.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,83 +101,277 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Current PCIe initialization exhibits a key optimization gap: Root Ports
-may operate with non-optimal Maximum Payload Size (MPS) settings. While
-downstream device configuration is handled during bus enumeration, Root
-Port MPS values inherited from firmware or hardware defaults often fail
-to utilize the full capabilities supported by controller hardware. This
-results in suboptimal data transfer efficiency throughout the PCIe
-hierarchy.
+Hi everyone,
 
-This patch series addresses this by:
+This is v20 of the phy_port work. Main items from this versions are :
 
-1. Core PCI enhancement (Patch 1):
-- Proactively configures Root Port MPS during host controller probing
-- Sets initial MPS to hardware maximum (128 << dev->pcie_mpss)
-- Conditional on PCIe bus tuning being enabled (PCIE_BUS_TUNE_OFF unset)
-  and not in PCIE_BUS_PEER2PEER mode (which requires default 128 bytes)
-- Maintains backward compatibility via PCIE_BUS_TUNE_OFF check
-- Preserves standard MPS negotiation during downstream enumeration
+ - One patch has been dropped :
 
-2. Driver cleanup (Patch 2):
-- Removes redundant MPS configuration from Meson PCIe controller driver
-- Functionality is now centralized in PCI core
-- Simplifies driver maintenance long-term
+   net: phy: dp83822: Add SFP support through the phy_port interface
 
----
-Changes in v7:
-- Exclude PCIE_BUS_PEER2PEER mode from Root Port MPS configuration
-- Remove redundant check for upstream bridge (Root Ports don't have one)
-- Improve commit message and code comments as per Bjorn.
+   It is getting hard for me to maintain this patch without having the
+   ability to actually test it. As there are more series to come to add
+   PHY-driven SFP support (e.g. the dp83869 from Romain), we'll have
+   other examples on how to use the new infra.
 
-Changes for v6:
-https://patchwork.kernel.org/project/linux-pci/patch/20251104165125.174168-1-18255117159@163.com/
+ - A few changes were made following Claude's review from the new PW
+   pipeline :
 
-- Modify the commit message and comments. (Bjorn)
-- Patch 1/2 code logic: Add !bridge check to configure MPS only for Root Ports
-  without an upstream bridge (root bridges), avoiding incorrect handling of
-  non-root-bridge Root Ports (Niklas).
+    - Patch 1 (eth connector binding) : I've taken the liberty to keep the patch
+    					as-is for now, it's Reviewed by
+					Rob and we may extend the notion
+					of "pairs" one day.
+    - Patch 3 (phy_port introduction) : Fixes in the cleanup path and
+      					pairs checks
+    - Patch 6 : (phy_port for SFP) : Cleanup path fixes
+    - Patch 9 : Unreachable return
 
-Changes for v5:
-https://patchwork.kernel.org/project/linux-pci/patch/20250620155507.1022099-1-18255117159@163.com/
+ - Claude did make an incorrect review on patch 8
 
-- Use pcie_set_mps directly instead of pcie_write_mps.
-- The patch 1 commit message were modified.
+I've kept all current review tags; but patchs 2 and 3 still lack PHY
+maintainer reviews as per previous iterations.
 
-Changes for v4:
-https://patchwork.kernel.org/project/linux-pci/patch/20250510155607.390687-1-18255117159@163.com/
+Thanks for everyone's patience and reviews on that work ! Now, the
+usual blurb for the series description.
 
-- The patch [v4 1/2] add a comment to explain why it was done this way.
-- The patch [v4 2/2] have not been modified.
-- Drop patch [v3 3/3]. The Maintainer of the pci-aardvark.c file suggests
-  that this patch cannot be submitted. In addition, Mani also suggests
-  dropping this patch until this series of issues is resolved.
+As a remainder, a few important notes :
 
-Changes for v3:
-https://patchwork.kernel.org/project/linux-pci/patch/20250506173439.292460-1-18255117159@163.com/
+ - This is only a first phase. It instantiates the port, and leverage
+   that to make the MAC <-> PHY <-> SFP usecase simpler.
 
-- The new split is patch 2/3 and 3/3.
-- Modify the patch 1/3 according to Niklas' suggestion.
+ - Next phase will deal with controlling the port state, as well as the
+   netlink uAPI for that.
 
-Changes for v2:
-https://patchwork.kernel.org/project/linux-pci/patch/20250425095708.32662-1-18255117159@163.com/
+ - The end-goal is to enable support for complex port MUX. This
+   preliminary work focuses on PHY-driven ports, but this will be
+   extended to support muxing at the MII level (Multi-phy, or compo PHY
+   + SFP as found on Turris Omnia for example).
 
-- According to the Maintainer's suggestion, limit the setting of MPS
-  changes to platforms with controller drivers.
-- Delete the MPS code set by the SOC manufacturer.
----
+ - The naming is definitely not set in stone. I named that "phy_port",
+   but this may convey the false sense that this is phylib-specific.
+   Even the word "port" is not that great, as it already has several
+   different meanings in the net world (switch port, devlink port,
+   etc.). I used the term "connector" in the binding.
 
-Hans Zhang (2):
-  PCI: Configure Root Port MPS during host probing
-  PCI: dwc: Remove redundant MPS configuration
+A bit of history on that work :
 
- drivers/pci/controller/dwc/pci-meson.c | 17 -----------------
- drivers/pci/probe.c                    | 12 ++++++++++++
- 2 files changed, 12 insertions(+), 17 deletions(-)
+The end goal that I personnaly want to achieve is :
+
+            + PHY - RJ45
+            | 
+ MAC - MUX -+ PHY - RJ45
+
+After many discussions here on netdev@, but also at netdevconf[1] and
+LPC[2], there appears to be several analoguous designs that exist out
+there.
+
+[1] : https://netdevconf.info/0x17/sessions/talk/improving-multi-phy-and-multi-port-interfaces.html
+[2] : https://lpc.events/event/18/contributions/1964/ (video isn't the
+right one)
+
+Take the MAchiatobin, it has 2 interfaces that looks like this :
+
+ MAC - PHY -+ RJ45
+            |
+	    + SFP - Whatever the module does
+
+Now, looking at the Turris Omnia, we have :
 
 
-base-commit: 765e56e41a5af2d456ddda6cbd617b9d3295ab4e
+ MAC - MUX -+ PHY - RJ45
+            |
+	    + SFP - Whatever the module does
+
+We can find more example of this kind of designs, the common part is
+that we expose multiple front-facing media ports. This is what this
+current work aims at supporting. As of right now, it does'nt add any
+support for muxing, but this will come later on.
+
+This first phase focuses on phy-driven ports only, but there are already
+quite some challenges already. For one, we can't really autodetect how
+many ports are sitting behind a PHY. That's why this series introduces a
+new binding. Describing ports in DT should however be a last-resort
+thing when we need to clear some ambiguity about the PHY media-side.
+
+The only use-cases that we have today for multi-port PHYs are combo PHYs
+that drive both a Copper port and an SFP (the Macchiatobin case). This
+in itself is challenging and this series only addresses part of this
+support, by registering a phy_port for the PHY <-> SFP connection. The
+SFP module should in the end be considered as a port as well, but that's
+not yet the case.
+
+However, because now PHYs can register phy_ports for every media-side
+interface they have, they can register the capabilities of their ports,
+which allows making the PHY-driver SFP case much more generic.
+
+Let me know what you think, I'm all in for discussions :)
+
+Regards,
+
+Changes in V20:
+ - Drop dp83822 SFP support, untested for too long
+ - Fix some cleanup sequences following claude's review
+
+Changes in v19:
+ - Rebase on net-next, add the 4 new 1600G linkmodes
+
+Changes in v18:
+ - Added a missing 'static' when declaring the medium names.
+
+Changes in v17:
+ - Moved the medium names to patch 3
+ - Moved some mediums helpers out of uapi, and the logic into
+   net/ethtool/common.c instead of inline functions in headers
+ - Added a MAINTAINERS entry
+ - Aggregated reviews/tests
+ - Rebased on net-next
+
+Changes in v16:
+ - From Andrew, relaxed the check on the number of pairs so that we only
+   fail when baseT is missing pairs
+ - Add a check for either 1, 2 or 4 pairs
+ - Lots of typos (mostly lanes -> pairs)
+ - Added Andrew's review tags (thanks again)
+ - From Rob, added an "else" statement in the ethernet-connector binding
+ - Changed the node name for ethernet connectors to be decimal
+
+Changes in V15:
+ - Update bindings, docs and code to use pairs instead of lanes
+ - Make pairs only relevant for BaseT
+
+Changes in V14:
+ - Fixed kdoc
+ - Use the sfp module_caps feature.
+
+Changes in V13:
+ - Added phy_caps support for interface selection
+ - Aggregated tested-by tags
+
+Changes in V12:
+ - Moved some of phylink's internal helpers to phy_caps for reuse in
+   phylib
+ - Fixed SFP interface selection
+ - Added Rob's review and changes in patch 6
+
+Changes in V11:
+ - The ti,fiber-mode property was deprecated in favor of the
+   ethernet-connector binding
+ - The .attach_port was split into an MDI and an MII version
+ - I added the warning back in the AR8031 PHY driver
+ - There is now an init-time check on the number of lanes associated to
+   every linkmode, making sure the number of lanes is above or equal to
+   the minimum required
+ - Various typos were fixed all around
+ - We no longer use sfp_select_interface() for SFP interface validation
+
+Changes in V10:
+ - Rebase on net-next
+ - Fix a typo reported by Köry
+ - Aggregate all reviews
+ - Fix the conflict on the qcom driver
+
+Changes in V9:
+ - Removed maxItems and items from the connector binding
+ - Fixed a typo in the binding
+
+Changes in V8:
+ - Added maxItems on the connector media binding
+ - Made sure we parse a single medium
+ - Added a missing bitwise macro
+
+Changes in V7:
+ - Move ethtool_medium_get_supported to phy_caps
+ - support combo-ports, each with a given set of supported modes
+ - Introduce the notion of 'not-described' ports
+
+Changes in V6:
+
+ - Fixed kdoc on patch 3
+ - Addressed a missing port-ops registration for the Marvell 88x2222
+   driver
+ - Addressed a warning reported by Simon on the DP83822 when building
+   without CONFIG_OF_MDIO
+
+Changes in V5 :
+
+ - renamed the bindings to use the term "connector" instead of "port"
+ - Rebased, and fixed some issues reported on the 83822 driver
+ - Use phy_caps
+
+Changes in V4 :
+
+ - Introduced a kernel doc
+ - Reworked the mediums definitions in patch 2
+ - QCA807x now uses the generic SFP support
+ - Fixed some implementation bugs to build the support list based on the
+   interfaces supported on a port
+
+V18: https://lore.kernel.org/r/20251120205508.553909-1-maxime.chevallier@bootlin.com
+V17: https://lore.kernel.org/all/20251119195920.442860-1-maxime.chevallier@bootlin.com/
+V16: https://lore.kernel.org/all/20251113081418.180557-2-maxime.chevallier@bootlin.com/
+V15: https://lore.kernel.org/all/20251106094742.2104099-1-maxime.chevallier@bootlin.com/
+V14: https://lore.kernel.org/netdev/20251013143146.364919-1-maxime.chevallier@bootlin.com/
+V13: https://lore.kernel.org/netdev/20250921160419.333427-1-maxime.chevallier@bootlin.com/
+V12: https://lore.kernel.org/netdev/20250909152617.119554-1-maxime.chevallier@bootlin.com/
+V11: https://lore.kernel.org/netdev/20250814135832.174911-1-maxime.chevallier@bootlin.com/
+V10: https://lore.kernel.org/netdev/20250722121623.609732-1-maxime.chevallier@bootlin.com/
+V9: https://lore.kernel.org/netdev/20250717073020.154010-1-maxime.chevallier@bootlin.com/
+V8: https://lore.kernel.org/netdev/20250710134533.596123-1-maxime.chevallier@bootlin.com/
+v7: https://lore.kernel.org/netdev/20250630143315.250879-1-maxime.chevallier@bootlin.com/
+V6: https://lore.kernel.org/netdev/20250507135331.76021-1-maxime.chevallier@bootlin.com/
+V5: https://lore.kernel.org/netdev/20250425141511.182537-1-maxime.chevallier@bootlin.com/
+V4: https://lore.kernel.org/netdev/20250213101606.1154014-1-maxime.chevallier@bootlin.com/
+V3: https://lore.kernel.org/netdev/20250207223634.600218-1-maxime.chevallier@bootlin.com/
+RFC V2: https://lore.kernel.org/netdev/20250122174252.82730-1-maxime.chevallier@bootlin.com/
+RFC V1: https://lore.kernel.org/netdev/20241220201506.2791940-1-maxime.chevallier@bootlin.com/
+
+Maxime
+
+Maxime Chevallier (14):
+  dt-bindings: net: Introduce the ethernet-connector description
+  net: ethtool: Introduce ETHTOOL_LINK_MEDIUM_* values
+  net: phy: Introduce PHY ports representation
+  net: phy: dp83822: Add support for phy_port representation
+  dt-bindings: net: dp83822: Deprecate ti,fiber-mode
+  net: phy: Create a phy_port for PHY-driven SFPs
+  net: phy: Introduce generic SFP handling for PHY drivers
+  net: phy: marvell-88x2222: Support SFP through phy_port interface
+  net: phy: marvell: Support SFP through phy_port interface
+  net: phy: marvell10g: Support SFP through phy_port
+  net: phy: at803x: Support SFP through phy_port interface
+  net: phy: qca807x: Support SFP through phy_port interface
+  net: phy: Only rely on phy_port for PHY-driven SFP
+  Documentation: networking: Document the phy_port infrastructure
+
+ .../bindings/net/ethernet-connector.yaml      |  57 +++
+ .../devicetree/bindings/net/ethernet-phy.yaml |  18 +
+ .../devicetree/bindings/net/ti,dp83822.yaml   |   9 +-
+ Documentation/networking/index.rst            |   1 +
+ Documentation/networking/phy-port.rst         | 111 ++++++
+ MAINTAINERS                                   |  10 +
+ drivers/net/phy/Makefile                      |   2 +-
+ drivers/net/phy/dp83822.c                     |  71 ++--
+ drivers/net/phy/marvell-88x2222.c             |  94 ++---
+ drivers/net/phy/marvell.c                     |  92 ++---
+ drivers/net/phy/marvell10g.c                  |  52 ++-
+ drivers/net/phy/phy-caps.h                    |   5 +
+ drivers/net/phy/phy-core.c                    |   6 +
+ drivers/net/phy/phy_caps.c                    |  65 ++++
+ drivers/net/phy/phy_device.c                  | 342 +++++++++++++++++-
+ drivers/net/phy/phy_port.c                    | 212 +++++++++++
+ drivers/net/phy/qcom/at803x.c                 |  77 ++--
+ drivers/net/phy/qcom/qca807x.c                |  72 ++--
+ include/linux/ethtool.h                       |  36 +-
+ include/linux/phy.h                           |  63 +++-
+ include/linux/phy_port.h                      |  99 +++++
+ net/ethtool/common.c                          | 287 +++++++++------
+ 22 files changed, 1395 insertions(+), 386 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/ethernet-connector.yaml
+ create mode 100644 Documentation/networking/phy-port.rst
+ create mode 100644 drivers/net/phy/phy_port.c
+ create mode 100644 include/linux/phy_port.h
+
 -- 
-2.34.1
+2.49.0
 
 
