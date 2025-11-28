@@ -4,82 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5F15CFD376
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 03:17:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6F43CFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 03:34:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ofi7IOAlD2B9ISGtcfH1gxIUK1uiRhCrzNPhUEt77e0=; b=mpfPq//pnlHRWfCecfuuGp+Imp
-	/7vYJZ9SxAo4CWsY435/aX8ZXFUJw3+O1bYNCx2cb73Ey10FNOmZHD1Lxza6qWqWO+5r7HKNmKN8I
-	MzYSwbpCFsaKHMMLHVJ7usiFnXP0XKW7ZsWEQE4nT4tOjJcSEdrVzuMcNTyxLRUF8gCSBfCg8v5W3
-	rU172K4zEeED8PCpoAchtZgt+Z5URci4XUKsJctxCQAaIJJhXoMU9jSaXDMazgjZ84zLu/0fSYpTu
-	n/3PbyE47zfx1cySpW7TAllxuNoAR4eUSRjURar5LCruyD+b9Qji/FKCqYvkV9+Q1vU5z20bclGCu
-	Wou5lJXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z6ce0A26qYWTGzgTeV3YqEFLmRYbdSXU7xKZaZXOpMI=; b=jvNrYyucs78RJM4lSAyxRhvUKm
+	MDmnT/3isYdWdbcj+INxZKXXVMbH7Lda5REwNnwzjXj3E7L4VF/ZPXLyQi1kbyrhAcGF2+E7KBPAg
+	E6L7fBRnXZnW9yhbBBJLibQc8+p2bv+nh/TAJbG83V1zBp2JdX8+A/zSw9lSs2eJP/OifSwvB4PCc
+	ISgV0EhhG9TglGBurgyanH0CFLz3Etlp/rzO5o2KEwZRKwPlKHw2ihPF/ncqkZ3TbsqqIE5eXPg02
+	cgkTCkoZYXdBw+7SC11oYoybHU50gFEmvuV7UbkE5ojcy7ICdAKMLJdpB7pK5/2+53cX55fvEpwl1
+	M5cWw9Pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOozC-0000000HVrO-0T8G;
-	Fri, 28 Nov 2025 03:17:30 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vOpFX-0000000HWfT-1Hs3;
+	Fri, 28 Nov 2025 03:34:23 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOozA-0000000HVqx-2PYw;
-	Fri, 28 Nov 2025 03:17:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8655D6013C;
-	Fri, 28 Nov 2025 03:17:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04DF0C4CEF8;
-	Fri, 28 Nov 2025 03:17:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764299847;
-	bh=ryPXwfuMaZzBXoYMo/9eVTKnHFtI3lVtoZXMBixOIc4=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=R1Ec+14ZjpPF5TvGD5MwhTACaQKRf4CPFDQlWnS3iKcnA8nYJoHgtULZac5QL0R8e
-	 ONuNr0QhVzGQQpBd9bAMc1HDkJTHGmkM+T4u3EYEry/bXjqhlfnzkJ148xc96GDTWS
-	 9m44RRHE9/pa6qqT19+hA/3uKMQ2VlMa/O1lNQSYr2D7vVq8xL5+nhR0SPDO0iTntq
-	 f/ldas7ZXnM+NMMiIVPZ0xtlmSLav22QSnLLOw/JE1y6uSSXurk3KHRR9Zrbm1mnqz
-	 R9TMfNxqW8aiwae9iBkcsN7xtjhBhTn7smCfb7sO/wYSYR0TxnNyu3olV+kHpfMGwO
-	 8NTnuNSIdcdtA==
-Date: Thu, 27 Nov 2025 21:17:25 -0600
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+	id 1vOpFR-0000000HWdl-02O6
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Nov 2025 03:34:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1764300856;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=z6ce0A26qYWTGzgTeV3YqEFLmRYbdSXU7xKZaZXOpMI=;
+	b=Uw2MTNCZvDPC4EMOfh9wz/NcYQXiSkv4C2yatyCeg2ZFd0VEM3mvke/yDwuFI13StBsD2O
+	ETHGuhqAl17YTHD7CMy3heK/+p1moH1G9NQEFVM4L/AwlXp8i1zhxKLbHdOaBuGjt9gvGU
+	LXkkNSFjbPR8inXCYqBQbdmbbTrL2QE=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-607-hxO-P8tUMzmgqFinLUZQLA-1; Thu,
+ 27 Nov 2025 22:34:11 -0500
+X-MC-Unique: hxO-P8tUMzmgqFinLUZQLA-1
+X-Mimecast-MFC-AGG-ID: hxO-P8tUMzmgqFinLUZQLA_1764300849
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A4303180045C;
+	Fri, 28 Nov 2025 03:34:09 +0000 (UTC)
+Received: from MiWiFi-R3L-srv.redhat.com (unknown [10.72.112.7])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id A7CDD19560B0;
+	Fri, 28 Nov 2025 03:34:01 +0000 (UTC)
+From: Baoquan He <bhe@redhat.com>
+To: linux-mm@kvack.org
+Cc: ryabinin.a.a@gmail.com,
+	andreyknvl@gmail.com,
+	glider@google.com,
+	dvyukov@google.com,
+	vincenzo.frascino@arm.com,
+	akpm@linux-foundation.org,
+	kasan-dev@googlegroups.com,
+	linux-kernel@vger.kernel.org,
+	kexec@lists.infradead.org,
+	elver@google.com,
+	sj@kernel.org,
+	lorenzo.stoakes@oracle.com,
+	snovitoll@gmail.com,
+	christophe.leroy@csgroup.eu,
+	Baoquan He <bhe@redhat.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v4 04/12] arch/arm: don't initialize kasan if it's disabled
+Date: Fri, 28 Nov 2025 11:33:12 +0800
+Message-ID: <20251128033320.1349620-5-bhe@redhat.com>
+In-Reply-To: <20251128033320.1349620-1-bhe@redhat.com>
+References: <20251128033320.1349620-1-bhe@redhat.com>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Sandy Huang <hjc@rock-chips.com>, 
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
- Diederik de Haas <didi.debian@cknow.org>, Dragan Simic <dsimic@manjaro.org>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- linux-phy@lists.infradead.org, Andy Yan <andy.yan@rock-chips.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Johan Jonker <jbx6244@gmail.com>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Robert Foss <rfoss@kernel.org>, 
- Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
- Heiko Stuebner <heiko@sntech.de>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- linux-rockchip@lists.infradead.org, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Maxime Ripard <mripard@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
- Amit Sunil Dhamne <amitsd@google.com>, linux-kernel@vger.kernel.org, 
- dri-devel@lists.freedesktop.org, Conor Dooley <conor+dt@kernel.org>, 
- Vinod Koul <vkoul@kernel.org>, Peter Chen <hzpeterchen@gmail.com>, 
- Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Peter Robinson <pbrobinson@gmail.com>, 
- Yubing Zhang <yubing.zhang@rock-chips.com>, Simona Vetter <simona@ffwll.ch>, 
- linux-arm-kernel@lists.infradead.org, 
- Frank Wang <frank.wang@rock-chips.com>, linux-usb@vger.kernel.org, 
- devicetree@vger.kernel.org, Andrzej Hajda <andrzej.hajda@intel.com>
-To: Chaoyi Chen <kernel@airkyi.com>
-In-Reply-To: <20251128020405.90-6-kernel@airkyi.com>
-References: <20251128020405.90-1-kernel@airkyi.com>
- <20251128020405.90-6-kernel@airkyi.com>
-Message-Id: <176429984551.1030074.10716294618988682110.robh@kernel.org>
-Subject: Re: [PATCH v11 05/11] dt-bindings: phy: rockchip:
- rk3399-typec-phy: Support mode-switch
+Content-type: text/plain
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251127_193417_121857_7A73C98C 
+X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,79 +98,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Here call jump_label_init() early in setup_arch() so that later
+kasan_init() can enable static key kasan_flag_enabled. Put
+jump_label_init() beofre parse_early_param() as other architectures
+do.
 
-On Fri, 28 Nov 2025 10:03:59 +0800, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> 
-> The RK3399 SoC integrates two USB/DP combo PHYs, each of which
-> supports software-configurable pin mapping and DisplayPort lane
-> assignment. These capabilities enable the PHY itself to handle both
-> mode switching and orientation switching, based on the Type-C plug
-> orientation and USB PD negotiation results.
-> 
-> While an external Type-C controller is still required to detect cable
-> attachment and report USB PD events, the actual mode and orientation
-> switching is performed internally by the PHY through software
-> configuration. This allows the PHY to act as a Type-C multiplexer for
-> both data role and DP altmode configuration.
-> 
-> To reflect this hardware design, this patch introduces a new
-> "mode-switch" property for the dp-port node in the device tree bindings.
-> This property indicates that the connected PHY is capable of handling
-> Type-C mode switching itself.
-> 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
-> 
-> (no changes since v5)
-> 
-> Changes in v4:
-> - Remove "|" in description.
-> 
-> Changes in v3:
-> - Add more descriptions to clarify the role of the PHY in switching.
-> 
-> Changes in v2:
-> - Reuse dp-port/usb3-port in rk3399-typec-phy binding.
-> 
->  .../devicetree/bindings/phy/rockchip,rk3399-typec-phy.yaml  | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
+Signed-off-by: Baoquan He <bhe@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org
+---
+ arch/arm/kernel/setup.c  | 6 ++++++
+ arch/arm/mm/kasan_init.c | 2 ++
+ 2 files changed, 8 insertions(+)
 
-My bot found errors running 'make dt_binding_check' on your patch:
-
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/slimbus/slimbus.example.dtb: slim@28080000 (qcom,slim-ngd-v1.5.0): 'audio-codec@1,0' does not match any of the regexes: '^pinctrl-[0-9]+$', '^slim@[0-9a-f]+$'
-	from schema $id: http://devicetree.org/schemas/slimbus/qcom,slim-ngd.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/slimbus/slimbus.example.dtb: slim@28080000 (qcom,slim-ngd-v1.5.0): #address-cells: 1 was expected
-	from schema $id: http://devicetree.org/schemas/slimbus/qcom,slim-ngd.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/slimbus/slimbus.example.dtb: slim@28080000 (qcom,slim-ngd-v1.5.0): 'dmas' is a required property
-	from schema $id: http://devicetree.org/schemas/slimbus/qcom,slim-ngd.yaml
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/slimbus/slimbus.example.dtb: slim@28080000 (qcom,slim-ngd-v1.5.0): 'dma-names' is a required property
-	from schema $id: http://devicetree.org/schemas/slimbus/qcom,slim-ngd.yaml
-Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c263000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
-Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c263000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
-Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c265000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
-Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c265000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251128020405.90-6-kernel@airkyi.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+diff --git a/arch/arm/kernel/setup.c b/arch/arm/kernel/setup.c
+index 0bfd66c7ada0..453a47a4c715 100644
+--- a/arch/arm/kernel/setup.c
++++ b/arch/arm/kernel/setup.c
+@@ -1135,6 +1135,12 @@ void __init setup_arch(char **cmdline_p)
+ 	early_fixmap_init();
+ 	early_ioremap_init();
+ 
++	/*
++	 * Initialise the static keys early as they may be enabled by the
++	 * kasan_init() or early parameters.
++	 */
++	jump_label_init();
++
+ 	parse_early_param();
+ 
+ #ifdef CONFIG_MMU
+diff --git a/arch/arm/mm/kasan_init.c b/arch/arm/mm/kasan_init.c
+index c6625e808bf8..488916c7d29e 100644
+--- a/arch/arm/mm/kasan_init.c
++++ b/arch/arm/mm/kasan_init.c
+@@ -212,6 +212,8 @@ void __init kasan_init(void)
+ 	phys_addr_t pa_start, pa_end;
+ 	u64 i;
+ 
++	if (kasan_arg_disabled)
++		return;
+ 	/*
+ 	 * We are going to perform proper setup of shadow memory.
+ 	 *
+-- 
+2.41.0
 
 
