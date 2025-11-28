@@ -4,138 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AF3DCFD376
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 13:52:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85327D116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 13:55:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r/OOpcVTp61iopdoqOEy4BlI0dubVkeEnLCmlQuTfcE=; b=AaE+/bCwtvRe03XWc5XeX6RUNS
-	x7T9d7nr1iat4M1iTnVe5Yz/Org65WLB6cJTsroI0VKYFxuZuyZTsip2zoMdUQnHhocg+d6S3qhj6
-	2uJ3hWgqfEDZJqbwLXHmIpQAynp4DF2wmUjjMNDfVBtAk5vpyrhNLfxEjygJjd+4fvQTD6XZUPd6T
-	gaq7XngH5zLxWHJJ31Qw/jgNpAsEI4lpMj0o04/g6zkPCd/ZYcAqF4bWDMhkfbafAt/nuFFh52eqg
-	oypqM68bRM6FQAlBThJ9XZ/CSM/5XIedYMapMigsn6ri0OenhHHlSAciyHx2KoCXy+eVtKBzRphEu
-	P24ZCHdA==;
+	bh=R+NSL005NM4YnGcdzn7j+10+htbiU0hmC/YX6BE4WlE=; b=ClaT0HhmQ3aiq0AevNQd8uiCks
+	hw+Aak+W+e3njrap2yWB4EPu961r1eRyIThdzB+vJCjf25zzDTJzle8j9yXkpv3ar49u5+tczPASQ
+	5Xn0yZ0nelxdd7Hzqt7/tVKIcf/GCzCJoZnrBrpv1f0DFpKJs7cSmpcJ9urd4C9d1Z97f+nf3JNNK
+	Eqf2uL/+mBRfzIa8LvgABynPmFIdPQG8QRs4o8ILKHNXs2o2UCYJ5knZgpgzX7rH4QGyBjw1JwMqh
+	Bwq3A4rv/S1WpJqrVACBx7blpKlGr92fI3sXqWQ8B0WdKK5RsLvgw9rUD/Rd1H4Gtq4esqKxPsYyN
+	EDEqldBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOytH-00000000VC6-2Gr4;
-	Fri, 28 Nov 2025 13:52:03 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1vOywc-00000000VTp-3o0M;
+	Fri, 28 Nov 2025 13:55:30 +0000
+Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOytE-00000000VBj-2RWU
+	id 1vOywY-00000000VRx-0yTw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 13:52:02 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5AS7BFTe019581;
-	Fri, 28 Nov 2025 13:50:52 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=r/OOpcVTp61iopdoqOEy4BlI0dubVk
-	eEnLCmlQuTfcE=; b=K2Z8tqMvKnbK3NPoVnvwS9bUNU+eHd2oMYLOcbbh8yfK0y
-	7w+kywfkKjNbOtVYyLHncZfrLhsUFlMKc8mckWWFo/7yDF7q2EC3680JCjr0BDdu
-	8hdzQIFNvTY74oSwkge1FPDmDtQuS3N4eKeep50nCH91r64Ni41OGcShCtvxag/d
-	oQJuOfiI8kQiaTqyu86HXCvB1Ut662QlIMQYNdLjG9yHF3w4NFq53bu3DX5W0wUK
-	KJtTHVgf+JS2KOO3k4hBKyku54ovMUn0BQWEN4c+awe+REbEmOxOF0bVDID0fYMS
-	c9lxbFvTLYJpmhyU8CyCMh3b6QO1RShuMgREVYig==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ak4uvpnby-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 28 Nov 2025 13:50:52 +0000 (GMT)
-Received: from m0353729.ppops.net (m0353729.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 5ASDop3o022924;
-	Fri, 28 Nov 2025 13:50:51 GMT
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4ak4uvpnbw-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 28 Nov 2025 13:50:51 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5ASBYANQ027466;
-	Fri, 28 Nov 2025 13:50:50 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4anq4he397-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 28 Nov 2025 13:50:50 +0000
-Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5ASDokoI38601150
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 28 Nov 2025 13:50:46 GMT
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 99BE320043;
-	Fri, 28 Nov 2025 13:50:46 +0000 (GMT)
-Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A6BFF20040;
-	Fri, 28 Nov 2025 13:50:45 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.155.204.135])
-	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri, 28 Nov 2025 13:50:45 +0000 (GMT)
-Date: Fri, 28 Nov 2025 14:50:44 +0100
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
-        Andreas Larsson <andreas@gaisler.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        Boris Ostrovsky <boris.ostrovsky@oracle.com>,
-        Borislav Petkov <bp@alien8.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Christophe Leroy <christophe.leroy@csgroup.eu>,
-        Dave Hansen <dave.hansen@linux.intel.com>,
-        David Hildenbrand <david@redhat.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        David Woodhouse <dwmw2@infradead.org>,
-        "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
-        Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
-        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
-        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
-        Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
-        Ryan Roberts <ryan.roberts@arm.com>,
-        Suren Baghdasaryan <surenb@google.com>,
-        Thomas Gleixner <tglx@linutronix.de>,
-        Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
-        Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
-        Yeoreum Yun <yeoreum.yun@arm.com>,
-        linux-arm-kernel@lists.infradead.org, linuxppc-dev@lists.ozlabs.org,
-        sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
-        x86@kernel.org
-Subject: Re: [PATCH v5 06/12] mm: introduce generic lazy_mmu helpers
-Message-ID: <07ffb66d-1e74-4634-bccb-75575b3862af-agordeev@linux.ibm.com>
-References: <20251124132228.622678-1-kevin.brodsky@arm.com>
- <20251124132228.622678-7-kevin.brodsky@arm.com>
+	Fri, 28 Nov 2025 13:55:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
+	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=R+NSL005NM4YnGcdzn7j+10+htbiU0hmC/YX6BE4WlE=; b=RMTSlrq8t4udaY24AJgVh116iI
+	mZH8uVlgWjo5qhqnPG0fFcM2m93mxSNWHzsEj8fKC8TqUiIORo7mLYiVZHY+m+F7bU6rMTKGWVK9H
+	+Kcf7/DBwBaaotw45sbtyBxwQAUx4amGYFjH19j+/ZzScf5jbGaJrTlCNqBGafHYYCcgOyq2IYyVi
+	2OzGQOuvA4s9r9lnAInfppBZEKWMmZ8RwpjtRotEkz8yw9FmOHQQTqK7XSWqh80csj7/cEiBmw2fY
+	wczij/Cp24EMF/9bPCcDBUKbUm9m0V1pHH26Ua93YP57jqGuDwYrz5CEo1aP6C4egiZ5ACLG3aKm1
+	kWVSxP2Q==;
+Received: from authenticated user
+	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.94.2)
+	(envelope-from <leitao@debian.org>)
+	id 1vOywI-005tub-KH; Fri, 28 Nov 2025 13:55:11 +0000
+Date: Fri, 28 Nov 2025 05:55:05 -0800
+From: Breno Leitao <leitao@debian.org>
+To: Baoquan He <bhe@redhat.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>, pjw@kernel.org, 
+	Yeoreum Yun <yeoreum.yun@arm.com>, catalin.marinas@arm.com, will@kernel.org, coxu@redhat.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: kernel: initialize missing kexec_buf->random field
+Message-ID: <5wel6vqjwwf25hryvg6s7z6aaog7xc3zxjevupt3jn4gntme6d@74wwwmhvvelt>
+References: <20251127182644.1577592-1-yeoreum.yun@arm.com>
+ <20251127113706.d89a84f277dab3ad273dde75@linux-foundation.org>
+ <aSjqEQDv7V79V3Na@MiWiFi-R3L-srv>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251124132228.622678-7-kevin.brodsky@arm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTIyMDAyMSBTYWx0ZWRfX2ersG0vbStz0
- FLn4GUMOcSxnVbRNPX+VoL6pG7B6q9UsQ2OZG5zNPsZ5dk6+yNddVfyFO4U0uqrKeTdCEHcr2b5
- l15HvPDcY0Lc38rVTn2il/GNHJ96Q2/VeOAUyp2DHD09YEDF7m+IZDZ8XPJoTE+UPvafWv7l/y8
- 1iSrwrbuSmWXb5LS0zGud5cDdbkRbuFZ18eO9q7EkgPbpUJ9usgLbYsqxLyzPAxNnG34ofEs4sE
- ksZQxJ67fToJqX3beRWd6D9kF6kg/SXsAPhgRoMeI7l1sNXEZ6vrAx+o44xH+gY8A5Z2yuzyB8b
- roVSjE+o2OX6QR76JlqKTFjCl+HbnJOryGRQxe1hT3H5YzWY9YCpvkpeU7+0rpiOAm4Gk+k6POO
- kmT2iY3iue+TABUU+o6PMhW9NmP0hA==
-X-Authority-Analysis: v=2.4 cv=PLoCOPqC c=1 sm=1 tr=0 ts=6929a8bc cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=kj9zAlcOel0A:10 a=6UeiqGixMTsA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=20KFwNOVAAAA:8 a=gOb4qOPT8CXnsm_EvbgA:9
- a=CjuIK1q_8ugA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-ORIG-GUID: QQCPW5TC082nb_eAVjuWkyWCtrkGV2VS
-X-Proofpoint-GUID: qGdYAHc_0Xw3xrcj-QOfvU9MLghUc-FQ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-28_03,2025-11-27_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 lowpriorityscore=0 spamscore=0 adultscore=0 impostorscore=0
- priorityscore=1501 bulkscore=0 malwarescore=0 clxscore=1015 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510240000 definitions=main-2511220021
+In-Reply-To: <aSjqEQDv7V79V3Na@MiWiFi-R3L-srv>
+X-Debian-User: leitao
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_055200_627554_F605259B 
-X-CRM114-Status: GOOD (  32.95  )
+X-CRM114-CacheID: sfid-20251128_055528_586600_507DF190 
+X-CRM114-Status: GOOD (  17.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,88 +75,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Nov 24, 2025 at 01:22:22PM +0000, Kevin Brodsky wrote:
-> The implementation of the lazy MMU mode is currently entirely
-> arch-specific; core code directly calls arch helpers:
-> arch_{enter,leave}_lazy_mmu_mode().
-> 
-> We are about to introduce support for nested lazy MMU sections.
-> As things stand we'd have to duplicate that logic in every arch
-> implementing lazy_mmu - adding to a fair amount of logic
-> already duplicated across lazy_mmu implementations.
-> 
-> This patch therefore introduces a new generic layer that calls the
-> existing arch_* helpers. Two pair of calls are introduced:
-> 
-> * lazy_mmu_mode_enable() ... lazy_mmu_mode_disable()
->     This is the standard case where the mode is enabled for a given
->     block of code by surrounding it with enable() and disable()
->     calls.
-> 
-> * lazy_mmu_mode_pause() ... lazy_mmu_mode_resume()
->     This is for situations where the mode is temporarily disabled
->     by first calling pause() and then resume() (e.g. to prevent any
->     batching from occurring in a critical section).
-> 
-> The documentation in <linux/pgtable.h> will be updated in a
-> subsequent patch.
-> 
-> No functional change should be introduced at this stage.
-> The implementation of enable()/resume() and disable()/pause() is
-> currently identical, but nesting support will change that.
-> 
-> Most of the call sites have been updated using the following
-> Coccinelle script:
-> 
-> @@
-> @@
-> {
-> ...
-> - arch_enter_lazy_mmu_mode();
-> + lazy_mmu_mode_enable();
-> ...
-> - arch_leave_lazy_mmu_mode();
-> + lazy_mmu_mode_disable();
-> ...
-> }
-> 
-> @@
-> @@
-> {
-> ...
-> - arch_leave_lazy_mmu_mode();
-> + lazy_mmu_mode_pause();
-> ...
-> - arch_enter_lazy_mmu_mode();
-> + lazy_mmu_mode_resume();
-> ...
-> }
-> 
-> A couple of notes regarding x86:
-> 
-> * Xen is currently the only case where explicit handling is required
->   for lazy MMU when context-switching. This is purely an
->   implementation detail and using the generic lazy_mmu_mode_*
->   functions would cause trouble when nesting support is introduced,
->   because the generic functions must be called from the current task.
->   For that reason we still use arch_leave() and arch_enter() there.
-> 
-> * x86 calls arch_flush_lazy_mmu_mode() unconditionally in a few
->   places, but only defines it if PARAVIRT_XXL is selected, and we
->   are removing the fallback in <linux/pgtable.h>. Add a new fallback
->   definition to <asm/pgtable.h> to keep things building.
 
-Would it make sense to explicitly describe the policy wrt sleeping while
-in lazy MMU mode? If I understand the conclusion of conversation right:
+On Fri, Nov 28, 2025 at 08:17:21AM +0800, Baoquan He wrote:
+> On 11/27/25 at 11:37am, Andrew Morton wrote:
+> > On Thu, 27 Nov 2025 18:26:44 +0000 Yeoreum Yun <yeoreum.yun@arm.com> wrote:
+> > 
+> > > Commit bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
+> > > introduced the kexec_buf->random field to enable random placement of
+> > > kexec_buf.
+> > > 
+> > > However, this field was never properly initialized for kexec images
+> > > that do not need to be placed randomly, leading to the following UBSAN
+> > > warning:
+> > > 
+> > > [  +0.364528] ------------[ cut here ]------------
+> > > [  +0.000019] UBSAN: invalid-load in ./include/linux/kexec.h:210:12
+> > > [  +0.000131] load of value 2 is not a valid value for type 'bool' (aka '_Bool')
+> > > [  +0.000003] CPU: 4 UID: 0 PID: 927 Comm: kexec Not tainted 6.18.0-rc7+ #3 PREEMPT(full)
+> > > [  +0.000002] Hardware name: QEMU QEMU Virtual Machine, BIOS 0.0.0 02/06/2015
+> > > [  +0.000000] Call trace:
+> > > [  +0.000001]  show_stack+0x24/0x40 (C)
+> > > [  +0.000006]  __dump_stack+0x28/0x48
+> > > [  +0.000002]  dump_stack_lvl+0x7c/0xb0
+> > > [  +0.000002]  dump_stack+0x18/0x34
+> > > [  +0.000001]  ubsan_epilogue+0x10/0x50
+> > > [  +0.000002]  __ubsan_handle_load_invalid_value+0xc8/0xd0
+> > > [  +0.000003]  locate_mem_hole_callback+0x28c/0x2a0
+> > > [  +0.000003]  kexec_locate_mem_hole+0xf4/0x2f0
+> > > [  +0.000001]  kexec_add_buffer+0xa8/0x178
+> > > [  +0.000002]  image_load+0xf0/0x258
+> > > [  +0.000001]  __arm64_sys_kexec_file_load+0x510/0x718
+> > > [  +0.000002]  invoke_syscall+0x68/0xe8
+> > > [  +0.000001]  el0_svc_common+0xb0/0xf8
+> > > [  +0.000002]  do_el0_svc+0x28/0x48
+> > > [  +0.000001]  el0_svc+0x40/0xe8
+> > > [  +0.000002]  el0t_64_sync_handler+0x84/0x140
+> > > [  +0.000002]  el0t_64_sync+0x1bc/0x1c0
+> > > 
+> > > To address this, initialise kexec_buf->random field properly.
+> > > 
+> > > Fixes: bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
+> > 
+> > Thanks, I'll add a cc:stable to this.
+> 
+> This has been fixed in below series from Breno Leitao.
+> 
+> [PATCH 0/3] kexec: Fix invalid field access
+> https://lore.kernel.org/all/20250827-kbuf_all-v1-0-1df9882bb01a@debian.org/T/#u
 
-* An arch implementation may disable preemption, but then it is arch
-  responsibility not to call any arch-specific code that might sleep;
-* As result, while in lazy MMU mode the generic code should never
-  call a code that might sleep;
+Right, these fixes are on 6.18 since day one.
 
-1. https://lore.kernel.org/linux-mm/b52726c7-ea9c-4743-a68d-3eafce4e5c61@arm.com/
+Yeoreum is hitting another code path that I haven't fixed, it seems
+(through image_load()).
 
-> Acked-by: David Hildenbrand <david@redhat.com>
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-...
+That said, I think the fix should be similar to commit 04d3cd43700 ("arm64:
+kexec: initialize kexec_buf struct in load_other_segments()"). I.e:
+
+	--- a/arch/arm64/kernel/kexec_image.c
+	+++ b/arch/arm64/kernel/kexec_image.c
+	@@ -41,7 +41,7 @@ static void *image_load(struct kimage *image,
+		struct arm64_image_header *h;
+		u64 flags, value;
+		bool be_image, be_kernel;
+	-       struct kexec_buf kbuf;
+	+       struct kexec_buf kbuf = {};
+		unsigned long text_offset, kernel_segment_number;
+		struct kexec_segment *kernel_segment;
+		int ret;
+
+Thanks for fixing this new instance,
+--breno
 
