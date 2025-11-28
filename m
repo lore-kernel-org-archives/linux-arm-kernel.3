@@ -4,88 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73BCDD59F5C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Dec 2025 02:57:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA190D59F5C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Dec 2025 02:57:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/2xVl9GtYDKziiIkptsRgm8RTLyYPV0xJz1nP0LWBYs=; b=rpPPSP2hVRKH82Ho2qDgyVoSG6
-	u5+FMlEbJTfCmitOBsVmcHMiFe7WbE+QYRuvk28YG4OH3GcTCUbPgUk6nZwGxxewzpqLW34sRkPhd
-	tMj3Rbrej6SPDULbuD+J931r2udb3Q29hoPnsMZFdPerknDWIr688c2LGNuOZ5CHru0AYFqtNaC4o
-	M9Im0dl2Z9j0+9pLXG1uVHoNN3Lpju9IKX5czKsn1vOgrtyqowu0hZ3qZHIrtbjVyiL0f3e8zWCAS
-	BsiLFkXhbd5p+gQie2W39rsr5PXFLvvwqulgzKnRwMdMQHpfsEXQzuT1gqRVdgEKmjluNGol/LrRV
-	ET+77q9Q==;
+	bh=UIiprcjgq2lecYZK2AZBwF2o0KKwZPjW0iWNG/O03pU=; b=veziUR3zoi8X41WqP6HRG+XWyZ
+	2AG5fICVau58SKxKRCnBeGSfcdjiLDOFV2xzj3ZWni8f/4V9ZMcTWkuotdntQuvDnAUg1btpWaKeQ
+	dOWmXTvDbO9Rv4zaikQ1Rbx0GH/LfOV/58yLohD33LEetoDXtyI6jPrqqruuTgQMt3VFZwghpc1Is
+	Isi2sOxjCV3LBH9MtrTqVck/lyxfirZ8Rxb34yTBH1MkbWdvrKgu78B96roBZSPOT5M+BM/SEiMfY
+	JTe0G1lWqiaSdb5Tx7Zyj3+uOIFnXw7p1YkY8MBbyGx44KcGMyeCnNqiTlubVW17N7ZKglVfa6J0F
+	KbZqIvMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUFp3-00000001KBD-0SCY;
-	Sat, 13 Dec 2025 02:57:29 +0000
+	id 1vUFp4-00000001KBv-0qGZ;
+	Sat, 13 Dec 2025 02:57:30 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUFou-00000001K6j-4BQx;
-	Sat, 13 Dec 2025 02:57:21 +0000
+	id 1vUFow-00000001K7D-3R3l;
+	Sat, 13 Dec 2025 02:57:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
 	:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=/2xVl9GtYDKziiIkptsRgm8RTLyYPV0xJz1nP0LWBYs=; b=ZMPqIEkMzHL1G6QVIx2OqiFYWS
-	vJdUaBcDA4M0LRw4VFgStm/Zl5DhCAI6jASfcyjcTc3BYttoCHkVJTxSjXWew51D+BcAq+270fDuI
-	JqJuMpK0HVvh2D3y6F0BPr9h3AVjksgctmI1eSpjcwbxdixzK8484i05pXpnzhXo658C9x5CKBJJ4
-	W3BRscjqUXHzPMfME/07xqwzWd15lAaK0nw42u2nZlC1cXJ1AKzTtx/0OL8HkfqrbneSx74XivAoW
-	2nEVKiGbO6A0AJj2vog1wiZ102a9dgZWFi5TjJ2LuP/OQ/o46YV6jTKFhFSLfTHCV8sgBNM2EiGmJ
-	Jd/+0oUw==;
+	bh=UIiprcjgq2lecYZK2AZBwF2o0KKwZPjW0iWNG/O03pU=; b=Om6r3KMkStrLLIq7KnovwbTTBo
+	ysF6oGxKhaE1ttnMotaAtEY8i4PaNh8Q+eKwFKH/dZhF6+l0d0enFAIZWQvvtH0WH+L9IZ3MQnygg
+	Vo7d7qvTf/vc1VzDIYmWVSg0BrmPdM3v2SEoqhRtYu67qXAwAIS1/5Y4zwbt+PsyJICd+daspfhrI
+	47TyDAUPqY8d4ELHAiyAldX011F6DhJm0YWjgkYbQOjRgWLW4hL0vJEWbdOdRwP860Wm0LTRXMoz2
+	V1DQffjh39qkTvcEeIzpK00RBZxZB5em4DE/ove785VSWUagYG786h2M8h2RDntB93An1CNejndRm
+	onUzNG2Q==;
 Received: from rtits2.realtek.com ([211.75.126.72] helo=rtits2.realtek.com.tw)
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vKw4h-00000006yei-0ead;
-	Mon, 17 Nov 2025 10:03:11 +0000
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 5AHAthamF3462592, This message is accepted by code: ctloc85258
+	id 1vOtdo-0000000Bb6H-2nMf;
+	Fri, 28 Nov 2025 08:15:50 +0000
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 5AS98QHa8394709, This message is accepted by code: ctloc85258
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1763376943; bh=/2xVl9GtYDKziiIkptsRgm8RTLyYPV0xJz1nP0LWBYs=;
+	t=1764320906; bh=UIiprcjgq2lecYZK2AZBwF2o0KKwZPjW0iWNG/O03pU=;
 	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding:Content-Type;
-	b=COX4WNgH+/v8wdJ1B1b4fetKPl+lji2q0miDHYVP4bUr8ja6PfPYuW5c+2Qhr2G72
-	 G22oNH2B6supn5JexMxJIcOkVdKRwNy1ySh5iomj7kEKgDpYkpBk2cPjPmAqU7XrMH
-	 h38MtVz+BkqC6uTmN+qiTx0MAF3X7Q3wP86AEh42pvjBAL7GpXLHjKtsfByalGtU7P
-	 nvL+O60aj29GdKw1sNTKbIy7Fqkn5e0ToaWNdm/TIz7kQcDGrw084h94T7R4wpVmvc
-	 W4WmV5m6bJ1BkyS48JpKYbi4jysBdZefAk0HwQo6FqYxDcIwo9ufA8xFA3OWp40R1A
-	 M6qKkGNS1kzPQ==
+	b=pJeB7ZHBjQwNzbmY9bU8WT03J03sDyh1ch9laW4sUNMI5Pn+nwKSiVWlGxFQLysIN
+	 e/r8UYZfmvztrtMoCBeVRRGiBm6qk57Cr+aoSaxLwM1fkGn1CqFCzkbGjJdRi7KWSh
+	 aB4WY5vRtkW8CPsrFKBvSJIizAToYtpulm3hjZSyYsZ0Rb6GvD0gDSZ5d2AetWT20v
+	 ngoko0kKoAa3asQGjRN7QymUVyBLwf4QuIQjl7PUjXEuad4L3wsjRUENGXFlyf2hyr
+	 97KtOjQIqvFtmBNDoo2meB7XelDoim6oT7slgGcCBeQJb+K6vAkbUr71b4X3CIgPy2
+	 WvQTlwW+Nr2Ug==
 Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 5AHAthamF3462592
+	by rtits2.realtek.com.tw (8.15.2/3.21/5.94) with ESMTPS id 5AS98QHa8394709
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 17 Nov 2025 18:55:43 +0800
-Received: from RTKEXHMBS01.realtek.com.tw (172.21.6.40) by
+	Fri, 28 Nov 2025 17:08:26 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
  RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.27; Mon, 17 Nov 2025 18:55:43 +0800
-Received: from RTKEXHMBS03.realtek.com.tw (10.21.1.53) by
- RTKEXHMBS01.realtek.com.tw (172.21.6.40) with Microsoft SMTP Server
+ 15.2.1544.27; Fri, 28 Nov 2025 17:08:27 +0800
+Received: from RTKEXHMBS04.realtek.com.tw (10.21.1.54) by
+ RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.27; Mon, 17 Nov 2025 18:55:42 +0800
-Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS03.realtek.com.tw
- (10.21.1.53) with Microsoft SMTP Server id 15.2.1544.27 via Frontend
- Transport; Mon, 17 Nov 2025 18:55:42 +0800
+ 15.2.1544.27; Fri, 28 Nov 2025 17:08:26 +0800
+Received: from cn1dhc-k02 (172.21.252.101) by RTKEXHMBS04.realtek.com.tw
+ (10.21.1.54) with Microsoft SMTP Server id 15.2.1544.27 via Frontend
+ Transport; Fri, 28 Nov 2025 17:08:26 +0800
 From: Yu-Chun Lin <eleanor.lin@realtek.com>
-To: <conor@kernel.org>
-CC: <afaerber@suse.de>, <conor+dt@kernel.org>, <cy.huang@realtek.com>,
-        <devicetree@vger.kernel.org>, <eleanor.lin@realtek.com>,
-        <james.tai@realtek.com>, <krzk+dt@kernel.org>, <lee@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-realtek-soc@lists.infradead.org>, <robh@kernel.org>,
-        <stanley_chang@realtek.com>
-Subject: Re: [PATCH v2 1/3] dt-bindings: arm: realtek: Add Kent Soc family compatibles
-Date: Mon, 17 Nov 2025 18:55:42 +0800
-Message-ID: <20251117105542.14789-1-eleanor.lin@realtek.com>
+To: <afaerber@suse.de>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <lee@kernel.org>, <james.tai@realtek.com>
+CC: <linux-arm-kernel@lists.infradead.org>,
+        <linux-realtek-soc@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <cy.huang@realtek.com>,
+        <stanley_chang@realtek.com>, <eleanor.lin@realtek.com>
+Subject: [PATCH v3 2/2 RESEND] arm64: dts: realtek: Add Kent SoC and EVB device trees
+Date: Fri, 28 Nov 2025 17:08:25 +0800
+Message-ID: <20251128090825.27365-3-eleanor.lin@realtek.com>
 X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20251113-preorder-task-4e5ba09580d8@spud>
-References: <20251113-preorder-task-4e5ba09580d8@spud>
+In-Reply-To: <20251128090825.27365-1-eleanor.lin@realtek.com>
+References: <20251128090825.27365-1-eleanor.lin@realtek.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251117_100308_449405_5727747F 
-X-CRM114-Status: GOOD (  17.53  )
+X-CRM114-CacheID: sfid-20251128_081546_031390_4197CE3F 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,126 +99,718 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 13, 2025 at 08:30:07PM +0800, Yu-Chun Lin wrote:
-> > Define compatible strings for Realtek RTD1501s, RTD1861b and RTD1920s.
-> > 
-> > Additionally, convert legacy DTS-style comments to YAML description 
-> > properties, following the pattern from the ARM bindings conversion 
-> > series [1].
->
-> "Additionally" is often a sign that it should be in a different patch.
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> pw-bot: not-applicable
+Add Device Tree hierarchy for Realtek Kent SoC family:
 
-Hi Conor,
+- kent.dtsi: base SoC layer
+- rtd<variant>.dtsi: SoC variant layer
+- rtd<variant>-<board>.dtsi: board layer
+- rtd<variant>-<board>-<config>.dts: board configuration layer
 
-I'm planning to split the changes into two separate patches:
+Include RTD1501s Phantom EVB (8GB), RTD1861B Krypton EVB (8GB), and
+RTD1920s Smallville EVB (4GB).
 
-1. One patch to convert realtek.yaml to match the DTS-style comments,
-following the pattern from the ARM bindings conversion series.
-2. Another patch to define the compatible strings for Realtek RTD1501s,
-RTD1861b, and RTD1920s.
+Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
+---
+ arch/arm64/boot/dts/realtek/Makefile          |   7 +-
+ arch/arm64/boot/dts/realtek/kent.dtsi         | 166 ++++++++++++++++++
+ arch/arm64/boot/dts/realtek/rtd1501.dtsi      |  12 ++
+ .../boot/dts/realtek/rtd1501s-phantom-8gb.dts |  25 +++
+ .../boot/dts/realtek/rtd1501s-phantom.dtsi    | 118 +++++++++++++
+ arch/arm64/boot/dts/realtek/rtd1861.dtsi      |  12 ++
+ .../boot/dts/realtek/rtd1861b-krypton-8gb.dts |  25 +++
+ .../boot/dts/realtek/rtd1861b-krypton.dtsi    |  72 ++++++++
+ arch/arm64/boot/dts/realtek/rtd1920.dtsi      |  12 ++
+ .../dts/realtek/rtd1920s-smallville-4gb.dts   |  23 +++
+ .../boot/dts/realtek/rtd1920s-smallville.dtsi | 128 ++++++++++++++
+ 11 files changed, 596 insertions(+), 4 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/realtek/kent.dtsi
+ create mode 100644 arch/arm64/boot/dts/realtek/rtd1501.dtsi
+ create mode 100644 arch/arm64/boot/dts/realtek/rtd1501s-phantom-8gb.dts
+ create mode 100644 arch/arm64/boot/dts/realtek/rtd1501s-phantom.dtsi
+ create mode 100644 arch/arm64/boot/dts/realtek/rtd1861.dtsi
+ create mode 100644 arch/arm64/boot/dts/realtek/rtd1861b-krypton-8gb.dts
+ create mode 100644 arch/arm64/boot/dts/realtek/rtd1861b-krypton.dtsi
+ create mode 100644 arch/arm64/boot/dts/realtek/rtd1920.dtsi
+ create mode 100644 arch/arm64/boot/dts/realtek/rtd1920s-smallville-4gb.dts
+ create mode 100644 arch/arm64/boot/dts/realtek/rtd1920s-smallville.dtsi
 
-Could you confirm if both patches should include your Acked-by tag, or is
-it only applicable to one of them?
-
-Best regards 
-Yu-Chun
-
-> > 
-> > [1] 
-> > https://lore.kernel.org/lkml/20200622125527.24207-2-afaerber@suse.de/
-> > 
-> > Signed-off-by: Yu-Chun Lin <eleanor.lin@realtek.com>
-> > ---
-> >  .../devicetree/bindings/arm/realtek.yaml      | 42 +++++++++++++------
-> >  1 file changed, 30 insertions(+), 12 deletions(-)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/arm/realtek.yaml 
-> > b/Documentation/devicetree/bindings/arm/realtek.yaml
-> > index ddd9a85099e9..be529490640c 100644
-> > --- a/Documentation/devicetree/bindings/arm/realtek.yaml
-> > +++ b/Documentation/devicetree/bindings/arm/realtek.yaml
-> > @@ -14,21 +14,21 @@ properties:
-> >      const: '/'
-> >    compatible:
-> >      oneOf:
-> > -      # RTD1195 SoC based boards
-> > -      - items:
-> > +      - description: RTD1195 SoC based boards
-> > +        items:
-> >            - enum:
-> >                - mele,x1000 # MeLE X1000
-> >                - realtek,horseradish # Realtek Horseradish EVB
-> >            - const: realtek,rtd1195
-> >  
-> > -      # RTD1293 SoC based boards
-> > -      - items:
-> > +      - description: RTD1293 SoC based boards
-> > +        items:
-> >            - enum:
-> >                - synology,ds418j # Synology DiskStation DS418j
-> >            - const: realtek,rtd1293
-> >  
-> > -      # RTD1295 SoC based boards
-> > -      - items:
-> > +      - description: RTD1295 SoC based boards
-> > +        items:
-> >            - enum:
-> >                - mele,v9 # MeLE V9
-> >                - probox2,ava # ProBox2 AVA @@ -36,25 +36,43 @@ 
-> > properties:
-> >                - zidoo,x9s # Zidoo X9S
-> >            - const: realtek,rtd1295
-> >  
-> > -      # RTD1296 SoC based boards
-> > -      - items:
-> > +      - description: RTD1296 SoC based boards
-> > +        items:
-> >            - enum:
-> >                - synology,ds418 # Synology DiskStation DS418
-> >            - const: realtek,rtd1296
-> >  
-> > -      # RTD1395 SoC based boards
-> > -      - items:
-> > +      - description: RTD1395 SoC based boards
-> > +        items:
-> >            - enum:
-> >                - bananapi,bpi-m4 # Banana Pi BPI-M4
-> >                - realtek,lion-skin # Realtek Lion Skin EVB
-> >            - const: realtek,rtd1395
-> >  
-> > -      # RTD1619 SoC based boards
-> > -      - items:
-> > +      - description: RTD1501s SoC based boards
-> > +        items:
-> > +          - enum:
-> > +              - realtek,phantom # Realtek Phantom EVB (8GB)
-> > +          - const: realtek,rtd1501s
-> > +
-> > +      - description: RTD1619 SoC based boards
-> > +        items:
-> >            - enum:
-> >                - realtek,mjolnir # Realtek Mjolnir EVB
-> >            - const: realtek,rtd1619
-> >  
-> > +      - description: RTD1861b SoC based boards
-> > +        items:
-> > +          - enum:
-> > +              - realtek,krypton # Realtek Krypton EVB (8GB)
-> > +          - const: realtek,rtd1861b
-> > +
-> > +      - description: RTD1920s SoC based boards
-> > +        items:
-> > +          - enum:
-> > +              - realtek,smallville # Realtek Smallville EVB (4GB)
-> > +          - const: realtek,rtd1920s
-> > +
-> >  additionalProperties: true
-> >  
-> >  ...
-> > --
-> > 2.34.1
-> > 
+diff --git a/arch/arm64/boot/dts/realtek/Makefile b/arch/arm64/boot/dts/realtek/Makefile
+index ef8d8fcbaa05..60a37d5a948c 100644
+--- a/arch/arm64/boot/dts/realtek/Makefile
++++ b/arch/arm64/boot/dts/realtek/Makefile
+@@ -1,15 +1,14 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ 
+ dtb-$(CONFIG_ARCH_REALTEK) += rtd1293-ds418j.dtb
+-
+ dtb-$(CONFIG_ARCH_REALTEK) += rtd1295-mele-v9.dtb
+ dtb-$(CONFIG_ARCH_REALTEK) += rtd1295-probox2-ava.dtb
+ dtb-$(CONFIG_ARCH_REALTEK) += rtd1295-xnano-x5.dtb
+ dtb-$(CONFIG_ARCH_REALTEK) += rtd1295-zidoo-x9s.dtb
+-
+ dtb-$(CONFIG_ARCH_REALTEK) += rtd1296-ds418.dtb
+-
+ dtb-$(CONFIG_ARCH_REALTEK) += rtd1395-bpi-m4.dtb
+ dtb-$(CONFIG_ARCH_REALTEK) += rtd1395-lionskin.dtb
+-
++dtb-$(CONFIG_ARCH_REALTEK) += rtd1501s-phantom-8gb.dtb
+ dtb-$(CONFIG_ARCH_REALTEK) += rtd1619-mjolnir.dtb
++dtb-$(CONFIG_ARCH_REALTEK) += rtd1861b-krypton-8gb.dtb
++dtb-$(CONFIG_ARCH_REALTEK) += rtd1920s-smallville-4gb.dtb
+diff --git a/arch/arm64/boot/dts/realtek/kent.dtsi b/arch/arm64/boot/dts/realtek/kent.dtsi
+new file mode 100644
+index 000000000000..ae006ce24420
+--- /dev/null
++++ b/arch/arm64/boot/dts/realtek/kent.dtsi
+@@ -0,0 +1,166 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Realtek Kent SoC family
++ *
++ * Copyright (c) 2024 Realtek Semiconductor Corp.
++ */
++
++#include <dt-bindings/interrupt-controller/arm-gic.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++
++/ {
++	interrupt-parent = <&gic>;
++	#address-cells = <2>;
++	#size-cells = <2>;
++
++	aliases {
++		serial0 = &uart0;
++	};
++
++	timer {
++		compatible = "arm,armv8-timer";
++		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>,
++			     <GIC_PPI  9 IRQ_TYPE_LEVEL_HIGH>;
++	};
++
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		cpu0: cpu@0 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a78";
++			reg = <0x0>;
++			enable-method = "psci";
++			next-level-cache = <&l2_0>;
++			dynamic-power-coefficient = <454>;
++			#cooling-cells = <2>;
++
++			l2_0: l2-cache {
++				compatible = "cache";
++				cache-level = <2>;
++				cache-line-size = <64>;
++				cache-sets = <256>;
++				cache-size = <0x40000>;
++				cache-unified;
++				next-level-cache = <&l3>;
++			};
++		};
++
++		cpu1: cpu@100 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a78";
++			reg = <0x100>;
++			enable-method = "psci";
++			next-level-cache = <&l2_1>;
++			dynamic-power-coefficient = <454>;
++			#cooling-cells = <2>;
++
++			l2_1: l2-cache {
++				compatible = "cache";
++				cache-level = <2>;
++				cache-line-size = <64>;
++				cache-sets = <256>;
++				cache-size = <0x40000>;
++				cache-unified;
++				next-level-cache = <&l3>;
++			};
++		};
++
++		cpu2: cpu@200 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a78";
++			reg = <0x200>;
++			enable-method = "psci";
++			next-level-cache = <&l2_2>;
++			dynamic-power-coefficient = <454>;
++			#cooling-cells = <2>;
++
++			l2_2: l2-cache {
++				compatible = "cache";
++				cache-level = <2>;
++				cache-line-size = <64>;
++				cache-sets = <256>;
++				cache-size = <0x40000>;
++				cache-unified;
++				next-level-cache = <&l3>;
++			};
++		};
++
++		cpu3: cpu@300 {
++			device_type = "cpu";
++			compatible = "arm,cortex-a78";
++			reg = <0x300>;
++			enable-method = "psci";
++			next-level-cache = <&l2_3>;
++			dynamic-power-coefficient = <454>;
++			#cooling-cells = <2>;
++
++			l2_3: l2-cache {
++				compatible = "cache";
++				cache-level = <2>;
++				cache-line-size = <64>;
++				cache-sets = <256>;
++				cache-size = <0x40000>;
++				cache-unified;
++				next-level-cache = <&l3>;
++			};
++		};
++
++		l3: l3-cache {
++			compatible = "cache";
++			cache-level = <3>;
++			cache-line-size = <64>;
++			cache-sets = <512>;
++			cache-size = <0x200000>;
++			cache-unified;
++		};
++	};
++
++	psci: psci {
++		compatible = "arm,psci-1.0";
++		method = "smc";
++	};
++
++	soc@0 {
++		compatible = "simple-bus";
++		ranges = <0x0 0x0 0x0 0x40000>, /* boot code */
++			 <0x98000000 0x0 0x98000000 0xef0000>, /* rbus */
++			 <0xa0000000 0x0 0xa0000000 0x10000000>, /* PCIE */
++			 <0xff000000 0x0 0xff000000 0x200000>; /* GIC */
++		#address-cells = <1>;
++		#size-cells = <1>;
++
++		rbus: bus@98000000 {
++			compatible = "simple-bus";
++			ranges = <0x0 0x98000000 0xef0000>,
++				 <0xa0000000 0xa0000000 0x10000000>; /* PCIE */
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			uart0: serial@7800 {
++				compatible = "snps,dw-apb-uart";
++				reg = <0x7800 0x100>;
++				clock-frequency = <432000000>;
++				interrupts = <GIC_SPI 68 IRQ_TYPE_LEVEL_HIGH>;
++				reg-io-width = <4>;
++				reg-shift = <2>;
++				status = "disabled";
++			};
++		};
++
++		gic: interrupt-controller@ff100000 {
++			compatible = "arm,gic-v3";
++			reg = <0xff100000 0x10000>,
++			      <0xff140000 0x80000>;
++			interrupt-controller;
++			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
++			#address-cells = <1>;
++			#interrupt-cells = <3>;
++			#size-cells = <1>;
++		};
++	};
++};
+diff --git a/arch/arm64/boot/dts/realtek/rtd1501.dtsi b/arch/arm64/boot/dts/realtek/rtd1501.dtsi
+new file mode 100644
+index 000000000000..65f7ede3df73
+--- /dev/null
++++ b/arch/arm64/boot/dts/realtek/rtd1501.dtsi
+@@ -0,0 +1,12 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Realtek RTD1501 SoC
++ *
++ * Copyright (c) 2024 Realtek Semiconductor Corp.
++ */
++
++#include "kent.dtsi"
++
++&uart0 {
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/realtek/rtd1501s-phantom-8gb.dts b/arch/arm64/boot/dts/realtek/rtd1501s-phantom-8gb.dts
+new file mode 100644
+index 000000000000..09e544acfd34
+--- /dev/null
++++ b/arch/arm64/boot/dts/realtek/rtd1501s-phantom-8gb.dts
+@@ -0,0 +1,25 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Realtek RTD1501S Phantom EVB
++ *
++ * Copyright (c) 2024 Realtek Semiconductor Corp.
++ */
++
++/dts-v1/;
++
++#include "rtd1501s-phantom.dtsi"
++
++/ {
++	compatible = "realtek,phantom", "realtek,rtd1501s";
++	model = "Realtek Phantom EVB Chromium (8GB)";
++
++	memory@40000 {
++		device_type = "memory";
++		reg = <0x0 0x50000 0x0 0x7ffb0000>,
++		      <0x0 0x8a100000 0x0 0xdef0000>,
++		      <0x0 0x98700000 0x0 0x7900000>,
++		      <0x0 0xa0600000 0x0 0x5ea00000>,
++		      <0x1 0x0 0x0 0xa0000000>,
++		      <0x1 0xa0600000 0x0 0x5fa00000>;
++	};
++};
+diff --git a/arch/arm64/boot/dts/realtek/rtd1501s-phantom.dtsi b/arch/arm64/boot/dts/realtek/rtd1501s-phantom.dtsi
+new file mode 100644
+index 000000000000..bcfb96799671
+--- /dev/null
++++ b/arch/arm64/boot/dts/realtek/rtd1501s-phantom.dtsi
+@@ -0,0 +1,118 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Realtek RTD1501S Phantom EVB
++ *
++ * Copyright (c) 2024 Realtek Semiconductor Corp.
++ */
++
++/dts-v1/;
++
++#include <dt-bindings/thermal/thermal.h>
++#include "rtd1501.dtsi"
++
++/ {
++	chosen {
++		stdout-path = "serial0:460800n8";
++	};
++
++	reserved_memory: reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		linux,cma {
++			compatible = "shared-dma-pool";
++			alignment = <0x0 0x400000>;
++			alloc-ranges = <0x0 0x0 0x0 0x20000000>;
++			size = <0x0 0x2000000>;
++			reusable;
++			linux,cma-default;
++		};
++	};
++
++	cpu_opps: opp-table-cpu {
++		compatible = "operating-points-v2";
++		opp-shared;
++
++		opp800: opp-800000000 {
++			opp-hz = /bits/ 64 <800000000>;
++			opp-microvolt = <830000 830000 1100000>;
++		};
++
++		opp900: opp-900000000 {
++			opp-hz = /bits/ 64 <900000000>;
++			opp-microvolt = <850000 850000 1100000>;
++		};
++
++		opp1000: opp-1000000000 {
++			opp-hz = /bits/ 64 <1000000000>;
++			opp-microvolt = <870000 870000 1100000>;
++		};
++
++		opp1100: opp-1100000000 {
++			opp-hz = /bits/ 64 <1100000000>;
++			opp-microvolt = <890000 890000 1100000>;
++		};
++
++		opp1200: opp-1200000000 {
++			opp-hz = /bits/ 64 <1200000000>;
++			opp-microvolt = <910000 910000 1100000>;
++		};
++
++		opp1300: opp-1300000000 {
++			opp-hz = /bits/ 64 <1300000000>;
++			opp-microvolt = <930000 930000 1100000>;
++		};
++
++		opp1400: opp-1400000000 {
++			opp-hz = /bits/ 64 <1400000000>;
++			opp-microvolt = <950000 950000 1100000>;
++		};
++
++		opp1500: opp-1500000000 {
++			opp-hz = /bits/ 64 <1500000000>;
++			opp-microvolt = <970000 970000 1100000>;
++		};
++
++		opp1600: opp-1600000000 {
++			opp-hz = /bits/ 64 <1600000000>;
++			opp-microvolt = <990000 990000 1100000>;
++			opp-suspend;
++		};
++
++		opp1700: opp-1700000000 {
++			opp-hz = /bits/ 64 <1700000000>;
++			opp-microvolt = <1010000 1010000 1100000>;
++		};
++
++		opp1800: opp-1800000000 {
++			opp-hz = /bits/ 64 <1800000000>;
++			opp-microvolt = <1030000 1030000 1100000>;
++		};
++
++		opp1900: opp-1900000000 {
++			opp-hz = /bits/ 64 <1900000000>;
++			opp-microvolt = <1050000 1050000 1100000>;
++		};
++	};
++};
++
++&cpu0 {
++	operating-points-v2 = <&cpu_opps>;
++	#cooling-cells = <2>;
++};
++
++&cpu1 {
++	operating-points-v2 = <&cpu_opps>;
++	#cooling-cells = <2>;
++};
++
++&cpu2 {
++	operating-points-v2 = <&cpu_opps>;
++	#cooling-cells = <2>;
++};
++
++&cpu3 {
++	operating-points-v2 = <&cpu_opps>;
++	#cooling-cells = <2>;
++};
+diff --git a/arch/arm64/boot/dts/realtek/rtd1861.dtsi b/arch/arm64/boot/dts/realtek/rtd1861.dtsi
+new file mode 100644
+index 000000000000..44c3de8f1f48
+--- /dev/null
++++ b/arch/arm64/boot/dts/realtek/rtd1861.dtsi
+@@ -0,0 +1,12 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Realtek RTD1861 SoC
++ *
++ * Copyright (c) 2024 Realtek Semiconductor Corp.
++ */
++
++#include "kent.dtsi"
++
++&uart0 {
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/realtek/rtd1861b-krypton-8gb.dts b/arch/arm64/boot/dts/realtek/rtd1861b-krypton-8gb.dts
+new file mode 100644
+index 000000000000..9c23d901c49c
+--- /dev/null
++++ b/arch/arm64/boot/dts/realtek/rtd1861b-krypton-8gb.dts
+@@ -0,0 +1,25 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Realtek RTD1861B Krypton EVB
++ *
++ * Copyright (c) 2024 Realtek Semiconductor Corp.
++ */
++
++/dts-v1/;
++
++#include "rtd1861b-krypton.dtsi"
++
++/ {
++	compatible = "realtek,krypton", "realtek,rtd1861b";
++	model = "Realtek Krypton EVB (8GB)";
++
++	memory@40000 {
++		device_type = "memory";
++		reg = <0x0 0x50000 0x0 0x7ffb0000>,
++		      <0x0 0x8a100000 0x0 0xdef0000>,
++		      <0x0 0x98700000 0x0 0x7900000>,
++		      <0x0 0xa0600000 0x0 0x5ea00000>,
++		      <0x1 0x0 0x0 0xa0000000>,
++		      <0x1 0xa0600000 0x0 0x5fa00000>;
++	};
++};
+diff --git a/arch/arm64/boot/dts/realtek/rtd1861b-krypton.dtsi b/arch/arm64/boot/dts/realtek/rtd1861b-krypton.dtsi
+new file mode 100644
+index 000000000000..b500f4d2c502
+--- /dev/null
++++ b/arch/arm64/boot/dts/realtek/rtd1861b-krypton.dtsi
+@@ -0,0 +1,72 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Realtek RTD1861B Krypton EVB
++ *
++ * Copyright (c) 2024 Realtek Semiconductor Corp.
++ */
++
++/dts-v1/;
++
++#include "rtd1861.dtsi"
++
++/ {
++	chosen {
++		stdout-path = "serial0:460800n8";
++	};
++
++	reserved_memory: reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		linux,cma {
++			compatible = "shared-dma-pool";
++			alignment = <0x0 0x400000>;
++			alloc-ranges = <0x0 0x0 0x0 0x20000000>;
++			size = <0x0 0x2000000>;
++			reusable;
++			linux,cma-default;
++		};
++	};
++
++	cpu_opps: opp-table-cpu {
++		compatible = "operating-points-v2";
++		opp-shared;
++
++		opp1200: opp-1200000000 {
++			opp-hz = /bits/ 64 <1200000000>;
++			opp-microvolt = <900000>;
++		};
++
++		opp1600: opp-1600000000 {
++			opp-hz = /bits/ 64 <1600000000>;
++			opp-microvolt = <1000000>;
++			opp-suspend;
++		};
++
++		opp1800: opp-1800000000 {
++			opp-hz = /bits/ 64 <1800000000>;
++			opp-microvolt = <1050000>;
++		};
++	};
++};
++
++&cpu0 {
++	operating-points-v2 = <&cpu_opps>;
++	#cooling-cells = <2>;
++};
++
++&cpu1 {
++	operating-points-v2 = <&cpu_opps>;
++	#cooling-cells = <2>;
++};
++
++&cpu2 {
++	operating-points-v2 = <&cpu_opps>;
++	#cooling-cells = <2>;
++};
++
++&cpu3 {
++	operating-points-v2 = <&cpu_opps>;
++	#cooling-cells = <2>;
++};
+diff --git a/arch/arm64/boot/dts/realtek/rtd1920.dtsi b/arch/arm64/boot/dts/realtek/rtd1920.dtsi
+new file mode 100644
+index 000000000000..becf546216e9
+--- /dev/null
++++ b/arch/arm64/boot/dts/realtek/rtd1920.dtsi
+@@ -0,0 +1,12 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Realtek RTD1920 SoC
++ *
++ * Copyright (c) 2024 Realtek Semiconductor Corp.
++ */
++
++#include "kent.dtsi"
++
++&uart0 {
++	status = "okay";
++};
+diff --git a/arch/arm64/boot/dts/realtek/rtd1920s-smallville-4gb.dts b/arch/arm64/boot/dts/realtek/rtd1920s-smallville-4gb.dts
+new file mode 100644
+index 000000000000..9fd6976e0d9b
+--- /dev/null
++++ b/arch/arm64/boot/dts/realtek/rtd1920s-smallville-4gb.dts
+@@ -0,0 +1,23 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Realtek RTD1920S Smallville EVB
++ *
++ * Copyright (c) 2024 Realtek Semiconductor Corp.
++ */
++
++/dts-v1/;
++
++#include "rtd1920s-smallville.dtsi"
++
++/ {
++	compatible = "realtek,smallville", "realtek,rtd1920s";
++	model = "Realtek Smallville EVB (4GB)";
++
++	memory@40000 {
++		device_type = "memory";
++		reg = <0x0 0x50000 0x0 0x7ffb0000>,
++		      <0x0 0x8a100000 0x0 0xdef0000>,
++		      <0x0 0x98700000 0x0 0x7900000>,
++		      <0x0 0xa1000000 0x0 0x5e000000>;
++	};
++};
+diff --git a/arch/arm64/boot/dts/realtek/rtd1920s-smallville.dtsi b/arch/arm64/boot/dts/realtek/rtd1920s-smallville.dtsi
+new file mode 100644
+index 000000000000..3db8fcea6447
+--- /dev/null
++++ b/arch/arm64/boot/dts/realtek/rtd1920s-smallville.dtsi
+@@ -0,0 +1,128 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Realtek RTD1920S Smallville EVB
++ *
++ * Copyright (c) 2024 Realtek Semiconductor Corp.
++ */
++
++/dts-v1/;
++
++#include <dt-bindings/thermal/thermal.h>
++#include "rtd1920.dtsi"
++
++/ {
++	chosen {
++		stdout-path = "serial0:460800n8";
++	};
++
++	reserved_memory: reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		protected_mem: protected-mem@50000 {
++			reg = <0x0 0x50000 0x0 0xbf0000>;
++			no-map;
++		};
++
++		metadata: metadata@c40000 {
++			reg = <0x0 0xc40000 0x0 0x3c4000>;
++			no-map;
++		};
++
++		linux,cma {
++			compatible = "shared-dma-pool";
++			alignment = <0x0 0x400000>;
++			alloc-ranges = <0x0 0x0 0x0 0x20000000>;
++			size = <0x0 0x2000000>;
++			reusable;
++			linux,cma-default;
++		};
++	};
++
++	cpu_opps: opp-table-cpu {
++		compatible = "operating-points-v2";
++		opp-shared;
++
++		opp800: opp-800000000 {
++			opp-hz = /bits/ 64 <800000000>;
++			opp-microvolt = <830000 830000 1100000>;
++		};
++
++		opp900: opp-900000000 {
++			opp-hz = /bits/ 64 <900000000>;
++			opp-microvolt = <850000 850000 1100000>;
++		};
++
++		opp1000: opp-1000000000 {
++			opp-hz = /bits/ 64 <1000000000>;
++			opp-microvolt = <870000 870000 1100000>;
++		};
++
++		opp1100: opp-1100000000 {
++			opp-hz = /bits/ 64 <1100000000>;
++			opp-microvolt = <890000 890000 1100000>;
++		};
++
++		opp1200: opp-1200000000 {
++			opp-hz = /bits/ 64 <1200000000>;
++			opp-microvolt = <910000 910000 1100000>;
++		};
++
++		opp1300: opp-1300000000 {
++			opp-hz = /bits/ 64 <1300000000>;
++			opp-microvolt = <930000 930000 1100000>;
++		};
++
++		opp1400: opp-1400000000 {
++			opp-hz = /bits/ 64 <1400000000>;
++			opp-microvolt = <950000 950000 1100000>;
++		};
++
++		opp1500: opp-1500000000 {
++			opp-hz = /bits/ 64 <1500000000>;
++			opp-microvolt = <970000 970000 1100000>;
++		};
++
++		opp1600: opp-1600000000 {
++			opp-hz = /bits/ 64 <1600000000>;
++			opp-microvolt = <990000 990000 1100000>;
++			opp-suspend;
++		};
++
++		opp1700: opp-1700000000 {
++			opp-hz = /bits/ 64 <1700000000>;
++			opp-microvolt = <1010000 1010000 1100000>;
++		};
++
++		opp1800: opp-1800000000 {
++			opp-hz = /bits/ 64 <1800000000>;
++			opp-microvolt = <1030000 1030000 1100000>;
++		};
++
++		opp1900: opp-1900000000 {
++			opp-hz = /bits/ 64 <1900000000>;
++			opp-microvolt = <1050000 1050000 1100000>;
++		};
++	};
++};
++
++&cpu0 {
++	operating-points-v2 = <&cpu_opps>;
++	#cooling-cells = <2>;
++};
++
++&cpu1 {
++	operating-points-v2 = <&cpu_opps>;
++	#cooling-cells = <2>;
++};
++
++&cpu2 {
++	operating-points-v2 = <&cpu_opps>;
++	#cooling-cells = <2>;
++};
++
++&cpu3 {
++	operating-points-v2 = <&cpu_opps>;
++	#cooling-cells = <2>;
++};
+-- 
+2.34.1
 
 
