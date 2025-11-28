@@ -4,121 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DFBACFD376
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 08:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1DA9CFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 08:34:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kogOAsk7EHkBu4pG8vuz1bS7JaOBQWLpoPmvg+ym7YE=; b=SVubMsUStu7yLsRkyuqStLI6YV
-	bQznh+pSMR+AFkbRv98K6E2ajzmV34AjCdk+QFnx021J2YYzys/OiasFSvQtN/0DZZDbn37hkQwZT
-	USXtgAJJMKXmA783lnC/hhmI1ZIPJjFLuEcZrCR5+3DTeXLIsQp6FTd79lXEuSIDGS/PDZv2K3uBk
-	XMX/BotEjXNUqrb0RrEN/awg1XVoYjBnaQwQWYpt4fTisq68DoK9htGF/0+fRoTj/Kr6Rys4cd0aA
-	AWgvH4SnOTUnmcABCRrTeu8fXCnpb5MQPuddb9/75DCPcC6pCTVe5xRZdaLoLCMqsaZtrs07wUWKI
-	QIrOJr1A==;
+	bh=tgzdODyZLz4GqNmYM3p+s4koXLC462zunCov83SK9t0=; b=fMZtiaZXemG49SvQ5boGW8iAMJ
+	9uWl82c9bChtzXEiET/syPIBd626XJO15Tk9rOf180+i8/B4LTvGyu29+rUH7ooU5MTwnH9xLpQgN
+	meVzTRzjkaAVrdmGvdUHlys13CWgR2dYYcO9YLWVJaHKrlxHam6MocC9/Z7f0r6NwO0oO7jBaiiqw
+	6kIAHktbcuGdsC9OnchopIODogsEiPQjXfnPpDzpzx2vmY3Min1nd0rCkjYzjtSgNHPPDz2sZl5fO
+	CxHqSm8k9qXGGg8a0E/TBq3ocg2N2MeTb2nmQT8N21359gnPOQoI1BBZg7z/z2qVW4mAvCw3ORxQp
+	kqz/sOSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOtuW-000000009Nn-1iDY;
-	Fri, 28 Nov 2025 08:33:00 +0000
-Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
+	id 1vOtvz-00000000AdG-3XQs;
+	Fri, 28 Nov 2025 08:34:31 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOtuT-000000009L0-2SEm
+	id 1vOtvw-00000000AZi-1tjd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 08:32:59 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id BDA2F7A0091;
-	Fri, 28 Nov 2025 03:32:55 -0500 (EST)
-Received: from phl-imap-17 ([10.202.2.105])
-  by phl-compute-04.internal (MEProxy); Fri, 28 Nov 2025 03:32:56 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1764318775;
-	 x=1764405175; bh=kogOAsk7EHkBu4pG8vuz1bS7JaOBQWLpoPmvg+ym7YE=; b=
-	nzlVfA/3OZQIuywd76bGz8JzFboPENe5gbbTlfz2HUXVglJowS9gHVykTGxJh5WF
-	gQBzGQBiZiqx9ig3c7rEx4XBZ1tFHH04tAImabugQVsp92Bk7Pv8LjRlvXd+o53K
-	mkF+1xRfZ7e6zOcpNMoONrUF+H7wJnEyp4HonbgYMmjvmvd/Kll0SmL4EOfiRBex
-	eLQaVEChSI+kGFcM0gDwMR3arwBv+eEtgKY1ItROz28hSXLAQ9BGRifreDeeQDSY
-	LltwJEVYroKpEOHUQS38JG93mRRjnsfiwvmcNX6Q6wLqPf6UAR5qRtO42tK085t7
-	JQqRn0eWeNJ4VTTLjL7GuA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1764318775; x=
-	1764405175; bh=kogOAsk7EHkBu4pG8vuz1bS7JaOBQWLpoPmvg+ym7YE=; b=i
-	3c6Kh983lrsY70zS0DQt5mFiy7/v1taLdNQjD9CoCiBbdu79IjCWiBOw4Y8R3LrM
-	99GZW3IN63UX2iZV+9mEV4P3UWBMLSzRO9hvGToU6mdUj+h3SKdDLla/kfBc0Mjd
-	brvgkYIx0ywqJXmq5rRko7Gru5lDi3C4BU3om2I1mqHeE4Y73eGzjdxVewZtO21S
-	1Lph6c2SG2FGEoM+c7DGDOIOTRPPE1R41h9rlelUKjyiMtZlDcZFiW0f69hzLhdJ
-	7hGBzbKSw68R5NU9HQkY2I1onQF/w/EJoWQo1qm1F/WjMOYmokhyFairT08/YC8s
-	A+Bqro5pcUiLDTmELRUWg==
-X-ME-Sender: <xms:Nl4paZJRaokGWEiUjINohNKSJ3PEZLvn4zXqbgQ0EhmbojOB0iSy3w>
-    <xme:Nl4paf-6tLElgdqLoNbVfZ0m8CPzsTOL8eZwOFf1uwyeM2QVf1G0uMSF5kr9HYfWc
-    aoNd5CEHD9MSBCXJ2aCIQtITNuwoSeBkc-XdgfiT11ilv8uO-jyHg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvgeelgedtucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepudekpdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopegstghmqdhkvghrnhgvlhdqfhgvvggusggrtghkqdhlihhsthessg
-    hrohgruggtohhmrdgtohhmpdhrtghpthhtoheprhhjuhhisegsrhhorggutghomhdrtgho
-    mhdprhgtphhtthhopehssghrrghnuggvnhessghrohgruggtohhmrdgtohhmpdhrtghpth
-    htohepghgvvghrthdorhgvnhgvshgrshesghhlihguvghrrdgsvgdprhgtphhtthhopehm
-    rghgnhhushdruggrmhhmsehgmhgrihhlrdgtohhmpdhrtghpthhtohepnhhitghkrdguvg
-    hsrghulhhnihgvrhhsodhlkhhmlhesghhmrghilhdrtghomhdprhgtphhtthhopehjuhhs
-    thhinhhsthhithhtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehmohhrsghosehgoh
-    hoghhlvgdrtghomhdprhgtphhtthhopegrnhguihdrshhhhihtiheskhgvrhhnvghlrdho
-    rhhg
-X-ME-Proxy: <xmx:N14paShGrSc5yuHL98XPEheExHzuIVkudNwsBRs2A4b2fvUegpIY-g>
-    <xmx:N14paZ8skgNynHVvH-Sz_vBlIfFZnviHaNZmmGop4P9xLqmr8vDSaQ>
-    <xmx:N14pafIr149nS7jLJTB_xQ17EOf-xpTIGNud5jS0H8NdXihDORCw7A>
-    <xmx:N14paSZa5xNxbw-aeAWFKYObqF3QBTiFTS3nuaSvmBmn5MtfbLORzg>
-    <xmx:N14paWuDWqIE-gqMREuO9tqUfj1g3p39BG4OXBAuOrMW8QUF2ZsPLkD1>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id E485AC40054; Fri, 28 Nov 2025 03:32:54 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 28 Nov 2025 08:34:30 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 671B4C16A36;
+	Fri, 28 Nov 2025 08:34:01 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 3542F60706;
+	Fri, 28 Nov 2025 08:34:24 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 98471103C8EF1;
+	Fri, 28 Nov 2025 09:34:13 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1764318862; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=tgzdODyZLz4GqNmYM3p+s4koXLC462zunCov83SK9t0=;
+	b=jL2lRw+ta61DisBvuQJKHw75eiScP4u/1eTq3Dj/KyRjxC3HVIySdyvLe8gSIopegLCoT/
+	+Uia2DSqjS8XMe8u1I2OTmhBnCvSELWEu+5Ehg+vwRe6VOy+dmWcv/qVFteEOwoB2G+t2r
+	joPlaQWkBOl8qiD1HuDQFn7nSwQgb/S/Ei2ayADTXDtoxlOav4V4ZnWfrtBn7k7BOkgWDC
+	KID8FwOyJXvlt1wtcFRKgExuatU20+T1XHrO5LSpGMdbMe682d6vpu+kX5RDlTr+F3PhvL
+	BsTDqkzZGLpxkRR0H8HwX3fiM4cVIesD2WLVhzB4FFz6ZAlzdjfggDZ6b5O64A==
+Message-ID: <b8d12481-2637-470d-a3f1-784c0d7b4b3e@bootlin.com>
+Date: Fri, 28 Nov 2025 09:34:12 +0100
 MIME-Version: 1.0
-X-ThreadId: A9H3E49GtQH-
-Date: Fri, 28 Nov 2025 09:32:34 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Geert Uytterhoeven" <geert@linux-m68k.org>,
- "Krzysztof Kozlowski" <krzysztof.kozlowski@oss.qualcomm.com>
-Cc: "Andi Shyti" <andi.shyti@kernel.org>, "Ray Jui" <rjui@broadcom.com>,
- "Scott Branden" <sbranden@broadcom.com>,
- "Broadcom internal kernel review list" <bcm-kernel-feedback-list@broadcom.com>,
- "Wolfram Sang" <wsa+renesas@sang-engineering.com>,
- "Geert Uytterhoeven" <geert+renesas@glider.be>,
- "Magnus Damm" <magnus.damm@gmail.com>,
- "Nathan Chancellor" <nathan@kernel.org>,
- "Nick Desaulniers" <nick.desaulniers+lkml@gmail.com>,
- "Bill Wendling" <morbo@google.com>, "Justin Stitt" <justinstitt@google.com>,
- linux-i2c@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Linux-Renesas <linux-renesas-soc@vger.kernel.org>, llvm@lists.linux.dev
-Message-Id: <8ee7495b-4b6f-4ee8-82e0-a236d0be5c32@app.fastmail.com>
-In-Reply-To: <CAMuHMdUF9nTRkOOi+KnH2ATsFdTWMCtohWZQ1T_vhB=cf_42Yg@mail.gmail.com>
-References: <20251126182257.157439-4-krzysztof.kozlowski@oss.qualcomm.com>
- <20251126182257.157439-6-krzysztof.kozlowski@oss.qualcomm.com>
- <CAMuHMdX7t=mabqFE5O-Cii3REMuyaePHmqX+j_mqyrn6XXzsoA@mail.gmail.com>
- <dbb94fb1-2f78-4bd2-9254-c435ab3325c0@oss.qualcomm.com>
- <0e90817e-1c05-4fa3-a6fd-8e755608a2c9@oss.qualcomm.com>
- <CAMuHMdX2qv2YBbvkM8tkSTWDPe-paMp5=fdv=4tGKheTseK9Pw@mail.gmail.com>
- <ebb0d41c-1836-42d1-8406-ead97c4d6886@oss.qualcomm.com>
- <CAMuHMdUF9nTRkOOi+KnH2ATsFdTWMCtohWZQ1T_vhB=cf_42Yg@mail.gmail.com>
-Subject: Re: [PATCH 3/3] i2c: rcar: Fix Wvoid-pointer-to-enum-cast warning
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v20 01/14] dt-bindings: net: Introduce the
+ ethernet-connector description
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Oleksij Rempel <o.rempel@pengutronix.de>, davem@davemloft.net,
+ Daniel Golle <daniel@makrotopia.org>, Florian Fainelli
+ <f.fainelli@gmail.com>, Romain Gantois <romain.gantois@bootlin.com>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
+ Herve Codina <herve.codina@bootlin.com>, =?UTF-8?Q?Marek_Beh=C3=BAn?=
+ <kabel@kernel.org>, mwojtas@chromium.org, Antoine Tenart
+ <atenart@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ =?UTF-8?Q?Nicol=C3=B2_Veronese?= <nicveronese@gmail.com>,
+ thomas.petazzoni@bootlin.com, Russell King <linux@armlinux.org.uk>,
+ Simon Horman <horms@kernel.org>, linux-arm-msm@vger.kernel.org,
+ Eric Dumazet <edumazet@google.com>, Vladimir Oltean
+ <vladimir.oltean@nxp.com>, Conor Dooley <conor+dt@kernel.org>,
+ =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>,
+ Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ devicetree@vger.kernel.org, Tariq Toukan <tariqt@nvidia.com>
+References: <20251127171800.171330-1-maxime.chevallier@bootlin.com>
+ <20251127171800.171330-2-maxime.chevallier@bootlin.com>
+ <176426738405.367554.14295793625592890396.robh@kernel.org>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <176426738405.367554.14295793625592890396.robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_003258_332558_B3C5DA55 
-X-CRM114-Status: GOOD (  19.36  )
+X-CRM114-CacheID: sfid-20251128_003428_652567_0A1F37D4 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,52 +96,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 27, 2025, at 14:46, Geert Uytterhoeven wrote:
-> On Thu, 27 Nov 2025 at 14:42, Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com> wrote:
+Hi,
+
+On 27/11/2025 19:16, Rob Herring (Arm) wrote:
+> 
+> On Thu, 27 Nov 2025 18:17:44 +0100, Maxime Chevallier wrote:
+>> The ability to describe the physical ports of Ethernet devices is useful
+>> to describe multi-port devices, as well as to remove any ambiguity with
+>> regard to the nature of the port.
 >>
->> >> kernel_ulong_t, I think.
->> >
->> > include/linux/mod_devicetable.h:typedef unsigned long kernel_ulong_t;
->> >
->> > IIRC, it was introduced originally because "unsigned long" might have
->> > a different size in userspace.  Nowadays (for x32), uapi uses
->> > __kernel_ulong_t, though.
+>> Moreover, describing ports allows for a better description of features
+>> that are tied to connectors, such as PoE through the PSE-PD devices.
 >>
->> Maybe, but if you look at the data structures all have kernel_ulong_t,
->> so this fits the logic I was following here - I cast to the type which
->> is both representing pointer and is already used for driver data,
->> because this match data serves similar purpose as mentioned driver data.
-
-It is rather inconsistent: The __kernel_ulong_t type is used in
-include/uapi/ in places where x32 uses the 64-bit ABI, as the idea
-was to not have to do (much) type conversion there. This of course
-failed overall because any ioctl still has to be converted.
-
-The kernel_ulong_t as far as I can tell was only meant to be
-used in include/linux/mod_devicetable.h, with the idea of being
-able to interpret 64-bit kernel modules from a 32-bit module
-loader in userspace. I don't think the latest kmod actually uses
-it that way any more.
-
->> I don't mind casting via unsigned long, but:
->> 1. these are old and trivial issues,
->> 2. they are quite annoying when people want to compile test with W=1,
->> 3. I was trying to fix them (although not sure if for I2C) already,
->> 4. and some others probably as well were trying to fix them,
->> so how many people need to send them and debate before we fix them finally?
+>> Introduce a binding to allow describing the ports, for now with 2
+>> attributes :
 >>
->> unsigned long vs kernel_ulong_t is a nit-style discussion IMO, unless we
->> have here more concrete arguments, e.g. statement from Linus that
->> kernel_ulong_t is wrong.
+>>  - The number of pairs, which is a quite generic property that allows
+>>    differentating between multiple similar technologies such as BaseT1
+>>    and "regular" BaseT (which usually means BaseT4).
 >>
->> If maintainers of this code want unsigned long, please apply the patch
->> and fix directly, but for the sake, let's get it merged...
->
-> Sure, let's get it fixed!
+>>  - The media that can be used on that port, such as BaseT for Twisted
+>>    Copper, BaseC for coax copper, BaseS/L for Fiber, BaseK for backplane
+>>    ethernet, etc. This allows defining the nature of the port, and
+>>    therefore avoids the need for vendor-specific properties such as
+>>    "micrel,fiber-mode" or "ti,fiber-mode".
+>>
+>> The port description lives in its own file, as it is intended in the
+>> future to allow describing the ports for phy-less devices.
+>>
+>> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+>> Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+>> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+>> Tested-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+>> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+>> ---
+>>  .../bindings/net/ethernet-connector.yaml      | 57 +++++++++++++++++++
+>>  .../devicetree/bindings/net/ethernet-phy.yaml | 18 ++++++
+>>  MAINTAINERS                                   |  1 +
+>>  3 files changed, 76 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/net/ethernet-connector.yaml
+>>
+> 
+> My bot found errors running 'make dt_binding_check' on your patch:
+> 
+> yamllint warnings/errors:
+> 
+> dtschema/dtc warnings/errors:
+> Documentation/devicetree/bindings/thermal/thermal-zones.example.dtb: /example-0/soc/thermal-sensor@c263000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
+> Documentation/devicetree/bindings/thermal/thermal-zones.example.dtb: /example-0/soc/thermal-sensor@c263000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
+> Documentation/devicetree/bindings/thermal/thermal-zones.example.dtb: /example-0/soc/thermal-sensor@c265000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
+> Documentation/devicetree/bindings/thermal/thermal-zones.example.dtb: /example-0/soc/thermal-sensor@c265000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
+> Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c263000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
+> Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c263000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
+> Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c265000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
+> Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c265000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
 
-Agreed. I don't mind the use of kernel_ulong_t here either, since it's
-adjacent to the module device table entries, but I would also pick
-'unsigned long' or 'uintptr_t' instead.
+Hmm I don't see the connection between this error and my patch...
 
-     Arnd
+Make dt_binding_check doesn't show any issue related to the binding
+introduced by this patch :(
+
+Maxime
+
+
 
