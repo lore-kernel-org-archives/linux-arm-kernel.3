@@ -4,76 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CC49D116EA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 17:22:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CC69D116EA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 17:32:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gdQDOqyfil+DNkwzLkg7VF450RbTdgCc8NqtMW6uRW4=; b=1byT7OAvvkm0CIUlIu1pooMvGU
-	HKCozU8Cex4KvSypt8qZBtU9TotiOuWHxN9SN60KHbkP2jJjEwk9H8yn9OeueUaXuD31D5BVe8w65
-	owvHHOTYV6PUS2mJHvjUbZYN2SsL6mXv7M64M7mGeuI3QU/vcDLrJqpve6rWjivfF7OitiqFSAIr8
-	PiCrMrXZoFuSbexTou+xbH0Qrr0ogPUwyJ0xzHtsFjyM0IvI/7q3WtUl/RV0qXJCQwLh0xpZ8qLki
-	0rPEOQssGm+R2vfOugOAq+/QZimCrymSmpN7EG5EtULEzpPT39LTwG9SfrFG7HUUBAY5yKH5vYKkN
-	2zOgoaPA==;
+	bh=DXtdLdYNGI2Def47xLdO+K+KvZUz52lKdw1ZAleee5k=; b=YFHeeb+4U/L2D9wND2HgNzOi53
+	34KLfYPhvR0QqUY6/Ov+N0ZgLsi1e8DdwiJX+Uwt+ygoNXV0tx9N2EBVfjVVjAQ9VbtA/MND/perk
+	41xqPl3bVcY6SVJvq8sKjJFv/LwOWmD4dgJ6nPtcYB5Mar78npW2XDf4gvRFVkMXRc7LWxh0lXye0
+	Y6gLGUwbXfHNEVnSPLAXl0xNI451fNsvNiekG8+l3IwZ1D1q4aG29+3nSzlXYtJTfiD8ogd5sybxX
+	3shRvNQlod/p3601DnF2/4Wn2Y53qw205LP0Af9HQWjY6mEgWJJ4/qJNCetbCI2uyiDuN31S0v/9Z
+	5MgbMgrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP2BF-00000000jM5-3ZRv;
-	Fri, 28 Nov 2025 17:22:49 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vP2KM-00000000jhE-2NXr;
+	Fri, 28 Nov 2025 17:32:14 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP2BD-00000000jL8-3Fvz
+	id 1vP2KK-00000000jgj-3nPL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 17:22:49 +0000
-Date: Fri, 28 Nov 2025 18:22:42 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1764350564;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gdQDOqyfil+DNkwzLkg7VF450RbTdgCc8NqtMW6uRW4=;
-	b=exD/y7j999jCv6bS9IMXmr8sD3f5ooPKDx0FbXkjx8Zj/4jZp0LGdf83r48cRlz7csM4Ga
-	774RSGWxq23m0i77jv/+q1WYKBFSNoHeK0SHXnAycfz20MDDwCsouqDKIt0UomOqQW2JEt
-	Ifm/vEMXWcO7DbLtSF415CnpmUT2oDJIBZ9e17a+9JOTcn0g0uIN9m0bLfNklQ8Xln2Xu6
-	LvEijg/kINBpfKtj9Zr2zSHXizNpjkYvM1MVykXCXlUGgNkpllZmDS64AXJTlju+wuK9M6
-	r6QIBEfXSaR7tiPshZakf/KZ37DzfOetx999jxpGfk44srLtQmtiUsi98BQykQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1764350564;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gdQDOqyfil+DNkwzLkg7VF450RbTdgCc8NqtMW6uRW4=;
-	b=M4CSl6gqnCuJP+oILiEsB+RMaQsPNdVWA8BsfnJdgpZXuMRB31+BAQu7VwjE/LRYhROu4e
-	95a+J06qa8kBsGCA==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Xie Yuanbin <xieyuanbin1@huawei.com>, akpm@linux-foundation.org,
-	arnd@arndb.de, brauner@kernel.org, david.laight@runbox.com,
-	hch@lst.de, jack@suse.com, kuninori.morimoto.gx@renesas.com,
-	liaohua4@huawei.com, lilinjie8@huawei.com,
-	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	lorenzo.stoakes@oracle.com, marc.zyngier@arm.com, nico@fluxnic.net,
-	pangliyuan1@huawei.com, pfalcato@suse.de, punitagrawal@gmail.com,
-	rjw@rjwysocki.net, rppt@kernel.org, tony@atomide.com,
-	vbabka@suse.cz, viro@zeniv.linux.org.uk, wangkefeng.wang@huawei.com,
-	will@kernel.org, wozizhi@huaweicloud.com
-Subject: Re: [RFC PATCH v2 1/2] ARM/mm/fault: always goto bad_area when
- handling with page faults of kernel address
-Message-ID: <20251128172242.cCNBVf7H@linutronix.de>
-References: <20251127145127.qUXs_UAE@linutronix.de>
- <20251128022756.9973-1-xieyuanbin1@huawei.com>
- <20251128120359.Xc09qn1W@linutronix.de>
- <aSnVXrnuY9QKjTKg@shell.armlinux.org.uk>
+	Fri, 28 Nov 2025 17:32:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C5FB560125;
+	Fri, 28 Nov 2025 17:32:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C628EC4CEF1;
+	Fri, 28 Nov 2025 17:32:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764351131;
+	bh=DXtdLdYNGI2Def47xLdO+K+KvZUz52lKdw1ZAleee5k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dYkSpEqaLqnSBU6hF/5r6RXEsVVv5oXSmgzA8qNIH9Fn1IBazC9GKCNNXu3o6nbjM
+	 mN8A+4UefvGHlGZG6yDmLE6EV/tKM0faRfVmKcw01Z4KRYVy1d9Q8bHRCdaNvZ2AMn
+	 kjId8/Wqf2dDVWYrgRNTbeeZvlPSY3/3J3GSiaQ9pwebN+K/859W0Q/5Hu1M1CNLph
+	 4pRhmMizHErz/2hqh8Z238J8fb9mkTwDKyFaud4dOg3SJSlx875Jv5YnqMl7qo1WJ8
+	 ZKAXDbBGG7ug66gJLSVIF+7p4BNrbzSvPwvgum0Uvdnk2OPDDRHVVbn+RyJ3rwy+En
+	 Jbr9/wLCexsUw==
+Date: Fri, 28 Nov 2025 17:32:06 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Ryan Chen <ryan_chen@aspeedtech.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] dt-bindings: usb: aspeed,usb-vhub: Add ast2700
+ support
+Message-ID: <20251128-ajar-headcount-a8589beec00c@spud>
+References: <20251128-upstream_vhub-v2-0-1fa66a5833c2@aspeedtech.com>
+ <20251128-upstream_vhub-v2-1-1fa66a5833c2@aspeedtech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="PTCSciaf+pNNOYVt"
 Content-Disposition: inline
-In-Reply-To: <aSnVXrnuY9QKjTKg@shell.armlinux.org.uk>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_092247_954445_0772CCBF 
-X-CRM114-Status: GOOD (  13.47  )
+In-Reply-To: <20251128-upstream_vhub-v2-1-1fa66a5833c2@aspeedtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,29 +78,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-11-28 17:01:18 [+0000], Russell King (Oracle) wrote:
-> > I hope Russell will add them once he gets to it. They got reviewed, I
-> > added them to the patch system.
-> 
-> I'm not sure which patches you're talking about, but discussion is
-> still ongoing, so it would be greatly premature to merge anything.
 
-This thread
-	https://lore.kernel.org/all/20251110145555.2555055-1-bigeasy@linutronix.de/
+--PTCSciaf+pNNOYVt
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-and the patches are 9459/1 to 9463/1 in your patch system. They address
-other issues, not this one.
+On Fri, Nov 28, 2025 at 08:27:30AM +0800, Ryan Chen wrote:
+> Add the "aspeed,ast2700-usb-vhub" compatible. The ast2700 vhub
+> controller requires an reset, so make the "resets" property
+> mandatory for this compatible to reflect the hardware requirement.
+>=20
+> Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
 
-> https://lore.kernel.org/r/aSmUnZZATTn3JD7m@willie-the-truck
-> 
-> There are now many threads each with their own discussion, which
-> makes it more difficult to work out which is the implementation that
-> should be merged. Clearly, not everyone knows about the other
-> discussion threads.
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+pw-bot: not-applicable
 
-So Will suggested to let change the handler and handle this case. The
-other patch is avoiding handling addr > TASK_SIZE.
-Any preferences from your side?
+--PTCSciaf+pNNOYVt
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Sebastian
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaSnckgAKCRB4tDGHoIJi
+0lyuAQDcadUyChIKt4hLNny6wAUoqQNARS1SLjiQFJLqGfv2rAEA6tf88roWmvmr
+QQPQ4wsg2bKnhY9WdzB5cH62ydNRGAc=
+=yqmb
+-----END PGP SIGNATURE-----
+
+--PTCSciaf+pNNOYVt--
 
