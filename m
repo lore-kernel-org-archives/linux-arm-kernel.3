@@ -4,173 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D363D111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 03:15:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11621CFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 03:17:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mQZyyhQQelKMj9EWYnTr80NraBxCPj3LhCYVoeJVvuc=; b=UQOSIbVtaxEpIoBc1PRIHNWeCj
-	GstwyLReht+lQhr1JCk3+jxV0n5KLj0sqHHwIR0w31An1JCWBzlk808K6rBfqPd9NHQcWtx+ftIGZ
-	XqY/VG+j3L2DVhRkyxbGQiUa+bSAwpRaCpuOTltA5auZaQ6n7EJgOjri9/zm6nzU7rRRTPEQiG+CW
-	4/uqk5mPvr2QZLo3t2owDOZMthwK45Tb3h62IMISMyvGSTtenVEIdOXRQ4Bcg/MjYgetQRtotkxKn
-	h6GyxH5CwLEwZWIOgKfhRwtuFypxE6ebOf7ZhCbwPAqDfYnUQQL5EgziOH62YneE0JUc2Mmi53lqx
-	qziGgkPg==;
+	bh=jV0Toq94Bdd9H5uUKR8LAkhC09OUeffE71uEArrF4J8=; b=QN+6HFgP9hzIAJ3awbtl7gVfyd
+	oMkAw415n5C9GICt4cd8WHO9xTK8pfjtyA/v1jGN+0dkO+NTNUfcMG8btRFAq0Xd87rr+2/iJQycJ
+	G920nLXdoWEt/l2iIKHEUnJNcunLvUcPPirljXcmCS0wg8/E77+fgUajRo5n/ql+1NSzDX/Eaky4t
+	7qx4p5Qx5IDivrCvZE5sKSIENdPiNYwnvZ2xBRFCO57qqplcNYAj4SYpiAj7Ly0Ae77+ueyb11x4v
+	J2dRvUNRcNmlc4lGWgdZgP8EiP4k7grMOqPhHs1FjaQWHMOsHAtT4xAyrcq30R8hRvwFweeaYlY9d
+	9kapUd1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOowq-0000000HVIM-0060;
-	Fri, 28 Nov 2025 03:15:04 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOowg-0000000HVBY-3sWa
+	id 1vOoyy-0000000HVpE-3QqB;
+	Fri, 28 Nov 2025 03:17:16 +0000
+Received: from angie.orcam.me.uk ([78.133.224.34])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOoyv-0000000HVoi-2aVJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 03:14:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=T0iaWNums58WsC6KYzHvgS1r+3sakmLBtz4lh5XN63gnl4FJeWkQFIHZEDCk8jxx0nRQyUWMgyQtu9gO2n4t+PynEt90d8GErVvKdtSqtMPSu4HEDKb3u8qQZo8OicTscQq4N/0gy2z22FPVz56XjKkS/CbyfrYXQ61oFKUUiVeQq62IkSuEccVnpldyWbvv9rf4VjVrc1Pl4ZLIYdtHM8qVfIz7zX8V5smz8tUwovvTFBXdmsiNisqT+XomkDouX2yPDzDhssJ3tX3UNuoZo7QcF/jkQ1Rdn2ShboD0x7y8UIJ+mruDhHWoyTU3C23ywOyKDS5a0Nr5vc7xJBENYw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mQZyyhQQelKMj9EWYnTr80NraBxCPj3LhCYVoeJVvuc=;
- b=NIfyd8Lmpx47tXSpBV74p7ZvakA96kHsmvSDNWNE9Roj08nILtfMZl3Z19v3bXLcFhKAQfTLhw1+Xp2NBgCioN23QL5+IEsuZq8PBlONxQDP5yCb7TlGfQ1oXfCOD9A8u8in2VMZqEtysQ8hsg/WNgv7+cis5uYFI51RmzdOdQ56rkG4iXUcFC3mwYb45iN4WwfpS7Zwdt18kFVui9FYcdvx2VRbfV4y9y27HyhrEAFD3TyyODYigLovkcgl9uRKfwpGvzZ5YTVWFfqaeApxXlcYz9T1Y2AwbaOuiKi0r54Ub0E2tGWhsVdWh5ECodOlx77EkJIcCEc1ynj2rYC7ow==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mQZyyhQQelKMj9EWYnTr80NraBxCPj3LhCYVoeJVvuc=;
- b=uvY2NkJV2RvjAPNU4pmZ50rPdY796MRto3Bl7IQQjXonYC9AtoIo4+vqoCwz27tMBDQ4G/NNFIdvZuug8bRZPp+xfrfXj2nA/Qa3MaQk/j/ja87aHc5kLidv94CJ/W9SKjs/jBa6CclmBcU2sN3Yr2jxynZzzISQ80/zvAAkhgwpNiJn6WxjW6uNWbUL/LkJDOfM9IAPnqPiJzAf2+0CnpengeXyBHNtiqkglGmncRjyMblvax0mSr5NlEnfLPbnG5MMSo8CzgvwpE93S9MRVnywDyLro0SK+6+RsHHDEtxUvT+cmzW5dp5hTwY2dY/qXJ284AiY4jSN9bO7SmNuXw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
- by DB9PR04MB8429.eurprd04.prod.outlook.com (2603:10a6:10:242::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.15; Fri, 28 Nov
- 2025 03:14:48 +0000
-Received: from DB9PR04MB8461.eurprd04.prod.outlook.com
- ([fe80::b1b9:faa9:901b:c197]) by DB9PR04MB8461.eurprd04.prod.outlook.com
- ([fe80::b1b9:faa9:901b:c197%4]) with mapi id 15.20.9366.012; Fri, 28 Nov 2025
- 03:14:48 +0000
-From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Date: Fri, 28 Nov 2025 11:14:14 +0800
-Subject: [PATCH v6 5/6] clk: scmi: Introduce common header for SCMI clock
- interface
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251128-clk-ssc-v6-2-v6-5-cfafdb5d6811@nxp.com>
-References: <20251128-clk-ssc-v6-2-v6-0-cfafdb5d6811@nxp.com>
-In-Reply-To: <20251128-clk-ssc-v6-2-v6-0-cfafdb5d6811@nxp.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>, 
- Cristian Marussi <cristian.marussi@arm.com>, 
- Sebin Francis <sebin.francis@ti.com>, Brian Masney <bmasney@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, arm-scmi@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Peng Fan <peng.fan@nxp.com>
-X-Mailer: b4 0.14.2
-X-ClientProxiedBy: SG2PR02CA0031.apcprd02.prod.outlook.com
- (2603:1096:3:18::19) To DB9PR04MB8461.eurprd04.prod.outlook.com
- (2603:10a6:10:2cf::20)
+	Fri, 28 Nov 2025 03:17:15 +0000
+Received: by angie.orcam.me.uk (Postfix, from userid 500)
+	id 9082B92009C; Fri, 28 Nov 2025 04:17:02 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by angie.orcam.me.uk (Postfix) with ESMTP id 8C79F92009B;
+	Fri, 28 Nov 2025 03:17:02 +0000 (GMT)
+Date: Fri, 28 Nov 2025 03:17:02 +0000 (GMT)
+From: "Maciej W. Rozycki" <macro@orcam.me.uk>
+To: Manivannan Sadhasivam <mani@kernel.org>
+cc: Jingoo Han <jingoohan1@gmail.com>, 
+    Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+    =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+    Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+    Krzysztof Kozlowski <krzk@kernel.org>, 
+    Alim Akhtar <alim.akhtar@samsung.com>, 
+    Jonathan Chocron <jonnyc@amazon.com>, linux-pci@vger.kernel.org, 
+    linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+    linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+    Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+Subject: Re: [PATCH v9 4/4] PCI: dwc: Support ECAM mechanism by enabling iATU
+ 'CFG Shift Feature'
+In-Reply-To: <20250909-controller-dwc-ecam-v9-4-7d5b651840dd@kernel.org>
+Message-ID: <alpine.DEB.2.21.2511280256260.36486@angie.orcam.me.uk>
+References: <20250909-controller-dwc-ecam-v9-0-7d5b651840dd@kernel.org> <20250909-controller-dwc-ecam-v9-4-7d5b651840dd@kernel.org>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB8461:EE_|DB9PR04MB8429:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0ee4250a-4b2f-46a0-d8e5-08de2e2c49f3
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|1800799024|19092799006|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?RW5RZ2JhUW4vTWJBaEtic2YydWgyYVV1TVV1QjBWeE5IS3pPN0tIWHB1VHBU?=
- =?utf-8?B?bHFRZWhkZjIyM2lpNzlxWGY0bTJpZ2F1cVZwZkYvNi9PUmp2TSsxcEgzRytv?=
- =?utf-8?B?NkM3dDNydUVNaUZKRHRtWUlvbFVwbFVweVNzeVBIcFVFN0tKZG8wMGVmY2tn?=
- =?utf-8?B?cVQ3TVQza1NFTDRCdEtVLzA4OVFydVpxZlREaDRVVmxSRzY4aGU1TGhLbTk0?=
- =?utf-8?B?WHM4T1dPNDdZRGxMRXNzazdUSmV5VUdCaFhUUjl0K0QzSGhYaWNJeVdQQXdS?=
- =?utf-8?B?UW9NSjlEbEd5d0REUHQra1M2dWFuWUtsMkQyY05adUh2cXlzWm9zLzdkcWF3?=
- =?utf-8?B?V21KcTVtY1ZHWk1XSzQxc25ibFc3WGt1d3pIMWRkRklRQ2I0VER6UDN6YWNU?=
- =?utf-8?B?OGo3U1NrRENmN2ZPd0haMjRGdWJCZDY0R1VJK2RIa1M4UlZxTEM4T09TbDA2?=
- =?utf-8?B?ZEpnc3JRTis0aWhkVi9ZSUxGTWdnVEExYU9kQ2ZhK0RTNzNmNUxhaHVYdFlS?=
- =?utf-8?B?MGFyc1Y2MkhiWXZuUFMxTGtLSURuSG9FTGlXMlVDM29aSDY5eThnNTRnT3hX?=
- =?utf-8?B?cVpTMHJyTUxYeWZPQ3BmNWFzclB1WE4xZUZiS1Fvc08xeFV5aFpjMXlCWXJR?=
- =?utf-8?B?Qmc2Zk00cFUvZVoxSVBKdHhFOE1hMmlkeDZoR0ppMHp1aDE3cXBEeCs3KzAr?=
- =?utf-8?B?QjgwYnY2S21GY0dvVFgxOUpycWxRNXR1blZMb08vQnVWYkVRdjVSeWRmSS96?=
- =?utf-8?B?cExUWE0yb09iKzQ0aER5MXlvQkpZMUQxZm5PM3RsZ3F3TXZvV3ZPTzhRVVZK?=
- =?utf-8?B?N241NXFHWS9lcEFRcFBnREFFS1hEZXhnYXY5Vnh5blZYeVMydVh4eHN6WUVD?=
- =?utf-8?B?aTdOdjV0eVBrSzEzeVo3aGlUQVIzWUFZRmJRb0p4a3dET0Q4d1dKSmF6Z0li?=
- =?utf-8?B?K2JxZEVyczRodjBxNGsrOHJ0cGtuTjBQemsrM3pyQXZtS1R1Ky9oZDBEbGxM?=
- =?utf-8?B?UTVJN1Nsa2NtNGFHK0tJYmpsZ0FlOXJiN2VDSEpoUy9uTEd6TDVuTEt2aHlF?=
- =?utf-8?B?N21WRGliMWRUb2Y1dXptelVRZnRpT0VpS2xEVlh0SXIxNHJqS2FGQVZ5d09s?=
- =?utf-8?B?QTdqZ1VSU2pOMWozbjl2aWxlWTBXQThmTThuMFphM0hFN2FUK2dGeThGNzM5?=
- =?utf-8?B?SmxVcVVXaW9YUi9YRzk0VGN1UWFVSGVEeEZkN0x2OEw3OWsrKzdwUVpRNDdn?=
- =?utf-8?B?ZUNyQ3dKTEhxemVHZHJ0NTJmQk5Wb3ZwdkFXdktsYUVWd20za2k0WHNSRE1E?=
- =?utf-8?B?TWg5cGhrVldraGNCMWM3UkJhQUNMUStUWVRRcWNvbVNtR25tL3MyOU43aG9p?=
- =?utf-8?B?VkswSHY4dWFWMzFZUVN1QVBLQ3l1ZDZRdmdGOTBOSEJGanhHSUI2YXdwZGJy?=
- =?utf-8?B?UzMvWFY2NmdTYTFoVUt6TGg3d3VHY0k2ZVRNWU84czZ6Umo5Q1pHTFdhK2FC?=
- =?utf-8?B?VGROR2hvRTZLS3Ura3UxVmIvSXJWL1JjOGVOR1d3Y1pPNXN1Z1VnMTdsT21Z?=
- =?utf-8?B?UW80VytoZXJ3dzV3Mzd5YU5sWG5ydmh0UTV1Z2hXcC9YNjlMQVM0TUtvOE1O?=
- =?utf-8?B?SlVRa21KaWtEaHFvRWVUdmg4aUNmOXZEQko2dldGYzJCNjJTQU0yOHhjNmZk?=
- =?utf-8?B?aGtEMWk4akZxc3RMd0phcmFRMVRnc1BpOXc4VHFna3hrd3hGNG1WbDc1MXpM?=
- =?utf-8?B?eXpOWENJVFZYV3llUFUyQ2haOTlkcitSWk1UQmhUSUVGeVRXVkk0ZTBncHFn?=
- =?utf-8?B?c3paYjRnTWJPejRKTHdMN2dMNFhMd2hRSm5DSi9JQTdTcGo0eU5hWDM4Qkd6?=
- =?utf-8?B?UC91ZitnK0JYT0FlZHZEa3kzakJyYlBrRlFzc3Y3M0huZW94Y1hrMlIxVnN4?=
- =?utf-8?B?Rk9PdWQyM1ZuTTJuL2FlWG1vd0hFamF0WnZuY21OQ1EyTlpOWk1nQVlaajg1?=
- =?utf-8?B?TWFUYnBib2p0VzVYUWo0bVhHVVAvSHZNUmJSUHkrcHAvWjlHSG1naFc3NkpE?=
- =?utf-8?Q?VAu0P4?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8461.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(1800799024)(19092799006)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NGdmK21XeXpvV2NxNEZPRG5STS9XT0VibHFwVkxpSDdSOUlITTFhdFdpNzNz?=
- =?utf-8?B?TExRakQ3d1BEK0xTRnJtTWtCcmxDaENnMmRuYVVlWUZxU0pzNTduREtRcjNW?=
- =?utf-8?B?ZmtETGtsanpjaEV3bCs3d3BEV096b0MzODUvQkJENGd1MzNVQUMwM3ZhbmFn?=
- =?utf-8?B?S1pMRTdBR3ltY0NJTGVBc0xPNXJabVc0dXZmeCtiRDdEOXNIZHVoYVYwaFN6?=
- =?utf-8?B?ZmNXOE96d1dxckJHY3l6M0F4elNBR1ZVQTBJRTVUMFNwT1hhbWpPdXphaUpI?=
- =?utf-8?B?OER0ckJpNmVhQjdhMS81YU85WFpoWVkxc0FOQStRSU0yMEp3aWNNTEtvQ3VZ?=
- =?utf-8?B?VkdrWFNNdWFhbnJkS21jbFZ0ZjI1cEk3RmpuQXI4c2dwTk54UmxaUExIbjZh?=
- =?utf-8?B?Qm9IY3Fzbi9DWklMWDhOTzlwSGs1ay9VRXQzcUpsL0QwQVhpZWY2anRnWksx?=
- =?utf-8?B?ZlhzbHYwNkN2WTA4bGsyY3c4NFVBcktmdEswamNGajFBeGFTeTBQSklTVngr?=
- =?utf-8?B?YzhIYWlMcHRsYzhFRE4wV1BySnQwU3Y3K1haSDNpV3dZQXpIeFBpRVB6a242?=
- =?utf-8?B?R1NGMlV3TEU1ZWtwUUpoclZYamIxSTlmcjJ4R0dXbVVtRlhEdy9yaGxMTWxC?=
- =?utf-8?B?RGNYd0wxSW85WnplcWpaaVlQL0hDVFU1V0p4UCtpTWxqUDNyd09RZFFwTnpt?=
- =?utf-8?B?UjVuVGM4QWoycVNSVTVmVlNlVXFWem9KVDBBOGYxMnJLOWFVMEI5M2tFeVl6?=
- =?utf-8?B?TDZkK0Q3MitNdmZ0bXhJMW0xWm5qQ0lrQlZhK2d6bHY1YW1tdjl1cktsb2I2?=
- =?utf-8?B?a2huMFZZa1FYbXdmTk1TemNnZG80T3BFN0cybG16czJseDlxOUN4dXlpTzd6?=
- =?utf-8?B?eW9zS2hadG14bCtadUpIbzZsbW9FNVF6SFpvNVZDbXZWeUQwV2x3bXhjM0g1?=
- =?utf-8?B?Y3hQVStWSmxUMUNSR2VuQ2ZtcS9KZWsycHJoYVlSaXFxT29nMUZXS2ZYZFhJ?=
- =?utf-8?B?eDdOdjJrVXp4djB2ZVBUcllRVTZXRXoxYUwwTGpiMmtZekcxd1Qxb1NaalZI?=
- =?utf-8?B?ckVUdmI1S0lqMkVlODZkbjAzanJpL2FSenZkc01zWUVtV0dubHpDWEkyWWJG?=
- =?utf-8?B?c2FHR0NZU3J5aTJ5NjV1TEc1VHVSL3dHZmVQaWpEcTM1Y1NxSDl6ZVM2OGlU?=
- =?utf-8?B?bERPR3VxNVZKWjNVeDdHbytMVTh1SWNnaHN3Wkc0Y1dZM1FjKzRQNlhCQlJ3?=
- =?utf-8?B?SDNvOEFrLy8zOTNQVmRvYSt4QUdBVTcrenFOcjA3OVkwVDFvMVFadjFHUzEx?=
- =?utf-8?B?UHJVU1JGa2p0OXNzb2NpOWc2ZDBFRmZzZnJlQlJSempQaThsaVE4QXNvVGo4?=
- =?utf-8?B?R3lzQW8vZkZDc3BRcXhCRVJFRzhwazNxUCt0S0FQZWtndi9qdmR6VmhuUVRT?=
- =?utf-8?B?VU1taVhZYXZMY1hFdFhxcXRlTFRoR280WURBZmlETmtpRlRTRHlHM1A2RFZS?=
- =?utf-8?B?Q3JGSmpUUlRyZE5KTEJCNkZGREtVNmdDejNKMlFnTVF3ZDlPYzdBcU8rdFFO?=
- =?utf-8?B?aHNaL0xFSCttNUZySlkxOTJ1ajAwMXRmVWJGR0wxWmI4RElHOTR1bDZvOGQ4?=
- =?utf-8?B?SEcrZmFnWVRWOVloc3pJekJmYlMrWW56dVloMFBoVDFtaWJYZEF4Q0trcWY5?=
- =?utf-8?B?amZ0MlhmQjlsWW83MlROSkRuRHNHR09lUmpkay9YRVQyeU1zTldYRGMwZlJQ?=
- =?utf-8?B?dU0ySllPTjRRTVFob1c5bVNkdGxzNk1GUWJKQTZNR2kreE10Vy9WWkpRWDVa?=
- =?utf-8?B?MERpcHQ5Z0psZkZXZTNVYWxsalhVK1g4Tjl0QmxzTWtEOE9ibTB5MlBFeGs1?=
- =?utf-8?B?ZFQyWUwzMXZuUy9sUXlJSG1sT2hyYmx4ZS9Bd2JmcGF0ZGExY3B2bWc0dXFs?=
- =?utf-8?B?NVo4RW00SGhhM21JanlHclpTaGY2a0VBZWFWMnlRMTdsL1dwd0ZJSDZJRW5Q?=
- =?utf-8?B?Q2prRUpsTVRobmEvRnhIODJTMnV6Z2Q0VXF3R1RVLzFqTUpGT0lEL0NFSSs3?=
- =?utf-8?B?VWwxbEUxOWxDekhUMWI5dWNHdkxab1EvL0RnTDcydVhYblpEdHExVExLSHY5?=
- =?utf-8?Q?5Y3m5LPbTrYBOYMUtfT4rIgDR?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0ee4250a-4b2f-46a0-d8e5-08de2e2c49f3
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8461.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Nov 2025 03:14:48.8318
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: p8bUlzfPBUEc3Fk/qZVf5mNnwcmtlyK7WDgW4WO+CPr5+wHmvFXGr6FeuubWA7ep/99wyhnozbjOL0MO/FXzUg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8429
+Content-Type: text/plain; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_191455_003073_5C752D37 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20251127_191713_888333_D2951183 
+X-CRM114-Status: GOOD (  14.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,107 +70,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+On Tue, 9 Sep 2025, Manivannan Sadhasivam wrote:
 
-Added a new header file 'clk-scmi.h' to define common structures and
-interfaces for the SCMI clock driver. This header will also be used by
-OEM-specific extensions to ensure consistency and reusability.
+> From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+> 
+> Designware databook r5.20a, sec 3.10.10.3 documents the 'CFG Shift Feature'
+> of the internal Address Translation Unit (iATU). When this feature is
+> enabled, it shifts/maps the BDF contained in the bits [27:12] of the target
+> address in MEM TLP to become BDF of the CFG TLP. This essentially
+> implements the Enhanced Configuration Address Mapping (ECAM) mechanism as
+> defined in PCIe r6.0, sec 7.2.2.
 
-Moved relevant structure definitions from the driver implementation to
-'clk-scmi.h' to facilitate shared usage.
+ So this broke a parallel port on my HiFive Unmatched machine (a SiFive 
+FU740-C000 based system), the driver no longer registers the device, no 
+/dev/parport0 anymore.
 
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
----
- drivers/clk/clk-scmi.c | 27 +--------------------------
- drivers/clk/clk-scmi.h | 40 ++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 41 insertions(+), 26 deletions(-)
+ I've had to bisect it with commit a1978b692a39 ("PCI: dwc: Use custom 
+pci_ops for root bus DBI vs ECAM config access") and commit fc2bc2623e3a 
+("Revert "PCI: qcom: Prepare for the DWC ECAM enablement"") applied on top 
+and it's affirmative it's this change, i.e. upstream commit 0da48c5b2fa7 
+("PCI: dwc: Support ECAM mechanism by enabling iATU 'CFG Shift Feature'").
 
-diff --git a/drivers/clk/clk-scmi.c b/drivers/clk/clk-scmi.c
-index 6b286ea6f1218c802d0ebb782c75a19057581c20..bf85924d61985eb9e596419349eb883e3817de73 100644
---- a/drivers/clk/clk-scmi.c
-+++ b/drivers/clk/clk-scmi.c
-@@ -14,32 +14,7 @@
- #include <linux/scmi_protocol.h>
- #include <asm/div64.h>
- 
--#define NOT_ATOMIC	false
--#define ATOMIC		true
--
--enum scmi_clk_feats {
--	SCMI_CLK_ATOMIC_SUPPORTED,
--	SCMI_CLK_STATE_CTRL_SUPPORTED,
--	SCMI_CLK_RATE_CTRL_SUPPORTED,
--	SCMI_CLK_PARENT_CTRL_SUPPORTED,
--	SCMI_CLK_DUTY_CYCLE_SUPPORTED,
--	SCMI_CLK_FEATS_COUNT
--};
--
--#define SCMI_MAX_CLK_OPS	BIT(SCMI_CLK_FEATS_COUNT)
--
--static const struct scmi_clk_proto_ops *scmi_proto_clk_ops;
--
--struct scmi_clk {
--	u32 id;
--	struct device *dev;
--	struct clk_hw hw;
--	const struct scmi_clock_info *info;
--	const struct scmi_protocol_handle *ph;
--	struct clk_parent_data *parent_data;
--};
--
--#define to_scmi_clk(clk) container_of(clk, struct scmi_clk, hw)
-+const struct scmi_clk_proto_ops *scmi_proto_clk_ops;
- 
- static unsigned long scmi_clk_recalc_rate(struct clk_hw *hw,
- 					  unsigned long parent_rate)
-diff --git a/drivers/clk/clk-scmi.h b/drivers/clk/clk-scmi.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..6ef6adc77c836dc2d599ff852cdc941f217ee388
---- /dev/null
-+++ b/drivers/clk/clk-scmi.h
-@@ -0,0 +1,40 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ *  Copyright 2025 NXP
-+ */
-+
-+#ifndef __SCMI_CLK_H
-+#define __SCMI_CLK_H
-+
-+#include <linux/bits.h>
-+#include <linux/scmi_protocol.h>
-+#include <linux/types.h>
-+
-+#define NOT_ATOMIC	false
-+#define ATOMIC		true
-+
-+enum scmi_clk_feats {
-+	SCMI_CLK_ATOMIC_SUPPORTED,
-+	SCMI_CLK_STATE_CTRL_SUPPORTED,
-+	SCMI_CLK_RATE_CTRL_SUPPORTED,
-+	SCMI_CLK_PARENT_CTRL_SUPPORTED,
-+	SCMI_CLK_DUTY_CYCLE_SUPPORTED,
-+	SCMI_CLK_FEATS_COUNT
-+};
-+
-+#define SCMI_MAX_CLK_OPS	BIT(SCMI_CLK_FEATS_COUNT)
-+
-+struct scmi_clk {
-+	u32 id;
-+	struct device *dev;
-+	struct clk_hw hw;
-+	const struct scmi_clock_info *info;
-+	const struct scmi_protocol_handle *ph;
-+	struct clk_parent_data *parent_data;
-+};
-+
-+#define to_scmi_clk(clk) container_of(clk, struct scmi_clk, hw)
-+
-+extern const struct scmi_clk_proto_ops *scmi_proto_clk_ops;
-+
-+#endif
+ Here's the relevant part of a diff between bootstrap logs:
 
--- 
-2.37.1
+--- dmesg-good.log	2025-11-28 03:41:18.943097032 +0100
++++ dmesg-bad.log	2025-11-28 03:47:29.582049781 +0100
+@@ -1,5 +1,5 @@
+-Booting Linux on hartid 3
+-Linux version 6.17.0-rc1-00008-g4660e50cf818-dirty (macro@angie) (riscv64-linux-gnu-gcc (GCC) 13.0.0 20220602 (experimental), GNU ld (GNU Binutils) 2.38.50.20220503) #19 SMP Fri Nov 28 02:37:51 GMT 2025
++Booting Linux on hartid 1
++Linux version 6.17.0-rc1-00009-g0da48c5b2fa7-dirty (macro@angie) (riscv64-linux-gnu-gcc (GCC) 13.0.0 20220602 (experimental), GNU ld (GNU Binutils) 2.38.50.20220503) #20 SMP Fri Nov 28 02:43:00 GMT 2025
+ Machine model: SiFive HiFive Unmatched A00
+ SBI specification v0.3 detected
+ SBI implementation ID=0x1 Version=0x9
+@@ -61,7 +61,7 @@
+ EFI services will not be available.
+ smp: Bringing up secondary CPUs ...
+ smp: Brought up 1 node, 4 CPUs
+-Memory: 16383064K/16777216K available (10746K kernel code, 2200K rwdata, 4972K rodata, 537K init, 371K bss, 389448K reserved, 0K cma-reserved)
++Memory: 16383064K/16777216K available (10746K kernel code, 2200K rwdata, 4972K rodata, 536K init, 371K bss, 389448K reserved, 0K cma-reserved)
+ devtmpfs: initialized
+ clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+ posixtimers hash table entries: 2048 (order: 3, 32768 bytes, linear)
+@@ -161,6 +161,7 @@
+ fu740-pcie e00000000.pcie:       IO 0x0060080000..0x006008ffff -> 0x0060080000
+ fu740-pcie e00000000.pcie:      MEM 0x0060090000..0x007fffffff -> 0x0060090000
+ fu740-pcie e00000000.pcie:      MEM 0x2000000000..0x3fffffffff -> 0x2000000000
++fu740-pcie e00000000.pcie: ECAM at [mem 0xdf0000000-0xdffffffff] for [bus 00-ff]
+ fu740-pcie e00000000.pcie: Using 256 MSI vectors
+ fu740-pcie e00000000.pcie: iATU: unroll T, 8 ob, 8 ib, align 4K, limit 4096G
+ fu740-pcie e00000000.pcie: cap_exp at 70
+@@ -655,7 +656,7 @@
+ usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.17
+ usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+ usb usb1: Product: xHCI Host Controller
+-usb usb1: Manufacturer: Linux 6.17.0-rc1-00008-g4660e50cf818-dirty xhci-hcd
++usb usb1: Manufacturer: Linux 6.17.0-rc1-00009-g0da48c5b2fa7-dirty xhci-hcd
+ usb usb1: SerialNumber: 0000:04:00.0
+ hub 1-0:1.0: USB hub found
+ hub 1-0:1.0: 2 ports detected
+@@ -663,7 +664,7 @@
+ usb usb2: New USB device found, idVendor=1d6b, idProduct=0003, bcdDevice= 6.17
+ usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+ usb usb2: Product: xHCI Host Controller
+-usb usb2: Manufacturer: Linux 6.17.0-rc1-00008-g4660e50cf818-dirty xhci-hcd
++usb usb2: Manufacturer: Linux 6.17.0-rc1-00009-g0da48c5b2fa7-dirty xhci-hcd
+ usb usb2: SerialNumber: 0000:04:00.0
+ hub 2-0:1.0: USB hub found
+ hub 2-0:1.0: 2 ports detected
+@@ -735,8 +736,6 @@
+ pcieport 0000:06:01.0: enabling bus mastering
+ parport_pc 0000:07:00.0: enabling device (0000 -> 0001)
+ PCI parallel port detected: 1415:c118, I/O at 0x1000(0x1008), IRQ 35
+-parport0: PC-style at 0x1000 (0x1008), irq 35, using FIFO [PCSPP,TRISTATE,EPP,ECP]
+-lp0: using parport0 (interrupt-driven).
+ parport_pc 0000:07:00.0: vgaarb: pci_notify
+ serial 0000:07:00.3: vgaarb: pci_notify
+ serial 0000:07:00.3: assign IRQ: got 40
 
+and then it goes on with insignificant changes only owing to differences 
+in the order of messages produced, the kernel version ID or date stamps.  
+As you can see the PCIe parallel port device continues being accessible, 
+it's only the driver that doesn't pick up the device anymore.
+
+ I'm stumped as to where it might be coming from.  Any ideas?
+
+  Maciej
 
