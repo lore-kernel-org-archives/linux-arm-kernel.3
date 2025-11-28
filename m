@@ -4,84 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F189D116F5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 11:56:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11E80D116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 11:56:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=w0TcHWb9fHTi0jCTcopxtEaDqpd5gmt1KJnh5vwOy84=; b=lCkaegU2ZHzpJF
-	6mxG0lC7QKChFhvg8wIHT25uXyiV3Wzn6ts3Qf2uHy6nLcayDWIEx23y47IHMATDeFrhy8jM6BVp5
-	Cn9ajXlwwUh+9rnob1p7fdJk6F4eyRO54ai/ly+fw9JSEgjNr6eLr8faXPQr0dJhQzyXEm8SpAke+
-	uXyUIfWeLblXTMDpvpMc+zNjGW490QR0kiFJfxQlX8hTvNV2L6xDI2oPFJGPD5CywmtOTFqo+YSQc
-	5HZM6gW6KJgwyUK/3PN1maxxnqhd1IL1ctVB8SNLs3oCkru5veT9gzLCQECLaS+m66qRa7dfigCV2
-	c2+f/kW1bKScaCgWXe9g==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cuw09+mpuhIYFNKi8DQQhaPDq5r/kQhVj2hTbI63flY=; b=xF4JW06WW8PL/Aun+GR5sWRMsf
+	HXRZoyXI3N/+63qD18m2XI9gb5VYWrrFkVTvJZwDXaJlJqH/+BEFcEwAkD0TJoqmY13z+qMxPnQWb
+	E+iI0JPR15iynRE2uAeZw5I/6mBX7Cve9WaXFeAMIwrm8NffcDTfuMPDVKMXKDRkdz06lWLzHCj4A
+	qx542SUO38dlpzXIFb7cgOIrtW+95Jd6KLEXDej5XhFev+pC2LEVHJeOkEox67uWUqox6rmw8adAK
+	19t/c7B2gBtFoBz2iv1Gdd7fQ3U5a2JyE+rqH+kI+uP/WMM4kEhQSmQL0u6Oqf93puHOwSXI8yLdv
+	Wkctbwtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOx4t-00000000Nha-1bkc;
-	Fri, 28 Nov 2025 11:55:55 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vOx56-00000000NoT-2JDX;
+	Fri, 28 Nov 2025 11:56:08 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOx4p-00000000Nfe-0k6Z
+	id 1vOx4r-00000000NgI-3rZB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 11:55:53 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4779adb38d3so11974595e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Nov 2025 03:55:50 -0800 (PST)
+	Fri, 28 Nov 2025 11:55:55 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-477b1cc8fb4so10580555e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Nov 2025 03:55:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764330949; x=1764935749; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=w0TcHWb9fHTi0jCTcopxtEaDqpd5gmt1KJnh5vwOy84=;
-        b=t50oXE1TrbJ5oZ8yCrdPtEPgk95nOS2r7bqEvvdgbmFzuyjFeo3HPMy08KLG4ZzrPg
-         Fez2tkHRvY2bhRvACLiL+bq/+9i1EvF5moCg0ee/MnmzmS3kPW/0XzCdjjQ00sKIQy7f
-         tUXqRbzOy7uqRCopkfOWB9nAfgPrDOLbwsvhHmsb4YuPXbYuHDZUhLT28HzjxHo224AC
-         43YJJEEfm6nXZ9yofY4P1vQA/BG7WD3z903k5cx/xMC/drgn3XwOzx8YpEVSp9LI44rk
-         wVJadlKhxKN6leU4W8yCVreIc0dKisDBZMhU2LxgOulCvrNh9KrqWNFdnBDVhKWt7pV5
-         RqZw==
+        d=linaro.org; s=google; t=1764330952; x=1764935752; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Cuw09+mpuhIYFNKi8DQQhaPDq5r/kQhVj2hTbI63flY=;
+        b=oaYC8LRkE/oUDWWvCEeE25buApcChHmk6G6YQwfUz8Ng+7Vp6KmN6V7NFC5kjRve17
+         2DUuJfLDpBv24ZqXira6RHKzBxQbPIqSQZJuAwrZyTSzrEyjXymqkg0MrGHgYfFV7zLt
+         OFE2Sl7F0gJAwIsWBhVktPjDbbrspBH7cQe54fLmGOH6XUl98wiZ0kxCx8AA34f896U7
+         ANx2cC5sNY43KYrOuFBZFP33Kt3EKGTQo5Cwi9uNA+096yK6eP6gAFkcl5+9aBPPY8Ni
+         05KSSBthRVrrj++bFZKrhWqAuKm6YBvHjfD/Ghtf9TIISqliYLx5EtjbJiWpQRsd3EFy
+         Ldcg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764330949; x=1764935749;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=w0TcHWb9fHTi0jCTcopxtEaDqpd5gmt1KJnh5vwOy84=;
-        b=YUpR61Bjcx2Y3b3rKdtTOCRwb7Y0As94ioSHdDWcrZqQ/+21C1+TvJ1GlSMDEhd9is
-         MKleozEKl71GiZFV6sT98zXzX+jyqrnAO60aWqlgxanGeiMVbhiCz60FA7w7I5FiymZX
-         8Xtlv/OO948pdKuui5361a2OdXJ6dTfhyA3kN9d+SEk+pza42YZCVofn+FD/vrOb6VDE
-         u7ceozzZ5or8BvIVU+ZEiQ1ySXxxu5o+xY+aCXavVC4e0DjLaL9vxi0DEvSmR5N1meAW
-         ndSDkDT56/FKNE3m2Y4q+qY75zEYcoV3/xNVia6JCRyMnJSbEUq5hJxdQY9Qz/LS2oOf
-         68ZA==
-X-Forwarded-Encrypted: i=1; AJvYcCWUZZXPhWJuSvAZWct1HJNsARzhGYjiPZnUvFt7uE64pLiu8UIKIjVgkcTQOd1WsazwsqBwMJPHd5QDuxB2CD/b@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdyLdxS5BRuqvqcQg3xI+jmoHStjIc/kpR2bhepLMlTw8QyhKK
-	4MzY2yQ9L8JpMJsDqDeV5LGap4p9/JAzOmKFgshyGDoCRmLfhS+VfEUWOwtln+H7JhY=
-X-Gm-Gg: ASbGncuU6Td1SQHJnU4Wxk108XTAmcFi8Qojr2gcpZZwUl9ozXEWLDDNNwaUvIacpbx
-	1wq1T9seLMBI7GcBgXPl3XzhD4b/ZT+5X1Cg8LoK1zOI6Q2hc3syPspFBnGxIBjD5m8Y1T26fmX
-	c87cFWylqQvnNzFycKC2DmD4ApLRPxPZ66AzHUtskDTIQ3OIerT10OPVorMIqb31jiSX5dL+fw1
-	qXNA9IThaQYPDAsT7TpjuVpeyZFHsW4odzklwYsLHUgqm48qfAd/6vN5ZLYuAyEdtgUxd0qcMG8
-	ZeTeirFbRQeIVA2rfXVNWGmT/E5zUNaazzonQfhrzcbnD73BIIe5Jsc/R9PgyPNywRHxru/c2yl
-	FhwOPTnBQ/EacIdgXxT/uulhCmhs6WBkuXOdCZwBioYNZodnWPW8DlvaTTogQa9mDYULuVGYtvJ
-	pPkgepIR9+/P8pvreL8bbN
-X-Google-Smtp-Source: AGHT+IFCaezpDzwvJ5YFy4YkZmmbr4ySHFAbq4jp3qLN1r0Mys7bkocqdmJgJAT/s2gldrYAZNuG/Q==
-X-Received: by 2002:a05:600c:3b11:b0:477:8ba7:fe17 with SMTP id 5b1f17b1804b1-47904ac464bmr139805295e9.7.1764330949090;
-        Fri, 28 Nov 2025 03:55:49 -0800 (PST)
+        d=1e100.net; s=20230601; t=1764330952; x=1764935752;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Cuw09+mpuhIYFNKi8DQQhaPDq5r/kQhVj2hTbI63flY=;
+        b=rgBZkP34aLIjdUnGu6j5MgSuSrlbPGnXz5QPTCRaKOMsxnQgxFPVmdt3V8ILCLAbHI
+         ZfD2qRfmbcpn2JF9YjZB4BmA302lqNgXpAmt6p4Wixh+2D9on9hQO5g6H0XnLyJVjWHf
+         x2PcmN1xTsuZC0FjZGfmn2zI9Z70CV1WoLG/tWQr/tHvf8h0LLBgGR+wxCp0IFD46V1l
+         HFwwU7yRn8hsBShYBaJohfRvdegUdaNh3PM/jyGrsoIXeY+Fp66duWazVUfnsBHLPLOo
+         ZXEQ674IECelG1WA0jDb9hYO7pCE6/6QnXrJZcnIySb4r2+lIkLiqrwks8qIaAhqnFMz
+         JA6w==
+X-Forwarded-Encrypted: i=1; AJvYcCW8KgDg2db9dOZsGkqzsCdtZvwf865lk3u8gpiYa1VrQ+q6YK/4qedL+4I5R21V3IcXJ4H9tUhybyg2whpnWkEy@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzs5itJyM+3K/TcdNT72A7vWDSjuHkwi3VCKI8oa0vxfVeMWN8A
+	k5atGUAdlkyM/iTzrVJ76aIU3mAAUDQ+MotFFbO+AK/Dp0Nb6KET33RVARnayyiblLo=
+X-Gm-Gg: ASbGncvV+iNcH6BRwdrsl2dtJ+vvVUiuXvhrX/Fx9fns7GNriog+9BVsvRIP31NjPmm
+	fm+XlNYL21SXwi++AQ4qLP76sMnntmEiFURT5EttHHEe6qHKxp1q3osUd1Md3rwbMUBBRYGuNBD
+	bq2j5PUI1alQw6YhZiO+u00HTqI6He0Edezw/Dq8kpEY4gdWg4ITDgtxxDpue8wpvFHVldMlleL
+	4GPetb1cbjjaQWuLQPiuV+gnf8quen7Dbb0ze87lS7hcwpZE6x3Q/gPpgMsR0k3dA/GGnZNWEU1
+	/JMrRDK0FPddCaz+NLTk8rP3KubFkKfiEBhbMDZfZzn9wIAgpYmCiIMjZCm8KSwlYcuhDlhKyDw
+	ByKteX/0aZYs9f4DkvOtwaUndNby4AKGFVbrEa5Vn6HjqIBaewASJUCWZU9bsxv0QW/bJy0dMvi
+	ooTTDFR9sJj97comXhoByF2r1wH1rfCRM=
+X-Google-Smtp-Source: AGHT+IFgEnXjtO4cXfxAM6inpDQihSyQc7Tv9HUFntpcRVF6PXqQFRNyhWq6X1yHq6mFLoSoebTg0Q==
+X-Received: by 2002:a05:600c:4694:b0:46e:4246:c90d with SMTP id 5b1f17b1804b1-47904ad06f3mr141247395e9.11.1764330952004;
+        Fri, 28 Nov 2025 03:55:52 -0800 (PST)
 Received: from ho-tower-lan.lan ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4790adc8bc7sm158974465e9.1.2025.11.28.03.55.48
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4790adc8bc7sm158974465e9.1.2025.11.28.03.55.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Nov 2025 03:55:48 -0800 (PST)
+        Fri, 28 Nov 2025 03:55:51 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
-Subject: [PATCH v8 00/13] coresight: Update timestamp attribute to be an
- interval instead of bool
-Date: Fri, 28 Nov 2025 11:55:12 +0000
-Message-Id: <20251128-james-cs-syncfreq-v8-0-4d319764cc58@linaro.org>
+Date: Fri, 28 Nov 2025 11:55:15 +0000
+Subject: [PATCH v8 03/13] coresight: Refactor etm4_config_timestamp_event()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAKCNKWkC/23OTU7DMBAF4KtUXmPkmfgvrLhHxcKxx60RJGBXE
- VWVu+MUCYLixSzeSPPNu7FCOVFhT4cbyzSnkqaxBvtwYP7sxhPxFGpmKFAJg5K/uncq3BderqO
- PmT658YjKuM5S6Fi9+8gU09fdPL7UfE7lMuXr/cUM6/ZHswANbQYu+CAE+KCpk0I+v6XR5elxy
- ie2cjNuiVahGSvhjY5+sEb3OuyI7pcAIbBFdJWIpELEIfYQYEfIPwKgSchKgFaDQ5ACgt8Rakv
- YFqEqYZFiMAM4o/Yt9JboW4SuhJEioHTYU4MwGwJ1izArER0pEnVA/yOWZfkGG1gLkUUCAAA=
+Message-Id: <20251128-james-cs-syncfreq-v8-3-4d319764cc58@linaro.org>
+References: <20251128-james-cs-syncfreq-v8-0-4d319764cc58@linaro.org>
+In-Reply-To: <20251128-james-cs-syncfreq-v8-0-4d319764cc58@linaro.org>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
  Mike Leach <mike.leach@linaro.org>, 
  Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
@@ -89,11 +86,11 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
  Randy Dunlap <rdunlap@infradead.org>
 Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
- James Clark <james.clark@linaro.org>, Jie Gan <jie.gan@oss.qualcomm.com>
+ James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_035551_292311_AA4B33CC 
-X-CRM114-Status: GOOD (  22.45  )
+X-CRM114-CacheID: sfid-20251128_035554_026755_703AF2E9 
+X-CRM114-Status: GOOD (  26.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,115 +105,250 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Do some cleanups then expand the timestamp format attribute from 1 bit
-to 4 bits for ETMv4 in Perf mode. The current interval is too high for
-most use cases, and particularly on the FVP the number of timestamps
-generated is excessive. This change not only still allows disabling or
-enabling timestamps, but also allows the interval to be configured.
+Remove some of the magic numbers and try to clarify some of the
+documentation so it's clearer how this sets up the timestamp interval.
 
-The old bit is kept deprecated and undocumented for now. There are known
-broken versions of Perf that don't read the format attribute positions
-from sysfs and instead hard code the timestamp bit. We can leave the old
-bit in the driver until we need the bit for another feature or enough
-time has passed that these old Perfs are unlikely to be used.
+Return errors directly instead of jumping to out and returning ret,
+nothing needs to be cleaned up at the end and it only obscures the flow
+and return value.
 
-The interval option is added as an event format attribute, rather than a
-Coresight config because it's something that the driver is already
-configuring automatically in Perf mode using any unused counter, so it's
-not possible to modify this with a config.
+Add utilities for programming resource selectors that do compile time
+checks for constants or WARN_ONs for non-constant values. FIELD_PREP
+includes compile time checks so we only need to add an additional
+BUILD_BUG_ON for resource == 0 in pair mode.
 
-Applies to coresight/next
-
+Tested-by: Leo Yan <leo.yan@arm.com>
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
-Changes in v8:
-- Handle ts_level attribute outside etm4_config_timestamp_event() (Mike)
-- Flip commits 11 and 12 so that the new attribute works as soon as it's
-  published to sysfs for bisecting (Suzuki)
-- Remove some spurious header includes
-- Link to v7: https://lore.kernel.org/r/20251126-james-cs-syncfreq-v7-0-7fae5e0e5e16@linaro.org
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 96 ++++++++++++++--------
+ drivers/hwtracing/coresight/coresight-etm4x.h      | 54 ++++++++++--
+ 2 files changed, 112 insertions(+), 38 deletions(-)
 
-Changes in v7:
-- Change TRCCNTCTLRn and TRCTSCTLR register definitions to use a
-  combined field for TYPE and SEL (EVENT) so that they can be used with
-  the new utilities.
-- Add utility functions for creating resource selectors that do compile
-  and runtime checking of the resource selector ID.
-- Link to v6: https://lore.kernel.org/r/20251119-james-cs-syncfreq-v6-0-740d24a29e51@linaro.org
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index 560975b70474..2ec2ae1fef58 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -642,18 +642,33 @@ static void etm4_enable_sysfs_smp_call(void *info)
+  * TRCRSCTLR1 (always true) used to get the counter to decrement.  From
+  * there a resource selector is configured with the counter and the
+  * timestamp control register to use the resource selector to trigger the
+- * event that will insert a timestamp packet in the stream.
++ * event that will insert a timestamp packet in the stream:
++ *
++ *  +--------------+
++ *  | Resource 1   |   fixed "always-true" resource
++ *  +--------------+
++ *         |
++ *  +------v-------+
++ *  | Counter x    |   (reload to 1 on underflow)
++ *  +--------------+
++ *         |
++ *  +------v--------------+
++ *  | Resource Selector y |   (trigger on counter x == 0)
++ *  +---------------------+
++ *         |
++ *  +------v---------------+
++ *  | Timestamp Generator  |  (timestamp on resource y)
++ *  +----------------------+
+  */
+ static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata)
+ {
+-	int ctridx, ret = -EINVAL;
+-	int counter, rselector;
+-	u32 val = 0;
++	int ctridx;
++	int rselector;
+ 	struct etmv4_config *config = &drvdata->config;
+ 
+ 	/* No point in trying if we don't have at least one counter */
+ 	if (!drvdata->nr_cntr)
+-		goto out;
++		return -EINVAL;
+ 
+ 	/* Find a counter that hasn't been initialised */
+ 	for (ctridx = 0; ctridx < drvdata->nr_cntr; ctridx++)
+@@ -663,15 +678,19 @@ static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata)
+ 	/* All the counters have been configured already, bail out */
+ 	if (ctridx == drvdata->nr_cntr) {
+ 		pr_debug("%s: no available counter found\n", __func__);
+-		ret = -ENOSPC;
+-		goto out;
++		return -ENOSPC;
+ 	}
+ 
+ 	/*
+-	 * Searching for an available resource selector to use, starting at
+-	 * '2' since every implementation has at least 2 resource selector.
+-	 * ETMIDR4 gives the number of resource selector _pairs_,
+-	 * hence multiply by 2.
++	 * Searching for an available resource selector to use, starting at '2'
++	 * since resource 0 is the fixed 'always returns false' resource and 1
++	 * is the fixed 'always returns true' resource. See IHI0064H_b '7.3.64
++	 * TRCRSCTLRn, Resource Selection Control Registers, n=2-31'. If there
++	 * are no resources, there would also be no counters so wouldn't get
++	 * here.
++	 *
++	 * ETMIDR4 gives the number of resource selector _pairs_, hence multiply
++	 * by 2.
+ 	 */
+ 	for (rselector = 2; rselector < drvdata->nr_resource * 2; rselector++)
+ 		if (!config->res_ctrl[rselector])
+@@ -680,13 +699,9 @@ static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata)
+ 	if (rselector == drvdata->nr_resource * 2) {
+ 		pr_debug("%s: no available resource selector found\n",
+ 			 __func__);
+-		ret = -ENOSPC;
+-		goto out;
++		return -ENOSPC;
+ 	}
+ 
+-	/* Remember what counter we used */
+-	counter = 1 << ctridx;
+-
+ 	/*
+ 	 * Initialise original and reload counter value to the smallest
+ 	 * possible value in order to get as much precision as we can.
+@@ -694,26 +709,41 @@ static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata)
+ 	config->cntr_val[ctridx] = 1;
+ 	config->cntrldvr[ctridx] = 1;
+ 
+-	/* Set the trace counter control register */
+-	val =  0x1 << 16	|  /* Bit 16, reload counter automatically */
+-	       0x0 << 7		|  /* Select single resource selector */
+-	       0x1;		   /* Resource selector 1, i.e always true */
+-
+-	config->cntr_ctrl[ctridx] = val;
+-
+-	val = 0x2 << 16		| /* Group 0b0010 - Counter and sequencers */
+-	      counter << 0;	  /* Counter to use */
+-
+-	config->res_ctrl[rselector] = val;
++	/*
++	 * Trace Counter Control Register TRCCNTCTLRn
++	 *
++	 * CNTCHAIN = 0, don't reload on the previous counter
++	 * RLDSELF = true, reload counter automatically on underflow
++	 * RLDEVENT = RES_SEL_FALSE (0), reload on single false resource (never reload)
++	 * CNTEVENT = RES_SEL_TRUE (1), count single fixed 'always true' resource (always decrement)
++	 */
++	config->cntr_ctrl[ctridx] = TRCCNTCTLRn_RLDSELF |
++				    FIELD_PREP(TRCCNTCTLRn_RLDEVENT_MASK,
++					       etm4_res_sel_single(ETM4_RES_SEL_FALSE)) |
++				    FIELD_PREP(TRCCNTCTLRn_CNTEVENT_MASK,
++					       etm4_res_sel_single(ETM4_RES_SEL_TRUE));
+ 
+-	val = 0x0 << 7		| /* Select single resource selector */
+-	      rselector;	  /* Resource selector */
++	/*
++	 * Resource Selection Control Register TRCRSCTLRn
++	 *
++	 * PAIRINV = 0, INV = 0, don't invert
++	 * GROUP = 2, SELECT = ctridx, trigger when counter 'ctridx' reaches 0
++	 *
++	 * Multiple counters can be selected, and each bit signifies a counter,
++	 * so set bit 'ctridx' to select our counter.
++	 */
++	config->res_ctrl[rselector] = FIELD_PREP(TRCRSCTLRn_GROUP_MASK, 2) |
++				      FIELD_PREP(TRCRSCTLRn_SELECT_MASK, 1 << ctridx);
+ 
+-	config->ts_ctrl = val;
++	/*
++	 * Global Timestamp Control Register TRCTSCTLR
++	 *
++	 * EVENT = generate timestamp on single resource 'rselector'
++	 */
++	config->ts_ctrl = FIELD_PREP(TRCTSCTLR_EVENT_MASK,
++				     etm4_res_sel_single(rselector));
+ 
+-	ret = 0;
+-out:
+-	return ret;
++	return 0;
+ }
+ 
+ static int etm4_parse_event_config(struct coresight_device *csdev,
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+index d178d79d9827..89d81ce4e04e 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x.h
++++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+@@ -225,6 +225,50 @@
+ #define TRCRSCTLRn_GROUP_MASK			GENMASK(19, 16)
+ #define TRCRSCTLRn_SELECT_MASK			GENMASK(15, 0)
+ 
++#define TRCCNTCTLRn_CNTCHAIN			BIT(17)
++#define TRCCNTCTLRn_RLDSELF			BIT(16)
++#define TRCCNTCTLRn_RLDEVENT_MASK		GENMASK(15, 8)
++#define TRCCNTCTLRn_CNTEVENT_MASK		GENMASK(7, 0)
++
++#define TRCTSCTLR_EVENT_MASK			GENMASK(7, 0)
++
++#define ETM4_RES_SEL_FALSE 0 /* Fixed function 'always false' resource selector */
++#define ETM4_RES_SEL_TRUE  1 /* Fixed function 'always true' resource selector */
++
++#define ETM4_RES_SEL_SINGLE_MASK		GENMASK(4, 0)
++#define ETM4_RES_SEL_PAIR_MASK			GENMASK(3, 0)
++#define ETM4_RES_SEL_TYPE_PAIR			BIT(7)
++
++/*
++ * Utilities for programming EVENT resource selectors, e.g. TRCCNTCTLRn_RLDEVENT.
++ *
++ * Resource selectors have a common format across registers:
++ *
++ *    7     6  5  4     0
++ * +------+------+-------+
++ * | TYPE | RES0 |  SEL  |
++ * +------+------+-------+
++ *
++ * Where TYPE indicates whether the selector is for a single event or a pair.
++ * When TYPE is pair, SEL is 4 bits wide and using pair 0 is UNPREDICTABLE.
++ * Otherwise for single it's 5 bits wide.
++ */
++static inline u32 etm4_res_sel_single(u8 res_sel_idx)
++{
++	WARN_ON_ONCE(!FIELD_FIT(ETM4_RES_SEL_SINGLE_MASK, res_sel_idx));
++	return FIELD_PREP(ETM4_RES_SEL_SINGLE_MASK, res_sel_idx);
++}
++
++static inline u32 etm4_res_sel_pair(u8 res_sel_idx)
++{
++	if (__builtin_constant_p(res_sel_idx))
++		BUILD_BUG_ON(res_sel_idx == 0);
++	WARN_ON_ONCE(!FIELD_FIT(ETM4_RES_SEL_PAIR_MASK, res_sel_idx) ||
++		     (res_sel_idx == 0));
++	return FIELD_PREP(ETM4_RES_SEL_PAIR_MASK, res_sel_idx) |
++	       ETM4_RES_SEL_TYPE_PAIR;
++}
++
+ /*
+  * System instructions to access ETM registers.
+  * See ETMv4.4 spec ARM IHI0064F section 4.3.6 System instructions
+@@ -824,7 +868,7 @@ struct etmv4_config {
+ 	u32				eventctrl0;
+ 	u32				eventctrl1;
+ 	u32				stall_ctrl;
+-	u32				ts_ctrl;
++	u32				ts_ctrl; /* TRCTSCTLR */
+ 	u32				ccctlr;
+ 	u32				bb_ctrl;
+ 	u32				vinst_ctrl;
+@@ -837,11 +881,11 @@ struct etmv4_config {
+ 	u32				seq_rst;
+ 	u32				seq_state;
+ 	u8				cntr_idx;
+-	u32				cntrldvr[ETMv4_MAX_CNTR];
+-	u32				cntr_ctrl[ETMv4_MAX_CNTR];
+-	u32				cntr_val[ETMv4_MAX_CNTR];
++	u32				cntrldvr[ETMv4_MAX_CNTR]; /* TRCCNTRLDVRn */
++	u32				cntr_ctrl[ETMv4_MAX_CNTR];  /* TRCCNTCTLRn */
++	u32				cntr_val[ETMv4_MAX_CNTR]; /* TRCCNTVRn */
+ 	u8				res_idx;
+-	u32				res_ctrl[ETM_MAX_RES_SEL];
++	u32				res_ctrl[ETM_MAX_RES_SEL]; /* TRCRSCTLRn */
+ 	u8				ss_idx;
+ 	u32				ss_ctrl[ETM_MAX_SS_CMP];
+ 	u32				ss_status[ETM_MAX_SS_CMP];
 
-Changes in v6:
-- #ifdef out format attributes for ETMv3 instead of using is_visible().
-  Then the same block can be used to define format_attr_contextid_show()
-  which avoids an awkward WARN_ONCE() and comments in arm32 for a
-  function that's never called.
-- Link to v5: https://lore.kernel.org/r/20251118-james-cs-syncfreq-v5-0-82efd7b1a751@linaro.org
-
-Changes in v5:
-- Add parens to interval calculation in docs (Randy)
-- Swap "minimum interval" and "maximum interval" in docs. (Leo)
-- Add TRCSYNCPR.PERIOD to docs (Leo)
-- Use CONFIG_ARM64 to avoid is_kernel_in_hyp_mode() (Leo)
-- Add a comment for hidden ETMv3 format attributes (Leo)
-- Hide configid for ETMv3 (Leo)
-- Link to v4: https://lore.kernel.org/r/20251112-james-cs-syncfreq-v4-0-165ba21401dc@linaro.org
-
-Changes in v4:
-- Add #defines for true and false resources ETM_RES_SEL_TRUE/FALSE
-- Reword comment about finding a counter to say if there are no
-  resources there are no counters.
-- Extend existing timestamp format attribute instead of adding a new one
-- Refactor all the config definitions and parsing to use
-  GEN_PMU_FORMAT_ATTR()/ATTR_CFG_GET_FLD() so we can see where the
-  unused bits are.
-- Link to v3: https://lore.kernel.org/r/20251002-james-cs-syncfreq-v3-0-fe5df2bf91d1@linaro.org
-
-Changes in v3:
-- Move the format attr definitions to coresight-etm-perf.h we can
-  compile on arm32 without #ifdefs - (Leo)
-- Convert the new #ifdefs to a single one in an is_visible() function so
-  that the code is cleaner - (Leo)
-- Drop the change to remove the holes in struct etmv4_config as they
-  were grouped by function - (Mike)
-- Link to v2: https://lore.kernel.org/r/20250814-james-cs-syncfreq-v2-0-c76fcb87696d@linaro.org
-
-Changes in v2:
-- Only show the attribute for ETMv4 to improve usability and fix the
-  arm32 build error. Wrapping everything in
-  IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X) isn't ideal, but the -perf.c
-  file is shared between ETMv3 and ETMv4, and there is already precedent
-  for doing it this way.
-- Link to v1: https://lore.kernel.org/r/20250811-james-cs-syncfreq-v1-0-b001cd6e3404@linaro.org
-
----
-James Clark (13):
-      coresight: Change syncfreq to be a u8
-      coresight: Repack struct etmv4_drvdata
-      coresight: Refactor etm4_config_timestamp_event()
-      coresight: Hide unused ETMv3 format attributes
-      coresight: Define format attributes with GEN_PMU_FORMAT_ATTR()
-      coresight: Interpret ETMv3 config with ATTR_CFG_GET_FLD()
-      coresight: Don't reject unrecognized ETMv3 format attributes
-      coresight: Interpret perf config with ATTR_CFG_GET_FLD()
-      coresight: Interpret ETMv4 config with ATTR_CFG_GET_FLD()
-      coresight: Remove misleading definitions
-      coresight: Prepare to allow setting the timestamp interval
-      coresight: Extend width of timestamp format attribute
-      coresight: docs: Document etm4x timestamp interval option
-
- Documentation/trace/coresight/coresight.rst        |  16 +-
- drivers/hwtracing/coresight/coresight-etm-perf.c   |  68 ++++----
- drivers/hwtracing/coresight/coresight-etm-perf.h   |  38 +++++
- drivers/hwtracing/coresight/coresight-etm3x-core.c |  39 +++--
- drivers/hwtracing/coresight/coresight-etm4x-core.c | 175 ++++++++++++---------
- drivers/hwtracing/coresight/coresight-etm4x.h      |  92 ++++++++---
- include/linux/coresight-pmu.h                      |  24 ---
- 7 files changed, 279 insertions(+), 173 deletions(-)
----
-base-commit: 9e9182cab5ebc3ee7544e60ef08ba19fdf216920
-change-id: 20250724-james-cs-syncfreq-7c2257a38ed3
-
-Best regards,
 -- 
-James Clark <james.clark@linaro.org>
+2.34.1
 
 
