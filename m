@@ -4,63 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1F0BD116E2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 10:32:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37C47CFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 10:33:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LJ7TT05aDdeIXRBKmTbprX3u15hD2cZDEZhzo0yOQ4s=; b=L7JZ8Ve/Vo9pyCcyGZbvpvj0nw
-	eAiDsyZxKQpunE9YX0udcIo4u603XIQ8iYWNROJeQaw3BSTeR6Nx7zsPFPjrQ3pnYumyKNwzBJdQt
-	kKv7bkM5u+G5GLI+By1WBOiMlmzEqMyFatzS07SOamu8AiBC5RjSyjitAUbaM5j3ZjHJXJTMVR5Tt
-	eqMg3FzVCZKTLDFLmrFFxZdObdByyERra3vxJhZ5hlCmQvpz00EOZLGQlyEesXjj9FOf29PhAr+8z
-	vpG04d6xx13EEzOWVy4TZSU6mSkfSjn3aeTisRvgSa6yU98wvlBY5f7WfmNI6WgYu2vQ/Plnud9Jn
-	jUoF0DZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dYt/z6ZOWgDKF9v5qqHxp0mC2k4lmmDIlV2fSFh4AdI=; b=2q95S8Z2lQizd6ByxcbTEAhgvi
+	yIqTvmu44GOmGjKZ1ONK8PO9xrwk9nRiP4h9eU0FVM9+IfyLYFIZ8pTad87Ptko8JRUIYqbHsH9db
+	9Eqq+ZJqBr4xboNBcNTKENGHbUWVefzRM3Y89XBH31W6grM+BVhpzZjAc6yeSbzROAEjR0rIEYRCr
+	UZdWzlDO30VJOkiGOMxWpx0fr0skeEnzM+9f9fnfGVVzp2E5bE1XEB8lHnV+GhEE9GjsnQvTt1NZV
+	4SKoj8pWWklpcatz/3NwPnOsjZftU93apqka9+113OxJxNUksuSJ5Jbp9kvJDJ3rAuPGVqNDQ8tPL
+	O0e/yPKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOvlq-00000000IGA-0ylk;
-	Fri, 28 Nov 2025 10:32:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOvln-00000000IFm-2hqP
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 10:32:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5331D176A;
-	Fri, 28 Nov 2025 02:31:58 -0800 (PST)
-Received: from [10.57.87.167] (unknown [10.57.87.167])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0998B3F73B;
-	Fri, 28 Nov 2025 02:32:03 -0800 (PST)
-Message-ID: <177c5c01-82d7-461c-93c3-2c9f7bcb3403@arm.com>
-Date: Fri, 28 Nov 2025 10:32:02 +0000
-MIME-Version: 1.0
+	id 1vOvn6-00000000IQN-0Kxh;
+	Fri, 28 Nov 2025 10:33:28 +0000
+Received: from mail-francesouthazon11011045.outbound.protection.outlook.com ([40.107.130.45] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOvn1-00000000IPG-0wHk;
+	Fri, 28 Nov 2025 10:33:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BAToOXiHf3ZJBCqAC4VmFr+BZFMc9HG+3LMQT6Uh6aDljK7OAtlmAyVRogOIdnkF7Gh+nItRIWBtCTaStoWdm4wqZPEykLLsscHwUv+u2Wm1ymI+Bkzbu56Hv0EUuOLi+VA6PSrd2pwdo7JTkbpHp2O9ZyNBsEjL6fh32lV1eX2iiJXKOhgKQIr71jFobGIw9lAROwOv+FObhExK8mtPnJCunEBk0G2IPun6LCk+tadJo2LBw0X02aOfAAWiYFKLkwZ6jZvqom9hQ0HiMSqWvETxb70keXnC7+U8zFUVElWWQLFvxqO5KwyHNYBWcTuw2KmDa/A7XvjegbbQC6+Ajg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dYt/z6ZOWgDKF9v5qqHxp0mC2k4lmmDIlV2fSFh4AdI=;
+ b=pwX9njfdn257EKx+w84gcOJ+jutPBOTEKBZBH6seh06aPNr8ISPpL1loPBWBy+d3xH7I0jJU2emMvTdw/vuHE+Icqcz4aQwlJb9yXKbRfjnuHfta2j9wLgZ2/hKMy0Wxsa8PV1Yov/A1w9W4NotDz+55K86fOtCcLZUwNcFi9i6IE0srEaHq1WPnYLhR3GYtEM8zXG8cPxCxbGMY6w2W5Rz0X8STvVaGQeFLao8tIbEXi2Q/6SLdyCJl/dS50e8yrT6JBiCOQR4sFyuWesh7jDX579Qk5ch8T3UwiI14NV3th+OodgWDdYh9MFoY7NpCD02DTq/psqdiuPodjvQOKw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dYt/z6ZOWgDKF9v5qqHxp0mC2k4lmmDIlV2fSFh4AdI=;
+ b=iAMe+Xu+9pKrJwr0YcYDELKUA6gw5J2SSuGUbdiUw9PefkPjWT5WT/VAZ6xlfBQ8/tdJrp7qE/WgVuWR19w/Mg7nCReAo7BrEVHwI3+lkYdtDcnz18IL2nOlsMe0k5BlPAwu9XuyWTczvMvEtBMFkWPYAHqPdSDdH0m5vuLJG1c=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from GVXPR04MB12038.eurprd04.prod.outlook.com (2603:10a6:150:2be::5)
+ by VI0PR04MB10319.eurprd04.prod.outlook.com (2603:10a6:800:231::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.14; Fri, 28 Nov
+ 2025 10:33:15 +0000
+Received: from GVXPR04MB12038.eurprd04.prod.outlook.com
+ ([fe80::1033:5a9a:dc18:dad]) by GVXPR04MB12038.eurprd04.prod.outlook.com
+ ([fe80::1033:5a9a:dc18:dad%4]) with mapi id 15.20.9366.012; Fri, 28 Nov 2025
+ 10:33:15 +0000
+Message-ID: <de401340-be1c-4354-b6c8-c86d6f724c73@cherry.de>
+Date: Fri, 28 Nov 2025 11:32:17 +0100
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC/RFT PATCH 0/6] Improve get_random_u8() for use in randomize
- kstack
-Content-Language: en-GB
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-hardening@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Kees Cook <kees@kernel.org>,
- Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Jeremy Linton <jeremy.linton@arm.com>,
- Catalin Marinas <Catalin.Marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, "Jason A. Donenfeld" <Jason@zx2c4.com>
-References: <20251127092226.1439196-8-ardb+git@google.com>
- <b1dae5a7-27bd-42de-bcce-9fd3c2b1c178@arm.com>
- <CAMj1kXE-Qm4DQNAcg8Tg7YM4EMdLBu_UJm7M8Cpk3t5g7XqP5w@mail.gmail.com>
- <e996fdd5-7113-4327-a884-336dd5f77c4d@arm.com>
- <CAMj1kXGyYMy2xhcdNicHkMfWBnEjyhc+xg8ciuR-6WXDxDpZxg@mail.gmail.com>
- <f95593ac-d4cf-4e06-9a94-cc5133897c59@arm.com>
- <CAMj1kXE8msLjM83iKLQjRSQ+4cqj4iFS_CLxwfjj6adZ_AUBVg@mail.gmail.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <CAMj1kXE8msLjM83iKLQjRSQ+4cqj4iFS_CLxwfjj6adZ_AUBVg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH 1/2] arm64: dts: rockchip: enable NPU on rk3588-tiger
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Heiko Stuebner <heiko.stuebner@cherry.de>
+References: <20250812085213.1071106-1-heiko@sntech.de>
+Content-Language: en-US
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <20250812085213.1071106-1-heiko@sntech.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: WA0P291CA0011.POLP291.PROD.OUTLOOK.COM
+ (2603:10a6:1d0:1::23) To GVXPR04MB12038.eurprd04.prod.outlook.com
+ (2603:10a6:150:2be::5)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12038:EE_|VI0PR04MB10319:EE_
+X-MS-Office365-Filtering-Correlation-Id: 169445e7-7e1c-495c-1c59-08de2e6989ce
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|10070799003;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?K1QvRnlHVE9zUENmMGNNelJQMElLVlczWmNXcDhxellJWFpjU2VWclBoVVpY?=
+ =?utf-8?B?NFZHV0xKbVErLzhRYjBzWTd0Vms3UVIvdzVzUVc5N1Ezb3NYNzdIWGtOTTZ2?=
+ =?utf-8?B?bTd1WDl1TFNSbTBwcC9jTk5PZWZDQUtBSC9UN1RqR0xlY3pQUWtSbWUyeE9h?=
+ =?utf-8?B?WDFFUVNCSGZ0SFFYcjRyN3lmRUNFZ0JObTBZeEJ0M1oyRFFvcTN2VU9ubko4?=
+ =?utf-8?B?ejFITHZHcHFPQ3NMTVB1aGxEZ0NrT3A5V3E5OWp2aGl2S014NW10SklTdE1q?=
+ =?utf-8?B?ZFBhdGFLbEpaNlpyenh3eDdrVEFqQUtFREdGcjFRRUp5RnJxeFhVN1FkZU5M?=
+ =?utf-8?B?VmdvTW1qcEQ0L1BXMkROaVlGWHZrZk5xVU1ENGdHYmUxajUwMmt1OFJnZUhl?=
+ =?utf-8?B?QXpGQ1V4M24yWDFhc0FFREJkTzRISkFWeHNuNGhqdDJRdTV5eVVnK1ZIdVFm?=
+ =?utf-8?B?cVRpZDgrcnBkZEM4ZWszYlBaOHhCd1hGTmRPREZFZ0F2d2Q0Y3h5WkoxRkxU?=
+ =?utf-8?B?L3RQYkVHMWVhQnpONnNxRUtmVjZVbnhieW04NU9qZEo1UHZwRE15R2cwdzRE?=
+ =?utf-8?B?VnAvanJPRDdWbW9YcEZVK0VmS3pOZXh4a3BLWjJQWHgvMXhaSXRaYTZNM3pa?=
+ =?utf-8?B?MGRZcVR3WUJNK2NuaGZzdWZwZW8xVFhTVTRrWjdtTFdvV3czYVFiMCtUaW1z?=
+ =?utf-8?B?NWxlQ1VPTlc1SmZnd09EYjgxd2RxNmlUZE9rYlVoREpiK3kvWHpsNDdxMjk1?=
+ =?utf-8?B?cndZRmROZGNXN0ZIcUdQUDR0Y2VNOTFVNlRVcnV3cWU3OHBDOWNQOHlJZ2tz?=
+ =?utf-8?B?S2N5Z1Fxd2xHTHdHZ0U0NEVqZWlOSGxiaEZkQ3VkSldKOVZINitjalNtYmhC?=
+ =?utf-8?B?QWRSelE3cVpSemcyUnBpeFlOTU9zZ2l6RCtrVjJZZ01oL05qQVQxUWloQVRQ?=
+ =?utf-8?B?N1BLVmcvMGRId3VYUDAyNGoyRnBFYXFWTHhYbklDUGhJN2g5OWg3QjI2ZlNI?=
+ =?utf-8?B?a2d5VDYySFdUUkV0TnFnZU9OOTFlMC9aNFgzdmxETmtMQ2ltd3dxRmpWTkpp?=
+ =?utf-8?B?RnM3Mk1IbnJOQ0V5M1pzNHphcVNpU01BTkwvWW1pNWVLNTQ4clBwQ3REdWY4?=
+ =?utf-8?B?Q2JGTEVxMitDUTUwV2FHUmJRM3dkWEpvOG9hTFByKzIzdTNyQnRRWnp6K3lB?=
+ =?utf-8?B?aVIwUEs2M2NRYm1uUnFENmlDZW9GeE1LdGVqR2U3QlAySldoeWdQbU1TVFpi?=
+ =?utf-8?B?VnliNEtVcVZpTHVlMVF5dEpvdjNoaWdBSWZCODVkRFd6RnprQU8yYnQrSGYv?=
+ =?utf-8?B?OGhWWUsxUFVTYU4xRDFFYWJPcVh2Q21yVnZWUUkzbDcvYm10T1k5Rlp0K0hY?=
+ =?utf-8?B?cnU5VDM3Y3IxRFZ3U21WMXB4NlkwckQrbjhNbnowZ1NwQzhOaDFreGNBdERK?=
+ =?utf-8?B?S3lVaGZ4QXFuUnJLNkh6TDVxdy80aFhOdktPUXV4VXpmOVZXUGc5QUdnTTNQ?=
+ =?utf-8?B?WWVnaTQ3ZmNVTUljcCtoZHdEcnU4NDI5WUh4ZGZHWjZDaG1EMnJxUld5T0FP?=
+ =?utf-8?B?RHEzQVNDTUdadDJNYmF3SzYxdDRuSitJTGVud3M0NG04V2NsYVBCNTRQb0hH?=
+ =?utf-8?B?cHk3ZmdKSG9zQ21jZGY2RDQ2T0lOa0JsZU1sZVlzTThrMlJoeS9oVk1NK21B?=
+ =?utf-8?B?bW9ISTJkUXJpVEYzaC84OFJsbUlrdUwzWWVPTzFYeGVjQkFGNlpqNGVsSWdK?=
+ =?utf-8?B?aEwwNm9uNjRJNWF4ZUZ1TWpFbWo4eWZqT1dnN2F4eTFNMW5iUks4NW1wd1BE?=
+ =?utf-8?B?UVFQVEFOaC84TDRCS2o2SjdyWEh1RnpvZ2xnMExHckVIbDZQbXltZy9JRkNF?=
+ =?utf-8?B?L0NVbjBxNWtTSVlUd1NiTFpPaFFTTmIzbjJnUm5MV000SlVndG5zVEkrL1hJ?=
+ =?utf-8?Q?/FxzE1ir82kj1y10iwRCXFeCkKVS5H9x?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12038.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(10070799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UXEvTWNnUlNhYU1OeXUvQmpYbzE2R2V6RW5lVHh2YWliZEJlQzM1TC95REhj?=
+ =?utf-8?B?cDZnejdwM0FvS2hEZVRzbXkxbjNqcENOZDQ0ZHk1bTRxaERGUTl3eGNRaHNE?=
+ =?utf-8?B?Y3JCUG1hZE1JNXpMWjgxU2pESjhOWStvZWRWZVZEMzAxMkJIZkRPSXVDRWVw?=
+ =?utf-8?B?NTFJUlJjcTVFQ0ZrRnhyYXJLUllIYUk3SDVDUEppM3p5Z0pOUk1Qa3BkYnM5?=
+ =?utf-8?B?OWNXVDViWGdDZHgzdmlpZTl2Vnh0bzhoMjE0WmI3ekJYMDNCMElDdmI2aHZF?=
+ =?utf-8?B?TzBwVjlNME5OZ3lSUW9JYUZ2aldVQ2JaKytseXZ1aDVnTzV0MFFUQXRmUVBE?=
+ =?utf-8?B?V1JyN3ZpOGp6L1J5c25YMkJEb1BDcDFFV1JVOG5GZzlOZHlnTGNqLzBnNHBI?=
+ =?utf-8?B?cDlXUHc1alVuZml0ZENvdU9nYzlXSUpXTFJ1SWQ5SDV0UElXckJmR3FtUlIx?=
+ =?utf-8?B?dSswOXNCVTF0bU8vVEZ3dEZlOVZvcks2eCtRTjk0dEhaSGJ2T2h3TmhMa2ly?=
+ =?utf-8?B?TVZiTjZNRmNXTjRpaE5ZaW9CWTBtejFWZjBReHpZL3ZIcTIvWTV0MlNWUzBt?=
+ =?utf-8?B?WTkwK2N6Q2lqUE1GVjJ6MnFNcCtoV1BlVDlwd1B0ZEtLWitmVGVxU2drMEM2?=
+ =?utf-8?B?TzRFOTZRMk9hT1gzOEJ2NlV1MTJZQ3l3SUZtMWhhWCtNYVpaR3Q2b0VHR1dP?=
+ =?utf-8?B?empKS0p0RzZwUE5HcGc3Zk9QWXEzR1pBdytwZlZCRVVHeWFPYTgydE16TG1M?=
+ =?utf-8?B?aGZzWk1ZZUlwc0oxcWFTeVlGNVNycXE2Y2tacXlFdWdKQzE4OWwzbVl4SFcy?=
+ =?utf-8?B?b3BwdlFuZW05RjdVcHE3NDlhZy9GV0RRRnZoRzd3d3FLdnRUUExvMXhUZHlM?=
+ =?utf-8?B?bEJ3QkdjR2cvbWxUekMrZTk2QnpPczd6akEvVENjcGcvcHBVc3JRRkd5TmFK?=
+ =?utf-8?B?dXRSQnh0aFhJYkMyenhZdWphRm1Vc01NbmZVekd5T1I2aHVQM28xWDZXMzVn?=
+ =?utf-8?B?anhRWS9pUXBKZ0FhYXlkQmlKeFQxaTBUczdieTUyaExBWmQvZFFmbkg3ak12?=
+ =?utf-8?B?ZU9SZ3NGekdHNzQ5OUJMUmYxK2VablY5ajVZV1A4M3dkVHlWNXpwTGZQR3pF?=
+ =?utf-8?B?YUFmbUVLVG5JY3hMdTJiV0Ivb2krWk9GdGtqUEoyMTMzUHU3cUp1d3dCL0NL?=
+ =?utf-8?B?ZHJtYk5WOWhpRnd6TkltVk1DM1VYNTVjVFBLOE5pK3lHL1dXRGxoeTJjamVW?=
+ =?utf-8?B?NDZsL2NQUUZHNHQyK1pCRU1pdGxUSHVhU2VSTDIxVnpVMlZXNFBXanJWakJS?=
+ =?utf-8?B?a2VxS09aUXNYdGovUUNmN0hjWi9maGc3bE9rQ3R4aUw4S3hWUmlpdG9hTWRy?=
+ =?utf-8?B?RUtKeUpmQ2EwYTFldis0Yms5VjJvNFZxT2JHNHZaKzNHdk1veDlWdjRHNUhV?=
+ =?utf-8?B?TXlodTVVZkR1OEw2OWx4Vm9PLzVjbWZpNTVZT2ptZFIvelhpcEVsaExvYzFz?=
+ =?utf-8?B?MUNzeVZIRFA0YnJiUVFRQjQ4d0ozODV3TXVPME9sSVZMRzc0ai9mYzl0eTBU?=
+ =?utf-8?B?MWRBbzVaTVNnRTBjcUFSQ3VlNTI0SENMcDg3aDNtWVJIam9oVnVab3AzWFRM?=
+ =?utf-8?B?cEhlYUd1SnFhUGRrN3R3bUVIanVTeG9yNnlvVWZUWnU0WG5GMUJmalp3TTFy?=
+ =?utf-8?B?YUd1TjEwallzRXVWMHhtR3E5ZlFqZ1huQk90RnRjV0p6bndyQXJvRmQybmdR?=
+ =?utf-8?B?YWU4NVprWC9hbFJqUW5BV3RjZWxxdDlxWU5lcndaVk9IYytsUUEwNnVxY0VT?=
+ =?utf-8?B?TzlpejdEVU5UUEhsZENRNVI0blN6ZVBsNUNmWXdmR3JPL0JIY3JIMHdKT0Fj?=
+ =?utf-8?B?T1NFMXNHSVF6T0lKdHpHNWwrMTh5dlViY3F6Qi9sTkpVRGMzZDNZSGwwd2tS?=
+ =?utf-8?B?dnZuVU9KLzVpWVFJUUtMN3QrbGRhM1d5aDVqY0d0NkJoREM1ZVlXd3JtT3dK?=
+ =?utf-8?B?MGczNTV6aDBEdEJaMzVodjFsUy9jSVBLeXByTU1lU0hoNjZhTTYvZEM3VUR2?=
+ =?utf-8?B?QnFKS0dKRnZ2eUZiYXY4b3ErZUNDcDNWb3hEcnRGdXAyQ09sWEdvenFhM1Yv?=
+ =?utf-8?B?SGFWdk5hcE5laXgyUFNYK3pRL1hGVmM1UStjRnRIc1dCdWxWUXJxdE9iNlZJ?=
+ =?utf-8?Q?L52at2kHJnWJ5vPiy8atYpQ=3D?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: 169445e7-7e1c-495c-1c59-08de2e6989ce
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12038.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Nov 2025 10:33:15.3647
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 15CvIjbOwK0RHqxeU5NtT24/sWPATtuoduTVcb9R30pkcZGWWm1qcG4e0trR18d1PfvryCBE8BPG5eGZn+xnYeIuZcqoXsnYypIy+DgcSHU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10319
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_023207_775269_084FA677 
-X-CRM114-Status: GOOD (  25.74  )
+X-CRM114-CacheID: sfid-20251128_023323_268275_4553C857 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,120 +175,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/11/2025 10:07, Ard Biesheuvel wrote:
-> On Thu, 27 Nov 2025 at 16:57, Ryan Roberts <ryan.roberts@arm.com> wrote:
->>
->> On 27/11/2025 15:03, Ard Biesheuvel wrote:
->>> On Thu, 27 Nov 2025 at 15:18, Ryan Roberts <ryan.roberts@arm.com> wrote:
->>>>
->>>> On 27/11/2025 12:28, Ard Biesheuvel wrote:
->>>>> On Thu, 27 Nov 2025 at 13:12, Ryan Roberts <ryan.roberts@arm.com> wrote:
->>>>>>
->>>>>> On 27/11/2025 09:22, Ard Biesheuvel wrote:
->>>>>>> From: Ard Biesheuvel <ardb@kernel.org>
->>>>>>>
->>>>>>> Ryan reports that get_random_u16() is dominant in the performance
->>>>>>> profiling of syscall entry when kstack randomization is enabled [0].
->>>>>>>
->>>>>>> This is the reason many architectures rely on a counter instead, and
->>>>>>> that, in turn, is the reason for the convoluted way the (pseudo-)entropy
->>>>>>> is gathered and recorded in a per-CPU variable.
->>>>>>>
->>>>>>> Let's try to make the get_random_uXX() fast path faster, and switch to
->>>>>>> get_random_u8() so that we'll hit the slow path 2x less often. Then,
->>>>>>> wire it up in the syscall entry path, replacing the per-CPU variable,
->>>>>>> making the logic at syscall exit redundant.
->>>>>>
->>>>>> I ran the same set of syscall benchmarks for this series as I've done for my
->>>>>> series.
->>>>>>
->>>>>
->>>>> Thanks!
->>>>>
->>>>>
->>>>>> The baseline is v6.18-rc5 with stack randomization turned *off*. So I'm showing
->>>>>> performance cost of turning it on without any changes to the implementation,
->>>>>> then the reduced performance cost of turning it on with my changes applied, and
->>>>>> finally cost of turning it on with Ard's changes applied:
->>>>>>
->>>>>> arm64 (AWS Graviton3):
->>>>>> +-----------------+--------------+-------------+---------------+-----------------+
->>>>>> | Benchmark       | Result Class |   v6.18-rc5 | per-task-prng | fast-get-random |
->>>>>> |                 |              | rndstack-on |               |                 |
->>>>>> +=================+==============+=============+===============+=================+
->>>>>> | syscall/getpid  | mean (ns)    |  (R) 15.62% |     (R) 3.43% |      (R) 11.93% |
->>>>>> |                 | p99 (ns)     | (R) 155.01% |     (R) 3.20% |      (R) 11.00% |
->>>>>> |                 | p99.9 (ns)   | (R) 156.71% |     (R) 2.93% |      (R) 11.39% |
->>>>>> +-----------------+--------------+-------------+---------------+-----------------+
->>>>>> | syscall/getppid | mean (ns)    |  (R) 14.09% |     (R) 2.12% |      (R) 10.44% |
->>>>>> |                 | p99 (ns)     | (R) 152.81% |         1.55% |       (R) 9.94% |
->>>>>> |                 | p99.9 (ns)   | (R) 153.67% |         1.77% |       (R) 9.83% |
->>>>>> +-----------------+--------------+-------------+---------------+-----------------+
->>>>>> | syscall/invalid | mean (ns)    |  (R) 13.89% |     (R) 3.32% |      (R) 10.39% |
->>>>>> |                 | p99 (ns)     | (R) 165.82% |     (R) 3.51% |      (R) 10.72% |
->>>>>> |                 | p99.9 (ns)   | (R) 168.83% |     (R) 3.77% |      (R) 11.03% |
->>>>>> +-----------------+--------------+-------------+---------------+-----------------+
->>>>>>
->>>>>
->>>>> What does the (R) mean?
->>>>>
->>>>>> So this fixes the tail problem. I guess get_random_u8() only takes the slow path
->>>>>> every 768 calls, whereas get_random_u16() took it every 384 calls. I'm not sure
->>>>>> that fully explains it though.
->>>>>>
->>>>>> But it's still a 10% cost on average.
->>>>>>
->>>>>> Personally I think 10% syscall cost is too much to pay for 6 bits of stack
->>>>>> randomisation. 3% is better, but still higher than we would all prefer, I'm sure.
->>>>>>
->>>>>
->>>>> Interesting!
->>>>>
->>>>> So the only thing that get_random_u8() does that could explain the
->>>>> delta is calling into the scheduler on preempt_enable(), given that it
->>>>> does very little beyond that.
->>>>>
->>>>> Would you mind repeating this experiment after changing the
->>>>> put_cpu_var() to preempt_enable_no_resched(), to test this theory?
->>>>
->>>> This has no impact on performance.
->>>>
->>>
->>> Thanks. But this is really rather surprising: what else could be
->>> taking up that time, given that on the fast path, there are only some
->>> loads and stores to the buffer, and a cmpxchg64_local(). Could it be
->>> the latter that is causing so much latency? I suppose the local
->>> cmpxchg() semantics don't really exist on arm64, and this uses the
->>> exact same LSE instruction that would be used for an ordinary
->>> cmpxchg(), unlike on x86 where it appears to omit the LOCK prefix.
->>>
->>> In any case, there is no debate that your code is faster on arm64.
->>
->> The results I have for x86 show it's faster than the rdtsc too, although that's
->> also somewhat surprising. I'll run your series on x86 to get the equivalent data.
->>
+Hi Heiko,
+
+On 8/12/25 10:52 AM, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
 > 
-> OK, brown paper bag time ...
+> Enable the NPU cores and their mmus and wire up the supply-regulator.
+> The regulator itself was already defined, but it does not need to be
+> always on - the npu can control it.
 > 
-> I swapped the order of the 'old' and 'new' cmpxchg64_local()
-> arguments, resulting in some very odd behavior. I think this explains
-> why the tail latency was eliminated entirely, which is bizarre.
-> 
-> The speedup is also more modest now (~2x), which may still be
-> worthwhile, but likely insufficient for the kstack randomization case.
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/ardb/linux.git/log/?h=lockless-random-v2
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-Ahh, so we were never taking the slow path. That would definitely explain it.
+Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+Tested-by: Quentin Schulz <quentin.schulz@cherry.de>
 
-I had a go at running this on x86 but couldn't even get the kernel to boot on my
-AWS Sapphire Rapids instance. Unfortunately I don't have access to the serial
-console so can't tell why it failed. But I used the exact same procedure and
-baseline for other runs so the only difference is your change.
+I still have the same remark about regulator-boot-on but this isn't a 
+blocker per-se.
 
-I wonder if this issue somehow breaks the boot on that platform?
+The Oops I alluded to in my answer to the Jaguar patch is triggered by 
+making DRM_ACCEL_ROCKET driver built-in instead of as a module. I'm not 
+sure how much I will debug this on my side, I'll prolly just report this 
+on the ML in a few hours.
 
-Anyway, I'll chuck this update at the benchmarks, but probably won't be until
-next week...
-
+Thanks!
+Quentin
 
