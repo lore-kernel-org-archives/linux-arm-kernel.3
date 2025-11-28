@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E45D111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 03:14:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87168CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 03:14:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Eyk5xIZ0lCxFy1qmDzdDm120cQyhzOGKx5f75oHvGXk=; b=eTTrE1GFtrSJvWVGgkW+Vzf94k
-	SrpiVBYdnbcrkgpoX/O0UTpSeMNm8oYLUN14CfuNejjFpz251Ya23mfE660WyzKdgT3lf+8yC5lfo
-	nSJykbh7nzFc5IhH8epciXfXkhwuUpXyjr8cGmdQgPR+CY5gdIZxODO1tlNOCOzCpA+3KgBHCI3bO
-	xA1K3yWN6/mGFExrWqy/2AZqoHhWes9TJ9NiYQfqdHE59pEMWr/Z+K9h8LpV3bQx6o1yrrCiraTu6
-	A/XTrlOPDtUZJqIqUofUVAw4JuuM0d5FhZab2kkMQLDZQZ9HO2sLdvSGWwL3M7Lr18I/ZEjjk5ulx
-	CtAkafBA==;
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2c5XWz8oWufzexQwuegXMhMlKH2LJSiXckPA8k6DY6Q=; b=RIyPHyGzqhVu8gQRer48/nRS3g
+	O5Yn3X3kxriBZ6Hsygr/FVtZlOQra2YjPzBhuBSpujW+NgtP0LQRSBCx4ggPWON1Y9I4qmeOxJliX
+	FEx9QyDb5dS75xYKcpRTPppeDbiLCUYOo+/usWuh6Ii19au9lHUvs53dXBa2alXQ7otuUZCSrC3fb
+	sSI99+zdtW9U4ObbsRbA8hfOiRBdbhqFy8o1+fruOi9l5m7eK5zlSK4idyN7f9HFj61YTjbIpQc0n
+	4PAzxoPKV3AcIrIkYGZuDfAhyOqp9UHzKYVMjZ04KLHNmVTSldPOXcVaooNODXRP+BXtaUMq+iSXj
+	NF281qww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOowP-0000000HV4B-1Tkk;
-	Fri, 28 Nov 2025 03:14:37 +0000
+	id 1vOowU-0000000HV6P-1xAd;
+	Fri, 28 Nov 2025 03:14:42 +0000
 Received: from mail-francecentralazon11013027.outbound.protection.outlook.com ([40.107.162.27] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOowM-0000000HV3H-2fJ2
+	id 1vOowQ-0000000HV3H-12Rz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 03:14:36 +0000
+	Fri, 28 Nov 2025 03:14:39 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eSAOgH9Oe56nEaob2VTeGeb7YefgRVZoUPxxufKntqooEIfStPJpgyzEx36d6i6faj2SoFmos7iVQTScV0X4IjguVNunC7O7c1oSYoHKvKOXDiEMVvLRaGZ5gTlWnnlsrReNcg3PKeJHWkWkhLimXzpD4BeJdFsTkqQakWkDhyepM+qn6ygYJW82c1DazY3HRR9UKSqhum88fHOrzYOOLHlGzsNAbBwUrKXx4JEOp2ruYYuD/ZPUiw5oNLoQ2aGAnScoXKmYKR/Seg72kDyuXujSKvFBHlIkaXBMi0Fo7WVVOIoQvC0kgb+Kvc1Cd57j4RLxy4A3M3FUMSPEUo+iqQ==
+ b=CNOGnd6y9/No8pCm+Z/IX0jWQdQ1OuGCu5eqanI85t0JofwkwAofNajkFC7JPz6SXlWej09INMwwSANAlWwU0WYGymD1Pj24E/hzYf4ea5qDY549+cv0BhAqlq4dDAoYdjpXO3XTp6vJaY309mV7hQKQIdD2x+XSOgsFwOU67phsWRpbOL9A/O6azlkhaYz00fVm4/74MLjT4Lrr73v2RAfiyU5/o/c+zpMgKKRX8hSy1XwN0iCFPx6e0NuqX8FVkoOI31Ig7JSqdVq+6K9e7xeQCaYot+UNmfggUrrBPnZ3c4V+LZHSX3nPS/9gW4ft2ciM3U0A3NoppZ8sBGQzGg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Eyk5xIZ0lCxFy1qmDzdDm120cQyhzOGKx5f75oHvGXk=;
- b=UqOiU1RKQui8f/BdwoGI3f8lhuYfL8yW17DFDWO9NFjzjgr1dJxKmSQnn46yB0fonGzZJPULj7zLhShL2Z0bMdHKuPUSYjvXDySZEG34zkk7FjBKcyFBWrjP1rzCEhBuo6kakuYBsn+U/yTwEPh75zNYA1/9fUbb66tVgSq+l1I9h2/La5Oug0gYfyGgSkfZLkF+3vxDjMwEeWnvwP0tPyheJzIL93G7ydiLHqwmV0I8S/SHrtCMxuXx28tyY06hRNmzjwO/JvOrYjgoHx2qVOqLILJrKRRnGl6H3BOspZ4CsFZl8heSU/xlm8WaHZTLxeEhz2Wk8BN1uEE28+dTKA==
+ bh=2c5XWz8oWufzexQwuegXMhMlKH2LJSiXckPA8k6DY6Q=;
+ b=OBidGPHrIxBswTJHGgPixCpjzL4yjiP5tWbcPXqrRii2dXz/7/B9a+KIy9W2llg4AUomypclF2zneAED81zSZLA0Fopde838xhK1oISMgSLaRCz8B1Ftm/e7oMfNmf6dpdv7kDATQbwmdrjGcwhU+bipTSfoN6WW71+3wz36Qfu0lUy8BIPkcmua9Z+YD2DR9WOdk4E3/YuhKwxbUEwfvnqjsLxducu6J1O5rpBH8Cp7NQfZLvr6fzOw8r/2KgV9iRk19FHTKAC/abdFDc031XFUa9O86CwevLrUAD3I2IIDRVFr8ZIB4i7irQPYoUxWlgcOIFUKuA0S+39CEGcG2w==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
  dkim=pass header.d=oss.nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
  s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Eyk5xIZ0lCxFy1qmDzdDm120cQyhzOGKx5f75oHvGXk=;
- b=rhsctjQF/E/3NosurBd7fn2fgad9UkZXTt/9EZRk7BVpXByQGo6JFsK/r2uYPeV4RqZaAepwusodyGJs/JGVhCK0gVBS0JyTyNV4+yTTmUfP5tsGHk1WBuAqoZ0Ji7B7v8sa7+o/G6wZ+IVktZKQxZJoptFdyQ1qJEodPpt0jhmi26LK6exMmLgqoQN+wljKo6yDF1mbQBgpi9eyTd//80jdM1TJCW2gRHZfdquYA2RstMdh171NBGcqzVcxobCNeQt514vmiZcT3M6z6nIaQvHp33X4um4qNsgnVL3YbMAxIforq8W1zhSQ/EFvJAwXoXAoa/iNUC13Qs7SkAet2Q==
+ bh=2c5XWz8oWufzexQwuegXMhMlKH2LJSiXckPA8k6DY6Q=;
+ b=UnyAlz7jU1DnaYWOaExJ8D+cTskvzJIvN/5fv5XY6EgEm7oi2jTHW1VwW6pNAp5Oz6Y45LYUEw7GGIhJbvb7NsKmiYH2v76PjwmVjqXD/0D9EI6qc1UQJ/ZZYIO2VK8eIhhfvKxG3hjiZKE29oVXEGv0PHHnvUFejpUbm62TadS1NjASCoS9uD7n6Try3nR9C9uCmryWi51PeGX2gG8pKv5gEvA2vto57APf8Sr1jkLQG28ugutklMknNLUtYVJx/QQWQ3Kksu56Us3s+70AHwEEA/Vqqtd9DNacF/rC8Fbk95Jk55dIMLWfd4HPiayCopnmOwrPzVPAs4Upa9KgMg==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=oss.nxp.com;
 Received: from DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
  by DB9PR04MB8429.eurprd04.prod.outlook.com (2603:10a6:10:242::19) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.15; Fri, 28 Nov
- 2025 03:14:26 +0000
+ 2025 03:14:35 +0000
 Received: from DB9PR04MB8461.eurprd04.prod.outlook.com
  ([fe80::b1b9:faa9:901b:c197]) by DB9PR04MB8461.eurprd04.prod.outlook.com
  ([fe80::b1b9:faa9:901b:c197%4]) with mapi id 15.20.9366.012; Fri, 28 Nov 2025
- 03:14:26 +0000
+ 03:14:35 +0000
 From: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Subject: [PATCH v6 0/6] clk: Support spread spectrum and use it in clk-scmi
-Date: Fri, 28 Nov 2025 11:14:09 +0800
-Message-Id: <20251128-clk-ssc-v6-2-v6-0-cfafdb5d6811@nxp.com>
+Date: Fri, 28 Nov 2025 11:14:11 +0800
+Subject: [PATCH v6 2/6] clk: Introduce clk_hw_set_spread_spectrum
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAIETKWkC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyzHQUlJIzE
- vPSU3UzU4B8JSMDI1NDQyNz3eScbN3i4mTdMjNdI11TczNTizRLExNjIxMloJaCotS0zAqwcdG
- xtbUAMiWvMF4AAAA=
-X-Change-ID: 20251127-clk-ssc-v6-2-57658f944324
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251128-clk-ssc-v6-2-v6-2-cfafdb5d6811@nxp.com>
+References: <20251128-clk-ssc-v6-2-v6-0-cfafdb5d6811@nxp.com>
+In-Reply-To: <20251128-clk-ssc-v6-2-v6-0-cfafdb5d6811@nxp.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
  Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -80,97 +78,98 @@ MIME-Version: 1.0
 X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: DB9PR04MB8461:EE_|DB9PR04MB8429:EE_
-X-MS-Office365-Filtering-Correlation-Id: 00652693-b937-4d16-eb9b-08de2e2c3c64
+X-MS-Office365-Filtering-Correlation-Id: c86afbef-6ca5-41ee-9d9d-08de2e2c41da
 X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|1800799024|19092799006|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eDBrVFNMTUR2UVBHem1JVHl2eDc2L0FrcjY5WGN2eDljcEU1Q2Z4OVAyNkx2?=
- =?utf-8?B?SllSSW9qZWM1SE9keVM1TmprNElZMksyUjJLbk1ZSVNFNkRraEVsNHErZ0s1?=
- =?utf-8?B?ZWFoVXVYUGc1eXZzc1lWQUhHOUdQZ3p5WjZ1QlJnaWZsNFdjVEpwbTVXbHAr?=
- =?utf-8?B?SmtPQktrQmN0R0YwVk05R3BWOEtBZ3BCK1pvMEVwQVlpSWhVTjlYSlNSWkdV?=
- =?utf-8?B?MkFTMXJ3L2NkSmRVMUZQZHFHOFE3Wk5sYnNPZmlpV2R3cmRlS2ZaWXAwVnJD?=
- =?utf-8?B?a3FVQnp4RFljU2puMTZIaVdsQ3VBTllYdjJHejM2YkFDU1phZVpuaWgwRnB1?=
- =?utf-8?B?WGhjb1ZmMm9aOGp6SUlsTkN6YnRGM1hxMlhKK1RrQXVrbVpPR2tLWTRZWmYy?=
- =?utf-8?B?VGc1eHRFWDZXV21ja1NpdWZPSWNxazNMcGRWRkJXQU5jMmtwMlMyRnFKYjFO?=
- =?utf-8?B?RDR6eXBhUzRvd0UzMDVndEtVU0MxdEJFTnhrN0dGV29wT2RKMVozdE9HNDhh?=
- =?utf-8?B?MzFrNDZNMnZhRHQzbTZwRHhCY1V1V2NGTTZISjFTM2xYbE5VRm53cE1BejRS?=
- =?utf-8?B?MkVmTmE5SVdqYWVRcExGNThHVW9WK2l0aWRTeFZLbzFpbVJ2Z3RSa05oWjVE?=
- =?utf-8?B?L0J5blBNc0NtZjRVdVN1UzdaT1kza2FCWGZhYmc0MUkvS2E5VGdHc1NJMGx1?=
- =?utf-8?B?cHdlUXpxanBVU0w3c2dIRVM0b3d2UlRyMkV0WWxwbEFDQ2xmYVovazBldGp4?=
- =?utf-8?B?QXQvTEtid0gwa1liaEh2MGUwY1FZRjhhN09ic3MyT2N1czl2alZ1WDA5ZmRT?=
- =?utf-8?B?MFlBV0RJVVlNSjlmVDBmSFFDWjBHRy9CaXIvYXdSUnRiL0MrMlNCWDk5TE1L?=
- =?utf-8?B?L3p3amhVVWFldWtOSnNBcTR5YWh0YmxGc3BCVWZyd1ltdmplMklJV09IWnlj?=
- =?utf-8?B?aVFJTzZlSnB5WmIwN3QwOVlxYmhmVUd2bFlDdlhXaGZTRHdIY0hkcTFOYzQ5?=
- =?utf-8?B?WXVhZ29qYXFKeElkN3p0RGpDWGdPTzdGNVpoM1NjdG55VjFHbkdLMEJpaWRP?=
- =?utf-8?B?TkRrVzFIaXFDaVFuc1p6ZTNIZWVXYlA5M2kvcWpCTURqdnVFTUIrZFYxYUl2?=
- =?utf-8?B?TkIzUzRZOVB0bThFWFZabVdkcjhDaWV1SG5CV05na2xIcUlPUE5SRmhvL3lI?=
- =?utf-8?B?RDg3YnVLUGM1MTlKZDIyUXdQN01YcEorOU0xNnVKc0ZEVWZzbE9SRzFlOWRE?=
- =?utf-8?B?M1pla2dKY0QwVUF2MkhQWmtpQS9mcjE4UnMwekhZZjE5a3BhYVh2anNmQTlr?=
- =?utf-8?B?bTZoaE4rWFVHOGdnRTlvVDF5bzN3aHZlV25KdVBJdFlCeGtoZ29RMXMvUjYx?=
- =?utf-8?B?WUFkbXV2bkFENHhzajhZWXlSaGxGN00xZ3dRRHp5Qi9hNmtjdUJsTXltVGM0?=
- =?utf-8?B?SngyYW1mNEdPUEtIeEhwVVROR29MaWgyMkJDR1dtMHNodjlLOTVyWFlGaVlR?=
- =?utf-8?B?cEFQVW9jZzV6RzlrQkpoMGpMa1VZV3NLd3g2VHIxZ3hQTTI2R3FvK0ZOSnFw?=
- =?utf-8?B?TnVWUkhyT0h4bndvdHJoVGhuRTkyOElSNzhFZ296dys1bk1iWUNnY01vKzFy?=
- =?utf-8?B?NHhpS0xScGh3d29sNVRTOWhubm5XYW0wM01IY01qS0duQktIeUNkNTlnZWYw?=
- =?utf-8?B?d2lod0I0T0h5YW9sK3UvQm51UW56TmVLeGNtVmFLWkxPQmd4QWorN3JZSFdR?=
- =?utf-8?B?VFNKU0M2WWJPQ3dKdUlhdWI5aTNyT3I5TkhKZ1NMVy9YSUhrUDJ5SVhPbFRX?=
- =?utf-8?B?RWdETDNDMU9BaEV4dGVsNVM5RHdLdUNwRXlBc0NudEh1OCtTRElmZzVCYWFI?=
- =?utf-8?B?ZGNFaEhheUhGcERwV25EVC9YV2RlSWZlQXRPWisySFNIM01IMU53UjdIZUpU?=
- =?utf-8?B?bjI3a21EUGd0M09EdXVSN0kyQUFBWnIyRDBsNURtRHpXWjVPNk1kWXlzK0lm?=
- =?utf-8?B?T2NNR2xBbWhRPT0=?=
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?U2o0ckNyeGNucTVHWkZmY3VTNThZT2hOMElXaUwyM1dPK1FNQng1aENZNCtr?=
+ =?utf-8?B?SzFjQnVTcHNSNlBlalBFYTEvdVFlZjNoZEJhbGlYb2NIcjlIcTBIcHJvbFBY?=
+ =?utf-8?B?SmtrMlZEckRZb0w5THVQcW1obUkyRzJxU2lkQk43VTZzNnR1V1d0TVFTZjR5?=
+ =?utf-8?B?KzJ5T3ppeE4wYnVQR09pam1uQ2xXbXJ6OUhiM0Vwc2NJWEhHTHdBR0M3c1F4?=
+ =?utf-8?B?Y09zbW90UnYxb0R3SWJpNXZRbHNibUMxS1FaT05vNHcyNzkwcGpMT3dId0xH?=
+ =?utf-8?B?NzlaYTVhQjc1eUoxQVVXOVVwaWhhdFphZ2w4ZUgxcXZJTGF2ZEZ1TjFFOTZl?=
+ =?utf-8?B?bVh0SXlFRHduSXY3MzJCd0VBZUs5dnNjR3lKN2NEdDlZK1A3NHJkNi9FazZj?=
+ =?utf-8?B?eTJHYTFTdktFR0NuUDVNd2tYcUtCTUU1UTVraXJNNG9VMjNjSFVieDRqVml0?=
+ =?utf-8?B?d1h0TlhrMGNDWWJyWSsreU1Lb0tnN0ZVWXkzTjFxQjNYU1dIcnFIcTFxYURn?=
+ =?utf-8?B?UUlwM3V5SnBVMzlUQmhTQzBUYytnT1k0VUN0eEZzQW82SW5ZT3pSeW9QaFE5?=
+ =?utf-8?B?R3dBR2dSZTkvOER6aUpteFVySlNwSHgwbk54RVFrWEJsVHdZS0NtSllQd0Zv?=
+ =?utf-8?B?WlZaT3ZESm9TTWQ1VFpyWEVpajNXN3haYklBVTc3SE90NVRYK01PSWhkaFpV?=
+ =?utf-8?B?eTROcFo1VithdjRVd2hleUFDMVZpQ29VdWN0aDN3MEV5UjBiYmdudmZYQ29p?=
+ =?utf-8?B?WXpsTmhOMXRQdGI5MnhmbHdSUVJRbERpNXMwZzFIQW00Y0l3eVNaYnJxM2xF?=
+ =?utf-8?B?MGhUdGdUZktScnl1TlFjUGJkajZpZ2UvTUV4TDFKNis4eUppeW1TSDhSa1hW?=
+ =?utf-8?B?VW5zNE1GWU8xbXRhblVCSExOK2MrMTl0K0tKMk5yWDgxSWRqN3FyQjNUOW9M?=
+ =?utf-8?B?bDRrVnNVb29lL1FGR0VDVmRxS0VsVVVwa3c2QUZSdDBraWh5b1pnVXMyNVRl?=
+ =?utf-8?B?VDRUMCtWOVlCa0c5c1dwenVoRjJZMmQ2bWlnVEpsS3lSdHJVRE02OEF4ZHls?=
+ =?utf-8?B?Mi9HbmpMRyswMkZCRmhCaXN4ZFhCdGhVSUVzeDNGbFRWdW54RUJKQ0FOS0w3?=
+ =?utf-8?B?cnZNZitZMUQ4ekZCMVRiMFJlZ0toSGIrYzlCaG8zdlF3bmdMdklJSCtwRXJY?=
+ =?utf-8?B?MGRrZVVwWVQvdks1Umdja2Z4UG0vR3RMVmhvVzZjVTBMZUZxRC9wYUVFV1l5?=
+ =?utf-8?B?Q0VuakRDZC83SkZScnBhNDAzU0d3SXVjaThUVFBXK3lnNFlrWXBab2MvbXJq?=
+ =?utf-8?B?MEphYzR2emNLZzNlZmxnT29RK0VqZW9OL1gzUVJ4d1FIQ1FIVTR6cTh3eXJI?=
+ =?utf-8?B?emw1dTlFcGI5MDZ4WjgyN2Ywd0M1ZTlMS3dwd2ZRRzF3elMvTzNCcndUZnc1?=
+ =?utf-8?B?TndZSFhlQWxpRlNLaFNKd3VuQWtsTndhRERyNHFLY2RNTGc3cFV3ZXNHT1hE?=
+ =?utf-8?B?cDlYQnJRUGlLaHRpTnBPWW9icEhkT05wdlUyRVdmYVBROE5pZ25oZ0xkem9Z?=
+ =?utf-8?B?OURnL0JwaG0wSHkxMU5CYTkvTjRTbkhiUklkNmFLNnlCaXZGMExzZDNCbFQ0?=
+ =?utf-8?B?QVRzU3JmSjQrQldLV2lyQ3piZE96cWNWM3dDMVVpZjVoYjFoako4SFk5bVRE?=
+ =?utf-8?B?MUprY3dJa0dPdlZPNzd1cmEwYmZQbDVwbW54alZTWjBEVUVLcnFFa3VzZThK?=
+ =?utf-8?B?QnV4Z1lHRVFHT3lqYTNsTVlMTWRsdkt5bDg2VWszelhzYWYvdWcrOTBUYldO?=
+ =?utf-8?B?eE5rU1Qwck9qUmkwbTE5SkVkV0grUjdPYS9hSFZ1S255d1ZreFI2VGUzZi93?=
+ =?utf-8?B?OEZiamZybHh5a1RRSkVDcldmdGVNODNMSHhlVmJOVFN0S2hDNy9EWkwwZnNN?=
+ =?utf-8?B?QUk2ZllIZzkvOU1hL29XbXdRYXZKQW42TmYrUndjTWg5dWwxam1JWFlMdTk4?=
+ =?utf-8?B?RVZEQ2RBRGduL29YK3dXenpTRGpQa2dGTzJ3OTlvR0x5Zyt1RTF4UGFrUk9Q?=
+ =?utf-8?Q?uWWDLe?=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8461.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(1800799024)(19092799006)(366016)(38350700014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RDVpWGFRUmtUeUN2dS9MSFpUN1FUVXJqWlFteUVzOFcvK25UdjBkZGRTVU90?=
- =?utf-8?B?Ti9zSzg4NVIzRkllUXRXdXhBdnhYcVlUS1BNZVRIVmZ1dE1KRTFUc0xDMWJv?=
- =?utf-8?B?NnMyM1lUaS93cVlLeFhYZDloMVlrZXRZUGE2U2dKbXpCOW1HSlpITXMwVGwz?=
- =?utf-8?B?YjhkdHRLcUgwcU5qTno5b2ZTTXZ1L2pqZ3p1czRibUNVZ2tPZTFhQ2dsT2N1?=
- =?utf-8?B?RmdxdWVhWHhtY2g2VjN0WWhjeHJYb1dEK29Hd1Uva25MSzFmOFNyYUN0MitV?=
- =?utf-8?B?ZEx3d2c2UU9SY3lHOS9TMWxwWk0yNlltdEpYRjVqZ3dwaEtpdUdjaitydWQr?=
- =?utf-8?B?NitxYUNKaWxIS01rSUxwU1BydktpcTNsajZKdGFSTGNlcWpzTGs2UnBSaURz?=
- =?utf-8?B?Kyt6cUIwK3FWZXQwZjJOOXZWdkhBTlRUZ0dhNWd0S0JkelhUZ29hTFBvMnQy?=
- =?utf-8?B?MXpqWW0zeWdhbU11RlkzRXBDVk9lQWFYWmdyNVdqbkhsdkt0MCt5b01MSHl1?=
- =?utf-8?B?Qzc4MFppMTI3UUw0eWRCbVJjMnE5eVpQY0RsSmNYNmFFWUxabHQwS2o4NXRV?=
- =?utf-8?B?UEszbEY3TGRLa3VhQkJoWWh2M21CeTlGeFcyc050OE9IbUtsUnUxMThJVmdh?=
- =?utf-8?B?MWVrMmQ3RXo0NzA1YTBQbVJZMkhPYXgveFRyc3AzcERKSngySHIxN3dJOWxO?=
- =?utf-8?B?VWhCeVFZcnZIbGF5RG03VC80THFrR0tkd3dkbU5pNUZNbEpDbFdMV1M5NDI3?=
- =?utf-8?B?Z1Z0d3Q1YUx0SDJOSHpDS3Y0SDk3UE5JanJaWGtnQUJldkFRd3hFMk1rVGsy?=
- =?utf-8?B?aHFKOUZYZFFERXp0c0xBaG1kRER5akx6THd6MUVYUDZLTTJMUEVPbUhZVVNy?=
- =?utf-8?B?QXd6S2c5Z2hwaDE1MVRlSlFkM25GTXByQVhBdDFkOG1EcUZBWjIyU1c2VnE2?=
- =?utf-8?B?S2R4YnQvTkNZSlZXenB1VXdEaG5SN0JmSkpvb2FiUDRuWXlwWTdnMWRNRjYv?=
- =?utf-8?B?Mzh3R0hBY1NaQ05RNW12em5VZk5jOVgrNlJwZlZMUUF6T2phaW9KZjBBcXVn?=
- =?utf-8?B?ZVlIeFRoMlFkK2NicDRiN05xOU5KYUtXYmhpRjREbzJLRjc2eFhva1hHRVNz?=
- =?utf-8?B?MFVlbDg5KzVqZ0dDY0tac09sQUVTS3hoaldBWEs0TmRrVzllblV3MitFUVVW?=
- =?utf-8?B?L1gyMkZNTUUvVmJ4UnBkcDUvd0J2eEpGcHNabXNzdkV5ZDYvRDR0UHVvNU5w?=
- =?utf-8?B?RmQ3dTlBMzEvcEhDVHBLM2wrK2djTlpDNC9CWTlHdzRETFJoQnlzYWtEZGlS?=
- =?utf-8?B?N0dFbFFwNDc1SmMzRno1emJaOFVWbER5NlFqWTE1U0dyZ0hGbGxOTnZpaTdn?=
- =?utf-8?B?eitBenh5a0JHTGtFeHZCVHkzaUQ1VzNjbEFsK0Jtb0I3YVFFUXc2Q2lHTHdy?=
- =?utf-8?B?QkVNa0hBQTJTSEU5NG9OZ0VMNjJUczRldXY5TWpsUnpFUGszZkFGU0YrRnlm?=
- =?utf-8?B?bGtHUnFBTi9xaU9jdWM0cXgxbWVZUXNSMCtQL1Q0dVN5U0FkUjZ2ZkdNMTNj?=
- =?utf-8?B?YjV3ekZDZHdmSlByTTZNYTNnbGg2K0dFY1VUSmdXSUtxNG5pdUQvVkw5bkhh?=
- =?utf-8?B?NDBiUUYwSmwyMkxqZkhRVnhBWVZiK2orL3lQaHdINS9zbW9aMTUwV1pVQ0Qw?=
- =?utf-8?B?UEdyemZOR0t3WEpvSjMrWVZCRnM5U3NoRGs2TC9aV3U4ampXcVJBa0JhTk5q?=
- =?utf-8?B?eFRaMWkzdVc4T2dvc1BmRXJ5N0JWNExlK2xpeDdsWWxoTkY1Tys5bDNPNG00?=
- =?utf-8?B?TXJZMkFTaXU4K2Z2Y2Z0ZVVkVlR2Mkx4N2d1RmxSZ3M1Q2QvYVFNUUtLZzhy?=
- =?utf-8?B?SVdoaXdvd0VxclRobUgrRDN0ZExhd05VSDY5TTNpb3BxM2hpWDhsWVY1enk2?=
- =?utf-8?B?eHRvMmxpRzdSOXpGdXc5Z3NWb0xnMll5OExPbGF4S0k2OGxNZlF4bUNxb2x0?=
- =?utf-8?B?SzlXZ2dpamZZR01CUmJvL0tGTzZSaFY3ZjRtNUVQbVRwRlNDelYrMnNwUFdk?=
- =?utf-8?B?ZFR0ZGRzTTc0aFhsNzJraWlxNmp4a0o5L1RoSVg0djgxbVNBdFEwandrTlpq?=
- =?utf-8?Q?cZywZPC2Urn/owaPjmQ9+CBre?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NnU5NjRJSGRHUHB6YmNlT2hOSGs2NHFzK01CRlpuWDFkbE84TWh0THI2RnhD?=
+ =?utf-8?B?Z0hNaXVhbUx4b0UrSW1vRlJ4TW9YaExUM1F6TTQ3UGVsdnJtSTBQTFp2bThi?=
+ =?utf-8?B?UUQ3cktWdWc2bzRBTURZK3Q5cnBueWlQVmNBK3JYZHJhcXdJd2VBSkQrODc4?=
+ =?utf-8?B?Vm5ITmNQK0NqNzdkMGhDbjVWM0tvUDhiNW9OeENuQ2daOHpMaEM5WmhBeTB1?=
+ =?utf-8?B?RXJVL0tLTnBVZkg1R0pEOHQxT2RrRWdjYzBFdTdWdGFBTmFqRzUyRWFHWU5L?=
+ =?utf-8?B?N2FnV2ZOa0Zabjd4WG9sQWdyNjBucFFveGFLYTArSVNPNk91YUhrM25hR0do?=
+ =?utf-8?B?a0FCT1ZBbU5XYk5aUU5pSHFqbE5JWEd2Y2pKbExUSWxUaDlqZ3o2NkpwWk0x?=
+ =?utf-8?B?RWRKeEI5OG9YQ05ha3VGSnVYa1RzakdocDdKeDJXVTZNaFlpM1NRbGpwM0lE?=
+ =?utf-8?B?OGFQRHlSQTR4SmxpcW0rTzRuVXNNTys3RDZTaUxqSU54K05yZzYrOU5wS3h1?=
+ =?utf-8?B?cUtHeHRlbVFjcUEwWUEwbXBLM09qeXV0eWdxK1RrVVZUMlYzWVJTclJ0YWlj?=
+ =?utf-8?B?ekpNZDk2UkxHSnpwSERaMEx6M21qd3NsK1dSY1JPc1VjTUFHRHFZb2NTTmIr?=
+ =?utf-8?B?Uk92ZW1WVHQ5cnpUNTBFalpFMkFQZzBxTnFFTXlVUXo5bEFRcENUR0hZeEU3?=
+ =?utf-8?B?ZlpqUVpyYnl0Zm9acFd6Ti9Oa3o0NlNSYkxydC8wM3ovODlUZkVSaXFJaHpG?=
+ =?utf-8?B?N1kzTnN3dlNGK0doL1lZc3pmc3RKM25ocEU2SVFWTitJK1Y4U0VLOXphdzhZ?=
+ =?utf-8?B?K0JFTEc4SW9mVlU5VFl3Tk9pclhGZVhsTDVVTFBGOEhnR3FpNFUrVHA2ajZj?=
+ =?utf-8?B?SWp6SzljT3dGL0xtSjczbjZQVTlvOWZjbzUzcnA5MVNXdngyVlZmb1c4TXd2?=
+ =?utf-8?B?TTM3RWtmTlhDSWswdjl5ekdZZmNES2JpcXkwc2toVmxQVUhzTFhDU0JWM2lE?=
+ =?utf-8?B?Z3EzNVZHdmU1R2dDVERiZ2JtVDk5RkI2eE1DWTBzMkdsT0Uyb25YR3J3N25y?=
+ =?utf-8?B?Uy9QaHNVQmlCNkkrK2RSVlpmWXJsWjd6TVlIS05TalFjUjhoRnBML3ExSGxE?=
+ =?utf-8?B?MEEzVnZNVjVQb3JXRlR3NCtTeHVUUGNnWm1NUHpTUkdYdjByejlnbld0Ylhu?=
+ =?utf-8?B?YmQ0eExyL25wREdtRXdaV2hyVXY2V2VISWpRa01RbkFNWUNPT3V0R2VVREh2?=
+ =?utf-8?B?OHY2OTFteHJJSTJveERzUzc3MGVJVDRjRnl3U3JZdmRJSnRlTDQ1a1JaNTJR?=
+ =?utf-8?B?bXNYUmhCbEVUR2lkN1lueEgzN3JnK20vT2JwQi9waC9QYTZYUWJrV1YwWC9U?=
+ =?utf-8?B?ZVd4UElueUl0RFpkTVJPeWkweHFURFhNZUF4RkxxWEU0N2wyYWZVbEZzZXlw?=
+ =?utf-8?B?THBXaW43aDV6RjU3aExuaER4eDdSMGdaWVo5T01ySTF4eVcwb01nT09lYWtt?=
+ =?utf-8?B?a2sxSDZpTHAxSzZhb2VrenVlaStSM2ZVbEFEbThFSW9NVFA0Mks3V3c3NVJw?=
+ =?utf-8?B?QmdVM2s4NWxPcFM0OTNmT0pTandDWmtCc2EySy9qQ2ROMENPbjJqc3NXeFZQ?=
+ =?utf-8?B?TWVlekJ6K1M2cFdJbDBsejR3Ui9RWFRBM1VBdjZ2LzR0R3ZuT1RKTE44RWF6?=
+ =?utf-8?B?WWhteDhUanN2QlBZcnMwb3dicEJaaGpjMHRKSS9nSGpuVUtyZlJ3ZE9DSUhl?=
+ =?utf-8?B?R2MrdVFBcG84OHlweFVqNWRpamUxaGJ3cy80UitNTUpYdkcvQUdQK0phd2dj?=
+ =?utf-8?B?cGpjaVNUN2lvbWd5d1hVU3ptZTNERXNuZ0ZqSnJDVzRYTFhFL3FIYXNiOFJy?=
+ =?utf-8?B?MHBRVC9wdkRBYUU4VVNjakVOOXE4cEdLUEhMOXZVRXUvaWRkM1VPVncxZFMv?=
+ =?utf-8?B?ZG5MbGs0MVFqeTB1cDFYOHlKL05Yc3VERFEvUEdrUlB3TmZYL1ppT2tQRUJ6?=
+ =?utf-8?B?UGMwa2pCQTBhcjgyeFlMWDM5SUU1T1ozbVR1OE0rYXdCbG56OFlpYmhFeDNu?=
+ =?utf-8?B?OWxVa1VoOGY0b1lSQTlSV05tVGFmT2twRCtLbno4enk1MkozM0xEdlRSRTQ3?=
+ =?utf-8?Q?J1u6neeT0JHxo+lMAi+kNypz3?=
 X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 00652693-b937-4d16-eb9b-08de2e2c3c64
+X-MS-Exchange-CrossTenant-Network-Message-Id: c86afbef-6ca5-41ee-9d9d-08de2e2c41da
 X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8461.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Nov 2025 03:14:26.0833
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 28 Nov 2025 03:14:35.2642
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3g66Ho9jlDH23pFrIe367QyV8tYQX4/cpOuWqCrg/UnkVNeycRagJTeVB6+Bjf/7tMOW+iVA+CQQDtygjw0M8A==
+X-MS-Exchange-CrossTenant-UserPrincipalName: blJV1nHNCz/+CHMMgOb8SicAkze1xj8i+foo1r5SCRsc3P8Al82jTNmpDdp775aG/5weAu3/38f3jvLUrBUkPQ==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB8429
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_191434_831175_F668FDE2 
-X-CRM114-Status: GOOD (  15.61  )
+X-CRM114-CacheID: sfid-20251127_191438_303961_73D1894C 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,99 +184,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the assigned-clock-sscs property [1] has been accepted into the device
-tree schema, we can now support it in the Linux clock driver. Therefore,
-I've picked up the previously submitted work [2] titled "clk: Support
-spread spectrum and use it in clk-pll144x and clk-scmi."
-As more than six months have passed since [2] was posted, I’m treating this
-patchset as a new submission rather than a v3.
+From: Peng Fan <peng.fan@nxp.com>
 
-- Introduce clk_set_spread_spectrum to set the parameters for enabling
-  spread spectrum of a clock.
-- Parse 'assigned-clock-sscs' and configure it by default before using the
-  clock. This property is parsed before parsing clock rate.
-- Enable this feature for clk-scmi on i.MX95.
+Add clk_hw_set_spread_spectrum to configure a clock to enable spread
+spectrum feature. set_spread_spectrum ops is added for clk drivers to
+have their own hardware specific implementation.
 
-Because SCMI spec will not include spread spectrum as a standard
-extension, we still need to use NXP i.MX OEM extension.
-
-[1] https://github.com/devicetree-org/dt-schema/pull/154
-[2] https://lore.kernel.org/all/20250205-clk-ssc-v2-0-fa73083caa92@nxp.com/
-
+Reviewed-by: Brian Masney <bmasney@redhat.com>
 Signed-off-by: Peng Fan <peng.fan@nxp.com>
 ---
-Changes in v6:
-- Add kunit build warning
-- Update OEM string comparation per Sebin
+ drivers/clk/clk.c            | 27 +++++++++++++++++++++++++++
+ include/linux/clk-provider.h | 31 +++++++++++++++++++++++++++++++
+ 2 files changed, 58 insertions(+)
 
-Changes in v5:
-- Per Stephen, export clk_hw_set_spread_spectrum, use enum for method,
-  add const for set_spread_spectrum and rename clk_ss/conf to ss_conf.
-- Per Sebin, Cristian, Sudeep, I added clk-scmi-oem.c to support vendor
-  extensions.
-- Link to v4: https://lore.kernel.org/arm-scmi/aNQPWO6pfA_3mmxf@redhat.com/T/#me81231bf286e2a8e4e00a68707ed1e525a2b4a3d
+diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+index 85d2f2481acf360f0618a4a382fb51250e9c2fc4..6cd941a729590b501d66101e352b99e51ca18464 100644
+--- a/drivers/clk/clk.c
++++ b/drivers/clk/clk.c
+@@ -2784,6 +2784,33 @@ int clk_set_max_rate(struct clk *clk, unsigned long rate)
+ }
+ EXPORT_SYMBOL_GPL(clk_set_max_rate);
+ 
++int clk_hw_set_spread_spectrum(struct clk_hw *hw, const struct clk_spread_spectrum *ss_conf)
++{
++	struct clk_core *core;
++	int ret;
++
++	if (!hw)
++		return 0;
++
++	core = hw->core;
++
++	clk_prepare_lock();
++
++	ret = clk_pm_runtime_get(core);
++	if (ret)
++		goto fail;
++
++	if (core->ops->set_spread_spectrum)
++		ret = core->ops->set_spread_spectrum(hw, ss_conf);
++
++	clk_pm_runtime_put(core);
++
++fail:
++	clk_prepare_unlock();
++	return ret;
++}
++EXPORT_SYMBOL_GPL(clk_hw_set_spread_spectrum);
++
+ /**
+  * clk_get_parent - return the parent of a clk
+  * @clk: the clk whose parent gets returned
+diff --git a/include/linux/clk-provider.h b/include/linux/clk-provider.h
+index 630705a47129453c241f1b1755f2c2f2a7ed8f77..9ec25bbccd613eafd77aca080dd7f51b1bfdadc1 100644
+--- a/include/linux/clk-provider.h
++++ b/include/linux/clk-provider.h
+@@ -6,6 +6,7 @@
+ #ifndef __LINUX_CLK_PROVIDER_H
+ #define __LINUX_CLK_PROVIDER_H
+ 
++#include <dt-bindings/clock/clock.h>
+ #include <linux/of.h>
+ #include <linux/of_clk.h>
+ 
+@@ -84,6 +85,26 @@ struct clk_duty {
+ 	unsigned int den;
+ };
+ 
++enum clk_ssc_method {
++	CLK_SPREAD_NO		= CLK_SSC_NO_SPREAD,
++	CLK_SPREAD_CENTER	= CLK_SSC_CENTER_SPREAD,
++	CLK_SPREAD_UP		= CLK_SSC_UP_SPREAD,
++	CLK_SPREAD_DOWN		= CLK_SSC_DOWN_SPREAD,
++};
++
++/**
++ * struct clk_spread_spectrum - Structure encoding spread spectrum of a clock
++ *
++ * @modfreq_hz:		Modulation frequency
++ * @spread_bp:		Modulation percent in permyriad
++ * @method:		Modulation method
++ */
++struct clk_spread_spectrum {
++	u32 modfreq_hz;
++	u32 spread_bp;
++	enum clk_ssc_method method;
++};
++
+ /**
+  * struct clk_ops -  Callback operations for hardware clocks; these are to
+  * be provided by the clock implementation, and will be called by drivers
+@@ -178,6 +199,12 @@ struct clk_duty {
+  *		separately via calls to .set_parent and .set_rate.
+  *		Returns 0 on success, -EERROR otherwise.
+  *
++ * @set_spread_spectrum: Optional callback used to configure the spread
++ *		spectrum modulation frequency, percentage, and method
++ *		to reduce EMI by spreading the clock frequency over a
++ *		wider range.
++ *		Returns 0 on success, -EERROR otherwise.
++ *
+  * @recalc_accuracy: Recalculate the accuracy of this clock. The clock accuracy
+  *		is expressed in ppb (parts per billion). The parent accuracy is
+  *		an input parameter.
+@@ -255,6 +282,8 @@ struct clk_ops {
+ 	int		(*set_rate_and_parent)(struct clk_hw *hw,
+ 				    unsigned long rate,
+ 				    unsigned long parent_rate, u8 index);
++	int		(*set_spread_spectrum)(struct clk_hw *hw,
++					       const struct clk_spread_spectrum *ss_conf);
+ 	unsigned long	(*recalc_accuracy)(struct clk_hw *hw,
+ 					   unsigned long parent_accuracy);
+ 	int		(*get_phase)(struct clk_hw *hw);
+@@ -1430,6 +1459,8 @@ void clk_hw_get_rate_range(struct clk_hw *hw, unsigned long *min_rate,
+ 			   unsigned long *max_rate);
+ void clk_hw_set_rate_range(struct clk_hw *hw, unsigned long min_rate,
+ 			   unsigned long max_rate);
++int clk_hw_set_spread_spectrum(struct clk_hw *hw,
++			       const struct clk_spread_spectrum *ss_conf);
+ 
+ static inline void __clk_hw_set_clk(struct clk_hw *dst, struct clk_hw *src)
+ {
 
-Changes in v4:
-- Add R-b for patch 1 from Brian
-- Drop unecessary change in patch 4 Per Brian
-- Link to v3: https://lore.kernel.org/r/20250912-clk-ssc-version1-v3-0-fd1e07476ba1@nxp.com
-
-Changes in v3:
-- New patch 1 for dt-bindings per comment from Brian
-  https://lore.kernel.org/all/aLeEFzXkPog_dt2B@x1/
-  This might not be good to add a new dt-binding file in v3. But this is
-  quite a simple file that just has four macros to encode modulation
-  method. So hope this is fine for DT maintainers.
-- Add Brain's R-b for patch 2
-- New patch 3 to add Kunit test per Brain. Since Brain helped
-  draft part of the code, I added Co-developed-by tag from Brain.
-- Link to v2: https://lore.kernel.org/r/20250901-clk-ssc-version1-v2-0-1d0a486dffe6@nxp.com
-
-Changes in v2:
-- Simplify the code in patch 2 per Dan Carpenter and Brian Masney
-- Rebased to next-20250829
-- Link to v1: https://lore.kernel.org/r/20250812-clk-ssc-version1-v1-0-cef60f20d770@nxp.com
-
----
-Peng Fan (6):
-      dt-bindings: clock: Add spread spectrum definition
-      clk: Introduce clk_hw_set_spread_spectrum
-      clk: conf: Support assigned-clock-sscs
-      clk: Add KUnit tests for assigned-clock-sscs
-      clk: scmi: Introduce common header for SCMI clock interface
-      clk: scmi: Add i.MX95 OEM extension support for SCMI clock driver
-
- drivers/clk/Makefile                               |   8 +-
- drivers/clk/clk-conf.c                             |  69 ++++++++++++
- drivers/clk/clk-scmi-oem.c                         | 103 ++++++++++++++++++
- drivers/clk/clk-scmi.c                             |  44 +++-----
- drivers/clk/clk-scmi.h                             |  51 +++++++++
- drivers/clk/clk.c                                  |  27 +++++
- drivers/clk/clk_test.c                             | 121 ++++++++++++++++++++-
- drivers/clk/kunit_clk_assigned_rates.h             |  10 ++
- drivers/clk/kunit_clk_assigned_rates_multiple.dtso |   6 +
- ...kunit_clk_assigned_rates_multiple_consumer.dtso |   6 +
- drivers/clk/kunit_clk_assigned_rates_one.dtso      |   3 +
- .../clk/kunit_clk_assigned_rates_one_consumer.dtso |   3 +
- .../clk/kunit_clk_assigned_rates_u64_multiple.dtso |   6 +
- ...t_clk_assigned_rates_u64_multiple_consumer.dtso |   6 +
- drivers/clk/kunit_clk_assigned_rates_u64_one.dtso  |   3 +
- .../kunit_clk_assigned_rates_u64_one_consumer.dtso |   3 +
- drivers/clk/kunit_clk_assigned_sscs_null.dtso      |  16 +++
- .../clk/kunit_clk_assigned_sscs_null_consumer.dtso |  20 ++++
- drivers/clk/kunit_clk_assigned_sscs_without.dtso   |  15 +++
- .../kunit_clk_assigned_sscs_without_consumer.dtso  |  19 ++++
- drivers/clk/kunit_clk_assigned_sscs_zero.dtso      |  12 ++
- .../clk/kunit_clk_assigned_sscs_zero_consumer.dtso |  16 +++
- include/dt-bindings/clock/clock.h                  |  14 +++
- include/linux/clk-provider.h                       |  31 ++++++
- 24 files changed, 580 insertions(+), 32 deletions(-)
----
-base-commit: ef68bf704646690aba5e81c2f7be8d6ef13d7ad8
-change-id: 20251127-clk-ssc-v6-2-57658f944324
-
-Best regards,
 -- 
-Peng Fan <peng.fan@nxp.com>
+2.37.1
 
 
