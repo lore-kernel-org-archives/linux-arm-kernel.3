@@ -4,69 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 819F6D116EA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 05:34:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61ECCCFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 05:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5RuMEZxyBp5QJpAJ6hs+oV9m2Amxvb4+cvbaqkXic/k=; b=MR38nZwT8QHdGgU8hSap6oEh6g
-	oEYjFLLZSpYmuYqTQ5QVxupLZF1F8/imG1YOmy9z89XiHJotBVAaBNcRboXJ1f7rzPmWw7ZtJz6Lk
-	q6dvPdfDYSufi4DNbmO1wfBBp8col4i7uEdMzmRwq78LB7/8kTtTgMaelC3NRZaVuUqXgxdd4nJ+p
-	sUx2+mbcGT1CfRai3WqAA9UBU1agGl4qhHyGX8Z7DbLv84rNImJe6PWTb6rjurY1ChJGroHJrD4Jh
-	18sL3WDcYUpCSS4y6uERMqigvAu/5u93maMJNrwrCEtz9OkcWWvM8Z8qhYoi8YwGlMLSLQGz7dRrT
-	xGaQPIbQ==;
+	bh=4R2JmN+jIZlpmXZMthddssfwPfXAYJXBRAXWtpBTE+A=; b=kxlkQAge7sEdgGXcDn+kAKpjeb
+	QFex65y0ydqMJAZGLkXyXb6KzuTebO53sNks+nHk+vd9lYTAx7Cg6S4P7hbCqc0fgrdUw1hif55gs
+	tpxev1snqt5A3n33aMcZC9Pxv3ZccOT1HKxzHY42O+PxiExSWDhBoQ9OvCrFhwwSxiRxr/Wl+GFzO
+	usthfwddKItPgXcAl0ic8+8OSfuKBHYHW03Y3WVRbkX7mTjjkv/rZ7c7wq22I7n0vZsLF2c56ixwj
+	Z1e0E/kLJ+aUEI0mupMX3GP8yOLFImqPB1DkDBUWnS4wTHRfyLTSCp8IG35uQMSfcPsJ+UbZ69Azc
+	OhCyyfPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOr7s-000000000F7-2atx;
-	Fri, 28 Nov 2025 05:34:36 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vOrOk-000000000m6-2cko;
+	Fri, 28 Nov 2025 05:52:02 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOr7q-000000000E8-24vO;
-	Fri, 28 Nov 2025 05:34:35 +0000
+	id 1vOrOj-000000000lu-1JRX;
+	Fri, 28 Nov 2025 05:52:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 078FA43B0D;
-	Fri, 28 Nov 2025 05:34:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FFBEC4CEF1;
-	Fri, 28 Nov 2025 05:34:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764308072;
-	bh=olnhcKJPXjotw9MWUbQP+asLAvOtuozbVFnAjBvTurs=;
+	by tor.source.kernel.org (Postfix) with ESMTP id 13D6060254;
+	Fri, 28 Nov 2025 05:52:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4075FC4CEF1;
+	Fri, 28 Nov 2025 05:51:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1764309119;
+	bh=rOKG7zIx8s+aemPW1HN//6XrEdrArtLP34zx1Rj/gDo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qsWOVwho2u7GvII3tw6luK4JNQG/lTFnllj2lsF2ZIWnBLyDvYR67dfXg9bLeANWK
-	 m3tmO9ftT/LM4Posf6H3F2wtB7IgqKppFLwFibmgVPM72yaGXfxvmTo46WnuKKwt2U
-	 4jA8h5eDImpQQFeiZqcnOy9qBLfGGUvLz3nkCBfijjaID1gCk2NZ0wWZIOFFGCPOvX
-	 uD5eoHrPaeTGHioZCoi/uU4CC3Kw6tEAXIQh+6mOPZ/+y1p+/NYjH0jtvA2vbJnxjG
-	 /WE03zXh1Nki1jHkAAhqKGphivYCADUkoiwbJmn28YyuBZt+Rz9frGP7Z8qtjPpc0b
-	 vKmyUcTGIwAFw==
-Date: Fri, 28 Nov 2025 06:34:27 +0100
-From: Niklas Cassel <cassel@kernel.org>
-To: FUKAUMI Naoki <naoki@radxa.com>
-Cc: Manivannan Sadhasivam <mani@kernel.org>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Shawn Lin <shawn.lin@rock-chips.com>,
-	Krishna chaitanya chundru <quic_krichai@quicinc.com>,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH 0/6] PCI: dwc: Revert Link Up IRQ support
-Message-ID: <aSk0Y74kPnsX0fGe@ryzen>
-References: <20251111105100.869997-8-cassel@kernel.org>
- <mt7miqkipr4dvxemftq6octxqzauueln252ncrcwy6i2t7wfhi@jtwokeilhwsi>
- <aSRli_Mb6qoQ9TZO@ryzen>
- <585D6D29DF1A6436+9b5db091-8d6e-42a5-ab8f-4b152f82ac54@radxa.com>
+	b=DzlZDRzjofDJMmkUGxSJ6QmjoNMH0U/JaI36kLkIseZ4OeEijKfp73hi5Qp4Z9WYU
+	 uRBIauyxvs7tMH0ygcKt8vqm6G0jm8LuGP4sSvRENhhDnuaU05R3wSVex1URwXptA6
+	 RV4WP0uyd4P+ND5o0qzZ+izh3gIwgTBRAcRLKWYU=
+Date: Fri, 28 Nov 2025 06:51:56 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Chaoyi Chen <kernel@airkyi.com>
+Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Peter Chen <hzpeterchen@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Yubing Zhang <yubing.zhang@rock-chips.com>,
+	Frank Wang <frank.wang@rock-chips.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Amit Sunil Dhamne <amitsd@google.com>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v11 01/11] usb: typec: Set the bus also for the port and
+ plug altmodes
+Message-ID: <2025112846-italicize-handled-84ff@gregkh>
+References: <20251128020405.90-1-kernel@airkyi.com>
+ <20251128020405.90-2-kernel@airkyi.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <585D6D29DF1A6436+9b5db091-8d6e-42a5-ab8f-4b152f82ac54@radxa.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_213434_556390_2DAFECA3 
-X-CRM114-Status: GOOD (  10.78  )
+In-Reply-To: <20251128020405.90-2-kernel@airkyi.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,30 +94,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 28, 2025 at 02:15:28PM +0900, FUKAUMI Naoki wrote:
-> Hi Niklas,
+On Fri, Nov 28, 2025 at 10:03:55AM +0800, Chaoyi Chen wrote:
+> From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
 > 
-> Should I try
->  "PCI: dwc: Make Link Up IRQ logic handle already powered on PCIe switches"
->  https://lore.kernel.org/r/20251127134318.3655052-2-cassel@kernel.org
+> The port and plug altmodes can't be bound to the altmode
+> drivers because the altmode drivers are meant for partner
+> communication using the VDM (vendor defined messages), but
+> they can still be part of the bus. The bus will make sure
+> that the normal bus notifications are available also with
+> the port altmodes.
 > 
-> instead of below approaches/patches?
+> The previously used common device type for all alternate
+> modes is replaced with separate dedicated device types for
+> port, plug, and partner alternate modes.
 > 
-> > Neither my suggested approach:
-> > https://lore.kernel.org/linux-pci/aRHdeVCY3rRmxe80@ryzen/
-> > 
-> > nor Shawn's suggested approach:
-> > https://lore.kernel.org/linux-pci/dc932773-af5b-4af7-a0d0-8cc72dfbd3c7@rock-chips.com/
+> Signed-off-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+> ---
 
-Yes please, your Tested-by would be very helpful.
-
-It is basically the same as my patch above, I just sent it as a formal patch.
-
-Since you said that it does indeed work for you, it does seem like a much
-better solution. (Because if we would have reverted the patches, we would
-have wanted to reapply them some time in the future.)
-
-
-Kind regards,
-Niklas
+You forgot to sign off on this :(
 
