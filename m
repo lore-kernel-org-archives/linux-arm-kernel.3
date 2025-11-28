@@ -4,55 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F606D116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 14:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 198A4D116E2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 14:17:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iRWrM4ay0gJiIV0dXaqtmQVL+AmcQWjcT5NKoKRqV6U=; b=aoJNotCAF5xlVuQAvyNZPu7c+5
-	zw2FC7nEdupqLITw20rurwo22cOiR64yEY/N72WX+AS2++KFgrE38fzYi/kBEQXexS7NijHFPOef+
-	0+MFPVXmJP9V7zIKEwfJ/FTdJEj56VGz2VfYu6Tazi2VcWRx7bJf/qLkMkypTpjCQwKlh9lOUC4mQ
-	JiMpLK1hyB+gpi981DoF1sgWysfEiPLe5FfVq4tQhqeqtsa30BrtPjRcpZ2IjaKA8YtuOsLikJchK
-	kttKS34mitGHjgS5f18CpWVY3wkosUDrAUoVPkU92pkhHDfQ3i/KYtBKBfQnY1T6zipHkEIQkl4an
-	wRnPorkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cj85S/m1L9fjDmdh9VnAe+fZQO3gSa54W+uUQedLqYs=; b=plGUVHbE7qi2h0+9clVl8kvoR0
+	eIVLsZYQXmS6sBc1eR1i0b/nutxUktt/QZ/fNV6pg8JO8rRKzCmQlZ5t9mJCIVQwtXsfE6I24Yjfs
+	TmagQfwrJsyUclPiN0FPg0lS+br7/xidE4kFSNfK9owxZbQqycfzpQ+0BtqeIP7Nvv2n+AcD6lRuT
+	9CJ6KHKjz8/XUGZGwMelA73alTMx2zldzp2eq1iHvSrBZtBaYecMKlj57HSrPEPf3AgPvidZkn7sW
+	NnPmF4SkbUQNIleNOxLnh+u8iWQftWFpiohzCZzKrdgT4q8Bd5sTvmOjmqxzGIdTHW2oNeKnaFMDs
+	DvWoZq2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOz30-00000000W4K-0C53;
-	Fri, 28 Nov 2025 14:02:06 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOz2x-00000000W3w-07Oh
+	id 1vOzHk-00000000WsC-04KO;
+	Fri, 28 Nov 2025 14:17:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOzHi-00000000Wrc-0fyG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 14:02:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9CBC4176A;
-	Fri, 28 Nov 2025 06:01:53 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 68B133F73B;
-	Fri, 28 Nov 2025 06:01:59 -0800 (PST)
-Date: Fri, 28 Nov 2025 14:01:52 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Breno Leitao <leitao@debian.org>
-Cc: Baoquan He <bhe@redhat.com>, Andrew Morton <akpm@linux-foundation.org>,
-	pjw@kernel.org, Yeoreum Yun <yeoreum.yun@arm.com>,
-	catalin.marinas@arm.com, will@kernel.org, coxu@redhat.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: kernel: initialize missing kexec_buf->random field
-Message-ID: <aSmrUGnZp0UeTp1E@J2N7QTR9R3>
-References: <20251127182644.1577592-1-yeoreum.yun@arm.com>
- <20251127113706.d89a84f277dab3ad273dde75@linux-foundation.org>
- <aSjqEQDv7V79V3Na@MiWiFi-R3L-srv>
- <5wel6vqjwwf25hryvg6s7z6aaog7xc3zxjevupt3jn4gntme6d@74wwwmhvvelt>
+	Fri, 28 Nov 2025 14:17:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4A92160154;
+	Fri, 28 Nov 2025 14:17:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65A2AC4CEF1;
+	Fri, 28 Nov 2025 14:17:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764339437;
+	bh=znVfCnkhwZOTtHLotYIU8+PsWT8Kzfud0OeYCNQfrvs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=HEl/7XxesWwAfgOWhEYHKoTC4KlbzK9fAI/KwmXjwJUlRnFQTeoaDmEQLNT2Mjc+y
+	 BhFeUbyzRiOPPYPfWE6L988ZjMWeemCQYRfeMjxCe2Qxgw4d+unGJX1koBrNVic71T
+	 cIWCKI8fxwds3+chFJGpv8ZARX2o0dwpTErZK8fvUQrfNWBhassjsxx2spq8F/sz9b
+	 Eocje6FDYghx3FRAALpuLUKfz7tYmKzPthG8lx3+KYedPJJecUwu8LNThjnLIm1gYh
+	 ZM8fRRkZSpufsrnig0hAAtl3XCD5KwkZd8CBDeHd8brsGEZwnRTV6qEhxRaHsbk1pl
+	 hpwQCt3Hl/fxA==
+From: Will Deacon <will@kernel.org>
+To: kvmarm@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org,
+	Will Deacon <will@kernel.org>,
+	Fuad Tabba <tabba@google.com>,
+	Quentin Perret <qperret@google.com>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>
+Subject: [PATCH] KVM: arm64: Invert KVM_PGTABLE_WALK_HANDLE_FAULT to fix pKVM walkers
+Date: Fri, 28 Nov 2025 14:17:10 +0000
+Message-Id: <20251128141710.19472-1-will@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <5wel6vqjwwf25hryvg6s7z6aaog7xc3zxjevupt3jn4gntme6d@74wwwmhvvelt>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_060203_219885_E1D79375 
-X-CRM114-Status: GOOD (  21.20  )
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,89 +70,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 28, 2025 at 05:55:05AM -0800, Breno Leitao wrote:
-> 
-> On Fri, Nov 28, 2025 at 08:17:21AM +0800, Baoquan He wrote:
-> > On 11/27/25 at 11:37am, Andrew Morton wrote:
-> > > On Thu, 27 Nov 2025 18:26:44 +0000 Yeoreum Yun <yeoreum.yun@arm.com> wrote:
-> > > 
-> > > > Commit bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
-> > > > introduced the kexec_buf->random field to enable random placement of
-> > > > kexec_buf.
-> > > > 
-> > > > However, this field was never properly initialized for kexec images
-> > > > that do not need to be placed randomly, leading to the following UBSAN
-> > > > warning:
-> > > > 
-> > > > [  +0.364528] ------------[ cut here ]------------
-> > > > [  +0.000019] UBSAN: invalid-load in ./include/linux/kexec.h:210:12
-> > > > [  +0.000131] load of value 2 is not a valid value for type 'bool' (aka '_Bool')
-> > > > [  +0.000003] CPU: 4 UID: 0 PID: 927 Comm: kexec Not tainted 6.18.0-rc7+ #3 PREEMPT(full)
-> > > > [  +0.000002] Hardware name: QEMU QEMU Virtual Machine, BIOS 0.0.0 02/06/2015
-> > > > [  +0.000000] Call trace:
-> > > > [  +0.000001]  show_stack+0x24/0x40 (C)
-> > > > [  +0.000006]  __dump_stack+0x28/0x48
-> > > > [  +0.000002]  dump_stack_lvl+0x7c/0xb0
-> > > > [  +0.000002]  dump_stack+0x18/0x34
-> > > > [  +0.000001]  ubsan_epilogue+0x10/0x50
-> > > > [  +0.000002]  __ubsan_handle_load_invalid_value+0xc8/0xd0
-> > > > [  +0.000003]  locate_mem_hole_callback+0x28c/0x2a0
-> > > > [  +0.000003]  kexec_locate_mem_hole+0xf4/0x2f0
-> > > > [  +0.000001]  kexec_add_buffer+0xa8/0x178
-> > > > [  +0.000002]  image_load+0xf0/0x258
-> > > > [  +0.000001]  __arm64_sys_kexec_file_load+0x510/0x718
-> > > > [  +0.000002]  invoke_syscall+0x68/0xe8
-> > > > [  +0.000001]  el0_svc_common+0xb0/0xf8
-> > > > [  +0.000002]  do_el0_svc+0x28/0x48
-> > > > [  +0.000001]  el0_svc+0x40/0xe8
-> > > > [  +0.000002]  el0t_64_sync_handler+0x84/0x140
-> > > > [  +0.000002]  el0t_64_sync+0x1bc/0x1c0
-> > > > 
-> > > > To address this, initialise kexec_buf->random field properly.
-> > > > 
-> > > > Fixes: bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
-> > > 
-> > > Thanks, I'll add a cc:stable to this.
-> > 
-> > This has been fixed in below series from Breno Leitao.
-> > 
-> > [PATCH 0/3] kexec: Fix invalid field access
-> > https://lore.kernel.org/all/20250827-kbuf_all-v1-0-1df9882bb01a@debian.org/T/#u
-> 
-> Right, these fixes are on 6.18 since day one.
-> 
-> Yeoreum is hitting another code path that I haven't fixed, it seems
-> (through image_load()).
-> 
-> That said, I think the fix should be similar to commit 04d3cd43700 ("arm64:
-> kexec: initialize kexec_buf struct in load_other_segments()"). I.e:
-> 
-> 	--- a/arch/arm64/kernel/kexec_image.c
-> 	+++ b/arch/arm64/kernel/kexec_image.c
-> 	@@ -41,7 +41,7 @@ static void *image_load(struct kimage *image,
-> 		struct arm64_image_header *h;
-> 		u64 flags, value;
-> 		bool be_image, be_kernel;
-> 	-       struct kexec_buf kbuf;
-> 	+       struct kexec_buf kbuf = {};
-> 		unsigned long text_offset, kernel_segment_number;
-> 		struct kexec_segment *kernel_segment;
-> 		int ret;
+Commit ddcadb297ce5 ("KVM: arm64: Ignore EAGAIN for walks outside of a
+fault") introduced a new walker flag ('KVM_PGTABLE_WALK_HANDLE_FAULT')
+to KVM's page-table code. When set, the walk logic maintains its
+previous behaviour of terminating a walk as soon as the visitor callback
+returns an error. However, when the flag is clear, the walk will
+continue if the visitor returns -EAGAIN and the error is then suppressed
+and returned as zero to the caller.
 
-FWIW, I completey agree; your proposal is a much better solution.
+Clearing the flag is beneficial when write-protecting a range of IPAs
+with kvm_pgtable_stage2_wrprotect() but is not useful in any other
+cases, either because we are operating on a single page (e.g.
+kvm_pgtable_stage2_mkyoung() or kvm_phys_addr_ioremap()) or because the
+early termination is desirable (e.g. when mapping pages from a fault in
+user_mem_abort()).
 
-From a quick scan, it looks like loongarch also has some more dodgy
-instances:
+Subsequently, commit e912efed485a ("KVM: arm64: Introduce the EL1 pKVM
+MMU") hooked up pKVM's hypercall interface to the MMU code at EL1 but
+failed to propagate any of the walker flags. As a result, page-table
+walks at EL2 fail to set KVM_PGTABLE_WALK_HANDLE_FAULT even when the
+early termination semantics are desirable on the fault handling path.
 
-| % git grep 'struct kexec_buf\s[a-z_0-9]\+;'
-| arch/arm64/kernel/kexec_image.c:        struct kexec_buf kbuf;
-| arch/loongarch/kernel/kexec_efi.c:      struct kexec_buf kbuf;
-| arch/loongarch/kernel/kexec_elf.c:      struct kexec_buf kbuf;
-| arch/loongarch/kernel/machine_kexec_file.c:     struct kexec_buf kbuf;
-| kernel/kexec_handover.c:        struct kexec_buf scratch;
+Rather than complicate the pKVM hypercall interface, invert the flag so
+that the whole thing can be simplified and only pass the new flag
+('KVM_PGTABLE_WALK_IGNORE_EAGAIN') from the wrprotect code.
 
-The 'scratch' case in kernel/kexec_handover.c gets overwritten with a
-struct assignment that'll happen to zero the 'random' field.
+Cc: Fuad Tabba <tabba@google.com>
+Cc: Quentin Perret <qperret@google.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oupton@kernel.org>
+Fixes: fce886a60207 ("KVM: arm64: Plumb the pKVM MMU in KVM")
+Signed-off-by: Will Deacon <will@kernel.org>
+---
 
-Mark.
+I found this by inspection and it's a bit fiddly to see what could
+actually go wrong in practice because the 'mappings' tree will return
+-EAGAIN if it finds a pre-existing entry. The permission relaxing path
+looks more problematic, as we'll return 0 instead of -EAGAIN and I
+think we can mark the page dirty twice etc.
+
+ arch/arm64/include/asm/kvm_pgtable.h | 6 +++---
+ arch/arm64/kvm/hyp/pgtable.c         | 5 +++--
+ arch/arm64/kvm/mmu.c                 | 8 +++-----
+ 3 files changed, 9 insertions(+), 10 deletions(-)
+
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 2888b5d03757..c69a9462fc79 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -288,8 +288,8 @@ typedef bool (*kvm_pgtable_force_pte_cb_t)(u64 addr, u64 end,
+  *					children.
+  * @KVM_PGTABLE_WALK_SHARED:		Indicates the page-tables may be shared
+  *					with other software walkers.
+- * @KVM_PGTABLE_WALK_HANDLE_FAULT:	Indicates the page-table walk was
+- *					invoked from a fault handler.
++ * @KVM_PGTABLE_WALK_IGNORE_EAGAIN:	Don't terminate the walk early if
++ *					the walker returns -EAGAIN.
+  * @KVM_PGTABLE_WALK_SKIP_BBM_TLBI:	Visit and update table entries
+  *					without Break-before-make's
+  *					TLB invalidation.
+@@ -302,7 +302,7 @@ enum kvm_pgtable_walk_flags {
+ 	KVM_PGTABLE_WALK_TABLE_PRE		= BIT(1),
+ 	KVM_PGTABLE_WALK_TABLE_POST		= BIT(2),
+ 	KVM_PGTABLE_WALK_SHARED			= BIT(3),
+-	KVM_PGTABLE_WALK_HANDLE_FAULT		= BIT(4),
++	KVM_PGTABLE_WALK_IGNORE_EAGAIN		= BIT(4),
+ 	KVM_PGTABLE_WALK_SKIP_BBM_TLBI		= BIT(5),
+ 	KVM_PGTABLE_WALK_SKIP_CMO		= BIT(6),
+ };
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index c351b4abd5db..3eca720ff8eb 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -144,7 +144,7 @@ static bool kvm_pgtable_walk_continue(const struct kvm_pgtable_walker *walker,
+ 	 * page table walk.
+ 	 */
+ 	if (r == -EAGAIN)
+-		return !(walker->flags & KVM_PGTABLE_WALK_HANDLE_FAULT);
++		return walker->flags & KVM_PGTABLE_WALK_IGNORE_EAGAIN;
+ 
+ 	return !r;
+ }
+@@ -1223,7 +1223,8 @@ int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
+ {
+ 	return stage2_update_leaf_attrs(pgt, addr, size, 0,
+ 					KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
+-					NULL, NULL, 0);
++					NULL, NULL,
++					KVM_PGTABLE_WALK_IGNORE_EAGAIN);
+ }
+ 
+ void kvm_pgtable_stage2_mkyoung(struct kvm_pgtable *pgt, u64 addr,
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 7cc964af8d30..c3cd6abfa06e 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1521,14 +1521,12 @@ static void adjust_nested_fault_perms(struct kvm_s2_trans *nested,
+ 	*prot |= kvm_encode_nested_level(nested);
+ }
+ 
+-#define KVM_PGTABLE_WALK_MEMABORT_FLAGS (KVM_PGTABLE_WALK_HANDLE_FAULT | KVM_PGTABLE_WALK_SHARED)
+-
+ static int gmem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 		      struct kvm_s2_trans *nested,
+ 		      struct kvm_memory_slot *memslot, bool is_perm)
+ {
+ 	bool write_fault, exec_fault, writable;
+-	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_MEMABORT_FLAGS;
++	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
+ 	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
+ 	struct kvm_pgtable *pgt = vcpu->arch.hw_mmu->pgt;
+ 	unsigned long mmu_seq;
+@@ -1622,7 +1620,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 	struct kvm_pgtable *pgt;
+ 	struct page *page;
+ 	vm_flags_t vm_flags;
+-	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_MEMABORT_FLAGS;
++	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
+ 
+ 	if (fault_is_perm)
+ 		fault_granule = kvm_vcpu_trap_get_perm_fault_granule(vcpu);
+@@ -1888,7 +1886,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ /* Resolve the access fault by making the page young again. */
+ static void handle_access_fault(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
+ {
+-	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_HANDLE_FAULT | KVM_PGTABLE_WALK_SHARED;
++	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
+ 	struct kvm_s2_mmu *mmu;
+ 
+ 	trace_kvm_access_fault(fault_ipa);
+-- 
+2.52.0.487.g5c8c507ade-goog
+
 
