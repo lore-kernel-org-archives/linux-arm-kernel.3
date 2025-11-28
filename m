@@ -4,86 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB801D116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 03:34:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04829D116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 03:34:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6bb3Fj+IEu5TgR6FamitgP4LC7HB+ODz43uA7YZcX7g=; b=AwCj1kO6Sf4nEiu7birsyxwWv9
-	8zZpVURLFXMnPSe7qGVo1ApGCmKdnJduT2sLsZC/J/17jVzu2tcXy6SbkM2I6/PgbgQnWInd6ww7m
-	7Te7S1ubTOAEhAaY3bP/NFJpB/qTGLHuXG1ptzdxABWVoAjOZwxlMkQ4IbbulxkiimYzu+2oi1GFv
-	blu2Ve+H8I52sJCMLdGt7rO9nDjaO41VrL/gWQX1GmOMOKhoBOODKRBHYfCtA1VESget9Q28iMD5k
-	Te7RPAMf0AI4A70fAQ8ygH0pxHIrKNjioep5LpEknJOGljaVNktgVtaqZcFbbnr8VmhbgGtCwGoTj
-	DujpWPgA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cvHGZ+/jLuSWnmt5lr3E4QZ9A5QfrFWPtMhBBextPWo=; b=PX1BtEdqE3HPpRxdRzNfrqhNWu
+	aILEJ9IrLjzdGVSXzBp02kVWfyfFhtWoV97Y46KLZm/E5rgnrgCFt9fyKoZWqTOblIyNVTvrcah+q
+	FduBGIzKVBhIUyVcCHnU+CXuMedJQwifrHhx4S37OnBF/ba2sX9VdO56twcyBYmQbqg2lxuKy6I5H
+	wwZk68KYoKq02lsf/YebgfiyL9AmMiv9P36c1GQumeLDvcAhDVc32XFUmIa5sZeCVoyx+ASmL22JV
+	q4hdfg3BRPvfduHldteoM9/vxJoX48kajPuVu1AHbtmT6fXAwjozug+cf0q9I0EC2n4J/GdmFIUvQ
+	8hBfE82A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOpFf-0000000HWiR-3emv;
-	Fri, 28 Nov 2025 03:34:31 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vOpFs-0000000HWpO-0FDo;
+	Fri, 28 Nov 2025 03:34:44 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOpFb-0000000HWgw-3Jzf
+	id 1vOpFo-0000000HWm0-2V2T
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 03:34:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1764300867;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=6bb3Fj+IEu5TgR6FamitgP4LC7HB+ODz43uA7YZcX7g=;
-	b=imKr4ASlhIZp/td+QBE9N+LkajOiN81/t7iThLnd4n49JReRFgN63NixzrEUhjUcTUG2bv
-	8wl27CDIgV0I1vvuxePfiufbA+Ld5wLojcTBu1SINTo4aAFsetC0G98iwtISNuY7IEAucq
-	jtzRQG9PF6fjdbTwSUziVS2FIWLT4bA=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-639-sr4zb15qN6-IOLblGY_jsQ-1; Thu,
- 27 Nov 2025 22:34:20 -0500
-X-MC-Unique: sr4zb15qN6-IOLblGY_jsQ-1
-X-Mimecast-MFC-AGG-ID: sr4zb15qN6-IOLblGY_jsQ_1764300858
-Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E2EA5180057A;
-	Fri, 28 Nov 2025 03:34:17 +0000 (UTC)
-Received: from MiWiFi-R3L-srv.redhat.com (unknown [10.72.112.7])
-	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 8142319560B0;
-	Fri, 28 Nov 2025 03:34:10 +0000 (UTC)
-From: Baoquan He <bhe@redhat.com>
-To: linux-mm@kvack.org
-Cc: ryabinin.a.a@gmail.com,
-	andreyknvl@gmail.com,
-	glider@google.com,
-	dvyukov@google.com,
-	vincenzo.frascino@arm.com,
-	akpm@linux-foundation.org,
-	kasan-dev@googlegroups.com,
-	linux-kernel@vger.kernel.org,
-	kexec@lists.infradead.org,
-	elver@google.com,
-	sj@kernel.org,
-	lorenzo.stoakes@oracle.com,
-	snovitoll@gmail.com,
-	christophe.leroy@csgroup.eu,
-	Baoquan He <bhe@redhat.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v4 05/12] arch/arm64: don't initialize kasan if it's disabled
-Date: Fri, 28 Nov 2025 11:33:13 +0800
-Message-ID: <20251128033320.1349620-6-bhe@redhat.com>
-In-Reply-To: <20251128033320.1349620-1-bhe@redhat.com>
-References: <20251128033320.1349620-1-bhe@redhat.com>
+	Fri, 28 Nov 2025 03:34:42 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=cvHGZ+/jLuSWnmt5lr3E4QZ9A5QfrFWPtMhBBextPWo=;
+	b=QvXbbPyosvaO3eAsBaIdE+M5HQ13r2hq3loqb4zAwIvC2Z/1j5/iWf1b+x/oU8o3C58guPLN+
+	ExZmNyNPRwNs+CzQc425wR5JLSYkT89xT9kNJx/cd8bGHP5mnEbj5CfdEe2GYF/2pU81yxvE2iY
+	mfT9Q8qG1MRSBSHLIczQtmA=
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4dHf4R1jJkzpSvn;
+	Fri, 28 Nov 2025 11:32:23 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 8643B14027A;
+	Fri, 28 Nov 2025 11:34:33 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 28 Nov 2025 11:34:31 +0800
+Message-ID: <bfdd914c-4c3a-9af7-d530-f57f3532c3d5@huawei.com>
+Date: Fri, 28 Nov 2025 11:34:31 +0800
 MIME-Version: 1.0
-Content-type: text/plain
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH v8 11/12] arm64: entry: Convert to generic entry
+Content-Language: en-US
+To: Kevin Brodsky <kevin.brodsky@arm.com>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <oleg@redhat.com>, <tglx@linutronix.de>,
+	<peterz@infradead.org>, <luto@kernel.org>, <shuah@kernel.org>,
+	<kees@kernel.org>, <wad@chromium.org>, <charlie@rivosinc.com>,
+	<akpm@linux-foundation.org>, <ldv@strace.io>, <macro@orcam.me.uk>,
+	<deller@gmx.de>, <mark.rutland@arm.com>, <efault@gmx.de>, <song@kernel.org>,
+	<mbenes@suse.cz>, <ryan.roberts@arm.com>, <ada.coupriediaz@arm.com>,
+	<anshuman.khandual@arm.com>, <broonie@kernel.org>, <pengcan@kylinos.cn>,
+	<dvyukov@google.com>, <kmal@cock.li>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
+References: <20251126071446.3234218-1-ruanjinjie@huawei.com>
+ <20251126071446.3234218-12-ruanjinjie@huawei.com>
+ <c6cf8755-34d0-468d-99c4-ac6d266f9efb@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <c6cf8755-34d0-468d-99c4-ac6d266f9efb@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_193427_913928_0CBA76B7 
-X-CRM114-Status: UNSURE (   7.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251127_193441_330123_872AB945 
+X-CRM114-Status: GOOD (  30.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,40 +88,376 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-And also need skip kasan_populate_early_vm_area_shadow() if kasan
-is disabled.
 
-Signed-off-by: Baoquan He <bhe@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org
----
- arch/arm64/mm/kasan_init.c | 6 ++++++
- 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm64/mm/kasan_init.c b/arch/arm64/mm/kasan_init.c
-index abeb81bf6ebd..eb49fdad4ef1 100644
---- a/arch/arm64/mm/kasan_init.c
-+++ b/arch/arm64/mm/kasan_init.c
-@@ -384,6 +384,9 @@ void __init kasan_populate_early_vm_area_shadow(void *start, unsigned long size)
- {
- 	unsigned long shadow_start, shadow_end;
- 
-+	if (!kasan_enabled())
-+		return;
-+
- 	if (!is_vmalloc_or_module_addr(start))
- 		return;
- 
-@@ -397,6 +400,9 @@ void __init kasan_populate_early_vm_area_shadow(void *start, unsigned long size)
- 
- void __init kasan_init(void)
- {
-+	if (kasan_arg_disabled)
-+		return;
-+
- 	kasan_init_shadow();
- 	kasan_init_depth();
- 	kasan_init_generic();
--- 
-2.41.0
+On 2025/11/27 21:31, Kevin Brodsky wrote:
+> On 26/11/2025 08:14, Jinjie Ruan wrote:
+>> Currently, x86, Riscv, Loongarch use the generic entry which makes
+>> maintainers' work easier and codes more elegant. arm64 has already
+>> switched to the generic IRQ entry, so completely convert arm64 to use
+>> the generic entry infrastructure from kernel/entry/*.
+>>
+>> The changes are below:
+>>  - Remove TIF_SYSCALL_* flag, _TIF_WORK_MASK, _TIF_SYSCALL_WORK,
+> 
+> _TIF_WORK_MASK is now removed in patch 1.
+> 
+>>    and remove has_syscall_work(), as _TIF_SYSCALL_WORK is equal with
+>>    SYSCALL_WORK_ENTER.
+>>
+>> [...]
+>>
+>> +static __always_inline void arch_ptrace_report_syscall_exit(struct pt_regs *regs,
+>> +							    int step)
+>> +{
+>> +	unsigned long saved_reg;
+>> +	int regno;
+>> +
+>> +	saved_reg = ptrace_save_reg(regs, PTRACE_SYSCALL_EXIT, &regno);
+>> +	if (!step) {
+> 
+> A difference I noticed here is that the generic report_single_step()
+> always returns false if SYSCALL_EMU is set. I don't know if the
+> combination of SYSCALL_EMU and SINGLESTEP is meaningful, but if it is
+> then I think that's a behaviour change.
 
+commit 64eb35f701f0 ("ptrace: Migrate TIF_SYSCALL_EMU to use
+SYSCALL_WORK flag") has changed the following code:
+
+Therefore, the original logic returns false in these cases for
+report_single_step() :
+
+- Only _TIF_SYSCALL_EMU is set.
+
+- Both _TIF_SINGLESTEP and _TIF_SYSCALL_EMU are set.
+
+- Neither TIF_SINGLESTEP nor _TIF_SYSCALL_EMU is set;
+
+
+    #define SYSEMU_STEP    (_TIF_SINGLESTEP | _TIF_SYSCALL_EMU)
+
+    static inline bool report_single_step(unsigned long ti_work)
+    {
+       return (ti_work & SYSEMU_STEP) == _TIF_SINGLESTEP;
+    }
+
+I think the "returns false if SYSCALL_EMU is set" behaviour is correct
+according to the Man's Manual， both PTRACE_SYSEMU and
+PTRACE_SYSEMU_SINGLESTEP need to report the syscal only once on syscall
+entry.
+
+    “For PTRACE_SYSEMU, continue and stop on entry to the next
+      system call, which will not be executed.  See the
+      documentation on syscall-stops below.  For
+      PTRACE_SYSEMU_SINGLESTEP, do the same but also singlestep
+      if not a system call. “
+
+Link：https://man7.org/linux/man-pages/man2/ptrace.2.html
+
+> 
+>> +		ptrace_report_syscall_exit(regs, 0);
+>> +		regs->regs[regno] = saved_reg;
+>> +	} else {
+>> +		regs->regs[regno] = saved_reg;
+>> +
+>> +		/*
+>> +		 * Signal a pseudo-step exception since we are stepping but
+>> +		 * tracer modifications to the registers may have rewound the
+>> +		 * state machine.
+>> +		 */
+>> +		ptrace_report_syscall_exit(regs, 1);
+>> +	}
+>> +}
+>> +
+>> +#define arch_ptrace_report_syscall_exit arch_ptrace_report_syscall_exit
+>> +
+>>  #endif /* _ASM_ARM64_ENTRY_COMMON_H */
+>> diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
+>> index 6225981fbbdb..f705ba2bb6fd 100644
+>> --- a/arch/arm64/include/asm/syscall.h
+>> +++ b/arch/arm64/include/asm/syscall.h
+>> @@ -9,6 +9,9 @@
+>>  #include <linux/compat.h>
+>>  #include <linux/err.h>
+>>  
+>> +#include <asm/compat.h>
+>> +#include <asm/vdso.h>
+>> +
+>>  typedef long (*syscall_fn_t)(const struct pt_regs *regs);
+>>  
+>>  extern const syscall_fn_t sys_call_table[];
+>> @@ -114,12 +117,21 @@ static inline int syscall_get_arch(struct task_struct *task)
+>>  	return AUDIT_ARCH_AARCH64;
+>>  }
+>>  
+>> -static inline bool has_syscall_work(unsigned long flags)
+>> +static inline bool arch_syscall_is_vdso_sigreturn(struct pt_regs *regs)
+>>  {
+>> -	return unlikely(flags & _TIF_SYSCALL_WORK);
+>> +	unsigned long sigtramp;
+>> +
+>> +#ifdef CONFIG_COMPAT
+>> +	if (is_compat_task()) {
+>> +		unsigned long vdso = (unsigned long)current->mm->context.sigpage;
+> 
+> Might as well call it sigpage (separate from the vDSO on arm32).
+> 
+>> +
+>> +		return (regs->pc >= vdso && regs->pc < (vdso + PAGE_SIZE));
+> 
+> Nit: no need for parentheses around the expression to return.
+> 
+>> +	}
+>> +#endif
+>> +	sigtramp = (unsigned long)VDSO_SYMBOL(current->mm->context.vdso, sigtramp);
+>> +	return regs->pc == (sigtramp + 8);
+>>  }
+>>  
+>> -int syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long flags);
+>> -void syscall_exit_to_user_mode_prepare(struct pt_regs *regs);
+>> +#define ARCH_SYSCALL_WORK_EXIT	(_TIF_SECCOMP | _TIF_SYSCALL_EMU)
+>>  
+>>  #endif	/* __ASM_SYSCALL_H */
+>> diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
+>> index ff4998fa1844..d3142b5d1b9c 100644
+>> --- a/arch/arm64/include/asm/thread_info.h
+>> +++ b/arch/arm64/include/asm/thread_info.h
+>> @@ -43,6 +43,7 @@ struct thread_info {
+>>  	void			*scs_sp;
+>>  #endif
+>>  	u32			cpu;
+>> +	unsigned long		syscall_work;   /* SYSCALL_WORK_ flags */
+>>  };
+>>  
+>>  #define thread_saved_pc(tsk)	\
+>> @@ -65,11 +66,8 @@ void arch_setup_new_exec(void);
+>>  #define TIF_UPROBE		5	/* uprobe breakpoint or singlestep */
+>>  #define TIF_MTE_ASYNC_FAULT	6	/* MTE Asynchronous Tag Check Fault */
+>>  #define TIF_NOTIFY_SIGNAL	7	/* signal notifications exist */
+>> -#define TIF_SYSCALL_TRACE	8	/* syscall trace active */
+>> -#define TIF_SYSCALL_AUDIT	9	/* syscall auditing */
+>> -#define TIF_SYSCALL_TRACEPOINT	10	/* syscall tracepoint for ftrace */
+>> -#define TIF_SECCOMP		11	/* syscall secure computing */
+>> -#define TIF_SYSCALL_EMU		12	/* syscall emulation active */
+>> +#define TIF_SECCOMP		11      /* syscall secure computing */
+>> +#define TIF_SYSCALL_EMU		12      /* syscall emulation active */
+> 
+> These seem to have reappeared in v8 for some reason?
+
+v8 add "ARCH_SYSCALL_WORK_EXIT" to be defined as "SECCOMP | SYSCALL_EMU"
+  to keep the arm64 behaviour unchanged as mentioned in v7.
+
+> 
+>>  #define TIF_PATCH_PENDING	13	/* pending live patching update */
+>>  #define TIF_MEMDIE		18	/* is terminating due to OOM killer */
+>>  #define TIF_FREEZE		19
+>> @@ -92,24 +90,16 @@ void arch_setup_new_exec(void);
+>>  #define _TIF_NEED_RESCHED_LAZY	(1 << TIF_NEED_RESCHED_LAZY)
+>>  #define _TIF_NOTIFY_RESUME	(1 << TIF_NOTIFY_RESUME)
+>>  #define _TIF_FOREIGN_FPSTATE	(1 << TIF_FOREIGN_FPSTATE)
+>> -#define _TIF_SYSCALL_TRACE	(1 << TIF_SYSCALL_TRACE)
+>> -#define _TIF_SYSCALL_AUDIT	(1 << TIF_SYSCALL_AUDIT)
+>> -#define _TIF_SYSCALL_TRACEPOINT	(1 << TIF_SYSCALL_TRACEPOINT)
+>>  #define _TIF_SECCOMP		(1 << TIF_SECCOMP)
+>>  #define _TIF_SYSCALL_EMU	(1 << TIF_SYSCALL_EMU)
+> 
+> Ditto.
+> 
+>>  #define _TIF_PATCH_PENDING	(1 << TIF_PATCH_PENDING)
+>>  #define _TIF_UPROBE		(1 << TIF_UPROBE)
+>> -#define _TIF_SINGLESTEP		(1 << TIF_SINGLESTEP)
+>>  #define _TIF_32BIT		(1 << TIF_32BIT)
+>>  #define _TIF_SVE		(1 << TIF_SVE)
+>>  #define _TIF_MTE_ASYNC_FAULT	(1 << TIF_MTE_ASYNC_FAULT)
+>>  #define _TIF_NOTIFY_SIGNAL	(1 << TIF_NOTIFY_SIGNAL)
+>>  #define _TIF_TSC_SIGSEGV	(1 << TIF_TSC_SIGSEGV)
+>>  
+>> -#define _TIF_SYSCALL_WORK	(_TIF_SYSCALL_TRACE | _TIF_SYSCALL_AUDIT | \
+>> -				 _TIF_SYSCALL_TRACEPOINT | _TIF_SECCOMP | \
+>> -				 _TIF_SYSCALL_EMU)
+>> -
+>>  #ifdef CONFIG_SHADOW_CALL_STACK
+>>  #define INIT_SCS							\
+>>  	.scs_base	= init_shadow_call_stack,			\
+>> diff --git a/arch/arm64/kernel/debug-monitors.c b/arch/arm64/kernel/debug-monitors.c
+>> index 29307642f4c9..e67643a70405 100644
+>> --- a/arch/arm64/kernel/debug-monitors.c
+>> +++ b/arch/arm64/kernel/debug-monitors.c
+>> @@ -385,11 +385,18 @@ void user_enable_single_step(struct task_struct *task)
+>>  
+>>  	if (!test_and_set_ti_thread_flag(ti, TIF_SINGLESTEP))
+>>  		set_regs_spsr_ss(task_pt_regs(task));
+>> +
+>> +	/*
+>> +	 * Ensure that a trap is triggered once stepping out of a system
+>> +	 * call prior to executing any user instruction.
+>> +	 */
+>> +	set_task_syscall_work(task, SYSCALL_EXIT_TRAP);
+>>  }
+>>  NOKPROBE_SYMBOL(user_enable_single_step);
+>>  
+>>  void user_disable_single_step(struct task_struct *task)
+>>  {
+>>  	clear_ti_thread_flag(task_thread_info(task), TIF_SINGLESTEP);
+>> +	clear_task_syscall_work(task, SYSCALL_EXIT_TRAP);
+>>  }
+>>  NOKPROBE_SYMBOL(user_disable_single_step);
+>> diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+>> index c2bd0130212d..9e3b39e207d1 100644
+>> --- a/arch/arm64/kernel/ptrace.c
+>> +++ b/arch/arm64/kernel/ptrace.c
+>> @@ -42,9 +42,6 @@
+>>  #include <asm/traps.h>
+>>  #include <asm/system_misc.h>
+>>  
+>> -#define CREATE_TRACE_POINTS
+>> -#include <trace/events/syscalls.h>
+>> -
+>>  struct pt_regs_offset {
+>>  	const char *name;
+>>  	int offset;
+>> @@ -2312,141 +2309,6 @@ long arch_ptrace(struct task_struct *child, long request,
+>>  	return ptrace_request(child, request, addr, data);
+>>  }
+>>  
+>> -enum ptrace_syscall_dir {
+>> -	PTRACE_SYSCALL_ENTER = 0,
+>> -	PTRACE_SYSCALL_EXIT,
+>> -};
+>> -
+>> -static inline unsigned long ptrace_save_reg(struct pt_regs *regs,
+>> -					    enum ptrace_syscall_dir dir,
+>> -					    int *regno)
+>> -{
+>> -	unsigned long saved_reg;
+>> -
+>> -	/*
+>> -	 * We have some ABI weirdness here in the way that we handle syscall
+>> -	 * exit stops because we indicate whether or not the stop has been
+>> -	 * signalled from syscall entry or syscall exit by clobbering a general
+>> -	 * purpose register (ip/r12 for AArch32, x7 for AArch64) in the tracee
+>> -	 * and restoring its old value after the stop. This means that:
+>> -	 *
+>> -	 * - Any writes by the tracer to this register during the stop are
+>> -	 *   ignored/discarded.
+>> -	 *
+>> -	 * - The actual value of the register is not available during the stop,
+>> -	 *   so the tracer cannot save it and restore it later.
+>> -	 *
+>> -	 * - Syscall stops behave differently to seccomp and pseudo-step traps
+>> -	 *   (the latter do not nobble any registers).
+>> -	 */
+>> -	*regno = (is_compat_task() ? 12 : 7);
+>> -	saved_reg = regs->regs[*regno];
+>> -	regs->regs[*regno] = dir;
+>> -
+>> -	return saved_reg;
+>> -}
+>> -
+>> -static int report_syscall_entry(struct pt_regs *regs)
+>> -{
+>> -	unsigned long saved_reg;
+>> -	int regno, ret;
+>> -
+>> -	saved_reg = ptrace_save_reg(regs, PTRACE_SYSCALL_ENTER, &regno);
+>> -	ret = ptrace_report_syscall_entry(regs);
+>> -	if (ret)
+>> -		forget_syscall(regs);
+>> -	regs->regs[regno] = saved_reg;
+>> -
+>> -	return ret;
+>> -}
+>> -
+>> -static void report_syscall_exit(struct pt_regs *regs)
+>> -{
+>> -	unsigned long saved_reg;
+>> -	int regno;
+>> -
+>> -	saved_reg = ptrace_save_reg(regs, PTRACE_SYSCALL_EXIT, &regno);
+>> -	if (!test_thread_flag(TIF_SINGLESTEP)) {
+>> -		ptrace_report_syscall_exit(regs, 0);
+>> -		regs->regs[regno] = saved_reg;
+>> -	} else {
+>> -		regs->regs[regno] = saved_reg;
+>> -
+>> -		/*
+>> -		 * Signal a pseudo-step exception since we are stepping but
+>> -		 * tracer modifications to the registers may have rewound the
+>> -		 * state machine.
+>> -		 */
+>> -		ptrace_report_syscall_exit(regs, 1);
+>> -	}
+>> -}
+>> -
+>> -static inline void syscall_enter_audit(struct pt_regs *regs, long syscall)
+>> -{
+>> -	if (unlikely(audit_context())) {
+>> -		unsigned long args[6];
+>> -
+>> -		syscall_get_arguments(current, regs, args);
+>> -		audit_syscall_entry(syscall, args[0], args[1], args[2], args[3]);
+>> -	}
+>> -}
+>> -
+>> -int syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long flags)
+>> -{
+>> -	int ret;
+>> -
+>> -	if (flags & (_TIF_SYSCALL_EMU | _TIF_SYSCALL_TRACE)) {
+>> -		ret = report_syscall_entry(regs);
+>> -		if (ret || (flags & _TIF_SYSCALL_EMU))
+>> -			return NO_SYSCALL;
+>> -	}
+>> -
+>> -	/* Do the secure computing after ptrace; failures should be fast. */
+>> -	if (flags & _TIF_SECCOMP) {
+>> -		ret = __secure_computing();
+>> -		if (ret == -1)
+>> -			return NO_SYSCALL;
+>> -	}
+>> -
+>> -	/* Either of the above might have changed the syscall number */
+>> -	syscall = syscall_get_nr(current, regs);
+>> -
+>> -	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT)) {
+>> -		trace_sys_enter(regs, syscall);
+>> -
+>> -		/*
+>> -		 * Probes or BPF hooks in the tracepoint may have changed the
+>> -		 * system call number as well.
+>> -		 */
+>> -		 syscall = syscall_get_nr(current, regs);
+>> -	}
+>> -
+>> -	syscall_enter_audit(regs, syscall);
+>> -
+>> -	return ret ? : syscall;
+>> -}
+>> -
+>> -static void syscall_exit_work(struct pt_regs *regs, unsigned long flags)
+>> -{
+>> -	audit_syscall_exit(regs);
+>> -
+>> -	if (flags & _TIF_SYSCALL_TRACEPOINT)
+>> -		trace_sys_exit(regs, syscall_get_return_value(current, regs));
+>> -
+>> -	if (flags & (_TIF_SYSCALL_TRACE | _TIF_SINGLESTEP))
+>> -		report_syscall_exit(regs);
+>> -}
+>> -
+>> -void syscall_exit_to_user_mode_prepare(struct pt_regs *regs)
+>> -{
+>> -	unsigned long flags = read_thread_flags();
+>> -
+>> -	rseq_syscall(regs);
+>> -
+>> -	if (has_syscall_work(flags) || flags & _TIF_SINGLESTEP)
+>> -		syscall_exit_work(regs, flags);
+>> -}
+> 
+> Aside from the small change in arch_ptrace_report_syscall_exit(), these
+> look exactly equivalent to the generic functions, so LGTM.
+> 
+> - Kevin
+> 
 
