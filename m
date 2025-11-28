@@ -4,101 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F62CCFD376
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 14:53:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50A8FD116E2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 15:00:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rnlc1dtXuVp5Avi/r2iLQdz0CX/cLLUFEsKgUqsEt14=; b=01W4/he5PQcb9rUypwX/pVZo2l
-	vNTrZS59KBMlD9ugi7YQYfG0jFaYPJ0pM/B4pehVf7u9hnQBkPijjWsnEx8Ilr0DRcmqj1T5k6Fcr
-	myy7kX4xWs9nJQqiy5F0ZjxcVDBYE1rC/nsM4Qj8Z9ewUResWlv36rH2DVV64U9gk8pzLCmFtXoB5
-	EVecNPNEX+6jawKqAc55CwYcRkTITRrG2Hzc8Ew1k+NW7InElMbHZRaEiNgkRk82/IpRESZPKLihO
-	M+XYGe3X5Xba7Uuj1lt61vdmQcftD+UqY5+GT7MYX0MmNbkWKRpVlapVqkklmXNt5cN39ElrSNJu0
-	RxRm60Ag==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3grBSr7H93iE0zqeBum2PxxsOd5GXTmyNW+XcIPut+Q=; b=wSdf/erMk657ACGWmS9qeQIPbc
+	QzUUmbTBsfnUU/VsUGufQse36gm1DHL1W6YYNfV9R1r+dxew7pY6S9/1zfQSYrB6AqHPxFDdy0GmU
+	JRPHxu+gl5zA9km3sLLaEsswWBXpYjjD/UiX2Z7YEoGOUL5gBGE6wbjrtwsSx7X04L6p3YcZpXGgB
+	T2E6ElDkrrFkTfBxe9tOMemVAFP4tBoJbfRLHabNXGKwHszOXt3FauIvr9d6L86fHHD5UAuzHCpRC
+	jfRtb73SPD2sMAD28B3EG4avD1bk/6cRLvUp/lqZ6OcdAh/Ob4i7YdvhvUON7YW6kC6L4JfYOb9Gb
+	Waq3j3Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOzqP-00000000YKQ-1i3I;
-	Fri, 28 Nov 2025 14:53:09 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1vOzxi-00000000Yo7-2cF9;
+	Fri, 28 Nov 2025 15:00:42 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOzqN-00000000YK0-0yn6
+	id 1vOzxf-00000000Ymb-3mTd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 14:53:08 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-477a2ab455fso19891225e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Nov 2025 06:53:06 -0800 (PST)
+	Fri, 28 Nov 2025 15:00:41 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4775895d69cso8678545e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Nov 2025 07:00:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764341585; x=1764946385; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Rnlc1dtXuVp5Avi/r2iLQdz0CX/cLLUFEsKgUqsEt14=;
-        b=O+N03h/HuvECFzeqDmy4pz9KFGHDp1MvAxSEWN80baABQEMG9XdlWeRZXrTtSnnau1
-         nt19AUs1VBD4bxK4iP5+LTZRhwSa89dC7L27pVXdII1ieIGURjSNOLgprG6v6BMlyRWt
-         IaSm9uxOYIyr6fV8/HUUD64vO2RwV8VSM39+io4nDYoiEkvCJdzbqzCx8YhdKdkuF5lE
-         4tew2THM+FLWdjO/6quzwXKl4cbLItn2tuf608yK11b8ycFmNWr6kcXIXAXwcycb9CP0
-         Ht6wYqI6Cfy3TEalWeOPUNRa59E0RrbjNTUs++5fqXRfzZ7f5/fkkQO7chUxo49MbI59
-         lQ3w==
+        d=gmail.com; s=20230601; t=1764342037; x=1764946837; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=3grBSr7H93iE0zqeBum2PxxsOd5GXTmyNW+XcIPut+Q=;
+        b=CrdFEVbslZDYw1we30x87CMPWmPf4NcO0Jy7RjnCMjAxS9rtV0i98wftYbVPiuwveH
+         w9e26H/qbezXo/0HM0r8snqIVtY9vaICPRUpw05NB0/BKtz1fkkBWEv15NCH64mr5IAD
+         hw6vJ6ExYqOQCwuypGyXnn611J/4H/8tKHSOo7MOn61ITuid7t0C0DVrz71a03MfqaqB
+         xgLhd5B5Wl2I3DSCErF0T0PDUqROP0MTmPWd7i7aCI/oDWQBTIQIqFi4cG80CovKsKIZ
+         Gs3HVERWXoPxuF4LGOhBbNWgLF0sNqeI2z4+RotucRXxf+5/Ba/XC8apl+IfqnHIkOap
+         GjQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764341585; x=1764946385;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Rnlc1dtXuVp5Avi/r2iLQdz0CX/cLLUFEsKgUqsEt14=;
-        b=wLeFT6BcHZCN9ZG3K9vVFwKcMlS84/AHcPPaDq86hqmCHTkBoQHBVUquswe+iNNtmB
-         4SBLkl/iIoCF3osNjfT0cv++ZZbf1YwSCVDzJXHNA9qT/9i4k0gRulGGR9N1ljmyM8Jy
-         7Oks87dwPm13WN0CZhYmIHjeuTHuXXFhU9Olu6KfAU4J/eNMx/LVnWfMWu4QBjw6yYKD
-         xvtxAooCiXf82DWrt3Rr+E3h7sJA0IKsSBgubN7BJ0BJjkiF7+I6QjvPo9fmZEDbXUpZ
-         IzatVcURP5t5/kRkEOCI++ibj1L9zXJI54KHv0PWgqwLvssaF0PmWwaFSL9BcoxqdlGC
-         ZSgw==
-X-Forwarded-Encrypted: i=1; AJvYcCULJnltKkQervyxKA83/89TR6btATqHU58G9j6wBLqy6y7K+EkEGJUedeY/wqnuuc2gAuRkq0FeSku/fEayyYxK@lists.infradead.org
-X-Gm-Message-State: AOJu0YyvPvwMrKiDLUcH/HCQkIidElDPjT1uh1o3EPTwwvcZGnS6ezxT
-	PO9K+eHsK9ttTXv9Zy8iJs8aGEP8zb26/fnPtbpiOkeTvxZk5QlV6GHVQeegstiW0rI=
-X-Gm-Gg: ASbGnct3NZQJsVejLhOPdDlaNJ8zrMFKIuIXjmcOzbosOA/nAdEt7Zvx95H9ql+BigQ
-	GELlZoGHYOyOvAPzzCeKIlnBlROnP97lhsHblbgMdSsxT+/6bOmPZt5uZf61t0d+mQGsig4pTZY
-	Ev2mu1VuXvvpy5zmUnlzyOBKNGZJsJFQFFdlF8cTndQ6GLSXsDLn0BwGtYrl0QBzZSheBL7kFrn
-	rRXLXq1QRk+3wt3OEp+MWNqLbGa4DOng2kjmSPp845+XcvnsHJWfHx3GBGW8XbPSdA3aaHvyofo
-	thaSquSryWoXro46QHAbHhk4+zgAWXW3Gn8vvL1lGKIAT9Xfqt3NdTTFpJmMksUMtoBovBvDMOG
-	uvr0PMK90Uzje5E9kQ8tbXmQRnry1/0HmV3AeHKMQCnHxPeA3fBYoS/we95F4UvHHkaDhuK8YLl
-	TI6OnQWdSPaGeZih99
-X-Google-Smtp-Source: AGHT+IHInRzHYPgTVT3G43Xp1WGE5iHIgv9aeTIFvYapraVaTFrOoNIvykgpSsOowov7B8jkgKaA5Q==
-X-Received: by 2002:a05:600c:3111:b0:477:b734:8c53 with SMTP id 5b1f17b1804b1-477c10deffamr287739505e9.12.1764341585201;
-        Fri, 28 Nov 2025 06:53:05 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-479052cfd9dsm92060745e9.7.2025.11.28.06.53.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 28 Nov 2025 06:53:04 -0800 (PST)
-Message-ID: <8c7be69b-2227-45c2-9096-a49ec6df9a09@linaro.org>
-Date: Fri, 28 Nov 2025 14:53:03 +0000
+        d=1e100.net; s=20230601; t=1764342037; x=1764946837;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3grBSr7H93iE0zqeBum2PxxsOd5GXTmyNW+XcIPut+Q=;
+        b=qcOVGqLhDlAXivERrJbxJrN1a7Qk+t70Xb9uvS19E4vMRh8o7egQdocpOrGErunoSD
+         1KAgkKXJEe+3U37V+ZIwD/Kw9VW7FwX6pHMAGDTWf7XreXFSYl/+kG5gHJ66VAYwcyNO
+         hdV4IdHTcIxPNQrakfjSPnhHezw7/jU/xIfutWXPl0EPREZVpvxo+cktUU0/wU+t+PDP
+         LRWxNIqiHHGKgsJFHMSFNtv1IMlFPxRCsYsTInKcZ3PWttbnbsa/6g5WSq3MUUQ0hnLI
+         5i1ABxlMh71r06OYzCvPLLzbGX3ph2vQQ0MBu8v+llZ8w7RHzEZbVZACYOxOKafxVz4Q
+         5G2w==
+X-Forwarded-Encrypted: i=1; AJvYcCXb4GxMRMMUR5LR5MoYmLHa9b7BN6uhtgCswcAyF4Wa0HzU7XAFQpTw1CesMWcrh8i2Jix1+baX7pituZMr62JH@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtOyW31R+3HQH1RqU1u4PueW1oyKAYcSpLqetlD3lv25KYRqdQ
+	RRzuX+SaWxqnlPXcHR8aVgruWeuqcOx30uEibDAbJySbPcZB6+i20LmY
+X-Gm-Gg: ASbGnctBEi4Zmyr7AuZ3p2oW4GtTFpTO7kYmH5cuPd21Mffd6kA2AyVEqAlAijuMJnq
+	Oevrt5s+yk7b/eOa2uWkfcghEvOv/08GcQMOg4KRJL2tCB2yLsW4VNyU+LSd4TFkWMW5jYsj3m+
+	QW+FxTgySMGBEgCPjD9qLeznd0F/dxD/xqaeMiBfVv/u9e1F6c9TKrIlQmYRRJ8+aIr3defgViV
+	j5eHfthHrIepsf771ljkl5EFULBveqwnDwQzmiWDNEOyVcccd0kuy4sNCMSfktELg5yMSgOIPKa
+	jdkHIdAq/l/sMRKIIO/MSjByaoEiYffRXAF7yFqA8nqSVpyTWHOapeQ0dpX3kH9NA16lR9neUM5
+	8bbRlv34CIdLg7AjzQINSwUUtDSkQBZriJWYEE/SC5riqcc1ttWuIEtDaVdpfhWy6ZPo4yj/0b+
+	hPMr01b5CdKEfNKIvhkDZDHePrRmE=
+X-Google-Smtp-Source: AGHT+IH4P6a2V/tjh2KXwjJUvz5Qdlq1GmBHoCSVv5o2GzhLFLANE09Z8jLPuflofJUEZAkCRfafag==
+X-Received: by 2002:a05:600c:1c19:b0:477:7bca:8b3c with SMTP id 5b1f17b1804b1-47904b10379mr201004035e9.19.1764342036665;
+        Fri, 28 Nov 2025 07:00:36 -0800 (PST)
+Received: from vitor-nb (bl19-170-125.dsl.telepac.pt. [2.80.170.125])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47905303963sm93117975e9.7.2025.11.28.07.00.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Nov 2025 07:00:36 -0800 (PST)
+From: Vitor Soares <ivitro@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: Vitor Soares <vitor.soares@toradex.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	ivitro@gmail.com
+Subject: [PATCH v1 0/2] arm64: dts: imx95-toradex-smarc: Fix ethphy1 interrupt and GPIO labels
+Date: Fri, 28 Nov 2025 15:00:26 +0000
+Message-ID: <20251128150030.35931-1-ivitro@gmail.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coresight: etm3x: Fix buffer overwrite in cntr_val_show()
-To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@linaro.org>
-Cc: Kuan-Wei Chiu <visitorckw@gmail.com>, suzuki.poulose@arm.com,
- alexander.shishkin@linux.intel.com, pratikp@codeaurora.org,
- mathieu.poirier@linaro.org, gregkh@linuxfoundation.org,
- jserv@ccns.ncku.edu.tw, marscheng@google.com, ericchancf@google.com,
- milesjiang@google.com, nickpan@google.com, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251121002350.1166758-1-visitorckw@gmail.com>
- <20251126120914.GH724103@e132581.arm.com>
- <da2a3e18-80e0-4aca-bbc7-45c1353217d3@linaro.org>
- <20251126123147.GI724103@e132581.arm.com>
- <CAJ9a7VhD2p3qMGXNg6deYjE8myB5euHR4FcAFwgg0KWF2HO9JQ@mail.gmail.com>
- <15d536f2-0829-4f3f-b111-b15b14236bd2@linaro.org>
- <CAJ9a7Vjia4ENewP48nyDWBcBFbDmwb3vM2JNbNCw4-3yF3ABVQ@mail.gmail.com>
- <20251127092942.GO724103@e132581.arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20251127092942.GO724103@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_065307_318686_84777FF0 
-X-CRM114-Status: GOOD (  23.09  )
+X-CRM114-CacheID: sfid-20251128_070039_945021_F4B46CCA 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,54 +107,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Vitor Soares <vitor.soares@toradex.com>
 
+This series fixes the ethphy1 interrupt configuration and corrects GPIO
+expander line names for the i.MX95 Toradex SMARC.
 
-On 27/11/2025 9:29 am, Leo Yan wrote:
-> On Wed, Nov 26, 2025 at 04:14:19PM +0000, Mike Leach wrote:
-> 
-> [...]
-> 
->>>> The key to this is not the questions we are asked, but which platforms
->>>> are still supported by the linux kernel.
->>>>
->>>> The ETMv3 driver supports both ETMv3 and PTM trace (the programming
->>>> model is the same, even if the trace decode is vastly different).
->>>>
->>>> So as long as there are  platforms supported that use either of those,
->>>> we need to keep the driver in.
->>>>
->>>
->>> We're not running tests though, so if we find out it's fundamentally
->>> broken somehow it could be another justification to remove it, even if
->>> the kernel supports the devices. Do you have a board that you can test
->>> on Mike?
->>
->> Don't have one myself, but I believe the TC2 was used in development,
->> (that's the A15/A7 32 bit part - not total compute!) which somewhat
->> conveniently had both etmv3 and ptm trace.
-> 
-> If ETMv4 can be used by Armv7 (arm32) CPUs, and nowdays if Armv7 + ETMv4
-> is a popular design, it makes sense for me to remove ETMv3 driver.
-> 
-> If Armv7 CPUs are always bound to ETMv3 / PTM, then we should keep the
-> driver.
-> 
-> Thanks,
-> Leo
+The first patch changes the interrupt trigger type from level-triggered
+to edge-triggered to match the PCA9745 GPIO expander hardware
+capabilities.
 
-Based on the the build system I don't think what the hardware supports 
-matters that much. We've always only built the ETM4 driver on Arm64 and 
-only build the ETM3 driver on Arm32.
+The second patch fixes the SMARC_SDIO_WP gpio-line-name position to
+line 15.
 
-I just found another bug which I think makes sense to log here. We've 
-pretty much always turned on timestamps automatically in Perf, but for 
-some reason the option validator in Perf thinks they're not supported in 
-ETM3. The driver has always accepted it as an option so I'm not sure 
-why. The end result is that the command will always fail, and you 
-couldn't even undo it with "timestamp=0" until more recently when I 
-fixed that.
+Vitor Soares (2):
+  arm64: dts: freescale: imx95-toradex-smarc: use edge trigger for
+    ethphy1 interrupt
+  arm64: dts: freescale: imx95-toradex-smarc: fix SMARC_SDIO_WP label
+    position
 
-Sysfs or per-thread Perf mode would be working, but it's one more bit of 
-evidence to take in.
+ arch/arm64/boot/dts/freescale/imx95-toradex-smarc.dtsi | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+-- 
+2.51.0
 
 
