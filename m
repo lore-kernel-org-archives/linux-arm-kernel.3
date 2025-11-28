@@ -4,86 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AFEED116EA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 08:54:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D284FCFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 09:01:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rDvZWMaEJ7qiFYzf5QHvGpUfV6X47c66PVJLPnZe19E=; b=KbS8xLuUNDRmgPh4qa4J4ifmRj
-	nxuwPR85U7ZKzSr+WJxIOe9ibZBp5CI/ddDF1v19N5tnDhHrADtl/u6fjrsishOyHqWA9EH+aJcro
-	jJrSQ5P5pqyzTO151RrkODIenu4DtSkyzc3TAjLNoNGFHhKMypyxm05vSWxmJOMaQ339JtGRbwCZB
-	1aAAg4uV4HperO+V4IMeJ89RRjy61OOHkeYU2h7mvzUdfqni9UwezuKAoFckB0+2udh2MFKgjSW1K
-	5rL7hCCH2O3qsdl8sOnABPdQppNrASNouxIOr5VztbmQq2GyjOi8hNOyC5QUKg5DFAqHa9wcFVC3b
-	rQqaKltQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TwFmyksrzAIIs1HfOPC3MQNt+t9BM4BX0iJ/iavuVzU=; b=v2OQ19KPuE9OkFrgbqRWFO4XpJ
+	0lAp3BsnNnTFmNSj7Co4A0OBQhddQKKp0OAvQPCN3GcwtPtBRRC4Bf8ytYwv3MTa5MYNbUvGUmZaQ
+	E6Jnoo9bStPS+XAa6VGNux861pcA7fkckV7jxjrG25EEMwphE+VAr1aLoG8OW1IUUY473XGP7O12x
+	0+8z6LalA7AxLH/PTKYnY+z3BNfKm+dfBvDTHjtizmZSKXzLIcDtzjikNogMdzQiFXrs6kDfm3id/
+	9/JSUsfJ2iNZ1YqhNozoBx+hLurBlY7b3dquOpWPyRKz8ytyPk/fir6yAboR8Th5vlMB2/bCKT6vo
+	wuKohNKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOuF5-00000000CKJ-2lry;
-	Fri, 28 Nov 2025 08:54:15 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1vOuMS-00000000CmX-2M3n;
+	Fri, 28 Nov 2025 09:01:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOuF2-00000000CJZ-1m6W
+	id 1vOuMQ-00000000CmD-0C48
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 08:54:13 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-4ee243b98caso429801cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Nov 2025 00:54:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764320051; x=1764924851; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=rDvZWMaEJ7qiFYzf5QHvGpUfV6X47c66PVJLPnZe19E=;
-        b=TKOcXsh0Hm8y9iuOQ/1TcwzFGqdDh5JMSAbYuNd7wGDJ0dwHFu6yKgFvagU42NAj71
-         JrhcgnFcUwdstlOodRLqKQRmigZux9L9liQZ5Z9Y0p8MEwU+zP1f6nCoPNJsNjzmrV/n
-         LT6bTXk3pnMj7L0S8zxBLouQAHDNQZj4hPsGId2TO9r/9C1lt4Xg0ZnhCjFf+lhUxrSx
-         yTKDE4dV9vwcBuuey5U9hARoz6RdpB/A5OSvjrhXBuzygDu/il1kTtz1WuPLdHH0H8vX
-         BIj+jzr2UT71pTUQdUVjwRqJBUZeQFqEmi5fBXwFZ5Kuab1STxNBlg81Pa633Ce82FCZ
-         klgQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764320051; x=1764924851;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rDvZWMaEJ7qiFYzf5QHvGpUfV6X47c66PVJLPnZe19E=;
-        b=SuP9DCJAYQJV2zA7a1tkjnuComGt5z9FFKXILWpthDddYQrdjw5A2AGrro/Yib16xg
-         mfXYfrMhFCSwl3GbFgAxIZiBRxqoQpsy/Kk2pF2UpIlxtukKKevY3Db4rQj6Z9afXmhO
-         IFDTXodwetyDzSSKSrHX7NHaxKBaEHWPxDshxIMzLcmkICBKfLZZYP9ktaDtauxTv6zm
-         q7G/zFHEnI4CWjtTZS1yonG2xCFkkiHzxh7iCgq1MU/FrI73dLavehwEvjhas0BZOySl
-         GkoYoMCmnOlT0eSXZsxNqD2vBGPSx2IZDUdDLJ8q0KMeg64w50nxHFXSf4F3//fLshle
-         feZA==
-X-Forwarded-Encrypted: i=1; AJvYcCUEmtLGr6j1/5J+ZLujXwAHHSEHE0m34AOstuIO+IfWsGuwjQA2PJ+7kkWqqwk0XKVWpIurbPuqwmAyzIfapNcK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxm/nvo2zvSCTa286Mj4En++8G5V4PKUrf87NXo1bErY9LXkKuZ
-	+X+r4O3ZiJi06JJgfcclZUuGC2v0hIS/dxnO2tDm3Be4wEij7JrhCNPBfFEERby4i3hjAUIXJo7
-	e/AWL5BSYHUQrGuW5kF3lYngt9IQq+s4LkZnQvHdZQRni335pj25oWujs
-X-Gm-Gg: ASbGnctR3iVQVFDkiKb4YbuyDrCDij/auWjvcMcv2uMm9wzVKtfrYAKhpbNhC3wBLqp
-	j8bI4rUd2FWazY8MAVCaxUyn3qT9fwu2M6Z/zJ3fW9r+FU9JKJX+e6eDz7zB8qwm6RJ6NHMRkIU
-	4lHn8cme2DinOCqfK/zcckwCgPT7snszBEmSM6PdG7sjxWg8hsLiChdKDWA7qkLQ60zLSYO5RJg
-	4EWdsr30ArJYkV2xcWeRZVCFXd7KHnSVx2tUzDZUV/ym894INUPKiW7zmYZQSALFP1uI4nqjRgJ
-	tUyYGA==
-X-Google-Smtp-Source: AGHT+IHPym1ODtpAi9CMgE0hTp4o0fYMzlmczHF3vLdk+9RNCcByYNv22XLMdnl+3/yYSpI5Pmaxpz+/OUvckY3j+Sk=
-X-Received: by 2002:a05:622a:198e:b0:4b7:9b06:ca9f with SMTP id
- d75a77b69052e-4efd0c63439mr8008681cf.2.1764320050941; Fri, 28 Nov 2025
- 00:54:10 -0800 (PST)
+	Fri, 28 Nov 2025 09:01:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AFB9D40491;
+	Fri, 28 Nov 2025 09:01:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EE6DC116D0;
+	Fri, 28 Nov 2025 09:01:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764320508;
+	bh=BQHSr2Fsvv9EapDNce6yQrV+s8lPf++8pxkb25Qmq+Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=u6V9KwwtxUg+BENRkInQvAYQGgRejHHQnN1Mmkb7cPldeR8GqH82YNv8UKQtaT8UR
+	 +WXxpVKXjNaSTD4oInBXC8wYIAKGN7vK6Z0DOXgUYIBHYJ3rJyFcVE9PrZKaCwaEJF
+	 sH/ZxxbcxJCc8uFd/xH+rkvDjRf30JvWoaq6tiOfKqKZ6yrZCytWT9uE7lytP41NHo
+	 Fu9vaPeHt3T0bkPngi5lSJhf5rsmBPrKLNXwCf9xU0SMNPjyzlvuYtwL2Ty+BpRgj4
+	 sFxDaMAl0zcj1Ur41W2RuS6PAac3AbWv0+eYTFdqfN6/CubYxmVIpk3Sr1HIOBM1rb
+	 SDIS/HJUISqGA==
+Message-ID: <9ff65dc6-6f13-47f0-966c-f9885288843e@kernel.org>
+Date: Fri, 28 Nov 2025 10:01:44 +0100
 MIME-Version: 1.0
-References: <20251127122210.4111702-1-tabba@google.com> <20251127122210.4111702-5-tabba@google.com>
- <86345zr24c.wl-maz@kernel.org> <CA+EHjTz9fJ2892TNn-hy3aiQA6Cxj6xuFUBKQhpDOnsHkDtdwQ@mail.gmail.com>
- <86wm3apmxu.wl-maz@kernel.org>
-In-Reply-To: <86wm3apmxu.wl-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Fri, 28 Nov 2025 08:53:34 +0000
-X-Gm-Features: AWmQ_bkR-70oLk2BukczwycCfDcP-ZO9JBqbtZx5xbkCA_MuBEHdD2g3hg0iJ9g
-Message-ID: <CA+EHjTzg=BQNKDDgbGjSOQ7GuRW1JAoyXNygHTYPba5g7_0Fgw@mail.gmail.com>
-Subject: Re: [PATCH v1 4/5] arm64: Inject UNDEF when accessing MTE sysregs
- with MTE disabled
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/3] ARM: dts: exynos: Add Google Manta (Nexus 10)
+To: Lukas Timmermann <linux@timmermann.space>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Alexandre Marquet <tb@a-marquet.fr>
+References: <20251125-google-manta-v2-0-0f097cfff39c@timmermann.space>
+ <20251125-google-manta-v2-2-0f097cfff39c@timmermann.space>
+ <20251126-cunning-locust-of-atheism-e1dd0d@kuoka>
+ <jqfu76ojoznc7xgyevuzmj7fg3necrr5cp645ye5zk652ytx5w@s4yaxzcq7jzt>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <jqfu76ojoznc7xgyevuzmj7fg3necrr5cp645ye5zk652ytx5w@s4yaxzcq7jzt>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_005412_479359_5BD133E6 
-X-CRM114-Status: GOOD (  44.73  )
+X-CRM114-CacheID: sfid-20251128_010150_130797_19F1EBCD 
+X-CRM114-Status: UNSURE (   8.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,128 +123,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+On 27/11/2025 21:01, Lukas Timmermann wrote:
+>>> +
+>>> +		lid-switch {
+>>> +			label = "Lid";
+>>> +			gpios = <&gpx1 3 GPIO_ACTIVE_LOW>;
+>>> +			linux,input-type = <5>; /* EV_SW */
+>>> +			linux,code = <0>; /* SW_LID */
+>>> +			debounce-interval = <10>;
+>>> +			wakeup-source;
+>>> +		};
+>>> +	};
+>>> +
+>>> +	multi-led {
+>>> +		compatible = "leds-group-multicolor";
+>>> +		color = <LED_COLOR_ID_RGB>;
+>>> +		function = LED_FUNCTION_STATUS;
+>>> +		leds = <&status_red>, <&status_green>, <&status_blue>, <&status_white>;
+>>> +	};
+>>> +
+>>> +	wlan_pwrseq: mmc1-pwrseq {
+>>
+>> Just "pwrseq"
+>>
+> Acknowledged.
+> Just out of curiosity. Why is that?
 
-On Fri, 28 Nov 2025 at 08:43, Marc Zyngier <maz@kernel.org> wrote:
->
-> On Thu, 27 Nov 2025 14:41:24 +0000,
-> Fuad Tabba <tabba@google.com> wrote:
-> >
-> > Hi Marc,
-> >
-> > On Thu, 27 Nov 2025 at 14:17, Marc Zyngier <maz@kernel.org> wrote:
-> > >
-> > > On Thu, 27 Nov 2025 12:22:09 +0000,
-> > > Fuad Tabba <tabba@google.com> wrote:
-> > > >
-> > > > When MTE hardware is present but disabled via software (arm64.nomte or
-> > > > CONFIG_ARM64_MTE=n), HCR_EL2.ATA is cleared to prevent use of MTE
-> > > > instructions. However, this alone doesn't fully emulate hardware that
-> > > > lacks MTE support.
-> > > >
-> > > > With HCR_EL2.ATA cleared, accesses to certain MTE system registers trap
-> > > > to EL2 with exception class ESR_ELx_EC_SYS64. To faithfully emulate
-> > > > hardware without MTE (where such accesses would cause an Undefined
-> > > > Instruction exception), inject UNDEF into the host.
-> > > >
-> > > > Signed-off-by: Fuad Tabba <tabba@google.com>
-> > > > ---
-> > > >  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 44 ++++++++++++++++++++++++++++++
-> > > >  1 file changed, 44 insertions(+)
-> > > >
-> > > > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> > > > index 29430c031095..f542e4c17156 100644
-> > > > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> > > > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> > > > @@ -686,6 +686,46 @@ static void handle_host_smc(struct kvm_cpu_context *host_ctxt)
-> > > >       kvm_skip_host_instr();
-> > > >  }
-> > > >
-> > > > +static void inject_undef64(void)
-> > > > +{
-> > > > +     unsigned long sctlr, vbar, old, new;
-> > > > +     u64 offset, esr;
-> > > > +
-> > > > +     vbar = read_sysreg_el1(SYS_VBAR);
-> > > > +     sctlr = read_sysreg_el1(SYS_SCTLR);
-> > > > +     old = read_sysreg_el2(SYS_SPSR);
-> > > > +     new = get_except64_cpsr(old, system_supports_mte(), sctlr, PSR_MODE_EL1h);
-> > > > +     offset = get_except64_offset(old, PSR_MODE_EL1h, except_type_sync);
-> > > > +     esr = (ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT) | ESR_ELx_IL;
-> > > > +
-> > > > +     write_sysreg_el1(esr, SYS_ESR);
-> > > > +     write_sysreg_el1(read_sysreg_el2(SYS_ELR), SYS_ELR);
-> > > > +     write_sysreg_el1(old, SYS_SPSR);
-> > > > +     write_sysreg_el2(vbar + offset, SYS_ELR);
-> > > > +     write_sysreg_el2(new, SYS_SPSR);
-> > > > +}
-> > > > +
-> > > > +static bool handle_host_mte(u64 esr)
-> > > > +{
-> > > > +     /* If we're here for any reason other than MTE, then it's a bug. */
-> > > > +
-> > > > +     if (read_sysreg(HCR_EL2) & HCR_ATA)
-> > > > +             return false;
-> > > > +
-> > > > +     switch (esr_sys64_to_sysreg(esr)) {
-> > > > +     case SYS_RGSR_EL1:
-> > > > +     case SYS_GCR_EL1:
-> > > > +     case SYS_TFSR_EL1:
-> > > > +     case SYS_TFSRE0_EL1:
-> > >
-> > > How about other things, such as DC GVA? Don't you need to trap and
-> > > UNDEF it (which has the side effect of also trapping DC ZVA)?
-> > >
-> > > Same question for all the DC {C,I,CI}GVA{C,P} instructions.
-> >
-> > As far as I could tell, none of these are trapped by ATA. The spec
-> > says that in the absence of MTE, their behavior is undefined --- which
-> > is the same for the ones I'm actually handling here...
-> >
-> > The reasons I've only handled these is that, when booting a system
-> > with a misadvertised MTE, the kernel accesses these registers, and
-> > injecting an UNDEF resulted in a nicer failure mode.
->
-> But it all comes down to *why* is MTE disabled. Is it because the user
-> cannot be arsed with MTE's abysmal^Wstellar performance? Or because
-> this is a memory corruption vector on a misconfigured platform?
->
-> > What do you suggest, drop this patch (and the one before it), since
-> > trying to access MTE is UNDEF, and the kernel that does it is just
-> > shooting itself in the foot (no security implications)? Or edit the
-> > commit message to make it clear that this is best effort, based on
-> > what ATA traps?
->
-> No, what I am simply pointing out that that there is more to MTE than
-> what gets trapped by ATA, and my hunch is that when MTE is disabled on
-> machine that actually has it, it is because something is deeply broken
-> with tag management (I have one such machine).
->
-> So depending which side of the problem you're on, this could be either
-> perfectly valid, or just missing the point.
 
-I see your point. Of course, my main concern is security and
-protecting the guest and the hypervisor from a malicious host (and of
-course the other way around, but that's the case in non-protected mode
-as well). When MTE is disabled, I think most (if not all) MTE-related
-instructions are UNDEFINED.
+You have only one pwrseq device, so not need to precise which one is
+that and node names should be generic.
 
-As far as I know, for the devices I've run into, the reason to disable
-MTE has been either performance or lack of support. So for that case,
-I think that this solution is enough. On the other hand, if the
-hardware is broken, then we can try to mitigate as much as possible,
-but I think that at the end there is so much we can do.
+https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
 
-So for now, I would think that this is enough. If we encounter cases
-that require more hardening, we could add that later.
-
-What do you think?
-/fuad
-
-> Thanks,
->
->         M.
->
-> --
-> Without deviation from the norm, progress is not possible.
+Best regards,
+Krzysztof
 
