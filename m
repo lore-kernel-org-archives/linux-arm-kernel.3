@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BBFBD116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 12:10:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0CA4D116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 12:16:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s25YBeQHCL9rDo1dkSWXPokeFGnHiIE7x3ElxvksI2k=; b=TJGSidtgDCtdOZdgg942hbcFiV
-	LlCWDOwPjH9bIA/aMVYhCDPKMbWreROivBJ+rMtHSCzjCAS4PAiEezyi05BZdMHsWlz2drE0qfZop
-	r998fkN7Dc/Fya0ryymCYW4UtYzTNMJbOUcjuo3a+/IdKx6HMVSJN7ytxtkaOw0DVUG03pmiUGiKJ
-	40ShZYxWax4ezoT7dgHTZ+T5UCt6eqHSf0Y3ssISti6+acKmYspK9UUUfdOqoEaS/+eKRAA++2vSa
-	5oL0NPBcBFPrIFcM9mtMsEUnvpPYxoMH9aiDi4fCwDAdLysW0pdeKmwWUfa+2IbQC6b4/EN6SMGBD
-	kyh2DqGQ==;
+	bh=eV3DMGHKAc+dR//uzGFT/lJQENyL1NlTTEO9mqIUiwE=; b=3RqjMgOzlPLlCxMK+WWvNzMVIJ
+	0o2U9wejFskKnkyr8SL8wz42u8w3wuZqfGzSjDQWrhZsCoduNZHdhL3OnB0FGFvGH9aWYPpGoU3jK
+	UNPw5oBneqv7aNaZi2fjnzr8CnWZaRPEs8GyqHCs/e99/jyyIoUfJ0nRjjNukWhjRXokw5jnvm/5q
+	dOWaqpxZ6m/O7UAjfohlYDvfszegFOk+g/+lFXT05YaAxBBQuRjC+xD49rlcM5B/z/0Br7GVAFWqG
+	Ajf3KSUUBgu73rd571TSQ9HFCzSS42XhsR4meo6ipgEG9PpLqdz7DR3j+/AQ7DlMjGocxqJa5FbmE
+	lUWE+cIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOxJ3-00000000PfB-0pkO;
-	Fri, 28 Nov 2025 12:10:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vOxOr-00000000PxF-1e2o;
+	Fri, 28 Nov 2025 12:16:33 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOxJ1-00000000Pf1-1bdt
+	id 1vOxOo-00000000PwQ-2CMR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 12:10:31 +0000
+	Fri, 28 Nov 2025 12:16:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 38AA9601FD;
-	Fri, 28 Nov 2025 12:10:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F146C4CEF1;
-	Fri, 28 Nov 2025 12:10:26 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8181B41ADE;
+	Fri, 28 Nov 2025 12:16:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE09DC4CEF1;
+	Fri, 28 Nov 2025 12:16:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764331828;
-	bh=bdCyEl4sa48vbIuQYg/qlHBmJ0kk+v8PxkVZj+7WPtc=;
+	s=k20201202; t=1764332189;
+	bh=g4y7Hz328+8IEKpa4hdtQbueyA3WDjV4cr57ogp33So=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Yi6Pm2urK4icMwNAhXBuWZDlSfEkYN4A9TUD/QOnzRHLlghPBAXNkWHB1nN4sfJsV
-	 dSaHjpfLVs1gY+P5FvXhCf99FthBNmI2/vnToCkPdi/lBPFDaAE22aAK7Vbxk8BSYE
-	 2sqCZIuAR/OV3yphVK/9M8ZXrOglDJPGjq+F6Wnp7bTk0S94DWIsrLZKnuY9arA2Jo
-	 PXm3ycfb/uZfFQWxtih5JKx69oQ0ETi3ME36oYcGmbP10+150IQ6Z2CUWvanja3rdl
-	 pTILwLFAclgG6B4uhWlo1Rd6BqKNFJs4MY3ajWiN2cJm5cjCVajspQD9G53nES4mY6
-	 hHY1eAuIvdEGA==
-Date: Fri, 28 Nov 2025 12:10:23 +0000
+	b=G37UNOEMVutj78J8T647ePZx7d1VxztQSsh1umig/8luofsMrnDLm0UwExHwKF9dP
+	 laNDKvNkN4aVDE0bPRh24pdAM+yzwJBDRzVQeoD9UL18IY44VS3v35P/qX+kVF/VGa
+	 fp2z8IiKHgmjfbah7KOxEgCtMAf4mS55b0UrC9MJIqoZ1LX6ROUzsKbs3glR+iZXp5
+	 bIexMApL5XVic3oDZ6Ko5JG1DtlmXwgYvQ0+3XyCC93axjw3tvhVdmGIPeWFj0zwOE
+	 LgX6lAEjv1kzJ3T0banFWSzAqmwpfQPbrg6aeaY92gAIQ+gSUx+R5JSZw1cfY9B6cH
+	 vk7q9Aw02saFg==
+Date: Fri, 28 Nov 2025 12:16:24 +0000
 From: Will Deacon <will@kernel.org>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Fuad Tabba <tabba@google.com>, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com
-Subject: Re: [PATCH v1 4/5] arm64: Inject UNDEF when accessing MTE sysregs
- with MTE disabled
-Message-ID: <aSmRL4oSAi0WNUpl@willie-the-truck>
-References: <20251127122210.4111702-1-tabba@google.com>
- <20251127122210.4111702-5-tabba@google.com>
- <86345zr24c.wl-maz@kernel.org>
- <CA+EHjTz9fJ2892TNn-hy3aiQA6Cxj6xuFUBKQhpDOnsHkDtdwQ@mail.gmail.com>
- <86wm3apmxu.wl-maz@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: catalin.marinas@arm.com, akpm@linux-foundation.org, bhe@redhat.com,
+	leitao@debian.org, coxu@redhat.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: kernel: initialize missing kexec_buf->random field
+Message-ID: <aSmSmH5-8iXOErKw@willie-the-truck>
+References: <20251127182644.1577592-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <86wm3apmxu.wl-maz@kernel.org>
+In-Reply-To: <20251127182644.1577592-1-yeoreum.yun@arm.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251128_041630_627878_77BE597D 
+X-CRM114-Status: GOOD (  19.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,86 +72,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Marc,
-
-I can shed a bit more light on why MTE might be disabled in Android, but
-please don't shoot the messenger!
-
-On Fri, Nov 28, 2025 at 08:43:09AM +0000, Marc Zyngier wrote:
-> On Thu, 27 Nov 2025 14:41:24 +0000,
-> Fuad Tabba <tabba@google.com> wrote:
-> > On Thu, 27 Nov 2025 at 14:17, Marc Zyngier <maz@kernel.org> wrote:
-> > > On Thu, 27 Nov 2025 12:22:09 +0000,
-> > > Fuad Tabba <tabba@google.com> wrote:
-> > > > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> > > > index 29430c031095..f542e4c17156 100644
-> > > > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> > > > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> > > > @@ -686,6 +686,46 @@ static void handle_host_smc(struct kvm_cpu_context *host_ctxt)
-> > > >       kvm_skip_host_instr();
-> > > >  }
-> > > >
-> > > > +static void inject_undef64(void)
-> > > > +{
-> > > > +     unsigned long sctlr, vbar, old, new;
-> > > > +     u64 offset, esr;
-> > > > +
-> > > > +     vbar = read_sysreg_el1(SYS_VBAR);
-> > > > +     sctlr = read_sysreg_el1(SYS_SCTLR);
-> > > > +     old = read_sysreg_el2(SYS_SPSR);
-> > > > +     new = get_except64_cpsr(old, system_supports_mte(), sctlr, PSR_MODE_EL1h);
-> > > > +     offset = get_except64_offset(old, PSR_MODE_EL1h, except_type_sync);
-> > > > +     esr = (ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT) | ESR_ELx_IL;
-> > > > +
-> > > > +     write_sysreg_el1(esr, SYS_ESR);
-> > > > +     write_sysreg_el1(read_sysreg_el2(SYS_ELR), SYS_ELR);
-> > > > +     write_sysreg_el1(old, SYS_SPSR);
-> > > > +     write_sysreg_el2(vbar + offset, SYS_ELR);
-> > > > +     write_sysreg_el2(new, SYS_SPSR);
-> > > > +}
-> > > > +
-> > > > +static bool handle_host_mte(u64 esr)
-> > > > +{
-> > > > +     /* If we're here for any reason other than MTE, then it's a bug. */
-> > > > +
-> > > > +     if (read_sysreg(HCR_EL2) & HCR_ATA)
-> > > > +             return false;
-> > > > +
-> > > > +     switch (esr_sys64_to_sysreg(esr)) {
-> > > > +     case SYS_RGSR_EL1:
-> > > > +     case SYS_GCR_EL1:
-> > > > +     case SYS_TFSR_EL1:
-> > > > +     case SYS_TFSRE0_EL1:
-> > >
-> > > How about other things, such as DC GVA? Don't you need to trap and
-> > > UNDEF it (which has the side effect of also trapping DC ZVA)?
-> > >
-> > > Same question for all the DC {C,I,CI}GVA{C,P} instructions.
-> > 
-> > As far as I could tell, none of these are trapped by ATA. The spec
-> > says that in the absence of MTE, their behavior is undefined --- which
-> > is the same for the ones I'm actually handling here...
-> > 
-> > The reasons I've only handled these is that, when booting a system
-> > with a misadvertised MTE, the kernel accesses these registers, and
-> > injecting an UNDEF resulted in a nicer failure mode.
+On Thu, Nov 27, 2025 at 06:26:44PM +0000, Yeoreum Yun wrote:
+> Commit bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
+> introduced the kexec_buf->random field to enable random placement of
+> kexec_buf.
 > 
-> But it all comes down to *why* is MTE disabled. Is it because the user
-> cannot be arsed with MTE's abysmal^Wstellar performance? Or because
-> this is a memory corruption vector on a misconfigured platform?
+> However, this field was never properly initialized for kexec images
+> that do not need to be placed randomly, leading to the following UBSAN
+> warning:
+> 
+> [  +0.364528] ------------[ cut here ]------------
+> [  +0.000019] UBSAN: invalid-load in ./include/linux/kexec.h:210:12
+> [  +0.000131] load of value 2 is not a valid value for type 'bool' (aka '_Bool')
+> [  +0.000003] CPU: 4 UID: 0 PID: 927 Comm: kexec Not tainted 6.18.0-rc7+ #3 PREEMPT(full)
+> [  +0.000002] Hardware name: QEMU QEMU Virtual Machine, BIOS 0.0.0 02/06/2015
+> [  +0.000000] Call trace:
+> [  +0.000001]  show_stack+0x24/0x40 (C)
+> [  +0.000006]  __dump_stack+0x28/0x48
+> [  +0.000002]  dump_stack_lvl+0x7c/0xb0
+> [  +0.000002]  dump_stack+0x18/0x34
+> [  +0.000001]  ubsan_epilogue+0x10/0x50
+> [  +0.000002]  __ubsan_handle_load_invalid_value+0xc8/0xd0
+> [  +0.000003]  locate_mem_hole_callback+0x28c/0x2a0
+> [  +0.000003]  kexec_locate_mem_hole+0xf4/0x2f0
+> [  +0.000001]  kexec_add_buffer+0xa8/0x178
+> [  +0.000002]  image_load+0xf0/0x258
+> [  +0.000001]  __arm64_sys_kexec_file_load+0x510/0x718
+> [  +0.000002]  invoke_syscall+0x68/0xe8
+> [  +0.000001]  el0_svc_common+0xb0/0xf8
+> [  +0.000002]  do_el0_svc+0x28/0x48
+> [  +0.000001]  el0_svc+0x40/0xe8
+> [  +0.000002]  el0t_64_sync_handler+0x84/0x140
+> [  +0.000002]  el0t_64_sync+0x1bc/0x1c0
+> 
+> To address this, initialise kexec_buf->random field properly.
+> 
+> Fixes: bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+>  arch/arm64/kernel/kexec_image.c        | 3 +++
+>  arch/arm64/kernel/machine_kexec_file.c | 6 +++++-
+>  2 files changed, 8 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kernel/kexec_image.c b/arch/arm64/kernel/kexec_image.c
+> index 532d72ea42ee..db6fb8c599a1 100644
+> --- a/arch/arm64/kernel/kexec_image.c
+> +++ b/arch/arm64/kernel/kexec_image.c
+> @@ -76,6 +76,9 @@ static void *image_load(struct kimage *image,
+>  	kbuf.buf_min = 0;
+>  	kbuf.buf_max = ULONG_MAX;
+>  	kbuf.top_down = false;
+> +#ifdef CONFIG_CRASH_DUMP
+> +	kbuf.random = false;
+> +#endif
+> 
+>  	kbuf.buffer = kernel;
+>  	kbuf.bufsz = kernel_len;
+> diff --git a/arch/arm64/kernel/machine_kexec_file.c b/arch/arm64/kernel/machine_kexec_file.c
+> index 410060ebd86d..06f38866424a 100644
+> --- a/arch/arm64/kernel/machine_kexec_file.c
+> +++ b/arch/arm64/kernel/machine_kexec_file.c
+> @@ -94,7 +94,11 @@ int load_other_segments(struct kimage *image,
+>  			char *initrd, unsigned long initrd_len,
+>  			char *cmdline)
+>  {
+> -	struct kexec_buf kbuf = {};
+> +	struct kexec_buf kbuf = {
+> +#ifdef CONFIG_CRASH_DUMP
+> +		.random = false,
+> +#endif
+> +	};
 
-FWIW, Android uses "arm64.nomte" as the mechanism to "disable" MTE so
-that the physical memory otherwise used as tag storage can be used for
-other things (i.e. treated just like the rest of memory):
-
-https://source.android.com/docs/security/test/memory-safety/bootloader-support#bootloader-support
-
-I appreciate that this isn't what the early idreg overrides were
-designed for, but it's an interesting case because the hardware isn't
-actually broken, it's just that there's a decicion about whether to give
-up memory for tags or not and, if the memory is used for other things,
-we need to clear ATA to prevent the host from accesing that memory via
-tag operations.
+This hunk is pointless.
 
 Will
 
