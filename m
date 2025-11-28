@@ -4,86 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77E61D116E2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 21:08:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5B8FD116E2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 21:18:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G/TwWJgbgaJ4CV8gTMN/jzKwmmdChg5+47UVxWfc6AU=; b=3D7OzQAMAceigDCBjjrKvW+1Re
-	2Qs+ZDrjbITWUwYcNwVW7CwhltrkgU92Zy4nMXvJi+sGKzrzVSHQKYJ4aJlyy0zibFuRd9TTV7gCU
-	9H/Tqr/mgYjMxltiwQTbNtlsiwXQI6p7/WizZOfpooAeJvhf1Q16mBI1BrZHYhNX6T5bdvO4AVSAl
-	QVH8O3AHY9GsG+d3kTr0/wmJf8y7m53Ow9JZrZSxExJBIJSJaK8NaYRtnyA6bo5yFfu+uG4wmjogy
-	NzIoGLw4K0LQXhR1IFiwuzRaaCcEJWwk2FuRUl5zbjSLKemJ+rvRq2w2triVvtcMrZegKfsdWYzoJ
-	vSnt3UmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ieeyhzz8w37t8AaRBwq/svymjfH6Fz/fp8xUkC3vaLA=; b=4dgITrfOtza6b9NGV8BCFCkVpU
+	w9vQQDg3jNGm/z0wmdczCAuRBwiZhmuMUgaVfTV8ekd80o8Que66x/2VkSb3b+9ndz7VgGVKWHYs+
+	Es6UNfxeBn/u/3dZwnkmN6h71RVxX7EctDGxYG6Jg63BoI7apcb4Ineuirb4lqm2sm2Nv/cfLYw1P
+	WTYlz3d5g3BbuzZJV/uk6QaUFpGI3T7UzSzoNyo5ZGxMqd/kgxCQKglWEfgM+wfo3JzTAx27mky3u
+	T9R6GoUcjGKqCk94YVIyLDnRCj+gJQxD+RBZgStcqebr5mAUTWj+QI0tUy13/kBua3VnLy+WhONfZ
+	SH1d6BYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP5hu-00000000wzE-0gFF;
-	Fri, 28 Nov 2025 21:08:46 +0000
-Received: from sender3-pp-f112.zoho.com ([136.143.184.112])
+	id 1vP5qr-00000000xgR-1kuG;
+	Fri, 28 Nov 2025 21:18:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP5hg-00000000wjx-0BSB;
-	Fri, 28 Nov 2025 21:08:41 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1764364082; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=W0wRcrmmJx5TV0wiGP3y8G0CADpZyebzywEeKT9Qu2O3RAYUWH1pWuLPjChwEi4FqF0fdhkIdumjn4IhFXO7B1SyHA/upBT2E1yiYWDo3T0SnywVbqr4xLu/PrI7t1vyzAk1chOPTXtHSqCfrKFb9WVb+1AMWh6q8TBa3ARur5M=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1764364082; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=G/TwWJgbgaJ4CV8gTMN/jzKwmmdChg5+47UVxWfc6AU=; 
-	b=iPTCfclv0aGzId86DHKASv/9cZY8Eb9TOkuBUCESDywgdwD9+PQZ+q4OZq5iS1mQzlGY2eX1N24ej91pzq1hk6Wh2ckTCLf/TkiZMFpsgcp8/dSGpF53cNDGd8SD1wKyPJfp6FClh013tJd7rPDDFhJIo47UraIXJJ8COY0YFlM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1764364082;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=G/TwWJgbgaJ4CV8gTMN/jzKwmmdChg5+47UVxWfc6AU=;
-	b=NZbHEXjT1kiPnE7l5lMpIarCRF3zWxpE+Se0Ul+zB3ze/1YVk4Sn/sEAcfvp5I8X
-	13hWJXnwn3HrZ8cF5Ij7sHs5nmHNevurqboRp11sZRRAPCVuOpVRtKRYkT6g6SBWKxU
-	OLnL0RN3zmdbPs1NIXRzmGuU9GKr9OpHDdxHpMsE=
-Received: by mx.zohomail.com with SMTPS id 1764364081586438.6523800934766;
-	Fri, 28 Nov 2025 13:08:01 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Fri, 28 Nov 2025 22:05:53 +0100
-Subject: [PATCH v5 17/17] drm/tests: hdmi: Add tests for the color_format
- property
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251128-color-format-v5-17-63e82f1db1e1@collabora.com>
-References: <20251128-color-format-v5-0-63e82f1db1e1@collabora.com>
-In-Reply-To: <20251128-color-format-v5-0-63e82f1db1e1@collabora.com>
-To: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
- Rodrigo Siqueira <siqueira@igalia.com>, 
- Alex Deucher <alexander.deucher@amd.com>, 
- =?utf-8?q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Andrzej Hajda <andrzej.hajda@intel.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Jani Nikula <jani.nikula@linux.intel.com>, 
- Rodrigo Vivi <rodrigo.vivi@intel.com>, 
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, 
- Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>
-Cc: kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_130832_209163_F1B3A3AE 
-X-CRM114-Status: GOOD (  16.78  )
+	id 1vP5qq-00000000xgE-207w
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Nov 2025 21:18:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8B99360197;
+	Fri, 28 Nov 2025 21:17:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 380EFC4CEF1;
+	Fri, 28 Nov 2025 21:17:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764364679;
+	bh=Bo6HSNuvZuSa5hntSS7jZN1hJOuzIVUk56BB6nxZK8c=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=V6jJaRBrm/ukRZsEgiPwDxG1vbP7YL+auGSyPIq1D+ZtLmj4Wn3bn2cyI85BhDaQo
+	 FNqfcQqRlfDxD9nBdCltTKf5TO6mj+bX4/990fV0ypO2sIjuer0FpiLja2cr2WSkRo
+	 SIRd3kS3r/QiBugv+WikpAPdxoEukK7pebrSltibYvwrRTWwpqYxHaL59ajjtkUnz0
+	 ORGGySr44d7QkCOqeIS7sJt8L4o+0KEk7RcfDGuAR/R5XdnMIobEAFnQoK4uLJaxa6
+	 EhUwCnRE58po+9e/CZPLfOOugMTU6geWahuNDqHQmN5LXactKy0G7vIvX+YGJ8dUui
+	 dOJfSLcmxWqFQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3BA56380692B;
+	Fri, 28 Nov 2025 21:15:02 +0000 (UTC)
+Subject: Re: [GIT PULL] soc: fixes for 6.18, part 4
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <be1c0b1e-4e4c-420c-ba0c-f19ddf30e657@app.fastmail.com>
+References: <be1c0b1e-4e4c-420c-ba0c-f19ddf30e657@app.fastmail.com>
+X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
+X-PR-Tracked-Message-Id: <be1c0b1e-4e4c-420c-ba0c-f19ddf30e657@app.fastmail.com>
+X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc-fixes-6.18-4
+X-PR-Tracked-Commit-Id: 3ecfcf34f0992d11e5eb2458a2108b3320c61ba4
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 7fa0d7744c28267142287a75134de58790999e72
+Message-Id: <176436450076.799297.166330833698529282.pr-tracker-bot@kernel.org>
+Date: Fri, 28 Nov 2025 21:15:00 +0000
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, soc@lists.linux.dev
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,195 +74,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add some KUnit tests to check the color_format property is working as
-expected with the HDMI state helper.
+The pull request you sent on Fri, 28 Nov 2025 17:45:17 +0100:
 
-The added tests check that AUTO results in RGB, and the YCBCR modes
-result in the corresponding YUV modes. An additional test ensures that
-only DRM_COLOR_FORMAT_AUTO falls back to YUV420 with a YUV420-only mode,
-and RGB errors out instead, while explicitly asking for YUV420 still
-works.
+> https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc-fixes-6.18-4
 
-This requires exporting hdmi_compute_config, so that it is accessible
-from the tests.
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/7fa0d7744c28267142287a75134de58790999e72
 
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- drivers/gpu/drm/display/drm_hdmi_state_helper.c    |   3 +-
- drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 109 +++++++++++++++++++++
- include/drm/display/drm_hdmi_state_helper.h        |   4 +
- 3 files changed, 115 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-index 1800e00b30c5..e86fb837ceaf 100644
---- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-+++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-@@ -641,7 +641,7 @@ hdmi_compute_format_bpc(const struct drm_connector *connector,
- 	return -EINVAL;
- }
- 
--static int
-+int
- hdmi_compute_config(const struct drm_connector *connector,
- 		    struct drm_connector_state *conn_state,
- 		    const struct drm_display_mode *mode)
-@@ -680,6 +680,7 @@ hdmi_compute_config(const struct drm_connector *connector,
- 
- 	return ret;
- }
-+EXPORT_SYMBOL(hdmi_compute_config);
- 
- static int hdmi_generate_avi_infoframe(const struct drm_connector *connector,
- 				       struct drm_connector_state *conn_state)
-diff --git a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
-index 8bd412735000..e7050cd9cb12 100644
---- a/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
-+++ b/drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c
-@@ -55,6 +55,23 @@ static struct drm_display_mode *find_preferred_mode(struct drm_connector *connec
- 	return preferred;
- }
- 
-+static struct drm_display_mode *find_420_only_mode(struct drm_connector *connector)
-+{
-+	struct drm_device *drm = connector->dev;
-+	struct drm_display_mode *mode;
-+
-+	mutex_lock(&drm->mode_config.mutex);
-+	list_for_each_entry(mode, &connector->modes, head) {
-+		if (drm_mode_is_420_only(&connector->display_info, mode)) {
-+			mutex_unlock(&drm->mode_config.mutex);
-+			return mode;
-+		}
-+	}
-+	mutex_unlock(&drm->mode_config.mutex);
-+
-+	return NULL;
-+}
-+
- static int set_connector_edid(struct kunit *test, struct drm_connector *connector,
- 			      const void *edid, size_t edid_len)
- {
-@@ -1999,6 +2016,95 @@ static void drm_test_check_disable_connector(struct kunit *test)
- 	drm_modeset_acquire_fini(&ctx);
- }
- 
-+struct color_format_test_param {
-+	enum drm_color_format fmt;
-+	enum hdmi_colorspace expected;
-+	const char *desc;
-+};
-+
-+/* Test that AUTO results in RGB, and explicit choices result in those */
-+static void drm_test_check_hdmi_color_format(struct kunit *test)
-+{
-+	const struct color_format_test_param *param = test->param_value;
-+	struct drm_atomic_helper_connector_hdmi_priv *priv;
-+	struct drm_connector_state *conn_state;
-+	struct drm_display_info *info;
-+	struct drm_display_mode *preferred;
-+	int ret;
-+
-+	priv = drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test,
-+				BIT(HDMI_COLORSPACE_RGB) |
-+				BIT(HDMI_COLORSPACE_YUV422) |
-+				BIT(HDMI_COLORSPACE_YUV420) |
-+				BIT(HDMI_COLORSPACE_YUV444),
-+				12,
-+				&dummy_connector_hdmi_funcs,
-+				test_edid_hdmi_4k_rgb_yuv420_dc_max_340mhz);
-+	KUNIT_ASSERT_NOT_NULL(test, priv);
-+
-+	conn_state = priv->connector.state;
-+	info = &priv->connector.display_info;
-+	conn_state->color_format = param->fmt;
-+	KUNIT_ASSERT_TRUE(test, priv->connector.ycbcr_420_allowed);
-+
-+	preferred = find_preferred_mode(&priv->connector);
-+	KUNIT_ASSERT_TRUE(test, drm_mode_is_420(info, preferred));
-+
-+	ret = hdmi_compute_config(&priv->connector, conn_state, preferred);
-+	KUNIT_EXPECT_EQ(test, ret, 0);
-+	KUNIT_EXPECT_EQ(test, conn_state->hdmi.output_format, param->expected);
-+}
-+
-+static const struct color_format_test_param hdmi_color_format_params[] = {
-+	{ DRM_COLOR_FORMAT_AUTO, HDMI_COLORSPACE_RGB, "AUTO -> RGB" },
-+	{ DRM_COLOR_FORMAT_YCBCR422, HDMI_COLORSPACE_YUV422, "YCBCR422 -> YUV422" },
-+	{ DRM_COLOR_FORMAT_YCBCR420, HDMI_COLORSPACE_YUV420, "YCBCR420 -> YUV420" },
-+	{ DRM_COLOR_FORMAT_YCBCR444, HDMI_COLORSPACE_YUV444, "YCBCR444 -> YUV444" },
-+	{ DRM_COLOR_FORMAT_RGB444, HDMI_COLORSPACE_RGB, "RGB -> RGB" },
-+};
-+
-+KUNIT_ARRAY_PARAM_DESC(check_hdmi_color_format,
-+		  hdmi_color_format_params, desc);
-+
-+
-+/* Test that AUTO falls back to YUV420, and that RGB does not, but YUV420 works */
-+static void drm_test_check_hdmi_color_format_420_only(struct kunit *test)
-+{
-+	struct drm_atomic_helper_connector_hdmi_priv *priv;
-+	struct drm_connector_state *conn_state;
-+	struct drm_display_mode *dank;
-+	int ret;
-+
-+	priv = drm_kunit_helper_connector_hdmi_init_with_edid_funcs(test,
-+				BIT(HDMI_COLORSPACE_RGB) |
-+				BIT(HDMI_COLORSPACE_YUV422) |
-+				BIT(HDMI_COLORSPACE_YUV420) |
-+				BIT(HDMI_COLORSPACE_YUV444),
-+				12,
-+				&dummy_connector_hdmi_funcs,
-+				test_edid_hdmi_1080p_rgb_yuv_4k_yuv420_dc_max_200mhz);
-+	KUNIT_ASSERT_NOT_NULL(test, priv);
-+
-+	conn_state = priv->connector.state;
-+
-+	dank = find_420_only_mode(&priv->connector);
-+	KUNIT_ASSERT_NOT_NULL(test, dank);
-+
-+	conn_state->color_format = DRM_COLOR_FORMAT_AUTO;
-+	ret = hdmi_compute_config(&priv->connector, conn_state, dank);
-+	KUNIT_EXPECT_EQ(test, ret, 0);
-+	KUNIT_EXPECT_EQ(test, conn_state->hdmi.output_format, HDMI_COLORSPACE_YUV420);
-+
-+	conn_state->color_format = DRM_COLOR_FORMAT_RGB444;
-+	ret = hdmi_compute_config(&priv->connector, conn_state, dank);
-+	KUNIT_EXPECT_LT(test, ret, 0);
-+
-+	conn_state->color_format = DRM_COLOR_FORMAT_YCBCR420;
-+	ret = hdmi_compute_config(&priv->connector, conn_state, dank);
-+	KUNIT_EXPECT_EQ(test, ret, 0);
-+	KUNIT_EXPECT_EQ(test, conn_state->hdmi.output_format, HDMI_COLORSPACE_YUV420);
-+};
-+
- static struct kunit_case drm_atomic_helper_connector_hdmi_check_tests[] = {
- 	KUNIT_CASE(drm_test_check_broadcast_rgb_auto_cea_mode),
- 	KUNIT_CASE(drm_test_check_broadcast_rgb_auto_cea_mode_vic_1),
-@@ -2028,6 +2134,9 @@ static struct kunit_case drm_atomic_helper_connector_hdmi_check_tests[] = {
- 	KUNIT_CASE(drm_test_check_tmds_char_rate_rgb_8bpc),
- 	KUNIT_CASE(drm_test_check_tmds_char_rate_rgb_10bpc),
- 	KUNIT_CASE(drm_test_check_tmds_char_rate_rgb_12bpc),
-+	KUNIT_CASE_PARAM(drm_test_check_hdmi_color_format,
-+			 check_hdmi_color_format_gen_params),
-+	KUNIT_CASE(drm_test_check_hdmi_color_format_420_only),
- 	/*
- 	 * TODO: We should have tests to check that a change in the
- 	 * format triggers a CRTC mode change just like we do for the
-diff --git a/include/drm/display/drm_hdmi_state_helper.h b/include/drm/display/drm_hdmi_state_helper.h
-index 2349c0d0f00f..01ae31209820 100644
---- a/include/drm/display/drm_hdmi_state_helper.h
-+++ b/include/drm/display/drm_hdmi_state_helper.h
-@@ -30,4 +30,8 @@ enum drm_mode_status
- drm_hdmi_connector_mode_valid(struct drm_connector *connector,
- 			      const struct drm_display_mode *mode);
- 
-+int hdmi_compute_config(const struct drm_connector *connector,
-+			struct drm_connector_state *conn_state,
-+			const struct drm_display_mode *mode);
-+
- #endif // DRM_HDMI_STATE_HELPER_H_
+Thank you!
 
 -- 
-2.52.0
-
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
