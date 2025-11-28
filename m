@@ -4,100 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEB3BD116EA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 08:10:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEF54D116EA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 08:18:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+2bFlIh8I9NZQcRpDPD+Djsorg8bRceb3xQr+grKSRk=; b=CD9t6z6MUbAYCTr9rtuooFr6tr
-	xxw7JVCkS1340WuFEQVA/6xCK7ZqmLvhuEfGiEdH3X8n9wWfM4g/Nk4JHDE+2Yr4v57xOuiHcP0oX
-	p4YVhMDPpWNKcQqLnz90g+UFP2tSI+Uzi9hVF+O8/XzcShJSqGNgRX3DzsQJrZbQqf+w14jPQm5ww
-	/8z/n6jKGae0Lm++bVNuR6JaJNZzOwBN0hBzGbIXHPx1rSDPHK7SdxFCTRcpbWYNoEzj7fJkG3JY5
-	rqEgxzZV+ESBiokTYnlAcJW5jn8qJnMGDEfRAc4h6nFTFNokCmhZ3xodztFUdFqzbr5sgy6dUh+fK
-	wlRhJRlw==;
+	bh=TnOxp005sIMEnvq/K4jns2kWF0Urxo8s7JX9Uv97umo=; b=rmebbrFlz01yeoweN3jzuLMQtW
+	2247TFvbG56+antKsTyADgs9YGM1UfBv5GtKYdrsOc63INcZc3BhsDnXi67NLPwdqf6Op/uHxqp6o
+	jjtnSJT2Iz5OYbPfnxki8W6Hitw4JSNZvY3yxf5F5gTF+4xQj5P6A7oaOqJ2hgFyPBJ3eMFOql7zX
+	r71xQQLEtONefl/Rr+AGeZ3Fz/qPvY4mXULeR7l0283vB9Km3Q6gMpzFkJjY2kyIpJFlUUQbKK5J6
+	C7KKlVp0DxBuHdX3EgtEtVl0I9QT4AnUD/8xvYjUMMAZ0wdYZY+/u8MBr1OXE6o9CjQk6UH1sEXtZ
+	R8bHGGqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOtZ4-00000000842-16Ei;
-	Fri, 28 Nov 2025 08:10:50 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1vOtgD-000000008Rn-0Sd4;
+	Fri, 28 Nov 2025 08:18:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOtZ1-0000000083B-2CiD
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 08:10:48 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-477aa218f20so9489065e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Nov 2025 00:10:46 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764317445; x=1764922245; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+2bFlIh8I9NZQcRpDPD+Djsorg8bRceb3xQr+grKSRk=;
-        b=M12DisTtjleZee6VzpMTDfzgN44jmSB/4Cumn6Jw9pCBaIyOvCrkq9hSRfVmbv5qzf
-         M7+xeiaTsxDObpiawHUYVGBmCciEtCjor5uaTjnFOPoSmSWfTi6K+oQHAz+bro4wW9ZF
-         hFH4cED3pwxMEHo6UwZEI6rRcslVMrlgfMko6ZuaklDvtldRS8OvBA7W3mL1h1WNOuG6
-         qUHkAWRDIFIwcrbpUbxio4o87ZTbYFt0vMtVCoMY103o9eFdU1bJhsPcAXPFkNLvJZk5
-         huOofRTBnwocjbSiHIVf4aPuKxGY40Xpae2MJ4JAhvoS7oiqjL+qRMpLzXw8QTHZzp9B
-         YoWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764317445; x=1764922245;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+2bFlIh8I9NZQcRpDPD+Djsorg8bRceb3xQr+grKSRk=;
-        b=r55jkeshbGIBx2qx39c8Q5gYOCCZl2XWr7s8w30rBWGha/49T63lGHsURuq79Nh0bL
-         Pvzj5c4/xZ8sHcHANrai5eJ94MSt/S/aUv5bMZ8kU8nJrzSIcAfc2Yu3jZQaIZBI+Dh7
-         KYD46z9qeq56GWaMArpqN29DEZfbkNBR3EOGp7yOzDl0Z6D5l2Du3DAYMxfO3/wZIynh
-         w9wCw14l/TeGs+HMjt/Uxso5SwwmmiT7z337/W0okPEXW8geuM8Ama5GVU1qzAPNn080
-         NT/85KTSwZ/sOeSETu53KlWSAGnedqwiWz4w4Enx68YxLrg2SFQWW+KdgSR92j35K5qv
-         sgGQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV1kafAGUwE1j+IhQrqBcVBl5HYt7hDtKRDbIn6TCYoIb2K3geCO1HOHOezThALltHC9IRZ9/p2zDtjxhO2Qro2@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIbytVgzikUweQKVjbLMv2ROjEhDYczLs0l9avHd9ccCjZHK1U
-	PCKDpTYUMRIrz5VGTpr2PN78CjYHF2oc8qm2QHKLoJLhO63q9CtPkljppoMFOcsccJw=
-X-Gm-Gg: ASbGncshuB9keHbHI+iBEnQngn5UjJBHtokpL/1qIsVRlP/7iUU26drs8OBsuOvh6PF
-	R/9DUEPXJ1hgbdobZcXeqK1UwMOtoQpmBy8i3RjCu6iL6lcdgQ5Fj45JZZhh4wVNd64vCYr08mc
-	bo+N7nxkSgfsJ7p7mpH5MDawPcl94tJ+pUodTlbpLyNMp2a3R8yuRJfWOh2vdUlzpPVHkuCKPd3
-	152F66ZbjVtffNPnYlPmZaKFajVBieXyXENBe9ZLjfPOqSpC2vIA6ZYtby9OIv1gBpXwwrFIr60
-	lF4O/eoCTdTgKaedroJ/yGlmJRq2WBmX7WfT6PDRzIYFrmioloI81e0+ftSz3+fJXvGNkO3lcZA
-	BPmvN927V0F/3Le+6okUNFGUntntK1Dla3xB9y6xOudbVEi0UtK+GaMdXaDtZ2aCYt4M+jf8wKE
-	jAZRN94c9yTjD/WCe7
-X-Google-Smtp-Source: AGHT+IHVNGxLHdQSfNonRBBq78f347/I8I+ulkCPlaTONnGVXYiUFj038obXmFsDqBT8iAGXzvuP8A==
-X-Received: by 2002:a05:600c:1d1d:b0:477:7c7d:d9b7 with SMTP id 5b1f17b1804b1-477c01ec3f5mr247354265e9.33.1764317445111;
-        Fri, 28 Nov 2025 00:10:45 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-47911143bb6sm83247115e9.3.2025.11.28.00.10.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Nov 2025 00:10:43 -0800 (PST)
-Date: Fri, 28 Nov 2025 11:10:39 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: James Calligeros <jcalligeros99@gmail.com>
-Cc: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>, Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Jean Delvare <jdelvare@suse.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
-	linux-hwmon@vger.kernel.org, linux-input@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v5 06/11] hwmon: Add Apple Silicon SMC hwmon driver
-Message-ID: <aSlY_w-nXA38PrBO@stanley.mountain>
-References: <20251112-macsmc-subdevs-v5-0-728e4b91fe81@gmail.com>
- <20251112-macsmc-subdevs-v5-6-728e4b91fe81@gmail.com>
+	id 1vOtgB-000000008Re-09Z6;
+	Fri, 28 Nov 2025 08:18:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C1154602BA;
+	Fri, 28 Nov 2025 08:18:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42062C4CEF1;
+	Fri, 28 Nov 2025 08:18:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764317889;
+	bh=Oycb6ot6Iyhsttxtig2/z+FAxLCxcG3XAiysNbp4Vdw=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=D2UPU2kIouxukoByIRpHeE7yB9hi0j1p5g3O4zP4ENqRSX/Z8+pl1Mm3LrvHm5thq
+	 tB+erSWVHiFBi468A5rhzTTijwcJRvjThyH25MuhVCTYf/clYHKWKVm3lh1V72qlXG
+	 2vZtDiEQt0ztKR4wv1qVGsVxzE9eapDp4spc713WubXGWJ/X8zAV59AXLP7MS3xhmJ
+	 CyXloozgNe7Z+dQyhjfh5tnCWIjJFFm61r3UAhsZ5pw4XAkGBrFB3EYSXIE88gH2zA
+	 QLMsACSuWwqig8N/ShJdPcSX+Zl9vqxavU1nWZLOSOObZYkUbgnqtI0JBsTvrKVHuR
+	 7UgUFLawaXy+w==
+Date: Fri, 28 Nov 2025 02:18:07 -0600
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251112-macsmc-subdevs-v5-6-728e4b91fe81@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_001047_605724_185BC63C 
-X-CRM114-Status: GOOD (  14.62  )
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+ Heiko Stuebner <heiko@sntech.de>, linux-kernel@vger.kernel.org, 
+ Will Deacon <will@kernel.org>, linux-rockchip@lists.infradead.org, 
+ iommu@lists.linux.dev, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+ Joerg Roedel <joro@8bytes.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, Robin Murphy <robin.murphy@arm.com>
+To: Chaoyi Chen <kernel@airkyi.com>
+In-Reply-To: <20251128071322.92-2-kernel@airkyi.com>
+References: <20251128071322.92-1-kernel@airkyi.com>
+ <20251128071322.92-2-kernel@airkyi.com>
+Message-Id: <176431788757.1500601.18210148365739838676.robh@kernel.org>
+Subject: Re: [PATCH v2 1/2] dt-bindings: iommu: rockchip: Add support for
+ multiple interface clocks
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,135 +73,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 12, 2025 at 09:16:52PM +1000, James Calligeros wrote:
-> +static int macsmc_hwmon_populate_sensors(struct macsmc_hwmon *hwmon,
-> +					 struct device_node *hwmon_node)
-> +{
-> +	struct device_node *key_node __maybe_unused;
 
-The for_each_child_of_node_with_prefix() macros declare key_node so this
-declaration is never used so far as I can see.  I thought Sparse had a
-warning where we declared shadow variables where two variables have the
-same name but it doesn't complain here. #strange
+On Fri, 28 Nov 2025 15:13:21 +0800, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> 
+> The iommu found on RK3576 NPU and RK3576 RKVDEC have 4 clock instead of
+> 2 clock. Their clock names might differ, but I don't think that matters
+> much.
+> 
+> Add support for them.
+> 
+> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> ---
+> 
+> Changes in v2:
+> - Rewrite dt binding.
+> 
+>  .../bindings/iommu/rockchip,iommu.yaml        | 52 ++++++++++++++++---
+>  1 file changed, 46 insertions(+), 6 deletions(-)
+> 
 
-> +	struct macsmc_hwmon_sensor *sensor;
-> +	u32 n_current = 0, n_fan = 0, n_power = 0, n_temperature = 0, n_voltage = 0;
-> +
-> +	for_each_child_of_node_with_prefix(hwmon_node, key_node, "current-") {
-                                                       ^^^^^^^^
+My bot found errors running 'make dt_binding_check' on your patch:
 
-regards,
-dan carpenter
+yamllint warnings/errors:
 
-> +		n_current++;
-> +	}
-> +
-> +	if (n_current) {
-> +		hwmon->curr.sensors = devm_kcalloc(hwmon->dev, n_current,
-> +						   sizeof(struct macsmc_hwmon_sensor), GFP_KERNEL);
-> +		if (!hwmon->curr.sensors)
-> +			return -ENOMEM;
-> +
-> +		for_each_child_of_node_with_prefix(hwmon_node, key_node, "current-") {
-> +			sensor = &hwmon->curr.sensors[hwmon->curr.count];
-> +			if (!macsmc_hwmon_create_sensor(hwmon->dev, hwmon->smc, key_node, sensor)) {
-> +				sensor->attrs = HWMON_C_INPUT;
-> +
-> +				if (*sensor->label)
-> +					sensor->attrs |= HWMON_C_LABEL;
-> +
-> +				hwmon->curr.count++;
-> +			}
-> +		}
-> +	}
-> +
-> +	for_each_child_of_node_with_prefix(hwmon_node, key_node, "fan-") {
-> +		n_fan++;
-> +	}
-> +
-> +	if (n_fan) {
-> +		hwmon->fan.fans = devm_kcalloc(hwmon->dev, n_fan,
-> +					       sizeof(struct macsmc_hwmon_fan), GFP_KERNEL);
-> +		if (!hwmon->fan.fans)
-> +			return -ENOMEM;
-> +
-> +		for_each_child_of_node_with_prefix(hwmon_node, key_node, "fan-") {
-> +			if (!macsmc_hwmon_create_fan(hwmon->dev, hwmon->smc, key_node,
-> +						     &hwmon->fan.fans[hwmon->fan.count]))
-> +				hwmon->fan.count++;
-> +		}
-> +	}
-> +
-> +	for_each_child_of_node_with_prefix(hwmon_node, key_node, "power-") {
-> +		n_power++;
-> +	}
-> +
-> +	if (n_power) {
-> +		hwmon->power.sensors = devm_kcalloc(hwmon->dev, n_power,
-> +						    sizeof(struct macsmc_hwmon_sensor), GFP_KERNEL);
-> +		if (!hwmon->power.sensors)
-> +			return -ENOMEM;
-> +
-> +		for_each_child_of_node_with_prefix(hwmon_node, key_node, "power-") {
-> +			sensor = &hwmon->power.sensors[hwmon->power.count];
-> +			if (!macsmc_hwmon_create_sensor(hwmon->dev, hwmon->smc, key_node, sensor)) {
-> +				sensor->attrs = HWMON_P_INPUT;
-> +
-> +				if (*sensor->label)
-> +					sensor->attrs |= HWMON_P_LABEL;
-> +
-> +				hwmon->power.count++;
-> +			}
-> +		}
-> +	}
-> +
-> +	for_each_child_of_node_with_prefix(hwmon_node, key_node, "temperature-") {
-> +		n_temperature++;
-> +	}
-> +
-> +	if (n_temperature) {
-> +		hwmon->temp.sensors = devm_kcalloc(hwmon->dev, n_temperature,
-> +						   sizeof(struct macsmc_hwmon_sensor), GFP_KERNEL);
-> +		if (!hwmon->temp.sensors)
-> +			return -ENOMEM;
-> +
-> +		for_each_child_of_node_with_prefix(hwmon_node, key_node, "temperature-") {
-> +			sensor = &hwmon->temp.sensors[hwmon->temp.count];
-> +			if (!macsmc_hwmon_create_sensor(hwmon->dev, hwmon->smc, key_node, sensor)) {
-> +				sensor->attrs = HWMON_T_INPUT;
-> +
-> +				if (*sensor->label)
-> +					sensor->attrs |= HWMON_T_LABEL;
-> +
-> +				hwmon->temp.count++;
-> +			}
-> +		}
-> +	}
-> +
-> +	for_each_child_of_node_with_prefix(hwmon_node, key_node, "voltage-") {
-> +		n_voltage++;
-> +	}
-> +
-> +	if (n_voltage) {
-> +		hwmon->volt.sensors = devm_kcalloc(hwmon->dev, n_voltage,
-> +						   sizeof(struct macsmc_hwmon_sensor), GFP_KERNEL);
-> +		if (!hwmon->volt.sensors)
-> +			return -ENOMEM;
-> +
-> +		for_each_child_of_node_with_prefix(hwmon_node, key_node, "volt-") {
-> +			sensor = &hwmon->temp.sensors[hwmon->temp.count];
-> +			if (!macsmc_hwmon_create_sensor(hwmon->dev, hwmon->smc, key_node, sensor)) {
-> +				sensor->attrs = HWMON_I_INPUT;
-> +
-> +				if (*sensor->label)
-> +					sensor->attrs |= HWMON_I_LABEL;
-> +
-> +				hwmon->volt.count++;
-> +			}
-> +		}
-> +	}
-> +
-> +	return 0;
-> +}
+dtschema/dtc warnings/errors:
+Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c263000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
+Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c263000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
+Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c265000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
+Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c265000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251128071322.92-2-kernel@airkyi.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
