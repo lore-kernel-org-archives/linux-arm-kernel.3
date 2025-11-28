@@ -4,58 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 198A4D116E2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 14:17:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F62CCFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 14:53:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cj85S/m1L9fjDmdh9VnAe+fZQO3gSa54W+uUQedLqYs=; b=plGUVHbE7qi2h0+9clVl8kvoR0
-	eIVLsZYQXmS6sBc1eR1i0b/nutxUktt/QZ/fNV6pg8JO8rRKzCmQlZ5t9mJCIVQwtXsfE6I24Yjfs
-	TmagQfwrJsyUclPiN0FPg0lS+br7/xidE4kFSNfK9owxZbQqycfzpQ+0BtqeIP7Nvv2n+AcD6lRuT
-	9CJ6KHKjz8/XUGZGwMelA73alTMx2zldzp2eq1iHvSrBZtBaYecMKlj57HSrPEPf3AgPvidZkn7sW
-	NnPmF4SkbUQNIleNOxLnh+u8iWQftWFpiohzCZzKrdgT4q8Bd5sTvmOjmqxzGIdTHW2oNeKnaFMDs
-	DvWoZq2Q==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Rnlc1dtXuVp5Avi/r2iLQdz0CX/cLLUFEsKgUqsEt14=; b=01W4/he5PQcb9rUypwX/pVZo2l
+	vNTrZS59KBMlD9ugi7YQYfG0jFaYPJ0pM/B4pehVf7u9hnQBkPijjWsnEx8Ilr0DRcmqj1T5k6Fcr
+	myy7kX4xWs9nJQqiy5F0ZjxcVDBYE1rC/nsM4Qj8Z9ewUResWlv36rH2DVV64U9gk8pzLCmFtXoB5
+	EVecNPNEX+6jawKqAc55CwYcRkTITRrG2Hzc8Ew1k+NW7InElMbHZRaEiNgkRk82/IpRESZPKLihO
+	M+XYGe3X5Xba7Uuj1lt61vdmQcftD+UqY5+GT7MYX0MmNbkWKRpVlapVqkklmXNt5cN39ElrSNJu0
+	RxRm60Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOzHk-00000000WsC-04KO;
-	Fri, 28 Nov 2025 14:17:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vOzqP-00000000YKQ-1i3I;
+	Fri, 28 Nov 2025 14:53:09 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOzHi-00000000Wrc-0fyG
+	id 1vOzqN-00000000YK0-0yn6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 14:17:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4A92160154;
-	Fri, 28 Nov 2025 14:17:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65A2AC4CEF1;
-	Fri, 28 Nov 2025 14:17:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764339437;
-	bh=znVfCnkhwZOTtHLotYIU8+PsWT8Kzfud0OeYCNQfrvs=;
-	h=From:To:Cc:Subject:Date:From;
-	b=HEl/7XxesWwAfgOWhEYHKoTC4KlbzK9fAI/KwmXjwJUlRnFQTeoaDmEQLNT2Mjc+y
-	 BhFeUbyzRiOPPYPfWE6L988ZjMWeemCQYRfeMjxCe2Qxgw4d+unGJX1koBrNVic71T
-	 cIWCKI8fxwds3+chFJGpv8ZARX2o0dwpTErZK8fvUQrfNWBhassjsxx2spq8F/sz9b
-	 Eocje6FDYghx3FRAALpuLUKfz7tYmKzPthG8lx3+KYedPJJecUwu8LNThjnLIm1gYh
-	 ZM8fRRkZSpufsrnig0hAAtl3XCD5KwkZd8CBDeHd8brsGEZwnRTV6qEhxRaHsbk1pl
-	 hpwQCt3Hl/fxA==
-From: Will Deacon <will@kernel.org>
-To: kvmarm@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org,
-	Will Deacon <will@kernel.org>,
-	Fuad Tabba <tabba@google.com>,
-	Quentin Perret <qperret@google.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oupton@kernel.org>
-Subject: [PATCH] KVM: arm64: Invert KVM_PGTABLE_WALK_HANDLE_FAULT to fix pKVM walkers
-Date: Fri, 28 Nov 2025 14:17:10 +0000
-Message-Id: <20251128141710.19472-1-will@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	Fri, 28 Nov 2025 14:53:08 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-477a2ab455fso19891225e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Nov 2025 06:53:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1764341585; x=1764946385; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Rnlc1dtXuVp5Avi/r2iLQdz0CX/cLLUFEsKgUqsEt14=;
+        b=O+N03h/HuvECFzeqDmy4pz9KFGHDp1MvAxSEWN80baABQEMG9XdlWeRZXrTtSnnau1
+         nt19AUs1VBD4bxK4iP5+LTZRhwSa89dC7L27pVXdII1ieIGURjSNOLgprG6v6BMlyRWt
+         IaSm9uxOYIyr6fV8/HUUD64vO2RwV8VSM39+io4nDYoiEkvCJdzbqzCx8YhdKdkuF5lE
+         4tew2THM+FLWdjO/6quzwXKl4cbLItn2tuf608yK11b8ycFmNWr6kcXIXAXwcycb9CP0
+         Ht6wYqI6Cfy3TEalWeOPUNRa59E0RrbjNTUs++5fqXRfzZ7f5/fkkQO7chUxo49MbI59
+         lQ3w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764341585; x=1764946385;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Rnlc1dtXuVp5Avi/r2iLQdz0CX/cLLUFEsKgUqsEt14=;
+        b=wLeFT6BcHZCN9ZG3K9vVFwKcMlS84/AHcPPaDq86hqmCHTkBoQHBVUquswe+iNNtmB
+         4SBLkl/iIoCF3osNjfT0cv++ZZbf1YwSCVDzJXHNA9qT/9i4k0gRulGGR9N1ljmyM8Jy
+         7Oks87dwPm13WN0CZhYmIHjeuTHuXXFhU9Olu6KfAU4J/eNMx/LVnWfMWu4QBjw6yYKD
+         xvtxAooCiXf82DWrt3Rr+E3h7sJA0IKsSBgubN7BJ0BJjkiF7+I6QjvPo9fmZEDbXUpZ
+         IzatVcURP5t5/kRkEOCI++ibj1L9zXJI54KHv0PWgqwLvssaF0PmWwaFSL9BcoxqdlGC
+         ZSgw==
+X-Forwarded-Encrypted: i=1; AJvYcCULJnltKkQervyxKA83/89TR6btATqHU58G9j6wBLqy6y7K+EkEGJUedeY/wqnuuc2gAuRkq0FeSku/fEayyYxK@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvPvwMrKiDLUcH/HCQkIidElDPjT1uh1o3EPTwwvcZGnS6ezxT
+	PO9K+eHsK9ttTXv9Zy8iJs8aGEP8zb26/fnPtbpiOkeTvxZk5QlV6GHVQeegstiW0rI=
+X-Gm-Gg: ASbGnct3NZQJsVejLhOPdDlaNJ8zrMFKIuIXjmcOzbosOA/nAdEt7Zvx95H9ql+BigQ
+	GELlZoGHYOyOvAPzzCeKIlnBlROnP97lhsHblbgMdSsxT+/6bOmPZt5uZf61t0d+mQGsig4pTZY
+	Ev2mu1VuXvvpy5zmUnlzyOBKNGZJsJFQFFdlF8cTndQ6GLSXsDLn0BwGtYrl0QBzZSheBL7kFrn
+	rRXLXq1QRk+3wt3OEp+MWNqLbGa4DOng2kjmSPp845+XcvnsHJWfHx3GBGW8XbPSdA3aaHvyofo
+	thaSquSryWoXro46QHAbHhk4+zgAWXW3Gn8vvL1lGKIAT9Xfqt3NdTTFpJmMksUMtoBovBvDMOG
+	uvr0PMK90Uzje5E9kQ8tbXmQRnry1/0HmV3AeHKMQCnHxPeA3fBYoS/we95F4UvHHkaDhuK8YLl
+	TI6OnQWdSPaGeZih99
+X-Google-Smtp-Source: AGHT+IHInRzHYPgTVT3G43Xp1WGE5iHIgv9aeTIFvYapraVaTFrOoNIvykgpSsOowov7B8jkgKaA5Q==
+X-Received: by 2002:a05:600c:3111:b0:477:b734:8c53 with SMTP id 5b1f17b1804b1-477c10deffamr287739505e9.12.1764341585201;
+        Fri, 28 Nov 2025 06:53:05 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-479052cfd9dsm92060745e9.7.2025.11.28.06.53.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 28 Nov 2025 06:53:04 -0800 (PST)
+Message-ID: <8c7be69b-2227-45c2-9096-a49ec6df9a09@linaro.org>
+Date: Fri, 28 Nov 2025 14:53:03 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] coresight: etm3x: Fix buffer overwrite in cntr_val_show()
+To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@linaro.org>
+Cc: Kuan-Wei Chiu <visitorckw@gmail.com>, suzuki.poulose@arm.com,
+ alexander.shishkin@linux.intel.com, pratikp@codeaurora.org,
+ mathieu.poirier@linaro.org, gregkh@linuxfoundation.org,
+ jserv@ccns.ncku.edu.tw, marscheng@google.com, ericchancf@google.com,
+ milesjiang@google.com, nickpan@google.com, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251121002350.1166758-1-visitorckw@gmail.com>
+ <20251126120914.GH724103@e132581.arm.com>
+ <da2a3e18-80e0-4aca-bbc7-45c1353217d3@linaro.org>
+ <20251126123147.GI724103@e132581.arm.com>
+ <CAJ9a7VhD2p3qMGXNg6deYjE8myB5euHR4FcAFwgg0KWF2HO9JQ@mail.gmail.com>
+ <15d536f2-0829-4f3f-b111-b15b14236bd2@linaro.org>
+ <CAJ9a7Vjia4ENewP48nyDWBcBFbDmwb3vM2JNbNCw4-3yF3ABVQ@mail.gmail.com>
+ <20251127092942.GO724103@e132581.arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20251127092942.GO724103@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251128_065307_318686_84777FF0 
+X-CRM114-Status: GOOD (  23.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,136 +113,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit ddcadb297ce5 ("KVM: arm64: Ignore EAGAIN for walks outside of a
-fault") introduced a new walker flag ('KVM_PGTABLE_WALK_HANDLE_FAULT')
-to KVM's page-table code. When set, the walk logic maintains its
-previous behaviour of terminating a walk as soon as the visitor callback
-returns an error. However, when the flag is clear, the walk will
-continue if the visitor returns -EAGAIN and the error is then suppressed
-and returned as zero to the caller.
 
-Clearing the flag is beneficial when write-protecting a range of IPAs
-with kvm_pgtable_stage2_wrprotect() but is not useful in any other
-cases, either because we are operating on a single page (e.g.
-kvm_pgtable_stage2_mkyoung() or kvm_phys_addr_ioremap()) or because the
-early termination is desirable (e.g. when mapping pages from a fault in
-user_mem_abort()).
 
-Subsequently, commit e912efed485a ("KVM: arm64: Introduce the EL1 pKVM
-MMU") hooked up pKVM's hypercall interface to the MMU code at EL1 but
-failed to propagate any of the walker flags. As a result, page-table
-walks at EL2 fail to set KVM_PGTABLE_WALK_HANDLE_FAULT even when the
-early termination semantics are desirable on the fault handling path.
+On 27/11/2025 9:29 am, Leo Yan wrote:
+> On Wed, Nov 26, 2025 at 04:14:19PM +0000, Mike Leach wrote:
+> 
+> [...]
+> 
+>>>> The key to this is not the questions we are asked, but which platforms
+>>>> are still supported by the linux kernel.
+>>>>
+>>>> The ETMv3 driver supports both ETMv3 and PTM trace (the programming
+>>>> model is the same, even if the trace decode is vastly different).
+>>>>
+>>>> So as long as there are  platforms supported that use either of those,
+>>>> we need to keep the driver in.
+>>>>
+>>>
+>>> We're not running tests though, so if we find out it's fundamentally
+>>> broken somehow it could be another justification to remove it, even if
+>>> the kernel supports the devices. Do you have a board that you can test
+>>> on Mike?
+>>
+>> Don't have one myself, but I believe the TC2 was used in development,
+>> (that's the A15/A7 32 bit part - not total compute!) which somewhat
+>> conveniently had both etmv3 and ptm trace.
+> 
+> If ETMv4 can be used by Armv7 (arm32) CPUs, and nowdays if Armv7 + ETMv4
+> is a popular design, it makes sense for me to remove ETMv3 driver.
+> 
+> If Armv7 CPUs are always bound to ETMv3 / PTM, then we should keep the
+> driver.
+> 
+> Thanks,
+> Leo
 
-Rather than complicate the pKVM hypercall interface, invert the flag so
-that the whole thing can be simplified and only pass the new flag
-('KVM_PGTABLE_WALK_IGNORE_EAGAIN') from the wrprotect code.
+Based on the the build system I don't think what the hardware supports 
+matters that much. We've always only built the ETM4 driver on Arm64 and 
+only build the ETM3 driver on Arm32.
 
-Cc: Fuad Tabba <tabba@google.com>
-Cc: Quentin Perret <qperret@google.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oupton@kernel.org>
-Fixes: fce886a60207 ("KVM: arm64: Plumb the pKVM MMU in KVM")
-Signed-off-by: Will Deacon <will@kernel.org>
----
+I just found another bug which I think makes sense to log here. We've 
+pretty much always turned on timestamps automatically in Perf, but for 
+some reason the option validator in Perf thinks they're not supported in 
+ETM3. The driver has always accepted it as an option so I'm not sure 
+why. The end result is that the command will always fail, and you 
+couldn't even undo it with "timestamp=0" until more recently when I 
+fixed that.
 
-I found this by inspection and it's a bit fiddly to see what could
-actually go wrong in practice because the 'mappings' tree will return
--EAGAIN if it finds a pre-existing entry. The permission relaxing path
-looks more problematic, as we'll return 0 instead of -EAGAIN and I
-think we can mark the page dirty twice etc.
-
- arch/arm64/include/asm/kvm_pgtable.h | 6 +++---
- arch/arm64/kvm/hyp/pgtable.c         | 5 +++--
- arch/arm64/kvm/mmu.c                 | 8 +++-----
- 3 files changed, 9 insertions(+), 10 deletions(-)
-
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index 2888b5d03757..c69a9462fc79 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -288,8 +288,8 @@ typedef bool (*kvm_pgtable_force_pte_cb_t)(u64 addr, u64 end,
-  *					children.
-  * @KVM_PGTABLE_WALK_SHARED:		Indicates the page-tables may be shared
-  *					with other software walkers.
-- * @KVM_PGTABLE_WALK_HANDLE_FAULT:	Indicates the page-table walk was
-- *					invoked from a fault handler.
-+ * @KVM_PGTABLE_WALK_IGNORE_EAGAIN:	Don't terminate the walk early if
-+ *					the walker returns -EAGAIN.
-  * @KVM_PGTABLE_WALK_SKIP_BBM_TLBI:	Visit and update table entries
-  *					without Break-before-make's
-  *					TLB invalidation.
-@@ -302,7 +302,7 @@ enum kvm_pgtable_walk_flags {
- 	KVM_PGTABLE_WALK_TABLE_PRE		= BIT(1),
- 	KVM_PGTABLE_WALK_TABLE_POST		= BIT(2),
- 	KVM_PGTABLE_WALK_SHARED			= BIT(3),
--	KVM_PGTABLE_WALK_HANDLE_FAULT		= BIT(4),
-+	KVM_PGTABLE_WALK_IGNORE_EAGAIN		= BIT(4),
- 	KVM_PGTABLE_WALK_SKIP_BBM_TLBI		= BIT(5),
- 	KVM_PGTABLE_WALK_SKIP_CMO		= BIT(6),
- };
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index c351b4abd5db..3eca720ff8eb 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -144,7 +144,7 @@ static bool kvm_pgtable_walk_continue(const struct kvm_pgtable_walker *walker,
- 	 * page table walk.
- 	 */
- 	if (r == -EAGAIN)
--		return !(walker->flags & KVM_PGTABLE_WALK_HANDLE_FAULT);
-+		return walker->flags & KVM_PGTABLE_WALK_IGNORE_EAGAIN;
- 
- 	return !r;
- }
-@@ -1223,7 +1223,8 @@ int kvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
- {
- 	return stage2_update_leaf_attrs(pgt, addr, size, 0,
- 					KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W,
--					NULL, NULL, 0);
-+					NULL, NULL,
-+					KVM_PGTABLE_WALK_IGNORE_EAGAIN);
- }
- 
- void kvm_pgtable_stage2_mkyoung(struct kvm_pgtable *pgt, u64 addr,
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 7cc964af8d30..c3cd6abfa06e 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1521,14 +1521,12 @@ static void adjust_nested_fault_perms(struct kvm_s2_trans *nested,
- 	*prot |= kvm_encode_nested_level(nested);
- }
- 
--#define KVM_PGTABLE_WALK_MEMABORT_FLAGS (KVM_PGTABLE_WALK_HANDLE_FAULT | KVM_PGTABLE_WALK_SHARED)
--
- static int gmem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 		      struct kvm_s2_trans *nested,
- 		      struct kvm_memory_slot *memslot, bool is_perm)
- {
- 	bool write_fault, exec_fault, writable;
--	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_MEMABORT_FLAGS;
-+	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
- 	enum kvm_pgtable_prot prot = KVM_PGTABLE_PROT_R;
- 	struct kvm_pgtable *pgt = vcpu->arch.hw_mmu->pgt;
- 	unsigned long mmu_seq;
-@@ -1622,7 +1620,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	struct kvm_pgtable *pgt;
- 	struct page *page;
- 	vm_flags_t vm_flags;
--	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_MEMABORT_FLAGS;
-+	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
- 
- 	if (fault_is_perm)
- 		fault_granule = kvm_vcpu_trap_get_perm_fault_granule(vcpu);
-@@ -1888,7 +1886,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- /* Resolve the access fault by making the page young again. */
- static void handle_access_fault(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa)
- {
--	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_HANDLE_FAULT | KVM_PGTABLE_WALK_SHARED;
-+	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_SHARED;
- 	struct kvm_s2_mmu *mmu;
- 
- 	trace_kvm_access_fault(fault_ipa);
--- 
-2.52.0.487.g5c8c507ade-goog
+Sysfs or per-thread Perf mode would be working, but it's one more bit of 
+evidence to take in.
 
 
