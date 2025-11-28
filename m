@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C63BD116F5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 19:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2784AD116E2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 19:34:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+wkR+5BVlniJbT9/8sTzsrkUF4axlMXEBZriOa6QQiI=; b=uRMWiC58peylveMaPjgNDzwBNQ
-	m36BHwD8ofr1aQQrXOO3bcwOscXB0Mr+EUm2QKXXjjtWBlcfmd6PCMyPkfaUp5E0S9e+joT65ogTJ
-	bQZ7yc9IKhoyTtYC23HghV8fx9Zn5SdxfmMFjAH0B4PZLpW8QBtQP3gVwdHKclUmh7LWYY2N9KFZN
-	zZfNjgRXMLog02iEVwq5/ls9xO6N9ekIXMooM+6WwNgYIkJyuczi55f9P8c/dAWbryl1KugjP69mJ
-	Z3Km9DeHsG/AOFvLuxBy/bM25/TIri+BZu47TTrA/kq/fQlGoDT5mcGci54Rr9SyTdYVf885ws18o
-	07pV93Dw==;
+	bh=CMkIzbjxxzv4ONWvWDSYuX3VJSVJO4KSzcdpqT3N/zs=; b=e2TLD1EB5s+nnukX0hCCqj98Yo
+	c4OKQL4fw2DvhJjRZ/SThdLoZItC2FTlsCKUpe/HfUiOq+4vQeoMpIk/bI/LnO4b4W/XkjORV2OWM
+	Pzv/LECM7RzFiR7dWk1MKQlHR77//mVl1r8mxgXvF/o1/Fj2VCymZgXJINWfObV6TfsjchwoXg74z
+	keXm/lEf0sxfywOrqUDuszZ0xR+wEeUJMEqNjHmzVIF3rtvsYT20lGrZzhaPM2kmF9ynb8Ems7acX
+	hH8Cz1/xrCoW0RgK25sh8UGdW/oPSlb1FmfudwEMWhCO7Ls2C6rOssC5+GJh+GCyOzLVHWEyEJEeY
+	9RZKzMFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP4Ck-00000000q4h-2oSv;
-	Fri, 28 Nov 2025 19:32:30 +0000
+	id 1vP4EZ-00000000qEK-245n;
+	Fri, 28 Nov 2025 19:34:23 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP4Ch-00000000q4C-39At;
-	Fri, 28 Nov 2025 19:32:29 +0000
+	id 1vP4EX-00000000qDt-26i8;
+	Fri, 28 Nov 2025 19:34:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1764358345;
-	bh=+wkR+5BVlniJbT9/8sTzsrkUF4axlMXEBZriOa6QQiI=;
+	s=mail; t=1764358459;
+	bh=Yhe1DDond4S8P8IlENCBXoPbGHM6ErCN8GAHfZ5J2yY=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=KQWu3dDFtQ49Zlv6FTMmif2ENUTGp+bY+28zX2+PDwFvzXKiyriPfSqFgWasoWAXX
-	 itvLAvUbw/2nx5Jue/eARH0lQ09lpnre7387CXedOichihinz/6tNXHGO2dHRRk+f5
-	 Ecpae15UH1yT6e6oDILkGdiFapsmucCz2fOLoQM1rQz4cCti7I5ExsnIkY6G9X1h9g
-	 tbHGtFZSViX4vS1osNQDEvwz4cwdQuzawZmtXNxcseL+qe4kR/vtTGtP0SVdzUqhMa
-	 7jrKcvyALzo6/wKnebpom/6e9TBcHUHDGD35/pEahXsR1yTLTWd6VXKR2r4/1CpnUt
-	 dCqgFgkERo4Mw==
+	b=gbAtKdot4AoliteXaFQ9DjrBD/TvuNnXF4j0MmlhOhj64136GH8+cqzPpGl/taWqM
+	 BSk11bIMYBEIYNf8zwsCoUqBdeId8gqdVEGcH7AolIAq+hchQ57bqNWuXRxQjJGWyp
+	 awbgh0aODJ6GJHK5+GPgSQ9roG/h7s1x6/A1RedozfLqT46L9+8Mxn/57VvugoQfv7
+	 w/o6QlBiQRmRRYLRO/GnZ3ypDgOxfoXdfkiMXCyS4pi4tvCxiHXywgeTxP3dd1d7GY
+	 1wu1I5+M7ed4s4F36YcxJlDFqgT7+B+kPwKIMexvZVtMET45pdbHQaB6n/47l0vNm1
+	 S0UVkXrJWnlAA==
 Received: from [IPv6:2606:6d00:17:7b4b::c41] (unknown [IPv6:2606:6d00:17:7b4b::c41])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits))
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4DE8217E10F6;
-	Fri, 28 Nov 2025 20:32:23 +0100 (CET)
-Message-ID: <d8154e5872add68906137775a062ec1d3d0584e1.camel@collabora.com>
-Subject: Re: [PATCH v2 01/14] dt-bindings: media: mediatek: vcodec: add
- decoder dt-bindings for mt8196
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BA02417E10F6;
+	Fri, 28 Nov 2025 20:34:16 +0100 (CET)
+Message-ID: <8f9cd96ccd5de050e43a4c64b6a7937ed86413ea.camel@collabora.com>
+Subject: Re: [PATCH v2 02/14] media: mediatek: vcodec: add decoder
+ compatible to support mt8196
 From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 To: Yunfei Dong <yunfei.dong@mediatek.com>, =?ISO-8859-1?Q?N=EDcolas?= "F .
  R . A . Prado" <nfraprado@collabora.com>, Sebastian Fricke
@@ -59,10 +59,10 @@ Cc: Hsin-Yi Wang <hsinyi@chromium.org>, Fritz Koenig
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
 	Project_Global_Chrome_Upstream_Group@mediatek.com
-Date: Fri, 28 Nov 2025 14:32:22 -0500
-In-Reply-To: <20250815085232.30240-2-yunfei.dong@mediatek.com>
+Date: Fri, 28 Nov 2025 14:34:15 -0500
+In-Reply-To: <20250815085232.30240-3-yunfei.dong@mediatek.com>
 References: <20250815085232.30240-1-yunfei.dong@mediatek.com>
-	 <20250815085232.30240-2-yunfei.dong@mediatek.com>
+	 <20250815085232.30240-3-yunfei.dong@mediatek.com>
 Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
  keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
  /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
@@ -78,12 +78,12 @@ Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
  bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
 Organization: Collabora Canada
 Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-gftwiuzY35pXjN1aIAFe"
+	protocol="application/pgp-signature"; boundary="=-69FgDND25HA5QoZ6f/KT"
 User-Agent: Evolution 3.58.1 (3.58.1-1.fc43) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_113227_985834_2F59A315 
-X-CRM114-Status: GOOD (  12.31  )
+X-CRM114-CacheID: sfid-20251128_113421_712407_B484E9B9 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,7 +99,7 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-gftwiuzY35pXjN1aIAFe
+--=-69FgDND25HA5QoZ6f/KT
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
@@ -107,53 +107,81 @@ Hi,
 
 Le vendredi 15 ao=C3=BBt 2025 =C3=A0 16:52 +0800, Yunfei Dong a =C3=A9crit=
 =C2=A0:
-> Add decoder document in dt-bindings yaml file for mt8196 platform.
+> MT8196 is lat single core architecture. Support its compatible and
+> use `mtk_lat_sig_core_pdata` to initialize platform data.
 >=20
 > Signed-off-by: Yunfei Dong <yunfei.dong@mediatek.com>
+> ---
+> =C2=A0.../platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c=C2=A0=C2=
+=A0 | 6 ++++++
+> =C2=A0.../platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h=C2=A0=C2=
+=A0 | 1 +
+> =C2=A02 files changed, 7 insertions(+)
+>=20
+> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_de=
+c_drv.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv=
+.c
+> index 9247d92d431d..fa609343c168 100644
+> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
+> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
+> @@ -346,6 +346,8 @@ static void mtk_vcodec_dec_get_chip_name(struct mtk_v=
+codec_dec_dev *vdec_dev)
+> =C2=A0		vdec_dev->chip_name =3D MTK_VDEC_MT8186;
+> =C2=A0	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8188-vc=
+odec-dec"))
+> =C2=A0		vdec_dev->chip_name =3D MTK_VDEC_MT8188;
+> +	else if (of_device_is_compatible(dev->of_node, "mediatek,mt8196-vcodec-=
+dec"))
+> +		vdec_dev->chip_name =3D MTK_VDEC_MT8196;
 
-DT maintainers seems to explain later that there is a problem with this
-submission, this might explain why there is not review. Please add to futur=
-e
-version this if its kept unchanged, so I know I've see the changes.
-
-Acked-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+I'm pretty sure some other series is moving this into the match data. I don=
+'t
+care who do that first, but I'd like to see that fixed.
 
 Nicolas
 
-> ---
-> =C2=A0.../bindings/media/mediatek,vcodec-subdev-decoder.yaml=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 1 +
-> =C2=A01 file changed, 1 insertion(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/media/mediatek,vcodec-subd=
-ev-decoder.yaml b/Documentation/devicetree/bindings/media/mediatek,vcodec-s=
-ubdev-decoder.yaml
-> index bf8082d87ac0..74e1d88d3056 100644
-> --- a/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-deco=
-der.yaml
-> +++ b/Documentation/devicetree/bindings/media/mediatek,vcodec-subdev-deco=
-der.yaml
-> @@ -76,6 +76,7 @@ properties:
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - mediatek,mt8186-vcodec-dec
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - mediatek,mt8188-vcodec-dec
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - mediatek,mt8195-vcodec-dec
-> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - mediatek,mt8196-vcodec-dec
+> =C2=A0	else
+> =C2=A0		vdec_dev->chip_name =3D MTK_VDEC_INVAL;
+> =C2=A0}
+> @@ -559,6 +561,10 @@ static const struct of_device_id mtk_vcodec_match[] =
+=3D {
+> =C2=A0		.compatible =3D "mediatek,mt8188-vcodec-dec",
+> =C2=A0		.data =3D &mtk_lat_sig_core_pdata,
+> =C2=A0	},
+> +	{
+> +		.compatible =3D "mediatek,mt8196-vcodec-dec",
+> +		.data =3D &mtk_lat_sig_core_pdata,
+> +	},
+> =C2=A0	{},
+> =C2=A0};
 > =C2=A0
-> =C2=A0=C2=A0 reg:
-> =C2=A0=C2=A0=C2=A0=C2=A0 minItems: 1
+> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_de=
+c_drv.h b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv=
+.h
+> index aececca7ecf8..6bdde600a167 100644
+> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
+> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.h
+> @@ -27,6 +27,7 @@ enum mtk_vcodec_dec_chip_name {
+> =C2=A0	MTK_VDEC_MT8188 =3D 8188,
+> =C2=A0	MTK_VDEC_MT8192 =3D 8192,
+> =C2=A0	MTK_VDEC_MT8195 =3D 8195,
+> +	MTK_VDEC_MT8196 =3D 8196,
+> =C2=A0};
+> =C2=A0
+> =C2=A0/*
 
---=-gftwiuzY35pXjN1aIAFe
+--=-69FgDND25HA5QoZ6f/KT
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: This is a digitally signed message part
 Content-Transfer-Encoding: 7bit
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaSn4xgAKCRDZQZRRKWBy
-9GMgAQDSqm5a+WoNFV7C+WQvo54YV2FqWgB6B2VHMjXRqolSjQD/XCAkRRdfJdZm
-/PwTqYVr76x/w6TzE5L+1wZg7gH6DQI=
-=nly/
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaSn5NwAKCRDZQZRRKWBy
+9LF3AP9+KNgp4W2BFMNJfo+xfzd957a4H3g9z0q/QcSfIOx6zQD8DKdO+YDnTLrL
+CYMTZ6/o8lg7ThOhMYxvsTSFV49T/A0=
+=hetT
 -----END PGP SIGNATURE-----
 
---=-gftwiuzY35pXjN1aIAFe--
+--=-69FgDND25HA5QoZ6f/KT--
 
