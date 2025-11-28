@@ -4,64 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CB10CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 01:06:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47517D111A8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 01:17:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cbz0T3Pb1Oli5KHPUp2Dx7P8QO+RzTOk0Et4ZiYbRK8=; b=aabTYG/VNaGgmC7J34LdKyTRhO
-	q/ljYjfL4hzA5FrqP9ciuj+JzQtJCnKeL/UqAZyoR6tkospu4NO31hlucmcxzcqwiAaJXdFgBVVBE
-	+3x5IvRpGFTJZwroqqJhWgd78xDzYzTVwpidLU0Nr/WCWmCUQ3XuteNRIG/st2FAPmvDBnUyct1t9
-	c58Ten4T7M5AzpCkAwl5CrxAcSqqI+x0TyBGqFN8Lsj6Jb9NiKQ1r8EjqP0L6q0NljGGqq9c6Vt7x
-	PnzeODB1yxIdZ5YNPdQDQn1rgFngmWTLUO37mhbQzBQGq7pY5wg7PIEk5KuWS8cWcAIADpeEN14q3
-	cW+8R1JQ==;
+	bh=Y+3KZoa4eB0lXlCRXWilBy94mb50xgSMYtNVrzXSsD8=; b=dUAN0KgAosfsoFpX9gyvVfGbNP
+	DarP/PuE//AXxLuK8gVdmNkeUlP5/J1D/4CFZ5mdaIrL3nf+KmGjSyFIBgZG+q9RNPqT7022BEdJa
+	3IfdSicD2bMd7y94lzzagMIKR3GNPH/CEd5MDXnjIS8N0B67Nq+KU13o8BmtgIna3aTNxyfBdair8
+	kFCdqMA1/oNBCMPffQGxcEp+y0JMtVdkHN8OfWARpa/6uzJtBUsS4ueveMIGqeCzs8Wu1SWRDD2i6
+	54qghu0vTHStaxXWcg3gVEtc1Kj9duEh5JaAGyKrg1+fD7PzrMyi5cGIaOIA68kKhaKf983oFRNNs
+	pLi50Ozw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOmwP-0000000HNNQ-05e8;
-	Fri, 28 Nov 2025 01:06:29 +0000
-Received: from mail-m19731112.qiye.163.com ([220.197.31.112])
+	id 1vOn76-0000000HNsp-2ZSP;
+	Fri, 28 Nov 2025 01:17:32 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOmwL-0000000HNMI-0qmf;
-	Fri, 28 Nov 2025 01:06:27 +0000
-Received: from [172.16.12.14] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2b2e92628;
-	Fri, 28 Nov 2025 09:06:16 +0800 (GMT+08:00)
-Message-ID: <dbe6975d-9b99-4493-9145-b2db382fd468@rock-chips.com>
-Date: Fri, 28 Nov 2025 09:06:13 +0800
+	id 1vOn71-0000000HNrr-12m6
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Nov 2025 01:17:30 +0000
+Received: from mail.maildlp.com (unknown [172.19.93.142])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4dHb3S0NGtzYQtfr
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Nov 2025 09:16:20 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.75])
+	by mail.maildlp.com (Postfix) with ESMTP id 7D6AB1A018D
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Nov 2025 09:17:14 +0800 (CST)
+Received: from [10.174.176.88] (unknown [10.174.176.88])
+	by APP2 (Coremail) with SMTP id Syh0CgBHpXsY+ChphOEICQ--.36213S3;
+	Fri, 28 Nov 2025 09:17:14 +0800 (CST)
+Message-ID: <9ff0d134-2c64-4204-bbac-9fdf0867ac46@huaweicloud.com>
+Date: Fri, 28 Nov 2025 09:17:11 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, FUKAUMI Naoki <naoki@radxa.com>,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH] PCI: dwc: Make Link Up IRQ logic handle already powered
- on PCIe switches
-To: Niklas Cassel <cassel@kernel.org>, Jingoo Han <jingoohan1@gmail.com>,
- Manivannan Sadhasivam <mani@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
- Heiko Stuebner <heiko@sntech.de>
-References: <20251127134318.3655052-2-cassel@kernel.org>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20251127134318.3655052-2-cassel@kernel.org>
+Subject: Re: [Bug report] hash_name() may cross page boundary and trigger
+ sleep in RCU context
+To: Will Deacon <will@kernel.org>, Zizhi Wo <wozizhi@huaweicloud.com>
+Cc: jack@suse.com, brauner@kernel.org, hch@lst.de, akpm@linux-foundation.org,
+ linux@armlinux.org.uk, linux-fsdevel@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+ linux-arm-kernel@lists.infradead.org, yangerkun@huawei.com,
+ wangkefeng.wang@huawei.com, pangliyuan1@huawei.com, xieyuanbin1@huawei.com
+References: <20251126090505.3057219-1-wozizhi@huaweicloud.com>
+ <aShLKpTBr9akSuUG@willie-the-truck>
+From: Zizhi Wo <wozizhi@huaweicloud.com>
+In-Reply-To: <aShLKpTBr9akSuUG@willie-the-truck>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9ac7ff1dd209cckunmb69f50316946c2
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQklMTVYYSExOHkxKTEsaTBlWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=FmbyETUih0zC01PvdaA7bUcXVK9lGATf0na3P/WE2HDqlcEHBgkENNEJDTNEXHOPEV7T8YcLkLJj/UuZg+eJsI4jI9+Ve6zNR+eO5KE9Vvmy+nRGtk4Rmj6K6oEXy7S8/3vhuaKXAy1NHx/MZxRm8SVoLqpnf0HgUMle4FsWG4o=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=cbz0T3Pb1Oli5KHPUp2Dx7P8QO+RzTOk0Et4ZiYbRK8=;
-	h=date:mime-version:subject:message-id:from;
+X-CM-TRANSID: Syh0CgBHpXsY+ChphOEICQ--.36213S3
+X-Coremail-Antispam: 1UD129KBjvJXoW3WryrWw45uw1fKw17tw4rAFb_yoW7Zr18pr
+	Wjk3W2krZIgrWak3yIqanxWFyrJa4Iqr4UGr9rGr1kuw47Xryjga1kK39Yk347Xw1kW3yF
+	vr4Fvr1Uuw1DC3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvE14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvEwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka
+	0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7
+	v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF
+	1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIx
+	AIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI
+	42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWI
+	evJa73UjIFyTuYvjfUonmRUUUUU
+X-CM-SenderInfo: pzr2x6tkl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_170625_750520_82630701 
-X-CRM114-Status: GOOD (  38.02  )
+X-CRM114-CacheID: sfid-20251127_171727_666956_A6FA7C84 
+X-CRM114-Status: GOOD (  23.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,237 +89,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2025/11/27 星期四 21:43, Niklas Cassel 写道:
-> The DWC glue drivers always call pci_host_probe() during probe(), which
-> will allocate upstream bridge resources and enumerate the bus.
+
+
+在 2025/11/27 20:59, Will Deacon 写道:
+> On Wed, Nov 26, 2025 at 05:05:05PM +0800, Zizhi Wo wrote:
+>> We're running into the following issue on an ARM32 platform with the linux
+>> 5.10 kernel:
+>>
+>> [<c0300b78>] (__dabt_svc) from [<c0529cb8>] (link_path_walk.part.7+0x108/0x45c)
+>> [<c0529cb8>] (link_path_walk.part.7) from [<c052a948>] (path_openat+0xc4/0x10ec)
+>> [<c052a948>] (path_openat) from [<c052cf90>] (do_filp_open+0x9c/0x114)
+>> [<c052cf90>] (do_filp_open) from [<c0511e4c>] (do_sys_openat2+0x418/0x528)
+>> [<c0511e4c>] (do_sys_openat2) from [<c0513d98>] (do_sys_open+0x88/0xe4)
+>> [<c0513d98>] (do_sys_open) from [<c03000c0>] (ret_fast_syscall+0x0/0x58)
+>> ...
+>> [<c0315e34>] (unwind_backtrace) from [<c030f2b0>] (show_stack+0x20/0x24)
+>> [<c030f2b0>] (show_stack) from [<c14239f4>] (dump_stack+0xd8/0xf8)
+>> [<c14239f4>] (dump_stack) from [<c038d188>] (___might_sleep+0x19c/0x1e4)
+>> [<c038d188>] (___might_sleep) from [<c031b6fc>] (do_page_fault+0x2f8/0x51c)
+>> [<c031b6fc>] (do_page_fault) from [<c031bb44>] (do_DataAbort+0x90/0x118)
+>> [<c031bb44>] (do_DataAbort) from [<c0300b78>] (__dabt_svc+0x58/0x80)
+>> ...
+>>
+>> During the execution of hash_name()->load_unaligned_zeropad(), a potential
+>> memory access beyond the PAGE boundary may occur. For example, when the
+>> filename length is near the PAGE_SIZE boundary. This triggers a page fault,
+>> which leads to a call to do_page_fault()->mmap_read_trylock(). If we can't
+>> acquire the lock, we have to fall back to the mmap_read_lock() path, which
+>> calls might_sleep(). This breaks RCU semantics because path lookup occurs
+>> under an RCU read-side critical section. In linux-mainline, arm/arm64
+>> do_page_fault() still has this problem:
+>>
+>> lock_mm_and_find_vma->get_mmap_lock_carefully->mmap_read_lock_killable.
+>>
+>> And before commit bfcfaa77bdf0 ("vfs: use 'unsigned long' accesses for
+>> dcache name comparison and hashing"), hash_name accessed the name byte by
+>> byte.
+>>
+>> To prevent load_unaligned_zeropad() from accessing beyond the valid memory
+>> region, we would need to intercept such cases beforehand? But doing so
+>> would require replicating the internal logic of load_unaligned_zeropad(),
+>> including handling endianness and constructing the correct value manually.
+>> Given that load_unaligned_zeropad() is used in many places across the
+>> kernel, we currently haven't found a good solution to address this cleanly.
+>>
+>> What would be the recommended way to handle this situation? Would
+>> appreciate any feedback and guidance from the community. Thanks!
 > 
-> For controllers without Link Up IRQ support, pci_host_probe() is called
-> after dw_pcie_wait_for_link(), which will also wait the time required by
-> the PCIe specification before performing PCI Configuration Space reads.
+> Does it help if you bodge the translation fault handler along the lines
+> of the untested diff below?
+
+Thank you for the solution you provided. However, I seem to have
+encountered a bit of a problem.
+
 > 
-> For controllers with Link Up IRQ support, the pci_host_probe() call (which
-> will perform PCI Configuration Space reads) is done without any of the
-> delays mandated by the PCIe specification.
+> Will
 > 
-> For controllers with Link Up IRQ support, since the pci_host_probe() call
-> is done without any delay (link training might still be ongoing), it is
-> very unlikely that this scan will find any devices. Once the Link Up IRQ
-> triggers, the Link Up IRQ handler will call pci_rescan_bus().
+> --->8
 > 
-> This works fine for PCIe endpoints connected to the Root Port, since they
-> don't extend the bus. However, if the pci_rescan_bus() call detects a PCIe
-> switch, then there will be a problem when the downstream busses starts
-> showing up, because the PCIe controller is not hotplug capable, so we are
-> not allowed to extend the subordinate bus number after the initial scan,
-> resulting in error messages such as:
+> diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
+> index bf1577216ffa..b3c81e448798 100644
+> --- a/arch/arm/mm/fault.c
+> +++ b/arch/arm/mm/fault.c
+> @@ -407,7 +407,7 @@ do_translation_fault(unsigned long addr, unsigned int fsr,
+>          if (addr < TASK_SIZE)
+>                  return do_page_fault(addr, fsr, regs);
+>   
+> -       if (user_mode(regs))
+> +       if (user_mode(regs) || fsr_fs(fsr) == FSR_FS_INVALID_PAGE)
+>                  goto bad_area;
+
+
+
+I'm getting an "FSR_FS_INVALID_PAGE undeclared" error during
+compilation...
+
+In which kernel or FSR version was this macro or constant defined?
+
+>   
+>          index = pgd_index(addr);
+> diff --git a/arch/arm/mm/fault.h b/arch/arm/mm/fault.h
+> index 9ecc2097a87a..8fb26f85e361 100644
+> --- a/arch/arm/mm/fault.h
+> +++ b/arch/arm/mm/fault.h
+> @@ -12,6 +12,8 @@
+>   #define FSR_FS3_0              (15)
+>   #define FSR_FS5_0              (0x3f)
+>   
+> +#define FSR_FS_INVALID_PAGE    7
+> +
+>   #ifdef CONFIG_ARM_LPAE
+>   #define FSR_FS_AEA             17
+>   
+> diff --git a/arch/arm/mm/fsr-2level.c b/arch/arm/mm/fsr-2level.c
+> index f2be95197265..c7060da345df 100644
+> --- a/arch/arm/mm/fsr-2level.c
+> +++ b/arch/arm/mm/fsr-2level.c
+> @@ -11,7 +11,7 @@ static struct fsr_info fsr_info[] = {
+>          { do_bad,               SIGBUS,  0,             "external abort on linefetch"      },
+>          { do_translation_fault, SIGSEGV, SEGV_MAPERR,   "section translation fault"        },
+>          { do_bad,               SIGBUS,  0,             "external abort on linefetch"      },
+> -       { do_page_fault,        SIGSEGV, SEGV_MAPERR,   "page translation fault"           },
+> +       { do_translation_fault, SIGSEGV, SEGV_MAPERR,   "page translation fault"           },
+>          { do_bad,               SIGBUS,  0,             "external abort on non-linefetch"  },
+>          { do_bad,               SIGSEGV, SEGV_ACCERR,   "section domain fault"             },
+>          { do_bad,               SIGBUS,  0,             "external abort on non-linefetch"  },
+> diff --git a/arch/arm/mm/fsr-3level.c b/arch/arm/mm/fsr-3level.c
+> index d0ae2963656a..19df4af828bd 100644
+> --- a/arch/arm/mm/fsr-3level.c
+> +++ b/arch/arm/mm/fsr-3level.c
+> @@ -7,7 +7,7 @@ static struct fsr_info fsr_info[] = {
+>          { do_bad,               SIGBUS,  0,             "reserved translation fault"    },
+>          { do_translation_fault, SIGSEGV, SEGV_MAPERR,   "level 1 translation fault"     },
+>          { do_translation_fault, SIGSEGV, SEGV_MAPERR,   "level 2 translation fault"     },
+> -       { do_page_fault,        SIGSEGV, SEGV_MAPERR,   "level 3 translation fault"     },
+> +       { do_translation_fault, SIGSEGV, SEGV_MAPERR,   "level 3 translation fault"     },
+>          { do_bad,               SIGBUS,  0,             "reserved access flag fault"    },
+>          { do_bad,               SIGSEGV, SEGV_ACCERR,   "level 1 access flag fault"     },
+>          { do_page_fault,        SIGSEGV, SEGV_ACCERR,   "level 2 access flag fault"     },
 > 
-> pci_bus 0004:43: busn_res: can not insert [bus 43-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
-> pci_bus 0004:43: busn_res: [bus 43-41] end is updated to 43
-> pci_bus 0004:43: busn_res: can not insert [bus 43] under [bus 42-41] (conflicts with (null) [bus 42-41])
-> pci 0004:42:00.0: devices behind bridge are unusable because [bus 43] cannot be assigned for them
-> pci_bus 0004:44: busn_res: can not insert [bus 44-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
-> pci_bus 0004:44: busn_res: [bus 44-41] end is updated to 44
-> pci_bus 0004:44: busn_res: can not insert [bus 44] under [bus 42-41] (conflicts with (null) [bus 42-41])
-> pci 0004:42:02.0: devices behind bridge are unusable because [bus 44] cannot be assigned for them
-> pci_bus 0004:45: busn_res: can not insert [bus 45-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
-> pci_bus 0004:45: busn_res: [bus 45-41] end is updated to 45
-> pci_bus 0004:45: busn_res: can not insert [bus 45] under [bus 42-41] (conflicts with (null) [bus 42-41])
-> pci 0004:42:06.0: devices behind bridge are unusable because [bus 45] cannot be assigned for them
-> pci_bus 0004:46: busn_res: can not insert [bus 46-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
-> pci_bus 0004:46: busn_res: [bus 46-41] end is updated to 46
-> pci_bus 0004:46: busn_res: can not insert [bus 46] under [bus 42-41] (conflicts with (null) [bus 42-41])
-> pci 0004:42:0e.0: devices behind bridge are unusable because [bus 46] cannot be assigned for them
-> pci_bus 0004:42: busn_res: [bus 42-41] end is updated to 46
-> pci_bus 0004:42: busn_res: can not insert [bus 42-46] under [bus 41] (conflicts with (null) [bus 41])
-> pci 0004:41:00.0: devices behind bridge are unusable because [bus 42-46] cannot be assigned for them
-> pcieport 0004:40:00.0: bridge has subordinate 41 but max busn 46
-> 
-> While we would like to set the is_hotplug_bridge flag
-> (quirk_hotplug_bridge()), many embedded SoCs that use the DWC controller
-> have synthesized the controller without hot-plug support.
-> Thus, the Link Up IRQ logic is only mimicking hot-plug functionality, i.e.
-> it is not compliant with the PCI Hot-Plug Specification, so we cannot make
-> use of the is_hotplug_bridge flag.
-> 
-> In order to let the Link Up IRQ logic handle PCIe switches that are already
-> powered on (PCIe switches that not powered on already need to implement a
-> pwrctrl driver), don't perform a pci_host_probe() call during probe()
-> (which disregards the delays required by the PCIe specification).
-> 
-> Instead let the first Link Up IRQ call pci_host_probe(). Any follow up
-> Link Up IRQ will call pci_rescan_bus().
 > 
 
-Thanks for fixing this, I'v tested it on RK3588S-EVB1 with both of PCIe
-switch + 2 NVMe and NVMe directly connected.
+By the way, I tried Al's solution, and this problem didn't reproduce.
 
-FWIW,
-Tested-by: Shawn Lin <shawn.lin@rock-chips.com>
-
-> Fixes: ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can detect Link Up")
-> Fixes: 0e0b45ab5d77 ("PCI: dw-rockchip: Enumerate endpoints based on dll_link_up IRQ")
-> Reported-by: FUKAUMI Naoki <naoki@radxa.com>
-> Closes: https://lore.kernel.org/linux-pci/1E8E4DB773970CB5+5a52c9e1-01b8-4872-99b7-021099f04031@radxa.com/
-> Signed-off-by: Niklas Cassel <cassel@kernel.org>
-> ---
->   .../pci/controller/dwc/pcie-designware-host.c | 70 ++++++++++++++++---
->   drivers/pci/controller/dwc/pcie-designware.h  |  5 ++
->   drivers/pci/controller/dwc/pcie-dw-rockchip.c |  5 +-
->   drivers/pci/controller/dwc/pcie-qcom.c        |  5 +-
->   4 files changed, 68 insertions(+), 17 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> index e92513c5bda51..8654346729574 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> @@ -565,6 +565,59 @@ static int dw_pcie_host_get_resources(struct dw_pcie_rp *pp)
->   	return 0;
->   }
->   
-> +static int dw_pcie_host_initial_scan(struct dw_pcie_rp *pp)
-> +{
-> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> +	struct pci_host_bridge *bridge = pp->bridge;
-> +	int ret;
-> +
-> +	ret = pci_host_probe(bridge);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (pp->ops->post_init)
-> +		pp->ops->post_init(pp);
-> +
-> +	dwc_pcie_debugfs_init(pci, DW_PCIE_RC_TYPE);
-> +
-> +	return 0;
-> +}
-> +
-> +void dw_pcie_handle_link_up_irq(struct dw_pcie_rp *pp)
-> +{
-> +	if (!pp->initial_linkup_irq_done) {
-> +		int ret;
-> +
-> +		ret = dw_pcie_host_initial_scan(pp);
-> +		if (ret) {
-> +			struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> +			struct device *dev = pci->dev;
-> +
-> +			dev_err(dev, "Initial scan from IRQ failed: %d\n", ret);
-> +
-> +			dw_pcie_stop_link(pci);
-> +
-> +			dw_pcie_edma_remove(pci);
-> +
-> +			if (pp->has_msi_ctrl)
-> +				dw_pcie_free_msi(pp);
-> +
-> +			if (pp->ops->deinit)
-> +				pp->ops->deinit(pp);
-> +
-> +			if (pp->cfg)
-> +				pci_ecam_free(pp->cfg);
-> +		} else {
-> +			pp->initial_linkup_irq_done = true;
-> +		}
-> +	} else {
-> +		/* Rescan the bus to enumerate endpoint devices */
-> +		pci_lock_rescan_remove();
-> +		pci_rescan_bus(pp->bridge->bus);
-> +		pci_unlock_rescan_remove();
-> +	}
-> +}
-> +
->   int dw_pcie_host_init(struct dw_pcie_rp *pp)
->   {
->   	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> @@ -669,18 +722,17 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
->   	 * If there is no Link Up IRQ, we should not bypass the delay
->   	 * because that would require users to manually rescan for devices.
->   	 */
-> -	if (!pp->use_linkup_irq)
-> +	if (!pp->use_linkup_irq) {
->   		/* Ignore errors, the link may come up later */
->   		dw_pcie_wait_for_link(pci);
->   
-> -	ret = pci_host_probe(bridge);
-> -	if (ret)
-> -		goto err_stop_link;
-> -
-> -	if (pp->ops->post_init)
-> -		pp->ops->post_init(pp);
-> -
-> -	dwc_pcie_debugfs_init(pci, DW_PCIE_RC_TYPE);
-> +		/*
-> +		 * For platforms with Link Up IRQ, initial scan will be done
-> +		 * on first Link Up IRQ.
-> +		 */
-> +		if (dw_pcie_host_initial_scan(pp))
-> +			goto err_stop_link;
-> +	}
->   
->   	return 0;
->   
-> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-> index e995f692a1ecd..a31bd93490dcd 100644
-> --- a/drivers/pci/controller/dwc/pcie-designware.h
-> +++ b/drivers/pci/controller/dwc/pcie-designware.h
-> @@ -427,6 +427,7 @@ struct dw_pcie_rp {
->   	int			msg_atu_index;
->   	struct resource		*msg_res;
->   	bool			use_linkup_irq;
-> +	bool			initial_linkup_irq_done;
->   	struct pci_eq_presets	presets;
->   	struct pci_config_window *cfg;
->   	bool			ecam_enabled;
-> @@ -807,6 +808,7 @@ void dw_pcie_msi_init(struct dw_pcie_rp *pp);
->   int dw_pcie_msi_host_init(struct dw_pcie_rp *pp);
->   void dw_pcie_free_msi(struct dw_pcie_rp *pp);
->   int dw_pcie_setup_rc(struct dw_pcie_rp *pp);
-> +void dw_pcie_handle_link_up_irq(struct dw_pcie_rp *pp);
->   int dw_pcie_host_init(struct dw_pcie_rp *pp);
->   void dw_pcie_host_deinit(struct dw_pcie_rp *pp);
->   int dw_pcie_allocate_domains(struct dw_pcie_rp *pp);
-> @@ -844,6 +846,9 @@ static inline int dw_pcie_setup_rc(struct dw_pcie_rp *pp)
->   	return 0;
->   }
->   
-> +static inline void dw_pcie_handle_link_up_irq(struct dw_pcie_rp *pp)
-> +{ }
-> +
->   static inline int dw_pcie_host_init(struct dw_pcie_rp *pp)
->   {
->   	return 0;
-> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> index 3e2752c7dd096..8f2cc1ef25e3d 100644
-> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-> @@ -466,10 +466,7 @@ static irqreturn_t rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
->   		if (rockchip_pcie_link_up(pci)) {
->   			msleep(PCIE_RESET_CONFIG_WAIT_MS);
->   			dev_dbg(dev, "Received Link up event. Starting enumeration!\n");
-> -			/* Rescan the bus to enumerate endpoint devices */
-> -			pci_lock_rescan_remove();
-> -			pci_rescan_bus(pp->bridge->bus);
-> -			pci_unlock_rescan_remove();
-> +			dw_pcie_handle_link_up_irq(pp);
->   		}
->   	}
->   
-> diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
-> index c48a20602d7fa..2d8aca6630949 100644
-> --- a/drivers/pci/controller/dwc/pcie-qcom.c
-> +++ b/drivers/pci/controller/dwc/pcie-qcom.c
-> @@ -1617,10 +1617,7 @@ static irqreturn_t qcom_pcie_global_irq_thread(int irq, void *data)
->   	if (FIELD_GET(PARF_INT_ALL_LINK_UP, status)) {
->   		msleep(PCIE_RESET_CONFIG_WAIT_MS);
->   		dev_dbg(dev, "Received Link up event. Starting enumeration!\n");
-> -		/* Rescan the bus to enumerate endpoint devices */
-> -		pci_lock_rescan_remove();
-> -		pci_rescan_bus(pp->bridge->bus);
-> -		pci_unlock_rescan_remove();
-> +		dw_pcie_handle_link_up_irq(pp);
->   
->   		qcom_pcie_icc_opp_update(pcie);
->   	} else {
+Thanks,
+Zizhi Wo
 
 
