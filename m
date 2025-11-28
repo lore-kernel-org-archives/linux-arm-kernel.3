@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D284FCFD376
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 09:01:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7C76CFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 09:08:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TwFmyksrzAIIs1HfOPC3MQNt+t9BM4BX0iJ/iavuVzU=; b=v2OQ19KPuE9OkFrgbqRWFO4XpJ
-	0lAp3BsnNnTFmNSj7Co4A0OBQhddQKKp0OAvQPCN3GcwtPtBRRC4Bf8ytYwv3MTa5MYNbUvGUmZaQ
-	E6Jnoo9bStPS+XAa6VGNux861pcA7fkckV7jxjrG25EEMwphE+VAr1aLoG8OW1IUUY473XGP7O12x
-	0+8z6LalA7AxLH/PTKYnY+z3BNfKm+dfBvDTHjtizmZSKXzLIcDtzjikNogMdzQiFXrs6kDfm3id/
-	9/JSUsfJ2iNZ1YqhNozoBx+hLurBlY7b3dquOpWPyRKz8ytyPk/fir6yAboR8Th5vlMB2/bCKT6vo
-	wuKohNKQ==;
+	bh=uxTRx1iFwmtlR3x4YRxFabPjnywhks1f5t+Mt7oW9ik=; b=WPWSQytbAkPtsWMKzoe5h92S3k
+	sX1dA+Pi6u8+JTiXJ2EqWC2Kp0BwaJC0imfKXCtpqYuc+8clTqoQykp9hWZ991luUlyGp3XtuB0lG
+	5EqIn+ahy+WLjMI2anOM3OLaIrIrk816RlHue/nRfnJODQj+w5xba1t1/lhkamY5HEfsWyoy5oP4n
+	S/4k7iWyfPF7S229NTo4WftM/Vk6gT+WajtUzLtnogLteemAiK1zXvmu/votnQfgdDKtBJawSdBGd
+	P4Ps8BKlXGUx5RnPvIT6DrQAPLR94UnGZhK+YqLGzRt0TFLoL5oJ+vcQqO0uVHdWqAtFXuZG9kX8y
+	xC/4lenQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOuMS-00000000CmX-2M3n;
-	Fri, 28 Nov 2025 09:01:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vOuTF-00000000D9J-1eiq;
+	Fri, 28 Nov 2025 09:08:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOuMQ-00000000CmD-0C48
+	id 1vOuTD-00000000D9B-2rQm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 09:01:51 +0000
+	Fri, 28 Nov 2025 09:08:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AFB9D40491;
-	Fri, 28 Nov 2025 09:01:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EE6DC116D0;
-	Fri, 28 Nov 2025 09:01:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D1F8660251;
+	Fri, 28 Nov 2025 09:08:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A57DBC4CEF1;
+	Fri, 28 Nov 2025 09:08:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764320508;
-	bh=BQHSr2Fsvv9EapDNce6yQrV+s8lPf++8pxkb25Qmq+Y=;
+	s=k20201202; t=1764320930;
+	bh=Z3dlRlnfquKG6eUS7b9qxlWgm+J8FjcdsZKf6OxDps4=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=u6V9KwwtxUg+BENRkInQvAYQGgRejHHQnN1Mmkb7cPldeR8GqH82YNv8UKQtaT8UR
-	 +WXxpVKXjNaSTD4oInBXC8wYIAKGN7vK6Z0DOXgUYIBHYJ3rJyFcVE9PrZKaCwaEJF
-	 sH/ZxxbcxJCc8uFd/xH+rkvDjRf30JvWoaq6tiOfKqKZ6yrZCytWT9uE7lytP41NHo
-	 Fu9vaPeHt3T0bkPngi5lSJhf5rsmBPrKLNXwCf9xU0SMNPjyzlvuYtwL2Ty+BpRgj4
-	 sFxDaMAl0zcj1Ur41W2RuS6PAac3AbWv0+eYTFdqfN6/CubYxmVIpk3Sr1HIOBM1rb
-	 SDIS/HJUISqGA==
-Message-ID: <9ff65dc6-6f13-47f0-966c-f9885288843e@kernel.org>
-Date: Fri, 28 Nov 2025 10:01:44 +0100
+	b=hfoNj3qf/fYsZhDZ83GrV3q+MNYH8Gc2VPpsLPp2rrH7GVV+ILDd6xkU3ASCzxyRD
+	 941cpjUrobi5g9XX8385z7CpRRYztGLVesur+f8TT/nez/6r1MlaUugYttRRw5mplS
+	 3LuTCG7jk4CcT0JYm385J9W3GZwc80Svmyn5pMeztYnhWJaISh93dbY+UY0C4Fwn9K
+	 1KBHMYXVBbeFly0pXruH3/H4Ek2DqPRJJ7TM44rALlqt9vozEwib9dtLGMoKo6u1dR
+	 +K/I2pXT3rd90tUqy2YUjrTUQbbQRMXmva8NtaWzEitBzgDH53vXNI26lcIPFDv/pG
+	 kgYBp8aWByg5Q==
+Message-ID: <da46dd3f-7259-40a6-b9cd-2586ee5a4aed@kernel.org>
+Date: Fri, 28 Nov 2025 10:08:45 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] ARM: dts: exynos: Add Google Manta (Nexus 10)
-To: Lukas Timmermann <linux@timmermann.space>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Alexandre Marquet <tb@a-marquet.fr>
-References: <20251125-google-manta-v2-0-0f097cfff39c@timmermann.space>
- <20251125-google-manta-v2-2-0f097cfff39c@timmermann.space>
- <20251126-cunning-locust-of-atheism-e1dd0d@kuoka>
- <jqfu76ojoznc7xgyevuzmj7fg3necrr5cp645ye5zk652ytx5w@s4yaxzcq7jzt>
+Subject: Re: [PATCH v3 2/2] ARM: dts: Add support for pcb8385
+To: Horatiu Vultur <horatiu.vultur@microchip.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+ claudiu.beznea@tuxon.dev, wsa+renesas@sang-engineering.com,
+ Ryan.Wanner@microchip.com, romain.sioen@microchip.com,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20251126100151.1559590-1-horatiu.vultur@microchip.com>
+ <20251126100151.1559590-3-horatiu.vultur@microchip.com>
+ <4702976d-1b08-4565-88a5-d9a1b36582f9@kernel.org>
+ <20251127092450.h3t5vxdfvseartx2@DEN-DL-M31836.microchip.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,13 +103,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <jqfu76ojoznc7xgyevuzmj7fg3necrr5cp645ye5zk652ytx5w@s4yaxzcq7jzt>
+In-Reply-To: <20251127092450.h3t5vxdfvseartx2@DEN-DL-M31836.microchip.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_010150_130797_19F1EBCD 
-X-CRM114-Status: UNSURE (   8.33  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,37 +120,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 27/11/2025 21:01, Lukas Timmermann wrote:
->>> +
->>> +		lid-switch {
->>> +			label = "Lid";
->>> +			gpios = <&gpx1 3 GPIO_ACTIVE_LOW>;
->>> +			linux,input-type = <5>; /* EV_SW */
->>> +			linux,code = <0>; /* SW_LID */
->>> +			debounce-interval = <10>;
->>> +			wakeup-source;
->>> +		};
->>> +	};
->>> +
->>> +	multi-led {
->>> +		compatible = "leds-group-multicolor";
->>> +		color = <LED_COLOR_ID_RGB>;
->>> +		function = LED_FUNCTION_STATUS;
->>> +		leds = <&status_red>, <&status_green>, <&status_blue>, <&status_white>;
->>> +	};
->>> +
->>> +	wlan_pwrseq: mmc1-pwrseq {
+On 27/11/2025 10:24, Horatiu Vultur wrote:
+> The 11/26/2025 11:24, Krzysztof Kozlowski wrote:
 >>
->> Just "pwrseq"
+> 
+> Hi Krzysztof,
+> 
+>>> +
+>>> +&flx0 {
+>>> +     atmel,flexcom-mode = <ATMEL_FLEXCOM_MODE_TWI>;
+>>> +     status = "okay";
+>>> +
+>>> +     i2c0: i2c@600 {
 >>
-> Acknowledged.
-> Just out of curiosity. Why is that?
+>> You added a label, so this feels like a new node, but then you miss
+>> compatible and status feels redundant.
+> 
+> Ah.. OK. I didn't want to add a new node.
+> 
+>>
+>> If this is override, you should rather override by labels/phandles in
+>> the first place. Even when overriding by full node path, you should not
+>> add custom labels - they belong to the base SoC.
+> 
+> I can remove the label.
+> So, when I want to override or extend with new properties I should
+> labels?
 
 
-You have only one pwrseq device, so not need to precise which one is
-that and node names should be generic.
-
-https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+Yes, child of serial engine should still be extended by label/phandle,
+unless this SoC subsystem has different rule.
 
 Best regards,
 Krzysztof
