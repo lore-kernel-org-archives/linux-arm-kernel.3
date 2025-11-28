@@ -4,80 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 116F8D116EA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 17:35:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8AB4D116EA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 17:45:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JwkxrOhf4MPsWdJ3TbYzFMXzZqwZrMM4caiEbRwaHlc=; b=kV2cl+gRuotsvMh3Q5aotKDMHH
-	jzhAOAGjNdn21uzRuE8HM9x1Lus0CFUI13SenFe3tzDiekI9RXbTrEyo+jqIOHPnqWhoPv3/29f0k
-	3dWzU9EAFKu2+S6EwFmR9aafddd21wUY/a0xhQw5xNjT/Rm0zRb6dHv+5n+Tpd98HsO4fyYtAlCp5
-	V+FGja3AGNoI4HkuspRjlxAFNEvhYiRTUPWdyCuZBumlinHl1FL1c/IY1bt8Fr1RD0HosR7K2fGYH
-	BLfsSKDbMb1U2/2xdcisXSuXbWiPdt2uLu25e/9WgROPkpr6Nsng6aUBQWjVRnzxQtkO0GJG5NWua
-	umy+SJqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=lSM32csH2X23xXw6xgAstXFSe1ZcOlrmsYctqKwHp88=; b=xH+y0Xlf/Ri7xL5t1CTQTR9Hh7
+	B/pibuhdSiwd8aSpejmheXmrXVsuqfUGdUDhBN7YU6rRBraCHnwVtsHwBPpnaiosRrdfCGe4rWuMA
+	XwE1/htWv7vR3+aEGrP5wPbExcmyx4WiNw3TjjQoxqtakbwkCR9BSHQ7cN9QI9u51pd3333oC62wJ
+	y0iZnjRU1781fsRmKblbNcROD2a8JvDhshy2c6CxmcyMOnKHueZnUMiGBuuaYbSS1eBO23MVP/Mtl
+	R5ODGZBXs/zaywhFGdgdhzu4Ce85ssXTgswv8ChWzR0WeB5kslQ8fMhddaHQy7yfJCwIu9oERN+p1
+	LXZjP66Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP2N6-00000000jqx-0FGL;
-	Fri, 28 Nov 2025 17:35:04 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vP2XB-00000000kBX-1atv;
+	Fri, 28 Nov 2025 17:45:29 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP2N3-00000000jqJ-10WV
+	id 1vP2X8-00000000kAl-2hZ0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 17:35:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=JwkxrOhf4MPsWdJ3TbYzFMXzZqwZrMM4caiEbRwaHlc=; b=EL8Chp9jEKRF7gKMPiwqVJMmUi
-	3sja2/y4vjeQ1ppshT3Y0Phtzb/uA0GK4rORcGycRI4NBjBEMRXoaSoIXCeS+SWJl032Ib++WYptL
-	x0IYBkql8K00oiwm7UzwVXX3X/i2/sBjeGk2+j6vi8lnTIx0FlJNpxYizecjmRn1iFfwg8hxM0ip9
-	8p7k3NEwKfnQhmyhfYKrR+8rCrEUAn7CXRvAZO06nEmmL33gMsfTc5WHBJiUssojzWZUGL0x8BPYQ
-	PhHgGkwqAaFhx/nnT54HgjdB7Zlsb5WvULLZ1VMGrYqeBfrUAuATDr+HUyD+sBc684L0Kt7gQdKgF
-	aIHx+16g==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:34828)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vP2Me-0000000076f-1n11;
-	Fri, 28 Nov 2025 17:34:36 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vP2MZ-000000003nu-1jFT;
-	Fri, 28 Nov 2025 17:34:31 +0000
-Date: Fri, 28 Nov 2025 17:34:31 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: Xie Yuanbin <xieyuanbin1@huawei.com>, akpm@linux-foundation.org,
-	arnd@arndb.de, brauner@kernel.org, david.laight@runbox.com,
-	hch@lst.de, jack@suse.com, kuninori.morimoto.gx@renesas.com,
-	liaohua4@huawei.com, lilinjie8@huawei.com,
-	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	lorenzo.stoakes@oracle.com, marc.zyngier@arm.com, nico@fluxnic.net,
-	pangliyuan1@huawei.com, pfalcato@suse.de, punitagrawal@gmail.com,
-	rjw@rjwysocki.net, rppt@kernel.org, tony@atomide.com,
-	vbabka@suse.cz, viro@zeniv.linux.org.uk, wangkefeng.wang@huawei.com,
-	will@kernel.org, wozizhi@huaweicloud.com
-Subject: Re: [RFC PATCH v2 1/2] ARM/mm/fault: always goto bad_area when
- handling with page faults of kernel address
-Message-ID: <aSndJ1EYUnMGsUYX@shell.armlinux.org.uk>
-References: <20251127145127.qUXs_UAE@linutronix.de>
- <20251128022756.9973-1-xieyuanbin1@huawei.com>
- <20251128120359.Xc09qn1W@linutronix.de>
- <aSnVXrnuY9QKjTKg@shell.armlinux.org.uk>
- <20251128172242.cCNBVf7H@linutronix.de>
+	Fri, 28 Nov 2025 17:45:28 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-477ba2c1ca2so23639015e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Nov 2025 09:45:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764351924; x=1764956724; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=lSM32csH2X23xXw6xgAstXFSe1ZcOlrmsYctqKwHp88=;
+        b=ht0ZTrKAlFvkMp20Vvb0D0JI8IEp5mjQtLC7VHsLgrgneiAdDOY9NN8eUBXhq10Gmo
+         IaOaK0q12P60Art1rdmMBIqtV1p0UOTOTGs+nO3nlguV5LESTDTPaiOPhHQu2WnJ5pB0
+         EPQQc8yHQS+DjEyE6xG+p2v51xJvT5uI3Bceg0KaEuM6UNacRZTbnO2ZrWem5eJsCawV
+         eaOgsrbLq+6Bo66W7HPiziBAIWp+73cYFpX/gNc2azY/CGAo1mGVOtazYOLgB3ln6t0K
+         BbVAUQgvekexOZ9ZovpVZsEtYCFf+C9lu5Mrkuz6WYgYO8u9tHAv9TXMnOCggJNZDZHH
+         LbBA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764351924; x=1764956724;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lSM32csH2X23xXw6xgAstXFSe1ZcOlrmsYctqKwHp88=;
+        b=ZqLKLGDVyUu/qhPCTmbhPp6HVffalB3ECrV1V87QEPEsCliqnHQXWy9A3ZITnWa9zD
+         67t9mxwI/X6rsk2SxTQfr4ux9CXOzMg76panJMDTz2fChMPwf+jt4HTS/TuL35ecevOQ
+         WJvSDhos/TJpK32+pMDcLg/BlEpANddSME1OFQR2R1+OcoaXRu9m+4jSUokpQrDnEshe
+         fsUc/piz7wpyGkst3gjkT4BiYRFmgqv095VL+VTpy50b5iKATuWJe5VyFu39wFWHdIZG
+         1lT7gbHN4JhjvDDBKdzLwl6jfQkYOeZxOR8D5G3nku6WJCUzMZtctHjb0dK+H47iTbQC
+         SeNw==
+X-Forwarded-Encrypted: i=1; AJvYcCVsU1FqQtN6fP3Zxbrap8K9EgU+ZBQLnuspVsSI71KZM3+bLpjKgq3KniEFufkoPfoqIWbiv3U41MeM0oi0spKr@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzGAa0cagnQr9rDjNF4lLfUGFQx/u2rTK/hhXWLEi3NQhDVTkF
+	gIRvuLKrXy1tiKiOLIZpDUdfR79vQLPdu1n/K4huMi3IyiWpCtImjeLC
+X-Gm-Gg: ASbGncssuEH+sr1ENIfudjSr3qr65uCZS5gCLfcl9e57OO+Zg3yGDk9EWgO67u7/4Pa
+	ok/v36moEVG1TZwPFt6E0ULVH5A3xcsjct/3W1lKKSwHaBuuQwbb2CSEfUxUJqp8gyuHJoNtWoD
+	sRQ6zl92se66gpKoBdtMx47ldOap34cXF2cj6fJMai8Ujr1yC0lS0E/fIbIIVHvzbezIBjZxx1T
+	CP9AVCfkNELRdlWkU+1OkjsN6x1qxcdrBf4asJ8NZXbXCadDkhvdFJ9ffDEb6x3qtSWjrSlir5R
+	gZdLD4dypDBDG68XP6Aj34g60gORy/wCw95tZOH+Yy28Qm/GKxZikCqFxs+AGKuP/FHNEEuDnha
+	SKgHeD4RFfX+e3S33bb6Tqz+8aSQ7JqAWas8vMV/BOWCJLczmj1cc4JhXDfLzhbEY1L2tX5Qppg
+	/38f+kX4DVYwywnqh9SRfz
+X-Google-Smtp-Source: AGHT+IGr8jf1cEOxcEb6EeKeJchwsXTCgWnn9x2mUsKIoWiq9E4Ha2G7avXXtjB+xtyEdcahgOM1nA==
+X-Received: by 2002:a05:600c:46d2:b0:477:54cd:2030 with SMTP id 5b1f17b1804b1-47904b1afcemr162142095e9.21.1764351924189;
+        Fri, 28 Nov 2025 09:45:24 -0800 (PST)
+Received: from localhost ([87.254.0.133])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-42e1c5c3c8csm13452898f8f.2.2025.11.28.09.45.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Nov 2025 09:45:23 -0800 (PST)
+From: Colin Ian King <colin.i.king@gmail.com>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-wireless@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: kernel-janitors@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH][next] wifi: mt76: mt7996: Fix spelling mistake "retriving" -> "retrieving"
+Date: Fri, 28 Nov 2025 17:44:30 +0000
+Message-ID: <20251128174430.318838-1-colin.i.king@gmail.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251128172242.cCNBVf7H@linutronix.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_093501_283013_582CB18B 
-X-CRM114-Status: GOOD (  21.56  )
+X-CRM114-CacheID: sfid-20251128_094526_702222_A967E6B6 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,44 +107,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 28, 2025 at 06:22:42PM +0100, Sebastian Andrzej Siewior wrote:
-> On 2025-11-28 17:01:18 [+0000], Russell King (Oracle) wrote:
-> > > I hope Russell will add them once he gets to it. They got reviewed, I
-> > > added them to the patch system.
-> > 
-> > I'm not sure which patches you're talking about, but discussion is
-> > still ongoing, so it would be greatly premature to merge anything.
-> 
-> This thread
-> 	https://lore.kernel.org/all/20251110145555.2555055-1-bigeasy@linutronix.de/
-> 
-> and the patches are 9459/1 to 9463/1 in your patch system. They address
-> other issues, not this one.
+There are a handful of spelling mistakes in various warning messages.
+Fix them.
 
-Oh, the branch predictor issue. Yea, I'm not keen on changing that
-because I'm not sure if it's correct (the knowledge for this has
-long since evaporated.) There have been multiple attempts at fixing
-this in the past, and I've previously pointed out problems with
-them when I _did_ have the knowledge. Have you looked back in the
-archives to see whether any of that feedback I've given in the past
-is relevant?
+Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
+---
+ drivers/net/wireless/mediatek/mt76/mt7996/npu.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-> > https://lore.kernel.org/r/aSmUnZZATTn3JD7m@willie-the-truck
-> > 
-> > There are now many threads each with their own discussion, which
-> > makes it more difficult to work out which is the implementation that
-> > should be merged. Clearly, not everyone knows about the other
-> > discussion threads.
-> 
-> So Will suggested to let change the handler and handle this case. The
-> other patch is avoiding handling addr > TASK_SIZE.
-> Any preferences from your side?
-
-... and now we have a new proposal from Linus. I'm not intending to
-do anything on this new problem until the discussion calms down and
-we stop getting new solutions.
-
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/npu.c b/drivers/net/wireless/mediatek/mt76/mt7996/npu.c
+index 29bb735da4cb..1422533e59c7 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/npu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/npu.c
+@@ -120,7 +120,7 @@ static int mt7996_npu_rxd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
+ 			       &val, GFP_KERNEL);
+ 	if (err) {
+ 		dev_warn(dev->mt76.dev,
+-			 "failed retriving NPU wlan rx ring0 addr\n");
++			 "failed retrieving NPU wlan rx ring0 addr\n");
+ 		return err;
+ 	}
+ 	writel(val, &dev->mt76.q_rx[MT_RXQ_RRO_BAND0].regs->desc_base);
+@@ -129,7 +129,7 @@ static int mt7996_npu_rxd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
+ 			       &val, GFP_KERNEL);
+ 	if (err) {
+ 		dev_warn(dev->mt76.dev,
+-			 "failed retriving NPU wlan rx ring1 addr\n");
++			 "failed retrieving NPU wlan rx ring1 addr\n");
+ 		return err;
+ 	}
+ 	writel(val, &dev->mt76.q_rx[MT_RXQ_RRO_BAND1].regs->desc_base);
+@@ -138,7 +138,7 @@ static int mt7996_npu_rxd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
+ 			       &val, GFP_KERNEL);
+ 	if (err) {
+ 		dev_warn(dev->mt76.dev,
+-			 "failed retriving NPU wlan rxdmad_c ring addr\n");
++			 "failed retrieving NPU wlan rxdmad_c ring addr\n");
+ 		return err;
+ 	}
+ 	writel(val, &dev->mt76.q_rx[MT_RXQ_RRO_RXDMAD_C].regs->desc_base);
+@@ -159,7 +159,7 @@ static int mt7996_npu_txd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
+ 				       &val, GFP_KERNEL);
+ 		if (err) {
+ 			dev_warn(dev->mt76.dev,
+-				 "failed retriving NPU wlan tx ring addr\n");
++				 "failed retrieving NPU wlan tx ring addr\n");
+ 			return err;
+ 		}
+ 		writel(val, &dev->mt76.phys[i]->q_tx[0]->regs->desc_base);
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.51.0
+
 
