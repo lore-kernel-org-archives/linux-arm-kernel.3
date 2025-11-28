@@ -4,58 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11621CFD376
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 03:17:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5F15CFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 03:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jV0Toq94Bdd9H5uUKR8LAkhC09OUeffE71uEArrF4J8=; b=QN+6HFgP9hzIAJ3awbtl7gVfyd
-	oMkAw415n5C9GICt4cd8WHO9xTK8pfjtyA/v1jGN+0dkO+NTNUfcMG8btRFAq0Xd87rr+2/iJQycJ
-	G920nLXdoWEt/l2iIKHEUnJNcunLvUcPPirljXcmCS0wg8/E77+fgUajRo5n/ql+1NSzDX/Eaky4t
-	7qx4p5Qx5IDivrCvZE5sKSIENdPiNYwnvZ2xBRFCO57qqplcNYAj4SYpiAj7Ly0Ae77+ueyb11x4v
-	J2dRvUNRcNmlc4lGWgdZgP8EiP4k7grMOqPhHs1FjaQWHMOsHAtT4xAyrcq30R8hRvwFweeaYlY9d
-	9kapUd1g==;
+	bh=Ofi7IOAlD2B9ISGtcfH1gxIUK1uiRhCrzNPhUEt77e0=; b=mpfPq//pnlHRWfCecfuuGp+Imp
+	/7vYJZ9SxAo4CWsY435/aX8ZXFUJw3+O1bYNCx2cb73Ey10FNOmZHD1Lxza6qWqWO+5r7HKNmKN8I
+	MzYSwbpCFsaKHMMLHVJ7usiFnXP0XKW7ZsWEQE4nT4tOjJcSEdrVzuMcNTyxLRUF8gCSBfCg8v5W3
+	rU172K4zEeED8PCpoAchtZgt+Z5URci4XUKsJctxCQAaIJJhXoMU9jSaXDMazgjZ84zLu/0fSYpTu
+	n/3PbyE47zfx1cySpW7TAllxuNoAR4eUSRjURar5LCruyD+b9Qji/FKCqYvkV9+Q1vU5z20bclGCu
+	Wou5lJXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOoyy-0000000HVpE-3QqB;
-	Fri, 28 Nov 2025 03:17:16 +0000
-Received: from angie.orcam.me.uk ([78.133.224.34])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOoyv-0000000HVoi-2aVJ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 03:17:15 +0000
-Received: by angie.orcam.me.uk (Postfix, from userid 500)
-	id 9082B92009C; Fri, 28 Nov 2025 04:17:02 +0100 (CET)
-Received: from localhost (localhost [127.0.0.1])
-	by angie.orcam.me.uk (Postfix) with ESMTP id 8C79F92009B;
-	Fri, 28 Nov 2025 03:17:02 +0000 (GMT)
-Date: Fri, 28 Nov 2025 03:17:02 +0000 (GMT)
-From: "Maciej W. Rozycki" <macro@orcam.me.uk>
-To: Manivannan Sadhasivam <mani@kernel.org>
-cc: Jingoo Han <jingoohan1@gmail.com>, 
-    Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-    =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-    Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-    Krzysztof Kozlowski <krzk@kernel.org>, 
-    Alim Akhtar <alim.akhtar@samsung.com>, 
-    Jonathan Chocron <jonnyc@amazon.com>, linux-pci@vger.kernel.org, 
-    linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-    linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-    Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Subject: Re: [PATCH v9 4/4] PCI: dwc: Support ECAM mechanism by enabling iATU
- 'CFG Shift Feature'
-In-Reply-To: <20250909-controller-dwc-ecam-v9-4-7d5b651840dd@kernel.org>
-Message-ID: <alpine.DEB.2.21.2511280256260.36486@angie.orcam.me.uk>
-References: <20250909-controller-dwc-ecam-v9-0-7d5b651840dd@kernel.org> <20250909-controller-dwc-ecam-v9-4-7d5b651840dd@kernel.org>
-User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
+	id 1vOozC-0000000HVrO-0T8G;
+	Fri, 28 Nov 2025 03:17:30 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOozA-0000000HVqx-2PYw;
+	Fri, 28 Nov 2025 03:17:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8655D6013C;
+	Fri, 28 Nov 2025 03:17:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04DF0C4CEF8;
+	Fri, 28 Nov 2025 03:17:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764299847;
+	bh=ryPXwfuMaZzBXoYMo/9eVTKnHFtI3lVtoZXMBixOIc4=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=R1Ec+14ZjpPF5TvGD5MwhTACaQKRf4CPFDQlWnS3iKcnA8nYJoHgtULZac5QL0R8e
+	 ONuNr0QhVzGQQpBd9bAMc1HDkJTHGmkM+T4u3EYEry/bXjqhlfnzkJ148xc96GDTWS
+	 9m44RRHE9/pa6qqT19+hA/3uKMQ2VlMa/O1lNQSYr2D7vVq8xL5+nhR0SPDO0iTntq
+	 f/ldas7ZXnM+NMMiIVPZ0xtlmSLav22QSnLLOw/JE1y6uSSXurk3KHRR9Zrbm1mnqz
+	 R9TMfNxqW8aiwae9iBkcsN7xtjhBhTn7smCfb7sO/wYSYR0TxnNyu3olV+kHpfMGwO
+	 8NTnuNSIdcdtA==
+Date: Thu, 27 Nov 2025 21:17:25 -0600
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_191713_888333_D2951183 
-X-CRM114-Status: GOOD (  14.58  )
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Sandy Huang <hjc@rock-chips.com>, 
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
+ Diederik de Haas <didi.debian@cknow.org>, Dragan Simic <dsimic@manjaro.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ linux-phy@lists.infradead.org, Andy Yan <andy.yan@rock-chips.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Johan Jonker <jbx6244@gmail.com>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Robert Foss <rfoss@kernel.org>, 
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
+ Heiko Stuebner <heiko@sntech.de>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ linux-rockchip@lists.infradead.org, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maxime Ripard <mripard@kernel.org>, Jonas Karlman <jonas@kwiboo.se>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+ Amit Sunil Dhamne <amitsd@google.com>, linux-kernel@vger.kernel.org, 
+ dri-devel@lists.freedesktop.org, Conor Dooley <conor+dt@kernel.org>, 
+ Vinod Koul <vkoul@kernel.org>, Peter Chen <hzpeterchen@gmail.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Peter Robinson <pbrobinson@gmail.com>, 
+ Yubing Zhang <yubing.zhang@rock-chips.com>, Simona Vetter <simona@ffwll.ch>, 
+ linux-arm-kernel@lists.infradead.org, 
+ Frank Wang <frank.wang@rock-chips.com>, linux-usb@vger.kernel.org, 
+ devicetree@vger.kernel.org, Andrzej Hajda <andrzej.hajda@intel.com>
+To: Chaoyi Chen <kernel@airkyi.com>
+In-Reply-To: <20251128020405.90-6-kernel@airkyi.com>
+References: <20251128020405.90-1-kernel@airkyi.com>
+ <20251128020405.90-6-kernel@airkyi.com>
+Message-Id: <176429984551.1030074.10716294618988682110.robh@kernel.org>
+Subject: Re: [PATCH v11 05/11] dt-bindings: phy: rockchip:
+ rk3399-typec-phy: Support mode-switch
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,90 +94,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 9 Sep 2025, Manivannan Sadhasivam wrote:
 
-> From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+On Fri, 28 Nov 2025 10:03:59 +0800, Chaoyi Chen wrote:
+> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 > 
-> Designware databook r5.20a, sec 3.10.10.3 documents the 'CFG Shift Feature'
-> of the internal Address Translation Unit (iATU). When this feature is
-> enabled, it shifts/maps the BDF contained in the bits [27:12] of the target
-> address in MEM TLP to become BDF of the CFG TLP. This essentially
-> implements the Enhanced Configuration Address Mapping (ECAM) mechanism as
-> defined in PCIe r6.0, sec 7.2.2.
+> The RK3399 SoC integrates two USB/DP combo PHYs, each of which
+> supports software-configurable pin mapping and DisplayPort lane
+> assignment. These capabilities enable the PHY itself to handle both
+> mode switching and orientation switching, based on the Type-C plug
+> orientation and USB PD negotiation results.
+> 
+> While an external Type-C controller is still required to detect cable
+> attachment and report USB PD events, the actual mode and orientation
+> switching is performed internally by the PHY through software
+> configuration. This allows the PHY to act as a Type-C multiplexer for
+> both data role and DP altmode configuration.
+> 
+> To reflect this hardware design, this patch introduces a new
+> "mode-switch" property for the dp-port node in the device tree bindings.
+> This property indicates that the connected PHY is capable of handling
+> Type-C mode switching itself.
+> 
+> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+> 
+> (no changes since v5)
+> 
+> Changes in v4:
+> - Remove "|" in description.
+> 
+> Changes in v3:
+> - Add more descriptions to clarify the role of the PHY in switching.
+> 
+> Changes in v2:
+> - Reuse dp-port/usb3-port in rk3399-typec-phy binding.
+> 
+>  .../devicetree/bindings/phy/rockchip,rk3399-typec-phy.yaml  | 6 ++++++
+>  1 file changed, 6 insertions(+)
+> 
 
- So this broke a parallel port on my HiFive Unmatched machine (a SiFive 
-FU740-C000 based system), the driver no longer registers the device, no 
-/dev/parport0 anymore.
+My bot found errors running 'make dt_binding_check' on your patch:
 
- I've had to bisect it with commit a1978b692a39 ("PCI: dwc: Use custom 
-pci_ops for root bus DBI vs ECAM config access") and commit fc2bc2623e3a 
-("Revert "PCI: qcom: Prepare for the DWC ECAM enablement"") applied on top 
-and it's affirmative it's this change, i.e. upstream commit 0da48c5b2fa7 
-("PCI: dwc: Support ECAM mechanism by enabling iATU 'CFG Shift Feature'").
+yamllint warnings/errors:
 
- Here's the relevant part of a diff between bootstrap logs:
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/slimbus/slimbus.example.dtb: slim@28080000 (qcom,slim-ngd-v1.5.0): 'audio-codec@1,0' does not match any of the regexes: '^pinctrl-[0-9]+$', '^slim@[0-9a-f]+$'
+	from schema $id: http://devicetree.org/schemas/slimbus/qcom,slim-ngd.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/slimbus/slimbus.example.dtb: slim@28080000 (qcom,slim-ngd-v1.5.0): #address-cells: 1 was expected
+	from schema $id: http://devicetree.org/schemas/slimbus/qcom,slim-ngd.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/slimbus/slimbus.example.dtb: slim@28080000 (qcom,slim-ngd-v1.5.0): 'dmas' is a required property
+	from schema $id: http://devicetree.org/schemas/slimbus/qcom,slim-ngd.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/slimbus/slimbus.example.dtb: slim@28080000 (qcom,slim-ngd-v1.5.0): 'dma-names' is a required property
+	from schema $id: http://devicetree.org/schemas/slimbus/qcom,slim-ngd.yaml
+Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c263000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
+Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c263000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
+Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c265000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
+Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c265000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
 
---- dmesg-good.log	2025-11-28 03:41:18.943097032 +0100
-+++ dmesg-bad.log	2025-11-28 03:47:29.582049781 +0100
-@@ -1,5 +1,5 @@
--Booting Linux on hartid 3
--Linux version 6.17.0-rc1-00008-g4660e50cf818-dirty (macro@angie) (riscv64-linux-gnu-gcc (GCC) 13.0.0 20220602 (experimental), GNU ld (GNU Binutils) 2.38.50.20220503) #19 SMP Fri Nov 28 02:37:51 GMT 2025
-+Booting Linux on hartid 1
-+Linux version 6.17.0-rc1-00009-g0da48c5b2fa7-dirty (macro@angie) (riscv64-linux-gnu-gcc (GCC) 13.0.0 20220602 (experimental), GNU ld (GNU Binutils) 2.38.50.20220503) #20 SMP Fri Nov 28 02:43:00 GMT 2025
- Machine model: SiFive HiFive Unmatched A00
- SBI specification v0.3 detected
- SBI implementation ID=0x1 Version=0x9
-@@ -61,7 +61,7 @@
- EFI services will not be available.
- smp: Bringing up secondary CPUs ...
- smp: Brought up 1 node, 4 CPUs
--Memory: 16383064K/16777216K available (10746K kernel code, 2200K rwdata, 4972K rodata, 537K init, 371K bss, 389448K reserved, 0K cma-reserved)
-+Memory: 16383064K/16777216K available (10746K kernel code, 2200K rwdata, 4972K rodata, 536K init, 371K bss, 389448K reserved, 0K cma-reserved)
- devtmpfs: initialized
- clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
- posixtimers hash table entries: 2048 (order: 3, 32768 bytes, linear)
-@@ -161,6 +161,7 @@
- fu740-pcie e00000000.pcie:       IO 0x0060080000..0x006008ffff -> 0x0060080000
- fu740-pcie e00000000.pcie:      MEM 0x0060090000..0x007fffffff -> 0x0060090000
- fu740-pcie e00000000.pcie:      MEM 0x2000000000..0x3fffffffff -> 0x2000000000
-+fu740-pcie e00000000.pcie: ECAM at [mem 0xdf0000000-0xdffffffff] for [bus 00-ff]
- fu740-pcie e00000000.pcie: Using 256 MSI vectors
- fu740-pcie e00000000.pcie: iATU: unroll T, 8 ob, 8 ib, align 4K, limit 4096G
- fu740-pcie e00000000.pcie: cap_exp at 70
-@@ -655,7 +656,7 @@
- usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 6.17
- usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
- usb usb1: Product: xHCI Host Controller
--usb usb1: Manufacturer: Linux 6.17.0-rc1-00008-g4660e50cf818-dirty xhci-hcd
-+usb usb1: Manufacturer: Linux 6.17.0-rc1-00009-g0da48c5b2fa7-dirty xhci-hcd
- usb usb1: SerialNumber: 0000:04:00.0
- hub 1-0:1.0: USB hub found
- hub 1-0:1.0: 2 ports detected
-@@ -663,7 +664,7 @@
- usb usb2: New USB device found, idVendor=1d6b, idProduct=0003, bcdDevice= 6.17
- usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
- usb usb2: Product: xHCI Host Controller
--usb usb2: Manufacturer: Linux 6.17.0-rc1-00008-g4660e50cf818-dirty xhci-hcd
-+usb usb2: Manufacturer: Linux 6.17.0-rc1-00009-g0da48c5b2fa7-dirty xhci-hcd
- usb usb2: SerialNumber: 0000:04:00.0
- hub 2-0:1.0: USB hub found
- hub 2-0:1.0: 2 ports detected
-@@ -735,8 +736,6 @@
- pcieport 0000:06:01.0: enabling bus mastering
- parport_pc 0000:07:00.0: enabling device (0000 -> 0001)
- PCI parallel port detected: 1415:c118, I/O at 0x1000(0x1008), IRQ 35
--parport0: PC-style at 0x1000 (0x1008), irq 35, using FIFO [PCSPP,TRISTATE,EPP,ECP]
--lp0: using parport0 (interrupt-driven).
- parport_pc 0000:07:00.0: vgaarb: pci_notify
- serial 0000:07:00.3: vgaarb: pci_notify
- serial 0000:07:00.3: assign IRQ: got 40
+doc reference errors (make refcheckdocs):
 
-and then it goes on with insignificant changes only owing to differences 
-in the order of messages produced, the kernel version ID or date stamps.  
-As you can see the PCIe parallel port device continues being accessible, 
-it's only the driver that doesn't pick up the device anymore.
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251128020405.90-6-kernel@airkyi.com
 
- I'm stumped as to where it might be coming from.  Any ideas?
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-  Maciej
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
