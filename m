@@ -4,69 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67085D116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 12:25:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AEEBD116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 12:35:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kUOzF3SR4AYKkptzzIkO1KpHc4LaMt9hjccp5my63I4=; b=zdbt7v14kc5kyOaXRnI35TaM+Z
-	64A8VT3lT4re2a0cFRp73cJvoU2f+/+NF+s1iW1Dbkewaq0dIxxSwOMiH0HRWcnHYc8Dq1gSMAuDk
-	LwHJXjmcfjjhyc5cTeEX3bvgtKaMb5y9181fLiqfXELJ2LquH9FrT6aZifhHdYE0QvpeT3a3stHY+
-	qWzdpyk3+/ojC8wO/Wx7kgkeggKIA8GPXIOyVi2FKLBkKZSOGEGWzl2g0RNlfWRTQSJo9EQI5JUV2
-	u/CUMIJeJffsvYjqUOvn5y21a9dLKeCmet4c01joDQiAQdV4W0B/WWeOOzfZtPCLnf3kUr3+AAOvG
-	0NjoWe/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9dH+D5mTSh5ELrYXQNv+Ooza55h/kNIOuzgn9g1M4Gk=; b=O93JJ4M2ZCWIqa1X88Y5cvogdt
+	LRT5WkfG0jSUwT8jvBZgrumk2zNfelHQEVi4iOiLa06JUJKtLTHokoXclw1TVaKkw4mx5pUD079Xo
+	XrVp7CDw4g6BjCWjLvF0xXwjrYXoPypIRhrrH3UCLcMGx+ry5jdVJDbGZ/nDjXWf5gibJ731EhhUe
+	2CFpC7sKZe7nG9aZAgcgVO1o3yXt3A6sl76Si+1jt4zen0Tr0zXlrnXFCDWCp/tJve2otQ1VzO+ot
+	F+phxOh5n9An4ONtF4p8p/tagLY6VB8wJNBxY3ui8TyDPK+2en89Axp5qqr3eHnymOE2Pb9c6ebUE
+	uxwwYkMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOxXC-00000000QOK-3Cpb;
-	Fri, 28 Nov 2025 12:25:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vOxgy-00000000Qtq-2tUg;
+	Fri, 28 Nov 2025 12:35:16 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOxXA-00000000QNd-1kDO
+	id 1vOxgw-00000000Qpr-1Gy4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 12:25:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D144640467;
-	Fri, 28 Nov 2025 12:25:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EA2FC4CEF1;
-	Fri, 28 Nov 2025 12:25:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764332707;
-	bh=w//MMNaJ76/6XmuFlJvBo5HIxOMDYwo1z3nrqJzcqPw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EFYuo7O6PCmDiLmkZeeh6nVMNHkwYIYbsLmfcKYnkYNKUATjFpjfTZFq3Q+28KE7g
-	 ylt9vg//gd1+4k8VyYXowAEW5KYWTyqqH8fDxCjY7xCdp0JYC8lbiAvqFTPDSDuzVd
-	 ZZNkKSnMf7l6FLFaN4UTLygN0pK+cATxNDnYUILy8odb1QsWZhW9MIh21tT3yRxRKR
-	 pKfcxYFqWNwThsn7KLBSaNRF1fHII9S2TmQ2dqm3qTKUm2S1BIPmkAq6tPt30ayMfV
-	 tVfq4PWAJPQDJP9s/Mj6hQm3sivZGux0EL/3BnsxPBqKy22MZCFiBrON583IqSyDV9
-	 Ng7LVaqtx5vZQ==
-Date: Fri, 28 Nov 2025 12:25:01 +0000
-From: Will Deacon <will@kernel.org>
-To: Zizhi Wo <wozizhi@huaweicloud.com>
-Cc: jack@suse.com, brauner@kernel.org, hch@lst.de,
-	akpm@linux-foundation.org, linux@armlinux.org.uk,
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
-	yangerkun@huawei.com, wangkefeng.wang@huawei.com,
-	pangliyuan1@huawei.com, xieyuanbin1@huawei.com
-Subject: Re: [Bug report] hash_name() may cross page boundary and trigger
- sleep in RCU context
-Message-ID: <aSmUnZZATTn3JD7m@willie-the-truck>
-References: <20251126090505.3057219-1-wozizhi@huaweicloud.com>
- <aShLKpTBr9akSuUG@willie-the-truck>
- <9ff0d134-2c64-4204-bbac-9fdf0867ac46@huaweicloud.com>
- <39d99c56-3c2f-46bd-933f-2aef69d169f3@huaweicloud.com>
- <61757d05-ffce-476d-9b07-88332e5db1b9@huaweicloud.com>
+	Fri, 28 Nov 2025 12:35:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
+	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=9dH+D5mTSh5ELrYXQNv+Ooza55h/kNIOuzgn9g1M4Gk=; b=t/AhlW2pNgdxkkP4BnAGTAbg4q
+	yzFNL59iUiW+bqdg2QvEAkHBmgy+/JvZbCCgUSh7l/wIXMrsXAF1aLrW62eT3YArgJrg/ypt+QWP4
+	dK68VDDq/3bNQeceNdpimxAiDoRnMnC9vgk1wHXa2NTdrg4IBx6J7MGgjKg6t4MmaIuf4eBZXXHGt
+	WbesSMu0yItkBDhQ6v5WHgtBDX3nPXlIu2hXMZA4chLA+ICKD045pNogaLqUItbyrTEBn5yALHr0s
+	VWWcfYZdny4SI7ddDmDQLyZW/bShWdHpnssnD+CmSi22KBA7ePd5CpBIGv6d3Z0w35uBZnyv1g94T
+	qlYRdzfw==;
+Received: from [122.175.9.182] (port=40292 helo=zimbra.couthit.local)
+	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1vOxgF-0000000EcTe-04l2;
+	Fri, 28 Nov 2025 07:34:31 -0500
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id 395B21A83410;
+	Fri, 28 Nov 2025 18:04:26 +0530 (IST)
+Received: from zimbra.couthit.local ([127.0.0.1])
+ by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10032)
+ with ESMTP id mUNqj3eLG-2O; Fri, 28 Nov 2025 18:04:25 +0530 (IST)
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id 4C9A01A833F8;
+	Fri, 28 Nov 2025 18:04:25 +0530 (IST)
+X-Virus-Scanned: amavis at couthit.local
+Received: from zimbra.couthit.local ([127.0.0.1])
+ by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10026)
+ with ESMTP id LJ-YG9CDH0uv; Fri, 28 Nov 2025 18:04:25 +0530 (IST)
+Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
+	by zimbra.couthit.local (Postfix) with ESMTP id 2ED9A1A83410;
+	Fri, 28 Nov 2025 18:04:25 +0530 (IST)
+Date: Fri, 28 Nov 2025 18:04:25 +0530 (IST)
+From: Parvathi Pudi <parvathi@couthit.com>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Parvathi Pudi <parvathi@couthit.com>, andrew+netdev <andrew+netdev@lunn.ch>, 
+	davem <davem@davemloft.net>, edumazet <edumazet@google.com>, 
+	pabeni <pabeni@redhat.com>, danishanwar <danishanwar@ti.com>, 
+	rogerq <rogerq@kernel.org>, pmohan <pmohan@couthit.com>, 
+	basharath <basharath@couthit.com>, afd <afd@ti.com>, 
+	linux-kernel <linux-kernel@vger.kernel.org>, 
+	netdev <netdev@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	ALOK TIWARI <alok.a.tiwari@oracle.com>, horms <horms@kernel.org>, 
+	pratheesh <pratheesh@ti.com>, j-rameshbabu <j-rameshbabu@ti.com>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, 
+	srk <srk@ti.com>, rogerq <rogerq@ti.com>, 
+	krishna <krishna@couthit.com>, mohan <mohan@couthit.com>
+Message-ID: <802911697.52286.1764333265118.JavaMail.zimbra@couthit.local>
+In-Reply-To: <20251127184342.5d15c0e6@kernel.org>
+References: <20251126163056.2697668-1-parvathi@couthit.com> <20251127184342.5d15c0e6@kernel.org>
+Subject: Re: [PATCH net-next v8 0/3] STP/RSTP SWITCH support for PRU-ICSSM
+ Ethernet driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <61757d05-ffce-476d-9b07-88332e5db1b9@huaweicloud.com>
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.10.10.233]
+X-Mailer: Zimbra 9.0.0_ZEXTRAS_20240927 (ZimbraWebClient - GC138 (Linux)/9.0.0_ZEXTRAS_20240927)
+Thread-Topic: STP/RSTP SWITCH support for PRU-ICSSM Ethernet driver
+Thread-Index: OaBX5KHFpkZx/CLKU63NiWcFnFJGkw==
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
+X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_042508_522107_E7A08B0F 
-X-CRM114-Status: GOOD (  32.79  )
+X-CRM114-CacheID: sfid-20251128_043514_381680_A63CAA4D 
+X-CRM114-Status: UNSURE (   3.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,105 +117,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 28, 2025 at 09:39:45AM +0800, Zizhi Wo wrote:
-> 在 2025/11/28 9:18, Zizhi Wo 写道:
-> > 在 2025/11/28 9:17, Zizhi Wo 写道:
-> > > 在 2025/11/27 20:59, Will Deacon 写道:
-> > > > On Wed, Nov 26, 2025 at 05:05:05PM +0800, Zizhi Wo wrote:
-> > > > > We're running into the following issue on an ARM32 platform
-> > > > > with the linux
-> > > > > 5.10 kernel:
-> > > > > 
-> > > > > [<c0300b78>] (__dabt_svc) from [<c0529cb8>]
-> > > > > (link_path_walk.part.7+0x108/0x45c)
-> > > > > [<c0529cb8>] (link_path_walk.part.7) from [<c052a948>]
-> > > > > (path_openat+0xc4/0x10ec)
-> > > > > [<c052a948>] (path_openat) from [<c052cf90>] (do_filp_open+0x9c/0x114)
-> > > > > [<c052cf90>] (do_filp_open) from [<c0511e4c>]
-> > > > > (do_sys_openat2+0x418/0x528)
-> > > > > [<c0511e4c>] (do_sys_openat2) from [<c0513d98>] (do_sys_open+0x88/0xe4)
-> > > > > [<c0513d98>] (do_sys_open) from [<c03000c0>]
-> > > > > (ret_fast_syscall+0x0/0x58)
-> > > > > ...
-> > > > > [<c0315e34>] (unwind_backtrace) from [<c030f2b0>]
-> > > > > (show_stack+0x20/0x24)
-> > > > > [<c030f2b0>] (show_stack) from [<c14239f4>] (dump_stack+0xd8/0xf8)
-> > > > > [<c14239f4>] (dump_stack) from [<c038d188>]
-> > > > > (___might_sleep+0x19c/0x1e4)
-> > > > > [<c038d188>] (___might_sleep) from [<c031b6fc>]
-> > > > > (do_page_fault+0x2f8/0x51c)
-> > > > > [<c031b6fc>] (do_page_fault) from [<c031bb44>]
-> > > > > (do_DataAbort+0x90/0x118)
-> > > > > [<c031bb44>] (do_DataAbort) from [<c0300b78>] (__dabt_svc+0x58/0x80)
-> > > > > ...
-> > > > > 
-> > > > > During the execution of
-> > > > > hash_name()->load_unaligned_zeropad(), a potential
-> > > > > memory access beyond the PAGE boundary may occur. For example, when the
-> > > > > filename length is near the PAGE_SIZE boundary. This
-> > > > > triggers a page fault,
-> > > > > which leads to a call to
-> > > > > do_page_fault()->mmap_read_trylock(). If we can't
-> > > > > acquire the lock, we have to fall back to the
-> > > > > mmap_read_lock() path, which
-> > > > > calls might_sleep(). This breaks RCU semantics because path
-> > > > > lookup occurs
-> > > > > under an RCU read-side critical section. In linux-mainline, arm/arm64
-> > > > > do_page_fault() still has this problem:
-> > > > > 
-> > > > > lock_mm_and_find_vma->get_mmap_lock_carefully->mmap_read_lock_killable.
-> > > > > 
-> > > > > And before commit bfcfaa77bdf0 ("vfs: use 'unsigned long' accesses for
-> > > > > dcache name comparison and hashing"), hash_name accessed the
-> > > > > name byte by
-> > > > > byte.
-> > > > > 
-> > > > > To prevent load_unaligned_zeropad() from accessing beyond
-> > > > > the valid memory
-> > > > > region, we would need to intercept such cases beforehand? But doing so
-> > > > > would require replicating the internal logic of
-> > > > > load_unaligned_zeropad(),
-> > > > > including handling endianness and constructing the correct
-> > > > > value manually.
-> > > > > Given that load_unaligned_zeropad() is used in many places across the
-> > > > > kernel, we currently haven't found a good solution to
-> > > > > address this cleanly.
-> > > > > 
-> > > > > What would be the recommended way to handle this situation? Would
-> > > > > appreciate any feedback and guidance from the community. Thanks!
-> > > > 
-> > > > Does it help if you bodge the translation fault handler along the lines
-> > > > of the untested diff below?
+Hi,
+
+> On Wed, 26 Nov 2025 21:57:11 +0530 Parvathi Pudi wrote:
+>> Changes from v7 to v8:
+>> 
+>> *) Modified dev_hold/dev_put reference to netdev_hold/netdev_put in patch 2 of
+>> the series.
+>> *) Rebased the series on latest net-next.
 > 
-> I tried it out and it works — thank you for the solution you provided.
+> The only acceptable reason for reposting within 24h is when a reviewer
+> / maintainer explicitly and clearly asks for it. Please (re-)read:
+> https://www.kernel.org/doc/html/next/process/maintainer-netdev.html
+> --
+> pv-bot: 24h
 
-Thanks for giving it a spin.
 
-> At the same time, since I’m a beginner in this area, I’d like to ask a
-> question.
-> 
-> The comment above do_translation_fault() says:
-> “We enter here because the first level page table doesn't contain a
-> valid entry for the address.”
-> 
-> However, after modifying the code, it seems that when encountering
-> FSR_FS_INVALID_PAGE, the kernel no longer creates a page table entry,
-> but instead directly jumps to bad_area.
+Understood, we will follow the guidelines and avoid re-posting
+within 24h.
 
-FSR_FS_INVALID_PAGE indicates a last level translation fault (that's the
-"page" part) so it's only applicable in the case where the other levels
-of page-table have been populated already.
 
-I wondered about checking !is_vmalloc_addr() too, but I couldn't
-convince myself that load_unaligned_zeropad() is only ever used with the
-linear map.
-
-> I'd like to ask — could this change potentially cause any other side
-> effects?
-
-There's always the possibility but I personally think it's more
-self-contained than the other patches doing the rounds. For example, I
-don't make any changes to the permission fault handling path.
-
-Will
+Thanks and Regards,
+Parvathi.
 
