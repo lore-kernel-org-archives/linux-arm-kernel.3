@@ -4,69 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CF4CCFD376
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 08:47:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AFEED116EA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 08:54:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NXIQw8wTklQzICYSBWsCIghl/AUSAsiExXTZ+MWpvQM=; b=EhNuhpZ96R852tFjeklXPCImVJ
-	a1nQytavGl2CD0QMNLye6vzYhWPOBrKNG2AlYb27Oim9cOcolOX21ViAggBqM72KWCyugWQrPwICI
-	BxKVl+ieB+KnH0El1AV3REzzSv6nNJH7mrdIb+O95Y5zyfYn7zfiaX5XE4ZI2T4T2sE0GeUYSVQm2
-	uDh/3Cm5zLMLXFLgV7bOM4racCscsuF7dhpwEnRo2umH6YQ0YrkK0bvXC/CSyHZhcCE83hHE4420H
-	Tdhjj8g5xaZW4LiXvXCRL2bCa8HnnqsKgSgaDJhVk32fTHz73nodj4W5s5twFCPibE1WAWaxhRbdt
-	kCPourYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rDvZWMaEJ7qiFYzf5QHvGpUfV6X47c66PVJLPnZe19E=; b=KbS8xLuUNDRmgPh4qa4J4ifmRj
+	nxuwPR85U7ZKzSr+WJxIOe9ibZBp5CI/ddDF1v19N5tnDhHrADtl/u6fjrsishOyHqWA9EH+aJcro
+	jJrSQ5P5pqyzTO151RrkODIenu4DtSkyzc3TAjLNoNGFHhKMypyxm05vSWxmJOMaQ339JtGRbwCZB
+	1aAAg4uV4HperO+V4IMeJ89RRjy61OOHkeYU2h7mvzUdfqni9UwezuKAoFckB0+2udh2MFKgjSW1K
+	5rL7hCCH2O3qsdl8sOnABPdQppNrASNouxIOr5VztbmQq2GyjOi8hNOyC5QUKg5DFAqHa9wcFVC3b
+	rQqaKltQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOu7z-00000000Bux-2Iee;
-	Fri, 28 Nov 2025 08:46:55 +0000
-Received: from mail-m3291.qiye.163.com ([220.197.32.91])
+	id 1vOuF5-00000000CKJ-2lry;
+	Fri, 28 Nov 2025 08:54:15 +0000
+Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOu7w-00000000BuP-3JGq;
-	Fri, 28 Nov 2025 08:46:54 +0000
-Received: from [172.16.12.51] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2b402a864;
-	Fri, 28 Nov 2025 16:46:46 +0800 (GMT+08:00)
-Message-ID: <0ed71b8d-5a2e-4213-bd2f-7ba317d1e4cb@rock-chips.com>
-Date: Fri, 28 Nov 2025 16:46:46 +0800
+	id 1vOuF2-00000000CJZ-1m6W
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Nov 2025 08:54:13 +0000
+Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-4ee243b98caso429801cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Nov 2025 00:54:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1764320051; x=1764924851; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=rDvZWMaEJ7qiFYzf5QHvGpUfV6X47c66PVJLPnZe19E=;
+        b=TKOcXsh0Hm8y9iuOQ/1TcwzFGqdDh5JMSAbYuNd7wGDJ0dwHFu6yKgFvagU42NAj71
+         JrhcgnFcUwdstlOodRLqKQRmigZux9L9liQZ5Z9Y0p8MEwU+zP1f6nCoPNJsNjzmrV/n
+         LT6bTXk3pnMj7L0S8zxBLouQAHDNQZj4hPsGId2TO9r/9C1lt4Xg0ZnhCjFf+lhUxrSx
+         yTKDE4dV9vwcBuuey5U9hARoz6RdpB/A5OSvjrhXBuzygDu/il1kTtz1WuPLdHH0H8vX
+         BIj+jzr2UT71pTUQdUVjwRqJBUZeQFqEmi5fBXwFZ5Kuab1STxNBlg81Pa633Ce82FCZ
+         klgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764320051; x=1764924851;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rDvZWMaEJ7qiFYzf5QHvGpUfV6X47c66PVJLPnZe19E=;
+        b=SuP9DCJAYQJV2zA7a1tkjnuComGt5z9FFKXILWpthDddYQrdjw5A2AGrro/Yib16xg
+         mfXYfrMhFCSwl3GbFgAxIZiBRxqoQpsy/Kk2pF2UpIlxtukKKevY3Db4rQj6Z9afXmhO
+         IFDTXodwetyDzSSKSrHX7NHaxKBaEHWPxDshxIMzLcmkICBKfLZZYP9ktaDtauxTv6zm
+         q7G/zFHEnI4CWjtTZS1yonG2xCFkkiHzxh7iCgq1MU/FrI73dLavehwEvjhas0BZOySl
+         GkoYoMCmnOlT0eSXZsxNqD2vBGPSx2IZDUdDLJ8q0KMeg64w50nxHFXSf4F3//fLshle
+         feZA==
+X-Forwarded-Encrypted: i=1; AJvYcCUEmtLGr6j1/5J+ZLujXwAHHSEHE0m34AOstuIO+IfWsGuwjQA2PJ+7kkWqqwk0XKVWpIurbPuqwmAyzIfapNcK@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxm/nvo2zvSCTa286Mj4En++8G5V4PKUrf87NXo1bErY9LXkKuZ
+	+X+r4O3ZiJi06JJgfcclZUuGC2v0hIS/dxnO2tDm3Be4wEij7JrhCNPBfFEERby4i3hjAUIXJo7
+	e/AWL5BSYHUQrGuW5kF3lYngt9IQq+s4LkZnQvHdZQRni335pj25oWujs
+X-Gm-Gg: ASbGnctR3iVQVFDkiKb4YbuyDrCDij/auWjvcMcv2uMm9wzVKtfrYAKhpbNhC3wBLqp
+	j8bI4rUd2FWazY8MAVCaxUyn3qT9fwu2M6Z/zJ3fW9r+FU9JKJX+e6eDz7zB8qwm6RJ6NHMRkIU
+	4lHn8cme2DinOCqfK/zcckwCgPT7snszBEmSM6PdG7sjxWg8hsLiChdKDWA7qkLQ60zLSYO5RJg
+	4EWdsr30ArJYkV2xcWeRZVCFXd7KHnSVx2tUzDZUV/ym894INUPKiW7zmYZQSALFP1uI4nqjRgJ
+	tUyYGA==
+X-Google-Smtp-Source: AGHT+IHPym1ODtpAi9CMgE0hTp4o0fYMzlmczHF3vLdk+9RNCcByYNv22XLMdnl+3/yYSpI5Pmaxpz+/OUvckY3j+Sk=
+X-Received: by 2002:a05:622a:198e:b0:4b7:9b06:ca9f with SMTP id
+ d75a77b69052e-4efd0c63439mr8008681cf.2.1764320050941; Fri, 28 Nov 2025
+ 00:54:10 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/4] drm/rockchip: vop2: Support setting custom
- background color
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Louis Chauvet <louis.chauvet@bootlin.com>,
- Haneen Mohammed <hamohammed.sa@gmail.com>,
- Melissa Wen <melissa.srw@gmail.com>
-Cc: Robert Mader <robert.mader@collabora.com>, kernel@collabora.com,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-References: <20251118-rk3588-bgcolor-v3-0-a2cc909428ea@collabora.com>
- <20251118-rk3588-bgcolor-v3-4-a2cc909428ea@collabora.com>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <20251118-rk3588-bgcolor-v3-4-a2cc909428ea@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9ac9a4b85703abkunm11421f537af6fa
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGU5LT1ZLTEkYQ05MT0NNGktWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=EkSe98ZCaMWUeYJWp7XkH1NrLpxTWcBUuZ5/ZMa2t6hgO7fIBoBI7bhabX0N7JKE+CGGs15C9bG4dNFtrOGp1A4uPgc3UwN7O1zAxrxJvwTAbjSgobcIVchpTCb2zb7Gk7oqG5zxYWUxQc99Wdsk9g823t58tn/7Lv5rHHw84ao=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=NXIQw8wTklQzICYSBWsCIghl/AUSAsiExXTZ+MWpvQM=;
-	h=date:mime-version:subject:message-id:from;
+References: <20251127122210.4111702-1-tabba@google.com> <20251127122210.4111702-5-tabba@google.com>
+ <86345zr24c.wl-maz@kernel.org> <CA+EHjTz9fJ2892TNn-hy3aiQA6Cxj6xuFUBKQhpDOnsHkDtdwQ@mail.gmail.com>
+ <86wm3apmxu.wl-maz@kernel.org>
+In-Reply-To: <86wm3apmxu.wl-maz@kernel.org>
+From: Fuad Tabba <tabba@google.com>
+Date: Fri, 28 Nov 2025 08:53:34 +0000
+X-Gm-Features: AWmQ_bkR-70oLk2BukczwycCfDcP-ZO9JBqbtZx5xbkCA_MuBEHdD2g3hg0iJ9g
+Message-ID: <CA+EHjTzg=BQNKDDgbGjSOQ7GuRW1JAoyXNygHTYPba5g7_0Fgw@mail.gmail.com>
+Subject: Re: [PATCH v1 4/5] arm64: Inject UNDEF when accessing MTE sysregs
+ with MTE disabled
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_004653_304852_56ECD50B 
-X-CRM114-Status: GOOD (  18.65  )
+X-CRM114-CacheID: sfid-20251128_005412_479359_5BD133E6 
+X-CRM114-Status: GOOD (  44.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,94 +98,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Cristian,
+Hi Marc,
 
-On 11/18/2025 7:52 AM, Cristian Ciocaltea wrote:
-> The Rockchip VOP2 display controller allows configuring the background
-> color of each video output port.
-> 
-> Since a previous patch introduced the BACKGROUND_COLOR CRTC property,
-> which defaults to solid black, make use of it when programming the
-> hardware.
-> 
-> Note the maximum precision allowed by the display controller is 10bpc,
-> while the alpha component is not supported, hence ignored.
-> 
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> ---
->  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 13 ++++++++++++-
->  drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  4 ++++
->  2 files changed, 16 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> index 498df0ce4680..87110beba366 100644
-> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> @@ -1554,6 +1554,7 @@ static void vop2_post_config(struct drm_crtc *crtc)
->  	struct vop2_video_port *vp = to_vop2_video_port(crtc);
->  	struct vop2 *vop2 = vp->vop2;
->  	struct drm_display_mode *mode = &crtc->state->adjusted_mode;
-> +	u64 bgcolor = crtc->state->background_color;
->  	u16 vtotal = mode->crtc_vtotal;
->  	u16 hdisplay = mode->crtc_hdisplay;
->  	u16 hact_st = mode->crtc_htotal - mode->crtc_hsync_start;
-> @@ -1599,7 +1600,11 @@ static void vop2_post_config(struct drm_crtc *crtc)
->  		vop2_vp_write(vp, RK3568_VP_POST_DSP_VACT_INFO_F1, val);
->  	}
->  
-> -	vop2_vp_write(vp, RK3568_VP_DSP_BG, 0);
-> +	/* Background color is programmed with 10 bits of precision */
-> +	val = FIELD_PREP(RK3568_VP_DSP_BG__DSP_BG_RED, DRM_ARGB64_GETR_BPC(bgcolor, 10));
-> +	val |= FIELD_PREP(RK3568_VP_DSP_BG__DSP_BG_GREEN, DRM_ARGB64_GETG_BPC(bgcolor, 10));
-> +	val |= FIELD_PREP(RK3568_VP_DSP_BG__DSP_BG_BLUE, DRM_ARGB64_GETB_BPC(bgcolor, 10));
+On Fri, 28 Nov 2025 at 08:43, Marc Zyngier <maz@kernel.org> wrote:
+>
+> On Thu, 27 Nov 2025 14:41:24 +0000,
+> Fuad Tabba <tabba@google.com> wrote:
+> >
+> > Hi Marc,
+> >
+> > On Thu, 27 Nov 2025 at 14:17, Marc Zyngier <maz@kernel.org> wrote:
+> > >
+> > > On Thu, 27 Nov 2025 12:22:09 +0000,
+> > > Fuad Tabba <tabba@google.com> wrote:
+> > > >
+> > > > When MTE hardware is present but disabled via software (arm64.nomte or
+> > > > CONFIG_ARM64_MTE=n), HCR_EL2.ATA is cleared to prevent use of MTE
+> > > > instructions. However, this alone doesn't fully emulate hardware that
+> > > > lacks MTE support.
+> > > >
+> > > > With HCR_EL2.ATA cleared, accesses to certain MTE system registers trap
+> > > > to EL2 with exception class ESR_ELx_EC_SYS64. To faithfully emulate
+> > > > hardware without MTE (where such accesses would cause an Undefined
+> > > > Instruction exception), inject UNDEF into the host.
+> > > >
+> > > > Signed-off-by: Fuad Tabba <tabba@google.com>
+> > > > ---
+> > > >  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 44 ++++++++++++++++++++++++++++++
+> > > >  1 file changed, 44 insertions(+)
+> > > >
+> > > > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > > index 29430c031095..f542e4c17156 100644
+> > > > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> > > > @@ -686,6 +686,46 @@ static void handle_host_smc(struct kvm_cpu_context *host_ctxt)
+> > > >       kvm_skip_host_instr();
+> > > >  }
+> > > >
+> > > > +static void inject_undef64(void)
+> > > > +{
+> > > > +     unsigned long sctlr, vbar, old, new;
+> > > > +     u64 offset, esr;
+> > > > +
+> > > > +     vbar = read_sysreg_el1(SYS_VBAR);
+> > > > +     sctlr = read_sysreg_el1(SYS_SCTLR);
+> > > > +     old = read_sysreg_el2(SYS_SPSR);
+> > > > +     new = get_except64_cpsr(old, system_supports_mte(), sctlr, PSR_MODE_EL1h);
+> > > > +     offset = get_except64_offset(old, PSR_MODE_EL1h, except_type_sync);
+> > > > +     esr = (ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT) | ESR_ELx_IL;
+> > > > +
+> > > > +     write_sysreg_el1(esr, SYS_ESR);
+> > > > +     write_sysreg_el1(read_sysreg_el2(SYS_ELR), SYS_ELR);
+> > > > +     write_sysreg_el1(old, SYS_SPSR);
+> > > > +     write_sysreg_el2(vbar + offset, SYS_ELR);
+> > > > +     write_sysreg_el2(new, SYS_SPSR);
+> > > > +}
+> > > > +
+> > > > +static bool handle_host_mte(u64 esr)
+> > > > +{
+> > > > +     /* If we're here for any reason other than MTE, then it's a bug. */
+> > > > +
+> > > > +     if (read_sysreg(HCR_EL2) & HCR_ATA)
+> > > > +             return false;
+> > > > +
+> > > > +     switch (esr_sys64_to_sysreg(esr)) {
+> > > > +     case SYS_RGSR_EL1:
+> > > > +     case SYS_GCR_EL1:
+> > > > +     case SYS_TFSR_EL1:
+> > > > +     case SYS_TFSRE0_EL1:
+> > >
+> > > How about other things, such as DC GVA? Don't you need to trap and
+> > > UNDEF it (which has the side effect of also trapping DC ZVA)?
+> > >
+> > > Same question for all the DC {C,I,CI}GVA{C,P} instructions.
+> >
+> > As far as I could tell, none of these are trapped by ATA. The spec
+> > says that in the absence of MTE, their behavior is undefined --- which
+> > is the same for the ones I'm actually handling here...
+> >
+> > The reasons I've only handled these is that, when booting a system
+> > with a misadvertised MTE, the kernel accesses these registers, and
+> > injecting an UNDEF resulted in a nicer failure mode.
+>
+> But it all comes down to *why* is MTE disabled. Is it because the user
+> cannot be arsed with MTE's abysmal^Wstellar performance? Or because
+> this is a memory corruption vector on a misconfigured platform?
+>
+> > What do you suggest, drop this patch (and the one before it), since
+> > trying to access MTE is UNDEF, and the kernel that does it is just
+> > shooting itself in the foot (no security implications)? Or edit the
+> > commit message to make it clear that this is best effort, based on
+> > what ATA traps?
+>
+> No, what I am simply pointing out that that there is more to MTE than
+> what gets trapped by ATA, and my hunch is that when MTE is disabled on
+> machine that actually has it, it is because something is deeply broken
+> with tag management (I have one such machine).
+>
+> So depending which side of the problem you're on, this could be either
+> perfectly valid, or just missing the point.
 
-Division is expensive. If we convert a 16 bpc value to 10 bpc using
-direct bit-shifts, that is "DRM_ARGB64_GETX(bgcolor) >> 6" will
-keep the relative error within 1 compared to DIV_ROUND_CLOSEST().
+I see your point. Of course, my main concern is security and
+protecting the guest and the hypervisor from a malicious host (and of
+course the other way around, but that's the case in non-protected mode
+as well). When MTE is disabled, I think most (if not all) MTE-related
+instructions are UNDEFINED.
 
-Should we be concerned about the precision problem here?
+As far as I know, for the devices I've run into, the reason to disable
+MTE has been either performance or lack of support. So for that case,
+I think that this solution is enough. On the other hand, if the
+hardware is broken, then we can try to mitigate as much as possible,
+but I think that at the end there is so much we can do.
 
-> +	vop2_vp_write(vp, RK3568_VP_DSP_BG, val);
->  }
->  
->  static int us_to_vertical_line(struct drm_display_mode *mode, int us)
-> @@ -1984,6 +1989,10 @@ static int vop2_crtc_state_dump(struct drm_crtc *crtc, struct seq_file *s)
->  		   drm_get_bus_format_name(vcstate->bus_format));
->  	seq_printf(s, "\toutput_mode[%x]", vcstate->output_mode);
->  	seq_printf(s, " color_space[%d]\n", vcstate->color_space);
-> +	seq_printf(s, "\tbackground color (10bpc): r=0x%x g=0x%x b=0x%x\n",
-> +		   DRM_ARGB64_GETR_BPC(cstate->background_color, 10),
-> +		   DRM_ARGB64_GETG_BPC(cstate->background_color, 10),
-> +		   DRM_ARGB64_GETB_BPC(cstate->background_color, 10));
->  	seq_printf(s, "    Display mode: %dx%d%s%d\n",
->  		   mode->hdisplay, mode->vdisplay, interlaced ? "i" : "p",
->  		   drm_mode_vrefresh(mode));
-> @@ -2473,6 +2482,8 @@ static int vop2_create_crtcs(struct vop2 *vop2)
->  			return dev_err_probe(drm->dev, ret,
->  					     "crtc init for video_port%d failed\n", i);
->  
-> +		drm_crtc_attach_background_color_property(&vp->crtc);
-> +
->  		drm_crtc_helper_add(&vp->crtc, &vop2_crtc_helper_funcs);
->  		if (vop2->lut_regs) {
->  			const struct vop2_video_port_data *vp_data = &vop2_data->vp[vp->id];
-> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-> index 9124191899ba..37722652844a 100644
-> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
-> @@ -658,6 +658,10 @@ enum dst_factor_mode {
->  #define RK3588_VP_CLK_CTRL__DCLK_OUT_DIV		GENMASK(3, 2)
->  #define RK3588_VP_CLK_CTRL__DCLK_CORE_DIV		GENMASK(1, 0)
->  
-> +#define RK3568_VP_DSP_BG__DSP_BG_RED			GENMASK(29, 20)
-> +#define RK3568_VP_DSP_BG__DSP_BG_GREEN			GENMASK(19, 10)
-> +#define RK3568_VP_DSP_BG__DSP_BG_BLUE			GENMASK(9, 0)
-> +
->  #define RK3568_VP_POST_SCL_CTRL__VSCALEDOWN		BIT(1)
->  #define RK3568_VP_POST_SCL_CTRL__HSCALEDOWN		BIT(0)
->  
+So for now, I would think that this is enough. If we encounter cases
+that require more hardening, we could add that later.
 
--- 
-Best, 
-Chaoyi
+What do you think?
+/fuad
+
+> Thanks,
+>
+>         M.
+>
+> --
+> Without deviation from the norm, progress is not possible.
 
