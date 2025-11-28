@@ -4,96 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23C85D116E2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 16:46:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B34D4D116E2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 16:47:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3uq0SZEPhziDDc61M9zIiUZK8zeUmB0j8mVWX9Yf3sI=; b=m0VLZjx83qGJdSyFf9Zt1icTUJ
-	Ch/3xq/YwCeWUS5qO40rjIrU4UYqZxiavm97RedgtkKv/Khbzrf1l003h53w1S5SL+/N3bHXzXskU
-	qhawv0lpmXeQsy7uX6FR0+ToVj4Rt9kR3BTHNYoLUuLvmOaJCTHLZccv7iDWEAasL1qtDDTbS3xTZ
-	ls44fTLGgjb1QsDQc3VKR8LANExGplD62Gq4bNcyouME8IjtJ0mhKooBTWGs2Nv5UzFTtEh51j35w
-	Dpnz8GJJ0xMm1Dr+8Et0ggMfZX2X4avuj+nwN2ujPnXGGMj7ZVpiOVabIPg6BQ/M3DkjtNBKtOhHZ
-	ZbfNGwLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WyDxOQ8Lw5prQGezJfzgyKDZ5+VnUcEleF9/ih+sij8=; b=pPpfM15RmFCYjagOM7jftLM93o
+	QMm6/G9g/oAnDIRGU6373lsxdifkAZOkFOTMY3PUqwgQnACk21tEixrT9Mys+K9Sf/nCpb6tY7zRU
+	nYUqOkmzQHAwe5v8bIyPkP1Vslaex4Fbq7e0j4ExcA+GFw82q/gqiCmaSe+BZcnw7VO1BiYWkyK2z
+	KVzMwVBU7E1nY4a5Jk7pxjCt8a0RP+FuFBOasr76XcYjUdVS/bl5bS/+j+ea+6mFYJYYZO7LxR1+E
+	+gvN5a7zom4lq2/ETw8wQAQ/5FxpPujcqPzV6vFinQfpmRwnjv5Gz7NmqkE7TB000YPFN0DNf+lKD
+	wbqZI8Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP1bZ-00000000e2q-2v27;
-	Fri, 28 Nov 2025 16:45:57 +0000
-Received: from fout-a7-smtp.messagingengine.com ([103.168.172.150])
+	id 1vP1ca-00000000eHK-2KwW;
+	Fri, 28 Nov 2025 16:47:00 +0000
+Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP1bX-00000000e16-0DRC
+	id 1vP1cX-00000000eGo-3lli
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 16:45:56 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.phl.internal (Postfix) with ESMTP id BC2C5EC04DB;
-	Fri, 28 Nov 2025 11:45:51 -0500 (EST)
-Received: from phl-imap-17 ([10.202.2.105])
-  by phl-compute-04.internal (MEProxy); Fri, 28 Nov 2025 11:45:51 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:message-id:mime-version:reply-to
-	:subject:subject:to:to; s=fm3; t=1764348351; x=1764434751; bh=3u
-	q0SZEPhziDDc61M9zIiUZK8zeUmB0j8mVWX9Yf3sI=; b=el6qpgaou0Wo7IiJUl
-	FmoTXHnAlqhSFW06w82HUIXlfOKNE6gR/oyElFm28Qh6hQYQm1A713mZZ1wW1Bjz
-	xQy5JqBKZrGMn4UVRs9aRbPDXt02sc/SOSEgDhqrCB0E9LX7PbRQeTb3+XWhvali
-	IkIiuSam1ZVtY3HKMXcNtqWUqsAQg2eyxkCmvFJ4HrDNzXSSOYBsfbsIYIY7wFMS
-	bYkp7fl4/TFqqCqReJPoeWYhWt5ApLURFzoJLZeRJGVFZFa8zImZKd0dggD0sKiz
-	LpRdKV/BaWOzwhye4rNRglPIGVbTbCoUvkSn2ghalycBi8vEs++6G/syrHnprMeM
-	BEQg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm1; t=1764348351; x=1764434751; bh=3uq0SZEPhziDDc61M9zIiUZK8zeU
-	mB0j8mVWX9Yf3sI=; b=Ka6bXhrdqo4gT9EBOXYojK2xxJPbbETmub3+qrwuoTdT
-	zCsyra+Xber8pmjmzgGg98DajOl5vCdxgj1yB6FS1+bav7N2d1YA5LnVl/936yh+
-	VxgPh22kGVHLFSsR9gh0EcLsHo/IMwRNTuX3VFM2P9AYQ5NFhcf/bSp1Zp1OTxNp
-	U5KYe0JdbN1AUsWw6QVAPofJVT4Xt26lLqw8ViqNNbWY2PAWhhYiKXruHNSWcCiL
-	+lQ3FLYpIfEAh5Sz1eFzG0nQKkwdODE61scGNEgbI0r3CB9sSZWJphebPhpKIGgG
-	UBs7TYLMpTKQxNofVXTtdG3V5ipgeN4SOgt3s688XQ==
-X-ME-Sender: <xms:v9EpacFz0RbhfuENU1DdhmpIrOscDbeHDz9Wg-VXA1lO3s0mrtP3cA>
-    <xme:v9EpaQKDqNSCFpR1wfeMedp0wBdu8nRJSpxEnn9rkbzOMTxxZxULEOSvO1RSXXuyT
-    dJyjEZkqL-gGkra7ybTWwMmoDkCkXg6kkyaF5IyZyTn3piVgdeIdX2Q>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddvhedtfeelucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkffutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhguuceu
-    vghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvghrnh
-    epudelieegkeevueegtedtjedttdelgeehhfdvhfeuheethfduleffuddvueelveetnecu
-    ffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtnecurf
-    grrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphht
-    thhopeegpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehtohhrvhgrlhgusheslh
-    hinhhugidqfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghr
-    mhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoh
-    epshhotgeslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdhk
-    vghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:v9EpadyCi0_SBnz5QO4DK4pRy86yC9_k8Lh7p0431P610eiPt_L94A>
-    <xmx:v9EpaUJG9bs_SKVZbjWDI3RDqe41OMMYKiQAGXyIvNcaQHFmUgRGQA>
-    <xmx:v9EpafrIeAjOvsHU0ba1d7-PdeKWawY-xBKLSGCQ0rmdB-_YBXCKMA>
-    <xmx:v9EpabJYF7gBt2yUv0j-uRY-Z0HaTihHU4dbK1UwVlHmm7bOsVsG-Q>
-    <xmx:v9EpaWY_KzS8EeJncFCfIDeO-6kclFwxtrrGwrMeBuV98F3sI-9DZvF2>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 41B61C40054; Fri, 28 Nov 2025 11:45:51 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 28 Nov 2025 16:46:59 +0000
+Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-8b29ff9d18cso185366485a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Nov 2025 08:46:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1764348417; x=1764953217; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=WyDxOQ8Lw5prQGezJfzgyKDZ5+VnUcEleF9/ih+sij8=;
+        b=jPYSGtvKXKiGw+Uhzm+2gqI8XmFMjl3zLECXoWC46w111mOqXURdKGF1r5gpJU/59O
+         dw6XBsuD+E9squqx5jbNPKerOatExkEHoLKzSVOB0kmgCU5B855gIiYp4kJZ0sDTMoEL
+         lFlJlMK399HFA0dQEwiP3L/g2dsPhWJSrXp0bU5p+12nlSHIWCDRROnhoDcHINd2r5DN
+         33U05mWjnPoliEusaf8Za/rj9+2097C9ZRyybGqr+YDMVyiIFE8yydBMSoPjCTtgW6rq
+         U5rKEhaLb+uyzSTj51j2L1vDdZRviELcBuQLGFF6v8WCUcMmV1KNRsEz4MJ6pbJoAcCu
+         zvrg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764348417; x=1764953217;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WyDxOQ8Lw5prQGezJfzgyKDZ5+VnUcEleF9/ih+sij8=;
+        b=QGEcSDBBPhaqaVYsSSHL/Qm86HPjHksqI3G9i+3k0j5oTr0rANxXKXxbF/JsU5Vui3
+         XcEnYCFn1ZChRdVTV0MEHItMpHKzlFKFOfyYCX/cVyd6jMP9NJmfQO3W/F3bhSJZwfjh
+         UJ0N7Oki3qZ1mb7i5QVMdnIb4n/SMTkdSueNNticPOkWBvYfhkLclB4ztFxOpA6LkgJH
+         VebxlDdoCjd+QfQpdF4jgFsk2HTAtbTLcIbhuocjval24w9KEX0497/ZMtJzOnQDdEMX
+         SUaXMTBfzWeGAzjIKl5HQxq6DllDpfDmhZKX3VX9yRLtt49/tok3Z1Ywnq+jUm1w0Ktr
+         viEA==
+X-Gm-Message-State: AOJu0Ywoif5xKlYf5NxYVPQpLzr0eLeF9JNF8M0BWMSPJWaQjdFvluvv
+	QF1KrQp3QxpMdHDNLj5j8xmomDc2kYfqA+Cmc+0HM5zd9qlCHGR32sTTt/BZyK60TW0=
+X-Gm-Gg: ASbGncvYiBLTuyBcj8tQC90sb1lzLW0QET70bnSbKElh4xQmw3hQUY9xHgiKgBXpGaU
+	up4SFE+ymahL85cy8C46F/MXeE15TsMFQyJztp1hiCEmX/bKcUeXHCd8ZJGfCgXqkH0F8/il1W9
+	QyRUxbE6MXkCgZoXp2XHu0m13w9JJeOsndSOJrgvW88csVi10rBMKq3LgDH0bXJAUxU6QIF1FBy
+	+WMAldZYRSaSe1CQ8TO5Mt0LkFtppPV2ee1tfZvaAkrIzD9/eHc7nwkSg1bi4KUwZnyj3RRUI+0
+	JfVU3Pk0ukYyXTr/ZWZOucE0vlQOqm/nrrKqJk++q08JUrgSFbrcUWB+7KUCqgZJqxN8GEwwBHb
+	kDs7oExEPjj9HgdIUMiXV176hT8QXPRCQFTLPHVqxv3SvfrhJ0POQBOjyW3Zxs0O8DJsaP7J9rQ
+	883JoyW6hVIrMlWFtcL3PHF6VJ386eunW9+Wvljm0mKJe1nZRULdhsQnAZMkN54+GLb0U=
+X-Google-Smtp-Source: AGHT+IEp5YYm0eW3jhapM8OVullA+b9CRrzLXKAGXQfH68FS3XEeNccrfEDUvP/XIE+WOdxNSzgv+g==
+X-Received: by 2002:a05:620a:4694:b0:8b2:e986:26ff with SMTP id af79cd13be357-8b33d469db8mr3847315685a.66.1764348416499;
+        Fri, 28 Nov 2025 08:46:56 -0800 (PST)
+Received: from ziepe.ca (hlfxns017vw-47-55-120-4.dhcp-dynamic.fibreop.ns.bellaliant.net. [47.55.120.4])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8b52a1b6591sm338772785a.30.2025.11.28.08.46.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Nov 2025 08:46:55 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1vP1cV-00000003Pw0-0IzM;
+	Fri, 28 Nov 2025 12:46:55 -0400
+Date: Fri, 28 Nov 2025 12:46:55 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
+	praan@google.com, danielmentz@google.com, mark.rutland@arm.com,
+	qperret@google.com, tabba@google.com
+Subject: Re: [PATCH v5 05/27] iommu/arm-smmu-v3: Split code with hyp
+Message-ID: <20251128164655.GB812105@ziepe.ca>
+References: <20251117184815.1027271-1-smostafa@google.com>
+ <20251117184815.1027271-6-smostafa@google.com>
 MIME-Version: 1.0
-Date: Fri, 28 Nov 2025 17:45:17 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Torvalds" <torvalds@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- soc@lists.linux.dev
-Message-Id: <be1c0b1e-4e4c-420c-ba0c-f19ddf30e657@app.fastmail.com>
-Subject: [GIT PULL] soc: fixes for 6.18, part 4
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251117184815.1027271-6-smostafa@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_084555_404825_4C514DB4 
-X-CRM114-Status: UNSURE (   8.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251128_084657_937881_D9D3FC92 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,70 +107,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 2eba5e05d9bcf4cdea995ed51b0f07ba0275794a:
+On Mon, Nov 17, 2025 at 06:47:52PM +0000, Mostafa Saleh wrote:
+> The KVM SMMUv3 driver would re-use some of the cmdq code inside
+> the hypervisor, move these functions to a new common c file that
+> is shared between the host kernel and the hypervisor.
+> 
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/Makefile        |   2 +-
+>  .../arm/arm-smmu-v3/arm-smmu-v3-common-lib.c  | 114 +++++++++++++
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 161 ------------------
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  61 +++++++
 
-  Merge tag 'loongarch-fixes-6.18-2' of git://git.kernel.org/pub/scm/linux/kernel/git/chenhuacai/linux-loongson (2025-11-21 11:16:14 -0800)
+I would think these inlines should go in some -common.h instead of
+arm-smmu-v3.h for better clarity, and ideally pkvm stuff does not
+include arm-smmu-v3.h at all?
 
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc-fixes-6.18-4
-
-for you to fetch changes up to 3ecfcf34f0992d11e5eb2458a2108b3320c61ba4:
-
-  Merge tag 'sunxi-fixes-for-6.18' of https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux into arm/fixes (2025-11-28 17:37:13 +0100)
-
-----------------------------------------------------------------
-soc: fixes for 6.18, part 4
-
-A few last minute fixes came in this week:
-
- - interrupt and gpio numbers in foud separate i.MX8 specific
-   devicetree files were wrong.
-
- - The vector length property in the C906 CPU description
-   used the wrong unit.
-
- - Two bugs with uninitialized stack variables in the tee
-   subsystem.
-
- - Alexander Stein now maintains additional devicetree files.
-
-----------------------------------------------------------------
-Alexander Stein (1):
-      MAINTAINERS: Add entry for TQ-Systems AM335 device trees
-
-Ally Heev (1):
-      tee: qcomtee: fix uninitialized pointers with free attribute
-
-Amirreza Zarrabi (1):
-      tee: qcomtee: initialize result before use in release worker
-
-Arnd Bergmann (4):
-      Merge tag 'imx-fixes-6.18-2' of https://git.kernel.org/pub/scm/linux/kernel/git/shawnguo/linux into arm/fixes
-      Merge tag 'qcomtee-fixes2-for-6.18' of git://git.kernel.org/pub/scm/linux/kernel/git/jenswi/linux-tee into arm/fixes
-      Merge tag 'omap-for-v6.19/maintainers-signed' of git://git.kernel.org/pub/scm/linux/kernel/git/khilman/linux-omap into arm/fixes
-      Merge tag 'sunxi-fixes-for-6.18' of https://git.kernel.org/pub/scm/linux/kernel/git/sunxi/linux into arm/fixes
-
-Frank Li (2):
-      arm64: dts: imx8dxl: Correct pcie-ep interrupt number
-      arm64: dts: imx8dxl-ss-conn: swap interrupts number of eqos
-
-Maarten Zanders (1):
-      ARM: dts: nxp: imx6ul: correct SAI3 interrupt line
-
-Sergey Matyukevich (1):
-      riscv: dts: allwinner: d1: fix vlenb property
-
-Xu Yang (1):
-      arm64: dts: imx8qm-mek: fix mux-controller select/enable-gpios polarity
-
- MAINTAINERS                                        | 2 ++
- arch/arm/boot/dts/nxp/imx/imx6ul.dtsi              | 2 +-
- arch/arm64/boot/dts/freescale/imx8dxl-ss-conn.dtsi | 4 ++--
- arch/arm64/boot/dts/freescale/imx8dxl-ss-hsio.dtsi | 5 +++++
- arch/arm64/boot/dts/freescale/imx8qm-mek.dts       | 4 ++--
- arch/riscv/boot/dts/allwinner/sun20i-d1s.dtsi      | 2 +-
- drivers/tee/qcomtee/call.c                         | 2 +-
- drivers/tee/qcomtee/core.c                         | 2 +-
- 8 files changed, 15 insertions(+), 8 deletions(-)
+Jason
 
