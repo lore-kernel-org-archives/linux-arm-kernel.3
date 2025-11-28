@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D321D116EA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 18:51:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9F6BD116E2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 18:51:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nDiV3118Hte3SNzGBVwirCjWNJgjWTUakpmOLo5vZJU=; b=Puo8PZZSvk0jJHNp2VjiocPMxj
-	a+b79dyaELiPnKD8XMY44nXRmm7tu9GYzxabbXZ0nAknVMS3kv3B7/SjECUolXXiACZGHjSmGSG2z
-	+F/cE0rW9WPrgp56aaPMFj1QImyav8P2P9oCqLWL9Tluj+Mffw/SDZwKoFOcjio8rArCKsNaQoAFi
-	mayC8O1iPf8osGXeMQiPQxTTCCMUeYkFgnn568cALKUlO3j5+VH6NZth1TaBSWRefYRAny9ic7xpY
-	ZGuymNjVltJN2sHSJQ4XQ87OXPlUeyjgpEpDki2LfSCll6tyAFBlQw/6WXkUgYuMeCTM+lMt+oEQA
-	o6YmtO+A==;
+	bh=cmkt11QuSkX4c4d17mTrKjBIiTeDzZwQaFCLL8YObWw=; b=cJ80nPys/TmNJjBt4wAD/pmLoV
+	w1Uc7LpW5dEfYn+5sKOULjCdOJneaP/Qes/I/WeQsBDhlB28GCY35wzB/3dj7rNnkYFvZC9FZDfod
+	kEnqFl6W3NUndIfWGnbsjcbhxOJdWvNOeCQ4BXWp5+Io3ljWrWx5lkLNG6slWXh6+QRpttLsaSR1i
+	MC3jYL/mVvUoiytA8UgpUusajwrzjoSuuD49Imtta6P2KmWMiIFWhvML4p9oPTXS8ys24TtznubT8
+	awZWa9HIe2wn4+rRn+dUDv7MxWoCIf14QpiPO08WF53fJI1Ox4W6higiFhFbjeJa1wubjM+BB1IIB
+	msVw5+Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP3Yh-00000000nUX-1DZJ;
-	Fri, 28 Nov 2025 18:51:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vP3Ym-00000000nWH-2YNe;
+	Fri, 28 Nov 2025 18:51:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP3Yg-00000000nUF-0NQS
+	id 1vP3Yg-00000000nUG-1XUf
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 28 Nov 2025 18:51:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 269C860193;
+	by tor.source.kernel.org (Postfix) with ESMTP id 71DA160197;
 	Fri, 28 Nov 2025 18:51:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6DEBC116C6;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8122C113D0;
 	Fri, 28 Nov 2025 18:51:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764355864;
-	bh=SIi6xlzvsm8cMl61j4v56v1YyXD+xeqIVgA2tZCE8FA=;
+	s=k20201202; t=1764355865;
+	bh=dhHIbvpCuulxKEAkqdhlFDieD4aHu6LWLRet+FMiD5I=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qCEKmkIVtUHcHpsTbA/9xDVHBfWqtGGDZFW7aADLzdXaP7SiKGI+tZB5dYtDASWNY
-	 UAR0wsSRrGuznwOnwztPSSKepCmMWtNGqkC3V4DA3LuAFbP1KGzDAvYLyTEuhiPQWh
-	 TJa+DZARP2iOVDoDiY4qmHpN5OZ8vWUv8kXnPur14HrkuoKaQg+F9cb6SI/WNntYJB
-	 lj/piguOGTYp16Z9HouP+LC3j99mHKMssEmr0v9Acohp+hyL8ELMrvWUtlKkGuxP7i
-	 GanGD9IMcM/sGT0240ClA1RgM+EWGAbxJfMh3tLHWTsBscUIZfG/JRmebVzYgckCpg
-	 GLbBI5QvLMwcg==
+	b=mh5TT6nqG7GLwKm/V8ednxHY2PajJrlW7e1XAzHhABnJJ7XufHgJOx+vtzS6j1MZX
+	 BCoQfC9V4raW224VY6nU5sVwFM+B3KePmpxtWIXKQ6Lz+onuAb8Y1qhs0phPIlWcdg
+	 eEpcSzxwO+cgN/wZ4zsTh1Z7RwJ6aLyKB5KQmHNMkx89BEo19YFBI4BytJO9RL+61X
+	 0NkFHfNtN8xAW1Xqa8rpwo4jfSCbuJbroINDXPly7NaYJNwxs5UxVVO4+gH46sNA3j
+	 Sj/8V9F61pnEqq31jdj2+X3GTHmQHM/dkfygwI+Cywkl/LbrXInEkSppT+lDHP9QcB
+	 jDP+Wxg6QGeMQ==
 From: Oliver Upton <oupton@kernel.org>
-To: maz@kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	yuzenghui@huawei.com,
-	suzuki.poulose@arm.com,
+To: Marc Zyngier <maz@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
-	Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: Oliver Upton <oupton@kernel.org>
-Subject: Re: [PATCH 0/4] KVM: arm64: nv: HAF fixes
-Date: Fri, 28 Nov 2025 10:51:00 -0800
-Message-ID: <176435583514.14290.17319946187047529579.b4-ty@kernel.org>
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Colin Ian King <colin.i.king@gmail.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	kernel-janitors@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH][next] KVM: arm64: Fix spelling mistake "Unexpeced" -> "Unexpected"
+Date: Fri, 28 Nov 2025 10:51:01 -0800
+Message-ID: <176435583511.14290.101174161990641158.b4-ty@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251128100946.74210-1-alexandru.elisei@arm.com>
-References: <20251128100946.74210-1-alexandru.elisei@arm.com>
+In-Reply-To: <20251128175124.319094-1-colin.i.king@gmail.com>
+References: <20251128175124.319094-1-colin.i.king@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -75,23 +78,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 Nov 2025 10:09:42 +0000, Alexandru Elisei wrote:
-> Based on kvmarm's next branch.
+On Fri, 28 Nov 2025 17:51:24 +0000, Colin Ian King wrote:
+> There is a spelling mistake in a TEST_FAIL message. Fix it.
 > 
-> HAF support for the software translation table walker was merged while I
-> was in the process of reading the patches, so instead of comments I have
-> these few fixes.
 > 
-> One thing I didn't touch is this sequence in hyp_set_prot_attr():
-> 
-> [...]
 
 Applied to next, thanks!
 
-[1/4] KVM: arm64: Document KVM_PGTABLE_PROT_{UX,PX}
-      https://git.kernel.org/kvmarm/kvmarm/c/a3e927e1432a
-[2/4] KVM: arm64: at: Use correct HA bit in TCR_EL2 when regime is EL2
-      https://git.kernel.org/kvmarm/kvmarm/c/c560b0121d02
+[1/1] KVM: arm64: Fix spelling mistake "Unexpeced" -> "Unexpected"
+      https://git.kernel.org/kvmarm/kvmarm/c/f3ec2787803e
 
 --
 Best,
