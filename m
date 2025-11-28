@@ -4,95 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8AB4D116EA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 17:45:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45CC4D116E2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 17:52:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lSM32csH2X23xXw6xgAstXFSe1ZcOlrmsYctqKwHp88=; b=xH+y0Xlf/Ri7xL5t1CTQTR9Hh7
-	B/pibuhdSiwd8aSpejmheXmrXVsuqfUGdUDhBN7YU6rRBraCHnwVtsHwBPpnaiosRrdfCGe4rWuMA
-	XwE1/htWv7vR3+aEGrP5wPbExcmyx4WiNw3TjjQoxqtakbwkCR9BSHQ7cN9QI9u51pd3333oC62wJ
-	y0iZnjRU1781fsRmKblbNcROD2a8JvDhshy2c6CxmcyMOnKHueZnUMiGBuuaYbSS1eBO23MVP/Mtl
-	R5ODGZBXs/zaywhFGdgdhzu4Ce85ssXTgswv8ChWzR0WeB5kslQ8fMhddaHQy7yfJCwIu9oERN+p1
-	LXZjP66Q==;
+	bh=oAfyF823/XbGGGKg2P6nxUijTsKpVqaSaPrfyNHwf9s=; b=NjyOxz6QpFrXY+MSIO43bIYVil
+	tKpPMqi7aq/dGgCWRD2Lce1Z/wMzUAWyEYGnjz+3z863Cxz0va3L+qlFkApKH3vY08zycNjmgYJp2
+	QN5J+CcTfB7U7wiQg/jpIfeJiMLoYc4vAnXsogn9UMkdJZ7P/TXPk6VJ4vNNbO85c6AU7dePRJXb0
+	GANUO6NEPNivEZgVwcWWkj/KUMrOxTrYia370hDG14E8s0wwslwLpr9ucASCY19jJOEcr0XzRfpLS
+	tE6dH0lYqKwHIiCBJmZN185H1//O3dwQWRrybYuSPlZUV7ms9yb9/EukJWu0RwMQ6R8eUz3pUGdKN
+	ykCv7M8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP2XB-00000000kBX-1atv;
-	Fri, 28 Nov 2025 17:45:29 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1vP2dq-00000000kY9-3Y5n;
+	Fri, 28 Nov 2025 17:52:22 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP2X8-00000000kAl-2hZ0
+	id 1vP2do-00000000kXk-2glH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 17:45:28 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-477ba2c1ca2so23639015e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Nov 2025 09:45:25 -0800 (PST)
+	Fri, 28 Nov 2025 17:52:22 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-47755de027eso13868735e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Nov 2025 09:52:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764351924; x=1764956724; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1764352339; x=1764957139; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=lSM32csH2X23xXw6xgAstXFSe1ZcOlrmsYctqKwHp88=;
-        b=ht0ZTrKAlFvkMp20Vvb0D0JI8IEp5mjQtLC7VHsLgrgneiAdDOY9NN8eUBXhq10Gmo
-         IaOaK0q12P60Art1rdmMBIqtV1p0UOTOTGs+nO3nlguV5LESTDTPaiOPhHQu2WnJ5pB0
-         EPQQc8yHQS+DjEyE6xG+p2v51xJvT5uI3Bceg0KaEuM6UNacRZTbnO2ZrWem5eJsCawV
-         eaOgsrbLq+6Bo66W7HPiziBAIWp+73cYFpX/gNc2azY/CGAo1mGVOtazYOLgB3ln6t0K
-         BbVAUQgvekexOZ9ZovpVZsEtYCFf+C9lu5Mrkuz6WYgYO8u9tHAv9TXMnOCggJNZDZHH
-         LbBA==
+        bh=oAfyF823/XbGGGKg2P6nxUijTsKpVqaSaPrfyNHwf9s=;
+        b=LFDh5403D54BTYh0566ENIKqPWMAVYFUwojtNwcX+E0RuSHjF/+1uMvE+C7llJ+4p6
+         JT3saklniDoNxbtxw9WFfEcodqoxMGJubY3N7yrlQxE/GLINyLnzrwRdO+5+C1IoxlRr
+         YM77TJiPm7fTaB9zH9B7ttXnQGrenoAFVzu3Mze08R/WBFBGUh3i7mjlUSQHFTzGesK3
+         0lmpKzUhXn81v8L1pPv2qTYzNhFFn6BS2muF9M2gAtsXrAGXnV6aHKwgLTDnngfpNGkc
+         Cv6ILZ9hU3KceDw7R3nabDMD9eO081bHRNRX0dySzcC85T4qFkUtYG6HX9icdkfL3MPo
+         rzGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764351924; x=1764956724;
+        d=1e100.net; s=20230601; t=1764352339; x=1764957139;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=lSM32csH2X23xXw6xgAstXFSe1ZcOlrmsYctqKwHp88=;
-        b=ZqLKLGDVyUu/qhPCTmbhPp6HVffalB3ECrV1V87QEPEsCliqnHQXWy9A3ZITnWa9zD
-         67t9mxwI/X6rsk2SxTQfr4ux9CXOzMg76panJMDTz2fChMPwf+jt4HTS/TuL35ecevOQ
-         WJvSDhos/TJpK32+pMDcLg/BlEpANddSME1OFQR2R1+OcoaXRu9m+4jSUokpQrDnEshe
-         fsUc/piz7wpyGkst3gjkT4BiYRFmgqv095VL+VTpy50b5iKATuWJe5VyFu39wFWHdIZG
-         1lT7gbHN4JhjvDDBKdzLwl6jfQkYOeZxOR8D5G3nku6WJCUzMZtctHjb0dK+H47iTbQC
-         SeNw==
-X-Forwarded-Encrypted: i=1; AJvYcCVsU1FqQtN6fP3Zxbrap8K9EgU+ZBQLnuspVsSI71KZM3+bLpjKgq3KniEFufkoPfoqIWbiv3U41MeM0oi0spKr@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzGAa0cagnQr9rDjNF4lLfUGFQx/u2rTK/hhXWLEi3NQhDVTkF
-	gIRvuLKrXy1tiKiOLIZpDUdfR79vQLPdu1n/K4huMi3IyiWpCtImjeLC
-X-Gm-Gg: ASbGncssuEH+sr1ENIfudjSr3qr65uCZS5gCLfcl9e57OO+Zg3yGDk9EWgO67u7/4Pa
-	ok/v36moEVG1TZwPFt6E0ULVH5A3xcsjct/3W1lKKSwHaBuuQwbb2CSEfUxUJqp8gyuHJoNtWoD
-	sRQ6zl92se66gpKoBdtMx47ldOap34cXF2cj6fJMai8Ujr1yC0lS0E/fIbIIVHvzbezIBjZxx1T
-	CP9AVCfkNELRdlWkU+1OkjsN6x1qxcdrBf4asJ8NZXbXCadDkhvdFJ9ffDEb6x3qtSWjrSlir5R
-	gZdLD4dypDBDG68XP6Aj34g60gORy/wCw95tZOH+Yy28Qm/GKxZikCqFxs+AGKuP/FHNEEuDnha
-	SKgHeD4RFfX+e3S33bb6Tqz+8aSQ7JqAWas8vMV/BOWCJLczmj1cc4JhXDfLzhbEY1L2tX5Qppg
-	/38f+kX4DVYwywnqh9SRfz
-X-Google-Smtp-Source: AGHT+IGr8jf1cEOxcEb6EeKeJchwsXTCgWnn9x2mUsKIoWiq9E4Ha2G7avXXtjB+xtyEdcahgOM1nA==
-X-Received: by 2002:a05:600c:46d2:b0:477:54cd:2030 with SMTP id 5b1f17b1804b1-47904b1afcemr162142095e9.21.1764351924189;
-        Fri, 28 Nov 2025 09:45:24 -0800 (PST)
+        bh=oAfyF823/XbGGGKg2P6nxUijTsKpVqaSaPrfyNHwf9s=;
+        b=UXea6cOJK6vLRyW4UbUnHoga3mYaaHwFWJO9uPQOuo+Y+hK6QwzCNwtDZkSUKoaSWO
+         bQ030Y/ikkYIDrJybDT6dcgiRjpXR0BVwX7kcfNGF4lSBiY7m/HtygaNclhZ7gbzQFs8
+         v7G8rmLjJj/lMrMh3t0sYAV6eyVNZZBrmhsA4NJ2LMTXjIWGOuQuM8xOwayxRWdyzyRX
+         Dv4Tl/HGjc8MSAVqmOML1W8LQh68BhK5Lnso1fd1bOm7qdU29JvahwEZOEHT+cHh2x9V
+         w+TEYkVrWQbjwfFrJXk+a8MiwKCVHJP4esD6XaTFHRqxixWZorgmQTEzwPGMgsiwImeG
+         Ogtg==
+X-Forwarded-Encrypted: i=1; AJvYcCVFcumKFUKzh8ZLoXryx1RlymuNRW1NmNBlS6ZqA40SQUacxGRI3guAzdfqjAUGUvYmS09ojxjhdivVpo8Yso0M@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQ+b0hwR2nbnv8qjyUPimVG7YrLVIdPpUZCYcgfiC+xkht1Uw4
+	v9NPCIj2HeXmCVUlXn0yXdy7IvcRLMNsrXkaJEM4rDrSkk8MuHSXZ/lM
+X-Gm-Gg: ASbGnctVUobJ5tAz06RiK0QI1IugEAr2XFuGVA0313igG3FGGS8HaxKtmv3tqqaJDn2
+	mpPI5n9fKAPC00kzBlHx+huvIordtkGtCYGnUd3U+32j2OQ3o951LPN44AfehoOjSNepg7S56D9
+	RU6cdRtWpPMhepwE5sflaCrBXAZCq/nfLZWup8oQWjnJoWIl6yqd3kvRgLH1d/NxyLHr+DeIoVg
+	Knh+ZYXUQBShzRqwmw3Xg4QDkzWsSCbUp0ZjJTNQ/Pepf+k2CMDd5hQf8VdBMFIgMkcWDpL7X7x
+	BIggKI6fYpbdudDmwDg5+GQJETzQQJPMHLCATnXf0CHZUN56RtGgNaQObmO6WGDDsWZArFxBSKJ
+	4tCTglQNpr6oiBfmHDBXjGFr8VaIC62xC4lk+/EjwI4ezIktsbGDBZwpRkYdir3JUwz7tn71bqv
+	nz0sE2Ie+jHg==
+X-Google-Smtp-Source: AGHT+IFNrav6emQa7eo4LXuc9QahSL2PszCgaxJFgT0UH28eKJZFTLEzFFZCoVSa6zVdulqINe9u9g==
+X-Received: by 2002:a05:600c:4e8c:b0:477:8b77:155e with SMTP id 5b1f17b1804b1-47904af05b5mr178200545e9.15.1764352338440;
+        Fri, 28 Nov 2025 09:52:18 -0800 (PST)
 Received: from localhost ([87.254.0.133])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-42e1c5c3c8csm13452898f8f.2.2025.11.28.09.45.23
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-47913870b38sm33438875e9.15.2025.11.28.09.52.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Nov 2025 09:45:23 -0800 (PST)
+        Fri, 28 Nov 2025 09:52:18 -0800 (PST)
 From: Colin Ian King <colin.i.king@gmail.com>
-To: Felix Fietkau <nbd@nbd.name>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ryder Lee <ryder.lee@mediatek.com>,
-	Shayne Chen <shayne.chen@mediatek.com>,
-	Sean Wang <sean.wang@mediatek.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-wireless@vger.kernel.org,
+To: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
 Cc: kernel-janitors@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH][next] wifi: mt76: mt7996: Fix spelling mistake "retriving" -> "retrieving"
-Date: Fri, 28 Nov 2025 17:44:30 +0000
-Message-ID: <20251128174430.318838-1-colin.i.king@gmail.com>
+Subject: [PATCH][next] KVM: arm64: Fix spelling mistake "Unexpeced" -> "Unexpected"
+Date: Fri, 28 Nov 2025 17:51:24 +0000
+Message-ID: <20251128175124.319094-1-colin.i.king@gmail.com>
 X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_094526_702222_A967E6B6 
-X-CRM114-Status: UNSURE (   9.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251128_095220_707751_3888BAD5 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,54 +105,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-There are a handful of spelling mistakes in various warning messages.
-Fix them.
+There is a spelling mistake in a TEST_FAIL message. Fix it.
 
 Signed-off-by: Colin Ian King <colin.i.king@gmail.com>
 ---
- drivers/net/wireless/mediatek/mt76/mt7996/npu.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ tools/testing/selftests/kvm/arm64/at.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/npu.c b/drivers/net/wireless/mediatek/mt76/mt7996/npu.c
-index 29bb735da4cb..1422533e59c7 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/npu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/npu.c
-@@ -120,7 +120,7 @@ static int mt7996_npu_rxd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
- 			       &val, GFP_KERNEL);
- 	if (err) {
- 		dev_warn(dev->mt76.dev,
--			 "failed retriving NPU wlan rx ring0 addr\n");
-+			 "failed retrieving NPU wlan rx ring0 addr\n");
- 		return err;
- 	}
- 	writel(val, &dev->mt76.q_rx[MT_RXQ_RRO_BAND0].regs->desc_base);
-@@ -129,7 +129,7 @@ static int mt7996_npu_rxd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
- 			       &val, GFP_KERNEL);
- 	if (err) {
- 		dev_warn(dev->mt76.dev,
--			 "failed retriving NPU wlan rx ring1 addr\n");
-+			 "failed retrieving NPU wlan rx ring1 addr\n");
- 		return err;
- 	}
- 	writel(val, &dev->mt76.q_rx[MT_RXQ_RRO_BAND1].regs->desc_base);
-@@ -138,7 +138,7 @@ static int mt7996_npu_rxd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
- 			       &val, GFP_KERNEL);
- 	if (err) {
- 		dev_warn(dev->mt76.dev,
--			 "failed retriving NPU wlan rxdmad_c ring addr\n");
-+			 "failed retrieving NPU wlan rxdmad_c ring addr\n");
- 		return err;
- 	}
- 	writel(val, &dev->mt76.q_rx[MT_RXQ_RRO_RXDMAD_C].regs->desc_base);
-@@ -159,7 +159,7 @@ static int mt7996_npu_txd_init(struct mt7996_dev *dev, struct airoha_npu *npu)
- 				       &val, GFP_KERNEL);
- 		if (err) {
- 			dev_warn(dev->mt76.dev,
--				 "failed retriving NPU wlan tx ring addr\n");
-+				 "failed retrieving NPU wlan tx ring addr\n");
- 			return err;
+diff --git a/tools/testing/selftests/kvm/arm64/at.c b/tools/testing/selftests/kvm/arm64/at.c
+index acecb6ab5071..c8ee6f520734 100644
+--- a/tools/testing/selftests/kvm/arm64/at.c
++++ b/tools/testing/selftests/kvm/arm64/at.c
+@@ -137,7 +137,7 @@ static void run_test(struct kvm_vcpu *vcpu)
+ 			REPORT_GUEST_ASSERT(uc);
+ 			return;
+ 		default:
+-			TEST_FAIL("Unexpeced ucall: %lu", uc.cmd);
++			TEST_FAIL("Unexpected ucall: %lu", uc.cmd);
  		}
- 		writel(val, &dev->mt76.phys[i]->q_tx[0]->regs->desc_base);
+ 	}
+ }
 -- 
 2.51.0
 
