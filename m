@@ -4,64 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45530CFD376
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 07:31:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5366D116EA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 07:49:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YhlZQtQGGH+o1PC9FG1bXh4bzpsQsyhDPSlIK1P1gUw=; b=qOCHbcdm2ZngKu9m7hCcqTe7tU
-	BQOPYggCBDAzxlSz+sGe/yRceAqNxjaA7YB6WOwxv0usFrtt0r5JkU8HIUYm8ELtAzpjVBzpI58CJ
-	kZQ/rYOtYKvPRvPt+sTgiOi4rOeHf988dSBnNvddfpIqUtlN+WvXvqTHeLau6GEdQbnL+7Sbgg7ld
-	FQFOfcvbhnZgf9yqKsL8sDAX7UQYttoU8kbVYdkHgR0sZg39FAm+jJCzK3j1jQsv/qvqD9VAGpGDb
-	7LqmVnbv4I1d0FFNYg4Epdr4Y6nSy50AsFlMyBRemkXN9CwMDS5T5Trwu8jkGKoJZJ5zHn6AXavho
-	xPKOmBOg==;
+	bh=Xzb4o6woI0sKd6leSwCGnufqfj0RdO1VKVEpocSGcGU=; b=B0pHOdG+2vW63GFiWoSKvcP0ad
+	4jCDzjd+/Nt55XOw40TKNT1tTR/hJSbTCDgIRTNIZ3z2IRllFaHqydBpJQZkFsZwo0L69cV2NbKML
+	QLKrIt/v6Ym6lBtr4apnWLfFHBNVMDULV4Y+zFXEFdJ8acJTWOXZ56/A/gsVcbmFkCsda0GhFTfRU
+	L6OSmTOhjb/d5C5fNgUnFX3zqe4aTmpZTjkC3a5dzjpOX08boDFH/v6H/DVn+n2wZEjxw3GtFXlxC
+	al2qDnPiJXNNhl5nKgpDfcJfYq10djkLYGtsKCe7ycY1k9fLklzAaaaANFJXIZuB1LV2Yfy662yqa
+	79ZSxJmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOswn-000000006Fq-1hvQ;
-	Fri, 28 Nov 2025 07:31:17 +0000
-Received: from mail-m3281.qiye.163.com ([220.197.32.81])
+	id 1vOtEd-000000006wa-2twI;
+	Fri, 28 Nov 2025 07:49:46 +0000
+Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOswk-000000006FG-4C1f;
-	Fri, 28 Nov 2025 07:31:16 +0000
-Received: from [172.16.12.14] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2b3cd4919;
-	Fri, 28 Nov 2025 15:31:08 +0800 (GMT+08:00)
-Message-ID: <7797ac67-6f57-409a-83c8-0ca21a2d2475@rock-chips.com>
-Date: Fri, 28 Nov 2025 15:31:04 +0800
+	id 1vOtEa-000000006vl-2IDb
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Nov 2025 07:49:42 +0000
+Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-8b2ea2b9631so148874185a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 27 Nov 2025 23:49:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764316179; x=1764920979; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Xzb4o6woI0sKd6leSwCGnufqfj0RdO1VKVEpocSGcGU=;
+        b=gIIGgszseYVldLj0Xm0V3N/g+B1H40yixnZLV7ffi6UfGdFWIuB2ZQxH4BxS+yTgEg
+         1QTW9XacpBKtWx6Zecg7ASN1+DR08+B5/7+uHtYyYqlwN6XHg52jVHUIJIDGVUyJYX7a
+         uRuwHjxRpQ8ECyEqybwCvZotHRI8zYhcmoUazf17QHQd47nTGz2ZIOPxdmMYsSj3XMtI
+         K5z6ddPVgPMQnmYSVHlGjTe7pSYvZjR5Y9UF+mjwdpBXQLtJlPgT02fXAg2iuYI24lOb
+         7CkZ52zb7ou1cpMYgS4UfJF359D6/cInEbFdTA2JMygiYEFgbf4DzVTks55yS/4FXnsW
+         wS1A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764316179; x=1764920979;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Xzb4o6woI0sKd6leSwCGnufqfj0RdO1VKVEpocSGcGU=;
+        b=i/I/hIEytITbFFufaVNqtTJWJ5BdTUW1XXuk3WEe5jt7XBbGNYtMeIjIttavcwQYx5
+         aocpacYdtnk8X1EVKjVOsiXmSWBKNbfe1i7FxfLC2MRXN22Dk+B8C03zv0LtZM5mKI1D
+         A2GgMlT979tBT8REt2Nh2bA9kYMQAnOY0SRsXj+zWR59ebO+w9hGCNV+Nk5h66bR5yp7
+         hEKbdcVAfaBGLHZoFjKxgt9/gaSXi9FiW0b7r3m+6pCEmMfaFca+EB1EHoGzwiwFZnXH
+         8XZItl5ZBIjZJCcj0nYt+FnjSKUuEIgfE1xtWIkwOjESYYHC4j2jZP5Dr4rPUNOdafcy
+         4cZA==
+X-Forwarded-Encrypted: i=1; AJvYcCXCPc4dLgL3LYxcfs7yQFCh810lT/MagvGjwWjYZB0OLzN9PoPiEX9MouGaS7UN4/h7ai32CElxzcqff7vYFyBS@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywzeo/cLluaJ7YVS6u7R7+0R0FNuf1vUHB77f0nSM/gBrV94KB9
+	oRXWpnP7IRZQplr8sNPyPBJ9wmUWPxgsk4T1UDcyL/X9X8WJ/KpgRvjoQ9T7cuTqOij7p5N+j+6
+	pChYk2PTnvHyq32KV7cqgMRK0L9LXnwk=
+X-Gm-Gg: ASbGncuM4V8ZFCSDNUkT8ffefGsV2dZMgFQQ05ZMTrvFwOoF1EmVqIiBQ/fgyU2D48f
+	ske9DYYInMF7R8nhJJLSPwPI62aOSIGUym8DACWGJPvgl6OhU9mJ5PCOc1YAWwmIxUtmJxqcc4y
+	Geiqkg8+maaYH1C2eVuIgUrHEbdPgENQ1jXkRI/GB+oANOZbWSSvRYfFfj6vKxjEtSsU189+y+D
+	RGJfAeQPDeHBRWaW/X1bIf10VMEBp/Edcoc/TRAMVwzejBgZidoY0WpWHk/KveiVNBtjGXcwjuo
+	sQ0hE5KTBjRv0/HIFwMP7zZxmDFO
+X-Google-Smtp-Source: AGHT+IHYzLcGh+cWGpJkei51y/kYklMPmBU3wbElTrGhOhOpPSp6GAM0EV8iuyukCLvsobhwpt+JVDig/00Wu3PpzZo=
+X-Received: by 2002:a05:622a:4d4b:b0:4e8:aff9:a7a8 with SMTP id
+ d75a77b69052e-4efc3f2a0efmr187482101cf.52.1764316179224; Thu, 27 Nov 2025
+ 23:49:39 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Cc: shawn.lin@rock-chips.com, iommu@lists.linux.dev,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Chaoyi Chen <chaoyi.chen@rock-chips.com>, Joerg Roedel <joro@8bytes.org>,
- Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Subject: Re: [PATCH v2 2/2] iommu/rockchip: Use devm_clk_bulk_get_all() to get
- multiple iface clock
-To: Chaoyi Chen <kernel@airkyi.com>
-References: <20251128071322.92-1-kernel@airkyi.com>
- <20251128071322.92-3-kernel@airkyi.com>
-From: Shawn Lin <shawn.lin@rock-chips.com>
-In-Reply-To: <20251128071322.92-3-kernel@airkyi.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9ac95f769b09cckunmc7305c7c6e1258
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUJDQ1ZIGkMfHkxJHh5PThlWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=Hah5/jGePtDDELU7fuGQKBjUJX4Xv8n9cmCZg6hdNhAIQyy4LLFccBZd+upwrE+eU0toqzG4hi1Li9+AkKdYVQ3r7vxE/4B3rbCMwOnMuKQz9GblxsL/s9SZTJlMMnlV1yCZdLWSHPdgXtjLc1xVs/94ztH64ZshQpxgWDfH+z0=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=YhlZQtQGGH+o1PC9FG1bXh4bzpsQsyhDPSlIK1P1gUw=;
-	h=date:mime-version:subject:message-id:from;
+References: <20251127-nanopi-m5-ufs-v1-1-0d28d157712c@gmail.com>
+In-Reply-To: <20251127-nanopi-m5-ufs-v1-1-0d28d157712c@gmail.com>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Fri, 28 Nov 2025 11:49:31 +0400
+X-Gm-Features: AWmQ_bnfm67nHyppKcn_WewzrQOH_TFdC0fMKR8wgi2rranNPLttVu9G4ijWIFw
+Message-ID: <CABjd4Yx0wJG-RjbGo1EZXK=bDp0sBJvcwA8tJ5jNOZRmGq3r3g@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: rockchip: enable UFS controller on
+ FriendlyElec NanoPi M5
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_233115_527652_95A1A9AB 
-X-CRM114-Status: GOOD (  21.30  )
+X-CRM114-CacheID: sfid-20251127_234940_611923_34C44A08 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,70 +98,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-在 2025/11/28 星期五 15:13, Chaoyi Chen 写道:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> 
-> The iommu found on RK3576 NPU and RK3576 RKVDEC contain 4 clock.
-> 
-> Just use devm_clk_bulk_get_all() to get all the clocks and use them.
-> 
+On Thu, Nov 27, 2025 at 3:46=E2=80=AFPM Alexey Charkov <alchark@gmail.com> =
+wrote:
+>
+> The NanoPi M5 board supports pluggable UFS modules using the UFSHC
+> inside its Rockchip RK3576 SoC.
+>
+> Enable the respective devicetree node.
+>
+> Board specific supply regulators are not added, because they are all
+> non-gateable descendants of other regulators marked always-on.
 
-Reviewed-by: Shawn Lin <shawn.lin@rock-chips.com>
+On a second thought, I'll add those regulators in v2, and also include
+a link to the relevant schematic [1]. Explicitly listing the
+regulators has a slight benefit of fewer complaints from the driver at
+boot time, and maybe at some point we'll want to try and remove some
+of the "always-on" markings (which would require a reasonably complete
+description of the power graph inside the device tree). They are also
+actual devices on board and not pure aliases of other existing power
+lines, which IMO qualifies them for inclusion in the DT.
 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> ---
-> 
-> Changes in v2:
-> - Change comment.
-> 
->   drivers/iommu/rockchip-iommu.c | 20 ++++----------------
->   1 file changed, 4 insertions(+), 16 deletions(-)
-> 
-> diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
-> index 0861dd469bd8..76f71fb679f8 100644
-> --- a/drivers/iommu/rockchip-iommu.c
-> +++ b/drivers/iommu/rockchip-iommu.c
-> @@ -93,11 +93,6 @@ struct rk_iommu_domain {
->   	struct iommu_domain domain;
->   };
->   
-> -/* list of clocks required by IOMMU */
-> -static const char * const rk_iommu_clocks[] = {
-> -	"aclk", "iface",
-> -};
-> -
->   struct rk_iommu_ops {
->   	phys_addr_t (*pt_address)(u32 dte);
->   	u32 (*mk_dtentries)(dma_addr_t pt_dma);
-> @@ -1236,25 +1231,18 @@ static int rk_iommu_probe(struct platform_device *pdev)
->   	iommu->reset_disabled = device_property_read_bool(dev,
->   					"rockchip,disable-mmu-reset");
->   
-> -	iommu->num_clocks = ARRAY_SIZE(rk_iommu_clocks);
-> -	iommu->clocks = devm_kcalloc(iommu->dev, iommu->num_clocks,
-> -				     sizeof(*iommu->clocks), GFP_KERNEL);
-> -	if (!iommu->clocks)
-> -		return -ENOMEM;
-> -
-> -	for (i = 0; i < iommu->num_clocks; ++i)
-> -		iommu->clocks[i].id = rk_iommu_clocks[i];
-> -
->   	/*
->   	 * iommu clocks should be present for all new devices and devicetrees
->   	 * but there are older devicetrees without clocks out in the wild.
->   	 * So clocks as optional for the time being.
->   	 */
-> -	err = devm_clk_bulk_get(iommu->dev, iommu->num_clocks, iommu->clocks);
-> +	err = devm_clk_bulk_get_all(dev, &iommu->clocks);
->   	if (err == -ENOENT)
->   		iommu->num_clocks = 0;
-> -	else if (err)
-> +	else if (err < 0)
->   		return err;
-> +	else
-> +		iommu->num_clocks = err;
->   
->   	err = clk_bulk_prepare(iommu->num_clocks, iommu->clocks);
->   	if (err)
+FTR:
+VCC_UFS is directly fed by VCC_3V3_S3, no fancy circuitry in between
+VCC1V2_UFS_VCCQ is fed by VCC5V0_SYS_S5 via a DCDC buck converter,
+whose EN pin is driven by VCC_3V3_S3
+VCC1V8_UFS_VCCQ2 is fed by VCC_1V8_S3 via a MOSFET gated by voltage on
+VDDA_1V2_S0
+UFS host controller itself is part of the VCCIO7 domain, whose logic
+is driven by VDD_0V75_S3 and whose VCC is fed by VDDA_1V2_S0
 
+Will wait for 24h to elapse since v1 submission and send a v2 later today.
+
+Best regards,
+Alexey
+
+[1] https://wiki.friendlyelec.com/wiki/images/9/97/NanoPi_M5_LP5_2411_SCH.p=
+df
 
