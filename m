@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E6DED116F5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B81AECFD376
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 11:56:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,72 +12,72 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CMHK8eau4h9JU7tjhkGUHgs7VKxsV93yd4KGWWLggZo=; b=uFcv1ZdLTf6nrhC91OyNxGy5iH
-	M0BSn0o0QrALruStUmd8LN/kSIVPZPjTXq+ka5fTJ0Kurkio5ddttvgw+WIUHT1kkiHkQW7Af1Tu5
-	DrxLP4dQmjXXFMkIKUqhER0FEbeBNeQ1D5HAF2R3ivTJ97BVeG3z04mhIKrnyY1BLbIQIfJHTEKQc
-	zBj+uYKfUtJkFh/zOoapAfXLmrDrk2+qjUf448SKSgIe0+w+XPnEsJJcsSF92/3PNVhqJdJcr720t
-	QIObWONqYKHIrTA1tzBf8zRUcAtS1pL8HQ9c2nZcKZFdhHQ+8Flz/u1jDU5RcnTZg1+0/Lk/mIRNK
-	/zJYFTMg==;
+	bh=f/X8/s0XmEBVcp92RiDvltwq9YKc36aF7AB3/15oKmM=; b=T2jnDgS/vS+XmYgFMfKWusg8gJ
+	XXt+BcyUazRvqWNw/bNRfl63GCjoJ+698jbGQQAF2Sq358lGJd4LpnPyh4ebRBwQKYz0cyUQDqCGq
+	279x9/CHfoofsM4CtpQrx71X4Ts90GZRcOEEOC78d3FIITo/yNhZyMYKbY/Rh12y1Uwry+PFI0Cki
+	h15zLv2zHykrHvq3GXscXfOfP+kfwNC3mW+KHwTpEU606jZ/+TWv0sYQF/82lt5BYWTYexaZpp0ph
+	MN1sOkjITnjAbEwXMBGf83tZ3j6aNqGF6YpR2nVYMUq5ae/G/DchRzdHDYZgO3fvUogm+yjET1TQp
+	AxUnaOTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOx5A-00000000NrV-2Zsz;
-	Fri, 28 Nov 2025 11:56:12 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1vOx5B-00000000Nsn-1ZID;
+	Fri, 28 Nov 2025 11:56:13 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOx4v-00000000Nif-3XbH
+	id 1vOx4x-00000000Njx-2a1K
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 11:55:59 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-477632d9326so10427285e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Nov 2025 03:55:57 -0800 (PST)
+	Fri, 28 Nov 2025 11:56:00 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-477563e28a3so12395455e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Nov 2025 03:55:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764330956; x=1764935756; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1764330958; x=1764935758; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=CMHK8eau4h9JU7tjhkGUHgs7VKxsV93yd4KGWWLggZo=;
-        b=JKCHi1ZJItDYFHJ+wm2wYPlETYepjxwGrtBeNmt1wOi/ISrCb/c6Wv3rL5QNhr/ajB
-         sx8q5jDsxzrOWQDWN1HqqKf2SIDJ4c+SLIaiw34Fr1HnqxFT+EvgfYRfeGtyqbbYWAcy
-         pvAgAZO1EKt/BPeuoIZvF6uCG5Nw/lHPAmtffx9r8RVyirJIJuz3JHiHpKB53F64b4a7
-         xPddIAVbdue+BIqaF/l+qef8F2vxwqsWzlKJLhY44T/y++GK++hwdQiAGVZKknjweJHD
-         FZe5cySP9wBDQ1a6HJL5rbcGcuD9Ngh6RCtljXtP7BN6PPruhnwUTeYqflFl/mGQpK5Q
-         Xecg==
+        bh=f/X8/s0XmEBVcp92RiDvltwq9YKc36aF7AB3/15oKmM=;
+        b=cNVoNaJXDxHGrQpwijuueuOQIW1zDdhqzV2mnqiivkopCMnhaPMslIYHArY4hWdWuw
+         FM6WCz2KJhKCttJ7/C7HnsaIU7ylunKpPcKrVMhEXVJSs+gWv5S6rTO8unR5H7qMHUt3
+         1ZM76BE3a1Z6Gju30WLUHMAdjulw6Q0ghBMTXWdcqK68XbtiC7H8BwhV5MlEay2xLyky
+         29TnoIxvRkZ4icvo76jQkBnHlcxwCzyLDJBRXBTPjH3F0ZQeIXrHp8UFm0On8iF+Zfkl
+         zSe3b7QbdidRtuouURiS2uK9shuiNPbUPskcK0oxCO/q1lRFPDFTNi+C3rUd6wMqRLiB
+         j42w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764330956; x=1764935756;
+        d=1e100.net; s=20230601; t=1764330958; x=1764935758;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=CMHK8eau4h9JU7tjhkGUHgs7VKxsV93yd4KGWWLggZo=;
-        b=M1+3qj33XdYizXfEWB73WKjq8lAEJ5he0hXOD0pA+flssE92ekWBR6mK9g5+NbE7hk
-         yQwSTjj8/o6TRqNBnETV7HsjZplkQlV0ndwYgWs6k2ks7atb49CcuSi1t83JBm3OjeXg
-         st+Lf5zEtj7nEgjcBLE3qiua5JWcAcm+OjxJh+DsJ2HgXouSIXbLiy0zvb5JnNPItCOz
-         ttiX18tIrkNSLMcJ+u3PPxN5WVeYTYsfKFN7vf6AB1g/hZ5xEmMg0q2LXVMTXWHpwyhq
-         qgw0Hac4pYt3EtPJg3xXN3AvvVceH0ZzbmQCzXX5YCW4t4MnIfi2kWyHaqYk+LQA85QI
-         z1uw==
-X-Forwarded-Encrypted: i=1; AJvYcCURHYhPeWvO6u+ywzRUinFasVzGjE5EobvyPLb79TO+ybRMVAtMs8ycYOJIykoXn19fdLcyrQ5irxD328GlYERa@lists.infradead.org
-X-Gm-Message-State: AOJu0YwN5gm0cLgcolOJNy+pbn5N/+gAHf3/ZsY5Ct9LioDlzCdZnGGS
-	3aOJq9WhCK+e1jauhZhOgoRo6vm0TB6C4A/CZW+oIhBOjL5VYxoxA1nyu1dUaKfaqx4=
-X-Gm-Gg: ASbGncvEktaVYrfMRNZWEuHCzYnKu5aB4E+7bWkqQvwQWNi1z/dh2ZHiCDLfUvTb/1A
-	Ln0QE3iSFui7YkFfp0aFf0Cw3YgCfbPFonCN98wDPN/aSabijNzgf85tNSCVRdkPwM2pWr11Lzp
-	+b7Eifw0zn9ilnrysLnC+1YUY9ndGCHY2ddGLwcG/Kx1oc8ZXmleS1VXJRzeeNxDLCWdVxWPDom
-	H3CdYs0ppcVeC5TOxGws3eGLJWZJ5HHYXbsWC6cV6r7BUlc1HrOoN9M1e61SaHrOlv+NDx5nAdS
-	sWh478/BIhm+k6a9aDHKWuJ71oJGafQ7/tiUbesFVB7o2b1AK8GPt4T0R+8/djeewT+TPXUL/kN
-	9/42de22PZ2WCi2SJNQiwBAqbuZhvU1MI0HDm7I6jPn9EFfupAx8haAl9t5ouSf9a6fVl9d0c3F
-	6W5hICju3sUOWrgq7NT9l+
-X-Google-Smtp-Source: AGHT+IGeMULI7kQJcckUl8PhFqbeqzvrMMwqX3WFQrSju3KHYudqhjgjNPWItcVO3ZzItgHnZsRjuw==
-X-Received: by 2002:a05:600c:4e88:b0:46e:7247:cbc0 with SMTP id 5b1f17b1804b1-477c01d4af2mr277966615e9.18.1764330956063;
-        Fri, 28 Nov 2025 03:55:56 -0800 (PST)
+        bh=f/X8/s0XmEBVcp92RiDvltwq9YKc36aF7AB3/15oKmM=;
+        b=lfKpIqCK/ft1XGvYy6LmUGmJNRHp7aLCb515hGIN8eBdImnZwQSASLTK7wvXfTKtWp
+         y8q+l0EYcjZjWjU4+bH4y9EOcq3EoJ6LVYJZhUARamI5eie7/Xqz4l+XJXVicPdbY/TD
+         7HpTr7D0O0P4OSeYcLxA4QJwuc9cd9d8CYJ3pR8t5Q623JbRlYZMkN/2sZHD/Q5vU+Gw
+         034IM1570kn/GzdA97ZeHYt8NnDsaQXw5SKzlbNunixcAxC1dwncbtC77vKSxJCtmeJn
+         WI+2oE9q624CxwhWRM9DPgZhNnjzvbMjZ3BWz7sVzOSp6NZCMnPBQK+o7jYHeAoMRCxg
+         rMCQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVhtiaACYWJfsRnt/480tqmUjbY/vXvwMlDRPYmSCNexgK0boq6u+J+2GvqCA+wOUfRUd5+vSEvs0dvmM5NAxOg@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTiXdGtXEEncWST85u+dhJ2E5GEqL9BSTrhAPB0hDYSRtHxybQ
+	64qRYg5iVCC8+8t3IJMjcCGQalomV0MiOW3xng0U/iStFezYVlAFBAS4MHazSpCw2Ek=
+X-Gm-Gg: ASbGncsQJCuwN9LdksK5X0FbpHrqWAwMnRPTOqXTl2orqBxfHivqf6L4sGjmibYkhyw
+	7Y1Ag40ZC9fe3FCysncnX9IqjP4WamgVyxGMU7EOvdaYK63O8oWQP/VfMOJDjvWRn3eTsBpG4BJ
+	Cx/cz1k3z6QbeM5oBF5CUS7M9pMCfj1MktfVgomFE3dz04UNwjFORRd9C4E675XRIWaqUYdLHQW
+	QbHhWF6x6gTUBuPMMfYSMdoQA+8hp5ngPWd5cNox6HzfNmV0BzoW510oMQm5QgGX5oNGeaGxc0t
+	lPkYzcJCYsNbiXVMkg3EwQEziFkB7mkjDwKCBJ8G2Wi8yWurAP1qMLP63qtaNjJS3Gg3mlWf6tw
+	vw+rOKMGHkghpMQq2a0OdXZrlj6FLGCGnp9HgPKkwW7cU8GgsIOs0JGSvxoSX84UhHnhgMqcYXb
+	eJ7tD0CdDXDsRAPTZSMk36
+X-Google-Smtp-Source: AGHT+IGaQRyFBvi4xXG1OSwj8+KoP6rOM24a0UhWoYDoOvAcD4TFnR9g6F/aB9eSqTg5kCu4JYRodQ==
+X-Received: by 2002:a05:600c:4746:b0:477:a289:d854 with SMTP id 5b1f17b1804b1-477c04cfa31mr284161715e9.5.1764330957915;
+        Fri, 28 Nov 2025 03:55:57 -0800 (PST)
 Received: from ho-tower-lan.lan ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4790adc8bc7sm158974465e9.1.2025.11.28.03.55.55
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4790adc8bc7sm158974465e9.1.2025.11.28.03.55.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 28 Nov 2025 03:55:55 -0800 (PST)
+        Fri, 28 Nov 2025 03:55:57 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
-Date: Fri, 28 Nov 2025 11:55:19 +0000
-Subject: [PATCH v8 07/13] coresight: Don't reject unrecognized ETMv3 format
- attributes
+Date: Fri, 28 Nov 2025 11:55:21 +0000
+Subject: [PATCH v8 09/13] coresight: Interpret ETMv4 config with
+ ATTR_CFG_GET_FLD()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251128-james-cs-syncfreq-v8-7-4d319764cc58@linaro.org>
+Message-Id: <20251128-james-cs-syncfreq-v8-9-4d319764cc58@linaro.org>
 References: <20251128-james-cs-syncfreq-v8-0-4d319764cc58@linaro.org>
 In-Reply-To: <20251128-james-cs-syncfreq-v8-0-4d319764cc58@linaro.org>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -90,8 +90,8 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_035557_918564_392D33A7 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20251128_035559_687103_E73423C4 
+X-CRM114-Status: GOOD (  18.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,38 +106,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-config isn't the only field, there are also config1, config2, etc.
-Rejecting unrecognized attributes is therefore inconsistent as it wasn't
-done for all fields. It was only necessary when we were directly
-programming attr->config into ETMCR and didn't hide the unsupported
-fields, but now it's not needed so remove it.
+Remove hard coded bitfield extractions and shifts and replace with
+ATTR_CFG_GET_FLD().
+
+ETM4_CFG_BIT_BB was defined to give the register bit positions to
+userspace, TRCCONFIGR_BB should be used in the kernel so replace it.
 
 Reviewed-by: Leo Yan <leo.yan@arm.com>
 Reviewed-by: Mike Leach <mike.leach@linaro.org>
 Tested-by: Leo Yan <leo.yan@arm.com>
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- drivers/hwtracing/coresight/coresight-etm3x-core.c | 7 -------
- 1 file changed, 7 deletions(-)
+ drivers/hwtracing/coresight/coresight-etm4x-core.c | 44 ++++++++++------------
+ 1 file changed, 19 insertions(+), 25 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-index 4511fc2f8d72..584d653eda81 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-@@ -333,13 +333,6 @@ static int etm_parse_event_config(struct etm_drvdata *drvdata,
- 	if (config->mode)
- 		etm_config_trace_mode(config);
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+index 2ec2ae1fef58..b457f182efbe 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
++++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+@@ -29,6 +29,7 @@
+ #include <linux/seq_file.h>
+ #include <linux/uaccess.h>
+ #include <linux/perf_event.h>
++#include <linux/perf/arm_pmu.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/property.h>
+@@ -780,17 +781,17 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
+ 		goto out;
  
+ 	/* Go from generic option to ETMv4 specifics */
+-	if (attr->config & BIT(ETM_OPT_CYCACC)) {
++	if (ATTR_CFG_GET_FLD(attr, cycacc)) {
+ 		config->cfg |= TRCCONFIGR_CCI;
+ 		/* TRM: Must program this for cycacc to work */
+-		cc_threshold = attr->config3 & ETM_CYC_THRESHOLD_MASK;
++		cc_threshold = ATTR_CFG_GET_FLD(attr, cc_threshold);
+ 		if (!cc_threshold)
+ 			cc_threshold = ETM_CYC_THRESHOLD_DEFAULT;
+ 		if (cc_threshold < drvdata->ccitmin)
+ 			cc_threshold = drvdata->ccitmin;
+ 		config->ccctlr = cc_threshold;
+ 	}
+-	if (attr->config & BIT(ETM_OPT_TS)) {
++	if (ATTR_CFG_GET_FLD(attr, timestamp)) {
+ 		/*
+ 		 * Configure timestamps to be emitted at regular intervals in
+ 		 * order to correlate instructions executed on different CPUs
+@@ -810,17 +811,17 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
+ 	}
+ 
+ 	/* Only trace contextID when runs in root PID namespace */
+-	if ((attr->config & BIT(ETM_OPT_CTXTID)) &&
++	if (ATTR_CFG_GET_FLD(attr, contextid1) &&
+ 	    task_is_in_init_pid_ns(current))
+ 		/* bit[6], Context ID tracing bit */
+ 		config->cfg |= TRCCONFIGR_CID;
+ 
+ 	/*
+-	 * If set bit ETM_OPT_CTXTID2 in perf config, this asks to trace VMID
+-	 * for recording CONTEXTIDR_EL2.  Do not enable VMID tracing if the
+-	 * kernel is not running in EL2.
++	 * If set bit contextid2 in perf config, this asks to trace VMID for
++	 * recording CONTEXTIDR_EL2.  Do not enable VMID tracing if the kernel
++	 * is not running in EL2.
+ 	 */
+-	if (attr->config & BIT(ETM_OPT_CTXTID2)) {
++	if (ATTR_CFG_GET_FLD(attr, contextid2)) {
+ 		if (!is_kernel_in_hyp_mode()) {
+ 			ret = -EINVAL;
+ 			goto out;
+@@ -831,26 +832,22 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
+ 	}
+ 
+ 	/* return stack - enable if selected and supported */
+-	if ((attr->config & BIT(ETM_OPT_RETSTK)) && drvdata->retstack)
++	if (ATTR_CFG_GET_FLD(attr, retstack) && drvdata->retstack)
+ 		/* bit[12], Return stack enable bit */
+ 		config->cfg |= TRCCONFIGR_RS;
+ 
+ 	/*
+-	 * Set any selected configuration and preset.
+-	 *
+-	 * This extracts the values of PMU_FORMAT_ATTR(configid) and PMU_FORMAT_ATTR(preset)
+-	 * in the perf attributes defined in coresight-etm-perf.c.
+-	 * configid uses bits 63:32 of attr->config2, preset uses bits 3:0 of attr->config.
+-	 * A zero configid means no configuration active, preset = 0 means no preset selected.
++	 * Set any selected configuration and preset. A zero configid means no
++	 * configuration active, preset = 0 means no preset selected.
+ 	 */
+-	if (attr->config2 & GENMASK_ULL(63, 32)) {
+-		cfg_hash = (u32)(attr->config2 >> 32);
+-		preset = attr->config & 0xF;
++	cfg_hash = ATTR_CFG_GET_FLD(attr, configid);
++	if (cfg_hash) {
++		preset = ATTR_CFG_GET_FLD(attr, preset);
+ 		ret = cscfg_csdev_enable_active_config(csdev, cfg_hash, preset);
+ 	}
+ 
+ 	/* branch broadcast - enable if selected and supported */
+-	if (attr->config & BIT(ETM_OPT_BRANCH_BROADCAST)) {
++	if (ATTR_CFG_GET_FLD(attr, branch_broadcast)) {
+ 		if (!drvdata->trcbb) {
+ 			/*
+ 			 * Missing BB support could cause silent decode errors
+@@ -859,7 +856,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
+ 			ret = -EINVAL;
+ 			goto out;
+ 		} else {
+-			config->cfg |= BIT(ETM4_CFG_BIT_BB);
++			config->cfg |= TRCCONFIGR_BB;
+ 		}
+ 	}
+ 
+@@ -1083,11 +1080,8 @@ static int etm4_disable_perf(struct coresight_device *csdev,
+ 		return -EINVAL;
+ 
+ 	etm4_disable_hw(drvdata);
 -	/*
--	 * At this time only cycle accurate, return stack  and timestamp
--	 * options are available.
+-	 * The config_id occupies bits 63:32 of the config2 perf event attr
+-	 * field. If this is non-zero then we will have enabled a config.
 -	 */
--	if (attr->config & ~ETM3X_SUPPORTED_OPTIONS)
--		return -EINVAL;
--
- 	config->ctrl = 0;
+-	if (attr->config2 & GENMASK_ULL(63, 32))
++	/* If configid is non-zero then we will have enabled a config. */
++	if (ATTR_CFG_GET_FLD(attr, configid))
+ 		cscfg_csdev_disable_active_config(csdev);
  
- 	if (ATTR_CFG_GET_FLD(attr, cycacc))
+ 	/*
 
 -- 
 2.34.1
