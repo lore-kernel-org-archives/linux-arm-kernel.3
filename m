@@ -4,99 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAFF6D116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 17:07:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0AA6D116E2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 17:07:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dHxMvjmHeLuvFpkAzdRAX3YAUaEt7mxZ79bySuiEqcc=; b=elf8HwdrcLh3grLekMs6sAEzdO
-	d6EhVXzhGhvngs/6eEZsrNQOGmcPWdB7Bj3ROBQWG7R6zIPXnoy+s1CMPVdep4dRiXvNPgeQoo+ql
-	jrulUM4YnICigZ70zIF5zYJoLzMkrIjoPs5rdM1wKR+7mxFanLDtBsmI6Q/bytelXdSNK0gesFw26
-	Q6UsF5NDfoPx7ZjhvC3hY+DDxI/vuIJ08fpG+v2CA0TC1x06+X5xT97GX9CHW27GANJvgsX2kpeF/
-	e13AYvoTTLkYx+q3GMbM64ghpEk6Hgdo8e79Wq8RHCkgGQKi3T8E+iuy58XDE2xo8Yvo9/jJnk2EB
-	pV56UmfA==;
+	bh=DcUIGeln3xRDoGBvCez/U/OJM3j8EXaZabhV7We/sH8=; b=sImqWtOsFIIQwYaKI/oifNDS5g
+	eC200r1p5dOTEnEHrW7/tTMiNCpotA034we9GPKDydqWCA7fer1oiJ2bcC27HDLeBYcIiqbJlb/BN
+	FM8+PCnl16I+Bctkq15uxihSgC7PlydMvO4sTlKkwiBBj3TpKZoPvQzTgPRBAsSTnm9lm5roEEq43
+	PGCigpGfctLn6mlOzcgWUSDU+cOZxFtmjcazijY7c6f0GGDdqhsW5ycedpesrrHScnX2lgZh7OjoY
+	xteQC+/bRrgiNkBDGlL/JPdXUp9QZh4pCHD5uNM+LEcTQokG6GV7YDUlDoNCix3ts5GRj//285Ja+
+	ZzVT3gTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP1wC-00000000hn8-3Vut;
-	Fri, 28 Nov 2025 17:07:16 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1vP1wn-00000000hrA-0j2M;
+	Fri, 28 Nov 2025 17:07:53 +0000
+Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP1w9-00000000hmg-3C5v
+	id 1vP1wl-00000000hqf-1A4U
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 17:07:15 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-6418738efa0so3535572a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Nov 2025 09:07:12 -0800 (PST)
+	Fri, 28 Nov 2025 17:07:52 +0000
+Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-8b22b1d3e7fso187122885a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Nov 2025 09:07:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1764349631; x=1764954431; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=dHxMvjmHeLuvFpkAzdRAX3YAUaEt7mxZ79bySuiEqcc=;
-        b=EXo/Q501KsPxgBwto+qV2FQdcXm6OSKKZYmEqhTBCod545k7mH4rWux0QihV5IiG6+
-         1MJ/0E8hn0Ln7BRzqCueftjUUE10KPHt9OJpLDI2S9xY4pTz9kJhWkmsqlEUNSD7R+7s
-         T4aQ8r43uv8Wtmb8YPkG65z0jn+A0MTw9nPjc=
+        d=ziepe.ca; s=google; t=1764349670; x=1764954470; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=DcUIGeln3xRDoGBvCez/U/OJM3j8EXaZabhV7We/sH8=;
+        b=gSz+P81ueb++Revf1h4ATHcBCEEBT6w3w0C6bfn8FaBk0NAvAeVhMB6INoEaHQoLyT
+         G4QPA609dxt+Skh3dq+mUwkvIHbQrQ87uorr0AqHK1Rl+VrOBLiRKWwnztInGn6TJGJn
+         6G0daBDlpazD+BBcNr7rR4vi0OooM63uZfnPequDvi60ZBDkLTEKILKZqdnnc76hMpqs
+         0aacUcu2XM+z9E99O7JU+fVNXWaRcCxcyrxKWvk5+VDdeCUJKHbRh82yISqYtZf2Qe+O
+         mkbbogUzm55NcaX4W78Ik6d97G7PLmFrhQtBKGvWXRSwm6h+9tRCz11uSG6agi1lJD8y
+         1Lxw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764349631; x=1764954431;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dHxMvjmHeLuvFpkAzdRAX3YAUaEt7mxZ79bySuiEqcc=;
-        b=WDaE+DdpavKSQRRpDesCERQXppvdMQzQqrVlg9ovJbaO8CYVbCEFwG3RtjvssImskA
-         y4obh85YzqX86d06hBoJyQhQ3ZBJNpmsOXk3w5Dp3mfqFG4n7cP99z9fZQbjYx3tU93P
-         EAhTKdLA3VW8xBbWJrokWSB8j7J692ZIN2Ckb0skzZBVIJo2x+nYPXTb/a9ZkB0demjB
-         UEKKXFdc7aFIIkjZYhC9V2srRUMpWlVBXB9FXIBzdw2FnnyY8f3qGjMfbT2D+/MGSGmJ
-         hTltslXMtXXevEfFBu5Iesm6LX7XQ+iOCppYp1Mv7cZgZVrNHTWet5GPIntYwKGBpfyt
-         4aXQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUgIf+vKWa/kcXDJljzuvEsyeDTHppBjLLIQ66KZYG0FlTAnQ23vpSyBTzhhbfgXttPrPv1mtf5XwyfQ8NpPfHE@lists.infradead.org
-X-Gm-Message-State: AOJu0YzM5WZuhcYsBX/6tsho2ercucqmIculxRVFrdOq2aUapHBT6Q2l
-	7cZ8U9OkNaRPW+4/r/e//3AtGyh5oxo2BKNGC2H4c7+LbBNZBBqO+vvza8EQDnFxURE2R8sQTkA
-	xo+P7pOA=
-X-Gm-Gg: ASbGncsf80nqXJiFCY1R2HU08+dxdF2Pp1zCeev19HCaeouqkzQCdzaMVQXCBuGNNG1
-	hv0yKF1sW4rEDX6UhZgMvJeDJFP3v6K3u6i9q7GVqil3AVpdkVKrHnItgbQXaNtPigli9WDqa+2
-	AeqfwSkoD2bOzslq+BcY1YKQJWBWEl4MSh7hNQ0pOQqLuIZX9WuIjyWDQ6uvDzfVXNR2atc5KsS
-	Lh+21CrxpkONZThrnN4RfCnni0XCzeqGEhspAEJ9XHEQiK9c+rUge/9R5ICpvFC3XWm9toSwcC5
-	uH4iIGeP/RoanYRiY5rgZJFomRzIr8499cfICnMHny4YPoU8ff3Da0+5sS83pwNY8bqXrjSyznn
-	PT/+38JzD8jYxmVSAhiKustXzydWMC+04evpUptI+NADgmdm/bJ6HN0MxWAzV78gLXXmu3OOHgk
-	kZ1jPhFjTjcORkdx/yVCXwgGRJ8gu6jXcBS8xZQTGuafM9GpmtVaJfX68I9rgm
-X-Google-Smtp-Source: AGHT+IEBFbde8jfzjGb8n4SWNKolI3EaebW6poXVoi7vtX/+fHSuMXINx+wvZTyn/oiTcFx2AJNLEA==
-X-Received: by 2002:a05:6402:42c7:b0:63e:b49:c9c3 with SMTP id 4fb4d7f45d1cf-64555cf83f3mr26106942a12.31.1764349631218;
-        Fri, 28 Nov 2025 09:07:11 -0800 (PST)
-Received: from mail-ed1-f53.google.com (mail-ed1-f53.google.com. [209.85.208.53])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-64750a90d5dsm4793226a12.12.2025.11.28.09.07.06
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 28 Nov 2025 09:07:07 -0800 (PST)
-Received: by mail-ed1-f53.google.com with SMTP id 4fb4d7f45d1cf-64162c04f90so3872825a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Nov 2025 09:07:06 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXshwtrXLvWMTUy2udxZyPEM1WXLBcmF3SYvrUUumcdPRozrtk2SyHHcTo/9gCL44ErlYY1MWk5e5wNub35D2Xt@lists.infradead.org
-X-Received: by 2002:a05:6402:2708:b0:63b:f0b3:76cf with SMTP id
- 4fb4d7f45d1cf-64555b85bb5mr26149888a12.2.1764349626340; Fri, 28 Nov 2025
- 09:07:06 -0800 (PST)
+        d=1e100.net; s=20230601; t=1764349670; x=1764954470;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=DcUIGeln3xRDoGBvCez/U/OJM3j8EXaZabhV7We/sH8=;
+        b=l45pYE2aTCc1I9x6Kegci0CK8m89xW/b4P67licvNvgAx29mn7oBuDekzlrLi/9g/U
+         dhaWvmcV4mMgjQzxJHuxspUqa+dc1RJgSdRaeLkRPdI7xg0biFZPOtEJurNRwhd6bJy1
+         UcFSM1BG6Pm3JDvGeEStslpudkpd6zDRI6Ybdd7AvW4UYjjdzpZTS8B2pmQ4oy5AgiBI
+         9NcsJJo9SKV5vL1uOp00mQ+zyB7R3AQwqpsAj9dB2UAIzxqIn34yV41tkSuMgCiZeNen
+         WdijgL69PmzbBN7gz4F6NG3vH9hBmzGdVdnPvlkgr+Ta9LWDMJIWQRK8FlGQ9mdnns96
+         Am5A==
+X-Gm-Message-State: AOJu0YxtmQ/Zc7g3rJdlx5xTIdh7GdqXYTZuJxK1uyD8VJV/eF1drD3V
+	Gvsj63TEPxJktYF5ILANQFHQdAUhGhImQGTKl8Zm3PNlfY3mGwam5gad1qOxG4N9ll8=
+X-Gm-Gg: ASbGncsOtNiGd3Fmdk0iYafJYzurM5E2vO91HclKnf6FThYYwIVdnKsDapeWi3pyr/y
+	v3m2GwmkMMB1//UQvCGOoCJUXHiGWV0Y9ZLlp9FovfVLdMOBNZOwcNAxw338yIlq6f56YTf/4i4
+	VEbKNRZkbvwvUsZuK1aDXFwSJ6mhXsdRsuwcZKHvh9devR7SlMIysUwzJ1XJxw3khNhYECuCu+y
+	eVixcb2Z02xji+sESuhSL2ofq+3aYqPSlOMQhPFNh3s+GZDybQP1abQLtsRCqA8uREFKICSKq51
+	oq03xTRspEbZkJEiiYkt1S5XJmL9v25ZAMivwx40assxbgXWgucwMtrczZyU+TXQAI/4N0s4wLm
+	dK/6oFwNmU8rIlpCvAPa3MjXyF9S9aG0Xb4QjosLrzawN/ytx6V35bfmVQ8+lx92Xmj6oxXNLyY
+	3pV0k7bGqzTY1YnqUA2tN01vaifGOwd+j7d3n6GIF1p1uN0MMkcLI+TBvZ8IKJRxk6sWQ=
+X-Google-Smtp-Source: AGHT+IFbx9IVrRQnr08bZ25S6T/6GTAT6maBFJIZM+QU3ERFbdXAlH12nWX3gx47Z9oyfN+s9pa16A==
+X-Received: by 2002:a05:620a:4509:b0:892:eeb9:4def with SMTP id af79cd13be357-8b33d4cf9d0mr3923929185a.49.1764349669847;
+        Fri, 28 Nov 2025 09:07:49 -0800 (PST)
+Received: from ziepe.ca (hlfxns017vw-47-55-120-4.dhcp-dynamic.fibreop.ns.bellaliant.net. [47.55.120.4])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8b5299a5f1dsm338261485a.13.2025.11.28.09.07.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Nov 2025 09:07:49 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1vP1wi-00000003Q7z-2Cdq;
+	Fri, 28 Nov 2025 13:07:48 -0400
+Date: Fri, 28 Nov 2025 13:07:48 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
+	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
+	praan@google.com, danielmentz@google.com, mark.rutland@arm.com,
+	qperret@google.com, tabba@google.com
+Subject: Re: [PATCH v5 17/27] iommu/arm-smmu-v3-kvm: Probe SMMU HW
+Message-ID: <20251128170748.GE812105@ziepe.ca>
+References: <20251117184815.1027271-1-smostafa@google.com>
+ <20251117184815.1027271-18-smostafa@google.com>
 MIME-Version: 1.0
-References: <20251126090505.3057219-1-wozizhi@huaweicloud.com>
- <33ab4aef-020e-49e7-8539-31bf78dac61a@huaweicloud.com> <CAHk-=wh1Wfwt9OFB4AfBbjyeu4JVZuSWQ4A8OoT3W6x9btddfw@mail.gmail.com>
- <aSgut4QcBsbXDEo9@shell.armlinux.org.uk>
-In-Reply-To: <aSgut4QcBsbXDEo9@shell.armlinux.org.uk>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Fri, 28 Nov 2025 09:06:50 -0800
-X-Gmail-Original-Message-ID: <CAHk-=wh+cFLLi2x6u61pvL07phSyHPVBTo9Lac2uuqK4eRG_=w@mail.gmail.com>
-X-Gm-Features: AWmQ_bmE-6XAFAPa0-eSPLJJDbgRImzhoDMUlnAscfmarz6vBK22IDNiLQ8b6yM
-Message-ID: <CAHk-=wh+cFLLi2x6u61pvL07phSyHPVBTo9Lac2uuqK4eRG_=w@mail.gmail.com>
-Subject: Re: [Bug report] hash_name() may cross page boundary and trigger
- sleep in RCU context
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Zizhi Wo <wozizhi@huaweicloud.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, jack@suse.com, brauner@kernel.org, hch@lst.de, 
-	akpm@linux-foundation.org, linux-fsdevel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-arm-kernel@lists.infradead.org, yangerkun@huawei.com, 
-	wangkefeng.wang@huawei.com, pangliyuan1@huawei.com, xieyuanbin1@huawei.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251117184815.1027271-18-smostafa@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_090713_949369_70FAA5F3 
-X-CRM114-Status: GOOD (  20.94  )
+X-CRM114-CacheID: sfid-20251128_090751_320628_0A408522 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,71 +107,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Nov 2025 at 02:58, Russell King (Oracle)
-<linux@armlinux.org.uk> wrote:
->
-> Ha!
->
-> As said elsewhere, it looks like 32-bit ARM has been missing updates to
-> the fault handler since pre-git history - this was modelled in the dim
-> and distant i386 handling, and it just hasn't kept up.
+On Mon, Nov 17, 2025 at 06:48:04PM +0000, Mostafa Saleh wrote:
 
-I actually have this dim memory of having seen something along these
-lines before, and I just had never realized how it could happen,
-because that call to do_page_fault() in do_translation_fault()
-visually *looks* like the only call-site, and so that
+> +/*
+> + * Mini-probe and validation for the hypervisor.
+> + */
+> +static int smmu_probe(struct hyp_arm_smmu_v3_device *smmu)
+> +{
+> +	u32 reg;
+> +
+> +	/* IDR0 */
+> +	reg = readl_relaxed(smmu->base + ARM_SMMU_IDR0);
+> +	smmu->features = smmu_idr0_features(reg);
+> +
+> +	/*
+> +	 * Some MMU600 and MMU700 have errata that prevent them from using nesting,
+> +	 * not sure how can we identify those, so it's recommended not to enable this
+> +	 * drivers on such systems.
+> +	 * And preventing any of those will be too restrictive
+> +	 */
 
-        if (addr < TASK_SIZE)
-                return do_page_fault(addr, fsr, regs);
+This driver is doing nesting though ??
 
-looks like it does everything correctly. That "do_page_fault()"
-function is static to the arch/arm/mm/fault.c file, and that's the
-only place that appears to call it.
+Shouldn't you detect those IPs and not support a S1 at all so there is
+no nesting? Identity only?
 
-The operative word being "appears".
-
-Becuse I had never before realized that that fault.c then also does that
-
-  #include "fsr-2level.c"
-
-and then that do_page_fault() function is exposed through those
-fsr_info[] operation arrays.
-
-Anyway, I don't think that the ARM fault handling is all *that* bad.
-Sure, it might be worth double-checking, but it *has* been converted
-to the generic accounting helpers a few years ago and to the stack
-growing fixes.
-
-I think the fix here may be as simple as this trivial patch:
-
-  diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
-  index 2bc828a1940c..27024ec2d46d 100644
-  --- a/arch/arm/mm/fault.c
-  +++ b/arch/arm/mm/fault.c
-  @@ -277,6 +277,10 @@ do_page_fault(unsigned long addr, ...
-        if (interrupts_enabled(regs))
-                local_irq_enable();
-
-  +     /* non-user address faults never have context */
-  +     if (addr >= TASK_SIZE)
-  +             goto no_context;
-  +
-        /*
-         * If we're in an interrupt or have no user
-         * context, we must not take the fault..
-
-but I really haven't thought much about it.
-
-> I'm debating whether an entire rewrite would be appropriate
-
-I don't think it's necessarily all that big of a deal. Yeah, this is
-old code, and yeah, it could probably be cleaned up a bit, but at the
-same time, "old and crusty" also means "fairly well tested". This
-whole fault on a kernel address is a fairly unusual case, and as
-mentioned, I *think* the above fix is sufficient.
-
-Zizhi Wo - can you confirm that that patch (whitespace-damaged, but
-simple enough to just do manually) fixes things for your test-case?
-
-           Linus
+Jason
 
