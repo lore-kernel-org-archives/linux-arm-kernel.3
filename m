@@ -4,41 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BDB8D116EA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 05:57:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43A26D116EA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 06:15:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=98g6X3S/iJSm9qbCDckyxRmdDucwdo57Y2Adtbm1tHc=; b=3+iqK/oJ1tvSETw4/k1E212ThY
-	oBPumaZbn96fAlTENxJ740wgt+B71NF2rvr0tHSSWwvQkbuDm0rvZ/MbxChkeunRmpJE2JwdbtoWY
-	xxOg+Bm4GDjKLpfNAGZJB0VE/wYvIlGrQrDZyLS86/ixxXHHz4JDNzj2LbKOHHrNFzOcgprMBIWvJ
-	DVy0g0hzstoVAhyPzQXsbkwjCYCAcT8WeVtETy6k5WuXt8ni+PStcNYYDSSfX+bn/bcdfOxy3ACiO
-	Px615KliDuMLwk2haH0Y7V0//FyFoLy+HK9MfQZm54NgPaMZEYG8JvttEjdYwIBNrb6lnORL69m7M
-	8oIwCAhA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tzMR4kh8D+qHm/CH7X1zLsU1wQXss4anvJFfayQtBy4=; b=mDiBlF2Iy6NftIXpYIsAsJe7sK
+	sE9uYKlAd3dV8EHaGWlwIOTTsseeMzLoUfhZfHjHGHKeVAp8USpk+vyhQjYXsV8o4HMAENzfRy3nc
+	85vaq4ikFBlMHNuVU07BaQKzttYVGcoEk2tCLV7OLOI0BhFwo3KyBZ8KcTnKWatSNctOqBFyTiagP
+	ZvvBHu2bQ/UDCVX7mHTtSriMWX48+bEFjwm3rvFZ0cK1VFcA5380dnxdYq92EgBNXV93Wd9SOpY2p
+	rx+06F4ZB8I02CLUkNrJeCLxSQOx5mSMrm4LyfL/YIMsL43ZwAl+etIFUs3VFBNICZWrMJYg8MKkJ
+	wvbp88IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOrU5-000000001Eb-0qGo;
-	Fri, 28 Nov 2025 05:57:33 +0000
-Received: from [50.53.43.113] (helo=bombadil.infradead.org)
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOrU4-000000001EQ-0Vwc;
-	Fri, 28 Nov 2025 05:57:32 +0000
-From: Randy Dunlap <rdunlap@infradead.org>
-To: linux-kernel@vger.kernel.org
-Cc: Randy Dunlap <rdunlap@infradead.org>,
-	Nishanth Menon <nm@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Santosh Shilimkar <ssantosh@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] firmware: ti_sci.h: fix all kernel-doc warnings
-Date: Thu, 27 Nov 2025 21:57:31 -0800
-Message-ID: <20251128055731.812460-1-rdunlap@infradead.org>
-X-Mailer: git-send-email 2.52.0
+	id 1vOrlL-000000001rK-495a;
+	Fri, 28 Nov 2025 06:15:23 +0000
+Received: from mail-m15581.qiye.163.com ([101.71.155.81])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOrlH-000000001qG-2Sye;
+	Fri, 28 Nov 2025 06:15:21 +0000
+Received: from [172.16.12.51] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2b39a5a25;
+	Fri, 28 Nov 2025 14:15:08 +0800 (GMT+08:00)
+Message-ID: <5520827b-bd13-4b32-8266-83a4eaa233c3@rock-chips.com>
+Date: Fri, 28 Nov 2025 14:15:07 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 01/11] usb: typec: Set the bus also for the port and
+ plug altmodes
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Chaoyi Chen <kernel@airkyi.com>
+Cc: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Peter Chen <hzpeterchen@gmail.com>, Luca Ceresoli
+ <luca.ceresoli@bootlin.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Yubing Zhang <yubing.zhang@rock-chips.com>,
+ Frank Wang <frank.wang@rock-chips.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Amit Sunil Dhamne <amitsd@google.com>, Dragan Simic <dsimic@manjaro.org>,
+ Johan Jonker <jbx6244@gmail.com>, Diederik de Haas <didi.debian@cknow.org>,
+ Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+References: <20251128020405.90-1-kernel@airkyi.com>
+ <20251128020405.90-2-kernel@airkyi.com>
+ <2025112846-italicize-handled-84ff@gregkh>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <2025112846-italicize-handled-84ff@gregkh>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9ac919e25d03abkunm620e070778961a
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkNKSFZDTB5PH0MfS0hPQk9WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpPSE
+	xVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=epBLNkdbptb9cHtQ3AJCdjD21s5e//NrMhZ4LYQDQDZbqbyIEeKSKuXV6MlTHYxDLxLUS7vdWxJHsBY8X1bhIQLB4RecIM+hZIQY8C/r7BdQhoU6OKecoXikDVnuSw+ExyzNoqJiD0bVwvgDiAD2VnV3OvKJXYXaY52duX1B1n4=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=tzMR4kh8D+qHm/CH7X1zLsU1wQXss4anvJFfayQtBy4=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251127_221520_119768_C77BF205 
+X-CRM114-Status: GOOD (  11.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -53,147 +96,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Modify kernel-doc comments in ti_sci.h to eliminate all kernel-doc
-warnings:
+On 11/28/2025 1:51 PM, Greg Kroah-Hartman wrote:
+> On Fri, Nov 28, 2025 at 10:03:55AM +0800, Chaoyi Chen wrote:
+>> From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+>>
+>> The port and plug altmodes can't be bound to the altmode
+>> drivers because the altmode drivers are meant for partner
+>> communication using the VDM (vendor defined messages), but
+>> they can still be part of the bus. The bus will make sure
+>> that the normal bus notifications are available also with
+>> the port altmodes.
+>>
+>> The previously used common device type for all alternate
+>> modes is replaced with separate dedicated device types for
+>> port, plug, and partner alternate modes.
+>>
+>> Signed-off-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+>> ---
+> 
+> You forgot to sign off on this :(
+> 
 
-* use correct/matching struct names in kdoc comments
-* use correct struct member names in kdoc comments
-* add a ':' after struct member names where needed
-* change a blank kdoc line to " *"
-* convert 3 structs to kernel-doc comments:
-  struct ti_sci_msg_rm_udmap_tx_ch_cfg_req
-  struct ti_sci_msg_rm_udmap_rx_ch_cfg_req
-  struct ti_sci_msg_rm_udmap_flow_cfg_req
+Sorry for that. If there are no further problem on this series,
+I will resend it.
 
-Fixes 13 kernel-doc warnings:
-
-Warning: drivers/firmware/ti_sci.h:609 expecting prototype for struct
- tisci_msg_req_prepare_sleep. Prototype was for struct
- ti_sci_msg_req_prepare_sleep instead
-Warning: drivers/firmware/ti_sci.h:609 struct member 'hdr' not described
- in 'ti_sci_msg_req_prepare_sleep'
-Warning: drivers/firmware/ti_sci.h:609 struct member 'mode' not described
- in 'ti_sci_msg_req_prepare_sleep'
-Warning: drivers/firmware/ti_sci.h:609 struct member 'ctx_lo' not described
- in 'ti_sci_msg_req_prepare_sleep'
-Warning: drivers/firmware/ti_sci.h:609 struct member 'ctx_hi' not described
- in 'ti_sci_msg_req_prepare_sleep'
-Warning: drivers/firmware/ti_sci.h:609 struct member 'debug_flags' not
- described in 'ti_sci_msg_req_prepare_sleep'
-Warning: drivers/firmware/ti_sci.h:623 expecting prototype for struct
- tisci_msg_set_io_isolation_req. Prototype was for struct
- ti_sci_msg_req_set_io_isolation instead
-Warning: drivers/firmware/ti_sci.h:696 struct member 'latency' not
- described in 'ti_sci_msg_req_lpm_set_latency_constraint'
-Warning: drivers/firmware/ti_sci.h:857 bad line:
-Warning: drivers/firmware/ti_sci.h:1002 This comment starts with '/**', but
- isn't a kernel-doc comment. Refer to Documentation/doc-guide/kernel-doc.rst
- * Configures a Navigator Subsystem UDMAP transmit channel
-Warning: drivers/firmware/ti_sci.h:1130 This comment starts with '/**', but
- isn't a kernel-doc comment. Refer to Documentation/doc-guide/kernel-doc.rst
- * Configures a Navigator Subsystem UDMAP receive channel
-Warning: drivers/firmware/ti_sci.h:1249 This comment starts with '/**', but
- isn't a kernel-doc comment. Refer to Documentation/doc-guide/kernel-doc.rst
- * Configures a Navigator Subsystem UDMAP receive flow
-Warning: drivers/firmware/ti_sci.h:1421 struct member 'valid_params'
- not described in 'ti_sci_msg_rm_udmap_flow_cfg_req'
-
-Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
----
-Cc: Nishanth Menon <nm@ti.com>
-Cc: Tero Kristo <kristo@kernel.org>
-Cc: Santosh Shilimkar <ssantosh@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org
----
- drivers/firmware/ti_sci.h |   29 ++++++++++++++++-------------
- 1 file changed, 16 insertions(+), 13 deletions(-)
-
---- linux-next-20251127.orig/drivers/firmware/ti_sci.h
-+++ linux-next-20251127/drivers/firmware/ti_sci.h
-@@ -580,13 +580,13 @@ struct ti_sci_msg_resp_get_clock_freq {
- } __packed;
- 
- /**
-- * struct tisci_msg_req_prepare_sleep - Request for TISCI_MSG_PREPARE_SLEEP.
-+ * struct ti_sci_msg_req_prepare_sleep - Request for TISCI_MSG_PREPARE_SLEEP.
-  *
-- * @hdr				TISCI header to provide ACK/NAK flags to the host.
-- * @mode			Low power mode to enter.
-- * @ctx_lo			Low 32-bits of physical pointer to address to use for context save.
-- * @ctx_hi			High 32-bits of physical pointer to address to use for context save.
-- * @debug_flags			Flags that can be set to halt the sequence during suspend or
-+ * @hdr:			TISCI header to provide ACK/NAK flags to the host.
-+ * @mode:			Low power mode to enter.
-+ * @ctx_lo:			Low 32-bits of physical pointer to address to use for context save.
-+ * @ctx_hi:			High 32-bits of physical pointer to address to use for context save.
-+ * @debug_flags:		Flags that can be set to halt the sequence during suspend or
-  *				resume to allow JTAG connection and debug.
-  *
-  * This message is used as the first step of entering a low power mode. It
-@@ -610,7 +610,7 @@ struct ti_sci_msg_req_prepare_sleep {
- } __packed;
- 
- /**
-- * struct tisci_msg_set_io_isolation_req - Request for TI_SCI_MSG_SET_IO_ISOLATION.
-+ * struct ti_sci_msg_req_set_io_isolation - Request for TI_SCI_MSG_SET_IO_ISOLATION.
-  *
-  * @hdr:	Generic header
-  * @state:	The deseared state of the IO isolation.
-@@ -676,7 +676,7 @@ struct ti_sci_msg_req_lpm_set_device_con
-  * TISCI_MSG_LPM_SET_LATENCY_CONSTRAINT.
-  *
-  * @hdr:	TISCI header to provide ACK/NAK flags to the host.
-- * @wkup_latency:	The maximum acceptable latency to wake up from low power mode
-+ * @latency:	The maximum acceptable latency to wake up from low power mode
-  *			in milliseconds. The deeper the state, the higher the latency.
-  * @state:	The desired state of wakeup latency constraint: set or clear.
-  * @rsvd:	Reserved for future use.
-@@ -855,7 +855,7 @@ struct ti_sci_msg_rm_ring_cfg_req {
-  * UDMAP transmit channels mapped to source threads will have their
-  * TCHAN_THRD_ID register programmed with the destination thread if the pairing
-  * is successful.
--
-+ *
-  * @dst_thread: PSI-L destination thread ID within the PSI-L System thread map.
-  * PSI-L destination threads start at index 0x8000.  The request is NACK'd if
-  * the destination thread is not greater than or equal to 0x8000.
-@@ -1000,7 +1000,8 @@ struct rm_ti_sci_msg_udmap_rx_flow_opt_c
- } __packed;
- 
- /**
-- * Configures a Navigator Subsystem UDMAP transmit channel
-+ * struct ti_sci_msg_rm_udmap_tx_ch_cfg_req - Configures a
-+ *	Navigator Subsystem UDMAP transmit channel
-  *
-  * Configures the non-real-time registers of a Navigator Subsystem UDMAP
-  * transmit channel.  The channel index must be assigned to the host defined
-@@ -1128,7 +1129,8 @@ struct ti_sci_msg_rm_udmap_tx_ch_cfg_req
- } __packed;
- 
- /**
-- * Configures a Navigator Subsystem UDMAP receive channel
-+ * struct ti_sci_msg_rm_udmap_rx_ch_cfg_req - Configures a
-+ *	Navigator Subsystem UDMAP receive channel
-  *
-  * Configures the non-real-time registers of a Navigator Subsystem UDMAP
-  * receive channel.  The channel index must be assigned to the host defined
-@@ -1247,7 +1249,8 @@ struct ti_sci_msg_rm_udmap_rx_ch_cfg_req
- } __packed;
- 
- /**
-- * Configures a Navigator Subsystem UDMAP receive flow
-+ * struct ti_sci_msg_rm_udmap_flow_cfg_req - Configures a
-+ *	Navigator Subsystem UDMAP receive flow
-  *
-  * Configures a Navigator Subsystem UDMAP receive flow's registers.
-  * Configuration does not include the flow registers which handle size-based
-@@ -1258,7 +1261,7 @@ struct ti_sci_msg_rm_udmap_rx_ch_cfg_req
-  *
-  * @hdr: Standard TISCI header
-  *
-- * @valid_params
-+ * @valid_params:
-  * Bitfield defining validity of rx flow configuration parameters.  The
-  * rx flow configuration fields are not valid, and will not be used for flow
-  * configuration, if their corresponding valid bit is zero.  Valid bit usage:
+-- 
+Best, 
+Chaoyi
 
