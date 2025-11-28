@@ -4,85 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 117C7D116EA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 07:14:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE285CFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 07:27:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bU/9WUN/59AwNz4ANd+6SuKrCznrmNWalFyjyHF+iy4=; b=ciJwlKRbuc0SNEN0WBY7hKN+Jg
-	tUMEl24CvvWc/48aGq5wGc2apZNhKlhSnR9nXJGQwZaWVXTm1wWB1CLgdJlMbqRY+zDC+H39qltL0
-	hlRNSpOXc0/VYMn6WJLa/5kPZaMjyOzsChfDtJ01uX8Nd8l7x5mM47jBKhraw7ZPdFEJEZ6PAz4hF
-	J/2JNSu4kJBphwM0wWvQ580G1+QpTssB4HACSNecA56Eu1ZOlqmYuwkpE5nrjbBHxfrKnidzqhv/g
-	Btcs+8PyxesYbYASUsUaiBZV+ZYJA9K1+HIyu9ojftwTA6mPLdYc2WuSjOcR3WeQa2RodMj9vFk3k
-	Lkd2KBFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZXruMxbnkAyIggJrMpKnU5L2O1v86YhXNZ3af1m8I3w=; b=pq+VUj7tcXEhWAk/IvHr+YfYXx
+	ggn2shSl+FzZLj9TkMounQk1VWR0KvBOEuGCv6fdTDqdbyNLBnR6phsXAiJRynrfJyP56VJRuP/Hz
+	E8mSsuPk8C89LMRHki7rncrOE/J7QuISbujfjuUxuAAqmG4fHrCta5T1BwJx6kJObGjGfZr9LHQ/l
+	+BE9+F6aT2S4pIUCI7/LUpWbj6+k4A2dYCgA/pJgnFDlfk49wzMYfHt2n1dPC2Ond4NkxcXRQyym8
+	eiI1OF117uQf8OPE0a9O6jBE4tulVPqvd2LIBMBQ1KVUzbYnvoGMDieRoEmu7D/EgtUqOIJ4bgMGI
+	HyEn0UIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOsgW-000000005RF-3Oa4;
-	Fri, 28 Nov 2025 07:14:28 +0000
-Received: from smtpbgbr2.qq.com ([54.207.22.56])
+	id 1vOssz-00000000631-1Ppc;
+	Fri, 28 Nov 2025 07:27:21 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOsgS-000000005NR-2dgy;
-	Fri, 28 Nov 2025 07:14:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1764314020;
-	bh=bU/9WUN/59AwNz4ANd+6SuKrCznrmNWalFyjyHF+iy4=;
-	h=From:To:Subject:Date:Message-Id;
-	b=Ze6jWRb93FJx/CiONmnRZj5punv5hEDHVO5mtuVQqidhqHFNYjUBJJUoA/l8HIWdZ
-	 9wBstNeh//T3/vTXhI3eoZBbLU6qIXxB474zspQz1jEzYrFfJO58lyNUDOGRpL/CnA
-	 xsVMk4hniN+55iw19mpDutaUmVuMsYGRux3oUnus=
-X-QQ-mid: zesmtpsz7t1764314012t7986102a
-X-QQ-Originating-IP: fQ38+bagafd/aNZJRKe4NdW9zDnds+/df0ZWXL1qErc=
-Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 28 Nov 2025 15:13:30 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 5273393561638931469
-From: Chaoyi Chen <kernel@airkyi.com>
-To: Joerg Roedel <joro@8bytes.org>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: iommu@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Subject: [PATCH v2 2/2] iommu/rockchip: Use devm_clk_bulk_get_all() to get multiple iface clock
-Date: Fri, 28 Nov 2025 15:13:22 +0800
-Message-Id: <20251128071322.92-3-kernel@airkyi.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20251128071322.92-1-kernel@airkyi.com>
-References: <20251128071322.92-1-kernel@airkyi.com>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: MN7J+qOXnZ1LC2rHDFipWslRZlxdd8Y5acEfgMQhrlyiOCItpDRyyWi0
-	ixFo8cjPuh2K0fRQyvBQhHvGVECUSuOyaRRhYIkoqU1NBeHu3ACLUQFczaghjRnqrWdVFEc
-	hR1g3Bvv02+fYsmpgKXRVjjEiflTm4bst92m9GD1ZcCuB8hcq2QEbPWZFM5Mt4OBcW+Hf1m
-	Jnb60QZ+HW8x5eXrbb4wfkWM7uxoN1L3TjvszvQJmB/iXeWCIppWCNROciPuxlQ5EuM1QXX
-	N5Ui5OzUHosndu5LwZG5ckjPF/D8m5GnxD8cDUkS1EUcZdVO+kUbGvZbncCKaNv5e4fo1Jd
-	aFzE8Ttr9eKgUXBTTcvyE+Rp4oAzcrmpa0XwqjOI7Bmk2oiZKT+rsZtE525iMzGWFB3dDYL
-	YSZTTmAU8+lu47hlj9ts4948dX51AaM5D3+kkLzexgdN4Cj4DGin24K/VGFDLa3WoegXGR2
-	4x/SPeN2M/e/SQDGrmhGPYWM1tzfNIIfYcMCh43xM4vGNDai6ljaSfFV+drBsqeGfvxKgMA
-	6aCBNpcF8cYvTKLo+q5ZxXj5Vsr6kOXvqEjhNN+Xnxxpgtd6AzKHSKi+ZF/WV34OeamtAFa
-	SVhS40j10nahZCmofiquYRzmI57apVej5GTJowxz03LwDJyOFEwr1lRNkpeEsOOBYBeB2+d
-	ALsoq2O6bFCPoNLEXmedx+jCPRukthv14bveAFYrHOZm5t5d2h0Ksd5dsbN0gKX8dtTQAaB
-	7eYLJx/U2ZXJkWiFohwgQGX/m5E4cbY/eE4IlZK/Je2YaIjQux44PsQ9yoaNS9bhox9rvxe
-	1i9iPQ1yxxrqIjPqhHCjC0H1G8bD3W3Os3suMevE/oQW0l20Gro8BlppeSCYBnb58PvxgRg
-	4ycxh39sV/Wo3TvnUfzSsZxRqmefZQ0C9ZJmC7lutJ7z+DjvVmjJQ5iDTENSHtZgcUqDGC1
-	Kp4wQl2pqDR9zk/luEDqcLpz+z4/Vwt6+XbxiVmWUQecWjAD9WiBfx+lBfAxQ/3UeHMo=
-X-QQ-XMRINFO: MPJ6Tf5t3I/ycC2BItcBVIA=
-X-QQ-RECHKSPAM: 0
+	id 1vOssw-0000000062Z-1ttr
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 28 Nov 2025 07:27:19 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <s.pueschel@pengutronix.de>)
+	id 1vOssm-0005Lu-Ba; Fri, 28 Nov 2025 08:27:08 +0100
+Message-ID: <cea54dcb-6236-4363-8b46-e2213a190894@pengutronix.de>
+Date: Fri, 28 Nov 2025 08:26:55 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iommu/rockchip: disable fetch dte time limit
+To: Shawn Lin <shawn.lin@rock-chips.com>, Joerg Roedel <joro@8bytes.org>,
+ Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+ Heiko Stuebner <heiko@sntech.de>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Simon Xue <xxm@rock-chips.com>, kernel@pengutronix.de
+References: <20251126-spu-iommudtefix-v1-1-f90003dbfcc4@pengutronix.de>
+ <075100c0-b4af-4077-bd3c-dd9407524671@rock-chips.com>
+Content-Language: en-US
+From: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+In-Reply-To: <075100c0-b4af-4077-bd3c-dd9407524671@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_231425_527041_0E7DD876 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20251127_232718_516945_245B6EA6 
+X-CRM114-Status: GOOD (  23.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,68 +70,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-The iommu found on RK3576 NPU and RK3576 RKVDEC contain 4 clock.
+On 11/27/25 5:32 AM, Shawn Lin wrote:
+> 在 2025/11/26 星期三 19:45, Sven Püschel 写道:
+>> From: Simon Xue <xxm@rock-chips.com>
+>>
+>> Disable the Bit 31 of the AUTO_GATING iommu register, as it causes
+>> hangups with the RGA3 (Raster Graphics Acceleration 3) peripheral.
+>> The RGA3 register description of the TRM already states that the bit
+>> must be set to 1. The vendor kernel sets the bit unconditionally to
+>> 1 to fix VOP (Video Output Processor) screen black issues. This patch
+>> squashes the 2 vendor kernel commits with the following commit messages:
+>>
+>> Master fetch data and cpu update page table may work in parallel, may
+>> have the following procedure:
+>>
+>>     master                  cpu
+>>     fetch dte               update page tabl
+>>             |                       |
+>>     (make dte invalid)  <-  zap iotlb entry
+>>             |                       |
+>>     fetch dte again
+>>     (make dte invalid)  <-  zap iotlb entry
+>>             |                       |
+>>     fetch dte again
+>>     (make dte invalid)  <-  zap iotlb entry
+>>             |                       |
+>>     fetch dte again
+>>     (make iommu block)  <-  zap iotlb entry
+>>
+>> New iommu version has the above bug, if fetch dte consecutively four
+>> times, then it will be blocked. Fortunately, we can set bit 31 of
+>> register MMU_AUTO_GATING to 1 to make it work as old version which does
+>> not have this issue.
+>>
+>> This issue only appears on RV1126 so far, so make a workaround dedicated
+>> to "rockchip,rv1126" machine type.
+>>
+>> iommu/rockchip: fix vop blocked and screen black on RK356X and RK3588
+>>
+>> RK3568 and RK3588 has the same issue as RV1126/RV1109 that caused by
+>> dte fetch time limit, So we can set BIT(31) of register 0x24 default
+>> to 1 as a workaround.
+>>
+>> Signed-off-by: Simon Xue <xxm@rock-chips.com>
+>> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+>> ---
+>> During testing of a newly developed driver for the RGA3 peripheral [1]
+>> (Raster Graphic Acceleration 3) of the RK3588 some sporadic hangs
+>> have been observed. The upstream rockchip-iommu driver is used to handle
+>> the RGA3 IOMMU register space.
+>>
+>> After a closer look at the TRM for the RK3588, the RGA3 iommu register
+>> description of the RGA3_MMU_AUTO_GATING register (offset 0x24) mentions
+>
+> It's 0xF24 per RGA3 chapter.
 
-Just use devm_clk_bulk_get_all() to get all the clocks and use them.
+yeah, sorry. I was already thinking relative to the rga3 iommu address 
+space in my head, but didn't really mention that the chapter says 0xF24 
+with the iommu related registers starting at 0xF00.
 
-Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
----
+Sincerely
+     Sven
 
-Changes in v2:
-- Change comment.
-
- drivers/iommu/rockchip-iommu.c | 20 ++++----------------
- 1 file changed, 4 insertions(+), 16 deletions(-)
-
-diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
-index 0861dd469bd8..76f71fb679f8 100644
---- a/drivers/iommu/rockchip-iommu.c
-+++ b/drivers/iommu/rockchip-iommu.c
-@@ -93,11 +93,6 @@ struct rk_iommu_domain {
- 	struct iommu_domain domain;
- };
- 
--/* list of clocks required by IOMMU */
--static const char * const rk_iommu_clocks[] = {
--	"aclk", "iface",
--};
--
- struct rk_iommu_ops {
- 	phys_addr_t (*pt_address)(u32 dte);
- 	u32 (*mk_dtentries)(dma_addr_t pt_dma);
-@@ -1236,25 +1231,18 @@ static int rk_iommu_probe(struct platform_device *pdev)
- 	iommu->reset_disabled = device_property_read_bool(dev,
- 					"rockchip,disable-mmu-reset");
- 
--	iommu->num_clocks = ARRAY_SIZE(rk_iommu_clocks);
--	iommu->clocks = devm_kcalloc(iommu->dev, iommu->num_clocks,
--				     sizeof(*iommu->clocks), GFP_KERNEL);
--	if (!iommu->clocks)
--		return -ENOMEM;
--
--	for (i = 0; i < iommu->num_clocks; ++i)
--		iommu->clocks[i].id = rk_iommu_clocks[i];
--
- 	/*
- 	 * iommu clocks should be present for all new devices and devicetrees
- 	 * but there are older devicetrees without clocks out in the wild.
- 	 * So clocks as optional for the time being.
- 	 */
--	err = devm_clk_bulk_get(iommu->dev, iommu->num_clocks, iommu->clocks);
-+	err = devm_clk_bulk_get_all(dev, &iommu->clocks);
- 	if (err == -ENOENT)
- 		iommu->num_clocks = 0;
--	else if (err)
-+	else if (err < 0)
- 		return err;
-+	else
-+		iommu->num_clocks = err;
- 
- 	err = clk_bulk_prepare(iommu->num_clocks, iommu->clocks);
- 	if (err)
--- 
-2.51.1
-
+>
+>> a mmu_bug_fixed_disable bit, which must be set to 1 but defaults to 0.
+>>
+>> Looking at the commits in the vendor kernel, the bit is unconditionally
+>> set to 1 and mentions that it fixes a blocked VOP (Video Output
+>> Processor) [3]. Therefore squash the relevant vendor commits
+>> [2] and [3] into a single patch, combine the commit messages and keep
+>> the Signed-off-by line from the original author.
+>>
+>> [1] 
+>> https://lore.kernel.org/all/20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de/
+>> [2] 
+>> https://github.com/rockchip-linux/kernel/commit/7f8158fb41b5cc8e738aaeebc3637c50ebd74cae
+>> [3] 
+>> https://github.com/rockchip-linux/kernel/commit/6a355e5f9a2069a2309e240791bc3aad63b7324e
+>> ---
+>>   drivers/iommu/rockchip-iommu.c | 8 ++++++++
+>>   1 file changed, 8 insertions(+)
+>>
+>> diff --git a/drivers/iommu/rockchip-iommu.c 
+>> b/drivers/iommu/rockchip-iommu.c
+>> index 0861dd469bd86..2d0dabb0d101a 100644
+>> --- a/drivers/iommu/rockchip-iommu.c
+>> +++ b/drivers/iommu/rockchip-iommu.c
+>> @@ -76,6 +76,8 @@
+>>   #define SPAGE_ORDER 12
+>>   #define SPAGE_SIZE (1 << SPAGE_ORDER)
+>>   +#define DISABLE_FETCH_DTE_TIME_LIMIT BIT(31)
+>> +
+>>    /*
+>>     * Support mapping any size that fits in one page table:
+>>     *   4 KiB to 4 MiB
+>> @@ -930,6 +932,7 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
+>>       struct iommu_domain *domain = iommu->domain;
+>>       struct rk_iommu_domain *rk_domain = to_rk_domain(domain);
+>>       int ret, i;
+>> +    u32 auto_gate;
+>>         ret = clk_bulk_enable(iommu->num_clocks, iommu->clocks);
+>>       if (ret)
+>> @@ -948,6 +951,11 @@ static int rk_iommu_enable(struct rk_iommu *iommu)
+>> rk_ops->mk_dtentries(rk_domain->dt_dma));
+>>           rk_iommu_base_command(iommu->bases[i], RK_MMU_CMD_ZAP_CACHE);
+>>           rk_iommu_write(iommu->bases[i], RK_MMU_INT_MASK, 
+>> RK_MMU_IRQ_MASK);
+>> +
+>> +        /* Workaround for iommu blocked, BIT(31) default to 1 */
+>> +        auto_gate = rk_iommu_read(iommu->bases[i], RK_MMU_AUTO_GATING);
+>> +        auto_gate |= DISABLE_FETCH_DTE_TIME_LIMIT;
+>> +        rk_iommu_write(iommu->bases[i], RK_MMU_AUTO_GATING, auto_gate);
+>>       }
+>>         ret = rk_iommu_enable_paging(iommu);
+>>
+>> ---
+>> base-commit: 30f09200cc4aefbd8385b01e41bde2e4565a6f0e
+>> change-id: 20251126-spu-iommudtefix-cd0c5244c74a
+>>
+>> Best regards,
+>
+>
 
