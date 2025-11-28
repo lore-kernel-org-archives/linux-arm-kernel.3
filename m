@@ -4,65 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97E35D116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 11:45:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C777D116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 11:55:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OX4PMm+qO7zPBCVq86cl92pLBJaZal/jPsXns4lrFgs=; b=PywApEbS7voEpG1aXhArK7dIo4
-	Y+6InFU6c83h3kjX+x6z3ZS1GJLHnFJ+iSwaJJB1QtA+dncQVlWtJbNb70MWIDkJBTcGETCecsOx2
-	sfu/VYHUG7qwUKiwfl9A07lawR8ken2yZUrDOIPW2sO8CdrIQpsXgVDw+KP87YLpJ2a8WPHN4DOLX
-	9qxLUp6xpEicxxnbTOb11C/WWczunODXO5JCDJxkd5thUVw4gkRa7rY3xsBf3nU4HRe8vWuV3J7ur
-	dZ9Hnh6RJm8AeH0bsnxeCYrV0fP3gPGvRS3LfUpP6cbEIZFJPtzMQoWMxHyoRHylE85dv6sI/XII4
-	sWoLERFg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YvA8MNYHofPp6XXLABhPzCmRj6ePdkRSGVrEa8M8M3Q=; b=udArCBvSmLBsvYkkdx7k+urgyt
+	zqFq7a7QlKvJptcbFP0rI3VZSz7INloqOD3DF+5bFaoQkQ7ea1PGeek+w1U/KzqUOwAXfqz5yEnjb
+	+HCT9M30f8vk5m706YD1A1PI/kYqRRthSyLp30VgdnYj5DBhfvhC4ovswAUkgfYpADqWAqIoN5wa/
+	x/VhY75hc1N6KB/yWB+lX7Aia1HD0thMEnoqss/doTmdjYE0latdJQm3NQtN9oEZ37ZKSoeqXvlJQ
+	/9svmVhiPI/KufzCghnRZDADKru2y+YoJA+v+5CAZobiGKrQSrIXXxlqMM8EjxzlyephM+MGXo+p0
+	pi8RNcFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOwuH-00000000NA0-18yZ;
-	Fri, 28 Nov 2025 11:44:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOwuE-00000000N9b-1wBA
+	id 1vOx4t-00000000Nhy-35wH;
+	Fri, 28 Nov 2025 11:55:55 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vOx4p-00000000Nfk-3lv3
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 11:44:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B9E59176A;
-	Fri, 28 Nov 2025 03:44:44 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3EC263F66E;
-	Fri, 28 Nov 2025 03:44:50 -0800 (PST)
-Date: Fri, 28 Nov 2025 11:44:47 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Ard Biesheuvel <ardb+git@google.com>,
-	linux-hardening@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Kees Cook <kees@kernel.org>, Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Catalin Marinas <Catalin.Marinas@arm.com>,
-	"Jason A. Donenfeld" <Jason@zx2c4.com>
-Subject: Re: [RFC/RFT PATCH 0/6] Improve get_random_u8() for use in randomize
- kstack
-Message-ID: <aSmLLz24stY_B9g0@J2N7QTR9R3>
-References: <20251127092226.1439196-8-ardb+git@google.com>
- <b1dae5a7-27bd-42de-bcce-9fd3c2b1c178@arm.com>
- <CAMj1kXE-Qm4DQNAcg8Tg7YM4EMdLBu_UJm7M8Cpk3t5g7XqP5w@mail.gmail.com>
- <e996fdd5-7113-4327-a884-336dd5f77c4d@arm.com>
- <CAMj1kXGyYMy2xhcdNicHkMfWBnEjyhc+xg8ciuR-6WXDxDpZxg@mail.gmail.com>
- <f95593ac-d4cf-4e06-9a94-cc5133897c59@arm.com>
- <aSiDSp8NpqJkr1oD@J2N7QTR9R3>
- <CAMj1kXF9-tXVQS-_p8c058ssn80xaiDu+01SR98=yQ004xevng@mail.gmail.com>
- <6e4cfa83-3181-4988-a3d8-55e066b68947@arm.com>
+	Fri, 28 Nov 2025 11:55:53 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-4779a637712so10595765e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 28 Nov 2025 03:55:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1764330950; x=1764935750; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YvA8MNYHofPp6XXLABhPzCmRj6ePdkRSGVrEa8M8M3Q=;
+        b=xOYZqcnU1jBTMrkEK87FAGvcUAP+nzP9iBzmTR3JnXepnV0Txp7ZBp5/oJVulAFQP+
+         Sonvl450fkGGsORUO6FWap1e3nJ/r4p0eGXGlIYTrdfy04Ml+KJ+7LkAgGYDXta7Oghj
+         v5Voi/Ly7Im4+oBkndnR1mOVCzoN8O3GuJ083lPwYAMh1M18MSXTxwj9QHlsgy4yjcfd
+         rEWdSnc8XOTlw3Xy42i6Jtg2LEaLz73D6FhmHuEmjNLqXelnkxFo0/uP9LFaecd8LA8S
+         MyfXeFoIvP9naBOw+0KCe5yvOUbvxK530DeyCEVZFwK9Q3tyGTa3qyzS9bkuFjcL4wkI
+         eoEg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764330950; x=1764935750;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=YvA8MNYHofPp6XXLABhPzCmRj6ePdkRSGVrEa8M8M3Q=;
+        b=HCT5t72BxfyG5GMRg7Bxf2LuS7ZI8YtDoWS/CQWSHb1hvdXaLF4nVdhJ6zL9w+ECSp
+         SoefaDQ/YEdLPXW9NNrxtd2NkfQJk5xXnaZt/1l/vimvxHRwK7yGWZIWFgVc/yb6Uesg
+         T/Z6KOcKFht7AODnYWi1CekYV7PpxVP896fmgLFQ9DwqirW0KauJyrGcv+d804+JcYxJ
+         4nsoVdvrFrxiPAPv8z7cFRAdIncr9v6fEMcyeWGQZaMbzDj3V1MvW85wXRPQ5stuEo3y
+         YFd5GC0/unNr2gc+ISsTn5vvhqsqVjrVSUiAT9f0jdfC+H3qh10le1UHqkppCiuCVkMA
+         BejA==
+X-Forwarded-Encrypted: i=1; AJvYcCW1caJVrmn0hLJH202J7Cl84p8zxwVT34pbzgFmHUejKUgwsXyePMpl6tn+Yizu9RfYOQLEmJO4Qu/EfLKeXJ05@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx9BSzsHI0eN5IbHLOTgYpLvDN2LQdrm8dmhVs2N01Idl1xT1IV
+	JfKxZhtKXoZbAtIK3a/F0IzjigRrjEChLO5lNNbpFDtOgev9kw0cD6j3PGCyVWgzVMY=
+X-Gm-Gg: ASbGncv0NmG1fTkZnaZWbKeBT9qnbnXkX0z/SF/GTvNir9ohA9U/pXnVWvbiWL341um
+	e7+hTjNy03Wp6z+pGyQFuhVUpVoRn4lGMMfwbEOo6em2j9qh47ULA2hYj7kHKvzJqInBZ84uq/y
+	EtgMtl2lp+sA03iW1ejgknI5qoucERpwQHEv+YKDrV+hNY8kQXUkMV20roGIpgbfoTulpeElVui
+	5AE9F5/SDwhZFTWDTCOxYZaSgFJKCnNLw+1XEIIooNWjymkYL9OPyeljmJAMYWgRF2MjSTcuMbZ
+	BT263fdNcxEqquLH3iLE4KqJiN995TPWXmJ6G3j4PjerXCZ4c2klRAL7gk8HVylGZgF3GVsOalP
+	g1xIiMsM5ebBRZr70YQ77YJjmc61Rt4EuWoiWBi+6Gks6R7GmJj2KoxnxpwDhIXMtp3RM67Ts3s
+	hSGTRKhjK+8RuzTS47vCvg
+X-Google-Smtp-Source: AGHT+IFHgNVxLUdCo2Jshe+DO7UYaUlnjeJ0Jmjfa9pCBwvoVJUKxBfVYSLZoxpQ0dDb0+0JspQmMw==
+X-Received: by 2002:a05:600c:450b:b0:477:b642:9dc9 with SMTP id 5b1f17b1804b1-477c01d736dmr243431065e9.28.1764330950053;
+        Fri, 28 Nov 2025 03:55:50 -0800 (PST)
+Received: from ho-tower-lan.lan ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4790adc8bc7sm158974465e9.1.2025.11.28.03.55.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Nov 2025 03:55:49 -0800 (PST)
+From: James Clark <james.clark@linaro.org>
+Date: Fri, 28 Nov 2025 11:55:13 +0000
+Subject: [PATCH v8 01/13] coresight: Change syncfreq to be a u8
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <6e4cfa83-3181-4988-a3d8-55e066b68947@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251128-james-cs-syncfreq-v8-1-4d319764cc58@linaro.org>
+References: <20251128-james-cs-syncfreq-v8-0-4d319764cc58@linaro.org>
+In-Reply-To: <20251128-james-cs-syncfreq-v8-0-4d319764cc58@linaro.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jonathan Corbet <corbet@lwn.net>, Leo Yan <leo.yan@arm.com>, 
+ Randy Dunlap <rdunlap@infradead.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+ James Clark <james.clark@linaro.org>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_034454_649259_35C8DA8B 
-X-CRM114-Status: GOOD (  25.83  )
+X-CRM114-CacheID: sfid-20251128_035551_956410_61C8A3FC 
+X-CRM114-Status: GOOD (  11.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,55 +105,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 28, 2025 at 10:36:13AM +0000, Ryan Roberts wrote:
-> On 27/11/2025 19:01, Ard Biesheuvel wrote:
-> > On Thu, 27 Nov 2025 at 17:58, Mark Rutland <mark.rutland@arm.com> wrote:
-> >>
-> >> On Thu, Nov 27, 2025 at 03:56:59PM +0000, Ryan Roberts wrote:
-> >>> On 27/11/2025 15:03, Ard Biesheuvel wrote:
-> >>>> So the question is really whether we want to dedicate 16 bytes per
-> >>>> task for this. I wouldn't mind personally, but it is something our
-> >>>> internal QA engineers tend to obsess over.
-> >>>
-> >>> Yeah that's a good point.
-> >>
-> >> I think it's a fair point that some people will obsesses over this, but
-> >> I think the concern is misplaced.
-> >>
-> >> I know that people were very happy for the kernel FPSIMD context to
-> >> disappear from task_struct, but 16 bytes is a fair amount smaller, and
-> >> I'm pretty sure we can offset that with a small/moderate amount of work.
-> >>
-> >> AFAICT there are extant holes in task_struct that could easily account
-> >> for 16 bytes. I can also see a few ways to rework arm64's thread_info
-> >> and thread_struct (which are both embedded within task_struct) to save
-> >> some space.
-> > 
-> > Oh, I completely agree. But it is going to come up one way or the other.
-> 
-> I'm always terrified of changing the layout of those god structs for fear of
-> accidentally breaking some cacheline clustering-based micro optimization.
-> Putting new variables into existing holes is one thing, but rearranging existing
-> data scares me - perhaps I'm being too cautious. I assumed there wouldn't be an
-> existing hole big enough for 16 bytes.
+TRCSYNCPR.PERIOD is the only functional part of TRCSYNCPR and it only
+has 5 valid bits so it can be stored in a u8.
 
-FWIW, ignoring holes, the trailing padding is pretty big. In v6.18-rc1
-defconfig task_struct appears to have ~40 bytes of padding due to
-64-byte alignment. So (in that configuration) adding 16 bytes doesn't
-actually increase the size of the structure.
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
+Reviewed-by: Leo Yan <leo.yan@arm.com>
+Tested-by: Leo Yan <leo.yan@arm.com>
+Signed-off-by: James Clark <james.clark@linaro.org>
+---
+ drivers/hwtracing/coresight/coresight-etm4x.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-I have a few specific changes in mind which could ammortize 16 bytes, so
-even if this turns out to be an issue, we can make good.
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+index 012c52fd1933..0287d19ce12e 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x.h
++++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+@@ -825,7 +825,6 @@ struct etmv4_config {
+ 	u32				eventctrl1;
+ 	u32				stall_ctrl;
+ 	u32				ts_ctrl;
+-	u32				syncfreq;
+ 	u32				ccctlr;
+ 	u32				bb_ctrl;
+ 	u32				vinst_ctrl;
+@@ -833,6 +832,7 @@ struct etmv4_config {
+ 	u32				vissctlr;
+ 	u32				vipcssctlr;
+ 	u8				seq_idx;
++	u8				syncfreq;
+ 	u32				seq_ctrl[ETM_MAX_SEQ_STATES];
+ 	u32				seq_rst;
+ 	u32				seq_state;
 
-For example, I'd like to change arm64's FPSIMD/SVE/SME context switch
-to remove the opportunistic reuse of context after A->B->A migration.
-That would remove the need for 'fpsimd_cpu' and 'kernel_fpsimd_cpu' in
-thread struct (which is embedded within task struct, at the end), saving
-8 bytes.
+-- 
+2.34.1
 
-If we change the way we encod the 'vl' and 'vl_onexec' array elements,
-we can shrink those from unsigned int down to u8, which would sve 12
-bytes.
-
-Mark.
 
