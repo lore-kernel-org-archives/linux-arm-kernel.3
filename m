@@ -4,59 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81C38D116E2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 15:49:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95E98D116E2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 15:51:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dJ30o+944ryzUEhgAU02Jlk/NKpl3DEUymTwi102Ofk=; b=ruJUp8vDs0fRLagHbxzA9U2Ljc
-	hoG+uvmmaFCTeKc9K/6UyRPQ21C+AqX/HNiWR6IowgBWOXadpomcPVWMp13i7EWdy4F3jqJvU7A1q
-	JkrchcDPE5hN7EpmbFw/VD4LTKh6wqJ9IdgxMiM4h4X3zDpSqVaLCTAuPtKOLcxvZ5EdprhQpHLH5
-	LC1OqiXNqPBOAU6O2sAtN59bt1pcIDGpcoanpLm9tkHU1smIij1O3EZUGOHOul8IEFbxYd9ufCQ8l
-	4k0jv/SjdtpOPt+/0CBSHIdM00LxrbsI0kpLgqQ2BQxBW/k4+UrpE9J3DV4hv81fl+Us6A8YBU7KK
-	gwiKW1VQ==;
+	bh=MF2q7RMXaCLRrGcdbCpMXwQIjS37yTgoi7AyGNym9F0=; b=1e391GsyoZBZhWju8VwYC6V/rx
+	5vxDTXVDXTBrAHVQhNATbSHHC27F2n9+NPvNv9hvE/N/bHLiVsZ79Cm5uu8KvqfjIwPKAu6bJ01sM
+	ooBRJARaTBFMMlqNXIVHvC+7NOjKKl1MipQQkiUkll2uXE3Dbyi0FWjkURgjapDFtYg570Apb7nhp
+	sAmnv0WHzNlGELrdfrqZzGYpNzQgvWvQK8STtOBh0VFHa+tBsxOtqUCyZsqjk8ggzu5fNk0givUJK
+	o/iLwle6fJCNbvjrA3y6Tih93WKQpemLcNJPINI7jEIs3DmYrcmlDaPJnLVN6vdXwpkvNei15my2t
+	rak15aVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP0it-00000000b8c-1A5V;
-	Fri, 28 Nov 2025 15:49:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP0iq-00000000b8G-2PXg
+	id 1vP0l0-00000000bJ3-09jx;
+	Fri, 28 Nov 2025 15:51:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vP0kx-00000000bHx-3Svr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 15:49:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 775F7176A;
-	Fri, 28 Nov 2025 07:49:15 -0800 (PST)
-Received: from arm.com (arrakis.cambridge.arm.com [10.1.197.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DED913F66E;
-	Fri, 28 Nov 2025 07:49:19 -0800 (PST)
-Date: Fri, 28 Nov 2025 15:49:17 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: will@kernel.org, rafael@kernel.org, viresh.kumar@linaro.org,
-	sudeep.holla@arm.com, gregkh@linuxfoundation.org, dakr@kernel.org,
-	beata.michalska@arm.com, ionela.voinescu@arm.com,
-	Lifeng Zheng <zhenglifeng1@huawei.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-	linuxarm@huawei.com, jonathan.cameron@huawei.com,
-	vincent.guittot@linaro.org, zhanjie9@hisilicon.com,
-	lihuisong@huawei.com, yubowen8@huawei.com, zhangpengjie2@huawei.com,
-	wangzhi12@huawei.com, linhongye@h-partners.com
-Subject: Re: [PATCH v6 0/3] arm64: topology: Handle AMU FIE setup on CPU
- hotplug
-Message-ID: <aSnEfTJ3WRx6iJU5@arm.com>
-References: <20251119081356.2495290-1-zhenglifeng1@huawei.com>
- <176409538230.296584.10511015168201991664.b4-ty@arm.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <176409538230.296584.10511015168201991664.b4-ty@arm.com>
+	Fri, 28 Nov 2025 15:51:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E34284348B;
+	Fri, 28 Nov 2025 15:51:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE878C4CEFB;
+	Fri, 28 Nov 2025 15:51:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764345094;
+	bh=aPLWofWdUipzpbGuIHYeHU8jUS57cqxPSIx0x6D8pto=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=lYmg2uDVWyfjQSNLny1cLjM1VW7jsnTpJ4jPu+JkwIaBc0BqsEwCra07d+yDa9v0J
+	 ABgBqh9qO3MMC5amZ0IGnPsk53/ZRNufHBBRbEfnLGmLJ0EiFEBZ3A5PHE1ec8X8h8
+	 7LEP0i1LUcOuyexzzFHUN8twOyh4lZPu67NsVgk63RTJhNfEA5ZtsgQ9IDgNp/MoqH
+	 Ce/CmifNmBO4F9I5P5e5LCNvDi90VMJQ1+smgMGQk/BVwg3Sgky+Hwgad7D7KRTh67
+	 JkruvyNhp+xPhcRqH83Mk912YARDPRtHFgD+eh8uPFt0ILV4W9FccZn0Ggwb/XaPY/
+	 YIuxUsTvuMBOQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vP0ku-000000097sK-1bwp;
+	Fri, 28 Nov 2025 15:51:32 +0000
+Date: Fri, 28 Nov 2025 15:51:31 +0000
+Message-ID: <86tsyep33w.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	yuzenghui@huawei.com,
+	suzuki.poulose@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH 4/4] KVM: arm64: at: Update AF on software walk only if VM has FEAT_HAFDBS
+In-Reply-To: <20251128100946.74210-5-alexandru.elisei@arm.com>
+References: <20251128100946.74210-1-alexandru.elisei@arm.com>
+	<20251128100946.74210-5-alexandru.elisei@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: alexandru.elisei@arm.com, oliver.upton@linux.dev, joey.gouly@arm.com, yuzenghui@huawei.com, suzuki.poulose@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_074924_656624_E338106A 
-X-CRM114-Status: UNSURE (   9.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251128_075135_929984_EEF93BA5 
+X-CRM114-Status: GOOD (  23.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,29 +88,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Nov 25, 2025 at 06:29:53PM +0000, Catalin Marinas wrote:
-> On Wed, 19 Nov 2025 16:13:53 +0800, Lifeng Zheng wrote:
-> > Solve a problem that causes CPUs Setup AMU FIE failed in a corner case,
-> > even though they're eligible.
-> > 
-> > Changelog:
-> > 
-> > v6:
-> > 
-> > [...]
+On Fri, 28 Nov 2025 10:09:46 +0000,
+Alexandru Elisei <alexandru.elisei@arm.com> wrote:
 > 
-> Applied to arm64 (for-next/topology), thanks!
+> A guest can write 1 to TCR_ELx.HA, making the KVM software walker update
+> the access flag in a table descriptor even if FEAT_HAFDBS is not present.
+> Avoid this by making wi->ha depend on FEAT_HAFDBS being enabled in the VM,
+> similar to how the software walker treats FEAT_HPDS.
 > 
-> [1/3] arm64: topology: Skip already covered CPUs when setting freq source
->       https://git.kernel.org/arm64/c/a04fd8bcd6aa
-> [2/3] cpufreq: Add new helper function returning cpufreq policy
->       https://git.kernel.org/arm64/c/709a16bebc54
-> [3/3] arm64: topology: Handle AMU FIE setup on CPU hotplug
->       https://git.kernel.org/arm64/c/1ea7e37e26b3
+> This is not needed for VTCR_EL2.HA, since a guest will always write to
+> the in-memory copy of the register, where the HA bit is masked (set to
+> 0) by KVM if the VM doesn't have FEAT_HAFDBS.
+> 
+> Fixes: c59ca4b5b0c3 ("KVM: arm64: Implement HW access flag management in stage-1 SW PTW")
+> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+> ---
+>  arch/arm64/kvm/at.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+> index 6d41a95f6c60..53bf70126f81 100644
+> --- a/arch/arm64/kvm/at.c
+> +++ b/arch/arm64/kvm/at.c
+> @@ -346,7 +346,8 @@ static int setup_s1_walk(struct kvm_vcpu *vcpu, struct s1_walk_info *wi,
+>  
+>  	wi->baddr &= GENMASK_ULL(wi->max_oa_bits - 1, x);
+>  
+> -	wi->ha = (wi->regime == TR_EL2 ?
+> +	wi->ha  = kvm_has_feat(vcpu->kvm, ID_AA64MMFR1_EL1, HAFDBS, AF);
+> +	wi->ha &= (wi->regime == TR_EL2 ?
+>  		  FIELD_GET(TCR_EL2_HA, tcr) :
+>  		  FIELD_GET(TCR_HA, tcr));
 
-I think Beata still has to review the last patch in the series, so I'll
-drop it for now from -next. Sorry about this.
+This is yet another case where we should expand the sanitisation
+infrastructure to cover the TCR registers.
+
+Thanks,
+
+	M.
 
 -- 
-Catalin
+Without deviation from the norm, progress is not possible.
 
