@@ -4,64 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72767CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 00:27:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CB10CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 01:06:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:Cc:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yFLEfYAYFrOaTSfjRn6pWq/oFrmnU+L3G+p2MzgqcCA=; b=kDWsue7Ub66XUxyjLBpwVN8jxt
-	VJ2SJk9X/u2EtqWxRdlC2I8kumNAC6biyFrSTTY0bSUm0Hxo9sRbB1x8R5m01FaJo68nsUWtshFcW
-	QCzkkMBRtx7f6r/h4Z3NhExB4jXl5HFl1cKpOAoF8ujSKGUrnU8p3AyUO1cwt0Jwmp7+jwCFcRrWd
-	BiKBL3BFYo5c00rN7x4GW9tY4pyag/2xaun6cmtzGgUXdWorI/GkeImykJURox31Kc/0Q9RQRQd6i
-	hhy+ga5dXhHDqggy18XewUm+rNjXCMtJ3KXN4fY5cgiIHWQGkYEKboDlrnAW9/KpBKbFWlTlQGPCr
-	e4rcB+Fw==;
+	bh=cbz0T3Pb1Oli5KHPUp2Dx7P8QO+RzTOk0Et4ZiYbRK8=; b=aabTYG/VNaGgmC7J34LdKyTRhO
+	q/ljYjfL4hzA5FrqP9ciuj+JzQtJCnKeL/UqAZyoR6tkospu4NO31hlucmcxzcqwiAaJXdFgBVVBE
+	+3x5IvRpGFTJZwroqqJhWgd78xDzYzTVwpidLU0Nr/WCWmCUQ3XuteNRIG/st2FAPmvDBnUyct1t9
+	c58Ten4T7M5AzpCkAwl5CrxAcSqqI+x0TyBGqFN8Lsj6Jb9NiKQ1r8EjqP0L6q0NljGGqq9c6Vt7x
+	PnzeODB1yxIdZ5YNPdQDQn1rgFngmWTLUO37mhbQzBQGq7pY5wg7PIEk5KuWS8cWcAIADpeEN14q3
+	cW+8R1JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOmL4-0000000HLR0-3dxY;
-	Fri, 28 Nov 2025 00:27:54 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1vOmwP-0000000HNNQ-05e8;
+	Fri, 28 Nov 2025 01:06:29 +0000
+Received: from mail-m19731112.qiye.163.com ([220.197.31.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOmL0-0000000HLOF-0rg0
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 00:27:51 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 28 Nov
- 2025 08:27:34 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Fri, 28 Nov 2025 08:27:34 +0800
-From: Ryan Chen <ryan_chen@aspeedtech.com>
-Date: Fri, 28 Nov 2025 08:27:31 +0800
-Subject: [PATCH v2 2/2] usb: gadget: aspeed-vhub: Add ast2700 support
+	id 1vOmwL-0000000HNMI-0qmf;
+	Fri, 28 Nov 2025 01:06:27 +0000
+Received: from [172.16.12.14] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2b2e92628;
+	Fri, 28 Nov 2025 09:06:16 +0800 (GMT+08:00)
+Message-ID: <dbe6975d-9b99-4493-9145-b2db382fd468@rock-chips.com>
+Date: Fri, 28 Nov 2025 09:06:13 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20251128-upstream_vhub-v2-2-1fa66a5833c2@aspeedtech.com>
-References: <20251128-upstream_vhub-v2-0-1fa66a5833c2@aspeedtech.com>
-In-Reply-To: <20251128-upstream_vhub-v2-0-1fa66a5833c2@aspeedtech.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
-	<andrew@codeconstruct.com.au>, Benjamin Herrenschmidt
-	<benh@kernel.crashing.org>, Philipp Zabel <p.zabel@pengutronix.de>
-CC: <linux-usb@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
-	<linux-kernel@vger.kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764289654; l=3392;
- i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=XJdF9MCn8Pm6rI4iV4Bh37iuRCq4FiLatSLLzYg37h8=;
- b=ecy2bG+wRDjEzJOpOxKlviBm2AUu1tXkDbMaZbOZAMJKnr+T61vmMRfng60CdMHf5b11i88JH
- 5V9Q4kE/96JAiITGpu8kf/ByIdNx4H92oqfH6VEF9Fq8MREdY0/DBMv
-X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
- pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
+User-Agent: Mozilla Thunderbird
+Cc: shawn.lin@rock-chips.com, FUKAUMI Naoki <naoki@radxa.com>,
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH] PCI: dwc: Make Link Up IRQ logic handle already powered
+ on PCIe switches
+To: Niklas Cassel <cassel@kernel.org>, Jingoo Han <jingoohan1@gmail.com>,
+ Manivannan Sadhasivam <mani@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ Heiko Stuebner <heiko@sntech.de>
+References: <20251127134318.3655052-2-cassel@kernel.org>
+From: Shawn Lin <shawn.lin@rock-chips.com>
+In-Reply-To: <20251127134318.3655052-2-cassel@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9ac7ff1dd209cckunmb69f50316946c2
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQklMTVYYSExOHkxKTEsaTBlWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=FmbyETUih0zC01PvdaA7bUcXVK9lGATf0na3P/WE2HDqlcEHBgkENNEJDTNEXHOPEV7T8YcLkLJj/UuZg+eJsI4jI9+Ve6zNR+eO5KE9Vvmy+nRGtk4Rmj6K6oEXy7S8/3vhuaKXAy1NHx/MZxRm8SVoLqpnf0HgUMle4FsWG4o=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=cbz0T3Pb1Oli5KHPUp2Dx7P8QO+RzTOk0Et4ZiYbRK8=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_162750_244665_65859255 
-X-CRM114-Status: GOOD (  16.32  )
+X-CRM114-CacheID: sfid-20251127_170625_750520_82630701 
+X-CRM114-Status: GOOD (  38.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,117 +76,237 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the AST2700 SOC in the vhub gadget driver. AST2700
-uses a 64-bit DMA addressing capability, so select 64-bit DMA mask
-for compatible. AST2700 vhub also requires an reset line, so hook
-up the optional reset control and assert/deassert it during probe
-and remove.
+在 2025/11/27 星期四 21:43, Niklas Cassel 写道:
+> The DWC glue drivers always call pci_host_probe() during probe(), which
+> will allocate upstream bridge resources and enumerate the bus.
+> 
+> For controllers without Link Up IRQ support, pci_host_probe() is called
+> after dw_pcie_wait_for_link(), which will also wait the time required by
+> the PCIe specification before performing PCI Configuration Space reads.
+> 
+> For controllers with Link Up IRQ support, the pci_host_probe() call (which
+> will perform PCI Configuration Space reads) is done without any of the
+> delays mandated by the PCIe specification.
+> 
+> For controllers with Link Up IRQ support, since the pci_host_probe() call
+> is done without any delay (link training might still be ongoing), it is
+> very unlikely that this scan will find any devices. Once the Link Up IRQ
+> triggers, the Link Up IRQ handler will call pci_rescan_bus().
+> 
+> This works fine for PCIe endpoints connected to the Root Port, since they
+> don't extend the bus. However, if the pci_rescan_bus() call detects a PCIe
+> switch, then there will be a problem when the downstream busses starts
+> showing up, because the PCIe controller is not hotplug capable, so we are
+> not allowed to extend the subordinate bus number after the initial scan,
+> resulting in error messages such as:
+> 
+> pci_bus 0004:43: busn_res: can not insert [bus 43-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci_bus 0004:43: busn_res: [bus 43-41] end is updated to 43
+> pci_bus 0004:43: busn_res: can not insert [bus 43] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci 0004:42:00.0: devices behind bridge are unusable because [bus 43] cannot be assigned for them
+> pci_bus 0004:44: busn_res: can not insert [bus 44-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci_bus 0004:44: busn_res: [bus 44-41] end is updated to 44
+> pci_bus 0004:44: busn_res: can not insert [bus 44] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci 0004:42:02.0: devices behind bridge are unusable because [bus 44] cannot be assigned for them
+> pci_bus 0004:45: busn_res: can not insert [bus 45-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci_bus 0004:45: busn_res: [bus 45-41] end is updated to 45
+> pci_bus 0004:45: busn_res: can not insert [bus 45] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci 0004:42:06.0: devices behind bridge are unusable because [bus 45] cannot be assigned for them
+> pci_bus 0004:46: busn_res: can not insert [bus 46-41] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci_bus 0004:46: busn_res: [bus 46-41] end is updated to 46
+> pci_bus 0004:46: busn_res: can not insert [bus 46] under [bus 42-41] (conflicts with (null) [bus 42-41])
+> pci 0004:42:0e.0: devices behind bridge are unusable because [bus 46] cannot be assigned for them
+> pci_bus 0004:42: busn_res: [bus 42-41] end is updated to 46
+> pci_bus 0004:42: busn_res: can not insert [bus 42-46] under [bus 41] (conflicts with (null) [bus 41])
+> pci 0004:41:00.0: devices behind bridge are unusable because [bus 42-46] cannot be assigned for them
+> pcieport 0004:40:00.0: bridge has subordinate 41 but max busn 46
+> 
+> While we would like to set the is_hotplug_bridge flag
+> (quirk_hotplug_bridge()), many embedded SoCs that use the DWC controller
+> have synthesized the controller without hot-plug support.
+> Thus, the Link Up IRQ logic is only mimicking hot-plug functionality, i.e.
+> it is not compliant with the PCI Hot-Plug Specification, so we cannot make
+> use of the is_hotplug_bridge flag.
+> 
+> In order to let the Link Up IRQ logic handle PCIe switches that are already
+> powered on (PCIe switches that not powered on already need to implement a
+> pwrctrl driver), don't perform a pci_host_probe() call during probe()
+> (which disregards the delays required by the PCIe specification).
+> 
+> Instead let the first Link Up IRQ call pci_host_probe(). Any follow up
+> Link Up IRQ will call pci_rescan_bus().
+> 
 
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
----
- drivers/usb/gadget/udc/aspeed-vhub/core.c | 30 ++++++++++++++++++++++++++++++
- drivers/usb/gadget/udc/aspeed-vhub/vhub.h |  1 +
- 2 files changed, 31 insertions(+)
+Thanks for fixing this, I'v tested it on RK3588S-EVB1 with both of PCIe
+switch + 2 NVMe and NVMe directly connected.
 
-diff --git a/drivers/usb/gadget/udc/aspeed-vhub/core.c b/drivers/usb/gadget/udc/aspeed-vhub/core.c
-index f2685f89b3e5..19c1849ae665 100644
---- a/drivers/usb/gadget/udc/aspeed-vhub/core.c
-+++ b/drivers/usb/gadget/udc/aspeed-vhub/core.c
-@@ -23,6 +23,7 @@
- #include <linux/of.h>
- #include <linux/regmap.h>
- #include <linux/dma-mapping.h>
-+#include <linux/reset.h>
- 
- #include "vhub.h"
- 
-@@ -280,6 +281,8 @@ static void ast_vhub_remove(struct platform_device *pdev)
- 	if (vhub->clk)
- 		clk_disable_unprepare(vhub->clk);
- 
-+	reset_control_assert(vhub->rst);
-+
- 	spin_unlock_irqrestore(&vhub->lock, flags);
- 
- 	if (vhub->ep0_bufs)
-@@ -294,6 +297,7 @@ static void ast_vhub_remove(struct platform_device *pdev)
- static int ast_vhub_probe(struct platform_device *pdev)
- {
- 	enum usb_device_speed max_speed;
-+	const u64 *dma_mask_ptr;
- 	struct ast_vhub *vhub;
- 	struct resource *res;
- 	int i, rc = 0;
-@@ -348,6 +352,16 @@ static int ast_vhub_probe(struct platform_device *pdev)
- 		goto err;
- 	}
- 
-+	vhub->rst = devm_reset_control_get_optional_shared(&pdev->dev, NULL);
-+	if (IS_ERR(vhub->rst)) {
-+		rc = PTR_ERR(vhub->rst);
-+		goto err;
-+	}
-+
-+	rc = reset_control_deassert(vhub->rst);
-+	if (rc)
-+		goto err;
-+
- 	/* Check if we need to limit the HW to USB1 */
- 	max_speed = usb_get_maximum_speed(&pdev->dev);
- 	if (max_speed != USB_SPEED_UNKNOWN && max_speed < USB_SPEED_HIGH)
-@@ -370,6 +384,12 @@ static int ast_vhub_probe(struct platform_device *pdev)
- 		goto err;
- 	}
- 
-+	dma_mask_ptr = (u64 *)of_device_get_match_data(&pdev->dev);
-+	if (dma_mask_ptr) {
-+		rc = dma_coerce_mask_and_coherent(&pdev->dev, *dma_mask_ptr);
-+		if (rc)
-+			goto err;
-+	}
- 	/*
- 	 * Allocate DMA buffers for all EP0s in one chunk,
- 	 * one per port and one for the vHub itself
-@@ -412,15 +432,25 @@ static int ast_vhub_probe(struct platform_device *pdev)
- 	return rc;
- }
- 
-+static const u64 dma_mask_32 =	DMA_BIT_MASK(32);
-+static const u64 dma_mask_64 =	DMA_BIT_MASK(64);
-+
- static const struct of_device_id ast_vhub_dt_ids[] = {
- 	{
- 		.compatible = "aspeed,ast2400-usb-vhub",
-+		.data = &dma_mask_32,
- 	},
- 	{
- 		.compatible = "aspeed,ast2500-usb-vhub",
-+		.data = &dma_mask_32,
- 	},
- 	{
- 		.compatible = "aspeed,ast2600-usb-vhub",
-+		.data = &dma_mask_32,
-+	},
-+	{
-+		.compatible = "aspeed,ast2700-usb-vhub",
-+		.data = &dma_mask_64,
- 	},
- 	{ }
- };
-diff --git a/drivers/usb/gadget/udc/aspeed-vhub/vhub.h b/drivers/usb/gadget/udc/aspeed-vhub/vhub.h
-index 6b9dfa6e10eb..aca2050e2db0 100644
---- a/drivers/usb/gadget/udc/aspeed-vhub/vhub.h
-+++ b/drivers/usb/gadget/udc/aspeed-vhub/vhub.h
-@@ -388,6 +388,7 @@ struct ast_vhub {
- 	spinlock_t			lock;
- 	struct work_struct		wake_work;
- 	struct clk			*clk;
-+	struct reset_control		*rst;
- 
- 	/* EP0 DMA buffers allocated in one chunk */
- 	void				*ep0_bufs;
+FWIW,
+Tested-by: Shawn Lin <shawn.lin@rock-chips.com>
 
--- 
-2.34.1
+> Fixes: ec9fd499b9c6 ("PCI: dw-rockchip: Don't wait for link since we can detect Link Up")
+> Fixes: 0e0b45ab5d77 ("PCI: dw-rockchip: Enumerate endpoints based on dll_link_up IRQ")
+> Reported-by: FUKAUMI Naoki <naoki@radxa.com>
+> Closes: https://lore.kernel.org/linux-pci/1E8E4DB773970CB5+5a52c9e1-01b8-4872-99b7-021099f04031@radxa.com/
+> Signed-off-by: Niklas Cassel <cassel@kernel.org>
+> ---
+>   .../pci/controller/dwc/pcie-designware-host.c | 70 ++++++++++++++++---
+>   drivers/pci/controller/dwc/pcie-designware.h  |  5 ++
+>   drivers/pci/controller/dwc/pcie-dw-rockchip.c |  5 +-
+>   drivers/pci/controller/dwc/pcie-qcom.c        |  5 +-
+>   4 files changed, 68 insertions(+), 17 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+> index e92513c5bda51..8654346729574 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> @@ -565,6 +565,59 @@ static int dw_pcie_host_get_resources(struct dw_pcie_rp *pp)
+>   	return 0;
+>   }
+>   
+> +static int dw_pcie_host_initial_scan(struct dw_pcie_rp *pp)
+> +{
+> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> +	struct pci_host_bridge *bridge = pp->bridge;
+> +	int ret;
+> +
+> +	ret = pci_host_probe(bridge);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (pp->ops->post_init)
+> +		pp->ops->post_init(pp);
+> +
+> +	dwc_pcie_debugfs_init(pci, DW_PCIE_RC_TYPE);
+> +
+> +	return 0;
+> +}
+> +
+> +void dw_pcie_handle_link_up_irq(struct dw_pcie_rp *pp)
+> +{
+> +	if (!pp->initial_linkup_irq_done) {
+> +		int ret;
+> +
+> +		ret = dw_pcie_host_initial_scan(pp);
+> +		if (ret) {
+> +			struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> +			struct device *dev = pci->dev;
+> +
+> +			dev_err(dev, "Initial scan from IRQ failed: %d\n", ret);
+> +
+> +			dw_pcie_stop_link(pci);
+> +
+> +			dw_pcie_edma_remove(pci);
+> +
+> +			if (pp->has_msi_ctrl)
+> +				dw_pcie_free_msi(pp);
+> +
+> +			if (pp->ops->deinit)
+> +				pp->ops->deinit(pp);
+> +
+> +			if (pp->cfg)
+> +				pci_ecam_free(pp->cfg);
+> +		} else {
+> +			pp->initial_linkup_irq_done = true;
+> +		}
+> +	} else {
+> +		/* Rescan the bus to enumerate endpoint devices */
+> +		pci_lock_rescan_remove();
+> +		pci_rescan_bus(pp->bridge->bus);
+> +		pci_unlock_rescan_remove();
+> +	}
+> +}
+> +
+>   int dw_pcie_host_init(struct dw_pcie_rp *pp)
+>   {
+>   	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> @@ -669,18 +722,17 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
+>   	 * If there is no Link Up IRQ, we should not bypass the delay
+>   	 * because that would require users to manually rescan for devices.
+>   	 */
+> -	if (!pp->use_linkup_irq)
+> +	if (!pp->use_linkup_irq) {
+>   		/* Ignore errors, the link may come up later */
+>   		dw_pcie_wait_for_link(pci);
+>   
+> -	ret = pci_host_probe(bridge);
+> -	if (ret)
+> -		goto err_stop_link;
+> -
+> -	if (pp->ops->post_init)
+> -		pp->ops->post_init(pp);
+> -
+> -	dwc_pcie_debugfs_init(pci, DW_PCIE_RC_TYPE);
+> +		/*
+> +		 * For platforms with Link Up IRQ, initial scan will be done
+> +		 * on first Link Up IRQ.
+> +		 */
+> +		if (dw_pcie_host_initial_scan(pp))
+> +			goto err_stop_link;
+> +	}
+>   
+>   	return 0;
+>   
+> diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
+> index e995f692a1ecd..a31bd93490dcd 100644
+> --- a/drivers/pci/controller/dwc/pcie-designware.h
+> +++ b/drivers/pci/controller/dwc/pcie-designware.h
+> @@ -427,6 +427,7 @@ struct dw_pcie_rp {
+>   	int			msg_atu_index;
+>   	struct resource		*msg_res;
+>   	bool			use_linkup_irq;
+> +	bool			initial_linkup_irq_done;
+>   	struct pci_eq_presets	presets;
+>   	struct pci_config_window *cfg;
+>   	bool			ecam_enabled;
+> @@ -807,6 +808,7 @@ void dw_pcie_msi_init(struct dw_pcie_rp *pp);
+>   int dw_pcie_msi_host_init(struct dw_pcie_rp *pp);
+>   void dw_pcie_free_msi(struct dw_pcie_rp *pp);
+>   int dw_pcie_setup_rc(struct dw_pcie_rp *pp);
+> +void dw_pcie_handle_link_up_irq(struct dw_pcie_rp *pp);
+>   int dw_pcie_host_init(struct dw_pcie_rp *pp);
+>   void dw_pcie_host_deinit(struct dw_pcie_rp *pp);
+>   int dw_pcie_allocate_domains(struct dw_pcie_rp *pp);
+> @@ -844,6 +846,9 @@ static inline int dw_pcie_setup_rc(struct dw_pcie_rp *pp)
+>   	return 0;
+>   }
+>   
+> +static inline void dw_pcie_handle_link_up_irq(struct dw_pcie_rp *pp)
+> +{ }
+> +
+>   static inline int dw_pcie_host_init(struct dw_pcie_rp *pp)
+>   {
+>   	return 0;
+> diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> index 3e2752c7dd096..8f2cc1ef25e3d 100644
+> --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> @@ -466,10 +466,7 @@ static irqreturn_t rockchip_pcie_rc_sys_irq_thread(int irq, void *arg)
+>   		if (rockchip_pcie_link_up(pci)) {
+>   			msleep(PCIE_RESET_CONFIG_WAIT_MS);
+>   			dev_dbg(dev, "Received Link up event. Starting enumeration!\n");
+> -			/* Rescan the bus to enumerate endpoint devices */
+> -			pci_lock_rescan_remove();
+> -			pci_rescan_bus(pp->bridge->bus);
+> -			pci_unlock_rescan_remove();
+> +			dw_pcie_handle_link_up_irq(pp);
+>   		}
+>   	}
+>   
+> diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
+> index c48a20602d7fa..2d8aca6630949 100644
+> --- a/drivers/pci/controller/dwc/pcie-qcom.c
+> +++ b/drivers/pci/controller/dwc/pcie-qcom.c
+> @@ -1617,10 +1617,7 @@ static irqreturn_t qcom_pcie_global_irq_thread(int irq, void *data)
+>   	if (FIELD_GET(PARF_INT_ALL_LINK_UP, status)) {
+>   		msleep(PCIE_RESET_CONFIG_WAIT_MS);
+>   		dev_dbg(dev, "Received Link up event. Starting enumeration!\n");
+> -		/* Rescan the bus to enumerate endpoint devices */
+> -		pci_lock_rescan_remove();
+> -		pci_rescan_bus(pp->bridge->bus);
+> -		pci_unlock_rescan_remove();
+> +		dw_pcie_handle_link_up_irq(pp);
+>   
+>   		qcom_pcie_icc_opp_update(pcie);
+>   	} else {
 
 
