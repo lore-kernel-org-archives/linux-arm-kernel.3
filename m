@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13EE9D111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 00:27:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72767CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 00:27:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RKcCwwCRe4Td+QbPJzIZf+orW5JDnnyWAr8yiknjLA4=; b=qsIoOU8k1Tau+3pz6heCUMQDHU
-	l4wCYi3kHKvbjSg1LJBzXfxIwS+ng4P6711fSgv+aYyDga1upC0H6RVZGfPmipSK+2rtrLIeQ6Rrh
-	ADMWakj0g2IlkreKIVRXhtyKLNAqXvzxInYD7qqnmDmVIl71Vv/0VdW+SWlEz4Q8aQERgWQH8RfoS
-	hYQgB33Y6KILw7ZfR33Flia+S48X74hhionC11ndJdjU5EbjeM/IHx+HlxiNKczS7wChjSl1cLQHR
-	Zsq4w753o9nL6YHvLyFSZTTLv20xTPPjumUWiJP/5Hz2HVxXmuUv62TvdDKrue0PSDpI60UaEuVSV
-	Kffg+Yrw==;
+	bh=yFLEfYAYFrOaTSfjRn6pWq/oFrmnU+L3G+p2MzgqcCA=; b=kDWsue7Ub66XUxyjLBpwVN8jxt
+	VJ2SJk9X/u2EtqWxRdlC2I8kumNAC6biyFrSTTY0bSUm0Hxo9sRbB1x8R5m01FaJo68nsUWtshFcW
+	QCzkkMBRtx7f6r/h4Z3NhExB4jXl5HFl1cKpOAoF8ujSKGUrnU8p3AyUO1cwt0Jwmp7+jwCFcRrWd
+	BiKBL3BFYo5c00rN7x4GW9tY4pyag/2xaun6cmtzGgUXdWorI/GkeImykJURox31Kc/0Q9RQRQd6i
+	hhy+ga5dXhHDqggy18XewUm+rNjXCMtJ3KXN4fY5cgiIHWQGkYEKboDlrnAW9/KpBKbFWlTlQGPCr
+	e4rcB+Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOmL4-0000000HLQe-2OXF;
+	id 1vOmL4-0000000HLR0-3dxY;
 	Fri, 28 Nov 2025 00:27:54 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOmKy-0000000HLOF-2RNA
+	id 1vOmL0-0000000HLOF-0rg0
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 00:27:49 +0000
+	Fri, 28 Nov 2025 00:27:51 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 28 Nov
@@ -35,13 +35,12 @@ Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
  Transport; Fri, 28 Nov 2025 08:27:34 +0800
 From: Ryan Chen <ryan_chen@aspeedtech.com>
-Date: Fri, 28 Nov 2025 08:27:30 +0800
-Subject: [PATCH v2 1/2] dt-bindings: usb: aspeed,usb-vhub: Add ast2700
- support
+Date: Fri, 28 Nov 2025 08:27:31 +0800
+Subject: [PATCH v2 2/2] usb: gadget: aspeed-vhub: Add ast2700 support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20251128-upstream_vhub-v2-1-1fa66a5833c2@aspeedtech.com>
+Message-ID: <20251128-upstream_vhub-v2-2-1fa66a5833c2@aspeedtech.com>
 References: <20251128-upstream_vhub-v2-0-1fa66a5833c2@aspeedtech.com>
 In-Reply-To: <20251128-upstream_vhub-v2-0-1fa66a5833c2@aspeedtech.com>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring
@@ -53,17 +52,16 @@ CC: <linux-usb@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
 	<linux-kernel@vger.kernel.org>, Ryan Chen <ryan_chen@aspeedtech.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764289654; l=1845;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764289654; l=3392;
  i=ryan_chen@aspeedtech.com; s=20251126; h=from:subject:message-id;
- bh=rHhaKj8gv7+Qbhqwp9C1BhoCdFoga26doEIHEcEHt24=;
- b=jH+dOWj6JNSZPqM2w11PcC1CvWoBV1OvZI8jZk8o66+YsIEjsINZM5OEsEv+x97WocFe8fItI
- ewxRui6nq2LD8hbA8zd6aZRwaQQk7odUEh/8YNQhZyTzd/+Z+7dNiCh
+ bh=XJdF9MCn8Pm6rI4iV4Bh37iuRCq4FiLatSLLzYg37h8=;
+ b=ecy2bG+wRDjEzJOpOxKlviBm2AUu1tXkDbMaZbOZAMJKnr+T61vmMRfng60CdMHf5b11i88JH
+ 5V9Q4kE/96JAiITGpu8kf/ByIdNx4H92oqfH6VEF9Fq8MREdY0/DBMv
 X-Developer-Key: i=ryan_chen@aspeedtech.com; a=ed25519;
  pk=Xe73xY6tcnkuRjjbVAB/oU30KdB3FvG4nuJuILj7ZVc=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_162748_626850_A92CBB07 
-X-CRM114-Status: UNSURE (   9.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251127_162750_244665_65859255 
+X-CRM114-Status: GOOD (  16.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,69 +76,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the "aspeed,ast2700-usb-vhub" compatible. The ast2700 vhub
-controller requires an reset, so make the "resets" property
-mandatory for this compatible to reflect the hardware requirement.
+Add support for the AST2700 SOC in the vhub gadget driver. AST2700
+uses a 64-bit DMA addressing capability, so select 64-bit DMA mask
+for compatible. AST2700 vhub also requires an reset line, so hook
+up the optional reset control and assert/deassert it during probe
+and remove.
 
 Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
 ---
- .../devicetree/bindings/usb/aspeed,usb-vhub.yaml   | 22 ++++++++++++++++++++--
- 1 file changed, 20 insertions(+), 2 deletions(-)
+ drivers/usb/gadget/udc/aspeed-vhub/core.c | 30 ++++++++++++++++++++++++++++++
+ drivers/usb/gadget/udc/aspeed-vhub/vhub.h |  1 +
+ 2 files changed, 31 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/usb/aspeed,usb-vhub.yaml b/Documentation/devicetree/bindings/usb/aspeed,usb-vhub.yaml
-index 7f22f9c031b2..b8bac2cce949 100644
---- a/Documentation/devicetree/bindings/usb/aspeed,usb-vhub.yaml
-+++ b/Documentation/devicetree/bindings/usb/aspeed,usb-vhub.yaml
-@@ -17,8 +17,8 @@ description: |+
+diff --git a/drivers/usb/gadget/udc/aspeed-vhub/core.c b/drivers/usb/gadget/udc/aspeed-vhub/core.c
+index f2685f89b3e5..19c1849ae665 100644
+--- a/drivers/usb/gadget/udc/aspeed-vhub/core.c
++++ b/drivers/usb/gadget/udc/aspeed-vhub/core.c
+@@ -23,6 +23,7 @@
+ #include <linux/of.h>
+ #include <linux/regmap.h>
+ #include <linux/dma-mapping.h>
++#include <linux/reset.h>
  
-   Supported number of devices and endpoints vary depending on hardware
-   revisions. AST2400 and AST2500 Virtual Hub supports 5 downstream devices
--  and 15 generic endpoints, while AST2600 Virtual Hub supports 7 downstream
--  devices and 21 generic endpoints.
-+  and 15 generic endpoints, while AST2600 and AST2700 Virtual Hub supports
-+  7 downstream devices and 21 generic endpoints.
+ #include "vhub.h"
  
- properties:
-   compatible:
-@@ -26,6 +26,7 @@ properties:
-       - aspeed,ast2400-usb-vhub
-       - aspeed,ast2500-usb-vhub
-       - aspeed,ast2600-usb-vhub
-+      - aspeed,ast2700-usb-vhub
+@@ -280,6 +281,8 @@ static void ast_vhub_remove(struct platform_device *pdev)
+ 	if (vhub->clk)
+ 		clk_disable_unprepare(vhub->clk);
  
-   reg:
-     maxItems: 1
-@@ -33,6 +34,9 @@ properties:
-   clocks:
-     maxItems: 1
- 
-+  resets:
-+    maxItems: 1
++	reset_control_assert(vhub->rst);
 +
-   interrupts:
-     maxItems: 1
+ 	spin_unlock_irqrestore(&vhub->lock, flags);
  
-@@ -107,6 +111,20 @@ required:
-   - aspeed,vhub-downstream-ports
-   - aspeed,vhub-generic-endpoints
+ 	if (vhub->ep0_bufs)
+@@ -294,6 +297,7 @@ static void ast_vhub_remove(struct platform_device *pdev)
+ static int ast_vhub_probe(struct platform_device *pdev)
+ {
+ 	enum usb_device_speed max_speed;
++	const u64 *dma_mask_ptr;
+ 	struct ast_vhub *vhub;
+ 	struct resource *res;
+ 	int i, rc = 0;
+@@ -348,6 +352,16 @@ static int ast_vhub_probe(struct platform_device *pdev)
+ 		goto err;
+ 	}
  
-+if:
-+  properties:
-+    compatible:
-+      contains:
-+        const: aspeed,ast2700-usb-vhub
++	vhub->rst = devm_reset_control_get_optional_shared(&pdev->dev, NULL);
++	if (IS_ERR(vhub->rst)) {
++		rc = PTR_ERR(vhub->rst);
++		goto err;
++	}
 +
-+then:
-+  required:
-+    - resets
++	rc = reset_control_deassert(vhub->rst);
++	if (rc)
++		goto err;
 +
-+else:
-+  properties:
-+    resets: false
-+
- additionalProperties: false
+ 	/* Check if we need to limit the HW to USB1 */
+ 	max_speed = usb_get_maximum_speed(&pdev->dev);
+ 	if (max_speed != USB_SPEED_UNKNOWN && max_speed < USB_SPEED_HIGH)
+@@ -370,6 +384,12 @@ static int ast_vhub_probe(struct platform_device *pdev)
+ 		goto err;
+ 	}
  
- examples:
++	dma_mask_ptr = (u64 *)of_device_get_match_data(&pdev->dev);
++	if (dma_mask_ptr) {
++		rc = dma_coerce_mask_and_coherent(&pdev->dev, *dma_mask_ptr);
++		if (rc)
++			goto err;
++	}
+ 	/*
+ 	 * Allocate DMA buffers for all EP0s in one chunk,
+ 	 * one per port and one for the vHub itself
+@@ -412,15 +432,25 @@ static int ast_vhub_probe(struct platform_device *pdev)
+ 	return rc;
+ }
+ 
++static const u64 dma_mask_32 =	DMA_BIT_MASK(32);
++static const u64 dma_mask_64 =	DMA_BIT_MASK(64);
++
+ static const struct of_device_id ast_vhub_dt_ids[] = {
+ 	{
+ 		.compatible = "aspeed,ast2400-usb-vhub",
++		.data = &dma_mask_32,
+ 	},
+ 	{
+ 		.compatible = "aspeed,ast2500-usb-vhub",
++		.data = &dma_mask_32,
+ 	},
+ 	{
+ 		.compatible = "aspeed,ast2600-usb-vhub",
++		.data = &dma_mask_32,
++	},
++	{
++		.compatible = "aspeed,ast2700-usb-vhub",
++		.data = &dma_mask_64,
+ 	},
+ 	{ }
+ };
+diff --git a/drivers/usb/gadget/udc/aspeed-vhub/vhub.h b/drivers/usb/gadget/udc/aspeed-vhub/vhub.h
+index 6b9dfa6e10eb..aca2050e2db0 100644
+--- a/drivers/usb/gadget/udc/aspeed-vhub/vhub.h
++++ b/drivers/usb/gadget/udc/aspeed-vhub/vhub.h
+@@ -388,6 +388,7 @@ struct ast_vhub {
+ 	spinlock_t			lock;
+ 	struct work_struct		wake_work;
+ 	struct clk			*clk;
++	struct reset_control		*rst;
+ 
+ 	/* EP0 DMA buffers allocated in one chunk */
+ 	void				*ep0_bufs;
 
 -- 
 2.34.1
