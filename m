@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A531AD116EA
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 23:20:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BC49D116EA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 23:21:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=G0aKZcvpO/2+GlcNAJFZTjpRnorRPFF3/hUG4FlxAb0=; b=osbXNJe9VohiRUUeob1Uh6g8IU
-	jeVGtqouB2R/Mvmje3noSNySErajryK2zOGdKnPV94SfyEgC6jK0zDAJWF4ZO/ob+S+8xJD3xp46A
-	BHwibBwmkhat+o9Ph1hzHfRUF5aeG7O+wyEnWni16cnXPrx62ZI+p+px0qXW7HtndSyggWnejJ7Pd
-	H1UcvEl2Lh/u1BfWw+opFlmx+epsWxsn7TTY6FHLP7ICsSSGWRWS7cvmI4MQqATJqjRwSStbIhte/
-	wnxAJglNgwBATucxpC9UkJ3QEahqgrmSalwgIJaC3yzBGSFoJp36N/LQ2DK/HUQ7NrXUGVw4suow/
-	nmVUEZQA==;
+	bh=KfHHyw/9ZX+MViXoTm+sduFqkq7ZHNecm298cRFCh2o=; b=oZxY+q+ZqdXTTItmQ4nQCaj3JU
+	D9k73V6qzmHe9CawdS4V1dA6J8edFhS6mLYXV8bmSLxlZwpft6/JT92g/R+aNOQtDSWe7vYSiOMg1
+	gli1BoNVO2VVMuooVSvmnHyaX2fAxz2nCZfhbff5MxwhLv3b77gIhTbIH1VLnVSiyYnbN/Ywyo10q
+	jH0E643Kz4M1YRhwjINuIvqA9rHr7PGbmZlCgG+VcQZ+c8OVgIK3XpFKeGCj0C79kk+5z+AEldDzn
+	688zPa3EGM/Ww9/ZZN7fpU5QPOTrJQeuUqFd0Himzz+Z8CXquPJm26o/2XQ6U2LzogwTOxzE9JLDc
+	dYHv+Kag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP7ld-000000012fK-3egz;
-	Fri, 28 Nov 2025 23:20:45 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1vP7mc-000000012me-0Vuv;
+	Fri, 28 Nov 2025 23:21:46 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP7lb-000000012eZ-3s3Z
+	id 1vP7mY-000000012mE-2PAM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 23:20:45 +0000
+	Fri, 28 Nov 2025 23:21:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1764372044; x=1795908044;
+  t=1764372102; x=1795908102;
   h=date:from:to:cc:subject:message-id;
-  bh=+eJ7sqbJoq1iV7GDrCYu2jAggqErBoPluP+wJT2Ldu0=;
-  b=Ot2ASaqQonokQFgYdnD/cM1TpSwAaFnIkUor/dKArIxt+Yl0l/sLSR/2
-   QlZ08t57+E0Wgk7+i/wPNQ2PW5JiNv53+EAPg/cQRcLrjPS5ndqXzrT86
-   pHA7xDjKK8E/eDSyP0S6Y917q71o18JhrH1tnciSkfYptfEL1M6wbfiKY
-   BWULVlAdPLPynAemfk0h9uNEKCP6R7dPw+jrrqQrM/hcUlMIam6o4phK1
-   RBhjOm0AjFhskud535PigFu/xx3iO8gAOzn/y5kn+Fw+UvDYqiXKLqMP7
-   tbPikEj7EWqyBX1RSilbwgoBWTBjkAce57P4Fgt6jrUv2/zwvmT77eI2/
+  bh=hsmqWc6c1Z9AOze9I0BrYqSZ8kylAGnLyd1+aIIGDFw=;
+  b=md2N5RhruL3li9IIy9i3oCc9tgTUea+6aL7PmelF2UFCnPSAcH7GwRn8
+   T9UG8lZ7f3oSdPOu7P7jqrTOzwq3tXzquT63GNPDSxERo4N/qd/TnZzeC
+   EL24DomV23xIATQSV4lIbZBJCaZ1FJ3OCFfxxv0Emd//dgQwQ1G9IUHjX
+   9VwOp6QLoQI46Yn1xAmGtVrRH2+4VFL7m+/yonK2oos+p9qd7aIcv6Ms5
+   /ENwip1qG0tO3Pb5sGDPyYkmAItxu00l4QHIXRk2Y4PSTyMjhnm0KyQjK
+   xEIThGFcfjJt4vTCIJqEbEKDYjvFIHbvdf9XukD5+OJGlXhEhM7aYpv1F
    A==;
-X-CSE-ConnectionGUID: +oklL8GkQO+nlGwalV9yQA==
-X-CSE-MsgGUID: zI74O1DuR8KRQs/Sv7Q9Lw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11627"; a="66358531"
+X-CSE-ConnectionGUID: jhZavPFRSeqxOhQ3QghLlw==
+X-CSE-MsgGUID: hYWIs3AhRzyB20Q8CNgRTA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11627"; a="66286026"
 X-IronPort-AV: E=Sophos;i="6.20,235,1758610800"; 
-   d="scan'208";a="66358531"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2025 15:20:42 -0800
-X-CSE-ConnectionGUID: XV5+cIjESpyD08FBHGMH/g==
-X-CSE-MsgGUID: W/HQx1pPTUOv1y/jNSKsPg==
+   d="scan'208";a="66286026"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2025 15:21:42 -0800
+X-CSE-ConnectionGUID: 2HN2YBV6ROyHikAw+79XzQ==
+X-CSE-MsgGUID: l63VFCSVTfiwTR+yiXY2Tw==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.20,235,1758610800"; 
-   d="scan'208";a="224496934"
+   d="scan'208";a="198662518"
 Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 28 Nov 2025 15:20:40 -0800
+  by orviesa005.jf.intel.com with ESMTP; 28 Nov 2025 15:21:39 -0800
 Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
 	(envelope-from <lkp@intel.com>)
-	id 1vP7lW-000000006oP-0LAN;
-	Fri, 28 Nov 2025 23:20:38 +0000
-Date: Sat, 29 Nov 2025 07:20:33 +0800
+	id 1vP7mU-000000006oT-0mVT;
+	Fri, 28 Nov 2025 23:21:38 +0000
+Date: Sat, 29 Nov 2025 07:20:49 +0800
 From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
+To: Philipp Zabel <p.zabel@pengutronix.de>
 Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/drivers-late] BUILD SUCCESS
- 8e2baac0f2bb5ceff5858ac89eff04a67c98b789
-Message-ID: <202511290727.ksHnmzZW-lkp@intel.com>
+Subject: [soc:drivers/reset-gpio] BUILD SUCCESS
+ 5fc4e4cf7a2268b5f73700fd1e8d02159f2417d8
+Message-ID: <202511290744.HvNt0pMQ-lkp@intel.com>
 User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_152044_071250_E8F19A0C 
-X-CRM114-Status: UNSURE (   5.34  )
+X-CRM114-CacheID: sfid-20251128_152142_678735_29302C3D 
+X-CRM114-Status: UNSURE (   5.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,12 +83,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/drivers-late
-branch HEAD: 8e2baac0f2bb5ceff5858ac89eff04a67c98b789  Merge tag 'cache-for-v6.19' of https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux into soc/drivers-late
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git drivers/reset-gpio
+branch HEAD: 5fc4e4cf7a2268b5f73700fd1e8d02159f2417d8  reset: gpio: use software nodes to setup the GPIO lookup
 
-elapsed time: 1456m
+elapsed time: 1457m
 
-configs tested: 209
+configs tested: 205
 configs skipped: 0
 
 The following configs have been built successfully.
@@ -197,10 +197,8 @@ parisc                            allnoconfig    clang-22
 parisc                            allnoconfig    gcc-15.1.0
 parisc                           allyesconfig    gcc-15.1.0
 parisc                              defconfig    gcc-15.1.0
-parisc                randconfig-001-20251128    clang-22
 parisc                randconfig-001-20251128    gcc-14.3.0
 parisc                randconfig-001-20251129    clang-22
-parisc                randconfig-002-20251128    clang-22
 parisc                randconfig-002-20251128    gcc-15.1.0
 parisc                randconfig-002-20251129    clang-22
 parisc64                            defconfig    clang-19
@@ -213,14 +211,12 @@ powerpc                        icon_defconfig    gcc-15.1.0
 powerpc                 mpc8315_rdb_defconfig    gcc-15.1.0
 powerpc                 mpc837x_rdb_defconfig    gcc-15.1.0
 powerpc                     ppa8548_defconfig    gcc-15.1.0
-powerpc               randconfig-001-20251128    clang-22
 powerpc               randconfig-001-20251128    gcc-11.5.0
 powerpc               randconfig-001-20251129    clang-22
 powerpc               randconfig-002-20251128    clang-22
 powerpc               randconfig-002-20251129    clang-22
 powerpc64             randconfig-001-20251128    clang-22
 powerpc64             randconfig-001-20251129    clang-22
-powerpc64             randconfig-002-20251128    clang-22
 powerpc64             randconfig-002-20251128    gcc-8.5.0
 powerpc64             randconfig-002-20251129    clang-22
 riscv                            allmodconfig    clang-16
