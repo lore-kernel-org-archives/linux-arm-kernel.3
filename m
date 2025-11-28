@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDD5FD111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 02:05:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9C2ECFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 02:05:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BnSe20UyFWhCBwFpCZUGVdKqrQwY3y7cLZdXieRNPhI=; b=qFh+uJsYCnxVS84+ytJYKMryK1
-	t44k41Bj2Rct4pIFuPpHTwf7fZm3lneeWyEcAzIPFTsS2RczYDwE6elfZ4ibVqh2z5+FoZ23ZPkKZ
-	f6WDmXUujB+44zRsOWgn8fJvcqUP/Tmi8cazmo3FESinxhrjN71HDDAvutArZk4dI5coc7YcBCtR1
-	vPQ4hyM9CeVhh1nSXP3FcsQknfjW659eywBJUPUS5O8TATw7i3DqZhQVaAYd4Jyurdpk9s8WB8uuV
-	xKfLH4a6C9IAOQvUTrCs3VFvEdcB9sRSp0w8T58EGP0egE+hmnauZbfUxe1eMZeNwQgMNFBrHeeHO
-	PURbp5Ag==;
+	bh=9oGlaHNtIhbTx7QkJKVpo4Ol7UjzU3rpuzSq9kjRP4w=; b=AgTqrnR0veGYUTzPcRWOqQmrPc
+	91eiO8L7m5VHECxaGqXJ1O8ymNsMzvOgj6JHtwuLLV/kAdbvwQNrBSkMllLHEJjfDUI/U92Poog88
+	tR3510/OHNRFoE0DaBScyxN1o2r/YhyipGw0rWlspEn02/NPHrjvCYJd/fHwEhjDRrhVH84xg57VV
+	z8/Pm4ejSr0ats/QChjYdBI9BgniZc/TWDFx4uw3z2v+xnUuj18TeM8hzlbgQ8Yr0ChLjZqKwfrgL
+	Bd6Mxal6zfTGqW13Wa3HG7Jsh3IwSF9dK5rplfq5l7suljlpEpkRz/rPXACSjac6fkn6sEbQEi6Nh
+	3cxL/+5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOnrp-0000000HQnc-1ezv;
-	Fri, 28 Nov 2025 02:05:49 +0000
-Received: from smtpbguseast2.qq.com ([54.204.34.130])
+	id 1vOnrs-0000000HQri-0aN9;
+	Fri, 28 Nov 2025 02:05:52 +0000
+Received: from smtpbgbr1.qq.com ([54.207.19.206])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vOnrZ-0000000HQIL-3n8M;
-	Fri, 28 Nov 2025 02:05:36 +0000
+	id 1vOnrg-0000000HQIp-1p9T;
+	Fri, 28 Nov 2025 02:05:43 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1764295490;
-	bh=BnSe20UyFWhCBwFpCZUGVdKqrQwY3y7cLZdXieRNPhI=;
+	s=altu2504; t=1764295468;
+	bh=9oGlaHNtIhbTx7QkJKVpo4Ol7UjzU3rpuzSq9kjRP4w=;
 	h=From:To:Subject:Date:Message-Id;
-	b=he0btbYJitsPmxGhlbpYVp/Rbdu29Pv6rlM8G2ZhdqR42hS1AchtQCMNsrW+XA9Lw
-	 Zx/a3x76WZ7Ct8grIWDIp4rVHGi6flLcvoa/pnt1NjUsCrHtMRw0G6wgqOElu3Ptf+
-	 WTIvQC86FU21Keo/dUgS5Zj5Y/Jyzw/jsVu6A1jM=
-X-QQ-mid: esmtpsz21t1764295487t4741a73c
-X-QQ-Originating-IP: fhy5DRa5i3V80+bUs3WYZGySAtuFFVaE7fm+ADYYEpQ=
+	b=hcEdCpsDILu9HZCXdZ1BvOEVGP3xl8o1IJ58I9pXBHPuJfuR4TbFk/Ndhdv7tJCAn
+	 2bnS1339pVo4xZq0n9irEt4gnwaCWmDGYu4R34bo8SAbm0jNj7VXB7Vv1sggfYhyUG
+	 nyBiKdGLAuN6a0HIuwFsFFfdIcBnCLIzMR9ck/mc=
+X-QQ-mid: esmtpsz21t1764295465t7596bef1
+X-QQ-Originating-IP: s57CgJLpnxFBXEh8PABts4Hm4Tdr1U3366rUMeJac1Y=
 Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 28 Nov 2025 10:04:44 +0800 (CST)
+	id ; Fri, 28 Nov 2025 10:04:22 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8450163399619758520
+X-BIZMAIL-ID: 4342192847076017711
 From: Chaoyi Chen <kernel@airkyi.com>
 To: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -81,36 +81,35 @@ Cc: linux-usb@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	dri-devel@lists.freedesktop.org
-Subject: [PATCH v11 07/11] phy: rockchip: phy-rockchip-typec: Add DRM AUX bridge
-Date: Fri, 28 Nov 2025 10:04:01 +0800
-Message-Id: <20251128020405.90-8-kernel@airkyi.com>
+Subject: [PATCH v11 02/11] usb: typec: Export typec bus and typec altmode device type
+Date: Fri, 28 Nov 2025 10:03:56 +0800
+Message-Id: <20251128020405.90-3-kernel@airkyi.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20251128020405.90-1-kernel@airkyi.com>
 References: <20251128020405.90-1-kernel@airkyi.com>
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: MSDmV4hBxmsCMpUywsvd98VfPSec1iASn+xsqpwWeVzVRlDQqvM6YbZR
-	6i1MLsDeOWe1q3MviBD3fhfckxY+kYZEeypbWFuWQ/e0ihTfeul+sacO89I/GR6DKb0m9NF
-	f3uwmbFuE+v/6Gup4pATYBXVEUFgDT0iRbuE7T2eCyskb93XgOqfuOWqYNOCnBYi0oD+Y4u
-	loL4jxwTfiXlKIW6tLSIEZoNBmWYvN/KyjdHd0mqoMrf1SQKVLRtSONCNddZQSGQd+DAGnU
-	90yAUaVSM/2aTH21tkjhEiSd3Nbp25gELFPlln2oeB/2QL0uL5kpeZyH6r0J6lh1kDiaDQ4
-	aILdaZiHUvc1WLdSFJqcYTnsooB/uLcXiab/2lhd36QPfYfeZh3Kiutnm+m+XCc2zJTXSRq
-	gaDXj49Akl5qJXknD7DR8EoMcGOXsxFQiK8SjUaaCPoVF9AaV1X1B/SVj7rFtjCx7O1F9mB
-	ZR/aXQwZPjq615z/Hs39XBNpeTp+Nlj8EIABVevW80CYubYiRiB6saHaLc+m6ErAu7+82kc
-	viUUAwQhUwtCSldc1xJeIXl7fM6K93ebw1D64QbPvuDUZwX6XXMLwu/5W5JLahyeRYVZBlY
-	qT+x0U1bLKK4flDf/zOWC7yszL7DcAz4bs6PWzVFJyE6k7NFREV9mfGG/4USG1zrGTRgai4
-	Q0xzTgBUFcsTUCwiEy3l7ZEXkVu6RbNcaKCpzw8BhRHZlpqQ0mwg00HZryHWl9iMGalusBu
-	BBmcf49e6V4AFQ5Is51GoZFHxD+MTkhpv8PSaqAAFc3gaegRtwPXCSz7kosqirWyGhSrbh6
-	vDlf2fwVgYiabdEAaUM4zXaqpbvzGJEoLkY0jnw+wsO+y2vkyAVRRMEtCwsydtX6EwZ7s96
-	MDrqn0h+Gx967RM/Qe8bnnSB/wO9/Qh8y0Ixs1yVX2aeZPeDSDv2XBQm4FNDzZ+PV53RKiP
-	NZj+tFOuE0VEO5EIr8NEERurlA0cGjPS9at9IYSp+BbGn25Ki8wjMdNG7V8fPqP/nuNORFp
-	KLAH6h9ThcmFzBbDo1IEVA/Nk03Ix4mBota3RXUA==
-X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
+X-QQ-XMAILINFO: OAowhIcaKHQtd6oVjnadb7aVeiNtImupbPApnxUpgxM14YWcgK00Wdkk
+	yx7IsaBDZmOLPpHXd5b6sihzwJhEVCxLm+CvEeAsPM/P0ZJ41Uw2p8/oWXlK4e3UxkdBNHI
+	QtDi9xifb7hUbMi4bEQ2EH7PTuqggwOwG23nvh1JR1H6w5c3fcj7KhWq514IegkCN2xncWe
+	poQbMrd5Z/6ETN5a3EfZz/+JE0lHZRSPgaXGYtsoro/z7yUDirLjvyAryURuhK+jTJltvq6
+	Pi11/8yf+Uy1RQwajuFjXQvsagkdya3nI/6Zz8Ejz24d4oRjt/nWeGyaeuBvFVXHtRn8WmL
+	yWpsR01Nvx9XknRrLX3Jhu2x8/brMA/R7zqbWnPTCOPb9Q1q4Zq2Tcn2geFOX+fort595Gh
+	SG3UOnj6ZrPMMw1E3Bviye+GL8BpSz0uOdyMVzX50SMHPb9X6dNkr1X4sFaDZ0xfAOMe5VK
+	0FBo+vqZGDwVTtLKcpQ3An1ZEMZ01Jv/xE8Zao/xbcF0+OTheAChGaLf673SE/KZRmz/jym
+	oWMhlOA50uieAIgmzCM9QtGdwkVTIcBT5VHRQiML+Rm12wJRRViEZSGFHIF10Huz2zXhmGD
+	xo/Yxu2XnIlRL6/GYg3GOKO6l2CRAtys87sS/GGTW5L8PgR7cH2EZy9ve/oGiA9iNWFPfnS
+	mp2/Qfbx8B6QZJ2EiNuNnXNSbGVBZMKdp2T3ShFfHaYYq5GOiZU9k/8zDoMVwFed0unqQFf
+	X7vgWKAm+wwEIiuAkLOwPC+IIIyZPopRx8BOYvZaXfq/a1QguTbIwNAM3+HLTUXHfmROu8Q
+	4N5LQMMIM6b07cSag+1/qvRKQulqV5orqWV5+Vrdo30Zpc+806JTDzNZ3S5+CcOzXBMHSro
+	KTy9zOjNNAklmENPCcZlI3vxwKc7rPyDo8a1xb5AAwjssN/7z3VsTpPXhQMFnsnkfh0lHL2
+	n1v3Fm420/3dWgVekZl/u5moOtaWCIrvb45t5NDY994BVxQIwvEVh0Kq6nlybFNJfYLBjOi
+	xHPkbikw==
+X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251127_180534_451056_3C5F985C 
-X-CRM114-Status: UNSURE (   9.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251127_180541_691609_DAC03F6A 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,63 +126,128 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-Using the DRM_AUX_BRIDGE helper to create the transparent DRM bridge
-device.
+The DRM may want to register a notifier on the typec bus to know when
+a typec altmode device is added, and distinguish between different
+types of typec altmode device.
+
+Export these things.
 
 Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Reviewed-by: Neil Armstrong <neil.armstrong@linaro.org>
 ---
 
-(no changes since v11)
+Changes in v11:
+- Also export typec bus.
+- Add more detailed comments.
 
-Changes in v10:
-- Use drm_aux_bridge_register_from_node() instead.
+(no changes since v9)
 
-(no changes since v7)
+ drivers/usb/typec/bus.c           |  1 +
+ drivers/usb/typec/bus.h           | 10 ----------
+ drivers/usb/typec/class.c         |  3 +++
+ include/linux/usb/typec.h         |  3 +++
+ include/linux/usb/typec_altmode.h |  8 ++++++++
+ 5 files changed, 15 insertions(+), 10 deletions(-)
 
-Changes in v6:
-- Fix depend in Kconfig.
-
- drivers/phy/rockchip/Kconfig              | 2 ++
- drivers/phy/rockchip/phy-rockchip-typec.c | 5 +++++
- 2 files changed, 7 insertions(+)
-
-diff --git a/drivers/phy/rockchip/Kconfig b/drivers/phy/rockchip/Kconfig
-index db4adc7c53da..bcb5476222fc 100644
---- a/drivers/phy/rockchip/Kconfig
-+++ b/drivers/phy/rockchip/Kconfig
-@@ -120,6 +120,8 @@ config PHY_ROCKCHIP_TYPEC
- 	tristate "Rockchip TYPEC PHY Driver"
- 	depends on OF && (ARCH_ROCKCHIP || COMPILE_TEST)
- 	depends on TYPEC || TYPEC=n
-+	depends on DRM || DRM=n
-+	select DRM_AUX_BRIDGE if DRM_BRIDGE
- 	select EXTCON
- 	select GENERIC_PHY
- 	select RESET_CONTROLLER
-diff --git a/drivers/phy/rockchip/phy-rockchip-typec.c b/drivers/phy/rockchip/phy-rockchip-typec.c
-index 1f5b4142cbe4..e31b778c3537 100644
---- a/drivers/phy/rockchip/phy-rockchip-typec.c
-+++ b/drivers/phy/rockchip/phy-rockchip-typec.c
-@@ -56,6 +56,7 @@
- #include <linux/phy/phy.h>
- #include <linux/usb/typec_dp.h>
- #include <linux/usb/typec_mux.h>
-+#include <drm/bridge/aux-bridge.h>
+diff --git a/drivers/usb/typec/bus.c b/drivers/usb/typec/bus.c
+index a33da7f458a5..e84b134a3381 100644
+--- a/drivers/usb/typec/bus.c
++++ b/drivers/usb/typec/bus.c
+@@ -569,3 +569,4 @@ const struct bus_type typec_bus = {
+ 	.probe = typec_probe,
+ 	.remove = typec_remove,
+ };
++EXPORT_SYMBOL_GPL(typec_bus);
+diff --git a/drivers/usb/typec/bus.h b/drivers/usb/typec/bus.h
+index b58e131450d1..7df5deb1dd3a 100644
+--- a/drivers/usb/typec/bus.h
++++ b/drivers/usb/typec/bus.h
+@@ -5,7 +5,6 @@
  
- #define CMN_SSM_BANDGAP			(0x21 << 2)
- #define CMN_SSM_BIAS			(0x22 << 2)
-@@ -1312,6 +1313,10 @@ static int tcphy_setup_typec_mux(struct rockchip_typec_phy *tcphy)
- 	if (!of_property_read_bool(np, "mode-switch"))
- 		goto put_np;
+ #include <linux/usb/typec_altmode.h>
  
-+	ret = drm_aux_bridge_register_from_node(tcphy->dev, np);
-+	if (ret)
-+		goto put_np;
+-struct bus_type;
+ struct typec_mux;
+ struct typec_retimer;
+ 
+@@ -28,13 +27,4 @@ struct altmode {
+ 
+ #define to_altmode(d) container_of(d, struct altmode, adev)
+ 
+-extern const struct bus_type typec_bus;
+-extern const struct device_type typec_port_altmode_dev_type;
+-extern const struct device_type typec_plug_altmode_dev_type;
+-extern const struct device_type typec_partner_altmode_dev_type;
+-
+-#define is_typec_port_altmode(dev) ((dev)->type == &typec_port_altmode_dev_type)
+-#define is_typec_plug_altmode(dev) ((dev)->type == &typec_plug_altmode_dev_type)
+-#define is_typec_partner_altmode(dev) ((dev)->type == &typec_partner_altmode_dev_type)
+-
+ #endif /* __USB_TYPEC_ALTMODE_H__ */
+diff --git a/drivers/usb/typec/class.c b/drivers/usb/typec/class.c
+index d6b88317f8a4..c4ff4310ff58 100644
+--- a/drivers/usb/typec/class.c
++++ b/drivers/usb/typec/class.c
+@@ -537,18 +537,21 @@ const struct device_type typec_port_altmode_dev_type = {
+ 	.groups = typec_altmode_groups,
+ 	.release = typec_altmode_release,
+ };
++EXPORT_SYMBOL_GPL(typec_port_altmode_dev_type);
+ 
+ const struct device_type typec_plug_altmode_dev_type = {
+ 	.name = "typec_plug_alternate_mode",
+ 	.groups = typec_altmode_groups,
+ 	.release = typec_altmode_release,
+ };
++EXPORT_SYMBOL_GPL(typec_plug_altmode_dev_type);
+ 
+ const struct device_type typec_partner_altmode_dev_type = {
+ 	.name = "typec_partner_alternate_mode",
+ 	.groups = typec_altmode_groups,
+ 	.release = typec_altmode_release,
+ };
++EXPORT_SYMBOL_GPL(typec_partner_altmode_dev_type);
+ 
+ static struct typec_altmode *
+ typec_register_altmode(struct device *parent,
+diff --git a/include/linux/usb/typec.h b/include/linux/usb/typec.h
+index 309251572e2e..c6fd46902fce 100644
+--- a/include/linux/usb/typec.h
++++ b/include/linux/usb/typec.h
+@@ -20,12 +20,15 @@ struct typec_port;
+ struct typec_altmode_ops;
+ struct typec_cable_ops;
+ 
++struct bus_type;
+ struct fwnode_handle;
+ struct device;
+ 
+ struct usb_power_delivery;
+ struct usb_power_delivery_desc;
+ 
++extern const struct bus_type typec_bus;
 +
- 	mux_desc.drvdata = tcphy;
- 	mux_desc.fwnode = device_get_named_child_node(tcphy->dev, "dp-port");
- 	mux_desc.set = tcphy_typec_mux_set;
+ enum typec_port_type {
+ 	TYPEC_PORT_SRC,
+ 	TYPEC_PORT_SNK,
+diff --git a/include/linux/usb/typec_altmode.h b/include/linux/usb/typec_altmode.h
+index f7db3bd4c90e..9197a4637a93 100644
+--- a/include/linux/usb/typec_altmode.h
++++ b/include/linux/usb/typec_altmode.h
+@@ -9,6 +9,14 @@
+ 
+ #define MODE_DISCOVERY_MAX	6
+ 
++extern const struct device_type typec_port_altmode_dev_type;
++extern const struct device_type typec_plug_altmode_dev_type;
++extern const struct device_type typec_partner_altmode_dev_type;
++
++#define is_typec_port_altmode(dev) ((dev)->type == &typec_port_altmode_dev_type)
++#define is_typec_plug_altmode(dev) ((dev)->type == &typec_plug_altmode_dev_type)
++#define is_typec_partner_altmode(dev) ((dev)->type == &typec_partner_altmode_dev_type)
++
+ struct typec_altmode_ops;
+ 
+ /**
 -- 
 2.51.1
 
