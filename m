@@ -4,86 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30ED0D116EA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 23:01:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92498D116E2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 23:46:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o7abD6XH4eHcxEiWpbo/4uwSFXjdFhqX7mjZwLL/Fl0=; b=mCQNTcMIjqq1FQYrhPZDA+Tzhu
-	aoigSCACrI1DWwfn4n67tA64bTzyTiKQLqa4bq3l4a/rWYrkxhangD9IMYZcK4/D0YhmW7VS/eo6u
-	Oy93bTDVKXaMBkPB2xd7I4Gpbs9jy0xvaXE7qhAya7+VnAR25FGB2AMRiy54oSMg6iO3zuiLRcYEO
-	owu/p+aiLc7QO3V+zlqf8D+f3Jthq+KBNmEqp0ZwW1uatn5U7nyX3lRhz9CRwu2qbTRDAt2wBf+RI
-	ZbET6TWKxNbKu+69nJ44qzZ6uEOSbT+UZPNEiLWOV1fDoHFu3K7ezK2RXZYUs00IiXZ3/tbKyj5PX
-	IUBYMZhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Oic4BVwh+qFMk9xigP8owFPlA2EeqW1hA7c8LL97tvU=; b=1VJEO9ihwpHBdRDg4KjT+puQNl
+	zLC/Y8GN32PsKR00jsjk9wpK8XjW7QfGI5Fim8vc3jG3A0kG/ErUX/CYQOw4TjYxXErfJ2jmZIbbC
+	v87SCiQJV8NbsDHuYerVq8/OfAZFcCJMst0Avy86AjONIJ6w9vJMC+Ggw5dC5eySC1GFp1QQPDsXs
+	mHoE9zaD+ybg+Oe5P/iyH8iVGXZvVYhPCN1+wqfGEgIpmmgU1B/3l4vKzZV0StTBQWjwa24psh4jR
+	i3SXKzcV0+ECpWngnQ2lUE2rp4ux1MrhXH1rAYFX/f/ITrZS8OAyAbojXP0YFAtu9TmAz16uKwwom
+	QKywStGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPTvv-00000001qzQ-0GCM;
-	Sat, 29 Nov 2025 23:00:51 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1vPUe3-00000001sMO-2XPV;
+	Sat, 29 Nov 2025 23:46:27 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPTvs-00000001qz3-06MD
+	id 1vPUe0-00000001sLb-1bi2
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Nov 2025 23:00:49 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-640a0812658so5252485a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Nov 2025 15:00:46 -0800 (PST)
+	Sat, 29 Nov 2025 23:46:26 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-7b9215e55e6so2006166b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Nov 2025 15:46:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764457245; x=1765062045; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1764459983; x=1765064783; darn=lists.infradead.org;
+        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=o7abD6XH4eHcxEiWpbo/4uwSFXjdFhqX7mjZwLL/Fl0=;
-        b=J558o9ibHVmgrHJbiVT6AgXIoSWmDhWQr3hEimNG5Xy6ptfzVthzw9ya0IPJcWim+H
-         mCiUSQBv9WftONIsVg+RENCHtmUa54ulnJ222LAfv1cQzxEAav1C3JNrETVESn2IIcW/
-         uBm6KFT/jTCWjM/UuLYcwzehlT1DSDcLLWtZusK5KWdgQkpwBSfha6SeQJAaH5jWWZ9s
-         lWefRw/gOEdVOGLtjbnmNONgLMVZ290/Xx945HSsoGNIaoGF9uCVSUU/nA+SGdplqIfB
-         rWLhyLKTmMM9SMRP3c/9TVk9cyQAeJ+I7wwpHumtqVPKajfFnBtIGqoSi6JMNw1t68hw
-         1KTQ==
+        bh=Oic4BVwh+qFMk9xigP8owFPlA2EeqW1hA7c8LL97tvU=;
+        b=b4/2Dv4djcFAn1+V/1AWo5FjhZ5VOjlnHFEZ7J9F8TXSAn4q6Jc7L3Et9AsWEyJO2h
+         Lv95YdFQWV0/BbRmGrNuM78EdPdaz7wSRmqHC/Yl68TbwjhJswI0qwi1wJ+3KQ+mP8jL
+         0ueWaHNXSfWs0FJlBzADk/7Pi+PS88bYTlctUXlidwKN8StnWmw2+UNUGWx2nwBrX5S0
+         BhonbmgPM9W1F0UgZEFca8Jx7flvWt1KIu9qB9bP8ppxkcsw/EgJZBiPP2EzkIWssKgK
+         BfLNl4WpHfbwlacHdU7p/dQQGfLV1LJiLZ5kEhe80Fq99aOIhR9PjZyx9wyKasK/T7Gy
+         Dudg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764457245; x=1765062045;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+        d=1e100.net; s=20230601; t=1764459983; x=1765064783;
+        h=message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=o7abD6XH4eHcxEiWpbo/4uwSFXjdFhqX7mjZwLL/Fl0=;
-        b=CEvCTFWosaTAOTqzFeQaJCofU4JpMvy3jG9XeiP1nH1egwHqc5rca0n4MEmKiXFvu9
-         rQPHLrFRMnfpd4e/Qc1tdR/+w+YAdWOllwagS9zRlTht9DaBwH+8tcEfcsZt3NSIPCc7
-         9Vf1896x9hMhU6evHLj61dYc4fzgGvaYYKQ4euqvxFIPisZBfCXkEJkxtUagGpjtnfwf
-         3qBkiY9pEZ8AQ7mvyiEl0dxsQ2KqwGo8taNMQpPr903dHUfYeW3oADGEdLVQI8sbXtPf
-         Syuj6T2FBzRRRQQgd1X8N6X6d13oEN3j+ku4tT0cs0gLowvbYaCEbS9xaZOgkluFsnWg
-         XouA==
-X-Forwarded-Encrypted: i=1; AJvYcCWopcxsbxTUXykT9wve97MSoxzEnynYCuADvDfccvFcp4J4WxEyNSyZmYwrPJox59lK/M2nY5sux4AHqZCFkNTF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+GtayFsVgfEKqn3Td7acqy5mQ8dFYNMOZFOxTvGaV1wKoB020
-	nAOIItLTXCOcWCpS+ojA2slFcBrhT82px4Uxmdh9XN6U0DYn5xpTibqde2NmSOfgjhnlO7RXyV/
-	Tk1eBSIlZp0EvZuqYMIZGhnuFaE5h1ws=
-X-Gm-Gg: ASbGncuBhiRiuo5pfrZkJl48m7BjTMvkGw35hxyFMTkCD2Ws/4yPs0kI74v3OVAROxD
-	CE8v4v5tL2ShMAD13gD6SG62Zcs4ZiTi1VX+2zkh9lMXqd3OedQlx+Gto6NzWVKyU+nuefCMZmH
-	XNA9HKHQ6cgle2Z4sdbojvaCwnoY5ersq6PGGNZ24OpM7N82Y8tZdRwyBQvgLcVoBxNvawWM8Yh
-	WzxOTTEHa7ue03ZQ0Yb5x7N8OisUZI3RoHO2vIiqkLWJdHMY5tyT35tBLw80rkyNBBUioUB
-X-Google-Smtp-Source: AGHT+IFraZxIxArC6ZRLXa5g7OneQiuIwggV1ggNXIteOyfynnk9uYcAtUhHJonNAod2bu5yo5u0XI1eptsrAOVctRM=
-X-Received: by 2002:a05:6402:50d2:b0:633:d0b7:d6d2 with SMTP id
- 4fb4d7f45d1cf-645eb2a9007mr18043484a12.18.1764457245181; Sat, 29 Nov 2025
- 15:00:45 -0800 (PST)
-MIME-Version: 1.0
-References: <20251121100044.282684-1-thuth@redhat.com> <20251121100044.282684-2-thuth@redhat.com>
-In-Reply-To: <20251121100044.282684-2-thuth@redhat.com>
-From: Magnus Lindholm <linmag7@gmail.com>
-Date: Sun, 30 Nov 2025 00:00:33 +0100
-X-Gm-Features: AWmQ_bkDTkRArCOJtRA_LXcLs7nIqPHlR48Siu-A5cxKCr76Y6aVmGcQU7u8Tko
-Message-ID: <CA+=Fv5SPuYyZ2ASzz3oVMCRQNP-G+0pbW58o32ryXrm_RBfqSA@mail.gmail.com>
-Subject: Re: [PATCH v4 1/9] alpha: Replace __ASSEMBLY__ with __ASSEMBLER__ in
- the alpha headers
-To: Thomas Huth <thuth@redhat.com>
-Cc: Arnd Bergmann <arnd@arndb.de>, linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kbuild@vger.kernel.org, 
-	Richard Henderson <richard.henderson@linaro.org>, Matt Turner <mattst88@gmail.com>, 
-	linux-alpha@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+        bh=Oic4BVwh+qFMk9xigP8owFPlA2EeqW1hA7c8LL97tvU=;
+        b=JpoW46fnYfNMl6dbqabQSIjuLOlFaKaB7c6yg5FL0nhrqB9QdpzeoSe2dhg6Y4EYJv
+         JZywyiaFgyMbWIG5q5rJJXvkhk2Zs7lEqs65vw43Ie+O4esw3+Crbb/2uQLpMeLTBpy/
+         tcCu2o+hEbCAk8Z2UgTJTD9ntQiBWh6UddFPY1DEMS5mzNqqR0qZ1KzzhoJn58s0xaUa
+         SRq4Lm0jtjb+WrynZGQHu/cQNBlmawiJWOfy92Ovfq7e4ps0q6jhAyzInq5DlpGBhj++
+         UYl5WxId6xVZsCRefqFcjjKGBBnS3nykOKQEyCOOkcBN6Vmh67tGibuYbvxR2y/A0AK/
+         w/fA==
+X-Forwarded-Encrypted: i=1; AJvYcCVLSm9eLeRomWjzwO93sq+5pNWzRWunYxW9bsT8nyakna9XP2chmeJ+Z+pdlfJsmuirt89OLyHoJniSzWzfuNVJ@lists.infradead.org
+X-Gm-Message-State: AOJu0YzVfqztoQZflFPuCX2ASTjT58hg4+0IS9ZZiGSTYewCqqtny4JW
+	9O2lnx81zhxu40DCnnWPqJorsz7XCdITIeT1dUr3nZzuWGrPygElzPgu
+X-Gm-Gg: ASbGnct+tU1AuryPOiQZkFaiiuXVFeWTeVl3j0T5XTnDClgEAB3+vSOrzFmuJwCxKEz
+	2HLvMb8pcT9blZVcF7jEpDOTegQfeo3be00mVS3ik3yF9UxXEXn+JtzO4qe9+CJFo87XyJgAJeR
+	qYXtRoy0i5DoiiNeU1TEEKJYlvTND2JlP127d7mPHvHUTNy7CvLfdAN3re/zi3FjFAwdAk1vFdm
+	FYejnfY1YPfu3R6CgbJRvmzzm/QmAkaS6MG7nFUNMy+Gz++URfgj/RZPmO2Yz4u1eizBu90zzX7
+	v3OcDLSb8w0RRcliidzrDP8m5QpaZUStHIWX89T+6OdBbqx+lXDFLXfu4jrbzuqEWUlqlW12IGT
+	M9cV61K2hA+UhfnK2Rc9Sec1GzXFfBr7hGiNqvj/bA6CI0/zzoQQlj43O3pH0rnrYXFfT6P3O4a
+	rEMgm6vYXbnLuMtnDxC/XYojcg8A==
+X-Google-Smtp-Source: AGHT+IG1ssiyNwGsFp5F+wk0jylpdPRdZeUSnJ9+OhyOhmGPlt2Dzx5MOnNqeZxTuc6PCZk9MVCk1w==
+X-Received: by 2002:a05:6a00:2389:b0:7aa:bd80:f4db with SMTP id d2e1a72fcca58-7ca8740ec4cmr18933879b3a.5.1764459982924;
+        Sat, 29 Nov 2025 15:46:22 -0800 (PST)
+Received: from SC-GAME.lan ([104.28.201.78])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7d15fc08bd1sm8921049b3a.63.2025.11.29.15.46.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 29 Nov 2025 15:46:22 -0800 (PST)
+From: Chen Minqiang <ptpt52@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Andrew Lunn <andrew@lunn.ch>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	netdev@vger.kernel.org,
+	Chen Minqiang <ptpt52@gmail.com>
+Subject: [PATCH v3 1/2] ARM64: dts: mediatek: fix MT7531 reset GPIO polarity on multiple boards
+Date: Sun, 30 Nov 2025 07:46:02 +0800
+Message-Id: <20251129234603.2544-1-ptpt52@gmail.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251129_150048_197018_1E950C70 
-X-CRM114-Status: GOOD (  21.95  )
+X-CRM114-CacheID: sfid-20251129_154624_421513_A1699D3E 
+X-CRM114-Status: GOOD (  13.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,145 +105,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 21, 2025 at 11:10=E2=80=AFAM Thomas Huth <thuth@redhat.com> wro=
-te:
->
-> From: Thomas Huth <thuth@redhat.com>
->
-> While the GCC and Clang compilers already define __ASSEMBLER__
-> automatically when compiling assembly code, __ASSEMBLY__ is a
-> macro that only gets defined by the Makefiles in the kernel.
-> This can be very confusing when switching between userspace
-> and kernelspace coding, or when dealing with uapi headers that
-> rather should use __ASSEMBLER__ instead. So let's standardize now
-> on the __ASSEMBLER__ macro that is provided by the compilers.
->
-> This is a completely mechanical patch (done with a simple "sed -i"
-> statement).
->
-> Cc: Richard Henderson <richard.henderson@linaro.org>
-> Cc: Matt Turner <mattst88@gmail.com>
-> Cc: linux-alpha@vger.kernel.org
-> Signed-off-by: Thomas Huth <thuth@redhat.com>
-> ---
->  arch/alpha/include/asm/console.h     | 4 ++--
->  arch/alpha/include/asm/page.h        | 4 ++--
->  arch/alpha/include/asm/pal.h         | 4 ++--
->  arch/alpha/include/asm/thread_info.h | 8 ++++----
->  4 files changed, 10 insertions(+), 10 deletions(-)
->
-> diff --git a/arch/alpha/include/asm/console.h b/arch/alpha/include/asm/co=
-nsole.h
-> index 088b7b9eb15ae..1cabdb6064bbe 100644
-> --- a/arch/alpha/include/asm/console.h
-> +++ b/arch/alpha/include/asm/console.h
-> @@ -4,7 +4,7 @@
->
->  #include <uapi/asm/console.h>
->
-> -#ifndef __ASSEMBLY__
-> +#ifndef __ASSEMBLER__
->  extern long callback_puts(long unit, const char *s, long length);
->  extern long callback_getc(long unit);
->  extern long callback_open_console(void);
-> @@ -26,5 +26,5 @@ struct crb_struct;
->  struct hwrpb_struct;
->  extern int callback_init_done;
->  extern void * callback_init(void *);
-> -#endif /* __ASSEMBLY__ */
-> +#endif /* __ASSEMBLER__ */
->  #endif /* __AXP_CONSOLE_H */
-> diff --git a/arch/alpha/include/asm/page.h b/arch/alpha/include/asm/page.=
-h
-> index 5ec4c77e432e0..d2c6667d73e9e 100644
-> --- a/arch/alpha/include/asm/page.h
-> +++ b/arch/alpha/include/asm/page.h
-> @@ -6,7 +6,7 @@
->  #include <asm/pal.h>
->  #include <vdso/page.h>
->
-> -#ifndef __ASSEMBLY__
-> +#ifndef __ASSEMBLER__
->
->  #define STRICT_MM_TYPECHECKS
->
-> @@ -74,7 +74,7 @@ typedef struct page *pgtable_t;
->  #define PAGE_OFFSET            0xfffffc0000000000
->  #endif
->
-> -#endif /* !__ASSEMBLY__ */
-> +#endif /* !__ASSEMBLER__ */
->
->  #define __pa(x)                        ((unsigned long) (x) - PAGE_OFFSE=
-T)
->  #define __va(x)                        ((void *)((unsigned long) (x) + P=
-AGE_OFFSET))
-> diff --git a/arch/alpha/include/asm/pal.h b/arch/alpha/include/asm/pal.h
-> index db2b3b18b34c7..799a64c051984 100644
-> --- a/arch/alpha/include/asm/pal.h
-> +++ b/arch/alpha/include/asm/pal.h
-> @@ -4,7 +4,7 @@
->
->  #include <uapi/asm/pal.h>
->
-> -#ifndef __ASSEMBLY__
-> +#ifndef __ASSEMBLER__
->
->  extern void halt(void) __attribute__((noreturn));
->  #define __halt() __asm__ __volatile__ ("call_pal %0 #halt" : : "i" (PAL_=
-halt))
-> @@ -183,5 +183,5 @@ qemu_get_vmtime(void)
->         return v0;
->  }
->
-> -#endif /* !__ASSEMBLY__ */
-> +#endif /* !__ASSEMBLER__ */
->  #endif /* __ALPHA_PAL_H */
-> diff --git a/arch/alpha/include/asm/thread_info.h b/arch/alpha/include/as=
-m/thread_info.h
-> index 4a4d00b37986e..98ccbca64984c 100644
-> --- a/arch/alpha/include/asm/thread_info.h
-> +++ b/arch/alpha/include/asm/thread_info.h
-> @@ -4,14 +4,14 @@
->
->  #ifdef __KERNEL__
->
-> -#ifndef __ASSEMBLY__
-> +#ifndef __ASSEMBLER__
->  #include <asm/processor.h>
->  #include <asm/types.h>
->  #include <asm/hwrpb.h>
->  #include <asm/sysinfo.h>
->  #endif
->
-> -#ifndef __ASSEMBLY__
-> +#ifndef __ASSEMBLER__
->  struct thread_info {
->         struct pcb_struct       pcb;            /* palcode state */
->
-> @@ -44,7 +44,7 @@ register struct thread_info *__current_thread_info __as=
-m__("$8");
->
->  register unsigned long *current_stack_pointer __asm__ ("$30");
->
-> -#endif /* __ASSEMBLY__ */
-> +#endif /* __ASSEMBLER__ */
->
->  /* Thread information allocation.  */
->  #define THREAD_SIZE_ORDER 1
-> @@ -110,7 +110,7 @@ register unsigned long *current_stack_pointer __asm__=
- ("$30");
->         put_user(res, (int __user *)(value));                           \
->         })
->
-> -#ifndef __ASSEMBLY__
-> +#ifndef __ASSEMBLER__
->  extern void __save_fpu(void);
->
->  static inline void save_fpu(void)
-> --
-> 2.51.1
->
+The MT7531 reset pin is active-low, but several DTS files configured the
+reset-gpios property without GPIO_ACTIVE_LOW. This causes the reset GPIO
+to behave as active-high and prevents the switch from being properly reset.
 
-Reviewed-by: Magnus Lindholm <linmag7@gmail.com>
+Update all affected DTS files to correctly use GPIO_ACTIVE_LOW so that
+the reset polarity matches the hardware design.
+
+Boards fixed:
+ - mt7622-bananapi-bpi-r64
+ - mt7622-rfb1
+ - mt7986a-bananapi-bpi-r3
+ - mt7986a-rfb
+ - mt7986b-rfb
+
+Note: the previous DTS description used the wrong polarity but the
+driver also assumed the opposite polarity, resulting in a matched pair
+of bugs that worked together. Updating the DTS requires updating the
+driver at the same time; old kernels will not reset the switch correctly
+when used with this DTS.
+
+Compatibility
+-------------
+
+Correcting the polarity creates intentional incompatibility:
+
+ * New kernel + old DTS:
+   The driver now expects active-low, but out-of-tree DTS still marks
+   active-high, causing the reset sequence to invert.
+
+ * Old kernel + new DTS:
+   The old driver toggles reset assuming active-high, which now
+   conflicts with the corrected active-low DTS.
+
+This was unavoidable because the original DTS was factually wrong.
+Out-of-tree DTS users must update their DTS together with the kernel.
+
+Signed-off-by: Chen Minqiang <ptpt52@gmail.com>
+---
+ arch/arm64/boot/dts/mediatek/mt7622-bananapi-bpi-r64.dts | 2 +-
+ arch/arm64/boot/dts/mediatek/mt7622-rfb1.dts             | 2 +-
+ arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts | 2 +-
+ arch/arm64/boot/dts/mediatek/mt7986a-rfb.dts             | 2 +-
+ arch/arm64/boot/dts/mediatek/mt7986b-rfb.dts             | 2 +-
+ 5 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/mediatek/mt7622-bananapi-bpi-r64.dts b/arch/arm64/boot/dts/mediatek/mt7622-bananapi-bpi-r64.dts
+index 9f100b18a676..6f29ce828fdb 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7622-bananapi-bpi-r64.dts
++++ b/arch/arm64/boot/dts/mediatek/mt7622-bananapi-bpi-r64.dts
+@@ -155,7 +155,7 @@
+ 			interrupt-controller;
+ 			#interrupt-cells = <1>;
+ 			interrupts-extended = <&pio 53 IRQ_TYPE_LEVEL_HIGH>;
+-			reset-gpios = <&pio 54 0>;
++			reset-gpios = <&pio 54 GPIO_ACTIVE_LOW>;
+ 
+ 			ports {
+ 				#address-cells = <1>;
+diff --git a/arch/arm64/boot/dts/mediatek/mt7622-rfb1.dts b/arch/arm64/boot/dts/mediatek/mt7622-rfb1.dts
+index 8c3e2e2578bc..6600f06ccebf 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7622-rfb1.dts
++++ b/arch/arm64/boot/dts/mediatek/mt7622-rfb1.dts
+@@ -137,7 +137,7 @@
+ 		switch@0 {
+ 			compatible = "mediatek,mt7531";
+ 			reg = <0>;
+-			reset-gpios = <&pio 54 0>;
++			reset-gpios = <&pio 54 GPIO_ACTIVE_LOW>;
+ 
+ 			ports {
+ 				#address-cells = <1>;
+diff --git a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
+index e7654dc9a1c9..8ec2ec78ee46 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
++++ b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
+@@ -203,7 +203,7 @@
+ 		interrupt-parent = <&pio>;
+ 		interrupts = <66 IRQ_TYPE_LEVEL_HIGH>;
+ 		#interrupt-cells = <1>;
+-		reset-gpios = <&pio 5 GPIO_ACTIVE_HIGH>;
++		reset-gpios = <&pio 5 GPIO_ACTIVE_LOW>;
+ 	};
+ };
+ 
+diff --git a/arch/arm64/boot/dts/mediatek/mt7986a-rfb.dts b/arch/arm64/boot/dts/mediatek/mt7986a-rfb.dts
+index 5d8e3d3f6c20..958ce291336b 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7986a-rfb.dts
++++ b/arch/arm64/boot/dts/mediatek/mt7986a-rfb.dts
+@@ -87,7 +87,7 @@
+ 	switch: switch@0 {
+ 		compatible = "mediatek,mt7531";
+ 		reg = <31>;
+-		reset-gpios = <&pio 5 0>;
++		reset-gpios = <&pio 5 1>;
+ 	};
+ };
+ 
+diff --git a/arch/arm64/boot/dts/mediatek/mt7986b-rfb.dts b/arch/arm64/boot/dts/mediatek/mt7986b-rfb.dts
+index 58f77d932429..0780b5a36259 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7986b-rfb.dts
++++ b/arch/arm64/boot/dts/mediatek/mt7986b-rfb.dts
+@@ -64,7 +64,7 @@
+ 		switch@0 {
+ 			compatible = "mediatek,mt7531";
+ 			reg = <31>;
+-			reset-gpios = <&pio 5 0>;
++			reset-gpios = <&pio 5 1>;
+ 
+ 			ports {
+ 				#address-cells = <1>;
+-- 
+2.17.1
+
 
