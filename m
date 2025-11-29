@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6EA7CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 08:23:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAA8CCFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 08:23:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cvalqWQNdUHmlVQiWYTBVow57GCTnO3jvYApxg1ymio=; b=4Y4uOTD+EERATXbGnuveE0UOjh
-	sLBTG6Q7VD4iDm6ayGWaOF/zR2KAQve1aF/ZVGyIHE/Z3n9dDCgogBHRujBA+VP6ogB8Z6I7t8YFS
-	istJpVX5Qit6QTKXx3kNLDvvHV0n3wQ9RzGy5fB3cDPW+BHEqczyiIDI7rRz2D716u+rtcuJbyweZ
-	bVSriWmqtbJc4jSftPn97QFKuklqJggfFkvvdLsVK9ljBRaxeDPntbNLkoxQQsRMqLes6L93FLFGt
-	b8hXl443BhbawBLkUoI30ToHzUTXLZwOoFio/twY51/q4FEPxv1ZnDqVq7DTo461x9EHPPakjue34
-	lr5G4F9g==;
+	bh=IgeFtzPJBwvvnb/uQ0mJxfH+yFO6HcqUK0tAUzlalzA=; b=arghlrBGiFkr3r94xvav3sxs75
+	SAe2CHK1RFndmZpaqXAi4ndjD8Aki5AS+DSTB6JKwXvz6c331ZL/RfdIR4PoREAy6cxTYOoG0/aAg
+	4Rmc7n+fduePSo7mKtGopDez1Xpx6gjTLkacrH/PFrHNuc4NRoiypuNLf/9gW5FkklbouitFZ+syu
+	FGoBu2mkHR33nCifH+wM4qdhJgR9sJ6S/5gNJZ/umvii3A7t0sqnpfdQbX4AiM4gJsbkU0zTVhjST
+	tlOt0xIsKPC4rA7zyxgLQdOZMuu+ngR+JPvmTMqeUZw4fnskExMvMSXPDnRtwDOHLAbpzg/2dacUW
+	8I5eWBLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPGEc-00000001NLB-3RDO;
-	Sat, 29 Nov 2025 08:23:14 +0000
+	id 1vPGEy-00000001Neu-1YMt;
+	Sat, 29 Nov 2025 08:23:36 +0000
 Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPGEY-00000001NIA-2alA
+	id 1vPGEc-00000001NJk-3NBW
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Nov 2025 08:23:13 +0000
+	Sat, 29 Nov 2025 08:23:16 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 3060A4E4196A;
-	Sat, 29 Nov 2025 08:23:09 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 627F44E41969;
+	Sat, 29 Nov 2025 08:23:13 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id F273260706;
-	Sat, 29 Nov 2025 08:23:08 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7B622102F274D;
-	Sat, 29 Nov 2025 09:23:04 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 3022760706;
+	Sat, 29 Nov 2025 08:23:13 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CC341119104C3;
+	Sat, 29 Nov 2025 09:23:07 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764404587; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1764404591; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=cvalqWQNdUHmlVQiWYTBVow57GCTnO3jvYApxg1ymio=;
-	b=kVO76Oy6IeBPR3elaKBIw6rQK2L4JSE3DIwNUB2jDgcNV+x3BAOd+/N4V2lBa9Zl4Qk/le
-	ETczHG8nf2xrw5G8UnIJ7xg7Otd/6XJzeVCSFcogFErHwFKTwb1Llph6nBSg80vbQY6Iyc
-	Li582Yihf+OcUip+4HNjvsv7pa93BAoPvfT2SKXBRxr4Crfz1jxF0OtbpI+auITMhJATVU
-	xLGTe4uEDX6PUQzwRT9JLVkgGUpRtwBBRvKwnBdZHFzZZiLm4KHfuf/SwIi5VaCTPv1C15
-	3ReU7xEfaYtlgQcbmz28AvX9mBsvKaEZtRIaHGTo28UDEsJCvPafXQ/0iSEI7g==
+	bh=IgeFtzPJBwvvnb/uQ0mJxfH+yFO6HcqUK0tAUzlalzA=;
+	b=NewSVYycFQvVzX8/mASyx6NkbjVIh0ZxqrDJGmcPYDMljZB8UUQh1Q/6mtp8NXDNPvRNEz
+	KIWAPrHNjEN1hyofbuzLsQVeB+6x2ZwmhZeyOS8rly+7AeIGwYpde1g327zBbmwGmMmmEz
+	c3iH+GYnsw8s7e3fQHTDAvXudYPQA3MjVQO8xG6jGPYYX/6kzsMTPycEOed5zOy/LJBeB2
+	hoF2hE0/ESCvyIY5JDPeQZ4w7lfC8w5t0HapBGnIOwjKyI0ruoKs7BsT4xmhihBbfSHzsB
+	6jLi4DhURSZBiuzJWJWRVlul9i3OXL2IqlmxmRxg+IRIL1B/6k/h1EnQhkeWRg==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -77,9 +77,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Daniel Golle <daniel@makrotopia.org>,
 	Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
 	Tariq Toukan <tariqt@nvidia.com>
-Subject: [PATCH net-next v21 08/14] net: phy: marvell-88x2222: Support SFP through phy_port interface
-Date: Sat, 29 Nov 2025 09:22:20 +0100
-Message-ID: <20251129082228.454678-9-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v21 09/14] net: phy: marvell: Support SFP through phy_port interface
+Date: Sat, 29 Nov 2025 09:22:21 +0100
+Message-ID: <20251129082228.454678-10-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20251129082228.454678-1-maxime.chevallier@bootlin.com>
 References: <20251129082228.454678-1-maxime.chevallier@bootlin.com>
@@ -87,8 +87,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251129_002310_782697_E8105CAC 
-X-CRM114-Status: GOOD (  15.94  )
+X-CRM114-CacheID: sfid-20251129_002314_971644_6C57B17D 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,173 +103,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 88x2222 PHY from Marvell only supports serialised modes as its
-line-facing interfaces. Convert that driver to the generic phylib SFP
-handling.
+Convert the Marvell driver (especially the 88e1512 driver) to use the
+phy_port interface to handle SFPs. This means registering a
+.attach_port() handler to detect when a serdes line interface is used
+(most likely, and SFP module).
 
 Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Tested-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- drivers/net/phy/marvell-88x2222.c | 94 +++++++++++++------------------
- 1 file changed, 38 insertions(+), 56 deletions(-)
+ drivers/net/phy/marvell.c | 92 ++++++++++++++-------------------------
+ 1 file changed, 32 insertions(+), 60 deletions(-)
 
-diff --git a/drivers/net/phy/marvell-88x2222.c b/drivers/net/phy/marvell-88x2222.c
-index 894bcee61e65..ba1bbb6c63d6 100644
---- a/drivers/net/phy/marvell-88x2222.c
-+++ b/drivers/net/phy/marvell-88x2222.c
-@@ -13,7 +13,7 @@
- #include <linux/mdio.h>
+diff --git a/drivers/net/phy/marvell.c b/drivers/net/phy/marvell.c
+index c248c90510ae..7a578b5aa2ed 100644
+--- a/drivers/net/phy/marvell.c
++++ b/drivers/net/phy/marvell.c
+@@ -29,10 +29,10 @@
+ #include <linux/ethtool.h>
+ #include <linux/ethtool_netlink.h>
+ #include <linux/phy.h>
++#include <linux/phy_port.h>
  #include <linux/marvell_phy.h>
+ #include <linux/bitfield.h>
  #include <linux/of.h>
 -#include <linux/sfp.h>
-+#include <linux/phy_port.h>
- #include <linux/netdevice.h>
  
- /* Port PCS Configuration */
-@@ -473,89 +473,70 @@ static int mv2222_config_init(struct phy_device *phydev)
- 	return 0;
+ #include <linux/io.h>
+ #include <asm/irq.h>
+@@ -3598,11 +3598,10 @@ static int marvell_probe(struct phy_device *phydev)
+ 	return marvell_hwmon_probe(phydev);
  }
  
--static int mv2222_sfp_insert(void *upstream, const struct sfp_eeprom_id *id)
-+static int mv2222_configure_serdes(struct phy_port *port, bool enable,
-+				   phy_interface_t interface)
+-static int m88e1510_sfp_insert(void *upstream, const struct sfp_eeprom_id *id)
++static int m88e1510_port_configure_serdes(struct phy_port *port, bool enable,
++					  phy_interface_t interface)
  {
 -	struct phy_device *phydev = upstream;
 -	const struct sfp_module_caps *caps;
--	phy_interface_t sfp_interface;
+-	phy_interface_t interface;
 +	struct phy_device *phydev = port_phydev(port);
- 	struct mv2222_data *priv;
--	struct device *dev;
--	int ret;
-+	int ret = 0;
+ 	struct device *dev;
+ 	int oldpage;
+ 	int ret = 0;
+@@ -3610,28 +3609,27 @@ static int m88e1510_sfp_insert(void *upstream, const struct sfp_eeprom_id *id)
  
- 	priv = phydev->priv;
--	dev = &phydev->mdio.dev;
--
+ 	dev = &phydev->mdio.dev;
+ 
 -	caps = sfp_get_module_caps(phydev->sfp_bus);
--
--	phydev->port = caps->port;
--	sfp_interface = sfp_select_interface(phydev->sfp_bus, caps->link_modes);
--
--	dev_info(dev, "%s SFP module inserted\n", phy_modes(sfp_interface));
-+	priv->line_interface = interface;
- 
--	if (sfp_interface != PHY_INTERFACE_MODE_10GBASER &&
--	    sfp_interface != PHY_INTERFACE_MODE_1000BASEX &&
--	    sfp_interface != PHY_INTERFACE_MODE_SGMII) {
--		dev_err(dev, "Incompatible SFP module inserted\n");
+-	interface = sfp_select_interface(phydev->sfp_bus, caps->link_modes);
 +	if (enable) {
-+		linkmode_and(priv->supported, phydev->supported, port->supported);
++		switch (interface) {
++		case PHY_INTERFACE_MODE_1000BASEX:
++			mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII_1000X;
  
--		return -EINVAL;
--	}
+-	dev_info(dev, "%s SFP module inserted\n", phy_modes(interface));
++			break;
++		case PHY_INTERFACE_MODE_100BASEX:
++			mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII_100FX;
+ 
+-	switch (interface) {
+-	case PHY_INTERFACE_MODE_1000BASEX:
+-		mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII_1000X;
++			break;
++		case PHY_INTERFACE_MODE_SGMII:
++			mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII_SGMII;
+ 
+-		break;
+-	case PHY_INTERFACE_MODE_100BASEX:
+-		mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII_100FX;
 -
--	priv->line_interface = sfp_interface;
--	linkmode_and(priv->supported, phydev->supported, caps->link_modes);
-+		ret = mv2222_config_line(phydev);
-+		if (ret < 0)
-+			return ret;
+-		break;
+-	case PHY_INTERFACE_MODE_SGMII:
+-		mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII_SGMII;
++			break;
++		default:
++			dev_err(dev, "Incompatible SFP module inserted\n");
  
--	ret = mv2222_config_line(phydev);
--	if (ret < 0)
--		return ret;
-+		if (mutex_trylock(&phydev->lock)) {
-+			ret = mv2222_config_aneg(phydev);
-+			mutex_unlock(&phydev->lock);
+-		break;
+-	default:
+-		dev_err(dev, "Incompatible SFP module inserted\n");
+-
+-		return -EINVAL;
++			return -EINVAL;
 +		}
- 
--	if (mutex_trylock(&phydev->lock)) {
--		ret = mv2222_config_aneg(phydev);
--		mutex_unlock(&phydev->lock);
 +	} else {
-+		linkmode_zero(priv->supported);
++		mode = MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII;
  	}
  
- 	return ret;
+ 	oldpage = phy_select_page(phydev, MII_MARVELL_MODE_PAGE);
+@@ -3650,47 +3648,20 @@ static int m88e1510_sfp_insert(void *upstream, const struct sfp_eeprom_id *id)
+ 	return phy_restore_page(phydev, oldpage, ret);
  }
  
--static void mv2222_sfp_remove(void *upstream)
-+static void mv2222_port_link_up(struct phy_port *port)
- {
--	struct phy_device *phydev = upstream;
--	struct mv2222_data *priv;
--
--	priv = phydev->priv;
--
--	priv->line_interface = PHY_INTERFACE_MODE_NA;
--	linkmode_zero(priv->supported);
--	phydev->port = PORT_NONE;
--}
--
--static void mv2222_sfp_link_up(void *upstream)
+-static void m88e1510_sfp_remove(void *upstream)
 -{
 -	struct phy_device *phydev = upstream;
-+	struct phy_device *phydev = port_phydev(port);
- 	struct mv2222_data *priv;
- 
- 	priv = phydev->priv;
- 	priv->sfp_link = true;
- }
- 
--static void mv2222_sfp_link_down(void *upstream)
-+static void mv2222_port_link_down(struct phy_port *port)
- {
--	struct phy_device *phydev = upstream;
-+	struct phy_device *phydev = port_phydev(port);
- 	struct mv2222_data *priv;
- 
- 	priv = phydev->priv;
- 	priv->sfp_link = false;
- }
- 
--static const struct sfp_upstream_ops sfp_phy_ops = {
--	.module_insert = mv2222_sfp_insert,
--	.module_remove = mv2222_sfp_remove,
--	.link_up = mv2222_sfp_link_up,
--	.link_down = mv2222_sfp_link_down,
+-	int oldpage;
+-	int ret = 0;
+-
+-	oldpage = phy_select_page(phydev, MII_MARVELL_MODE_PAGE);
+-	if (oldpage < 0)
+-		goto error;
+-
+-	ret = __phy_modify(phydev, MII_88E1510_GEN_CTRL_REG_1,
+-			   MII_88E1510_GEN_CTRL_REG_1_MODE_MASK,
+-			   MII_88E1510_GEN_CTRL_REG_1_MODE_RGMII);
+-	if (ret < 0)
+-		goto error;
+-
+-	ret = __phy_set_bits(phydev, MII_88E1510_GEN_CTRL_REG_1,
+-			     MII_88E1510_GEN_CTRL_REG_1_RESET);
+-
+-error:
+-	phy_restore_page(phydev, oldpage, ret);
+-}
+-
+-static const struct sfp_upstream_ops m88e1510_sfp_ops = {
+-	.module_insert = m88e1510_sfp_insert,
+-	.module_remove = m88e1510_sfp_remove,
 -	.attach = phy_sfp_attach,
 -	.detach = phy_sfp_detach,
 -	.connect_phy = phy_sfp_connect_phy,
 -	.disconnect_phy = phy_sfp_disconnect_phy,
-+static const struct phy_port_ops mv2222_port_ops = {
-+	.link_up = mv2222_port_link_up,
-+	.link_down = mv2222_port_link_down,
-+	.configure_mii = mv2222_configure_serdes,
++static const struct phy_port_ops m88e1510_serdes_port_ops = {
++	.configure_mii = m88e1510_port_configure_serdes,
  };
  
-+static int mv2222_attach_mii_port(struct phy_device *phydev, struct phy_port *port)
-+{
-+	port->ops = &mv2222_port_ops;
-+
-+	__set_bit(PHY_INTERFACE_MODE_10GBASER, port->interfaces);
-+	__set_bit(PHY_INTERFACE_MODE_1000BASEX, port->interfaces);
-+	__set_bit(PHY_INTERFACE_MODE_SGMII, port->interfaces);
-+
-+	return 0;
-+}
-+
- static int mv2222_probe(struct phy_device *phydev)
+-static int m88e1510_probe(struct phy_device *phydev)
++static int m88e1510_attach_mii_port(struct phy_device *phy_device,
++				    struct phy_port *port)
  {
- 	struct device *dev = &phydev->mdio.dev;
-@@ -591,7 +572,7 @@ static int mv2222_probe(struct phy_device *phydev)
- 	priv->line_interface = PHY_INTERFACE_MODE_NA;
- 	phydev->priv = priv;
+-	int err;
++	port->ops = &m88e1510_serdes_port_ops;
  
--	return phy_sfp_probe(phydev, &sfp_phy_ops);
+-	err = marvell_probe(phydev);
+-	if (err)
+-		return err;
++	__set_bit(PHY_INTERFACE_MODE_SGMII, port->interfaces);
++	__set_bit(PHY_INTERFACE_MODE_1000BASEX, port->interfaces);
++	__set_bit(PHY_INTERFACE_MODE_100BASEX, port->interfaces);
+ 
+-	return phy_sfp_probe(phydev, &m88e1510_sfp_ops);
 +	return 0;
  }
  
- static struct phy_driver mv2222_drivers[] = {
-@@ -608,6 +589,7 @@ static struct phy_driver mv2222_drivers[] = {
- 		.suspend = mv2222_suspend,
- 		.resume = mv2222_resume,
- 		.read_status = mv2222_read_status,
-+		.attach_mii_port = mv2222_attach_mii_port,
+ static struct phy_driver marvell_drivers[] = {
+@@ -3950,7 +3921,7 @@ static struct phy_driver marvell_drivers[] = {
+ 		.driver_data = DEF_MARVELL_HWMON_OPS(m88e1510_hwmon_ops),
+ 		.features = PHY_GBIT_FIBRE_FEATURES,
+ 		.flags = PHY_POLL_CABLE_TEST,
+-		.probe = m88e1510_probe,
++		.probe = marvell_probe,
+ 		.config_init = m88e1510_config_init,
+ 		.config_aneg = m88e1510_config_aneg,
+ 		.read_status = marvell_read_status,
+@@ -3976,6 +3947,7 @@ static struct phy_driver marvell_drivers[] = {
+ 		.led_hw_is_supported = m88e1318_led_hw_is_supported,
+ 		.led_hw_control_set = m88e1318_led_hw_control_set,
+ 		.led_hw_control_get = m88e1318_led_hw_control_get,
++		.attach_mii_port = m88e1510_attach_mii_port,
  	},
- };
- module_phy_driver(mv2222_drivers);
+ 	{
+ 		.phy_id = MARVELL_PHY_ID_88E1540,
 -- 
 2.49.0
 
