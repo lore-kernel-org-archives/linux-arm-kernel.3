@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D193D116E2
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 28 Nov 2025 23:26:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 266B5D116E2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 00:49:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Tarxce2czO36dSQczRyFT1ZuZIL6u/nV46zbuqDgD08=; b=geYmCuHqbqCntgCaYCv6m67Jyq
-	qog9fSWf+xk3f//oY+Juk0yVquQnnpOoMZT5Grn9eDzBFufLrFwnGrLnGD9bL3QADAVZOTFqbj4b5
-	/eyQNmbjYznugbeo3o/jTyeiE+zbZvCf5BLpeNx8ZiUjQseeIa1CpslDTl8mCVBsmXRQXtKsnU3h7
-	ZFlMMywgklh3ZL0S+4DmIE+8TKUi6YdM6P+e2W6wHUeb0O0ONuCEFljIODGo8j178j89wDOqvpIWp
-	mjJYEDPIyLDjWv/+UlRo2/DrTd+x1NMrAomR+B631sKj8bjcmzlBOMgcBrXqHq5GEXmDlioIV5fab
-	eKlW1KSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9eNZQQZbqRBeDJBMnjy4fDIculr+RS+/XQy2lmKyBaM=; b=nEmXiUqqE3TD9UHF+QdQImaWFj
+	MOZvySWLwJZEm1uePSrl551gM4ykvsAZVDnuo7pDQ7YOS+PY5GRkRf3akIGIMsawQDVHIzse4tOcu
+	HDsadNP8rzidvyaSkUHczKcLPKS1v0jvTxDYTHMuUJu7MwiORDPIRkq1PNidgDe8eEg1h0l//FmPl
+	Vl+Fq5C2OPSG0vBCU/TY9NP8LIzY39JvSsqBTtaig0D/vQfweNTuKcWVIXGByTPQjJuHEaGndf10e
+	LnK/PFAJROkJgAPbiDFeCnfur7zeEjdf1MeF92cYE4FjVYB0hyixvjNd0aEzHbG8xScY6ir+rqUSE
+	rlgIKl9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP7rT-0000000133j-3Uk7;
-	Fri, 28 Nov 2025 23:26:47 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1vP993-000000016EN-0MKX;
+	Sat, 29 Nov 2025 00:49:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP7rQ-0000000133N-2gLb
+	id 1vP992-000000016EC-1lUQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 28 Nov 2025 23:26:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1764372405; x=1795908405;
-  h=date:from:to:cc:subject:message-id;
-  bh=7CXyyMQ3qGcFRoyNK8zwITFOymM3/wFowNk66OiKuos=;
-  b=fuxR7V+G2s0tNsovcm3Pyovz0r+tlbn7y5zHXAVxlKOnjwK54zHJT91M
-   hQaAu9va8xCXVQavQ71ehtykGkBxDHPiT4fJ6CfM7C6wgmWt0TAr+VSUk
-   L8udoC+kNCQbwmDEyE39bhiL3gmxzN31aS8ER/eBLPlYE9U3kKsvFONbR
-   /TAHiA4sfNJUrzLJZ4/nIpZJyWukc7dPHYhD3bFf+UrWl1w+sGgdNpExR
-   sR5RV3y6A1l9M/ZfE4L/kUEo8iv+CjnCbqZ5hiPszILNsMqz0T9Bn0tMI
-   iivDko8sTZvWEsU2oh3egbf/Bi21f4gS8FG2FsvaCi2iYiKX9wsPAuyb9
-   w==;
-X-CSE-ConnectionGUID: yCd8cCOfQ1GNOpCQ2mHXcQ==
-X-CSE-MsgGUID: +a+4h3KVTBuWJzb1wGMuKQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11627"; a="66296290"
-X-IronPort-AV: E=Sophos;i="6.20,235,1758610800"; 
-   d="scan'208";a="66296290"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2025 15:26:43 -0800
-X-CSE-ConnectionGUID: EuGpm6XJT+mVaVJGR3iQWg==
-X-CSE-MsgGUID: prQ7Q12uQ9G2okHcs5EtDg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,235,1758610800"; 
-   d="scan'208";a="197740733"
-Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
-  by orviesa003.jf.intel.com with ESMTP; 28 Nov 2025 15:26:41 -0800
-Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vP7rK-000000006of-1Vt0;
-	Fri, 28 Nov 2025 23:26:38 +0000
-Date: Sat, 29 Nov 2025 07:25:45 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:for-next] BUILD SUCCESS
- e5b2299997d3760840111ff2e6c5df9f2224f253
-Message-ID: <202511290740.WdzYrClN-lkp@intel.com>
-User-Agent: s-nail v14.9.25
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_152644_690504_1AAC7F9E 
-X-CRM114-Status: UNSURE (   5.54  )
-X-CRM114-Notice: Please train this message.
+	Sat, 29 Nov 2025 00:49:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 447F160198;
+	Sat, 29 Nov 2025 00:48:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C9BFC4CEF1;
+	Sat, 29 Nov 2025 00:48:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764377338;
+	bh=nEUcoR9iWdz6yB51JHK9UPbmFj+a6cm+4UL+mbMBL+k=;
+	h=From:Date:Subject:To:Cc:From;
+	b=bvgjXRuOqTFYd/uQqWWs6mMAbpWjCkRzy0di1Un3k3130x665YYKYh25718NHgrzv
+	 iBOYrzYGScZK0yhhlbEEhzhtZKX+u96PkJA3F/nWQDRgCWaD6PpxJFcQIUB0fw/hma
+	 2kLbb8tc1fW4KTh5Wt/TUkrwS8wN8heawYLBIGg+0wDT4m+FQNi5ncd2mHRCKv4qtR
+	 ReGvkRHunY6nzwgCKPp7rvwX+9g8Z9bAmrnUwmbzrXXNzv8KLrk+uRrt4jxaJvhFSG
+	 oGPVFdb/+uu1M+sgVJJKbD9h4XWLBYZL3+xwkLjWJCTtjhpRkIqZp/r7D/wJgDA52h
+	 7J5JKeDn3uFqw==
+From: Mark Brown <broonie@kernel.org>
+Date: Sat, 29 Nov 2025 00:48:45 +0000
+Subject: [PATCH] arm64/gcs: Flush the GCS locking state on exec
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251129-arm64-gcs-flush-lock-v1-1-902b3ba6f39d@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAO1CKmkC/x3MTQqEMAxA4atI1gZspop6FXHRqakGf2lQBsS7T
+ 3H5Ld67QTkKK7TZDZEvUdm3BJNn4Ce3jYwyJAMVVBpDNbq4VhZHrxiWUydcdj+jqT7svo0nChZ
+ SekQO8nu3Xf88f8bIUBRmAAAA
+X-Change-ID: 20251128-arm64-gcs-flush-lock-163eab9c22f4
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, 
+ Thiago Jung Bauermann <thiago.bauermann@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Yury Khrustalev <Yury.Khrustalev@arm.com>, Mark Brown <broonie@kernel.org>
+X-Mailer: b4 0.15-dev-88d78
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1149; i=broonie@kernel.org;
+ h=from:subject:message-id; bh=nEUcoR9iWdz6yB51JHK9UPbmFj+a6cm+4UL+mbMBL+k=;
+ b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpKkL4DIiz6bVybHOUsOHJg9zsT0j7sck6+H+O4
+ fnymV7fmF6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaSpC+AAKCRAk1otyXVSH
+ 0Au6CACA/pa8ugnkCwCHSsKjDC8M5nK8giyylPWOuZLc/23z1cDZhmnJ3rIl+6B0C0o5+GpDqT4
+ pvL7cQm6AVE1seRok97UUXWpT4SVqZO9zeyl0Noj/zBdO5ZFw6z8nAeqjppL7PABGUTuhotL5lE
+ JwI2pUUfvAJd3OvIW7MOohrtW7UUzacnTr9RtY1UlVDKSFRbcDrs3btfPi78NVUgdn17hAwTEAW
+ Fv/j6pqe3XjAILojfzHT6/+WYruKbz3z+kyOb1RQ2Hr052ktvxAihaQzi77lWXt4lVZ7YT2Lzzm
+ ofJfe3Kj/h4MW3Z2cyS54KGowfEolYwc4PZKR4Su2iSxzMAU
+X-Developer-Key: i=broonie@kernel.org; a=openpgp;
+ fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,178 +84,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
-branch HEAD: e5b2299997d3760840111ff2e6c5df9f2224f253  soc: document merges
+When we exec a new task we forget to flush the set of locked GCS mode bits.
+Since we do flush the rest of the state this means that if GCS is locked
+the new task will be unable to enable GCS, it will be locked as being
+disabled. Add the expected flush.
 
-elapsed time: 1461m
+Fixes: fc84bc5378a8 ("arm64/gcs: Context switch GCS state for EL0")
+Reported-by: Yury Khrustalev <Yury.Khrustalev@arm.com>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+---
+ arch/arm64/kernel/process.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-configs tested: 158
-configs skipped: 0
+diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+index fba7ca102a8c..489554931231 100644
+--- a/arch/arm64/kernel/process.c
++++ b/arch/arm64/kernel/process.c
+@@ -292,6 +292,7 @@ static void flush_gcs(void)
+ 	current->thread.gcs_base = 0;
+ 	current->thread.gcs_size = 0;
+ 	current->thread.gcs_el0_mode = 0;
++	current->thread.gcs_el0_locked = 0;
+ 	write_sysreg_s(GCSCRE0_EL1_nTR, SYS_GCSCRE0_EL1);
+ 	write_sysreg_s(0, SYS_GCSPR_EL0);
+ }
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+---
+base-commit: ac3fd01e4c1efce8f2c054cdeb2ddd2fc0fb150d
+change-id: 20251128-arm64-gcs-flush-lock-163eab9c22f4
 
-tested configs:
-alpha                             allnoconfig    gcc-15.1.0
-alpha                               defconfig    gcc-15.1.0
-arc                               allnoconfig    gcc-15.1.0
-arc                                 defconfig    gcc-15.1.0
-arc                   randconfig-001-20251128    gcc-8.5.0
-arc                   randconfig-002-20251128    gcc-15.1.0
-arc                   randconfig-002-20251128    gcc-8.5.0
-arm                               allnoconfig    clang-22
-arm                               allnoconfig    gcc-15.1.0
-arm                                 defconfig    gcc-15.1.0
-arm                        mvebu_v5_defconfig    gcc-15.1.0
-arm                   randconfig-001-20251128    gcc-14.3.0
-arm                   randconfig-001-20251128    gcc-8.5.0
-arm                   randconfig-002-20251128    gcc-8.5.0
-arm                   randconfig-003-20251128    clang-22
-arm                   randconfig-003-20251128    gcc-8.5.0
-arm                   randconfig-004-20251128    clang-17
-arm                   randconfig-004-20251128    gcc-8.5.0
-arm64                             allnoconfig    gcc-15.1.0
-arm64                               defconfig    gcc-15.1.0
-arm64                 randconfig-001-20251128    gcc-15.1.0
-arm64                 randconfig-002-20251128    gcc-15.1.0
-arm64                 randconfig-003-20251128    gcc-15.1.0
-arm64                 randconfig-004-20251128    gcc-15.1.0
-csky                              allnoconfig    gcc-15.1.0
-csky                                defconfig    gcc-15.1.0
-csky                  randconfig-001-20251128    gcc-15.1.0
-csky                  randconfig-002-20251128    gcc-15.1.0
-hexagon                           allnoconfig    clang-22
-hexagon                           allnoconfig    gcc-15.1.0
-hexagon                             defconfig    gcc-15.1.0
-hexagon               randconfig-001-20251128    clang-22
-hexagon               randconfig-002-20251128    clang-22
-i386                              allnoconfig    gcc-14
-i386                              allnoconfig    gcc-15.1.0
-i386        buildonly-randconfig-001-20251128    gcc-13
-i386        buildonly-randconfig-002-20251128    gcc-13
-i386        buildonly-randconfig-003-20251128    gcc-13
-i386        buildonly-randconfig-004-20251128    gcc-13
-i386        buildonly-randconfig-005-20251128    gcc-13
-i386        buildonly-randconfig-006-20251128    gcc-13
-i386                                defconfig    gcc-15.1.0
-i386                  randconfig-001-20251128    gcc-14
-i386                  randconfig-002-20251128    gcc-14
-i386                  randconfig-003-20251128    gcc-14
-i386                  randconfig-004-20251128    gcc-14
-i386                  randconfig-005-20251128    gcc-14
-i386                  randconfig-006-20251128    gcc-14
-i386                  randconfig-007-20251128    gcc-14
-i386                  randconfig-011-20251128    gcc-14
-i386                  randconfig-012-20251128    gcc-14
-i386                  randconfig-013-20251128    gcc-14
-i386                  randconfig-014-20251128    gcc-14
-i386                  randconfig-015-20251128    gcc-14
-i386                  randconfig-016-20251128    gcc-14
-i386                  randconfig-017-20251128    gcc-14
-loongarch                         allnoconfig    clang-22
-loongarch                         allnoconfig    gcc-15.1.0
-loongarch                           defconfig    clang-19
-loongarch             randconfig-001-20251128    clang-22
-loongarch             randconfig-002-20251128    clang-22
-m68k                              allnoconfig    gcc-15.1.0
-m68k                                defconfig    clang-19
-microblaze                        allnoconfig    gcc-15.1.0
-microblaze                          defconfig    clang-19
-mips                              allnoconfig    gcc-15.1.0
-mips                        bcm47xx_defconfig    gcc-15.1.0
-mips                        omega2p_defconfig    gcc-15.1.0
-nios2                             allnoconfig    clang-22
-nios2                             allnoconfig    gcc-11.5.0
-nios2                               defconfig    clang-19
-nios2                 randconfig-001-20251128    clang-22
-nios2                 randconfig-002-20251128    clang-22
-openrisc                          allnoconfig    clang-22
-openrisc                          allnoconfig    gcc-15.1.0
-openrisc                            defconfig    gcc-15.1.0
-parisc                            allnoconfig    clang-22
-parisc                            allnoconfig    gcc-15.1.0
-parisc                              defconfig    gcc-15.1.0
-parisc                randconfig-001-20251128    clang-22
-parisc                randconfig-002-20251128    clang-22
-parisc64                            defconfig    clang-19
-powerpc                           allnoconfig    clang-22
-powerpc                           allnoconfig    gcc-15.1.0
-powerpc                       ppc64_defconfig    gcc-15.1.0
-powerpc               randconfig-001-20251128    clang-22
-powerpc               randconfig-002-20251128    clang-22
-powerpc                     tqm8540_defconfig    gcc-15.1.0
-powerpc64             randconfig-001-20251128    clang-22
-powerpc64             randconfig-002-20251128    clang-22
-riscv                             allnoconfig    clang-22
-riscv                             allnoconfig    gcc-15.1.0
-riscv                               defconfig    gcc-15.1.0
-riscv                 randconfig-001-20251128    gcc-15.1.0
-riscv                 randconfig-002-20251128    gcc-15.1.0
-s390                              allnoconfig    clang-22
-s390                                defconfig    gcc-15.1.0
-s390                  randconfig-001-20251128    gcc-15.1.0
-s390                  randconfig-002-20251128    gcc-15.1.0
-sh                                allnoconfig    clang-22
-sh                                allnoconfig    gcc-15.1.0
-sh                                  defconfig    gcc-14
-sh                    randconfig-001-20251128    gcc-15.1.0
-sh                    randconfig-002-20251128    gcc-15.1.0
-sh                          rsk7201_defconfig    gcc-15.1.0
-sh                           se7724_defconfig    gcc-15.1.0
-sparc                             allnoconfig    clang-22
-sparc                             allnoconfig    gcc-15.1.0
-sparc                               defconfig    gcc-15.1.0
-sparc                 randconfig-001-20251128    clang-22
-sparc                 randconfig-002-20251128    clang-22
-sparc64                             defconfig    gcc-14
-sparc64               randconfig-001-20251128    clang-22
-sparc64               randconfig-002-20251128    clang-22
-um                                allnoconfig    clang-22
-um                                  defconfig    gcc-14
-um                             i386_defconfig    gcc-14
-um                    randconfig-001-20251128    clang-22
-um                    randconfig-002-20251128    clang-22
-um                           x86_64_defconfig    gcc-14
-x86_64                            allnoconfig    clang-20
-x86_64                            allnoconfig    clang-22
-x86_64      buildonly-randconfig-001-20251128    clang-20
-x86_64      buildonly-randconfig-002-20251128    clang-20
-x86_64      buildonly-randconfig-003-20251128    clang-20
-x86_64      buildonly-randconfig-004-20251128    clang-20
-x86_64      buildonly-randconfig-005-20251128    clang-20
-x86_64      buildonly-randconfig-006-20251128    clang-20
-x86_64                              defconfig    gcc-14
-x86_64                                  kexec    clang-20
-x86_64                randconfig-001-20251128    gcc-14
-x86_64                randconfig-002-20251128    gcc-14
-x86_64                randconfig-003-20251128    gcc-14
-x86_64                randconfig-004-20251128    gcc-14
-x86_64                randconfig-005-20251128    gcc-14
-x86_64                randconfig-006-20251128    gcc-14
-x86_64                randconfig-011-20251128    gcc-13
-x86_64                randconfig-012-20251128    gcc-13
-x86_64                randconfig-013-20251128    gcc-13
-x86_64                randconfig-014-20251128    gcc-13
-x86_64                randconfig-015-20251128    gcc-13
-x86_64                randconfig-016-20251128    gcc-13
-x86_64                randconfig-071-20251128    gcc-14
-x86_64                randconfig-072-20251128    gcc-14
-x86_64                randconfig-073-20251128    gcc-14
-x86_64                randconfig-074-20251128    gcc-14
-x86_64                randconfig-075-20251128    gcc-14
-x86_64                randconfig-076-20251128    gcc-14
-x86_64                               rhel-9.4    clang-20
-x86_64                           rhel-9.4-bpf    gcc-14
-x86_64                          rhel-9.4-func    clang-20
-x86_64                    rhel-9.4-kselftests    clang-20
-x86_64                         rhel-9.4-kunit    gcc-14
-x86_64                           rhel-9.4-ltp    gcc-14
-xtensa                            allnoconfig    clang-22
-xtensa                            allnoconfig    gcc-15.1.0
-xtensa                randconfig-001-20251128    clang-22
-xtensa                randconfig-002-20251128    clang-22
+Best regards,
+--  
+Mark Brown <broonie@kernel.org>
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
