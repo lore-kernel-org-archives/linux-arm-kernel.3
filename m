@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C88CD116EA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 02:34:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA2A0D116EA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 02:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6xJNkDPeFZ3mqQ8f1vIw6iwLF+t+AtPw3ITe29YVPNE=; b=HGjWi3rYdrb9bF9ry1GFl9jl8V
-	OjJH+6e4/XqptPJZEzBs14Z1Vfyby9L48GRifH7PricPaksMOks/EITnmXmpZOHGjs87/HmtfCgWr
-	xDYOtYHvcb7dJolwBV6diAfEVl/qbs73WrJDT0gsxie3YQ0F16HUgYOHx8vDTw070Z9FOSFcQ4Y3e
-	GtqNrEkGVmqGHsuB0xVyXIC08aYFcPzi9oi7N67ohpMVFPYaIjJyfUvfSbZajFdQg1SJLLh87+avV
-	Ir2iPrZgoTDcpAhESc5IPxLdalghzBq9UxrTY9rLRhGgMg8LfeeK7NB9xA/qrunSBXNDMUsj+lV3U
-	HXrEu96w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Cp/JYRXzpQUfHKnygAW6FMFtqKdikeBl6XCAbZoIbrs=; b=FYolCnwWDTZVdjHCylbklUpqZD
+	Idjrqgqpbq5ytJR/qUYuuCmM3dQDvsi5+gUCBgzYZb+OX0RxNmTS4V+KIbX4Wn7IVVKE4Uw7I5SJs
+	Nk84ru2T9DLxzYfWZxsIL9R6E9PE+SivCZmVeEGpRx6FbA0UHkrl6jMGtPiFvEp+fXnLSLslL1qZi
+	MvmceC93dxE9/KnP8XHGne3ZktqvnkJ/anJbboyyiz2Tlch5GgfeC1uXvrUjdDG9j5SBoP8FRDvcY
+	kc96xPiIBWWV6/3UTKaGBoHwRMCuZrCkWqoiijIixx4LHYyEuvhdhsZo0W1YsufQLxSjHsWVn3RFU
+	LLD/0/RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPAnG-00000001Bdn-0uZB;
-	Sat, 29 Nov 2025 02:34:38 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1vPArx-00000001Bwv-0Z0l;
+	Sat, 29 Nov 2025 02:39:29 +0000
+Received: from mailgate01.uberspace.is ([95.143.172.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPAnD-00000001Bd0-3Jn1
+	id 1vPArt-00000001Bvp-3Udj
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Nov 2025 02:34:37 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=6xJNkDPeFZ3mqQ8f1vIw6iwLF+t+AtPw3ITe29YVPNE=;
-	b=PWKrg9CIIKX20SkXni2m0WgDvyVF7rPTKkM8q3Ou9evSEb47iF2go4uoiLhBwVVwEUmGd+R3o
-	sAmidTA+oP96b6qoyCWa2bWw1iJaN9or7npTp+ATi/v2O5Oxn4KZsWal7NWsybJOWATLZia+yNY
-	f5pn9OY24M3ZZ1JMdsvYTaw=
-Received: from mail.maildlp.com (unknown [172.19.88.163])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4dJDj11ptjz1cyQk;
-	Sat, 29 Nov 2025 10:32:37 +0800 (CST)
-Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2E5421800B2;
-	Sat, 29 Nov 2025 10:34:27 +0800 (CST)
-Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
- kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Sat, 29 Nov 2025 10:34:26 +0800
-From: Xie Yuanbin <xieyuanbin1@huawei.com>
-To: <bigeasy@linutronix.de>
-CC: <akpm@linux-foundation.org>, <arnd@arndb.de>, <brauner@kernel.org>,
-	<david.laight@runbox.com>, <hch@lst.de>, <jack@suse.com>,
-	<kuninori.morimoto.gx@renesas.com>, <liaohua4@huawei.com>,
-	<lilinjie8@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-fsdevel@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-mm@kvack.org>, <linux@armlinux.org.uk>, <lorenzo.stoakes@oracle.com>,
-	<marc.zyngier@arm.com>, <nico@fluxnic.net>, <pangliyuan1@huawei.com>,
-	<pfalcato@suse.de>, <punitagrawal@gmail.com>, <rjw@rjwysocki.net>,
-	<rmk+kernel@armlinux.org.uk>, <rppt@kernel.org>, <tony@atomide.com>,
-	<vbabka@suse.cz>, <viro@zeniv.linux.org.uk>, <wangkefeng.wang@huawei.com>,
-	<will@kernel.org>, <wozizhi@huaweicloud.com>, <xieyuanbin1@huawei.com>
-Subject: Re: [RFC PATCH v2 1/2] ARM/mm/fault: always goto bad_area when handling with page faults of kernel address
-Date: Sat, 29 Nov 2025 10:33:23 +0800
-Message-ID: <20251129023323.11612-1-xieyuanbin1@huawei.com>
+	Sat, 29 Nov 2025 02:39:27 +0000
+Received: from perseus.uberspace.de (perseus.uberspace.de [95.143.172.134])
+	by mailgate01.uberspace.is (Postfix) with ESMTPS id E31EC60B9F
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Nov 2025 03:39:14 +0100 (CET)
+Received: (qmail 7459 invoked by uid 988); 29 Nov 2025 02:39:14 -0000
+Authentication-Results: perseus.uberspace.de;
+	auth=pass (plain)
+Received: from unknown (HELO unkown) (::1)
+	by perseus.uberspace.de (Haraka/3.0.1) with ESMTPSA; Sat, 29 Nov 2025 03:39:13 +0100
+From: David Bauer <mail@david-bauer.net>
+To: Felix Fietkau <nbd@nbd.name>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ryder Lee <ryder.lee@mediatek.com>,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	Sean Wang <sean.wang@mediatek.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH mt76] wifi: mt76: mt76x02: wake queues after reconfig
+Date: Sat, 29 Nov 2025 03:39:02 +0100
+Message-ID: <20251129023904.288484-1-mail@david-bauer.net>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251128120359.Xc09qn1W@linutronix.de>
-References: <20251128120359.Xc09qn1W@linutronix.de>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.109.17]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemj100009.china.huawei.com (7.202.194.3)
+X-Rspamd-Bar: /
+X-Rspamd-Report: SUSPICIOUS_RECIPS(1.5) BAYES_HAM(-2.999999) MID_CONTAINS_FROM(1) MIME_GOOD(-0.1) R_MISSING_CHARSET(0.5)
+X-Rspamd-Score: -0.099999
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+	d=david-bauer.net; s=uberspace;
+	h=from:to:cc:subject:date;
+	bh=r+TbYhbumj1LE8b1/7eJFLcgqdgfk2pwXQgbmKsupuw=;
+	b=ZyuQ4RBJKyUA52XzcpBJ26EPkdMekw9p6Bem8sCEckOnqLoU5lOpVspUv5jatMkVYaLf2nfCzd
+	rfPgNtHA3ihFfsc+fRXrieV+Co2ZgOJ9ahaP369qXv5z2bA/UXKOsAh3lLu53WdidtKShM8WznPz
+	WwFGhVyza0nuZdbOgQ9wXX7ZmI8AHOAXuLg1yaPniWOGXq5vTA+VI71XiEqssDmPjnc4YXbe58aj
+	1pKocbb9eH1VX5cF8oQutygWasZFPB+v0jxD0qeZN5GFujDPWihlegGkIRQ5NJ9X3YXWS/L0crd5
+	DYfvTDtFXgfAE+C/8g5PzHnN5Ra40Cz9lkGxnW/ishU/4QWYrugGCwt5CcvaXY9AmoNRqj2lQAYU
+	jFcgtjcqcDN36CEGQKfDctVyCQgeZL9sLpejrUPLAAFJJCluj8NHGNwbI2ezTMOIJ4NKnjelwH0/
+	f76XnovaeViSjESw00+6jlJ4pUjqsE65RI76wjMVewCf37o9XloKN3O+CHSYWtr3Qv59Sz2Di0kb
+	9XxMdx7WDJ3fIy/nrR5LLzqoo+0eI61QDQYGXgZk01khhTPjqaP/PAINiWpo590fdOQrFRIs0eki
+	OooHEtIqMY2wHvyfrSBBOG3RgOjWAh1agyv2Hw0Tfzi+paYgJfFQW92CI4qxVhu9YjeJJwwpsaE1
+	U=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_183436_297263_57345E79 
-X-CRM114-Status: GOOD (  18.35  )
+X-CRM114-CacheID: sfid-20251128_183926_279798_4EA4CF70 
+X-CRM114-Status: UNSURE (   8.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,38 +88,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 Nov 2025 13:03:59 +0100, Sebastian Andrzej Siewior wrote:
-> what about this:
-> diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
-> index ad58c1e22a5f9..b6b3cd893c808 100644
-> --- a/arch/arm/mm/fault.c
-> +++ b/arch/arm/mm/fault.c
-> @@ -282,10 +282,10 @@ do_page_fault(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
->  	}
->
->  	/*
-> -	 * If we're in an interrupt or have no user
-> -	 * context, we must not take the fault..
-> +	 * If we're in an interrupt or have no user context, we must not take
-> +	 * the fault. Kernel addresses are handled in do_translation_fault().
-> 	 */
-> -	if (faulthandler_disabled() || !mm)
-> +	if (faulthandler_disabled() || !mm || addr >= TASK_SIZE)
->  		goto no_context;
->
->  	if (user_mode(regs))
->
-> We shouldn't be getting here. Above TASK_SIZE there are just fix
-> mappings which don't fault and the VMALLOC array which should be handled
-> by do_translation_fault(). So this should be only the exception table.
->
-> This should also not clash with the previous patches. Would that work
-> for everyone?
+The shared reset procedure of MT7610 and MT7612 stop all queues before
+starting the reset sequence.
 
-When it is user_mode(), it should be goto __do_user_fault(), but
-no_context goto __do_kernel_fault(). So I think it is not ok.
+They however never restart these like other supported mt76 chips
+do in the reconfig_complete call. This leads to TX not continuing
+after the reset.
 
-> Sebastian
+Restart queues in the reconfig_complete callback to restore
+functionality after the reset.
 
-Xie Yuanbin
+Signed-off-by: David Bauer <mail@david-bauer.net>
+---
+ drivers/net/wireless/mediatek/mt76/mt76x02_mmio.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/net/wireless/mediatek/mt76/mt76x02_mmio.c b/drivers/net/wireless/mediatek/mt76/mt76x02_mmio.c
+index dd71c1c95cc9b..dc7c03d231238 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt76x02_mmio.c
++++ b/drivers/net/wireless/mediatek/mt76/mt76x02_mmio.c
+@@ -534,6 +534,7 @@ void mt76x02_reconfig_complete(struct ieee80211_hw *hw,
+ 		return;
+ 
+ 	clear_bit(MT76_RESTART, &dev->mphy.state);
++	ieee80211_wake_queues(hw);
+ }
+ EXPORT_SYMBOL_GPL(mt76x02_reconfig_complete);
+ 
+-- 
+2.51.0
+
 
