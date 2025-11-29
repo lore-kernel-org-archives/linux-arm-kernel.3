@@ -4,91 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C4CED116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 08:24:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AE47D116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 08:54:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UJTls+NqBxHTylolnKeDZiz5w4zOgMdXeWIg8GjfGW0=; b=5FDr88pxvc2+72hyHMOdCBoNy+
-	7rWRpBacM9lO3nMR97cZos8Fclnw2RaOVCPD0a9dSmLtgnWKMmQmBgE6BW4ud/CVSaSnDGdHiUTRH
-	0GxmVoo0Qh0NffJw6VMioYR6TVLI1rszRAjpVtEgUWLmjWoPJ2mVqWc7GDAV99AmI9qN3GJrxv4b7
-	TZaK7M7CKS8f+QQ3AAbos0bOYjKI4T14xfbtW0jpyisDwvDu1JlADNzdUjCTzFMPyKqkMavx2OXn1
-	FFKVQY60KulHKrALH6rH5OW1qHm+0+m+ABCXKfNPCcfYi0z0FggNYrf9aVekOE1g3SS0Tn68DptIw
-	+6RnF7qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N5Hf/oCoaC+bmr5nJVcUOjG4GACNlaY1TCA6/nmAPjE=; b=1WZzQteGywkYlIx9AzqxcNM17H
+	Pr01DwS1y7FQCF8fK3sLzbZz+MLE20F1IizdjwPI75seWON5soeTizRsRwc3rLw0uWTSHJDltUhhE
+	PVQICDb2RSgNTEIhcX/4apT8iQaTeyUeLSphP1BqKThAZUBr8JuLp211WEMQ59JmGKoA4PvrXMQJb
+	s7hiEBJXHKx8ZhAqhQeklOdhfT6Ezur1FkJmE94FQCYuWKD1Q2xGj5vmZVaB6ebXS5SC/d6hG2bRO
+	Cu+ipMKIzVA4xdPYNI3lC9ULdje06AlPV0r3DYPsKhvfmRvMdSVTQ++HwLyuHCmaTXUvarKt8EUCU
+	T1H2e4Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPGFM-00000001O0i-2o2w;
-	Sat, 29 Nov 2025 08:24:00 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vPGik-00000001P4U-06c0;
+	Sat, 29 Nov 2025 08:54:22 +0000
+Received: from zeniv.linux.org.uk ([2a03:a000:7:0:5054:ff:fe1c:15ff])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPGEu-00000001Nbh-2np5
+	id 1vPGih-00000001P44-1xHl
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Nov 2025 08:23:41 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 0687FC111B3;
-	Sat, 29 Nov 2025 08:23:08 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 002FB60706;
-	Sat, 29 Nov 2025 08:23:31 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C5743119104D2;
-	Sat, 29 Nov 2025 09:23:26 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764404609; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=UJTls+NqBxHTylolnKeDZiz5w4zOgMdXeWIg8GjfGW0=;
-	b=RhV8Lu0Xd7J2b0QBCR8X2ZpQCOFqZztdKHbZGPAsmNxQJeedVB134oQIMKAXWnnQhUcRl1
-	bJJYSl6jlQNROt7mrD/jEB94DfsHqFS1zN6lOe+LclOOAfG4iGaKzsCqrrRD5yIMUwkZLm
-	Y/9r7a7tnC7MDlZL9G0obZ5+IcVmB4vYoqJ3RwYL8JQYQOjl2Ol8eq9HLEyqASvtOaYrtk
-	+Il3gk841n1piC09XTQS1hFMZlCouwTCugsavwfnq/yYeqKVLjLdeiiE9GnwwOzdjc/vsA
-	9Iqg2UW1gICHI4DNbuUMPULCTQHQJBmxh9RwJPeQ+r/5ZHSVjp8NUrM4Zqmyzw==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: davem@davemloft.net
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
-	=?UTF-8?q?Marek=20Beh=C3=BAn?= <kabel@kernel.org>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	=?UTF-8?q?Nicol=C3=B2=20Veronese?= <nicveronese@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	mwojtas@chromium.org,
-	Antoine Tenart <atenart@kernel.org>,
-	devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
-	Tariq Toukan <tariqt@nvidia.com>
-Subject: [PATCH net-next v21 14/14] Documentation: networking: Document the phy_port infrastructure
-Date: Sat, 29 Nov 2025 09:22:26 +0100
-Message-ID: <20251129082228.454678-15-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20251129082228.454678-1-maxime.chevallier@bootlin.com>
-References: <20251129082228.454678-1-maxime.chevallier@bootlin.com>
+	Sat, 29 Nov 2025 08:54:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=linux.org.uk; s=zeniv-20220401; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=N5Hf/oCoaC+bmr5nJVcUOjG4GACNlaY1TCA6/nmAPjE=; b=PTjftmI8M0fFYykNkkoVgNwvZe
+	sRl0yPdorZlBO7dqb9b2+56JO6cvDqq+27j4S4lAbjt0IfK906dSV0JHKIF6oUAcZh7F+1I9OXyXN
+	6yRPprKZfRAggthT4NsG5xgCJhC8j4GQ9Y0hCbf/btIVPJ7aUN2sWaFQ1aXkZrmx7iSZU4M6KA5i1
+	VpjlZA9tKeXauh5uTQb1RaTc10dAEnvXoJRgc3j3+Qj591X0teehEUGcHrjh3OQWbF6S0017Ao1VM
+	/Vau/quGQchFyHIe6X16LLSWuE5UEd5iDmwgbHYeivqdZVuX9//YAH6hMECm1fPh6ioRSJEV6mVbY
+	teD+rj7Q==;
+Received: from viro by zeniv.linux.org.uk with local (Exim 4.99 #2 (Red Hat Linux))
+	id 1vPGid-00000007Cs0-3WJq;
+	Sat, 29 Nov 2025 08:54:15 +0000
+Date: Sat, 29 Nov 2025 08:54:15 +0000
+From: Al Viro <viro@zeniv.linux.org.uk>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: Zizhi Wo <wozizhi@huaweicloud.com>,
+	"Russell King (Oracle)" <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, jack@suse.com, brauner@kernel.org,
+	hch@lst.de, akpm@linux-foundation.org,
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+	yangerkun@huawei.com, wangkefeng.wang@huawei.com,
+	pangliyuan1@huawei.com, xieyuanbin1@huawei.com
+Subject: Re: [Bug report] hash_name() may cross page boundary and trigger
+ sleep in RCU context
+Message-ID: <20251129085415.GJ3538@ZenIV>
+References: <20251126090505.3057219-1-wozizhi@huaweicloud.com>
+ <33ab4aef-020e-49e7-8539-31bf78dac61a@huaweicloud.com>
+ <CAHk-=wh1Wfwt9OFB4AfBbjyeu4JVZuSWQ4A8OoT3W6x9btddfw@mail.gmail.com>
+ <aSgut4QcBsbXDEo9@shell.armlinux.org.uk>
+ <CAHk-=wh+cFLLi2x6u61pvL07phSyHPVBTo9Lac2uuqK4eRG_=w@mail.gmail.com>
+ <3d590a6d-07d1-433c-add1-8b7d53018854@huaweicloud.com>
+ <CAHk-=wjA20ear0hDOvUS7g5-A=YAUifphcf-iFJ1pach0=3ubw@mail.gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAHk-=wjA20ear0hDOvUS7g5-A=YAUifphcf-iFJ1pach0=3ubw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251129_002333_823159_4F9A894E 
-X-CRM114-Status: GOOD (  21.10  )
+X-CRM114-CacheID: sfid-20251129_005419_506604_CCE1EBD9 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,170 +83,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This documentation aims at describing the main goal of the phy_port
-infrastructure.
+On Fri, Nov 28, 2025 at 05:35:37PM -0800, Linus Torvalds wrote:
+> On Fri, 28 Nov 2025 at 17:01, Zizhi Wo <wozizhi@huaweicloud.com> wrote:
+> >
+> > Thank you for your answer. In fact, this solution is similar to the one
+> > provided by Al.
+> 
+> Hmm. I'm not seeing the replies from Al for some reason. Maybe he didn't cc me.
 
-Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Tested-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
- Documentation/networking/index.rst    |   1 +
- Documentation/networking/phy-port.rst | 111 ++++++++++++++++++++++++++
- MAINTAINERS                           |   2 +
- 3 files changed, 114 insertions(+)
- create mode 100644 Documentation/networking/phy-port.rst
+<checks>
+Sorry, I thought you've been somewhere in that Cc, should've verified that.
 
-diff --git a/Documentation/networking/index.rst b/Documentation/networking/index.rst
-index 75db2251649b..49fcfa577711 100644
---- a/Documentation/networking/index.rst
-+++ b/Documentation/networking/index.rst
-@@ -96,6 +96,7 @@ Contents:
-    packet_mmap
-    phonet
-    phy-link-topology
-+   phy-port
-    pktgen
-    plip
-    ppp_generic
-diff --git a/Documentation/networking/phy-port.rst b/Documentation/networking/phy-port.rst
-new file mode 100644
-index 000000000000..6e28d9094bce
---- /dev/null
-+++ b/Documentation/networking/phy-port.rst
-@@ -0,0 +1,111 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+.. _phy_port:
-+
-+=================
-+Ethernet ports
-+=================
-+
-+This document is a basic description of the phy_port infrastructure,
-+introduced to represent physical interfaces of Ethernet devices.
-+
-+Without phy_port, we already have quite a lot of information about what the
-+media-facing interface of a NIC can do and looks like, through the
-+:c:type:`struct ethtool_link_ksettings <ethtool_link_ksettings>` attributes,
-+which includes :
-+
-+ - What the NIC can do through the :c:member:`supported` field
-+ - What the Link Partner advertises through :c:member:`lp_advertising`
-+ - Which features we're advertising through :c:member:`advertising`
-+
-+We also have info about the number of pairs and the PORT type. These settings
-+are built by aggregating together information reported by various devices that
-+are sitting on the link :
-+
-+  - The NIC itself, through the :c:member:`get_link_ksettings` callback
-+  - Precise information from the MAC and PCS by using phylink in the MAC driver
-+  - Information reported by the PHY device
-+  - Information reported by an SFP module (which can itself include a PHY)
-+
-+This model however starts showing its limitations when we consider devices that
-+have more than one media interface. In such a case, only information about the
-+actively used interface is reported, and it's not possible to know what the
-+other interfaces can do. In fact, we have very little information about whether
-+or not there are any other media interfaces.
-+
-+The goal of the phy_port representation is to provide a way of representing a
-+physical interface of a NIC, regardless of what is driving the port (NIC through
-+a firmware, SFP module, Ethernet PHY).
-+
-+Multi-port interfaces examples
-+==============================
-+
-+Several cases of multi-interface NICs have been observed so far :
-+
-+Internal MII Mux::
-+
-+  +------------------+
-+  | SoC              |
-+  |          +-----+ |           +-----+
-+  | +-----+  |     |-------------| PHY |
-+  | | MAC |--| Mux | |   +-----+ +-----+
-+  | +-----+  |     |-----| SFP |
-+  |          +-----+ |   +-----+
-+  +------------------+
-+
-+Internal Mux with internal PHY::
-+
-+  +------------------------+
-+  | SoC                    |
-+  |          +-----+ +-----+
-+  | +-----+  |     |-| PHY |
-+  | | MAC |--| Mux | +-----+   +-----+
-+  | +-----+  |     |-----------| SFP |
-+  |          +-----+       |   +-----+
-+  +------------------------+
-+
-+External Mux::
-+
-+  +---------+
-+  | SoC     |  +-----+  +-----+
-+  |         |  |     |--| PHY |
-+  | +-----+ |  |     |  +-----+
-+  | | MAC |----| Mux |  +-----+
-+  | +-----+ |  |     |--| PHY |
-+  |         |  +-----+  +-----+
-+  |         |     |
-+  |    GPIO-------+
-+  +---------+
-+
-+Double-port PHY::
-+
-+  +---------+
-+  | SoC     | +-----+
-+  |         | |     |--- RJ45
-+  | +-----+ | |     |
-+  | | MAC |---| PHY |   +-----+
-+  | +-----+ | |     |---| SFP |
-+  +---------+ +-----+   +-----+
-+
-+phy_port aims at providing a path to support all the above topologies, by
-+representing the media interfaces in a way that's agnostic to what's driving
-+the interface. the struct phy_port object has its own set of callback ops, and
-+will eventually be able to report its own ksettings::
-+
-+             _____      +------+
-+            (     )-----| Port |
-+ +-----+   (       )    +------+
-+ | MAC |--(   ???   )
-+ +-----+   (       )    +------+
-+            (_____)-----| Port |
-+                        +------+
-+
-+Next steps
-+==========
-+
-+As of writing this documentation, only ports controlled by PHY devices are
-+supported. The next steps will be to add the Netlink API to expose these
-+to userspace and add support for raw ports (controlled by some firmware, and directly
-+managed by the NIC driver).
-+
-+Another parallel task is the introduction of a MII muxing framework to allow the
-+control of non-PHY driver multi-port setups.
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 08fe51116d6e..d65ecde68f94 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -9282,6 +9282,7 @@ F:	Documentation/devicetree/bindings/net/ethernet-connector.yaml
- F:	Documentation/devicetree/bindings/net/ethernet-phy.yaml
- F:	Documentation/devicetree/bindings/net/mdio*
- F:	Documentation/devicetree/bindings/net/qca,ar803x.yaml
-+F:	Documentation/networking/phy-port.rst
- F:	Documentation/networking/phy.rst
- F:	drivers/net/mdio/
- F:	drivers/net/mdio/acpi_mdio.c
-@@ -17979,6 +17980,7 @@ F:	net/ethtool/phy.c
- NETWORKING [ETHTOOL PHY PORT]
- M:	Maxime Chevallier <maxime.chevallier@bootlin.com>
- F:	Documentation/devicetree/bindings/net/ethernet-connector.yaml
-+F:	Documentation/networking/phy-port.rst
- F:	drivers/net/phy/phy_port.c
- F:	include/linux/phy_port.h
- K:	struct\s+phy_port|phy_port_
--- 
-2.49.0
+> That said, somebody should  definitely double-check me - because I
+> think arm also did the vdso trick at high addresses that i386 used to
+> do, so there is the fake VDSO thing up there.
+> 
+> But if you get a page fault on that, it's not going to be fixed up, so
+> even if user space can access it, there's no point in looking that
+> fake vm area up for page faults.
 
+gate_vma is not inserted anywhere - it's special-cased in coredump_next_vma(),
+proc_get_vma() and get_gate_page(); none of that can lead to insertion.
+
+AFAICS its uses in mlock_fixup(), __mmap_complete() and should_skip_vam()
+are pure paranoia - "if we somehow ended up running into gate_vma, let's
+make sure we don't screw it over" and had always been that way.
+
+So VMA lookup would get NULL.
 
