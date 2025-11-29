@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1521ED116EA
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 14:45:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DF55CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 14:45:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dXMBF53yK9YSDBZlyROsPetW9PLbrdJy4Myx8015LX0=; b=TgvV1Kgz9gg53lpirm7aVz+GjQ
-	wMU7eP01EN8vCz79DlRM9yoEfnTMvVOpQfUh/rpngndJ8jZu6Xe01ogDEVaFyrETESHtFwLWB9aKl
-	9JWmfQq8u7bw8vxkgb4IXOFnGlZUFb68ZjOF2w3V1cdczI+uBTVLt5kdBqJem+KMC0pQPBKUULTmz
-	3C0LaJAGyZeMSXyibrR0jz71EMIV7FYf/HR/ZmILjde02UUnbJmYEU3sTtDhJYF3Eom8NDwXNh/IW
-	z7Mu/NrAGH/b/CCDPDLhd22LT86Yey1czYbSXUXr4pKcvOv2tpyaO3KDENMuqgwlOG5witnl3HsZy
-	LSG+rHZg==;
+	bh=x6NTLywEgHAqNf/7Ye+JNabB9ZRUgY32lJZaF1G8nQA=; b=JmdJK/WnHvI5sKgwrdq+odGbpt
+	5R0steNKPYCi8h5qZH1oGbQncML9ESnAT2SErMDQvDTLWeL7Tie2pPTikfs8VIJfsEAWUW3o3H97P
+	6uUabQcaNwdABCBvfcPx7d8VGcYw6BGaUtKcRPehtFsajsqJ7QjTMkG3rRlkiM53zMxsZLk7Q8CWz
+	jn78EBKfY5KVZwX91o5hTEyFezmUi4jm5d1vsSfQHFSKNOV8naIXsLfhsiIdG4pr8jVcJXDSnFA1r
+	tGFPo8sJDtN/dpEjV37R5bweqHw36ayunPxzkNUJYLHO8aoOcaLPXt9V25PM/ytJlpNaVRo1ff43i
+	mW6XU65Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPMCc-00000001bfd-2i5e;
-	Sat, 29 Nov 2025 14:45:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vPMCd-00000001bg9-0xGv;
+	Sat, 29 Nov 2025 14:45:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPMCa-00000001beU-0Uxj
+	id 1vPMCZ-00000001beR-2tkc
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 29 Nov 2025 14:45:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 536C760138;
-	Sat, 29 Nov 2025 14:45:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E82BDC19422;
+	by sea.source.kernel.org (Postfix) with ESMTP id EDAE0403A2;
+	Sat, 29 Nov 2025 14:45:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 99B60C4CEF7;
 	Sat, 29 Nov 2025 14:45:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764427531;
-	bh=7wd18g8k60VD+IMvKxA7F/pIhCbSzp+S9rWe6qyOByY=;
+	s=k20201202; t=1764427530;
+	bh=47RYHMKbFjkCKRvV2xUxx1/5kD985hJCii/FlX1ajxQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=EXIHmsquwt5d5+fJ2KJCvKr0zaoPxINpzcVGW1uUA7jVuW0L+R+60h2geY23lmnkK
-	 0kEms4IN+Y1trvJhO9USqjQ5oCsUbOoxzWUaxmX6sJus3JB7r6jzxBbU7SmxpZx1oT
-	 orgm1NDDOdf09DUq1m0UJpmpkrePhwxN0ncEgv0pNK8mlfw+pqSUcecSZ4k3Vu6l3i
-	 HdobJ+WiDkUyZJB+XkzpSDtgmymsCTlthdegZ/eC8SAjaI90wUFvhuHre3JN7fKPdK
-	 5wksH3chKLhqOe74lgKcW6o90vOq0eAWU9Tnr9vkc96/zGCd/EUfgrhQkgTSXBT2kX
-	 7XRpQNlfQEJCw==
+	b=nHw1o115RkbBytNcJjjQrIhXFS7/rzWvp5/J7Yo88/ODEM8Y38sSrn9PEzALujpXo
+	 fLIMnBCnzSMsMNICSL+1gHCkslAKY9+ldUFQjQO7xdpl9pMXjW6hAr1Hdu21uC9rTt
+	 MhZMlnDKweUKBJ+I+ndmBrE/dchEvmthALuTL+/tuGaDO1sFExmPx7Rmh9GFC0/Cjn
+	 CpSmsBxHr/HmZccmyY3ESe7QP152kCgf5HjITgKrUQS1X9z7Q2znrQo+p1QVItWa55
+	 M+g6lUdrs69yrSB2MxefbHWxZFJdPd4KtBhQ1Z38IfIJUbBMynO7PNR4d2ipNeoJJz
+	 NUpU8NJpbrHYw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vPMCW-00000009HnQ-42nj;
-	Sat, 29 Nov 2025 14:45:29 +0000
+	id 1vPMCW-00000009HnQ-34Bx;
+	Sat, 29 Nov 2025 14:45:28 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -57,9 +57,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Oliver Upton <oupton@kernel.org>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: [PATCH 3/4] KVM: arm64: Account for RES1 bits in DECLARE_FEAT_MAP()
-Date: Sat, 29 Nov 2025 14:45:24 +0000
-Message-ID: <20251129144525.2609207-4-maz@kernel.org>
+Subject: [PATCH 2/4] arm64: Convert VTCR_EL2 to sysreg infratructure
+Date: Sat, 29 Nov 2025 14:45:23 +0000
+Message-ID: <20251129144525.2609207-3-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251129144525.2609207-1-maz@kernel.org>
 References: <20251129144525.2609207-1-maz@kernel.org>
@@ -69,6 +69,9 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, alexandru.elisei@arm.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251129_064531_793294_9418367C 
+X-CRM114-Status: GOOD (  18.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,32 +86,268 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-None of the registers we manage in the feature dependency infrastructure
-so far has any RES1 bit. This is about to change, as VTCR_EL2 has
-its bit 31 being RES1.
+Our definition of VTCR_EL2 is both partial (tons of fields are
+missing) and totally inconsistent (some constants are shifted,
+some are not). They are also expressed in terms of TCR, which is
+rather inconvenient.
 
-In order to not fail the consistency checks by not describing a bit,
-add RES1 bits to the set of immutable bits.
+Replace the ad-hoc definitions with the the generated version.
+This results in a bunch of additional changes to make the code
+with the unshifted nature of generated enumerations.
+
+The register data was extracted from the BSD licenced AARCHMRS
+(AARCHMRS_OPENSOURCE_A_profile_FAT-2025-09_ASL0).
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/config.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ arch/arm64/include/asm/kvm_arm.h | 52 +++++++----------------------
+ arch/arm64/include/asm/sysreg.h  |  1 -
+ arch/arm64/kvm/hyp/pgtable.c     |  8 ++---
+ arch/arm64/kvm/nested.c          |  8 ++---
+ arch/arm64/tools/sysreg          | 57 ++++++++++++++++++++++++++++++++
+ 5 files changed, 76 insertions(+), 50 deletions(-)
 
-diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-index 24bb3f36e9d59..a02c28d6a61c9 100644
---- a/arch/arm64/kvm/config.c
-+++ b/arch/arm64/kvm/config.c
-@@ -109,7 +109,8 @@ struct reg_feat_map_desc {
- #define DECLARE_FEAT_MAP(n, r, m, f)					\
- 	struct reg_feat_map_desc n = {					\
- 		.name			= #r,				\
--		.feat_map		= NEEDS_FEAT(~r##_RES0, f), 	\
-+		.feat_map		= NEEDS_FEAT(~(r##_RES0 |	\
-+						       r##_RES1), f),	\
- 		.bit_feat_map		= m,				\
- 		.bit_feat_map_sz	= ARRAY_SIZE(m),		\
- 	}
+diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+index 1da290aeedce7..cd2dc378baee6 100644
+--- a/arch/arm64/include/asm/kvm_arm.h
++++ b/arch/arm64/include/asm/kvm_arm.h
+@@ -123,37 +123,7 @@
+ #define TCR_EL2_MASK	(TCR_EL2_TG0_MASK | TCR_EL2_SH0_MASK | \
+ 			 TCR_EL2_ORGN0_MASK | TCR_EL2_IRGN0_MASK)
+ 
+-/* VTCR_EL2 Registers bits */
+-#define VTCR_EL2_DS		TCR_EL2_DS
+-#define VTCR_EL2_RES1		(1U << 31)
+-#define VTCR_EL2_HD		(1 << 22)
+-#define VTCR_EL2_HA		(1 << 21)
+-#define VTCR_EL2_PS_SHIFT	TCR_EL2_PS_SHIFT
+-#define VTCR_EL2_PS_MASK	TCR_EL2_PS_MASK
+-#define VTCR_EL2_TG0_MASK	TCR_TG0_MASK
+-#define VTCR_EL2_TG0_4K		TCR_TG0_4K
+-#define VTCR_EL2_TG0_16K	TCR_TG0_16K
+-#define VTCR_EL2_TG0_64K	TCR_TG0_64K
+-#define VTCR_EL2_SH0_MASK	TCR_SH0_MASK
+-#define VTCR_EL2_SH0_INNER	TCR_SH0_INNER
+-#define VTCR_EL2_ORGN0_MASK	TCR_ORGN0_MASK
+-#define VTCR_EL2_ORGN0_WBWA	TCR_ORGN0_WBWA
+-#define VTCR_EL2_IRGN0_MASK	TCR_IRGN0_MASK
+-#define VTCR_EL2_IRGN0_WBWA	TCR_IRGN0_WBWA
+-#define VTCR_EL2_SL0_SHIFT	6
+-#define VTCR_EL2_SL0_MASK	(3 << VTCR_EL2_SL0_SHIFT)
+-#define VTCR_EL2_T0SZ_MASK	0x3f
+-#define VTCR_EL2_VS_SHIFT	19
+-#define VTCR_EL2_VS_8BIT	(0 << VTCR_EL2_VS_SHIFT)
+-#define VTCR_EL2_VS_16BIT	(1 << VTCR_EL2_VS_SHIFT)
+-
+-#define VTCR_EL2_T0SZ(x)	TCR_T0SZ(x)
+-
+ /*
+- * We configure the Stage-2 page tables to always restrict the IPA space to be
+- * 40 bits wide (T0SZ = 24).  Systems with a PARange smaller than 40 bits are
+- * not known to exist and will break with this configuration.
+- *
+  * The VTCR_EL2 is configured per VM and is initialised in kvm_init_stage2_mmu.
+  *
+  * Note that when using 4K pages, we concatenate two first level page tables
+@@ -161,9 +131,6 @@
+  *
+  */
+ 
+-#define VTCR_EL2_COMMON_BITS	(VTCR_EL2_SH0_INNER | VTCR_EL2_ORGN0_WBWA | \
+-				 VTCR_EL2_IRGN0_WBWA | VTCR_EL2_RES1)
+-
+ /*
+  * VTCR_EL2:SL0 indicates the entry level for Stage2 translation.
+  * Interestingly, it depends on the page size.
+@@ -195,30 +162,35 @@
+  */
+ #ifdef CONFIG_ARM64_64K_PAGES
+ 
+-#define VTCR_EL2_TGRAN			VTCR_EL2_TG0_64K
++#define VTCR_EL2_TGRAN			64K
+ #define VTCR_EL2_TGRAN_SL0_BASE		3UL
+ 
+ #elif defined(CONFIG_ARM64_16K_PAGES)
+ 
+-#define VTCR_EL2_TGRAN			VTCR_EL2_TG0_16K
++#define VTCR_EL2_TGRAN			16K
+ #define VTCR_EL2_TGRAN_SL0_BASE		3UL
+ 
+ #else	/* 4K */
+ 
+-#define VTCR_EL2_TGRAN			VTCR_EL2_TG0_4K
++#define VTCR_EL2_TGRAN			4K
+ #define VTCR_EL2_TGRAN_SL0_BASE		2UL
+ 
+ #endif
+ 
+ #define VTCR_EL2_LVLS_TO_SL0(levels)	\
+-	((VTCR_EL2_TGRAN_SL0_BASE - (4 - (levels))) << VTCR_EL2_SL0_SHIFT)
++	FIELD_PREP(VTCR_EL2_SL0, (VTCR_EL2_TGRAN_SL0_BASE - (4 - (levels))))
+ #define VTCR_EL2_SL0_TO_LVLS(sl0)	\
+ 	((sl0) + 4 - VTCR_EL2_TGRAN_SL0_BASE)
+ #define VTCR_EL2_LVLS(vtcr)		\
+-	VTCR_EL2_SL0_TO_LVLS(((vtcr) & VTCR_EL2_SL0_MASK) >> VTCR_EL2_SL0_SHIFT)
++	VTCR_EL2_SL0_TO_LVLS(FIELD_GET(VTCR_EL2_SL0, (vtcr)))
++
++#define VTCR_EL2_FLAGS	(SYS_FIELD_PREP_ENUM(VTCR_EL2, SH0, INNER)	    | \
++			 SYS_FIELD_PREP_ENUM(VTCR_EL2, ORGN0, WBWA)	    | \
++			 SYS_FIELD_PREP_ENUM(VTCR_EL2, IRGN0, WBWA)	    | \
++			 SYS_FIELD_PREP_ENUM(VTCR_EL2, TG0, VTCR_EL2_TGRAN) | \
++			 VTCR_EL2_RES1)
+ 
+-#define VTCR_EL2_FLAGS			(VTCR_EL2_COMMON_BITS | VTCR_EL2_TGRAN)
+-#define VTCR_EL2_IPA(vtcr)		(64 - ((vtcr) & VTCR_EL2_T0SZ_MASK))
++#define VTCR_EL2_IPA(vtcr)		(64 - FIELD_GET(VTCR_EL2_T0SZ, (vtcr)))
+ 
+ /*
+  * ARM VMSAv8-64 defines an algorithm for finding the translation table
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index c231d2a3e5159..acad7a7621b9e 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -516,7 +516,6 @@
+ #define SYS_TTBR1_EL2			sys_reg(3, 4, 2, 0, 1)
+ #define SYS_TCR_EL2			sys_reg(3, 4, 2, 0, 2)
+ #define SYS_VTTBR_EL2			sys_reg(3, 4, 2, 1, 0)
+-#define SYS_VTCR_EL2			sys_reg(3, 4, 2, 1, 2)
+ 
+ #define SYS_HAFGRTR_EL2			sys_reg(3, 4, 3, 1, 6)
+ #define SYS_SPSR_EL2			sys_reg(3, 4, 4, 0, 0)
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index 947ac1a951a5b..e0bd6a0172729 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -583,8 +583,8 @@ u64 kvm_get_vtcr(u64 mmfr0, u64 mmfr1, u32 phys_shift)
+ 	u64 vtcr = VTCR_EL2_FLAGS;
+ 	s8 lvls;
+ 
+-	vtcr |= kvm_get_parange(mmfr0) << VTCR_EL2_PS_SHIFT;
+-	vtcr |= VTCR_EL2_T0SZ(phys_shift);
++	vtcr |= FIELD_PREP(VTCR_EL2_PS, kvm_get_parange(mmfr0));
++	vtcr |= FIELD_PREP(VTCR_EL2_T0SZ, (UL(64) - phys_shift));
+ 	/*
+ 	 * Use a minimum 2 level page table to prevent splitting
+ 	 * host PMD huge pages at stage2.
+@@ -624,9 +624,7 @@ u64 kvm_get_vtcr(u64 mmfr0, u64 mmfr1, u32 phys_shift)
+ 		vtcr |= VTCR_EL2_DS;
+ 
+ 	/* Set the vmid bits */
+-	vtcr |= (get_vmid_bits(mmfr1) == 16) ?
+-		VTCR_EL2_VS_16BIT :
+-		VTCR_EL2_VS_8BIT;
++	vtcr |= (get_vmid_bits(mmfr1) == 16) ? VTCR_EL2_VS : 0;
+ 
+ 	return vtcr;
+ }
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 911fc99ed99d9..e1ef8930c97b3 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -377,7 +377,7 @@ static void vtcr_to_walk_info(u64 vtcr, struct s2_walk_info *wi)
+ {
+ 	wi->t0sz = vtcr & TCR_EL2_T0SZ_MASK;
+ 
+-	switch (vtcr & VTCR_EL2_TG0_MASK) {
++	switch (FIELD_GET(VTCR_EL2_TG0_MASK, vtcr)) {
+ 	case VTCR_EL2_TG0_4K:
+ 		wi->pgshift = 12;	 break;
+ 	case VTCR_EL2_TG0_16K:
+@@ -513,7 +513,7 @@ static u8 get_guest_mapping_ttl(struct kvm_s2_mmu *mmu, u64 addr)
+ 
+ 	lockdep_assert_held_write(&kvm_s2_mmu_to_kvm(mmu)->mmu_lock);
+ 
+-	switch (vtcr & VTCR_EL2_TG0_MASK) {
++	switch (FIELD_GET(VTCR_EL2_TG0_MASK, vtcr)) {
+ 	case VTCR_EL2_TG0_4K:
+ 		ttl = (TLBI_TTL_TG_4K << 2);
+ 		break;
+@@ -530,7 +530,7 @@ static u8 get_guest_mapping_ttl(struct kvm_s2_mmu *mmu, u64 addr)
+ 
+ again:
+ 	/* Iteratively compute the block sizes for a particular granule size */
+-	switch (vtcr & VTCR_EL2_TG0_MASK) {
++	switch (FIELD_GET(VTCR_EL2_TG0_MASK, vtcr)) {
+ 	case VTCR_EL2_TG0_4K:
+ 		if	(sz < SZ_4K)	sz = SZ_4K;
+ 		else if (sz < SZ_2M)	sz = SZ_2M;
+@@ -593,7 +593,7 @@ unsigned long compute_tlb_inval_range(struct kvm_s2_mmu *mmu, u64 val)
+ 
+ 	if (!max_size) {
+ 		/* Compute the maximum extent of the invalidation */
+-		switch (mmu->tlb_vtcr & VTCR_EL2_TG0_MASK) {
++		switch (FIELD_GET(VTCR_EL2_TG0_MASK, mmu->tlb_vtcr)) {
+ 		case VTCR_EL2_TG0_4K:
+ 			max_size = SZ_1G;
+ 			break;
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 9d388f87d9a13..6f43b2ae5993b 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -4400,6 +4400,63 @@ Field	56:12	BADDR
+ Res0	11:0
+ EndSysreg
+ 
++Sysreg	VTCR_EL2	3	4	2	1	2
++Res0	63:46	
++Field	45	HDBSS
++Field	44	HAFT
++Res0	43:42	
++Field	41	TL0
++Field	40	GCSH
++Res0	39
++Field	38	D128
++Field	37	S2POE
++Field	36	S2PIE
++Field	35	TL1
++Field	34	AssuredOnly
++Field	33	SL2
++Field	32	DS
++Res1	31
++Field	30	NSA
++Field	29	NSW
++Field	28	HWU62
++Field	27	HWU61
++Field	26	HWU60
++Field	25	HWU59
++Res0	24:23
++Field	22	HD
++Field	21	HA
++Res0	20
++Enum	19	VS
++	0b0	8BIT
++	0b1	16BIT
++EndEnum
++Field	18:16	PS
++Enum	15:14	TG0
++	0b00	4K
++	0b01	64K
++	0b10	16K
++EndEnum
++Enum	13:12	SH0
++	0b00	NONE
++	0b01	OUTER
++	0b11	INNER
++EndEnum
++Enum	11:10	ORGN0
++	0b00	NC
++	0b01	WBWA
++	0b10	WT
++	0b11	WBnWA
++EndEnum
++Enum	9:8	IRGN0
++	0b00	NC
++	0b01	WBWA
++	0b10	WT
++	0b11	WBnWA
++EndEnum
++Field	7:6	SL0
++Field	5:0	T0SZ
++EndSysreg
++
+ Sysreg	GCSCR_EL2	3	4	2	5	0
+ Fields	GCSCR_ELx
+ EndSysreg
 -- 
 2.47.3
 
