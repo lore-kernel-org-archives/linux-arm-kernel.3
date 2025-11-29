@@ -4,61 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62766D116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 08:24:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C4CED116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 08:24:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bWPnbJHd/61ERmeZQGXyueGys3fwdn5jVNs/hlveCm0=; b=OZBPkw8EGgKlT7uc6pGI87dAfs
-	uHaZjG7otadqxVLRPjDegc4cXst3MgLPQg7lk6CbGGizesx6rckH7wKx7+BUtKGeyJZVvxz0yqzfo
-	aT/K0b/bHXwrrHQZ4hq3fQoIoQDdGxwtdfji0V9qXE02tqc/oefIhQjIyT45vOZhbbeBWL3FiQvao
-	jnZQDwvfGqcc8JWEyXD12/KZu+9QrfeLKctESbzji3NxBP5HPoBPYRDAo5Tj6I9hMtXTGjr4INV7Z
-	IQy/f0LcMdCFPOYa0vxFh1SIvnQfJU/S2I1H2aqGMu2D94K+YpLcxAHlk8Rz5ddSYd5IQfwJN2kSR
-	kUhIdf6g==;
+	bh=UJTls+NqBxHTylolnKeDZiz5w4zOgMdXeWIg8GjfGW0=; b=5FDr88pxvc2+72hyHMOdCBoNy+
+	7rWRpBacM9lO3nMR97cZos8Fclnw2RaOVCPD0a9dSmLtgnWKMmQmBgE6BW4ud/CVSaSnDGdHiUTRH
+	0GxmVoo0Qh0NffJw6VMioYR6TVLI1rszRAjpVtEgUWLmjWoPJ2mVqWc7GDAV99AmI9qN3GJrxv4b7
+	TZaK7M7CKS8f+QQ3AAbos0bOYjKI4T14xfbtW0jpyisDwvDu1JlADNzdUjCTzFMPyKqkMavx2OXn1
+	FFKVQY60KulHKrALH6rH5OW1qHm+0+m+ABCXKfNPCcfYi0z0FggNYrf9aVekOE1g3SS0Tn68DptIw
+	+6RnF7qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPGFM-00000001O0G-1IIc;
+	id 1vPGFM-00000001O0i-2o2w;
 	Sat, 29 Nov 2025 08:24:00 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPGF1-00000001Nge-1Wl3
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 29 Nov 2025 08:23:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=bWPnbJHd/61ERmeZQGXyueGys3fwdn5jVNs/hlveCm0=; b=iarV2ckcDL99EoQvhRSUEYGkLK
-	q8G7uYlGDsoPh6sTgZ2C5u+zhMgtGexkPbx6jYHcDwsCRluh4kYyfhh5FCn8L4Vz8POHlxC/68/vJ
-	O8hhD2v91NjucrSrTeKPjk06W2REBo9FuCdQviuE6WiRWU6rylgfI+i+wZdxUu5gWH3I7vef+n2y/
-	F90rClbxlAHsSslWwizAhX8Z1HxCAKS4ZdSmTm4dwjN1JfveD2kZ1I1mLDW08Zi+oY9vNhZT94Ggw
-	4e/scWBj8+wOtBX1U0Zq2hzZ9bS3UbGLoDp8hFaj7Ws5SaSOGrA+ufJ/BFipEaoguHnWN6PFWxIvK
-	OPUgkNbA==;
-Received: from smtpout-02.galae.net ([185.246.84.56])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPFNO-0000000CzuX-38m3
+	id 1vPGEu-00000001Nbh-2np5
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Nov 2025 07:28:16 +0000
+	Sat, 29 Nov 2025 08:23:41 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id ED2381A1E20;
-	Sat, 29 Nov 2025 08:23:27 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 0687FC111B3;
+	Sat, 29 Nov 2025 08:23:08 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id BADB960706;
-	Sat, 29 Nov 2025 08:23:27 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 60B47102F274D;
-	Sat, 29 Nov 2025 09:23:23 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 002FB60706;
+	Sat, 29 Nov 2025 08:23:31 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C5743119104D2;
+	Sat, 29 Nov 2025 09:23:26 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764404606; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1764404609; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=bWPnbJHd/61ERmeZQGXyueGys3fwdn5jVNs/hlveCm0=;
-	b=utY6x89cpNN0SomxehwFx5ovyNe5eWgR8ZkFxBy90It0oXTKlZkwyIc2ZdIb2U6UhaDh3/
-	ELVWrcbJruZWWmZhkHi3Oi/4cmmW1wKvClxJ2Ng0ldbwLUOmtdS5E7NN4RAhzesVlaEuev
-	70tH+Jbx9memIEMcBqR0+fN4B/p//VeeYuWUngbo6L24trwqp3BqKYYp/ulnSxSH6/4hRZ
-	1SOx/BeGBwRoZeP9LfOrImaX0pp5GwPV4M7RyU6KgC4nFC5HXtMwO5Apnk1ZZTtHC0Elq9
-	S+8B8LtJGIoqFByn50h7HDfiTSY7PwAh/ATGYEMQlumY0LvsvVMrzV41mDKjIw==
+	bh=UJTls+NqBxHTylolnKeDZiz5w4zOgMdXeWIg8GjfGW0=;
+	b=RhV8Lu0Xd7J2b0QBCR8X2ZpQCOFqZztdKHbZGPAsmNxQJeedVB134oQIMKAXWnnQhUcRl1
+	bJJYSl6jlQNROt7mrD/jEB94DfsHqFS1zN6lOe+LclOOAfG4iGaKzsCqrrRD5yIMUwkZLm
+	Y/9r7a7tnC7MDlZL9G0obZ5+IcVmB4vYoqJ3RwYL8JQYQOjl2Ol8eq9HLEyqASvtOaYrtk
+	+Il3gk841n1piC09XTQS1hFMZlCouwTCugsavwfnq/yYeqKVLjLdeiiE9GnwwOzdjc/vsA
+	9Iqg2UW1gICHI4DNbuUMPULCTQHQJBmxh9RwJPeQ+r/5ZHSVjp8NUrM4Zqmyzw==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net
 Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
@@ -92,9 +77,9 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Daniel Golle <daniel@makrotopia.org>,
 	Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
 	Tariq Toukan <tariqt@nvidia.com>
-Subject: [PATCH net-next v21 13/14] net: phy: Only rely on phy_port for PHY-driven SFP
-Date: Sat, 29 Nov 2025 09:22:25 +0100
-Message-ID: <20251129082228.454678-14-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v21 14/14] Documentation: networking: Document the phy_port infrastructure
+Date: Sat, 29 Nov 2025 09:22:26 +0100
+Message-ID: <20251129082228.454678-15-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20251129082228.454678-1-maxime.chevallier@bootlin.com>
 References: <20251129082228.454678-1-maxime.chevallier@bootlin.com>
@@ -102,8 +87,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251129_072814_897429_4992629D 
-X-CRM114-Status: GOOD (  15.93  )
+X-CRM114-CacheID: sfid-20251129_002333_823159_4F9A894E 
+X-CRM114-Status: GOOD (  21.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,153 +103,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that all PHY drivers that support downstream SFP have been converted
-to phy_port serdes handling, we can make the generic PHY SFP handling
-mandatory, thus making all phylib sfp helpers static.
+This documentation aims at describing the main goal of the phy_port
+infrastructure.
 
 Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Tested-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- drivers/net/phy/phy_device.c | 28 +++++++++-------------------
- include/linux/phy.h          |  6 ------
- 2 files changed, 9 insertions(+), 25 deletions(-)
+ Documentation/networking/index.rst    |   1 +
+ Documentation/networking/phy-port.rst | 111 ++++++++++++++++++++++++++
+ MAINTAINERS                           |   2 +
+ 3 files changed, 114 insertions(+)
+ create mode 100644 Documentation/networking/phy-port.rst
 
-diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
-index 793c6e0260c8..76a95eae8706 100644
---- a/drivers/net/phy/phy_device.c
-+++ b/drivers/net/phy/phy_device.c
-@@ -1532,7 +1532,7 @@ static DEVICE_ATTR_RO(phy_standalone);
-  *
-  * Return: 0 on success, otherwise a negative error code.
-  */
--int phy_sfp_connect_phy(void *upstream, struct phy_device *phy)
-+static int phy_sfp_connect_phy(void *upstream, struct phy_device *phy)
- {
- 	struct phy_device *phydev = upstream;
- 	struct net_device *dev = phydev->attached_dev;
-@@ -1542,7 +1542,6 @@ int phy_sfp_connect_phy(void *upstream, struct phy_device *phy)
- 
- 	return 0;
- }
--EXPORT_SYMBOL(phy_sfp_connect_phy);
- 
- /**
-  * phy_sfp_disconnect_phy - Disconnect the SFP module's PHY from the upstream PHY
-@@ -1554,7 +1553,7 @@ EXPORT_SYMBOL(phy_sfp_connect_phy);
-  * will be destroyed, re-inserting the same module will add a new phy with a
-  * new index.
-  */
--void phy_sfp_disconnect_phy(void *upstream, struct phy_device *phy)
-+static void phy_sfp_disconnect_phy(void *upstream, struct phy_device *phy)
- {
- 	struct phy_device *phydev = upstream;
- 	struct net_device *dev = phydev->attached_dev;
-@@ -1562,7 +1561,6 @@ void phy_sfp_disconnect_phy(void *upstream, struct phy_device *phy)
- 	if (dev)
- 		phy_link_topo_del_phy(dev, phy);
- }
--EXPORT_SYMBOL(phy_sfp_disconnect_phy);
- 
- /**
-  * phy_sfp_attach - attach the SFP bus to the PHY upstream network device
-@@ -1571,7 +1569,7 @@ EXPORT_SYMBOL(phy_sfp_disconnect_phy);
-  *
-  * This is used to fill in the sfp_upstream_ops .attach member.
-  */
--void phy_sfp_attach(void *upstream, struct sfp_bus *bus)
-+static void phy_sfp_attach(void *upstream, struct sfp_bus *bus)
- {
- 	struct phy_device *phydev = upstream;
- 
-@@ -1579,7 +1577,6 @@ void phy_sfp_attach(void *upstream, struct sfp_bus *bus)
- 		phydev->attached_dev->sfp_bus = bus;
- 	phydev->sfp_bus_attached = true;
- }
--EXPORT_SYMBOL(phy_sfp_attach);
- 
- /**
-  * phy_sfp_detach - detach the SFP bus from the PHY upstream network device
-@@ -1588,7 +1585,7 @@ EXPORT_SYMBOL(phy_sfp_attach);
-  *
-  * This is used to fill in the sfp_upstream_ops .detach member.
-  */
--void phy_sfp_detach(void *upstream, struct sfp_bus *bus)
-+static void phy_sfp_detach(void *upstream, struct sfp_bus *bus)
- {
- 	struct phy_device *phydev = upstream;
- 
-@@ -1596,7 +1593,6 @@ void phy_sfp_detach(void *upstream, struct sfp_bus *bus)
- 		phydev->attached_dev->sfp_bus = NULL;
- 	phydev->sfp_bus_attached = false;
- }
--EXPORT_SYMBOL(phy_sfp_detach);
- 
- static int phy_sfp_module_insert(void *upstream, const struct sfp_eeprom_id *id)
- {
-@@ -1750,10 +1746,8 @@ static int phy_setup_sfp_port(struct phy_device *phydev)
- /**
-  * phy_sfp_probe - probe for a SFP cage attached to this PHY device
-  * @phydev: Pointer to phy_device
-- * @ops: SFP's upstream operations
-  */
--int phy_sfp_probe(struct phy_device *phydev,
--		  const struct sfp_upstream_ops *ops)
-+static int phy_sfp_probe(struct phy_device *phydev)
- {
- 	struct sfp_bus *bus;
- 	int ret = 0;
-@@ -1765,7 +1759,7 @@ int phy_sfp_probe(struct phy_device *phydev,
- 
- 		phydev->sfp_bus = bus;
- 
--		ret = sfp_bus_add_upstream(bus, phydev, ops);
-+		ret = sfp_bus_add_upstream(bus, phydev, &sfp_phydev_ops);
- 		sfp_bus_put(bus);
- 	}
- 
-@@ -1774,7 +1768,6 @@ int phy_sfp_probe(struct phy_device *phydev,
- 
- 	return ret;
- }
--EXPORT_SYMBOL(phy_sfp_probe);
- 
- static bool phy_drv_supports_irq(const struct phy_driver *phydrv)
- {
-@@ -3583,12 +3576,9 @@ static int phy_setup_ports(struct phy_device *phydev)
- 	if (ret)
- 		return ret;
- 
--	/* Use generic SFP probing only if the driver didn't do so already */
--	if (!phydev->sfp_bus) {
--		ret = phy_sfp_probe(phydev, &sfp_phydev_ops);
--		if (ret)
--			goto out;
--	}
-+	ret = phy_sfp_probe(phydev);
-+	if (ret)
-+		goto out;
- 
- 	if (phydev->n_ports < phydev->max_n_ports) {
- 		ret = phy_default_setup_single_port(phydev);
-diff --git a/include/linux/phy.h b/include/linux/phy.h
-index d75db4a88786..1d9a84ecc1dc 100644
---- a/include/linux/phy.h
-+++ b/include/linux/phy.h
-@@ -2124,12 +2124,6 @@ int phy_suspend(struct phy_device *phydev);
- int phy_resume(struct phy_device *phydev);
- int __phy_resume(struct phy_device *phydev);
- int phy_loopback(struct phy_device *phydev, bool enable, int speed);
--int phy_sfp_connect_phy(void *upstream, struct phy_device *phy);
--void phy_sfp_disconnect_phy(void *upstream, struct phy_device *phy);
--void phy_sfp_attach(void *upstream, struct sfp_bus *bus);
--void phy_sfp_detach(void *upstream, struct sfp_bus *bus);
--int phy_sfp_probe(struct phy_device *phydev,
--	          const struct sfp_upstream_ops *ops);
- struct phy_device *phy_attach(struct net_device *dev, const char *bus_id,
- 			      phy_interface_t interface);
- struct phy_device *phy_find_next(struct mii_bus *bus, struct phy_device *pos);
+diff --git a/Documentation/networking/index.rst b/Documentation/networking/index.rst
+index 75db2251649b..49fcfa577711 100644
+--- a/Documentation/networking/index.rst
++++ b/Documentation/networking/index.rst
+@@ -96,6 +96,7 @@ Contents:
+    packet_mmap
+    phonet
+    phy-link-topology
++   phy-port
+    pktgen
+    plip
+    ppp_generic
+diff --git a/Documentation/networking/phy-port.rst b/Documentation/networking/phy-port.rst
+new file mode 100644
+index 000000000000..6e28d9094bce
+--- /dev/null
++++ b/Documentation/networking/phy-port.rst
+@@ -0,0 +1,111 @@
++.. SPDX-License-Identifier: GPL-2.0
++.. _phy_port:
++
++=================
++Ethernet ports
++=================
++
++This document is a basic description of the phy_port infrastructure,
++introduced to represent physical interfaces of Ethernet devices.
++
++Without phy_port, we already have quite a lot of information about what the
++media-facing interface of a NIC can do and looks like, through the
++:c:type:`struct ethtool_link_ksettings <ethtool_link_ksettings>` attributes,
++which includes :
++
++ - What the NIC can do through the :c:member:`supported` field
++ - What the Link Partner advertises through :c:member:`lp_advertising`
++ - Which features we're advertising through :c:member:`advertising`
++
++We also have info about the number of pairs and the PORT type. These settings
++are built by aggregating together information reported by various devices that
++are sitting on the link :
++
++  - The NIC itself, through the :c:member:`get_link_ksettings` callback
++  - Precise information from the MAC and PCS by using phylink in the MAC driver
++  - Information reported by the PHY device
++  - Information reported by an SFP module (which can itself include a PHY)
++
++This model however starts showing its limitations when we consider devices that
++have more than one media interface. In such a case, only information about the
++actively used interface is reported, and it's not possible to know what the
++other interfaces can do. In fact, we have very little information about whether
++or not there are any other media interfaces.
++
++The goal of the phy_port representation is to provide a way of representing a
++physical interface of a NIC, regardless of what is driving the port (NIC through
++a firmware, SFP module, Ethernet PHY).
++
++Multi-port interfaces examples
++==============================
++
++Several cases of multi-interface NICs have been observed so far :
++
++Internal MII Mux::
++
++  +------------------+
++  | SoC              |
++  |          +-----+ |           +-----+
++  | +-----+  |     |-------------| PHY |
++  | | MAC |--| Mux | |   +-----+ +-----+
++  | +-----+  |     |-----| SFP |
++  |          +-----+ |   +-----+
++  +------------------+
++
++Internal Mux with internal PHY::
++
++  +------------------------+
++  | SoC                    |
++  |          +-----+ +-----+
++  | +-----+  |     |-| PHY |
++  | | MAC |--| Mux | +-----+   +-----+
++  | +-----+  |     |-----------| SFP |
++  |          +-----+       |   +-----+
++  +------------------------+
++
++External Mux::
++
++  +---------+
++  | SoC     |  +-----+  +-----+
++  |         |  |     |--| PHY |
++  | +-----+ |  |     |  +-----+
++  | | MAC |----| Mux |  +-----+
++  | +-----+ |  |     |--| PHY |
++  |         |  +-----+  +-----+
++  |         |     |
++  |    GPIO-------+
++  +---------+
++
++Double-port PHY::
++
++  +---------+
++  | SoC     | +-----+
++  |         | |     |--- RJ45
++  | +-----+ | |     |
++  | | MAC |---| PHY |   +-----+
++  | +-----+ | |     |---| SFP |
++  +---------+ +-----+   +-----+
++
++phy_port aims at providing a path to support all the above topologies, by
++representing the media interfaces in a way that's agnostic to what's driving
++the interface. the struct phy_port object has its own set of callback ops, and
++will eventually be able to report its own ksettings::
++
++             _____      +------+
++            (     )-----| Port |
++ +-----+   (       )    +------+
++ | MAC |--(   ???   )
++ +-----+   (       )    +------+
++            (_____)-----| Port |
++                        +------+
++
++Next steps
++==========
++
++As of writing this documentation, only ports controlled by PHY devices are
++supported. The next steps will be to add the Netlink API to expose these
++to userspace and add support for raw ports (controlled by some firmware, and directly
++managed by the NIC driver).
++
++Another parallel task is the introduction of a MII muxing framework to allow the
++control of non-PHY driver multi-port setups.
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 08fe51116d6e..d65ecde68f94 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -9282,6 +9282,7 @@ F:	Documentation/devicetree/bindings/net/ethernet-connector.yaml
+ F:	Documentation/devicetree/bindings/net/ethernet-phy.yaml
+ F:	Documentation/devicetree/bindings/net/mdio*
+ F:	Documentation/devicetree/bindings/net/qca,ar803x.yaml
++F:	Documentation/networking/phy-port.rst
+ F:	Documentation/networking/phy.rst
+ F:	drivers/net/mdio/
+ F:	drivers/net/mdio/acpi_mdio.c
+@@ -17979,6 +17980,7 @@ F:	net/ethtool/phy.c
+ NETWORKING [ETHTOOL PHY PORT]
+ M:	Maxime Chevallier <maxime.chevallier@bootlin.com>
+ F:	Documentation/devicetree/bindings/net/ethernet-connector.yaml
++F:	Documentation/networking/phy-port.rst
+ F:	drivers/net/phy/phy_port.c
+ F:	include/linux/phy_port.h
+ K:	struct\s+phy_port|phy_port_
 -- 
 2.49.0
 
