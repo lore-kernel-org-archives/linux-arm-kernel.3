@@ -4,74 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53FC6CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 10:46:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3761CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 11:35:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rz76Dd60dRCLEdbk6g0uD4CbDOYdGaypGdAXa1TRKaQ=; b=zxGkQSYNGwAC5tqxi7MQl42pMD
-	IYIQKrdraeRXfDb7oa4cqfO5jKtIBYfG46PH0hFTK7n7wa/+G9+yJC5zi76RfIFn6VU67wO4s3T3j
-	h4UD2cdf1/QhuHyjOrWNVIfH/ELJA9EKwvKJoIX9hWeDF10gGRCqr5Rf+3Nnfy8nxv5GuEVisRKAD
-	Yin3vBCzITSIvN1YSPH1r9/M21DKILNGvRVSgDe6IGTqrG2gJh4lrnX1F/tuVX4NVMJmsQO+ji5V0
-	YZRohejDtzLec/ZRTWmJjfjhg2V8vVuzGbHmz68Ovi7wDLZgZbVYvCKLxmW/3CHwfGiomUxb+B0/R
-	o5GAej8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YTwXAzA1hhfW0ljeFsbEgjOsHoWHWpD7Aqd7WLjMq24=; b=kB0tKoyxhIrKPaz3AsFIn4DvVV
+	qpVpru357flUUgPF3escOIqSJ5szS/CILqs8zs2ZEkJQuHkcb2VAIpjmowhdQgqMWGyHyyuWbik41
+	XhUHprq8Zbh4rZ+hATkJPjNfjIjliM46HS9TV0Omg++A5F/axc/dsm55OPaUTavROu/oQDfQi170+
+	3lQ7AEoNsWCIyW2SYbRvQrP/Jn5N6GlmBoXUJ91dm6MRuzvXvuM447mgOC2u7TV6QTEX+MINLQfUm
+	mIH1Wt0tTNuo0abyWFdUxT09q7exupe3TD32F8LjvbF3/zHNRe+fcCevAbbLkohBpSqcq3++pVBhI
+	32ySu+Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPIT5-00000001THk-3h9Z;
-	Sat, 29 Nov 2025 10:46:19 +0000
-Received: from mailtransmit05.runbox.com ([2a0c:5a00:149::26])
+	id 1vPJEc-00000001USf-1pN0;
+	Sat, 29 Nov 2025 11:35:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPIT3-00000001THM-2ldZ
+	id 1vPJEZ-00000001USC-47Oo
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Nov 2025 10:46:19 +0000
-Received: from mailtransmit03.runbox ([10.9.9.163] helo=aibo.runbox.com)
-	by mailtransmit05.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.93)
-	(envelope-from <david.laight@runbox.com>)
-	id 1vPISa-0019Z2-V7; Sat, 29 Nov 2025 11:45:48 +0100
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=runbox.com;
-	 s=selector2; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date;
-	bh=rz76Dd60dRCLEdbk6g0uD4CbDOYdGaypGdAXa1TRKaQ=; b=m+/uBwielV5XAgVggL5ooFl1dH
-	itFJp1+BXorKcECoZRk5oXzd1aG7xN+kSUQS1nk1Zwmeor28FFdDu2FbrgCdlsjsX+8aPKAgXXWjf
-	DmpfLdV3Z5l860gBJtwQ9Rd0tHcGMxQ1eoC8DclO84CXSUU/4cj0y4Hw0LCwwSXFxRtVSAvO0TXPy
-	4XodTjHH5cOefWS7PwgczvGxjTa36bKsJy8ZAcm2D1X20HEpS+DZxHaKnt/xTSZ+jPXYecLrJ59K5
-	EK9PJ1G1v76UaTphXy2CENRP02whjL9REH3czcS9Msg1dPWzNfZcDxfJb7/AA2sgIxqMiuoaQtIHF
-	r4CFeJbA==;
-Received: from [10.9.9.73] (helo=submission02.runbox)
-	by mailtransmit03.runbox with esmtp (Exim 4.86_2)
-	(envelope-from <david.laight@runbox.com>)
-	id 1vPISZ-0005kN-1q; Sat, 29 Nov 2025 11:45:47 +0100
-Received: by submission02.runbox with esmtpsa  [Authenticated ID (1493616)]  (TLS1.2:ECDHE_SECP256R1__RSA_SHA256__AES_256_GCM:256)
-	(Exim 4.93)
-	id 1vPISJ-004Clu-SN; Sat, 29 Nov 2025 11:45:32 +0100
-Date: Sat, 29 Nov 2025 10:45:28 +0000
-From: david laight <david.laight@runbox.com>
-To: Al Viro <viro@zeniv.linux.org.uk>
-Cc: Xie Yuanbin <xieyuanbin1@huawei.com>, torvalds@linux-foundation.org,
- will@kernel.org, linux@armlinux.org.uk, bigeasy@linutronix.de,
- rmk+kernel@armlinux.org.uk, akpm@linux-foundation.org, brauner@kernel.org,
- catalin.marinas@arm.com, hch@lst.de, jack@suse.com,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-mm@kvack.org, pangliyuan1@huawei.com,
- wangkefeng.wang@huawei.com, wozizhi@huaweicloud.com, yangerkun@huawei.com,
- lilinjie8@huawei.com, liaohua4@huawei.com
-Subject: Re: [Bug report] hash_name() may cross page boundary and trigger
-Message-ID: <20251129104528.03aca5d3@pumpkin>
-In-Reply-To: <20251129090813.GK3538@ZenIV>
-References: <CAHk-=wjA20ear0hDOvUS7g5-A=YAUifphcf-iFJ1pach0=3ubw@mail.gmail.com>
-	<20251129040817.65356-1-xieyuanbin1@huawei.com>
-	<20251129090813.GK3538@ZenIV>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
-MIME-Version: 1.0
+	Sat, 29 Nov 2025 11:35:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 70746402B5;
+	Sat, 29 Nov 2025 11:35:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42102C4CEF7;
+	Sat, 29 Nov 2025 11:35:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764416120;
+	bh=JM98PJFfINVzJy2hg19um8addcWX+p6PWfjrRa9Rxq8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=QHuOadfQ9Mhe2iysqF3zIDtoJ1up90mrOFzwieqHyZj/++9/G+wSRx2ED1S3uUe5s
+	 7LqVGI/CUxNLSFisDG4+bZForKf9Q5SlvXRql6rfQf1d0/YOeMO8NiDG5inAJ4U1df
+	 z+tNewHbzHJhL7rWRffbQVltO34uBhVRl1zkp3CQGcZNEXR6GyR5aLuP06cRyhCJZN
+	 d8XTvrmDXv0+R4j1YBXlAgk0qf6PxWyAnnOX1V3kCd2PGzidYFdvfCuWsgeRuS4iv+
+	 WplN7D9v4ra4tTBs0J0KI/x0HxRLRezzVG01a1UjX0Oq5yr10xH7eqQlj4ay2MxSRm
+	 HLbiUpeZwKFng==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vPJET-00000009GPJ-37Hi;
+	Sat, 29 Nov 2025 11:35:17 +0000
+Date: Sat, 29 Nov 2025 11:35:17 +0000
+Message-ID: <86sedxoyve.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oupton@kernel.org>
+Cc: Alexandru Elisei <alexandru.elisei@arm.com>,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	yuzenghui@huawei.com,
+	suzuki.poulose@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH 3/4] KVM: arm64: nv: Don't mask VTCR_EL2.HA if FEAT_HAFDBS is present
+In-Reply-To: <aSnuauBCe1Ru2q0T@kernel.org>
+References: <20251128100946.74210-1-alexandru.elisei@arm.com>
+	<20251128100946.74210-4-alexandru.elisei@arm.com>
+	<86v7iup3bv.wl-maz@kernel.org>
+	<aSnuauBCe1Ru2q0T@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oupton@kernel.org, alexandru.elisei@arm.com, oliver.upton@linux.dev, joey.gouly@arm.com, yuzenghui@huawei.com, suzuki.poulose@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251129_024617_879910_8F186C0F 
-X-CRM114-Status: GOOD (  25.48  )
+X-CRM114-CacheID: sfid-20251129_033524_086003_B2912B87 
+X-CRM114-Status: GOOD (  31.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,75 +91,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 29 Nov 2025 09:08:13 +0000
-Al Viro <viro@zeniv.linux.org.uk> wrote:
-
-> On Sat, Nov 29, 2025 at 12:08:17PM +0800, Xie Yuanbin wrote:
+On Fri, 28 Nov 2025 18:48:10 +0000,
+Oliver Upton <oupton@kernel.org> wrote:
 > 
-> > I think the `user_mode(regs)` check is necessary because the label
-> > no_context actually jumps to __do_kernel_fault(), whereas page fault
-> > from user mode should jump to `__do_user_fault()`.
+> On Fri, Nov 28, 2025 at 03:46:44PM +0000, Marc Zyngier wrote:
+> > On Fri, 28 Nov 2025 10:09:45 +0000,
+> > Alexandru Elisei <alexandru.elisei@arm.com> wrote:
+> > > 
+> > > Commit 39db933ba67f ("KVM: arm64: nv: Implement HW access flag management
+> > > in stage-2 SW PTW") added support for hardware updates to the access flag
+> > > to stage 2 if the feature is available to the virtual machine, but forgot
+> > > to remove the VTCR_EL2.HA bit from the res0 mask for the register. Remove
+> > > it from the mask to allow the VM to use the feature.
+> > > 
+> > > Fixes: 39db933ba67f ("KVM: arm64: nv: Implement HW access flag management in stage-2 SW PTW")
+> > > Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+> > > ---
+> > >  arch/arm64/kvm/nested.c | 4 +++-
+> > >  1 file changed, 3 insertions(+), 1 deletion(-)
+> > > 
+> > > diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> > > index 911fc99ed99d..7a34163f6c68 100644
+> > > --- a/arch/arm64/kvm/nested.c
+> > > +++ b/arch/arm64/kvm/nested.c
+> > > @@ -1719,7 +1719,9 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
+> > >  	set_sysreg_masks(kvm, VTTBR_EL2, res0, res1);
+> > >  
+> > >  	/* VTCR_EL2 */
+> > > -	res0 = GENMASK(63, 32) | GENMASK(30, 20);
+> > > +	res0 = GENMASK(63, 32) | GENMASK(30, 22) | BIT(20);
+> > > +	if (!kvm_has_feat(kvm, ID_AA64MMFR1_EL1, HAFDBS, AF))
+> > > +		res0 |= VTCR_EL2_HA;
+> > >  	res1 = BIT(31);
+> > >  	set_sysreg_masks(kvm, VTCR_EL2, res0, res1);
+> > >  
 > > 
-> > Alternatively, we would need to change `goto no_context` to
-> > `goto bad_area`. Or perhaps I misunderstood something, please point it out.  
+> > The fix is correct, but I really do not want to add more of these
+> > tedious checks, one after the other. We should fix this once and for
+> > all by converting VTCR_EL2 to the feature dependency infrastructure
+> > and be done with it.
+> > 
+> > I've pushed a small series at [1] that does that (very lightly
+> > tested).
 > 
-> FWIW, goto bad_area has an obvious problem: uses of 'fault' value, which
-> contains garbage.
-> 
-> The cause of problem is the heuristics in get_mmap_lock_carefully():
-> 	if (regs && !user_mode(regs)) {
-> 		unsigned long ip = exception_ip(regs);
-> 		if (!search_exception_tables(ip))
-> 			return false;
-> 	}
-> trylock has failed and we are trying to decide whether it's safe to block.
-> The assumption (inherited from old logics in assorted page fault handlers)
-> is "by that point we know that fault in kernel mode is either an oops
-> or #PF on uaccess; in the latter case we should be OK with locking mm,
-> in the former we should just get to oopsing without risking deadlocks".
-> 
-> load_unaligned_zeropad() is where that assumption breaks - there is
-> an exception handler and it's not an uaccess attempt; the address is
-> not going to match any VMA and we really don't want to do anything
-> blocking.
+> This looks alright to me, do you want to post it?
 
-Doesn't that also affect code that (ab)uses get_user() for kernel addresss?
-For x86 even __get_kernel_nofault() does that.
-In that case it hits a normal 'user fault' exception table entry rather
-a 'special' one that could be marked as such.
+Still fixing some of the fallout from the sysreg conversion -- a bunch
+of things that were shifted constants are now unshifted, and need to
+be FIELD_PREP()'d.
 
-> 
-> Note that VMA lookup will return NULL there anyway - there won't be a VMA
-> for that address.  What we get is exactly the same thing we'd get from
-> do_bad_area(), whether we get a kernel or userland insn faulting.
-> 
-> The minimal fix would be something like
-> 	if (unlikely(addr >= TASK_SIZE) && !(flags & FAULT_FLAG_USER))
-> 		goto no_context;
+I *think* I got them all now, but this is all a bit fiddly. Should the
+last tests run smoothly,
 
-Is there an issue with TASK_SIZE being process dependant?
-Don't you want 'the bottom of kernel addresses' not 'the top of the current process'.
+Note that the TCR conversion will be even more invasive, and probably
+not merge window material, so you may want to pick Alexandru's 4th
+patch as well.
 
-	David
+Thanks,
 
-> 
-> right before
-> 	if (!(flags & FAULT_FLAG_USER))
-> 		goto lock_mmap;
-> 
-> in do_page_fault().  Alternatively,
-> 	if (unlikely(addr >= TASK_SIZE)) {
-> 		do_bad_area(addr, fsr, regs);
-> 		return 0;
-> 	}
-> or
-> 	if (unlikely(addr >= TASK_SIZE)) {
-> 		fault = 0;
-> 		code = SEGV_MAPERR;
-> 		goto bad_area;
-> 	}
-> at the same place.  Incidentally, making do_bad_area() return 0 would
-> seem to make all callers happier...
-> 
+	M.
 
+-- 
+Without deviation from the norm, progress is not possible.
 
