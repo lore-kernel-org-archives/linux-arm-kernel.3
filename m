@@ -4,81 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35C6AD116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 11:40:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 796F7CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 11:42:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qD0hvTl9YMp9wIsLZ2/rV7hNGrWlIVr81lCd4/BVey4=; b=BFjtyMW2jxs0RFJ7b9Mqf2xg04
-	5mtRbKgOocOH+kJbUTBAVJSJCqwANS78jF/kfwlK7ENuzODQUmDwJHSBM1ZMGtOTc8ORHEJ41NM3K
-	2DBtisEttMfOKsn1+WzvrIAjK4FhgEoM2cMgP8FxdKsx/LkUaRMuOn/naBrdAuGOt2OMBtKEY5qfU
-	gIBmmxpDsHuTl/NiELKpB5K/mF1fKwOCaAOcTjib4fZdEh1SOEhv+JTSeSyM8G6NodzKJAAJYtWsw
-	h/UOK0FIIueehYYRV5TLjODCP8RJq2P8Pa+lMg0nswz0VIETyDTXxnXFdlWYTzd9Fs9QWTM/ScsoL
-	Jp40lhdg==;
+	bh=mn3bY0rBz51Jb7COCJ8fj1VQyN0UarXaJb16cSjuLT0=; b=zS0rcJjh1pEjqFeB6frTvF5OL4
+	ZSYWXLvttiRo3E+DuKhoay+fHFGoCr1ww0ZVznx9/kDlU3UFmYL0KjNW3/leli3gLOhF/N398X+A0
+	GlBZqpWRouBJe5BECUGdRCusnhnKgAhBX6K1oEZ4RRrIB4I+HB083DdIjjRR63+BqYNuk9UYA4FgE
+	1s7WSlnHJ5TBjpRy5p0ot2KE1+0iruInwECxVIhyTXasT1RMnyyamQX5iN2zTls1cH7uP3O2GS02y
+	oQdYpP7YmGbBZg75/T8htvcOs6k89ZmXhL8agKnPfeNGflTDAnGtagAth2Aas/96ssurUZoqps6iS
+	OShOsGQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPJJW-00000001Uwx-0lrJ;
-	Sat, 29 Nov 2025 11:40:30 +0000
+	id 1vPJLK-00000001V5D-2X14;
+	Sat, 29 Nov 2025 11:42:22 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPJJT-00000001Uwa-0XzP
+	id 1vPJLI-00000001V4m-1xqI
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Nov 2025 11:40:28 +0000
+	Sat, 29 Nov 2025 11:42:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 57DAD41807;
-	Sat, 29 Nov 2025 11:40:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53903C4CEF7;
-	Sat, 29 Nov 2025 11:40:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0618A40492;
+	Sat, 29 Nov 2025 11:42:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CF4EC4CEF7;
+	Sat, 29 Nov 2025 11:42:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764416426;
-	bh=rkc0SFY1jXLwTWHpMx0nncdAQVf5LkNyXZAWC8E23lw=;
+	s=k20201202; t=1764416539;
+	bh=OiJJoLGTt8ux1ryDxA1jS99SlMC/axq49Ib56TBKzoA=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=h6WUNJz5xPskj0GkNAUsp99ssWs7bSg48Y65uDLHbxUd6InRpV98KIqJljrpDfLx8
-	 sd15LRHAthip+3P4K2eK9l8OvNTZBf6W+VGLGdEiLuegJzeVzi0Plv+OKUUwiXmiBk
-	 S+tTwqz4HJ+ssudxvhPmFgahVJ4KMNbK9O5uI1geiP3cs/b8yZwZ8bQHvTJiTULgJJ
-	 b9u1X+tpOEDicfWLNtMjyMOoSfoLfgG9blXzbkWfFD0RkaqBvmr+xAHLMm5jd09iwn
-	 MyL7lPc986yFSc4ADlKk1AYsdViNGJMsqWMFPLScUasmDvYdIzLSaIT7YKYTlkkLHJ
-	 aQQLs1t5qv+kg==
-Message-ID: <5dc32a3f-42d8-43d7-854b-3cf11c05544c@kernel.org>
-Date: Sat, 29 Nov 2025 12:40:15 +0100
+	b=s7JzutlJmipipiOvOvZ9s6lS10qPsQMhiyI67iD32MQPADdmIEzOmvSMDa/B5DMRO
+	 RY2omE5tkRjajZrWRIkJZf5tc8cXhQOTSlCJOOLXax/kE34E2T5dwTedawHBt27mlX
+	 vkiuzWyUihH2Aqvg0mm+IA5JCd52ymeD9SRj+K0O55mtwnYvUHrB2jEGlpju2kj9G7
+	 qiZgxTfq4nPK6HRxTSdsik+v59g+wbgzbrh1GdHt756tsPqkpc2yjnIr0zl822R7UI
+	 TKbZnr6HOg9ebFVEmg5svPwriJ/v9x9ncE58VIGFp7KP6ycpDHt5CgJQ9OObUMUWq4
+	 iC3AMqORk5diQ==
+Message-ID: <f87d6e32-7b40-4e52-9460-6711486b4844@kernel.org>
+Date: Sat, 29 Nov 2025 12:42:09 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v21 01/14] dt-bindings: net: Introduce the
- ethernet-connector description
+Subject: Re: [PATCH net-next v21 05/14] dt-bindings: net: dp83822: Deprecate
+ ti,fiber-mode
 To: "Rob Herring (Arm)" <robh@kernel.org>,
  Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Conor Dooley <conor+dt@kernel.org>, =?UTF-8?Q?Marek_Beh=C3=BAn?=
- <kabel@kernel.org>, Antoine Tenart <atenart@kernel.org>,
- mwojtas@chromium.org, netdev@vger.kernel.org,
- Daniel Golle <daniel@makrotopia.org>, Herve Codina
- <herve.codina@bootlin.com>, Eric Dumazet <edumazet@google.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>, linux-arm-msm@vger.kernel.org,
- thomas.petazzoni@bootlin.com, davem@davemloft.net,
- Florian Fainelli <f.fainelli@gmail.com>, linux-kernel@vger.kernel.org,
- Romain Gantois <romain.gantois@bootlin.com>, devicetree@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- Oleksij Rempel <o.rempel@pengutronix.de>,
- linux-arm-kernel@lists.infradead.org, Heiner Kallweit
- <hkallweit1@gmail.com>, Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
+Cc: linux-arm-msm@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>,
+ Paolo Abeni <pabeni@redhat.com>, Herve Codina <herve.codina@bootlin.com>,
  =?UTF-8?Q?Nicol=C3=B2_Veronese?= <nicveronese@gmail.com>,
- Tariq Toukan <tariqt@nvidia.com>, =?UTF-8?Q?K=C3=B6ry_Maincent?=
- <kory.maincent@bootlin.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Andrew Lunn <andrew@lunn.ch>, Simon Horman <horms@kernel.org>
+ netdev@vger.kernel.org, thomas.petazzoni@bootlin.com,
+ Andrew Lunn <andrew@lunn.ch>, Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
+ =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>,
+ linux-arm-kernel@lists.infradead.org, mwojtas@chromium.org,
+ Jakub Kicinski <kuba@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Heiner Kallweit <hkallweit1@gmail.com>, davem@davemloft.net,
+ Daniel Golle <daniel@makrotopia.org>, Eric Dumazet <edumazet@google.com>,
+ Simon Horman <horms@kernel.org>, Antoine Tenart <atenart@kernel.org>,
+ devicetree@vger.kernel.org, Tariq Toukan <tariqt@nvidia.com>,
+ =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>,
+ linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>,
+ Romain Gantois <romain.gantois@bootlin.com>,
+ Russell King <linux@armlinux.org.uk>,
+ Oleksij Rempel <o.rempel@pengutronix.de>
 References: <20251129082228.454678-1-maxime.chevallier@bootlin.com>
- <20251129082228.454678-2-maxime.chevallier@bootlin.com>
- <176440811455.3523222.6418355134728802633.robh@kernel.org>
+ <20251129082228.454678-6-maxime.chevallier@bootlin.com>
+ <176440811592.3523266.4372040709133421609.robh@kernel.org>
 From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
 Content-Language: fr-FR
-In-Reply-To: <176440811455.3523222.6418355134728802633.robh@kernel.org>
+In-Reply-To: <176440811592.3523266.4372040709133421609.robh@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251129_034027_251502_31C4FE3E 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20251129_034220_567602_9F97C65C 
+X-CRM114-Status: GOOD (  15.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,41 +97,18 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Le 29/11/2025 à 10:21, Rob Herring (Arm) a écrit :
 > 
-> On Sat, 29 Nov 2025 09:22:13 +0100, Maxime Chevallier wrote:
->> The ability to describe the physical ports of Ethernet devices is useful
->> to describe multi-port devices, as well as to remove any ambiguity with
->> regard to the nature of the port.
+> On Sat, 29 Nov 2025 09:22:17 +0100, Maxime Chevallier wrote:
+>> The newly added ethernet-connector binding allows describing an Ethernet
+>> connector with greater precision, and in a more generic manner, than
+>> ti,fiber-mode. Deprecate this property.
 >>
->> Moreover, describing ports allows for a better description of features
->> that are tied to connectors, such as PoE through the PSE-PD devices.
->>
->> Introduce a binding to allow describing the ports, for now with 2
->> attributes :
->>
->>   - The number of pairs, which is a quite generic property that allows
->>     differentating between multiple similar technologies such as BaseT1
->>     and "regular" BaseT (which usually means BaseT4).
->>
->>   - The media that can be used on that port, such as BaseT for Twisted
->>     Copper, BaseC for coax copper, BaseS/L for Fiber, BaseK for backplane
->>     ethernet, etc. This allows defining the nature of the port, and
->>     therefore avoids the need for vendor-specific properties such as
->>     "micrel,fiber-mode" or "ti,fiber-mode".
->>
->> The port description lives in its own file, as it is intended in the
->> future to allow describing the ports for phy-less devices.
->>
->> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
->> Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 >> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+>> Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 >> Tested-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 >> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 >> ---
->>   .../bindings/net/ethernet-connector.yaml      | 57 +++++++++++++++++++
->>   .../devicetree/bindings/net/ethernet-phy.yaml | 18 ++++++
->>   MAINTAINERS                                   |  1 +
->>   3 files changed, 76 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/net/ethernet-connector.yaml
+>>   Documentation/devicetree/bindings/net/ti,dp83822.yaml | 9 ++++++++-
+>>   1 file changed, 8 insertions(+), 1 deletion(-)
 >>
 > 
 > My bot found errors running 'make dt_binding_check' on your patch:
@@ -139,14 +116,30 @@ Le 29/11/2025 à 10:21, Rob Herring (Arm) a écrit :
 > yamllint warnings/errors:
 > 
 > dtschema/dtc warnings/errors:
-> Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c263000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
-> Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c263000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
-> Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c265000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
-> Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c265000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
+> 
+> 
+> doc reference errors (make refcheckdocs):
 
-Those errors are unrelated to the blamed patch, the patch is about 
-Ethernet the error is about thermal-sensors.
+No errors listed apparently, the bot has a problem.
 
 Christophe
+
+
+> 
+> See https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fpatchwork.ozlabs.org%2Fproject%2Fdevicetree-bindings%2Fpatch%2F20251129082228.454678-6-maxime.chevallier%40bootlin.com&data=05%7C02%7Cchristophe.leroy%40csgroup.eu%7Ca89d85159e8a4a4e6a9d08de2f28c066%7C8b87af7d86474dc78df45f69a2011bb5%7C0%7C0%7C639000049232512534%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=JOIl5FJPybTScu9tl2If5oN%2Fs46eLE4znVe7QXHALX8%3D&reserved=0
+> 
+> The base for the series is generally the latest rc1. A different dependency
+> should be noted in *this* patch.
+> 
+> If you already ran 'make dt_binding_check' and didn't see the above
+> error(s), then make sure 'yamllint' is installed and dt-schema is up to
+> date:
+> 
+> pip3 install dtschema --upgrade
+> 
+> Please check and re-submit after running the above command yourself. Note
+> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+> your schema. However, it must be unset to test all examples with your schema.
+> 
 
 
