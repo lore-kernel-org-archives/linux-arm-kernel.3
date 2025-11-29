@@ -4,77 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90F19CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 09:22:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3BE0D116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 09:22:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
 	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
 	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gvbsYw1GNBXDchxmmmI8ELch/9UwxqfEqARzxWrU+6w=; b=vc5xWRIq+Wanu3lStomZuGbBdv
-	bhiA13SyUcq8XQ+iB/C+wi3QyQknEU+jce/1RYWYLTu8QJYYlNbrFbvPhWdQGNwnCU8BPOij6ANch
-	xPDRWYGfiSxhFc7PWcpmkSPK87q01W2aJturKmb34OaQ1OtxAGSiUsoHKwmpiwYhgJ1zizL+wWT4o
-	pSAcx8zWKDAUFQ4pMjpLUs0czEKjoND47CyWBbbxn9vOeMlq4PXHciXOnSD92xTEz0Kh/cb+RCI/E
-	xZMFldvIkFZWTFrvF5pznZFyUjT9cqW7+8ymeP5mGrG3hqePpZNyEAIKT/U8fHHJfR9rHtOwSdmT7
-	jmnCf2pQ==;
+	bh=Df7JFE6JZOg6oHYYmF0FcmB/eRSn4w6X2pJA25xo0Mo=; b=1+sE1y9bXy5KVVfphcdHh8hJ9z
+	QxjounMhFE1Dn9XFYVR4rdrHqseqN4UYFevj+OCQQwHforElPsknbw4XajSSl1c07Zv2nmfBmFQLD
+	mjGSdAqdFJ0OxzPH6SVzQb5Y65Y3X0O2s4LgF+/d7H9QTVc1JQKClbuo9nQeNfSmPgrytVl4npGEn
+	8e4HIdtYHL23FAv/Vt/4pV0GV75ljDMs9LGAmw62MMFFCsZlzrNEGXuaqPnuyx4YISxYEQ5faIheG
+	kasq5OscUzAue8Yl4/KRSYycwdBfJkBId4dyQ2iYulYh17MIeb3yPy8me6L+yE1zdAKNIDFHK0Gdi
+	fikcDrbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPH9U-00000001QCZ-22cC;
-	Sat, 29 Nov 2025 09:22:00 +0000
+	id 1vPH9Z-00000001QDX-3G2z;
+	Sat, 29 Nov 2025 09:22:05 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPH9S-00000001QCJ-44jj
+	id 1vPH9U-00000001QCU-0Yjg
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Nov 2025 09:21:59 +0000
+	Sat, 29 Nov 2025 09:22:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EC07160198;
-	Sat, 29 Nov 2025 09:21:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62FCCC4CEF7;
-	Sat, 29 Nov 2025 09:21:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 73DC760120;
+	Sat, 29 Nov 2025 09:21:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A8D0C116C6;
+	Sat, 29 Nov 2025 09:21:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764408117;
-	bh=AIxxNjxm6vN2BypuJM4xQOvaeA8Px9VqpKHLawNEZvU=;
+	s=k20201202; t=1764408119;
+	bh=sogpOuSUqfbJepFbkIkyP19GQaHrYVXkuJ/MaiPaku8=;
 	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=aAgQ3lLFLxRHg3pJxjAUFy40/C4MSJrVqeTy6tnea0wIFCbgzNQqtps8cK/yTUiLR
-	 gKk8KimzUZMK/fZ+oLuWiKbbnze1K3GgbUtji+qIxtX+aS4phuHC/cW1jzBkUOuJ/1
-	 s6nQpd9J/6QsOMYlD63YkVCpJBRGosIi9CNUSvdWm/IU81BdXPThfGfRJtAws6CO9/
-	 O01VU3Rsct7KHsMTSn9Qm4ovTnTmWjh5hdpokxgGEL1fI1Xgpja0IooFuLpG45WJh4
-	 MuuHVqngEJHIyj1ZeHabmXokrXQ2cnqMwbPlDcfDAMcmmUIlL2OuBlMnmzV1VDFHbp
-	 k+tZx1WwMfpdg==
-Date: Sat, 29 Nov 2025 03:21:55 -0600
+	b=iDmci5u+CYVqoAYFd0wuwL4uQi4YhU9ZKXiuB93HT1jRBNVjItxrPhQqbRxa4KEa0
+	 gyPTyK49Q1/Sd/5zAI2QIu5OsjZlqZLCXdak43Pj5FpKmnsGUnyqcWP43pC6wm1dil
+	 2ETCZH3s4qk6x+Te7aNj1JMIJSsuqsZHfbGYYtIpyo5iJ3ga++iWIDwai30rvbufVd
+	 EQ4MnkIh/WNW5BzG49s9fSRDeoA9eGSwyOoKBzm1wJhJYyP4XW2gr/EGqnyR8ulz9q
+	 DOZcIso6rXS79M6DwL8B3KaJmjVOUYAJYA7PYxmR/uRjTpYfjsO8w6mbJw2G1g1k+/
+	 si/v7aDm2FzAQ==
+Date: Sat, 29 Nov 2025 03:21:57 -0600
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
 From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Christophe Leroy <christophe.leroy@csgroup.eu>, 
- Conor Dooley <conor+dt@kernel.org>, 
- =?utf-8?q?Marek_Beh=C3=BAn?= <kabel@kernel.org>, 
- Antoine Tenart <atenart@kernel.org>, mwojtas@chromium.org, 
- netdev@vger.kernel.org, Daniel Golle <daniel@makrotopia.org>, 
- Herve Codina <herve.codina@bootlin.com>, Eric Dumazet <edumazet@google.com>, 
- Vladimir Oltean <vladimir.oltean@nxp.com>, linux-arm-msm@vger.kernel.org, 
- thomas.petazzoni@bootlin.com, davem@davemloft.net, 
- Florian Fainelli <f.fainelli@gmail.com>, linux-kernel@vger.kernel.org, 
- Romain Gantois <romain.gantois@bootlin.com>, devicetree@vger.kernel.org, 
- Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>, 
- Russell King <linux@armlinux.org.uk>, 
- Oleksij Rempel <o.rempel@pengutronix.de>, 
- linux-arm-kernel@lists.infradead.org, 
- Heiner Kallweit <hkallweit1@gmail.com>, 
- Dimitri Fedrau <dimitri.fedrau@liebherr.com>, 
+Cc: linux-arm-msm@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>, 
+ Paolo Abeni <pabeni@redhat.com>, Herve Codina <herve.codina@bootlin.com>, 
  =?utf-8?q?Nicol=C3=B2_Veronese?= <nicveronese@gmail.com>, 
- Tariq Toukan <tariqt@nvidia.com>, 
+ netdev@vger.kernel.org, thomas.petazzoni@bootlin.com, 
+ Andrew Lunn <andrew@lunn.ch>, Dimitri Fedrau <dimitri.fedrau@liebherr.com>, 
  =?utf-8?q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
- Simon Horman <horms@kernel.org>
+ linux-arm-kernel@lists.infradead.org, mwojtas@chromium.org, 
+ Jakub Kicinski <kuba@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Heiner Kallweit <hkallweit1@gmail.com>, davem@davemloft.net, 
+ Daniel Golle <daniel@makrotopia.org>, Eric Dumazet <edumazet@google.com>, 
+ Simon Horman <horms@kernel.org>, Antoine Tenart <atenart@kernel.org>, 
+ Christophe Leroy <christophe.leroy@csgroup.eu>, devicetree@vger.kernel.org, 
+ Tariq Toukan <tariqt@nvidia.com>, 
+ =?utf-8?q?Marek_Beh=C3=BAn?= <kabel@kernel.org>, 
+ linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+ Vladimir Oltean <vladimir.oltean@nxp.com>, 
+ Romain Gantois <romain.gantois@bootlin.com>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Oleksij Rempel <o.rempel@pengutronix.de>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20251129082228.454678-2-maxime.chevallier@bootlin.com>
+In-Reply-To: <20251129082228.454678-6-maxime.chevallier@bootlin.com>
 References: <20251129082228.454678-1-maxime.chevallier@bootlin.com>
- <20251129082228.454678-2-maxime.chevallier@bootlin.com>
-Message-Id: <176440811455.3523222.6418355134728802633.robh@kernel.org>
-Subject: Re: [PATCH net-next v21 01/14] dt-bindings: net: Introduce the
- ethernet-connector description
+ <20251129082228.454678-6-maxime.chevallier@bootlin.com>
+Message-Id: <176440811592.3523266.4372040709133421609.robh@kernel.org>
+Subject: Re: [PATCH net-next v21 05/14] dt-bindings: net: dp83822:
+ Deprecate ti,fiber-mode
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,41 +88,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Sat, 29 Nov 2025 09:22:13 +0100, Maxime Chevallier wrote:
-> The ability to describe the physical ports of Ethernet devices is useful
-> to describe multi-port devices, as well as to remove any ambiguity with
-> regard to the nature of the port.
+On Sat, 29 Nov 2025 09:22:17 +0100, Maxime Chevallier wrote:
+> The newly added ethernet-connector binding allows describing an Ethernet
+> connector with greater precision, and in a more generic manner, than
+> ti,fiber-mode. Deprecate this property.
 > 
-> Moreover, describing ports allows for a better description of features
-> that are tied to connectors, such as PoE through the PSE-PD devices.
-> 
-> Introduce a binding to allow describing the ports, for now with 2
-> attributes :
-> 
->  - The number of pairs, which is a quite generic property that allows
->    differentating between multiple similar technologies such as BaseT1
->    and "regular" BaseT (which usually means BaseT4).
-> 
->  - The media that can be used on that port, such as BaseT for Twisted
->    Copper, BaseC for coax copper, BaseS/L for Fiber, BaseK for backplane
->    ethernet, etc. This allows defining the nature of the port, and
->    therefore avoids the need for vendor-specific properties such as
->    "micrel,fiber-mode" or "ti,fiber-mode".
-> 
-> The port description lives in its own file, as it is intended in the
-> future to allow describing the ports for phy-less devices.
-> 
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 > Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 > Tested-by: Christophe Leroy <christophe.leroy@csgroup.eu>
 > Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 > ---
->  .../bindings/net/ethernet-connector.yaml      | 57 +++++++++++++++++++
->  .../devicetree/bindings/net/ethernet-phy.yaml | 18 ++++++
->  MAINTAINERS                                   |  1 +
->  3 files changed, 76 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/ethernet-connector.yaml
+>  Documentation/devicetree/bindings/net/ti,dp83822.yaml | 9 ++++++++-
+>  1 file changed, 8 insertions(+), 1 deletion(-)
 > 
 
 My bot found errors running 'make dt_binding_check' on your patch:
@@ -132,14 +107,11 @@ My bot found errors running 'make dt_binding_check' on your patch:
 yamllint warnings/errors:
 
 dtschema/dtc warnings/errors:
-Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c263000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
-Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c263000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
-Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c265000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
-Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c265000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
+
 
 doc reference errors (make refcheckdocs):
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251129082228.454678-2-maxime.chevallier@bootlin.com
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251129082228.454678-6-maxime.chevallier@bootlin.com
 
 The base for the series is generally the latest rc1. A different dependency
 should be noted in *this* patch.
