@@ -4,64 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 471D9CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 09:44:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91768D116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 09:50:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uo8TBg8AtxzlOE4Yqx7kavPid3wS0PC/nG9PfSHZKxs=; b=Sl/VXcjehCWJflTdovYFzjZPTz
-	exshAxI2VLD67cO+i3UokBYSAATRnRw/O0k2LQ8CAzlXcXuwHMP1Py4CZVZf+1nodeNc4wOO0fGOi
-	0u41wf5GKb5oUTngjBUV1rj8U4B7rZGMFXxRGCb151rrGIyq/1ngimr3KscELbTP7e82cbCrsOglM
-	J8ewxjbcU4zupRkt/a659mNad8ThPc9eb0XVAxzqNAlONpNGu0LcC9CoOjImTnJ1d1G7MLerIie3K
-	aD1Rx4kWVkgPkxwOAVm/iV6OAo8/1G128eVhJjO3wGSMx6igEmTG+i+84SVkle4VQzYD5zqr6W+5x
-	wyNij6Bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A6UvVsv4TA43NPezPtcDxkCOA4ift86d3pwT98kuntc=; b=RLU/HO9ZTZewrmmZ7bWeRSPSGf
+	XDZz5u4h7HwAV2UaMmL9EaeZZAqw1G6WJubdZfOQUUiq1IVsPKnobusleAO/MyAimw/+vOXN+/oR0
+	0kGY9a0N8xSjGYd6srFZgwe9WdCEMVrhZ2uEkA8L6BJ81mHh1qxL5gvYjWHYyCd2FVviXWYNz/1OB
+	WbcknER6KoS1utizF+Z+ob3NaMThvz1we2djwLL4iDtMMyxshKQe2BHICM21zFf8pEflPUy9dkaTQ
+	PhCnYAf6OMCp08LSADJf0ymfUiwaSt5nuhJM6iq8eZhnm5nQ0KjDZuPQDkEwXlcmTTAyNDXonGgGU
+	e/uFYFhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPHVa-00000001RDh-36Qp;
-	Sat, 29 Nov 2025 09:44:50 +0000
-Received: from zeniv.linux.org.uk ([2a03:a000:7:0:5054:ff:fe1c:15ff])
+	id 1vPHb1-00000001RUn-22HZ;
+	Sat, 29 Nov 2025 09:50:27 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPHVW-00000001RDG-3K5P
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Nov 2025 09:44:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=linux.org.uk; s=zeniv-20220401; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Uo8TBg8AtxzlOE4Yqx7kavPid3wS0PC/nG9PfSHZKxs=; b=WdQujMwngoaiotKE+sjfTEDix5
-	/Quh6v3dAOZbKwpiPRmLYx/4yq+iMPUTybuIxveIGsrIk9ol/Pwww2I6MKFzY9/8bfk5KC9gvcxlJ
-	+XI3SdRUCbwXwlTUuxNp4Nssse82eDUiCkIRhOxgRrdnjJJ1nLFoXEuKXjIQtr+/z152+d0nhkZbV
-	NMeLLVqYZSe2YuFhUS0OEmOm50coh4aYAoV2OlrFIZlICaBRiN2AX66N1ci9LOUKXUn0WTkKBJpBx
-	vWjAt7xOnJlyU4zU5+O3ctln5KTWQG8AXSGsbGXZvUeB7266YsqjJelIwqS4mTr5vMv5iHIN6lym+
-	pwkRJgvw==;
-Received: from viro by zeniv.linux.org.uk with local (Exim 4.99 #2 (Red Hat Linux))
-	id 1vPHVY-00000008MI2-2f73;
-	Sat, 29 Nov 2025 09:44:48 +0000
-Date: Sat, 29 Nov 2025 09:44:48 +0000
-From: Al Viro <viro@zeniv.linux.org.uk>
-To: Xie Yuanbin <xieyuanbin1@huawei.com>
-Cc: will@kernel.org, linux@armlinux.org.uk, bigeasy@linutronix.de,
-	rmk+kernel@armlinux.org.uk, akpm@linux-foundation.org,
-	brauner@kernel.org, catalin.marinas@arm.com, hch@lst.de,
-	jack@suse.com, linux-arm-kernel@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, pangliyuan1@huawei.com,
-	wangkefeng.wang@huawei.com, wozizhi@huaweicloud.com,
-	yangerkun@huawei.com, lilinjie8@huawei.com, liaohua4@huawei.com
-Subject: Re: [Bug report] hash_name() may cross page boundary and trigger
-Message-ID: <20251129094448.GL3538@ZenIV>
-References: <20251129090813.GK3538@ZenIV>
- <20251129092545.5181-1-xieyuanbin1@huawei.com>
+	id 1vPHav-00000001RUB-3i05;
+	Sat, 29 Nov 2025 09:50:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1764409817;
+	bh=MmXzVJ5MoVP8VbuSvcRf5Cd6FU2Boz+4Je345xBRang=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=mWum973oC9Cc3v/JpWaj+y+bA86DwJ7gSSSecrKm9oRtJXaZEuAdCYMuM0DWgjD1P
+	 5U1s1i230v+rCAw8qZcP3wkUtUVZEWqXRnV7JjWyPQzTI+pY9UCi9mJK7XV3Rm7D/U
+	 tMnPsBic37kmOut/GD5QLOsZ7oRNojsLwLXxr1SMTG5l4Rp+VZ4uA7ywtK0yvs3Uh/
+	 AsHH2uEObJnWsg7bUyjJM00FGHm384j9W8TnxzDmadBAHKqBCSt1bJVapZ6Tg9UX11
+	 noiuxv8yOBLePzsHJHhOAZr59WfU0rcsqzHnR4PIowuyg6dGWcSMqo3LLE+lxzNnXS
+	 A4bjyTGgGkItw==
+Received: from [192.168.1.90] (unknown [82.79.138.145])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B623A17E0330;
+	Sat, 29 Nov 2025 10:50:16 +0100 (CET)
+Message-ID: <058027df-1b1b-4c46-b8e1-ec53fc809e82@collabora.com>
+Date: Sat, 29 Nov 2025 11:50:16 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251129092545.5181-1-xieyuanbin1@huawei.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 4/4] drm/rockchip: vop2: Support setting custom
+ background color
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Louis Chauvet <louis.chauvet@bootlin.com>,
+ Haneen Mohammed <hamohammed.sa@gmail.com>,
+ Melissa Wen <melissa.srw@gmail.com>
+Cc: Robert Mader <robert.mader@collabora.com>, kernel@collabora.com,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+References: <20251118-rk3588-bgcolor-v3-0-a2cc909428ea@collabora.com>
+ <20251118-rk3588-bgcolor-v3-4-a2cc909428ea@collabora.com>
+ <0ed71b8d-5a2e-4213-bd2f-7ba317d1e4cb@rock-chips.com>
+ <4a6443b8-d440-4921-8a43-7c20e4e265e7@collabora.com>
+ <b8819463-cc61-432f-b451-db90e3b43884@rock-chips.com>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <b8819463-cc61-432f-b451-db90e3b43884@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251129_014448_293020_3ACF309C 
-X-CRM114-Status: GOOD (  20.70  )
+X-CRM114-CacheID: sfid-20251129_015025_044343_406EE2F9 
+X-CRM114-Status: GOOD (  19.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,40 +88,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 29, 2025 at 05:25:45PM +0800, Xie Yuanbin wrote:
-> On Sat, 29 Nov 2025 09:08:13 +0000, Al Viro wrote:
-> > On Sat, Nov 29, 2025 at 12:08:17PM +0800, Xie Yuanbin wrote:
-> >
-> >> I think the `user_mode(regs)` check is necessary because the label
-> >> no_context actually jumps to __do_kernel_fault(), whereas page fault
-> >> from user mode should jump to `__do_user_fault()`.
-> >>
-> >> Alternatively, we would need to change `goto no_context` to
-> >> `goto bad_area`. Or perhaps I misunderstood something, please point it out.
-> >
-> > FWIW, goto bad_area has an obvious problem: uses of 'fault' value, which
-> > contains garbage.
-> 
-> Yes, I know it, I just omitted it. Thank you for pointing that out.
-> 
-> > or
-> > 	if (unlikely(addr >= TASK_SIZE)) {
-> > 		fault = 0;
-> > 		code = SEGV_MAPERR;
-> > 		goto bad_area;
-> > 	}
-> 
-> In fact, I have already submitted another patch, which is exactly the way
-> as you described:
-> Link: https://lore.kernel.org/20251127140109.191657-1-xieyuanbin1@huawei.com
-> 
-> The only difference is that I will move the judgment to before
-> local_irq_enable(). The reason for doing this is to fix another bug,
-> you can find more details about it here:
-> Link: https://lore.kernel.org/20250925025744.6807-1-xieyuanbin1@huawei.com
-> Link: https://lore.kernel.org/20251129021815.9679-1-xieyuanbin1@huawei.com
+Hi Chaoyi,
 
-AFAICS, your patch does nothing to the case when we hit kernel address from
-kernel mode, which is what triggers that "block in RCU mode for no good reason"
-fun...
+On 11/29/25 5:49 AM, Chaoyi Chen wrote:
+> Hello Cristian, 
+> 
+> On 11/28/2025 5:44 PM, Cristian Ciocaltea wrote:
+>> The precision was something I initially looked into for CRC verification, in the
+>> context of the related IGT test.  But since I've added the VKMS support, I think
+>> we should not worry about that anymore. 
+>>
+>> Moreover, as already pointed out in [1], only RK3576 supports CRC generation at
+>> display controller level, and that is not particularly useful because it doesn't
+> 
+> I believe you can get the CRTC CRC on the RK3576, even when only the 
+> background is visible and all plane is disabled. Feel free to let me
+> know if you run into any issues :)
+
+Yes, CRTC CRC works on RK3576 for the planes, but not for the background, i.e.
+the CRC is not updated when setting a different background color.  Unless
+there's a way to change this default behavior, which I'm not aware of. 
+
+My current understanding is that the background color is applied at a later
+stage in the display pipeline, *after* blending the planes and computing CRC.
+
+>> take the background color into account.  Therefore I had to capture the frame
+>> CRCs at DisplayPort AUX channel level, by using the USB-C DP AltMode capable
+> 
+> Oh that sounds interesting! I'm not sure how complex it would be to
+> implement.
+
+That's already implemented, I plan to submit the patches soon.
+
+> 
+>> port of my RK3588-based board.  However, that solution is not yet available
+>> upstream, as it requires further work for cleanup and improving the overall
+>> USB-C reliability. 
+>>
+>> Hence I'll move on with your suggestion and switch to the simple bit-shifting
+>> approach for the next revision.
+> 
 
