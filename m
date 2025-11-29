@@ -4,75 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3BE0D116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 09:22:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3D63CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 09:26:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Df7JFE6JZOg6oHYYmF0FcmB/eRSn4w6X2pJA25xo0Mo=; b=1+sE1y9bXy5KVVfphcdHh8hJ9z
-	QxjounMhFE1Dn9XFYVR4rdrHqseqN4UYFevj+OCQQwHforElPsknbw4XajSSl1c07Zv2nmfBmFQLD
-	mjGSdAqdFJ0OxzPH6SVzQb5Y65Y3X0O2s4LgF+/d7H9QTVc1JQKClbuo9nQeNfSmPgrytVl4npGEn
-	8e4HIdtYHL23FAv/Vt/4pV0GV75ljDMs9LGAmw62MMFFCsZlzrNEGXuaqPnuyx4YISxYEQ5faIheG
-	kasq5OscUzAue8Yl4/KRSYycwdBfJkBId4dyQ2iYulYh17MIeb3yPy8me6L+yE1zdAKNIDFHK0Gdi
-	fikcDrbw==;
+	bh=e9dVSOpcR3NajjbHJM0v+Jek+ZgTYIb8ZcFiF66ekIA=; b=FGKVVNGKA1dH1BbZVpPOjM4qxt
+	LV8fop1fwPRsOopukMDBL4F2OL4tYV5RshpcuSoBGsOG1TcXSrXQHvzvi63flAvfcY9CvEhqrawJC
+	eSDngaajaGCE2+RNqmxInQqJq6hWhMMf/uL8iq6c/9enzQg965z6LnFAv+fLBoaVzJB/t7ULsIhuU
+	L6QIrlF4WUNsnq3YJJBGnWvXLPOcYZCw14+1N9h48mPalz2t7rJays11YkdsNFpEI+y0SKj9EbW0v
+	AVZ4ndpbI2KPVi34+hAxjI+cl9Z/psNS8BPmQiKQTu1qfs1h4wtf+HjTuSJo7GMRMwdnJbs9E0S4Y
+	b73gRvbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPH9Z-00000001QDX-3G2z;
-	Sat, 29 Nov 2025 09:22:05 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vPHDr-00000001Qas-0eU8;
+	Sat, 29 Nov 2025 09:26:31 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPH9U-00000001QCU-0Yjg
+	id 1vPHDn-00000001QaF-3LO6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Nov 2025 09:22:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 73DC760120;
-	Sat, 29 Nov 2025 09:21:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A8D0C116C6;
-	Sat, 29 Nov 2025 09:21:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764408119;
-	bh=sogpOuSUqfbJepFbkIkyP19GQaHrYVXkuJ/MaiPaku8=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=iDmci5u+CYVqoAYFd0wuwL4uQi4YhU9ZKXiuB93HT1jRBNVjItxrPhQqbRxa4KEa0
-	 gyPTyK49Q1/Sd/5zAI2QIu5OsjZlqZLCXdak43Pj5FpKmnsGUnyqcWP43pC6wm1dil
-	 2ETCZH3s4qk6x+Te7aNj1JMIJSsuqsZHfbGYYtIpyo5iJ3ga++iWIDwai30rvbufVd
-	 EQ4MnkIh/WNW5BzG49s9fSRDeoA9eGSwyOoKBzm1wJhJYyP4XW2gr/EGqnyR8ulz9q
-	 DOZcIso6rXS79M6DwL8B3KaJmjVOUYAJYA7PYxmR/uRjTpYfjsO8w6mbJw2G1g1k+/
-	 si/v7aDm2FzAQ==
-Date: Sat, 29 Nov 2025 03:21:57 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Sat, 29 Nov 2025 09:26:29 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=e9dVSOpcR3NajjbHJM0v+Jek+ZgTYIb8ZcFiF66ekIA=;
+	b=iAWqeivURbpGsCaVtOtNoNhK+3A3QPdc5EYzynM0vqm5qsEhctuFpESwUvj0IsTqCEVGPJrqD
+	TjamLg1p5w2bEtnjHO2Dy2fRNExVPHlsJe+yDf8oL/w2evWSdtRf4WV+Xk4uI3cEXGJmnixpM21
+	mBUfN7UzPFTCweFA0c+Ysak=
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4dJPrD1WKQz1prLT;
+	Sat, 29 Nov 2025 17:24:28 +0800 (CST)
+Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
+	by mail.maildlp.com (Postfix) with ESMTPS id 22071180B3F;
+	Sat, 29 Nov 2025 17:26:19 +0800 (CST)
+Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
+ kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Sat, 29 Nov 2025 17:26:18 +0800
+From: Xie Yuanbin <xieyuanbin1@huawei.com>
+To: <viro@zeniv.linux.org.uk>, <will@kernel.org>, <linux@armlinux.org.uk>,
+	<bigeasy@linutronix.de>, <rmk+kernel@armlinux.org.uk>
+CC: <akpm@linux-foundation.org>, <brauner@kernel.org>,
+	<catalin.marinas@arm.com>, <hch@lst.de>, <jack@suse.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-fsdevel@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
+	<pangliyuan1@huawei.com>, <wangkefeng.wang@huawei.com>,
+	<wozizhi@huaweicloud.com>, <xieyuanbin1@huawei.com>, <yangerkun@huawei.com>,
+	<lilinjie8@huawei.com>, <liaohua4@huawei.com>
+Subject: Re: [Bug report] hash_name() may cross page boundary and trigger
+Date: Sat, 29 Nov 2025 17:25:45 +0800
+Message-ID: <20251129092545.5181-1-xieyuanbin1@huawei.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251129090813.GK3538@ZenIV>
+References: <20251129090813.GK3538@ZenIV>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, Florian Fainelli <f.fainelli@gmail.com>, 
- Paolo Abeni <pabeni@redhat.com>, Herve Codina <herve.codina@bootlin.com>, 
- =?utf-8?q?Nicol=C3=B2_Veronese?= <nicveronese@gmail.com>, 
- netdev@vger.kernel.org, thomas.petazzoni@bootlin.com, 
- Andrew Lunn <andrew@lunn.ch>, Dimitri Fedrau <dimitri.fedrau@liebherr.com>, 
- =?utf-8?q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>, 
- linux-arm-kernel@lists.infradead.org, mwojtas@chromium.org, 
- Jakub Kicinski <kuba@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Heiner Kallweit <hkallweit1@gmail.com>, davem@davemloft.net, 
- Daniel Golle <daniel@makrotopia.org>, Eric Dumazet <edumazet@google.com>, 
- Simon Horman <horms@kernel.org>, Antoine Tenart <atenart@kernel.org>, 
- Christophe Leroy <christophe.leroy@csgroup.eu>, devicetree@vger.kernel.org, 
- Tariq Toukan <tariqt@nvidia.com>, 
- =?utf-8?q?Marek_Beh=C3=BAn?= <kabel@kernel.org>, 
- linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
- Vladimir Oltean <vladimir.oltean@nxp.com>, 
- Romain Gantois <romain.gantois@bootlin.com>, 
- Russell King <linux@armlinux.org.uk>, 
- Oleksij Rempel <o.rempel@pengutronix.de>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20251129082228.454678-6-maxime.chevallier@bootlin.com>
-References: <20251129082228.454678-1-maxime.chevallier@bootlin.com>
- <20251129082228.454678-6-maxime.chevallier@bootlin.com>
-Message-Id: <176440811592.3523266.4372040709133421609.robh@kernel.org>
-Subject: Re: [PATCH net-next v21 05/14] dt-bindings: net: dp83822:
- Deprecate ti,fiber-mode
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.67.109.17]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemj100009.china.huawei.com (7.202.194.3)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251129_012628_315733_1ECFE976 
+X-CRM114-Status: GOOD (  13.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,43 +83,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, 29 Nov 2025 09:08:13 +0000, Al Viro wrote:
+> On Sat, Nov 29, 2025 at 12:08:17PM +0800, Xie Yuanbin wrote:
+>
+>> I think the `user_mode(regs)` check is necessary because the label
+>> no_context actually jumps to __do_kernel_fault(), whereas page fault
+>> from user mode should jump to `__do_user_fault()`.
+>>
+>> Alternatively, we would need to change `goto no_context` to
+>> `goto bad_area`. Or perhaps I misunderstood something, please point it out.
+>
+> FWIW, goto bad_area has an obvious problem: uses of 'fault' value, which
+> contains garbage.
 
-On Sat, 29 Nov 2025 09:22:17 +0100, Maxime Chevallier wrote:
-> The newly added ethernet-connector binding allows describing an Ethernet
-> connector with greater precision, and in a more generic manner, than
-> ti,fiber-mode. Deprecate this property.
-> 
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-> Tested-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> ---
->  Documentation/devicetree/bindings/net/ti,dp83822.yaml | 9 ++++++++-
->  1 file changed, 8 insertions(+), 1 deletion(-)
-> 
+Yes, I know it, I just omitted it. Thank you for pointing that out.
 
-My bot found errors running 'make dt_binding_check' on your patch:
+> or
+> 	if (unlikely(addr >= TASK_SIZE)) {
+> 		fault = 0;
+> 		code = SEGV_MAPERR;
+> 		goto bad_area;
+> 	}
 
-yamllint warnings/errors:
+In fact, I have already submitted another patch, which is exactly the way
+as you described:
+Link: https://lore.kernel.org/20251127140109.191657-1-xieyuanbin1@huawei.com
 
-dtschema/dtc warnings/errors:
+The only difference is that I will move the judgment to before
+local_irq_enable(). The reason for doing this is to fix another bug,
+you can find more details about it here:
+Link: https://lore.kernel.org/20250925025744.6807-1-xieyuanbin1@huawei.com
+Link: https://lore.kernel.org/20251129021815.9679-1-xieyuanbin1@huawei.com
 
+To keep the email concise, I will not repeat the description here.
 
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251129082228.454678-6-maxime.chevallier@bootlin.com
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+Xie Yuanbin
 
