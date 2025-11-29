@@ -4,72 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 266B5D116E2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 00:49:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE520D116E2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 01:01:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9eNZQQZbqRBeDJBMnjy4fDIculr+RS+/XQy2lmKyBaM=; b=nEmXiUqqE3TD9UHF+QdQImaWFj
-	MOZvySWLwJZEm1uePSrl551gM4ykvsAZVDnuo7pDQ7YOS+PY5GRkRf3akIGIMsawQDVHIzse4tOcu
-	HDsadNP8rzidvyaSkUHczKcLPKS1v0jvTxDYTHMuUJu7MwiORDPIRkq1PNidgDe8eEg1h0l//FmPl
-	Vl+Fq5C2OPSG0vBCU/TY9NP8LIzY39JvSsqBTtaig0D/vQfweNTuKcWVIXGByTPQjJuHEaGndf10e
-	LnK/PFAJROkJgAPbiDFeCnfur7zeEjdf1MeF92cYE4FjVYB0hyixvjNd0aEzHbG8xScY6ir+rqUSE
-	rlgIKl9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L+Sm016XecfIRVb9f02G8NevCS17Unuerb4iXY+i7jo=; b=xmI4AtY4ov5ejYJzV2A6XjrgA9
+	MVkM+IzNZAeHFLFZDUDEIkNDgsrgrhpEipqEjBk7XJY19sZbnYyVOuBvTZELM/BY5uwWWRQuTQUAA
+	Tp3OofpJx0y4jytRGmVDWX3bkbWMLXBAAaRY5Aq5J/bygZCKbAhumWMeGaMjf4WCoQHCoWaXyKv8F
+	VcAywW3G9s3xGabDZwVpxmKPgYYXjG9wDnXfADzKzMRXkPeA2rm0XgN5OQ2a1P7diOhcRb6zG+426
+	4SYTRLb7m7TN5+yGVkEOe34UMQbKVRod8PgVLUDUacUZOcxEjEXeEEECl+t+ET8dmZpVsxUT83PRO
+	yMsATtRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP993-000000016EN-0MKX;
-	Sat, 29 Nov 2025 00:49:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vP9L2-000000016nn-2SQN;
+	Sat, 29 Nov 2025 01:01:24 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vP992-000000016EC-1lUQ
+	id 1vP9Ky-000000016mz-2WWr
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Nov 2025 00:49:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 447F160198;
-	Sat, 29 Nov 2025 00:48:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C9BFC4CEF1;
-	Sat, 29 Nov 2025 00:48:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764377338;
-	bh=nEUcoR9iWdz6yB51JHK9UPbmFj+a6cm+4UL+mbMBL+k=;
-	h=From:Date:Subject:To:Cc:From;
-	b=bvgjXRuOqTFYd/uQqWWs6mMAbpWjCkRzy0di1Un3k3130x665YYKYh25718NHgrzv
-	 iBOYrzYGScZK0yhhlbEEhzhtZKX+u96PkJA3F/nWQDRgCWaD6PpxJFcQIUB0fw/hma
-	 2kLbb8tc1fW4KTh5Wt/TUkrwS8wN8heawYLBIGg+0wDT4m+FQNi5ncd2mHRCKv4qtR
-	 ReGvkRHunY6nzwgCKPp7rvwX+9g8Z9bAmrnUwmbzrXXNzv8KLrk+uRrt4jxaJvhFSG
-	 oGPVFdb/+uu1M+sgVJJKbD9h4XWLBYZL3+xwkLjWJCTtjhpRkIqZp/r7D/wJgDA52h
-	 7J5JKeDn3uFqw==
-From: Mark Brown <broonie@kernel.org>
-Date: Sat, 29 Nov 2025 00:48:45 +0000
-Subject: [PATCH] arm64/gcs: Flush the GCS locking state on exec
+	Sat, 29 Nov 2025 01:01:22 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.216])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4dJBfS4c1qzYQtkX
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Nov 2025 09:00:16 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.75])
+	by mail.maildlp.com (Postfix) with ESMTP id BBEA11A1C35
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 29 Nov 2025 09:01:12 +0800 (CST)
+Received: from [10.174.176.88] (unknown [10.174.176.88])
+	by APP2 (Coremail) with SMTP id Syh0CgCH5XvWRSppIhd8CQ--.54714S3;
+	Sat, 29 Nov 2025 09:01:12 +0800 (CST)
+Message-ID: <3d590a6d-07d1-433c-add1-8b7d53018854@huaweicloud.com>
+Date: Sat, 29 Nov 2025 09:01:09 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251129-arm64-gcs-flush-lock-v1-1-902b3ba6f39d@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAO1CKmkC/x3MTQqEMAxA4atI1gZspop6FXHRqakGf2lQBsS7T
- 3H5Ld67QTkKK7TZDZEvUdm3BJNn4Ce3jYwyJAMVVBpDNbq4VhZHrxiWUydcdj+jqT7svo0nChZ
- SekQO8nu3Xf88f8bIUBRmAAAA
-X-Change-ID: 20251128-arm64-gcs-flush-lock-163eab9c22f4
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, 
- Thiago Jung Bauermann <thiago.bauermann@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Yury Khrustalev <Yury.Khrustalev@arm.com>, Mark Brown <broonie@kernel.org>
-X-Mailer: b4 0.15-dev-88d78
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1149; i=broonie@kernel.org;
- h=from:subject:message-id; bh=nEUcoR9iWdz6yB51JHK9UPbmFj+a6cm+4UL+mbMBL+k=;
- b=owEBbQGS/pANAwAKASTWi3JdVIfQAcsmYgBpKkL4DIiz6bVybHOUsOHJg9zsT0j7sck6+H+O4
- fnymV7fmF6JATMEAAEKAB0WIQSt5miqZ1cYtZ/in+ok1otyXVSH0AUCaSpC+AAKCRAk1otyXVSH
- 0Au6CACA/pa8ugnkCwCHSsKjDC8M5nK8giyylPWOuZLc/23z1cDZhmnJ3rIl+6B0C0o5+GpDqT4
- pvL7cQm6AVE1seRok97UUXWpT4SVqZO9zeyl0Noj/zBdO5ZFw6z8nAeqjppL7PABGUTuhotL5lE
- JwI2pUUfvAJd3OvIW7MOohrtW7UUzacnTr9RtY1UlVDKSFRbcDrs3btfPi78NVUgdn17hAwTEAW
- Fv/j6pqe3XjAILojfzHT6/+WYruKbz3z+kyOb1RQ2Hr052ktvxAihaQzi77lWXt4lVZ7YT2Lzzm
- ofJfe3Kj/h4MW3Z2cyS54KGowfEolYwc4PZKR4Su2iSxzMAU
-X-Developer-Key: i=broonie@kernel.org; a=openpgp;
- fpr=3F2568AAC26998F9E813A1C5C3F436CA30F5D8EB
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Bug report] hash_name() may cross page boundary and trigger
+ sleep in RCU context
+To: Linus Torvalds <torvalds@linux-foundation.org>,
+ "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Zizhi Wo <wozizhi@huaweicloud.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ jack@suse.com, brauner@kernel.org, hch@lst.de, akpm@linux-foundation.org,
+ linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ yangerkun@huawei.com, wangkefeng.wang@huawei.com, pangliyuan1@huawei.com,
+ xieyuanbin1@huawei.com, Al Viro <viro@zeniv.linux.org.uk>
+References: <20251126090505.3057219-1-wozizhi@huaweicloud.com>
+ <33ab4aef-020e-49e7-8539-31bf78dac61a@huaweicloud.com>
+ <CAHk-=wh1Wfwt9OFB4AfBbjyeu4JVZuSWQ4A8OoT3W6x9btddfw@mail.gmail.com>
+ <aSgut4QcBsbXDEo9@shell.armlinux.org.uk>
+ <CAHk-=wh+cFLLi2x6u61pvL07phSyHPVBTo9Lac2uuqK4eRG_=w@mail.gmail.com>
+From: Zizhi Wo <wozizhi@huaweicloud.com>
+In-Reply-To: <CAHk-=wh+cFLLi2x6u61pvL07phSyHPVBTo9Lac2uuqK4eRG_=w@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: Syh0CgCH5XvWRSppIhd8CQ--.54714S3
+X-Coremail-Antispam: 1UD129KBjvJXoWxAw45Cr1kXry7trWxJF47Jwb_yoW5CFWrpr
+	Wjk3ZIk3y7WF1Sya4xAan2vFyxA3Z5Ar45GF90krs5uwsrWrnFgw4Sgws0y3429rnYga10
+	vr4YvryUuwn8GaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvE14x267AKxVW5JVWrJwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26w1j6s0DM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4U
+	JVWxJr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
+	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
+	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJV
+	W8JwACjcxG0xvEwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7CjxVA2Y2ka
+	0xkIwI1lc7CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7
+	v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF
+	1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIx
+	AIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI
+	42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWI
+	evJa73UjIFyTuYvjTRNJ5oDUUUU
+X-CM-SenderInfo: pzr2x6tkl6x35dzhxuhorxvhhfrp/
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251128_170121_031400_B2C2A3C8 
+X-CRM114-Status: GOOD (  31.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,37 +95,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When we exec a new task we forget to flush the set of locked GCS mode bits.
-Since we do flush the rest of the state this means that if GCS is locked
-the new task will be unable to enable GCS, it will be locked as being
-disabled. Add the expected flush.
 
-Fixes: fc84bc5378a8 ("arm64/gcs: Context switch GCS state for EL0")
-Reported-by: Yury Khrustalev <Yury.Khrustalev@arm.com>
-Signed-off-by: Mark Brown <broonie@kernel.org>
----
- arch/arm64/kernel/process.c | 1 +
- 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
-index fba7ca102a8c..489554931231 100644
---- a/arch/arm64/kernel/process.c
-+++ b/arch/arm64/kernel/process.c
-@@ -292,6 +292,7 @@ static void flush_gcs(void)
- 	current->thread.gcs_base = 0;
- 	current->thread.gcs_size = 0;
- 	current->thread.gcs_el0_mode = 0;
-+	current->thread.gcs_el0_locked = 0;
- 	write_sysreg_s(GCSCRE0_EL1_nTR, SYS_GCSCRE0_EL1);
- 	write_sysreg_s(0, SYS_GCSPR_EL0);
- }
+在 2025/11/29 1:06, Linus Torvalds 写道:
+> On Thu, 27 Nov 2025 at 02:58, Russell King (Oracle)
+> <linux@armlinux.org.uk> wrote:
+>>
+>> Ha!
+>>
+>> As said elsewhere, it looks like 32-bit ARM has been missing updates to
+>> the fault handler since pre-git history - this was modelled in the dim
+>> and distant i386 handling, and it just hasn't kept up.
+> 
+> I actually have this dim memory of having seen something along these
+> lines before, and I just had never realized how it could happen,
+> because that call to do_page_fault() in do_translation_fault()
+> visually *looks* like the only call-site, and so that
+> 
+>          if (addr < TASK_SIZE)
+>                  return do_page_fault(addr, fsr, regs);
+> 
+> looks like it does everything correctly. That "do_page_fault()"
+> function is static to the arch/arm/mm/fault.c file, and that's the
+> only place that appears to call it.
+> 
+> The operative word being "appears".
+> 
+> Becuse I had never before realized that that fault.c then also does that
+> 
+>    #include "fsr-2level.c"
+> 
+> and then that do_page_fault() function is exposed through those
+> fsr_info[] operation arrays.
 
----
-base-commit: ac3fd01e4c1efce8f2c054cdeb2ddd2fc0fb150d
-change-id: 20251128-arm64-gcs-flush-lock-163eab9c22f4
+Yes, it enters through fsr_info.
 
-Best regards,
---  
-Mark Brown <broonie@kernel.org>
+> 
+> Anyway, I don't think that the ARM fault handling is all *that* bad.
+> Sure, it might be worth double-checking, but it *has* been converted
+> to the generic accounting helpers a few years ago and to the stack
+> growing fixes.
+> 
+> I think the fix here may be as simple as this trivial patch:
+> 
+>    diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
+>    index 2bc828a1940c..27024ec2d46d 100644
+>    --- a/arch/arm/mm/fault.c
+>    +++ b/arch/arm/mm/fault.c
+>    @@ -277,6 +277,10 @@ do_page_fault(unsigned long addr, ...
+>          if (interrupts_enabled(regs))
+>                  local_irq_enable();
+> 
+>    +     /* non-user address faults never have context */
+>    +     if (addr >= TASK_SIZE)
+>    +             goto no_context;
+>    +
+>          /*
+>           * If we're in an interrupt or have no user
+>           * context, we must not take the fault..
+> 
+> but I really haven't thought much about it.
+> 
+>> I'm debating whether an entire rewrite would be appropriate
+
+Thank you for your answer. In fact, this solution is similar to the one
+provided by Al. It has an additional check to determine reg:
+
+```
+if (unlikely(addr > TASK_SIZE) && !user_mode(regs))
+	goto no_context;
+```
+
+I'd like to ask if this "regs" examination also needs to be brought
+along?
+
+I'm even thinking if we directly have the corresponding processing
+replaced by do_translation_fault(), is that also correct?
+
+```
+-       { do_page_fault,        SIGSEGV, SEGV_MAPERR,   "page 
+translation fault"           },
++       { do_translation_fault, SIGSEGV, SEGV_MAPERR,   "page 
+translation fault"           },
+```
+
+> 
+> I don't think it's necessarily all that big of a deal. Yeah, this is
+> old code, and yeah, it could probably be cleaned up a bit, but at the
+> same time, "old and crusty" also means "fairly well tested". This
+> whole fault on a kernel address is a fairly unusual case, and as
+> mentioned, I *think* the above fix is sufficient.
+> 
+> Zizhi Wo - can you confirm that that patch (whitespace-damaged, but
+> simple enough to just do manually) fixes things for your test-case?
+> 
+>             Linus
+> 
+
+I tried it out and it works — thanks!
+
+Thanks,
+Zizhi Wo
 
 
