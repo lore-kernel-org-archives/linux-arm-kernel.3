@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C42E5CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 04:08:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8F83D116EA
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 29 Nov 2025 05:17:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NoGgYCD49mxEcy5U/zXcoMvWiWdPjcqwWl6NwL9nQZM=; b=vy4yHtcu+FBpaA2U27EzZZgDlE
-	7E12VtyB76C1vc3sq1w7hdWM0OMZVktbv5rqMWfVa4kPQJzYfYj4Y+Nef/T54nfyqlpfcdaMDH7p6
-	ghazv7JrHOdN8Iid6jXHUyOPghjCG4GBqStSYogDOgi+u7qPu8wsjUER30xtCrTkH1Z1zJFUumFB0
-	T9q8o6s+ZxFUOMlV0/BLOUZKg/agCjDNJ4I8IcVgiXMd9vZhBWzlKixXkynKx4qFOA6P9D8gOXR/c
-	NomSiUUh2t2ZxTt5q5wVCg7QIqd9kMYPMdkt5emJTEkPf9bj9zUkvgjWdpUVjCnYDOab5VJmOaVOj
-	jrfR5jaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zivVoquyF45j/Jb6CzYj4uuO8/f0RD8wsvrJPWCcI58=; b=QXY3S2qEUCq9ccCd1kQmLIutOF
+	JAapzcdhkxRgmla2qwC8Uhw/rRdpxv4ekGeFrxdGYkXJr/t0vXvC030cvKD1V5BL5MgWwgNzMCzzn
+	pR6eKvZhRVh7aJ7rn+mwOya/cHGQX3ClsZDSUOCEKLtXwgOEK3key/gB9basX0CBI+CF4oiVMQUCE
+	JoAxJ8ec97quPrWJxjJAuNAeSzBMs1lziTjiu5a5AA7pI4pthhckaPzsNiKZKJD0L+4TLXTRT+MzZ
+	cl8jenv+JQhdc+DfU8R4RnjF0NoQcAnAkvLLtcY9+tXGUJ8KnHf5RiYKiav/AaRM1JPTc66B0yEPU
+	ZRpEOn2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPCGD-00000001G2J-16nF;
-	Sat, 29 Nov 2025 04:08:37 +0000
-Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
+	id 1vPDKL-00000001IOz-48GV;
+	Sat, 29 Nov 2025 05:16:58 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPCGB-00000001G1j-083p
+	id 1vPDKJ-00000001IOf-0g91
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 29 Nov 2025 04:08:36 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=NoGgYCD49mxEcy5U/zXcoMvWiWdPjcqwWl6NwL9nQZM=;
-	b=QnpmFAd6TlrubU6aXhvwZbdddGjGP4Ir8Af9ucYd6Zwz37RmBOpmDnZOmZTg4klJYnlqYdyFe
-	fzGUlPqKZa3gf1KhWg22d0n8/OtAkZ4T2XC19qTBcxWe12ivLLL+jYD3wtzkhSVmuprFXGhUvWQ
-	GxP75zEiFjRrAgZT3wq7nc0=
-Received: from mail.maildlp.com (unknown [172.19.163.17])
-	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4dJGnT2Ln5zLlTZ;
-	Sat, 29 Nov 2025 12:06:37 +0800 (CST)
-Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
-	by mail.maildlp.com (Postfix) with ESMTPS id 950921A0191;
-	Sat, 29 Nov 2025 12:08:26 +0800 (CST)
-Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
- kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Sat, 29 Nov 2025 12:08:25 +0800
-From: Xie Yuanbin <xieyuanbin1@huawei.com>
-To: <torvalds@linux-foundation.org>, <will@kernel.org>,
-	<linux@armlinux.org.uk>, <viro@zeniv.linux.org.uk>, <bigeasy@linutronix.de>,
-	<rmk+kernel@armlinux.org.uk>
-CC: <akpm@linux-foundation.org>, <brauner@kernel.org>,
-	<catalin.marinas@arm.com>, <hch@lst.de>, <jack@suse.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-fsdevel@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
-	<pangliyuan1@huawei.com>, <wangkefeng.wang@huawei.com>,
-	<wozizhi@huaweicloud.com>, <xieyuanbin1@huawei.com>, <yangerkun@huawei.com>,
-	<lilinjie8@huawei.com>, <liaohua4@huawei.com>
-Subject: Re: [Bug report] hash_name() may cross page boundary and trigger
-Date: Sat, 29 Nov 2025 12:08:17 +0800
-Message-ID: <20251129040817.65356-1-xieyuanbin1@huawei.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <CAHk-=wjA20ear0hDOvUS7g5-A=YAUifphcf-iFJ1pach0=3ubw@mail.gmail.com>
-References: <CAHk-=wjA20ear0hDOvUS7g5-A=YAUifphcf-iFJ1pach0=3ubw@mail.gmail.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.109.17]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemj100009.china.huawei.com (7.202.194.3)
+	Sat, 29 Nov 2025 05:16:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1764393415; x=1795929415;
+  h=date:from:to:cc:subject:message-id;
+  bh=5gvIuWtA48wGs5Ev+8rbctd4FzJvJdVlkG8TY84QCbs=;
+  b=l2QOeu6ZYIxSgKeRCwvkoZhtBglpGwDMG2kdFPa4Pd2DVHvGKuvYnLX6
+   EuY8Qhp1qOBXqquULoMOk0Bgt1UP+Ej5ICPwCtihTxya3RTZdMpELeF1z
+   dCKTb3w7kr6UKVi7ftHqw3yt+cIqt82sTGyr06O9aeNayoR0OQ7gIwjXq
+   1HZje6H5evBJlEu7XnZIhWcfsh8o5m46i6RB5uYZ4VxdZXNym+ljNh9TR
+   3xKyY6z4IBpQW0/YviFPVtcQr5Lzxux2ETaYN0VePOe6vCwqZHDiKhc2R
+   NbLQ0GxN5NDulWNF3CHw8vyO/J+sBK1/oI69DlX3dOrSoNQ65rmsFUIn7
+   A==;
+X-CSE-ConnectionGUID: 56oNZTC6SK+LUxLikh+ueQ==
+X-CSE-MsgGUID: 6jRk4YTrSi+5reIdXIGEPw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11627"; a="91881712"
+X-IronPort-AV: E=Sophos;i="6.20,235,1758610800"; 
+   d="scan'208";a="91881712"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 Nov 2025 21:16:51 -0800
+X-CSE-ConnectionGUID: U5as32tvRDOSGg1J0R3e7g==
+X-CSE-MsgGUID: 3CwJ0J2tT/a+j4/DAheHHw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,235,1758610800"; 
+   d="scan'208";a="224296662"
+Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
+  by orviesa002.jf.intel.com with ESMTP; 28 Nov 2025 21:16:50 -0800
+Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vPDKB-000000006z3-2xaz;
+	Sat, 29 Nov 2025 05:16:47 +0000
+Date: Sat, 29 Nov 2025 13:16:37 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:soc/dt] BUILD SUCCESS
+ 3aa9940035a17edd4dba87da90a23c4b13cff121
+Message-ID: <202511291332.Iz4Mww0D-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251128_200835_557907_25C5B20D 
-X-CRM114-Status: GOOD (  19.61  )
+X-CRM114-CacheID: sfid-20251128_211655_275549_5F3922A3 
+X-CRM114-Status: UNSURE (   5.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,47 +83,126 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 Nov 2025 17:35:37 -0800, Linus Torvalds wrote:
-> On Fri, 28 Nov 2025 at 17:01, Zizhi Wo <wozizhi@huaweicloud.com> wrote:
->> It has an additional check to determine reg:
->>
->> if (unlikely(addr > TASK_SIZE) && !user_mode(regs))
->>         goto no_context;
->>
->> I'd like to ask if this "regs" examination also needs to be brought
->> along?
->
-> That seems unnecessary.
->
-> Yes, in this case the original problem you reported with sleeping in
-> an RCU region was triggered by a kernel access, and a user-space
-> access would never have caused any such issues.
->
-> So checking for !user_mode(regs) isn't exactly *wrong*.
->
-> But while it isn't wrong, I think it's also kind of pointless.
->
-> Because regardless of whether it's a kernel or user space access, an
-> access outside TASK_SIZE shouldn't be associated with a valid user
-> space context, so the code might as well just go to the "no_context"
-> label directly.
->
-> That said, somebody should  definitely double-check me - because I
-> think arm also did the vdso trick at high addresses that i386 used to
-> do, so there is the fake VDSO thing up there.
->
-> But if you get a page fault on that, it's not going to be fixed up, so
-> even if user space can access it, there's no point in looking that
-> fake vm area up for page faults.
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/dt
+branch HEAD: 3aa9940035a17edd4dba87da90a23c4b13cff121  Merge tag 'riscv-dt-for-v6.19' of https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux into soc/dt
 
-I think the `user_mode(regs)` check is necessary because the label
-no_context actually jumps to __do_kernel_fault(), whereas page fault
-from user mode should jump to `__do_user_fault()`.
+elapsed time: 1812m
 
-Alternatively, we would need to change `goto no_context` to
-`goto bad_area`. Or perhaps I misunderstood something, please point it out.
+configs tested: 106
+configs skipped: 2
 
-Thanks very much!
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-Xie Yuanbin
+tested configs:
+alpha                             allnoconfig    gcc-15.1.0
+alpha                               defconfig    gcc-15.1.0
+arc                               allnoconfig    gcc-15.1.0
+arc                                 defconfig    gcc-15.1.0
+arc                   randconfig-001-20251128    gcc-8.5.0
+arc                   randconfig-002-20251128    gcc-15.1.0
+arm                               allnoconfig    clang-22
+arm                     am200epdkit_defconfig    gcc-15.1.0
+arm                       aspeed_g5_defconfig    gcc-15.1.0
+arm                                 defconfig    clang-22
+arm                   randconfig-001-20251128    gcc-14.3.0
+arm                   randconfig-002-20251128    gcc-8.5.0
+arm                   randconfig-003-20251128    clang-22
+arm                   randconfig-004-20251128    clang-17
+arm                         s3c6400_defconfig    gcc-15.1.0
+arm                           u8500_defconfig    gcc-15.1.0
+arm64                             allnoconfig    gcc-15.1.0
+arm64                               defconfig    gcc-15.1.0
+arm64                 randconfig-001-20251129    clang-22
+arm64                 randconfig-002-20251129    clang-22
+arm64                 randconfig-003-20251129    gcc-8.5.0
+arm64                 randconfig-004-20251129    clang-22
+csky                              allnoconfig    gcc-15.1.0
+csky                                defconfig    gcc-15.1.0
+csky                  randconfig-001-20251129    gcc-15.1.0
+csky                  randconfig-002-20251129    gcc-15.1.0
+hexagon                           allnoconfig    clang-22
+hexagon                             defconfig    clang-22
+hexagon               randconfig-001-20251129    clang-22
+hexagon               randconfig-002-20251129    clang-22
+i386                              allnoconfig    gcc-14
+i386        buildonly-randconfig-001-20251129    clang-20
+i386        buildonly-randconfig-002-20251129    clang-20
+i386        buildonly-randconfig-003-20251129    gcc-14
+i386        buildonly-randconfig-004-20251129    gcc-12
+i386        buildonly-randconfig-005-20251129    gcc-14
+i386        buildonly-randconfig-006-20251129    clang-20
+i386                                defconfig    clang-20
+i386                  randconfig-001-20251129    gcc-14
+i386                  randconfig-002-20251129    gcc-12
+i386                  randconfig-003-20251129    clang-20
+i386                  randconfig-004-20251129    gcc-14
+i386                  randconfig-005-20251129    clang-20
+i386                  randconfig-006-20251129    clang-20
+i386                  randconfig-007-20251129    gcc-14
+i386                  randconfig-011-20251129    clang-20
+i386                  randconfig-012-20251129    gcc-13
+i386                  randconfig-013-20251129    clang-20
+i386                  randconfig-014-20251129    clang-20
+i386                  randconfig-015-20251129    gcc-14
+loongarch                         allnoconfig    clang-22
+loongarch                           defconfig    clang-19
+loongarch             randconfig-001-20251129    gcc-15.1.0
+loongarch             randconfig-002-20251129    gcc-14.3.0
+m68k                              allnoconfig    gcc-15.1.0
+m68k                                defconfig    gcc-15.1.0
+microblaze                        allnoconfig    gcc-15.1.0
+microblaze                          defconfig    gcc-15.1.0
+mips                              allnoconfig    gcc-15.1.0
+nios2                             allnoconfig    gcc-11.5.0
+nios2                               defconfig    gcc-11.5.0
+nios2                 randconfig-001-20251129    gcc-11.5.0
+nios2                 randconfig-002-20251129    gcc-11.5.0
+openrisc                          allnoconfig    gcc-15.1.0
+openrisc                            defconfig    gcc-15.1.0
+parisc                            allnoconfig    gcc-15.1.0
+parisc                              defconfig    gcc-15.1.0
+parisc                generic-64bit_defconfig    gcc-15.1.0
+parisc                randconfig-001-20251128    gcc-14.3.0
+parisc                randconfig-002-20251128    gcc-15.1.0
+parisc64                            defconfig    gcc-15.1.0
+powerpc                           allnoconfig    gcc-15.1.0
+powerpc                      pcm030_defconfig    clang-22
+powerpc               randconfig-001-20251128    gcc-11.5.0
+powerpc               randconfig-002-20251128    clang-22
+powerpc64             randconfig-001-20251128    clang-22
+powerpc64             randconfig-002-20251128    gcc-8.5.0
+riscv                             allnoconfig    gcc-15.1.0
+riscv                               defconfig    clang-22
+s390                              allnoconfig    clang-22
+sh                                allnoconfig    gcc-15.1.0
+sh                                  defconfig    gcc-15.1.0
+sparc                             allnoconfig    gcc-15.1.0
+sparc                               defconfig    gcc-15.1.0
+sparc                 randconfig-001-20251129    gcc-8.5.0
+sparc                 randconfig-002-20251129    gcc-8.5.0
+sparc64                             defconfig    clang-20
+sparc64               randconfig-001-20251129    gcc-8.5.0
+sparc64               randconfig-002-20251129    gcc-14.3.0
+um                                allnoconfig    clang-22
+um                                  defconfig    clang-22
+um                             i386_defconfig    gcc-14
+um                    randconfig-001-20251129    clang-22
+um                    randconfig-002-20251129    gcc-14
+um                           x86_64_defconfig    clang-22
+x86_64                            allnoconfig    clang-20
+x86_64                              defconfig    gcc-14
+x86_64                randconfig-071-20251129    gcc-14
+x86_64                randconfig-073-20251129    gcc-14
+x86_64                randconfig-074-20251129    gcc-12
+x86_64                randconfig-075-20251129    gcc-14
+x86_64                randconfig-076-20251129    gcc-14
+xtensa                            allnoconfig    gcc-15.1.0
+xtensa                randconfig-001-20251129    gcc-10.5.0
+xtensa                randconfig-002-20251129    gcc-14.3.0
+xtensa                    xip_kc705_defconfig    gcc-15.1.0
+
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
