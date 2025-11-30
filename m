@@ -4,100 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F784D116F6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Nov 2025 12:36:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1C28D116F5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Nov 2025 12:36:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e4n62F7hOmaFjnTCj5sDtBY7XKAle/kgKH/bYoDqk94=; b=jxDhqY3+f5BD1wjazuDPCmS/KO
-	QaFuAsK1FZBTBjau/7oqibN68gkSjqTubxias+GyyqvoilQj2d1BzRE7Lacu5kLHEzzy9r/XA6EYX
-	D1EKeLFsw3mg0mumi5qkszQuS6El5OHg8/4S4CyF2AOeevw/4J/jDSaj9MASnzeTLxx4cmSmM5aer
-	dOKiJMN33D2Xm0+becUfcTRj82nn5H1GtOis3CSnrFAtfLboKpL9ZiCl4MXPGzECWpl2rmYov/MP3
-	d8iRxBDk8sgoGVlVNadOGFFyulOr32Xri7S9v+0YIqfe9RcaQZTxzi+uFBk4OvfqqI1YNgrAwDVL6
-	1Sd05ujw==;
+	bh=R6m7eEIarrZvPjLUe/bOpRLI8mtRBQO0vBtG1dlMFXU=; b=ge2vS3HLi4eB2mDfJQesN5DuQE
+	y2LDWyfFeM4AX/S58DqPwztMve9JG7kvAB0S5fvnRPvO7i/4xnEL0k+NBVnT2g0g0zi54hrxbm2xq
+	Eb/zXzKQYqBX7yti83AsNLBn1QqeSWh+mGaTtJ9XVq58kfbija7TmHTkSwZjl8825wAvIoTtfT0KY
+	DVe078RhRUZFM+QzmHytJp2gNn2rzcj5H7vOoKN/8nXaJgnvufBFzrVVk2EEYGEcFfzRkm+jVnCGn
+	yiZ/X270fx5c/umGC3Z0qmqefzKg1sjpV70WDA/U8a+BH/fqh90Z3S0SbIyK+p2K+obTY9wH1LJDk
+	yC6Uzg3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPgfH-00000002I1t-1aNu;
-	Sun, 30 Nov 2025 12:36:31 +0000
+	id 1vPgfI-00000002I30-1N3Y;
+	Sun, 30 Nov 2025 12:36:32 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPgf7-00000002Hv8-12Xl
+	id 1vPgfB-00000002Hy3-1W2H
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Nov 2025 12:36:23 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AUCAPVh1455326
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Nov 2025 12:36:19 GMT
+	Sun, 30 Nov 2025 12:36:26 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AU6rKW4154509
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Nov 2025 12:36:25 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	e4n62F7hOmaFjnTCj5sDtBY7XKAle/kgKH/bYoDqk94=; b=TpxT7ZCnor5T2yg3
-	AKgmBbRB5Pt+U1lPauoLJS0xDRXqqO93uwhjmP1g6U+ru+mDj19cHM5kXCpC8xkb
-	/DN69xmHIx9y04/TtZbcu1pxjRkSuucpZ9iiwmkGW1hHgIi0UInB/FM5GCtajS8l
-	TanJTGLjX57AHO7tDv6nG7LBnQEh+QEQbTR1m39m8bY3G9NaHZFEgiuBVZQrnhTO
-	XwmXHfV8aZ6TyHXrKZxwkYVQb/aXqogQMz1Jv/TEApwBm3Ix/XcKOAc5eSMNmOI3
-	leAWHVHZ1o6DZK8hoTcfOOKkZqFLsquuCNVbm1E3hTiPQ0e+MFomBCu2X+R4SAbh
-	/NR0sw==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4aqskf2413-1
+	R6m7eEIarrZvPjLUe/bOpRLI8mtRBQO0vBtG1dlMFXU=; b=Psd4w64sy2iM4eCI
+	tk6IzNgPxsp0zPjf4ZUTwUfnNWHLeTFuxhK/+qfpmUXarSJ0MAAD5AVhXfqVT9b2
+	U+AHwxeEm329DrK4GI1jkIr7MUdaOCiSxbFYuiPwhHDWL1E0oIN9NPlX5WfeQmP5
+	lLR5gkp+KywEXuZn50miAxq/ZyBUKfGfhqYKF3lit8j2+lgPQ09ZwrxjcRpOhtzh
+	eO/BR5F+hohY1QCKJNFGxWTHKm6SO3L6FDILpOhznRYL7ReI+nN5i4Ym2353BPmW
+	Jc+4UjIYbMQG6Qd4C1iQwF3YYebL/h82eJGvfBl1Jq33S4WDx/AqIEJ3wNFFcQ21
+	+ckBdw==
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4aqt0j22rt-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Nov 2025 12:36:19 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8b30b6abb7bso627117285a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Nov 2025 04:36:19 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Nov 2025 12:36:24 +0000 (GMT)
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8b2e2342803so648891285a.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Nov 2025 04:36:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1764506178; x=1765110978; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1764506184; x=1765110984; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=e4n62F7hOmaFjnTCj5sDtBY7XKAle/kgKH/bYoDqk94=;
-        b=LAcutG65fPzz0Afcw/zs83tg8tbttGKOkmRBFQvN2nmSv1t3VHE5qGhFggz48hvien
-         QGSkL+RYqtf+UxKLZQTj+WwMazBmz7lm6HazZ6WxqK9JJYRTghlXOPxK5Z+ljAEkVmfI
-         eN6x+270ULSc9vY+YL27YdOzGdGhK41knOJUI+SHMlEMmfXFrWf8BCfN7PzyYxT25X1i
-         s4kdT08NLDpNJ8g0aCd1GAgT6X4Tduc9YjNjiHKb2IMCWfEp6YsfxeraWBdZSUbYYuXP
-         IoPaqpC29OG+GdHZ/RNm5jNrWOFerICOgqC2lyzBB1Nbhsca7RF2MHnnVAHQth2gyZmX
-         t5yw==
+        bh=R6m7eEIarrZvPjLUe/bOpRLI8mtRBQO0vBtG1dlMFXU=;
+        b=RkHxLnKjGteBWhCGCSJww+ZaqYu7D5CVOKlrAWTC97FlZhvH6YsgilYzMsgU5AycTo
+         V2VrdUUPiuO0Sm/qk5NMUzlWhSzyint2Xck5j3e2yYrWu4AgzqUIoOuLv+H3JjhXiBSH
+         +V9CDotJZD1q8GhIoWVrP3PlYPgXApuwmslId4Xdw3oJv/0Gsz+AEiRkqbTxuxuvxKaI
+         7HMPiUi1gdNS8kAjmvvqOKoiAaswuLNrlXf6rhCfdK393HLHFw5qPR/m7md02fyhdZq7
+         XxE9mrsg6Yl6ntUeeJqvLtG4+vknHPKMKA8QRkjxCmbCRgO7+IMfj5sjaolbRpFrez+y
+         IUlg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764506178; x=1765110978;
+        d=1e100.net; s=20230601; t=1764506184; x=1765110984;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=e4n62F7hOmaFjnTCj5sDtBY7XKAle/kgKH/bYoDqk94=;
-        b=QFN5dt4WSemNC8Rf5QewNVJ/Bp+AfNwCtWrqeRZgYDkB25YrnXY37A1p0PbmuJjMmX
-         wsYANUqiOlh4urCA0xq6ltCnCvUm7jAItu9NyMR0Itixxk46gr2vtpbtaj31JMXVJg+n
-         To0CuZZHF+n9IbT6my0Uqx1jxYQgeNXwrIQhUaxoDRv8UBWxC5ru0XMdON5c8yS0uy7F
-         S5H6ls+9t3covKP1tsgu2h2H630TVwPzQI2qhXQ8S+VLfMwTITvWq49JtC3TmzoLMCnB
-         8wPEGo8+kapo3ih2e/7+u/BAB78ih3FR3Ld8tkAX1uK4X9ygjeviMCV5LkxQhQcYmElG
-         3ZHA==
-X-Forwarded-Encrypted: i=1; AJvYcCX+N0X9CmPFmPi15C1obvoTltloi2lTma5Np/4oT1XfwvbHk/AtZD/SZP4j1zcJvQtQ3167k0sjgGJxF9VLh6lw@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywy6J9mFnqqH1T5JwuiF1kkr8u4e6bTlRyxYL3+kxhGDHT102Nu
-	gcXXGiQlSt9DpIFuJKHbo2OvgSK5EiuNrKdP4qjAM1TnjNriSntitnyz4d66TGoSr5L837Bfps/
-	UXwtF567mE4XRzYLPmznyhJ9zsdmFp8S2Vqdu3vEWnXBc8Reyv7HtWZFtKBxxA7SuPEByeC5JLI
-	lOgA==
-X-Gm-Gg: ASbGncu/0hBAxq7iubN6yr6RgGyAxhYi9fOMsupqEI+wb/O0oplGiVQbFcst2XzeSDG
-	GCNvr9Kfrr4ZJbSXU8P4zjQm3DpUlzkoIFx4gmtBwUDqM2p6O//p6H3cHk/Sxb77x7K7mcHy6i2
-	6hq41gU33rNyMKWEU0sSNvAT3M6CzkRwqLFiA/OlLORqadZPDlnJvIIJTISnVNZshKEdEv752X2
-	mmrlCLaWTPyXoySj/ZLF+I11pfqTh/QnJQgrf45bV2IXlYLmJG4MCm33h2khW9xkBNSIHys7X7C
-	EpnDHG+rVeY+czw0G9NNi1/BV9IaNKxgqO9bpTqtZ3t1s6roLqqKbo6I74B1YBqFgKH4lGhE2IG
-	3NMNYTfMoQLJ424V+nC3LAA5BKj1wFp3jWQ==
-X-Received: by 2002:a05:620a:4509:b0:892:eeb9:4def with SMTP id af79cd13be357-8b33d4cf9d0mr4721866085a.49.1764506178421;
-        Sun, 30 Nov 2025 04:36:18 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEwd83+g8q92x1y4CWxFdCnR6Wp/D+6ypCjsLsXp/d0HHxg4TfXOyYZHiS3ejZPS6LsXDPMgw==
-X-Received: by 2002:a05:620a:4509:b0:892:eeb9:4def with SMTP id af79cd13be357-8b33d4cf9d0mr4721863385a.49.1764506177949;
-        Sun, 30 Nov 2025 04:36:17 -0800 (PST)
+        bh=R6m7eEIarrZvPjLUe/bOpRLI8mtRBQO0vBtG1dlMFXU=;
+        b=dCVow31aW+k1VC7xnGo6dKFBZLSL49AsfLXRGMptEpw1mjHqXrvNPOXwkDpHOYpQcj
+         7hrshn8UIDSOXFFJ1ApXvZeNjRRHu/uk4nrbRU9QZlCugPgTiRaEavpj3fak3Jsg5i6x
+         8NZ4S+stUGZnERE1OwVklCWvblwGx5KIiUVu3LozJFtd8HtkAvWhileRKcuC1LXEJ9tk
+         wR/3PV2ZLcPtLHkA9qB3g8AONqOSuT6p0ACry5y/F0P9rDblFCNyFgoMOfHqLJFDG8cY
+         o3y9MCoP+SFs6QUrN1f7DtA3FvrG5y72eD0Tq3eZuyvyMFgq7KHNAoszU3YyjKvxdIBk
+         FnIg==
+X-Forwarded-Encrypted: i=1; AJvYcCWjEs7yhSZq2yRCCiuFsSGLVs0oADebjqGYO7nezJ6xidLowd/HJ+bZSOe76QIvenuovJitIlQaK55m2qu3BhrV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx6enBMW9gEnaFLfm9vjpYzspyTQl1CRz403BrBucT+uO0e5itI
+	kjV/nrd3me0w7nOfwTpp7cS+2liay51vT+fZjdgOn7rOBiRjUexRMBkmLaWRjoit2oUcjPNq11U
+	5qP3y8lh8FB+DOLrf3jfOMJ2Ye2LgEWkhN3OewnMtXyNw8ppeDuaqDnih64KZGGiaHj6kSKRWEM
+	UyDw==
+X-Gm-Gg: ASbGncvgZr4JFySviadmKe4LtKcQfYWt74tbJwjDpbcqCKXdkfPc9KsaWNC4Uha3z0L
+	NvgQX1fSLcrAH+kfo2hyhowZUSyyX8y2EZZGiznqJXsQLXMiWCd8HTohMakQd6hcmLw6ja7vEF7
+	xxI4MqcBnCtd8KPihYvZyXoBb7unUIvexvJBmYLqoQUW0pa8f1jh1V4gT67K78yBgLY2rkTGYCj
+	zE1ovZ9oLw39KSDSRnIuAR/tE9uSf8qKFHuQHBwhCaFKpnqrS7nwimcTEM0LlFDSOYI0g5PXyna
+	5rSdMCLeHni3rwFEhxsjK6yldtJU6BHPz3p//xBDlKBNpJUgr5CtvDhB6nmSeSuVMqOJFcUAnDN
+	zbVIa6gTt0sBlpnhX1EE0+ZFIosI9SmNGwA==
+X-Received: by 2002:a05:620a:4113:b0:8a1:426a:2cca with SMTP id af79cd13be357-8b4ebdb059fmr3114732685a.41.1764506183738;
+        Sun, 30 Nov 2025 04:36:23 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IGva41J52XjZOZU7QbLozxUApp8fRFBP8lWVjOor8lQjogi2oWu9rXWmJiA9F+qyVfN4igasQ==
+X-Received: by 2002:a05:620a:4113:b0:8a1:426a:2cca with SMTP id af79cd13be357-8b4ebdb059fmr3114729585a.41.1764506183284;
+        Sun, 30 Nov 2025 04:36:23 -0800 (PST)
 Received: from [127.0.1.1] ([178.197.195.159])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b76f51c6c12sm920506666b.29.2025.11.30.04.36.16
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b76f51c6c12sm920506666b.29.2025.11.30.04.36.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 30 Nov 2025 04:36:17 -0800 (PST)
+        Sun, 30 Nov 2025 04:36:22 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Date: Sun, 30 Nov 2025 13:36:08 +0100
-Subject: [PATCH 1/4] remoteproc: mtp_scp_ipi: Constify buffer passed to
- scp_ipi_send()
+Date: Sun, 30 Nov 2025 13:36:11 +0100
+Subject: [PATCH 4/4] ASoC: qcom:: Constify GPR packet being send over GPR
+ interface
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251130-rpmsg-send-const-v1-1-cb11c7e0a024@oss.qualcomm.com>
+Message-Id: <20251130-rpmsg-send-const-v1-4-cb11c7e0a024@oss.qualcomm.com>
 References: <20251130-rpmsg-send-const-v1-0-cb11c7e0a024@oss.qualcomm.com>
 In-Reply-To: <20251130-rpmsg-send-const-v1-0-cb11c7e0a024@oss.qualcomm.com>
 To: Bjorn Andersson <andersson@kernel.org>,
@@ -114,49 +114,48 @@ Cc: linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
         linux-sound@vger.kernel.org,
         Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1658;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5742;
  i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
- bh=pq/+nMdyC+q1ogI0/TIhIirNxNxs+pUe22DWF7lVnBo=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpLDo77EwKqXOJTM+99Uw/WZdDbkh4LZ6TE7MGd
- 58HKTs3HPSJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaSw6OwAKCRDBN2bmhouD
- 19GjD/4yqvoVdSiFtXLgPtSNjWBghlWA484iGQ/nvK11zYtmLSt73fjHu+ppUkACDE3Gzj+MQW3
- GDtp6bRzB1dZ3QT8+hLu/z1ccX0SfUdcsfvl8p/37dFdHApMe6rolFyGrlIn2G8TYijT3nYGyB0
- izR8XwMJza/i4Fmr7yUyAAbVxOeHbHI3TF5CozIZns+a8GS7giqH2FmroISq6Lq16y0TDHRwJqU
- A7ZLWYFUb2KyJTNwdjFO0sfjVkjqx8e/PKvM6Bzs8E3btdilFt/KcUIM6FXwFsUSUDpuuiRQPqt
- Qj5mdGUxGAffYx5dow27iCxx6uemvTGdgakcUyiQCaQuCytEbDlh8Ocm9SRF8XuTaldc8Wtagkh
- qNyDq8rMPwMzoHaW/BS0a54JrP8GZfP+40GvH+Z58mM7JNH6UoevmOFeyzT/u6PQ4QAA/4sskOK
- gapow81/rauguxhutkRhwgqWvj3E7v9wSscxUC06Tk4DILYqPcd4gzxySFbYZrqEgx7xXie2fDj
- r9mOc69XtfZRc9kYxDe15n5d6KEqv/5+uAg4SOlFfKoJjPjNu3LRCs1QldniZqnGgp33WEh3kbU
- gRIEMvf47RDpaZ/ky3EnM/viU+sU8FftAtiEPtskYBtbQqyRQD3BLdg0yLoExpWQ4Qro+t2IVvW
- Ps0SCz8LoJid2Gg==
+ bh=9gu7wWK680Y+R77IwqaMtBNCQ9pWc92nao0jPv5FZKU=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpLDo9F3Cb8NTt5YnUJG7vYG29zfGYJNTxXFDJt
+ 8YjFrKuC3WJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaSw6PQAKCRDBN2bmhouD
+ 10uYD/wL7QRRrhU/H4mmKeOeLk03AFvbCsXoTZfBu3jKO/5Vj4w036GolvoqdUaOp4X6KW4Og9+
+ pUtWYb2x2vIX0vXbEqd84RxA6riHyU8uHPxSNqZOefGwtyPcRPL46wGIWL46UFYocJLELTOsD/p
+ 0eHJ5I10yZhUIA7MzVpPOf8kd2kSWj9UMcIpuhRQvAoMWrWHheaqOQT+ROjlcaaU/1i2rbevMGV
+ pcxdKpD7yMwSamCiS5u/cfw9vXZd3DhL7IwoXkwIf6T4J0S6UIKu3vrci5LUgk/bBaAWZqOLySY
+ b19+66fFjdfJKD834yt4O/2/9bEYnRm00QUmDslv7+8IB0aOgZB82Ii9JxkNr+AHS4VCUN+ldGp
+ VmsGUvWXS8Uu82zG90DZCMUItjg++EcafrVa7lhtCm5tRt5L9eUR61FiEfWRU+ol1u0ueqFgEhw
+ psCiNk18Q1s254rhBR7woTjjGBiNih5HVh9yE/zDEAf6IKpu7be0bzO2kPZtVLtyHvKEB+Vdmt3
+ LhStPsZf8m0efgknijdb0PwjTbF9Uog2BTkdWwVDY5f2PnM7AEsy39+JKoX/+KKnTrTsleVGpyY
+ /zbSdC34+6MGgi//8h91XQ4i2iAP6LivYk9Zz0KQFbx4tBJ1qxQQ4wiCRrRL3/PZ+i1AwxFaqKV
+ MRyrzjWyfv2hnZw==
 X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-X-Authority-Analysis: v=2.4 cv=X7Nf6WTe c=1 sm=1 tr=0 ts=692c3a43 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=FPK7cjBCgYbqzSTDLBmM0Q==:17
+X-Proofpoint-GUID: v6f66J7lGlOyzia5bJ6nOEIjPSYZDAtj
+X-Authority-Analysis: v=2.4 cv=WpYm8Nfv c=1 sm=1 tr=0 ts=692c3a48 cx=c_pps
+ a=50t2pK5VMbmlHzFWWp8p/g==:117 a=FPK7cjBCgYbqzSTDLBmM0Q==:17
  a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=bWW22GgIgZmb96Hp9REA:9
- a=QEXdDO2ut3YA:10 a=NFOGd7dJGGMPyQGDc5-O:22
-X-Proofpoint-GUID: PuJbuPirSo7kFjSEl0D2RgWGk6W7zAVy
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTMwMDEwOCBTYWx0ZWRfX/77dxnsMuE/K
- VlDv62B5XstMfxHD7ps6rCGVn3ZWToWacynOUm+/OHHTEZOsyDHobnhOfF1MjKMNfKIUxBFP1mT
- zR8ptC7IFpNbw+P+ZeMwIRWSxj1+tUk+gfAAMJD6iQdvBUpEKJfnoOl5jbY4Hrehm1kkAGaRVo1
- LfMs3Y/tp/aG8L81VgCbH4ZD6mMh1GPnK5kQOZ9BqHvD4yOAwb9IfSU36zZWLBKBbCFAtDOLmd4
- G7t/U6JyAGu+dMhKu2iimLXw/vy+JTrbRCHVPQdEWgEvEj1mu7n7babU5A6FSjnhnh2mgHs+Yc8
- c2AubXtNske25sudCfdEIA6QWmZ61CL6T0c9avJrGAooOvWDk47s/sazpBTekoV6bNXIa4IydnF
- 1qXTZ81lkoKJEqRlfIrdT5yTgiZ3gQ==
-X-Proofpoint-ORIG-GUID: PuJbuPirSo7kFjSEl0D2RgWGk6W7zAVy
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=EI0PQj488oBMEGdooaEA:9
+ a=QEXdDO2ut3YA:10 a=IoWCM6iH3mJn3m4BftBB:22
+X-Proofpoint-ORIG-GUID: v6f66J7lGlOyzia5bJ6nOEIjPSYZDAtj
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTMwMDEwOCBTYWx0ZWRfXx+wltNtBUKQK
+ INWc6ZOyIE+2UI9RwqP4t7pe7HkmbTww7CL8zDvZTgqURPJ64e41eZcZ8/SOXMMeiBTcejDolfF
+ 8XzprijbrjqF2sBZDUg39IdVBrv2tt7CB6p0VPNQvjVnPh2PZSv53tq0IaG6AGPSXROcc0KGodI
+ jpRo1TYpf08LemcFN5WhzCOHFVG+ZvqUv+bS4q3eJuA5YcKJZf15R0gOyPo15hNi5VU6x9OgfdN
+ fsQQ9KVfXcuGdBoauwHd2/aVDg1idJr9o1cGn3fp9CWsOD01w/a3txwJwVnI00xGOmU8lHL7Ecy
+ TX5qCeqwpzVxA9kgB+bvLBFFAzmK258hi8GeKqH12MUsMmITdeZYG/nYtLz5W30dVa8qFIA92Lw
+ XG0w5ZYAKx1hqMtX4tFGpVYcMHfKUA==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
  definitions=2025-11-28_08,2025-11-27_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 adultscore=0 bulkscore=0 phishscore=0 priorityscore=1501
- malwarescore=0 lowpriorityscore=0 impostorscore=0 clxscore=1015
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
- definitions=main-2511300108
+ priorityscore=1501 adultscore=0 phishscore=0 malwarescore=0 bulkscore=0
+ spamscore=0 impostorscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511300108
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251130_043621_284250_43D45F2A 
-X-CRM114-Status: GOOD (  15.66  )
+X-CRM114-CacheID: sfid-20251130_043625_411708_7A588973 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,45 +170,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-scp_ipi_send() should only send the passed buffer, without modifying its
-contents, so mark pointer 'buf' as pointer to const.
+gpr_send_pkt() and pkt_router_send_svc_pkt() only send the GPR packet
+they receive, without any need to actually modify it, so mark the
+pointer to GPR packet as pointer to const for code safety and code
+self-documentation.  Several usersof this interface can follow up and
+also operate on pointer to const.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 ---
 
-Patch necessary for the further patches, please keep with the rest.
+Depends on previous patches.
 ---
- drivers/remoteproc/mtk_scp_ipi.c   | 2 +-
- include/linux/remoteproc/mtk_scp.h | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ drivers/soc/qcom/apr.c            | 8 ++++----
+ include/linux/soc/qcom/apr.h      | 4 ++--
+ sound/soc/qcom/qdsp6/audioreach.c | 6 +++---
+ sound/soc/qcom/qdsp6/audioreach.h | 4 ++--
+ sound/soc/qcom/qdsp6/q6apm.c      | 3 ++-
+ sound/soc/qcom/qdsp6/q6apm.h      | 2 +-
+ 6 files changed, 14 insertions(+), 13 deletions(-)
 
-diff --git a/drivers/remoteproc/mtk_scp_ipi.c b/drivers/remoteproc/mtk_scp_ipi.c
-index c068227e251e..bc1ee82cff36 100644
---- a/drivers/remoteproc/mtk_scp_ipi.c
-+++ b/drivers/remoteproc/mtk_scp_ipi.c
-@@ -156,7 +156,7 @@ EXPORT_SYMBOL_GPL(scp_ipi_unlock);
-  *
-  * Return: 0 if sending data successfully, -error on error.
-  **/
--int scp_ipi_send(struct mtk_scp *scp, u32 id, void *buf, unsigned int len,
-+int scp_ipi_send(struct mtk_scp *scp, u32 id, const void *buf, unsigned int len,
- 		 unsigned int wait)
+diff --git a/drivers/soc/qcom/apr.c b/drivers/soc/qcom/apr.c
+index a956c407ce03..b2e1d9a351de 100644
+--- a/drivers/soc/qcom/apr.c
++++ b/drivers/soc/qcom/apr.c
+@@ -123,10 +123,10 @@ gpr_port_t *gpr_alloc_port(struct apr_device *gdev, struct device *dev,
+ }
+ EXPORT_SYMBOL_GPL(gpr_alloc_port);
+ 
+-static int pkt_router_send_svc_pkt(struct pkt_router_svc *svc, struct gpr_pkt *pkt)
++static int pkt_router_send_svc_pkt(struct pkt_router_svc *svc, const struct gpr_pkt *pkt)
  {
- 	struct mtk_share_obj __iomem *send_obj = scp->send_buf;
-diff --git a/include/linux/remoteproc/mtk_scp.h b/include/linux/remoteproc/mtk_scp.h
-index 344ff41c22c7..4070537d6542 100644
---- a/include/linux/remoteproc/mtk_scp.h
-+++ b/include/linux/remoteproc/mtk_scp.h
-@@ -58,7 +58,7 @@ int scp_ipi_register(struct mtk_scp *scp, u32 id, scp_ipi_handler_t handler,
- 		     void *priv);
- void scp_ipi_unregister(struct mtk_scp *scp, u32 id);
+ 	struct packet_router *pr = svc->pr;
+-	struct gpr_hdr *hdr;
++	const struct gpr_hdr *hdr;
+ 	unsigned long flags;
+ 	int ret;
  
--int scp_ipi_send(struct mtk_scp *scp, u32 id, void *buf, unsigned int len,
-+int scp_ipi_send(struct mtk_scp *scp, u32 id, const void *buf, unsigned int len,
- 		 unsigned int wait);
+@@ -139,13 +139,13 @@ static int pkt_router_send_svc_pkt(struct pkt_router_svc *svc, struct gpr_pkt *p
+ 	return ret ? ret : hdr->pkt_size;
+ }
  
- unsigned int scp_get_vdec_hw_capa(struct mtk_scp *scp);
+-int gpr_send_pkt(struct apr_device *gdev, struct gpr_pkt *pkt)
++int gpr_send_pkt(struct apr_device *gdev, const struct gpr_pkt *pkt)
+ {
+ 	return pkt_router_send_svc_pkt(&gdev->svc, pkt);
+ }
+ EXPORT_SYMBOL_GPL(gpr_send_pkt);
+ 
+-int gpr_send_port_pkt(gpr_port_t *port, struct gpr_pkt *pkt)
++int gpr_send_port_pkt(gpr_port_t *port, const struct gpr_pkt *pkt)
+ {
+ 	return pkt_router_send_svc_pkt(port, pkt);
+ }
+diff --git a/include/linux/soc/qcom/apr.h b/include/linux/soc/qcom/apr.h
+index a532d1e4b1f4..3a02bca34b3a 100644
+--- a/include/linux/soc/qcom/apr.h
++++ b/include/linux/soc/qcom/apr.h
+@@ -191,7 +191,7 @@ int apr_send_pkt(struct apr_device *adev, struct apr_pkt *pkt);
+ gpr_port_t *gpr_alloc_port(gpr_device_t *gdev, struct device *dev,
+ 				gpr_port_cb cb, void *priv);
+ void gpr_free_port(gpr_port_t *port);
+-int gpr_send_port_pkt(gpr_port_t *port, struct gpr_pkt *pkt);
+-int gpr_send_pkt(gpr_device_t *gdev, struct gpr_pkt *pkt);
++int gpr_send_port_pkt(gpr_port_t *port, const struct gpr_pkt *pkt);
++int gpr_send_pkt(gpr_device_t *gdev, const struct gpr_pkt *pkt);
+ 
+ #endif /* __QCOM_APR_H_ */
+diff --git a/sound/soc/qcom/qdsp6/audioreach.c b/sound/soc/qcom/qdsp6/audioreach.c
+index ded49124581b..297592b77925 100644
+--- a/sound/soc/qcom/qdsp6/audioreach.c
++++ b/sound/soc/qcom/qdsp6/audioreach.c
+@@ -552,10 +552,10 @@ EXPORT_SYMBOL_GPL(audioreach_alloc_graph_pkt);
+ int audioreach_send_cmd_sync(struct device *dev, gpr_device_t *gdev,
+ 			     struct gpr_ibasic_rsp_result_t *result, struct mutex *cmd_lock,
+ 			     gpr_port_t *port, wait_queue_head_t *cmd_wait,
+-			     struct gpr_pkt *pkt, uint32_t rsp_opcode)
++			     const struct gpr_pkt *pkt, uint32_t rsp_opcode)
+ {
+ 
+-	struct gpr_hdr *hdr = &pkt->hdr;
++	const struct gpr_hdr *hdr = &pkt->hdr;
+ 	int rc;
+ 
+ 	mutex_lock(cmd_lock);
+@@ -595,7 +595,7 @@ int audioreach_send_cmd_sync(struct device *dev, gpr_device_t *gdev,
+ }
+ EXPORT_SYMBOL_GPL(audioreach_send_cmd_sync);
+ 
+-int audioreach_graph_send_cmd_sync(struct q6apm_graph *graph, struct gpr_pkt *pkt,
++int audioreach_graph_send_cmd_sync(struct q6apm_graph *graph, const struct gpr_pkt *pkt,
+ 				   uint32_t rsp_opcode)
+ {
+ 
+diff --git a/sound/soc/qcom/qdsp6/audioreach.h b/sound/soc/qcom/qdsp6/audioreach.h
+index d1b60b36468a..995a7283c805 100644
+--- a/sound/soc/qcom/qdsp6/audioreach.h
++++ b/sound/soc/qcom/qdsp6/audioreach.h
+@@ -805,8 +805,8 @@ int audioreach_map_memory_regions(struct q6apm_graph *graph,
+ 				  bool is_contiguous);
+ int audioreach_send_cmd_sync(struct device *dev, gpr_device_t *gdev, struct gpr_ibasic_rsp_result_t *result,
+ 			     struct mutex *cmd_lock, gpr_port_t *port, wait_queue_head_t *cmd_wait,
+-			     struct gpr_pkt *pkt, uint32_t rsp_opcode);
+-int audioreach_graph_send_cmd_sync(struct q6apm_graph *graph, struct gpr_pkt *pkt,
++			     const struct gpr_pkt *pkt, uint32_t rsp_opcode);
++int audioreach_graph_send_cmd_sync(struct q6apm_graph *graph, const struct gpr_pkt *pkt,
+ 				   uint32_t rsp_opcode);
+ int audioreach_set_media_format(struct q6apm_graph *graph,
+ 				struct audioreach_module *module,
+diff --git a/sound/soc/qcom/qdsp6/q6apm.c b/sound/soc/qcom/qdsp6/q6apm.c
+index 94cc6376a367..d3943d07cb99 100644
+--- a/sound/soc/qcom/qdsp6/q6apm.c
++++ b/sound/soc/qcom/qdsp6/q6apm.c
+@@ -29,7 +29,8 @@ struct apm_graph_mgmt_cmd {
+ 
+ static struct q6apm *g_apm;
+ 
+-int q6apm_send_cmd_sync(struct q6apm *apm, struct gpr_pkt *pkt, uint32_t rsp_opcode)
++int q6apm_send_cmd_sync(struct q6apm *apm, const struct gpr_pkt *pkt,
++			uint32_t rsp_opcode)
+ {
+ 	gpr_device_t *gdev = apm->gdev;
+ 
+diff --git a/sound/soc/qcom/qdsp6/q6apm.h b/sound/soc/qcom/qdsp6/q6apm.h
+index 7ce08b401e31..a39f6046f886 100644
+--- a/sound/soc/qcom/qdsp6/q6apm.h
++++ b/sound/soc/qcom/qdsp6/q6apm.h
+@@ -138,7 +138,7 @@ int q6apm_map_memory_regions(struct q6apm_graph *graph,
+ int q6apm_unmap_memory_regions(struct q6apm_graph *graph,
+ 			       unsigned int dir);
+ /* Helpers */
+-int q6apm_send_cmd_sync(struct q6apm *apm, struct gpr_pkt *pkt,
++int q6apm_send_cmd_sync(struct q6apm *apm, const struct gpr_pkt *pkt,
+ 			uint32_t rsp_opcode);
+ 
+ /* Callback for graph specific */
 
 -- 
 2.48.1
