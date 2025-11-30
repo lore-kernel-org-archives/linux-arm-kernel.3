@@ -4,76 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01BA3D111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Nov 2025 19:45:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CC4DCFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Nov 2025 20:02:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=VpKzwW+DrSxITLrqVUpcZpbwlWPuuva1N93VFVuU3gQ=; b=fhW9tKIHQq3RcK35VvzA7KvZ//
-	A/l6v1Ignpk2ckuIGi1IC7w2WmQyhCDXUnp4zmaLHmfghegErAbxPTaIO5AZkCtrOS5er5UpRNaza
-	xAi+wYz6mB4Z41HFxrCjkI22S0IkLp+lI8Se+cUP9+BfGfgrLU3B+0f8Ljv3HQtF/itoAE5WPtObW
-	8BitzkrJOReWk4jO4cEzwKACwHOTEsD2TKQOcZAGs/3MzFc0JNBGowpqadumL/kjNjSSr+SRk2QsD
-	TeYliNnVXdo2Pbupz2IsgIN0CxAMvb1aQtluvjyZrfBzHYSlsoVnWA2+lPjsgFgm42JUQaYx6Q/Ty
-	9SCHDyjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=la7nNYnGA5UFGfCGw4M01JexFE7uuT8svI7Jr+3Wjmc=; b=P8GM48DzCkv/BY9ceMwWu3Juae
+	LMughZpSQU4WSc6Rdcw1g2Z8KhWcnn7cIQ3yVbD6nPxMZNV6FA0h9FBD52X5YRNrmSTq74KNK7ayv
+	kf7CpCMiniKMwA2IHfqraQGN1ljOH0SytB6krO4igHwt9S8LrIoxRZun0TjNdjaQntuJhCr29aaq3
+	uGU5ziRSqlkSnINzT9KxOq3bo4K1gt5CgsriKy6Z2stHY3JO0tWgIYhgxdJtR1omIO1a+0P7D1FCk
+	gWzz1+hqP1PYyInWtpV5T+lvBXHo6fRi1I3ryY5iNR3AIjDzB6xXIrUVCDTaHXtd1i9JlA9z01IVp
+	4TLJ1Ojg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPnMM-00000002Wbs-29ej;
-	Sun, 30 Nov 2025 19:45:26 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1vPncU-00000002XSo-11BW;
+	Sun, 30 Nov 2025 20:02:06 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPnMJ-00000002Wax-1lKr
+	id 1vPncS-00000002XSX-2KJ8
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Nov 2025 19:45:24 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-477c49f273fso39343735e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Nov 2025 11:45:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764531921; x=1765136721; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=VpKzwW+DrSxITLrqVUpcZpbwlWPuuva1N93VFVuU3gQ=;
-        b=RDit4Plvm6InPFmxLQxrucFGCIX37FuChcwo7oXE/sMokLdvfshruKgO117ROFY03L
-         utXkBBgwJyhuc18JCat/3nykeeKBS5yuBYCOGAbuo/562HuVLWqLuf+2ZqEaTqn/gO6l
-         FCsZIv9leDmE5mSPqyoIE8agX9O4dqpiiUitjy98me8F4zQ6Gcj6kTYIPUtchz+R04zf
-         RjJlV4L1uvAvDAWEz8Z2aV33yv6PxrMaCWyjdN8D75e9iZAg68A2OpNYU15VQw4Py9M5
-         6ZB3guo4Hm0R4qh959uRw5uwnYHXRcXEPbbLqTMm3h0hjnqBSRpNSjkqeAP8pKaQiDaR
-         ppiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764531921; x=1765136721;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=VpKzwW+DrSxITLrqVUpcZpbwlWPuuva1N93VFVuU3gQ=;
-        b=gFINSUdOya5qy2Op/paS4kmxds3ZpxB1kLdMvWiza40uWZrysTpOs4Yb6rLBEl+Hpg
-         dWocaZ1KEi1A3fggDDnooy7amvy8R8FOOm1DbKzvOnO4KptQuGxZ1yAabHDThrwdRGvq
-         WuZE4mporB+SscZc3zGs9CCNmM2Gj4atx7bGXtiOESLPiwsF++4leu9u5y2hrqxWc9gk
-         mBb/ScNwVeisjHT6TWOu1SG68BqaYeXcpS59RcdJR3YLQHnH6hwu2G/8sfdRibtLNSPj
-         KtBzaZvKzYzG+jEVYHbZBbbwZg9v3+MLLkzQa9CEu65Wa4hylYPd1AlGXEZDu15PwDoe
-         0UJA==
-X-Forwarded-Encrypted: i=1; AJvYcCWKoyd3i6XT+an1QYLpXUdvy9HmOZlUw1XgwyKueW+LFgsQr1D+K5fnxw+fU7x5GVanyQNg/KFrpACFuvmsGo8S@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYEEPnax7MQ/m4R9az60hoB9082LCvLlkL7ih5hFPgIn6CP9Ex
-	kBOqYa5eJh05OtOY9iNjy7F44V+oMr7+W+6PzyWpOlQSkDsUl+1siaMyT1BkE4i9OFRxNp0s6Yu
-	rC8nuhSok6bRGDg==
-X-Google-Smtp-Source: AGHT+IGX+La27FykkneboKedWl3FbPZ7fIp0DKL/wu8LaMWfDRdIsROXD63+Az5xZoHNsgdO2DB82IvlLgkaUQ==
-X-Received: from wmom17.prod.google.com ([2002:a05:600c:4611:b0:477:40c1:3e61])
- (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:354b:b0:46f:b327:ecfb with SMTP id 5b1f17b1804b1-477c0184c45mr341232415e9.9.1764531920917;
- Sun, 30 Nov 2025 11:45:20 -0800 (PST)
-Date: Sun, 30 Nov 2025 19:45:06 +0000
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.52.0.487.g5c8c507ade-goog
-Message-ID: <20251130194506.593700-1-smostafa@google.com>
-Subject: [PATCH] iommu/io-pgtable-arm: Add misisng concatenated PGD cases
-From: Mostafa Saleh <smostafa@google.com>
-To: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Cc: robin.murphy@arm.com, will@kernel.org, joro@8bytes.org, 
-	Mostafa Saleh <smostafa@google.com>, Tomasz Nowicki <tnowicki@google.com>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251130_114523_495617_FD50E5EF 
-X-CRM114-Status: GOOD (  12.44  )
+	Sun, 30 Nov 2025 20:02:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2809060052;
+	Sun, 30 Nov 2025 20:02:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DC3EC4CEF8;
+	Sun, 30 Nov 2025 20:02:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764532921;
+	bh=GQeTafnOimj+SHBm4UuQqXcgzbjRJYkDWL0p2vAkIrQ=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=ke4KROZZUJGyqDTHZ7OXeybILhA2G3+aeruNIrHBMdP/SeLfraILK5dBkcJRqUeWY
+	 yFtTz7mB39fbcZlZaZ95rN/ebw8mF4RtQK8vBlnci70PkpPC07VjpkmpF5PyVKp5m1
+	 Yb8+m07Ji800a57LjPvJ4hV6mYd3x19sU4OZEAm3DgVwULTaUzNAD5gukq4zwR80YC
+	 PH4GIrvH9ZVDnYI39aWw4HPX7JoSj1cJe5QcKpEOmlWEzpfe8S98+d4QaIjiP6C2Ns
+	 Flubn06xCnc1MIi0ceXZh2u29n79ZO9nQatDaPmpUf6boP6od5ffJDAj3K/PcR0HUw
+	 CIe956fqini3w==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20251126173430.1556604-1-andersson@kernel.org>
+References: <20251126173430.1556604-1-andersson@kernel.org>
+Subject: Re: [GIT PULL] Qualcomm clock updates for v6.19
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Taniya Das <taniya.das@oss.qualcomm.com>, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Luo Jie <quic_luoj@quicinc.com>, Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, Luca Weiss <luca.weiss@fairphone.com>, Jens Reidel <adrian@mainlining.org>, Alexey Minnekhanov <alexeymin@postmarketos.org>, Gabor Juhos <j4g8y7@gmail.com>, Nathan Chancellor <nathan@kernel.org>
+To: Bjorn Andersson <andersson@kernel.org>, linux-clk@vger.kernel.org
+Date: Sun, 30 Nov 2025 12:01:59 -0800
+Message-ID: <176453291936.11952.7135169229831586011@lazor>
+User-Agent: alot/0.11
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,56 +68,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-arm_lpae_concat_mandatory() assumes that OAS >= IAS which is not
-correct for SMMUs supporting AArch32, and have OAS = 32/36 bits,
-as IAS would be 40 bits.
+Quoting Bjorn Andersson (2025-11-26 09:34:30)
+>=20
+> The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df567=
+87:
+>=20
+>   Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
+>=20
+> are available in the Git repository at:
+>=20
+>   https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qco=
+m-clk-for-6.19
+>=20
+> for you to fetch changes up to 3664282f3345fdfa6a154feb6ed6c3217a8b3b0d:
+>=20
+>   clk: qcom: x1e80100-dispcc: Add USB4 router link resets (2025-11-18 16:=
+11:37 -0600)
+>=20
+> ----------------------------------------------------------------
 
-In that case, concatenation is mandatory in some cases.
-Document those and add the checks, this can be simplified; instead
-of adding extra checks we can say that concatenation is mandatory for:
-- 4K, start level = 0 and OAS <= 42 bits.
-- 16K, start level = 1 and OAS <= 40 bits.
-Which cover all the missing cases.
+Thanks. Pulled into clk-next
 
-Reported-by: Tomasz Nowicki <tnowicki@google.com>
-Fixes: 4dcac8407fe1 ("iommu/io-pgtable-arm: Fix stage-2 concatenation with 16K")
-Signed-off-by: Mostafa Saleh <smostafa@google.com>
----
- drivers/iommu/io-pgtable-arm.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-index e6626004b323..ecf27e86b429 100644
---- a/drivers/iommu/io-pgtable-arm.c
-+++ b/drivers/iommu/io-pgtable-arm.c
-@@ -223,6 +223,8 @@ static inline int arm_lpae_max_entries(int i, struct arm_lpae_io_pgtable *data)
-  *   b) 40 bits PA size with 16K: use level 2 instead of level 1 (16 tables for ias = oas)
-  *   c) 42 bits PA size with 4K: use level 1 instead of level 0 (8 tables for ias = oas)
-  *   d) 48 bits PA size with 16K: use level 1 instead of level 0 (2 tables for ias = oas)
-+ *   f) 32/36 bits PA size with 4K and 40 bits IAS: use level 1 instead of level 0
-+ *   g) 32/36 bits PA size with 16K and 40 bits IAS: use level 2 instead of level 1
-  */
- static inline bool arm_lpae_concat_mandatory(struct io_pgtable_cfg *cfg,
- 					     struct arm_lpae_io_pgtable *data)
-@@ -234,13 +236,13 @@ static inline bool arm_lpae_concat_mandatory(struct io_pgtable_cfg *cfg,
- 	if ((ARM_LPAE_GRANULE(data) == SZ_16K) && (data->start_level == 0))
- 		return (oas == 48) || (ias == 48);
- 
--	/* Covers 2.a and 2.c */
-+	/* Covers 2.a, 2.c and 2.f */
- 	if ((ARM_LPAE_GRANULE(data) == SZ_4K) && (data->start_level == 0))
--		return (oas == 40) || (oas == 42);
-+		return (oas <= 42);
- 
--	/* Case 2.b */
-+	/* Case 2.b and 2.g */
- 	return (ARM_LPAE_GRANULE(data) == SZ_16K) &&
--	       (data->start_level == 1) && (oas == 40);
-+	       (data->start_level == 1) && (oas <= 40);
- }
- 
- static dma_addr_t __arm_lpae_dma_addr(void *pages)
--- 
-2.52.0.487.g5c8c507ade-goog
-
+drivers/clk/qcom/camcc-sm7150.c:1898:15: warning: symbol 'camcc_sm7150_hws'=
+ was not declared. Should it be static?
 
