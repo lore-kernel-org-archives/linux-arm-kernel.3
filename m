@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36191D111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Nov 2025 20:17:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEAF7CFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Nov 2025 22:55:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TMeL4JyWTglPNStJrCnRRegNxn7l/H0tOrgAzvtGHzw=; b=RjduV5hEyJMDUhX9TXAaFZUz3A
-	AqbOeT3D5IUWGTwanUil0yUUO8G2S0Cfm+nKRLfS7P690nYxfGC1dyQK4WhGpKmjJx1/Wn9TKTgnl
-	Z0bpQxuutX1UEijXgqqywHSZUI/vA+esiqS0PtY72HFj26m+3pONNQKiuEI64wzIMn3y+CCl2+12/
-	RKxPpVAYPZLC7jQGRk/M9In9KupCkH1eMEwf2+PAgHjz/JDX6ghz8cSdz796M0sPXUSRBZe99sUw5
-	iecoUZeByooW8Lg15VvdaETxQXQGE+FjbdlfMyiOlTAC1CKCb+sPqOnfz20KzY1VW3tSEZXQItNKp
-	HgA2PpYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Y3zi54fqg3Dk2cRhgMV9Qr4FUT5aZsi0jpnqIp0ID9w=; b=ezxIiuyqQ5NwJyq0bDLqW9ykcJ
+	r35Tk25yTODlKHPVFNisLOkHOk0TDvVpEDS86qvyTohn1S7PZ7hFTNbvjlN2AFr/bYP60WHDAXWPK
+	4inqXagI1vrZUIMURw7XcP8JKgRlsBR7ZXmaeHc6xhCkYfPMSjYhZXm3qaNPTCdgGGsrtA+DYpTk5
+	j+CAeE1kzg9MaDwOEfM0ovkZ6oZKBvuJxkugEKJM9WguvVz1K7JhhqmsuE70kfKvR/cknl8L74drl
+	BiraF27mPCj5ndh8/gm2VAfrgyRUJ/ISUfgkusmvvrySGWJAXBX5XnZujnd/QAJ393cp3kx+OEcKD
+	5NxlGvuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPnrc-00000002Y2w-2gws;
-	Sun, 30 Nov 2025 20:17:44 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vPqKK-00000002eKb-2PNx;
+	Sun, 30 Nov 2025 22:55:32 +0000
+Received: from out-170.mta0.migadu.com ([2001:41d0:1004:224b::aa])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPnra-00000002Y2T-29pC;
-	Sun, 30 Nov 2025 20:17:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=TMeL4JyWTglPNStJrCnRRegNxn7l/H0tOrgAzvtGHzw=; b=jTLmQRdf4HJhzV66zMbIIGcOdK
-	tId1vBslJDT5vLxueql2nfF37y4DcGRxg9XZzVq39KHCFivb6Wss3r05d3u42f6zeYCNL8m4ZdVzC
-	vnmIDC1OUSjYLAF0q0O1/cJR76fWo7sltq7jsWObxvu3GpoHrxbP9zO7Cq13IjSaF7MU=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vPnrH-00FTH9-QN; Sun, 30 Nov 2025 21:17:23 +0100
-Date: Sun, 30 Nov 2025 21:17:23 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Vladimir Oltean <olteanv@gmail.com>
-Cc: Chen Minqiang <ptpt52@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>, linux-kernel@vger.kernel.org,
+	id 1vPqKE-00000002eK1-01wb
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 30 Nov 2025 22:55:31 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1764543314;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Y3zi54fqg3Dk2cRhgMV9Qr4FUT5aZsi0jpnqIp0ID9w=;
+	b=Hq606jXLAwrThWHNyJtMCpuwys4cwSkneu/YjuItjVgYvxPTx400OdaeCStqVB5tF65tXM
+	WNAo/urFr5JOCp9gjtfb5vhfp9iMHHWH5PSqnGuYml7Y79S3qqOwo/dPWrBgfGpludcxcw
+	3IKOvpFJpIcfw8C3ujTlI9S3D1AxeYc=
+From: Thorsten Blum <thorsten.blum@linux.dev>
+To: Markus Mayer <mmayer@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Thorsten Blum <thorsten.blum@linux.dev>,
+	linux-pm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] net: dsa: mt7530: Use GPIO polarity to generate
- correct reset sequence
-Message-ID: <3fbc4e67-b931-421c-9d83-2214aaa2f6ed@lunn.ch>
-References: <20251129234603.2544-1-ptpt52@gmail.com>
- <20251129234603.2544-2-ptpt52@gmail.com>
- <0675b35f-217d-4261-9e3f-2eb24753d43c@lunn.ch>
- <20251130080731.ty2dlxaypxvodxiw@skbuf>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] thermal/drivers/brcmstb_thermal: Use max to simplify brcmstb_get_temp
+Date: Sun, 30 Nov 2025 23:54:58 +0100
+Message-ID: <20251130225459.46241-1-thorsten.blum@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251130080731.ty2dlxaypxvodxiw@skbuf>
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251130_121742_576879_4CB35FB9 
-X-CRM114-Status: GOOD (  20.57  )
+X-CRM114-CacheID: sfid-20251130_145526_455856_13F1A011 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,38 +72,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Nov 30, 2025 at 10:07:31AM +0200, Vladimir Oltean wrote:
-> On Sun, Nov 30, 2025 at 02:11:05AM +0100, Andrew Lunn wrote:
-> > > -		gpiod_set_value_cansleep(priv->reset, 0);
-> > > +		int is_active_low = !!gpiod_is_active_low(priv->reset);
-> > > +		gpiod_set_value_cansleep(priv->reset, is_active_low);
-> > 
-> > I think you did not correctly understand what Russell said. You pass
-> > the logical value to gpiod_set_value(). If the GPIO has been marked as
-> > active LOW, the GPIO core will invert the logical values to the raw
-> > value. You should not be using gpiod_is_active_low().
-> > 
-> > But as i said to the previous patch, i would just leave everything as
-> > it is, except document the issue.
-> > 
-> > 	Andrew
-> > 
-> 
-> It was my suggestion to do it like this (but I don't understand why I'm
-> again not in CC).
-> 
-> We _know_ that the reset pin of the switch should be active low. So by
-> using gpiod_is_active_low(), we can determine whether the device tree is
-> wrong or not, and we can work with a wrong device tree too (just invert
-> the logical values).
+Use max() to simplify brcmstb_get_temp() and improve its readability.
+Since avs_tmon_code_to_temp() returns an int, change the data type of
+the local variable 't' from long to int.  No functional changes.
 
-Assuming there is not a NOT gate placed between the GPIO and the reset
-pin, because the board designer decided to do that for some reason?
+Signed-off-by: Thorsten Blum <thorsten.blum@linux.dev>
+---
+ drivers/thermal/broadcom/brcmstb_thermal.c | 8 +++-----
+ 1 file changed, 3 insertions(+), 5 deletions(-)
 
-So lets work on the commit message some more, but i'm still not
-convinced it is worth the effort, unless there is some board today
-which really is broken and cannot be fixed unless a change like this
-is made.
+diff --git a/drivers/thermal/broadcom/brcmstb_thermal.c b/drivers/thermal/broadcom/brcmstb_thermal.c
+index f46f2ddc174e..a9ffa596f7c0 100644
+--- a/drivers/thermal/broadcom/brcmstb_thermal.c
++++ b/drivers/thermal/broadcom/brcmstb_thermal.c
+@@ -16,6 +16,7 @@
+ #include <linux/irqreturn.h>
+ #include <linux/interrupt.h>
+ #include <linux/kernel.h>
++#include <linux/minmax.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/platform_device.h>
+@@ -154,7 +155,7 @@ static int brcmstb_get_temp(struct thermal_zone_device *tz, int *temp)
+ {
+ 	struct brcmstb_thermal_priv *priv = thermal_zone_device_priv(tz);
+ 	u32 val;
+-	long t;
++	int t;
+ 
+ 	val = __raw_readl(priv->tmon_base + AVS_TMON_STATUS);
+ 
+@@ -164,10 +165,7 @@ static int brcmstb_get_temp(struct thermal_zone_device *tz, int *temp)
+ 	val = (val & AVS_TMON_STATUS_data_msk) >> AVS_TMON_STATUS_data_shift;
+ 
+ 	t = avs_tmon_code_to_temp(priv, val);
+-	if (t < 0)
+-		*temp = 0;
+-	else
+-		*temp = t;
++	*temp = max(0, t);
+ 
+ 	return 0;
+ }
+-- 
+Thorsten Blum <thorsten.blum@linux.dev>
+GPG: 1D60 735E 8AEF 3BE4 73B6  9D84 7336 78FD 8DFE EAD4
 
-	Andrew
 
