@@ -4,56 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CC4DCFD376
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Nov 2025 20:02:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36191D111A8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Nov 2025 20:17:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=la7nNYnGA5UFGfCGw4M01JexFE7uuT8svI7Jr+3Wjmc=; b=P8GM48DzCkv/BY9ceMwWu3Juae
-	LMughZpSQU4WSc6Rdcw1g2Z8KhWcnn7cIQ3yVbD6nPxMZNV6FA0h9FBD52X5YRNrmSTq74KNK7ayv
-	kf7CpCMiniKMwA2IHfqraQGN1ljOH0SytB6krO4igHwt9S8LrIoxRZun0TjNdjaQntuJhCr29aaq3
-	uGU5ziRSqlkSnINzT9KxOq3bo4K1gt5CgsriKy6Z2stHY3JO0tWgIYhgxdJtR1omIO1a+0P7D1FCk
-	gWzz1+hqP1PYyInWtpV5T+lvBXHo6fRi1I3ryY5iNR3AIjDzB6xXIrUVCDTaHXtd1i9JlA9z01IVp
-	4TLJ1Ojg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TMeL4JyWTglPNStJrCnRRegNxn7l/H0tOrgAzvtGHzw=; b=RjduV5hEyJMDUhX9TXAaFZUz3A
+	AqbOeT3D5IUWGTwanUil0yUUO8G2S0Cfm+nKRLfS7P690nYxfGC1dyQK4WhGpKmjJx1/Wn9TKTgnl
+	Z0bpQxuutX1UEijXgqqywHSZUI/vA+esiqS0PtY72HFj26m+3pONNQKiuEI64wzIMn3y+CCl2+12/
+	RKxPpVAYPZLC7jQGRk/M9In9KupCkH1eMEwf2+PAgHjz/JDX6ghz8cSdz796M0sPXUSRBZe99sUw5
+	iecoUZeByooW8Lg15VvdaETxQXQGE+FjbdlfMyiOlTAC1CKCb+sPqOnfz20KzY1VW3tSEZXQItNKp
+	HgA2PpYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPncU-00000002XSo-11BW;
-	Sun, 30 Nov 2025 20:02:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vPnrc-00000002Y2w-2gws;
+	Sun, 30 Nov 2025 20:17:44 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPncS-00000002XSX-2KJ8
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Nov 2025 20:02:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2809060052;
-	Sun, 30 Nov 2025 20:02:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DC3EC4CEF8;
-	Sun, 30 Nov 2025 20:02:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764532921;
-	bh=GQeTafnOimj+SHBm4UuQqXcgzbjRJYkDWL0p2vAkIrQ=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=ke4KROZZUJGyqDTHZ7OXeybILhA2G3+aeruNIrHBMdP/SeLfraILK5dBkcJRqUeWY
-	 yFtTz7mB39fbcZlZaZ95rN/ebw8mF4RtQK8vBlnci70PkpPC07VjpkmpF5PyVKp5m1
-	 Yb8+m07Ji800a57LjPvJ4hV6mYd3x19sU4OZEAm3DgVwULTaUzNAD5gukq4zwR80YC
-	 PH4GIrvH9ZVDnYI39aWw4HPX7JoSj1cJe5QcKpEOmlWEzpfe8S98+d4QaIjiP6C2Ns
-	 Flubn06xCnc1MIi0ceXZh2u29n79ZO9nQatDaPmpUf6boP6od5ffJDAj3K/PcR0HUw
-	 CIe956fqini3w==
-Content-Type: text/plain; charset="utf-8"
+	id 1vPnra-00000002Y2T-29pC;
+	Sun, 30 Nov 2025 20:17:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=TMeL4JyWTglPNStJrCnRRegNxn7l/H0tOrgAzvtGHzw=; b=jTLmQRdf4HJhzV66zMbIIGcOdK
+	tId1vBslJDT5vLxueql2nfF37y4DcGRxg9XZzVq39KHCFivb6Wss3r05d3u42f6zeYCNL8m4ZdVzC
+	vnmIDC1OUSjYLAF0q0O1/cJR76fWo7sltq7jsWObxvu3GpoHrxbP9zO7Cq13IjSaF7MU=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vPnrH-00FTH9-QN; Sun, 30 Nov 2025 21:17:23 +0100
+Date: Sun, 30 Nov 2025 21:17:23 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Vladimir Oltean <olteanv@gmail.com>
+Cc: Chen Minqiang <ptpt52@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] net: dsa: mt7530: Use GPIO polarity to generate
+ correct reset sequence
+Message-ID: <3fbc4e67-b931-421c-9d83-2214aaa2f6ed@lunn.ch>
+References: <20251129234603.2544-1-ptpt52@gmail.com>
+ <20251129234603.2544-2-ptpt52@gmail.com>
+ <0675b35f-217d-4261-9e3f-2eb24753d43c@lunn.ch>
+ <20251130080731.ty2dlxaypxvodxiw@skbuf>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20251126173430.1556604-1-andersson@kernel.org>
-References: <20251126173430.1556604-1-andersson@kernel.org>
-Subject: Re: [GIT PULL] Qualcomm clock updates for v6.19
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Taniya Das <taniya.das@oss.qualcomm.com>, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, Luo Jie <quic_luoj@quicinc.com>, Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>, Luca Weiss <luca.weiss@fairphone.com>, Jens Reidel <adrian@mainlining.org>, Alexey Minnekhanov <alexeymin@postmarketos.org>, Gabor Juhos <j4g8y7@gmail.com>, Nathan Chancellor <nathan@kernel.org>
-To: Bjorn Andersson <andersson@kernel.org>, linux-clk@vger.kernel.org
-Date: Sun, 30 Nov 2025 12:01:59 -0800
-Message-ID: <176453291936.11952.7135169229831586011@lazor>
-User-Agent: alot/0.11
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251130080731.ty2dlxaypxvodxiw@skbuf>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251130_121742_576879_4CB35FB9 
+X-CRM114-Status: GOOD (  20.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,27 +79,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Bjorn Andersson (2025-11-26 09:34:30)
->=20
-> The following changes since commit 3a8660878839faadb4f1a6dd72c3179c1df567=
-87:
->=20
->   Linux 6.18-rc1 (2025-10-12 13:42:36 -0700)
->=20
-> are available in the Git repository at:
->=20
->   https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qco=
-m-clk-for-6.19
->=20
-> for you to fetch changes up to 3664282f3345fdfa6a154feb6ed6c3217a8b3b0d:
->=20
->   clk: qcom: x1e80100-dispcc: Add USB4 router link resets (2025-11-18 16:=
-11:37 -0600)
->=20
-> ----------------------------------------------------------------
+On Sun, Nov 30, 2025 at 10:07:31AM +0200, Vladimir Oltean wrote:
+> On Sun, Nov 30, 2025 at 02:11:05AM +0100, Andrew Lunn wrote:
+> > > -		gpiod_set_value_cansleep(priv->reset, 0);
+> > > +		int is_active_low = !!gpiod_is_active_low(priv->reset);
+> > > +		gpiod_set_value_cansleep(priv->reset, is_active_low);
+> > 
+> > I think you did not correctly understand what Russell said. You pass
+> > the logical value to gpiod_set_value(). If the GPIO has been marked as
+> > active LOW, the GPIO core will invert the logical values to the raw
+> > value. You should not be using gpiod_is_active_low().
+> > 
+> > But as i said to the previous patch, i would just leave everything as
+> > it is, except document the issue.
+> > 
+> > 	Andrew
+> > 
+> 
+> It was my suggestion to do it like this (but I don't understand why I'm
+> again not in CC).
+> 
+> We _know_ that the reset pin of the switch should be active low. So by
+> using gpiod_is_active_low(), we can determine whether the device tree is
+> wrong or not, and we can work with a wrong device tree too (just invert
+> the logical values).
 
-Thanks. Pulled into clk-next
+Assuming there is not a NOT gate placed between the GPIO and the reset
+pin, because the board designer decided to do that for some reason?
 
-drivers/clk/qcom/camcc-sm7150.c:1898:15: warning: symbol 'camcc_sm7150_hws'=
- was not declared. Should it be static?
+So lets work on the commit message some more, but i'm still not
+convinced it is worth the effort, unless there is some board today
+which really is broken and cannot be fixed unless a change like this
+is made.
+
+	Andrew
 
