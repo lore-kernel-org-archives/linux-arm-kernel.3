@@ -4,158 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1C28D116F5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Nov 2025 12:36:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92354D116F5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Nov 2025 12:55:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R6m7eEIarrZvPjLUe/bOpRLI8mtRBQO0vBtG1dlMFXU=; b=ge2vS3HLi4eB2mDfJQesN5DuQE
-	y2LDWyfFeM4AX/S58DqPwztMve9JG7kvAB0S5fvnRPvO7i/4xnEL0k+NBVnT2g0g0zi54hrxbm2xq
-	Eb/zXzKQYqBX7yti83AsNLBn1QqeSWh+mGaTtJ9XVq58kfbija7TmHTkSwZjl8825wAvIoTtfT0KY
-	DVe078RhRUZFM+QzmHytJp2gNn2rzcj5H7vOoKN/8nXaJgnvufBFzrVVk2EEYGEcFfzRkm+jVnCGn
-	yiZ/X270fx5c/umGC3Z0qmqefzKg1sjpV70WDA/U8a+BH/fqh90Z3S0SbIyK+p2K+obTY9wH1LJDk
-	yC6Uzg3A==;
+	bh=BweNKXTXyBjbxRpgGJRd78cP5vj9K3Mx0pI5VkyxFf8=; b=RxBsYKVf9Bcfx/GFy9pDZn5q9z
+	EZQVT5UIMxt1C6OEz9QKxWin2ga217dg/OCVL14+d5qcdtiUQ2CbnQz3w2xbeuQ6ng7PIIHOsteij
+	nPq3sMBN95pEKs0o7hE4sRwHbsNVBOj2BA3EcDCLaa+9lzku6Hm83WlFuvF1dIDMT3Q4mk9ielTb4
+	kj+srDfOPOCspMRwgUbLeasKU8v4+bbMJAZ+dpZcaEnX1UudzGScvFoS1soWYggGWe5jlaYp1wRUM
+	3q//XB7rYGToLXWzkQnk93rK5O9zuHFigKd3dexY2pOfiw7J7CS8l0CBzPosAQIyfWMoHzP3jxix8
+	QGhzWZcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPgfI-00000002I30-1N3Y;
-	Sun, 30 Nov 2025 12:36:32 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vPgxr-00000002JAc-0A8w;
+	Sun, 30 Nov 2025 12:55:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPgfB-00000002Hy3-1W2H
+	id 1vPgxo-00000002J9m-41WV
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Nov 2025 12:36:26 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5AU6rKW4154509
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Nov 2025 12:36:25 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	R6m7eEIarrZvPjLUe/bOpRLI8mtRBQO0vBtG1dlMFXU=; b=Psd4w64sy2iM4eCI
-	tk6IzNgPxsp0zPjf4ZUTwUfnNWHLeTFuxhK/+qfpmUXarSJ0MAAD5AVhXfqVT9b2
-	U+AHwxeEm329DrK4GI1jkIr7MUdaOCiSxbFYuiPwhHDWL1E0oIN9NPlX5WfeQmP5
-	lLR5gkp+KywEXuZn50miAxq/ZyBUKfGfhqYKF3lit8j2+lgPQ09ZwrxjcRpOhtzh
-	eO/BR5F+hohY1QCKJNFGxWTHKm6SO3L6FDILpOhznRYL7ReI+nN5i4Ym2353BPmW
-	Jc+4UjIYbMQG6Qd4C1iQwF3YYebL/h82eJGvfBl1Jq33S4WDx/AqIEJ3wNFFcQ21
-	+ckBdw==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4aqt0j22rt-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Nov 2025 12:36:24 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-8b2e2342803so648891285a.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Nov 2025 04:36:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1764506184; x=1765110984; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=R6m7eEIarrZvPjLUe/bOpRLI8mtRBQO0vBtG1dlMFXU=;
-        b=RkHxLnKjGteBWhCGCSJww+ZaqYu7D5CVOKlrAWTC97FlZhvH6YsgilYzMsgU5AycTo
-         V2VrdUUPiuO0Sm/qk5NMUzlWhSzyint2Xck5j3e2yYrWu4AgzqUIoOuLv+H3JjhXiBSH
-         +V9CDotJZD1q8GhIoWVrP3PlYPgXApuwmslId4Xdw3oJv/0Gsz+AEiRkqbTxuxuvxKaI
-         7HMPiUi1gdNS8kAjmvvqOKoiAaswuLNrlXf6rhCfdK393HLHFw5qPR/m7md02fyhdZq7
-         XxE9mrsg6Yl6ntUeeJqvLtG4+vknHPKMKA8QRkjxCmbCRgO7+IMfj5sjaolbRpFrez+y
-         IUlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764506184; x=1765110984;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=R6m7eEIarrZvPjLUe/bOpRLI8mtRBQO0vBtG1dlMFXU=;
-        b=dCVow31aW+k1VC7xnGo6dKFBZLSL49AsfLXRGMptEpw1mjHqXrvNPOXwkDpHOYpQcj
-         7hrshn8UIDSOXFFJ1ApXvZeNjRRHu/uk4nrbRU9QZlCugPgTiRaEavpj3fak3Jsg5i6x
-         8NZ4S+stUGZnERE1OwVklCWvblwGx5KIiUVu3LozJFtd8HtkAvWhileRKcuC1LXEJ9tk
-         wR/3PV2ZLcPtLHkA9qB3g8AONqOSuT6p0ACry5y/F0P9rDblFCNyFgoMOfHqLJFDG8cY
-         o3y9MCoP+SFs6QUrN1f7DtA3FvrG5y72eD0Tq3eZuyvyMFgq7KHNAoszU3YyjKvxdIBk
-         FnIg==
-X-Forwarded-Encrypted: i=1; AJvYcCWjEs7yhSZq2yRCCiuFsSGLVs0oADebjqGYO7nezJ6xidLowd/HJ+bZSOe76QIvenuovJitIlQaK55m2qu3BhrV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6enBMW9gEnaFLfm9vjpYzspyTQl1CRz403BrBucT+uO0e5itI
-	kjV/nrd3me0w7nOfwTpp7cS+2liay51vT+fZjdgOn7rOBiRjUexRMBkmLaWRjoit2oUcjPNq11U
-	5qP3y8lh8FB+DOLrf3jfOMJ2Ye2LgEWkhN3OewnMtXyNw8ppeDuaqDnih64KZGGiaHj6kSKRWEM
-	UyDw==
-X-Gm-Gg: ASbGncvgZr4JFySviadmKe4LtKcQfYWt74tbJwjDpbcqCKXdkfPc9KsaWNC4Uha3z0L
-	NvgQX1fSLcrAH+kfo2hyhowZUSyyX8y2EZZGiznqJXsQLXMiWCd8HTohMakQd6hcmLw6ja7vEF7
-	xxI4MqcBnCtd8KPihYvZyXoBb7unUIvexvJBmYLqoQUW0pa8f1jh1V4gT67K78yBgLY2rkTGYCj
-	zE1ovZ9oLw39KSDSRnIuAR/tE9uSf8qKFHuQHBwhCaFKpnqrS7nwimcTEM0LlFDSOYI0g5PXyna
-	5rSdMCLeHni3rwFEhxsjK6yldtJU6BHPz3p//xBDlKBNpJUgr5CtvDhB6nmSeSuVMqOJFcUAnDN
-	zbVIa6gTt0sBlpnhX1EE0+ZFIosI9SmNGwA==
-X-Received: by 2002:a05:620a:4113:b0:8a1:426a:2cca with SMTP id af79cd13be357-8b4ebdb059fmr3114732685a.41.1764506183738;
-        Sun, 30 Nov 2025 04:36:23 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGva41J52XjZOZU7QbLozxUApp8fRFBP8lWVjOor8lQjogi2oWu9rXWmJiA9F+qyVfN4igasQ==
-X-Received: by 2002:a05:620a:4113:b0:8a1:426a:2cca with SMTP id af79cd13be357-8b4ebdb059fmr3114729585a.41.1764506183284;
-        Sun, 30 Nov 2025 04:36:23 -0800 (PST)
-Received: from [127.0.1.1] ([178.197.195.159])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b76f51c6c12sm920506666b.29.2025.11.30.04.36.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 30 Nov 2025 04:36:22 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-Date: Sun, 30 Nov 2025 13:36:11 +0100
-Subject: [PATCH 4/4] ASoC: qcom:: Constify GPR packet being send over GPR
- interface
+	Sun, 30 Nov 2025 12:55:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2F3B060135
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Nov 2025 12:55:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7383C2BCB0
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Nov 2025 12:55:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764507339;
+	bh=+CUU91VE9U+UPRFztWIsw6a0HFlxr+X7N2lteq6FDVE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=Gww/dvdD+675GJvFeEUzoJ9+9j1fimzRlqZN4XMYb6eQ22Y67C+MtVRScVEvjgMj1
+	 ZpYvL+nwB2pztVPvokl4UbEkKUzonZlmU5BFppJ+9Lj4kIxmWwfdBjPYKKj54W7re6
+	 pCCNXn8T8DUMXZbwGdNQTa6g0p5S1DYOA0f5Hfr506b7n58qIcvUcbv8I+2GP1lQr/
+	 zN1r7Jpu0BI8REbIRc1G32Hi5dMOEcFzmasdNLVlXuv3R46/uzyCsVukiB757JeGhN
+	 2uDujYZ14AcjgVrLFPsqEQlrLMsGQFouXavU4LbUHBbzAin4+3g/0GH9NV7GhWXo1f
+	 wmvNB24EyWnFw==
+Received: by mail-ot1-f47.google.com with SMTP id 46e09a7af769-7c75a5cb752so1950515a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Nov 2025 04:55:39 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXpyETUpZLq7syV+b2cx17tFCjbxUBbbZmbIxZMfHJp6MHUc18Ge/7h14Ch2Nus5q67WIT/fDiN3UAdM6lPckvg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4fOphK7v/q7QBv8v6nhBKIMqP2BTahFGde+YY2x1n6dU0l/Z3
+	9NuRqF/zyynyvpNcYXtUSSnKA82TNgPExnzdC5Jk2AE+rOcw/tqumqShdpoFRHScOsRWLUYIAj0
+	3C2TWLmdZoli8o7RzNxSLBFOZQOIpplo=
+X-Google-Smtp-Source: AGHT+IGgWthYmyiiRHTuIz/8bWmUoFRUwbcURTcZh3qG98AznU0lJvk231Fz5Su9DD5JkuIHGit6aHtLEtrfKZseF8E=
+X-Received: by 2002:a05:6830:924:b0:7c7:dff:2ac1 with SMTP id
+ 46e09a7af769-7c798b8a7dbmr18909653a34.3.1764507338846; Sun, 30 Nov 2025
+ 04:55:38 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251130-rpmsg-send-const-v1-4-cb11c7e0a024@oss.qualcomm.com>
-References: <20251130-rpmsg-send-const-v1-0-cb11c7e0a024@oss.qualcomm.com>
-In-Reply-To: <20251130-rpmsg-send-const-v1-0-cb11c7e0a024@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Mathieu Poirier <mathieu.poirier@linaro.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-        Srinivas Kandagatla <srini@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
-        Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
-Cc: linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-mediatek@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        linux-sound@vger.kernel.org,
-        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5742;
- i=krzysztof.kozlowski@oss.qualcomm.com; h=from:subject:message-id;
- bh=9gu7wWK680Y+R77IwqaMtBNCQ9pWc92nao0jPv5FZKU=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpLDo9F3Cb8NTt5YnUJG7vYG29zfGYJNTxXFDJt
- 8YjFrKuC3WJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaSw6PQAKCRDBN2bmhouD
- 10uYD/wL7QRRrhU/H4mmKeOeLk03AFvbCsXoTZfBu3jKO/5Vj4w036GolvoqdUaOp4X6KW4Og9+
- pUtWYb2x2vIX0vXbEqd84RxA6riHyU8uHPxSNqZOefGwtyPcRPL46wGIWL46UFYocJLELTOsD/p
- 0eHJ5I10yZhUIA7MzVpPOf8kd2kSWj9UMcIpuhRQvAoMWrWHheaqOQT+ROjlcaaU/1i2rbevMGV
- pcxdKpD7yMwSamCiS5u/cfw9vXZd3DhL7IwoXkwIf6T4J0S6UIKu3vrci5LUgk/bBaAWZqOLySY
- b19+66fFjdfJKD834yt4O/2/9bEYnRm00QUmDslv7+8IB0aOgZB82Ii9JxkNr+AHS4VCUN+ldGp
- VmsGUvWXS8Uu82zG90DZCMUItjg++EcafrVa7lhtCm5tRt5L9eUR61FiEfWRU+ol1u0ueqFgEhw
- psCiNk18Q1s254rhBR7woTjjGBiNih5HVh9yE/zDEAf6IKpu7be0bzO2kPZtVLtyHvKEB+Vdmt3
- LhStPsZf8m0efgknijdb0PwjTbF9Uog2BTkdWwVDY5f2PnM7AEsy39+JKoX/+KKnTrTsleVGpyY
- /zbSdC34+6MGgi//8h91XQ4i2iAP6LivYk9Zz0KQFbx4tBJ1qxQQ4wiCRrRL3/PZ+i1AwxFaqKV
- MRyrzjWyfv2hnZw==
-X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp;
- fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
-X-Proofpoint-GUID: v6f66J7lGlOyzia5bJ6nOEIjPSYZDAtj
-X-Authority-Analysis: v=2.4 cv=WpYm8Nfv c=1 sm=1 tr=0 ts=692c3a48 cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=FPK7cjBCgYbqzSTDLBmM0Q==:17
- a=IkcTkHD0fZMA:10 a=6UeiqGixMTsA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=EI0PQj488oBMEGdooaEA:9
- a=QEXdDO2ut3YA:10 a=IoWCM6iH3mJn3m4BftBB:22
-X-Proofpoint-ORIG-GUID: v6f66J7lGlOyzia5bJ6nOEIjPSYZDAtj
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTMwMDEwOCBTYWx0ZWRfXx+wltNtBUKQK
- INWc6ZOyIE+2UI9RwqP4t7pe7HkmbTww7CL8zDvZTgqURPJ64e41eZcZ8/SOXMMeiBTcejDolfF
- 8XzprijbrjqF2sBZDUg39IdVBrv2tt7CB6p0VPNQvjVnPh2PZSv53tq0IaG6AGPSXROcc0KGodI
- jpRo1TYpf08LemcFN5WhzCOHFVG+ZvqUv+bS4q3eJuA5YcKJZf15R0gOyPo15hNi5VU6x9OgfdN
- fsQQ9KVfXcuGdBoauwHd2/aVDg1idJr9o1cGn3fp9CWsOD01w/a3txwJwVnI00xGOmU8lHL7Ecy
- TX5qCeqwpzVxA9kgB+bvLBFFAzmK258hi8GeKqH12MUsMmITdeZYG/nYtLz5W30dVa8qFIA92Lw
- XG0w5ZYAKx1hqMtX4tFGpVYcMHfKUA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-28_08,2025-11-27_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 adultscore=0 phishscore=0 malwarescore=0 bulkscore=0
- spamscore=0 impostorscore=0 lowpriorityscore=0 suspectscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2511300108
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251130_043625_411708_7A588973 
-X-CRM114-Status: GOOD (  20.08  )
+References: <20251120-thermal-device-v1-0-bbdad594d57a@gmx.de>
+ <CAJZ5v0jOPrBcozzJMsB1eE12MuZRWDAV-+=jfrhJbi=S0p5J9Q@mail.gmail.com>
+ <5f3ef610-4024-4ca0-a934-2649f5d25f40@gmx.de> <CAJZ5v0iJVV=kf-aJBx8F8dtGfaZpGVyhfi6DBWEg4j3c_nH8_A@mail.gmail.com>
+ <e360b9b3-ada4-4cd1-8971-097484cf3f5f@gmx.de> <CAJZ5v0ij_Frdrya3=FaekbU2DFHUyBJnBq-oe9jRsB9eqXDisA@mail.gmail.com>
+ <ed619280-6f25-4df6-98ca-890bdc343435@gmx.de> <CAJZ5v0hMPCRU_p_krX3nKzB=5TX7hGU38iyNmhSJSHO2j7K3eA@mail.gmail.com>
+ <de14f2c4-e7b3-43a1-a9ee-9caba196b0f5@gmx.de>
+In-Reply-To: <de14f2c4-e7b3-43a1-a9ee-9caba196b0f5@gmx.de>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Sun, 30 Nov 2025 13:55:24 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0h3=9V8FFehyaPiG2SreRgeyvKK+oAkR_gzKQQNDBmczQ@mail.gmail.com>
+X-Gm-Features: AWmQ_bm74BLkYigBlEZwhgK9orhm-MSGQUfAzuwxqXDI_Qt7_9TxZm-rm-hXNS4
+Message-ID: <CAJZ5v0h3=9V8FFehyaPiG2SreRgeyvKK+oAkR_gzKQQNDBmczQ@mail.gmail.com>
+Subject: Re: [PATCH RFC RESEND 0/8] thermal: core: Allow setting the parent
+ device of thermal zone/cooling devices
+To: Armin Wolf <W_Armin@gmx.de>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, Len Brown <lenb@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Ido Schimmel <idosch@nvidia.com>, Petr Machata <petrm@nvidia.com>, 
+	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	etnaviv@lists.freedesktop.org, dri-devel@lists.freedesktop.org, 
+	linux-tegra@vger.kernel.org, linux-acpi@vger.kernel.org, 
+	linux-doc@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-wireless@vger.kernel.org, ath10k@lists.infradead.org, 
+	ath11k@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, platform-driver-x86@vger.kernel.org, 
+	linux-pci@vger.kernel.org, imx@lists.linux.dev, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,143 +96,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-gpr_send_pkt() and pkt_router_send_svc_pkt() only send the GPR packet
-they receive, without any need to actually modify it, so mark the
-pointer to GPR packet as pointer to const for code safety and code
-self-documentation.  Several usersof this interface can follow up and
-also operate on pointer to const.
+On Sat, Nov 29, 2025 at 12:36=E2=80=AFPM Armin Wolf <W_Armin@gmx.de> wrote:
+>
+> Am 28.11.25 um 12:40 schrieb Rafael J. Wysocki:
+>
+> > On Fri, Nov 28, 2025 at 12:50=E2=80=AFAM Armin Wolf <W_Armin@gmx.de> wr=
+ote:
+> >> Am 27.11.25 um 22:46 schrieb Rafael J. Wysocki:
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+[cut]
 
----
+> >> What do you think?
+> > One advantage of using parents is that it will help user space to
+> > figure out connections between the abstract cooling devices and the
+> > associated hardware or firmware entities.  I think that this is an
+> > important one.
+> >
+> > It also doesn't prevent fwnode_handle from being used because the
+> > fwnode_handle may just be stored in the parent.  I like this more than
+> > associating fwnode_handles directly with abstract cooling devices.
+> >
+> > If the cooling device parent (that is, the provider of the cooling
+> > mechanism used by it) does not have an fwnode_handle, then either it
+> > needs to be driven directly from user space, or the driver creating a
+> > thermal zone device needs to provide a specific .should_bind()
+> > callback that will know what to look for.
+> >
+> OK. When sending the next revision of this patch series, should i also ke=
+ep
+> the patches for the thermal zone device or should i only keep the patches
+> concerning the cooling devices?
 
-Depends on previous patches.
----
- drivers/soc/qcom/apr.c            | 8 ++++----
- include/linux/soc/qcom/apr.h      | 4 ++--
- sound/soc/qcom/qdsp6/audioreach.c | 6 +++---
- sound/soc/qcom/qdsp6/audioreach.h | 4 ++--
- sound/soc/qcom/qdsp6/q6apm.c      | 3 ++-
- sound/soc/qcom/qdsp6/q6apm.h      | 2 +-
- 6 files changed, 14 insertions(+), 13 deletions(-)
-
-diff --git a/drivers/soc/qcom/apr.c b/drivers/soc/qcom/apr.c
-index a956c407ce03..b2e1d9a351de 100644
---- a/drivers/soc/qcom/apr.c
-+++ b/drivers/soc/qcom/apr.c
-@@ -123,10 +123,10 @@ gpr_port_t *gpr_alloc_port(struct apr_device *gdev, struct device *dev,
- }
- EXPORT_SYMBOL_GPL(gpr_alloc_port);
- 
--static int pkt_router_send_svc_pkt(struct pkt_router_svc *svc, struct gpr_pkt *pkt)
-+static int pkt_router_send_svc_pkt(struct pkt_router_svc *svc, const struct gpr_pkt *pkt)
- {
- 	struct packet_router *pr = svc->pr;
--	struct gpr_hdr *hdr;
-+	const struct gpr_hdr *hdr;
- 	unsigned long flags;
- 	int ret;
- 
-@@ -139,13 +139,13 @@ static int pkt_router_send_svc_pkt(struct pkt_router_svc *svc, struct gpr_pkt *p
- 	return ret ? ret : hdr->pkt_size;
- }
- 
--int gpr_send_pkt(struct apr_device *gdev, struct gpr_pkt *pkt)
-+int gpr_send_pkt(struct apr_device *gdev, const struct gpr_pkt *pkt)
- {
- 	return pkt_router_send_svc_pkt(&gdev->svc, pkt);
- }
- EXPORT_SYMBOL_GPL(gpr_send_pkt);
- 
--int gpr_send_port_pkt(gpr_port_t *port, struct gpr_pkt *pkt)
-+int gpr_send_port_pkt(gpr_port_t *port, const struct gpr_pkt *pkt)
- {
- 	return pkt_router_send_svc_pkt(port, pkt);
- }
-diff --git a/include/linux/soc/qcom/apr.h b/include/linux/soc/qcom/apr.h
-index a532d1e4b1f4..3a02bca34b3a 100644
---- a/include/linux/soc/qcom/apr.h
-+++ b/include/linux/soc/qcom/apr.h
-@@ -191,7 +191,7 @@ int apr_send_pkt(struct apr_device *adev, struct apr_pkt *pkt);
- gpr_port_t *gpr_alloc_port(gpr_device_t *gdev, struct device *dev,
- 				gpr_port_cb cb, void *priv);
- void gpr_free_port(gpr_port_t *port);
--int gpr_send_port_pkt(gpr_port_t *port, struct gpr_pkt *pkt);
--int gpr_send_pkt(gpr_device_t *gdev, struct gpr_pkt *pkt);
-+int gpr_send_port_pkt(gpr_port_t *port, const struct gpr_pkt *pkt);
-+int gpr_send_pkt(gpr_device_t *gdev, const struct gpr_pkt *pkt);
- 
- #endif /* __QCOM_APR_H_ */
-diff --git a/sound/soc/qcom/qdsp6/audioreach.c b/sound/soc/qcom/qdsp6/audioreach.c
-index ded49124581b..297592b77925 100644
---- a/sound/soc/qcom/qdsp6/audioreach.c
-+++ b/sound/soc/qcom/qdsp6/audioreach.c
-@@ -552,10 +552,10 @@ EXPORT_SYMBOL_GPL(audioreach_alloc_graph_pkt);
- int audioreach_send_cmd_sync(struct device *dev, gpr_device_t *gdev,
- 			     struct gpr_ibasic_rsp_result_t *result, struct mutex *cmd_lock,
- 			     gpr_port_t *port, wait_queue_head_t *cmd_wait,
--			     struct gpr_pkt *pkt, uint32_t rsp_opcode)
-+			     const struct gpr_pkt *pkt, uint32_t rsp_opcode)
- {
- 
--	struct gpr_hdr *hdr = &pkt->hdr;
-+	const struct gpr_hdr *hdr = &pkt->hdr;
- 	int rc;
- 
- 	mutex_lock(cmd_lock);
-@@ -595,7 +595,7 @@ int audioreach_send_cmd_sync(struct device *dev, gpr_device_t *gdev,
- }
- EXPORT_SYMBOL_GPL(audioreach_send_cmd_sync);
- 
--int audioreach_graph_send_cmd_sync(struct q6apm_graph *graph, struct gpr_pkt *pkt,
-+int audioreach_graph_send_cmd_sync(struct q6apm_graph *graph, const struct gpr_pkt *pkt,
- 				   uint32_t rsp_opcode)
- {
- 
-diff --git a/sound/soc/qcom/qdsp6/audioreach.h b/sound/soc/qcom/qdsp6/audioreach.h
-index d1b60b36468a..995a7283c805 100644
---- a/sound/soc/qcom/qdsp6/audioreach.h
-+++ b/sound/soc/qcom/qdsp6/audioreach.h
-@@ -805,8 +805,8 @@ int audioreach_map_memory_regions(struct q6apm_graph *graph,
- 				  bool is_contiguous);
- int audioreach_send_cmd_sync(struct device *dev, gpr_device_t *gdev, struct gpr_ibasic_rsp_result_t *result,
- 			     struct mutex *cmd_lock, gpr_port_t *port, wait_queue_head_t *cmd_wait,
--			     struct gpr_pkt *pkt, uint32_t rsp_opcode);
--int audioreach_graph_send_cmd_sync(struct q6apm_graph *graph, struct gpr_pkt *pkt,
-+			     const struct gpr_pkt *pkt, uint32_t rsp_opcode);
-+int audioreach_graph_send_cmd_sync(struct q6apm_graph *graph, const struct gpr_pkt *pkt,
- 				   uint32_t rsp_opcode);
- int audioreach_set_media_format(struct q6apm_graph *graph,
- 				struct audioreach_module *module,
-diff --git a/sound/soc/qcom/qdsp6/q6apm.c b/sound/soc/qcom/qdsp6/q6apm.c
-index 94cc6376a367..d3943d07cb99 100644
---- a/sound/soc/qcom/qdsp6/q6apm.c
-+++ b/sound/soc/qcom/qdsp6/q6apm.c
-@@ -29,7 +29,8 @@ struct apm_graph_mgmt_cmd {
- 
- static struct q6apm *g_apm;
- 
--int q6apm_send_cmd_sync(struct q6apm *apm, struct gpr_pkt *pkt, uint32_t rsp_opcode)
-+int q6apm_send_cmd_sync(struct q6apm *apm, const struct gpr_pkt *pkt,
-+			uint32_t rsp_opcode)
- {
- 	gpr_device_t *gdev = apm->gdev;
- 
-diff --git a/sound/soc/qcom/qdsp6/q6apm.h b/sound/soc/qcom/qdsp6/q6apm.h
-index 7ce08b401e31..a39f6046f886 100644
---- a/sound/soc/qcom/qdsp6/q6apm.h
-+++ b/sound/soc/qcom/qdsp6/q6apm.h
-@@ -138,7 +138,7 @@ int q6apm_map_memory_regions(struct q6apm_graph *graph,
- int q6apm_unmap_memory_regions(struct q6apm_graph *graph,
- 			       unsigned int dir);
- /* Helpers */
--int q6apm_send_cmd_sync(struct q6apm *apm, struct gpr_pkt *pkt,
-+int q6apm_send_cmd_sync(struct q6apm *apm, const struct gpr_pkt *pkt,
- 			uint32_t rsp_opcode);
- 
- /* Callback for graph specific */
-
--- 
-2.48.1
-
+The cooling device changes are kind of unrelated to the thermal zone
+device changes, so it would be better to send them as separate series,
+but you may as well send those series at the same time as far as I'm
+concerned.
 
