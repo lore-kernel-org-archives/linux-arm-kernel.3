@@ -4,63 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2202D111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Nov 2025 05:38:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 009A0CFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Nov 2025 08:07:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WMFM3mZm3tfpZm9opFnIUzFCaL9Wf3MxVqcMizCNUwo=; b=H3yyVOwc1dZswB70uo806rffwn
-	bPaPTdcV10rmNSVc0xlw8o49ONZYyBUVSHLEabvuscOmkvgSDpbIOj+Vi++u1qSVFvTAUkmsY1bs2
-	Sc4wQMM2Qafl9TNL/+B4ea1XH3QBZ29n1VGcCkQvg8Jnqsl6ILFhYmSXa7hrsZhrNyrbXAmAwMdbF
-	9L7iv3mrjVz8cLFIi/mn3YooVasuiYCEi4V/i1z5v3zUG12ZK+Uwb2Be5L/TpuHnf6VRnxH9dN21I
-	+r7/EcxXXPlD0I2FekApY6x9WgDbwOflqHRhyUEADviIl4InSSBwT292oG8/FLlXbQtTyR0Dw3k3p
-	YDXz02Sg==;
+	bh=xlsTM8X40xseZoss4FmEjFSiPfPo4hKAiGVqNHsXGAU=; b=z2d7/ohcshAjFgRe0oRAY20e/+
+	TklXA6w2pfsc/tBfVLwMIhfJwW/nIFDVpVYG4OYELm2mKr5rZDvY6eSvs2ecWEZWRy8DyKy88J31e
+	0HpTGvJ3z77fbP2mdNchqI0dT9p1wPMQZDMsW6ZdOQ5QmG1odlrnHKFd0Ksd8iB9s1oBKNo35w0S8
+	hSQhhKLdVVh0YFszEusQygvoCK77nnT8iWOoUfXIHbgCtmCSsAVoZsz4JfiBIUXpJsz2pjSxbuGNJ
+	FUqazlTXH7My7QGa2wNBys71+25RWPUk+j0vZjfUIncniqngmkiPyrTXmqWbjDbZzk7mhqT/LibZw
+	3RexTCjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPa8r-0000000249h-10bZ;
-	Sun, 30 Nov 2025 05:38:37 +0000
-Received: from out-177.mta0.migadu.com ([2001:41d0:1004:224b::b1])
+	id 1vPcT8-000000028es-1fmK;
+	Sun, 30 Nov 2025 08:07:42 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPa8o-0000000248d-1gEh
+	id 1vPcT5-000000028e8-0PdU
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Nov 2025 05:38:36 +0000
-Date: Sat, 29 Nov 2025 21:38:15 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1764481106;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=WMFM3mZm3tfpZm9opFnIUzFCaL9Wf3MxVqcMizCNUwo=;
-	b=mzyQTml2HeLVP/7KkNdTn5q52aTUXfw24UVLKCemUVyERxGGs6BfXps44VPj/aI0p2bjyv
-	KMjhAOW0HBu+NVi0mdYKElpoDb/9sqzgpso500188A+9PEXABE1B4WxKsO43Lp+jFHQO1d
-	m7bA8X9LFJTjAWdANdBQuTczyx3HC7g=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Shakeel Butt <shakeel.butt@linux.dev>
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Barry Song <21cnbao@gmail.com>, akpm@linux-foundation.org, 
-	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, linux-fsdevel@vger.kernel.org
-Subject: Re: [RFC PATCH 0/2] mm: continue using per-VMA lock when retrying
- page faults after I/O
-Message-ID: <6xwf5rtl6ccmeera55oz6xsubsljibxb7gfv63ul4locgfiipd@dhjxr6gqrfvh>
-References: <20251127011438.6918-1-21cnbao@gmail.com>
- <aSfO7fA-04SBtTug@casper.infradead.org>
- <CAGsJ_4zyZeLtxVe56OSYQx0OcjETw2ru1FjZjBOnTszMe_MW2g@mail.gmail.com>
- <aSip2mWX13sqPW_l@casper.infradead.org>
+	Sun, 30 Nov 2025 08:07:41 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4779b49d724so4489255e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 30 Nov 2025 00:07:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764490057; x=1765094857; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=xlsTM8X40xseZoss4FmEjFSiPfPo4hKAiGVqNHsXGAU=;
+        b=V0FeOekn8Zbghw2p4U0DYr2sz7o+g80K5pJ296/r3U/GtT65gw7DP9CJlQ7aBU9F9/
+         Gmrw5HtFZRZLl5rah9/g5nd2YycARYBSk4Z0ojuzn5jYtckS9La0oLQtMfhdoTNrIZvh
+         Fu5GzwRKOhO7NaUfbTa7rMrjoO1X6/8hriiC+tabF7ovGFSeDXLAINZQPohKvodvWziv
+         l29Dk8isvITDUb65pSUiVDfB+xnWPrxeQy/5q2U0jpKINCAp9BjcMt0C+wQ/RYsNoocI
+         APC+QRnmGqXmGhdyLg7RZOt1quCFHDOOwxfei3jakjbefT+9fnrziTtCk3rqa5Wt2LkK
+         qW5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764490057; x=1765094857;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=xlsTM8X40xseZoss4FmEjFSiPfPo4hKAiGVqNHsXGAU=;
+        b=XHhi95o1W04lblaNKHVwAP1Enam7n4IHtdjsa2N90PjVLiY/xhX23Tf8vCJcxKTnSN
+         0/GqFa1774LUDL1mgzrJFCM2rQmqxd8INfr2ue2LM4NrrCWUXaz0gf+Rxrbbb1IDQl7O
+         KoARC7TBpA7cl/YBPkTvX55mLMkmfDT06RoMtUjB8aQwTIidk42z9q9HdA26vt2HB2NB
+         O/jRRDQf6bvVZRohmPV0vVEdnvgVQBiqdax8aF0cs+4cmo5f8+DNUtCyGJ/bv/IjWv0G
+         R+ptnry7l1XQBG0MBSa97NaBgzUyyL7Uu4nJY5ACA3O/pFUmh/t5/x3sjfD+i+Xc+qtJ
+         4BeA==
+X-Forwarded-Encrypted: i=1; AJvYcCUTXctocwtqISHmIr/izhNw5dhYEsI9/C6SrHYxL3qokXVq1iYId36zgqC+txr3ToNQ7afZY3f7qPTPGG4FGByK@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAgTXzRYpUt65kgCjndfyBbbUfq7HbwkBlueENbg47MT48P4/z
+	/tt12QYAKqr42AuAXOvl/vICRHJ4/x3thvZ+1j+KUIaLnyjZlAgwxKhi
+X-Gm-Gg: ASbGnctxi4Qc25sb6A4FzEXHieFynEIU4KnM+jGQhjamfHOv3vGi0PqWtcJ1MzFR6wo
+	ppFnV5FTHU8tAb8361wUycP47UChCZ5l25A6F5tK+z4BAaADL2yGqFj/DfSNK2X9m9JTae2ir3I
+	2M92mwxgCIZCgX1n859Vkl2ht6P4GEIi+EfgB+H5+qZXpjLFAp7agIoRtzAr2TEzklkNAigCEC4
+	o7C6g1t2P18BfYnu0oJsDss3NPovV1iJTFjcVVQ8TtkIXqYKLnzRyWU5p5asWcrOidOAXk0K8fG
+	GTqzagDi5ZfAzTMYPasjAW1XKN2jh2q1Y2X3STNp3dMh7B2NelCiq0wlhEl3ijpsbV0JaYlJiZw
+	8Xj5tq4F2P3Sk6GBEpmhydPllTq5Ry63psT7ypN3blo/DRvV46zL1GjdzCH2dC1uIS94H+HTpey
+	zQ4Q==
+X-Google-Smtp-Source: AGHT+IFlU1lz0wAxOd6SVfn1aivlWfEl/Ou+5sEfrekzWHqCsdYXRmCmN0O23F/dtfV/GF8aZsAtOg==
+X-Received: by 2002:a05:600c:628f:b0:477:9fa8:bc99 with SMTP id 5b1f17b1804b1-477c01bc376mr183264015e9.4.1764490056388;
+        Sun, 30 Nov 2025 00:07:36 -0800 (PST)
+Received: from skbuf ([2a02:2f04:d106:d600:36d7:677f:b37:8ba9])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-479040a9cf4sm134950185e9.1.2025.11.30.00.07.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 30 Nov 2025 00:07:34 -0800 (PST)
+Date: Sun, 30 Nov 2025 10:07:31 +0200
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Chen Minqiang <ptpt52@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] net: dsa: mt7530: Use GPIO polarity to generate
+ correct reset sequence
+Message-ID: <20251130080731.ty2dlxaypxvodxiw@skbuf>
+References: <20251129234603.2544-1-ptpt52@gmail.com>
+ <20251129234603.2544-2-ptpt52@gmail.com>
+ <0675b35f-217d-4261-9e3f-2eb24753d43c@lunn.ch>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <aSip2mWX13sqPW_l@casper.infradead.org>
-X-Migadu-Flow: FLOW_OUT
+In-Reply-To: <0675b35f-217d-4261-9e3f-2eb24753d43c@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251129_213835_094860_596EFC33 
-X-CRM114-Status: GOOD (  22.80  )
+X-CRM114-CacheID: sfid-20251130_000739_297015_D2EEA53A 
+X-CRM114-Status: GOOD (  16.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,42 +110,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 27, 2025 at 07:43:22PM +0000, Matthew Wilcox wrote:
-> [dropping individuals, leaving only mailing lists.  please don't send
-> this kind of thing to so many people in future]
+On Sun, Nov 30, 2025 at 02:11:05AM +0100, Andrew Lunn wrote:
+> > -		gpiod_set_value_cansleep(priv->reset, 0);
+> > +		int is_active_low = !!gpiod_is_active_low(priv->reset);
+> > +		gpiod_set_value_cansleep(priv->reset, is_active_low);
 > 
-> On Thu, Nov 27, 2025 at 12:22:16PM +0800, Barry Song wrote:
-> > On Thu, Nov 27, 2025 at 12:09 PM Matthew Wilcox <willy@infradead.org> wrote:
-> > >
-> > > On Thu, Nov 27, 2025 at 09:14:36AM +0800, Barry Song wrote:
-> > > > There is no need to always fall back to mmap_lock if the per-VMA
-> > > > lock was released only to wait for pagecache or swapcache to
-> > > > become ready.
-> > >
-> > > Something I've been wondering about is removing all the "drop the MM
-> > > locks while we wait for I/O" gunk.  It's a nice amount of code removed:
-> > 
-> > I think the point is that page fault handlers should avoid holding the VMA
-> > lock or mmap_lock for too long while waiting for I/O. Otherwise, those
-> > writers and readers will be stuck for a while.
+> I think you did not correctly understand what Russell said. You pass
+> the logical value to gpiod_set_value(). If the GPIO has been marked as
+> active LOW, the GPIO core will invert the logical values to the raw
+> value. You should not be using gpiod_is_active_low().
 > 
-> There's a usecase some of us have been discussing off-list for a few
-> weeks that our current strategy pessimises.  It's a process with
-> thousands (maybe tens of thousands) of threads.  It has much more mapped
-> files than it has memory that cgroups will allow it to use.  So on a
-> page fault, we drop the vma lock, allocate a page of ram, kick off the
-> read, sleep waiting for the folio to come uptodate, once it is return,
-> expecting the page to still be there when we reenter filemap_fault.
-> But it's under so much memory pressure that it's already been reclaimed
-> by the time we get back to it.  So all the threads just batter the
-> storage re-reading data.
+> But as i said to the previous patch, i would just leave everything as
+> it is, except document the issue.
+> 
+> 	Andrew
+> 
 
-I would caution against changing kernel for such usecase. Actually I
-would call it a misconfigured system instead of a usecase. If a
-workload is under that much memory pressure that its refaulted pages
-are getting reclaimed then it means its workingset is larger than the
-available memory and is thrashing. The only option here is to either
-increase the memory limits or kill the workload and reschedule on the
-system with enough memory available.
+It was my suggestion to do it like this (but I don't understand why I'm
+again not in CC).
 
+We _know_ that the reset pin of the switch should be active low. So by
+using gpiod_is_active_low(), we can determine whether the device tree is
+wrong or not, and we can work with a wrong device tree too (just invert
+the logical values).
 
