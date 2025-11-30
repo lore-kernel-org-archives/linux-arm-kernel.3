@@ -4,52 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B2D4D116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Nov 2025 18:23:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C7F6D116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Nov 2025 18:34:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gQBRSxn+1TU7kdeW5aBP8zUAfi4SZSqlp9Kk8ZOyLj4=; b=jmIpkuyZRVkPS2P1RP9uBjuVYf
-	95gPmZAGcL6UE8vOLjIKKIh1aXlhiiE7AvTaFQHV7faE76WdhnS2fiSkfzIB+jpeb9NlB59Qnnqvd
-	dLqBv8iKtoIXVQccQxEq6d6eQ6A4qZxPx89c2uBsfQ5VNfuUwa1F9mNchDIeI2LLRJ132Y2X0rOos
-	EdYOgx07TLMpMR2QoF/w1yJmtfLNBi4mb8vJXL/BfeS9psWmRfUIIoweZEpR5l+39obTUtZX13+at
-	8Yhf6OuC9IMaCmKwop0QXRi2HsPrgsOA+/0+rdAT5wJENdPK+J9t+19Iis9QWGt2OblG1D3JcIgDp
-	NrWJS/uw==;
+	bh=p7Yn+OvivhV0qnCCB+uUWoWHuJhfsnRkFptnJWdyea8=; b=FfCGNOXxsC41ehTtHYK30vL32K
+	qRmzkBGFeqK0Yd8x6Gvuhu45FqUmoi66OeS7glwJoNlVaJsmR+675wzErMJOGHuBIr+BdFwF6Mh/O
+	oJuHMS2it92uv2Sv0bNu31bNof9/F3a9L9EUrLnywJ1/dHPy1+EdB+5zANJ2q/s91OlM8b3Stmj+g
+	iho2g8oEn+9Vdx/aIlfYTg5g/ZtiWy+uMpgRxFj3O8E5sR2Gz8FqtA4vHzDS63hbWkjuWZeCM0uGG
+	nfIu2COLw7iM5+sSuouxHzo/8qD/wgRnHj6qgoLb2tjceF39xjPPQilzNic1Lv6I8rW9pNNKtfYXM
+	ODnay7fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPm5N-00000002TZZ-1cuQ;
-	Sun, 30 Nov 2025 18:23:49 +0000
+	id 1vPmFI-00000002U1v-19Wv;
+	Sun, 30 Nov 2025 18:34:04 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPm5M-00000002TZP-14mB
+	id 1vPmFG-00000002U1p-3ITq
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Nov 2025 18:23:48 +0000
+	Sun, 30 Nov 2025 18:34:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BECF560135;
-	Sun, 30 Nov 2025 18:23:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BE18C4CEF8;
-	Sun, 30 Nov 2025 18:23:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4854F6011E;
+	Sun, 30 Nov 2025 18:34:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E94BAC4CEF8;
+	Sun, 30 Nov 2025 18:34:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764527026;
-	bh=wxGi5KhMHefnyPeE18YbxxI9ChdRvOLT/D+zSDi6lC4=;
+	s=k20201202; t=1764527641;
+	bh=BYIrTTSVxXc1HabQ88UTUwwWE2cNqChrEagcfgIifHM=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=rMc5gsdz1DTW91gCfDgroykjDSBJlgb+ro4HJxAcAYJ77WzPYIS33ItzCPhZrGtyM
-	 tosPEK7WvHhn8b2KjVTVyinBH+YLyHLHqCb3fWNmwMRt8uqGe6fcXhDHNXvG5QKsGq
-	 17PwlClIVy615YgjlvX9R573ePTQK0xNDsMZURfdTK/TvH94VezUtECWCws4EuDTJC
-	 Gk2xPuiK+pgt1c0UlgGkP2WrwhXmnEqNGdU8ApHaT+PG7Mv+BANpJV6KSjD/uxnMlb
-	 RpYs7t4HNYF17PhaMh1sMuhRJsKCJSe98QiQs1YE3Y35VRST/kkzyJIeNQdvYBcfHx
-	 Ig/UnP6bxcRgw==
+	b=kBFXLUn9eUUFE4hB9wG21BIV2zOMN07LikUdlSj0RvlJDXhVqa215EW/n6VTfVHcv
+	 F845ySyClHanxEDEJDysjtCqNufWrG0UWe1rZ9akTgwmjHRPylnJXjt6s6ZU4298Ar
+	 EPA5ZJaIVvTYHsE96tgy1HlAERMGGDM5VYcBrkWMy9zZdWAAVB+d0dgO2A3ovaumzG
+	 2XtYroo6lgEXWW8/gpv/XtaJmPNjlhzexoAR0MWVmUGCI2rsdwlA/X3EGkCWY7cMw/
+	 It30Yk8Tw8ecoSZLXWsq44aSzte+1xPwYrAWTuP5SI+CNM5u2K+266oecI+orhbqnl
+	 EVvQsbTDV9uQw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vPm5H-00000009RLI-38t4;
-	Sun, 30 Nov 2025 18:23:43 +0000
-Date: Sun, 30 Nov 2025 18:23:43 +0000
-Message-ID: <877bv7fkgg.wl-maz@kernel.org>
+	id 1vPmFC-00000009RQq-3VZl;
+	Sun, 30 Nov 2025 18:33:58 +0000
+Date: Sun, 30 Nov 2025 18:33:58 +0000
+Message-ID: <875xarfjzd.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
 To: Vincent Donnefort <vdonnefort@google.com>
 Cc: rostedt@goodmis.org,
@@ -68,12 +68,10 @@ Cc: rostedt@goodmis.org,
 	aneesh.kumar@kernel.org,
 	kernel-team@android.com,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 21/28] KVM: arm64: Add tracing capability for the pKVM hyp
-In-Reply-To: <aR8DM6Xf8cmTGVR0@google.com>
+Subject: Re: [PATCH v8 24/28] KVM: arm64: Add trace reset to the pKVM hyp
+In-Reply-To: <20251107093840.3779150-25-vdonnefort@google.com>
 References: <20251107093840.3779150-1-vdonnefort@google.com>
-	<20251107093840.3779150-22-vdonnefort@google.com>
-	<86bjkyrly9.wl-maz@kernel.org>
-	<aR8DM6Xf8cmTGVR0@google.com>
+	<20251107093840.3779150-25-vdonnefort@google.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
@@ -97,116 +95,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 20 Nov 2025 12:01:55 +0000,
+On Fri, 07 Nov 2025 09:38:36 +0000,
 Vincent Donnefort <vdonnefort@google.com> wrote:
 > 
-> On Wed, Nov 19, 2025 at 05:06:38PM +0000, Marc Zyngier wrote:
-> > On Fri, 07 Nov 2025 09:38:33 +0000,
-> > Vincent Donnefort <vdonnefort@google.com> wrote:
-> > > 
-> > > When running with protected mode, the host has very little knowledge
-> > > about what is happening in the hypervisor. Of course this is an
-> > > essential feature for security but nonetheless, that piece of code
-> > > growing with more responsibilities, we need now a way to debug and
-> > > profile it. Tracefs by its reliability, versatility and support for
-> > > user-space is the perfect tool.
-> > > 
-> > > There's no way the hypervisor could log events directly into the host
-> > > tracefs ring-buffers. So instead let's use our own, where the hypervisor
-> > > is the writer and the host the reader.
-> > > 
-> > > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-> > > 
-> > > diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-> > > index 9da54d4ee49e..ad02dee140d3 100644
-> > > --- a/arch/arm64/include/asm/kvm_asm.h
-> > > +++ b/arch/arm64/include/asm/kvm_asm.h
-> > > @@ -89,6 +89,10 @@ enum __kvm_host_smccc_func {
-> > >  	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_load,
-> > >  	__KVM_HOST_SMCCC_FUNC___pkvm_vcpu_put,
-> > >  	__KVM_HOST_SMCCC_FUNC___pkvm_tlb_flush_vmid,
-> > > +	__KVM_HOST_SMCCC_FUNC___pkvm_load_tracing,
-> > > +	__KVM_HOST_SMCCC_FUNC___pkvm_unload_tracing,
-> > > +	__KVM_HOST_SMCCC_FUNC___pkvm_enable_tracing,
-> > > +	__KVM_HOST_SMCCC_FUNC___pkvm_swap_reader_tracing,
-> > >  };
-> > >  
-> > >  #define DECLARE_KVM_VHE_SYM(sym)	extern char sym[]
-> > > diff --git a/arch/arm64/include/asm/kvm_hyptrace.h b/arch/arm64/include/asm/kvm_hyptrace.h
-> > > new file mode 100644
-> > > index 000000000000..9c30a479bc36
-> > > --- /dev/null
-> > > +++ b/arch/arm64/include/asm/kvm_hyptrace.h
-> > > @@ -0,0 +1,13 @@
-> > > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > > +#ifndef __ARM64_KVM_HYPTRACE_H_
-> > > +#define __ARM64_KVM_HYPTRACE_H_
-> > > +
-> > > +#include <linux/ring_buffer.h>
-> > > +
-> > > +struct hyp_trace_desc {
-> > > +	unsigned long			bpages_backing_start;
-> > 
-> > Why is this an integer type? You keep casting it all over the place,
-> > which tells me that's not the ideal type.
-> 
-> That's because it is a kern VA the hyp needs to convert. However it would indeed
-> make my life easier to declare it as a struct simple_buffer_page * in the
-> struct hyp_trace_buffer below.
-> 
-> > 
-> > > +	size_t				bpages_backing_size;
-> > > +	struct trace_buffer_desc	trace_buffer_desc;
-> > > +
-> > > +};
-> > > +#endif
-> > > diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-> > > index 4f803fd1c99a..580426cdbe77 100644
-> > > --- a/arch/arm64/kvm/Kconfig
-> > > +++ b/arch/arm64/kvm/Kconfig
-> > > @@ -83,4 +83,11 @@ config PTDUMP_STAGE2_DEBUGFS
-> > >  
-> > >  	  If in doubt, say N.
-> > >  
-> > > +config PKVM_TRACING
-> > > +	bool
-> > > +	depends on KVM
-> > > +	depends on TRACING
-> > > +	select SIMPLE_RING_BUFFER
-> > > +	default y
-> > 
-> > I'd rather this is made to depend on NVHE_EL2_DEBUG, just like the
-> > other debug options.
-> 
-> NVHE_EL2_DEBUG is unsafe for production because of the stage-2 relax on panic.
-> While this one is. So ideally this should be usable even without NVHE_EL2_DEBUG.
 
-I don't see what makes tracing safer, as it potentially exposes
-information (timing, control flow) that the host use to infer what is
-happening at EL2. Which is, after all, the whole point of tracing.
+[...]
 
-I really think this should be guarded by NVHE_EL2_DEBUG, and the
-stage-2 relaxation tied to the stacktrace infrastructure, so that you
-can select both independently.
+> +int __pkvm_reset_tracing(unsigned int cpu)
+> +{
+> +	int ret = 0;
+> +
+> +	if (cpu >= hyp_nr_cpus)
+> +		return -EINVAL;
+> +
+> +	hyp_spin_lock(&trace_buffer.lock);
+> +
+> +	if (hyp_trace_buffer_loaded(&trace_buffer))
+> +		ret = simple_ring_buffer_reset(per_cpu_ptr(trace_buffer.simple_rbs, cpu));
+> +	else
+> +		ret = -ENODEV;
+> +
+> +	hyp_spin_unlock(&trace_buffer.lock);
+> +
+> +	return ret;
 
-> I can remove this hidden PKVM_TRACING option and use everywhere
-> CONFIG_TRACING. But then I need something to select
-> SIMPLE_RING_BUFFER.
-> 
-> Perhaps with the following?
-> 
-> diff --git a/arch/arm64/kvm/Kconfig b/arch/arm64/kvm/Kconfig
-> index 2ae6bf499236..c561bf9d4754 100644
-> --- a/arch/arm64/kvm/Kconfig
-> +++ b/arch/arm64/kvm/Kconfig
-> @@ -38,6 +38,7 @@ menuconfig KVM
->         select SCHED_INFO
->         select GUEST_PERF_EVENTS if PERF_EVENTS
->         select KVM_GUEST_MEMFD
-> +       select SIMPLE_RING_BUFFER if CONFIG_TRACING
-
-That's better, but my ask about making this depending on DEBUG still
-stand.
+nit; there is no case where the 'ret' default value can be used.
+Either drop the init or make it so that the default value is
+meaningful (-ENODEV).
 
 Thanks,
 
