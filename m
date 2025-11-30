@@ -4,75 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AACCAD116F5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Nov 2025 13:12:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ADF9D116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Nov 2025 16:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YjdNfVrLumjJxTfeAweFuFRdWxPCZgQuIRJ8jsw9HQI=; b=3/n8UawO2sNd0rvcyunZKwFcFN
-	FZloNKcD5D4hMwzZ7GI6o+rAVv6bsyVyabSUQY4vjgw5fcHplu71I0sLnTqHWQZEWSxAxM7vEUWav
-	7inntBOqyPQWDFgrYdUjEx2J0ODO0Sh8oU7fCziVOSYfCh4g7JO9FciALX5S3tP60IbipFuqayOgE
-	ylKuktxYgHMwev9DjKDgKML2Skodp1HzBrQOBnr/oLQovGrL2Q4cJ+THzphzxt0Ujyw+e4RgMJ+Rm
-	PC4r4q7DzOV3sMu0Du8wQeOTSi8/REEjNkzEpFjMuy1Be6KyOe3I+J6FIhTJY5DPXP9iZIng3XXNw
-	6YrdINeg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1Y5LGb3g31rjjIXxiw5Jdr35UaFiGP0OuDnqqXz+mjE=; b=AtW/5ANQ/efpVtn2kKylXwk050
+	4Lnj6GEinunxwKipEX8f8i0rGVnT0snxg8dlAo2NjdtMHVuiv8kMThbY4E+/f4WjJRe7aRRaAykn1
+	yfY3sw14lJv9BICxEAP+hX8wpD4Ovcq6oH+ATUREoBLZ5R0hZ0P2an+MDhiidmgoPWUqWBrcl688j
+	SQTRSg1Z3m7fDubyVgx6bOmAJuzRcJ2ZwWrxIQb9iwWcMyUP9//2CzKGcD+5Rq7WC9BphPOykPucR
+	KcdmXXEiaPJFpOZZ6n2T4v5sr3HB8X3ynvRpNxl7xGg2MC9ddBAokD3B0iXpwcialmEqIcohtB24G
+	ovRJW+TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPhDj-00000002K0L-3sfg;
-	Sun, 30 Nov 2025 13:12:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vPk3p-00000002Pgb-3pTQ;
+	Sun, 30 Nov 2025 16:14:05 +0000
+Received: from mail.jakse.fr ([45.81.62.48])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPhDh-00000002Jzv-3O39
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Nov 2025 13:12:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CBE004069F;
-	Sun, 30 Nov 2025 13:12:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB576C4CEF8;
-	Sun, 30 Nov 2025 13:12:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764508320;
-	bh=ZgigReiyWWOX6rMHBjUflJ+pjs/WLbBCc/fUEa2OSqo=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=u/IIDObnB/o6BIvA+3pZF1namXu63e4WWJGu55y/fK3RWVRsmkvXXQHnRL5N8W8T7
-	 vI0HZTp7p4WUSLAf9v932gw2wxRT7UOYh78J0l/AV6TdauFHRI5fpXYakf488Ro4eD
-	 ytVD5U1vO+DHglHe4U0hfp8nHE1uTnNxo8DiZAtTYQlkMibOE6Mg5Y4m3s6XwhVdxj
-	 RGi/4GiNCnKLqQ9idc+olF/x0L9s+ntolRC8EqjIqKiboA8c98gLzi4WfZCClX7x9C
-	 Ga90ZuAob1FhPaw8w5156zW/VI406WcnouFxGDw0SFZGbjbBvfO/LhlB+86qgYArGH
-	 HfWXesCw8+fMw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vPhDa-00000009PcT-1OIK;
-	Sun, 30 Nov 2025 13:11:58 +0000
-Date: Sun, 30 Nov 2025 13:11:57 +0000
-Message-ID: <87a503fyw2.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	yuzenghui@huawei.com,
-	suzuki.poulose@arm.com,
+	id 1vPk3m-00000002Pft-3iOg;
+	Sun, 30 Nov 2025 16:14:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jakse.fr; s=default;
+	t=1764519230; bh=1Y5LGb3g31rjjIXxiw5Jdr35UaFiGP0OuDnqqXz+mjE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=LuiDZvuuhNnGg0sLq1wfUtOo/qR/8tevJmuGB8ogaSX7N8Wl8iSvIJSMM9YcR8YWw
+	 sVb2IZqacR9cRCL5mD+Tf6pJU1ircz/soUQPv206H1tyr2cedv+2mETHsLSYBH7bnV
+	 Lpt2/E+/LBN5B7ldPqMKN/mRB9HRX+7Kn9aISmXQ=
+Received: from rigel.lan (rigel.lan [IPv6:2001:912:1ac0:2e00::9bd])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature ECDSA (secp384r1) server-digest SHA384)
+	(No client certificate requested)
+	by mail.jakse.fr (Postfix) with ESMTPSA id 8B83EEA12BF;
+	Sun, 30 Nov 2025 17:13:50 +0100 (CET)
+From: =?UTF-8?q?Rapha=C3=ABl=20Jakse?= <raphael.kernel@jakse.fr>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de
+Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH 0/4] KVM: arm64: nv: HAF fixes
-In-Reply-To: <20251128100946.74210-1-alexandru.elisei@arm.com>
-References: <20251128100946.74210-1-alexandru.elisei@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: alexandru.elisei@arm.com, oliver.upton@linux.dev, joey.gouly@arm.com, yuzenghui@huawei.com, suzuki.poulose@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	=?UTF-8?q?Rapha=C3=ABl=20Jakse?= <raphael.kernel@jakse.fr>
+Subject: [PATCH] arm64: dts: rockchip: Fix Bluetooth on the RockPro64 board
+Date: Sun, 30 Nov 2025 17:12:59 +0100
+Message-ID: <20251130161259.9828-1-raphael.kernel@jakse.fr>
+X-Mailer: git-send-email 2.52.0
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251130_051205_905288_2C876710 
-X-CRM114-Status: GOOD (  28.18  )
+X-CRM114-CacheID: sfid-20251130_081403_386171_B4127E8F 
+X-CRM114-Status: UNSURE (   8.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,118 +73,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 Nov 2025 10:09:42 +0000,
-Alexandru Elisei <alexandru.elisei@arm.com> wrote:
-> 
-> Based on kvmarm's next branch.
-> 
-> HAF support for the software translation table walker was merged while I
-> was in the process of reading the patches, so instead of comments I have
-> these few fixes.
-> 
-> One thing I didn't touch is this sequence in hyp_set_prot_attr():
-> 
-> 	if (prot & KVM_PGTABLE_PROT_X) {
-> 		/* don't set the XN bit */
-> 	} else {
-> 		attr |= KVM_PTE_LEAF_ATTR_HI_S1_XN;
-> 	}
-> 
-> If the caller is executing in nVHE mode, the translation regime is EL2,
-> which has only PrivExecute permission. Since KVM_PGTABLE_PROT_X is now the
-> union of PrivExecute and UnprivExecute, if the caller requests only the
-> UnprivExecute permission, but no PrivExecute permission, the function does
-> not return an error code and sets the PrivExecute permission.
+The RockPro64 board has an optional BCM4345C5 Bluetooth device on UART0.
 
-I don't think this is a huge problem *right now*, as long as we don't
-have anything that looks like "hvhe hypervisor userspace" (yes, I
-proposed that a while ago, and haven't completely dropped the
-idea). But at the same time, the page-table code should probably be
-built to the architecture and not to the use cases.
+This patch fixes audio stutters by setting its correct max-speed and
+compatible properties.
 
-But it also outlines a rather bad bug in the hVHE case, where we set
-the UXN bit instead of the PXN bit...
+Signed-off-by: Raphaël Jakse <raphael.kernel@jakse.fr>
+---
+ arch/arm64/boot/dts/rockchip/rk3399-rockpro64-v2.dts | 7 +++++++
+ arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dts    | 7 +++++++
+ 2 files changed, 14 insertions(+)
 
-What I have in mind is something like this, untested. Thoughts?
-
-	M.
-
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index d57c12f074a40..48305118ba3c5 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -88,6 +88,8 @@ typedef u64 kvm_pte_t;
- #define KVM_PTE_LEAF_ATTR_HI_SW		GENMASK(58, 55)
- 
- #define KVM_PTE_LEAF_ATTR_HI_S1_XN	BIT(54)
-+#define KVM_PTE_LEAF_ATTR_HI_S1_UXN	BIT(54)
-+#define KVM_PTE_LEAF_ATTR_HI_S1_PXN	BIT(53)
- 
- #define KVM_PTE_LEAF_ATTR_HI_S2_XN	GENMASK(54, 53)
- 
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index e0bd6a0172729..cbf9b6b58e284 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -330,6 +330,11 @@ struct hyp_map_data {
- 	kvm_pte_t			attr;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-rockpro64-v2.dts b/arch/arm64/boot/dts/rockchip/rk3399-rockpro64-v2.dts
+index 304e3c51391c..883d9bcfe792 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-rockpro64-v2.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-rockpro64-v2.dts
+@@ -28,3 +28,10 @@ es8316_p0_0: endpoint {
+ 		};
+ 	};
  };
- 
-+static bool el2_nvhe(void)
-+{
-+	return !has_vhe() && !cpus_have_final_cap(ARM64_KVM_PROTECTED_MODE);
-+}
 +
- static int hyp_set_prot_attr(enum kvm_pgtable_prot prot, kvm_pte_t *ptep)
- {
- 	bool device = prot & KVM_PGTABLE_PROT_DEVICE;
-@@ -342,6 +347,9 @@ static int hyp_set_prot_attr(enum kvm_pgtable_prot prot, kvm_pte_t *ptep)
- 	if (!(prot & KVM_PGTABLE_PROT_R))
- 		return -EINVAL;
- 
-+	if (el2_nvhe())
-+		prot &= ~KVM_PGTABLE_PROT_UX;
++&uart0 {
++	bluetooth {
++		compatible = "brcm,bcm4345c5";
++		max-speed = <1500000>;
++	};
++};
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dts b/arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dts
+index 4b42717800f7..ae3ee91dba2f 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-rockpro64.dts
+@@ -28,3 +28,10 @@ es8316_p0_0: endpoint {
+ 		};
+ 	};
+ };
 +
- 	if (prot & KVM_PGTABLE_PROT_X) {
- 		if (prot & KVM_PGTABLE_PROT_W)
- 			return -EINVAL;
-@@ -351,8 +359,16 @@ static int hyp_set_prot_attr(enum kvm_pgtable_prot prot, kvm_pte_t *ptep)
- 
- 		if (system_supports_bti_kernel())
- 			attr |= KVM_PTE_LEAF_ATTR_HI_S1_GP;
-+	}
-+
-+	if (el2_nvhe()) {
-+		if (!(prot & KVM_PGTABLE_PROT_PX))
-+			attr |= KVM_PTE_LEAF_ATTR_HI_S1_XN;
- 	} else {
--		attr |= KVM_PTE_LEAF_ATTR_HI_S1_XN;
-+		if (!(prot & KVM_PGTABLE_PROT_PX))
-+			attr |= KVM_PTE_LEAF_ATTR_HI_S1_PXN;
-+		if (!(prot & KVM_PGTABLE_PROT_UX))
-+			attr |= KVM_PTE_LEAF_ATTR_HI_S1_UXN;
- 	}
- 
- 	attr |= FIELD_PREP(KVM_PTE_LEAF_ATTR_LO_S1_AP, ap);
-@@ -373,8 +389,15 @@ enum kvm_pgtable_prot kvm_pgtable_hyp_pte_prot(kvm_pte_t pte)
- 	if (!kvm_pte_valid(pte))
- 		return prot;
- 
--	if (!(pte & KVM_PTE_LEAF_ATTR_HI_S1_XN))
--		prot |= KVM_PGTABLE_PROT_X;
-+	if (el2_nvhe()) {
-+		if (!(pte & KVM_PTE_LEAF_ATTR_HI_S1_XN))
-+			prot |= KVM_PGTABLE_PROT_PX;
-+	} else {
-+		if (!(pte & KVM_PTE_LEAF_ATTR_HI_S1_PXN))
-+			prot |= KVM_PGTABLE_PROT_PX;
-+		if (!(pte & KVM_PTE_LEAF_ATTR_HI_S1_UXN))
-+			prot |= KVM_PGTABLE_PROT_UX;
-+	}
- 
- 	ap = FIELD_GET(KVM_PTE_LEAF_ATTR_LO_S1_AP, pte);
- 	if (ap == KVM_PTE_LEAF_ATTR_LO_S1_AP_RO)
-
++&uart0 {
++	bluetooth {
++		compatible = "brcm,bcm4345c5";
++		max-speed = <1500000>;
++	};
++};
 -- 
-Jazz isn't dead. It just smells funny.
+2.52.0
+
 
