@@ -4,73 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8941D116E2
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Nov 2025 03:02:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EECCD116E2
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Nov 2025 03:03:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HW1WlL6Uj6bnxN8ctCilm30KNiqpcPz8FkdMjNtQbFI=; b=nneckRWWqdRBud2prXbg+F0UgZ
-	xcBqbjhISe7MJnJRvTlmidyH9NHwonXPBHrGBREcrLYkzw3xpOz6+moNQaJFjkuX47MnSHJQ/40in
-	hHhIiMIIQrFu5LMJn4nDmDcYfsoB1WeIMOCdM3qy+cVfOBRR+ATXLHS4vcM9bDgH8123EOHqXiIzP
-	AulVkv8Nf7WdU5lvZ7IFLLzGe9BczTimv6g5pbz7kyKhKYUEI7Hk/JSNgGTWkvHGjEac4TDIEL6GV
-	GJVd0zk88WNlun9jT0Qhq2glQLrq00/9W+sveEVqbSMan0SjsXae0otTxwRcuMQImNqidG2ZEPNnz
-	j/C6blzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=m0p3MB+U3U5R8x4fnIlQ6tglm65aSMovRXQi5lWru0g=; b=sYril/eWkqjOO+tJWkRD9dGNW+
+	6AfF0rWqBls+hOMV760baLMgmTJUiNmdSu2lSbPYuR2j5QkZmnUfvgzQWPsclkFNrWukWBWvxiS26
+	QsPicYxBauhfGIL1H3Kq7pIs4g7DFokFl8ypEMHwyd+drLTuE7nU0MK78sEAV3u5pC++qM+pFU+Em
+	bKFb/hsQFGJHFR0bFBPShtC3ECYdQZ4EcixbI5tnyMXxYDff5w3j9hXsAgxpeoxPuB1sNWQYMoO06
+	JXGjWZlADIwsKn9SiSj2N/KUn0HhB39zd8pIyAS5e5BSjZA7ZvbOIAPNR6s0nMm6w/FmEBY2mNA2Q
+	etvWRcPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPXhF-00000001yrb-2fi9;
-	Sun, 30 Nov 2025 03:01:57 +0000
-Received: from mail-m1973186.qiye.163.com ([220.197.31.86])
+	id 1vPXiF-00000001yz0-0HeP;
+	Sun, 30 Nov 2025 03:02:59 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPXhC-00000001yqm-2KWF;
-	Sun, 30 Nov 2025 03:01:56 +0000
-Received: from [172.16.12.51] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2b6289cd3;
-	Sun, 30 Nov 2025 11:01:44 +0800 (GMT+08:00)
-Message-ID: <292ed476-2b5a-4b61-97e5-3b8d8a24c324@rock-chips.com>
-Date: Sun, 30 Nov 2025 11:01:42 +0800
+	id 1vPXiD-00000001yyo-1lps
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 30 Nov 2025 03:02:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 249746000A;
+	Sun, 30 Nov 2025 03:02:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EAD9C113D0;
+	Sun, 30 Nov 2025 03:02:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764471775;
+	bh=isCPr0NiiiINXGXM7pxP4p9yORIK/EO5rqpXAC5ZRd0=;
+	h=Date:From:To:Cc:Subject:From;
+	b=siB8anujW+7tvvkEP+bPcdKSSEwsJsQ4RqRQHNkPep9YaRggWILNOQPVhEkoHgeZ6
+	 rdW84NJje8Z0N0AqRWuyGSemmjqqORsx0c+6mkH3fkaTr7lIgjHgK0Kuf0RYzoFobg
+	 0jSFFF1vmK6pICzCZ5Dr7dShiDGSnU74X+AW8KqZY1QchZRT45+SrPS7GpMKs1d2DM
+	 TwUZh3CC1PEmne3Gssimi6cF8jarBZW8s4GXl8Zbw58xpBoBaOJhIuQeJSJjU/HTQu
+	 mYxNP2LBRDM9fL9cIayeScptSgdLVNZ65/2WLl5Oeotv1a62+9ANhmThiWRC6eVeoF
+	 mVlOPpunYv1NA==
+Date: Sat, 29 Nov 2025 19:01:05 -0800
+From: Eric Biggers <ebiggers@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A. Donenfeld" <Jason@zx2c4.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Kees Cook <kees@kernel.org>, Leon Romanovsky <leon@kernel.org>,
+	Mark Bloch <mbloch@nvidia.com>, Mark Brown <broonie@kernel.org>,
+	Saeed Mahameed <saeedm@nvidia.com>,
+	Tariq Toukan <tariqt@nvidia.com>
+Subject: [GIT PULL] arm64 FPSIMD buffer on-stack for 6.19
+Message-ID: <20251130030105.GF12664@sol>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/4] drm/rockchip: vop2: Support setting custom
- background color
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Louis Chauvet <louis.chauvet@bootlin.com>,
- Haneen Mohammed <hamohammed.sa@gmail.com>,
- Melissa Wen <melissa.srw@gmail.com>
-Cc: Robert Mader <robert.mader@collabora.com>, kernel@collabora.com,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-References: <20251118-rk3588-bgcolor-v3-0-a2cc909428ea@collabora.com>
- <20251118-rk3588-bgcolor-v3-4-a2cc909428ea@collabora.com>
- <0ed71b8d-5a2e-4213-bd2f-7ba317d1e4cb@rock-chips.com>
- <4a6443b8-d440-4921-8a43-7c20e4e265e7@collabora.com>
- <b8819463-cc61-432f-b451-db90e3b43884@rock-chips.com>
- <058027df-1b1b-4c46-b8e1-ec53fc809e82@collabora.com>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <058027df-1b1b-4c46-b8e1-ec53fc809e82@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9ad2b589cb03abkunm5eeeb88f8ed4b9
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQhhCGFZIGhoZHk5IGUxJS0tWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=bH/DhNXZCVB1zKfiCE5dEAYOh7uxtj5ddQ6V4/zaMqiqir/IW+gdaMZh6nW7aqjG/6xmGCvE2YU+2nIotPNCJCa1Ht1KhfqZOJjg3yAQZfQ4OXYOGjiYXLOontJO1/bsw9UI3ZZ2TEQAVMjsmXLMyflFtAQU3vihIOip6TrbuSY=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=HW1WlL6Uj6bnxN8ctCilm30KNiqpcPz8FkdMjNtQbFI=;
-	h=date:mime-version:subject:message-id:from;
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251129_190155_157110_7CE1FFB0 
-X-CRM114-Status: GOOD (  20.37  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,55 +75,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/29/2025 5:50 PM, Cristian Ciocaltea wrote:
-> Hi Chaoyi,
-> 
-> On 11/29/25 5:49 AM, Chaoyi Chen wrote:
->> Hello Cristian, 
->>
->> On 11/28/2025 5:44 PM, Cristian Ciocaltea wrote:
->>> The precision was something I initially looked into for CRC verification, in the
->>> context of the related IGT test.  But since I've added the VKMS support, I think
->>> we should not worry about that anymore. 
->>>
->>> Moreover, as already pointed out in [1], only RK3576 supports CRC generation at
->>> display controller level, and that is not particularly useful because it doesn't
->>
->> I believe you can get the CRTC CRC on the RK3576, even when only the 
->> background is visible and all plane is disabled. Feel free to let me
->> know if you run into any issues :)
-> 
-> Yes, CRTC CRC works on RK3576 for the planes, but not for the background, i.e.
-> the CRC is not updated when setting a different background color.  Unless
-> there's a way to change this default behavior, which I'm not aware of. 
-> 
-> My current understanding is that the background color is applied at a later
-> stage in the display pipeline, *after* blending the planes and computing CRC.
-> 
+Note: this is more of a core arm64 change.  However, I was asked to take
+this because most uses of kernel-mode FPSIMD are in crypto or CRC code.
+There were also conflicts with lib/crypto/ changes this cycle, which I
+resolved.  But as a result, this depends on the pull request "Crypto
+library updates for 6.19".  So that one needs to be merged first.
 
-Which CRTC are you using? If you're using VP0, you might run into this
-problem. Please try VP1 instead.
+The following changes since commit 2dbb6f4a25d38fcf7d6c1c682e45a13e6bbe9562:
 
->>> take the background color into account.  Therefore I had to capture the frame
->>> CRCs at DisplayPort AUX channel level, by using the USB-C DP AltMode capable
->>
->> Oh that sounds interesting! I'm not sure how complex it would be to
->> implement.
-> 
-> That's already implemented, I plan to submit the patches soon.
-> 
->>
->>> port of my RK3588-based board.  However, that solution is not yet available
->>> upstream, as it requires further work for cleanup and improving the overall
->>> USB-C reliability. 
->>>
->>> Hence I'll move on with your suggestion and switch to the simple bit-shifting
->>> approach for the next revision.
->>
-> 
-> 
+  fscrypt: Drop obsolete recommendation to enable optimized POLYVAL (2025-11-11 11:03:39 -0800)
 
--- 
-Best, 
-Chaoyi
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git tags/fpsimd-on-stack-for-linus
+
+for you to fetch changes up to 5dc8d277520be6f0be11f36712e557167b3964c8:
+
+  Merge tag 'arm64-fpsimd-on-stack-for-v6.19' into libcrypto-fpsimd-on-stack (2025-11-12 10:15:07 -0800)
+
+----------------------------------------------------------------
+
+In v6.8, the size of task_struct on arm64 increased by 528 bytes due
+to the new 'kernel_fpsimd_state' field. This field was added to allow
+kernel-mode FPSIMD code to be preempted.
+
+Unfortunately, 528 bytes is kind of a lot for task_struct. This
+regression in the task_struct size was noticed and reported.
+
+Recover that space by making this state be allocated on the stack at
+the beginning of each kernel-mode FPSIMD section.
+
+To make it easier for all the users of kernel-mode FPSIMD to do that
+correctly, introduce and use a 'scoped_ksimd' abstraction.
+
+----------------------------------------------------------------
+Ard Biesheuvel (23):
+      arm64/simd: Add scoped guard API for kernel mode SIMD
+      ARM/simd: Add scoped guard API for kernel mode SIMD
+      lib/crypto: Switch ARM and arm64 to 'ksimd' scoped guard API
+      lib/crc: Switch ARM and arm64 to 'ksimd' scoped guard API
+      crypto/arm64: aes-ce-ccm - Avoid pointless yield of the NEON unit
+      crypto/arm64: sm4-ce-ccm - Avoid pointless yield of the NEON unit
+      crypto/arm64: sm4-ce-gcm - Avoid pointless yield of the NEON unit
+      crypto: aegis128-neon - Move to more abstract 'ksimd' guard API
+      raid6: Move to more abstract 'ksimd' guard API
+      crypto/arm64: aes-ccm - Switch to 'ksimd' scoped guard API
+      crypto/arm64: aes-blk - Switch to 'ksimd' scoped guard API
+      crypto/arm64: aes-gcm - Switch to 'ksimd' scoped guard API
+      crypto/arm64: nhpoly1305 - Switch to 'ksimd' scoped guard API
+      crypto/arm64: polyval - Switch to 'ksimd' scoped guard API
+      crypto/arm64: sha3 - Switch to 'ksimd' scoped guard API
+      crypto/arm64: sm3 - Switch to 'ksimd' scoped guard API
+      crypto/arm64: sm4 - Switch to 'ksimd' scoped guard API
+      arm64/xorblocks:  Switch to 'ksimd' scoped guard API
+      net/mlx5: Switch to more abstract scoped ksimd guard API on arm64
+      arm64/fpu: Enforce task-context only for generic kernel mode FPU
+      arm64/fpsimd: Allocate kernel mode FP/SIMD buffers on the stack
+      lib/crypto: arm/blake2b: Move to scoped ksimd API
+      lib/crypto: arm64: Move remaining algorithms to scoped ksimd API
+
+Eric Biggers (2):
+      Merge tag 'scoped-ksimd-for-arm-arm64' into libcrypto-fpsimd-on-stack
+      Merge tag 'arm64-fpsimd-on-stack-for-v6.19' into libcrypto-fpsimd-on-stack
+
+ arch/arm/include/asm/simd.h                  |   7 +
+ arch/arm64/crypto/aes-ce-ccm-glue.c          | 116 +++++++--------
+ arch/arm64/crypto/aes-ce-glue.c              |  87 ++++++-----
+ arch/arm64/crypto/aes-glue.c                 | 139 ++++++++---------
+ arch/arm64/crypto/aes-neonbs-glue.c          | 150 +++++++++----------
+ arch/arm64/crypto/ghash-ce-glue.c            |  27 ++--
+ arch/arm64/crypto/nhpoly1305-neon-glue.c     |   5 +-
+ arch/arm64/crypto/sm3-ce-glue.c              |  15 +-
+ arch/arm64/crypto/sm3-neon-glue.c            |  16 +-
+ arch/arm64/crypto/sm4-ce-ccm-glue.c          |  49 ++----
+ arch/arm64/crypto/sm4-ce-cipher-glue.c       |  10 +-
+ arch/arm64/crypto/sm4-ce-gcm-glue.c          |  62 +++-----
+ arch/arm64/crypto/sm4-ce-glue.c              | 214 ++++++++++++---------------
+ arch/arm64/crypto/sm4-neon-glue.c            |  25 +---
+ arch/arm64/include/asm/fpu.h                 |  16 +-
+ arch/arm64/include/asm/neon.h                |   4 +-
+ arch/arm64/include/asm/processor.h           |   7 +-
+ arch/arm64/include/asm/simd.h                |  10 ++
+ arch/arm64/include/asm/xor.h                 |  22 ++-
+ arch/arm64/kernel/fpsimd.c                   |  54 +++++--
+ crypto/aegis128-neon.c                       |  33 ++---
+ drivers/net/ethernet/mellanox/mlx5/core/wc.c |  19 +--
+ lib/crc/arm/crc-t10dif.h                     |  19 +--
+ lib/crc/arm/crc32.h                          |  11 +-
+ lib/crc/arm64/crc-t10dif.h                   |  19 +--
+ lib/crc/arm64/crc32.h                        |  16 +-
+ lib/crypto/arm/blake2b.h                     |   5 +-
+ lib/crypto/arm/chacha.h                      |  11 +-
+ lib/crypto/arm/curve25519.h                  |   5 +-
+ lib/crypto/arm/poly1305.h                    |   6 +-
+ lib/crypto/arm/sha1.h                        |  13 +-
+ lib/crypto/arm/sha256.h                      |  12 +-
+ lib/crypto/arm/sha512.h                      |   5 +-
+ lib/crypto/arm64/chacha.h                    |  11 +-
+ lib/crypto/arm64/poly1305.h                  |   6 +-
+ lib/crypto/arm64/polyval.h                   |  24 ++-
+ lib/crypto/arm64/sha1.h                      |   7 +-
+ lib/crypto/arm64/sha256.h                    |  19 +--
+ lib/crypto/arm64/sha3.h                      |  13 +-
+ lib/crypto/arm64/sha512.h                    |   8 +-
+ lib/raid6/neon.c                             |  17 +--
+ lib/raid6/recov_neon.c                       |  15 +-
+ 42 files changed, 617 insertions(+), 712 deletions(-)
 
