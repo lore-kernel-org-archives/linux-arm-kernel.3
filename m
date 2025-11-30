@@ -4,61 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4CF9D116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Nov 2025 16:15:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01641D116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Nov 2025 18:15:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mxYTdCdzUTuoOCVLjMOjQoAJ8HP/A3/Rf17xwBN3sLo=; b=xgVGv0EdfvUrLkpzixHflacqXa
-	m/MXR1WDwhEFefRkjuapDh8CHzEJw7RULcAflqHjZct7bocoATYYOXKHrUMY9YcROjvR541HOyeS8
-	f/61LuZdXm4pmk2X/PApaFxs8Ilg/ZZ4Nk0YQbUqzoWog8+Pyfdbe5QTkEn8guU+yrMA0uvfN5C7e
-	C/uwZqXarzSIXv+6vLTzhJPuydzvtekbczYBOUWJ0zinYsSEenhi5YpyKQbJcmPCwYzcmxw/UZ6c6
-	E1H+HDDQBvChJCe+yCpnJXkPlqM8+1gbgRlXargs8eG1pLObUGTE8xmCBO7qtA2dZF/H4/gaC3P/Y
-	tLMA2x0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bRzaJHWaNm1FhllvKbKClpQWi5fkIEyuK8o9GF47lx4=; b=CLYr6pIcRJTgk3PfKcn7boqoC0
+	itz8g2nuVZ2Jwb37WDjA9NazEDo/qdwNWSLz0V2RhUYF349UBjWjbm4dYqK0EVDCjKmmMoe+IVJrc
+	5IG6Jb0p8X8PV7BPOR0ifKLgwZEZW9y7AE967LbYMix59iFs8cUO4cl7RusGyr7QUMNVQwP5KxTDE
+	n5yJ1HsaywR2BRjYQW1CXWLI3P1ndQVFAilpgSLqCU5koBLG8ixEFjUNXJq5h0YdI/5TCAmyL/V1J
+	hwYBYuzBCn95mxQ2KXVG81uOXOGImUxCjdtbov9IUvEPj5Oswic35XxgurfIgqrtR7m+8XFNKbZ95
+	0XfvHZ6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPk4e-00000002Pm4-2VKQ;
-	Sun, 30 Nov 2025 16:14:56 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vPlxL-00000002TFI-03II;
+	Sun, 30 Nov 2025 18:15:31 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPk4c-00000002Plo-3Nnl
+	id 1vPlxI-00000002TEv-3qGC
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Nov 2025 16:14:54 +0000
+	Sun, 30 Nov 2025 18:15:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D7E136014B;
-	Sun, 30 Nov 2025 16:14:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA5FDC4CEF8;
-	Sun, 30 Nov 2025 16:14:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2EF50441C8;
+	Sun, 30 Nov 2025 18:15:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 028F4C4CEF8;
+	Sun, 30 Nov 2025 18:15:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764519293;
-	bh=Mx8Q61Ut2NMjVGiek8L2Ppr/wcjqwTTDVTB8wQMifek=;
-	h=From:Date:Subject:To:Cc:From;
-	b=e1JJWp4QrGccrc9V/8CPx9kIxOE0eDSW0VikgrfBKALo45Hv5bKaQcFBYo80BvyyF
-	 RcIipYkVBQmp1oqMdF5JrurJyavBM0o8ddQ1Fk1044zO+uXpzsdq52KkLhUXTDYY69
-	 sBNQCXaiuaSa9RVYxWRJx2ixMCqYV1pfs6tpzL5ByXx146nxaPuadlQqr516VMEukJ
-	 4N8TjcGEU8jbkRPlyuKzUUJyOkImVGaCPh0v5gV+Bfvp5tkfVvUUA+2BgqloISqqNN
-	 ibusWVDC+dhr++ThRfbFHW37ZhBR7kMc5qXA9xqIBWpKkYUYgnXuUHJEsRfa407ywq
-	 PGC7PO0xcVTcA==
-From: Linus Walleij <linusw@kernel.org>
-Date: Sun, 30 Nov 2025 17:14:45 +0100
-Subject: [PATCH] MAINTAINERS: Change Linus Walleij mail address
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20251130-linusw-kernelorg-email-v1-1-bcdbff7b896c@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MwQqDMAyA4VeRnA0kdUXmqwwPorELq3WkqAPx3
- S07fof/PyGLqWToqhNMds26pgKuKxjfQwqCOhWDI+eZG8KoacsHfsSSxNUCyjJoRGqfzM5TS/M
- DSvw1mfX3H7/667oBGLNjXGgAAAA=
-X-Change-ID: 20251130-linusw-kernelorg-email-0791125070f4
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
- linux-iio@vger.kernel.org, linux-input@vger.kernel.org, 
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
- Linus Walleij <linusw@kernel.org>
-X-Mailer: b4 0.14.3
+	s=k20201202; t=1764526526;
+	bh=QLjiei/aj1hM85e6RP3JXwOChsIkW+/RduS7s2r5j0Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=WM4XF6kp1mvCYskm2Xb1pdoQdN053QIK+wCY9Y+7gCxT54sUqxa1eUU5UGvE0MbuY
+	 PtrpPWMhqk9DdUUwe26ivALxlDzQscK3tbZrFRcmEip5zusPGg6/y9ikqhEnS8REq0
+	 aYGil/7YU+RYwMt+fiYw05HJ0g62p1ScC9lo12dRYWDew0G294k7FdduekmLiyJKIC
+	 fGKahG/RGps05ZLccKzq1d9vooRu4N1HKTiNmFqRF+FqoyVOQIS5dLFZ0ZXUS3gBTD
+	 wzYp9xoIwITtQzXd7/4HJRJBwtCMXGJRxtDnc1XG7KGP5FvbQMNWQgmV9GxsCYtHf+
+	 nI1tIuS82n+oQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=lobster-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vPlxD-00000009RHO-18JD;
+	Sun, 30 Nov 2025 18:15:23 +0000
+Date: Sun, 30 Nov 2025 18:15:22 +0000
+Message-ID: <878qfnfkud.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: g@google.com,
+	rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	mathieu.desnoyers@efficios.com,
+	linux-trace-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	jstultz@google.com,
+	qperret@google.com,
+	will@kernel.org,
+	aneesh.kumar@kernel.org,
+	kernel-team@android.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 20/28] KVM: arm64: Add clock support for the pKVM hyp
+In-Reply-To: <aR79MCNlAKP1H-PQ@google.com>
+References: <20251107093840.3779150-1-vdonnefort@google.com>
+	<20251107093840.3779150-21-vdonnefort@google.com>
+	<86cy5erprc.wl-maz@kernel.org>
+	<aR79MCNlAKP1H-PQ@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vdonnefort@google.com, g@google.com, rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jstultz@google.com, qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org, kernel-team@android.com, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251130_101529_038475_20A0769C 
+X-CRM114-Status: GOOD (  23.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,284 +101,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-I will be using my kernel.org mail address going forward.
+On Thu, 20 Nov 2025 11:36:16 +0000,
+Vincent Donnefort <vdonnefort@google.com> wrote:
+> 
+> [...]
+> 
+> > > +/* Using host provided data. Do not use for anything else than debugging. */
+> > > +u64 trace_clock(void)
+> > > +{
+> > > +	struct clock_data *clock = &trace_clock_data;
+> > > +	u64 bank = smp_load_acquire(&clock->cur);
+> > > +	u64 cyc, ns;
+> > > +
+> > > +	cyc = __arch_counter_get_cntpct() - clock->data[bank].epoch_cyc;
+> > 
+> > I can only imagine that you don't care about the broken systems that
+> > do not have a monotonic counter, and that will happily have their
+> > counter swing back and forth?
+> 
+> I haven't used the _stable() variant for the affected devices... Hum this will
+> not be trivial from the hypervisor. I'll see what I can do.
 
-There is no point in splitting this MAINTAINERS patch up
-per subsystem, I will just include it with the rest of my
-patches to pin control in the next merge window.
+In all honestly, simply disabling tracing when you don't have a stable
+counter should be enough. I don't think there is much to be gained
+with supporting that on sub-standard HW (the bar is low enough).
 
-Signed-off-by: Linus Walleij <linusw@kernel.org>
----
- MAINTAINERS | 58 +++++++++++++++++++++++++++++-----------------------------
- 1 file changed, 29 insertions(+), 29 deletions(-)
+> > Also, you may want to document why you are using the physical counter
+> > instead of the virtual one. I guess that you don't want CNTVOFF_EL2 to
+> > apply when HCR_EL2.E2H==0, but given that you never allow anything
+> > else for pKVM, this is slightly odd.
+> 
+> You mean I might as well use __arch_counter_get_cntvct() as CNTVOFF_EL2 will
+> always be ignored in the pKVM case?
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 181a58ec4a8d..13f61acdc8f7 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -195,7 +195,7 @@ F:	drivers/pinctrl/pinctrl-upboard.c
- F:	include/linux/mfd/upboard-fpga.h
- 
- AB8500 BATTERY AND CHARGER DRIVERS
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- F:	Documentation/devicetree/bindings/power/supply/*ab8500*
- F:	drivers/power/supply/*ab8500*
- 
-@@ -2045,7 +2045,7 @@ F:	Documentation/devicetree/bindings/display/arm,hdlcd.yaml
- F:	drivers/gpu/drm/arm/hdlcd_*
- 
- ARM INTEGRATOR, VERSATILE AND REALVIEW SUPPORT
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
- F:	Documentation/devicetree/bindings/arm/arm,integrator.yaml
-@@ -2203,7 +2203,7 @@ F:	Documentation/devicetree/bindings/memory-controllers/arm,pl35x-smc.yaml
- F:	drivers/memory/pl353-smc.c
- 
- ARM PRIMECELL SSP PL022 SPI DRIVER
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
- F:	Documentation/devicetree/bindings/spi/spi-pl022.yaml
-@@ -2216,7 +2216,7 @@ F:	drivers/tty/serial/amba-pl01*.c
- F:	include/linux/amba/serial.h
- 
- ARM PRIMECELL VIC PL190/PL192 DRIVER
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
- F:	Documentation/devicetree/bindings/interrupt-controller/arm,vic.yaml
-@@ -2633,7 +2633,7 @@ F:	tools/perf/util/cs-etm.*
- 
- ARM/CORTINA SYSTEMS GEMINI ARM ARCHITECTURE
- M:	Hans Ulli Kroll <ulli.kroll@googlemail.com>
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
- T:	git https://github.com/ulli-kroll/linux.git
-@@ -3035,7 +3035,7 @@ F:	include/dt-bindings/clock/mstar-*
- F:	include/dt-bindings/gpio/msc313-gpio.h
- 
- ARM/NOMADIK/Ux500 ARCHITECTURES
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadik.git
-@@ -3732,7 +3732,7 @@ F:	Documentation/devicetree/bindings/media/i2c/asahi-kasei,ak7375.yaml
- F:	drivers/media/i2c/ak7375.c
- 
- ASAHI KASEI AK8974 DRIVER
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- L:	linux-iio@vger.kernel.org
- S:	Supported
- W:	http://www.akm.com/
-@@ -6758,7 +6758,7 @@ S:	Maintained
- F:	drivers/pinctrl/pinctrl-cy8c95x0.c
- 
- CYPRESS CY8CTMA140 TOUCHSCREEN DRIVER
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- L:	linux-input@vger.kernel.org
- S:	Maintained
- F:	drivers/input/touchscreen/cy8ctma140.c
-@@ -6778,13 +6778,13 @@ Q:	http://patchwork.linuxtv.org/project/linux-media/list/
- F:	drivers/media/common/cypress_firmware*
- 
- CYTTSP TOUCHSCREEN DRIVER
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- L:	linux-input@vger.kernel.org
- S:	Maintained
- F:	drivers/input/touchscreen/cyttsp*
- 
- D-LINK DIR-685 TOUCHKEYS DRIVER
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- L:	linux-input@vger.kernel.org
- S:	Supported
- F:	drivers/input/keyboard/dlink-dir685-touchkeys.c
-@@ -7653,13 +7653,13 @@ T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
- F:	drivers/gpu/drm/tiny/appletbdrm.c
- 
- DRM DRIVER FOR ARM PL111 CLCD
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- S:	Maintained
- T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
- F:	drivers/gpu/drm/pl111/
- 
- DRM DRIVER FOR ARM VERSATILE TFT PANELS
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- S:	Maintained
- T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
- F:	Documentation/devicetree/bindings/display/panel/arm,versatile-tft-panel.yaml
-@@ -7709,7 +7709,7 @@ F:	Documentation/devicetree/bindings/display/panel/ebbg,ft8719.yaml
- F:	drivers/gpu/drm/panel/panel-ebbg-ft8719.c
- 
- DRM DRIVER FOR FARADAY TVE200 TV ENCODER
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- S:	Maintained
- T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
- F:	drivers/gpu/drm/tve200/
-@@ -7903,14 +7903,14 @@ F:	include/dt-bindings/clock/qcom,dsi-phy-28nm.h
- F:	include/uapi/drm/msm_drm.h
- 
- DRM DRIVER FOR NOVATEK NT35510 PANELS
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- S:	Maintained
- T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
- F:	Documentation/devicetree/bindings/display/panel/novatek,nt35510.yaml
- F:	drivers/gpu/drm/panel/panel-novatek-nt35510.c
- 
- DRM DRIVER FOR NOVATEK NT35560 PANELS
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- S:	Maintained
- T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
- F:	Documentation/devicetree/bindings/display/panel/sony,acx424akp.yaml
-@@ -8028,7 +8028,7 @@ F:	Documentation/devicetree/bindings/display/panel/raydium,rm67191.yaml
- F:	drivers/gpu/drm/panel/panel-raydium-rm67191.c
- 
- DRM DRIVER FOR SAMSUNG DB7430 PANELS
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- S:	Maintained
- T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
- F:	Documentation/devicetree/bindings/display/panel/samsung,lms397kf04.yaml
-@@ -8112,7 +8112,7 @@ F:	Documentation/devicetree/bindings/display/solomon,ssd13*.yaml
- F:	drivers/gpu/drm/solomon/ssd130x*
- 
- DRM DRIVER FOR ST-ERICSSON MCDE
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- S:	Maintained
- T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
- F:	Documentation/devicetree/bindings/display/ste,mcde.yaml
-@@ -8144,7 +8144,7 @@ F:	Documentation/devicetree/bindings/display/bridge/ti,sn65dsi86.yaml
- F:	drivers/gpu/drm/bridge/ti-sn65dsi86.c
- 
- DRM DRIVER FOR TPO TPG110 PANELS
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- S:	Maintained
- T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
- F:	Documentation/devicetree/bindings/display/panel/tpo,tpg110.yaml
-@@ -8188,7 +8188,7 @@ F:	drivers/gpu/drm/vmwgfx/
- F:	include/uapi/drm/vmwgfx_drm.h
- 
- DRM DRIVER FOR WIDECHIPS WS2401 PANELS
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- S:	Maintained
- T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
- F:	Documentation/devicetree/bindings/display/panel/samsung,lms380kf01.yaml
-@@ -9482,7 +9482,7 @@ F:	include/linux/fanotify.h
- F:	include/uapi/linux/fanotify.h
- 
- FARADAY FOTG210 USB2 DUAL-ROLE CONTROLLER
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- L:	linux-usb@vger.kernel.org
- S:	Maintained
- F:	drivers/usb/fotg210/
-@@ -10669,7 +10669,7 @@ F:	drivers/gpio/gpio-sloppy-logic-analyzer.c
- F:	tools/gpio/gpio-sloppy-logic-analyzer.sh
- 
- GPIO SUBSYSTEM
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- M:	Bartosz Golaszewski <brgl@bgdev.pl>
- L:	linux-gpio@vger.kernel.org
- S:	Maintained
-@@ -13033,7 +13033,7 @@ F:	Documentation/devicetree/bindings/iio/imu/invensense,icm42600.yaml
- F:	drivers/iio/imu/inv_icm42600/
- 
- INVENSENSE MPU-3050 GYROSCOPE DRIVER
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- L:	linux-iio@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/iio/gyroscope/invensense,mpu3050.yaml
-@@ -13948,7 +13948,7 @@ F:	drivers/auxdisplay/ks0108.c
- F:	include/linux/ks0108.h
- 
- KTD253 BACKLIGHT DRIVER
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- S:	Maintained
- F:	Documentation/devicetree/bindings/leds/backlight/kinetic,ktd253.yaml
- F:	drivers/video/backlight/ktd253-backlight.c
-@@ -14159,7 +14159,7 @@ F:	drivers/ata/pata_arasan_cf.c
- F:	include/linux/pata_arasan_cf_data.h
- 
- LIBATA PATA FARADAY FTIDE010 AND GEMINI SATA BRIDGE DRIVERS
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- L:	linux-ide@vger.kernel.org
- S:	Maintained
- F:	drivers/ata/pata_ftide010.c
-@@ -19663,7 +19663,7 @@ F:	Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml
- F:	drivers/pci/controller/dwc/*imx6*
- 
- PCI DRIVER FOR INTEL IXP4XX
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- S:	Maintained
- F:	Documentation/devicetree/bindings/pci/intel,ixp4xx-pci.yaml
- F:	drivers/pci/controller/pci-ixp4xx.c
-@@ -19774,7 +19774,7 @@ F:	drivers/pci/controller/cadence/pci-j721e.c
- F:	drivers/pci/controller/dwc/pci-dra7xx.c
- 
- PCI DRIVER FOR V3 SEMICONDUCTOR V360EPC
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- L:	linux-pci@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/pci/v3,v360epc-pci.yaml
-@@ -20219,7 +20219,7 @@ K:	(?i)clone3
- K:	\b(clone_args|kernel_clone_args)\b
- 
- PIN CONTROL SUBSYSTEM
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- L:	linux-gpio@vger.kernel.org
- S:	Maintained
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctrl.git
-@@ -21631,7 +21631,7 @@ F:	Documentation/devicetree/bindings/watchdog/realtek,otto-wdt.yaml
- F:	drivers/watchdog/realtek_otto_wdt.c
- 
- REALTEK RTL83xx SMI DSA ROUTER CHIPS
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- M:	Alvin Šipraga <alsi@bang-olufsen.dk>
- S:	Maintained
- F:	Documentation/devicetree/bindings/net/dsa/realtek.yaml
-@@ -23384,7 +23384,7 @@ S:	Supported
- F:	net/smc/
- 
- SHARP GP2AP002A00F/GP2AP002S00F SENSOR DRIVER
--M:	Linus Walleij <linus.walleij@linaro.org>
-+M:	Linus Walleij <linusw@kernel.org>
- L:	linux-iio@vger.kernel.org
- S:	Maintained
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/jic23/iio.git
+That, plus the fact that CNTVOFF_EL2 is only evaluated at EL2 when
+E2H=0 (and that case is going to disappear over time).
 
----
-base-commit: 6156424a7d001cceeafe59b52209d6f36719b51d
-change-id: 20251130-linusw-kernelorg-email-0791125070f4
+	M.
 
-Best regards,
 -- 
-Linus Walleij <linusw@kernel.org>
-
+Jazz isn't dead. It just smells funny.
 
