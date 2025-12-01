@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E333AD111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 11:41:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8A6CD116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 11:51:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tu+zEO5TOkBKXFztUIPVXvLAdzZuldCKDdzJCF1ev4M=; b=BlIrRjchrfXePZ+xuoJXZ3ERGA
-	QgYlYvq+gNUcyEBUVco4TovlliRgt1eD7w8OdCMrTU1g9MuTna7fN6sMBvABrmQUY+kHsTQzrzoIO
-	+XfQzaHiVJuFhRDafb6zXnAeKy2n70Y1wAqU/A4xY/sSiAxz2xmmyP5DY0WVTTLu5bdmA9Sl0JYRq
-	70ZjG1lMu2D/X8shKs/IVJ6F01L9DuY0a4bTCR3+i8ZFuTWMbmR7tPCUjOq0nw3ECjp/EabiNFZtt
-	YMZD7Jy3kDr+RPqgu/V3XF6u6igw0fryvZfUjhIh/u2ds7IKoeVswWGvjf2wzcMRonfyLP49i8sCY
-	eAcI9KIw==;
+	bh=k2Zq09yXF4LHmbhqT4HLKkX0WO/Eh3JRYXMAM3ovuTc=; b=MO2txd3gYSdWB+liPHGYMsgycm
+	gBKjmcQXOyMCbR9glTQf5IOv5P0vPXsoMSGIxEDNnpN9tmVGLqlFVpH0MhdaHEUgXVKHT2XAi4tGG
+	No5pVLBgvdiSJjyiTLLIFMEoYOr5+XbCu29+kuPozhH1FAK8oV8Bk1kEA4kULNR2Eqs5HpAGdPtmM
+	Wij/oHOM4iDfqMxCwutzG+mT8odQHPJTxrzWE3gkb9gGAia4dKKkXQGudcbg7ItdkdbBskRu0QQWc
+	l+0jnr1K4+nkyb9HKZTgZX0eBQm4ktjoF/RUI6e7TLYTGOHYQ2d/i8tR1N2ybGRXGULtFUiu1FmTb
+	uGk/eQDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ2HR-00000003TT3-1TAP;
-	Mon, 01 Dec 2025 11:41:21 +0000
-Received: from stravinsky.debian.org ([2001:41b8:202:deb::311:108])
+	id 1vQ2Re-00000003UCC-1g28;
+	Mon, 01 Dec 2025 11:51:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ2HP-00000003TSd-0rB9
+	id 1vQ2Rb-00000003UBf-34mD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 11:41:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=debian.org;
-	s=smtpauto.stravinsky; h=X-Debian-User:In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Tu+zEO5TOkBKXFztUIPVXvLAdzZuldCKDdzJCF1ev4M=; b=vL1VDFsrqQNlkN5Oc2T82kOo0u
-	ZyfXAi0lr2o+5iAi6NCziRKAomHRQqtpTgOBzxYxQ45eW4jQk/IjNTS+uwp3Sis+7jiZO4nrLXhEQ
-	b61kTJHV7wsDbYjlTQ2Tdd5awFC/BysYexfkwArOGWTYUjN7/+Ttdsx8/0+tm27jS1Q5TrsZgXM7R
-	7I/iZW4pW2Dh4k+ZW1GWAwrBalOVLmLFDD+arbgAGKZz0+3EcWh82YKEgsouS2aBpLFm/Lj9hFlOq
-	MheFo7lliNOJ3OxuHNEF1lK6YS1LAx5NJ3Y3RR2etNfGCaoyxofqg+HSLpaRRO7quFOYE2slaINI3
-	9SdcEFGg==;
-Received: from authenticated user
-	by stravinsky.debian.org with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.94.2)
-	(envelope-from <leitao@debian.org>)
-	id 1vQ2HJ-000bzf-M1; Mon, 01 Dec 2025 11:41:13 +0000
-Date: Mon, 1 Dec 2025 03:41:08 -0800
-From: Breno Leitao <leitao@debian.org>
-To: Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: akpm@linux-foundation.org, pjw@kernel.org, catalin.marinas@arm.com, 
-	will@kernel.org, mark.rutland@arm.com, coxu@redhat.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: kernel: initialize missing kexec_buf->random
- field
-Message-ID: <guxpoj5tie3qunqn5vsqbc5mtmcq5a77acbwl6wmdbyxf7gjls@m2dlxkiiysl4>
-References: <20251201105118.2786335-1-yeoreum.yun@arm.com>
+	Mon, 01 Dec 2025 11:51:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6A38B436CB;
+	Mon,  1 Dec 2025 11:51:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D1CFC4CEF1;
+	Mon,  1 Dec 2025 11:51:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764589910;
+	bh=3HC8X3QnxHsDdV1qdXMUkclAd82ZLov/gFh81kRCVuM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cxxVMSdRYaTGz7G2omN0JBxOHZ3CcZ9mhrs//pSijQsiiPaJIso1SqReYJBs0jEpm
+	 XJpNxdIivIO2KdC2D7r944Fc7aTMl2XqBp4nhQ3ZBsgPyA0KYWJjibmcdLv8OKdcEm
+	 EQrebsr6Uo47RM4k86dE15Gq3XH1CmGgW5zI4ZcNpjr/Rog/9FMG9ASYnaVvIH92ky
+	 oF+GDmFTqYRQTkZQTbJj3jFrOef62kmz9pbOq2jRuImXtQOMJDm1oZXfHEwSHxDfzP
+	 1hw/WpaH1eAnFKF14GTxAfvCtBXjc4Hw+UQuIG7cisBjI536GiDTCgWbjCeS+FcA4J
+	 8+O4GNY101p6g==
+Date: Mon, 1 Dec 2025 17:21:33 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: "Maciej W. Rozycki" <macro@orcam.me.uk>
+Cc: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
+	Jingoo Han <jingoohan1@gmail.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Jonathan Chocron <jonnyc@amazon.com>, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH v9 4/4] PCI: dwc: Support ECAM mechanism by enabling iATU
+ 'CFG Shift Feature'
+Message-ID: <h7pgm3lqolm53sb4wrcpcurk4ghz4tulqnr7vgd7rzxy4hscue@jcn5tepevlwl>
+References: <20250909-controller-dwc-ecam-v9-0-7d5b651840dd@kernel.org>
+ <20250909-controller-dwc-ecam-v9-4-7d5b651840dd@kernel.org>
+ <alpine.DEB.2.21.2511280256260.36486@angie.orcam.me.uk>
+ <c7aea2b3-6984-40f5-8234-14d265dabefc@oss.qualcomm.com>
+ <alpine.DEB.2.21.2511280755440.36486@angie.orcam.me.uk>
+ <cabf4c20-095b-4579-adc1-146a566b19b9@oss.qualcomm.com>
+ <alpine.DEB.2.21.2511281714030.36486@angie.orcam.me.uk>
+ <a4c6d47f-28b5-40d3-bc82-10aeb14f8e78@oss.qualcomm.com>
+ <alpine.DEB.2.21.2511290428340.36486@angie.orcam.me.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251201105118.2786335-1-yeoreum.yun@arm.com>
-X-Debian-User: leitao
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <alpine.DEB.2.21.2511290428340.36486@angie.orcam.me.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_034119_270728_F78509E8 
-X-CRM114-Status: UNSURE (   9.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251201_035151_815268_70D32C73 
+X-CRM114-Status: GOOD (  32.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,48 +86,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 01, 2025 at 10:51:18AM +0000, Yeoreum Yun wrote:
-> Commit bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
-> introduced the kexec_buf->random field to enable random placement of
-> kexec_buf.
+On Sat, Nov 29, 2025 at 06:04:24AM +0000, Maciej W. Rozycki wrote:
+> On Sat, 29 Nov 2025, Krishna Chaitanya Chundru wrote:
 > 
-> However, this field was never properly initialized for kexec images
-> that do not need to be placed randomly, leading to the following UBSAN
-> warning:
+> > > > Hi Maciej, Can you try attached patch and let me know if that is helping
+> > > > you
+> > > > or not. - Krishna Chaitanya.
+> > >   No change, it's still broken, sorry.
+> > HI Maciej,
+> > For the previous patch can you apply this diff and share me dmesg o/p
 > 
-> [  +0.364528] ------------[ cut here ]------------
-> [  +0.000019] UBSAN: invalid-load in ./include/linux/kexec.h:210:12
-> [  +0.000131] load of value 2 is not a valid value for type 'bool' (aka '_Bool')
-> [  +0.000003] CPU: 4 UID: 0 PID: 927 Comm: kexec Not tainted 6.18.0-rc7+ #3 PREEMPT(full)
-> [  +0.000002] Hardware name: QEMU QEMU Virtual Machine, BIOS 0.0.0 02/06/2015
-> [  +0.000000] Call trace:
-> [  +0.000001]  show_stack+0x24/0x40 (C)
-> [  +0.000006]  __dump_stack+0x28/0x48
-> [  +0.000002]  dump_stack_lvl+0x7c/0xb0
-> [  +0.000002]  dump_stack+0x18/0x34
-> [  +0.000001]  ubsan_epilogue+0x10/0x50
-> [  +0.000002]  __ubsan_handle_load_invalid_value+0xc8/0xd0
-> [  +0.000003]  locate_mem_hole_callback+0x28c/0x2a0
-> [  +0.000003]  kexec_locate_mem_hole+0xf4/0x2f0
-> [  +0.000001]  kexec_add_buffer+0xa8/0x178
-> [  +0.000002]  image_load+0xf0/0x258
-> [  +0.000001]  __arm64_sys_kexec_file_load+0x510/0x718
-> [  +0.000002]  invoke_syscall+0x68/0xe8
-> [  +0.000001]  el0_svc_common+0xb0/0xf8
-> [  +0.000002]  do_el0_svc+0x28/0x48
-> [  +0.000001]  el0_svc+0x40/0xe8
-> [  +0.000002]  el0t_64_sync_handler+0x84/0x140
-> [  +0.000002]  el0t_64_sync+0x1bc/0x1c0
+>  Your patch came though garbled, likely due to:
 > 
-> To address this, initialise kexec_buf->random field properly.
+> Content-Type: text/plain; charset=UTF-8; format=flowed
 > 
-> Fixes: bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
-> Suggested-by: Breno Leitao <leitao@debian.org>
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> Please refer Documentation/process/email-clients.rst and reconfigure your 
+> e-mail client if possible.
+> 
+>  Regardless, I've fixed it up by hand and the only difference in the log, 
+> except for usual noise which I removed, is this:
+> 
+> --- dmesg-bad.log	2025-11-28 03:47:29.582049781 +0100
+> +++ dmesg-debug.log	2025-11-29 05:41:23.384645926 +0100
+> @@ -164,6 +164,8 @@
+>  fu740-pcie e00000000.pcie: ECAM at [mem 0xdf0000000-0xdffffffff] for [bus 00-ff]
+>  fu740-pcie e00000000.pcie: Using 256 MSI vectors
+>  fu740-pcie e00000000.pcie: iATU: unroll T, 8 ob, 8 ib, align 4K, limit 4096G
+> +fu740-pcie e00000000.pcie: Current iATU OB index 2
+> +fu740-pcie e00000000.pcie: Current iATU OB index 4
+>  fu740-pcie e00000000.pcie: cap_exp at 70
+>  fu740-pcie e00000000.pcie: PCIe Gen.1 x8 link up
+>  fu740-pcie e00000000.pcie: changing speed back to original
+> 
+> I've attached a full copy of the debug log too.  I hope this helps you 
+> narrow the issue down or otherwise let me know what to try next.
+> 
+>  NB I note that code you've been poking at only refers resources of the 
+> IORESOURCE_MEM type.  What about IORESOURCE_IO, which seems more relevant 
+> here?
+> 
+>  Also as a quick check I've now reconfigured the defxx driver for PCI port 
+> I/O (which is a one-liner; the mapping used to be selectable by hand, but 
+> distributions got it wrong for systems w/o PCI port I/O, so I switched the 
+> driver to an automatic choice a few years ago, but the logic remains):
+> 
+> # cat /proc/ioports
+> 00000000-0000ffff : pcie@e00000000
+>   00001000-00002fff : PCI Bus 0000:01
+>     00001000-00002fff : PCI Bus 0000:02
+>       00001000-00002fff : PCI Bus 0000:05
+>         00001000-00002fff : PCI Bus 0000:06
+>           00001000-00001fff : PCI Bus 0000:07
+>           00001000-00001007 : 0000:07:00.0
+>           00001000-00001002 : parport0
+>           00001003-00001007 : parport0
+>           00001008-0000100b : 0000:07:00.0
+>           00001008-0000100a : parport0
+>           00002000-00002fff : PCI Bus 0000:08
+>           00002000-00002fff : PCI Bus 0000:09
+>           00002000-000020ff : 0000:09:01.0
+>           00002100-0000217f : 0000:09:02.0
+>           00002100-0000217f : defxx
+> # 
+> 
+> and:
+> 
+> defxx 0000:09:02.0: assign IRQ: got 40
+> defxx: v1.12 2021/03/10  Lawrence V. Stefani and others
+> defxx 0000:09:02.0: enabling device (0000 -> 0003)
+> defxx 0000:09:02.0: enabling bus mastering
+> 0000:09:02.0: DEFPA at I/O addr = 0x2100, IRQ = 40, Hardware addr = 00-60-6d-xx-xx-xx
+> 0000:09:02.0: registered as fddi0
+> 
+> (as at commit 4660e50cf818) and likewise it has stopped working here from 
+> commit 0da48c5b2fa7 onwards:
+> 
+> defxx 0000:09:02.0: assign IRQ: got 40
+> defxx: v1.12 2021/03/10  Lawrence V. Stefani and others
+> defxx 0000:09:02.0: enabling device (0000 -> 0003)
+> defxx 0000:09:02.0: enabling bus mastering
+> 0000:09:02.0: Could not read adapter factory MAC address!
+> 
+> So it's definitely nothing specific to the parport driver, but rather a 
+> general issue with PCI/e port I/O not working anymore.  I do hope these 
+> observations will let you address the issue now.  You might be able to 
+> reproduce it with hardware you have available even.
+> 
 
-Reviewed-by: Breno Leitao <leitao@debian.org>
+Yes, looks like the I/O port access is not working with the CFG Shift feature.
+The spec says that both I/O and MEM TLPs should be handled by this feature, so
+we are currently unsure why MEM works, but not I/O.
 
-Thanks for the fix,
---breno
+The issue you reported with parport_pc driver is that the driver gets probed,
+but it fails to detect the parallel ports on the device. More precisely, it
+fails due to the parport_SPP_supported() check in drivers/parport/parport_pc.c.
+This function performs some read/write checks to make sure that the port exists,
+but most likely the read value doesn't match the written one. And since there is
+no log printed in this function, it just failed silently.
+
+We will check why I/O access fails with ECAM mode and revert back asap. Since
+the merge window is now open, it becomes difficult to revert the CFG shift
+feature cleanly. The timing of the report also made it difficult to fix the
+issue in v6.18. Hopefully, we can backport the fix once we identify the culprit.
+
+Sorry for the inconvenience!
+
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
