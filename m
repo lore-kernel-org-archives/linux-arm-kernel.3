@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66E94D116F1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB27FD116F5
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 17:12:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,32 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=visWJ/OAUlnWoz8fv6/nhevVacKsS3kBHrbDvewdK+o=; b=D5M52l0+Eofdtd+dFdANaI5eDd
-	9rxkM1ghMdp1NeII1kG5e6x8zf/QRQXxGVasztIrMopj9G5/O8QABtyhiyjnK7Hig8tfV+KzYWFwP
-	mecTEsyLgkYvUI7q23dqnVKE0bSoufeYMg5b1zuOBE9tig4ZBaETQeA5vruVBYStw2SUx/Avg0fB5
-	CrDycdiQyFjtxJlZLGiVh+fHvxkTA4df2TBEfP1tRH7M2Ud9wthRlUUzJsDx5+Cz80j/KCnSAFgmV
-	4d2OCArXNoBdEs5e16wSFO+dN5Q5ZMbwkcltTFDO3uSEwNbEchTSvABUdHOCkLfsZbTVpLFp++tfu
-	zR7eBbwQ==;
+	bh=lPwuuXGeA202YbNXOMhzLEU9b0G2gVwcXETAuq6Vgqk=; b=Cu39kChJFl1iQp8zY8jzLTUKW4
+	7IiiTIagURK0ME2vo+yrHXWtFJB6dJRMW07kc+Glr8b/hnyyLoN6a1AP/Bv84zPJG5y2KQBV885Z4
+	ZTQc8cnjLCDVXMzdmpuViDYS8u50ptESmVkYCykzGKhO0LKynWLGKgoYzQeqhe5Q4veG0JiS8xjaw
+	yfvoauDPCpZc+gy1wDJn4JEx1Js7cbDVgVmZ1wmArbfdx5Px7O5lYf/ctb6CU3YILAp0sqr45Tkew
+	H4QWZuugYR2xqGEawlJyTrHbxmwwGA0+x/SO16zn9W+0USDiiKg3hI/cIq0pRW0hWQJvUcZrK4DrA
+	sTOZJn3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ7Ri-00000004L2f-2MHQ;
+	id 1vQ7Ri-00000004L2w-3dGx;
 	Mon, 01 Dec 2025 17:12:18 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ7Rf-00000004L1N-3dlT
+	id 1vQ7Rf-00000004L1O-3fRn
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 01 Dec 2025 17:12:17 +0000
 Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <m.felsch@pengutronix.de>)
-	id 1vQ7RX-0002dz-By; Mon, 01 Dec 2025 18:12:07 +0100
+	id 1vQ7RX-0002dz-FK; Mon, 01 Dec 2025 18:12:07 +0100
 From: Marco Felsch <m.felsch@pengutronix.de>
-Date: Mon, 01 Dec 2025 18:12:05 +0100
-Subject: [PATCH 1/3] pmdomain: imx93-blk-ctrl: cleanup error path
+Date: Mon, 01 Dec 2025 18:12:07 +0100
+Subject: [PATCH 3/3] pmdomain: imx93-blk-ctrl: add support for optional
+ subnodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251201-v6-18-topic-imx93-blkctrl-v1-1-b57a72e60105@pengutronix.de>
+Message-Id: <20251201-v6-18-topic-imx93-blkctrl-v1-3-b57a72e60105@pengutronix.de>
 References: <20251201-v6-18-topic-imx93-blkctrl-v1-0-b57a72e60105@pengutronix.de>
 In-Reply-To: <20251201-v6-18-topic-imx93-blkctrl-v1-0-b57a72e60105@pengutronix.de>
 To: Ulf Hansson <ulf.hansson@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
@@ -53,8 +54,8 @@ X-SA-Exim-Mail-From: m.felsch@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_091215_940462_132A3ADA 
-X-CRM114-Status: GOOD (  11.80  )
+X-CRM114-CacheID: sfid-20251201_091215_933469_49C0EC93 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,31 +70,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Call dev_err_probe() directly during return to make the code more
-compact.
+This particular block can have DT subnodes describing the LVDS LDB, MIPI
+DSI and parallel DPI bridge.
+
+Scan for possible sub-devices within the driver, instead of misusing the
+simple-bus to perform the scan.
 
 Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
 ---
- drivers/pmdomain/imx/imx93-blk-ctrl.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ drivers/pmdomain/imx/imx93-blk-ctrl.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
 diff --git a/drivers/pmdomain/imx/imx93-blk-ctrl.c b/drivers/pmdomain/imx/imx93-blk-ctrl.c
-index e094fe5a42bf646c712f3eca4e66a313fa5a914c..2aa163aef8de4ee901b9cde76ce2aad246c8c08a 100644
+index 13b0de6dd689cf944e034f7666a4e97b0118e3bd..8f79cabe07face872cb396bfb7329c230c4a97fe 100644
 --- a/drivers/pmdomain/imx/imx93-blk-ctrl.c
 +++ b/drivers/pmdomain/imx/imx93-blk-ctrl.c
-@@ -240,10 +240,8 @@ static int imx93_blk_ctrl_probe(struct platform_device *pdev)
- 	bc->num_clks = bc_data->num_clks;
+@@ -7,6 +7,7 @@
+ #include <linux/device.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
++#include <linux/of_platform.h>
+ #include <linux/platform_device.h>
+ #include <linux/pm_domain.h>
+ #include <linux/pm_runtime.h>
+@@ -311,6 +312,10 @@ static int imx93_blk_ctrl_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return dev_err_probe(dev, ret, "failed to add genpd_provider release callback\n");
  
- 	ret = devm_clk_bulk_get(dev, bc->num_clks, bc->clks);
--	if (ret) {
--		dev_err_probe(dev, ret, "failed to get bus clock\n");
--		return ret;
--	}
++	ret = devm_of_platform_populate(dev);
 +	if (ret)
-+		return dev_err_probe(dev, ret, "failed to get bus clock\n");
++		return dev_err_probe(dev, ret, "failed to populate blk-ctrl sub-devices\n");
++
+ 	return 0;
+ }
  
- 	for (i = 0; i < bc_data->num_domains; i++) {
- 		const struct imx93_blk_ctrl_domain_data *data = &bc_data->domains[i];
 
 -- 
 2.47.3
