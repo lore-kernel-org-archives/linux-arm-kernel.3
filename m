@@ -4,66 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87AB1D116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:09:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4CECD116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:10:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B3cfNWTVq7Rc0YFIMb8TsCOl8SKq9wewHYM7N6T9NBc=; b=P0F0XqovYUk8xXlJFSL7gRKCTn
-	ZZGtFLhT6xR/bG9ZWSYFwNfJvb8rIGkmSyCVj9X/dcyjWiIf3iffw13DKh0sb42QJ74FPwH1SOmHo
-	NnuLTmQ7Lh6N9A/LUH5DEo6zvn5D5yUD1TgUgPWh0qfw/mUUp64QC7vZ8IGlPKak1RKHLHXMJ8rdK
-	CsStSFzxniE5lf7BO5rXI4cLlSlT+cVfSSHmh2USmVL/7mUcgO5VgHVUm19bByoJBOjZzxTQuCDzn
-	Hjn5sF08o6pncvTb6K192Tt+e5KKS4iOnPXk5IQaaIoH/2v8W+Zpmp6gzWyaSfGkuVwTbRVDi4jki
-	/PlhziOg==;
+	bh=PvOsEk0ZYwVKEJ3i6OiSEdPGLcS/WzhvuzJcFTPVjRY=; b=eUm+sB4bqwyyec5eBMfDJiC8X6
+	Q6bNy7i5d0dquZmkY4UokjpEM1PWevYNRMhf0j/VFd0EqpAutvkXexjEJjnCD0cycOyiK76wWoJQK
+	Kt4rZOEP6c2DtvD6ChpD7RvjOoiy+zE8AltqCA18wUQZdidaPwSMO6YTta1cFvtnG6boCaCsUfdKz
+	1ToGNiJqnqXml+eXP/bdjR0Ln4/h56SjbB8k7mUh0P6yrgV5lu3J5OQwyhOttwM/tQ3XdsK158Czd
+	+V6qvF1DmnvywCkysS5GxF/oLsotddrfR/ZwlEnLPuNIntZClZ3722rMhagh978DgQLbEjNzPW7QB
+	1QnQpRmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ0qu-00000003HrM-0Ob1;
-	Mon, 01 Dec 2025 10:09:52 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vQ0ru-00000003Hyc-2JCn;
+	Mon, 01 Dec 2025 10:10:54 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ0qr-00000003Hqy-44OG;
-	Mon, 01 Dec 2025 10:09:51 +0000
+	id 1vQ0rs-00000003HyN-2ruu;
+	Mon, 01 Dec 2025 10:10:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4513E442A5;
-	Mon,  1 Dec 2025 10:09:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50300C4CEF1;
-	Mon,  1 Dec 2025 10:09:44 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BD53F6014C;
+	Mon,  1 Dec 2025 10:10:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7688FC4CEF1;
+	Mon,  1 Dec 2025 10:10:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764583789;
-	bh=gml+0AKSpROQtvHs2H692pn8ZeWP728QrdYLf9bsMlc=;
+	s=k20201202; t=1764583851;
+	bh=fBaiBSjUvZkarr92aTi6ynHZyhYGvprKNQXa986VvkI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oS07c3TixY11P6gnH8fKZOakjtPI2r/uWDFvb0nsKs/suRHvmqLV6G/fHc9A4xv+U
-	 0qrd7mNGNj+Sarjik5tc/zKeDw4HOAfPFDvcnB+CRkq0I4qnUU95IS5RCL81AnO6E1
-	 1WCsOFPqcRQtRPV3RoigL0KMndlPL9w5XhGxO72fGjlpPs6mtSnhMpkeDLyOTTSXJl
-	 SBqahEnpbqkdm8bX5EuA42pXisZwQXDNWrPqbMk3zU4qqpeJeUm93wFUgqKj5c9xzE
-	 78CvMVcwl6RP3g6frtRtoJ7lIbhaTxBTLncoAP+podm1Jw9qRNpzLii4wW3IGwV6dU
-	 +DK6phUo5mBkg==
-Message-ID: <ea8e4201-f1c2-41cc-83ff-b509fd22bca2@kernel.org>
-Date: Mon, 1 Dec 2025 11:09:41 +0100
+	b=gpw6xBTV7dQsFenVymlRvJfdYZJhFP0XhAR5fDj1ByQEbtMaZlEEk85zQw3kpuC0Y
+	 9KTOB1FHYpvJu3cd/CniucG2a8uh8/RdAo+DB5gBtzJL5d5PxP+cf2549Ur5FGsjA5
+	 bRISkWG9mZ45TeAUJq/1P1LlMUZBKSVmngH8sSslX3EQhe++nXBjL76qFT7mF8bAXW
+	 nMPuj92SltTex7pkxPq0zQbSPmEDtOfKOKk8nmqsCE1EGiYufjxx93cqXWPfqe2DZu
+	 PEraGUF6Bcnm1p0/oEW1iBQsDTzcQtlvfBTisT0u7j95UBELwvbsiHXcuGAcyrwFn5
+	 hdnke0tcktZkg==
+Message-ID: <98e46b8e-e70f-4edb-ab59-f83e19bf01ec@kernel.org>
+Date: Mon, 1 Dec 2025 11:10:47 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] arm64: dts: mediatek: mt8189: Add thermal
- controller node
-To: Hanchien Lin <hanchien.lin@mediatek.com>,
- "Rafael J . Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Balsam CHIHI <bchihi@baylibre.com>
-Cc: Irving-CH.lin@mediatek.com, Jh Hsu <Jh.Hsu@mediatek.com>,
- WH Wu <vincent.wu@mediatek.com>, Raymond Sun <Raymond.Sun@mediatek.com>,
- Sirius Wang <Sirius.Wang@mediatek.com>, linux-pm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Project_Global_Chrome_Upstream_Group@mediatek.com
-References: <20251201100620.1557608-1-hanchien.lin@mediatek.com>
- <20251201100620.1557608-2-hanchien.lin@mediatek.com>
+Subject: Re: [PATCH 1/5] dt-bindings: vendor-prefixes: Add Ezurio LLC
+To: Gary Bisson <bisson.gary@gmail.com>, "Rob Herring (Arm)" <robh@kernel.org>
+Cc: krzk+dt@kernel.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org
+References: <20251201084140.376058-1-bisson.gary@gmail.com>
+ <20251201084140.376058-2-bisson.gary@gmail.com>
+ <176458161856.2489196.6170126310129033736.robh@kernel.org>
+ <aS1oQonkuFpyqSI2@owl5>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,13 +99,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251201100620.1557608-2-hanchien.lin@mediatek.com>
+In-Reply-To: <aS1oQonkuFpyqSI2@owl5>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_020950_075178_05EC5215 
-X-CRM114-Status: UNSURE (   5.76  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,16 +116,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/12/2025 11:06, Hanchien Lin wrote:
-> Add device tree node for the thermal controller on MediaTek MT8189 SoC.
+On 01/12/2025 11:04, Gary Bisson wrote:
+>>
+>> pip3 install dtschema --upgrade
+>>
+>> Please check and re-submit after running the above command yourself. Note
+>> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+>> your schema. However, it must be unset to test all examples with your schema.
 > 
-> Signed-off-by: Hanchien Lin <hanchien.lin@mediatek.com>
+> Couldn't reproduce, I can't seem to see any error/warning that would be
+> introduced by this patch, can the above be discarded then?
 
 
-Nothing improved. You just completely ignored feedback expecting
-reviewers to repeat themself.
-
-NAK
+Bot has a hiccup, you can ignore reports.
 
 Best regards,
 Krzysztof
