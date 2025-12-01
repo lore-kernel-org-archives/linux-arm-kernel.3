@@ -4,85 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40FD4D116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 16:33:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B787D116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 16:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BbeJ3ulp05RlunmastigKLaHSHWRQLN9kmG9sLI60FA=; b=nDBijBp/WWr/Z5xZ9ClLXMn//c
-	U8Yzl4qf8n7pZoTdpIakJxEXTllAyawpli0NV4thJcY5gJ3UF9D5mSl7oZZu0yBXVNziCIy3DWU+c
-	1lVwz1M5zGFMXeyxgdUTBWwjfNh4/uZCUEac5alVedytclLPacP2mG5Zv3TXXMMDlZL9QSiPSQMnh
-	2s9qCoeDh9APN6XVjuTy5+cQZibhtE5Bu5k8Mh7UnWRLnve/dPCgZi4s5Cffvw2/jfvhBVNXsEqCa
-	mMb4VAQftuJL+phZLTwlxE7f5nigrB2+ThFJsGA+pfPRNpldB4zo304rIxRUjlDNZcPqonphu8P5q
-	MIta0DFQ==;
+	bh=kGl7SM2seAnZb0MwfSY+i9t4y1zT3BYhdFJfFDtJktw=; b=UUgeS5g5eUYV1gV1l664QwU1Kv
+	bVJ36HgHsN4eyRUhLgv+AXWunAmyX3nKoQ+CLYCQlz6YTNSn6k0CDhgzOb/6rer1P0cRnyfaMPrWV
+	OYF7zwJ3kLvTaJ8Ec+GH744QkDeUh5XsuNjN8P5sp3QpH28cdKBThQJ8SvW6kJC5McxVzZ571Q8k5
+	mDuf5/egSP0h7JKH8AgmXn/l+KZFOtOqxUrKofQKcH4hLj+AgHNZXrXVeaW6XOjQSwJ4rh3NMlJcS
+	AcPCFgLKAIjcKtSnTxP+F+6UgDEXII2AJOtN/K3L2RldvBX4Ntezx04u2IFXeNBlqyCT33MaRZO+1
+	csRhQRIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ6qG-00000004H7f-0UC7;
-	Mon, 01 Dec 2025 16:33:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vQ6v6-00000004HcY-0RtD;
+	Mon, 01 Dec 2025 16:38:36 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ6qE-00000004H66-1lbU
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 16:33:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 40BE460133;
-	Mon,  1 Dec 2025 16:33:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E15E5C4CEF1;
-	Mon,  1 Dec 2025 16:33:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764606811;
-	bh=mKAh6zoTfeyMrA3fhkg8tP6+y8PTWo7YVbnFxPAXZD8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=FaaesL99f3aylyjGWhobo5yy8gWh0sTHYUcDMseN5AN38SYx5q/uRK7ezEDTA2ZFk
-	 9SHs2TIVg5xk1N6nyIjKdsxBJbVx9ZO7KUubuzjy2y+T9sPJQt9eYIJDNXwM0C1sTU
-	 P8rTQhJPVN8xE1f8dRS878TyldV2uz509ZYKJ598qQJ5aWZSuhMc8JllWfktFlN1GW
-	 hITjUZO4RNzPqocvqcx3jAUJqJE12ylkA5plINUmvEem2ZRKadlK8RYSwniC4bitIg
-	 Q69xwNJfklZR6yL3D2mXiJmE22dQlFRe2+CHQM7DxssgQIP73xkUW15fBXT7QOTNhr
-	 nbyljAXgWizvg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	id 1vQ6v3-00000004Hc1-1RRu;
+	Mon, 01 Dec 2025 16:38:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=kGl7SM2seAnZb0MwfSY+i9t4y1zT3BYhdFJfFDtJktw=; b=bSjgtfRiEoSeXqz5HE779+QRoV
+	MgpQsNPROlusFGq9HSqlAQXT0zvARqbLusTkXBhgPONL7nuUA1UT2d6LrQBTYrNO9rOypoGXtpPTJ
+	8XsDYxgkOrV7g+OpGYymsoHIY2uEFKj9fHc6UYs4mHUGfTmLqxeh1GUl1C7CsP2IpLaRrRbrwzFru
+	RCXc4BKcri3pV1hEWttMzdzMcbxpmlCA/Ul/Rm0U7Kr2JIlTAnOXRYy3FR8MCH+PvawcjdhCS95Bv
+	m+VEBkb8B/6yh71ijhfUDnhZFKSeAeDnly7BlxHcF7QRvJ4jdpqFrlSt376vlvkdCfEuDfd1Yctmt
+	Ndj2yauQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:52260)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vQ6q9-00000009f9x-203m;
-	Mon, 01 Dec 2025 16:33:29 +0000
-Date: Mon, 01 Dec 2025 16:33:28 +0000
-Message-ID: <86o6oip3fr.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: rostedt@goodmis.org,
-	mhiramat@kernel.org,
-	mathieu.desnoyers@efficios.com,
-	linux-trace-kernel@vger.kernel.org,
-	oliver.upton@linux.dev,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	kvmarm@lists.linux.dev,
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vQ6uw-000000000pK-01R0;
+	Mon, 01 Dec 2025 16:38:26 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vQ6us-000000006bg-1DIa;
+	Mon, 01 Dec 2025 16:38:22 +0000
+Date: Mon, 1 Dec 2025 16:38:22 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	jstultz@google.com,
-	qperret@google.com,
-	will@kernel.org,
-	aneesh.kumar@kernel.org,
-	kernel-team@android.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v8 26/28] KVM: arm64: Add hyp_enter/hyp_exit events to pKVM hyp
-In-Reply-To: <aS28dyrKgZaOmMNr@google.com>
-References: <20251107093840.3779150-1-vdonnefort@google.com>
-	<20251107093840.3779150-27-vdonnefort@google.com>
-	<87345vfiqj.wl-maz@kernel.org>
-	<aS28dyrKgZaOmMNr@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: vdonnefort@google.com, rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jstultz@google.com, qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org, kernel-team@android.com, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-rockchip@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH RFC net-next 00/15] net: stmmac: rk: cleanups galore
+Message-ID: <aS3EfuypsaGK6Ww_@shell.armlinux.org.uk>
+References: <aS2rFBlz1jdwXaS8@shell.armlinux.org.uk>
+ <05db9d3e-88fa-42db-8731-b77039c60efa@lunn.ch>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <05db9d3e-88fa-42db-8731-b77039c60efa@lunn.ch>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251201_083833_383093_9132EDC0 
+X-CRM114-Status: GOOD (  26.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,97 +87,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 01 Dec 2025 16:04:07 +0000,
-Vincent Donnefort <vdonnefort@google.com> wrote:
+On Mon, Dec 01, 2025 at 04:55:21PM +0100, Andrew Lunn wrote:
+> > One of the interesting things is that this appears to deal with RGMII
+> > delays at the MAC end of the link, but there's no way to tell phylib
+> > that's the case. I've not looked deeply into what is going on there,
+> > but it is surprising that the driver insists that the delays (in
+> > register values?) are provided, but then ignores them depending on the
+> > exact RGMII mode selected.
 > 
-> On Sun, Nov 30, 2025 at 07:00:52PM +0000, Marc Zyngier wrote:
-> > On Fri, 07 Nov 2025 09:38:38 +0000,
-> > Vincent Donnefort <vdonnefort@google.com> wrote:
-> > > 
-> > > The hyp_enter and hyp_exit events are logged by the hypervisor any time
-> > > it is entered and exited.
-> > > 
-> > > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-> > > 
-> > > diff --git a/arch/arm64/include/asm/kvm_hypevents.h b/arch/arm64/include/asm/kvm_hypevents.h
-> > > index d6e033c96c52..ce3953bc884a 100644
-> > > --- a/arch/arm64/include/asm/kvm_hypevents.h
-> > > +++ b/arch/arm64/include/asm/kvm_hypevents.h
-> > > @@ -7,4 +7,21 @@
-> > >  #include <nvhe/trace.h>
-> > >  #endif
-> > >  
-> > > +HYP_EVENT(hyp_enter,
-> > > +	HE_PROTO(void),
-> > > +	HE_STRUCT(
-> > > +	),
-> > > +	HE_ASSIGN(
-> > > +	),
-> > > +	HE_PRINTK()
-> > > +);
-> > > +
-> > > +HYP_EVENT(hyp_exit,
-> > > +	HE_PROTO(void),
-> > > +	HE_STRUCT(
-> > > +	),
-> > > +	HE_ASSIGN(
-> > > +	),
-> > > +	HE_PRINTK()
-> > > +);
-> > >  #endif
-> > > diff --git a/arch/arm64/kvm/hyp/include/nvhe/arm-smccc.h b/arch/arm64/kvm/hyp/include/nvhe/arm-smccc.h
-> > > new file mode 100644
-> > > index 000000000000..4b69d33e4f2d
-> > > --- /dev/null
-> > > +++ b/arch/arm64/kvm/hyp/include/nvhe/arm-smccc.h
-> > > @@ -0,0 +1,13 @@
-> > > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > > +
-> > > +#include <asm/kvm_hypevents.h>
-> > > +
-> > > +#include <linux/arm-smccc.h>
-> > > +
-> > > +#undef arm_smccc_1_1_smc
-> > > +#define arm_smccc_1_1_smc(...)					\
-> > > +	do {							\
-> > > +		trace_hyp_exit();				\
-> > > +		__arm_smccc_1_1(SMCCC_SMC_INST, __VA_ARGS__);	\
-> > > +		trace_hyp_enter();				\
-> > > +	} while (0)
-> > 
-> > Huh. No, please. Don't override existing kernel constructs behind
-> > everybody's back. I know that tracing folks love to play that sort of
-> > game, but I really don't want any of that here.
+> Yes, many Rockchip .dts files use phy-mode = 'rgmii', and then do the
+> delays in the MAC. I've been pushing back on this for a while now, and
+> in most cases, it is possible to set the delays to 0, and use
+> 'rgmii-id'.
 > 
-> And you haven't seen what I had for arm_smccc_1_2_smc()
-
-I have the feeling that I don't want to see it at all!
-
-> > Just define a wrapper that is KVM-specific, and use that.
-> > 
-> > Then from a semantic perspective, an SMC call, an ERET back to EL1
-> > host, and an ERET back to EL1 guest are all very different events that
-> > you lump under the "exit" category. That's not right. Same thing for
-> > "enter".
+> Unfortunately, the vendor version of the driver comes with a debugfs
+> interface which puts the PHY into loopback, and then steps through the
+> different delay values to find the range of values which result in no
+> packet loss. The vendor documentation then recommends
+> phy-mode='rgmii', and set the delays to the middle value for this
+> range. So the vendor is leading developers up the garden path.
 > 
-> The idea of those events is just to know when we enter and exit the hypervisor,
-> purely from a timing point of view. In ACK, we already have other separated
-> events that can give the "cause" for entering or exiting the hypervisor. I
-> haven't added them to that series because I thought it was big enough.
-> 
-> So happy to add now or do a follow-up, once we're done with that one?
+> These delay values also appear to be magical. There has been at least
+> one attempt to reverse engineer the values back to ns, but it was not
+> possible to get consistent results across a collection of boards.
 
-Fixed trace points are ABI AFAIC, so I'd rather we make them useful
-from the very start. What you have here is not very interesting,
-because it makes all entry and exit points equal -- they very much
-aren't.
+Oh yes, I remember that. I also remember that I had asked for the
+re-use of "phy_power_on()" to be fixed:
 
-So get rid of these and implement the real thing.
+https://lore.kernel.org/netdev/aDne1Ybuvbk0AwG0@shell.armlinux.org.uk/
 
-Thanks,
+but that never happened... which makes me wonder whether we *shouldn't*
+have applied "sensor101"'s patch until such a requested patch was
+available. In my experience, this is the standard behaviour - as a
+reviewer, you ask a contributor to do something as part of their
+patch submission, and as long as their patch gets merged, they
+couldn't give a monkeys about your request.
 
-	M.
+So, in future, I'm going to take the attitude that I will NAK
+contributions if I think there's a side issue that the contributor
+should also be addressing until that side issue is addressed.
+
+This shouldn't be necessary, I wish this weren't necessary, and I wish
+people could be relied upon to do the right thing, but apparently it is
+going to take a stick (not merging their patches) to get them to co-
+operate. More fool me for trusting someone to do something.
+
+I now have a couple of extra patches addressing my point raised in
+that email... which I myself shouldn't have had to write.
 
 -- 
-Without deviation from the norm, progress is not possible.
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
