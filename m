@@ -4,99 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F5A8D111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 09:52:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F704D116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 09:53:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+rjHsH8Bx/+IHKZLfcoDmpiz05m3E/CkK2Bfpjlnb+o=; b=PcigtAlnR6gCtYXQiKzM99w/WY
-	f1/uli3lNxVAwoOA5f89wuUY2DZXlr3nzKjyqEmfiYPuvRL5KSMbQKghPycPKRpj/kiGTi0rYTn5g
-	EsjwuZoNErtE5B+kaRhI5iVofs/Qq808WtKMY930ZGBCG1ndDBlipDLsqesADO3DYMRSmbOs4WbZ/
-	ZkVAMnCf/4S9QA1RS3jtyDQYbCX1xIjNscajiZHDTK6dUxED+ydH12oc3nSkRz1v7WqRvQmXKgePW
-	Rb1EhY0kav+andL4Baj0tuq+rzkjxdsBq1tKG2C9Is/WwebwVdEXD73frnENjjpasHhMgaOLsBc7/
-	ef03i2nQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S3kURdZsSXe6pN91I7sgh33BC3O3x51+tQtkwxRDdIY=; b=zzDpjciz8KeS105o8Nju4RGxIV
+	50ghfV/DcvCls9AEmtTtSj6+dikpxG5UUjwyeUWACtGfwhFsnveBa0B9QE1Iy4pWa2KSss5a1cBtU
+	lcuoGyoMHsPrCWi/Lh1JZnd4G9m+uv2R2C0w7BnFANShmLSJ3jmlt1F0AOrjLO2mPYlY8aUcowTTt
+	MbTv2j4amiMJWoE/5WAsyki5EoyxxhYhRxR4ufHw460A8gIyvH0kwst4eXyMsOjBlRuJ0yoqyENxI
+	qy0g2svUFy0hffiYFzGta3fe/xKDk9re5ltBng7NnARrxvqYIHxWfk8qaNaSc96OuO7IdubvlkkJ8
+	GclVI+XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ0aM-00000003F67-1DDU;
-	Mon, 01 Dec 2025 09:52:46 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1vQ0b4-00000003FDQ-0PUs;
+	Mon, 01 Dec 2025 09:53:30 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ0aJ-00000003F5P-1zsa
+	id 1vQ0ax-00000003FC6-38Zx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 09:52:44 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7baf61be569so4690145b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 01:52:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764582762; x=1765187562; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=+rjHsH8Bx/+IHKZLfcoDmpiz05m3E/CkK2Bfpjlnb+o=;
-        b=fIO7d1y2cL2+IZqK3tJgNy5YQjVwEmivf+OTwI/C25tGwmF622IcuFN0ZmUOWmfdmc
-         IWSy/zfqdHdmAki3+rCr9BxhmY9r9WoxR6xVPnbdifePkohJibnWEWdD/+2UcEniyvhl
-         OswBpnsiQ5RwMiMjwrYfmcKxUdOOIv+0OKx7Y87KL46CW3UivHFOSqwbMp/Cq1Y3G184
-         QD6QWmHa9Ep11cCU9TQFNcgfh70rYQYp+wR7ldJeEeiAO8WpVb1EDPSRJxBZ+TVzHtGB
-         uVuaAJ8wKcsYUYz7m795G8z1HIOy3xeicfVfrdIfp3qbEoPRi55JnhRSWV/iWj5qj9Lz
-         Wy0w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764582762; x=1765187562;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+rjHsH8Bx/+IHKZLfcoDmpiz05m3E/CkK2Bfpjlnb+o=;
-        b=N44pXzIUIqa+UCPbvZJbe91Ceq0xMISNta/T3+rSxvDC5GAw9dMB21skzU//QYgLvU
-         aSLh6yVXUhAWm6S9py//rxnAfZ3EVbRLiJVBbiRLz/74ptrxQml9TObbl9J6izOKcm/o
-         UYp0ULbQ4YHXBJnShejg8k40TKV//6EVPjcZiCl/KsbfmeM2S8tQfKKmoeXpDxb8o/lB
-         7pdTSo7hpe5hOYtz3c3rygr5VNK3u1qvN4aXDD+IOYA/F90ieFW6iGhMAus7mxsAYRpH
-         UEbbfMQ6L2njwsZJ8IRekXAgav4XwUZsSIuY5tjnQa3JYunWNtYd2mO4leVBlY6FUSRF
-         uI+g==
-X-Forwarded-Encrypted: i=1; AJvYcCVdDPLJEDp383RyLkkdHciPJ/mfQM6qX1ees43W2CeZBdypdreF+VW8E6H5+NaoKHqe4NiL14nhgIeqHL65IKaU@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxhy7vG5rsHMR5OwGgipUU90JkOG44hLxj5mCnCVgUGvadRgIT1
-	bnT8oXTWUu/dGriqGyUw1OiUvCCTwAVBPsnP8Zn4gGIULEsVzhX8UqB3
-X-Gm-Gg: ASbGncv4Q+t1zGvLRBNlAWsRql74zVsAGH8AXNRMmto2XXWcmQeq6xiS5OJ2+vHCkLu
-	Yu+A3n31i+i6H7HVB8VSMFi7mAz6Qx1cvyLXmjO9McZEPXH+GzYl8woFdnjtrYGFPHaVQohSCKX
-	sUMbdQtJeiQ6GjwOunkhHa2XtkTaMdH6Msos9vvnJ3LRg0ktXEBT9vwkM2SXg2qFLirdYxdMek8
-	P4ZoLEOE44h/DnX4XPn0ntQp97sD0fqn6c0Fw77z8a32GYNLGLSczDr/r7xmhFFAasiem5gMwK/
-	YZ1ECIuLL9/U/wk8yjZ1x/ogoWU9LoX1QnhgbQ7p1QTaLI9e2CR3q4lEvoOv/udAVKsts1QAvoX
-	paFcGJ7LVvXUTc2CGiBnZvO/F3F/nrVtr5d2nCrpnuUxZATXq8AbG8t9FuHIb1QgR/obpQS8fvr
-	N3ldnkxsH1kpXhRgikoSckNJbD8+fClaVCcm4oGo5fdHEhsE8CQ+fdnuhiCl8A/eGbHuU85fgvN
-	JBJi6+KUQtsU0cTpa+qAavC
-X-Google-Smtp-Source: AGHT+IF3WOvTGIxt+bSrODAhW9gVIWO5Fy6ov3TQKRAk9K4oppyhq2XbWwPpQleVzVUFv59vmr2h9Q==
-X-Received: by 2002:a05:6a20:734f:b0:35c:fd6d:b1f0 with SMTP id adf61e73a8af0-36150f25276mr44107506637.40.1764582762153;
-        Mon, 01 Dec 2025 01:52:42 -0800 (PST)
-Received: from visitorckw-work01.c.googlers.com.com (14.250.194.35.bc.googleusercontent.com. [35.194.250.14])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-be4fb248be1sm11776408a12.3.2025.12.01.01.52.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Dec 2025 01:52:41 -0800 (PST)
-From: Kuan-Wei Chiu <visitorckw@gmail.com>
-To: suzuki.poulose@arm.com
-Cc: mike.leach@linaro.org,
-	james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com,
-	gregkh@linuxfoundation.org,
-	mathieu.poirier@linaro.org,
-	leo.yan@arm.com,
-	Al.Grant@arm.com,
-	jserv@ccns.ncku.edu.tw,
-	marscheng@google.com,
-	ericchancf@google.com,
-	milesjiang@google.com,
-	nickpan@google.com,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Kuan-Wei Chiu <visitorckw@gmail.com>
-Subject: [PATCH v2] coresight: etm3x: Fix cntr_val_show() to match cntr_val_store() behavior
-Date: Mon,  1 Dec 2025 09:52:28 +0000
-Message-ID: <20251201095228.1905489-1-visitorckw@gmail.com>
-X-Mailer: git-send-email 2.52.0.487.g5c8c507ade-goog
+	Mon, 01 Dec 2025 09:53:29 +0000
+Received: from epcas2p4.samsung.com (unknown [182.195.41.56])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20251201095314epoutp033bf16d22c4bb764b097519c8afef4d51~9DrPQsSd-0897008970epoutp03b
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  1 Dec 2025 09:53:14 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20251201095314epoutp033bf16d22c4bb764b097519c8afef4d51~9DrPQsSd-0897008970epoutp03b
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1764582794;
+	bh=S3kURdZsSXe6pN91I7sgh33BC3O3x51+tQtkwxRDdIY=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=Snc06rJS+4VPNhZJHpEjq8+Sd7g38GyVq1x02r0f1gFjGQ7iDBnkTYobRFYPGd5Op
+	 wUxFOTX1DTWFw8HWnCSLvy2iCz4dKNTBwyvaRCSiDc/HwTiZV7AzKlmI+O7GLP38z9
+	 tN66daf4Nq8ZzyqJOEVJceI+CMviIyaTYtZYYVb0=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas2p4.samsung.com (KnoxPortal) with ESMTPS id
+	20251201095313epcas2p4cf56a03f07e4d606b4c50a923b0fc2e5~9DrOxJWg10546505465epcas2p4z;
+	Mon,  1 Dec 2025 09:53:13 +0000 (GMT)
+Received: from epcas2p3.samsung.com (unknown [182.195.38.209]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4dKfNT3Lntz2SSKb; Mon,  1 Dec
+	2025 09:53:13 +0000 (GMT)
+Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
+	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
+	20251201095312epcas2p4d5f93312996f492487f51eb3ba0e5873~9DrNu0QB60783507835epcas2p4I;
+	Mon,  1 Dec 2025 09:53:12 +0000 (GMT)
+Received: from [12.36.160.98] (unknown [12.36.160.98]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20251201095312epsmtip2b42d4a7316a5583f10e05c912e0a63b4~9DrNm75Fc3074230742epsmtip2C;
+	Mon,  1 Dec 2025 09:53:12 +0000 (GMT)
+Message-ID: <c3cc4b6f-ac75-448e-9fdf-c3c45e2ceed7@samsung.com>
+Date: Mon, 1 Dec 2025 18:54:59 +0900
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 RESEND 2/3] thermal: exynos_tmu: Support new hardware
+ and update TMU interface
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, =?UTF-8?B?7IaQ7Iug?=
+	<shin.son@samsung.com>, 'Bartlomiej Zolnierkiewicz' <bzolnier@gmail.com>,
+	'Krzysztof Kozlowski' <krzk@kernel.org>, "'Rafael J . Wysocki'"
+	<rafael@kernel.org>, 'Daniel Lezcano' <daniel.lezcano@linaro.org>, 'Zhang
+	Rui' <rui.zhang@intel.com>, 'Lukasz Luba' <lukasz.luba@arm.com>, 'Rob
+	Herring' <robh@kernel.org>, 'Conor Dooley' <conor+dt@kernel.org>, 'Alim
+	Akhtar' <alim.akhtar@samsung.com>
+Cc: 'Henrik Grimler' <henrik@grimler.se>, linux-pm@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 'Peter
+	Griffin' <peter.griffin@linaro.org>, =?UTF-8?Q?=27Andr=C3=A9_Draszik=27?=
+	<andre.draszik@linaro.org>, 'William McVicker' <willmcvicker@google.com>,
+	jyescas@google.com
+Content-Language: en-US
+From: Youngmin Nam <youngmin.nam@samsung.com>
+In-Reply-To: <401ed9b9-19a4-4a19-b397-0f353e9f0c97@linaro.org>
 Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20251201095312epcas2p4d5f93312996f492487f51eb3ba0e5873
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: AUTO_CONFIDENTIAL
+CMS-TYPE: 102P
+cpgsPolicy: CPGSC10-234,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20251113064044epcas2p1b87addb21473eca7cc52052e4e2e9237
+References: <20251113064022.2701578-1-shin.son@samsung.com>
+	<CGME20251113064044epcas2p1b87addb21473eca7cc52052e4e2e9237@epcas2p1.samsung.com>
+	<20251113064022.2701578-3-shin.son@samsung.com>
+	<5a6a749b-b2b7-41bb-bcb4-a2342e7f4e98@linaro.org>
+	<015501dc5ea5$0c7dd460$25797d20$@samsung.com>
+	<401ed9b9-19a4-4a19-b397-0f353e9f0c97@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_015243_521424_F4E0B39B 
-X-CRM114-Status: GOOD (  14.20  )
+X-CRM114-CacheID: sfid-20251201_015326_032247_D417D6EB 
+X-CRM114-Status: GOOD (  21.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,74 +107,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The cntr_val_show() function was intended to print the values of all
-counters using a loop. However, due to a buffer overwrite issue with
-sprintf(), it effectively only displayed the value of the last counter.
+On 11/26/25 18:21, Tudor Ambarus wrote:
+> Hi, Shin Son,
+> 
+> On 11/26/25 9:19 AM, 손신 wrote:
+>>> Looking at the exynosautov9 registers that you described and comparing
+>>> them with
+>>> gs101 I see just 2 differences:
+>>> 1/ exnosautov2 has a TRIMINFO_CONFIG2 register, while gs101 doesn't 2/
+>>> EXYNOSAUTOV920_PEND register fields differ from GS101
+>> TRIMINFO_CONFIG2 doesn't exist on eav920 either; I simply misnamed it.
+>> However, the PEND register indeed differs from GS101.
+>>
+>>> Given the similarities, and considering the EXYNOS9_ registers rename from:
+>>> https://lore.kernel.org/linux-samsung-soc/20251117074140.4090939-5-
+>>> youngmin.nam@samsung.com/
+>>> would it make sense to use the SoC-era name instead of specific SoC, i.e.
+>>> s/EXYNOSAUTOV920_/EXYNOS9_ and use the latter for both exynosautov9 and
+>>> gs101?
+>>>
+>> First of all, as far as I know, EXYNOS9 is not the same as exynosautov9, and exynosautov920 also differs from exynosautov9.
+> 
+> See also see this patch, or maybe the entire patch set:
+> https://lore.kernel.org/linux-samsung-soc/20251117074140.4090939-2-youngmin.nam@samsung.com/
+> 
+> It's not just autov9 and gs101 that have similar TMU registers (with the two
+> exceptions AFAICT), it's also exynos850 that seems identical with autov9.
+> 
+> All seem to be part of the same "Exynos9-era" SoCs. Let's think about how
+> gs101/exynos850 TMU addition will follow. Shall one use the EXYNOSAUTOV920
+> registers? That seems misleading. Shall one redefine the entire register set?
+> That won't fly because of the code duplication.
+> 
+> Thus I propose to use the EXYNOS9 prefix for the register definitions, and if
+> there are SoCs with slight differences, that can be handled with compatible
+> match data and specific SoC definitions, but only where things differ.
+> 
+>> So while sharing a common prefix is a good suggestion in general, I believe it's not appropriate here
+>> Because the register definitions are not fully compatible across these SoCs. Using a common name array may introduce confusion later.
+> 
+> Please reconsider this. Maybe Youngmin Nam or others can intervene.
+> 
+> Thanks!
+> ta
+> 
+Hi Tudor,
 
-The companion function, cntr_val_store(), allows users to modify a
-specific counter selected by 'cntr_idx'. To maintain consistency
-between read and write operations and to align with the ETM4x driver
-behavior, modify cntr_val_show() to report only the value of the
-currently selected counter.
+First, thank you for referencing my pinctrl patch and asking for my input.
+Yes. That's exactly my intent. Use the EXYNOS9 prefix to minimize fragmentation.
 
-This change removes the loop and the "counter %d:" prefix, printing
-only the hexadecimal value. It also adopts sysfs_emit() for standard
-sysfs output formatting.
+Even if some registers aren't fully compatible,
+I'd prefer to maximize the common EXYNOS9 definitions and handle SoC-specific differences via match data or small deltas,
+rather than introducing SoC-specific register names.
 
-Fixes: a939fc5a71ad ("coresight-etm: add CoreSight ETM/PTM driver")
-Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
----
-Build test only.
+Hi Shin Son,
+if possible, please consider this approach as well.
 
-Changes in v2:
-- Redesigned the fix to match cntr_val_store() logic (display only the
-  currently selected counter) instead of attempting to list all
-  counters.
-- Removed the loop and the "counter %d:" prefix.
-- Switched from sprintf() to sysfs_emit().
-- Refactored control flow to use a single return point.
-
-v1: https://lore.kernel.org/lkml/20251121002350.1166758-1-visitorckw@gmail.com/
-
- .../hwtracing/coresight/coresight-etm3x-sysfs.c   | 15 ++++-----------
- 1 file changed, 4 insertions(+), 11 deletions(-)
-
-diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-index 762109307b86..a6a650331196 100644
---- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-+++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-@@ -717,26 +717,19 @@ static DEVICE_ATTR_RW(cntr_rld_event);
- static ssize_t cntr_val_show(struct device *dev,
- 			     struct device_attribute *attr, char *buf)
- {
--	int i, ret = 0;
- 	u32 val;
- 	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 	struct etm_config *config = &drvdata->config;
- 
- 	if (!coresight_get_mode(drvdata->csdev)) {
- 		spin_lock(&drvdata->spinlock);
--		for (i = 0; i < drvdata->nr_cntr; i++)
--			ret += sprintf(buf, "counter %d: %x\n",
--				       i, config->cntr_val[i]);
-+		val = config->cntr_val[config->cntr_idx];
- 		spin_unlock(&drvdata->spinlock);
--		return ret;
--	}
--
--	for (i = 0; i < drvdata->nr_cntr; i++) {
--		val = etm_readl(drvdata, ETMCNTVRn(i));
--		ret += sprintf(buf, "counter %d: %x\n", i, val);
-+	} else {
-+		val = etm_readl(drvdata, ETMCNTVRn(config->cntr_idx));
- 	}
- 
--	return ret;
-+	return sysfs_emit(buf, "%x\n", val);
- }
- 
- static ssize_t cntr_val_store(struct device *dev,
--- 
-2.52.0.487.g5c8c507ade-goog
-
+Thanks,
+Youngmin
 
