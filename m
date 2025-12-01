@@ -4,57 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A42E0D116F5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 18:35:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1424D116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 18:48:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ogMLGmtOshBfVKRfoXkEi7qBuLHFEcc8LO3WBxBRNAk=; b=3htuH3TPdIwg3Efp7T2qkSCV9I
-	NzoMcDMAcbpByDuJqIXZs2VWA7r7b+ZOEhUIYRIz7qgWtSSWnAYygtj3/RfcAUtHHFB4QY1GEuBf+
-	1K7FyoPD+MAslA3isZNjdMi+X7dFg8prBcNPvawV5qsA929wUW9dWK7cn/+1ePjLvNPJ3bUkZOjep
-	Qy1TZJzSCQsnhqPwGi3Qyev6Y9iWT2pd/fc4wpQMHTVjo1sZG5bXLCqFccAaoNN73XhlWdoNqpJB8
-	zJzTL/YT1b6cCJ9p1ZC5yoAHuvKGQtpNfqkJjsR+aaUA1r4YRlz9DBm5zMX2D+hEyZAga0IQ1fPut
-	y7yGOzGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ynHqZQ0gk8AWJGY9s+Z8f6+gf+OoFbb3v3ip4l2xsQk=; b=33hzCxz2roY66MOb6b+Bmb4HPA
+	kkc+nnxL14yIGMcWXKnS/myakASwfxNOQGIqIUWKawcJ3p1PSMW7qbbU0UtpLLgnkShyH1+2enop5
+	siBIFI7cqMTDCiuGBsq0WTLV+FfJ7kS9LagVBhuWwaZ1LcbWEaEDy+E+nr7rN+zmupm/PIRNkmMIG
+	WA+Wtqh8I/UFrGydmyT371Nnt8QTeUb5PG9ZgRt4AZusIIALK+ZqWXhbYY4NCpifXcJQe3uoDX6U7
+	UDFI+drLTVUv/hV7OJOK4xFySG9LSTFb7fPcJe3dEPbvCR3gzApBFF4PhK+hYJ+kxr0Rl5dV0uKaz
+	KrAvZs7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ8kH-00000004QZ4-0X8k;
-	Mon, 01 Dec 2025 18:35:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vQ8xD-00000004RLO-27e0;
+	Mon, 01 Dec 2025 18:48:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ8kF-00000004QYr-44SE;
-	Mon, 01 Dec 2025 18:35:32 +0000
+	id 1vQ8xA-00000004RKm-3UUP
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 01 Dec 2025 18:48:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 377F86014A;
-	Mon,  1 Dec 2025 18:35:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83049C4CEF1;
-	Mon,  1 Dec 2025 18:35:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8851843E89;
+	Mon,  1 Dec 2025 18:48:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6045CC4CEF1;
+	Mon,  1 Dec 2025 18:48:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764614130;
-	bh=VBQFlvnfpbsIVYd7kucDkAsZ9TrCBZTzgqxZRRFJ9xA=;
+	s=k20201202; t=1764614931;
+	bh=8mPq8nOkd7GYclNEqbPcyQdNSK5b0Ogy59muydnaThI=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=DqCjxBEAx9GYCBJaYTNiYd64kKa8S/v0nyYaM47cIxx6x5dS2qxta4cb8ccKFlfK+
-	 bbElowOjQLNB8S2ZZY5VeXmGtSXKqKSRTRXiwgcldQKpO0PQA0Y4Vz/nlMslQAeGEN
-	 lwGwBiFxiix6kslLsoZ1RS9uljoGAWFAxTi/gw3miJqV+gKMuftxGEiC0La86z1hLS
-	 7uYxZsFC7PkbjHlXjHMi5SC9kExUk+0XZY5B36ZdK4LhcH6TYHUg04UB97OAU7FUoF
-	 SfSclH0QhROBkzGB3fibk7fQ8WkUMvUHqK0IjXEfKGjC2VBOtHrJFE22niJALHKnQM
-	 7WedwgfcoYqMg==
-Date: Mon, 1 Dec 2025 10:35:29 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Christian Hewitt <christianshewitt@gmail.com>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, linux-wireless@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, Daniel Golle <daniel@makrotopia.org>
-Subject: Re: [PATCH] wifi: mt7601u: check multiple firmware paths
-Message-ID: <20251201103529.1874a869@kernel.org>
-In-Reply-To: <20251201090336.1157193-1-christianshewitt@gmail.com>
-References: <20251201090336.1157193-1-christianshewitt@gmail.com>
-MIME-Version: 1.0
+	b=qonL8OfbUvIgnf+p/t9uJtgN1AGc6Xl4nvqXi+pQB70+la1/q/J2DoHgNwzPP0qZ6
+	 xpU/O2CUhzcGThb8zC3RHiy3dTIB/Y2+5NOSKlyfx2QIvY+OCHlxYNUnweXP43fwd/
+	 Cu0YXRibhJLEuuvX1HDSog7pYS/f5/BSBwBwaRXp8XX4dYRFdFwiSHdeKbAjMWftEM
+	 ehNFa/3T/V+n8F0IrfjPXuE8A9BRfJYYBcAg39iU529V7/v5nebMFnEgQmXasCTp8p
+	 r1GPbR6YKzONufYvcPWDcuhUIcWRPla8yzqbM08s0BZoCGFDp8iWMqhvoED7X0HliX
+	 7B3jkWm/9Exfg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vQ8x6-00000009hAi-48rX;
+	Mon, 01 Dec 2025 18:48:49 +0000
+Date: Mon, 01 Dec 2025 18:48:48 +0000
+Message-ID: <86ms42ox67.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: "=?utf-8?q?Pierre-Cl=C3=A9ment_Tosi?=" <ptosi@google.com>
+Cc: kvm@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	Joey Gouly <joey.gouly@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Vincent Donnefort <vdonnefort@google.com>,
+	Will Deacon <will@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH] KVM: arm64: Prevent FWD_TO_USER of SMCCC to pKVM
+In-Reply-To: <20251201-smccc-filter-v1-1-b4831416f8a3@google.com>
+References: <20251201-smccc-filter-v1-1-b4831416f8a3@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ptosi@google.com, kvm@vger.kernel.org, linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, joey.gouly@arm.com, oupton@kernel.org, suzuki.poulose@arm.com, vdonnefort@google.com, will@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251201_104853_116940_75D230E2 
+X-CRM114-Status: GOOD (  20.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,12 +92,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon,  1 Dec 2025 09:03:36 +0000 Christian Hewitt wrote:
-> The linux-firmware repo moved mt7601u.bin from the root folder to
-> the mediatek sub-folder some time ago, but not all distros create
-> symlinks to the old location the driver checks. Update the driver
-> to check for firmware in both old and new locations.
+On Mon, 01 Dec 2025 18:19:52 +0000,
+"=?utf-8?q?Pierre-Cl=C3=A9ment_Tosi?=" <ptosi@google.com> wrote:
+> 
+> With protected VMs, forwarding guest HVC/SMCs happens at two interfaces:
+> 
+>      pKVM [EL2] <--> KVM [EL1] <--> VMM [EL0]
+> 
+> so it might be possible for EL0 to successfully register with EL1 to
+> handle guest SMCCC calls but never see the KVM_EXIT_HYPERCALL, even if
+> the calls are properly issued by the guest, due to EL2 handling them so
+> that (host) EL1 never gets a chance to exit to EL0.
+> 
+> Instead, avoid that confusing situation and make userspace fail early by
+> disallowing KVM_ARM_VM_SMCCC_FILTER-ing calls from protected guests in
+> the KVM FID range (which pKVM re-uses).
+> 
+> DEN0028 defines 65536 "Vendor Specific Hypervisor Service Calls":
+> 
+> - the first ARM_SMCCC_KVM_NUM_FUNCS (128) can be custom-defined
+> - the following 3 are currently standardized
+> - the rest is "reserved for future expansion"
+> 
+> so reserve them all, like commit 821d935c87bc ("KVM: arm64: Introduce
+> support for userspace SMCCC filtering") with the Arm Architecture Calls.
 
-IDK.. 2.5 years ago.. how long is too long to wait for the distros 
-to update their linux-firmware?
+I don't think preventing all hypercalls from reaching userspace is
+acceptable from an API perspective. For example, it is highly expected
+that the hypercall that exposes the various MIDR/REVIDR/AIDR that the
+guest can be expected to run on is handled in userspace.
+
+Given that this hypercall is critical to the correct behaviour of a
+guest in an asymmetric system, you can't really forbid it. If you
+don't want it, that's fine -- don't implement it in your VMM.
+
+But I fully expect pKVM to inherit the existing APIs by virtue of
+being a KVM backend.
+
+> Alternatively, we could have only reserved the ARM_SMCCC_KVM_NUM_FUNCS
+> (or even a subset of it) and the "Call UID Query" but that would have
+> risked future conflicts between that uAPI and an extension of the SMCCC
+> or of the pKVM ABI.
+
+I disagree. The only ones you can legitimately block are the ones that
+are earmarked for pKVM itself (2-63), and only these. Everything else
+should make it to userspace if the guest and the VMM agree to do so.
+
+This is part of the KVM ABI, and pKVM should be fixed.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
