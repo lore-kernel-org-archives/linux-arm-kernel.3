@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BC0FD116F1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4D09D116F5
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 11:57:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s+SW/EbITYooF5ZS8yeRh4CwPq41D5CEQq+PdeNurkE=; b=zADMjDPnWJMi9VZZ+mxOuVbtu4
-	RGz+nlBTXoIhdJgyOPN0jB8jmZO6pylK2jAh/FKVo/gK4lyvs/AuYR7q4LKnLvywAdFq10Hv/bcUW
-	qaJR9yLC3YTOrv2u3p84Q2TRZCSarr67BzRMHrEz6MQ2Ue0nOroEUCt893fUxQ/Fyum+6jepqMVp4
-	lSxDjnXtMItT65NuNLqPPcJ0fBjpY8V1H9maqZbe+IFDtyPbNFea0I2VFvcPbvHYHC7igoHzgGiWb
-	VjCCRJs5YnhNAOT2PtFPCs23Nw0Pb1ZsOnVuiz3QSbWTff4rW6Ds8lwRLrk/QlOXz2yh2O9fR+R/3
-	WAN+zmag==;
+	bh=YZcnmSyeXY4k94asJxZ+7zj6ad/cIF+DdM29OrnHlvU=; b=4dYsqbDp2N/OBosEia4KpvZ77S
+	oSj21UsAm9AX99E75Xb3ZsnS6xy0/oViNnx1K26eaveHl+FTPOTT758OJj+tn3xTpgmerlXIaEd+m
+	933kr1U4eXssuKxy+MQ23Zsxt8xzDPnG+NRn0XULNt2tmGuJLpQZvargdckhwjAfwXv9HoodZ/VcM
+	Eg/u0+yp6soEk7EoHyAbvP3hX+pu7L4ANKY+BZ1RZ/V7Jq7/RMoDlg+VPmri9z1v4h6UPbNoZEa2r
+	gAPKC9M16twwMb0+87mvQVgx2BUnT3tfhlH/7TVpTNlINEQSH5sB8YZZ6/mRqG92bHcIIn+EQYEzu
+	jbblPG5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ2Wc-00000003V10-0X12;
-	Mon, 01 Dec 2025 11:57:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vQ2Wd-00000003V1r-14sa;
+	Mon, 01 Dec 2025 11:57:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ2Wa-00000003V0D-1UDf
+	id 1vQ2Wa-00000003V0F-3FRL
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 01 Dec 2025 11:57:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B59726017F;
+	by tor.source.kernel.org (Postfix) with ESMTP id CF04F60183;
 	Mon,  1 Dec 2025 11:56:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 46D81C116D0;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 58995C113D0;
 	Mon,  1 Dec 2025 11:56:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1764590219;
-	bh=f9QEnmqnsWDZUfL2GXKBxdVY8OzItJOp3WQ9SYd3RfY=;
+	bh=jE9WfLRnysb5M1Ttms9XCql5d7rIaHGctFeo3ynddxo=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=UiA8GHekIF9RrRKE4o4mtTsFsjQe1Epo2rAx5qpeLKyzNJGii172bBNfVi2R74Vo+
-	 B8o0S1A1Qusyz9sA7l0CKLNa0TOgRk4uDMEQWOa0EUg//cBpBCU6NV0ZjRYAu7IXty
-	 xuOotn6h3X7UrCLWDOIQRdAfIV4inEoQTlAZLC5wWt9V1fvSXjrdGzDtTycK5xUE64
-	 szzFcfcbMdbvFE6I/TRmZViQKeY31xkDAjywRysI9QOrHZ3/kqL1zasECtv7mCtDY7
-	 8aIEH0TTe1j1IPfWyIy/oZiLvvLsjqxznGxQDiWDTJ+xiIn56Ji1j/1KrydslhJql4
-	 bnaFpRt1dtnFw==
+	b=MeNK+a9GGCviNvf9BKZlKD6yH+DY6ttQBTm46GH3VXwlKxfETMpEnp9bBLBzJXxOS
+	 bKAkIul/RTVkMi4JL/Nj7blkZJzGN2mZxdw/l1rRrw2aUPDz9Yv+vbbPvjukOf5dNT
+	 PkrLIraVzbDDiZLMz9M40PIS1Zimu95Hp26Idf6m/jum/DNx/fTDKjjWwR+7eCAlsT
+	 9J8u3ma9UxUFjh3VA5lEbdVGdVihk/XeqwMOwuq8jSLYl4IzeFgGjiywPma/gtuOL4
+	 flHq9kTFp88umkeFSzdK2S934gzgg/K8MGQPlzC1JlVTfhYvm1hh9NG9sq21nK0qQu
+	 VK8W9OHobC5Mg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3558CD116F9;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 46135D116F1;
 	Mon,  1 Dec 2025 11:56:59 +0000 (UTC)
 From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Mon, 01 Dec 2025 12:56:50 +0100
-Subject: [PATCH v2 1/3] dt-bindings: arm: fsl: moduline-display: fix
+Date: Mon, 01 Dec 2025 12:56:51 +0100
+Subject: [PATCH v2 2/3] arm64: dts: freescale: moduline-display: fix
  compatible
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251201-disp_fix-v2-1-9b03026311b6@gocontroll.com>
+Message-Id: <20251201-disp_fix-v2-2-9b03026311b6@gocontroll.com>
 References: <20251201-disp_fix-v2-0-9b03026311b6@gocontroll.com>
 In-Reply-To: <20251201-disp_fix-v2-0-9b03026311b6@gocontroll.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -64,11 +64,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  Maud Spierings <maudspierings@gocontroll.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764590218; l=2122;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764590218; l=1431;
  i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=wXt3WiP0vtdg5opoCrY8YMr9jeuCt1sqacON3Gj18VI=;
- b=dGEyya9PxoluEeZNKYrLl9PPX4+vSLb60Xx6eXUGHdjyI2MHA6A21Qi622qMi+FBszZYctbLr
- FrYwekqk62ZAb3l4F26PBa5BgS8yq/OWSLp3MLJsVqCXdnuTfkyWBcB
+ bh=aBjyYr0KgPqqBX1balGgsZXHNYxS/418tzQqfsE7U/M=;
+ b=ENP1Jh0LkCOmw9V6meQOx6iaYrkPrEj23ilMw94d30dw9P9X2sEOUdDY08dVr6PNOuPPLJlUa
+ kcFQPRxMRHsC3P2JmzfG8k6JMGisI01U0xW1T2fJaQo+xUov9VmixIC
 X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
  pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
 X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
@@ -101,39 +101,25 @@ revision specific quirks in the bootloader/userspace.
 This is a breaking change, but it is early enough that it can be
 corrected without causing any issues.
 
-Fixes: 24e67d28ef95 ("dt-bindings: arm: fsl: Add GOcontroll Moduline Display")
+Fixes: 03f07be54cdc ("arm64: dts: freescale: Add the GOcontroll Moduline Display baseboard")
 Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
 ---
- Documentation/devicetree/bindings/arm/fsl.yaml | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index 21b7168d61f5..0aeac16843b5 100644
---- a/Documentation/devicetree/bindings/arm/fsl.yaml
-+++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -1105,7 +1105,6 @@ properties:
-               - gateworks,imx8mp-gw74xx   # i.MX8MP Gateworks Board
-               - gateworks,imx8mp-gw75xx-2x # i.MX8MP Gateworks Board
-               - gateworks,imx8mp-gw82xx-2x # i.MX8MP Gateworks Board
--              - gocontroll,moduline-display # GOcontroll Moduline Display controller
-               - prt,prt8ml             # Protonic PRT8ML
-               - skov,imx8mp-skov-basic # SKOV i.MX8MP baseboard without frontplate
-               - skov,imx8mp-skov-revb-hdmi # SKOV i.MX8MP climate control without panel
-@@ -1163,6 +1162,14 @@ properties:
-           - const: engicam,icore-mx8mp             # i.MX8MP Engicam i.Core MX8M Plus SoM
-           - const: fsl,imx8mp
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106.dts b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106.dts
+index 88ad422c2760..399230144ce3 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106.dts
+@@ -9,7 +9,7 @@
+ #include "imx8mp-tx8p-ml81.dtsi"
  
-+      - description: Ka-Ro TX8P-ML81 SoM based boards
-+        items:
-+          - enum:
-+              - gocontroll,moduline-display
-+              - gocontroll,moduline-display-106
-+          - const: karo,tx8p-ml81
-+          - const: fsl,imx8mp
-+
-       - description: Kontron i.MX8MP OSM-S SoM based Boards
-         items:
-           - const: kontron,imx8mp-bl-osm-s  # Kontron BL i.MX8MP OSM-S Board
+ / {
+-	compatible = "gocontroll,moduline-display", "fsl,imx8mp";
++	compatible = "gocontroll,moduline-display-106", "karo,tx8p-ml81", "fsl,imx8mp";
+ 	chassis-type = "embedded";
+ 	hardware = "Moduline Display V1.06";
+ 	model = "GOcontroll Moduline Display baseboard";
 
 -- 
 2.52.0
