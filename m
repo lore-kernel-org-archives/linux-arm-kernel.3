@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F04A2D116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 16:41:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26F8DD116F5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 16:41:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T/5T6lo313puZ/SVQF0jyUpNeCSlBosPw8CY0HUbC1E=; b=QWSgPLnjUjBQijuF7VfuRutu0p
-	WPHEm6OTQIIEnCedt92WoJ/eqyt27FDX7Ai74r86eInY2oz9BO/T/AL2o6kPX9NgGK1g4qIozYaZ6
-	oKF+u+8eCPVlB5MDzUD3TDCBwdTpMWD197BTe4C7CsRf7II+21nrrph3gHfcNh1iyW0mGEX6B7VNC
-	sIYSdKCdriNDvreuchJl1onteWU/gFOCKBcXm3Rabr0tcdNMuX3GrsvZ/1M7mE9P8n0Tgw4RcJYP5
-	QIPIVaCl7gebcTDAxp1WQ8HgfIDhaQlRBUkduV2JawClIQ5kKwTAt2u4AyyZ89Gc/84ztqSv+GIND
-	B4XAOa7A==;
+	bh=zABew4dqD3IbbU1tyEn5D3f43+dljvZpz0Ak8Px/2GQ=; b=3uNLa+LX7eKaNl0Px4fn7fMY1N
+	+govd2eLJPjv7JlZwipBjhKPWO24TJ0aeeYrN6Y6fq50e3mrplhy9y27lWcjmYe8r/qC+Y1MawFeN
+	aZnN+PuPswev7MNL9qiQxBCAI4cR3QzyoKoV3wOne6vor2mmZgdu6YGY+k3wGp8uydIn535Q5U5Oy
+	GtFYEoGtYDx3ADJipACEVsUVVCUu67eNguw5qqCOGPhrwpgjjAKBM9NWLXbFyvFeZVqMWTR8H9AT6
+	F94CjkCHn1Hvb9YgSRAFwnqREj8fnIaO4TnxlYQpsRNMuh7XSimQ84CbnJwyf9U4kRMNoqnGGt3UX
+	hyJbE1jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ6yG-00000004I29-2J8n;
-	Mon, 01 Dec 2025 16:41:52 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1vQ6yH-00000004I2Z-03VM;
+	Mon, 01 Dec 2025 16:41:53 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ6yC-00000004HyD-24NE
+	id 1vQ6yD-00000004HzL-3f6P
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 16:41:49 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-47755de027eso30016315e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 08:41:48 -0800 (PST)
+	Mon, 01 Dec 2025 16:41:51 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-47775fb6c56so40473195e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 08:41:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764607307; x=1765212107; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1764607308; x=1765212108; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=T/5T6lo313puZ/SVQF0jyUpNeCSlBosPw8CY0HUbC1E=;
-        b=RhsbbSHrriH2yo1l2GFYP0Ckezc+CIOnNdxS/gqOzBcHaASPZ7vf9gyFaoe3xC7nz0
-         r+j3jZnCGZV/ANe2ycP13E/jNEscw7Y8BR90hZrKwvH9PIOVVaoflltyqoBQ2GogZPPi
-         0P54aD9r11PGoYWis3A+acOhku954UZVySNWiyj3zk1raJG1UZIX2DoMaejg2ZmOmib3
-         0acGhPvO/ulxdRa5DHXaX5kvNyrcohlc4MCd9ymr6jG1U0Fk2N/RaOgsgyrjmS0H2AJ+
-         9HlR1ioMBb25A2Ndrskgv0gMlwxHvZ44Gt12R74MKP4UrZOESmkhF8+3oz8WCWIHWNck
-         TdIg==
+        bh=zABew4dqD3IbbU1tyEn5D3f43+dljvZpz0Ak8Px/2GQ=;
+        b=bf6COfP11mRbinp2hzi8Atr2mgMLyRhvOeEhoh7NVX0MglPscGuuY/OQTXJv9Q4VEB
+         2D7sGoWSlC6pAYS460YC9vQAv58Vbwce6XV5R6StIvxrHnh44BFy4kxj2fvW4tpkdQrO
+         ECJOAO5tf44sCQLTf3nwVrF8E3rX48IQiSwITCfG0hHGR2VKOWAmNyLsKmGRdtLp2j/W
+         quTvOdb1rVr0GEyXWf2Lh/C3o/omDjHxprECd0uUHGDJ/a26v5hSOu221/YyjnWVrvPa
+         047JeVWK2nXDXp2RKFraQlyds9h29G+0W8I+phQKbmbaZw65wveTxkTsb7vwio+2DyYi
+         jeNA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764607307; x=1765212107;
+        d=1e100.net; s=20230601; t=1764607308; x=1765212108;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=T/5T6lo313puZ/SVQF0jyUpNeCSlBosPw8CY0HUbC1E=;
-        b=hBqN2zFKgoVV3ow25bkywvBFkNdBP3wF3lRcEZc4EDAcgG5HTkphARXJg2Jy6eSbPC
-         PZSoTPyYs2WIpSoGdCjnlKIcDifnwFjKkUvsQCn9oo1BqTRdCOKlipQhbsjc/NR0mYoK
-         /VM3ErP1IbAiRYhV5FXsPWfM9GsmFUERrWCNz1yzdK7UQi/UxyUT1NdgN1GEJyLaxrt+
-         5BgrMie+6C8H3iLzpuODBVU560+iUwEfCuAXpTtlhipiOpkwI7i+qshAEYNvk1T1uyh+
-         UrECk5iU2mLEAsQ35TsgUBccWbSw0jj5SUGOBB86FtA+mv4+Fcb7O05+zCJGXNvifMO/
-         Syag==
-X-Forwarded-Encrypted: i=1; AJvYcCWXaLv3oVbirqirLMH6juzE/6lv9jbCi0f+Q7baDrwTQdinkWMkK/kejhODu8IO9KwAqXbAFioUsVSsUcXOwWJu@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUUCfdyt151Yup8ljTRkic97oOL00VAiyXvda3y3EAb0UxG6wn
-	19so2MND8gPtJB2jA/lj+89JHEm6oRVdLDxnQqf2NbwWRkcOD6t4Z1hU/sGsOrmRuLw=
-X-Gm-Gg: ASbGncsFGAqNxOG2CyUZxCCT8H/uw5MSqIxLW45/QlQb82160FnBpPTtFaZNjtg7FAN
-	CFaJB33jZ/1GTzzpX6/7B5ymniUnhoj7ytVnIB+pppuA6oyaSVlHAvK7RfC4LcKfUKBM0VvIlsq
-	4Q5NqBZZg7FJE/sK9QCWB0G6xcEere6hOs4NmmRpRDGXZv5eZpflQQUD4d1SP2HnZCfHVu63a8c
-	2+JtmOITLgldgzB5rpBJi29rf6zL17JykXLFaASWCUSXlm0ADy0CiCfQWMOuc4zCaVUgHhmLPNO
-	iPdmRXu291SOF4P5+KCgKwfGvuaY/29QEgsvd+i7FAke3kawgIC8a2mr1cQHwW7u6CCjHTBX3H7
-	Qmt8vqb1ajzzOdqVlKzAAjEechoiEzo6emTH7yYaMbkj9iyluo9fWOXxiX+v8DfzGa9Ve2J1spV
-	xKIBb7G+H1F8dhoOkNU4NR
-X-Google-Smtp-Source: AGHT+IEE3voa2OXjkQohxBlLJHCO8n9F+sDfMVLCHbry/3Vx/3/QnGHskYaS+QvFk8/708DyHCFFKQ==
-X-Received: by 2002:a05:600c:3587:b0:471:131f:85aa with SMTP id 5b1f17b1804b1-47904aecfd9mr268721295e9.13.1764607306655;
-        Mon, 01 Dec 2025 08:41:46 -0800 (PST)
+        bh=zABew4dqD3IbbU1tyEn5D3f43+dljvZpz0Ak8Px/2GQ=;
+        b=il+cttyveC4KSEWU+jwJnnR9yAnJmGhpSR9QY6xiW0m8yfgmnkaDlf3H2zDp10dv/K
+         fltC7ooW+Ba9+4EvO3FC9rrU3De8s3PnuTs/z1DDwScapMTutiHgWviZ0K3rks+3gg7U
+         Jo/GgBZbJmDUkRa+MOaLS2OIrgstJjxi3iY867G4EyLpd0CziYstT/S1sB5eT7/a+dEJ
+         nauJI3eziZuFpGP3egrMHOrV+Mo0yPhudfmPXQ1V4ZFTpjOjjL54uyKoVsRUDZuEb1aO
+         vSdlMIVsKnmX/QiFg1tKvTnT8Su5BiU6F6Sdzpq/i0UgPWHWuo/qYd9AW5PaGtCNqK1m
+         cRVg==
+X-Forwarded-Encrypted: i=1; AJvYcCVpFoHATTk1CdE3WDNX0SizxIGU3MnMGSfrZWRnY1aXL9ohrBebLS3vZ2d4K9kGZS1C8CrnzXXfSBj8q+yVq/+7@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCIn7uSmjniaVuk3IXcqh0fD7RwFaiKMmd9pYuIL6xFLu8aWKR
+	agrlGv5biJ2Mtc4aB3B9JahG3s8r9sPZw5gGZRxFcDqYmA9kH7vqy9QVe7Tg+X5aJIs=
+X-Gm-Gg: ASbGnctQ21v7JuJAz7OyYoqXY5NwwrOt6n6G/IHDhTSzVVvzZ7foFKF8UYfLui/MqPw
+	63faqmonTbGt9OAzfgW54MUCJ6L9ure2St7Wl49kp1JSYNg03uhvlIsjZ1KFzjMfEsRzq09/etL
+	WQeSGd8klwM0OtQLkAaAUDS/QxRz3TRCx9XuTSWTyt5ncGABvOUBXWihmITm809o0YSIbB6D9ik
+	bMcrYOPednPQ8HhiMOhfnfPz85pypLiIRYYhYa6UDN5Sq0e/J2rJIpBGBxNdXDnOYY9trlvt3z9
+	84Q1yYfqP0EL4BrBNNnTlvqGi7hjjFkmQK8DObKkqy25azmNKvJUpW2jw2dCVV5EEoLz3L4sisa
+	x2GxgkMCpPW7y7rpa5ghMVKGR9BJQ102gHfMvijAmsbhJJnWmbrzr/IaGxxMZ3mvryuQM0uel16
+	R4gaPb/sHOue2vqTJ1tlCbSShWuu9PLik=
+X-Google-Smtp-Source: AGHT+IH4qlSHOHlP9FoC3pEYptApY3iIhEO5qtBZvowYnB5XerIVCpLZUtOXG+kLqnlpOo12ry8aAw==
+X-Received: by 2002:a05:600c:4685:b0:477:5b0a:e616 with SMTP id 5b1f17b1804b1-47904acaf28mr248918075e9.5.1764607307979;
+        Mon, 01 Dec 2025 08:41:47 -0800 (PST)
 Received: from ho-tower-lan.lan ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4791164d4f3sm255901275e9.13.2025.12.01.08.41.45
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4791164d4f3sm255901275e9.13.2025.12.01.08.41.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Dec 2025 08:41:46 -0800 (PST)
+        Mon, 01 Dec 2025 08:41:47 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
-Date: Mon, 01 Dec 2025 16:41:06 +0000
-Subject: [PATCH 3/7] perf cs-etm: Make a helper to find the Coresight evsel
+Date: Mon, 01 Dec 2025 16:41:07 +0000
+Subject: [PATCH 4/7] perf cs-etm: Don't use hard coded config bits when
+ setting up ETMCR
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251201-james-perf-config-bits-v1-3-22ecbbf8007c@linaro.org>
+Message-Id: <20251201-james-perf-config-bits-v1-4-22ecbbf8007c@linaro.org>
 References: <20251201-james-perf-config-bits-v1-0-22ecbbf8007c@linaro.org>
 In-Reply-To: <20251201-james-perf-config-bits-v1-0-22ecbbf8007c@linaro.org>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -93,8 +94,8 @@ Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
  James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_084148_554513_9B2249E6 
-X-CRM114-Status: GOOD (  16.40  )
+X-CRM114-CacheID: sfid-20251201_084149_949942_1E1DB81D 
+X-CRM114-Status: GOOD (  21.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,95 +110,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This pattern occurs a few times and we'll add another one later, so add
-a helper function for it.
+Perf only looks at attr.config when determining what was programmed into
+ETMCR. These bits could theoretically be in any of the config fields.
+Add a generic helper to find the value of any named format field in any
+config field and then use it to get the attributes relevant to ETMCR.
 
+The kernel will also stop publishing the ETMCR register bits in a header
+[1] so preempt that by defining them here.
+
+[1]: https://lore.kernel.org/linux-arm-kernel/20251128-james-cs-syncfreq-v8-10-4d319764cc58@linaro.org/
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- tools/perf/arch/arm/util/cs-etm.c | 50 +++++++++++++++++++++------------------
- 1 file changed, 27 insertions(+), 23 deletions(-)
+ tools/perf/arch/arm/util/cs-etm.c | 35 ++++++++++++++++++++++++++++++++++-
+ tools/perf/util/evsel.h           |  2 ++
+ tools/perf/util/pmu.c             | 33 +++++++++++++++++++++++++++++++++
+ 3 files changed, 69 insertions(+), 1 deletion(-)
 
 diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/util/cs-etm.c
-index ea891d12f8f4..22c6272e8c36 100644
+index 22c6272e8c36..414cafb21c98 100644
 --- a/tools/perf/arch/arm/util/cs-etm.c
 +++ b/tools/perf/arch/arm/util/cs-etm.c
-@@ -302,6 +302,19 @@ static int cs_etm_set_sink_attr(struct perf_pmu *pmu,
- 	return 0;
+@@ -68,6 +68,12 @@ static const char * const metadata_ete_ro[] = {
+ 
+ enum cs_etm_version { CS_NOT_PRESENT, CS_ETMV3, CS_ETMV4, CS_ETE };
+ 
++
++/* ETMv3 ETMCR register bits */
++#define ETMCR_CYC_ACC		BIT(12)
++#define ETMCR_TIMESTAMP_EN	BIT(28)
++#define ETMCR_RETURN_STACK	BIT(29)
++
+ static bool cs_etm_is_ete(struct perf_pmu *cs_etm_pmu, struct perf_cpu cpu);
+ static int cs_etm_get_ro(struct perf_pmu *pmu, struct perf_cpu cpu, const char *path, __u64 *val);
+ static bool cs_etm_pmu_path_exists(struct perf_pmu *pmu, struct perf_cpu cpu, const char *path);
+@@ -487,6 +493,33 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
+ 	return err;
  }
  
-+static struct evsel *cs_etm_get_evsel(struct evlist *evlist,
-+				      struct perf_pmu *cs_etm_pmu)
++static u64 cs_etm_guess_etmcr(struct auxtrace_record *itr)
 +{
-+	struct evsel *evsel;
++	struct cs_etm_recording *ptr =
++		container_of(itr, struct cs_etm_recording, itr);
++	struct perf_pmu *cs_etm_pmu = ptr->cs_etm_pmu;
++	struct evsel *evsel = cs_etm_get_evsel(ptr->evlist, cs_etm_pmu);
++	u64 etmcr = 0;
++	u64 val;
 +
-+	evlist__for_each_entry(evlist, evsel) {
-+		if (evsel->core.attr.type == cs_etm_pmu->type)
-+			return evsel;
-+	}
++	if (!evsel)
++		return 0;
 +
-+	return NULL;
++	/*
++	 * Roughly guess what the kernel programmed into ETMCR based on
++	 * what options the event was opened with. This doesn't have to be
++	 * complete or 100% accurate, not all bits used by OpenCSD anyway.
++	 */
++	if (!evsel__get_config_val(cs_etm_pmu, evsel, "cycacc", &val) && val)
++		etmcr |= ETMCR_CYC_ACC;
++	if (!evsel__get_config_val(cs_etm_pmu, evsel, "timestamp", &val) && val)
++		etmcr |= ETMCR_TIMESTAMP_EN;
++	if (!evsel__get_config_val(cs_etm_pmu, evsel, "retstack", &val) && val)
++		etmcr |= ETMCR_RETURN_STACK;
++
++	return etmcr;
 +}
 +
- static int cs_etm_recording_options(struct auxtrace_record *itr,
- 				    struct evlist *evlist,
- 				    struct record_opts *opts)
-@@ -476,29 +489,21 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
- 
  static u64 cs_etm_get_config(struct auxtrace_record *itr)
  {
--	u64 config = 0;
  	struct cs_etm_recording *ptr =
- 			container_of(itr, struct cs_etm_recording, itr);
- 	struct perf_pmu *cs_etm_pmu = ptr->cs_etm_pmu;
- 	struct evlist *evlist = ptr->evlist;
--	struct evsel *evsel;
-+	struct evsel *evsel = cs_etm_get_evsel(evlist, cs_etm_pmu);
+@@ -746,7 +779,7 @@ static void cs_etm_get_metadata(struct perf_cpu cpu, u32 *offset,
+ 	case CS_ETMV3:
+ 		magic = __perf_cs_etmv3_magic;
+ 		/* Get configuration register */
+-		info->priv[*offset + CS_ETM_ETMCR] = cs_etm_get_config(itr);
++		info->priv[*offset + CS_ETM_ETMCR] = cs_etm_guess_etmcr(itr);
+ 		/* traceID set to legacy value in case new perf running on old system */
+ 		info->priv[*offset + CS_ETM_ETMTRACEIDR] = cs_etm_get_legacy_trace_id(cpu);
+ 		/* Get read-only information from sysFS */
+diff --git a/tools/perf/util/evsel.h b/tools/perf/util/evsel.h
+index 3ae4ac8f9a37..1c567cc70a82 100644
+--- a/tools/perf/util/evsel.h
++++ b/tools/perf/util/evsel.h
+@@ -574,6 +574,8 @@ void evsel__uniquify_counter(struct evsel *counter);
+ 	((((src) >> (pos)) & ((1ull << (size)) - 1)) << (63 - ((pos) + (size) - 1)))
  
--	evlist__for_each_entry(evlist, evsel) {
--		if (evsel->core.attr.type == cs_etm_pmu->type) {
--			/*
--			 * Variable perf_event_attr::config is assigned to
--			 * ETMv3/PTM.  The bit fields have been made to match
--			 * the ETMv3.5 ETRMCR register specification.  See the
--			 * PMU_FORMAT_ATTR() declarations in
--			 * drivers/hwtracing/coresight/coresight-perf.c for
--			 * details.
--			 */
--			config = evsel->core.attr.config;
--			break;
--		}
--	}
--
--	return config;
-+	/*
-+	 * Variable perf_event_attr::config is assigned to
-+	 * ETMv3/PTM.  The bit fields have been made to match
-+	 * the ETMv3.5 ETRMCR register specification.  See the
-+	 * PMU_FORMAT_ATTR() declarations in
-+	 * drivers/hwtracing/coresight/coresight-perf.c for
-+	 * details.
-+	 */
-+	return evsel ? evsel->core.attr.config : 0;
+ u64 evsel__bitfield_swap_branch_flags(u64 value);
++int evsel__get_config_val(struct perf_pmu *pmu, struct evsel *evsel,
++			  const char *config_name, u64 *val);
+ void evsel__set_config_if_unset(struct perf_pmu *pmu, struct evsel *evsel,
+ 				const char *config_name, u64 val);
+ 
+diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
+index c8968cddc0a9..5501b0230097 100644
+--- a/tools/perf/util/pmu.c
++++ b/tools/perf/util/pmu.c
+@@ -1384,6 +1384,39 @@ pmu_find_format(const struct list_head *formats, const char *name)
+ 	return NULL;
  }
  
- #ifndef BIT
-@@ -832,12 +837,11 @@ static int cs_etm_snapshot_start(struct auxtrace_record *itr)
- {
- 	struct cs_etm_recording *ptr =
- 			container_of(itr, struct cs_etm_recording, itr);
--	struct evsel *evsel;
-+	struct evsel *evsel = cs_etm_get_evsel(ptr->evlist, ptr->cs_etm_pmu);
++int evsel__get_config_val(struct perf_pmu *pmu, struct evsel *evsel,
++			  const char *config_name, u64 *val)
++{
++	struct perf_pmu_format *format = pmu_find_format(&pmu->format, config_name);
++	u64 bits = perf_pmu__format_bits(pmu, config_name);
 +
-+	if (evsel)
-+		return evsel__disable(evsel);
- 
--	evlist__for_each_entry(ptr->evlist, evsel) {
--		if (evsel->core.attr.type == ptr->cs_etm_pmu->type)
--			return evsel__disable(evsel);
--	}
- 	return -EINVAL;
- }
- 
++	if (!format || !bits) {
++		pr_err("Unknown/empty format name: %s\n", config_name);
++		return -EINVAL;
++	}
++
++	switch (format->value) {
++	case PERF_PMU_FORMAT_VALUE_CONFIG:
++		*val = FIELD_GET(bits, evsel->core.attr.config);
++		return 0;
++	case PERF_PMU_FORMAT_VALUE_CONFIG1:
++		*val = FIELD_GET(bits, evsel->core.attr.config1);
++		return 0;
++	case PERF_PMU_FORMAT_VALUE_CONFIG2:
++		*val = FIELD_GET(bits, evsel->core.attr.config2);
++		return 0;
++	case PERF_PMU_FORMAT_VALUE_CONFIG3:
++		*val = FIELD_GET(bits, evsel->core.attr.config3);
++		return 0;
++	case PERF_PMU_FORMAT_VALUE_CONFIG4:
++		*val = FIELD_GET(bits, evsel->core.attr.config4);
++		return 0;
++	default:
++		pr_err("Unknown format value: %d\n", format->value);
++		return -EINVAL;
++	}
++}
++
+ /*
+  * Set @config_name to @val as long as the user hasn't already set or cleared it
+  * by passing a config term on the command line.
 
 -- 
 2.34.1
