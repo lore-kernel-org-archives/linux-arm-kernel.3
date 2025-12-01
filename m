@@ -4,58 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E166DD116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 15:27:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23F18D116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 15:39:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wE2L0F1qqDTs/54YDX8hKplMeTjbIJ9CHswBP1kiMkA=; b=JzMF09SDWmekSdhwQS86TZxsVv
-	H0ZEnYhfwdlSue/VhkhO1trsxpJK3Jk57zMxy6Rea0QelY2ueWUykP4GWcnOk1ShyKL+ZcjQso1Bk
-	I2QZDQhnNFF2Ev5bkh/biNu+AxE3ay1IGIbiDIAy7JQqZyOWswdVDaOPhx+rYukz9mgMvL8wMI+S/
-	R4wwA+XQfzmfEb4GYrVicqRVRc8WleP/KCx8s6uJeA6uMGUdpbr8sEM1MrtM8MqW+7VqDwbZkwhWE
-	2C8GgxW8Jrmq7JyhB+i/zPxl+VJcZjE32lj5RLqiyZrotn89IYLFE9hDAJV09DkKaoQoepHzUTC6Z
-	zV4rdOLA==;
+	bh=g5pJddiiVi+I6ruP2tsRuYChx3jw5dyVAn7BqFI0ndI=; b=SvdTL9Me45ecdiqzuGoHT/GWs9
+	AhCiw9usnPNmmg/v7xmZwA3XRVqtpmuHgyM5sn9jloi2Faxz7avlbtVegSRhnv99D2TjHzB6SSBng
+	xY3/wem4jOssECPEylT+oA8rM2c6iajxSQhPsUq1M5y27xiwvuVPjvQN5w/Ft++Sfwsn6QaoNfhdM
+	7cYXWICA4qp0gOHU+JOSTLGZpvBbZNr1WMp89qziCNVS4amf9uRcKmmUv6/ywKMFegM2zAAY3/C6F
+	n/OxtN7Hv9cvUAMv72IdN7NpszwAMf9s6eeJMJWgPln7TR2CcZqvumx8mcmz3TOF36+noMp4k7O2y
+	3TT2dp1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ5oF-00000004BKY-0Ndk;
-	Mon, 01 Dec 2025 15:27:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ5oC-00000004BJV-1Jfg
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 15:27:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F280153B;
-	Mon,  1 Dec 2025 07:27:13 -0800 (PST)
-Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C054F3F836;
-	Mon,  1 Dec 2025 07:27:14 -0800 (PST)
-Date: Mon, 1 Dec 2025 16:27:12 +0100
-From: Beata Michalska <beata.michalska@arm.com>
-To: Lifeng Zheng <zhenglifeng1@huawei.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org,
-	viresh.kumar@linaro.org, sudeep.holla@arm.com,
-	gregkh@linuxfoundation.org, dakr@kernel.org,
-	ionela.voinescu@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-pm@vger.kernel.org, linuxarm@huawei.com,
-	jonathan.cameron@huawei.com, vincent.guittot@linaro.org,
-	zhanjie9@hisilicon.com, lihuisong@huawei.com, yubowen8@huawei.com,
-	zhangpengjie2@huawei.com, wangzhi12@huawei.com,
-	linhongye@h-partners.com
-Subject: Re: [PATCH v6 0/3] arm64: topology: Handle AMU FIE setup on CPU
- hotplug
-Message-ID: <aS2z0EURwHbbGZab@arm.com>
-References: <20251119081356.2495290-1-zhenglifeng1@huawei.com>
+	id 1vQ5zp-00000004CMb-2uD5;
+	Mon, 01 Dec 2025 15:39:25 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQ5zn-00000004CLu-3tVO;
+	Mon, 01 Dec 2025 15:39:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=NPVQoKY/aZD0UB0BL1z+oLrYlO2IF+aU7bt/Z0rB8n4j7v/xxGZFrp49RWitI1bk1Z3TrV/453Sy2e7GOsCuKsNLMj4PnewqUDp+LgkkAgzj8RAXbzCX8wDRoGGHp403AbuX7t1NfwSSS2mwNzL3mVLSiNXKB/vvUykhz4EGB8MAyMHBuUAmRnJoRDn7m/KYKivwHUDvBeibxrZTGV49epOq2YyFLQH1OOX6SrL8gA5N7H7uWgtApl666fcm6kWMeQjIbk+KSeJE30KeUMbxOgWOZPpL52G/48+OtPkMuoj/X5Q+piLdeyUsRVFpPq13EEcuM/HGkqsvGfCCpKa3Kg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=g5pJddiiVi+I6ruP2tsRuYChx3jw5dyVAn7BqFI0ndI=;
+ b=JoODuiNrYtTfCZnwlnVpP7RISXh94Ty6ZLDaZv7ZmGdeY+Sw4pfLymVBwFYgN72hiuLsKKEzwPTVHUgfQn+D6cJHXQIiIB4baOSV+wvfZNcvcL8KZFLbfKEg4eNRgSQpi5iA8QCxz2HH7YEc5e1CfuXJsWvcl6PToBJy9SEw2Wqho2ZHd5oOBnAuACVd9NY06mY8IOMIlPl7OVFePYNgQDOj1AAKMA3/OJUiKxFM+i8qPYTeCzyPjE/p3xgQdSVwNKCV3/5Y51m9xgit+FbOpkzQw2goQBz9Sxdp8hgKYymk0Y1ACICzy5ZN9o7qG+7JOFLwrw1dfgdgwBUZTAV5nQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=g5pJddiiVi+I6ruP2tsRuYChx3jw5dyVAn7BqFI0ndI=;
+ b=iawMQAKLIjLIxJKsGDcRfLt0zF6/Q9EA+adObKQQod/WkP85KvXkhS/oEBQ0ctYHc/c5IiSvMfwlYgZX+z39WVUO58+eiESBBRNZmXit/HnKXP0v07JLAdPF1832s8bSyVnA2FOZ/Kqp00XCiz7qJg1phvYzbn7QSpy2MJPXCJk=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from GVXPR04MB12038.eurprd04.prod.outlook.com (2603:10a6:150:2be::5)
+ by GV4PR04MB11775.eurprd04.prod.outlook.com (2603:10a6:150:2df::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Mon, 1 Dec
+ 2025 15:39:16 +0000
+Received: from GVXPR04MB12038.eurprd04.prod.outlook.com
+ ([fe80::1033:5a9a:dc18:dad]) by GVXPR04MB12038.eurprd04.prod.outlook.com
+ ([fe80::1033:5a9a:dc18:dad%4]) with mapi id 15.20.9366.012; Mon, 1 Dec 2025
+ 15:39:16 +0000
+Message-ID: <d10fde2d-9575-4e8a-a46f-4af1e44592f5@cherry.de>
+Date: Mon, 1 Dec 2025 16:38:59 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/9] arm64: dts: rockchip: Add power-domain to RK3368
+ VOP controller
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+ tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, andy.yan@rock-chips.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, cn.liweihao@gmail.com,
+ Heiko Stuebner <heiko.stuebner@cherry.de>
+References: <20251021074254.87065-1-heiko@sntech.de>
+ <20251021074254.87065-6-heiko@sntech.de>
+Content-Language: en-US
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <20251021074254.87065-6-heiko@sntech.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: FR0P281CA0163.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:b3::17) To GVXPR04MB12038.eurprd04.prod.outlook.com
+ (2603:10a6:150:2be::5)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251119081356.2495290-1-zhenglifeng1@huawei.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12038:EE_|GV4PR04MB11775:EE_
+X-MS-Office365-Filtering-Correlation-Id: ba968377-4d63-4aa2-c2a1-08de30efc8b8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|10070799003|376014|7416014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZXVXa1VMRTJYQVllK3FjVzJLUjdsdzR3RWs0Q3djWnRTYnBlT1ViOTY2N0dn?=
+ =?utf-8?B?VXJackYycWQvVFM2N3FMVmtrWWUwSDRvK0Y5SWlIYUkyQS82dHI2dlZTRVZG?=
+ =?utf-8?B?eW1Jcnl4SnQwbXBKSWVlTUFSOG1ZemNIQ0l1eWhEUkI5WU9udEpqc2tLdXJ6?=
+ =?utf-8?B?b3UyLzdDSHduek9qUlBHbG1ieEhGZldQcWRLUXRyRVdiR3p2MGZXRklwMHRx?=
+ =?utf-8?B?L1RSNXliZ3BpUTd1TWdTZjM2RkZMWjdOaGtnVTRidGlXb1dtT3ZaVVhFay94?=
+ =?utf-8?B?SFdIV1p5RGo2QktBVXJMTEhkNzFvSFlVL2N5dCt4RXRMVXI5dVBWM2lORmRy?=
+ =?utf-8?B?MUxsM3R5SjhTRnNxd3RRRjA3UzJveVJKSDJxTzluVWNNSjVFUXM3STdQU0JN?=
+ =?utf-8?B?ZCt6Q0lvNDNSUzRHeDRFZGh1d3JrbWRFTVBJV1JJMGhpdDdINHdUUXl3OFVh?=
+ =?utf-8?B?dWlsMnZHV3BqZE5uVlpSZEdtWURhb3M2QktJVFlWc2FMWmNzS3d1NUtvQ0pH?=
+ =?utf-8?B?WTJWQWhSR3gwNDk4ZFNURnoxbkJVbEFtdTQ3SlplZzhRTHJ6RkZaZDQ4NDlh?=
+ =?utf-8?B?K2ZxUkkzYndnSlhPeEtCU0RIL2xXUWc0Umdxb3Z0MUd6cGtXL0FUTERjU3NK?=
+ =?utf-8?B?MjA0VlN6OFdGcDlHR1RjTmM4U3U3NXcvam5jRm52K29zMTR6WVQ1M0ZRWDdJ?=
+ =?utf-8?B?eDJWdm4vTUVmTzdpbC9LWVFJYkE5R0FaVG43bnE2YlUyVWwxS2Uzd2NZUFVK?=
+ =?utf-8?B?RStCK3ZLV0oxWXNvUWI5NGhhdGYyVUppK2tRd2xwdVEyTkRxRzcxUVNsSnlF?=
+ =?utf-8?B?Q2VNZ1p1OUU3eFhQeTF6Y2tIRTg2d21FTmc5MjBFMGFYR1A0T2J1ZVlGaERR?=
+ =?utf-8?B?alM5TC9hTFBqc1M1Ykh3SWdqZXhYNmFmOFVnUEN1T1hnYTlqQzh2dVd0L3RT?=
+ =?utf-8?B?YkpEK2MzWWVJY1AwR2Z3d0dmaWF6OGk3UzJ3QW16L2Jub0t3ZmNaT1dYZzZW?=
+ =?utf-8?B?RmpEUFp5WTdTOEx2dTA3aDZhTEtSNms5L0ljS2xVbEZQdWJWTXI2ZDd2eWkr?=
+ =?utf-8?B?cStPWWFBWW0vOE9ubnNMUkR2U2RTMnZuRHp4TjNyMmtZWmVrR29ISFFyK1RN?=
+ =?utf-8?B?bDZDeXFQbENYbHNWQWdIMEtTNVRTQjdPa3JVUGJiZ0h1Q25mUVpzSWtlVTA0?=
+ =?utf-8?B?NkVHRVl2M2MrZml5MHZia0M4dlhWZEttRFVDd0NvbDBtWkJoUnI4ZXZPV3B3?=
+ =?utf-8?B?RnV4aEpsRWxlMXlvcURoY1BRVDlUMjJBckRYYnRRSzhpZG9BSFEzc3ZVdllZ?=
+ =?utf-8?B?M05ObzMwbDh2QnJPdG9NVDJWeDFUZW5vYXQ5SGlIc0luWnRENFQydjBNZXAz?=
+ =?utf-8?B?Uk85aDg0ZjVXYWJaMGFQZys0VkpvT2RJaXA3ZkVvNE1nUk1haURaL3U3eHI4?=
+ =?utf-8?B?cjZpZERwMjhpMXI4YnZrSWg2YnVTWlY2aVE4RmNXRkdyTW9aTk90ZHNudmNO?=
+ =?utf-8?B?d2JxQkdaQzR0RW5GNDJhQVdtYnlCK2gxejhSL3oyS3VtRmpRTHRGazBhZ1NH?=
+ =?utf-8?B?ajBuTXMwUUpkUW9Jdzc3b0szQ0ZXekYxNE9Pcmw1N0ltSzVvZitvZW82c2Ru?=
+ =?utf-8?B?VUJRM21kREZndzk4amZITGszdUFrRmhFSER6VGFRR2FmMkRLL2hIVXpRR2Rs?=
+ =?utf-8?B?azFHU0F6WTRKY29ENkYxUnZCV2hOVUx3T3pRaCsxaDM0WU9VVktRUVdMeTIv?=
+ =?utf-8?B?aThyWnE5YVBlcUIvN0FZcEMzVUpGa3ZqdHVDSGQvQklOOE9yZFlGbDZsQ3VK?=
+ =?utf-8?B?dng2cWY5YjhEY3Q5Z2JVWnRXYkgxYTQvWXFST3l1eVBnRUgxaG50aG1WaDYy?=
+ =?utf-8?B?T0F2MWJVQW51dTdobnhsSm9NWHFxQUoxQ1ZEUlJTRDNiSk5MMWF6LytvdThm?=
+ =?utf-8?Q?BctFANINo6PDNoA9bZFRQNn1JJYl241G?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12038.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(10070799003)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N1phRk1kN2s3Q3NUTk4rRVE2Q012UnV1UzI3UlgyQjRya3kzWnpQSWF5Wlla?=
+ =?utf-8?B?TTNudjJqMzhXZ1BRczJHaGFQSHlWaTZKTEkxVkZnbmd0TmRqVXdxbDNkZHJF?=
+ =?utf-8?B?UHlyZ2FXYUd1Vk1rTXIxWEcrVFZKTUJETmg5VmoyTXhjSW9pWVQzVDEzaWRi?=
+ =?utf-8?B?NW9GdzZvWXc3S1pCdWNLZ2dsTXI3bjc0U3E4RU5VWWNBSGluMzRIditCcDRk?=
+ =?utf-8?B?c0hhemhWQVVsQ2dIUmhvL3RoVjdLdWp5MVQ2SG5JUE83Ky9GeGs2Z3U3YlQ3?=
+ =?utf-8?B?ZWhHRlRLaW5SeVYycUp1bm5aajg3NVEwMmVVTDNMaElnYW82V1QzM0ViWHdO?=
+ =?utf-8?B?VTBpS2FKV3ZEUnJaNElYSXJiemhiU2tDNTNGZkhsNDI3U3JubDdIKzRESTc4?=
+ =?utf-8?B?b09iN29PRzFIakd6SUZqenpZMTNTMXpPYlJ2Z0F6dTN2d2U1WmRGSmlibzVX?=
+ =?utf-8?B?SFIwRTRuOWFkT3NjcVptblRneUs0UGZGVjhleW5NakxwUG53K1l1SjVsWjZ2?=
+ =?utf-8?B?eUZ6c2Zuc3hyd09SWkc2WXFUVXBYZWZ3VFl5bVhsUVd2cUZ6S2g5WVlkRDlD?=
+ =?utf-8?B?SDFaYUpvdm9nWHVoZ1NKbUZVeGlpYnZpVVlUMWg3amJKMk93cnl1enpXcmly?=
+ =?utf-8?B?azYvbzB1SGtYdVpnN09udmFXK1NtbUVjVEFWbFVNM05lWUVtenNXSXpSNUUy?=
+ =?utf-8?B?OFVYSEY2WmNZQmQ2cDlQa3JaYVRHcGFaTEFwOU5GazRNeUM0UmR3KzhXaWlp?=
+ =?utf-8?B?VVIxRUREUk9obFFlVFQxZzErQUp6L3VodzhMbXVxU1piYXFSV1hNbitpUSs5?=
+ =?utf-8?B?UkJpWTFDbm5FKzZVdCtRQjVnL0p6ZFpRcG9PYW1sMTZtN0xDcW1DN0NBRGh0?=
+ =?utf-8?B?c3FQODhwS2JieUQvRnBINUVra2NLOHZwY2Z5dkJyT1BDc0VUM1RPQWsxV1pu?=
+ =?utf-8?B?OEp6TkFxUnZFTW5wbnpSdjgyOWxaTG9zWTI3Rk10YUIrMGJxVDVtSFBGSlU1?=
+ =?utf-8?B?RnhwV0s4Y1RLNzd5dmVsWDRkdlpnTjNwelVBQS9aQ0lEMlJwbnl2T3hBc2o5?=
+ =?utf-8?B?N25IbFkyV1JMQ2c2V3lmTVJRM0tMWkIyc0dxMEdVZldJVDJPa1JYeHN5Vlly?=
+ =?utf-8?B?ZEtlbGc2ZjF5MHB1a3BkTHlralRSdHluVWJxdit0Sm0weXJwVHNNS2g1Rysz?=
+ =?utf-8?B?M1NQWFBQenl0YkpMeU5OR0Z3TUlWblpRRG0vMWQ2cjdJN3NEM0t5QVYvOEMx?=
+ =?utf-8?B?MjNUOFp5MTkvbVJWSjVQWExNM3o2eFpMSHBWd3g5K0NXU3lycjNuQzU3RVE4?=
+ =?utf-8?B?VXU1SWkybFRVaVVBeDNELzVKaHA2YVBSNE9CQmtzZy9QRlJheWwzT2lpZ2Ev?=
+ =?utf-8?B?dEhLdGpXei9aVjhzeVlvbHBuMElDNXV4Z2FMeVJXRmlUckxob1BTcDhpTTFz?=
+ =?utf-8?B?d0NTbHBaQk9GcUVNbG9hK3puTUkyb1dMV1dMa05OaWJIMzhDTnN5Si9IQXU3?=
+ =?utf-8?B?T1VUSkZNWFRUZldTVERmWTA2V1p0dnV2M3p5Z1NzQWRvQ055eTRaRXJnOVEv?=
+ =?utf-8?B?MTQ2ZGt4ODlUTmFLN01GcEdIVEN3QXI3ODJDTTFNZHJBWWRQRWVTRk9jeTNu?=
+ =?utf-8?B?ZHpxc3ZVS2QzUHE2RHF6akdBUFpxQjNOQkJMSUJTaWMwRVROT1BCWFVaWU5j?=
+ =?utf-8?B?UUluR3d2eTI1V2dubk1EYWZPN1BHN2NCbmZCMlZ6VDBQZkx0TlBSVDlHMVBi?=
+ =?utf-8?B?b01xVEx0MUJkeUNUS1RQVzlLaUxYT1JnYlFLbm1taG9PL2txbEdIYlcxM3Zw?=
+ =?utf-8?B?b1NuQVMzSnEzWlF1TE1YYjBrNG5DSlNWMjB0c0wweWsvNHRsV283UytWbi9l?=
+ =?utf-8?B?aDYyVUlCSmRvTmdxOWN2NXU4RnpzQVU2VEJ6SWlrSWE5a20rT0hQY1hWTmdz?=
+ =?utf-8?B?OVlxblVoN2lwVnZDTTJ0U0dwaVNMM2ZGaytwOXRnQlhibDM1QUdsSjV5VVFR?=
+ =?utf-8?B?S2pFQ1NNZUNBNDVWbm5RTlEzVldjNG1nMzEzVnF4dkxVQTBXcmw0bk5qYlJa?=
+ =?utf-8?B?cStpVXFFR0VKdjR4WWJleml0THhxUlZlOXlLWk94WDFETWZyNEQ5cXBZZ3Vx?=
+ =?utf-8?B?eXFOSXhOb3NYUmFJd0prcHJPR04zRUV0dG9ocGJYdERvTDZjNitGbVhqZXBB?=
+ =?utf-8?Q?d6HNw3ZNVFojYi4dm1Wokfs=3D?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: ba968377-4d63-4aa2-c2a1-08de30efc8b8
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12038.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Dec 2025 15:39:15.9966
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: UYdAuFhEUuS3sJ0ROtWZEYzP/1p8lQcuPiPrwf0xhqDR/saY9U/ineie6xvGyBzDBARcHSgs7QaYoJrgATnVFO6Bc2Bgl1b7XMJJm58+WHA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11775
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_072724_471862_8DA1A1FB 
-X-CRM114-Status: GOOD (  26.48  )
+X-CRM114-CacheID: sfid-20251201_073923_974487_BFDA246D 
+X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,88 +183,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Heiko,
 
-Apologies for the delay in reviewing this - currently in progress....
-Out of curiosity: what's the cpufreq driver used for testing this series ?
+On 10/21/25 9:42 AM, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+> 
+> The VOP is also part of the VIO power-domain and it definitely needs to
+> be on when accessing it to not cause SError faults, so add the
+> power-domains property to it.
+> 
+> Fixes: ef06b5ddee1e ("arm64: dts: rockchip: Add display subsystem for RK3368")
 
----
-BR
-Beata
-On Wed, Nov 19, 2025 at 04:13:53PM +0800, Lifeng Zheng wrote:
-> Solve a problem that causes CPUs Setup AMU FIE failed in a corner case,
-> even though they're eligible.
-> 
-> Changelog:
-> 
-> v6:
-> 
->  - discard the modifications in cpufreq.c, and instead, make
->    supports_scale_freq_counters() checks that at least one CPU in the
->    policy supports AMU FIE, instead of all
->  - based on Beata's feedback, optimize cpuhp_topology_online() to make it
->    more readable
->  - use pr_warn instead of WARN_ON to show warning message when the
->    freq_counters_valid() check fails in cpuhp_topology_online()
->  - modify commit message as Beata and Rafael suggested
-> 
-> v5:
-> 
->  - add a default implementation for cpufreq_cpu_policy() when
->    CONFIG_CPU_FREQ is not defined
-> 
-> v4:
-> 
->  - change the function's name in patch 2 from
->    'cpufreq_cpu_get_raw_no_check' to 'cpufreq_cpu_policy'
->  - use only one line in the function body of cpufreq_cpu_policy()
->  - use cpus mask instead of related_cpus when calling arch_set_freq_scale()
->    in cpufreq.c
->  - add a warning when the freq_counters_valid() check fails in
->    cpuhp_topology_online()
-> 
-> v3:
-> 
->  - add a patch to optimize amu_fie_setup()
->  - add a patch to add a function to get cpufreq policy without checking if
->    the CPU is online
->  - discard the reuse of amu_fie_setup() in cpuhp_topology_online() and keep
->    all the new logic in cpuhp_topology_online()
->  - test only the CPU which is going online in cpuhp_topology_online()
->  - when the freq_counters_valid() check fails, not only clear the scale
->    freq source but also clear all the related CPUs from amu_fie_cpus mask
->  - add some comments
-> 
-> v2:
-> 
->  - keep init_amu_fie_notifier for setting up AMU FIE when the cpufreq
->    policy is being created
->  - set up AMU FIE only for online CPUs instead of related_cpus in
->    init_amu_fie_callback()
->  - check and set all the online CPUs in the same policy when hotplug one
->  - clear scale freq source for all the online CPUs in the same policy to
->    avoid using different source of the freq scale
-> 
-> ---
-> Discussions of previous version:
-> v1: https://lore.kernel.org/all/20250607094533.416368-1-zhenglifeng1@huawei.com/
-> v2: https://lore.kernel.org/all/20250725102813.1404322-1-zhenglifeng1@huawei.com/
-> v3: https://lore.kernel.org/all/20250805093330.3715444-1-zhenglifeng1@huawei.com/
-> v4: https://lore.kernel.org/all/20250814072853.3426386-1-zhenglifeng1@huawei.com/
-> v5: https://lore.kernel.org/all/20250819072931.1647431-1-zhenglifeng1@huawei.com/
-> 
-> Lifeng Zheng (3):
->   arm64: topology: Skip already covered CPUs when setting freq source
->   cpufreq: Add new helper function returning cpufreq policy
->   arm64: topology: Handle AMU FIE setup on CPU hotplug
-> 
->  arch/arm64/kernel/topology.c | 67 ++++++++++++++++++++++++++++++++++--
->  drivers/base/arch_topology.c |  9 ++++-
->  drivers/cpufreq/cpufreq.c    |  6 ++++
->  include/linux/cpufreq.h      |  5 +++
->  4 files changed, 83 insertions(+), 4 deletions(-)
-> 
-> -- 
-> 2.33.0
-> 
+Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+
+Thanks!
+Quentin
 
