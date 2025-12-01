@@ -4,95 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89B0CD116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:25:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84C53D116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:27:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AOnEw3BZnfclp4gqXFuh5EU5EE3a2Dn8SHSXTdmn3IQ=; b=SMIg590pl5TgoGwettvFPqVa79
-	bV0YQo6LoscNGFH0c9In8v/87e3/R985aTb0/oBFK0PzNXQMdYMc+7PC1Dlqfs6vWHmPo1srBOhR3
-	qEkYdcYO4L7TLZLpB9J91thVU9XQw6PwmmQ/xbgxxo6TWIooI+tuv2slHxJhOOCu0GokRxESPBKK6
-	Ca5xh5lqEBbedrEsRoL7RtPeq7zjARFQzNKSKfVWi5cDyAw6U520KIUqfiQdvPGVXeEbtL8EZIRJu
-	CSy1/Z7+Ar+9QSNCdrZlzoUbJvC687G8t3pvbYUkG7JRZG5uqg4gOTCaoCqVxtoYPlkazFsK5Y/tY
-	y5ei+DGw==;
+	bh=8sGdiDw6g2aIC+kgdxh9j/4AxnFYgyT7fP0om/w0YQE=; b=lfUtqpeF+ve03cQfPwZWx+Kbrw
+	g/Oz8ajF2BGjcZ7lbGtQ9cz53wrbJdwH5aRxfep5bC3jr/8LLDab35CifytSTkhmX/E2Xi39iOa0y
+	M8vYqTedwiv52Nvx4VZY1M8XwDGa2sNnAB9K39tXGb7W5YvCRT77Y2JDwehXi9BMvViOsNHAJOP6R
+	8UaV4/EluDE6Obo+WiZoTB742ptSZNyFfBU0t+Wh6fGGt5amum1HCcr3M+6wwHO+lzrfbXWZx1z16
+	KQijHRi5E1dqwZ+OSmMoqxeJn5BYhIB2IYGh3R4ogwP49Tv7/ZkCCma5XlQygPv2YZO4GDBL60ij4
+	Ji/mp1LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ164-00000003K6r-0Hxl;
-	Mon, 01 Dec 2025 10:25:32 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vQ17X-00000003KZ4-47oG;
+	Mon, 01 Dec 2025 10:27:04 +0000
+Received: from mailtransmit04.runbox.com ([2a0c:5a00:149::25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ161-00000003K6T-0woD
+	id 1vQ17U-00000003KWT-1Qa4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 10:25:30 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-47774d3536dso31904945e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 02:25:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764584727; x=1765189527; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=AOnEw3BZnfclp4gqXFuh5EU5EE3a2Dn8SHSXTdmn3IQ=;
-        b=p/cpDUPbDdcfaGp1fy50K0rIFneqpKeW2zgBV0Ih7Y28pOp5s10/cRtbXa6YI9i/jr
-         fGrQS3+SEuRtwTw7jDCBWpgwHVbByOVMbMCiav/HobcWcZJ6MxgmU/7AUpWEZ6Owzwis
-         khljVkYm4tX07yM8xNnhdD8zfNAEPfUT2Go/kdUv/m+xRo6KhURqQsI2LkzPfDK/pMu2
-         WgY5mmbbQce9V1LzQz+xQVUiPGuKKZAUIRJPcLw/Mk5BHZ9DQ+tmXEEQFxfblN4MGn+J
-         ijNHsd3pJ+B1xWh4sxHP+gYBodyJEpxGgKuNOooAL4/qDPFR3PWHr8Q0gJ6YBO3p5n0N
-         O7Pw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764584727; x=1765189527;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=AOnEw3BZnfclp4gqXFuh5EU5EE3a2Dn8SHSXTdmn3IQ=;
-        b=cVh+Lg2OjsIFf/Oxg5/qceqgcN3bbBwnB2T5Zed/Ts+4OpATiFQ5VvUEpmjmdHSj9f
-         Ei7MiXvzKugtoL3d8UWoGKZ1V3vCDcq240FdAHuDTq0diZtyXclaGVlxi5KrJ/n/uyKS
-         BO94pKMsRutPs5uYb5IemYu7FPex+LDQP408G8iZjMFO3yiz98nT+MD3wLm6fD+gkmdG
-         ziPlbLipImQN+mtlF5agPy7ZB8zCMqB72x3MMPxaYWB88ETtW9xbuImgn2OGVIN7VFbh
-         2xFXZ4JWmpshNl7M4f3VmLWY6t90DNd8eEHxOqSSQ0dDnWxGIBuGbjHrjTAjHRQTeste
-         wToA==
-X-Forwarded-Encrypted: i=1; AJvYcCUlr7Ly98Xm5wYr2Z/UiddG6Z7A050xGqy57pnFz2KO+hlGNkb9sgFzfJDMpCBPbI0lnL/KBUZkPdOtWiUa7ILr@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUrSHxwDJhM7DuTnCPWv32JVJtLWbOAJ09W0LY9a783/ANGT7U
-	SUl8BAaJPPGUEdZ8MiC+zD0Nc2g0luDF7KTs0WqGItf1XMWXyBR1NWbpYUxPIkntACA=
-X-Gm-Gg: ASbGncu5Oz+flGZD3G4g/GPnBQlH7oSo7XZajeNpEyT1seKSUL/0oW8jvUFV6TYpGWf
-	GO0yIVDlF+cRGj8rVnKIfyRg+cxqXHo+2dIlsuboHP72bz/QJj7LO9DL5SAoeFXIkCG8adK/FUv
-	lS71N5YibkfU49T9vUxoamT1ucIg2i15WUS+y1pQNV7lFWTEPGpSVFGxPLaDZCXTZushiViKOfH
-	jedNdfQvnV8ENjrEMeHH/yWXZmQ+bZr3kx58MX/1BqrFK4V4K7WkzWbiUkJV54C+2PA8o49QjCj
-	wZEs0bJTVrIT9f8eTGoAtswZmyIDlMVDzz9bGQlav21QhA5Yc5YRRiRwYlD4mc1Deky2LReOP2f
-	IaI2E1CD0IaFtXPfRbOxV0vqL+RxDspWxlhaSclFAeQlfbvwy8ljz9ziFRBldbnEO3LLfwwhgFh
-	YxeYI6xBE+1DqdXacX
-X-Google-Smtp-Source: AGHT+IGqN47TqQgE3W2/IvK3HzwKJr3Fu8oiKkh2wb31imC8aKtsl+rRxsn5mYsKl7E7agf7UAaT6A==
-X-Received: by 2002:a05:600c:4eca:b0:46f:a2ba:581f with SMTP id 5b1f17b1804b1-477c0540a68mr422574995e9.16.1764584726968;
-        Mon, 01 Dec 2025 02:25:26 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-479040b3092sm153686955e9.1.2025.12.01.02.25.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 01 Dec 2025 02:25:26 -0800 (PST)
-Message-ID: <d7c17bc4-a7dd-42fa-8dd3-16a404a6d713@linaro.org>
-Date: Mon, 1 Dec 2025 10:25:25 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] coresight: etm3x: Fix cntr_val_show() to match
- cntr_val_store() behavior
-To: Kuan-Wei Chiu <visitorckw@gmail.com>, suzuki.poulose@arm.com
-Cc: mike.leach@linaro.org, alexander.shishkin@linux.intel.com,
- gregkh@linuxfoundation.org, mathieu.poirier@linaro.org, leo.yan@arm.com,
- Al.Grant@arm.com, jserv@ccns.ncku.edu.tw, marscheng@google.com,
- ericchancf@google.com, milesjiang@google.com, nickpan@google.com,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	Mon, 01 Dec 2025 10:27:02 +0000
+Received: from mailtransmit02.runbox ([10.9.9.162] helo=aibo.runbox.com)
+	by mailtransmit04.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.93)
+	(envelope-from <david.laight@runbox.com>)
+	id 1vQ17A-007cSW-56; Mon, 01 Dec 2025 11:26:40 +0100
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=runbox.com;
+	 s=selector2; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date;
+	bh=8sGdiDw6g2aIC+kgdxh9j/4AxnFYgyT7fP0om/w0YQE=; b=B0r4zwnIdjTV3MYep6gUPns+zZ
+	THazDeh9bhz2Ex9diTPzPm77uZV97qEOLXNwpCKgJgFVzDL1hEkJSk5DScUvlyJnQoj4bIpkUJHOS
+	troE4+pu6DeekF8Muzp5olhtvkZv/9c1c4itUA6dA1cXIdVCUeJEghE/LRa+tmvcrAzAvoyokqKYb
+	2HljkpoZlWQyqr8FUEdJ/AiwJAEZASom7U8aFtr5srhmUXW1+X2k45cEQijMXAANPtn0XyNQj4Tvf
+	FS88vSC17g1lKPiJ1ln3u0pgYdKqqTyrGh15aDNA3ZRH8uBTWnrQskPEHe2fUl0WwsugIVMbo+NXA
+	Qpw6K99A==;
+Received: from [10.9.9.73] (helo=submission02.runbox)
+	by mailtransmit02.runbox with esmtp (Exim 4.86_2)
+	(envelope-from <david.laight@runbox.com>)
+	id 1vQ178-0005ri-0O; Mon, 01 Dec 2025 11:26:38 +0100
+Received: by submission02.runbox with esmtpsa  [Authenticated ID (1493616)]  (TLS1.2:ECDHE_SECP256R1__RSA_SHA256__AES_256_GCM:256)
+	(Exim 4.93)
+	id 1vQ176-008sUH-7s; Mon, 01 Dec 2025 11:26:36 +0100
+Date: Mon, 1 Dec 2025 10:26:33 +0000
+From: david laight <david.laight@runbox.com>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Jinjie Ruan <ruanjinjie@huawei.com>, linux@armlinux.org.uk,
+ catalin.marinas@arm.com, will@kernel.org, chris@zankel.net,
+ jcmvbkbc@gmail.com, akpm@linux-foundation.org, macro@orcam.me.uk,
+ charlie@rivosinc.com, deller@gmx.de, ldv@strace.io, rostedt@goodmis.org,
+ tglx@linutronix.de, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
-References: <20251201095228.1905489-1-visitorckw@gmail.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20251201095228.1905489-1-visitorckw@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH 2/2] arm64: Avoid memcpy() for syscall_get_arguments()
+Message-ID: <20251201102633.17a99afc@pumpkin>
+In-Reply-To: <aS1qYhHhZK3CD_bU@J2N7QTR9R3>
+References: <20251127123630.4149828-1-ruanjinjie@huawei.com>
+	<20251127123630.4149828-3-ruanjinjie@huawei.com>
+	<aS1qYhHhZK3CD_bU@J2N7QTR9R3>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_022529_310888_818F6F93 
-X-CRM114-Status: GOOD (  24.30  )
+X-CRM114-CacheID: sfid-20251201_022700_708661_47F69575 
+X-CRM114-Status: GOOD (  22.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,80 +84,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 1 Dec 2025 10:13:54 +0000
+Mark Rutland <mark.rutland@arm.com> wrote:
 
+> On Thu, Nov 27, 2025 at 08:36:30PM +0800, Jinjie Ruan wrote:
+> > Do not use memcpy() to extract syscall arguments from struct pt_regs
+> > but rather just perform direct assignments.
+> >=20
+> > The performance benchmarks with Generic Entry patch[1] with audit on
+> > from perf bench basic syscall on kunpeng920 gives roughly a 1%
+> > performance uplift and also aligns the implementation with
+> > x86 and RISC-V.
+> >=20
+> > | Metric     | W/O this patch | With this patch | Change    |
+> > | ---------- | -------------- | --------------- | --------- |
+> > | Total time | 2.241 [sec]    | 2.211 [sec]     |  =E2=86=931.36%   |
+> > | usecs/op   | 0.224157       | 0.221146        |  =E2=86=931.36%   |
+> > | ops/sec    | 4,461,157      | 4,501,409       |  =E2=86=910.9%    |
+> >=20
+> > Before:
+> > <syscall_get_arguments.constprop.0>:
+> >        aa0103e2        mov     x2, x1
+> >        91002003        add     x3, x0, #0x8
+> >        f9408804        ldr     x4, [x0, #272]
+> >        f8008444        str     x4, [x2], #8
+> >        a9409404        ldp     x4, x5, [x0, #8]
+> >        a9009424        stp     x4, x5, [x1, #8]
+> >        a9418400        ldp     x0, x1, [x0, #24]
+> >        a9010440        stp     x0, x1, [x2, #16]
+> >        f9401060        ldr     x0, [x3, #32]
+> >        f9001040        str     x0, [x2, #32]
+> >        d65f03c0        ret
+> >        d503201f        nop
+> >=20
+> > After:
+> >        a9408e82        ldp     x2, x3, [x20, #8]
+> >        2a1603e0        mov     w0, w22
+> >        f9400e84        ldr     x4, [x20, #24]
+> >        f9408a81        ldr     x1, [x20, #272]
+> >        9401c4ba        bl      ffff800080215ca8 <__audit_syscall_entry>=
+ =20
+>=20
+> It's probably worth noting that __audit_syscall_entry() only takes 4
+> syscall arguments, and hence the compiler has elided the copy of
+> regs->regs[4] and regs->regs[5], which it apparently couldn't manage
+> before.
 
-On 01/12/2025 9:52 am, Kuan-Wei Chiu wrote:
-> The cntr_val_show() function was intended to print the values of all
-> counters using a loop. However, due to a buffer overwrite issue with
-> sprintf(), it effectively only displayed the value of the last counter.
-> 
-> The companion function, cntr_val_store(), allows users to modify a
-> specific counter selected by 'cntr_idx'. To maintain consistency
-> between read and write operations and to align with the ETM4x driver
-> behavior, modify cntr_val_show() to report only the value of the
-> currently selected counter.
-> 
-> This change removes the loop and the "counter %d:" prefix, printing
-> only the hexadecimal value. It also adopts sysfs_emit() for standard
-> sysfs output formatting.
-> 
-> Fixes: a939fc5a71ad ("coresight-etm: add CoreSight ETM/PTM driver")
-> Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
-> ---
-> Build test only.
-> 
-> Changes in v2:
-> - Redesigned the fix to match cntr_val_store() logic (display only the
->    currently selected counter) instead of attempting to list all
->    counters.
-> - Removed the loop and the "counter %d:" prefix.
-> - Switched from sprintf() to sysfs_emit().
-> - Refactored control flow to use a single return point.
-> 
-> v1: https://lore.kernel.org/lkml/20251121002350.1166758-1-visitorckw@gmail.com/
-> 
->   .../hwtracing/coresight/coresight-etm3x-sysfs.c   | 15 ++++-----------
->   1 file changed, 4 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> index 762109307b86..a6a650331196 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> @@ -717,26 +717,19 @@ static DEVICE_ATTR_RW(cntr_rld_event);
->   static ssize_t cntr_val_show(struct device *dev,
->   			     struct device_attribute *attr, char *buf)
->   {
-> -	int i, ret = 0;
->   	u32 val;
->   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
->   	struct etm_config *config = &drvdata->config;
->   
->   	if (!coresight_get_mode(drvdata->csdev)) {
->   		spin_lock(&drvdata->spinlock);
-> -		for (i = 0; i < drvdata->nr_cntr; i++)
-> -			ret += sprintf(buf, "counter %d: %x\n",
-> -				       i, config->cntr_val[i]);
-> +		val = config->cntr_val[config->cntr_idx];
->   		spin_unlock(&drvdata->spinlock);
-> -		return ret;
-> -	}
-> -
-> -	for (i = 0; i < drvdata->nr_cntr; i++) {
-> -		val = etm_readl(drvdata, ETMCNTVRn(i));
-> -		ret += sprintf(buf, "counter %d: %x\n", i, val);
-> +	} else {
-> +		val = etm_readl(drvdata, ETMCNTVRn(config->cntr_idx));
->   	}
->   
-> -	return ret;
-> +	return sysfs_emit(buf, "%x\n", val);
+Hasn't it actually inlined it and completely optimised away the regs[] arra=
+y?
+It looks (from the asm) as though syscall_get_arguments() is followed by:
+	fn(regs[0], regs[1], regs[2], regs[3])
 
-Sorry I missed this on the previous version, but this should be %#x to 
-add the "0x" prefix. All the other ones in this file have it. Otherwise 
-you can't tell the difference between decimal and hex.
+    David
 
->   }
->   
->   static ssize_t cntr_val_store(struct device *dev,
+>=20
+> > [1]: https://lore.kernel.org/all/20251126071446.3234218-1-ruanjinjie@hu=
+awei.com/
+> > Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+> > ---
+> >  arch/arm64/include/asm/syscall.h | 8 +++++---
+> >  1 file changed, 5 insertions(+), 3 deletions(-)
+> >=20
+> > diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/=
+syscall.h
+> > index f3853047c28e..f3564ba97f7e 100644
+> > --- a/arch/arm64/include/asm/syscall.h
+> > +++ b/arch/arm64/include/asm/syscall.h
+> > @@ -82,9 +82,11 @@ static inline void syscall_get_arguments(struct task=
+_struct *task,
+> >  					 unsigned long *args)
+> >  {
+> >  	args[0] =3D regs->orig_x0;
+> > -	args++;
+> > -
+> > -	memcpy(args, &regs->regs[1], 5 * sizeof(args[0]));
+> > +	args[1] =3D regs->regs[1];
+> > +	args[2] =3D regs->regs[2];
+> > +	args[3] =3D regs->regs[3];
+> > +	args[4] =3D regs->regs[4];
+> > +	args[5] =3D regs->regs[5];
+> >  } =20
+>=20
+> FWIW, I think this is clearer than the 'args++' and the memcpy(), so I'm
+> happy with this regardless of the performance concern.
+>=20
+> However, as Dmitry says, we should keep this structurally the same as
+> syscall_set_arguments(), and so we should update that in the same way.
+>=20
+> Mark.
+>=20
 
 
