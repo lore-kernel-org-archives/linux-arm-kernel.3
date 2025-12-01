@@ -4,74 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B16DD116FA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 08:29:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD3FED111A8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 08:38:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ppoOPua4SMfUwCREkyTFD6SUvqumbmnNVbKih19LUGo=; b=4xWyvnbswJLPrE15LwmwPvsKC2
-	l0cYKeQesmkM/zB9ZcPt+2uYKWaUZijpnctQfc5NR/+5X0UnZ81rZkgA1n8YXJwDB6r/BIWp9Q4HN
-	jJuzF7yx0v6NnM4JXj++pV8Coi6DATkkNIfu9F8p8hvUe4F4o9wjt22KO/RVkQmB/3J/HH0BW7uuV
-	2HQihqAG4Zf56cQ4k9PNHxnkeaUmJPc2DtRurO6SFTxRbzt6N6QE4Os3iF2WnGLYNTHy1ca5NKSGl
-	DWlZRtjwklUQPEPxLCNiNcehQw4O8nphSVTIu84QsCkPJBJ/2meFrQVC16jBdLzsVBifcPcGMDO1v
-	ptIzhj4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Fdsl6S3ioHgYoCqvK0QeiqzxEQL+Mh+cixlA3h2nr40=; b=SwegKhHhQeTTHbaIk7F5/7JuaP
+	K1JwBaWeMkecvjYl4wFzMh8pJ5RzvD3Lpz2xKXyrAynSM3vhh/IVdXHITYFdZdwqI01QM5+IbrXrJ
+	KicMZHL57dOmEz7nsC7yEbved1cVMSnVXqaiyeiyYTA3aO/aRn9FO3sIqMAB/oKfr8JocW6eX1NQN
+	l3xq0e3Gks14XDb+Zq3pOP533ct/3cBmYwu1vGT8oz5BM0Xc7KrHgtZlbq28xLpemOdSp/O16dtwo
+	Eiy14R632Ytsu2MNWmghfCLI/8X+IslKfBm05YHeK6OBCpexiEzNLxquefgjWYOx2RgHQIsSefpiR
+	PAkkBcJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPzHm-0000000374x-35rL;
-	Mon, 01 Dec 2025 08:29:30 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1vPzQ5-000000037hl-3GR7;
+	Mon, 01 Dec 2025 08:38:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPzHj-00000003744-3aks
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 08:29:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1764577767; x=1796113767;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=nnOflrQf9c+yPiN7JaFu2F8hdPCaEh5dnJ4Ub1sQvQE=;
-  b=ykCkKUY/SCYE2vR7+lJk/wU83PMkSK2PXu/0vHqu3T8g9iiAPkLZRTso
-   HA6x6NGumxgVM2Rtpzk8YYOxlsfzksIbRjJ79ytdpIPNd4WXAaPO2uASG
-   FEcJjwq3TEqZFQWATDp3B8Tyb5kdnRm2MP1Vlnp64XKAHrwLD4KhoUfPk
-   7L0ip16Heq52T7NhadcGu0JlZnV5f4p44aRrSI9Ojv9Cpi0RIjhvhh8Ig
-   CABXtbma5rcEXVO+IG8yTm3XG0r3MjSS/nqiZoe6hVQfIdIAHk0QPZlv4
-   yPELcjCzPMI1Buu94fyvcWSlkBoN3ZSJ2dp2tKXO3abdmfq7MJ4FgCHVy
-   A==;
-X-CSE-ConnectionGUID: Jt19qymKQxqm5dx5AqyGaw==
-X-CSE-MsgGUID: SVtlS4eqTZCguy3xjYIe+g==
-X-IronPort-AV: E=Sophos;i="6.20,240,1758610800"; 
-   d="scan'208";a="56483965"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 01 Dec 2025 01:29:24 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Mon, 1 Dec 2025 01:29:19 -0700
-Received: from DEN-DL-M31836.microchip.com (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Mon, 1 Dec 2025 01:29:16 -0700
-From: Horatiu Vultur <horatiu.vultur@microchip.com>
-To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <wsa+renesas@sang-engineering.com>,
-	<romain.sioen@microchip.com>
-CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Horatiu Vultur <horatiu.vultur@microchip.com>
-Subject: [PATCH v4 0/2] ARM: add support for pcb8385
-Date: Mon, 1 Dec 2025 09:26:27 +0100
-Message-ID: <20251201082629.2326339-1-horatiu.vultur@microchip.com>
-X-Mailer: git-send-email 2.34.1
+	id 1vPzQ3-000000037hF-2vjM;
+	Mon, 01 Dec 2025 08:38:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9179B40ABE;
+	Mon,  1 Dec 2025 08:38:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCB9BC4CEF1;
+	Mon,  1 Dec 2025 08:38:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764578282;
+	bh=vgbgKs+CIgCE3wPA/E4Yb6WCwekK3Mvgjmi/ncx+CRM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LRQuh49SNTjWYzSLBlfkC54mDUI09XOgjyRgmn11odtLc5TTQfWnuLNy4bSxNg/cK
+	 0bU7fI2M136nd9qFVZm9/tEF33O1LDYZU4W4JKOOEySm3cMFu3uMKjEHBehsStNkhd
+	 CKd5EDbtaLDZSvJQySIksO2D+vKI8m3oBwfYya7rusTqzkNXjuZIcXAs7vWQOs0O53
+	 5KXYoGAvYGFO6W79QoXI1wlM3HqGhrzblroWDYv9ttbovUu9ArXDhL4EnLG6MqOKsO
+	 +e7VyF6yeuj2Gg3P+Zdz7dpbr0qRI1hgx9aNMqrjJ63pH6D+I9mddqVq74kS4Y4tDo
+	 DWgcPkMh2kFeQ==
+Date: Mon, 1 Dec 2025 14:07:58 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Vladimir Oltean <vladimir.oltean@nxp.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-phy@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Daniel Golle <daniel@makrotopia.org>,
+	Horatiu Vultur <horatiu.vultur@microchip.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Eric Woudstra <ericwouds@gmail.com>,
+	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
+	Lee Jones <lee@kernel.org>,
+	Patrice Chotard <patrice.chotard@foss.st.com>
+Subject: Re: [PATCH net-next 5/9] phy: add phy_get_rx_polarity() and
+ phy_get_tx_polarity()
+Message-ID: <aS1T5i3pCHsNVql6@vaman>
+References: <20251122193341.332324-1-vladimir.oltean@nxp.com>
+ <20251122193341.332324-6-vladimir.oltean@nxp.com>
+ <20251124200121.5b82f09e@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251124200121.5b82f09e@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_002928_109893_528814D4 
-X-CRM114-Status: UNSURE (   9.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251201_003803_775967_7D0C7635 
+X-CRM114-Status: GOOD (  17.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,31 +92,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add pcb8385 and the documentation for it.
-This is a moduler board on which it can add different daughter cards.
+On 24-11-25, 20:01, Jakub Kicinski wrote:
+> On Sat, 22 Nov 2025 21:33:37 +0200 Vladimir Oltean wrote:
+> > Add helpers in the generic PHY folder which can be used using 'select
+> > GENERIC_PHY_COMMON_PROPS' from Kconfig, without otherwise needing to
+> > enable GENERIC_PHY.
+> > 
+> > These helpers need to deal with the slight messiness of the fact that
+> > the polarity properties are arrays per protocol, and with the fact that
+> > there is no default value mandated by the standard properties, all
+> > default values depend on driver and protocol (PHY_POL_NORMAL may be a
+> > good default for SGMII, whereas PHY_POL_AUTO may be a good default for
+> > PCIe).
+> > 
+> > Push the supported mask of polarities to these helpers, to simplify
+> > drivers such that they don't need to validate what's in the device tree
+> > (or other firmware description).
+> > 
+> > The proposed maintainership model is joint custody between netdev and
+> > linux-phy, because of the fact that these properties can be applied to
+> > Ethernet PCS blocks just as well as Generic PHY devices. I've added as
+> > maintainers those from "ETHERNET PHY LIBRARY", "NETWORKING DRIVERS" and
+> > "GENERIC PHY FRAMEWORK".
+> 
+> I dunno.. ain't no such thing as "joint custody" maintainership.
+> We have to pick one tree. Given the set of Ms here, I suspect 
+> the best course of action may be to bubble this up to its own tree.
+> Ask Konstantin for a tree in k.org, then you can "co-post" the patches
+> for review + PR link in the cover letter (e.g. how Tony from Intel
+> submits their patches). This way not networking and PHY can pull
+> the shared changes with stable commit IDs.
 
-v3->v4:
-- override i2c0 using labels instead of having it under flx0
-- override usart3 using labels instead of having it under flx3
+How much is the volume of the changes that we are talking about, we can
+always ack and pull into each other trees..?
 
-v2->v3:
-- remove the linux,default-trigger properties
-
-v1->v2:
-- sort nodes in alphanumerical order
-- move the eeprom nodes under i2c0
-
-Horatiu Vultur (2):
-  dt-bindings: arm: at91: add lan966 pcb8385 board
-  ARM: dts: Add support for pcb8385
-
- .../devicetree/bindings/arm/atmel-at91.yaml   |   6 +-
- arch/arm/boot/dts/microchip/Makefile          |   3 +-
- .../boot/dts/microchip/lan966x-pcb8385.dts    | 131 ++++++++++++++++++
- 3 files changed, 137 insertions(+), 3 deletions(-)
- create mode 100644 arch/arm/boot/dts/microchip/lan966x-pcb8385.dts
-
+BR
 -- 
-2.34.1
-
+~Vinod
 
