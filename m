@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40D0AD116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 12:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4AD2D116F5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 12:19:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bhs/w4n7C6UsKMN7y5LsZwKB+2Ippd8myXz2SXsdfNE=; b=oVEZzFkmptppSToeY/cll3SA2t
-	xLqmmEArJmKgCx7rvyGYYUpcrlh7M07CwIyYgRxCgEm1cFRB/lnBg5QIT/imgFW3uKPa6XIgv9a74
-	TXEE+ptRZz3Y4lOCdiSoJJO/l72jz53IcJRuuBZpG9NW85FPqT6churKkEsu38lsE5a3tB0jXum8+
-	7LG7xRTfIDhPde7ehpjCYn0qRqnbVMQoJ3aK5gg9yL3mc0T5LP9qvjnbOtZJMojbZZZkk1Dhg3rxN
-	ss940vzS7v9Af6W5q7R96symmDhUJZ+McDAkLjLi9sLoUwpJhcgqB2m2av1GgPHGdTOEPrleZa6MJ
-	j5R6pxLg==;
+	bh=C5tiusaovgOh42WQxyxO5AVwt+kC7aucycTDUbxnK/k=; b=2kAroExweJPdFCdRl4D5wDesxN
+	ZuiBlIcPJ7L1a70PgDJYf2Sf904VFk2749R0uF//OLps//nGia6DLb5xkTuNt8tUhDIky44veTK7w
+	ddbKOSiETI2qEyS6Y+L+X2Ovjkbb8UVSShYvjNfnXOAgE36QBK2syHuIIVnsPwr7G4jIxXWO94D+w
+	OF8ziGIKyUS8lDT55MXDwFmQXZxKydAauoZKGGbCuC7TWHLA3/zzDIpPRfg+vzmlXyFA1sd6zejam
+	k+OjdR5mFuNC0Ppy6HaKIqAvNZvBwDk7omAMO67NelNxZZhhwplzX2J0nWFOOn0pjE3tL6pvK82f1
+	2gShsjwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ2sP-00000003X0Z-2Tqy;
+	id 1vQ2sP-00000003X0M-1EH7;
 	Mon, 01 Dec 2025 12:19:33 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ2sJ-00000003WuY-4BKw
+	id 1vQ2sJ-00000003WuI-0iFU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 12:19:30 +0000
+	Mon, 01 Dec 2025 12:19:29 +0000
 Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id B539D1980;
-	Mon,  1 Dec 2025 13:17:09 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id AE53F1857;
+	Mon,  1 Dec 2025 13:17:07 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1764591430;
-	bh=HImP//WnYQGaIVnRGV8vnLGfK9wmJZI0DJI76lsYq7k=;
+	s=mail; t=1764591428;
+	bh=ByjBVUei+ODI9OwRRSMJhh8nY+tr2DfcyXbhauCknhU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=c8tJGU2yy63x70nzkL5c4gGlfIXFtNDSozR+QiaDzat4YZFXevG6NeNJ87G26ZSE5
-	 c7Nb8YlUgGdP4Odz9HJp77zPLpzXkT/6gRM3Ubl5ZsyJriWiJ/lKvopjpw3qlfkAAq
-	 aVNgp5P/KO28eNiSlI3zO4FZG+n2Q1YkUM0oBFcI=
+	b=I27oFRn44TnEFbYgDXPEJcV0rvPvks6KvMMsDk5sa0cwbn8LYbL5nN8Gd1t+0GgC8
+	 THaA+UQWR6KJqBL9vZ+pDkW6GWhI53AeK2TINd5NXJsQ3vMVrZHPaNRdx2C9cgBQ12
+	 0errFXmV6DXEHQR2rt1X6beb0JB/J978KM/Idbzc=
 From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Mon, 01 Dec 2025 14:18:46 +0200
-Subject: [PATCH v7 04/11] drm/fourcc: Add DRM_FORMAT_Y10_P32
+Date: Mon, 01 Dec 2025 14:18:44 +0200
+Subject: [PATCH v7 02/11] drm/fourcc: Add DRM_FORMAT_XV15/XV20
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251201-xilinx-formats-v7-4-1e1558adfefc@ideasonboard.com>
+Message-Id: <20251201-xilinx-formats-v7-2-1e1558adfefc@ideasonboard.com>
 References: <20251201-xilinx-formats-v7-0-1e1558adfefc@ideasonboard.com>
 In-Reply-To: <20251201-xilinx-formats-v7-0-1e1558adfefc@ideasonboard.com>
 To: Vishal Sagar <vishal.sagar@amd.com>, 
@@ -59,28 +59,28 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>, 
  Pekka Paalanen <ppaalanen@gmail.com>, 
  Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
- Pekka Paalanen <pekka.paalanen@collabora.com>
+ Dmitry Baryshkov <lumag@kernel.org>
 X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1655;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2251;
  i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=HImP//WnYQGaIVnRGV8vnLGfK9wmJZI0DJI76lsYq7k=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBpLYfD9erbPekQghNS0tqPeCOocJ4YiqmLH+AAj
- MkWhwKVrdWJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCaS2HwwAKCRD6PaqMvJYe
- 9S7dD/91+z84gcDJGvMHs61P9yJygLCzTk1QXj0gcbcc+WH/UhbcJd72A+KhYWLuqHMoZSN5jnz
- 8FbAS/S/o2xjp4lLRUtQSnIh8yQO5jJvFFQ1qT+p8gOvhPFSF7jpFKQr+B/rXxtB2Yfc9fi15IR
- oiBphfO5TIrHIMjoPG7vN9aJdnwgBJIh7k5WjSrMAcQr1WqrNuGw3tmiROdwPgTM5TrLzNLnL+i
- K19fr2zTrKq5bmYdCEw6cC+va4drNuddwLS9FVnot6MuNHmePN5vyi0+5nGkHj6gKe4Cb5nPBWw
- xwiVX0LuRu3AD9fJT3LdUpnvv8tbj1hdF4vF2Ad23jdhyc2VAls/RT2lBj7niiF/sEt7zzGqN65
- 4WhqeGb4RQzD87y0MHzZj00T2UxnrG705jP/j1kcE/fa5aXnXs8PuDWVLgdA7TTvAjyMmWr6gDk
- tk0ZwyagYzMkf5zRqnXZeJCdwxTsbXT+nuGxFBlDX8j1mcbmHB2lb5ZQlISDT68vxMKTdZxd6TM
- Tjk0TEDt1Gyx5caPtpGjVrsO3S/1EW23YLi26CXf3/11kk3fNNtSlrUs3mstykqy8fWnb/9VgQK
- J1N1mFDZJYAc2FQZsvNOBd6Tw7rtqWmJg/vm+G2IScFhG3qlWicmypv/Kb0zN79xVjh5ElRaIY+
- s6pZpbxikNe3xDQ==
+ bh=ByjBVUei+ODI9OwRRSMJhh8nY+tr2DfcyXbhauCknhU=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBpLYfCKMP7YbbSN1PJCnhkAr7BsGY6TGUJqNhPe
+ x2UvyE1c4GJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCaS2HwgAKCRD6PaqMvJYe
+ 9QsgD/9PlUHZV4eNlUJEU4INjX/3QZq+p3FzEj9nnX5emxr0Z4U8erT3/9ZIwALzl/92Kn/K7QO
+ x7QTNdDUteu1MoW6JKuQ3TBYvwzMO9vfHgKPwQi5Zq8QM/0sSUR/7f7RqnSwyGXLmS415aGa0gX
+ sgKL/qiotPq4nKiedHk0wQL8kdqMX62hTzeveS+VZ/dcIEtDBrLAEgbKuArR93uygJ3Gp2k6MIN
+ bp+g3AvBMXJ1fytHSWlDaXdBxIkSHwRmCkfkyA94QCXcyb6uDIEWAsu9HhDlB1dqmg7sYxVqrRR
+ DqxSvEPSqbqiPVu7eqaQ74PnzR/rFPrSRU73R0Gz6sbjmsYQUQydqwhENvmcbWM0VLt6PfEZxtE
+ TPBEMFMd9mRcnVKZu2BCq8WfRcXsJrdyVesVn40e9sAeadkFi3IughO17f0K7K/ww+8KIhaPX+Q
+ CLrsSwproLz41rfXGLPrwavdchqWRs6gC3kiHuFYGRjpsM3U0yoQTuVPfN5WweSDUbaZKygoGnq
+ 4owx+0l0ivVU8/rBkEf/OnvEY5Qn3O21lJuDKQp5Z9DxFmEaShGfK4DSJFtikbTSWsrYhOsCvbU
+ FnGUpIg0yJLszWs+68tUBF05AQhYTYhpC2xNneSPMQzOUA37HsISg18jtrhhpr9Uja8oL0KVoMi
+ Tzq4hzhP7Ls+0dw==
 X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
  fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_041928_176846_36664B3C 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20251201_041927_369682_B478A5AF 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,46 +95,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add Y10_P32, a 10 bit greyscale format, with 3 pixels packed into
-32-bit container.
+Add two new pixel formats:
 
-The fourcc for the format is 'YPA4', which comes from Y - Y only, P -
-packed, A - 10 (as in 0xA), 4 - 4 bytes.
+DRM_FORMAT_XV15 ("XV15")
+DRM_FORMAT_XV20 ("XV20")
 
+The formats are 2 plane 10 bit per component YCbCr, with the XV15 2x2
+subsampled whereas XV20 is 2x1 subsampled.
+
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 Reviewed-by: Vishal Sagar <vishal.sagar@amd.com>
-Reviewed-by: Pekka Paalanen <pekka.paalanen@collabora.com>
 Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 ---
- drivers/gpu/drm/drm_fourcc.c  | 3 +++
- include/uapi/drm/drm_fourcc.h | 1 +
- 2 files changed, 4 insertions(+)
+ drivers/gpu/drm/drm_fourcc.c  | 6 ++++++
+ include/uapi/drm/drm_fourcc.h | 8 ++++++++
+ 2 files changed, 14 insertions(+)
 
 diff --git a/drivers/gpu/drm/drm_fourcc.c b/drivers/gpu/drm/drm_fourcc.c
-index a39b9d7a5b62..0d222f6c1a30 100644
+index e662aea9d105..b22ef86428a1 100644
 --- a/drivers/gpu/drm/drm_fourcc.c
 +++ b/drivers/gpu/drm/drm_fourcc.c
-@@ -388,6 +388,9 @@ const struct drm_format_info *__drm_format_info(u32 format)
- 		{ .format = DRM_FORMAT_XV20,		.depth = 0,  .num_planes = 2,
- 		  .char_per_block = { 4, 8, 0 }, .block_w = { 3, 3, 0 }, .block_h = { 1, 1, 0 },
- 		  .hsub = 2, .vsub = 1, .is_yuv = true },
-+		{ .format = DRM_FORMAT_Y10_P32,		.depth = 0,  .num_planes = 1,
-+		  .char_per_block = { 4, 0, 0 }, .block_w = { 3, 0, 0 }, .block_h = { 1, 0, 0 },
-+		  .hsub = 1, .vsub = 1, .is_yuv = true },
+@@ -381,6 +381,12 @@ const struct drm_format_info *__drm_format_info(u32 format)
+ 		{ .format = DRM_FORMAT_S416,            .depth = 0,  .num_planes = 3,
+ 		  .char_per_block = { 2, 2, 2 }, .block_w = { 1, 1, 1 }, .block_h = { 1, 1, 1 },
+ 		  .hsub = 1, .vsub = 1, .is_yuv = true},
++		{ .format = DRM_FORMAT_XV15,		.depth = 0,  .num_planes = 2,
++		  .char_per_block = { 4, 8, 0 }, .block_w = { 3, 3, 0 }, .block_h = { 1, 1, 0 },
++		  .hsub = 2, .vsub = 2, .is_yuv = true },
++		{ .format = DRM_FORMAT_XV20,		.depth = 0,  .num_planes = 2,
++		  .char_per_block = { 4, 8, 0 }, .block_w = { 3, 3, 0 }, .block_h = { 1, 1, 0 },
++		  .hsub = 2, .vsub = 1, .is_yuv = true },
  	};
  
  	unsigned int i;
 diff --git a/include/uapi/drm/drm_fourcc.h b/include/uapi/drm/drm_fourcc.h
-index 5cfc188c4e72..0fd99ae32a06 100644
+index e527b24bd824..6c786701238e 100644
 --- a/include/uapi/drm/drm_fourcc.h
 +++ b/include/uapi/drm/drm_fourcc.h
-@@ -469,6 +469,7 @@ extern "C" {
-  */
+@@ -322,6 +322,14 @@ extern "C" {
+ #define DRM_FORMAT_RGB565_A8	fourcc_code('R', '5', 'A', '8')
+ #define DRM_FORMAT_BGR565_A8	fourcc_code('B', '5', 'A', '8')
  
- #define DRM_FORMAT_Y8		fourcc_code('G', 'R', 'E', 'Y')  /* 8-bit Y-only */
-+#define DRM_FORMAT_Y10_P32	fourcc_code('Y', 'P', 'A', '4')  /* [31:0] x:Y2:Y1:Y0 2:10:10:10 little endian */
- 
++/*
++ * 2 plane 10 bit per component YCrCb
++ * index 0 = Y plane, [31:0] x:Y2:Y1:Y0 2:10:10:10 little endian
++ * index 1 = Cb:Cr plane, [63:0] x:Cr2:Cb2:Cr1:x:Cb1:Cr0:Cb0 2:10:10:10:2:10:10:10 little endian
++ */
++#define DRM_FORMAT_XV15		fourcc_code('X', 'V', '1', '5') /* 2x2 subsampled Cr:Cb plane 2:10:10:10 */
++#define DRM_FORMAT_XV20		fourcc_code('X', 'V', '2', '0') /* 2x1 subsampled Cr:Cb plane 2:10:10:10 */
++
  /*
-  * Format Modifiers:
+  * 2 plane YCbCr
+  * index 0 = Y plane, [7:0] Y
 
 -- 
 2.43.0
