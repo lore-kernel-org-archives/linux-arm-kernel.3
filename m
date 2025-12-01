@@ -4,103 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFC6BD116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:12:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A623D111A8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:14:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BIc1ORsdqXrHQZmcm3T4RqPQTVnz73ZuzxcB4K7bmF4=; b=Qj75FyQ+bp90FJLlrjp2lqD80L
-	ydAY2fQPTrqna02VvWVy4pCP/G5To+QpGZK+h+awMUnuzMqlLPNx9mP1DEsbL4UVpMxQqOoqWlqyc
-	zDz05rQsC22VfBauNElgj1FOAoJDKFFc60hY2qGlOX5O6bJbt2vXOzQZbWmybTrPRQiPwuubrKkOU
-	uXyKeiEml+dIde6+Pzfu5nVD7OIUsY7TGezdinoermX1zgLm40NvCWnOrJpvN8OQDD7+6ARs2Rx3G
-	PrFNFWX3j9o9ZNLhhc2beVXKirzJFBur4ne3fjHDdZ/YfQa01Cte7C3vmURGfqe4HOWL/fKAR1KfC
-	C9OiM+UA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=C//JOKMQQVhq74SdcbEm6r0tZ93bnR7w3Mc5YX+hJxg=; b=3n9kwl23x0Qg5vweb1Z1Y82lgr
+	lrnxLdgjBDSYOG0MN3yTzElG3UfaxbUaYeexEqP1Dk134xuz2t6cPMsUyVFdo1PzTXczQm9lG+q4K
+	WaBkO7MZHrbcJCCbXsxlWWl+mNpsuUBRCy8AR9+374nwK+a7O8EUJRgsCz1rS0HHKld0WYqx1Yurf
+	vRnYcDtWsymXbR5HaWCJntUVhwqfMNawNChKGi8LfUNeuS8TTfHOqtELp1ZZ1VfXqH5Y3OS49t5zA
+	uW/sE6/Cyg2HB7j/8flNmwsc7OowAwBQXsWK5qP5Q/ZPiqKH8fkRVMUlfm/tjqcAhAexNRX1rA8t0
+	tRpWL1ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ0tH-00000003IHA-2Y3E;
-	Mon, 01 Dec 2025 10:12:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ0tF-00000003IGl-2Ptk;
-	Mon, 01 Dec 2025 10:12:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C16D96014C;
-	Mon,  1 Dec 2025 10:12:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59AADC4CEF1;
-	Mon,  1 Dec 2025 10:12:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764583936;
-	bh=VWwSyZL/rmxZX2up7gqGT7NwoNunVBjLI2L900RZA/A=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=azux+cwIwlaOaNoECx0iNcm7VRUokBqjw1FeRPp7wuCwHoMaSkdb7l0loRKGqqNta
-	 trkSE2NP5BaWGJBaDywo+HoYMFHQjIHavwB+Dd/XddbUHmJatzXivrlAF32zEf219W
-	 Nk6kQJpOt9v/JyoizCPM3pM4KSlD9P3FFPGLUVeLotvCtLqLFbh7TEY9vu/Y8nzoVl
-	 Im+foPPAAhh3TcceGgZdVKUVHBByVcLYg2N3HQPTP9PSCP1n893Lrw9k2wtOUh4QuF
-	 Tfmq18C5OKXHUWPaRPF3sOz+q5r09hH+W+jDNA5Ewp63bvnOcRMkAehOFUZyzRAz75
-	 kYiza0O0supOA==
-Message-ID: <f27dc5ef-1c60-4724-8e18-33bbc4230d3e@kernel.org>
-Date: Mon, 1 Dec 2025 11:12:12 +0100
+	id 1vQ0uw-00000003IXa-3QDI;
+	Mon, 01 Dec 2025 10:14:02 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQ0uu-00000003IWu-1jvu
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 01 Dec 2025 10:14:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 40082497;
+	Mon,  1 Dec 2025 02:13:52 -0800 (PST)
+Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 403413F73B;
+	Mon,  1 Dec 2025 02:13:57 -0800 (PST)
+Date: Mon, 1 Dec 2025 10:13:54 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org,
+	chris@zankel.net, jcmvbkbc@gmail.com, akpm@linux-foundation.org,
+	macro@orcam.me.uk, charlie@rivosinc.com, deller@gmx.de,
+	ldv@strace.io, rostedt@goodmis.org, tglx@linutronix.de,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] arm64: Avoid memcpy() for syscall_get_arguments()
+Message-ID: <aS1qYhHhZK3CD_bU@J2N7QTR9R3>
+References: <20251127123630.4149828-1-ruanjinjie@huawei.com>
+ <20251127123630.4149828-3-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] dt-bindings: arm: rockchip: Add HINLINK H28K
-To: Chukun Pan <amadeus@jmu.edu.cn>, Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-References: <20251201100008.206524-1-amadeus@jmu.edu.cn>
- <20251201100008.206524-2-amadeus@jmu.edu.cn>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251201100008.206524-2-amadeus@jmu.edu.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251127123630.4149828-3-ruanjinjie@huawei.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251201_021400_569423_BD9925AB 
+X-CRM114-Status: GOOD (  17.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,33 +67,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/12/2025 11:00, Chukun Pan wrote:
-> The HINLINK H28K is a dual-gigabit SBC based on the RK3528 SoC.
-> Add devicetree binding documentation for it.
+On Thu, Nov 27, 2025 at 08:36:30PM +0800, Jinjie Ruan wrote:
+> Do not use memcpy() to extract syscall arguments from struct pt_regs
+> but rather just perform direct assignments.
 > 
-> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+> The performance benchmarks with Generic Entry patch[1] with audit on
+> from perf bench basic syscall on kunpeng920 gives roughly a 1%
+> performance uplift and also aligns the implementation with
+> x86 and RISC-V.
+> 
+> | Metric     | W/O this patch | With this patch | Change    |
+> | ---------- | -------------- | --------------- | --------- |
+> | Total time | 2.241 [sec]    | 2.211 [sec]     |  ↓1.36%   |
+> | usecs/op   | 0.224157       | 0.221146        |  ↓1.36%   |
+> | ops/sec    | 4,461,157      | 4,501,409       |  ↑0.9%    |
+> 
+> Before:
+> <syscall_get_arguments.constprop.0>:
+>        aa0103e2        mov     x2, x1
+>        91002003        add     x3, x0, #0x8
+>        f9408804        ldr     x4, [x0, #272]
+>        f8008444        str     x4, [x2], #8
+>        a9409404        ldp     x4, x5, [x0, #8]
+>        a9009424        stp     x4, x5, [x1, #8]
+>        a9418400        ldp     x0, x1, [x0, #24]
+>        a9010440        stp     x0, x1, [x2, #16]
+>        f9401060        ldr     x0, [x3, #32]
+>        f9001040        str     x0, [x2, #32]
+>        d65f03c0        ret
+>        d503201f        nop
+> 
+> After:
+>        a9408e82        ldp     x2, x3, [x20, #8]
+>        2a1603e0        mov     w0, w22
+>        f9400e84        ldr     x4, [x20, #24]
+>        f9408a81        ldr     x1, [x20, #272]
+>        9401c4ba        bl      ffff800080215ca8 <__audit_syscall_entry>
+
+It's probably worth noting that __audit_syscall_entry() only takes 4
+syscall arguments, and hence the compiler has elided the copy of
+regs->regs[4] and regs->regs[5], which it apparently couldn't manage
+before.
+
+> [1]: https://lore.kernel.org/all/20251126071446.3234218-1-ruanjinjie@huawei.com/
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 > ---
->  Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
->  1 file changed, 5 insertions(+)
+>  arch/arm64/include/asm/syscall.h | 8 +++++---
+>  1 file changed, 5 insertions(+), 3 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
-> index d496421dbd87..8d6e2b28e51a 100644
-> --- a/Documentation/devicetree/bindings/arm/rockchip.yaml
-> +++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
-> @@ -718,6 +718,11 @@ properties:
->            - const: hardkernel,odroid-m2
->            - const: rockchip,rk3588s
->  
-> +      - description: HINLINK H28K
-> +        items:
-> +          - const: hinlink,h28k
-> +          - const: rockchip,rk3528
-> +
+> diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
+> index f3853047c28e..f3564ba97f7e 100644
+> --- a/arch/arm64/include/asm/syscall.h
+> +++ b/arch/arm64/include/asm/syscall.h
+> @@ -82,9 +82,11 @@ static inline void syscall_get_arguments(struct task_struct *task,
+>  					 unsigned long *args)
+>  {
+>  	args[0] = regs->orig_x0;
+> -	args++;
+> -
+> -	memcpy(args, &regs->regs[1], 5 * sizeof(args[0]));
+> +	args[1] = regs->regs[1];
+> +	args[2] = regs->regs[2];
+> +	args[3] = regs->regs[3];
+> +	args[4] = regs->regs[4];
+> +	args[5] = regs->regs[5];
+>  }
 
-Just squash these two binding patches. Way too much churn. Anyway, looks
-like duplicate - two devices with same model name. You have entire
-commit msg to explain that.
+FWIW, I think this is clearer than the 'args++' and the memcpy(), so I'm
+happy with this regardless of the performance concern.
 
-Best regards,
-Krzysztof
+However, as Dmitry says, we should keep this structurally the same as
+syscall_set_arguments(), and so we should update that in the same way.
+
+Mark.
 
