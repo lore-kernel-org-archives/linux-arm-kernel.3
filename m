@@ -4,86 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46139D116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 16:26:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39A2ED116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 16:32:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xYjd7tbJoh2y06N1DtuzIzlxdeNR0195+Wn0hvKR0ic=; b=gZo8riByMTEUHoJZjJueH2uft2
-	PUHLKFrPyCoWldmxJgPgXQWhkt0H4NWkk4NLLMB+HrpVrSYYTN1xa6brNyH4seWvOX6tWSy13wBm7
-	ISC58lGYqxiaxFCyR4vZyFbtFkpMGaOqK7fKsKySi4qx9qyRD5XGozydWz37fFdENC8aiqPi01wnF
-	mu/JiONvYLgUn2yKMHoH8dq2u1fV4rE8Fj4ZyaPmK5w5R9deq24DdfELUvjml1jlKVhgELmi4eslx
-	pfvIjAeJySON/dMlc+ItP7ZkyVQOqxrhMjxpTLkmn2gJMzHCxIIxDdX4plOtKkZzoCVLeJyMi3Eis
-	dtoqXzSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MByC5Sp5WhZsz7ZTxJas9o7CPOVqF5PRwoKhkEt6qTE=; b=wAVLZorzcnw0j0v8Z0D0TeC9A4
+	UQTW5Ii31VJ65QnG8XHGmbni+eEfXtP+diQBqrIeuacolYHLolw8cqSmKdDIRP+uUGbaVB5o57DU2
+	ahtUoChdHVhMOmzZhl+l4LTeVBX3Op+bV0oBDNCalWN6Dovx0lwKyt8axlF3AShWL1ftoprFmkYKP
+	78naXjxbslkWn2+/fML+8W08J/5tf1t1GhHXgC2EFuYJkqPfHQER1e8USg+R71z9KnwtAIxHjh8Xk
+	kXc/vRrYVBzRIFcsyKO8vUEiibJJzNfOIpxvh2/fyoZiEeO+8LDeqQK6sh8gf+On2V+UYDSE+pVQE
+	0wWY8itA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ6jV-00000004GA1-0cKi;
-	Mon, 01 Dec 2025 16:26:37 +0000
-Received: from smtp1.ms.mff.cuni.cz ([2001:718:1e03:801::4])
+	id 1vQ6oj-00000004Ga9-1gfW;
+	Mon, 01 Dec 2025 16:32:01 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ6jS-00000004G8j-09ws
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 16:26:36 +0000
-X-SubmittedBy: id balejk@matfyz.cz subject /postalCode=110+2000/O=Univerzita+20Karlova/street=Ovocn+5CxC3+5CxBD+20trh+20560+5C/5/ST=Praha,+20Hlavn+5CxC3+5CxAD+20m+5CxC4+5Cx9Bsto/C=CZ/CN=Karel+20Balej/emailAddress=balejk@matfyz.cz
-	serial F5FD910E8FE2121B897F7E55B84E351D
-	issued by /C=NL/O=GEANT+20Vereniging/CN=GEANT+20Personal+20CA+204
-	auth type TLS.CUNI
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mff.cuni.cz;
-	s=submission; t=1764606330; x=1765906330;
-	bh=xYjd7tbJoh2y06N1DtuzIzlxdeNR0195+Wn0hvKR0ic=; h=From;
-	b=Wh7fwvhJEouVlTgDON3WupDZPYB7g4nvZwcCpS58k42c0vTl077ww5vK8jNWPhvEZ
-	 yZXxieNs7zDu7Gzwwfrq5qOcG5gse/vVohNJBOtHzbBNm6Kad04k/nsZdTtE7h7Ugg
-	 8yUk59ho8+vq2HHB5E6Z5LG4ZOKu2R4py1wYupLEusmu/8DA4nTUfuBHYoEO9BGTXe
-	 OKU0IeE3kFJw1EMdCiZF4YGtrztWrQkkIiXiQv11x42DZg9WTwi4RbT5Ju4KO6QLrc
-	 P/BMYHBe4f3B/+XU2wJvwvH6ZDba+5wrrKnB2WHf7sGW/AvnqRKkG8LozFOlwA85WB
-	 jF+cuEvPP8OEg==
-Received: from localhost (internet5.mraknet.com [185.200.108.250])
-	(authenticated)
-	by smtp1.ms.mff.cuni.cz (8.18.1/8.18.1) with ESMTPS id 5B1GPSs0006348
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=OK);
-	Mon, 1 Dec 2025 17:25:29 +0100 (CET)
-	(envelope-from balejk@matfyz.cz)
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 01 Dec 2025 17:25:27 +0100
-Message-Id: <DEN0QJT6O8BU.3INUCXH1I0P0F@matfyz.cz>
-Cc: "Johannes Berg" <johannes@sipsolutions.net>,
-        "Rob Herring"
- <robh@kernel.org>,
-        "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
-        "Conor
- Dooley" <conor+dt@kernel.org>,
-        =?utf-8?q?Duje_Mihanovi=C4=87?=
- <duje@dujemihanovic.xyz>,
-        "Andrew Lunn" <andrew@lunn.ch>,
-        "Gregory Clement"
- <gregory.clement@bootlin.com>,
-        "Sebastian Hesselbarth"
- <sebastian.hesselbarth@gmail.com>,
-        "Brian Norris"
- <briannorris@chromium.org>,
-        "Ulf Hansson" <ulf.hansson@linaro.org>, "Frank
- Li" <Frank.Li@nxp.com>,
-        <linux-wireless@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-mmc@vger.kernel.org>, <~postmarketos/upstreaming@lists.sr.ht>,
-        <phone-devel@vger.kernel.org>, "Jeff Chen" <jeff.chen_1@nxp.com>,
-        "Peng Fan" <peng.fan@nxp.com>, <david@ixit.cz>
-Subject: Re: [DONOTAPPLY RFC PATCH v2 0/4] WiFi support for
- samsung,coreprimevelte
-To: "Francesco Dolcini" <francesco@dolcini.it>
-From: "Karel Balej" <balejk@matfyz.cz>
-References: <20251026182602.26464-1-balejk@matfyz.cz>
- <DEJL1ATTQMVE.120JV9YW59I27@matfyz.cz>
- <aSnWYS2g5slVFaSk@gaggiata.pivistrello.it>
-In-Reply-To: <aSnWYS2g5slVFaSk@gaggiata.pivistrello.it>
+	id 1vQ6og-00000004GZj-2nzy;
+	Mon, 01 Dec 2025 16:31:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Jy4QD3ZScuNPSnbIEVU1YTVr8cMGK4v/cPzaScoGsaZ0o2L9fLNUEwNxJnehZg5uVUS/c6XN/M1yxuoXPcGBHapx+ELJUdwCmLH5Nq8KHrQ5pE31HUc+Q8NScJHLdXXNYdc4iFetTmcB4feHXg3gUg4yhQJjBpxZCOZ4e4UlNfnQa3E97cXqnsA9Tj0LpuDv6mmkfPcFWqKoU3puTMI7jXZeZmBtHicnlMMXKPvD3Y1+DB14DV4vggIPAM4gpWVhlCBYps4exqOLGZz+rl9DQ72eRU3odiirvwaugrszZZnhmt99rhjpv0kXG4yHeT4pcEEvt45L12hGBEU3A8VzzA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MByC5Sp5WhZsz7ZTxJas9o7CPOVqF5PRwoKhkEt6qTE=;
+ b=VR+UGxAt3QEqYRuko8C/uNbUDgcAuUzwVjlR/d54knyqBpDXi7Ij1AhTlhbpZIkIO7KBk++4Jx0JnZgHKQY31oFGSpq0gAXiQtT2zrbbr4F94UAhtZjqOWoTfByGDsLqeSH/UpM9oh4TnJ9soHAKBnBw/8B4xGK9WLqxhPhp6Y76lU2MEdu0ceDpku1L/p91QBKw7PVO3HGosij2t9WdCzIRr2yU6h6xNNqV7J4H2zzKjJMYM2D2y5Q0puueCB9MQ/D/KxLSUP8VQnKaHfqXkluuqM8BMZ3NR3ySftyinozwAxQOZ69trmCspxpzeiaDN4I4dNpNKmO64PqwpRXg7g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
+ dkim=pass header.d=cherry.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MByC5Sp5WhZsz7ZTxJas9o7CPOVqF5PRwoKhkEt6qTE=;
+ b=URknUD6zOSgFfzJFC5HAddCNVF4sIgh191b37zBKHl6Q0h+m5GRFBxjzX/CQyYr0Fbp7YC6G9P7Aw9KbaO/NLvgrHMdYYINQsFiX9dDRq3J5WpTfepu5DSUqPyelwv7jnuK4wLG2lAqfJs8DEcNGOrDqqsouZc83dicqh+TBZxA=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=cherry.de;
+Received: from GVXPR04MB12038.eurprd04.prod.outlook.com (2603:10a6:150:2be::5)
+ by MRWPR04MB11519.eurprd04.prod.outlook.com (2603:10a6:501:76::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Mon, 1 Dec
+ 2025 16:31:51 +0000
+Received: from GVXPR04MB12038.eurprd04.prod.outlook.com
+ ([fe80::1033:5a9a:dc18:dad]) by GVXPR04MB12038.eurprd04.prod.outlook.com
+ ([fe80::1033:5a9a:dc18:dad%4]) with mapi id 15.20.9366.012; Mon, 1 Dec 2025
+ 16:31:51 +0000
+Message-ID: <f8af1ebc-c002-4f14-95bc-082474d8f187@cherry.de>
+Date: Mon, 1 Dec 2025 17:31:44 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 8/9] arm64: dts: rockchip: Enable HDMI output on
+ RK3368-Lion-Haikou
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+ tzimmermann@suse.de, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, andy.yan@rock-chips.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, cn.liweihao@gmail.com,
+ Heiko Stuebner <heiko.stuebner@cherry.de>
+References: <20251021074254.87065-1-heiko@sntech.de>
+ <20251021074254.87065-9-heiko@sntech.de>
+Content-Language: en-US
+From: Quentin Schulz <quentin.schulz@cherry.de>
+In-Reply-To: <20251021074254.87065-9-heiko@sntech.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: WA2P291CA0037.POLP291.PROD.OUTLOOK.COM
+ (2603:10a6:1d0:1f::17) To GVXPR04MB12038.eurprd04.prod.outlook.com
+ (2603:10a6:150:2be::5)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GVXPR04MB12038:EE_|MRWPR04MB11519:EE_
+X-MS-Office365-Filtering-Correlation-Id: fd0ad5f6-24ad-4420-aa6d-08de30f721c9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|7416014|1800799024|366016|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bEhBVnp2L01zdFZ6VnBicXErZmZyNmFHcmdvcTR2dkJYejYxQWtrYjFkRVlw?=
+ =?utf-8?B?TUo2TTNkMTRnOXhDZUFZaXZidzVLNGNXeWI1SWQzdTEyTFp4SldHcms4c2hr?=
+ =?utf-8?B?R0RXN1BwVUVVaVpsQXhyNTRPNlhoRmlIeGVUK0p2bFYrVFVLQzAxY2xkOUNy?=
+ =?utf-8?B?SFd2MEFhazgrRXNHNEhnVXJ1QmZUcDBNdE5NQmVmbEw4Q1dGdkJ3R1hIdkR1?=
+ =?utf-8?B?dGthb0UzeE1pbGdZdjc2UGVPUlprN0thQzk1cjhFZUQ2MS9GNjV0eVQwTWhD?=
+ =?utf-8?B?M045bS9iT0w1SkIvZVVkSHI4UHZUZG9wMlFieHRBU3BlWmpoYTZiZkNyNmlj?=
+ =?utf-8?B?dExWTEVUcUdpUGpVQnNmVWZGRm9aT0dZZTNtRkdVS0tWb1I3VGVlM2xEZUdU?=
+ =?utf-8?B?YnhSODZmWG9pbDJtLzZmWjk5T1N3a2QyRGVKLzVUQ3Z2UDFUK2lZdENiTlRr?=
+ =?utf-8?B?OEU2c3VvNTBXaGFsd0JDNms5d0hTVVNZL1NuajFldFF6QmRFSUVYdVk1emwv?=
+ =?utf-8?B?NkI1RFBRb2FONVh4MDZJU2JpSUdreGhhSUZjdmJmYUFJWEp1YU90c2ZzS1dy?=
+ =?utf-8?B?dXJwY2dYcXU1YjdWek96OHVuUmFnRy9aVVIxSHJreHBjOGtPbkYzaHZ0OXVB?=
+ =?utf-8?B?b2hEN2ZVd1daOWpVVnFWY051MmJlaS93UTJEUTVaTnN0bnVaTk80b2pEN3d1?=
+ =?utf-8?B?U3FmeTBvVGhlTzFBYWY5MDJxa1l3cHB6aHlWZkdEc0hrVDNrSnVrQUtoQU1p?=
+ =?utf-8?B?WUlPZjlJS0lPbUUwWFBqUk8zd25DUFJxS0pMV0l1N2F3WWV4NEVIRm9DRFc1?=
+ =?utf-8?B?MHVPODFwR2pUNUgvMnJpTzA4SHpjeTI4dm5iVDlmamp6eHR5N3dqQXZMS1F6?=
+ =?utf-8?B?K3JMa1lIWjl5dnVzMWVyUTVIakRCMy91Slg4b0UwbFZRY3lYSTR4NEVQRm1E?=
+ =?utf-8?B?NlB5b3ZvRUFXUDhycXdDQ3dzQ0V3bWJZTWhqRlhNY1A3dHVVNHpCUm90Y29K?=
+ =?utf-8?B?YnpVVGlDWXhqR0xGMDl6dTVuTWhOSFJUQytyYzRFVXB5cTc4RExZM1pUcThW?=
+ =?utf-8?B?RWF1MTVWODdPYktCY0ZOVTJEYS9CTk1CMHJzUFdtMkJiclZ3aGdzMjVkc2ZF?=
+ =?utf-8?B?SU1hbWhhWGY2UDlxYU4vRTlQMWM5ZkJiY2t1a0w3c1Nzc1lYMTFjNWw2TFNL?=
+ =?utf-8?B?YjN5YTZCVmsyU1dxbStqWkVQbnU3eUhlUU5FYm55SW15SWowRTB5bks2ZVVN?=
+ =?utf-8?B?SzY5ZkJ1KzhiNm5qUkxaN3lGdEtMWFpYQ2xGdU1MMUpZaUkvOXhkb2hEeXdv?=
+ =?utf-8?B?dy9ZTTU4cjlDckZFc3ZEeXZab1Z0bkY2dk0xNi9Bd1FVSVBzQ2VydmpnUzhY?=
+ =?utf-8?B?ek5JZDBGTGxINW91bXYraWp1NHN6N1Voaytab2NGbkc1R3ZuZEEyenFhaUQz?=
+ =?utf-8?B?QnJEeDdLVnUzbUhLZFZjajNoM1orL3J1K3RqVGw0T3dPVS83aHZjSm9xWUhz?=
+ =?utf-8?B?UFRIS1MzbkhmTVdtL2hycENSc2pqM1d3OU4xM3lJZFZmNjNNNy9HYzlxSnR4?=
+ =?utf-8?B?TW9CVkRZa2RPZFEyTzVOVmplN24yNVRXUmo2Q1pibWllMDFHUFh0aW83YTZO?=
+ =?utf-8?B?cGFDYWFoMlZuNXBQZjRaQUFEM3lralNHWXZWQ3FRWlBLb0ZiY3M2WDNvOExG?=
+ =?utf-8?B?RHJLVFVTL29wVVB3a1VQOWVDaHNvYWJQaDBuZEVWMHBlUktObXVIQysrSVFj?=
+ =?utf-8?B?V1NUdXhJZTdzc0Iza1hiQmZNbU1wUURVb2FBVmZTbWl4djFyajdlbHZvV09R?=
+ =?utf-8?B?clNabERmRDdvemcwMXNRKy9Kc1pxYzJtUlB5Nk1CaHdsUUNkMndrZjFhZ2g5?=
+ =?utf-8?B?aFRjek12ZG0vVHJDeE9EVTU3ZEovU0JPVm5VM2JJVUJNdk1iUXpZbnNRdnZn?=
+ =?utf-8?Q?G0OeHnB+8wOUiHxXHDUbl/uzAzinJOC4?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12038.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(7416014)(1800799024)(366016)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TmNIM2xXUWQ3V0d0eGtLbEE3MkpnYjRzMkZSRDNwZ3Y5am95RmN1V0hKRWVK?=
+ =?utf-8?B?NVhHbzIzeVVyK2dhSVV2WFNtYnFpQjJqNFQzSVpuZUtVbSttenBWYUl1RVM2?=
+ =?utf-8?B?RzVLeTBYKzdyUkhOdmU0MnhPRW40QWVNUXNtbEhid0RDTFZGUVA0YTZ2NlJH?=
+ =?utf-8?B?MHQreHphaFlkRjJvaWdOaFhGY1d6MkhYWlcrOUpMUmU0YXFrSmhUSnRwMDFn?=
+ =?utf-8?B?MjMyZ2VuRjZuRDgyZHhIMUpsNyttUGVQdFZRSkZTZTJWM1RWbzRoRkJRN3Bv?=
+ =?utf-8?B?bjE2d1VaaDQxc21XWmRXK2J4UUh0aktUd3JoWjlxNTNUazZLTXkvbU1idWNz?=
+ =?utf-8?B?bTFtTWhyODBST01nQlk1YS9hNnh3emRucDh3bHcwTWRyeVl2bzFmQnV2MGVj?=
+ =?utf-8?B?T2FlUmZXbXorMXdINzR3ZVJEQ1pvdndQZ1d6MnVaKzcycllIM3g3SHZWZnln?=
+ =?utf-8?B?Rm83bWJNSWlYcUhnOS94WHlsTXQ4cEVBS0M3SVZ0SVFqMmNJRFQ5aS9NbENx?=
+ =?utf-8?B?WldLWER4Vm9BUnczZ2R0TFpDRFJvclZIMzdGNmRsT1ZEZGlXZzlvWkZiV0NW?=
+ =?utf-8?B?YUxmSWpsUWdqVktCS3B4Yi93WVpVdlBBeGdSVFN4THhOejcyWnoweDBsMUc1?=
+ =?utf-8?B?QVRWaE1ONm51aHdHUGFwWDhjTlJUOUt0bkU1dkZDZndGcEE1eUZsK3RMK2Zl?=
+ =?utf-8?B?OElqRWE2QVVtTCs2Vk1DdGdjejlRc1BFbGk0WHVMcTltSXZ5YXlmbDIzMFly?=
+ =?utf-8?B?MWZQNFhhVWVpNHViaWsyVXVaRlcyY2tEckdJTGFsYlN0R0k3N1pPNWV3bXRo?=
+ =?utf-8?B?R2NCL003TEl3VjVFaXJ6dWpndXlKd1B2UUlVYWs1VFVEWkVoWnFxY1crWUZm?=
+ =?utf-8?B?elI1SzZCcnJrQnVLbTQwN21sWk02TmltR3VUTTQ0ZFlYaHBIUW1KVjB2dDV6?=
+ =?utf-8?B?dGVFUTdsTnhxSll6aU1DMGhzZkpuNmt0aUx6S0UvcWtWYzNveUxwY0lCS0NS?=
+ =?utf-8?B?d2o0UHMvVTZKNTF0bmlCbEtIWVNaV3VCTkY4R1RDbGFISW5uSnROaTI2QWFy?=
+ =?utf-8?B?MW5EMURGTjdUTnBPNDI1YzRGaUF1dmhuTEZtNU5XQ0NLTStrTHM0dWJoOFZq?=
+ =?utf-8?B?ZzFaRXdJQVNnKzIyUnpXaTREa0pyOWloS0RLY01sMmxSQU5vNE4zbE9KOXhn?=
+ =?utf-8?B?N2N1N2Fsb0h3WjVwd3AzTmF2bzNSYmx3WFZ5WVM4L2VzV2dDUTdwUmpqeGVZ?=
+ =?utf-8?B?NnppWnVzOGptcUErd0grUGdDRG1VUHBRN0s4a3lTRXl5SXJOV3BaenFMaGNU?=
+ =?utf-8?B?Z0Q4eXB0eDFSUWhkckpsakZTdDhKd3RudkpBUmdIdFptN0gyaVVQSzdKOFFr?=
+ =?utf-8?B?bkJRblA3V1gxaFAvdjVpT0cxd2FYL1RiQlREODZFNjhEclcrSG92WnpWeTlM?=
+ =?utf-8?B?by9KSmh3enEvcC9iZXJPVXFvNnJLSVlYOGVBREF3enNqT1RtbUk0T3FZMSts?=
+ =?utf-8?B?bjNOdGRjYUF0cmkyUzJVY0E4K3JKTXVWUHk4K2FsZlZPVVlUOWl5MmJFZkxH?=
+ =?utf-8?B?Yzd6bzQ4OWI3dGFiS3BSeVBEUWJndzJDeW1CM2NjU2t2V0wya3AvMitGUG42?=
+ =?utf-8?B?c3FlcWV2NUVmSFlLK0hyWmJoK29DSTlDZUVOUXFLanNQbDcyVG43THdWQXI0?=
+ =?utf-8?B?SHNrRFMyRHBVbUJ5WitpcTFNSHFCZVh0YnZUN1V5eEtBOSt5UWxFbVBoaEw4?=
+ =?utf-8?B?Q3hiMXh4ckkxWkxqaTlBbWMvN2g2ZU1WcXB3M1pkOFVyY00ycHYwbGRZZmxm?=
+ =?utf-8?B?OU1SaiswMTJzUEVjQi9PUmNpZzFsRmkwU3B0eW1mZkZ5c3FqRGVZWHRRazJi?=
+ =?utf-8?B?RUhKYUNKNGFXWlpkRnFkUmh4UlY2RXBTWmM2cm16TTIxQjlNdnpIOHpGUFZ4?=
+ =?utf-8?B?WVBEZXl0b0JkL1A0bW5zdHh6MWtOdGdXdUdQTnc4bTI3Y2l2Qnk3ZmR2bkUz?=
+ =?utf-8?B?TGc2c2s1Y2hjQlJ2MmNJK0loNVUxRHlnVDczcW9rdGpQenlvekdwRVRlUE9W?=
+ =?utf-8?B?b0k3UjFpeGxEemtmSEkxNW5lVE9ibmk0VjhLR092YUdRUTVxNmdlbjdjaVhB?=
+ =?utf-8?B?Y3IvV3VYcWxiK1FnRGFxN2s0MjhNNnJzWE1pcENCVi9DRTFjRjZzMWtnQ3lm?=
+ =?utf-8?Q?V6qKdT/lNT/NmbKoxo27Kb4=3D?=
+X-OriginatorOrg: cherry.de
+X-MS-Exchange-CrossTenant-Network-Message-Id: fd0ad5f6-24ad-4420-aa6d-08de30f721c9
+X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12038.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Dec 2025 16:31:51.6277
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: DZnpN1wL6zFwB0m8UAA7y9EwPileaKro4JLSWJGz9dKLG306CQkhjuXAuonyC15JAQ+z7tqvc0AsQYfysRS5t0+8SLuiYGekqHFY6d2yxhw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MRWPR04MB11519
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_082634_659683_49688994 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20251201_083158_722426_11023A48 
+X-CRM114-Status: GOOD (  13.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,40 +182,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello, Francesco,
+Hi Heiko,
 
-Francesco Dolcini, 2025-11-28T18:05:37+01:00:
-> On Thu, Nov 27, 2025 at 04:29:12PM +0100, Karel Balej wrote:
->> To reiterate, the firmware is generally available but is not part of
->> linux-firmware and the entire process of upstreaming the chipset support=
- is
->> stuck on that.
->
-> I'll try to see if any of my contact in NXP Wi-Fi group is able to help. =
-Give
-> me a few days.
+On 10/21/25 9:42 AM, Heiko Stuebner wrote:
+> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+> 
+> Enable the VOP and HDMI controller on the Lion-Haikou board.
+> 
+> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+> ---
+>   .../boot/dts/rockchip/rk3368-lion-haikou.dts   | 18 ++++++++++++++++++
+>   1 file changed, 18 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dts b/arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dts
+> index abd1af97456a..a8eb4e9c2778 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3368-lion-haikou.dts
+> @@ -58,6 +58,16 @@ vcc5v0_otg: regulator-vcc5v0-otg {
+>   	};
+>   };
+>   
+> +&display_subsystem {
+> +	status = "okay";
+> +};
+> +
+> +&hdmi {
+> +	avdd-0v9-supply = <&vdd10_video>;
+> +	avdd-1v8-supply = <&vcc18_video>;
+> +	status = "okay";
+> +};
+> +
+>   &i2c_lvds_blc {
+>   	eeprom: eeprom@50 {
+>   		compatible = "atmel,24c01";
+> @@ -101,6 +111,14 @@ &uart1 {
+>   	status = "disabled";
+>   };
+>   
+> +&vop {
+> +	status = "okay";
+> +};
+> +
+> +&vop_mmu {
+> +	status = "okay";
+> +};
+> +
 
-that's great, thank you very much!
+This isn't alphabetically sorted (see &pinctrl right after) but I think 
+it's rather pinctrl being in the wrong location than vop* as all the 
+other nodes seem to be sorted properly, thus:
 
-I have received a reply from Jeff in the meantime who has discussed the
-matter with his managers and unfortunately, they are not interested in
-supporting this chip as it's considered outdated and would pose
-maintainance burden.
+Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
 
-Jeff however thinks that you as their customer may perhaps have more
-luck when talking to them.
-
-I am also still trying to find out whether upstreaming the old firmware
-version (available as part of the stock Android) would be an acceptable
-compromise for them - I never really intended for this to be supported
-officially and I wasn't too hopeful about getting an up to date version
-of the firmware either (although it would be very useful as it would
-likely solve the issue I'm hacking around in the third patch of this
-series), I mainly just want to upstream the support for the chipset as
-far as possible.
-
-Please let me know when you have some news.
-
-Thanks again and best regards,
-K. B.
+Thanks!
+Quentin
 
