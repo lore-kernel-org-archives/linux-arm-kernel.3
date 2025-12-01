@@ -4,57 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EF29D111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:30:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B3ABD116F5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:30:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7s2CQ04eEct1/mGMiqM3DGDPGmUSvEIytacsW18oQA0=; b=GeZEbjkuSmYdADRsLrnJ1f9epg
-	iJkqIsdKmrQW0cF/uO/1fw2ymdgxJxiTgE6k3O9ejJ7xlu366XvwIxNfkWzX95uxbznJQ79D76eLR
-	Gjepp89WZQUqlxq02+6CPIHpN8BG6Bc2BPSZ54U0f1b9H4T68PDSRTFZr4EfBaXBKGLOvKzGa9Qrw
-	ypwr+uwsdmYTn11dZbHJpIC42G6vV+QlSLU9CX1Sdl9rMmO14YgXuXrO9jq28nYYcQz854okJ0Tdd
-	MKvqzAA7hQynZ6RNmS/Cytf2N775nHms4mmTgGymB117u2C+2ZXzNfyQoo02rfN6iyr4lDVITL55b
-	g6wcGLqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=17IqE3yDhTrw79ktiTQdXM6psdkGWe814KLyAsCCd3E=; b=QbqJxJ1i+KEUJWu68oM4Pt+tdY
+	07Qe7Z9o326I54GPHfGOLJOBrRFDoDmiRA6dAgNYI+XDJUZS8nn9ADcHtyr9HZt71rUTUcW2gEU5Q
+	NAsVF9DtwcjOKtGbcGm+/VPOvwE+1MmYgqlJQ9rNG0X7j0LCnjjHJvj4rVwD2o3MOYp+cKeOW2Y/k
+	iRkYZ733BkU9PgpatXhn8oDCCSw20V7kjQV1gH2aC0LwvbM3mrPHxsk6esk+x6k0MD+LW4/Wrc+kz
+	W9yYTRBtCCvNx29rxF8CRaXb/XHEUBiwvgVBzxv8KrzzU1X6m2eJSFn7wksuETcRq9mDc/Ezw3tV/
+	XmNFiDtw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ1An-00000003KqK-2OfU;
-	Mon, 01 Dec 2025 10:30:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ1Ak-00000003Kpr-1N5A
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 10:30:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E08CA1516;
-	Mon,  1 Dec 2025 02:30:13 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D0B9E3F73B;
-	Mon,  1 Dec 2025 02:30:18 -0800 (PST)
-Date: Mon, 1 Dec 2025 10:30:16 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: david laight <david.laight@runbox.com>
-Cc: Jinjie Ruan <ruanjinjie@huawei.com>, linux@armlinux.org.uk,
-	catalin.marinas@arm.com, will@kernel.org, chris@zankel.net,
-	jcmvbkbc@gmail.com, akpm@linux-foundation.org, macro@orcam.me.uk,
-	charlie@rivosinc.com, deller@gmx.de, ldv@strace.io,
-	rostedt@goodmis.org, tglx@linutronix.de,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] arm64: Avoid memcpy() for syscall_get_arguments()
-Message-ID: <aS1uOGm7cQf1euIw@J2N7QTR9R3>
-References: <20251127123630.4149828-1-ruanjinjie@huawei.com>
- <20251127123630.4149828-3-ruanjinjie@huawei.com>
- <aS1qYhHhZK3CD_bU@J2N7QTR9R3>
- <20251201102633.17a99afc@pumpkin>
+	id 1vQ1B5-00000003Ktz-3juK;
+	Mon, 01 Dec 2025 10:30:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQ1B3-00000003KtH-22qV;
+	Mon, 01 Dec 2025 10:30:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1DB5D409A9;
+	Mon,  1 Dec 2025 10:30:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71003C4CEF1;
+	Mon,  1 Dec 2025 10:30:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764585041;
+	bh=Nn+RCECaXBJKhubR2IUUqa85eItX94hq9cM42UZzO6c=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=J1GIADgIorrNB4QKPvaKwECnRGECnFIJC4XOrSzQrSoFhMMuegXZcQ/VaDKQ+D58O
+	 7tFAi8CEVL0BGDBDMGWpfcvFgRVH706YVE2NUqh7HaGg/GFfu1WFE0VlH7p9rpD+nE
+	 WKlAtYSouVTpSRL1wj43NUPepy26gLn/ec0uEfz3ZayBS7umBh0AWjE5ge7JdGDOT4
+	 b2JaABbDf6CpJ5sXHafAsRWgnNVl4THnnFgm3Eg2gtp2XVNhb7XgkckHrJIwUfdg0y
+	 QANIkWMDbT2gzicR3XF5MDjwWVDXk9LHSHcHwn3dIfM0sUXq9Pvoiiln1j/aatGcF4
+	 qjRwhmofsQAJw==
+Message-ID: <cb79c1a0-f61f-4ab8-b5de-c81e8a61e8d1@kernel.org>
+Date: Mon, 1 Dec 2025 11:30:36 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251201102633.17a99afc@pumpkin>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/4] dt-bindings: vendor-prefixes: Add Ezurio LLC
+To: Gary Bisson <bisson.gary@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Sean Wang <sean.wang@mediatek.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20251201-review-v2-0-dc2df44eec7e@gmail.com>
+ <20251201-review-v2-1-dc2df44eec7e@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251201-review-v2-1-dc2df44eec7e@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_023022_411177_81FBEA73 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20251201_023041_573485_151C0CA4 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,45 +120,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 01, 2025 at 10:26:33AM +0000, david laight wrote:
-> On Mon, 1 Dec 2025 10:13:54 +0000
-> Mark Rutland <mark.rutland@arm.com> wrote:
-> > On Thu, Nov 27, 2025 at 08:36:30PM +0800, Jinjie Ruan wrote:
-> > > Before:
-> > > <syscall_get_arguments.constprop.0>:
-> > >        aa0103e2        mov     x2, x1
-> > >        91002003        add     x3, x0, #0x8
-> > >        f9408804        ldr     x4, [x0, #272]
-> > >        f8008444        str     x4, [x2], #8
-> > >        a9409404        ldp     x4, x5, [x0, #8]
-> > >        a9009424        stp     x4, x5, [x1, #8]
-> > >        a9418400        ldp     x0, x1, [x0, #24]
-> > >        a9010440        stp     x0, x1, [x2, #16]
-> > >        f9401060        ldr     x0, [x3, #32]
-> > >        f9001040        str     x0, [x2, #32]
-> > >        d65f03c0        ret
-> > >        d503201f        nop
-> > > 
-> > > After:
-> > >        a9408e82        ldp     x2, x3, [x20, #8]
-> > >        2a1603e0        mov     w0, w22
-> > >        f9400e84        ldr     x4, [x20, #24]
-> > >        f9408a81        ldr     x1, [x20, #272]
-> > >        9401c4ba        bl      ffff800080215ca8 <__audit_syscall_entry>  
-> > 
-> > It's probably worth noting that __audit_syscall_entry() only takes 4
-> > syscall arguments, and hence the compiler has elided the copy of
-> > regs->regs[4] and regs->regs[5], which it apparently couldn't manage
-> > before.
+On 01/12/2025 11:23, Gary Bisson wrote:
+> Ezurio is the new name of Laird Connectivity after it acquired Boundary
+> Devices.
 > 
-> Hasn't it actually inlined it and completely optimised away the regs[] array?
-> It looks (from the asm) as though syscall_get_arguments() is followed by:
-> 	fn(regs[0], regs[1], regs[2], regs[3])
+> Signed-off-by: Gary Bisson <bisson.gary@gmail.com>
+> ---
+>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
 
-Yes; I was assuming that people could infer that.
 
-I was poining out that the elision of copies/loads of regs->regs[4] and
-regs->regs[5] in particular was not a bug.
 
-Mark.
+<form letter>
+This is a friendly reminder during the review process.
+
+It looks like you received a tag and forgot to add it.
+
+If you do not know the process, here is a short explanation:
+Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
+of patchset, under or above your Signed-off-by tag, unless patch changed
+significantly (e.g. new properties added to the DT bindings). Tag is
+"received", when provided in a message replied to you on the mailing
+list. Tools like b4 can help here. However, there's no need to repost
+patches *only* to add the tags. The upstream maintainer will do that for
+tags received on the version they apply.
+
+Please read:
+https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
+
+If a tag was not added on purpose, please state why and what changed.
+</form letter>
+
+Best regards,
+Krzysztof
 
