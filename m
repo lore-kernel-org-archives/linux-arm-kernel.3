@@ -4,86 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70891D116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 17:51:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2823FD116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 17:59:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CQAmSf/I/r1AJACdEyDQZKuMSYhZU2RwlU93Oa7O8sU=; b=xA6+zBzXepRWvtl2wD6EDOnbby
-	NHOHqVFJJtJiRCwt2heCMltfCQGargtrPDVC57VvqUpjeIonpJVyOK5tMSZcitdJoRa50ro22IYH9
-	wyynreBh3eoM/ozdMAE9irICOWrDHB7R4XimvQamoYEH/fafvPJ5k6UrU40M33qOqA9rcqo1ix78Y
-	jyNuSb6Y5e7hT5XpSVjfprFwFfH2KboRZa/TozFhTSIpROYkNWFr0hZFGTSxWkTZFIzcvptIphCy9
-	zZVtg3KNqkC529mBd5+P0n6kXdjSceqr+/Ia4gurFtHdfbcTwafQ6D98OIuG9DGo68g9i9nH7/H4l
-	0bXcz0mQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+YoDk7IObndRcsAKYT2i+AzAT0ZVFB+FCq+nUT+ZNRU=; b=fQPIo+H6Exvp4WFWfE82QE9Tdw
+	8tJJzWzPudPV6grjc+drXpwnjenDgkRRc7pzx2emnogEmhGKwZ9XVegOqgRy0TbqBaJNiOVXvTb1P
+	Bad9JvAizn2CabwiOSQz/m/AoYnevc8Y4Gp/8g09v6PZ6uQqbW1zfOX+T5531qF1rNetVo4LCj159
+	1iKMp75wI4ncjE86RPY5On+1LwIwkIOhfhNVQAqyFkp1pCK+uau8TIdbkPgcMmAmIzcwwVt5+iEf4
+	TzWI19m+BBvYg7QHmaw5g621uqJ/IHf3oQTy7jwo4GmZlCav6VIJeHOX7AO6EbCh5nZ71IqdC/Ji4
+	sABBIYWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ83i-00000004NqU-0PtX;
-	Mon, 01 Dec 2025 17:51:34 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1vQ8Bc-00000004OJh-2rNy;
+	Mon, 01 Dec 2025 17:59:44 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ83f-00000004Npz-2kgN
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 17:51:32 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-5957753e0efso4843676e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 09:51:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764611489; x=1765216289; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=CQAmSf/I/r1AJACdEyDQZKuMSYhZU2RwlU93Oa7O8sU=;
-        b=ivL9c8BNy9+2QswLaI0sN89t/+ztsVGAcrSsBUl5pKj+zi4Ct+OUNHsN3sn0cD65b2
-         nXd7r3NEeXOoRjApHMaEQUS0prSjye8jS7q7u2rBGn+SG0kH1fDdGzcU7Ed7cR//nPno
-         uiT5pZm05HAPkAzm75kxA2912z5EcB3F92mV3/qb0xJQ4BDt26r9HGjYE95s1JUFvsCI
-         2akzJ2G60XXXs4eZTHI+knZUvfFSNw9aRV8LtbrDJt3mDlAIzroDBOr2Dirkyg0gKIn+
-         KucuyHcRqpRpdihRFjIjappx6Vk4kEOzNCo6WG3xOoAR2zjiDJlTGsJvb+s3LILzRPqg
-         LXsQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764611489; x=1765216289;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CQAmSf/I/r1AJACdEyDQZKuMSYhZU2RwlU93Oa7O8sU=;
-        b=LHP7v6YHKzJHYkHRNxLsssfmt0cd79n6SQHKWCONhQpecWsYsLAnRCu2ggNkjp2Ws0
-         pOM+APruhJRa5XoBYhw2XIAZrjm9JazCCj8Gq0KB77113RPBWTY1Fuxeu2IQEHSOSLbd
-         N2V7SA6y3k4s+sAYCo9fyDomQ4KdyefPf2hwXQtiW6w+/Om3OLtjMdEILNfKl2E0rmrR
-         V/xiYxgg72hgwAiCQ1pEeu3BEablC24MXsgLLA7J71ohEBTvXhX5nfnN8QWmuLKDMaJW
-         dwGmeqXx/7uL14oIWiKevoVErmzfUr3ziWsDMBSDHLVdJUzQ93wXtv7tgX4dSDKLXUQn
-         LerQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWLe9O5YHs/vugXKy4jOO1g/xIcExaIWtr5PLaz4Oje63IFOhbjrSKs0bBgZUSj1uemR3alptxI8npr3GvbWjKe@lists.infradead.org
-X-Gm-Message-State: AOJu0YxrXz/3JZY1gHLHEJcc81IKyzO73dhVNDnOf2K4ef6PhzAx1rDm
-	SsDE3tNZCBqVC4egLwZ8w0/U5DbaRv2B8hOT6JY4f+BgVSmr9A1fWgTsuqtD4J3+NLU=
-X-Gm-Gg: ASbGncsDolVO6/DHQjJ7Itxa3G7lz38UGkGqlXsaKAzo43p2Ck5SA1K9kfi+iioJnOn
-	WW62yrR4VRclgf5tU54EOx+wL9s2yZPAo0Mi3XECSC+r47MzmX040MURs9kE8+EbFg5wD/A23nR
-	nFhCKQC+/4pwbHjfsJpCOoEHSYz/uKjQHF9SvI+PWiy6Qcc4dBV+oVuPnJBjAYcvqkyXsoa/NkB
-	G0DzewdHyAWOmDuwuv5PkorVlqJJAYtI8sgs8mS7OYES66K7Vzjii7r7/WOLmyS9qUTkHLZ2Tjh
-	kC7Cr0ix78Z0SvC2FboTyv/K0o/mm0vrFs9HrYau7mEYRlDlrwJ0xhLI2OAX/LS1Ivgj+6zziWI
-	hWPOP5JGhb85T+VzbeBYTHmwGhXYVldZj9tbyhHPxFflR+UoJkFOnq5QKJqafMy33jiEV4A5tRN
-	WEMhVO/sgPjTcFF5PeywNiVEDD072LkIMkkGGj1W6yt2g3l4miwqOZcL6glc9j
-X-Google-Smtp-Source: AGHT+IGJ/2qcLJ93I8tQ9xcZfNdaAnY6D2Sz4qECv7ecbOoK2+SCkO7fr0vpFnxNjafmmj1k2a9cOA==
-X-Received: by 2002:a05:6512:104f:b0:593:f74:9088 with SMTP id 2adb3069b0e04-596a3ee5881mr12619568e87.43.1764611488885;
-        Mon, 01 Dec 2025 09:51:28 -0800 (PST)
-Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-596bfa48f7bsm3731430e87.85.2025.12.01.09.51.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Dec 2025 09:51:28 -0800 (PST)
-From: Ulf Hansson <ulf.hansson@linaro.org>
-To: Linus <torvalds@linux-foundation.org>,
-	linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Ulf Hansson <ulf.hansson@linaro.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL] pmdomain/cpuidle-psci updates for v6.19
-Date: Mon,  1 Dec 2025 18:51:25 +0100
-Message-ID: <20251201175125.34284-1-ulf.hansson@linaro.org>
-X-Mailer: git-send-email 2.43.0
+	id 1vQ8BZ-00000004OJ8-27N7;
+	Mon, 01 Dec 2025 17:59:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SVOslY5tCpepOuxiqHaHq3E0m0C4q+ZvKycpMFoqSDRgEK9ROP9AFJ+dqbtwQ0jcQy0rQ/3+vx9WUytdzNs+uN0Gz321zf4H7Xyc4N+WRqcBOn3+xG9+0whuzyjkhjsDMm5qLw95aLuvcl47afsI/fGHlFzF3ppR4NhBt3zxCzvEJpRmky3BQlrsQzfmdTHO2+CKLRp9ZELjX14OVFp8EPeVxq0agJrGgwC2zwvd2gvHeExSrKOupBXnJA7+0/Kp+3prQlirFnIsAXObUOamad0eiZTaah+lbjrXn30SZmffPkIfeF9VFZCYfOgUUQ+4tn+zMwg6p97wQroLITjhsA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+YoDk7IObndRcsAKYT2i+AzAT0ZVFB+FCq+nUT+ZNRU=;
+ b=XkS7CErdeAnXua3/gjVddbOnbmq8H98Xp2UQqnLcWK61EGkZTv/B4a2rWn7R/f3mNcHo+hz3dWmPEY3IE+rVuOu8pnSMo2ErtkgYpOgZSOM7gDo8v2IccS+HSzefZr4kCmczm8oPDZHD+JHf+vaxFewEa1UJntizne5ZmvamMoUwxAiWBZVBFd6EI1rhqgw4BC4oC1XG9gNYCIZxfan+mGdVsDutsSOrpatjaFS/Sz5EAOkJ8PlCxbg0CL9i43VdFqKzAkkXegxpb0/3Ti8taj/huflnVUwdt0TVJH0HYpVhK+mpTZ2VRuqki15Q3MTSC3qqbjcIxLW+MKeGEc+izw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+YoDk7IObndRcsAKYT2i+AzAT0ZVFB+FCq+nUT+ZNRU=;
+ b=K/3OP1aH9Kit9YCKN9phq/fOsTRrN+zAXXFFveQZRy9l1/GN4XR71PhVjlygJ8y3vAYy+JQaz9QIwZsGauNBAx0mhYq+c68MGNGM4dW4CvAEcX42MMLVB558+7WgYfFqWHA/nVn9VDl66Db+EnP45EOpVw/XIBEuIm1iIdPRR7hI+ebc5TrD8+z+4uUGQDVfa62r8VQI6Mg/OFGy9rtSJ4EzvVvFRCrPZ2XGndYGgtuHTMNM/r0gH/OtGMfmuogGJq00FHZMFBWWW+CPoHi0XPIr8b3Qj/H6mvr+4FD96AAZ3oTBNYHLcpD/9vNc5xzjCA2vV+zS352i0fRZMyMyDg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by DUZPR04MB9726.eurprd04.prod.outlook.com (2603:10a6:10:4e3::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Mon, 1 Dec
+ 2025 17:59:33 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9366.012; Mon, 1 Dec 2025
+ 17:59:33 +0000
+Date: Mon, 1 Dec 2025 12:59:25 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Michael Riesch <michael.riesch@collabora.com>,
+	Mehdi Djait <mehdi.djait@linux.intel.com>,
+	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Collabora Kernel Team <kernel@collabora.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] media: rockchip: add driver for the rockchip mipi
+ csi-2 receiver
+Message-ID: <aS3XfZFF8rmt8ZT6@lizhi-Precision-Tower-5810>
+References: <20251114-rockchip-mipi-receiver-v2-0-eb9b43377fc4@collabora.com>
+ <20251114-rockchip-mipi-receiver-v2-2-eb9b43377fc4@collabora.com>
+ <aRyplYZOrGsSxSlp@lizhi-Precision-Tower-5810>
+ <554971e1-6fde-4b2c-a2de-fe178358a4e3@collabora.com>
+ <aRzub5Ak6DZpO5f/@lizhi-Precision-Tower-5810>
+ <87049b4c-df7d-454b-a7f4-073975a7ee94@collabora.com>
+ <20251201033700.GB21943@pendragon.ideasonboard.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251201033700.GB21943@pendragon.ideasonboard.com>
+X-ClientProxiedBy: PH7PR10CA0021.namprd10.prod.outlook.com
+ (2603:10b6:510:23d::20) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|DUZPR04MB9726:EE_
+X-MS-Office365-Filtering-Correlation-Id: 182c577a-8673-4995-da63-08de3103622d
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|7416014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?tuOB6p6i0Ke/RS2zjrrP599VaENelPC5d/7vvCPWy4HDcI4jeEJLmYFr2XPs?=
+ =?us-ascii?Q?Q63H20jbyyTFG/nBYQADvjFKELN4pzpcQo6de9ZWfbelz/JHbWRHPR7sRzGX?=
+ =?us-ascii?Q?k7Dvcel+CrtoEq/CFfo91wHQ8WKpjhPnFU6PCCmJnalLJcI2Ym7jQbY0Tw0c?=
+ =?us-ascii?Q?J3g4e88rYZEetTyRAdXa5XZxL6tALUSNwUgfx1JpgDvyUNDxyD3C2+zn7Thb?=
+ =?us-ascii?Q?cBrUNrhIEnfJIiICCJPIB8AO+QIlzxKMl8EE+UFdfPLc7QAd+LPGjYUTKogX?=
+ =?us-ascii?Q?CxqdoJyHqxuLr3HbqvVR3DfHYPB9YKr2vnItTP/EQ4o9UT6OCZw/HtI9pHlj?=
+ =?us-ascii?Q?TDAEb5K41Wd7xdprn6BO24nLp2qwHhVKM6ozuFbz0ZTVMsde/FYI6T8mCUTt?=
+ =?us-ascii?Q?I04BE6OGxs0p3bHWzx5tR8tmgD8rqfbMekZ/LnCymXhoCgFTt7mEIAmi1lJy?=
+ =?us-ascii?Q?9XpUvMpemmZHAWALal73QJoIIsQEuelmRESBU2sZg52Zuom1621ZONg2y9V5?=
+ =?us-ascii?Q?0VZ2KY9OOM9mcMP+JvER0RO/qrkB6YdwXIdhgltobrvX6Aw3M2d/agNdIBO8?=
+ =?us-ascii?Q?DFDdPduOw/XClLX5cUld8E/V03MlsN71HzZLSzOwCjR881OBU0eC/NOg5rF/?=
+ =?us-ascii?Q?tgVqrmZ+LZklJdz59cEvfNglAqyFl54eVG/m0fnotEqEcfYoI0pp/Ux29/fp?=
+ =?us-ascii?Q?x5bkcHqA96ahUEWT37u11i4gfJvSgSiAMjxqmeRPVl2pROdRP/JeBr+k6xdR?=
+ =?us-ascii?Q?xSeD/5hh2xUyUh9jb5FzqA1uMc3XKVIv7oQW2CAP94jfswbo9pSfQfTCiJQ/?=
+ =?us-ascii?Q?UyHp6p4tVNKmuK8Hzv8TcyvwLI7vnIJcYn/gGiSxqqEkrVL7uAErAtlmmRc9?=
+ =?us-ascii?Q?It/HSz+1em+NeKJnwFxwR1l97igcFWizv4sAUc7WSnECInSS2+T1ixFt7yvr?=
+ =?us-ascii?Q?haYbp+/fTvoz0iO/ZsAbMgHg/4ezPNPcgDXBaecAXKkAJoOHnbvD+HkaHqw0?=
+ =?us-ascii?Q?8BByTXneIqvk5gbc7H20Tjhv4wQ5TnpoM3q2NFBWPUio2oZgC9FhAFMDpDsP?=
+ =?us-ascii?Q?lFceP2Ncj2BaYGMQFk5rm/NvUPWd0gT3Y9kdPM1Y35Sylm+4gcrajrHJT/uZ?=
+ =?us-ascii?Q?hyB3Uk5GFfICHreE3iZFQZj3qKB4txHF6gPEKS+S+h6ZnEuyrzsefJN5V+zI?=
+ =?us-ascii?Q?r3T5PyVyArdFWBg1TkEcUPHFUS4Qv1V8xSMUX2Eo/BC/QLOH8zPHSjBHpzGw?=
+ =?us-ascii?Q?SKUF7K2p2AtMAGIbH5fQM5KM8O96VcPhurydBCmApsESLPUt9dvTdcZ+gIxe?=
+ =?us-ascii?Q?DpGkGxKbkLr5kXPF0BxRX9CDL7/dx3Dw2D+vBpOak5yEbukXdNHegOCvSpmC?=
+ =?us-ascii?Q?oRiRvbELLiIipnlT+6paRjXrWQwO3Yf1jqzRCNJuO1pw9PC7e40FHJwG0pOw?=
+ =?us-ascii?Q?1c8kIJ0Mbj5jxfj3GjDA7RfWCKyy367sJyl6X5Ihb/7HevoH51w1Ig1BaaXI?=
+ =?us-ascii?Q?9lSAL06X8Adj1UKoA1frCjcWt1wyF3uxyN8A3UXlpGZBbs9xybeHJvIDWA?=
+ =?us-ascii?Q?=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aZY1DhlL2OvCoI8J87TVA2nJV55kMAXyZj+MqkbJvo0XxJDEorOkEE3EE9uA?=
+ =?us-ascii?Q?gZslmAKBcxz+sPIVie3FlrhF+cXcS/TmfsK0PC6GxUeHkjLfTOv/cwkKZkxx?=
+ =?us-ascii?Q?mme1daV+sZ2c+cYThOi8xN3qxeFOpSK+55OmUVLXWdo53EhYSaLttNHFo2bZ?=
+ =?us-ascii?Q?kOOpK9QXkB1cU6XH6j2D7f+NI7Or0FIyy2Wy3oy+/JTE6xDoS4ZIOwYtDofI?=
+ =?us-ascii?Q?5d4xhDBKQKJCC0K711PIhAVcQffPrZNI2Y02Zx2c4BCkV8qbpzIcRivXl4Wx?=
+ =?us-ascii?Q?SKEaiHm6jyl8bvxk4sSCEO3R0075her+q3isOEvYxbyHuBYe/RRJtEkQieEG?=
+ =?us-ascii?Q?DrKVep4gHeYPP20z+uhVO51XI5cApSqfyMQmVMe2cHEbLxKFqv3s+rKqWONa?=
+ =?us-ascii?Q?lj5tuLOGfNIeZs87Y9awsEZLMI0QDDLuM/jz88A6AdBGLqYZ8dkxmp2zDG3r?=
+ =?us-ascii?Q?R8fLIiCQC3j955iULszU2xlw3NgooqWLleyuqLCpTimnXYUg+187edkdjmEX?=
+ =?us-ascii?Q?3qsX7d613Wo8EzBfDD0URwnFwNAr7fyCWg8qYiOvlNQ3OABq5oZ0Kxc6loa+?=
+ =?us-ascii?Q?0623Fqe8qGusmkDsNruneU3y7zMtURzqJP8MAW/Mv+34iLRHemT9XnZ6HXdO?=
+ =?us-ascii?Q?g/XlodKE2oAFvx6PW7sne5oAnBfI1xYx5hCX+hv+IIjfayJrgF5lGpltihBs?=
+ =?us-ascii?Q?PNdJYjuEWzYTXH/myywVBrN5uruuZLO6zbOTiQoJfyn1FMntbWddOXA/VlIs?=
+ =?us-ascii?Q?HAe4dmBl1aSke1wrGeFtq0Ubuyigm++GgWKRFZy/nkLdp0V6iIKax519Auvy?=
+ =?us-ascii?Q?VDYJj2WsHKIbsSDKG+Y0HuoFWgoKhSQYEmYQwf9fb5/kCObCAJT1IDFsVziP?=
+ =?us-ascii?Q?MxewElfqE5EKMR73AX7HqptC6f7/1PWa7qVyDDkynSV5FgCDx2wT4uELAJDc?=
+ =?us-ascii?Q?GLFkyshjKi9UxiVrIxgnWCvp/ZiQlxV1/dea85gUZVkE4UANT8efpQDB4cQi?=
+ =?us-ascii?Q?P6rggBzs9p988W35Fq6reuKhvJtSOp4FlOKxRDG5hqcc8X1OWgHQJHWoO5ED?=
+ =?us-ascii?Q?2BpMf2R4ZMk2Wnp9eH831cTFvqPTmdQ006H5Avbcs9jmv/AROivui5Zjkqxp?=
+ =?us-ascii?Q?9mlTjJO/bLzLvJe7sD/UgsLjEny1sJAAzqOni8A3zhuRgjfG321YDiNinfPG?=
+ =?us-ascii?Q?NUNzr40vuuX9nlBnNvYC0YLWsAC2Hp/IfoNCssgXmaUHII57RgmWLMvR3vSW?=
+ =?us-ascii?Q?kLO2UdV0+hfC7LLDqJOiNInKCb0bWsaCuW5Ajw7z3nnzDuGfcKIsBvG4v3gq?=
+ =?us-ascii?Q?bEXWpAHxbE+c8KWMwEfztDlqg2hOBVGotW/obKnAYMpUi6oaXxhE/6A7GauH?=
+ =?us-ascii?Q?itOK6relAyYae1yrB6nphkUhdHDpT3Y1kNztkiF/tWUgg5jy8WGbrnGjOpdh?=
+ =?us-ascii?Q?S+Ubwu1nwbjYhA8kpNzbHVibKHqlVLHm4Hq834DxsuUrHXxYJxyvOQD55eM6?=
+ =?us-ascii?Q?/oULnemyOCSd/HXXh3BtBtmHfE0TzOs1sibe1eI1h8/1VrKXWuMYj0nclLKC?=
+ =?us-ascii?Q?6tQhzkGM0BlJct4nFmRHwKRCM0I5PGy51DGlxHrq?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 182c577a-8673-4995-da63-08de3103622d
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Dec 2025 17:59:33.7939
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: qzdmy4P2s/o8xkAfWbBc00LaiFhCQdT40WOMOmvazxPD5BoAWAo1dinyBmR6iH5dcmEk2gqN1FlyAakA0579Ow==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB9726
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_095131_744525_6386A4FD 
-X-CRM114-Status: GOOD (  14.00  )
+X-CRM114-CacheID: sfid-20251201_095941_740433_26F26532 
+X-CRM114-Status: GOOD (  38.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,131 +179,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
+On Mon, Dec 01, 2025 at 12:37:00PM +0900, Laurent Pinchart wrote:
+> Hello,
+>
+> On Wed, Nov 26, 2025 at 09:57:31PM +0100, Michael Riesch wrote:
+> > On 11/18/25 23:08, Frank Li wrote:
+> > > On Tue, Nov 18, 2025 at 07:59:14PM +0100, Michael Riesch wrote:
+> > >> On 11/18/25 18:15, Frank Li wrote:
+> > >>> On Tue, Nov 18, 2025 at 12:12:26PM +0100, Michael Riesch via B4 Relay wrote:
+> > >>>> From: Michael Riesch <michael.riesch@collabora.com>
+> > >>>>
+> > >>>> [...]
+> > >>>> +#define CSI2HOST_N_LANES     0x04
+> > >>>> +#define CSI2HOST_CSI2_RESETN 0x10
+> > >>>> +#define CSI2HOST_PHY_STATE   0x14
+> > >>>> +#define CSI2HOST_ERR1	     0x20
+> > >>>> +#define CSI2HOST_ERR2	     0x24
+> > >>>> +#define CSI2HOST_MSK1	     0x28
+> > >>>> +#define CSI2HOST_MSK2	     0x2c
+> > >>>> +#define CSI2HOST_CONTROL     0x40
+> > >>>
+> > >>> Look like that is designware CSI2 controller, can we build common library
+> > >>> for all dwc csi2 controller, instead of every vendor create individual one.
+> > >>>
+> > >>> First try at
+> > >>> https://lore.kernel.org/linux-media/20250821-95_cam-v3-21-c9286fbb34b9@nxp.com/
+> > >>>
+> > >>> Toshiba have similar patch
+> > >>> https://lore.kernel.org/linux-media/aPZd39riAxqfw3mT@lizhi-Precision-Tower-5810/
+> > >>>
+> > >>> Frank
+> > >>
+> > >> This has been discussed already a while ago:
+> > >> https://lore.kernel.org/all/20250507083837.GA11152@pendragon.ideasonboard.com/
+> > >
+> > > https://lore.kernel.org/all/20250702093806.GF16835@pendragon.ideasonboard.com/
+> > >
+> > > Laurent Pinchart prevent imx93 DWC CSI2 driver at Jul, your discussion at
+> > > May, I think Laurent Pinchart change the mind.
+> > >
+> > > We can choose not base on imx6, but we should create a standard dwc2 under
+> > > drivers/media/platform/synopsys/
+> >
+> > In principle, I agree with refactoring out common code. However, I am
+> > not sure how similar these IP cores really are. Again, the answer I
+> > received from Rockchip states that this is *not* a Synopsys IP core.
+>
+> That's what I based my opinion on. If we're dealing with different IP
+> cores from different vendors, we can have separate drivers. Even within
+> the family of CSI-2 receivers from Synopsys, I'm fine having different
+> drivers if the version differ significantly enough that using a single
+> driver would cause more pain than gain.
 
-Here's the pull-request with pmdomain and cpuidle-psci updates for v6.19.
-Details about the highlights are as usual found in the signed tag.
+Laurent Pinchart:
 
-Please pull this in!
+	We need use unified standard for every one. In the patch below patch
+is enough show the difference between Sysnopsys version.
 
-Kind regards
-Ulf Hansson
+media: synopsys: csi2: Add basic v150* version register
+https://lore.kernel.org/imx/20250821-95_cam-v3-20-c9286fbb34b9@nxp.com/
 
+	The register layout is differense, most field defination are the
+same and some changed.
 
-The following changes since commit c98c99d5dbdf9fb0063650594edfd7d49b5f4e29:
+	I know it is hard to define how much pain and gain.
 
-  pmdomain: tegra: Add GENPD_FLAG_NO_STAY_ON flag (2025-11-24 11:14:01 +0100)
+	But I think this one is closer to imx6's version even though they
+claim NOT DWC CSI2 IP than imx93 v150 dwc CSI2 version. (for example, many
+iio sensor/gpio expandor use the same set of register define for difference
+vendor, but still use one driver for these).
 
-are available in the Git repository at:
+https://lore.kernel.org/all/20250702093806.GF16835@pendragon.ideasonboard.com/#t
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.19
+"This seems to be at least the third instance of a driver for the CSI-2
+receiver, the first two being
+drivers/media/platform/raspberrypi/rp1-cfe/dphy.c and the second one
+drivers/media/platform/renesas/rcar-csi2.c (the latter seems to support
+multiple CSI-2 receivers). drivers/staging/media/imx/imx6-mipi-csi2.c
+seem related too, likely for an old version of the IP.
 
-for you to fetch changes up to 1f67707fafa598e2338dba08e3de0db3e468afd1:
+Could we please try to avoid code duplication ?
+"
 
-  pmdomain: Merge branch fixes into next (2025-11-24 11:14:36 +0100)
+	Or do you think I should go through this ways (direct create one
+dwc for v150) instead base on imx6 one to enable imx93's dwc CSI2?
 
-----------------------------------------------------------------
-pmdomain core:
- - Allow power-off for out-of-band wakeup-capable devices
- - Drop the redundant call to dev_pm_domain_detach() for the amba bus
- - Extend the genpd governor for CPUs to account for IPIs
+>
+> To explain this differently, for Synopsys CSI-2 receivers, I would like
+> to try and support multiple IP cores integrated in different SoCs in a
+> single driver. If, during that development, we find good reasons to use
+> separate drivers, then we can do so.
 
-pmdomain providers:
- - bcm: Add support for BCM2712
- - mediatek: Add support for MFlexGraphics power domains
- - mediatek: Add support for MT8196 power domains
- - qcom: Add RPMh power domain support for Kaanapali
- - rockchip: Add support for RV1126B
+I think if reviewing and landing process could go through smooth, imx6 can
+support this device with a little bit modify. There are not technology's
+bar so far.
 
-pmdomain consumers:
- - usb: dwc3: Enable out of band wakeup for i.MX95
- - usb: chipidea: Enable out of band wakeup for i.MX95
+I split to more simple patches from big 32 patch serises.
 
-----------------------------------------------------------------
-AngeloGioacchino Del Regno (5):
-      dt-bindings: power: Add support for MT8196 power controllers
-      pmdomain: mediatek: Add support for Hardware Voter power domains
-      pmdomain: mediatek: Add support for secure HWCCF infra power on
-      pmdomain: mediatek: Add support for MT8196 SCPSYS power domains
-      pmdomain: mediatek: Add support for MT8196 HFRPSYS power domains
+https://lore.kernel.org/imx/20251111-stage-csi2-cleanup-v2-0-371bb951776f@nxp.com/
 
-Brian Masney (1):
-      pmdomain: mediatek: convert from clk round_rate() to determine_rate()
+Only comments change
 
-Claudiu Beznea (1):
-      amba: bus: Drop dev_pm_domain_detach() call
+https://lore.kernel.org/linux-media/20251105195808.297645-1-Frank.Li@nxp.com/
 
-Finley Xiao (2):
-      dt-bindings: power: rockchip: Add support for RV1126B
-      pmdomain: rockchip: Add support for RV1126B
+Frank
 
-Jishnu Prakash (3):
-      dt-bindings: power: qcom,rpmpd: document the Kaanapali RPMh Power Domains
-      dt-bindings: power: qcom,rpmpd: add new RPMH levels
-      pmdomain: qcom: rpmhpd: Add RPMh power domain support for Kaanapali
-
-Nicolas Frattaroli (3):
-      dt-bindings: power: Add MT8196 GPU frequency control binding
-      pmdomain: mediatek: Add support for MFlexGraphics
-      pmdomain: mediatek: mtk-mfg: select MAILBOX in Kconfig
-
-Peng Fan (4):
-      PM: wakeup: Add out-of-band system wakeup support for devices
-      pmdomain: core: Allow power-off for out-of-band wakeup-capable devices
-      usb: chipidea: ci_hdrc_imx: Set out of band wakeup for i.MX95
-      usb: dwc3: imx8mp: Set out of band wakeup for i.MX95
-
-Stanimir Varbanov (2):
-      dt-bindings: soc: bcm: Add bcm2712 compatible
-      pmdomain: bcm: bcm2835-power: Prepare to support BCM2712
-
-Thorsten Blum (1):
-      cpuidle: psci: Replace deprecated strcpy in psci_idle_init_cpu
-
-Ulf Hansson (5):
-      pmdomain: Merge branch dt into next
-      pmdomain: mediatek: Fix build-errors
-      smp: Introduce a helper function to check for pending IPIs
-      pmdomain: Extend the genpd governor for CPUs to account for IPIs
-      pmdomain: Merge branch fixes into next
-
-Xu Yang (1):
-      usb: chipidea: core: detach power domain for ci_hdrc platform device
-
- .../bindings/power/mediatek,mt8196-gpufreq.yaml    |  117 +++
- .../bindings/power/mediatek,power-controller.yaml  |    4 +
- .../devicetree/bindings/power/qcom,rpmpd.yaml      |    1 +
- .../bindings/power/rockchip,power-controller.yaml  |    2 +
- .../bindings/soc/bcm/brcm,bcm2835-pm.yaml          |   38 +-
- drivers/amba/bus.c                                 |    9 +-
- drivers/base/power/main.c                          |    1 +
- drivers/cpuidle/cpuidle-psci.c                     |    4 +-
- drivers/pmdomain/bcm/bcm2835-power.c               |   17 +-
- drivers/pmdomain/core.c                            |    6 +-
- drivers/pmdomain/governor.c                        |   20 +-
- drivers/pmdomain/mediatek/Kconfig                  |   17 +
- drivers/pmdomain/mediatek/Makefile                 |    1 +
- drivers/pmdomain/mediatek/mt8196-pm-domains.h      |  625 ++++++++++++
- drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c       | 1044 ++++++++++++++++++++
- drivers/pmdomain/mediatek/mtk-pm-domains.c         |  306 +++++-
- drivers/pmdomain/mediatek/mtk-pm-domains.h         |   49 +-
- drivers/pmdomain/qcom/rpmhpd.c                     |   28 +-
- drivers/pmdomain/rockchip/pm-domains.c             |   41 +
- drivers/usb/chipidea/ci_hdrc_imx.c                 |   11 +-
- drivers/usb/chipidea/core.c                        |    3 +
- drivers/usb/dwc3/dwc3-imx8mp.c                     |    9 +-
- include/dt-bindings/power/mediatek,mt8196-power.h  |   58 ++
- include/dt-bindings/power/qcom,rpmhpd.h            |    3 +
- .../power/rockchip,rv1126b-power-controller.h      |   17 +
- include/linux/pm.h                                 |    1 +
- include/linux/pm_wakeup.h                          |   17 +
- include/linux/smp.h                                |    5 +
- include/linux/usb/chipidea.h                       |    1 +
- kernel/smp.c                                       |   22 +
- 30 files changed, 2417 insertions(+), 60 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/power/mediatek,mt8196-gpufreq.yaml
- create mode 100644 drivers/pmdomain/mediatek/mt8196-pm-domains.h
- create mode 100644 drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c
- create mode 100644 include/dt-bindings/power/mediatek,mt8196-power.h
- create mode 100644 include/dt-bindings/power/rockchip,rv1126b-power-controller.h
+>
+> > Can you maybe test whether the Rockchip MIPI CSI-2 Receiver driver in
+> > this series works on your hardware? Then we will know if (and what)
+> > parts can be shared.
+> >
+> > > Laurent Pinchart:
+> > >
+> > > 	Can you provide direction?
+> > >
+> > >> Bottom line from Laurent:
+> > >>
+> > >> "Let's keep this driver Rockchip-specific then. Thanks for checking."
+> > >>
+> > >>>  [...]
+>
+> --
+> Regards,
+>
+> Laurent Pinchart
 
