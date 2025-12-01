@@ -4,60 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AA7AD116FE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 11:53:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B908FD11701
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 11:53:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vvkU/umQB/Vmk5dCmqXEHgZhknj+ZO8jiE5GnoPX0mI=; b=Jw2aR7GmogrE3QdtQGhc5eCIYb
-	SZlnYIH2L0VCSIVRy3oYqvdeEf/ld/qOmyYiv5E9JLl6hxy1u+vJrb1mYxuNbBWoJSF9OLuyej1fa
-	0tN7/fR3S/Ur78UhVhyKdiezQSuDkri6q6hEimz4kbB2K/QGSBTUB8wi6yNzEb9kQ8/IImwTsOLXD
-	Npdddv/Ld5qWB1SmdYYobyIyehLi2EoaiayxChmz7fo1oq+6oy7p6VMdHqC4Fz44/nfGRvq1DoGiQ
-	wcACdfsKyjr2u7cvxkLb++BfXHf5wsB2pTpto+n/DuQExiDM3fQAImerNrVhwhntglNOcI//JzYeO
-	OeZPhCsw==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=niqxQDaW+UyAF9ARf4T4yOF1YW8cp/Thk/VtaHp/VdA=; b=NYEPWUR1leknVK48upZpvPN+XY
+	Qg3rkj9x/x0Czjfb49zy+buBnf7ZLk5eQ05gcLCwMDEpb7oEDeiWKJbBC3sB2oxe/YNW+qX3xxnfh
+	DyDy9HYnkxNdwdVFNZM+chxofmNzIKesIdXK4c/McD/nO3isahYrp4zlV08FEZ2CJPxLsj6K/vHBd
+	p4amg41gUCvUWbcE2AIAoyxUioNIIoueSUkt8zO/Lt5dHJ4snF38Gjf8pLm638TbrC0KNmbCHA5p4
+	FdkNjCRq/1WuMtjHv6pcoBrczBLEW0wDytORcT9r42bxsGl6ZptkNdtliKkWQ1f4YnyAowqa+uvnW
+	k8d8zksg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ2TA-00000003UOr-191T;
-	Mon, 01 Dec 2025 11:53:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vQ2TD-00000003URR-0AXV;
+	Mon, 01 Dec 2025 11:53:31 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ2T8-00000003UNf-2j9k
+	id 1vQ2T8-00000003UNk-3fd9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 11:53:26 +0000
+	Mon, 01 Dec 2025 11:53:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C6FB56016B;
-	Mon,  1 Dec 2025 11:53:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 6F8FAC4CEF1;
+	by sea.source.kernel.org (Postfix) with ESMTP id 294D0443D9;
+	Mon,  1 Dec 2025 11:53:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id E592EC19421;
 	Mon,  1 Dec 2025 11:53:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764590005;
-	bh=0nMJ0F2u0g5tfi1U82ygJgaOgW4YChsxsA3FwPtCIoY=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=W3+FpNn/9/OtDVt3k2X0c10JxWWchRqIYaKLQvRcKbW3258FW1CmHnTw4w9UHtMkL
-	 2GeVI4NRKS38vEIrKE2aqXpvGkroTkLRgWNWsiI03E15MS9ONmQdoG40/n1BKpOS4Z
-	 yyWcfNRutYHbNzqcaVR2TSOzEvqhSn9QPr7kq+BeKHeBQ9n6PM+KAxX8RtJLKCKaow
-	 UUIXTKCU5vI/phCOHYDUZvTZIqQ1CDxW55qnZKtMcIGxMqs+4t4K2bpJ+B5lFFgryr
-	 lHc07iENbEK3P6UNJfj043FdsZICHcIh8YQTEkgRKYDwXoBXoxDmvg4qQpVyY3gqNn
-	 ORbkDwOzrDNTQ==
+	s=k20201202; t=1764590006;
+	bh=As7VxcdiGSM6WKyddLJP3nl6IFr7YW7eI/5lBDAp5Rg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=X2HX94rWnPBAkbz7Lfv6lz0Jm3dtbZc2F/CfmmqjLGTeycTJ5FmQ2VidxT7FC8OvX
+	 /Lb1w4RSv9TTFXnY8z8+69uAGaatHEURsCnHFHfqId173Skxh0zszEGnMZJpiT4NLB
+	 vmUW5V0Qtbf2g3GnOWeVTMinPVsFm7fXbwzzx7N5/+WLWZ6TQ2RYXBt4CWvwwgt7Vh
+	 2eJY6YKYs7emIKksS4BNu++56dVrh1xaMmvptVM8HQPu32vFW+vm0ygbDGG6qE71fM
+	 go8Ag2NE4sz8SoUkLGe9cFJAFueqjolojCZ3aoczPYP2zVL9b43O7eva0KcE6ddEjL
+	 Wo6GMsJpS9S/w==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5C100D116F5;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D75FBD116F1;
 	Mon,  1 Dec 2025 11:53:25 +0000 (UTC)
 From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Subject: [PATCH v6 0/4] backlight: add new max25014 backlight driver
-Date: Mon, 01 Dec 2025 12:53:19 +0100
-Message-Id: <20251201-max25014-v6-0-88e3ac8112ff@gocontroll.com>
+Date: Mon, 01 Dec 2025 12:53:22 +0100
+Subject: [PATCH v6 3/4] arm64: dts: freescale:
+ moduline-display-av101hdt-a10: add backlight
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAK+BLWkC/23NzWrDMAzA8VcpPs9D8me8095j7KA4cmto4+GU0
- FHy7nM7WALLzTL6/XUXE9fMk3g73EXlOU+5jG1wLwcRTzQeWeahzUKBsuCUkxe6tRcaaRR4G5C
- RkhVt/atyyrdn6uOzzac8XUv9fpZnfPz+Rryya2RGCRK4i5FD63X8fiyxjNdazufXWC7iUZrVq
- jsMG62atmnwxD0aZNrVetUBcaN10wPoZLgn7e3+bfOnEWB72zTtaOgVAZG2aVfbVSP4jbZNB3J
- E1mtw/X+9LMsPhwCQh50BAAA=
-X-Change-ID: 20250626-max25014-4207591e1af5
+Message-Id: <20251201-max25014-v6-3-88e3ac8112ff@gocontroll.com>
+References: <20251201-max25014-v6-0-88e3ac8112ff@gocontroll.com>
+In-Reply-To: <20251201-max25014-v6-0-88e3ac8112ff@gocontroll.com>
 To: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>, 
  Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -72,16 +69,20 @@ Cc: dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, 
  Maud Spierings <maudspierings@gocontroll.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764590004; l=4564;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764590004; l=1620;
  i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=0nMJ0F2u0g5tfi1U82ygJgaOgW4YChsxsA3FwPtCIoY=;
- b=0lbejPBBqafdrfT0aI0CHFJD41yFIchpfq4m6Fz7r5gOfezIZC52it3MGOmbfoa+pkvqoQaz2
- 2PiHMMjaRNcD+GY+SlKLgROngLwWnrR4FmZwPrfbe4gXI4jBN1Cqhpx
+ bh=qi6/BcrCEYVJ/jWiiobwb7h+IH88mEoOqv0vUhXRMjc=;
+ b=v9bWOBB/IXa5US40LHAmKkyL4NOpXzigHVKXAlxAEqggqlIBxCCtQzNEEmYXyJ+PDpr2pljlo
+ 1zO9berqyLCDQdQod7Me8G7CzfQ5ACNwxTkDjdxdWge9tTc2VQA2IGP
 X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
  pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
 X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
  with auth_id=341
 X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251201_035326_965763_01E0FC64 
+X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,103 +98,67 @@ Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Maxim MAX25014 is an automotive grade backlight driver IC. Its
-datasheet can be found at [1].
+From: Maud Spierings <maudspierings@gocontroll.com>
 
-With its integrated boost controller, it can power 4 channels (led
-strings) and has a number of different modes using pwm and or i2c.
-Currently implemented is only i2c control.
-
-link: https://www.analog.com/media/en/technical-documentation/data-sheets/MAX25014.pdf [1]
+Add the missing backlight driver.
 
 Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
 ---
-Changes in v6:
-- fixup changes in v4 where default brightness handling was changed but
-  not noted
-- remove leftover comment about initializing brightness
-- use BIT definitions for fields in the DIAG register
-- apply reverse christmas tree initialization of local variables
-- remove !=0 from checks, just check if (ret)
-- remove > 0 from checks, just check if (val)
-- use dev_err_probe() more
-- set enable gpio high in the get() instead of seperately calling set()
-- change usleep_range() to fsleep()
-- remove null checks when setting gpio value
-- get regular regulator, not optional to avoid further NULL checks in
-  case none is provided
-- introduce max25014_initial_power_state() to check if the bootloader
-  has already initialized the backlight and to correctly set props.power
-- squash max25014_register_control() into max25014_update_status()
-- in max25014_configure() perform extra checking on the DISABLE register
-  now that the state from the bootloader is taken into account
-- Link to v5: https://lore.kernel.org/r/20251107-max25014-v5-0-9a6aa57306bf@gocontroll.com
+ ...x8p-ml81-moduline-display-106-av101hdt-a10.dtso | 30 ++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
 
-Changes in v5:
-- moved comment about current functions of the driver to the actual
-  comment section of the commit
-- fixed the led@0 property, regex patternProperty is not needed as of
-  now
-- added extra clarification about the ISET field/register
-- moved #address-cells and #size-cells to the correct location
-- remove leftover default-brightness in backlight nodes
-- Link to v4: https://lore.kernel.org/r/20251009-max25014-v4-0-6adb2a0aa35f@gocontroll.com
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso
+index e3965caca6be..0e2914861154 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso
++++ b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av101hdt-a10.dtso
+@@ -17,6 +17,7 @@
+ 
+ 	panel {
+ 		compatible = "boe,av101hdt-a10";
++		backlight = <&backlight>;
+ 		enable-gpios = <&gpio1 7 GPIO_ACTIVE_HIGH>;
+ 		pinctrl-0 = <&pinctrl_panel>;
+ 		pinctrl-names = "default";
+@@ -40,7 +41,36 @@ reg_vbus: regulator-vbus {
+ 	};
+ };
+ 
++&i2c4 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++
++	backlight: backlight@6f {
++		compatible = "maxim,max25014";
++		reg = <0x6f>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++		enable-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_backlight>;
++		maxim,iset = <7>;
++
++		led@0 {
++			reg = <0>;
++			led-sources = <0 1 2>;
++			default-brightness = <50>;
++		};
++	};
++};
++
+ &iomuxc {
++	pinctrl_backlight: backlightgrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_GPIO1_IO04__GPIO1_IO04
++				(MX8MP_PULL_UP | MX8MP_PULL_ENABLE)
++		>;
++	};
++
+ 	pinctrl_panel: panelgrp {
+ 		fsl,pins = <
+ 			MX8MP_IOMUXC_GPIO1_IO07__GPIO1_IO07
 
-Changes in v4:
-- remove setting default brightness, let backlight core take care of it
-- use a led node to describe the backlight
-- use led-sources to enable specific channels
-- also wait 2ms when there is a supply but no enable
-- change dev_warn() to dev_err() in error path in max25014_check_errors()
-- set backlight_properties.scale to BACKLIGHT_SCALE_LINEAR
-- rebase latest next
-- add address-cells and size-cells to i2c4 in av101hdt-a10.dtso
-- Link to v3: https://lore.kernel.org/r/20250911-max25014-v3-0-d03f4eba375e@gocontroll.com
-
-Changes in v3:
-- fixed commit message type intgrated -> integrated
-- added maximum and description to maxim,iset-property
-- dropped unused labels and pinctrl in bindings example
-- put the compatible first in the bindings example and dts
-- removed brackets around defines
-- removed the leftover pdata struct field
-- removed the initial_brightness struct field
-- Link to v2: https://lore.kernel.org/r/20250819-max25014-v2-0-5fd7aeb141ea@gocontroll.com
-
-Changes in v2:
-- Remove leftover unused property from the bindings example
-- Complete the bindings example with all properties
-- Remove some double info from the maxim,iset property
-- Remove platform_data header, fold its data into the max25014 struct
-- Don't force defines to be unsigned
-- Remove stray struct max25014 declaration
-- Remove chipname and device from the max25014 struct
-- Inline the max25014_backlight_register() and strings_mask() functions
-- Remove CONFIG_OF ifdef
-- Link to v1: https://lore.kernel.org/r/20250725-max25014-v1-0-0e8cce92078e@gocontroll.com
-
----
-Maud Spierings (4):
-      dt-bindings: backlight: Add max25014 support
-      backlight: add max25014atg backlight
-      arm64: dts: freescale: moduline-display-av101hdt-a10: add backlight
-      arm64: dts: freescale: moduline-display-av123z7m-n17: add backlight
-
- .../bindings/leds/backlight/maxim,max25014.yaml    | 107 ++++++
- MAINTAINERS                                        |   6 +
- ...x8p-ml81-moduline-display-106-av101hdt-a10.dtso |  30 ++
- ...x8p-ml81-moduline-display-106-av123z7m-n17.dtso |  25 +-
- drivers/video/backlight/Kconfig                    |   7 +
- drivers/video/backlight/Makefile                   |   1 +
- drivers/video/backlight/max25014.c                 | 419 +++++++++++++++++++++
- 7 files changed, 594 insertions(+), 1 deletion(-)
----
-base-commit: 9c0826a5d9aa4d52206dd89976858457a2a8a7ed
-change-id: 20250626-max25014-4207591e1af5
-
-Best regards,
 -- 
-Maud Spierings <maudspierings@gocontroll.com>
+2.52.0
 
 
 
