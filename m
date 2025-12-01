@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C1D4D116F6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED163D116F1
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 17:15:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,33 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Web+ldcUKE0rf0uKHccd8dzH1mqlQaQ/Lv2lJhdnRR8=; b=AR4DHZmvz98zXKmMJLUY3jJlWh
-	FSi7E8YdUSPfBtO4tABvMZuG8yBXlgTVeNQvKE73BqWHnNfYtFG9SzShrlDZcChWCQifPmLDWkdJ1
-	GCHsSff7AiqtAOMOdTBhRw1+ISrswmNtCMCwflr30NCGjdsWFUgZf6VuYY3Xmi5u9xwmzBC60/bI9
-	ee8UOqKWbM8qUN9aexJpJt55vHHCcJIzByrwE7q2+IrRocWA6rrrRqOUM4sqxMvjNi5RrjTisr5jX
-	hSPeYdwDAarKGzLX05r9h8Vk29AGIao/ywlPvyIEMhvfhzFyfMWPzRNO/qaQK9uyVrw2Pc1kLwtzz
-	7fEQxigg==;
+	bh=KfIXyFJd8CY4ThhkcvIduxLFpFp8LCmEJOVmsjeCGzc=; b=YjuqQHLQOgOu1QBy3ooB5DNkmY
+	mT6SebuVbCJY+omq+DZHho+aify8zu/k+vqZTSwwqG/1YCkJqZ2JS+cQXTPOCvqB5fQPSFdy4N5+6
+	8AxCfYPry9ocSqa0ffuMKDKkjgvIkxUrKSWQ4v23vH6lUfO9EMwuKMre5msYg4xL0QYssYn3IwykH
+	qx4mk9SEGvXq1FaVg2YLOAyATel5TwpuoC7qA6I+LfWs3vU88Z2bd8lpWPvcRsnJgDS764NneOoZe
+	3L5aIoo+e7Vy3ZTYW35cIs9GDz16Icft2WxSGjc6e10GYONx9Skev9bFNJoeHp8cWXkdGSI0r3SyA
+	fXyCLPqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ7V4-00000004LVk-0h9Y;
-	Mon, 01 Dec 2025 17:15:46 +0000
+	id 1vQ7V5-00000004LWE-1syh;
+	Mon, 01 Dec 2025 17:15:47 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ7V2-00000004LUV-24b6
+	id 1vQ7V3-00000004LUW-08hD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 17:15:45 +0000
+	Mon, 01 Dec 2025 17:15:46 +0000
 Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <m.felsch@pengutronix.de>)
-	id 1vQ7Uw-0003DM-QG; Mon, 01 Dec 2025 18:15:38 +0100
+	id 1vQ7Uw-0003DM-VR; Mon, 01 Dec 2025 18:15:38 +0100
 From: Marco Felsch <m.felsch@pengutronix.de>
-Date: Mon, 01 Dec 2025 18:15:20 +0100
-Subject: [PATCH v6 1/3] dt-bindings: soc: imx93-media-blk-ctrl: Add PDFC
- subnode to schema and example
+Date: Mon, 01 Dec 2025 18:15:22 +0100
+Subject: [PATCH v6 3/3] arm64: dts: imx93: Add parallel display output
+ nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251201-v6-18-topic-imx93-parallel-display-v6-1-7b056e1e5b1e@pengutronix.de>
+Message-Id: <20251201-v6-18-topic-imx93-parallel-display-v6-3-7b056e1e5b1e@pengutronix.de>
 References: <20251201-v6-18-topic-imx93-parallel-display-v6-0-7b056e1e5b1e@pengutronix.de>
 In-Reply-To: <20251201-v6-18-topic-imx93-parallel-display-v6-0-7b056e1e5b1e@pengutronix.de>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -62,8 +62,8 @@ X-SA-Exim-Mail-From: m.felsch@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_091544_539487_09EEA5A7 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20251201_091545_075029_10CEB356 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,146 +78,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Liu Ying <victor.liu@nxp.com>
+Add required OF nodes to support the i.MX93 parallel output (DPI) path.
 
-i.MX93 SoC mediamix blk-ctrl contains one DISPLAY_MUX register which
-configures parallel display format by using the "PARALLEL_DISP_FORMAT"
-field. Document the Parallel Display Format Configuration(PDFC) subnode
-and add the subnode to example.
+On the i.MX93 a single LCDIF is connected to three bridges: DPI, LVDS
+LDB and the MIPI-DSI whereas the i.MX91 support only the DPI bridge.
 
-Signed-off-by: Liu Ying <victor.liu@nxp.com>
-[m.felsch@pengutronix.de: port to v6.18-rc1]
-[m.felsch@pengutronix.de: add bus-width]
+Map endpoint@0 as DPI bridge output since the i.MX93 TRM (Figure 485.
+MEDIAMIX block diagram) doesn't mention any port-number <-> bridge
+combination.
+
+Set the MEDIA-AXI and MEDIA-APB clocks to the overdrive (OD) values
+since the i.MX93 and i.MX91 use the overdrive (OD) clk settings per
+default.
+
 Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
 ---
- .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml | 92 ++++++++++++++++++++++
- 1 file changed, 92 insertions(+)
+ arch/arm64/boot/dts/freescale/imx91_93_common.dtsi | 57 ++++++++++++++++++++++
+ arch/arm64/boot/dts/freescale/imx93.dtsi           | 12 +++++
+ 2 files changed, 69 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-index 34aea58094e55365a2f9c86092f637e533f954ff..6e2d86d9341c75108b492bcbabc8a560d8e707cd 100644
---- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-+++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-@@ -26,6 +26,12 @@ properties:
-   reg:
-     maxItems: 1
+diff --git a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
+index 52da571f26c4e8a2703e4476b5541fa7aca52f10..6dc01a76c68425bb65576712bfd98950d662bd38 100644
+--- a/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx91_93_common.dtsi
+@@ -1122,8 +1122,65 @@ media_blk_ctrl: system-controller@4ac10000 {
+ 				 <&clk IMX93_CLK_MIPI_DSI_GATE>;
+ 			clock-names = "apb", "axi", "nic", "disp", "cam",
+ 				      "pxp", "lcdif", "isi", "csi", "dsi";
++			assigned-clocks = <&clk IMX93_CLK_MEDIA_AXI>,
++					  <&clk IMX93_CLK_MEDIA_APB>,
++					  <&clk IMX93_CLK_MEDIA_DISP_PIX>;
++			assigned-clock-parents = <&clk IMX93_CLK_SYS_PLL_PFD1>,
++						 <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>,
++						 <&clk IMX93_CLK_VIDEO_PLL>;
++			assigned-clock-rates = <400000000>, <133333333>;
+ 			#power-domain-cells = <1>;
++			#address-cells = <1>;
++			#size-cells = <1>;
+ 			status = "disabled";
++
++			dpi_bridge: bridge@60 {
++				compatible = "nxp,imx93-pdfc";
++				reg = <0x60 0x4>;
++				status = "disabled";
++
++				ports {
++					#address-cells = <1>;
++					#size-cells = <0>;
++
++					port@0 {
++						reg = <0>;
++
++						dpi_from_lcdif: endpoint {
++							remote-endpoint = <&lcdif_to_dpi>;
++						};
++					};
++
++					port@1 {
++						reg = <1>;
++
++						dpi_to_panel: endpoint {
++						};
++					};
++				};
++			};
++		};
++
++		lcdif: display-controller@4ae30000 {
++			compatible = "fsl,imx93-lcdif";
++			reg = <0x4ae30000 0x23c>;
++			interrupts = <GIC_SPI 176 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clk IMX93_CLK_MEDIA_DISP_PIX>,
++				 <&clk IMX93_CLK_LCDIF_GATE>,
++				 <&clk IMX93_CLK_MEDIA_AXI>;
++			clock-names = "pix", "axi", "disp_axi";
++			power-domains = <&media_blk_ctrl IMX93_MEDIABLK_PD_LCDIF>;
++			status = "disabled";
++
++			port {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				lcdif_to_dpi: endpoint@0 {
++					reg = <0>;
++					remote-endpoint = <&dpi_from_lcdif>;
++				};
++			};
+ 		};
  
-+  '#address-cells':
-+    const: 1
-+
-+  '#size-cells':
-+    const: 1
-+
-   '#power-domain-cells':
-     const: 1
+ 		usbotg1: usb@4c100000 {
+diff --git a/arch/arm64/boot/dts/freescale/imx93.dtsi b/arch/arm64/boot/dts/freescale/imx93.dtsi
+index 7b27012dfcb564650882dc8c40e836e797b2fda1..5436b48b30e89eb1f939b398ce1bf105abe7e34b 100644
+--- a/arch/arm64/boot/dts/freescale/imx93.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx93.dtsi
+@@ -150,6 +150,18 @@ l3_cache: l3-cache {
+ 	};
+ };
  
-@@ -40,6 +46,60 @@ properties:
-     minItems: 8
-     maxItems: 10
- 
-+  bridge@60:
-+    type: object
-+    additionalProperties: false
++&lcdif {
++	port {
++		lcdif_to_ldb: endpoint@1 {
++			reg = <1>;
++		};
 +
-+    properties:
-+      compatible:
-+        const: nxp,imx93-pdfc
++		lcdif_to_dsi: endpoint@2 {
++			reg = <2>;
++		};
++	};
++};
 +
-+      reg:
-+        maxItems: 1
-+
-+      ports:
-+        $ref: /schemas/graph.yaml#/properties/ports
-+
-+        properties:
-+          port@0:
-+            $ref: /schemas/graph.yaml#/properties/port
-+            description: Input port node to receive pixel data.
-+
-+          port@1:
-+            $ref: /schemas/graph.yaml#/$defs/port-base
-+            unevaluatedProperties: false
-+            description: Output port node to downstream pixel data receivers.
-+
-+            properties:
-+              endpoint:
-+                $ref: /schemas/graph.yaml#/$defs/endpoint-base
-+                unevaluatedProperties: false
-+
-+                properties:
-+                  bus-width:
-+                    enum: [ 16, 18, 24 ]
-+                    description:
-+                      Specify the physical parallel bus width.
-+
-+                      This property is optional if the display bus-width
-+                      matches the SoC bus-width, e.g. a 18-bit RGB666 (display)
-+                      is connected and all 18-bit data lanes are muxed to the
-+                      parallel-output pads.
-+
-+                      This property must be set to 18 to cut only the LSBs
-+                      instead of the MSBs in case a 24-bit RGB888 display is
-+                      connected and only the lower 18-bit data lanes are muxed
-+                      to the parallel-output pads.
-+
-+        required:
-+          - port@0
-+          - port@1
-+
-+    required:
-+      - compatible
-+      - reg
-+      - ports
-+
- allOf:
-   - if:
-       properties:
-@@ -81,9 +141,12 @@ allOf:
-             - const: isi
-             - const: csi
-             - const: dsi
-+
- required:
-   - compatible
-   - reg
-+  - '#address-cells'
-+  - '#size-cells'
-   - power-domains
-   - clocks
-   - clock-names
-@@ -112,4 +175,33 @@ examples:
-                clock-names = "apb", "axi", "nic", "disp", "cam",
-                              "pxp", "lcdif", "isi", "csi", "dsi";
-       #power-domain-cells = <1>;
-+      #address-cells = <1>;
-+      #size-cells = <1>;
-+
-+      bridge@60 {
-+        compatible = "nxp,imx93-pdfc";
-+        reg = <0x60 0x4>;
-+
-+        ports {
-+          #address-cells = <1>;
-+          #size-cells = <0>;
-+
-+          port@0 {
-+            reg = <0>;
-+
-+            pdfc_from_lcdif: endpoint {
-+              remote-endpoint = <&lcdif_to_pdfc>;
-+            };
-+          };
-+
-+          port@1 {
-+            reg = <1>;
-+
-+            pdfc_to_panel: endpoint {
-+              remote-endpoint = <&panel_from_pdfc>;
-+              bus-width = <18>;
-+            };
-+          };
-+        };
-+      };
-     };
+ &src {
+ 	mlmix: power-domain@44461800 {
+ 		compatible = "fsl,imx93-src-slice";
 
 -- 
 2.47.3
