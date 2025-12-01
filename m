@@ -4,57 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C44CD116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 11:23:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F36D111A8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 11:23:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R9jyilWguLu67n8biDRIgMEACORytYPuUBaW4nQt3n0=; b=afHf6XBH9AEoU24RH/9e87s7Ng
-	hUrYow4v0KS+heagtMaUSpTduZgtM6rzNXDUBWB3DSSlNCQTr/oLpJ7eJkPlKVa2lTOk6TaN4KDdu
-	jULbFrFmpe8GHIAEKXKhnmYa9ELPH8HepXAX3HuQZ+2UWXfh3Vhec7Wow3UBW/oUXg67sGvcTOfH/
-	9oPFe6L0DYQFhPfO+2wHXD7hmRcJGDuMzqSsWHLfVlpuaP0b51ORxW6b1uHdJ+mSLbrbGFO01Ia0G
-	gOe4/wBvCBzU4NmOd3r3TP8+RDIZFeDza69lsX5yZiUuzQ1u/BHKggGniuiu5gvO8IvY5U22eSNBp
-	yv1vCFUg==;
+	bh=xqE/+gR2L0MutmnPqgU7q/YAcXPpHoqHCa5U44lCb5c=; b=AdFatx8qkkiAMES0Y0lbjcjVoE
+	y55/8FyPGR4JANX8LX1vnmRwm4/ps7BjBsGyavKm6nnCMJcCYSVdTBN72nrRmFKLrFWjdiLn5Tzp4
+	qTj6sVTd/+9MJXP/xOEvYvDkU3mee/hZtZ0aWZo3rDgFjNFXkhgNbLf/9wnNdHCBuTTGLX+z3VcAR
+	upGYacnmw0CzjKXUX9XDdO5m1CbKX9gfgfX2Kft99Uq1C1dyaLmLcoz5gjZIjofpnXegrdagDpeOu
+	Jir5w1hGjlu6rTL1IqqrPc5PNpBdymHiPzwBRVkh+aJj5u0nNpaT+fMswtMy5/vf3zj4rVXVKNsH3
+	RILHuXhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ1zq-00000003Rqy-3ZAv;
+	id 1vQ1zq-00000003RqE-17BD;
 	Mon, 01 Dec 2025 11:23:10 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ1zo-00000003Rn4-1rhU
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 01 Dec 2025 11:23:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=R9jyilWguLu67n8biDRIgMEACORytYPuUBaW4nQt3n0=; b=iJJBRf+zv1Jk4ywDPMwLu80Jdd
-	bCdodVBDzOhb+syXhuZRuCCzA0M+NwR8k/vSQRu/gk8sXSf24JtAs7bYS2cH9aQdQ+Ej1hD2Tty3m
-	L2IU7SMwHA4FeQEOqlUDYR3TZU6MwY1QvEAeX0MW8xLo4yKKhm1WKbXnmHHAqaBlGqU1+f6cNTkWq
-	FQ8EIJ152UX8mrqCnLBtyPOEM4kFFh2dOn1NRgCgAcRJDwyPE4fzEDGdJ1M2V3T1I+h6tpwy21Tql
-	y3sngaw2aXKTs4h2e8wCgtFCnpMYa2bL/4Q2mTsls6n2tBnxzVUVwCMuFRzE25d2Lf9F6eJa0awHa
-	DT/ievaw==;
 Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ18A-0000000Feps-2xmo
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQ1zf-00000003Rbd-3G7F
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 10:27:46 +0000
+	Mon, 01 Dec 2025 11:23:07 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 48F431595;
-	Mon,  1 Dec 2025 03:22:54 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7915F1596;
+	Mon,  1 Dec 2025 03:22:51 -0800 (PST)
 Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 28E3E3F59E;
-	Mon,  1 Dec 2025 03:22:59 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3C3B73F59E;
+	Mon,  1 Dec 2025 03:22:56 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
-Date: Mon, 01 Dec 2025 11:22:09 +0000
-Subject: [PATCH 19/19] perf: cs-etm: Set watermark for AUX trace
+Date: Mon, 01 Dec 2025 11:22:08 +0000
+Subject: [PATCH 18/19] coresight: trbe: Add kunit tests
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251201-trbe_buffer_refactor_v1-1-v1-19-7da32b076b28@arm.com>
+Message-Id: <20251201-trbe_buffer_refactor_v1-1-v1-18-7da32b076b28@arm.com>
 References: <20251201-trbe_buffer_refactor_v1-1-v1-0-7da32b076b28@arm.com>
 In-Reply-To: <20251201-trbe_buffer_refactor_v1-1-v1-0-7da32b076b28@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
@@ -70,17 +55,16 @@ Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
  Leo Yan <leo.yan@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764588125; l=1279;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764588125; l=26933;
  i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=CnLBhlCtv3ztxvAipwj7G3XfegrAX9IB1iFyGNaXBw4=;
- b=JCZvKgPoppyGZi9uQ3L79JfnjD3WKDxqWgyj3lepFbASg8s6jT6fcDbvQWEeQja+YC/BoKXNE
- m0yvrnCCStzDA76g5U7+URc7obMXrMG0frUfWc8f9+16Mg8axWh8mAu
+ bh=8RrcyuAmXl4l9e1cKb6duyp4YPXzhlLxNp/3AlZJifs=;
+ b=5QDU0iQZnycrovffIn+bvP3nYITunOC/cf88qD7cIMaHRIDBgF0g67HHADsScSqZr4Nwnm3cU
+ nptNHlTVFQaD5csXLmqd0FtzRXmwG/yyt+NeASH3wwXPVyqbXZCeEND
 X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
  pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_102743_003394_47D2197F 
-X-CRM114-Status: UNSURE (   8.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251201_032300_086420_A598A89E 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,36 +79,866 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The default watermark is half of the total buffer size. In many cases,
-the tool can not be notified with sufficient free space, especially when
-profiling with small AUX buffer (e.g., 64KiB).
+Add tests to verify the calculation of the limit and trigger count.
 
-Setting watermark to quarter of the buffer to notifies the tool to read
-data earlier and prevents the data loss.
+Because trigger mode can be disabled, provide two test suites: one with
+trigger mode enabled and one with it disabled.
+
+The cpudata structure is initialized by the test stub, so move its
+definition into the header for including.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/arch/arm/util/cs-etm.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ drivers/hwtracing/coresight/Kconfig                |   9 +
+ drivers/hwtracing/coresight/Makefile               |   1 +
+ .../coresight/coresight-trbe-kunit-tests.c         | 536 +++++++++++++++++++++
+ drivers/hwtracing/coresight/coresight-trbe.c       | 112 +----
+ drivers/hwtracing/coresight/coresight-trbe.h       |  89 ++++
+ 5 files changed, 660 insertions(+), 87 deletions(-)
 
-diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/util/cs-etm.c
-index ea891d12f8f40beebf8dee1d3db71cad701f5666..649b8b0d0f92b4af45fb97db9da3c5ccf24a978b 100644
---- a/tools/perf/arch/arm/util/cs-etm.c
-+++ b/tools/perf/arch/arm/util/cs-etm.c
-@@ -424,6 +424,13 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
- 		pr_debug2("%s snapshot size: %zu\n", CORESIGHT_ETM_PMU_NAME,
- 			  opts->auxtrace_snapshot_size);
+diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
+index 6a4239ebb582e95f0ebe8e9c8738a726f27f60a1..f5758563c0090141cdca67f16e7b7b32e7c75bb8 100644
+--- a/drivers/hwtracing/coresight/Kconfig
++++ b/drivers/hwtracing/coresight/Kconfig
+@@ -214,6 +214,15 @@ config CORESIGHT_TRBE
+ 	  To compile this driver as a module, choose M here: the module will be
+ 	  called coresight-trbe.
  
-+	if (!opts->auxtrace_snapshot_mode && !opts->auxtrace_sample_mode) {
-+		size_t aw = opts->auxtrace_mmap_pages * (size_t)page_size / 4;
-+		u32 aux_watermark = aw > UINT_MAX ? UINT_MAX : aw;
++config CORESIGHT_TRBE_KUNIT_TESTS
++	tristate "Enable Coresight TRBE unit tests"
++	depends on KUNIT
++	depends on CORESIGHT_TRBE
++	default KUNIT_ALL_TESTS
++	help
++	  Enable Coresight TRBE unit tests. Only useful for development and not
++	  intended for production.
 +
-+		cs_etm_evsel->core.attr.aux_watermark = aux_watermark;
+ config ULTRASOC_SMB
+ 	tristate "Ultrasoc system memory buffer drivers"
+ 	depends on ACPI || COMPILE_TEST
+diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
+index ab16d06783a572ea1308dfb3a30c96df9e5ffdb7..f8961f6883d167bc2c4bca8008eceb08c3c3a0e9 100644
+--- a/drivers/hwtracing/coresight/Makefile
++++ b/drivers/hwtracing/coresight/Makefile
+@@ -57,3 +57,4 @@ obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
+ obj-$(CONFIG_CORESIGHT_CTCU) += coresight-ctcu.o
+ coresight-ctcu-y := coresight-ctcu-core.o
+ obj-$(CONFIG_CORESIGHT_KUNIT_TESTS) += coresight-kunit-tests.o
++obj-$(CONFIG_CORESIGHT_TRBE_KUNIT_TESTS) += coresight-trbe-kunit-tests.o
+diff --git a/drivers/hwtracing/coresight/coresight-trbe-kunit-tests.c b/drivers/hwtracing/coresight/coresight-trbe-kunit-tests.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..836f76dce155d533f9076e85dc97ba25221b7bbf
+--- /dev/null
++++ b/drivers/hwtracing/coresight/coresight-trbe-kunit-tests.c
+@@ -0,0 +1,536 @@
++// SPDX-License-Identifier: GPL-2.0
++
++#include <kunit/test.h>
++#include <kunit/device.h>
++#include <linux/coresight.h>
++
++#include "coresight-priv.h"
++#include "coresight-trbe.h"
++
++MODULE_IMPORT_NS("EXPORTED_FOR_KUNIT_TESTING");
++
++static void test_compute_offset(struct kunit *test)
++{
++	struct perf_output_handle handle = { 0 };
++	struct trbe_buf buf = { 0 };
++	struct trbe_cpudata cpudata = { .trbe_align = PAGE_SIZE };
++	unsigned long limit;
++
++	if (!static_branch_unlikely(&trbe_trigger_mode_bypass))
++		return;
++
++	cpudata.trbe_hw_align = 1;
++
++	buf.nr_pages = SZ_1M / SZ_4K;
++	buf.cpudata = &cpudata;
++
++	handle.rb = (void *)&buf;
++
++	/*
++	 * ### : Free space, $$$ : Filled space
++	 *
++	 * |################|################|
++	 * `head            `wakeup
++	 * `tail            `limit
++	 */
++	handle.head = 0;
++	handle.size = SZ_1M;
++	handle.wakeup = SZ_1M / 2;
++
++	limit = __trbe_normal_offset(&handle);
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M / 2);
++
++	/*
++	 * |################|################|
++	 * `head            `wakeup         `tail
++	 *                  `limit
++	 */
++	handle.head = 0;
++	handle.size = SZ_1M - 1;
++	handle.wakeup = SZ_1M / 2;
++
++	limit = __trbe_normal_offset(&handle);
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M / 2);
++
++	/*
++	 * |#################################|
++	 * `head                            `tail
++	 * `wakeup                         `limit
++	 */
++	handle.head = 0;
++	handle.size = SZ_1M - 1;
++	handle.wakeup = 0;
++
++	limit = __trbe_normal_offset(&handle);
++	KUNIT_ASSERT_EQ(test, limit, 0);
++
++	/*
++	 * |#################################|
++	 * `head                            `tail
++	 *                                   `wakeup
++	 *                                 `limit
++	 */
++	handle.head = 0;
++	handle.size = SZ_1M - 1;
++	handle.wakeup = SZ_1M;
++
++	limit = __trbe_normal_offset(&handle);
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M - SZ_4K);
++
++	/*
++	 * |$$$$$$$$$$$$$$$$|########|#######|
++	 *                  `head           `tail
++	 *                           `wakeup
++	 *                                 `limit
++	 */
++	handle.head = SZ_1M / 2;
++	handle.size = SZ_1M / 2 - 1;
++	handle.wakeup = SZ_1M * 3 / 4;
++
++	limit = __trbe_normal_offset(&handle);
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M * 3 / 4);
++
++	/*
++	 * |$$$$$$$$|$$$$$$$|################|
++	 *                  `head           `tail
++	 *          `wakeup
++	 *                                 `limit
++	 */
++	handle.head = SZ_1M / 2;
++	handle.size = SZ_1M / 2 - 1;
++	handle.wakeup = SZ_1M * 1 / 4;
++
++	limit = __trbe_normal_offset(&handle);
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M - SZ_4K);
++
++	/*
++	 * |$$$$$$$$$$$$$$$$|################|
++	 *                  `head           `tail
++	 *                                  `wakeup
++	 *                                 `limit
++	 */
++	handle.head = SZ_1M / 2;
++	handle.size = SZ_1M / 2 - 1;
++	handle.wakeup = SZ_1M - 1;
++
++	limit = __trbe_normal_offset(&handle);
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M - SZ_4K);
++
++	/*
++	 * |#########|$$$$$$$$$$|########|###|
++	 *           `tail      `head    `wakeup
++	 *                                   `limit
++	 */
++	handle.head = SZ_1M * 3 / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = handle.head + SZ_1M / 8;
++
++	limit = __trbe_normal_offset(&handle);
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M * 7 / 8);
++
++	/*
++	 * |####|####|$$$$$$$$$$|############|
++	 *           `tail      `head
++	 *      `wakeup
++	 *                                   `limit
++	 */
++	handle.head = SZ_1M * 3 / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = SZ_1M + SZ_1M / 8;
++
++	limit = __trbe_normal_offset(&handle);
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M);
++
++	/*
++	 * |#######|########|$$$$$$$$$$$$$$$$|
++	 * `head   `wakeup  `>tail
++	 *         `limit
++	 */
++	handle.head = SZ_1M;
++	handle.wakeup = SZ_1M + SZ_1M / 8;
++	handle.size = SZ_1M / 2;
++
++	limit = __trbe_normal_offset(&handle);
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M / 8);
++
++	/*
++	 * |#######|$$$$$$$$$$$$$$$$$|#######|
++	 *         `tail             `head
++	 *         `wakeup
++	 *                                   `limit
++	 */
++	handle.head = SZ_1M * 3 / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = SZ_1M + SZ_1M / 4;
++
++	limit = __trbe_normal_offset(&handle);
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M);
++
++	/*
++	 * |#######|$$$$$$$$|$$$$$$$$|#######|
++	 *         `tail    `wakeup  `head
++	 *                                   `limit
++	 */
++	handle.head = SZ_1M * 3 / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = SZ_1M + SZ_1M / 2;
++
++	limit = __trbe_normal_offset(&handle);
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M);
++
++	/*
++	 * |$$$$$$$|########|########|$$$$$$$|
++	 *         `head    `wakeup  `tail
++	 *                           `limit
++	 */
++	handle.head = SZ_1M / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = SZ_1M / 2;
++
++	limit = __trbe_normal_offset(&handle);
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M / 2);
++
++	/*
++	 * |$$$$$$$|#################|$$$$$$$|
++	 *         `head             `tail
++	 *                           `wakeup
++	 *                           `limit
++	 */
++	handle.head = SZ_1M / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = SZ_1M * 3 / 4;
++
++	limit = __trbe_normal_offset(&handle);
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M * 3 / 4);
++
++	/*
++	 * |$$$$$$$|#################|$$$$$$$|
++	 * `wakeup `head             `tail
++	 *                           `limit
++	 */
++	handle.head = SZ_1M / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = 0;
++
++	limit = __trbe_normal_offset(&handle);
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M * 3 / 4);
++
++	/*
++	 * |$$$$$$|$$$$$$$$$$$$$$$$$$$$$$$$$$|
++	 *        `head
++	 *        `tail
++	 */
++	handle.head = SZ_1M / 4;
++	handle.size = 0;
++
++	limit = __trbe_normal_offset(&handle);
++	KUNIT_ASSERT_EQ(test, limit, 0);
++
++	/*
++	 * |$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$|#$|
++	 *                                `head
++	 *                                  `tail
++	 */
++	handle.head = SZ_1M - SZ_1K * 2;
++	handle.size = SZ_1K;
++	handle.wakeup = 0;
++
++	limit = __trbe_normal_offset(&handle);
++	KUNIT_ASSERT_EQ(test, limit, 0);
++}
++
++static void test_compute_offset_and_counter(struct kunit *test)
++{
++	struct perf_output_handle handle = { 0 };
++	struct trbe_buf buf = { 0 };
++	struct trbe_cpudata cpudata = { .trbe_align = PAGE_SIZE };
++	unsigned long limit;
++	u64 count;
++
++	if (static_branch_unlikely(&trbe_trigger_mode_bypass))
++		return;
++
++	cpudata.trbe_hw_align = 1;
++
++	buf.nr_pages = SZ_1M / SZ_4K;
++	buf.cpudata = &cpudata;
++
++	handle.rb = (void *)&buf;
++
++	/*
++	 * ### : Free space, $$$ : Filled space
++	 *
++	 * |################|################|
++	 * `head            `wakeup          `limit
++	 * `tail
++	 * `----- count ----'
++	 */
++	handle.head = 0;
++	handle.size = SZ_1M;
++	handle.wakeup = SZ_1M / 2;
++
++	limit = __trbe_normal_offset(&handle);
++	buf.trbe_limit = limit;
++	count = __trbe_normal_trigger_count(&handle);
++
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M);
++	KUNIT_ASSERT_EQ(test, count, SZ_1M / 2);
++
++	/*
++	 * |################|################|
++	 * `head            `wakeup         `tail
++	 *                                 `limit
++	 * `----- count ----'
++	 */
++	handle.head = 0;
++	handle.size = SZ_1M - 1;
++	handle.wakeup = SZ_1M / 2;
++
++	limit = __trbe_normal_offset(&handle);
++	buf.trbe_limit = limit;
++	count = __trbe_normal_trigger_count(&handle);
++
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M - SZ_4K);
++	KUNIT_ASSERT_EQ(test, count, SZ_1M / 2);
++
++	/*
++	 * |#################################|
++	 * `head                            `tail
++	 * `wakeup                         `limit
++	 */
++	handle.head = 0;
++	handle.size = SZ_1M - 1;
++	handle.wakeup = 0;
++
++	limit = __trbe_normal_offset(&handle);
++	buf.trbe_limit = limit;
++	count = __trbe_normal_trigger_count(&handle);
++
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M - SZ_4K);
++	KUNIT_ASSERT_EQ(test, count, 0);
++
++	/*
++	 * |#################################|
++	 * `head                            `tail
++	 *                                   `wakeup
++	 *                                 `limit
++	 */
++	handle.head = 0;
++	handle.size = SZ_1M - 1;
++	handle.wakeup = SZ_1M;
++
++	limit = __trbe_normal_offset(&handle);
++	buf.trbe_limit = limit;
++	count = __trbe_normal_trigger_count(&handle);
++
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M - SZ_4K);
++	KUNIT_ASSERT_EQ(test, count, 0);
++
++	/*
++	 * |$$$$$$$$$$$$$$$$|########|#######|
++	 *                  `head           `tail
++	 *                           `wakeup
++	 *                                 `limit
++	 *                  [  count ]
++	 */
++	handle.head = SZ_1M / 2;
++	handle.size = SZ_1M / 2 - 1;
++	handle.wakeup = SZ_1M * 3 / 4;
++
++	limit = __trbe_normal_offset(&handle);
++	buf.trbe_limit = limit;
++	count = __trbe_normal_trigger_count(&handle);
++
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M - SZ_4K);
++	KUNIT_ASSERT_EQ(test, count, SZ_1M / 4);
++
++	/*
++	 * |$$$$$$$$|$$$$$$$|################|
++	 *                  `head           `tail
++	 *          `wakeup
++	 *                                 `limit
++	 */
++	handle.head = SZ_1M / 2;
++	handle.size = SZ_1M / 2 - 1;
++	handle.wakeup = SZ_1M * 1 / 4;
++
++	limit = __trbe_normal_offset(&handle);
++	buf.trbe_limit = limit;
++	count = __trbe_normal_trigger_count(&handle);
++
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M - SZ_4K);
++	KUNIT_ASSERT_EQ(test, count, 0);
++
++	/*
++	 * |$$$$$$$$$$$$$$$$|################|
++	 *                  `head           `tail
++	 *                                  `wakeup
++	 *                                 `limit
++	 */
++	handle.head = SZ_1M / 2;
++	handle.size = SZ_1M / 2 - 1;
++	handle.wakeup = SZ_1M - 1;
++
++	limit = __trbe_normal_offset(&handle);
++	buf.trbe_limit = limit;
++	count = __trbe_normal_trigger_count(&handle);
++
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M - SZ_4K);
++	KUNIT_ASSERT_EQ(test, count, 0);
++
++	/*
++	 * |#########|$$$$$$$$$$|########|###|
++	 *           `tail      `head    `wakeup
++	 *                                   `limit
++	 *                      [  count ]
++	 */
++	handle.head = SZ_1M * 3 / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = handle.head + SZ_1M / 8;
++
++	limit = __trbe_normal_offset(&handle);
++	buf.trbe_limit = limit;
++	count = __trbe_normal_trigger_count(&handle);
++
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M);
++	KUNIT_ASSERT_EQ(test, count, SZ_1M / 8);
++
++	/*
++	 * |####|####|$$$$$$$$$$|############|
++	 *           `tail      `head
++	 *      `wakeup
++	 *                                   `limit
++	 *                      [   count  >>>
++	 * >>>       ]
++	 */
++	handle.head = SZ_1M * 3 / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = SZ_1M + SZ_1M / 8;
++
++	limit = __trbe_normal_offset(&handle);
++	buf.trbe_limit = limit;
++	count = __trbe_normal_trigger_count(&handle);
++
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M);
++	KUNIT_ASSERT_EQ(test, count, SZ_1M / 2);
++
++	/*
++	 * |#######|########|$$$$$$$$$$$$$$$$|
++	 * `head   `wakeup  `>tail
++	 *                  `limit
++	 * [ count ]
++	 */
++	handle.head = SZ_1M;
++	handle.wakeup = SZ_1M + SZ_1M / 8;
++	handle.size = SZ_1M / 2;
++
++	limit = __trbe_normal_offset(&handle);
++	buf.trbe_limit = limit;
++	count = __trbe_normal_trigger_count(&handle);
++
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M / 2);
++	KUNIT_ASSERT_EQ(test, count, SZ_1M / 8);
++
++	/*
++	 * |#######|$$$$$$$$$$$$$$$$$|#######|
++	 *         `tail             `head
++	 *         `wakeup
++	 *                                   `limit
++	 *                           [ count >
++	 * >>>     ]
++	 */
++	handle.head = SZ_1M * 3 / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = SZ_1M + SZ_1M / 4;
++
++	limit = __trbe_normal_offset(&handle);
++	buf.trbe_limit = limit;
++	count = __trbe_normal_trigger_count(&handle);
++
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M);
++	KUNIT_ASSERT_EQ(test, count, SZ_1M / 2);
++
++	/*
++	 * |#######|$$$$$$$$|$$$$$$$$|#######|
++	 *         `tail    `wakeup  `head
++	 *                                   `limit
++	 *                           [ count >
++	 * >>>     ]
++	 */
++	handle.head = SZ_1M * 3 / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = SZ_1M + SZ_1M / 2;
++
++	limit = __trbe_normal_offset(&handle);
++	buf.trbe_limit = limit;
++	count = __trbe_normal_trigger_count(&handle);
++
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M);
++	KUNIT_ASSERT_EQ(test, count, SZ_1M / 2);
++
++	/*
++	 * |$$$$$$$|########|########|$$$$$$$|
++	 *         `head    `wakeup  `tail
++	 *                           `limit
++	 *         [ count  ]
++	 */
++	handle.head = SZ_1M / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = SZ_1M / 2;
++
++	limit = __trbe_normal_offset(&handle);
++	buf.trbe_limit = limit;
++	count = __trbe_normal_trigger_count(&handle);
++
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M * 3 / 4);
++	KUNIT_ASSERT_EQ(test, count, SZ_1M / 4);
++
++	/*
++	 * |$$$$$$$|#################|$$$$$$$|
++	 *         `head             `tail
++	 *                           `wakeup
++	 *                           `limit
++	 */
++	handle.head = SZ_1M / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = SZ_1M * 3 / 4;
++
++	limit = __trbe_normal_offset(&handle);
++	buf.trbe_limit = limit;
++	count = __trbe_normal_trigger_count(&handle);
++
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M * 3 / 4);
++	KUNIT_ASSERT_EQ(test, count, 0);
++
++	/*
++	 * |$$$$$$$|#################|$$$$$$$|
++	 * `wakeup `head             `tail
++	 *                           `limit
++	 */
++	handle.head = SZ_1M / 4;
++	handle.size = SZ_1M / 2;
++	handle.wakeup = 0;
++
++	limit = __trbe_normal_offset(&handle);
++	buf.trbe_limit = limit;
++	count = __trbe_normal_trigger_count(&handle);
++
++	KUNIT_ASSERT_EQ(test, limit, SZ_1M * 3 / 4);
++	KUNIT_ASSERT_EQ(test, count, 0);
++}
++
++static struct kunit_case coresight_trbe_testcases[] = {
++	KUNIT_CASE(test_compute_offset),
++	KUNIT_CASE(test_compute_offset_and_counter),
++	{}
++};
++
++static struct kunit_suite coresight_trbe_test_suite = {
++	.name = "coresight_trbe_test_suite",
++	.test_cases = coresight_trbe_testcases,
++};
++
++kunit_test_suites(&coresight_trbe_test_suite);
++MODULE_LICENSE("GPL");
++MODULE_AUTHOR("Leo Yan <leo.yan@arm.com>");
++MODULE_DESCRIPTION("Arm CoreSight TRBE KUnit tests");
+diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+index ee9993d518d2a41f0d709b7d0690b2dfe0bef2d9..25d42683ab74b55efa2e19a2d77ab8ae2d68d228 100644
+--- a/drivers/hwtracing/coresight/coresight-trbe.c
++++ b/drivers/hwtracing/coresight/coresight-trbe.c
+@@ -54,92 +54,12 @@ enum trbe_fault_action {
+ 	TRBE_FAULT_ACT_FATAL,
+ };
+ 
+-struct trbe_buf {
+-	/*
+-	 * Even though trbe_base represents vmap()
+-	 * mapped allocated buffer's start address,
+-	 * it's being as unsigned long for various
+-	 * arithmetic and comparision operations &
+-	 * also to be consistent with trbe_write &
+-	 * trbe_limit sibling pointers.
+-	 */
+-	unsigned long trbe_base;
+-	/* The base programmed into the TRBE */
+-	unsigned long trbe_hw_base;
+-	unsigned long trbe_limit;
+-	unsigned long trbe_write;
+-	unsigned long trbe_count;
+-	int nr_pages;
+-	void **pages;
+-	bool snapshot;
+-	struct trbe_cpudata *cpudata;
+-};
+-
+-/*
+- * TRBE erratum list
+- *
+- * The errata are defined in arm64 generic cpu_errata framework.
+- * Since the errata work arounds could be applied individually
+- * to the affected CPUs inside the TRBE driver, we need to know if
+- * a given CPU is affected by the erratum. Unlike the other erratum
+- * work arounds, TRBE driver needs to check multiple times during
+- * a trace session. Thus we need a quicker access to per-CPU
+- * errata and not issue costly this_cpu_has_cap() everytime.
+- * We keep a set of the affected errata in trbe_cpudata, per TRBE.
+- *
+- * We rely on the corresponding cpucaps to be defined for a given
+- * TRBE erratum. We map the given cpucap into a TRBE internal number
+- * to make the tracking of the errata lean.
+- *
+- * This helps in :
+- *   - Not duplicating the detection logic
+- *   - Streamlined detection of erratum across the system
+- */
+-#define TRBE_WORKAROUND_OVERWRITE_FILL_MODE	0
+-#define TRBE_WORKAROUND_WRITE_OUT_OF_RANGE	1
+-#define TRBE_NEEDS_DRAIN_AFTER_DISABLE		2
+-#define TRBE_NEEDS_CTXT_SYNC_AFTER_ENABLE	3
+-#define TRBE_IS_BROKEN				4
+-
+-static int trbe_errata_cpucaps[] = {
+-	[TRBE_WORKAROUND_OVERWRITE_FILL_MODE] = ARM64_WORKAROUND_TRBE_OVERWRITE_FILL_MODE,
+-	[TRBE_WORKAROUND_WRITE_OUT_OF_RANGE] = ARM64_WORKAROUND_TRBE_WRITE_OUT_OF_RANGE,
+-	[TRBE_NEEDS_DRAIN_AFTER_DISABLE] = ARM64_WORKAROUND_2064142,
+-	[TRBE_NEEDS_CTXT_SYNC_AFTER_ENABLE] = ARM64_WORKAROUND_2038923,
+-	[TRBE_IS_BROKEN] = ARM64_WORKAROUND_1902691,
+-	-1,		/* Sentinel, must be the last entry */
+-};
+-
+-/* The total number of listed errata in trbe_errata_cpucaps */
+-#define TRBE_ERRATA_MAX			(ARRAY_SIZE(trbe_errata_cpucaps) - 1)
+-
+ /*
+  * Safe limit for the number of bytes that may be overwritten
+  * when ARM64_WORKAROUND_TRBE_OVERWRITE_FILL_MODE is triggered.
+  */
+ #define TRBE_WORKAROUND_OVERWRITE_FILL_MODE_SKIP_BYTES	256
+ 
+-/*
+- * struct trbe_cpudata: TRBE instance specific data
+- * @trbe_flag		- TRBE dirty/access flag support
+- * @trbe_hw_align	- Actual TRBE alignment required for TRBPTR_EL1.
+- * @trbe_align		- Software alignment used for the TRBPTR_EL1.
+- * @cpu			- CPU this TRBE belongs to.
+- * @mode		- Mode of current operation. (perf/disabled)
+- * @drvdata		- TRBE specific drvdata
+- * @errata		- Bit map for the errata on this TRBE.
+- */
+-struct trbe_cpudata {
+-	bool trbe_flag;
+-	u64 trbe_hw_align;
+-	u64 trbe_align;
+-	int cpu;
+-	enum cs_mode mode;
+-	struct trbe_buf *buf;
+-	struct trbe_drvdata *drvdata;
+-	DECLARE_BITMAP(errata, TRBE_ERRATA_MAX);
+-};
+-
+ struct trbe_drvdata {
+ 	struct trbe_cpudata __percpu *cpudata;
+ 	struct perf_output_handle * __percpu *handle;
+@@ -150,7 +70,8 @@ struct trbe_drvdata {
+ 	struct platform_device *pdev;
+ };
+ 
+-DEFINE_STATIC_KEY_FALSE(trbe_trigger_mode_bypass);
++VISIBLE_IF_KUNIT DEFINE_STATIC_KEY_FALSE(trbe_trigger_mode_bypass);
++EXPORT_SYMBOL_IF_KUNIT(trbe_trigger_mode_bypass);
+ 
+ #define trbe_trigger_mode_need_bypass(cpudata)		\
+ 	(trbe_may_overwrite_in_fill_mode((cpudata)) ||	\
+@@ -333,8 +254,17 @@ static void __trbe_pad_buf(struct trbe_buf *buf, u64 offset, int len)
+ 
+ static void trbe_pad_buf(struct perf_output_handle *handle, int len)
+ {
+-	struct trbe_buf *buf = etm_perf_sink_config(handle);
+-	u64 head = PERF_IDX2OFF(handle->head, buf);
++	struct trbe_buf *buf;
++	u64 head;
++
++	if (kunit_get_current_test()) {
++		handle->head += len;
++		handle->size -= len;
++		return;
 +	}
 +
- 	/*
- 	 * To obtain the auxtrace buffer file descriptor, the auxtrace
- 	 * event must come first.
++	buf = etm_perf_sink_config(handle);
++	head = PERF_IDX2OFF(handle->head, buf);
+ 
+ 	__trbe_pad_buf(buf, head, len);
+ 	if (!buf->snapshot)
+@@ -383,9 +313,11 @@ static u64 trbe_min_trace_buf_size(struct perf_output_handle *handle)
+  * %%%% - Free area, disabled, trace will not be written
+  * ==== - Free area, padded with ETE_IGNORE_PACKET, trace will be skipped
+  */
+-static unsigned long __trbe_normal_offset(struct perf_output_handle *handle)
++VISIBLE_IF_KUNIT
++unsigned long __trbe_normal_offset(struct perf_output_handle *handle)
+ {
+-	struct trbe_buf *buf = etm_perf_sink_config(handle);
++	struct trbe_buf *buf =
++		kunit_get_current_test() ? handle->rb : etm_perf_sink_config(handle);
+ 	struct trbe_cpudata *cpudata = buf->cpudata;
+ 	const u64 bufsize = buf->nr_pages * PAGE_SIZE;
+ 	u64 limit = bufsize;
+@@ -525,9 +457,13 @@ static unsigned long __trbe_normal_offset(struct perf_output_handle *handle)
+ 	return 0;
+ }
+ 
+-static u64 __trbe_normal_trigger_count(struct perf_output_handle *handle)
++EXPORT_SYMBOL_IF_KUNIT(__trbe_normal_offset);
++
++VISIBLE_IF_KUNIT
++u64 __trbe_normal_trigger_count(struct perf_output_handle *handle)
+ {
+-	struct trbe_buf *buf = etm_perf_sink_config(handle);
++	struct trbe_buf *buf =
++		kunit_get_current_test() ? handle->rb : etm_perf_sink_config(handle);
+ 	struct trbe_cpudata *cpudata = buf->cpudata;
+ 	u64 limit, head, wakeup;
+ 	u64 count = 0;
+@@ -558,6 +494,8 @@ static u64 __trbe_normal_trigger_count(struct perf_output_handle *handle)
+ 	return count;
+ }
+ 
++EXPORT_SYMBOL_IF_KUNIT(__trbe_normal_trigger_count);
++
+ static int trbe_normal_offset(struct perf_output_handle *handle)
+ {
+ 	struct trbe_buf *buf = etm_perf_sink_config(handle);
+diff --git a/drivers/hwtracing/coresight/coresight-trbe.h b/drivers/hwtracing/coresight/coresight-trbe.h
+index 4c65d164a946ec9860825e7564196745b60d730b..8f90836b5f71d44213699ec1915d59864863a4db 100644
+--- a/drivers/hwtracing/coresight/coresight-trbe.h
++++ b/drivers/hwtracing/coresight/coresight-trbe.h
+@@ -17,8 +17,91 @@
+ #include <linux/platform_device.h>
+ #include <linux/smp.h>
+ 
++#include <kunit/test-bug.h>
++#include <kunit/visibility.h>
++
+ #include "coresight-etm-perf.h"
+ 
++struct trbe_buf {
++	/*
++	 * Even though trbe_base represents vmap()
++	 * mapped allocated buffer's start address,
++	 * it's being as unsigned long for various
++	 * arithmetic and comparision operations &
++	 * also to be consistent with trbe_write &
++	 * trbe_limit sibling pointers.
++	 */
++	unsigned long trbe_base;
++	/* The base programmed into the TRBE */
++	unsigned long trbe_hw_base;
++	unsigned long trbe_limit;
++	unsigned long trbe_write;
++	unsigned long trbe_count;
++	int nr_pages;
++	void **pages;
++	bool snapshot;
++	struct trbe_cpudata *cpudata;
++};
++
++/*
++ * TRBE erratum list
++ *
++ * The errata are defined in arm64 generic cpu_errata framework.
++ * Since the errata work arounds could be applied individually
++ * to the affected CPUs inside the TRBE driver, we need to know if
++ * a given CPU is affected by the erratum. Unlike the other erratum
++ * work arounds, TRBE driver needs to check multiple times during
++ * a trace session. Thus we need a quicker access to per-CPU
++ * errata and not issue costly this_cpu_has_cap() everytime.
++ * We keep a set of the affected errata in trbe_cpudata, per TRBE.
++ *
++ * We rely on the corresponding cpucaps to be defined for a given
++ * TRBE erratum. We map the given cpucap into a TRBE internal number
++ * to make the tracking of the errata lean.
++ *
++ * This helps in :
++ *   - Not duplicating the detection logic
++ *   - Streamlined detection of erratum across the system
++ */
++#define TRBE_WORKAROUND_OVERWRITE_FILL_MODE	0
++#define TRBE_WORKAROUND_WRITE_OUT_OF_RANGE	1
++#define TRBE_NEEDS_DRAIN_AFTER_DISABLE		2
++#define TRBE_NEEDS_CTXT_SYNC_AFTER_ENABLE	3
++#define TRBE_IS_BROKEN				4
++
++static int trbe_errata_cpucaps[] = {
++	[TRBE_WORKAROUND_OVERWRITE_FILL_MODE] = ARM64_WORKAROUND_TRBE_OVERWRITE_FILL_MODE,
++	[TRBE_WORKAROUND_WRITE_OUT_OF_RANGE] = ARM64_WORKAROUND_TRBE_WRITE_OUT_OF_RANGE,
++	[TRBE_NEEDS_DRAIN_AFTER_DISABLE] = ARM64_WORKAROUND_2064142,
++	[TRBE_NEEDS_CTXT_SYNC_AFTER_ENABLE] = ARM64_WORKAROUND_2038923,
++	[TRBE_IS_BROKEN] = ARM64_WORKAROUND_1902691,
++	-1,		/* Sentinel, must be the last entry */
++};
++
++/* The total number of listed errata in trbe_errata_cpucaps */
++#define TRBE_ERRATA_MAX			(ARRAY_SIZE(trbe_errata_cpucaps) - 1)
++
++/*
++ * struct trbe_cpudata: TRBE instance specific data
++ * @trbe_flag		- TRBE dirty/access flag support
++ * @trbe_hw_align	- Actual TRBE alignment required for TRBPTR_EL1.
++ * @trbe_align		- Software alignment used for the TRBPTR_EL1.
++ * @cpu			- CPU this TRBE belongs to.
++ * @mode		- Mode of current operation. (perf/disabled)
++ * @drvdata		- TRBE specific drvdata
++ * @errata		- Bit map for the errata on this TRBE.
++ */
++struct trbe_cpudata {
++	bool trbe_flag;
++	u64 trbe_hw_align;
++	u64 trbe_align;
++	int cpu;
++	enum cs_mode mode;
++	struct trbe_buf *buf;
++	struct trbe_drvdata *drvdata;
++	DECLARE_BITMAP(errata, TRBE_ERRATA_MAX);
++};
++
+ static inline bool is_trbe_available(void)
+ {
+ 	u64 aa64dfr0 = read_sysreg_s(SYS_ID_AA64DFR0_EL1);
+@@ -153,3 +236,9 @@ static inline void set_trbe_base_pointer(unsigned long addr)
+ 	WARN_ON(!IS_ALIGNED(addr, PAGE_SIZE));
+ 	write_sysreg_s(addr, SYS_TRBBASER_EL1);
+ }
++
++#if IS_ENABLED(CONFIG_KUNIT)
++DECLARE_STATIC_KEY_FALSE(trbe_trigger_mode_bypass);
++unsigned long __trbe_normal_offset(struct perf_output_handle *handle);
++u64 __trbe_normal_trigger_count(struct perf_output_handle *handle);
++#endif
 
 -- 
 2.34.1
