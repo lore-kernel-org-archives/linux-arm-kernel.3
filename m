@@ -4,58 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4868D111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:01:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F2D9D116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:03:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:CC:Message-ID:Date:Content-Type:Content-Transfer-Encoding:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z3Ydp1uvZpavZ5bFg0d8ebez0TvcTYIBT59ZpbsOLro=; b=rK419/NHF2SndRVQork+FqY5hM
-	Lmit9d1Hko+aTlobP5Bf9xSz9a4s9GW+y3nLjcwjyTwhPcYfqF5pkn1bD6DZC8bE5zjCQpznJjjLl
-	cAQYHZ+IoaYmiJXs0nmZC0+WV95GJLLS5yqiRLRlzEx+lL0RPLxPlsIy/dDe5HpXZtDTBJeNUVr3h
-	ZeFSyI754LXCPPG8cb76HPlkL4U6dPB+avkTUy6APKYIl5n+WXxHfZBKdwEZ3GDRetLZmAM6ztbIE
-	FrxioYwJVxSMchuYHu6cWab1QkLTIGatZwEgA83KdHTnXlosirkGFsvOguoTTP0S9esrMjvkf3NKm
-	GKV4un4A==;
+	bh=TlITydG0VPKKgHKEoMPeIzEjx1OwozLNfXIPF6PpkBo=; b=FIPxuRfaZbUB8AKpkC2EZ71ncJ
+	++oQrX7uqLPnhEDrG5xpMxhtLKmkmYFD4+aWmwc8wx6001Y6cgjiYcv1aSKG+bHgnvErtsy4Iqp4Y
+	sToYKzKkPZFuWGZDJt12ryngza46jtLIghHqld+pBZl6B7unGXIFo+lwvAlBIyXzT8pUU6Qd58pXk
+	vZJZFooQeh1tVAS32NHbL/TiILn+4KUEK+rtwrAgGLToM1iQ7IWibjHWZxXno1MZu/6DxIHAO8FxG
+	tGGUTLAaN/j7GbmGHOrB9R4PY1I0xMg/sq8/y+27JyUrBqSkJQRX9LJ2QVssFJPVFL172aVwAgspj
+	VDNdkUTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ0ik-00000003GMp-3pHr;
-	Mon, 01 Dec 2025 10:01:26 +0000
-Received: from mail-m155101.qiye.163.com ([101.71.155.101])
+	id 1vQ0kQ-00000003Gtb-3VGh;
+	Mon, 01 Dec 2025 10:03:10 +0000
+Received: from mail-westus3azon11012012.outbound.protection.outlook.com ([40.107.209.12] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ0ih-00000003GIX-1x37;
-	Mon, 01 Dec 2025 10:01:24 +0000
-Received: from localhost.localdomain (unknown [119.122.215.79])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2b846f24b;
-	Mon, 1 Dec 2025 18:01:21 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh@kernel.org>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH 4/4] arm64: dts: rockchip: Add MangoPi M28K
-Date: Mon,  1 Dec 2025 18:00:08 +0800
-Message-Id: <20251201100008.206524-5-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20251201100008.206524-1-amadeus@jmu.edu.cn>
-References: <20251201100008.206524-1-amadeus@jmu.edu.cn>
+	id 1vQ0kO-00000003Gt9-0INh
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 01 Dec 2025 10:03:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DQH4pxAVCFRqR+VgykhCwdWwX5ikrr8GFFwqHRMXXkIytzg4tA4OOavH/XFoUT2t+xmutvg/5aSuAYvg/vIfDw28ZAy+WYI8DN+zIkJeekoiDfxQv+8frV4DS5XT4mSD4DVnOJU9RBc9QA3T4WOSwDmC6NA5q7uA1knpajAy2USVYiy0duGGo64VYUN6g+rZNfkSHBqX62SEPDXPZK6fkz1K1w3JUZHL75IY69omyfHHwF0CV7uYPe8rppuoW5cicq4bpTZV5x98+XMlWhdczyU0mLNBUUwbuhCfLNtSNNEYafUOq9qW0CNf0Td7DTy9CBTaTOT9Eu73y29D4I0ESg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TlITydG0VPKKgHKEoMPeIzEjx1OwozLNfXIPF6PpkBo=;
+ b=daNXCD3DHGh9/PGi96KOF8ddksvtmxrA5otwvJD73tmVVzAPspM0/QsutspfE9EmrqwXmJ7nOtqf00omoTGb3pW3eEnV9SCfGzTGKiSLtDZYKNZs3x9Swrt32gYo4WpwoB493KsrmUxQwO/diygRkIwJZz3rfrDf88W9biKDvqN6KdgPmgBFrAKtd3aaP7gJowqMA/q8h1RGHB9zdLcaXQkZlIh2j2wji3qMQmL70MCqOmyVYfTfpJ4xCHrtaw8imhmI+7bAfQ3As7wpEYYGn+gykR1n8XWjtmKFvW6j1wojzlRWiWykRt0mUsS9UgrxZMy7cQfO79QXlZbzCmZxPQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TlITydG0VPKKgHKEoMPeIzEjx1OwozLNfXIPF6PpkBo=;
+ b=TMu0bQklVl28PIb44e7iOrixSJjp9Y1IEGvNrkBn7P4mRXtaXFgjnzSYvm1S9tzcv0A9Gmwr0L8L9pJxNS0O7TjP/YKBSNZ5y9r9u7g3/dZtg01y48hAMCXKn7izrivAtTrrMzn8ll2Ndwiap0m+b5bIrU7YN//mARg/tCxxFBY=
+Received: from PH8P221CA0043.NAMP221.PROD.OUTLOOK.COM (2603:10b6:510:346::23)
+ by DS7PR10MB5928.namprd10.prod.outlook.com (2603:10b6:8:84::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Mon, 1 Dec
+ 2025 10:03:02 +0000
+Received: from SN1PEPF000252A2.namprd05.prod.outlook.com
+ (2603:10b6:510:346:cafe::14) by PH8P221CA0043.outlook.office365.com
+ (2603:10b6:510:346::23) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9366.17 via Frontend Transport; Mon,
+ 1 Dec 2025 10:02:53 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ SN1PEPF000252A2.mail.protection.outlook.com (10.167.242.9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9388.8 via Frontend Transport; Mon, 1 Dec 2025 10:03:00 +0000
+Received: from DFLE214.ent.ti.com (10.64.6.72) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 1 Dec
+ 2025 04:02:57 -0600
+Received: from DFLE204.ent.ti.com (10.64.6.62) by DFLE214.ent.ti.com
+ (10.64.6.72) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 1 Dec
+ 2025 04:02:56 -0600
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE204.ent.ti.com
+ (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 1 Dec 2025 04:02:56 -0600
+Received: from localhost (dhcp-172-24-233-105.dhcp.ti.com [172.24.233.105])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5B1A2tIj238147;
+	Mon, 1 Dec 2025 04:02:56 -0600
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9ad95c11a103a2kunm919d19c1367a43
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCHkxOVhhKSR0aQ0keGUhKGVYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKTlVMQllXWRYaDxIVHRRZQVlPS0hVSktJQkNDTFVKS0tVS1
-	kG
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"
+Date: Mon, 1 Dec 2025 15:32:55 +0530
+Message-ID: <DEMSLNLDXSNY.2CMMGUMUOYA9T@ti.com>
+CC: Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Vignesh
+ Raghavendra" <vigneshr@ti.com>
+Subject: Re: [PATCH v3] dt-bindings: arm: keystone: add boot_* mboxes to
+ ti,sci
+From: Anshul Dalal <anshuld@ti.com>
+To: Nishanth Menon <nm@ti.com>, Anshul Dalal <anshuld@ti.com>
+X-Mailer: aerc 0.21.0-0-g5549850facc2
+References: <20251112-k3_syscon_add_boot_mailboxes-v3-1-66155a4236dc@ti.com>
+ <20251112152806.zsinwwzaht2ws2wh@headpiece>
+In-Reply-To: <20251112152806.zsinwwzaht2ws2wh@headpiece>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF000252A2:EE_|DS7PR10MB5928:EE_
+X-MS-Office365-Filtering-Correlation-Id: bfc704d2-b537-4b55-32f9-08de30c0cf3a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|36860700013|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Y0x3NFlFbEZGM3ovYkU2SEtOb3pNbVExN3ZLNmRWSTd0c3A2K0NNaEhpRnUz?=
+ =?utf-8?B?Z0FpUlB1dTg4T1hOelordDZVODRxb00zOWN6Rm9xSG5jQk1wRUZZUVQ2NjIw?=
+ =?utf-8?B?WDRmcitsOEovZ01SR2ZsNHpPWVlia2N1U0E1eFZaMGQvck9JSklZek1pN1B4?=
+ =?utf-8?B?K2VZalBkbVdwakJuWG5mL0s3emZIMFdUVGNuK1E3ZWdYR3pZV2VVOTVLMWE5?=
+ =?utf-8?B?OXR5ZDl5elM0bUxNVGl1d0pqNVlLSWZSUzAwWFl2MWdibCtNc2FBVzBrWGhr?=
+ =?utf-8?B?eWR5TmdtSHFibk42TkV4U1BNS2hVYmpRaVZJNmgxUUM1OHZKdnNOVHQ1MXFj?=
+ =?utf-8?B?ZFdhWXVmaTlLSWtNb093UCtjS2ZVVnFIYUhpTHF6VVltTVBTUWVYaFMzY05u?=
+ =?utf-8?B?d0ZkWmUwZEc5M0p1b1hibmQ5cnlXMVFRZDRPYkllRWtiNkRTYzdSMjJ4OWds?=
+ =?utf-8?B?RGZGa1QvamVyUlhvUDJZS21veHg0SDdrY1ZsUm95MXRubjkyS1NnNlB4WTF1?=
+ =?utf-8?B?REJtbEZUeUU2UHQ1N0VKdVUxWmprUFA4WlYvc0F0RXRYVU9aSGJyR2hUa080?=
+ =?utf-8?B?TnA3MGYxa3g3dHIvLzJMMW9OL2lFTy9Xell6TTVheDRKTm9jRlhwUkJ1ekR4?=
+ =?utf-8?B?WVpVakJXMVFWRUxNYnFTb2o3QUdsOFdQbEZZMmV2SmgyMjdGL3YxSm1wL3VQ?=
+ =?utf-8?B?aXM0clhBV1Y5ZmxpaDBzbGZTNHkwNTJNc0xHZmhDcEVWaVJVcjVWZG1EL0l0?=
+ =?utf-8?B?UStRU3JkT2svMXV1ZUhlaVpGbDl3NkRrME5Hbm5FQ3dENzFBWit1M3Frb0k0?=
+ =?utf-8?B?aThHWXd0QmJhbVY1d1VPVzFsM05tT0ZCR2pmN0h4cENoVEFtNDIyazB1SFBq?=
+ =?utf-8?B?eUFvTVRLcE5QWDJtQlNNMXVKMndCemsrQ2IyNG9xUXF6WWE5QVplVmdSR1Jk?=
+ =?utf-8?B?QitJOW01SXhNQWtuQ3grYUZxZjczVmNkOU5vZkh4QThxYjJzeXN5TlBNMnl5?=
+ =?utf-8?B?eXRNbGQ0SlU0S0VmNWtRbURZajBFQTZDQkpERmFGYUcyMnlocnE1aFkrL0ph?=
+ =?utf-8?B?UWpObXYwWnc1amRwZnZ2bkh6dDFPMnAydTlHZUJCdkdGUnR4OExBV0JwSVEx?=
+ =?utf-8?B?b29nM0N5NU13VkJQbUFUelNzRUp0S2ZzY3A5SVBUcG5RMEFMNnBiNTRJb0E5?=
+ =?utf-8?B?NVZ1eGZwWlVhMGxRVUlZSkdLWVQxT3JueWpPYmp6Q284TEdhblFOSm52RkRF?=
+ =?utf-8?B?YVI1UitMTnMxem1YZUxrOUcyRVhnQythQjhncTI4bUZ3QW9HWEJaZlllNkQr?=
+ =?utf-8?B?cEdwQWh6TWNDWnRVbUxLbmRxeGpiaXZrMnUzSzRyZ2ZaamdqZmw3UFFWME9o?=
+ =?utf-8?B?SWpobkt5dXpnSXJpSTZhNlBvc3RocVh4VEhCMUlrYXlJMi9MQWVhTWdVSzRz?=
+ =?utf-8?B?ZGd5TGhxV0RadXJ5alMvT1pEQmQvQkMxRnU3bWhYVTBuV1Y0cEpZaXU0Q2dq?=
+ =?utf-8?B?bCtBNGRNUURHVGk1RmE2QVVxZ1JaRlBYOHlZMERjQXV0TXBGK3FiaTkrU2hN?=
+ =?utf-8?B?eVVvbm01emxyQm5tcWc5VE1hak1DZnU0WHVJdVBlRjdVVmgrVTlheFFLbUQw?=
+ =?utf-8?B?R2VkK3pIcENIS1VSUFZJY0hucGlNT2F1YW85RCtSemhnR1grSDhMTlFyYVlk?=
+ =?utf-8?B?ZUpHbGlZV0FSSllNeVQrOGF5Y2J6MXBzdjFNdmptN2dGNms4cFQ3RjA4Vzk0?=
+ =?utf-8?B?cVlxN0tHa3UvSEN3bm5qQUowbk1nVENkeXRjWGpzb3BxM0w4enF0cDh2a3Nn?=
+ =?utf-8?B?dmJMNGJpZzJHMjlIN0o4bTVUNTNZanRzNjdHVWJtSGZPdUQ0R1J3eTJhZ2p1?=
+ =?utf-8?B?T04vZ2xoSHMwcCtoem9SMmwzenVrSHgxbUdSU211eVpWTU1aeVJ3bVdlSWVB?=
+ =?utf-8?B?Wk1hcVZrWE9vZmptN1dwQktmQ2kyR2Z6OW9VdldNT1AyWmI4bjg0RWRHV2lF?=
+ =?utf-8?B?ZjIrdTZ1QjVEMzJkdHh3L2cvL05ybTNhZ2JibElmcWxkemlmdUJwQWJRTUJP?=
+ =?utf-8?B?eXZTeUxOM09vQTJCWFdFaTE1RVUvU0I3bWUyNnlxZmZpN0RhaDlNSnhtaHVL?=
+ =?utf-8?Q?/oTo=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(82310400026)(36860700013)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Dec 2025 10:03:00.1210
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bfc704d2-b537-4b55-32f9-08de30c0cf3a
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000252A2.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR10MB5928
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_020123_694211_CB18A786 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20251201_020308_118994_1D29B8EB 
+X-CRM114-Status: GOOD (  22.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,425 +167,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MangoPi M28K is a development board with the
-Rockchip RK3528 SoC. It has the following features:
+On Wed Nov 12, 2025 at 8:58 PM IST, Nishanth Menon wrote:
+> On 15:54-20251112, Anshul Dalal wrote:
+>> The bootloader on K3 devices makes use of mailboxes as per the ROM spec
+>> which might be different than one's available to the kernel (firmware
+>> spec).
+>>=20
+>> Therefore, this patch adds the missing mailbox entries to the DT binding
+>> to represent the mailboxes exposed by the hardware during boot for the
+>> purpose of loading the firmware.
+>>=20
+>> Signed-off-by: Anshul Dalal <anshuld@ti.com>
+>> ---
+>> Changes in v3:
+>> - Drop [1/2] of the last patch series
+>> - Update existing example with boot_* mailboxes instead of adding a new =
+one
+>> - Link to v2: https://lore.kernel.org/r/20251112-k3_syscon_add_boot_mail=
+boxes-v2-0-aebc1e47b391@ti.com
+>>=20
+>> Changes in v2:
+>> - Remove maxItems entry
+>> - Remove RFC tag from patch (added by mistake in v1)
+>> - Document the new mailboxes in mboxes instead of mbox-names
+>> - Provide example with all the mailboxes set
+>> - Update commit title to have "ti,sci"
+>> - Split into two patches
+>> - Link to v1: https://lore.kernel.org/r/20251111-k3_syscon_add_boot_mail=
+boxes-v1-1-529a27f21076@ti.com
+>> ---
+>>  .../devicetree/bindings/arm/keystone/ti,sci.yaml      | 19 ++++++++++++=
+++++---
+>>  1 file changed, 16 insertions(+), 3 deletions(-)
+>>=20
+>> diff --git a/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml =
+b/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
+>> index 25a2b42105e541cb3c8ad12a0dfec1af038fa907..be8a5b2b051b441884795059=
+c70892910d981130 100644
+>> --- a/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
+>> +++ b/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
+>> @@ -51,15 +51,27 @@ properties:
+>>      minItems: 1
+>> =20
+>>    mbox-names:
+>> +    minItems: 2
+>>      description: |
+>>        Specifies the mailboxes used to communicate with TI-SCI Controlle=
+r
+>>        made available from TI-SCI controller.
+>>      items:
+>>        - const: rx
+>>        - const: tx
+>> +      - const: notify
+>> +      - const: boot_rx
+>> +      - const: boot_tx
+>> +      - const: boot_notify
+>
+> Sorry for joining the party late.. just saw the thread while happening
+> to glance at the pending list..
+>
+> k2g does not use boot_* mboxes, the load mechanism doesn't involve
+> ROM talking over mboxes, we load the pmmc on that SoC! ti,am654-sci
+> onwards does. This would be a good case for adding a conditional
+> property, IMHO. That said majority of the K3 dts entries still use
+> k2g-sci for k3 (#facepalm.. i should have caught it, but missed).. but
+> that cleanup is for follow on patches that could fix.. driver seems to
+> be able to handle the same.
+>
 
-- 2x USB 2.0
-- 1x mini-HDMI
-- 1/2/4GB LPDDR4
-- AIC8800 WiFi/BT
-- MicroSD card slot
-- Optional 16/32GB eMMC
-- 1x 1GbE RTL8111H Ethernet
-- 1x 1GbE RTL8211F Ethernet
+Should we therefore have the new mboxes be conditional on "ti,am654-sci"
+while k2g continues to use the existing "rx" and "tx" mboxes?
 
-Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
----
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../boot/dts/rockchip/rk3528-mangopi-m28k.dts | 381 ++++++++++++++++++
- 2 files changed, 382 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-mangopi-m28k.dts
+Something similar to:
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 8ccf72c2e31e..d666ef62f5f4 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -91,6 +91,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-sapphire-excavator.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399pro-rock-pi-n10.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-armsom-sige1.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-hinlink-h28k.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-mangopi-m28k.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-nanopi-zero2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-radxa-e20c.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3528-rock-2a.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528-mangopi-m28k.dts b/arch/arm64/boot/dts/rockchip/rk3528-mangopi-m28k.dts
-new file mode 100644
-index 000000000000..e99a83553910
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3528-mangopi-m28k.dts
-@@ -0,0 +1,381 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/pwm/pwm.h>
-+#include "rk3528.dtsi"
-+
-+/ {
-+	model = "MangoPi M28K";
-+	compatible = "widora,mangopi-m28k", "rockchip,rk3528";
-+
-+	aliases {
-+		ethernet0 = &gmac1;
-+		i2c6 = &i2c6;
-+		mmc0 = &sdhci;
-+		mmc1 = &sdmmc;
-+		mmc2 = &sdio0;
-+		serial0 = &uart0;
-+		serial2 = &uart2;
-+		serial3 = &uart3;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:1500000n8";
-+	};
-+
-+	ir-receiver {
-+		compatible = "gpio-ir-receiver";
-+		gpios = <&gpio4 RK_PC6 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pwm3_m0_ir_rx>;
-+	};
-+
-+	keys-0 {
-+		compatible = "adc-keys";
-+		io-channels = <&saradc 0>;
-+		io-channel-names = "buttons";
-+		keyup-threshold-microvolt = <1800000>;
-+		poll-interval = <100>;
-+
-+		button-boot {
-+			label = "BOOT";
-+			linux,code = <KEY_SETUP>;
-+			press-threshold-microvolt = <0>;
-+		};
-+	};
-+
-+	keys-1 {
-+		compatible = "adc-keys";
-+		io-channels = <&saradc 1>;
-+		io-channel-names = "buttons";
-+		keyup-threshold-microvolt = <1800000>;
-+		poll-interval = <100>;
-+
-+		button-recover {
-+			label = "RECOVER";
-+			linux,code = <KEY_VENDOR>;
-+			press-threshold-microvolt = <0>;
-+		};
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&lan_led>, <&wan_led>, <&work_led>;
-+
-+		led-0 {
-+			color = <LED_COLOR_ID_WHITE>;
-+			function = LED_FUNCTION_LAN;
-+			gpios = <&gpio4 RK_PB5 GPIO_ACTIVE_LOW>;
-+			linux,default-trigger = "netdev";
-+		};
-+
-+		led-1 {
-+			color = <LED_COLOR_ID_WHITE>;
-+			function = LED_FUNCTION_WAN;
-+			gpios = <&gpio4 RK_PC0 GPIO_ACTIVE_LOW>;
-+			linux,default-trigger = "netdev";
-+		};
-+
-+		led-2 {
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_STATUS;
-+			gpios = <&gpio4 RK_PB7 GPIO_ACTIVE_LOW>;
-+			linux,default-trigger = "default-on";
-+		};
-+	};
-+
-+	vdd_0v9: regulator-0v9-vdd {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vdd_0v9";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <900000>;
-+		regulator-max-microvolt = <900000>;
-+		vin-supply = <&vcc_sys>;
-+	};
-+
-+	vcc_ddr: regulator-1v1-vcc-ddr {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_ddr";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1100000>;
-+		regulator-max-microvolt = <1100000>;
-+		vin-supply = <&vcc_sys>;
-+	};
-+
-+	vcc_1v8: regulator-1v8-vcc {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_1v8";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&vcc_3v3>;
-+	};
-+
-+	vcc_3v3: regulator-3v3-vcc {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_3v3";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc_sys>;
-+	};
-+
-+	vcc3v3_sd: regulator-3v3-vcc-sd {
-+		compatible = "regulator-fixed";
-+		gpios = <&gpio4 RK_PA1 GPIO_ACTIVE_LOW>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&sdmmc_pwren_l>;
-+		regulator-name = "vcc3v3_sd";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc_3v3>;
-+	};
-+
-+	vcc_sys: regulator-5v0-vcc-sys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc_sys";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+	};
-+
-+	vccio_sd: regulator-vccio-sd {
-+		compatible = "regulator-gpio";
-+		gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&sdmmc_vol_ctrl_h>;
-+		regulator-name = "vccio_sd";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+		states = <1800000 0x0>, <3300000 0x1>;
-+		vin-supply = <&vcc_sys>;
-+	};
-+
-+	vdd_arm: regulator-vdd-arm {
-+		compatible = "pwm-regulator";
-+		pwms = <&pwm1 0 5000 PWM_POLARITY_INVERTED>;
-+		pwm-supply = <&vcc_sys>;
-+		regulator-name = "vdd_arm";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <746000>;
-+		regulator-max-microvolt = <1201000>;
-+		regulator-settling-time-up-us = <250>;
-+	};
-+
-+	vdd_logic: regulator-vdd-logic {
-+		compatible = "pwm-regulator";
-+		pwms = <&pwm2 0 5000 PWM_POLARITY_INVERTED>;
-+		pwm-supply = <&vcc_sys>;
-+		regulator-name = "vdd_logic";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <705000>;
-+		regulator-max-microvolt = <1006000>;
-+		regulator-settling-time-up-us = <250>;
-+	};
-+
-+	sdio_pwrseq: sdio-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&wifi_reg_on_h>;
-+		post-power-on-delay-ms = <100>;
-+		power-off-delay-us = <5000000>;
-+		reset-gpios = <&gpio1 RK_PA6 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&combphy {
-+	status = "okay";
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&cpu1 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&cpu2 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&cpu3 {
-+	cpu-supply = <&vdd_arm>;
-+};
-+
-+&gmac1 {
-+	clock_in_out = "output";
-+	phy-handle = <&rgmii_phy>;
-+	phy-mode = "rgmii-id";
-+	phy-supply = <&vcc_3v3>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&rgmii_miim>,
-+		    <&rgmii_tx_bus2>,
-+		    <&rgmii_rx_bus2>,
-+		    <&rgmii_rgmii_clk>,
-+		    <&rgmii_rgmii_bus>;
-+	status = "okay";
-+};
-+
-+&gpu {
-+	mali-supply = <&vdd_logic>;
-+	status = "okay";
-+};
-+
-+&i2c6 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&i2c6m0_xfer>;
-+	status = "okay";
-+};
-+
-+&mdio1 {
-+	rgmii_phy: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0x1>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&gmac1_rstn_l>;
-+		reset-assert-us = <20000>;
-+		reset-deassert-us = <100000>;
-+		reset-gpios = <&gpio4 RK_PC2 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&pcie {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&rtl8111hs_isolateb_l>;
-+	reset-gpios = <&gpio4 RK_PA3 GPIO_ACTIVE_HIGH>;
-+	vpcie3v3-supply = <&vcc_3v3>;
-+	status = "okay";
-+};
-+
-+&pinctrl {
-+	gmac {
-+		gmac1_rstn_l: gmac1-rstn-l {
-+			rockchip,pins = <4 RK_PC2 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	ir {
-+		pwm3_m0_ir_rx: pwm3-m0-ir-rx {
-+			rockchip,pins = <4 RK_PC6 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+
-+	leds {
-+		lan_led: lan-led {
-+			rockchip,pins = <4 RK_PB5 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		wan_led: wan-led {
-+			rockchip,pins = <4 RK_PC0 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		work_led: work-led {
-+			rockchip,pins = <4 RK_PB7 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	pcie {
-+		rtl8111hs_isolateb_l: rtl8111hs-isolateb-l {
-+			rockchip,pins = <4 RK_PA6 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+
-+	sdmmc {
-+		sdmmc_pwren_l: sdmmc-pwren-l {
-+			rockchip,pins = <4 RK_PA1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		sdmmc_vol_ctrl_h: sdmmc-vol-ctrl-h {
-+			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	wifi {
-+		wifi_reg_on_h: wifi-reg-on-h {
-+			rockchip,pins = <1 RK_PA6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+
-+		wifi_wake_host_h: wifi-wake-host-h {
-+			rockchip,pins = <1 RK_PA7 RK_FUNC_GPIO &pcfg_pull_down>;
-+		};
-+	};
-+};
-+
-+&pwm1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm1m0_pins>;
-+	status = "okay";
-+};
-+
-+&pwm2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pwm2m0_pins>;
-+	status = "okay";
-+};
-+
-+&saradc {
-+	vref-supply = <&vcc_1v8>;
-+	status = "okay";
-+};
-+
-+&sdhci {
-+	bus-width = <8>;
-+	cap-mmc-highspeed;
-+	mmc-hs200-1_8v;
-+	non-removable;
-+	vmmc-supply = <&vcc_3v3>;
-+	vqmmc-supply = <&vcc_1v8>;
-+	status = "okay";
-+};
-+
-+&sdio0 {
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	cap-sdio-irq;
-+	keep-power-in-suspend;
-+	mmc-pwrseq = <&sdio_pwrseq>;
-+	non-removable;
-+	sd-uhs-sdr104;
-+	status = "okay";
-+};
-+
-+&sdmmc {
-+	bus-width = <4>;
-+	cap-sd-highspeed;
-+	disable-wp;
-+	sd-uhs-sdr104;
-+	vmmc-supply = <&vcc3v3_sd>;
-+	vqmmc-supply = <&vccio_sd>;
-+	status = "okay";
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0m0_xfer>;
-+	status = "okay";
-+};
-+
-+&uart2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart2m1_ctsn>, <&uart2m1_rtsn>, <&uart2m1_xfer>;
-+	uart-has-rtscts;
-+	status = "okay";
-+};
-+
-+&uart3 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart3m0_xfer>;
-+	status = "disabled";
-+};
--- 
-2.25.1
+	if:
+	  properties:
+	    compatible:
+	      contains:
+		const: ti,am654-sci
+	then:
+	  properties:
+	    mbox-names:
+	      minItems: 2
+	      items:
+		- const: rx
+		- const: tx
+		- const: notify
+		- const: boot_rx
+		- const: boot_tx
+		- const: boot_notify
+	    mboxes:
+	      minItems: 2
+	      items:
+		- description: RX thread
+		- description: TX thread
+		- description: Notify thread
+		- description: boot stage RX thread
+		- description: boot stage TX thread
+		- description: boot stage Notify thread
+	else:
+	  properties:
+	    mbox-names:
+	      items:
+		- const: rx
+		- const: tx
+	    mboxes:
+	      maxItems: 2
+
+With the top level mbox* having a minItems of 2 and max of 6.
+
+Regards,
+Anshul
+
+>> =20
+>>    mboxes:
+>>      minItems: 2
+>> +    items:
+>> +      - description: RX thread
+>> +      - description: TX thread
+>> +      - description: Notify thread
+>> +      - description: boot stage RX thread
+>> +      - description: boot stage TX thread
+>> +      - description: boot stage Notify thread
+>> =20
+>>    ti,host-id:
+>>      $ref: /schemas/types.yaml#/definitions/uint32
+>> @@ -90,9 +102,10 @@ examples:
+>>    - |
+>>      pmmc: system-controller@2921800 {
+>>        compatible =3D "ti,k2g-sci";
+>> -      mbox-names =3D "rx", "tx";
+>> -      mboxes =3D <&msgmgr 5 2>,
+>> -               <&msgmgr 0 0>;
+>> +      mbox-names =3D "rx", "tx", "notify", "boot_rx", "boot_tx", "boot_=
+notify";
+>> +      mboxes =3D <&secure_proxy_mcu 8>, <&secure_proxy_mcu 6>,
+>> +        <&secure_proxy_mcu 5>, <&secure_proxy_mcu 4>,
+>> +        <&secure_proxy_mcu 5>, <&secure_proxy_sa3 5>;
+>
+>
+>>        reg-names =3D "debug_messages";
+>>        reg =3D <0x02921800 0x800>;
+>>      };
+>>=20
+>> ---
+>> base-commit: 4427259cc7f7571a157fbc9b5011e1ef6fe0a4a8
+>> change-id: 20251105-k3_syscon_add_boot_mailboxes-8452bdd98962
+>>=20
+>> Best regards,
+>> --=20
+>> Anshul Dalal <anshuld@ti.com>
+>>=20
 
 
