@@ -4,56 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1299CD116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:51:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A66DFD116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:52:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WiCvoTKg4NlNswKkS90+FJ13CJ5tM+LYWyWlJxOB8Vs=; b=h5lsscRCcEVusa5/spgcQyF6zr
-	X1G+tDI6kRjTF372Rd8zvJM0djrdwPbOpTMoomwhZ2enfvyyzs5hfB6UOkd5HBJIvCEO23+yd0jyH
-	+34kEVjKx+JlLLav1LWZ15kjAHm4jtdqHq22Rx8WR2w//Rm5z84jHPi61+XLI4w0Hdxb4Lnkp2bbA
-	LxBmwuMkqeLVecwthhG1Y+z7q+2ztkU9Wbhez0RU5nNZW+kOHZSJB1nIsiIqFJTogoSMYYU7a8PXd
-	8011/9eqdjITg3oVtv8GDGbQQ3Hnj4qM762MwpG4Ip4oT8KsAMdsvW1Q+Bvd1qFwU0hCZFdjxJVvF
-	T2S17phg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lUdFDXOpdEHblxEFS8Klgzf9uDbkW8RYNQMN1WIjTJI=; b=IgDUH8O+54ruNP0i+I+8SNwknQ
+	HFL2/giYzY+QjFrcxRtWLj1HwXth770H1U8IRNzLJK/89ehcQwk18QTtFAf0xqmoFmzedtmlEhCXJ
+	RWKdzIcEhyFtIvWiirP+l14SoVnPMPr1Grm/DCd3rXMdYupa8GAy556gq9ld+OcZH+1turT0ILx3/
+	Ac+FFtoTFi3FYdVPrdru+oFHQ0998qjIJPgQDieLtAzn3ilgJVVAEkDLt4iYcOCX57vKB8f8y93sB
+	nsxjzxVq4f4Pva8WyCjrn/geP9t/RSyWon1li+V0TTUPQZZDqJRzjSdZoXhSMefmFQ+mMSqp8eJ7d
+	KWNegviA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ1V8-00000003N8s-2tp7;
-	Mon, 01 Dec 2025 10:51:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ1V6-00000003N8L-3Wvg
+	id 1vQ1Vy-00000003NFc-08eU;
+	Mon, 01 Dec 2025 10:52:18 +0000
+Received: from mx-relay50-hz3.antispameurope.com ([94.100.134.239])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQ1Vu-00000003NDx-2jpc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 10:51:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 417C4153B;
-	Mon,  1 Dec 2025 02:51:14 -0800 (PST)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 06B5B3F73B;
-	Mon,  1 Dec 2025 02:51:19 -0800 (PST)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: akpm@linux-foundation.org,
-	pjw@kernel.org,
-	leitao@debian.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	coxu@redhat.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Yeoreum Yun <yeoreum.yun@arm.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v2] arm64: kernel: initialize missing kexec_buf->random field
-Date: Mon,  1 Dec 2025 10:51:18 +0000
-Message-Id: <20251201105118.2786335-1-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
+	Mon, 01 Dec 2025 10:52:17 +0000
+ARC-Authentication-Results: i=1; mx-gate50-hz3.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com
+ smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
+ header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=lUdFDXOpdEHblxEFS8Klgzf9uDbkW8RYNQMN1WIjTJI=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1764586325;
+ b=jMYcEv8D4tO8qqnTHURFbIjgS+vyNGUkn6w8p/4WUJwsGYLtMYaDVvHMfoJhQpRTEtCFPDow
+ e9IS2qP8WQtGYiZm5olZ92iGSuk3andv3jF9b59Za3pW8qgzla1dFqM9y7Gc7FnOYRirBAHKahF
+ K8BJ11nTqEGIyft7uHiWw9nNh/vSb5SYJQyNcwi7hdizeaSEgWaIvYJDRedR33pyBSiXGfF82mY
+ WzQbmOabn+phRx2rjC7EbmVRVVo8rvQJec+nZbdGG8LDTvllNyVGT45B+v7P7wNeM/CjVQ+pOv5
+ HHric0n0BE56PR5OYzYoEEUbg9aDCPqJ+tyERYTUPf9pw==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1764586325;
+ b=h+YO5ERa8y+2GAfTogg6x74KeG5UUtbFIkLw0jTquRV4zMdft7qHiqrebXUpQLxDaQElnsXy
+ 2grvBVSZoLKaj9QQKHXKpqyCk9bnvJsi+OnAkUS2XYtFiO4HrMi6zJTmCB5gzAQOb1fxyE7kN6k
+ y0WjwSeHMpdSN8dYbwJ6L46rQ3H+W9GNdekx9ODhAFkirDnG1/9ObaLJw/VzWoaSWuhKeEd+xRz
+ Q8dvPZgVB8s6eJEvRAEFVqfkXn99vlSu3L9E76cbPanuuyefF52m0Pt9Y37MWuEHVwBqXTsutiX
+ JHI72lXGK6pAJHeNDaw9l10dlQ3cEaduCDmvKJxt3JmTw==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay50-hz3.antispameurope.com;
+ Mon, 01 Dec 2025 11:52:05 +0100
+Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: alexander.stein@ew.tq-group.com)
+	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 96251CC0E92;
+	Mon,  1 Dec 2025 11:51:54 +0100 (CET)
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Shawn Guo <shawnguo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [RFC PATCH 2/3] irqchip/ls-extirq: Use managed resources
+Date: Mon,  1 Dec 2025 11:51:41 +0100
+Message-ID: <20251201105144.539450-3-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251201105144.539450-1-alexander.stein@ew.tq-group.com>
+References: <20251201105144.539450-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-cloud-security-sender: alexander.stein@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay50-hz3.antispameurope.com with 4dKghC0qlRz2nHk2
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: 31ea3d37a4def439ed8686206906e05d
+X-cloud-security: scantime:1.961
+DKIM-Signature: a=rsa-sha256;
+ bh=lUdFDXOpdEHblxEFS8Klgzf9uDbkW8RYNQMN1WIjTJI=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1764586324; v=1;
+ b=XLhF6/ZTd1MfbyDfA1KrLXHT8tfihfjcT6dJXt1KJ23+GJAjT1sV8c+p6+OXe6duHo5ax/5+
+ JiFPc6YXLUNj0RAm7yRnzs456h540NgjymFIPvwrKwja/6uzHtV29kE4f+pqlsSsPAU0adDqqDB
+ MKFeeBFcXo0ak34QDJE2VVERbJvn5VfbdALqLc7KufCZAD2NgyXQxs9v7j+rKJcFfBmZv5MyQ1q
+ ROJTLbEHjWnAiy8MF6kLRKXmvLwdrFCIZCmecwaXiXCpfpqXkRRBjwO3/czcOG82lt1NClSpHkZ
+ fnw3Riu8KKZ3PfMN+QghZrUJ9J2coN6jJPtje1vditYsw==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_025124_924573_5D132CB9 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20251201_025214_943441_13746C57 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,62 +109,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
-introduced the kexec_buf->random field to enable random placement of
-kexec_buf.
+This simplifies the error handling and probe is straight forward.
+Also use dev_err_probe for even more simplification.
 
-However, this field was never properly initialized for kexec images
-that do not need to be placed randomly, leading to the following UBSAN
-warning:
-
-[  +0.364528] ------------[ cut here ]------------
-[  +0.000019] UBSAN: invalid-load in ./include/linux/kexec.h:210:12
-[  +0.000131] load of value 2 is not a valid value for type 'bool' (aka '_Bool')
-[  +0.000003] CPU: 4 UID: 0 PID: 927 Comm: kexec Not tainted 6.18.0-rc7+ #3 PREEMPT(full)
-[  +0.000002] Hardware name: QEMU QEMU Virtual Machine, BIOS 0.0.0 02/06/2015
-[  +0.000000] Call trace:
-[  +0.000001]  show_stack+0x24/0x40 (C)
-[  +0.000006]  __dump_stack+0x28/0x48
-[  +0.000002]  dump_stack_lvl+0x7c/0xb0
-[  +0.000002]  dump_stack+0x18/0x34
-[  +0.000001]  ubsan_epilogue+0x10/0x50
-[  +0.000002]  __ubsan_handle_load_invalid_value+0xc8/0xd0
-[  +0.000003]  locate_mem_hole_callback+0x28c/0x2a0
-[  +0.000003]  kexec_locate_mem_hole+0xf4/0x2f0
-[  +0.000001]  kexec_add_buffer+0xa8/0x178
-[  +0.000002]  image_load+0xf0/0x258
-[  +0.000001]  __arm64_sys_kexec_file_load+0x510/0x718
-[  +0.000002]  invoke_syscall+0x68/0xe8
-[  +0.000001]  el0_svc_common+0xb0/0xf8
-[  +0.000002]  do_el0_svc+0x28/0x48
-[  +0.000001]  el0_svc+0x40/0xe8
-[  +0.000002]  el0t_64_sync_handler+0x84/0x140
-[  +0.000002]  el0t_64_sync+0x1bc/0x1c0
-
-To address this, initialise kexec_buf->random field properly.
-
-Fixes: bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
-Suggested-by: Breno Leitao <leitao@debian.org>
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
- arch/arm64/kernel/kexec_image.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/irqchip/irq-ls-extirq.c | 37 ++++++++-------------------------
+ 1 file changed, 9 insertions(+), 28 deletions(-)
 
-diff --git a/arch/arm64/kernel/kexec_image.c b/arch/arm64/kernel/kexec_image.c
-index 532d72ea42ee..b70f4df15a1a 100644
---- a/arch/arm64/kernel/kexec_image.c
-+++ b/arch/arm64/kernel/kexec_image.c
-@@ -41,7 +41,7 @@ static void *image_load(struct kimage *image,
- 	struct arm64_image_header *h;
- 	u64 flags, value;
- 	bool be_image, be_kernel;
--	struct kexec_buf kbuf;
-+	struct kexec_buf kbuf = {};
- 	unsigned long text_offset, kernel_segment_number;
- 	struct kexec_segment *kernel_segment;
- 	int ret;
---
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+diff --git a/drivers/irqchip/irq-ls-extirq.c b/drivers/irqchip/irq-ls-extirq.c
+index cb7db9ae79087..52b8b9fc17621 100644
+--- a/drivers/irqchip/irq-ls-extirq.c
++++ b/drivers/irqchip/irq-ls-extirq.c
+@@ -192,26 +192,17 @@ static int ls_extirq_probe(struct platform_device *pdev)
+ 	if (!parent_domain)
+ 		return dev_err_probe(dev, -EPROBE_DEFER, "Cannot find parent domain\n");
+ 
+-	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
+-	if (!priv) {
+-		ret = -ENOMEM;
+-		goto err_alloc_priv;
+-	}
++	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
+ 
+-	/*
+-	 * All extirq OF nodes are under a scfg/syscon node with
+-	 * the 'ranges' property
+-	 */
+-	priv->intpcr = of_iomap(node, 0);
+-	if (!priv->intpcr) {
+-		dev_err(dev, "Cannot ioremap OF node %pOF\n", node);
+-		ret = -ENOMEM;
+-		goto err_iomap;
+-	}
++	priv->intpcr = devm_of_iomap(dev, node, 0, NULL);
++	if (!priv->intpcr)
++		return dev_err_probe(dev, -ENOMEM, "Cannot ioremap OF node %pOF\n", node);
+ 
+ 	ret = ls_extirq_parse_map(priv, node);
+ 	if (ret)
+-		goto err_parse_map;
++		return dev_err_probe(dev, ret, "Failed to parse IRQ map\n");
+ 
+ 	priv->big_endian = of_device_is_big_endian(node->parent);
+ 	priv->is_ls1021a_or_ls1043a = of_device_is_compatible(node, "fsl,ls1021a-extirq") ||
+@@ -220,20 +211,10 @@ static int ls_extirq_probe(struct platform_device *pdev)
+ 
+ 	domain = irq_domain_create_hierarchy(parent_domain, 0, priv->nirq, of_fwnode_handle(node),
+ 					     &extirq_domain_ops, priv);
+-	if (!domain) {
+-		ret = -ENOMEM;
+-		goto err_add_hierarchy;
+-	}
++	if (!domain)
++		return dev_err_probe(dev, -ENOMEM, "Failed to add IRQ domain\n");
+ 
+ 	return 0;
+-
+-err_add_hierarchy:
+-err_parse_map:
+-	iounmap(priv->intpcr);
+-err_iomap:
+-	kfree(priv);
+-err_alloc_priv:
+-	return ret;
+ }
+ 
+ static struct platform_driver ls_extirq_driver = {
+-- 
+2.43.0
 
 
