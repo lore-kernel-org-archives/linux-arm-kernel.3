@@ -4,71 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D17B1D116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 15:24:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E166DD116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 15:27:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qEAao4/Uq62vodeaG36pvApUk8O0OB2XIyx7R4Zgbqs=; b=C8wOzLGJc6PDbuiY+OjU5jNT2u
-	wnR0muHow+Z4zvQr4P5W/qv1F7RsbOfgC8rLSyK25G/y+ypPxp/RIfdpJ9SZd8ETSfbk1Fea1yOKa
-	EzLmZqO0LePKdd7oj7gv1euROMclFCz2fBJ32cc2yBu/nrKWyNF6gO8+sIpQfE05u6v/ThK5rGZgz
-	pkw0/LBKyFLqi1077H+rBOxX0gcaK1jC6Qpp0tNNtKVdYtGtVx79CU2o10HlVxUKrMlM/RV2NCyD9
-	hiKJwUbE4f2uxHU4Swvpp0iNT0dTNZOIjf8HiFeOulvctu3FH+mU4Ow6/dNeK7QgL/r0XPAaL8ipg
-	YgoXDOdg==;
+	bh=wE2L0F1qqDTs/54YDX8hKplMeTjbIJ9CHswBP1kiMkA=; b=JzMF09SDWmekSdhwQS86TZxsVv
+	H0ZEnYhfwdlSue/VhkhO1trsxpJK3Jk57zMxy6Rea0QelY2ueWUykP4GWcnOk1ShyKL+ZcjQso1Bk
+	I2QZDQhnNFF2Ev5bkh/biNu+AxE3ay1IGIbiDIAy7JQqZyOWswdVDaOPhx+rYukz9mgMvL8wMI+S/
+	R4wwA+XQfzmfEb4GYrVicqRVRc8WleP/KCx8s6uJeA6uMGUdpbr8sEM1MrtM8MqW+7VqDwbZkwhWE
+	2C8GgxW8Jrmq7JyhB+i/zPxl+VJcZjE32lj5RLqiyZrotn89IYLFE9hDAJV09DkKaoQoepHzUTC6Z
+	zV4rdOLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ5lE-00000004AvC-0L9w;
-	Mon, 01 Dec 2025 15:24:20 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ5lB-00000004AuG-1b5O
+	id 1vQ5oF-00000004BKY-0Ndk;
+	Mon, 01 Dec 2025 15:27:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQ5oC-00000004BJV-1Jfg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 15:24:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=qEAao4/Uq62vodeaG36pvApUk8O0OB2XIyx7R4Zgbqs=; b=dppgcujpnIdMOfwgj9licWeZXf
-	BgWFbFj6O4GhFXbJR1Lx3yeFH5gsi4xyit8O5cDrJmUqlRnYYhdWDRX4zPQc2i8ktUuZYr9VonOQO
-	mX6in5t726hSWpw8Xx4yOERQQSUhY9iaDjjUFP32RQd/6qccUOF1CkqnnJmV2ASW4gy3zr1Q7V2Xa
-	hm8du8uSneBRyK5jvG+ek5NT5VGNNOhNzlt5o+u1Y1vASPzz10UNPLyENmZwgydQTksxVxFaJSV8t
-	kgS8Cs5/l/TPIPmpnXYaSbT3/RKyi3unMdfkILAW6GYYIY+7mQMTZrfeMzyw4ozEW1xg9DmC5RZUo
-	0RiFTddg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:42702)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vQ5l4-000000000lU-072J;
-	Mon, 01 Dec 2025 15:24:10 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vQ5kz-000000006ZN-0z1e;
-	Mon, 01 Dec 2025 15:24:05 +0000
-Date: Mon, 1 Dec 2025 15:24:05 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Jinjie Ruan <ruanjinjie@huawei.com>
-Cc: catalin.marinas@arm.com, will@kernel.org, chris@zankel.net,
-	jcmvbkbc@gmail.com, ldv@strace.io, charlie@rivosinc.com,
-	deller@gmx.de, macro@orcam.me.uk, akpm@linux-foundation.org,
-	mark.rutland@arm.com, rostedt@goodmis.org, tglx@linutronix.de,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] syscall.h: Remove unused SYSCALL_MAX_ARGS
-Message-ID: <aS2zFVPAzMNQnfTF@shell.armlinux.org.uk>
-References: <20251201120633.1193122-1-ruanjinjie@huawei.com>
- <20251201120633.1193122-2-ruanjinjie@huawei.com>
+	Mon, 01 Dec 2025 15:27:26 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5F280153B;
+	Mon,  1 Dec 2025 07:27:13 -0800 (PST)
+Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C054F3F836;
+	Mon,  1 Dec 2025 07:27:14 -0800 (PST)
+Date: Mon, 1 Dec 2025 16:27:12 +0100
+From: Beata Michalska <beata.michalska@arm.com>
+To: Lifeng Zheng <zhenglifeng1@huawei.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org,
+	viresh.kumar@linaro.org, sudeep.holla@arm.com,
+	gregkh@linuxfoundation.org, dakr@kernel.org,
+	ionela.voinescu@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, linuxarm@huawei.com,
+	jonathan.cameron@huawei.com, vincent.guittot@linaro.org,
+	zhanjie9@hisilicon.com, lihuisong@huawei.com, yubowen8@huawei.com,
+	zhangpengjie2@huawei.com, wangzhi12@huawei.com,
+	linhongye@h-partners.com
+Subject: Re: [PATCH v6 0/3] arm64: topology: Handle AMU FIE setup on CPU
+ hotplug
+Message-ID: <aS2z0EURwHbbGZab@arm.com>
+References: <20251119081356.2495290-1-zhenglifeng1@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251201120633.1193122-2-ruanjinjie@huawei.com>
+In-Reply-To: <20251119081356.2495290-1-zhenglifeng1@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_072417_421913_F363BA39 
-X-CRM114-Status: UNSURE (   8.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251201_072724_471862_8DA1A1FB 
+X-CRM114-Status: GOOD (  26.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,19 +70,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 01, 2025 at 08:06:32PM +0800, Jinjie Ruan wrote:
-> The "SYSCALL_MAX_ARGS" appears to have been unused since
-> commit 32d92586629a ("syscalls: Remove start and number from
-> syscall_set_arguments() args"), so remove it.
+Hi,
+
+Apologies for the delay in reviewing this - currently in progress....
+Out of curiosity: what's the cpufreq driver used for testing this series ?
+
+---
+BR
+Beata
+On Wed, Nov 19, 2025 at 04:13:53PM +0800, Lifeng Zheng wrote:
+> Solve a problem that causes CPUs Setup AMU FIE failed in a corner case,
+> even though they're eligible.
 > 
-> Fixes: 32d92586629a ("syscalls: Remove start and number from syscall_set_arguments() args")
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-
-Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-
-Thanks!
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> Changelog:
+> 
+> v6:
+> 
+>  - discard the modifications in cpufreq.c, and instead, make
+>    supports_scale_freq_counters() checks that at least one CPU in the
+>    policy supports AMU FIE, instead of all
+>  - based on Beata's feedback, optimize cpuhp_topology_online() to make it
+>    more readable
+>  - use pr_warn instead of WARN_ON to show warning message when the
+>    freq_counters_valid() check fails in cpuhp_topology_online()
+>  - modify commit message as Beata and Rafael suggested
+> 
+> v5:
+> 
+>  - add a default implementation for cpufreq_cpu_policy() when
+>    CONFIG_CPU_FREQ is not defined
+> 
+> v4:
+> 
+>  - change the function's name in patch 2 from
+>    'cpufreq_cpu_get_raw_no_check' to 'cpufreq_cpu_policy'
+>  - use only one line in the function body of cpufreq_cpu_policy()
+>  - use cpus mask instead of related_cpus when calling arch_set_freq_scale()
+>    in cpufreq.c
+>  - add a warning when the freq_counters_valid() check fails in
+>    cpuhp_topology_online()
+> 
+> v3:
+> 
+>  - add a patch to optimize amu_fie_setup()
+>  - add a patch to add a function to get cpufreq policy without checking if
+>    the CPU is online
+>  - discard the reuse of amu_fie_setup() in cpuhp_topology_online() and keep
+>    all the new logic in cpuhp_topology_online()
+>  - test only the CPU which is going online in cpuhp_topology_online()
+>  - when the freq_counters_valid() check fails, not only clear the scale
+>    freq source but also clear all the related CPUs from amu_fie_cpus mask
+>  - add some comments
+> 
+> v2:
+> 
+>  - keep init_amu_fie_notifier for setting up AMU FIE when the cpufreq
+>    policy is being created
+>  - set up AMU FIE only for online CPUs instead of related_cpus in
+>    init_amu_fie_callback()
+>  - check and set all the online CPUs in the same policy when hotplug one
+>  - clear scale freq source for all the online CPUs in the same policy to
+>    avoid using different source of the freq scale
+> 
+> ---
+> Discussions of previous version:
+> v1: https://lore.kernel.org/all/20250607094533.416368-1-zhenglifeng1@huawei.com/
+> v2: https://lore.kernel.org/all/20250725102813.1404322-1-zhenglifeng1@huawei.com/
+> v3: https://lore.kernel.org/all/20250805093330.3715444-1-zhenglifeng1@huawei.com/
+> v4: https://lore.kernel.org/all/20250814072853.3426386-1-zhenglifeng1@huawei.com/
+> v5: https://lore.kernel.org/all/20250819072931.1647431-1-zhenglifeng1@huawei.com/
+> 
+> Lifeng Zheng (3):
+>   arm64: topology: Skip already covered CPUs when setting freq source
+>   cpufreq: Add new helper function returning cpufreq policy
+>   arm64: topology: Handle AMU FIE setup on CPU hotplug
+> 
+>  arch/arm64/kernel/topology.c | 67 ++++++++++++++++++++++++++++++++++--
+>  drivers/base/arch_topology.c |  9 ++++-
+>  drivers/cpufreq/cpufreq.c    |  6 ++++
+>  include/linux/cpufreq.h      |  5 +++
+>  4 files changed, 83 insertions(+), 4 deletions(-)
+> 
+> -- 
+> 2.33.0
+> 
 
