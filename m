@@ -4,167 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2823FD116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 17:59:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCE9FD116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 18:20:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+YoDk7IObndRcsAKYT2i+AzAT0ZVFB+FCq+nUT+ZNRU=; b=fQPIo+H6Exvp4WFWfE82QE9Tdw
-	8tJJzWzPudPV6grjc+drXpwnjenDgkRRc7pzx2emnogEmhGKwZ9XVegOqgRy0TbqBaJNiOVXvTb1P
-	Bad9JvAizn2CabwiOSQz/m/AoYnevc8Y4Gp/8g09v6PZ6uQqbW1zfOX+T5531qF1rNetVo4LCj159
-	1iKMp75wI4ncjE86RPY5On+1LwIwkIOhfhNVQAqyFkp1pCK+uau8TIdbkPgcMmAmIzcwwVt5+iEf4
-	TzWI19m+BBvYg7QHmaw5g621uqJ/IHf3oQTy7jwo4GmZlCav6VIJeHOX7AO6EbCh5nZ71IqdC/Ji4
-	sABBIYWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=R2ky1g7vqxE0dSxSYlDayHPkG662KZ7f5gS2hZCCGuQ=; b=ynT2EbJ1Ct1ehLByPnnGzafCl/
+	1ahPGOcWGzip9sEHUZtuwpJYmbGvahV7Do1CuqmmriQM27oX5WwkbHCgZTFq/7o9lp6e9sATTWtCP
+	zAr7vPxIjinFS5yTTqUmlj+5mOH01Uixrrm/0xiIH7ybz8uQCSCM0BX+ycpLUn/myuRW7++E46A79
+	P8PRVW9nXopyYwE29ivt3j4wyDAW9b/LfG8VGLAJzX/ga+eEZBah8NPxot/h8hMLZmBudDu5n0wXK
+	9XujVbdoYHHF386ViW2p+gjSQlAiNqQCXA9a2S9KFkcLu2iQoWhd3gszeWNsCYS4npvi2CbY53v5h
+	WfRpEFVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ8Bc-00000004OJh-2rNy;
-	Mon, 01 Dec 2025 17:59:44 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1vQ8VG-00000004P7P-0enc;
+	Mon, 01 Dec 2025 18:20:02 +0000
+Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ8BZ-00000004OJ8-27N7;
-	Mon, 01 Dec 2025 17:59:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SVOslY5tCpepOuxiqHaHq3E0m0C4q+ZvKycpMFoqSDRgEK9ROP9AFJ+dqbtwQ0jcQy0rQ/3+vx9WUytdzNs+uN0Gz321zf4H7Xyc4N+WRqcBOn3+xG9+0whuzyjkhjsDMm5qLw95aLuvcl47afsI/fGHlFzF3ppR4NhBt3zxCzvEJpRmky3BQlrsQzfmdTHO2+CKLRp9ZELjX14OVFp8EPeVxq0agJrGgwC2zwvd2gvHeExSrKOupBXnJA7+0/Kp+3prQlirFnIsAXObUOamad0eiZTaah+lbjrXn30SZmffPkIfeF9VFZCYfOgUUQ+4tn+zMwg6p97wQroLITjhsA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+YoDk7IObndRcsAKYT2i+AzAT0ZVFB+FCq+nUT+ZNRU=;
- b=XkS7CErdeAnXua3/gjVddbOnbmq8H98Xp2UQqnLcWK61EGkZTv/B4a2rWn7R/f3mNcHo+hz3dWmPEY3IE+rVuOu8pnSMo2ErtkgYpOgZSOM7gDo8v2IccS+HSzefZr4kCmczm8oPDZHD+JHf+vaxFewEa1UJntizne5ZmvamMoUwxAiWBZVBFd6EI1rhqgw4BC4oC1XG9gNYCIZxfan+mGdVsDutsSOrpatjaFS/Sz5EAOkJ8PlCxbg0CL9i43VdFqKzAkkXegxpb0/3Ti8taj/huflnVUwdt0TVJH0HYpVhK+mpTZ2VRuqki15Q3MTSC3qqbjcIxLW+MKeGEc+izw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+YoDk7IObndRcsAKYT2i+AzAT0ZVFB+FCq+nUT+ZNRU=;
- b=K/3OP1aH9Kit9YCKN9phq/fOsTRrN+zAXXFFveQZRy9l1/GN4XR71PhVjlygJ8y3vAYy+JQaz9QIwZsGauNBAx0mhYq+c68MGNGM4dW4CvAEcX42MMLVB558+7WgYfFqWHA/nVn9VDl66Db+EnP45EOpVw/XIBEuIm1iIdPRR7hI+ebc5TrD8+z+4uUGQDVfa62r8VQI6Mg/OFGy9rtSJ4EzvVvFRCrPZ2XGndYGgtuHTMNM/r0gH/OtGMfmuogGJq00FHZMFBWWW+CPoHi0XPIr8b3Qj/H6mvr+4FD96AAZ3oTBNYHLcpD/9vNc5xzjCA2vV+zS352i0fRZMyMyDg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by DUZPR04MB9726.eurprd04.prod.outlook.com (2603:10a6:10:4e3::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Mon, 1 Dec
- 2025 17:59:33 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9366.012; Mon, 1 Dec 2025
- 17:59:33 +0000
-Date: Mon, 1 Dec 2025 12:59:25 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Michael Riesch <michael.riesch@collabora.com>,
-	Mehdi Djait <mehdi.djait@linux.intel.com>,
-	Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-	Hans Verkuil <hverkuil@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>,
-	Collabora Kernel Team <kernel@collabora.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] media: rockchip: add driver for the rockchip mipi
- csi-2 receiver
-Message-ID: <aS3XfZFF8rmt8ZT6@lizhi-Precision-Tower-5810>
-References: <20251114-rockchip-mipi-receiver-v2-0-eb9b43377fc4@collabora.com>
- <20251114-rockchip-mipi-receiver-v2-2-eb9b43377fc4@collabora.com>
- <aRyplYZOrGsSxSlp@lizhi-Precision-Tower-5810>
- <554971e1-6fde-4b2c-a2de-fe178358a4e3@collabora.com>
- <aRzub5Ak6DZpO5f/@lizhi-Precision-Tower-5810>
- <87049b4c-df7d-454b-a7f4-073975a7ee94@collabora.com>
- <20251201033700.GB21943@pendragon.ideasonboard.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251201033700.GB21943@pendragon.ideasonboard.com>
-X-ClientProxiedBy: PH7PR10CA0021.namprd10.prod.outlook.com
- (2603:10b6:510:23d::20) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|DUZPR04MB9726:EE_
-X-MS-Office365-Filtering-Correlation-Id: 182c577a-8673-4995-da63-08de3103622d
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|7416014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?tuOB6p6i0Ke/RS2zjrrP599VaENelPC5d/7vvCPWy4HDcI4jeEJLmYFr2XPs?=
- =?us-ascii?Q?Q63H20jbyyTFG/nBYQADvjFKELN4pzpcQo6de9ZWfbelz/JHbWRHPR7sRzGX?=
- =?us-ascii?Q?k7Dvcel+CrtoEq/CFfo91wHQ8WKpjhPnFU6PCCmJnalLJcI2Ym7jQbY0Tw0c?=
- =?us-ascii?Q?J3g4e88rYZEetTyRAdXa5XZxL6tALUSNwUgfx1JpgDvyUNDxyD3C2+zn7Thb?=
- =?us-ascii?Q?cBrUNrhIEnfJIiICCJPIB8AO+QIlzxKMl8EE+UFdfPLc7QAd+LPGjYUTKogX?=
- =?us-ascii?Q?CxqdoJyHqxuLr3HbqvVR3DfHYPB9YKr2vnItTP/EQ4o9UT6OCZw/HtI9pHlj?=
- =?us-ascii?Q?TDAEb5K41Wd7xdprn6BO24nLp2qwHhVKM6ozuFbz0ZTVMsde/FYI6T8mCUTt?=
- =?us-ascii?Q?I04BE6OGxs0p3bHWzx5tR8tmgD8rqfbMekZ/LnCymXhoCgFTt7mEIAmi1lJy?=
- =?us-ascii?Q?9XpUvMpemmZHAWALal73QJoIIsQEuelmRESBU2sZg52Zuom1621ZONg2y9V5?=
- =?us-ascii?Q?0VZ2KY9OOM9mcMP+JvER0RO/qrkB6YdwXIdhgltobrvX6Aw3M2d/agNdIBO8?=
- =?us-ascii?Q?DFDdPduOw/XClLX5cUld8E/V03MlsN71HzZLSzOwCjR881OBU0eC/NOg5rF/?=
- =?us-ascii?Q?tgVqrmZ+LZklJdz59cEvfNglAqyFl54eVG/m0fnotEqEcfYoI0pp/Ux29/fp?=
- =?us-ascii?Q?x5bkcHqA96ahUEWT37u11i4gfJvSgSiAMjxqmeRPVl2pROdRP/JeBr+k6xdR?=
- =?us-ascii?Q?xSeD/5hh2xUyUh9jb5FzqA1uMc3XKVIv7oQW2CAP94jfswbo9pSfQfTCiJQ/?=
- =?us-ascii?Q?UyHp6p4tVNKmuK8Hzv8TcyvwLI7vnIJcYn/gGiSxqqEkrVL7uAErAtlmmRc9?=
- =?us-ascii?Q?It/HSz+1em+NeKJnwFxwR1l97igcFWizv4sAUc7WSnECInSS2+T1ixFt7yvr?=
- =?us-ascii?Q?haYbp+/fTvoz0iO/ZsAbMgHg/4ezPNPcgDXBaecAXKkAJoOHnbvD+HkaHqw0?=
- =?us-ascii?Q?8BByTXneIqvk5gbc7H20Tjhv4wQ5TnpoM3q2NFBWPUio2oZgC9FhAFMDpDsP?=
- =?us-ascii?Q?lFceP2Ncj2BaYGMQFk5rm/NvUPWd0gT3Y9kdPM1Y35Sylm+4gcrajrHJT/uZ?=
- =?us-ascii?Q?hyB3Uk5GFfICHreE3iZFQZj3qKB4txHF6gPEKS+S+h6ZnEuyrzsefJN5V+zI?=
- =?us-ascii?Q?r3T5PyVyArdFWBg1TkEcUPHFUS4Qv1V8xSMUX2Eo/BC/QLOH8zPHSjBHpzGw?=
- =?us-ascii?Q?SKUF7K2p2AtMAGIbH5fQM5KM8O96VcPhurydBCmApsESLPUt9dvTdcZ+gIxe?=
- =?us-ascii?Q?DpGkGxKbkLr5kXPF0BxRX9CDL7/dx3Dw2D+vBpOak5yEbukXdNHegOCvSpmC?=
- =?us-ascii?Q?oRiRvbELLiIipnlT+6paRjXrWQwO3Yf1jqzRCNJuO1pw9PC7e40FHJwG0pOw?=
- =?us-ascii?Q?1c8kIJ0Mbj5jxfj3GjDA7RfWCKyy367sJyl6X5Ihb/7HevoH51w1Ig1BaaXI?=
- =?us-ascii?Q?9lSAL06X8Adj1UKoA1frCjcWt1wyF3uxyN8A3UXlpGZBbs9xybeHJvIDWA?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?aZY1DhlL2OvCoI8J87TVA2nJV55kMAXyZj+MqkbJvo0XxJDEorOkEE3EE9uA?=
- =?us-ascii?Q?gZslmAKBcxz+sPIVie3FlrhF+cXcS/TmfsK0PC6GxUeHkjLfTOv/cwkKZkxx?=
- =?us-ascii?Q?mme1daV+sZ2c+cYThOi8xN3qxeFOpSK+55OmUVLXWdo53EhYSaLttNHFo2bZ?=
- =?us-ascii?Q?kOOpK9QXkB1cU6XH6j2D7f+NI7Or0FIyy2Wy3oy+/JTE6xDoS4ZIOwYtDofI?=
- =?us-ascii?Q?5d4xhDBKQKJCC0K711PIhAVcQffPrZNI2Y02Zx2c4BCkV8qbpzIcRivXl4Wx?=
- =?us-ascii?Q?SKEaiHm6jyl8bvxk4sSCEO3R0075her+q3isOEvYxbyHuBYe/RRJtEkQieEG?=
- =?us-ascii?Q?DrKVep4gHeYPP20z+uhVO51XI5cApSqfyMQmVMe2cHEbLxKFqv3s+rKqWONa?=
- =?us-ascii?Q?lj5tuLOGfNIeZs87Y9awsEZLMI0QDDLuM/jz88A6AdBGLqYZ8dkxmp2zDG3r?=
- =?us-ascii?Q?R8fLIiCQC3j955iULszU2xlw3NgooqWLleyuqLCpTimnXYUg+187edkdjmEX?=
- =?us-ascii?Q?3qsX7d613Wo8EzBfDD0URwnFwNAr7fyCWg8qYiOvlNQ3OABq5oZ0Kxc6loa+?=
- =?us-ascii?Q?0623Fqe8qGusmkDsNruneU3y7zMtURzqJP8MAW/Mv+34iLRHemT9XnZ6HXdO?=
- =?us-ascii?Q?g/XlodKE2oAFvx6PW7sne5oAnBfI1xYx5hCX+hv+IIjfayJrgF5lGpltihBs?=
- =?us-ascii?Q?PNdJYjuEWzYTXH/myywVBrN5uruuZLO6zbOTiQoJfyn1FMntbWddOXA/VlIs?=
- =?us-ascii?Q?HAe4dmBl1aSke1wrGeFtq0Ubuyigm++GgWKRFZy/nkLdp0V6iIKax519Auvy?=
- =?us-ascii?Q?VDYJj2WsHKIbsSDKG+Y0HuoFWgoKhSQYEmYQwf9fb5/kCObCAJT1IDFsVziP?=
- =?us-ascii?Q?MxewElfqE5EKMR73AX7HqptC6f7/1PWa7qVyDDkynSV5FgCDx2wT4uELAJDc?=
- =?us-ascii?Q?GLFkyshjKi9UxiVrIxgnWCvp/ZiQlxV1/dea85gUZVkE4UANT8efpQDB4cQi?=
- =?us-ascii?Q?P6rggBzs9p988W35Fq6reuKhvJtSOp4FlOKxRDG5hqcc8X1OWgHQJHWoO5ED?=
- =?us-ascii?Q?2BpMf2R4ZMk2Wnp9eH831cTFvqPTmdQ006H5Avbcs9jmv/AROivui5Zjkqxp?=
- =?us-ascii?Q?9mlTjJO/bLzLvJe7sD/UgsLjEny1sJAAzqOni8A3zhuRgjfG321YDiNinfPG?=
- =?us-ascii?Q?NUNzr40vuuX9nlBnNvYC0YLWsAC2Hp/IfoNCssgXmaUHII57RgmWLMvR3vSW?=
- =?us-ascii?Q?kLO2UdV0+hfC7LLDqJOiNInKCb0bWsaCuW5Ajw7z3nnzDuGfcKIsBvG4v3gq?=
- =?us-ascii?Q?bEXWpAHxbE+c8KWMwEfztDlqg2hOBVGotW/obKnAYMpUi6oaXxhE/6A7GauH?=
- =?us-ascii?Q?itOK6relAyYae1yrB6nphkUhdHDpT3Y1kNztkiF/tWUgg5jy8WGbrnGjOpdh?=
- =?us-ascii?Q?S+Ubwu1nwbjYhA8kpNzbHVibKHqlVLHm4Hq834DxsuUrHXxYJxyvOQD55eM6?=
- =?us-ascii?Q?/oULnemyOCSd/HXXh3BtBtmHfE0TzOs1sibe1eI1h8/1VrKXWuMYj0nclLKC?=
- =?us-ascii?Q?6tQhzkGM0BlJct4nFmRHwKRCM0I5PGy51DGlxHrq?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 182c577a-8673-4995-da63-08de3103622d
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Dec 2025 17:59:33.7939
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qzdmy4P2s/o8xkAfWbBc00LaiFhCQdT40WOMOmvazxPD5BoAWAo1dinyBmR6iH5dcmEk2gqN1FlyAakA0579Ow==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB9726
+	id 1vQ8VD-00000004P6b-0GWu
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 01 Dec 2025 18:20:00 +0000
+Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-b70caafad59so436695766b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 10:19:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1764613196; x=1765217996; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=R2ky1g7vqxE0dSxSYlDayHPkG662KZ7f5gS2hZCCGuQ=;
+        b=qCR1hL2HCcgExhT0GrSCpUqhiA8r4gnDVziViGQaV5U99t0e9BIIbAPSYHJofEAZKS
+         bkn0OliuNFP4FPHvR906U5q9+gIgsLlGqm9IODmgQiqBniaLBNQCATDVx2uFKfI33yN5
+         0pe7kXEaoUaiBeEBMWEzKGFIxvKwHYk+z+SJbYzq3tdXuPE9J7rf5//JG0wlPVKLdLqd
+         n2svyxGoFbPh3EMBnFVKbrbznG4foKH1Oucq+SMIp6bDDNrTORA6fwntdWsaO9EM+X45
+         Gt8vtV859F550cDMqWpLuWss9Mw5Ne4fRKwzr/ONJUdMOUrylnDC/Z8dh4Unzqwg8hRX
+         meOA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764613196; x=1765217996;
+        h=content-transfer-encoding:cc:to:from:subject:message-id
+         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=R2ky1g7vqxE0dSxSYlDayHPkG662KZ7f5gS2hZCCGuQ=;
+        b=GbdwsT+qJgkO61GKmPATTBei3gfY1XjQLNysFk22qbTXsRCbg1cdEvH30o59YCRYJe
+         euQFF0qqFrIJBBgvB/J4RX4uXF3qUY1i0pq9aCiVhZJI1upaxJIJb/IE0G+0BmdaZPou
+         gg/nQFGMmeUgmK3DXwsmTieAokwtKfBy5+jZTAWCn2tg+lFTCfqRQav7O5Mc7mT34vdE
+         9bJgV6mtiyZqV6AwHLadfOt/c/jclbi112kxAPTbh7e3WgbVkrBLMuIm4WQbq+jKy9gg
+         eOCxV5XX4PgPD/87DUNJWqr5gf4oV42u0gTO18qwgIRQYnUj/LjNeOXxnUqH5gEmT7gl
+         oBWA==
+X-Forwarded-Encrypted: i=1; AJvYcCU4iSoaBBPuW8+2atbQHGMbtmvG1yqmJvjmGpvK7yYQIXBbBZgasDzM6riebEo1BnK/9zJ/GEUytkq6KkfURep+@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBz8rKLnFie0J9G/3jZKyCFUdMo/UagnfA5Ec8Nc0fp4fTbeKu
+	VbbN7Qc/mmeVITC8MwRj+DQx57NRAnTRBiZOUZolRH4eGNV6cEC7Y7v9NYWzRNSr8H8F9cNRyPf
+	OgA==
+X-Google-Smtp-Source: AGHT+IG0rnfQOBcsGBc89nGQ7P5SqEhx394iLm0A9p+JH2UauaQ7PKGIBjoXKOQU6ONzPdt2vT+TuR01CA==
+X-Received: from ejdcu3.prod.google.com ([2002:a17:906:ba83:b0:b73:2695:dbc5])
+ (user=ptosi job=prod-delivery.src-stubby-dispatcher) by 2002:a17:907:6d13:b0:b77:18a0:3c8b
+ with SMTP id a640c23a62f3a-b7718a03cd2mr1308264966b.1.1764613196560; Mon, 01
+ Dec 2025 10:19:56 -0800 (PST)
+Date: Mon, 01 Dec 2025 18:19:52 +0000
+Mime-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAEjcLWkC/x3MQQqAIBBA0avIrBN0QpCuEi1KxxooC40IxLsnL
+ d/i/wKZElOGQRRI9HDmMzboToDb5riSZN8MqNBoVFrmwzknA+83JWms9T5oXHpjoCVXosDvvxu nWj8ivT43XgAAAA==
+X-Change-Id: 20251201-smccc-filter-588ddf12b355
+X-Mailer: b4 0.14.2
+Message-ID: <20251201-smccc-filter-v1-1-b4831416f8a3@google.com>
+Subject: [PATCH] KVM: arm64: Prevent FWD_TO_USER of SMCCC to pKVM
+From: "=?utf-8?q?Pierre-Cl=C3=A9ment_Tosi?=" <ptosi@google.com>
+To: kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev
+Cc: Joey Gouly <joey.gouly@arm.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Vincent Donnefort <vdonnefort@google.com>, 
+	Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, 
+	"=?utf-8?q?Pierre-Cl=C3=A9ment_Tosi?=" <ptosi@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_095941_740433_26F26532 
-X-CRM114-Status: GOOD (  38.57  )
+X-CRM114-CacheID: sfid-20251201_101959_129777_427D1986 
+X-CRM114-Status: GOOD (  15.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,128 +96,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 01, 2025 at 12:37:00PM +0900, Laurent Pinchart wrote:
-> Hello,
->
-> On Wed, Nov 26, 2025 at 09:57:31PM +0100, Michael Riesch wrote:
-> > On 11/18/25 23:08, Frank Li wrote:
-> > > On Tue, Nov 18, 2025 at 07:59:14PM +0100, Michael Riesch wrote:
-> > >> On 11/18/25 18:15, Frank Li wrote:
-> > >>> On Tue, Nov 18, 2025 at 12:12:26PM +0100, Michael Riesch via B4 Relay wrote:
-> > >>>> From: Michael Riesch <michael.riesch@collabora.com>
-> > >>>>
-> > >>>> [...]
-> > >>>> +#define CSI2HOST_N_LANES     0x04
-> > >>>> +#define CSI2HOST_CSI2_RESETN 0x10
-> > >>>> +#define CSI2HOST_PHY_STATE   0x14
-> > >>>> +#define CSI2HOST_ERR1	     0x20
-> > >>>> +#define CSI2HOST_ERR2	     0x24
-> > >>>> +#define CSI2HOST_MSK1	     0x28
-> > >>>> +#define CSI2HOST_MSK2	     0x2c
-> > >>>> +#define CSI2HOST_CONTROL     0x40
-> > >>>
-> > >>> Look like that is designware CSI2 controller, can we build common library
-> > >>> for all dwc csi2 controller, instead of every vendor create individual one.
-> > >>>
-> > >>> First try at
-> > >>> https://lore.kernel.org/linux-media/20250821-95_cam-v3-21-c9286fbb34b9@nxp.com/
-> > >>>
-> > >>> Toshiba have similar patch
-> > >>> https://lore.kernel.org/linux-media/aPZd39riAxqfw3mT@lizhi-Precision-Tower-5810/
-> > >>>
-> > >>> Frank
-> > >>
-> > >> This has been discussed already a while ago:
-> > >> https://lore.kernel.org/all/20250507083837.GA11152@pendragon.ideasonboard.com/
-> > >
-> > > https://lore.kernel.org/all/20250702093806.GF16835@pendragon.ideasonboard.com/
-> > >
-> > > Laurent Pinchart prevent imx93 DWC CSI2 driver at Jul, your discussion at
-> > > May, I think Laurent Pinchart change the mind.
-> > >
-> > > We can choose not base on imx6, but we should create a standard dwc2 under
-> > > drivers/media/platform/synopsys/
-> >
-> > In principle, I agree with refactoring out common code. However, I am
-> > not sure how similar these IP cores really are. Again, the answer I
-> > received from Rockchip states that this is *not* a Synopsys IP core.
->
-> That's what I based my opinion on. If we're dealing with different IP
-> cores from different vendors, we can have separate drivers. Even within
-> the family of CSI-2 receivers from Synopsys, I'm fine having different
-> drivers if the version differ significantly enough that using a single
-> driver would cause more pain than gain.
+With protected VMs, forwarding guest HVC/SMCs happens at two interfaces:
 
-Laurent Pinchart:
+     pKVM [EL2] <--> KVM [EL1] <--> VMM [EL0]
 
-	We need use unified standard for every one. In the patch below patch
-is enough show the difference between Sysnopsys version.
+so it might be possible for EL0 to successfully register with EL1 to
+handle guest SMCCC calls but never see the KVM_EXIT_HYPERCALL, even if
+the calls are properly issued by the guest, due to EL2 handling them so
+that (host) EL1 never gets a chance to exit to EL0.
 
-media: synopsys: csi2: Add basic v150* version register
-https://lore.kernel.org/imx/20250821-95_cam-v3-20-c9286fbb34b9@nxp.com/
+Instead, avoid that confusing situation and make userspace fail early by
+disallowing KVM_ARM_VM_SMCCC_FILTER-ing calls from protected guests in
+the KVM FID range (which pKVM re-uses).
 
-	The register layout is differense, most field defination are the
-same and some changed.
+DEN0028 defines 65536 "Vendor Specific Hypervisor Service Calls":
 
-	I know it is hard to define how much pain and gain.
+- the first ARM_SMCCC_KVM_NUM_FUNCS (128) can be custom-defined
+- the following 3 are currently standardized
+- the rest is "reserved for future expansion"
 
-	But I think this one is closer to imx6's version even though they
-claim NOT DWC CSI2 IP than imx93 v150 dwc CSI2 version. (for example, many
-iio sensor/gpio expandor use the same set of register define for difference
-vendor, but still use one driver for these).
+so reserve them all, like commit 821d935c87bc ("KVM: arm64: Introduce
+support for userspace SMCCC filtering") with the Arm Architecture Calls.
 
-https://lore.kernel.org/all/20250702093806.GF16835@pendragon.ideasonboard.com/#t
+Alternatively, we could have only reserved the ARM_SMCCC_KVM_NUM_FUNCS
+(or even a subset of it) and the "Call UID Query" but that would have
+risked future conflicts between that uAPI and an extension of the SMCCC
+or of the pKVM ABI.
 
-"This seems to be at least the third instance of a driver for the CSI-2
-receiver, the first two being
-drivers/media/platform/raspberrypi/rp1-cfe/dphy.c and the second one
-drivers/media/platform/renesas/rcar-csi2.c (the latter seems to support
-multiple CSI-2 receivers). drivers/staging/media/imx/imx6-mipi-csi2.c
-seem related too, likely for an old version of the IP.
+Signed-off-by: Pierre-Cl=C3=A9ment Tosi <ptosi@google.com>
+---
+ Documentation/virt/kvm/devices/vm.rst | 11 ++++++++++
+ arch/arm64/kvm/hypercalls.c           | 39 +++++++++++++++++++++++++++++++=
+++++
+ 2 files changed, 50 insertions(+)
 
-Could we please try to avoid code duplication ?
-"
+diff --git a/Documentation/virt/kvm/devices/vm.rst b/Documentation/virt/kvm=
+/devices/vm.rst
+index a4d39fa1b0834b090318250db3b670b0b3174259..9ed4b7afe022023346d4835d33a=
+901e557fc4765 100644
+--- a/Documentation/virt/kvm/devices/vm.rst
++++ b/Documentation/virt/kvm/devices/vm.rst
+@@ -400,3 +400,14 @@ will reject attempts to define a filter for any portio=
+n of these ranges:
+         0x8000_0000 0x8000_FFFF
+         0xC000_0000 0xC000_FFFF
+         =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
++
++Protected KVM (pKVM) reserves the 'Vendor Specific Hypervisor Service Call=
+s'
++range of function IDs and will reject attempts to define a filter for any
++portion of these ranges for a protected VM (``KVM_VM_TYPE_ARM_PROTECTED``)=
+:
++
++        =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
++        Start       End (inclusive)
++        =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
++        0x8600_0000 0x8600_FFFF
++        0xC600_0000 0xC600_FFFF
++        =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D
+diff --git a/arch/arm64/kvm/hypercalls.c b/arch/arm64/kvm/hypercalls.c
+index 58c5fe7d757274d9079606fcc378485980c6c0f8..5ddcdd70a6b280914048e7683da=
+fb778d0f24658 100644
+--- a/arch/arm64/kvm/hypercalls.c
++++ b/arch/arm64/kvm/hypercalls.c
+@@ -135,6 +135,21 @@ static bool kvm_smccc_test_fw_bmap(struct kvm_vcpu *vc=
+pu, u32 func_id)
+ 						   ARM_SMCCC_SMC_64,		\
+ 						   0, ARM_SMCCC_FUNC_MASK)
+=20
++#define SMC32_VHYP_RANGE_BEGIN	ARM_SMCCC_VENDOR_HYP_KVM_FEATURES_FUNC_ID
++#define SMC32_VHYP_RANGE_END	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,		\
++						   ARM_SMCCC_SMC_32,		\
++						   ARM_SMCCC_OWNER_VENDOR_HYP,	\
++						   ARM_SMCCC_FUNC_MASK)
++
++#define SMC64_VHYP_RANGE_BEGIN	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,		\
++						   ARM_SMCCC_SMC_64,		\
++						   ARM_SMCCC_OWNER_VENDOR_HYP,	\
++						   0)
++#define SMC64_VHYP_RANGE_END	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,		\
++						   ARM_SMCCC_SMC_64,		\
++						   ARM_SMCCC_OWNER_VENDOR_HYP,	\
++						   ARM_SMCCC_FUNC_MASK)
++
+ static int kvm_smccc_filter_insert_reserved(struct kvm *kvm)
+ {
+ 	int r;
+@@ -158,6 +173,30 @@ static int kvm_smccc_filter_insert_reserved(struct kvm=
+ *kvm)
+ 	if (r)
+ 		goto out_destroy;
+=20
++	/*
++	 * Prevent userspace from registering to handle any SMCCC call in the
++	 * vendor hypervisor range for pVMs, avoiding the confusion of guest
++	 * calls seemingly not resulting in KVM_RUN exits because pKVM handles
++	 * them without ever returning to the host. This is NOT for security.
++	 */
++	if (kvm_vm_is_protected(kvm)) {
++		r =3D mtree_insert_range(&kvm->arch.smccc_filter,
++				       SMC32_VHYP_RANGE_BEGIN,
++				       SMC32_VHYP_RANGE_END,
++				       xa_mk_value(KVM_SMCCC_FILTER_HANDLE),
++				       GFP_KERNEL_ACCOUNT);
++		if (r)
++			goto out_destroy;
++
++		r =3D mtree_insert_range(&kvm->arch.smccc_filter,
++				       SMC64_VHYP_RANGE_BEGIN,
++				       SMC64_VHYP_RANGE_END,
++				       xa_mk_value(KVM_SMCCC_FILTER_HANDLE),
++				       GFP_KERNEL_ACCOUNT);
++		if (r)
++			goto out_destroy;
++	}
++
+ 	return 0;
+ out_destroy:
+ 	mtree_destroy(&kvm->arch.smccc_filter);
 
-	Or do you think I should go through this ways (direct create one
-dwc for v150) instead base on imx6 one to enable imx93's dwc CSI2?
+---
+base-commit: 7d0a66e4bb9081d75c82ec4957c50034cb0ea449
+change-id: 20251201-smccc-filter-588ddf12b355
 
->
-> To explain this differently, for Synopsys CSI-2 receivers, I would like
-> to try and support multiple IP cores integrated in different SoCs in a
-> single driver. If, during that development, we find good reasons to use
-> separate drivers, then we can do so.
+Best regards,
+--=20
+Pierre-Cl=C3=A9ment Tosi <ptosi@google.com>
 
-I think if reviewing and landing process could go through smooth, imx6 can
-support this device with a little bit modify. There are not technology's
-bar so far.
-
-I split to more simple patches from big 32 patch serises.
-
-https://lore.kernel.org/imx/20251111-stage-csi2-cleanup-v2-0-371bb951776f@nxp.com/
-
-Only comments change
-
-https://lore.kernel.org/linux-media/20251105195808.297645-1-Frank.Li@nxp.com/
-
-Frank
-
->
-> > Can you maybe test whether the Rockchip MIPI CSI-2 Receiver driver in
-> > this series works on your hardware? Then we will know if (and what)
-> > parts can be shared.
-> >
-> > > Laurent Pinchart:
-> > >
-> > > 	Can you provide direction?
-> > >
-> > >> Bottom line from Laurent:
-> > >>
-> > >> "Let's keep this driver Rockchip-specific then. Thanks for checking."
-> > >>
-> > >>>  [...]
->
-> --
-> Regards,
->
-> Laurent Pinchart
 
