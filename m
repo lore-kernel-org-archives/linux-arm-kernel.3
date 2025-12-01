@@ -4,57 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A7A1D111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 09:54:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 594BFD111A8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 09:56:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2iAQtJTtj1yfrHdLDvgWWtqZ4mTMlYZUEp2uH7qiL9s=; b=nw2nyvkI7FjtKBOry7DsWyzDq/
-	W9xrEsf3DqSGL/KlAah6vl9bCmjVnWXDvVMMq/dv/hUCnmgajxwS7ub/dc/kJ5qxbgHXTyFQp2dH5
-	lVhmFzbCkLB5cy0SVAbwg+ApSeMRlXIW4gz6HnE16owlLKjC4CHi2H9poFfXp2Ffafkrv9ILAujYo
-	by8yOS5BheM58rQmOoq+YG0p1qDTzYPXD358wVedXqLiPkWEbK2hGJJ/EnYrtg55LlveBugko1hNQ
-	p/b3c9zyxHXFhO7Osn4l7uWMFjv7t/2BQ1cdC4iNspXEPL4OW/kBML3g2RMAjcpyKNVPILSZQg6xz
-	b4UmCKXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JC23zVwyQUFnU/DZDDvT60Vkv1LHZkSJ5XqNGQ1Yuos=; b=TFMiGJZlUfOY3ApkuW5wm4sJiN
+	A+Kz4HYDCSvQkk/SOIYAj2UEqlDLOxMsQz56yz7N6nGdWifIR7zd6bep8TvFPcmf2+ds/sKGnVbka
+	/cVEOHrBGhMefIxAXcptVOjMHiHyQjWd02q7wZjkz2T//qyHDy9wmW7QUUgxKSJVrQ+Z5gir2aGWq
+	xKC1ZPSp7WaCIhyIRAasqVLbIlx+I3uFZ0sKUmHHH2QsgBYdB8a7NX61hhE0cS1dN1KiL7jbyTOa/
+	D05dpKaleymcncmIbuvpmeoShqEpn1w2djF3LMXcQtt3Wr2+k2XhWEvt0JhMh+3TBKc51TZul/h+6
+	xhX3Dk2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ0cC-00000003FXN-1SeB;
-	Mon, 01 Dec 2025 09:54:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ0c9-00000003FVL-3xAW
+	id 1vQ0dr-00000003FkK-3H9E;
+	Mon, 01 Dec 2025 09:56:23 +0000
+Received: from mail-eastusazon11011046.outbound.protection.outlook.com ([52.101.52.46] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQ0dp-00000003Fjp-3w4F
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 09:54:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A3989497;
-	Mon,  1 Dec 2025 01:54:27 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 612AB3F73B;
-	Mon,  1 Dec 2025 01:54:33 -0800 (PST)
-Date: Mon, 1 Dec 2025 09:54:25 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Baoquan He <bhe@redhat.com>, Yeoreum Yun <yeoreum.yun@arm.com>
-Cc: Breno Leitao <leitao@debian.org>,
-	Andrew Morton <akpm@linux-foundation.org>, pjw@kernel.org,
-	catalin.marinas@arm.com, will@kernel.org, coxu@redhat.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: kernel: initialize missing kexec_buf->random field
-Message-ID: <aS1l0QqJSebgCg6f@J2N7QTR9R3>
-References: <20251127182644.1577592-1-yeoreum.yun@arm.com>
- <20251127113706.d89a84f277dab3ad273dde75@linux-foundation.org>
- <aSjqEQDv7V79V3Na@MiWiFi-R3L-srv>
- <5wel6vqjwwf25hryvg6s7z6aaog7xc3zxjevupt3jn4gntme6d@74wwwmhvvelt>
- <aSmrUGnZp0UeTp1E@J2N7QTR9R3>
- <aS0Ch3hrYPDXomDC@MiWiFi-R3L-srv>
+	Mon, 01 Dec 2025 09:56:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=N0W8Jzc1tFfO6tvBO9Wl6HIuTLAViS7qMx7UpfgTF85XFyn7LZK6/b11kxCS8JXAYuMn5CnYZsYqw54mFr0b+0/dODbfJk2BZk1s4ueS5YAyQ/12pdnUt51UhMN8LPAB9XTPZYdjdbaPaKhK5Ed+TDlFCe0nUAWbffxjQufdSQbbEsx2qZMTy/wsou5m4kX6cB0kW/td2Ca2LGTRvIMUpNM/99X/BVZ8Y3/ri1uSTpcfFR0gBZVc7J9NDosL2d1FfXFbt24OVaSmvyfVwJv12TuqyVVdXJQmAzt56cOARC/wQzI3pKshv5hAaQGMmIJ/dILOJa4jGnKJUa9sVXOpBA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=JC23zVwyQUFnU/DZDDvT60Vkv1LHZkSJ5XqNGQ1Yuos=;
+ b=G0WGfhh/45KtMIoZ9JQda7DYM7rDAhftelmZUQzxuL1k2sp1SKcGXQd9GlFYDXS9pCd83wGcTXy7IsZkqZ8ZQrjKkIbBXlWMp1U6PY62ieQbzoTY8EaMJ7VDqnAwZw7oQzBWCJtoQ++GF9XWgC91COcCF4MhyvdmoLH2mh5ISwv8rM1KfxUqMNWvGsbwr+UqEy3zK9CTrvdFfqvEI5VRUnL9BiITgROLsQFvVkc+4eY2lhF2b/wD+DBLYghFtmMrSswe1x+/EtRu2cqFC6mWVqEoqffv2IFX1dQ0vBRYfXaceUtkrBvdNe904GekKbVMW9voWVMhlQqfL8r67FYimA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 165.85.157.49) smtp.rcpttodomain=lists.infradead.org
+ smtp.mailfrom=gehealthcare.com; dmarc=fail (p=quarantine sp=quarantine
+ pct=100) action=quarantine header.from=gehealthcare.com; dkim=none (message
+ not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gehealthcare.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=JC23zVwyQUFnU/DZDDvT60Vkv1LHZkSJ5XqNGQ1Yuos=;
+ b=qvthXgS+Vu9JF0t0KOCrkV9Txj26OLQkZ8MJiGPQr8L7ln83qrykzBpaEzNHBh5tro8qLzHxfosX5jbb0bMZLp8qhjDrSOMWhl9VI4xJXyW+W9Z7gyDrAoNFspcPn5f2UKhJK1+1vQEELaKK+PekaVuDLZ16a0t7TKZPx+Epp+kuwIITP7XNx0+inOiOkYgW05Mn+YcAVy9MeKKzcqSIsE7kU5YI1nzSwIbQRFH+IDsHlW92HY90E/b+S/SSP9DzB5T5x+cRu3dUCewpj3BlbFv84WIzoJYiO8NnPnzC1qdq+c5vlKfSZDxj9jocm9Z35wtpLd/tM69OjR48B6PKpA==
+Received: from SJ0PR03CA0266.namprd03.prod.outlook.com (2603:10b6:a03:3a0::31)
+ by SJ2PR22MB5072.namprd22.prod.outlook.com (2603:10b6:a03:589::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Mon, 1 Dec
+ 2025 09:56:16 +0000
+Received: from SJ5PEPF000001EE.namprd05.prod.outlook.com
+ (2603:10b6:a03:3a0:cafe::71) by SJ0PR03CA0266.outlook.office365.com
+ (2603:10b6:a03:3a0::31) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9366.17 via Frontend Transport; Mon,
+ 1 Dec 2025 09:55:47 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 165.85.157.49)
+ smtp.mailfrom=gehealthcare.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=quarantine header.from=gehealthcare.com;
+Received-SPF: Fail (protection.outlook.com: domain of gehealthcare.com does
+ not designate 165.85.157.49 as permitted sender)
+ receiver=protection.outlook.com; client-ip=165.85.157.49;
+ helo=atlrelay2.compute.ge-healthcare.net;
+Received: from atlrelay2.compute.ge-healthcare.net (165.85.157.49) by
+ SJ5PEPF000001EE.mail.protection.outlook.com (10.167.242.202) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9388.8 via Frontend Transport; Mon, 1 Dec 2025 09:56:15 +0000
+Received: from zeus.fihel.lab.ge-healthcare.net (zoo13.fihel.lab.ge-healthcare.net [10.168.174.111])
+	by builder1.fihel.lab.ge-healthcare.net (Postfix) with ESMTP id A9C0DDBCE9;
+	Mon,  1 Dec 2025 11:56:11 +0200 (EET)
+From: Ian Ray <ian.ray@gehealthcare.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Justin Waters <justin.waters@timesys.com>,
+	Akshay Bhat <akshay.bhat@timesys.com>
+Cc: Ian Ray <ian.ray@gehealthcare.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ARM: dts: imx6q-ba16: fix RTC interrupt level
+Date: Mon,  1 Dec 2025 11:56:05 +0200
+Message-ID: <20251201095606.990-1-ian.ray@gehealthcare.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aS0Ch3hrYPDXomDC@MiWiFi-R3L-srv>
+Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001EE:EE_|SJ2PR22MB5072:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: 8713e6b5-f257-445f-4f12-08de30bfddf2
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?kdZ4ozca7qVo/wVGVeJ2WbDd8UDChl5tuUc8ncXDEZM2bSWusogoJxxIMzSl?=
+ =?us-ascii?Q?slBsb1Mcj3n7sjMwjBp4q0A/8DxicZc8P1aenWnSeRokENyITUbPzanqplAk?=
+ =?us-ascii?Q?c9zLfxxpRxg+VOowiogggu0zEzw1Q+8QjA7eRlJx/fSZhdpD7UfgZKR8VBQk?=
+ =?us-ascii?Q?QbvmqPwmMj0qeH7dQggOjDV7DE8CgZ1Jqsgarb9SJxFBH2I5KkBhQ/Uv6+gI?=
+ =?us-ascii?Q?VC7CeEsS94g3LzO9lMdXP6y/5dmQ+hPMLCWr1zpqEJGh1mlHKLrgFEFO1b0q?=
+ =?us-ascii?Q?0Xg5KOPJfbqmZx1ZbWDdjISmFh6IKcZ7je6vYhc9nVUysQ7wvVnjegllDf1D?=
+ =?us-ascii?Q?TcSUQdeftficCfUyfJx1sqsDu1BW+7q+2Zd1wTm8rHcidoUgnKtFcURUXIyT?=
+ =?us-ascii?Q?Ox3jp8QcMML4I4xT3N0oIrNBx4i77bEZOfxadvdPpTIxazFGAAsXBmhRTYoH?=
+ =?us-ascii?Q?f89tvVB1lxSnOM4JCRJQTHwiP9UQ19G0CcQkfn98cKiIlX1c017m8RIgpj7G?=
+ =?us-ascii?Q?dt6Jk22clFlQS5AYhNb0/f8ml5tpql/306EwqXcSnuex+vXqJ3Lf5jgMlsb7?=
+ =?us-ascii?Q?GiHPO6jzm56LP893SQ/pJ51NGSeXPu/lWqLv9OjlEPFU5Z89SOcI9MnOwPE1?=
+ =?us-ascii?Q?CXmeWuydU6Qjl75nK5EV/rmhYVBkGqDUt/2blZ3wejv3g6aM1nAcitkqJqxl?=
+ =?us-ascii?Q?0VO6CtpCqKlKYqwo8538E28qN2EwlkZmSxXzLiHQssaELE/wZuJYW5jrC/kl?=
+ =?us-ascii?Q?F073dDRO4icELhJ/navhFrYC2naNm/0/SuoQwHDmS3kCmy9zQjDo6IkYR1fJ?=
+ =?us-ascii?Q?k7Mgg21q/h0rCJ66cOH8phJpG2vT1V0GJ/LXBkv9q4P7c1M79FekYsCx1lz5?=
+ =?us-ascii?Q?jDS9Oou9nh24N5Z7DtK0y62K0GeT9OV8gR118h4tRMCR/5Ozy7kCj9szHxx+?=
+ =?us-ascii?Q?rg6y/+zLdqeATlqUWx9s9L/2BmeiYVHzahcN5ttfco5Hjgm7bJ0QHc29NayD?=
+ =?us-ascii?Q?XAA5CcXvoZE7b8u+IjQ3Iow3hLH/IXei7KRaPQNu48T3YVfgUoJBHLlYrvwb?=
+ =?us-ascii?Q?x0OREavhLpd/UpZ6UMU703C0JX9c5NV3Qy/vVpwvCCyLnGUm9OW4hZNEIxXG?=
+ =?us-ascii?Q?YvRssnrugmMoeIxDj71FHhJ2CKmKnJVoZ3cMOJRa92GWSYCV8EU8UmwTMdz5?=
+ =?us-ascii?Q?IAtYiRGziz6agvWiJtq59qXAPIKj5/NaX8Qs2zQnsT4JTqBu+/PtpsqGiE8w?=
+ =?us-ascii?Q?jyAymElIrLe5lUKBKK6nP0YxzQyzdSVydY/bL+UOkARA+LZb7RWHGHNItmPb?=
+ =?us-ascii?Q?vbwBzrURjFutPQpM5ysEYQNsFtd/hVZj9GE2EoZq1UTPDqqHPyfh3s84gZ8j?=
+ =?us-ascii?Q?2svIh4ZI5eM1WIa1vGQbm3K7U1qBZnsfEDBoszlz7KLYAVq7RAXFe/sd/ZwQ?=
+ =?us-ascii?Q?YQjQOUbJlhfITgC9uylImu5ZgqY1afMs6BxCtK9/gRxnPKpVWduzOFYSCvjv?=
+ =?us-ascii?Q?+dAY1subaMUjjto87oOs51mueSp2sqwosLfOe2Ki7Du4imV78voafTQG4etj?=
+ =?us-ascii?Q?PTCjX0IWtau1mzyQTb8=3D?=
+X-Forefront-Antispam-Report: CIP:165.85.157.49;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:atlrelay2.compute.ge-healthcare.net;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: gehealthcare.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Dec 2025 09:56:15.1423
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8713e6b5-f257-445f-4f12-08de30bfddf2
+X-MS-Exchange-CrossTenant-Id: 9a309606-d6ec-4188-a28a-298812b4bbbf
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=9a309606-d6ec-4188-a28a-298812b4bbbf;Ip=[165.85.157.49];Helo=[atlrelay2.compute.ge-healthcare.net]
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: TreatMessagesAsInternal-SJ5PEPF000001EE.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR22MB5072
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_015438_097681_F5C139C7 
-X-CRM114-Status: GOOD (  24.97  )
+X-CRM114-CacheID: sfid-20251201_015621_986080_798AE769 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,91 +153,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 01, 2025 at 10:50:47AM +0800, Baoquan He wrote:
-> On 11/28/25 at 02:01pm, Mark Rutland wrote:
-> > On Fri, Nov 28, 2025 at 05:55:05AM -0800, Breno Leitao wrote:
-> > > 
-> > > On Fri, Nov 28, 2025 at 08:17:21AM +0800, Baoquan He wrote:
-> > > > On 11/27/25 at 11:37am, Andrew Morton wrote:
-> > > > > On Thu, 27 Nov 2025 18:26:44 +0000 Yeoreum Yun <yeoreum.yun@arm.com> wrote:
-> > > > > 
-> > > > > > Commit bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
-> > > > > > introduced the kexec_buf->random field to enable random placement of
-> > > > > > kexec_buf.
-> > > > > > 
-> > > > > > However, this field was never properly initialized for kexec images
-> > > > > > that do not need to be placed randomly, leading to the following UBSAN
-> > > > > > warning:
-> > > > > > 
-> > > > > > [  +0.364528] ------------[ cut here ]------------
-> > > > > > [  +0.000019] UBSAN: invalid-load in ./include/linux/kexec.h:210:12
-> > > > > > [  +0.000131] load of value 2 is not a valid value for type 'bool' (aka '_Bool')
-> > > > > > [  +0.000003] CPU: 4 UID: 0 PID: 927 Comm: kexec Not tainted 6.18.0-rc7+ #3 PREEMPT(full)
-> > > > > > [  +0.000002] Hardware name: QEMU QEMU Virtual Machine, BIOS 0.0.0 02/06/2015
-> > > > > > [  +0.000000] Call trace:
-> > > > > > [  +0.000001]  show_stack+0x24/0x40 (C)
-> > > > > > [  +0.000006]  __dump_stack+0x28/0x48
-> > > > > > [  +0.000002]  dump_stack_lvl+0x7c/0xb0
-> > > > > > [  +0.000002]  dump_stack+0x18/0x34
-> > > > > > [  +0.000001]  ubsan_epilogue+0x10/0x50
-> > > > > > [  +0.000002]  __ubsan_handle_load_invalid_value+0xc8/0xd0
-> > > > > > [  +0.000003]  locate_mem_hole_callback+0x28c/0x2a0
-> > > > > > [  +0.000003]  kexec_locate_mem_hole+0xf4/0x2f0
-> > > > > > [  +0.000001]  kexec_add_buffer+0xa8/0x178
-> > > > > > [  +0.000002]  image_load+0xf0/0x258
-> > > > > > [  +0.000001]  __arm64_sys_kexec_file_load+0x510/0x718
-> > > > > > [  +0.000002]  invoke_syscall+0x68/0xe8
-> > > > > > [  +0.000001]  el0_svc_common+0xb0/0xf8
-> > > > > > [  +0.000002]  do_el0_svc+0x28/0x48
-> > > > > > [  +0.000001]  el0_svc+0x40/0xe8
-> > > > > > [  +0.000002]  el0t_64_sync_handler+0x84/0x140
-> > > > > > [  +0.000002]  el0t_64_sync+0x1bc/0x1c0
-> > > > > > 
-> > > > > > To address this, initialise kexec_buf->random field properly.
-> > > > > > 
-> > > > > > Fixes: bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
-> > > > > 
-> > > > > Thanks, I'll add a cc:stable to this.
-> > > > 
-> > > > This has been fixed in below series from Breno Leitao.
-> > > > 
-> > > > [PATCH 0/3] kexec: Fix invalid field access
-> > > > https://lore.kernel.org/all/20250827-kbuf_all-v1-0-1df9882bb01a@debian.org/T/#u
-> > > 
-> > > Right, these fixes are on 6.18 since day one.
-> > > 
-> > > Yeoreum is hitting another code path that I haven't fixed, it seems
-> > > (through image_load()).
-> > > 
-> > > That said, I think the fix should be similar to commit 04d3cd43700 ("arm64:
-> > > kexec: initialize kexec_buf struct in load_other_segments()"). I.e:
-> > > 
-> > > 	--- a/arch/arm64/kernel/kexec_image.c
-> > > 	+++ b/arch/arm64/kernel/kexec_image.c
-> > > 	@@ -41,7 +41,7 @@ static void *image_load(struct kimage *image,
-> > > 		struct arm64_image_header *h;
-> > > 		u64 flags, value;
-> > > 		bool be_image, be_kernel;
-> > > 	-       struct kexec_buf kbuf;
-> > > 	+       struct kexec_buf kbuf = {};
-> > > 		unsigned long text_offset, kernel_segment_number;
-> > > 		struct kexec_segment *kernel_segment;
-> > > 		int ret;
-> > 
-> > FWIW, I completey agree; your proposal is a much better solution.
-> 
-> Yes, maybe Yeoreum or Breno can post a new version to fix it on arm64.
+RTC interrupt level should be set to "LOW". This was revealed by the
+introduction of commit:
 
-Yep; I hope that Yeoreum will spin a v2 to that effect.
+  f181987ef477 ("rtc: m41t80: use IRQ flags obtained from fwnode")
 
-> > From a quick scan, it looks like loongarch also has some more dodgy
-> > instances:
-> 
-> In the latest mainline kernel, the problem on loongarch has gone.
+which changed the way IRQ type is obtained.
 
-Ah, yep, all the loongarch instances were fixed in v6.18-rc6 by commit:
+Fixes: 56c27310c1b4 ("ARM: dts: imx: Add Advantech BA-16 Qseven module")
+Signed-off-by: Ian Ray <ian.ray@gehealthcare.com>
+---
+ arch/arm/boot/dts/nxp/imx/imx6q-ba16.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-  df16b8956cae9700 ("LoongArch: kexec: Initialize the kexec_buf structure")
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-ba16.dtsi b/arch/arm/boot/dts/nxp/imx/imx6q-ba16.dtsi
+index 53013b12c2ec..02d66523668d 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6q-ba16.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6q-ba16.dtsi
+@@ -337,7 +337,7 @@ rtc@32 {
+ 		pinctrl-0 = <&pinctrl_rtc>;
+ 		reg = <0x32>;
+ 		interrupt-parent = <&gpio4>;
+-		interrupts = <10 IRQ_TYPE_LEVEL_HIGH>;
++		interrupts = <10 IRQ_TYPE_LEVEL_LOW>;
+ 	};
+ };
+ 
+-- 
+2.47.3
 
-Mark.
 
