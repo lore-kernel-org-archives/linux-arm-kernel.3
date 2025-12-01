@@ -4,28 +4,28 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0788D116F9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 06:29:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 932ECD116E2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 06:29:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c99lV5XbwMeYCb6C/UXSekWsYjPQbNGy9E5UjxIMP/0=; b=3j54PtKg9qd5hDcEhGQ0JRFOsz
-	ec+zCciGcrZDfnjMJwT90uxHT5wulG/opKlruEabsAYnkmey0x7It309Z7TT3H9sId8CPMV3MbS/k
-	Q0p+IrTOyiBSzOD3dmPnI6CuWt33CPkv0i8BE7Oe2/g9AIshf+oUt5vYrThMqpUd3pgBygtfIKRzN
-	5t/Ac9TPcvVdV2uMbJ61sy2zhFJPEmRELd70AeEstzABNwR1dpLwGnofUQEXM5k+xLG7Bc+ocxLo7
-	HQ0zt1thj3pZnx+N1a+Kn8xxxgBLedBky65FVPh1f82lqD8q/MOoFGtQyooPE1rU7xhIqt/D6fPhv
-	NYulufUw==;
+	bh=/KlMTdh5NpZkgxzKaAcKGoQgRC7nIqBq6Vy1yr/AGVg=; b=LfZgFyOItSRpPBugYU+bMm6aTl
+	wjBzcIj8hpTDxPyGFDH9IQ67ibz2/Z5LjgBipe74p5H2REtec7eZdAKT1bFVMM0YzrcVVQCozcFT+
+	piOSZfA7C3E6gyDrxVY3vfx9Ahb5lqsPzug4NXV9BlXmsFX58+IFNZJ8WL8CW3M3uAygE22/LoHG6
+	Wimg6jqZcnH4liYUU2htif34FqpsEQ/XXNdWyPmqBCa7oGRzAJX8Ta2T0vmuwhEQpUuXmL22XK8PA
+	8bwNicxG9H4GrIcX6SL1+uYktnZEJ7qeBCzbed2TPcxqFnij5U/eZ26EKcDv+Cmg4xreDMYzmTGp9
+	puEeoeTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPxPs-00000002yfU-3l6k;
-	Mon, 01 Dec 2025 06:29:44 +0000
+	id 1vPxPu-00000002yhf-19Tx;
+	Mon, 01 Dec 2025 06:29:46 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPxPk-00000002yY1-0jWM;
-	Mon, 01 Dec 2025 06:29:37 +0000
+	id 1vPxPn-00000002yY1-3LNk;
+	Mon, 01 Dec 2025 06:29:40 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 1 Dec
@@ -34,12 +34,13 @@ Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
  Transport; Mon, 1 Dec 2025 14:29:16 +0800
 From: Jacky Chou <jacky_chou@aspeedtech.com>
-Date: Mon, 1 Dec 2025 14:29:13 +0800
-Subject: [PATCH v6 3/7] ARM: dts: aspeed-g6: Add PCIe RC and PCIe PHY node
+Date: Mon, 1 Dec 2025 14:29:15 +0800
+Subject: [PATCH v6 5/7] PCI: Add FMT, TYPE and CPL status definition for
+ TLP header
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20251201-upstream_pcie_rc-v6-3-8c8800c56b16@aspeedtech.com>
+Message-ID: <20251201-upstream_pcie_rc-v6-5-8c8800c56b16@aspeedtech.com>
 References: <20251201-upstream_pcie_rc-v6-0-8c8800c56b16@aspeedtech.com>
 In-Reply-To: <20251201-upstream_pcie_rc-v6-0-8c8800c56b16@aspeedtech.com>
 To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
@@ -56,16 +57,16 @@ CC: <linux-aspeed@lists.ozlabs.org>, <linux-pci@vger.kernel.org>,
 	Andrew Jeffery <andrew@aj.id.au>, <openbmc@lists.ozlabs.org>,
 	<linux-gpio@vger.kernel.org>, Jacky Chou <jacky_chou@aspeedtech.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764570556; l=2673;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764570556; l=1690;
  i=jacky_chou@aspeedtech.com; s=20251031; h=from:subject:message-id;
- bh=5iCz5vaaMTKJcJypZ4ZjGdGSe5ESf+2Fv7rlS6vHva0=;
- b=pmMVc9Pjl7aKt8mjp08QRyYwuf9eZSyZ/Pg0TW/D4OuKJ124QMIqv9jQa/t++Z1Xm5MLtqUnl
- MSJbH2fUP0aBXSWR1iGemO5bwJPGkxzXHLftlY5xm1pyBjAso0fgDyP
+ bh=/twL2B0Pnt+j9loTcmUqQd/0tnO4Dsh0qXF90ASTQ3c=;
+ b=S1f2Bl/VlL3nz8Tm8pL4k6a9p3j+uTpa098bKvGFkGlGoxMbOSLz4oMLK30DeIBuZfF4mMBdq
+ rhgNzaXtU8NA7mYmETdc9ncKJ9ic/0JWthuUrQ4WIgayFXCAaINcGME
 X-Developer-Key: i=jacky_chou@aspeedtech.com; a=ed25519;
  pk=8XBx7KFM1drEsfCXTH9QC2lbMlGU4XwJTA6Jt9Mabdo=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251130_222936_226093_4BEB856D 
-X-CRM114-Status: UNSURE (   8.15  )
+X-CRM114-CacheID: sfid-20251130_222939_841070_42E567C9 
+X-CRM114-Status: UNSURE (   6.50  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,93 +82,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The AST2600 has one PCIe RC and add the PCIe PHY for RC.
-And add pinctrl support for PCIe RC PERST#.
+According to PCIe specification, add FMT, TYPE and CPL status
+definition for TLP header.
 
+Acked-by: Bjorn Helgaas <bhelgaas@google.com>
 Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
 ---
- arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi |  5 +++
- arch/arm/boot/dts/aspeed/aspeed-g6.dtsi         | 51 +++++++++++++++++++++++++
- 2 files changed, 56 insertions(+)
+ drivers/pci/pci.h | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi
-index e87c4b58994a..d46f2047135c 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi
-+++ b/arch/arm/boot/dts/aspeed/aspeed-g6-pinctrl.dtsi
-@@ -2,6 +2,11 @@
- // Copyright 2019 IBM Corp.
+diff --git a/drivers/pci/pci.h b/drivers/pci/pci.h
+index 36f8c0985430..b186f3ea6a78 100644
+--- a/drivers/pci/pci.h
++++ b/drivers/pci/pci.h
+@@ -63,6 +63,18 @@ struct pcie_tlp_log;
+ #define PCIE_LINK_WAIT_MAX_RETRIES	10
+ #define PCIE_LINK_WAIT_SLEEP_MS		90
  
- &pinctrl {
-+	pinctrl_pcierc1_default: pcierc1-default {
-+		function = "PCIERC1";
-+		groups = "PCIERC1";
-+	};
++/* Format of TLP; PCIe r7.0, sec 2.2.1 */
++#define PCIE_TLP_FMT_3DW_NO_DATA	0x00 /* 3DW header, no data */
++#define PCIE_TLP_FMT_4DW_NO_DATA	0x01 /* 4DW header, no data */
++#define PCIE_TLP_FMT_3DW_DATA		0x02 /* 3DW header, with data */
++#define PCIE_TLP_FMT_4DW_DATA		0x03 /* 4DW header, with data */
 +
- 	pinctrl_adc0_default: adc0_default {
- 		function = "ADC0";
- 		groups = "ADC0";
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-index f8662c8ac089..a525c63dac3c 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-+++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
-@@ -379,6 +379,57 @@ rng: hwrng@1e6e2524 {
- 				quality = <100>;
- 			};
++/* Type of TLP; PCIe r7.0, sec 2.2.1 */
++#define PCIE_TLP_TYPE_CFG0_RD		0x04 /* Config Type 0 Read Request */
++#define PCIE_TLP_TYPE_CFG0_WR		0x04 /* Config Type 0 Write Request */
++#define PCIE_TLP_TYPE_CFG1_RD		0x05 /* Config Type 1 Read Request */
++#define PCIE_TLP_TYPE_CFG1_WR		0x05 /* Config Type 1 Write Request */
++
+ /* Message Routing (r[2:0]); PCIe r6.0, sec 2.2.8 */
+ #define PCIE_MSG_TYPE_R_RC	0
+ #define PCIE_MSG_TYPE_R_ADDR	1
+@@ -84,6 +96,9 @@ struct pcie_tlp_log;
+ #define PCIE_MSG_CODE_DEASSERT_INTC	0x26
+ #define PCIE_MSG_CODE_DEASSERT_INTD	0x27
  
-+			pcie_phy1: phy@1e6ed200 {
-+				compatible = "aspeed,ast2600-pcie-phy";
-+				reg = <0x1e6ed200 0x100>;
-+				#phy-cells = <0>;
-+			};
++/* Cpl. status of Complete; PCIe r7.0, sec 2.2.9.1 */
++#define PCIE_CPL_STS_SUCCESS		0x00 /* Successful Completion */
 +
-+			pcie0: pcie@1e770000 {
-+				compatible = "aspeed,ast2600-pcie";
-+				device_type = "pci";
-+				reg = <0x1e770000 0x100>;
-+				#address-cells = <3>;
-+				#size-cells = <2>;
-+				interrupts = <GIC_SPI 168 IRQ_TYPE_LEVEL_HIGH>;
-+				bus-range = <0x00 0xff>;
-+
-+				ranges = <0x01000000 0x0 0x00018000 0x00018000 0x0 0x00008000
-+					  0x02000000 0x0 0x60000000 0x60000000 0x0 0x20000000>;
-+
-+				status = "disabled";
-+
-+				resets = <&syscon ASPEED_RESET_H2X>;
-+				reset-names = "h2x";
-+
-+				#interrupt-cells = <1>;
-+				msi-controller;
-+
-+				aspeed,ahbc = <&ahbc>;
-+
-+				interrupt-controller;
-+				interrupt-map-mask = <0 0 0 7>;
-+				interrupt-map = <0 0 0 1 &pcie0 0>,
-+						<0 0 0 2 &pcie0 1>,
-+						<0 0 0 3 &pcie0 2>,
-+						<0 0 0 4 &pcie0 3>;
-+
-+				pcie@8,0 {
-+					compatible = "pciclass,0604";
-+					reg = <0x00004000 0 0 0 0>;
-+					#address-cells = <3>;
-+					#size-cells = <2>;
-+					device_type = "pci";
-+					resets = <&syscon ASPEED_RESET_PCIE_RC_O>;
-+					reset-names = "perst";
-+					clocks = <&syscon ASPEED_CLK_GATE_BCLK>;
-+					pinctrl-names = "default";
-+					pinctrl-0 = <&pinctrl_pcierc1_default>;
-+					phys = <&pcie_phy1>;
-+					ranges;
-+				};
-+			};
-+
- 			gfx: display@1e6e6000 {
- 				compatible = "aspeed,ast2600-gfx", "syscon";
- 				reg = <0x1e6e6000 0x1000>;
+ #define PCI_BUS_BRIDGE_IO_WINDOW	0
+ #define PCI_BUS_BRIDGE_MEM_WINDOW	1
+ #define PCI_BUS_BRIDGE_PREF_MEM_WINDOW	2
 
 -- 
 2.34.1
