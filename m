@@ -4,56 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4CECD116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:10:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFC6BD116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:12:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PvOsEk0ZYwVKEJ3i6OiSEdPGLcS/WzhvuzJcFTPVjRY=; b=eUm+sB4bqwyyec5eBMfDJiC8X6
-	Q6bNy7i5d0dquZmkY4UokjpEM1PWevYNRMhf0j/VFd0EqpAutvkXexjEJjnCD0cycOyiK76wWoJQK
-	Kt4rZOEP6c2DtvD6ChpD7RvjOoiy+zE8AltqCA18wUQZdidaPwSMO6YTta1cFvtnG6boCaCsUfdKz
-	1ToGNiJqnqXml+eXP/bdjR0Ln4/h56SjbB8k7mUh0P6yrgV5lu3J5OQwyhOttwM/tQ3XdsK158Czd
-	+V6qvF1DmnvywCkysS5GxF/oLsotddrfR/ZwlEnLPuNIntZClZ3722rMhagh978DgQLbEjNzPW7QB
-	1QnQpRmQ==;
+	bh=BIc1ORsdqXrHQZmcm3T4RqPQTVnz73ZuzxcB4K7bmF4=; b=Qj75FyQ+bp90FJLlrjp2lqD80L
+	ydAY2fQPTrqna02VvWVy4pCP/G5To+QpGZK+h+awMUnuzMqlLPNx9mP1DEsbL4UVpMxQqOoqWlqyc
+	zDz05rQsC22VfBauNElgj1FOAoJDKFFc60hY2qGlOX5O6bJbt2vXOzQZbWmybTrPRQiPwuubrKkOU
+	uXyKeiEml+dIde6+Pzfu5nVD7OIUsY7TGezdinoermX1zgLm40NvCWnOrJpvN8OQDD7+6ARs2Rx3G
+	PrFNFWX3j9o9ZNLhhc2beVXKirzJFBur4ne3fjHDdZ/YfQa01Cte7C3vmURGfqe4HOWL/fKAR1KfC
+	C9OiM+UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ0ru-00000003Hyc-2JCn;
-	Mon, 01 Dec 2025 10:10:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vQ0tH-00000003IHA-2Y3E;
+	Mon, 01 Dec 2025 10:12:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ0rs-00000003HyN-2ruu;
-	Mon, 01 Dec 2025 10:10:52 +0000
+	id 1vQ0tF-00000003IGl-2Ptk;
+	Mon, 01 Dec 2025 10:12:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BD53F6014C;
-	Mon,  1 Dec 2025 10:10:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7688FC4CEF1;
-	Mon,  1 Dec 2025 10:10:49 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C16D96014C;
+	Mon,  1 Dec 2025 10:12:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59AADC4CEF1;
+	Mon,  1 Dec 2025 10:12:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764583851;
-	bh=fBaiBSjUvZkarr92aTi6ynHZyhYGvprKNQXa986VvkI=;
+	s=k20201202; t=1764583936;
+	bh=VWwSyZL/rmxZX2up7gqGT7NwoNunVBjLI2L900RZA/A=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=gpw6xBTV7dQsFenVymlRvJfdYZJhFP0XhAR5fDj1ByQEbtMaZlEEk85zQw3kpuC0Y
-	 9KTOB1FHYpvJu3cd/CniucG2a8uh8/RdAo+DB5gBtzJL5d5PxP+cf2549Ur5FGsjA5
-	 bRISkWG9mZ45TeAUJq/1P1LlMUZBKSVmngH8sSslX3EQhe++nXBjL76qFT7mF8bAXW
-	 nMPuj92SltTex7pkxPq0zQbSPmEDtOfKOKk8nmqsCE1EGiYufjxx93cqXWPfqe2DZu
-	 PEraGUF6Bcnm1p0/oEW1iBQsDTzcQtlvfBTisT0u7j95UBELwvbsiHXcuGAcyrwFn5
-	 hdnke0tcktZkg==
-Message-ID: <98e46b8e-e70f-4edb-ab59-f83e19bf01ec@kernel.org>
-Date: Mon, 1 Dec 2025 11:10:47 +0100
+	b=azux+cwIwlaOaNoECx0iNcm7VRUokBqjw1FeRPp7wuCwHoMaSkdb7l0loRKGqqNta
+	 trkSE2NP5BaWGJBaDywo+HoYMFHQjIHavwB+Dd/XddbUHmJatzXivrlAF32zEf219W
+	 Nk6kQJpOt9v/JyoizCPM3pM4KSlD9P3FFPGLUVeLotvCtLqLFbh7TEY9vu/Y8nzoVl
+	 Im+foPPAAhh3TcceGgZdVKUVHBByVcLYg2N3HQPTP9PSCP1n893Lrw9k2wtOUh4QuF
+	 Tfmq18C5OKXHUWPaRPF3sOz+q5r09hH+W+jDNA5Ewp63bvnOcRMkAehOFUZyzRAz75
+	 kYiza0O0supOA==
+Message-ID: <f27dc5ef-1c60-4724-8e18-33bbc4230d3e@kernel.org>
+Date: Mon, 1 Dec 2025 11:12:12 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/5] dt-bindings: vendor-prefixes: Add Ezurio LLC
-To: Gary Bisson <bisson.gary@gmail.com>, "Rob Herring (Arm)" <robh@kernel.org>
-Cc: krzk+dt@kernel.org, linux-mediatek@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- devicetree@vger.kernel.org
-References: <20251201084140.376058-1-bisson.gary@gmail.com>
- <20251201084140.376058-2-bisson.gary@gmail.com>
- <176458161856.2489196.6170126310129033736.robh@kernel.org>
- <aS1oQonkuFpyqSI2@owl5>
+Subject: Re: [PATCH 1/4] dt-bindings: arm: rockchip: Add HINLINK H28K
+To: Chukun Pan <amadeus@jmu.edu.cn>, Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+References: <20251201100008.206524-1-amadeus@jmu.edu.cn>
+ <20251201100008.206524-2-amadeus@jmu.edu.cn>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -99,7 +98,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <aS1oQonkuFpyqSI2@owl5>
+In-Reply-To: <20251201100008.206524-2-amadeus@jmu.edu.cn>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -116,19 +115,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/12/2025 11:04, Gary Bisson wrote:
->>
->> pip3 install dtschema --upgrade
->>
->> Please check and re-submit after running the above command yourself. Note
->> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
->> your schema. However, it must be unset to test all examples with your schema.
+On 01/12/2025 11:00, Chukun Pan wrote:
+> The HINLINK H28K is a dual-gigabit SBC based on the RK3528 SoC.
+> Add devicetree binding documentation for it.
 > 
-> Couldn't reproduce, I can't seem to see any error/warning that would be
-> introduced by this patch, can the above be discarded then?
+> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+> ---
+>  Documentation/devicetree/bindings/arm/rockchip.yaml | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+> index d496421dbd87..8d6e2b28e51a 100644
+> --- a/Documentation/devicetree/bindings/arm/rockchip.yaml
+> +++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+> @@ -718,6 +718,11 @@ properties:
+>            - const: hardkernel,odroid-m2
+>            - const: rockchip,rk3588s
+>  
+> +      - description: HINLINK H28K
+> +        items:
+> +          - const: hinlink,h28k
+> +          - const: rockchip,rk3528
+> +
 
-
-Bot has a hiccup, you can ignore reports.
+Just squash these two binding patches. Way too much churn. Anyway, looks
+like duplicate - two devices with same model name. You have entire
+commit msg to explain that.
 
 Best regards,
 Krzysztof
