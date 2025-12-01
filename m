@@ -4,155 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C45B6D116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 16:42:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83BA4D116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 16:42:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BE1VqdNp1jjs17o0eVkkTGkTqd17L0SUA4CtkmNfNhQ=; b=GtC3u+QRPZXvd2omc7F6zr1yJt
-	c1o58AscyqHsNulSJMJPioyM7H67iP5RoI2A4x3Fd5eDOmfJBXXamBuwXjvxuW3SJCeAgJqNk58TY
-	HCcovNOI878O+WZCTf8/O/CpPRn8Fcz1AWmUSZ/yBlxOri33HSYfpvjuzZcl3lhkssBJigldEINxF
-	YPP46AGNu/iGzo6uACXR8qsEJfXjmb/N2q3OHwhUPsvGoWnITKwxN7j+BNzjtMCvHIys0h5o7wyfV
-	TrSlEPlnwBpCP7zXAcguWv/tzCG0tM5YTxF1pYkhgU6EMzRKeazsXn591m/wQhzPNPWGzreVQGlmD
-	Z3HM/WpA==;
+	bh=pbyEygpZAA/FA0ADnA0YDHklT+veFhE1ZUCavgKUP9g=; b=V9mMUNpGgiFG+ZEBwAKKxZeA+h
+	mdIsrnz0T67Gcr2xosL3xZXrtKgpx71uyvsHOG5H9bPDyex5zaIavfCNDov3cOYnuN7uKByXbH8I3
+	LuL+uzC1eM5/bvCD7DDdGir6diiGqvr9ChFCigLT5aKaQ8bOiGBScuSVvMdRlHjspVA54odMeCk+p
+	NGtU/KcW5TzYZNPeqqTQYAz1wM1VQMHPjq2AH3pNMyALUfX7sRZTRwckE4XxoRNKaevJUWxYLFllB
+	tj0gK2uK6eK8s7qWBLIs1EBbI+DSacpiRHXF6es5zGoslgN12gg+X9Kd3ydQiZc8YzZx0zhSSoYrz
+	1/GD4O0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ6yl-00000004ITh-1qiU;
-	Mon, 01 Dec 2025 16:42:23 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ6yi-00000004IPv-3GuZ
+	id 1vQ6zG-00000004Ikm-3UtD;
+	Mon, 01 Dec 2025 16:42:54 +0000
+Received: from angie.orcam.me.uk ([78.133.224.34])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQ6zD-00000004Igz-44Bm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 16:42:21 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=c8jcnKAfqRtdYZTfSSMnWOIRrKFHjolpysU/KANdgRqLDIcgCZX/wesdCqWcLr1khPiJ5rfEjZOCSSYJKPzmjPmb5+NRJLjqb7TcuG30RlSZD3rjXfYBMYDd3J0hDL7ZhFxLZziObEma29m0A7fTfF2yOYIZf82i/+N7SsJCHhwJXbuxMoRc70o4Cq73qBl//y5T1FAJ15D+iNEC7aTGaS2lLaMv/p22Ci1E+X9kRqGQvlLnPtd6EmP7MIhYOgdHJS1O/F/6KF7iqpcz8r69sbQ+wgLXBbueVvMszKONJjxPAweF9RAqCBa23R/wU8XW93ef/T2eOklYTlj8JBp99A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BE1VqdNp1jjs17o0eVkkTGkTqd17L0SUA4CtkmNfNhQ=;
- b=D+R+UrcevYRDyoD4QONhtF4PGpyZBfaCaYM/cy8nX1CBl62Nhpai0fYIY+5IUhtH82F6BsVjXjoldt5Krk39rRuBEKGld6KYCRUlzI9wWov3jOQJp4hP2qB/Vzo9uhnfgKrEO0inJ0f/V2pIOcwSIIqh2EGVPrkHBDSjzkVwLtw8aSzyYVsw4xEonrAw75SdiHszCliGfNrM5DcMKacQRSmJI8FBo3WARdl3dKwQmY/GTvY0D5FriF9+ZLgDF/D4eNy2qPMC+2GYKN2p2s6zQneje4/xVrDaB/t1JGBIKLcvJfeaoyXLk0SJRQvHUf76kCEkXPkTGNkRvgw6YPbz1w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BE1VqdNp1jjs17o0eVkkTGkTqd17L0SUA4CtkmNfNhQ=;
- b=FYQxDX/BVqk3TumKI77HIbrwPZKkBt8vL+LHn3hfhIEdr0kOMJUOwMGTTc0OnsaiypVyeqGWCAtrXOvOyq/vt3LxTZyhoYJxxjvsjU6aiA2lmXnOZpYHoZWsIaJwCra9P4ftnuK5QamofgeLnDSMwXw+zwuUxwodItdF47hsbX34/R35fS6FwS4K+UNgmxyFI5K+mI9oNlBrmCpllGftzh0nhy0V/e5rcSR6lkrkjKGK8czX2UAeT2+XdhK2x7JUbv1yRZa1bMjYpeqQl86X6NPJ605irK+opJuU3M9NCRAv1cz9kFUcJAKSm3u4A1fWVUd8a8qm/nzUMpcpLnUlcg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by VI1PR04MB10076.eurprd04.prod.outlook.com (2603:10a6:800:1e0::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Mon, 1 Dec
- 2025 16:42:13 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9366.012; Mon, 1 Dec 2025
- 16:42:12 +0000
-Date: Mon, 1 Dec 2025 11:42:00 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linaro-s32@linaro.org
-Subject: Re: [PATCH 4/4] dts: s32g: Add GPR syscon region
-Message-ID: <aS3FWLWQ1g4YQjFi@lizhi-Precision-Tower-5810>
-References: <cover.1764592300.git.dan.carpenter@linaro.org>
- <c8302f53fcbb5cb5afe42cdb15aba7e2e6ed7338.1764592300.git.dan.carpenter@linaro.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c8302f53fcbb5cb5afe42cdb15aba7e2e6ed7338.1764592300.git.dan.carpenter@linaro.org>
-X-ClientProxiedBy: SJ0PR13CA0037.namprd13.prod.outlook.com
- (2603:10b6:a03:2c2::12) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+	Mon, 01 Dec 2025 16:42:53 +0000
+Received: by angie.orcam.me.uk (Postfix, from userid 500)
+	id 2D8EC92009C; Mon,  1 Dec 2025 17:42:42 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by angie.orcam.me.uk (Postfix) with ESMTP id 266B992009B;
+	Mon,  1 Dec 2025 16:42:42 +0000 (GMT)
+Date: Mon, 1 Dec 2025 16:42:42 +0000 (GMT)
+From: "Maciej W. Rozycki" <macro@orcam.me.uk>
+To: Manivannan Sadhasivam <mani@kernel.org>
+cc: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
+    Jingoo Han <jingoohan1@gmail.com>, 
+    Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+    =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+    Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+    Krzysztof Kozlowski <krzk@kernel.org>, 
+    Alim Akhtar <alim.akhtar@samsung.com>, 
+    Jonathan Chocron <jonnyc@amazon.com>, linux-pci@vger.kernel.org, 
+    linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+    linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH v9 4/4] PCI: dwc: Support ECAM mechanism by enabling iATU
+ 'CFG Shift Feature'
+In-Reply-To: <syg7vpbt3w53s24hgl7b6w64odmif5bq557lwlvzlbvgkukwcn@66jtzzc3vtiu>
+Message-ID: <alpine.DEB.2.21.2512011617250.49654@angie.orcam.me.uk>
+References: <20250909-controller-dwc-ecam-v9-0-7d5b651840dd@kernel.org> <20250909-controller-dwc-ecam-v9-4-7d5b651840dd@kernel.org> <alpine.DEB.2.21.2511280256260.36486@angie.orcam.me.uk> <c7aea2b3-6984-40f5-8234-14d265dabefc@oss.qualcomm.com>
+ <alpine.DEB.2.21.2511280755440.36486@angie.orcam.me.uk> <cabf4c20-095b-4579-adc1-146a566b19b9@oss.qualcomm.com> <alpine.DEB.2.21.2511281714030.36486@angie.orcam.me.uk> <a4c6d47f-28b5-40d3-bc82-10aeb14f8e78@oss.qualcomm.com> <alpine.DEB.2.21.2511290428340.36486@angie.orcam.me.uk>
+ <h7pgm3lqolm53sb4wrcpcurk4ghz4tulqnr7vgd7rzxy4hscue@jcn5tepevlwl> <syg7vpbt3w53s24hgl7b6w64odmif5bq557lwlvzlbvgkukwcn@66jtzzc3vtiu>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|VI1PR04MB10076:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8df44ce4-7d71-475d-cf06-08de30f893c1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|52116014|7416014|376014|1800799024|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?owuT0K2+at8xYFvbJ1Y2aLQKc444M9bqinnADeSPhyIlB0qCrYxKfCmiI3Oc?=
- =?us-ascii?Q?qXlLBA0dVBFU6oIzd64eMym7K5Uao7ovh56rxg/x6xd6ShloKJS/w64R+3mQ?=
- =?us-ascii?Q?MO4WCwtgolksMqE6F5yzNojMYcOlJg5useOrwdK6E0OUR02go41KTnW48Hol?=
- =?us-ascii?Q?cWz+xDD/cs83AiU9VhTs5h57ChEAU4oiR8vkzUbKIvEh4mVfuyfBsGSIi9PU?=
- =?us-ascii?Q?LjTw//q9Zj6ribi8l4CIDAahSylDhRfm2c7z674BdaJcEt+j80yqQIiyO/rk?=
- =?us-ascii?Q?NRfNd71PJEK/IJircOrNA3hPMo+twHdCHcqo2WcTKe4TjCBuO4Few5b8MN3a?=
- =?us-ascii?Q?yhYfkQParg17R4qcoSZtu4mjvS26/RScWV2JuVaNOehLx7ce3CVJw7jW2HYB?=
- =?us-ascii?Q?D8fHMJJ3JDRDTxlYkuCMzNGDae9UrniF7P5OpYoS/STiBSipegxZtvrlTamU?=
- =?us-ascii?Q?+qHO1+X0YDSjMfqSdhkFOE1T29Dw0EDHXG585G64DPyw/6cuH1p+mB6PQ2bP?=
- =?us-ascii?Q?M3ry5duTpwSp27nq7hHNC4nx68XBhC4+C9TkqLTUpoXkTTsOQg6GAF3NwR0v?=
- =?us-ascii?Q?gGp1CqX0JRI715SUuwJrgXHCdjVRxq1NSmXusGpFnJT5LUrs+jg608ENASRN?=
- =?us-ascii?Q?v1rVUHNISI6oM22i7oPHcWk2uLqGIgKtv5ksp9BJ85j67YIDFjUinB0Z5l82?=
- =?us-ascii?Q?SM0xsATignfJQx9AqMmL8p+/mRyJoMH51mwK6J4/u+bCmAUqqDUVygZMTm3X?=
- =?us-ascii?Q?6mwQBq/PnPQlKH+MRcybbYjZtgHqybhqehEmh8PdflgwbY64siR1xPyrseJY?=
- =?us-ascii?Q?MODl1HTKtNqiNldDmxuZ0aaSTS+s4g+oG5qvoF24idtpLH6wDZySEU5WI043?=
- =?us-ascii?Q?UWmkQMkiJgClpDCAFDFhPq5Ya4TwaQ0XBzueMbKTF+NB++BTocjXpxIfGuOE?=
- =?us-ascii?Q?zh2gvca2Abhpm+YbeSakKujI7J1ZoRJiT/v6LUciHBIPrCUipOE4dr50Vi4F?=
- =?us-ascii?Q?flQ5mIyq/Fe+pYTW/wzK8oISLqWz82xFhAeUf+AYlZQX3fpiR22XsrOoHIyc?=
- =?us-ascii?Q?4ok/t7KJ9qz5DrE2R0/YLcNz7hecC776fcuXo2a9MsDgWuKzerBEdwo/P5bf?=
- =?us-ascii?Q?C86ZhxrdvEPXpyo/8ddAN11chtGxkWQcF0VDisszLdwk/iBm60sFfPbl5v9e?=
- =?us-ascii?Q?wRoEQRvP1AzeRxf4mN8v0oIKcuvzUYdwYY/3z/Fu4Qgmi/aitJkN6sdTqCpy?=
- =?us-ascii?Q?7EpkQReMVhgaD/vHXNetWQ0jH2jCrBtRnGDmDgHxDVdLcEw6bxtj1OO5uoVP?=
- =?us-ascii?Q?iF9jVRgXGFpEGk6B1WVTvK0+O2y5736gv+RgzaQB13cnDCgggzSDNRAMlCa8?=
- =?us-ascii?Q?S3gtUlxW/nUNQLFY5ODqWrdRPlpQjh4CLUqTHt/dZJlUyyo3BQiuaU3+8Neu?=
- =?us-ascii?Q?3YroMgt+GQpRP22MoYK4n8aZ2ARrjTQMCoutFkN+R+Vhx1PK/nU6GvUwez8M?=
- =?us-ascii?Q?GgFp1LhxdkvD9xUnz1oDoaiQCOtXLBzuRUHr?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(52116014)(7416014)(376014)(1800799024)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?la3RZD3MQnU0qYs21a/i6bxSz7cIlDd4hUgdDJ8PkSs4VMG4/e4ot5hltJZb?=
- =?us-ascii?Q?nhsmtIa2Eh2KpAvMhPlSCghETwZKgrIBkAg8cWoLC8ha1MHvbdOZvG0xCTHx?=
- =?us-ascii?Q?z1KmzciBePY0kATbijJO4fmrGw8GEUf9Tq2fvZO+fKLUpAOckL14W8LbuQew?=
- =?us-ascii?Q?KFM5GPx5ly9ThrxYTRXS3EJryoqOpiM0eHnrh6FCY4P5zvApfaJw+Y32rSUP?=
- =?us-ascii?Q?dQosb7svK3V/GZ264iTxA/3RfjA3UG7G6F6L7Xq4K91oEMxxPBugyJ0Psm7d?=
- =?us-ascii?Q?rQNZYXd3+U5kWyxIhdyrSuunDJ/URAeaazJRW270n1Xoi/SXgz18PA5AtP9j?=
- =?us-ascii?Q?DleZj6zRi6l0B+Yk85PVq8Cyd1b6xnDQAShQ5idfEDUndaOGyWTonaZIQeGg?=
- =?us-ascii?Q?+slMf++/hPob0u0J0e6mTWbTGYyGrKBf+5aTJE+q98tSZkX7dA9yabEnC9Kn?=
- =?us-ascii?Q?F8jp/amSsUDhHRzPyEytS0M5fgKkZ6CN8z6XiQ/+9RA08JvTdyaebuJ37+c+?=
- =?us-ascii?Q?A8jvCL4U7xzcgVZjuM2BM+IgrzUVjQqx8JwMkLfTPbMxVokPgAr2VzIKUMmf?=
- =?us-ascii?Q?ewm2hzAfeFs5ctWjHPqrJB+I8MagYq/UQqzkjgrplcwIFLd8o0egHPfdnNzq?=
- =?us-ascii?Q?xtL8mHxKJomDKKZQe7o7oc8fJMblIlNw5e1D6dIobeoSELQktfMj+3R8ivJ9?=
- =?us-ascii?Q?Uty6t9TT23Tg9peD0v+VAisAF9hgthpb6HvMwd/RPi0Z7hMREIWBcJffbvig?=
- =?us-ascii?Q?LLtby0mBxNu4c3IlXnvVW3c5psZ7mU4Lw1A0uvgU7kTEFS1V+HEjYeoMPnow?=
- =?us-ascii?Q?Oq7kTQ7wV8CwfIquS0FatbbxJwePBWfabtwfnB+FielsKR6SnL53iVfTiqLm?=
- =?us-ascii?Q?PNfQ3zklV5bc8ovxbWIXH/DPTEV4nYfoplHerOqXjyKyIrBhVPotc3uI2im/?=
- =?us-ascii?Q?sSXtxISbqA6DvdHI/vHvhPQU9lPMGVZ1CPF4gRECXz3b/Q/sA9sFtkC7udjk?=
- =?us-ascii?Q?GMLbKtKO/IRItY4Vsu1WRsBBLh2YLyTY8peRgdKMw7yQxGBdK/8Ijk5h19Mb?=
- =?us-ascii?Q?Rx/0xGYv7/APfW0juVtSOzKm5CG3kEQpuRfXS7p9NSamaBYZLzDCUJeNyNCg?=
- =?us-ascii?Q?S0jBL4JE8sflzUHzvwvJnUum80/AXyrLjqdXRybyqFSxMLFhkqbtdO+48sRN?=
- =?us-ascii?Q?PV8Imz1sPi8w80sSRcuALxErwH6wl6S+MWKrZE2tWW9nQCjYkAHjIMhYdxjB?=
- =?us-ascii?Q?UdoByTggCq+MW5QC9RTF7Y3Tp+1hInmwG6EYwPDUNl/JOSKzcr4bwqkzuLxa?=
- =?us-ascii?Q?U6wCZ8igIWZ3sXXLyBDqvKgJEkMLRy64P19xprcI+22yMs/FwJgN6KnOCCrL?=
- =?us-ascii?Q?MzS2Ypm1JDfOqRq+Hnu88EiIi6kC3uvXGcaBKZlB8uI7cjcusR8IPYLgKd+5?=
- =?us-ascii?Q?XSUwjqI9Si21zR3nRQ0OgGMyqk/WWYUZ/HvS9QGMdFy5NBBnmUVIJ5/1Gy2Q?=
- =?us-ascii?Q?Lr6I31bzE12J78aXG0/VgBDd+TGmqmc7HFDYFCxemvlZEJqRCPGpVblCXy7Z?=
- =?us-ascii?Q?nP3t7+pmCvobCNVm26Y=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8df44ce4-7d71-475d-cf06-08de30f893c1
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Dec 2025 16:42:12.5748
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0rdZLdY9R1vaBVdcOb50QicE3m/MLzucIOCOKEo1zYZ1Kvqi6WXkZkLgSlHp3kizLguUw2tDrYMEaBGUm55Lgg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB10076
+Content-Type: text/plain; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_084220_818007_FBA57587 
-X-CRM114-Status: GOOD (  15.95  )
+X-CRM114-CacheID: sfid-20251201_084252_270536_69B0227B 
+X-CRM114-Status: GOOD (  32.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,77 +72,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 01, 2025 at 04:08:33PM +0300, Dan Carpenter wrote:
-> Add the GPR syscon region for the s32 chipset.
->
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-> ---
->  arch/arm64/boot/dts/freescale/s32g2.dtsi | 8 ++++++++
->  arch/arm64/boot/dts/freescale/s32g3.dtsi | 8 ++++++++
->  2 files changed, 16 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-> index 51d00dac12de..3c9472f6c174 100644
-> --- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-> @@ -325,6 +325,13 @@ usdhc0-200mhz-grp4 {
->  			};
->  		};
->
-> +		gpr: syscon@4007c000 {
-> +			compatible = "nxp,s32-gpr", "syscon";
-> +			reg = <0x4007c000 0x3000>;
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +		};
-> +
+On Mon, 1 Dec 2025, Manivannan Sadhasivam wrote:
 
-Please cc whole thread to imx@lists.linux.dev.
+> > > So it's definitely nothing specific to the parport driver, but rather a 
+> > > general issue with PCI/e port I/O not working anymore.  I do hope these 
+> > > observations will let you address the issue now.  You might be able to 
+> > > reproduce it with hardware you have available even.
+> > > 
+> > 
+> > Yes, looks like the I/O port access is not working with the CFG Shift feature.
+> > The spec says that both I/O and MEM TLPs should be handled by this feature, so
+> > we are currently unsure why MEM works, but not I/O.
 
-I think it is not good method by using syscon here.
+ As I say, last time I checked (for another reason) documentation was not 
+available to the general public, so I can't help with that.
 
-Suppose using standard phy interface or mux controller interface.
+> > The issue you reported with parport_pc driver is that the driver gets probed,
+> > but it fails to detect the parallel ports on the device. More precisely, it
+> > fails due to the parport_SPP_supported() check in drivers/parport/parport_pc.c.
+> > This function performs some read/write checks to make sure that the port exists,
+> > but most likely the read value doesn't match the written one. And since there is
+> > no log printed in this function, it just failed silently.
 
-Frank
+ Whatever the exact transaction conditions are port I/O TLPs seem not to 
+make it through to the requested target device anymore.
 
->  		ocotp: nvmem@400a4000 {
->  			compatible = "nxp,s32g2-ocotp";
->  			reg = <0x400a4000 0x400>;
-> @@ -731,6 +738,7 @@ gmac0: ethernet@4033c000 {
->  			compatible = "nxp,s32g2-dwmac";
->  			reg = <0x4033c000 0x2000>, /* gmac IP */
->  			      <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
-> +			phy-sel = <&gpr 0x4>;
->  			interrupt-parent = <&gic>;
->  			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
->  			interrupt-names = "macirq";
-> diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-> index eff7673e7f34..0ceca3caf133 100644
-> --- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-> @@ -383,6 +383,13 @@ usdhc0-200mhz-grp4 {
->  			};
->  		};
->
-> +		gpr: syscon@4007c000 {
-> +			compatible = "nxp,s32-gpr", "syscon";
-> +			reg = <0x4007c000 0x3000>;
-> +			#address-cells = <1>;
-> +			#size-cells = <1>;
-> +		};
-> +
->  		ocotp: nvmem@400a4000 {
->  			compatible = "nxp,s32g3-ocotp", "nxp,s32g2-ocotp";
->  			reg = <0x400a4000 0x400>;
-> @@ -808,6 +815,7 @@ gmac0: ethernet@4033c000 {
->  			compatible = "nxp,s32g2-dwmac";
->  			reg = <0x4033c000 0x2000>, /* gmac IP */
->  			      <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
-> +			phy-sel = <&gpr 0x4>;
->  			interrupt-parent = <&gic>;
->  			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
->  			interrupt-names = "macirq";
-> --
-> 2.51.0
->
+ FWIW the defxx driver issues a command to the device's command register 
+and wants to see a successful completion status in the status register 
+before retrieving the MAC address via the data register.  So it's not a 
+simple case of poking at a register and reading it back, but the end 
+result is the same: the device cannot be talked to.
+
+> > We will check why I/O access fails with ECAM mode and revert back asap. Since
+> > the merge window is now open, it becomes difficult to revert the CFG shift
+> > feature cleanly. The timing of the report also made it difficult to fix the
+> > issue in v6.18. Hopefully, we can backport the fix once we identify the culprit.
+
+ No worries, I've been around for long enough (short of 30 years) to know 
+the process.
+
+ FWIW the original change would've best been reverted for 6.18 as a fatal 
+regression, however port I/O is uncommon enough nowadays we can defer any 
+final decision to 6.19 I suppose.  I'm glad I've tripped over this in the 
+first place as I'm not eager to upgrade all my lab devices all the time, 
+and it was owing to another issue only that I chose this moment to move 
+forward, not so long after the original commit.
+
+> Can you try the attached patch? It is a reworked version of Krishna's patch. I
+> just moved things around to check potential override issue.
+
+ No change in behaviour, sorry.  I suppose it's this range of host address 
+decoding:
+
+fu740-pcie e00000000.pcie:       IO 0x0060080000..0x006008ffff -> 0x0060080000
+
+aka:
+
+pci_bus 0000:00: root bus resource [io  0x0000-0xffff] (bus address [0x60080000-0x6008ffff])
+
+that you're after.  Are you sure your code discovers it correctly?  As I 
+say I can only see IORESOURCE_MEM references and no IORESOURCE_IO ones as 
+would be appropriate for the root bus resource quoted.
+
+  Maciej
 
