@@ -4,99 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDF11CFD376
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 01:39:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58235CFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 01:44:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EsphNECWH6FlY+/fe8I5Dr8EOrnC9119goArJKPN7Mg=; b=c0BSr8XTpntsQvIfOUwOpyKQLD
-	BYZzG8ujon7PwjZgMwP8YH2qhdJ5Hu621jVxCNMHTqnyjyKoEtlzFoaDiYtXFZ2R/pE/a+aR+RJVp
-	ELD60qwp3LKFCqxJDK1aotcNAEelCzkEXJaA3WBZ66THd+qDmpg/9EayIo5lV067MW2bczXsXkjpj
-	5z6xA51UDoaUx2GxzVT1oLFMgVivM9McFU4cYFBxoEsp/PapGoH4ziWeWPX+8YmYvT8g8X/FnE6Y6
-	gs173nTnTb2awMukL63UAnTzIZmmn24v+ZoiMtzC2L/qogDggMbWnjM2PY8wMiwCujQr3WE9Tp3mx
-	l21NiObw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9bPFUj23Nfg43qoR7gkSUsREQyIX4k+xCH/whQe4EKE=; b=nY5PCk+MTmsMAvc/b2X/fQ5oR2
+	8bHwp1D0bdX/7VgHprLBEvMZWLQXUxij85+VPqvZ9kRVKDVspZHuOeeXi1QN5U7vuHOE9RL6Fq+0k
+	AdjeIDEQFrJdBFmztfo93I3rXAoOCUyzkaN/TVkmtXvdyBS8ESfO4ZAGt0jiKN9nZkmcGzWarHgcA
+	u1NChhdTfvXX3EFc3X2nzm5+FbK5+7gCoHKD4SRpok+3DnMgUmzC8rF+z21UuQzi+zIkNl0W/QpJ7
+	w/S4k6gVJZxD6O9/fLHA/K+J0VKZiiGPqjQQxtR3ODW6rsqAiE2uSxJzhENrtz8vvSzRMjC/TOaTW
+	6yiUwNwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPssT-00000002lg6-2HSy;
-	Mon, 01 Dec 2025 01:38:57 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1vPsxd-00000002lvM-16fl;
+	Mon, 01 Dec 2025 01:44:17 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPssP-00000002lfS-2uTK
+	id 1vPsxa-00000002luv-3I9M
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 01:38:57 +0000
-Received: from epcas2p2.samsung.com (unknown [182.195.41.54])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20251201013844epoutp03742a1ef1e97e467aac1c4ff4f0800784~887fJe0tV0229302293epoutp03g
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  1 Dec 2025 01:38:44 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20251201013844epoutp03742a1ef1e97e467aac1c4ff4f0800784~887fJe0tV0229302293epoutp03g
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1764553124;
-	bh=EsphNECWH6FlY+/fe8I5Dr8EOrnC9119goArJKPN7Mg=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=CPZfh8IxcqENs97fdEl013f3S5nszJhFabG63EbOh6ZrvHK4Nb+Evqh4rY+ZmpQuc
-	 QWuEZWCdQl4tF3huMtqgMCPqxAomKYgrvDKBpodQ6OJoCNcWhgbP8J+xGRYo96Hqk9
-	 wTgHf/Yx7/0t+DmBjpuaVbAKdm/lKYN8hPH6gD/k=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
-	20251201013843epcas2p2944a9c960745b2537458a3359803b97a~887ee830e2497924979epcas2p2p;
-	Mon,  1 Dec 2025 01:38:43 +0000 (GMT)
-Received: from epcas2p1.samsung.com (unknown [182.195.38.206]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4dKRPv3wjpz6B9m7; Mon,  1 Dec
-	2025 01:38:43 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas2p3.samsung.com (KnoxPortal) with ESMTPA id
-	20251201013842epcas2p358dd69f1ccf89e6641f18de7aa36c405~887dgwr212919429194epcas2p3d;
-	Mon,  1 Dec 2025 01:38:42 +0000 (GMT)
-Received: from KORCO115296 (unknown [12.80.207.128]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20251201013842epsmtip156a337ee8ce3fd5c1b4ac983debd2da6~887dYx5zk1615416154epsmtip1i;
-	Mon,  1 Dec 2025 01:38:42 +0000 (GMT)
-From: =?UTF-8?B?7IaQ7Iug?= <shin.son@samsung.com>
-To: "'Tudor Ambarus'" <tudor.ambarus@linaro.org>, "'Bartlomiej
- Zolnierkiewicz'" <bzolnier@gmail.com>, "'Krzysztof Kozlowski'"
-	<krzk@kernel.org>, "'Rafael J . Wysocki'" <rafael@kernel.org>, "'Daniel
- Lezcano'" <daniel.lezcano@linaro.org>, "'Zhang Rui'" <rui.zhang@intel.com>,
-	"'Lukasz Luba'" <lukasz.luba@arm.com>, "'Rob	Herring'" <robh@kernel.org>,
-	"'Conor Dooley'" <conor+dt@kernel.org>, "'Alim	Akhtar'"
-	<alim.akhtar@samsung.com>, <youngmin.nam@samsung.com>
-Cc: "'Henrik Grimler'" <henrik@grimler.se>, <linux-pm@vger.kernel.org>,
-	<linux-samsung-soc@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	"'Peter	Griffin'" <peter.griffin@linaro.org>,
-	=?UTF-8?Q?'Andr=C3=A9_Draszik'?= <andre.draszik@linaro.org>, "'William
- McVicker'" <willmcvicker@google.com>, <jyescas@google.com>,
-	<shin.son@samsung.com>
-In-Reply-To: <1704827d-f273-4360-bcd5-c18818a85034@linaro.org>
-Subject: RE: [PATCH v7 RESEND 2/3] thermal: exynos_tmu: Support new hardware
- and update TMU interface
-Date: Mon, 1 Dec 2025 10:38:35 +0900
-Message-ID: <01da01dc6263$39efe660$adcfb320$@samsung.com>
+	Mon, 01 Dec 2025 01:44:15 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WI8+L517tImJPPIRalsbrKw9W7S1TVjVAicASxfxgH9HVJB7Q5q8bUIwRQNTrRfQVU6iiZJCJvBGjYbA3fb7V6an0b18wYicoyjDmI1fDbBaQaSIolS/8ZkqGbD5woVSTJTB+BREwWAQRtmjbvMDYCcSNsQ1/W2HSun/BZdPTXlCPSPLquta1eadDAL3iubsr3q8DaE5jL4HWS88qpgjl0QJwkwxU1x30Hv0/SCES9A8e5Yn29iAVQujVNx1EgONx4L0StGCRGjY9mZHbEjlVL61X3Oz6Y9B5R6MvRqH22q6jaDLUy2MKLr1FrLkPPUkoF+byksqiNP+24/3vqI2Sw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9bPFUj23Nfg43qoR7gkSUsREQyIX4k+xCH/whQe4EKE=;
+ b=D2MCqwB9eXJWfAX8uye/fGh3aO6VdenyUJH4Y9T+0PC2ptG+cH+hRD+NOJIy7D3XNSGYKgejpYKySktxcoydUmSUoAyU/jBkiGbvb8tSwnTpuY8zIJytrykuI46OBaDB2qJSfRgl7I+LsldsYLb04pKPzm/fzXMUiVs7Qy4ByOZdizybs7hPHkQz2gPudNM/R25o3CynwghHcWylONxHRmNqzJFl+ldJb9h93K1wcYmd39l78/tlgOUYdTynn9z3kUFfZCyhXvEGY9miQK7e3Boi6LD9NXMzYv7bLJuyDA+XHW50bcVh9JQYvU/Kwaoe9nHBSTG7R09l/JGl7QNFog==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9bPFUj23Nfg43qoR7gkSUsREQyIX4k+xCH/whQe4EKE=;
+ b=scA1ixjG/A9WaiGPFQEcLpw3OHUC70LxqN57fn6poUc4bMEIYkFqQBvN0i16czsXMXjVS3h2tT++O1IT7jfwKmjPGXeBZIdGT4B1gJV+AXevpDa/dZQmTEMSLrZhZVR4rnUlkG/OoV6+ed76Gi8zZqx7TdvNRSlEh8lUiAume6p1H7IAaWHMNKjDfII5WKlfbOrUWdGTrpZvnQFHz9LMxc5JelgMtSP4/KsSyVkX6PZNRmvBGl1tG2H+Xk9uAxr/0fAWODysti3p+SohgXrplte9MA6cKevjufMyxdk6SG5mq5hD3mb7G9h4jFT440dMSqJpGggk+1cOTNIHSn9ZPg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
+ by PAXPR04MB8317.eurprd04.prod.outlook.com (2603:10a6:102:1ce::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Mon, 1 Dec
+ 2025 01:44:07 +0000
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87%4]) with mapi id 15.20.9366.012; Mon, 1 Dec 2025
+ 01:44:06 +0000
+Message-ID: <5221ac0c-b59d-4f7b-ae4d-acd7dab47780@oss.nxp.com>
+Date: Mon, 1 Dec 2025 09:43:55 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] pmdomain: imx8m-blk-ctrl: Remove separate rst and
+ clk mask for 8mq vpu
+To: Lucas Stach <l.stach@pengutronix.de>, linux-media@vger.kernel.org
+Cc: mchehab@kernel.org, hverkuil-cisco@xs4all.nl, nicolas@ndufresne.ca,
+ benjamin.gaignard@collabora.com, p.zabel@pengutronix.de,
+ sebastian.fricke@collabora.com, shawnguo@kernel.org, ulf.hansson@linaro.org,
+ s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+ linux-imx@nxp.com, Frank.li@nxp.com, peng.fan@nxp.com, eagle.zhou@nxp.com,
+ imx@lists.linux.dev, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20251128025117.535-1-ming.qian@oss.nxp.com>
+ <f68f4836b1ee1d1d1ca0c9754db1080e4e56425a.camel@pengutronix.de>
+From: "Ming Qian(OSS)" <ming.qian@oss.nxp.com>
+In-Reply-To: <f68f4836b1ee1d1d1ca0c9754db1080e4e56425a.camel@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SG2PR02CA0016.apcprd02.prod.outlook.com
+ (2603:1096:3:17::28) To PAXPR04MB8254.eurprd04.prod.outlook.com
+ (2603:10a6:102:1cd::24)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 15.0
-Content-Language: ko
-Thread-Index: AQJR08pAfg/+KuTfxFjIW+Bmb4uKqAKoesbtAuyt0KICEvKvogHXMeJ7AVgXt0UBNbSBZgGsluTSs7NOStA=
-X-CMS-MailID: 20251201013842epcas2p358dd69f1ccf89e6641f18de7aa36c405
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-234,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20251113064044epcas2p1b87addb21473eca7cc52052e4e2e9237
-References: <20251113064022.2701578-1-shin.son@samsung.com>
-	<CGME20251113064044epcas2p1b87addb21473eca7cc52052e4e2e9237@epcas2p1.samsung.com>
-	<20251113064022.2701578-3-shin.son@samsung.com>
-	<5a6a749b-b2b7-41bb-bcb4-a2342e7f4e98@linaro.org>
-	<015501dc5ea5$0c7dd460$25797d20$@samsung.com>
-	<401ed9b9-19a4-4a19-b397-0f353e9f0c97@linaro.org>
-	<019301dc5f4a$e9aadd60$bd009820$@samsung.com>
-	<1704827d-f273-4360-bcd5-c18818a85034@linaro.org>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|PAXPR04MB8317:EE_
+X-MS-Office365-Filtering-Correlation-Id: 39553791-7ae1-4f80-7d2c-08de307b1d26
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|19092799006;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UWVWWjQ0Nm5oNFpNOUV4NkJaMG0wKzN1c3lpVVpNdjZ5c0NHSGgyeS8wVFJW?=
+ =?utf-8?B?QkQ1emhTWlVKaVFZYWorN1lXQWxnaSsxNCsvYkhqVjR6REJGcnJoalNiVUFC?=
+ =?utf-8?B?QTE0Y016anlNSlE0dEtOUHlFNk9jYkpVcWtGSGpPb3N4TFZZWEdLSFFEU3Iv?=
+ =?utf-8?B?MjVGTDk1citOOU1FMXlEaGdjcnU4QXJZbGV3c3BkTmxyUWpvcXI2WFJMT29W?=
+ =?utf-8?B?cm03dHVlbDBhUjlDWTRnYlY4RUs5OFNNTHZqNzcxMHloT0JlWnMyV3VCa3Zt?=
+ =?utf-8?B?eTFURHpRQWZPN1VmRzUyNFduZ0FpR1NVaXdsdFV1NE5Pd0UvWkhaNktoQkxa?=
+ =?utf-8?B?VWxKckdqTFg3TTJ4RmFGODVRQWptRnlzdjQvR1VvUWltZWZFMTJ1SFcxdkVx?=
+ =?utf-8?B?aFNRMm9BUSt4RUY3VU5PV0tUbU1RUDlxTHRRYTlFOXB6SGI3aWRnWG5uY0Ft?=
+ =?utf-8?B?ZEl2VWNqbjNOaE1wVGhvbUxPcmlIdkFLdFNNemhoRm93T1Z0L2U3SU92ZnZw?=
+ =?utf-8?B?eFlwOVR6TGhjaFN4NGFUQy9Ia0lSMS83QncvejBwWWVIajhncDJLT1YyU01t?=
+ =?utf-8?B?bXVzS2lTT0tyN2pMdnlkTnBjUHBmTmw5QktMeHZYT0J4ZUxlNGhlWktqdXhK?=
+ =?utf-8?B?UUd1UEl6TDU5S0RFTi9saFJtMEpQLzNhVXQwWU1NeHBLMWJvUnpxeWoxTmNm?=
+ =?utf-8?B?RDFTMks0SzhEeENjN1J4eXdueGhFeU1WaHZNNnVkYUgwc2VmaWxnRVFyb1hS?=
+ =?utf-8?B?Qm1UUTRMU1VVSnJ3Z25lMExRRjNreXp4cEVSY0pkVVR2OHhzUDNDQnF5RXRr?=
+ =?utf-8?B?QnNsZElEc2k0aTYva3ZSckZ0VWJLK0hWdDZWR2R0dTBNbzVyMVk5b1U2T0tB?=
+ =?utf-8?B?NkFBMzJhS2NmL2c3aXhqOTRTbXdPTVFuTzQwYVRuUXYvOVBKSTZQVEJvbnY1?=
+ =?utf-8?B?N2s4MjMvOVVvc3EyMnlOc1JMRlZaaUhlQ2NCYVV2RXFsNVVwQWFNU055cFgr?=
+ =?utf-8?B?VkZvUTNrQlNzMzZEMGQxQlJhSlVZaWZ1T0lvZjBkMHlXMjRFbTdqeE1mSGVX?=
+ =?utf-8?B?dnc0a2VtMS9tUkNoazA1bHVrRE5xNGUveDRhQ0tiVEZna3VGVG82TG5UWUN6?=
+ =?utf-8?B?MG0zOXgxcnoxenl1SzZnT2M0ZlJHZ1A4QlZVSUl4VzVuU3FLam9keitORWFP?=
+ =?utf-8?B?R2pvNmIvdThubGloWkhuMWRYQVAvdEJra1BHSzBReU5pejNkcEExUVZNS0hG?=
+ =?utf-8?B?M2RhR3phbHA5OGZtcFp6bXMwbWt0V1ZZVzk0RVBVRS9xcysyNktycnBoQ2cy?=
+ =?utf-8?B?dUJrdTJSb2luWmhoRlUxN0d6bjZ2VEFyY0ovUnlRQzNwbitZYnJDcDNjaDFB?=
+ =?utf-8?B?Vk5VZHFSNmlLR0NHN2EzZUJENEFadjBkeTl6R2xzQjFkRm0rbkluYzJPZEFE?=
+ =?utf-8?B?NlR0c0RPT3ROejNpV1FsWVdYRVZXM2dKWThmUWhXUWpMYk5SdFZXVlp1c0dz?=
+ =?utf-8?B?d1JqNG55V2tuRXhBTElpM1R6cmdsSjU0b2NJRElvZGlkUjdpMUxhNkk0QTUx?=
+ =?utf-8?B?SE44RTBXRmdUcUN0TDd4RktQTE1pakNVbXd6bXM2bytaUTNEVytudCtDQ09Y?=
+ =?utf-8?B?SFZqbFphSEVaL1hvOG1ranZxamxvYnpJb3gzU29GRUFyaFZOZEloZk1obEFL?=
+ =?utf-8?B?eURFZG81TUV2UzI3cUpvT3pvRnA0MzJnTDY5UGx1SUpnRGpUVngrdElkeDE0?=
+ =?utf-8?B?NW9zMm1iRUxvOWgvajFvODZpZHFkMnpsSHV0aVFaVWRuYWpJZ3dFYlVBLzhR?=
+ =?utf-8?B?dVpwRWlya3FzY2hXYWtWV2FwR0t4T0NOT2lzd0N1L0ZRdmxLTnVMWk54ZHdY?=
+ =?utf-8?B?VDFvbUFmTVBjZ0hhdU5JMlpZdWd6TkZTbUVjNWpvbzhodHZDRUR0S1JuTkEx?=
+ =?utf-8?Q?+Vde7NWc3eXYHVT2VrLoe8/bcX2Zw8gI?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(19092799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TW9wUmQyRitVcGtzTWh6c2YyUlB4VWZtVFAxdDE3UjJOVDgvWldzb3RGVUls?=
+ =?utf-8?B?T3JRWUp3SXgveDkzcmgvOEVQV0J6U2Z0TmdJQjBrNnlJa0R5dko4Smp5aEZ5?=
+ =?utf-8?B?TzF6Nm9PY0hFOFR0QWNWejVEdVlDRjE2WkdkVUx4cGJTS0RmTFpzZXphcDJj?=
+ =?utf-8?B?dEdsZk1CWTBPeFNxaEEwR0FsQXJxTkVZQUJJTGRkcjNOWks4dzNWZnk4YWFv?=
+ =?utf-8?B?UXBrSW5CUURzbXJqUWJtVlM0d0NjbzFWdVN6Rmo5UEgyYzlxYk4yS0o1d2V5?=
+ =?utf-8?B?WlBRSkVWQnlvWlU2KzVPNTg1cVFGY3p1bHlhcHAyQWt5cm4vYWVMTm51WXd2?=
+ =?utf-8?B?R0I5KzRPb3J2em5VWnYxZGpBdGZmbE9tNE03YnBZR1EzSnBDZTdxUDcrOHBE?=
+ =?utf-8?B?RVhjd0xNeTdtVzFHZGhiU0dSNXRiMjZqN05MNlowNy9ORlFaRzZJSTdlT3RM?=
+ =?utf-8?B?R2h2TTlHNnArRG5KTHh3azI5bzRmSXNMcHRkR3ZVUC9oMnd0Y1pGWmgzZHRq?=
+ =?utf-8?B?K1hEekZGaDhPMjNzZlkzNFZ0MlgxSjNIZ3luN2pZYW5WNVFSY3hvU2JUdVBP?=
+ =?utf-8?B?L2Q3dGVYdDh1dS9kSzBiSHBMd2EzaldJeXZuTGFkelFzWVhzbUR4cW5LTm5W?=
+ =?utf-8?B?OENQVm9EQ2xoVlRGaE02S0Uzc0xQZE9pclc5WE82SkdjcXcyTVFNYkowRmI1?=
+ =?utf-8?B?enIzQlU3SnBKazBWUEhnMTd4OEg4L2trV3EwRVVaN3VEZytZc2M4SE0yOEtF?=
+ =?utf-8?B?YnJNRE1lOE51YW5leGdZY2VZVnptR1dUcXI1VDZGSDlDWG5DekM4WW9RcmQy?=
+ =?utf-8?B?NW5FYTdWWmZsQ21ndnZXMXFXL1JzUDBUWTNuZ2xmREZFVFlRVnI3OU92cktM?=
+ =?utf-8?B?VlJtN2NxbjUxS3M4Kzd5aTN1TXoxRlFuOEtwSVcwNDM4bFl2MmwyYmdUNEtR?=
+ =?utf-8?B?TVZGcEtXK05VR2Vqd3pyQkhDUkNWQk81dExoNUR3MEdMaHFITkc5aDl1eGpo?=
+ =?utf-8?B?NE54VS9JdkZQZUpMME5FbEc1UTdqd2plNTJCZmw5SWQ4eFM0bCtmKzdHK0pr?=
+ =?utf-8?B?NlptSjBBbVoybnRGbkw4RlUwRVZMOFpMOCtSY2kwQ0JhNmp5Q01mZHFScEV5?=
+ =?utf-8?B?S2l0U1F4OXJaaXRPKzF1WDlRbVNBWStiLzNEcDNQYnVJclk3QXphNmpqMXhK?=
+ =?utf-8?B?K0hnZG4vQ2RHRXE0L3RZbTd4SHhpcExhU0l0QlduMEJONU5PTS8vaUQ0MmlX?=
+ =?utf-8?B?cEJEc0o2UmRrU2RoVmhJSTIwbGUyZ1M1MEd1Z2VTVXZpZWJyVXdHbStiNndR?=
+ =?utf-8?B?YXZlNTlleFRVbHJnSnBkYkhVemJHZllrbnRkdDhsVWo0WnBVSDRrcVAxdk9v?=
+ =?utf-8?B?SmNjVHRRNzlSamh0RWsrWjRGWVhVWHl6Si9ORW5xakI3N3ZWb0I5M1JrVmVv?=
+ =?utf-8?B?SFBMSjl3RERVb2lRbWFDbm02L0IxZkJwaHZuWWlMNlJNWGNOQlk0NGtXQzVP?=
+ =?utf-8?B?SUREWjJVWVd3SnRqVnlqVGpYbExQZm9iMlQ5ZXZlYms3RHNHZk8raldXMXR0?=
+ =?utf-8?B?ZlpGMFNWUStQcFJwakorMUtjWDRqT2UxNnVUYjUwdUR6dm8vNTVMY1R0OVhh?=
+ =?utf-8?B?b3VWVjZFRDIyaVc4Q0FGSW5jc0lLYVNqU2ZLVVQzbDlialpWRExKWUcxd2Jq?=
+ =?utf-8?B?QXBaMVNVT2RWUUwzS2xnUkwzd0JtUGdWQ2VPQWQrWVYxdVNNVkJGQURYbEdp?=
+ =?utf-8?B?c3RVcTZCZXBhcnlnblNRQWFJdjNJVnNxV0V6Ni90RWJxR1pUdFRKemVGSEN4?=
+ =?utf-8?B?SmEvaWszL25JZ1BIZWVUTmlPUkJQcU9VY0hvMkhGUTdNZkhsYVRhQTRVaXdR?=
+ =?utf-8?B?NlVnOTlLR3hSOHZ5MkhPMnlRa011VVNkcU1VdjliZDFTWWdmWVlVa0FITHow?=
+ =?utf-8?B?VU5XVVNWN3hId0FmMk1FeG1UL0lrR0xtWm9XbHVBNHlCZHpmVHFsbkFOc05Q?=
+ =?utf-8?B?NmVhdlJKTnk4OENpaHNXc1lmNkw3K2NNckNXbUJybk02TU1QVC9OOW1vQmNs?=
+ =?utf-8?B?SUJYc2N3ZDdlSE0rWUdCS0dTcTduR1ZsUlNKMGNMTmI4M2pzVDYzVUNod2xv?=
+ =?utf-8?Q?R0KqQnD2WSgMmzDg9WEGKLd9j?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 39553791-7ae1-4f80-7d2c-08de307b1d26
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Dec 2025 01:44:06.4717
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fx8uKIJTWDmJ5UNF1ACyQ7vs8eynl+TfMlHYJAa/Ds0BahHsSEeM3Hwb8QHlo4s0vw9J65S+2O8GW7FnfiGa9A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8317
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251130_173854_074444_7E875E36 
-X-CRM114-Status: GOOD (  17.33  )
+X-CRM114-CacheID: sfid-20251130_174414_840607_0AA991B4 
+X-CRM114-Status: GOOD (  14.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,46 +183,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello, Tudor Ambarus.
+Hi Lucas,
 
-> > Yes, Do you have any plans to upstream the GS101 TMU code? From what I
-> > understand,
->=20
-> Yes, I'm currently working on upstreaming the GS101 TMU code. My plan is
-> to do the acpm tmu helpers and then integrate the gs101 TMU support with
-> what will be the new exynos TMU driver.
+On 11/28/2025 6:38 PM, Lucas Stach wrote:
+> Am Freitag, dem 28.11.2025 um 10:51 +0800 schrieb
+> ming.qian@oss.nxp.com:
+>> From: Ming Qian <ming.qian@oss.nxp.com>
+>>
+>> For i.MX8MQ platform, the ADB in the VPUMIX domain has no separate reset
+>> and clock enable bits, but is ungated and reset together with the VPUs.
+>> So we can't reset G1 or G2 separately, it may led to the system hang.
+>> Remove rst_mask and clk_mask of imx8mq_vpu_blk_ctl_domain_data.
+>> Let imx8mq_vpu_power_notifier() do really vpu reset.
+>>
+>> Fixes: 608d7c325e85 ("soc: imx: imx8m-blk-ctrl: add i.MX8MQ VPU blk-ctrl")
+>> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
+>> Reviewed-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+>> ---
+>> v2
+>> - Update commit message
+>>
+>>   drivers/pmdomain/imx/imx8m-blk-ctrl.c | 4 ----
+>>   1 file changed, 4 deletions(-)
+>>
+>> diff --git a/drivers/pmdomain/imx/imx8m-blk-ctrl.c b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+>> index 5c83e5599f1e..1f07ff041295 100644
+>> --- a/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+>> +++ b/drivers/pmdomain/imx/imx8m-blk-ctrl.c
+>> @@ -852,16 +852,12 @@ static const struct imx8m_blk_ctrl_domain_data imx8mq_vpu_blk_ctl_domain_data[]
+>>   		.clk_names = (const char *[]){ "g1", },
+>>   		.num_clks = 1,
+>>   		.gpc_name = "g1",
+>> -		.rst_mask = BIT(1),
+>> -		.clk_mask = BIT(1),
+> 
+> Change itself looks okay to me. Can you please leave a small comment
+> here and for the G2 domain to document why the clk and reset bits are
+> removed, so one doesn't need to dig into the git history when reading
+> the driver code?
+> 
+> Regards,
+> Lucas
 
-Ok, Understood.
+Sure, will do in v3
 
+Regards,
+Ming
 
-> > Autov9 and exynos850 are unlikely to be upstreamed in their current for=
-m.
->=20
-> From what I understand from your email exchanges with Daniel, you're goin=
-g
-> to propose a new driver. Is my understanding correct? Do you have a
-> timeline for it?
-> I'll then follow with the gs101 support.
-
-We don't have a timeline yet. Separating the driver was not our initial pla=
-n,
-So this work will likely be postponed to next year. When we resume it, I wi=
-ll CC you.
-
-
-> exynos850 has the same reg layout as eav920 and gs101 too. If Exynos9-era
-> is a common terminology used inside Samsung then we should be good to go
-> with
-> Exynos9 prefix I think. Especially since we have a predecessor, the
-> renaming tried in pinctrl. But if you're not sure about it, use just
-> EXYNOS_ then.
->=20
-> Cheers,
-> ta
-
-Got it. Thank you for your clarification.
-
-Best regards,
-Shin
+> 
+>>   	},
+>>   	[IMX8MQ_VPUBLK_PD_G2] = {
+>>   		.name = "vpublk-g2",
+>>   		.clk_names = (const char *[]){ "g2", },
+>>   		.num_clks = 1,
+>>   		.gpc_name = "g2",
+>> -		.rst_mask = BIT(0),
+>> -		.clk_mask = BIT(0),
+>>   	},
+>>   };
+>>   
+> 
 
 
