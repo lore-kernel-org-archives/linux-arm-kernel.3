@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73E81D116F8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B16DD116FA
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 08:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IFNtTs8Tq7V4LrSWhHNlkAVn8NW67k2SRw4M3l3l+CM=; b=L1WpVX/tMw2xRa9/3zMlvkTk8h
-	XtmbUDy4EPUBIgMuG8sSJP6C98Y6uIeQqSlEivHv6epMv+io7NaUY7VDai2WMu10/o3hcTQt3jtoX
-	Ok6Fr4CNB0ijux2eEApoFuylJB61WUJ14S3bKvYJOOuHTUuZNo05Nuz0pQ9MphwbL5ViaiEHKep0r
-	I6IvmRDbuk4Fibhja6S5p1q1lUXHa4NmGPyMougvn4dfBwpB41bD7n5NejmlxfPBe5XfggKrAYQLO
-	IqnVNcI9SixHR5yIoHpLBFXk/np0RhWtKO+Dnn5T5crWurTrz0MZrZze9MA6fy/V/crfQoocLDasx
-	IwO79qFQ==;
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ppoOPua4SMfUwCREkyTFD6SUvqumbmnNVbKih19LUGo=; b=4xWyvnbswJLPrE15LwmwPvsKC2
+	l0cYKeQesmkM/zB9ZcPt+2uYKWaUZijpnctQfc5NR/+5X0UnZ81rZkgA1n8YXJwDB6r/BIWp9Q4HN
+	jJuzF7yx0v6NnM4JXj++pV8Coi6DATkkNIfu9F8p8hvUe4F4o9wjt22KO/RVkQmB/3J/HH0BW7uuV
+	2HQihqAG4Zf56cQ4k9PNHxnkeaUmJPc2DtRurO6SFTxRbzt6N6QE4Os3iF2WnGLYNTHy1ca5NKSGl
+	DWlZRtjwklUQPEPxLCNiNcehQw4O8nphSVTIu84QsCkPJBJ/2meFrQVC16jBdLzsVBifcPcGMDO1v
+	ptIzhj4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPzHo-00000003759-06Nw;
-	Mon, 01 Dec 2025 08:29:32 +0000
+	id 1vPzHm-0000000374x-35rL;
+	Mon, 01 Dec 2025 08:29:30 +0000
 Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPzHl-00000003744-1yFb
+	id 1vPzHj-00000003744-3aks
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 08:29:30 +0000
+	Mon, 01 Dec 2025 08:29:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1764577769; x=1796113769;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=o3e/QN+XEBfcjrx9MO89hAG618jyoE25s87Z0l8Xktk=;
-  b=sVyt5nr8s6crWproLfLh7uRqlNVeoz9z+Qgz6Aj9vyX5Yo88uHXQoTYg
-   r3hSEW17keQ07TDXITMZdZdXzUWE6yhXsLPZ+r+swwRrzsZLMGf1ldvWc
-   WEC4AqjJYlpAVpbxyMPaEsTeJ7D6xNnckG7Z5SvvZ0fQ9FQQGDawHRy5N
-   4bNRgALbY0qy/wGVVXR2CtXgxDP6unYLnaB2j4sJZ/0uDU2KCztKsEeCi
-   gjCsE25M7k8HoQt9elKn4EqYrF4ly9vJIsxzmPQMoOSluX60uA4Gr6dEp
-   Q942ortTdqiA9DkogdxBZFSQMb9R0/frPUHzOqz4rv6KZaEHMq1FSuRm4
-   w==;
+  t=1764577767; x=1796113767;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=nnOflrQf9c+yPiN7JaFu2F8hdPCaEh5dnJ4Ub1sQvQE=;
+  b=ykCkKUY/SCYE2vR7+lJk/wU83PMkSK2PXu/0vHqu3T8g9iiAPkLZRTso
+   HA6x6NGumxgVM2Rtpzk8YYOxlsfzksIbRjJ79ytdpIPNd4WXAaPO2uASG
+   FEcJjwq3TEqZFQWATDp3B8Tyb5kdnRm2MP1Vlnp64XKAHrwLD4KhoUfPk
+   7L0ip16Heq52T7NhadcGu0JlZnV5f4p44aRrSI9Ojv9Cpi0RIjhvhh8Ig
+   CABXtbma5rcEXVO+IG8yTm3XG0r3MjSS/nqiZoe6hVQfIdIAHk0QPZlv4
+   yPELcjCzPMI1Buu94fyvcWSlkBoN3ZSJ2dp2tKXO3abdmfq7MJ4FgCHVy
+   A==;
 X-CSE-ConnectionGUID: Jt19qymKQxqm5dx5AqyGaw==
-X-CSE-MsgGUID: gTG2EAd0QeKIAZ1snGKokA==
+X-CSE-MsgGUID: SVtlS4eqTZCguy3xjYIe+g==
 X-IronPort-AV: E=Sophos;i="6.20,240,1758610800"; 
-   d="scan'208";a="56483966"
+   d="scan'208";a="56483965"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 01 Dec 2025 01:29:25 -0700
+  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 01 Dec 2025 01:29:24 -0700
 Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
  chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Mon, 1 Dec 2025 01:29:21 -0700
+ 15.1.2507.58; Mon, 1 Dec 2025 01:29:19 -0700
 Received: from DEN-DL-M31836.microchip.com (10.10.85.11) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Mon, 1 Dec 2025 01:29:19 -0700
+ 15.1.2507.58 via Frontend Transport; Mon, 1 Dec 2025 01:29:16 -0700
 From: Horatiu Vultur <horatiu.vultur@microchip.com>
 To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
 	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
@@ -61,18 +61,16 @@ To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
 	<romain.sioen@microchip.com>
 CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, Horatiu Vultur <horatiu.vultur@microchip.com>
-Subject: [PATCH v4 1/2] dt-bindings: arm: at91: add lan966 pcb8385 board
-Date: Mon, 1 Dec 2025 09:26:28 +0100
-Message-ID: <20251201082629.2326339-2-horatiu.vultur@microchip.com>
+Subject: [PATCH v4 0/2] ARM: add support for pcb8385
+Date: Mon, 1 Dec 2025 09:26:27 +0100
+Message-ID: <20251201082629.2326339-1-horatiu.vultur@microchip.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251201082629.2326339-1-horatiu.vultur@microchip.com>
-References: <20251201082629.2326339-1-horatiu.vultur@microchip.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_002929_505227_01078C64 
-X-CRM114-Status: UNSURE (   8.09  )
+X-CRM114-CacheID: sfid-20251201_002928_109893_528814D4 
+X-CRM114-Status: UNSURE (   9.61  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,32 +86,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add documentation for Microchip LAN9668 PCB8385
+Add pcb8385 and the documentation for it.
+This is a moduler board on which it can add different daughter cards.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Horatiu Vultur <horatiu.vultur@microchip.com>
----
- Documentation/devicetree/bindings/arm/atmel-at91.yaml | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+v3->v4:
+- override i2c0 using labels instead of having it under flx0
+- override usart3 using labels instead of having it under flx3
 
-diff --git a/Documentation/devicetree/bindings/arm/atmel-at91.yaml b/Documentation/devicetree/bindings/arm/atmel-at91.yaml
-index 3a34b7a2e8d4e..68d306d17c2a1 100644
---- a/Documentation/devicetree/bindings/arm/atmel-at91.yaml
-+++ b/Documentation/devicetree/bindings/arm/atmel-at91.yaml
-@@ -235,9 +235,11 @@ properties:
-           - const: microchip,lan9662
-           - const: microchip,lan966
- 
--      - description: Microchip LAN9668 PCB8290 Evaluation Board.
-+      - description: Microchip LAN9668 Evaluation Board.
-         items:
--          - const: microchip,lan9668-pcb8290
-+          - enum:
-+              - microchip,lan9668-pcb8290
-+              - microchip,lan9668-pcb8385
-           - const: microchip,lan9668
-           - const: microchip,lan966
- 
+v2->v3:
+- remove the linux,default-trigger properties
+
+v1->v2:
+- sort nodes in alphanumerical order
+- move the eeprom nodes under i2c0
+
+Horatiu Vultur (2):
+  dt-bindings: arm: at91: add lan966 pcb8385 board
+  ARM: dts: Add support for pcb8385
+
+ .../devicetree/bindings/arm/atmel-at91.yaml   |   6 +-
+ arch/arm/boot/dts/microchip/Makefile          |   3 +-
+ .../boot/dts/microchip/lan966x-pcb8385.dts    | 131 ++++++++++++++++++
+ 3 files changed, 137 insertions(+), 3 deletions(-)
+ create mode 100644 arch/arm/boot/dts/microchip/lan966x-pcb8385.dts
+
 -- 
 2.34.1
 
