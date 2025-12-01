@@ -4,144 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F7F5D116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 16:33:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40FD4D116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 16:33:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W9CKgb9Pr//apsapGIl8r1+CHvUqUXzCKoBTfPVjNVU=; b=TubGiB54HLLQ7zkPU9Ol49a9Xr
-	uOM0BEkXD4zNxaIUs3DceMWxsJOKvixbgT8wFVI7xGFbP1TX2gorDyO2bnGt2EjA7X5w1vggxvA/s
-	fiME9DE8QsZ7ClYdCpH+xO7XrRvC7Irm5ZL6Y++mCr0L7vqOPCVeDWShpyg1ubQlbc6VyqKiwi9si
-	HUxQKbI/4lMif0Nds0y+okoLbo1kO1u9uSRL9UXTEfpWkxxMtUvlk+yv9X+NxJm89Lt+vINE/0bs8
-	0HzA2LlLCCxlOuMmIamnoF3Hnoq0m7rZ/uHrl4/fC2yA+3woINzdcUwTIzACoYiLXfWuYRtS85X8J
-	7RQaMMRg==;
+	bh=BbeJ3ulp05RlunmastigKLaHSHWRQLN9kmG9sLI60FA=; b=nDBijBp/WWr/Z5xZ9ClLXMn//c
+	U8Yzl4qf8n7pZoTdpIakJxEXTllAyawpli0NV4thJcY5gJ3UF9D5mSl7oZZu0yBXVNziCIy3DWU+c
+	1lVwz1M5zGFMXeyxgdUTBWwjfNh4/uZCUEac5alVedytclLPacP2mG5Zv3TXXMMDlZL9QSiPSQMnh
+	2s9qCoeDh9APN6XVjuTy5+cQZibhtE5Bu5k8Mh7UnWRLnve/dPCgZi4s5Cffvw2/jfvhBVNXsEqCa
+	mMb4VAQftuJL+phZLTwlxE7f5nigrB2+ThFJsGA+pfPRNpldB4zo304rIxRUjlDNZcPqonphu8P5q
+	MIta0DFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ6pg-00000004GnO-1pXp;
-	Mon, 01 Dec 2025 16:33:00 +0000
-Received: from mail-northcentralusazon11013019.outbound.protection.outlook.com ([40.107.201.19] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1vQ6qG-00000004H7f-0UC7;
+	Mon, 01 Dec 2025 16:33:36 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ6pd-00000004Gks-2w8j
+	id 1vQ6qE-00000004H66-1lbU
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 16:32:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FlMk5fHmoh5ZtX4gz7LBO/y5DdaNCu5Va3X03WVSOKj+cyfmE06fylWyDFZOuoZB+Afk6LCHRUckPwpej/Y4SYrUm5nr8grEEwtKNZNMYcuNPvaJEjQLtOsI6BZIJlF8glQ/EGF+pW0zf4bzV0YCpLUfWLh2oYVDg9swYW4qKEuhq0RJGoGk/hq4RXZV3cTXmxihQfLzfUm/Uw21RBnnBYurfTHAxred/lqERiGcmZXbm3vJtFrfnY2eJY6Uuj4rHGgOpk9a5xQL7Znmadhw1YIcK+Kzs7SekANfnnxf3I3XrV9GeU2QAVbD19ybypVgvm6c+/Lgcdbwkb3OleiE1Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=W9CKgb9Pr//apsapGIl8r1+CHvUqUXzCKoBTfPVjNVU=;
- b=Mrg0Ap1uGP7AUY0XV1sV/7tftn7bQ8U5+yWX2S4vSZ1o3lrgSLyy0fapfM1d+4P5co5fGQs5rGFpiJ/2hFqceLWUemktngKRiNtb9oHv4ZuW0qAlwBzpp9frRTtXV0cmLJc/kpZuBWiRINhOwCGDnNxjRHIbqqyqxlg3rAPMm5A0QKRUAS5N0vlxkJi3c2at02lesD0GmsxYA/mTo/Ap1ZWi3nIus0hnnoLUVp2EFZcUrOG+oYqNkGCPYRvY3/+C3DAoaBnKM1ESKEFr77h+gdN7wDtu3aaJLhLrf0/OhkPT2NvjHFTVEJ3hrugj5ksea0xO0GjfANRmihzq1R0zdg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=W9CKgb9Pr//apsapGIl8r1+CHvUqUXzCKoBTfPVjNVU=;
- b=lVmD9u0K2P01ptNNi9xJhjXoLorI5VV4EaGzR4mYwwsKCNqGdLqbsiZzAQUHyUb4ZNOblfdnOQtAljJoQrTwO46MHdYkYZ/kWfWORnVSj+0eqRAzqlSUM/VoXCwX/XRFn0q/06q7i7XTmNACArWjLXykfbTYkP+/c68OUKqdx/NQG22WLvnWcsvc2A6eTABSNGBFUZso+qXEB4FT/WDaDDi422Tq++XtmJ22Hm1M0QcsSZXm7Ybzgd9Sazc/k+jCxNPZpqWrhmBBcOhorjHrLr1P7njiLB608jTb6UuFE+ZS5nvaf1RVGoVnVgMIjBE+t8bvIn8DVbD8Fbvtr+cMRg==
-Received: from BL1P223CA0035.NAMP223.PROD.OUTLOOK.COM (2603:10b6:208:5b6::19)
- by PH7PR12MB5594.namprd12.prod.outlook.com (2603:10b6:510:134::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Mon, 1 Dec
- 2025 16:32:49 +0000
-Received: from BL6PEPF0001AB53.namprd02.prod.outlook.com
- (2603:10b6:208:5b6:cafe::6e) by BL1P223CA0035.outlook.office365.com
- (2603:10b6:208:5b6::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9366.17 via Frontend Transport; Mon,
- 1 Dec 2025 16:33:16 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- BL6PEPF0001AB53.mail.protection.outlook.com (10.167.241.5) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9388.8 via Frontend Transport; Mon, 1 Dec 2025 16:32:48 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 1 Dec
- 2025 08:32:27 -0800
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Mon, 1 Dec 2025 08:32:26 -0800
-Received: from build-amhetre-focal-20250825.internal (10.127.8.10) by
- mail.nvidia.com (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.20
- via Frontend Transport; Mon, 1 Dec 2025 08:32:26 -0800
-From: Ashish Mhetre <amhetre@nvidia.com>
-To: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<nicolinc@nvidia.com>
-CC: <thierry.reding@gmail.com>, <jonathanh@nvidia.com>, <vdumpa@nvidia.com>,
-	<jgg@ziepe.ca>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>, Ashish Mhetre
-	<amhetre@nvidia.com>
-Subject: [PATCH V3 3/3] arm64: dts: nvidia: Add nodes for CMDQV
-Date: Mon, 1 Dec 2025 16:32:19 +0000
-Message-ID: <20251201163219.3237266-4-amhetre@nvidia.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20251201163219.3237266-1-amhetre@nvidia.com>
-References: <20251201163219.3237266-1-amhetre@nvidia.com>
-MIME-Version: 1.0
-X-NVConfidentiality: public
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0001AB53:EE_|PH7PR12MB5594:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6905fd36-009d-4ae6-3009-08de30f7440d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?hzq3AR/GgQwjq/yBWKv0pdCiLlmysBXf8pdX2u+dQHKTWTbGsNJAUFme7cLh?=
- =?us-ascii?Q?ae0qB85tphWME4fzQP9lDZAXCpUF4Omsf1wu90UL/dBNEogQV2Xd5nEzFsN+?=
- =?us-ascii?Q?4GgUDsa15chdD6Ns3o2ov4jV+RApmqqL/6wtdMv9KkGoQm7eSYZCRyprc0yJ?=
- =?us-ascii?Q?Pi8Kekeu95BpPmJhDLqCm/q1LqxUyMIxSzHGQ8CoWupqHwIS4VQ1DDcYKbxR?=
- =?us-ascii?Q?4icIo9Y4GVp664OeWk0idBdaeZ41sTanhZYrfAtFcBiGNouByZXHoZ+seGQz?=
- =?us-ascii?Q?qPGxD2ECnJx876HxWrkm1bqcUT/R6nsnUZrhrm4JaDHwXMn/KC5gm4rNyv+j?=
- =?us-ascii?Q?sCHDY7qzESLSm8rltNRZBiZwZdOQ2ktmUHcClVETJ+HxX6Zfy1RaQ/Rjc46Z?=
- =?us-ascii?Q?Q33RfoNwM6bmChuKlY3J2inLDUZ2Gi4gUYAaetMAR74yVsxsvLjxuDPpiUdh?=
- =?us-ascii?Q?fzOsSikj3/Dx+UUmMmFf1Bcd1W9gbI7nDA+ulxGw2BwHppm8NxPeg4JQHBTP?=
- =?us-ascii?Q?CN0SxhT2GDa7z/+HJFuXcCJ1HLrfEr7AoJv57BaFGlX7eUTeO6UWC/HiY57M?=
- =?us-ascii?Q?eMSUrM+Bg8csDKkEwbkXL1oGNB7SOkyyA5+WdwEoC1AHroVVC5fZiSB3lz/Q?=
- =?us-ascii?Q?g7OEEQpLhh/vy9aiE3Ds+w4nOL7ALmvLduV3o1ahUAWYRDgwahypxm6IqYLS?=
- =?us-ascii?Q?rpZi9+SjlD1tSmQPdq4CDTCksTUrUK+F1ZR6ZsHvkQDnB7kloI0Y1qgB6SaS?=
- =?us-ascii?Q?NnSorIMrEU5o0BPwlcoJLprToY5RiLZ9JGa5RQ0VXYzp8J8At+PVG4zI4/hw?=
- =?us-ascii?Q?LbjcRRw4+F2GP+GozW8fSucp3h7txEJlSreFWO8VNeQlIXZ1wCcJGgrRF+3m?=
- =?us-ascii?Q?iuPLM+72OmfK7vRN/pG637QuDB7EPFYowBBthHCpO0Yh0YcoXwaypp3+6CKD?=
- =?us-ascii?Q?w94jBI8KGwy5AOb8LwAgvQWBbZY9pVmi8wUuRhwaiRZBM9LXn67jmB5DpELY?=
- =?us-ascii?Q?wEacPlzzfTHybIeiYla2/8+KLeI8NowJNAfsBPyXPP5MpF3MTfyYmSxeRzLQ?=
- =?us-ascii?Q?M7IIlJCZ+xJdzdQ5aOMiSaQAkEM1d6/9NEmf3DB3jcILuBn/r0jifJ8bKrSU?=
- =?us-ascii?Q?pJn8WCvRHTa0AOM1blfWxgQQ8B5Edvwvp+mk45wWOvqE5poCeoGQrzsfk5Kb?=
- =?us-ascii?Q?5Opk21PpUsbBIgRGclV3FPHersJ5hfLPGHCkYPATSPoZJTHJnvd3PoINuKOb?=
- =?us-ascii?Q?MuTtE0vvetklk9sextSXhkzruEoU1P7DpovOl9QM+ndxE6L5XVWlyq36P8ge?=
- =?us-ascii?Q?JkM/bei/H5+dfdiCr+NIpBhkVW888VlppBWMcousHe6g0Kntuz3YBF4JlIrV?=
- =?us-ascii?Q?pmFi7TxWMNCaBQgx0DDYp/UEV3ITbwgnr8JAL8bpN0eVcYGHUyPz9b0ZiJW7?=
- =?us-ascii?Q?2HC2NcZ3GKNUgZ7eXVAfG4xV0P4wSHf4NV4UD2sxqrDpwNApC/MfZJ+tIct3?=
- =?us-ascii?Q?Oc9TDKCv5/ah5EGYQfrTe9qERIxyXvOughDoFIya5ZhKQ6sCiEA9vn43JDuK?=
- =?us-ascii?Q?nguja1hb4wcLUs1OaZY=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(7416014)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Dec 2025 16:32:48.8201
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6905fd36-009d-4ae6-3009-08de30f7440d
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0001AB53.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB5594
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_083257_741748_AF2FDAAC 
-X-CRM114-Status: GOOD (  10.14  )
+	Mon, 01 Dec 2025 16:33:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 40BE460133;
+	Mon,  1 Dec 2025 16:33:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E15E5C4CEF1;
+	Mon,  1 Dec 2025 16:33:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764606811;
+	bh=mKAh6zoTfeyMrA3fhkg8tP6+y8PTWo7YVbnFxPAXZD8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=FaaesL99f3aylyjGWhobo5yy8gWh0sTHYUcDMseN5AN38SYx5q/uRK7ezEDTA2ZFk
+	 9SHs2TIVg5xk1N6nyIjKdsxBJbVx9ZO7KUubuzjy2y+T9sPJQt9eYIJDNXwM0C1sTU
+	 P8rTQhJPVN8xE1f8dRS878TyldV2uz509ZYKJ598qQJ5aWZSuhMc8JllWfktFlN1GW
+	 hITjUZO4RNzPqocvqcx3jAUJqJE12ylkA5plINUmvEem2ZRKadlK8RYSwniC4bitIg
+	 Q69xwNJfklZR6yL3D2mXiJmE22dQlFRe2+CHQM7DxssgQIP73xkUW15fBXT7QOTNhr
+	 nbyljAXgWizvg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vQ6q9-00000009f9x-203m;
+	Mon, 01 Dec 2025 16:33:29 +0000
+Date: Mon, 01 Dec 2025 16:33:28 +0000
+Message-ID: <86o6oip3fr.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vincent Donnefort <vdonnefort@google.com>
+Cc: rostedt@goodmis.org,
+	mhiramat@kernel.org,
+	mathieu.desnoyers@efficios.com,
+	linux-trace-kernel@vger.kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	jstultz@google.com,
+	qperret@google.com,
+	will@kernel.org,
+	aneesh.kumar@kernel.org,
+	kernel-team@android.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v8 26/28] KVM: arm64: Add hyp_enter/hyp_exit events to pKVM hyp
+In-Reply-To: <aS28dyrKgZaOmMNr@google.com>
+References: <20251107093840.3779150-1-vdonnefort@google.com>
+	<20251107093840.3779150-27-vdonnefort@google.com>
+	<87345vfiqj.wl-maz@kernel.org>
+	<aS28dyrKgZaOmMNr@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vdonnefort@google.com, rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, linux-trace-kernel@vger.kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, jstultz@google.com, qperret@google.com, will@kernel.org, aneesh.kumar@kernel.org, kernel-team@android.com, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,165 +97,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Command Queue Virtualization (CMDQV) hardware is part of the
-SMMUv3 implementation on NVIDIA Tegra SoCs. It assists in
-virtualizing the command queue for the SMMU.
+On Mon, 01 Dec 2025 16:04:07 +0000,
+Vincent Donnefort <vdonnefort@google.com> wrote:
+> 
+> On Sun, Nov 30, 2025 at 07:00:52PM +0000, Marc Zyngier wrote:
+> > On Fri, 07 Nov 2025 09:38:38 +0000,
+> > Vincent Donnefort <vdonnefort@google.com> wrote:
+> > > 
+> > > The hyp_enter and hyp_exit events are logged by the hypervisor any time
+> > > it is entered and exited.
+> > > 
+> > > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+> > > 
+> > > diff --git a/arch/arm64/include/asm/kvm_hypevents.h b/arch/arm64/include/asm/kvm_hypevents.h
+> > > index d6e033c96c52..ce3953bc884a 100644
+> > > --- a/arch/arm64/include/asm/kvm_hypevents.h
+> > > +++ b/arch/arm64/include/asm/kvm_hypevents.h
+> > > @@ -7,4 +7,21 @@
+> > >  #include <nvhe/trace.h>
+> > >  #endif
+> > >  
+> > > +HYP_EVENT(hyp_enter,
+> > > +	HE_PROTO(void),
+> > > +	HE_STRUCT(
+> > > +	),
+> > > +	HE_ASSIGN(
+> > > +	),
+> > > +	HE_PRINTK()
+> > > +);
+> > > +
+> > > +HYP_EVENT(hyp_exit,
+> > > +	HE_PROTO(void),
+> > > +	HE_STRUCT(
+> > > +	),
+> > > +	HE_ASSIGN(
+> > > +	),
+> > > +	HE_PRINTK()
+> > > +);
+> > >  #endif
+> > > diff --git a/arch/arm64/kvm/hyp/include/nvhe/arm-smccc.h b/arch/arm64/kvm/hyp/include/nvhe/arm-smccc.h
+> > > new file mode 100644
+> > > index 000000000000..4b69d33e4f2d
+> > > --- /dev/null
+> > > +++ b/arch/arm64/kvm/hyp/include/nvhe/arm-smccc.h
+> > > @@ -0,0 +1,13 @@
+> > > +/* SPDX-License-Identifier: GPL-2.0-only */
+> > > +
+> > > +#include <asm/kvm_hypevents.h>
+> > > +
+> > > +#include <linux/arm-smccc.h>
+> > > +
+> > > +#undef arm_smccc_1_1_smc
+> > > +#define arm_smccc_1_1_smc(...)					\
+> > > +	do {							\
+> > > +		trace_hyp_exit();				\
+> > > +		__arm_smccc_1_1(SMCCC_SMC_INST, __VA_ARGS__);	\
+> > > +		trace_hyp_enter();				\
+> > > +	} while (0)
+> > 
+> > Huh. No, please. Don't override existing kernel constructs behind
+> > everybody's back. I know that tracing folks love to play that sort of
+> > game, but I really don't want any of that here.
+> 
+> And you haven't seen what I had for arm_smccc_1_2_smc()
 
-Update SMMU compatible strings to use nvidia,tegra264-smmu to enable
-CMDQV support. Add device tree nodes for the CMDQV hardware and enable
-them on the tegra264-p3834 platform where SMMUs are enabled. Each SMMU
-instance is paired with its corresponding CMDQV instance via the
-nvidia,cmdqv property.
+I have the feeling that I don't want to see it at all!
 
-Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
----
- .../arm64/boot/dts/nvidia/tegra264-p3834.dtsi |  8 +++
- arch/arm64/boot/dts/nvidia/tegra264.dtsi      | 55 +++++++++++++++++--
- 2 files changed, 58 insertions(+), 5 deletions(-)
+> > Just define a wrapper that is KVM-specific, and use that.
+> > 
+> > Then from a semantic perspective, an SMC call, an ERET back to EL1
+> > host, and an ERET back to EL1 guest are all very different events that
+> > you lump under the "exit" category. That's not right. Same thing for
+> > "enter".
+> 
+> The idea of those events is just to know when we enter and exit the hypervisor,
+> purely from a timing point of view. In ACK, we already have other separated
+> events that can give the "cause" for entering or exiting the hypervisor. I
+> haven't added them to that series because I thought it was big enough.
+> 
+> So happy to add now or do a follow-up, once we're done with that one?
 
-diff --git a/arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi b/arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi
-index 06795c82427a..7e2c3e66c2ab 100644
---- a/arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi
-+++ b/arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi
-@@ -23,8 +23,16 @@ iommu@5000000 {
- 			status = "okay";
- 		};
- 
-+		cmdqv@5200000 {
-+			status = "okay";
-+		};
-+
- 		iommu@6000000 {
- 			status = "okay";
- 		};
-+
-+		cmdqv@6200000 {
-+			status = "okay";
-+		};
- 	};
- };
-diff --git a/arch/arm64/boot/dts/nvidia/tegra264.dtsi b/arch/arm64/boot/dts/nvidia/tegra264.dtsi
-index f137565da804..5124715caeb3 100644
---- a/arch/arm64/boot/dts/nvidia/tegra264.dtsi
-+++ b/arch/arm64/boot/dts/nvidia/tegra264.dtsi
-@@ -3361,7 +3361,7 @@ bus@8100000000 {
- 			 <0x02 0x00000000 0xd0 0x00000000 0x08 0x80000000>; /* ECAM, prefetchable memory, I/O */
- 
- 		smmu1: iommu@5000000 {
--			compatible = "arm,smmu-v3";
-+			compatible = "nvidia,tegra264-smmu", "arm,smmu-v3";
- 			reg = <0x00 0x5000000 0x0 0x200000>;
- 			interrupts = <GIC_SPI 12 IRQ_TYPE_EDGE_RISING>,
- 				     <GIC_SPI 13 IRQ_TYPE_EDGE_RISING>;
-@@ -3370,10 +3370,19 @@ smmu1: iommu@5000000 {
- 
- 			#iommu-cells = <1>;
- 			dma-coherent;
-+			nvidia,cmdqv = <&cmdqv1>;
-+		};
-+
-+		cmdqv1: cmdqv@5200000 {
-+			compatible = "nvidia,tegra264-cmdqv";
-+			status = "disabled";
-+
-+			reg = <0x00 0x5200000 0x0 0x830000>;
-+			interrupts = <GIC_SPI 19 IRQ_TYPE_LEVEL_HIGH>;
- 		};
- 
- 		smmu2: iommu@6000000 {
--			compatible = "arm,smmu-v3";
-+			compatible = "nvidia,tegra264-smmu", "arm,smmu-v3";
- 			reg = <0x00 0x6000000 0x0 0x200000>;
- 			interrupts = <GIC_SPI 1 IRQ_TYPE_EDGE_RISING>,
- 				     <GIC_SPI 2 IRQ_TYPE_EDGE_RISING>;
-@@ -3382,6 +3391,15 @@ smmu2: iommu@6000000 {
- 
- 			#iommu-cells = <1>;
- 			dma-coherent;
-+			nvidia,cmdqv = <&cmdqv2>;
-+		};
-+
-+		cmdqv2: cmdqv@6200000 {
-+			compatible = "nvidia,tegra264-cmdqv";
-+			status = "disabled";
-+
-+			reg = <0x00 0x6200000 0x0 0x830000>;
-+			interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
- 		};
- 
- 		mc: memory-controller@8020000 {
-@@ -3437,7 +3455,7 @@ emc: external-memory-controller@8800000 {
- 		};
- 
- 		smmu0: iommu@a000000 {
--			compatible = "arm,smmu-v3";
-+			compatible = "nvidia,tegra264-smmu", "arm,smmu-v3";
- 			reg = <0x00 0xa000000 0x0 0x200000>;
- 			interrupts = <GIC_SPI 21 IRQ_TYPE_EDGE_RISING>,
- 				     <GIC_SPI 22 IRQ_TYPE_EDGE_RISING>;
-@@ -3446,10 +3464,19 @@ smmu0: iommu@a000000 {
- 
- 			#iommu-cells = <1>;
- 			dma-coherent;
-+			nvidia,cmdqv = <&cmdqv0>;
-+		};
-+
-+		cmdqv0: cmdqv@a200000 {
-+			compatible = "nvidia,tegra264-cmdqv";
-+			status = "disabled";
-+
-+			reg = <0x00 0xa200000 0x0 0x830000>;
-+			interrupts = <GIC_SPI 28 IRQ_TYPE_LEVEL_HIGH>;
- 		};
- 
- 		smmu4: iommu@b000000 {
--			compatible = "arm,smmu-v3";
-+			compatible = "nvidia,tegra264-smmu", "arm,smmu-v3";
- 			reg = <0x00 0xb000000 0x0 0x200000>;
- 			interrupts = <GIC_SPI 30 IRQ_TYPE_EDGE_RISING>,
- 				     <GIC_SPI 31 IRQ_TYPE_EDGE_RISING>;
-@@ -3458,6 +3485,15 @@ smmu4: iommu@b000000 {
- 
- 			#iommu-cells = <1>;
- 			dma-coherent;
-+			nvidia,cmdqv = <&cmdqv4>;
-+		};
-+
-+		cmdqv4: cmdqv@b200000 {
-+			compatible = "nvidia,tegra264-cmdqv";
-+			status = "disabled";
-+
-+			reg = <0x00 0xb200000 0x0 0x830000>;
-+			interrupts = <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>;
- 		};
- 
- 		i2c14: i2c@c410000 {
-@@ -3690,7 +3726,7 @@ bus@8800000000 {
- 		ranges = <0x00 0x00000000 0x88 0x00000000 0x01 0x00000000>;
- 
- 		smmu3: iommu@6000000 {
--			compatible = "arm,smmu-v3";
-+			compatible = "nvidia,tegra264-smmu", "arm,smmu-v3";
- 			reg = <0x00 0x6000000 0x0 0x200000>;
- 			interrupts = <GIC_SPI 225 IRQ_TYPE_EDGE_RISING>,
- 				     <GIC_SPI 226 IRQ_TYPE_EDGE_RISING>;
-@@ -3699,6 +3735,15 @@ smmu3: iommu@6000000 {
- 
- 			#iommu-cells = <1>;
- 			dma-coherent;
-+			nvidia,cmdqv = <&cmdqv3>;
-+		};
-+
-+		cmdqv3: cmdqv@6200000 {
-+			compatible = "nvidia,tegra264-cmdqv";
-+			status = "disabled";
-+
-+			reg = <0x00 0x6200000 0x0 0x830000>;
-+			interrupts = <GIC_SPI 232 IRQ_TYPE_LEVEL_HIGH>;
- 		};
- 
- 		hda@90b0000 {
+Fixed trace points are ABI AFAIC, so I'd rather we make them useful
+from the very start. What you have here is not very interesting,
+because it makes all entry and exit points equal -- they very much
+aren't.
+
+So get rid of these and implement the real thing.
+
+Thanks,
+
+	M.
+
 -- 
-2.25.1
-
+Without deviation from the norm, progress is not possible.
 
