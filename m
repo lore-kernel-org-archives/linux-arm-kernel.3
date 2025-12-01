@@ -4,57 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7CDAD116F5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 11:57:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 460B6D116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 11:57:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4IANQkniuRjJJ7BPR8OXI2d0+pXGV4OuLGApWyP9eYw=; b=b+UcQWRK/e8ujs2zT+8UW4zFC7
-	ESOYx0CDvwl9BgXYIs529VqLPBG48yGQRICU0DeojWXy9XZvAKfWUhR/uL+tNhTbPXLCLPw40AT8/
-	sqi9xf88d3fCWFfM9jcDc/jXubanAY/OlFHmVSLebRQpFYFXWnAZZ5H8r0fdYEb/1VwE50vEC3epk
-	xtv0+v/lSeKGi1UtamRPSIWRI/OQFhWDfPIP1IRVf9B/3FtdH6LnjwSU+1I4Qpyl6KmnYa0ED3g7t
-	Fdt4piWaMO/N56KA7zYRT/7cg4SDMvJdhJPs07Qna+fOsseieKJcghxLLTCDX3KcXy4muRP2EYg/i
-	XvQqqTbQ==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0ZJnRdDyp9NycN9TQM+zsZPUQevo1ft7Ycnaul0LkGw=; b=Gabq+NA0tFpE7QK8qi/0YgnNTl
+	rbcOcqEKZ4XewW0USJdH23Iqzoh9tHIJMWku0w/G7/kXrGQ85dwvM2lSmJCnC1WU/X4ggPvzvTD9l
+	d70NWjOdkHjA4wFu1buV+9Omf3C28JkmilcW+0djA7Vu/2u4z9GE+hsJH1g/G9AE16WvunwKlDNpY
+	phYIEk+K81KyrDhAhOB+AJzcr85SwK9x7mdLVn9Co8muv+kMXLYr9EjDE9t48yczJ/kbec3u9yrB4
+	Qa2fowAkWIhGQl9vG3udV8/QcbKKPFwJnskvrdnyFL8QgdO97tl6FbzyLdl5tLGNlhfbawE7frrOO
+	rJvglLAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ2Wc-00000003V1G-1jWa;
-	Mon, 01 Dec 2025 11:57:02 +0000
+	id 1vQ2Wb-00000003V0j-3YuQ;
+	Mon, 01 Dec 2025 11:57:01 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ2Wa-00000003V0G-231E
+	id 1vQ2Wa-00000003V0C-0mST
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 01 Dec 2025 11:57:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DC27060184;
+	by tor.source.kernel.org (Postfix) with ESMTP id 929836016B;
 	Mon,  1 Dec 2025 11:56:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 671C5C19423;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3BB01C4CEF1;
 	Mon,  1 Dec 2025 11:56:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1764590219;
-	bh=jMHzmSZqrvP4Wb+5Bsghxz7obfu2WOi8R1ehFEDgjF8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=HGDqfi8eeO2FEN19gzr6Cbju8GHOS+VB7P7KnCeA6W5KH1638Ap/+H3wHid2rE+1D
-	 BEbJzNtpjyLlbH/opooDa4GTvORSJU4QHw5AtOoc2Xr+Mm+yUL7AhxppKpxtOWFSdB
-	 4xZlt3/qniNNUwJVqTBVkV2h34du1RKVD80cDCBVHmjgEqKtgVc6X+w6fiiksSCxV8
-	 HHskN8sFy54I4Pvtc9PSTMmhEbmLPBWkhoGpG3mnVhLj6LPH/xee7t2wHD8ru5CLvY
-	 DInyKdU8mO15ebb/2AdPuQ3lu/1nyTTUYTnHw+JogHESchAZuAEgXyS8nsvd4Qh99b
-	 uiCJhhKPEEN2Q==
+	bh=zMdqW7g2CzgociwT59QgF/DC0rtiRYU2cHrE8GIJF7E=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=eee+Aa5yR8uU3XpZ5VYDC77ThI9dy3vttjpBHGsYUXX0MB6ZMlaUsQdpJ9PqZZdD4
+	 e5z1wIuwL4RnqO2nTWufLJ1H7H/+E2cw7QEuSRsc3Tf+IMJ70e7UCaobXg/ee9qEV+
+	 1djqW1ZcmEyXWhWoNiQ3GYtiLEfQ9eiw9zZIcfhy5NKLcX7uOu04DplWn4+zhDI8Wo
+	 XF+BFbxr6UNfW09QOsL6r2W3cHapJz3gSoPVxnflvlm6WSg1Gz+i45pOb8oOBBHGTm
+	 IEhxDsQgDuLUAwC+SsauogUchoyZMQ6ME+Wd7Gjc6sA+s84U3TKRsl9WRT6oao213B
+	 GNpcVTBaIp01Q==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 5B2BFD116FF;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 212B3D116F5;
 	Mon,  1 Dec 2025 11:56:59 +0000 (UTC)
 From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Mon, 01 Dec 2025 12:56:52 +0100
-Subject: [PATCH v2 3/3] arm64: dts: freescale: tx8p-ml81: fix eqos
- nvmem-cells
+Subject: [PATCH v2 0/3] arm64: dts: freescale: moduline-display: several
+ fixes
+Date: Mon, 01 Dec 2025 12:56:49 +0100
+Message-Id: <20251201-disp_fix-v2-0-9b03026311b6@gocontroll.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251201-disp_fix-v2-3-9b03026311b6@gocontroll.com>
-References: <20251201-disp_fix-v2-0-9b03026311b6@gocontroll.com>
-In-Reply-To: <20251201-disp_fix-v2-0-9b03026311b6@gocontroll.com>
+X-B4-Tracking: v=1; b=H4sIAIGCLWkC/22MQQqDMBAAvyJ7bkqy1VJ78h9FStxEXbCJJBJaJ
+ H9v6rnHGYbZIdrANsK92iHYxJG9K4CnCmjWbrKCTWFAiY1SqhaG4/oc+S2QWmkujR6kMVDyNdi
+ ij9WjLzxz3Hz4HOekfvbPJCkhRd3SYG941SNhN3nybgt+Wc7kX9DnnL+wsV6dpQAAAA==
+X-Change-ID: 20251114-disp_fix-2c90d35ab0dd
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
  Sascha Hauer <s.hauer@pengutronix.de>, 
@@ -64,11 +66,11 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  Maud Spierings <maudspierings@gocontroll.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764590218; l=1812;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764590218; l=1188;
  i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=UarncIoORvGu/J2XyFu3oe6mX1a3LvZl4JDeYZkFnbQ=;
- b=gYKT+KLzWn3ITTap+LEFHxcxFrpOkXKJ8kY/KJYUf/jCvfQaELRPEDwdtupElv4zeUZvbg20I
- rzAGTOlmmbgBk02fE/9w1MNX79W2vPLkBWEZ7qlLhJTB6WklRhwFQ/J
+ bh=zMdqW7g2CzgociwT59QgF/DC0rtiRYU2cHrE8GIJF7E=;
+ b=CdE/3itTq3j2lcjVA+F8qWr9BwrHdPT4FBmvCbbfte91Ze+IVMe/UCWb1b7nVKhrM8k4Z+sfR
+ tuEqVZusKWkBN90xi2u+5ZuiiHi5EtKmm5HQCWx4920Mh3QtQ6fLAJY
 X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
  pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
 X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
@@ -89,55 +91,37 @@ Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Maud Spierings <maudspierings@gocontroll.com>
+A couple of issues where discovered:
+- compatibles should integrate the SoM
+- the eqos mac address is stored in eth_mac1
 
-On this SoM eqos is the primary ethernet interface, Ka-Ro fuses the
-address for it in eth_mac1, eth_mac2 seems to be left unfused. In their
-downstream u-boot they fetch it from eth_mac1 [1][2], by setting alias
-of eqos to ethernet0, the driver then fetches the mac address based on
-the alias number.
+The first one is breaking, but it is early enough that it can be
+corrected without causing any issues.
 
-Set eqos to read from eth_mac1 instead of eth_mac2. Also set fec to
-point at eth_mac2 as it may be fused later even though it is disabled
-by default.
-
-With this changed barebox is now capable of loading the correct address.
-
-Link: https://github.com/karo-electronics/karo-tx-uboot/blob/380543278410bbf04264d80a3bfbe340b8e62439/drivers/net/dwc_eth_qos.c#L1167 [1]
-Link: https://github.com/karo-electronics/karo-tx-uboot/blob/380543278410bbf04264d80a3bfbe340b8e62439/arch/arm/dts/imx8mp-karo.dtsi#L12 [2]
-
-Fixes: bac63d7c5f46 ("arm64: dts: freescale: add Ka-Ro Electronics tx8p-ml81 COM")
 Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
 ---
- arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81.dtsi | 5 +++++
- 1 file changed, 5 insertions(+)
+Changes in v2:
+- re-add the old compatible to fsl.yaml
+- expand the reasoning for these changes in the commit messages
+- Link to v1: https://lore.kernel.org/r/20251114-disp_fix-v1-0-49cbe826afc2@gocontroll.com
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81.dtsi
-index fe8ba16eb40e..761ee046eb72 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81.dtsi
-@@ -47,6 +47,7 @@ &eqos {
- 				 <&clk IMX8MP_SYS_PLL2_100M>,
- 				 <&clk IMX8MP_SYS_PLL2_50M>;
- 	assigned-clock-rates = <266000000>, <100000000>, <50000000>;
-+	nvmem-cells = <&eth_mac1>;
- 	phy-handle = <&ethphy0>;
- 	phy-mode = "rmii";
- 	pinctrl-0 = <&pinctrl_eqos>;
-@@ -75,6 +76,10 @@ ethphy0: ethernet-phy@0 {
- 	};
- };
- 
-+&fec {
-+	nvmem-cells = <&eth_mac2>;
-+};
-+
- &gpio1 {
- 	gpio-line-names = "SODIMM_152",
- 			  "SODIMM_42",
+---
+Maud Spierings (3):
+      dt-bindings: arm: fsl: moduline-display: fix compatible
+      arm64: dts: freescale: moduline-display: fix compatible
+      arm64: dts: freescale: tx8p-ml81: fix eqos nvmem-cells
 
+ Documentation/devicetree/bindings/arm/fsl.yaml                   | 9 ++++++++-
+ .../boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106.dts | 2 +-
+ arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81.dtsi              | 5 +++++
+ 3 files changed, 14 insertions(+), 2 deletions(-)
+---
+base-commit: 0f2995693867bfb26197b117cd55624ddc57582f
+change-id: 20251114-disp_fix-2c90d35ab0dd
+
+Best regards,
 -- 
-2.52.0
+Maud Spierings <maudspierings@gocontroll.com>
 
 
 
