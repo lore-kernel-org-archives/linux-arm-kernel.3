@@ -4,173 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFD23D116F9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 12:51:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 208A6D116F5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 12:59:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1qkt7TTfyF3XYxas6x2VQksWJvY77vO21rXl+rKQduE=; b=Z1ckol6mwDwrD/5oYgT9SSwKQj
-	JrK3R/edylKjWaFrS+IeM4w0ASuZYskidMDm/zI9UjDAAPxAL7URPFWptHhAxLD1e2NqeTaIMhudp
-	9hmqyuSf45qeMCrJeYTQxSCwNpjG9YYvihqO6M4vQUktxXu0op/e7fE+TYye7nnf5UBHmsawQhP57
-	5j9rryvQOObxCeRsDE78AK35eolmBrkxIbuHr7B528Ci2mtv+00N8E+LkYpq+jJlyCrMgdAGHEElg
-	KDrFVV4MrvqlUHL7G4xhBXLYKWsJwJKa1MSBcKXOwn6bSBVdaQIVAVYH6RiKoG0mWRJQHjW10UtI/
-	WPYzmNkQ==;
+	bh=9JENmYpfkthv0H0/t5UzLVCvUyp18T98L1/mtaikEhU=; b=g1opRlyVn5ZVPSvQf+WBDe2XwG
+	G/e2vMTK1uxvkIV6t0VgYTY8FHjE1s4nQButWEiDByCHyQHyQy7mOmB+aXYmADrSHid+KYFlShEL8
+	u0rvjtd+o1tuNLpadJ6CcFbggKM3TCrW3UxoIyljM7ZUlJeRbff+afKTx8Emsc/8V/70A/cvpuqWd
+	AruS4vv32m+g5SjkkreKrI81+CkmS0eG3jJC0FPalqrATvjfaZNikMV2ge0JT3xCw89lESiDcmTLZ
+	jZc9QRCjmNPU3z6wy6O750KnOHDaFOHMfkZn7bscGgB9sgY7db92lVpav2NiqhWSIcu0x6/R8eg7N
+	44Gvb2QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ3Mx-00000003at7-3lIE;
-	Mon, 01 Dec 2025 12:51:07 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1vQ3UY-00000003bXV-0Noi;
+	Mon, 01 Dec 2025 12:58:58 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ3Mv-00000003aoI-2tIh
+	id 1vQ3UV-00000003bWw-1aBw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 12:51:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OVa6Z27goPIpWn2W43wqwNUG4zKSrjvsUTvA4OY/U2dUxFk7zPPRbl2L3iZl7zzaXi4SC4WmTtNdVc0YLyscfpAfwW4eO9p7aeBKBZ5IQbXVfCV6e8yLvnFMgaaxy82f4to3I/GoozqNBiLLBp8owpkIXPXGzflLW5pXUq3UFs/3Qol7FREUwa0Q5HnOJSBEVo/jaeMFenfdcbgfmhoBGKIVkmLD08Y1mcI2q4eIdBX+T9vJiax0Zmh77r6xWuWNnkbtAQ6vSN0SjcmeyzFjzt6Dso4/pPNkcYzLIaYgYdRhw4aVEjWT1FLuHUxLizdIBqDc53S3XxgbmF5TBMyzAw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=1qkt7TTfyF3XYxas6x2VQksWJvY77vO21rXl+rKQduE=;
- b=WPAYbhhA77DAumu+nTXfJ4F2sHcXQQSv9rq4GnaRFNKDx5hfYDFW5G4Mj3rEYW3BOvP25Tl7rAAsUwbf+iW/1xdhSOjAHPsD3tjoPytbHAna1ojjSaw5xaUyOpemHaFWfVqb1Et7my+ySLnbW+MWLOC7mIddJs1fSrwGC/Y6+7hM5KnzHwy3lnNfl/WxqP4A7yxT+TcrpY7VrqMmSAznI8i/+ShS/qtKAiG6qJzyMNFhYCf32fG1oPJUnWGN6JcrzU9qU94aX0E+AIMJScTjX00okRVsH3uYnhub3GPfHNeT6DGkz7gigGyzrbgM+fbMvuN4C96Ks3uzIE1qhBcQ2Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=vaisala.com; dmarc=pass action=none header.from=vaisala.com;
- dkim=pass header.d=vaisala.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=vaisala.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=1qkt7TTfyF3XYxas6x2VQksWJvY77vO21rXl+rKQduE=;
- b=kGh32OTQIpiaMCNILl2J2+FBnwlgUYRIHcbsvd6yXSluQZ/z/3d6Z1exQ7a96s/4cdd0mYFawpVPdef///Pw1UJ6pjKtRqg7kCF/BhfXv3wk2XiXd0NwUYy0tiG3CfhnmCh0LW+Nwf+xQ+31k0hvtFI8jwuHvwIvwpG8RqOElOBgoxMLsUi4fTubd0yYUdq22h/9kHLYUzGYffluUC3M8pJ0FnET8V4YAccUoWK7oxZzzDaHSiZqssgkpec3Aj0Ym0tob8T+1GW+KY5PN5kLVGcRWZg7CYIZmvYOY1lbSeRm3x/owJz8rSaAIuf0O+L4iskOIHN77nFGJuqbCXXs6Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=vaisala.com;
-Received: from AMBPR06MB10365.eurprd06.prod.outlook.com (2603:10a6:20b:6f0::7)
- by DU4PR06MB10410.eurprd06.prod.outlook.com (2603:10a6:10:61d::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Mon, 1 Dec
- 2025 12:50:43 +0000
-Received: from AMBPR06MB10365.eurprd06.prod.outlook.com
- ([fe80::4606:8e25:96e6:bede]) by AMBPR06MB10365.eurprd06.prod.outlook.com
- ([fe80::4606:8e25:96e6:bede%5]) with mapi id 15.20.9366.012; Mon, 1 Dec 2025
- 12:50:43 +0000
-From: Tomas Melin <tomas.melin@vaisala.com>
-Date: Mon, 01 Dec 2025 12:50:29 +0000
-Subject: [PATCH 4/4] rtc: zynqmp: use dynamic max and min offset ranges
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251201-zynqmp-rtc-updates-v1-4-33875c1e385b@vaisala.com>
-References: <20251201-zynqmp-rtc-updates-v1-0-33875c1e385b@vaisala.com>
-In-Reply-To: <20251201-zynqmp-rtc-updates-v1-0-33875c1e385b@vaisala.com>
-To: Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Michal Simek <michal.simek@amd.com>
-Cc: linux-rtc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Tomas Melin <tomas.melin@vaisala.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764593441; l=1357;
- i=tomas.melin@vaisala.com; s=20251125; h=from:subject:message-id;
- bh=Y+veERhI52/OsiKxxXUQwe7DeNg2u4plRSJfzPoeomg=;
- b=t8b8RPW8zEEqLFM895uTCWd4Ry/RtPp3xurIv9WhkWLN5Q3xxDBDKZMZny9YwKlo5+AqW6KzA
- dg0Q4wVnJf1BD9bnbiTBZr/GbJShkiiMA5rwVvWI62SfX3C9vfvWM9i
-X-Developer-Key: i=tomas.melin@vaisala.com; a=ed25519;
- pk=6lMiecjZ+OeyZuxYsDm/ADy9D1JKvYrKdsYv58PMepU=
-X-ClientProxiedBy: GVX0EPF0001A050.SWEP280.PROD.OUTLOOK.COM
- (2603:10a6:158:401::49f) To AMBPR06MB10365.eurprd06.prod.outlook.com
- (2603:10a6:20b:6f0::7)
+	Mon, 01 Dec 2025 12:58:56 +0000
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1764593930;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9JENmYpfkthv0H0/t5UzLVCvUyp18T98L1/mtaikEhU=;
+	b=XKP/MGtX/3/ix8q2oQDf1fERhQ/B3WzjQLqcaQDKIJvTtDiYlW2OGhLUzBTOwZNtuOVzMl
+	J0T9cEjOpXg8I61Tj4o/MyrshE9divrA3ZbKxrHvvqwV/Zpj5HEfcsY5Aky4zj4JjiiSQs
+	vcJ7GGbh9eywFMP8tkz7RZO8zDpnuumqRDZFP/QUy4oYP/LVsoTadjhrmuJbCFS5sPqjB3
+	XbYqzX0V2mH68iN84Y3u9yecbNoGLh6865IQ5l5kp2Ej5s38Ba0WEB+k3ayyfH1cwwVRJX
+	nF3y7iq0yAT9tqUnkJ1yDyZlUmwTGgfQIgTVJZY+pd/CMAlNXm6F/eapbgDA5A==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1764593930;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9JENmYpfkthv0H0/t5UzLVCvUyp18T98L1/mtaikEhU=;
+	b=eyr8lNdLKT1xBGXIPvQ8pSEqEDMLCb1JwB73Ixh0FsW+kenYM8neJRuRz53FKEpuB1Ccjl
+	OQOA715sP3MI6hDg==
+To: Petr Mladek <pmladek@suse.com>, Breno Leitao <leitao@debian.org>
+Cc: linux@armlinux.org.uk, paulmck@kernel.org, usamaarif642@gmail.com,
+ leo.yan@arm.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kernel-team@meta.com, rmikey@meta.com
+Subject: Re: CSD lockup during kexec due to unbounded busy-wait in
+ pl011_console_write_atomic (arm64)
+In-Reply-To: <aSnI8UQRNICSKxAb@pathway.suse.cz>
+References: <sqwajvt7utnt463tzxgwu2yctyn5m6bjwrslsnupfexeml6hkd@v6sqmpbu3vvu>
+ <aSnI8UQRNICSKxAb@pathway.suse.cz>
+Date: Mon, 01 Dec 2025 14:04:49 +0106
+Message-ID: <87ecpefjee.fsf@jogness.linutronix.de>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMBPR06MB10365:EE_|DU4PR06MB10410:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9b507171-bb2b-465e-126a-08de30d83d58
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?VFlybG5HNkhlNk1sd3lVSkhLdnYxSUpNTm1BQ0tXTWZkc2xRU0c1SGpScEdL?=
- =?utf-8?B?R1ErcjltTnA2MjA0QnlMUGhMUDBnMXdDbGVORE8raVFvakRIUDlvV01xd2Vh?=
- =?utf-8?B?WEZrOTUrb3UwUUJOT2lwRlVOZ25ib01QanVoMXoyMUJMeEhsZkY4Y3ZyYytT?=
- =?utf-8?B?cVk0SVpxT2lIc3BSKzM2eEVnK3pnMy84d2JHd3IvSWtCYkdreFNJUlFneElx?=
- =?utf-8?B?RzBJQkFEcFcwOTViSURvYjE1MXdqR1F6bGpZSkh6NXkvaVdFYXpib3l2V3BH?=
- =?utf-8?B?UTBKUzgwTkFMdUtqR2J1YnFJSDdNeTFDK1NIQ2ZpcXpqZTJCMTdBSGxWeTE0?=
- =?utf-8?B?cXVHZzhpayt5S2dUK21qQndoeHdDVE9FSTAwSjRpaERFK3JmN2lENUJ5aU5U?=
- =?utf-8?B?bjdhc0hCVmU4ZGk2OERnSjRFYVlMODlsVW9jS1ZhSnhTMzdscDJ2Qi9YaGJE?=
- =?utf-8?B?eXZLZWJuaEh1R2NNR3ZsU01PWjB1Zlp0MWFRL1NTalhhaFZUaS83ZWU5MWhi?=
- =?utf-8?B?L0YzRGdiNXRJMTJRRWJVampQTitER29QVUFwM0xvT1pwTHI5ZzVTZWI4dUdq?=
- =?utf-8?B?N0hyN2tUMjRWNGd0cEZhc3JLemZDWFdhQTByWmRma1M5d3YzN0xIUUJocW5m?=
- =?utf-8?B?dFJTTWtaZnI3cWdWUnJFR2g5TU5VNUFUNWRhNStNT0s3RC9hZUQwdjhLeFdV?=
- =?utf-8?B?RE01Yk1vVjFUb1ZYbWJQcy9SSThiNjg5NzNOVy9hcUZGNjI2by9nVHRla1ZM?=
- =?utf-8?B?TStDQUJ2UWJaOFlnYTJaU0xicHNLbWorNSswUHY5OXFQRWhwWjEzRnRYYnVt?=
- =?utf-8?B?N0w5RHBsdi9qa3l4M0Y4UWFobmVwRDZ4SWo4OSt5L2k0WSs5Z3RJWnk3QTZF?=
- =?utf-8?B?U1JRYVdyellVUHZJaFlYV3UvaXRmY0kzbVNHSzRiSkx2UkN1dlhpemVKZG53?=
- =?utf-8?B?MStWZ2lpdk1kWVNBNlBkMmUzYzlOVDREaGpXZi9peHpDYk5CMy9tam1xTlU5?=
- =?utf-8?B?bkpaQ29OTUY5Ym5oMDV0RzdJSTdXVnFCd1JBY3F6WW03ckluUG1WRmdnbHFi?=
- =?utf-8?B?YW9xU3BZaFY5ODNRejMxaEppNmhiSzhzbVBXRms4YTJhT2Z3MENoM01jdEtK?=
- =?utf-8?B?Y0F0K0duV0F5aysvSG9sK0J2SkQ1RkZiVlUvQ0FZTmw1M05ldmxVenpqdGUx?=
- =?utf-8?B?dnB3OG1NM1dGTHV2NDlYRVlQSGl5N0pLVXlKOHNVSkpFUHZNaW1TdVExUVNs?=
- =?utf-8?B?cUEycUY1dkQ4QTYrNXg4MXp1eDcxM2k1d2tsajNUMklCTWtQaUpnTlpNVm5v?=
- =?utf-8?B?KytlZklCVEw5dldWSHR4UmMwZ3dWb2l1OHlLaU8xaE9jQ2h2UWlCMW1tajFU?=
- =?utf-8?B?Tm9ISTIwYXJ2WkdnaXRhRkkrNzJsSCttbWlYa2NNTU0xQ0VHOGRZQjNiSjB0?=
- =?utf-8?B?eFdrYnlqdXBoL3BMTFVrNExqa3cvRmFBTXpLbFBTNlB0OWlVN1Q4QzYrNlRP?=
- =?utf-8?B?OUd1MGNZZHZwWU9HOVVPV3RmL3NLNUsydXF4Z2o5VTAwSVVyL1cwallYMlk2?=
- =?utf-8?B?SFhaWnUzVmdLYkVDZ0ZYMTVVTkROZzBjemMyTmw3Sk02MEZjMFV2aWhDNEhn?=
- =?utf-8?B?UVFpMHFEdVJ6NU4zdVpkMGEyV0ZieXovdnNJOG1SdjYxR0NjSFdxNTZBQlNM?=
- =?utf-8?B?MzNJVUpMWnlha29JMVV4U0xNTTZDTWZLNUs1amMyRktDbXZGVjhQS1ZscjZ2?=
- =?utf-8?B?UHZ3TEo1RUw5T2ZhR0I4ZDJGRi9kd2FDYzFwMzQ2S215U3ArTkFOcUs3K2ZB?=
- =?utf-8?B?THROaEYwYUxOZEhRWFVibmJXZkFFNXcrQzYyZWdTVlFobE9jS2VMbFBnK2RQ?=
- =?utf-8?B?TW1ERkdEOW0wZWJGK0N5MTcxZTFKS21HR1pYTDkvZXlvN0xaTzNjTjRIV1FF?=
- =?utf-8?B?Rzl5Qjg2a0FxdmhIYnRxcHprUWxmbWpMdERFbUVkREVwaENrdFFZdGFyWHVT?=
- =?utf-8?B?M0hOQzBEYitZbkpjMVA0TXpoL3lOc0dnd2Y4Y1dSMW1HVGhXSEJqUCtzcVN6?=
- =?utf-8?Q?31DrWB?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AMBPR06MB10365.eurprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bUM5cEZ0WXdpcUhoQ1RzeHFLQm1uampPVm0wZlJqTzBkSDB5UU9OTjBsQ29V?=
- =?utf-8?B?MTFpUmVjZjJDUUZ3ZGNLUy93ZkRGZG01Nm9EZjMrODdnNVdJdnF3TXJJOEw4?=
- =?utf-8?B?VzBUUzljd0ZYWHdvbHFEekVQcDBubVdONnBjb1p3M1k3M2N2Qmk0MURNeWg3?=
- =?utf-8?B?M1lpYkxZUFUzNDlSV2x1YzJDd2N0bkpNNGdtTjBoOGE1VlJtcW9PTVVJSmcw?=
- =?utf-8?B?d0JZOVJQam5BV3o3T0JxaDVZZ0tHRDFSVGlvc0oyYkZxTWI0SDZxaFBxbFhx?=
- =?utf-8?B?cFkyQnhtTDhQUUJDejU2SFFoS1RPZW9TYVlhTkdaOW5neEhFdVJkYUhVMEpy?=
- =?utf-8?B?bThnbnlRTzY3QVdCbFpPOGk1emExRlY1RHcrS3NyVWtScldHOGk1MUxHd2d1?=
- =?utf-8?B?d0lMK1ZtbDFmTFFvN2lvSm9iSHVSdU9nd3dTeERXMkFNTk1jSzlvWURoY2hS?=
- =?utf-8?B?bXVIZFZlNU4zY1pZTXBJM1hVekRPSFBZQkUrOC9qdTVRMTlWOXRVc3NHSEQw?=
- =?utf-8?B?SGNQM0tWK0hwTnFlVHgzWDUxWUM4TkR3OWxnSnRNbnlleUlodndRLy8vOUZQ?=
- =?utf-8?B?dGMrd3kyZC8yZk5XekxHZG1iMXpTNHhuc2JkNzRkOXJ1RFA2WGVrcEppL2Z2?=
- =?utf-8?B?RGUxYXVpMndIcERsUHFZd0hJMmRCTTNtQjI2K1hnbmZGaGJCWktPNnd4Y01I?=
- =?utf-8?B?ZDJvRUg1TkVVWW82RXRNc29tTVZsS1Jpb3JTaktwdkpBamFxLytuNDRJVDBV?=
- =?utf-8?B?VTF0SUtYSWFpOXozYmtXOWRlR2NiWFlLeTY4YXNzcGNBNDZLVTdZclNybXph?=
- =?utf-8?B?WnZVNWFqaGhIWFNDL3pJMmJOOWFwM1NGZjVVZnR1b25QcEV4S3dTdWpQTWZD?=
- =?utf-8?B?blc2aWNFZ2tnTEVVSmpKTlhOcWNEN08wZlVEUDZSOG5CZ3pYM3pIZEsyUXFQ?=
- =?utf-8?B?eWJLQVZnYnE4TWkyZTlUNllqU1dveUYweDZNWWQwclZzT1YwTElPMC9lUndN?=
- =?utf-8?B?K2FLd2cwK3RTYmR6ckF0N1JSaVlLSkQ3MlVnZURNVUlqcFh4UExKMmp2dVAw?=
- =?utf-8?B?a0JoSERRUUNENE1PRW0xSmtmV09HT0NONFY2SzNYSHM5ZXpkc3JXd0xETmI2?=
- =?utf-8?B?SUREanlOSVJFOXRlbUpqN0NianQzQ01aNnZpeGlTSnA0NTJQTTl3c01jcGJz?=
- =?utf-8?B?U1RKdWdFcTRReXBQYTRpYmpyNWRMYm90VER1SXB3VVB4Uis5Y213QUEyUlZP?=
- =?utf-8?B?bUV6Z0NwemxGLzlaTFJaNW5rN1VZaGk1Y1JWT3BzbVdoSEd1WFVkVHlMY1hH?=
- =?utf-8?B?UE9wSS9LRnlidGFQdkFzVGdReHA1Uk5uZUZFZVdGWmxsZVNMemY5TVg5WGt0?=
- =?utf-8?B?UXJxdEY1S3F5M0dYWEl6dGl6ditLdTdDUlNZRzZpdUZVZ205eVdEdHpKTEdO?=
- =?utf-8?B?VlE3MVFiNE5vTFZaYjFWMWs2R2duYWwyd2MxZCtNNlVrZkFDSWJnUDdRSUcy?=
- =?utf-8?B?cTFhTHhNTFEwUXloRW1saDZ6OU94TUd5UkM5RVBQOXM2M2ZqVU84QnZBNkdQ?=
- =?utf-8?B?R0RKSVlhUmdjWmMvVFJGRjZ2elVoMHNBZWpmQ3NpN1d5WHNyOUFHazBQcGhs?=
- =?utf-8?B?TWVpRURZaWRMQkNPRmFZd09hbTRwSW9HR01EZFYyVHp5Y0Ftd0hIeXUvT1FK?=
- =?utf-8?B?cU9hc0M2QUJsdmMxak01TTBMSXRpSlZZWDNWSFVmc0V5amdvOWt6OVF2N1pO?=
- =?utf-8?B?bTM4MXZmVXBKUHFHYUZRd0cvdnNpd2FEUFB1cGdzb1ZmblBBQVVhQmVkSXJl?=
- =?utf-8?B?Q3dkL2hrWm9IYkNZeE5FeUJIM280QW41aVJIQWc3SmZHdGVoREEvQUJlZWZh?=
- =?utf-8?B?aHBlSFVsTWlRVElWMjhTVnRETmo1VHp2MmI2RnlqV1QzQ1ZSVFBtbWpmSTQw?=
- =?utf-8?B?cW9Mcnlsd3Nsc1p1VHZSMkpTSzBDNUZlczdSVnlKVGlZTjVnZHNGN2xyYmk1?=
- =?utf-8?B?TjNCaVY0TEVzd2J4Q2l5d3ZDM1NuMG9DUEx3LzU0Z0hySlB1dU50cXpiZzBV?=
- =?utf-8?B?YmZSZEt1bGNPZXJjWGt0VC94QWxwUSs4bEx3b1dWdE94NHhqM2QyWGJac1dR?=
- =?utf-8?B?Ry9oZjZTL0o1c0dtUVh3WExHRFBpUFFtMzdIbndTQm5xR0FDRmlxbGFacTdX?=
- =?utf-8?B?eVE9PQ==?=
-X-OriginatorOrg: vaisala.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9b507171-bb2b-465e-126a-08de30d83d58
-X-MS-Exchange-CrossTenant-AuthSource: AMBPR06MB10365.eurprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Dec 2025 12:50:43.4777
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 6d7393e0-41f5-4c2e-9b12-4c2be5da5c57
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: hFGaAWaUR0yFqK6UHKNVR5maUyYZdTBoxDk2ctYRIVLh5YOuMavh5bHrlGmxe8M+5aEtLA9IcSA++qEvCKVKOw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR06MB10410
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_045105_737928_489AB467 
-X-CRM114-Status: GOOD (  12.90  )
+X-CRM114-CacheID: sfid-20251201_045855_581490_CBE2B0DC 
+X-CRM114-Status: GOOD (  43.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,45 +77,250 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Maximum and minimum offsets in ppb that can be handled are dependent on
-the rtc clock frequency and what can fit in the 16-bit register field.
+On 2025-11-28, Petr Mladek <pmladek@suse.com> wrote:
 
-Signed-off-by: Tomas Melin <tomas.melin@vaisala.com>
----
- drivers/rtc/rtc-zynqmp.c | 8 +++-----
- 1 file changed, 3 insertions(+), 5 deletions(-)
+> On Tue 2025-11-25 08:02:16, Breno Leitao wrote:
+>> Hello,
+>> 
+>> I am reporting a CSD lockup issue that occurs during kexec on ARM64 hosts,
+>> which I have traced to the amba-pl011 serial driver waiting for hardware with
+>> IRQs disabled in the nbcon atomic write path.
+>> 
+>> 
+>> PROBLEM SUMMARY:
+>> ================
+>> During kexec, a CSD lockup occurs when pl011_console_write_atomic() performs
+>> an unbounded busy-wait for hardware synchronization while IRQs are disabled.
+>> This blocks other CPUs for extended periods (>11 seconds observed), triggering
+>> CSD lock timeouts.
+>
+> I do _not_ think that the CPU was waiting in pl011_console_write_atomic() in the
+> the following cycle the entire 11 secs:
+>
+> 	while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr) & uap->vendor->fr_busy)
+> 		cpu_relax();
+>
+> A more likely scenario was that pl011_console_write_atomic() was
+> called several times during this period because there were more
+> pending messages.
+>
+> See below.
+>
+>> KERNEL VERSION:
+>> ===============
+>> Observed on kernel 6.13, but the code path appears similar in upstream.
+>> 
+>> 
+>> ERROR MESSAGE:
+>> ==============
+>>   mlx5_core 0000:03:00.0: Shutdown was called
+>>   kvm: exiting hardware virtualization
+>>   arm-smmu-v3 arm-smmu-v3.10.auto: CMD_SYNC timeout at 0x00000103 [hwprod 0x00000104, hwcons 0x00000102]
+>>   smp: csd: Detected non-responsive CSD lock (#1) on CPU#4, waiting 5000000032 ns for CPU#00 do_nothing (kernel/smp.c:1057)
+>>   smp:     csd: CSD lock (#1) unresponsive.
+>>   Sending NMI from CPU 4 to CPUs 0:
+>>   NMI backtrace for cpu 0
+>>   pstate: 03401009 (nzcv daif +PAN -UAO +TCO +DIT +SSBS BTYPE=--)
+>>   pc : pl011_console_write_atomic (./arch/arm64/include/asm/vdso/processor.h:12 drivers/tty/serial/amba-pl011.c:2540)
+>
+> This seems to be the cycle:
+>
+> 	while ((pl011_read(uap, REG_FR) ^ uap->vendor->inv_fr) & uap->vendor->fr_busy)
+> 		cpu_relax();
+>
+>>   lr : pl011_console_write_atomic (drivers/tty/serial/amba-pl011.c:292 drivers/tty/serial/amba-pl011.c:298 drivers/tty/serial/amba-pl011.c:2539)
+>>   sp : ffff80010e26fae0
+>>   pmr: 000000c0
+>>   x29: ffff80010e26fae0 x28: ffff800082ddb000 x27: 00000000000000e0
+>>   x26: 0000000000000001 x25: ffff8000826a8de8 x24: 00000000000008eb
+>>   x23: 0000000000000000 x22: 0000000000000001 x21: 0000000000000000
+>>   x20: ffff00009c19c880 x19: ffff80010e26fb88 x18: 0000000000000018
+>>   x17: 696f70646e452065 x16: 4943502032303830 x15: 3130783020737361
+>>   x14: 6c63203030206570 x13: 746e696f70646e45 x12: 0000000000000000
+>>   x11: 0000000000000008 x10: 0000000000000000 x9 : ffff800081888d80
+>>   x8 : 0000000000000018 x7 : 205d313332363336 x6 : 362e31202020205b
+>>   x5 : ffff000097d4700f x4 : ffff80010e26f99f x3 : ffff800081125220
+>>   x2 : 0000000000000052 x1 : 000000000000000a x0 : ffff00009c19c880
+>>   Call trace:
+>>   pl011_console_write_atomic (./arch/arm64/include/asm/vdso/processor.h:12 drivers/tty/serial/amba-pl011.c:2540) (P)
+>>   nbcon_emit_next_record (kernel/printk/nbcon.c:1049)
+>>   __nbcon_atomic_flush_pending_con (kernel/printk/nbcon.c:1517)
+>>   __nbcon_atomic_flush_pending.llvm.15488114865160659019 (./arch/arm64/include/asm/alternative-macros.h:254 ./arch/arm64/include/asm/cpufeature.h:808 ./arch/arm64/include/asm/irqflags.h:192 kernel/printk/nbcon.c:1562 kernel/printk/nbcon.c:1612)
+>>   nbcon_atomic_flush_pending (kernel/printk/nbcon.c:1629)
+>
+> This code looks like:
+>
+> static void nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq,
+> 					   bool allow_unsafe_takeover)
+> {
+> [...]
+> 	/*
+> 	 * Atomic flushing does not use console driver synchronization (i.e.
+> 	 * it does not hold the port lock for uart consoles). Therefore IRQs
+> 	 * must be disabled to avoid being interrupted and then calling into
+> 	 * a driver that will deadlock trying to acquire console ownership.
+> 	 */
+> 	local_irq_save(flags);
+>
+> 	err = __nbcon_atomic_flush_pending_con(con, stop_seq, allow_unsafe_takeover);
+>
+> 	local_irq_restore(flags);
+> [...]
+> }
+>
+> It means that IRQs are disabled until all pending messages are flushed.
+>
+>>   printk_kthreads_shutdown (kernel/printk/printk.c:?)
+>
+> But the function seems be called with IRQs enabled. So that it might
+> help to restore IRQs after each flushed message.
+>
+>>   syscore_shutdown (drivers/base/syscore.c:120)
+>>   kernel_kexec (kernel/kexec_core.c:1045)
+>> 
+>> NOTES:
+>> ======
+>> 
+>> This is slightly similar to a report I gave a while ago [1] that got
+>> fixed by Petr's a7df4ed0af77 ("printk: Allow to use the printk kthread
+>> immediately even for 1st nbcon")
+>> 
+>> https://lore.kernel.org/all/aGVn%2FSnOvwWewkOW@gmail.com/
+>> 
+>> QUESTION
+>> ========
+>> 
+>> 1) Should nbcon wait for hardware synchronizations with IRQ disabled?
+>> 2) Can the hardware synchronization be moved of the IRQ disabled path?
+>
+> This would be complicated because the nbcon console ownership has
+> to be acquired with IRQs disabled. Otherwise, it might cause a
+> deadlock because uart_port_lock() has to acquire the nbcon console
+> as well.
+>
+> But we could extend the existing commit d5d399efff6577 ("printk/nbcon:
+> Release nbcon consoles ownership in atomic flush after each emitted
+> record") and restore IRQs after each emitted record.
+>
+> I wonder if the following patch would help in this scenario.
+> It is made on top of "for-next" branch in printk/linux.git.
+> But the most important pre-requisite is the above mentioned commit
+> in the branch "rework/atomic-flush-hardlockup".
+>
+> Note that the patch is only compile tested.
+>
+> From 6173069ae66fbb3b903cbc3798c16d3b8046da08 Mon Sep 17 00:00:00 2001
+> From: Petr Mladek <pmladek@suse.com>
+> Date: Fri, 28 Nov 2025 16:16:19 +0100
+> Subject: [RFC] printk/nbcon: Restore IRQ in atomic flush after each emitted
+>  record
+>
+> The commit d5d399efff6577 ("printk/nbcon: Release nbcon consoles ownership
+> in atomic flush after each emitted record") prevented stall of a CPU
+> which lost nbcon console ownership because another CPU entered
+> an emergency flush.
+>
+> But there is still the problem that the CPU doing the emergency flush
+> might cause a stall on its own.
+>
+> Let's go even further and restore IRQ in the atomic flush after
+> each emitted record.
+>
+> It is not a complete solution. The interrupts and/or scheduling might
+> still be blocked when the emergency atomic flush was called with
+> IRQs and/or scheduling disabled. But it should remove the following
+> lockup:
+>
+>   mlx5_core 0000:03:00.0: Shutdown was called
+>   kvm: exiting hardware virtualization
+>   arm-smmu-v3 arm-smmu-v3.10.auto: CMD_SYNC timeout at 0x00000103 [hwprod 0x00000104, hwcons 0x00000102]
+>   smp: csd: Detected non-responsive CSD lock (#1) on CPU#4, waiting 5000000032 ns for CPU#00 do_nothing (kernel/smp.c:1057)
+>   smp:     csd: CSD lock (#1) unresponsive.
+>   [...]
+>   Call trace:
+>   pl011_console_write_atomic (./arch/arm64/include/asm/vdso/processor.h:12 drivers/tty/serial/amba-pl011.c:2540) (P)
+>   nbcon_emit_next_record (kernel/printk/nbcon.c:1049)
+>   __nbcon_atomic_flush_pending_con (kernel/printk/nbcon.c:1517)
+>   __nbcon_atomic_flush_pending.llvm.15488114865160659019 (./arch/arm64/include/asm/alternative-macros.h:254 ./arch/arm64/include/asm/cpufeature.h:808 ./arch/arm64/include/asm/irqflags.h:192 kernel/printk/nbcon.c:1562 kernel/printk/nbcon.c:1612)
+>   nbcon_atomic_flush_pending (kernel/printk/nbcon.c:1629)
+>   printk_kthreads_shutdown (kernel/printk/printk.c:?)
+>   syscore_shutdown (drivers/base/syscore.c:120)
+>   kernel_kexec (kernel/kexec_core.c:1045)
+>   __arm64_sys_reboot (kernel/reboot.c:794 kernel/reboot.c:722 kernel/reboot.c:722)
+>   invoke_syscall (arch/arm64/kernel/syscall.c:50)
+>   el0_svc_common.llvm.14158405452757855239 (arch/arm64/kernel/syscall.c:?)
+>   do_el0_svc (arch/arm64/kernel/syscall.c:152)
+>   el0_svc (./arch/arm64/include/asm/alternative-macros.h:254 ./arch/arm64/include/asm/cpufeature.h:808 ./arch/arm64/include/asm/irqflags.h:73 arch/arm64/kernel/entry-common.c:169 arch/arm64/kernel/entry-common.c:182 arch/arm64/kernel/entry-common.c:749)
+>   el0t_64_sync_handler (arch/arm64/kernel/entry-common.c:820)
+>   el0t_64_sync (arch/arm64/kernel/entry.S:600)
+>
+> In this case, nbcon_atomic_flush_pending() is called from
+> printk_kthreads_shutdown() with IRQs and scheduling enabled.
+>
+> An ultimate solution would be touching the watchdog. But it would hide
+> all problems. Let's do it later when anyone reports a stall which does
+> not have a better solution.
+>
+> Closes: https://lore.kernel.org/r/sqwajvt7utnt463tzxgwu2yctyn5m6bjwrslsnupfexeml6hkd@v6sqmpbu3vvu
+> Signed-off-by: Petr Mladek <pmladek@suse.com>
+> ---
+>  kernel/printk/nbcon.c | 29 ++++++++++++++++-------------
+>  1 file changed, 16 insertions(+), 13 deletions(-)
+>
+> diff --git a/kernel/printk/nbcon.c b/kernel/printk/nbcon.c
+> index 3fa403f9831f..6b8becb6ecd9 100644
+> --- a/kernel/printk/nbcon.c
+> +++ b/kernel/printk/nbcon.c
+> @@ -1549,6 +1549,7 @@ static int __nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
+>  {
+>  	struct nbcon_write_context wctxt = { };
+>  	struct nbcon_context *ctxt = &ACCESS_PRIVATE(&wctxt, ctxt);
+> +	unsigned long flags;
+>  	int err = 0;
+>  
+>  	ctxt->console			= con;
+> @@ -1557,18 +1558,31 @@ static int __nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
+>  	ctxt->allow_unsafe_takeover	= nbcon_allow_unsafe_takeover();
+>  
+>  	while (nbcon_seq_read(con) < stop_seq) {
+> -		if (!nbcon_context_try_acquire(ctxt, false))
+> +		/*
+> +		 * Atomic flushing does not use console driver synchronization
+> +		 * (i.e. it does not hold the port lock for uart consoles).
+> +		 * Therefore IRQs must be disabled to avoid being interrupted
+> +		 * and then calling into a driver that will deadlock trying
+> +		 * to acquire console ownership.
+> +		 */
+> +		local_irq_save(flags);
+> +		if (!nbcon_context_try_acquire(ctxt, false)) {
+> +			local_irq_restore(flags);
+>  			return -EPERM;
+> +		}
+>  
+>  		/*
+>  		 * nbcon_emit_next_record() returns false when the console was
+>  		 * handed over or taken over. In both cases the context is no
+>  		 * longer valid.
+>  		 */
+> -		if (!nbcon_emit_next_record(&wctxt, true))
+> +		if (!nbcon_emit_next_record(&wctxt, true)) {
+> +			local_irq_restore(flags);
+>  			return -EAGAIN;
+> +		}
+>  
+>  		nbcon_context_release(ctxt);
+> +		local_irq_restore(flags);
 
-diff --git a/drivers/rtc/rtc-zynqmp.c b/drivers/rtc/rtc-zynqmp.c
-index 3bc8831ba2c4c4c701a49506b67ae6174f3ade3d..0cebc99b15a6de2440a60afc2bd1769eccfa84b3 100644
---- a/drivers/rtc/rtc-zynqmp.c
-+++ b/drivers/rtc/rtc-zynqmp.c
-@@ -44,8 +44,6 @@
- #define RTC_FR_MASK		0xF0000
- #define RTC_FR_MAX_TICKS	16
- #define RTC_PPB			1000000000LL
--#define RTC_MIN_OFFSET		-32768000
--#define RTC_MAX_OFFSET		32767000
- 
- struct xlnx_rtc_dev {
- 	struct rtc_device	*rtc;
-@@ -215,12 +213,12 @@ static int xlnx_rtc_set_offset(struct device *dev, long offset)
- 
- 	/* ticks to reach RTC_PPB */
- 	tick_mult = DIV_ROUND_CLOSEST(RTC_PPB, xrtcdev->freq);
--	if (offset < RTC_MIN_OFFSET || offset > RTC_MAX_OFFSET)
--		return -ERANGE;
--
- 	/* Number ticks for given offset */
- 	max_tick = div_s64_rem(offset, tick_mult, &fract_offset);
- 
-+	if (freq + max_tick > RTC_TICK_MASK || (freq + max_tick < 1))
-+		return -ERANGE;
-+
- 	/* Number fractional ticks for given offset */
- 	if (fract_offset) {
- 		/* round up here so we stay below a full tick */
+Using local_irq_save()/_restore() here is not acceptable for PREEMPT_RT
+because __nbcon_atomic_flush_pending_con() is also used by
+nbcon_device_release().
 
--- 
-2.47.3
+Using local_lock_irqsave()/_irqrestore() instead is also not acceptable
+because __nbcon_atomic_flush_pending_con() is called by vprintk_emit(),
+which can be a context that does not allow sleeping locks.
 
+If we want this kind of a solution, nbcon_device_release() will need an
+atomic flushing variant that does not explicitly disable interrupts.
+
+John Ogness
 
