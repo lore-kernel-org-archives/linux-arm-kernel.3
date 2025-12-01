@@ -4,68 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65D88D111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:39:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD6BDD116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:39:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jdiIDMjT6U7gnpeUR5pH8VP7V3AkpC/YLt5uohRVR1g=; b=yJnfYHSWWxYhJSZqkqs/PqPn7p
-	7I6p8tl1sNQ4vMQrf6/hTJRkyFel2fCWk1qwDJunjuD2/TzP6bVbUSebvAg3nTbt/dzmO+lYVj3Oe
-	+nWw77pgZJarXXNrSs/Cj+WWLYRPQtvs/WQ4YJ5M6awnJqF80TSpwV2bs1EZM4CFVBFA3Ef/8BDpa
-	u1ov2UqvqSv/p8ZlMGIoXlWP7Cecp8z5H7ojabiqlrA8mKuQdKPlDicwwPDNTZPr5+IlSRFUtXGEL
-	NS5xZ0WmFDTYm4Do2QKZoza4lxic1BQEjGfy6IEoEhRq+AuIGA+Qi+Szf3x8ocQh+MAYrE7/Tyubg
-	wLzDX8/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bDER+MAQplrxhK0hdlEzUbQpxtfqDMXbC4KPwCBf7Lc=; b=XaPjhWkDZM/qef2yzJUKErPG8u
+	EsZKQjzGxuBAJrOjPNzNssw6X6505qz4xPxwGRLaNUuE+4Pn7yWiWpy/1nb71K9msDUChwCryDc5p
+	VdhrCmlfVZYs2kqqoi1ln239olOjD+vUyZgwuWYWLOGFOZnaQzNb433I/fxouR3fwLvadj0Cmb+Pa
+	Wh/KhP9wDo5hHigfyN4KPcGmpRqoh7GbUx+VLUu1nBViRzK+BnEBBCB4Lo/9xmu8+OBdbApZKWLz+
+	wTM0vseIH2qevy24a2Y3eSvLsHzaHGXSFmW1mCzsl7fCA3SP0ARpTeg6lrpihBbKbPFCwxybP2OHQ
+	tKV77W9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ1J9-00000003Lgf-24DD;
-	Mon, 01 Dec 2025 10:39:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vQ1JL-00000003Lkb-0G1L;
+	Mon, 01 Dec 2025 10:39:15 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ1J8-00000003LgL-1K6p;
-	Mon, 01 Dec 2025 10:39:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 690A760121;
-	Mon,  1 Dec 2025 10:39:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C41D4C4CEF1;
-	Mon,  1 Dec 2025 10:38:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764585541;
-	bh=7otL5ZpSjHqKVAsGUZwGGCooAKXLD8oQRR5TSq1M7g0=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
-	b=GNh+5vzg472/kaEpWox0DRBdneMiT3C2i8SgfXRGwMw3DD2KHUHEX2z8498ySfcDp
-	 W418/y6q7dHvLL5B/IlTdldGOrVCvZoNhFWGd7Y1RAo3ngAORaGqw8wVRSZu8o5bS1
-	 oPuYcK5H4mP9AZlziA+Nhd55DBHkZFx/ISJBqZcudW/ypsRUiNgRSMLIX7oCPI+qK8
-	 6ugzS31Es6VgXhhNJSKPyoBNUzYMsrELG+6KD5AYgR9PO2FBGoy9kwKmV1/11Ty3ka
-	 XMgu0sUb5R/VC2e5Qe9hGiQqkZCAgE4JJek365j8gBB7L3DbOIDO2OaOnZeNeia0k3
-	 ZenPh0/xUb0fg==
-Message-ID: <fcfe2672-b546-4f3f-8418-71ee8ce1fb5d@kernel.org>
-Date: Mon, 1 Dec 2025 11:38:56 +0100
+	id 1vQ1JH-00000003Lje-42Nw
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 01 Dec 2025 10:39:13 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7aace33b75bso3911966b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 02:39:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764585551; x=1765190351; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=bDER+MAQplrxhK0hdlEzUbQpxtfqDMXbC4KPwCBf7Lc=;
+        b=YB4j6NuD9lA4HmLjt4fVpYprNC1PIYpl/GfQgIH34Sm8i4tQRqBaZqWGXCoEKovM5Q
+         1hTZ8fI24dKmoziH/ed8/fuBVogkQMDleqjnIFIzIx1WnCkuHgdHLbh9ZddK7gy6U4uY
+         hnTAi06SpPXJ1KXbr2N3pSlZ6fR7D0R0Np0Xfiq4H0ThQ2VJ+fGQx/Q4dKOLnr54SsrS
+         1zT2fnErSQ9MnW78dC5NCrmRjjKCgeYWNs7tS3SL3cupVJDyoc19uJDilhHeO+0LiTKZ
+         IunzCiKnDEiEVwvo1bb1Nmd1nOrqNdNMcmQMIxmUD48ehWrm2whjg3Ha5fgpe24ArUp8
+         UKVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764585551; x=1765190351;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bDER+MAQplrxhK0hdlEzUbQpxtfqDMXbC4KPwCBf7Lc=;
+        b=t2cnpYGuVBST5NPeHMmnN1zp9PbpFvZ1kizWM9CqJv/SFiTcTCZ1OPV7phKppsIF6c
+         Z6jDXyzWu0WabBRRKXGn3MbeSy8yXRngKUrsNU3pT4DBlUXB4NrJ6w3o9lJT4htkvRfJ
+         BTI8Nm3zEJaPosQsUJvejZQgu0JnS70PrH4XQuut5UhfZKOKz2hmKHku+UFR1n5O9hZU
+         4RvFwn+6lLZ8L6B3hcyn+TltBpp0rr8U+3pAane1YE6a/GOMGNLjDZWDVEEWGNIcfIHZ
+         ANxxXDLu3ctHKBeV1Am7RYTEm68VDcclQcXM0VCclGBDHyjLs3hHjfJQHmO7vAWr41oy
+         Evog==
+X-Forwarded-Encrypted: i=1; AJvYcCXCiVMH/jVam7oH+O/A48P6IkLZyacnvt4FrfbetR534r5FbhhLc99OPLoMRQPp1fMdCo9ZQEpUUIP7kVPiThtd@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtiT0rcVy8+zP6b/s/LUef5C27YiWWilEmawwJJE5Dpw/9OYqH
+	tqtnFrDRrsP60mBfP07jehr9UeFLeMYCqWUmHns41PDstpsLMjF8xwiwoDuIKKPa
+X-Gm-Gg: ASbGncuiReQE1q/8LLSq27vQCTW0nsuHXYilcz8lTwY8L8F/rK3a23FOhh2SO3lV/1f
+	fGp2gMBoaFRRwVtd/hLpPAu7L6tI/TW978bcmkOWyDjfcHfSVg7IEiAu0Xfye71uFfE4P7eqrmf
+	LGhRBN0dg57BkaTKNQ+g95Jqhi/Qd33A1x/Diiaw5VZxXF/tQzqtatY+1pVuIO/Cv+CbhGjCVpe
+	SWgwKRGQZOnUSJm1Dzlv3N79t9QWMtz+iLwhjpoJ7YJLf+e2GoO5O9XUDwhZfYxFLVuZuPvfRGp
+	ce2EVcKIQE6v1yhaYqrYRiZfcrRFbQ/211Vg6qQsYCp+PH470A2E9lOw5ZOILiVb1ctBvkn+d33
+	uQAMaqM366C+NLlHKoP4tAjSfkYnRm/BcW/wLizqwWDteoT0Fehx2aI44/g8WQZZkI/GydGB3jQ
+	gYDMO9GBOAeHc7fNzF6OM=
+X-Google-Smtp-Source: AGHT+IHF+eZVE3C0cEuEBRumNGUDfaRlB4Mv1q8oJ5yjxaz8ScKS+9O6EnZusB3BjbUji03iZI5cZg==
+X-Received: by 2002:a05:6a20:72a0:b0:342:a7cd:9211 with SMTP id adf61e73a8af0-36150f05e58mr40521914637.34.1764585550855;
+        Mon, 01 Dec 2025 02:39:10 -0800 (PST)
+Received: from google.com ([2401:fa00:95:201:9418:7391:496a:8ca8])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7d150b68367sm13267239b3a.12.2025.12.01.02.39.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Dec 2025 02:39:10 -0800 (PST)
+Date: Mon, 1 Dec 2025 18:39:05 +0800
+From: Kuan-Wei Chiu <visitorckw@gmail.com>
+To: James Clark <james.clark@linaro.org>
+Cc: suzuki.poulose@arm.com, mike.leach@linaro.org,
+	alexander.shishkin@linux.intel.com, gregkh@linuxfoundation.org,
+	mathieu.poirier@linaro.org, leo.yan@arm.com, Al.Grant@arm.com,
+	jserv@ccns.ncku.edu.tw, marscheng@google.com, ericchancf@google.com,
+	milesjiang@google.com, nickpan@google.com,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] coresight: etm3x: Fix cntr_val_show() to match
+ cntr_val_store() behavior
+Message-ID: <aS1wSVFnOE906wLc@google.com>
+References: <20251201095228.1905489-1-visitorckw@gmail.com>
+ <d7c17bc4-a7dd-42fa-8dd3-16a404a6d713@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Hans Verkuil <hverkuil+cisco@kernel.org>
-Subject: Re: [PATCH v4 1/5] media: mc: add manual request completion
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Mauro Carvalho Chehab <mchehab@kernel.org>,
- Tiffany Lin <tiffany.lin@mediatek.com>,
- Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
- Yunfei Dong <yunfei.dong@mediatek.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, kernel@collabora.com,
- linux-media@vger.kernel.org,
- Sebastian Fricke <sebastian.fricke@collabora.com>
-References: <20251128-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v4-0-c166bdd4625c@collabora.com>
- <20251128-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v4-1-c166bdd4625c@collabora.com>
-Content-Language: en-US, nl
-In-Reply-To: <20251128-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v4-1-c166bdd4625c@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d7c17bc4-a7dd-42fa-8dd3-16a404a6d713@linaro.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251201_023912_030638_4B687512 
+X-CRM114-Status: GOOD (  31.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,185 +105,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
-
-On 28/11/2025 20:16, Nicolas Dufresne wrote:
-> From: Hans Verkuil <hverkuil@kernel.org>
+On Mon, Dec 01, 2025 at 10:25:25AM +0000, James Clark wrote:
 > 
-> By default when the last request object is completed, the whole
-> request completes as well.
 > 
-> But sometimes you want to delay this completion to an arbitrary point in
-> time so add a manual complete mode for this.
+> On 01/12/2025 9:52 am, Kuan-Wei Chiu wrote:
+> > The cntr_val_show() function was intended to print the values of all
+> > counters using a loop. However, due to a buffer overwrite issue with
+> > sprintf(), it effectively only displayed the value of the last counter.
+> > 
+> > The companion function, cntr_val_store(), allows users to modify a
+> > specific counter selected by 'cntr_idx'. To maintain consistency
+> > between read and write operations and to align with the ETM4x driver
+> > behavior, modify cntr_val_show() to report only the value of the
+> > currently selected counter.
+> > 
+> > This change removes the loop and the "counter %d:" prefix, printing
+> > only the hexadecimal value. It also adopts sysfs_emit() for standard
+> > sysfs output formatting.
+> > 
+> > Fixes: a939fc5a71ad ("coresight-etm: add CoreSight ETM/PTM driver")
+> > Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
+> > ---
+> > Build test only.
+> > 
+> > Changes in v2:
+> > - Redesigned the fix to match cntr_val_store() logic (display only the
+> >    currently selected counter) instead of attempting to list all
+> >    counters.
+> > - Removed the loop and the "counter %d:" prefix.
+> > - Switched from sprintf() to sysfs_emit().
+> > - Refactored control flow to use a single return point.
+> > 
+> > v1: https://lore.kernel.org/lkml/20251121002350.1166758-1-visitorckw@gmail.com/
+> > 
+> >   .../hwtracing/coresight/coresight-etm3x-sysfs.c   | 15 ++++-----------
+> >   1 file changed, 4 insertions(+), 11 deletions(-)
+> > 
+> > diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+> > index 762109307b86..a6a650331196 100644
+> > --- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+> > +++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
+> > @@ -717,26 +717,19 @@ static DEVICE_ATTR_RW(cntr_rld_event);
+> >   static ssize_t cntr_val_show(struct device *dev,
+> >   			     struct device_attribute *attr, char *buf)
+> >   {
+> > -	int i, ret = 0;
+> >   	u32 val;
+> >   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> >   	struct etm_config *config = &drvdata->config;
+> >   	if (!coresight_get_mode(drvdata->csdev)) {
+> >   		spin_lock(&drvdata->spinlock);
+> > -		for (i = 0; i < drvdata->nr_cntr; i++)
+> > -			ret += sprintf(buf, "counter %d: %x\n",
+> > -				       i, config->cntr_val[i]);
+> > +		val = config->cntr_val[config->cntr_idx];
+> >   		spin_unlock(&drvdata->spinlock);
+> > -		return ret;
+> > -	}
+> > -
+> > -	for (i = 0; i < drvdata->nr_cntr; i++) {
+> > -		val = etm_readl(drvdata, ETMCNTVRn(i));
+> > -		ret += sprintf(buf, "counter %d: %x\n", i, val);
+> > +	} else {
+> > +		val = etm_readl(drvdata, ETMCNTVRn(config->cntr_idx));
+> >   	}
+> > -	return ret;
+> > +	return sysfs_emit(buf, "%x\n", val);
 > 
-> In req_queue the driver marks the request for manual completion by
-> calling media_request_mark_manual_completion, and when the driver
-> wants to manually complete the request it calls
-> media_request_manual_complete().
-> 
-> Signed-off-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
-
-For this patch and the other patches with this xs4all SoB, can you replace it with:
-
-Signed-off-by: Hans Verkuil <hverkuil+cisco@kernel.org>
-
-Much appreciated,
-
-	Hans
-
-> Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> ---
->  drivers/media/mc/mc-request.c | 41 +++++++++++++++++++++++++++++++++++++++--
->  include/media/media-request.h | 38 +++++++++++++++++++++++++++++++++++++-
->  2 files changed, 76 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/media/mc/mc-request.c b/drivers/media/mc/mc-request.c
-> index f66f728b1b43dcd1cf51de46e828bf806f014f8d..512e6969152792558537dd8a0736df82847ae210 100644
-> --- a/drivers/media/mc/mc-request.c
-> +++ b/drivers/media/mc/mc-request.c
-> @@ -54,6 +54,7 @@ static void media_request_clean(struct media_request *req)
->  	req->access_count = 0;
->  	WARN_ON(req->num_incomplete_objects);
->  	req->num_incomplete_objects = 0;
-> +	req->manual_completion = false;
->  	wake_up_interruptible_all(&req->poll_wait);
->  }
->  
-> @@ -313,6 +314,7 @@ int media_request_alloc(struct media_device *mdev, int *alloc_fd)
->  	req->mdev = mdev;
->  	req->state = MEDIA_REQUEST_STATE_IDLE;
->  	req->num_incomplete_objects = 0;
-> +	req->manual_completion = false;
->  	kref_init(&req->kref);
->  	INIT_LIST_HEAD(&req->objects);
->  	spin_lock_init(&req->lock);
-> @@ -459,7 +461,7 @@ void media_request_object_unbind(struct media_request_object *obj)
->  
->  	req->num_incomplete_objects--;
->  	if (req->state == MEDIA_REQUEST_STATE_QUEUED &&
-> -	    !req->num_incomplete_objects) {
-> +	    !req->num_incomplete_objects && !req->manual_completion) {
->  		req->state = MEDIA_REQUEST_STATE_COMPLETE;
->  		completed = true;
->  		wake_up_interruptible_all(&req->poll_wait);
-> @@ -488,7 +490,7 @@ void media_request_object_complete(struct media_request_object *obj)
->  	    WARN_ON(req->state != MEDIA_REQUEST_STATE_QUEUED))
->  		goto unlock;
->  
-> -	if (!--req->num_incomplete_objects) {
-> +	if (!--req->num_incomplete_objects && !req->manual_completion) {
->  		req->state = MEDIA_REQUEST_STATE_COMPLETE;
->  		wake_up_interruptible_all(&req->poll_wait);
->  		completed = true;
-> @@ -499,3 +501,38 @@ void media_request_object_complete(struct media_request_object *obj)
->  		media_request_put(req);
->  }
->  EXPORT_SYMBOL_GPL(media_request_object_complete);
-> +
-> +void media_request_manual_complete(struct media_request *req)
-> +{
-> +	bool completed = false;
-> +	unsigned long flags;
-> +
-> +	if (WARN_ON_ONCE(!req))
-> +		return;
-> +
-> +	spin_lock_irqsave(&req->lock, flags);
-> +
-> +	if (WARN_ON_ONCE(!req->manual_completion))
-> +		goto unlock;
-> +
-> +	if (WARN_ON_ONCE(req->state != MEDIA_REQUEST_STATE_QUEUED))
-> +		goto unlock;
-> +
-> +	req->manual_completion = false;
-> +	/*
-> +	 * It is expected that all other objects in this request are
-> +	 * completed when this function is called. WARN if that is
-> +	 * not the case.
-> +	 */
-> +	if (!WARN_ON(req->num_incomplete_objects)) {
-> +		req->state = MEDIA_REQUEST_STATE_COMPLETE;
-> +		wake_up_interruptible_all(&req->poll_wait);
-> +		completed = true;
-> +	}
-> +
-> +unlock:
-> +	spin_unlock_irqrestore(&req->lock, flags);
-> +	if (completed)
-> +		media_request_put(req);
-> +}
-> +EXPORT_SYMBOL_GPL(media_request_manual_complete);
-> diff --git a/include/media/media-request.h b/include/media/media-request.h
-> index bb500b2f9da46f5a9a84272759a137720b094a80..3256fcf3709da58878a59d90722bee3224d97af6 100644
-> --- a/include/media/media-request.h
-> +++ b/include/media/media-request.h
-> @@ -56,6 +56,9 @@ struct media_request_object;
->   * @access_count: count the number of request accesses that are in progress
->   * @objects: List of @struct media_request_object request objects
->   * @num_incomplete_objects: The number of incomplete objects in the request
-> + * @manual_completion: if true, then the request won't be marked as completed
-> + * when @num_incomplete_objects reaches 0. Call media_request_manual_complete()
-> + * to complete the request after @num_incomplete_objects == 0.
->   * @poll_wait: Wait queue for poll
->   * @lock: Serializes access to this struct
->   */
-> @@ -68,6 +71,7 @@ struct media_request {
->  	unsigned int access_count;
->  	struct list_head objects;
->  	unsigned int num_incomplete_objects;
-> +	bool manual_completion;
->  	wait_queue_head_t poll_wait;
->  	spinlock_t lock;
->  };
-> @@ -218,6 +222,38 @@ media_request_get_by_fd(struct media_device *mdev, int request_fd);
->  int media_request_alloc(struct media_device *mdev,
->  			int *alloc_fd);
->  
-> +/**
-> + * media_request_mark_manual_completion - Enable manual completion
-> + *
-> + * @req: The request
-> + *
-> + * Mark that the request has to be manually completed by calling
-> + * media_request_manual_complete().
-> + *
-> + * This function shall be called in the req_queue callback.
-> + */
-> +static inline void
-> +media_request_mark_manual_completion(struct media_request *req)
-> +{
-> +	req->manual_completion = true;
-> +}
-> +
-> +/**
-> + * media_request_manual_complete - Mark the request as completed
-> + *
-> + * @req: The request
-> + *
-> + * This function completes a request that was marked for manual completion by an
-> + * earlier call to media_request_mark_manual_completion(). The request's
-> + * @manual_completion field is reset to false.
-> + *
-> + * All objects contained in the request must have been completed previously. It
-> + * is an error to call this function otherwise. If such an error occurred, the
-> + * function will WARN and the object completion will be delayed until
-> + * @num_incomplete_objects is 0.
-> + */
-> +void media_request_manual_complete(struct media_request *req);
-> +
->  #else
->  
->  static inline void media_request_get(struct media_request *req)
-> @@ -336,7 +372,7 @@ void media_request_object_init(struct media_request_object *obj);
->   * @req: The media request
->   * @ops: The object ops for this object
->   * @priv: A driver-specific priv pointer associated with this object
-> - * @is_buffer: Set to true if the object a buffer object.
-> + * @is_buffer: Set to true if the object is a buffer object.
->   * @obj: The object
->   *
->   * Bind this object to the request and set the ops and priv values of
+> Sorry I missed this on the previous version, but this should be %#x to add
+> the "0x" prefix. All the other ones in this file have it. Otherwise you
+> can't tell the difference between decimal and hex.
 > 
 
+Thanks for catching that. I will fix it in v3.
+
+I'll wait a day or two to see if there are any other comments, and then
+respin with the Cc stable tag.
+
+Regards,
+Kuan-Wei
+
+> >   }
+> >   static ssize_t cntr_val_store(struct device *dev,
+> 
 
