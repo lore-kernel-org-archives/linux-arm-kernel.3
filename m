@@ -4,93 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD6BDD116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:39:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01322D116F5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:45:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bDER+MAQplrxhK0hdlEzUbQpxtfqDMXbC4KPwCBf7Lc=; b=XaPjhWkDZM/qef2yzJUKErPG8u
-	EsZKQjzGxuBAJrOjPNzNssw6X6505qz4xPxwGRLaNUuE+4Pn7yWiWpy/1nb71K9msDUChwCryDc5p
-	VdhrCmlfVZYs2kqqoi1ln239olOjD+vUyZgwuWYWLOGFOZnaQzNb433I/fxouR3fwLvadj0Cmb+Pa
-	Wh/KhP9wDo5hHigfyN4KPcGmpRqoh7GbUx+VLUu1nBViRzK+BnEBBCB4Lo/9xmu8+OBdbApZKWLz+
-	wTM0vseIH2qevy24a2Y3eSvLsHzaHGXSFmW1mCzsl7fCA3SP0ARpTeg6lrpihBbKbPFCwxybP2OHQ
-	tKV77W9A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=bCF0FSqyYlnyWEBaqmzmHC6kRsLUVYOKh7WHQQM9qF0=; b=05CUlwP9+3cJaY
+	tCetL4Im/x/yZ5JocmgZvYvRo3iyXJCVhVZh+Hpe57s2Q5Jc6QBgK2t09AIEc0+yzzTGuAhCsGNSM
+	j0AwgeZBIQg4nCEVKndX7wGTDxKZHEhcju/f55qD6UDoIZ2SxlOVCy8PNeAAhHhBMVnIVGKw/cbhq
+	i64XIcm7wchBmIf/fO4QxB0xFRmFbcMLuPrYwEizPe/oSXxheV2MA8Wr1CVQVi6E7ZVpATmh+uame
+	6EtTznejCKZ6vTxHZlXXX+48BaN3Aj3C2Xd6xCGmYKGrtkjFT63e5K/vKsYupSQrhTMMxm2NqqB3c
+	zQeKD9fbppdy7PfgF7yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ1JL-00000003Lkb-0G1L;
-	Mon, 01 Dec 2025 10:39:15 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1vQ1Pj-00000003MIi-3gEp;
+	Mon, 01 Dec 2025 10:45:51 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ1JH-00000003Lje-42Nw
+	id 1vQ1Pf-00000003MFY-0ozq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 10:39:13 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7aace33b75bso3911966b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 02:39:11 -0800 (PST)
+	Mon, 01 Dec 2025 10:45:50 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-42e2e167067so678332f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 02:45:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764585551; x=1765190351; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=bDER+MAQplrxhK0hdlEzUbQpxtfqDMXbC4KPwCBf7Lc=;
-        b=YB4j6NuD9lA4HmLjt4fVpYprNC1PIYpl/GfQgIH34Sm8i4tQRqBaZqWGXCoEKovM5Q
-         1hTZ8fI24dKmoziH/ed8/fuBVogkQMDleqjnIFIzIx1WnCkuHgdHLbh9ZddK7gy6U4uY
-         hnTAi06SpPXJ1KXbr2N3pSlZ6fR7D0R0Np0Xfiq4H0ThQ2VJ+fGQx/Q4dKOLnr54SsrS
-         1zT2fnErSQ9MnW78dC5NCrmRjjKCgeYWNs7tS3SL3cupVJDyoc19uJDilhHeO+0LiTKZ
-         IunzCiKnDEiEVwvo1bb1Nmd1nOrqNdNMcmQMIxmUD48ehWrm2whjg3Ha5fgpe24ArUp8
-         UKVA==
+        d=gmail.com; s=20230601; t=1764585945; x=1765190745; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=bCF0FSqyYlnyWEBaqmzmHC6kRsLUVYOKh7WHQQM9qF0=;
+        b=FgOQ48Fv4ntRGXiuxdoB+JgFxA+d1z+JDa7+LCRYufC/xqqxjKy41HzsOQ3Vygl1p3
+         qrMZXXd13MJnpIERzoO/abxgXhrKnWluxU8pOsYdPnsOqxQPtk9k5NuztKvgmw4LkY5M
+         Oa7v5grRQXkR3gAMScdzDWWEYWlEUZWRXnU6BhjOtHqRCj0d2ZVyVqS/KJkfKMcHd6Cc
+         ZuZiKTnn/fwCt1rCNz3MAWOhaqwYv6oV2sLElNZQlSQUgi1fC2pcBOr/icF0aB1i6Bi3
+         h5Z35GYt+omkYGTnH81bJsHaQuZB2TiO1ZlBwjlkWMVy8axsprC7PgCy+JcE+zroZwaK
+         dixg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764585551; x=1765190351;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bDER+MAQplrxhK0hdlEzUbQpxtfqDMXbC4KPwCBf7Lc=;
-        b=t2cnpYGuVBST5NPeHMmnN1zp9PbpFvZ1kizWM9CqJv/SFiTcTCZ1OPV7phKppsIF6c
-         Z6jDXyzWu0WabBRRKXGn3MbeSy8yXRngKUrsNU3pT4DBlUXB4NrJ6w3o9lJT4htkvRfJ
-         BTI8Nm3zEJaPosQsUJvejZQgu0JnS70PrH4XQuut5UhfZKOKz2hmKHku+UFR1n5O9hZU
-         4RvFwn+6lLZ8L6B3hcyn+TltBpp0rr8U+3pAane1YE6a/GOMGNLjDZWDVEEWGNIcfIHZ
-         ANxxXDLu3ctHKBeV1Am7RYTEm68VDcclQcXM0VCclGBDHyjLs3hHjfJQHmO7vAWr41oy
-         Evog==
-X-Forwarded-Encrypted: i=1; AJvYcCXCiVMH/jVam7oH+O/A48P6IkLZyacnvt4FrfbetR534r5FbhhLc99OPLoMRQPp1fMdCo9ZQEpUUIP7kVPiThtd@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtiT0rcVy8+zP6b/s/LUef5C27YiWWilEmawwJJE5Dpw/9OYqH
-	tqtnFrDRrsP60mBfP07jehr9UeFLeMYCqWUmHns41PDstpsLMjF8xwiwoDuIKKPa
-X-Gm-Gg: ASbGncuiReQE1q/8LLSq27vQCTW0nsuHXYilcz8lTwY8L8F/rK3a23FOhh2SO3lV/1f
-	fGp2gMBoaFRRwVtd/hLpPAu7L6tI/TW978bcmkOWyDjfcHfSVg7IEiAu0Xfye71uFfE4P7eqrmf
-	LGhRBN0dg57BkaTKNQ+g95Jqhi/Qd33A1x/Diiaw5VZxXF/tQzqtatY+1pVuIO/Cv+CbhGjCVpe
-	SWgwKRGQZOnUSJm1Dzlv3N79t9QWMtz+iLwhjpoJ7YJLf+e2GoO5O9XUDwhZfYxFLVuZuPvfRGp
-	ce2EVcKIQE6v1yhaYqrYRiZfcrRFbQ/211Vg6qQsYCp+PH470A2E9lOw5ZOILiVb1ctBvkn+d33
-	uQAMaqM366C+NLlHKoP4tAjSfkYnRm/BcW/wLizqwWDteoT0Fehx2aI44/g8WQZZkI/GydGB3jQ
-	gYDMO9GBOAeHc7fNzF6OM=
-X-Google-Smtp-Source: AGHT+IHF+eZVE3C0cEuEBRumNGUDfaRlB4Mv1q8oJ5yjxaz8ScKS+9O6EnZusB3BjbUji03iZI5cZg==
-X-Received: by 2002:a05:6a20:72a0:b0:342:a7cd:9211 with SMTP id adf61e73a8af0-36150f05e58mr40521914637.34.1764585550855;
-        Mon, 01 Dec 2025 02:39:10 -0800 (PST)
-Received: from google.com ([2401:fa00:95:201:9418:7391:496a:8ca8])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7d150b68367sm13267239b3a.12.2025.12.01.02.39.07
+        d=1e100.net; s=20230601; t=1764585945; x=1765190745;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bCF0FSqyYlnyWEBaqmzmHC6kRsLUVYOKh7WHQQM9qF0=;
+        b=Pi6oWTGWAeHR2KPrq+hev+1+OpKL8CiJldUXxYsSQBlA1bVi5Gtx4AavhJkv2y7GZs
+         r4TMFgB7cIaA6B1+079KY7SIPMPIQ4W6D7ZTS9g7v6CYbPoZtWNV7fuCqkBTS04/ZpH5
+         a/44L/OVM48UVWA7hwYJPbwDS40IpvpNskzDsb1pgCqr16pwiQ68D83+bWo28GqaZBpu
+         mo6xXFDtwXFLXrmbnS12uddHP5x6ibbZyecW+KQjWtq16KtRREGonUceDWFh6BYoVFC4
+         f7wIK1IW1PWRz4JXaZ6r9lK1t3UUmoYJiBWNyqkI9Y9z2jEFFYJoXxMyrE5qzAGcg9IE
+         sbHg==
+X-Forwarded-Encrypted: i=1; AJvYcCX2ItEccb71Mv1LeurAEM2g3UHk8elVAa/Wv6g/XBeptfwOIXyVJRcs7qDsCvw+1xJu7b6gTxw+9YAyIDS8PAdu@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1tlc/EnLDEiYrzV7DfguIIXD0Qn+mIkD017nX5b2a6TF0jc2R
+	2fJ4+O2XdmfTMFz9kJiE8Y3LZ7b2ig5u34AyOYE4oFpvEfta147hH/qN
+X-Gm-Gg: ASbGncsU5PXN3gigRX+0cI0SU4t5pD1b73XRDg3BndznEur1Emhsin3qd1jyA0OqY9G
+	AhK5HL09Azi7J3qdRLx/uPKWLQFjmhCm6GsZa60NdIOOID3E458S+4Km+BxgXbtUkWHhuI+I+Ce
+	odjGrAZJrzAiWRrGElvqqTMnFTedQ6cYdDiIALrqHrKhlE9rE1Ou8eM+5qgRskEh+KVKv8mPCa9
+	53i0SkYe+0tk3aStCu6xfzAZEIDWL5MW8BdEKGibAUFRvStIRrrwPJ5yuaMxNQXIY/HzaXq1em3
+	mDcxte+a3oFc8pzxflUSkoQNQQGoVmj9l0Vs25MQEUn3hcyFKGdH1cTWoWYMLtE55QkQ4WynZab
+	0H57WjEcq+BJwoCZ0B+an/OQmzJnr/1WFkw8ALfgItApdcmUI0vrkSI3YKXYw/rsw7Wfbq3B/qw
+	uryDJzEfpPbNbDGerTbyeTCTfSZQ==
+X-Google-Smtp-Source: AGHT+IF+saINz1aMfFQPoF21DyIcobxATSuvnAhtrL28gk23j/ZdYr9KXTQtKbBxA0p/NCWRqd312g==
+X-Received: by 2002:a05:6000:1f03:b0:42b:3867:b39c with SMTP id ffacd0b85a97d-42cc1cf452amr32151633f8f.34.1764585945022;
+        Mon, 01 Dec 2025 02:45:45 -0800 (PST)
+Received: from [127.0.1.1] ([2001:861:3201:3d10:4ab6:6efe:9b65:a6af])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42e1c5d6049sm26264262f8f.10.2025.12.01.02.45.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Dec 2025 02:39:10 -0800 (PST)
-Date: Mon, 1 Dec 2025 18:39:05 +0800
-From: Kuan-Wei Chiu <visitorckw@gmail.com>
-To: James Clark <james.clark@linaro.org>
-Cc: suzuki.poulose@arm.com, mike.leach@linaro.org,
-	alexander.shishkin@linux.intel.com, gregkh@linuxfoundation.org,
-	mathieu.poirier@linaro.org, leo.yan@arm.com, Al.Grant@arm.com,
-	jserv@ccns.ncku.edu.tw, marscheng@google.com, ericchancf@google.com,
-	milesjiang@google.com, nickpan@google.com,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] coresight: etm3x: Fix cntr_val_show() to match
- cntr_val_store() behavior
-Message-ID: <aS1wSVFnOE906wLc@google.com>
-References: <20251201095228.1905489-1-visitorckw@gmail.com>
- <d7c17bc4-a7dd-42fa-8dd3-16a404a6d713@linaro.org>
+        Mon, 01 Dec 2025 02:45:44 -0800 (PST)
+From: Gary Bisson <bisson.gary@gmail.com>
+Subject: [PATCH v3 0/4] Add support for Ezurio MediaTek platforms
+Date: Mon, 01 Dec 2025 11:45:16 +0100
+Message-Id: <20251201-review-v3-0-07f9af7341fd@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d7c17bc4-a7dd-42fa-8dd3-16a404a6d713@linaro.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIALxxLWkC/2WOwQ6CMBAFf4X0bMm2tBY8+R+GQy0LbCLUtAQlh
+ H+3cNJ4nGTe5K0sYiCM7JKtLOBMkfyYoDhlzPV27JBTk5hJkFpIEHyX8MWNBjBSm6qqBEvyM2B
+ L7yN0qxO3wQ986gPanzmUSijIC3MGXXLB7xSjH/POhuXaDZYeufPD3uspTj4sx69Z7tW/C7Pkw
+ Bsnm1YpRGfwq1Bv2/YBEYIT0dwAAAA=
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sean Wang <sean.wang@mediatek.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Gary Bisson <bisson.gary@gmail.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764585944; l=2679;
+ i=bisson.gary@gmail.com; s=20251201; h=from:subject:message-id;
+ bh=jNo2dVX46ep7yogASVgnWC6hbGoR5SWan4ITaGGLyNc=;
+ b=ZPpeBmyjbzBJZ6wFdMpdSHQvmIZGec77e91q9/e8Xner55jTqegx9NWGkO0rZ51b4arn7x5pL
+ jf2BEC53e2wAz/tAvu1Zx3ADXWriypUbET+29EYWFmcjB+CuoiJGAoy
+X-Developer-Key: i=bisson.gary@gmail.com; a=ed25519;
+ pk=eaOrLwovHUZBMoLbrx+L1ppj+AH+TfgxkVhIEyrhkeE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_023912_030638_4B687512 
-X-CRM114-Status: GOOD (  31.95  )
+X-CRM114-CacheID: sfid-20251201_024547_259756_91C12402 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,87 +114,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 01, 2025 at 10:25:25AM +0000, James Clark wrote:
-> 
-> 
-> On 01/12/2025 9:52 am, Kuan-Wei Chiu wrote:
-> > The cntr_val_show() function was intended to print the values of all
-> > counters using a loop. However, due to a buffer overwrite issue with
-> > sprintf(), it effectively only displayed the value of the last counter.
-> > 
-> > The companion function, cntr_val_store(), allows users to modify a
-> > specific counter selected by 'cntr_idx'. To maintain consistency
-> > between read and write operations and to align with the ETM4x driver
-> > behavior, modify cntr_val_show() to report only the value of the
-> > currently selected counter.
-> > 
-> > This change removes the loop and the "counter %d:" prefix, printing
-> > only the hexadecimal value. It also adopts sysfs_emit() for standard
-> > sysfs output formatting.
-> > 
-> > Fixes: a939fc5a71ad ("coresight-etm: add CoreSight ETM/PTM driver")
-> > Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
-> > ---
-> > Build test only.
-> > 
-> > Changes in v2:
-> > - Redesigned the fix to match cntr_val_store() logic (display only the
-> >    currently selected counter) instead of attempting to list all
-> >    counters.
-> > - Removed the loop and the "counter %d:" prefix.
-> > - Switched from sprintf() to sysfs_emit().
-> > - Refactored control flow to use a single return point.
-> > 
-> > v1: https://lore.kernel.org/lkml/20251121002350.1166758-1-visitorckw@gmail.com/
-> > 
-> >   .../hwtracing/coresight/coresight-etm3x-sysfs.c   | 15 ++++-----------
-> >   1 file changed, 4 insertions(+), 11 deletions(-)
-> > 
-> > diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> > index 762109307b86..a6a650331196 100644
-> > --- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> > +++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> > @@ -717,26 +717,19 @@ static DEVICE_ATTR_RW(cntr_rld_event);
-> >   static ssize_t cntr_val_show(struct device *dev,
-> >   			     struct device_attribute *attr, char *buf)
-> >   {
-> > -	int i, ret = 0;
-> >   	u32 val;
-> >   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> >   	struct etm_config *config = &drvdata->config;
-> >   	if (!coresight_get_mode(drvdata->csdev)) {
-> >   		spin_lock(&drvdata->spinlock);
-> > -		for (i = 0; i < drvdata->nr_cntr; i++)
-> > -			ret += sprintf(buf, "counter %d: %x\n",
-> > -				       i, config->cntr_val[i]);
-> > +		val = config->cntr_val[config->cntr_idx];
-> >   		spin_unlock(&drvdata->spinlock);
-> > -		return ret;
-> > -	}
-> > -
-> > -	for (i = 0; i < drvdata->nr_cntr; i++) {
-> > -		val = etm_readl(drvdata, ETMCNTVRn(i));
-> > -		ret += sprintf(buf, "counter %d: %x\n", i, val);
-> > +	} else {
-> > +		val = etm_readl(drvdata, ETMCNTVRn(config->cntr_idx));
-> >   	}
-> > -	return ret;
-> > +	return sysfs_emit(buf, "%x\n", val);
-> 
-> Sorry I missed this on the previous version, but this should be %#x to add
-> the "0x" prefix. All the other ones in this file have it. Otherwise you
-> can't tell the difference between decimal and hex.
-> 
+This series adds support for Ezurio MediaTek platforms called
+"Tungsten". It includes support for MT8370-based Tungsten 510 and
+MT8390-based Tungsten 700 SOMs.
 
-Thanks for catching that. I will fix it in v3.
+Changes in v2:
+- Use b4 to cc all maintainers properly
+- Squashed patches 2/3 together
+- Updated dts node names to be generic
 
-I'll wait a day or two to see if there are any other comments, and then
-respin with the Cc stable tag.
+Changes in v3:
+- Added per-commit changelog
+- Added missing Acked-by on 1st patch
+- Link to v2: https://lore.kernel.org/r/20251201-review-v2-0-dc2df44eec7e@gmail.com
 
 Regards,
-Kuan-Wei
 
-> >   }
-> >   static ssize_t cntr_val_store(struct device *dev,
-> 
+Gary Bisson (4):
+  dt-bindings: vendor-prefixes: Add Ezurio LLC
+  dt-bindings: arm: mediatek: Add Ezurio Tungsten entries
+  arm64: dts: mediatek: add device tree for Tungsten 510 board
+  arm64: dts: mediatek: add device tree for Tungsten 700 board
+
+ .../devicetree/bindings/arm/mediatek.yaml     |    2 +
+ .../devicetree/bindings/vendor-prefixes.yaml  |    2 +
+ arch/arm64/boot/dts/mediatek/Makefile         |    2 +
+ .../dts/mediatek/mt8370-tungsten-smarc.dts    |   14 +
+ .../dts/mediatek/mt8390-tungsten-smarc.dts    |   22 +
+ .../dts/mediatek/mt83x0-tungsten-smarc.dtsi   | 1481 +++++++++++++++++
+ 6 files changed, 1523 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8370-tungsten-smarc.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8390-tungsten-smarc.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt83x0-tungsten-smarc.dtsi
+
+--
+2.43.0
+
+---
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Matthias Brugger <matthias.bgg@gmail.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Sean Wang <sean.wang@mediatek.com>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-mediatek@lists.infradead.org
+
+---
+Gary Bisson (4):
+      dt-bindings: vendor-prefixes: Add Ezurio LLC
+      dt-bindings: arm: mediatek: Add Ezurio Tungsten entries
+      arm64: dts: mediatek: add device tree for Tungsten 510 board
+      arm64: dts: mediatek: add device tree for Tungsten 700 board
+
+ .../devicetree/bindings/arm/mediatek.yaml          |    2 +
+ .../devicetree/bindings/vendor-prefixes.yaml       |    2 +
+ arch/arm64/boot/dts/mediatek/Makefile              |    2 +
+ .../boot/dts/mediatek/mt8370-tungsten-smarc.dts    |   14 +
+ .../boot/dts/mediatek/mt8390-tungsten-smarc.dts    |   22 +
+ .../boot/dts/mediatek/mt83x0-tungsten-smarc.dtsi   | 1481 ++++++++++++++++++++
+ 6 files changed, 1523 insertions(+)
+---
+base-commit: 7d0a66e4bb9081d75c82ec4957c50034cb0ea449
+change-id: 20251201-review-750072579991
+
+Best regards,
+-- 
+Gary Bisson <bisson.gary@gmail.com>
+
 
