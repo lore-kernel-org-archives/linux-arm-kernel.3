@@ -4,84 +4,121 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B633D116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 21:27:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 866FDD116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 21:46:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cfRTWtcIaathUA2mgL41QBVM+XL6VT6UBdp0QiNZHSY=; b=pOGDPQjOP5E6VtjDJgFE0OLeHQ
-	eBUtE4/0m+Z7DGOBJZDVIeQpI8hbwwutgKeN3HmC30BzlWaaKftYrTxuf4dndSl493BATqm1Ktrer
-	3EX89a4uJCcry3DKOdBNFtcmTNYpARjkkKcgkJrRKPrNE/ZthWWsLIpbdWwHRHC5P3lRXlNz4TnSp
-	9WRdxkVzQG/Ege2TZDTjtck6FhIq6eM43qjS5MlASQipoAMa3W6hc+lhAuYlc3yZAm7JVn/fzKgHw
-	x5f0wQsf9KNI3uY2eRGo4wex0XCjO1NRXdOkGbSzZBnbObfEMMlbHQE7sGSlkZiFBTCM72mSMd+QV
-	e3FqCIvQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vdw1PY+o0VSsEgItp6X2ajAMa8aw2Q+D8aLwbtsF52A=; b=0YkFUYnkIFhoPcsYFj0Ws7Vrrl
+	kKxvcxz6HlcuyYxpEU61yxfkq9fIbRf+1UGWEESNsXNOC5ug63eS9EJvUmS/X68Rn6SPEswTCrrIx
+	9dU869kGpAZ4s7a0AKGP4Hqv7a3CyGcNV3ip3cnAKqQbR+MLuICRXc3SgmId4tmqwv0spK2xRvSBo
+	me77MDcLbGnaR9fOsn+McLJytn3dNyZorrLC8kKUCf3Ujmc0NXVWpFoDpFhWI8BAsT1gms4eV7G5Y
+	skEonndjYLRE2PjoFRJvrKd37DLUUheWJ6sDcpGiAFJGDgQq04UINXzzOVfyODPqg8twWbSr9M7My
+	IAONh4UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQBQD-00000004XUL-2oz4;
-	Mon, 01 Dec 2025 21:27:01 +0000
-Received: from mail-ed1-x54a.google.com ([2a00:1450:4864:20::54a])
+	id 1vQBiq-00000004YdP-40q6;
+	Mon, 01 Dec 2025 21:46:16 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQBQB-00000004XTz-06CL
+	id 1vQBip-00000004YdH-2JUQ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 21:27:00 +0000
-Received: by mail-ed1-x54a.google.com with SMTP id 4fb4d7f45d1cf-640ace5f40dso5138378a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 13:26:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764624417; x=1765229217; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id
-         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cfRTWtcIaathUA2mgL41QBVM+XL6VT6UBdp0QiNZHSY=;
-        b=iwRVoUIANxapI/3T+9MYboeiR26spagYVWg9Q8RQF9wy/IoB0cUIB3Z8HHHHK0hw2N
-         acfGnd8Smyqed7uW7E3VN2luUaoWBZPN48TI2UjxTfViMo+UQpSkMOD/QCDOAEx+lH9t
-         TTrdM3yteu3YJ9eSQG+/xcdMRJnXBRfNkLzApa46iS4pzuwtYhb/+8Ulhx4Vzayb63d4
-         VixcIzRKtfVRPeRvQtTHBVumUhBksnT8r2fxjgm4/ObApcJnk8s69YVzni3hiDMvC9Ko
-         X00ASLjFXH1vy9G6lBHiRRYuuHR4eDeJSg9/5mxOdU5N5GTxoGUkzkcPgoVdgVf/B3Qz
-         w4uQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764624417; x=1765229217;
-        h=content-transfer-encoding:cc:to:from:subject:message-id
-         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cfRTWtcIaathUA2mgL41QBVM+XL6VT6UBdp0QiNZHSY=;
-        b=LOXrLHf7v1edEbImstekEKlyKThprGgh7VLDbCsbEphaoxfD5wmfhzd2pRrINcyOB3
-         LRh4dTywAJQbO5vTNDRUN8E03NYVqd1C8lj4F45eU3yQxYU0g97LvB3PNJjCJaCR9DKv
-         uOhUuBYaeGBvSi48z2nKaDHq1R7DqPez7h95nAnS2YO0ntU/X9hh9z8T+voZTL67P5md
-         v/8MNQCf299mh84iq+BPyulaVnZ6m+TzadNevxz931Xh1SfoVrckykG6dnBwnmmkiHeH
-         1c9R6x7SCqNQ4pny7PSpXqihjzM3rh6Qlsyu05MvDReSO0GE3Xkav2de6eRWcFRPUw9V
-         d0ug==
-X-Forwarded-Encrypted: i=1; AJvYcCVmK8feWshi60zAvVo+RFyApBWWAUeveH1uePOX/JiaAJ3OhdUJhX8uxvEnjyuV/CrxLXofWsxem3NIqXtDKl1b@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGnGtLXeo9AINLTzQ1VdovuKWzs4IIpWnuLiWq/79H/YUvZtq6
-	tgJk/Rrm/d3vI3n11vAuor3MSiF4HRsfdwom+Gd0plIq4yagDHV03SmTcNGOVIbfTEtehOZG2j9
-	uww==
-X-Google-Smtp-Source: AGHT+IG6OTWqFbaWntwqBBvO6mL+v9FKNl0tgC0FGiL0/5Lod1u3ROGkbcUdu5tvSbLlEmMPZt/biMrlsA==
-X-Received: from eda15.prod.google.com ([2002:a05:6402:a00f:b0:647:7a4d:7406])
- (user=ptosi job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:26c3:b0:643:6af2:2356
- with SMTP id 4fb4d7f45d1cf-645eb2aade8mr24700068a12.26.1764624416786; Mon, 01
- Dec 2025 13:26:56 -0800 (PST)
-Date: Mon, 01 Dec 2025 21:26:42 +0000
-Mime-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIABEILmkC/3XMQQ6DIBCF4auYWZfGQWlIV71H40JhwElUGjCkj
- eHupe67/F/yvgMSRaYE9+aASJkTh62GvDRg5nHzJNjWBtlKhbJFkVZjjHC87BSF0tpah3LqlIJ 6eUVy/D6551B75rSH+Dn1jL/1D5RRoJh63WGPN6fH7uFD8AtdTVhhKKV8ATlMx72pAAAA
-X-Change-Id: 20251201-smccc-filter-588ddf12b355
-X-Mailer: b4 0.14.2
-Message-ID: <20251201-smccc-filter-v2-1-03dab737a14d@google.com>
-Subject: [PATCH v2] KVM: arm64: Prevent FWD_TO_USER of SMCCC to pKVM
-From: "=?utf-8?q?Pierre-Cl=C3=A9ment_Tosi?=" <ptosi@google.com>
-To: kvm@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev
-Cc: Joey Gouly <joey.gouly@arm.com>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Vincent Donnefort <vdonnefort@google.com>, 
-	Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>, 
-	"=?utf-8?q?Pierre-Cl=C3=A9ment_Tosi?=" <ptosi@google.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_132659_116477_7EA7C713 
-X-CRM114-Status: GOOD (  14.98  )
+	Mon, 01 Dec 2025 21:46:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 475476018D;
+	Mon,  1 Dec 2025 21:46:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3335AC4CEF1;
+	Mon,  1 Dec 2025 21:46:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764625574;
+	bh=VLLU6Fk7P3OG6KYCxQGd9OElcUAY4ZD7P6cn13H2jiM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ZHZeyGnX53fuJ+TFcphgGSaCsDCJhwYeaA57v4UgoTroDE1bNBiA+AEBgK6TWk4PP
+	 StgMzwo6oxSb3Di3nUAj39dfRtVry2Wghasn0rtlszjDZ0b0OIc7DgBquFet90WHED
+	 ehtfNAglh2SiPiEaAwI9a0/EJQobw2hmwPQIq0V9K84uSkvqYOlmByaMD+eio2ZZ2G
+	 yt3YHi9/JGIleOqhXNXcVEzMu9wN0MPTXcRHzFrJgDHbSa7zwK4yDWuN9GQCtGx8+C
+	 XLDzaT0uptyRyeOLkxSEy9O1+HUv0wd+Nhq+nhmh0O1OrAiNU53CBX3C/P0z6wenKo
+	 UCNSbv44STpbQ==
+Message-ID: <3bc5bf92-05c3-4841-ab28-9bab2bb31cd5@kernel.org>
+Date: Mon, 1 Dec 2025 22:46:01 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 05/21] ARM: dts: omap: Bind panel to panel-dpi instead of
+ ti,tilcdc,panel driver
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
+Cc: Markus Schneider-Pargmann <msp@baylibre.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Louis Chauvet <louis.chauvet@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Miguel Gazquez <miguel.gazquez@bootlin.com>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-omap@vger.kernel.org, Jyri Sarha <jyri.sarha@iki.fi>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Tony Lindgren <tony@atomide.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
+References: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
+ <20251126-feature_tilcdc-v1-5-49b9ef2e3aa0@bootlin.com>
+ <96b1b7bf-ddbe-4213-a201-dc89cf2998dd@ideasonboard.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <96b1b7bf-ddbe-4213-a201-dc89cf2998dd@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,120 +133,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With protected VMs, forwarding guest HVC/SMCs happens at two interfaces:
+On 01/12/2025 15:13, Tomi Valkeinen wrote:
+> Hi Kory,
+> 
+> On 26/11/2025 19:35, Kory Maincent (TI.com) wrote:
+>> Use panel-dpi driver instead of the deprecated tilcdc-panel driver in
+>> preparation for removing the tilcdc-panel driver and binding.
+>>
+>> Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
+>> ---
+>>
+>> This patch is not tested. It would be nice if someone with one of this
+>> board could test and validate it.
+>> ---
+>>  arch/arm/boot/dts/ti/davinci/da850-evm.dts    | 26 +++++++++++++-------------
+>>  arch/arm/boot/dts/ti/omap/am335x-guardian.dts | 25 +++++++++----------------
+>>  arch/arm/boot/dts/ti/omap/am335x-pdu001.dts   | 21 ++++++++++-----------
+>>  arch/arm/boot/dts/ti/omap/am335x-pepper.dts   | 22 +++++++++++-----------
+>>  arch/arm/boot/dts/ti/omap/am335x-sbc-t335.dts | 25 +++++++++++++------------
+>>  arch/arm/boot/dts/ti/omap/am335x-sl50.dts     | 25 ++++++++++++-------------
+>>  6 files changed, 68 insertions(+), 76 deletions(-)
+>>
+> 
+> Doesn't this, or rather the following patches, break DTB compatibility
+> with all the above boards?
 
-     pKVM [EL2] <--> KVM [EL1] <--> VMM [EL0]
+Stuffing DTS change in the middle of the driver change tries to hide
+impact, which is not nice on its own.
 
-so it might be possible for EL0 to successfully register with EL1 to
-handle guest SMCCC calls but never see the KVM_EXIT_HYPERCALL, even if
-the calls are properly issued by the guest, due to EL2 handling them so
-that (host) EL1 never gets a chance to exit to EL0.
-
-Instead, avoid that confusing situation and make userspace fail early by
-disallowing KVM_ARM_VM_SMCCC_FILTER-ing calls from protected guests in
-the pKVM FID range.
-
-Similarly, reserve the "Call UID Query" to ensure that a malicious host
-can't mislead a protected guest into misusing the pKVM ABI, under the
-premise that it would be interacting with a different hypervisor ABI, as
-hypervisors share the same FID space.
-
-Signed-off-by: Pierre-Cl=C3=A9ment Tosi <ptosi@google.com>
----
-Changes in v2:
-- Restricted the range to pKVM HVCs & the "Call UID Query"
-- Updated docs & removed mention of KVM_VM_TYPE_ARM_PROTECTED
-- Link to v1: https://lore.kernel.org/r/20251201-smccc-filter-v1-1-b4831416=
-f8a3@google.com
----
- Documentation/virt/kvm/devices/vm.rst | 10 ++++++++++
- arch/arm64/kvm/hypercalls.c           | 29 +++++++++++++++++++++++++++++
- 2 files changed, 39 insertions(+)
-
-diff --git a/Documentation/virt/kvm/devices/vm.rst b/Documentation/virt/kvm=
-/devices/vm.rst
-index a4d39fa1b0834b090318250db3b670b0b3174259..28ab2629e7e8f166def6f9efd18=
-e8408ab4a8e63 100644
---- a/Documentation/virt/kvm/devices/vm.rst
-+++ b/Documentation/virt/kvm/devices/vm.rst
-@@ -400,3 +400,13 @@ will reject attempts to define a filter for any portio=
-n of these ranges:
-         0x8000_0000 0x8000_FFFF
-         0xC000_0000 0xC000_FFFF
-         =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D
-+
-+Protected KVM (pKVM) handles some calls directly and will reject attempts =
-to
-+define a filter for a protected VM for any portion of these ranges:
-+
-+        =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D
-+        Start       End (inclusive)
-+        =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D
-+        0x8600_FF01 0x8600_FF01
-+        0xC600_0002 0xC600_003F
-+        =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
-=3D=3D=3D=3D=3D
-diff --git a/arch/arm64/kvm/hypercalls.c b/arch/arm64/kvm/hypercalls.c
-index 58c5fe7d757274d9079606fcc378485980c6c0f8..5329772f228d356322863a7150f=
-fa40c25ea1ee2 100644
---- a/arch/arm64/kvm/hypercalls.c
-+++ b/arch/arm64/kvm/hypercalls.c
-@@ -135,6 +135,12 @@ static bool kvm_smccc_test_fw_bmap(struct kvm_vcpu *vc=
-pu, u32 func_id)
- 						   ARM_SMCCC_SMC_64,		\
- 						   0, ARM_SMCCC_FUNC_MASK)
-=20
-+#define SMC64_PKVM_RANGE_BEGIN	ARM_SMCCC_VENDOR_HYP_KVM_HYP_MEMINFO_FUNC_I=
-D
-+#define SMC64_PKVM_RANGE_END	ARM_SMCCC_CALL_VAL(ARM_SMCCC_FAST_CALL,		\
-+						   ARM_SMCCC_SMC_64,		\
-+						   ARM_SMCCC_OWNER_VENDOR_HYP,	\
-+						   ARM_SMCCC_KVM_FUNC_PKVM_RESV_63)
-+
- static int kvm_smccc_filter_insert_reserved(struct kvm *kvm)
- {
- 	int r;
-@@ -158,6 +164,29 @@ static int kvm_smccc_filter_insert_reserved(struct kvm=
- *kvm)
- 	if (r)
- 		goto out_destroy;
-=20
-+	/*
-+	 * Prevent userspace from registering to handle any SMCCC call in the
-+	 * vendor hypervisor range for pVMs, avoiding the confusion of guest
-+	 * calls seemingly not resulting in KVM_RUN exits because pKVM handles
-+	 * them without ever returning to the host. This is NOT for security.
-+	 */
-+	if (kvm_vm_is_protected(kvm)) {
-+		r =3D mtree_insert(&kvm->arch.smccc_filter,
-+				ARM_SMCCC_VENDOR_HYP_CALL_UID_FUNC_ID,
-+				xa_mk_value(KVM_SMCCC_FILTER_HANDLE),
-+				GFP_KERNEL_ACCOUNT);
-+		if (r)
-+			goto out_destroy;
-+
-+		r =3D mtree_insert_range(&kvm->arch.smccc_filter,
-+				       SMC64_PKVM_RANGE_BEGIN,
-+				       SMC64_PKVM_RANGE_END,
-+				       xa_mk_value(KVM_SMCCC_FILTER_HANDLE),
-+				       GFP_KERNEL_ACCOUNT);
-+		if (r)
-+			goto out_destroy;
-+	}
-+
- 	return 0;
- out_destroy:
- 	mtree_destroy(&kvm->arch.smccc_filter);
-
----
-base-commit: 7d0a66e4bb9081d75c82ec4957c50034cb0ea449
-change-id: 20251201-smccc-filter-588ddf12b355
+Please follow soc maintainer profile and submitting patches in DT
+regarding DTS patches.
 
 Best regards,
---=20
-Pierre-Cl=C3=A9ment Tosi <ptosi@google.com>
-
+Krzysztof
 
