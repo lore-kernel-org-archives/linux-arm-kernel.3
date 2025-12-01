@@ -4,76 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D25DCFD376
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 02:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00372D111A8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 02:57:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gujTNJmqpRdBHyk9LK5Ef8CldG/P1liKZSq/4bE3y54=; b=1NC0zRgH46rR7nzmzappnXZAOU
-	hoNpOlEVAp0+o7aHT4Yf6eW73gPiZEb3JzI4oJF64mkHo4tAYn/SrV1Gm95xCs6hHAbMSW+DWFalq
-	zafMTLhbzpcUXjyFmTK00bynN+RgcjJSF3jbm+uqtGuwn9Kcs5u04vUV6XS5vPuanZzia3xgy4wal
-	IYNlok7A+KEgRfOc2XhkkTv24lTwRKKpCs51+5zWSODL+cLkKjW0UMlJjDK92sdl0OmKZkMVFufRn
-	0dKGIw9udqk2+n7qpz63OJV+rA/LOTMpAoaaHhvFc8sTWunAaEbEBWrkHrU1twUX4Vkpe5W24PXVT
-	4JBydllQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9HG5vIZeG6DjcNDNCfRzCXn+GiaKTQ413V1uAk2ip2E=; b=KKT9Z6Vh6JYFNUlKd1aSCi42HA
+	TuLAC2Gkdg0sXlB8+aTIyZZKgGmDxJoPxyo5LzSOF1+QmfmF+69yvElg2eG47CSRgqWMRgziGxiU+
+	klJ3PmauylalTvyRQ6+E29VotpICmIVpiNuIJUYa/SZyV1YDg3Ch73fmvdLQpgxEIpsM2XVZHLu+6
+	4BtMAt6P9CWKS0fvgCGccPTkFK8nUZCXIeLUzxpKyZazRi/AAD6KUnIjuyK0Jy4aKRcJ7YKD4cZag
+	aVVH4Y7wqvkXpD4leahEfFSlXWAWoi/ER6ZfJvPZxa0qIMw9dUSVH36aAYcIlf3Y05mCdtBxTeK+p
+	HNNw5AiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPu0L-00000002pxp-0hYU;
-	Mon, 01 Dec 2025 02:51:09 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vPu6H-00000002qGa-3yOb;
+	Mon, 01 Dec 2025 02:57:19 +0000
+Received: from out162-62-58-216.mail.qq.com ([162.62.58.216])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPu0E-00000002pwb-45x8
+	id 1vPu6E-00000002qG9-1IQ6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 02:51:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1764557460;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gujTNJmqpRdBHyk9LK5Ef8CldG/P1liKZSq/4bE3y54=;
-	b=YwNbmbKrsO0h5Fv5WZ8ypGDFu7QdzJEVABVU/xdSCLmuE2viTd5O9TN0TMQWbJ3OuGvP81
-	kWX6JzwjyHHvW6yKFatIsx1jTBjwa98SOl1KJc0ImXB5c5jRr6pabWLEg5Bpfa67AOHctz
-	PPGunYXE5jz1g5dGZFn5KHf81G9vxWo=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-335-ELWTYQSANmmOINN0KgfjYQ-1; Sun,
- 30 Nov 2025 21:50:56 -0500
-X-MC-Unique: ELWTYQSANmmOINN0KgfjYQ-1
-X-Mimecast-MFC-AGG-ID: ELWTYQSANmmOINN0KgfjYQ_1764557455
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DE816195605A;
-	Mon,  1 Dec 2025 02:50:54 +0000 (UTC)
-Received: from localhost (unknown [10.72.112.52])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4DA30195608E;
-	Mon,  1 Dec 2025 02:50:51 +0000 (UTC)
-Date: Mon, 1 Dec 2025 10:50:47 +0800
-From: Baoquan He <bhe@redhat.com>
-To: Mark Rutland <mark.rutland@arm.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
-	Breno Leitao <leitao@debian.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, pjw@kernel.org,
-	catalin.marinas@arm.com, will@kernel.org, coxu@redhat.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: kernel: initialize missing kexec_buf->random field
-Message-ID: <aS0Ch3hrYPDXomDC@MiWiFi-R3L-srv>
-References: <20251127182644.1577592-1-yeoreum.yun@arm.com>
- <20251127113706.d89a84f277dab3ad273dde75@linux-foundation.org>
- <aSjqEQDv7V79V3Na@MiWiFi-R3L-srv>
- <5wel6vqjwwf25hryvg6s7z6aaog7xc3zxjevupt3jn4gntme6d@74wwwmhvvelt>
- <aSmrUGnZp0UeTp1E@J2N7QTR9R3>
+	Mon, 01 Dec 2025 02:57:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1764557825; bh=9HG5vIZeG6DjcNDNCfRzCXn+GiaKTQ413V1uAk2ip2E=;
+	h=From:To:Cc:Subject:Date;
+	b=eLum1SysUyevzkZNTmmEMOovuTPPzDfFc5UZ90E08r2Of1AmBaMYCwSSHeVxjDhqF
+	 DRRhGxBwAYrGtOqJmPkm7eiwgW0ZXW7ZpYAK+CX96xnMpLIKwiM1hA40fvYwsnxQ1V
+	 ng0B9ZhlW1Z2F3K4vzb9U/FrYa8x8+7jlzPUfxnQ=
+Received: from localhost ([58.246.87.66])
+	by newxmesmtplogicsvrszb51-1.qq.com (NewEsmtp) with SMTP
+	id E4322249; Mon, 01 Dec 2025 10:57:03 +0800
+X-QQ-mid: xmsmtpt1764557823tgzuvzj06
+Message-ID: <tencent_22959DC8315158E23D77C14B9B33C97EA60A@qq.com>
+X-QQ-XMAILINFO: Na23fxG1dahlIHagbvu0S9yGh7KvCtlJ+jcO/sOXy3vdAOPN2yFS719FrteZgF
+	 L9diDzWuXJWqZExU1tGfwGTKoKbsQPd96/dhd0X3ALf6++rAzohULa9kz10xikHQGUm6Zpp66kWv
+	 EndmwTpJ8176XDKHY1VAOHYbrUfwparkH+uDFkbXszQ/mGkfGX6OwaOolMEeOQbfZdEo6nUdXERA
+	 qgfyqsGWSOePTr0hKC9QobH5+OhwOjqqpCoDKKhLZ6bdqdQnbit7pe13ow92TD0b5RBcsn28o8eE
+	 2yBClEfCtCYb1acj+6km3ATA4kvFqOZrmhY918y0MjHCcfWJpz3QNw4rN7AQ4Snovfxruj/pMU0f
+	 9Z1T2Nxo4L20WvWv7R9Tyqw+vtbJO8/Ok0MP/ZpZJACbt0pO4lZjGfipAmEGt2vzw9SDEX3v9ZVg
+	 /99UFmu9HuQGV9kmVdZSxQ/Nc1CijR4geosETVN37f8SjA0Pg+fBEvkCuU2nfZLLtV8THT6RMs8/
+	 N5nBmKRq9W/2jeCANQ4GgmW6XtHxSlcKEiPJNZzDELEBU/v679NxGXtlG6GN/PXbuZxDD7hw02VA
+	 f6Y/VPu2sVpBQrwsXQTwy1FH8rxbbCYbXgQO/InaNpsIVECYkCFtPcbUhEJJc9yhVcI52We3KR21
+	 cwYL3gyXWs5Z3i1X10ykvfajeF3xQrVXbwE/DVvy18DuiONWy54hx9SREU6piKdV7gTEfpbVUqwm
+	 JaRNBXmM4hKyz0nNlSzU2vBnh+Fyxke/VJrjd03Zbm6T9SLasLq9mLkRKL0sQJYmOCLBfJARz3Bk
+	 pWKaI43RIDyXVY3QX1vlACYHKwRDm+rCP0EtVrJixx+m2VuwAq/NrPSbXC0ZAjPn6xrQBWphlfXP
+	 +PfxuWaq7ShJwjhnXYBIWq9SjEoWpEC4TxjzDKj2gFASzfya1n3jPu7nzjyhs4csv+LFVEg8Ygs0
+	 BOJVKB9qmkGx5qRg2CZSisgMNL9p72YCL/YV3jp5n3k71Rr6ArCHz8aa/NPUC8znOV2Ie8OlFPVS
+	 Y82Q+woOejaL6Bcw4h
+X-QQ-XMRINFO: NyFYKkN4Ny6FSmKK/uo/jdU=
+From: 2694439648@qq.com
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	hailong.fan@siengine.com
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	inux-kernel@vger.kernel.org
+Subject: [PATCH] net: stmmac: Modify the judgment condition of "tx_avail" from 1 to 2
+Date: Mon,  1 Dec 2025 10:57:01 +0800
+X-OQ-MSGID: <20251201025701.16345-1-2694439648@qq.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aSmrUGnZp0UeTp1E@J2N7QTR9R3>
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251130_185103_429911_E81A8458 
-X-CRM114-Status: GOOD (  25.55  )
+X-CRM114-CacheID: sfid-20251130_185714_879796_863827F4 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,98 +91,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/28/25 at 02:01pm, Mark Rutland wrote:
-> On Fri, Nov 28, 2025 at 05:55:05AM -0800, Breno Leitao wrote:
-> > 
-> > On Fri, Nov 28, 2025 at 08:17:21AM +0800, Baoquan He wrote:
-> > > On 11/27/25 at 11:37am, Andrew Morton wrote:
-> > > > On Thu, 27 Nov 2025 18:26:44 +0000 Yeoreum Yun <yeoreum.yun@arm.com> wrote:
-> > > > 
-> > > > > Commit bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
-> > > > > introduced the kexec_buf->random field to enable random placement of
-> > > > > kexec_buf.
-> > > > > 
-> > > > > However, this field was never properly initialized for kexec images
-> > > > > that do not need to be placed randomly, leading to the following UBSAN
-> > > > > warning:
-> > > > > 
-> > > > > [  +0.364528] ------------[ cut here ]------------
-> > > > > [  +0.000019] UBSAN: invalid-load in ./include/linux/kexec.h:210:12
-> > > > > [  +0.000131] load of value 2 is not a valid value for type 'bool' (aka '_Bool')
-> > > > > [  +0.000003] CPU: 4 UID: 0 PID: 927 Comm: kexec Not tainted 6.18.0-rc7+ #3 PREEMPT(full)
-> > > > > [  +0.000002] Hardware name: QEMU QEMU Virtual Machine, BIOS 0.0.0 02/06/2015
-> > > > > [  +0.000000] Call trace:
-> > > > > [  +0.000001]  show_stack+0x24/0x40 (C)
-> > > > > [  +0.000006]  __dump_stack+0x28/0x48
-> > > > > [  +0.000002]  dump_stack_lvl+0x7c/0xb0
-> > > > > [  +0.000002]  dump_stack+0x18/0x34
-> > > > > [  +0.000001]  ubsan_epilogue+0x10/0x50
-> > > > > [  +0.000002]  __ubsan_handle_load_invalid_value+0xc8/0xd0
-> > > > > [  +0.000003]  locate_mem_hole_callback+0x28c/0x2a0
-> > > > > [  +0.000003]  kexec_locate_mem_hole+0xf4/0x2f0
-> > > > > [  +0.000001]  kexec_add_buffer+0xa8/0x178
-> > > > > [  +0.000002]  image_load+0xf0/0x258
-> > > > > [  +0.000001]  __arm64_sys_kexec_file_load+0x510/0x718
-> > > > > [  +0.000002]  invoke_syscall+0x68/0xe8
-> > > > > [  +0.000001]  el0_svc_common+0xb0/0xf8
-> > > > > [  +0.000002]  do_el0_svc+0x28/0x48
-> > > > > [  +0.000001]  el0_svc+0x40/0xe8
-> > > > > [  +0.000002]  el0t_64_sync_handler+0x84/0x140
-> > > > > [  +0.000002]  el0t_64_sync+0x1bc/0x1c0
-> > > > > 
-> > > > > To address this, initialise kexec_buf->random field properly.
-> > > > > 
-> > > > > Fixes: bf454ec31add ("kexec_file: allow to place kexec_buf randomly")
-> > > > 
-> > > > Thanks, I'll add a cc:stable to this.
-> > > 
-> > > This has been fixed in below series from Breno Leitao.
-> > > 
-> > > [PATCH 0/3] kexec: Fix invalid field access
-> > > https://lore.kernel.org/all/20250827-kbuf_all-v1-0-1df9882bb01a@debian.org/T/#u
-> > 
-> > Right, these fixes are on 6.18 since day one.
-> > 
-> > Yeoreum is hitting another code path that I haven't fixed, it seems
-> > (through image_load()).
-> > 
-> > That said, I think the fix should be similar to commit 04d3cd43700 ("arm64:
-> > kexec: initialize kexec_buf struct in load_other_segments()"). I.e:
-> > 
-> > 	--- a/arch/arm64/kernel/kexec_image.c
-> > 	+++ b/arch/arm64/kernel/kexec_image.c
-> > 	@@ -41,7 +41,7 @@ static void *image_load(struct kimage *image,
-> > 		struct arm64_image_header *h;
-> > 		u64 flags, value;
-> > 		bool be_image, be_kernel;
-> > 	-       struct kexec_buf kbuf;
-> > 	+       struct kexec_buf kbuf = {};
-> > 		unsigned long text_offset, kernel_segment_number;
-> > 		struct kexec_segment *kernel_segment;
-> > 		int ret;
-> 
-> FWIW, I completey agree; your proposal is a much better solution.
+From: "hailong.fan" <hailong.fan@siengine.com>
 
-Yes, maybe Yeoreum or Breno can post a new version to fix it on arm64.
+    Under certain conditions, a WARN_ON will be triggered
+    if avail equals 1.
 
-> 
-> From a quick scan, it looks like loongarch also has some more dodgy
-> instances:
+    For example, when a VLAN packet is to send,
+    stmmac_vlan_insert consumes one unit of space,
+    and the data itself consumes another.
+    actually requiring 2 units of space in total.
 
-In the latest mainline kernel, the problem on loongarch has gone.
+Signed-off-by: hailong.fan <hailong.fan@siengine.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> 
-> | % git grep 'struct kexec_buf\s[a-z_0-9]\+;'
-> | arch/arm64/kernel/kexec_image.c:        struct kexec_buf kbuf;
-> | arch/loongarch/kernel/kexec_efi.c:      struct kexec_buf kbuf;
-> | arch/loongarch/kernel/kexec_elf.c:      struct kexec_buf kbuf;
-> | arch/loongarch/kernel/machine_kexec_file.c:     struct kexec_buf kbuf;
-> | kernel/kexec_handover.c:        struct kexec_buf scratch;
-> 
-> The 'scratch' case in kernel/kexec_handover.c gets overwritten with a
-> struct assignment that'll happen to zero the 'random' field.
-> 
-> Mark.
-> 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 7b90ecd3a..b575384cd 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -4529,7 +4529,7 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
+ 		}
+ 	}
+ 
+-	if (unlikely(stmmac_tx_avail(priv, queue) < nfrags + 1)) {
++	if (unlikely(stmmac_tx_avail(priv, queue) < nfrags + 2)) {
+ 		if (!netif_tx_queue_stopped(netdev_get_tx_queue(dev, queue))) {
+ 			netif_tx_stop_queue(netdev_get_tx_queue(priv->dev,
+ 								queue));
+-- 
+2.34.1
 
 
