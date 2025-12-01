@@ -4,195 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9152CD111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:38:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65D88D111A8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:39:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=48vD7A36hAnn2ZOOFLdnExg7mLbU+dpobsyh0bd2cNA=; b=fVee+at8BY8ytOsBldGCTrbAdO
-	2jKpnFv/pXvrY+CrP9VBtKOY2dAbNbYmJMxH2Os8Ayt5XnKNh6P7Tne/me9C6l/BUeDbRTr4znJKy
-	IWcND/8v1DGu3qUsyLhotNNgpPY/k5kk6Upt1mt10W935XqzSkLBvPVzh09cllsX7XCOoFYxnBkig
-	Rro/iJyIqo+eFZbTulyzke7ApOMihTpGqgfsQy5cjWSKLrSUGv6VznMGTCv4VC/0SIUBH0KYiAdtd
-	2Yr/99BRuZgod0ToRfYTq699TkGtar5DJGdA0FYUuS23Kd5gWBxeq93PJr00sF9/zajxkPRc+vX0p
-	qPgLiZjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jdiIDMjT6U7gnpeUR5pH8VP7V3AkpC/YLt5uohRVR1g=; b=yJnfYHSWWxYhJSZqkqs/PqPn7p
+	7I6p8tl1sNQ4vMQrf6/hTJRkyFel2fCWk1qwDJunjuD2/TzP6bVbUSebvAg3nTbt/dzmO+lYVj3Oe
+	+nWw77pgZJarXXNrSs/Cj+WWLYRPQtvs/WQ4YJ5M6awnJqF80TSpwV2bs1EZM4CFVBFA3Ef/8BDpa
+	u1ov2UqvqSv/p8ZlMGIoXlWP7Cecp8z5H7ojabiqlrA8mKuQdKPlDicwwPDNTZPr5+IlSRFUtXGEL
+	NS5xZ0WmFDTYm4Do2QKZoza4lxic1BQEjGfy6IEoEhRq+AuIGA+Qi+Szf3x8ocQh+MAYrE7/Tyubg
+	wLzDX8/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ1I2-00000003LUC-3VSH;
-	Mon, 01 Dec 2025 10:37:54 +0000
-Received: from mail-northeuropeazon11011016.outbound.protection.outlook.com ([52.101.65.16] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vQ1J9-00000003Lgf-24DD;
+	Mon, 01 Dec 2025 10:39:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ1Hz-00000003LTd-2dIa
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 10:37:53 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=MPGMmrxOdOLSHA4Rj0lclBIpaE4j9DUwO2W9bXLTvg3pmI+zs3Dr5gRbPQdfUzAqgheQR8cmtc1aUUXJK9J7/r229gGKz3L2F8D3QWM73tltIC4wPAHD3+KBFc2Y+6VrwsjVETUwqoN717L2dpnD4cgQ47TtUwUiewd2oHKwL5ZLM6c6xxRN0fvdua011/lN5lIdUPI94KqUq1K/UaDI8OMGi0BbC01VEMg1zmxghChrQhOfhF7w8wUIllYlQLN17cMscQDqqoLsxanvVAGb5z3FKF5SpeixpCara9yeiJe+eHaCGxoj5+veNNCk/smTFX9hEiU45Ub8NO9bkSQeyw==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=48vD7A36hAnn2ZOOFLdnExg7mLbU+dpobsyh0bd2cNA=;
- b=QsVIivz2zPd8xV/Sa2ZRaWpWGePZf93mCkQI035Egl+Uk+5g/dZn8UvrpH/rBeQH400gRsDA6wjCFV93lm2zsxtLcRSbFzLL2rUIoT2ZAUH1cUmuyQmXrHpUuGvZ9pJ8NrWEV1dElaO/drfyy5QZw0u59EkcnkE7vz69QiA6gSPEYfW1DxdP4uH3xQuKx5khF1gihxsGJdCrSgkIKGWMxFLY7xhdALMOSWRj5ibemWZH5Ae45bg2v0DZT+m6nedEIvboXhl/7PWHNwpfKVtUIHQJYi7TX59prY3n1zZAjvkrM9uZkj/RlmCx4xG/ZgiUi/AbePNuubct/97UITEyHg==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 4.158.2.129) smtp.rcpttodomain=debian.org smtp.mailfrom=arm.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=arm.com; dkim=pass
- (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=48vD7A36hAnn2ZOOFLdnExg7mLbU+dpobsyh0bd2cNA=;
- b=qToFokFrPzYtQIyjv6iNkp2+PhSOhfvqR1bAeNCgnX2MV9XeaoIQMQBb+g0StRDnd7puiqgKx+z1tv++EzWY2cMDJ5R1lAsd41MoUqlKHPvatsWw6IX/2S/9XtGWDU2XiS2nJkwnMG40Dp9pMlVR7fsqCty6NE9UqCw0ggZMpM8=
-Received: from DUZPR01CA0017.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:46b::8) by AMDPR08MB11507.eurprd08.prod.outlook.com
- (2603:10a6:20b:71e::5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Mon, 1 Dec
- 2025 10:37:46 +0000
-Received: from DU2PEPF00028D12.eurprd03.prod.outlook.com
- (2603:10a6:10:46b:cafe::c7) by DUZPR01CA0017.outlook.office365.com
- (2603:10a6:10:46b::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9366.17 via Frontend Transport; Mon,
- 1 Dec 2025 10:37:39 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 4.158.2.129)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 4.158.2.129 as permitted sender) receiver=protection.outlook.com;
- client-ip=4.158.2.129; helo=outbound-uk1.az.dlp.m.darktrace.com; pr=C
-Received: from outbound-uk1.az.dlp.m.darktrace.com (4.158.2.129) by
- DU2PEPF00028D12.mail.protection.outlook.com (10.167.242.26) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9366.7
- via Frontend Transport; Mon, 1 Dec 2025 10:37:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=y16dGGU0coMxICM6JDZamO0GYd2rBr3q2T7Vn/f7G8sAOzWF1sc2CUoyMY3SmB5wkZBFIoXcNEqtwguqxRNEXdNO1aldx5TTcgSdBifCQmCNIviu+HPzZcJohNTbvYlXNBfK9c2Wn2D7nYPWcdWIOt1EJeX0CFg3ou6xG1QmL3AJjpCboSaNGMKQNvW9oe9eSf9Bwwpq67mkg8B1nCJK2DBaBE7ZHaGvv86I6jeiK/gPGWfh7Zk2fKLoWmighIlTfnQBoQTu4hlDJTR2SZrMmLt9LkB7J41yRhgudyAd5qtMB8dfWpFNVG2k1yKl+qVJNOa/1ay8uKR615lCqkA4Ww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=48vD7A36hAnn2ZOOFLdnExg7mLbU+dpobsyh0bd2cNA=;
- b=nvgDPtlZx6zr/tdwyqT4QGoVpV/Yj94zHDiwX4I3CHl5EamsiW/ao/GFkuWhkNrgQ70k36qeOSdB444PqvBsmEsrWihNMHjTCDQLZsDCBiq+OGI4DEXvIkw3qpbAAQgbAwIkO0zzWD5zaDjhRkc2dyphdOlaG8md5rImiKxxX1WT5HW550V/tH/oWM06z1oXJFq/lW+39XaLL5SUCb8LSNbeFZzjTg7pr3gIiwu9wdf1S0jdiNpsW1gk18nxKfnfByfQZ6+SpI+39O/EgBFXmiGUBXwla8QwvTA36jBr++lh8STRM6ouVOtCZc2lXRXVVCbZbR7CxcN1Nf1j5NZIhg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=48vD7A36hAnn2ZOOFLdnExg7mLbU+dpobsyh0bd2cNA=;
- b=qToFokFrPzYtQIyjv6iNkp2+PhSOhfvqR1bAeNCgnX2MV9XeaoIQMQBb+g0StRDnd7puiqgKx+z1tv++EzWY2cMDJ5R1lAsd41MoUqlKHPvatsWw6IX/2S/9XtGWDU2XiS2nJkwnMG40Dp9pMlVR7fsqCty6NE9UqCw0ggZMpM8=
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20) by DU0PR08MB8787.eurprd08.prod.outlook.com
- (2603:10a6:10:476::19) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Mon, 1 Dec
- 2025 10:36:41 +0000
-Received: from GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739]) by GV1PR08MB10521.eurprd08.prod.outlook.com
- ([fe80::d430:4ef9:b30b:c739%3]) with mapi id 15.20.9366.012; Mon, 1 Dec 2025
- 10:36:41 +0000
-Date: Mon, 1 Dec 2025 10:36:37 +0000
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: Breno Leitao <leitao@debian.org>
-Cc: Mark Rutland <mark.rutland@arm.com>,
-	Andrew Morton <akpm@linux-foundation.org>, pjw@kernel.org,
-	catalin.marinas@arm.com, will@kernel.org, coxu@redhat.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	bhe@redhat.com
-Subject: Re: [PATCH] arm64: kernel: initialize missing kexec_buf->random field
-Message-ID: <aS1vtct8p6+P6GbU@e129823.arm.com>
-References: <20251127182644.1577592-1-yeoreum.yun@arm.com>
- <20251127113706.d89a84f277dab3ad273dde75@linux-foundation.org>
- <aSjqEQDv7V79V3Na@MiWiFi-R3L-srv>
- <5wel6vqjwwf25hryvg6s7z6aaog7xc3zxjevupt3jn4gntme6d@74wwwmhvvelt>
- <aSmrUGnZp0UeTp1E@J2N7QTR9R3>
- <aS0Ch3hrYPDXomDC@MiWiFi-R3L-srv>
- <j2ilxmuhlgu5dwswl3qk7rbzmbk25qn4s2tidhdy4uy7dzfcnn@6ulgmdw4effw>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <j2ilxmuhlgu5dwswl3qk7rbzmbk25qn4s2tidhdy4uy7dzfcnn@6ulgmdw4effw>
-X-ClientProxiedBy: LO4P123CA0413.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:189::22) To GV1PR08MB10521.eurprd08.prod.outlook.com
- (2603:10a6:150:163::20)
+	id 1vQ1J8-00000003LgL-1K6p;
+	Mon, 01 Dec 2025 10:39:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 690A760121;
+	Mon,  1 Dec 2025 10:39:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C41D4C4CEF1;
+	Mon,  1 Dec 2025 10:38:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764585541;
+	bh=7otL5ZpSjHqKVAsGUZwGGCooAKXLD8oQRR5TSq1M7g0=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=GNh+5vzg472/kaEpWox0DRBdneMiT3C2i8SgfXRGwMw3DD2KHUHEX2z8498ySfcDp
+	 W418/y6q7dHvLL5B/IlTdldGOrVCvZoNhFWGd7Y1RAo3ngAORaGqw8wVRSZu8o5bS1
+	 oPuYcK5H4mP9AZlziA+Nhd55DBHkZFx/ISJBqZcudW/ypsRUiNgRSMLIX7oCPI+qK8
+	 6ugzS31Es6VgXhhNJSKPyoBNUzYMsrELG+6KD5AYgR9PO2FBGoy9kwKmV1/11Ty3ka
+	 XMgu0sUb5R/VC2e5Qe9hGiQqkZCAgE4JJek365j8gBB7L3DbOIDO2OaOnZeNeia0k3
+	 ZenPh0/xUb0fg==
+Message-ID: <fcfe2672-b546-4f3f-8418-71ee8ce1fb5d@kernel.org>
+Date: Mon, 1 Dec 2025 11:38:56 +0100
 MIME-Version: 1.0
-X-MS-TrafficTypeDiagnostic: GV1PR08MB10521:EE_|DU0PR08MB8787:EE_|DU2PEPF00028D12:EE_|AMDPR08MB11507:EE_
-X-MS-Office365-Filtering-Correlation-Id: 70cd2e8e-db33-4822-a0b4-08de30c5aa5a
-x-checkrecipientrouted: true
-NoDisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?vn9P4lNcgEbztiwG6oCgehrNl+vWmIuStRv/dviGo8/nV2Txo+gM4UawZK8E?=
- =?us-ascii?Q?cKDW2P/H0o5pVLNmjNh5MS0OxOcdQghgyHXxiXWk3BgK2EMJ9ULkUkOHLH4E?=
- =?us-ascii?Q?IsbHGhRdYFMqK9FLksoNWiTSAJoVhS3NaRvW3DMtfOLcljkrVHqg/GJ7MRxD?=
- =?us-ascii?Q?LDICwKPQ9xycb7d7TggyQkxgsJUCNMz5ooyOHj8C5J0fItRH48sNxGN7jBNZ?=
- =?us-ascii?Q?/C35EWmQ7enh97/VbNdWw1+gZAzrh/ykr+yJYyCahwnSdJd3d0p2z3ewqymS?=
- =?us-ascii?Q?rTBlaS0qXtIBjBYSKgmI2YbN3W1MmboAIpB1uKba7VwcpcpFe6ZVB7wG67uW?=
- =?us-ascii?Q?wlPWdSQGFjvtRFOw52XjKqr/3G1wFhvDSJFxHazhf3UZxObj/mv7bPL8oCZp?=
- =?us-ascii?Q?y0vhbFy5dktprcm6GgGHeEu0zghPSnsT2sLu3jV6uYE3dI2HfHrvqFR67TJD?=
- =?us-ascii?Q?K1yXXbk/1vgXGnsNEPP7Odss7Mm6NbBmv581ue2lPhmdS+7VULcBmHKfEwy5?=
- =?us-ascii?Q?NywxbIDq7DFESp07y7/pWHrv+9yfj4VStGeITLNVGb6S5EEfcZh78z7FYwzg?=
- =?us-ascii?Q?6IaoKzf7FVdl87+F68jC/y41DjYuoXEg1VgqO9XD/RXKJpmAS5OGQSqSdy+F?=
- =?us-ascii?Q?dtoNKZbxqAbEfsuNeois1isgXZD0miPAv7soYjdq/+dSI3i+rYPmnUkVnj5O?=
- =?us-ascii?Q?bWTil0BPAYdQ/e6wGVWH7VqujnskHPNeUrk/OgphHD4IWHp7JWosh8p1Gntk?=
- =?us-ascii?Q?8IxnFhgGC1a1MYwtgfKYBJ0o4AaeJul+1VHcS9V0GT/7ST2ide4839vGD0q+?=
- =?us-ascii?Q?xbhXO7r7gXNFuY06022J1potPtpCMkIteLls1182OeQJq4ycEfEuxWFK6JZ0?=
- =?us-ascii?Q?XCajtO0AT8GsEBlTnFyDq+RFGRYL30ksnEiPgzHXevSRX/qeRQ4m/9b3phhD?=
- =?us-ascii?Q?Ahewcg4rg/3Uy1F0bDeptMIw5576sxPefP/C2tna6tuMSSfqIGsN+yDSfpIL?=
- =?us-ascii?Q?PEkhARB1rdd8RFjeYCi1pYf1uiWuZE3bRXMXLAYA4j603narpRRrCCr2AxFc?=
- =?us-ascii?Q?ReI3p8aqBWgrDZhUNwt2JoPTCI4ilpze5yc+4DSR98D+c/HAVIT4aeB1OJCx?=
- =?us-ascii?Q?Mk1mnQz4bDfx10LYJplTXkTTwhRAqvu4fpTMnE2JbWhqaRNGByT/CVaNDZSg?=
- =?us-ascii?Q?5j0r4BRRkCByjn8Dijgyuxp7iFmBhjRMcIwgIvMTh/gCbOvmI6KZoylQ6HKr?=
- =?us-ascii?Q?XJnf5ijoX5GcJsgNXUxFJV+J7bAR2WHIaXDDumKyNBXisfx13+GAGpDg1ptH?=
- =?us-ascii?Q?NhU3/8axM9KYU1X/b1rn0mgWppnHlLg5qWgUTW8moGgL+B5VAWZ1ERX87QqH?=
- =?us-ascii?Q?bVg1wrLgmN8mp5kBJbtJqieM0lkD8+hWlzqqoK0RA0YaPOmeSNMnXeK2ureH?=
- =?us-ascii?Q?/2Q2OSsK0k5rbLvWCYAkxKV5W+kzwWZj?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR08MB10521.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB8787
-X-EOPAttributedMessage: 0
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: DU2PEPF00028D12.eurprd03.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: 6b17ac47-da9f-4769-819f-08de30c58394
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|14060799003|1800799024|35042699022|376014|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?PmiAcYLYPwQGal6P3imHYKBlf65t4lPvVO+iHukgvw5FSPzDXxq5FFE3QpSp?=
- =?us-ascii?Q?t8MXtQSEjAF/dISgKyAOyfSvsvUtEcVUKdMDAG/CWi0RV9MahmkbGbQDG5hy?=
- =?us-ascii?Q?YT0l728A4+1hGzA6Q/BpbwVJin/8u+Sjw1QEFLFZbmuIPJovtbPUlhD8JmhM?=
- =?us-ascii?Q?lNH2IelZlqMXRI32KKnyR/AUbtQHLwNJq7IETApcwJrVbsNVtcLD8CGuP1h0?=
- =?us-ascii?Q?x/w0i9XhTQPc/MVI/xjsvj2DZeZru6a/cBkNQ4dFYLURrlhQxwJOMUOu0LE8?=
- =?us-ascii?Q?YrRuAv3r4go3Ss8iiwSW+6XRUmunDwNp8MbQS7C8SJ12JzhI7UPx7lgiTqOo?=
- =?us-ascii?Q?MuZoVNHK52mXtjrxb/CFeIK4TaJcaGHgJAWKt3PKH6uxO9BQyKKs8com9IUN?=
- =?us-ascii?Q?FqtILU2Xdx150ZVNnRmnIODT7hTqCLxWyJ7ofgTxkhi8fybDM3KBPhcUG2fU?=
- =?us-ascii?Q?j8PME/tHyW/L0eZpkL6fcA4Qkkbw+vu5RDWL84UTxpdXrOjKAKWX63nqf2EL?=
- =?us-ascii?Q?JQmU34Un71477axaitje4mOQHZbq/lx0gG0mpVvc7AZSjjeDY7Np0HXDw0SE?=
- =?us-ascii?Q?TtCbUikZ43gy7Q/Ew/oIXANpwAvfQhgzB2Qw67WobM9TYZLIIYFHroQKo0Kr?=
- =?us-ascii?Q?Z7jbpr7AJ57K8Co0gHX7nNgot5mmg2vJ0gdiuLjaZ2zADWgR0fgjV5Nrp5Pf?=
- =?us-ascii?Q?jIhPWJ1DjSli9Y952mCNs6vQfrAVhcOy8lL77DEBCHa4hMuJzhMOqdrJ/weK?=
- =?us-ascii?Q?PzPi6xofQDmwX+5f2AaKYRaSuyOijehAjsVBEAJ5EBbja4vppBwNMMvC69Hd?=
- =?us-ascii?Q?L4CroMKqcZzNOOG+o+DcpS1H/sYzlK8StzCbYhannZ4wfRDDm0AIoJoDIXCd?=
- =?us-ascii?Q?tw7VYpK8gTn0KeVXK45c6x8oAMtsNnwHidu3L+6e+7BOMuP+kDXGSzkSmtEB?=
- =?us-ascii?Q?R59ZhfBLWuiqZOs6idrduq08Eov13u4gCebRpGAUzC3vSEf36Z9IOAF4Mv9e?=
- =?us-ascii?Q?Ed+q8/vHJlzXDfucA/yg7dSug+9SYsrC+JsSYz3NadtzVdw/tU5SQr3bQcRH?=
- =?us-ascii?Q?nQjlWKRhvAuvXMXpB8vFSZL6lSxSUGHPlxq4gAxF4V/1Pcy5X8b29noyKHLj?=
- =?us-ascii?Q?3+2KLh3IdMcwsQsyxueD1G6ognOUSF0pdoNy2vHzAHS6K71NeWWhb6wDa5PT?=
- =?us-ascii?Q?j4dF6J5af25/H0GygbNmYf/FSD+4H9oHz/+I8gwNF/pBEn2KxVopHf82k/m7?=
- =?us-ascii?Q?d+IUPb+q7WjhQDwP5m4CyyIWB7mlWbZRuSiGSlhTXAC7UXVax1XPQezX09wI?=
- =?us-ascii?Q?RSI5VWCv8V9EZC2f5GBlLma1kiBnFgkkBAi2v7MKf79aJ9SF2XTW3GROrx7/?=
- =?us-ascii?Q?RKPhIS6H6rzouIQ8W/BMhFG8ErUTzydkgvrl7FT5YTEiZfMxTQo547ToOR0L?=
- =?us-ascii?Q?HULwyiltkzhSamx5DByVZ5HKEgJVxGmMYHoQ3HHj5ftBSVtX7O3AGrFNpK2Z?=
- =?us-ascii?Q?uOh6fu6904fySi7eV8cd7x+YJOK+nXippis36y9zXyFmcVH2ErhqFwKON78X?=
- =?us-ascii?Q?4Jx7CEoNbRbuguE0dQk=3D?=
-X-Forefront-Antispam-Report: CIP:4.158.2.129;CTRY:GB;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:outbound-uk1.az.dlp.m.darktrace.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(14060799003)(1800799024)(35042699022)(376014)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Dec 2025 10:37:45.6924
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 70cd2e8e-db33-4822-a0b4-08de30c5aa5a
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[4.158.2.129];Helo=[outbound-uk1.az.dlp.m.darktrace.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D12.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMDPR08MB11507
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_023751_796973_74685C01 
-X-CRM114-Status: GOOD (  10.34  )
+User-Agent: Mozilla Thunderbird
+From: Hans Verkuil <hverkuil+cisco@kernel.org>
+Subject: Re: [PATCH v4 1/5] media: mc: add manual request completion
+To: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Tiffany Lin <tiffany.lin@mediatek.com>,
+ Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+ Yunfei Dong <yunfei.dong@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, kernel@collabora.com,
+ linux-media@vger.kernel.org,
+ Sebastian Fricke <sebastian.fricke@collabora.com>
+References: <20251128-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v4-0-c166bdd4625c@collabora.com>
+ <20251128-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v4-1-c166bdd4625c@collabora.com>
+Content-Language: en-US, nl
+In-Reply-To: <20251128-sebastianfricke-vcodec_manual_request_completion_with_state_machine-v4-1-c166bdd4625c@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -207,22 +80,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Breno,
+Hi Nicolas,
 
-> On Mon, Dec 01, 2025 at 10:50:47AM +0800, Baoquan He wrote:
-> > On 11/28/25 at 02:01pm, Mark Rutland wrote:
-> > > FWIW, I completey agree; your proposal is a much better solution.
-> >
-> > Yes, maybe Yeoreum or Breno can post a new version to fix it on arm64.
->
-> Yeoreum, would you be ok doing the patch? If you are busy, I can do it.
+On 28/11/2025 20:16, Nicolas Dufresne wrote:
+> From: Hans Verkuil <hverkuil@kernel.org>
+> 
+> By default when the last request object is completed, the whole
+> request completes as well.
+> 
+> But sometimes you want to delay this completion to an arbitrary point in
+> time so add a manual complete mode for this.
+> 
+> In req_queue the driver marks the request for manual completion by
+> calling media_request_mark_manual_completion, and when the driver
+> wants to manually complete the request it calls
+> media_request_manual_complete().
+> 
+> Signed-off-by: Hans Verkuil <hverkuil-cisco@xs4all.nl>
 
-Sorry to late answer. and Thanks for pointing this :)
-I'll send quickly spin 2 following your suggsetion.
+For this patch and the other patches with this xs4all SoB, can you replace it with:
 
-Thanks!
+Signed-off-by: Hans Verkuil <hverkuil+cisco@kernel.org>
 
---
-Sincerely,
-Yeoreum Yun
+Much appreciated,
+
+	Hans
+
+> Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> ---
+>  drivers/media/mc/mc-request.c | 41 +++++++++++++++++++++++++++++++++++++++--
+>  include/media/media-request.h | 38 +++++++++++++++++++++++++++++++++++++-
+>  2 files changed, 76 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/media/mc/mc-request.c b/drivers/media/mc/mc-request.c
+> index f66f728b1b43dcd1cf51de46e828bf806f014f8d..512e6969152792558537dd8a0736df82847ae210 100644
+> --- a/drivers/media/mc/mc-request.c
+> +++ b/drivers/media/mc/mc-request.c
+> @@ -54,6 +54,7 @@ static void media_request_clean(struct media_request *req)
+>  	req->access_count = 0;
+>  	WARN_ON(req->num_incomplete_objects);
+>  	req->num_incomplete_objects = 0;
+> +	req->manual_completion = false;
+>  	wake_up_interruptible_all(&req->poll_wait);
+>  }
+>  
+> @@ -313,6 +314,7 @@ int media_request_alloc(struct media_device *mdev, int *alloc_fd)
+>  	req->mdev = mdev;
+>  	req->state = MEDIA_REQUEST_STATE_IDLE;
+>  	req->num_incomplete_objects = 0;
+> +	req->manual_completion = false;
+>  	kref_init(&req->kref);
+>  	INIT_LIST_HEAD(&req->objects);
+>  	spin_lock_init(&req->lock);
+> @@ -459,7 +461,7 @@ void media_request_object_unbind(struct media_request_object *obj)
+>  
+>  	req->num_incomplete_objects--;
+>  	if (req->state == MEDIA_REQUEST_STATE_QUEUED &&
+> -	    !req->num_incomplete_objects) {
+> +	    !req->num_incomplete_objects && !req->manual_completion) {
+>  		req->state = MEDIA_REQUEST_STATE_COMPLETE;
+>  		completed = true;
+>  		wake_up_interruptible_all(&req->poll_wait);
+> @@ -488,7 +490,7 @@ void media_request_object_complete(struct media_request_object *obj)
+>  	    WARN_ON(req->state != MEDIA_REQUEST_STATE_QUEUED))
+>  		goto unlock;
+>  
+> -	if (!--req->num_incomplete_objects) {
+> +	if (!--req->num_incomplete_objects && !req->manual_completion) {
+>  		req->state = MEDIA_REQUEST_STATE_COMPLETE;
+>  		wake_up_interruptible_all(&req->poll_wait);
+>  		completed = true;
+> @@ -499,3 +501,38 @@ void media_request_object_complete(struct media_request_object *obj)
+>  		media_request_put(req);
+>  }
+>  EXPORT_SYMBOL_GPL(media_request_object_complete);
+> +
+> +void media_request_manual_complete(struct media_request *req)
+> +{
+> +	bool completed = false;
+> +	unsigned long flags;
+> +
+> +	if (WARN_ON_ONCE(!req))
+> +		return;
+> +
+> +	spin_lock_irqsave(&req->lock, flags);
+> +
+> +	if (WARN_ON_ONCE(!req->manual_completion))
+> +		goto unlock;
+> +
+> +	if (WARN_ON_ONCE(req->state != MEDIA_REQUEST_STATE_QUEUED))
+> +		goto unlock;
+> +
+> +	req->manual_completion = false;
+> +	/*
+> +	 * It is expected that all other objects in this request are
+> +	 * completed when this function is called. WARN if that is
+> +	 * not the case.
+> +	 */
+> +	if (!WARN_ON(req->num_incomplete_objects)) {
+> +		req->state = MEDIA_REQUEST_STATE_COMPLETE;
+> +		wake_up_interruptible_all(&req->poll_wait);
+> +		completed = true;
+> +	}
+> +
+> +unlock:
+> +	spin_unlock_irqrestore(&req->lock, flags);
+> +	if (completed)
+> +		media_request_put(req);
+> +}
+> +EXPORT_SYMBOL_GPL(media_request_manual_complete);
+> diff --git a/include/media/media-request.h b/include/media/media-request.h
+> index bb500b2f9da46f5a9a84272759a137720b094a80..3256fcf3709da58878a59d90722bee3224d97af6 100644
+> --- a/include/media/media-request.h
+> +++ b/include/media/media-request.h
+> @@ -56,6 +56,9 @@ struct media_request_object;
+>   * @access_count: count the number of request accesses that are in progress
+>   * @objects: List of @struct media_request_object request objects
+>   * @num_incomplete_objects: The number of incomplete objects in the request
+> + * @manual_completion: if true, then the request won't be marked as completed
+> + * when @num_incomplete_objects reaches 0. Call media_request_manual_complete()
+> + * to complete the request after @num_incomplete_objects == 0.
+>   * @poll_wait: Wait queue for poll
+>   * @lock: Serializes access to this struct
+>   */
+> @@ -68,6 +71,7 @@ struct media_request {
+>  	unsigned int access_count;
+>  	struct list_head objects;
+>  	unsigned int num_incomplete_objects;
+> +	bool manual_completion;
+>  	wait_queue_head_t poll_wait;
+>  	spinlock_t lock;
+>  };
+> @@ -218,6 +222,38 @@ media_request_get_by_fd(struct media_device *mdev, int request_fd);
+>  int media_request_alloc(struct media_device *mdev,
+>  			int *alloc_fd);
+>  
+> +/**
+> + * media_request_mark_manual_completion - Enable manual completion
+> + *
+> + * @req: The request
+> + *
+> + * Mark that the request has to be manually completed by calling
+> + * media_request_manual_complete().
+> + *
+> + * This function shall be called in the req_queue callback.
+> + */
+> +static inline void
+> +media_request_mark_manual_completion(struct media_request *req)
+> +{
+> +	req->manual_completion = true;
+> +}
+> +
+> +/**
+> + * media_request_manual_complete - Mark the request as completed
+> + *
+> + * @req: The request
+> + *
+> + * This function completes a request that was marked for manual completion by an
+> + * earlier call to media_request_mark_manual_completion(). The request's
+> + * @manual_completion field is reset to false.
+> + *
+> + * All objects contained in the request must have been completed previously. It
+> + * is an error to call this function otherwise. If such an error occurred, the
+> + * function will WARN and the object completion will be delayed until
+> + * @num_incomplete_objects is 0.
+> + */
+> +void media_request_manual_complete(struct media_request *req);
+> +
+>  #else
+>  
+>  static inline void media_request_get(struct media_request *req)
+> @@ -336,7 +372,7 @@ void media_request_object_init(struct media_request_object *obj);
+>   * @req: The media request
+>   * @ops: The object ops for this object
+>   * @priv: A driver-specific priv pointer associated with this object
+> - * @is_buffer: Set to true if the object a buffer object.
+> + * @is_buffer: Set to true if the object is a buffer object.
+>   * @obj: The object
+>   *
+>   * Bind this object to the request and set the ops and priv values of
+> 
+
 
