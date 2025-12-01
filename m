@@ -4,90 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F3C9D116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 09:00:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 634D8D111A8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 09:03:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0cmFzub/Ypc6pcPBJnk2rpItrwarW2n0unLQwqzI/cY=; b=x4mo6mappVAeh3ScC/ILG/IZpK
-	U00SrgUymjXBM9F+jiCaEJxsE0TRVN1Qq1PkmdvndgRrWLNq0UbeSAwqh3nrOiKqdo1n/i5blj6rP
-	4TqNdqErj/c6MH92GFwb+fjoFdJGPYdGWqcuTGUn5P3gxzAhl2//vLFX8DUapoAqO+avYCRxPVjIk
-	+nTfpP45vtUq/q/hOH5fCuKc8pa5qb/dJ45/M9/tfFLzJuNHTOH1XN/b08JXhfwJA29rOqbYqeYkJ
-	l6yga1nRzCaSst9/atZU4vgszSEd0/FELOwUH/qlJb9xtlGl0TwWUXdxPkSYRcmyqM2o4r3BVQ39R
-	EMRWKzPw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=N8ah7K9QBZgVHJunjh/RbCQgoXUT9r/YcIZqeujeIYI=; b=Zj1DinvgopBSzBxvezkFTuybPp
+	mgxAVXKi5DZkH4GGKL9PcRJBjbK20WnOFSdbxApGOwD+Y6BvhK67LRLAcJbenCtIOZ/8pJO5o5jd6
+	z3AnqEtMinCwXoKPx3r4pI6WAnCMHmfb4/8A5dp+XP1t8GkL7yGeEMrQfk0/YuO2aojz9kkojLGMH
+	mm242dbRTTM0xbm7+4X906lMlpQm5fEdZ5oU9RUiDxmvOBjERxUOqshH8MhCbRoW4Wo4snZhugYID
+	YCOZ7wGG4Jilck9TsUAnhbQiWz/Ft2U/htXobGLtXP3TYH04Tn57D8gVSTyQoZfDhTWAw3G4jN9IA
+	CdOwycig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPzlK-00000003AwW-0gcy;
-	Mon, 01 Dec 2025 09:00:02 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1vPzp0-00000003BOT-1HSi;
+	Mon, 01 Dec 2025 09:03:50 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPzlH-00000003Av3-2mk3
+	id 1vPzot-00000003BMO-0hcw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 09:00:00 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-42e2d02a3c9so849779f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 00:59:59 -0800 (PST)
+	Mon, 01 Dec 2025 09:03:48 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-42e2e5da5fcso780671f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 01:03:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764579598; x=1765184398; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0cmFzub/Ypc6pcPBJnk2rpItrwarW2n0unLQwqzI/cY=;
-        b=XlaJN3DhTzxBj2pqg3I4wXU9lFiUzKILlmV9/V/9sWxNXeJMZE5aZ6aDs1/SWQbIQY
-         PdNs4R49KvqG09LG9JxJ+unZ4jyeRKmWz+hogo/QtCclWInG9l8s15MKHrinEJCMRTh2
-         wC022XQHIu+tbkWx64o1Ve/baF/zbm8hm+K7iJ9ejHL+lMicZj6bVHXl3NgsMZNlMwDn
-         H28f6lvah3J6IV4XtT40rxBCNdPBS5iO7SvkbMAk71Sl87wWylCrG8+b4akBT3MK83aM
-         LDLxNJ5yY8k3EdDm8IetUNxp+6AMPayCdGR84GduNS8vVJgvBYmw8rf0/XVOF+NW2tvf
-         F+yQ==
+        d=gmail.com; s=20230601; t=1764579821; x=1765184621; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=N8ah7K9QBZgVHJunjh/RbCQgoXUT9r/YcIZqeujeIYI=;
+        b=kTNiwCoy2t7tLwj4F4OzovWh8CdATn7t/6EFJIq0uU+YHpN6xEpoqvwo1UH72YX+Sh
+         QMpgHWhluRTyV+OWQ6aAHHc4d6uyg6pp8qUdGEoP0LO1w3vJP+SiedpvJNdbUX2j5NWF
+         Egvak2CbasuXhz1qKxikMmPsEvc2ElJwCxgJGXHppiis2dtiYtJHKvhORURYV5m+MhZW
+         2urEqlq6VOJkEYwZgmScdD4xhNZyWl6fvH+T6gcT9sCiGh+5Zmij/1wDLJFfSir0wwcE
+         8paS66V3rAV032T8MCUMliPu7X/o77sSRtGkJLsgyh9vLpAdvg0+UU92DZPSFotOI/PV
+         MMKg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764579598; x=1765184398;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0cmFzub/Ypc6pcPBJnk2rpItrwarW2n0unLQwqzI/cY=;
-        b=ZlPtg8TEsqUEPS/Fu9RPFPuLlEXqY6GaQWVVpxs42t73sSddPIxzVK36K4E6OQeNm/
-         5pvGxorEr/ezyy0+u+Ate1X3C1LNIEpjcdXSjVDNGNVBQFy73eT8lEVFlp4t8nY1K2WG
-         Hr6g5RjHek4pfona/gQ1ZxvIm4iaHukpliqlyAJuLOGFHRACaXE2KuEEx/L8mV0c/Puv
-         1lHcHeWPXnj7I7lKttYGPHQ8k3Us1PWzavvRwyo0CqUFN5sLEU733xw3OUlScKi+OMRX
-         osRk81aBHFivkQYB7+621+K1Syyi9HtAzhgi65XHLtunUlZEf2al1+MysozcdcmNA2Bn
-         lp7g==
-X-Forwarded-Encrypted: i=1; AJvYcCUp1XJUPiI7s1UOXBRf5sjpDD1kz/hkTwlG2ZiS7gPV5GqJB9bJbdmWT1JphxQcZCX6LSdlAkN8XO/YVysNS0GP@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuaFHCLfvWhcPA1k15+3j28O5FZqdtWs7cOGS3Zpkm8se7jiUk
-	1EDVQXC/gquC/OqgY3ShZqY1StMkZtyt4D2BKmpVM9Y7N/d1YgGDaQ7g
-X-Gm-Gg: ASbGncsu45/ocBndYzoV2ilTQF9+yCo3U3FwRvOqFakhBlrUMG0h1aJ3L5kAI0S9SgJ
-	czp6gCz1JlJAluzVpzrXx8HGeTBWKuio2lWFE99pggAOuWqBbhYFoXaI8kwcMq4O+PbWHUP1ADJ
-	udAj7RfgrqR6vDo8jHPSzEuXGHH8FoR0nW2UP+6X31k0Jx/KmwMYa1jdhNT7xFDugXdXUjDdpTP
-	Uzr+xzvJMP6LkWjYNUbAy7RLl/IxUrD0pix/Ikw7VXTe33HAqmVnCbZjHrNCg1ocTdpxEumuv3o
-	d12bULWupIEnbt2vCN7SkTXmWO2qIEDH/yngLAjcUTzN+jaE5Liid9cfJxV3ygST4jr9o88kkqE
-	kiUziMenfJdCTg88oyqVJ9zYDeKzU4u/UtwlTXCENj4oQnTJft4kOuSLIwQgp5lP8348pX3zcyE
-	fQaa5MLUQx5fRH513pQygrXDRPbRk=
-X-Google-Smtp-Source: AGHT+IEOa736pXo0/WJD4acqB/BdSl155lhGxRAO7bq/cz6pjE/kshkcCp3gRvHiSfviAaM/CB44pQ==
-X-Received: by 2002:a05:6000:200c:b0:42b:4139:579e with SMTP id ffacd0b85a97d-42cc1d1983fmr38638725f8f.43.1764579597732;
-        Mon, 01 Dec 2025 00:59:57 -0800 (PST)
-Received: from owl5 ([2001:861:3201:3d10:4ab6:6efe:9b65:a6af])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42e1cab9af3sm24362786f8f.41.2025.12.01.00.59.57
+        d=1e100.net; s=20230601; t=1764579821; x=1765184621;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=N8ah7K9QBZgVHJunjh/RbCQgoXUT9r/YcIZqeujeIYI=;
+        b=vDMDj+RERhnV+wS1D5Gz0t8dEApU0CgRlp9n4Ft6NY3Ct4MO710t1xLXUauQOcz+2A
+         3TR5yhge5JbmSv6E8FG+JrEvw1hHS3HPEMSHXzUMbLbKpLkz1VI1X59m/YSsPtj/cjt9
+         rvv8DgZUy4wh15cDoAg5BN7scsqMHbTFXt9OfiyqTUb6q9Wni1/Dq7dASdtfZ6yGlg26
+         8Tfn2R5LgoCEqNya28D/DegHMILJC5OZq6LQCtALsmFdQhQtb6JNF0QqlsUTaab13qft
+         Ep8YUQ1GFXGOcXXw0bst6SuavQcf9oeUHjpOFJsUBVS51g97blhc8+6jEDSoclPO0/H3
+         bvWg==
+X-Forwarded-Encrypted: i=1; AJvYcCWnCNJBDUd9qMggNXbVbz7qnznwIPBy6abqYVbi8WQ4RlL2dQn+JYQEHj7jF7BgJ2wdIftrSsjB1GuWC3MvBuLc@lists.infradead.org
+X-Gm-Message-State: AOJu0YwbveeM5/Ck5hE3pX7paQNdX42E2/SGRYYaX5o34sqs73BN3jDX
+	JFbm+jV0iAm7P6EqvvlYvqXcV1mU2dTJemD68W/+e1vmDM4NWMVgD4gi
+X-Gm-Gg: ASbGncsPoh3b96b9ucoFbZs8oCT1RIhkmOrJDa6rb9VQzMEt+U1Y0KjN+FerhZbrIbE
+	PS5VrcF077HKSol8VE/A7cIJpn7CFrQZwjjtpjMUZI5UkhnnFDNyqN9sCOvhs8JkoLKzt5U97Q0
+	XZ76NhcRccGFWrKqysywEK1iQoaI5Y9hczzr4wCd7HomaNaY33FncAVGbzDQCBdrjFQO1PXyqnf
+	Ln8OCS/PbQVicLJ4zHAx6H2yd/BF5AZddTnUINnEGq8luBMSe6QlNEWYFVj5hv4cACJIWLGjuxc
+	q5z7H80URcIsMpxOf3YJPrl+1fLgHQOUlE6sEYaF8497eL5ioYYtjBI3vdoQuz/MOr8+kw0xVci
+	wm6QE5jYMZn6YogWeRyqhyC89rkdiBoFDV1D+D5Xlj+WCWzCa0b0WIWEnft2rp+1tTpdWSSZPpO
+	29+Hi0x1CrM7IthUM=
+X-Google-Smtp-Source: AGHT+IEcydTcIwCjbQRB0nGuzNXPZzp8lCn4+RYJcX/cAtCDjD/66keOoi6DpdWSWTOQpt+wcZtEcg==
+X-Received: by 2002:a05:6000:186a:b0:429:ee71:2ff0 with SMTP id ffacd0b85a97d-42e0f362435mr27273212f8f.53.1764579820669;
+        Mon, 01 Dec 2025 01:03:40 -0800 (PST)
+Received: from toolbox.. ([87.200.95.144])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42e1c5d607csm25334499f8f.15.2025.12.01.01.03.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Dec 2025 00:59:57 -0800 (PST)
-Date: Mon, 1 Dec 2025 09:59:55 +0100
-From: Gary Bisson <bisson.gary@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Mon, 01 Dec 2025 01:03:40 -0800 (PST)
+From: Christian Hewitt <christianshewitt@gmail.com>
+To: Jakub Kicinski <kuba@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-wireless@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, robh@kernel.org,
-	krzk+dt@kernel.org
-Subject: Re: [PATCH 1/5] dt-bindings: vendor-prefixes: Add Ezurio LLC
-Message-ID: <aS1ZCy2G03zZLH6D@owl5>
-References: <20251201084140.376058-1-bisson.gary@gmail.com>
- <20251201084140.376058-2-bisson.gary@gmail.com>
- <f9e30721-a636-41dc-93ab-ca960e0415ab@kernel.org>
+	linux-mediatek@lists.infradead.org
+Cc: Daniel Golle <daniel@makrotopia.org>
+Subject: [PATCH] wifi: mt7601u: check multiple firmware paths
+Date: Mon,  1 Dec 2025 09:03:36 +0000
+Message-Id: <20251201090336.1157193-1-christianshewitt@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <f9e30721-a636-41dc-93ab-ca960e0415ab@kernel.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_005959_716189_C265927C 
-X-CRM114-Status: GOOD (  20.77  )
+X-CRM114-CacheID: sfid-20251201_010343_219782_4E9C7D4A 
+X-CRM114-Status: GOOD (  16.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,42 +101,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The linux-firmware repo moved mt7601u.bin from the root folder to
+the mediatek sub-folder some time ago, but not all distros create
+symlinks to the old location the driver checks. Update the driver
+to check for firmware in both old and new locations.
 
-On Mon, Dec 01, 2025 at 09:50:07AM +0100, Krzysztof Kozlowski wrote:
-> On 01/12/2025 09:41, Gary Bisson wrote:
-> > Ezurio is the new name of Laird Connectivity after it acquired Boundary
-> > Devices.
-> > 
-> > Signed-off-by: Gary Bisson <bisson.gary@gmail.com>
-> > ---
-> > Cc: robh@kernel.org
-> > Cc: krzk+dt@kernel.org
-> 
-> Why only two of us? Please don't work on old kernels, some ancient code.
-> 
-> Please use scripts/get_maintainers.pl to get a list of necessary people
-> and lists to CC (and consider --no-git-fallback argument, so you will
-> not CC people just because they made one commit years ago). It might
-> happen, that command when run on an older kernel, gives you outdated
-> entries. Therefore please be sure you base your patches on recent Linux
-> kernel.
+With firmware in /usr/lib/firmware/mediatek/mt7601u.bin):
 
-Actually I'm using master so the get_maintainer.pl output is fine, just
-wasn't using b4 and addding the CC myself, will resend with b4 and will
-update the patches per your review.
+kernel: mt7601u 1-1.3:1.0: ASIC revision: 76010001 MAC revision: 76010500
+kernel: mt7601u 1-1.3:1.0: Direct firmware load for mt7601u.bin failed with error -2
+kernel: mt7601u 1-1.3:1.0: probe with driver mt7601u failed with error -2
 
-> Tools like b4 or scripts/get_maintainer.pl provide you proper list of
-> people, so fix your workflow. Tools might also fail if you work on some
-> ancient tree (don't, instead use mainline) or work on fork of kernel
-> (don't, instead use mainline). Just use b4 and everything should be
-> fine, although remember about `b4 prep --auto-to-cc` if you added new
-> patches to the patchset.
-> 
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+And with the patch:
 
-Thanks for the quick review of the series.
+kernel: mt7601u 1-1.3:1.0: ASIC revision: 76010001 MAC revision: 76010500
+kernel: mt7601u 1-1.3:1.0: Firmware Version: 0.1.00 Build: 7640 Build time: 201302052146
+kernel: mt7601u 1-1.3:1.0: EEPROM ver:0c fae:00
 
-Regards,
-Gary
+Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
+---
+The firmware was moved in [0]. Changes were requested to a previous
+patch [1] but I wasn't able to find a follow-up submission from the
+original author. So here's my novice attempt at the improvement.
+
+[0] https://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git/commit/?id=8451c2b1d529dc1a49328ac9235d3cf5bb8a8fcb
+[1] https://patchwork.kernel.org/project/linux-wireless/patch/fefcbf36f13873ae0d97438a0156b87e7e1ae64e.1684191377.git.daniel@makrotopia.org/
+
+ drivers/net/wireless/mediatek/mt7601u/mcu.c | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/wireless/mediatek/mt7601u/mcu.c b/drivers/net/wireless/mediatek/mt7601u/mcu.c
+index 1b5cc271a9e1..c771bbf7952c 100644
+--- a/drivers/net/wireless/mediatek/mt7601u/mcu.c
++++ b/drivers/net/wireless/mediatek/mt7601u/mcu.c
+@@ -409,6 +409,11 @@ static int mt7601u_load_firmware(struct mt7601u_dev *dev)
+ 	const struct mt76_fw_header *hdr;
+ 	int len, ret;
+ 	u32 val;
++	const char *fw_paths[] = {
++		"mediatek/" MT7601U_FIRMWARE,
++		MT7601U_FIRMWARE,
++	};
++	int i;
+ 
+ 	mt7601u_wr(dev, MT_USB_DMA_CFG, (MT_USB_DMA_CFG_RX_BULK_EN |
+ 					 MT_USB_DMA_CFG_TX_BULK_EN));
+@@ -416,7 +421,14 @@ static int mt7601u_load_firmware(struct mt7601u_dev *dev)
+ 	if (firmware_running(dev))
+ 		return firmware_request_cache(dev->dev, MT7601U_FIRMWARE);
+ 
+-	ret = request_firmware(&fw, MT7601U_FIRMWARE, dev->dev);
++	/* Try loading firmware from multiple locations */
++	fw = NULL;
++	for (i = 0; i < ARRAY_SIZE(fw_paths); i++) {
++		ret = request_firmware(&fw, fw_paths[i], dev->dev);
++		if (ret == 0)
++			break;
++	}
++
+ 	if (ret)
+ 		return ret;
+ 
+-- 
+2.34.1
 
