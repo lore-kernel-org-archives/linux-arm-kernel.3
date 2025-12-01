@@ -4,60 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09AACD116E2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 07:43:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65548D111A8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 07:49:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W1+tRgohmrySfxeaL08TV4mevxKX8AT45dmkFNwnyn4=; b=E5uIMiW9+SSmn+k4FWhBjkRTrn
-	oXHVVLWvvkxjLDr93uTTsLXfkbDLr2pycAy5qjq6nqsoPzFwbU0a7Ivv32MMCQYq4IJsa6PHNC/+7
-	4ff6Tm0MNyUuWeAC1OSfsCDTVNqv5TgA2PjfVFlIViodjlF5vbcViLTfah58+ciA7LOTgD7MBqoPR
-	7zD2Eg5/jiGJ+k6aAOtW3LvdgNvMzFh9TadVOl1S34ghRBVERrCn+z5nSRjAQcG341Fbno/wNJNr8
-	4yvv7y0Kp525hejhyJ65POwPE7QxWbloyvzO6NGlUlfriNDOkuSVoNz306F4iP9DAYd58mk4VJXFY
-	B9uwkOjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3iLQWGeyarDd2i0ZybmZ2ad7XZ1m+1tK42Jmg82t0UQ=; b=jora0PM9wkcZikvvLIim0wyoQ9
+	mE0o+3BmnuXHKlnyeApMPF125mVW6yxgvgo2vj4/Rank/Zj8NdzToVNF/LxjRQN+cci00QxyVDrWJ
+	ieS0VW1iXStuTASg2IMqmPhGCCQMp8khD7tn0aLCFX7G1ViswCFeU93s0MyDddpoR2935/+p91VXf
+	hcpeyqYrbUFdPjT02M//2AJLPe27fLLMfRZGcBn0GwAMBFPRz6UUn2T/6ZH2yktdNIb44ri2yS2yF
+	ZnfAA6M4Ha9TFSauZIQPRFUKTXp9bQntI2BXg/tXTO1u1Fd8jFCIycWjFG5Qm0Cv4nfyHsmyOtkPO
+	+VZL6NMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPyZD-000000034L1-44jd;
-	Mon, 01 Dec 2025 07:43:27 +0000
-Received: from mail11.truemail.it ([217.194.8.81])
+	id 1vPyeb-000000034hI-3Nsq;
+	Mon, 01 Dec 2025 07:49:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPyZB-000000034KU-34p3
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 07:43:27 +0000
-Received: from francesco-nb (248.201.173.83.static.wline.lns.sme.cust.swisscom.ch [83.173.201.248])
-	by mail11.truemail.it (Postfix) with ESMTPA id 9BF571F93F;
-	Mon,  1 Dec 2025 08:43:23 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1764575003;
-	bh=W1+tRgohmrySfxeaL08TV4mevxKX8AT45dmkFNwnyn4=; h=From:To:Subject;
-	b=wYaZVVxUVRNLaphyylSIC1wC010cHJ6MPRCtjkhg8Uqjo0MH9aHju9985hNUzCTr0
-	 JAFMKZktbRmaxy+/iUf3Ahl1XExlSFlylfYZsm4aPr4vg2NnGI5P+jruN+kjj+YrNZ
-	 fv0myzOEA7bEevA0rK65T4gVs+ANsd6iWoHxstsV6i5sNcU9y9kj/q0IVvl99ckrmn
-	 NkDcNxVZ+S9euomEr13/4Cf34AWgKa+PSMwxs30vDhHRaY71ZRqv7W+D8de2U/Bh4/
-	 F2BPJcAvUed43WvyWRg3cC4kcwpRsRJGoj0CXunGdSB+3FuP9Ac7EZ11EafiMcny4T
-	 ZKr0Wj/cC6MwA==
-Date: Mon, 1 Dec 2025 08:43:20 +0100
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Francesco Dolcini <francesco@dolcini.it>
-Cc: Siddharth Vadapalli <s-vadapalli@ti.com>, broonie@kernel.org,
-	a-dutta@ti.com, linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	srk@ti.com
-Subject: Re: [PATCH] spi: cadence-quadspi: Fix cqspi_probe() error handling
- for runtime pm
-Message-ID: <20251201074320.GA8737@francesco-nb>
-References: <20251119152545.2591651-1-s-vadapalli@ti.com>
- <20251201072844.GA6785@francesco-nb>
+	id 1vPyeZ-000000034h3-3kzm;
+	Mon, 01 Dec 2025 07:49:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AB9676014C;
+	Mon,  1 Dec 2025 07:48:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3CEFC4CEF1;
+	Mon,  1 Dec 2025 07:48:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764575337;
+	bh=ApiKeWk7l2n9AEHF0GepRCqj/I+yFEZRN/cLigpZgjI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=eR7qheCDq9My39TYxbj6tuTkMQfC5dOQ2sj31W2q8yKvXbwgs8Ob9i8HdISFujFgy
+	 qawRngLCFL/cnnR0HisS3tRWhRMEUM6BVqfkXZufpFnwjRl8oR6+l4Ri72cRaYRFle
+	 81JsjrCl/NSb4xsu0M6xsuaGd3uj7gotmOsDkTcTwtqFW/jGz0HG3i5/YTgTYM/BUj
+	 VoGVOaxDseG3kmZNTVUv0uYpO+RG7FSeGym5ojFcaRd/2h5pkk+60J6G2R3RbjAL52
+	 LWgdDlzIfT8cjGi6kDEY6xtGosui4GfP6nCMenfvV9xvg+F66TemoVkPFClVCTCpf2
+	 C3o2DxtvS0oQg==
+Message-ID: <0d85e1e6-ea75-4f20-aef1-90d446b4bfa1@kernel.org>
+Date: Mon, 1 Dec 2025 08:48:51 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251201072844.GA6785@francesco-nb>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251130_234326_087494_EA8238D7 
-X-CRM114-Status: GOOD (  19.57  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] net: dsa: mt7530: Use GPIO polarity to generate
+ correct reset sequence
+To: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>
+Cc: Chen Minqiang <ptpt52@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "Chester A. Unal" <chester.a.unal@arinc9.com>,
+ Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>,
+ Sean Wang <sean.wang@mediatek.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ netdev@vger.kernel.org
+References: <20251129234603.2544-1-ptpt52@gmail.com>
+ <20251129234603.2544-2-ptpt52@gmail.com>
+ <0675b35f-217d-4261-9e3f-2eb24753d43c@lunn.ch>
+ <20251130080731.ty2dlxaypxvodxiw@skbuf>
+ <3fbc4e67-b931-421c-9d83-2214aaa2f6ed@lunn.ch>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <3fbc4e67-b931-421c-9d83-2214aaa2f6ed@lunn.ch>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,113 +124,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 01, 2025 at 08:28:44AM +0100, Francesco Dolcini wrote:
-> Hello Siddharth, Mark,
+On 30/11/2025 21:17, Andrew Lunn wrote:
+> On Sun, Nov 30, 2025 at 10:07:31AM +0200, Vladimir Oltean wrote:
+>> On Sun, Nov 30, 2025 at 02:11:05AM +0100, Andrew Lunn wrote:
+>>>> -		gpiod_set_value_cansleep(priv->reset, 0);
+>>>> +		int is_active_low = !!gpiod_is_active_low(priv->reset);
+>>>> +		gpiod_set_value_cansleep(priv->reset, is_active_low);
+>>>
+>>> I think you did not correctly understand what Russell said. You pass
+>>> the logical value to gpiod_set_value(). If the GPIO has been marked as
+>>> active LOW, the GPIO core will invert the logical values to the raw
+>>> value. You should not be using gpiod_is_active_low().
+>>>
+>>> But as i said to the previous patch, i would just leave everything as
+>>> it is, except document the issue.
+>>>
+>>> 	Andrew
+>>>
+>>
+>> It was my suggestion to do it like this (but I don't understand why I'm
+>> again not in CC).
+>>
+>> We _know_ that the reset pin of the switch should be active low. So by
+>> using gpiod_is_active_low(), we can determine whether the device tree is
+>> wrong or not, and we can work with a wrong device tree too (just invert
+>> the logical values).
 > 
-> On Wed, Nov 19, 2025 at 08:53:53PM +0530, Siddharth Vadapalli wrote:
-> > Commit f1eb4e792bb1 ("spi: spi-cadence-quadspi: Enable pm runtime earlier
-> > to avoid imbalance") relocated code but missed updating the error handling
-> > path associated with it.
-> > 
-> > Prior to the relocation, runtime pm was enabled after the code-block
-> > associated with 'cqspi_request_mmap_dma()', due to which, the error
-> > handling for the same didn't require invoking 'pm_runtime_disable()'.
-> > 
-> > Post refactoring, runtime pm has been enabled before the code-block and
-> > when an error is encountered, jumping to 'probe_dma_failed' doesn't
-> > invoke 'pm_runtime_disable()'. This leads to a race condition wherein
-> > 'cqspi_runtime_suspend()' is invoked while the error handling path executes
-> > in parallel. The resulting error is the following:
-> > 
-> >   clk:103:0 already disabled
-> >   WARNING: drivers/clk/clk.c:1188 at clk_core_disable+0x80/0xa0, CPU#1: kworker/u8:0/12
-> >   [TRIMMED]
-> >   pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> >   pc : clk_core_disable+0x80/0xa0
-> >   lr : clk_core_disable+0x80/0xa0
-> >   [TRIMMED]
-> >   Call trace:
-> >    clk_core_disable+0x80/0xa0 (P)
-> >    clk_core_disable_lock+0x88/0x10c
-> >    clk_disable+0x24/0x30
-> >    cqspi_probe+0xa3c/0xae8
-> >   [TRIMMED]
-> > 
-> > The error is due to the second invocation of 'clk_disable_unprepare()' on
-> > 'cqspi->clk' in the error handling within 'cqspi_probe()', with the first
-> > invocation being within 'cqspi_runtime_suspend()'.
-> > 
-> > Fix this by correcting the error handling.
-> > 
-> > Fixes: f1eb4e792bb1 ("spi: spi-cadence-quadspi: Enable pm runtime earlier to avoid imbalance")
-> > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> 
-> Our CI just hit this WARNING with 6.18 kernel, on verdin-am62. To me it's a
-> regression from v6.18, specifically from spi-fix-v6.18-rc7, we did not
-> had any such WARNING with the master build we did run last Friday.
-> 
-> 
-> [    8.648915] cadence-qspi fc40000.spi: No flash device declared
-> [    8.675671] cadence-qspi fc40000.spi: failed to setup flash parameters -19
-> [    8.693691] ------------[ cut here ]------------
-> [    8.693719] clk:75:7 already disabled
-> [    8.693791] WARNING: CPU: 1 PID: 185 at /usr/src/kernel/drivers/clk/clk.c:1188 clk_core_disable+0xa0/0xb4
-> [    8.693822] Modules linked in: gf128mul(+) snd_soc_simple_card(+) snd_soc_simple_card_utils spi_cadence_quadspi(+) optee tee usb_conn_gpio gpio_keys display_connector roles dwc3_am62 rtc_ti_k3 ti_k3_r5_remoteproc k3_j72xx_bandgap ti_k3_m4_remoteproc ti_k3_common tidss sa2ul sha512 snd_soc_davinci_mcasp drm_display_helper libsha512 snd_soc_ti_udma sha256 sha1 cec snd_soc_ti_edma pruss omap_mailbox snd_soc_ti_sdma omap_hwspinlock authenc bluetooth ecdh_generic ecc ina2xx tpm_tis_i2c rfkill snd_soc_wm8904 libaes lm75 lontium_lt8912b crc_ccitt i3c ti_ads1015 tpm_tis_core industrialio_triggered_buffer kfifo_buf tps65219_pwrbutton tpm rng_core m_can_platform m_can tc358768 can_dev spi_omap2_mcspi pwm_tiehrpwm loop fuse ipv6 libsha1 autofs4
-> [    8.694064] CPU: 1 UID: 0 PID: 185 Comm: (udev-worker) Not tainted 6.18.0-0.0.0-devel #1 PREEMPT
-> [    8.694076] Hardware name: Toradex Verdin AM62 on Dahlia Board (DT)
+> Assuming there is not a NOT gate placed between the GPIO and the reset
+> pin, because the board designer decided to do that for some reason?
 
-Same on verdin-am62p
+Yeah, I cannot imagine how this could possibly support old and new DTS
+without breaking some users, unless people over-simplified and discarded
+some cases. But then this should clearly mark these broken cases instead
+of falsely claim that impossible task of rewriting the flag is done
+correctly.
 
-[    4.554803] cadence-qspi fc40000.spi: No flash device declared
-[    4.565690] optee: dynamic shared memory is enabled
-[    4.566240] optee: initialized driver
-[    4.566620] cadence-qspi fc40000.spi: failed to setup flash parameters -19
-[    4.573982] ------------[ cut here ]------------
-[    4.573999] clk:75:7 already disabled
-[    4.574045] WARNING: CPU: 2 PID: 187 at /usr/src/kernel/drivers/clk/clk.c:1188 clk_core_disable+0xa0/0xb4
-[    4.574068] Modules linked in: gf128mul(+) optee spi_cadence_quadspi(+) tee gpio_keys usb_conn_gpio roles dwc3_am62 ti_ads1015 tps65219_pwrbutton industrialio_triggered_buffer kfifo_buf btnxpuart hci_uart bluetooth k3_j72xx_bandgap sa2ul ti_k3_r5_remoteproc rtc_ti_k3 ecdh_generic ti_k3_common ecc sha512 libsha512 rfkill sha256 wave5 sha1 authenc libaes snd_soc_davinci_mcasp snd_soc_ti_udma snd_soc_ti_edma omap_hwspinlock snd_soc_ti_sdma lm75 i3c ina2xx snd_soc_wm8904 omap_mailbox m_can_platform m_can can_dev spi_omap2_mcspi pwm_tiehrpwm loop fuse ipv6 libsha1 autofs4
-[    4.574248] CPU: 2 UID: 0 PID: 187 Comm: (udev-worker) Not tainted 6.18.0-0.0.0-devel #1 PREEMPT
-[    4.574261] Hardware name: Toradex Verdin AM62P WB on Dahlia Board (DT)
-[    4.574268] pstate: 600000c5 (nZCv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[    4.574276] pc : clk_core_disable+0xa0/0xb4
-[    4.574287] lr : clk_core_disable+0xa0/0xb4
-[    4.574294] sp : ffff8000810b3800
-[    4.574298] x29: ffff8000810b3800 x28: ffffb19e583d3158 x27: ffff000001922c10
-[    4.574313] x26: ffff000001922c10 x25: ffffb19e583d6428 x24: ffff000001922c00
-[    4.574327] x23: 0000000000000000 x22: ffff000005c7f800 x21: 0000000000000000
-[    4.574342] x20: 0000000000000000 x19: ffff00000296de00 x18: fffffffffffe77a0
-[    4.574356] x17: 000000000004b000 x16: 0000000000001000 x15: ffffb19e581fe4b0
-[    4.574369] x14: 0000000000000000 x13: 64656c6261736964 x12: 2079646165726c61
-[    4.574383] x11: 0000000000000058 x10: 0000000000000018 x9 : ffffb19e581fe538
-[    4.574397] x8 : 0000000000057fa8 x7 : 00000000000001b0 x6 : 0000000000000001
-[    4.574410] x5 : ffff00007fb976c8 x4 : 0000000000000000 x3 : 0000000000000027
-[    4.574424] x2 : 0000000000000000 x1 : 0000000000000000 x0 : ffff0000048b90c0
-[    4.574439] Call trace:
-[    4.574445]  clk_core_disable+0xa0/0xb4 (P)
-[    4.574459]  clk_disable+0x38/0x60
-[    4.574471]  cqspi_probe+0x7c8/0xc5c [spi_cadence_quadspi]
-[    4.574493]  platform_probe+0x5c/0xa4
-[    4.574507]  really_probe+0xc0/0x38c
-[    4.574517]  __driver_probe_device+0x7c/0x150
-[    4.574526]  driver_probe_device+0x40/0x120
-[    4.574536]  __driver_attach+0xc8/0x1e0
-[    4.574545]  bus_for_each_dev+0x7c/0xdc
-[    4.574554]  driver_attach+0x24/0x30
-[    4.574566]  bus_add_driver+0x110/0x230
-[    4.574575]  driver_register+0x68/0x130
-[    4.574585]  __platform_driver_register+0x20/0x2c
-[    4.574596]  cqspi_platform_driver_init+0x20/0x1000 [spi_cadence_quadspi]
-[    4.574612]  do_one_initcall+0x60/0x1e0
-[    4.574626]  do_init_module+0x54/0x240
-[    4.574640]  load_module+0x17c0/0x1e60
-[    4.574652]  init_module_from_file+0x88/0xc8
-[    4.574664]  __arm64_sys_finit_module+0x268/0x360
-[    4.574675]  invoke_syscall.constprop.0+0x48/0xc8
-[    4.574687]  do_el0_svc+0x9c/0xd8
-[    4.574696]  el0_svc+0x3c/0x140
-[    4.574708]  el0t_64_sync_handler+0xa0/0xe4
-[    4.574718]  el0t_64_sync+0x198/0x19c
-[    4.574731] ---[ end trace 0000000000000000 ]---
-[    4.576566] ------------[ cut here ]------------
+BTW, the code clearly does not handle such cases, so "we can determine
+whether the device tree is wrong or not" statement is obviously not true.
 
+Best regards,
+Krzysztof
 
