@@ -4,97 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CF9BD116F5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:52:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E26FD111A8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 11:13:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jpud14AVdCVE4BqctTtx1QgtADA41ixWO6mfo6mWLNk=; b=aS1NBrbjhp1/Yt7nzVoV2Qlj7/
-	HKTfz0QLlFh9d6Iy5tZIn/rVgudU4h71wKrDwl+0nyFf40/OWljtZykYhRnJlmjx5sS65hBqTj5RG
-	PwTGqyE1Oe6KOCWW6vbYPj9aKIuMVaRYNNXd+F7kDnd8+r2R9gTm7JNc9lsKcPbg4OJuV2HZn/fCG
-	o35NtbMeTkL88MRaGRpXrTmWFsSbYfg1tQ3XjsP23kRu7Uw6uY2PXaqNjLWNhwFwe/rN4qjK7xwbz
-	3+C9uKzVLIegISVuLL+9USFYl1VwZl3B18NS9auCjeU5FCZnhojZ2SaCBhjqX7ncG2NWAagD6bnEw
-	rmf3j+tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bu8c9JUvNnhpB2G2T0Zk2Y/HWJ0pH+/dZRrRGp2JIr8=; b=zA/iaYVXWBUUlpIa0XKYnHbcxo
+	aI/XnJgY1UV/kS8wDWTkRG1T32s1p8XrphzbgaQEQmDPl+TXaDlMTOvlqqNB1/mVSv5UBdOefvb7A
+	FA1eVMezQ/dTzXK4PZswqT/E5SiECw5GlveLJUlJZY36YstKucvZx27uuxGaTbwEk0b5xOEkbm+jE
+	s2a3PrSSunltF7DI/cE3xBdjxhUlOLzBBSVLQdDw8uQpoYBIjkfYLKs+8eO1DAaV/DUhLKr0oyl5x
+	yGo2I6Ny0/XIxo9UwV6Gs8ORNUmn9JSTh1pC2A0eCMUBEL8C76pvMEZ6VN1D6zMUCn1/r0QWB2N28
+	86hxfpAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ1W1-00000003NJH-3tT6;
-	Mon, 01 Dec 2025 10:52:21 +0000
-Received: from mx-relay180-hz1.antispameurope.com ([94.100.133.63])
+	id 1vQ1q9-00000003PxC-1cPy;
+	Mon, 01 Dec 2025 11:13:09 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ1Vz-00000003NFw-2eVA
+	id 1vQ1q8-00000003Pvw-0Aho
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 10:52:20 +0000
-ARC-Authentication-Results: i=1; mx-gate180-hz1.hornetsecurity.com 1;
- spf=pass reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
- header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=jpud14AVdCVE4BqctTtx1QgtADA41ixWO6mfo6mWLNk=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1764586327;
- b=ZCJmNHTG8XUu8P2zuLF9pX5pIiNV2/pArXfEIAnfcQ/YHiyP5Wnms7iHCKSrVdfT1/nEi5ks
- OzSUjrjvM+nArIiwzxrzXsn3sk83F+uB0Q76Dh80yZf/YbdKJQ/Jdt6VPm3oD/JXAB+0MaocNvV
- LqL7d4BranwKDJaP/qqKAdSS/ZKib9CCsWdQyCjg8y1umEOq8HYfqEzfjCdeSMajlwVCvpEYVky
- NdFX8fAKFe7GxjBa2VZ4IioyPBBP16ce9iyvGuw6MseWM/ekMPm0x+6eZaEYDk9a6RZ+Lkr5bCO
- ySNUxXdZFVG30o1XGf3hv0m8N1aaSUj6gkjowJQiwaHSg==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1764586327;
- b=a6QW0IEeJOa5t95AmFRPl1eyYfB7k33O9W9PWb5OOhqUohBAg2bTAz8WHoWbkFloi2woP9CY
- XmTCRd6IM5aoJH0TKR+o29ER10zLTOXUTYNluL/MDNtWiJQy/tFiZ7Jt685gUCGv7t6pf/hRZco
- CCqckmjlPKFnicNFl1p86x4Utpaag0t74NGu7ezUlW4VnIi90vtxZtEkbpoWJZqd7QDzddXvWyX
- 0O5kEv41LPYnQ0MsD49wXBZiirNpj7BygyoRSFMwVkvHQWmas+WcvFwGh2FTN51ydlhbQeKZShl
- q8MmRtT2gFp5xv67sMg4HO9Z/IjAQYX6INIseEnwdi+8g==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay180-hz1.antispameurope.com;
- Mon, 01 Dec 2025 11:52:07 +0100
-Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id B50C8CC0E91;
-	Mon,  1 Dec 2025 11:51:53 +0100 (CET)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Shawn Guo <shawnguo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 1/3] irqchip/ls-extirq: Convert to platform driver
-Date: Mon,  1 Dec 2025 11:51:40 +0100
-Message-ID: <20251201105144.539450-2-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251201105144.539450-1-alexander.stein@ew.tq-group.com>
-References: <20251201105144.539450-1-alexander.stein@ew.tq-group.com>
+	Mon, 01 Dec 2025 11:13:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2234260121;
+	Mon,  1 Dec 2025 11:13:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FD66C113D0;
+	Mon,  1 Dec 2025 11:13:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764587586;
+	bh=fYMUbue3Ka37fHtYbiOTRTL0VUjzqr8ncwExp4fw1FE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Pn4Nvlb4RGM/2J1Djw/JQddi/rPHy2L2SrgU5wUXUnhXZ3erHzGf44qJlxd7ZqHwA
+	 yJN7Vle/JIEZF0TQeGO1vFt8693jeI7pr/V94TDEHSF8mfHH0xSgIjXAmPAXXim7Bm
+	 Yjz5RGABeUJ3Ze/bYIsjU/vtpQ8W1S6Mz2gS/YxxxbhDhf6Twvo6DG2FSyOTT4fGUh
+	 jMZEpDLyHunt9uxqS8oFWE7G72LSqK3a0jK/eKFABDtWYJxZynlB45SneYduYroF+G
+	 S9LGtt+fxGQLHTHgGi/TrM9Lp6yVGuNTtYDNuve6IUXFkmmMgMoW1dq6xMTQaIHEE6
+	 /89T5rQuMh1KQ==
+Date: Mon, 1 Dec 2025 11:13:02 +0000
+From: Simon Horman <horms@kernel.org>
+To: 2694439648@qq.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com, hailong.fan@siengine.com,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, inux-kernel@vger.kernel.org
+Subject: Re: [PATCH] net: stmmac: Modify the judgment condition of "tx_avail"
+ from 1 to 2
+Message-ID: <aS14PnwjbFcD_J70@horms.kernel.org>
+References: <tencent_22959DC8315158E23D77C14B9B33C97EA60A@qq.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay180-hz1.antispameurope.com with 4dKghB1ZPZz2SjPb
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 877b155cd18575eb910342161cf8e7ff
-X-cloud-security: scantime:2.275
-DKIM-Signature: a=rsa-sha256;
- bh=jpud14AVdCVE4BqctTtx1QgtADA41ixWO6mfo6mWLNk=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1764586326; v=1;
- b=nne1TF35fFI4Dl8fMnLbDuXsmjz6+FQ5l1AEx8Reh1w2UAN3J3q2bZpBlpKPkQ30rN80xnFu
- I+K3+0yozTbaubAeVdTt4o6dGqDc0PmGjx/1ZrI58R4Q5ZRXvcZrcFuIuj432GJCzwLmxHdXpA6
- pcYj/cMmgD1Fe8dq5pmGLyRDDVzk8q1BSz64R+fuWoyOS4dDBrzOPFVH9O4GHn5OcyU6uZdT3T0
- +MFt8NAozefsOB4fh5VTH+iGSQu17YC0pOTdJiQVdtff0HZbTKEXtIFwyH9I8LSLgZesM9vRAFI
- kah2OuFl1vhTyotojY2Zvslqw9xbq21TYDo7Pk1ClklVA==
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_025219_819167_E159E2CF 
-X-CRM114-Status: GOOD (  18.24  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <tencent_22959DC8315158E23D77C14B9B33C97EA60A@qq.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,86 +72,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-extirq maps to gic which might not be present yet when this driver is
-initialized. Convert it to platform driver in order to allow probe
-deferral.
+On Mon, Dec 01, 2025 at 10:57:01AM +0800, 2694439648@qq.com wrote:
+> From: "hailong.fan" <hailong.fan@siengine.com>
+> 
+>     Under certain conditions, a WARN_ON will be triggered
+>     if avail equals 1.
+> 
+>     For example, when a VLAN packet is to send,
+>     stmmac_vlan_insert consumes one unit of space,
+>     and the data itself consumes another.
+>     actually requiring 2 units of space in total.
 
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
- drivers/irqchip/irq-ls-extirq.c | 40 ++++++++++++++++++++++-----------
- 1 file changed, 27 insertions(+), 13 deletions(-)
+Hi,
 
-diff --git a/drivers/irqchip/irq-ls-extirq.c b/drivers/irqchip/irq-ls-extirq.c
-index 50a7b38381b98..cb7db9ae79087 100644
---- a/drivers/irqchip/irq-ls-extirq.c
-+++ b/drivers/irqchip/irq-ls-extirq.c
-@@ -168,19 +168,29 @@ ls_extirq_parse_map(struct ls_extirq_data *priv, struct device_node *node)
- 	return 0;
- }
- 
--static int __init
--ls_extirq_of_init(struct device_node *node, struct device_node *parent)
-+static const struct of_device_id ls_extirq_match[] = {
-+	{ .compatible = "fsl,ls1021a-extirq" },
-+	{ .compatible = "fsl,ls1043a-extirq" },
-+	{ .compatible = "fsl,ls1088a-extirq" },
-+	{}
-+};
-+
-+static int ls_extirq_probe(struct platform_device *pdev)
- {
-+	struct device_node *node = pdev->dev.of_node;
- 	struct irq_domain *domain, *parent_domain;
-+	struct device *dev = &pdev->dev;
-+	struct device_node *irq_parent;
- 	struct ls_extirq_data *priv;
- 	int ret;
- 
--	parent_domain = irq_find_host(parent);
--	if (!parent_domain) {
--		pr_err("Cannot find parent domain\n");
--		ret = -ENODEV;
--		goto err_irq_find_host;
--	}
-+	irq_parent = of_irq_find_parent(dev->of_node);
-+	if (!irq_parent)
-+		return -ENODEV;
-+
-+	parent_domain = irq_find_host(irq_parent);
-+	if (!parent_domain)
-+		return dev_err_probe(dev, -EPROBE_DEFER, "Cannot find parent domain\n");
- 
- 	priv = kzalloc(sizeof(*priv), GFP_KERNEL);
- 	if (!priv) {
-@@ -194,7 +204,7 @@ ls_extirq_of_init(struct device_node *node, struct device_node *parent)
- 	 */
- 	priv->intpcr = of_iomap(node, 0);
- 	if (!priv->intpcr) {
--		pr_err("Cannot ioremap OF node %pOF\n", node);
-+		dev_err(dev, "Cannot ioremap OF node %pOF\n", node);
- 		ret = -ENOMEM;
- 		goto err_iomap;
- 	}
-@@ -223,10 +233,14 @@ ls_extirq_of_init(struct device_node *node, struct device_node *parent)
- err_iomap:
- 	kfree(priv);
- err_alloc_priv:
--err_irq_find_host:
- 	return ret;
- }
- 
--IRQCHIP_DECLARE(ls1021a_extirq, "fsl,ls1021a-extirq", ls_extirq_of_init);
--IRQCHIP_DECLARE(ls1043a_extirq, "fsl,ls1043a-extirq", ls_extirq_of_init);
--IRQCHIP_DECLARE(ls1088a_extirq, "fsl,ls1088a-extirq", ls_extirq_of_init);
-+static struct platform_driver ls_extirq_driver = {
-+	.driver = {
-+		.name		= "irq-ls-extirq",
-+		.of_match_table	= ls_extirq_match,
-+	},
-+	.probe = ls_extirq_probe,
-+};
-+builtin_platform_driver(ls_extirq_driver);
--- 
-2.43.0
+I am wondering if there are other cases where an extra
+descriptor is needed. And if so, can multiple such conditions
+occur at the same time?
 
+I am also wondering if the VLAN condition can be detected,
+so a descriptor is only reserved for VLAN use if it will
+actually be used for a VLAN.
+
+And I think it would be worth noting how this problem was discovered
+e.g. by inspection, using tooling (static analysis, AI, ...).
+And how it has been tested e.g. On real HW, compile tested only.
+
+
+As this is a fix for Networking code present in the net tree
+it should be based on that tree. And targeted at that tree like this:
+
+Subject: [PATCH net] ...
+
+Also, as a fix for net, it should have a fixes tag.
+Generally, this should denote the first patch where the problem would
+manifest. In this case this seems to be a likely candidate:
+
+Fixes: 30d932279dc2 ("net: stmmac: Add support for VLAN Insertion Offload")
+
+The tag should go immediately above other tags, in this case your
+Signed-off-by line, without any blank lines in between. And, like other
+tags, it should not be line-wrapped.
+
+For more information on the workflow for Networking changes please see:
+https://docs.kernel.org/process/maintainer-netdev.html
+
+> 
+> Signed-off-by: hailong.fan <hailong.fan@siengine.com>
 
