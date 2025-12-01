@@ -4,89 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66137D111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:05:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F5FED116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 10:06:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xd04XdmAGe70xw02O+BseE6+4n3YbnX/7asIzkdBhqk=; b=QqyS/FDXteV/e0Gxa64XK85Ado
-	6uE8muOQYdx2t1kJ4AYAnABRvdscBff1X3X0etRf3lotmY4ouSvIK1Ubi3fvHnjO/UNBEajiMwUAR
-	mc/Fz8nNTBgm+8Y5gFPF2+alF7x8oLMhc1+YXQixP4sDjkQqjIYL5hlUGDemRrxUyrhy2cLin0ZJ0
-	yIVugRRcDv9iDoYQZN95I0F1ltZo9DlqYnxJpN1ZNziLiWYWdVmmYdLkkUZQichNNYMzOqlorkGKR
-	3Yzi3Y2pZ4GBaQMqh9E6EBg7cHUXlVKiAKouK0ACvvUhTRLLMLLslabSpzNL+JiL6BrhUju1+Ub9V
-	W00u2cCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QswTmhmm9cxp2zJRf5Xns5t1jSqZYBVvb7gt5exo6yw=; b=arQz9JRarlFE5bMuBfjxkvNrGb
+	us4vqzujtuQIPrjb9pU/yZe236pbxy7q3DLHfp6o4henTMXdc6hPKQvk2SAq57I6HBgdftOXReKyE
+	hgjZA+4Q7LSQ/w26pXznu+jKndjlY1/XMjxvFjzx4GH+7l/L9aBzKNN2vINsnwTv4kuwuWqs40GD/
+	bY0vviuy/MF0TmRICRVLVtKkf02or4ByKVxPsPs2syrIJW6jGvqfk2rzzms5OiwZ5oTKtj7/t5W/q
+	WTi0N8zoYbaX2LiVDIMay/csZ7VxKLGMuqVKYGIgsST3T74H2FC+FLb4JGYKJ0HIulWyAVxIp8gyS
+	DGvbDQ7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ0m8-00000003H4M-18SY;
-	Mon, 01 Dec 2025 10:04:56 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vQ0nk-00000003HKS-04ys;
+	Mon, 01 Dec 2025 10:06:36 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ0m6-00000003H3D-0gLZ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 10:04:55 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-47790b080e4so18832025e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 02:04:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764583492; x=1765188292; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=xd04XdmAGe70xw02O+BseE6+4n3YbnX/7asIzkdBhqk=;
-        b=YdmvxxtZN+PlGY3J8YF1bFkSJV9MRFZH+XGnuBcxtksXRwzqGZYF/ZSwQkb70vpWqD
-         hKTmuMSkmdlNB6lC0VH1N5SiH14F6r9APXE4tW9fd01X2SRPzB1biuayIsjnagOoEpV3
-         1PSU+Dtlo3/vKD9eOBeeQGs+dC6/rkfv7YXlHtXjxj3kiHIGPADE/layxVGH8mOdseGG
-         JT+Cn/aAw3ThH/ybPDG2NIPijPJB9SQAk5IegPAarQog4siYc0114uZz7om4YSujDMIZ
-         PTHlb0HYYD+Cgbdomy9W9/PqTbFrR4zAltAlz8I+/spN7cuDuq1WA+J0c/Kk10Mnx47F
-         ON5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764583492; x=1765188292;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xd04XdmAGe70xw02O+BseE6+4n3YbnX/7asIzkdBhqk=;
-        b=QT2k5HkCTmg3WNTeOZ4Qg5HiPAs6HTl8NDSU1FgzmOGzh+LuqcIr2Q7dazJljYdXp1
-         JLLle8QHqs20OwEpCtjo2z3pA0lPmVgE4pGqJmPv0nRNZQgLJUs/MJcZ6DLJZPIwkRU9
-         JfI+zy6QQOFziF2JGrw/kX9DCa8HnyuomvTvyr1NJaeMtuW+0InKnvJUws8uQs/+QrjN
-         WRIqbE8DHYZpJqjhHT43yx7coq++W4357jzoomvLhQfpy3B+XLCJpeBJT3T1TFnnT+PG
-         lg1WzusI3jb6ayrcqEK+o9CyBl5vks7u0qJHh3Flq2vqkltsZrlTVIrgfUDA+9LNgHbd
-         7fag==
-X-Forwarded-Encrypted: i=1; AJvYcCW0MVRKMoL1q4KYeA8pjmCvekKmrL9SXpOcwuV18SsiQlYFDGLs55oFnV9k9JDaJ4gQF29nG6y4FwzKOPhB2QWR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2ag1g4IPbnCsoCi4A/u6eBLAa9C3I71fOjZxu/in6+TWcrUjO
-	ElWIK0Coxg6tAIw9zbY6PZPSiR54OZDvXAs/4Y9DGyqvGIKtdDZ+4PnZ
-X-Gm-Gg: ASbGnctPwwjqrvotHrnWjs5SvbuwTw21EMlFjkX1gwGSN/uPJfTEKRaK+rQ08PUbCi/
-	Sq46dbpoVNz9hhkLM82jG2ylmtHomMqqOrK22+MJzXAazynARDIcLbi5zhWdQT5//x+9Q69rVMU
-	besPObAqY2wL8LA9oiSbsxwtYYOEn2jdSmZiL0p3cFpzi5ydh/+A3kiVsnc8mWATd2GA6gHFhdz
-	an5Rw8Gmb/oZk+c6k+jUSbh392XjyTHgijXG1/9tFL01OVct+mOJEk+JmYrmqzBEVucYzdfa2Du
-	V6umijO1dav6jof+DTqUmb302vPYDj9QfMxJ6vG5Wz1VWizD/uIPhtqxNTjkQ0bmj4/G7etPsnL
-	cx0c6zZv6qvw1L6SzpKZyhEIG7LSoI7AbxIqOktgqhWgPMPFPGkBD3SeE7lv+Gf4gvW20adOPdF
-	0N1YG/jktCKcJEgocj
-X-Google-Smtp-Source: AGHT+IHo5bI1IRZ9DJRFKm5suWsmADqZbLqR/rj8bQ8rERwyjgO7HPxMN1i7xosry+PHVlL5KsnDVQ==
-X-Received: by 2002:a05:600c:1f0f:b0:477:8b2e:aa7d with SMTP id 5b1f17b1804b1-477c1132bf2mr369712165e9.30.1764583491941;
-        Mon, 01 Dec 2025 02:04:51 -0800 (PST)
-Received: from owl5 ([2001:861:3201:3d10:4ab6:6efe:9b65:a6af])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4791163e36csm224508325e9.9.2025.12.01.02.04.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Dec 2025 02:04:51 -0800 (PST)
-Date: Mon, 1 Dec 2025 11:04:50 +0100
-From: Gary Bisson <bisson.gary@gmail.com>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: krzk+dt@kernel.org, linux-mediatek@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH 1/5] dt-bindings: vendor-prefixes: Add Ezurio LLC
-Message-ID: <aS1oQonkuFpyqSI2@owl5>
-References: <20251201084140.376058-1-bisson.gary@gmail.com>
- <20251201084140.376058-2-bisson.gary@gmail.com>
- <176458161856.2489196.6170126310129033736.robh@kernel.org>
+	id 1vQ0ng-00000003HJO-43Gm;
+	Mon, 01 Dec 2025 10:06:34 +0000
+X-UUID: 65fb52c0ce9d11f09f706fa2197c6ceb-20251201
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=QswTmhmm9cxp2zJRf5Xns5t1jSqZYBVvb7gt5exo6yw=;
+	b=mshZJ17hBt0Fx2EZ7lCU/obt7tVqqHT0j6Ojv90mHe1pWBh9HnReuTzgY7q+2AjzO25OM1inUjKfRUNofLR3ZaEF5evFkT73yxIUAOB4v4gkKWTYa7UWC1mt0+qnXJYe2wwvvLNe7oRDIBNYX7orqfJSzqw52YlWt/X3zMu3JS4=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:4385181d-958f-4cbc-a3be-16c75a703374,IP:0,UR
+	L:0,TC:0,Content:0,EDM:-20,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-20
+X-CID-META: VersionHash:a9d874c,CLOUDID:45634502-1fa9-44eb-b231-4afc61466396,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
+	0,EDM:1|19,IP:nil,URL:99|1,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI
+	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 65fb52c0ce9d11f09f706fa2197c6ceb-20251201
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
+	(envelope-from <hanchien.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1022474283; Mon, 01 Dec 2025 03:06:26 -0700
+Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Mon, 1 Dec 2025 18:06:23 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1748.26 via Frontend Transport; Mon, 1 Dec 2025 18:06:23 +0800
+From: Hanchien Lin <hanchien.lin@mediatek.com>
+To: "Rafael J . Wysocki" <rafael@kernel.org>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, Lukasz Luba
+	<lukasz.luba@arm.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, "Balsam
+ CHIHI" <bchihi@baylibre.com>
+CC: <Hanchien.lin@mediatek.com>, <Irving-CH.lin@mediatek.com>, Jh Hsu
+	<Jh.Hsu@mediatek.com>, WH Wu <vincent.wu@mediatek.com>, Raymond Sun
+	<Raymond.Sun@mediatek.com>, Sirius Wang <Sirius.Wang@mediatek.com>,
+	<linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <hanchien.lin@mediatek.com>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>
+Subject: [PATCH v2 0/2] arm64: dts/thermal: Add MT8189 thermal controller and driver support
+Date: Mon, 1 Dec 2025 18:06:18 +0800
+Message-ID: <20251201100620.1557608-1-hanchien.lin@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <176458161856.2489196.6170126310129033736.robh@kernel.org>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_020454_264084_7ACD1AF6 
-X-CRM114-Status: GOOD (  22.35  )
+X-CRM114-CacheID: sfid-20251201_020633_019799_50F946F0 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,198 +93,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+This patch series adds support for the thermal controller on MediaTek MT8189 SoC.
 
-On Mon, Dec 01, 2025 at 03:33:40AM -0600, Rob Herring (Arm) wrote:
-> 
-> On Mon, 01 Dec 2025 09:41:36 +0100, Gary Bisson wrote:
-> > Ezurio is the new name of Laird Connectivity after it acquired Boundary
-> > Devices.
-> > 
-> > Signed-off-by: Gary Bisson <bisson.gary@gmail.com>
-> > ---
-> > Cc: robh@kernel.org
-> > Cc: krzk+dt@kernel.org
-> > ---
-> >  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
-> >  1 file changed, 2 insertions(+)
-> > 
-> 
-> My bot found errors running 'make dt_binding_check' on your patch:
-> 
-> yamllint warnings/errors:
-> 
-> dtschema/dtc warnings/errors:
-> Traceback (most recent call last):
->   File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 428, in get_or_retrieve
->     resource = registry._retrieve(uri)
->   File "/usr/local/lib/python3.13/dist-packages/dtschema/validator.py", line 426, in retrieve
->     return DRAFT201909.create_resource(self.schemas[uri])
->                                        ~~~~~~~~~~~~^^^^^
-> KeyError: 'http://devicetree.org/schemas/thermal/qcom-tsens.yaml'
-> 
-> The above exception was the direct cause of the following exception:
-> 
-> Traceback (most recent call last):
->   File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 682, in lookup
->     retrieved = self._registry.get_or_retrieve(uri)
->   File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 435, in get_or_retrieve
->     raise exceptions.Unretrievable(ref=uri) from error
-> referencing.exceptions.Unretrievable: 'http://devicetree.org/schemas/thermal/qcom-tsens.yaml'
-> 
-> The above exception was the direct cause of the following exception:
-> 
-> Traceback (most recent call last):
->   File "/usr/local/lib/python3.13/dist-packages/jsonschema/validators.py", line 463, in _validate_reference
->     resolved = self._resolver.lookup(ref)
->   File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 686, in lookup
->     raise exceptions.Unresolvable(ref=ref) from error
-> referencing.exceptions.Unresolvable: /schemas/thermal/qcom-tsens.yaml#
-> 
-> The above exception was the direct cause of the following exception:
-> 
-> Traceback (most recent call last):
->   File "/usr/local/bin/dt-validate", line 8, in <module>
->     sys.exit(main())
->              ~~~~^^
->   File "/usr/local/lib/python3.13/dist-packages/dtschema/dtb_validate.py", line 158, in main
->     sg.check_dtb(filename)
->     ~~~~~~~~~~~~^^^^^^^^^^
->   File "/usr/local/lib/python3.13/dist-packages/dtschema/dtb_validate.py", line 95, in check_dtb
->     self.check_subtree(dt, subtree, False, "/", "/", filename)
->     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->   File "/usr/local/lib/python3.13/dist-packages/dtschema/dtb_validate.py", line 88, in check_subtree
->     self.check_subtree(tree, value, disabled, name, fullname + name, filename)
->     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->   File "/usr/local/lib/python3.13/dist-packages/dtschema/dtb_validate.py", line 88, in check_subtree
->     self.check_subtree(tree, value, disabled, name, fullname + name, filename)
->     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->   File "/usr/local/lib/python3.13/dist-packages/dtschema/dtb_validate.py", line 83, in check_subtree
->     self.check_node(tree, subtree, disabled, nodename, fullname, filename)
->     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->   File "/usr/local/lib/python3.13/dist-packages/dtschema/dtb_validate.py", line 34, in check_node
->     for error in self.validator.iter_errors(node, filter=match_schema_file,
->                  ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->                                             compatible_match=compatible_match):
->                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->   File "/usr/local/lib/python3.13/dist-packages/dtschema/validator.py", line 448, in iter_errors
->     for error in self.DtValidator(schema, registry=self.registry).iter_errors(instance):
->                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
->   File "/usr/local/lib/python3.13/dist-packages/jsonschema/validators.py", line 384, in iter_errors
->     for error in errors:
->                  ^^^^^^
->   File "/usr/local/lib/python3.13/dist-packages/jsonschema/_keywords.py", line 296, in properties
->     yield from validator.descend(
->     ...<4 lines>...
->     )
->   File "/usr/local/lib/python3.13/dist-packages/jsonschema/validators.py", line 432, in descend
->     for error in errors:
->                  ^^^^^^
->   File "/usr/local/lib/python3.13/dist-packages/jsonschema/_keywords.py", line 275, in ref
->     yield from validator._validate_reference(ref=ref, instance=instance)
->                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->   File "/usr/local/lib/python3.13/dist-packages/jsonschema/validators.py", line 465, in _validate_reference
->     raise exceptions._WrappedReferencingError(err) from err
-> jsonschema.exceptions._WrappedReferencingError: Unresolvable: /schemas/thermal/qcom-tsens.yaml#
-> Traceback (most recent call last):
->   File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 428, in get_or_retrieve
->     resource = registry._retrieve(uri)
->   File "/usr/local/lib/python3.13/dist-packages/dtschema/validator.py", line 426, in retrieve
->     return DRAFT201909.create_resource(self.schemas[uri])
->                                        ~~~~~~~~~~~~^^^^^
-> KeyError: 'http://devicetree.org/schemas/thermal/qcom-tsens.yaml'
-> 
-> The above exception was the direct cause of the following exception:
-> 
-> Traceback (most recent call last):
->   File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 682, in lookup
->     retrieved = self._registry.get_or_retrieve(uri)
->   File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 435, in get_or_retrieve
->     raise exceptions.Unretrievable(ref=uri) from error
-> referencing.exceptions.Unretrievable: 'http://devicetree.org/schemas/thermal/qcom-tsens.yaml'
-> 
-> The above exception was the direct cause of the following exception:
-> 
-> Traceback (most recent call last):
->   File "/usr/local/lib/python3.13/dist-packages/jsonschema/validators.py", line 463, in _validate_reference
->     resolved = self._resolver.lookup(ref)
->   File "/usr/local/lib/python3.13/dist-packages/referencing/_core.py", line 686, in lookup
->     raise exceptions.Unresolvable(ref=ref) from error
-> referencing.exceptions.Unresolvable: /schemas/thermal/qcom-tsens.yaml#
-> 
-> The above exception was the direct cause of the following exception:
-> 
-> Traceback (most recent call last):
->   File "/usr/local/bin/dt-validate", line 8, in <module>
->     sys.exit(main())
->              ~~~~^^
->   File "/usr/local/lib/python3.13/dist-packages/dtschema/dtb_validate.py", line 158, in main
->     sg.check_dtb(filename)
->     ~~~~~~~~~~~~^^^^^^^^^^
->   File "/usr/local/lib/python3.13/dist-packages/dtschema/dtb_validate.py", line 95, in check_dtb
->     self.check_subtree(dt, subtree, False, "/", "/", filename)
->     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->   File "/usr/local/lib/python3.13/dist-packages/dtschema/dtb_validate.py", line 88, in check_subtree
->     self.check_subtree(tree, value, disabled, name, fullname + name, filename)
->     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->   File "/usr/local/lib/python3.13/dist-packages/dtschema/dtb_validate.py", line 88, in check_subtree
->     self.check_subtree(tree, value, disabled, name, fullname + name, filename)
->     ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->   File "/usr/local/lib/python3.13/dist-packages/dtschema/dtb_validate.py", line 83, in check_subtree
->     self.check_node(tree, subtree, disabled, nodename, fullname, filename)
->     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->   File "/usr/local/lib/python3.13/dist-packages/dtschema/dtb_validate.py", line 34, in check_node
->     for error in self.validator.iter_errors(node, filter=match_schema_file,
->                  ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->                                             compatible_match=compatible_match):
->                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->   File "/usr/local/lib/python3.13/dist-packages/dtschema/validator.py", line 448, in iter_errors
->     for error in self.DtValidator(schema, registry=self.registry).iter_errors(instance):
->                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
->   File "/usr/local/lib/python3.13/dist-packages/jsonschema/validators.py", line 384, in iter_errors
->     for error in errors:
->                  ^^^^^^
->   File "/usr/local/lib/python3.13/dist-packages/jsonschema/_keywords.py", line 296, in properties
->     yield from validator.descend(
->     ...<4 lines>...
->     )
->   File "/usr/local/lib/python3.13/dist-packages/jsonschema/validators.py", line 432, in descend
->     for error in errors:
->                  ^^^^^^
->   File "/usr/local/lib/python3.13/dist-packages/jsonschema/_keywords.py", line 334, in allOf
->     yield from validator.descend(instance, subschema, schema_path=index)
->   File "/usr/local/lib/python3.13/dist-packages/jsonschema/validators.py", line 432, in descend
->     for error in errors:
->                  ^^^^^^
->   File "/usr/local/lib/python3.13/dist-packages/jsonschema/_keywords.py", line 275, in ref
->     yield from validator._validate_reference(ref=ref, instance=instance)
->                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
->   File "/usr/local/lib/python3.13/dist-packages/jsonschema/validators.py", line 465, in _validate_reference
->     raise exceptions._WrappedReferencingError(err) from err
-> jsonschema.exceptions._WrappedReferencingError: Unresolvable: /schemas/thermal/qcom-tsens.yaml#
-> 
-> doc reference errors (make refcheckdocs):
-> 
-> See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20251201084140.376058-2-bisson.gary@gmail.com
+Patch 1 adds the device tree node for the MT8189 thermal controller.
+Patch 2 adds MT8189 support to the LVTS thermal driver.
 
-This link gives me a 404 error, is it expected?
+Link to v1: https://lore.kernel.org/all/20251110094113.3965182-1-hanchien.lin@mediatek.com/
 
-> The base for the series is generally the latest rc1. A different dependency
-> should be noted in *this* patch.
-> 
-> If you already ran 'make dt_binding_check' and didn't see the above
-> error(s), then make sure 'yamllint' is installed and dt-schema is up to
-> date:
-> 
-> pip3 install dtschema --upgrade
-> 
-> Please check and re-submit after running the above command yourself. Note
-> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-> your schema. However, it must be unset to test all examples with your schema.
+Changes in v2:
+- Change reset functions from devm_reset_control_get_by_index to devm_reset_control_get_exclusive from reviewers comment.
+- Change some use of line breaks and commas for coding style from other mediatek drivers.
 
-Couldn't reproduce, I can't seem to see any error/warning that would be
-introduced by this patch, can the above be discarded then?
+Hanchien Lin (2):
+  arm64: dts: mediatek: mt8189: Add thermal controller node
+  thermal/drivers/mediatek/lvts_thermal: Add MT8189 support
 
-Regards,
-Gary
+ .../thermal/mediatek,lvts-thermal.yaml        |  27 +++-
+ drivers/thermal/mediatek/lvts_thermal.c       | 151 ++++++++++++++++--
+ .../thermal/mediatek,lvts-thermal.h           |  20 +++
+ 3 files changed, 185 insertions(+), 13 deletions(-)
+
+-- 
+2.45.2
+
+Thanks,
+Hanchien Lin <hanchien.lin@mediatek.com>
 
