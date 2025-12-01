@@ -4,150 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B1F0D116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 22:43:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AEEBD116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 23:52:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nb4+dHtitH96NjX7oimOEAFcsGMWToVA5wHhe362fVA=; b=vTXSWJnRqWBN8YxWBKXT8TTlw9
-	+6aqE5iWSVcHnwnJSjJZAWLLoPBma1YaRrcud4TfDzjfahtpdrzHzzAlyrhpW7rl8FdojxDbn/Qro
-	llY022mNQnOkdhYAX9/QlzNARkZ9MmEJkA/iwno9EUu8HtHL6mEjPy4qTHgH/xdbrtneYdPOqJ0DD
-	zbP4emnZOEqGoZ7W98JpGw1/TUS9E/4qIZqrYal4uyB4vikq8BgiNmWen8sv6ekUxOcyqENLXChVE
-	1epGbm77Svx3b6YQj4zGaonJCFuImaKMsvHqIxgEHdPGuQM84+YsNPzvWjghz8fwASaZgmLQCySWU
-	FuOSx5aw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/11kCMXrrSe2w/0vDaOqo8c/Op0QH6QYksta8LiX1cE=; b=XzJs8oX2ycg/dnIpwfZLfer5BI
+	PDmv7bmIafLx9J3qqAyJ6MgSHqeXiZlcUmEXbwFfx4K1yHc1bM6if2dSq6867uXK7qP3eleY0un0z
+	bwyhn/O9WHwKvBt8HtkTrZrsxuh11os3RupxV7H4eoaV8L34Yiob9cKLY2k1ZoZthgO7k/6wRSoCH
+	MVC8j6c3OQzfk7xoMCZ2eWM2ytmh5ca/68GUpxQCg1/8I66BEps3tuUW6Wu6MIoQw/bDivVpHltKZ
+	V5R2NSi65503rWp9xrw5LBmo6Ie0qnySuRCXRm9FaP+X8KhzbES+DIIYd8AZ7wFQsISEkPgiMtT0l
+	RATLFwSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQCbi-00000004b7v-1cjG;
-	Mon, 01 Dec 2025 22:42:58 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1vQDh9-00000004cu9-3UpK;
+	Mon, 01 Dec 2025 23:52:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQCbf-00000004b7Q-36vj
+	id 1vQDh8-00000004cto-0gTh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 22:42:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yZKVnJTxVEsxWGeRDX8nB1lOLP4F2+Wgj/0KLZIxNZvKkVfhbDC1MlmhTUcxsesQp7t4xge4iBMtvqBAt8YrMoQLqNyORaNJwdvk4VimEAnXPDVqAJWF/673uRWA02RXbimKAJmuYwzjMnVrVeugoouMnFbwJzdhZkkAIj8jGPYIvz96+CVITa4zXrSzHaEVTC1rTCinljO1JgHza/SLhxrEa7QTvIeuBdmm3JipCysm6rUje/jAHhQ9SqnJA4Tp1NOzmYj/zuGgmzrKkB96ZU6VygaRuskTurBzJ05mpKAvTKfNcr2TYOAo+q8MN22l3a4GMer6VqHHDyB+8gFXkQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nb4+dHtitH96NjX7oimOEAFcsGMWToVA5wHhe362fVA=;
- b=zO07Dsxp18Bi3N0xiDZ9I2i3WlnoQAdtQxRnIEhySUwt5Y887qQ9ZDoKDTrYN/cTNObiNGX7rZCi5U9zL1lKpBh/9NltJnoipeLCqufffN1sepmbUHOD6fa9XfT4Yd64ok97j0FL4xGxjj4z2+BF2hEbFVkQo+TfkKSDuKANBOrnB1C7UYLMOFYyy0Drahmdb/W8VOq20yJD7h+B1taHRItRGjr48BGxMQvsor2r9ElbJkTViStAgkWugzkD/nA0VHHJe4TQsEb41HZ1jgzOzVvSl63Iv+CUqs2PiIagNn35gdLNkq6ROxmDay3SxSw+xdajWVBPmK81RAUvXnG1fQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nb4+dHtitH96NjX7oimOEAFcsGMWToVA5wHhe362fVA=;
- b=Q9H+ZO43b4V0+zu53SCAXRrRw+sq8eQfkcGEa7naYtSMqAkFz+PrEsM+WRROjTqni70ig/yDW2dEYABWvyNa4HhduWKGJqZtuVlxn/PWkYVGpmlLrer2OT5iWh1S+ITKByACjD/Y8bUqv1zWPZGkvRJrHHly9W9ShUk3AcV9XSBldI3Y5I5aLBNGVUvojKeI5m0U9IzBAvBgoIV+ThGTAzewfRX+lGYwRAvIwrgl5KUNeOyTfQCjrWDvwxfnTe0uT1DxonyG4slsvY7LJRd92PLg10TPNbR/K3upmnk+iyK74jm0eznOS6UV0iBT/wcAy5IwAlApdBjZOAQs0Kj+jg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by DU4PR04MB10693.eurprd04.prod.outlook.com (2603:10a6:10:588::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Mon, 1 Dec
- 2025 22:42:51 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9366.012; Mon, 1 Dec 2025
- 22:42:51 +0000
-Date: Mon, 1 Dec 2025 17:42:45 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-pm@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/3] pmdomain: imx93-blk-ctrl: add support for optional
- subnodes
-Message-ID: <aS4Z5QS9VBU6ObVF@lizhi-Precision-Tower-5810>
-References: <20251201-v6-18-topic-imx93-blkctrl-v1-0-b57a72e60105@pengutronix.de>
- <20251201-v6-18-topic-imx93-blkctrl-v1-3-b57a72e60105@pengutronix.de>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251201-v6-18-topic-imx93-blkctrl-v1-3-b57a72e60105@pengutronix.de>
-X-ClientProxiedBy: SA0PR11CA0074.namprd11.prod.outlook.com
- (2603:10b6:806:d2::19) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+	Mon, 01 Dec 2025 23:52:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EE94B44464
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  1 Dec 2025 23:52:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6035C2BCAF
+	for <linux-arm-kernel@lists.infradead.org>; Mon,  1 Dec 2025 23:52:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764633156;
+	bh=NpeAjIJ/66sI2fxwcwavlJliC4ZwV6Vm30RiQ3xMXaI=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=UoGNDRiGUaS3sPUPQvJVEHQJu898iNY5WuaVu1l07mBTeJtlFLMMpio9+aAG/WakN
+	 H46aDgN0uDNq2Sw8/ivo47122vtbZZwZg7Bur/cKR6514o6RDbxKUKD4/fZX5V26pB
+	 CYQf9j7bnQholSoi1fmgCZcXOxP1jkCNYdx2vYMgtsoOdg/We4fR3wIt97aDSXJuht
+	 BaAB1HvgxLaXYhAE8GHcf9lDl7bbHNmXT9np37BmX701PUtivm3VvNYwpWVP7LJhs6
+	 Dz7wV30WR7GHZ+7P0rFZu3PQ4bbl8xnVReMFFt1VbXXAtC2vyDSdiRPxuHIqxJW5l2
+	 zeznA3oCqVogw==
+Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-78ab03c30ceso42872087b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 15:52:36 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXwcP/EGZtpVBmoT2peccldLaexxbT7uhfU/tIGEcW1rjC2BNKcBvXg05f/D8ccwIQNXHw0jZ5AG85pLlS8YoOm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1ywh3APq7GcGi4EUubqNusUh59PpbrpUvX+miwG0aQQVyyQ54
+	QbnjXvA6WI42EM6ZSrD5+/Cko90Vt/ESas/vEPhft9sJET//yHCiIdpsokUcohE26zVczoBStYm
+	r0DrFedjh/crM+dePszKsehdBf88iJns=
+X-Google-Smtp-Source: AGHT+IEINHWD1LneS0LA6npoNgtljdhIcbuikGKI4NIgeAOuJAp9cYnG6FsBCM8L2EElCE5Ar1V/xIrxKNOXNCKfz0Q=
+X-Received: by 2002:a05:690c:d88:b0:787:c7e5:347f with SMTP id
+ 00721157ae682-78a8b5605c8mr353425127b3.56.1764633156020; Mon, 01 Dec 2025
+ 15:52:36 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|DU4PR04MB10693:EE_
-X-MS-Office365-Filtering-Correlation-Id: d6e30c17-48e8-4763-74ed-08de312af5b9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|19092799006|376014|1800799024|52116014|366016|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nKq4SBEQ52C23n+K08ulj772vWCfa/bB+2+x98uwJYZHnXiVJMJgyYRFKQbo?=
- =?us-ascii?Q?S7CLiJmreeoJoNR0pQb6vEUqrzP/1rMeUV4D6GoeOxS9T2Bu3Jq/LY55hLwH?=
- =?us-ascii?Q?XmFK7TizlH0vUVNuAmCweeEwKzwigTV8B7Fox/J36uZXPPktnHMuAGwVc8OJ?=
- =?us-ascii?Q?JimMv3m3D2ataqsHjwCXRJWOC2T/JvAIfg+iZh/hwrx11ylNakLJtExMyI2r?=
- =?us-ascii?Q?PrVbt68QFFkPO+LfA4RZxO/CdLFS0E1fj7Ggxvl0m2NqGgn7iy6CuBXzINee?=
- =?us-ascii?Q?8CaO2WY7jz3sm0dp2dxwk7Qgi1BT+OBqLkmfq4bwXsKJQYrkO2tRM9XuGwqO?=
- =?us-ascii?Q?V7atWRo10LtTw/+uTpzfFIid79ZLdkZNg/rovD1MWYoDJXiSyEOjtRjYo7Z3?=
- =?us-ascii?Q?FtHcHj9+EkNzYXYCWFZDvDArTZsO4lVwLAvl9AZPuNzC1kBnaNWSZiuqiVQf?=
- =?us-ascii?Q?oa782WKB4y/lSI7wFP7CRuWom1GV15yGdQValdxnHDaOtGqGtx6CNaT2zw2e?=
- =?us-ascii?Q?fwqJrQuizCqRiRRkxJwMZ3FkIT2oTn8sKH3xX1o/HiFAxwwVwf5fOmUB620D?=
- =?us-ascii?Q?n0Iw7FzNXaunmzM6yPCU+h7Om+f7G9g7VayKlBwg/fNBT5O5s5cvlNpoaRqw?=
- =?us-ascii?Q?9rqpjhasu2FLfZ2M3nRpc8HxtoJysNx7LJoT7j0m+ag7KKgNc0AJbrELW50U?=
- =?us-ascii?Q?KcrbxOiFBUBdw3QC04Ni5f/9O32yuOJy1BUPgTDAFsu9xUSuRXDDNfTsuT2M?=
- =?us-ascii?Q?9hX0Fdz69VuCgWHnF12XMZ/3tYTd2bj0MLwpwpgcH5jWHH70cRJkrfvU7hQF?=
- =?us-ascii?Q?FbKemqIofDEpkK6D630/r70CsQSlhh4Mdvpv1kLxIVRplZUvqYd7Eam0+rI1?=
- =?us-ascii?Q?RtEL+nDiBK94PnHt1Ksyrq+nJsOW3xIxbEGfxuEUOeXeO+/QnPtqbeMDXvlz?=
- =?us-ascii?Q?5EG7OS4yFACdbkH3p/uUqw8TpVyCREfrV0FpXcUYo16KBCYfJBbd4KNA3vBf?=
- =?us-ascii?Q?OSm+E0iGLOGQyXfI5kLc8IwoND2bQD92tZJOqkEjAnmZx9mrjszP0xvc5vvd?=
- =?us-ascii?Q?BVEHoke80V/El8g0KVzOr8JGnATd+9Aq8eEXuTfdeoQUd6Lmv1PqOnxfHb16?=
- =?us-ascii?Q?UsBcnPRPoPP5ukyEC0NbUENZGdwWmGOkmsSrRm33cTwpHx88qHxxik6Qi7pa?=
- =?us-ascii?Q?6qgQN+E3qZqKgAWHKPOtOod+MNFuBNxZ5zVRjgI48pXujh7moIAYQodWUcoO?=
- =?us-ascii?Q?qONVHFlZcEzfOaiZjof/0vQXamda44NTl+x1GOipcg5Ktwgstq7CJ1OdGHyZ?=
- =?us-ascii?Q?sVnpqNRTkQ0qafRcXZK8gtW9N4NpkLxv3w8NyIGFlWhnr1winxFFTy7RFDR3?=
- =?us-ascii?Q?y/1iFMAK4dc8ilNE7DiJvuHfzKEi6rl4OcUeFR21DiZi7OyAOONcLpgFgVaK?=
- =?us-ascii?Q?hoNflU6MXb4PQp1JfbV/8lghxPoQso7oDNyNtFxT8ONynk2YzbQ7xP3RoW1f?=
- =?us-ascii?Q?m2ynDml7200OVRI+j5U5Tq6JhJP59Uqo/tkH?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(19092799006)(376014)(1800799024)(52116014)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?8NQcSfAyHriuG7JtXssenRfyjhoa4+sKgOpmHz66uBu3hKpQYnxYsu5bwR0J?=
- =?us-ascii?Q?A3YPpLmkVFDnEhf1FrgRYYjxOjhqVvG6itV9sccjMnQS8kZTjKdB43jDcRmD?=
- =?us-ascii?Q?Zbbax/fkAnwV2cQyuN1nmET9Y+dHjG6KjrgOxkdi90vUf+CR0bNPA5+iUsDA?=
- =?us-ascii?Q?zyyk3yYjAqQje8PJBQ5kGLb0q11zNR71xGI0hrON76+ApNRZOE5pC76h9Kv4?=
- =?us-ascii?Q?8vZornYQarZ3oO8o9+KSFYDEzKctk1STRQnsTm2UERw2Dk2e1DIfZum/bdPh?=
- =?us-ascii?Q?xdYTPW0g+AEZeiJWK0L9KDUlYwacoLOB+WhvC1ezqbZgqbEzGmb7T+ft0J5f?=
- =?us-ascii?Q?yfbO2ExcjG7LZOCfhnnPPtBJ/5FbU06p8wIPxQ8okJo9IdCG3Zi08AzBfUly?=
- =?us-ascii?Q?xZcsK6032Yb8lF4eP4e/HDCJ7vnu7WBEG0oeJBMgkB+O6XIX0ACx3H+iFAUl?=
- =?us-ascii?Q?xff70NRRiUXIidGB5pSw65k1JIk+Ax2yGFSW0tMZz/maY3JMIxTkSKsA7JC5?=
- =?us-ascii?Q?xdxckG7JiU3XZRGTQI2SEr7rJZOcHZcAYEK1GdnhnmLH190rR+lqw4rstGv1?=
- =?us-ascii?Q?3XAlq6IXwSIzJW7rvmay8qtil34RzxiQzup08gf8Xfijc4IpPLDjBARj6+8N?=
- =?us-ascii?Q?TIoQZA7AiZcIcm5q7uVUyD5Y1nD96s8vBhL+Od5nCfGGp/kfnJxpgVlNXTTO?=
- =?us-ascii?Q?NchjzIkXrq7UOdCvE+0eTOBc0hbVLm4M+Cfc1dvA9zgFZAgTZXkbtCk8fjZ0?=
- =?us-ascii?Q?PLoyOw9DGbp0PuWdGg84XiXqhjIxTb8koYA7/ndEh94zO239hAuIJpIa7gFB?=
- =?us-ascii?Q?kbhqJC+G44OY5PXSD/b3gqByTQ7vIgQl6njrfwGqmnbNjg+6cqKOsXaJwjHh?=
- =?us-ascii?Q?CXD9OLXtEnkBS9Lbhr8O5K5oKFE7wva9qvm53RLGAtGFh57n2HWyA4t6NMUA?=
- =?us-ascii?Q?WLpG6W9aAIeNpoOIS0jZtW2qr5i4/CCDDYG1DzVZO562qTUPk+2f0I0Twipc?=
- =?us-ascii?Q?Nz4SwGBTQTKxkhX1liz/SxcTSa4suYMUeUKmm4KEQibX0IJsJwgiBbtQU5u2?=
- =?us-ascii?Q?W5Ws27OEllYyafob+tQM4BTNHoY7rr8IO+ZdOLolXw9qMQgpf45TBugBCgvu?=
- =?us-ascii?Q?j49NNEKqiYPDE89tG/UJTVtlm5Q4m3CdJ7M/ivQd27Pd0JR8d75786xEOT/i?=
- =?us-ascii?Q?nOlboBwoeuR3V76OBVy4kORT2ncqbH6iAw0N3GNmDHiZBcPlntR4NfVu+YYd?=
- =?us-ascii?Q?0LCF/5VTha/KC7wUsTksHCjG853ctY4LT/WaGnsa7QLvE1ggPRf7F7U2Zztl?=
- =?us-ascii?Q?4JFRERDs0Z2lOUAhYjQvZPwt5r94JNzGaUqqJ+QU4GHJa4pVHwBn/fc4Ofqb?=
- =?us-ascii?Q?xyttQqq08V1h+AWjz+3E3gnlenusWJayc0p/eCn6L7Ov8owClSoPrWGmY7mk?=
- =?us-ascii?Q?xrdEXc16su06IqX+4initptVf42QsF27mJAGpeRPVQe7HedmRKLKigjcwG2Q?=
- =?us-ascii?Q?KjVtzIal3q7uxty8bKRN4TXby4b1bn6veLTimRdI1RaFyhM9AJsl4RRc6C58?=
- =?us-ascii?Q?jSO4zKqjGso3LsFwhlk=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d6e30c17-48e8-4763-74ed-08de312af5b9
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Dec 2025 22:42:51.5430
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0PlXCK8gN+kASxGrt2Prjhfi7IqvGvgq0o785zbiLxTdizWwFg5S7IOWtn89YWq162G7FsFZfMrQfGRGmW7m8Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10693
+References: <CAD=FV=Ux7nGFnYEyX0cUL-9__BKnTYc+kAJjkF458ZnFS7zoJA@mail.gmail.com>
+In-Reply-To: <CAD=FV=Ux7nGFnYEyX0cUL-9__BKnTYc+kAJjkF458ZnFS7zoJA@mail.gmail.com>
+From: Linus Walleij <linusw@kernel.org>
+Date: Tue, 2 Dec 2025 00:52:25 +0100
+X-Gmail-Original-Message-ID: <CAD++jLkuRQKoiEN928GtAj7wUts5PxH905bLp6ZhKsJ3NnenEA@mail.gmail.com>
+X-Gm-Features: AWmQ_bkAAzU-XHlgauRWMwT8jkUTAHnpVXHGMaPaOgLC-X-09W0dk23vfS_tgHs
+Message-ID: <CAD++jLkuRQKoiEN928GtAj7wUts5PxH905bLp6ZhKsJ3NnenEA@mail.gmail.com>
+Subject: Re: Proposal: Officially allow "incomplete" trees as a base
+To: Doug Anderson <dianders@chromium.org>
+Cc: devicetree-spec@vger.kernel.org, boot-architecture@lists.linaro.org, 
+	Chen-Yu Tsai <wenst@chromium.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	William McVicker <willmcvicker@google.com>, Julius Werner <jwerner@chromium.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_144255_781590_F12D6804 
-X-CRM114-Status: GOOD (  17.41  )
+X-CRM114-CacheID: sfid-20251201_155238_246149_A0136F3C 
+X-CRM114-Status: GOOD (  23.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,46 +89,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 01, 2025 at 06:12:07PM +0100, Marco Felsch wrote:
-> This particular block can have DT subnodes describing the LVDS LDB, MIPI
-> DSI and parallel DPI bridge.
->
-> Scan for possible sub-devices within the driver, instead of misusing the
-> simple-bus to perform the scan.
->
-> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-> ---
+Hi Dough,
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+thanks for your mail!
 
->  drivers/pmdomain/imx/imx93-blk-ctrl.c | 5 +++++
->  1 file changed, 5 insertions(+)
->
-> diff --git a/drivers/pmdomain/imx/imx93-blk-ctrl.c b/drivers/pmdomain/imx/imx93-blk-ctrl.c
-> index 13b0de6dd689cf944e034f7666a4e97b0118e3bd..8f79cabe07face872cb396bfb7329c230c4a97fe 100644
-> --- a/drivers/pmdomain/imx/imx93-blk-ctrl.c
-> +++ b/drivers/pmdomain/imx/imx93-blk-ctrl.c
-> @@ -7,6 +7,7 @@
->  #include <linux/device.h>
->  #include <linux/module.h>
->  #include <linux/of.h>
-> +#include <linux/of_platform.h>
->  #include <linux/platform_device.h>
->  #include <linux/pm_domain.h>
->  #include <linux/pm_runtime.h>
-> @@ -311,6 +312,10 @@ static int imx93_blk_ctrl_probe(struct platform_device *pdev)
->  	if (ret)
->  		return dev_err_probe(dev, ret, "failed to add genpd_provider release callback\n");
->
-> +	ret = devm_of_platform_populate(dev);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to populate blk-ctrl sub-devices\n");
-> +
->  	return 0;
->  }
->
->
-> --
-> 2.47.3
->
+Let me just see if I understand correctly what you're trying to
+do  (and apparently actively doing in production):
+
+On Tue, Nov 18, 2025 at 11:43=E2=80=AFPM Doug Anderson <dianders@chromium.o=
+rg> wrote:
+
+> We would like an officially accepted scheme that lets us more
+> efficiently ship compiled device trees for a handful of related
+> products by breaking the device trees up into a common "base" device
+> tree and then applying "overlay" device trees atop the base to make a
+> full and complete device tree.
+(...)
+> In Android, we do a pretty good job of solving the stated problem
+> using device tree overlays. We describe the SoCs in "dts" files and
+> compile them into "dtb"s. We describe boards in "dtso" files and
+> compile them into "dtbo" files. A bootloader can handle identifying
+> the correct base and overlay (the scheme for doing this is a separate
+> but related topic) and applying the overlay atop the base "dtb". This
+> solution is fully implemented downstream for Android phones and is
+> well documented [2].
+
+So in the kernel we have several arch/*/boot/dts/vendor/ folders
+where they have:
+
+soc.dtsi included by board.dtsi included by system.dts
+and the top system.dts is all that get compiled.
+
+So what you say is that you do the same thing but at runtime?
+
+Can you just describe why this is done like this with
+overlays?
+
+I can only guess that you have one bootloader that needs
+to compose device trees to many systems and the bootloader
+only discovers the system it is running on and its constraints
+at runtime, so shipping the static system.dtb as many people
+do is not an option for you?
+
+And the reason the bootloader doesn't already know what
+it is running on and doesn't just pass that one device tree
+or is just prepared with that one device tree has something
+to do with manufacturing or so?
+
+Sorry it just evades me.
+
+Probably becayse even U-Boot these days use the provided
+device tree dtb, for the system targeted, to initialize itself. I
+suppose your bootloader is generic enough to avoid that
+chicken-and-egg problem, right?
+
+I guess if I had this problem:
+
+soc.dtsi
+board-a.dtsi
+board-b.dtsi
+system-board-a-v1.dts
+system-board-a-v2.dts
+system-board-b-v1.dts
+
+etc having to be combined at runtime, in a bootloader, I would
+consider shipping exactly these files in a memory-based
+filesystem in my bootloader, and bake a DTS compiler into
+my bootloader so it can just build a device tree for what
+it detects.
+
+But I guess you didn't want to hear that :D
+
+Anyway, please describe how you ended up in this situation,
+I'm trying to understand this.
+
+It is quite clear that device tree overlays were intended for
+say plug-n-play additions and minor fragments to be added
+to a basically complete device tree, what you are doing was
+probably not how it was intended. (Or let's see if someone
+proves me wrong on that.)
+
+Yours,
+Linus Walleij
 
