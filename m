@@ -4,68 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C85FDD116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 08:54:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F3C9D116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 09:00:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QPt7Lzjv5NOO9AmXGaEbndBUfDWG3N+K6MGje1fGLfs=; b=4p5EKoEsl3lrPGUm/XAUqJh1EP
-	GtPic4xibuHoze1DXo3niGYBghGJV3jaOTf44ADl2cj3NPTaP7GUf1272QoLbZjMF8hmTUXH20ifz
-	Dixk5RJrKZJR4oRCoJcWyzwbX8v861NuOyEIb2ATbybYkKDo5p/loaxEO43LsZDdwe93OYvBCa2R/
-	W6urW4cTTQrxaC3gVyZ9+0oweP59+Z+iMb44yctGmdSh16TbcvuzbMeoZdYFLg68JcPX+ProlT93e
-	ayT/EVQNE/aMT+nur9b70kqacpb+Iisg1UHunLCzztzKp7TtzqD7n1C3sQCWN1Yvt2zcQLBpraDxh
-	egId8J4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0cmFzub/Ypc6pcPBJnk2rpItrwarW2n0unLQwqzI/cY=; b=x4mo6mappVAeh3ScC/ILG/IZpK
+	U00SrgUymjXBM9F+jiCaEJxsE0TRVN1Qq1PkmdvndgRrWLNq0UbeSAwqh3nrOiKqdo1n/i5blj6rP
+	4TqNdqErj/c6MH92GFwb+fjoFdJGPYdGWqcuTGUn5P3gxzAhl2//vLFX8DUapoAqO+avYCRxPVjIk
+	+nTfpP45vtUq/q/hOH5fCuKc8pa5qb/dJ45/M9/tfFLzJuNHTOH1XN/b08JXhfwJA29rOqbYqeYkJ
+	l6yga1nRzCaSst9/atZU4vgszSEd0/FELOwUH/qlJb9xtlGl0TwWUXdxPkSYRcmyqM2o4r3BVQ39R
+	EMRWKzPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPzfy-00000003ARy-2zV2;
-	Mon, 01 Dec 2025 08:54:30 +0000
-Received: from mail-m3284.qiye.163.com ([220.197.32.84])
+	id 1vPzlK-00000003AwW-0gcy;
+	Mon, 01 Dec 2025 09:00:02 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPzfu-00000003ARA-4BHQ;
-	Mon, 01 Dec 2025 08:54:28 +0000
-Received: from [172.16.12.51] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2b8268f6e;
-	Mon, 1 Dec 2025 16:54:21 +0800 (GMT+08:00)
-Message-ID: <8ac259e2-c075-4a29-827e-315ad84c6363@rock-chips.com>
-Date: Mon, 1 Dec 2025 16:54:20 +0800
+	id 1vPzlH-00000003Av3-2mk3
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 01 Dec 2025 09:00:00 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-42e2d02a3c9so849779f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 00:59:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764579598; x=1765184398; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=0cmFzub/Ypc6pcPBJnk2rpItrwarW2n0unLQwqzI/cY=;
+        b=XlaJN3DhTzxBj2pqg3I4wXU9lFiUzKILlmV9/V/9sWxNXeJMZE5aZ6aDs1/SWQbIQY
+         PdNs4R49KvqG09LG9JxJ+unZ4jyeRKmWz+hogo/QtCclWInG9l8s15MKHrinEJCMRTh2
+         wC022XQHIu+tbkWx64o1Ve/baF/zbm8hm+K7iJ9ejHL+lMicZj6bVHXl3NgsMZNlMwDn
+         H28f6lvah3J6IV4XtT40rxBCNdPBS5iO7SvkbMAk71Sl87wWylCrG8+b4akBT3MK83aM
+         LDLxNJ5yY8k3EdDm8IetUNxp+6AMPayCdGR84GduNS8vVJgvBYmw8rf0/XVOF+NW2tvf
+         F+yQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764579598; x=1765184398;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=0cmFzub/Ypc6pcPBJnk2rpItrwarW2n0unLQwqzI/cY=;
+        b=ZlPtg8TEsqUEPS/Fu9RPFPuLlEXqY6GaQWVVpxs42t73sSddPIxzVK36K4E6OQeNm/
+         5pvGxorEr/ezyy0+u+Ate1X3C1LNIEpjcdXSjVDNGNVBQFy73eT8lEVFlp4t8nY1K2WG
+         Hr6g5RjHek4pfona/gQ1ZxvIm4iaHukpliqlyAJuLOGFHRACaXE2KuEEx/L8mV0c/Puv
+         1lHcHeWPXnj7I7lKttYGPHQ8k3Us1PWzavvRwyo0CqUFN5sLEU733xw3OUlScKi+OMRX
+         osRk81aBHFivkQYB7+621+K1Syyi9HtAzhgi65XHLtunUlZEf2al1+MysozcdcmNA2Bn
+         lp7g==
+X-Forwarded-Encrypted: i=1; AJvYcCUp1XJUPiI7s1UOXBRf5sjpDD1kz/hkTwlG2ZiS7gPV5GqJB9bJbdmWT1JphxQcZCX6LSdlAkN8XO/YVysNS0GP@lists.infradead.org
+X-Gm-Message-State: AOJu0YwuaFHCLfvWhcPA1k15+3j28O5FZqdtWs7cOGS3Zpkm8se7jiUk
+	1EDVQXC/gquC/OqgY3ShZqY1StMkZtyt4D2BKmpVM9Y7N/d1YgGDaQ7g
+X-Gm-Gg: ASbGncsu45/ocBndYzoV2ilTQF9+yCo3U3FwRvOqFakhBlrUMG0h1aJ3L5kAI0S9SgJ
+	czp6gCz1JlJAluzVpzrXx8HGeTBWKuio2lWFE99pggAOuWqBbhYFoXaI8kwcMq4O+PbWHUP1ADJ
+	udAj7RfgrqR6vDo8jHPSzEuXGHH8FoR0nW2UP+6X31k0Jx/KmwMYa1jdhNT7xFDugXdXUjDdpTP
+	Uzr+xzvJMP6LkWjYNUbAy7RLl/IxUrD0pix/Ikw7VXTe33HAqmVnCbZjHrNCg1ocTdpxEumuv3o
+	d12bULWupIEnbt2vCN7SkTXmWO2qIEDH/yngLAjcUTzN+jaE5Liid9cfJxV3ygST4jr9o88kkqE
+	kiUziMenfJdCTg88oyqVJ9zYDeKzU4u/UtwlTXCENj4oQnTJft4kOuSLIwQgp5lP8348pX3zcyE
+	fQaa5MLUQx5fRH513pQygrXDRPbRk=
+X-Google-Smtp-Source: AGHT+IEOa736pXo0/WJD4acqB/BdSl155lhGxRAO7bq/cz6pjE/kshkcCp3gRvHiSfviAaM/CB44pQ==
+X-Received: by 2002:a05:6000:200c:b0:42b:4139:579e with SMTP id ffacd0b85a97d-42cc1d1983fmr38638725f8f.43.1764579597732;
+        Mon, 01 Dec 2025 00:59:57 -0800 (PST)
+Received: from owl5 ([2001:861:3201:3d10:4ab6:6efe:9b65:a6af])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42e1cab9af3sm24362786f8f.41.2025.12.01.00.59.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Dec 2025 00:59:57 -0800 (PST)
+Date: Mon, 1 Dec 2025 09:59:55 +0100
+From: Gary Bisson <bisson.gary@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, robh@kernel.org,
+	krzk+dt@kernel.org
+Subject: Re: [PATCH 1/5] dt-bindings: vendor-prefixes: Add Ezurio LLC
+Message-ID: <aS1ZCy2G03zZLH6D@owl5>
+References: <20251201084140.376058-1-bisson.gary@gmail.com>
+ <20251201084140.376058-2-bisson.gary@gmail.com>
+ <f9e30721-a636-41dc-93ab-ca960e0415ab@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: iommu: rockchip: Add support for
- multiple interface clocks
-To: Krzysztof Kozlowski <krzk@kernel.org>, Chaoyi Chen <kernel@airkyi.com>,
- Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Robin Murphy <robin.murphy@arm.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: iommu@lists.linux.dev, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20251128071322.92-1-kernel@airkyi.com>
- <20251128071322.92-2-kernel@airkyi.com>
- <96958186-0e46-4606-ae36-239112eb31ea@kernel.org>
- <98a847f7-0880-4e5b-a946-26dc81fde5d2@rock-chips.com>
- <491560f1-ee50-43ef-b258-adb5859cb05a@kernel.org>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <491560f1-ee50-43ef-b258-adb5859cb05a@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a9ad91ebc9f03abkunm0983dea69e84a6
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQx5NTFZJHU9PGU8dSEtJGEtWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=M9saWfPcwmCgvCUeKRaAFxKgt02jlM09r19UmbH+tO5Vh9xp+DZUinmwH87OwuvOv7ArvxSu26Q2PGUWibZoa2eqv1u+tJBntgnKHci8pj9M0HzAWvuG/G1NEwv+jnOMDlsOBdlu+dm3tqXnPqdyfBzNR+nbXinw18D0jtUQZHU=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=QPt7Lzjv5NOO9AmXGaEbndBUfDWG3N+K6MGje1fGLfs=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <f9e30721-a636-41dc-93ab-ca960e0415ab@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_005427_561749_29E17ADC 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20251201_005959_716189_C265927C 
+X-CRM114-Status: GOOD (  20.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,41 +102,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/1/2025 4:39 PM, Krzysztof Kozlowski wrote:
-> On 01/12/2025 09:10, Chaoyi Chen wrote:
->>>> +  - if:
->>>> +      properties:
->>>> +        compatible:
->>>> +          items:
->>>> +            - const: rockchip,iommu
->>>> +            - const: rockchip,rk3568-iommu
->>>> +    then:
->>>> +      properties:
->>>> +        clocks:
->>>> +          maxItems: 2
->>>
->>> Why this is unspecific now? Please look at other examples how it is
->>> done, e.g. Samsung clocks.
->>
->> I looked at some examples. Maybe it need to set both minItems and 
->> maxItems here? I'm not sure I understood your point.
+Hi,
+
+On Mon, Dec 01, 2025 at 09:50:07AM +0100, Krzysztof Kozlowski wrote:
+> On 01/12/2025 09:41, Gary Bisson wrote:
+> > Ezurio is the new name of Laird Connectivity after it acquired Boundary
+> > Devices.
+> > 
+> > Signed-off-by: Gary Bisson <bisson.gary@gmail.com>
+> > ---
+> > Cc: robh@kernel.org
+> > Cc: krzk+dt@kernel.org
 > 
-> Individual items were described before. Now they are not, so first item
-> can be anything.
+> Why only two of us? Please don't work on old kernels, some ancient code.
 > 
-> You need to define the list. If the devices have completely different
-> clocks, then you would go with Samsung approach. But devices should not
-> have completely different clocks, so you should define common parts in
-> top-level and just narrow number of items here. maxItems is enough in
-> such case.
+> Please use scripts/get_maintainers.pl to get a list of necessary people
+> and lists to CC (and consider --no-git-fallback argument, so you will
+> not CC people just because they made one commit years ago). It might
+> happen, that command when run on an older kernel, gives you outdated
+> entries. Therefore please be sure you base your patches on recent Linux
+> kernel.
 
-Ah, it looks like Samsung's clock bindings rarely have common parts.
-At present, there are indeed some common parts for the IOMMU clock,
-but I'm not sure how other variants will change. 
+Actually I'm using master so the get_maintainer.pl output is fine, just
+wasn't using b4 and addding the CC myself, will resend with b4 and will
+update the patches per your review.
 
-I'll give this a try, thank you!
+> Tools like b4 or scripts/get_maintainer.pl provide you proper list of
+> people, so fix your workflow. Tools might also fail if you work on some
+> ancient tree (don't, instead use mainline) or work on fork of kernel
+> (don't, instead use mainline). Just use b4 and everything should be
+> fine, although remember about `b4 prep --auto-to-cc` if you added new
+> patches to the patchset.
+> 
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
--- 
-Best, 
-Chaoyi
+Thanks for the quick review of the series.
+
+Regards,
+Gary
 
