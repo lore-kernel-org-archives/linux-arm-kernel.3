@@ -4,64 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65548D111A8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 07:49:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37FDAD111A8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 07:50:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3iLQWGeyarDd2i0ZybmZ2ad7XZ1m+1tK42Jmg82t0UQ=; b=jora0PM9wkcZikvvLIim0wyoQ9
-	mE0o+3BmnuXHKlnyeApMPF125mVW6yxgvgo2vj4/Rank/Zj8NdzToVNF/LxjRQN+cci00QxyVDrWJ
-	ieS0VW1iXStuTASg2IMqmPhGCCQMp8khD7tn0aLCFX7G1ViswCFeU93s0MyDddpoR2935/+p91VXf
-	hcpeyqYrbUFdPjT02M//2AJLPe27fLLMfRZGcBn0GwAMBFPRz6UUn2T/6ZH2yktdNIb44ri2yS2yF
-	ZnfAA6M4Ha9TFSauZIQPRFUKTXp9bQntI2BXg/tXTO1u1Fd8jFCIycWjFG5Qm0Cv4nfyHsmyOtkPO
-	+VZL6NMg==;
+	bh=vLk4gTwkPIypk84ZmF3RUCenfizazaPK4YHeFxEe670=; b=YA6i0Hg7sfyOEqymP0n6W0kp38
+	VUg1rScC45Fk8Qfbl5RF+g+IILd6zBx5mgJqMxsXPijW1Wd9kH9oSR3Ll5WscdvX2TJV7VwN72BSA
+	49hUbCkS+4QnLIH213kmj+8lxo9fv5crxOSe+w6P5cENOzBomlw/4lummSwPiXxJXiJjMX+QAtrG9
+	h0nb8R83rhr15XZ0uh2l7BJAeDu0zQvpFCJBBPl4QcMUNNHX0mHm/aZ801q2+zc3r7p7OALVFDOAL
+	z33DM134T3mfEzgzf5DDk4yrev+kh23YMFFxfP8rugu8WdG9xXkH4NEj7p9kee7wnCr8fDCe/5RJB
+	clkBxPzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPyeb-000000034hI-3Nsq;
-	Mon, 01 Dec 2025 07:49:01 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vPyfu-000000034rp-1rkl;
+	Mon, 01 Dec 2025 07:50:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vPyeZ-000000034h3-3kzm;
-	Mon, 01 Dec 2025 07:49:00 +0000
+	id 1vPyft-000000034rX-1O1B;
+	Mon, 01 Dec 2025 07:50:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AB9676014C;
-	Mon,  1 Dec 2025 07:48:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3CEFC4CEF1;
-	Mon,  1 Dec 2025 07:48:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 5C9D36014C;
+	Mon,  1 Dec 2025 07:50:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BFECC4CEF1;
+	Mon,  1 Dec 2025 07:50:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764575337;
-	bh=ApiKeWk7l2n9AEHF0GepRCqj/I+yFEZRN/cLigpZgjI=;
+	s=k20201202; t=1764575420;
+	bh=INY7q4Pn4Mmpzwb4yWPpL5We9LC3VdX6yH4lheqK310=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eR7qheCDq9My39TYxbj6tuTkMQfC5dOQ2sj31W2q8yKvXbwgs8Ob9i8HdISFujFgy
-	 qawRngLCFL/cnnR0HisS3tRWhRMEUM6BVqfkXZufpFnwjRl8oR6+l4Ri72cRaYRFle
-	 81JsjrCl/NSb4xsu0M6xsuaGd3uj7gotmOsDkTcTwtqFW/jGz0HG3i5/YTgTYM/BUj
-	 VoGVOaxDseG3kmZNTVUv0uYpO+RG7FSeGym5ojFcaRd/2h5pkk+60J6G2R3RbjAL52
-	 LWgdDlzIfT8cjGi6kDEY6xtGosui4GfP6nCMenfvV9xvg+F66TemoVkPFClVCTCpf2
-	 C3o2DxtvS0oQg==
-Message-ID: <0d85e1e6-ea75-4f20-aef1-90d446b4bfa1@kernel.org>
-Date: Mon, 1 Dec 2025 08:48:51 +0100
+	b=IGaOaA7NnR747m2EUDz76udIk1n0FNjHmoFeU8j2uRaecSn/mGvS9vYV1T+TBCj1X
+	 QMTYtJ27rc1Ua4y9n+lQe8OhNlb8/T3ZuQ7LCKUXStZzcxOUoYBivwOQPv74yFQ84Q
+	 AChv6sup6G4zBAuwMgJSK6WzyKkqn8jLPPVRL5dwn9GTWge4Or38hu57PN62sQDLQ/
+	 6hAapRYoaQqV371NYzGK0rGw0FFOGFgLWopQbB6kTeHh/D2LRjeZtnsKd3Izn9FHOc
+	 6/XJCZLAAXpOnTTTApIIyiT+7Nobo3+Yt6jIrzLUUbVYh0nE5yW2iDThfYm++/+AaA
+	 c+fSeB+yqtjjg==
+Message-ID: <0070f2ca-551d-4c55-9ff7-2ef6d93d4cb9@kernel.org>
+Date: Mon, 1 Dec 2025 08:50:15 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 2/2] net: dsa: mt7530: Use GPIO polarity to generate
  correct reset sequence
-To: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>
-Cc: Chen Minqiang <ptpt52@gmail.com>, Rob Herring <robh@kernel.org>,
+To: Chen Minqiang <ptpt52@gmail.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
  "Chester A. Unal" <chester.a.unal@arinc9.com>,
  Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>,
- Sean Wang <sean.wang@mediatek.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org
+ Sean Wang <sean.wang@mediatek.com>, Andrew Lunn <andrew@lunn.ch>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
 References: <20251129234603.2544-1-ptpt52@gmail.com>
  <20251129234603.2544-2-ptpt52@gmail.com>
- <0675b35f-217d-4261-9e3f-2eb24753d43c@lunn.ch>
- <20251130080731.ty2dlxaypxvodxiw@skbuf>
- <3fbc4e67-b931-421c-9d83-2214aaa2f6ed@lunn.ch>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,9 +103,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <3fbc4e67-b931-421c-9d83-2214aaa2f6ed@lunn.ch>
+In-Reply-To: <20251129234603.2544-2-ptpt52@gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,43 +120,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30/11/2025 21:17, Andrew Lunn wrote:
-> On Sun, Nov 30, 2025 at 10:07:31AM +0200, Vladimir Oltean wrote:
->> On Sun, Nov 30, 2025 at 02:11:05AM +0100, Andrew Lunn wrote:
->>>> -		gpiod_set_value_cansleep(priv->reset, 0);
->>>> +		int is_active_low = !!gpiod_is_active_low(priv->reset);
->>>> +		gpiod_set_value_cansleep(priv->reset, is_active_low);
->>>
->>> I think you did not correctly understand what Russell said. You pass
->>> the logical value to gpiod_set_value(). If the GPIO has been marked as
->>> active LOW, the GPIO core will invert the logical values to the raw
->>> value. You should not be using gpiod_is_active_low().
->>>
->>> But as i said to the previous patch, i would just leave everything as
->>> it is, except document the issue.
->>>
->>> 	Andrew
->>>
->>
->> It was my suggestion to do it like this (but I don't understand why I'm
->> again not in CC).
->>
->> We _know_ that the reset pin of the switch should be active low. So by
->> using gpiod_is_active_low(), we can determine whether the device tree is
->> wrong or not, and we can work with a wrong device tree too (just invert
->> the logical values).
+On 30/11/2025 00:46, Chen Minqiang wrote:
+> The MT7530/MT7531 reset pin is active-low in hardware, but the driver
+> historically hardcoded a high-active reset sequence by toggling the GPIO
+> as 0 → 1. This only worked because several DTS files incorrectly marked
+> the reset GPIO as active-high, making both DTS and driver wrong in the
+> same way.
 > 
-> Assuming there is not a NOT gate placed between the GPIO and the reset
-> pin, because the board designer decided to do that for some reason?
+> This patch changes the driver to respect the GPIO polarity using
+> gpiod_is_active_low(), and generates the reset sequence as:
+> 
+>     assert   = drive logical active level
+>     deassert = drive logical inactive level
+> 
+> As a result, both cases now correctly produce the required
+> high → low → high transition on the actual reset pin.
+> 
+> Compatibility
+> -------------
+> 
+> This change makes the driver fully backward-compatible with older,
+> incorrect DTS files that marked the reset line as GPIO_ACTIVE_HIGH:
+> 
 
-Yeah, I cannot imagine how this could possibly support old and new DTS
-without breaking some users, unless people over-simplified and discarded
-some cases. But then this should clearly mark these broken cases instead
-of falsely claim that impossible task of rewriting the flag is done
-correctly.
+You must describe all cases, so old DTS using inverter, thus described
+as active-low. This is perfectly possible setup.
 
-BTW, the code clearly does not handle such cases, so "we can determine
-whether the device tree is wrong or not" statement is obviously not true.
+>  * Old DTS marked active-high:
+>        is_active_low = 0
+>        driver drives 0 → 1
+>        actual levels: high → low → high  (correct)
+> 
+>  * New DTS marked active-low:
+>        is_active_low = 1
+>        driver drives 1 → 0
+>        actual levels: high → low → high  (correct)
+> 
+
+And new DTS working with inverter, so described with active-high.
+
 
 Best regards,
 Krzysztof
