@@ -4,67 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7467CD116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 13:35:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 282C8D116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  1 Dec 2025 13:35:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sJP1CphtVFSgNIZU1NL+eU+k3JeTHzGDRtTV12rYQ8o=; b=T1sblH6PlhFufb5GfrA1kA3LQJ
-	1tWeV0LK5aqt3eo+73MERmSgnwFlDgzl6/kCaoQ7K+J3HK83PnrbhyuHTHh+vG0KHYIJGWWVbSnl0
-	A1Otsa9yPK8Yei9YW+vHszb0RqC7kwhAGm5OQhnM8Tj5Dtdvk02d7NJ4W8Uy3vklWgMGC+3/+bJl8
-	8CKxuoZgSknZKo6wk4gJryzVAp9aDKu3nVTXynxzQmi10tH1TJkO8cOGq8/bv+v7j+WvSRZr5oKCh
-	p6P/NN0vWec2l953oxs5Ciks+z/z0jlKlSgH4buurGplwbiuTepX5Nge0yzKfTKloyZ7tug2qhzYs
-	dpGcCsVg==;
+	bh=6/zDtzLQ3mrDGsn5l6i06J8GNek6GlWuIZEcOWe0BHY=; b=wPij3zKVQwc1hKFFeDQfBriui4
+	4psJQCf7EA7se00CFKK+Ks90esp2/mNIBWZPbvC+nMIX9igHeHrp6xQWuNIhKhhIthD1xujpc34Uj
+	1Kjl9/FRTCBcJZsaGqjbSooaRI83pdv4WxA1d0EkhQCUKcg0z+yRfg0gEpfR57/BdXqJReVmjAqvN
+	XStbdJjlj80pUhdN4cQDBASyovcGLs+Qp61TTMkskGiRYNSsZpttjA3EA9Hiyb+xHGHW5eXk0F1/x
+	m8lzZULqCuR4n9lc8jP0q5LKAzhCfzqaYgtenKZSS+gViewERy5oNfRU5PIP4eSlcVG1fUZ2wLiZ1
+	ZUkfbHvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ43Q-000000041VU-0mEV;
-	Mon, 01 Dec 2025 13:35:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vQ440-000000041uk-2PYG;
+	Mon, 01 Dec 2025 13:35:36 +0000
+Received: from mail-pg1-x530.google.com ([2607:f8b0:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQ3wz-00000003vmT-0Kqx
+	id 1vQ41t-000000040Az-2Qfa
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 01 Dec 2025 13:28:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 119E16001D;
-	Mon,  1 Dec 2025 13:28:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6A75C4CEF1;
-	Mon,  1 Dec 2025 13:28:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764595699;
-	bh=FevHi0kLliUV5SQ+/ZO84hut8iMmC7m6mevvQPXJiHM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GB4PdAEQpQKQuhcpxGteKkjdVYH9TyuUXh91JdQuQ/4eOSaS2YGYg8q65zNG0ksj3
-	 4iUEy0Sx1XA6EcrsvEEFUEatwObl/Xb4VOs+L86Ygm1h9jfbIZJCen+EqrXkmpQq5t
-	 vzD4d1lwJZVkBXeR8YPgRBOEnuKEzhMHebtHoUi8rgbvy6z9HzRJWNsxrHMf0OOPoB
-	 QRJMGlCp7nwSLq51InSz1Ynj4rVUI69oirRNzlrghJAXSQ/uBjN8HHZrs29TWgZ9vU
-	 f74tqNqWKXSMr8kOIGEZPP3OtZP0dyeYroa1jhuGK1jujZYk05YvwT+2gsPZXN9D+G
-	 afF+kzb1yTDQw==
-Date: Mon, 1 Dec 2025 13:28:13 +0000
-From: Will Deacon <will@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
-	Zizhi Wo <wozizhi@huaweicloud.com>,
-	Catalin Marinas <catalin.marinas@arm.com>, jack@suse.com,
-	brauner@kernel.org, hch@lst.de, akpm@linux-foundation.org,
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
-	yangerkun@huawei.com, wangkefeng.wang@huawei.com,
-	pangliyuan1@huawei.com, xieyuanbin1@huawei.com
-Subject: Re: [Bug report] hash_name() may cross page boundary and trigger
- sleep in RCU context
-Message-ID: <aS2X7cIiRnR26hyg@willie-the-truck>
-References: <20251126090505.3057219-1-wozizhi@huaweicloud.com>
- <33ab4aef-020e-49e7-8539-31bf78dac61a@huaweicloud.com>
- <CAHk-=wh1Wfwt9OFB4AfBbjyeu4JVZuSWQ4A8OoT3W6x9btddfw@mail.gmail.com>
- <aSgut4QcBsbXDEo9@shell.armlinux.org.uk>
- <CAHk-=wh+cFLLi2x6u61pvL07phSyHPVBTo9Lac2uuqK4eRG_=w@mail.gmail.com>
+	Mon, 01 Dec 2025 13:33:30 +0000
+Received: by mail-pg1-x530.google.com with SMTP id 41be03b00d2f7-bc0e89640b9so2775042a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 05:33:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1764596004; x=1765200804; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=6/zDtzLQ3mrDGsn5l6i06J8GNek6GlWuIZEcOWe0BHY=;
+        b=BGuYFR7Qzga1EqBLgmFwoKVtclzzi+f3aqKF3dAT9aUOVWkzPAashxxPN2Tx3PCkLt
+         hdTdictkC6HhYom7nV+cMnC1N5NEhbIrfiAh8oQahE3LvcsRegFOp/YGx9+F3vUpxHj+
+         4qwO6nIhrh6M4Dug7bNCRe3X8xN8DjPtAACkqaj0Lz0l5opp0NvSbK03TKCClDIyNBtq
+         xPFfnvfsSnWnz/1CFdIodTYN4h0aq58Ppf9dicZIQUFTGEDQj1b8vukzgB3qZPWGxE5e
+         qXIrkKHj/DO+jBkzljX3x9YPy+1ZPW0RqflteHGuCoOMsyzrPPlcZnvEdIiPorLBhWRZ
+         kENA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764596004; x=1765200804;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=6/zDtzLQ3mrDGsn5l6i06J8GNek6GlWuIZEcOWe0BHY=;
+        b=oqDfWWHjXP+je+O1+KRZQqNus1SP5H63AVSS4WXYywfM8EYt1eyb73jm1KzlWymor1
+         vl0ThwYX5WqZrrmXk5Og7DWdNwf/mDrNy7NE1sqzrq78gfdvrdwmwC90rHiPB9U9XoPH
+         tm0emHoSoG6kgqAWDQpgEBnTNOf2dVJfgw9dac0fnBN/s7773z1gFqnAfPMJqWJEMBf/
+         vbFMy4wOdOuhR5lI9t8aQKYWBth/HHG1ya9UgS+JRaWwfsQcHgRfzcTEs0ygvMBIu5N7
+         ozNPAGti6FRVqDllvvZ16BfYMRq18pYdJiE57SfUKw5whKJcLIqDnRGN7pjgcYXCg0Cj
+         hj2w==
+X-Forwarded-Encrypted: i=1; AJvYcCWbJSNZbiFUHHZ1rECzMOMpK7X8Yb+JcweBCn5uudhWW8ceZG9zKpp7vfi7k1+/+GXDTicf5H7sWS88BSBCuLaN@lists.infradead.org
+X-Gm-Message-State: AOJu0YzIIgipFiMgt/1vi2Cc4F7c+HzZgOvi4pOhW9rQweuxt+K3vMSD
+	mGJV2Zgltg9Cu6ZTPuqzdprCRn9UqhQc51emhc612Fx7jo4Pf2L48wHf1k8fm+6iyQc=
+X-Gm-Gg: ASbGncuHKEmDVr1EH0J3Alw9/p0+JIBAiri7Z1NoKMKK3xtBpVE3tR2FF5a+P/X05ax
+	nqn2y4kdNBewiSRaiyMLKJIBW8/p+ZEYMb6R44MxTVVvxvD1vM4T5Dg/tznLnL6WD3koYZh7nGy
+	KiTb7Mef5MvVKcFK+bTRtnU7zhZ6/xgwg0vWi52lp+Fx9fmGVjzy5KjDIbpowi/YQb8qeK7Nque
+	+C0MbNBkduE/J9RSq8LZ7l/yJ3g3uSX1c2zf86X5QPeAIs/FI9GbqZYb4mjBnOwMBHsSBzuAC7m
+	EZmCZMf0R+qzk8p29/rnCjyjzqpprFrUbdM9woONilH7sAlfcyYEBGeZ8KtXgvi9jtzNcC1snaX
+	+dFSTDZkOVk0V/QrCI9RfvRbrHXt+luQ6yp9OZjw9t1FA99R5lUQ+p70Ec7NF1/7dbRn1Tp999I
+	+fIgRc1QGxg84h828UhbS8fTWNawgY
+X-Google-Smtp-Source: AGHT+IHKFtSw/hePVAblgBz7XowJWwPF88SK94EexlhYEAxjFsftk5tagEj2K8x0BHP2JoIqJWGmSA==
+X-Received: by 2002:a05:7022:41:b0:11b:b1ce:277a with SMTP id a92af1059eb24-11c9d8482b1mr22957607c88.28.1764596003940;
+        Mon, 01 Dec 2025 05:33:23 -0800 (PST)
+Received: from sunil-laptop ([103.97.166.196])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-11dcb057cb0sm72909407c88.9.2025.12.01.05.33.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Dec 2025 05:33:23 -0800 (PST)
+Date: Mon, 1 Dec 2025 19:03:09 +0530
+From: Sunil V L <sunilvl@ventanamicro.com>
+To: huyuye <huyuye812@163.com>
+Cc: ajones@ventanamicro.com, anup@brainfault.org, aou@eecs.berkeley.edu,
+	atishp@rivosinc.com, bhelgaas@google.com, catalin.marinas@arm.com,
+	conor.dooley@microchip.com, dfustini@tenstorrent.com,
+	haibo1.xu@intel.com, lenb@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
+	palmer@dabbelt.com, rafael@kernel.org, robert.moore@intel.com,
+	samuel.holland@sifive.com, tglx@linutronix.de, will@kernel.org,
+	dai.hualiang@zte.com.cn, deng.weixian@zte.com.cn,
+	guo.chang2@zte.com.cn, liu.qingtao2@zte.com.cn,
+	wu.jiabao@zte.com.cn, lin.yongchun@zte.com.cn, hu.yuye@zte.com.cn,
+	zhang.longxiang@zte.com.cn
+Subject: Re: [PATCH v7 08/17] ACPI: pci_link: Clear the dependencies after
+ probe
+Message-ID: <aS2ZFdMFMwdlLHA2@sunil-laptop>
+References: <20240729142241.733357-9-sunilvl@ventanamicro.com>
+ <20251201130757.7032-1-huyuye812@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <CAHk-=wh+cFLLi2x6u61pvL07phSyHPVBTo9Lac2uuqK4eRG_=w@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251201130757.7032-1-huyuye812@163.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251201_053325_642665_76C2CFA4 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,68 +112,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 28, 2025 at 09:06:50AM -0800, Linus Torvalds wrote:
-> On Thu, 27 Nov 2025 at 02:58, Russell King (Oracle)
-> <linux@armlinux.org.uk> wrote:
-> >
-> > Ha!
-> >
-> > As said elsewhere, it looks like 32-bit ARM has been missing updates to
-> > the fault handler since pre-git history - this was modelled in the dim
-> > and distant i386 handling, and it just hasn't kept up.
+On Mon, Dec 01, 2025 at 09:07:55PM +0800, huyuye wrote:
+> Hi, sunilvl
 > 
-> I actually have this dim memory of having seen something along these
-> lines before, and I just had never realized how it could happen,
-> because that call to do_page_fault() in do_translation_fault()
-> visually *looks* like the only call-site, and so that
+> Based on the above patch, I understand that you previously resolved dependencies between Link devices and PCI Host Bridges by calling acpi_dev_clear_dependencies(device). I would like to ask: on RISC‑V platforms, if we need to manage dependencies between multiple PCI Host Bridges, could this be addressed by adding a call to acpi_dev_clear_dependencies(device) at the end of the acpi_pci_root_add enumeration function?
 > 
->         if (addr < TASK_SIZE)
->                 return do_page_fault(addr, fsr, regs);
+> Initialization order dependencies can be defined via the ACPI _DEP method in the DSDT. For example, if host bridge B depends on host bridge A, bridge B should not be enumerated until bridge A is fully initialized.
 > 
-> looks like it does everything correctly. That "do_page_fault()"
-> function is static to the arch/arm/mm/fault.c file, and that's the
-> only place that appears to call it.
-> 
-> The operative word being "appears".
-> 
-> Becuse I had never before realized that that fault.c then also does that
-> 
->   #include "fsr-2level.c"
-> 
-> and then that do_page_fault() function is exposed through those
-> fsr_info[] operation arrays.
-> 
-> Anyway, I don't think that the ARM fault handling is all *that* bad.
-> Sure, it might be worth double-checking, but it *has* been converted
-> to the generic accounting helpers a few years ago and to the stack
-> growing fixes.
-> 
-> I think the fix here may be as simple as this trivial patch:
-> 
->   diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
->   index 2bc828a1940c..27024ec2d46d 100644
->   --- a/arch/arm/mm/fault.c
->   +++ b/arch/arm/mm/fault.c
->   @@ -277,6 +277,10 @@ do_page_fault(unsigned long addr, ...
->         if (interrupts_enabled(regs))
->                 local_irq_enable();
-> 
->   +     /* non-user address faults never have context */
->   +     if (addr >= TASK_SIZE)
->   +             goto no_context;
->   +
->         /*
->          * If we're in an interrupt or have no user
->          * context, we must not take the fault..
-> 
-> but I really haven't thought much about it.
+Yes, that should work.
 
-In the hack I posted [1], I deliberately avoided modifying
-do_page_fault() as it's used on the permission fault path. With your
-change above, I'm worried that userspace could simply try to access a
-kernel address and that would lead to a panic.
-
-Will
-
-[1] https://lore.kernel.org/all/aShLKpTBr9akSuUG@willie-the-truck/
+Regards,
+Sunil
 
