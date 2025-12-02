@@ -4,95 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2B63D11707
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 16:14:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9C8DD11700
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 16:25:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ujAnw4eyXMXxdoX4FR6nN3wY45XQHoiz/qHdt7YVd04=; b=fUK3XFhB7+cgikN815w8qtD8aa
-	2bXLPKuVyDYvq9v9I0Ah8LZcRvcon5Va51lRKCGqBZmNJEKTZo92oW3GJlCfTHf2WMDPdsReTeggf
-	bsAJS7OXyYI3B/EC8pjpe3Y0WR+b/Kf5V0f0ydUhjlsLRDJICIlQgekLFrF6KI1JRBXYab0OvBoF4
-	MkrOSMmlfOBXRclB7UtvRoYF042ux0Yd2NRtSqhXSSZKK6fHEMPSPhreCuu2yO4IuqrD0rpwMh9AU
-	Ud7QNYAZB9/zW0YA+Rt8MXZ7bSQG8tCYYElgI41v+yUlt/Y7RDdU7EBLMehlGEyH2u6sG4IQTbzcj
-	6IRtUwjQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9CUlMgoqtU94MhEJOHiTF0drSAqmoR7IifiR5EWvc1M=; b=I7qMdKVzjJGTkL38Z7oiKGleN7
+	H0RedA4Kfibzrsv3QqcCmgGyXnOBoMgCehO6jR9HRk+ZLwiYHOMTX8TSg6x4VEgteeo0/1aOzyk3M
+	PyJY+xSGUlCSc310DFa6rGnqj1lM0GH4VJ4TLcNPrt69uHLh8KgtAHHeF5itdL6q18KJh4fCQhiuI
+	Fl8/TthwExqvDVLounkasDLReWbKu1sBkOLA+I0m65TYocSO6lDoE/5s4rX9HR4M4axSisziBR905
+	tRQVvp+Y63nuxReuIzr7dOAirZSJsDwnyLkedEVn9YYFAsq9WC03dPD/9wr0G8OUl5YkeVXbnZ45O
+	dR1HeXyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQT1M-00000005bgE-1392;
-	Tue, 02 Dec 2025 16:14:32 +0000
-Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
+	id 1vQTBz-00000005cDN-0661;
+	Tue, 02 Dec 2025 16:25:31 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQT1J-00000005bfK-37Q2
+	id 1vQTBu-00000005cCr-2Nki
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 16:14:30 +0000
-Received: by mail-pl1-x643.google.com with SMTP id d9443c01a7336-299d40b0845so91902655ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 08:14:28 -0800 (PST)
+	Tue, 02 Dec 2025 16:25:30 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-477b1cc8fb4so35084255e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 08:25:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764692068; x=1765296868; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ujAnw4eyXMXxdoX4FR6nN3wY45XQHoiz/qHdt7YVd04=;
-        b=FBdkZ7W30H9TZ0RDRdVqlnIDQ0v+Z+joQpsqHhPLDOGKPyAjUVSSTINWn1l4xyXvKe
-         pYnxnXJ7EhPIiTd2eZS7qj2N2aYWDBaodYj2jbaNQEUbmihMjXXA/KLexgD2ez5J3sG4
-         kG6swSatxB5IxUic3kqBM4JjU8wZcNtIXueTaSGPKK6HtlIfbr3oqkPVzXwljpl0raeD
-         8PqjEKQ6LZQ80drfnZyuOSvJZsAfNheWukfu7ZFGXyunbSa4BP/wBBUsr88ezdW7gH8L
-         DS6+0nBZj6zeZBDxHrI4892dZm4m9dMjlibIo+ZOVKG7227FVzah9GjYMaCSdROl8sWG
-         6oew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764692068; x=1765296868;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=google.com; s=20230601; t=1764692724; x=1765297524; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ujAnw4eyXMXxdoX4FR6nN3wY45XQHoiz/qHdt7YVd04=;
-        b=PYiukF4u0PdYkGAyu4hJcSETv2QhNy3xBntxcUHtOVz0E4iqJSyjq5O4qyMYewkmsE
-         2qo+iSQlW989Stjo5uASiQqLE/sdV/tBfH8LQENZ3TAPNI/ckRAiLo2qIssq7it5Cei3
-         F6x0s6WMyBwj8owE9xoNK09gZy2xNQI3BLLI79r1/n/2+N3lJe2sVfn1dZhLmYBr4sQR
-         lEs0oAmPkqzV73vMqwEBKN3alfjG/8YI7T6TbyEUmvo3wx3DnDfWdEZAyKQmyJNcId2l
-         vDy+xff7R4A89ASO0aA6uadlVLxNR3ysexv1/5dmL30XN7Dysli84lOK13oFpiVFIkYo
-         dGqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWBCmVc0Tp/Ad/67AgH51/W93huVmbEkyqBqPHM86BMpx6ggv3lxNi+wCm1s5ef62yprvZRBUFZKE1E27/4Iev9@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsOOOt1oAer2IfEPdITjPEVieau3O2HmXac6W2Yq4N9Jx7EP3g
-	ns4wwPat2cOvt8swHiesvOGNkhTTQ4N+SkfCLJTGlAc2QV3PNi2Yjpk6
-X-Gm-Gg: ASbGncu64HlRi/Qx611SuVd+KY7ZQyemfKMBCmu1hvnuo7jYB+aoQShBtwghc/fshm2
-	PRPdC7OJ38XvykbcGCiA4nt5OnztTljo60qUAC5IFTbjSvNlZGs4AFfjCLC4puWrfptjLYD8yMv
-	HV47Z2S7MJIBFuV3WMtd9K67S2NUAg+r7wCa5jZeNjXyZdXneM+bH0VF98vfXsOpednI1GYIe+O
-	drPuDMoAT/Aoe0OGqvlZBif9z4j8dBoZP1PtZnGMLeS2eORsXKBAqUum2CW7Ap2f9MgoMxye1fr
-	a1yoB97HSYZeLtuO4KHALuXqRu6oEVlLzRPRVop9+GBy6vsSmgDMHGTrpUrkUBZGQnevBauYW2X
-	HJOeOm4jxSnOrsH50IjjulrPWi2rn4jdu+kjU64SMDFrmoiVx41Npis/pgL6UjXL9jUWE4YoJxW
-	6dDwxrcZGihBGFaoYNTgDAfRj4UyXlSIKgJ50=
-X-Google-Smtp-Source: AGHT+IHKFWblm5LnaQm2d8+shTmkcU+FDf+0H06eH8nxVUhcOjJfWxAnQTwqjA0T3qIJaqWoH98RSQ==
-X-Received: by 2002:a17:903:244a:b0:294:d953:6ff9 with SMTP id d9443c01a7336-29bab1ae07fmr312387985ad.47.1764692068151;
-        Tue, 02 Dec 2025 08:14:28 -0800 (PST)
-Received: from vivek-IdeaPad-Slim-5-16IAH8.. ([2405:201:c020:c865:ca9f:dff7:8120:8577])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29bce44389bsm160814385ad.32.2025.12.02.08.14.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 02 Dec 2025 08:14:27 -0800 (PST)
-From: vivek yadav <y9.vivek@gmail.com>
-To: slongerbeam@gmail.com,
-	p.zabel@pengutronix.de,
-	mchehab@kernel.org,
-	gregkh@linuxfoundation.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: vivek yadav <y9.vivek@gmail.com>
-Subject: [PATCH] staging: media: imx: fix style issues
-Date: Tue,  2 Dec 2025 21:44:13 +0530
-Message-ID: <20251202161413.92230-1-y9.vivek@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        bh=9CUlMgoqtU94MhEJOHiTF0drSAqmoR7IifiR5EWvc1M=;
+        b=fk4WnwjNYY/2v1nZARwdM38TUcB9UJ3zKMPVXvAGa44IprJy6oIls/0a7SEDvWz7ZD
+         rxgmqIfBmQGzPYyCUfaSKRFOH8zrGy39a1n8nHWal/eWRyKfF4Wx89QNpoE8j0rYOe9l
+         v7p3intUBZO5i+FtVCOhK8v2/uz3ejfSTNSKYsLS0ctwwAt6chgtfVoP6gBP5Qbe2Q7+
+         DjfDjCM9/ByESThAYzJj8pfCWFB79nMGinPuTIe1yKKK0jLdxTVaYnrhRNiD8suar0KE
+         1NWSPR0PpVJuM7SSyQc7vmDDIAnzUE98il1hYkvGJkXhqicvybynS6MCDCL8dDR1QoK2
+         nOyw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764692724; x=1765297524;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=9CUlMgoqtU94MhEJOHiTF0drSAqmoR7IifiR5EWvc1M=;
+        b=tfiJG9n2de2KJuVYfnN8Hm2XiI6dAnLjbFAdgh/MDLgWboeJt3k0DgP17PtTJHl2FY
+         MOYbg4NjRNx+9NYm8FhV6BUFs3HOMTo6lvLOKsx5DNdR0WMlTUq4wQpkrSbRnCDqrCYX
+         E/Faq+/vzXfg+pdq/9NQCEtaqkWWLYVj4zpMe0VB9NYWXVgokzzUW1qJ35tReBWthYpe
+         Plz8ZPzBdEcTFgW4vcIHWCIKrkMzqCg66tPI9RfhpmUbqnv9RfKCcQ9ZGVfi50vbQycl
+         QBMRRrzLIFE4ckg0wl6bUk3JIubhaxzbMCBoLkokYDi1WAtK5f6Ko+pVFc74Zmd741MQ
+         /aeA==
+X-Forwarded-Encrypted: i=1; AJvYcCUhlnoxaffyvpY0tVIxuTP/FpfVBqGdmnMIHhm18NyI+7t8OwTNP/RLulejspO2jUsFx0g5YmvFsozt6MYRwSUq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxN6o/ULnfivwD4rlIkuYsWuBhYTWB+sA5Y621LQKN4pPUyNpwh
+	KeiSqcjuVBWL2mKUSlSOGxhFFEf8YfDL1iYp6CFIZAlB6EhfTvvgrX9FM7QwE0ZQ2CtmvBFFJ02
+	2+1+j4AErcLBq1dkmxvDfpwTq1dvm6VO2Xu3Xcq02
+X-Gm-Gg: ASbGncsCCfHBWKgy9eJzzNFNalDfVcupepAH6iYO8Jg7Wiw3a8NRZaW0huL+v2gW6CM
+	+/DAiZMQFPXJCsxEb5zAPuFDqe3fyFXCdI5XAHA4zYdo8HD+hF3gLiJ262U0P+iLurWjuHTkalE
+	WyhAH7XlZQoRRbc0Ys+3EYmqbD9BBjIP0jo6P8IJ+YVlKdJjiP18MDpDWRx5QBlEy9n3AZ9d1lv
+	Rg+jCPWj28o+/OfMWvV1UKauj+92WsiwwRFS5Q4FPM06woOj6rykzdlMcijTa7Azcu05nyNkcwc
+	CyBPPvswxzNxVTKU8dY+cH6OXw58XeR5TQc5
+X-Google-Smtp-Source: AGHT+IE4G9icvFTi4G31CX4WGeT5pU2lGVP4hWaU0UtxQPpBaqTsf8OMaEZe1X38AnxII3RFCgHJu8dMtfftlpYsffA=
+X-Received: by 2002:a05:600c:1547:b0:46f:d682:3c3d with SMTP id
+ 5b1f17b1804b1-47904adff1cmr325914555e9.13.1764692723568; Tue, 02 Dec 2025
+ 08:25:23 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20251122-controller-v8-0-e7562e0df658@google.com>
+ <20251122-controller-v8-2-e7562e0df658@google.com> <2025112226-heave-refrain-53e6@gregkh>
+ <CA+zupgwzQ5r=-_L79D74=9VRqRO94N0yTApHChM+Nu0cn1ss3w@mail.gmail.com>
+ <2025120209-unstylish-john-2a6c@gregkh> <00d75fd3-a796-402a-a1a3-2172862fcf91@kernel.org>
+In-Reply-To: <00d75fd3-a796-402a-a1a3-2172862fcf91@kernel.org>
+From: Doug Anderson <dianders@google.com>
+Date: Tue, 2 Dec 2025 08:25:12 -0800
+X-Gm-Features: AWmQ_blwqi9oyEjuzVvnRUnzW3pTAJekeVpgwKfN72pLxhs1IzFYcf2tLSKp3Dg
+Message-ID: <CAD=FV=VLOLiGDfQOWXOL0H+M4EnSj1kouYK37WHV=8OVEwt+qg@mail.gmail.com>
+Subject: Re: [PATCH v8 2/2] usb: dwc3: Add Google Tensor SoC DWC3 glue driver
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Roy Luo <royluo@google.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Peter Griffin <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Badhri Jagan Sridharan <badhri@google.com>, linux-usb@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_081429_784004_2E967D4D 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20251202_082526_631758_8A820525 
+X-CRM114-Status: GOOD (  31.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,58 +105,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Applied checkpatch.pl recommendations:
-- corrected whitespace
-- fixed line length
-- adjusted indentation
+Hi,
 
-Signed-off-by: vivek yadav <y9.vivek@gmail.com>
----
- drivers/staging/media/imx/imx-media-csi.c  | 2 +-
- drivers/staging/media/imx/imx-media-vdic.c | 2 +-
- drivers/staging/media/imx/imx-media.h      | 2 +-
- 3 files changed, 3 insertions(+), 3 deletions(-)
+On Tue, Dec 2, 2025 at 1:42=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.org=
+> wrote:
+>
+> >> I plan to add ARCH_GOOGLE as a dependency in the next
+> >> version per [1], so the "depends on" would probably look like
+> >> the following per your suggestion:
+> >
+> > But "Google" is not an arch :(
+> >
+> > And really, the whole "only have a sub-arch symbol" is something that
+> > personally, I think is totally wrong and prevents kernel images from
+> > being built for more than one "arch".  As an example, the Android GKI
+>
+> Probably you think ARCH_FOO as arch/FOO/ directory, but this is not the
+> case. ARCH_FOO in this context is SoC platform, so e.g.
+> arch/arm64/boot/dts/FOO/.
+>
+> All of ARCH_FOO build into one image and that's recommended way to limit
+> unnecessary drivers.
+>
+> It's just confusing naming for whatever reason.
+>
+> > kernel has to support more than one of these, so what does putting this
+> > behind a symbol that no one will actually use mean anything?  Android
+> > will never be only building a ARCH_GOOGLE kernel.
+>
+> But distros will be, people will be. OK, maybe not for ARCH_GOOGLE, but
+> ARCH_QCOM we do for Qualcomm-based laptops and embedded folks even more.
+>
+> We had this talk in the past. The point is that these drivers here are
+> unusable outside of that hardware platform, so only when you choose
+> hardware platform (ARCH_EXYNOS, ARCH_GOOGLE, ARCH_QCOM) you will be able
+> to choose these drivers.
+>
+> You can also look at ARCH_FOO a bit orthogonal to actual kernel
+> architecture, because ARCH_EXYNOS is for both arm (arm32) and arm64. The
+> drivers should be available for all Exynos-platforms, regardless whether
+> this is arm32 or arm64.
 
-diff --git a/drivers/staging/media/imx/imx-media-csi.c b/drivers/staging/media/imx/imx-media-csi.c
-index fd7e37d803e7..725478bc2026 100644
---- a/drivers/staging/media/imx/imx-media-csi.c
-+++ b/drivers/staging/media/imx/imx-media-csi.c
-@@ -1509,7 +1509,7 @@ static void csi_try_fmt(struct csi_priv *priv,
- 	}
- 
- 	imx_media_try_colorimetry(&sdformat->format,
--			priv->active_output_pad == CSI_SRC_PAD_DIRECT);
-+				  priv->active_output_pad == CSI_SRC_PAD_DIRECT);
- }
- 
- static int csi_set_fmt(struct v4l2_subdev *sd,
-diff --git a/drivers/staging/media/imx/imx-media-vdic.c b/drivers/staging/media/imx/imx-media-vdic.c
-index 86f2b30cb06c..58f1112e28e5 100644
---- a/drivers/staging/media/imx/imx-media-vdic.c
-+++ b/drivers/staging/media/imx/imx-media-vdic.c
-@@ -616,7 +616,7 @@ static int vdic_set_fmt(struct v4l2_subdev *sd,
- }
- 
- static int vdic_link_setup(struct media_entity *entity,
--			    const struct media_pad *local,
-+			   const struct media_pad *local,
- 			    const struct media_pad *remote, u32 flags)
- {
- 	struct v4l2_subdev *sd = media_entity_to_v4l2_subdev(entity);
-diff --git a/drivers/staging/media/imx/imx-media.h b/drivers/staging/media/imx/imx-media.h
-index f095d9134fee..135daca7d55b 100644
---- a/drivers/staging/media/imx/imx-media.h
-+++ b/drivers/staging/media/imx/imx-media.h
-@@ -231,7 +231,7 @@ int imx_media_probe_complete(struct v4l2_async_notifier *notifier);
- struct imx_media_dev *imx_media_dev_init(struct device *dev,
- 					 const struct media_device_ops *ops);
- int imx_media_dev_notifier_register(struct imx_media_dev *imxmd,
--			    const struct v4l2_async_notifier_operations *ops);
-+				    const struct v4l2_async_notifier_operations *ops);
- 
- /* imx-media-fim.c */
- struct imx_media_fim;
--- 
-2.43.0
+FWIW I don't feel strongly about the ARCH_XYZ Kconfig settings, but
+I'd tend to agree with Krzysztof that I personally find them useful.
+Sure, it's fine to just turn all of the ARCH_XYZ values on and they
+shouldn't conflict with each other, but it provides an easy way for
+someone to know that certain drivers are only useful if the kernel
+you're building supports a given arch. If I'm building a kernel that
+doesn't need to support any Qualcomm boards, for instance, I can just
+turn that arch off and I don't even need to think about all of the
+Qualcomm-related config options.
 
+FWIW, if you do add a "depend" on ARCH_GOOGLE you should mention
+somewhere (maybe "after the cut" in your patch) that ARCH_GOOGLE
+doesn't exist yet. It should eventually exist when some version of
+this patch lands:
+
+https://lore.kernel.org/r/20251111112158.3.I35b9e835ac49ab408e5ca3e0983930a=
+1f1395814@changeid/
+
+...but it's not there yet. ;-)
+
+-Doug
 
