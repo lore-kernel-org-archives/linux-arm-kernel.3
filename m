@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32B02CFD376
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 09:53:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26000CFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 09:53:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZQq06uXpPtpInWK0AOigmp8vjo0FZcdzYwB+zkihYcI=; b=rhKNabvzFqhpq04X7UsE9eYrsF
-	nqvlugpYIGWDOIFvdj6JEgo+thgc32Dm2Ygt5Vnj/CLQuXY153imwq9Yhbi+3T1ESbAR9ov5BCP5W
-	E63C2keH6yapMsYWXAGhy85P+PB92VbU1GWG5g1KNh+Ym9g63RU0W6KV21WT600ezxNa88jcZ0TV8
-	opVgokDyGaWhjkZ45zsru8dTilTstuj9phijFbkqze4GspaikjpHGOCy226Ff0hmC5lw5iEkcUV4A
-	S5nQa6xOw7IkcafgnPYnwbhQMg9WH8X85ZL78Uoqx2cAIsZKX/+zl5wx8Wj3R0UUetd90qgPgOMWT
-	DxYWaPTg==;
+	bh=Vqcms3BCnTiqx8WKyJ73EQe5BSCTd5lDUjgoT9rk4Jw=; b=rHVyd/00flDpUEY79ZywKP8RD3
+	XB+KZpeIzmvXRIuYNjEDNSAIXF9Yvd+EXgo1ypauDNqLBb9gmkVpYO2cVVihqEn8Z7PizAG4X9qVr
+	+Amx73pNf70B5d1c37FI+RqQhjSyiuej99Bdor/Ur3/Lk/1axa7kAQvgKBNgM+MPWsqf6BDXf1SRc
+	qsnW70SfqahVhwsjtkjfnwbKmRw+2AQsiDFZKc22Bdpq8EuT9LIGpy4WXKPxD02eVr1XQKWF/uCAn
+	9uWsPgOFGC/9eo1P9RTiCbZ9twegIMrHdmO1A2r7WQPmnlJJYQAFJyFnRhcBPWgCWww0XYcI3GRpY
+	cvDWcBxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQN4P-00000005Ceb-2tzx;
-	Tue, 02 Dec 2025 09:53:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQN4M-00000005Ce5-3yHN
+	id 1vQN4Z-00000005CgV-05KY;
+	Tue, 02 Dec 2025 09:53:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQN4W-00000005Cfx-2Oom
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 09:53:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 74072153B;
-	Tue,  2 Dec 2025 01:53:06 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 25B923F73B;
-	Tue,  2 Dec 2025 01:53:12 -0800 (PST)
-Date: Tue, 2 Dec 2025 09:53:09 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Kees Cook <kees@kernel.org>,
-	Ard Biesheuvel <ardb+git@google.com>, Will Deacon <will@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Catalin Marinas <Catalin.Marinas@arm.com>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	linux-hardening@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH v1 2/2] randomize_kstack: Unify random source across
- arches
-Message-ID: <aS63BeFzDCgkVsNy@J2N7QTR9R3>
-References: <20251127105958.2427758-1-ryan.roberts@arm.com>
- <20251127105958.2427758-3-ryan.roberts@arm.com>
- <CAMj1kXFY1RXk8T4f46bkm_sr0nJfBoO+ii68JK4+CsRiDwKdCg@mail.gmail.com>
- <9097505d-b18b-4f85-a02c-7f2865ad8bca@arm.com>
- <CAMj1kXHX1W2Kz5NJehtzDhOCKWEd6y1sp8+ViOMHGsq9e8=7Pw@mail.gmail.com>
- <aS6ylpLIyDZOvBDB@J2N7QTR9R3>
- <7da8d5cc-7b67-4f51-8f09-7ca401d06a3d@arm.com>
+	Tue, 02 Dec 2025 09:53:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 79B2243FE0;
+	Tue,  2 Dec 2025 09:53:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D95D4C4CEF1;
+	Tue,  2 Dec 2025 09:53:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764669203;
+	bh=/AhUc5pNDMIB+MxG8tAbE5vEZvLdVKtKwk2LjUvq2j4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FYE3zYYo5Vf0etfLhw7gf+HgO4jDdia94Of7xcMn3TvSPUR5Xn0P9uVqMwBZjY3O+
+	 vOcLfblHAfxA4wsR205oEiC/MYd6Tgmoq2FwAFb26Ky1prZedcELZIuV0j6GyZWz3U
+	 s4+vlqBGevYEfKCVMhSzYggbwm/bdM2PjJYu9tGjH/6g+lVLMl5iXG8206RkTLeh1L
+	 Gv/CZ17AmVfLwFGmpamjbiFBqn+ezSkCLiIByjsovx/zd3m9+/pTGyVDE/ZoGG6/L0
+	 PX2mA7ZthsKOu8/grMPOrRA1WMYrrGgeWCFUWRtBQ5cOEoLDSy3srOH0govZhVMNYB
+	 h/mETuUTem8eg==
+Date: Tue, 2 Dec 2025 15:23:11 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Vincent Guittot <vincent.guittot@linaro.org>
+Cc: Randy Dunlap <rdunlap@infradead.org>, 
+	Stephen Rothwell <sfr@canb.auug.org.au>, Linux Next Mailing List <linux-next@vger.kernel.org>, 
+	linux-pci@vger.kernel.org, Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, NXP S32 Linux Team <s32@nxp.com>, 
+	"imx@lists.linux.dev" <imx@lists.linux.dev>, linux-arm-kernel@lists.infradead.org, 
+	Bjorn Helgaas <helgaas@kernel.org>
+Subject: Re: linux-next: Tree for Nov 28
+ (drivers/pci/controller/dwc/pcie-nxp-s32g.o)
+Message-ID: <vb6pcyaue6pqpx626ytfr2aif4luypopywqoazjsvy4crh6zic@gfv75ar7musy>
+References: <20251128162928.36eec2d6@canb.auug.org.au>
+ <63e1daf7-f9a3-463e-8a1b-e9b72581c7af@infradead.org>
+ <ykmo5qv46mo7f3srblxoi2fvghz722fj7kpm77ozpflaqup6rk@ttvhbw445pgu>
+ <CAKfTPtA-wir5GzU7aTywe7SZG18Aj8Z9g1wjV-Y8vKoyKF1Mkg@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <7da8d5cc-7b67-4f51-8f09-7ca401d06a3d@arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAKfTPtA-wir5GzU7aTywe7SZG18Aj8Z9g1wjV-Y8vKoyKF1Mkg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_015315_121030_08C0F3CE 
-X-CRM114-Status: GOOD (  22.88  )
+X-CRM114-CacheID: sfid-20251202_015324_631144_1A23BBF6 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,64 +80,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 02, 2025 at 09:39:40AM +0000, Ryan Roberts wrote:
-> On 02/12/2025 09:35, Mark Rutland wrote:
-> > On Tue, Dec 02, 2025 at 10:15:22AM +0100, Ard Biesheuvel wrote:
-> >> On Mon, 1 Dec 2025 at 19:20, Ryan Roberts <ryan.roberts@arm.com> wrote:
-> >>> On 28/11/2025 11:01, Ard Biesheuvel wrote:
-> >>>> On Thu, 27 Nov 2025 at 12:00, Ryan Roberts <ryan.roberts@arm.com> wrote:
-> >>>>> diff --git a/include/linux/randomize_kstack.h b/include/linux/randomize_kstack.h
-> >>>>> index 089b1432f7e6..83c7e6710f6d 100644
-> >>>>> --- a/include/linux/randomize_kstack.h
-> >>>>> +++ b/include/linux/randomize_kstack.h
-> >>>>> @@ -6,6 +6,7 @@
-> >>>>>  #include <linux/kernel.h>
-> >>>>>  #include <linux/jump_label.h>
-> >>>>>  #include <linux/percpu-defs.h>
-> >>>>> +#include <linux/prandom.h>
-> >>>>>
-> >>>>>  DECLARE_STATIC_KEY_MAYBE(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,
-> >>>>>                          randomize_kstack_offset);
-> >>>>> @@ -45,9 +46,13 @@ DECLARE_STATIC_KEY_MAYBE(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,
-> >>>>>  #define KSTACK_OFFSET_MAX(x)   ((x) & 0b1111111100)
-> >>>>>  #endif
-> >>>>>
-> >>>>> +static __always_inline u32 get_update_kstack_offset(void)
-> >>>>> +{
-> >>>>> +       return prandom_u32_state(&current->kstack_rnd_state);
-> >>>
-> >>> I've got bot warnings because this is being called from noinstr code. I guess
-> >>> the best option is to just move add_random_kstack_offset() to after
-> >>> instrumentation is enabled for the affected arches.
-> >>
-> >> Just put instrumentation_begin()/instrumentation_end() around the call
-> >> to prandom_u32_state() - that seems to be the common approach for
-> >> punching holes into the 'noinstr' validation.
-> > 
-> > That silences the warning, but isn't necessarily safe, so please DO NOT
-> > do that blindly. The instrumentation_{begin,end}() annotations are only
-> > supposed to be used when we know by construction that instrumentation is
-> > safe.
-> > 
-> > Generally, if you can move this to after instrumentation is already
-> > enabled, that should be safe, and so that'd be the better approach.
-> > 
-> > Ryan, can you share those warnings (e.g. link to those reports)?
+On Tue, Dec 02, 2025 at 09:54:24AM +0100, Vincent Guittot wrote:
+> On Tue, 2 Dec 2025 at 05:24, Manivannan Sadhasivam <mani@kernel.org> wrote:
+> >
+> > + Vincent
 > 
-> https://lore.kernel.org/oe-kbuild-all/202511302137.u4iIA2kf-lkp@intel.com/
-> https://lore.kernel.org/oe-kbuild-all/202511302317.BGFIlAYX-lkp@intel.com/
+> Thanks for looping me in.
+> >
+> > On Sat, Nov 29, 2025 at 07:00:04PM -0800, Randy Dunlap wrote:
+> > >
+> > >
+> > > On 11/27/25 9:29 PM, Stephen Rothwell wrote:
+> > > > Hi all,
+> > > >
+> > > > Changes since 20251127:
+> > > >
+> > >
+> > > on i386 (allmodconfig):
+> > >
+> > > WARNING: modpost: vmlinux: section mismatch in reference: s32g_init_pcie_controller+0x2b (section: .text) -> memblock_start_of_DRAM (section: .init.text)
+> 
+> Are there details to reproduce the warning ? I don't have such warning
+> when compiling allmodconfig locally
+> 
+> s32 pcie can only be built in but I may have to use
+> builtin_platform_driver_probe() instead of builtin_platform_driver()
+> 
 
-Cool, so those are __do_fast_syscall_32() and do_syscall_64(), which I'd
-expect (and those are legitimate warnings).
+The is due to calling a function belonging to the __init section from non-init
+function. Ideally, functions prefixed with __init like memblock_start_of_DRAM()
+should be called from the module init functions.
 
-From a quick scan of v6.18, it looks like arm64, loongarch, powerpc, and
-riscv perform all the necessary entry work before calling
-add_random_kstack_offset(), and we'll need to change:
+One way to fix would be to call memblock_start_of_DRAM() in probe(), and
+annotate probe() with __init. Since there is no remove, you could use
+builtin_platform_driver_probe().
 
-* s390's __do_syscall()
-* x86's do_syscall_64()
-* x86's do_int80_syscall_32()
-* x86's __do_fast_syscall_32()
+This also makes me wonder if we really should be using memblock_start_of_DRAM()
+in the driver. I know that this was suggested to you during reviews, but I would
+prefer to avoid it, especially due to this being the __init function.
 
-Mark.
+- Mani
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
