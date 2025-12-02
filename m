@@ -4,69 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25FF7CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 09:53:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97BF4CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 09:54:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QFSXfKI/g+Y0zmED3MhMMetDM6rW4DNMKUwINwXOAYc=; b=McpWf/MDgufJedd75iCg2p0CYF
-	XxI5volldLkR+Ba/5sPW0HB9BtLrpXLmwTrf1QmUPP3wOrT4ZLlqacMPzx+StYY3+jrGvfJY396Bp
-	eD9JglE/QNgvPtyZK2IQ+gt6ThoymTUydHnqsY1KG6qFWc3rlXKapEL5ey9g4zq51IEPbXQ48+jjx
-	hY/58WeQkx64OaIvE+Xnsfa9LoPGuP+Ey6hfR1qUBi3TWo5bjZnqKmksG2kPjyaWrwjNApOI6fg6t
-	XV+JwM+zIVzlSAM1i0hgT/UFhKhRM4CX0a+KhGroQ0e5MJoZKQL4eFB27dWfEZhLDdt6ft7Toc0JZ
-	SrYgitQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fmcXNUEO80mXAVYkIIIRpgbvGeVPZ2JwOkqQjxC/qNM=; b=FVDb4X00TLPiPwxX5M1H45KwZH
+	e7K2PG1gbub4OshFI3gGoiQJOYunTNg+QnVQlFjdPh42bQYNL8oeS3ryx+kTmNA9dxtOM2Ou+6pPn
+	Yl9eMOjFEzjhpnZK2jRZvq/dfiR6DHvzvQxB8fgdiaOu2qRhEtZEwlFPjGXfbfhICUcZgFGZv2CNy
+	ph1UzMQ6iGIZjqhp0ccv/OX1qsK+naiAyqWj+nhB9BAgr4VfMoCrSRPP9aJ15dr4f7fMMeWs/ei8b
+	e9rAAjdECdS9CBkcYasVfhlfJhpK4kX1SaIY4sUJynZUeY1m4KJSEcT6EAc+UOGf27euCnDClN6g9
+	HeR7hasA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQN4l-00000005CkG-3hAQ;
-	Tue, 02 Dec 2025 09:53:39 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1vQN5l-00000005CzU-27Th;
+	Tue, 02 Dec 2025 09:54:41 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQN4i-00000005Chw-0pFQ;
-	Tue, 02 Dec 2025 09:53:38 +0000
-Received: from DESKTOP-L0HPE2S (unknown [124.16.141.245])
-	by APP-05 (Coremail) with SMTP id zQCowABXXW4Yty5pMOv0Ag--.51176S2;
-	Tue, 02 Dec 2025 17:53:30 +0800 (CST)
-From: Haotian Zhang <vulab@iscas.ac.cn>
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-staging@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Haotian Zhang <vulab@iscas.ac.cn>
-Subject: [PATCH] staging: vc04_services: vchiq_bus: Check return value of of_dma_configure()
-Date: Tue,  2 Dec 2025 17:52:52 +0800
-Message-ID: <20251202095253.1640-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1.windows.1
+	id 1vQN5j-00000005Cye-0GIu
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Dec 2025 09:54:40 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-645a13e2b17so2027898a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 01:54:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764669277; x=1765274077; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fmcXNUEO80mXAVYkIIIRpgbvGeVPZ2JwOkqQjxC/qNM=;
+        b=U5nrKEHQ3j6ZsCXzT7sVvq+3dh78duQPfZZExPPOAHrgxOTRgVq0ZOdvhGJQ7CA95u
+         mhRIaM2LnPcKJwF1LNgdo5bgycfxJkNTQRSA4XUhs3tXnqaor28TJyAXsu35PrPi4uZf
+         +E4Z4UFLSfJCHiXWN3yl1J228hcpKmv1ewBzAyq+29rg1Zbtf7c4uPWm+P+Ilwqp64/m
+         XvTaFtfJ0cG0/f38l6nXCY4+AItIloD/MUaKWjWpSsL+xujhsA2PSlgAofF5rWot5kAW
+         EnYCXIZR++63hVTjrP7gRAnUl2B1wBI1L7XdcCd2xzUt6XH10tdi5wAEXCK6Mt7dVd5g
+         mCmA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764669277; x=1765274077;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fmcXNUEO80mXAVYkIIIRpgbvGeVPZ2JwOkqQjxC/qNM=;
+        b=PgoMndmTcJBqHdWQ9Twu1FKgrv+9YF3xVgJ0plGXdEXu87wbGCaZz5QVHitIucqVIH
+         dis/qN6AoybXiOL0ZRUab/o4OAo6PAnHzJGvlJvR4aOm/LORz0t60vCRy8HIbo7uem6y
+         pQS4OVfvLQmtkVjuKO8QgcT4VRLTghrNUoiL6Eq5/QilPO5M9hi+VCfOApADQjlqh0zU
+         KZnw/qBd6G11Kb75OMV88zfG8tKUeYNU5ZVNjfgtFtpjDvdoz+aWLvwtMd//kpqV/wPI
+         opU97NHlFa5IF9bMSdSH4401g4ixP35vH/j3/5o+Cq19O9GI7vxmA1+EyatnVt6ptxLi
+         lkRg==
+X-Forwarded-Encrypted: i=1; AJvYcCVIdmYaFuaKJqD2aAt4orQLrZmOQAiX2xSNfks4bnSgiVB0/RUo1nyuoYfDWyXUvKx7RHDBTo9qNgm0zsPD2WWV@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbqPNMbDzZhy+n4REnPyoIxHqEyPlf0eLWkzxZ6KT0fFrTQISw
+	V0OWPTeoOxBsYjK4qVkx7gggAt2IAsWsxOsq7pUv63TVVCnt6O6XkI+vhA3L9fYHuiM=
+X-Gm-Gg: ASbGncs+H5xjbU22uidmgoVpaDHazNToCkSqc5KA44WVCtaVDnMoXLlFYo8rkKqB0xY
+	USAH2ptoB5oTZnkNkNw90bHDQEvvmVyS8lgOkMklaO6guuv4nl9gD1+3y452QasLNYT8SdDEN/7
+	TDDTxxPH9uPBOxto3brMCRyHKFLPzW0y6GlDiiUncJ5TAr81v8QbHh+MG7inWEz4YRWmQV+W78r
+	UfSPohsZ430k4V4sWW6jNtTqE3963cGUNe1Up3XpNc/bBWQfvGYukIZsxvWPcb/HrMrSuu81C1X
+	JAOMmw8sf6TQhf9p3N+y5g7glfVEegrOvKyTUfGrIPNOSJyYtTKv71jo17qO82GnDNd9ngVpioK
+	ClQF/TbpYnuf6Z+RBG+REikNVJkxGG5nkXVZMGZt8OTLVbTqDnpAFREgBjWJPD1aqeU+ogSfRQd
+	7cKR4UgGmxUgCsFNCmAV5fev1jnaie
+X-Google-Smtp-Source: AGHT+IFJ63lxp3eqfF6B3HqtZfdhy6bpjHT9zOV3GMz4SeDzpuMwc0q+BDsBTOMbJgg/CZ2xByTBig==
+X-Received: by 2002:a17:906:c10e:b0:b73:2df0:9fa9 with SMTP id a640c23a62f3a-b76c566bccamr3151399066b.59.1764669276496;
+        Tue, 02 Dec 2025 01:54:36 -0800 (PST)
+Received: from alchark-surface.localdomain ([185.209.196.169])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b76f51a9819sm1494466566b.25.2025.12.02.01.54.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Dec 2025 01:54:36 -0800 (PST)
+From: Alexey Charkov <alchark@gmail.com>
+Date: Tue, 02 Dec 2025 13:54:31 +0400
+Subject: [PATCH v2] arm64: dts: rockchip: Add overlay for the PCIe slot on
+ RK3576 EVB1
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowABXXW4Yty5pMOv0Ag--.51176S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7WF1UCFyxGFy3Ar1DAF15twb_yoW8Gw1fpF
-	4UWas5G34YgF45uws8XFZxWa4Yga92ka1rur97Gwn5Kr18Zryaqr9rKFy3Wrs5tr48Aay3
-	XFWjgw18uw4UGF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkC14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26F1j6w1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_
-	JF0_Jw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67
-	AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIY
-	rxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14
-	v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8
-	JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjfUejjgDU
-	UUU
-X-Originating-IP: [124.16.141.245]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwkEA2kupaZFZQAAst
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251202-evb1-pcie1-v2-1-810693b1b72f@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAFa3LmkC/03Myw6CMBCF4Vchs7amUwWBle9hWPQywiRCSWsaD
+ em7W3Hj8j/J+TaIFJgi9NUGgRJH9ksJdajATnoZSbArDUqqGlG1gpJBsVomFNrRqe302dWdhHJ
+ YA935tWO3ofTE8enDe7cTftcfoyT+MwkFCtsoY3RtEZvLdZw1P47WzzDknD9VrquJpAAAAA==
+X-Change-ID: 20251128-evb1-pcie1-ade389a4d590
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Alexey Charkov <alchark@gmail.com>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3470; i=alchark@gmail.com;
+ h=from:subject:message-id; bh=EiXesyPMoSc0xu7TjPVo5wefAUNtnNky3tjqoIW+AFk=;
+ b=owGbwMvMwCW2adGNfoHIK0sZT6slMWTqbY/lOdT+2f7X5obnj38bezgrMH3WFfszl68h9d+Jg
+ 3G+035N7ShlYRDjYpAVU2SZ+22J7VQjvlm7PDy+wsxhZQIZwsDFKQATkbvHyDD565v1+aeZN6gq
+ BIqeDb5mNnP5NPFfR7OK0sJdar+Ze9xkZJi31pDL3qBQ8tc3n9Ptv75NXSP3KtTp24Moni6xqPL
+ bM5gA
+X-Developer-Key: i=alchark@gmail.com; a=openpgp;
+ fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_015336_419758_46FF321C 
-X-CRM114-Status: UNSURE (   8.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251202_015439_120325_B20763C6 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,39 +112,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-vchiq_device_register() ignores the return value of of_dma_configure(),
-which may return -EPROBE_DEFER when the IOMMU is not ready or other error
-codes. This allows device registration to proceed with incomplete DMA
-configuration.
+Rockchip RK3576 EVB1 has an onboard PCIe slot (PCIe 2.1, x4 mechanically,
+x1 electrically), but it shares pins and PHY with the only USB3 Type-A
+port.
 
-Check of_dma_configure() return value and fail device registration
-on error.
+There is a physical switch next to the slot to transfer respective pins
+connection from the USB3 port to the PCIe slot, but apart from flipping
+the switch one must also disable the USB3 host controller to prevent it
+from claiming the PHY before the PCIe slot can become usable.
 
-Fixes: 027e5703de6b ("staging: vc04_services: vchiq_arm: Add new bus type and device type")
-Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
+Add an overlay to disable the USB3 host port and instead enable the
+PCIe slot, along with its pin configs. The physical switch must still be
+flipped to the "ON - PCIe1" position for this to work.
+
+Signed-off-by: Alexey Charkov <alchark@gmail.com>
 ---
- .../staging/vc04_services/interface/vchiq_arm/vchiq_bus.c  | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+Changes in v2:
+- Added the standalone .dtbo Makefile target forgotten in v1
+- Link to v1: https://lore.kernel.org/r/20251201-evb1-pcie1-v1-1-c62bba5c1167@gmail.com
+---
+ arch/arm64/boot/dts/rockchip/Makefile              |  5 ++++
+ .../boot/dts/rockchip/rk3576-evb1-v10-pcie1.dtso   | 31 ++++++++++++++++++++++
+ 2 files changed, 36 insertions(+)
 
-diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_bus.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_bus.c
-index 41ece91ab88a..8d920a7a3777 100644
---- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_bus.c
-+++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_bus.c
-@@ -80,7 +80,12 @@ vchiq_device_register(struct device *parent, const char *name)
+diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
+index ad684e3831bc..ecd2dd365e97 100644
+--- a/arch/arm64/boot/dts/rockchip/Makefile
++++ b/arch/arm64/boot/dts/rockchip/Makefile
+@@ -153,6 +153,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-wolfvision-pf5-io-expander.dtbo
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-armsom-sige5.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-armsom-sige5-v1.2-wifibt.dtbo
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-evb1-v10.dtb
++dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-evb1-v10-pcie1.dtbo
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-luckfox-omni3576.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-nanopi-m5.dtb
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-roc-pc.dtb
+@@ -252,6 +253,10 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-armsom-sige5-v1.2-wifibt.dtb
+ rk3576-armsom-sige5-v1.2-wifibt-dtbs := rk3576-armsom-sige5.dtb \
+ 	rk3576-armsom-sige5-v1.2-wifibt.dtbo
  
- 	device->drv_mgmt = dev_get_drvdata(parent);
- 
--	of_dma_configure(&device->dev, parent->of_node, true);
-+	ret = of_dma_configure(&device->dev, parent->of_node, true);
-+	if (ret) {
-+		dev_err(parent, "DMA configuration failed for %s: %d\n", name, ret);
-+		kfree(device);
-+		return NULL;
-+	}
- 
- 	ret = device_register(&device->dev);
- 	if (ret) {
++dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3576-evb1-v10-pcie1.dtb
++rk3576-evb1-v10-pcie1-dtbs := rk3576-evb1-v10.dtb \
++	rk3576-evb1-v10-pcie1.dtbo
++
+ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-edgeble-neu6a-wifi.dtb
+ rk3588-edgeble-neu6a-wifi-dtbs := rk3588-edgeble-neu6a-io.dtb \
+ 	rk3588-edgeble-neu6a-wifi.dtbo
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10-pcie1.dtso b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10-pcie1.dtso
+new file mode 100644
+index 000000000000..dccf4a5debdb
+--- /dev/null
++++ b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10-pcie1.dtso
+@@ -0,0 +1,31 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * DT-overlay to enable the onboard PCIe x1 slot, which shares pins and the PHY
++ * with the USB3 host port.
++ * To use the PCIe slot, apply this overlay and flip the Dial_Switch_1 right
++ * next to the PCIe slot to low state (labeled "ON - PCIe1"). USB3 host port
++ * will be unusable (not even in 2.0 mode)
++ */
++
++/dts-v1/;
++/plugin/;
++
++#include <dt-bindings/pinctrl/rockchip.h>
++
++&pcie1 {
++	pinctrl-0 = <&pcie1m0_pins &pcie1_rst>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
++&pinctrl {
++	pcie1 {
++		pcie1_rst: pcie1-rst {
++			rockchip,pins = <4 RK_PC4 RK_FUNC_GPIO &pcfg_pull_none>;
++		};
++	};
++};
++
++&usb_drd1_dwc3 {
++	status = "disabled";
++};
+
+---
+base-commit: 7d0a66e4bb9081d75c82ec4957c50034cb0ea449
+change-id: 20251128-evb1-pcie1-ade389a4d590
+
+Best regards,
 -- 
-2.50.1.windows.1
+Alexey Charkov <alchark@gmail.com>
 
 
