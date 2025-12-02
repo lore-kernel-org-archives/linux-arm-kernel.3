@@ -4,92 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1913CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 08:35:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 250E4CFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 08:36:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JjuUELaIuU1gd/2FdtvzglPjtUaEtmlP48ZimdLyUps=; b=1uXX1rnUzjxvZ4PQq4fyFxTpuG
-	gJ335l2oArNg5PvR1aVbR7Z+9MPcaUmFiKwJovcHR+WBGeVW4e9ibW0Ow7uK8/OQ/of6OcAaYtdir
-	SXZW0Zo4mmqSaoyA/haMpRNwvTST5ASpuI+DmMIY1donHGhZ5ovyUMHvmoaC3EzVmQnCj1vyazu02
-	lVmgDimaJYGRjIqplXcVoLkgm6qZrfh4Cw43lUnzZGz6cZXsGuF048Pok5OBW/5JmjzqvR32K7QB8
-	4nwFLCG2J/vfUOcI+l0QfmfM4yLLmB/51VAmwHeOJzpe/ZIGJ4Ltwgg8bjFTF84vENi5Z/bJajmuy
-	cikIwJfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W6B5OqMy67kr8q+11wZNONtDWMMpaPIwFbThvyADwmk=; b=rurm89RP0e0VXflxttOXrp04oB
+	lQpOubfXvID2E7KCEbne6Uo6vakA4NyJYjUo2155IMazZjRJ+E+WhCq/LcoWZeLqQ7/JymirYBZAu
+	CxC+CDjK4upTCYtb/X1KgBMR27neA/UrgbKlxt6LBy3X9DJ4CDlrIqLNKpH69nhBXp880pVJqE9UN
+	g5Klzacbiqu9ciVtljh/MC9ZIeyE7EDVytWYQ7V1lYeeiJ/72DeIs6UlmD2fSaIVRBixh762MnXAZ
+	2xj/0/Mqi5Qs7DmG3j2yvZ21g3L0TDhhrjd0VmrRbLvLnX5s5Aa1Q5AJS2P3U6rSToCAkjyNyo17c
+	Rc2U7eLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQLrL-000000053g0-0O3w;
-	Tue, 02 Dec 2025 08:35:43 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1vQLra-000000053hu-1nsW;
+	Tue, 02 Dec 2025 08:35:58 +0000
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQLrI-000000053fX-0RZ6
+	id 1vQLrY-000000053hH-1P7B
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 08:35:41 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-297d4a56f97so75289975ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 00:35:38 -0800 (PST)
+	Tue, 02 Dec 2025 08:35:57 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-bde2d88e5e3so7793324a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 00:35:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764664538; x=1765269338; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JjuUELaIuU1gd/2FdtvzglPjtUaEtmlP48ZimdLyUps=;
-        b=c/ZFELOdq7LCd2+j5Oj3PuhBxRLdll6AeKUnNKbZ+3nFlpIaf+ZqBOmX4RNgSIr0fl
-         2EMrDRNDdAaMp0N2cdw8Kp0iVRw3ejjU8APMR06AjF8/U0a5+p71Sp3E42lR6hKXid1J
-         7bqnH6tDLuI8yYu0jb4jVgMXpZ6TFVz/hviAMdlhXVwfGYrrpar6Ig2WxDBLTh/L0Cme
-         yVCRj/2gYZu0MQp7T81GLy534fuzODTg8SDf3q6/LI0EKQ5/EvQ4ynd4TtncPIrc/SiH
-         phbzl5i7zG3wph+4PTrp7RfVwhOcoJxbkcCoKpdZ70yb28JHhJtOyHVPqvktsm9EAvqc
-         eI+w==
+        d=google.com; s=20230601; t=1764664554; x=1765269354; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=W6B5OqMy67kr8q+11wZNONtDWMMpaPIwFbThvyADwmk=;
+        b=gwq0zjXLu5rkcetwdgvs0xaxCNReqFfAGl/1ldYXmihtxzuq+5RuJnYHE5H4Mkrx+5
+         ZIgnNfcI6316US5+eUytr+oHOHDPI+HaRF1OEeOInsyE42asL4xa7jfb8GLuborDcTDn
+         tC6V62cjmVUdZ3briYG+KQ62ckTnZr4flkDNfcj8a2IsutsERAOPeb8Gp8I/dDEg64hK
+         bdYSQ4QQtsuvuNwZsHN4Al+lHaMK5X0wTIIPZyt3LgU9/3ORmhWFtt8BToATepvvjVwp
+         ctyx4oCsB6wHqM1xV1CMwIeqmdNarpshdZ651QfQH6j54O7iuS/gcc5TA4OTXYW0CR88
+         T5nw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764664538; x=1765269338;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=JjuUELaIuU1gd/2FdtvzglPjtUaEtmlP48ZimdLyUps=;
-        b=oncy2DzfeQD9sSMb4rLiRKIAX91AyA1mLHHejCghM7RKru8YPhff/P4adREoEmlFg6
-         cg3zV9PqxGgXFuKgcr39h+98tyPVPRLarUgRyVxpL7oNLzMOOSR5K92kJcRLeWzXkM8U
-         9SaBiMi4LeHZAw8eQKtr0DlQNZ746YBb+yPU5My7BAiKD1Qwt+wXot4rsORV07pMJoNk
-         3LyxSA9Wjs2BmEhyLJj6w2TClqaPlHg/b+ceMBZ/IjbA0z7hJzo4Au8mbXwabHm3F+P2
-         mL8+5Iq3XePqiD3Arf/5hkj3fRO8uvG87KIH4Ul07SK9R860BZZVon3TMzFtBiAphqwm
-         cbzA==
-X-Forwarded-Encrypted: i=1; AJvYcCVstxlRzM/iYlpkyqbov726j0/SMpmW6w4pZhGd1CSPgjDAsedXYKMiPDnnzTHT8WG04jSD2bUR1mKrKD/JJss+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvXr3ycVNwzxPIGmfXUlm8g70e1IX8pwIZovcMSoqzMSmtWBie
-	uN56sxoy7CMs2W0c4xAWM5BswzSTeUXKvBy1vleSS3AtGx9Z9a4GFJlkKgVsc4zzgHoAedWB0eq
-	Z3ZcqtLqEtUwe/ctSZnG0zAKoz+gYrUh329/PpOaT
-X-Gm-Gg: ASbGncsYUHsQNIACflIG1dg3Yna2IPe2AGBniygyjX3Q5rpdbVos3Xw6m6S4xAvSunf
-	X7Eo1e1s2pAifyNjQtOn0/1tnfo6kDCN//Qf9w4yzm8ca/1/Zh50HCZ9Fq2Jpm13Ypb4AlCkhdE
-	Pj5JPfvLPrKzluqjXGknTIh94m+0sHSO3/GNf9pKCQ6KGRAiKp/hdCXvHSrpkLY3YkuOd4q1Ec+
-	k9YzE5wZrCXBjDu09QFp6bwH+xD0DVAv/qjBZtH4b6ad2OaEJBXJgIf03DXMOLnJCoCrOPDiRXg
-	7IUsWw==
-X-Google-Smtp-Source: AGHT+IE4K+rC1T0nxBLda3rMJ7Xh3tPJApYjBfQYjhEN+PQBck3O++fb17f2VhiEsxBvds6BzbdMR2BO+hO3HQSpzKc=
-X-Received: by 2002:a05:7301:4616:b0:2a4:50ca:9234 with SMTP id
- 5a478bee46e88-2a719d7d25cmr21780225eec.26.1764664537612; Tue, 02 Dec 2025
- 00:35:37 -0800 (PST)
-MIME-Version: 1.0
-References: <20251122-controller-v8-0-e7562e0df658@google.com>
- <20251122-controller-v8-2-e7562e0df658@google.com> <CADrjBPqPsPBBSbhx8ZFreFWX2tRxaATT=azS-b1H2b=TJoVAAw@mail.gmail.com>
-In-Reply-To: <CADrjBPqPsPBBSbhx8ZFreFWX2tRxaATT=azS-b1H2b=TJoVAAw@mail.gmail.com>
-From: Roy Luo <royluo@google.com>
-Date: Tue, 2 Dec 2025 02:35:00 -0600
-X-Gm-Features: AWmQ_bl1YCwZSA7pQNoH9cFjlkJSn831NjN8Dq9QhCXB5pUpJEJxffvLo_epzic
-Message-ID: <CA+zupgyopHGCCb-HcNvyi4m5-UDerYZFmT7S0cNYLYONz-wzwg@mail.gmail.com>
-Subject: Re: [PATCH v8 2/2] usb: dwc3: Add Google Tensor SoC DWC3 glue driver
-To: Peter Griffin <peter.griffin@linaro.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Badhri Jagan Sridharan <badhri@google.com>, 
-	Doug Anderson <dianders@google.com>, linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, Joy Chakraborty <joychakr@google.com>, 
-	Naveen Kumar <mnkumar@google.com>
+        d=1e100.net; s=20230601; t=1764664554; x=1765269354;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=W6B5OqMy67kr8q+11wZNONtDWMMpaPIwFbThvyADwmk=;
+        b=b9H30mziydQhkCC/D5j9hJF587J6T8w48q5JeePc6621/arOekUP3mDk0m0oReOZ3R
+         APbpg0lwCy+HlD6KEIM0KbgfSBsvpyq28FBOiuKwBO9RAUrMbN2wRJvKXoumqtFtFtyF
+         IF9N3nbzATvsoU2NeDV0CmslYoTGXLkeHiyFVWv3XWvGIFbSbaAreCPvxgm/y+7tHyi+
+         cao6WplsTJPXfAOtt004LjwS4L07Qrpu3DAFByfFxoCQgo7zrum7EN6V3M/S2Sairo40
+         OT5nRo+/2gIPZnbUQVW7oS2yY2bfZ459KMgNDYMWgccXgJm+6FZA/CGeaeEIck1PyvsO
+         iZFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUB/3TrkfJk2ZkojEEyw/PYEWgGN7V/G28lm3PbkyGVbyycfDc3LpH6bkWOXS3kBQQt/WCJvb+vcIDHigx7PZPq@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUjaPpvf5BG0wmuc658re2qmtL/kIBq2beErhucLHi7zxqsn93
+	3Cm+siZjSo5bLKcjZ9VGxTpYn6X4oJX7rnaSjdyQ6+0NeZwpgfNywnKYrhGe3/WBLv7h2y4V43o
+	oxRaC7J9J/Pikm4pvhZGrpw==
+X-Google-Smtp-Source: AGHT+IGb5peSwTweL+kT4iMjAsZiwlPMM3x6CCn7fxcWmgYrU7ZMSeiv42KQvwk9tb1HT/dlWaP97KF+vN1SUw9m
+X-Received: from dybph18.prod.google.com ([2002:a05:7301:4192:b0:2a4:7453:cd4e])
+ (user=changyuanl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:7300:6b18:b0:2a4:55ae:fbd8 with SMTP id 5a478bee46e88-2a7192f5ae0mr15983784eec.37.1764664554525;
+ Tue, 02 Dec 2025 00:35:54 -0800 (PST)
+Date: Tue,  2 Dec 2025 00:35:50 -0800
+In-Reply-To: <20250212182558.2865232-3-maz@kernel.org>
+Mime-Version: 1.0
+References: <20250212182558.2865232-3-maz@kernel.org>
+X-Mailer: git-send-email 2.52.0.107.ga0afd4fd5b-goog
+Message-ID: <20251202083550.88668-1-changyuanl@google.com>
+Subject: Re: [PATCH v2 2/2] KVM: arm64: vgic: Hoist SGI/PPI alloc from
+ vgic_init() to kvm_create_vgic()
+From: Changyuan Lyu <changyuanl@google.com>
+To: maz@kernel.org
+Cc: glider@google.com, joey.gouly@arm.com, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_003540_159030_AE0A9715 
-X-CRM114-Status: GOOD (  36.31  )
+X-CRM114-CacheID: sfid-20251202_003556_381835_FE3F1941 
+X-CRM114-Status: GOOD (  28.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,143 +91,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 22, 2025 at 7:58=E2=80=AFPM Peter Griffin <peter.griffin@linaro=
-.org> wrote:
->
-> Hi Roy,
->
-> Thanks for your patch. It's great to see Laguna support being added upstr=
-eam.
->
-> On Sat, 22 Nov 2025 at 09:32, Roy Luo <royluo@google.com> wrote:
-> >
-> > Add support for the DWC3 USB controller found on Google Tensor G5
-> > (codename: laguna). The controller features dual-role functionality
-> > and hibernation.
-> >
-> > The primary focus is implementing hibernation support in host mode,
-> > enabling the controller to enter a low-power state (D3). This is
-> > particularly relevant during system power state transition and
-> > runtime power management for power efficiency.
-> > Highlights:
-> > - Align suspend callback with dwc3_suspend_common() for deciding
-> >   between a full teardown and hibernation in host mode.
-> > - Integration with `psw` (power switchable) and `top` power domains,
-> >   managing their states and device links to support hibernation.
-> > - A notifier callback dwc3_google_usb_psw_pd_notifier() for
-> >   `psw` power domain events to manage controller state
-> >   transitions to/from D3.
-> > - Coordination of the `non_sticky` reset during power state
-> >   transitions, asserting it on D3 entry and deasserting on D0 entry
-> >   in hibernation scenario.
-> > - Handling of high-speed and super-speed PME interrupts
-> >   that are generated by remote wakeup during hibernation.
-> >
-> > Co-developed-by: Joy Chakraborty <joychakr@google.com>
-> > Signed-off-by: Joy Chakraborty <joychakr@google.com>
-> > Co-developed-by: Naveen Kumar <mnkumar@google.com>
-> > Signed-off-by: Naveen Kumar <mnkumar@google.com>
-> > Signed-off-by: Roy Luo <royluo@google.com>
-> > ---
-> >  drivers/usb/dwc3/Kconfig       |  13 +
-> >  drivers/usb/dwc3/Makefile      |   1 +
-> >  drivers/usb/dwc3/dwc3-google.c | 628 +++++++++++++++++++++++++++++++++=
-++++++++
-> >  3 files changed, 642 insertions(+)
-> >
-> > diff --git a/drivers/usb/dwc3/Kconfig b/drivers/usb/dwc3/Kconfig
-> > index 4925d15084f816d3ff92059b476ebcc799b56b51..f58c70dabf108878cbefe0a=
-bea88572d9ae81e26 100644
-> > --- a/drivers/usb/dwc3/Kconfig
-> > +++ b/drivers/usb/dwc3/Kconfig
-> > @@ -200,4 +200,17 @@ config USB_DWC3_GENERIC_PLAT
-> >           the dwc3 child node in the device tree.
-> >           Say 'Y' or 'M' here if your platform integrates DWC3 in a sim=
-ilar way.
-> >
-> > +config USB_DWC3_GOOGLE
-> > +       tristate "Google Platform"
-> > +       depends on COMPILE_TEST
-> > +       depends on OF && COMMON_CLK && RESET_CONTROLLER
-> > +       help
-> > +         Support the DesignWare Core USB3 IP found on Google Tensor
-> > +         SoCs, starting with the G5 generation. This driver includes
->
-> consider adding: (Laguna)
+Hi Marc,
 
-Ack, will add it in the next revision.
-
+On Wed, Feb 12, 2025 at 18:25:58 +0000, Marc Zyngier <maz@kernel.org> wrote:
+> If userspace creates vcpus, then a vgic, we end-up in a situation
+> where irqchip_in_kernel() will return true, but no private interrupt
+> has been allocated for these vcpus. This situation will continue
+> until userspace initialises the vgic, at which point we fix the
+> early vcpus. Should a vcpu run or be initialised in the interval,
+> bad things may happen.
 >
-> > +         support for hibernation in host mode.
-> > +         Say 'Y' or 'M' if you have one such device.
-> > +
-> > +         To compile this driver as a module, choose M here: the
-> > +         module will be called dwc3-google.ko.
-> > +
-> >  endif
-> > diff --git a/drivers/usb/dwc3/Makefile b/drivers/usb/dwc3/Makefile
-> > index 96469e48ff9d189cc8d0b65e65424eae2158bcfe..cf1cd408d938b3ac26d58b9=
-be7fcc5af3ee82660 100644
-> > --- a/drivers/usb/dwc3/Makefile
-> > +++ b/drivers/usb/dwc3/Makefile
-> > @@ -58,3 +58,4 @@ obj-$(CONFIG_USB_DWC3_XILINX)         +=3D dwc3-xilin=
-x.o
-> >  obj-$(CONFIG_USB_DWC3_OCTEON)          +=3D dwc3-octeon.o
-> >  obj-$(CONFIG_USB_DWC3_RTK)             +=3D dwc3-rtk.o
-> >  obj-$(CONFIG_USB_DWC3_GENERIC_PLAT)    +=3D dwc3-generic-plat.o
-> > +obj-$(CONFIG_USB_DWC3_GOOGLE)          +=3D dwc3-google.o
-> > diff --git a/drivers/usb/dwc3/dwc3-google.c b/drivers/usb/dwc3/dwc3-goo=
-gle.c
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..53e04a5409d8a11eb025b0f=
-5cd351cb1b33281ab
-> > --- /dev/null
-> > +++ b/drivers/usb/dwc3/dwc3-google.c
-> > @@ -0,0 +1,628 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * dwc3-google.c - Google DWC3 Specific Glue Layer
-> > + *
-> > + * Copyright (c) 2025, Google LLC
-> > + * Author: Roy Luo <royluo@google.com>
-> > + */
-> > +
-> > +#include <linux/of.h>
-> > +#include <linux/bitfield.h>
-> > +#include <linux/irq.h>
-> > +#include <linux/clk.h>
-> > +#include <linux/module.h>
-> > +#include <linux/kernel.h>
-> > +#include <linux/platform_device.h>
-> > +#include <linux/reset.h>
-> > +#include <linux/pm_domain.h>
-> > +#include <linux/iopoll.h>
-> > +#include <linux/regmap.h>
-> > +#include <linux/mfd/syscon.h>
+> An obvious solution is to move this fix-up phase to the point where
+> the vgic is created. This ensures that from that point onwards,
+> all vcpus have their private interrupts, as new vcpus will directly
+> allocate them.
+
+I have a concern that this patch might cause an issue if userspace creates
+VCPUs *after* a VGIC is created but *before* it has been initialized via
+`KVM_DEV_ARM_VGIC_CTRL_INIT`.
+
+For example, consider the following call sequence:
+
+1.  Create VGIC via `KVM_CREATE_DEVICE`.
+2.  Create all VCPUs.
+3.  Issue `KVM_ARM_VCPU_INIT` to all VCPUs.
+4.  Issue `KVM_DEV_ARM_VGIC_CTRL_INIT` to the VGIC.
+
+> With that, we have the invariant that when irqchip_in_kernel() is
+> true, all vcpus have their private interrupts.
 >
-> Please sort the headers alphabetically. It helps avoid duplicates and
-> is easier when adding new headers.
-
-As Greg pointed out, no such requirement exists for usb drivers, but
-if it makes things look nicer, why not?
-Will sort the headers alphabetically in the next revision.
-
+> Reported-by: Alexander Potapenko <glider@google.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/vgic/vgic-init.c | 74 ++++++++++++++++-----------------
+>  1 file changed, 37 insertions(+), 37 deletions(-)
 >
-> Also can you add this file, and the bindings patch to the Tensor SoC
-> MAINTAINERS entry, so it's easier to review future patches?
-
-Sure! Will update MAITAINERS in the next revision.
-Appreciate the review!
-
-Thanks,
-Roy Luo
-
-
+> diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+> index bc7e22ab5d812..775461cf2d2db 100644
+> --- a/arch/arm64/kvm/vgic/vgic-init.c
+> +++ b/arch/arm64/kvm/vgic/vgic-init.c
+> [...]
 >
-> With those nits  addressed:
-> Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+> -static int vgic_allocate_private_irqs_locked(struct kvm_vcpu *vcpu)
+> +static int vgic_allocate_private_irqs_locked(struct kvm_vcpu *vcpu, u32 type)
+>  {
+>  	struct vgic_cpu *vgic_cpu = &vcpu->arch.vgic_cpu;
+>  	int i;
+> @@ -218,17 +236,28 @@ static int vgic_allocate_private_irqs_locked(struct kvm_vcpu *vcpu)
+>  			/* PPIs */
+>  			irq->config = VGIC_CONFIG_LEVEL;
+>  		}
+> +
+> +		switch (type) {
+> +		case KVM_DEV_TYPE_ARM_VGIC_V3:
+> +			irq->group = 1;
+> +			irq->mpidr = kvm_vcpu_get_mpidr_aff(vcpu);
+> +			break;
+
+`vgic_allocate_private_irqs_locked()` appears to be called in two scenarios:
+
+a) When the VGIC is created, in `kvm_vgic_create()`.
+b) When a VCPU is created, in `kvm_vm_ioctl_create_vcpu()`.
+
+For scenario (b), the call path is:
+
+`kvm_vm_ioctl_create_vcpu()`
+-> `kvm_arch_vcpu_create()`
+  -> `kvm_vgic_vcpu_init()`
+    -> `vgic_allocate_private_irqs()`
+      -> `vgic_allocate_private_irqs_locked()`
+
+However, since the VCPU has just been created, its `MPIDR_EL1` register
+value has not been assigned at this point. The VCPU's `MPIDR_EL1`
+register is populated later when `KVM_ARM_VCPU_INIT` is issued, via
+the following call path:
+
+`kvm_arch_vcpu_ioctl_vcpu_init()`
+-> `kvm_vcpu_set_target()`
+  -> `__kvm_vcpu_set_target()`
+    -> `kvm_reset_vcpu()`
+      -> `kvm_reset_sys_regs()`
+        -> `reset_mpidr()`
+
+Therefore, with the call sequence I mentioned at the beginning,
+`irq->mpidr` would be assigned an uninitialized value. This suggests that
+for `irq->mpidr = kvm_vcpu_get_mpidr_aff(vcpu)` to work correctly, we
+must rely on the code path from scenario (a). This would imply that
+with this patch, all VCPUs must be created and initialized before the
+VGIC is created.
+
+> +		case KVM_DEV_TYPE_ARM_VGIC_V2:
+> +			irq->group = 0;
+> +			irq->targets = BIT(vcpu->vcpu_id);
+> +			break;
+> +		}
+>  	}
 >
-> regards,
+>  	return 0;
+>  }
 >
-> Peter.
+> -static int vgic_allocate_private_irqs(struct kvm_vcpu *vcpu)
+> +static int vgic_allocate_private_irqs(struct kvm_vcpu *vcpu, u32 type)
+>  {
+>  	int ret;
+>
+>  	mutex_lock(&vcpu->kvm->arch.config_lock);
+> -	ret = vgic_allocate_private_irqs_locked(vcpu);
+> +	ret = vgic_allocate_private_irqs_locked(vcpu, type);
+>  	mutex_unlock(&vcpu->kvm->arch.config_lock);
+>
+>  	return ret;
+> @@ -258,7 +287,7 @@ int kvm_vgic_vcpu_init(struct kvm_vcpu *vcpu)
+>  	if (!irqchip_in_kernel(vcpu->kvm))
+>  		return 0;
+>
+> -	ret = vgic_allocate_private_irqs(vcpu);
+> +	ret = vgic_allocate_private_irqs(vcpu, dist->vgic_model);
+>  	if (ret)
+>  		return ret;
+>
+> [...]
+
+Please let me know if my understanding is incorrect. Thank you!
+
+Best,
+Changyuan
 
