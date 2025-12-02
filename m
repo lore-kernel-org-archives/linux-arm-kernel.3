@@ -4,82 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92FD6D116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 00:43:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C074AD116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 00:48:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9C0BuMfYpE52X3ZkwF2ddAC3FMTh1lBAow5RoiEAGeU=; b=4XJbeZ6l+L9nWaTGAE+fQ3heYZ
-	izJa7pBT21WA4sU4vpG53sHz/2mwba0nt15dfOReI891LuqM0NjkU8W6yXIv62To9aP8h4stDz/zh
-	SUMedcF/3ryXNdGkC0gZjksO//yRgKIAQNJbOsleb7gEhhZiAS2tzCzmyFm0i9IOur/2uJZuU7z24
-	UNCN2veZHooS4L/CxuVPm+LmZTOXTk363m4F+gTXnvMkM+KsYwFVPkHHaAzba1Q+w1re4pO5SZcNI
-	mfA9aWwp5UE2ZnLYzyd4f0GNdwhYIo9TSDvyRLfBvHDi1CgqE1/jhS3qCUxivLWD9pNmNCnNElljb
-	RsuYZoAw==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u0okPPcZ5tHgSpqrlCtOeNIHAjAXOscPemMAK7JkUcE=; b=d1IbmO5/pdR6DI/KhlPTzTso3M
+	yOAKrrL1j7U37fz0E8F5xsPusJxGEMrYfFC1PLVwPYvuvfpDLf5op8aolM9GTZSomDso/5/uvivQp
+	WjxHDJNO6hr911RU8UKOeIm524eQnIpbxmg/mow2DfgpArnChNFbZ4d/IW807VxMk9fXVg4Ie/Qlv
+	6gnkrnjWLbGzMcvwWKS2FNOuqra5x/z7iv3uNfsIHxp/jjS9yHmxENqCzTDS8tGKpOYfWuV5HNvpv
+	glm2tpSvw65x3UCjRoprcgPqOTS0HmUp78eCIsFDWHKEIIe8nbC7gwOibLOtgnjJ7xXV4BaVMpgF0
+	eGVAzK/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQEU0-00000004eH8-1gVc;
-	Tue, 02 Dec 2025 00:43:08 +0000
-Received: from mail-pf1-f178.google.com ([209.85.210.178])
+	id 1vQEZV-00000004eUW-0YK2;
+	Tue, 02 Dec 2025 00:48:49 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQETx-00000004eGi-3a0G
+	id 1vQEZU-00000004eUO-039p
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 00:43:06 +0000
-Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-7b9215e55e6so3327510b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 16:43:05 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764636184; x=1765240984;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9C0BuMfYpE52X3ZkwF2ddAC3FMTh1lBAow5RoiEAGeU=;
-        b=dha2OIDxvdhND0f8J/N27md/hqqSp6eMZtrozCU8GzZHMoV0BmS6iHVAx84oOAfHmZ
-         mlb/xST1bka73Z1q5rf8+Q9GHJRXRGkxh09fW27gE1sb0rJPwaC+d1BokD0l4uuvSba2
-         rpCGoD9DcP6v2mmPPnTWN6pDU4CYEeQ8tS70aXLwSZy01ZBHvvjGqe4yQ9eqNFPrI9X0
-         IMxsyfRD43GjCjoRI2Ifs0A9UutsD1EReGsuAeyyVDgdloGTQAQ8AIkR4ee0hHg5hddD
-         BrirfMztNwIGh0MKSqAn5mcNRldGVUoi0TyVd/dafzBF1oVWBNSH/dD2OeNBNkW/+0z/
-         +nyw==
-X-Forwarded-Encrypted: i=1; AJvYcCUkzgGygAXQ4EDICmvK2bsiBBOqcdyoX4BFp0577AHZIqdI+5DhbegQ9Lh4p9N8TMRAYKU/gD8NIJWa1CtovvNH@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzuuaDQAsTjR3EXdesb38umdj69q3+7psfnrqH3tF+wlW4AqHT
-	HWDMafJxFBGZQd9NK3D5wlXPnNUwD6Wg0peHvY8EezTHYl6MliDNCgP2SFTc2OPD
-X-Gm-Gg: ASbGnctvBZWTyrCJQUUb2a4d+IHo25KHyOwkyJ8wvK6SOg4Xud0kuu4xpSKN3Dx0wFI
-	BKLFTxfSGVPjHYBo/42ntMrL4Hbc394oitsIRnVXH0nRcIhNm1j4NbJTCgySjozFG0Bl2iXLta6
-	xFcvIOqM2T571IYaCWqgb7UZRI7+HXkZPxBG8SaYSzJBmEwMaVvD+TZBIklgktfCF0Rh7ofGEFk
-	OhQY+xo76UKBjssE8VvmzF33wYY06Xxg9mXoNCl+lrTv/bhrHp6lIjIXnldlch4mMYLlh4NABzV
-	OCEp8uMNLdv9t4O2LJlSQGqHbVEce+LDwpJw+5c0yC1x1b6jRUlje7fd9ZlakXGWziSjGhikyOB
-	2NRzeAWPaUgHUOzHiQepQ+AZLrXS3TiUWw5RCkNW7KgSPJFKRWrJ91vC213QSsDQOUQsnjpFkAH
-	xmb5GXCPeYeN/XiHwxO5xkxOfO1LUGnw==
-X-Google-Smtp-Source: AGHT+IFjl/QJBewD7kSmPY7WYm5wqwBCAmnQ0iouuo16tzvMnxlT2E8ljk56fl4NupM+SgcFNmRjbQ==
-X-Received: by 2002:a05:6a20:2447:b0:33f:df99:11e5 with SMTP id adf61e73a8af0-3637dea5abemr30792787637.28.1764636184498;
-        Mon, 01 Dec 2025 16:43:04 -0800 (PST)
-Received: from lua-playground.. ([221.164.191.151])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-be4fbb00bd1sm13300578a12.11.2025.12.01.16.43.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Dec 2025 16:43:04 -0800 (PST)
-From: Jeongin Yeo <leo.yeo@luaberry.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org
-Cc: ryan.roberts@arm.com,
-	akpm@linux-foundation.org,
-	david@kernel.org,
-	kevin.brodsky@arm.com,
-	dev.jain@arm.com,
-	quic_zhenhuah@quicinc.com,
-	lorenzo.stoakes@oracle.com,
-	yang@os.amperecomputing.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: mm: prevent context switching during idmap is mapped
-Date: Tue,  2 Dec 2025 00:42:23 +0000
-Message-Id: <20251202004223.108388-1-leo.yeo@luaberry.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 02 Dec 2025 00:48:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id D19E76016B
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  2 Dec 2025 00:48:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 890DAC4CEF1
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  2 Dec 2025 00:48:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764636526;
+	bh=F1zMf0xAV3n5GajLqqtfHNPR2ObKgiI1lW5iYWJGjSY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=kni7xeGEcSHgsOn0IoB0h0waN+XHTY6dxaVorAYfaItXdCWeLm8eOJd4WMd13o2sH
+	 rCpk4mtZOMdbozE2e7ITrTSVRbc7BEpJsy2HACkib3Wkp98RbxO2nGyBePjOS2L2qd
+	 8QS3F+eNHDYAbsoEHqCO930npFXEjZSKYQCCN+YN8e5O6S9+VYGGg4IRgosY9DBVxo
+	 1FOvumZLy9d0FBlKxtBI/FWM7psUDjmeOh1upIm8mMjraiN1BV5pqtUHo5SmD7+MJC
+	 zPpyB3BwFvske5HxuZ9VYQBqnOo9fhefbML9otbLrrKS7pPq/YCL+fJJFccbhnn/mi
+	 +kqZR9TCbvsgw==
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-b735487129fso696769366b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 16:48:46 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWRwpHWEV6QSeXJPFgK4Dc+kHf7e5FUJpLn+GOMTnZ22iBmtr7ucPdhgnslRRjfwvxsNUxvk8jT45VHT9UYBCeY@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1to5hsYHumgI36qdgYZLlaKNZA2Dh69Oobom9CVsLu1IRJeVQ
+	aT6duzxwjqwXvbHcpj90VBDJPSChCX5FrUXzi2SlFVZoSurp0Ns9/oEYY1vBz+jf/oI6kHEFi7c
+	9nYW8vuCXk3UqQ0iR7/QVYCHRtuYwnQ==
+X-Google-Smtp-Source: AGHT+IHsbAgkTYC3BiyJbz7RyFZBLR+6hEYw0E6ajgDKEs+abMeN+Q9Ms42Dfb0hRLTV+mlCnXEF5zGTuqKzeflJPYI=
+X-Received: by 2002:a17:907:9812:b0:b73:8e7d:4f91 with SMTP id
+ a640c23a62f3a-b767184b2b6mr3860980966b.41.1764636525152; Mon, 01 Dec 2025
+ 16:48:45 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_164305_893098_C7E94AAF 
-X-CRM114-Status: GOOD (  13.83  )
+References: <CAD=FV=Ux7nGFnYEyX0cUL-9__BKnTYc+kAJjkF458ZnFS7zoJA@mail.gmail.com>
+ <CAODwPW_51fKOfDQbTUFCum13M621Uxi2Zw2YHng0DrrwwvZhRQ@mail.gmail.com>
+In-Reply-To: <CAODwPW_51fKOfDQbTUFCum13M621Uxi2Zw2YHng0DrrwwvZhRQ@mail.gmail.com>
+From: Rob Herring <robh@kernel.org>
+Date: Mon, 1 Dec 2025 18:48:33 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqJz8D53OF8PGaq+o6X5zfE1Y4NrH+BpYPEo6OENviJvbg@mail.gmail.com>
+X-Gm-Features: AWmQ_bmC9dfGHTRkyO29JA1uPLAX1tEAvsj_cavV6WehLJKkNSkE0dPMilgLT3M
+Message-ID: <CAL_JsqJz8D53OF8PGaq+o6X5zfE1Y4NrH+BpYPEo6OENviJvbg@mail.gmail.com>
+Subject: Re: Proposal: Officially allow "incomplete" trees as a base
+To: Julius Werner <jwerner@chromium.org>
+Cc: Doug Anderson <dianders@chromium.org>, devicetree-spec@vger.kernel.org, 
+	boot-architecture@lists.linaro.org, Chen-Yu Tsai <wenst@chromium.org>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	William McVicker <willmcvicker@google.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	yupingso@chromium.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,59 +88,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
- cpu_install_idmap replaces ttbr0 to install idmap. replace_phys uses
- idmap_cpu_replace_ttbr1 which is located in idmap,
- thus it requires ttbr0 to point idmap. 
- 
- However, if a kernel task has switched out right after
- cpu_install_idmap, when kernel task is loaded, its ttbr0 is
- mapped to reserved_pg_dir which doesn't contain any idmap
- functions.
- Therefore, the kernel task cannot find any functions to run,
- causing memory fault.
- 
- As far as I can verify from the current arm64 tree,
- no in-tree caller invokes this function from a preemptible context.
- 
- Nevertheless, future work might allow this function to be called in
- preemptive state. Encapsulating the idmap sequence with
- preempt_disable() and preempt_enable() prevents this possible problem.
+On Tue, Nov 18, 2025 at 5:48=E2=80=AFPM Julius Werner <jwerner@chromium.org=
+> wrote:
+>
+> > 4. When applying an overlay to a device tree that's "incomplete", the
+> > top level overlay will be merged instead of replaced.
+> >
+> > Example for 2 levels:
+> >
+> > base (incomplete) compatible: "socvendor,mysoc-rev1", "socvendor,mysoc"=
+;
+> > overlay compatible: "boardvendor,myboard-rev1", "boardvendor,myboard";
+> > merged compatible: "boardvendor,myboard-rev1", "boardvendor,myboard",
+> >                    "socvendor,mysoc-rev1", "socvendor,mysoc";
+> >
+> > Possible example if we support 3 levels:
+> >
+> > SoC (incomplete) compatible: "socvendor,mysoc-rev1", "socvendor,mysoc"
+> > overlay1 (incomplete) compatible: "referencevendor,referencecodename";
 
-Signed-off-by: Jeongin Yeo <leo.yeo@luaberry.com>
----
- arch/arm64/mm/mmu.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+I don't understand this one...
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 2ba01dc8ef82..c3da836ebe8d 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -29,6 +29,7 @@
- #include <linux/mm_inline.h>
- #include <linux/pagewalk.h>
- #include <linux/stop_machine.h>
-+#include <linux/preempt.h>
- 
- #include <asm/barrier.h>
- #include <asm/cputype.h>
-@@ -2136,7 +2137,7 @@ void __cpu_replace_ttbr1(pgd_t *pgdp, bool cnp)
- 		ttbr1 |= TTBR_CNP_BIT;
- 
- 	replace_phys = (void *)__pa_symbol(idmap_cpu_replace_ttbr1);
--
-+	preempt_disable();
- 	cpu_install_idmap();
- 
- 	/*
-@@ -2148,6 +2149,7 @@ void __cpu_replace_ttbr1(pgd_t *pgdp, bool cnp)
- 	local_daif_restore(daif);
- 
- 	cpu_uninstall_idmap();
-+	preempt_enable();
- }
- 
- #ifdef CONFIG_ARCH_HAS_PKEYS
--- 
-2.43.0
+> > overlay2 compatible: "boardvendor,myboard-rev1", "boardvendor,myboard"
+> > merged compatible: "boardvendor,myboard-rev1", "boardvendor,myboard",
+> >                    "referencevendor,reference-codename",
+> >                     , "socvendor,mysoc";
+>
+> Sorry, I only cursorily followed the previous discussion so I may have
+> missed the exact need for this part. But I would caution against any
+> proposal that changes the basic rules of how an overlay is applied.
+> The definition of how overlays work has (I think?) been stable for
+> over a decade now, and is implemented in bootloaders that often cannot
+> easily be updated. I absolutely support your effort to get more
+> upstream standardization for managing base device trees and overlays
+> (which I think need to be flexible for arbitrary layers, not just SoC
+> and board), but let's not break the overlay code in old bootloaders
+> while doing it.
 
+I think merging compatibles is orthogonal to splitting SoC and board
+DTs. Doug needs to merge because there is more than 1 SoC version or
+base DT to pick. In many cases (SoC revision compatibles are the
+exception upstream), there is only 1 SoC DT and N board DTs. So we
+should consider both and define them separately. In the simple case,
+you'd have something like:
+
+SoC (incomplete) compatible: "socvendor,mysoc"
+Board overlay compatible: "boardvendor,myboard-rev1",
+"boardvendor,myboard", "socvendor,mysoc"
+
+Then you just apply the overlay and it overwrites the incomplete
+compatible. That works with existing overlay applying (overwriting)
+for multiple steps as long as each step is a superset (compatible
+list) of the prior steps.
+
+In Doug's case, I think you need code to decide which base to pick and
+then fixup the final compatible.
+
+SoC (incomplete) compatible: "socvendor,mysoc-rev1", "socvendor,mysoc"
+Board overlay compatible: "boardvendor,myboard-rev1",
+"boardvendor,myboard", "socvendor,mysoc"
+
+And then after applying, you do the merge to insert the SoC rev compatible:
+
+"boardvendor,myboard-rev1", "boardvendor,myboard",
+"socvendor,mysoc-rev1", "socvendor,mysoc"
+
+You need SoC specific code to know what SoC revision you are running
+on, so SoC specific post apply code should be fine too. There's not
+any existing bootloader problem because you need code to handle this.
+
+Maybe that fixup will end up being generic enough that it's not
+platform specific, but that's an optimization of the implementation.
+
+> Is there really a need to merge the compatible strings in your case?
+
+Well, you could just require duplicating an overlay N times for N
+bases, but that doesn't scale
+
+> I
+> think in the vast majority of platform identification cases, code only
+> cares about matching the most precise string (i.e.
+> "boardvendor,myboard-rev1"). If we do feel like having the whole chain
+> of identification is necessary, it could be achieved by just
+> copy&pasting the extra strings into the overlay file. If we have
+> cross-validation between base and overlay source files we could also
+> have the validation check that the overlays correctly contain all
+> compatible strings from their base tree. If we know that the base
+> trees aren't standalone anyway, we could also just invent other
+> property names that identify them (e.g. `soc-compatible =3D
+> "socvendor,mysoc";`). Anything other than breaking the overlay format
+> would be preferable in my opinion.
+
+There's also a use case I'm aware of where the base DT is just for a
+SoM and then the bootloader applies an expansion board overlay. So it
+is not always "not standalone". And of course, this could be combined
+with what Doug wants to do.
+
+Note that for any new property (or an incomplete compatible) like
+soc-compatible, you will need to consider how we validate it.
+
+> I also feel like we need a better standardized way to tie base device
+> trees to overlays, like your `/loaders` node proposal in an earlier
+> email, although maybe that's an orthogonal discussion (but related,
+> especially if there's supposed to be cross-validation between base
+> trees and overlays). The compatible string is just not a scalable way
+> for bootloaders to make this determination, there may be a lot more
+> differentiation than just "SoC" and "board", and the scheme almost
+> certainly needs to be platform/bootloader-specific because every
+> hardware vendor has their own ideas about how to group and reuse parts
+> of a platform. This information doesn't necessarily need to be *in*
+> the device tree, it could also just be in a separate YAML file in the
+> same repo (since bootloaders will almost certainly want to have it
+> transformed into their own out-of-band descriptor at build-time
+> anyway, so that they can compress the device tree itself and don't
+> have to decompress each one for matching), but it needs to be
+> somewhere.
+
+There is a proposal here[1]. It's simple, but I do wonder if looking
+at the root compatible only is too narrow of a view. An overlay could
+target a connector compatible for example.
+
+We kind of have this information in the kernel build already as well.
+The requirement for overlays in the kernel tree is overlays get
+applied to at least one target at build time. It would be nice for any
+solution to this problem to replace those build rules.
+
+Rob
+
+[1] https://lore.kernel.org/all/20250911151436.2467758-1-raymond.mao@linaro=
+.org/
 
