@@ -4,79 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8373DCFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 13:36:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 156FED116F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 13:39:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Wpx9IjkcuCXJrN+lvoQ0/PWGUe4eWqI7yjH11ZhMTc=; b=Azg92AiNdwJw2jUhB/Nb67TQj+
-	MD++CSKAThvcoVAlLNX8SVy5dPCu7WHErXbIGh7o33P+yl7jjixy7/XRN7MukWxK0b2Abm/KTAaYb
-	qmbmhADOgibaNgSwLtsFb5+CF8a4i8B1lKJxsdRuieF08AAliQg1iZWmm+mHh/YvEfCZE4hgEO3Oo
-	f3vLSd1RM/OO2K5M4RNqcN67CasdJt87EyWmGNCjrkm2wDg5g6EWYllVchUg3bueVODbSEO/WKSzB
-	vFoiSTI524Bx5tJZtHSr9lyH5KY9sYVczoeO23OplTQRGJbm9qz+OIZ5rnSKhraL8Xdn2p2OYbvy9
-	twjYYBdA==;
+	bh=lJm1FqVFlGcoT5qh+lHwlyZJ5KgMc5wT708GkvNJAjY=; b=e9U1ygtRxZIoNfT3c5ykvrJSj5
+	JCdcJmwfHfPtSx/EquVqVejpBtJXuuhkvhvdBWlfc9KBacip7zPL5MngJzyYjcTV3fbWJyjcGl/tg
+	KiUOPx3slFuvBBYQejov0RPZ2SWm37qYnSA8RdyttbgxYTyLlAgLmEzLW/QdN4RpTkKyS4eoG1NJP
+	o+rSqCIGE/Fpzi2s1jtjoGmIWaCrhUGptMRppheTrnZ1bNuR0PJNRagpi+A31MR//ioY3lEXDeap2
+	RU5ubl9KURkquNA+6RNEHrhBJCpMWeXE6yhp5XeI3+vaUt1z+UXBYNDc5t2Z+0M09yc+5hH2GfXwC
+	us0mnd4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQQYl-00000005Rnj-0sg4;
-	Tue, 02 Dec 2025 13:36:51 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQQYi-00000005Rmq-15G8
+	id 1vQQbC-00000005S3E-3LbB;
+	Tue, 02 Dec 2025 13:39:22 +0000
+Received: from angie.orcam.me.uk ([78.133.224.34])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQQb9-00000005S2m-2vm9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 13:36:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=1Wpx9IjkcuCXJrN+lvoQ0/PWGUe4eWqI7yjH11ZhMTc=; b=VC9d/UAnse+naHpZdifFVmTv3e
-	21BAnHhjw8HPGF19RKmyVaDfCX6uHMOxsibeLkKxh5KZZeEQwS0ZaR2Ua03HSCUyahL8vElefUN41
-	iBZxxnp/a8B+iPeb1ShSxBRSNEViUIygvNlf3anjA6FMYUa0PzxmLXuwq5Uhc3Ct54bE=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vQQY7-00FhXN-UW; Tue, 02 Dec 2025 14:36:11 +0100
-Date: Tue, 2 Dec 2025 14:36:11 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jacky Chou <jacky_chou@aspeedtech.com>
-Cc: Tao Ren <rentao.bupt@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Po-Yu Chuang <ratbert@faraday-tech.com>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
-	"taoren@meta.com" <taoren@meta.com>
-Subject: Re: [PATCH net-next v4 4/4] net: ftgmac100: Add RGMII delay support
- for AST2600
-Message-ID: <4f0e4aa0-166d-4a7f-b91e-42dbc6b832e5@lunn.ch>
-References: <68f10ee1-d4c8-4498-88b0-90c26d606466@lunn.ch>
- <SEYPR06MB5134EBA2235B3D4BE39B19359DCCA@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <3af52caa-88a7-4b88-bd92-fd47421cc81a@lunn.ch>
- <SEYPR06MB51342977EC2246163D14BDC19DCDA@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <041e23a2-67e6-4ebb-aee5-14400491f99c@lunn.ch>
- <SEYPR06MB5134BC17E80DB66DD385024D9DD1A@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <1c2ace4e-f3bb-4efa-a621-53c3711f46cb@lunn.ch>
- <aSbA8i5S36GeryXc@fedora>
- <SEYPR06MB513424DDB2D32ADB9C30B5119DDFA@SEYPR06MB5134.apcprd06.prod.outlook.com>
- <SEYPR06MB5134A5D1603F39E6025629A19DD8A@SEYPR06MB5134.apcprd06.prod.outlook.com>
+	Tue, 02 Dec 2025 13:39:21 +0000
+Received: by angie.orcam.me.uk (Postfix, from userid 500)
+	id F35EB92009C; Tue,  2 Dec 2025 14:39:14 +0100 (CET)
+Received: from localhost (localhost [127.0.0.1])
+	by angie.orcam.me.uk (Postfix) with ESMTP id EC3E792009B;
+	Tue,  2 Dec 2025 13:39:14 +0000 (GMT)
+Date: Tue, 2 Dec 2025 13:39:14 +0000 (GMT)
+From: "Maciej W. Rozycki" <macro@orcam.me.uk>
+To: Manivannan Sadhasivam <mani@kernel.org>
+cc: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
+    Jingoo Han <jingoohan1@gmail.com>, 
+    Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+    =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+    Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+    Krzysztof Kozlowski <krzk@kernel.org>, 
+    Alim Akhtar <alim.akhtar@samsung.com>, 
+    Jonathan Chocron <jonnyc@amazon.com>, linux-pci@vger.kernel.org, 
+    linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+    linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH v9 4/4] PCI: dwc: Support ECAM mechanism by enabling iATU
+ 'CFG Shift Feature'
+In-Reply-To: <ps5jjiqv5mw2g3exzvfcfsa4bcda7hois2h6riarwb2d2son4u@2onu4bibw2hb>
+Message-ID: <alpine.DEB.2.21.2512021246470.49654@angie.orcam.me.uk>
+References: <alpine.DEB.2.21.2511280256260.36486@angie.orcam.me.uk> <c7aea2b3-6984-40f5-8234-14d265dabefc@oss.qualcomm.com> <alpine.DEB.2.21.2511280755440.36486@angie.orcam.me.uk> <cabf4c20-095b-4579-adc1-146a566b19b9@oss.qualcomm.com>
+ <alpine.DEB.2.21.2511281714030.36486@angie.orcam.me.uk> <a4c6d47f-28b5-40d3-bc82-10aeb14f8e78@oss.qualcomm.com> <alpine.DEB.2.21.2511290428340.36486@angie.orcam.me.uk> <h7pgm3lqolm53sb4wrcpcurk4ghz4tulqnr7vgd7rzxy4hscue@jcn5tepevlwl>
+ <syg7vpbt3w53s24hgl7b6w64odmif5bq557lwlvzlbvgkukwcn@66jtzzc3vtiu> <alpine.DEB.2.21.2512011617250.49654@angie.orcam.me.uk> <ps5jjiqv5mw2g3exzvfcfsa4bcda7hois2h6riarwb2d2son4u@2onu4bibw2hb>
+User-Agent: Alpine 2.21 (DEB 202 2017-01-01)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <SEYPR06MB5134A5D1603F39E6025629A19DD8A@SEYPR06MB5134.apcprd06.prod.outlook.com>
+Content-Type: text/plain; charset=US-ASCII
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_053648_301744_0A97E2E0 
-X-CRM114-Status: GOOD (  17.36  )
+X-CRM114-CacheID: sfid-20251202_053919_991345_F6F4588A 
+X-CRM114-Status: GOOD (  18.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,31 +72,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Hi Andrew,
-> 
-> I miss one condition is using fixed-link property.
-> In ftgmac100, there are RGMII, NC-SI and fixed-link property.
-> On RGMII, we have solution on dedicated PHY, but there is an issue on fixed-link
-> property.
-> 
-> Example on dedicated PHY.
-> The driver can pass the "rgmii-id" to tell PHY driver to enable the internal delay on
-> PHY side. Therefore, we can force to disable RGMII delay on MAC side.
-> But there is not any driver when using fixed-link property, which means
-> no body can tell the outside device, like switch or MAC-to-MAC, to enable the internal
-> delay on them. Also mean the phy-mode in fixed-link case is not used.
-> 
-> Therefore, could we ignore the RGMII delay on MAC side when the ftgmac100 driver gets
-> the fixed-link property? Just keep the original delay value?
+On Tue, 2 Dec 2025, Manivannan Sadhasivam wrote:
 
-MAC to MAC is one of the edge cases where phy-mode is not great. What
-is generally accepted it to use rx-internal-delay-ps and
-tx-internal-delay-ps with 2ns and a comment explaining it is a MAC to
-MAC link, with this MAC adding the delays.
+> >  No change in behaviour, sorry.  I suppose it's this range of host address 
+> > decoding:
+> > 
+> > fu740-pcie e00000000.pcie:       IO 0x0060080000..0x006008ffff -> 0x0060080000
+> > 
+> > aka:
+> > 
+> > pci_bus 0000:00: root bus resource [io  0x0000-0xffff] (bus address [0x60080000-0x6008ffff])
+> > 
+> > that you're after.  Are you sure your code discovers it correctly?  As I 
+> > say I can only see IORESOURCE_MEM references and no IORESOURCE_IO ones as 
+> > would be appropriate for the root bus resource quoted.
+> 
+> The I/O resource is discovered by the driver correctly as seen from the logs:
+> 
+> pci_bus 0000:00: root bus resource [io  0x0000-0xffff] (bus address [0x60080000-0x6008ffff])
+> pci_bus 0000:00: root bus resource [mem 0x60090000-0x7fffffff]
+> pci_bus 0000:00: root bus resource [mem 0x2000000000-0x3fffffffff pref]
+> 
+> But we believe that the iATU is not programmed for the I/O port, resulting in
+> the I/O access not going out to the device.
+> 
+> Krishna found an issue in the previous patch that got shared. So I've attached a
+> new one. Could you please try and let us know? If it didn't help, please share
+> the dmesg log that will have some more info.
 
-I suggest you see how messy it is to implement this for 2600. If the
-code looks horrible, keep the bootloader delays. For 2700 you have a
-clean slate, you can implement all this correctly from the start.
+ This does work correctly, thank you; see the log diff below (I checked 
+the defxx driver separately too).  Please make a proper submission and 
+I'll give it a Tested-by: tag after final verification against 6.18.
 
-	Andrew
+--- dmesg-bad.log	2025-11-28 03:47:29.582049781 +0100
++++ dmesg-fixed.log	2025-12-02 13:58:56.627947450 +0100
+@@ -1,5 +1,5 @@
+-Booting Linux on hartid 1
+-Linux version 6.17.0-rc1-00009-g0da48c5b2fa7-dirty (macro@angie) (riscv64-linux-gnu-gcc (GCC) 13.0.0 20220602 (experimental), GNU ld (GNU Binutils) 2.38.50.20220503) #20 SMP Fri Nov 28 02:43:00 GMT 2025
++Booting Linux on hartid 4
++Linux version 6.17.0-rc1-00009-g0da48c5b2fa7-dirty (macro@angie) (riscv64-linux-gnu-gcc (GCC) 13.0.0 20220602 (experimental), GNU ld (GNU Binutils) 2.38.50.20220503) #32 SMP Tue Dec  2 12:46:23 GMT 2025
+ Machine model: SiFive HiFive Unmatched A00
+ SBI specification v0.3 detected
+ SBI implementation ID=0x1 Version=0x9
+@@ -164,6 +164,9 @@
+ fu740-pcie e00000000.pcie: ECAM at [mem 0xdf0000000-0xdffffffff] for [bus 00-ff]
+ fu740-pcie e00000000.pcie: Using 256 MSI vectors
+ fu740-pcie e00000000.pcie: iATU: unroll T, 8 ob, 8 ib, align 4K, limit 4096G
++fu740-pcie e00000000.pcie: dw_pcie_iatu_setup: 921 MEM index: 2
++fu740-pcie e00000000.pcie: dw_pcie_iatu_setup: 941 I/O index: 3
++fu740-pcie e00000000.pcie: dw_pcie_iatu_setup: 949 Final index: 4
+ fu740-pcie e00000000.pcie: cap_exp at 70
+ fu740-pcie e00000000.pcie: PCIe Gen.1 x8 link up
+ fu740-pcie e00000000.pcie: changing speed back to original
+@@ -736,6 +739,8 @@
+ pcieport 0000:06:01.0: enabling bus mastering
+ parport_pc 0000:07:00.0: enabling device (0000 -> 0001)
+ PCI parallel port detected: 1415:c118, I/O at 0x1000(0x1008), IRQ 35
++parport0: PC-style at 0x1000 (0x1008), irq 35, using FIFO [PCSPP,TRISTATE,EPP,ECP]
++lp0: using parport0 (interrupt-driven).
+ parport_pc 0000:07:00.0: vgaarb: pci_notify
+ serial 0000:07:00.3: vgaarb: pci_notify
+ serial 0000:07:00.3: assign IRQ: got 40
+
+  Maciej
 
