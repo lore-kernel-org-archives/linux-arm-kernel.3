@@ -4,87 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8688D116F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 15:49:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F64ED11702
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 16:05:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rMIFzfxad91ubA6fyH1uZaF1Zu4vkX1bopp9UAEB1ok=; b=LPhjfDjWMfDgO83MhuM3cx1apV
-	3e7bxvgrz2EDn1LRmuGOVP2LwI5Ldl9BVksEd7RVnAsgrw9iUOZU7BOIdFTTRf8LeZVKXUsBiSiTG
-	kman8BYUFbJA8b/GE8EPZ64Ge60kDENCz0U88QcYvvRQxBrwRJ5J8qqcwy96EgfGmuK5tTBCN3KNv
-	C3quY6gigVLvi7V66+corp+pUXOD95Vqrq7tr9GtpZYOMBPrHCH/oUrlOo3CeI32f5Ex0mzmAlR7N
-	9RBQBru22vmW/e/ZPq65EatxWFaUzNvKirgGBqMjX7qa1GPLws/sUH3E6jmD6kk8UdyvPqJ2q51bd
-	eqMggVhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vgz9yq/L+yG5wR+0sBWMMC8Af7WF7LKgi9Ddt3OC+Ws=; b=RjaN9MOze4t74hP3h+7J8FK1jG
+	owO+Nhy2sa/0gLDItn3r+BG1SRnaJwTJEMo2ouAhz4hTATHLYu77niNprsIHgCpLfVIrCaWSSEbb/
+	RKqKQEK/yDu9cMHPtu8n0QXMqhMHa7sLDLK1skF0t2UeOtGMgHuH+RqkwCcNXWvlAbvCroLQcBEDr
+	+ix+2dIL4ADfhYCXYh55fGv7OQZ5UJ+Gf2wqh6C4I1hntbU83X7zyC2gml3fj5m0Zl5BopKz0Zjh6
+	Evg7BCmcuR1p65NyMt6uMUQDNsmFjqbElIUfdraStJFCbZIYc3reMOfNa9krjkw/hxjBe9dDStQZ0
+	QCvFjQnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQScc-00000005Zul-2Fsd;
-	Tue, 02 Dec 2025 15:48:58 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vQSsP-00000005bBH-2RHe;
+	Tue, 02 Dec 2025 16:05:17 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQScY-00000005Ztq-2Gkt
+	id 1vQSsN-00000005bAH-2n7z
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 15:48:56 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 8BF62C17B7E;
-	Tue,  2 Dec 2025 15:48:26 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id AB9EE606D6;
-	Tue,  2 Dec 2025 15:48:49 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9088811919C22;
-	Tue,  2 Dec 2025 16:48:40 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764690528; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=rMIFzfxad91ubA6fyH1uZaF1Zu4vkX1bopp9UAEB1ok=;
-	b=0DIW3mVpRWiI2wPcbqGnJN+i3obaZkrmas/VrjGd8XMI25WcIAJG9yk2nxOGGumtlKjaml
-	cQQZyCjT2C66qpCtLoyAQCeUCWxBb/KV2J6FpEMYCVV5vLmZ1tVg3oOxsJX61uVgiJeDXF
-	O1HzokU48HCHr8r6SCbeCwT/5OB9xo6XmuFgvpZEj+VfvbHDOSuTjpZLc9FGN3LFtip1+2
-	4o2gNvUWlmaS8TTC3Basjl6KnwfV9a3fYLCniuGvpyRO/Vwrpf0LGzeHdVeMV4NoffY8m7
-	Kf5bBhs8qOCODQqGcWFMhQpF6+P5omRFiyPjLF3sGh3HhyUz27FIMEYQqYTSqA==
-Message-ID: <49709595-5012-4fa3-9616-839dcdbf6b09@bootlin.com>
-Date: Tue, 2 Dec 2025 16:48:39 +0100
+	Tue, 02 Dec 2025 16:05:16 +0000
+Date: Tue, 2 Dec 2025 17:05:10 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1764691512;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Vgz9yq/L+yG5wR+0sBWMMC8Af7WF7LKgi9Ddt3OC+Ws=;
+	b=osUsKHItN3B+FdLAGJouZCnRBe1omUSHY5b2VU+xMMcwuK52Xk+6+Fyp1n1gwox5SmDgqF
+	35HpFhzr30nY7M2RjpqCmCOLTueTTYpBhR6ieue16K168k1pu5Zb92QXL7LpBe8TUeigGc
+	nPnzUWWess8YBMbOXRqQWD43vp2lQ+oZRL6aKd7L3lKQeEnVP9+YY2Gntnga0tqAR8Zj8g
+	6EXrxGBL1GgDIJXCFogzGfkKlU1FHUhG2qdRDrOMzvrJT3Jt+49ibBOrPvEjiDTD+k4DF6
+	NuZtnAmsXARWFBUUELICjXJ2wkNFW3XboC9m9KqM2ctyF1xAB0eHdDxxILNrNQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1764691512;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Vgz9yq/L+yG5wR+0sBWMMC8Af7WF7LKgi9Ddt3OC+Ws=;
+	b=0HZTzH+1RKr9vOW7Gj0+XJWoUwekYi5hx9kHzAQPUQLwWPpZA1xBr30MUxRU0j+lGkTjXU
+	8YMV6hXkln+9mQBA==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev,
+	Xie Yuanbin <xieyuanbin1@huawei.com>, Arnd Bergmann <arnd@arndb.de>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	"Yadi.hu" <yadi.hu@windriver.com>
+Subject: Re: [PATCH v3 2/5] ARM: mm: fault: Enable interrupts before invoking
+ __do_user_fault()
+Message-ID: <20251202160510.eUVnCuRx@linutronix.de>
+References: <20251110145555.2555055-1-bigeasy@linutronix.de>
+ <20251110145555.2555055-3-bigeasy@linutronix.de>
+ <20251202141816.wfHNUMFK@linutronix.de>
+ <aS8J0WrmmH01L3K1@shell.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v21 02/14] net: ethtool: Introduce
- ETHTOOL_LINK_MEDIUM_* values
-To: Paolo Abeni <pabeni@redhat.com>, davem@davemloft.net
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, thomas.petazzoni@bootlin.com,
- Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
- Eric Dumazet <edumazet@google.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>,
- Heiner Kallweit <hkallweit1@gmail.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>,
- =?UTF-8?Q?Marek_Beh=C3=BAn?= <kabel@kernel.org>,
- Oleksij Rempel <o.rempel@pengutronix.de>,
- =?UTF-8?Q?Nicol=C3=B2_Veronese?= <nicveronese@gmail.com>,
- Simon Horman <horms@kernel.org>, mwojtas@chromium.org,
- Antoine Tenart <atenart@kernel.org>, devicetree@vger.kernel.org,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
- Romain Gantois <romain.gantois@bootlin.com>,
- Daniel Golle <daniel@makrotopia.org>,
- Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
- Tariq Toukan <tariqt@nvidia.com>
-References: <20251129082228.454678-1-maxime.chevallier@bootlin.com>
- <20251129082228.454678-3-maxime.chevallier@bootlin.com>
- <298e982d-7796-4e46-ad1d-a7f57c573f35@redhat.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <298e982d-7796-4e46-ad1d-a7f57c573f35@redhat.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aS8J0WrmmH01L3K1@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_074854_744829_A968338A 
-X-CRM114-Status: GOOD (  21.82  )
+X-CRM114-CacheID: sfid-20251202_080515_844585_85BAD392 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,101 +81,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Paolo
-
-On 02/12/2025 14:03, Paolo Abeni wrote:
-> On 11/29/25 9:22 AM, Maxime Chevallier wrote:
->> @@ -298,138 +321,149 @@ static_assert(ARRAY_SIZE(link_mode_names) == __ETHTOOL_LINK_MODE_MASK_NBITS);
->>  		.speed	= SPEED_UNKNOWN, \
->>  		.lanes	= 0, \
->>  		.duplex	= DUPLEX_UNKNOWN, \
->> +		.mediums = BIT(ETHTOOL_LINK_MEDIUM_NONE), \
->>  	}
->>  
->>  const struct link_mode_info link_mode_params[] = {
->> -	__DEFINE_LINK_MODE_PARAMS(10, T, Half),
->> -	__DEFINE_LINK_MODE_PARAMS(10, T, Full),
->> -	__DEFINE_LINK_MODE_PARAMS(100, T, Half),
->> -	__DEFINE_LINK_MODE_PARAMS(100, T, Full),
->> -	__DEFINE_LINK_MODE_PARAMS(1000, T, Half),
->> -	__DEFINE_LINK_MODE_PARAMS(1000, T, Full),
->> +	__DEFINE_LINK_MODE_PARAMS_PAIRS(10, T, 2, 4, Half, T),
->> +	__DEFINE_LINK_MODE_PARAMS_PAIRS(10, T, 2, 4, Full, T),
->> +	__DEFINE_LINK_MODE_PARAMS_PAIRS(100, T, 2, 4, Half, T),
->> +	__DEFINE_LINK_MODE_PARAMS_PAIRS(100, T, 2, 4, Full, T),
->> +	__DEFINE_LINK_MODE_PARAMS_PAIRS(1000, T, 4, 4, Half, T),
->> +	__DEFINE_LINK_MODE_PARAMS_PAIRS(1000, T, 4, 4, Full, T),
->>  	__DEFINE_SPECIAL_MODE_PARAMS(Autoneg),
->>  	__DEFINE_SPECIAL_MODE_PARAMS(TP),
->>  	__DEFINE_SPECIAL_MODE_PARAMS(AUI),
->>  	__DEFINE_SPECIAL_MODE_PARAMS(MII),
->>  	__DEFINE_SPECIAL_MODE_PARAMS(FIBRE),
->>  	__DEFINE_SPECIAL_MODE_PARAMS(BNC),
->> -	__DEFINE_LINK_MODE_PARAMS(10000, T, Full),
->> +	__DEFINE_LINK_MODE_PARAMS_PAIRS(10000, T, 4, 4, Full, T),
->>  	__DEFINE_SPECIAL_MODE_PARAMS(Pause),
->>  	__DEFINE_SPECIAL_MODE_PARAMS(Asym_Pause),
->> -	__DEFINE_LINK_MODE_PARAMS(2500, X, Full),
->> +	__DEFINE_LINK_MODE_PARAMS_MEDIUMS(2500, X, Full,
->> +					  __MED(C) | __MED(S) | __MED(L)),
->>  	__DEFINE_SPECIAL_MODE_PARAMS(Backplane),
->> -	__DEFINE_LINK_MODE_PARAMS(1000, KX, Full),
->> -	__DEFINE_LINK_MODE_PARAMS(10000, KX4, Full),
->> -	__DEFINE_LINK_MODE_PARAMS(10000, KR, Full),
->> +	__DEFINE_LINK_MODE_PARAMS(1000, KX, Full, K),
->> +	__DEFINE_LINK_MODE_PARAMS(10000, KX4, Full, K),
->> +	__DEFINE_LINK_MODE_PARAMS(10000, KR, Full, K),
->>  	[ETHTOOL_LINK_MODE_10000baseR_FEC_BIT] = {
->>  		.speed	= SPEED_10000,
->>  		.lanes	= 1,
->>  		.duplex = DUPLEX_FULL,
+On 2025-12-02 15:46:25 [+0000], Russell King (Oracle) wrote:
+> If I apply 9460/1 without 9462/1 first, then it makes the problems
+> with the branch predictor hardening worse. I'm not prepared to do that.
 > 
-> The AI review points that medium is not initialized here:
+> However, 9462/1 is tied up in the discussions that are ongoing, and I'm
+> not going to short-circuit the still-ongoing discussions that touch
+> this area by applying this patch - which would screw up everyone's
+> proposals to fix the various many problems that are being discovered in
+> the 32-bit ARM fault handling.
 > 
-> https://netdev-ai.bots.linux.dev/ai-review.html?id=437cd013-c6a6-49e1-bec1-de4869930c7a#patch-1
+> This means I can't apply 9462/1 nor 9460/1.
 > 
-> Is that intentional? It should deserve at least an explanation in the
-> commit message.
-
-Yes it is OK, however I don't really know how to answer AI on that. I'm
-sorry it's still a bit blurry to me what's the right way to proceed with
-these reviews.
-
-Should I paste the AI report, then reply to it ?
-
-I'd rather add more comments to the code than say in my commit log "AI
-says xxx, it's wrong because blabla" though.
-
+> Since 9463/1 likely requires these, I can't apply that one either.
 > 
-> Somewhat related, AI raised on the first patch the same question raised
-> on a previous iteration, and I assumed you considered that valid,
-> according to:
-> 
-> https://lore.kernel.org/netdev/f753719e-2370-401d-a001-821bdd5ee838@bootlin.com/
+> Sorry.
 
-So I don't know either how to proceed with this. dt_binding_check is
-fine with the current state, and Rob acked the patch. I am not sure how
-it's going to be received if I reach out to DT maintainers saying "the
-netdev LLM said XXX, is this correct or hallucination ?", but it may
-very well have a good point. I did try to dive into the yaml and then
-json schema specs, but I wasn't able to go far enough to reach a proper
-conclusion on wether we must remove "contains" for scalar :(
+Understood. So you just want to get the other bug fixed first and then
+we get back to this if it still remains open.
+Please let me know if you need some testing or applied the fix and want
+me to rebase these changes on top.
 
-All of that would be a bit clearer if the AI review was on the ML, but I
-also understand the risk for pollution with that, especially at an early
-stage of adoption.
-
-> 
-> Otherwise I think some wording in the commit message explaining why the
-> AI feedback is incorrect would be useful.
-> 
-> /P
-> 
-
-I'll update the commits and add comments anyways. I guess in a month
-though, with net-next closed then the end of year.
-
-Thanks,
-
-Maxime
+Sebastian
 
