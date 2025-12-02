@@ -4,67 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8216AD116F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 14:34:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E625BD116F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 14:37:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ChX94tIO4F5AVgFaNDBv+eRZdyX4C0RWh7xUNZbENe8=; b=KC68LFUxJFxmUS4m6sBpjhbhUf
-	DDS3SQYAYZT6apy5qFbgAWxuKQuQ65A7O2pJ18krk27Q39X+zwspdfS4V/T5j8X7uAYIDBQn/7XLt
-	Eyf7eaTMIxifHzjEq9cromIgu0/L1BlMPbblRbztuZ+J58Ch5ElQL7MRvD8pRbLJ2Pw7yD8RSU7cc
-	Dni+GpFoSDpXQ1LFANn5aTLU2B/ryH2HCFCFgBdpy3xHkNDqhM6DMAZTfBTQJbjy3Vyr60L/KoJXF
-	+hmV9xW1pLeYoReb5a56lfESgvBPPPMvId3vSgR/TTq+20ohVsZh11dUIGCDdkEGTNvHmZHK2bhTo
-	E4GdSRzA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GgQv52BqaKGbVOsxTxBWmwlyWsyqwplma82hH+upIfY=; b=l+nH0+uzOiEKZv8dObGXDASqvw
+	fzEhi3cNbr0RExerhr3C5ucb6U6vjpm5HG0NGWtg/rab++BYPWyNOfj8PJchT2iKU7hRHY8Qcr2l4
+	uEbG6AJFItgj/YlBLzIhMoeudDlmG5o+SNI31rVwXUAQHRL22OWc17BlHE4Unk9o/e37cNn5Ziqg+
+	Nfr/J+QMVZZNEIkxsOo669zg3Ni35SgK8lZqGCySdi9HHOB+rpLN+QLvZalXbWCLXcwqlamGRijdd
+	tcUZn3yd+WnxiQHegxkbFQV6DhnkK1rh369R9eUnwXomVbtRJUivZBimed3FegnJ6/oiTApoGfrMZ
+	zxUPGeAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQRS7-00000005VUd-0Sx9;
-	Tue, 02 Dec 2025 14:34:03 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1vQRUu-00000005Vhk-1f5q;
+	Tue, 02 Dec 2025 14:36:56 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQRS4-00000005VU7-1SMj
+	id 1vQRUt-00000005VhE-01OW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 14:34:01 +0000
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1764686035;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ChX94tIO4F5AVgFaNDBv+eRZdyX4C0RWh7xUNZbENe8=;
-	b=1DvGH/Ms8RajWMeieHHvc05U81FOOJeB6tWZ4+YpLlMGuSeF4Tj9++A65ZJJshkN/l6UC8
-	NH8E9FYYEsxQTjDtph55wCwWhAhHaboIIAgXvUZ4Qc5CTeVdMNZSryVym6KNA8DMsAG7hM
-	UezMjjmxpr4F3amCWw1jiUDP+mOwydgd5rXLWMwOYeHbRG9CpBUKIF3nz0tEyrPVnNU6mW
-	S4qaoPi6v9ejcVhIByvmRR7alfFmFW7X7SenljlJ3MuFSxngpdL+kGHLJkiy7IlayBJAY5
-	Zrq68oxo6Fhr6NgCpzcI8Qj8ra9WePILHkL2fbyIclihOVqthHGRZngJaKkKQw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1764686035;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ChX94tIO4F5AVgFaNDBv+eRZdyX4C0RWh7xUNZbENe8=;
-	b=q9Uv3+OWc5BH7qs3/BlgDKohsfbzLxXOjODsrmlEk5SfzDeXUG3qgPzgeUhQ2Za5tRUF1J
-	lNp1G/Q7XFwbpFBQ==
-To: Petr Mladek <pmladek@suse.com>
-Cc: Sergey Senozhatsky <senozhatsky@chromium.org>, Steven Rostedt
- <rostedt@goodmis.org>, Breno Leitao <leitao@debian.org>,
- linux@armlinux.org.uk, paulmck@kernel.org, usamaarif642@gmail.com,
- leo.yan@arm.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, kernel-team@meta.com, rmikey@meta.com, Petr
- Mladek <pmladek@suse.com>
-Subject: Re: [PATCH] printk/nbcon: Restore IRQ in atomic flush after each
- emitted record
-In-Reply-To: <20251202135832.156559-1-pmladek@suse.com>
-References: <20251202135832.156559-1-pmladek@suse.com>
-Date: Tue, 02 Dec 2025 15:39:54 +0106
-Message-ID: <87o6oheywd.fsf@jogness.linutronix.de>
+	Tue, 02 Dec 2025 14:36:56 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <s.pueschel@pengutronix.de>)
+	id 1vQRUa-0004ex-Pi; Tue, 02 Dec 2025 15:36:36 +0100
+Message-ID: <2dc6c675-9c69-40a1-b2ed-ff1d22157228@pengutronix.de>
+Date: Tue, 2 Dec 2025 15:36:33 +0100
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 03/16] media: rockchip: rga: align stride to 16 bytes
+To: Nicolas Dufresne <nicolas@ndufresne.ca>,
+ Jacob Chen <jacob-chen@iotwrt.com>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, kernel@pengutronix.de,
+ linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org
+References: <20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de>
+ <20251007-spu-rga3-v1-3-36ad85570402@pengutronix.de>
+ <db7030790063d0ebe6d254c7053e758184b9d7cc.camel@ndufresne.ca>
+Content-Language: en-US
+From: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+In-Reply-To: <db7030790063d0ebe6d254c7053e758184b9d7cc.camel@ndufresne.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_063400_528344_D59C89E4 
-X-CRM114-Status: GOOD (  15.49  )
+X-CRM114-CacheID: sfid-20251202_063655_038539_4E2B941B 
+X-CRM114-Status: GOOD (  23.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,56 +74,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-12-02, Petr Mladek <pmladek@suse.com> wrote:
-> diff --git a/kernel/printk/nbcon.c b/kernel/printk/nbcon.c
-> index 3fa403f9831f..6b8becb6ecd9 100644
-> --- a/kernel/printk/nbcon.c
-> +++ b/kernel/printk/nbcon.c
-> @@ -1549,6 +1549,7 @@ static int __nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
->  {
->  	struct nbcon_write_context wctxt = { };
->  	struct nbcon_context *ctxt = &ACCESS_PRIVATE(&wctxt, ctxt);
-> +	unsigned long flags;
->  	int err = 0;
->  
->  	ctxt->console			= con;
-> @@ -1557,18 +1558,31 @@ static int __nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
->  	ctxt->allow_unsafe_takeover	= nbcon_allow_unsafe_takeover();
->  
->  	while (nbcon_seq_read(con) < stop_seq) {
-> -		if (!nbcon_context_try_acquire(ctxt, false))
-> +		/*
-> +		 * Atomic flushing does not use console driver synchronization
-> +		 * (i.e. it does not hold the port lock for uart consoles).
-> +		 * Therefore IRQs must be disabled to avoid being interrupted
-> +		 * and then calling into a driver that will deadlock trying
-> +		 * to acquire console ownership.
-> +		 */
-> +		local_irq_save(flags);
-> +		if (!nbcon_context_try_acquire(ctxt, false)) {
-> +			local_irq_restore(flags);
->  			return -EPERM;
-> +		}
->  
->  		/*
->  		 * nbcon_emit_next_record() returns false when the console was
->  		 * handed over or taken over. In both cases the context is no
->  		 * longer valid.
->  		 */
-> -		if (!nbcon_emit_next_record(&wctxt, true))
-> +		if (!nbcon_emit_next_record(&wctxt, true)) {
-> +			local_irq_restore(flags);
->  			return -EAGAIN;
-> +		}
->  
->  		nbcon_context_release(ctxt);
-> +		local_irq_restore(flags);
+Hi Nicolas,
 
+On 10/7/25 8:19 PM, Nicolas Dufresne wrote:
+> Hi,
+>
+>
+> Le mardi 07 octobre 2025 à 10:31 +0200, Sven Püschel a écrit :
+>> Align the stride to a multiple of 16 according to the RGA3 requirements
+>> mentioned in the datasheet. This also ensures that the stride of the RGA2
+>> is aligned to 4 bytes, as it needs to divide the value by 4 (one word)
+>> before storing it in the register.
+>>
+>> Increasing the stride for the alignment also requires to increase the
+>> sizeimage value. This is usually handled by v4l2_fill_pixfmt_mp, but
+>> it doesn't allow to set a stride alignment. Therefore use the generated
+>> values to calculate the total number of lines to properly update the
+>> sizeimage value after the bytesperline has been aligned.
+>>
+>> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+>> ---
+>>   drivers/media/platform/rockchip/rga/rga.c | 21 +++++++++++++++++++++
+>>   1 file changed, 21 insertions(+)
+>>
+>> diff --git a/drivers/media/platform/rockchip/rga/rga.c
+>> b/drivers/media/platform/rockchip/rga/rga.c
+>> index
+>> 6438119a6c7aeff1e89e7aa95dcd5d2921fefa08..3cb7ce470c47e39d694e8176875a75fad271
+>> 7f96 100644
+>> --- a/drivers/media/platform/rockchip/rga/rga.c
+>> +++ b/drivers/media/platform/rockchip/rga/rga.c
+>> @@ -459,6 +459,25 @@ static int vidioc_enum_fmt(struct file *file, void *priv,
+>> struct v4l2_fmtdesc *f
+>>   	return 0;
+>>   }
+>>   
+>> +static void align_pixfmt(struct v4l2_pix_format_mplane *pix_fmt)
+>> +{
+>> +	int lines;
+>> +	struct v4l2_plane_pix_format *fmt;
+>> +
+>> +	/*
+>> +	 * Align stride to 16 for the RGA3 (based on the datasheet)
+>> +	 * To not dismiss the v4l2_fill_pixfmt_mp helper
+>> +	 * (and manually write it again), we're approximating the new
+>> sizeimage
+>> +	 */
+>> +	for (fmt = pix_fmt->plane_fmt;
+>> +	     fmt < pix_fmt->plane_fmt + pix_fmt->num_planes;
+>> +	     fmt++) {
+>> +		lines = DIV_ROUND_UP(fmt->sizeimage, fmt->bytesperline);
+>> +		fmt->bytesperline = (fmt->bytesperline + 0xf) & ~0xf;
+>> +		fmt->sizeimage = fmt->bytesperline * lines;
+> Instead of open coding this, describe this with struct v4l2_frmsize_stepwise and
+> then use v4l2_apply_frmsize_constraints().
+Looking into v4l2_frmsize_stepwise, it only applies to the width/height 
+values, whereas I'm interested to control the stride 
+byte-alignment/stepping (allowing free range widths/heights).
 
-I am not really happy about all the local_irq_restore() usage. Using
-guard syntax would be nice here, but AFAICT there is no guard for
-local_irq_save()/_restore(). :-/ And I could not come up with any other
-alternative that looked more elegant. So let's just keep it this way.
+Do you intent that I (mis)use it like this: 
+v4l2_apply_frmsize_constraints(&fmt->bytesperline, &lines, &constraints)  ?
 
-Reviewed-by: John Ogness <john.ogness@linutronix.de>
+This only replaces one of the three lines in the for loop (where i 
+manually do the alignment with & ~0xf) and would also look odd, as i use 
+a value in bytes as a width parameter (expected to be in pixels).
+
+Technically the core problem is that the v4l2_fill_pixfmt_mp helper 
+doesn't allow to specify a stride byte alignment and just aligns the 
+stride based on the format requirements. Therefore I think that maybe 
+creating a new v4l2_fill_pixfmt_mp_aligned helper would probably be the 
+better solution to get the correct bytesperline value right from the 
+start instead of adjusting it afterwards.
+
+Sincerely
+     Sven
+>
+> Nicolas
+>
+>> +	}
+>> +}
+>> +
+>>   static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
+>>   {
+>>   	struct v4l2_pix_format_mplane *pix_fmt = &f->fmt.pix_mp;
+>> @@ -474,6 +493,7 @@ static int vidioc_g_fmt(struct file *file, void *priv,
+>> struct v4l2_format *f)
+>>   		return PTR_ERR(frm);
+>>   
+>>   	v4l2_fill_pixfmt_mp(pix_fmt, frm->fmt->fourcc, frm->width, frm-
+>>> height);
+>> +	align_pixfmt(pix_fmt);
+>>   
+>>   	pix_fmt->field = V4L2_FIELD_NONE;
+>>   	pix_fmt->colorspace = frm->colorspace;
+>> @@ -496,6 +516,7 @@ static int vidioc_try_fmt(struct file *file, void *priv,
+>> struct v4l2_format *f)
+>>   				(u32)MIN_HEIGHT, (u32)MAX_HEIGHT);
+>>   
+>>   	v4l2_fill_pixfmt_mp(pix_fmt, fmt->fourcc, pix_fmt->width, pix_fmt-
+>>> height);
+>> +	align_pixfmt(pix_fmt);
+>>   	pix_fmt->field = V4L2_FIELD_NONE;
+>>   
+>>   	return 0;
 
