@@ -4,95 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39E7FCFD376
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 09:26:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31290CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 09:27:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zydHyiqAC3ZHYIZdC05XqLM2WAuCVhDvuFCoJaMA1lo=; b=Kei+T2SZIdax5f3ns6F2QMBfrk
-	OIX+NAhtXGIPos9HAoYSPNMrcOi7chsOkMGI+ii7X6KEQ4VpXxUolVeQEGUqGaTzgewu1RHq7uQz8
-	iGB+zprgBYgbYOmpFxjKLYcF1xeUgaFiuaRdN+z02vpn+9dRXLBPt+c2o/Xg1CiA7tgzmASRUIv1V
-	HqeTquY6dJODKB+pnP6N16qoOvbsZNa69GE85Bvp3lX9i3cIJnmMge1NLwag4XnE4JDJsRiQ5bIpo
-	rebneX0FowKH6zzVq0jUvCblLyS/AFlRkXZ3uBYPh9naUIKXwCcUISx0dho0cyQu8zsI4Ogb5BOmN
-	dqvdvjKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mnWobUqG5nkwU91RtILFZ6byjEOP35YGuzMGM6xrCqI=; b=AxsfvlnGtNLuAwbMfRT+1oVypa
+	TYUU1WnTMdtyQ5U3U7UaB+fElOuXLStl0vBbIWYxxFrzy9lcVe7Z1XBs4RIlTM2Su/CT2OmnzKWT5
+	B4vFQSndqiMNHcaUp4MOYaamj82XePTPeEjlHDmQovNJ16i80GB0eUAmq1jGt2Zrjca5ovSLRPzlP
+	fg6nO6APP5BTD0GE1AlB2zVJzwS4Y4vko1sGpAJAuKSj/lh7FyBV1haVsJRwxniJWt8Geu0qoXKW9
+	wD0two1iRHd0cyTyIyaYgJcAp7AjFVuVIW5DdYbtQ6DR3pI7F7ZNOA/xhR3wnJnAFy3Hqnkuwyh8Y
+	J4bPm/+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQMeQ-000000056Rb-3O3G;
-	Tue, 02 Dec 2025 09:26:26 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1vQMff-000000056a6-3kPL;
+	Tue, 02 Dec 2025 09:27:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQMeN-000000056RG-10it
+	id 1vQMfe-000000056Zs-3VrV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 09:26:25 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4775ae5684fso24288005e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 01:26:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764667581; x=1765272381; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=zydHyiqAC3ZHYIZdC05XqLM2WAuCVhDvuFCoJaMA1lo=;
-        b=oR7xUxROW+Zm6HvOytPcAjsO9tYF0JPZSbgYPf1Cs3YhtB/J73dVbDo+zTThV0TImM
-         2V78+l+/oCqSMxBD2I7CJBmbkUp1ve5j6C60fl8b/rqxI6vUQPi/RduG2JjUXW7FiTC/
-         O0FZedCL0UMBqv5Aaf7ywTi9GvCbj41qNI3N07GZh2+QLEsQUFpbrKtuVZj9tkVbnHyf
-         mvu8yX32hhkvEDp8F9F4In8XG+TAaYxwohIG8Lyiig5mQRMhjacuiQBNndeWqGxIG1UL
-         i8vCI/cdxmPw7S+XFpkigwQjbCDgFKtMm8ovkOagXQT703Rwkr3JD2XaLiLRY3KfSka4
-         4bbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764667581; x=1765272381;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=zydHyiqAC3ZHYIZdC05XqLM2WAuCVhDvuFCoJaMA1lo=;
-        b=o8JjHPWNaoIUAKMYu82TLWr66knClnSuzCIOaGPKCpPUf1XU8xhko7OhX1ol2k6gJn
-         PMB9w/R/Vd2Oa/Bh/HHE/7czr3Hh9ltS+VtZw+YEwEt+1/SHbF8743ktwkDpE63LzVbr
-         17RJytIpydUkzjH6P003hgl2FusHgYHrx8BzFOEhIi/veWK+c6MOifKSTg0Uk0x0Z8Cs
-         apYdmjoUjZM1inTCfHsht61ceWKp9EA6DK1XZQ6CguatepoDuCWQQeCeKCg6xQZ1tkqr
-         NY8mJJ0UcBRRT2RRjVspMd17GaUaIbrdWVCyP3jExaJNMN1BUpIwQWG5fFZhBUigLmSy
-         VU4g==
-X-Forwarded-Encrypted: i=1; AJvYcCVZWu2JKZnC1MEq6JG6Evv4e40xIqA9MSL/tBYs3yJLpQICB/Y8F2qOVPy+zXbOT367QO5GV5J4ThMglgiX+bsl@lists.infradead.org
-X-Gm-Message-State: AOJu0YywOcG/U65wbsXS+ErTitMDTp8VuVQ7RjO/8wgu8BmnW/85E0ax
-	w3AHzvBNXR/a/C6urFzCKxpK+VI2M+XsLUFfE3oZ/xqxglWgFl0k4XuLHP+xrZgn24Y=
-X-Gm-Gg: ASbGncsbjT9WmkxJ4XYISsRrEEEdjy0F/3k5O6RcIzR7LraVbdv1vA/Nc0zrM6clT7o
-	YyvDz4j5DnBOrL5+jxbCantOmycgimFYMLzpMWCKDIt3ycdYQFFOGhczc3vExCaRFXyucx97Pe7
-	vwqCLV13pzfGadm6h5HUHg5zHnlhDejZEXpTDml54l/mFYeDxTyVYCOwm2BcrH1F5VDHVMn/BRE
-	GuxgbcVEkUWqbQO87FBz7Gjr5UY7ikrJA0sH/bm6FzX+Tb/RhcRFcTASCqHqSPoSmOwgAyTW+ki
-	l9Z+PIbTSOrYzWqHMLK2/kWnHaXxz7kTfq5JbISRphMuh1vRLUZGA4++kQ+Qoxrh10XVLQSciy6
-	vE5sARczSCEmpRkRO0qVfjZ7mX9ot8DB40G8M98Ui05n+vAbgmUeOq2jk3J5gqbox4ps146Fcjh
-	HqGsalY9ubpFL28KWK
-X-Google-Smtp-Source: AGHT+IE8k+HW7Nso1FCZIlB9mBQaNvvaXUAUAi2gwo61pv1tszj/rx1Sal4ecT4VI29+FHM/ydZiPA==
-X-Received: by 2002:a05:600c:4f06:b0:471:9da:5248 with SMTP id 5b1f17b1804b1-477c114ef3dmr458806355e9.26.1764667581352;
-        Tue, 02 Dec 2025 01:26:21 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42e1ca1a3f1sm32008361f8f.28.2025.12.02.01.26.20
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 02 Dec 2025 01:26:20 -0800 (PST)
-Message-ID: <3bec7ceb-61a8-4b38-a794-02ee2fc9e68c@linaro.org>
-Date: Tue, 2 Dec 2025 09:26:19 +0000
+	Tue, 02 Dec 2025 09:27:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E8E0F6017A;
+	Tue,  2 Dec 2025 09:27:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D8ADC116D0;
+	Tue,  2 Dec 2025 09:27:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1764667661;
+	bh=BALjdQsLcT14uiuNhmlNyxPxxPDYE/UJ0M1HcNCiBZE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZW0i6t4YkdwaPTFOUPcOLpx713GubMhd+yoZyRnQkuRX82QMOCrxHlYE3m67DeoRD
+	 kVEaOmMu2zml4N6j29oeXnopijGZMxKZmEAl11c/nHt/0Xtk6kEjLngdONdaWDv8z2
+	 jusJMDgTusxSXykS1DTy71q/lw6AOSzQAxP4Sphw=
+Date: Tue, 2 Dec 2025 10:27:38 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Roy Luo <royluo@google.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Badhri Jagan Sridharan <badhri@google.com>,
+	Doug Anderson <dianders@google.com>, linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	Joy Chakraborty <joychakr@google.com>,
+	Naveen Kumar <mnkumar@google.com>
+Subject: Re: [PATCH v8 2/2] usb: dwc3: Add Google Tensor SoC DWC3 glue driver
+Message-ID: <2025120209-unstylish-john-2a6c@gregkh>
+References: <20251122-controller-v8-0-e7562e0df658@google.com>
+ <20251122-controller-v8-2-e7562e0df658@google.com>
+ <2025112226-heave-refrain-53e6@gregkh>
+ <CA+zupgwzQ5r=-_L79D74=9VRqRO94N0yTApHChM+Nu0cn1ss3w@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] coresight: etm3x: Fix cntr_val_show() to match
- cntr_val_store() behavior
-To: Kuan-Wei Chiu <visitorckw@gmail.com>, suzuki.poulose@arm.com
-Cc: mike.leach@linaro.org, alexander.shishkin@linux.intel.com,
- gregkh@linuxfoundation.org, mathieu.poirier@linaro.org, leo.yan@arm.com,
- Al.Grant@arm.com, jserv@ccns.ncku.edu.tw, marscheng@google.com,
- ericchancf@google.com, milesjiang@google.com, nickpan@google.com,
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20251202082613.3265761-1-visitorckw@gmail.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20251202082613.3265761-1-visitorckw@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_012623_328731_48337744 
-X-CRM114-Status: GOOD (  21.80  )
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CA+zupgwzQ5r=-_L79D74=9VRqRO94N0yTApHChM+Nu0cn1ss3w@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,74 +81,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Dec 02, 2025 at 03:01:13AM -0600, Roy Luo wrote:
+> On Sat, Nov 22, 2025 at 8:59 PM Greg Kroah-Hartman
+> <gregkh@linuxfoundation.org> wrote:
+> >
+> > On Sat, Nov 22, 2025 at 09:32:06AM +0000, Roy Luo wrote:
+> > > Add support for the DWC3 USB controller found on Google Tensor G5
+> > > (codename: laguna). The controller features dual-role functionality
+> > > and hibernation.
+> > >
+> > > The primary focus is implementing hibernation support in host mode,
+> > > enabling the controller to enter a low-power state (D3). This is
+> > > particularly relevant during system power state transition and
+> > > runtime power management for power efficiency.
+> > > Highlights:
+> > > - Align suspend callback with dwc3_suspend_common() for deciding
+> > >   between a full teardown and hibernation in host mode.
+> > > - Integration with `psw` (power switchable) and `top` power domains,
+> > >   managing their states and device links to support hibernation.
+> > > - A notifier callback dwc3_google_usb_psw_pd_notifier() for
+> > >   `psw` power domain events to manage controller state
+> > >   transitions to/from D3.
+> > > - Coordination of the `non_sticky` reset during power state
+> > >   transitions, asserting it on D3 entry and deasserting on D0 entry
+> > >   in hibernation scenario.
+> > > - Handling of high-speed and super-speed PME interrupts
+> > >   that are generated by remote wakeup during hibernation.
+> > >
+> > > Co-developed-by: Joy Chakraborty <joychakr@google.com>
+> > > Signed-off-by: Joy Chakraborty <joychakr@google.com>
+> > > Co-developed-by: Naveen Kumar <mnkumar@google.com>
+> > > Signed-off-by: Naveen Kumar <mnkumar@google.com>
+> > > Signed-off-by: Roy Luo <royluo@google.com>
+> > > ---
+> > >  drivers/usb/dwc3/Kconfig       |  13 +
+> > >  drivers/usb/dwc3/Makefile      |   1 +
+> > >  drivers/usb/dwc3/dwc3-google.c | 628 +++++++++++++++++++++++++++++++++++++++++
+> > >  3 files changed, 642 insertions(+)
+> > >
+> > > diff --git a/drivers/usb/dwc3/Kconfig b/drivers/usb/dwc3/Kconfig
+> > > index 4925d15084f816d3ff92059b476ebcc799b56b51..f58c70dabf108878cbefe0abea88572d9ae81e26 100644
+> > > --- a/drivers/usb/dwc3/Kconfig
+> > > +++ b/drivers/usb/dwc3/Kconfig
+> > > @@ -200,4 +200,17 @@ config USB_DWC3_GENERIC_PLAT
+> > >         the dwc3 child node in the device tree.
+> > >         Say 'Y' or 'M' here if your platform integrates DWC3 in a similar way.
+> > >
+> > > +config USB_DWC3_GOOGLE
+> > > +     tristate "Google Platform"
+> > > +     depends on COMPILE_TEST
+> > > +     depends on OF && COMMON_CLK && RESET_CONTROLLER
+> >
+> > Shouldn't this be:
+> >         depends on (OF && COMMON_CLK && RESET_CONTROLLER) || COMPILE_TEST
+> >
+> > I shouldn't have to enable those options to just get a build test here,
+> > the apis should be properly stubbed out if those options are not
+> > enabled, right?
+> >
+> > thanks,
+> >
+> > greg k-h
+> 
+> Hi Greg,
+> 
+> I agree with your interpretation of COMPILE_TEST but it doesn't
+> seem to align with upstream convention. I found the following pattern
+> in several device driver Kconfig files (including but not limited to usb,
+> pinctrl and phy).
+> 
+>     depends on COMPILE_TEST || ARCH_XXX
+>     depends on CONFIG_A && CONFIG_B...
+> 
+> For this patch, the APIs exposed by OF, COMMON_CLK
+> and RESET_CONTROLLER are properly stubbed out so
+> I'm all good to go with your suggestion, but I'd like to make
+> sure this approach is conventional.
 
+Whatever works for building properly, as-is, what you have in this patch
+didn't work for my systems at all.
 
-On 02/12/2025 8:26 am, Kuan-Wei Chiu wrote:
-> The cntr_val_show() function was intended to print the values of all
-> counters using a loop. However, due to a buffer overwrite issue with
-> sprintf(), it effectively only displayed the value of the last counter.
-> 
-> The companion function, cntr_val_store(), allows users to modify a
-> specific counter selected by 'cntr_idx'. To maintain consistency
-> between read and write operations and to align with the ETM4x driver
-> behavior, modify cntr_val_show() to report only the value of the
-> currently selected counter.
-> 
-> This change removes the loop and the "counter %d:" prefix, printing
-> only the hexadecimal value. It also adopts sysfs_emit() for standard
-> sysfs output formatting.
-> 
-> Fixes: a939fc5a71ad ("coresight-etm: add CoreSight ETM/PTM driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
-> ---
-> Build test only.
-> 
-> Changes in v3:
-> - Switch format specifier to %#x to include the 0x prefix.
-> - Add Cc stable
-> 
-> v2: https://lore.kernel.org/lkml/20251201095228.1905489-1-visitorckw@gmail.com/
-> 
->   .../hwtracing/coresight/coresight-etm3x-sysfs.c   | 15 ++++-----------
->   1 file changed, 4 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> index 762109307b86..b3c67e96a82a 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm3x-sysfs.c
-> @@ -717,26 +717,19 @@ static DEVICE_ATTR_RW(cntr_rld_event);
->   static ssize_t cntr_val_show(struct device *dev,
->   			     struct device_attribute *attr, char *buf)
->   {
-> -	int i, ret = 0;
->   	u32 val;
->   	struct etm_drvdata *drvdata = dev_get_drvdata(dev->parent);
->   	struct etm_config *config = &drvdata->config;
->   
->   	if (!coresight_get_mode(drvdata->csdev)) {
->   		spin_lock(&drvdata->spinlock);
-> -		for (i = 0; i < drvdata->nr_cntr; i++)
-> -			ret += sprintf(buf, "counter %d: %x\n",
-> -				       i, config->cntr_val[i]);
-> +		val = config->cntr_val[config->cntr_idx];
->   		spin_unlock(&drvdata->spinlock);
-> -		return ret;
-> -	}
-> -
-> -	for (i = 0; i < drvdata->nr_cntr; i++) {
-> -		val = etm_readl(drvdata, ETMCNTVRn(i));
-> -		ret += sprintf(buf, "counter %d: %x\n", i, val);
-> +	} else {
-> +		val = etm_readl(drvdata, ETMCNTVRn(config->cntr_idx));
->   	}
->   
-> -	return ret;
-> +	return sysfs_emit(buf, "%#x\n", val);
->   }
->   
->   static ssize_t cntr_val_store(struct device *dev,
+> I plan to add ARCH_GOOGLE as a dependency in the next
+> version per [1], so the "depends on" would probably look like
+> the following per your suggestion:
 
-Reviewed-by: James Clark <james.clark@linaro.org>
+But "Google" is not an arch :(
 
+And really, the whole "only have a sub-arch symbol" is something that
+personally, I think is totally wrong and prevents kernel images from
+being built for more than one "arch".  As an example, the Android GKI
+kernel has to support more than one of these, so what does putting this
+behind a symbol that no one will actually use mean anything?  Android
+will never be only building a ARCH_GOOGLE kernel.
+
+>     depends on (OF && COMMON_CLK && RESET_CONTROLLER && ARCH_GOOGLE)
+> || COMPILE_TEST
+> 
+> Please let me know your thoughts.
+> [1] https://lore.kernel.org/linux-phy/1a53d473-fc13-4ac5-ba52-4701d95e3073@kernel.org/
+
+Again, I hate the ARCH_ stuff, but Krzysztof does seem to like it for
+some reason, so I'll defer to others here.  But note, as someone who
+helps maintain a "generic" ARM64 kernel, these ARCH_* usages for
+different platforms do nothing at all to help anyone out.
+
+thanks,
+
+greg k-h
 
