@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 335D2D11715
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 16:57:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DC74D11715
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 16:59:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TCYSe3ve1jP/sNdIWj4T1XsCE5/a5E6GjxCcO8droC0=; b=fyZQjxo1vjUiFidvSlg/QmQ1EX
-	YAeT2VyfGIrRs4rJJfCGZ34RAsF2Bw2/i/FDF61l0RtF4nhv2J4+KbnqTuHTbVR3cQGyEXWqLN3/0
-	5dupets0cW+GcRbgt30Qc5iC/KE1tjlimcY6wiBi/b12s5SEnE/fa4UJddmPBAKBLu3JkoGW1Jbhh
-	Oh2DsFKkLiaOQg8WBPWayE1Pjw8uv9Tpfpxo9ZHa7HcvIlnzYov8RiaogUkjJwc/PogHBT772ooaP
-	d48wVsSiTlSc7AlFTQ8VITtca5ltJFtIFgHEQcQKlUJAbml1Dx5XUHcBqQeEXjqya2V2DMQzFc2Ng
-	3qAD4diw==;
+	bh=NVDDeDsI7voWK2iMpphDuZXy8UNo3zOmfcXW7ODA8PQ=; b=TZuyuW2YdQ4IE7Fh7nInPIKPxY
+	9cW40ad1Win3d685z/h/RrsJnd/qud7kMB/QKkO1wubq+aJXGmRJd/KI8ZGKHyLbOmLGM7BZoX+S2
+	7HhyF++HGzGUnDF+SricLmKiS4cMFcOp4R/u0rN7HIIP8GbsJhKVDLAi7JRi5Sdc7lub2S1+5K+61
+	pD8p/SL4j2tOhJ2rDQutvpsFwpe7utUfw3m2ZEE7Xj+4cmOyu6RMK6PXqVt+IjnnKR65RodsfX/7o
+	JIY5NL2Wex0T/hLZ2Z6ghxnrel6SG4BiPuwp7v6BIaU4X1y/7hs3sMCaBo7fRY6/mS8/IY7x/shIt
+	4IwUMY2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQTgN-00000005dtS-07nb;
-	Tue, 02 Dec 2025 16:56:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQTgJ-00000005dsw-3Ug0
+	id 1vQTiZ-00000005e5x-0s0A;
+	Tue, 02 Dec 2025 16:59:11 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQTiW-00000005e50-44sH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 16:56:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A93AD1477;
-	Tue,  2 Dec 2025 08:56:42 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A29E63F66E;
-	Tue,  2 Dec 2025 08:56:49 -0800 (PST)
-Date: Tue, 2 Dec 2025 16:56:47 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Yeoreum Yun <yeoreum.yun@arm.com>, Will Deacon <will@kernel.org>,
+	Tue, 02 Dec 2025 16:59:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D103441973;
+	Tue,  2 Dec 2025 16:59:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFA00C4CEF1;
+	Tue,  2 Dec 2025 16:59:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764694747;
+	bh=BKuRmo/5X5VVzMCwr0RNY84CwTP4HWe2icEbznJHVzc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YKAi/mUAqSC/tVRSdbcmC8qjlezFOCw66U60BYYB54O8IHOMfIELqMmRm/3DgO30N
+	 jXu7BmHni2QysJ+encGdMUd2U11R5r2u7gCtWvZBBzjDO//T/zVij8Cnpha6MQ1fhJ
+	 zbkJf8+kEILwxG3D1lWhiIXXYOiIkix7mbCFNlGSfG5lCJqTf01zSQrJt5CW27paFu
+	 mYwt3ztzKiaKc+3bttfcOz9B3Bv8xA5W0s3HlITnSCpgjtymU3btwcrQq+BPLek8jA
+	 jlaKIRNXFH2V0mEITs0MuHOLE92cvn39QfC22BSjE/rbB00WQXapE642ZijCDvfOsX
+	 9Jv1TTBTDbjxg==
+Date: Tue, 2 Dec 2025 08:59:07 -0800
+From: Kees Cook <kees@kernel.org>
+To: Ryan Roberts <ryan.roberts@arm.com>
+Cc: Ard Biesheuvel <ardb+git@google.com>, Will Deacon <will@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Jeremy Linton <jeremy.linton@arm.com>,
+	Catalin Marinas <Catalin.Marinas@arm.com>,
 	Mark Rutland <mark.rutland@arm.com>,
-	Tamas Petz <tamas.petz@arm.com>,
-	Tamas Zsoldos <tamas.zsoldos@arm.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org
-Subject: Re: [PATCH 11/19] coresight: trbe: Apply overwrite erratum for only
- wrap event
-Message-ID: <20251202165647.GE724103@e132581.arm.com>
-References: <20251201-trbe_buffer_refactor_v1-1-v1-0-7da32b076b28@arm.com>
- <20251201-trbe_buffer_refactor_v1-1-v1-11-7da32b076b28@arm.com>
- <cca13ee6-83d9-4478-ace0-1e7bedf79d0e@arm.com>
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	linux-hardening@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v1 0/2] Fix bugs and performance of kstack offset
+ randomisation
+Message-ID: <202512020858.8BD22F486@keescook>
+References: <20251127105958.2427758-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <cca13ee6-83d9-4478-ace0-1e7bedf79d0e@arm.com>
+In-Reply-To: <20251127105958.2427758-1-ryan.roberts@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_085651_907665_9FC30721 
-X-CRM114-Status: GOOD (  18.92  )
+X-CRM114-CacheID: sfid-20251202_085909_029039_5D56B414 
+X-CRM114-Status: GOOD (  10.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,42 +78,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 02, 2025 at 12:05:52PM +0000, Suzuki K Poulose wrote:
-> On 01/12/2025 11:22, Leo Yan wrote:
-> > The overwrite erratum occurs only on wrap events, so apply the extra
-> > wrap condition check in the workaround.
-> > 
-> > Signed-off-by: Leo Yan <leo.yan@arm.com>
-> > ---
-> >   drivers/hwtracing/coresight/coresight-trbe.c | 4 ++--
-> >   1 file changed, 2 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-> > index e579ea98523c24d23a0cd265dcdd0a46b52b52da..2600af12a8fb94bb8c74efda2a101aacd01b0b34 100644
-> > --- a/drivers/hwtracing/coresight/coresight-trbe.c
-> > +++ b/drivers/hwtracing/coresight/coresight-trbe.c
-> > @@ -714,7 +714,7 @@ static unsigned long trbe_get_trace_size(struct perf_output_handle *handle,
-> >   	 * 64bytes. Thus we ignore the potential triggering of the erratum
-> >   	 * on WRAP and limit the data to LIMIT.
-> >   	 */
-> > -	if (wrap)
-> > +	if (wrap && trbe_may_overwrite_in_fill_mode(buf->cpudata))
-> >   		write = get_trbe_limit_pointer();
-> 
-> This must be trbe_may_write_out_of_range() ?
+On Thu, Nov 27, 2025 at 10:59:54AM +0000, Ryan Roberts wrote:
+> As I reported at [1], kstack offset randomisation suffers from a couple of bugs
+> and, on arm64 at least, the performance is poor. This series attempts to fix
+> both; patch 1 provides back-portable fixes for the functional bugs. Patch 2
+> proposes a performance improvement approach.
 
-SDEN (e.g., [1]) is ambiguous about how the write pointer acts for the
-out-of-range erratum.
+Just to chime in -- this looks really good to me! Universally improved
+performance, reduced complexity, and better randomness. :) I'm looking
+forward to v2!
 
-However, SDEN explicitly states for overwrite erratum: "The current
-write pointer also increments by the same number of cache line
-locations.
+-Kees
 
-If this is still concerned, I can add check
-trbe_may_write_out_of_range() in next spin.
-
-Thanks,
-Leo
-
-[1] https://documentation-service.arm.com/static/636a660b4e6cf12278ad89c4?token=
+-- 
+Kees Cook
 
