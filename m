@@ -4,128 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7B44CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 12:20:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BC6FD116F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 12:20:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pKjB/booLUKQ9OpXzyVFxwemDZWATSgb7Uu3UBFnUJQ=; b=ryocQ00TIIS88+88+hSWGYF/xD
-	uMYxzK2UAD8eBe7XTuCaePzpuTgGNONpliQy2weVkYqrnE/PtcmsfmP/Hd8OJnXyLBi9Bw5/ZYSBM
-	kSh+hZV4LJ3XZ1zc3TDDd/F7PQsi9Eyfx/XkdrwhbiLeP8Y1s49Eufa/9/31eNqAYZVm/QOy5xdYc
-	nWWeaKaMpuybhYyJGtmETiNPnVd0kLiwmD70JtvXETYZsTC5vczTNzt/83hRaN8xSau0hk1CiKfZg
-	+D0rTkqBPNwdZ3tGJoRF1gsYdWgKq9FUjWJ8kjRSILFSjD2/MNsmjWIz7A2IfE8RsqtDPCKeYwqSb
-	Jq7xB76A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dGT1VqkOtv/qjSfdmUHPyBypwKabEZXG1jp1YlC74zU=; b=LH76Ed5ejveYSIBvJO0ZT96U2x
+	UnB1fW3v4VCBxHPl8tCL5JHjojyPPonPlHCgdMnA1XpjKrJm8ItwnYDDRkOrmZ7XRHd1PM3dmjka4
+	Q/Syu8qVu2vhL2jIK3uXFjqjVa2R2833xnRlSnIL+LIFlr7iNkE5EDaNJIXVjCe3bqX8rPh3WUwP4
+	2grgDp9f7RaeyoCWd01EbCDE/2gq4r1H49xJ+sN6UshpywpS2Wj+E3PPgXtY5hXutTaIAENbf3MJx
+	LDo9Mdwbx3YZEQtFg6afx9MQGCKEZbXexy0quZ9JP9/0Gp7la9G0iQqVGFTfGwOp3/NuNc7+eh32/
+	IPoEowwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQPMz-00000005N0c-3H8G;
-	Tue, 02 Dec 2025 12:20:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vQPNB-00000005N3f-2a1J;
+	Tue, 02 Dec 2025 12:20:49 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQPMx-00000005Mzv-3RZC
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vQPN9-00000005N2X-2GOB;
+	Tue, 02 Dec 2025 12:20:48 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.98.2)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1vQPMx-000000003vh-2FsH;
 	Tue, 02 Dec 2025 12:20:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A3BD76013F;
-	Tue,  2 Dec 2025 12:20:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3BA9AC116D0;
-	Tue,  2 Dec 2025 12:20:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764678034;
-	bh=31tcOEp6eL357PL61dZc3EH7EaFim3TFeH2HZruei58=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=AyjfiuXJHqtQtPk+w5vOkkX4d9CxxwiySatHbMeBYIAOame4JpUPRZo2e9lonnBMi
-	 f3xYHFXzFD8eo5le1wcJlrqvvCunLgv6IEVEwxChoom9R+7zCFZt8ooTpQz3eTujWv
-	 X5cqywT8SIk2rXuplk3Ejt9CthP8isPzqqUwyhydUNj4DvsOMOoEhzHOXCz7HKdJGU
-	 Bza6KmQq/IcZHCy3EzMsstFx7kU4QQdM8UoHuO9esrnJe6zgxaH5rVqizwkKZYBvq5
-	 +SWNjNNEfNXpxJkTBj5W05b3xqoh+fRUju7MXloZHaemRTuO/X+VcGnEdzeJg/r0zq
-	 AFcumZuBgDPCg==
-Message-ID: <112178ce-189e-4437-b6ae-d54b36b59bb8@kernel.org>
-Date: Tue, 2 Dec 2025 13:20:26 +0100
+Date: Tue, 2 Dec 2025 12:20:31 +0000
+From: Daniel Golle <daniel@makrotopia.org>
+To: Frank Wunderlich <frankwu@gmx.de>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Chen Minqiang <ptpt52@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] net: dsa: mt7530: Use GPIO polarity to generate
+ correct reset sequence
+Message-ID: <aS7Zj3AFsSp2CTNv@makrotopia.org>
+References: <20251129234603.2544-1-ptpt52@gmail.com>
+ <20251129234603.2544-2-ptpt52@gmail.com>
+ <0675b35f-217d-4261-9e3f-2eb24753d43c@lunn.ch>
+ <20251130080731.ty2dlxaypxvodxiw@skbuf>
+ <3fbc4e67-b931-421c-9d83-2214aaa2f6ed@lunn.ch>
+ <0d85e1e6-ea75-4f20-aef1-90d446b4bfa1@kernel.org>
+ <00f308a1-a4b1-4f20-8d8e-459ddf4c39b1@gmx.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/21] ARM: dts: omap: Bind panel to panel-dpi instead of
- ti,tilcdc,panel driver
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Kory Maincent <kory.maincent@bootlin.com>
-Cc: Markus Schneider-Pargmann <msp@baylibre.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Louis Chauvet <louis.chauvet@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Miguel Gazquez <miguel.gazquez@bootlin.com>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-omap@vger.kernel.org, Jyri Sarha <jyri.sarha@iki.fi>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Tony Lindgren <tony@atomide.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
-References: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
- <20251126-feature_tilcdc-v1-5-49b9ef2e3aa0@bootlin.com>
- <96b1b7bf-ddbe-4213-a201-dc89cf2998dd@ideasonboard.com>
- <3bc5bf92-05c3-4841-ab28-9bab2bb31cd5@kernel.org>
- <20251202104244.59a9e83d@kmaincent-XPS-13-7390>
- <d7515cd3-5488-4d15-82dc-d2b98cfa2bed@kernel.org>
- <20251202114416.09624a4b@kmaincent-XPS-13-7390>
- <94e254fa-289d-41ed-909f-1742cfbb2690@kernel.org>
- <20251202121856.0da62885@kmaincent-XPS-13-7390>
- <1d9a9269-bfda-4d43-938b-2df6b82b9369@ideasonboard.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
- QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
- +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
- ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
- 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
- hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
- tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
- 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
- naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
- hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
- whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
- qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
- RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
- Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
- H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
- dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
- AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
- jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
- zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
- XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <1d9a9269-bfda-4d43-938b-2df6b82b9369@ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <00f308a1-a4b1-4f20-8d8e-459ddf4c39b1@gmx.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251202_042047_583278_1B3E5A3E 
+X-CRM114-Status: GOOD (  31.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,83 +78,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/12/2025 12:51, Tomi Valkeinen wrote:
-> Hi Kory,
+On Tue, Dec 02, 2025 at 12:52:44PM +0100, Frank Wunderlich wrote:
+> Hi,
 > 
-> On 02/12/2025 13:18, Kory Maincent wrote:
->> On Tue, 2 Dec 2025 11:47:40 +0100
->> Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->>> On 02/12/2025 11:44, Kory Maincent wrote:
->>>> On Tue, 2 Dec 2025 11:28:55 +0100
->>>> Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>>>   
->>>>> On 02/12/2025 10:42, Kory Maincent wrote:  
->>>>>>      
->>>>>>> Stuffing DTS change in the middle of the driver change tries to hide
->>>>>>> impact, which is not nice on its own.    
->>>>>>
->>>>>> As it needs driver change before the removal for not breaking things it
->>>>>> can't be done at the beginning of the series.    
->>>>>
->>>>> And that is the problem which should stop you there and rethink how to
->>>>> organize it without impacting users. DTS cannot go via DRM. If that was
->>>>> your intention, that's my:
->>>>>
->>>>> NAK  
->>>>
->>>> My intention was to raise discussion over the ugly and legacy tilcdc-panel
->>>> binding and what to do with it. But it seems you don't want to, that's a
->>>> shame.  
->>>
->>> I don't see how you get to these conclusions. I comment that putting
->>> here DTS in the middle without any explanation of the impact is not
->>> correct and this one alone I disagree with.
->>
->> Because you didn't replied to the first line of my answer:
->> "Yes, I know this but I still wanted to try and begin a discussion on this, as I
->> really thought it is not a good idea to add and maintain an new non-standard
->> panel driver solely for this tilcdc panel binding."
->>
->> But indeed you are right, I should have put more explanation on why there is DTS
->> and binding change in the middle of the series. Sorry for that.
->>  
->>> From that you claim I don't want to fix things...
->>>
->>> DTS cannot go to drm, which means you either need to separate the change
->>> and make entire work bisectable and backwards compatible for some time
->>> OR at least document clearly the impact as we always ask.
->>
->> The thing is, if I split it, it has to be in 3. One for the of DRM bus flags
->> support, a second for the the devicetree and binding change and a third for the
->> whole tilcdc and tda998x cleaning stuff. I think I will go for one series, with
->> better documentation.
->>
->> Now, what is your point of view on my question. Will you nak any binding
->> removal even if the binding is ugly and legacy and imply maintaining an
->> non-standard tilcdc panel driver? I know it breaks DTB compatibility but there
->> is several argument to not keep it. See patch 6.
-> The binding being ugly and having to maintain non-standard tilcdc panel
-> driver may be nice things for us, the users don't care. The users care
-> if their board no longer works.
-
-Exactly.
-
+> Am 01.12.25 um 08:48 schrieb Krzysztof Kozlowski:
+> > On 30/11/2025 21:17, Andrew Lunn wrote:
+> > > On Sun, Nov 30, 2025 at 10:07:31AM +0200, Vladimir Oltean wrote:
+> > > > On Sun, Nov 30, 2025 at 02:11:05AM +0100, Andrew Lunn wrote:
+> > > > > > -		gpiod_set_value_cansleep(priv->reset, 0);
+> > > > > > +		int is_active_low = !!gpiod_is_active_low(priv->reset);
+> > > > > > +		gpiod_set_value_cansleep(priv->reset, is_active_low);
+> > > > > I think you did not correctly understand what Russell said. You pass
+> > > > > the logical value to gpiod_set_value(). If the GPIO has been marked as
+> > > > > active LOW, the GPIO core will invert the logical values to the raw
+> > > > > value. You should not be using gpiod_is_active_low().
+> > > > > 
+> > > > > But as i said to the previous patch, i would just leave everything as
+> > > > > it is, except document the issue.
+> > > > > 
+> > > > > 	Andrew
+> > > > > 
+> > > > It was my suggestion to do it like this (but I don't understand why I'm
+> > > > again not in CC).
+> > > > 
+> > > > We _know_ that the reset pin of the switch should be active low. So by
+> > > > using gpiod_is_active_low(), we can determine whether the device tree is
+> > > > wrong or not, and we can work with a wrong device tree too (just invert
+> > > > the logical values).
+> > > Assuming there is not a NOT gate placed between the GPIO and the reset
+> > > pin, because the board designer decided to do that for some reason?
+> jumping in because i prepare mt7987 / BPI-R4Lite dts for upstreaming when
+> driver-changes are in.
+> With current driver i need to define the reset-gpio for mt7531 again wrong
+> to get it
+> working. So to have future dts correct, imho this (or similar) change to
+> driver is needed.
 > 
-> And how does this sync with u-boot? It also has code for at least for a
-> few of these boards.
+> Of course we cannot simply say that current value is wrong and just invert
+> it because of
+> possible "external" inversion of reset signal between SoC and switch.
+> I have to look on schematics for the boards i have (BPI-R64, BPI-R3,
+> BPI-R2Pro) if there is such circuit.
 
-+1
+I'm also not aware of any board which doesn't directly connect the
+reset of the MT7530 to a GPIO pin of the SoC. For MediaTek's designs
+there is often even a specific pin desginated for this purpose and
+most vendors do follow this. If they deviate at all, then it's just
+that a different pin is used for the switch reset, but I've never
+seen any logic between the SoC's GPIO pin and the switch reset.
 
-> 
-> Are there even users for these boards? If not, maybe they can be just
-> removed? I'm personally not familiar with these boards, so I have no
-> idea of their age or distribution.
-> 
-> One trick that can be done is to modify the loaded DTB at boot time,
-> detecting the old format, converting it to the new one, so that when the
-> drivers are probed they only see the new DTB.
+> Maybe the mt7988 (mt7530-mmio) based boards also affected?
 
-Best regards,
-Krzysztof
+There is no GPIO reset for switches which are integrated in the SoC,
+so this only matters for external MT7530 and MT7531 ICs for which an
+actual GPIO line connected to the SoC is used to reset the switch.
 
