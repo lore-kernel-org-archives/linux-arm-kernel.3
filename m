@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5214AD116F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 11:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E235D116F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 11:44:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7LSmLJ51fc2rp+GAShOHhum4boh0qpZ+FUwIi1eUD1Y=; b=mbn9YuuHVJtMjZ9jBOzM7EY/dU
-	6ODjEBdr149l+NFKPVl1vbpNKZkLMBo36TwQ1cBCZfn65tAgyhqUyUfdFEzjCcNIbAFsbnesvjf99
-	FysxaAlME3nNfoyrea3noyUlcHAgQPdtYfaRsfUvh6aSA8xH/bk1fnf+ABrRoRGnxhB0XY836Trb8
-	X9MW4ZvTwtMl9oAvghzxWrRq4z+emnmKRy7iW9qDm6zRnYCXjQGWp80WoAgL12C5bsFQ3gyP8EALJ
-	4URlvHPWhZmre/sVfBBRaslTUkWwAm09CB9LBI0D3oBn5m29e6jOBr5kOgG44mHAvtKrv8mrtDPTW
-	2wVZ5+IA==;
+	bh=skfjSIQ9lY6Vv7bVXj8voWxJB/35+E+kOoOzK/T2M2s=; b=3lI2ykYwtX4/bw8fAr7YL8m4BG
+	j5thZCqire9LQhmQjyPYaoJ8E59c6iofc2HjQK1U7gcKpyaVCcFZcjn10bxwfXhAAO4eRbaXCq3/L
+	UzV8PAc+WZBZcKmTksmMOuEvHwOwHkWsT+ldmN0jfxCtEhAuWzdIlEu8+HgYZ8A210/JneM5ugmM7
+	VsDpvHfjlkMh4+b2G6DNrLPY5VwnHWFnv9pHMt9c8fY0iH2dqVbK/z1KN0DHrKQNPS1QJWRE7jqK7
+	hRUp0KDYbsEUF55E7uWa95wd7u+U5u3/H7Ms0HqeqlriSJKuGg4czlG+iknatwUOJ5jc3br6TgKOQ
+	glIvpTwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQOmh-00000005KJs-3gNt;
-	Tue, 02 Dec 2025 11:43:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQOmf-00000005KJX-29YU
+	id 1vQOni-00000005KPL-1Jwt;
+	Tue, 02 Dec 2025 11:44:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQOnh-00000005KPB-2chN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 11:43:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C3319153B;
-	Tue,  2 Dec 2025 03:42:55 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B80433F59E;
-	Tue,  2 Dec 2025 03:43:02 -0800 (PST)
-Date: Tue, 2 Dec 2025 11:43:00 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Leo Yan <leo.yan@linux.dev>, linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 4/7] perf cs-etm: Don't use hard coded config bits when
- setting up ETMCR
-Message-ID: <20251202114300.GV724103@e132581.arm.com>
-References: <20251201-james-perf-config-bits-v1-0-22ecbbf8007c@linaro.org>
- <20251201-james-perf-config-bits-v1-4-22ecbbf8007c@linaro.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251201-james-perf-config-bits-v1-4-22ecbbf8007c@linaro.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_034305_656440_0103ECDE 
-X-CRM114-Status: GOOD (  11.81  )
+	Tue, 02 Dec 2025 11:44:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 88BD4600B0;
+	Tue,  2 Dec 2025 11:44:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CD24C4CEF1;
+	Tue,  2 Dec 2025 11:44:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764675848;
+	bh=b9FdZ5QADtBWpT8qFoV1Nn5I8pU0omvNUcEQuYZTncA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=pGCvAKg3G+RGQStBHv//it/RpcWPdBhYGxCkL32P0YEVi1el1Xufhd8ms1v4XQqXN
+	 QFn+wUpncny2Y822S80hTx92MqDbLWmdGDqpWYu7u9Asy0AIAUkjs9Hq1GdTqh4nCn
+	 FXeXFuoqA0xt++hjrHvnUnHXL4E6+iDkh+cvPai0RxfOFtrzPIwVejsQDtPHYsmzJM
+	 c/VtfQPSF4uO8nDe8H5VOoygQqjD2kZqTGSH3Ador/wBs3wg3zX0HLeFmarnDay8rh
+	 +dj+yQpxRTAAxGVLsTj3DFfsEBmZ4x71diQHi8IlBGTMTm5gHZbJBwWmjEGECpmTnr
+	 DlajSCkVTbugg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vQOnd-00000009tQl-3Xbe;
+	Tue, 02 Dec 2025 11:44:05 +0000
+Date: Tue, 02 Dec 2025 11:44:05 +0000
+Message-ID: <86ldjlp0qi.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: zhuling0805 <zhuling0805@proton.me>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH] irqchip/gic: Fix UBSAN shift-out-of-bounds in GIC helpers
+In-Reply-To: <2fJDwUUYdEf2_eaRa041L9xkT8RkSWFeo7euOnqMbbPhUatLlEaAvGfB6sOspDmXaxO87Eh7bQLV9UolyjbMtZBT1wB2UGypjPOo0Z-RC0Q=@proton.me>
+References: <2fJDwUUYdEf2_eaRa041L9xkT8RkSWFeo7euOnqMbbPhUatLlEaAvGfB6sOspDmXaxO87Eh7bQLV9UolyjbMtZBT1wB2UGypjPOo0Z-RC0Q=@proton.me>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: zhuling0805@proton.me, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,24 +81,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 01, 2025 at 04:41:07PM +0000, Coresight ML wrote:
+On Tue, 02 Dec 2025 10:53:24 +0000,
+zhuling0805 <zhuling0805@proton.me> wrote:
+> 
+> Hi,
+> 
+> When running a kernel built with UBSAN enabled, enabling a GPIO
+> controller that uses a GIC interrupt as its parent triggers several
+> shift-out-of-bounds warnings in the GIC helpers.
+> 
+> This patch fixes the issue by using unsigned constants so that the
+> left shifts are well-defined and UBSAN stays quiet.
 
-[...]
+Next time, please put additional notes *after* the commit message. In
+this case, you are simply repeating what is already in the commit
+message, so just sending the patch without anything else would have
+been better.
 
-> @@ -746,7 +779,7 @@ static void cs_etm_get_metadata(struct perf_cpu cpu, u32 *offset,
->  	case CS_ETMV3:
->  		magic = __perf_cs_etmv3_magic;
->  		/* Get configuration register */
-> -		info->priv[*offset + CS_ETM_ETMCR] = cs_etm_get_config(itr);
-> +		info->priv[*offset + CS_ETM_ETMCR] = cs_etm_guess_etmcr(itr);
+> 
+> Thanks,
+> Zhu Ling
+> 
+> ---
+> From: Zhu Ling <zhuling0805@proton.me>
+> Date: Tue, 2 Dec 2025 17:54:10 +0800
+> Subject: [PATCH] irqchip/gic: Fix UBSAN shift-out-of-bounds in GIC helpers
+> 
+> When running with UBSAN enabled, enabling a GPIO controller that uses
+> a GIC interrupt as its parent triggers several shift-out-of-bounds
+> warnings:
+> 
+>   UBSAN: shift-out-of-bounds in drivers/irqchip/irq-gic-common.c:50:21
+>   left shift of 2 by 30 places cannot be represented in type 'int'
+> 
+> and similar reports in gic_poke_irq() and gic_peek_irq() in
+> drivers/irqchip/irq-gic-v3.c.
+> 
+> These come from shifting signed integer constants. Use unsigned
+> constants (0x2U and 1U) so that the behavior is well-defined and the
+> UBSAN warnings go away.
 
-I still think cs_etm_get_config() is better than cs_etm_guess_etmcr().
+I think a better approach would be to convert all of this to
+primitives that are designed for bit mask generation, rather than
+reinventing the wheel. See below for some (untested) suggestions.
 
-For ETMv3, we directly pass CONFIG to the kernel, and after validation
-in the dirver, then the value will be set to ETMCR.  If we already know
-the config value is consistent between user space and kernel, why
-introduce a redundant "guess" operation here?
+> 
+> Signed-off-by: Zhu Ling <zhuling0805@proton.me>
+> ---
+>  drivers/irqchip/irq-gic-common.c | 2 +-
+>  drivers/irqchip/irq-gic-v3.c     | 4 ++--
+>  2 files changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/irqchip/irq-gic-common.c b/drivers/irqchip/irq-gic-common.c
+> index c776f9142..d4f0afd9e 100644
+> --- a/drivers/irqchip/irq-gic-common.c
+> +++ b/drivers/irqchip/irq-gic-common.c
+> @@ -48,7 +48,7 @@ void gic_enable_quirks(u32 iidr, const struct gic_quirk *quirks,
+>  int gic_configure_irq(unsigned int irq, unsigned int type,
+>  		       void __iomem *base)
+>  {
+> -	u32 confmask = 0x2 << ((irq % 16) * 2);
+> +	u32 confmask = 0x2U << ((irq % 16) * 2);
+
+This really should be written as:
+
+	u32 confmask = BIT(((irq % 16) * 2) + 1);
+
+>  	u32 confoff = (irq / 16) * 4;
+>  	u32 val, oldval;
+>  	int ret = 0;
+> diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+> index 3de351e66..f5226c03f 100644
+> --- a/drivers/irqchip/irq-gic-v3.c
+> +++ b/drivers/irqchip/irq-gic-v3.c
+> @@ -457,7 +457,7 @@ static int gic_peek_irq(struct irq_data *d, u32 offset)
+>  	u32 index, mask;
+>  
+>  	offset = convert_offset_index(d, offset, &index);
+> -	mask = 1 << (index % 32);
+> +	mask = 1U << (index % 32);
+
+and this as BIT(index % 32).
+
+>  
+>  	if (gic_irq_in_rdist(d))
+>  		base = gic_data_rdist_sgi_base();
+> @@ -473,7 +473,7 @@ static void gic_poke_irq(struct irq_data *d, u32 offset)
+>  	u32 index, mask;
+>  
+>  	offset = convert_offset_index(d, offset, &index);
+> -	mask = 1 << (index % 32);
+> +	mask = 1U << (index % 32);
+
+Same here.
+
+>  
+>  	if (gic_irq_in_rdist(d))
+>  		base = gic_data_rdist_sgi_base();
 
 Thanks,
-Leo
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
