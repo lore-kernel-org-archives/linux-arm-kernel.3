@@ -4,89 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA9E5D116F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 13:18:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4F4AD116F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 13:21:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d2qTS0djCtlvzenkDRiQ4JmBu4W3Dqf8pIaygUtSKbc=; b=CNDi0Q/sI2ZD7R8FvICr3YHPgF
-	VcdA4zHGpGk/tdqyNlE5cCfOt459mFohCoS4U14qpyATSAHmX/s2kAor+6WKPzXPG1ZyiciPYXVt9
-	L4ozEZ28QcHxW0hW9MiAOwXm6sO5+IszXATMf/Q9w3u0MJDlBrytPb6K3Et9yD4TwDTQCfX3mKWe/
-	+LPzm2CZzWGzRWauJVfLqiFaZhDSKVybOrTV3fDGkRiYa87McagriSoz+B/BPxXYke1PkQ3jTqnHp
-	qao9dl7FRyPWsEJ9YyWQ2HfZfJuzEIyQlX13cTWA6AYX8pnflUHdWDIBlwR4aODnLIDz1EcdvTAsY
-	OEtMi4MQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=nVzj9FDF62cXgCdMqTncN2nxTCBhbwL5r08bcNUeKVs=; b=BUFCeov0p3vWfY
+	mmKDyaTttjQDZWQ4QX1kUtLAdUJgK0O9dEMu0vmm+uIVo7K86kEhmARkqNK7Vnl7/UNhla2vWoza2
+	EPImBLIJGmZ1xKZY/095azLJi6ebwIAHYePoJGHs6fWlG13qGAUXWhbedu17Vj/nPC85s42ZXzehW
+	wTnKwV/7stxrPolQaGXh2K0hOP5/U6KW9r7hBH3ptI6dExOC6HdnFi+PmDUXUWnNnUJvTxkiEZh5a
+	BF133WWXXrBGXAADfQBY/rvLvRqw4FzlfemnF7p+BgmWP6319+aK0V9lsNqCFLtaAUSNHmP9d9oOS
+	uE4J0kPteDCgvw0VFBYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQQHH-00000005QNg-0Ih0;
-	Tue, 02 Dec 2025 13:18:47 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1vQQKB-00000005QZM-0iPJ;
+	Tue, 02 Dec 2025 13:21:47 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQQHE-00000005QMn-2CzK
+	id 1vQQK7-00000005QXh-450K
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 13:18:45 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-59584301f0cso4387237e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 05:18:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1764681522; x=1765286322; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=d2qTS0djCtlvzenkDRiQ4JmBu4W3Dqf8pIaygUtSKbc=;
-        b=P6gzwwHM6doo27prj7sHUNh9AadaJz/0jad0JZHfwNU1tDvtCPZbhszP0E7vOT2Qis
-         TQdUX1fUgwga3HKzEuFveTvxEnGn5srkgMHGgHCPRcGZq3qTeZ3B96YAxVbG1p7fYfOM
-         9vX0HJzAXK0Qlh5tJebC22yI2ot69en2yqkZubjXBe1J6JYub6cEWpg6YcDfhva+2x/n
-         0yxZ9BqC5gg0xayjoFkDyKaBWPA221Vrmin8hdLKZSyoHiTvwgrcceFv61H8S8cDZORq
-         b0Kh1Hb5RlGqiTsu4xWf6dIXGZ/gvft6fFnh30izmbg7IkmeleSJd7vNDBd0hieVZeW1
-         oHgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764681522; x=1765286322;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=d2qTS0djCtlvzenkDRiQ4JmBu4W3Dqf8pIaygUtSKbc=;
-        b=ae5tvcvo3QiifPLv0GddydvJ+z853fptlx8/3P4HUxDqgvDG+VielbIUJ7OJePhAI7
-         7B7pAXEYJgBeGT5+oERsIpImyRNHvyZoGD3lOm0STYoTRiCahe64umfYvmnUXEIuVII2
-         ul+Tzkks3PcufXGLOl47jxqM6qOMVeeAhhe8risgUIss5v7yy+qzKF4AUbMiSyTbgHLz
-         hWfaZoc8wOxfALigp9kPY4jigJjlqecAG9IoVZihu0XZvMte956DQPu5OP6ktXL91AdI
-         jVWw17opxLuyXu1mgASbCL4WHa8ty7R9/ZOwd7pn/+6nbZj7g2zqh+3VLdFu2cZkDOys
-         cyyg==
-X-Forwarded-Encrypted: i=1; AJvYcCVSoDSfrTK1UxLdDOPTrdjH2JSM6K4ixBo9CrOqKaZNcPBRboVkFz7i7LH+MYS3qPMLNcuI4ceBgcAX7vLNLyA6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz23BD493sxmN470CJm2qqXeHTarxw8/dRqmeg/lilkc9F3y7ds
-	oyNEF4tkWuzK9I+WmVPJ5qpNp2+fzbicp3Lll69+aUECFCX1kxIp03Z7J/aAt2hgKc7n3R5dFma
-	RkZ8MUJXT3H3E2yR4xIFX0yNPk8Ajhz0GP1lzbR5Qkw==
-X-Gm-Gg: ASbGnctt63TkeD3usUfRS1iWC+a6aEnwfXD7ZIzPcqltfGB1dq7g6HTKAC545zaIUCj
-	wEtW5rRgwat8Dn9XCl0rvR5FnbJjsz1ruF0aqmG1s8EznO8JsOg11XV0f/voi/uqLtVB3pemVCX
-	/dI4WQzzo4A+vACxMojzz3ZeYj09ZdPqdbvFd+U4jsnblFgZc4iIe58mbph1KodOE3QjfFcVael
-	kgiMTznxvcFPVnEG0/iU+dSLbmlGeKXQgHnrWosXpKMdWSetspFu8RT9ttrBLHkrKBy/ISyg2jh
-	6QYQcXbaxK/shiyJ0jB+883+uP1y
-X-Google-Smtp-Source: AGHT+IHXPq/1WU7Y6p5Y1lD+k5wDuWG4cZs/H+fFh7MfEyTT0+oPBhUYEG6IeIhzVNqgsaoRyEt5M7vDP9CoP0oYIqI=
-X-Received: by 2002:a05:6512:159c:b0:595:9152:b932 with SMTP id
- 2adb3069b0e04-596b526c87bmr9950731e87.47.1764681521679; Tue, 02 Dec 2025
- 05:18:41 -0800 (PST)
+	Tue, 02 Dec 2025 13:21:45 +0000
+Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <m.felsch@pengutronix.de>)
+	id 1vQQJu-0003pJ-MD; Tue, 02 Dec 2025 14:21:30 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+Subject: [PATCH v2 0/3] i.MX91/93 BLK-CTRL improvements
+Date: Tue, 02 Dec 2025 14:21:01 +0100
+Message-Id: <20251202-v6-18-topic-imx93-blkctrl-v2-0-e73501034adc@pengutronix.de>
 MIME-Version: 1.0
-References: <20251031104846.119503-1-marco.crivellari@suse.com>
-In-Reply-To: <20251031104846.119503-1-marco.crivellari@suse.com>
-From: Marco Crivellari <marco.crivellari@suse.com>
-Date: Tue, 2 Dec 2025 14:18:30 +0100
-X-Gm-Features: AWmQ_blWaASpaRpR4V19dOIxX8T97Dq9h1s9NUCUDv7AzhCvoFkKrXxIheilGew
-Message-ID: <CAAofZF7BnLm3XKBVsOvAcfON29PgxvA4dfkd4N4+yx40LSTV-A@mail.gmail.com>
-Subject: Re: [PATCH 0/2] rename system_wq and system_unbound_wq
-To: linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-Cc: Tejun Heo <tj@kernel.org>, Lai Jiangshan <jiangshanlai@gmail.com>, 
-	Frederic Weisbecker <frederic@kernel.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
-	Michal Hocko <mhocko@suse.com>, Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
-	Andy Yan <andy.yan@rock-chips.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAL3nLmkC/42Nyw6CMBBFf4V07Zh2eMrK/zAseAwwEVvS1gZD+
+ HcrX+DynOSeuwtHlsmJOtmFpcCOjY6Al0T0c6snAh4iC5SYK5QKQgGqAm9W7oFf2y2Fbnn23i6
+ QZgpRjqWsskHE/Wpp5O1sP5rIMztv7Oe8Cupn/6kGBRK6vGxLpEIqmd9X0tPbW6N5uw4kmuM4v
+ l1lvdjHAAAA
+X-Change-ID: 20251201-v6-18-topic-imx93-blkctrl-341220f7084d
+To: Ulf Hansson <ulf.hansson@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-pm@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Alexander Stein <alexander.stein@ew.tq-group.com>, 
+ Frank Li <Frank.Li@nxp.com>, Marco Felsch <m.felsch@pengutronix.de>
+X-Mailer: b4 0.14.2
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::28
+X-SA-Exim-Mail-From: m.felsch@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_051844_585299_34BF5004 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20251202_052144_043633_02D700E7 
+X-CRM114-Status: UNSURE (   8.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,23 +76,43 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-On Fri, Oct 31, 2025 at 11:48=E2=80=AFAM Marco Crivellari
-<marco.crivellari@suse.com> wrote:
-> Marco Crivellari (2):
->   drm/rockchip: replace use of system_unbound_wq with system_dfl_wq
->   drm/rockchip: replace use of system_wq with system_percpu_wq
->
->  drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 4 ++--
->  drivers/gpu/drm/rockchip/rockchip_drm_vop.c    | 2 +-
->  2 files changed, 3 insertions(+), 3 deletions(-)
+there were several approaches to bring the sub-devices population
+mainline [1,2] but non of them made it upstream. Both approaches were
+part of either the i.MX93 LVDS or MIPI-CSI enablement.
 
-Gentle ping about this.
+This small patchset decouples the blk-ctrl changes which allows the
+MIPI-CSI and LVDS patchstack to be rebased ontop of this patchset.
 
-Thanks!
+Before adding the sub-device supprt, I converted the driver to devm_*
+only API.
 
---=20
+Regards,
+  Marco
 
-Marco Crivellari
+[1] https://lore.kernel.org/all/20250701-95_cam-v1-3-c5172bab387b@nxp.com/
+[2] https://lore.kernel.org/all/20250304154929.1785200-4-alexander.stein@ew.tq-group.com/
 
-L3 Support Engineer, Technology & Product
+---
+Changes in v2:
+- Link to v1: https://lore.kernel.org/r/20251201-v6-18-topic-imx93-blkctrl-v1-0-b57a72e60105@pengutronix.de
+- Adapt patch2 commit message (Frank)
+- Check devm_pm_runtime_enable() return (Frank)
+- Add r-b tags (Frank, Alexander)
+
+---
+Marco Felsch (3):
+      pmdomain: imx93-blk-ctrl: cleanup error path
+      pmdomain: imx93-blk-ctrl: convert to devm_* only
+      pmdomain: imx93-blk-ctrl: add support for optional subnodes
+
+ drivers/pmdomain/imx/imx93-blk-ctrl.c | 77 ++++++++++++++++-------------------
+ 1 file changed, 36 insertions(+), 41 deletions(-)
+---
+base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+change-id: 20251201-v6-18-topic-imx93-blkctrl-341220f7084d
+
+Best regards,
+-- 
+Marco Felsch <m.felsch@pengutronix.de>
+
 
