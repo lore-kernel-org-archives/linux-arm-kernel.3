@@ -4,102 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A27A3CFD376
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 06:43:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B90CCCFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 06:43:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=jF+dv23Egm8ORgXvS1vXPefxbBKc8v5jVIo48yAirzE=; b=JaSM7mWmA9nkQZ
-	MIdm30Q8zOVP645OiAt6WYvnWgTURVjxZCNcWkrcYfLEcZQagjwkv6H3+hGdt2EoWJhaTNup8aUD2
-	vCcJudmbpVLKcdgbqhT+HWJm3WSvui+atG1PiV8FemHoCdACRxfJsXu/vpFlq5LFpJkTvHDL97AEm
-	zJms4XXybpZX0Gp8EtRPgsNbM5eyLysF3qvklqlecfSjSdmYfg4KqAiAg6YpMQXTOYxB0ffTb16qx
-	/BwgIy1P0F/ZgTsjA0Quwc+9C2KNudZT1hkJZIO7wcDhf8uYI1cDC7EJW8tBOONlnd4wJ7XngOWB8
-	wRKvSIuK8a77nxHMqXvQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U4CEPosLk4c8VO1ED7x/05VLZq/brB7mPtuz/Jxmq8A=; b=ogeBZS3JPPAjq2CIftANT3bOfh
+	i5KxdME47e42p1Xk8OeHL8fz+iR16x0F/Yc3Xvr2J49AuYX/SmNaUArx5fxCWrK+V+2aPtJMH6HIj
+	LGXnNMFZ00Yf+KnE+lNGJ6oCeFqbs2xQRmvOVv06XiQqdMFmSFAze1rtG51PXoWihj7ef7hMRzDOg
+	7dtPiMvEcEKppYg84yWUF0du6K8S1qu6xsLlnIcNUOvFyv5kb/ae4ILxBSkhJUEBPu1cNHO/FJyV8
+	fzmCTmm1Om6pkaA7doPltrPdU8v4IAINmTWrCq3agysFsMq84d4JHJ+9c9nVE5JVw3uijA30MfHh4
+	f8+b7g4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQK6c-00000004utK-3Khq;
-	Tue, 02 Dec 2025 06:43:24 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vQK6i-00000004uvL-1jLA;
+	Tue, 02 Dec 2025 06:43:30 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQK6Z-00000004usF-1IbU
+	id 1vQK6a-00000004usr-3ruA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 06:43:21 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B26RanD1741507
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 2 Dec 2025 06:43:16 GMT
+	Tue, 02 Dec 2025 06:43:25 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B217pAs1359323
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 2 Dec 2025 06:43:20 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=jF+dv23Egm8ORgXvS1vXPe
-	fxbBKc8v5jVIo48yAirzE=; b=PFzwFoIgvqyTEi99DCD5HTXkTSlZF4GSdnLuv8
-	fAhEfH97DdDDMHxV1HRIV/QdoU2/e5xOovl+D/yFTJHCvDCxVmlK8ZJGGDrLERk0
-	PbXt63H+5HrXsftw/vMybeY3dHiZOGHWBR+0WwNFJ1l5iI4IEMDqgR8yjXOqtIEq
-	3fJsGYqRbm9VsJzzrA4U1JrJFIfXg0LhbY71luwNEYp3G1gjyjiA4UYeyK/AGwuy
-	d3v5Z7/xVpexlRrbdtZj7SRvuMlJWBgIQDPhfFj/i5y22MFWhQtkguZOfF70KQsZ
-	mLKNYG5Iri0y6nFsKOw8rE73cVj+V28W28GOpqoElaJjhILQ==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ashtkskxj-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	U4CEPosLk4c8VO1ED7x/05VLZq/brB7mPtuz/Jxmq8A=; b=jFUmtDKB7kyAvsfs
+	Pzm3Ouv06eEskmYHbf0WWPD9htXOn7iRky0pfD2/vIWWzwGV1tmfUW5yQO6Noy0p
+	aPFpys+TdHKf1ov8edJ4PcB8RUfmAFfiW8ULfxQCqf0Lofmp96+pgv9I2lJr5HKo
+	q1cAdkpNGGDaMElWRz/N+agnnUbSgCEoRX5jHWp0P48UY7AxrOloAVacL/UBjj4e
+	b8Wrhao7FV3uML9sFePBDcmGrcHHvaLpgKQsQ4t09tSikNXEiM04Rp7MwggTXzcY
+	CeJoOtpSd6PtCM1zPG//Q4gBCgGyt1RSw2msFcchVHAcTkgOF5eIyf0SXEYzBlCF
+	5dY52w==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4asp63gtkx-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 06:43:16 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-297e66542afso137822525ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 22:43:16 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 06:43:20 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-299ddb0269eso61647995ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 22:43:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1764657795; x=1765262595; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=jF+dv23Egm8ORgXvS1vXPefxbBKc8v5jVIo48yAirzE=;
-        b=Qsue0+N3+CigzZBSP0ewbnJQsK3eWRCxOgKBP5oeUFzdxBOzJxZ2APingWx385hpIz
-         h0mg3M/sHt2Gf4ntXn0t1bZv+OaV6/cY7CbPjxB/wxcj+6S189o4UKsOcdt+jufPXlGP
-         L+7ZizdXcU5qDuPeE7XYFJkQzzDvLLD+NuRTn9ddVb5Rf4g4uqmv/Il8fAgDByGb5/lY
-         apodbQUfYVVDxX5XGG82KjSmLpTA1UVmtzFXhg1RPd5BBptUHotBqRIQLNH3sCYzC0k+
-         fLgXMIZkvqH8Sr/aku9QXfpfVSdLI8EAq6KPhqUtnO1fSo4sqY5fCSihtx1dUP+ZlTXu
-         gIWQ==
+        d=oss.qualcomm.com; s=google; t=1764657800; x=1765262600; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=U4CEPosLk4c8VO1ED7x/05VLZq/brB7mPtuz/Jxmq8A=;
+        b=ekhGJpKS4rHgmqGZXRYp3bIvNybV1hXcHjVfpG2scIxtHRQ8KdqB6LxdsrVM4m6Tws
+         CheNHA8t++j2OkiM0v71etXujAPnnOlSfY++9jZ8PagxbGBMRxBkLo4m8yX4eSRzrKi9
+         9Ge3YY/bA3NA/UJ+b0oyh8bBCCF3G34HfQBnIzMmpOTFlmjybng91FLSHMXC7e5i6uYc
+         vRvjIuph7E4oTtVZyXscsCVwCZ0mv2gnzH/X6U78HVQU4hoV/9+0HqVhY7ODKzrwWZHr
+         O1LF6yazjd9yBIS7Ono26WGzEW6QwIuBTDsnUCeVBjyFB+MJ/1iwc5/ZdZEKpQOXd0bZ
+         B+OA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764657795; x=1765262595;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jF+dv23Egm8ORgXvS1vXPefxbBKc8v5jVIo48yAirzE=;
-        b=dxrs1PN00G65hqRxTa5jUgaDpVSsH0THtdsN5ONu0WmIy863MkCoYuDkec2uy7ge0f
-         9AKBSqpYryz+FSR56dHdTOzRgmyPwfq8UKnP03SYWsG0tS4hme6uGUugnSdzryF/Jtuo
-         lGRCzmWUKfQx2jZxBLhwdIJhy/F/wEOl+6Z2Be4WYeE6e9BotSjcKubxSNSqxKjwwgIx
-         V17Uqb4KY6qzhtK6DlRa8XIuVFcQBhR3dn3ofhNmIJ5hGoSO2rm8VvbFsFex2KixCczH
-         NGsFrkoMittYr8cn32UwuDB2G6xsDXnpKekidew3kBR21pLakkl0Q4vLnBfagpgPMko/
-         OSsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVxnEVZcikl/k7XCoEJsoRyKfcGYfmOipZAMY8FUNJVF5+utQHh8zGSfDbVn8eX1s9zwwCqlMXtd+JvaJILQfc0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLJpj2UJ9CACnVxkzzcg22yVVsZCEzkHLEnhje/OfuB9C94Tqp
-	rYfcxE6QWxUsapsiMvG6P+Rf+77YgCTDeGB4QeYVsCOuHv/wFH37vV9ynKxNZWeLH070fH5G1Bl
-	Q76PIninu0VN5H+ST2yBDPbJxRF7wmc5NXGz/PXLB+Fqp/xX/ANGmld4QO8ADU+QJUvpo+dCpd+
-	LUlQ==
-X-Gm-Gg: ASbGncsxzsjWg+qF7q1hodEHlf+/6BxrsfkxCbbWRcppUulT0C4WaXktvkY2thYTFzI
-	fGkFBXbW3mPPmTRMLCK/+rWHYUyNeAP1rTnZdgaTg2nDpUGl+Fp9Ia6ZwTHupA4tt2wa8VeqeaC
-	JDgsubHDGtCTwMCYowSqkhMh9T6Gzd/xPDft07AjV/zo1mcpLlJWnU0qbWAWwUiH8iaayqPiEAL
-	/3u06Cn7fNZsod42L3RwML7JxdfDt1sDf9KzZr68QxU6s1ObAzwavSLDKTi2I4R85zee7EfUevX
-	aChWgs7tat3pg8tdNwUrAdQ4INVEXinVNHdIeuTUPnNzOYcTUmvwBqzoK61H92jyhrIuPfKaN7a
-	PALcbU/M49LhBm0Cb5/wBlAbhBhlW+fxSaz/RZT/HVuyw3rjZIV4c3LiihBIb/LKEX7S9Ghe2R2
-	Z5tg==
-X-Received: by 2002:a17:903:360c:b0:298:450d:6926 with SMTP id d9443c01a7336-29bab148b39mr315620815ad.34.1764657795542;
-        Mon, 01 Dec 2025 22:43:15 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEvYeVsKcBWthLpi0x84eJ6/7UrtySaWZso/bO4ItERgBVQlT0J5xWM+Qr4OQyyW0znGxoyBw==
-X-Received: by 2002:a17:903:360c:b0:298:450d:6926 with SMTP id d9443c01a7336-29bab148b39mr315620635ad.34.1764657795027;
-        Mon, 01 Dec 2025 22:43:15 -0800 (PST)
+        d=1e100.net; s=20230601; t=1764657800; x=1765262600;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=U4CEPosLk4c8VO1ED7x/05VLZq/brB7mPtuz/Jxmq8A=;
+        b=uD7USe+riySVUWyFutePxqWM6t7m0YoHfFyQNTimw7CVZz0qRDIbZ93rpGZGxqwJk3
+         mkZOpVqomFO3hmtjhzZznTGB8ZALeebQ6sPPMaw9PDm6nWxMlRifuSqHnxkd6mTtE43n
+         Z8tOSfoy2qRO4Va3OZNCveNxleK3NCpHqvdwDo1X0Mpa6aQ0OXW9jUyOYXUcAAocG5uF
+         nng/81UKDzjKOUQBrB7j5Mlw8DCIhrlg1iTiaOu6Dc/E9ujGCfluPIp9UccodeQHgXJv
+         i7oy3n4fOD4T0YTp/dWqnC/uRlRcyG5b/emwDIhijZZipnJnZtxmfDfANl/+28n0PdRK
+         hbcA==
+X-Forwarded-Encrypted: i=1; AJvYcCWsyRDTzurASGc/da75HUW8f5vAzdjo6dSr4ZDf8dqts562R+z19Ry01qz7kaQ6nE5vGFMmVRm3SEpZ9Pes0/2K@lists.infradead.org
+X-Gm-Message-State: AOJu0YwH9xKTa3JnvB8SPqTlwlMz3sgsOiGwmfbNZdPTETeCMlrbXyNT
+	vV3x2ZTThPJ0QEYHbNFS7xujKeKxj6XRIemwAlx45UfaM/jsBype6aWEr4YuLdOp+2rM2kw0MbY
+	TdJroDXDcz3tLbMs9f9l1cEWHydgfHVNa0hAKezcmz4XeAUp8PTxy/wLqh4UX5ounlsKo3luXOw
+	83jQ==
+X-Gm-Gg: ASbGncvArlyhqbIAQTD+7uK5OvJdoKDL1E+Wy5oOaH41oYdpGiVWw3vWFdK7sfg78Mk
+	r3NJ4eMQMht0JPzQGGgRYyT/LACGjgaJdQYwBV2dZT7HWq3XnJknLbTgF3q2pkYOQ0TyFNMc00x
+	T/dIMeqaFTcc8c7uZFK3Js8cwxm1TqJdG+VTgo679G+ulV+nfrZKrj80BtIrGJ9zPZiNA7FYFg1
+	G52aVH4bDPOjmzx/qU8HYpRaRBuy+FVATVzaYC1D6eJg5BK9zDbLnvnTvOQzi0MRticyFPSp1YB
+	cdx5SknjLkxLGb3VRbHFerpVH4EEhYv5DRZf5IHscm0DwaORlTsNe6T+fstx3nMbhAlQz0Lhigd
+	EZaBk52QOqt2wWMujIpKocz5CEQrSbeIzH50jSvQksZ6MduRVLH0DE12sgyQlZBidryb0RdqqgQ
+	zabg==
+X-Received: by 2002:a17:902:d58c:b0:294:fcae:826 with SMTP id d9443c01a7336-29bab2fa50bmr322287815ad.59.1764657799642;
+        Mon, 01 Dec 2025 22:43:19 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEmz69O+sqegGqvJXNp/6khVCSF1CST5oB/umMY14G4/IE96n6RMjq94/Om9UK6eOYz4XsexQ==
+X-Received: by 2002:a17:902:d58c:b0:294:fcae:826 with SMTP id d9443c01a7336-29bab2fa50bmr322287495ad.59.1764657799070;
+        Mon, 01 Dec 2025 22:43:19 -0800 (PST)
 Received: from jinlmao-gv.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29bceb450cfsm141821675ad.74.2025.12.01.22.43.11
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29bceb450cfsm141821675ad.74.2025.12.01.22.43.15
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Dec 2025 22:43:14 -0800 (PST)
+        Mon, 01 Dec 2025 22:43:18 -0800 (PST)
 From: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-Subject: [PATCH v6 0/2] Add Qualcomm extended CTI support
-Date: Tue, 02 Dec 2025 14:42:19 +0800
-Message-Id: <20251202-extended_cti-v6-0-ab68bb15c4f5@oss.qualcomm.com>
+Date: Tue, 02 Dec 2025 14:42:20 +0800
+Subject: [PATCH v6 1/2] coresight: cti: Convert trigger usage fields to
+ dynamic bitmaps and arrays
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAEuKLmkC/3WMyw6CMBBFf4XM2hJoZXis/A9DTGkHmUSotkgwh
- H+3sndzk3OTczYI5JkCNMkGnhYO7KYIeErADHq6k2AbGWQmizyXlaB1psmSvZmZhep0VZSIsu5
- LiMrTU8/rkbu2kQcOs/Ofo77g7/0TWlBkouzUuVakUKO8uBDS11s/jBvHNA60+75/AVpRW/GvA
- AAA
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251202-extended_cti-v6-1-ab68bb15c4f5@oss.qualcomm.com>
+References: <20251202-extended_cti-v6-0-ab68bb15c4f5@oss.qualcomm.com>
+In-Reply-To: <20251202-extended_cti-v6-0-ab68bb15c4f5@oss.qualcomm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
         Mike Leach <mike.leach@linaro.org>,
         James Clark <james.clark@linaro.org>,
@@ -108,42 +109,40 @@ Cc: Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, quic_yingdeng@quicinc.com,
         coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
         linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
         Jinlong Mao <jinlong.mao@oss.qualcomm.com>,
-        Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
-        Mao Jinlong <quic_jinlmao@quicinc.com>
+        Yingchao Deng <yingchao.deng@oss.qualcomm.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764657791; l=2923;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764657791; l=11022;
  i=yingchao.deng@oss.qualcomm.com; s=20251128; h=from:subject:message-id;
- bh=hg393qa4WowvY1wSgSubo4QC9Dr0Pfdv2DwRyxTPtgw=;
- b=wcqDUIuOlcN48PcoSh60fElR7YS7cSyZhiM3/r0gz9KDcL13hQ9qp6k3EK9VM94mhsjTiij2b
- ijP3HAfbUxwChP0W3ah7NbP9SXH1thi/0mqe+v/3l/Dg7+daVew61RF
+ bh=EHk3TrdZcUh7JFRp0sXEzGfbX5tPAbR/co7dEigVes4=;
+ b=rfWFNPeqLs2m3d1ZANKeGBcScEpjUwqAL2uCsg3Sa+pbdy682Ft9mbOKsOf5bL0PgIVkMQwuX
+ KjM6alLM856CASByihVQ2PwMmSFEuo1COuKjH9NuStcYuD85OpdmbV7
 X-Developer-Key: i=yingchao.deng@oss.qualcomm.com; a=ed25519;
  pk=QWvd9DuX5YKvc7/VfWGCElGNr3HbCyig5bEb+lUUohg=
-X-Proofpoint-GUID: NofOcqtU48_mibOb1PNWeGpwOspdQ3_X
-X-Proofpoint-ORIG-GUID: NofOcqtU48_mibOb1PNWeGpwOspdQ3_X
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjAyMDA1MSBTYWx0ZWRfX10eljFbp+5Im
- CmVchQ89XKYY6e3ZHM3IX9h/vN6B2nXAuoM+R3g16OKHNT4Uc+Qe9hVFviQAKfu8GKzNVGBAeDx
- hFblrVDNAMu0htG20GqQQDQGY04akoAWrImFTrCVBQfQp2HLKwq9aa1nB/UwBOA9ObNouFr4hcc
- R+vJlHwjaz5/YZBJzU6aEbMubGgHqsWVBqkV8CTAsSpCE4fAs+/udjqm8j/9qhSST4jy4nxlq+w
- ADIspfBQYcM+achFEjZ5qadhlwXm5NWrIq2FfJJfzf9Re1r3pvlA9YXMbf/5R426BzNhP8U0JqE
- 6pr8/ghyXgFBJ7ypkgD4S6OPJYkVA3pBnzmZGqTtzjzTwOF7J0wlUVZ8tJwOzjEfDiek8tyk23U
- +p/dXWbH4MZg2D+ZYT9T2VkC2O+wXg==
-X-Authority-Analysis: v=2.4 cv=DL2CIiNb c=1 sm=1 tr=0 ts=692e8a84 cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+X-Proofpoint-GUID: lRbG9NtW8ECFBCbnrsO_G5_APh2kzLM7
+X-Proofpoint-ORIG-GUID: lRbG9NtW8ECFBCbnrsO_G5_APh2kzLM7
+X-Authority-Analysis: v=2.4 cv=XM49iAhE c=1 sm=1 tr=0 ts=692e8a88 cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
  a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8
- a=qu_5hfJKU6GsaiMghqAA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=1OuFwYUASf3TG4hYMiVC:22 a=TjNXssC_j7lpFel5tvFf:22
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=qBB9sKLMsZVO1SgW7bQA:9
+ a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjAyMDA1MSBTYWx0ZWRfX39E7kRHAg+5M
+ 9fBorOY5MnxFW+U6hJ8WUNOQ9JyuNKsf+rPXoVu+H7I5yWp10hc0yWl+XgRmoGYU+iFjFyBR/+m
+ HvQKoP1u0UTPAhhmDnR64UBwBXHjX5qv1Cii1XfRpnbhw/G8eFQHs8b/py92Li50IB/NfYf5oX/
+ /yLk/jd5mOojlnZKutBtkJ5rA74P3BAUSaQ4o//6kadiIAY4pWoNimAqATy9fLpkmfbPNAFh9vU
+ yGKiCh9GUZoYZap0VNthU0JBUV72I4GM6MZU+U+IrgXDDsMnGVxOr2xiSLJwfs78cXPM2hrz4G0
+ c0NHomKzF11aJHokaHskjLxpowpjJcHWlg3O1ldq9uwEb48SvFTSDuPt1nKxVMLJYCYIrs0gJud
+ rbfGYNwPJ/aoG8DY0R9ZuPqrQRhepQ==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
  definitions=2025-11-28_08,2025-11-27_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 priorityscore=1501 phishscore=0 impostorscore=0 clxscore=1015
- bulkscore=0 malwarescore=0 lowpriorityscore=0 adultscore=0 spamscore=0
+ spamscore=0 priorityscore=1501 suspectscore=0 impostorscore=0 phishscore=0
+ adultscore=0 bulkscore=0 malwarescore=0 clxscore=1015 lowpriorityscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512020051
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_224319_462851_164513D4 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20251201_224321_591785_F5233D68 
+X-CRM114-Status: GOOD (  23.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,70 +157,305 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The QCOM extended CTI is a heavily parameterized version of ARM’s CSCTI.
-It allows a debugger to send to trigger events to a processor or to send
-a trigger event to one or more processors when a trigger event occurs on
-another processor on the same SoC, or even between SoCs.
+Replace the fixed-size u32 fields in the cti_config and cti_trig_grp
+structure with dynamically allocated bitmaps and arrays. This allows
+memory to be allocated based on the actual number of triggers during probe
+time, reducing memory footprint and improving scalability for platforms
+with varying trigger counts.
+Additionally, repack struct cti_config to reduce its size from 80 bytes to
+72 bytes.
 
-QCOM extended CTI supports up to 128 triggers. And some of the register
-offsets are changed.
-
-The commands to configure CTI triggers are the same as ARM's CTI.
-
-Changes in v6:
-1. Rename regs_idx to ext_reg_sel and add information in documentation
-   file.
-2. Reset CLAIMSET to zero for qcom-cti during probe.
-3. Retrieve idx value under spinlock.
-4. Use yearless copyright for qcom-cti.h.
-Link to v5 - https://lore.kernel.org/all/20251020-extended_cti-v5-0-6f193da2d467@oss.qualcomm.com/
-
-Changes in v5:
-1. Move common part in qcom-cti.h to coresight-cti.h.
-2. Convert trigger usage fields to dynamic bitmaps and arrays.
-3. Fix holes in struct cti_config to save some space.
-4. Revert the previous changes related to the claim tag in
-   cti_enable/disable_hw.
-Link to v4 - https://lore.kernel.org/linux-arm-msm/20250902-extended_cti-v4-1-7677de04b416@oss.qualcomm.com/
-
-Changes in v4:
-1. Read the DEVARCH registers to identify Qualcomm CTI.
-2. Add a reg_idx node, and refactor the coresight_cti_reg_show() and
-coresight_cti_reg_store() functions accordingly.
-3. The register offsets specific to Qualcomm CTI are moved to qcom_cti.h.
-Link to v3 - https://lore.kernel.org/linux-arm-msm/20250722081405.2947294-1-quic_jinlmao@quicinc.com/
-
-Changes in v3:
-1. Rename is_extended_cti() to of_is_extended_cti().
-2. Add the missing 'i' when write the CTI trigger registers.
-3. Convert the multi-line output in sysfs to single line.
-4. Initialize offset arrays using designated initializer.
-Link to V2 - https://lore.kernel.org/all/20250429071841.1158315-3-quic_jinlmao@quicinc.com/
-
-Changes in V2:
-1. Add enum for compatible items.
-2. Move offset arrays to coresight-cti-core
-
-Signed-off-by: Jinlong Mao <jinlong.mao@oss.qualcomm.com>
 Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
 ---
-Yingchao Deng (2):
-      coresight: cti: Convert trigger usage fields to dynamic bitmaps and arrays
-      coresight: cti: Add Qualcomm extended CTI support
+ drivers/hwtracing/coresight/coresight-cti-core.c   | 58 ++++++++++++++++------
+ .../hwtracing/coresight/coresight-cti-platform.c   | 16 +++---
+ drivers/hwtracing/coresight/coresight-cti-sysfs.c  | 10 ++--
+ drivers/hwtracing/coresight/coresight-cti.h        | 17 ++++---
+ 4 files changed, 65 insertions(+), 36 deletions(-)
 
- .../ABI/testing/sysfs-bus-coresight-devices-cti    |  11 ++
- drivers/hwtracing/coresight/coresight-cti-core.c   | 153 ++++++++++++++---
- .../hwtracing/coresight/coresight-cti-platform.c   |  16 +-
- drivers/hwtracing/coresight/coresight-cti-sysfs.c  | 187 ++++++++++++++++-----
- drivers/hwtracing/coresight/coresight-cti.h        |  60 ++++++-
- drivers/hwtracing/coresight/qcom-cti.h             |  29 ++++
- 6 files changed, 369 insertions(+), 87 deletions(-)
----
-base-commit: 7d31f578f3230f3b7b33b0930b08f9afd8429817
-change-id: 20251128-extended_cti-3ba8576629f7
+diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c b/drivers/hwtracing/coresight/coresight-cti-core.c
+index bfbc365bb2ef..f9970e40dd59 100644
+--- a/drivers/hwtracing/coresight/coresight-cti-core.c
++++ b/drivers/hwtracing/coresight/coresight-cti-core.c
+@@ -214,8 +214,8 @@ void cti_write_intack(struct device *dev, u32 ackval)
+ /* DEVID[19:16] - number of CTM channels */
+ #define CTI_DEVID_CTMCHANNELS(devid_val) ((int) BMVAL(devid_val, 16, 19))
+ 
+-static void cti_set_default_config(struct device *dev,
+-				   struct cti_drvdata *drvdata)
++static int cti_set_default_config(struct device *dev,
++				  struct cti_drvdata *drvdata)
+ {
+ 	struct cti_config *config = &drvdata->config;
+ 	u32 devid;
+@@ -234,12 +234,33 @@ static void cti_set_default_config(struct device *dev,
+ 		config->nr_trig_max = CTIINOUTEN_MAX;
+ 	}
+ 
++	config->trig_in_use = devm_bitmap_zalloc(dev, config->nr_trig_max, GFP_KERNEL);
++	if (!config->trig_in_use)
++		return -ENOMEM;
++
++	config->trig_out_use = devm_bitmap_zalloc(dev, config->nr_trig_max, GFP_KERNEL);
++	if (!config->trig_out_use)
++		return -ENOMEM;
++
++	config->trig_out_filter = devm_bitmap_zalloc(dev, config->nr_trig_max, GFP_KERNEL);
++	if (!config->trig_out_filter)
++		return -ENOMEM;
++
++	config->ctiinen = devm_kcalloc(dev, config->nr_trig_max, sizeof(u32), GFP_KERNEL);
++	if (!config->ctiinen)
++		return -ENOMEM;
++
++	config->ctiouten = devm_kcalloc(dev, config->nr_trig_max, sizeof(u32), GFP_KERNEL);
++	if (!config->ctiouten)
++		return -ENOMEM;
++
+ 	config->nr_ctm_channels = CTI_DEVID_CTMCHANNELS(devid);
+ 
+ 	/* Most regs default to 0 as zalloc'ed except...*/
+ 	config->trig_filter_enable = true;
+ 	config->ctigate = GENMASK(config->nr_ctm_channels - 1, 0);
+ 	config->enable_req_count = 0;
++	return 0;
+ }
+ 
+ /*
+@@ -270,8 +291,10 @@ int cti_add_connection_entry(struct device *dev, struct cti_drvdata *drvdata,
+ 	cti_dev->nr_trig_con++;
+ 
+ 	/* add connection usage bit info to overall info */
+-	drvdata->config.trig_in_use |= tc->con_in->used_mask;
+-	drvdata->config.trig_out_use |= tc->con_out->used_mask;
++	bitmap_or(drvdata->config.trig_in_use, drvdata->config.trig_in_use,
++		  tc->con_in->used_mask, drvdata->config.nr_trig_max);
++	bitmap_or(drvdata->config.trig_out_use, drvdata->config.trig_out_use,
++		  tc->con_out->used_mask, drvdata->config.nr_trig_max);
+ 
+ 	return 0;
+ }
+@@ -293,12 +316,20 @@ struct cti_trig_con *cti_allocate_trig_con(struct device *dev, int in_sigs,
+ 	if (!in)
+ 		return NULL;
+ 
++	in->used_mask = devm_bitmap_alloc(dev, in_sigs, GFP_KERNEL);
++	if (!in->used_mask)
++		return NULL;
++
+ 	out = devm_kzalloc(dev,
+ 			   offsetof(struct cti_trig_grp, sig_types[out_sigs]),
+ 			   GFP_KERNEL);
+ 	if (!out)
+ 		return NULL;
+ 
++	out->used_mask = devm_bitmap_alloc(dev, out_sigs, GFP_KERNEL);
++	if (!out->used_mask)
++		return NULL;
++
+ 	tc->con_in = in;
+ 	tc->con_out = out;
+ 	tc->con_in->nr_sigs = in_sigs;
+@@ -314,7 +345,6 @@ int cti_add_default_connection(struct device *dev, struct cti_drvdata *drvdata)
+ {
+ 	int ret = 0;
+ 	int n_trigs = drvdata->config.nr_trig_max;
+-	u32 n_trig_mask = GENMASK(n_trigs - 1, 0);
+ 	struct cti_trig_con *tc = NULL;
+ 
+ 	/*
+@@ -325,8 +355,9 @@ int cti_add_default_connection(struct device *dev, struct cti_drvdata *drvdata)
+ 	if (!tc)
+ 		return -ENOMEM;
+ 
+-	tc->con_in->used_mask = n_trig_mask;
+-	tc->con_out->used_mask = n_trig_mask;
++	bitmap_fill(tc->con_in->used_mask, n_trigs);
++	bitmap_fill(tc->con_out->used_mask, n_trigs);
++
+ 	ret = cti_add_connection_entry(dev, drvdata, tc, NULL, "default");
+ 	return ret;
+ }
+@@ -339,7 +370,6 @@ int cti_channel_trig_op(struct device *dev, enum cti_chan_op op,
+ {
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct cti_config *config = &drvdata->config;
+-	u32 trig_bitmask;
+ 	u32 chan_bitmask;
+ 	u32 reg_value;
+ 	int reg_offset;
+@@ -349,18 +379,16 @@ int cti_channel_trig_op(struct device *dev, enum cti_chan_op op,
+ 	   (trigger_idx >= config->nr_trig_max))
+ 		return -EINVAL;
+ 
+-	trig_bitmask = BIT(trigger_idx);
+-
+ 	/* ensure registered triggers and not out filtered */
+ 	if (direction == CTI_TRIG_IN)	{
+-		if (!(trig_bitmask & config->trig_in_use))
++		if (!(test_bit(trigger_idx, config->trig_in_use)))
+ 			return -EINVAL;
+ 	} else {
+-		if (!(trig_bitmask & config->trig_out_use))
++		if (!(test_bit(trigger_idx, config->trig_out_use)))
+ 			return -EINVAL;
+ 
+ 		if ((config->trig_filter_enable) &&
+-		    (config->trig_out_filter & trig_bitmask))
++		    test_bit(trigger_idx, config->trig_out_filter))
+ 			return -EINVAL;
+ 	}
+ 
+@@ -892,7 +920,9 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
+ 	raw_spin_lock_init(&drvdata->spinlock);
+ 
+ 	/* initialise CTI driver config values */
+-	cti_set_default_config(dev, drvdata);
++	ret = cti_set_default_config(dev, drvdata);
++	if (ret)
++		return ret;
+ 
+ 	pdata = coresight_cti_get_platform_data(dev);
+ 	if (IS_ERR(pdata)) {
+diff --git a/drivers/hwtracing/coresight/coresight-cti-platform.c b/drivers/hwtracing/coresight/coresight-cti-platform.c
+index d0ae10bf6128..4bef860a0484 100644
+--- a/drivers/hwtracing/coresight/coresight-cti-platform.c
++++ b/drivers/hwtracing/coresight/coresight-cti-platform.c
+@@ -136,8 +136,8 @@ static int cti_plat_create_v8_etm_connection(struct device *dev,
+ 		goto create_v8_etm_out;
+ 
+ 	/* build connection data */
+-	tc->con_in->used_mask = 0xF0; /* sigs <4,5,6,7> */
+-	tc->con_out->used_mask = 0xF0; /* sigs <4,5,6,7> */
++	bitmap_set(tc->con_in->used_mask, 4, 4); /* sigs <4,5,6,7> */
++	bitmap_set(tc->con_out->used_mask, 4, 4); /* sigs <4,5,6,7> */
+ 
+ 	/*
+ 	 * The EXTOUT type signals from the ETM are connected to a set of input
+@@ -194,10 +194,10 @@ static int cti_plat_create_v8_connections(struct device *dev,
+ 		goto of_create_v8_out;
+ 
+ 	/* Set the v8 PE CTI connection data */
+-	tc->con_in->used_mask = 0x3; /* sigs <0 1> */
++	bitmap_set(tc->con_in->used_mask, 0, 2); /* sigs <0 1> */
+ 	tc->con_in->sig_types[0] = PE_DBGTRIGGER;
+ 	tc->con_in->sig_types[1] = PE_PMUIRQ;
+-	tc->con_out->used_mask = 0x7; /* sigs <0 1 2 > */
++	bitmap_set(tc->con_out->used_mask, 0, 3); /* sigs <0 1 2 > */
+ 	tc->con_out->sig_types[0] = PE_EDBGREQ;
+ 	tc->con_out->sig_types[1] = PE_DBGRESTART;
+ 	tc->con_out->sig_types[2] = PE_CTIIRQ;
+@@ -213,7 +213,7 @@ static int cti_plat_create_v8_connections(struct device *dev,
+ 		goto of_create_v8_out;
+ 
+ 	/* filter pe_edbgreq - PE trigout sig <0> */
+-	drvdata->config.trig_out_filter |= 0x1;
++	set_bit(0, drvdata->config.trig_out_filter);
+ 
+ of_create_v8_out:
+ 	return ret;
+@@ -257,7 +257,7 @@ static int cti_plat_read_trig_group(struct cti_trig_grp *tgrp,
+ 	if (!err) {
+ 		/* set the signal usage mask */
+ 		for (idx = 0; idx < tgrp->nr_sigs; idx++)
+-			tgrp->used_mask |= BIT(values[idx]);
++			set_bit(values[idx], tgrp->used_mask);
+ 	}
+ 
+ 	kfree(values);
+@@ -331,7 +331,9 @@ static int cti_plat_process_filter_sigs(struct cti_drvdata *drvdata,
+ 
+ 	err = cti_plat_read_trig_group(tg, fwnode, CTI_DT_FILTER_OUT_SIGS);
+ 	if (!err)
+-		drvdata->config.trig_out_filter |= tg->used_mask;
++		bitmap_or(drvdata->config.trig_out_filter,
++			  drvdata->config.trig_out_filter,
++			  tg->used_mask, drvdata->config.nr_trig_max);
+ 
+ 	kfree(tg);
+ 	return err;
+diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
+index 572b80ee96fb..a9df77215141 100644
+--- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
++++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
+@@ -711,10 +711,8 @@ static ssize_t trigout_filtered_show(struct device *dev,
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct cti_config *cfg = &drvdata->config;
+ 	int size = 0, nr_trig_max = cfg->nr_trig_max;
+-	unsigned long mask = cfg->trig_out_filter;
+ 
+-	if (mask)
+-		size = bitmap_print_to_pagebuf(true, buf, &mask, nr_trig_max);
++	size = bitmap_print_to_pagebuf(true, buf, cfg->trig_out_filter, nr_trig_max);
+ 	return size;
+ }
+ static DEVICE_ATTR_RO(trigout_filtered);
+@@ -926,9 +924,8 @@ static ssize_t trigin_sig_show(struct device *dev,
+ 	struct cti_trig_con *con = (struct cti_trig_con *)ext_attr->var;
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct cti_config *cfg = &drvdata->config;
+-	unsigned long mask = con->con_in->used_mask;
+ 
+-	return bitmap_print_to_pagebuf(true, buf, &mask, cfg->nr_trig_max);
++	return bitmap_print_to_pagebuf(true, buf, con->con_in->used_mask, cfg->nr_trig_max);
+ }
+ 
+ static ssize_t trigout_sig_show(struct device *dev,
+@@ -940,9 +937,8 @@ static ssize_t trigout_sig_show(struct device *dev,
+ 	struct cti_trig_con *con = (struct cti_trig_con *)ext_attr->var;
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct cti_config *cfg = &drvdata->config;
+-	unsigned long mask = con->con_out->used_mask;
+ 
+-	return bitmap_print_to_pagebuf(true, buf, &mask, cfg->nr_trig_max);
++	return bitmap_print_to_pagebuf(true, buf, con->con_out->used_mask, cfg->nr_trig_max);
+ }
+ 
+ /* convert a sig type id to a name */
+diff --git a/drivers/hwtracing/coresight/coresight-cti.h b/drivers/hwtracing/coresight/coresight-cti.h
+index 4f89091ee93f..e7b88b07cffe 100644
+--- a/drivers/hwtracing/coresight/coresight-cti.h
++++ b/drivers/hwtracing/coresight/coresight-cti.h
+@@ -68,7 +68,7 @@ struct fwnode_handle;
+  */
+ struct cti_trig_grp {
+ 	int nr_sigs;
+-	u32 used_mask;
++	unsigned long *used_mask;
+ 	int sig_types[];
+ };
+ 
+@@ -146,20 +146,21 @@ struct cti_config {
+ 	bool hw_enabled;
+ 	bool hw_powered;
+ 
+-	/* registered triggers and filtering */
+-	u32 trig_in_use;
+-	u32 trig_out_use;
+-	u32 trig_out_filter;
+ 	bool trig_filter_enable;
+ 	u8 xtrig_rchan_sel;
+ 
+ 	/* cti cross trig programmable regs */
+-	u32 ctiappset;
+ 	u8 ctiinout_sel;
+-	u32 ctiinen[CTIINOUTEN_MAX];
+-	u32 ctiouten[CTIINOUTEN_MAX];
++	u32 ctiappset;
+ 	u32 ctigate;
+ 	u32 asicctl;
++	u32 *ctiinen;
++	u32 *ctiouten;
++
++	/* registered triggers and filtering */
++	unsigned long *trig_in_use;
++	unsigned long *trig_out_use;
++	unsigned long *trig_out_filter;
+ };
+ 
+ /**
 
-Best regards,
 -- 
-Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+2.43.0
 
 
