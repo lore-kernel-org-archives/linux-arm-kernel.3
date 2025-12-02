@@ -4,85 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8EAFCFD376
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 07:41:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FB54CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 07:44:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qTUsYDSTagKkAf/Ece9RBzP/NXD4wJBex3RnV/GnCZk=; b=JhifDDc2mCJ8y9CSZMweAhNzJv
-	JwkmBd3mDWmiKUehG/PjQW+Wnv80/o3AwJalkTogSASxUKUEH/8AObFqhS7XrniBO5M973C+iNQVk
-	VOxOQjApKY/idzbTLATNpYFkTEzFU6kCocodCmXEiiFuB0vGJ6vPpXvs8WSyjFipOJjLp56c7PLop
-	Z3ToI8+BzmjLQQUUqPrWRd9iMiNGZ8PQlUMsqP2ZtrvDJaEBO2fmSTmi+7e/V5JZDWIR3gafoqEic
-	Fn+5SRnkzYXJ6alSGzwDx54lWJZNNlUm+4d1SfRBfkaz9UxW9NHwVyONyz2pRfgC7IO01I5vRevVh
-	R/NfgdHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xVQzdkZfZGt6uJDP7MtoPwhfeFj+Xe0EF1rEE/XQ3xs=; b=Z2YHXpUoJjmLj4u9H0kqR2dDo+
+	1P6EI9kQw+bFt+zugXbr0NKrZWsxPpbMu+9QY9oSEEygXeOADMn55+IR6ZK24zs9gW7rKhp3GAnCg
+	oQ843GhzW+GlQ9JkOlr792Mxdpo+kF7nD9LFo6/pfVnK4plA2L7LagxvoIQVYhfmr3jlPQpMRd9tz
+	19LKxQkoGquavdMKR2g1y6F46HI3u01RvfUQqqLrri8DwQ4utrFBYRFGTR7jV2NjUPzCgvCr0UgPN
+	Uy41do5ZqVzuUFsU5qczkYxn4zst1vZ2d9LpbaeRRi8GoRwydfqU1IS1VgeguccWCsx07EGf2HnEJ
+	3qy4o+1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQL0a-00000004yMh-134N;
-	Tue, 02 Dec 2025 07:41:12 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1vQL3W-00000004zTl-1okR;
+	Tue, 02 Dec 2025 07:44:14 +0000
+Received: from xmbghk7.mail.qq.com ([43.163.128.48])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQL0Q-00000004y7W-2jSD;
-	Tue, 02 Dec 2025 07:41:03 +0000
-X-UUID: 3da75f20cf5211f0a52f393f94899d25-20251202
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=qTUsYDSTagKkAf/Ece9RBzP/NXD4wJBex3RnV/GnCZk=;
-	b=UenBuqXTkOw0Mi0Tc+8gbPaN9Cl9/HtivaasZmp2+QpUwJRXS8e25y9OaJJZ+ICap4AHGx2+n82wCxcVepVDFh9AEzZmpzW1n4Cbuom/LiSI/qYpcpSI26RFWEOggR7P12c6yILVd5W4Wub1vWlLNktyivQyPlvfK9ZiPLplYcU=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:82fb5ab2-1098-4fe1-b3de-5a139424c844,IP:0,UR
-	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:-5
-X-CID-META: VersionHash:a9d874c,CLOUDID:9bc3efa7-1697-4a34-a2ba-2404d254a770,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
-	0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OS
-	I:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 3da75f20cf5211f0a52f393f94899d25-20251202
-Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw02.mediatek.com
-	(envelope-from <kyrie.wu@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 307628998; Tue, 02 Dec 2025 00:40:57 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.26; Tue, 2 Dec 2025 15:40:54 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1748.26 via Frontend Transport; Tue, 2 Dec 2025 15:40:53 +0800
-From: Kyrie Wu <kyrie.wu@mediatek.com>
-To: Tiffany Lin <tiffany.lin@mediatek.com>, Andrew-CT Chen
-	<andrew-ct.chen@mediatek.com>, Yunfei Dong <yunfei.dong@mediatek.com>, "Mauro
- Carvalho Chehab" <mchehab@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Kyrie Wu <kyrie.wu@mediatek.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>, Nicolas Dufresne
-	<nicolas.dufresne@collabora.com>, Nathan Hebert <nhebert@chromium.org>, "Arnd
- Bergmann" <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>, George Sun
-	<george.sun@mediatek.com>, <linux-media@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>
-CC: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
-	<andrzejtp2010@gmail.com>, Yilong Zhou <yilong.zhou@mediatek.com>
-Subject: [PATCH v6 10/10] media: mediatek: encoder: Add MT8189 encoder compatible data
-Date: Tue, 2 Dec 2025 15:40:37 +0800
-Message-ID: <20251202074038.3173-11-kyrie.wu@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20251202074038.3173-1-kyrie.wu@mediatek.com>
-References: <20251202074038.3173-1-kyrie.wu@mediatek.com>
+	id 1vQL3S-00000004zSs-44Nz
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Dec 2025 07:44:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1764661443; bh=xVQzdkZfZGt6uJDP7MtoPwhfeFj+Xe0EF1rEE/XQ3xs=;
+	h=From:To:Cc:Subject:Date;
+	b=Ip4w5bLdnUd3sIXbK5C5pZX3Xw9j3t0f+312Jn3OPlWFD8Xz6K2c/Bx59CwVwN+Hf
+	 PR2EDGl3OweMBBgPX2jyv5oenaeDvacZjR93SBTNggfhPguwaQ7idohLAeuroR9Ci+
+	 ZbA9Ai5zYyVyUQSUVW9GhaRf6tF5LuPB+2kEcZCw=
+Received: from localhost ([58.246.87.66])
+	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
+	id B0124C13; Tue, 02 Dec 2025 15:44:01 +0800
+X-QQ-mid: xmsmtpt1764661441tygoogqk7
+Message-ID: <tencent_4A0CBC92B9B22C699AC2890E139565FCB306@qq.com>
+X-QQ-XMAILINFO: NnIX2CK8LSsJBX5SsFlQB+monRzvPtS7S73OadbW+wWoYUt0AmUJGPi33KBPGF
+	 63YrYR66siDXxfWIj5oxLne/Y0Qki/NT0eg7sYqHKdvTKPqRZLPlXs5GzIunMxYL/VJGZ15naOqE
+	 wrUeG6lThMt2q3JqMjEchfZBc2wu7EhJwB5y4bRG9HnbH+MQw06XeoAV0RU4OUIV9EPkn9ANDv9X
+	 q88FM8NOmZqm2jm/vo+RKmANl710dEYMcgwSOe/eUxqdnG1unQjZwZOmo+m1+YcJRUVJETN+ZoVT
+	 KGEFSVrU3grGLue/1uCDrVH+uKI7hgeYzpgsY+qdhN4L43iFdEA+GwybF440lMLSsb+q2fyJNmo8
+	 pBs2auYEOFVYKogP2odanfvmGSw/Q/a0IEH0YzLGSxNtGu96cNmJgjbf64fUEif88IUtUjJb2o6j
+	 YWTUHIwCx4Bdy1MmalQRRLu1x3e9EtW1Hf25WcAxtaIp+kJ2/Kg2fHAFEugNdHJGFHjyv+bLP4WX
+	 W3orcMiG+iDrUrZWRjxlBczsMSqiXMaL1XZOGNrAmyAuEFhKfBjb0aJbaNziwb6ZXGfhjqOJ/Iev
+	 KuC4NzEbkop6X+5Rv0A5mm2MKW8lNTbCxF7DZpUinIYeWeMQRn2uBwAq9u+Y8//lLPgO19siyAJj
+	 M+eTP6+Zk7DKNfIMTtJxRRnAwQUdXB588BrR8o1VIf3ELNaa6l6BStWAkc1xeztBm10qnZYJ40dr
+	 WNt4ujcL3chYUx0ikcUQRA78rBSioKxKjBywKiPIoLDMSd86TJf/UHkpCClWdQgaXRbQV2Z73oJh
+	 Hm6g02ZKMwNROD9qHb6tS0hcWHEGP1nvghPE8AnZe9L7uj25q6xqzGoYJllxRlVzxjY3MWxuQ8Ho
+	 vLEYZpKjn8fmcUIyskT98RnlcaoQpS/4Ksq6KREWo7CkFxyCq9Goea6ht5C092r+HjkiE73RYFlU
+	 D4Td17sFPwOKxhaWEw/JasWyAfb+88RISX+U8RDc75xrVWL6ftQto5zbSZTU3RadcGPcZpnHFWB1
+	 qkI3QBrw==
+X-QQ-XMRINFO: Nq+8W0+stu50PRdwbJxPCL0=
+From: 2694439648@qq.com
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	hailong.fan@siengine.com
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	inux-kernel@vger.kernel.org
+Subject: [PATCH v2] net: stmmac: Modify the judgment condition of "tx_avail" from 1 to 2
+Date: Tue,  2 Dec 2025 15:43:59 +0800
+X-OQ-MSGID: <406d20b7eff4afdb6b3f794e3597e7d0b4c34867.1764660952.git.hailong.fan@siengine.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_234102_728159_B993431F 
-X-CRM114-Status: UNSURE (   9.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251201_234411_481686_985F228E 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,47 +90,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-add MT8189 compatible data to initialize platform data for encoder.
+From: "hailong.fan" <hailong.fan@siengine.com>
 
-Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+    Under certain conditions, a WARN_ON will be triggered
+    if avail equals 1.
+
+    For example, when a VLAN packet is to send,
+    stmmac_vlan_insert consumes one unit of space,
+    and the data itself consumes another.
+    actually requiring 2 units of space in total.
+
+    ---
+    V0-V1:
+       1. Stop their queues earlier
+    V2-V1:
+       1. add fixes tag
+       2. Add stmmac_extra_space to count the additional required space
+
+Fixes: 30d932279dc2 ("net: stmmac: Add support for VLAN Insertion Offload")
+Signed-off-by: hailong.fan <hailong.fan@siengine.com>
 ---
- .../mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c   | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-index 6b3d2e72fad9..2cc92a8f7a0d 100644
---- a/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-+++ b/drivers/media/platform/mediatek/vcodec/encoder/mtk_vcodec_enc_drv.c
-@@ -467,6 +467,19 @@ static const struct mtk_vcodec_enc_pdata mt8196_pdata = {
- 	.set_dma_bit_mask = true,
- };
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 7b90ecd3a..9a665a3b2 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -4476,6 +4476,15 @@ static bool stmmac_has_ip_ethertype(struct sk_buff *skb)
+ 		(proto == htons(ETH_P_IP) || proto == htons(ETH_P_IPV6));
+ }
  
-+static const struct mtk_vcodec_enc_pdata mt8189_pdata = {
-+	.venc_model_num = 8189,
-+	.capture_formats = mtk_video_formats_capture_h264,
-+	.num_capture_formats = ARRAY_SIZE(mtk_video_formats_capture_h264),
-+	.output_formats = mtk_video_formats_output,
-+	.num_output_formats = ARRAY_SIZE(mtk_video_formats_output),
-+	.min_bitrate = 64,
-+	.max_bitrate = 100000000,
-+	.core_id = VENC_SYS,
-+	.uses_common_fw_iface = true,
-+	.set_dma_bit_mask = true,
-+};
++static inline int stmmac_extra_space(struct stmmac_priv *priv,
++				     struct sk_buff *skb)
++{
++	if (!priv->dma_cap.vlins || !skb_vlan_tag_present(skb))
++		return 0;
 +
- static const struct of_device_id mtk_vcodec_enc_match[] = {
- 	{.compatible = "mediatek,mt8173-vcodec-enc",
- 			.data = &mt8173_avc_pdata},
-@@ -477,6 +490,7 @@ static const struct of_device_id mtk_vcodec_enc_match[] = {
- 	{.compatible = "mediatek,mt8192-vcodec-enc", .data = &mt8192_pdata},
- 	{.compatible = "mediatek,mt8195-vcodec-enc", .data = &mt8195_pdata},
- 	{.compatible = "mediatek,mt8196-vcodec-enc", .data = &mt8196_pdata},
-+	{.compatible = "mediatek,mt8189-vcodec-enc", .data = &mt8189_pdata},
- 	{},
- };
- MODULE_DEVICE_TABLE(of, mtk_vcodec_enc_match);
++	return 1;
++}
++
+ /**
+  *  stmmac_xmit - Tx entry point of the driver
+  *  @skb : the socket buffer
+@@ -4529,7 +4538,8 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
+ 		}
+ 	}
+ 
+-	if (unlikely(stmmac_tx_avail(priv, queue) < nfrags + 1)) {
++	if (unlikely(stmmac_tx_avail(priv, queue) <
++		nfrags + 1 + stmmac_extra_space(priv, skb))) {
+ 		if (!netif_tx_queue_stopped(netdev_get_tx_queue(dev, queue))) {
+ 			netif_tx_stop_queue(netdev_get_tx_queue(priv->dev,
+ 								queue));
+@@ -4675,7 +4685,7 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
+ 		print_pkt(skb->data, skb->len);
+ 	}
+ 
+-	if (unlikely(stmmac_tx_avail(priv, queue) <= (MAX_SKB_FRAGS + 1))) {
++	if (unlikely(stmmac_tx_avail(priv, queue) <= (MAX_SKB_FRAGS + 2))) {
+ 		netif_dbg(priv, hw, priv->dev, "%s: stop transmitted packets\n",
+ 			  __func__);
+ 		netif_tx_stop_queue(netdev_get_tx_queue(priv->dev, queue));
 -- 
-2.45.2
+2.34.1
 
 
