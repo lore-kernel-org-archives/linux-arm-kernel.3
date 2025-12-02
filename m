@@ -4,101 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8A7FD116F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 12:59:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76619CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 13:00:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Cc:References:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z+ls4lUKyqIXh7xVjbyit136L3KGyzdT9oph+fPZ8XY=; b=oNOQoCGoJY+sk3pN45a1Ueeh6U
-	zoQNsUSOsWd98Rcv+7L3fIdiBzTTAYTH+f3jFwXeeQ3NKSNzwugNZZGFsj7XVEBVK/OlOWtatpNVA
-	qq7Ebl0e8Gw8yn85H6COWACdLYrYWrX/73+sud7Zx0WOzVU+vKnAKEh/QQaAONj0WkXtnWyvU0Pwt
-	QB00/1690mKwvQhkO0Zl1GOrZQGgXMU9d4gWitwYw9R86sTKNpm7Ue6ULoXxz2Uj/N5FhHevR5Rd3
-	A7QWwkW+n+SZprAJOYCPDhf3WTS7MV2u/egZbGv/dCX011C5o8Si4grOuqB16EeNfY1cmd6rgf59w
-	ikOALiug==;
+	bh=huLRk9YHAen/zC5ID5oYfLF16bF6areiY4nWl1q0UZM=; b=t36oqwWnDXPXZf42rrQQhgKsPy
+	SLK/Mwmm19OJFCYJ6LXTDLb8PoG+jkOYhD64SH4Q3Uz88wVFjsclAq3cvf1q8W3aXz4RuyNpryEJp
+	9fb7Gc/cu4p0u/YlI0YEfvu8GshdKbrJG6D9pnQNiP8ZtA2oIMmnA1MlXyB6TYkDwXfpeZFBafyaH
+	k9TKK8g2bJHFi/zWJjTlIJfUFVuhwpIeuJxBz0/zaoq3VbBN9pb9R/RltE4tLT6h4pTTaBuMJWS2C
+	2ot6VA/4eFIqeWdX2cFkeLlmyMMnoalwd5gzr+qedV2nkR8JLSjYeYm0CjAkLBF5kJad3Lhb0bYIq
+	0ABDMFPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQPyy-00000005Ozz-1wso;
-	Tue, 02 Dec 2025 12:59:52 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1vQPzr-00000005P6G-3rmq;
+	Tue, 02 Dec 2025 13:00:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQPyw-00000005OzZ-0jH4
+	id 1vQPzq-00000005P5v-31Le
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 12:59:51 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-42e2ba54a6fso1069080f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 04:59:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764680388; x=1765285188; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:cc:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=z+ls4lUKyqIXh7xVjbyit136L3KGyzdT9oph+fPZ8XY=;
-        b=ZXZVA129EaVQmkQeCEczcnnzInnTNIjKPMbirpiQgF66WHTsnn/HRgJvnHBUK4ICAT
-         AP/9rBluCrZzJXRpxtTTVW23CUmBM97TpTUW2bbcGSSwtBnkaWCkJyTOmKSJjJdsEoq4
-         dwZhH/Mc6fxfZPQSN8TwYOiWNGUZYV9Yg6s1lobmV83eV89w5uYIzjqWEGYibJD8tKU9
-         qnhF7EVzEcI63awSbt38lRPHRW6gJEWuScwVpig55QIF79xzeQBJRrdzbnBiDNxqMmk2
-         aXW/gjzWOvqGsqK6sHQ6E9UqodeiPHIKM72cIxdVBN0Bi3e0bL8RXmNaPjwhKavtSoKr
-         rP/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764680388; x=1765285188;
-        h=content-transfer-encoding:in-reply-to:from:cc:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=z+ls4lUKyqIXh7xVjbyit136L3KGyzdT9oph+fPZ8XY=;
-        b=qhW3n1Irf0jkiRX3PladmHrUvutKo4I3ip+X49A0jYrTk5MuCGYqx4GebHDmrUEGgn
-         VvqUb4G+NRDtJ25Y/RRXK3ZFz+2wrqflyvCD2lfgLs2Q1Qtjpjkvb1cjZ6LWE/AD+ZPU
-         wvY64ex97yF4W/CcLzOQqVEI2nSsoxR9K7E7ygtpMXUmHS2UzpG8BSJMODS3i3Mtckqb
-         krajKGSvO5KzZ+zv4LVFsnv+IuzYCEA+2SnaphFqKeg0x9MVF/oy4rmf4EeVjVBxzYvb
-         69QtL7/TRjyiFuVJbbFH5mQ3f+lj1yg51noyqpNPHUtPG1DhBEqprfthPFZU+mGnmygZ
-         8IuQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXVQv5NeYYixg4V0UR3udvAH0oeMOVLXhN6cJ21bzYEwV7D7iRJRSfCdLUUM+XC19mlk7YWYY/aGIM+2nv26/5y@lists.infradead.org
-X-Gm-Message-State: AOJu0YwcKuBGBOxYpWWIo9GcWB/ZilVKmvzNFtAeAJlbBmo2t7w82/sz
-	0e4gf1T25fUzjdBfoVJxxI3Cxs86KIRCRlD9Jfw+QdrOSaShMyfi43bhn4hEjrQOwT0=
-X-Gm-Gg: ASbGnctpCjQ219/8j+SvUCxSmqW3QPEJQunB0vuKBZ6wPJJeXXJx0CgpfXcDovCeURt
-	tWYYKjxDQVKwJSY+f5ezXcVPKvA2bLdhFtzwBgyH/WFVXO8TZx7qsi3z2GSpZlOdRn7NGNTeMCf
-	J6IfSCYgV/lRhdQ8YZyNMA3rQ4ZKKh31VOf7UBE93XFavxP6/HWaVopxYVp7TunyavenQRWv8wv
-	YVg+CM+AM6HQKFFpWOn5s/ertBLIabP3Qj/Hp6Dnf1oc1qofzXuD1C7KD+s6YI8seQb1FQ6gL7u
-	ik1Gmw21smaVzfldA10N7sUqdnVFT9g7v868K9BBOArOUo081/XeCHNF91aA5gU12JSpLpc743p
-	qITXY+P1ULioFG9UWrz8qFhngkEeAhY4Ba7xM3iChZZxBuZOpV2yi8QUE6Y5fg3TPmVjmhBV7Pd
-	WKtg42kmSUk6hPstTj
-X-Google-Smtp-Source: AGHT+IGscgmO9lGvKECfXYxarz54H8vd6b6Z8s96skxFG4vOheFhB/1RykCLMjNWz27fHa4U3hWjMg==
-X-Received: by 2002:a05:6000:1887:b0:42b:3cd2:e9bc with SMTP id ffacd0b85a97d-42cc1d352d7mr43033216f8f.39.1764680388191;
-        Tue, 02 Dec 2025 04:59:48 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42e1ca1a310sm34376220f8f.26.2025.12.02.04.59.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 02 Dec 2025 04:59:47 -0800 (PST)
-Message-ID: <653a7555-18e6-4066-993d-412a63a63f51@linaro.org>
-Date: Tue, 2 Dec 2025 12:59:46 +0000
+	Tue, 02 Dec 2025 13:00:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C912760017;
+	Tue,  2 Dec 2025 13:00:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 385DCC4CEF1;
+	Tue,  2 Dec 2025 13:00:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764680445;
+	bh=O5dADBbz0/9mG0iK1bzqcE79NAjPo9jdhr65mtDfkmM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=VfxAjIPvFyqYqC/XRJRci+Dzk6nWVaa57bdk0arWM2/FfysAB/JJx5zWj+YyHVSYJ
+	 STZMh2WsDXmOHEY7/QeaL7yrf+8I0KZedS6d34BlyXtBx+FtNETtX4G14Isn0FuOxC
+	 yrnM2NLMXGcqRlG7Pb5HGwxB/J3Ji7ECy30uoHhgsLZ5CTvssuNHlsdZ/jSPCmE9aL
+	 YasY9N0op+CMjMDfMgWqIWHBZ99Fkp4sREf024I4MxwQ1r05rLQpZWg6gFMikLg5Y1
+	 EEBjfQ1/vX62DQdxy1/lHym/FLuc4uzih65BOSW1ygX04BK4iQ4eVJ9Th08euKrwOn
+	 AdsLHcR8J823A==
+Message-ID: <076777c3-b238-4d1d-a11b-602027348ee4@kernel.org>
+Date: Tue, 2 Dec 2025 14:00:39 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/7] perf arm-spe: Don't hard code config attribute
-To: Leo Yan <leo.yan@arm.com>
-References: <20251201-james-perf-config-bits-v1-0-22ecbbf8007c@linaro.org>
- <20251201-james-perf-config-bits-v1-7-22ecbbf8007c@linaro.org>
- <20251202122835.GY724103@e132581.arm.com>
- <20251202124240.GA724103@e132581.arm.com>
+Subject: Re: [PATCH 1/6] dt-bindings: power: supply: Add Maxim MAX77759
+ charger
+To: Amit Sunil Dhamne <amitsd@google.com>
+Cc: Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>, Lee Jones <lee@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Badhri Jagan Sridharan <badhri@google.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, linux-kernel@vger.kernel.org,
+ linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, RD Babiera <rdbabiera@google.com>,
+ Kyle Tso <kyletso@google.com>
+References: <20251123-max77759-charger-v1-0-6b2e4b8f7f54@google.com>
+ <20251123-max77759-charger-v1-1-6b2e4b8f7f54@google.com>
+ <d4455f4b-2a0f-4bc0-b897-14f2e27af3ea@kernel.org>
+ <c9b059f8-9219-4219-95c8-23a3733fea58@google.com>
+ <20251125-amorphous-bobcat-of-whirlwind-afdab1@kuoka>
+ <7ad91325-e881-461d-b39e-6ff15d98b3c5@google.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>, Mike Leach <mike.leach@linaro.org>,
- John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
- Leo Yan <leo.yan@linux.dev>, linux-perf-users@vger.kernel.org,
- linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20251202124240.GA724103@e132581.arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <7ad91325-e881-461d-b39e-6ff15d98b3c5@google.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_045950_240938_21ABFFEE 
-X-CRM114-Status: GOOD (  24.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,76 +131,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 02/12/2025 12:42 pm, Leo Yan wrote:
-> On Tue, Dec 02, 2025 at 12:28:35PM +0000, Coresight ML wrote:
->> On Mon, Dec 01, 2025 at 04:41:10PM +0000, Coresight ML wrote:
->>> Use the config attribute that's published by the driver instead of
->>> hard coding "attr.config".
+On 26/11/2025 00:48, Amit Sunil Dhamne wrote:
+> 
+> On 11/25/25 1:56 AM, Krzysztof Kozlowski wrote:
+>> On Sun, Nov 23, 2025 at 06:34:05PM -0800, Amit Sunil Dhamne wrote:
+>>> Hi Krzysztof,
 >>>
->>> Signed-off-by: James Clark <james.clark@linaro.org>
->>> ---
->>>   tools/perf/arch/arm64/util/arm-spe.c | 15 ++++++++-------
->>>   1 file changed, 8 insertions(+), 7 deletions(-)
+>>> On 11/23/25 1:28 AM, Krzysztof Kozlowski wrote:
+>>>> On 23/11/2025 09:35, Amit Sunil Dhamne via B4 Relay wrote:
+>>>>> From: Amit Sunil Dhamne <amitsd@google.com>
+>>>>>
+>>>>> Add bindings for Maxim max77759 charger device.
+>>>>>
+>>>>> Signed-off-by: Amit Sunil Dhamne <amitsd@google.com>
+>>>>> ---
+>>>>>   .../power/supply/maxim,max77759-charger.yaml       | 36 ++++++++++++++++++++++
+>>>>>   1 file changed, 36 insertions(+)
+>>>>>
+>>>>> diff --git a/Documentation/devicetree/bindings/power/supply/maxim,max77759-charger.yaml b/Documentation/devicetree/bindings/power/supply/maxim,max77759-charger.yaml
+>>>>> new file mode 100644
+>>>>> index 000000000000..71f866419774
+>>>>> --- /dev/null
+>>>>> +++ b/Documentation/devicetree/bindings/power/supply/maxim,max77759-charger.yaml
+>>>>> @@ -0,0 +1,36 @@
+>>>>> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+>>>>> +%YAML 1.2
+>>>>> +---
+>>>>> +$id: http://devicetree.org/schemas/power/supply/maxim,max77759-charger.yaml#
+>>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>>>> +
+>>>>> +title: Maxim Integrated MAX77759 Battery charger
+>>>>> +
+>>>>> +maintainers:
+>>>>> +  - Amit Sunil Dhamne <amitsd@google.com>
+>>>>> +
+>>>>> +description: |
+>>>>> +  This module is part of the MAX77759 PMIC. For additional information, see
+>>>>> +  Documentation/devicetree/bindings/mfd/maxim,max77759.yaml.
+>>>>> +
+>>>>> +  The Maxim MAX77759 is a dual input switch mode battery charger for portable
+>>>>> +  applications. It supports wired and wireless charging and can operate in buck
+>>>>> +  and boost mode.
+>>>>> +
+>>>>> +allOf:
+>>>>> +  - $ref: power-supply.yaml#
+>>>>> +
+>>>>> +properties:
+>>>>> +  compatible:
+>>>>> +    const: maxim,max77759-charger
+>>>>> +
+>>>> This should be just folded into parent node, no need for separate
+>>>> charger device or is just incomplete.
+>>> Thanks for the review! You are right, the binding is incomplete. This
+>>> charger block actually listens on its own I2C address, distinct from the
+>>> main PMIC.
 >>>
->>> diff --git a/tools/perf/arch/arm64/util/arm-spe.c b/tools/perf/arch/arm64/util/arm-spe.c
->>> index d5ec1408d0ae..6c3dc97fde30 100644
->>> --- a/tools/perf/arch/arm64/util/arm-spe.c
->>> +++ b/tools/perf/arch/arm64/util/arm-spe.c
->>> @@ -256,7 +256,7 @@ static __u64 arm_spe_pmu__sample_period(const struct perf_pmu *arm_spe_pmu)
->>>   
->>>   static void arm_spe_setup_evsel(struct evsel *evsel, struct perf_cpu_map *cpus)
->>>   {
->>> -	u64 bit;
->>> +	u64 pa_enable_bit;
->>>   
->>>   	evsel->core.attr.freq = 0;
->>>   	evsel->core.attr.sample_period = arm_spe_pmu__sample_period(evsel->pmu);
->>> @@ -288,9 +288,10 @@ static void arm_spe_setup_evsel(struct evsel *evsel, struct perf_cpu_map *cpus)
->>>   	 * inform that the resulting output's SPE samples contain physical addresses
->>>   	 * where applicable.
->>>   	 */
->>> -	bit = perf_pmu__format_bits(evsel->pmu, "pa_enable");
->>> -	if (evsel->core.attr.config & bit)
->>> -		evsel__set_sample_bit(evsel, PHYS_ADDR);
->>> +
->>> +	if (!evsel__get_config_val(evsel->pmu, evsel, "pa_enable", &pa_enable_bit))
->>> +		if (pa_enable_bit)
->>> +			evsel__set_sample_bit(evsel, PHYS_ADDR);
+>>> I will update v2 to include the reg property. I will also add the
+>> AFAIK, the main (parent) device schema does not reference children via
+>> any sort of addressing, so reg here would not be suitable.
+> 
+> I agree that currently nvmem and gpio devices (which are children of 
+> PMIC device) are not referenced using any address. But I was guessing 
+> that's because they share the i2c client id with the PMIC and sharing 
+> its address space (implied).
+> 
+> The charger device while being part of the MAX77759 PMIC package has 
+> it's own i2c client id and address space that's why I proposed "reg". 
+> The underlying assumption I made was separate client id implies that a 
+> "reg" property required. But maybe that's incorrect.
+> 
+> I can understand the argument against having a "reg" property. As the 
+> i2c client id will remain same for a max77759 charger device (as it's a 
+> chip property and not a board property) it will always remain a 
+> constant. I will drop the "reg" proposal.
+> 
+> 
 >>
->> Hmm... I am a bit concerned for the evsel__get_config_val() usage
->> throughout the series.
->>
->> evsel__get_config_val() returns a whole config value rather than the
->> bit field specified by the format name.  If other bits (but not the
->> "pa_enable" bit) are set in the same config set, would it wrongly set
->> the PHYS_ADDR sample bit?
+>>> standard properties `constant-charge-current-max-microamp` and
+>>> `constant-charge-voltage-max-microvolt` to configure the hardware
+>>> limits, as this charger device does not manage the battery profile
+>>> directly (that is handled by a separate fuel gauge).
+>> Well, still, what's the benefit for the bindings to have it as a
+>> separate child? Kind of depends on your example, which is quite small -
+>> one regulator and supply. Grow the example with battery and other
+>> independent resources (if they are) to justify it. Or show arguments why
+>> this is re-usable.
 > 
-> I saw you used FIELD_GET() to read specific bit field in
-> evsel__get_config_val().  This is not concerned anymore.
-> 
-> Sorry for noise.
-> 
->> Seems to me, for reading specific format, perf_pmu__format_bits() is
->> more suitable than evsel__get_config_val().
-> 
-> For me, this comment is still valid, given perf_pmu__format_bits()
-> will always exist.
-> 
+> The primary reasons for keeping the charger as a distinct child node are 
+> to model the hardware topology for the power supply subsystem and to 
 
-perf_pmu__format_bits() only returns the mask for the format attribute 
-that's published by the kernel. It never changes depending on what 
-options the user provides and doesn't even say which config field that 
-mask applies to. It's fairly useless on its own and should probably be 
-made private to pmu.c if we manage to refactor its uses out of 
-intel-pt.c. Although they're a bit more involved there than here so I 
-won't touch it now.
+You do not need children for that at all.
 
-evsel__get_config_val() returns the value that the user provided for a 
-named attribute which is what we need to do here.
+> house the OTG regulator provided by the charger block.
+> The charger needs to be referenced by the Fuel Gauge (which handles the 
+> battery profile) via power-supplies. Additionally, the charger block 
+> provides a regulator for USB OTG VBUS, which is cleaner to represent as 
+> a child node of the charger rather than mixing it into the top-level 
+> PMIC node.
 
-> Thanks,
-> Leo
+Sorry but argument that you need a child device to be able to construct
+a phandle is just wrong. You can create phandles on every other way as well.
 
+
+Best regards,
+Krzysztof
 
