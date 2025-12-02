@@ -4,63 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B007D116F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 12:15:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49AEFD116F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 12:19:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SRQtvmz0huP51ZQf+R4LzzzrfMRBZdx3Rn9IgaixUbY=; b=BCaoqzEwIf/fHEDMl6RWzE4nGa
-	NinK+ed7JYQsFWP8H+QUU9xbE7TV17R0mPwL7hQlZOdP7oKkcrFcDCHYpvUa5odlI58O1+nL/mO+u
-	Bx8V/XEY0s/nZQGXYXa4TPce7xD7kTVzaB4gQVBuIM73uK0QbuCMFLmSkedWaTGVozdGhf39f4v1W
-	FLwsYi5DTOSuy5d0/s0/b855G/CT6apGBMCG7+D7Mu5Y1A1H003L3pGXbyQ+DtHu9p2HrVI5U+SSP
-	S4G2lEsDrHYlMA7SZNAZ8wwtr/qzt8PfJT+vw0ruYbiUSF3ncCkEExdEjyUQakAJaFBKHNwCXuOlD
-	0rkvZqAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1KKEnCW0wEwe5lUQmLY7TZjZ3xfJfE8s/uJ53HZQ+s8=; b=i/B3W+OmXkZ1idC8soXCi40SkS
+	MaClwy2oeSqQJooKuY2fDhQ9KIx/ke3/BtLlXGO9UCz48mvb9up4k0fOymJJo1w4rHoHqGkEZhU0q
+	/B/byJQCjheqLBWVISKxduP4PBsuwB045yJk+wAolOGAPZ32/nh6C2bik39CzzWzy8judTvjAKdka
+	+PaEoR2pMAldaqSRack5NEufjztfd4zpCHlt0PvK2/CYccaL3dv4tWu5l9tRBrHln8neF2i3Mu3Wo
+	rvzyt7p51QHJsQMk0uR9ogfOzroTFZwNDXA9lcd2g5AtVc8mdMgiTjuFg0VFNAwuzj9KYS7hUEVCe
+	ctEOLd4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQPI8-00000005Mg6-2vhM;
-	Tue, 02 Dec 2025 12:15:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQPI6-00000005MfU-0Xq4
+	id 1vQPLk-00000005Mso-1Jrl;
+	Tue, 02 Dec 2025 12:19:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQPLh-00000005MsQ-39O4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 12:15:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C75CE153B;
-	Tue,  2 Dec 2025 04:15:23 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C0DBE3F73B;
-	Tue,  2 Dec 2025 04:15:30 -0800 (PST)
-Date: Tue, 2 Dec 2025 12:15:28 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Leo Yan <leo.yan@linux.dev>, linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 6/7] perf cs-etm: Don't hard code config attribute when
- configuring the event
-Message-ID: <20251202121528.GX724103@e132581.arm.com>
-References: <20251201-james-perf-config-bits-v1-0-22ecbbf8007c@linaro.org>
- <20251201-james-perf-config-bits-v1-6-22ecbbf8007c@linaro.org>
+	Tue, 02 Dec 2025 12:19:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E903F43BE7;
+	Tue,  2 Dec 2025 12:19:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D973C4CEF1;
+	Tue,  2 Dec 2025 12:19:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764677956;
+	bh=YBi3YUkqodTsYf+i5t2h0346A9zjvPssn3oYGLC9Xxk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=s3xhzhvZThePAP2iULk+4TOh2DkzpUoHE5H2hpOm+eqrwFaKEu5TggzlSQ6Tt/aUD
+	 fuZqLED5Bb02IroktiJ12VBI7lp54lerxO0R8aNMx8ngRLtt/k1tzGgmE1ebNzydW+
+	 UyoOEdfL1GiA/Xar89EmVHCwZmdFqog+EGDuaowhuCMOOHSui/KDNiSOLG/xZaSNu6
+	 fgSirYvwgfyusXroeMY4JaSd5j/s8UbENQBFoP7cw0O+END838/uhX4U6ieimaDXdy
+	 vu3Dwl6AmNd3j6NOuc/wQimsGfYM0D/cIORIXw1OemuECwpuC79WsRPZHLkDT8BIti
+	 KBX5srmw1bvzA==
+Message-ID: <c6ae49de-d1e3-4f9c-b9d0-95cf7a9d9815@kernel.org>
+Date: Tue, 2 Dec 2025 13:19:08 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251201-james-perf-config-bits-v1-6-22ecbbf8007c@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 05/21] ARM: dts: omap: Bind panel to panel-dpi instead of
+ ti,tilcdc,panel driver
+To: Kory Maincent <kory.maincent@bootlin.com>
+Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Markus Schneider-Pargmann <msp@baylibre.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Louis Chauvet <louis.chauvet@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Miguel Gazquez <miguel.gazquez@bootlin.com>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-omap@vger.kernel.org, Jyri Sarha <jyri.sarha@iki.fi>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Tony Lindgren <tony@atomide.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
+References: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
+ <20251126-feature_tilcdc-v1-5-49b9ef2e3aa0@bootlin.com>
+ <96b1b7bf-ddbe-4213-a201-dc89cf2998dd@ideasonboard.com>
+ <3bc5bf92-05c3-4841-ab28-9bab2bb31cd5@kernel.org>
+ <20251202104244.59a9e83d@kmaincent-XPS-13-7390>
+ <d7515cd3-5488-4d15-82dc-d2b98cfa2bed@kernel.org>
+ <20251202114416.09624a4b@kmaincent-XPS-13-7390>
+ <94e254fa-289d-41ed-909f-1742cfbb2690@kernel.org>
+ <20251202121856.0da62885@kmaincent-XPS-13-7390>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <20251202121856.0da62885@kmaincent-XPS-13-7390>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_041534_288777_AAA3FE3E 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20251202_041917_842549_AFDFA84C 
+X-CRM114-Status: GOOD (  28.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,107 +142,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 01, 2025 at 04:41:09PM +0000, Coresight ML wrote:
-
-[...]
-
-> @@ -103,13 +103,20 @@ static int cs_etm_validate_context_id(struct perf_pmu *cs_etm_pmu, struct evsel
->  				      struct perf_cpu cpu)
->  {
->  	int err;
-> -	__u64 val;
-> -	u64 contextid = evsel->core.attr.config &
-> -		(perf_pmu__format_bits(cs_etm_pmu, "contextid") |
-> -		 perf_pmu__format_bits(cs_etm_pmu, "contextid1") |
-> -		 perf_pmu__format_bits(cs_etm_pmu, "contextid2"));
-> +	u64 ctxt, ctxt1, ctxt2;
-> +	__u64 trcidr2;
+On 02/12/2025 12:18, Kory Maincent wrote:
+> On Tue, 2 Dec 2025 11:47:40 +0100
+> Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> 
+>> On 02/12/2025 11:44, Kory Maincent wrote:
+>>> On Tue, 2 Dec 2025 11:28:55 +0100
+>>> Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>>   
+>>>> On 02/12/2025 10:42, Kory Maincent wrote:  
+>>>>>      
+>>>>>> Stuffing DTS change in the middle of the driver change tries to hide
+>>>>>> impact, which is not nice on its own.    
+>>>>>
+>>>>> As it needs driver change before the removal for not breaking things it
+>>>>> can't be done at the beginning of the series.    
+>>>>
+>>>> And that is the problem which should stop you there and rethink how to
+>>>> organize it without impacting users. DTS cannot go via DRM. If that was
+>>>> your intention, that's my:
+>>>>
+>>>> NAK  
+>>>
+>>> My intention was to raise discussion over the ugly and legacy tilcdc-panel
+>>> binding and what to do with it. But it seems you don't want to, that's a
+>>> shame.  
+>>
+>> I don't see how you get to these conclusions. I comment that putting
+>> here DTS in the middle without any explanation of the impact is not
+>> correct and this one alone I disagree with.
+> 
+> Because you didn't replied to the first line of my answer:
+> "Yes, I know this but I still wanted to try and begin a discussion on this, as I
+> really thought it is not a good idea to add and maintain an new non-standard
+> panel driver solely for this tilcdc panel binding."
+> 
+> But indeed you are right, I should have put more explanation on why there is DTS
+> and binding change in the middle of the series. Sorry for that.
 >  
-> -	if (!contextid)
-> +	err = evsel__get_config_val(cs_etm_pmu, evsel, "contextid", &ctxt);
-> +	if (err)
-> +		return err;
-> +	err = evsel__get_config_val(cs_etm_pmu, evsel, "contextid1", &ctxt1);
-> +	if (err)
-> +		return err;
-> +	err = evsel__get_config_val(cs_etm_pmu, evsel, "contextid2", &ctxt2);
-> +	if (err)
-> +		return err;
+>> From that you claim I don't want to fix things...
+>>
+>> DTS cannot go to drm, which means you either need to separate the change
+>> and make entire work bisectable and backwards compatible for some time
+>> OR at least document clearly the impact as we always ask.
+> 
+> The thing is, if I split it, it has to be in 3. One for the of DRM bus flags
+> support, a second for the the devicetree and binding change and a third for the
+> whole tilcdc and tda998x cleaning stuff. I think I will go for one series, with
+> better documentation.
+> 
+> Now, what is your point of view on my question. Will you nak any binding
+> removal even if the binding is ugly and legacy and imply maintaining an
+> non-standard tilcdc panel driver? I know it breaks DTB compatibility but there
+> is several argument to not keep it. See patch 6.
 
-Seems to me, this is not right.  The current code checks any context
-ID setting but it can tolerate if missing "contexid[*]" format.
+I will not NAK, removing bindings and breaking users is under some
+conditions acceptable. You just need to come with the reasons and impact.
 
-After calling evsel__get_config_val(), if any "contextid[*]" format is
-missed, it returns error and will diretly bail out.  As a result,
-cs_etm_validate_context_id() will always return error.
+Reason "is ugly" is usually not good enough. Especially if things were
+working.
 
-> +
-> +	if (!ctxt && !ctxt1 && !ctxt2)
->  		return 0;
->  
->  	/* Not supported in etmv3 */
-> @@ -120,12 +127,11 @@ static int cs_etm_validate_context_id(struct perf_pmu *cs_etm_pmu, struct evsel
->  	}
->  
->  	/* Get a handle on TRCIDR2 */
-> -	err = cs_etm_get_ro(cs_etm_pmu, cpu, metadata_etmv4_ro[CS_ETMV4_TRCIDR2], &val);
-> +	err = cs_etm_get_ro(cs_etm_pmu, cpu, metadata_etmv4_ro[CS_ETMV4_TRCIDR2], &trcidr2);
->  	if (err)
->  		return err;
->  
-> -	if (contextid &
-> -	    perf_pmu__format_bits(cs_etm_pmu, "contextid1")) {
-> +	if (ctxt1) {
->  		/*
->  		 * TRCIDR2.CIDSIZE, bit [9-5], indicates whether contextID
->  		 * tracing is supported:
-> @@ -133,15 +139,14 @@ static int cs_etm_validate_context_id(struct perf_pmu *cs_etm_pmu, struct evsel
->  		 *  0b00100 Maximum of 32-bit Context ID size.
->  		 *  All other values are reserved.
->  		 */
-> -		if (BMVAL(val, 5, 9) != 0x4) {
-> +		if (BMVAL(trcidr2, 5, 9) != 0x4) {
->  			pr_err("%s: CONTEXTIDR_EL1 isn't supported, disable with %s/contextid1=0/\n",
->  			       CORESIGHT_ETM_PMU_NAME, CORESIGHT_ETM_PMU_NAME);
->  			return -EINVAL;
->  		}
->  	}
->  
-> -	if (contextid &
-> -	    perf_pmu__format_bits(cs_etm_pmu, "contextid2")) {
-> +	if (ctxt2) {
->  		/*
->  		 * TRCIDR2.VMIDOPT[30:29] != 0 and
->  		 * TRCIDR2.VMIDSIZE[14:10] == 0b00100 (32bit virtual contextid)
-> @@ -149,7 +154,7 @@ static int cs_etm_validate_context_id(struct perf_pmu *cs_etm_pmu, struct evsel
->  		 * virtual context id is < 32bit.
->  		 * Any value of VMIDSIZE >= 4 (i.e, > 32bit) is fine for us.
->  		 */
-> -		if (!BMVAL(val, 29, 30) || BMVAL(val, 10, 14) < 4) {
-> +		if (!BMVAL(trcidr2, 29, 30) || BMVAL(trcidr2, 10, 14) < 4) {
->  			pr_err("%s: CONTEXTIDR_EL2 isn't supported, disable with %s/contextid2=0/\n",
->  			       CORESIGHT_ETM_PMU_NAME, CORESIGHT_ETM_PMU_NAME);
->  			return -EINVAL;
-> @@ -163,10 +168,14 @@ static int cs_etm_validate_timestamp(struct perf_pmu *cs_etm_pmu, struct evsel *
->  				     struct perf_cpu cpu)
->  {
->  	int err;
-> -	__u64 val;
-> +	u64 val;
-> +	__u64 trcidr0;
->  
-> -	if (!(evsel->core.attr.config &
-> -	      perf_pmu__format_bits(cs_etm_pmu, "timestamp")))
-> +	err = evsel__get_config_val(cs_etm_pmu, evsel, "timestamp", &val);
-> +	if (err)
-> +		return err;
-> +
-> +	if (!val)
->  		return 0;
-
-Similiar issue here.  The current code returns 0 if not find "timestamp"
-format.  With this change, it returns error instead.
-
-Thanks,
-Leo
+Best regards,
+Krzysztof
 
