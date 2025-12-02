@@ -4,101 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B90CCCFD376
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 06:43:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60177CFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 06:43:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U4CEPosLk4c8VO1ED7x/05VLZq/brB7mPtuz/Jxmq8A=; b=ogeBZS3JPPAjq2CIftANT3bOfh
-	i5KxdME47e42p1Xk8OeHL8fz+iR16x0F/Yc3Xvr2J49AuYX/SmNaUArx5fxCWrK+V+2aPtJMH6HIj
-	LGXnNMFZ00Yf+KnE+lNGJ6oCeFqbs2xQRmvOVv06XiQqdMFmSFAze1rtG51PXoWihj7ef7hMRzDOg
-	7dtPiMvEcEKppYg84yWUF0du6K8S1qu6xsLlnIcNUOvFyv5kb/ae4ILxBSkhJUEBPu1cNHO/FJyV8
-	fzmCTmm1Om6pkaA7doPltrPdU8v4IAINmTWrCq3agysFsMq84d4JHJ+9c9nVE5JVw3uijA30MfHh4
-	f8+b7g4g==;
+	bh=+IspkF7gTDoWesqXAkpx7IlgCLV6iSsek/5vNIm3b+g=; b=UQXLYeE9geyPbcg/djonCqSIp9
+	ewBYV+GKzc3twG73BV4zpcYLjpqKUzKwi4VFzTNOxa1t50t6yse1MQMdigfWgu2EE2+j8y7z0MX5O
+	ncjwMeUNEf9XVrR5Z9+tRhjyF5y4GJxpANLeExDmyqzbtHzvsk8qNvxj5cy8bTKIOLmJaP1LWsaho
+	QRi/WJzegLlTaRiDwkpOmjCMnBwap/qoEKDlMtaeAdvwVbduRJpJBxpC0zwxpEsUIhVqBsme2Abnd
+	hXLEWvXDrWjueI4vAk7yUlPxpPDi0xl3/6KbrnKLraaE2tkKxRZP47SrSVyVpSsTmHZm2wDorCff2
+	/fT+A2Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQK6i-00000004uvL-1jLA;
-	Tue, 02 Dec 2025 06:43:30 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vQK6u-00000004uy2-3Kbs;
+	Tue, 02 Dec 2025 06:43:40 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQK6a-00000004usr-3ruA
+	id 1vQK6g-00000004uu0-0OFB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 06:43:25 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B217pAs1359323
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 2 Dec 2025 06:43:20 GMT
+	Tue, 02 Dec 2025 06:43:31 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B25o47S1688811
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 2 Dec 2025 06:43:25 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	U4CEPosLk4c8VO1ED7x/05VLZq/brB7mPtuz/Jxmq8A=; b=jFUmtDKB7kyAvsfs
-	Pzm3Ouv06eEskmYHbf0WWPD9htXOn7iRky0pfD2/vIWWzwGV1tmfUW5yQO6Noy0p
-	aPFpys+TdHKf1ov8edJ4PcB8RUfmAFfiW8ULfxQCqf0Lofmp96+pgv9I2lJr5HKo
-	q1cAdkpNGGDaMElWRz/N+agnnUbSgCEoRX5jHWp0P48UY7AxrOloAVacL/UBjj4e
-	b8Wrhao7FV3uML9sFePBDcmGrcHHvaLpgKQsQ4t09tSikNXEiM04Rp7MwggTXzcY
-	CeJoOtpSd6PtCM1zPG//Q4gBCgGyt1RSw2msFcchVHAcTkgOF5eIyf0SXEYzBlCF
-	5dY52w==
+	+IspkF7gTDoWesqXAkpx7IlgCLV6iSsek/5vNIm3b+g=; b=beALRJ+CIEbo3zYy
+	5KYtQwAAbedqgzTiIcPYIJA02/DW5gWA680Z9K1BlJhZ7MrYNqysNDnzZ+oawHN4
+	kRrR1aQ2kJoluUo+PWciLjY4NLfeEHjHiSHAJuIqCT89NeEsC6nqESbtWTTLMYvT
+	SahgBLEY7oGUHPGB9dua9RfNby0Md/zIvtzrhxSgQYVW26s8zla10afloMnT2WFg
+	cjWijjm9aQvldAnGCOF0lwc/5POsEVieGQYvMyQ+tlmHbBvbtOyd/b3dngK8GmRG
+	BMFzd2G2Dg0hnvHLDOV5oaWfdigvWEX4rwqO/rlYsJTlQ/JVL1OaW6PHjA1ZbqDt
+	9/nhMA==
 Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4asp63gtkx-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4asgxesx3k-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 06:43:20 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-299ddb0269eso61647995ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 22:43:20 -0800 (PST)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 06:43:24 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-295592eb5dbso88210555ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 22:43:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1764657800; x=1765262600; darn=lists.infradead.org;
+        d=oss.qualcomm.com; s=google; t=1764657804; x=1765262604; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=U4CEPosLk4c8VO1ED7x/05VLZq/brB7mPtuz/Jxmq8A=;
-        b=ekhGJpKS4rHgmqGZXRYp3bIvNybV1hXcHjVfpG2scIxtHRQ8KdqB6LxdsrVM4m6Tws
-         CheNHA8t++j2OkiM0v71etXujAPnnOlSfY++9jZ8PagxbGBMRxBkLo4m8yX4eSRzrKi9
-         9Ge3YY/bA3NA/UJ+b0oyh8bBCCF3G34HfQBnIzMmpOTFlmjybng91FLSHMXC7e5i6uYc
-         vRvjIuph7E4oTtVZyXscsCVwCZ0mv2gnzH/X6U78HVQU4hoV/9+0HqVhY7ODKzrwWZHr
-         O1LF6yazjd9yBIS7Ono26WGzEW6QwIuBTDsnUCeVBjyFB+MJ/1iwc5/ZdZEKpQOXd0bZ
-         B+OA==
+        bh=+IspkF7gTDoWesqXAkpx7IlgCLV6iSsek/5vNIm3b+g=;
+        b=JMqNqD3s4LdcpJIQetNUqxCiIN4nLwuulhO7s6vhCkoUzrcCucQ6LjqDF8grTiuMXQ
+         h+So4rrvpTUt9Y5ctzO1fugG+Bs9SYGlghQJCrAMlR0pzN7z1hepYDbJKKdVOdd2ciWO
+         v2d0ANxDt3CEQeIPnQ80mYTPAnHvD+acBupMFXKwJMjgrvgKCA52mRu9944tpbPOAbe7
+         D/XJhUbSaBNf8Xx+ayaqAQUYNRIQ/TQBZaC+Zpy2BpxHT63rOIyNSsbV8duJXtk1SL6m
+         Qn0cwxrwXltWQVenzzTScTniKjZhzEJ7bYi0D+D7q/vu7ilXJGDDMFFv6+98x8aFuUYE
+         xzZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764657800; x=1765262600;
+        d=1e100.net; s=20230601; t=1764657804; x=1765262604;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=U4CEPosLk4c8VO1ED7x/05VLZq/brB7mPtuz/Jxmq8A=;
-        b=uD7USe+riySVUWyFutePxqWM6t7m0YoHfFyQNTimw7CVZz0qRDIbZ93rpGZGxqwJk3
-         mkZOpVqomFO3hmtjhzZznTGB8ZALeebQ6sPPMaw9PDm6nWxMlRifuSqHnxkd6mTtE43n
-         Z8tOSfoy2qRO4Va3OZNCveNxleK3NCpHqvdwDo1X0Mpa6aQ0OXW9jUyOYXUcAAocG5uF
-         nng/81UKDzjKOUQBrB7j5Mlw8DCIhrlg1iTiaOu6Dc/E9ujGCfluPIp9UccodeQHgXJv
-         i7oy3n4fOD4T0YTp/dWqnC/uRlRcyG5b/emwDIhijZZipnJnZtxmfDfANl/+28n0PdRK
-         hbcA==
-X-Forwarded-Encrypted: i=1; AJvYcCWsyRDTzurASGc/da75HUW8f5vAzdjo6dSr4ZDf8dqts562R+z19Ry01qz7kaQ6nE5vGFMmVRm3SEpZ9Pes0/2K@lists.infradead.org
-X-Gm-Message-State: AOJu0YwH9xKTa3JnvB8SPqTlwlMz3sgsOiGwmfbNZdPTETeCMlrbXyNT
-	vV3x2ZTThPJ0QEYHbNFS7xujKeKxj6XRIemwAlx45UfaM/jsBype6aWEr4YuLdOp+2rM2kw0MbY
-	TdJroDXDcz3tLbMs9f9l1cEWHydgfHVNa0hAKezcmz4XeAUp8PTxy/wLqh4UX5ounlsKo3luXOw
-	83jQ==
-X-Gm-Gg: ASbGncvArlyhqbIAQTD+7uK5OvJdoKDL1E+Wy5oOaH41oYdpGiVWw3vWFdK7sfg78Mk
-	r3NJ4eMQMht0JPzQGGgRYyT/LACGjgaJdQYwBV2dZT7HWq3XnJknLbTgF3q2pkYOQ0TyFNMc00x
-	T/dIMeqaFTcc8c7uZFK3Js8cwxm1TqJdG+VTgo679G+ulV+nfrZKrj80BtIrGJ9zPZiNA7FYFg1
-	G52aVH4bDPOjmzx/qU8HYpRaRBuy+FVATVzaYC1D6eJg5BK9zDbLnvnTvOQzi0MRticyFPSp1YB
-	cdx5SknjLkxLGb3VRbHFerpVH4EEhYv5DRZf5IHscm0DwaORlTsNe6T+fstx3nMbhAlQz0Lhigd
-	EZaBk52QOqt2wWMujIpKocz5CEQrSbeIzH50jSvQksZ6MduRVLH0DE12sgyQlZBidryb0RdqqgQ
-	zabg==
-X-Received: by 2002:a17:902:d58c:b0:294:fcae:826 with SMTP id d9443c01a7336-29bab2fa50bmr322287815ad.59.1764657799642;
-        Mon, 01 Dec 2025 22:43:19 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEmz69O+sqegGqvJXNp/6khVCSF1CST5oB/umMY14G4/IE96n6RMjq94/Om9UK6eOYz4XsexQ==
-X-Received: by 2002:a17:902:d58c:b0:294:fcae:826 with SMTP id d9443c01a7336-29bab2fa50bmr322287495ad.59.1764657799070;
-        Mon, 01 Dec 2025 22:43:19 -0800 (PST)
+        bh=+IspkF7gTDoWesqXAkpx7IlgCLV6iSsek/5vNIm3b+g=;
+        b=rmz4JcJBuVD/hoXc4CKaD8jNeTFBrMbcBA/vjy3+kgW6V92iHj8P3ONCxzveBc+oGf
+         dF3DdPSVFr+f9Ze3dZVSxGBlGwHpTbgytjui3wBf26BxXQ5Zsy6trN9zM7JYLiztfdUE
+         vtYNsU0x5ODx/n31F69QpgctcAqljfY8evrIBsOz5kQDPVg7FfJHHaFM1ZCTQYPiGFeB
+         nj6VH2abMc6/LCyFCsDEtgkxaHcK+GSa0jYBogxXSjFMh8A8DyKEcCMEUsW6flFh4vnM
+         aMK/dHYVgLtq8ef3aytx03Anvpi4G8Z9L7ekCzuwtlsNJGuopbtrp91CA15CbZSn2NiL
+         QxFA==
+X-Forwarded-Encrypted: i=1; AJvYcCXo7cW/bgOGSqFiX3j/69k2qZmEVlEFplGiLwDl1wp1VZIyu4gef1Uub03PX52rSiRR5AITavk9dc2NBs/q/slj@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw56X38cFDB5L6h8Gm8HwRwIFvbae2g5Tej68jPYZzc4IJU9RQk
+	RN8kWZhYibcthI6gMQtSe/ir4GfYqTsNrsA9BM7hYCFkPJOuQBw0Q7WYb+akvSTXh04WwYVDJpJ
+	c/SSGVe7W3CMFl3LQzSPc8Y1uyBR6N3sSjO57R3BJqa/EFpKWHrfcAsVV6h7WCfe34ERRo9zqth
+	u1xQ==
+X-Gm-Gg: ASbGncs3G6tXAHJ4p4D5cvQtKeCRUVEEffkmkTPXrmnxvFY5zAGfTAOWxHO+OQIborV
+	KroV2pxu2M90/0sed8o9D6LWxqCoMINfbGICIBr1bE4nUfJTeSpABoy4z+qhXOmQhFsICY1qZVy
+	Zt9XoNBakt+cUxtNdLUK5PuKZqGdXL0WAAPnd7jsAk+wFCbWDBIwdTfiiLeeSLDMt9sFnUXZjlc
+	hyx4GspxezXVYajrpI///CPQ6AQWx3EfWraBmn7u7VvnFSwHbIqFWhXvfT9xU/qSvT12+BZn3u1
+	Sbd7syCWaP4FenE/gH16v/JztBFH8rnvYUWz3GOF7Beq3ykYAblt5wzGayWq8tEkd8SIQpq7kuJ
+	ZBJJltVF2niBAJ7uJ1GJcVWNWCrOalIL6lqzDuJGyTK2nMShDIGsccFNFSOROGYZ3OAXU2RGxhK
+	AFUg==
+X-Received: by 2002:a17:903:198c:b0:297:ddb6:ef81 with SMTP id d9443c01a7336-29b6c3e83d7mr430776575ad.16.1764657803687;
+        Mon, 01 Dec 2025 22:43:23 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFHb5ciFmPEoqBg+z5rwGbm61VuIgxrFXhOrfGSvp5tLruUPs03mWmDRDKKG7XFtL7HoMHtIg==
+X-Received: by 2002:a17:903:198c:b0:297:ddb6:ef81 with SMTP id d9443c01a7336-29b6c3e83d7mr430776235ad.16.1764657802933;
+        Mon, 01 Dec 2025 22:43:22 -0800 (PST)
 Received: from jinlmao-gv.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29bceb450cfsm141821675ad.74.2025.12.01.22.43.15
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29bceb450cfsm141821675ad.74.2025.12.01.22.43.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Dec 2025 22:43:18 -0800 (PST)
+        Mon, 01 Dec 2025 22:43:22 -0800 (PST)
 From: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-Date: Tue, 02 Dec 2025 14:42:20 +0800
-Subject: [PATCH v6 1/2] coresight: cti: Convert trigger usage fields to
- dynamic bitmaps and arrays
+Date: Tue, 02 Dec 2025 14:42:21 +0800
+Subject: [PATCH v6 2/2] coresight: cti: Add Qualcomm extended CTI support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251202-extended_cti-v6-1-ab68bb15c4f5@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20251202-extended_cti-v6-2-ab68bb15c4f5@oss.qualcomm.com>
 References: <20251202-extended_cti-v6-0-ab68bb15c4f5@oss.qualcomm.com>
 In-Reply-To: <20251202-extended_cti-v6-0-ab68bb15c4f5@oss.qualcomm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
@@ -109,40 +108,43 @@ Cc: Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, quic_yingdeng@quicinc.com,
         coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
         linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
         Jinlong Mao <jinlong.mao@oss.qualcomm.com>,
-        Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+        Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
+        Mao Jinlong <quic_jinlmao@quicinc.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764657791; l=11022;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764657791; l=23700;
  i=yingchao.deng@oss.qualcomm.com; s=20251128; h=from:subject:message-id;
- bh=EHk3TrdZcUh7JFRp0sXEzGfbX5tPAbR/co7dEigVes4=;
- b=rfWFNPeqLs2m3d1ZANKeGBcScEpjUwqAL2uCsg3Sa+pbdy682Ft9mbOKsOf5bL0PgIVkMQwuX
- KjM6alLM856CASByihVQ2PwMmSFEuo1COuKjH9NuStcYuD85OpdmbV7
+ bh=PtB0BtXlP5YVfymzMpYmNBA2P6kWUJMFu7WMeMPHIHQ=;
+ b=UVyOeBFEV08wvIIQRSnaoExP1F6ybAw2v+2hTVK+BHAOn/LIXHWnMoIrIpa9/zxCjQCJ85Fvp
+ JL8QPKnoRyvDWryfvohnbAvxuKgQBozIDdUgouAQKn9zQVOfZW/JZiA
 X-Developer-Key: i=yingchao.deng@oss.qualcomm.com; a=ed25519;
  pk=QWvd9DuX5YKvc7/VfWGCElGNr3HbCyig5bEb+lUUohg=
-X-Proofpoint-GUID: lRbG9NtW8ECFBCbnrsO_G5_APh2kzLM7
-X-Proofpoint-ORIG-GUID: lRbG9NtW8ECFBCbnrsO_G5_APh2kzLM7
-X-Authority-Analysis: v=2.4 cv=XM49iAhE c=1 sm=1 tr=0 ts=692e8a88 cx=c_pps
+X-Proofpoint-GUID: z439WoMyIY9C0--hecWBZ3AOsCVkuFRc
+X-Proofpoint-ORIG-GUID: z439WoMyIY9C0--hecWBZ3AOsCVkuFRc
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjAyMDA1MSBTYWx0ZWRfX5dahhudGsuze
+ VF6sIDbV5q6gkcTbx5y7MM/2B077i5xrCtxOdrawnq7/x5nBEltiXx9RYVFBArqzfecE4z9bb10
+ 5ipvnOBkUEoK3w24evCXF5ZIA8+Tpop+zAZJBSaVIKKoUOMs9Sl9Ct0tL9yhYJkMbHmGVBAtxqi
+ bYn/MZVjSYIc0AMm8Ly57FJ8Wk49RUOZLpsmmelEDzv+AOnDyc+wpGJ0CbPlMFYBOyX+Np1lvCg
+ YLu7X++oLKeyYgRedUb54FBqZaJ8YSGkjq7O5rmUIlTsQY80zBBGK5dcMafusBAwpiyWFi3up0L
+ yRvnXjVtOFR3GaKu3lvgI7CRx1e/pqxXvrWOzjhexXiF0xDf7evc3aTex5BuOQbX9V3UfLx68HD
+ EPcdc/Fil4PbBGcOUeJJtE85fHKH6w==
+X-Authority-Analysis: v=2.4 cv=A8Zh/qWG c=1 sm=1 tr=0 ts=692e8a8d cx=c_pps
  a=JL+w9abYAAE89/QcEU+0QA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
  a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=qBB9sKLMsZVO1SgW7bQA:9
- a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjAyMDA1MSBTYWx0ZWRfX39E7kRHAg+5M
- 9fBorOY5MnxFW+U6hJ8WUNOQ9JyuNKsf+rPXoVu+H7I5yWp10hc0yWl+XgRmoGYU+iFjFyBR/+m
- HvQKoP1u0UTPAhhmDnR64UBwBXHjX5qv1Cii1XfRpnbhw/G8eFQHs8b/py92Li50IB/NfYf5oX/
- /yLk/jd5mOojlnZKutBtkJ5rA74P3BAUSaQ4o//6kadiIAY4pWoNimAqATy9fLpkmfbPNAFh9vU
- yGKiCh9GUZoYZap0VNthU0JBUV72I4GM6MZU+U+IrgXDDsMnGVxOr2xiSLJwfs78cXPM2hrz4G0
- c0NHomKzF11aJHokaHskjLxpowpjJcHWlg3O1ldq9uwEb48SvFTSDuPt1nKxVMLJYCYIrs0gJud
- rbfGYNwPJ/aoG8DY0R9ZuPqrQRhepQ==
+ a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8
+ a=MyaKAwSpj8bC-vdJwaUA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=324X-CrmTo6CU4MGRt3R:22 a=TjNXssC_j7lpFel5tvFf:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
  definitions=2025-11-28_08,2025-11-27_02,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 priorityscore=1501 suspectscore=0 impostorscore=0 phishscore=0
- adultscore=0 bulkscore=0 malwarescore=0 clxscore=1015 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512020051
+ adultscore=0 bulkscore=0 impostorscore=0 spamscore=0 suspectscore=0
+ malwarescore=0 phishscore=0 priorityscore=1501 clxscore=1015
+ lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
+ definitions=main-2512020051
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_224321_591785_F5233D68 
-X-CRM114-Status: GOOD (  23.16  )
+X-CRM114-CacheID: sfid-20251201_224328_131317_C6F2FE88 
+X-CRM114-Status: GOOD (  21.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,303 +159,640 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace the fixed-size u32 fields in the cti_config and cti_trig_grp
-structure with dynamically allocated bitmaps and arrays. This allows
-memory to be allocated based on the actual number of triggers during probe
-time, reducing memory footprint and improving scalability for platforms
-with varying trigger counts.
-Additionally, repack struct cti_config to reduce its size from 80 bytes to
-72 bytes.
+The QCOM extended CTI is a heavily parameterized version of ARM’s CSCTI.
+It allows a debugger to send to trigger events to a processor or to send
+a trigger event to one or more processors when a trigger event occurs
+on another processor on the same SoC, or even between SoCs. Qualcomm CTI
+implementation differs from the standard CTI in the following aspects:
 
+1. The number of supported triggers is extended to 128.
+2. Several register offsets differ from the CoreSight specification.
+
+Co-developed-by: Jinlong Mao <jinlong.mao@oss.qualcomm.com>
+Signed-off-by: Jinlong Mao <jinlong.mao@oss.qualcomm.com>
 Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
 ---
- drivers/hwtracing/coresight/coresight-cti-core.c   | 58 ++++++++++++++++------
- .../hwtracing/coresight/coresight-cti-platform.c   | 16 +++---
- drivers/hwtracing/coresight/coresight-cti-sysfs.c  | 10 ++--
- drivers/hwtracing/coresight/coresight-cti.h        | 17 ++++---
- 4 files changed, 65 insertions(+), 36 deletions(-)
+ .../ABI/testing/sysfs-bus-coresight-devices-cti    |  11 ++
+ drivers/hwtracing/coresight/coresight-cti-core.c   |  95 +++++++++--
+ drivers/hwtracing/coresight/coresight-cti-sysfs.c  | 177 ++++++++++++++++-----
+ drivers/hwtracing/coresight/coresight-cti.h        |  43 ++++-
+ drivers/hwtracing/coresight/qcom-cti.h             |  29 ++++
+ 5 files changed, 304 insertions(+), 51 deletions(-)
 
+diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
+index a2aef7f5a6d7..9478dfcee03b 100644
+--- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
++++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-cti
+@@ -245,3 +245,14 @@ Date:           Aug 2025
+ KernelVersion   6.18
+ Contact:        Mao Jinlong <quic_jinlmao@quicinc.com>
+ Description:    (Read) Show hardware context information of device.
++
++What:           /sys/bus/coresight/devices/<cti-name>/regs/ext_reg_sel
++Date:           Dec 2025
++KernelVersion:  6.19
++Contact:        Mao Jinlong <jinlong.mao@oss.qualcomm.com>
++Description:    (RW) Select the index for extended registers.
++		QCOM CTI supports up to 128 triggers, there are 6 registers
++		need to be expanded to up to 4 instances:
++		CTITRIGINSTATUS, CTITRIGOUTSTATUS,
++		ITTRIGIN, ITTRIGOUT,
++		ITTRIGINACK, ITTRIGOUTACK.
 diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c b/drivers/hwtracing/coresight/coresight-cti-core.c
-index bfbc365bb2ef..f9970e40dd59 100644
+index f9970e40dd59..51b3644e97c4 100644
 --- a/drivers/hwtracing/coresight/coresight-cti-core.c
 +++ b/drivers/hwtracing/coresight/coresight-cti-core.c
-@@ -214,8 +214,8 @@ void cti_write_intack(struct device *dev, u32 ackval)
+@@ -21,6 +21,55 @@
+ 
+ #include "coresight-priv.h"
+ #include "coresight-cti.h"
++#include "qcom-cti.h"
++
++static const u32 cti_normal_offset[] = {
++	[INDEX_CTIINTACK]		= CTIINTACK,
++	[INDEX_CTIAPPSET]		= CTIAPPSET,
++	[INDEX_CTIAPPCLEAR]		= CTIAPPCLEAR,
++	[INDEX_CTIAPPPULSE]		= CTIAPPPULSE,
++	[INDEX_CTIINEN]			= CTIINEN(0),
++	[INDEX_CTIOUTEN]		= CTIOUTEN(0),
++	[INDEX_CTITRIGINSTATUS]		= CTITRIGINSTATUS,
++	[INDEX_CTITRIGOUTSTATUS]	= CTITRIGOUTSTATUS,
++	[INDEX_CTICHINSTATUS]		= CTICHINSTATUS,
++	[INDEX_CTICHOUTSTATUS]		= CTICHOUTSTATUS,
++	[INDEX_CTIGATE]			= CTIGATE,
++	[INDEX_ASICCTL]			= ASICCTL,
++	[INDEX_ITCHINACK]		= ITCHINACK,
++	[INDEX_ITTRIGINACK]		= ITTRIGINACK,
++	[INDEX_ITCHOUT]			= ITCHOUT,
++	[INDEX_ITTRIGOUT]		= ITTRIGOUT,
++	[INDEX_ITCHOUTACK]		= ITCHOUTACK,
++	[INDEX_ITTRIGOUTACK]		= ITTRIGOUTACK,
++	[INDEX_ITCHIN]			= ITCHIN,
++	[INDEX_ITTRIGIN]		= ITTRIGIN,
++	[INDEX_ITCTRL]			= CORESIGHT_ITCTRL,
++};
++
++static const u32 cti_extended_offset[] = {
++	[INDEX_CTIINTACK]		= QCOM_CTIINTACK,
++	[INDEX_CTIAPPSET]		= QCOM_CTIAPPSET,
++	[INDEX_CTIAPPCLEAR]		= QCOM_CTIAPPCLEAR,
++	[INDEX_CTIAPPPULSE]		= QCOM_CTIAPPPULSE,
++	[INDEX_CTIINEN]			= QCOM_CTIINEN,
++	[INDEX_CTIOUTEN]		= QCOM_CTIOUTEN,
++	[INDEX_CTITRIGINSTATUS]		= QCOM_CTITRIGINSTATUS,
++	[INDEX_CTITRIGOUTSTATUS]	= QCOM_CTITRIGOUTSTATUS,
++	[INDEX_CTICHINSTATUS]		= QCOM_CTICHINSTATUS,
++	[INDEX_CTICHOUTSTATUS]		= QCOM_CTICHOUTSTATUS,
++	[INDEX_CTIGATE]			= QCOM_CTIGATE,
++	[INDEX_ASICCTL]			= QCOM_ASICCTL,
++	[INDEX_ITCHINACK]		= QCOM_ITCHINACK,
++	[INDEX_ITTRIGINACK]		= QCOM_ITTRIGINACK,
++	[INDEX_ITCHOUT]			= QCOM_ITCHOUT,
++	[INDEX_ITTRIGOUT]		= QCOM_ITTRIGOUT,
++	[INDEX_ITCHOUTACK]		= QCOM_ITCHOUTACK,
++	[INDEX_ITTRIGOUTACK]		= QCOM_ITTRIGOUTACK,
++	[INDEX_ITCHIN]			= QCOM_ITCHIN,
++	[INDEX_ITTRIGIN]		= QCOM_ITTRIGIN,
++	[INDEX_ITCTRL]			= CORESIGHT_ITCTRL,
++};
+ 
+ /*
+  * CTI devices can be associated with a PE, or be connected to CoreSight
+@@ -70,15 +119,16 @@ void cti_write_all_hw_regs(struct cti_drvdata *drvdata)
+ 
+ 	/* write the CTI trigger registers */
+ 	for (i = 0; i < config->nr_trig_max; i++) {
+-		writel_relaxed(config->ctiinen[i], drvdata->base + CTIINEN(i));
++		writel_relaxed(config->ctiinen[i],
++			       drvdata->base + cti_offset(drvdata, INDEX_CTIINEN, i));
+ 		writel_relaxed(config->ctiouten[i],
+-			       drvdata->base + CTIOUTEN(i));
++			       drvdata->base + cti_offset(drvdata, INDEX_CTIOUTEN, i));
+ 	}
+ 
+ 	/* other regs */
+-	writel_relaxed(config->ctigate, drvdata->base + CTIGATE);
+-	writel_relaxed(config->asicctl, drvdata->base + ASICCTL);
+-	writel_relaxed(config->ctiappset, drvdata->base + CTIAPPSET);
++	writel_relaxed(config->ctigate, drvdata->base + cti_offset(drvdata, INDEX_CTIGATE, 0));
++	writel_relaxed(config->asicctl, drvdata->base + cti_offset(drvdata, INDEX_ASICCTL, 0));
++	writel_relaxed(config->ctiappset, drvdata->base + cti_offset(drvdata, INDEX_CTIAPPSET, 0));
+ 
+ 	/* re-enable CTI */
+ 	writel_relaxed(1, drvdata->base + CTICONTROL);
+@@ -214,6 +264,9 @@ void cti_write_intack(struct device *dev, u32 ackval)
  /* DEVID[19:16] - number of CTM channels */
  #define CTI_DEVID_CTMCHANNELS(devid_val) ((int) BMVAL(devid_val, 16, 19))
  
--static void cti_set_default_config(struct device *dev,
--				   struct cti_drvdata *drvdata)
-+static int cti_set_default_config(struct device *dev,
-+				  struct cti_drvdata *drvdata)
++/* DEVARCH[31:21] - ARCHITECT */
++#define CTI_DEVARCH_ARCHITECT(devarch_val) ((int)BMVAL(devarch_val, 21, 31))
++
+ static int cti_set_default_config(struct device *dev,
+ 				  struct cti_drvdata *drvdata)
  {
- 	struct cti_config *config = &drvdata->config;
- 	u32 devid;
-@@ -234,12 +234,33 @@ static void cti_set_default_config(struct device *dev,
- 		config->nr_trig_max = CTIINOUTEN_MAX;
- 	}
+@@ -394,8 +447,8 @@ int cti_channel_trig_op(struct device *dev, enum cti_chan_op op,
  
-+	config->trig_in_use = devm_bitmap_zalloc(dev, config->nr_trig_max, GFP_KERNEL);
-+	if (!config->trig_in_use)
-+		return -ENOMEM;
-+
-+	config->trig_out_use = devm_bitmap_zalloc(dev, config->nr_trig_max, GFP_KERNEL);
-+	if (!config->trig_out_use)
-+		return -ENOMEM;
-+
-+	config->trig_out_filter = devm_bitmap_zalloc(dev, config->nr_trig_max, GFP_KERNEL);
-+	if (!config->trig_out_filter)
-+		return -ENOMEM;
-+
-+	config->ctiinen = devm_kcalloc(dev, config->nr_trig_max, sizeof(u32), GFP_KERNEL);
-+	if (!config->ctiinen)
-+		return -ENOMEM;
-+
-+	config->ctiouten = devm_kcalloc(dev, config->nr_trig_max, sizeof(u32), GFP_KERNEL);
-+	if (!config->ctiouten)
-+		return -ENOMEM;
-+
- 	config->nr_ctm_channels = CTI_DEVID_CTMCHANNELS(devid);
+ 	/* update the local register values */
+ 	chan_bitmask = BIT(channel_idx);
+-	reg_offset = (direction == CTI_TRIG_IN ? CTIINEN(trigger_idx) :
+-		      CTIOUTEN(trigger_idx));
++	reg_offset = (direction == CTI_TRIG_IN ? cti_offset(drvdata, INDEX_CTIINEN, trigger_idx) :
++			cti_offset(drvdata, INDEX_CTIOUTEN, trigger_idx));
  
- 	/* Most regs default to 0 as zalloc'ed except...*/
- 	config->trig_filter_enable = true;
- 	config->ctigate = GENMASK(config->nr_ctm_channels - 1, 0);
- 	config->enable_req_count = 0;
-+	return 0;
- }
+ 	raw_spin_lock(&drvdata->spinlock);
  
- /*
-@@ -270,8 +291,10 @@ int cti_add_connection_entry(struct device *dev, struct cti_drvdata *drvdata,
- 	cti_dev->nr_trig_con++;
+@@ -479,19 +532,19 @@ int cti_channel_setop(struct device *dev, enum cti_chan_set_op op,
+ 	case CTI_CHAN_SET:
+ 		config->ctiappset |= chan_bitmask;
+ 		reg_value  = config->ctiappset;
+-		reg_offset = CTIAPPSET;
++		reg_offset = cti_offset(drvdata, INDEX_CTIAPPSET, 0);
+ 		break;
  
- 	/* add connection usage bit info to overall info */
--	drvdata->config.trig_in_use |= tc->con_in->used_mask;
--	drvdata->config.trig_out_use |= tc->con_out->used_mask;
-+	bitmap_or(drvdata->config.trig_in_use, drvdata->config.trig_in_use,
-+		  tc->con_in->used_mask, drvdata->config.nr_trig_max);
-+	bitmap_or(drvdata->config.trig_out_use, drvdata->config.trig_out_use,
-+		  tc->con_out->used_mask, drvdata->config.nr_trig_max);
+ 	case CTI_CHAN_CLR:
+ 		config->ctiappset &= ~chan_bitmask;
+ 		reg_value = chan_bitmask;
+-		reg_offset = CTIAPPCLEAR;
++		reg_offset = cti_offset(drvdata, INDEX_CTIAPPCLEAR, 0);
+ 		break;
  
+ 	case CTI_CHAN_PULSE:
+ 		config->ctiappset &= ~chan_bitmask;
+ 		reg_value = chan_bitmask;
+-		reg_offset = CTIAPPPULSE;
++		reg_offset = cti_offset(drvdata, INDEX_CTIAPPPULSE, 0);
+ 		break;
+ 
+ 	default:
+@@ -895,6 +948,7 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
+ 	struct coresight_desc cti_desc;
+ 	struct coresight_platform_data *pdata = NULL;
+ 	struct resource *res = &adev->res;
++	u32 devarch;
+ 
+ 	/* driver data*/
+ 	drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+@@ -981,9 +1035,28 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
+ 	drvdata->csdev_release = drvdata->csdev->dev.release;
+ 	drvdata->csdev->dev.release = cti_device_release;
+ 
++	/* check architect value*/
++	devarch = readl_relaxed(drvdata->base + CORESIGHT_DEVARCH);
++	if (CTI_DEVARCH_ARCHITECT(devarch) == ARCHITECT_QCOM) {
++		drvdata->subtype = QCOM_CTI;
++		drvdata->offsets = cti_extended_offset;
++		/*
++		 * QCOM CTI does not implement Claimtag functionality as
++		 * per CoreSight specification, but its CLAIMSET register
++		 * is incorrectly initialized to 0xF. This can mislead
++		 * tools or drivers into thinking the component is claimed.
++		 *
++		 * Reset CLAIMSET to 0 to reflect that no claims are active.
++		 */
++		writel_relaxed(0, drvdata->base + CORESIGHT_CLAIMSET);
++	} else {
++		drvdata->subtype = ARM_STD_CTI;
++		drvdata->offsets = cti_normal_offset;
++	}
++
+ 	/* all done - dec pm refcount */
+ 	pm_runtime_put(&adev->dev);
+-	dev_info(&drvdata->csdev->dev, "CTI initialized\n");
++	dev_info(&drvdata->csdev->dev, "CTI initialized; subtype=%d\n", drvdata->subtype);
  	return 0;
- }
-@@ -293,12 +316,20 @@ struct cti_trig_con *cti_allocate_trig_con(struct device *dev, int in_sigs,
- 	if (!in)
- 		return NULL;
  
-+	in->used_mask = devm_bitmap_alloc(dev, in_sigs, GFP_KERNEL);
-+	if (!in->used_mask)
-+		return NULL;
-+
- 	out = devm_kzalloc(dev,
- 			   offsetof(struct cti_trig_grp, sig_types[out_sigs]),
- 			   GFP_KERNEL);
- 	if (!out)
- 		return NULL;
- 
-+	out->used_mask = devm_bitmap_alloc(dev, out_sigs, GFP_KERNEL);
-+	if (!out->used_mask)
-+		return NULL;
-+
- 	tc->con_in = in;
- 	tc->con_out = out;
- 	tc->con_in->nr_sigs = in_sigs;
-@@ -314,7 +345,6 @@ int cti_add_default_connection(struct device *dev, struct cti_drvdata *drvdata)
- {
- 	int ret = 0;
- 	int n_trigs = drvdata->config.nr_trig_max;
--	u32 n_trig_mask = GENMASK(n_trigs - 1, 0);
- 	struct cti_trig_con *tc = NULL;
- 
- 	/*
-@@ -325,8 +355,9 @@ int cti_add_default_connection(struct device *dev, struct cti_drvdata *drvdata)
- 	if (!tc)
- 		return -ENOMEM;
- 
--	tc->con_in->used_mask = n_trig_mask;
--	tc->con_out->used_mask = n_trig_mask;
-+	bitmap_fill(tc->con_in->used_mask, n_trigs);
-+	bitmap_fill(tc->con_out->used_mask, n_trigs);
-+
- 	ret = cti_add_connection_entry(dev, drvdata, tc, NULL, "default");
- 	return ret;
- }
-@@ -339,7 +370,6 @@ int cti_channel_trig_op(struct device *dev, enum cti_chan_op op,
- {
- 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 	struct cti_config *config = &drvdata->config;
--	u32 trig_bitmask;
- 	u32 chan_bitmask;
- 	u32 reg_value;
- 	int reg_offset;
-@@ -349,18 +379,16 @@ int cti_channel_trig_op(struct device *dev, enum cti_chan_op op,
- 	   (trigger_idx >= config->nr_trig_max))
- 		return -EINVAL;
- 
--	trig_bitmask = BIT(trigger_idx);
--
- 	/* ensure registered triggers and not out filtered */
- 	if (direction == CTI_TRIG_IN)	{
--		if (!(trig_bitmask & config->trig_in_use))
-+		if (!(test_bit(trigger_idx, config->trig_in_use)))
- 			return -EINVAL;
- 	} else {
--		if (!(trig_bitmask & config->trig_out_use))
-+		if (!(test_bit(trigger_idx, config->trig_out_use)))
- 			return -EINVAL;
- 
- 		if ((config->trig_filter_enable) &&
--		    (config->trig_out_filter & trig_bitmask))
-+		    test_bit(trigger_idx, config->trig_out_filter))
- 			return -EINVAL;
- 	}
- 
-@@ -892,7 +920,9 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
- 	raw_spin_lock_init(&drvdata->spinlock);
- 
- 	/* initialise CTI driver config values */
--	cti_set_default_config(dev, drvdata);
-+	ret = cti_set_default_config(dev, drvdata);
-+	if (ret)
-+		return ret;
- 
- 	pdata = coresight_cti_get_platform_data(dev);
- 	if (IS_ERR(pdata)) {
-diff --git a/drivers/hwtracing/coresight/coresight-cti-platform.c b/drivers/hwtracing/coresight/coresight-cti-platform.c
-index d0ae10bf6128..4bef860a0484 100644
---- a/drivers/hwtracing/coresight/coresight-cti-platform.c
-+++ b/drivers/hwtracing/coresight/coresight-cti-platform.c
-@@ -136,8 +136,8 @@ static int cti_plat_create_v8_etm_connection(struct device *dev,
- 		goto create_v8_etm_out;
- 
- 	/* build connection data */
--	tc->con_in->used_mask = 0xF0; /* sigs <4,5,6,7> */
--	tc->con_out->used_mask = 0xF0; /* sigs <4,5,6,7> */
-+	bitmap_set(tc->con_in->used_mask, 4, 4); /* sigs <4,5,6,7> */
-+	bitmap_set(tc->con_out->used_mask, 4, 4); /* sigs <4,5,6,7> */
- 
- 	/*
- 	 * The EXTOUT type signals from the ETM are connected to a set of input
-@@ -194,10 +194,10 @@ static int cti_plat_create_v8_connections(struct device *dev,
- 		goto of_create_v8_out;
- 
- 	/* Set the v8 PE CTI connection data */
--	tc->con_in->used_mask = 0x3; /* sigs <0 1> */
-+	bitmap_set(tc->con_in->used_mask, 0, 2); /* sigs <0 1> */
- 	tc->con_in->sig_types[0] = PE_DBGTRIGGER;
- 	tc->con_in->sig_types[1] = PE_PMUIRQ;
--	tc->con_out->used_mask = 0x7; /* sigs <0 1 2 > */
-+	bitmap_set(tc->con_out->used_mask, 0, 3); /* sigs <0 1 2 > */
- 	tc->con_out->sig_types[0] = PE_EDBGREQ;
- 	tc->con_out->sig_types[1] = PE_DBGRESTART;
- 	tc->con_out->sig_types[2] = PE_CTIIRQ;
-@@ -213,7 +213,7 @@ static int cti_plat_create_v8_connections(struct device *dev,
- 		goto of_create_v8_out;
- 
- 	/* filter pe_edbgreq - PE trigout sig <0> */
--	drvdata->config.trig_out_filter |= 0x1;
-+	set_bit(0, drvdata->config.trig_out_filter);
- 
- of_create_v8_out:
- 	return ret;
-@@ -257,7 +257,7 @@ static int cti_plat_read_trig_group(struct cti_trig_grp *tgrp,
- 	if (!err) {
- 		/* set the signal usage mask */
- 		for (idx = 0; idx < tgrp->nr_sigs; idx++)
--			tgrp->used_mask |= BIT(values[idx]);
-+			set_bit(values[idx], tgrp->used_mask);
- 	}
- 
- 	kfree(values);
-@@ -331,7 +331,9 @@ static int cti_plat_process_filter_sigs(struct cti_drvdata *drvdata,
- 
- 	err = cti_plat_read_trig_group(tg, fwnode, CTI_DT_FILTER_OUT_SIGS);
- 	if (!err)
--		drvdata->config.trig_out_filter |= tg->used_mask;
-+		bitmap_or(drvdata->config.trig_out_filter,
-+			  drvdata->config.trig_out_filter,
-+			  tg->used_mask, drvdata->config.nr_trig_max);
- 
- 	kfree(tg);
- 	return err;
+ pm_release:
 diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-index 572b80ee96fb..a9df77215141 100644
+index a9df77215141..12a495382999 100644
 --- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
 +++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-@@ -711,10 +711,8 @@ static ssize_t trigout_filtered_show(struct device *dev,
- 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 	struct cti_config *cfg = &drvdata->config;
- 	int size = 0, nr_trig_max = cfg->nr_trig_max;
--	unsigned long mask = cfg->trig_out_filter;
+@@ -172,9 +172,8 @@ static struct attribute *coresight_cti_attrs[] = {
  
--	if (mask)
--		size = bitmap_print_to_pagebuf(true, buf, &mask, nr_trig_max);
-+	size = bitmap_print_to_pagebuf(true, buf, cfg->trig_out_filter, nr_trig_max);
+ /* register based attributes */
+ 
+-/* Read registers with power check only (no enable check). */
+-static ssize_t coresight_cti_reg_show(struct device *dev,
+-			   struct device_attribute *attr, char *buf)
++static ssize_t coresight_cti_mgmt_reg_show(struct device *dev,
++					   struct device_attribute *attr, char *buf)
+ {
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct cs_off_attribute *cti_attr = container_of(attr, struct cs_off_attribute, attr);
+@@ -189,6 +188,40 @@ static ssize_t coresight_cti_reg_show(struct device *dev,
+ 	return sysfs_emit(buf, "0x%x\n", val);
+ }
+ 
++/* Read registers with power check only (no enable check). */
++static ssize_t coresight_cti_reg_show(struct device *dev,
++				      struct device_attribute *attr, char *buf)
++{
++	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
++	struct cs_off_attribute *cti_attr = container_of(attr, struct cs_off_attribute, attr);
++	u32 idx, val = 0;
++
++	pm_runtime_get_sync(dev->parent);
++	raw_spin_lock(&drvdata->spinlock);
++	idx = drvdata->config.ext_reg_sel;
++	if (drvdata->config.hw_powered) {
++		switch (cti_attr->off) {
++		case INDEX_CTITRIGINSTATUS:
++		case INDEX_CTITRIGOUTSTATUS:
++		case INDEX_ITTRIGINACK:
++		case INDEX_ITTRIGOUT:
++		case INDEX_ITTRIGOUTACK:
++		case INDEX_ITTRIGIN:
++			val = readl_relaxed(drvdata->base +
++					    cti_offset(drvdata, cti_attr->off, idx));
++			break;
++
++		default:
++			val = readl_relaxed(drvdata->base + cti_offset(drvdata, cti_attr->off, 0));
++			break;
++		}
++	}
++
++	raw_spin_unlock(&drvdata->spinlock);
++	pm_runtime_put_sync(dev->parent);
++	return sysfs_emit(buf, "0x%x\n", val);
++}
++
+ /* Write registers with power check only (no enable check). */
+ static __maybe_unused ssize_t coresight_cti_reg_store(struct device *dev,
+ 						      struct device_attribute *attr,
+@@ -197,19 +230,39 @@ static __maybe_unused ssize_t coresight_cti_reg_store(struct device *dev,
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct cs_off_attribute *cti_attr = container_of(attr, struct cs_off_attribute, attr);
+ 	unsigned long val = 0;
++	u32 idx;
+ 
+ 	if (kstrtoul(buf, 0, &val))
+ 		return -EINVAL;
+ 
+ 	pm_runtime_get_sync(dev->parent);
+ 	raw_spin_lock(&drvdata->spinlock);
+-	if (drvdata->config.hw_powered)
+-		cti_write_single_reg(drvdata, cti_attr->off, val);
++	idx = drvdata->config.ext_reg_sel;
++	if (drvdata->config.hw_powered) {
++		switch (cti_attr->off) {
++		case INDEX_ITTRIGINACK:
++		case INDEX_ITTRIGOUT:
++			cti_write_single_reg(drvdata, cti_offset(drvdata, cti_attr->off, idx), val);
++			break;
++
++		default:
++			cti_write_single_reg(drvdata, cti_offset(drvdata, cti_attr->off, 0), val);
++			break;
++		}
++	}
+ 	raw_spin_unlock(&drvdata->spinlock);
+ 	pm_runtime_put_sync(dev->parent);
  	return size;
  }
- static DEVICE_ATTR_RO(trigout_filtered);
-@@ -926,9 +924,8 @@ static ssize_t trigin_sig_show(struct device *dev,
- 	struct cti_trig_con *con = (struct cti_trig_con *)ext_attr->var;
- 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 	struct cti_config *cfg = &drvdata->config;
--	unsigned long mask = con->con_in->used_mask;
  
--	return bitmap_print_to_pagebuf(true, buf, &mask, cfg->nr_trig_max);
-+	return bitmap_print_to_pagebuf(true, buf, con->con_in->used_mask, cfg->nr_trig_max);
- }
++#define coresight_cti_mgmt_reg(name, offset)	                        \
++	(&((struct cs_off_attribute[]) {                                \
++	   {                                                            \
++		__ATTR(name, 0444, coresight_cti_mgmt_reg_show, NULL),  \
++		offset							\
++	   }								\
++	})[0].attr.attr)
++
+ #define coresight_cti_reg(name, offset)					\
+ 	(&((struct cs_off_attribute[]) {				\
+ 	   {								\
+@@ -237,17 +290,17 @@ static __maybe_unused ssize_t coresight_cti_reg_store(struct device *dev,
  
- static ssize_t trigout_sig_show(struct device *dev,
-@@ -940,9 +937,8 @@ static ssize_t trigout_sig_show(struct device *dev,
- 	struct cti_trig_con *con = (struct cti_trig_con *)ext_attr->var;
- 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
- 	struct cti_config *cfg = &drvdata->config;
--	unsigned long mask = con->con_out->used_mask;
- 
--	return bitmap_print_to_pagebuf(true, buf, &mask, cfg->nr_trig_max);
-+	return bitmap_print_to_pagebuf(true, buf, con->con_out->used_mask, cfg->nr_trig_max);
- }
- 
- /* convert a sig type id to a name */
-diff --git a/drivers/hwtracing/coresight/coresight-cti.h b/drivers/hwtracing/coresight/coresight-cti.h
-index 4f89091ee93f..e7b88b07cffe 100644
---- a/drivers/hwtracing/coresight/coresight-cti.h
-+++ b/drivers/hwtracing/coresight/coresight-cti.h
-@@ -68,7 +68,7 @@ struct fwnode_handle;
-  */
- struct cti_trig_grp {
- 	int nr_sigs;
--	u32 used_mask;
-+	unsigned long *used_mask;
- 	int sig_types[];
+ /* coresight management registers */
+ static struct attribute *coresight_cti_mgmt_attrs[] = {
+-	coresight_cti_reg(devaff0, CTIDEVAFF0),
+-	coresight_cti_reg(devaff1, CTIDEVAFF1),
+-	coresight_cti_reg(authstatus, CORESIGHT_AUTHSTATUS),
+-	coresight_cti_reg(devarch, CORESIGHT_DEVARCH),
+-	coresight_cti_reg(devid, CORESIGHT_DEVID),
+-	coresight_cti_reg(devtype, CORESIGHT_DEVTYPE),
+-	coresight_cti_reg(pidr0, CORESIGHT_PERIPHIDR0),
+-	coresight_cti_reg(pidr1, CORESIGHT_PERIPHIDR1),
+-	coresight_cti_reg(pidr2, CORESIGHT_PERIPHIDR2),
+-	coresight_cti_reg(pidr3, CORESIGHT_PERIPHIDR3),
+-	coresight_cti_reg(pidr4, CORESIGHT_PERIPHIDR4),
++	coresight_cti_mgmt_reg(devaff0, CTIDEVAFF0),
++	coresight_cti_mgmt_reg(devaff1, CTIDEVAFF1),
++	coresight_cti_mgmt_reg(authstatus, CORESIGHT_AUTHSTATUS),
++	coresight_cti_mgmt_reg(devarch, CORESIGHT_DEVARCH),
++	coresight_cti_mgmt_reg(devid, CORESIGHT_DEVID),
++	coresight_cti_mgmt_reg(devtype, CORESIGHT_DEVTYPE),
++	coresight_cti_mgmt_reg(pidr0, CORESIGHT_PERIPHIDR0),
++	coresight_cti_mgmt_reg(pidr1, CORESIGHT_PERIPHIDR1),
++	coresight_cti_mgmt_reg(pidr2, CORESIGHT_PERIPHIDR2),
++	coresight_cti_mgmt_reg(pidr3, CORESIGHT_PERIPHIDR3),
++	coresight_cti_mgmt_reg(pidr4, CORESIGHT_PERIPHIDR4),
+ 	NULL,
  };
  
-@@ -146,20 +146,21 @@ struct cti_config {
- 	bool hw_enabled;
- 	bool hw_powered;
+@@ -258,13 +311,15 @@ static struct attribute *coresight_cti_mgmt_attrs[] = {
+  * If inaccessible & pcached_val not NULL then show cached value.
+  */
+ static ssize_t cti_reg32_show(struct device *dev, char *buf,
+-			      u32 *pcached_val, int reg_offset)
++			      u32 *pcached_val, int index)
+ {
+ 	u32 val = 0;
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct cti_config *config = &drvdata->config;
++	int reg_offset;
  
--	/* registered triggers and filtering */
--	u32 trig_in_use;
--	u32 trig_out_use;
--	u32 trig_out_filter;
+ 	raw_spin_lock(&drvdata->spinlock);
++	reg_offset = cti_offset(drvdata, index, 0);
+ 	if ((reg_offset >= 0) && cti_active(config)) {
+ 		CS_UNLOCK(drvdata->base);
+ 		val = readl_relaxed(drvdata->base + reg_offset);
+@@ -284,11 +339,12 @@ static ssize_t cti_reg32_show(struct device *dev, char *buf,
+  * if reg_offset >= 0 then write through if enabled.
+  */
+ static ssize_t cti_reg32_store(struct device *dev, const char *buf,
+-			       size_t size, u32 *pcached_val, int reg_offset)
++			       size_t size, u32 *pcached_val, int index)
+ {
+ 	unsigned long val;
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
+ 	struct cti_config *config = &drvdata->config;
++	int reg_offset;
+ 
+ 	if (kstrtoul(buf, 0, &val))
+ 		return -EINVAL;
+@@ -298,6 +354,7 @@ static ssize_t cti_reg32_store(struct device *dev, const char *buf,
+ 	if (pcached_val)
+ 		*pcached_val = (u32)val;
+ 
++	reg_offset = cti_offset(drvdata, index, 0);
+ 	/* write through if offset and enabled */
+ 	if ((reg_offset >= 0) && cti_active(config))
+ 		cti_write_single_reg(drvdata, reg_offset, val);
+@@ -306,14 +363,14 @@ static ssize_t cti_reg32_store(struct device *dev, const char *buf,
+ }
+ 
+ /* Standard macro for simple rw cti config registers */
+-#define cti_config_reg32_rw(name, cfgname, offset)			\
++#define cti_config_reg32_rw(name, cfgname, index)			\
+ static ssize_t name##_show(struct device *dev,				\
+ 			   struct device_attribute *attr,		\
+ 			   char *buf)					\
+ {									\
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);	\
+ 	return cti_reg32_show(dev, buf,					\
+-			      &drvdata->config.cfgname, offset);	\
++			      &drvdata->config.cfgname, index);		\
+ }									\
+ 									\
+ static ssize_t name##_store(struct device *dev,				\
+@@ -322,7 +379,7 @@ static ssize_t name##_store(struct device *dev,				\
+ {									\
+ 	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);	\
+ 	return cti_reg32_store(dev, buf, size,				\
+-			       &drvdata->config.cfgname, offset);	\
++			       &drvdata->config.cfgname, index);	\
+ }									\
+ static DEVICE_ATTR_RW(name)
+ 
+@@ -356,6 +413,46 @@ static ssize_t inout_sel_store(struct device *dev,
+ }
+ static DEVICE_ATTR_RW(inout_sel);
+ 
++/*
++ * QCOM CTI supports up to 128 triggers, there are 6 registers need to be
++ * expanded to up to 4 instances, and ext_reg_sel can be used to indicate
++ * which one is in use.
++ * CTITRIGINSTATUS, CTITRIGOUTSTATUS,
++ * ITTRIGIN, ITTRIGOUT,
++ * ITTRIGINACK, ITTRIGOUTACK.
++ */
++static ssize_t ext_reg_sel_show(struct device *dev,
++				struct device_attribute *attr,
++				char *buf)
++{
++	u32 val;
++	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
++
++	raw_spin_lock(&drvdata->spinlock);
++	val = drvdata->config.ext_reg_sel;
++	raw_spin_unlock(&drvdata->spinlock);
++	return sprintf(buf, "%d\n", val);
++}
++
++static ssize_t ext_reg_sel_store(struct device *dev,
++				 struct device_attribute *attr,
++				 const char *buf, size_t size)
++{
++	unsigned long val;
++	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
++
++	if (kstrtoul(buf, 0, &val))
++		return -EINVAL;
++	if (val > ((drvdata->config.nr_trig_max + 31) / 32 - 1))
++		return -EINVAL;
++
++	raw_spin_lock(&drvdata->spinlock);
++	drvdata->config.ext_reg_sel = val;
++	raw_spin_unlock(&drvdata->spinlock);
++	return size;
++}
++static DEVICE_ATTR_RW(ext_reg_sel);
++
+ static ssize_t inen_show(struct device *dev,
+ 			 struct device_attribute *attr,
+ 			 char *buf)
+@@ -389,7 +486,7 @@ static ssize_t inen_store(struct device *dev,
+ 
+ 	/* write through if enabled */
+ 	if (cti_active(config))
+-		cti_write_single_reg(drvdata, CTIINEN(index), val);
++		cti_write_single_reg(drvdata, cti_offset(drvdata, INDEX_CTIINEN, index), val);
+ 	raw_spin_unlock(&drvdata->spinlock);
+ 	return size;
+ }
+@@ -428,7 +525,7 @@ static ssize_t outen_store(struct device *dev,
+ 
+ 	/* write through if enabled */
+ 	if (cti_active(config))
+-		cti_write_single_reg(drvdata, CTIOUTEN(index), val);
++		cti_write_single_reg(drvdata, cti_offset(drvdata, INDEX_CTIOUTEN, index), val);
+ 	raw_spin_unlock(&drvdata->spinlock);
+ 	return size;
+ }
+@@ -448,9 +545,9 @@ static ssize_t intack_store(struct device *dev,
+ }
+ static DEVICE_ATTR_WO(intack);
+ 
+-cti_config_reg32_rw(gate, ctigate, CTIGATE);
+-cti_config_reg32_rw(asicctl, asicctl, ASICCTL);
+-cti_config_reg32_rw(appset, ctiappset, CTIAPPSET);
++cti_config_reg32_rw(gate, ctigate, INDEX_CTIGATE);
++cti_config_reg32_rw(asicctl, asicctl, INDEX_ASICCTL);
++cti_config_reg32_rw(appset, ctiappset, INDEX_CTIAPPSET);
+ 
+ static ssize_t appclear_store(struct device *dev,
+ 			      struct device_attribute *attr,
+@@ -504,6 +601,7 @@ static DEVICE_ATTR_WO(apppulse);
+  */
+ static struct attribute *coresight_cti_regs_attrs[] = {
+ 	&dev_attr_inout_sel.attr,
++	&dev_attr_ext_reg_sel.attr,
+ 	&dev_attr_inen.attr,
+ 	&dev_attr_outen.attr,
+ 	&dev_attr_gate.attr,
+@@ -512,20 +610,20 @@ static struct attribute *coresight_cti_regs_attrs[] = {
+ 	&dev_attr_appset.attr,
+ 	&dev_attr_appclear.attr,
+ 	&dev_attr_apppulse.attr,
+-	coresight_cti_reg(triginstatus, CTITRIGINSTATUS),
+-	coresight_cti_reg(trigoutstatus, CTITRIGOUTSTATUS),
+-	coresight_cti_reg(chinstatus, CTICHINSTATUS),
+-	coresight_cti_reg(choutstatus, CTICHOUTSTATUS),
++	coresight_cti_reg(triginstatus, INDEX_CTITRIGINSTATUS),
++	coresight_cti_reg(trigoutstatus, INDEX_CTITRIGOUTSTATUS),
++	coresight_cti_reg(chinstatus, INDEX_CTICHINSTATUS),
++	coresight_cti_reg(choutstatus, INDEX_CTICHOUTSTATUS),
+ #ifdef CONFIG_CORESIGHT_CTI_INTEGRATION_REGS
+-	coresight_cti_reg_rw(itctrl, CORESIGHT_ITCTRL),
+-	coresight_cti_reg(ittrigin, ITTRIGIN),
+-	coresight_cti_reg(itchin, ITCHIN),
+-	coresight_cti_reg_rw(ittrigout, ITTRIGOUT),
+-	coresight_cti_reg_rw(itchout, ITCHOUT),
+-	coresight_cti_reg(itchoutack, ITCHOUTACK),
+-	coresight_cti_reg(ittrigoutack, ITTRIGOUTACK),
+-	coresight_cti_reg_wo(ittriginack, ITTRIGINACK),
+-	coresight_cti_reg_wo(itchinack, ITCHINACK),
++	coresight_cti_reg_rw(itctrl, INDEX_ITCTRL),
++	coresight_cti_reg(ittrigin, INDEX_ITTRIGIN),
++	coresight_cti_reg(itchin, INDEX_ITCHIN),
++	coresight_cti_reg_rw(ittrigout, INDEX_ITTRIGOUT),
++	coresight_cti_reg_rw(itchout, INDEX_ITCHOUT),
++	coresight_cti_reg(itchoutack, INDEX_ITCHOUTACK),
++	coresight_cti_reg(ittrigoutack, INDEX_ITTRIGOUTACK),
++	coresight_cti_reg_wo(ittriginack, INDEX_ITTRIGINACK),
++	coresight_cti_reg_wo(itchinack, INDEX_ITCHINACK),
+ #endif
+ 	NULL,
+ };
+@@ -740,6 +838,7 @@ static ssize_t chan_xtrigs_reset_store(struct device *dev,
+ 	config->ctiappset = 0;
+ 	config->ctiinout_sel = 0;
+ 	config->xtrig_rchan_sel = 0;
++	config->ext_reg_sel = 0;
+ 
+ 	/* if enabled then write through */
+ 	if (cti_active(config))
+diff --git a/drivers/hwtracing/coresight/coresight-cti.h b/drivers/hwtracing/coresight/coresight-cti.h
+index e7b88b07cffe..fdd6d8892a95 100644
+--- a/drivers/hwtracing/coresight/coresight-cti.h
++++ b/drivers/hwtracing/coresight/coresight-cti.h
+@@ -57,7 +57,38 @@ struct fwnode_handle;
+  * Max of in and out defined in the DEVID register.
+  * - pick up actual number used from .dts parameters if present.
+  */
+-#define CTIINOUTEN_MAX		32
++#define CTIINOUTEN_MAX		128
++
++/* Qcom CTI supports up to 128 triggers*/
++enum cti_subtype {
++	ARM_STD_CTI,
++	QCOM_CTI,
++};
++
++/* These registers are remapped in Qcom CTI*/
++enum cti_offset_index {
++	INDEX_CTIINTACK,
++	INDEX_CTIAPPSET,
++	INDEX_CTIAPPCLEAR,
++	INDEX_CTIAPPPULSE,
++	INDEX_CTIINEN,
++	INDEX_CTIOUTEN,
++	INDEX_CTITRIGINSTATUS,
++	INDEX_CTITRIGOUTSTATUS,
++	INDEX_CTICHINSTATUS,
++	INDEX_CTICHOUTSTATUS,
++	INDEX_CTIGATE,
++	INDEX_ASICCTL,
++	INDEX_ITCHINACK,
++	INDEX_ITTRIGINACK,
++	INDEX_ITCHOUT,
++	INDEX_ITTRIGOUT,
++	INDEX_ITCHOUTACK,
++	INDEX_ITTRIGOUTACK,
++	INDEX_ITCHIN,
++	INDEX_ITTRIGIN,
++	INDEX_ITCTRL,
++};
+ 
+ /**
+  * Group of related trigger signals
+@@ -149,6 +180,9 @@ struct cti_config {
  	bool trig_filter_enable;
  	u8 xtrig_rchan_sel;
  
- 	/* cti cross trig programmable regs */
--	u32 ctiappset;
- 	u8 ctiinout_sel;
--	u32 ctiinen[CTIINOUTEN_MAX];
--	u32 ctiouten[CTIINOUTEN_MAX];
-+	u32 ctiappset;
- 	u32 ctigate;
- 	u32 asicctl;
-+	u32 *ctiinen;
-+	u32 *ctiouten;
++	/* qcom_cti regs' index */
++	u8 ext_reg_sel;
 +
-+	/* registered triggers and filtering */
-+	unsigned long *trig_in_use;
-+	unsigned long *trig_out_use;
-+	unsigned long *trig_out_filter;
+ 	/* cti cross trig programmable regs */
+ 	u8 ctiinout_sel;
+ 	u32 ctiappset;
+@@ -181,6 +215,8 @@ struct cti_drvdata {
+ 	struct cti_config config;
+ 	struct list_head node;
+ 	void (*csdev_release)(struct device *dev);
++	enum cti_subtype subtype;
++	const u32 *offsets;
  };
  
- /**
+ /*
+@@ -235,6 +271,11 @@ struct coresight_platform_data *
+ coresight_cti_get_platform_data(struct device *dev);
+ const char *cti_plat_get_node_name(struct fwnode_handle *fwnode);
+ 
++static inline u32 cti_offset(struct cti_drvdata *drvdata, int index, int num)
++{
++	return drvdata->offsets[index] + 4 * num;
++}
++
+ /* cti powered and enabled */
+ static inline bool cti_active(struct cti_config *cfg)
+ {
+diff --git a/drivers/hwtracing/coresight/qcom-cti.h b/drivers/hwtracing/coresight/qcom-cti.h
+new file mode 100644
+index 000000000000..3c46317dd81f
+--- /dev/null
++++ b/drivers/hwtracing/coresight/qcom-cti.h
+@@ -0,0 +1,29 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++/*
++ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
++ */
++
++#define ARCHITECT_QCOM 0x477
++
++/* CTI programming registers */
++#define	QCOM_CTIINTACK		0x020
++#define	QCOM_CTIAPPSET		0x004
++#define	QCOM_CTIAPPCLEAR	0x008
++#define	QCOM_CTIAPPPULSE	0x00C
++#define	QCOM_CTIINEN		0x400
++#define	QCOM_CTIOUTEN		0x800
++#define	QCOM_CTITRIGINSTATUS	0x040
++#define	QCOM_CTITRIGOUTSTATUS	0x060
++#define	QCOM_CTICHINSTATUS	0x080
++#define	QCOM_CTICHOUTSTATUS	0x084
++#define	QCOM_CTIGATE		0x088
++#define	QCOM_ASICCTL		0x08c
++/* Integration test registers */
++#define	QCOM_ITCHINACK		0xE70
++#define	QCOM_ITTRIGINACK	0xE80
++#define	QCOM_ITCHOUT		0xE74
++#define	QCOM_ITTRIGOUT		0xEA0
++#define	QCOM_ITCHOUTACK		0xE78
++#define	QCOM_ITTRIGOUTACK	0xEC0
++#define	QCOM_ITCHIN		0xE7C
++#define	QCOM_ITTRIGIN		0xEE0
 
 -- 
 2.43.0
