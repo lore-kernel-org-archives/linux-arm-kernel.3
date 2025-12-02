@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43911D116F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 14:18:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C83BBCFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 14:22:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DqWhd7pgLu3TuaNPiJjtSv9NJ0oz7uW4FlhXV6xN5Rs=; b=cPEijSyJMJi12YDfIpLL80rrx1
-	Pg4yOuF7XRdjeCLg9EYXmIWo3cCbHeGGYONI0Yxsdx6e/k62T3EvidLwQ42XoTHgcFRP8uVpnL52w
-	4kLPnKWQpwdnquvwyThQuT2cv7UFG+VTxNE5X6XRqwdHg8yxTPak5nlEu+vVhtfdED6Lj/nDy7Kn+
-	m2SFBqW7/NdagjgU6tvB3trg8lw3kHop7iAgiD+kfqcP3d7OBhwf/WFG9U/v4dA2byPtCm/KgWFMc
-	w6sk/1ikBwwMR0LaKVSxkX0PLBVMw9nnLcHpP3VUb59zW1oJoIM3SczJTSE4DigbMSiY0Acov0uGV
-	55/7qYdA==;
+	bh=TlEnA6yr6XAexgheDSPP0SgGR4c9sRywkiK2h74ttRM=; b=QC9WEj7cRcWOWECAN85QcYJvRa
+	cHlHw1Wf5W5H1ml8GAj4ddY9feu0ECYPsuGE44CHVXH4B5e6rYJbCKmrXOYhUjXCpNcP/IPyXLqHg
+	OU+z/GKAPHFowjRbSLPpXfdOBcY7HYxtn8sQBdui8AbM6qudbPfl1VeMrpz1CgBIzc7Bk7sERW8ZO
+	6x7ngIogYpbRGyDVsNb6J4THGpJufir3hWG7Bcys/QyL44jNvoMvo9wh0owp2OIQidPB9uxKewbW0
+	j/xpvuFHtmH2BuVZRPuOu0VxdrTZybfGMsl0eM41j+H/O+CmpqW6dZSRNCAFlnrygQrRNXULrTAOj
+	BiewXhrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQRD0-00000005Ufd-2AvM;
-	Tue, 02 Dec 2025 14:18:26 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQRCx-00000005UfA-0n6p
+	id 1vQRGV-00000005Uqs-0bnp;
+	Tue, 02 Dec 2025 14:22:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQRGR-00000005UqX-2Uw6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 14:18:25 +0000
-Date: Tue, 2 Dec 2025 15:18:16 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1764685097;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DqWhd7pgLu3TuaNPiJjtSv9NJ0oz7uW4FlhXV6xN5Rs=;
-	b=Ej1/maXk1+OVOKSqGfGnIKB2lCd51saxgMtGGH4yetKbvQGaRAyAQ7AONQqd7Abqt5gT0p
-	nplBYemfht2enMcDbHaiz73l3hQRxlkZxfwgC+OO6V/UpG2pIDr4yaPnikGFtPQsvRYb39
-	aniWaTXZAPynxtvIinWsZ4zjfxidYB0ZdkEV7Y3X6XQlCOlPq/0dHfAAauktKXcNzP0JA0
-	3VT6zipY1gW4qO6L4D37px3jNHVSIWpR/hAGsuFgGjVsk87nb9vKN2YS5rdTXO0oHcV895
-	dXfMZgCwpsOIjJajhhJBC79hGxdJD25mrYnFuJuNPKC+MdEACJ+s+47tH3Tz5A==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1764685097;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DqWhd7pgLu3TuaNPiJjtSv9NJ0oz7uW4FlhXV6xN5Rs=;
-	b=itBlWujI2YRSHbmdJFL3jsgZvkv/LDqYUy63ulGGFJJBuQjBgtB9XxEBLrFSYMdlAoC8N4
-	yY9mL6J2Nkv+mmDg==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Russell King <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev,
-	Xie Yuanbin <xieyuanbin1@huawei.com>, Arnd Bergmann <arnd@arndb.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	"Yadi.hu" <yadi.hu@windriver.com>
-Subject: Re: [PATCH v3 2/5] ARM: mm: fault: Enable interrupts before invoking
- __do_user_fault()
-Message-ID: <20251202141816.wfHNUMFK@linutronix.de>
-References: <20251110145555.2555055-1-bigeasy@linutronix.de>
- <20251110145555.2555055-3-bigeasy@linutronix.de>
+	Tue, 02 Dec 2025 14:22:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 36C081477;
+	Tue,  2 Dec 2025 06:21:50 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2F0A23F73B;
+	Tue,  2 Dec 2025 06:21:57 -0800 (PST)
+Date: Tue, 2 Dec 2025 14:21:55 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Tamas Petz <tamas.petz@arm.com>,
+	Tamas Zsoldos <tamas.zsoldos@arm.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org
+Subject: Re: [PATCH 07/19] coresight: trbe: Refactor AUX flag setting
+Message-ID: <20251202142155.GB724103@e132581.arm.com>
+References: <20251201-trbe_buffer_refactor_v1-1-v1-0-7da32b076b28@arm.com>
+ <20251201-trbe_buffer_refactor_v1-1-v1-7-7da32b076b28@arm.com>
+ <e315b489-2ebf-4ab6-8a60-347f1b1dca16@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251110145555.2555055-3-bigeasy@linutronix.de>
+In-Reply-To: <e315b489-2ebf-4ab6-8a60-347f1b1dca16@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_061823_369309_58BBF292 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20251202_062159_673877_A76F6B2F 
+X-CRM114-Status: GOOD (  26.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,56 +75,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-11-10 15:55:52 [+0100], To linux-arm-kernel@lists.infradead.org wrote:
-|
-|   https://www.armlinux.org.uk/developer/patches/viewpatch.php?id=9460/1
-|
-| Moved to Discarded.
-|
-| This makes the issues with the branch predictor hardening worse if this
-| patch is merged on its own - since this adds another path where
-| interrupts are enabled before calling harden_branch_predictor() in
-| __do_user_fault(). It would be sensible to move the interrupt enable
-| into __do_user_fault().
-|
-|    *** PLEASE DO NOT REPLY TO THIS MESSAGE ***
+On Tue, Dec 02, 2025 at 11:15:47AM +0000, Suzuki K Poulose wrote:
 
-I thought that we apply both.
-In 9462/1 I am moving harden_branch_predictor() out of __do_user_fault()
-because do_page_fault() needs the hardening before the interrupts are
-enabled. Do mean something like
+[...]
 
-diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
-index 2bc828a1940c0..f70b98fb562b3 100644
---- a/arch/arm/mm/fault.c
-+++ b/arch/arm/mm/fault.c
-@@ -186,6 +186,7 @@ __do_user_fault(unsigned long addr, unsigned int fsr, unsigned int sig,
- 	if (addr > TASK_SIZE)
- 		harden_branch_predictor();
- 
-+	local_irq_enable();
- #ifdef CONFIG_DEBUG_USER
- 	if (((user_debug & UDBG_SEGV) && (sig == SIGSEGV)) ||
- 	    ((user_debug & UDBG_BUS)  && (sig == SIGBUS))) {
-@@ -274,8 +275,13 @@ do_page_fault(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
- 
- 
- 	/* Enable interrupts if they were enabled in the parent context. */
--	if (interrupts_enabled(regs))
-+	if (interrupts_enabled(regs)) {
-+		if (addr >= TASK_SIZE && user_mode(regs)) {
-+			__do_user_fault(addr, fsr, SIGSEGV, SEGV_MAPERR, regs);
-+			return 0;
-+		}
- 		local_irq_enable();
-+	}
- 
- 	/*
- 	 * If we're in an interrupt or have no user
+> > @@ -687,6 +668,23 @@ static enum trbe_fault_action trbe_get_fault_act(struct perf_output_handle *hand
+> >   		goto out_fatal;
+> >   	}
+> > +	/*
+> > +	 * Mark the buffer to indicate that there was a WRAP event by
+> > +	 * setting the COLLISION flag. This indicates to the user that
+> > +	 * the TRBE trace collection was stopped without stopping the
+> > +	 * ETE and thus there might be some amount of trace that was
+> > +	 * lost between the time the WRAP was detected and the IRQ
+> > +	 * was consumed by the CPU.
+> > +	 *
+> > +	 * Setting the TRUNCATED flag would move the event to STOPPED
+> > +	 * state unnecessarily, even when there is space left in the
+> > +	 * ring buffer. Using the COLLISION flag doesn't have this side
+> > +	 * effect. We only set TRUNCATED flag when there is no space
+> > +	 * left in the ring buffer.
+> > +	 */
+> > +	if (!is_trbe_running(trbsr))
+> 
+> Is this really required ? There is a WARN_ON(is_trbe_running(trbsr))
+> above ?
 
-instead both patches? So now we end up in __do_user_fault() via
-do_page_fault() with enabled interrupts but only for addr < TASK_SIZE
-which does not involve harden_branch_predictor().
+The WARN_ON() will reports warning for running case, here it sets
+COLLISION flag for not running case, which is not conflict.
 
-Sebastian
+This works for the Fill mode (stop collection), we always set the
+COLLISION flag for it.  Once we enable trigger and wrap modes, due to
+the trace continues to run, we don't set the flag for these modes.
+
+> > +		perf_aux_output_flag(handle, PERF_AUX_FLAG_COLLISION);
+> 
+> Also, setting this would unnecessarily mark COLLISION while stopping the
+> TRBE buffer normally (when called from arm_trbe_update_buffer), when
+> there is no WRAP event ?
+
+Good point.  I should refactor arm_trbe_update_buffer(), it firstly
+reads out TRBSR, stop trace afterwards, and then call
+trbe_get_fault_act().
+
+In this case, it is in running mode so COLLISION will not be set for
+normal disable flow.
+
+I will add a new patch for this and place it before this one.
+
+> > +
+> >   	if (is_trbe_wrap(trbsr))
+> >   		return TRBE_FAULT_ACT_WRAP;
+> 
+> Couldn't this be :
+> 
+> 	/* Move the big fat comment here */
+> 	if (is_trbe_wrap(trbsr)) {
+> 		perf_aux_output_flag(handle, PERF_AUX_FLAG_COLLISION);
+> 		return TRBE_FAULT_ACT_WRAP;
+> 	}
+
+It deliberately de-couples the COLLISION flag from the WRAP event.
+
+In later change, a WRAP event only means buffer wrap around, it does
+mean the trace has been stopped.  The AUX flag is only set for
+stopping case.
+
+Thanks,
+Leo
 
