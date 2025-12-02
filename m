@@ -4,62 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE1F8CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 10:16:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8012CFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 10:18:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x3nCJtrzuwZwk2SecVV6dBlf/UpUflNFmCw7auMROCw=; b=vA8ESVzP5OAFi4TKXBd42wxrGe
-	tdI5XVvu3HcMRoo9jLSnHTwzogaDwDh06/QlqopbX7O7TmR1oZqCRzMvWC5ArWVnrqjzCYBHX+xdi
-	uVEokVNUdjeXJJjXRzLLDOL27e8qK2Vg8FDEBDN5uFmXG3SznkWf3APTyww612Kb7BrQHcOfC3mzE
-	y+WmyWS8ZCFke2GO9mTTXrfua0E9BVnR8UOFrIbsOIKdD0d2/LlHJLQWd/5vNZC7rz4uN8676snDP
-	+3GNIxVBHl5xdapiLCuxXjcqtGUz3CegfmUOEZ/24j1ADwR0wl63mc6raQkD8QabcLNgOel4/PHbZ
-	oh9BgoeQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ioQkr+GKAfJYKZV/T+4+6GXwiHc4J3vIRn+JfgGfGZM=; b=RME8TvasYAurIkrN16ilixMPOs
+	x++ZRacebxjonBd/ZQuRzDmX8aCIHhljrmQIc2ym3Pzv2z/msnyXPf5uGRcM278AIRY102EVhS+iM
+	koEvWTNtobKRCqKcfUHPXkIWquxrkyWsLNiMpJ2w8CCabA79M7vZptyn5Q+hzbD8BUUkyySh1czwV
+	RD26HjHfLwspTm+euHvEwPHtKFd0Umwvvj506ussy0FRXxiA2kEH3EvrxbQ3MAFBgOqCea+jsja9R
+	b+ZxXU8yQSGFnJhz0vHfpuAybP2YktGCTb2n9Mj1ntCX6j9nPLrJ/MCQohWlXPPyMzRrxB7erOQ1I
+	502OI71A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQNQQ-00000005EWc-0IAW;
-	Tue, 02 Dec 2025 10:16:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQNQO-00000005EWG-11ps
+	id 1vQNSO-00000005EkW-008n;
+	Tue, 02 Dec 2025 10:18:04 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQNSL-00000005Ek3-1e8P
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 10:16:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C9EF4153B;
-	Tue,  2 Dec 2025 02:15:51 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C0E8E3F73B;
-	Tue,  2 Dec 2025 02:15:58 -0800 (PST)
-Date: Tue, 2 Dec 2025 10:15:56 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	Leo Yan <leo.yan@linux.dev>, linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/7] perf tools: Track all user changed config bits
-Message-ID: <20251202101556.GR724103@e132581.arm.com>
-References: <20251201-james-perf-config-bits-v1-0-22ecbbf8007c@linaro.org>
- <20251201-james-perf-config-bits-v1-1-22ecbbf8007c@linaro.org>
+	Tue, 02 Dec 2025 10:18:02 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-59577c4c7c1so5902425e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 02:18:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1764670679; x=1765275479; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ioQkr+GKAfJYKZV/T+4+6GXwiHc4J3vIRn+JfgGfGZM=;
+        b=VJJhos8dGN0OBjA++wu1/3v3WGmjTfNGSfBxFQa9bGJb+Nb6NG+uOwoBVOe+cv/6h1
+         i1IDfixMV0tWzilu7xjeSKeZ1n5xXHXaqy04bPUnZTRMkL54RSRITB01njUBOe+LEGP2
+         BR8Ud8nox3L+I9SuIC2SdPslniwvkeBUYm2xA=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764670679; x=1765275479;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=ioQkr+GKAfJYKZV/T+4+6GXwiHc4J3vIRn+JfgGfGZM=;
+        b=AA2DgQ7frtfiqRUg4mBuXRnAYiLls3XiqC9A+0dees+wVKjgmEzzZ8GHq2ukZX+Omm
+         ShPbj/BviIG2bRYo6mnpRfa/l8F9wu3CnLAM99w1J7nrrgVciiBdRlTmTUU9mzu/LISQ
+         m7M2JF4DylCao+RU+H5j1wEKPwIuM+33oeaLNy5UGq7h/HyNMRLxiLfYFef9GbxcsgqB
+         A0T7/qTWGZDx/eSrWycT6hbw+gg0RBPYxxYPYOfGfs1cBXx0z4UWnUW48zGNbMMvBePC
+         Bwv4byDZNRysWhMSmQZe8ymHVY3k4BRwcC3FN4vjF1XUHbSwNgvxLw6pAfGSd2Ufgpu/
+         ajWA==
+X-Gm-Message-State: AOJu0Yy2G52O2O87UT2FNtchEE1KiYPO2TX6XdCp/vbvkXZvJULzDvJM
+	ubU33yCdXnTN9xpIKV+/w3ZNLWiTzZgDxhz8UVgvgp5GdgyTOQxYEF5jyRLZ5wvliGdhmZF4Xn+
+	G8Zbg6xF/ViTtGRum42Mqn2wcyPJhQO8G3ZDtrxKU
+X-Gm-Gg: ASbGnctuUVoaisC4WlIjzL8oxEbbK+9E9dtfMCS87GAL8V6gfZFTyYtjxV9uQMRtfRK
+	3ZsjZ0YhBaHJk/7LlqpWnkitcPq4e9dUgc51pxA/DYt1pOWEU7n2ZV9JWqujkc57rQkE7LN0eJX
+	91s5VMtQRBieMw+YKcaisWGcW/xQiukJibr9RuqgdwF5DrZWrLzrWn3NtxjtdOpm9cgRYkL1zde
+	t5NAaP5Cc/f9vJFRGDwSugqzQwzXEHciYWZWVvw73NLtF9JflAEPxXHiPhM9AIjQfrXnxy9x1l8
+	+2/ftA6SNyH8suGL2k8HUr0FxQ==
+X-Google-Smtp-Source: AGHT+IFMbNYfhx/IxwWIQN6hcIz5muNjsBKHxTkZZuialnPyRfu0ht8VSNm8f5GhN/j4yvFDY8oqqVS+Wnc7sR40ZBE=
+X-Received: by 2002:a05:6512:4010:b0:595:9989:16fd with SMTP id
+ 2adb3069b0e04-597cfb0b5d1mr748225e87.11.1764670679281; Tue, 02 Dec 2025
+ 02:17:59 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251201-james-perf-config-bits-v1-1-22ecbbf8007c@linaro.org>
+References: <20251119181333.991099-1-sjg@chromium.org> <20251119181333.991099-8-sjg@chromium.org>
+In-Reply-To: <20251119181333.991099-8-sjg@chromium.org>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Tue, 2 Dec 2025 18:17:48 +0800
+X-Gm-Features: AWmQ_bkDP2tY6V4lgah0ZJ6jJsxSJmd_cZ-9gWNxark5x0Lt7dHgeEEKpi8sTO8
+Message-ID: <CAGXv+5HiV7EE9CNPRT5EbL8AM8n68Ac1r-=esQL5dgaPDKPTWQ@mail.gmail.com>
+Subject: Re: [PATCH v6 7/8] scripts/make_fit: Support a few more parallel compressors
+To: Simon Glass <sjg@chromium.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	=?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Tom Rini <trini@konsulko.com>, 
+	Ahmad Fatoum <a.fatoum@pengutronix.de>, =?UTF-8?B?SiAuIE5ldXNjaMOkZmVy?= <j.ne@posteo.net>, 
+	Nicolas Schier <nicolas@fjasle.eu>, David Sterba <dsterba@suse.com>, Nick Terrell <terrelln@fb.com>, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_021600_326380_329BA4D7 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20251202_021801_484324_B2232C4A 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,32 +96,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 01, 2025 at 04:41:04PM +0000, Coresight ML wrote:
+On Thu, Nov 20, 2025 at 2:14=E2=80=AFAM Simon Glass <sjg@chromium.org> wrot=
+e:
+>
+> Add support for pbzip2 and plzip which can compress in parallel. This
+> speeds up the ramdisk compression.
+>
+> Signed-off-by: Simon Glass <sjg@chromium.org>
+> ---
+>
+> (no changes since v1)
+>
+>  scripts/make_fit.py | 11 ++++++++---
+>  1 file changed, 8 insertions(+), 3 deletions(-)
+>
+> diff --git a/scripts/make_fit.py b/scripts/make_fit.py
+> index 9dfef11fc4b3..64038f17a51e 100755
+> --- a/scripts/make_fit.py
+> +++ b/scripts/make_fit.py
+> @@ -57,10 +57,10 @@ import libfdt
+>  CompTool =3D collections.namedtuple('CompTool', 'ext,tools')
+>
+>  COMP_TOOLS =3D {
+> -    'bzip2': CompTool('.bz2', 'bzip2'),
+> +    'bzip2': CompTool('.bz2', 'pbzip2,bzip2'),
+>      'gzip': CompTool('.gz', 'pigz,gzip'),
+>      'lz4': CompTool('.lz4', 'lz4'),
+> -    'lzma': CompTool('.lzma', 'lzma'),
+> +    'lzma': CompTool('.lzma', 'plzip,lzma'),
+>      'lzo': CompTool('.lzo', 'lzop'),
+>      'zstd': CompTool('.zstd', 'zstd'),
+>  }
+> @@ -220,7 +220,12 @@ def compress_data(inf, compress):
+>              done =3D False
+>              for tool in comp.tools.split(','):
+>                  try:
+> -                    subprocess.call([tool, '-c'], stdin=3Dinf, stdout=3D=
+outf)
+> +                    # Add parallel flags for tools that support them
+> +                    cmd =3D [tool]
+> +                    if tool in ('zstd', 'xz'):
 
-[...]
+There's no 'xz' tool in the list though.
 
-> +#define ADD_CONFIG_CHG(format_type, term_type, new_term)		\
-> +{									\
-> +	struct parse_events_term *term;					\
-> +	u64 bits = 0;							\
-> +	int type;							\
-> +									\
-> +	list_for_each_entry(term, &head_config->terms, list) {		\
-> +		if (term->type_term == PARSE_EVENTS__TERM_TYPE_USER) {  \
-> +			type = perf_pmu__format_type(pmu, term->config);\
-> +			if (type != format_type)			\
-> +				continue;				\
-> +			bits |= perf_pmu__format_bits(pmu, term->config); \
-> +		} else if (term->type_term == term_type) {		\
-> +			bits = ~(u64)0;					\
-> +		}							\
-> +	}								\
-> +									\
-> +	if (bits)							\
-> +		ADD_CONFIG_TERM_VAL(new_term, cfg_chg, bits, false);	\
-> +	return 0;							\
+And this hunk isn't mentioned or explained in the commit message.
 
-Nitpick: "return 0" is not needed here.  Otherwise:
+> +                        cmd.extend(['-T0'])  # Use all available cores
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+Zero is already the default for 'xz' in 5.8.1.
+
+
+ChenYu
+
+> +                    cmd.append('-c')
+> +                    subprocess.call(cmd, stdin=3Dinf, stdout=3Doutf)
+>                      done =3D True
+>                      break
+>                  except FileNotFoundError:
+> --
+> 2.43.0
+>
 
