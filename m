@@ -4,84 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8012CFD376
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 10:18:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E497ECFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 10:18:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ioQkr+GKAfJYKZV/T+4+6GXwiHc4J3vIRn+JfgGfGZM=; b=RME8TvasYAurIkrN16ilixMPOs
-	x++ZRacebxjonBd/ZQuRzDmX8aCIHhljrmQIc2ym3Pzv2z/msnyXPf5uGRcM278AIRY102EVhS+iM
-	koEvWTNtobKRCqKcfUHPXkIWquxrkyWsLNiMpJ2w8CCabA79M7vZptyn5Q+hzbD8BUUkyySh1czwV
-	RD26HjHfLwspTm+euHvEwPHtKFd0Umwvvj506ussy0FRXxiA2kEH3EvrxbQ3MAFBgOqCea+jsja9R
-	b+ZxXU8yQSGFnJhz0vHfpuAybP2YktGCTb2n9Mj1ntCX6j9nPLrJ/MCQohWlXPPyMzRrxB7erOQ1I
-	502OI71A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9cAk3oLL8ROCJ57k2VQByXGpSqsygpTMtS752h0isB8=; b=eNXmJSy2PP2WtMeFUsvhOy1Utf
+	ctTaocUPZhoh02Jv3q0cVsJPJ34+aOSeicha8WISSJwVQCedtXfKKZxxV+2T7UE4A0gvhW0vMNJxj
+	UejXbl1qct8VhFqnvmyUWgh/6T/K69m4n8P75XEl+abNJGdCP96TkdBYBucRp5j074CZ7XrnJvA2X
+	xsu/EvB8JPJefdu4KVexyCoFELvD4wMLbHzoKhsb27GAHevL+gTc90AScvW4GjP0iWKb1qASfPtDY
+	obYeg1jIi9Jd3kw7U8Q6T75LOVz6GmGkMWNDrU00vUHmnKn9zdw2zvjjA/sDxoaP8F6bCLmKn9SqX
+	4CyDwBXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQNSO-00000005EkW-008n;
-	Tue, 02 Dec 2025 10:18:04 +0000
-Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
+	id 1vQNSe-00000005EoY-0IEb;
+	Tue, 02 Dec 2025 10:18:20 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQNSL-00000005Ek3-1e8P
+	id 1vQNSa-00000005Emb-4BWk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 10:18:02 +0000
-Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-59577c4c7c1so5902425e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 02:18:00 -0800 (PST)
+	Tue, 02 Dec 2025 10:18:18 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4779a637712so32361005e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 02:18:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1764670679; x=1765275479; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ioQkr+GKAfJYKZV/T+4+6GXwiHc4J3vIRn+JfgGfGZM=;
-        b=VJJhos8dGN0OBjA++wu1/3v3WGmjTfNGSfBxFQa9bGJb+Nb6NG+uOwoBVOe+cv/6h1
-         i1IDfixMV0tWzilu7xjeSKeZ1n5xXHXaqy04bPUnZTRMkL54RSRITB01njUBOe+LEGP2
-         BR8Ud8nox3L+I9SuIC2SdPslniwvkeBUYm2xA=
+        d=linaro.org; s=google; t=1764670695; x=1765275495; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=9cAk3oLL8ROCJ57k2VQByXGpSqsygpTMtS752h0isB8=;
+        b=IEs3OQUo/UMEmfeLXsD43WGWzZMgXpDY+sC44lydkf6wHR4/wYaRxFGzmTxLDCu+v1
+         6KudtEsLmWCHtnEudHCau9GcW8uvkLzXQCHvitme4M61FjoJIoMEXDG4sRJnSUAX23Ig
+         tlRW7l8vDNjmgMhc0U+plgjRHzk8GYnIPGD6WuK31MlsM3ASFqUKsDYz27/ThKMPpHNc
+         XI+6UGuC44AUYx8n3YGvCiTl1xeXpVgt9u/y1AnPOZT24eGZ0BkxrIPxBHHb9REgjjHt
+         j1Cov6TRzPXJT7ToY7CzcFVBGF384Gm9aDejhWe1n6xk/QkG3lwOD6GY4EyHfHqYLpI3
+         7E+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764670679; x=1765275479;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ioQkr+GKAfJYKZV/T+4+6GXwiHc4J3vIRn+JfgGfGZM=;
-        b=AA2DgQ7frtfiqRUg4mBuXRnAYiLls3XiqC9A+0dees+wVKjgmEzzZ8GHq2ukZX+Omm
-         ShPbj/BviIG2bRYo6mnpRfa/l8F9wu3CnLAM99w1J7nrrgVciiBdRlTmTUU9mzu/LISQ
-         m7M2JF4DylCao+RU+H5j1wEKPwIuM+33oeaLNy5UGq7h/HyNMRLxiLfYFef9GbxcsgqB
-         A0T7/qTWGZDx/eSrWycT6hbw+gg0RBPYxxYPYOfGfs1cBXx0z4UWnUW48zGNbMMvBePC
-         Bwv4byDZNRysWhMSmQZe8ymHVY3k4BRwcC3FN4vjF1XUHbSwNgvxLw6pAfGSd2Ufgpu/
-         ajWA==
-X-Gm-Message-State: AOJu0Yy2G52O2O87UT2FNtchEE1KiYPO2TX6XdCp/vbvkXZvJULzDvJM
-	ubU33yCdXnTN9xpIKV+/w3ZNLWiTzZgDxhz8UVgvgp5GdgyTOQxYEF5jyRLZ5wvliGdhmZF4Xn+
-	G8Zbg6xF/ViTtGRum42Mqn2wcyPJhQO8G3ZDtrxKU
-X-Gm-Gg: ASbGnctuUVoaisC4WlIjzL8oxEbbK+9E9dtfMCS87GAL8V6gfZFTyYtjxV9uQMRtfRK
-	3ZsjZ0YhBaHJk/7LlqpWnkitcPq4e9dUgc51pxA/DYt1pOWEU7n2ZV9JWqujkc57rQkE7LN0eJX
-	91s5VMtQRBieMw+YKcaisWGcW/xQiukJibr9RuqgdwF5DrZWrLzrWn3NtxjtdOpm9cgRYkL1zde
-	t5NAaP5Cc/f9vJFRGDwSugqzQwzXEHciYWZWVvw73NLtF9JflAEPxXHiPhM9AIjQfrXnxy9x1l8
-	+2/ftA6SNyH8suGL2k8HUr0FxQ==
-X-Google-Smtp-Source: AGHT+IFMbNYfhx/IxwWIQN6hcIz5muNjsBKHxTkZZuialnPyRfu0ht8VSNm8f5GhN/j4yvFDY8oqqVS+Wnc7sR40ZBE=
-X-Received: by 2002:a05:6512:4010:b0:595:9989:16fd with SMTP id
- 2adb3069b0e04-597cfb0b5d1mr748225e87.11.1764670679281; Tue, 02 Dec 2025
- 02:17:59 -0800 (PST)
-MIME-Version: 1.0
-References: <20251119181333.991099-1-sjg@chromium.org> <20251119181333.991099-8-sjg@chromium.org>
-In-Reply-To: <20251119181333.991099-8-sjg@chromium.org>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Tue, 2 Dec 2025 18:17:48 +0800
-X-Gm-Features: AWmQ_bkDP2tY6V4lgah0ZJ6jJsxSJmd_cZ-9gWNxark5x0Lt7dHgeEEKpi8sTO8
-Message-ID: <CAGXv+5HiV7EE9CNPRT5EbL8AM8n68Ac1r-=esQL5dgaPDKPTWQ@mail.gmail.com>
-Subject: Re: [PATCH v6 7/8] scripts/make_fit: Support a few more parallel compressors
-To: Simon Glass <sjg@chromium.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	=?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Tom Rini <trini@konsulko.com>, 
-	Ahmad Fatoum <a.fatoum@pengutronix.de>, =?UTF-8?B?SiAuIE5ldXNjaMOkZmVy?= <j.ne@posteo.net>, 
-	Nicolas Schier <nicolas@fjasle.eu>, David Sterba <dsterba@suse.com>, Nick Terrell <terrelln@fb.com>, 
+        d=1e100.net; s=20230601; t=1764670695; x=1765275495;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9cAk3oLL8ROCJ57k2VQByXGpSqsygpTMtS752h0isB8=;
+        b=GCgY2/cl8jVAQwD7z0tMD0VVU0sySqNQ7L7gWqG772PDpVYhhy+EMuqtpN2wXPWrvO
+         XLWfB7iYsOTJhg1dbSTqZlDGPO0Ze8WHKXfDZlPtE1FJMfeJiVxDXKc6EjrleyAYru3W
+         1iluAYAHedoPen4wD8cNy28kQmtxqpiQnoAxrVKzf9KNHY0iDQcS2KuvgNpoUFxesrQV
+         aDaqgj92wEnYtkI44UJDYZ3UhLGrb8tDsjerYdUHiFXZFpF0BUO5YlSkybGJ5vivaZ6J
+         qYgD+C8GqNV6u3QPmIX06fKe5AhvodJVJQUzwGqH4Ogf3H34rFD3nfDR6U1UytVIO5Ep
+         W9mQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVzh2zCNts6xjWBlNYdr5GavvyqZd6bHe5WCflH8P+ox714Jt91v4CsdQI+jMYYhu2l5JR9M4cXaamgM+bCpZKm@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/978DBdk2bDADSxOBdw3VG0bPnYr1EzW+ifWEQh1fZzK6QCiQ
+	CgbEGjaaI6wSOzVj9WK54d8KDjvYwHXgZqReYNw9NpG2EahYGENOesT33H9F4swpuRk=
+X-Gm-Gg: ASbGnctaNRPqPNRhX/7jFLIWeKDDUorB+QgsyhoCMn9SrpBgPNoL9r3Tc7q4v8KjxaS
+	0LpLxswLnIu/ul/ycmhow2kiaKO3wOTaUAPADvGPx/ask7CvfgqPIL1eTkcfs8P9hdm1vwwPV3X
+	U12JnFOb8Yh8ny4Uuqreh7np5hHM8EjcpLo8nfQwG//8/XN7uwUNeHY1jsQR0MWpuCCe0Td3Y3m
+	qkdwd8tqLOOd2AhQVs6ETyYdnOoWFY3bGiMeQO3Fdtapz5kyt2Onynjw6CjEhbmJ2mj8G1bSlgS
+	G8P+9akN/YKGaBvzZqFu+deqJT9NggRxpzQ9Wy9IcYOPZ3v9KqFYyksOcyf8GfyyR7IVImIzRoJ
+	AZ1kBnU/41IXdjEJsFzccfnEEasKMm48zltJL0Fd6joRrJl3QHqiXvNmMJYhAWLarsPZTu93gdq
+	yUaBPd9Xw5HNJj8vwO
+X-Google-Smtp-Source: AGHT+IHy3nFX0LKMVWLipxBkC1l1bBeysdgOp+AnUue/+gwsKv8yLm3DSpc6vz+WjLvbvqXoMhctiA==
+X-Received: by 2002:a05:600c:3baa:b0:475:de12:d3b5 with SMTP id 5b1f17b1804b1-477c01ecc7cmr422115765e9.34.1764670695027;
+        Tue, 02 Dec 2025 02:18:15 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-47927808a3esm12254865e9.1.2025.12.02.02.18.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Dec 2025 02:18:14 -0800 (PST)
+Date: Tue, 2 Dec 2025 13:18:10 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Haotian Zhang <vulab@iscas.ac.cn>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH] staging: vc04_services: vchiq_bus: Check return value of
+ of_dma_configure()
+Message-ID: <aS684lo6j3ldvrPn@stanley.mountain>
+References: <20251202095253.1640-1-vulab@iscas.ac.cn>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251202095253.1640-1-vulab@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_021801_484324_B2232C4A 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20251202_021817_044045_D451F5DD 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,64 +103,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 20, 2025 at 2:14=E2=80=AFAM Simon Glass <sjg@chromium.org> wrot=
-e:
->
-> Add support for pbzip2 and plzip which can compress in parallel. This
-> speeds up the ramdisk compression.
->
-> Signed-off-by: Simon Glass <sjg@chromium.org>
-> ---
->
-> (no changes since v1)
->
->  scripts/make_fit.py | 11 ++++++++---
->  1 file changed, 8 insertions(+), 3 deletions(-)
->
-> diff --git a/scripts/make_fit.py b/scripts/make_fit.py
-> index 9dfef11fc4b3..64038f17a51e 100755
-> --- a/scripts/make_fit.py
-> +++ b/scripts/make_fit.py
-> @@ -57,10 +57,10 @@ import libfdt
->  CompTool =3D collections.namedtuple('CompTool', 'ext,tools')
->
->  COMP_TOOLS =3D {
-> -    'bzip2': CompTool('.bz2', 'bzip2'),
-> +    'bzip2': CompTool('.bz2', 'pbzip2,bzip2'),
->      'gzip': CompTool('.gz', 'pigz,gzip'),
->      'lz4': CompTool('.lz4', 'lz4'),
-> -    'lzma': CompTool('.lzma', 'lzma'),
-> +    'lzma': CompTool('.lzma', 'plzip,lzma'),
->      'lzo': CompTool('.lzo', 'lzop'),
->      'zstd': CompTool('.zstd', 'zstd'),
->  }
-> @@ -220,7 +220,12 @@ def compress_data(inf, compress):
->              done =3D False
->              for tool in comp.tools.split(','):
->                  try:
-> -                    subprocess.call([tool, '-c'], stdin=3Dinf, stdout=3D=
-outf)
-> +                    # Add parallel flags for tools that support them
-> +                    cmd =3D [tool]
-> +                    if tool in ('zstd', 'xz'):
+You're not working against the latest tree so this doesn't apply.
 
-There's no 'xz' tool in the list though.
+On Tue, Dec 02, 2025 at 05:52:52PM +0800, Haotian Zhang wrote:
+> vchiq_device_register() ignores the return value of of_dma_configure(),
+> which may return -EPROBE_DEFER when the IOMMU is not ready or other error
+> codes. This allows device registration to proceed with incomplete DMA
+> configuration.
+> 
 
-And this hunk isn't mentioned or explained in the commit message.
+If of_dma_configure() returns -EPROBE_DEFER then this will just fail and
+that's not really any better than the existing behavior...
 
-> +                        cmd.extend(['-T0'])  # Use all available cores
+regards,
+dan carpenter
 
-Zero is already the default for 'xz' in 5.8.1.
+> Check of_dma_configure() return value and fail device registration
+> on error.
+> 
+> Fixes: 027e5703de6b ("staging: vc04_services: vchiq_arm: Add new bus type and device type")
+> Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
 
-
-ChenYu
-
-> +                    cmd.append('-c')
-> +                    subprocess.call(cmd, stdin=3Dinf, stdout=3Doutf)
->                      done =3D True
->                      break
->                  except FileNotFoundError:
-> --
-> 2.43.0
->
 
