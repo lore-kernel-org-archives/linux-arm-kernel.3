@@ -4,69 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F64ED11702
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 16:05:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2B63D11707
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 16:14:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vgz9yq/L+yG5wR+0sBWMMC8Af7WF7LKgi9Ddt3OC+Ws=; b=RjaN9MOze4t74hP3h+7J8FK1jG
-	owO+Nhy2sa/0gLDItn3r+BG1SRnaJwTJEMo2ouAhz4hTATHLYu77niNprsIHgCpLfVIrCaWSSEbb/
-	RKqKQEK/yDu9cMHPtu8n0QXMqhMHa7sLDLK1skF0t2UeOtGMgHuH+RqkwCcNXWvlAbvCroLQcBEDr
-	+ix+2dIL4ADfhYCXYh55fGv7OQZ5UJ+Gf2wqh6C4I1hntbU83X7zyC2gml3fj5m0Zl5BopKz0Zjh6
-	Evg7BCmcuR1p65NyMt6uMUQDNsmFjqbElIUfdraStJFCbZIYc3reMOfNa9krjkw/hxjBe9dDStQZ0
-	QCvFjQnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ujAnw4eyXMXxdoX4FR6nN3wY45XQHoiz/qHdt7YVd04=; b=fUK3XFhB7+cgikN815w8qtD8aa
+	2bXLPKuVyDYvq9v9I0Ah8LZcRvcon5Va51lRKCGqBZmNJEKTZo92oW3GJlCfTHf2WMDPdsReTeggf
+	bsAJS7OXyYI3B/EC8pjpe3Y0WR+b/Kf5V0f0ydUhjlsLRDJICIlQgekLFrF6KI1JRBXYab0OvBoF4
+	MkrOSMmlfOBXRclB7UtvRoYF042ux0Yd2NRtSqhXSSZKK6fHEMPSPhreCuu2yO4IuqrD0rpwMh9AU
+	Ud7QNYAZB9/zW0YA+Rt8MXZ7bSQG8tCYYElgI41v+yUlt/Y7RDdU7EBLMehlGEyH2u6sG4IQTbzcj
+	6IRtUwjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQSsP-00000005bBH-2RHe;
-	Tue, 02 Dec 2025 16:05:17 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1vQT1M-00000005bgE-1392;
+	Tue, 02 Dec 2025 16:14:32 +0000
+Received: from mail-pl1-x643.google.com ([2607:f8b0:4864:20::643])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQSsN-00000005bAH-2n7z
+	id 1vQT1J-00000005bfK-37Q2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 16:05:16 +0000
-Date: Tue, 2 Dec 2025 17:05:10 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1764691512;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Vgz9yq/L+yG5wR+0sBWMMC8Af7WF7LKgi9Ddt3OC+Ws=;
-	b=osUsKHItN3B+FdLAGJouZCnRBe1omUSHY5b2VU+xMMcwuK52Xk+6+Fyp1n1gwox5SmDgqF
-	35HpFhzr30nY7M2RjpqCmCOLTueTTYpBhR6ieue16K168k1pu5Zb92QXL7LpBe8TUeigGc
-	nPnzUWWess8YBMbOXRqQWD43vp2lQ+oZRL6aKd7L3lKQeEnVP9+YY2Gntnga0tqAR8Zj8g
-	6EXrxGBL1GgDIJXCFogzGfkKlU1FHUhG2qdRDrOMzvrJT3Jt+49ibBOrPvEjiDTD+k4DF6
-	NuZtnAmsXARWFBUUELICjXJ2wkNFW3XboC9m9KqM2ctyF1xAB0eHdDxxILNrNQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1764691512;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Vgz9yq/L+yG5wR+0sBWMMC8Af7WF7LKgi9Ddt3OC+Ws=;
-	b=0HZTzH+1RKr9vOW7Gj0+XJWoUwekYi5hx9kHzAQPUQLwWPpZA1xBr30MUxRU0j+lGkTjXU
-	8YMV6hXkln+9mQBA==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev,
-	Xie Yuanbin <xieyuanbin1@huawei.com>, Arnd Bergmann <arnd@arndb.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	"Yadi.hu" <yadi.hu@windriver.com>
-Subject: Re: [PATCH v3 2/5] ARM: mm: fault: Enable interrupts before invoking
- __do_user_fault()
-Message-ID: <20251202160510.eUVnCuRx@linutronix.de>
-References: <20251110145555.2555055-1-bigeasy@linutronix.de>
- <20251110145555.2555055-3-bigeasy@linutronix.de>
- <20251202141816.wfHNUMFK@linutronix.de>
- <aS8J0WrmmH01L3K1@shell.armlinux.org.uk>
+	Tue, 02 Dec 2025 16:14:30 +0000
+Received: by mail-pl1-x643.google.com with SMTP id d9443c01a7336-299d40b0845so91902655ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 08:14:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764692068; x=1765296868; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ujAnw4eyXMXxdoX4FR6nN3wY45XQHoiz/qHdt7YVd04=;
+        b=FBdkZ7W30H9TZ0RDRdVqlnIDQ0v+Z+joQpsqHhPLDOGKPyAjUVSSTINWn1l4xyXvKe
+         pYnxnXJ7EhPIiTd2eZS7qj2N2aYWDBaodYj2jbaNQEUbmihMjXXA/KLexgD2ez5J3sG4
+         kG6swSatxB5IxUic3kqBM4JjU8wZcNtIXueTaSGPKK6HtlIfbr3oqkPVzXwljpl0raeD
+         8PqjEKQ6LZQ80drfnZyuOSvJZsAfNheWukfu7ZFGXyunbSa4BP/wBBUsr88ezdW7gH8L
+         DS6+0nBZj6zeZBDxHrI4892dZm4m9dMjlibIo+ZOVKG7227FVzah9GjYMaCSdROl8sWG
+         6oew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764692068; x=1765296868;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ujAnw4eyXMXxdoX4FR6nN3wY45XQHoiz/qHdt7YVd04=;
+        b=PYiukF4u0PdYkGAyu4hJcSETv2QhNy3xBntxcUHtOVz0E4iqJSyjq5O4qyMYewkmsE
+         2qo+iSQlW989Stjo5uASiQqLE/sdV/tBfH8LQENZ3TAPNI/ckRAiLo2qIssq7it5Cei3
+         F6x0s6WMyBwj8owE9xoNK09gZy2xNQI3BLLI79r1/n/2+N3lJe2sVfn1dZhLmYBr4sQR
+         lEs0oAmPkqzV73vMqwEBKN3alfjG/8YI7T6TbyEUmvo3wx3DnDfWdEZAyKQmyJNcId2l
+         vDy+xff7R4A89ASO0aA6uadlVLxNR3ysexv1/5dmL30XN7Dysli84lOK13oFpiVFIkYo
+         dGqQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWBCmVc0Tp/Ad/67AgH51/W93huVmbEkyqBqPHM86BMpx6ggv3lxNi+wCm1s5ef62yprvZRBUFZKE1E27/4Iev9@lists.infradead.org
+X-Gm-Message-State: AOJu0YwsOOOt1oAer2IfEPdITjPEVieau3O2HmXac6W2Yq4N9Jx7EP3g
+	ns4wwPat2cOvt8swHiesvOGNkhTTQ4N+SkfCLJTGlAc2QV3PNi2Yjpk6
+X-Gm-Gg: ASbGncu64HlRi/Qx611SuVd+KY7ZQyemfKMBCmu1hvnuo7jYB+aoQShBtwghc/fshm2
+	PRPdC7OJ38XvykbcGCiA4nt5OnztTljo60qUAC5IFTbjSvNlZGs4AFfjCLC4puWrfptjLYD8yMv
+	HV47Z2S7MJIBFuV3WMtd9K67S2NUAg+r7wCa5jZeNjXyZdXneM+bH0VF98vfXsOpednI1GYIe+O
+	drPuDMoAT/Aoe0OGqvlZBif9z4j8dBoZP1PtZnGMLeS2eORsXKBAqUum2CW7Ap2f9MgoMxye1fr
+	a1yoB97HSYZeLtuO4KHALuXqRu6oEVlLzRPRVop9+GBy6vsSmgDMHGTrpUrkUBZGQnevBauYW2X
+	HJOeOm4jxSnOrsH50IjjulrPWi2rn4jdu+kjU64SMDFrmoiVx41Npis/pgL6UjXL9jUWE4YoJxW
+	6dDwxrcZGihBGFaoYNTgDAfRj4UyXlSIKgJ50=
+X-Google-Smtp-Source: AGHT+IHKFWblm5LnaQm2d8+shTmkcU+FDf+0H06eH8nxVUhcOjJfWxAnQTwqjA0T3qIJaqWoH98RSQ==
+X-Received: by 2002:a17:903:244a:b0:294:d953:6ff9 with SMTP id d9443c01a7336-29bab1ae07fmr312387985ad.47.1764692068151;
+        Tue, 02 Dec 2025 08:14:28 -0800 (PST)
+Received: from vivek-IdeaPad-Slim-5-16IAH8.. ([2405:201:c020:c865:ca9f:dff7:8120:8577])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29bce44389bsm160814385ad.32.2025.12.02.08.14.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Dec 2025 08:14:27 -0800 (PST)
+From: vivek yadav <y9.vivek@gmail.com>
+To: slongerbeam@gmail.com,
+	p.zabel@pengutronix.de,
+	mchehab@kernel.org,
+	gregkh@linuxfoundation.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-media@vger.kernel.org,
+	linux-staging@lists.linux.dev,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: vivek yadav <y9.vivek@gmail.com>
+Subject: [PATCH] staging: media: imx: fix style issues
+Date: Tue,  2 Dec 2025 21:44:13 +0530
+Message-ID: <20251202161413.92230-1-y9.vivek@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <aS8J0WrmmH01L3K1@shell.armlinux.org.uk>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_080515_844585_85BAD392 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20251202_081429_784004_2E967D4D 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,26 +107,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-12-02 15:46:25 [+0000], Russell King (Oracle) wrote:
-> If I apply 9460/1 without 9462/1 first, then it makes the problems
-> with the branch predictor hardening worse. I'm not prepared to do that.
-> 
-> However, 9462/1 is tied up in the discussions that are ongoing, and I'm
-> not going to short-circuit the still-ongoing discussions that touch
-> this area by applying this patch - which would screw up everyone's
-> proposals to fix the various many problems that are being discovered in
-> the 32-bit ARM fault handling.
-> 
-> This means I can't apply 9462/1 nor 9460/1.
-> 
-> Since 9463/1 likely requires these, I can't apply that one either.
-> 
-> Sorry.
+Applied checkpatch.pl recommendations:
+- corrected whitespace
+- fixed line length
+- adjusted indentation
 
-Understood. So you just want to get the other bug fixed first and then
-we get back to this if it still remains open.
-Please let me know if you need some testing or applied the fix and want
-me to rebase these changes on top.
+Signed-off-by: vivek yadav <y9.vivek@gmail.com>
+---
+ drivers/staging/media/imx/imx-media-csi.c  | 2 +-
+ drivers/staging/media/imx/imx-media-vdic.c | 2 +-
+ drivers/staging/media/imx/imx-media.h      | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
 
-Sebastian
+diff --git a/drivers/staging/media/imx/imx-media-csi.c b/drivers/staging/media/imx/imx-media-csi.c
+index fd7e37d803e7..725478bc2026 100644
+--- a/drivers/staging/media/imx/imx-media-csi.c
++++ b/drivers/staging/media/imx/imx-media-csi.c
+@@ -1509,7 +1509,7 @@ static void csi_try_fmt(struct csi_priv *priv,
+ 	}
+ 
+ 	imx_media_try_colorimetry(&sdformat->format,
+-			priv->active_output_pad == CSI_SRC_PAD_DIRECT);
++				  priv->active_output_pad == CSI_SRC_PAD_DIRECT);
+ }
+ 
+ static int csi_set_fmt(struct v4l2_subdev *sd,
+diff --git a/drivers/staging/media/imx/imx-media-vdic.c b/drivers/staging/media/imx/imx-media-vdic.c
+index 86f2b30cb06c..58f1112e28e5 100644
+--- a/drivers/staging/media/imx/imx-media-vdic.c
++++ b/drivers/staging/media/imx/imx-media-vdic.c
+@@ -616,7 +616,7 @@ static int vdic_set_fmt(struct v4l2_subdev *sd,
+ }
+ 
+ static int vdic_link_setup(struct media_entity *entity,
+-			    const struct media_pad *local,
++			   const struct media_pad *local,
+ 			    const struct media_pad *remote, u32 flags)
+ {
+ 	struct v4l2_subdev *sd = media_entity_to_v4l2_subdev(entity);
+diff --git a/drivers/staging/media/imx/imx-media.h b/drivers/staging/media/imx/imx-media.h
+index f095d9134fee..135daca7d55b 100644
+--- a/drivers/staging/media/imx/imx-media.h
++++ b/drivers/staging/media/imx/imx-media.h
+@@ -231,7 +231,7 @@ int imx_media_probe_complete(struct v4l2_async_notifier *notifier);
+ struct imx_media_dev *imx_media_dev_init(struct device *dev,
+ 					 const struct media_device_ops *ops);
+ int imx_media_dev_notifier_register(struct imx_media_dev *imxmd,
+-			    const struct v4l2_async_notifier_operations *ops);
++				    const struct v4l2_async_notifier_operations *ops);
+ 
+ /* imx-media-fim.c */
+ struct imx_media_fim;
+-- 
+2.43.0
+
 
