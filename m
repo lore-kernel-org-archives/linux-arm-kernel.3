@@ -4,86 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0562AD116F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 13:25:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA90FD116F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 13:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mQquqAu6/qCcdhWS32lvmrFBYi1dx/b7SfpwVH0yya8=; b=1EMz79jd2k9SXsDqM56ApdoQoG
-	XlEzTfqt4Ivi20Lr6/WpBRACAmyknx65zD/knbMX53DsdRP9+boi0mmP8BP/n8aY5oeCHP0hxxqJu
-	lGzualnQmCInt+mF2F56UPnGdjJq/GYneaVeJugoh07rLvqV/xcr5GdiV2ZvpyL/9gnjgpPoscKet
-	qKWjiIK/mi7MGzrF/vwFhC0FHCTdkcJicbXkcuTVLlgoqRdLu62vfmRcN1qHDMn6mJRMy+gPUWRkL
-	lcGPRJ23lPbDX0Zs487VEWm3JdVXkFDg+OTE/pNpFVhfXTJxGv3/9DAe6wagP1jJ5NcNcXntRC82v
-	GYHvV2Ow==;
+	bh=Web+ldcUKE0rf0uKHccd8dzH1mqlQaQ/Lv2lJhdnRR8=; b=NNUajwYqJDd0whhIkrzKZ3H/VY
+	KNeyoH8gEJe0tZjRizIcb22pzJ0zskGWIFcGABd1Rc/MCGVvuLwebZKOgCyuoUUBPgqHtbYfN4Iot
+	oJiynK92zEjNBcdFzOmXuJS1pT3MvieNVZ87iJqjMhXeBSDL5ah+HnZvzC85SYh1cO33YVaFwRvqp
+	M5TJ3c4lllhdOf+t7v+IPmUouzOR05w3xr3xMAbLl8IWDcWbi5BvTtFRYqAdqqwyBkUJgUfgBkFEW
+	c5bvQIXYOG61B1v99U+DTWkUhDOKrxov+ZktD/wVjdHx6Z2NA9LRt5/b4lBYjXLfgTH7yX5U0Vg9C
+	jjlICNig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQQNw-00000005R0Q-00Fp;
-	Tue, 02 Dec 2025 13:25:40 +0000
-Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
+	id 1vQQVV-00000005RJo-0u24;
+	Tue, 02 Dec 2025 13:33:29 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQQNt-00000005R07-0fd8
+	id 1vQQVS-00000005RIs-3tI1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 13:25:38 +0000
-Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-5957c929a5eso8165710e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 05:25:36 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1764681935; x=1765286735; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mQquqAu6/qCcdhWS32lvmrFBYi1dx/b7SfpwVH0yya8=;
-        b=LseXHWga9ZFMsDGUsHCVypdeJWJj4CcfkAp8FidQS/sjixIKfI+I+b/7tjYWUQ+3h0
-         VBlVWS/u+LlDgxswHu4QwBxF/gegCXCBd2823OlPD1O5LkjgEwIqP501yMaQOwEHbpRu
-         GGA8/dQ2yDcoVBN3zk0vlVcdzQy72HOnTc64mcEqSzD+2GRiqNmU/H575AhPKgWyIGu/
-         iQYrlXHUswQQRO2nFOAaEcwo1Jr1deLHLWYrZYvb/eWw+3qse35Sjfsgpus1/ZzG/yqX
-         g09yUa9LaAc/YmGT9nlP4aik5amrdx1hk4uXSkqjNVEdJKMRhxNE6lMs6UHtC7PWAea4
-         aQNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764681935; x=1765286735;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=mQquqAu6/qCcdhWS32lvmrFBYi1dx/b7SfpwVH0yya8=;
-        b=XQveHSJLf/ga7i6nScLJrPhnbJRvXq+ZwlCigIUkPgULJx2fnnW8JnK9fGN8TGsQGL
-         S2Qs137blfkWAOY+AmGEWXU3U1CC/oCWlv17nEmIu3nSTO71LqcdRpSKeD5pPtTXYAsn
-         p1MmECL/y9tQsvaKRSYn0RJe2lfIz9R/B7I9UzR4Wfq8fwmsMAOHntFB7XAsFjX9Mazb
-         3DCAD9TzNab25KPvltJVijV7jEZsWsF1q3LGtnh6g5KulxgXxLrZhPVeuCuMVZ6NTSug
-         GCOVnT3zw0SukXtTtTQo62GCc3yoF9BYKnEA+OoIos/m4vmq03Ff1QmulXXlaR5qcL4N
-         T42Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWZ/Ux8EYffnYV/xVMb8xf4qLk/i5w93I3YZN+T8dvfQkL10EUug8w9k37/Kgubeq49fiOEVYQ/M77LGRyWeqSI@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzPzcugmD6CKYFWefy6u6JNBdtJKFSdIws6AHwq3MRexkfwX4+
-	yeEoGU3ajdFws9bde+BrVH4f9Bs3lU6SeJ6oP+vBxWWdMxhE0+iQgs648X4OABGSG+cgXomHb0q
-	60FuQLumS5najygPqF1e8NnQDccA06htk+XLCDX/+NQ==
-X-Gm-Gg: ASbGncuR4maJ9mhR7jKdMxrc5x76zdMd3AO8/qFcqBY7AbN78jAayTIiAdraRXrgPOE
-	s6y5k11SsKyoK0qggLSJw3UFGowBggR0PLWjTJ32USopD0TOqTSjI6gcxWJVx9EQHNSd9PBtf0m
-	j85SRmjmJu0zfbcXPatmX/dtkOnYctD7Qf9ZVtJNFOdNMfXmPCF/OaKuSZE1d/ibJjxG1ktjTuU
-	yLYddhq6XfrK/OYwaGZcb/2sEaJlNMMSb4y8QC4jxLOWaBUJn/LJm1zhaehOPhF6PjBsg2klZIh
-	+ox4vQNuGgvt66SRqJIQBu6Mhx7i
-X-Google-Smtp-Source: AGHT+IHou7nZE5Ilf8UKUMOpD4CZM22WKM1TurJF5m74LXb6VyfSJRhn84jfLaxF26oR9u46HD8r/Rg/hz6BasZ8Y6g=
-X-Received: by 2002:a05:6512:3d1d:b0:595:9d26:f54b with SMTP id
- 2adb3069b0e04-596b528e8aemr10068911e87.41.1764681935049; Tue, 02 Dec 2025
- 05:25:35 -0800 (PST)
+	Tue, 02 Dec 2025 13:33:27 +0000
+Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <m.felsch@pengutronix.de>)
+	id 1vQQVD-0005Gc-G5; Tue, 02 Dec 2025 14:33:11 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+Date: Tue, 02 Dec 2025 14:32:58 +0100
+Subject: [PATCH v7 1/3] dt-bindings: soc: imx93-media-blk-ctrl: Add PDFC
+ subnode to schema and example
 MIME-Version: 1.0
-References: <20251104103942.96647-1-marco.crivellari@suse.com>
-In-Reply-To: <20251104103942.96647-1-marco.crivellari@suse.com>
-From: Marco Crivellari <marco.crivellari@suse.com>
-Date: Tue, 2 Dec 2025 14:25:22 +0100
-X-Gm-Features: AWmQ_bljHGdHHhMerIEnRIhOfX30gvI0SzblvuvuNuzFCDNV9m0_b0l8luu3kg8
-Message-ID: <CAAofZF4-D3PT_eE8e4VRX7bCkUV0d9h99YypeYyPhCg+sCFBpw@mail.gmail.com>
-Subject: Re: [PATCH] soc/xilinx: replace use of system_unbound_wq with system_dfl_wq
-To: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Cc: Tejun Heo <tj@kernel.org>, Lai Jiangshan <jiangshanlai@gmail.com>, 
-	Frederic Weisbecker <frederic@kernel.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
-	Michal Hocko <mhocko@suse.com>, Michal Simek <michal.simek@amd.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251202-v6-18-topic-imx93-parallel-display-v7-1-2cce31d64608@pengutronix.de>
+References: <20251202-v6-18-topic-imx93-parallel-display-v7-0-2cce31d64608@pengutronix.de>
+In-Reply-To: <20251202-v6-18-topic-imx93-parallel-display-v7-0-2cce31d64608@pengutronix.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>, 
+ Liu Ying <victor.liu@nxp.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ dri-devel@lists.freedesktop.org, kernel@pengutronix.de, 
+ Marco Felsch <m.felsch@pengutronix.de>
+X-Mailer: b4 0.14.2
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::28
+X-SA-Exim-Mail-From: m.felsch@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_052537_227228_231DC83A 
-X-CRM114-Status: UNSURE (   6.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251202_053326_979443_417B5BD3 
+X-CRM114-Status: GOOD (  13.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,19 +79,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+From: Liu Ying <victor.liu@nxp.com>
 
-On Tue, Nov 4, 2025 at 11:39=E2=80=AFAM Marco Crivellari
-<marco.crivellari@suse.com> wrote:
->  drivers/soc/xilinx/zynqmp_power.c | 6 +++---
+i.MX93 SoC mediamix blk-ctrl contains one DISPLAY_MUX register which
+configures parallel display format by using the "PARALLEL_DISP_FORMAT"
+field. Document the Parallel Display Format Configuration(PDFC) subnode
+and add the subnode to example.
 
-Gentle ping.
+Signed-off-by: Liu Ying <victor.liu@nxp.com>
+[m.felsch@pengutronix.de: port to v6.18-rc1]
+[m.felsch@pengutronix.de: add bus-width]
+Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+---
+ .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml | 92 ++++++++++++++++++++++
+ 1 file changed, 92 insertions(+)
 
-Thanks!
+diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
+index 34aea58094e55365a2f9c86092f637e533f954ff..6e2d86d9341c75108b492bcbabc8a560d8e707cd 100644
+--- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
++++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
+@@ -26,6 +26,12 @@ properties:
+   reg:
+     maxItems: 1
+ 
++  '#address-cells':
++    const: 1
++
++  '#size-cells':
++    const: 1
++
+   '#power-domain-cells':
+     const: 1
+ 
+@@ -40,6 +46,60 @@ properties:
+     minItems: 8
+     maxItems: 10
+ 
++  bridge@60:
++    type: object
++    additionalProperties: false
++
++    properties:
++      compatible:
++        const: nxp,imx93-pdfc
++
++      reg:
++        maxItems: 1
++
++      ports:
++        $ref: /schemas/graph.yaml#/properties/ports
++
++        properties:
++          port@0:
++            $ref: /schemas/graph.yaml#/properties/port
++            description: Input port node to receive pixel data.
++
++          port@1:
++            $ref: /schemas/graph.yaml#/$defs/port-base
++            unevaluatedProperties: false
++            description: Output port node to downstream pixel data receivers.
++
++            properties:
++              endpoint:
++                $ref: /schemas/graph.yaml#/$defs/endpoint-base
++                unevaluatedProperties: false
++
++                properties:
++                  bus-width:
++                    enum: [ 16, 18, 24 ]
++                    description:
++                      Specify the physical parallel bus width.
++
++                      This property is optional if the display bus-width
++                      matches the SoC bus-width, e.g. a 18-bit RGB666 (display)
++                      is connected and all 18-bit data lanes are muxed to the
++                      parallel-output pads.
++
++                      This property must be set to 18 to cut only the LSBs
++                      instead of the MSBs in case a 24-bit RGB888 display is
++                      connected and only the lower 18-bit data lanes are muxed
++                      to the parallel-output pads.
++
++        required:
++          - port@0
++          - port@1
++
++    required:
++      - compatible
++      - reg
++      - ports
++
+ allOf:
+   - if:
+       properties:
+@@ -81,9 +141,12 @@ allOf:
+             - const: isi
+             - const: csi
+             - const: dsi
++
+ required:
+   - compatible
+   - reg
++  - '#address-cells'
++  - '#size-cells'
+   - power-domains
+   - clocks
+   - clock-names
+@@ -112,4 +175,33 @@ examples:
+                clock-names = "apb", "axi", "nic", "disp", "cam",
+                              "pxp", "lcdif", "isi", "csi", "dsi";
+       #power-domain-cells = <1>;
++      #address-cells = <1>;
++      #size-cells = <1>;
++
++      bridge@60 {
++        compatible = "nxp,imx93-pdfc";
++        reg = <0x60 0x4>;
++
++        ports {
++          #address-cells = <1>;
++          #size-cells = <0>;
++
++          port@0 {
++            reg = <0>;
++
++            pdfc_from_lcdif: endpoint {
++              remote-endpoint = <&lcdif_to_pdfc>;
++            };
++          };
++
++          port@1 {
++            reg = <1>;
++
++            pdfc_to_panel: endpoint {
++              remote-endpoint = <&panel_from_pdfc>;
++              bus-width = <18>;
++            };
++          };
++        };
++      };
+     };
 
---=20
+-- 
+2.47.3
 
-Marco Crivellari
-
-L3 Support Engineer, Technology & Product
 
