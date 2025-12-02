@@ -4,125 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD4C8CFD376
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 10:47:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AF2CCFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 10:53:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pNJiYzPSwJpKuEDtxpq8DGhuTrwxKsYj0nfI5PZhEUA=; b=aLzT0bTR9rd/cZEXkt619ixf6O
-	CaOB+nE2pbAtkyeqEduNsKmXG2TDqYt+JovK3qgGrxjJoOhv0zsZ0r2qPQp5arz3RltMDjRxBwb2K
-	l6OVkFSFKmny5LIYLCiEeQpcNwXxK+yltPOdZSaMI/hxNEhkgPyVJ1hQpWEv1W1hnh2xD0z4L1Pp8
-	d2rQRNTb5wGuG3PtnMkm2y7E3d9O/kn5luB57pQFGRzH/LUdWVxIrMduxx511wcpCm+ja14aS0sgO
-	tt8HpRQ4tuTE/aYjXSwCjw+jvNKmQ4x2NBSDBAIGu1oVuNOxTIBdc4Hx8Sh6qJcnBLMgnroynM6Kk
-	4D7pVXWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:From:To:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8ErvIq4wO654pjC8lFFnpoWMuH5/G/OdedGnE70Z3ZM=; b=Xt0IEor6fRfpuDIsAbPzC1JmMA
+	uu9iBxNcYevAIqIkor9TP90oPHTV36FXZKw3xE9INSNnE5Ev+uPP9GOjNVj6CeozoFtPWgu5iWi0a
+	wvExN190NeHMCX7yOi0HP1hxpGq+F75MsQ/RR9Onv8hpVpCcrFuJHc2o/Ro3Tpt5HZe7XdEi6nkUN
+	QJ3pJTfiVMtKQQ93czNopxUaYwJ0/S8j+k4V1jqBpAXTMu7UMseFYv2Z+RqGKTK1KZ6H7Ood6/vqS
+	EaSlB9Zjm4UBB9JiH+ksGUSFh/ZeeQ4Dsxm1TT8j7RcOe0M48Xw3Ap0v6t7StyTPxXudmiGwcFkyv
+	khpEjQhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQNvE-00000005HV2-31Ap;
-	Tue, 02 Dec 2025 10:47:52 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vQO0o-00000005Hmc-02QR;
+	Tue, 02 Dec 2025 10:53:38 +0000
+Received: from mail-106103.protonmail.ch ([79.135.106.103])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQNvD-00000005HUp-02CN
+	id 1vQO0l-00000005Hm9-0PIv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 10:47:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 62CAD60017;
-	Tue,  2 Dec 2025 10:47:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35FC6C4CEF1;
-	Tue,  2 Dec 2025 10:47:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764672468;
-	bh=adNB2B+uO3/Wvr6tI+I09c6GHOJZPNcPW7HRCH1nODw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZWuJjPUtZvZI2rRAutpjql3IMNgWGLurJTn7adAWCnVIVSNWC5dPhFKwFkeQL4JaY
-	 u8h48aJizsqQ0uTDww1PkWSRScwFromANpWfu4EvwUIPW1DCpJ6Vq41MKGt1F0mGVN
-	 oyeXqBmt21wdHr/X/2xEAVBmjWaOgbWc8VhVInZc2viSZ6GdV4Tkz6C00cGDWAUFaI
-	 pX3YO7jzC/U3op5Iw3CnwrWe4uglZBzzmWR2n0nn+JhURerYjHTyGW5OItm/KI9wOI
-	 hmEl+aBRVXfkUjyD98FnDvEcOTjNAMUtzMEDQbKV9ZZkKr2zy5cb5UG+ZkL+bO9YLk
-	 n11Av3VeAP9Hg==
-Message-ID: <94e254fa-289d-41ed-909f-1742cfbb2690@kernel.org>
-Date: Tue, 2 Dec 2025 11:47:40 +0100
+	Tue, 02 Dec 2025 10:53:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail; t=1764672809; x=1764932009;
+	bh=8ErvIq4wO654pjC8lFFnpoWMuH5/G/OdedGnE70Z3ZM=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=aWGUwCrrAMEEO49N3Fohx09bRwcMMoZkbnOwzBO6R4bHzQjyI9n38oZBcqM+SS72e
+	 b2/L3OfnzBq3gZS52RB2h1vQUCHmWmldpj1/Ib9qLSBc5PUZfhMKJfURWq8n7gEmB7
+	 hTGLZx0KdnrlKDALzBNBoSTQPGNG/Hju3cf/rilsJ0zplPCvri7xl7V1MnHBEwQjin
+	 GCf/NyCbShasFdNDPjaMOSNwoLggAT7NrnTHafr8PvkPMWN/uuJDLW+CE+3OpVdlBD
+	 6nPRCeN4KERrHt0F9twgjn7/tnQS8rYWtuqWnlDBlvxHl05aFO1xBtjmOhGuZzG/Bg
+	 MHN6JTbsskf2Q==
+Date: Tue, 02 Dec 2025 10:53:24 +0000
+To: Marc Zyngier <maz@kernel.org>
+From: zhuling0805 <zhuling0805@proton.me>
+Cc: Thomas Gleixner <tglx@linutronix.de>, "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: [PATCH] irqchip/gic: Fix UBSAN shift-out-of-bounds in GIC helpers
+Message-ID: <2fJDwUUYdEf2_eaRa041L9xkT8RkSWFeo7euOnqMbbPhUatLlEaAvGfB6sOspDmXaxO87Eh7bQLV9UolyjbMtZBT1wB2UGypjPOo0Z-RC0Q=@proton.me>
+Feedback-ID: 122560893:user:proton
+X-Pm-Message-ID: 695aad0473b3017deaba2da62c1de2314785bcb5
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/21] ARM: dts: omap: Bind panel to panel-dpi instead of
- ti,tilcdc,panel driver
-To: Kory Maincent <kory.maincent@bootlin.com>
-Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- Markus Schneider-Pargmann <msp@baylibre.com>,
- Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Louis Chauvet <louis.chauvet@bootlin.com>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Miguel Gazquez <miguel.gazquez@bootlin.com>,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-omap@vger.kernel.org, Jyri Sarha <jyri.sarha@iki.fi>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Bartosz Golaszewski <brgl@bgdev.pl>, Tony Lindgren <tony@atomide.com>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
-References: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
- <20251126-feature_tilcdc-v1-5-49b9ef2e3aa0@bootlin.com>
- <96b1b7bf-ddbe-4213-a201-dc89cf2998dd@ideasonboard.com>
- <3bc5bf92-05c3-4841-ab28-9bab2bb31cd5@kernel.org>
- <20251202104244.59a9e83d@kmaincent-XPS-13-7390>
- <d7515cd3-5488-4d15-82dc-d2b98cfa2bed@kernel.org>
- <20251202114416.09624a4b@kmaincent-XPS-13-7390>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251202114416.09624a4b@kmaincent-XPS-13-7390>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed;
+ boundary="b1=_sgd5sRmCa2K7OT2Go3oILQwoamVTwFJzQMq411Tsw"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251202_025335_771845_13079D18 
+X-CRM114-Status: GOOD (  13.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,37 +66,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/12/2025 11:44, Kory Maincent wrote:
-> On Tue, 2 Dec 2025 11:28:55 +0100
-> Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> 
->> On 02/12/2025 10:42, Kory Maincent wrote:
->>>    
->>>> Stuffing DTS change in the middle of the driver change tries to hide
->>>> impact, which is not nice on its own.  
->>>
->>> As it needs driver change before the removal for not breaking things it
->>> can't be done at the beginning of the series.  
->>
->> And that is the problem which should stop you there and rethink how to
->> organize it without impacting users. DTS cannot go via DRM. If that was
->> your intention, that's my:
->>
->> NAK
-> 
-> My intention was to raise discussion over the ugly and legacy tilcdc-panel
-> binding and what to do with it. But it seems you don't want to, that's a shame.
+--b1=_sgd5sRmCa2K7OT2Go3oILQwoamVTwFJzQMq411Tsw
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-I don't see how you get to these conclusions. I comment that putting
-here DTS in the middle without any explanation of the impact is not
-correct and this one alone I disagree with.
+Hi,
 
-From that you claim I don't want to fix things...
+When running a kernel built with UBSAN enabled, enabling a GPIO
+controller that uses a GIC interrupt as its parent triggers several
+shift-out-of-bounds warnings in the GIC helpers.
 
-DTS cannot go to drm, which means you either need to separate the change
-and make entire work bisectable and backwards compatible for some time
-OR at least document clearly the impact as we always ask.
+This patch fixes the issue by using unsigned constants so that the
+left shifts are well-defined and UBSAN stays quiet.
 
-Best regards,
-Krzysztof
+Thanks,
+Zhu Ling
+
+---
+From: Zhu Ling <zhuling0805@proton.me>
+Date: Tue, 2 Dec 2025 17:54:10 +0800
+Subject: [PATCH] irqchip/gic: Fix UBSAN shift-out-of-bounds in GIC helpers
+
+When running with UBSAN enabled, enabling a GPIO controller that uses
+a GIC interrupt as its parent triggers several shift-out-of-bounds
+warnings:
+
+  UBSAN: shift-out-of-bounds in drivers/irqchip/irq-gic-common.c:50:21
+  left shift of 2 by 30 places cannot be represented in type 'int'
+
+and similar reports in gic_poke_irq() and gic_peek_irq() in
+drivers/irqchip/irq-gic-v3.c.
+
+These come from shifting signed integer constants. Use unsigned
+constants (0x2U and 1U) so that the behavior is well-defined and the
+UBSAN warnings go away.
+
+Signed-off-by: Zhu Ling <zhuling0805@proton.me>
+---
+ drivers/irqchip/irq-gic-common.c | 2 +-
+ drivers/irqchip/irq-gic-v3.c     | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/irqchip/irq-gic-common.c b/drivers/irqchip/irq-gic-com=
+mon.c
+index c776f9142..d4f0afd9e 100644
+--- a/drivers/irqchip/irq-gic-common.c
++++ b/drivers/irqchip/irq-gic-common.c
+@@ -48,7 +48,7 @@ void gic_enable_quirks(u32 iidr, const struct gic_quirk *=
+quirks,
+ int gic_configure_irq(unsigned int irq, unsigned int type,
+ =09=09       void __iomem *base)
+ {
+-=09u32 confmask =3D 0x2 << ((irq % 16) * 2);
++=09u32 confmask =3D 0x2U << ((irq % 16) * 2);
+ =09u32 confoff =3D (irq / 16) * 4;
+ =09u32 val, oldval;
+ =09int ret =3D 0;
+diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+index 3de351e66..f5226c03f 100644
+--- a/drivers/irqchip/irq-gic-v3.c
++++ b/drivers/irqchip/irq-gic-v3.c
+@@ -457,7 +457,7 @@ static int gic_peek_irq(struct irq_data *d, u32 offset)
+ =09u32 index, mask;
+=20
+ =09offset =3D convert_offset_index(d, offset, &index);
+-=09mask =3D 1 << (index % 32);
++=09mask =3D 1U << (index % 32);
+=20
+ =09if (gic_irq_in_rdist(d))
+ =09=09base =3D gic_data_rdist_sgi_base();
+@@ -473,7 +473,7 @@ static void gic_poke_irq(struct irq_data *d, u32 offset=
+)
+ =09u32 index, mask;
+=20
+ =09offset =3D convert_offset_index(d, offset, &index);
+-=09mask =3D 1 << (index % 32);
++=09mask =3D 1U << (index % 32);
+=20
+ =09if (gic_irq_in_rdist(d))
+ =09=09base =3D gic_data_rdist_sgi_base();
+--=20
+2.17.1
+--b1=_sgd5sRmCa2K7OT2Go3oILQwoamVTwFJzQMq411Tsw
+Content-Type: application/octet-stream; name=0001-irqchip-gic-Fix-UBSAN-shift-out-of-bounds-in-GIC-hel.patch
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename=0001-irqchip-gic-Fix-UBSAN-shift-out-of-bounds-in-GIC-hel.patch
+
+RnJvbSA2YjQ2ZTRjZTQwZGRkM2YxOGE3M2Q5YzY2YmViZjIyYTE2N2JkNWYzIE1vbiBTZXAgMTcg
+MDA6MDA6MDAgMjAwMQpGcm9tOiBaaHUgTGluZyA8emh1bGluZzA4MDVAcHJvdG9uLm1lPgpEYXRl
+OiBUdWUsIDIgRGVjIDIwMjUgMTc6NTQ6MTAgKzA4MDAKU3ViamVjdDogW1BBVENIXSBpcnFjaGlw
+L2dpYzogRml4IFVCU0FOIHNoaWZ0LW91dC1vZi1ib3VuZHMgaW4gR0lDIGhlbHBlcnMKCldoZW4g
+cnVubmluZyB3aXRoIFVCU0FOIGVuYWJsZWQsIGVuYWJsaW5nIGEgR1BJTyBjb250cm9sbGVyIHRo
+YXQgdXNlcwphIEdJQyBpbnRlcnJ1cHQgYXMgaXRzIHBhcmVudCB0cmlnZ2VycyBzZXZlcmFsIHNo
+aWZ0LW91dC1vZi1ib3VuZHMKd2FybmluZ3M6CgogIFVCU0FOOiBzaGlmdC1vdXQtb2YtYm91bmRz
+IGluIGRyaXZlcnMvaXJxY2hpcC9pcnEtZ2ljLWNvbW1vbi5jOjUwOjIxCiAgbGVmdCBzaGlmdCBv
+ZiAyIGJ5IDMwIHBsYWNlcyBjYW5ub3QgYmUgcmVwcmVzZW50ZWQgaW4gdHlwZSAnaW50JwoKYW5k
+IHNpbWlsYXIgcmVwb3J0cyBpbiBnaWNfcG9rZV9pcnEoKSBhbmQgZ2ljX3BlZWtfaXJxKCkgaW4K
+ZHJpdmVycy9pcnFjaGlwL2lycS1naWMtdjMuYy4KClRoZXNlIGNvbWUgZnJvbSBzaGlmdGluZyBz
+aWduZWQgaW50ZWdlciBjb25zdGFudHMuIFVzZSB1bnNpZ25lZApjb25zdGFudHMgKDB4MlUgYW5k
+IDFVKSBzbyB0aGF0IHRoZSBiZWhhdmlvciBpcyB3ZWxsLWRlZmluZWQgYW5kIHRoZQpVQlNBTiB3
+YXJuaW5ncyBnbyBhd2F5LgoKU2lnbmVkLW9mZi1ieTogWmh1IExpbmcgPHpodWxpbmcwODA1QHBy
+b3Rvbi5tZT4KLS0tCiBkcml2ZXJzL2lycWNoaXAvaXJxLWdpYy1jb21tb24uYyB8IDIgKy0KIGRy
+aXZlcnMvaXJxY2hpcC9pcnEtZ2ljLXYzLmMgICAgIHwgNCArKy0tCiAyIGZpbGVzIGNoYW5nZWQs
+IDMgaW5zZXJ0aW9ucygrKSwgMyBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9kcml2ZXJzL2ly
+cWNoaXAvaXJxLWdpYy1jb21tb24uYyBiL2RyaXZlcnMvaXJxY2hpcC9pcnEtZ2ljLWNvbW1vbi5j
+CmluZGV4IGM3NzZmOTE0Mi4uZDRmMGFmZDllIDEwMDY0NAotLS0gYS9kcml2ZXJzL2lycWNoaXAv
+aXJxLWdpYy1jb21tb24uYworKysgYi9kcml2ZXJzL2lycWNoaXAvaXJxLWdpYy1jb21tb24uYwpA
+QCAtNDgsNyArNDgsNyBAQCB2b2lkIGdpY19lbmFibGVfcXVpcmtzKHUzMiBpaWRyLCBjb25zdCBz
+dHJ1Y3QgZ2ljX3F1aXJrICpxdWlya3MsCiBpbnQgZ2ljX2NvbmZpZ3VyZV9pcnEodW5zaWduZWQg
+aW50IGlycSwgdW5zaWduZWQgaW50IHR5cGUsCiAJCSAgICAgICB2b2lkIF9faW9tZW0gKmJhc2Up
+CiB7Ci0JdTMyIGNvbmZtYXNrID0gMHgyIDw8ICgoaXJxICUgMTYpICogMik7CisJdTMyIGNvbmZt
+YXNrID0gMHgyVSA8PCAoKGlycSAlIDE2KSAqIDIpOwogCXUzMiBjb25mb2ZmID0gKGlycSAvIDE2
+KSAqIDQ7CiAJdTMyIHZhbCwgb2xkdmFsOwogCWludCByZXQgPSAwOwpkaWZmIC0tZ2l0IGEvZHJp
+dmVycy9pcnFjaGlwL2lycS1naWMtdjMuYyBiL2RyaXZlcnMvaXJxY2hpcC9pcnEtZ2ljLXYzLmMK
+aW5kZXggM2RlMzUxZTY2Li5mNTIyNmMwM2YgMTAwNjQ0Ci0tLSBhL2RyaXZlcnMvaXJxY2hpcC9p
+cnEtZ2ljLXYzLmMKKysrIGIvZHJpdmVycy9pcnFjaGlwL2lycS1naWMtdjMuYwpAQCAtNDU3LDcg
+KzQ1Nyw3IEBAIHN0YXRpYyBpbnQgZ2ljX3BlZWtfaXJxKHN0cnVjdCBpcnFfZGF0YSAqZCwgdTMy
+IG9mZnNldCkKIAl1MzIgaW5kZXgsIG1hc2s7CiAKIAlvZmZzZXQgPSBjb252ZXJ0X29mZnNldF9p
+bmRleChkLCBvZmZzZXQsICZpbmRleCk7Ci0JbWFzayA9IDEgPDwgKGluZGV4ICUgMzIpOworCW1h
+c2sgPSAxVSA8PCAoaW5kZXggJSAzMik7CiAKIAlpZiAoZ2ljX2lycV9pbl9yZGlzdChkKSkKIAkJ
+YmFzZSA9IGdpY19kYXRhX3JkaXN0X3NnaV9iYXNlKCk7CkBAIC00NzMsNyArNDczLDcgQEAgc3Rh
+dGljIHZvaWQgZ2ljX3Bva2VfaXJxKHN0cnVjdCBpcnFfZGF0YSAqZCwgdTMyIG9mZnNldCkKIAl1
+MzIgaW5kZXgsIG1hc2s7CiAKIAlvZmZzZXQgPSBjb252ZXJ0X29mZnNldF9pbmRleChkLCBvZmZz
+ZXQsICZpbmRleCk7Ci0JbWFzayA9IDEgPDwgKGluZGV4ICUgMzIpOworCW1hc2sgPSAxVSA8PCAo
+aW5kZXggJSAzMik7CiAKIAlpZiAoZ2ljX2lycV9pbl9yZGlzdChkKSkKIAkJYmFzZSA9IGdpY19k
+YXRhX3JkaXN0X3NnaV9iYXNlKCk7Ci0tIAoyLjE3LjEKCg==
+
+--b1=_sgd5sRmCa2K7OT2Go3oILQwoamVTwFJzQMq411Tsw--
+
 
