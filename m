@@ -4,101 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03071D12675
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 22:07:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7296AD12675
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 22:09:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R+xUpa7tpcXlrKuK2TYMeoF7urpbvQwlpFTRmhMT/tQ=; b=eb28WzRMWYkEAwAAW7rUFne61Y
-	guyjygIiol8bwv4jibM/FB2NjzZ1X8SjVX2c0r12JJqNBzVRbpCca6vPF+l94L+J2boazTm6k8UqB
-	HyOn3IAZSw74tZJFl+xLtJHpeHK9qlYO3zDucIWRcl83KBvlo5lUkcQXzELOfOvB0Bo3Yz8rzYCh3
-	DmCHUtTsTkGoXqFlksHrAE3PtEZUmgdjmqRdyt16UPRhor4Fimeq7NYagjnKvvek8uKqyRHOPBfnj
-	UsLKNDEbBDVlZRBkt7gyW4mK9ePdTjM2mjey+qKgSpJMjghHd+8/u9cVI/EgWc0WRkT+ZA0fxz6hj
-	5MNGuW8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=JSLkiY2zvImHUDZbOwBQtO8/4saKzF7QG8VA5Q/K3ls=; b=pShBqHLxnX1ize
+	mIJCT7arVpT+CytN/cDzshKNlRli3TnTHfRa5yAcXPrM/Qnn+RXzwliSIh1FWt2fURwsQxNkldKdI
+	PGy28RQNaYmPycNyGHcGaro1HijSiGRJrsjp1IamJih8ojJZClCawQZrHuMfSSARnt2X4B9XocM8Z
+	JhbnGEBxLr3tnjGkKrXnLTdZgSSrJ0zlpgzuNI/tdm5wjKxpIy7xzsu3Wa/Yqj5mXZc7SGOcoGNgy
+	N012KEW48bdnilTODwePmgER5OayV15RYRBW+B7xTHg1lCNw8T5pcdN6L1w+KV8qQ9Y3GvRTHpzzN
+	IN8eqzTtGkJuobPhQd/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQYXG-00000005sYx-35J9;
-	Tue, 02 Dec 2025 22:07:50 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1vQYYd-00000005sjs-2h8y;
+	Tue, 02 Dec 2025 22:09:15 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQYXE-00000005sYZ-0sTo
+	id 1vQYYZ-00000005si5-44AR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 22:07:49 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-b79d6a70fc8so5837266b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 14:07:47 -0800 (PST)
+	Tue, 02 Dec 2025 22:09:14 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-47774d3536dso2359075e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 14:09:11 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1764713265; x=1765318065; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=R+xUpa7tpcXlrKuK2TYMeoF7urpbvQwlpFTRmhMT/tQ=;
-        b=EbNujE/FI1xnlEsvw5i+wKK6EhkF9r3/1zEUtE43C9VAQEfFpYHgQbQyqvLIcgT+oN
-         LuK77XAMMV+ST5fsAMzVw8xuOAFbLyLoWJt9rmNotZyh8+7xfFgPxJ1WCX2ECJXHXDhU
-         012W2AxIxjRp9hoOtayMbz/Hd+c+YV9B541Dg=
+        d=gmail.com; s=20230601; t=1764713350; x=1765318150; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=JSLkiY2zvImHUDZbOwBQtO8/4saKzF7QG8VA5Q/K3ls=;
+        b=aJhrCOlX3Db67yJxhvpZHj2D0rs5saHiseV2oVl7ruk+fFcOEoFPHJWF9HfAhaewoQ
+         CH3odoFxGBNe6iVdG9fa/T+uxg1EqOVURdRnzGZ3DA8mjhc4vDD5DcF2YF0CcUUrHqUQ
+         kzakurSX5CEh99vJIfbEGSaNi9tf4kgAU7xtieuoFojCEglwrb1pLwuKkY9GxZMxva7M
+         p8H1EXOumva/hIjygY4TdMYbnziadSmqs4ThLx3qQqfCbB6BmVZWJ6V5xDLsrWNHBqtT
+         uW36yAecWa+Az1hRHfBzi32k1eiss40/oN0o3+N8EBniWdZpL9rI/T3I2LAY280Ns87T
+         uGYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764713265; x=1765318065;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1764713350; x=1765318150;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=R+xUpa7tpcXlrKuK2TYMeoF7urpbvQwlpFTRmhMT/tQ=;
-        b=aFvW2SFVVEd2L6vmobz7bMA4i8olrGelHLe0/1A8qnQ4bZ2nwQ1i6VXemS4WwOnIf1
-         Wp4EMJgbd6oICwO/RBIyP0EHACl+G030k21DsqtmdmTGA3MNY707eHbWWxKhmqjyEXp4
-         GZhaBKBj/Rd6HX001fL/YmPugh7TMusADHwTyMSZwGz4Ja0NggdM9VCzDJfg9vmkJXTG
-         kz8t6SzTvfh84bFffFrK7EExXv1+GDPC8Cus2Ynt749OZY+EouYHE8agbztEmPKQ0tcu
-         Jj8G4RGIkktgiUKz5YvetUNfb+ezztVwhNuI+Vu3nV0I6GDpWb2m/KFePNmZHItQGEI3
-         PYQg==
-X-Forwarded-Encrypted: i=1; AJvYcCWtPmM8Y0CLYtM3o9JhBCyrK3BgW9GcJv2zwBFl04+B5IoqkFFvd3AcoAfPFlo23E6kvZoxbO4uuYQxumgD/FSM@lists.infradead.org
-X-Gm-Message-State: AOJu0YyoxkuYTdqcFJJbcQWvnDJqZXo3iB/Yuuxx0vM/2YcSkUxll6SH
-	cyuPsGsuC0kvJ/rE54FSJT2aIIp8uRm46dbjwzF7fdYKTMEhdK2YTHXlpZEqCl1UOtMREsn7lp2
-	9cEzV3ro=
-X-Gm-Gg: ASbGncuYb7cQpsWzJLu8Wd45to/UcHJ8XCxK53NrEVDBuzRVB0TleG9YWaTxpEaQ5yi
-	cwA9k5c9kOXjEyP1KMz6wl4vfJSJ7wNAoNCl+d+fE8UuVNbTLryqe0BVLIylla7QYeejIg7A43A
-	V2W9qad1W9A+l673OLq7ySQepEFwoNdUpb0vMPUacHqAwrmlsDyqs+w7FFNmXefBC8bxZyfg9ZD
-	sRsE+e2BuVkngEkOOxh8T4Jai48aKBYbs+J4plU4f6VZaue6or5kW7eQZdQP/TxWkFvZTq/NFVX
-	lWcmn8EgL1G5K1js3hdCKyfsSHvE5JcLepq7qv7DJZB6JU4OcjNlcmsqu1BeM3XPrd8MgUtLhBH
-	IyuL7I144pb8e4avZAM2ntC8C6pMZd9ap46YFygdCaq3SLqdH5dMgmjN5qjJ8kVQ28RPutxEyZu
-	uC0UztlQr3HwnYcqTHRtzLB9Fdz7VqRCTKWLlbu1sdV7fvwbPYnXj0DdIdsf1v
-X-Google-Smtp-Source: AGHT+IGqmv9mYOaz39HbmO3YdTblkWr5MSmMApXtDshukbUEMS2TIl5Lz+2MK5DcSKW0nL5MsXvSCg==
-X-Received: by 2002:a17:907:3cc5:b0:b71:51b:bd4c with SMTP id a640c23a62f3a-b767170c7dbmr4355773866b.50.1764713265526;
-        Tue, 02 Dec 2025 14:07:45 -0800 (PST)
-Received: from mail-ed1-f46.google.com (mail-ed1-f46.google.com. [209.85.208.46])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b76f51c67e2sm1628745266b.27.2025.12.02.14.07.42
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 02 Dec 2025 14:07:42 -0800 (PST)
-Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-641677916b5so3614689a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 14:07:42 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCW0SxiNu3ZTBibaDk/hHpgJkDIxL1PXDqssmLot7RHp1GJi6zFdPcWiMgZwcJfjPKt69kOYnvt4na9ZESeDf1va@lists.infradead.org
-X-Received: by 2002:a05:6402:280e:b0:643:129f:9d74 with SMTP id
- 4fb4d7f45d1cf-64554320e9emr44585697a12.7.1764713261899; Tue, 02 Dec 2025
- 14:07:41 -0800 (PST)
+        bh=JSLkiY2zvImHUDZbOwBQtO8/4saKzF7QG8VA5Q/K3ls=;
+        b=PR1m7+ryL0b6uzZ0m8nMqiJMvTnBK9k/Y3jKX6jLkbL+KAxDPvcCHHwzwowFkLdfHr
+         HQ2Bo9VDjjLmvzsKjlk2uqZOaZq3wGq1+C62bbEUlCL2WJphxUJ3RM6PMg006vP/Cdtl
+         Zu8dT1MSeMBQRrwr/G/49FUlD8PLVMxNl36FBfqLejQ+IsiKUvG4RpLVcWPZZtSJSEV8
+         925QpaMZqS771NN73q+PbtgSgrYJltcS5GQjUPPWNT60S2qTBGO/WWIyq5bw1MfYZ4Wr
+         4k8w/5SpxUfoWYgsSBIFF+hF1GN4Mi2KEhQtlza2NHdL7OBEz8OsWJwgCvOh0TfFGzOT
+         DRsg==
+X-Forwarded-Encrypted: i=1; AJvYcCWA10gEeHlAGi844Fduk8ydIcEcmSkXib64OZSZkThmPZjJ04VVXS3dmq5a1JfOCZksYj52IPhaPM6HgUCTISmw@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJzJF5NQvQCG9mCoTclz1t8FbUXPOblSUKlE6pICZIk0ps+BOW
+	38439Q7+bFkK9+CRop/2bSfc0ajvhqERSsqXYrsKrVLDKFDUpUeSbNP+
+X-Gm-Gg: ASbGncuLZzsc4jCV/J4n0qkQyMVHS3HDLf1LHKWdxDvKjZ+Nn7t/mgOCAC2zRWD2GbF
+	NkAaEgsnBGpl9x0fS6De5V4Y5TMeut7AESxG/dYctNF5Z5nZyR6uvR7SAAafHvBJy6VqMvN9YEI
+	Sd3ct/sJCZD1uAxETNBtGCQDpEUvcn7SJysD6dMwPrjaF+L7M9LtiKXY3c1ZgR/4uFVRj/0w1uN
+	cudfl+d+XqY01nTsxkzNM3+PNf6MxERNM4XpC8z9r23TAfNjqazrVM8nLl4awbSsSDfq2MRsvq/
+	eZ32C/qhapDMIvGQT9ObkjuHspn05UHvzt0dzQu7WZtWhndTw2U9kC3O/rzIx+cNXV5FZg72bY+
+	FIAscWwnW0kKcEijjba6WuMruwCgu54sf06/V2Agnp6/tg3hyDSrwgbiOWZpZEjGZLsKrIuseWT
+	daYYD7sXRvhBGsSTt/xPYbtpwKFo0oYOGY5TmW
+X-Google-Smtp-Source: AGHT+IFa4GbiRXpXHQJ7qzlsxieJBhAIZGPkTWaihBlWgwkhaDnomrokxbDrSKdw1Li+bI3Q3V3kgg==
+X-Received: by 2002:a05:600c:1c25:b0:477:9fa0:7495 with SMTP id 5b1f17b1804b1-4792af4311emr1823995e9.14.1764713349971;
+        Tue, 02 Dec 2025 14:09:09 -0800 (PST)
+Received: from [127.0.1.1] ([2001:861:3201:3d10:d253:f5eb:2f9c:dde7])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4792a79760esm11534795e9.3.2025.12.02.14.09.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Dec 2025 14:09:09 -0800 (PST)
+From: Gary Bisson <bisson.gary@gmail.com>
+Subject: [PATCH v4 0/4] Add support for Ezurio MediaTek platforms
+Date: Tue, 02 Dec 2025 23:08:45 +0100
+Message-Id: <20251202-review-v4-0-93f5cd2a0d4a@gmail.com>
 MIME-Version: 1.0
-References: <20251126090505.3057219-1-wozizhi@huaweicloud.com>
- <33ab4aef-020e-49e7-8539-31bf78dac61a@huaweicloud.com> <CAHk-=wh1Wfwt9OFB4AfBbjyeu4JVZuSWQ4A8OoT3W6x9btddfw@mail.gmail.com>
- <aSgut4QcBsbXDEo9@shell.armlinux.org.uk> <CAHk-=wh+cFLLi2x6u61pvL07phSyHPVBTo9Lac2uuqK4eRG_=w@mail.gmail.com>
- <aS7e9CbQXS27sGcd@shell.armlinux.org.uk>
-In-Reply-To: <aS7e9CbQXS27sGcd@shell.armlinux.org.uk>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Tue, 2 Dec 2025 14:07:25 -0800
-X-Gmail-Original-Message-ID: <CAHk-=wg4ZnsfpgXYL5qhjYDYo1Gnssz+VxnKZzHXMEmE7qrnQQ@mail.gmail.com>
-X-Gm-Features: AWmQ_bndnZuSySd3c7NVIocYoeSzskkAStzH6Kc1-mQN9xQL8na8ufP2gzQ6Lfk
-Message-ID: <CAHk-=wg4ZnsfpgXYL5qhjYDYo1Gnssz+VxnKZzHXMEmE7qrnQQ@mail.gmail.com>
-Subject: Re: [Bug report] hash_name() may cross page boundary and trigger
- sleep in RCU context
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Zizhi Wo <wozizhi@huaweicloud.com>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, jack@suse.com, brauner@kernel.org, hch@lst.de, 
-	akpm@linux-foundation.org, linux-fsdevel@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-arm-kernel@lists.infradead.org, yangerkun@huawei.com, 
-	wangkefeng.wang@huawei.com, pangliyuan1@huawei.com, xieyuanbin1@huawei.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAG5jL2kC/22O0Q6CIBhGX6VxHe4HMbSr3qN1QfCjbCkNnOWc7
+ x54ZavLs33n7FtIxOAwkvNhIQEnF50fEojjgehODS1SZxITDrxiHBjNI3xRWQFIXsmmaRhJ42d
+ A695b6HpLbIPv6dgFVF861IIJKEp5gqqmjN5djH4oWhXmS9sr9yi073Ovc3H0Yd5+TTxXfy5Mn
+ AI1mhsrBKKWuCvkC1P5XyuTBtI2yspSMGv22rquHwDX/qQTAQAA
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sean Wang <sean.wang@mediatek.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>, 
+ Gary Bisson <bisson.gary@gmail.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764713347; l=2814;
+ i=bisson.gary@gmail.com; s=20251201; h=from:subject:message-id;
+ bh=hmzAGm2KV+/8JNbNSevtwuUcM8ZgD/Dyr/satwDJz+I=;
+ b=Xj8Lo8dDuGarkgHqaWbPYbE0zlRP+EF5lB/j8o9yyNKhDUHj9nD4lAruzZtpbZugLaG/Jepvv
+ kL6mTPyn7ysAQGJUs/SRBYUe7iKdEnUWAwHQYzR3l6KPJ1N2sFj2+a4
+X-Developer-Key: i=bisson.gary@gmail.com; a=ed25519;
+ pk=eaOrLwovHUZBMoLbrx+L1ppj+AH+TfgxkVhIEyrhkeE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_140748_278186_C2047DA9 
-X-CRM114-Status: UNSURE (   7.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251202_140912_779000_F7BE4150 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,16 +114,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2 Dec 2025 at 04:43, Russell King (Oracle)
-<linux@armlinux.org.uk> wrote:
->
-> What I'm thinking is to address both of these by handling kernel space
-> page faults (which will be permission or PTE-not-present) separately
-> (not even build tested):
+This series adds support for Ezurio MediaTek platforms called
+"Tungsten". It includes support for MT8370-based Tungsten 510 and
+MT8390-based Tungsten 700 SOMs.
 
-That patch looks sane to me.
+Changes in v2:
+- Use b4 to cc all maintainers properly
+- Squashed patches 2/3 together
+- Updated dts node names to be generic
 
-But I also didn't build test it, just scanned it visually ;)
+Changes in v3:
+- Added per-commit changelog
+- Added missing Acked-by on 1st patch
+- Link to v2: https://lore.kernel.org/r/20251201-review-v2-0-dc2df44eec7e@gmail.com
 
-            Linus
+Changes in v4:
+- Fixed remaining DTB warnings
+- Link to v3: https://lore.kernel.org/r/20251201-review-v3-0-07f9af7341fd@gmail.com
+
+Regards,
+
+Gary Bisson (4):
+  dt-bindings: vendor-prefixes: Add Ezurio LLC
+  dt-bindings: arm: mediatek: Add Ezurio Tungsten entries
+  arm64: dts: mediatek: add device tree for Tungsten 510 board
+  arm64: dts: mediatek: add device tree for Tungsten 700 board
+
+ .../devicetree/bindings/arm/mediatek.yaml     |    2 +
+ .../devicetree/bindings/vendor-prefixes.yaml  |    2 +
+ arch/arm64/boot/dts/mediatek/Makefile         |    2 +
+ .../dts/mediatek/mt8370-tungsten-smarc.dts    |   14 +
+ .../dts/mediatek/mt8390-tungsten-smarc.dts    |   22 +
+ .../dts/mediatek/mt83x0-tungsten-smarc.dtsi   | 1481 +++++++++++++++++
+ 6 files changed, 1523 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8370-tungsten-smarc.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8390-tungsten-smarc.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt83x0-tungsten-smarc.dtsi
+
+--
+2.43.0
+
+---
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Matthias Brugger <matthias.bgg@gmail.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: Sean Wang <sean.wang@mediatek.com>
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-mediatek@lists.infradead.org
+
+---
+Gary Bisson (4):
+      dt-bindings: vendor-prefixes: Add Ezurio LLC
+      dt-bindings: arm: mediatek: Add Ezurio Tungsten entries
+      arm64: dts: mediatek: add device tree for Tungsten 510 board
+      arm64: dts: mediatek: add device tree for Tungsten 700 board
+
+ .../devicetree/bindings/arm/mediatek.yaml          |    2 +
+ .../devicetree/bindings/vendor-prefixes.yaml       |    2 +
+ arch/arm64/boot/dts/mediatek/Makefile              |    2 +
+ .../boot/dts/mediatek/mt8370-tungsten-smarc.dts    |   14 +
+ .../boot/dts/mediatek/mt8390-tungsten-smarc.dts    |   22 +
+ .../boot/dts/mediatek/mt83x0-tungsten-smarc.dtsi   | 1510 ++++++++++++++++++++
+ 6 files changed, 1552 insertions(+)
+---
+base-commit: 7d0a66e4bb9081d75c82ec4957c50034cb0ea449
+change-id: 20251201-review-750072579991
+
+Best regards,
+-- 
+Gary Bisson <bisson.gary@gmail.com>
+
 
