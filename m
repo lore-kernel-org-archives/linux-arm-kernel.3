@@ -4,66 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0886D1266A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 20:32:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35211D116FE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 20:36:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dcYsF+quRHg2DIz2ljYwCa1orSYm0Ipf/kraC4Z+q68=; b=vCnxhwbLVIV3zLqtuOpMrySWu4
-	NhXthUo8U8ptGXwfLaDagsQRoIk+wWMKy4b/MQFRxdjtbnGlMMykItL5kLMa8TyOPWKKU0mV4TR0v
-	7WS1SjhT2gYMQH3fYoQ5BSPTXGIekOiUnk26onHvnPTzhkE/aG2VMA5HVQMnF5+viPsPRIDCs10MF
-	qvNem8DUwNxZPLUZET160ljnHuT3nyVflRB3O1Da3EEaJnwSZDRNH5LSxCtW/kxxfAhtbyOkrGhRn
-	12UyHjbQIXyvnJzKuWRuou81zCT3D/ypwXmPyRp1ttUoZOaZHgBacz0ZPXzTcR2iO4rC8db6ykRaH
-	Q4ndnP6w==;
+	bh=pg99sUR/UAkOjRn2deInT4Ias+2t2tB08XcX+AE5TTw=; b=04oVE25LuokYVXDm1oBe9KMBAA
+	MBK1yhOGHmWbY5CuZStpN49V3MrnPkAyqu+l03DpoFtjIemSNF63CCKHJzUo5aCNNv2OmaRsPCTEl
+	qQVYztGaAKige/QH4/QWpiF3Cnj9QwNBbuANvo/NrL+3U6vr4FOK1/hTwlbvplSCbx4dGvuKizWpx
+	wQ/TZLoAOgIo9H7yg7N2x1i4E4xC4yVOmbOrcqe7MYdzG46Q2IYhz6VYOhwhtKCUzaayfzTZOhLqx
+	JDDccFO9m0bSci7GT5O6N4zuKUgZKlZnyrI0jR/FOEC7UylfCOD68lIqaI3EkD1Z+n7o96vFfsWFS
+	QKGYjUPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQX2x-00000005nkY-0Bto;
-	Tue, 02 Dec 2025 20:32:27 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vQX6u-00000005o6D-2dEy;
+	Tue, 02 Dec 2025 20:36:32 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQX2u-00000005njs-0Dqj;
-	Tue, 02 Dec 2025 20:32:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=dcYsF+quRHg2DIz2ljYwCa1orSYm0Ipf/kraC4Z+q68=; b=zdDYvJomwpVMZbRjiYX98M9JlC
-	S7aP7/EbHtdcwt3CMAM3BxruV3WkpMxYd/nci46HIqAvR50jaQl0+c39e6GNlKlN81C6cHlzTbkAI
-	BB7LbM6fLCqJtkvjp2FCaEzDL9OlKiBJsOdw0zUDfFxu5AtbiIHKZCNqJy/9ftDNJANI=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vQX2Q-00FjfV-2O; Tue, 02 Dec 2025 21:31:54 +0100
-Date: Tue, 2 Dec 2025 21:31:54 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH RFC net-next 01/15] net: stmmac: rk: add GMAC_CLK_xx
- constants, simplify RGMII definitions
-Message-ID: <b732b6fd-0e69-459b-8337-ba60f5a56d47@lunn.ch>
-References: <aS2rFBlz1jdwXaS8@shell.armlinux.org.uk>
- <E1vQ5El-0000000GNvU-2sXL@rmk-PC.armlinux.org.uk>
-MIME-Version: 1.0
+	id 1vQX6s-00000005o5q-2iLu
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Dec 2025 20:36:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oOxqLP0A1XbHKPAGPn7hRDRUOP6nOoHI+AhM5kwE3TefIBfnYe6hiONUPCDxKA2Q9Qh3G2EpDKl5l13gWgaopLtWsZiOGq1LuvLrQrjlMITdapQcplaBgtD92pGcSNW0LcXLDENxb2gumQUR3Y1z7qPM0Y3zJ8D5/O6OEf60WTG1YHOZBN/UTA1IxPCgdIah4BT520BqIbiL9Q8d6aqIXeSvYPYz95BRJGwZGmuMk8d/2FuE1wZVmN3WIIJesh11Ot2og3wY6jCtVN20xne5wTIArYQakrCVLrd4B0gNpRPSCaoTfqcKXoYladvU2yQgvWgblnicu3JmdDi5ZLlD9Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pg99sUR/UAkOjRn2deInT4Ias+2t2tB08XcX+AE5TTw=;
+ b=oMvWvuU4UKDP+T4XSAGzxvEChyFASBLHGEKgUpWu9O2IMsCmOev8T+aQgbVLyXnLgOcSsTqsgBEPDa0HjvjV1K5Z1e8hUvA/X9aoZyA2leg9Pl/o3YjZeNxPaRrK1zRygRbxJUxLYK7Bg7UF1KyCirnYHE8CYJrJdx+JBU9BBOlwJqBJTmljpC0DVA/JppTvLDIic+9AcC+eWmR//V5mIceqvng4D4TLd7l17rai3QQtsC5yrWc2emorVFYLKoM27w8GywJKYIubNbZ65hsAl/2JXRe/6vid+yxYuXW9J/h8Jx2ENkqhpKgPmACPgCaTkWDl39i1xd/7efB5SRoBXQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pg99sUR/UAkOjRn2deInT4Ias+2t2tB08XcX+AE5TTw=;
+ b=JerGe+COe/V1+IxY/nWbG0M9j73cYlNWXepMLLRPcWyZel9LEzWOjaOCdWDYoJoNDd/s9QP5/5rKP4sSCileSEFa8fwrPOHvzhFwbSy0wdmsDmyqf6+86tzjC0bsnzj/+MXN7OVDrMG7oVmv7zxcvy28HFJQFgafYF66M8tbfUx5ob1jYZ6feYbnqKlS+Twi1nYBOxqufiWAjCBGyKoR0sWi4/xuYDt+1dod0kkFGey2I39EkwV8+it6WVewsYbwZTBn8UB0SiZsbDkkNqID6pjmD9S6dUw/OZuQEYjr/M/YRS5JJLuD0BfBa3k9Ne+fI8TG/MZSbgEEcqO3EYyLUg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by GV1PR04MB10377.eurprd04.prod.outlook.com (2603:10a6:150:1d1::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.9; Tue, 2 Dec
+ 2025 20:36:25 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9366.012; Tue, 2 Dec 2025
+ 20:36:25 +0000
+Date: Tue, 2 Dec 2025 15:36:14 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Rui Miguel Silva <rmfrfs@gmail.com>
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Martin Kepplinger <martink@posteo.de>,
+	Purism Kernel Team <kernel@puri.sm>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	Alice Yuan <alice.yuan@nxp.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Robert Chiras <robert.chiras@nxp.com>,
+	Zhipeng Wang <zhipeng.wang_1@nxp.com>,
+	Hans Verkuil <hans@jjverkuil.nl>,
+	Sakari Ailus <sakari.ailus@iki.fi>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>
+Subject: Re: [PATCH v4 0/5] media: imx8qxp: add parallel camera support
+Message-ID: <aS9NvkAWTa42j7KW@lizhi-Precision-Tower-5810>
+References: <20250729-imx8qxp_pcam-v4-0-4dfca4ed2f87@nxp.com>
+ <20250805010822.GC24627@pendragon.ideasonboard.com>
+ <aLbcpEZXm5G1Onq7@lizhi-Precision-Tower-5810>
+ <20250902123920.GM13448@pendragon.ideasonboard.com>
+ <aLhJDXnz9HPGrWcp@lizhi-Precision-Tower-5810>
+ <aQuDSROHLGHIhtlh@lizhi-Precision-Tower-5810>
+ <20251105171928.GB6046@pendragon.ideasonboard.com>
+ <aQul/VGG8e3MJxhx@lizhi-Precision-Tower-5810>
+ <DE1JMG95RZME.2YSV10RI9AME4@gmail.com>
+ <aQzFiEOQvtZjHIsr@lizhi-Precision-Tower-5810>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <E1vQ5El-0000000GNvU-2sXL@rmk-PC.armlinux.org.uk>
+In-Reply-To: <aQzFiEOQvtZjHIsr@lizhi-Precision-Tower-5810>
+X-ClientProxiedBy: PH8PR20CA0015.namprd20.prod.outlook.com
+ (2603:10b6:510:23c::8) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|GV1PR04MB10377:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3580a6ec-da83-4882-7a16-08de31e2763a
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|52116014|7416014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?lODIL4hMHFHjhQzg9rDNbbywScf4fCQ3ZTPKm9bBqPV2JBb3mxRVVp6vDHVq?=
+ =?us-ascii?Q?gRazkWjtPUtfe/D+VXiPWBok8zfxtFggxmwX1AIrq0qnlwvIAE8G4elShklK?=
+ =?us-ascii?Q?qroAcWWXE5eA0ti5blb8mRMh0pNAMTwDyDh5wiUpeypfoa8Gb9KFTK0gmbCj?=
+ =?us-ascii?Q?+zZ0OgsJPE/PewVjBMb9lpyffbmOnvlAfCVEx4oeNu6x0E9QlYpCqYoHgWcp?=
+ =?us-ascii?Q?TdJpLta/NcSuAVyRwDloY8iCMkwf9UNugAz03v8XFN9Jl6vldCatFpyN5Z5O?=
+ =?us-ascii?Q?EwSlqQWvyMGRxfbC4rjjs9u8PDC2W2Iys5TRznlN4yOb4wlGt1gLQsgKq/YY?=
+ =?us-ascii?Q?1JTX/nZlqOsgRTGm0uJOZvX4Fdszv8CCvW3xGWpmQz0jlluJzJLQ+EYjbSLz?=
+ =?us-ascii?Q?W30K5phxbRY2qNuTuqlRUF+T+LHGEJAecRVIjFR1kx14v5q+RvsyA4ZQFzRi?=
+ =?us-ascii?Q?jiUINIJAiZvKoOoxB6cgHR+jar/Be2UsM/MYAGy9azyFOF1weBu92JYiD9+K?=
+ =?us-ascii?Q?KEBfo0xUPLzBXPOnGfmjn6vXT4cQJhZRo5HBmEeaTh76Oxn5KYZuWzSiNnNq?=
+ =?us-ascii?Q?NGEv7YLRWx+ntUdnQOC8guw0NuSxwuag59+N365yLSxCH1rOKyk4MOyRI1B7?=
+ =?us-ascii?Q?qIlrsf2IjYehhBJ75Iml9E8hbmErPYtm8yx69CmnYBCV3sJLQxHE5zVfvt1F?=
+ =?us-ascii?Q?7dhHY1gEt24aGAKR6/0fVQzsxI2oEBwddzzE0F1MiBDVlfmjgWOC4FuEvzty?=
+ =?us-ascii?Q?Nim2mHUFVvm1HnOr5p3PZdfkqueayz+rlUtIIa5LvTDoZjqUMW1NvzBrG9If?=
+ =?us-ascii?Q?qTIDRkj/BNr5U0acouTwjtT8yTl1KsgpbbJsjFonag49bycLZ3de0ki3en0R?=
+ =?us-ascii?Q?rs0YD7U7RATZr7GroQ/rnCOBw28sOOU2uuX/G63nFBP9UhmL8jhfZodAEN2W?=
+ =?us-ascii?Q?wqmK6upy7SX/IHzr5xKSyWHc1o2FcoU+dCDKAxL7KzlxINjsWWO3QM5gH555?=
+ =?us-ascii?Q?DQ8ZfXC3o2OpbcIS2z5J4VozpaTO2hT6F5ceZUoyJirKEa6OZA6nTHeig2Ot?=
+ =?us-ascii?Q?9h6t1OudWbm6eBb48cc5y7j4fQUE0zQsYkFjGMTCBukeSn51cQSHzacNbJDw?=
+ =?us-ascii?Q?7Z4aQ9JwOA0onBHNFOmVjKRe6m+1EuTLrkq0McorW/LcEVSFXmDtJEcDvRlY?=
+ =?us-ascii?Q?NSDYuM/+NgBS8mZTJOyz7ppn0yvS7KaYtrbpS8ZzvYlZ6/CbOQUE2e/XHigF?=
+ =?us-ascii?Q?B637ZOEGvaIOTEhFldU0ncr6ckoE9W+yMkGGnKON17zO40c7Qys5r/fkF8aG?=
+ =?us-ascii?Q?bjXkzvy8ehTYrY89garHFD81YlK+m/e4byfV7alVUWGMzc/Y03BZ9AIwwK4L?=
+ =?us-ascii?Q?W1D3fcLYvvqlAIBiRMJ7WbZl3xw1st2UI0Y/mwgD+1crYasLGslTQPB2pEkw?=
+ =?us-ascii?Q?EaDSupTTeWnmSLT8OUGg5w6xFq98i12+mvsvDM/3H9XoSYHWNtf84xXQVVPQ?=
+ =?us-ascii?Q?oMBHNJyl34fNKFuo4pb2m0yhxvNjQyI0WsT/MBSgSZdJqBHBEX3fyf+mXw?=
+ =?us-ascii?Q?=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?q/JSDGZV6NxwBGdV9dwjXuYuPV5Zo4Jex8iGkY7Sk7E2NAPoNQOfE3MGI5Ru?=
+ =?us-ascii?Q?Mod7awOpAkWZvwn6eQG5d8wJKQ9OziMx4XY90dCbrjkWhNibIsM52VYma6Xs?=
+ =?us-ascii?Q?jJD+FCN2OoQni4DnMG/Y83EJD2NQjrCWAgwPVsO+trZqi9ub7obhKob3Ys2O?=
+ =?us-ascii?Q?o2xy/qs/NsDlGKWOjPsVfUKggJb1hh6JakTM2iZs7WzzD25IMctc/4vgLats?=
+ =?us-ascii?Q?za6S6pLRvUIbPb3gIjJ/eDA4kvfHBJtwbHGPJmgIGsY86pi6iDUr+r/c31WD?=
+ =?us-ascii?Q?vnIiI36EEmz5HZQHmZE2uRAOEE6o/EzsNBRzKPmhiblrlfh9kn87svB/KXtv?=
+ =?us-ascii?Q?CtANvRRY1h9jmcWDZj31ICUBptZkmxFj7F4XRgxIxjaa781dNZmpUPbbvfTY?=
+ =?us-ascii?Q?S5p0GkgzIlbz2MyOhHCzXJC320Tzh1Upl9E+HAVXWvQHWJYECUy4NkJ8TVE4?=
+ =?us-ascii?Q?IZFOQkwtNRUYEIr2AU9FsiiS/HUC4Cq21smCN/1lG+9HWuP6Hf7Q4HeOcVzn?=
+ =?us-ascii?Q?3FxY0yfGMRI6ZxyfV8eBCFdwvWoQR4bwqHZ8tTMV0XLM3UYttwrhxOaznCXH?=
+ =?us-ascii?Q?lIOrjvIsg3S8y4sTLfbIDSrTCAKYe/l1ZKmD5vQx4Kra/BZ7BKAs4D3HoqBR?=
+ =?us-ascii?Q?/1etqB3wemgi7jdD1j20O6KP+M+vGw9wdmo1mzMl9ehZQMLSEMHr71ulz3aF?=
+ =?us-ascii?Q?hL8fFi2A2uHductrN/uD0fYRpNqXwLVcOEIdSYbPdtpURHRMm9QOlTz/8W3m?=
+ =?us-ascii?Q?qkcOeJvFEwb+jTYmkTI6+VWFrIeF+/3Ow7JbBJvTKA89rH48ECoA3aTq+wIa?=
+ =?us-ascii?Q?rm5x8jd+TOGDL1h31e8gHufV4sHjOWmW+BYUzqVxcEfLa1/gvcEls+zuBb1x?=
+ =?us-ascii?Q?OI/oPcSoFhJMZlQ4u3mq3hRyElseZn3t8/TDw7qcpOfGDBeauoJIPJCuN/ZV?=
+ =?us-ascii?Q?vMoVvHYhtEnqkrl1DKcomJcBSSr7ofLN0jGrmR+SMRr8HIHHrSm5ThxDi9dP?=
+ =?us-ascii?Q?fZaW8feSyzOnXifXFcH0iiJTSulekGoz2XJv9c8gtBV5RpaLO3YZB5bCzNLU?=
+ =?us-ascii?Q?H+KPd+fl2RefxsrNg/zWkVwQ76LWPnuM3Pw2A1RheWiJCaQ8C+q9YQn0HEY3?=
+ =?us-ascii?Q?XTixpNimTAjHAKYjeVALVLzlg/SxNwozmv9gSBo+q4l2DZT+bUkTRH6tzR9s?=
+ =?us-ascii?Q?dsDzSEPx3rZSQbNfKkHsYLb11MaJV/9BrkYr2KZkMnwiuwITTE3cT1zEzePf?=
+ =?us-ascii?Q?g+joGzBHv05TLqBhRQvozwUQhnS1alWxg+pkduiO2qYIlR8nuAJCsyo9UxMw?=
+ =?us-ascii?Q?186kiWyzu0GmXFOFFiE9YUtETMk5DkIHvemHuxxn8s9lDudQVpvwSenMpy0r?=
+ =?us-ascii?Q?0nQFF9+V7AVN1NQYykj0NkTn+YR6FtneZFG4lAM6SzRSFMI990ZHXp1E888j?=
+ =?us-ascii?Q?oUz3fk178O2eQ45F1RFdAGpXpY52UNNhhXCSIEZy8+OtZhYT5NpFqqgZMhYd?=
+ =?us-ascii?Q?wnrChAZUymN+nJfbRq0HkJPonYbSkjrta32XxQjBPYb0IhjhxgUAqHSwvbLa?=
+ =?us-ascii?Q?kHFJBwhLcUnHV1bgjkQSya82sucYpbku/cyeswYA?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3580a6ec-da83-4882-7a16-08de31e2763a
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Dec 2025 20:36:25.0606
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: XnwCo77ZWLuEbeUXnyxRc1BjxBc9T0CLkP4CgKbnq6/kcSl3Ep252hctHL7h8e2VCF8aumYH+9cCPIkSvn4C+Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10377
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_123224_088324_4075CD4A 
-X-CRM114-Status: UNSURE (   8.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251202_123630_835816_0DFA5297 
+X-CRM114-Status: GOOD (  47.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,18 +186,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 01, 2025 at 02:50:47PM +0000, Russell King (Oracle) wrote:
-> All the definitions of the RGMII related xxx_GMAC_CLK_xxx definitions
-> use the same field values to select the clock rate. Provide common
-> defintions for these field values, passing them in to a single macro
-> for each variant that generates the appropriate values for the speed
-> register.
-> 
-> No change to produced code on aarch64.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+On Thu, Nov 06, 2025 at 10:58:00AM -0500, Frank Li wrote:
+> On Thu, Nov 06, 2025 at 10:34:48AM +0000, Rui Miguel Silva wrote:
+> > On Wed Nov 5, 2025 at 7:31 PM WET, Frank Li wrote:
+> >
+> > > On Wed, Nov 05, 2025 at 07:19:28PM +0200, Laurent Pinchart wrote:
+> > >> Hi Frank,
+> > >>
+> > >> On Wed, Nov 05, 2025 at 12:03:05PM -0500, Frank Li wrote:
+> > >> > On Wed, Sep 03, 2025 at 09:56:29AM -0400, Frank Li wrote:
+> > >> > > On Tue, Sep 02, 2025 at 02:39:20PM +0200, Laurent Pinchart wrote:
+> > >> > > > On Tue, Sep 02, 2025 at 08:01:40AM -0400, Frank Li wrote:
+> > >> > > > > On Tue, Aug 05, 2025 at 04:08:22AM +0300, Laurent Pinchart wrote:
+> > >> > > > > > Hi Frank,
+> > >> > > > > >
+> > >> > > > > > Thank you for the patches.
+> > >> > > > > >
+> > >> > > > > > I've quite busy these days, and I don't believe I will have time to
+> > >> > > > > > review this series before coming back from OSS Europe at the beginning
+> > >> > > > > > of September. Let's see if anyone on CC could volunteer.
+> > >> > > > >
+> > >> > > > > Laurent Pincha
+> > >> > > > > 	I hope you have good time at OSS.
+> > >> > > > >
+> > >> > > > > 	Do you have chance to review this patch?
+> > >> > > >
+> > >> > > > I'm going through my mail backlog, which is really big at the moment.
+> > >> > >
+> > >> > > Understand.
+> > >> > >
+> > >> > > > I'd like someone else to volunteer to review this series. It won't scale
+> > >> > > > if I have to review all NXP media patches in my spare time :-/
+> > >> > >
+> > >> > > Yes, but none volunteer review this in passed months. Expecially key
+> > >> > > reviewer. I am reviewing i3c patches. but Not familiar v4l system yet. It
+> > >> > > need scalable solution. I can help filter some common and simple problem
+> > >> > > from beginning.
+> > >> >
+> > >> > Laurent Pinchart:
+> > >> >
+> > >> > 	Do you have chance to check this serise? this one should be related simple.
+> > >> > 	This one sent at 7/29. Still not any volunteer to review it.
+> > >>
+> > >> I'm afraid I won't have time to review this for the time being. My spare
+> > >> time is already exhausted by all the other drivers I maintain upstream.
+> > >>
+> > >> > 	How do we move forward?
+> > >>
+> > >> I think this is a question for the subsystem maintainers. Hans, Mauro ?
+> > >
+> > > Mauro Carvalho Chehab and Hans Verkuil:
+> > >
+> > > 	Laurent provided great help about review and land i.MX related
+> > > patches in past, who are quite famillar with i.MX chips. But he is quite
+> > > busy. So the whole reviews cycles takes quite long time and offten cross
+> > > some merge windows.
+> > >
+> > > 	In pull requests for 6.19:
+> > > https://lore.kernel.org/all/4989c563-47f4-478c-80c4-41f7e98597e4@kernel.org/
+> > > only 10 patches, and 4 patches is trivial clean up.
+> > >
+> > > 	In reviewing patch queue, there are
+> > > 	1: media: nxp: imx8-isi: Add ISI support for i.MX95
+> > > 	   https://lore.kernel.org/imx/20251105-isi_imx95-v3-0-3987533cca1c@nxp.com/T/#t
+> > > 	   This one already review, but I am not sure if it capture 6.19 cycle because
+> > > PULL-request already sent.
+> > >
+> > > 	2: Add MIPI CSI-2 support for i.MX8ULP
+> > > 	   https://lore.kernel.org/imx/20251023-csi2_imx8ulp-v7-0-5ecb081ce79b@nxp.com/
+> > >
+> > > 	3: media: add imx93 mipi/controller csi support
+> > > 	   https://lore.kernel.org/imx/20250821-95_cam-v3-0-c9286fbb34b9@nxp.com/
+> > > 	   This one is quite big, but first 10 patches is simple trivial cleanup patches.
+> > > 	   I post at 8/27, but get first feedback around 10/27, I am not
+> > > 	   sure if missing somethings.
+> > >
+> > > 	4: This series, laurent already said no time review it.
+> > >
+> > > 	5: ap1302 sensor patches
+> > >            https://lore.kernel.org/imx/20250811-ap1302-v4-0-80cc41b91662@nxp.com/
+> > >            binding already ACK, most maintainer want to pick binding with
+> > > 	   driver together, but not an feedback since 8/11.
+> > >
+> > > 	I jump into and help do some review.
+> > >
+> > > 	The questions is how to move forward pending patches, like [3], [4],
+> > > [5]. How to keep good community channel to avoid long time pending?
+> >
+> > Sorry, but like Laurent I am really without spare cycles to go over the
+> > patch series that have arrived in media (also I do not have any hw anymore).
+> > So, Frank or maybe Laurent knows someone that would like to be add also as
+> > maintainer of this drivers for me would be great, that would also help to
+> > avoid such bottlenecks.
+>
+> If there are not other candidate, I can help maintain it although I am more
+> familar with dt binding, i3c and dmaengine. I can start from simple patches
+> and we have test team to help cover testing on the real hardware.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Rui:
+	Any update? How to move forward? It was already passed more than 3
+month!
 
-    Andrew
+Frank
+
+>
+> Frank
+> >
+> > Thanks in advance,
+> > Cheers,
+> >     Rui
+> > >
+> > > Best regards
+> > > Frank Li
 
