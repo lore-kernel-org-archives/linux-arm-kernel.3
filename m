@@ -4,100 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FB08D11702
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 04:28:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B23CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 04:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uv873R59GF4pDUvydCooybALtCJ2h5ZZnBbEItimlbk=; b=NGEZeM8EBAn5kwJs5xqrmOsL8d
-	vN2qU7IS7BURfhbLfuLrFcPiqJa8SwSdeFMqD/N5xbjQeuH7WHjFgXVh6L7L6SfDpcGNdY5mNRz/g
-	D7K6xkmtH8nGzftznjhzTMelRFqTB6eV0Xwd3IBEXY3AmTn9vHRpZ3Szb8kgqqtFGKHowYmgZPzxA
-	GUl/4YrtOJ6EIWx3BFYaVlM28fh55/HPMsiNG8WSXkCZYtw0BeQkGLaN6dVp/TWJiTjnRaYEplLRG
-	vcd/+8PtsB43zVT0pEK2V4DtBjEdj/mYgGFjAE2+kWDSCqzs30iF6dUco+hoAeYizarfmvYmMeG7p
-	/olejSIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LlnQ5BAi76HPvHhocPivvWgaZ62tTTuvYoTCH/OutaQ=; b=LFLNm5Qhubdzv+Qb7Dz4Xkg+d4
+	h5G988bzPpXP3mZmgWVotU7Q7PrmX6fiBF5Y8+pBmwVa/geDberAyOMmXzk6vnDH1oHUs0dMjGeQY
+	tBXWRFAYfarBabp9uZCGynvLNZ+gE6qNgs1eTQlZPbyytgIQM5mTIvSX7SsCqj0s6lgNK4dsNKhUO
+	XRzfXPSj000oE/bA2jwnujzTiT0C/38TL4dSb0BxxX6mHjjzKBYyFO9Mdmi0U2zYnRxWJ6nloyNat
+	vs18dykVlDg2PtlcE1C05hs2RI/sG8Jzv81WifyVCm/lauYYfJU7spfVvYdrvI2L99m6FE3VdIFPR
+	cp+25qBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQI05-00000004mn5-0wlB;
-	Tue, 02 Dec 2025 04:28:29 +0000
-Received: from mail-dy1-x132d.google.com ([2607:f8b0:4864:20::132d])
+	id 1vQICI-00000004nMw-1OpH;
+	Tue, 02 Dec 2025 04:41:06 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQI02-00000004mmK-2VVF
+	id 1vQICF-00000004nM8-1xL5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 04:28:27 +0000
-Received: by mail-dy1-x132d.google.com with SMTP id 5a478bee46e88-2a45877bd5eso7562041eec.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 20:28:26 -0800 (PST)
+	Tue, 02 Dec 2025 04:41:05 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-42e2d52c24dso1123404f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 20:41:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1764649706; x=1765254506; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Uv873R59GF4pDUvydCooybALtCJ2h5ZZnBbEItimlbk=;
-        b=h5vQZlavjKrk6eMvWjQ2qpKVbBzjYt/p8JIm5B+ghLeGnAcpf/6SQaFYVLHNgmQU0T
-         uGe6KelBvEQ4jlWC7aSKuV9yrrkQlkjkGtmH0bH/Bg/ssohhf8TGQKj/WTmNfb3rBjIK
-         /HBVdkGDYREkuCRiKHzIw4EIjJq9s+woupsW3Ez57KgN4apt/nSnz0uXQiD7AEpEfA7p
-         Jbb3nXLYIynFpkv8J/MwIB1yA10JW2Bmym2HH+5lXdBEvjqdpCNNWbcQ6+ZfRuMM0+Kx
-         /JZb5XV1TlSJ0Jc0CqFO2nl39EjjjNBXzsE2xT3o8qINOeFDIRH5/4s0ptZ1LK1F1Efm
-         LWDQ==
+        d=gmail.com; s=20230601; t=1764650461; x=1765255261; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LlnQ5BAi76HPvHhocPivvWgaZ62tTTuvYoTCH/OutaQ=;
+        b=UhQycKWF+aWhk8+voe8w3lcxHo6ZzZV3FvEQSbrZUrKf5MQ1SFX36+TikwuAW676bp
+         nU4meKcwSAR6P75OKc3y3ZPlUeMKZlBIHWZaGHuXTKtnoPNmMVjfXn+SjR0hun2e1dIC
+         ZUt2kzkp+CZzJf+cLDIvTS5NFEUDkTqfaJtODM1EQIGHzczurrL+6AP13DfydHH8tXTg
+         7B9jLAzcC0FOwc1Y85zOqkl30r5ZhbsHRerTnh/z0hLp9/opSyvaYPA8Ho6VrWm+Lt1f
+         oOtvBN4j9hfo37NyWZZX3zDaICqdI33YY+9PzYqhtvcnpULexZawoM0VY9CbDUbN2wTw
+         UNNg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764649706; x=1765254506;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Uv873R59GF4pDUvydCooybALtCJ2h5ZZnBbEItimlbk=;
-        b=RcYEh9nNmpkxE9kXedOxas4h4VAQjax5E5gyrTtD+9gJvy72l/HscP0+7w5sF8gXnZ
-         wqJQtAeC4oTHuHHThanLumR/sjLmIMKjw4QUNAOTFmDWDaDnNnnf/n/IBg4D1HiTei/i
-         dvSAPIrYuyWMTntnj7u/0bF0yGwrMq4SK7j7c0f8yDe3KrwhrSQE8UzdLRyF4mpVwiXO
-         wjO+ZwFTpRzE2+7KnPbm+Afb7kxLHaHHQqNggJWBuZ2Hmbde6e6LNfTQYdGyjq50Oj57
-         ABd6baX4T8/LrEC55P3HznWygXRu6C2RI69bBX5Egg/dQhDYz93qZo1dQS3PvwSwBjkX
-         +POw==
-X-Forwarded-Encrypted: i=1; AJvYcCX8dEGZMuT5Dz4sMMKWxBmMUbf2NOQXJuyc0U4mrb9sjr7oAeFVnpZo3OmNEWZJagIyQETiwwIFEKlNONfTSS49@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPSe7MqP86BP2AyK4sruyL4fH4IHJvi3OOjSRxPQGJ1D7BDgUs
-	hZlst6aN8gPpBGDiSLR4PjzXeY8PJKEVHkeF7oeJtF6vNvOhM5wDKXYFi629VvZN914=
-X-Gm-Gg: ASbGnctXBfT+zt8daPaJE1H00RjmiLEmGD8d3HMDY0CQXbphVtV5zIkmMAjMpKIkHZi
-	6BBKtJgqDM6B9Vmo8wNzlL9EQ+l1RA/aSVTMa5tnuuydsbkdViKc4fNtcZyfpQmMio9Z73+Nsb6
-	qgcHlry2dFhlEq9q/DaqSVjmSv9cDCESIZSdy/h15DaEo3odmiCE2rHtjxG4pyeuA+6ihDd9xPi
-	QTmomk1Nyf/TgMMhH6JkxIGVsUn7Cz0LfkGxxPCfHUO43lOuOA42fRsKHUdGNK6KZCfIXKxdxJm
-	syw0s0HH8sLmvZZaT347Xp7zqq8Jkpj4JYHGDydxw2OfvUfPHsGHd8LykBDA1bk1w876k6NbzLY
-	Bt6lkSgggtUkgyNL/XYKpicnFM60baMOFU7dw4VfnrcVDrvsyfM2/D6759cbLLSX3mCAz2YtlSf
-	KvImxzwQzwXiFatnI9vQ==
-X-Google-Smtp-Source: AGHT+IHz9/5MGJKnqrRQBBG71Tv8qvd7//uMmkLyg5Z6fy/L0/ZDmN2B0A/dYTxnaQjFO5ur+16uhA==
-X-Received: by 2002:a05:7300:e10f:b0:2a4:3593:ccbb with SMTP id 5a478bee46e88-2ab7e661990mr930517eec.2.1764649705538;
-        Mon, 01 Dec 2025 20:28:25 -0800 (PST)
-Received: from sunil-laptop ([103.97.166.196])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-2a96560986csm77426225eec.2.2025.12.01.20.28.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 01 Dec 2025 20:28:24 -0800 (PST)
-Date: Tue, 2 Dec 2025 09:58:11 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: huyuye <huyuye812@163.com>
-Cc: ajones@ventanamicro.com, anup@brainfault.org, aou@eecs.berkeley.edu,
-	atishp@rivosinc.com, bhelgaas@google.com, catalin.marinas@arm.com,
-	conor.dooley@microchip.com, dfustini@tenstorrent.com,
-	haibo1.xu@intel.com, lenb@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-riscv@lists.infradead.org,
-	palmer@dabbelt.com, rafael@kernel.org, robert.moore@intel.com,
-	samuel.holland@sifive.com, tglx@linutronix.de, will@kernel.org,
-	dai.hualiang@zte.com.cn, deng.weixian@zte.com.cn,
-	guo.chang2@zte.com.cn, liu.qingtao2@zte.com.cn,
-	wu.jiabao@zte.com.cn, lin.yongchun@zte.com.cn, hu.yuye@zte.com.cn,
-	zhang.longxiang@zte.com.cn
-Subject: Re: [PATCH v7 08/17] ACPI: pci_link: Clear the dependencies after
- probe
-Message-ID: <aS5q28HPYLzK6h8r@sunil-laptop>
-References: <20240729142241.733357-9-sunilvl@ventanamicro.com>
- <20251201141230.12656-1-huyuye812@163.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251201141230.12656-1-huyuye812@163.com>
+        d=1e100.net; s=20230601; t=1764650461; x=1765255261;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=LlnQ5BAi76HPvHhocPivvWgaZ62tTTuvYoTCH/OutaQ=;
+        b=WwXnBfBK0VWwHt5MOm5pxXVBfNEld38VpQy62smEY/6jE4pB7lQertPMJufoAjo74D
+         e8csarGYHBr+o3fq8YgsKaZy/2mRoP7JtbdXFNMG9fr77K5gwDoE+T8FVX1+jPf6v22s
+         CKy8t+nucJcBR0eL0oxW14XcvANbtDooGPHoop9AsrGbZ95QKqmGDvj66Q+O2Jn+lICm
+         bMRnl+kj8T4BaFFv5vMlKzOHONAPXp1LrRonow/2uiWtqA63NTQaiVzNhQKnRSjhiMVH
+         06olKfOoj5h/zdusDEW9rf4vw00qBUuAz7y1q0sZzWQYSilAtgJZR6zyWX0vze3ipLU+
+         o7Hw==
+X-Forwarded-Encrypted: i=1; AJvYcCX/BR1x5+Z3uiEWdHJ4aJ/IysBezdBkZcfi7yIbzSTQsdGxHAK8Hi6rrH6sWtlxoi+dX+QFpgDqSeuPBYXte4s3@lists.infradead.org
+X-Gm-Message-State: AOJu0YyvA+1TQP1epClgRlU58y1Ym0wPyv2IgByd3WHES27JSUeXvKMi
+	GzqNX4gFcMHBVK72wuiVFZUfkKcT7Ix1XzTYlYV17ko6DNzlUekprTF+
+X-Gm-Gg: ASbGncs0YoxvbBjBbE3+m74nnm8EQgfrq6pPWt+83YGKCjnhXWFVbH6q2nGTr1SOyQy
+	pLVmFo0AZmC0e1t3bozanvpHa/djyd1thA+wtafGBUGl27NyfKuizDFqIzmDrBB0eW41NG3fOkY
+	W7DhmKwWfUvJehA0o82rIBPaLDsbB6HaMT7epeCZt/M7TrGREWRxN6Lj+pFH7NP+YyU0jffuE/G
+	WpaT0N+GeblYt8ZFgli+LPICfgkZiNQPMRFsW5HKxjYiU11DFDuaqo3e08C7N5ROvC5pj3RWm/d
+	xxjSDdxLanQmMMPhsXKyZWTMrAA8/vVShhicufwJGddIeD7E1f2BHt3Sg9JgWTo2Xcd3lYTl4Im
+	D4lv9x0ZxXG+390GyJl+KJtTMRKLr6XJgF1b74mkNmYsxHS89w3dr+Q1GQQzuT2a2sUVd+jtjA9
+	tI8uNRSuI5sWLbfTKOHC6mMLzKafyZl6/kGhiC0aeI7u/X4y8c29BIIhMboC/jr/1NhlfeKtBWF
+	qzGwcH+/A==
+X-Google-Smtp-Source: AGHT+IGBVfHoicF0puR2bTLakkUtiMzuIbjHAPDFKoGgk5PNnZl7XxNKNFA7iFYAa4+wXIUlMt2vww==
+X-Received: by 2002:a05:6000:26c4:b0:42b:2f79:755e with SMTP id ffacd0b85a97d-42cc1ab8874mr41867616f8f.3.1764650461201;
+        Mon, 01 Dec 2025 20:41:01 -0800 (PST)
+Received: from smtpclient.apple (static.253.36.98.91.clients.your-server.de. [91.98.36.253])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42e1c5d607csm30712057f8f.15.2025.12.01.20.40.59
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 01 Dec 2025 20:41:00 -0800 (PST)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.3\))
+Subject: Re: [PATCH] wifi: mt7601u: check multiple firmware paths
+From: Christian Hewitt <christianshewitt@gmail.com>
+In-Reply-To: <20251201103529.1874a869@kernel.org>
+Date: Tue, 2 Dec 2025 08:40:47 +0400
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ linux-wireless@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org,
+ Daniel Golle <daniel@makrotopia.org>
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <CD5CBB8A-2829-4436-9DA0-D1A88D594E92@gmail.com>
+References: <20251201090336.1157193-1-christianshewitt@gmail.com>
+ <20251201103529.1874a869@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+X-Mailer: Apple Mail (2.3826.700.81.1.3)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_202826_667935_2910035C 
-X-CRM114-Status: GOOD (  15.17  )
+X-CRM114-CacheID: sfid-20251201_204103_523241_31074ABB 
+X-CRM114-Status: GOOD (  12.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,25 +108,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 01, 2025 at 10:12:29PM +0800, huyuye wrote:
-> > Hi, sunilvl
-> 
-> > Based on the above patch, I understand that you previously >resolved dependencies between Link devices and PCI Host Bridges by >calling acpi_dev_clear_dependencies(device). I would like to ask: >on RISC‑V platforms, if we need to manage dependencies between >multiple PCI Host Bridges, could this be addressed by adding a >call to acpi_dev_clear_dependencies(device) at the end of the >acpi_pci_root_add enumeration function?
-> 
-> > Initialization order dependencies can be defined via the ACPI >_DEP method in the DSDT. For example, if host bridge B depends on >host bridge A, bridge B should not be enumerated until bridge A is >fully initialized.
-> 
-> > Yes, that should work.
-> > Regards,
-> > Sunil
-> 
-> Hi,Sunil
-> 
-> I'm truly honored by your affirmation of my answer.Do you think this solution has a chance of being accepted into the upstream kernel? Are there any unintended side effects we may have overlooked?
-> 
-Acceptance of this solution depends on the PCI/ACPI maintainers. To help
-them evaluate it, you should clearly describe why your platform requires
-this dependency in the patch.
+> On 1 Dec 2025, at 10:35=E2=80=AFpm, Jakub Kicinski <kuba@kernel.org> =
+wrote:
+>=20
+> On Mon,  1 Dec 2025 09:03:36 +0000 Christian Hewitt wrote:
+>> The linux-firmware repo moved mt7601u.bin from the root folder to
+>> the mediatek sub-folder some time ago, but not all distros create
+>> symlinks to the old location the driver checks. Update the driver
+>> to check for firmware in both old and new locations.
+>=20
+> IDK.. 2.5 years ago.. how long is too long to wait for the distros=20
+> to update their linux-firmware?
 
-Regards
-Sunil
+
+If compatibility with older firmware locations is no longer a concern =
+the
+previous patch submitted by Daniel is valid. If compatibility is =
+desirable
+this patch is valid. I=E2=80=99m not fussed which one gets merged, as =
+long as
+one of them is so the distro I maintain doesn=E2=80=99t need to patch =
+the driver
+to use the =E2=80=9Cnew=E2=80=9D location (our buildsystem doesn=E2=80=99t=
+ process WHENCE
+which adds a symlink back to the old location the driver still uses).
+
+Christian=
 
