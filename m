@@ -4,56 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02D9BD1267A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 22:38:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79958D12685
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 22:43:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H2Uo/+AoQ5NQJdx5MNHBMbHN+4OzPRgqvPH+BTOYJTA=; b=MGPB+OvhkwPolXQYJLgv5bcyfx
-	B3qPYObfJoADUSvAwsXknpQGK19wumlSPQNP7MZ72rUQ1UEnHrMaaJ9awIQH99wNFcqKxTS5fN+Kc
-	Q6wFMt2cabH3vnzhnaqOn5vd2MWi0C5a4x9lCLawL0NSS4GNJn8chdCnMxxMuXIGrhPOl2gfO3KVI
-	t4v3XwgXjs4tiWKIh6p4y9A7wX8ILppYiqfYLSSeDwsOyQ9AzAkT05wz6dVKD2tMaII7H7KEtk1HH
-	zHf7tT+SpW6FBOzcRbYZ4VAApEK4x1O0ZkTIOI4Olgb9jPOCk3a39dAqGNi8LX5x8e+32mHB8h1jj
-	rL0biaHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WO4beATxt97tuU0VYWEB3HVRKidfyZCooXniUFdi510=; b=MqzrjfDdAzCACvPH2BTW0iuvzL
+	vxpm5dLf8koNe60qgxUGnkEQ9IqdPvJwbfeT/zwENwrSbt08jNfcqRZcDouDlBjhe8n3V1AmWkikb
+	cKw5E4Dhx93waCCcqHQJsU/R0GjzLoTw3wWuolWP1q/nDe87scS64eVJ5hSUamxtfnAVepSITjqFf
+	69KTYVfXi2DfV1XyqTwIQvm4OaSSM+sAHqb5xfaEhrZnOOiG8Qx9U3qbw3/tmzXAHAUhKaCCxM7Hc
+	PO4Ip2VqEzAt5n/ouQUN1gitFI2ezuWYIsFLinIRbA0N/1uywHnQBrp+AwUeMcPX8sxSyh5Sp7NPl
+	LY6eYaSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQZ0N-00000005uGl-3PYX;
-	Tue, 02 Dec 2025 22:37:55 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQZ0M-00000005uGP-0aLZ;
-	Tue, 02 Dec 2025 22:37:54 +0000
-Message-ID: <77bad218-9120-49d5-9d5a-7b1dcebf09b2@infradead.org>
-Date: Tue, 2 Dec 2025 14:37:53 -0800
+	id 1vQZ60-00000005uUu-2XSV;
+	Tue, 02 Dec 2025 22:43:44 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQZ5v-00000005uUX-2dSC
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Dec 2025 22:43:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AC4374033C;
+	Tue,  2 Dec 2025 22:43:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C840C4CEF1;
+	Tue,  2 Dec 2025 22:43:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764715417;
+	bh=GV4nmZlTqNhyK5x8C0GUeistp+nziFPdQUXBsboHFBc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=N+OG7h2StqSuMuBZhLDw0GRqK4uP5QDkjo1fRktjsnAKRVLG5XMuNPtDlpxgaWHsU
+	 mu5KqH8TL451/7uUURfqh/J0H8C3UGOdmxyfeCGLZKhogteBy+2dJxmibmWcVICnqd
+	 R45zpc7u6f2cIHrtMzCBXo+C20DcKk6kobttLeEbLYEF6I+EI6cWSGntc28wXu4PEl
+	 3MPsrnpC/mNtjA13FngjE5LWM/Grqg1NGqcMbJP4GTH9U1BRHzo2nLs0g4V19Fp8Hz
+	 RpM5yi2ZV6vCG/TEOJ4d5LZJoNG3mMu3WeG0vOPS64ql3UXqHi3gc3YC5K88azd3Ep
+	 WTggPVCMY+Ksw==
+Date: Tue, 2 Dec 2025 14:43:36 -0800
+From: Oliver Upton <oupton@kernel.org>
+To: Fuad Tabba <tabba@google.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, will@kernel.org
+Subject: Re: [PATCH v1 0/5] KVM: arm64: Enforce MTE disablement at EL2
+Message-ID: <aS9rmMgNna7I5g4F@kernel.org>
+References: <20251127122210.4111702-1-tabba@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: linux-next: Tree for Nov 28
- (drivers/pci/controller/dwc/pcie-nxp-s32g.o)
-To: Manivannan Sadhasivam <mani@kernel.org>,
- Vincent Guittot <vincent.guittot@linaro.org>
-Cc: Stephen Rothwell <sfr@canb.auug.org.au>,
- Linux Next Mailing List <linux-next@vger.kernel.org>,
- linux-pci@vger.kernel.org,
- Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
- Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
- NXP S32 Linux Team <s32@nxp.com>, "imx@lists.linux.dev"
- <imx@lists.linux.dev>, linux-arm-kernel@lists.infradead.org,
- Bjorn Helgaas <helgaas@kernel.org>
-References: <20251128162928.36eec2d6@canb.auug.org.au>
- <63e1daf7-f9a3-463e-8a1b-e9b72581c7af@infradead.org>
- <ykmo5qv46mo7f3srblxoi2fvghz722fj7kpm77ozpflaqup6rk@ttvhbw445pgu>
- <CAKfTPtA-wir5GzU7aTywe7SZG18Aj8Z9g1wjV-Y8vKoyKF1Mkg@mail.gmail.com>
- <vb6pcyaue6pqpx626ytfr2aif4luypopywqoazjsvy4crh6zic@gfv75ar7musy>
- <CAKfTPtCKmj_dHGU-2WPsEevf7CR-isRiyM0+oftCrMy5MswE4A@mail.gmail.com>
- <6ulzkdgd6j35ptu5mesgtgh2xa6fwalcmkgcxr2fdjwwfvzhrf@4dtcadsl2mvm>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <6ulzkdgd6j35ptu5mesgtgh2xa6fwalcmkgcxr2fdjwwfvzhrf@4dtcadsl2mvm>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251127122210.4111702-1-tabba@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251202_144341_823011_85FA259C 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,111 +73,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Fuad,
 
-
-On 12/2/25 2:12 AM, Manivannan Sadhasivam wrote:
-> On Tue, Dec 02, 2025 at 11:03:07AM +0100, Vincent Guittot wrote:
->> On Tue, 2 Dec 2025 at 10:53, Manivannan Sadhasivam <mani@kernel.org> wrote:
->>>
->>> On Tue, Dec 02, 2025 at 09:54:24AM +0100, Vincent Guittot wrote:
->>>> On Tue, 2 Dec 2025 at 05:24, Manivannan Sadhasivam <mani@kernel.org> wrote:
->>>>>
->>>>> + Vincent
->>>>
->>>> Thanks for looping me in.
->>>>>
->>>>> On Sat, Nov 29, 2025 at 07:00:04PM -0800, Randy Dunlap wrote:
->>>>>>
->>>>>>
->>>>>> On 11/27/25 9:29 PM, Stephen Rothwell wrote:
->>>>>>> Hi all,
->>>>>>>
->>>>>>> Changes since 20251127:
->>>>>>>
->>>>>>
->>>>>> on i386 (allmodconfig):
->>>>>>
->>>>>> WARNING: modpost: vmlinux: section mismatch in reference: s32g_init_pcie_controller+0x2b (section: .text) -> memblock_start_of_DRAM (section: .init.text)
->>>>
->>>> Are there details to reproduce the warning ? I don't have such warning
->>>> when compiling allmodconfig locally
->>>>
->>>> s32 pcie can only be built in but I may have to use
->>>> builtin_platform_driver_probe() instead of builtin_platform_driver()
->>>>
->>>
->>> The is due to calling a function belonging to the __init section from non-init
->>> function. Ideally, functions prefixed with __init like memblock_start_of_DRAM()
->>> should be called from the module init functions.
->>>
->>> One way to fix would be to call memblock_start_of_DRAM() in probe(), and
->>> annotate probe() with __init. Since there is no remove, you could use
->>> builtin_platform_driver_probe().
->>>
->>> This also makes me wonder if we really should be using memblock_start_of_DRAM()
->>> in the driver. I know that this was suggested to you during reviews, but I would
->>> prefer to avoid it, especially due to this being the __init function.
->>
->> yeah, I suppose I can directly define the value in the driver has
->> there is only one memory config for now anyway
->>
->> /* Boundary between peripheral space and physical memory space */
->> #define S32G_MEMORY_BOUNDARY_ADDR 0x80000000
->>
+On Thu, Nov 27, 2025 at 12:22:05PM +0000, Fuad Tabba wrote:
+> pKVM never exposes MTE to protected guests (pVM), but we must also
+> ensure a malicious host cannot use MTE to attack the hypervisor or a
+> pVM.
 > 
-> Ok. I fixed it up myself with below diff:
-
-Thanks.
-Tested-by: Randy Dunlap <rdunlap@infradead.org> # build-tested
-
-> diff --git a/drivers/pci/controller/dwc/pcie-nxp-s32g.c b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
-> index eacf0229762c..70b1dc404bbe 100644
-> --- a/drivers/pci/controller/dwc/pcie-nxp-s32g.c
-> +++ b/drivers/pci/controller/dwc/pcie-nxp-s32g.c
-> @@ -7,7 +7,6 @@
->  
->  #include <linux/interrupt.h>
->  #include <linux/io.h>
-> -#include <linux/memblock.h>
->  #include <linux/module.h>
->  #include <linux/of_device.h>
->  #include <linux/of_address.h>
-> @@ -35,6 +34,9 @@
->  #define PCIE_S32G_PE0_INT_STS                  0xE8
->  #define HP_INT_STS                             BIT(6)
->  
-> +/* Boundary between peripheral space and physical memory space */
-> +#define S32G_MEMORY_BOUNDARY_ADDR              0x80000000
-> +
->  struct s32g_pcie_port {
->         struct list_head list;
->         struct phy *phy;
-> @@ -99,10 +101,10 @@ static struct dw_pcie_ops s32g_pcie_ops = {
->  };
->  
->  /* Configure the AMBA AXI Coherency Extensions (ACE) interface */
-> -static void s32g_pcie_reset_mstr_ace(struct dw_pcie *pci, u64 ddr_base_addr)
-> +static void s32g_pcie_reset_mstr_ace(struct dw_pcie *pci)
->  {
-> -       u32 ddr_base_low = lower_32_bits(ddr_base_addr);
-> -       u32 ddr_base_high = upper_32_bits(ddr_base_addr);
-> +       u32 ddr_base_low = lower_32_bits(S32G_MEMORY_BOUNDARY_ADDR);
-> +       u32 ddr_base_high = upper_32_bits(S32G_MEMORY_BOUNDARY_ADDR);
->  
->         dw_pcie_dbi_ro_wr_en(pci);
->         dw_pcie_writel_dbi(pci, COHERENCY_CONTROL_3_OFF, 0x0);
-> @@ -149,7 +151,7 @@ static int s32g_init_pcie_controller(struct dw_pcie_rp *pp)
->          * Make sure we use the coherency defaults (just in case the settings
->          * have been changed from their reset values)
->          */
-> -       s32g_pcie_reset_mstr_ace(pci, memblock_start_of_DRAM());
-> +       s32g_pcie_reset_mstr_ace(pci);
->  
->         dw_pcie_dbi_ro_wr_en(pci);
+> If MTE is supported by the hardware (and is enabled at EL3), it remains
+> available to lower exception levels by default. Disabling it in the host
+> kernel (e.g., via 'arm64.nomte') only stops the kernel from advertising
+> the feature; it does not physically disable MTE in the hardware.
 > 
-> - Mani
+> In this scenario, a malicious host could still access tags in pages
+> donated to a guest using MTE instructions (e.g., STG and LDG), bypassing
+> the kernel's configuration.
 > 
+> To prevent this, explicitly disable MTE at EL2 (by clearing HCR_EL2.ATA)
+> when the host has MTE disabled. This causes any MTE instruction usage to
+> generate a Data Abort (trap) to the hypervisor.
+> 
+> Additionally, to faithfully mimic hardware that does not support MTE,
+> trap accesses to MTE system registers (e.g., GCR_EL1) and inject an
+> Undefined Instruction exception back to the host.
+> 
+> This logic is applied in all non-VHE modes. For non-protected modes,
+> this remains beneficial as it prevents unpredictable behavior caused by
+> accessing allocation tags when the system considers them disabled.
+> 
+> Note that this ties into my other outgoing patch series [1], which also
+> has some MTE-related fixes, but is not dependent on it.
 
--- 
-~Randy
+To be honest, I've actually been having a bit of a hard time
+rationalizing some of these targeted fixes for pKVM. It has been in a
+half working state upstream for O(years) and we haven't made forward
+progress on enabling pVMs.
+
+Fully aware that guest_memfd has been one of the long poles here, but
+I'm becoming less interested in fixes addressing "pKVM policy is XYZ"
+without having the full picture of the feature.
+
+What are the upstream plans on enabling some basic implementation of
+protected VMs?
+
+Thanks,
+Oliver
 
