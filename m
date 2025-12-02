@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA9E6CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 09:30:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99D5DCFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 09:30:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=ddem7pRfXjH2CsY6jhzQQzzqAVw4nJRV9oahcR7IXNA=; b=0zKE9cTUFffaDbd/VchCnyGRTB
-	12FF1rpdFOoY2QjGBYeCx+ypPaBhDvX+vbBxV00MJdMspdIVLUvjA0FuBUDL8Ix+2BQ3JLzpo9RHe
-	JsthAeik2kPLewvK9R/b3iDxX2IeSD3wJI1R6w4xXBbElK+SpxnhxhsQ5A/ZknLeD3JvQhIR6ehvp
-	A8LiWlHKNueJZhzJiCHo+sfZ0EBoU4wH6V7TwEo4iT7hQVKNx4D+ajIIiv0Cx6xytV8syPq2hWC7D
-	DhDAcM/xj+eTPUQ+WVOWhnyIebahlTnG0Si7hmiuorlDOK7iOLC/Bq6/jAS8IQkE7R69v1nGmYRZl
-	Jd1VPV8w==;
+	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o/WHvhFZgVA98eyqwC6EQj1Ee/5m17NXAEA4xiQvdXI=; b=fCEGmoWQ4sKDLCzRVHdl2535fD
+	otksG3S9Yz/AePVaHTkwEa4X3fr9b1aePkqv3WOMuV83SsJUFe8kpFiEbUuZXDpP9pz1bEYdUJKDv
+	s2Ozy/IkDV+u8Onzl0fRrVT+j05vXt5W3UcrRnAgKisZ/aW+G0O4Ng2sAbO4C+YmmVD17YLmU3yTg
+	zdfVeEwxAvqQVLiBvK2bhRqPz0WUQs2k35zR7xcJ6SAreW01FaQxCnPoKMT4ob1DoHauszyrydX9B
+	4xjtlS5nWVROSMVns0auWjyxEyU4JwzsBsRRBtDXT1qkS1bOjM0HRQYEVRWVgb0TdL0DK+roJgf0C
+	p32F6jyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQMiU-000000056t5-1iZ1;
-	Tue, 02 Dec 2025 09:30:38 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1vQMiZ-000000056uR-2iVC;
+	Tue, 02 Dec 2025 09:30:43 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQMiQ-000000056qm-28Pw
+	id 1vQMiS-000000056qt-10Wr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 09:30:36 +0000
-Received: from epcas2p2.samsung.com (unknown [182.195.41.54])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20251202093025epoutp02828b980534029236220b9e19543a0801~9XAnCioIf1772717727epoutp02J
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  2 Dec 2025 09:30:25 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20251202093025epoutp02828b980534029236220b9e19543a0801~9XAnCioIf1772717727epoutp02J
+	Tue, 02 Dec 2025 09:30:38 +0000
+Received: from epcas2p3.samsung.com (unknown [182.195.41.55])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20251202093030epoutp030feccb3529fce282dcf89d410fa61976~9XAq-5Y231706017060epoutp03N
+	for <linux-arm-kernel@lists.infradead.org>; Tue,  2 Dec 2025 09:30:30 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20251202093030epoutp030feccb3529fce282dcf89d410fa61976~9XAq-5Y231706017060epoutp03N
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1764667826;
-	bh=ddem7pRfXjH2CsY6jhzQQzzqAVw4nJRV9oahcR7IXNA=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=LockMcLKH7V15WqJ2iRMUoPkRCoPWY1oj6CMYOjFkzKzLDUlUBwVHuLpbN0VL/3Ul
-	 zxoTJWn8xaoCm81Ijq9stnr22vXoBLdsBwNRKDBXNix3mVO1enYbcyFEEb1gKt9dB7
-	 8qsw4JIDKbi9js2EkCw8yTKysADeexTA/V0Jf+lg=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas2p1.samsung.com (KnoxPortal) with ESMTPS id
-	20251202093025epcas2p135ab56fb84d8bad6f905880addcb2e57~9XAmehDkm0391603916epcas2p1K;
-	Tue,  2 Dec 2025 09:30:25 +0000 (GMT)
-Received: from epcas2p4.samsung.com (unknown [182.195.38.203]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4dLFqj0V6Nz6B9m8; Tue,  2 Dec
-	2025 09:30:25 +0000 (GMT)
+	s=mail20170921; t=1764667830;
+	bh=o/WHvhFZgVA98eyqwC6EQj1Ee/5m17NXAEA4xiQvdXI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=pbSHWawND9AVnAtWyn1KopzUHeEmkaZXpEwD/M8whIedlITBfxmTs2b2G1fR+XBYp
+	 PM4KGwIDd8aOaJi9i7FlQg/0Fh2nq2cSAgQmYue2sXrlE+awKOASjEPU7GeWcdo9Yk
+	 acTnxAmh7VzLWWO4rribJakrSCRb04Bkcdi3EZEs=
+Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
+	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
+	20251202093029epcas2p26b229d721b4d54478716edb4c311a782~9XAqaSsPX0077900779epcas2p2A;
+	Tue,  2 Dec 2025 09:30:29 +0000 (GMT)
+Received: from epcas2p2.samsung.com (unknown [182.195.38.202]) by
+	epsnrtp03.localdomain (Postfix) with ESMTP id 4dLFqn1y05z3hhTC; Tue,  2 Dec
+	2025 09:30:29 +0000 (GMT)
 Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
 	epcas2p1.samsung.com (KnoxPortal) with ESMTPA id
-	20251202093024epcas2p1567dddf09e3599867e9dc14a9a234d38~9XAlhC1440393603936epcas2p1h;
-	Tue,  2 Dec 2025 09:30:24 +0000 (GMT)
+	20251202093028epcas2p1955176332d21ce4cadf7ed8894c5c1fa~9XApjETq-0393603936epcas2p1s;
+	Tue,  2 Dec 2025 09:30:28 +0000 (GMT)
 Received: from perf.dsn.sec.samsung.com (unknown [10.229.95.91]) by
 	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20251202093024epsmtip1f37c0608a18fb17f998cf72feb2edadc~9XAlbrQhs1253612536epsmtip1V;
-	Tue,  2 Dec 2025 09:30:24 +0000 (GMT)
+	20251202093028epsmtip1903b9eeefc7e9a03532fe2baa913c14c~9XApdCH340810608106epsmtip1f;
+	Tue,  2 Dec 2025 09:30:28 +0000 (GMT)
 From: Youngmin Nam <youngmin.nam@samsung.com>
 To: krzk@kernel.org, s.nawrocki@samsung.com, alim.akhtar@samsung.com,
 	linus.walleij@linaro.org, peter.griffin@linaro.org,
@@ -61,24 +61,27 @@ Cc: ryu.real@samsung.com, d7271.choe@samsung.com, shin.son@samsung.com,
 	jaewon02.kim@samsung.com, linux-arm-kernel@lists.infradead.org,
 	linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org,
 	linux-kernel@vger.kernel.org, Youngmin Nam <youngmin.nam@samsung.com>
-Subject: [PATCH v3 0/5] pinctrl: samsung: exynos9 cleanups and fixes
-Date: Tue,  2 Dec 2025 18:36:07 +0900
-Message-ID: <20251202093613.852109-1-youngmin.nam@samsung.com>
+Subject: [PATCH v3 4/5] pinctrl: samsung: fold GS101 pin-bank macros into
+ EXYNOS9_*
+Date: Tue,  2 Dec 2025 18:36:11 +0900
+Message-ID: <20251202093613.852109-5-youngmin.nam@samsung.com>
 X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20251202093613.852109-1-youngmin.nam@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20251202093024epcas2p1567dddf09e3599867e9dc14a9a234d38
+X-CMS-MailID: 20251202093028epcas2p1955176332d21ce4cadf7ed8894c5c1fa
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 X-Sendblock-Type: AUTO_CONFIDENTIAL
 CMS-TYPE: 102P
 cpgsPolicy: CPGSC10-234,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20251202093024epcas2p1567dddf09e3599867e9dc14a9a234d38
-References: <CGME20251202093024epcas2p1567dddf09e3599867e9dc14a9a234d38@epcas2p1.samsung.com>
+X-CMS-RootMailID: 20251202093028epcas2p1955176332d21ce4cadf7ed8894c5c1fa
+References: <20251202093613.852109-1-youngmin.nam@samsung.com>
+	<CGME20251202093028epcas2p1955176332d21ce4cadf7ed8894c5c1fa@epcas2p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_013035_247551_630002F9 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20251202_013036_601193_8785ACB0 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,77 +96,221 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Several SoCs carried near-duplicate pin bank macro families, making
-tables verbose and hard to share when only the bank type (alive/off)
-differs.
+GS101 had dedicated GS101_PIN_BANK_EINT{G,W} helpers, but they are
+redundant with EXYNOS9_PIN_BANK_EINT{G,W} (same semantics, including
+the per-bank .eint_fltcon_offset).
+This change removes the GS101_* macros and switches the GS101 pin-bank
+tables to the EXYNOS9_* helpers with exynos9_bank_type_{alive,off}.
+While here, update the struct comment to note FLTCON is Exynos9-specific
+(not 'GS101-specific').
 
-GS101 had its own helpers even though the newer EXYNOS9_* helpers cover
-the same semantics, including per-bank filter control (FLTCON) offsets.
+One macro family for all Exynos9-era SoCs (incl. GS101) reduces
+copy-paste drift and keeps the FLTCON handling consistent.
+There is no functional change.
 
-Some pin-bank tables didn't match the SoC TRMs (bank type, EINT class,
-or bank names), and FLTCON wasn't always at a contiguous offset from
-EINT.
+Signed-off-by: Youngmin Nam <youngmin.nam@samsung.com>
+Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+Tested-by: Sam Protsenko <semen.protsenko@linaro.org>
+Tested-by: Peter Griffin <peter.griffin@linaro.org> (tested on Pixel6/gs101)
+---
+ .../pinctrl/samsung/pinctrl-exynos-arm64.c    | 98 +++++++++----------
+ drivers/pinctrl/samsung/pinctrl-exynos.h      | 22 -----
+ drivers/pinctrl/samsung/pinctrl-samsung.h     |  4 +-
+ 3 files changed, 51 insertions(+), 73 deletions(-)
 
-This series does
-- Consolidate on EXYNOS9_* pin-bank macros. Pass bank_type explicitly.
-- Fix table errors on Exynos2200/7885/8890/8895 per TRM.
-- Add explicit per-bank FLTCON offsets and update affected tables.
-- Drop GS101-specific macros in favor of EXYNOS9_*.
-- Rename gs101_pinctrl_{suspend,resume} ->
-  exynos9_pinctrl_{suspend,resume}.
-
-This series was based on the pinctrl/samsung tree [1].
-
-I tested on Exynos850 through boot and verified the pin values as
-follows:
-
-$:/sys/kernel/debug/pinctrl/139b0000.pinctrl-samsung-pinctrl# cat pins
-registered pins: 42
-pin 0 (gpg0-0) 0:gpg0 CON(0x0) DAT(0x0) PUD(0x1) DRV(0x2) CON_PDN(0x2) PUD_PDN(0x1)
-pin 1 (gpg0-1) 1:gpg0 CON(0x0) DAT(0x0) PUD(0x1) DRV(0x2) CON_PDN(0x2) PUD_PDN(0x1)
-...
-
-Additional testing on the affected Exynos9-era platforms would be
-appreciated.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/pinctrl/samsung.git
-
-Changes in v2:
-  - Added base tree for this series (pinctrl/samsung).
-  - Renamed the macro parameter from 'types' to 'bank_type' for clarity
-    (struct member remains 'type').
-  - Reflowed commit messages (wrap at ~72 cols).
-  - Replaced non-ASCII characters with ASCII equivalents.
-  - Collected tags:
-      Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
-      Tested-by: Sam Protsenko <semen.protsenko@linaro.org>
-  - Normalized hex literals to lowercase and removed double spaces.
-  - Aligned backslashes in macro definitions to form a vertical column
-    for readability.
-  - Added missing mailing lists (including linux-kernel) to Cc per
-    scripts/get_maintainer.pl.
-
-Changes in v3:
-  - Collected tags:
-      Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
-      Tested-by: Peter Griffin <peter.griffin@linaro.org> (tested on Pixel6/gs101)
-
-Youngmin Nam (5):
-  pinctrl: samsung: Consolidate pin-bank macros under EXYNOS9_* and pass
-    bank_type explicitly
-  pinctrl: samsung: fix incorrect pin-bank entries on
-    Exynos2200/7885/8890/8895
-  pinctrl: samsung: add per-bank FLTCON offset to EXYNOS9_PIN_BANK_* and
-    fix tables
-  pinctrl: samsung: fold GS101 pin-bank macros into EXYNOS9_*
-  pinctrl: samsung: rename gs101_pinctrl_* to exynos9_pinctrl_*
-
- .../pinctrl/samsung/pinctrl-exynos-arm64.c    | 1069 ++++++++---------
- drivers/pinctrl/samsung/pinctrl-exynos.c      |    4 +-
- drivers/pinctrl/samsung/pinctrl-exynos.h      |   97 +-
- drivers/pinctrl/samsung/pinctrl-samsung.h     |    4 +-
- 4 files changed, 562 insertions(+), 612 deletions(-)
-
+diff --git a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c b/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
+index 92ae1bc80f9c..f473a576f58c 100644
+--- a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
++++ b/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
+@@ -1842,83 +1842,83 @@ const struct samsung_pinctrl_of_match_data fsd_of_data __initconst = {
+ 
+ /* pin banks of gs101 pin-controller (ALIVE) */
+ static const struct samsung_pin_bank_data gs101_pin_alive[] = {
+-	GS101_PIN_BANK_EINTW(8, 0x0, "gpa0", 0x00, 0x00),
+-	GS101_PIN_BANK_EINTW(7, 0x20, "gpa1", 0x04, 0x08),
+-	GS101_PIN_BANK_EINTW(5, 0x40, "gpa2", 0x08, 0x10),
+-	GS101_PIN_BANK_EINTW(4, 0x60, "gpa3", 0x0c, 0x18),
+-	GS101_PIN_BANK_EINTW(4, 0x80, "gpa4", 0x10, 0x1c),
+-	GS101_PIN_BANK_EINTW(7, 0xa0, "gpa5", 0x14, 0x20),
+-	GS101_PIN_BANK_EINTW(8, 0xc0, "gpa9", 0x18, 0x28),
+-	GS101_PIN_BANK_EINTW(2, 0xe0, "gpa10", 0x1c, 0x30),
++	EXYNOS9_PIN_BANK_EINTW(exynos9_bank_type_alive, 8, 0x0, "gpa0", 0x00, 0x00),
++	EXYNOS9_PIN_BANK_EINTW(exynos9_bank_type_alive, 7, 0x20, "gpa1", 0x04, 0x08),
++	EXYNOS9_PIN_BANK_EINTW(exynos9_bank_type_alive, 5, 0x40, "gpa2", 0x08, 0x10),
++	EXYNOS9_PIN_BANK_EINTW(exynos9_bank_type_alive, 4, 0x60, "gpa3", 0x0c, 0x18),
++	EXYNOS9_PIN_BANK_EINTW(exynos9_bank_type_alive, 4, 0x80, "gpa4", 0x10, 0x1c),
++	EXYNOS9_PIN_BANK_EINTW(exynos9_bank_type_alive, 7, 0xa0, "gpa5", 0x14, 0x20),
++	EXYNOS9_PIN_BANK_EINTW(exynos9_bank_type_alive, 8, 0xc0, "gpa9", 0x18, 0x28),
++	EXYNOS9_PIN_BANK_EINTW(exynos9_bank_type_alive, 2, 0xe0, "gpa10", 0x1c, 0x30),
+ };
+ 
+ /* pin banks of gs101 pin-controller (FAR_ALIVE) */
+ static const struct samsung_pin_bank_data gs101_pin_far_alive[] = {
+-	GS101_PIN_BANK_EINTW(8, 0x0, "gpa6", 0x00, 0x00),
+-	GS101_PIN_BANK_EINTW(4, 0x20, "gpa7", 0x04, 0x08),
+-	GS101_PIN_BANK_EINTW(8, 0x40, "gpa8", 0x08, 0x0c),
+-	GS101_PIN_BANK_EINTW(2, 0x60, "gpa11", 0x0c, 0x14),
++	EXYNOS9_PIN_BANK_EINTW(exynos9_bank_type_alive, 8, 0x0, "gpa6", 0x00, 0x00),
++	EXYNOS9_PIN_BANK_EINTW(exynos9_bank_type_alive, 4, 0x20, "gpa7", 0x04, 0x08),
++	EXYNOS9_PIN_BANK_EINTW(exynos9_bank_type_alive, 8, 0x40, "gpa8", 0x08, 0x0c),
++	EXYNOS9_PIN_BANK_EINTW(exynos9_bank_type_alive, 2, 0x60, "gpa11", 0x0c, 0x14),
+ };
+ 
+ /* pin banks of gs101 pin-controller (GSACORE) */
+ static const struct samsung_pin_bank_data gs101_pin_gsacore[] = {
+-	GS101_PIN_BANK_EINTG(2, 0x0, "gps0", 0x00, 0x00),
+-	GS101_PIN_BANK_EINTG(8, 0x20, "gps1", 0x04, 0x04),
+-	GS101_PIN_BANK_EINTG(3, 0x40, "gps2", 0x08, 0x0c),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 2, 0x0, "gps0", 0x00, 0x00),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 8, 0x20, "gps1", 0x04, 0x04),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 3, 0x40, "gps2", 0x08, 0x0c),
+ };
+ 
+ /* pin banks of gs101 pin-controller (GSACTRL) */
+ static const struct samsung_pin_bank_data gs101_pin_gsactrl[] = {
+-	GS101_PIN_BANK_EINTW(6, 0x0, "gps3", 0x00, 0x00),
++	EXYNOS9_PIN_BANK_EINTW(exynos9_bank_type_alive, 6, 0x0, "gps3", 0x00, 0x00),
+ };
+ 
+ /* pin banks of gs101 pin-controller (PERIC0) */
+ static const struct samsung_pin_bank_data gs101_pin_peric0[] = {
+-	GS101_PIN_BANK_EINTG(5, 0x0, "gpp0", 0x00, 0x00),
+-	GS101_PIN_BANK_EINTG(4, 0x20, "gpp1", 0x04, 0x08),
+-	GS101_PIN_BANK_EINTG(4, 0x40, "gpp2", 0x08, 0x0c),
+-	GS101_PIN_BANK_EINTG(2, 0x60, "gpp3", 0x0c, 0x10),
+-	GS101_PIN_BANK_EINTG(4, 0x80, "gpp4", 0x10, 0x14),
+-	GS101_PIN_BANK_EINTG(2, 0xa0, "gpp5", 0x14, 0x18),
+-	GS101_PIN_BANK_EINTG(4, 0xc0, "gpp6", 0x18, 0x1c),
+-	GS101_PIN_BANK_EINTG(2, 0xe0, "gpp7", 0x1c, 0x20),
+-	GS101_PIN_BANK_EINTG(4, 0x100, "gpp8", 0x20, 0x24),
+-	GS101_PIN_BANK_EINTG(2, 0x120, "gpp9", 0x24, 0x28),
+-	GS101_PIN_BANK_EINTG(4, 0x140, "gpp10", 0x28, 0x2c),
+-	GS101_PIN_BANK_EINTG(2, 0x160, "gpp11", 0x2c, 0x30),
+-	GS101_PIN_BANK_EINTG(4, 0x180, "gpp12", 0x30, 0x34),
+-	GS101_PIN_BANK_EINTG(2, 0x1a0, "gpp13", 0x34, 0x38),
+-	GS101_PIN_BANK_EINTG(4, 0x1c0, "gpp14", 0x38, 0x3c),
+-	GS101_PIN_BANK_EINTG(2, 0x1e0, "gpp15", 0x3c, 0x40),
+-	GS101_PIN_BANK_EINTG(4, 0x200, "gpp16", 0x40, 0x44),
+-	GS101_PIN_BANK_EINTG(2, 0x220, "gpp17", 0x44, 0x48),
+-	GS101_PIN_BANK_EINTG(4, 0x240, "gpp18", 0x48, 0x4c),
+-	GS101_PIN_BANK_EINTG(4, 0x260, "gpp19", 0x4c, 0x50),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 5, 0x0, "gpp0", 0x00, 0x00),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 4, 0x20, "gpp1", 0x04, 0x08),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 4, 0x40, "gpp2", 0x08, 0x0c),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 2, 0x60, "gpp3", 0x0c, 0x10),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 4, 0x80, "gpp4", 0x10, 0x14),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 2, 0xa0, "gpp5", 0x14, 0x18),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 4, 0xc0, "gpp6", 0x18, 0x1c),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 2, 0xe0, "gpp7", 0x1c, 0x20),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 4, 0x100, "gpp8", 0x20, 0x24),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 2, 0x120, "gpp9", 0x24, 0x28),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 4, 0x140, "gpp10", 0x28, 0x2c),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 2, 0x160, "gpp11", 0x2c, 0x30),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 4, 0x180, "gpp12", 0x30, 0x34),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 2, 0x1a0, "gpp13", 0x34, 0x38),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 4, 0x1c0, "gpp14", 0x38, 0x3c),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 2, 0x1e0, "gpp15", 0x3c, 0x40),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 4, 0x200, "gpp16", 0x40, 0x44),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 2, 0x220, "gpp17", 0x44, 0x48),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 4, 0x240, "gpp18", 0x48, 0x4c),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 4, 0x260, "gpp19", 0x4c, 0x50),
+ };
+ 
+ /* pin banks of gs101 pin-controller (PERIC1) */
+ static const struct samsung_pin_bank_data gs101_pin_peric1[] = {
+-	GS101_PIN_BANK_EINTG(8, 0x0, "gpp20", 0x00, 0x00),
+-	GS101_PIN_BANK_EINTG(4, 0x20, "gpp21", 0x04, 0x08),
+-	GS101_PIN_BANK_EINTG(2, 0x40, "gpp22", 0x08, 0x0c),
+-	GS101_PIN_BANK_EINTG(8, 0x60, "gpp23", 0x0c, 0x10),
+-	GS101_PIN_BANK_EINTG(4, 0x80, "gpp24", 0x10, 0x18),
+-	GS101_PIN_BANK_EINTG(4, 0xa0, "gpp25", 0x14, 0x1c),
+-	GS101_PIN_BANK_EINTG(5, 0xc0, "gpp26", 0x18, 0x20),
+-	GS101_PIN_BANK_EINTG(4, 0xe0, "gpp27", 0x1c, 0x28),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 8, 0x0, "gpp20", 0x00, 0x00),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 4, 0x20, "gpp21", 0x04, 0x08),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 2, 0x40, "gpp22", 0x08, 0x0c),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 8, 0x60, "gpp23", 0x0c, 0x10),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 4, 0x80, "gpp24", 0x10, 0x18),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 4, 0xa0, "gpp25", 0x14, 0x1c),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 5, 0xc0, "gpp26", 0x18, 0x20),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 4, 0xe0, "gpp27", 0x1c, 0x28),
+ };
+ 
+ /* pin banks of gs101 pin-controller (HSI1) */
+ static const struct samsung_pin_bank_data gs101_pin_hsi1[] = {
+-	GS101_PIN_BANK_EINTG(6, 0x0, "gph0", 0x00, 0x00),
+-	GS101_PIN_BANK_EINTG(7, 0x20, "gph1", 0x04, 0x08),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 6, 0x0, "gph0", 0x00, 0x00),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 7, 0x20, "gph1", 0x04, 0x08),
+ };
+ 
+ /* pin banks of gs101 pin-controller (HSI2) */
+ static const struct samsung_pin_bank_data gs101_pin_hsi2[] = {
+-	GS101_PIN_BANK_EINTG(6, 0x0, "gph2", 0x00, 0x00),
+-	GS101_PIN_BANK_EINTG(2, 0x20, "gph3", 0x04, 0x08),
+-	GS101_PIN_BANK_EINTG(6, 0x40, "gph4", 0x08, 0x0c),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 6, 0x0, "gph2", 0x00, 0x00),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 2, 0x20, "gph3", 0x04, 0x08),
++	EXYNOS9_PIN_BANK_EINTG(exynos9_bank_type_off, 6, 0x40, "gph4", 0x08, 0x0c),
+ };
+ 
+ static const struct samsung_pin_ctrl gs101_pin_ctrl[] __initconst = {
+diff --git a/drivers/pinctrl/samsung/pinctrl-exynos.h b/drivers/pinctrl/samsung/pinctrl-exynos.h
+index 7ebfdcaf2781..24f85ff5ed30 100644
+--- a/drivers/pinctrl/samsung/pinctrl-exynos.h
++++ b/drivers/pinctrl/samsung/pinctrl-exynos.h
+@@ -187,28 +187,6 @@
+ 		.name			= id				\
+ 	}
+ 
+-#define GS101_PIN_BANK_EINTG(pins, reg, id, offs, fltcon_offs) \
+-	{							\
+-		.type			= &exynos9_bank_type_off,	\
+-		.pctl_offset		= reg,			\
+-		.nr_pins		= pins,			\
+-		.eint_type		= EINT_TYPE_GPIO,	\
+-		.eint_offset		= offs,			\
+-		.eint_fltcon_offset	= fltcon_offs,		\
+-		.name			= id			\
+-	}
+-
+-#define GS101_PIN_BANK_EINTW(pins, reg, id, offs, fltcon_offs) \
+-	{								\
+-		.type			= &exynos9_bank_type_alive,	\
+-		.pctl_offset		= reg,				\
+-		.nr_pins		= pins,				\
+-		.eint_type		= EINT_TYPE_WKUP,		\
+-		.eint_offset		= offs,				\
+-		.eint_fltcon_offset	= fltcon_offs,			\
+-		.name			= id				\
+-	}
+-
+ #define ARTPEC_PIN_BANK_EINTG(pins, reg, id, offs)			\
+ 	{								\
+ 		.type			= &artpec_bank_type_off,	\
+diff --git a/drivers/pinctrl/samsung/pinctrl-samsung.h b/drivers/pinctrl/samsung/pinctrl-samsung.h
+index 0f7b2ea98158..0209c2d28858 100644
+--- a/drivers/pinctrl/samsung/pinctrl-samsung.h
++++ b/drivers/pinctrl/samsung/pinctrl-samsung.h
+@@ -145,7 +145,7 @@ struct samsung_pin_bank_type {
+  * @eint_con_offset: ExynosAuto SoC-specific EINT control register offset of bank.
+  * @eint_mask_offset: ExynosAuto SoC-specific EINT mask register offset of bank.
+  * @eint_pend_offset: ExynosAuto SoC-specific EINT pend register offset of bank.
+- * @eint_fltcon_offset: GS101 SoC-specific EINT filter config register offset.
++ * @eint_fltcon_offset: Exynos9 SoC-specific EINT filter config register offset.
+  * @name: name to be prefixed for each pin in this pin bank.
+  */
+ struct samsung_pin_bank_data {
+@@ -180,7 +180,7 @@ struct samsung_pin_bank_data {
+  * @eint_con_offset: ExynosAuto SoC-specific EINT register or interrupt offset of bank.
+  * @eint_mask_offset: ExynosAuto SoC-specific EINT mask register offset of bank.
+  * @eint_pend_offset: ExynosAuto SoC-specific EINT pend register offset of bank.
+- * @eint_fltcon_offset: GS101 SoC-specific EINT filter config register offset.
++ * @eint_fltcon_offset: Exynos9 SoC-specific EINT filter config register offset.
+  * @name: name to be prefixed for each pin in this pin bank.
+  * @id: id of the bank, propagated to the pin range.
+  * @pin_base: starting pin number of the bank.
 -- 
 2.52.0
 
