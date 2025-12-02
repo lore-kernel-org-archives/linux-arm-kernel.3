@@ -4,65 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A35BD116F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 13:46:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9972BD116F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 13:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HjZpRzcR7855NsmS0kaYBd78FhdWwl7CI27QxYqFM7M=; b=ss2yPm68b3tcuiXQgx7ERlYCp9
-	soV081i/m96DPVp3QFy2QbYQspZOOisBL0jc+Ocro/7tj5HGqUbqoMAqzhtCioUHZGMCq7M+IpcyJ
-	ZOnZDdD6KPG0SJEcP/N58gox3TBuz0XeYpd3G1yf5R0z8WcV7KqzrbrfpHu3QBrqW+TwSsLEsclhy
-	aQb0YC3pMXVLMSsBZYQybrRyv6nu5bDWhs8oMxY9h4XW59QwaWC0vFsZFxoOVI+8MlUMJTqoaGwop
-	gAj01x3ROIMcMQv0N0ym/A6Hz7jng9fzO4FijqVJO/xeM8T6ENGODzkE93gvGvj1A/qJDcaPVxitE
-	kjF5y1cg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DcG/XQXLp9HYcvharszf8uW0YuqvJnIwjKHOdBnLhz4=; b=3dVqh7YGiUmTvSc/WCuelS2muZ
+	XPtjIwpWgmEgyaOcA41TsI5cqmbhatR5hAkDhPgqyV8M1J3/gxVXfym+AS1R+/intcxyTydrfYtGK
+	VY2M4zhLHvWSbMbXKjlCmWWEXFhQ9K/qJleGU+GjFuR9DTB3JhB/Kt1bZFnbU3aFvaoS0mgO2mIAn
+	rC2tZF/K0T1vkmEGbYCvM8rL8pSec9lP5zkTL7+v4RFAeYlERikF72mDaJz0qhZukDd9J2D87oAvV
+	D943St71Uw6dEBpN+PWDTzARgfmoqjYQl26T1ggEj6NhgYNhma5beOhPcdm/i7YraBsRqDAQUmT4i
+	u1rlXPbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQQhd-00000005SdF-1jBN;
-	Tue, 02 Dec 2025 13:46:01 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vQQsP-00000005TPw-1noE;
+	Tue, 02 Dec 2025 13:57:09 +0000
+Received: from mail-ua1-f46.google.com ([209.85.222.46])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQQhZ-00000005SZs-3DX6
+	id 1vQQsN-00000005TPY-0EtL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 13:45:59 +0000
-Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <m.felsch@pengutronix.de>)
-	id 1vQQgZ-0006jO-Lo; Tue, 02 Dec 2025 14:44:55 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-Date: Tue, 02 Dec 2025 14:44:54 +0100
-Subject: [PATCH 2/2] arm64: dts: imx93-phyboard-segin: Add peb-av-02
- overlay
+	Tue, 02 Dec 2025 13:57:08 +0000
+Received: by mail-ua1-f46.google.com with SMTP id a1e0cc1a2514c-9372310418bso1373940241.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 05:57:06 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764683825; x=1765288625;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DcG/XQXLp9HYcvharszf8uW0YuqvJnIwjKHOdBnLhz4=;
+        b=mpxAuAIfY8V2rlcY3w3fQhb+dL5Wm+M0EzPnE9h3ZE7l34Nf02cGwIh3ucSpBmK9ls
+         xrQS4dxhkMVDuj2kD8YTdqy3/hpUV/htlmhwltesb/4lyADYAYJiD54/BRpF31/9YTl5
+         W6mfXDj8FoQA5SoB16B8Ci4nqVlyW/E7jAXPQwW8zKWOxOcpKz66xrEq9LeLKA9bPoHZ
+         Ji131O/P5uwUATJA506p92PEBF4eyQPJHeA6RbiVp8aoz0JrSaGQeIE4JIGXpq0ONj3U
+         tIFoqEEmtzSiS8aYSYGtmP+7Vg80B4cmCt1H8KwHDVwwrbSSbVVMnj/EgqReLPgWdHP3
+         NatA==
+X-Forwarded-Encrypted: i=1; AJvYcCXyhemn9c1uqimjST72G8ha5rN5lKkVk/MR/g6ne2ygfouuSp0k7tU+HnEj5Hz0SYcb17MsyJaNrjwKktB5QhQF@lists.infradead.org
+X-Gm-Message-State: AOJu0YxABSxfVOLNFqs7Zaw3M1kTF4CkidIWOJaAh6AkQlTW5jbL4nXc
+	fZXVjKOiLhrzKsZUUom5BKe0NZszkBwI76AaZUTysYlMJnXJrjSpqaxhKv+4Uidt
+X-Gm-Gg: ASbGncshXwzeuUw68pB/O48Az0Ak4TCmH8Cuz/CKcUdaFoMCYsi0FjGsTMPlOtRpEjs
+	AQN/+KXp6YKvbGOL9a1+85yQ5wk/g3MbcAift2Ii7j0Rxve5RDympiEKOZi+nHNsj1BgmhsbKri
+	yXfc+ruWx77yHuvHv4NVLD9dkZPreNsmHY86oXSJCOX5UMY1gea30iVL3opSbNW+ZMdKr8nTPWj
+	b70KKEaG44GErJPsNujPSyNnpMrMeXWmazLGxVAdvLUqrsxIKdV3kqPFv3+Ds4jAa0Usaa00zKL
+	/7VMBC2CUHjyh3x5PiC0h4IE8tMxQ3fnCuFI4FETufGbnO4WNtJ+7QurprYHwDxVeY1tjINJ+Fn
+	78ce4xMLvzt0iTPcqzdKWXf5H6mDJuswHjimLz1QaH1jcXqSTE9FngXw2ZHsYJ2SqpEpGAMGKkj
+	38/F33f1+JBGNr1Xls6MkFm1IRRkn2jt1NDeh58uLNZseky0gk
+X-Google-Smtp-Source: AGHT+IHxwbFSdBtyzMEEF551NgLLN4De2g8qUbaOKypgc03IA9+7F1xYRVwYrgLlSk4cThuTpA0ICA==
+X-Received: by 2002:a05:6102:5a8f:b0:521:b9f2:a5ca with SMTP id ada2fe7eead31-5e1de15d330mr14457525137.13.1764683825162;
+        Tue, 02 Dec 2025 05:57:05 -0800 (PST)
+Received: from mail-ua1-f51.google.com (mail-ua1-f51.google.com. [209.85.222.51])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-93cd6ce20e2sm6467137241.4.2025.12.02.05.57.03
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 02 Dec 2025 05:57:04 -0800 (PST)
+Received: by mail-ua1-f51.google.com with SMTP id a1e0cc1a2514c-9372634aca2so1436198241.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 05:57:03 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCX2SBycVLquMa0Aka0zCQxahqU++uZ7PZQc12euEBvD8ADXyXSOsDqXAuX1WC5yLW1iQsUD9/k1dXlaUzDwv7up@lists.infradead.org
+X-Received: by 2002:a05:6102:26c9:b0:5dd:89c1:eb77 with SMTP id
+ ada2fe7eead31-5e1de39d9cemr17004298137.29.1764683823416; Tue, 02 Dec 2025
+ 05:57:03 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251202-v6-18-topic-imx93-phyboard-segin-av-02-display-v1-2-9c14be6c7478@pengutronix.de>
-References: <20251202-v6-18-topic-imx93-phyboard-segin-av-02-display-v1-0-9c14be6c7478@pengutronix.de>
-In-Reply-To: <20251202-v6-18-topic-imx93-phyboard-segin-av-02-display-v1-0-9c14be6c7478@pengutronix.de>
-To: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, andrej.picej@norik.com, 
- primoz.fiser@norik.com, c.hemp@phytec.de, s.mueller-klieser@phytec.de, 
- n.wesp@phytec.de, c.stoidner@phytec.de
-Cc: linux-clk@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, kernel@pengutronix.de, 
- Marco Felsch <m.felsch@pengutronix.de>
-X-Mailer: b4 0.14.2
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::28
-X-SA-Exim-Mail-From: m.felsch@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+References: <20251112-b4-of-match-matchine-data-v2-0-d46b72003fd6@linaro.org> <20251112-b4-of-match-matchine-data-v2-2-d46b72003fd6@linaro.org>
+In-Reply-To: <20251112-b4-of-match-matchine-data-v2-2-d46b72003fd6@linaro.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 2 Dec 2025 14:56:52 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVJD4+J9QpUUs-sX0feKfuPD72CO0dcqN7shvF_UYpZ3Q@mail.gmail.com>
+X-Gm-Features: AWmQ_bnP_BfEGwKLqJN8UevZeVXg10-IsXC-lVqCY3H9e2HFkqZ11liOD_Kw768
+Message-ID: <CAMuHMdVJD4+J9QpUUs-sX0feKfuPD72CO0dcqN7shvF_UYpZ3Q@mail.gmail.com>
+Subject: Re: [PATCH v2 02/11] cpufreq: dt-platdev: Simplify with of_machine_get_match_data()
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Yangtao Li <tiny.windzz@gmail.com>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Maximilian Luz <luzmaximilian@gmail.com>, Hans de Goede <hansg@kernel.org>, 
+	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+	Daniel Lezcano <daniel.lezcano@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
+	platform-driver-x86@vger.kernel.org, linux-tegra@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_054557_813388_5E3A6DDA 
-X-CRM114-Status: GOOD (  14.58  )
+X-CRM114-CacheID: sfid-20251202_055707_132261_6651650C 
+X-CRM114-Status: GOOD (  26.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,186 +111,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andrej Picej <andrej.picej@norik.com>
+Hi Krzystof,
 
-Add overlay for Audio-Video module PEB-AV-02. Add support for panel
-display, capacitive touchscreen and backlight.
+On Wed, 12 Nov 2025 at 11:37, Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+> Replace open-coded getting root OF node, matching against it and getting
+> the match data with two new helpers: of_machine_get_match_data() and
+> of_machine_device_match().
+>
+> Acked-by: Viresh Kumar <viresh.kumar@linaro.org>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-For now the backlight is configured as a GPIO, brightness of the display
-can not be set. When the FLEXIO PWM driver is available this should be
-switched to PWM backlight driver.
+Thanks for your patch, which is now commit 6ea891a6dd370ab2
+("cpufreq: dt-platdev: Simplify with of_machine_get_match_data()")
+in dt-rh/for-next.
 
-Signed-off-by: Andrej Picej <andrej.picej@norik.com>
-[rework commit message, use local regulator, remove compatible]
-Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
-Signed-off-by: Christian Hemp <c.hemp@phytec.de>
-[m.felsch@pengutronix.de: cleanup downstream commit]
-Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
----
- arch/arm64/boot/dts/freescale/Makefile             |   2 +
- .../freescale/imx93-phyboard-segin-peb-av-02.dtso  | 135 +++++++++++++++++++++
- 2 files changed, 137 insertions(+)
+> --- a/drivers/cpufreq/cpufreq-dt-platdev.c
+> +++ b/drivers/cpufreq/cpufreq-dt-platdev.c
+> @@ -219,20 +219,13 @@ static bool __init cpu0_node_has_opp_v2_prop(void)
+>
+>  static int __init cpufreq_dt_platdev_init(void)
+>  {
+> -       struct device_node *np __free(device_node) = of_find_node_by_path("/");
+> -       const struct of_device_id *match;
+> -       const void *data = NULL;
+> +       const void *data;
+>
+> -       if (!np)
+> -               return -ENODEV;
+> -
+> -       match = of_match_node(allowlist, np);
+> -       if (match) {
+> -               data = match->data;
+> +       data = of_machine_get_match_data(allowlist);
+> +       if (data)
+>                 goto create_pdev;
+> -       }
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 525ef180481d331e9c4decd092b7b831c497b67e..27e27ac29e82bc0692e86c2ba15c240dc9fbe1c6 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -357,10 +357,12 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
- 
- imx93-phyboard-nash-peb-wlbt-07-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-peb-wlbt-07.dtbo
-+imx93-phyboard-segin-peb-av-02-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-av-02.dtbo
- imx93-phyboard-segin-peb-eval-01-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-eval-01.dtbo
- imx93-phyboard-segin-peb-wlbt-05-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-wlbt-05.dtbo
- imx93-phycore-rpmsg-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-segin.dtb imx93-phycore-rpmsg.dtbo
- dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-peb-wlbt-07.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-av-02.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-eval-01.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-wlbt-05.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phycore-rpmsg.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso
-new file mode 100644
-index 0000000000000000000000000000000000000000..2e7074e402dc8fdeb1568d4f2d4960431e972501
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso
-@@ -0,0 +1,135 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2025 PHYTEC Messtechnik GmbH
-+ * Copyright (C) 2025 Pengutronix
-+ *
-+ * Author: Andrej Picej <andrej.picej@norik.com>
-+ * Author: Marco Felsch <kernel@pengutronix.de>
-+ */
-+
-+#include <dt-bindings/clock/imx93-clock.h>
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+#include "imx93-pinfunc.h"
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&{/} {
-+	/* TODO: Convert to PWM backlight once the FlexIO PWM is supported */
-+	backlight: backlight {
-+		compatible = "gpio-backlight";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_backlight>;
-+		gpios = <&gpio4 28 GPIO_ACTIVE_HIGH>;
-+	};
-+
-+	panel {
-+		compatible = "edt,etm0700g0edh6";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_panel>;
-+
-+		backlight = <&backlight>;
-+		enable-gpios = <&gpio4 29 GPIO_ACTIVE_HIGH>;
-+		power-supply = <&reg_x71_vcc_3v3>;
-+
-+		port {
-+			panel_in: endpoint {
-+				remote-endpoint = <&dpi_to_panel>;
-+			};
-+		};
-+	};
-+
-+	reg_x71_vcc_3v3: regulator-x71-vcc-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "X71-VCC3V3";
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+	};
-+};
-+
-+&dpi_bridge {
-+	status = "okay";
-+};
-+
-+&dpi_to_panel {
-+	remote-endpoint = <&panel_in>;
-+	bus-width = <18>;
-+};
-+
-+&lcdif {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_lcdif>;
-+	assigned-clocks = <&clk IMX93_CLK_VIDEO_PLL>;
-+	assigned-clock-rates = <332600000>;
-+	status = "okay";
-+};
-+
-+&lpi2c2 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	touchscreen@38 {
-+		compatible = "edt,edt-ft5406";
-+		reg = <0x38>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_touchscreen>;
-+		interrupt-parent = <&gpio4>;
-+		interrupts = <12 IRQ_TYPE_EDGE_FALLING>;
-+		reset-gpios = <&gpio4 1 GPIO_ACTIVE_LOW>;
-+		touchscreen-size-x = <1792>;
-+		touchscreen-size-y = <1024>;
-+	};
-+};
-+
-+&media_blk_ctrl {
-+	status = "okay";
-+};
-+
-+&iomuxc {
-+	pinctrl_backlight: backlightgrp {
-+		fsl,pins = <
-+			MX93_PAD_CCM_CLKO3__GPIO4_IO28			0x1133e
-+		>;
-+	};
-+
-+	pinctrl_lcdif: lcdifgrp {
-+		fsl,pins = <
-+			MX93_PAD_GPIO_IO00__MEDIAMIX_DISP_CLK		0x50e
-+			MX93_PAD_GPIO_IO01__MEDIAMIX_DISP_DE		0x50e
-+			MX93_PAD_GPIO_IO02__MEDIAMIX_DISP_VSYNC		0x50e
-+			MX93_PAD_GPIO_IO03__MEDIAMIX_DISP_HSYNC		0x50e
-+			MX93_PAD_GPIO_IO04__MEDIAMIX_DISP_DATA00	0x50e
-+			MX93_PAD_GPIO_IO05__MEDIAMIX_DISP_DATA01	0x50e
-+			MX93_PAD_GPIO_IO06__MEDIAMIX_DISP_DATA02	0x50e
-+			MX93_PAD_GPIO_IO07__MEDIAMIX_DISP_DATA03	0x50e
-+			MX93_PAD_GPIO_IO08__MEDIAMIX_DISP_DATA04	0x50e
-+			MX93_PAD_GPIO_IO09__MEDIAMIX_DISP_DATA05	0x51e
-+			MX93_PAD_GPIO_IO10__MEDIAMIX_DISP_DATA06	0x50e
-+			MX93_PAD_GPIO_IO11__MEDIAMIX_DISP_DATA07	0x50e
-+			MX93_PAD_GPIO_IO12__MEDIAMIX_DISP_DATA08	0x50e
-+			MX93_PAD_GPIO_IO13__MEDIAMIX_DISP_DATA09	0x50e
-+			MX93_PAD_GPIO_IO14__MEDIAMIX_DISP_DATA10	0x50e
-+			MX93_PAD_GPIO_IO15__MEDIAMIX_DISP_DATA11	0x50e
-+			MX93_PAD_GPIO_IO16__MEDIAMIX_DISP_DATA12	0x506
-+			MX93_PAD_GPIO_IO17__MEDIAMIX_DISP_DATA13	0x506
-+			MX93_PAD_GPIO_IO18__MEDIAMIX_DISP_DATA14	0x506
-+			MX93_PAD_GPIO_IO19__MEDIAMIX_DISP_DATA15	0x506
-+			MX93_PAD_GPIO_IO20__MEDIAMIX_DISP_DATA16	0x506
-+			MX93_PAD_GPIO_IO21__MEDIAMIX_DISP_DATA17	0x506
-+		>;
-+	};
-+
-+	pinctrl_panel: panelgrp {
-+		fsl,pins = <
-+			MX93_PAD_CCM_CLKO4__GPIO4_IO29			0x1133e
-+		>;
-+	};
-+
-+	pinctrl_touchscreen: touchscreengrp {
-+		fsl,pins = <
-+			MX93_PAD_ENET1_MDIO__GPIO4_IO01			0x11e
-+			MX93_PAD_ENET1_RD2__GPIO4_IO12			0x1133e
-+		>;
-+	};
-+};
+I think this is a change in behavior:
+Before, the pdev was created immediately if the node's compatible
+value is found in allowlist, regardless of the value of data (which
+is always NULL, except on RK3399),
+After, the pdev is created immediately if the node's compatible value
+is found in allowlist, AND data is non-NULL.
+
+>
+> -       if (cpu0_node_has_opp_v2_prop() && !of_match_node(blocklist, np))
+> +       if (cpu0_node_has_opp_v2_prop() && !of_machine_device_match(blocklist))
+>                 goto create_pdev;
+>
+>         return -ENODEV;
+
+Gr{oetje,eeting}s,
+
+                        Geert
 
 -- 
-2.47.3
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
