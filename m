@@ -4,103 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7268CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 12:55:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C5EED116F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 12:56:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NOi1IpLT3hqt7Yhp0snhhK4gc9WWC6VmIKv2Z30g4Sc=; b=Omjgm66rU3yRn7iq/im2c0d4X0
-	TSkNCifDPjt6W35MqaQlaIv389MLXepUjk9Fy8IE0EecNQ3UbIsf3JRjgLoBSCJsh6igbMctuQWp3
-	ulSvcUQjjwSkJ2EMCavHP6L66t5HCP9XEbKFi+zd25sOhph5spsDYppLfDcSIvxZT3ud2FRSZYoht
-	P6ge+RQI2KFAuvtOJgRBnze1eDiVouo9d5G9RC/EhtLTcTYGwWV2lgYMEISed03Kwuq6nZoJnQL4M
-	aKSeOO6A+7F5wVBmrDMbMvvggVQZKJQk1JBUqFRz3y0+xOsFi0z0PMTWbVOhN/oO2qe5lGRguHCNN
-	HROepv8w==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QFgcSxDwjQGmQohC290QGXRTuVmXVyuOEalaNkjC4ws=; b=4Tk5/HQ3tzp3kUFn6I99ANVzCv
+	avyySSCHb1uyjQxi5BSr0YS8PO0xOgAHxV5z1VFu1GGCJs3M0G/4O8joj6YDqFY3EdouSKlNycLSb
+	rhhIuN6/bo9hWHhN7jHIFehd6n7YL0AlaxwDwlvRFPjYj71Th6u2wTumnYsf62ScwGxeay9K5Aw4G
+	F/UT+ppWmPo0IPI/P9/uohyInZ7vN2vzHHmfbcr4Zjmp56fLp0DH2yQOsDgFFf8yxcHBYmR4taaHo
+	drZF/wjRfr6fO2fMOk8iSdRhXnp3IyndzFiteooUaOZgT4F7ZRDlDxZAH+9DUZasFPTpFHo821jNM
+	7W6JfezA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQPuR-00000005OgL-2aM2;
-	Tue, 02 Dec 2025 12:55:11 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vQPvd-00000005Omx-0sXK;
+	Tue, 02 Dec 2025 12:56:25 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQPuM-00000005OfX-0iZ3
+	id 1vQPvZ-00000005Olo-0rbd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 12:55:08 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B28FR2q1491741;
-	Tue, 2 Dec 2025 12:54:57 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=NOi1IpLT3hqt7Yhp0snhhK4gc9WWC6VmIKv
-	2Z30g4Sc=; b=HphkWmwjyk2yeALGiPfZz19OXjKibs38o1AY5J3nUbIjF6Kgy1I
-	fVys66etNUVCUd9A0ETXPaN+sCmtWqcOaxOSBu+ivGz+SxY18P+SJw0r0OshMAnp
-	/hp2EMY+G1xumxTGADAOWDtPocRefs1sg7sQxURvZvk1iznUWrRjZ7IjlSqZxTE0
-	72sEuWDwVN7YoLiR52TchFlvTVjE+PG/Dh1P1l4OOY0NQcvHY+5F1g+GIOi0THz4
-	JLn/39r9M/qvXOf3kMa4zmyPqOpcuDywiloC0ba5Z4O2nCODi6QwRo9HbYtgnjur
-	0uF+MUW28llcFqV0rsqvLpBLJ/JMRA0In4Q==
-Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4askbd2dtf-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 02 Dec 2025 12:54:56 +0000 (GMT)
-Received: from pps.filterd (APBLRPPMTA01.qualcomm.com [127.0.0.1])
-	by APBLRPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 5B2Csq8E023265;
-	Tue, 2 Dec 2025 12:54:53 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 4aqswkpyra-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 02 Dec 2025 12:54:52 +0000
-Received: from APBLRPPMTA01.qualcomm.com (APBLRPPMTA01.qualcomm.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 5B2Csqfg023259;
-	Tue, 2 Dec 2025 12:54:52 GMT
-Received: from hu-devc-hyd-u22-c.qualcomm.com (hu-charante-hyd.qualcomm.com [10.213.97.134])
-	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 5B2Csqhv023256
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 02 Dec 2025 12:54:52 +0000
-Received: by hu-devc-hyd-u22-c.qualcomm.com (Postfix, from userid 389980)
-	id 7C66E5D8; Tue,  2 Dec 2025 18:24:51 +0530 (+0530)
-From: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
-To: konrad.dybcio@oss.qualcomm.com, robin.clark@oss.qualcomm.com,
-        dmitry.baryshkov@oss.qualcomm.com, will@kernel.org,
-        robin.murphy@arm.com, joro@8bytes.org
-Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
-Subject: [PATCH V4] iommu/arm-smmu: add actlr settings for mdss on Qualcomm platforms
-Date: Tue,  2 Dec 2025 18:24:47 +0530
-Message-Id: <20251202125447.2102658-1-charan.kalla@oss.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 02 Dec 2025 12:56:23 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 28A3B1A1EC8;
+	Tue,  2 Dec 2025 12:56:18 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id E0331606D3;
+	Tue,  2 Dec 2025 12:56:17 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BDFCC119197A7;
+	Tue,  2 Dec 2025 13:56:07 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1764680176; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=QFgcSxDwjQGmQohC290QGXRTuVmXVyuOEalaNkjC4ws=;
+	b=ffvFEagvHMxcxYiWtdroyPQNdvLv1ifz3VFkmfX4Ma1/lCwCnkcQ1z5TloYCThJtsNEbVR
+	Tl/HXf05ZSSsQobwVSpvnrzOwTaoF2ngm/scJqKUw4cv0uYRkdxjpM1gD8kqvNzOsB7587
+	mJ0C7A89FtwW3hcIYb3WEx0KSbOMoDe2FjigWHBimIoYM7Y08gzh8unAKgbBlc/8Y2Ts11
+	Apq5W3jhmeRmm2svhWKmIIw4sHHpyUfjA7BCBRKtOdMPEnAR6VoYOa4zbh4TFL1Dd15DKi
+	1nAQwvVkD6UErGkIJJIuJwWxon9Z21z/34FWPZaLONeELfD6Cis5CRYWNdejRw==
+Date: Tue, 2 Dec 2025 13:56:05 +0100
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Markus Schneider-Pargmann
+ <msp@baylibre.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, Louis
+ Chauvet <louis.chauvet@bootlin.com>, Thomas Petazzoni
+ <thomas.petazzoni@bootlin.com>, Miguel Gazquez
+ <miguel.gazquez@bootlin.com>, dri-devel@lists.freedesktop.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org, Jyri
+ Sarha <jyri.sarha@iki.fi>, Maarten Lankhorst
+ <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Russell
+ King <linux@armlinux.org.uk>, Bartosz Golaszewski <brgl@bgdev.pl>, Tony
+ Lindgren <tony@atomide.com>, Andrzej Hajda <andrzej.hajda@intel.com>, Neil
+ Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
+ <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
+Subject: Re: [PATCH 05/21] ARM: dts: omap: Bind panel to panel-dpi instead
+ of ti,tilcdc,panel driver
+Message-ID: <20251202135605.053ada96@kmaincent-XPS-13-7390>
+In-Reply-To: <1d9a9269-bfda-4d43-938b-2df6b82b9369@ideasonboard.com>
+References: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
+	<20251126-feature_tilcdc-v1-5-49b9ef2e3aa0@bootlin.com>
+	<96b1b7bf-ddbe-4213-a201-dc89cf2998dd@ideasonboard.com>
+	<3bc5bf92-05c3-4841-ab28-9bab2bb31cd5@kernel.org>
+	<20251202104244.59a9e83d@kmaincent-XPS-13-7390>
+	<d7515cd3-5488-4d15-82dc-d2b98cfa2bed@kernel.org>
+	<20251202114416.09624a4b@kmaincent-XPS-13-7390>
+	<94e254fa-289d-41ed-909f-1742cfbb2690@kernel.org>
+	<20251202121856.0da62885@kmaincent-XPS-13-7390>
+	<1d9a9269-bfda-4d43-938b-2df6b82b9369@ideasonboard.com>
+Organization: bootlin
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-ORIG-GUID: bYQVAJBa3iekCjcoUw7S9foE0baYEL4H
-X-Proofpoint-GUID: bYQVAJBa3iekCjcoUw7S9foE0baYEL4H
-X-Authority-Analysis: v=2.4 cv=fLg0HJae c=1 sm=1 tr=0 ts=692ee1a1 cx=c_pps
- a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=wP3pNCr1ah4A:10 a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
- a=LWYvQZVa8uIfhQNUIroA:9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjAyMDEwMyBTYWx0ZWRfX/4ZhITIdLEfI
- BTKQVALJOWL5RjZNo17aZzfmnIrCs8+CmoXQlwU8KiyX2YiQXzy5GG4dPbXV1HHWF2xLXUJKN2j
- HsFfgUzhY2VqvLWEpGMB2ZYN6SCzQaZkQ+nZET64lvRIIAQWPUwknr+shpTcbP7d9s16EyRWZj8
- rZGm/ahU/Xcc4Xip20+9pDWImcEIbiraVqXrJDSrkHotYpwaWCv/YYL/bdbsiuajlvBjv7FtV/p
- wLnc84/+EjI62SYPF+ffXLOwFgCA4PsYsa33pJzfIpDuwreyppnx/XSEGvca09A7uh3ENpv8CkD
- QPrtNxUQNHTJgMyM2DFG8rJfggDbVAtsTGlgv8ZOZvrARwW+KEvGJ3lYxo5jzm5nm4WpnKZbIGZ
- khKeKMLKfbyX/RmlJfi16cezWPkFqA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-01_01,2025-11-27_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 clxscore=1015 phishscore=0 adultscore=0 malwarescore=0
- suspectscore=0 lowpriorityscore=0 impostorscore=0 bulkscore=0
- priorityscore=1501 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
- definitions=main-2512020103
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_045506_501676_0ADCA99C 
-X-CRM114-Status: GOOD (  13.62  )
+X-CRM114-CacheID: sfid-20251202_045621_382419_A09C6DC8 
+X-CRM114-Status: GOOD (  35.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,82 +101,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add ACTLR settings for missing MDSS devices on Qualcomm platforms.
+On Tue, 2 Dec 2025 13:51:59 +0200
+Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> wrote:
 
-These are QoS settings and are specific to per SoC thus different
-settings, eg: some have shallow prefetch while others have no
-prefetch.
+> Hi Kory,
+>=20
+> On 02/12/2025 13:18, Kory Maincent wrote:
+> > On Tue, 2 Dec 2025 11:47:40 +0100
+> > Krzysztof Kozlowski <krzk@kernel.org> wrote:
 
-Aswell, this prefetch feature is not implemented for all the
-platforms, capturing to those are implemented to the best of my
-knowledge.
+> I will not NAK, removing bindings and breaking users is under some
+> conditions acceptable. You just need to come with the reasons and impact.
+>=20
+> Reason "is ugly" is usually not good enough. Especially if things were
+> working.
 
-Signed-off-by: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
----
-Changes from V3:
- 1) Add actlr setting for missing sc8180x & sm6115.
- 2) Improved commit message.
-https://lore.kernel.org/all/20251124171030.323989-1-charan.kalla@oss.qualcomm.com/
+Thanks for you reply.
 
-Changes from V2:
- 1) Add actlr settings for all the mdss devices on Qualcomm platforms.
- 2) Improved the commit message that explain why different ACTLR
-    settings
-https://lore.kernel.org/lkml/20251118171822.3539062-1-charan.kalla@oss.qualcomm.com/#t
+> >>
+> >> DTS cannot go to drm, which means you either need to separate the chan=
+ge
+> >> and make entire work bisectable and backwards compatible for some time
+> >> OR at least document clearly the impact as we always ask. =20
+> >=20
+> > The thing is, if I split it, it has to be in 3. One for the of DRM bus =
+flags
+> > support, a second for the the devicetree and binding change and a third=
+ for
+> > the whole tilcdc and tda998x cleaning stuff. I think I will go for one
+> > series, with better documentation.
+> >=20
+> > Now, what is your point of view on my question. Will you nak any binding
+> > removal even if the binding is ugly and legacy and imply maintaining an
+> > non-standard tilcdc panel driver? I know it breaks DTB compatibility but
+> > there is several argument to not keep it. See patch 6. =20
+> The binding being ugly and having to maintain non-standard tilcdc panel
+> driver may be nice things for us, the users don't care. The users care
+> if their board no longer works.
 
-Changes from V1:
-  1) Added actlr setting only for MDSS and dropped for fastrpc. --
-konrad
-  2) ACTLR table is updated per alphanumeric order -- konrad 
-  https://lore.kernel.org/all/20251105075307.1658329-1-charan.kalla@oss.qualcomm.com/
+Yes I understand but then I have another question. At what cost should we
+continue to support legacy binding?
 
- drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 26 ++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
+Just figured out this case already happened, ti,tilcdc,slave binding was
+removed from the tilcdc driver:
+739acd85ffdb7 ("drm/tilcdc: Remove obsolete "ti,tilcdc,slave" dts binding
+support")
 
-diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-index c21a401c71eb..149da53091de 100644
---- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-+++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
-@@ -41,12 +41,38 @@ static const struct of_device_id qcom_smmu_actlr_client_of_match[] = {
- 			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
- 	{ .compatible = "qcom,fastrpc",
- 			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
-+	{ .compatible = "qcom,qcm2290-mdss",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
- 	{ .compatible = "qcom,sc7280-mdss",
- 			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
- 	{ .compatible = "qcom,sc7280-venus",
- 			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sc8180x-mdss",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sc8280xp-mdss",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sm6115-mdss",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sm6125-mdss",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sm6350-mdss",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sm8150-mdss",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sm8250-mdss",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sm8350-mdss",
-+			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
-+	{ .compatible = "qcom,sm8450-mdss",
-+			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
- 	{ .compatible = "qcom,sm8550-mdss",
- 			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
-+	{ .compatible = "qcom,sm8650-mdss",
-+			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
-+	{ .compatible = "qcom,sm8750-mdss",
-+			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
-+	{ .compatible = "qcom,x1e80100-mdss",
-+			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
- 	{ }
- };
- 
--- 
-2.34.1
+Even if there is still one mainline device tree that uses it:
+am335x-base0033.dts. :/
 
+> And how does this sync with u-boot? It also has code for at least for a
+> few of these boards.
+
+U-boot has indeed a driver for the ti,tilcdc,panel binding.
+Changing this devicetree would beak display for these board in U-boot as it
+currently does not support the "panel-dpi" binding.
+
+> Are there even users for these boards? If not, maybe they can be just
+> removed? I'm personally not familiar with these boards, so I have no
+> idea of their age or distribution.
+
+These boards are quite old (>10 years) but I don't know if they are still u=
+sed
+by people. After a quick look they seem not available on the market.
+
+> One trick that can be done is to modify the loaded DTB at boot time,
+> detecting the old format, converting it to the new one, so that when the
+> drivers are probed they only see the new DTB.
+
+Yes, indeed that could do the trick. The things is, I don't have one of
+theses board to test it. I will try to look for an other way to test it.
+
+Regards,
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
