@@ -4,72 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88FFCD116F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 11:44:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5435CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 11:48:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6akykqHrl4uDDrJ9ht3V5jz/XuAorzHnTabNLsTP0ME=; b=bbskqNFPKoCJN8HrrU0flo2zI3
-	WBZdD+qHN68M31EO8tQ4JdJKnB29YZ8RUkInnLEHakoIHtEi6VZlTb+rEOSd1YNNtbWa3PIzLO/6O
-	X6UAjZeEvmVFhzo2fmNgUAWz3umZm410jzsR+bz1wsdq4mFGxNRyTCAnoZ7oYU4VCbMjMzn3YRPpJ
-	QUk1OpR3+18nLf4vrOpdN4dKcmYH6lNezLeEOVN282X9/mEzUFqU06S8bLlfQvCYhyLGvIJeuxbpa
-	U9LOG56DrIp5zdgh4eOoUFv6/C4RNmYeGnL0vW0rsUq8YWOSX9uljeXWq7t17IQoibL0FmzumQ8RP
-	fTb6JlQg==;
+	bh=cPzBCQ/cVroc4yKwXafobMdff4xUZ/bh1Bgq00vprqk=; b=paP39GiItktWF9JCNVntoDI3iP
+	rgezpNmlWME0hO5p6/kwpPq856AeBb490nPA2g2sn9Ze92iOw7Hk8nufx0O30hY3Mw9SzPi6kx1IP
+	7R1SkAAjvF01Z9s++pal2EcfPs2DWn1/ikZZATQWHxTctVhrazGUoMaYSdautSMLljKtqtSaFOsfd
+	UWrgiUkjFReVWOm7oZzAmBGPrBTzDyCH3FlOPnjtIPAQ1DpwVzC00aDF5wqB82Z08ttNT81mLhgPX
+	IncmescxmOEWTdr34dnM3tWhy0k2gp7dmkMhz7ojlw4omqC5Lvq43SDUW0WuNLCiRHGoiqUO9xMjN
+	b17v//hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQOoJ-00000005KUt-36xy;
-	Tue, 02 Dec 2025 11:44:47 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vQOsA-00000005KnJ-1pV7;
+	Tue, 02 Dec 2025 11:48:46 +0000
+Received: from mx-relay90-hz2.antispameurope.com ([94.100.136.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQOoI-00000005KUH-3Twv
+	id 1vQOs5-00000005KmM-1USq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 11:44:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D433B60139;
-	Tue,  2 Dec 2025 11:44:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E566C4CEF1;
-	Tue,  2 Dec 2025 11:44:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764675885;
-	bh=A2OtBjHKMPsv5ieu0X0QAARKlZkIcWNozF8zp2T2n7c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XWPsL1juzkH3Cy///Ny5yKw9iel0mf0OoPe7j9SDtdwUYKGAqWZTLKIL+6DIganYy
-	 rboC8MZXuN2GKqELrn9+ubeSNSZF+aXY7SUfNuPAf5CEwj3tkMAWQuRBTcRcKemsiN
-	 hEhqNdJUuKmqq+gDN8y5XNBvvS24gCT8JszlIjNz6SW+y+KfaA9wjJMdMHg7Gbe4J4
-	 MjNKDTsgoSV2ZMxRO3y06JdAi4gaM4+HxFKFIY2MuXHdThj5i0eG1jY7DvYmn4G7qG
-	 WHN8Diy6D5uTFusOcg8mDMs7MQUnvqge8y3jk2zGUghVC5HWetCsknCUxEkG2ekQsg
-	 ZWv9UFaYK5Dew==
-Date: Tue, 2 Dec 2025 17:14:31 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: "Maciej W. Rozycki" <macro@orcam.me.uk>
-Cc: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
-	Jingoo Han <jingoohan1@gmail.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
-	Alim Akhtar <alim.akhtar@samsung.com>, Jonathan Chocron <jonnyc@amazon.com>, linux-pci@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v9 4/4] PCI: dwc: Support ECAM mechanism by enabling iATU
- 'CFG Shift Feature'
-Message-ID: <ps5jjiqv5mw2g3exzvfcfsa4bcda7hois2h6riarwb2d2son4u@2onu4bibw2hb>
-References: <alpine.DEB.2.21.2511280256260.36486@angie.orcam.me.uk>
- <c7aea2b3-6984-40f5-8234-14d265dabefc@oss.qualcomm.com>
- <alpine.DEB.2.21.2511280755440.36486@angie.orcam.me.uk>
- <cabf4c20-095b-4579-adc1-146a566b19b9@oss.qualcomm.com>
- <alpine.DEB.2.21.2511281714030.36486@angie.orcam.me.uk>
- <a4c6d47f-28b5-40d3-bc82-10aeb14f8e78@oss.qualcomm.com>
- <alpine.DEB.2.21.2511290428340.36486@angie.orcam.me.uk>
- <h7pgm3lqolm53sb4wrcpcurk4ghz4tulqnr7vgd7rzxy4hscue@jcn5tepevlwl>
- <syg7vpbt3w53s24hgl7b6w64odmif5bq557lwlvzlbvgkukwcn@66jtzzc3vtiu>
- <alpine.DEB.2.21.2512011617250.49654@angie.orcam.me.uk>
+	Tue, 02 Dec 2025 11:48:44 +0000
+ARC-Authentication-Results: i=1; mx-gate90-hz2.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out01-hz1.hornetsecurity.com;
+ dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=cPzBCQ/cVroc4yKwXafobMdff4xUZ/bh1Bgq00vprqk=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1764676109;
+ b=prEI4sWlyCjtqyzmjHsLJElkDo9VNdlOcnRM0z0IYNmey5ajgrh6500v2N0QBFFrxwxeFs/p
+ S1LfQ/FgtxXGVRpRemu0+7cNnOV57LgPN0Zy9O70wvvHz3u0vFxcJvOqEuR4dg+X/X31VT3R81A
+ JDpme5OsZzhav9XhirRxCZjgkTd+iWFTII2yv8WCNTCNUvzUDwuXwgKPkQDhBPX3GTc2rbiE9M/
+ PLbi+5QCDv9edza11SYhrbGzjua8eV1A/g9uESP3FlH+49gIr1KviwUkiP3g4xT0MyvZalFPDZ0
+ ujTsnRwwYSayy9WFpM6BU8VA85d8sAU22fB1fBVvQA7Hg==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1764676109;
+ b=MXvrAI9DzAZheUlxZv7eUjotVgC5HaXd7sDqxTcYnGm0F8MMxBbWUqAKK2J22oj82FK7U9La
+ ZMMx/Hv/phnmGsP4lZyA1L+LA4MoDsdwULZw3Yi/ofG58uyYkNi2aiyIK5O6jOA3Ft65sxT/fAR
+ 1gRm1SLn6AEhiHRwilqhNZBKfCGD2sC4zXfGADhzm/sffMdPXVCktRfikxQdSzMoi37k4ogRV/+
+ Au1BMPal18NMyp7gDHLsk8vPeXpEvri3yBMDzsXiFIE15SIkzjrhi1M+dcFbPFt1Ydat29Cu2HN
+ KSY1AZf9r5GVIM98yx+P3fxmQZ8Qzn8f+ijvoMDX5381w==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay90-hz2.antispameurope.com;
+ Tue, 02 Dec 2025 12:48:29 +0100
+Received: from steina-w.localnet (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: alexander.stein@ew.tq-group.com)
+	by smtp-out01-hz1.hornetsecurity.com (Postfix) with ESMTPSA id BAAF7A4128F;
+	Tue,  2 Dec 2025 12:48:15 +0100 (CET)
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com,
+ frank.li@nxp.com, Sherry Sun <sherry.sun@nxp.com>
+Cc: devicetree@vger.kernel.org, kernel@pengutronix.de,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] arm64: dts: imx8qm-ss-dma: correct the dma channels of lpuart
+Date: Tue, 02 Dec 2025 12:48:15 +0100
+Message-ID: <2395053.ElGaqSPkdT@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20251202111638.3553-1-sherry.sun@nxp.com>
+References: <20251202111638.3553-1-sherry.sun@nxp.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="3my6bnxaowecwlhh"
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <alpine.DEB.2.21.2512011617250.49654@angie.orcam.me.uk>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-cloud-security-sender: alexander.stein@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay90-hz2.antispameurope.com with 4dLJtm3MJzzWycw
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: 199991314bca0e7504113f70cfa02bc4
+X-cloud-security: scantime:1.766
+DKIM-Signature: a=rsa-sha256;
+ bh=cPzBCQ/cVroc4yKwXafobMdff4xUZ/bh1Bgq00vprqk=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1764676109; v=1;
+ b=boPZZ3Q6FJ3OEpNSMgUGKMJL8fMojUUYYL5lZjpi4CeiLJ+hJoxDt4csaAcSsT0amVBIt3Ul
+ pIGq4bhGIa+QzcCHGH8OtxV8ud3biqnbEdWOrwJj+YHhffvz72FV62UkhBftKGtMFYVW/o3u6Zx
+ j8Shqe3X4rFtbfsAYA2AJOf0suZVB8WVjUCIeHZGJNiznIbztYj105t/4WDxhdCnCsTgDgHcBix
+ +ppoTY1+zkmUd44y+pG+HoD3+USQHhqCa9ekRCMQQ6o0+bAD/lmyFZ/cvzXPHBRKs05soDECN43
+ aoTN1T6wVxc1w2A1Tn+RGtowL80/FiECvBadvH/UeLP4w==
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251202_034841_755121_FAC61AA7 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,273 +106,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
---3my6bnxaowecwlhh
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+Am Dienstag, 2. Dezember 2025, 12:16:38 CET schrieb Sherry Sun:
+> The commit 616effc0272b5 ("arm64: dts: imx8: Fix lpuart DMA channel
+> order") swap uart rx and tx channel at common imx8-ss-dma.dtsi. But miss
+> update imx8qm-ss-dma.dtsi.
+>=20
+> The commit 5a8e9b022e569 ("arm64: dts: imx8qm-ss-dma: Pass lpuart
+> dma-names") just simple add dma-names as binding doc requirement.
+>=20
+> Correct lpuart0 - lpuart3 dma rx and tx channels, and use defines for
+> the FSL_EDMA_RX flag.
+>=20
+> Fixes: 616effc0272b5 ("arm64: dts: imx8: Fix lpuart DMA channel order")
 
-On Mon, Dec 01, 2025 at 04:42:42PM +0000, Maciej W. Rozycki wrote:
-> On Mon, 1 Dec 2025, Manivannan Sadhasivam wrote:
-> 
-> > > > So it's definitely nothing specific to the parport driver, but rather a 
-> > > > general issue with PCI/e port I/O not working anymore.  I do hope these 
-> > > > observations will let you address the issue now.  You might be able to 
-> > > > reproduce it with hardware you have available even.
-> > > > 
-> > > 
-> > > Yes, looks like the I/O port access is not working with the CFG Shift feature.
-> > > The spec says that both I/O and MEM TLPs should be handled by this feature, so
-> > > we are currently unsure why MEM works, but not I/O.
-> 
->  As I say, last time I checked (for another reason) documentation was not 
-> available to the general public, so I can't help with that.
-> 
+I'm wondering if this is actually a fix for 5a8e9b022e569 ("arm64: dts:
+imx8qm-ss-dma: Pass lpuart dma-names") instead. 616effc0272b5 just
+focuses on the common parts. But I don't have a strong opinion here.
 
-Sure. I know that the DWC documentation is well secured behind firewalls. So not
-asking for help here.
+Thanks and best regards,
+Alexander
 
-> > > The issue you reported with parport_pc driver is that the driver gets probed,
-> > > but it fails to detect the parallel ports on the device. More precisely, it
-> > > fails due to the parport_SPP_supported() check in drivers/parport/parport_pc.c.
-> > > This function performs some read/write checks to make sure that the port exists,
-> > > but most likely the read value doesn't match the written one. And since there is
-> > > no log printed in this function, it just failed silently.
-> 
->  Whatever the exact transaction conditions are port I/O TLPs seem not to 
-> make it through to the requested target device anymore.
-> 
->  FWIW the defxx driver issues a command to the device's command register 
-> and wants to see a successful completion status in the status register 
-> before retrieving the MAC address via the data register.  So it's not a 
-> simple case of poking at a register and reading it back, but the end 
-> result is the same: the device cannot be talked to.
-> 
-> > > We will check why I/O access fails with ECAM mode and revert back asap. Since
-> > > the merge window is now open, it becomes difficult to revert the CFG shift
-> > > feature cleanly. The timing of the report also made it difficult to fix the
-> > > issue in v6.18. Hopefully, we can backport the fix once we identify the culprit.
-> 
->  No worries, I've been around for long enough (short of 30 years) to know 
-> the process.
-> 
->  FWIW the original change would've best been reverted for 6.18 as a fatal 
-> regression, however port I/O is uncommon enough nowadays we can defer any 
-> final decision to 6.19 I suppose.  I'm glad I've tripped over this in the 
-> first place as I'm not eager to upgrade all my lab devices all the time, 
-> and it was owing to another issue only that I chose this moment to move 
-> forward, not so long after the original commit.
-> 
-> > Can you try the attached patch? It is a reworked version of Krishna's patch. I
-> > just moved things around to check potential override issue.
-> 
->  No change in behaviour, sorry.  I suppose it's this range of host address 
-> decoding:
-> 
-> fu740-pcie e00000000.pcie:       IO 0x0060080000..0x006008ffff -> 0x0060080000
-> 
-> aka:
-> 
-> pci_bus 0000:00: root bus resource [io  0x0000-0xffff] (bus address [0x60080000-0x6008ffff])
-> 
-> that you're after.  Are you sure your code discovers it correctly?  As I 
-> say I can only see IORESOURCE_MEM references and no IORESOURCE_IO ones as 
-> would be appropriate for the root bus resource quoted.
-> 
-
-The I/O resource is discovered by the driver correctly as seen from the logs:
-
-pci_bus 0000:00: root bus resource [io  0x0000-0xffff] (bus address [0x60080000-0x6008ffff])
-pci_bus 0000:00: root bus resource [mem 0x60090000-0x7fffffff]
-pci_bus 0000:00: root bus resource [mem 0x2000000000-0x3fffffffff pref]
-
-But we believe that the iATU is not programmed for the I/O port, resulting in
-the I/O access not going out to the device.
-
-Krishna found an issue in the previous patch that got shared. So I've attached a
-new one. Could you please try and let us know? If it didn't help, please share
-the dmesg log that will have some more info.
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
-
---3my6bnxaowecwlhh
-Content-Type: text/x-diff; charset=us-ascii
-Content-Disposition: attachment;
-	filename="0001-PCI-qcom-Enable-iATU-mapping-for-memory-IO-regions.patch"
-
-From 5acab1289f8fd20ecead7c517e7e282584946ff0 Mon Sep 17 00:00:00 2001
-From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Date: Fri, 28 Nov 2025 16:44:17 +0530
-Subject: [PATCH] PCI: qcom: Enable iATU mapping for memory & IO regions
-
-Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
----
- .../pci/controller/dwc/pcie-designware-host.c | 42 ++++++++++++-------
- drivers/pci/controller/dwc/pcie-designware.c  |  3 ++
- drivers/pci/controller/dwc/pcie-designware.h  |  2 +-
- 3 files changed, 31 insertions(+), 16 deletions(-)
-
-diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-index e92513c5bda5..d977bb92cf3b 100644
---- a/drivers/pci/controller/dwc/pcie-designware-host.c
-+++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-@@ -36,6 +36,7 @@ static struct pci_ops dw_child_pcie_ops;
- 
- #define IS_256MB_ALIGNED(x) IS_ALIGNED(x, SZ_256M)
- 
-+static int dw_pcie_iatu_setup(struct dw_pcie_rp *pp);
- static const struct msi_parent_ops dw_pcie_msi_parent_ops = {
- 	.required_flags		= DW_PCIE_MSI_FLAGS_REQUIRED,
- 	.supported_flags	= DW_PCIE_MSI_FLAGS_SUPPORTED,
-@@ -433,7 +434,7 @@ static int dw_pcie_config_ecam_iatu(struct dw_pcie_rp *pp)
- 	 * Immediate bus under Root Bus, needs type 0 iATU configuration and
- 	 * remaining buses need type 1 iATU configuration.
- 	 */
--	atu.index = 0;
-+	atu.index = pp->ob_atu_index;
- 	atu.type = PCIE_ATU_TYPE_CFG0;
- 	atu.parent_bus_addr = pp->cfg0_base + SZ_1M;
- 	/* 1MiB is to cover 1 (bus) * 32 (devices) * 8 (functions) */
-@@ -448,14 +449,20 @@ static int dw_pcie_config_ecam_iatu(struct dw_pcie_rp *pp)
- 	if (bus_range_max < 2)
- 		return 0;
- 
-+	pp->ob_atu_index++;
-+
- 	/* Configure remaining buses in type 1 iATU configuration */
--	atu.index = 1;
-+	atu.index = pp->ob_atu_index;
- 	atu.type = PCIE_ATU_TYPE_CFG1;
- 	atu.parent_bus_addr = pp->cfg0_base + SZ_2M;
- 	atu.size = (SZ_1M * bus_range_max) - SZ_2M;
- 	atu.ctrl2 = PCIE_ATU_CFG_SHIFT_MODE_ENABLE;
- 
--	return dw_pcie_prog_outbound_atu(pci, &atu);
-+	ret = dw_pcie_prog_outbound_atu(pci, &atu);
-+	if (!ret)
-+		pp->ob_atu_index++;
-+
-+	return ret;
- }
- 
- static int dw_pcie_create_ecam_window(struct dw_pcie_rp *pp, struct resource *res)
-@@ -630,14 +637,6 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
- 	if (ret)
- 		goto err_free_msi;
- 
--	if (pp->ecam_enabled) {
--		ret = dw_pcie_config_ecam_iatu(pp);
--		if (ret) {
--			dev_err(dev, "Failed to configure iATU in ECAM mode\n");
--			goto err_free_msi;
--		}
--	}
--
- 	/*
- 	 * Allocate the resource for MSG TLP before programming the iATU
- 	 * outbound window in dw_pcie_setup_rc(). Since the allocation depends
-@@ -919,6 +918,8 @@ static int dw_pcie_iatu_setup(struct dw_pcie_rp *pp)
- 		}
- 	}
- 
-+	dev_info(pci->dev, "%s: %d MEM index: %d", __func__, __LINE__, i);
-+
- 	if (pp->io_size) {
- 		if (pci->num_ob_windows > ++i) {
- 			atu.index = i;
-@@ -936,13 +937,16 @@ static int dw_pcie_iatu_setup(struct dw_pcie_rp *pp)
- 		} else {
- 			pp->cfg0_io_shared = true;
- 		}
-+
-+		dev_info(pci->dev, "%s: %d I/O index: %d", __func__, __LINE__, i);
- 	}
- 
- 	if (pci->num_ob_windows <= i)
- 		dev_warn(pci->dev, "Ranges exceed outbound iATU size (%d)\n",
- 			 pci->num_ob_windows);
- 
--	pp->msg_atu_index = i;
-+	pp->ob_atu_index = ++i;
-+	dev_info(pci->dev, "%s: %d Final index: %d", __func__, __LINE__, i);
- 
- 	i = 0;
- 	resource_list_for_each_entry(entry, &pp->bridge->dma_ranges) {
-@@ -1086,12 +1090,20 @@ int dw_pcie_setup_rc(struct dw_pcie_rp *pp)
- 	 * the platform uses its own address translation component rather than
- 	 * ATU, so we should not program the ATU here.
- 	 */
--	if (pp->bridge->child_ops == &dw_child_pcie_ops) {
-+	if (pp->bridge->child_ops == &dw_child_pcie_ops || pp->ecam_enabled) {
- 		ret = dw_pcie_iatu_setup(pp);
- 		if (ret)
- 			return ret;
- 	}
- 
-+	if (pp->ecam_enabled) {
-+		ret = dw_pcie_config_ecam_iatu(pp);
-+		if (ret) {
-+			dev_err(pci->dev, "Failed to configure iATU in ECAM mode\n");
-+			return ret;
-+		}
-+	}
-+
- 	dw_pcie_writel_dbi(pci, PCI_BASE_ADDRESS_0, 0);
- 
- 	/* Program correct class for RC */
-@@ -1113,7 +1125,7 @@ static int dw_pcie_pme_turn_off(struct dw_pcie *pci)
- 	void __iomem *mem;
- 	int ret;
- 
--	if (pci->num_ob_windows <= pci->pp.msg_atu_index)
-+	if (pci->num_ob_windows <= pci->pp.ob_atu_index)
- 		return -ENOSPC;
- 
- 	if (!pci->pp.msg_res)
-@@ -1123,7 +1135,7 @@ static int dw_pcie_pme_turn_off(struct dw_pcie *pci)
- 	atu.routing = PCIE_MSG_TYPE_R_BC;
- 	atu.type = PCIE_ATU_TYPE_MSG;
- 	atu.size = resource_size(pci->pp.msg_res);
--	atu.index = pci->pp.msg_atu_index;
-+	atu.index = pci->pp.ob_atu_index;
- 
- 	atu.parent_bus_addr = pci->pp.msg_res->start - pci->parent_bus_offset;
- 
-diff --git a/drivers/pci/controller/dwc/pcie-designware.c b/drivers/pci/controller/dwc/pcie-designware.c
-index c644216995f6..d27b469b417b 100644
---- a/drivers/pci/controller/dwc/pcie-designware.c
-+++ b/drivers/pci/controller/dwc/pcie-designware.c
-@@ -478,6 +478,9 @@ int dw_pcie_prog_outbound_atu(struct dw_pcie *pci,
- 
- 	limit_addr = parent_bus_addr + atu->size - 1;
- 
-+	if (atu->index > pci->num_ob_windows)
-+		return -ENOSPC;
-+
- 	if ((limit_addr & ~pci->region_limit) != (parent_bus_addr & ~pci->region_limit) ||
- 	    !IS_ALIGNED(parent_bus_addr, pci->region_align) ||
- 	    !IS_ALIGNED(atu->pci_addr, pci->region_align) || !atu->size) {
-diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-index e995f692a1ec..69d0bd8b3c57 100644
---- a/drivers/pci/controller/dwc/pcie-designware.h
-+++ b/drivers/pci/controller/dwc/pcie-designware.h
-@@ -423,8 +423,8 @@ struct dw_pcie_rp {
- 	struct pci_host_bridge  *bridge;
- 	raw_spinlock_t		lock;
- 	DECLARE_BITMAP(msi_irq_in_use, MAX_MSI_IRQS);
-+	int			ob_atu_index;
- 	bool			use_atu_msg;
--	int			msg_atu_index;
- 	struct resource		*msg_res;
- 	bool			use_linkup_irq;
- 	struct pci_eq_presets	presets;
--- 
-2.48.1
+> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx8qm-ss-dma.dtsi | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+>=20
+> diff --git a/arch/arm64/boot/dts/freescale/imx8qm-ss-dma.dtsi b/arch/arm6=
+4/boot/dts/freescale/imx8qm-ss-dma.dtsi
+> index 5f24850bf322..974e193f8dcb 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8qm-ss-dma.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8qm-ss-dma.dtsi
+> @@ -172,25 +172,25 @@ &flexcan3 {
+> =20
+>  &lpuart0 {
+>  	compatible =3D "fsl,imx8qm-lpuart", "fsl,imx8qxp-lpuart";
+> -	dmas =3D <&edma2 13 0 0>, <&edma2 12 0 1>;
+> +	dmas =3D <&edma2 12 0 FSL_EDMA_RX>, <&edma2 13 0 0>;
+>  	dma-names =3D "rx","tx";
+>  };
+> =20
+>  &lpuart1 {
+>  	compatible =3D "fsl,imx8qm-lpuart", "fsl,imx8qxp-lpuart";
+> -	dmas =3D <&edma2 15 0 0>, <&edma2 14 0 1>;
+> +	dmas =3D <&edma2 14 0 FSL_EDMA_RX>, <&edma2 15 0 0>;
+>  	dma-names =3D "rx","tx";
+>  };
+> =20
+>  &lpuart2 {
+>  	compatible =3D "fsl,imx8qm-lpuart", "fsl,imx8qxp-lpuart";
+> -	dmas =3D <&edma2 17 0 0>, <&edma2 16 0 1>;
+> +	dmas =3D <&edma2 16 0 FSL_EDMA_RX>, <&edma2 17 0 0>;
+>  	dma-names =3D "rx","tx";
+>  };
+> =20
+>  &lpuart3 {
+>  	compatible =3D "fsl,imx8qm-lpuart", "fsl,imx8qxp-lpuart";
+> -	dmas =3D <&edma2 19 0 0>, <&edma2 18 0 1>;
+> +	dmas =3D <&edma2 18 0 FSL_EDMA_RX>, <&edma2 19 0 0>;
+>  	dma-names =3D "rx","tx";
+>  };
+> =20
+>=20
 
 
---3my6bnxaowecwlhh--
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
+
 
