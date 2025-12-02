@@ -4,83 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A345CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 11:52:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 121E9D116F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 11:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZKK8fuFr9gnz0qBnyFzmVbIPQhya3mmpV5DTDhWJQII=; b=FZxiQwcS8yfKI/w/vPf8Tjh/ur
-	sH/h8hTAAHg+deq+G0SZYIpvsMEVQhqcIg80UArd8YZd2AaDNIiZn1uj4E+jGnyFU+HLKUujCAby1
-	ZKwPCkG0CZi+2PTuloVXC3Z4DDktQtKBngWxk5dQfhNQRMiWQHKwa6QbwIKAcCPQfkhdhLgFDaZKy
-	ImOnnKgqeeNEsQasm/7S7gJDijYpLVGBlTRrjOECtIv8OhAQVLHf+vPEEARKiolB3Qu96O+3PxY3L
-	2X84WZ9SwmvbrenRKV33Q5bK9rCn7FiKBh0p1ETntCCLZkpOQJbVmju0nq0Ksa/FhStv2V31q7ibH
-	8F5iteUA==;
+	bh=ky2w92Omxf/9BARxmiNxHekw/fnnKDmtTcKK+1HQF10=; b=NWyMoGUc32pZyjumrlogCoKjAT
+	khGggQhul5alfJXAlFjq4EKNC0I8Luf8NdLr2p0eQnhZrR/2xZXPOsYjUqjfC76XgsVeHUXCQmkIv
+	B6qH/KBGTW0MFCm6L+vajYB4JzCZnObtYvAKrWn+jn7EzJCbnDFQuWCcA18y0cCIjdl7icUlBiwWA
+	vUucUuNjEYwiEysYMS8kypkt9qxKFZ6q1vHwu79HaHMN4pjLEzjjWNLdZyn6Fz+HDIEfKcC1S6s8w
+	/7jtXmvYquDhERPLbN8zN4wKTVFIT5odS6mqBWUeM50bQ/Tmlpc+Mg36YQAT+f72WmZ4OOhvEvwmA
+	0ccVa7Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQOwB-00000005LAU-1InK;
-	Tue, 02 Dec 2025 11:52:55 +0000
-Received: from mout.gmx.net ([212.227.17.21])
+	id 1vQOws-00000005LJV-2FMI;
+	Tue, 02 Dec 2025 11:53:38 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQOw9-00000005L9m-0EZ2;
-	Tue, 02 Dec 2025 11:52:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
-	s=s31663417; t=1764676367; x=1765281167; i=frankwu@gmx.de;
-	bh=ZKK8fuFr9gnz0qBnyFzmVbIPQhya3mmpV5DTDhWJQII=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=IXZvYuOU9O1zKV7IBDnyb9fkJ47dsG9Kpd1LFVXV9IdO7fzCkpXNJpmofYOtXhZD
-	 Pk/NmzqXMHto/jSLjLdb7ABG6eFALptUNBJSyZuYtojMMLCWv6B0BWm1jqyFCqkJt
-	 2naxzW015Pqhz5aDwVsYtIyPh4TR6IK80UWn1ugwfNxTIIHqnIXD1i3LYi5b4KKQL
-	 6DW7es6Vj0BMNmTQtAc+pCdTdGb5ZL35YUxqvvthS+yE6PlldTKK39myvsqw2DkXY
-	 ARhUUzYzPYevNDuJTXGdhB6aQniB3ZL4mbg1FcF5VpaJ7HvetWhqOIdTx3cKMbF3B
-	 4vQoy7mM2hyoWqvp1w==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [192.168.0.21] ([217.61.154.172]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MmDEm-1vqhHL20Zs-00ZJ41; Tue, 02
- Dec 2025 12:52:47 +0100
-Message-ID: <00f308a1-a4b1-4f20-8d8e-459ddf4c39b1@gmx.de>
-Date: Tue, 2 Dec 2025 12:52:44 +0100
+	id 1vQOwp-00000005LJ2-3P2u
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Dec 2025 11:53:37 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4779cc419b2so55547215e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 03:53:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1764676414; x=1765281214; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ky2w92Omxf/9BARxmiNxHekw/fnnKDmtTcKK+1HQF10=;
+        b=ynfxy7spD0mDrsJLqze6gOCVkzi3/puNBjPfMPfUcrZnji5McZtrFf0BUCztblfSRq
+         U1y7KM9t8vkW7Hy4d8UAzZXmKfeunnVlrODvjAbzVUS7dxgx+fk3+T1tcRej1ScB19U3
+         9reeKnYwaanaBY4rizBahhjzg1IClEpsy/9y45Pvnd9V6zHgJpFqZiMGG7GWrEuWddcG
+         0oGrN6L8EaTy+YR3McUaqatb5dEB+f0mm6ThaOj3NwCfYOQhLisdIJsCU0KsrKVMZvqq
+         +y3Xpf+kEUWKrN999677XWnjCetpAL9fpNTb347XvesavulUPLH8QKWUZeL+AhcaPbfa
+         2nzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764676414; x=1765281214;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ky2w92Omxf/9BARxmiNxHekw/fnnKDmtTcKK+1HQF10=;
+        b=Rpz00GXisDGZ8FsIpcwEv32YF1fPUwgV9lDlpXRVgmmEEc/dFvewDQnzLcEgwEELHB
+         0UgmIsrIl5PgJN84CeGVaPF1cTv+md9jHFlDA6ouy91JRU9GzSvKeVQff2AnHtU+9X9t
+         5wNR2ZvrCLGzTUUyNg44w2S/uphHhz3IoU67cXEXL7x8XEiHdXktbKJhx4sUtoUjJ38B
+         gNQfXAmXg9ZyUvwdBjRWFLsFD1IdiFVJvAg7ZGxLeH9W00qoo4ggL5R60Lge/Hhx7C+A
+         VOeF1CjJIobh4CA7xyYjQzCa+05G2FtUXVUIC1LNWxGOUktASjGMYxghorr5dWX1vXqL
+         3vWA==
+X-Forwarded-Encrypted: i=1; AJvYcCXVF+nVqNFJrOM5CoymlGKlgrFFGc2gbvMVPxH/Rk1ErGZBd1qPbjqIK2M+eBSP21YJ4kQW+Mr/zgGYprBTIoKu@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXMJViCmwRZwRyz+QlPCixlCKFgMpAlDCbg9EcVlykgQjYjUHV
+	1txEW37wANMpTeYg4S6UFY7XIY8AvsEEtMVFeeVGaLZQ6Jy5qOkHRsxxsLNThd4rcd8=
+X-Gm-Gg: ASbGncuBf4cgkcoJV/gImpPgeM1eWxpaqW9Lv1lWsMWIKjGqL+NP03zGVQInhcC5Jqk
+	uGcmoaHC/ywPWCgT0fOSocdel9NXA8vsIY/puJGJsFCXo0rd/QLo8dIvllNAY/6L0VCmQ+ID7U0
+	qnNxg+Z/cGAVuGrzg14FE9d11eF3R39tfRdlRIHfacu1z0vNtbBet0ZkqCSgh+FDYGPR6ogs6F5
+	ApOr1GEQDn1V2EfFB7pjeE1c2gFCJVN1qbv2YRpqGWBg9XERl8JNCKZkvaO1BqN7i00iN2icnio
+	G3sAHqhnecVkyslkJiOv9lWN/YFaLpEO1bsdqIjWANpVzUSkk3eJhRM/HZMd/nRTeHGxzFGS/+v
+	9DBcEN5xQJFor7PpH8I6YZDSMRNEcWZhU0jso3nAFzcVIxpYoLu+PZTaM6YLA7fwe+YT/IGyPAJ
+	cdcMWDg2hdbqOQ4AfSivMpD5362Lo=
+X-Google-Smtp-Source: AGHT+IFqrU0V5kVs+TCC64I17yPQZPoR+/rmB0ZAiKwFTKFWsdVaHH9xBGMrsABLHFk1fUDVIMmffg==
+X-Received: by 2002:a05:600c:4f46:b0:477:63a4:88fe with SMTP id 5b1f17b1804b1-477c1103099mr430150565e9.2.1764676413790;
+        Tue, 02 Dec 2025 03:53:33 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4790ade13ddsm353207785e9.8.2025.12.02.03.53.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 02 Dec 2025 03:53:33 -0800 (PST)
+Message-ID: <53b24702-eb3b-4e08-bca3-70402eaf4db5@linaro.org>
+Date: Tue, 2 Dec 2025 11:53:32 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] net: dsa: mt7530: Use GPIO polarity to generate
- correct reset sequence
-To: Krzysztof Kozlowski <krzk@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
- Vladimir Oltean <olteanv@gmail.com>
-Cc: Chen Minqiang <ptpt52@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- "Chester A. Unal" <chester.a.unal@arinc9.com>,
- Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>,
- Sean Wang <sean.wang@mediatek.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org
-References: <20251129234603.2544-1-ptpt52@gmail.com>
- <20251129234603.2544-2-ptpt52@gmail.com>
- <0675b35f-217d-4261-9e3f-2eb24753d43c@lunn.ch>
- <20251130080731.ty2dlxaypxvodxiw@skbuf>
- <3fbc4e67-b931-421c-9d83-2214aaa2f6ed@lunn.ch>
- <0d85e1e6-ea75-4f20-aef1-90d446b4bfa1@kernel.org>
+Subject: Re: [PATCH 4/7] perf cs-etm: Don't use hard coded config bits when
+ setting up ETMCR
+To: Leo Yan <leo.yan@arm.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>,
+ Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+References: <20251201-james-perf-config-bits-v1-0-22ecbbf8007c@linaro.org>
+ <20251201-james-perf-config-bits-v1-4-22ecbbf8007c@linaro.org>
+ <20251202114300.GV724103@e132581.arm.com>
 Content-Language: en-US
-From: Frank Wunderlich <frankwu@gmx.de>
-In-Reply-To: <0d85e1e6-ea75-4f20-aef1-90d446b4bfa1@kernel.org>
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20251202114300.GV724103@e132581.arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:yhcrH/hXSf4oD3RbBC/vdPi1/zgONn9HfKrwoRg/3mSAhJ9Joch
- 6/vgao+SgLSSOwXE3rKrZKVbyoS+Z0e0y56ZJ1rKMu7mxmkvE+XRmwD9v3pYgKe1XsiJIk5
- lZF21C+8ny26t4hn9E9HI4WZW5c9hno9cH60GyedFHgt/oPVNpVJybWxt0cKaejGN+fxH5p
- QYqgJfJXJ8B/jR0OuAnzg==
-UI-OutboundReport: notjunk:1;M01:P0:aBrF2WwBXlg=;/I8mK5WiGgEJNQfH3ODNFrKKvak acLUzuPbUzsmaqCj9a84HDp9ICbYK+ksuHz4uQtoSna8Zuipt33nrLHO0lUWpUBFYzLwMG2AZ jUEs4S5DoWzCiLxVZCUZgfBUz6XRRwnI+4IbNB0exY73JII0C0Krc260YmarrcSJk5oLZC2mO fwhs1DrCFZj+8aFuu+Lz2mXZbQ+XrW1ryd0KWG+XSlUS0dZphqr5mrzJxmB5UkrhhVRAPjO+4 /6uO0NFJChzUJx29WeXomRAGwHVQMN+Zd1bSNS6fL+hX/ZrU1yi/2d8vvW+2dC+Ac2zYNzSNb mN3RHY+2pqJ3/ASGaIsWcscx78dbi8cVQqwOoid6btpdLBmKagYIVfAdrtrX8Oa0dWmyfFvK9 EY/b+WAFenFMkYMMLM6c5pnEQPb7XnAa4ukRMmDUVEgqDk7/ZWVyRb8UEYpJuYkM6e61VhGGu vMPGvwMLDVwCjCJIgoitBVXGso5+POeaBaVyX78Zn2OSzEF78XxcK/EwV9glFgoAGyB20slhD TvM4mwWob5Ti/I3pCnyd38BYxX3X8tMhSFmnCDfelom5mRzpohyibMdB5OA6XnKrdhwWhILnS 5NjDQAZTqvK8eajIQkEfr6Z+OaYvNH+heSnRvr/k2Vw6UvPms7cRRGRU92KumBVDLc+1+Zgl4 xIHio6X5vHnr3JJnm7BCipxM+bqfdM9SI7nQnl4M1hy0gvomWIyTj+8Txl7YF6ieeq/tkxFZf 6E/RV80lHTbNxW42L/4L4QWO/SRH530116tUXs3UqSZI/Pxq5UTl29P4kscZAu8oM/NZPeeZk vQqaBvGdvWrfQVmlOXWC4d0XCQPlwXsJRKp4XXXoBGLESTJHOwiizjbFyV7gLNFTUJjhBR0J7 7xATkCg9fXP+969BBgLIWhJZ8LceZVB3eeRsQV9Z8stJFnkRhaaEztCtmG+AKETf/FJldEG2M uZd9WFEPENMOxWbgtIXNeaLKsP0SPXwizH3Rh/8CIvcvy1+Jtt6/ZA+7FV9s4v4h63Rn2zxcV z+IksssbXIFtapzN15H+4LduZLsoZ88g7Fyvkwxvk6mshvpbz0CbtfbyzOarQx820apgmxDPh 9tuV8Gr9CMsAo36nsdHD/eTF/BOH7FAqG/uaAOR2pnQVr+q2RT20luXeqGTJC3WTQ0AyUaixY XaLssGUvdm+Xe0bZZZet6UVlww5+mrrSHMChpOhQWt+2RMnEoEsWktm/SLuxmmlG8gw7y34Yo 13EVI8Px+tinE/T73eakZSVvVwDc9k9fs6c6I/qMIJd/87A4CxZIXbdcNSQ2O/P3XoIac3pwa WllIcrqmRqaTYXXe5Z2+r6hqIys7VUXUY9jBcyHRLWS+aymqtBLKVbblD2EoiGacbrNIu5pkH 5VOnuHvJlM7j3Men8u5u80Kx1p3hm5ZQ8GLFraEPQPJggUk9g64JNjWTXLXhVRVZjsJwebAoi +qJtu4JQ8DZdqsncbnKbpWHUeV73LSyjRspmiCa/VzyVt0YUrFKEZDqrCbZeayJgOPEfVdUTd RWgU1g8qZGhUbDeBJWsmNdHayslat1Q9zUV2Srw1afY9KeqiEjS5+Qm4wMPZM0chk7HBoq0VE uKiGSHEuY1Z25g8Dxs0MPAZATLS16nLKOcX5QD7ZfwHRfhG+a7sCqairLhO3h+Sqw6ArRZK3W bu/7rClW+Dwkmun5tsNEOJ/jrCNslB8grYhdUzjJfnAsIYJo9OwcR5obOi7btodRG8Hm8CRlQ t8VQjBBr6dXEREh+t23mK9+xwPX3Nl/mT+HG0F+dEKKsWtgPguAVYShrWZQt4BVfcbqEhn3RC 6Hk9hQqH/mcqdNzd6BGa5tKFBJ4vUqY2gGQ74gVgB6w4tHjxd4+/dGMUNfyYmHXFs+YCFw4y3 RyPF2hrpMVthOaOVj/DsSgno5PxC9bjUIZ/x5AkG8a29QLcs7qlfY85bbmRSSwSDD0L5GOSjn w2tZHGWA94s2Nd5Mawm4Nu137Zqz5caGAEAfn/rSsl70tkd4d1bxQe7M12qsRqOPqSYobR4eX +J/SZ9w7J+CJzkBtUkDq9PSh3pAtNKR9Nk0Ij6vn5gKgGJAJ7fmHqig7bl/47JXIY2huma43S 5Y4JMYnrbHEjbY2hQ++ZevXnM4hYrgL7w1ZHw4ixxz84tjTXNUtpfaF7wB7ORKjzku1cyYffo AjxChGlZVf/Jnb/P+ARrl7rCaJv19g1NRrQ3eOA5crimspD3EGUeDY19avKKtkNQENYhWw47t qfgy7pdjOPpF8U7E3FhARg/Z4g3Ok5bvrj1p/myWT9B72qrHGDoNb6Rr0G83AcOEd6asNLxNr iR9sSz2VdgLhgTxhOr20vs+KN1tY3bEUDKIsXgoSnMmxcMVNKQV8eBuStZVTSnKjiMw0flZCG MkArGOjcUbXJRa4LVnAM/DLYZjJpAZG5afp1PuWRSigxa2OKqRcFtKFmFjJ70A0SerpsdOmQ0 EPzqhXvFG8WqmlGrS7YqqYfe9qrz7QK8eERuWxn5WaT1vrkQyV8EyPqW5vh/9UCaG59bTYbk+ CYQaeANthiP7uoaL4zscoSygLvG0Un2lZdQVhYx+DfbCJSas77lvzxsbtJmNwzQSJqWypGzTW 16zo/O1xD1HUg1jqBkf7KCNz3PgIOxvs7SAKQizdEaDB7uQebxZqI73Z5jpiTbfRGhTlB77u5 rb1G1EhwOP5iYhf71wUzj/WBhGBnSdPq45jSNGJA9PFimPfVv3HZ9iYwhdfaHg82MPpj3luyG avyqUODTx3NCy/aHvngDegguy1IxyHeqw75LDJEmFPtU7EcEUmuGU0GUQ4EAJ6GHvYXprGFm5 GxqBCuyOxLmd6fp0FdtY0OwWn1btvdQmd5ZwBArNZWCnzBgQ3PfxC5nWTsmPlalrjY8AHcUud EINOwZuaRfBCTNhxkqQlpIGL4IS2XBOwmwDuuBvMHkt29itmawTV2PfQsq1f2dXU6FztZGxMa 5a1n++pAY6n3YhDCQXIevwGAdzRLIoanG5ed5XQGVVSBs9fqEIDwkunlcagbKYX8fy+0AZSf5 0CrlNykM+QPtFmGIXAHwXufsKjfRxHrG2/C+qJTtYx9txbKbj6AvXCgfo6FtFuA5SvcW8gXog ZmkiZWoeTHAXtpAT+yALzCnzCKUx2/61wuZZUJkcT7KiD7gkyBIxQ82zGfbliqiuXwL6ahshe JQwg8TKKbMFK/Ef0ayY47ORwkCJiIogK3506FzE9Prr+dL0CR29x1T8jzwrgz2dUUVYJrdz0q N77BP+P71B983C0BXNwM9UWHcJP6412cd7JOloeYOf3GeEtJhOcGBaeEgmtzL0cOfnpdN0iR+ uoWctKV071698d89+rXBwXKwwQjHX4WboWfwvBdTychLH0Jk7TZ5mVIuc+GK+jNIMpeW9MU/D GE6Ly56QS1vcSS6N4Evk12KTQHcDZj6DOOaHOjFJ+20ySmc4aA7uRBl/kICWAfX3g6ta3iDy6 0UlB6a2gZDCEiJJCt2JwOoe/CrB5Fvf7MNgMHhTQfxpbKbNcEw6o84M+jM9UFzFhvsTi55jQp cYa9aP9e5S3BB+G6qn0nrye3d2YGiax7z34yNmRn3OjK5Uo3ww6XnsR9fupIxcbahY2/T4WPr ZR7AUMWDJ/3pHpGsvR81MUhR7bxsJgbK4PwxLdM7BMQtDZj3rYBoK4vD5IGvAj1F7mbzeLIW3 fXDXDKNk9j+b8HDQLprp57DH1aFmgrV5/5Em3RJqAVg1nGZFty3OE7bK+lk7WDplsrcxnVZ2D XwsVolPz30r9oGlHWa7V3wS/qLb6O9XWFn/A79xv/f4WiA3O0IV8OFY5S2eJ/ZDBTNI80gm4F chktzHA/wSjeWEMkhFaK960AH0dw+f9B2z5DeL2Lq/iRUnNiMHaUcTKPVVFXXyFU9jFADTFUm
- ctRCFop6T2QCJHrc0POFFL3MONi/6bZLaKAGNw+j7xk8EPxAyj3zrc/GM9aPzzmpgh3ptpKaU +sEnD8MowgbHnCr4uc0NO/sHgSdKPY09nbxXfB8+cKCBr1SbjZ6L3wD4w4YFS8fmRAdswulSo iLOSVgSMtZBanm8w1zrrD5H7ha/PFAqFEg+AeCtMNfGe8fpqiT4u9UYDy2+Td/JFNJcdHHZlM c7kymeB4L1D+frMwl+ZleHTjDFn8GhtFXG54TOJLBlf897LJ3E1Kc1qUTiPEYf5a72F8HPKIC xOl4TeCuq+jVMJ8FczsIeaYvBJVnt5gmDIi25kDl1uhLs0APCH0+CwYa/XxrtkrL5QNrkwcXN S4haxg+EwZ4mlZfLwaN852layhjX7SHFt5ccJat/P8ag+vwNTO+b6OQIdgryAmv3dbNUlNP6L qKvlebdObNgu/xr8gnmUVLjrK+L6wQnUs7VQn9Jp5SWBXnmIMX5CjxHbsVj3FThh+J8z2ORL8 dY1t1apqeUCpzGmRenmFjdOVSoCBQfps3NC4kfwmacYiVK81rKor6FJMgvLaN3YJRkv9QQcI/ OXx1tBOllDyY63JUIkplWVQNTtTcIPyEDSU84h6YOe3Wvl9ACQNbmiS7spuyRve3zSF1XgS8K VcgY6/NgjkF+1mzpZGa1xnSPeVKDBXFw7auhkYyNtjljyO5snTz+ZRSFVmHOcFUZREHwMQ7hv vKw87xHX8Z0+Xs/0jYlKCxCtZpmYN2TIvVCNcXBEClP5dKa7pEEGZITxsdHrnRHdPcvI8Mluy fmIXe0ylKRmrtPjfIRrX7EF8piYDP7v+2mqOwXtRsAgg1zOI6xP9ezwoleWlmvCqYcjU8u26P lBZDPeS9P2QWnumuVOVmHKHMuIHjQn7oKn6dvL6Hv8vwQcrnQ5zoJlEcsqXv25CXaQvERPx1L wWyOIKhQY2jIjlYdDFE/+2wFaTOdIUABC0f1ZecYswsWIir3terjbyoZjDRswagCSruaTlCRb 57egZqBPK1UO4kTqlEAqdlCDMSoRuNN5x0pWJjZrHrOG4OBhF8jCuENm+GbK84XTpY1teeY9H XCls/KBCkt4utSKBOakAEitC+DsInwQVHFINEi+NIk0D/29u4Q1iDZj/8qqaNsT6//1j/3UKb OTilI4dYZhdADB2Y7WimddEq37Ff60Kfo73cTpmDx+Mx5kYIUwx2GZJqFIlkWnOjPHa9KIiW/ oQiUXoKG5B3rx14jJd7smmomaoTGuk51dOHsqTOIlXzYs/sJajtf+MvaTlkg==
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_035253_375482_270B59D4 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20251202_035335_881573_E5438150 
+X-CRM114-Status: GOOD (  19.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,71 +114,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-Am 01.12.25 um 08:48 schrieb Krzysztof Kozlowski:
-> On 30/11/2025 21:17, Andrew Lunn wrote:
->> On Sun, Nov 30, 2025 at 10:07:31AM +0200, Vladimir Oltean wrote:
->>> On Sun, Nov 30, 2025 at 02:11:05AM +0100, Andrew Lunn wrote:
->>>>> -		gpiod_set_value_cansleep(priv->reset, 0);
->>>>> +		int is_active_low =3D !!gpiod_is_active_low(priv->reset);
->>>>> +		gpiod_set_value_cansleep(priv->reset, is_active_low);
->>>> I think you did not correctly understand what Russell said. You pass
->>>> the logical value to gpiod_set_value(). If the GPIO has been marked a=
-s
->>>> active LOW, the GPIO core will invert the logical values to the raw
->>>> value. You should not be using gpiod_is_active_low().
->>>>
->>>> But as i said to the previous patch, i would just leave everything as
->>>> it is, except document the issue.
->>>>
->>>> 	Andrew
->>>>
->>> It was my suggestion to do it like this (but I don't understand why I'=
-m
->>> again not in CC).
->>>
->>> We _know_ that the reset pin of the switch should be active low. So by
->>> using gpiod_is_active_low(), we can determine whether the device tree =
-is
->>> wrong or not, and we can work with a wrong device tree too (just inver=
-t
->>> the logical values).
->> Assuming there is not a NOT gate placed between the GPIO and the reset
->> pin, because the board designer decided to do that for some reason?
-jumping in because i prepare mt7987 / BPI-R4Lite dts for upstreaming=20
-when driver-changes are in.
-With current driver i need to define the reset-gpio for mt7531 again=20
-wrong to get it
-working. So to have future dts correct, imho this (or similar) change to=
-=20
-driver is needed.
 
-Of course we cannot simply say that current value is wrong and just=20
-invert it because of
-possible "external" inversion of reset signal between SoC and switch.
-I have to look on schematics for the boards i have (BPI-R64, BPI-R3,=20
-BPI-R2Pro) if there is such circuit.
-Maybe the mt7988 (mt7530-mmio) based boards also affected?
-But not changing driver imho results in future broken devicetrees or can=
-=20
-this
-avoided somehow?
-Nethertheless the driverchange needs to be done before dts change.
+On 02/12/2025 11:43 am, Leo Yan wrote:
+> On Mon, Dec 01, 2025 at 04:41:07PM +0000, Coresight ML wrote:
+> 
+> [...]
+> 
+>> @@ -746,7 +779,7 @@ static void cs_etm_get_metadata(struct perf_cpu cpu, u32 *offset,
+>>   	case CS_ETMV3:
+>>   		magic = __perf_cs_etmv3_magic;
+>>   		/* Get configuration register */
+>> -		info->priv[*offset + CS_ETM_ETMCR] = cs_etm_get_config(itr);
+>> +		info->priv[*offset + CS_ETM_ETMCR] = cs_etm_guess_etmcr(itr);
+> 
+> I still think cs_etm_get_config() is better than cs_etm_guess_etmcr().
+> 
+> For ETMv3, we directly pass CONFIG to the kernel, and after validation
+> in the dirver, then the value will be set to ETMCR.  If we already know
+> the config value is consistent between user space and kernel, why
+> introduce a redundant "guess" operation here?
+> 
+> Thanks,
+> Leo
 
-regards Frank
-> Yeah, I cannot imagine how this could possibly support old and new DTS
-> without breaking some users, unless people over-simplified and discarded
-> some cases. But then this should clearly mark these broken cases instead
-> of falsely claim that impossible task of rewriting the flag is done
-> correctly.
->
-> BTW, the code clearly does not handle such cases, so "we can determine
-> whether the device tree is wrong or not" statement is obviously not true=
-.
->
-> Best regards,
-> Krzysztof
->
+Because userspace doesn't always come up with the same value as the 
+driver. For example right now in ETM3, ETMCR_RETURN_STACK isn't set 
+depending on certain conditions that userspace doesn't know about.  ETM4 
+has the same for TRCCONFIGR_RS and maybe some others. In the future, 
+other versions of the driver could do different things as long as we 
+don't break decoding.
+
+I didn't want the function name to imply it was doing something it 
+wasn't as that confused me a little bit. It's definitely not "getting" 
+the value. Maybe "guess" isn't the best it could be, but it's not far off.
 
 
