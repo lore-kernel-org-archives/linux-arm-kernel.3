@@ -4,88 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C5E3D116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 02:27:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E323D116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 02:54:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+3PD+6cwcF4s8NrJAdQxomW+qvoY59hfleACfs4OQkU=; b=0F1q8qstmvLP8YWQs25b39iHDn
-	NqLf/AKBw1rfY9AYnDC4+Tv4iUBqm6D8CnLRH+McS6R6O8m2lzhcvfyv9O6K/7h/t0G0JHop2frB+
-	QqN5jQIQCM80t6waFb8T9FBGiaU9yXaBxuTY4VUKyuQUi07nDpbDY8jQgvGzl5aA7OZjfsqEBNVls
-	HIcogC5za4OC7mQQDgghEhG3C9k8ZyxRGxKVs24X+WWwcedKsJRKZqMKEfNplnWHMKeB0+TtcnKlv
-	1B03nftqfEOOvAKfs6jnR0dGgK0U8tAgK6j9MtP/nb56V0RSEBoHUI8BPJTtf/0N4J2Il7BPJV1z9
-	NEKPdGcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=U3FBb66LhC69xzR90g1eNdryay2txh0Eg4xYtWgJK8o=; b=2GcdhZu5lkRvaEIR+9QaANj+/+
+	RRNLQ6plXi4nFizDBsG7pCA/+SIk33cRcwApYOO+cMeLkq4Qt7iP/BZObPgjpoExGUcKvJ/WOfRUw
+	IoBiU5f9Lx3A7u/BfrQkYR7CvBIBFliGEEaA8DqdNpcP1RwZC8O9pJRL4YCl3XV5JndaAVkoia6Sr
+	uMEpx6rwYDs9OEfhcA3qnm3WX6hnIpKwd96P6DX76GRzP4OyhfUrT77AxNeV8m4L8MN3C/vV7NhWO
+	SDHSyIcqirZ5gsqsNfgszTZAZZEdfi9H5zgk6wEayftJsCQuQoSynMDpd3zxiAljM9MmI0rZEQj5D
+	OGJFPmFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQG6x-00000004igw-2S1q;
-	Tue, 02 Dec 2025 02:27:27 +0000
-Received: from mx0a-0064b401.pphosted.com ([205.220.166.238])
+	id 1vQGXB-00000004jd9-1Lx0;
+	Tue, 02 Dec 2025 02:54:33 +0000
+Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQG6v-00000004igb-0IJM
+	id 1vQGX8-00000004jcm-27xx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 02:27:26 +0000
-Received: from pps.filterd (m0250809.ppops.net [127.0.0.1])
-	by mx0a-0064b401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B15EubW576889;
-	Mon, 1 Dec 2025 18:27:11 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=windriver.com;
-	 h=cc:content-transfer-encoding:content-type:date:from
-	:message-id:mime-version:subject:to; s=PPS06212021; bh=+3PD+6cwc
-	F4s8NrJAdQxomW+qvoY59hfleACfs4OQkU=; b=V50eeawGporlO0Q3wzxhr6cx2
-	lyQfW7pyxaWV7kUjs6Fr7huVFo6CHzoas8yFbHEi3xERUNTBo/FBC1+i6AJfF2R5
-	7nI0tj0jVsZf6yfDAAdm+2CR50NtQY9tHCAbDg+iwk20/kxjypRJxd7QEfMxIZw6
-	HCpCtqEjgljc5LUuMTY2Sip632CmLJ/GZx/DotyQ823AaPaW//6yLG178Y4AtdOo
-	+GatiXLYE3fZ4n7hCU4A2w7a+glvgG7KjNo1Baa4IzZRZsSF38UfMPIAkhb+hsyF
-	n9igRSh+Tvwy8an7iQM0RhXqXZBJTN1/VvdGaD605DgqcfotGg2cNZtg6FTsA==
-Received: from ala-exchng01.corp.ad.wrs.com ([128.224.246.36])
-	by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 4ar17mtajq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Mon, 01 Dec 2025 18:27:11 -0800 (PST)
-Received: from ALA-EXCHNG02.corp.ad.wrs.com (10.11.224.122) by
- ala-exchng01.corp.ad.wrs.com (10.11.224.121) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.61; Mon, 1 Dec 2025 18:27:10 -0800
-Received: from pek-lpggp9.wrs.com (10.11.232.110) by
- ALA-EXCHNG02.corp.ad.wrs.com (10.11.224.122) with Microsoft SMTP Server id
- 15.1.2507.61 via Frontend Transport; Mon, 1 Dec 2025 18:27:08 -0800
-From: Jianpeng Chang <jianpeng.chang.cn@windriver.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <ardb@kernel.org>,
-        <anshuman.khandual@arm.com>, <ying.huang@linux.alibaba.com>
-CC: <jianpeng.chang.cn@windriver.com>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: [v2 PATCH] arm64: mm: Fix kexec failure after pte_mkwrite_novma() change
-Date: Tue, 2 Dec 2025 10:27:07 +0800
-Message-ID: <20251202022707.2720933-1-jianpeng.chang.cn@windriver.com>
-X-Mailer: git-send-email 2.51.2
+	Tue, 02 Dec 2025 02:54:31 +0000
+Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-4eda6c385c0so40077751cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 18:54:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764644067; x=1765248867; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=U3FBb66LhC69xzR90g1eNdryay2txh0Eg4xYtWgJK8o=;
+        b=Fg3qOurmVMuVlnoHdvEZaZTXGNKQXA2xbVhj+ovdc/O/yPQnrceOwRyG+MM0RHJ2Gc
+         fU2rO51R9NKxC2AopUp6f7nTR2DaIQObSFahOfsN8wFgP+uj2c93IjyV7HcOCWslCLQX
+         hTPJ4gZMvjpXs3usmxE8BBtoEoAsfU4ewkOnsf+XGcQvlb88ztfHWjk2brIu/Gk3m7Y6
+         uXt/LARACB1hTApJyCTfWZYFCiZyZNQ2s1aFQnbJlvXvnDz2c0mcHdBbORlRUiGLpSTE
+         4v9O2Unz/cnHNnf3U7Nre3l7wa2ueYw8NJ5G+DS+Qqt5PUG3zmS//MCqKr8CBz2UVp/q
+         RORQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764644067; x=1765248867;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=U3FBb66LhC69xzR90g1eNdryay2txh0Eg4xYtWgJK8o=;
+        b=kaBkAHBXOFh18Px2m2fl8pw01eV7pIzOIBYOSDxqWJYAY1iQMAzoOI0MGwhPHs57uF
+         AGu+dQ/fc1TyWR5+QoFX5TdIRGx7RIkYJt4SGWAyfUHM6w1gq7Rok/VH2KypxTyMEPUw
+         RlF6oGck4edFZgRCyfpRhZAxCWMYIiA0bkHSkurv6CUjqg3js4Ea+QsMOLNeK3JLm8Wv
+         qYdGgOITRycBW3+ptGyubQ2gviJ8ycPucypwVUmCldhgl0IZXnvWTJi7TTBnqsy51QEX
+         z2AkAI9qWqeYaxnRV0am4at4SYKKEbju4ZFn9Uzpdtn7uWyHU90PYKmeDsGnedv+l2z7
+         0eAA==
+X-Forwarded-Encrypted: i=1; AJvYcCV+mKP7Mm+lRTLSta4q8EWYo976KpfG/ITfXnbxdh/f/qWVM6B/XdVqxiW5emTMdTJE0UDSzqbEB42IGuiOQ7iP@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOpO6HrsI6C18QlNyu+TC7yG2dRu1OND4VWxu4k95zC8aSfSXn
+	qSdZuJpYzTZqpYhkIVhiekb1WrzGOw9HxGLQyZBTWwKwjX1RPhnuI5/X
+X-Gm-Gg: ASbGnct8huwbXnXsZMNv+QE8t90vAvdpqrO9WBk1lm4vJnbgpfcp74UF2D58r2KY7Fh
+	PBgh3EjBrZnLwyhU8ZQqHV5c665jaQTcEPF75RRyL/XlwhjR57FEGUCKBMJNZJbTBsMCULOLjfX
+	5+o7JqPPZMTy+CugawllhGXaEr210FDrEaS26L3o/WGjAWgt5X9tOvIFUrWx6dokRLW6DFXl153
+	csk/hxlObdb6egISV5CJ05B25cM4WUoEDJBBbfwIolVX2FBJpMRbu7RxHlBgUXM2P8/KQfENuez
+	UAbAPyaKrG78izlPsxW3yXSlRXlaxxDid/J6Kkbyc4qjo87xW+4o3GenwIwTTMKJxo0tGyQ3Bt9
+	L8xTI7b2IWiUXNiFa+u2TGu4eRxad6NGqP0PoUz5uYUzhMld1FVK5FrbWm0LTASsc9j+QvAManB
+	NCt6Bc54CnF+eXBbKUrTJR/0AalwYn4XeaxREHFPpFTI4QHSOlVLqnpCI+ZYnVPswfnxPrztu+z
+	lk=
+X-Google-Smtp-Source: AGHT+IF1Y26tarkgHugZ4zAMvf/99cbk/6HuQ3PbtQTRf5s5WQrWhUrkganAuIBkyYpvOL7fPVmVdQ==
+X-Received: by 2002:a05:622a:295:b0:4ed:b448:b19f with SMTP id d75a77b69052e-4efbdad012amr355218281cf.51.1764644067186;
+        Mon, 01 Dec 2025 18:54:27 -0800 (PST)
+Received: from localhost.localdomain (h69-131-24-92.cntcnh.broadband.dynamic.tds.net. [69.131.24.92])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4efd344a188sm88508641cf.33.2025.12.01.18.54.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Dec 2025 18:54:26 -0800 (PST)
+From: Jie Zhang <jzhang918@gmail.com>
+X-Google-Original-From: Jie Zhang <jie.zhang@analog.com>
+To: netdev@vger.kernel.org
+Cc: Jie Zhang <jzhang918@gmail.com>,
+	Jie Zhang <jie.zhang@analog.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Furong Xu <0x1207@gmail.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] net: stmmac: fix oops when split header is enabled
+Date: Mon,  1 Dec 2025 21:54:16 -0500
+Message-ID: <20251202025421.4560-1-jie.zhang@analog.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Proofpoint-ORIG-GUID: FOFktvkh0dApRCuEaFRgDslGLh7uLmzG
-X-Authority-Analysis: v=2.4 cv=Ws4m8Nfv c=1 sm=1 tr=0 ts=692e4e7f cx=c_pps
- a=AbJuCvi4Y3V6hpbCNWx0WA==:117 a=AbJuCvi4Y3V6hpbCNWx0WA==:17
- a=wP3pNCr1ah4A:10 a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=t7CeM3EgAAAA:8
- a=vgZC6jWJKEfd7d2Pg-8A:9 a=FdTzh2GWekK77mhwV6Dw:22
-X-Proofpoint-GUID: FOFktvkh0dApRCuEaFRgDslGLh7uLmzG
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjAyMDAxNyBTYWx0ZWRfX/XEXwo7aCDpQ
- mVxAXnWEZg9J7Klt8UvcaQCvsz0ySvA81/vwRHY0qPuzp/ND7xVGkipUbEg7C9Ho9zfeQCtYQ8H
- DQ5X+OS2z3Th7Z3v9zqlZqZOvlII2yfwcQkw+zXELWhtXJPNmZBDv5WgZy+KuBIs/QqTWjMvFy9
- jY9dXoN2jgAFs1eBXWTpCJ9fpqiytJ4wjQDV2lqLJ04sa9vGn4QbATxhWvFOMr098cBNHtEBvrf
- hy2a4dYid98vgFEUvzH1DPz1zWPiqlZY1EZ1mLp3v+11m3ihEwQK7A03h2X3pYbv7ph5w7sSrDK
- 9UfRypf4P6R3Ui1kbL/OthIbDL7GOBJLE96LHpJbP05zTvZFO0Y7pZuLjdtDj0mZvnBN73vgYyt
- L/MuObsHYf8ZtfOysgMhM30vYV4Q7w==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-11-28_08,2025-11-27_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 spamscore=0 phishscore=0 suspectscore=0
- bulkscore=0 lowpriorityscore=0 clxscore=1015 adultscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512020017
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_182725_175670_A5CABFFC 
-X-CRM114-Status: GOOD (  16.24  )
+X-CRM114-CacheID: sfid-20251201_185430_604954_143873B6 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,70 +112,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 143937ca51cc ("arm64, mm: avoid always making PTE dirty in
-pte_mkwrite()") modified pte_mkwrite_novma() to only clear PTE_RDONLY
-when the page is already dirty (PTE_DIRTY is set). While this optimization
-prevents unnecessary dirty page marking in normal memory management paths,
-it breaks kexec on some platforms like NXP LS1043.
+For GMAC4, when split header is enabled, in some rare cases, the
+hardware does not fill buf2 of the first descriptor with payload.
+Thus we cannot assume buf2 is always fully filled if it is not
+the last descriptor. Otherwise, the length of buf2 of the second
+descriptor will be calculated wrong and cause an oops:
 
-The issue occurs in the kexec code path:
-1. machine_kexec_post_load() calls trans_pgd_create_copy() to create a
-   writable copy of the linear mapping
-2. _copy_pte() calls pte_mkwrite_novma() to ensure all pages in the copy
-   are writable for the new kernel image copying
-3. With the new logic, clean pages (without PTE_DIRTY) remain read-only
-4. When kexec tries to copy the new kernel image through the linear
-   mapping, it fails on read-only pages, causing the system to hang
-   after "Bye!"
+Unable to handle kernel paging request at virtual address ffff00019246bfc0
+Mem abort info:
+  ESR = 0x0000000096000145
+  EC = 0x25: DABT (current EL), IL = 32 bits
+  SET = 0, FnV = 0
+  EA = 0, S1PTW = 0
+  FSC = 0x05: level 1 translation fault
+Data abort info:
+  ISV = 0, ISS = 0x00000145, ISS2 = 0x00000000
+  CM = 1, WnR = 1, TnD = 0, TagAccess = 0
+  GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+swapper pgtable: 4k pages, 48-bit VAs, pgdp=0000000090d8b000
+[ffff00019246bfc0] pgd=180000009dfff403, p4d=180000009dfff403, pud=0000000000000000
+Internal error: Oops: 0000000096000145 [#1]  SMP
+Modules linked in:
+CPU: 0 UID: 0 PID: 157 Comm: iperf3 Not tainted 6.18.0-rc6 #1 PREEMPT
+Hardware name: ADI 64-bit SC598 SOM EZ Kit (DT)
+pstate: 00400009 (nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+pc : dcache_inval_poc+0x28/0x58
+lr : arch_sync_dma_for_cpu+0x28/0x34
+sp : ffff800080dcbc40
+x29: ffff800080dcbc40 x28: 0000000000000008 x27: ffff000091c50980
+x26: ffff000091c50980 x25: 0000000000000000 x24: ffff000092a5fb00
+x23: ffff000092768f28 x22: 000000009246c000 x21: 0000000000000002
+x20: 00000000ffffffdc x19: ffff000091844c10 x18: 0000000000000000
+x17: ffff80001d308000 x16: ffff800080dc8000 x15: ffff0000929fb034
+x14: 70f709157374dd21 x13: ffff000092812ec0 x12: 0000000000000000
+x11: 000000000000dd86 x10: 0000000000000040 x9 : 0000000000000600
+x8 : ffff000092a5fbac x7 : 0000000000000001 x6 : 0000000000004240
+x5 : 000000009246c000 x4 : ffff000091844c10 x3 : 000000000000003f
+x2 : 0000000000000040 x1 : ffff00019246bfc0 x0 : ffff00009246c000
+Call trace:
+ dcache_inval_poc+0x28/0x58 (P)
+ dma_direct_sync_single_for_cpu+0x38/0x6c
+ __dma_sync_single_for_cpu+0x34/0x6c
+ stmmac_napi_poll_rx+0x8f0/0xb60
+ __napi_poll.constprop.0+0x30/0x144
+ net_rx_action+0x160/0x274
+ handle_softirqs+0x1b8/0x1fc
+ __do_softirq+0x10/0x18
+ ____do_softirq+0xc/0x14
+ call_on_irq_stack+0x30/0x48
+ do_softirq_own_stack+0x18/0x20
+ __irq_exit_rcu+0x64/0xe8
+ irq_exit_rcu+0xc/0x14
+ el1_interrupt+0x3c/0x58
+ el1h_64_irq_handler+0x14/0x1c
+ el1h_64_irq+0x6c/0x70
+ __arch_copy_to_user+0xbc/0x240 (P)
+ simple_copy_to_iter+0x28/0x30
+ __skb_datagram_iter+0x1bc/0x268
+ skb_copy_datagram_iter+0x1c/0x24
+ tcp_recvmsg_locked+0x3ec/0x778
+ tcp_recvmsg+0x10c/0x194
+ inet_recvmsg+0x64/0xa0
+ sock_recvmsg_nosec+0x1c/0x24
+ sock_read_iter+0x8c/0xdc
+ vfs_read+0x144/0x1a0
+ ksys_read+0x74/0xdc
+ __arm64_sys_read+0x14/0x1c
+ invoke_syscall+0x60/0xe4
+ el0_svc_common.constprop.0+0xb0/0xcc
+ do_el0_svc+0x18/0x20
+ el0_svc+0x80/0xc8
+ el0t_64_sync_handler+0x58/0x134
+ el0t_64_sync+0x170/0x174
+Code: d1000443 ea03003f 8a230021 54000040 (d50b7e21)
+---[ end trace 0000000000000000 ]---
+Kernel panic - not syncing: Oops: Fatal exception in interrupt
+Kernel Offset: disabled
+CPU features: 0x080000,00008000,08006281,0400520b
+Memory Limit: none
+---[ end Kernel panic - not syncing: Oops: Fatal exception in interrupt ]---
 
-The same issue affects hibernation which uses the same trans_pgd code path.
+To fix this, the PL bit-field in RDES3 register is used for all
+descriptors, whether it is the last descriptor or not.
 
-Fix this by explicitly clearing PTE_RDONLY in _copy_pte() for both
-kexec and hibernation, ensuring all pages in the temporary mapping are
-writable regardless of their dirty state. This preserves the original
-commit's optimization for normal memory management while fixing the
-kexec/hibernation regression.
-
-Fixes: 143937ca51cc ("arm64, mm: avoid always making PTE dirty in pte_mkwrite()")
-Signed-off-by: Jianpeng Chang <jianpeng.chang.cn@windriver.com>
+Signed-off-by: Jie Zhang <jie.zhang@analog.com>
 ---
-v2:
-  - Use pte_mkwrite_novma(pte_mkdirty(pte)) instead of manual bit manipulation
-  - Updated comments to clarify pte_mkwrite_novma() alone cannot be used
-v1: https://lore.kernel.org/all/20251127034350.3600454-1-jianpeng.chang.cn@windriver.com/
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c | 20 ++++++++++++++++---
+ 1 file changed, 17 insertions(+), 3 deletions(-)
 
- arch/arm64/mm/trans_pgd.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/mm/trans_pgd.c b/arch/arm64/mm/trans_pgd.c
-index 18543b603c77..08f5ee6643e1 100644
---- a/arch/arm64/mm/trans_pgd.c
-+++ b/arch/arm64/mm/trans_pgd.c
-@@ -40,8 +40,13 @@ static void _copy_pte(pte_t *dst_ptep, pte_t *src_ptep, unsigned long addr)
- 		 * Resume will overwrite areas that may be marked
- 		 * read only (code, rodata). Clear the RDONLY bit from
- 		 * the temporary mappings we use during restore.
-+		 *
-+		 * For kexec/hibernation, we need writable access to all
-+		 * pages in the linear mapping to copy the new kernel image.
-+		 * Mark pages dirty first to ensure pte_mkwrite_novma()
-+		 * clears PTE_RDONLY.
- 		 */
--		__set_pte(dst_ptep, pte_mkwrite_novma(pte));
-+		__set_pte(dst_ptep, pte_mkwrite_novma(pte_mkdirty(pte)));
- 	} else if (!pte_none(pte)) {
- 		/*
- 		 * debug_pagealloc will removed the PTE_VALID bit if
-@@ -57,7 +62,7 @@ static void _copy_pte(pte_t *dst_ptep, pte_t *src_ptep, unsigned long addr)
- 		 */
- 		BUG_ON(!pfn_valid(pte_pfn(pte)));
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 7b90ecd3a55e..848b1769c573 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -4878,13 +4878,27 @@ static unsigned int stmmac_rx_buf2_len(struct stmmac_priv *priv,
+ 	if (!priv->sph)
+ 		return 0;
  
--		__set_pte(dst_ptep, pte_mkvalid(pte_mkwrite_novma(pte)));
-+		__set_pte(dst_ptep, pte_mkvalid(pte_mkwrite_novma(pte_mkdirty(pte))));
- 	}
+-	/* Not last descriptor */
+-	if (status & rx_not_ls)
++	/* For GMAC4, when split header is enabled, in some rare cases, the
++	 * hardware does not fill buf2 of the first descriptor with payload.
++	 * Thus we cannot assume buf2 is always fully filled if it is not
++	 * the last descriptor. Otherwise, the length of buf2 of the second
++	 * descriptor will be calculated wrong and cause an oops.
++	 *
++	 * If this is the last descriptor, 'plen' is the length of the
++	 * received packet that was transferred to system memory.
++	 * Otherwise, it is the accumulated number of bytes that have been
++	 * transferred for the current packet.
++	 *
++	 * Thus 'plen - len' always gives the correct length of buf2.
++	 */
++
++	/* Not GMAC4 and not last descriptor */
++	if (!priv->plat->has_gmac4 && (status & rx_not_ls))
+ 		return priv->dma_conf.dma_buf_sz;
+ 
++	/* GMAC4 or last descriptor */
+ 	plen = stmmac_get_rx_frame_len(priv, p, coe);
+ 
+-	/* Last descriptor */
+ 	return plen - len;
  }
  
 -- 
-2.51.2
+2.47.3
 
 
