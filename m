@@ -4,66 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4492FD11707
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 16:28:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2CD6D11711
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 16:37:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vG2wrlhq5wKUSwHmyIwnfoWawFsA5uIOOuaBsWPfNmA=; b=NjkMDKAy5NjnV21pQSSrr6luD7
-	asJfT47Qv1Qu1joG+0fxkEJD0q4iPd5cgqQhZDWuDCwMX5DC0soJ18DNNIdzWOXUrZJZ7LlCZqSeJ
-	t05ZITJUZF4k3AhOKKdve91AumUpo0LXQVMHapQ7E5MldI2rd/7DNXRQBVFadpoXnVDWENWE2GCM0
-	OMa8RwojMDibKxVraFF6TxKAc6CnjTtG8ON+tDuVdOufLAmNbkdqi9PMypciH4hPpirPoC6EN6Ivc
-	B9n/eMl7LoWyg/8KO10T6SLa3vOkbqX373fsD4bCoAljo6ZpWeTxhMaZeTEYX58REncbQPa1jo2+U
-	bW6jvCYA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ouQXuzIraPB2D4kvwgqomW1JSJU+R5g72qD/eXUPvvw=; b=qTQGVn5PZeND/DRkjKOXFzCdeD
+	6ulC5MKLbh3rD5eOzaPwcK+Y3RuBlbl9mU59heNqzAkMggMYma4bj1LIbCijiyzEOgNFGZKDAQy3E
+	z8UaMX2++Y7y7fPNTu20nolwnOrq52YFlToybaNt+/Z3dFBujFsBXf3WGOdvfJYxbJfK6Nj53F/Nq
+	IZu3Vo0ooCK4p67AsaLQs/BSrV+7ozIu8CAUO416P3Xcilqr6j41kUvedqXHBUfpQ9wi0UXWHyYbE
+	A4ocp7siWo+5XmkT4QInAVQcmYgMbBTcgBpFNi3kjg1aA/uchgvgvwwckAFLS8sTbvZluIE/vr8H0
+	ibaP/9dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQTEv-00000005cTw-3w5E;
-	Tue, 02 Dec 2025 16:28:33 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vQTNC-00000005cwn-1ENb;
+	Tue, 02 Dec 2025 16:37:06 +0000
+Received: from mout-p-202.mailbox.org ([80.241.56.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQTEu-00000005cTa-10gm
+	id 1vQTN8-00000005cw5-2QHr
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 16:28:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A9F1843997;
-	Tue,  2 Dec 2025 16:28:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF294C4CEF1;
-	Tue,  2 Dec 2025 16:28:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764692910;
-	bh=bMdsKnyhcJs9VfP6ltjW1PuLp0n8+YA6JBJWKjztIQE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YTeaHskcMr7V4e4oRUflCmsQK79rRG0s4+sy/HW0MYk+5wuws6jJk/nX1K4ZNUal8
-	 sX2gRP/K6zrkRdU3qW0AdVk2NCCGwePDaOfXFmQbzNozXcVJ1C6e/cIE3NvDwyn2Fk
-	 PRFF7H7wg/8QGBIi2vWIb2ndLyujNNrfRWyFdpn0l61LgVsTEcabQyE7cX8lS2GaEN
-	 48Gp+JnsKznxNE0pXVF5j+mYwDOcOoBLCIeZvD5y9pTEE2Dhg2jAnDmNAv7R46lW8T
-	 yq73BGj+Naw8v1nyx+EgMFZvdlEuUZV7taJNh5y8ySmV/P7zW2RxXj2MTge1dMZq9m
-	 4lWSxj3PEdzCw==
-Date: Tue, 2 Dec 2025 16:28:25 +0000
-From: Mark Brown <broonie@kernel.org>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: Francesco Dolcini <francesco@dolcini.it>, a-dutta@ti.com,
-	linux-spi@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, srk@ti.com
-Subject: Re: [PATCH] spi: cadence-quadspi: Fix cqspi_probe() error handling
- for runtime pm
-Message-ID: <5f288d65-4209-41cd-8f1a-3690f38da7ef@sirena.org.uk>
-References: <20251119152545.2591651-1-s-vadapalli@ti.com>
- <20251201072844.GA6785@francesco-nb>
- <20251201074320.GA8737@francesco-nb>
- <dfbbd5ce209fac9a556c200748d8c521d0d4f450.camel@ti.com>
+	Tue, 02 Dec 2025 16:37:04 +0000
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4dLRHr3bFbz9tPF;
+	Tue,  2 Dec 2025 17:36:56 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1764693416;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ouQXuzIraPB2D4kvwgqomW1JSJU+R5g72qD/eXUPvvw=;
+	b=TD/7tCNK7xPkEzXu1K6i6i0oJ+JPL0/9upqdLYIRjNpUCk8SgRS2tjNyFrrXxH24BUd5Ml
+	TJdUSoMSllooOJK6PRPLDIKfQZ+RpEd/anVN+Si6BRF8leyiV1TjGOJf8a5JJHGiz6qTH6
+	Sck77NrE4BvZNZ6PC9Lc0nO19XQmcMO54916VDnVvauCsAyXPKfrbY07dqLfwZ5VZGtlus
+	edEmHw51yrLEDVd3bkDxq3GfZUaIDOK3uKIpQgoOxJTc4ED4i7HaX7E+G028VKtzIblbK2
+	NRYZuKHUCmjdbMR9p/HYOHSPvZWKBQw4HrO9CSi3cLQ5HxBN8L7YxXQ3gJSeCA==
+Message-ID: <66257fcf-9024-454f-b776-4ba584963ebe@mailbox.org>
+Date: Tue, 2 Dec 2025 17:36:53 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="aG5bUVWmZOfsZcU4"
-Content-Disposition: inline
-In-Reply-To: <dfbbd5ce209fac9a556c200748d8c521d0d4f450.camel@ti.com>
-X-Cookie: Beware the new TTY code!
+Subject: Re: [PATCH 1/2] dt-bindings: firmware: arm,scmi: Document
+ arm,poll-transport property
+To: Sudeep Holla <sudeep.holla@arm.com>,
+ Cristian Marussi <cristian.marussi@arm.com>
+Cc: arm-scmi@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-renesas-soc@vger.kernel.org
+References: <20251023123644.8730-1-marek.vasut+renesas@mailbox.org>
+ <aPoxfH_TLrsMxMVQ@pluto> <70554674-7020-4582-a4e7-dbee34907096@mailbox.org>
+ <5ae0a793-d3e7-45d1-bf5c-3c46593d1824@mailbox.org> <aRW7BZimWdpq4TyX@pluto>
+ <20251202-evasive-neon-rhino-d2745e@sudeepholla>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <20251202-evasive-neon-rhino-d2745e@sudeepholla>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: ef09950386f662b3642
+X-MBO-RS-META: xnxgf58ioag4dimis9zusdeen8x8huea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_082832_319168_61C8F163 
-X-CRM114-Status: GOOD (  22.38  )
+X-CRM114-CacheID: sfid-20251202_083703_317586_188828B8 
+X-CRM114-Status: GOOD (  21.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,89 +85,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 12/2/25 3:52 PM, Sudeep Holla wrote:
 
---aG5bUVWmZOfsZcU4
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hello Sudeep,
 
-On Mon, Dec 01, 2025 at 06:08:07PM +0530, Siddharth Vadapalli wrote:
-> On Mon, 2025-12-01 at 08:43 +0100, Francesco Dolcini wrote:
-> > On Mon, Dec 01, 2025 at 08:28:44AM +0100, Francesco Dolcini wrote:
+>>> While I was going through the SCMI spec, DEN0056F , page 209 , section "4.1
+>>> Shared memory based transport" , bullet • Completion interrupts, I found it
+>>> explicitly states:
+>>>
+>>> "
+>>> This transport supports polling or interrupt driven modes of communication.
+>>> In interrupt mode, when the callee completes processing a message, it raises
+>>> an interrupt to the caller. Hardware support for completion interrupts is
+>>> optional.
+>>> "
+>>
+>> Oh, yes...I knew that...it is just that till now, no systems were really
+>> ever developed that lacked the completion IRQ as a whole, it was, till now,
+>> more of a case of having the capability NOT to use it selectively at runtime
+>> and instead use polling when wanted (like for clock ops in ISR context)
+>>
+> 
+> Indeed.
+> 
+>> I am not sure what is the reason why this only-polling scenario was never
+>> supported in the HW description, this indeed pre-dates my work on SCMI....
+>> ...I would/will check with Sudeep, when he's back, what are the reasons for
+>> this (if any)...
+>>
+> 
+> As you mentioned earlier, no platform has required this before. I’m fine with
+> adding it, but we need to be more explicit about what it implies for SCMI. The
+> transport may be shared with other system components, and enforcing polling
+> for SCMI while the same transport generates interrupts for another user could
+> lead to issues.
 
-> > > > The error is due to the second invocation of 'clk_disable_unprepare=
-()' on
-> > > > 'cqspi->clk' in the error handling within 'cqspi_probe()', with the=
- first
-> > > > invocation being within 'cqspi_runtime_suspend()'.
+How do you imagine this -- a transport shared with other components, one 
+which does generate IRQs and one which does not -- would look like ? Can 
+you think of an example ?
 
-> > > [    8.648915] cadence-qspi fc40000.spi: No flash device declared
-> > > [    8.675671] cadence-qspi fc40000.spi: failed to setup flash parame=
-ters -19
+> Clearly defining these constraints would be helpful. It may also be useful to
+> note that this is primarily intended for mailbox transports, if that’s
+> accurate. Alternatively, we could keep the DT binding definition broader but
+> emit warnings when a transport other than mailbox is used. That approach might
+> make it easier to move forward.
 
-> Could you please check if the driver's suspend callback has executed befo=
-re
-> the above? The patch intended to fix the very issue being reported.
-> Therefore, the commit corresponding to the current patch might still
-> trigger the issue. Ideally, reverting the commit for the current patch and
-> the commit under Fixes (f1eb4e792bb1 ("spi: spi-cadence-quadspi: Enable pm
-> runtime earlier to avoid imbalance"))
-> should prevent the issue.
+DEN0056F refers to this polling mode in Shared memory based transports, 
+that can be other than mailbox transports, it includes e.g. SMC or OPTEE 
+transports.
 
-Given the above log we've failed at cqspi_setup_flash() so we shouldn't
-have got as far as the code you changed for handling direct mode - I
-think the actual issue is likely Anurag's earlier change f1eb4e792bb1
-(spi: spi-cadence-quadspi: Enable pm runtime earlier to avoid imbalance)
-that you mention, it means we've done a pm_runtime_get_noresume()
-previously.  That shouldn't have done a clock enable due to the
-noresume, but the get() being there will confuse pm_runtime_disable()
-and cause it to invoke the suspend callback as Francesco identified.
-This will have been failing previously if controller registration
-failed, but it's now happening in more situations.
+I don't think a warning is justified, if the behavior follows the 
+specification. But I do agree the behavior is ... suboptimal.
 
-This is all very annoying since runtime PM can be configured off so we
-can't rely on it's callbacks actually happening.  I *think* something
-like the below ought to DTRT (I'd expect it should avoid the reported
-error at least):
-
-diff --git a/drivers/spi/spi-cadence-quadspi.c b/drivers/spi/spi-cadence-qu=
-adspi.c
-index af6d050da1c8..0833b6f666d0 100644
---- a/drivers/spi/spi-cadence-quadspi.c
-+++ b/drivers/spi/spi-cadence-quadspi.c
-@@ -1985,7 +1985,6 @@ static int cqspi_probe(struct platform_device *pdev)
- 		pm_runtime_enable(dev);
- 		pm_runtime_set_autosuspend_delay(dev, CQSPI_AUTOSUSPEND_TIMEOUT);
- 		pm_runtime_use_autosuspend(dev);
--		pm_runtime_get_noresume(dev);
- 	}
-=20
- 	ret =3D cqspi_setup_flash(cqspi);
-@@ -2012,6 +2011,7 @@ static int cqspi_probe(struct platform_device *pdev)
- 	}
-=20
- 	if (!(ddata && (ddata->quirks & CQSPI_DISABLE_RUNTIME_PM))) {
-+		pm_runtime_get_noresume(dev);
- 		pm_runtime_mark_last_busy(dev);
- 		pm_runtime_put_autosuspend(dev);
- 	}
-
-Unfortunately none of my testing appears to show the issue.
-
---aG5bUVWmZOfsZcU4
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmkvE6kACgkQJNaLcl1U
-h9BD0wf/SeW9/3pIxTUbxozYkm7XeHw06XMSrVru1LRh53CJqmPp/CK3yLWHXDZD
-tBkYtKDcyYERihgoqLGUdk3HfETJDoRsnlScHMXeXIiB9ARKkv4CJZ9vS2BE7qYo
-LB6QvkLLyZ4HYM80g3Ty/S/xMoAZwaLK2k5ZQ8eJvf6XP4oDdl2YY9gzeGjydY3U
-bAeF8w1wUsTeaPMLn5wusn6q8hq+taSyjFChkt7HTMImDl8OePN3hURwpi65xX8S
-GIF5nKlxvnHAwifLa6WKXJ+CoRTTs+ZcZ/nL7Yu9RtRciW3vj9hVn1wv7l54GPUL
-SRgRfILunELe5SLkPZGeJ5GL1gFqjw==
-=K6gR
------END PGP SIGNATURE-----
-
---aG5bUVWmZOfsZcU4--
+-- 
+Best regards,
+Marek Vasut
 
