@@ -4,70 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7A9FD116F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 13:03:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA9E5D116F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 13:18:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aW6anQe+oLE0EKfJdPntunSgyOR4oOu5YRcRbL0hNo8=; b=yZgyoIUnjMQsOjuiD7Sfp4WJro
-	FU050crGKQ8A049cKYkc3ImYS3TRXOaSwXEeSm8pUhj6o5U1sv7+b9i8FcmHvVlUp7Ror2wxpvlT5
-	czgzppApO0TPsmseCZyfVxa/F0Vcuvlw/nIKVZwFn7ukXwg5jESYoPkZ4TAk6i6ILcSL5MXnqjFIb
-	7IdM4CbUBIoi3cvOpWfc3bdkY+QihSIY4lJJg4Fs4s/WhFGQ6TARU+85OQ0VuWnfac7rTF9Kt5bsu
-	lKEAEnt/0rpiT3nwNpukT+ZsjlIcMkWRL3MJDedZ2Zsm7eaC0QXWIUHlR6mllF/dfb3pat7vFevQ6
-	5srUClgg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d2qTS0djCtlvzenkDRiQ4JmBu4W3Dqf8pIaygUtSKbc=; b=CNDi0Q/sI2ZD7R8FvICr3YHPgF
+	VcdA4zHGpGk/tdqyNlE5cCfOt459mFohCoS4U14qpyATSAHmX/s2kAor+6WKPzXPG1ZyiciPYXVt9
+	L4ozEZ28QcHxW0hW9MiAOwXm6sO5+IszXATMf/Q9w3u0MJDlBrytPb6K3Et9yD4TwDTQCfX3mKWe/
+	+LPzm2CZzWGzRWauJVfLqiFaZhDSKVybOrTV3fDGkRiYa87McagriSoz+B/BPxXYke1PkQ3jTqnHp
+	qao9dl7FRyPWsEJ9YyWQ2HfZfJuzEIyQlX13cTWA6AYX8pnflUHdWDIBlwR4aODnLIDz1EcdvTAsY
+	OEtMi4MQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQQ2i-00000005PJ2-1A5W;
-	Tue, 02 Dec 2025 13:03:44 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1vQQHH-00000005QNg-0Ih0;
+	Tue, 02 Dec 2025 13:18:47 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQQ2c-00000005PGT-3fjm
+	id 1vQQHE-00000005QMn-2CzK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 13:03:40 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=aW6anQe+oLE0EKfJdPntunSgyOR4oOu5YRcRbL0hNo8=;
-	b=lt78+yZYRHvYg5avVm+Rhd87KT9ImxmJ017DGVZpVir/urktGskUe7450cajX2iW46QJ3RNyW
-	cog1/A/drM91gD8GLIy8N+QLuAdv6CUpUku1rFEaa0CilArBvwSuIIPUbeCVZ/D9RA76RXxmoc0
-	5+uhZv1fpfUSWEfTIc1yEVk=
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4dLLVW0qkqzcb07;
-	Tue,  2 Dec 2025 21:00:51 +0800 (CST)
-Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
-	by mail.maildlp.com (Postfix) with ESMTPS id 6AE79180B36;
-	Tue,  2 Dec 2025 21:03:17 +0800 (CST)
-Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
- kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 2 Dec 2025 21:03:16 +0800
-From: Xie Yuanbin <xieyuanbin1@huawei.com>
-To: <linux@armlinux.org.uk>
-CC: <akpm@linux-foundation.org>, <brauner@kernel.org>,
-	<catalin.marinas@arm.com>, <hch@lst.de>, <jack@suse.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-fsdevel@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
-	<pangliyuan1@huawei.com>, <torvalds@linux-foundation.org>,
-	<wangkefeng.wang@huawei.com>, <will@kernel.org>, <wozizhi@huaweicloud.com>,
-	<xieyuanbin1@huawei.com>, <yangerkun@huawei.com>
-Subject: Re: [Bug report] hash_name() may cross page boundary and trigger sleep in RCU context
-Date: Tue, 2 Dec 2025 21:02:24 +0800
-Message-ID: <20251202130224.16376-1-xieyuanbin1@huawei.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <aS7e9CbQXS27sGcd@shell.armlinux.org.uk>
-References: <aS7e9CbQXS27sGcd@shell.armlinux.org.uk>
+	Tue, 02 Dec 2025 13:18:45 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-59584301f0cso4387237e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 05:18:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1764681522; x=1765286322; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=d2qTS0djCtlvzenkDRiQ4JmBu4W3Dqf8pIaygUtSKbc=;
+        b=P6gzwwHM6doo27prj7sHUNh9AadaJz/0jad0JZHfwNU1tDvtCPZbhszP0E7vOT2Qis
+         TQdUX1fUgwga3HKzEuFveTvxEnGn5srkgMHGgHCPRcGZq3qTeZ3B96YAxVbG1p7fYfOM
+         9vX0HJzAXK0Qlh5tJebC22yI2ot69en2yqkZubjXBe1J6JYub6cEWpg6YcDfhva+2x/n
+         0yxZ9BqC5gg0xayjoFkDyKaBWPA221Vrmin8hdLKZSyoHiTvwgrcceFv61H8S8cDZORq
+         b0Kh1Hb5RlGqiTsu4xWf6dIXGZ/gvft6fFnh30izmbg7IkmeleSJd7vNDBd0hieVZeW1
+         oHgg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764681522; x=1765286322;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=d2qTS0djCtlvzenkDRiQ4JmBu4W3Dqf8pIaygUtSKbc=;
+        b=ae5tvcvo3QiifPLv0GddydvJ+z853fptlx8/3P4HUxDqgvDG+VielbIUJ7OJePhAI7
+         7B7pAXEYJgBeGT5+oERsIpImyRNHvyZoGD3lOm0STYoTRiCahe64umfYvmnUXEIuVII2
+         ul+Tzkks3PcufXGLOl47jxqM6qOMVeeAhhe8risgUIss5v7yy+qzKF4AUbMiSyTbgHLz
+         hWfaZoc8wOxfALigp9kPY4jigJjlqecAG9IoVZihu0XZvMte956DQPu5OP6ktXL91AdI
+         jVWw17opxLuyXu1mgASbCL4WHa8ty7R9/ZOwd7pn/+6nbZj7g2zqh+3VLdFu2cZkDOys
+         cyyg==
+X-Forwarded-Encrypted: i=1; AJvYcCVSoDSfrTK1UxLdDOPTrdjH2JSM6K4ixBo9CrOqKaZNcPBRboVkFz7i7LH+MYS3qPMLNcuI4ceBgcAX7vLNLyA6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz23BD493sxmN470CJm2qqXeHTarxw8/dRqmeg/lilkc9F3y7ds
+	oyNEF4tkWuzK9I+WmVPJ5qpNp2+fzbicp3Lll69+aUECFCX1kxIp03Z7J/aAt2hgKc7n3R5dFma
+	RkZ8MUJXT3H3E2yR4xIFX0yNPk8Ajhz0GP1lzbR5Qkw==
+X-Gm-Gg: ASbGnctt63TkeD3usUfRS1iWC+a6aEnwfXD7ZIzPcqltfGB1dq7g6HTKAC545zaIUCj
+	wEtW5rRgwat8Dn9XCl0rvR5FnbJjsz1ruF0aqmG1s8EznO8JsOg11XV0f/voi/uqLtVB3pemVCX
+	/dI4WQzzo4A+vACxMojzz3ZeYj09ZdPqdbvFd+U4jsnblFgZc4iIe58mbph1KodOE3QjfFcVael
+	kgiMTznxvcFPVnEG0/iU+dSLbmlGeKXQgHnrWosXpKMdWSetspFu8RT9ttrBLHkrKBy/ISyg2jh
+	6QYQcXbaxK/shiyJ0jB+883+uP1y
+X-Google-Smtp-Source: AGHT+IHXPq/1WU7Y6p5Y1lD+k5wDuWG4cZs/H+fFh7MfEyTT0+oPBhUYEG6IeIhzVNqgsaoRyEt5M7vDP9CoP0oYIqI=
+X-Received: by 2002:a05:6512:159c:b0:595:9152:b932 with SMTP id
+ 2adb3069b0e04-596b526c87bmr9950731e87.47.1764681521679; Tue, 02 Dec 2025
+ 05:18:41 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.109.17]
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemj100009.china.huawei.com (7.202.194.3)
+References: <20251031104846.119503-1-marco.crivellari@suse.com>
+In-Reply-To: <20251031104846.119503-1-marco.crivellari@suse.com>
+From: Marco Crivellari <marco.crivellari@suse.com>
+Date: Tue, 2 Dec 2025 14:18:30 +0100
+X-Gm-Features: AWmQ_blWaASpaRpR4V19dOIxX8T97Dq9h1s9NUCUDv7AzhCvoFkKrXxIheilGew
+Message-ID: <CAAofZF7BnLm3XKBVsOvAcfON29PgxvA4dfkd4N4+yx40LSTV-A@mail.gmail.com>
+Subject: Re: [PATCH 0/2] rename system_wq and system_unbound_wq
+To: linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Cc: Tejun Heo <tj@kernel.org>, Lai Jiangshan <jiangshanlai@gmail.com>, 
+	Frederic Weisbecker <frederic@kernel.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+	Michal Hocko <mhocko@suse.com>, Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_050339_654651_A1576303 
-X-CRM114-Status: GOOD (  35.45  )
+X-CRM114-CacheID: sfid-20251202_051844_585299_34BF5004 
+X-CRM114-Status: GOOD (  10.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,154 +101,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 2 Dec 2025 12:43:32 +0000, Russell King (Oracle) wrote:
-> We have another issue in the code - which has the branch predictor
-> hardening for spectre issues, which can be called with interrupts
-> enabled, causing a kernel warning - obviously not good.
->
-> There's another issue which PREEMPT_RT has picked up on - which is
-> that delivering signals via __do_user_fault() with interrupts disabled
-> causes spinlocks (which can sleep on PREEMPT_RT) to warn.
->
-> What I'm thinking is to address both of these by handling kernel space
-> page faults (which will be permission or PTE-not-present) separately
-> (not even build tested):
->
-> diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
-> index 2bc828a1940c..972bce697c6c 100644
-> --- a/arch/arm/mm/fault.c
-> +++ b/arch/arm/mm/fault.c
-> @@ -175,7 +175,8 @@ __do_kernel_fault(struct mm_struct *mm, unsigned long addr, unsigned int fsr,
->
->  /*
->   * Something tried to access memory that isn't in our memory map..
-> - * User mode accesses just cause a SIGSEGV
-> + * User mode accesses just cause a SIGSEGV. Ensure interrupts are enabled
-> + * here, which is safe as the fault being handled is from userspace.
->   */
->  static void
->  __do_user_fault(unsigned long addr, unsigned int fsr, unsigned int sig,
-> @@ -183,8 +184,7 @@ __do_user_fault(unsigned long addr, unsigned int fsr, unsigned int sig,
->  {
->  	struct task_struct *tsk = current;
-> 
-> -	if (addr > TASK_SIZE)
-> -		harden_branch_predictor();
-> +	local_irq_enable();
->
->  #ifdef CONFIG_DEBUG_USER
->  	if (((user_debug & UDBG_SEGV) && (sig == SIGSEGV)) ||
-> @@ -259,6 +259,38 @@ static inline bool ttbr0_usermode_access_allowed(struct pt_regs *regs)
->  }
->  #endif
->
-> +static int __kprobes
-> +do_kernel_address_page_fault(unsigned long addr, unsigned int fsr,
-> +			     struct pt_regs *regs)
-> +{
-> +	if (user_mode(regs)) {
-> +		/*
-> +		 * Fault from user mode for a kernel space address. User mode
-> +		 * should not be faulting in kernel space, which includes the
-> +		 * vector/khelper page. Handle the Spectre issues while
-> +		 * interrupts are still disabled, then send a SIGSEGV. Note
-> +		 * that __do_user_fault() will enable interrupts.
-> +		 */
-> +		harden_branch_predictor();
-> +		__do_user_fault(addr, fsr, SIGSEGV, SEGV_MAPERR, regs);
-> +	} else {
-> +		/*
-> +		 * Fault from kernel mode. Enable interrupts if they were
-> +		 * enabled in the parent context. Section (upper page table)
-> +		 * translation faults are handled via do_translation_fault(),
-> +		 * so we will only get here for a non-present kernel space
-> +		 * PTE or kernel space permission fault. Both of these should
-> +		 * not happen.
-> +		 */
-> +		if (interrupts_enabled(regs))
-> +			local_irq_enable();
-> +
-> +		__do_kernel_fault(mm, addr, fsr, regs);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->  static int __kprobes
->  do_page_fault(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
->  {
-> @@ -272,6 +304,8 @@ do_page_fault(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
->  	if (kprobe_page_fault(regs, fsr))
->  		return 0;
->
-> +	if (addr >= TASK_SIZE)
-> +		return do_kernel_address_page_fault(addr, fsr, regs);
->
->  	/* Enable interrupts if they were enabled in the parent context. */
->  	if (interrupts_enabled(regs))
->
-> ... and I think there was a bug in the branch predictor handling -
-> addr == TASK_SIZE should have been included.
->
-> Does this look sensible?
+Hi,
 
-Hi, Russell King!
+On Fri, Oct 31, 2025 at 11:48=E2=80=AFAM Marco Crivellari
+<marco.crivellari@suse.com> wrote:
+> Marco Crivellari (2):
+>   drm/rockchip: replace use of system_unbound_wq with system_dfl_wq
+>   drm/rockchip: replace use of system_wq with system_percpu_wq
+>
+>  drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c | 4 ++--
+>  drivers/gpu/drm/rockchip/rockchip_drm_vop.c    | 2 +-
+>  2 files changed, 3 insertions(+), 3 deletions(-)
 
-This patch removes
-```c
-	if (addr > TASK_SIZE)
-		harden_branch_predictor();
-```
-from do_user_fault(), and adds it to do_page_fault()->
-do_kernel_address_page_fault().
+Gentle ping about this.
 
-However, do_user_fault() is not only called by do_page_fault(). It is
-also called by do_bad_area(), do_sect_fault() and do_translation_fault().
-I am not sure that if this will lead to some missing
-harden_branch_predictor() mitigation.
+Thanks!
 
-What about something like this:
-```patch
-diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
-index 2bc828a1940c..5c58072d8235 100644
---- a/arch/arm/mm/fault.c
-+++ b/arch/arm/mm/fault.c
-@@ -270,10 +270,15 @@ do_page_fault(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
- 	vm_flags_t vm_flags = VM_ACCESS_FLAGS;
+--=20
 
- 	if (kprobe_page_fault(regs, fsr))
- 		return 0;
+Marco Crivellari
 
-+	if (unlikely(addr >= TASK_SIZE)) {
-+		fault = 0;
-+		code = SEGV_MAPERR;
-+		goto bad_area;
-+	}
-
- 	/* Enable interrupts if they were enabled in the parent context. */
- 	if (interrupts_enabled(regs))
- 		local_irq_enable();
-diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
-index 5c58072d8235..f8ee1854c854 100644
---- a/arch/arm/mm/fault.c
-+++ b/arch/arm/mm/fault.c
-@@ -184,10 +184,13 @@ __do_user_fault(unsigned long addr, unsigned int fsr, unsigned int sig,
- 	struct task_struct *tsk = current;
- 
- 	if (addr > TASK_SIZE)
- 		harden_branch_predictor();
- 
-+	if (IS_ENABLED(CONFIG_PREEMPT_RT))
-+		local_irq_enable();
-+
- #ifdef CONFIG_DEBUG_USER
- 	if (((user_debug & UDBG_SEGV) && (sig == SIGSEGV)) ||
- 	    ((user_debug & UDBG_BUS)  && (sig == SIGBUS))) {
- 		pr_err("8<--- cut here ---\n");
- 		pr_err("%s: unhandled page fault (%d) at 0x%08lx, code 0x%03x\n",
-```
-
-Thanks very much!
-
-Xie Yuanbin
+L3 Support Engineer, Technology & Product
 
