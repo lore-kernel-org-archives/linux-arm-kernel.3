@@ -4,81 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16784D116F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 13:42:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6B80D116F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 13:45:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=I0SIJKX9tZQSfmZscwDLxEmvBbRFMw4s1nyXcFylYtY=; b=gV2KcDbBSmhgcYhP6vpOyb6sa5
-	cHyKzMeIvQ64jfCq9DE0seEpsqYvrfcIc6xteSk8RaovKJxxX/SOWy+XSQNH1kN4w9qw3h5YEVGQf
-	i3ymw2syP1m7QISJZGFoQCg7vXEl9q73EVC7O/ObdxArBOTQdBoPv+epAn5zIOSBFwVoAZsERIod2
-	Vn+5Y0hz6yRV1P2t8gmrvgmdvQYBgDaK64Uhze2EcPp84AVlnfGd00vki98HS0VK6LNVaZDVvQ/zo
-	ox7QKtSjRw1Ixs9ix33AFvH6t1Ngi8HHytw+aqillNIds+GNqntUNGVdADxN3wbmSYaHjYOPiKADd
-	qK8BKK8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9h4i3bDSgwV7EBB3mNmii67WGRUrWslkrGn3nbcYBzo=; b=F4PljW5BkXgGBwCD/xn7htbrc6
+	6QlP+KjCuDtDnUh4R2yk3/nrDeO5iUVJZf2qtd6b0kt0vpCA5Op+3lxRAdKEvFgcNuVsMkWgIxrEu
+	thfUm0S3Zg84WCVXZHtiWC7kslwsmdhonoSEBKwDyEmGSB2HnJXETD8b8/wm/3n3nS2ujxbx1R8Xa
+	mi8aULv7wqutg5E1g6pUt78vJJ9aO8kVXkCYRbJYsQR9+xHEVXmanTuHm6duLgTgOslZk3c3h2ses
+	4rW1jIeSSt5TGxp4433eMufS352icXf5fFBeYIej3Yu4CAlja0sYwaT08Y5doZ93SnBxCa4Yfvp8O
+	kOQlusJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQQe7-00000005SLu-1ZgF;
-	Tue, 02 Dec 2025 13:42:23 +0000
-Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
+	id 1vQQhI-00000005SWA-4A9a;
+	Tue, 02 Dec 2025 13:45:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQQe5-00000005SKz-0bcO
+	id 1vQQhG-00000005SVl-2tzu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 13:42:22 +0000
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [10.196.197.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4dLMQ64hWpz9tBD;
-	Tue,  2 Dec 2025 14:42:06 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1764682926;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=I0SIJKX9tZQSfmZscwDLxEmvBbRFMw4s1nyXcFylYtY=;
-	b=Zbh2TrvKZ0UDXVv986Hs/XYg0Vo7XiszfkiBSyLU6Kmo2upVqHHc0e3WQcc+pJ1JaFJjdY
-	yIUvjwaDite8wifZfdPvFSLUEfmNQhajWt+SD/qz9u9L7EQkShNS/PvBCQm30la+4zceaF
-	f3nhyr/xe3ECYNyiG/2MkNy+TKz9djW3/uXddQomREVK8dR86LZHk5NDKDa2QDamJeQBXH
-	wpSJ65XKKkPaTbftV+xHm8PcxLYToJWOA4VeQWzzRupZEfTswW01gDqftnGohgTumFVVCT
-	TSevwZF0qJhVP4YAauLLOpAgqUVXT/8Z/O6pR/ipKqkRC7v+CdO+bzR4wjOn4w==
-From: Marek Vasut <marek.vasut@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1764682924;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=I0SIJKX9tZQSfmZscwDLxEmvBbRFMw4s1nyXcFylYtY=;
-	b=tbGibNpJxAY4qNsUW32sYPHZrLzYTky+M5WIPTmYLRqN1uTSonMf522c/6GC8Ej6wmcqzO
-	coebMplSN4Z4r1qOOz0d/9gzQhtRZ/LeyCs56Fl3aesQ4yghDsgota8EI421icAN2ENU3r
-	S4PlcCczqtxRJL+nRQ/r31WmVhY0c/YGbQ2LoD0dRSESseYPc5DmTa6hqrLcY9UQXDZPNL
-	mcV8WaOY+rVn2uo7QDEZsBHtH7cBXIxbTUgoxReELqg7viR/AAyUTXBz5B+4mrfA8OVeiV
-	zfR8aclx0D097W+oA3RXzN3IdfOd2M4SHoIe0a3lYTDiuozmtApt56mHJGleZg==
-To: linux-arm-kernel@lists.infradead.org
-Cc: Marek Vasut <marek.vasut@mailbox.org>,
-	Christoph Niedermaier <cniedermaier@dh-electronics.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	kernel@dh-electronics.com
-Subject: [PATCH] arm64: dts: imx8mp: Fix LAN8740Ai PHY reference clock on DH electronics i.MX8M Plus DHCOM
-Date: Tue,  2 Dec 2025 14:41:51 +0100
-Message-ID: <20251202134200.8397-1-marek.vasut@mailbox.org>
+	Tue, 02 Dec 2025 13:45:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 98DB042AE5;
+	Tue,  2 Dec 2025 13:45:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8FDFC4CEF1;
+	Tue,  2 Dec 2025 13:45:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764683137;
+	bh=D8cdvkqgDXZSioJ7TC3Z1nMJbtHIw0swgeRX8817ogA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dCKMwPbChBvqqtqpF3NokvYxdaCdQA6XBybFE06bxzQYkv+X3ymsBFnOBIbacabqj
+	 KNaLQsbHgNx0FuxqxBx6Ah9fbIj8BI6/fcwwxQnGhLYRkrNNXBCqJNDERfto3DvvcC
+	 x/ctSi28KHixEWUtzS89tgcRYxC9FmVSbbxS2UNKfwU9/tBeU+qKvzkDs9K7l1Ncls
+	 vCurMjK/BOIUW2bhiWRiunYRVmurclO6G/MZG3fWv/tSS8m812wld9JhoZX7B4Ao8t
+	 rqp6qpdhosrLKg4qEIhOVnsdeTkyOp3svyXK5cCPj2+2varD+8Vr4FOzREBKzSJF4o
+	 4o8/dlZjAGK3Q==
+Date: Tue, 2 Dec 2025 19:15:28 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: "Maciej W. Rozycki" <macro@orcam.me.uk>
+Cc: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
+	Jingoo Han <jingoohan1@gmail.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Jonathan Chocron <jonnyc@amazon.com>, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH v9 4/4] PCI: dwc: Support ECAM mechanism by enabling iATU
+ 'CFG Shift Feature'
+Message-ID: <hiuivv6q6rakmkpdupuw7upx3mazzux46zvoxsontwag6xvaon@o2d2swxdtafb>
+References: <alpine.DEB.2.21.2511280755440.36486@angie.orcam.me.uk>
+ <cabf4c20-095b-4579-adc1-146a566b19b9@oss.qualcomm.com>
+ <alpine.DEB.2.21.2511281714030.36486@angie.orcam.me.uk>
+ <a4c6d47f-28b5-40d3-bc82-10aeb14f8e78@oss.qualcomm.com>
+ <alpine.DEB.2.21.2511290428340.36486@angie.orcam.me.uk>
+ <h7pgm3lqolm53sb4wrcpcurk4ghz4tulqnr7vgd7rzxy4hscue@jcn5tepevlwl>
+ <syg7vpbt3w53s24hgl7b6w64odmif5bq557lwlvzlbvgkukwcn@66jtzzc3vtiu>
+ <alpine.DEB.2.21.2512011617250.49654@angie.orcam.me.uk>
+ <ps5jjiqv5mw2g3exzvfcfsa4bcda7hois2h6riarwb2d2son4u@2onu4bibw2hb>
+ <alpine.DEB.2.21.2512021246470.49654@angie.orcam.me.uk>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 19aa33e691b1c0446b7
-X-MBO-RS-META: dkcxn7cuarhsocuktk5766e9tug3h93f
+In-Reply-To: <alpine.DEB.2.21.2512021246470.49654@angie.orcam.me.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_054221_351972_652FFEC4 
-X-CRM114-Status: GOOD (  10.77  )
+X-CRM114-CacheID: sfid-20251202_054538_773656_D9DC6FAC 
+X-CRM114-Status: GOOD (  23.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,46 +87,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add missing 'clocks' property to LAN8740Ai PHY node, to allow the PHY driver
-to manage LAN8740Ai CLKIN reference clock supply. This fixes sporadic link
-bouncing caused by interruptions on the PHY reference clock, by letting the
-PHY driver manage the reference clock and assure there are no interruptions.
+On Tue, Dec 02, 2025 at 01:39:14PM +0000, Maciej W. Rozycki wrote:
+> On Tue, 2 Dec 2025, Manivannan Sadhasivam wrote:
+> 
+> > >  No change in behaviour, sorry.  I suppose it's this range of host address 
+> > > decoding:
+> > > 
+> > > fu740-pcie e00000000.pcie:       IO 0x0060080000..0x006008ffff -> 0x0060080000
+> > > 
+> > > aka:
+> > > 
+> > > pci_bus 0000:00: root bus resource [io  0x0000-0xffff] (bus address [0x60080000-0x6008ffff])
+> > > 
+> > > that you're after.  Are you sure your code discovers it correctly?  As I 
+> > > say I can only see IORESOURCE_MEM references and no IORESOURCE_IO ones as 
+> > > would be appropriate for the root bus resource quoted.
+> > 
+> > The I/O resource is discovered by the driver correctly as seen from the logs:
+> > 
+> > pci_bus 0000:00: root bus resource [io  0x0000-0xffff] (bus address [0x60080000-0x6008ffff])
+> > pci_bus 0000:00: root bus resource [mem 0x60090000-0x7fffffff]
+> > pci_bus 0000:00: root bus resource [mem 0x2000000000-0x3fffffffff pref]
+> > 
+> > But we believe that the iATU is not programmed for the I/O port, resulting in
+> > the I/O access not going out to the device.
+> > 
+> > Krishna found an issue in the previous patch that got shared. So I've attached a
+> > new one. Could you please try and let us know? If it didn't help, please share
+> > the dmesg log that will have some more info.
+> 
+>  This does work correctly, thank you; see the log diff below (I checked 
+> the defxx driver separately too).
 
-This follows the matching PHY driver recommendation described in commit
-bedd8d78aba3 ("net: phy: smsc: LAN8710/20: add phy refclk in support")
+Cool! Thanks a lot for testing and sorry for the breakage once again. Btw, the
+issue that was fixed in the last diff has been present for some time. It was
+fortunate that you didn't hit that before.
 
-Fixes: 8d6712695bc8 ("arm64: dts: imx8mp: Add support for DH electronics i.MX8M Plus DHCOM and PDK2")
-Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
----
-Cc: Christoph Niedermaier <cniedermaier@dh-electronics.com>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Fabio Estevam <festevam@gmail.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Shawn Guo <shawnguo@kernel.org>
-Cc: devicetree@vger.kernel.org
-Cc: imx@lists.linux.dev
-Cc: kernel@dh-electronics.com
-Cc: linux-arm-kernel@lists.infradead.org
----
- arch/arm64/boot/dts/freescale/imx8mp-dhcom-som.dtsi | 1 +
- 1 file changed, 1 insertion(+)
+>  Please make a proper submission and 
+> I'll give it a Tested-by: tag after final verification against 6.18.
+> 
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-dhcom-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-dhcom-som.dtsi
-index 68c2e0156a5c8..f8303b7e2bd22 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-dhcom-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-dhcom-som.dtsi
-@@ -113,6 +113,7 @@ mdio {
- 		ethphy0f: ethernet-phy@1 { /* SMSC LAN8740Ai */
- 			compatible = "ethernet-phy-id0007.c110",
- 				     "ethernet-phy-ieee802.3-c22";
-+			clocks = <&clk IMX8MP_CLK_ENET_QOS>;
- 			interrupt-parent = <&gpio3>;
- 			interrupts = <19 IRQ_TYPE_LEVEL_LOW>;
- 			pinctrl-0 = <&pinctrl_ethphy0>;
+Sure thing. Krishna will post the fix(es) as there are two separate issues and
+will CC you.
+
+- Mani
+
 -- 
-2.51.0
-
+மணிவண்ணன் சதாசிவம்
 
