@@ -4,62 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E625BD116F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 14:37:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7493DD116F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 14:40:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GgQv52BqaKGbVOsxTxBWmwlyWsyqwplma82hH+upIfY=; b=l+nH0+uzOiEKZv8dObGXDASqvw
-	fzEhi3cNbr0RExerhr3C5ucb6U6vjpm5HG0NGWtg/rab++BYPWyNOfj8PJchT2iKU7hRHY8Qcr2l4
-	uEbG6AJFItgj/YlBLzIhMoeudDlmG5o+SNI31rVwXUAQHRL22OWc17BlHE4Unk9o/e37cNn5Ziqg+
-	Nfr/J+QMVZZNEIkxsOo669zg3Ni35SgK8lZqGCySdi9HHOB+rpLN+QLvZalXbWCLXcwqlamGRijdd
-	tcUZn3yd+WnxiQHegxkbFQV6DhnkK1rh369R9eUnwXomVbtRJUivZBimed3FegnJ6/oiTApoGfrMZ
-	zxUPGeAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9/Lb38XWYidCdT+CvuBAcBgo29VVmwLItgbXT50Uyr4=; b=yQdmFVTuy3j2rzdYYeS7CkaNrs
+	eVufeUaNTTQhJiN22NcSFrlgVEWB+PWo+DJNIvIs8f9yLY8r7acexgfQQbmx3YcQcM01cESlPC0wC
+	IlzykqOLPkqEMIVQaPVrG3Hs9mI+nNWCkjipObWGhBasH2scHXZyzuWZ4FRMnYePPX9FzWDDhE7Ly
+	P9iBYan/U7WCOfZENu1aEacLifz/N0EkEkp4b95O8+QAmuaq4sa/ea1r6nk8gpzmmUfdSrsqUXzXy
+	Mn+QJvZmFlupPU8N+1hUZjcwsduPhK+/Jha0nWjXUidimiMcUo5wRFhSPz4t+lAnWDk47o4ukCmT3
+	YnmQwxIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQRUu-00000005Vhk-1f5q;
-	Tue, 02 Dec 2025 14:36:56 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vQRYV-00000005Vu6-0JOh;
+	Tue, 02 Dec 2025 14:40:39 +0000
+Received: from mail-norwayeastazon11013015.outbound.protection.outlook.com ([40.107.159.15] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQRUt-00000005VhE-01OW
+	id 1vQRYT-00000005Vtk-0ldw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 14:36:56 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1vQRUa-0004ex-Pi; Tue, 02 Dec 2025 15:36:36 +0100
-Message-ID: <2dc6c675-9c69-40a1-b2ed-ff1d22157228@pengutronix.de>
-Date: Tue, 2 Dec 2025 15:36:33 +0100
+	Tue, 02 Dec 2025 14:40:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VzbZ1UBssbOjdKjrm4qgSKDVZmR6LGpcJKrEctNlQWrSEOz33rhyumwGyZ+ZABipoIqgOpKHWn47fqQwGm4x7OscOSsmSXwld8Q1nxsu2ALflc2riwoev5348oOmJinku8MEWrrg4cSrlV/znLBcQfzLmQ0bW7cmyaGSYNCznyFOFE+RRAJMx7S1AtaZQGgPFcfTC98foWg56Mww9Qs9K0QrWfvI4CBi6GPn6EHw+WkSzYkCGLENbDEsAVu8fdZ6ttzM0C0elOINBIIQ58FSPXpo5eWpu0BGT73DsGpdK6VTQbaK2RdzxNakWscgRgue5W8At+MPwWJmzpPPylpKjA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=9/Lb38XWYidCdT+CvuBAcBgo29VVmwLItgbXT50Uyr4=;
+ b=Yr1Bm/iK2Tu9Ali0JTqo8agRK/0J7RY51giM84NVL187RQ7HpC0ga91Ot29IuV9WH1oa5S/E1p6+WWZhHLR6tOZXO1fXtq+IwWKrrQQJWgfSaQXosSNV8D1xa4yIdV9vTsAwNBaJYk3T+a0zyVeUNsNW5LchqDaWKC220uCFRXFSuQjP0unpyP2Y3BCIX8QEnWxxS2EROUdfv0OPsykhSVyrVVLefllmnFdj2z/FZFuuXapMHNMUjjUoNNyOneDpe5KypCe+xAZvXVuY/GDW/Pd5C7GcRm45MIHc6qfttG5UFF9FBfHJ4SrLBny60NRK1bcR0esl/os42YFt6J+p6Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=9/Lb38XWYidCdT+CvuBAcBgo29VVmwLItgbXT50Uyr4=;
+ b=gXNSBFzbC6JX39GI40xPqQkepUtuwhSM2THt7yKDBxJ106Kg3EyQQJegO8orzDhz/z5hLn8mM5WZcFHU9U9g3dK0jqMTOKsFuKcIrUIEXC2mld7sJA5ctjouvSvlMMwN6Jpk/WgXWyYcGrUHr+1bIKybJdkUbhbhh1rmPNWxZVcMCz90QaOQgJ6PfgG5u4h+N0e/OvAbQN8iApPFjgh2xRss6GtGXam/EX4Cb4kqM4dF3aQS+ZJU0DJKDNhdOAzVebLB++L74KSX+A5mi3o07iKoDAFfeROOqqWCZJcV1lDA/H84nI+MUHqKMtRwG5TH7Vwlz4+CIgDLRQ29lJ16HQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by AS8PR04MB8133.eurprd04.prod.outlook.com (2603:10a6:20b:3b1::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Tue, 2 Dec
+ 2025 14:40:31 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9366.012; Tue, 2 Dec 2025
+ 14:40:31 +0000
+Date: Tue, 2 Dec 2025 09:40:23 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-pm@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/3] pmdomain: imx93-blk-ctrl: convert to devm_* only
+Message-ID: <aS76V3IFDdz9N2E4@lizhi-Precision-Tower-5810>
+References: <20251202-v6-18-topic-imx93-blkctrl-v2-0-e73501034adc@pengutronix.de>
+ <20251202-v6-18-topic-imx93-blkctrl-v2-2-e73501034adc@pengutronix.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251202-v6-18-topic-imx93-blkctrl-v2-2-e73501034adc@pengutronix.de>
+X-ClientProxiedBy: BY3PR05CA0034.namprd05.prod.outlook.com
+ (2603:10b6:a03:39b::9) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 03/16] media: rockchip: rga: align stride to 16 bytes
-To: Nicolas Dufresne <nicolas@ndufresne.ca>,
- Jacob Chen <jacob-chen@iotwrt.com>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org, kernel@pengutronix.de,
- linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org
-References: <20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de>
- <20251007-spu-rga3-v1-3-36ad85570402@pengutronix.de>
- <db7030790063d0ebe6d254c7053e758184b9d7cc.camel@ndufresne.ca>
-Content-Language: en-US
-From: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-In-Reply-To: <db7030790063d0ebe6d254c7053e758184b9d7cc.camel@ndufresne.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|AS8PR04MB8133:EE_
+X-MS-Office365-Filtering-Correlation-Id: 67bbbdc8-d34d-4279-6d6d-08de31b0be3b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|376014|52116014|7416014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HA6+TzOeXviZdAa1eFH1TlmVe1bbBtwraTiL+sEFI+8+AEHIGcSYnjudoz7O?=
+ =?us-ascii?Q?QR2DwpjK9p8L998Vx4hHf/ZKqaCBgJnM5ya80gIz3zshwmdPOggAYR3YYrsY?=
+ =?us-ascii?Q?cQ1WG7XUcX5daghKdVBqsx7DwKs77Ub7aFc1Ortl+JZoNneD/3pZaZEMjUgj?=
+ =?us-ascii?Q?oq41bCHHnuhHzEIFQfWbVEi4NdBBK61WANcT0F0Qg1SAMtlCqoSZC/RR4EiU?=
+ =?us-ascii?Q?oYGH0vJ4CjGPwclwBLJApGBNtej9jePSgd3bL+MNW772sUWXWNfkD0T6CuH1?=
+ =?us-ascii?Q?Mhgu46ZutCIbxaES9w2oYQ5hRhdXv//0hvBC26BNAuVRs1IF5Ye0FJUssQhT?=
+ =?us-ascii?Q?OkKcPNJ9xblXliyL2q+q0kTG//8Dct8SDp99mci0OWGGKKiMQPsccCGxKhDX?=
+ =?us-ascii?Q?PlbaQpNE7CIoKBSm5IKjW3dwATjsld+HQp5ehyUmIHQ5jCkJXp0uySfFsoof?=
+ =?us-ascii?Q?Lxptt3jyrdTx3spW6Kz1sh4sTCjs6VfGHzwB4AvJikVQmfaj2u0Y3jdM1HSz?=
+ =?us-ascii?Q?RzvbFS2wZcHH4SPRQy1U+q65fXTu4sx+OGA1uuXgVUHoQLU1pUUeMZTuEVxE?=
+ =?us-ascii?Q?ks9CpTy8cAo+oruWxx8XDguZvk4Y/AylzPoZd0FLHNhT83kr98f94x51qx4j?=
+ =?us-ascii?Q?H4kY9Udm39oHocaLWr5jAvJoc1bX4YLpV41c73ZQhH6FNiCWkNOEK/zDl0KC?=
+ =?us-ascii?Q?sGFP3lmEHWH6nd4d9kGgx4FAoqkzQLFl/LRbmZSbJAISWrQhjZovAVjigPFk?=
+ =?us-ascii?Q?gCAAYdguE3d2OvMS0ni7GDVTAhwFqbBYH723qYK4PYDCtz6cJirW30v7p8LR?=
+ =?us-ascii?Q?xO1fuWuAwEPXKrnwnwcns/uMpVTBiH6uJ8jEmRgS5wnPu0w1XUk8u7ppHTs1?=
+ =?us-ascii?Q?0E4kVO1vUGxdHuyIuXYprw20gMBd3TeJItPBYaz+axttdK5Y6zvJxnE+yDT9?=
+ =?us-ascii?Q?p+En5egpO9y8ZbFpsXFxBkX5CIIpbd/zmgAQofznHLooXnu17cuexG6Lrm2S?=
+ =?us-ascii?Q?D48u99YOM5DJTQJlTLM4uNUyIvbBCPJFQhzPPy3XncJMiIg4UxkQgnvdGngg?=
+ =?us-ascii?Q?hptNB5AK2+X7/qaRXDaxzx3nUYHYWrcXcbA9mFAq5tKTuYf7bWKMU1z6Vcgb?=
+ =?us-ascii?Q?ddMpgfiQ4+oX86gzBo4+WJzsxsevZNrAh3pKMNmlS7G4wSlYJbgH3pvXE/UD?=
+ =?us-ascii?Q?YczOjmSixSVZpjHlK1Z2ktcIg+QBnb2DeJrRCple3zGLqh6nR/BPLWBIfZWi?=
+ =?us-ascii?Q?1MTFVawc6rOh2IlEciqZgigFPIwbXkQJF9V9NnZRYB4N6cGBg+2N2vt+0wNk?=
+ =?us-ascii?Q?SXsMXOT/JwC+IDRDO0yonRy5VV4VKYbJD7GVeMgJ3Q4pttHLoHS+9AT6/1x8?=
+ =?us-ascii?Q?cHiRJ3+WpkM/5lzmEOG5G0yth0uRAOreGhMWeHBwOOXGC1HZZaXCG5QoGJEs?=
+ =?us-ascii?Q?WJFMQP9jUMPMMQLnrpGv0glghzdwUFhXjW1k1caFEtNNy+wwHp+iAgJ7rME3?=
+ =?us-ascii?Q?ia/egqs+cCoqL3D41kfuGG8cOQAZyOFhuVqw?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(376014)(52116014)(7416014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OIFpHvC+14jstG/71KIIktwU72ZImMh8ie5cHk2CSSgmCAbV+jBvlR2CTPpV?=
+ =?us-ascii?Q?cbIaZmC7FbUTnZ3XwqGkNmUq5JaZXd0ZR844UXFfcygV4f+jrCqdre/HrXMH?=
+ =?us-ascii?Q?6yYT5YWRPiIwK7G/IeLASdcianBPWeyNfllzvdM5yAQnRREQljaik9AtCfSh?=
+ =?us-ascii?Q?SG1TVrg/XzilEfusxFT2TpdQAvEb4bcq7wO3lT9qJW5JAAlbzilDGiN3h+O/?=
+ =?us-ascii?Q?nQ2I/81E7sRRzMMZ9ucGnCT4+RON7r6+1NHqqo+1G0a1FM+r78+6wIGXqjWJ?=
+ =?us-ascii?Q?ZJY6gNbC07sELcjaZZpBXYAe//CnyYCTYuTG0D9fqPqs20pCpVF6dJxRDOU9?=
+ =?us-ascii?Q?cTt7NdeqhBqrM0ylle4O114uEghR2gZtHWuIb2hlvRFiSET5+QxDdbRkdqCc?=
+ =?us-ascii?Q?g7dYu8sFsBy1GD3WQTaxzj/JvRwA0BVJ840ZiI24xa0IGY/RLSCkxUp8IaEY?=
+ =?us-ascii?Q?QdkxEkl0jJm4nMtjSC4XMuQ1Y1Ne8epLc93+IdLC2DQYQpFkNNeVeWQB8B6L?=
+ =?us-ascii?Q?buO2gCjqFdGmcf0biwoeXROaQlN5MZCfC9d9DbNNRtb3HFrpz/eCylc9/AvJ?=
+ =?us-ascii?Q?b5zlhMJW2moKswR+CwzzDRp2D6j95mj/em2xKruic0nw+4igW1v1qpumgE22?=
+ =?us-ascii?Q?JmsgUgq1M2R4O5m2VHhl7RJ1T0KIO8gENsLP6c29ipDB2zKd9KZ0YSehMcKH?=
+ =?us-ascii?Q?gKOWtQReAu5JtcLQwSLlZ/gxr+eZ32v0Tn/hZ+9f/x/xRhD2Fqe9/hYgh1D1?=
+ =?us-ascii?Q?RosfvGKHJr1FkHG+Nvjg8yxWZK0wkkI9bOWt7oHoCoHhdbuiiwMRdZzvK8v4?=
+ =?us-ascii?Q?q+g7zCSuw0aQYzg1RxC0DQhgQqKZjxZh3rHIV63hfMzruNiHopA26Zi4yOtV?=
+ =?us-ascii?Q?Nf6OF1KiJHO/vPmsY/cjT66YT5O7uCikAxsqb+Vb12Y1amfFPbksomReqAbv?=
+ =?us-ascii?Q?HRg6KLgcDGaEBU/IR7/kVncNtNzHKdroRrKtid6kPLD62O2xzLQHj0k4Q4jC?=
+ =?us-ascii?Q?ZM6HY9b6fFYVLFAYprs5jO3yRofg+k5q12GwveW5zEXXWR+e8wKyMrfxy2QG?=
+ =?us-ascii?Q?xCFm7TAIjEuK6os9E7Zn99u2IVluWTHVcv/i7FAO+lpcjYb8oKU/enahFBy+?=
+ =?us-ascii?Q?jZf/v0J9jt30yxaZNFCnz8guXGl0cT0QBNv5uZvthXslIV85WuqGgf7cxcoJ?=
+ =?us-ascii?Q?8O8mC5vlAZjpzAeCZVSpUZS2pP34cfbXU8gsbUxkV6O9xyMjFpju/99KNyV/?=
+ =?us-ascii?Q?DgAx9uvVH1gra2ZaLrLoEHmfG/GhOlTcyzcdKjSnsFDY+D8IMjJW/wtjP4mw?=
+ =?us-ascii?Q?hoA6SvZoAv7xYXFXP2x0dT26evWk7UNF6+d2lO71j5HfvNw25CvfPIUYXVy9?=
+ =?us-ascii?Q?mwPRrvHB0pM83U/WxxDRE/RA8TbKH3KaR/0mT0UmnZt1zAjEyb/x9Tga9CBm?=
+ =?us-ascii?Q?Vi23JJsOkRNltDi4WAasr68Dsf09OJmuO1IY4D+XG3eDQ5Esn7Kv5B79LbOe?=
+ =?us-ascii?Q?hTdeb8FD3v5eOkabJN/FjjUnPo5mDUvu++Gk0blQLRtrOVaINTi3UVe57kmT?=
+ =?us-ascii?Q?K7aHPULKBRqOYDTs788=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 67bbbdc8-d34d-4279-6d6d-08de31b0be3b
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Dec 2025 14:40:31.1409
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 3By3v+KRGgqr8KtlIIj78cw2y7dtdPqyck7jukQ0QeJU+slfJoqKEXmQoH5j1RhA7EL9z50LtfUsYi8XBw+4Nw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8133
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_063655_038539_4E2B941B 
-X-CRM114-Status: GOOD (  23.72  )
+X-CRM114-CacheID: sfid-20251202_064037_245399_97BF2971 
+X-CRM114-Status: GOOD (  27.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,107 +161,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
-
-On 10/7/25 8:19 PM, Nicolas Dufresne wrote:
-> Hi,
+On Tue, Dec 02, 2025 at 02:21:03PM +0100, Marco Felsch wrote:
+> Convert the driver to devm_ APIs only by making use of
+> devm_add_action_or_reset() and devm_pm_runtime_enable() to simplify the
+> probe error path and to drop the .remove() callback. This also ensures
+> that the device release order equals the device probe error path order.
 >
+> Furthermore drop the dev_set_drvdata() usage since the only user was the
+> .remove() callback which is removed by this commit.
 >
-> Le mardi 07 octobre 2025 à 10:31 +0200, Sven Püschel a écrit :
->> Align the stride to a multiple of 16 according to the RGA3 requirements
->> mentioned in the datasheet. This also ensures that the stride of the RGA2
->> is aligned to 4 bytes, as it needs to divide the value by 4 (one word)
->> before storing it in the register.
->>
->> Increasing the stride for the alignment also requires to increase the
->> sizeimage value. This is usually handled by v4l2_fill_pixfmt_mp, but
->> it doesn't allow to set a stride alignment. Therefore use the generated
->> values to calculate the total number of lines to properly update the
->> sizeimage value after the bytesperline has been aligned.
->>
->> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
->> ---
->>   drivers/media/platform/rockchip/rga/rga.c | 21 +++++++++++++++++++++
->>   1 file changed, 21 insertions(+)
->>
->> diff --git a/drivers/media/platform/rockchip/rga/rga.c
->> b/drivers/media/platform/rockchip/rga/rga.c
->> index
->> 6438119a6c7aeff1e89e7aa95dcd5d2921fefa08..3cb7ce470c47e39d694e8176875a75fad271
->> 7f96 100644
->> --- a/drivers/media/platform/rockchip/rga/rga.c
->> +++ b/drivers/media/platform/rockchip/rga/rga.c
->> @@ -459,6 +459,25 @@ static int vidioc_enum_fmt(struct file *file, void *priv,
->> struct v4l2_fmtdesc *f
->>   	return 0;
->>   }
->>   
->> +static void align_pixfmt(struct v4l2_pix_format_mplane *pix_fmt)
->> +{
->> +	int lines;
->> +	struct v4l2_plane_pix_format *fmt;
->> +
->> +	/*
->> +	 * Align stride to 16 for the RGA3 (based on the datasheet)
->> +	 * To not dismiss the v4l2_fill_pixfmt_mp helper
->> +	 * (and manually write it again), we're approximating the new
->> sizeimage
->> +	 */
->> +	for (fmt = pix_fmt->plane_fmt;
->> +	     fmt < pix_fmt->plane_fmt + pix_fmt->num_planes;
->> +	     fmt++) {
->> +		lines = DIV_ROUND_UP(fmt->sizeimage, fmt->bytesperline);
->> +		fmt->bytesperline = (fmt->bytesperline + 0xf) & ~0xf;
->> +		fmt->sizeimage = fmt->bytesperline * lines;
-> Instead of open coding this, describe this with struct v4l2_frmsize_stepwise and
-> then use v4l2_apply_frmsize_constraints().
-Looking into v4l2_frmsize_stepwise, it only applies to the width/height 
-values, whereas I'm interested to control the stride 
-byte-alignment/stepping (allowing free range widths/heights).
+> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+> ---
 
-Do you intent that I (mis)use it like this: 
-v4l2_apply_frmsize_constraints(&fmt->bytesperline, &lines, &constraints)  ?
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-This only replaces one of the three lines in the for loop (where i 
-manually do the alignment with & ~0xf) and would also look odd, as i use 
-a value in bytes as a width parameter (expected to be in pixels).
-
-Technically the core problem is that the v4l2_fill_pixfmt_mp helper 
-doesn't allow to specify a stride byte alignment and just aligns the 
-stride based on the format requirements. Therefore I think that maybe 
-creating a new v4l2_fill_pixfmt_mp_aligned helper would probably be the 
-better solution to get the correct bytesperline value right from the 
-start instead of adjusting it afterwards.
-
-Sincerely
-     Sven
+>  drivers/pmdomain/imx/imx93-blk-ctrl.c | 66 +++++++++++++++--------------------
+>  1 file changed, 29 insertions(+), 37 deletions(-)
 >
-> Nicolas
+> diff --git a/drivers/pmdomain/imx/imx93-blk-ctrl.c b/drivers/pmdomain/imx/imx93-blk-ctrl.c
+> index 2aa163aef8de4ee901b9cde76ce2aad246c8c08a..49610f2389c3bbaf4de4133918fbcacb7924f672 100644
+> --- a/drivers/pmdomain/imx/imx93-blk-ctrl.c
+> +++ b/drivers/pmdomain/imx/imx93-blk-ctrl.c
+> @@ -188,6 +188,20 @@ static int imx93_blk_ctrl_power_off(struct generic_pm_domain *genpd)
+>  	return 0;
+>  }
 >
->> +	}
->> +}
->> +
->>   static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
->>   {
->>   	struct v4l2_pix_format_mplane *pix_fmt = &f->fmt.pix_mp;
->> @@ -474,6 +493,7 @@ static int vidioc_g_fmt(struct file *file, void *priv,
->> struct v4l2_format *f)
->>   		return PTR_ERR(frm);
->>   
->>   	v4l2_fill_pixfmt_mp(pix_fmt, frm->fmt->fourcc, frm->width, frm-
->>> height);
->> +	align_pixfmt(pix_fmt);
->>   
->>   	pix_fmt->field = V4L2_FIELD_NONE;
->>   	pix_fmt->colorspace = frm->colorspace;
->> @@ -496,6 +516,7 @@ static int vidioc_try_fmt(struct file *file, void *priv,
->> struct v4l2_format *f)
->>   				(u32)MIN_HEIGHT, (u32)MAX_HEIGHT);
->>   
->>   	v4l2_fill_pixfmt_mp(pix_fmt, fmt->fourcc, pix_fmt->width, pix_fmt-
->>> height);
->> +	align_pixfmt(pix_fmt);
->>   	pix_fmt->field = V4L2_FIELD_NONE;
->>   
->>   	return 0;
+> +static void imx93_release_genpd_provider(void *data)
+> +{
+> +	struct device_node *of_node = data;
+> +
+> +	of_genpd_del_provider(of_node);
+> +}
+> +
+> +static void imx93_release_pm_genpd(void *data)
+> +{
+> +	struct generic_pm_domain *genpd = data;
+> +
+> +	pm_genpd_remove(genpd);
+> +}
+> +
+>  static struct lock_class_key blk_ctrl_genpd_lock_class;
+>
+>  static int imx93_blk_ctrl_probe(struct platform_device *pdev)
+> @@ -256,10 +270,8 @@ static int imx93_blk_ctrl_probe(struct platform_device *pdev)
+>  			domain->clks[j].id = data->clk_names[j];
+>
+>  		ret = devm_clk_bulk_get(dev, data->num_clks, domain->clks);
+> -		if (ret) {
+> -			dev_err_probe(dev, ret, "failed to get clock\n");
+> -			goto cleanup_pds;
+> -		}
+> +		if (ret)
+> +			return dev_err_probe(dev, ret, "failed to get clock\n");
+>
+>  		domain->genpd.name = data->name;
+>  		domain->genpd.power_on = imx93_blk_ctrl_power_on;
+> @@ -267,11 +279,12 @@ static int imx93_blk_ctrl_probe(struct platform_device *pdev)
+>  		domain->bc = bc;
+>
+>  		ret = pm_genpd_init(&domain->genpd, NULL, true);
+> -		if (ret) {
+> -			dev_err_probe(dev, ret, "failed to init power domain\n");
+> -			goto cleanup_pds;
+> -		}
+> +		if (ret)
+> +			return dev_err_probe(dev, ret, "failed to init power domain\n");
+>
+> +		ret = devm_add_action_or_reset(dev, imx93_release_pm_genpd, &domain->genpd);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret, "failed to add pm_genpd release callback\n");
+>  		/*
+>  		 * We use runtime PM to trigger power on/off of the upstream GPC
+>  		 * domain, as a strict hierarchical parent/child power domain
+> @@ -288,39 +301,19 @@ static int imx93_blk_ctrl_probe(struct platform_device *pdev)
+>  		bc->onecell_data.domains[i] = &domain->genpd;
+>  	}
+>
+> -	pm_runtime_enable(dev);
+> +	ret = devm_pm_runtime_enable(dev);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to enable pm-runtime\n");
+>
+>  	ret = of_genpd_add_provider_onecell(dev->of_node, &bc->onecell_data);
+> -	if (ret) {
+> -		dev_err_probe(dev, ret, "failed to add power domain provider\n");
+> -		goto cleanup_pds;
+> -	}
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to add power domain provider\n");
+>
+> -	dev_set_drvdata(dev, bc);
+> +	ret = devm_add_action_or_reset(dev, imx93_release_genpd_provider, dev->of_node);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to add genpd_provider release callback\n");
+>
+>  	return 0;
+> -
+> -cleanup_pds:
+> -	for (i--; i >= 0; i--)
+> -		pm_genpd_remove(&bc->domains[i].genpd);
+> -
+> -	return ret;
+> -}
+> -
+> -static void imx93_blk_ctrl_remove(struct platform_device *pdev)
+> -{
+> -	struct imx93_blk_ctrl *bc = dev_get_drvdata(&pdev->dev);
+> -	int i;
+> -
+> -	of_genpd_del_provider(pdev->dev.of_node);
+> -
+> -	pm_runtime_disable(&pdev->dev);
+> -
+> -	for (i = 0; i < bc->onecell_data.num_domains; i++) {
+> -		struct imx93_blk_ctrl_domain *domain = &bc->domains[i];
+> -
+> -		pm_genpd_remove(&domain->genpd);
+> -	}
+>  }
+>
+>  static const struct imx93_blk_ctrl_domain_data imx93_media_blk_ctl_domain_data[] = {
+> @@ -455,7 +448,6 @@ MODULE_DEVICE_TABLE(of, imx93_blk_ctrl_of_match);
+>
+>  static struct platform_driver imx93_blk_ctrl_driver = {
+>  	.probe = imx93_blk_ctrl_probe,
+> -	.remove = imx93_blk_ctrl_remove,
+>  	.driver = {
+>  		.name = "imx93-blk-ctrl",
+>  		.of_match_table = imx93_blk_ctrl_of_match,
+>
+> --
+> 2.47.3
+>
 
