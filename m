@@ -4,99 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75C00D116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 00:31:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92FD6D116F1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 00:43:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KFnBHkWxVElb54NLeG+ptXXjdRVbe7DkPWr+FQzj0HE=; b=yuRa4Hn/7mtkd9+XUzuRZg4EKw
-	BC6ZKciZFKYEZNsFDcmmABaI99gtcB7fi9eKldmc3CTYXnOtDuPjJo7j5O0uRoMJMBujfp2W2pqvI
-	og6F8keJzpAWVgMwQyASzCgxYOyxdQQjWbf40R2ii6wGYycEjU/5AVpYPhFAfBH494QqKpwFH1w9b
-	BqizFpg2wPSBJJs7Ar8uGSfpiZ83sd6vWUjGuxWrzVU9poAwxzjcHn4WXj8jMThgsiY09clhE+9Nm
-	n1z9g7Im1padlDogxq2bi3HzDjPvKggaIDELskPd9voOCx4rqYgXEHzLbQrkaaWzTcDdQS2AOuYe8
-	R4GulMmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=9C0BuMfYpE52X3ZkwF2ddAC3FMTh1lBAow5RoiEAGeU=; b=4XJbeZ6l+L9nWaTGAE+fQ3heYZ
+	izJa7pBT21WA4sU4vpG53sHz/2mwba0nt15dfOReI891LuqM0NjkU8W6yXIv62To9aP8h4stDz/zh
+	SUMedcF/3ryXNdGkC0gZjksO//yRgKIAQNJbOsleb7gEhhZiAS2tzCzmyFm0i9IOur/2uJZuU7z24
+	UNCN2veZHooS4L/CxuVPm+LmZTOXTk363m4F+gTXnvMkM+KsYwFVPkHHaAzba1Q+w1re4pO5SZcNI
+	mfA9aWwp5UE2ZnLYzyd4f0GNdwhYIo9TSDvyRLfBvHDi1CgqE1/jhS3qCUxivLWD9pNmNCnNElljb
+	RsuYZoAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQEJ2-00000004dxN-19cZ;
-	Tue, 02 Dec 2025 00:31:48 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1vQEU0-00000004eH8-1gVc;
+	Tue, 02 Dec 2025 00:43:08 +0000
+Received: from mail-pf1-f178.google.com ([209.85.210.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQEIw-00000004dx1-1utv
+	id 1vQETx-00000004eGi-3a0G
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 00:31:46 +0000
-Received: from epcas2p4.samsung.com (unknown [182.195.41.56])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20251202003135epoutp027219b4063e6e04c30609723ed1a097bd~9PqId8Apo0335603356epoutp02Z
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  2 Dec 2025 00:31:34 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20251202003135epoutp027219b4063e6e04c30609723ed1a097bd~9PqId8Apo0335603356epoutp02Z
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1764635495;
-	bh=KFnBHkWxVElb54NLeG+ptXXjdRVbe7DkPWr+FQzj0HE=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=T5CZ0twb6mc39GWeueoXvVBRpz39ghA+ow5BJgY7KQkZxmwIQiBSU2YzK3E346LIM
-	 zqqRaScSt1n3ez1aylMBO1EID1U0VASbbnlckrwPL03hSLoY9IYdSzeP3qV74VYHxc
-	 Y6AqqjeWOHtF18dQj3heuxSHk387PKR6Jfz/4DrU=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas2p1.samsung.com (KnoxPortal) with ESMTPS id
-	20251202003134epcas2p1fa31937e020b763ba81d61dca9442d0c~9PqHxqywI1926719267epcas2p1d;
-	Tue,  2 Dec 2025 00:31:34 +0000 (GMT)
-Received: from epcas2p2.samsung.com (unknown [182.195.38.209]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4dL1sx6Xd0z6B9m6; Tue,  2 Dec
-	2025 00:31:33 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
-	20251202003133epcas2p47e7fc8d62bf92c698df9c996d6b3d3d7~9PqG1MUaC0426004260epcas2p47;
-	Tue,  2 Dec 2025 00:31:33 +0000 (GMT)
-Received: from KORCO115296 (unknown [12.80.207.128]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20251202003133epsmtip2e09f100cb125186b33f363fb7f9d62c5~9PqGregYo0713407134epsmtip2q;
-	Tue,  2 Dec 2025 00:31:33 +0000 (GMT)
-From: =?UTF-8?B?7IaQ7Iug?= <shin.son@samsung.com>
-To: "'Youngmin Nam'" <youngmin.nam@samsung.com>, "'Tudor Ambarus'"
-	<tudor.ambarus@linaro.org>, "'Bartlomiej Zolnierkiewicz'"
-	<bzolnier@gmail.com>, "'Krzysztof Kozlowski'" <krzk@kernel.org>, "'Rafael J
- . Wysocki'" <rafael@kernel.org>, "'Daniel Lezcano'"
-	<daniel.lezcano@linaro.org>, "'Zhang	Rui'" <rui.zhang@intel.com>, "'Lukasz
- Luba'" <lukasz.luba@arm.com>, "'Rob	Herring'" <robh@kernel.org>, "'Conor
- Dooley'" <conor+dt@kernel.org>, "'Alim	Akhtar'" <alim.akhtar@samsung.com>
-Cc: "'Henrik Grimler'" <henrik@grimler.se>, <linux-pm@vger.kernel.org>,
-	<linux-samsung-soc@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	"'Peter	Griffin'" <peter.griffin@linaro.org>,
-	=?UTF-8?Q?'Andr=C3=A9_Draszik'?= <andre.draszik@linaro.org>, "'William
- McVicker'" <willmcvicker@google.com>, <jyescas@google.com>,
-	<shin.son@samsung.com>
-In-Reply-To: <c3cc4b6f-ac75-448e-9fdf-c3c45e2ceed7@samsung.com>
-Subject: RE: [PATCH v7 RESEND 2/3] thermal: exynos_tmu: Support new hardware
- and update TMU interface
-Date: Tue, 2 Dec 2025 09:31:29 +0900
-Message-ID: <022e01dc6323$028136a0$0783a3e0$@samsung.com>
+	Tue, 02 Dec 2025 00:43:06 +0000
+Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-7b9215e55e6so3327510b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 16:43:05 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764636184; x=1765240984;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=9C0BuMfYpE52X3ZkwF2ddAC3FMTh1lBAow5RoiEAGeU=;
+        b=dha2OIDxvdhND0f8J/N27md/hqqSp6eMZtrozCU8GzZHMoV0BmS6iHVAx84oOAfHmZ
+         mlb/xST1bka73Z1q5rf8+Q9GHJRXRGkxh09fW27gE1sb0rJPwaC+d1BokD0l4uuvSba2
+         rpCGoD9DcP6v2mmPPnTWN6pDU4CYEeQ8tS70aXLwSZy01ZBHvvjGqe4yQ9eqNFPrI9X0
+         IMxsyfRD43GjCjoRI2Ifs0A9UutsD1EReGsuAeyyVDgdloGTQAQ8AIkR4ee0hHg5hddD
+         BrirfMztNwIGh0MKSqAn5mcNRldGVUoi0TyVd/dafzBF1oVWBNSH/dD2OeNBNkW/+0z/
+         +nyw==
+X-Forwarded-Encrypted: i=1; AJvYcCUkzgGygAXQ4EDICmvK2bsiBBOqcdyoX4BFp0577AHZIqdI+5DhbegQ9Lh4p9N8TMRAYKU/gD8NIJWa1CtovvNH@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzuuaDQAsTjR3EXdesb38umdj69q3+7psfnrqH3tF+wlW4AqHT
+	HWDMafJxFBGZQd9NK3D5wlXPnNUwD6Wg0peHvY8EezTHYl6MliDNCgP2SFTc2OPD
+X-Gm-Gg: ASbGnctvBZWTyrCJQUUb2a4d+IHo25KHyOwkyJ8wvK6SOg4Xud0kuu4xpSKN3Dx0wFI
+	BKLFTxfSGVPjHYBo/42ntMrL4Hbc394oitsIRnVXH0nRcIhNm1j4NbJTCgySjozFG0Bl2iXLta6
+	xFcvIOqM2T571IYaCWqgb7UZRI7+HXkZPxBG8SaYSzJBmEwMaVvD+TZBIklgktfCF0Rh7ofGEFk
+	OhQY+xo76UKBjssE8VvmzF33wYY06Xxg9mXoNCl+lrTv/bhrHp6lIjIXnldlch4mMYLlh4NABzV
+	OCEp8uMNLdv9t4O2LJlSQGqHbVEce+LDwpJw+5c0yC1x1b6jRUlje7fd9ZlakXGWziSjGhikyOB
+	2NRzeAWPaUgHUOzHiQepQ+AZLrXS3TiUWw5RCkNW7KgSPJFKRWrJ91vC213QSsDQOUQsnjpFkAH
+	xmb5GXCPeYeN/XiHwxO5xkxOfO1LUGnw==
+X-Google-Smtp-Source: AGHT+IFjl/QJBewD7kSmPY7WYm5wqwBCAmnQ0iouuo16tzvMnxlT2E8ljk56fl4NupM+SgcFNmRjbQ==
+X-Received: by 2002:a05:6a20:2447:b0:33f:df99:11e5 with SMTP id adf61e73a8af0-3637dea5abemr30792787637.28.1764636184498;
+        Mon, 01 Dec 2025 16:43:04 -0800 (PST)
+Received: from lua-playground.. ([221.164.191.151])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-be4fbb00bd1sm13300578a12.11.2025.12.01.16.43.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Dec 2025 16:43:04 -0800 (PST)
+From: Jeongin Yeo <leo.yeo@luaberry.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org
+Cc: ryan.roberts@arm.com,
+	akpm@linux-foundation.org,
+	david@kernel.org,
+	kevin.brodsky@arm.com,
+	dev.jain@arm.com,
+	quic_zhenhuah@quicinc.com,
+	lorenzo.stoakes@oracle.com,
+	yang@os.amperecomputing.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: mm: prevent context switching during idmap is mapped
+Date: Tue,  2 Dec 2025 00:42:23 +0000
+Message-Id: <20251202004223.108388-1-leo.yeo@luaberry.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-X-Mailer: Microsoft Outlook 15.0
-Content-Language: ko
-Thread-Index: AQJR08pAfg/+KuTfxFjIW+Bmb4uKqAKoesbtAuyt0KICEvKvogHXMeJ7AVgXt0UB8c+VXLO8VEzQ
-X-CMS-MailID: 20251202003133epcas2p47e7fc8d62bf92c698df9c996d6b3d3d7
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-234,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20251113064044epcas2p1b87addb21473eca7cc52052e4e2e9237
-References: <20251113064022.2701578-1-shin.son@samsung.com>
-	<CGME20251113064044epcas2p1b87addb21473eca7cc52052e4e2e9237@epcas2p1.samsung.com>
-	<20251113064022.2701578-3-shin.son@samsung.com>
-	<5a6a749b-b2b7-41bb-bcb4-a2342e7f4e98@linaro.org>
-	<015501dc5ea5$0c7dd460$25797d20$@samsung.com>
-	<401ed9b9-19a4-4a19-b397-0f353e9f0c97@linaro.org>
-	<c3cc4b6f-ac75-448e-9fdf-c3c45e2ceed7@samsung.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_163142_838051_93774D53 
-X-CRM114-Status: UNSURE (   9.18  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251201_164305_893098_C7E94AAF 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,19 +94,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello, Youngmin Nam.
+ cpu_install_idmap replaces ttbr0 to install idmap. replace_phys uses
+ idmap_cpu_replace_ttbr1 which is located in idmap,
+ thus it requires ttbr0 to point idmap. 
+ 
+ However, if a kernel task has switched out right after
+ cpu_install_idmap, when kernel task is loaded, its ttbr0 is
+ mapped to reserved_pg_dir which doesn't contain any idmap
+ functions.
+ Therefore, the kernel task cannot find any functions to run,
+ causing memory fault.
+ 
+ As far as I can verify from the current arm64 tree,
+ no in-tree caller invokes this function from a preemptible context.
+ 
+ Nevertheless, future work might allow this function to be called in
+ preemptive state. Encapsulating the idmap sequence with
+ preempt_disable() and preempt_enable() prevents this possible problem.
 
-> Hi Shin Son,
-> if possible, please consider this approach as well.
-> 
-> Thanks,
-> Youngmin
+Signed-off-by: Jeongin Yeo <leo.yeo@luaberry.com>
+---
+ arch/arm64/mm/mmu.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-
-Ok, Understood. When I resume this task, I'll CC you.
-Thank you for your opinion.
-
-Best regards,
-Shin Son
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index 2ba01dc8ef82..c3da836ebe8d 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -29,6 +29,7 @@
+ #include <linux/mm_inline.h>
+ #include <linux/pagewalk.h>
+ #include <linux/stop_machine.h>
++#include <linux/preempt.h>
+ 
+ #include <asm/barrier.h>
+ #include <asm/cputype.h>
+@@ -2136,7 +2137,7 @@ void __cpu_replace_ttbr1(pgd_t *pgdp, bool cnp)
+ 		ttbr1 |= TTBR_CNP_BIT;
+ 
+ 	replace_phys = (void *)__pa_symbol(idmap_cpu_replace_ttbr1);
+-
++	preempt_disable();
+ 	cpu_install_idmap();
+ 
+ 	/*
+@@ -2148,6 +2149,7 @@ void __cpu_replace_ttbr1(pgd_t *pgdp, bool cnp)
+ 	local_daif_restore(daif);
+ 
+ 	cpu_uninstall_idmap();
++	preempt_enable();
+ }
+ 
+ #ifdef CONFIG_ARCH_HAS_PKEYS
+-- 
+2.43.0
 
 
