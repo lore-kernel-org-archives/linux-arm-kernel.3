@@ -4,83 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9463CFD376
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 10:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19BDCCFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 11:04:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kaftIdo2uhNDCaG9uu7zjBXqmMAHeuUGIhOtZcbrTyE=; b=dTbWp5zUx2qVhLtwQymr8z44Yw
-	FWku72zOAu32qwaRC8KR3StiQcAKGxMHamIfESRGDvkZeryrrK2s8tnSSlXpMNYPsaWFGt3uUW7GP
-	Ty9nm5H3BoCaoVzk9OreeFpXFXt8/xlIayifw1Te/RpIZhyII8JCBJkGRySWi6dGo+DvmkluPzd1Z
-	y7aLvKduulxv4z9YTSBJq1+o+slkCxGK+Jdo8GfJ6RosEQs0uwXws7G0Zt4hf509wbX07cGln3TBh
-	0bR7hjMfMwKl9u8wIrcMZ6+TzsDftrr4elKASWkOq74H47Jq4VS/q95PyYmXim3S7J2NF8X+LzRfm
-	Dq0kEx5g==;
+	bh=5LgNM6Q7iy88HUI3l9HehvAGMJlgQwfWo+LouwfdJA8=; b=LCvOqk1yKr4CHwswufNqB2GoUF
+	Avxjr4SnZ0S/wAQOwx56jLlHyAWwfljKAeHP5a8t20oMSEtyB0Jn7XLvA37eeM8uilJBms8699xsL
+	pH5DX8JtpdBviV8EPqZaq8H8beN5kCrwhHDA92MwA9tGf5qb1SbReMqfKgclc47Xh5er2Pucrv7Np
+	yYyX30yqqAuVAyknOmtt0Du3UKu9NGgfvnHzSEnVIh641cpw31o9iBuRC45U4jeMP+P9/+kdotg/k
+	6l6h7C4ZLQW5Z4tsaMiAkGMPy4Ju77pbKmZi69wvKShiOwsUrRhwptPQqcWeDFMR9HsB4YY0kHL2w
+	CmDlwJ3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQO1r-00000005HsV-1dlH;
-	Tue, 02 Dec 2025 10:54:43 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQO1o-00000005Hrw-0qzg
+	id 1vQOB7-00000005IIe-1gC8;
+	Tue, 02 Dec 2025 11:04:17 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQOB4-00000005II2-3sTj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 10:54:41 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-5959d9a8eceso4921180e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 02:54:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1764672878; x=1765277678; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kaftIdo2uhNDCaG9uu7zjBXqmMAHeuUGIhOtZcbrTyE=;
-        b=GhHR42g7uXp03AgnkT6FIKKQtB6Bn4FLpHqf3iIuBUE6HQrY5eSnQVLFWuVSUCHYyA
-         EWH9N6pb08dfRVaCTjSUDJ0yup1IdZY5T7Yb+BVZi+KvQ8R7FBL3c+8A2+YZ90kNPB8g
-         q3tYOAxl6K6ujU83a5fjGmRk+L0wj5LMfCQMQ=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764672878; x=1765277678;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=kaftIdo2uhNDCaG9uu7zjBXqmMAHeuUGIhOtZcbrTyE=;
-        b=pBSYb0c+A7fJg/yqs0IQkgXO6Gt7cj8p3csx0HxdOnt7eP7g/vwu8DrsI01AxR5m6r
-         u0bp1aZsR12jfzI/3uTcJOaNuIjCD5ZlWKEbhX8WwrrJdQvRP5EAa40G7pVquwLwdW3q
-         3uSpQTlmm5nJK04i/GI37EMNcIyJSxqYmmtx83xoOfoAUGbRXJWYtW3vk9F09yGfYRuU
-         r6PDd/28TgJkSXyPTrr/0ReqU8C77F3Xfe0j5+rbr5xZngPBRfPpQAYqUC8paxya4/DJ
-         jVoJeBIhK9AvFq3aZvWOV0ju5XnPq3crrKvucjcMFRz+Vc+YS41C05J1XiAha/SiRN5K
-         E12w==
-X-Gm-Message-State: AOJu0YyO5yqnh8hrjd4VlCc5jsPHPOz+K1mgjFQFTju8wKQ4NInDMlPC
-	VUOt3FJ11kWkEaAybAR2x+avr9usH243bndArHTEOWt810wtuOsYp7urr1/lPPbV0RP1oJ4+4wv
-	WhtW0nCTwu2JqRXnc63oNRA0wcfLunIa/PnwxpQ/8
-X-Gm-Gg: ASbGncvOUUwmqXv4Sq9cpZwv/a5ZizWN8iULN9R++kUolwLN1qsl3VUfhNjdJKVhPgj
-	sALWatkuAl67OGo/jywwmQfw2mTbYvR9WSVO/G/qBdJ5ob/iN774M4WqA4R4bm4KvgkiVZNwKj8
-	7gT8GWjPgEwUaUuA/ers0cqGpdVvHep4xsryPOj7HrAEBeY0sYoC7lQBsz01VBEZfpnHjc5XFtL
-	IcU9Pzh3/lFuB9+toMjYjKFRmCcHZt3fc++qAP4A55Rll7NeZEw3qNzAqlZlXf9OIoBuG3gp/8V
-	Zi2SEAYM3RO0jGCcepl6cQ2UEQ==
-X-Google-Smtp-Source: AGHT+IGFk7FFpWTs8T9xGiYyzO70gqTta60RY+/ljHQkSpaK4XP5I2SrK+4xgqp0q1A6T39zUCYzxglfKVSmQFyobgk=
-X-Received: by 2002:a05:6512:ad0:b0:57e:4245:114e with SMTP id
- 2adb3069b0e04-596a3ec1554mr12563600e87.24.1764672878085; Tue, 02 Dec 2025
- 02:54:38 -0800 (PST)
+	Tue, 02 Dec 2025 11:04:16 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 963B5153B;
+	Tue,  2 Dec 2025 03:04:05 -0800 (PST)
+Received: from [10.1.30.224] (XHFQ2J9959.cambridge.arm.com [10.1.30.224])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 081833F59E;
+	Tue,  2 Dec 2025 03:04:10 -0800 (PST)
+Message-ID: <684115c9-4ca2-485e-94a4-706d075f3f6e@arm.com>
+Date: Tue, 2 Dec 2025 11:04:09 +0000
 MIME-Version: 1.0
-References: <20251119181333.991099-1-sjg@chromium.org> <20251119181333.991099-4-sjg@chromium.org>
-In-Reply-To: <20251119181333.991099-4-sjg@chromium.org>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Tue, 2 Dec 2025 18:54:27 +0800
-X-Gm-Features: AWmQ_bn4BLYyEIhexyQVEAKI0q1HybkXOCTMAS0KZlRym27d_EXwS1f9NAMy5cg
-Message-ID: <CAGXv+5GnpoNBLP29i1eWCxu7p-V3+_s70U6H0f5nF89md2=_Eg@mail.gmail.com>
-Subject: Re: [PATCH v6 3/8] scripts/make_fit: Move dtb processing into a function
-To: Simon Glass <sjg@chromium.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	=?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Tom Rini <trini@konsulko.com>, 
-	Ahmad Fatoum <a.fatoum@pengutronix.de>, =?UTF-8?B?SiAuIE5ldXNjaMOkZmVy?= <j.ne@posteo.net>, 
-	Nicolas Schier <nicolas@fjasle.eu>, Nicolas Schier <nsc@kernel.org>, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v1 2/2] randomize_kstack: Unify random source across
+ arches
+Content-Language: en-GB
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Ard Biesheuvel <ardb@kernel.org>, Kees Cook <kees@kernel.org>,
+ Ard Biesheuvel <ardb+git@google.com>, Will Deacon <will@kernel.org>,
+ Arnd Bergmann <arnd@arndb.de>, Jeremy Linton <jeremy.linton@arm.com>,
+ Catalin Marinas <Catalin.Marinas@arm.com>,
+ "Jason A . Donenfeld" <Jason@zx2c4.com>, linux-hardening@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251127105958.2427758-1-ryan.roberts@arm.com>
+ <20251127105958.2427758-3-ryan.roberts@arm.com>
+ <CAMj1kXFY1RXk8T4f46bkm_sr0nJfBoO+ii68JK4+CsRiDwKdCg@mail.gmail.com>
+ <9097505d-b18b-4f85-a02c-7f2865ad8bca@arm.com>
+ <CAMj1kXHX1W2Kz5NJehtzDhOCKWEd6y1sp8+ViOMHGsq9e8=7Pw@mail.gmail.com>
+ <aS6ylpLIyDZOvBDB@J2N7QTR9R3> <7da8d5cc-7b67-4f51-8f09-7ca401d06a3d@arm.com>
+ <aS63BeFzDCgkVsNy@J2N7QTR9R3>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <aS63BeFzDCgkVsNy@J2N7QTR9R3>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_025440_298186_3E33FEC4 
-X-CRM114-Status: GOOD (  21.25  )
+X-CRM114-CacheID: sfid-20251202_030415_087276_2DF61DB7 
+X-CRM114-Status: GOOD (  17.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,126 +75,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 20, 2025 at 2:14=E2=80=AFAM Simon Glass <sjg@chromium.org> wrot=
-e:
->
-> Since build_fit() is getting quite long, move the dtb processing into a
-> separate function.
->
-> Signed-off-by: Simon Glass <sjg@chromium.org>
-> Reviewed-by: Nicolas Schier <nsc@kernel.org>
-> ---
->
-> (no changes since v1)
->
->  scripts/make_fit.py | 67 +++++++++++++++++++++++++++++----------------
->  1 file changed, 44 insertions(+), 23 deletions(-)
->
-> diff --git a/scripts/make_fit.py b/scripts/make_fit.py
-> index 984371f505bc..1a74a9dcd85e 100755
-> --- a/scripts/make_fit.py
-> +++ b/scripts/make_fit.py
-> @@ -277,6 +277,47 @@ def process_dtb(fname, args):
->
->      return (model, compat, files)
->
-> +
-> +def _process_dtbs(args, fsw, entries, fdts):
-> +    """Process all DTB files and add them to the FIT
-> +
-> +    Args:
-> +        args: Program arguments
-> +        fsw: FIT writer object
-> +        entries: List to append entries to
-> +        fdts: Dictionary of processed DTBs
-> +
-> +    Returns:
-> +        tuple:
-> +            Number of files processed
-> +            Total size of files processed
-> +    """
-> +    seq =3D 0
-> +    size =3D 0
-> +    for fname in args.dtbs:
-> +        # Ignore non-DTB (*.dtb) files
-> +        if os.path.splitext(fname)[1] !=3D '.dtb':
-> +            continue
-> +
-> +        try:
-> +            (model, compat, files) =3D process_dtb(fname, args)
-> +        except Exception as e:
-> +            sys.stderr.write(f'Error processing {fname}:\n')
+On 02/12/2025 09:53, Mark Rutland wrote:
+> On Tue, Dec 02, 2025 at 09:39:40AM +0000, Ryan Roberts wrote:
+>> On 02/12/2025 09:35, Mark Rutland wrote:
+>>> On Tue, Dec 02, 2025 at 10:15:22AM +0100, Ard Biesheuvel wrote:
+>>>> On Mon, 1 Dec 2025 at 19:20, Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>>>> On 28/11/2025 11:01, Ard Biesheuvel wrote:
+>>>>>> On Thu, 27 Nov 2025 at 12:00, Ryan Roberts <ryan.roberts@arm.com> wrote:
+>>>>>>> diff --git a/include/linux/randomize_kstack.h b/include/linux/randomize_kstack.h
+>>>>>>> index 089b1432f7e6..83c7e6710f6d 100644
+>>>>>>> --- a/include/linux/randomize_kstack.h
+>>>>>>> +++ b/include/linux/randomize_kstack.h
+>>>>>>> @@ -6,6 +6,7 @@
+>>>>>>>  #include <linux/kernel.h>
+>>>>>>>  #include <linux/jump_label.h>
+>>>>>>>  #include <linux/percpu-defs.h>
+>>>>>>> +#include <linux/prandom.h>
+>>>>>>>
+>>>>>>>  DECLARE_STATIC_KEY_MAYBE(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,
+>>>>>>>                          randomize_kstack_offset);
+>>>>>>> @@ -45,9 +46,13 @@ DECLARE_STATIC_KEY_MAYBE(CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT,
+>>>>>>>  #define KSTACK_OFFSET_MAX(x)   ((x) & 0b1111111100)
+>>>>>>>  #endif
+>>>>>>>
+>>>>>>> +static __always_inline u32 get_update_kstack_offset(void)
+>>>>>>> +{
+>>>>>>> +       return prandom_u32_state(&current->kstack_rnd_state);
+>>>>>
+>>>>> I've got bot warnings because this is being called from noinstr code. I guess
+>>>>> the best option is to just move add_random_kstack_offset() to after
+>>>>> instrumentation is enabled for the affected arches.
+>>>>
+>>>> Just put instrumentation_begin()/instrumentation_end() around the call
+>>>> to prandom_u32_state() - that seems to be the common approach for
+>>>> punching holes into the 'noinstr' validation.
+>>>
+>>> That silences the warning, but isn't necessarily safe, so please DO NOT
+>>> do that blindly. The instrumentation_{begin,end}() annotations are only
+>>> supposed to be used when we know by construction that instrumentation is
+>>> safe.
+>>>
+>>> Generally, if you can move this to after instrumentation is already
+>>> enabled, that should be safe, and so that'd be the better approach.
+>>>
+>>> Ryan, can you share those warnings (e.g. link to those reports)?
+>>
+>> https://lore.kernel.org/oe-kbuild-all/202511302137.u4iIA2kf-lkp@intel.com/
+>> https://lore.kernel.org/oe-kbuild-all/202511302317.BGFIlAYX-lkp@intel.com/
+> 
+> Cool, so those are __do_fast_syscall_32() and do_syscall_64(), which I'd
+> expect (and those are legitimate warnings).
+> 
+> From a quick scan of v6.18, it looks like arm64, loongarch, powerpc, and
+> riscv perform all the necessary entry work before calling
+> add_random_kstack_offset(), and we'll need to change:
+> 
+> * s390's __do_syscall()
+> * x86's do_syscall_64()
+> * x86's do_int80_syscall_32()
+> * x86's __do_fast_syscall_32()
 
-`git diff --color-moved` revealed that this bit was changed from
-f"" to f'', which I think is a bit unexpected for pure code movement.
+Yup. I'll have a play with inline vs outline. If I go with outline, I'll fix
+these sites up.
 
-> +            raise e
-> +
-> +        for fn in files:
-> +            if fn not in fdts:
-> +                seq +=3D 1
-> +                size +=3D os.path.getsize(fn)
-> +                output_dtb(fsw, seq, fn, args.arch, args.compress)
-> +                fdts[fn] =3D seq
-> +
-> +        files_seq =3D [fdts[fn] for fn in files]
-> +        entries.append([model, compat, files_seq])
-> +
-> +    return seq, size
-> +
-> +
->  def build_fit(args):
->      """Build the FIT from the provided files and arguments
->
-> @@ -289,7 +330,6 @@ def build_fit(args):
->              int: Number of configurations generated
->              size: Total uncompressed size of data
->      """
-> -    seq =3D 0
->      size =3D 0
->      fsw =3D libfdt.FdtSw()
->      setup_fit(fsw, args.name)
-> @@ -310,34 +350,15 @@ def build_fit(args):
->          size +=3D len(data)
->          write_ramdisk(fsw, data, args)
->
-> -    for fname in args.dtbs:
-> -        # Ignore non-DTB (*.dtb) files
-> -        if os.path.splitext(fname)[1] !=3D '.dtb':
-> -            continue
-> -
-> -        try:
-> -            (model, compat, files) =3D process_dtb(fname, args)
-> -        except Exception as e:
-> -            sys.stderr.write(f"Error processing {fname}:\n")
-> -            raise e
-> -
-> -        for fn in files:
-> -            if fn not in fdts:
-> -                seq +=3D 1
-> -                size +=3D os.path.getsize(fn)
-> -                output_dtb(fsw, seq, fn, args.arch, args.compress)
-> -                fdts[fn] =3D seq
-> -
-> -        files_seq =3D [fdts[fn] for fn in files]
-> -
-> -        entries.append([model, compat, files_seq])
-> +    count, fdt_size =3D _process_dtbs(args, fsw, entries, fdts)
-> +    size +=3D fdt_size
->
->      finish_fit(fsw, entries, bool(args.ramdisk))
->
->      # Include the kernel itself in the returned file count
->      fdt =3D fsw.as_fdt()
->      fdt.pack()
-> -    return fdt.as_bytearray(), seq + 1 + bool(args.ramdisk), size
-> +    return fdt.as_bytearray(), count + 1 + bool(args.ramdisk), size
+> 
+> Mark.
 
-Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
-
->
->  def run_make_fit():
-> --
-> 2.43.0
->
 
