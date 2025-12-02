@@ -4,73 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C6CCFD376
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 06:52:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FA74CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 06:53:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cATUQiJc9npGbI4jT9r+I8H4PuqTS2f1GZLrT/FePi4=; b=SeFw+SXstBTZcOxBJC4LeQYDv1
-	CT8+VT8214ryabpS6fXOS376ohzTw3Ksgrhd3uprgPpK2YpgNyCpTMRF510j8yfOJ8pSki8OEIkX5
-	RJv8QHITfIQp8RRpSHgEiim2GO7Y5VNHse24j2E6rESQth7QiI650CYsZAzBP4dVNd/54nfzTqAXq
-	mBezjwwHsBU9RoOnVgF8VXJNqXQiIKpU7O3H97bPRQeEDt2ULyLvqCeCvkBLCTvGFqXb0+nrb14yb
-	/T3nsJqBnd29VXItjT0wOg8ukbB9UAsbzy8tdiMxcrVDUuzzbgOA6PcVvDS4hmMr2v8opGyMgGhuw
-	0evCz92Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CvFX6YbeEDDFiRlaBNCXxXgo8mxZEvj0XfakdTKDICU=; b=TW0CHNIm1Jkng0qprfbd76TgM/
+	Vu7763kibx3OcxEUnqipzclOqdoQ/+mz4JkZRLeseffov1OZ03iHaBNZkTpLVKRKoEPoen+R1D6JM
+	sw7fvCALzM75KFF3kUPrVtn49GkbSiVMBWNMskjR3t27IuF43hnzkfY8Z6Hxw96idOHSCUIOWlwTS
+	sYS3DF5xNkra0CQ3bNgiROnnNciTaJMvrpBiVBJnXIuUQU5GoOQJAswyJIEZA9A9WKtl7Yy0KxZAM
+	ugq/2hGN/ZStMU2pT3/TZaoCavJt622IhM78Chh3yh4OJRWX1nPJV8bOpOXhUT/yAk/eVflReanb2
+	Q0pZswqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQKF1-00000004vTc-35DC;
-	Tue, 02 Dec 2025 06:52:03 +0000
-Received: from canpmsgout06.his.huawei.com ([113.46.200.221])
+	id 1vQKGd-00000004viN-3MOX;
+	Tue, 02 Dec 2025 06:53:43 +0000
+Received: from mail-koreacentralazon11023081.outbound.protection.outlook.com ([40.107.44.81] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQKEw-00000004vSr-42vz
+	id 1vQKGa-00000004vhA-2EUV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 06:52:02 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=cATUQiJc9npGbI4jT9r+I8H4PuqTS2f1GZLrT/FePi4=;
-	b=ZwWuYbG5Q4xPmpss4QVApiJLmjWp+n8LiM6hKr9n7ChT+CJ5bPOvx3acW7pqU4MdJPlyNGvOE
-	RAaXTbV5rP9YfYneFFiGuebJEYbII+gELeXeBLd/+g18aQDBLsWWn1iQq1/0slm4c3ka2XzXU+g
-	BKMoenxgpkm/nrnPz5JyzAM=
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4dLBGS2cKRzRhVh;
-	Tue,  2 Dec 2025 14:49:52 +0800 (CST)
-Received: from kwepemr100010.china.huawei.com (unknown [7.202.195.125])
-	by mail.maildlp.com (Postfix) with ESMTPS id 080F3180BCE;
-	Tue,  2 Dec 2025 14:51:44 +0800 (CST)
-Received: from [10.67.120.103] (10.67.120.103) by
- kwepemr100010.china.huawei.com (7.202.195.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.36; Tue, 2 Dec 2025 14:51:43 +0800
-Message-ID: <3b41d540-37d1-4b92-91a3-f4094f7ad792@huawei.com>
-Date: Tue, 2 Dec 2025 14:51:42 +0800
+	Tue, 02 Dec 2025 06:53:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BI8YR3JE0q7aOvKIOcEIpoQDpbI7d3UqIbl4xTH5QtBsy5c2I99Cr5KI6JWC7G/OKL/ok+pMSTm+oR8viBhQ5XhH6YzBts3dCXK6hQplnO/uxIfcvQlBc89dvr1CkmolQLvrhgDu1V59jg6vJhe3qaMc+QsdF/2x7TYBRQCRhSCbeOMQKP+zr6BchwgSFNaS7KeTp6b2IDmQlX2kWay/Kxi5Mn9BgATw78RQfwaVgD0sBQl22X2y1vwCRVZVtPZcJrD4sS4rg6X5eu2Mhy1GC30VLBHPTKQ75nbkNwotQFWpReoD4mMfbg3s0JcWQpNM3J9idgg7Nz49x+7Ticsj0A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CvFX6YbeEDDFiRlaBNCXxXgo8mxZEvj0XfakdTKDICU=;
+ b=LArqmupIPTCMVgcLgF9GdLYtMDCVl1Nq+vlr6YQTVUQtiR1W55+OVf5en0gEjgp2muaOvCxrPDw1WikqgpyFfH78Yk/wwGb+2FroGVif2BltycL7APN4pnzjeBeimLZgDbIup+GPbE9SVLK1ZEBnfGyKTyxjsOBxK4BdiaM4Et+LGO5VwVjfssZ5vjmmXY1JR7Pt2OpDHF9xDZspzf04e3+b+8kBDrjlETH//X6QSoWtdoUtvDafLWAzxCXLHxZ69ADtJEGMSSMabfrGQ5QA+MeOC3bXagmJO+0+1Tlk+JALyNrH4yARAcFlxGs7WXbaKKWPdqVlZZL/RJb2/I0wUw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CvFX6YbeEDDFiRlaBNCXxXgo8mxZEvj0XfakdTKDICU=;
+ b=kKeXA9P3vP5CR6B2QbZ8cio7RHv/+KXbRj1NL8k6xetzFBKnIRsf4V2gNed+mqHhnNNhBhzVkBi0K300arNe4m464Xep2BoeRPPXAjxSx1qY3oyjUPaL4BCWuFGTyKkdA0dFkdCZBzj48rKUk1cKnNDgHs8HMDMlNXu/SvL2Med5hOo2nenmxD6qBmrnw0qCY6c09Qr+mYnwIUY8f8PZs0zKBOcauY7eT/cwtenqPzaVTNEn/twtrM7oSx1k/BfuTenJXGph1GSCiICaMUs729BWl2poWW545ShjdMZ6NdUYRWRM6HIeHfSdcb0Cj/dqiiQvjU2IukX7scHsJSev+A==
+Received: from SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12)
+ by KL1PR06MB6276.apcprd06.prod.outlook.com (2603:1096:820:e1::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Tue, 2 Dec
+ 2025 06:53:22 +0000
+Received: from SEYPR06MB5134.apcprd06.prod.outlook.com
+ ([fe80::6b58:6014:be6e:2f28]) by SEYPR06MB5134.apcprd06.prod.outlook.com
+ ([fe80::6b58:6014:be6e:2f28%6]) with mapi id 15.20.9366.012; Tue, 2 Dec 2025
+ 06:53:22 +0000
+From: Jacky Chou <jacky_chou@aspeedtech.com>
+To: Jacky Chou <jacky_chou@aspeedtech.com>, Tao Ren <rentao.bupt@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, Po-Yu Chuang <ratbert@faraday-tech.com>, Joel Stanley
+	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "taoren@meta.com" <taoren@meta.com>
+Subject: [PATCH net-next v4 4/4] net: ftgmac100: Add RGMII delay support for
+ AST2600
+Thread-Topic: [PATCH net-next v4 4/4] net: ftgmac100: Add RGMII delay support
+ for AST2600
+Thread-Index: AQHcUjKRp/5wUPPeG0Wo2Pz9fS4A+7TsCtCAgAJeVpCAAKBqgIABWbLAgAPq3QCADnQYkIABZcyAgACY8gCAAYfhoIAHwL3A
+Date: Tue, 2 Dec 2025 06:53:21 +0000
+Message-ID: <SEYPR06MB5134A5D1603F39E6025629A19DD8A@SEYPR06MB5134.apcprd06.prod.outlook.com>
+References: <20251110-rgmii_delay_2600-v4-0-5cad32c766f7@aspeedtech.com>
+ <20251110-rgmii_delay_2600-v4-4-5cad32c766f7@aspeedtech.com>
+ <68f10ee1-d4c8-4498-88b0-90c26d606466@lunn.ch>
+ <SEYPR06MB5134EBA2235B3D4BE39B19359DCCA@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <3af52caa-88a7-4b88-bd92-fd47421cc81a@lunn.ch>
+ <SEYPR06MB51342977EC2246163D14BDC19DCDA@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <041e23a2-67e6-4ebb-aee5-14400491f99c@lunn.ch>
+ <SEYPR06MB5134BC17E80DB66DD385024D9DD1A@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <1c2ace4e-f3bb-4efa-a621-53c3711f46cb@lunn.ch> <aSbA8i5S36GeryXc@fedora>
+ <SEYPR06MB513424DDB2D32ADB9C30B5119DDFA@SEYPR06MB5134.apcprd06.prod.outlook.com>
+In-Reply-To: <SEYPR06MB513424DDB2D32ADB9C30B5119DDFA@SEYPR06MB5134.apcprd06.prod.outlook.com>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SEYPR06MB5134:EE_|KL1PR06MB6276:EE_
+x-ms-office365-filtering-correlation-id: 78ff7197-e3fa-4921-615a-08de316f7bba
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?HI3hvD8JPlTD/ymTCaRm43/PFkoSzsSJr6oNKlM+elhsSRgzjAeQ9EItNfvo?=
+ =?us-ascii?Q?rUvlUGr+a2cqYQPhF789JyGIGTSQqpDFfvWKlJs1PgOOpN3fkQUJvHHqwJVu?=
+ =?us-ascii?Q?ZZ0hFZBRqCnCiUEGAkQLJc251mgkt7QLXB8yd2kth9psntTa55vJEBi+TvMj?=
+ =?us-ascii?Q?SzX86H+ZOZdIuqJGotZWyUBJ2NWnsPqeY8dojVrGoc4QRsDBgEPsXj2fbN7N?=
+ =?us-ascii?Q?rAkgjUnS7viQNwmyuOCv+uGxClTRYoeKAUfRoouA1z4vodj+vEbvVw9MRgMx?=
+ =?us-ascii?Q?s3SrXRFYpkkkXFP9hPBm6buVbzj7joDOzAZ0w2EIxjwVQmsX4Va8DMORCEra?=
+ =?us-ascii?Q?g+5HPnNVXXybySM0957VpcYsXR1njjpkCd9wK1bLxHa3yXgYwpXEip722ng8?=
+ =?us-ascii?Q?gve9lXi93YPd/n6LiYGNk+zWxlNrdRC4iHgPVVdsFZnNVhg4nyX4lsi9NLTv?=
+ =?us-ascii?Q?1Lzzy4X8HaQOEZnXLKYOI7KcxHAgb/PBnohQbmhYW8RReI4FY9IrqlmeJk/A?=
+ =?us-ascii?Q?W6GU6PJmMdX/X3f6DmtSyA1kces71o+YFPdhB0dHkU4wxkAQzKr/xrA9uvG5?=
+ =?us-ascii?Q?HKAX1EcE3Bw6rFNR6cqQyA16nZYDwLNUe6D1MP3gSHYT3aLWDS36556BdYKu?=
+ =?us-ascii?Q?idX7Adapdrm5A21M8/iGY1MmKmJoutotpUCWoBHVyjNZ02KuHdZc9Ed0BLyf?=
+ =?us-ascii?Q?nycGBXkbrKP6xBQEwAbh4jCqQ72kmTsAdwFwUy9u66V7P+SJZXsHp5/zgrRf?=
+ =?us-ascii?Q?j+fRKmEm4ZwY9vQcY+FVzHs8KJwX0cTEeZaMw+JZaClipKMeJyq3lddppYvw?=
+ =?us-ascii?Q?8ieskp9AJPLh1ntTF9mMhYReWOi0lwvCOGSeZybgk6B/vEdt2x5PoDEgOKbi?=
+ =?us-ascii?Q?aona6VLICJNA25unndRdXjXd1HQGSRX3S8gMfN4KtGPKMkdKNizc+fZ7nzaU?=
+ =?us-ascii?Q?rcX/7M3BNczENjhe6h14HFYCufBb8hNGfyJf8cMEg8F7NW/Rbe8wlXToYu1Z?=
+ =?us-ascii?Q?s1QRBMJaG4R0zF7KMfLjXngB2PNHjA7Pw4BqZD47LKe3R4Uold9y0blcTWVj?=
+ =?us-ascii?Q?3BMbCzt5lt1ok+zCPV5UVn8CxgoyNcIzNhLezpWAnZGrdzKq1YrVkDL1x/Fl?=
+ =?us-ascii?Q?yzKpHM3BC0gIRvbk+uu371nE8LrAAdsqZUSMCT2y+8Um2kKkgU+5/HBSYlsW?=
+ =?us-ascii?Q?OM8q9XVcy2PHtMlGu9jUpy5Zim4AJ7WCMgjhpOgGP+pYVaU137pwKSgrQuBb?=
+ =?us-ascii?Q?yyLdGKS1uZS1Bbo7pbtR9HV8RgEXDaV61F3vSdXgy+T8Zk4GrtCFReSXO11U?=
+ =?us-ascii?Q?Q+HI0S5m5BpbWlXqeMgMU+DsmBHKAPnlfS27dIZtJOsiJBwm0uAm5lKzFmZ6?=
+ =?us-ascii?Q?EB6ZRn6+vO1lNMuVoOY8f+ajoCl6nm3t08XXcFp4YlLfIv0QgamGl7zpSiTY?=
+ =?us-ascii?Q?jAeh6avOMJ29yyyjvjD0eIjNenhPWO8mRqFfUMwh1j6dgXDZbvy0WQuskJJA?=
+ =?us-ascii?Q?0cLSqnrLBoKa9jcFJaf5WcnQ+HOnN4Donp+s?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB5134.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?bOxmoO6rmFqjZwhs4HT9hM5mxvZnec1F0JJLD+tmp36dO0KW6M1NbfD5uTLN?=
+ =?us-ascii?Q?Ud8MGOrmqTzu8/01QZPSZCN9q2Ry33sg0hmwldzEt2xoIE+Vhw8oaxsPMclP?=
+ =?us-ascii?Q?W1/4chmD3RKyNd5+6sX4wD9q8Oh/hMDFXOqWZD7ih9coXqzhDliufPlQ400S?=
+ =?us-ascii?Q?pG7HV96cQgKT3fXjdhrgmYCy7fX/4xi0Mvo7pgAd5l8HHTNMNlkX4FZ/9iec?=
+ =?us-ascii?Q?T9PGvwsrCNl1+6mchxdpDC3fGXFElxzFeLj4TPnSJJFylIdtIQt3O4KIQuq+?=
+ =?us-ascii?Q?FKNaeptZGrfY9HYRcb2y23pparNTGQNsPLVUddDozVVJfmNeCvDbIkyDRdwO?=
+ =?us-ascii?Q?rdpu9YXkLLbmXyx/9zp+fA6TSbPRNbvqockag7gFlpJajnMNATOWdhFu+lNg?=
+ =?us-ascii?Q?KZJKhkRuySM7Z71FqsHtHdJezHJbwcmxg3LvcmLtNzWMND3UOEbwiELpAtsO?=
+ =?us-ascii?Q?87Y9aOplxhs3QzEhl4q9ryRMXQZ9zTsGFfFhPndjkZWY/AKc4K1Szamx/geu?=
+ =?us-ascii?Q?RiW7V+uEqXuH5S0tNGdyUy8kcmTkAeoLUoWDerf0/Y+1zEDSZ5wkkrtdO/AQ?=
+ =?us-ascii?Q?f986sIU3DJXsFA8+KW2R8OY1AKIDIdbEafi0VlvFiqVv2tF1tUcKJrmDekXj?=
+ =?us-ascii?Q?GGvbW3HnepQ5+vrMZoDYiAsJFfC7MByKQOtShhflHrpXcXsHmwK4Xkxylo3e?=
+ =?us-ascii?Q?C40YV1CzBsYXKyougm6d3lyeuZdqvHmrOh7WCXCQoBoFvGl+CbBr3Apb/1ER?=
+ =?us-ascii?Q?woe9ITtk4C7GUtrgLIEa5uD0J3Ri6gHzMRTS3bVRPCFVrsRwSV/dC3oLei9H?=
+ =?us-ascii?Q?Sr4tQELa379A7AUy+w3WOzviZhX1+pYwDW6MOU21FMxeKMPV4XUUjbKxTwaA?=
+ =?us-ascii?Q?tNF+NMfD6rZXQG0UhedNiy9fNmYkCEfuFq5fjtoyuAxAxga1aJW3OqekkQOR?=
+ =?us-ascii?Q?KprmcTr+FOB6iJCKMQNsGGU03UOM7BemYL2/K5FiccwYS+f3UcGkpDZ/VC51?=
+ =?us-ascii?Q?VMTwxA6jzHuSi6X2hMSqVkID1awDjVL/yTKms0erDXfyliL8F6p/kQu8uJax?=
+ =?us-ascii?Q?kfJYS5pdBLwlD537XOptehYZluFULiXJ4g6bpytMbQD/+RKM0j7+tttp0J62?=
+ =?us-ascii?Q?Mwjq77XvJyTl8glzLOUfws2fK4yBKpewgwfjlxs+QzLTCbzTW8gQuUHQ5DJe?=
+ =?us-ascii?Q?vjk6l9w6NJ4vir4pDc9A6QUYO3hZp2iUT/oDMWl0NoxOsS/vJeHizywMQUgt?=
+ =?us-ascii?Q?vHXqd6kla36jzduoYVKFU4H1cUdcVjnHsqu704HhIfa4jwpO20TA4znc26Dg?=
+ =?us-ascii?Q?PQ0pdsf/5Cs7SHJMv1o7ZGwWsK8+k11ibceWsYhQ3P0BtiRAqXUzbGRtK0BM?=
+ =?us-ascii?Q?y9gFKbuzO1aVIyfdBf41pWwYjh+7gKFeqVjHBTltUhPSuBK726Dsf0q0zU/x?=
+ =?us-ascii?Q?vjfCCjvlZr/ZWqNM5fzJjyCIA9ddbH10K7qkjD51tPbWhgOtzR/QuJJip8mJ?=
+ =?us-ascii?Q?Fszyid2JJ526daOFjwjQLeQ6j9yAdvn932rgLvqnqQU7AyNaoXVkxUYTSnnh?=
+ =?us-ascii?Q?PDq9lO+huTpjrq/biF1fihg659tKlw0O21YD2eYR?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/5] arm64/sysreg: Add HDBSS related register
- information
-To: Marc Zyngier <maz@kernel.org>, Tian Zheng <zhengtian10@huawei.com>
-CC: <oliver.upton@linux.dev>, <catalin.marinas@arm.com>, <corbet@lwn.net>,
-	<pbonzini@redhat.com>, <will@kernel.org>, <linux-kernel@vger.kernel.org>,
-	<yuzenghui@huawei.com>, <wangzhou1@hisilicon.com>, <yezhenyu2@huawei.com>,
-	<xiexiangyou@huawei.com>, <zhengchuan@huawei.com>, <joey.gouly@arm.com>,
-	<kvmarm@lists.linux.dev>, <kvm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<suzuki.poulose@arm.com>
-References: <20251121092342.3393318-1-zhengtian10@huawei.com>
- <20251121092342.3393318-2-zhengtian10@huawei.com>
- <86wm3iqlz8.wl-maz@kernel.org>
-From: Tian Zheng <zhengtian10@huawei.com>
-In-Reply-To: <86wm3iqlz8.wl-maz@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.120.103]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemr100010.china.huawei.com (7.202.195.125)
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB5134.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 78ff7197-e3fa-4921-615a-08de316f7bba
+X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Dec 2025 06:53:21.9905
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: oqfOVe+yq43C2LhODRLjiNmz48NH0UyNYoGND861f2587Olzho7wmupQWhHAab+v2DhMsM4sHk2kIIjEriNs4G+EWZwji8OpzOmEzFO2atw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR06MB6276
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_225159_668245_F4BF4176 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20251201_225340_892714_ED00780D 
+X-CRM114-Status: GOOD (  21.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,61 +182,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> > > How many different boards do you have you can test with? Do you only
+> > > have access to RDKs? Or do you have a test farm of customer boards
+> > > for regression testing. I would throw the patchset at as many boards
+> > > as you can to make sure there are no regressions.
+> >
+> > I synced with Jacky offline a few times, and I'm happy to test the
+> > patches on my Facebook Network OpenBMC platforms.
+> >
+> > Hi Jacky,
+> >
+> > Looking forward to your v5, and please don't hesitate to ping me
+> > offline if you need more info about my test hardware.
+> >
+> >
+>=20
+> Hi Andrew,
+>=20
+> Thank you for your suggestions and feedback.
+> I will update the patches based on our discussion in the next version.
+>=20
+> Hi Tao,
+>=20
+> Thank you for your support.
+> Once I have version 5 ready, I will reach out to you. I appreciate your h=
+elp in
+> verifying the patches on your hardware.
+>=20
 
+Hi Andrew,
 
-在 2025/11/22 20:40, Marc Zyngier 写道:
-> On Fri, 21 Nov 2025 09:23:38 +0000,
-> Tian Zheng <zhengtian10@huawei.com> wrote:
->>
->> From: eillon <yezhenyu2@huawei.com>
->>
->> The ARM architecture added the HDBSS feature and descriptions of
->> related registers (HDBSSBR/HDBSSPROD) in the DDI0601(ID121123) version,
->> add them to Linux.
->>
->> Signed-off-by: eillon <yezhenyu2@huawei.com>
->> Signed-off-by: Tian Zheng <zhengtian10@huawei.com>
->> ---
->>   arch/arm64/include/asm/esr.h     |  2 ++
->>   arch/arm64/include/asm/kvm_arm.h |  1 +
->>   arch/arm64/tools/sysreg          | 28 ++++++++++++++++++++++++++++
->>   3 files changed, 31 insertions(+)
->>
->> diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
->> index e1deed824464..a6f3cf0b9b86 100644
->> --- a/arch/arm64/include/asm/esr.h
->> +++ b/arch/arm64/include/asm/esr.h
->> @@ -159,6 +159,8 @@
->>   #define ESR_ELx_CM 		(UL(1) << ESR_ELx_CM_SHIFT)
->>
->>   /* ISS2 field definitions for Data Aborts */
->> +#define ESR_ELx_HDBSSF_SHIFT	(11)
->> +#define ESR_ELx_HDBSSF		(UL(1) << ESR_ELx_HDBSSF_SHIFT)
->>   #define ESR_ELx_TnD_SHIFT	(10)
->>   #define ESR_ELx_TnD 		(UL(1) << ESR_ELx_TnD_SHIFT)
->>   #define ESR_ELx_TagAccess_SHIFT	(9)
->> diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
->> index 1da290aeedce..b71122680a03 100644
->> --- a/arch/arm64/include/asm/kvm_arm.h
->> +++ b/arch/arm64/include/asm/kvm_arm.h
->> @@ -124,6 +124,7 @@
->>   			 TCR_EL2_ORGN0_MASK | TCR_EL2_IRGN0_MASK)
->>
->>   /* VTCR_EL2 Registers bits */
->> +#define VTCR_EL2_HDBSS		(1UL << 45)
-> 
-> I think it is time to convert VTCR_EL2 to the sysreg infrastructure
-> instead of adding extra bits here.
-> 
+I miss one condition is using fixed-link property.
+In ftgmac100, there are RGMII, NC-SI and fixed-link property.
+On RGMII, we have solution on dedicated PHY, but there is an issue on fixed=
+-link
+property.
 
-Hello Marc, I noticed you added VTCR_EL2 to the sysreg infrastructure in 
-this patch:
+Example on dedicated PHY.
+The driver can pass the "rgmii-id" to tell PHY driver to enable the interna=
+l delay on
+PHY side. Therefore, we can force to disable RGMII delay on MAC side.
+But there is not any driver when using fixed-link property, which means
+no body can tell the outside device, like switch or MAC-to-MAC, to enable t=
+he internal
+delay on them. Also mean the phy-mode in fixed-link case is not used.
 
-https://lore.kernel.org/linux-arm-kernel/20251129144525.2609207-3-maz@kernel.org/
+Therefore, could we ignore the RGMII delay on MAC side when the ftgmac100 d=
+river gets
+the fixed-link property? Just keep the original delay value?
 
-Once this patch is merged upstream, I will remove my local definition.
-
-> 	M.
-> 
+Thanks,
+Jacky
 
 
