@@ -4,97 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EA7AD116F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 13:59:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D17F2CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 14:13:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DNSMC7M9xl88C1slHGyNkETiEDgHYTw4VftIhWKCaB8=; b=ARewmliVm0l8wWANXS1ns53Hgf
-	KVrScxsfCeViJ2E/qz1SDHNHUuyaomRuTsUv1x1LOS6J8d5DgVlwiHkdptzUwjdnsOD6sm5ieYRJ/
-	keyDBaCbWRCJdYH/zKXINuCKPdIkgTIyveRYcWzwSIuJMOpO/HdzQujq2tkPCeAKF5rauOG/nXjaY
-	Yw8wyClrpUb9uYIMF4MVn5YUhhX8qsC3Xg5Sp+S2z1AevD4g8Lh3EI8Xb4Yu7qhYm5NeLEuNlx4fm
-	hsEczd4z//YO3X3wIwnWRsb4UdtuxdTCpm53CMG7OIKm2H+olbZQMNsYxh8RDaFnL68PxHUXpfcpi
-	Dz0XGDSA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P35uIC8+DPfTCMfHgmdtX7Glr2h/6n9nJWKZMAhyHf0=; b=mC5SIIBBai5/HETlUxj5AuGkvM
+	G6UOt/wpck4GVKNatnP50jLMa+xp9cc3Gj8qttm9Q//HQODSRBwfZO9bA/bPA6HkH5Gmqf8XMAzf2
+	o8r7v1PlhKTcPkjX7rXPNmz85In6qER70MZJ92jXnIZrKmEcxok1x5J1M3OfpuA8hrLcdlYjN+gAR
+	r4+z22zJu5u5+MWXudKyIXcrmaMqiT+Z6z+x9mL6L5bK3VhoMDlq9bbafeKTDdmaprLZmHuspKhNV
+	2uzqPXd1WitXo6gJIr9+UakPsZSYOy1S/5TirupJzX61xPLK7FJXewhzKSLkpMGDohvuXQets+Byj
+	mdnvkWTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQQuU-00000005TcI-1cfp;
-	Tue, 02 Dec 2025 13:59:18 +0000
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
+	id 1vQR7l-00000005UL8-2tP1;
+	Tue, 02 Dec 2025 14:13:01 +0000
+Received: from mail-ot1-f42.google.com ([209.85.210.42])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQQuR-00000005TbW-32Qj
+	id 1vQR7i-00000005UKc-2cdZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 13:59:16 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-37bba981c5cso3793701fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 05:59:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764683953; x=1765288753; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DNSMC7M9xl88C1slHGyNkETiEDgHYTw4VftIhWKCaB8=;
-        b=Ezu2LHejVVZQxLhcM3xpy2sjeu3faiSEZDU+JuDHMyGT4smDZdcfpJQU4DFrGL+43t
-         ftxmrw1wvFJwSfoYIMG2uipSTm0V28tLA4dZKUdezckUIJy0dphknhqzXYGRLoKK7vnb
-         uqksJg+vAz/JRR5VUpb3ZkAlDzQtlKpmoExcTgvNp80IZ8iiK8MvR0yJomnIAm3f3keR
-         bxnwQ/vjCjIxrgp3M7MTqD63Yw0E0c4C5qyOCJV2VOVl6Kyb0zZxEiW6I6jHTV0KoRJH
-         Od93anC6stOUU78Gcpqvup0AxSFZ7V5jVaZBfOux0tG3KHTOkQTBIojmKywDAKXqrUXM
-         Q0nA==
+	Tue, 02 Dec 2025 14:12:59 +0000
+Received: by mail-ot1-f42.google.com with SMTP id 46e09a7af769-7c701097a75so2617498a34.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 06:12:58 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764683953; x=1765288753;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
-         :user-agent:mime-version:date:message-id:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=DNSMC7M9xl88C1slHGyNkETiEDgHYTw4VftIhWKCaB8=;
-        b=Hjs5lg3URldrnsfQglmPCbx7BrMNukOPxLUhKDpBBo4VQyi1Lmd4yy/Ju5eFfIVIss
-         OG8ewKvlV/mK7MMeSDSa0JaxfVSf8I1vejX22BrJ55gQFDkXOfDbowNNARlXvCgkW6Ry
-         3mYImClpmFrah8fj4mljK++BFqZfltP2+/ofo+Q6+uKXFPffrlpxFk0rUcpDDuJXRAFB
-         cWPjh5V5ok+7LIMdMfJL1j4bS1PTx5rO1xXFU3y4t1Zq3P/q/4ssLxuR2M42BuvDzVVw
-         fwvJrEW/rrS7SWvVoNXCeZcapaQPpD5nsyLNXKT/In9FnIhN7KIOmG3s2XTjx+5rhl/T
-         3SdA==
-X-Gm-Message-State: AOJu0YzgF1LrcvVrlmBJiK2vh58vMfDkj9n8GTiPBdppsU4/n6LwGaG3
-	riKEhEyUfbnPJn//yDF2h6GOd3Vx9sJNDCzLSbmvlOBeZxNjytXKPHrtIB/mf1IvcPQ=
-X-Gm-Gg: ASbGncsBVndiaHnYL4gnJjOMOYu3DkQX3hR6N8YZXo6bScRbqv25Jq1x4gpkmiCdJTl
-	2v4u7dQN9ULD30B71KG7KAqGJu5fySdYwyuU2tvmABjWtmR4j3IdvfMXKemsKlMDv3tfUxQCMep
-	c3V7DFxoX6uf/hykU9qagBb5fkUYb7Jn0iF2/sovmp+n7b68zoy+BNVPLMGq5jrazYqEev/Apnx
-	OBDyTEZmFBnRI+d7Wwds3nBelMrCmsO7PgWEqsFFRUR1Il1PpQHEcUvw+Y/wW1wOX62FmhEDUG4
-	0QJegoirp7/h/6iPYKbsFY+J3CtpdL1rjdVEhVQ/EKFOMYzRlMXt8k+3kp6yhD7MV/nJsVef7ML
-	EIgoUItadNnkI8MIHJk88n4YTAcV50LvONCu+YoHYOe2umTKgsdMZoye1YywJfR/k/CwYkj50gT
-	fS18IZBzQFXkt5cDFMbAAUVMnatRw7+WEp1+gMu8GmN+S0xI+2NqQKnOik0ieOA5tFvQ==
-X-Google-Smtp-Source: AGHT+IFD4ygiTUwpVetjY+YcyYspKUcJU2+mn6x1QGz+FyWnrBex+TX+bFnUsxdCU1JKBbVgW8WtTQ==
-X-Received: by 2002:a05:651c:221f:b0:378:f0d6:8fb1 with SMTP id 38308e7fff4ca-37cdc416570mr63309411fa.5.1764683953036;
-        Tue, 02 Dec 2025 05:59:13 -0800 (PST)
-Received: from [192.168.1.100] (91-159-24-186.elisa-laajakaista.fi. [91.159.24.186])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-37d2412a091sm38320371fa.50.2025.12.02.05.59.11
+        d=1e100.net; s=20230601; t=1764684777; x=1765289577;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=P35uIC8+DPfTCMfHgmdtX7Glr2h/6n9nJWKZMAhyHf0=;
+        b=vFN+dhrZRCW8sSCkh+XI8E2w326mtW81mniTJ/ZADV0YeWYDL9ReynNo7alZV3Rkdi
+         NLrna8bl9GCHNEokBIPxtCwxx6AFVDTfWG9xSNxm5zxcEjLjdu2xn3p9Rf7OEgiNVebN
+         CDf94zzxC8p6PdqBxYSN5gCh6zfYECepUZ6P/XMUArn8A/++bISzcfaxHFq3dydHsbRj
+         8MNbFg69JzocTA+hTKnCv8T2oQjBsrrPW5nVnTtTH4h2/i/75D9mE1XgmVCWlWS0oD/k
+         90uE5GVCLDD4sXIYWA+D3WjJKN/ScNqlRo1uOt2ESwaWe/VrCFBSnCFoImqudB23TbYc
+         A8Pg==
+X-Forwarded-Encrypted: i=1; AJvYcCXO1fkZ2MfPoQIBuZcwTBEQVRfOgziqurcA7mS9OX2CR79pWa4D/qd3R6nNLATDyJHEPzgkSxKwPErGg4GFe1Qr@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXF2Ajih2ubyugkUV6vC4u/SqQDdTRVceTma0wjrrcTn/Yw8dm
+	ouDw6k1ErZS/NddBV116vkcqx6bLmx2/iCKUufBYBNDoKS1wAslSboWDmriILZqp
+X-Gm-Gg: ASbGncvUfppEbZd5t5M2k8LXAClSGOp2CjCLEt5aa90bkKpzkseEeIPDNvXDfwsBw0T
+	/p+Y/lqAGMFP0R7f7NUV436yRbgAC+EFbvcSQ0NyTXlx74gh2MCal6R5WVSazgN9130DfC28235
+	6xtyAFTOVoXgyCF2ycf1HulbZNlCGGJb8yK5hs2EmkFaFvRLpRCS1APIYP75iUoEDBDoNI8j/5f
+	Do30gVqfG4tlK2RXkKKEXt/227pzNiPihEhPBt5i9oddNVj7TSwUGhoGQDy4yTQ5F+k6Ow31vPn
+	vM4y9uLoc8A9r33fRBFdejAAafPQZTkO4gj2JX8ZLXkKHXYz++wvExq0syX2mSWpJFOQq5IlIaS
+	DSh/sINkM+cUhIICdgpqEskD1yxgvwNSMBYwOxBWA0+wypCqjU2YyR7VaVyde3t5gbUd5oSblln
+	OS7U7aA05KZIclQ8jttfi1LXqD+thQtG3I8fgHjiIj3vmYm6ks
+X-Google-Smtp-Source: AGHT+IEDGPS63DJH3+4VdyCuZBhWoZoKZQEy2Xfncm1g0hBkXs0eoPBh4OLqc2ZVH6LPxUPQa1FPfw==
+X-Received: by 2002:a05:6830:b8b:b0:7c7:82b9:471a with SMTP id 46e09a7af769-7c798d632eamr23828103a34.37.1764684776816;
+        Tue, 02 Dec 2025 06:12:56 -0800 (PST)
+Received: from mail-ot1-f52.google.com (mail-ot1-f52.google.com. [209.85.210.52])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-7c910025e06sm6573909a34.28.2025.12.02.06.12.55
+        for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 02 Dec 2025 05:59:12 -0800 (PST)
-Message-ID: <8ff6ab79-a3d3-48e3-9340-8b91a9ce1b27@linaro.org>
-Date: Tue, 2 Dec 2025 15:59:03 +0200
+        Tue, 02 Dec 2025 06:12:55 -0800 (PST)
+Received: by mail-ot1-f52.google.com with SMTP id 46e09a7af769-7c6d1ebb0c4so3539109a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 06:12:55 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUqFm+rTtaeKunur7JAH/iRR8znlEggOHm9VYL6POBwJ2b7ocjkvTn3a46n9uM8b1xr+B5Vm0o0YovO4s6TF0/B@lists.infradead.org
+X-Received: by 2002:a53:dd48:0:b0:63e:17d8:d977 with SMTP id
+ 956f58d0204a3-64302abbb9cmr22209916d50.41.1764684434875; Tue, 02 Dec 2025
+ 06:07:14 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/3] arm64: dts: qcom: qcs8300: Add CCI definitions
-To: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
- todor.too@gmail.com, bryan.odonoghue@linaro.org, mchehab@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- andersson@kernel.org, konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
- cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, nihalkum@qti.qualcomm.com,
- linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Ravi Shankar <quic_rshankar@quicinc.com>,
- Vishal Verma <quic_vishverm@quicinc.com>,
- Suresh Vankadara <quic_svankada@quicinc.com>,
- Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-References: <20251126081057.4191122-1-quic_vikramsa@quicinc.com>
- <20251126081057.4191122-3-quic_vikramsa@quicinc.com>
-From: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-In-Reply-To: <20251126081057.4191122-3-quic_vikramsa@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20251112-b4-of-match-matchine-data-v2-0-d46b72003fd6@linaro.org> <20251112-b4-of-match-matchine-data-v2-1-d46b72003fd6@linaro.org>
+In-Reply-To: <20251112-b4-of-match-matchine-data-v2-1-d46b72003fd6@linaro.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 2 Dec 2025 15:07:03 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVAZpp7M+pp27+kHZwoet2Q8Rm-Y4ePu7=W_1oXhebLmQ@mail.gmail.com>
+X-Gm-Features: AWmQ_bnQtK_C28o8ts-DX6QMHSfgR5FWBqGmuyp3cjxdu41cx4XkoPs5W_lQhYE
+Message-ID: <CAMuHMdVAZpp7M+pp27+kHZwoet2Q8Rm-Y4ePu7=W_1oXhebLmQ@mail.gmail.com>
+Subject: Re: [PATCH v2 01/11] of: Add wrappers to match root node with OF
+ device ID tables
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Viresh Kumar <viresh.kumar@linaro.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Yangtao Li <tiny.windzz@gmail.com>, Chen-Yu Tsai <wens@kernel.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+	Maximilian Luz <luzmaximilian@gmail.com>, Hans de Goede <hansg@kernel.org>, 
+	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
+	Daniel Lezcano <daniel.lezcano@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
+	platform-driver-x86@vger.kernel.org, linux-tegra@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_055915_827953_A45B3444 
-X-CRM114-Status: GOOD (  15.10  )
+X-CRM114-CacheID: sfid-20251202_061258_677892_2ABE3F48 
+X-CRM114-Status: GOOD (  32.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,197 +112,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/26/25 10:10, Vikram Sharma wrote:
-> From: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
-> 
-> Qualcomm QCS8300 SoC contains three Camera Control Interface (CCI).
-> Compared to Lemans, the key difference is in SDA/SCL GPIO assignments
-> and number of CCIs.
-> 
-> Signed-off-by: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
-> Co-developed-by: Ravi Shankar <quic_rshankar@quicinc.com>
-> Signed-off-by: Ravi Shankar <quic_rshankar@quicinc.com>
-> Co-developed-by: Vishal Verma <quic_vishverm@quicinc.com>
-> Signed-off-by: Vishal Verma <quic_vishverm@quicinc.com>
-> Co-developed-by: Suresh Vankadara <quic_svankada@quicinc.com>
-> Signed-off-by: Suresh Vankadara <quic_svankada@quicinc.com>
-> Signed-off-by: Vikram Sharma <quic_vikramsa@quicinc.com>
-> Reviewed-by: Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>
-> Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-> ---
->   arch/arm64/boot/dts/qcom/monaco.dtsi | 345 +++++++++++++++++++++++++++
->   1 file changed, 345 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/qcom/monaco.dtsi b/arch/arm64/boot/dts/qcom/monaco.dtsi
-> index 774255c3f6fc..7c575e1c5e10 100644
-> --- a/arch/arm64/boot/dts/qcom/monaco.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/monaco.dtsi
-> @@ -4776,6 +4776,117 @@ videocc: clock-controller@abf0000 {
->   			#power-domain-cells = <1>;
->   		};
->   
-> +		cci0: cci@ac13000 {
-> +			compatible = "qcom,qcs8300-cci", "qcom,msm8996-cci";
-> +			reg = <0x0 0x0ac13000 0x0 0x1000>;
-> +
-> +			interrupts = <GIC_SPI 460 IRQ_TYPE_EDGE_RISING>;
-> +
-> +			clocks = <&camcc CAM_CC_CPAS_AHB_CLK>,
-> +				 <&camcc CAM_CC_CCI_0_CLK>;
-> +			clock-names = "cpas_ahb",
-> +				      "cci";
-> +
-> +			power-domains = <&camcc CAM_CC_TITAN_TOP_GDSC>;
-> +
-> +			pinctrl-0 = <&cci0_0_default &cci0_1_default>;
-> +			pinctrl-1 = <&cci0_0_sleep &cci0_1_sleep>;
-> +			pinctrl-names = "default", "sleep";
-> +
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			status = "disabled";
-> +
-> +			cci0_i2c0: i2c-bus@0 {
-> +				reg = <0>;
-> +				clock-frequency = <1000000>;
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +			};
-> +
-> +			cci0_i2c1: i2c-bus@1 {
-> +				reg = <1>;
-> +				clock-frequency = <1000000>;
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +			};
-> +		};
-> +
-> +		cci1: cci@ac14000 {
-> +			compatible = "qcom,qcs8300-cci", "qcom,msm8996-cci";
-> +			reg = <0x0 0x0ac14000 0x0 0x1000>;
-> +
-> +			interrupts = <GIC_SPI 271 IRQ_TYPE_EDGE_RISING>;
-> +
-> +			clocks = <&camcc CAM_CC_CPAS_AHB_CLK>,
-> +				 <&camcc CAM_CC_CCI_1_CLK>;
-> +			clock-names = "cpas_ahb",
-> +				      "cci";
-> +
-> +			power-domains = <&camcc CAM_CC_TITAN_TOP_GDSC>;
-> +
-> +			pinctrl-0 = <&cci1_0_default &cci1_1_default>;
-> +			pinctrl-1 = <&cci1_0_sleep &cci1_1_sleep>;
-> +			pinctrl-names = "default", "sleep";
-> +
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			status = "disabled";
-> +
-> +			cci1_i2c0: i2c-bus@0 {
-> +				reg = <0>;
-> +				clock-frequency = <1000000>;
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +			};
-> +
-> +			cci1_i2c1: i2c-bus@1 {
-> +				reg = <1>;
-> +				clock-frequency = <1000000>;
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +			};
-> +		};
-> +
-> +		cci2: cci@ac15000 {
-> +			compatible = "qcom,qcs8300-cci", "qcom,msm8996-cci";
-> +			reg = <0x0 0x0ac15000 0x0 0x1000>;
-> +
-> +			interrupts = <GIC_SPI 651 IRQ_TYPE_EDGE_RISING>;
-> +
-> +			clocks = <&camcc CAM_CC_CPAS_AHB_CLK>,
-> +				 <&camcc CAM_CC_CCI_2_CLK>;
-> +			clock-names = "cpas_ahb",
-> +				      "cci";
-> +
-> +			power-domains = <&camcc CAM_CC_TITAN_TOP_GDSC>;
-> +
-> +			pinctrl-0 = <&cci2_0_default &cci2_1_default>;
-> +			pinctrl-1 = <&cci2_0_sleep &cci2_1_sleep>;
-> +			pinctrl-names = "default", "sleep";
-> +
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			status = "disabled";
-> +
-> +			cci2_i2c0: i2c-bus@0 {
-> +				reg = <0>;
-> +				clock-frequency = <1000000>;
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +			};
-> +
-> +			cci2_i2c1: i2c-bus@1 {
-> +				reg = <1>;
-> +				clock-frequency = <1000000>;
-> +				#address-cells = <1>;
-> +				#size-cells = <0>;
-> +			};
-> +		};
-> +
->   		camss: isp@ac78000 {
->   			compatible = "qcom,qcs8300-camss";
->   
-> @@ -5071,6 +5182,240 @@ tlmm: pinctrl@f100000 {
->   			#interrupt-cells = <2>;
->   			wakeup-parent = <&pdc>;
->   
-> +			cam0_avdd_2v8_en_default: cam0-avdd-2v8-en-state {
-> +				pins = "gpio73";
-> +				function = "gpio";
-> +				drive-strength = <2>;
-> +				bias-disable;
-> +			};
-> +
-> +			cam0_default: cam0-default-state {
-> +				pins = "gpio67";
-> +				function = "cam_mclk";
-> +				drive-strength = <2>;
-> +				bias-disable;
-> +			};
-> +
-> +			cam1_avdd_2v8_en_default: cam1-avdd-2v8-en-state {
-> +				pins = "gpio74";
-> +				function = "gpio";
-> +				drive-strength = <2>;
-> +				bias-disable;
-> +			};
-> +
-> +			cam1_default: cam1-default-state {
-> +				pins = "gpio68";
-> +				function = "cam_mclk";
-> +				drive-strength = <2>;
-> +				bias-disable;
-> +			};
+Hi Krzysztof,
 
-MCLK pad function declatarions has nothing in common with the CCI, thus it
-should be split into a separate commit.
+Thanks for your patch, which is now commit 4a93adcbd201aad5
+("of: Add wrappers to match root node with OF device ID tables")
+in dt-rh/for-next.
 
+On Wed, 12 Nov 2025 at 11:30, Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+> Several drivers duplicate same code for getting reference to the root
+> node, matching it against 'struct of_device_id' table and getting out
+> the match data from the table entry.
+>
+> There is a of_machine_compatible_match() wrapper but it takes array of
+> strings, which is not suitable for many drivers since they want the
+> driver data associated with each compatible.
+>
+> Add two wrappers, similar to existing of_device_get_match_data():
+> 1. of_machine_device_match() doing only matching against 'struct
+>    of_device_id' and returning bool.
+> 2. of_machine_get_match_data() doing the matching and returning
+>    associated driver data for found compatible.
+
+Shouldn't the first function be called of_match_machine(), and return
+a const struct of_device_id *, cfr. of_match_device()?
+
+>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+> --- a/drivers/of/base.c
+> +++ b/drivers/of/base.c
+> @@ -434,6 +434,53 @@ bool of_machine_compatible_match(const char *const *compats)
+>  }
+>  EXPORT_SYMBOL(of_machine_compatible_match);
+>
+> +/**
+> + * of_machine_device_match - Test root of device tree against a of_device_id array
+> + * @matches:   NULL terminated array of of_device_id match structures to search in
+> + *
+> + * Returns true if the root node has any of the given compatible values in its
+> + * compatible property.
+> + */
+> +bool of_machine_device_match(const struct of_device_id *matches)
+> +{
+> +       struct device_node *root;
+> +       const struct of_device_id *match = NULL;
 > +
-> +			cam2_avdd_2v8_en_default: cam2-avdd-2v8-en-state {
-> +				pins = "gpio75";
-> +				function = "gpio";
-> +				drive-strength = <2>;
-> +				bias-disable;
-> +			};
+> +       root = of_find_node_by_path("/");
+> +       if (root) {
+> +               match = of_match_node(matches, root);
+> +               of_node_put(root);
+> +       }
+> +
+> +       return match != NULL;
+> +}
+> +EXPORT_SYMBOL(of_machine_device_match);
+> +
+> +/**
+> + * of_machine_get_match_data - Tell if root of device tree has a matching of_match structure
+> + * @matches:   NULL terminated array of of_device_id match structures to search in
+> + *
+> + * Returns data associated with matched entry or NULL
+> + */
+> +const void *of_machine_get_match_data(const struct of_device_id *matches)
+> +{
+> +       const struct of_device_id *match;
+> +       struct device_node *root;
+> +
+> +       root = of_find_node_by_path("/");
+> +       if (!root)
+> +               return NULL;
+> +
+> +       match = of_match_node(matches, root);
+> +       of_node_put(root);
+> +
+> +       if (!match)
+> +               return NULL;
+> +
+> +       return match->data;
+> +}
+> +EXPORT_SYMBOL(of_machine_get_match_data);
 
-All declarations of GPIOs to enable regulators shall be moved to a board
-specific .dts file.
+These two functions are very similar, but look different.  If the
+former would return a pointer instead of a bool, the latter could be
+built on top.
+
+Even if you still prefer returning a bool, they could share a common
+private helper returning a pointer.
+
+Gr{oetje,eeting}s,
+
+                        Geert
 
 -- 
-Best wishes,
-Vladimir
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
