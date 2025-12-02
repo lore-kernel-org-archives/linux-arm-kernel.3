@@ -4,62 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4F4AD116F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 13:21:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A34CAD116FE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 13:21:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=nVzj9FDF62cXgCdMqTncN2nxTCBhbwL5r08bcNUeKVs=; b=BUFCeov0p3vWfY
-	mmKDyaTttjQDZWQ4QX1kUtLAdUJgK0O9dEMu0vmm+uIVo7K86kEhmARkqNK7Vnl7/UNhla2vWoza2
-	EPImBLIJGmZ1xKZY/095azLJi6ebwIAHYePoJGHs6fWlG13qGAUXWhbedu17Vj/nPC85s42ZXzehW
-	wTnKwV/7stxrPolQaGXh2K0hOP5/U6KW9r7hBH3ptI6dExOC6HdnFi+PmDUXUWnNnUJvTxkiEZh5a
-	BF133WWXXrBGXAADfQBY/rvLvRqw4FzlfemnF7p+BgmWP6319+aK0V9lsNqCFLtaAUSNHmP9d9oOS
-	uE4J0kPteDCgvw0VFBYw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R66l0MmWiGrhbk5vaztofJHrhVi/ACzWWX6JdOCy0js=; b=Oxxb+4Idm6j2yY4SZwD74BAc88
+	ZxrSBkUTVM44fiwKbTmMM9LOHBqB1UBV0rwlhhSqrCR4koAAnYlGOpmHZwsbboBh37NEvI+zSYrT8
+	XDUEuHlh9hdsb2JwpJOdlBcE1jQVGpRk56eLW1zRMRf/trTsSDvxtBbYt9zHLKOd1UnmsPUyOAaJ3
+	XopiWAx04XagF1VTf5W97Z/i3mKcq2MSJkB+uv6MaMws/CPHFSnHbEuYEFCs62kfnmU3lQsLenEf3
+	YRx3FxpCDjbPijg8ToFb6+vmjRHGom50VHfSgjJ7UeUiA1sgbf353ezP08SQm8eSwhWJwuF2MMed+
+	wB6mPT/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQQKB-00000005QZM-0iPJ;
-	Tue, 02 Dec 2025 13:21:47 +0000
+	id 1vQQKC-00000005QaL-3KiE;
+	Tue, 02 Dec 2025 13:21:48 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQQK7-00000005QXh-450K
+	id 1vQQK7-00000005QXe-45zg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 13:21:45 +0000
+	Tue, 02 Dec 2025 13:21:46 +0000
 Received: from dude02.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::28])
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <m.felsch@pengutronix.de>)
-	id 1vQQJu-0003pJ-MD; Tue, 02 Dec 2025 14:21:30 +0100
+	id 1vQQJu-0003pJ-PG; Tue, 02 Dec 2025 14:21:30 +0100
 From: Marco Felsch <m.felsch@pengutronix.de>
-Subject: [PATCH v2 0/3] i.MX91/93 BLK-CTRL improvements
-Date: Tue, 02 Dec 2025 14:21:01 +0100
-Message-Id: <20251202-v6-18-topic-imx93-blkctrl-v2-0-e73501034adc@pengutronix.de>
+Date: Tue, 02 Dec 2025 14:21:03 +0100
+Subject: [PATCH v2 2/3] pmdomain: imx93-blk-ctrl: convert to devm_* only
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAL3nLmkC/42Nyw6CMBBFf4V07Zh2eMrK/zAseAwwEVvS1gZD+
- HcrX+DynOSeuwtHlsmJOtmFpcCOjY6Al0T0c6snAh4iC5SYK5QKQgGqAm9W7oFf2y2Fbnn23i6
- QZgpRjqWsskHE/Wpp5O1sP5rIMztv7Oe8Cupn/6kGBRK6vGxLpEIqmd9X0tPbW6N5uw4kmuM4v
- l1lvdjHAAAA
-X-Change-ID: 20251201-v6-18-topic-imx93-blkctrl-341220f7084d
+Message-Id: <20251202-v6-18-topic-imx93-blkctrl-v2-2-e73501034adc@pengutronix.de>
+References: <20251202-v6-18-topic-imx93-blkctrl-v2-0-e73501034adc@pengutronix.de>
+In-Reply-To: <20251202-v6-18-topic-imx93-blkctrl-v2-0-e73501034adc@pengutronix.de>
 To: Ulf Hansson <ulf.hansson@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
  Sascha Hauer <s.hauer@pengutronix.de>, 
  Pengutronix Kernel Team <kernel@pengutronix.de>, 
  Fabio Estevam <festevam@gmail.com>
 Cc: linux-pm@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Alexander Stein <alexander.stein@ew.tq-group.com>, 
- Frank Li <Frank.Li@nxp.com>, Marco Felsch <m.felsch@pengutronix.de>
+ Marco Felsch <m.felsch@pengutronix.de>
 X-Mailer: b4 0.14.2
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:1101:1d::28
 X-SA-Exim-Mail-From: m.felsch@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_052144_043633_02D700E7 
-X-CRM114-Status: UNSURE (   8.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251202_052144_062085_52E7B73F 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,45 +69,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Convert the driver to devm_ APIs only by making use of
+devm_add_action_or_reset() and devm_pm_runtime_enable() to simplify the
+probe error path and to drop the .remove() callback. This also ensures
+that the device release order equals the device probe error path order.
 
-there were several approaches to bring the sub-devices population
-mainline [1,2] but non of them made it upstream. Both approaches were
-part of either the i.MX93 LVDS or MIPI-CSI enablement.
+Furthermore drop the dev_set_drvdata() usage since the only user was the
+.remove() callback which is removed by this commit.
 
-This small patchset decouples the blk-ctrl changes which allows the
-MIPI-CSI and LVDS patchstack to be rebased ontop of this patchset.
-
-Before adding the sub-device supprt, I converted the driver to devm_*
-only API.
-
-Regards,
-  Marco
-
-[1] https://lore.kernel.org/all/20250701-95_cam-v1-3-c5172bab387b@nxp.com/
-[2] https://lore.kernel.org/all/20250304154929.1785200-4-alexander.stein@ew.tq-group.com/
-
+Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
 ---
-Changes in v2:
-- Link to v1: https://lore.kernel.org/r/20251201-v6-18-topic-imx93-blkctrl-v1-0-b57a72e60105@pengutronix.de
-- Adapt patch2 commit message (Frank)
-- Check devm_pm_runtime_enable() return (Frank)
-- Add r-b tags (Frank, Alexander)
+ drivers/pmdomain/imx/imx93-blk-ctrl.c | 66 +++++++++++++++--------------------
+ 1 file changed, 29 insertions(+), 37 deletions(-)
 
----
-Marco Felsch (3):
-      pmdomain: imx93-blk-ctrl: cleanup error path
-      pmdomain: imx93-blk-ctrl: convert to devm_* only
-      pmdomain: imx93-blk-ctrl: add support for optional subnodes
+diff --git a/drivers/pmdomain/imx/imx93-blk-ctrl.c b/drivers/pmdomain/imx/imx93-blk-ctrl.c
+index 2aa163aef8de4ee901b9cde76ce2aad246c8c08a..49610f2389c3bbaf4de4133918fbcacb7924f672 100644
+--- a/drivers/pmdomain/imx/imx93-blk-ctrl.c
++++ b/drivers/pmdomain/imx/imx93-blk-ctrl.c
+@@ -188,6 +188,20 @@ static int imx93_blk_ctrl_power_off(struct generic_pm_domain *genpd)
+ 	return 0;
+ }
+ 
++static void imx93_release_genpd_provider(void *data)
++{
++	struct device_node *of_node = data;
++
++	of_genpd_del_provider(of_node);
++}
++
++static void imx93_release_pm_genpd(void *data)
++{
++	struct generic_pm_domain *genpd = data;
++
++	pm_genpd_remove(genpd);
++}
++
+ static struct lock_class_key blk_ctrl_genpd_lock_class;
+ 
+ static int imx93_blk_ctrl_probe(struct platform_device *pdev)
+@@ -256,10 +270,8 @@ static int imx93_blk_ctrl_probe(struct platform_device *pdev)
+ 			domain->clks[j].id = data->clk_names[j];
+ 
+ 		ret = devm_clk_bulk_get(dev, data->num_clks, domain->clks);
+-		if (ret) {
+-			dev_err_probe(dev, ret, "failed to get clock\n");
+-			goto cleanup_pds;
+-		}
++		if (ret)
++			return dev_err_probe(dev, ret, "failed to get clock\n");
+ 
+ 		domain->genpd.name = data->name;
+ 		domain->genpd.power_on = imx93_blk_ctrl_power_on;
+@@ -267,11 +279,12 @@ static int imx93_blk_ctrl_probe(struct platform_device *pdev)
+ 		domain->bc = bc;
+ 
+ 		ret = pm_genpd_init(&domain->genpd, NULL, true);
+-		if (ret) {
+-			dev_err_probe(dev, ret, "failed to init power domain\n");
+-			goto cleanup_pds;
+-		}
++		if (ret)
++			return dev_err_probe(dev, ret, "failed to init power domain\n");
+ 
++		ret = devm_add_action_or_reset(dev, imx93_release_pm_genpd, &domain->genpd);
++		if (ret)
++			return dev_err_probe(dev, ret, "failed to add pm_genpd release callback\n");
+ 		/*
+ 		 * We use runtime PM to trigger power on/off of the upstream GPC
+ 		 * domain, as a strict hierarchical parent/child power domain
+@@ -288,39 +301,19 @@ static int imx93_blk_ctrl_probe(struct platform_device *pdev)
+ 		bc->onecell_data.domains[i] = &domain->genpd;
+ 	}
+ 
+-	pm_runtime_enable(dev);
++	ret = devm_pm_runtime_enable(dev);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to enable pm-runtime\n");
+ 
+ 	ret = of_genpd_add_provider_onecell(dev->of_node, &bc->onecell_data);
+-	if (ret) {
+-		dev_err_probe(dev, ret, "failed to add power domain provider\n");
+-		goto cleanup_pds;
+-	}
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to add power domain provider\n");
+ 
+-	dev_set_drvdata(dev, bc);
++	ret = devm_add_action_or_reset(dev, imx93_release_genpd_provider, dev->of_node);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to add genpd_provider release callback\n");
+ 
+ 	return 0;
+-
+-cleanup_pds:
+-	for (i--; i >= 0; i--)
+-		pm_genpd_remove(&bc->domains[i].genpd);
+-
+-	return ret;
+-}
+-
+-static void imx93_blk_ctrl_remove(struct platform_device *pdev)
+-{
+-	struct imx93_blk_ctrl *bc = dev_get_drvdata(&pdev->dev);
+-	int i;
+-
+-	of_genpd_del_provider(pdev->dev.of_node);
+-
+-	pm_runtime_disable(&pdev->dev);
+-
+-	for (i = 0; i < bc->onecell_data.num_domains; i++) {
+-		struct imx93_blk_ctrl_domain *domain = &bc->domains[i];
+-
+-		pm_genpd_remove(&domain->genpd);
+-	}
+ }
+ 
+ static const struct imx93_blk_ctrl_domain_data imx93_media_blk_ctl_domain_data[] = {
+@@ -455,7 +448,6 @@ MODULE_DEVICE_TABLE(of, imx93_blk_ctrl_of_match);
+ 
+ static struct platform_driver imx93_blk_ctrl_driver = {
+ 	.probe = imx93_blk_ctrl_probe,
+-	.remove = imx93_blk_ctrl_remove,
+ 	.driver = {
+ 		.name = "imx93-blk-ctrl",
+ 		.of_match_table = imx93_blk_ctrl_of_match,
 
- drivers/pmdomain/imx/imx93-blk-ctrl.c | 77 ++++++++++++++++-------------------
- 1 file changed, 36 insertions(+), 41 deletions(-)
----
-base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
-change-id: 20251201-v6-18-topic-imx93-blkctrl-341220f7084d
-
-Best regards,
 -- 
-Marco Felsch <m.felsch@pengutronix.de>
+2.47.3
 
 
