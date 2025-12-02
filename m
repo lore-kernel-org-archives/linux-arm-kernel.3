@@ -4,150 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE382D116F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 15:08:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB39CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 15:32:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3/cW3XUl9Gxg9zs6fTagy6EMCHFpcnNf7OGrU3rkfmo=; b=ecb84H4ITzVA+F000EhhwNdMDo
-	8Hf2M643qNRhXvjhdSnW0F0cr86Dns/jK4OERjVDPTvMitkxaGljWxBTrHrTJL9su9lazjI8296YH
-	Ww1XQrcv6OLyVrSRNauPhAB6E4PiB7nWfRQRDD9iGglF9u/pq9rcJDHUtwc7Bl1EgoNfy/AHQwPAB
-	BusFL4Jy9zW7xd6DVKJLYTVg4D9K2bi8ptI0TdIGpg5ycbiok3p0jSmf3SuKYVFSRghIusVLhgWyZ
-	pXqInlCqoD1xvoRl8zWSxmONzcLaHXchnzQg34LtRAi7L88zImYLlatE90wWrER59FLFsrVuqeWp5
-	P3fifjcQ==;
+	bh=9B9xf5AHM2Vvy3RP7dfw93MySW0F5DY1GpwA7aIaidk=; b=Nny2UtpH1Xpea80BUt+LJ+Nlmz
+	GCIhqXy1Y2ug0ZzuIWkipV0snGJ9NFt4dnahqYw6tP6aqEcGaJm3/mJnrhdTVM1UW081U/S4bL8vg
+	4JoyAhiUTvFV0GQtHCLg+Vr3pkrnJP6mpFq5xRKFWEsX0+wc6YIYZ0xLVuZ+gLm5pTebWCxYws3bT
+	o1mYvp7RtVoAaYlzECU7eCIpPLuML1SGVE/Qr7hoI5G0vRWNoFTJXm2YhAkKfJDWvIH3lKGavi+4p
+	UIO9DYMbrlXXlKQphGr2xac+sGByZXy/+HA/ImaJzqU32J2aTrioettIrXDc+mc8MpUNrpKMrrMaf
+	oju1JiNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQRzH-00000005XNj-3o8E;
-	Tue, 02 Dec 2025 15:08:19 +0000
-Received: from mail-francesouthazon11011033.outbound.protection.outlook.com ([40.107.130.33] helo=MRWPR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQRzG-00000005XNJ-0Btv
+	id 1vQSM8-00000005YVp-0cpy;
+	Tue, 02 Dec 2025 15:31:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQSM4-00000005YUu-1q18
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 15:08:19 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FYaaxGJJd5Yr0kxss4vF7H2c7G9pSBWRN/v+hEAjtCkvyW0IThbxAe+n7FsIn+kuHlh6OEdyz6FcVRRzO9o0Y8b0ktdd1CqLVCgMgM/f9cEjBTu/qEJ4KKeQfnyJ236mA2fGDztGCzHE7jglva0WNxQS3aSnU5uLJjkMorISWMO4j/jPboPG5oZAH5gq0gY/DJF2+anJpZHPpLwCswzAm9L8y9EZFgd63NCStzshPhqzr4grkUl1PVLjM9fhYXfX/s8jSmEod+k3eJbOp/gpp4kwNVnJRlWSw+IAa3g2EHC5UUTYpjD21nAXiA0BepPEj6AERVTDOoP+ltSt7sPHdA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=3/cW3XUl9Gxg9zs6fTagy6EMCHFpcnNf7OGrU3rkfmo=;
- b=tm3zFUFxoKkS0iyKabKBp0VBZSsuYZRuVWWAcDG9ooBR9MHkMUAHpiyE7keydTTPNvYMmuMEMenK3Ikk13z59rga4YntnxfKmrv3GrNNdVPwByKVkFtZ36/eS4GODJ+gwDm/BAR5lHghqGkpriBueCkxsG7KQ1PZbUL1vqWvX4sF7VsqEalDu09QFnGS1+DDXCBoLBlA3RL4wJoltRfpyZrOjYWiVY2kK9C5ttQG8yMwzXJCvag+KCa7FvgJ4vqstU4+3by5qPgkbZRlHoiJzcpeV+K4IHndcIasGvjg7tXGn7HT2Zau/40Xcy5P+IqXsBDbLLDkTHmgP5UyZWL8pg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3/cW3XUl9Gxg9zs6fTagy6EMCHFpcnNf7OGrU3rkfmo=;
- b=JupYVmSNfQK92b2kkwimXq9VnONORXsMCZKexRyoj+QzlNqBGK1UUv2SLi+9bsGK+fI0QmWHowbEkDVSMwfMgCwhp9C9wZLLd67t+6Q4q2abPOLrfSZKygrlpK20jXLhz2GOHlyW/HXMPmYs4JlRWt5W/12Ve9cch5+i7Mrf8aOaISVztl45PWgPiL9/Yzqc0b1HUM3fH2paUiCGZN5BU5EqWzcnqnaxwDCy0bPEkchRgY7OGCHUmPWDi45OveRq4noc8Fw+IxYuxXh2mzIVP3See3RFYK/ALPSyQbwhfdi4I8jYCvJb6vwFuyxqZtVkzHfaejkNsS9vXzgu9IIIog==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by DU2PR04MB9113.eurprd04.prod.outlook.com (2603:10a6:10:2f4::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Tue, 2 Dec
- 2025 15:08:12 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9366.012; Tue, 2 Dec 2025
- 15:08:11 +0000
-Date: Tue, 2 Dec 2025 10:08:04 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Haibo Chen <haibo.chen@nxp.com>
-Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: dts: imx93-9x9-qsb: add CAN support overlay
- file
-Message-ID: <aS8A1B6/XTgYb+aO@lizhi-Precision-Tower-5810>
-References: <20251202-b4-9391-can-dts-v2-1-edab562615a7@nxp.com>
+	Tue, 02 Dec 2025 15:31:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6AD1D1477;
+	Tue,  2 Dec 2025 07:31:41 -0800 (PST)
+Received: from arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2BED73F66E;
+	Tue,  2 Dec 2025 07:31:42 -0800 (PST)
+Date: Tue, 2 Dec 2025 16:31:48 +0100
+From: Beata Michalska <beata.michalska@arm.com>
+To: "zhenglifeng (A)" <zhenglifeng1@huawei.com>
+Cc: catalin.marinas@arm.com, will@kernel.org, rafael@kernel.org,
+	viresh.kumar@linaro.org, sudeep.holla@arm.com,
+	gregkh@linuxfoundation.org, dakr@kernel.org,
+	ionela.voinescu@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-pm@vger.kernel.org, linuxarm@huawei.com,
+	jonathan.cameron@huawei.com, vincent.guittot@linaro.org,
+	zhanjie9@hisilicon.com, lihuisong@huawei.com, yubowen8@huawei.com,
+	zhangpengjie2@huawei.com, wangzhi12@huawei.com,
+	linhongye@h-partners.com
+Subject: Re: [PATCH v6 0/3] arm64: topology: Handle AMU FIE setup on CPU
+ hotplug
+Message-ID: <aS8GZOuaS1-j14MD@arm.com>
+References: <20251119081356.2495290-1-zhenglifeng1@huawei.com>
+ <aS2z0EURwHbbGZab@arm.com>
+ <9b6882dc-a91a-42d6-bf76-347338930d71@huawei.com>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251202-b4-9391-can-dts-v2-1-edab562615a7@nxp.com>
-X-ClientProxiedBy: BYAPR06CA0001.namprd06.prod.outlook.com
- (2603:10b6:a03:d4::14) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|DU2PR04MB9113:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9c912ac4-9b6c-4dc9-c221-08de31b49c0b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|1800799024|52116014|376014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?kWW9wnEKX2N7XvCGqonJXsIysfdR5nbOGeJxt+xUeDEqxBuOQ0cPVrv+toht?=
- =?us-ascii?Q?4edRuhIbx0t/h+GTsYkumvMsCcy5xOMxjMLRsrgVOhTfwjjTdaEwYz0YnPil?=
- =?us-ascii?Q?lVwcZDLrCQzVH2Zsk5p8XHHK0XAaWPrU+Qy+U1RD8btFFp9dV36QrlZSN5zO?=
- =?us-ascii?Q?7gOd2owyo4fzjVJxw+9FoDj7XSHxt4JjPx9/IOFWbVFdkVuVBzKNvUH6/uNc?=
- =?us-ascii?Q?FYNE1Qhub8rbBnb8Nan3OJVPHUwSXyPFMbjMowDwxONbtbdBx7cTldL3PXGV?=
- =?us-ascii?Q?jksD7Ef+VfN9kee6c67IYXQGndWIFO2XVwYx6q3WdJvUEqTtFv7w5JvlXWXx?=
- =?us-ascii?Q?rWxn/FpNMAf2TC0PsOydQS/L775XlTOUzgVVUA4QqLitMb3ADLJpmVUm/dFQ?=
- =?us-ascii?Q?Txw6jdohzTwC6kR3k7Njl0J8xwz4Q9m2MkzLYfpbTkoxXb5Qf790U4gWtxU8?=
- =?us-ascii?Q?fNcVrJlT2oeoBTjLwZFBEdlqrVwygcQ5dZRoUHoifp9c3pTI3ImX3F+YHOgl?=
- =?us-ascii?Q?NHH3minONUJCD92gX4w4/ZoJrRp0zF/jgqlrCkExwZwZ60wP/Up8uJldieIR?=
- =?us-ascii?Q?qYSQ3aAqv9Df+tZweFnykCA9DhE8Cu2FsrXFZ4mPr3BiEL0+L/kVD/K5Zdkr?=
- =?us-ascii?Q?SkBGulzagO5/DqYnwuD9mudOaqrRBD+hQtUCDpJreMrIU5y1O+zXPQ4wLN6c?=
- =?us-ascii?Q?XKWeS8mhQbRDv+JARPDN19q3NOznbco1129WSaDRSm42TfFOTrade0BSVyAi?=
- =?us-ascii?Q?K3Tkx7lWpDkoohgWhxvSN7z7hZkDO6FDs2bWB85+lM43Dp0sBar7Ep93eL2Y?=
- =?us-ascii?Q?1MNYY35Eopgz1YaaMxHGCwcSg9EkEalPYronoCul7NXWDsfQ8zob/THgloZX?=
- =?us-ascii?Q?NkGRVQp6qLIDSubw8GwMYvELXxdo6XwcoSM0h2NTBpU5CVu6uzBMo6sHBcVm?=
- =?us-ascii?Q?6hUZQZGmQTH0Jzw18A1VpdB25CaDnBql2/d2C7WN8nlRLvyLYmWgmQPJsmrT?=
- =?us-ascii?Q?GZ9G9yOCRdjEOjmCiXBJuvDD3mGlnFa+CY9DkfZB61Sh4DIdMlp8Zq3awIyo?=
- =?us-ascii?Q?9cV3SECh88OKYN1JxrPa7QaOJnWB9afGz0CfWlY4MlwaqEM02YCNRdmgih4z?=
- =?us-ascii?Q?ooXiK3t/vtMKiFQNbiNJWFwH7q0ul4TmPUfIG3vLp3U5YLlFXkWtm9zL5I4P?=
- =?us-ascii?Q?zKGS5AksuZGVfMyNhs/fJKIQUuytS6Il3BCgAUfe/+Gow0Ui8o4sTSh4gUSA?=
- =?us-ascii?Q?yVUfhFQRXV/J5mqy3JS66YSGBq6ulqyH4+SEsHus+9Ci6BS8co2cttDcZlDX?=
- =?us-ascii?Q?caXyhX4cbVRYEekLNplhPekQEtgVDZcDDD71GeBVwW/AFUeWKGhlLEld5XDw?=
- =?us-ascii?Q?xiwO1IdehzAP7G67hCiIxniWimfQH5Fh5fPgK3v3mZliABlydQJyonNWrnTR?=
- =?us-ascii?Q?HWbOewe0DUUNVv0VrzDa5ngSl5CnF3Ti1lmQqfy3FIg3upBbOVaId1uOnOkd?=
- =?us-ascii?Q?Hi61DuwCyTLIt6ADV5rC3bWOT/B9gr+YLIqn?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(52116014)(376014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?s6TPcwWx1vF/emQ7m8NMmvm7R3bgY5PCNFpEl9nZf7lQgkdETrcHLZ/Wi4TR?=
- =?us-ascii?Q?0NkKwL7lgIA5DV6N95DQjOWTLAyDMoECjx+ykcBYWbrlD+Xq8r6EOyEqbXAV?=
- =?us-ascii?Q?5RnNE/ArnxiTybyHYMCiFEgLuFOkvKfI9ovhonZptiClhnVldzeJwZp/4FNP?=
- =?us-ascii?Q?EW75wJXax0m/Ll3tALB5IPE/Iy+umlLFEiKQAW2k4x8BNRHBuT5yJZacpEs8?=
- =?us-ascii?Q?WSLx6GELm3/w+5xDf1Xu5sqJzpuO0pB+i2cmh/9/nrQfWs/wIAchry//3uAr?=
- =?us-ascii?Q?/u9b/miU2mbQ7sRZGJeyWTT72hhl+FzT5F1MSYuxqb0ye5TAFJqkx4GQtiy7?=
- =?us-ascii?Q?BoCnAjJUNXlyvXkr7zDv/1ctbjlKOs7lBO2Kyv3ntBTPjVthD4C+94nT7LH2?=
- =?us-ascii?Q?m6PlVh7Wn2jpRJVBpI3/dvuF1XIMnFRHgygWwq49cdQjKuAjzWcy9/HNPZ2F?=
- =?us-ascii?Q?+FNEzxTx3O7KzcHcaOU5Kk0zpnUE+GToXons0u/mK0TkBdYHd6SqVjILHGB8?=
- =?us-ascii?Q?j5C4uKiuYAf2zV0iKWJIrnn9wX+L3LiTdqqVwLHypaFgnUZ/ymi8QFiVQBUV?=
- =?us-ascii?Q?O43CFZMimmvEfAnFEdpcJHIDhmW6rCG8GS6M5go6aiy93mnP6f4pHuaARu9j?=
- =?us-ascii?Q?pBuNzr7CwMH1a6KI1+MySFMjbE3gGWWl5qz0UqO8xGTt5UHgCxsL+WePgy8O?=
- =?us-ascii?Q?Sudv0a9H8DXbEvsGByOmQKiDpjMxZPZi0vLwx009vEqQH4C57pjnOwNK1V1g?=
- =?us-ascii?Q?OxzDVHI+VqsqKG1mq9ZUO9NCzL+/A8NjFXbrOiSDH0KNtZ79F3ueo6YXNdAz?=
- =?us-ascii?Q?01yEqu9hed/+C0BslU99dIkeTYcf+WZIfmFPw2k/eZ+DyzB23jlw9Co5ju3f?=
- =?us-ascii?Q?zefDbCH+KV9cV2zYRp+aI+pdVricSpA6+X6IgtDsFYtJ2w1AW5EHuvsKvzv6?=
- =?us-ascii?Q?xRSNQFx5LP8FSI6PlUkpcHFovelc52vXIUqJCh+L+kiaMYl6aW4F9qWsTcd/?=
- =?us-ascii?Q?2UNk1k+lgG/4IYz4AcRB8+EdBhFDliZCnEEemniJQrE0zPj/CAPqM+wSeoLP?=
- =?us-ascii?Q?2Crw1QzZaWuqh/Mfg15r/3dLjyobHUhCC+PicyyUOjRJ+bT7MIKKXhUMBgVz?=
- =?us-ascii?Q?jna0LL6V7iwGWFP9gMGkvJ+iBIcCKSI3dwdUSOceAqXbcrF+toRaD6SPO46R?=
- =?us-ascii?Q?ic9DPyN/nXK+TTEFeGDDCF24FtnWFFycuCISSuIpwBIHj+GO6jX5oUPhbQ9S?=
- =?us-ascii?Q?gp4g5aaPqHIIX2zoXKJdFcZ049FH3m3p/dAjT4Gj/KXLiMeBKZ+mNzZhUMQJ?=
- =?us-ascii?Q?K346t4Gt70/cFZbMRdxmfeaLp8UveBDYc517FKItNFXOtBExd4yIwuir3MeH?=
- =?us-ascii?Q?VZbVtfabPc0gA5AoqubCgrCvbjb5M4hHU2Tci3BtTi9luW7w86PqFR4QBQKF?=
- =?us-ascii?Q?IBB0I5tXiQIQS3BeJGGH3YANH82z+wozLhuszIG3TjJas+6lizwJOVV4Fklp?=
- =?us-ascii?Q?awZATKb4UGLToLPoA5O6jBOQd9m0qJSw6skwlo5Gj1GCef5X4xle0HqCoWEC?=
- =?us-ascii?Q?851cuPK1wvGoC/zMOGAXQAbNrkK7Mz2/HKKwHgAw?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9c912ac4-9b6c-4dc9-c221-08de31b49c0b
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Dec 2025 15:08:11.6122
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Kh4Ly75j5ckGmgAlP17eB0i140CHSGf0uvIIqwuypmn7ud+ZE9ag2cfscTg4EwNlmCpAa8RZBa6I3ibab9Wzyg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9113
+In-Reply-To: <9b6882dc-a91a-42d6-bf76-347338930d71@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_070818_091967_BB3CBB3A 
-X-CRM114-Status: GOOD (  22.58  )
+X-CRM114-CacheID: sfid-20251202_073152_606373_7B4E01DC 
+X-CRM114-Status: GOOD (  31.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,119 +72,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 02, 2025 at 02:04:33PM +0800, Haibo Chen wrote:
-> CAN1 and Micfil share pins on imx93-9x9-qsb board, use TMUX1574RSVR
-> to control the connection: put sel to high, select CAN1, put sel to
-> low, select Micfil. In default, sel keep low.
+On Tue, Dec 02, 2025 at 11:05:25AM +0800, zhenglifeng (A) wrote:
+> On 2025/12/1 23:27, Beata Michalska wrote:
+> > Hi,
+> > 
+> > Apologies for the delay in reviewing this - currently in progress....
+> > Out of curiosity: what's the cpufreq driver used for testing this series ?
+> 
+> I used cppc_cpufreq for testing this. But with some modifications in
+> processor_driver.c, or you'll find that the driver will fail to load with
+> maxcpus set. The modification below is only a temporary solution. I'm still
+> working on that.
 >
-> To support CAN1, need to put the sel to high. Besides, CAN1 use phy
-> TJA1057GT/3.
->
-> ---
-> Signed-off-by: Haibo Chen <haibo.chen@nxp.com>
-> ---
+Right, so overall the implementation looks good - thanks for that.
+There are two issues though with the cppc cpufreq driver.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+One: as you have already noticed - it fails to register when
+cpumask_present != cpumask_online.
 
-> Changes in v2:
-> - change commit title
-> - Keep order by alphabet in Makefile
-> - Link to v1: https://lore.kernel.org/r/20251126-b4-9391-can-dts-v1-1-c23145f0d2db@nxp.com
+Second: it will mix the sources of the freq scale if not all CPUs within the
+policy have AMUs enabled/valid. This is due to the fact that at the time of
+registering the driver and initializing the FIE support policy->cpus ==
+policy->related_cpus. Assuming scenario when there are two CPUs within the
+policy, one being offline and missing valid AMU counters,
+the topology_set_scale_freq_source from cppc cpufreq driver will register
+the tick handler for both CPUs, whereas AMU support will (rightly so) register
+only for the firs one. When the second CPU comes online, the mismatch will be
+detected and the arch callback will get cleared for the first CPU, but the
+second one will remain unchanged.
+
+That said, I do not think any of those issues is a blocker for this series.
+But both would need fixing.
+
+---
+BR
+Beata
+
+
 > ---
->  arch/arm64/boot/dts/freescale/Makefile             |  2 +
->  .../boot/dts/freescale/imx93-9x9-qsb-can1.dtso     | 63 ++++++++++++++++++++++
->  2 files changed, 65 insertions(+)
->
-> diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> index f30d3fd724d0ce6b38f7bef10e3970ac34f70f4a..e15a7b216c5c6753c39ab02801d82f23255b8e63 100644
-> --- a/arch/arm64/boot/dts/freescale/Makefile
-> +++ b/arch/arm64/boot/dts/freescale/Makefile
-> @@ -372,7 +372,9 @@ dtb-$(CONFIG_ARCH_MXC) += imx91-phyboard-segin.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx91-tqma9131-mba91xxca.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-9x9-qsb.dtb
->
-> +imx93-9x9-qsb-can1-dtbs += imx93-9x9-qsb.dtb imx93-9x9-qsb-can1.dtbo
->  imx93-9x9-qsb-i3c-dtbs += imx93-9x9-qsb.dtb imx93-9x9-qsb-i3c.dtbo
-> +dtb-$(CONFIG_ARCH_MXC) += imx93-9x9-qsb-can1.dtb
->  dtb-$(CONFIG_ARCH_MXC) += imx93-9x9-qsb-i3c.dtb
->
->  dtb-$(CONFIG_ARCH_MXC) += imx93-11x11-evk.dtb
-> diff --git a/arch/arm64/boot/dts/freescale/imx93-9x9-qsb-can1.dtso b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb-can1.dtso
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..0bf1e9d4bad2ec540d71470fcebc64a82072b41d
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/freescale/imx93-9x9-qsb-can1.dtso
-> @@ -0,0 +1,63 @@
-> +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> +/*
-> + * Copyright 2025 NXP
-> + */
+> diff --git a/drivers/acpi/processor_driver.c b/drivers/acpi/processor_driver.c
+> index 5d824435b26b..2f286a1b0b02 100644
+> --- a/drivers/acpi/processor_driver.c
+> +++ b/drivers/acpi/processor_driver.c
+> @@ -33,6 +33,7 @@ MODULE_AUTHOR("Paul Diefenbaugh");
+>  MODULE_DESCRIPTION("ACPI Processor Driver");
+>  MODULE_LICENSE("GPL");
+>  
+> +static int acpi_processor_start(struct device *dev);
+>  static int acpi_processor_stop(struct device *dev);
+>  
+>  static const struct acpi_device_id processor_device_ids[] = {
+> @@ -46,6 +47,7 @@ static struct device_driver acpi_processor_driver = {
+>  	.name = "processor",
+>  	.bus = &cpu_subsys,
+>  	.acpi_match_table = processor_device_ids,
+> +	.probe = acpi_processor_start,
+>  	.remove = acpi_processor_stop,
+>  };
+>  
+> @@ -191,6 +193,21 @@ static int __acpi_processor_start(struct acpi_device *device)
+>  	return result;
+>  }
+>  
+> +static int acpi_processor_start(struct device *dev)
+> +{
+> +	struct acpi_device *device = ACPI_COMPANION(dev);
+> +	int ret;
 > +
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include "imx93-pinfunc.h"
+> +	if (!device)
+> +		return -ENODEV;
 > +
-> +/dts-v1/;
-> +/plugin/;
+> +	/* Protect against concurrent CPU hotplug operations */
+> +	cpu_hotplug_disable();
+> +	ret = __acpi_processor_start(device);
+> +	cpu_hotplug_enable();
+> +	return ret;
+> +}
 > +
-> +&{/} {
-> +	flexcan_phy: can-phy {
-> +		compatible = "nxp,tja1057";
-> +		#phy-cells = <0>;
-> +		max-bitrate = <5000000>;
-> +		silent-gpios = <&pcal6524 23 GPIO_ACTIVE_HIGH>;
-> +	};
-> +};
-> +
-> +&flexcan1 {
-> +	phys = <&flexcan_phy>;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_flexcan1>;
-> +	status = "okay";
-> +};
-> +
-> +&iomuxc {
-> +	pinctrl_flexcan1: flexcan1grp {
-> +		fsl,pins = <
-> +			MX93_PAD_PDM_CLK__CAN1_TX		0x139e
-> +			MX93_PAD_PDM_BIT_STREAM0__CAN1_RX	0x139e
-> +		>;
-> +	};
-> +};
-> +
-> +/* micfi1 use the A port, conflict with can1 */
-> +&micfil {
-> +	status = "disabled";
-> +};
-> +
-> +&pcal6524 {
-> +	/*
-> +	 * mic-can-sel-hog have property 'output-low', dt overlay don't
-> +	 * support /delete-property/. Both 'output-low' and 'output-high'
-> +	 * will be exist under hog nodes if overlay file set 'output-high'.
-> +	 * Workaround is disable this hog and create new hog with
-> +	 * 'output-high'.
-> +	 */
-> +	mic-can-sel-hog {
-> +		status = "disabled";
-> +	};
-> +
-> +	/*
-> +	 * Config the MIC/CAN_SEL to high, chose B
-> +	 * port, connect to CAN.
-> +	 */
-> +	mic-can-high-sel-hog {
-> +		gpio-hog;
-> +		gpios = <0x11 0x00>;
-> +		output-high;
-> +	};
-> +};
->
-> ---
-> base-commit: 422f3140bbcb657e1b86c484296972ab76f6d1ff
-> change-id: 20251125-b4-9391-can-dts-2f4849978fc2
->
-> Best regards,
-> --
-> Haibo Chen <haibo.chen@nxp.com>
->
+>  static int acpi_processor_stop(struct device *dev)
+>  {
+>  	struct acpi_device *device = ACPI_COMPANION(dev);
+> @@ -264,9 +281,9 @@ static int __init acpi_processor_driver_init(void)
+>  
+>  	acpi_processor_register_idle_driver();
+>  
+> -	result = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
+> -				   "acpi/cpu-drv:online",
+> -				   acpi_soft_cpu_online, NULL);
+> +	result = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
+> +					   "acpi/cpu-drv:online",
+> +					   acpi_soft_cpu_online, NULL);
+>  	if (result < 0)
+>  		goto err;
+>  	hp_online = result;
+> 
+> > 
+> > ---
+> > BR
+> > Beata
+> > On Wed, Nov 19, 2025 at 04:13:53PM +0800, Lifeng Zheng wrote:
+> >> Solve a problem that causes CPUs Setup AMU FIE failed in a corner case,
+> >> even though they're eligible.
+> >>
+> >>
+> > 
+> 
 
