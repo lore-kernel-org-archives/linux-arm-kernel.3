@@ -4,150 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9CF0D116F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 15:37:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84845CFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 15:46:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7dvI4jnmIBSLqBzEmGJJZVq3e4u/zHX94LqpdnMLiDQ=; b=PL0cQWa9wYMq+s/UQUfzuElUa9
-	OerIvJnpM1UX95umwfUWP3s8OIm4GzLdHZHtvxVvLi0SZeexnCEV3iEj9wG6InGCjoIvm5CS7DhWh
-	29HVTdvUdFR3hvkAqRS+EpS/TKI+7pEwyXXKDE1gLWnJU16Z6ZZz/AV3ikUCFRYQFNoTVm1DFZ9lL
-	xjiRUQkuRErZh/LJcL25B1FFSLVeNret5EcmvjLLFBXmpgKo0sY+9vIBkwoXDv+DOZHYtyNV2wo+d
-	9Mhk2mFqiXZKbQVze1gNdT9ZSOeIdGJEUbmIH3uLlUbuJOas/5aKBf1qcpjFwrBp5cRZgIF4Yktg/
-	FoWuZrWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B8lVeEewvobMOpR8lC3k8lo2AR9tpKYDSUjo/3iThWc=; b=NBXU4Vn6bch610i8LVWn2zvKOJ
+	0UdzEL06U1tynE81Jqq+Qqq58h1Ee+DIHotMYEVvJZKzfE2ou0y/ywcwU3D7RsBqEPyhHlwL+N7zT
+	XwvgEGMXswJW+ZlX3Z2WoEtzzBcFh1hyq++7YzPbBGIUtnonE8+a9kxKFPZXQRVX2rZk2TKfzguZs
+	Vs5YGPik90INCMc6qXqATyg2lDV3gWcyHcbUeMfqESaMbKWISU3RLvyFpr8QbE4fomvMzDscmpuWB
+	50dgbkLWHUFkOmJfmvWIWQKISsFDFyvhE3MaYB8m86DtVxpToK5vBLCe1pnuTbs1hA2wmoN3jWM/O
+	jTuBWc5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQSRK-00000005YxO-0yqi;
-	Tue, 02 Dec 2025 15:37:18 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vQSaO-00000005Zjf-1TAn;
+	Tue, 02 Dec 2025 15:46:41 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQSRH-00000005Ywx-3LSQ
+	id 1vQSaL-00000005Zj9-2FSs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 15:37:17 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B2Dis5f2821344
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 2 Dec 2025 15:37:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	7dvI4jnmIBSLqBzEmGJJZVq3e4u/zHX94LqpdnMLiDQ=; b=MNymD01fnkARBFE8
-	f30Xj0Twb7f0JXMlzRlh1AWQmjzx6HXA4kbWVbK+kojTuHMCdOgSwJC7x3FlFDhe
-	p1ESF91lcGvnoxNH0/gj4x7PtME5E7FoImmhRbx5eW/g0vIOxoTCLH9055hEy/fh
-	0AiWHa+CYoT3drJcb7auPKuIH7TSlsk13BkfeZIC+MrPgsThZ1UDNEwxPEvSVc0p
-	34TPvYZFldyEZiLjuYPBJ6yxT5ZfovBKNWWImGCGPXG0srgNI5VlMaZo6F05W3/m
-	5BPOlySCNw8R4I3UFXUQzibHm7/xDr6VU/tKzbnSdqEFXbP/wyn+lxIquSuqBPHe
-	pAjkiQ==
-Received: from mail-ua1-f72.google.com (mail-ua1-f72.google.com [209.85.222.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4astjghra7-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 15:37:13 +0000 (GMT)
-Received: by mail-ua1-f72.google.com with SMTP id a1e0cc1a2514c-93ceb095d13so198491241.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 07:37:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1764689833; x=1765294633; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=7dvI4jnmIBSLqBzEmGJJZVq3e4u/zHX94LqpdnMLiDQ=;
-        b=VjPKrvIEi5wWRDxgMLCBkcJjtesT35qP3/HhYU6lAsjBkrkO0F/sdljoDOS2UDKA+x
-         B8tZQ0A7ghYGX329VQ5QME+JfvVuIPq6R7FgfC/nVvwZMvNmKtl7kJil0AGU6GBmfAXh
-         hKxFLRIFRZehSumayMP6pofmMh3p8hnSXMb6HnLzusYuU6aTxzTS0ibjFMpng3jnrlMM
-         zPj7qJJxAjGWRW6D9n/57zTHaW1RWXR9U29RR7r4ze5N4cBytT9HXY/r3gEmEcjY6YzO
-         zr2wzsDHj4QHH58RnaaKy265bOydVNZdRJqiBXsi+ONgHJtJZPIM8jdtHZDBjiUN1kjG
-         +mag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764689833; x=1765294633;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7dvI4jnmIBSLqBzEmGJJZVq3e4u/zHX94LqpdnMLiDQ=;
-        b=F6lMNDosSoPfTr5TaYIEQF6mXFLZUeLtLBmJwzMR+Q4YLqC7fW0zS6oDNGzby6xEUV
-         zEUxYgEng0IocqvzQbDkbkOBjnEMcv5aXdDz+Fka8xudmN0Q+hX2e9uC+1SNreCgqamK
-         8p5FGaXNGilaQ2VPssJQR25H9C0Ekv0F6dAPps9iohDGfleT6+n1Bg8hzm8SEwg5dBLd
-         u1VDDthisI0X9Rca7yE4aGI4PDpTF0yXYpfER00o/XPo46fPvNLoNMA1pBnSARM/Cafm
-         BLWbw7RWb1fOfz/a75/Ttju9aih2v0MQ9ABt/WLbCPWx0lpBqnmHwGbQyuhRpNf+Km2R
-         1Mpg==
-X-Forwarded-Encrypted: i=1; AJvYcCUQn3qmv5m/CpN5lQoQpEosHVYcaOaAomCNwW9VVvCnYcqhC9Be0IbXtKe+3Dj4Nh7myFdZdA9Dm8vf7vm35P9Z@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0oVu/Lf6hXp9ADDg8uak5Er8WODx23XjeB0mWJ+yK4zWXgfhw
-	Kes9PgJeOyCg2uidfhsjXiCtgzdQh0edsf4f9JYuemsn45laOtGdWVJ9KUdnBhRtasvStT+CcZR
-	RwNLxZz/2lms+/O5z/L/1hOfttknQOj3PJpGg9qgIjAI16i2hu20HkLZap83QR16ANP8VQUsFJP
-	eUvQ==
-X-Gm-Gg: ASbGncuEPlPRAkvEuOKX4X1K7vSJ1xscNsGlUc0Uy5FPsViBJ/DKU10inbcJOPKyMhN
-	J6kPn/M8rQbGafRQ7D2Atjk07RIfaclsX6KUASo7HNHFv4GQKGCecKZWr6mqRjeL7Y+g4xwWG0I
-	MPuH3n7bmQPYGwA8pS52nmQzjmoWkIPgnBABDYVGR0aaA/kTSQzDSdU11JJOw7lQ2ud5xRwSd7Y
-	COXmbC7f6I0msUWBMzuLGrD/olQZbbMckootr7d/Jb7Z1Htm5/ux0yZKofBCmmgxghNM7CRq4YL
-	l1eKKAc5ncT9GvIxJ8BuU1+6QtNWpu2xY5SdT0U6MsH+ZUwdkkRIh8QSHWnw9kdlj1UhkvOYMCa
-	Mx6mADdATr00zbOloRWNO5azqFqcHQjoZ2CLiaOgDEMbC9AGjsJn4t0sEoSIyXQzBgg==
-X-Received: by 2002:a05:6102:5ccc:b0:5db:d7a5:ba2e with SMTP id ada2fe7eead31-5e1de57c9c5mr9556599137.8.1764689832988;
-        Tue, 02 Dec 2025 07:37:12 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGvD45845hdbmhM+YS7Wjjhg3RBweI2ZE3krzHTkcYizMtoYHA/7UWe6Faae0ZvkArgVzbYoA==
-X-Received: by 2002:a05:6102:5ccc:b0:5db:d7a5:ba2e with SMTP id ada2fe7eead31-5e1de57c9c5mr9556563137.8.1764689832343;
-        Tue, 02 Dec 2025 07:37:12 -0800 (PST)
-Received: from [192.168.119.72] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b76f5a4b926sm1544786066b.68.2025.12.02.07.37.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 02 Dec 2025 07:37:11 -0800 (PST)
-Message-ID: <f7609d19-5254-4419-a600-d0904d92d525@oss.qualcomm.com>
-Date: Tue, 2 Dec 2025 16:37:08 +0100
+	Tue, 02 Dec 2025 15:46:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=B8lVeEewvobMOpR8lC3k8lo2AR9tpKYDSUjo/3iThWc=; b=pGW1wQMDB4gpVcAKDhhrvOYIMF
+	S+z2LpAbMdBAY5XqI1fKjg3P8u2iCOqMO4V4QEPppqxcuKT0/3m+J/t1w4LeF8OAbRzSZuemnp8BH
+	lGdUigCNtpumHjdEYQZ9a2vtwZTMHMvBplbgfIGWsB3C9nGptZHiDxtwPuQZ4mEhiyzSbZfaaOYIc
+	27qdV3AxAeC+BJeAFNdPbC2zJWBKK1hkxbaBkzlLJylXr4moCUnz8wJK3sag6v/qc9px+7BSKVNWi
+	ZI8yjuBc78wbyBMg70rqFMSMGxuVzF/31CbQi2nbiOMgt4DqsWa+IaI3C7wofwyrU5mXMFpowX/JU
+	jmWpMz2g==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:59058)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vQSaC-000000001pg-3HUd;
+	Tue, 02 Dec 2025 15:46:28 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vQSa9-000000007Zj-1Cyb;
+	Tue, 02 Dec 2025 15:46:25 +0000
+Date: Tue, 2 Dec 2025 15:46:25 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rt-devel@lists.linux.dev,
+	Xie Yuanbin <xieyuanbin1@huawei.com>, Arnd Bergmann <arnd@arndb.de>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	"Yadi.hu" <yadi.hu@windriver.com>
+Subject: Re: [PATCH v3 2/5] ARM: mm: fault: Enable interrupts before invoking
+ __do_user_fault()
+Message-ID: <aS8J0WrmmH01L3K1@shell.armlinux.org.uk>
+References: <20251110145555.2555055-1-bigeasy@linutronix.de>
+ <20251110145555.2555055-3-bigeasy@linutronix.de>
+ <20251202141816.wfHNUMFK@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] clk: qcom: clk-alpha-pll: Add support for Rivian ELU
- PLL
-To: Taniya Das <taniya.das@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Jagadeesh Kona <quic_jkona@quicinc.com>
-Cc: Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
-        Imran Shaik <imran.shaik@oss.qualcomm.com>,
-        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org
-References: <20251202-sm8750_camcc-v1-0-b3f7ef6723f1@oss.qualcomm.com>
- <20251202-sm8750_camcc-v1-1-b3f7ef6723f1@oss.qualcomm.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20251202-sm8750_camcc-v1-1-b3f7ef6723f1@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: j_hzsoguOo6MWDk_EKLK288AHM7U9SzZ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjAyMDEyNSBTYWx0ZWRfX0JYbnnqhFsWV
- c0rAIcTUaaZKk75moA/8Os1eDesj70/NhVkIvEYCp0DIb5mMbb8wY6oIQEplB5DBiQssG1Bh6gq
- AqnEECkvMQ4Cf0sxHmiNErEirBBnSPYF4cZ4sKfwsY/7s0jNuENtOk26hdC2AGYzgLwkuOExxbL
- ncAe1uZzBm6XNMmYOMeiaCBf32x0+shFeK/7BST9V24vrI/5taOGHI5A24EkW0z9jqpHgIThfGi
- 6SOc/6BJRlHa2kOxOacINlMoCWzJUAuBMofEuZh8brYevJU27XaycEXdK9fYOQKZewhA3xxozY3
- /s2BdGNpN0RaOYAb/CPt9tdzYA3zV+KlNxozZpMi+mHHbrrCsXRWcrHuHuKQFq34PaiI20Yj5vM
- sVLjWqDePpVYssnp7qwWDFRm8HUN9Q==
-X-Proofpoint-GUID: j_hzsoguOo6MWDk_EKLK288AHM7U9SzZ
-X-Authority-Analysis: v=2.4 cv=EbfFgfmC c=1 sm=1 tr=0 ts=692f07a9 cx=c_pps
- a=ULNsgckmlI/WJG3HAyAuOQ==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=5mhmk1EvtyQYLrneLBIA:9
- a=QEXdDO2ut3YA:10 a=1WsBpfsz9X-RYQiigVTh:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-01_01,2025-11-27_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 adultscore=0 lowpriorityscore=0 spamscore=0 bulkscore=0
- phishscore=0 impostorscore=0 malwarescore=0 clxscore=1015 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512020125
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251202141816.wfHNUMFK@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_073715_985902_C9196C00 
-X-CRM114-Status: GOOD (  11.60  )
+X-CRM114-CacheID: sfid-20251202_074637_850505_B56B5E39 
+X-CRM114-Status: GOOD (  15.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,16 +83,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/2/25 11:26 AM, Taniya Das wrote:
-> Add clock ops for Rivian ELU PLL, add the register offsets for supporting
-> the PLL.
+On Tue, Dec 02, 2025 at 03:18:16PM +0100, Sebastian Andrzej Siewior wrote:
+> On 2025-11-10 15:55:52 [+0100], To linux-arm-kernel@lists.infradead.org wrote:
+> |
+> |   https://www.armlinux.org.uk/developer/patches/viewpatch.php?id=9460/1
+> |
+> | Moved to Discarded.
+> |
+> | This makes the issues with the branch predictor hardening worse if this
+> | patch is merged on its own - since this adds another path where
+> | interrupts are enabled before calling harden_branch_predictor() in
+> | __do_user_fault(). It would be sensible to move the interrupt enable
+> | into __do_user_fault().
+> |
+> |    *** PLEASE DO NOT REPLY TO THIS MESSAGE ***
 > 
-> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
-> ---
+> I thought that we apply both.
+> In 9462/1 I am moving harden_branch_predictor() out of __do_user_fault()
+> because do_page_fault() needs the hardening before the interrupts are
+> enabled. Do mean something like
 
-Matches downstream
+If I apply 9460/1 without 9462/1 first, then it makes the problems
+with the branch predictor hardening worse. I'm not prepared to do that.
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+However, 9462/1 is tied up in the discussions that are ongoing, and I'm
+not going to short-circuit the still-ongoing discussions that touch
+this area by applying this patch - which would screw up everyone's
+proposals to fix the various many problems that are being discovered in
+the 32-bit ARM fault handling.
 
-Konrad
+This means I can't apply 9462/1 nor 9460/1.
+
+Since 9463/1 likely requires these, I can't apply that one either.
+
+Sorry.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
