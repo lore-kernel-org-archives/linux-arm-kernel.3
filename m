@@ -4,53 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AADFCFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 06:42:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A27A3CFD376
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 06:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CYpIgsRGoc1h3CEuvI5Xrl49EXwii4szN8z3+fQvWh8=; b=pdF522i37C4k84UmE3A3kKENIi
-	1/k1PIWVbOBnKvRzE+MnTCwtWcJWBJC+/CzOMm9SN55LwAc0y9up2odhqaIU5eaD5MKojtGocoz0/
-	R0bP9jnx1T2cgHXbKTr+9ESwcoXg0KiCkTNXWiA+e5w5n6xynP1dznp5v7nJXmoqDq9gBYK6OlPmG
-	aTEvlvxoDzBMThG10uK/oggCOtKQkk/qVmmKsZmRIqwe7xLBvpc536UJk7R83Fxcmpp855KitYvDN
-	6iD+yz99a5c9aN+V2qjKLXXCLPAnW0HR8TeoTB41vxUPSV7FrhyvUTBCpx0M6KcjGRTrBgS8DW+hS
-	YXX/1g+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=jF+dv23Egm8ORgXvS1vXPefxbBKc8v5jVIo48yAirzE=; b=JaSM7mWmA9nkQZ
+	MIdm30Q8zOVP645OiAt6WYvnWgTURVjxZCNcWkrcYfLEcZQagjwkv6H3+hGdt2EoWJhaTNup8aUD2
+	vCcJudmbpVLKcdgbqhT+HWJm3WSvui+atG1PiV8FemHoCdACRxfJsXu/vpFlq5LFpJkTvHDL97AEm
+	zJms4XXybpZX0Gp8EtRPgsNbM5eyLysF3qvklqlecfSjSdmYfg4KqAiAg6YpMQXTOYxB0ffTb16qx
+	/BwgIy1P0F/ZgTsjA0Quwc+9C2KNudZT1hkJZIO7wcDhf8uYI1cDC7EJW8tBOONlnd4wJ7XngOWB8
+	wRKvSIuK8a77nxHMqXvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQK68-00000004uor-0YIs;
-	Tue, 02 Dec 2025 06:42:52 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vQK6c-00000004utK-3Khq;
+	Tue, 02 Dec 2025 06:43:24 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQK60-00000004uoH-1tgb;
-	Tue, 02 Dec 2025 06:42:50 +0000
-Received: from ideasonboard.com (113x43x203x98.ap113.ftth.arteria-hikari.net [113.43.203.98])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id E59B8E77;
-	Tue,  2 Dec 2025 07:40:26 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1764657627;
-	bh=jLcjBx9AvHp2WbwJbosGQXZob7xTDXEgsrM1sIqbe6Q=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=JBGWJfUvVCROXrhaNG0Ge1lXR/8RfqrkeQfq+4/j/eNmtZasxK6M0KIXziO7OvSPG
-	 1b+yTFzMVRLmnz9p9ra4goqaKz64kpNupGtcYpBoyQ2JZqnc3tHLyIBwxMvCKdnFin
-	 3VG5qFWTG21c40xQ1xCKbypJkivffaqurCfcI5ko=
-Content-Type: text/plain; charset="utf-8"
+	id 1vQK6Z-00000004usF-1IbU
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 02 Dec 2025 06:43:21 +0000
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B26RanD1741507
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 2 Dec 2025 06:43:16 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=jF+dv23Egm8ORgXvS1vXPe
+	fxbBKc8v5jVIo48yAirzE=; b=PFzwFoIgvqyTEi99DCD5HTXkTSlZF4GSdnLuv8
+	fAhEfH97DdDDMHxV1HRIV/QdoU2/e5xOovl+D/yFTJHCvDCxVmlK8ZJGGDrLERk0
+	PbXt63H+5HrXsftw/vMybeY3dHiZOGHWBR+0WwNFJ1l5iI4IEMDqgR8yjXOqtIEq
+	3fJsGYqRbm9VsJzzrA4U1JrJFIfXg0LhbY71luwNEYp3G1gjyjiA4UYeyK/AGwuy
+	d3v5Z7/xVpexlRrbdtZj7SRvuMlJWBgIQDPhfFj/i5y22MFWhQtkguZOfF70KQsZ
+	mLKNYG5Iri0y6nFsKOw8rE73cVj+V28W28GOpqoElaJjhILQ==
+Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ashtkskxj-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 06:43:16 +0000 (GMT)
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-297e66542afso137822525ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 01 Dec 2025 22:43:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1764657795; x=1765262595; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=jF+dv23Egm8ORgXvS1vXPefxbBKc8v5jVIo48yAirzE=;
+        b=Qsue0+N3+CigzZBSP0ewbnJQsK3eWRCxOgKBP5oeUFzdxBOzJxZ2APingWx385hpIz
+         h0mg3M/sHt2Gf4ntXn0t1bZv+OaV6/cY7CbPjxB/wxcj+6S189o4UKsOcdt+jufPXlGP
+         L+7ZizdXcU5qDuPeE7XYFJkQzzDvLLD+NuRTn9ddVb5Rf4g4uqmv/Il8fAgDByGb5/lY
+         apodbQUfYVVDxX5XGG82KjSmLpTA1UVmtzFXhg1RPd5BBptUHotBqRIQLNH3sCYzC0k+
+         fLgXMIZkvqH8Sr/aku9QXfpfVSdLI8EAq6KPhqUtnO1fSo4sqY5fCSihtx1dUP+ZlTXu
+         gIWQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764657795; x=1765262595;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jF+dv23Egm8ORgXvS1vXPefxbBKc8v5jVIo48yAirzE=;
+        b=dxrs1PN00G65hqRxTa5jUgaDpVSsH0THtdsN5ONu0WmIy863MkCoYuDkec2uy7ge0f
+         9AKBSqpYryz+FSR56dHdTOzRgmyPwfq8UKnP03SYWsG0tS4hme6uGUugnSdzryF/Jtuo
+         lGRCzmWUKfQx2jZxBLhwdIJhy/F/wEOl+6Z2Be4WYeE6e9BotSjcKubxSNSqxKjwwgIx
+         V17Uqb4KY6qzhtK6DlRa8XIuVFcQBhR3dn3ofhNmIJ5hGoSO2rm8VvbFsFex2KixCczH
+         NGsFrkoMittYr8cn32UwuDB2G6xsDXnpKekidew3kBR21pLakkl0Q4vLnBfagpgPMko/
+         OSsQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVxnEVZcikl/k7XCoEJsoRyKfcGYfmOipZAMY8FUNJVF5+utQHh8zGSfDbVn8eX1s9zwwCqlMXtd+JvaJILQfc0@lists.infradead.org
+X-Gm-Message-State: AOJu0YzLJpj2UJ9CACnVxkzzcg22yVVsZCEzkHLEnhje/OfuB9C94Tqp
+	rYfcxE6QWxUsapsiMvG6P+Rf+77YgCTDeGB4QeYVsCOuHv/wFH37vV9ynKxNZWeLH070fH5G1Bl
+	Q76PIninu0VN5H+ST2yBDPbJxRF7wmc5NXGz/PXLB+Fqp/xX/ANGmld4QO8ADU+QJUvpo+dCpd+
+	LUlQ==
+X-Gm-Gg: ASbGncsxzsjWg+qF7q1hodEHlf+/6BxrsfkxCbbWRcppUulT0C4WaXktvkY2thYTFzI
+	fGkFBXbW3mPPmTRMLCK/+rWHYUyNeAP1rTnZdgaTg2nDpUGl+Fp9Ia6ZwTHupA4tt2wa8VeqeaC
+	JDgsubHDGtCTwMCYowSqkhMh9T6Gzd/xPDft07AjV/zo1mcpLlJWnU0qbWAWwUiH8iaayqPiEAL
+	/3u06Cn7fNZsod42L3RwML7JxdfDt1sDf9KzZr68QxU6s1ObAzwavSLDKTi2I4R85zee7EfUevX
+	aChWgs7tat3pg8tdNwUrAdQ4INVEXinVNHdIeuTUPnNzOYcTUmvwBqzoK61H92jyhrIuPfKaN7a
+	PALcbU/M49LhBm0Cb5/wBlAbhBhlW+fxSaz/RZT/HVuyw3rjZIV4c3LiihBIb/LKEX7S9Ghe2R2
+	Z5tg==
+X-Received: by 2002:a17:903:360c:b0:298:450d:6926 with SMTP id d9443c01a7336-29bab148b39mr315620815ad.34.1764657795542;
+        Mon, 01 Dec 2025 22:43:15 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEvYeVsKcBWthLpi0x84eJ6/7UrtySaWZso/bO4ItERgBVQlT0J5xWM+Qr4OQyyW0znGxoyBw==
+X-Received: by 2002:a17:903:360c:b0:298:450d:6926 with SMTP id d9443c01a7336-29bab148b39mr315620635ad.34.1764657795027;
+        Mon, 01 Dec 2025 22:43:15 -0800 (PST)
+Received: from jinlmao-gv.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29bceb450cfsm141821675ad.74.2025.12.01.22.43.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 01 Dec 2025 22:43:14 -0800 (PST)
+From: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+Subject: [PATCH v6 0/2] Add Qualcomm extended CTI support
+Date: Tue, 02 Dec 2025 14:42:19 +0800
+Message-Id: <20251202-extended_cti-v6-0-ab68bb15c4f5@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20251202015025.601549-2-rui.wang@ideasonboard.com>
-References: <20251202015025.601549-1-rui.wang@ideasonboard.com> <20251202015025.601549-2-rui.wang@ideasonboard.com>
-Subject: Re: [PATCH v1 1/1] media: rkisp1: Fix filter mode register configuration
-From: Stefan Klug <stefan.klug@ideasonboard.com>
-Cc: libcamera-devel@lists.libcamera.org, Rui Wang <rui.wang@ideasonboard.com>
-To: Rui Wang <rui.wang@ideasonboard.com>, dafna@fastmail.com, heiko@sntech.de, laurent.pinchart@ideasonboard.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, mchehab@kernel.org
-Date: Tue, 02 Dec 2025 07:42:36 +0100
-Message-ID: <176465775606.135635.13034018447792643478@localhost>
-User-Agent: alot/0.12.dev8+g2c003385c862.d20250602
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAEuKLmkC/3WMyw6CMBBFf4XM2hJoZXis/A9DTGkHmUSotkgwh
+ H+3sndzk3OTczYI5JkCNMkGnhYO7KYIeErADHq6k2AbGWQmizyXlaB1psmSvZmZhep0VZSIsu5
+ LiMrTU8/rkbu2kQcOs/Ofo77g7/0TWlBkouzUuVakUKO8uBDS11s/jBvHNA60+75/AVpRW/GvA
+ AAA
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach <mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, quic_yingdeng@quicinc.com,
+        coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        Jinlong Mao <jinlong.mao@oss.qualcomm.com>,
+        Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
+        Mao Jinlong <quic_jinlmao@quicinc.com>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764657791; l=2923;
+ i=yingchao.deng@oss.qualcomm.com; s=20251128; h=from:subject:message-id;
+ bh=hg393qa4WowvY1wSgSubo4QC9Dr0Pfdv2DwRyxTPtgw=;
+ b=wcqDUIuOlcN48PcoSh60fElR7YS7cSyZhiM3/r0gz9KDcL13hQ9qp6k3EK9VM94mhsjTiij2b
+ ijP3HAfbUxwChP0W3ah7NbP9SXH1thi/0mqe+v/3l/Dg7+daVew61RF
+X-Developer-Key: i=yingchao.deng@oss.qualcomm.com; a=ed25519;
+ pk=QWvd9DuX5YKvc7/VfWGCElGNr3HbCyig5bEb+lUUohg=
+X-Proofpoint-GUID: NofOcqtU48_mibOb1PNWeGpwOspdQ3_X
+X-Proofpoint-ORIG-GUID: NofOcqtU48_mibOb1PNWeGpwOspdQ3_X
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjAyMDA1MSBTYWx0ZWRfX10eljFbp+5Im
+ CmVchQ89XKYY6e3ZHM3IX9h/vN6B2nXAuoM+R3g16OKHNT4Uc+Qe9hVFviQAKfu8GKzNVGBAeDx
+ hFblrVDNAMu0htG20GqQQDQGY04akoAWrImFTrCVBQfQp2HLKwq9aa1nB/UwBOA9ObNouFr4hcc
+ R+vJlHwjaz5/YZBJzU6aEbMubGgHqsWVBqkV8CTAsSpCE4fAs+/udjqm8j/9qhSST4jy4nxlq+w
+ ADIspfBQYcM+achFEjZ5qadhlwXm5NWrIq2FfJJfzf9Re1r3pvlA9YXMbf/5R426BzNhP8U0JqE
+ 6pr8/ghyXgFBJ7ypkgD4S6OPJYkVA3pBnzmZGqTtzjzTwOF7J0wlUVZ8tJwOzjEfDiek8tyk23U
+ +p/dXWbH4MZg2D+ZYT9T2VkC2O+wXg==
+X-Authority-Analysis: v=2.4 cv=DL2CIiNb c=1 sm=1 tr=0 ts=692e8a84 cx=c_pps
+ a=cmESyDAEBpBGqyK7t0alAg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8
+ a=qu_5hfJKU6GsaiMghqAA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=1OuFwYUASf3TG4hYMiVC:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-11-28_08,2025-11-27_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 priorityscore=1501 phishscore=0 impostorscore=0 clxscore=1015
+ bulkscore=0 malwarescore=0 lowpriorityscore=0 adultscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512020051
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251201_224245_659911_B601A8A5 
-X-CRM114-Status: GOOD (  14.78  )
+X-CRM114-CacheID: sfid-20251201_224319_462851_164513D4 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,66 +158,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rui,
+The QCOM extended CTI is a heavily parameterized version of ARM’s CSCTI.
+It allows a debugger to send to trigger events to a processor or to send
+a trigger event to one or more processors when a trigger event occurs on
+another processor on the same SoC, or even between SoCs.
 
-Thank you for the patch.
+QCOM extended CTI supports up to 128 triggers. And some of the register
+offsets are changed.
 
-Quoting Rui Wang (2025-12-02 02:50:25)
-> The rkisp1_flt_config() function performs an initial direct write to
-> RKISP1_CIF_ISP_FILT_MODE without including the RKISP1_CIF_ISP_FLT_ENA
-> bit, which clears the filter enable bit in the hardware.
+The commands to configure CTI triggers are the same as ARM's CTI.
 
-That sentence is a bit hard for me to understand. Maybe:
+Changes in v6:
+1. Rename regs_idx to ext_reg_sel and add information in documentation
+   file.
+2. Reset CLAIMSET to zero for qcom-cti during probe.
+3. Retrieve idx value under spinlock.
+4. Use yearless copyright for qcom-cti.h.
+Link to v5 - https://lore.kernel.org/all/20251020-extended_cti-v5-0-6f193da2d467@oss.qualcomm.com/
 
-"The rkisp1_flt_config() function overwrites RKISP1_CIF_ISP_FILT_MODE
-without preserving the RKISP1_CIF_ISP_FLT_ENA bit thereby unconditionally
-disabling the hardware block on reconfiguration.
+Changes in v5:
+1. Move common part in qcom-cti.h to coresight-cti.h.
+2. Convert trigger usage fields to dynamic bitmaps and arrays.
+3. Fix holes in struct cti_config to save some space.
+4. Revert the previous changes related to the claim tag in
+   cti_enable/disable_hw.
+Link to v4 - https://lore.kernel.org/linux-arm-msm/20250902-extended_cti-v4-1-7677de04b416@oss.qualcomm.com/
 
-But as I'm no native speaker you could maybe wait for feedback from a
-native speaker.
+Changes in v4:
+1. Read the DEVARCH registers to identify Qualcomm CTI.
+2. Add a reg_idx node, and refactor the coresight_cti_reg_show() and
+coresight_cti_reg_store() functions accordingly.
+3. The register offsets specific to Qualcomm CTI are moved to qcom_cti.h.
+Link to v3 - https://lore.kernel.org/linux-arm-msm/20250722081405.2947294-1-quic_jinlmao@quicinc.com/
 
-Functionality wise the change is correct.
+Changes in v3:
+1. Rename is_extended_cti() to of_is_extended_cti().
+2. Add the missing 'i' when write the CTI trigger registers.
+3. Convert the multi-line output in sysfs to single line.
+4. Initialize offset arrays using designated initializer.
+Link to V2 - https://lore.kernel.org/all/20250429071841.1158315-3-quic_jinlmao@quicinc.com/
 
-Reviewed-by: Stefan Klug <stefan.klug@ideasonboard.com>
+Changes in V2:
+1. Add enum for compatible items.
+2. Move offset arrays to coresight-cti-core
+
+Signed-off-by: Jinlong Mao <jinlong.mao@oss.qualcomm.com>
+Signed-off-by: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
+---
+Yingchao Deng (2):
+      coresight: cti: Convert trigger usage fields to dynamic bitmaps and arrays
+      coresight: cti: Add Qualcomm extended CTI support
+
+ .../ABI/testing/sysfs-bus-coresight-devices-cti    |  11 ++
+ drivers/hwtracing/coresight/coresight-cti-core.c   | 153 ++++++++++++++---
+ .../hwtracing/coresight/coresight-cti-platform.c   |  16 +-
+ drivers/hwtracing/coresight/coresight-cti-sysfs.c  | 187 ++++++++++++++++-----
+ drivers/hwtracing/coresight/coresight-cti.h        |  60 ++++++-
+ drivers/hwtracing/coresight/qcom-cti.h             |  29 ++++
+ 6 files changed, 369 insertions(+), 87 deletions(-)
+---
+base-commit: 7d31f578f3230f3b7b33b0930b08f9afd8429817
+change-id: 20251128-extended_cti-3ba8576629f7
 
 Best regards,
-Stefan
+-- 
+Yingchao Deng <yingchao.deng@oss.qualcomm.com>
 
->=20
-> The subsequent read/modify/write sequence then reads back the register
-> with the enable bit already cleared and cannot restore it, resulting in
-> the filter being inadvertently disabled.
->=20
-> Remove the redundant direct write. The read/modify/write sequence alone
-> correctly preserves the existing enable bit state while updating the
-> DNR mode and filter configuration bits.
->=20
-> Signed-off-by: Rui Wang <rui.wang@ideasonboard.com>
-> ---
->  drivers/media/platform/rockchip/rkisp1/rkisp1-params.c | 6 ------
->  1 file changed, 6 deletions(-)
->=20
-> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/dri=
-vers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> index c9f88635224c..6442436a5e42 100644
-> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-> @@ -411,12 +411,6 @@ static void rkisp1_flt_config(struct rkisp1_params *=
-params,
->         rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_FILT_LUM_WEIGHT,
->                      arg->lum_weight);
-> =20
-> -       rkisp1_write(params->rkisp1, RKISP1_CIF_ISP_FILT_MODE,
-> -                    (arg->mode ? RKISP1_CIF_ISP_FLT_MODE_DNR : 0) |
-> -                    RKISP1_CIF_ISP_FLT_CHROMA_V_MODE(arg->chr_v_mode) |
-> -                    RKISP1_CIF_ISP_FLT_CHROMA_H_MODE(arg->chr_h_mode) |
-> -                    RKISP1_CIF_ISP_FLT_GREEN_STAGE1(arg->grn_stage1));
-> -
->         /* avoid to override the old enable value */
->         filt_mode =3D rkisp1_read(params->rkisp1, RKISP1_CIF_ISP_FILT_MOD=
-E);
->         filt_mode &=3D RKISP1_CIF_ISP_FLT_ENA;
-> --=20
-> 2.43.0
->
 
