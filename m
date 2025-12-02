@@ -4,83 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 271C6CFD2F6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 10:29:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0600CCFD2F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  2 Dec 2025 10:29:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/Hij2eJ4bQfTEIFNL71Ydwk0oDbkNBdcXZcpcyNuK28=; b=mSiyVtf6uUreLQw+a9j1mu7mn9
-	gjiCpj8Uxb8l4jspz9Sb7c8wdJv7DBQfvbF8AEl+QEbmZy4SKi8ZSjifOAsrd4rGB1nH3GMEdBcJT
-	XV2fZfBavPsoBMQYHZWT/pKxGFogy8Vt9qda5yWeaWFBxSpwER1ba52tACOA9rYMbyTHw+Sw8VxtI
-	W+Rxsulu1cNh7ijSI5l5tFEYazVEjFXEpxr+eSMSABtUEO1Nvnjn9XX6ecpnErbbDNgj6B8nQ8R1e
-	dbeSmnv3DDvwj/htbTTF0Pbxm96nBWK1PTXOIXExxUy7Fl3dHSLVUyBFDWUnDTG8ebHEm/K7u9JXz
-	ZaKwQ7vA==;
+	bh=BYbgmJZjdVVKjf/xwhYFcf7T2x9FfdWaqcvLFHg8v9w=; b=qZNWMrvnUhd15V8tR4xcMADsyt
+	lZ7VaqCSz0oSJov7u+9R56Bm9OtKDkY56RiB2yxJExDpbXwUxmwMuUMWpSGM5NVc6pO6rvw7kJyuN
+	dwp+FK7gc9xWLSs9GQ+xbAK3RRLU9i989Lhh7BayjM5xuY4YGYyUJRl7cr6Bb53ZDF2Hso3AyOp8x
+	FC9a8ZyIcT4wFsbuzdScgI+xdSJlj8gf1qEfwhY1Mw2cok4nDxMleqsbF8tr4M6FOPQlCa224aMjj
+	BjGnz+HBpVN9IQ9Ef4lh4rLeqid53SDoWz7EVZuJXlFHryRknEbttFvaZVLDttRAoVDK6ikJvzIPa
+	UeGPAhDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQNcw-00000005Fwk-04mB;
-	Tue, 02 Dec 2025 10:28:58 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1vQNd5-00000005Fye-1LXI;
+	Tue, 02 Dec 2025 10:29:07 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQNct-00000005Fvz-3JX2
+	id 1vQNd2-00000005Fxs-3sD8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 02 Dec 2025 10:28:56 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-5957f617ff0so6014231e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 02:28:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1764671333; x=1765276133; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/Hij2eJ4bQfTEIFNL71Ydwk0oDbkNBdcXZcpcyNuK28=;
-        b=eEOWYFpklDmElpy+3JSPYML30uxpBpUcVzh4sb6fJHytB8SrVPMT62hHlMdi3Zaao1
-         t2z0kKHMPGT5+wYoYhYu2H5klyw+/v08X9j9LETKFpyNba7W17/gBWxf7DR4vrWIQNyY
-         N03bN5990cJ0xUGALUAGSUP9x9FVXhalkhwrE=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764671333; x=1765276133;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=/Hij2eJ4bQfTEIFNL71Ydwk0oDbkNBdcXZcpcyNuK28=;
-        b=TUBaKs3zciwymHxCb7gS42VlyhYpRTrgfe5Jov4LUmybR9i+2y/haS5vvHKNU/+dmr
-         VMRtCTA4XM5lgTq4BKAupFX48LCvamnlLj9X0y+mlBXLBCD0u2jlqXH/IzTNmKMyvtvv
-         DXJDYHWHGkVCR70yhpiHO2OcSJYVMS+wNIHD2utmtGpGyMAuDNnXQ/PnYO6CCuOHooD5
-         CAsWtX/NuBrOwEve1dhT00LCAemJiCV2XgwW+zW+V0E7e0Nya3IoetJ6UDt2ba6vhvRn
-         CDIya7HVEWZwo8XiFtyfc8mzoxJD3Tg3AalEV4uSWBVmBUaajIgvhkA6fGpsU3zrrAqn
-         VUFw==
-X-Gm-Message-State: AOJu0Yys1TpnMfpQN6FvmurzB/dY8jgtl344pORRW5tA3BFkf0wEb8CK
-	CLhMl+yucK2m6x+ZdTwE4YumJG6AHeYYy/LDpRBXQfa+nBIZ858WyfXTuIWqjyzBat95qe27Cw8
-	25T8p0FlIrqpZAWKEsrUNqKU6/81FkPBpiFUpTpYhksxCQVMIBDiPuA==
-X-Gm-Gg: ASbGnctFgiXpQZv74To8LcpAxZN7FNT8RyhTOcOosD2wXHPWa3MzlpbyYG3r0lrmd1+
-	4H9j/DrkvTjEZTYBXngLjsGtOmkeWrtKX6qkZ1y0WTF8+RJBaU1QY3M9Zf8J+R38EEBuwOqhCR8
-	N9SiS0Zw31KvP4I2Xh5mOVaYgxf3UGtlDplNs2rM1DVlwFDicNjJffw5S8TSt6STI4pN/T6n9/M
-	vqFXs731Zbdw7mdKc+AcnnNyI6AxtOH/+e9VS+6rNwtFxr5RpWrRlqBl9rbWgklwFjFvwQ7FU+4
-	38ldDbvzJ8Kp6+63ITGg/Y33XMMBdnU0OeRp
-X-Google-Smtp-Source: AGHT+IEUWP09oXRUY7g4DEOUpOcEnRmbCPvKbs0mqukve3EoCbRXo9lDO4l8I/xQm7lQ2w+n9b6Ycu5noWSoeWMROkQ=
-X-Received: by 2002:a05:6512:224e:b0:594:2e7b:6f9 with SMTP id
- 2adb3069b0e04-596a3ed9526mr13041882e87.27.1764671333551; Tue, 02 Dec 2025
- 02:28:53 -0800 (PST)
+	Tue, 02 Dec 2025 10:29:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1646041A8C;
+	Tue,  2 Dec 2025 10:29:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE097C4CEF1;
+	Tue,  2 Dec 2025 10:28:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764671344;
+	bh=LBHhSzq2IOBCnzlq0jhDqsGHLOG9BMVISy+MIMVDfds=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TUyktyUMz1Dq2ffotJGHQ01/YnnJ9BXoIiGyfMeYedW5IsMWFTWggRYWfSn0OqyiF
+	 8sUsZllpuaZJIWpQSr8lkoXjSAIurvjHIW2KfUIdbnD4prtJKQZmEi3RX/RrMTosYo
+	 bVakpZVIQwl1mXWVyCvfIx4Too4tL11nuoOcv8eqBPsHiKwksmBNg8yk5XYyIJyaBW
+	 Eq49XKzu27gdnAtU9+kOCg+aQZmfiiDDm/W+DYm9ZNEVRxorsAk/joBgcm1Gi0JwlS
+	 w6WpR7EGbURwGxbSenWJ4QbnMWgl7PBU5SxGdWL7RS8atJF+3AjhSOdXD+ZQ1naM+J
+	 p3izapdIv4chA==
+Message-ID: <d7515cd3-5488-4d15-82dc-d2b98cfa2bed@kernel.org>
+Date: Tue, 2 Dec 2025 11:28:55 +0100
 MIME-Version: 1.0
-References: <20251119181333.991099-1-sjg@chromium.org> <20251119181333.991099-2-sjg@chromium.org>
-In-Reply-To: <20251119181333.991099-2-sjg@chromium.org>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Tue, 2 Dec 2025 18:28:42 +0800
-X-Gm-Features: AWmQ_blXhlVTtInxk5zhTOgXEKnLmNEgPepJ1I-h-IW5gpx2gQXsjXMRQi6WcNg
-Message-ID: <CAGXv+5Fm_jx=shhtfWAjrD_iaRtWQGa9bGdRR_ajXHLrWJg4QA@mail.gmail.com>
-Subject: Re: [PATCH v6 1/8] scripts/make_fit: Speed up operation
-To: Simon Glass <sjg@chromium.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	=?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Tom Rini <trini@konsulko.com>, 
-	Ahmad Fatoum <a.fatoum@pengutronix.de>, =?UTF-8?B?SiAuIE5ldXNjaMOkZmVy?= <j.ne@posteo.net>, 
-	Nicolas Schier <nicolas@fjasle.eu>, Nicolas Schier <nsc@kernel.org>, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 05/21] ARM: dts: omap: Bind panel to panel-dpi instead of
+ ti,tilcdc,panel driver
+To: Kory Maincent <kory.maincent@bootlin.com>
+Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Markus Schneider-Pargmann <msp@baylibre.com>,
+ Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Louis Chauvet <louis.chauvet@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Miguel Gazquez <miguel.gazquez@bootlin.com>,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-omap@vger.kernel.org, Jyri Sarha <jyri.sarha@iki.fi>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, Tony Lindgren <tony@atomide.com>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
+References: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
+ <20251126-feature_tilcdc-v1-5-49b9ef2e3aa0@bootlin.com>
+ <96b1b7bf-ddbe-4213-a201-dc89cf2998dd@ideasonboard.com>
+ <3bc5bf92-05c3-4841-ab28-9bab2bb31cd5@kernel.org>
+ <20251202104244.59a9e83d@kmaincent-XPS-13-7390>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251202104244.59a9e83d@kmaincent-XPS-13-7390>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_022855_855869_12E2652B 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20251202_022905_008649_99B2CE15 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,23 +138,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Nov 20, 2025 at 2:14=E2=80=AFAM Simon Glass <sjg@chromium.org> wrot=
-e:
->
-> The kernel is likely at least 16MB so we may as well use that as a step
-> size when reallocating space for the FIT in memory. Pack the FIT at the
-> end, so there is no wasted space.
->
-> This reduces the time to pack by an order of magnitude, or so.
+On 02/12/2025 10:42, Kory Maincent wrote:
+>  
+>> Stuffing DTS change in the middle of the driver change tries to hide
+>> impact, which is not nice on its own.
+> 
+> As it needs driver change before the removal for not breaking things it can't
+> be done at the beginning of the series.
 
-In my case the time spent compressing the blobs seems to be much
-larger than the packing portion, so I couldn't really tell if
-this made a difference or not.
+And that is the problem which should stop you there and rethink how to
+organize it without impacting users. DTS cannot go via DRM. If that was
+your intention, that's my:
 
-Despite that,
+NAK
 
-> Signed-off-by: Simon Glass <sjg@chromium.org>
-> Reviewed-by: Nicolas Schier <nsc@kernel.org>
-
-Tested-by: Chen-Yu Tsai <wenst@chromium.org>
+Best regards,
+Krzysztof
 
