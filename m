@@ -4,54 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B267D12D4B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 11:44:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4926D12D4A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 11:45:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dJW3DiZUTd/yWBqxHFgjnqQlX5Ki4WyrzgWR3//TTGY=; b=3wrf970RR4w2R16tBAK5aEXwJl
-	LDa+Les83hm0KN5dP6xLZOF64AY/dWeP0FD38A+w8HHb/jdRjIGvaz+XvRX7z05Rlq536u4pPv/JY
-	fjb2nWsSXC0/yqpY3a8UpynKmMG4d4tMbM6conUsh9NB0fuUeCobKu5GoTjv6z1dr+dfH3kNyZgTN
-	Jg08k+win6YB3V3idOCjgLM+3emUHJdKUahT/4G3YK/FCda+wtHy2huqb4tU1rHVo05sMjqYM9w9C
-	N2sGL2F+a30d34KwVZ0QrLnIhN0vlH4Wgpmy0uTYhtPu6KJg1pQN2g9fOWf2P630PkkiMJgVcziBF
-	MCV+Dxlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ocxSVnWaB5A1nFsXhy8NXJuJz7MlPd1GFAKEa6olErY=; b=oR/qppi7YpZ96n
+	UTRHDBMJ4i+C8I3ag3x4aJyHMEEpL3w7LyPwxP+Y+VEc0GR8jtieVn5+skkIM/BRBAlmKM0Askc6K
+	XoCzhvn4jkqgtE5cGW5dcXzj5hjese+idsiDbh95xl86QcwMO8v1fNlb0KcMlh61NleTMyoRA/1G8
+	QmLwdVQ06s4FuSF6VRfz720KNn6RIklN76hWi2EFPNge9nV8FvSltIKXhMP4jLEzgNkknbVNB8mDR
+	Zcpghy+xbGOFC86XwJz86aAG4tg2m1G/HRyupiEoBOqMugglwma6X3CNjt5v75opkfp7KmpiTp7Bq
+	BmNETtFkYAd9wIH9a+hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQlHS-00000006Vxy-2UpJ;
-	Wed, 03 Dec 2025 11:44:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQlHQ-00000006VxX-0x3N
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 11:44:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0AE8F339;
-	Wed,  3 Dec 2025 03:44:11 -0800 (PST)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1B91C3F59E;
-	Wed,  3 Dec 2025 03:44:16 -0800 (PST)
-Date: Wed, 3 Dec 2025 11:44:14 +0000
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH 4/4] KVM: arm64: Convert VTCR_EL2 to config-driven
- sanitisation
-Message-ID: <aTAijieCI8055FL0@raptor>
-References: <20251129144525.2609207-1-maz@kernel.org>
- <20251129144525.2609207-5-maz@kernel.org>
+	id 1vQlIt-00000006W7h-01ko;
+	Wed, 03 Dec 2025 11:45:51 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQlIq-00000006W6M-1jQz;
+	Wed, 03 Dec 2025 11:45:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1764762344;
+	bh=GVsvFJMJ9N1wsNH4BMhV4STieOC8bBaHmsMcDsgLe4w=;
+	h=From:Subject:Date:To:Cc:From;
+	b=ertmZ7iCiPYCTgzNdCrDhswfqUjpHR4k3lTL1s7LIWWTrYW9XbnCZEqQID0zhiJ6r
+	 Aan5ISTpWm6V7l4Hu0i55Cv8ReWTfaiwhy9Y4Vjg+uMxzp9WUiIxdNGthlol2IAuXD
+	 NXEnaZP6yGstcII9GQUa1XqFCt+nMJfj0/2WlC635F0gWeinyZvZy/71aC6zrMl7Yt
+	 wbzCW6lIHL1C/4ZkSbYKzyoPPIjX3fkZvEpWVhBijqeML3IJRhV18Q+6NDiwC+NOqD
+	 UHn3KVabohseoxj4gT9PMkiNQ1QoNb7X3jOI0xsoS9k9qrXLbmQzn2sNWR8q2TZIy5
+	 siGQOp4l4S/cg==
+Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3640717E110C;
+	Wed,  3 Dec 2025 12:45:44 +0100 (CET)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Subject: [PATCH 0/3] Add SD/MMC Card driver support for Mediatek MT8189 SoC
+Date: Wed, 03 Dec 2025 12:45:33 +0100
+Message-Id: <20251203-mt8189-add-mmc-support-v1-0-f5ce43212fe9@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251129144525.2609207-5-maz@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWNywrDIBBFf0Vm3YFoH5j8SsnC6tjOwkfVlEDIv
+ 1eS5Tlwz92gUmGqMIkNCv24cood5EWA/Zj4JmTXGdSg7lIqjaFpqUc0zmEIFuuScyoNvX84r70
+ e6Sahj3Mhz+sRfs4nF/ouvd9OCS9TCW0KgdskIq0Njw81XGHe9z8w9pEFmQAAAA==
+X-Change-ID: 20251128-mt8189-add-mmc-support-ff6df8f89e41
+To: Chaotian Jing <chaotian.jing@mediatek.com>, 
+ Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Wenbin Mei <wenbin.mei@mediatek.com>
+Cc: kernel@collabora.com, linux-mmc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764762344; l=991;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=GVsvFJMJ9N1wsNH4BMhV4STieOC8bBaHmsMcDsgLe4w=;
+ b=uSJLBh6B+FOH+EPSJKMaFBFDHGGU0Q1u9uG3pq7ilcrCaZzR/IRrFpLBUB4FALTltdRD7PHvo
+ JysB9LtdEwvBavezS+8USNHo/tASlNSB2b+ZSNLOl9ZyS6faqL1Be0h
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_034420_355581_7A26255A 
-X-CRM114-Status: GOOD (  24.45  )
+X-CRM114-CacheID: sfid-20251203_034548_632895_CDC30CC7 
+X-CRM114-Status: UNSURE (   9.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,176 +91,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+This patch series adds in the Mediatek SD/MMC Card host driver (mtk-sd)
+the support of Mediatek MT8189 SoC and its variants (MT8371 and
+MT8391).
 
-On Sat, Nov 29, 2025 at 02:45:25PM +0000, Marc Zyngier wrote:
-> Describe all the VTCR_EL2 fields and their respective configurations,
-> making sure that we correctly ignore the bits that are not defined
-> for a given guest configuration.
-> 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/kvm/config.c | 69 +++++++++++++++++++++++++++++++++++++++++
->  arch/arm64/kvm/nested.c |  3 +-
->  2 files changed, 70 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-> index a02c28d6a61c9..c36e133c51912 100644
-> --- a/arch/arm64/kvm/config.c
-> +++ b/arch/arm64/kvm/config.c
-> @@ -141,6 +141,7 @@ struct reg_feat_map_desc {
->  #define FEAT_AA64EL1		ID_AA64PFR0_EL1, EL1, IMP
->  #define FEAT_AA64EL2		ID_AA64PFR0_EL1, EL2, IMP
->  #define FEAT_AA64EL3		ID_AA64PFR0_EL1, EL3, IMP
-> +#define FEAT_SEL2		ID_AA64PFR0_EL1, SEL2, IMP
->  #define FEAT_AIE		ID_AA64MMFR3_EL1, AIE, IMP
->  #define FEAT_S2POE		ID_AA64MMFR3_EL1, S2POE, IMP
->  #define FEAT_S1POE		ID_AA64MMFR3_EL1, S1POE, IMP
-> @@ -202,6 +203,8 @@ struct reg_feat_map_desc {
->  #define FEAT_ASID2		ID_AA64MMFR4_EL1, ASID2, IMP
->  #define FEAT_MEC		ID_AA64MMFR3_EL1, MEC, IMP
->  #define FEAT_HAFT		ID_AA64MMFR1_EL1, HAFDBS, HAFT
-> +#define FEAT_HDBSS		ID_AA64MMFR1_EL1, HAFDBS, HDBSS
-> +#define FEAT_HPDS2		ID_AA64MMFR1_EL1, HPDS, HPDS2
->  #define FEAT_BTI		ID_AA64PFR1_EL1, BT, IMP
->  #define FEAT_ExS		ID_AA64MMFR0_EL1, EXS, IMP
->  #define FEAT_IESB		ID_AA64MMFR2_EL1, IESB, IMP
-> @@ -219,6 +222,7 @@ struct reg_feat_map_desc {
->  #define FEAT_FGT2		ID_AA64MMFR0_EL1, FGT, FGT2
->  #define FEAT_MTPMU		ID_AA64DFR0_EL1, MTPMU, IMP
->  #define FEAT_HCX		ID_AA64MMFR1_EL1, HCX, IMP
-> +#define FEAT_S2PIE		ID_AA64MMFR3_EL1, S2PIE, IMP
->  
->  static bool not_feat_aa64el3(struct kvm *kvm)
->  {
-> @@ -362,6 +366,28 @@ static bool feat_pmuv3p9(struct kvm *kvm)
->  	return check_pmu_revision(kvm, V3P9);
->  }
->  
-> +#define has_feat_s2tgran(k, s)						\
-> +  ((kvm_has_feat_enum(kvm, ID_AA64MMFR0_EL1, TGRAN##s##_2, TGRAN##s) && \
-> +    !kvm_has_feat_enum(kvm, ID_AA64MMFR0_EL1, TGRAN##s, NI))	     ||	\
+It has been tested with a kernel based on next-20251203 tag on the
+Mediatek Genio 720-EVK board, based on MT8391 SoC, using both onboard
+eMMC storage and a micro-SD card.
 
-Wouldn't that read better as kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN##s, IMP)?
-I think that would also be correct.
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+Louis-Alexis Eyraud (3):
+      dt-bindings: mmc: mtk-sd: Add support for MT8189 SoC
+      mmc: mtk-sd: add support for SPM resource release control
+      mmc: mtk-sd: add support for MT8189 SoC
 
-> +   kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN##s##_2, IMP))
+ Documentation/devicetree/bindings/mmc/mtk-sd.yaml |  3 +++
+ drivers/mmc/host/mtk-sd.c                         | 32 ++++++++++++++++++++---
+ 2 files changed, 32 insertions(+), 3 deletions(-)
+---
+base-commit: e47d97576181b31291cf58e77d737d21def0e160
+change-id: 20251128-mt8189-add-mmc-support-ff6df8f89e41
 
-A bit unexpected to treat the same field first as an enum, then as an integer,
-but it saves one line.
+Best regards,
+-- 
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
-> +
-> +static bool feat_lpa2(struct kvm *kvm)
-> +{
-> +	return ((kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN4, 52_BIT)    ||
-> +		 !kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN4, IMP))	&&
-> +		(kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN16, 52_BIT)   ||
-> +		 !kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN16, IMP))	&&
-> +		(kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN4_2, 52_BIT)  ||
-> +		 !has_feat_s2tgran(kvm, 4))				&&
-> +		(kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN16_2, 52_BIT) ||
-> +		 !has_feat_s2tgran(kvm, 16)));
-> +}
-
-That was a doozy, but looks correct to me if the intention was to have the check
-as relaxed as possible - i.e, a VM can advertise 52 bit support for one granule,
-but not the other (same for stage 1 and stage 2).
-
-As far as I can tell, everything looks good to me:
-
-Reviewed-by: Alexandru Elisei <alexandru.elisei@arm.com>
-
-Thanks,
-Alex
-
-> +
-> +static bool feat_vmid16(struct kvm *kvm)
-> +{
-> +	return kvm_has_feat_enum(kvm, ID_AA64MMFR1_EL1, VMIDBits, 16);
-> +}
-> +
->  static bool compute_hcr_rw(struct kvm *kvm, u64 *bits)
->  {
->  	/* This is purely academic: AArch32 and NV are mutually exclusive */
-> @@ -1168,6 +1194,44 @@ static const struct reg_bits_to_feat_map mdcr_el2_feat_map[] = {
->  static const DECLARE_FEAT_MAP(mdcr_el2_desc, MDCR_EL2,
->  			      mdcr_el2_feat_map, FEAT_AA64EL2);
->  
-> +static const struct reg_bits_to_feat_map vtcr_el2_feat_map[] = {
-> +	NEEDS_FEAT(VTCR_EL2_HDBSS, FEAT_HDBSS),
-> +	NEEDS_FEAT(VTCR_EL2_HAFT, FEAT_HAFT),
-> +	NEEDS_FEAT(VTCR_EL2_TL0		|
-> +		   VTCR_EL2_TL1		|
-> +		   VTCR_EL2_AssuredOnly	|
-> +		   VTCR_EL2_GCSH,
-> +		   FEAT_THE),
-> +	NEEDS_FEAT(VTCR_EL2_D128, FEAT_D128),
-> +	NEEDS_FEAT(VTCR_EL2_S2POE, FEAT_S2POE),
-> +	NEEDS_FEAT(VTCR_EL2_S2PIE, FEAT_S2PIE),
-> +	NEEDS_FEAT(VTCR_EL2_SL2		|
-> +		   VTCR_EL2_DS,
-> +		   feat_lpa2),
-> +	NEEDS_FEAT(VTCR_EL2_NSA		|
-> +		   VTCR_EL2_NSW,
-> +		   FEAT_SEL2),
-> +	NEEDS_FEAT(VTCR_EL2_HWU62	|
-> +		   VTCR_EL2_HWU61	|
-> +		   VTCR_EL2_HWU60	|
-> +		   VTCR_EL2_HWU59,
-> +		   FEAT_HPDS2),
-> +	NEEDS_FEAT(VTCR_EL2_HD, ID_AA64MMFR1_EL1, HAFDBS, DBM),
-> +	NEEDS_FEAT(VTCR_EL2_HA, ID_AA64MMFR1_EL1, HAFDBS, AF),
-> +	NEEDS_FEAT(VTCR_EL2_VS, feat_vmid16),
-> +	NEEDS_FEAT(VTCR_EL2_PS		|
-> +		   VTCR_EL2_TG0		|
-> +		   VTCR_EL2_SH0		|
-> +		   VTCR_EL2_ORGN0	|
-> +		   VTCR_EL2_IRGN0	|
-> +		   VTCR_EL2_SL0		|
-> +		   VTCR_EL2_T0SZ,
-> +		   FEAT_AA64EL1),
-> +};
-> +
-> +static const DECLARE_FEAT_MAP(vtcr_el2_desc, VTCR_EL2,
-> +			      vtcr_el2_feat_map, FEAT_AA64EL2);
-> +
->  static void __init check_feat_map(const struct reg_bits_to_feat_map *map,
->  				  int map_size, u64 res0, const char *str)
->  {
-> @@ -1211,6 +1275,7 @@ void __init check_feature_map(void)
->  	check_reg_desc(&tcr2_el2_desc);
->  	check_reg_desc(&sctlr_el1_desc);
->  	check_reg_desc(&mdcr_el2_desc);
-> +	check_reg_desc(&vtcr_el2_desc);
->  }
->  
->  static bool idreg_feat_match(struct kvm *kvm, const struct reg_bits_to_feat_map *map)
-> @@ -1425,6 +1490,10 @@ void get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg, u64 *res0, u64 *r
->  		*res0 = compute_reg_res0_bits(kvm, &mdcr_el2_desc, 0, 0);
->  		*res1 = MDCR_EL2_RES1;
->  		break;
-> +	case VTCR_EL2:
-> +		*res0 = compute_reg_res0_bits(kvm, &vtcr_el2_desc, 0, 0);
-> +		*res1 = VTCR_EL2_RES1;
-> +		break;
->  	default:
->  		WARN_ON_ONCE(1);
->  		*res0 = *res1 = 0;
-> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-> index e1ef8930c97b3..606cebcaa7c09 100644
-> --- a/arch/arm64/kvm/nested.c
-> +++ b/arch/arm64/kvm/nested.c
-> @@ -1719,8 +1719,7 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
->  	set_sysreg_masks(kvm, VTTBR_EL2, res0, res1);
->  
->  	/* VTCR_EL2 */
-> -	res0 = GENMASK(63, 32) | GENMASK(30, 20);
-> -	res1 = BIT(31);
-> +	get_reg_fixed_bits(kvm, VTCR_EL2, &res0, &res1);
->  	set_sysreg_masks(kvm, VTCR_EL2, res0, res1);
->  
->  	/* VMPIDR_EL2 */
-> -- 
-> 2.47.3
-> 
 
