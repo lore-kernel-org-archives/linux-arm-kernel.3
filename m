@@ -4,40 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4173CD15D88
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 15:53:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A913DD15D88
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 15:53:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YtHzBlvhHXGO5SUJCPIHUQhuDZpwWQsMVg8AuTw5i0I=; b=Gq6Kiv8gsJsTxE7RFOffHCbhPc
-	4xdBmwjVqEwFM/RXFNN2D+H1G8IkDW6zCUqkA5jnsrA+L5DqrTVkmh+OQyvaxPQ444alpISVXdqsg
-	Kxe+6YWi4aSN/tSnMr8dJauVXq/n6Ynk1HQx6KPYIW3KXvQoFrxm8H5kXpOTehirv3IPfE1G/aDPj
-	l3kIO1XG3mgIPJOZKVb/Oji797dQ5vdn+4O/5BcxAGcrWbbq2U7KKasmGWroKAvRsh+N31FMsBNsk
-	+Xkyelag6ge6qbH4KzPwiGO/tY5HjWvpobIsnKI682EokTIi1cDu9jp/MwmDNO1b9hVG5SyfyEM+n
-	wdzpxkPQ==;
+	bh=Yn1FpWOz4F0WEV+rIkF83xhN/S4cgZfcI2wqWj+exPQ=; b=l0POoYsALoEVVby/Yi4DdYgmgx
+	N9ZO5UZurZuqwaIq7zSnvv7BovlxwQVMlTRwsbfia7f+4/JdcrpejPI+f6QQSNhHljmON/orUVHgL
+	E/XZeJJJQs9Xh9BfdpCfMm5q+zkhTOAEXnmMsEzY5XRObJ1wevSqFRG6+g9bv9ea996LOctt6FG+A
+	2etJMZZ5VEDWlg9URMfSvD4EnGC6j0qqwd9Zl1OgzfZ39ZcVDR7TOtxlte2oV1hK+5u32Ucq4qk5E
+	rRXxbWgssairukQIR24bMLwwpcjjP6p/wUDGBQYxWuxpfglAeiSdtaHoQ41Kl0ibTfl6stsMme8t+
+	5C6oOnSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQpAl-00000006j8P-2mKT;
-	Wed, 03 Dec 2025 15:53:43 +0000
+	id 1vQpAj-00000006j6q-3BBg;
+	Wed, 03 Dec 2025 15:53:41 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQpAh-00000006j1y-0J6E
+	id 1vQpAg-00000006j1u-1Fqx
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 03 Dec 2025 15:53:40 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1vQpAc-0007dW-S2; Wed, 03 Dec 2025 16:53:34 +0100
+	id 1vQpAc-0007dW-Hs; Wed, 03 Dec 2025 16:53:34 +0100
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Wed, 03 Dec 2025 16:52:26 +0100
-Subject: [PATCH v2 04/22] media: rockchip: rga: use clk_bulk api
+Date: Wed, 03 Dec 2025 16:52:23 +0100
+Subject: [PATCH v2 01/22] media: dt-bindings: media: rockchip-rga: add
+ rockchip,rk3588-rga3
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251203-spu-rga3-v2-4-989a67947f71@pengutronix.de>
+Message-Id: <20251203-spu-rga3-v2-1-989a67947f71@pengutronix.de>
 References: <20251203-spu-rga3-v2-0-989a67947f71@pengutronix.de>
 In-Reply-To: <20251203-spu-rga3-v2-0-989a67947f71@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -56,8 +57,8 @@ X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_075339_109440_5BC341B3 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20251203_075338_344785_C83197B4 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,137 +73,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the clk_bulk API to avoid code duplication for each of the three
-clocks.
+Add a new compatible for the RGA3 (Raster Graphic Acceleration 3)
+peripheral found on the RK3588 SoC.
+
+The existing rga node refers to the RGA2 peripheral. The RK3588
+contains one RGA2 core and two RGA3 cores. Both feature a similar
+functionality of scaling, cropping and rotating of up to two input
+images into one output image. Key differences of the RGA3 are:
+
+- supports 10bit YUV output formats
+- supports 8x8 tiles and FBCD as inputs and outputs
+- supports BT2020 color space conversion
+- max output resolution of (8192-64)x(8192-64)
+- MMU can map up to 32G DDR RAM
+- fully planar formats (3 planes) are not supported
+- max scale up/down factor of 8
 
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
- drivers/media/platform/rockchip/rga/rga.c | 64 ++++---------------------------
- drivers/media/platform/rockchip/rga/rga.h |  5 +--
- 2 files changed, 9 insertions(+), 60 deletions(-)
+ Documentation/devicetree/bindings/media/rockchip-rga.yaml | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index 43f6a8d993811..ef568b3758380 100644
---- a/drivers/media/platform/rockchip/rga/rga.c
-+++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -698,48 +698,10 @@ static const struct video_device rga_videodev = {
- 	.device_caps = V4L2_CAP_VIDEO_M2M_MPLANE | V4L2_CAP_STREAMING,
- };
+diff --git a/Documentation/devicetree/bindings/media/rockchip-rga.yaml b/Documentation/devicetree/bindings/media/rockchip-rga.yaml
+index ac17cda65191b..4d11ca313749f 100644
+--- a/Documentation/devicetree/bindings/media/rockchip-rga.yaml
++++ b/Documentation/devicetree/bindings/media/rockchip-rga.yaml
+@@ -9,7 +9,9 @@ title: Rockchip 2D raster graphic acceleration controller (RGA)
+ description:
+   RGA is a standalone 2D raster graphic acceleration unit. It accelerates 2D
+   graphics operations, such as point/line drawing, image scaling, rotation,
+-  BitBLT, alpha blending and image blur/sharpness.
++  BitBLT, alpha blending and image blur/sharpness. There exist two variants
++  named RGA2 and RGA3 that differ in the supported inputs/output formats,
++  the attached IOMMU and the supported operations on the input.
  
--static int rga_enable_clocks(struct rockchip_rga *rga)
--{
--	int ret;
--
--	ret = clk_prepare_enable(rga->sclk);
--	if (ret) {
--		dev_err(rga->dev, "Cannot enable rga sclk: %d\n", ret);
--		return ret;
--	}
--
--	ret = clk_prepare_enable(rga->aclk);
--	if (ret) {
--		dev_err(rga->dev, "Cannot enable rga aclk: %d\n", ret);
--		goto err_disable_sclk;
--	}
--
--	ret = clk_prepare_enable(rga->hclk);
--	if (ret) {
--		dev_err(rga->dev, "Cannot enable rga hclk: %d\n", ret);
--		goto err_disable_aclk;
--	}
--
--	return 0;
--
--err_disable_aclk:
--	clk_disable_unprepare(rga->aclk);
--err_disable_sclk:
--	clk_disable_unprepare(rga->sclk);
--
--	return ret;
--}
--
--static void rga_disable_clocks(struct rockchip_rga *rga)
--{
--	clk_disable_unprepare(rga->sclk);
--	clk_disable_unprepare(rga->hclk);
--	clk_disable_unprepare(rga->aclk);
--}
--
- static int rga_parse_dt(struct rockchip_rga *rga)
- {
- 	struct reset_control *core_rst, *axi_rst, *ahb_rst;
-+	int ret;
- 
- 	core_rst = devm_reset_control_get(rga->dev, "core");
- 	if (IS_ERR(core_rst)) {
-@@ -771,22 +733,10 @@ static int rga_parse_dt(struct rockchip_rga *rga)
- 	udelay(1);
- 	reset_control_deassert(ahb_rst);
- 
--	rga->sclk = devm_clk_get(rga->dev, "sclk");
--	if (IS_ERR(rga->sclk)) {
--		dev_err(rga->dev, "failed to get sclk clock\n");
--		return PTR_ERR(rga->sclk);
--	}
--
--	rga->aclk = devm_clk_get(rga->dev, "aclk");
--	if (IS_ERR(rga->aclk)) {
--		dev_err(rga->dev, "failed to get aclk clock\n");
--		return PTR_ERR(rga->aclk);
--	}
--
--	rga->hclk = devm_clk_get(rga->dev, "hclk");
--	if (IS_ERR(rga->hclk)) {
--		dev_err(rga->dev, "failed to get hclk clock\n");
--		return PTR_ERR(rga->hclk);
-+	ret = devm_clk_bulk_get(rga->dev, ARRAY_SIZE(rga->clks), rga->clks);
-+	if (ret) {
-+		dev_err(rga->dev, "failed to get clocks\n");
-+		return ret;
- 	}
- 
- 	return 0;
-@@ -935,7 +885,7 @@ static int __maybe_unused rga_runtime_suspend(struct device *dev)
- {
- 	struct rockchip_rga *rga = dev_get_drvdata(dev);
- 
--	rga_disable_clocks(rga);
-+	clk_bulk_disable_unprepare(ARRAY_SIZE(rga->clks), rga->clks);
- 
- 	return 0;
- }
-@@ -944,7 +894,7 @@ static int __maybe_unused rga_runtime_resume(struct device *dev)
- {
- 	struct rockchip_rga *rga = dev_get_drvdata(dev);
- 
--	return rga_enable_clocks(rga);
-+	return clk_bulk_prepare_enable(ARRAY_SIZE(rga->clks), rga->clks);
- }
- 
- static const struct dev_pm_ops rga_pm = {
-diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
-index 72a28b120fabf..a922fac0c01a3 100644
---- a/drivers/media/platform/rockchip/rga/rga.h
-+++ b/drivers/media/platform/rockchip/rga/rga.h
-@@ -6,6 +6,7 @@
- #ifndef __RGA_H__
- #define __RGA_H__
- 
-+#include <linux/clk.h>
- #include <linux/platform_device.h>
- #include <media/videobuf2-v4l2.h>
- #include <media/v4l2-ctrls.h>
-@@ -81,9 +82,7 @@ struct rockchip_rga {
- 	struct device *dev;
- 	struct regmap *grf;
- 	void __iomem *regs;
--	struct clk *sclk;
--	struct clk *aclk;
--	struct clk *hclk;
-+	struct clk_bulk_data clks[3];
- 	struct rockchip_rga_version version;
- 
- 	/* vfd lock */
+ maintainers:
+   - Jacob Chen <jacob-chen@iotwrt.com>
+@@ -20,6 +22,7 @@ properties:
+     oneOf:
+       - const: rockchip,rk3288-rga
+       - const: rockchip,rk3399-rga
++      - const: rockchip,rk3588-rga3
+       - items:
+           - enum:
+               - rockchip,rk3228-rga
 
 -- 
 2.52.0
