@@ -4,88 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D02ECD116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 08:10:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 459B8D1266D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 08:20:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z5QyQLMURNcrCc99cho9V8h9KI4BXTcX0f/zycekJzk=; b=gvQpP1c2k24hfat8+ENMDMRidS
-	q05cgDroPXx50GW8a7wdqNMEbqhJTB95TVewJC2NBPWO3D4mF+nml0YzPkRyevyklqyIBYy/awbkm
-	l0Q3YNGQA+cCi2EUxMINZZZs4tY94UCp37keBaqMudwRvF799BsjArzFZ60AtvX99jUC6/GdQ1S9I
-	ej0Jl457LN1B7vRCV4R8E/6U/C8BBLgZs7jC0WzK4Mwxh9lh5uAPSrHoYreTW2I+Xl32wUjQ6DSjc
-	JN6DsF7EpgZUtglnUerhX1cab4AV9DgEW4Rxgvyay2eAeaWFvVvijSJirAoOZQC+DkiqHhBFyuy2C
-	ji/o0jRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cp4z7wutZSCeud7Jvi6yin8tdaPqdTuvYkfM+RNYv4A=; b=3MsuxqYyQztLukttF2Ci/9f0yE
+	B0iyBGOFDGYoJOLP1ToIHP941B8+4zGzkYyN/8bMETtv3pVzUZAtTntuehQE2WeTtbouc4lbWocA+
+	hp3jIrOoRhQo+9JD0VA7bAx73YdF5aCmtB1MX5g9x9tagI9Qiibfn74CyysG3luYNBi9/lKKjVAmX
+	jfwCWShRhX+KgvO5khd9hGEcBHKvekjoOkm63tmcRFRGIAkeE6YRmX+lN9WFh1YoNhzperzF3Fqr1
+	t3J60MBy5RwOdyRJzjzdUDfMCryWb8BWzmA06HTf7vzzulUHCR1R1+DlYRwIuxUZ0Y9aRiFftJ+i8
+	hSwEu54g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQhwS-00000006Hm4-2f4E;
-	Wed, 03 Dec 2025 08:10:28 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQhwQ-00000006HlP-0gjV
+	id 1vQi5u-00000006I3P-0p1E;
+	Wed, 03 Dec 2025 08:20:14 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQi5r-00000006I32-3Aw3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 08:10:27 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-340bb1cb9ddso5525133a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 00:10:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=thingy.jp; s=google; t=1764749425; x=1765354225; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Z5QyQLMURNcrCc99cho9V8h9KI4BXTcX0f/zycekJzk=;
-        b=j+fcr4HgqQK4+EA8QC56KAtsVn1/b657j/NwBIMPHfiKTQhxLP8mbo/lUbswtODITV
-         v+EEDC/F6QyS9TYzKaLuCwfGFES/CAPSZsEV4QDQKVLK0DKKbbZMQye4xD7yU9dl0BZb
-         fMn5L0zmXhf547487ruB0QCre5FlI3OiQWX9k=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764749425; x=1765354225;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Z5QyQLMURNcrCc99cho9V8h9KI4BXTcX0f/zycekJzk=;
-        b=KbOq6h6Gg8K7e1XpTLS0Gjr5Y+VqXSDAROuBAGk5cjJEgIuf78L8fMFO4j53XNmaSc
-         lBy13R6L85madeuTEQW5YOgs5Eqyg8+4ii1gxSatVnEa917yBuj7cw1Bn0rkW2aMU5FP
-         A/TP8qPrQrRet8Mz1WnxvD6O6RQBKesUcs+1jd8oR3NWCkiMr++bV+5VSTfQeP4ZGEgV
-         8EOQfJVBTc4TTBl/6HXGmdFrl0xrT/q5Qehi3fDfC5LU7wjmeLVwzK9l6D0tmtJFZHvm
-         ljON5V1ndM5qrevPHw6u2edvyPEm1y1+GaylKwU5ynoGD/7Y0mvgXlWdpRsJJB3gatlV
-         B+fQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUayQnEXMVyS2ETviLqDgCqefSmTf2GsLyp4OL6MGNznh4DTspwpuNlF+tZVOhCslO+201/AX/BG27o8s1tWm+f@lists.infradead.org
-X-Gm-Message-State: AOJu0YymAcexkxbH+Za3p4+sigaxbYTqavTx+qZC+2T6AJhsf3qr5xCF
-	9EjMJPdMw3QPQP0gwPhDLBYnbS2iXFnxVWg5ZHbUTGt+BAiicjjMA3Gckbuam+tAuy56UYg7c7B
-	FRGh/t/p36ku2RHJ7GTvh16KWhMgQ1ON+WHCaMdpLPA==
-X-Gm-Gg: ASbGncs2VraWH8I/vt75hVhWLMaspGCnoRUCBWf6YUMw/Ih/J46kYATWqTPxAG0mug2
-	aRegripJQm+gKDHih4TLoxpMI58tN1qEMVoNFuwYIztM+dkaz4pcsAgDXuS0oPW3QaUm7vDnriZ
-	caS6wa91SrJ1ZEL91/fwfxQ99BcN3nLHTyNqPXd+cH2zwcxkyihl9ElecLNCm7TroIAgFu+8jxi
-	+aKKo0Kk9ETeMrcM+eh+WGK/EsBZUoKdDhB7TbnkqHBrS16p5QbIZz03gWkWmju6r7CH36d
-X-Google-Smtp-Source: AGHT+IEq5y63hfjT8YHjilACNJqyKvg5j+0plLqT3wpsKD5Q7MH1znsyxIQRdeefXp8WZbUY/IfgJtcujn/JnV7uScQ=
-X-Received: by 2002:a17:90b:17cc:b0:335:2eef:4ca8 with SMTP id
- 98e67ed59e1d1-3491284b4d8mr1814924a91.33.1764749424655; Wed, 03 Dec 2025
- 00:10:24 -0800 (PST)
+	Wed, 03 Dec 2025 08:20:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7AC81339;
+	Wed,  3 Dec 2025 00:19:59 -0800 (PST)
+Received: from [10.57.45.92] (unknown [10.57.45.92])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 199493F73B;
+	Wed,  3 Dec 2025 00:19:58 -0800 (PST)
+Message-ID: <eb6fac72-a813-4b01-bbd7-f3961894bf53@arm.com>
+Date: Wed, 3 Dec 2025 09:19:56 +0100
 MIME-Version: 1.0
-References: <20251124002105.25429-1-jszhang@kernel.org> <20251124002105.25429-8-jszhang@kernel.org>
-In-Reply-To: <20251124002105.25429-8-jszhang@kernel.org>
-From: Daniel Palmer <daniel@thingy.jp>
-Date: Wed, 3 Dec 2025 17:10:12 +0900
-X-Gm-Features: AWmQ_blMivOz7cN3cWbzITo5XCmwfcKVIQTdEzDBywa8v8-CY7hjUyWixRG6J94
-Message-ID: <CAFr9PX=zXuaOBoEUGkYjrROK75e_xt6XZQu=mt0zQQNYWn_TYA@mail.gmail.com>
-Subject: Re: [PATCH v5 07/14] gpio: msc313: Use modern PM macros
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Doug Berger <opendmb@gmail.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	bcm-kernel-feedback-list@broadcom.com, 
-	Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Hoan Tran <hoan@os.amperecomputing.com>, Andy Shevchenko <andy@kernel.org>, 
-	Romain Perier <romain.perier@gmail.com>, Grygorii Strashko <grygorii.strashko@ti.com>, 
-	Santosh Shilimkar <ssantosh@kernel.org>, Kevin Hilman <khilman@kernel.org>, 
-	Robert Jarzmik <robert.jarzmik@free.fr>, Kunihiko Hayashi <hayashi.kunihiko@socionext.com>, 
-	Masami Hiramatsu <mhiramat@kernel.org>, Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>, 
-	Srinivas Neeli <srinivas.neeli@amd.com>, Michal Simek <michal.simek@amd.com>, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-omap@vger.kernel.org, 
-	Andy Shevchenko <andriy.shevchenko@intel.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 05/12] mm: introduce CONFIG_ARCH_HAS_LAZY_MMU_MODE
+To: Anshuman Khandual <anshuman.khandual@arm.com>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>, "David S. Miller"
+ <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+ Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Suren Baghdasaryan <surenb@google.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
+ xen-devel@lists.xenproject.org, x86@kernel.org
+References: <20251124132228.622678-1-kevin.brodsky@arm.com>
+ <20251124132228.622678-6-kevin.brodsky@arm.com>
+ <8d9ed1f1-77da-45af-85b5-78a5da66f1cc@arm.com>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <8d9ed1f1-77da-45af-85b5-78a5da66f1cc@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_001026_206410_C18CF4DE 
-X-CRM114-Status: UNSURE (   8.54  )
+X-CRM114-CacheID: sfid-20251203_002011_848983_1C5754E7 
+X-CRM114-Status: UNSURE (   7.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -101,15 +90,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jisheng,
+On 01/12/2025 07:21, Anshuman Khandual wrote:
+>> +config ARCH_HAS_LAZY_MMU_MODE
+>> +	bool
+>> +
+> Might be worth adding a help description for the new config option.
 
-Sorry I missed this. This looks fine to me.
+Sure, would be an occasion to clarify which functions an arch needs to
+define.
 
-On Mon, 24 Nov 2025 at 09:39, Jisheng Zhang <jszhang@kernel.org> wrote:
->
-> Use the modern PM macros for the suspend and resume functions to be
-> automatically dropped by the compiler when CONFIG_PM or
-> CONFIG_PM_SLEEP are disabled, without having to use __maybe_unused
-
-Reviewed-by: Daniel Palmer <daniel@thingy.jp>
+- Kevin
 
