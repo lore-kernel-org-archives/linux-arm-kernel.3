@@ -4,106 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3158BD116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 07:50:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73345D1266D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 07:50:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8P/drpqdGhV2SKAE4QpyfBSXJQL9v5oL6Wt/S6WH8Qo=; b=qnHhEV2RAgiQBjwpsSIWesG2uH
-	EEUTiWTZvtqRs9QV4e3WeDr/TvLHtJfwLehl/W6CKbjMtTldwhiDNEilq6GpTkk3yfQ3VVj3RL3a7
-	U9SGNHMN7dEDTZty+xAUhSpVmR7xYsMqXwsMl0I79oTvJHG6D5i6+QpitWgavOCpc41xi0h4jsZy7
-	B/fGT0oifEZw8QoOH17pwLaa60Qrj2mPvc5hxGW3GuVvN8uSkQAnxnuZKWLX5wKWW3Dneq8TMPtny
-	6vPl5JVptaqAYq/B9bzoOGvTI+PyTtGpohnYMOugyNTb9uY8vVq5wO3mTjJhlq8AXog82tbYiRoXA
-	n3YDMLGQ==;
+	bh=rTFdKw13W0Kkr7Ei/JRAhchQa+Qc4tuxw7O3rUA2v6Y=; b=s9rPxaZqTkxzGHoDf7fAnM985k
+	CR6lPSXCJ3HcZExZtAdWkuXOhJe9Hz+JSJNVMnQEHHhTJDKshJ6Xmn+2yjOWFKvR2jHA1SFvuYsIR
+	ZZsYN209pnaLh/JH8XKuVAR2MdfOn/9lpyWs7LcC95+yyvJT/eQDxY27PUkAPWzdzIjpQojpb/+xg
+	1V2Z/j4rL97fb6tU97PI6k4PW1Qq5OvGPD+VQyygkaecl1G2S3Wu+uDdo95WeCqQsaR9UaGrJClkY
+	w0PCLdCMNUcMqimVKW2VdQYB9NC5ztl1WjiCJI3JjTUsOlf39KjcPEuVlg148hjTAJ3YSR5ZLDXjS
+	xdFgzrCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQhcj-00000006GjO-3fBp;
-	Wed, 03 Dec 2025 07:50:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vQhdN-00000006Gnh-1xzJ;
+	Wed, 03 Dec 2025 07:50:45 +0000
+Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQhcj-00000006GjD-115X;
-	Wed, 03 Dec 2025 07:50:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4DB0A6013C;
-	Wed,  3 Dec 2025 07:50:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75F6CC4CEFB;
-	Wed,  3 Dec 2025 07:50:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764748203;
-	bh=bDgLpvDGasgrQ5JJNOKKs8ReGLl7AkANP5IWfAipX10=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Sqzy6/5fZLpewpasQLbrHDemmNGhQK2vu6jczqQ6AgntN+vAu1HK+wPKzhVchIFEc
-	 fL2PL4E+a853MZpj+1HhNOoKpcUDF/eDwePy9qin9uD9+m8S2uaSorjVv0XVj6tII9
-	 Ntyewvw5sbWUmlMeHvL0T7IkWoFt5X1sKTMAWp2kb9Y4tpzC3e0WhbG7pSjTHyPfVp
-	 IJAdDp7xHtscL5fWg5/7YCHEMBBDMIUr8du9ieeu2R2gsBkC15z+Bj7AS8T2UZ75i7
-	 pIoZ0dbXUB1e9GRyT2Sh3gNyi+QmizZMbnIEucPtzAw6aC6Cr0kl+2CXIrZx1cTgPE
-	 7dcNJPDhBgdZw==
-Message-ID: <1baf8704-9f56-4bb0-8118-5a0cfec92b7e@kernel.org>
-Date: Wed, 3 Dec 2025 08:49:59 +0100
+	id 1vQhdH-00000006Gn4-3QuN
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Dec 2025 07:50:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RkklMJu9FFqAiZhztikGzdZ9ELoI3KClpc7D82q7U/EtT1YeH5elznwP+6sB3hySdO/sHy9udlc7siuCSqzPWkps0pwkjjC/dATP/PCQ8dghS7JoyK9Ocnr0psCC5LgKqdz2IykNju/GMhtyHT1QHRvhNDDhMbcRm6DQq/QmCTf5hzaLzW0FHwwIBrTYq9kEDq2IjxEO+u54+L58jHPzW+uVp4v+dWJJzF3A0dI1xhoo1lfJskLbfVDtfVbd9RUHIeXciJfTK9Od53nXEqoOUei6M7Q3tXyDcAVbpApLKYa0csGGyiMOhYTTeNuam2Xjte4/ITzIi1bqZLHICkgG7g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=rTFdKw13W0Kkr7Ei/JRAhchQa+Qc4tuxw7O3rUA2v6Y=;
+ b=Ls796wm/Wac+3U829hLHTMaN/1JakXT3DZ8iI6NqsTuNlUUfaEDcG3J3bUA/DvQrDrVaqDnpmar7rn1JsRlwxa6biCrs7R0BPo65sNTBhEwXmFQ09Ayxeo56JMwnHpDSx2WtPCnKFLX883vBWCDB5+KZpiLcjvGgN5jIrKqMtg00Y3Xm+0pZTKpbMlffUC0VC+PloAM7cVsXKkTWsNLmu6jmJnjghSrcrt8seBRptUQS4vnDTrWp3AbMLvA/9nOIHcAejgncViEfNATcUFdo0rGV3D1KMulVhvLRWUpyVTDTdj6gBfi8q8lrQZZP+qDUV0opqiBbf1KT/pruIpVM4w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
+ dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=rTFdKw13W0Kkr7Ei/JRAhchQa+Qc4tuxw7O3rUA2v6Y=;
+ b=VY5AXu3ziTE/ly9DQKEnfTZQClZtecUF2YNjUeImeqSMu2aNcccjyobRM0o4A4KNq9uOrnREog5Q+XzhVfIYZ/wlRl19YjwECRjm/pdgnqSw2FoT1/AqnjuRSRJthskaXts3yctemEl/qONgaHGWifLsY3YCR58PXFwf5xwW68Q=
+Received: from CH2PR15CA0005.namprd15.prod.outlook.com (2603:10b6:610:51::15)
+ by BN0PR10MB4949.namprd10.prod.outlook.com (2603:10b6:408:12b::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.9; Wed, 3 Dec
+ 2025 07:50:35 +0000
+Received: from CH2PEPF0000014A.namprd02.prod.outlook.com
+ (2603:10b6:610:51:cafe::c6) by CH2PR15CA0005.outlook.office365.com
+ (2603:10b6:610:51::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9366.17 via Frontend Transport; Wed,
+ 3 Dec 2025 07:50:12 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
+ smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
+ action=none header.from=ti.com;
+Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
+ 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
+ client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
+Received: from flwvzet200.ext.ti.com (198.47.21.194) by
+ CH2PEPF0000014A.mail.protection.outlook.com (10.167.244.107) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9388.8 via Frontend Transport; Wed, 3 Dec 2025 07:50:33 +0000
+Received: from DFLE200.ent.ti.com (10.64.6.58) by flwvzet200.ext.ti.com
+ (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 3 Dec
+ 2025 01:50:29 -0600
+Received: from DFLE207.ent.ti.com (10.64.6.65) by DFLE200.ent.ti.com
+ (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 3 Dec
+ 2025 01:50:29 -0600
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE207.ent.ti.com
+ (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 3 Dec 2025 01:50:28 -0600
+Received: from [172.24.235.38] (lt5cd2489kgj.dhcp.ti.com [172.24.235.38] (may be forged))
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5B37oOE63667076;
+	Wed, 3 Dec 2025 01:50:25 -0600
+Message-ID: <1283df52-ee41-477f-8d91-5c4a02385cef@ti.com>
+Date: Wed, 3 Dec 2025 13:20:24 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/4] dt-bindings: arm: mediatek: Add Ezurio Tungsten
- entries
-To: Gary Bisson <bisson.gary@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Sean Wang <sean.wang@mediatek.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20251202-review-v4-0-93f5cd2a0d4a@gmail.com>
- <20251202-review-v4-2-93f5cd2a0d4a@gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH RFC v2 3/4] clk: keystone: sci-clk: add restore_context()
+ operation
+To: "Thomas Richard (TI.com)" <thomas.richard@bootlin.com>, Nishanth Menon
+	<nm@ti.com>, Tero Kristo <kristo@kernel.org>, Santosh Shilimkar
+	<ssantosh@kernel.org>, Michael Turquette <mturquette@baylibre.com>, "Stephen
+ Boyd" <sboyd@kernel.org>
+CC: Gregory CLEMENT <gregory.clement@bootlin.com>,
+	<richard.genoud@bootlin.com>, Prasanth Mantena <p-mantena@ti.com>, "Abhash
+ Kumar" <a-kumar2@ti.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-clk@vger.kernel.org>, <u-kumar1@ti.com>
+References: <20251127-ti-sci-jacinto-s2r-restore-irq-v2-0-a487fa3ff221@bootlin.com>
+ <20251127-ti-sci-jacinto-s2r-restore-irq-v2-3-a487fa3ff221@bootlin.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251202-review-v4-2-93f5cd2a0d4a@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: "Kumar, Udit" <u-kumar1@ti.com>
+In-Reply-To: <20251127-ti-sci-jacinto-s2r-restore-irq-v2-3-a487fa3ff221@bootlin.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF0000014A:EE_|BN0PR10MB4949:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8e73eee1-e214-44a2-bac0-08de3240a3a6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|7416014|82310400026|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dXZ5RFNpNDRicVhVL0Y1ZVlJTjdETVNjMThNSVorUmg1NkI5UGxRK2tpN0dw?=
+ =?utf-8?B?RGJaV211bEJ3RjZPZFRjdEl0S01MRWNQMzVvQzhYby9UR1c0Wm4rTVBlMU4z?=
+ =?utf-8?B?RU9NdE1ZdHVIS0E2b3N6YmNQNWZHSWl4bUpic2t1aUVlbjlPTk5XWFJmUTJL?=
+ =?utf-8?B?ZVRxMnl6YmI3V2dQSGV2VEJLVU10WEJLazRMeDZvMkFLbjJpZHRGYkZQbVhK?=
+ =?utf-8?B?VjlvYWNjSTNOQ1poa3hpYWloL0JFRk51Q1c4S0wrWElaM1JLamRleTJNOW9o?=
+ =?utf-8?B?NDZUb2UwOXhTRno1U0dyZkpCc2pJNm9qY0MyVWJNOFFNOUhUV28yNmpuY0h6?=
+ =?utf-8?B?MHd0RHA2MzRZYUdBdElSaE1qT0xMVHZwQUNJYy9nUFQrWlRVa3Q2bVg1RmtR?=
+ =?utf-8?B?WGlzckNWNktGTEllWTU4M0tmQnhsY1VtRXZhQVhZWTFoN2FHU010QVZlUHVY?=
+ =?utf-8?B?Umd5ZnlZQU1YUS8rT0cwdlA5UDlVT01XWmg5TVh5WW04MGtVUW9LVjFYT2tZ?=
+ =?utf-8?B?TmdIWUxiQksxOHUya3RnakUrQU9zTVl1L0hDVTBOTkxydXRQTXZyWEZrKzJJ?=
+ =?utf-8?B?UmJhZmJUQi9IS20rOWZDTHY1ZGpRNnhYVUZyQnRyekpWZlp5VFlaL1MzU3lu?=
+ =?utf-8?B?Zkp2dVlLdWx4ZU5hY3paeW83NFRZRmVZb3IwTFU0RUM0NTdWM3RPcnpqWXJW?=
+ =?utf-8?B?Z290N3duYXJpQmovd29QR0daTURybHZVTGwrdDRROFdWY3BocXVjbXVTRURD?=
+ =?utf-8?B?VzlBU3JBamRlUTl5YVVoMDVtMEkrRCs0RWthQ29RcW9idG1GSWJ5c1hRbi85?=
+ =?utf-8?B?SzZqNlFXUTZvVzFmZlJzWDNiRFVCZ2JyK0o0YnhadDU5RVRqWnZTa1B4ZFYy?=
+ =?utf-8?B?bEY1bEJ5RFp0U3U1aWw5QnYyQ29LaHh6S2hjbUNFNjNiamFsWXprcTlLZXdx?=
+ =?utf-8?B?d1pvOVByR2QxWmRlVHNFeWhtbitQN2tvcDl6K3NDa2R5Q2dCblphTUdaQjky?=
+ =?utf-8?B?QzRpNmVPMEpwNk1JRTBVMjA0OHBwVUZ4dEFoZXMvY2V1UHNleEJVbm1VTVpP?=
+ =?utf-8?B?QnJGYlJ5Tzh5N2o4M0c5SDFHOHFDdkN5azNWSEZVeHpqV2NFVTVOckl6Z0tt?=
+ =?utf-8?B?RmpKT0o0Y0ZGQWEyWmp1OCtkaW5yOWhIY2o2ZVlmWWdVRWVoTGhHM3pvVlM3?=
+ =?utf-8?B?dFRKRkFPdkhrSStPdE1XTHR3TlNPWkZCWjQ0VkdVMUlOVW5xYlJHcUxmVWdo?=
+ =?utf-8?B?VFpERklkS1F4TTFMMGFQeGkxVjRieVY4S1Vodm5lcG1YWjkyK3ozenEycXlE?=
+ =?utf-8?B?ME9BRUc2QkZmUnNTQ3I1L2F1MGF0eDU1RGkreWd6YmxBUjk3V01SWkJsUmc4?=
+ =?utf-8?B?VHY3RjFhL1RNd0hSZGtXQ2JDa29jam5VUkFPeVppbmV1OWhNbDducXhjaG52?=
+ =?utf-8?B?STh1Wk9ySjdoby9OTGViTG5nQlBqVnp1bzQyOGdmZUhpYnY1SFJDeVNSd2hr?=
+ =?utf-8?B?NFpJNnNpNVl2UllXVDVBVjJWN2dkdi9OK3k1SUoyZkd0R3dVK0pmSDdyZEdR?=
+ =?utf-8?B?c29LOWpmTE5neHEyOFppRitGMXh6S1NDSjdPTE5MVlRsaXhtKytCUWYyalZH?=
+ =?utf-8?B?V2NWdjRXSlZBbmV0MytvZjNaNEEwalZTYXNoOGhWQWJEOW1KVm1yZS95OEJN?=
+ =?utf-8?B?SGVrSysxY0Q4Mk5xVzZwQzMwcUtVLzZMRis3S3ZOMXZtU2J6NVpBOFhxRUl4?=
+ =?utf-8?B?TnU4WGlpSDdoS0kwQjBLaWladFNzTW5KeU1MZ1Y0VkxPT0Rma21uL0VHUzBz?=
+ =?utf-8?B?ci9BdTJweE5hTFRORVpZUnlCUmpzY3lwZTBtSE5vNVZ5Ri9BRXg1YWZXZGNQ?=
+ =?utf-8?B?NkJTMGFXTlk2SURQOHdVMlVITWs5TVBKUnlUMUF2R0tIb2twOVFVWW10VDJ0?=
+ =?utf-8?B?eG9MdFFjUEJrSjhSUjQ1Rm1KejB2MGxPU0N0RW1OWHdBcUtnSmVublB3NU9k?=
+ =?utf-8?B?SEFPRnhKLzMxTFZoL2FjdzZRK3dwcGcyZVJjcWJOK3ZBUnk3elRkUlR5aXI5?=
+ =?utf-8?B?UVJCZTFuSlV2NHMyenlwS1lpK3oxclJKZkpHSmlMcjhiRk1FL0hPTTIzSWhm?=
+ =?utf-8?Q?UZT8=3D?=
+X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(36860700013)(376014)(7416014)(82310400026)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: ti.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Dec 2025 07:50:33.7402
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8e73eee1-e214-44a2-bac0-08de3240a3a6
+X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF0000014A.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR10MB4949
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251202_235039_976989_C48F1073 
+X-CRM114-Status: GOOD (  21.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,21 +171,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02/12/2025 23:08, Gary Bisson wrote:
-> Add device tree bindings support for the Ezurio Tungsten 510 (MT8370)
-> SMARC [1] / Ezurio Tungsten 700 (MT8390) SMARC [2] + Universal SMARC
-> carrier board [3].
-> 
-> [1] https://www.ezurio.com/product/tungsten510-smarc
-> [2] https://www.ezurio.com/product/tungsten700-smarc
-> [3] https://www.ezurio.com/system-on-module/accessories/universal-smarc-carrier
-> 
-> Signed-off-by: Gary Bisson <bisson.gary@gmail.com>
-> 
+
+On 11/27/2025 2:08 PM, Thomas Richard (TI.com) wrote:
+> Implement the restore_context() operation to restore the clock parent
+> state. The parent index is saved in sci_clk struct during set_parent().
+> During clock registration, the core retrieves each clock’s parent using
+> get_parent() operation to ensure the internal clock tree reflects the
+> actual hardware state, including any configurations made by the
+> bootloader. So we also save the parent index in get_parent().
+>
+> Signed-off-by: Thomas Richard (TI.com) <thomas.richard@bootlin.com>
+> ---
+>   drivers/clk/keystone/sci-clk.c | 25 ++++++++++++++++++++-----
+>   1 file changed, 20 insertions(+), 5 deletions(-)
+>
+> diff --git a/drivers/clk/keystone/sci-clk.c b/drivers/clk/keystone/sci-clk.c
+> index a4b42811de55d..1e5dd01484d1c 100644
+> --- a/drivers/clk/keystone/sci-clk.c
+> +++ b/drivers/clk/keystone/sci-clk.c
+> @@ -47,6 +47,7 @@ struct sci_clk_provider {
+>    * @node:	 Link for handling clocks probed via DT
+>    * @cached_req:	 Cached requested freq for determine rate calls
+>    * @cached_res:	 Cached result freq for determine rate calls
+> + * @parent_id:	 Parent index for this clock
+>    */
+>   struct sci_clk {
+>   	struct clk_hw hw;
+> @@ -58,6 +59,7 @@ struct sci_clk {
+>   	struct list_head node;
+>   	unsigned long cached_req;
+>   	unsigned long cached_res;
+> +	u8 parent_id;
+
+you may need to restore rate as well
 
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+>   };
+>   
+>   #define to_sci_clk(_hw) container_of(_hw, struct sci_clk, hw)
+> @@ -237,9 +239,9 @@ static u8 sci_clk_get_parent(struct clk_hw *hw)
+>   		return 0;
+>   	}
+>   
+> -	parent_id = parent_id - clk->clk_id - 1;
+> +	clk->parent_id = (u8)(parent_id - clk->clk_id - 1);
+>   
+> -	return (u8)parent_id;
+> +	return clk->parent_id;
+>   }
+>   
+>   /**
+> @@ -252,12 +254,24 @@ static u8 sci_clk_get_parent(struct clk_hw *hw)
+>   static int sci_clk_set_parent(struct clk_hw *hw, u8 index)
+>   {
+>   	struct sci_clk *clk = to_sci_clk(hw);
+> +	int ret;
+>   
+>   	clk->cached_req = 0;
+>   
+> -	return clk->provider->ops->set_parent(clk->provider->sci, clk->dev_id,
+> -					      clk->clk_id,
+> -					      index + 1 + clk->clk_id);
+> +	ret = clk->provider->ops->set_parent(clk->provider->sci, clk->dev_id,
+> +					     clk->clk_id,
+> +					     index + 1 + clk->clk_id);
+> +	if (!ret)
+> +		clk->parent_id = index;
+> +
+> +	return ret;
+> +}
+> +
+> +static void sci_clk_restore_context(struct clk_hw *hw)
+> +{
+> +	struct sci_clk *clk = to_sci_clk(hw);
+> +
+> +	sci_clk_set_parent(hw, clk->parent_id);
 
-Best regards,
-Krzysztof
+You should restore,  if this is BOARD_CFG managed
+
+
+>   }
+>   
+>   static const struct clk_ops sci_clk_ops = {
+> @@ -269,6 +283,7 @@ static const struct clk_ops sci_clk_ops = {
+>   	.set_rate = sci_clk_set_rate,
+>   	.get_parent = sci_clk_get_parent,
+>   	.set_parent = sci_clk_set_parent,
+> +	.restore_context = sci_clk_restore_context,
+>   };
+>   
+>   /**
+>
 
