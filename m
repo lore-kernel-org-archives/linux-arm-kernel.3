@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8CD4D1266D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 03:15:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C96B3D116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 03:25:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
-	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J5Da1hFKP6t1mpI82lHD7hcCa172UDvRJ1C2h5SZUKM=; b=l+DQeQ8/KbF1NeJ+kldkmXa9/M
-	FZU0Qb+dV9ySzL8F+fVP8iPgS8hgIQHoq7AlguKr2QIfLfWdPSl4wWgOS/ld/ya5jdJ4L89G7yinS
-	S9lp9a+eEjwmeeVx/itgSN1gci9rkQvpjsU38mLaC/qIU7W2lxd1cGralQys9yInKoxwT7ANqnqW1
-	7j4IV7D16mufhndOc2ytLjdGljlIm4uzMmrLvdvb+6lgNKJSq2zsJBYwb0Y46pdmoJIRgVfSRSjLN
-	I7vndFo98pwATD+P+O4hFvXP+mUPOiKXftAvuLZjk/VzJl6RJYorFEC14OjypBXlBgyWPpIlGTru1
-	UU1vFagw==;
+	bh=b1BF3cVAoXEve6h+oIK6jeaZ8f9hJ7egGtI9m7VB61A=; b=pXgB3053FSkm/4WKnuZ/kmvVky
+	MT6F3vvgX5AGTyVZnq4orY6Fe2o8EAOj2upgDBvL+Mv8s2QNLRur14tCWc8KmHUtpE1ZPZhuaIkx9
+	y1bkAnVDmHbL7zsij9BWaWpNtsLA0vihaMndlYS68BMAhTd1tKy31yvOCXOPwarONpM0RuFZT3hDr
+	Bi4DHCEAhadt++4+GaLNGULtI1Yvi88Dfvy/ZlUjnNshba7iAPwlFsJYRfvXo3M/H0oYo/E2r+FPJ
+	Qz2n8RFk61aLHJOcru/3KCXFmDzkNlpjhunrFKUFbsS/qfeK6GxCs9a09OUXRkmW8bKoPzaS0quy5
+	oT+dpIFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQdKS-0000000643l-122A;
-	Wed, 03 Dec 2025 03:14:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vQdUm-000000064d2-3h3Y;
+	Wed, 03 Dec 2025 03:25:36 +0000
+Received: from canpmsgout07.his.huawei.com ([113.46.200.222])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQdKO-0000000643M-49I0
+	id 1vQdUj-000000064bj-3PUz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 03:14:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E4D324433D;
-	Wed,  3 Dec 2025 03:14:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C08E0C4CEFB;
-	Wed,  3 Dec 2025 03:14:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764731691;
-	bh=GKQ2ak6q4t30pRCw2QUUMC0EJMIeKYrUpbmi3ltyMUg=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
-	b=gQw426jpYHGM+OrO4B9Obv5z5mpF/ZLR2p2VvXN4gCJtLKsfH4DjswjJmiGiXKfNz
-	 c0z6P2HBEnVO9GH84Y1vqmDm9/dImwuQ1fWGIWvgLcymKUA8WxH8ipV/uXeCfKAFPi
-	 QaATm3Jto+MUGoyJus20+qkqd6xU4Zl8vRp/1AMfvCsgP/bRSQmKcrC0/dHZU2/x1Z
-	 V6NZNt2KXlYohVBbJa+FUGuqyKllj8ZssrK61/4EHBUbfhEehbqn7sD1hSxRAkgSpO
-	 lf9e+uWQTSKXcEK0yOWjTQMBJtLKymRhKZCGa697e5Fmu5pdzPfGk5jvXmOQP5oNXr
-	 j2nkcdAaPh6nA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3B8C53A72A63;
-	Wed,  3 Dec 2025 03:11:52 +0000 (UTC)
-Subject: Re: [GIT PULL] arm64 FPSIMD buffer on-stack for 6.19
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <20251130030105.GF12664@sol>
-References: <20251130030105.GF12664@sol>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <20251130030105.GF12664@sol>
-X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git tags/fpsimd-on-stack-for-linus
-X-PR-Tracked-Commit-Id: 5dc8d277520be6f0be11f36712e557167b3964c8
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: f617d24606553159a271f43e36d1c71a4c317e48
-Message-Id: <176473151071.3498170.16297964704270989529.pr-tracker-bot@kernel.org>
-Date: Wed, 03 Dec 2025 03:11:50 +0000
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>, "Jason A. Donenfeld" <Jason@zx2c4.com>, Herbert Xu <herbert@gondor.apana.org.au>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Jonathan Cameron <jonathan.cameron@huawei.com>, Kees Cook <kees@kernel.org>, Leon Romanovsky <leon@kernel.org>, Mark Bloch <mbloch@nvidia.com>, Mark Brown <broonie@kernel.org>, Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>
+	Wed, 03 Dec 2025 03:25:35 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.214])
+	by canpmsgout07.his.huawei.com (SkyGuard) with ESMTPS id 4dLjdx0J4TzLlWD;
+	Wed,  3 Dec 2025 11:23:33 +0800 (CST)
+Received: from kwepemf200017.china.huawei.com (unknown [7.202.181.10])
+	by mail.maildlp.com (Postfix) with ESMTPS id AF48D1A0174;
+	Wed,  3 Dec 2025 11:25:24 +0800 (CST)
+Received: from localhost.localdomain (10.90.31.46) by
+ kwepemf200017.china.huawei.com (7.202.181.10) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 3 Dec 2025 11:25:23 +0800
+From: Jie Zhan <zhanjie9@hisilicon.com>
+To: <viresh.kumar@linaro.org>, <rafael@kernel.org>, <ionela.voinescu@arm.com>,
+	<beata.michalska@arm.com>, <pierre.gondois@arm.com>,
+	<zhenglifeng1@huawei.com>
+CC: <linux-pm@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linuxarm@huawei.com>,
+	<zhanjie9@hisilicon.com>, <jonathan.cameron@huawei.com>,
+	<prime.zeng@hisilicon.com>, <yubowen8@huawei.com>, <lihuisong@huawei.com>,
+	<zhangpengjie2@huawei.com>, <wangzhi12@huawei.com>
+Subject: [PATCH v4 3/3] cpufreq: CPPC: Update FIE arch_freq_scale in ticks for non-PCC regs
+Date: Wed, 3 Dec 2025 11:24:22 +0800
+Message-ID: <20251203032422.3232957-4-zhanjie9@hisilicon.com>
+X-Mailer: git-send-email 2.30.0
+In-Reply-To: <20251203032422.3232957-1-zhanjie9@hisilicon.com>
+References: <20251203032422.3232957-1-zhanjie9@hisilicon.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.90.31.46]
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemf200017.china.huawei.com (7.202.181.10)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_191453_071291_7DD3B4EB 
-X-CRM114-Status: UNSURE (   5.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251202_192534_178740_4BF5BBB5 
+X-CRM114-Status: GOOD (  21.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,16 +75,212 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The pull request you sent on Sat, 29 Nov 2025 19:01:05 -0800:
+Currently, the CPPC Frequency Invariance Engine (FIE) is invoked from the
+scheduler tick but defers the update of arch_freq_scale to a separate
+thread because cppc_get_perf_ctrs() would sleep if the CPC regs are in PCC.
 
-> https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git tags/fpsimd-on-stack-for-linus
+However, this deferred update mechanism is unnecessary and introduces extra
+overhead for non-PCC register spaces (e.g. System Memory or FFH), where
+accessing the regs won't sleep and can be safely performed from the tick
+context.
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/f617d24606553159a271f43e36d1c71a4c317e48
+Furthermore, with the CPPC FIE registered, it throws repeated warnings of
+"cppc_scale_freq_workfn: failed to read perf counters" on our platform with
+the CPC regs in System Memory and a power-down idle state enabled.  That's
+because the remote CPU can be in a power-down idle state, and reading its
+perf counters returns 0.  Moving the FIE handling back to the scheduler
+tick process makes the CPU handle its own perf counters, so it won't be
+idle and the issue would be inherently solved.
 
-Thank you!
+To address the above issues, update arch_freq_scale directly in ticks for
+non-PCC regs and keep the deferred update mechanism for PCC regs.
 
+Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
+---
+ drivers/cpufreq/cppc_cpufreq.c | 77 +++++++++++++++++++++++-----------
+ 1 file changed, 52 insertions(+), 25 deletions(-)
+
+diff --git a/drivers/cpufreq/cppc_cpufreq.c b/drivers/cpufreq/cppc_cpufreq.c
+index 947b4e2e1d4e..36e8a75a37f1 100644
+--- a/drivers/cpufreq/cppc_cpufreq.c
++++ b/drivers/cpufreq/cppc_cpufreq.c
+@@ -54,31 +54,24 @@ static int cppc_perf_from_fbctrs(struct cppc_perf_fb_ctrs *fb_ctrs_t0,
+ 				 struct cppc_perf_fb_ctrs *fb_ctrs_t1);
+ 
+ /**
+- * cppc_scale_freq_workfn - CPPC arch_freq_scale updater for frequency invariance
+- * @work: The work item.
++ * __cppc_scale_freq_tick - CPPC arch_freq_scale updater for frequency invariance
++ * @cppc_fi: per-cpu CPPC FIE data.
+  *
+- * The CPPC driver register itself with the topology core to provide its own
++ * The CPPC driver registers itself with the topology core to provide its own
+  * implementation (cppc_scale_freq_tick()) of topology_scale_freq_tick() which
+  * gets called by the scheduler on every tick.
+  *
+  * Note that the arch specific counters have higher priority than CPPC counters,
+  * if available, though the CPPC driver doesn't need to have any special
+  * handling for that.
+- *
+- * On an invocation of cppc_scale_freq_tick(), we schedule an irq work (since we
+- * reach here from hard-irq context), which then schedules a normal work item
+- * and cppc_scale_freq_workfn() updates the per_cpu arch_freq_scale variable
+- * based on the counter updates since the last tick.
+  */
+-static void cppc_scale_freq_workfn(struct kthread_work *work)
++static void __cppc_scale_freq_tick(struct cppc_freq_invariance *cppc_fi)
+ {
+-	struct cppc_freq_invariance *cppc_fi;
+ 	struct cppc_perf_fb_ctrs fb_ctrs = {0};
+ 	struct cppc_cpudata *cpu_data;
+ 	unsigned long local_freq_scale;
+ 	u64 perf;
+ 
+-	cppc_fi = container_of(work, struct cppc_freq_invariance, work);
+ 	cpu_data = cppc_fi->cpu_data;
+ 
+ 	if (cppc_get_perf_ctrs(cppc_fi->cpu, &fb_ctrs)) {
+@@ -102,6 +95,24 @@ static void cppc_scale_freq_workfn(struct kthread_work *work)
+ 	per_cpu(arch_freq_scale, cppc_fi->cpu) = local_freq_scale;
+ }
+ 
++static void cppc_scale_freq_tick(void)
++{
++	__cppc_scale_freq_tick(&per_cpu(cppc_freq_inv, smp_processor_id()));
++}
++
++static struct scale_freq_data cppc_sftd = {
++	.source = SCALE_FREQ_SOURCE_CPPC,
++	.set_freq_scale = cppc_scale_freq_tick,
++};
++
++static void cppc_scale_freq_workfn(struct kthread_work *work)
++{
++	struct cppc_freq_invariance *cppc_fi;
++
++	cppc_fi = container_of(work, struct cppc_freq_invariance, work);
++	__cppc_scale_freq_tick(cppc_fi);
++}
++
+ static void cppc_irq_work(struct irq_work *irq_work)
+ {
+ 	struct cppc_freq_invariance *cppc_fi;
+@@ -110,7 +121,14 @@ static void cppc_irq_work(struct irq_work *irq_work)
+ 	kthread_queue_work(kworker_fie, &cppc_fi->work);
+ }
+ 
+-static void cppc_scale_freq_tick(void)
++/*
++ * Reading perf counters may sleep if the CPC regs are in PCC.  Thus, we
++ * schedule an irq work in scale_freq_tick (since we reach here from hard-irq
++ * context), which then schedules a normal work item cppc_scale_freq_workfn()
++ * that updates the per_cpu arch_freq_scale variable based on the counter
++ * updates since the last tick.
++ */
++static void cppc_scale_freq_tick_pcc(void)
+ {
+ 	struct cppc_freq_invariance *cppc_fi = &per_cpu(cppc_freq_inv, smp_processor_id());
+ 
+@@ -121,13 +139,14 @@ static void cppc_scale_freq_tick(void)
+ 	irq_work_queue(&cppc_fi->irq_work);
+ }
+ 
+-static struct scale_freq_data cppc_sftd = {
++static struct scale_freq_data cppc_sftd_pcc = {
+ 	.source = SCALE_FREQ_SOURCE_CPPC,
+-	.set_freq_scale = cppc_scale_freq_tick,
++	.set_freq_scale = cppc_scale_freq_tick_pcc,
+ };
+ 
+ static void cppc_cpufreq_cpu_fie_init(struct cpufreq_policy *policy)
+ {
++	struct scale_freq_data *sftd = &cppc_sftd;
+ 	struct cppc_freq_invariance *cppc_fi;
+ 	int cpu, ret;
+ 
+@@ -138,8 +157,11 @@ static void cppc_cpufreq_cpu_fie_init(struct cpufreq_policy *policy)
+ 		cppc_fi = &per_cpu(cppc_freq_inv, cpu);
+ 		cppc_fi->cpu = cpu;
+ 		cppc_fi->cpu_data = policy->driver_data;
+-		kthread_init_work(&cppc_fi->work, cppc_scale_freq_workfn);
+-		init_irq_work(&cppc_fi->irq_work, cppc_irq_work);
++		if (cppc_perf_ctrs_in_pcc_cpu(cpu)) {
++			kthread_init_work(&cppc_fi->work, cppc_scale_freq_workfn);
++			init_irq_work(&cppc_fi->irq_work, cppc_irq_work);
++			sftd = &cppc_sftd_pcc;
++		}
+ 
+ 		ret = cppc_get_perf_ctrs(cpu, &cppc_fi->prev_perf_fb_ctrs);
+ 
+@@ -155,7 +177,7 @@ static void cppc_cpufreq_cpu_fie_init(struct cpufreq_policy *policy)
+ 	}
+ 
+ 	/* Register for freq-invariance */
+-	topology_set_scale_freq_source(&cppc_sftd, policy->cpus);
++	topology_set_scale_freq_source(sftd, policy->cpus);
+ }
+ 
+ /*
+@@ -178,6 +200,8 @@ static void cppc_cpufreq_cpu_fie_exit(struct cpufreq_policy *policy)
+ 	topology_clear_scale_freq_source(SCALE_FREQ_SOURCE_CPPC, policy->related_cpus);
+ 
+ 	for_each_cpu(cpu, policy->related_cpus) {
++		if (!cppc_perf_ctrs_in_pcc_cpu(cpu))
++			continue;
+ 		cppc_fi = &per_cpu(cppc_freq_inv, cpu);
+ 		irq_work_sync(&cppc_fi->irq_work);
+ 		kthread_cancel_work_sync(&cppc_fi->work);
+@@ -206,6 +230,7 @@ static void cppc_fie_kworker_init(void)
+ 		pr_warn("%s: failed to create kworker_fie: %ld\n", __func__,
+ 			PTR_ERR(kworker_fie));
+ 		fie_disabled = FIE_DISABLED;
++		kworker_fie = NULL;
+ 		return;
+ 	}
+ 
+@@ -215,20 +240,24 @@ static void cppc_fie_kworker_init(void)
+ 			ret);
+ 		kthread_destroy_worker(kworker_fie);
+ 		fie_disabled = FIE_DISABLED;
++		kworker_fie = NULL;
+ 	}
+ }
+ 
+ static void __init cppc_freq_invariance_init(void)
+ {
+-	if (fie_disabled != FIE_ENABLED && fie_disabled != FIE_DISABLED) {
+-		fie_disabled = FIE_ENABLED;
+-		if (cppc_perf_ctrs_in_pcc()) {
++	bool perf_ctrs_in_pcc = cppc_perf_ctrs_in_pcc();
++
++	if (fie_disabled == FIE_UNSET) {
++		if (perf_ctrs_in_pcc) {
+ 			pr_info("FIE not enabled on systems with registers in PCC\n");
+ 			fie_disabled = FIE_DISABLED;
++		} else {
++			fie_disabled = FIE_ENABLED;
+ 		}
+ 	}
+ 
+-	if (fie_disabled)
++	if (fie_disabled || !perf_ctrs_in_pcc)
+ 		return;
+ 
+ 	cppc_fie_kworker_init();
+@@ -236,10 +265,8 @@ static void __init cppc_freq_invariance_init(void)
+ 
+ static void cppc_freq_invariance_exit(void)
+ {
+-	if (fie_disabled)
+-		return;
+-
+-	kthread_destroy_worker(kworker_fie);
++	if (kworker_fie)
++		kthread_destroy_worker(kworker_fie);
+ }
+ 
+ #else
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+2.33.0
+
 
