@@ -4,56 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26CC1D15D88
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 15:54:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EA02D12D7A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 15:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b7tgDI+BS4fKylHJJC5JH6gaRpPwNtAkt2sjrBBrTUw=; b=gqRDdyhdXOtySu4izs//nskEMp
-	kr08/yfAXYrkwfAiTvdGMV+2DFpWruSeSAHitcRekJck0okOKrXQANKaJmpgzwAuPO9SNr2aSJFTq
-	QO1yTe3FP7vDSjj8vToFO6NGx2Uvg1E5Hla9p+101ThPqS7+dUmILCrQqFxWbQFQMu/61Ngl5soyQ
-	Mrm+zfYytH2A4CfUirZKZwpDSsgi+cPlgBKZGghPoKZgnoNefiwbu1mS9epg+0Zv4yCHh0yotyDSw
-	oDT3YASSO/LdwoeFb8SmOCAPULtbEFmj7gB7Vfn6z8SxXQci9Rjqfjr3YEMA4Ns+caKP0RzhXgWiD
-	ItIC0rnA==;
+	bh=/JBESIV267C/7LAHKkQvLHP266CJ9pvprehslallYAo=; b=QkDoHZ9taz2xT5oPuk8bVU3iup
+	ZSJdRa3g2xgSEwGnZlqglhzDrjf2WgRI+0t4wZV407gE0CHResLnATWg7N8MouFx+q9lTnot+ca/U
+	m9SpChKQiJYCh4sKNCEHYJAITlBFI11LRdiNYtviiF+UVlQBeUleM6vDXuo8J1+8Tl3xgJEAZQ5Cf
+	+jHbfSERSp6jcl37/c8PSTQGPbESI73N8Q33iE33GeEcbmageAGM/k3mteavTJMujS4QM1SEzhKy9
+	x9LDzaJP047DdjfP6B/I5rPFNLkVPlLpx3Arlkpl8zNEdfudokGcUdqv5d4EQfGrVhrTQmw7okpJK
+	35yaLnuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQpAu-00000006jL0-2Wxo;
+	id 1vQpAu-00000006jKQ-132S;
 	Wed, 03 Dec 2025 15:53:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQpAl-00000006j7a-1i17
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 03 Dec 2025 15:53:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=b7tgDI+BS4fKylHJJC5JH6gaRpPwNtAkt2sjrBBrTUw=; b=VgOubb+NnFp1PFacuzGNj+hccu
-	uh4s42qFWwigdqjcp5C8+oV1zUSB4Fc6QHt7kBMnskU8oy6+haDvyn3QdZ7CTWbB3sCT516cJ/hAN
-	FPRKuiJPM7XsvgewT8EQbIzopCNVy7EeE30u5x0QWXjx4RhK9Y/uvs7Up/jK0vW4LwBPmzEmAT989
-	g4wBBWA2f0lMGMMwTXOq+rMu1K545yZRePspMTG/UcT2hosMCYK1N10V8qIaxXJuPCgFiO3jZ7cXR
-	9F/VYmbsGwSajNC2H5Gj2YUuXBn9MpP2XyTkKacGspezEdsYQEXEIXQxfCAcrPw+xGh7xWdwZTHs6
-	j62/e8YQ==;
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQoJA-00000002TB0-1yzh
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQpAi-00000006j2D-1lAe
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 14:58:22 +0000
+	Wed, 03 Dec 2025 15:53:43 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1vQpAe-0007dW-5W; Wed, 03 Dec 2025 16:53:36 +0100
+	id 1vQpAe-0007dW-1P; Wed, 03 Dec 2025 16:53:36 +0100
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Wed, 03 Dec 2025 16:52:37 +0100
-Subject: [PATCH v2 15/22] media: rockchip: rga: share the interrupt when an
- external iommu is used
+Date: Wed, 03 Dec 2025 16:52:36 +0100
+Subject: [PATCH v2 14/22] media: rockchip: rga: support external iommus
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251203-spu-rga3-v2-15-989a67947f71@pengutronix.de>
+Message-Id: <20251203-spu-rga3-v2-14-989a67947f71@pengutronix.de>
 References: <20251203-spu-rga3-v2-0-989a67947f71@pengutronix.de>
 In-Reply-To: <20251203-spu-rga3-v2-0-989a67947f71@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -65,16 +49,15 @@ To: Jacob Chen <jacob-chen@iotwrt.com>,
 Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  devicetree@vger.kernel.org, kernel@pengutronix.de, 
- =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>, 
- Michael Olbrich <m.olbrich@pengutronix.de>
+ =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
 X-Mailer: b4 0.14.3
 X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
 X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_145820_707572_EBE8FD53 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20251203_075340_630855_2E13C871 
+X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,32 +72,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Michael Olbrich <m.olbrich@pengutronix.de>
+In preparation for the RGA3 add support for external iommus. This is a
+transition step to just disable the RGA2 specific mmu table setup code.
 
-The RGA3 and the corresponding iommu share the interrupt. So in that
-case, request a shared interrupt so that the iommu driver can request
-it as well.
+Currently a simple rga_hw struct field is used to set the internal iommu.
+But to handle the case of more sophisticated detection mechanisms
+(e.g. check for an iommu property in the device tree), it is abstracted
+by an inline function.
 
-Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
- drivers/media/platform/rockchip/rga/rga.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/media/platform/rockchip/rga/rga-buf.c | 46 ++++++++++++++++-----------
+ drivers/media/platform/rockchip/rga/rga-hw.c  |  1 +
+ drivers/media/platform/rockchip/rga/rga.c     | 11 +++++--
+ drivers/media/platform/rockchip/rga/rga.h     |  6 ++++
+ 4 files changed, 43 insertions(+), 21 deletions(-)
 
-diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index f28ec88c186fa..1bfc4021f4a7b 100644
---- a/drivers/media/platform/rockchip/rga/rga.c
-+++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -718,7 +718,8 @@ static int rga_probe(struct platform_device *pdev)
- 		goto err_put_clk;
+diff --git a/drivers/media/platform/rockchip/rga/rga-buf.c b/drivers/media/platform/rockchip/rga/rga-buf.c
+index 8845e1f894f29..e8d1e2e579140 100644
+--- a/drivers/media/platform/rockchip/rga/rga-buf.c
++++ b/drivers/media/platform/rockchip/rga/rga-buf.c
+@@ -12,6 +12,7 @@
+ #include <media/v4l2-ioctl.h>
+ #include <media/v4l2-mem2mem.h>
+ #include <media/videobuf2-dma-sg.h>
++#include <media/videobuf2-dma-contig.h>
+ #include <media/videobuf2-v4l2.h>
+ 
+ #include "rga.h"
+@@ -79,14 +80,16 @@ static int rga_buf_init(struct vb2_buffer *vb)
+ 	struct rga_frame *f = rga_get_frame(ctx, vb->vb2_queue->type);
+ 	size_t n_desc = 0;
+ 
+-	n_desc = DIV_ROUND_UP(f->size, PAGE_SIZE);
++	if (rga_has_internal_iommu(rga)) {
++		n_desc = DIV_ROUND_UP(f->size, PAGE_SIZE);
+ 
+-	rbuf->n_desc = n_desc;
+-	rbuf->dma_desc = dma_alloc_coherent(rga->dev,
+-					    rbuf->n_desc * sizeof(*rbuf->dma_desc),
+-					    &rbuf->dma_desc_pa, GFP_KERNEL);
+-	if (!rbuf->dma_desc)
+-		return -ENOMEM;
++		rbuf->n_desc = n_desc;
++		rbuf->dma_desc = dma_alloc_coherent(rga->dev,
++						    rbuf->n_desc * sizeof(*rbuf->dma_desc),
++						    &rbuf->dma_desc_pa, GFP_KERNEL);
++		if (!rbuf->dma_desc)
++			return -ENOMEM;
++	}
+ 
+ 	return 0;
+ }
+@@ -133,17 +136,21 @@ static int rga_buf_prepare(struct vb2_buffer *vb)
+ 	for (i = 0; i < vb->num_planes; i++) {
+ 		vb2_set_plane_payload(vb, i, f->pix.plane_fmt[i].sizeimage);
+ 
+-		/* Create local MMU table for RGA */
+-		n_desc = fill_descriptors(&rbuf->dma_desc[curr_desc],
+-					  rbuf->n_desc - curr_desc,
+-					  vb2_dma_sg_plane_desc(vb, i));
+-		if (n_desc < 0) {
+-			v4l2_err(&ctx->rga->v4l2_dev,
+-				 "Failed to map video buffer to RGA\n");
+-			return n_desc;
++		if (rga_has_internal_iommu(ctx->rga)) {
++			/* Create local MMU table for RGA */
++			n_desc = fill_descriptors(&rbuf->dma_desc[curr_desc],
++						  rbuf->n_desc - curr_desc,
++						  vb2_dma_sg_plane_desc(vb, i));
++			if (n_desc < 0) {
++				v4l2_err(&ctx->rga->v4l2_dev,
++					 "Failed to map video buffer to RGA\n");
++				return n_desc;
++			}
++			dma_addrs[i] = curr_desc << PAGE_SHIFT;
++			curr_desc += n_desc;
++		} else {
++			dma_addrs[i] = vb2_dma_contig_plane_dma_addr(vb, i);
+ 		}
+-		dma_addrs[i] = curr_desc << PAGE_SHIFT;
+-		curr_desc += n_desc;
  	}
  
--	ret = devm_request_irq(rga->dev, irq, rga_isr, 0,
-+	ret = devm_request_irq(rga->dev, irq, rga_isr,
-+			       rga_has_internal_iommu(rga) ? 0 : IRQF_SHARED,
- 			       dev_name(rga->dev), rga);
- 	if (ret < 0) {
- 		dev_err(rga->dev, "failed to request irq\n");
+ 	/* Fill the remaining planes */
+@@ -173,8 +180,9 @@ static void rga_buf_cleanup(struct vb2_buffer *vb)
+ 	struct rga_ctx *ctx = vb2_get_drv_priv(vb->vb2_queue);
+ 	struct rockchip_rga *rga = ctx->rga;
+ 
+-	dma_free_coherent(rga->dev, rbuf->n_desc * sizeof(*rbuf->dma_desc),
+-			  rbuf->dma_desc, rbuf->dma_desc_pa);
++	if (rga_has_internal_iommu(rga))
++		dma_free_coherent(rga->dev, rbuf->n_desc * sizeof(*rbuf->dma_desc),
++				  rbuf->dma_desc, rbuf->dma_desc_pa);
+ }
+ 
+ static void rga_buf_return_buffers(struct vb2_queue *q,
+diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
+index fe6f518aedd4e..fb0389ae8e132 100644
+--- a/drivers/media/platform/rockchip/rga/rga-hw.c
++++ b/drivers/media/platform/rockchip/rga/rga-hw.c
+@@ -617,6 +617,7 @@ static struct rga_fmt formats[] = {
+ 
+ const struct rga_hw rga2_hw = {
+ 	.card_type = "rga2",
++	.has_internal_iommu = true,
+ 	.formats = formats,
+ 	.num_formats = ARRAY_SIZE(formats),
+ 	.cmdbuf_size = RGA_CMDBUF_SIZE,
+diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
+index c9719c7bcfc1c..f28ec88c186fa 100644
+--- a/drivers/media/platform/rockchip/rga/rga.c
++++ b/drivers/media/platform/rockchip/rga/rga.c
+@@ -23,6 +23,7 @@
+ #include <media/v4l2-ioctl.h>
+ #include <media/v4l2-mem2mem.h>
+ #include <media/videobuf2-dma-sg.h>
++#include <media/videobuf2-dma-contig.h>
+ #include <media/videobuf2-v4l2.h>
+ 
+ #include "rga.h"
+@@ -95,13 +96,16 @@ queue_init(void *priv, struct vb2_queue *src_vq, struct vb2_queue *dst_vq)
+ 	src_vq->io_modes = VB2_MMAP | VB2_DMABUF;
+ 	src_vq->drv_priv = ctx;
+ 	src_vq->ops = &rga_qops;
+-	src_vq->mem_ops = &vb2_dma_sg_memops;
++	src_vq->mem_ops = &vb2_dma_contig_memops;
+ 	src_vq->gfp_flags = __GFP_DMA32;
+ 	src_vq->buf_struct_size = sizeof(struct rga_vb_buffer);
+ 	src_vq->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_COPY;
+ 	src_vq->lock = &ctx->rga->mutex;
+ 	src_vq->dev = ctx->rga->v4l2_dev.dev;
+ 
++	if (rga_has_internal_iommu(ctx->rga))
++		src_vq->mem_ops = &vb2_dma_sg_memops;
++
+ 	ret = vb2_queue_init(src_vq);
+ 	if (ret)
+ 		return ret;
+@@ -110,13 +114,16 @@ queue_init(void *priv, struct vb2_queue *src_vq, struct vb2_queue *dst_vq)
+ 	dst_vq->io_modes = VB2_MMAP | VB2_DMABUF;
+ 	dst_vq->drv_priv = ctx;
+ 	dst_vq->ops = &rga_qops;
+-	dst_vq->mem_ops = &vb2_dma_sg_memops;
++	dst_vq->mem_ops = &vb2_dma_contig_memops;
+ 	dst_vq->gfp_flags = __GFP_DMA32;
+ 	dst_vq->buf_struct_size = sizeof(struct rga_vb_buffer);
+ 	dst_vq->timestamp_flags = V4L2_BUF_FLAG_TIMESTAMP_COPY;
+ 	dst_vq->lock = &ctx->rga->mutex;
+ 	dst_vq->dev = ctx->rga->v4l2_dev.dev;
+ 
++	if (rga_has_internal_iommu(ctx->rga))
++		dst_vq->mem_ops = &vb2_dma_sg_memops;
++
+ 	return vb2_queue_init(dst_vq);
+ }
+ 
+diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
+index 772f7dff9a8e5..fc81bc5562792 100644
+--- a/drivers/media/platform/rockchip/rga/rga.h
++++ b/drivers/media/platform/rockchip/rga/rga.h
+@@ -148,6 +148,7 @@ static inline void rga_mod(struct rockchip_rga *rga, u32 reg, u32 val, u32 mask)
+ 
+ struct rga_hw {
+ 	const char *card_type;
++	bool has_internal_iommu;
+ 	struct rga_fmt *formats;
+ 	u32 num_formats;
+ 	size_t cmdbuf_size;
+@@ -163,6 +164,11 @@ struct rga_hw {
+ 	void (*get_version)(struct rockchip_rga *rga);
+ };
+ 
++static inline bool rga_has_internal_iommu(const struct rockchip_rga *rga)
++{
++	return rga->hw->has_internal_iommu;
++}
++
+ extern const struct rga_hw rga2_hw;
+ 
+ #endif
 
 -- 
 2.52.0
