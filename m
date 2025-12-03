@@ -4,169 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55C8BD1269B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 10:45:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 750D6D1269B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 10:48:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oT3DO2Exp0GQZmbwCgTxZwzFCDI6C1nPOfFF1Es5J/g=; b=NT++4AjlXLqch0xNA2cFuSA+EQ
-	f3YsCd5YfK4iqmfyp33lIf7y9nUkJVxuWC238pKIOQY4w9Z5VDiQ8f29q8IrETcbz+Pe1J37ZFqtl
-	vOVFMo0XJ76i8bn3zLvbq59kCrccYiol3wcfjHRh+Nu631o0Idr9tsmCKa1GsZOh2fJZNAxMH/vMl
-	Hod5AvW92y2+LiyPSYviGuN6yE/Ary5KU/RncNfvqlt61avpnTafWmhVRvxu6dawgI4XNU853lFgp
-	3ibWuwCFvW4+dnQX2e2VMbjTE0D1AXiLIluFTnQUFfvnL+yV320LVLp7zobdmWwdaLJ0BPlKbfy+S
-	QafpMoiQ==;
+	bh=Pqzcwy0aG8j3v2uib4LvNWbMTBU5XU/UWKj8WABA/Yc=; b=zx3Qe4+hOqry6ZoNrITJlOO+VB
+	hveypM0Md6PbxtNpAT1oSi0Q6rCxnuLDg3ifNGWn1JDGie7qx3MMEhfvy4cqIwuSgihdKI8nDhXhP
+	zcCkm0C0LqRu3X+uvEIoMhLy4dzcbZjy5ZcbozpbKgwc4MpWU+xzyuU3fYMJm+8z6ngi/mY1ZVhuH
+	Y+GFcdOe2SbaSZdyI1NK2jF7t0A7vqHJMR9ST+dFHfH1XwToTsMnpm2CSvWq8mZKuP0rr0PXc8HbX
+	Z7zIf+ltalpWxCaEAvThqHsKS/bo5FvVYtLwer/OvvOuLQIas/M8d/ccAAiKEWxvlIq1UNmrgVbBa
+	2kz8b6CQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQkM1-00000006Sgu-0T8r;
-	Wed, 03 Dec 2025 10:45:01 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1vQkPO-00000006SvZ-1iLJ;
+	Wed, 03 Dec 2025 10:48:30 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQkLy-00000006SgM-1Hwo
+	id 1vQkPL-00000006Sue-0T3C
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 10:44:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZIvCqNubYYDY0aZjMUI5rzz5P4kMk/ZjBoBv7ozescqiHBZjFucTjCoULFLwCaClZiCSJOHGA4qhPeysnjSAcSipOeQDpINkcKxhbGs1LxdkWFhE3jTXMmmpe66oOXMHI8Njg7Sq0P877zZnbQO0fmQgnBhhYGBSVr8KtsrX9myOiV8JCJuC/1Ab9VX/A/Wk7yEwBs6Ow7UD4pEqfB2TnSgZpz5AA4Ro7LfJF+5uhg4Wey5SdV3Lz97b4dvInuM7roLTKtYqbIQVtfUx20ccu1xGU1qQ76Hos8iY0ywP/6Hbv6mPhoMdoXfXl6fqTjVa+UmvH4jpFdybFSbyWHoQNA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=oT3DO2Exp0GQZmbwCgTxZwzFCDI6C1nPOfFF1Es5J/g=;
- b=PctvXfoIURCIY4QBJ/8x+ms2fchUHVpduqu5cu9WEYpY+L18PrMYqSPhQAV4a27GlkPDp/WIAkc5+JPag7xdMhzn7jt7zNrlxCgKnpJ3XpwhyRqmNwKJyP4Kuv4LsN4wQv9VLh908so8xVDWiFn4rTh2+/fszAkszxOOlS9zlT85foZBW/da6DdSvJtiGVkUeI1KRaAksWBoUNLijD9gzzlwXGsckK7xzoTISS0ORnR61dwaCtV6xpdYr7vexc4tcOf5TZ4iCJalB8S1Sh3FwA5KL8oJv4ikOZCLpyznEjr8wN4ZCZIEiNo42sPygi8UrtDxD4FQLsOoih5UCcmJnw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=oT3DO2Exp0GQZmbwCgTxZwzFCDI6C1nPOfFF1Es5J/g=;
- b=i8avcH/3LSVWhWVQpwy5fiQLD+phsS2NJNcznEYijGbZIFZnYWptmicAn1Ux6ybCFfFvJdFWBln0s8fNpy49aW5IRrbSEqVBVVitBRorgKU+iTtjFs3JSqheK6a0M43ilqTCYF4bp7BKsvkQOCGTHS3jAwMr89MoO9v6mrqhO0SyHYSa69gx9Xv7JirNpwaJUYonf+zAQBi0HJBZb1iGOzngb957HNIQPTNsZjTQI6ZZkWfP6twtI9FtKpxwOJ0F9d0lmSl2oPHsWdlBVq8HwjYStdljMOG0FyBMtkCti7HR7weRRG5cSVbXqQmNWud3TLX9OI9GIKWnxTschqYg1w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com (2603:10b6:a03:4d0::11)
- by SA1PR12MB6797.namprd12.prod.outlook.com (2603:10b6:806:259::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Wed, 3 Dec
- 2025 10:44:50 +0000
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9]) by SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9%7]) with mapi id 15.20.9388.003; Wed, 3 Dec 2025
- 10:44:49 +0000
-Message-ID: <516f57b2-cdf1-435c-8de4-978ac8b03f62@nvidia.com>
-Date: Wed, 3 Dec 2025 10:44:43 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V3 3/3] arm64: dts: nvidia: Add nodes for CMDQV
-To: Ashish Mhetre <amhetre@nvidia.com>, will@kernel.org,
- robin.murphy@arm.com, joro@8bytes.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, nicolinc@nvidia.com
-Cc: thierry.reding@gmail.com, vdumpa@nvidia.com, jgg@ziepe.ca,
- linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-tegra@vger.kernel.org
-References: <20251201163219.3237266-1-amhetre@nvidia.com>
- <20251201163219.3237266-4-amhetre@nvidia.com>
-From: Jon Hunter <jonathanh@nvidia.com>
-Content-Language: en-US
-In-Reply-To: <20251201163219.3237266-4-amhetre@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO6P123CA0049.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:310::9) To SJ2PR12MB8784.namprd12.prod.outlook.com
- (2603:10b6:a03:4d0::11)
+	Wed, 03 Dec 2025 10:48:29 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-42e2ce8681eso2987968f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 02:48:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764758905; x=1765363705; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Pqzcwy0aG8j3v2uib4LvNWbMTBU5XU/UWKj8WABA/Yc=;
+        b=Qr/pvA9nYty9lg05T4BubbaiNv3hC8XRM08HJhrEcDFpaJaPTyHbqVrJlz013QuZOg
+         NqdrtVJvO7ufivLLrv1KkRLq+g8B7nAHYvgGdDd1Vr5JpPYs/qrVYOhh1jrBEoNeXaud
+         paGzWxuDS53W7fR2IG5RCcCU6EU/fja8SG4hWZdrRHP8WgcIosaP7NRqTvYotsSX/1Os
+         BN+6v1DdGYCZCSr5buxfAeJDRIsS3H9zK/2FnQ/lY9U4X4mYmoRkxpDGbqer+MP8FgbV
+         JDZK/CtnGK0S2Gq9yEZk4lNv+zqjGIFSpyVwXlcFtXMJtQN4ByFE+W5YAHbzVEoZjfb8
+         0V4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764758905; x=1765363705;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Pqzcwy0aG8j3v2uib4LvNWbMTBU5XU/UWKj8WABA/Yc=;
+        b=JPellfkUG2NNqgTfJI8SsrKL6wFl9BfswzH6ECLO3kYQcFGxivqkA6O2qoCphbpPIH
+         x/ZvnizwwUg/ZF1d0QYEoRPz6AByEUJZ60m9cfWpL+XS5IvdW3t3Nob0WCvfxNVgbdw/
+         X0IRRQWfJSqk6hpZbrJMZtEtoLcmJnCSVxyVsZ7v91ENsGVhyTTKGR39GYiFCPNv10kO
+         kVqHO4S4l2FQyPE62wvzInXh0UjF21V01QBwdec+xiuLKZSEAQ0+Wc7dZ6uMVe7hBncQ
+         auzkPKCSPfGYyaQWXl/JxLV839sr+20Tca7LYVnBUNQKuDAZ8kBLbkBD0zJgSZDnH2QA
+         5PTw==
+X-Forwarded-Encrypted: i=1; AJvYcCWJEkgx1ZslbmO4RKBVwdHf0hefOdmJZVmeIm9sL9EIu/Y1geoLsw/xH6E9ckoR1GD6zuFuijsJT8MLlDVXn1XO@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBIFhD36wIC3OQBhr8164Xh0NR7ZkU7ofVQHEIlMRCVxZp0ezf
+	wuv3yG9AW7HXLK5n+7jV0YgSpJb+NGNWet3S0qMhiSA+ge3gGajoB6fD
+X-Gm-Gg: ASbGncvCpoOWec/pCNfWw+nJBSF+tJXbbRnTbiNTDR8nnd0UR8dDmmBhEcci4l/NOPV
+	FPxkLGZfmdh3KRdbgI2suVGM4u/RNmWK2f+Y/s8pO/hZWlPFjk4ip/qPG7NgIX96GmXbwaL3YsN
+	nKyy7i3RdhQ4VUbC7fUVD5mulcklXRTeHDuygQRDi64MTjYKIzJGHg2XOzoaSUAGJdnYbTrVpux
+	5SgoionX5dNKLHZ5ir1qNxMqliZ0n73MtEoJBGlMGqo3zsbPdUxD3IJNDJu5q+jmv3FawvvgBrc
+	ZAfqJu8rCLOVFIgzrdFovhvi/ggThCerLkFomop7gSafBuaaUnZD4DW5F0A8zU+opr1mQubyqBl
+	c//6DgCr0K/P/rjfOa+Fg5ndBZEnmMLV7y1ouiRatPxodCvQOtht+0d+k+1vxCgNe1sMrQfxyPI
+	hasIAb5a8j8UiBZStH
+X-Google-Smtp-Source: AGHT+IGU+zTWxb7oJWKF6SgoxvEbG8MC6Zs0ybOgfpb5deisxlDFrb0fyykgbfmWUBQODvUaKcyUfw==
+X-Received: by 2002:a05:6000:4203:b0:427:526:16aa with SMTP id ffacd0b85a97d-42f731cf22emr1651680f8f.58.1764758905050;
+        Wed, 03 Dec 2025 02:48:25 -0800 (PST)
+Received: from owl5 ([2001:861:3201:3d10:5de7:b6f0:41df:be6e])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42e1caa86d0sm36929364f8f.39.2025.12.03.02.48.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Dec 2025 02:48:24 -0800 (PST)
+Date: Wed, 3 Dec 2025 11:48:23 +0100
+From: Gary Bisson <bisson.gary@gmail.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH v4 3/4] arm64: dts: mediatek: add device tree for
+ Tungsten 510 board
+Message-ID: <aTAVd6wJYheV7M4p@owl5>
+References: <20251202-review-v4-0-93f5cd2a0d4a@gmail.com>
+ <20251202-review-v4-3-93f5cd2a0d4a@gmail.com>
+ <e9edd5f2-c0ff-48fa-baf9-659dd0073e3d@collabora.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB8784:EE_|SA1PR12MB6797:EE_
-X-MS-Office365-Filtering-Correlation-Id: fb7e5211-969a-49df-8a58-08de3258fbc8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|1800799024|366016|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?L1BUYXFpNXloS0hlNTVUQ0ZoSjNzRFNIcFpMUHg5cTZSOUtNVGlORkJrc3dM?=
- =?utf-8?B?eFBUd2d2cUxtY1FqNHFVSUwzUGk1bERUUE5JeXBwMFh6NXFhODZxV0pJYlRu?=
- =?utf-8?B?QW5mWllySVlaTzAxZHozQi9nRGt2WkNmaS9UT0d6M3haU0ZuTWt2Q3hUTDVU?=
- =?utf-8?B?dXBsdHQzY3Zsam1Ob2JZUHRHV09ycFZjR2ZqZmdZeWw1ZzBWNm9wRzVCWUM0?=
- =?utf-8?B?VGFoSzJSOEtlSzc3aUNVUXMrUHFZL2gyVkpZak81SnpnbTJmbFlMMjNKV0xt?=
- =?utf-8?B?N25IeGRwQ2I1Ty84bXA4UHl0YzltN2ZadDJkT2M4eThaUU9tZm95M2lwZ2RY?=
- =?utf-8?B?SzNkQ09NM0tHYkhRY3hUOVJRT0liajAzQWNVSVJ4SXdMalRtb0JvQjRrMTI5?=
- =?utf-8?B?Q3ZqczNkamU5VXJXN2pMRDdWOHhxbXl2dHgrdmJQbjg3OXAySktlNjg2Z3Ay?=
- =?utf-8?B?dENnYWtTSmpUMkY4cU5rRjFJYi9KNVpkZFVzOTNValViRlIzSGc3MDA2ZUF3?=
- =?utf-8?B?aEpCUkJ4MTVwNnJsMXh3emg4Z1VOL3lpalNOanRGL2JhK0lrV01TdzM1Q05n?=
- =?utf-8?B?SUdralUwbTlxcVJkSUNrV3ovN2JGZnhVZnFRaGJQMW4wV1NtRWJHa0F2SU1l?=
- =?utf-8?B?WkF6cCtNanIzTFhsam5NVDJtVTFyU0xhNndVbWpIeDJRNTMwQ01zMzVTRm1X?=
- =?utf-8?B?QkoybEJKYkQwb2J0bmZNZEl4SmsrcEhpOG5KcGhoc2NsVWhpYk5XczFqNmZZ?=
- =?utf-8?B?aS83K3kzWEZpZDFFSkpFM3dlV2kyd1U3dS9WZS93SEY0N2U4R1NxeWtHWWl1?=
- =?utf-8?B?M0NLZi82YW1SUExkZlNSdEpobVNuamtrTms3UGJXajk3ZitWU3VmRW1oRG1P?=
- =?utf-8?B?QkcvZFFIMFdZRmU3eUU3MjZsbW5ZTWtpWENCWkxQSnlabGNyUzI5Rzg4YW9l?=
- =?utf-8?B?Q3kyY0w0bk11NUhzY2NVVHpmT3BUL05wNnBXVUt5dlJCQ3l2SnBzUllZNXVi?=
- =?utf-8?B?K01DRiswelFLUDBkMmZ2NHJXL2lIeldiVkFXcFVrRjJZeFk1SUt6eEoyWS9h?=
- =?utf-8?B?anRHMGdPNG44L1FFZUZwWEh5bjdLTnc2ZzBkSFpzSnIwd3FOQnZiazJwRTN1?=
- =?utf-8?B?UndxZjJWRmh0UHoxZGo2SzZmOVhsczhBeWVwSkRNYXhFNHZWeG5paU1qMTNO?=
- =?utf-8?B?T0k4bHprZHBVSmJIdXpSTjI1Y3JHZkVnRnpCSGZSUjcwdjJXTU1vZ0pKRTlL?=
- =?utf-8?B?SVJVRGdacW9ES1RCZFhRVytSaUJ6OEFUSTdIUDNTRXpPaEcyaWs3ZlRYOE4v?=
- =?utf-8?B?NWxsd1YwVndnSTlQQUJ2WDJHYjJWbE9FRXFvcHVydFJPSWJpb3lNVEU5dlhx?=
- =?utf-8?B?MWdvTHo1ejV0dTYxNDEybFFnYXloei9GQm13OG02WmNiRmViRlJmVERzc3pi?=
- =?utf-8?B?MS9DUTVDOFAvaTBHMW92WGwvUjloL1dnVjVaM255M21obFpBSk5Jdk00SFor?=
- =?utf-8?B?NTVzM3dmbWVYeDBpL2p0aGNWOENZckZFWHljbkk1elRQbnd0SDR3MzdMWmF6?=
- =?utf-8?B?VVpHL3lzaVN2b3M4T3o5MUpwQU5acDRIdVhYN2I2ek1UNUlEbndWQXA4ckM5?=
- =?utf-8?B?bkdZUVNrUmNTUDNiMnVJeFZhM05OMXRSc0RtY25oSnNITFJSbGpYeGFyeFNv?=
- =?utf-8?B?ckVFSkpZQXZ5MnRmaUVkS3dFUFhZR1RMdTlVOXo3ejBqck4wdGtSWWYzd1Q1?=
- =?utf-8?B?RHJha0V1T2MvNWNUa2wzRkQ3cnVhY1VsYjVGZlhsWmNqQ2hud0xYTlRTSUg0?=
- =?utf-8?B?aU9jQW1aYkE1dFRUN3NTNnYyV0dFNFhxQ1V3US9uTEpaZUFpTlo1Sjk1UG9P?=
- =?utf-8?B?eDliS1o0Y0pBb1VLMUhqdStVRm11T05OQW1ReE0ya0FIWVVLVllJN3dVWVpH?=
- =?utf-8?Q?qJt8+u1VZ2K5YlNgSv7McnvsNWne/WGn?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8784.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?K1RmOWkwdGpCd3lEVytoUityOFkyZ0ZNdVVYYjZyeVpQYXVhWjVJZkYyd1BL?=
- =?utf-8?B?c2dBNURVYzlWZFE3ZFhTYk1kTW5qRDNKK3dTM3NPcG54OWd2V0xCUlRzQS95?=
- =?utf-8?B?ZUw4aTRSY2FrdmlUV3JWSE8xYWtDVVZwSEFxcTRmZ1IvR0dBUDdLRWhaMUtw?=
- =?utf-8?B?WkZaMkJ5cDBtZVdPUVRSUWFua0U0a0NwU041V3RzZ1FFVEZFR2MvMnpqRWhG?=
- =?utf-8?B?R0twTGJuUVRXQld6akNJYmRUZnVqN04xbUd6V2pmcGJsYmdHUEozNnNJNWl0?=
- =?utf-8?B?YjNuUzF6VlRuUlkyZWdyNjZtQTcwVjBnSytKR2dVZjN3ZlY0eHNQRzFFUHM0?=
- =?utf-8?B?dVJRNGE0L2k4RVpzaW9MckhCUGFFVERGUlprQmwxYXFFRGNVMDhyK2Q3Tkps?=
- =?utf-8?B?NEEyUlVYMnZUdm5rZUc5T0Z5alAya1N0b1ZNZHJYdnZjNDBMenppSW9sb0ZH?=
- =?utf-8?B?NEt5VGxlYnI2VSt3dVBzenlxalllU1p4LzJYVHh5K3lrRit6SitBVTRlMms0?=
- =?utf-8?B?SUM4blRrYm5yVnFYSnpOcXdlaml2WHRKSndubmhPbmR1U1FHUDhDZ3piRlkz?=
- =?utf-8?B?Uk03UFF0bHZVZm4wd0xNUWJsU0IxVWtEY2NwTklUNzZmWEhWTnFld3h6WkIw?=
- =?utf-8?B?SWJNM2ZqUUtaSDlKdHlMNFJYRGR5Q3FSTWVpdDFURU9JM0dad3EwMTdXWFRT?=
- =?utf-8?B?RExacHZ3Q2JRbDM4K2lzSDlneTgzQ05SMmR0V1IxVTgybkx3bDMxQjUyeDFY?=
- =?utf-8?B?VFh4YlI0bCtadUJkMGFKcitGZWhzTUV1SHJyUVl4RkorMGc5RjZrN1hKRlA3?=
- =?utf-8?B?TUlSeFZST1VadXdmckRwWDczRUk5dHExNVlnOHl2SzB2K1NUeFZQcmg0MUln?=
- =?utf-8?B?UURUV1U0Sm1wZmZ0SmVrQnBMYitPbVh2VnNTMHhPYXlRMVQrdWFHUUhMMjR0?=
- =?utf-8?B?aWtWZTVxQ25QeW9ZQ2oxZ1ExTGtpN3FQOTBiMEhtczRBSS9KamVOOXp1bzha?=
- =?utf-8?B?SjQ4ZFEvUndwMWI4RnBmbTVMWUJqN2l1cFNHakdiV0tXZXJjYUc1ODQyaVM1?=
- =?utf-8?B?cGorNFlTVFBxOTd0WTZoL2FYVGlFUGxWdThpZ3lmZUdNaExaQlErRjFhZXRm?=
- =?utf-8?B?NW0rTzcyRlJCbm1LUm9pbVFWUVhpaS9QNWJoOGk4bDUremdOcEZtT01UM1Jo?=
- =?utf-8?B?WHRQRjgvOEFvRFdQTklIMWhva0JXOUFZUEg3L011VlJWRWMxYjhBL2hDZWp0?=
- =?utf-8?B?d3FSdnJMMXdMNzlsdEJrc1FGaXh4djlHM2oxV0F5M2RBNVZBUVkxS3hVSDZn?=
- =?utf-8?B?eWdWbnc0SGZVMk03MU13dWtCTlN0WGY5UHd2cHhWNlhOOWdReWZJTjFIRTFW?=
- =?utf-8?B?SHVveWRzd3NvdXRkMzNyZDZWTVRtZEM1dUYvUUVxNmltWmVRVnJkZ3JicjdI?=
- =?utf-8?B?OXlMZm5vanVNYkYwM2VTbWxTMTBsUkljeTRhdWlaUEVwSkNuSDhHVVp6OTB3?=
- =?utf-8?B?cVR6d2I4TmEvYldIVVEyT2xnSVc1Mnl4djRFeE5udUx5RmZTRkJ5TUZrc1hU?=
- =?utf-8?B?cysrM2ZoaXg2RkF1WFRyZlk5YlJCUEt2SG9nTnhydFdxUTVkZWRSRURGcGE1?=
- =?utf-8?B?SkxQc3JOdE9WQWJMbWtuY3FDU1BtSEkxbXdOcHplU0YyaTlybUtWcURmY2Q1?=
- =?utf-8?B?R2R3Y1l6UlpoYXhsQ1dKS3h0QVlDY1RqRzVqNnZKM0ViVEtIcmgyLzlzeHFK?=
- =?utf-8?B?dnV0ZUg5WDh6ZndheW9jazhTZUtvb2hidHYyRUhwbHhsY2lTMUE4aWRMN3lx?=
- =?utf-8?B?TGEzZDdNdzRrN0k2WmFOckRXMTlHQ1FqRmxpQWFZcEpENVRYaHZOR05OZDJZ?=
- =?utf-8?B?MkpybmR6OFYyWk14RnJ1UjhZVThPRjZaL0gwbzJ4V1dhNU5qUXpQOEk2RVpx?=
- =?utf-8?B?bCtKbUExVFZYYzljN1NxaWNtV1RGSHhKTXNyUVhnRTdNeHB2bGxjZzlZTUxH?=
- =?utf-8?B?UWlSZG5pSmxGbWd2N1NOckhicmJxSU1VUDNCV2xLVjBDQ0xoUHVkMW5NaWZk?=
- =?utf-8?B?dUJuTmorTGpJdHlQa1Jid083NUJjMEJlcVdpUFk3ajJUQXMvZ3FmSDA5OFhN?=
- =?utf-8?B?bm9hTG9QOTVJSmF3WlNZTXdMMFdQZVVZRDVybHVJNUpKeXRsWU9PSm9hTW5F?=
- =?utf-8?Q?ufuqDPd/NLSwV1uXF4uV6SSNaZlJRw7Qf3cwJRBlI+wt?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fb7e5211-969a-49df-8a58-08de3258fbc8
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8784.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Dec 2025 10:44:49.8693
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: KEwmvaHLU7pUBo71uWy1zxSPn5eAZhRdeOG0kZ88/db5x8QGTM/GBVSjDQgyJ2Xu0yVJSE6azuA2DccTBLd+ug==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6797
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e9edd5f2-c0ff-48fa-baf9-659dd0073e3d@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_024458_385137_2976DD89 
-X-CRM114-Status: GOOD (  15.86  )
+X-CRM114-CacheID: sfid-20251203_024827_362735_0F28A47C 
+X-CRM114-Status: GOOD (  26.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -181,85 +105,973 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Angelo,
 
-
-On 01/12/2025 16:32, Ashish Mhetre wrote:
-> The Command Queue Virtualization (CMDQV) hardware is part of the
-> SMMUv3 implementation on NVIDIA Tegra SoCs. It assists in
-> virtualizing the command queue for the SMMU.
+On Wed, Dec 03, 2025 at 07:50:29AM +0100, AngeloGioacchino Del Regno wrote:
+> Il 02/12/25 23:08, Gary Bisson ha scritto:
+> > Add device tree to support Ezurio Tungsten 510 (MT8370) SMARC SOM [1] +
+> > Universal SMARC carrier board [2].
+> > It includes support for the MIPI-DSI BD070LIC3 display which uses the
+> > Tianma TM070JDHG30 panel + TI SN65DSI84 MIPI-DSI to LVDS bridge [3].
+> > 
+> > [1] https://www.ezurio.com/product/tungsten510-smarc
+> > [2] https://www.ezurio.com/system-on-module/accessories/universal-smarc-carrier
+> > [3] https://www.ezurio.com/product/bd070lic3-7-touchscreen-display
+> > 
+> > Signed-off-by: Gary Bisson <bisson.gary@gmail.com>
+> > 
 > 
-> Update SMMU compatible strings to use nvidia,tegra264-smmu to enable
-> CMDQV support. Add device tree nodes for the CMDQV hardware and enable
-> them on the tegra264-p3834 platform where SMMUs are enabled. Each SMMU
-> instance is paired with its corresponding CMDQV instance via the
-> nvidia,cmdqv property.
+> Hello!
 > 
-> Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
-> ---
->   .../arm64/boot/dts/nvidia/tegra264-p3834.dtsi |  8 +++
->   arch/arm64/boot/dts/nvidia/tegra264.dtsi      | 55 +++++++++++++++++--
->   2 files changed, 58 insertions(+), 5 deletions(-)
+> Thanks for the patch, that's mostly good. Though, there are a few comments, please
+> check below.
+
+Thanks for the quick response, some comments inline below.
+
+> > ---
+> > Changes in v2:
+> > - Updated nodes to be generic (pmic, i2c, usb-typec)
+> > Changed in v3:
+> > - None
+> > Changed in v4:
+> > - Fixed remaining DTB warnings
+> > ---
+> >   arch/arm64/boot/dts/mediatek/Makefile              |    1 +
+> >   .../boot/dts/mediatek/mt8370-tungsten-smarc.dts    |   14 +
+> >   .../boot/dts/mediatek/mt83x0-tungsten-smarc.dtsi   | 1510 ++++++++++++++++++++
+> >   3 files changed, 1525 insertions(+)
+> > 
+> > diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
+> > index a4df4c21399e..30d169a31b10 100644
+> > --- a/arch/arm64/boot/dts/mediatek/Makefile
+> > +++ b/arch/arm64/boot/dts/mediatek/Makefile
+> > @@ -99,6 +99,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8195-demo.dtb
+> >   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8195-evb.dtb
+> >   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8365-evk.dtb
+> >   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8370-genio-510-evk.dtb
+> > +dtb-$(CONFIG_ARCH_MEDIATEK) += mt8370-tungsten-smarc.dtb
+> >   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-genio-1200-evk.dtb
+> >   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8390-genio-700-evk.dtb
+> >   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-kontron-3-5-sbc-i1200.dtb
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt8370-tungsten-smarc.dts b/arch/arm64/boot/dts/mediatek/mt8370-tungsten-smarc.dts
+> > new file mode 100644
+> > index 000000000000..d713ef77df3a
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/mediatek/mt8370-tungsten-smarc.dts
+> > @@ -0,0 +1,14 @@
+> > +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> > +/*
+> > + * Copyright (C) 2025 Ezurio LLC
+> > + * Author: Gary Bisson <bisson.gary@gmail.com>
+> > + */
+> > +/dts-v1/;
+> > +#include "mt8370.dtsi"
+> > +#include "mt83x0-tungsten-smarc.dtsi"
+> > +
+> > +/ {
+> > +	model = "Ezurio Tungsten510 SMARC (MT8370)";
+> > +	compatible = "ezurio,mt8370-tungsten-smarc", "mediatek,mt8370",
+> > +		     "mediatek,mt8188";
+> > +};
+> > diff --git a/arch/arm64/boot/dts/mediatek/mt83x0-tungsten-smarc.dtsi b/arch/arm64/boot/dts/mediatek/mt83x0-tungsten-smarc.dtsi
+> > new file mode 100644
+> > index 000000000000..d71148d78781
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/mediatek/mt83x0-tungsten-smarc.dtsi
+> > @@ -0,0 +1,1510 @@
+> > +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> > +/*
+> > + * Copyright (C) 2025 Ezurio LLC
+> > + * Author: Gary Bisson <bisson.gary@gmail.com>
+> > + */
+> > +
 > 
-> diff --git a/arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi b/arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi
-> index 06795c82427a..7e2c3e66c2ab 100644
-> --- a/arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi
-> +++ b/arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi
-> @@ -23,8 +23,16 @@ iommu@5000000 {
->   			status = "okay";
->   		};
->   
-> +		cmdqv@5200000 {
-> +			status = "okay";
-> +		};
-> +
->   		iommu@6000000 {
->   			status = "okay";
->   		};
-> +
-> +		cmdqv@6200000 {
-> +			status = "okay";
-> +		};
->   	};
->   };
-> diff --git a/arch/arm64/boot/dts/nvidia/tegra264.dtsi b/arch/arm64/boot/dts/nvidia/tegra264.dtsi
-> index f137565da804..5124715caeb3 100644
-> --- a/arch/arm64/boot/dts/nvidia/tegra264.dtsi
-> +++ b/arch/arm64/boot/dts/nvidia/tegra264.dtsi
-> @@ -3361,7 +3361,7 @@ bus@8100000000 {
->   			 <0x02 0x00000000 0xd0 0x00000000 0x08 0x80000000>; /* ECAM, prefetchable memory, I/O */
->   
->   		smmu1: iommu@5000000 {
-> -			compatible = "arm,smmu-v3";
-> +			compatible = "nvidia,tegra264-smmu", "arm,smmu-v3";
->   			reg = <0x00 0x5000000 0x0 0x200000>;
->   			interrupts = <GIC_SPI 12 IRQ_TYPE_EDGE_RISING>,
->   				     <GIC_SPI 13 IRQ_TYPE_EDGE_RISING>;
-> @@ -3370,10 +3370,19 @@ smmu1: iommu@5000000 {
->   
->   			#iommu-cells = <1>;
->   			dma-coherent;
-> +			nvidia,cmdqv = <&cmdqv1>;
-> +		};
-> +
-> +		cmdqv1: cmdqv@5200000 {
-> +			compatible = "nvidia,tegra264-cmdqv";
-> +			status = "disabled";
-> +
-> +			reg = <0x00 0x5200000 0x0 0x830000>;
-> +			interrupts = <GIC_SPI 19 IRQ_TYPE_LEVEL_HIGH>;
+> ..snip..
+> 
+> > +
+> > +&disp_dsi0 {
+> > +	#address-cells = <1>;
+> > +	#size-cells = <0>;
+> > +	status = "okay";
+> > +
+> > +	ports {
+> > +		#address-cells = <1>;
+> > +		#size-cells = <0>;
+> > +
+> > +		port@0 {
+> > +			reg = <0>;
+> > +			dsi0_in: endpoint {
+> > +				remote-endpoint = <&dither0_out>;
+> > +			};
+> > +		};
+> > +
+> > +		port@1 {
+> > +			reg = <1>;
+> > +			dsi0_out: endpoint {
+> > +				remote-endpoint = <&sn65dsi84_bridge_in>;
+> > +			};
+> > +		};
+> > +	};
+> > +};
+> > +
+> > +&dither0_in {
+> > +	remote-endpoint = <&postmask0_out>;
+> > +};
+> > +
+> > +&dither0_out {
+> > +	remote-endpoint = <&dsi0_in>;
+> > +};
+> > +
+> > +&eth {
+> > +	phy-mode ="rgmii-id";
+> > +	phy-handle = <&ethernet_phy0>;
+> > +	pinctrl-names = "default", "sleep";
+> > +	pinctrl-0 = <&eth_default_pins>;
+> > +	pinctrl-1 = <&eth_sleep_pins>;
+> > +	mediatek,mac-wol;
+> > +	snps,reset-gpio = <&pio 27 GPIO_ACTIVE_LOW>;
+> > +	snps,reset-active-low;
+> > +	snps,reset-delays-us = <0 11000 1000>;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&eth_mdio {
+> > +	ethernet_phy0: ethernet-phy@7 {
+> > +		compatible = "ethernet-phy-ieee802.3-c22";
+> > +		reg = <0x7>;
+> > +		interrupts-extended = <&pio 148 IRQ_TYPE_LEVEL_LOW>;
+> > +	};
+> > +};
+> > +
+> > +&gamma0_out {
+> > +	remote-endpoint = <&postmask0_in>;
+> > +};
+> > +
+> > +&gpu {
+> > +	mali-supply = <&mt6359_vproc2_buck_reg>;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&i2c0 {
+> > +	pinctrl-names = "default";
+> > +	pinctrl-0 = <&i2c0_pins>;
+> > +	clock-frequency = <100000>;
+> > +	status = "okay";
+> > +
+> > +	i2c-mux@73 {
+> > +		compatible = "nxp,pca9546";
+> > +		reg = <0x73>;
+> > +		pinctrl-names = "default";
+> > +		pinctrl-0 = <&i2c0_mux_pins>;
+> > +		reset-gpios = <&pio 6 GPIO_ACTIVE_LOW>;
+> > +		#address-cells = <1>;
+> > +		#size-cells = <0>;
+> > +
+> > +		i2c_mux_gp_0: i2c@0 {
+> > +			clock-frequency = <100000>;
+> > +			reg = <0>;
+> 
+> reg = <0>;
+> clock-frequency = ...
+> 
+> > +			#address-cells = <1>;
+> > +			#size-cells = <0>;
+> > +		};
+> > +
+> > +		i2c_mux_gp_1: i2c@1 {
+> > +			clock-frequency = <100000>;
+> > +			reg = <1>;
+> > +			#address-cells = <1>;
+> > +			#size-cells = <0>;
+> > +		};
+> > +
+> > +		i2c_mux_gp_2: i2c@2 {
+> > +			clock-frequency = <100000>;
+> > +			reg = <2>;
+> > +			#address-cells = <1>;
+> > +			#size-cells = <0>;
+> > +		};
+> > +
+> > +		i2c_mux_gp_3: i2c@3 {
+> > +			clock-frequency = <100000>;
+> > +			reg = <3>;
+> > +			#address-cells = <1>;
+> > +			#size-cells = <0>;
+> > +		};
+> > +	};
+> > +};
+> > +
+> > +&i2c1 {
+> > +	pinctrl-names = "default";
+> > +	pinctrl-0 = <&i2c1_pins>;
+> > +	clock-frequency = <400000>;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&i2c2 {
+> > +	pinctrl-names = "default";
+> > +	pinctrl-0 = <&i2c2_pins>;
+> > +	clock-frequency = <400000>;
+> > +	status = "okay";
+> > +
+> > +	i2c-mux@73 {
+> > +		compatible = "nxp,pca9546";
+> > +		pinctrl-names = "default";
+> > +		pinctrl-0 = <&i2c_mux_smarc_lcd_pins>;
+> > +		reg = <0x73>;
+> > +		reset-gpios = <&pio 5 GPIO_ACTIVE_LOW>;
+> > +		#address-cells = <1>;
+> > +		#size-cells = <0>;
+> > +
+> > +		i2c_mux_lcd_0: i2c@0 {
+> > +			clock-frequency = <100000>;
+> > +			reg = <0>;
+> > +			#address-cells = <1>;
+> > +			#size-cells = <0>;
+> > +		};
+> > +
+> > +		i2c_mux_lcd_1: i2c@1 {
+> > +			clock-frequency = <100000>;
+> > +			reg = <1>;
+> > +			#address-cells = <1>;
+> > +			#size-cells = <0>;
+> > +		};
+> > +
+> > +		i2c_mux_lcd_2: i2c@2 {
+> > +			clock-frequency = <100000>;
+> > +			reg = <2>;
+> > +			#address-cells = <1>;
+> > +			#size-cells = <0>;
+> > +		};
+> > +
+> > +		i2c_mux_lcd_3: i2c@3 {
+> > +			clock-frequency = <100000>;
+> > +			reg = <3>;
+> > +			#address-cells = <1>;
+> > +			#size-cells = <0>;
+> > +		};
+> > +	};
+> > +};
+> > +
+> > +&i2c3 {
+> > +	pinctrl-names = "default";
+> > +	pinctrl-0 = <&i2c3_pins>;
+> > +	clock-frequency = <400000>;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&i2c4 {
+> > +	pinctrl-names = "default";
+> > +	pinctrl-0 = <&i2c4_pins>;
+> > +	clock-frequency = <400000>;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&i2c_mux_gp_0 {
+> > +	rv3028: rtc@52 {
+> > +		compatible = "microcrystal,rv3028";
+> > +		reg = <0x52>;
+> > +		interrupts-extended = <&pio 42 IRQ_TYPE_LEVEL_LOW>;
+> > +		pinctrl-names = "default";
+> > +		pinctrl-0 = <&rv3028_pins>;
+> > +		#clock-cells = <0>;
+> > +		wakeup-source;
+> > +	};
+> > +};
+> > +
+> > +&i2c_mux_gp_1 {
+> > +	usb-typec@60 {
+> > +		compatible = "ti,hd3ss3220";
+> 
+> reg always goes after compatible.
+> 
+> > +		interrupts-extended = <&pio 45 IRQ_TYPE_LEVEL_LOW>;
+> > +		pinctrl-names = "default";
+> > +		pinctrl-0 = <&hd3ss3220_pins>;
+> > +		reg = <0x60>;
+> > +
+> > +		ports {
+> > +			#address-cells = <1>;
+> > +			#size-cells = <0>;
+> > +
+> > +			port@0 {
+> > +				reg = <0>;
+> > +				hd3ss3220_in_ep: endpoint {
+> > +					remote-endpoint = <&ss_ep>;
+> > +				};
+> > +			};
+> > +
+> > +			port@1 {
+> > +				reg = <1>;
+> > +				hd3ss3220_out_ep: endpoint {
+> > +					remote-endpoint = <&usb_role_switch>;
+> > +				};
+> > +			};
+> > +		};
+> > +	};
+> > +};
+> > +
+> > +&i2c_mux_gp_2 {
+> > +	codec@1a {
+> 
+> compatible
+> reg
+> clocks
+> gpio-cfg
+> 
+> supplies
+> 
+> P.S.: Please read
+> https://docs.kernel.org/devicetree/bindings/dts-coding-style.html
 
-Like for other devices, the typical ordering is ...
+Noted, thanks. However for the wm8962 the gpio-cfg is recommended at the
+per its doc, hope that's ok
+("Documentation/devicetree/bindings/sound/wlf,wm8962.yaml).
 
-  compatible = "nvidia,tegra264-cmdqv";
-  reg = <0x00 0x5200000 0x0 0x830000>;
-  interrupts = <GIC_SPI 19 IRQ_TYPE_LEVEL_HIGH>;
-  status = "disabled";
+> > +		#sound-dai-cells = <0>;
+> > +		AVDD-supply = <&reg_1v8>;
+> > +		CPVDD-supply = <&reg_1v8>;
+> > +		DBVDD-supply = <&reg_3v3>;
+> > +		DCVDD-supply = <&reg_1v8>;
+> > +		MICVDD-supply = <&reg_3v3>;
+> > +		PLLVDD-supply = <&reg_1v8>;
+> > +		SPKVDD1-supply = <&reg_5v>;
+> > +		SPKVDD2-supply = <&reg_5v>;
+> > +		clocks = <&topckgen CLK_TOP_I2SO1>;
+> > +		compatible = "wlf,wm8962";
+> > +		gpio-cfg = <
+> > +			0x0000 /* n/c */
+> > +			0x0000 /* gpio2: */
+> > +			0x0000 /* gpio3: */
+> > +			0x0000 /* n/c */
+> > +			0x8081 /* gpio5:HP detect */
+> > +			0x8095 /* gpio6:Mic detect */
+> > +		>;
+> > +		reg = <0x1a>;
+> > +	};
+> > +};
+> > +
+> > +&i2c_mux_lcd_2 {
+> > +	#address-cells = <1>;
+> > +	#size-cells = <0>;
+> > +
+> > +	bridge@2c {
+> > +		compatible = "ti,sn65dsi84";
+> > +		reg = <0x2c>;
+> > +		enable-gpios = <&pio 25 GPIO_ACTIVE_HIGH>;
+> > +		pinctrl-names = "default";
+> > +		pinctrl-0 = <&dsi0_sn65dsi84_pins>;
+> > +
+> > +		ports {
+> > +			#address-cells = <1>;
+> > +			#size-cells = <0>;
+> > +
+> > +			port@0 {
+> > +				reg = <0>;
+> > +
+> > +				sn65dsi84_bridge_in: endpoint {
+> > +					remote-endpoint = <&dsi0_out>;
+> > +					data-lanes = <1 2 3 4>;
+> > +				};
+> > +			};
+> > +
+> > +			port@2 {
+> > +				reg = <2>;
+> > +
+> > +				sn65dsi84_bridge_out: endpoint {
+> > +					remote-endpoint = <&dsi0_panel_in>;
+> > +				};
+> > +			};
+> > +		};
+> > +	};
+> > +
+> > +	touchscren@5d {
+> > +		compatible = "goodix,gt911";
+> > +		reg = <0x5d>;
+> > +		pinctrl-names = "default";
+> > +		pinctrl-0 = <&ts_dsi0_goodix_pins>;
+> > +		interrupts-extended = <&pio 146 IRQ_TYPE_LEVEL_HIGH>;
+> > +		irq-gpios = <&pio 146 GPIO_ACTIVE_HIGH>;
+> > +		reset-gpios = <&pio 7 GPIO_ACTIVE_HIGH>;
+> > +	};
+> > +};
+> > +
+> > +&mfg0 {
+> > +	domain-supply = <&mt6359_vproc2_buck_reg>;
+> > +};
+> > +
+> > +&mfg1 {
+> > +	domain-supply = <&mt6359_vsram_others_ldo_reg>;
+> > +};
+> > +
+> > +&mmc0 {
+> > +	status = "okay";
+> > +	pinctrl-names = "default", "state_uhs";
+> > +	pinctrl-0 = <&mmc0_default_pins>;
+> > +	pinctrl-1 = <&mmc0_uhs_pins>;
+> > +	bus-width = <8>;
+> > +	max-frequency = <200000000>;
+> > +	cap-mmc-highspeed;
+> > +	cap-mmc-hw-reset;
+> > +	mmc-hs200-1_8v;
+> > +	mmc-hs400-1_8v;
+> > +	supports-cqe;
+> > +	cap-mmc-hw-reset;
+> 
+> You added cap-mmc-hw-reset twice.
+> 
+> > +	no-sdio;
+> > +	no-sd;
+> > +	hs400-ds-delay = <0x1481b>;
+> > +	vmmc-supply = <&mt6359_vemc_1_ldo_reg>;
+> > +	vqmmc-supply = <&mt6359_vufs_ldo_reg>;
+> > +	non-removable;
+> 
+> Also, please reorder by name:
+> 
+> bus-width ...
+> cap-mmc-highspeed;
+> cap-mmc-hw-reset;
+> hs400-ds-delay....
+> max-frequency ....
+> mmc-hs200-1_8v;
+> mmc-hs400-1_8v;
+> no-sd;
+> no-sdio;
+> non-removable;
+> supports-cqe;
+> 
+> pinctrl properties
+> 
+> power supplies
+> 
+> status
 
-So let's follow the same approach here.
+Will do, note that this is a copy/paste of the already-upstream
+mt8390-genio-common.dtsi.
 
-Jon
+> > +};
+> > +
+> > +&mmc1 {
+> > +	status = "okay";
+> > +	pinctrl-names = "default", "state_uhs";
+> > +	pinctrl-0 = <&mmc1_default_pins>;
+> > +	pinctrl-1 = <&mmc1_uhs_pins>;
+> > +	bus-width = <4>;
+> > +	max-frequency = <200000000>;
+> > +	cap-sd-highspeed;
+> > +	sd-uhs-sdr50;
+> > +	sd-uhs-sdr104;
+> > +	cd-gpios = <&pio 2 GPIO_ACTIVE_LOW>;
+> > +	vqmmc-supply = <&mt6359_vsim1_ldo_reg>;
+> > +	vmmc-supply = <&sdcard_en_3v3>;
+> > +};
+> > +
+> > +&mmc2 {
+> > +	status = "okay";
+> 
+> status at the end please
+> 
+> > +	pinctrl-names = "default", "state_uhs", "state_eint";
+> > +	pinctrl-0 = <&mmc2_default_pins>;
+> > +	pinctrl-1 = <&mmc2_uhs_pins>;
+> > +	pinctrl-2 = <&mmc2_eint_pins>;
+> 
+> Sorry, but I truly hate /delete-property/.
+> 
+> > +	/delete-property/ interrupts;
+> > +	interrupt-names = "msdc", "sdio_wakeup";
+> > +	interrupts-extended = <&gic GIC_SPI 136 IRQ_TYPE_LEVEL_HIGH 0>,
+> > +			      <&pio 172 IRQ_TYPE_LEVEL_LOW>;
+> 
+> You're lucky in this case, though, because you're the first user of MMC2! :-)
+> 
+> The solution here is:
+>  - Change the interrupts property in mt8188.dtsi on mmc@1125000 to
+>    `interrupts-extended = <&gic GIC_SPI 136 IRQ_TYPE_LEVEL_HIGH 0>;`
+>  - Override it here without `/delete-property/ interrupts;`
 
--- 
-nvpublic
+Ok, will do a mt8188 patch then, I'll modify all mmc nodes that way to
+be consistent.
 
+> > +	bus-width = <4>;
+> 
+> Please order the properties by name (bar X-supply, Y-pwrseq, status that go at
+> the end).
+> 
+> > +	max-frequency = <200000000>;
+> > +	cap-sd-highspeed;
+> > +	sd-uhs-sdr104;
+> > +	keep-power-in-suspend;
+> > +	wakeup-source;
+> > +	cap-sdio-irq;
+> > +	no-mmc;
+> > +	no-sd;
+> > +	non-removable;
+> > +	vmmc-supply = <&mt6359_vcn33_2_bt_ldo_reg>;
+> > +	vqmmc-supply = <&mt6359_vcn18_ldo_reg>;
+> > +	mmc-pwrseq = <&wifi_pwrseq>;
+> > +};
+> > +
+> > +&mipi_tx_config0 {
+> > +	status = "okay";
+> > +};
+> > +
+> > +&mt6359codec {
+> > +	mediatek,mic-type-0 = <1>;
+> > +	mediatek,mic-type-1 = <3>;
+> 
+> You can drop mic-type-2 and dmic-mode, as the defaults for these are already zero.
+> 
+> > +	mediatek,mic-type-2 = <0>;
+> > +	mediatek,dmic-mode = <0>;
+> > +};
+> > +
+> 
+> ..snip..
+> 
+> > +
+> > +&mt6359_vproc2_buck_reg {
+> > +	/* The name "vgpu" is required by mtk-regulator-coupler */
+> > +	regulator-name = "vgpu";
+> > +	regulator-min-microvolt = <550000>;
+> > +	regulator-max-microvolt = <800000>;
+> > +	regulator-coupled-with = <&mt6359_vsram_others_ldo_reg>;
+> > +	regulator-coupled-max-spread = <225000>;
+> > +	regulator-always-on;
+> 
+> You don't need regulator-always-on here.
+> 
+> > +};
+> > +
+> > +&mt6359_vs2_buck_reg {
+> > +	regulator-min-microvolt = <1600000>;
+> > +	regulator-boot-on;
+> > +};
+> > +
+> > +&mt6359_vpu_buck_reg {
+> > +	regulator-name = "dvdd_adsp";
+> 
+> Is that for the MediaTek Audio DSP?
+
+Yes and no, this design matches the EVK one from MTK on that rail, which
+means the same rail is used as:
+- DVDD_ADSP
+- DVDD_SRAM_CORE
+- DVDD_SRAM_MM
+- AVDD075_DRV_DSI
+
+> Thought Genio 500/700 were kind of "special" in having one just for that.
+> 
+> If so, you have to do this properly and add this to the ADSP power domain as a
+> domain-supply, if this effectively enables basic power to the ADSP itself.
+> 
+> To do so, you must also change drivers/pmdomain/mediatek/mt8188-pm-domains.h and in
+> MT8188_POWER_DOMAIN_ADSP you want to change `.caps` to
+> 
+> .caps = MTK_SCPD_KEEP_DEFAULT_OFF | MTK_SCPD_SRAM_ISO | MTK_SCPD_ACTIVE_WAKEUP |
+> 	MTK_SCPD_DOMAIN_SUPPLY,
+> 
+> ...so that you can remove the regulator-always-on property here, and benefit from a
+> nice bump in power efficiency (as you stop power leakages like so).
+
+Considering the comment above, is it ok to leave it as-is (like it is
+done in the mt8390-genio-common.dtsi)? Or would you like to change the
+reg name to make it more obvious it's not only for adsp?
+
+> > +	regulator-always-on;
+> > +};
+> > +
+> > +&mt6359_vrf12_ldo_reg {
+> > +	regulator-name = "va12_abb2_pmu";
+> > +	regulator-always-on;
+> > +};
+> > +
+> > +&mt6359_vsram_md_ldo_reg {
+> > +	regulator-always-on;
+> > +};
+> > +
+> > +&mt6359_vsram_others_ldo_reg {
+> > +	/* The name "vsram_gpu" is required by mtk-regulator-coupler */
+> > +	regulator-name = "vsram_gpu";
+> > +	regulator-min-microvolt = <750000>;
+> > +	regulator-max-microvolt = <800000>;
+> > +	regulator-coupled-with = <&mt6359_vproc2_buck_reg>;
+> > +	regulator-coupled-max-spread = <225000>;
+> > +	regulator-always-on;
+> 
+> You don't need regulator-always-on here.
+> 
+> > +};
+> > +
+> > +&mt6359_vsim1_ldo_reg {
+> > +	regulator-name = "vsim1_pmu";
+> > +	regulator-max-microvolt = <1800000>;
+> > +	regulator-enable-ramp-delay = <480>;
+> > +};
+> > +
+> > +&mt6359_vufs_ldo_reg {
+> > +	regulator-name = "vufs18_pmu";
+> > +	regulator-always-on;
+> > +};
+> > +
+> > +&ovl0_in {
+> > +	remote-endpoint = <&vdosys0_ep_main>;
+> > +};
+> > +
+> > +&pcie {
+> > +	pinctrl-names = "default";
+> > +	pinctrl-0 = <&pcie_default_pins>;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&pciephy {
+> > +	status = "okay";
+> > +};
+> > +
+> > +&pmic {
+> > +	interrupt-parent = <&pio>;
+> > +	interrupts = <222 IRQ_TYPE_LEVEL_HIGH>;
+> 
+> Instead of interrupt-parent and interrupts, you can do:
+> 
+> interrupts-extended = <&pio 222 IRQ_TYPE_LEVEL_HIGH>;
+> 
+> > +
+> > +	keys {
+> > +		compatible = "mediatek,mt6359-keys";
+> > +		mediatek,long-press-mode = <1>;
+> > +		power-off-time-sec = <0>;
+> > +
+> > +		power-key {
+> > +			linux,keycodes = <116>;
+> 
+> At the top of the file, properly ordered:
+> #include <dt-bindings/input/linux-event-codes.h>
+> 
+> ...then, here:
+> linux,keycodes = <KEY_POWER>;
+> 
+> > +			wakeup-source;
+> > +		};
+> > +	};
+> > +};
+> > +
+> > +&postmask0_in {
+> > +	remote-endpoint = <&gamma0_out>;
+> > +};
+> > +
+> > +&postmask0_out {
+> > +	remote-endpoint = <&dither0_in>;
+> > +};
+> > +
+> > +&scp_cluster {
+> > +	status = "okay";
+> > +};
+> > +
+> > +&scp_c0 {
+> > +	firmware-name = "mediatek/mt8188/scp.img";
+> 
+> You don't need (and can't have) firmware-name upstream: drop it.
+
+Oops, that's a copy/paste from the collabora tree ;)
+
+> > +	memory-region = <&scp_mem>;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&spi0 {
+> > +	pinctrl-0 = <&spi0_pins>;
+> > +	pinctrl-names = "default";
+> > +	mediatek,pad-select = <0>;
+> 
+> vendor properties always at the end, before status = "okay";
+> 
+> > +	#address-cells = <1>;
+> > +	#size-cells = <0>;
+> 
+> ...but anyway, #address-cells, #size-cells are already declared in mt8188.dtsi and
+> they even have the same values that you're assigning here. Drop those.
+> 
+> > +	status = "okay";
+> > +};
+> > +
+> > +&spi1 {
+> > +	pinctrl-0 = <&spi1_pins>;
+> > +	pinctrl-names = "default";
+> > +	mediatek,pad-select = <0>;
+> 
+> same comments apply here as well.
+> 
+> > +	#address-cells = <1>;
+> > +	#size-cells = <0>;
+> > +	status = "okay";
+> > +};
+> > +
+> 
+> ..snip..
+> 
+> > +&uart0 {
+> > +	pinctrl-0 = <&uart0_pins>;
+> > +	pinctrl-names = "default";
+> > +	status = "okay";
+> > +};
+> > +
+> > +&uart1 {
+> > +	pinctrl-0 = <&uart1_pins>;
+> > +	pinctrl-names = "default";
+> > +	status = "okay";
+> > +};
+> > +
+> > +&uart2 {
+> > +	pinctrl-0 = <&uart2_pins>;
+> > +	pinctrl-names = "default";
+> > +	status = "okay";
+> > +};
+> > +
+> > +&ssusb0 {
+> 
+> Please reorder:
+> 
+> dr_mode
+> maximum-speed
+> usb-role-switch;
+> wakeup-source;
+> pinctrl-0
+> pinctrl-names
+> vusb33-supply
+> status
+
+Ok, will rework all ports.
+
+> > +	pinctrl-names = "default";
+> > +	pinctrl-0 = <&usbotg_pins>;
+> > +	maximum-speed = "high-speed";
+> > +	usb-role-switch;
+> > +	dr_mode = "otg";
+> > +	vusb33-supply = <&mt6359_vusb_ldo_reg>;
+> > +	wakeup-source;
+> > +	status = "okay";
+> > +
+> > +	connector {
+> > +		compatible = "usb-c-connector";
+> > +		label = "USB-C";
+> > +		data-role = "dual";
+> > +
+> > +		ports {
+> > +			#address-cells = <1>;
+> > +			#size-cells = <0>;
+> > +
+> > +			port@0 {
+> > +				reg = <0>;
+> > +				hs_ep: endpoint {
+> > +					remote-endpoint = <&usb_hs_ep>;
+> > +				};
+> > +			};
+> > +
+> > +			port@1 {
+> > +				reg = <1>;
+> > +				ss_ep: endpoint {
+> > +					remote-endpoint = <&hd3ss3220_in_ep>;
+> > +				};
+> > +			};
+> > +		};
+> > +	};
+> > +
+> > +	ports {
+> > +		#address-cells = <1>;
+> > +		#size-cells = <0>;
+> > +
+> > +		port@0 {
+> > +			reg = <0>;
+> > +			usb_hs_ep: endpoint {
+> > +				remote-endpoint = <&hs_ep>;
+> > +			};
+> > +		};
+> > +
+> > +		port@1 {
+> > +			reg = <1>;
+> > +			usb_role_switch: endpoint {
+> > +				remote-endpoint = <&hd3ss3220_out_ep>;
+> > +			};
+> > +		};
+> > +	};
+> > +};
+> > +
+> > +&u2port0 {
+> > +	status = "okay";
+> > +};
+> > +
+> > +&u3phy0 {
+> > +	status = "okay";
+> > +};
+> > +
+> > +&xhci0 {
+> > +	vbus-supply = <&usb_p0_vbus>;
+> > +	vusb33-supply = <&mt6359_vusb_ldo_reg>;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&ssusb1 {
+> 
+> Please reorder:
+> 
+> dr_mode
+> maximum-speed
+> wakeup-source
+> pinctrl-0
+> pinctrl-names
+> vusb33-supply
+> status
+> 
+> > +	pinctrl-0 = <&usb1_pins>;
+> > +	pinctrl-names = "default";
+> > +	vusb33-supply = <&mt6359_vusb_ldo_reg>;
+> > +	dr_mode = "host";
+> > +	wakeup-source;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&u2port1 {
+> > +	status = "okay";
+> > +};
+> > +
+> > +&u3port1 {
+> > +	status = "okay";
+> > +};
+> > +
+> > +&u3phy1 {
+> > +	status = "okay";
+> > +};
+> > +
+> > +&xhci1 {
+> > +	vbus-supply = <&usb_p1_vbus>;
+> > +	vusb33-supply = <&mt6359_vusb_ldo_reg>;
+> > +	status = "okay";
+> > +};
+> > +
+> > +&ssusb2 {
+> 
+> Please reorder:
+> 
+> dr_mode
+> maximum-speed
+> wakeup-source
+> vusb33-supply
+> status
+> 
+> > +	maximum-speed = "high-speed";
+> > +	dr_mode = "host";
+> > +	vusb33-supply = <&mt6359_vusb_ldo_reg>;
+> > +	status = "okay";
+> > +	wakeup-source;
+> > +};
+> > +
+> ..snip..
+> 
+> > +&vdosys0 {
+> > +	port {
+> > +		#address-cells = <1>;
+> > +		#size-cells = <0>;
+> > +
+> > +		vdosys0_ep_main: endpoint@0 {
+> > +			reg = <0>;
+> > +			remote-endpoint = <&ovl0_in>;
+> > +		};
+> > +	};
+> > +};
+> > +
+> > +&watchdog {
+> > +	pinctrl-names = "default";
+> > +	pinctrl-0 = <&watchdog_pins>;
+> > +};
+> > +
+> > +&pio {
+> > +	audio_pins: audio-pins {
+> > +		pins-aud-pmic {
+> > +			pinmux = <
+> > +				PINMUX_GPIO101__FUNC_O_AUD_CLK_MOSI
+> > +				PINMUX_GPIO102__FUNC_O_AUD_SYNC_MOSI
+> > +				PINMUX_GPIO103__FUNC_O_AUD_DAT_MOSI0
+> > +				PINMUX_GPIO104__FUNC_O_AUD_DAT_MOSI1
+> > +				PINMUX_GPIO105__FUNC_I0_AUD_DAT_MISO0
+> > +				PINMUX_GPIO106__FUNC_I0_AUD_DAT_MISO1
+> > +			>;
+> 
+> You don't need the extra lines...
+> 
+> 			pinmux = <PINMUX_GPIO101__FUNC_O_AUD_CLK_MOSI
+> 				  PINMUX_GPIO102__FUNC_O_AUD_SYNC_MOSI
+> 				  PINMUX_GPIO103__FUNC_O_AUD_DAT_MOSI0
+> 				  PINMUX_GPIO104__FUNC_O_AUD_DAT_MOSI1
+> 				  PINMUX_GPIO105__FUNC_I0_AUD_DAT_MISO0
+> 				  PINMUX_GPIO106__FUNC_I0_AUD_DAT_MISO1>;
+> 
+> here and everywhere else please :-)
+> 		
+> > +		};
+> > +
+> > +		pins-pcm-wifi {
+> > +			pinmux = <
+> > +				PINMUX_GPIO121__FUNC_B0_PCM_CLK
+> > +				PINMUX_GPIO122__FUNC_B0_PCM_SYNC
+> > +				PINMUX_GPIO123__FUNC_O_PCM_DO
+> > +				PINMUX_GPIO124__FUNC_I0_PCM_DI
+> > +			>;
+> > +		};
+> > +
+> > +		pins-i2s {
+> > +			pinmux = <
+> > +				PINMUX_GPIO119__FUNC_O_I2SO1_MCK
+> > +				PINMUX_GPIO112__FUNC_O_I2SO1_WS
+> > +				PINMUX_GPIO120__FUNC_O_I2SO1_BCK
+> > +				PINMUX_GPIO113__FUNC_O_I2SO1_D0
+> > +				PINMUX_GPIO110__FUNC_I0_I2SIN_D0
+> > +			>;
+> > +		};
+> > +	};
+> > +
+> > +	disp_pwm0_pins: disp-pwm0-pins {
+> > +		pins {
+> > +			pinmux = <PINMUX_GPIO29__FUNC_O_DISP_PWM0>;
+> > +			bias-pull-down;
+> > +		};
+> > +	};
+> > +
+> > +	dsi0_sn65dsi84_pins: dsi0-sn65dsi84-pins {
+> > +		pins-irq {
+> > +			pinmux = <PINMUX_GPIO128__FUNC_B_GPIO128>;
+> > +			bias-pull-down;
+> > +			input-enable;
+> > +		};
+> > +
+> > +		pins-enable {
+> > +			pinmux = <PINMUX_GPIO25__FUNC_B_GPIO25>;
+> > +			bias-pull-down;
+> > +		};
+> > +	};
+> > +
+> > +	eth_default_pins: eth-default-pins {
+> > +		pins-txd {
+> > +			pinmux = <PINMUX_GPIO131__FUNC_O_GBE_TXD3>,
+> > +				 <PINMUX_GPIO132__FUNC_O_GBE_TXD2>,
+> > +				 <PINMUX_GPIO133__FUNC_O_GBE_TXD1>,
+> > +				 <PINMUX_GPIO134__FUNC_O_GBE_TXD0>;
+> > +			drive-strength = <MTK_DRIVE_8mA>;
+> 
+> Please don't use the MTK_DRIVE_x macros, we are in the process of removing them.
+> 
+> All those macros are defining the .. same number that you can read in the macro
+> itself; as in:
+> 
+> MTK_DRIVE_(n)mA = n -> MTK_DRIVE_8mA = 8
+> 
+> So, remove all of them and use numbers directly.
+> In this specific case it is `drive-strength = <8>;` - please do this here and
+> everywhere else.
+
+Ok. Should be able to offer a new revision later today.
+
+Thanks,
+Gary
 
