@@ -4,76 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56836D12D48
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 11:34:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 951F5D12D4B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 11:42:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0BtZSI0JUG3jZFRQAQA3W8WSSj2iYn/BEJxE7P47Si0=; b=HAbjNOgGv9tfZ9HI+FRNS87iO7
-	evA8GlsUfeFD/DV5r6Oehv8KoGFBH0UVHKWKUiTqKu4sLERgH6+CpcFYWUPdQ9vpIlOeWJGApSBIw
-	s/0xL6oXcG31jSo9I30gKxKO68TViSFmtQJlAlI4khfjGUvZlXk63NCuri/BP8qUn9+Y5UmRUNor7
-	G/Yu9R5p5cBUE5tLCpyE5RaJ//v8oVX6NHw45SAeRsgC9eVfUln23UXHUS6GvoPj8gJMebp8+hRaq
-	IZPrL3aMxVZRnRIGmEqppU7YUbfZWvkh5XG8s/TocQZw5mXJGCmjYuvNGBg08yAQCptDXNrGYiOWR
-	hucS1miA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RdhHEJCiIhu3lRrlkmucOASnmWZN0uzlIT83Aub4Rj0=; b=09R045JQYar3Wjv97ZIUoCZW7+
+	TKmQWYOsoOJ7oLpqRKjypvl+4/hT4ZVYqBB1ln23Io7Lk12ih3pbA/MibiEak0ZhyWoFPRdXysU5T
+	uDjusapRYMzLtfj9r1d1menQofD90PVVxKCjrdVFJy9Qqb/NVO6rcN2O9gIXYkPYKYFTW2KzNtKaR
+	Fpg/o+V/SCzJNfQz0dRDRznBiVVixD07E8p2f1k2yZZ2lxVQFhdOx2XKyF6CTlgp3usPgy88WKrq2
+	IqWIffpmP/SF6LIPw6vVWUsLVovHxp6i54Ss/M4k2yQRjH0hzyLfBMT+oypx6+jo/AOAZClFAH4Jz
+	cuUySQuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQl7L-00000006VJH-1tfL;
-	Wed, 03 Dec 2025 11:33:57 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQl79-00000006VIh-3NxS;
-	Wed, 03 Dec 2025 11:33:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1764761619;
-	bh=9H0Lj32oVEU9hMfCGeT2VAyMxxGLg8HVaCtVRvgGbrY=;
-	h=From:Date:Subject:To:Cc:From;
-	b=Kh+JcnuOVdXsSmFt8aDzBmFIvBAwKBSeqK4k8hki9mozRpAps4Qbl5POsXIihqzAb
-	 dWfkAtNE6lJEMTi4P9es7jg7qNJ+AMpXBNEN4qrtwW58GIxopcCwLb1Zb8pCSfenUF
-	 xGfrEFMj4FtOT3z0B7Ji0vufrLc6gUdAx4P5ThSgBwbOMUKtfogFR3HnXwjYd0n9xs
-	 HZRAeMGFa3Bvb9pWTZCaJa//Vk2omBOcZgFLOWlHmIfl9MO8G0zxf3LbohMAZBvMUL
-	 bCBUiO14gimDmn3kTmSPG79XXYrl3a8YStLwWcL6fTSqFsPDYY3UqoHQSv/AwMvIX5
-	 gZMM8iW3mjxDg==
-Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0545A17E110C;
-	Wed,  3 Dec 2025 12:33:38 +0100 (CET)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Wed, 03 Dec 2025 12:32:42 +0100
-Subject: [PATCH] pinctrl: mediatek: mt8189: restore previous register base
- name array order
+	id 1vQlFB-00000006Vhg-1Qrd;
+	Wed, 03 Dec 2025 11:42:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQlF9-00000006VhH-0Rtw
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Dec 2025 11:42:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1150E339;
+	Wed,  3 Dec 2025 03:41:49 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 82F203F59E;
+	Wed,  3 Dec 2025 03:41:54 -0800 (PST)
+Date: Wed, 3 Dec 2025 11:41:51 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: firmware: arm,scmi: Document
+ arm,poll-transport property
+Message-ID: <20251203-thick-didactic-cockatoo-deaa1d@sudeepholla>
+References: <20251023123644.8730-1-marek.vasut+renesas@mailbox.org>
+ <aPoxfH_TLrsMxMVQ@pluto>
+ <70554674-7020-4582-a4e7-dbee34907096@mailbox.org>
+ <5ae0a793-d3e7-45d1-bf5c-3c46593d1824@mailbox.org>
+ <aRW7BZimWdpq4TyX@pluto>
+ <20251202-evasive-neon-rhino-d2745e@sudeepholla>
+ <66257fcf-9024-454f-b776-4ba584963ebe@mailbox.org>
+ <aS82GSN8c2SnRn4S@bogus>
+ <8d773671-5e2e-4e21-ade6-2bf9a3b75066@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251203-mt8189-pinctrl-fix-regname-order-v1-1-16c8ff5490a7@collabora.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/zWN0QrCMBAEf6XcswdNVKj9FelDTNZ6YNJ6iVIo/
- XeDxcdZlpmVMlSQqW9WUnwky5QqmEND/uHSCJZQmWxrz8a2R46lM92FZ0m+6JPvsrBiTC6CJw1
- Q7uA9THAnax1Vzayop1/iOuyseL1rqewj3VwG+ylGKX2TsBT+12jYti+LgxWnowAAAA==
-X-Change-ID: 20251203-mt8189-pinctrl-fix-regname-order-8ecce1da422a
-To: Sean Wang <sean.wang@kernel.org>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: kernel@collabora.com, linux-mediatek@lists.infradead.org, 
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764761618; l=2265;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=9H0Lj32oVEU9hMfCGeT2VAyMxxGLg8HVaCtVRvgGbrY=;
- b=oDdZtMbH8bHkD0JzMY8waTUEWya8OYrMVWHwRFtHs9F3HBu+n3XgDAr0pyySPY8l+PnPQnV0A
- glEhL+EwLcQAEsDxCpf1F0WtncftcEZltprCBeAnPszEvuzbJfV981S
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <8d773671-5e2e-4e21-ade6-2bf9a3b75066@mailbox.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_033344_364009_953B79D5 
-X-CRM114-Status: GOOD (  13.85  )
+X-CRM114-CacheID: sfid-20251203_034159_243383_7B4FC953 
+X-CRM114-Status: GOOD (  47.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,52 +78,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In mt8189-pinctrl driver, a previous commit changed the register base
-name array (mt8189_pinctrl_register_base_names) entry name and order to
-align it with the same name and order as the "mediatek,mt8189-pinctrl"
-devicetree bindings. The new order (by ascending register address) now
-causes an issue with MT8189 pinctrl configuration.
+On Tue, Dec 02, 2025 at 08:25:11PM +0100, Marek Vasut wrote:
+> On 12/2/25 7:55 PM, Sudeep Holla wrote:
+> 
+> Hello Sudeep,
+> 
+> > > How do you imagine this -- a transport shared with other components, one
+> > > which does generate IRQs and one which does not -- would look like ? Can you
+> > > think of an example ?
+> > > 
+> > 
+> > Consider a system where a mailbox controller is present and one channel is
+> > used for SCMI communication, while another channel is used for an unrelated
+> > purpose. If both channels share the same interrupt line, and the other use
+> > case enables interrupt mode on its channel, what would be the impact on the
+> > SCMI-specific channel?
+> 
+> None, SCMI kernel driver and SCMI server side would still do polling on
+> their respective SHMEM areas, while whatever kernel driver needs to receive
+> the interrupt notifications would subscribe to them using request_irq(),
+> right ?
+> 
 
-MT8189 SoC has multiple base addresses for the pin configuration
-registers. Several constant data structures, declaring each pin
-configuration, are using PIN_FIELD_BASE() macro which i_base parameter
-indicates for a given pin the lookup index in the base register address
-array of the driver internal data for the configuration register
-read/write accesses. But in practice, this parameter is given a
-hardcoded numerical value that corresponds to the expected base
-register entry index in mt8189_pinctrl_register_base_names array.
-Since this array reordering, the i_base index matching is no more
-correct.
+Fair enough. I was thinking if the controller manages to not call
+mbox_chan_received_data() in that case. Also IIUC, the irq request happens
+as part of channel startup and there are no explicit APIs for the mbox client
+driver to control that. SCMI is mbox client in this case.
 
-So, in order to avoid modifying over a thousand of PIN_FIELD_BASE()
-calls, restore previous mt8189_pinctrl_register_base_names entry order.
+> > I am aware of systems that implement such sharing, which is why I prefer to be
+> > explicit that this type of design is challenging to support within this
+> > binding. The intent is to support only minimal, constrained cases - essentially
+> > systems that are already somewhat broken. I do not see value in broadening the
+> > binding to cover every conceivable scenario.
+> > 
+> > > > Clearly defining these constraints would be helpful. It may also be useful to
+> > > > note that this is primarily intended for mailbox transports, if that’s
+> > > > accurate. Alternatively, we could keep the DT binding definition broader but
+> > > > emit warnings when a transport other than mailbox is used. That approach might
+> > > > make it easier to move forward.
+> > > 
+> > > DEN0056F refers to this polling mode in Shared memory based transports, that
+> > > can be other than mailbox transports, it includes e.g. SMC or OPTEE
+> > > transports.
+> > > 
+> > 
+> > However, polling does not make sense in the context of SMC. Once control
+> > returns from an SMC call, the command has completed. What form of polling in
+> > an SMC workflow do you have in mind?
+> 
+> I think the polling happens on the SHMEM and the SMC transport is capable of
+> that too, see :
+> 
+> drivers/firmware/arm_scmi/transports/smc.c
+> 
+> 175         /*
+> 176          * If there is an interrupt named "a2p", then the service and
+> 177          * completion of a message is signaled by an interrupt rather
+> than by
+> 178          * the return of the SMC call.
+> 179          */
+> 180         scmi_info->irq = of_irq_get_byname(cdev->of_node, "a2p");
+> 
 
-Fixes: 518919276c41 ("pinctrl: mediatek: mt8189: align register base names to dt-bindings ones")
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
- drivers/pinctrl/mediatek/pinctrl-mt8189.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Ah this one, is actually implemented to avoid sort of implicit polling
+mode we get with any SMC/HVC. I don't know how the platform deals with it
+but SMC/HVC is synchronous and doesn't need this polling. The irq introduced
+here is again a sort of workaround to get some sort of async/non-polling
+mode with SMC/HVC. So, to repeat polling mode make absolutely no sense
+whatsoever for SMC/OPTEE(based on pure SMC) transports.
 
-diff --git a/drivers/pinctrl/mediatek/pinctrl-mt8189.c b/drivers/pinctrl/mediatek/pinctrl-mt8189.c
-index f6a3e584588b0e8a1aafa9dca74c559974a57af5..cd4cdff309a12b6987362b111e0613bf29b60d84 100644
---- a/drivers/pinctrl/mediatek/pinctrl-mt8189.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-mt8189.c
-@@ -1642,7 +1642,7 @@ static const struct mtk_pin_reg_calc mt8189_reg_cals[PINCTRL_PIN_REG_MAX] = {
- };
- 
- static const char * const mt8189_pinctrl_register_base_names[] = {
--	"base", "lm", "rb0", "rb1", "bm0", "bm1", "bm2", "lt0", "lt1", "rt",
-+	"base", "bm0", "bm1", "bm2", "lm",  "lt0", "lt1", "rb0", "rb1", "rt",
- };
- 
- static const struct mtk_eint_hw mt8189_eint_hw = {
+> > I believe the same applies to OP-TEE.
+> > While OP-TEE now provides a notification mechanism that could, in theory,
+> > allow synchronous commands to be treated in a quasi-asynchronous manner, I
+> > strongly doubt that the current SCMI-over-OP-TEE implementation behaves this
+> > way, given that it ultimately reaches the secure side via an SMC call.
+> > 
+> > > I don't think a warning is justified, if the behavior follows the
+> > > specification. But I do agree the behavior is ... suboptimal.
+> > > 
+> > 
+> > The specification does not address SMC or OP-TEE transports, placing them
+> > outside its scope and likewise these DT bindings.
+> 
+> I believe the shmem transport includes the SMC and OPTEE ones, right ?
+>
 
----
-base-commit: e47d97576181b31291cf58e77d737d21def0e160
-change-id: 20251203-mt8189-pinctrl-fix-regname-order-8ecce1da422a
+Yes, but the expectation when the SMC completes is to have the shmem to be
+owned by the OS(except that irq workaround case). Again the OPTEE/SMC is
+completely out of spec, but I agree the SHMEM behaviour must conform to the
+specification.
 
-Best regards,
+> > Consequently, what we
+> > decide here in this discussion effectively defines the expected behavior in
+> > this context, in my view. So I would like to start with minimal possible
+> > coverage, why do you think that is not a good idea here ?
+> 
+> I would argue the current implementation covers pretty much every transport
+> which could ever need to do polling on shmem, so the implementation is
+> generic and inline with the specification. Also, the current implementation
+> is some 20 lines, so I think it is minimalistic?
+> 
+> What would you propose we do here ?
+> 
+
+Yes it can be minimalistic but not restrictive. As I already clearly mentioned
+I don't see it makes any sense to enable this for SMC/OPTEE. Lets start with
+just mailbox to start with and extend to other transports if and when needed.
+It would be good to impose that restriction in the binding as well but that
+is not a must IMO. I am fine if the bindings for whatever reasons(though I
+don't see the need) to apply for any transport.
+
 -- 
-Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-
+Regards,
+Sudeep
 
