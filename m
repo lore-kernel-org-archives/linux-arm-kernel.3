@@ -4,81 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 510BAD116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 08:31:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ECD0D116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 08:36:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=47Oi92m+jF3e9mwd+fo0tBe+IYA4+obAYaYhdQgU5yc=; b=qHxWhcL1uuQlqzFfK8AwbEcHKx
-	S7fak6T93c1PopC8Axp50pHQDvdm8gEz5UYd5zyhXRYLY9+AtVPXDPO3Ks5f8Cu8LgC2jK17IPP8w
-	LUs+1fk0xygWJJb1jHp8JplFuJEjH+bTbcqyTeMbpL8gACgM61e03ojhrQ2Oiad2pQ6Z07gXKKXua
-	mXXkvDM5wrIoVFlOuZVQo/7RCWJ6hsigWOYpv+5/tRjQs5giJcu0UzGmB6PJrZG1FTI8/x6bX91lE
-	OqU4ULDykaguai0WJD19NuNS5KVmgqmzK0zBmWM8xP0/kc1TOfhMFHVSWq+HQL6yqwHE/Utt1g+Dh
-	qr8fDJgA==;
+	bh=eJvmBMcNm2rEyVNFC7J0i+Cp5A5cZNwBFmeqKyrlDWE=; b=Inwr2Wbz9QQjz/CHJ9wEKonYqc
+	/O9CZ7lfYcw+LTZAPhxvz1XPOCAx/1m+FvwVtNmrx8zz4N4ORgMcM7ip46YQUWdOXD4A7XsYRCk4Q
+	JFNokac4Je1/2gsH0FGPsbFB5TEOSl4vcni51yVsoQBAMSKkQtkmTh1TZ7eIhbrV/PZPzr1pPHlOj
+	JqV26DoWD4AwwFX++Zip6/4W1PAiXn8rcH5m7neGKJP1JNCJXsQf8wRE07kRxX155LhALqZDGxgC0
+	TCbZVX0NVQzdrVmqc01qE2kpVEfyBxfWWXoN0En9Ua7B0oFla/tYcs+T3eZz9GJKqkZwJMq81G4Hi
+	QfPRoK8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQiGD-00000006JUl-40Hn;
-	Wed, 03 Dec 2025 08:30:53 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vQiLh-00000006Jqu-2bVV;
+	Wed, 03 Dec 2025 08:36:33 +0000
+Received: from mgamail.intel.com ([198.175.65.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQiGB-00000006JUQ-1epj
+	id 1vQiLe-00000006JqK-1YZ7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 08:30:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A552F43AF1;
-	Wed,  3 Dec 2025 08:30:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A3A9C4CEFB;
-	Wed,  3 Dec 2025 08:30:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764750649;
-	bh=zyF/r0fjZEG5Zc5d3W/4Gh2VeH+el4jv7LMS1PSNlk0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rI6h+xJTutYGBiCMHFSC/CvZ/aY8wz+s4/Zl+p2h9DrLvfIzTqd/+d1iR4lErm5FB
-	 mKQKFs37QSydLBwjhKPPZwTcCewwu9vwRaOKnDWzWiD0YAwKFCKAInPN20z5mmD7fn
-	 tl8JtUqV3tiQsXc5zFT8Hi5EDUYl36G54aqvYte5xk6qTXQFkpq65iRsQ3o4WGXNtN
-	 NCklPbkMxcfeLXearae5GTpSabNxYuf8ZOvHtVMKnxs1TQBgmIVeiWSG0BEA1a5KDf
-	 abjPoyZNTSRel49GIShJu3LoR1+/e6jpovfKAlDCHifWa8lAhlupOrLbemnC5nh4e/
-	 TGmHTfIEDA8gw==
-Date: Wed, 3 Dec 2025 09:30:47 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Kory Maincent <kory.maincent@bootlin.com>
-Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
-	Markus Schneider-Pargmann <msp@baylibre.com>, Luca Ceresoli <luca.ceresoli@bootlin.com>, 
-	Louis Chauvet <louis.chauvet@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	Miguel Gazquez <miguel.gazquez@bootlin.com>, dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
-	Jyri Sarha <jyri.sarha@iki.fi>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Russell King <linux@armlinux.org.uk>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Tony Lindgren <tony@atomide.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: Re: [PATCH 05/21] ARM: dts: omap: Bind panel to panel-dpi instead of
- ti,tilcdc,panel driver
-Message-ID: <20251203-aromatic-heavy-loon-0cbd14@quoll>
-References: <20251126-feature_tilcdc-v1-5-49b9ef2e3aa0@bootlin.com>
- <96b1b7bf-ddbe-4213-a201-dc89cf2998dd@ideasonboard.com>
- <3bc5bf92-05c3-4841-ab28-9bab2bb31cd5@kernel.org>
- <20251202104244.59a9e83d@kmaincent-XPS-13-7390>
- <d7515cd3-5488-4d15-82dc-d2b98cfa2bed@kernel.org>
- <20251202114416.09624a4b@kmaincent-XPS-13-7390>
- <94e254fa-289d-41ed-909f-1742cfbb2690@kernel.org>
- <20251202121856.0da62885@kmaincent-XPS-13-7390>
- <1d9a9269-bfda-4d43-938b-2df6b82b9369@ideasonboard.com>
- <20251202135605.053ada96@kmaincent-XPS-13-7390>
+	Wed, 03 Dec 2025 08:36:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1764750991; x=1796286991;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=GEUohRqpfGWfGxxAeDp85DOIF/6IRcyN4akhZA/M6lI=;
+  b=agqAau507DED1KixkIafW3jaWs9MibYMjPpKd3TcLKmdx0pC6a7MhK2I
+   yldPXS3yPdncU/D6DDGXMFlDAVeYnEYMPhzdb2+P3JI9FAMhfcR1N2rLC
+   sy36S7h+ELp0Xvl9bwwz9m/vP//f4gWe7FRPL7Ak0EtsSJz5gIFICaDVO
+   AFx0P0f9Fi4Rfgsd43ogrpBngFBCU7u4KynIOTXgFP9zVg5/ajtSrnRon
+   Whw/+0G6Z4oh0Z/zn5UcZf+Sa+wsrfzZ9it9uF2gDOysBb+4bgYeiaLTy
+   yDxQCTVBrWLYCMlkApdyvQ7bvIiM7QRv/Zfn5Lb5fdMEh1OZI0Y2HNM5Y
+   g==;
+X-CSE-ConnectionGUID: AvA5eH35RQm/bDI3CGSC4Q==
+X-CSE-MsgGUID: 7I/QQUwMQya+vHFpZjVS1Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11631"; a="77056836"
+X-IronPort-AV: E=Sophos;i="6.20,245,1758610800"; 
+   d="scan'208";a="77056836"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa103.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Dec 2025 00:36:30 -0800
+X-CSE-ConnectionGUID: AZFrEOdTRSat84/xefRi/w==
+X-CSE-MsgGUID: EtfrlZziTHCvXPaiXay1RQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,245,1758610800"; 
+   d="scan'208";a="194842233"
+Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
+  by fmviesa008.fm.intel.com with ESMTP; 03 Dec 2025 00:36:25 -0800
+Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vQiLW-00000000AlR-3fn0;
+	Wed, 03 Dec 2025 08:36:22 +0000
+Date: Wed, 3 Dec 2025 16:35:36 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ashish Mhetre <amhetre@nvidia.com>, will@kernel.org,
+	robin.murphy@arm.com, joro@8bytes.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, nicolinc@nvidia.com
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	thierry.reding@gmail.com, jonathanh@nvidia.com, vdumpa@nvidia.com,
+	jgg@ziepe.ca, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-tegra@vger.kernel.org,
+	Ashish Mhetre <amhetre@nvidia.com>
+Subject: Re: [PATCH V3 1/3] iommu/arm-smmu-v3: Add device-tree support for
+ CMDQV driver
+Message-ID: <202512031601.IpliwbHW-lkp@intel.com>
+References: <20251201163219.3237266-2-amhetre@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251202135605.053ada96@kmaincent-XPS-13-7390>
+In-Reply-To: <20251201163219.3237266-2-amhetre@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_003051_497817_AF29DB3E 
-X-CRM114-Status: GOOD (  38.22  )
+X-CRM114-CacheID: sfid-20251203_003630_484637_9436D882 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,81 +94,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 02, 2025 at 01:56:05PM +0100, Kory Maincent wrote:
-> On Tue, 2 Dec 2025 13:51:59 +0200
-> Tomi Valkeinen <tomi.valkeinen@ideasonboard.com> wrote:
-> 
-> > Hi Kory,
-> > 
-> > On 02/12/2025 13:18, Kory Maincent wrote:
-> > > On Tue, 2 Dec 2025 11:47:40 +0100
-> > > Krzysztof Kozlowski <krzk@kernel.org> wrote:
-> 
-> > I will not NAK, removing bindings and breaking users is under some
-> > conditions acceptable. You just need to come with the reasons and impact.
-> > 
-> > Reason "is ugly" is usually not good enough. Especially if things were
-> > working.
-> 
-> Thanks for you reply.
-> 
-> > >>
-> > >> DTS cannot go to drm, which means you either need to separate the change
-> > >> and make entire work bisectable and backwards compatible for some time
-> > >> OR at least document clearly the impact as we always ask.  
-> > > 
-> > > The thing is, if I split it, it has to be in 3. One for the of DRM bus flags
-> > > support, a second for the the devicetree and binding change and a third for
-> > > the whole tilcdc and tda998x cleaning stuff. I think I will go for one
-> > > series, with better documentation.
-> > > 
-> > > Now, what is your point of view on my question. Will you nak any binding
-> > > removal even if the binding is ugly and legacy and imply maintaining an
-> > > non-standard tilcdc panel driver? I know it breaks DTB compatibility but
-> > > there is several argument to not keep it. See patch 6.  
-> > The binding being ugly and having to maintain non-standard tilcdc panel
-> > driver may be nice things for us, the users don't care. The users care
-> > if their board no longer works.
-> 
-> Yes I understand but then I have another question. At what cost should we
-> continue to support legacy binding?
+Hi Ashish,
 
-That's mostly question to platform maintainers and users. Extrapolating
-kernel rule - we never break the user-space - we never break the users,
-thus we take significant cost.
+kernel test robot noticed the following build errors:
 
-And that significant cost can be the cost of making the transition
-smooth or smoother.
+[auto build test ERROR on next-20251201]
+[also build test ERROR on v6.18]
+[cannot apply to robh/for-next linus/master v6.18 v6.18-rc7 v6.18-rc6]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-> 
-> Just figured out this case already happened, ti,tilcdc,slave binding was
-> removed from the tilcdc driver:
-> 739acd85ffdb7 ("drm/tilcdc: Remove obsolete "ti,tilcdc,slave" dts binding
-> support")
-> 
-> Even if there is still one mainline device tree that uses it:
-> am335x-base0033.dts. :/
+url:    https://github.com/intel-lab-lkp/linux/commits/Ashish-Mhetre/iommu-arm-smmu-v3-Add-device-tree-support-for-CMDQV-driver/20251202-003517
+base:   next-20251201
+patch link:    https://lore.kernel.org/r/20251201163219.3237266-2-amhetre%40nvidia.com
+patch subject: [PATCH V3 1/3] iommu/arm-smmu-v3: Add device-tree support for CMDQV driver
+config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20251203/202512031601.IpliwbHW-lkp@intel.com/config)
+compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251203/202512031601.IpliwbHW-lkp@intel.com/reproduce)
 
-If that commit broke existing users, it is a good argument for your
-changes, but you need to explicitly use that argument in commit msg.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512031601.IpliwbHW-lkp@intel.com/
 
-> 
-> > And how does this sync with u-boot? It also has code for at least for a
-> > few of these boards.
-> 
-> U-boot has indeed a driver for the ti,tilcdc,panel binding.
-> Changing this devicetree would beak display for these board in U-boot as it
-> currently does not support the "panel-dpi" binding.
+All errors (new ones prefixed by >>):
 
-Thanks for checking, regardless of decision this also should be in
-commit msg.
+>> ld.lld: error: duplicate symbol: init_module
+   >>> defined at arm-smmu-v3.c
+   >>>            drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.o:(init_module)
+   >>> defined at tegra241-cmdqv.c
+   >>>            drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.o:(.init.text+0x4)
+--
+>> ld.lld: error: duplicate symbol: cleanup_module
+   >>> defined at arm-smmu-v3.c
+   >>>            drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.o:(cleanup_module)
+   >>> defined at tegra241-cmdqv.c
+   >>>            drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.o:(.exit.text+0x4)
 
-Maybe things were not working correctly for long time, so there is a
-choice of fixing Linux side while breaking U-boot and not fixing, but
-keeping bootloader working.
-
-
-Best regards,
-Krzysztof
-
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
