@@ -4,155 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37637D15DB2
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 17:04:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34530D15DB7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 17:35:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8en1SF8RpWCUKKvzqgrh322XayCj3gce5wTdd79xtUs=; b=laRCGrikKzfivFU7jBzC5U/Vg0
-	Oiq/eiIdq1qH7gioFbIzGQIsADZ5lufP4iejWPuunlt3uyfq63bNZN4NT/5WsJUaCoHlFZ4MHWH1d
-	InsfsYKEccs49N5OohmiQVTZf3eIJprcdbbRQdES4EkfdU+sXdI2lf4TzKkLoMX3o1z3YxAFvPdOG
-	qaSpUB3gFUea3GWUfx7J8bI72FUl3gShZGjCFmcgrcKtqKce2y1tgG36FhDUzSKNacEATb+8O39/f
-	MFGxwwnHI3AbEPWr5spB3FGysi+G2LZwuLc4CyMacOd8RIdfS1FEkGs3lhBgdZjn4/yaiXRlYMVHe
-	crr+8Z9g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QyRTIlA83lB7dKUhohqLPkWo1MVq5eVKHTK3JfG4Qh8=; b=I15hmL88Hwc+WX/GLqwd2y5UBM
+	/e1UYKAuZoxAyn+d67ZLjYXp3zk1r9xXm0WEulP0uL59d/PSpkAqpOAYjrtNoyVfKX+IEbB1rWlZs
+	lXVnJR1coveJYnw6BdAZatEh65Aozae+U5qmXGIk4eTnIL4l/YPcEmYMjZVkREaN6leKLrIab93uN
+	s39ddDtzUAOC8lTNPxKRemsQppIvyYw+85ToXEXOtI/d2JWbv8yfFbBps3VR6pL80ySRyN6XHu2DC
+	czYpiA/I/fwgypgchukUyu3ToKV5rpll7cDkgThP92jdQpDLNsW6yWIhwgSuReuGZPO7W7ymrmYrV
+	x1AhcuCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQqHb-00000006q3i-461T;
-	Wed, 03 Dec 2025 17:04:51 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQqHZ-00000006q3I-3ozg
+	id 1vQqkh-00000006rvD-42in;
+	Wed, 03 Dec 2025 17:34:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQqke-00000006ru5-1nWR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 17:04:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DTq0AqQEL6w3vYxUIKGac7fgfSXW2tC1mOiTpulh+JrcF62fcYcCacJlJdW8BO/V2dca8x7WfpOmduWasz7TeoO8pesEF1PlqLgWieKk9eeqDFhIAKtF1M5kypi2Yh6zdIdYampjXqo9ZePSsyLlIhz3w59VehQ6cj2Sov8Kckr2ob1RnkaUJ4z4EQqAc+Bd00Q6bcDzfVcp2uF8Wse2f2qDA2E+1FGend6gGXNukq+8W2EyM035mjdsdEeTTgnVWToOiR+Y4e/AVCfDEl6zMJ0FTXnsOFYnmEXZbW4owtHbQ8tggZKsCpXQArs73MrkuI1MZ+e6RGDXWF27GcpEGg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8en1SF8RpWCUKKvzqgrh322XayCj3gce5wTdd79xtUs=;
- b=ovfZc2VO4poIG9RELSoqHhkj/zMg3de/eJqRN8GROJLG5OxMIvza1rT3biEWFtO2YN5dW702Vpmy6LpfQbDev4UR0LwPfyTR8RfmacvLlmLQlLhubGDx8nP9UuXseSUZBwdrdgBZVEPFrUNsWhieIYKf96xV4KEb58o6Uif0jR/aq1wREtA95jBK3WjwQX1nx9tEQ3idBvpdw7gi3/subBtx1BvCOfMwTnjSGtBu/4Xzz6tGxD/ogWJfCbR8a6+tRPuf0Oi9Is1s68FHS1JYoxgIhbdTAmDoseUjoqHuw1B55qAEMOPynKj7Upgq4uRB4bHH21VgpYN8nkdbzezPig==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8en1SF8RpWCUKKvzqgrh322XayCj3gce5wTdd79xtUs=;
- b=bK8MPYVDCIvZz7NWSCMOvaCyIEc/Wbj8X4+6eCG+mQd692eX/33Ol0OIGdBwPdYjRRRrdwxfZVrLx84yc7uup896KRYyQmQu3rZJ5MukD0wVodWFfMu4TzUeOrLCZ+8gH5gFx3PPPJalGpILZxIzCS6GNrOyJXLNWQ2yfdVn+rg1yzJu5IY7apJoKv8WANs5BxIEfRZ+vAzsoMUct/hjuK8I/tD8mHBeW/R1Ihs87IE37Zylulh8ZNKN7VMD0lf0k+ZBLnLpQlRPzG22yoLWrZK5z1GpcC/t2RHjvOT5ZLLY4xw/FoNA7c/I3flIEhu5zWOwydlg5UJ2WcIRA+Cjxg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by DB9PR04MB9776.eurprd04.prod.outlook.com (2603:10a6:10:4f0::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Wed, 3 Dec
- 2025 17:04:45 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9366.012; Wed, 3 Dec 2025
- 17:04:45 +0000
-Date: Wed, 3 Dec 2025 12:04:36 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	imx@lists.linux.dev, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
-Subject: Re: [PATCH 1/2] media: dt-bindings: Add CSI Pixel Formatter DT
- bindings
-Message-ID: <aTBtpOpsMSmezIcL@lizhi-Precision-Tower-5810>
-References: <20251203-csi_formatter-v1-0-eb9e1147b49e@nxp.com>
- <20251203-csi_formatter-v1-1-eb9e1147b49e@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251203-csi_formatter-v1-1-eb9e1147b49e@nxp.com>
-X-ClientProxiedBy: SJ0PR13CA0166.namprd13.prod.outlook.com
- (2603:10b6:a03:2c7::21) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+	Wed, 03 Dec 2025 17:34:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6D3EC339;
+	Wed,  3 Dec 2025 09:34:41 -0800 (PST)
+Received: from [10.1.197.58] (eglon.cambridge.arm.com [10.1.197.58])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 45E733F59E;
+	Wed,  3 Dec 2025 09:34:40 -0800 (PST)
+Message-ID: <642767c9-f926-490a-83a1-160978c37553@arm.com>
+Date: Wed, 3 Dec 2025 17:34:37 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|DB9PR04MB9776:EE_
-X-MS-Office365-Filtering-Correlation-Id: babe7f72-d8f7-4ab1-b573-08de328e0f10
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|1800799024|19092799006|376014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?PXDPwVnNWaIGg7OF2tdxSPsh3ECDzvOdmnNOUDSqAwIGExM8fJcNw0ArqZu4?=
- =?us-ascii?Q?MVEHV4ABW0B+eywVv0c/nVbVuJ9vI5d81SOH4NyKQ/GBokOfFPzZY2EEwzBv?=
- =?us-ascii?Q?NJiLYiEw1OJJuSGNJvA01L/OlmRX1CnI9EAyfze1LtdnOteMowW/UOhkPbNZ?=
- =?us-ascii?Q?P0R0CpWRgl6TTaln0j6By83dj06lfPvi3a2jsTY9kX8w0FCMPzt4c6qArsxI?=
- =?us-ascii?Q?uEf86Ph+9Qae8ofMPUypbtZDpeK6rJEeo+gsZ17XLDs/6k1kzVd/hbtC6y0T?=
- =?us-ascii?Q?b9xTCnz/SMUP1TjHNeN1ckL/ZJu3gY2nfVElpeW33QlJh+J1KRXDZlzGjKu8?=
- =?us-ascii?Q?91NZ9bEgtccBvIAd1qSjhX53OtHlkt9Qk0z0vAL05LkwWyUJryQbb2ndoi7B?=
- =?us-ascii?Q?LYKU4cOOKDOgFQC+PGUnocOY11UcBehoU4Rkl7aF4UNQsqNPSYQ4ApDuFg0E?=
- =?us-ascii?Q?gpfTFI/QIF67uCU+VsOAbHQ4zGvLqhljC/QNw/bIIa8dNjh86wKk0TiXcmpB?=
- =?us-ascii?Q?TAwdTbTt31x/Yi34tIosNBNkUn3lbmljjJgYOD7k6kkN5cg0X6ObR6oDM/0c?=
- =?us-ascii?Q?dpCt9ve7ORr/KCLQ0Xi72vJKu7nZjoQbbSFKvDkHkxrWUs+B5lfVJfy8NkNV?=
- =?us-ascii?Q?uLH/GI58Uomxsu1m76aIjAAJBLDA44AEC4rw9384fUeIOWzYAEUZ6p8oiC0z?=
- =?us-ascii?Q?3OcOkPqzlRlXXaJJhgKhSzQzxRzaBdfiga5o+sKE4L44ssxf4+uB7koyondo?=
- =?us-ascii?Q?OOsGdz9OL59doggYI3GJd9XG0DYsxyUMDHHhhsaC25DQiRSwZUWMVJctJBVt?=
- =?us-ascii?Q?Bq8Xdo7M1F2nxKKpJWucPAVzWNlqQ7sQQhFlgMmPqgrAgecCbYHPD1loGQZL?=
- =?us-ascii?Q?IjaTaeejPi4OjbNJcgHfnRtra4ZrFI007O2U1IcNILOPHLrJWAEF5rQ9vqG4?=
- =?us-ascii?Q?ucfN2MBqWgGtIf6/C/8A1dz+Kg6IxkTVSfyNc4XVtZutikhBf7SSSD4J269t?=
- =?us-ascii?Q?DdyFuWLm21mxu2+HOb1r6q6CEDHA7Iv1NdnTPbCsZwBFgn1xg2JOcwyCY4zz?=
- =?us-ascii?Q?VZrcopFzd3KbcmK1SEPUHCBG3Ix4SO/Z8DVRXJYmsl/fyzkPRX03Q+FZq8r+?=
- =?us-ascii?Q?wEvTNbL0uByYsg+6PQe2cl9A0FKoKh0aV+mx1XxJSyfFz0HwL4gyn7p+Vl7a?=
- =?us-ascii?Q?j/8b/yLOBYMmXqPLIzT+GaWIRqzo4sdyTGIqqlBfqAWx8SAlb7UsaOfhgzb7?=
- =?us-ascii?Q?3xtXT6aaNVlf3Ps9k9fwXQl6HS5DbxsMzsqxfQZzyKQi6wovKV8B2z/mxD7x?=
- =?us-ascii?Q?3ZbTNTG/ZmWhUPjwfV0C0TwebdxmVegiazcLdJqCOQBJPGl1mpviRthzj+3p?=
- =?us-ascii?Q?qWdiFQh5Vhek/V4MNDwO7NWYTZRfsYBUDC3efDFrK2ZcIqINj6Mv8tB9AEg3?=
- =?us-ascii?Q?dqwUoSOJRRpyGmKJPE6aE0V+puzdHoqq4eh1jiXX34Y60hEoOlMniQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(1800799024)(19092799006)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?HArhci7N2DTPWBcweOSmagp4Dk8gClm3Xiva9s5gXr6VIpqFriP1MA4tTkts?=
- =?us-ascii?Q?BIkEEbXT6CczQzheEC6W8j1OY5gj/oJKJjiH6L/UORWbZkZqxAlzJpvOg3hY?=
- =?us-ascii?Q?gnEigV/8ahVMsjfqSvfBzPFrf1g9tlsusQCe0x9x4m9bDKPgreNexgAPHJTi?=
- =?us-ascii?Q?aSfGkF0Kna10kPzKRyb1rdvQKTRuOyeNd8H+DQ5P9oHHdHrgw+qQJ3iOEFJQ?=
- =?us-ascii?Q?g/6pH2HyRHnJyHqsoDwYTpTNKXpEHRli+ukAbZfJDP7+CWhN+xiqmWDKKJcJ?=
- =?us-ascii?Q?JAmB9ZLrMEmALMh1Au10c+9hrMvM8O9XRfRaLUpl0Ucw1fhy/6fDpQCmzyjw?=
- =?us-ascii?Q?tdRCJqRbjVWeXkSOG1jsdCOhbZeY8ZH/ZWVQuVtReQBdr1hIktqGYEkOtH0v?=
- =?us-ascii?Q?KznPFkfsjPEd68mfEcMocF1s8oC2yQbxVr8+nn7uUXEOfwV75nDmHf+meGLP?=
- =?us-ascii?Q?n9QAjyjC4Dg/E0cJW66k3FOWxRTf7txBjGlmPiF9K1wGlo6NhBRdDF8u8C7Z?=
- =?us-ascii?Q?NtzHmEtsRTyq3IXtWZwv2fmuZ0OAOXbIgmaG5z+4ebcRAVHk3okLJ5sgy6zD?=
- =?us-ascii?Q?FeKrVoU57EEbBOwujET/L04YjFyN37eXuChTrsmIzlY756ADlTuaMR3vt8b0?=
- =?us-ascii?Q?SqUd1OSIudC5mU2wjx3mtZgQXR4ZKXqDdBfU7cAXrtin8Zk4a5/N3ttbV9kA?=
- =?us-ascii?Q?AxQdmWTqJHWfW16AMYfSq4gl0CobnDAmDFKp6F23n2y6QNg+DU1lqmHi6inY?=
- =?us-ascii?Q?vMHzrO3sL73T7PAljHiUM2JWZ1Wzm8LXIe5QmPfy1UlamScxdo8rfI8agaiO?=
- =?us-ascii?Q?UIZUHiSt/VuSjCWtoy4cQ6gs64unVesNrPk9Q+LbnB5G6YlS5sxHnWJcG6vp?=
- =?us-ascii?Q?8Rp3qsnFgqhD5SC7vAslXWJswfOVuMRLG20uqo0EBxIVAf8R0nEZLWqrkItq?=
- =?us-ascii?Q?w8ocHyAZlQe9I0p0vShlzrv9HY+qc2UHG7rBvxHILM/vodH3muuGcfKFHo05?=
- =?us-ascii?Q?Lwjtb/hm5sy5L8logwFZfbhSMnwQ6nCrcoVGTGHcGb641TQBiEirl0ijK8/a?=
- =?us-ascii?Q?HQDr0pRgL6QSEb6UTYGvEpbpEp5odm8QbJoNcUQwcDt3DZ5wAo7tp4xf2nYt?=
- =?us-ascii?Q?lwmR2iDFrj44hOrZqLG8EBJaK6wBo+QzOG/lH0aGfkazEusAqATZGe3w3C3T?=
- =?us-ascii?Q?lpPLnLURNtrXv96l5XHkveLuajk1SMirVXb9AwVmEtUZ8WqzOy7alZNX1Hp2?=
- =?us-ascii?Q?wnJejeU9cLvHkaRVmdCpYMwORYJtXrxR1h1c7paLRVWPL06G1HYVb6cQPfOv?=
- =?us-ascii?Q?vaVMBalMhyGjclrca7eCq3SkLicSYNVH98Z2JBFW1ZB2H7BALRv4+nju3fuU?=
- =?us-ascii?Q?OXrfa+u4IMHdGZrrFprjZUwNYVrf5GgOk4rGBPXFI3X9lOt5ifEOS2I3MewR?=
- =?us-ascii?Q?pnazVY1rs1YMMy0bIuPFCPbNCP9ZGdgsQDMobfg8NeL1dILUvaY55tRJ7qaL?=
- =?us-ascii?Q?YsTTs8Iev+xyp66wFdJAtG8JBgKCrW/GT4vkUfWO+lK1Sb+X/phsYQsY8wLq?=
- =?us-ascii?Q?rqVqKxp89p+wZr6V1/1xn+iPw4BMp9UZHm5txoch?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: babe7f72-d8f7-4ab1-b573-08de328e0f10
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Dec 2025 17:04:45.3822
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YrWFarSV80qdhC3iSwH8xBi/h+MIeqoeiYhqJQDDo4oWd0L/R0VLGxPuAjupuAaukqP+ZAP13WGjFvRA7aejZw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9776
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 00/34] arm_mpam: Add basic mpam driver
+To: Punit Agrawal <punit.agrawal@oss.qualcomm.com>,
+ Ben Horgan <ben.horgan@arm.com>
+Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
+ baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
+ carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
+ dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
+ fenghuay@nvidia.com, gregkh@linuxfoundation.org, gshan@redhat.com,
+ guohanjun@huawei.com, jeremy.linton@arm.com, jonathan.cameron@huawei.com,
+ kobak@nvidia.com, lcherian@marvell.com, lenb@kernel.org,
+ linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, lpieralisi@kernel.org, peternewman@google.com,
+ quic_jiles@quicinc.com, rafael@kernel.org, robh@kernel.org,
+ rohit.mathew@arm.com, scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+ sudeep.holla@arm.com, tan.shaopeng@fujitsu.com, will@kernel.org,
+ xhao@linux.alibaba.com, reinette.chatre@intel.com
+References: <20251119122305.302149-1-ben.horgan@arm.com>
+ <877bvfa23i.fsf@stealth> <a04aa337-a3eb-42a0-855b-500ba549e2d8@arm.com>
+ <87sedrlsjk.fsf@stealth>
+Content-Language: en-GB
+From: James Morse <james.morse@arm.com>
+In-Reply-To: <87sedrlsjk.fsf@stealth>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_090449_988049_8F7C4E16 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20251203_093452_622333_AD733972 
+X-CRM114-Status: GOOD (  21.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,132 +78,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 03, 2025 at 02:30:02PM +0800, Guoniu Zhou wrote:
-> From: Guoniu Zhou <guoniu.zhou@nxp.com>
->
-> The i.MX9 CSI pixel formatting module uses packet info, pixel and
-> non-pixel data from the CSI-2 host controller and reformat them to
-> match Pixel Link(PL) definition.
->
-> Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
-> ---
->  .../bindings/media/nxp,imx9-csi-formatter.yaml     | 96 ++++++++++++++++++++++
->  1 file changed, 96 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/media/nxp,imx9-csi-formatter.yaml b/Documentation/devicetree/bindings/media/nxp,imx9-csi-formatter.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..c992a2a225519d3b7934f48cf1646d2cd7089319
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/nxp,imx9-csi-formatter.yaml
-> @@ -0,0 +1,96 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/nxp,imx9-csi-formatter.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: i.MX9 CSI Pixel Formatter
-> +
-> +maintainers:
-> +  - Guoniu Zhou <guoniu.zhou@nxp.com>
-> +
-> +description: |
+Hi Punit,
 
-needn't |
+On 03/12/2025 11:21, Punit Agrawal wrote:
+> Ben Horgan <ben.horgan@arm.com> writes:
+>> On 11/24/25 15:21, Punit Agrawal wrote:
+>>> Although a little late to the party,
 
-> +  The CSI pixel formatting module uses packet info, pixel and non-pixel
-> +  data from the CSI-2 host controller and reformat them to match Pixel
-> +  Link(PL) definition.
-> +
-> +properties:
-> +  compatible:
-> +    const: fsl,imx9-csi-formatter
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  clock-names:
-> +    maxItems: 1
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +
-> +    properties:
-> +      port@0:
-> +        $ref: /schemas/graph.yaml#/$defs/port-base
-> +        unevaluatedProperties: false
-> +        description: MIPI CSI-2 RX IDI interface
-> +
-> +        properties:
-> +          endpoint:
-> +            $ref: video-interfaces.yaml#
-> +            unevaluatedProperties: false
-> +
-> +      port@1:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description: Pixel Link Interface
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - power-domains
-> +  - ports
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/nxp,imx95-clock.h>
-> +
-> +    /*
-> +     * Power domain definitions from arch/arm64/boot/dts/freescale/imx95-power.h
-> +     */
-> +
-> +    #define IMX95_PD_CAMERA		3
-> +
-> +    formatter@20 {
-> +        compatible = "fsl,imx9-csi-formatter";
-> +        reg = <0x20 0x100>;
-> +        clocks = <&cameramix_csr IMX95_CLK_CAMBLK_CSI2_FOR0>;
-> +        clock-names = "pixel";
-> +        power-domains = <&scmi_devpd IMX95_PD_CAMERA>;
-> +
-> +        ports {
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
-> +
-> +            port@0 {
-> +                reg = <0>;
+There was a party?!
 
-need empty line between child node and property.
 
-> +                formatter_in: endpoint {
+>>> I've managed to throw together
+>>> enough firmware to describe the MPAM hardware and take this set (more
+>>> specifically mpam/snapshot/v6.18-rc4-v5 branch from James' repository)
+>>> for a spin. Using the branch, the kernel is able to probe the hardware
+>>> and discover the advertised features. Yay! We are in business.
+>>
+>> Thanks for giving it a go. :)
+>>
+>>>
+>>> Having said that, there are a few quirks of the platform that run into
+>>> issues with later patches in the branch.
 
-Needn't label here
+So something in the resctrl support code is causing this.
+Any idea which patch causes this to happen?
 
-Frank
-> +                    remote-endpoint = <&mipi_csi_0_out>;
-> +                };
-> +            };
-> +
-> +            port@1 {
-> +                reg = <1>;
-> +                formatter_out: endpoint {
-> +                    remote-endpoint = <&isi_in_2>;
-> +                };
-> +            };
-> +        };
-> +    };
->
-> --
-> 2.34.1
->
+There are a load of pr_debug() in the picking logic, if you enable DYNDEBUG and add:
+| dyndbg="file mpam_resctrl.c +pl"
+
+to the commandline, you should get some snotty messages about what non-Xeon-like property
+your platform has.
+
+
+
+>>> The platform has MSCs attached
+>>> to shared L2 caches which are being skipped during later stages of
+>>> initialisation. IIUC, the L2 MSCs' limitations stems from the
+>>> assumptions in the resctrl interface.
+>>
+>> What in particualar is being skipped?
+
+> The registration of the discovered MSCs with resctrl and subsequent
+> exposing it to the user.
+
+resctrl's 'L2' support is limited to the CPOR bitmap.
+If you have controls, there is no resctrl 'event' that can exposed them.
+(the problem being they all have 'L3' in the name!)
+
+
+>>> I was wondering if there are any patches available to relax these
+>>> limitations?
+
+Knowing which property it is will help - but some of these things are checked
+to match resctrl's ABI. They can't necessarily be relaxed without breaking
+user-space.
+
+Others are sanity checks, e.g. all CPUs are represented. This is to avoid tasks
+that run on cpu-9 escaping the resctrl controls. Platforms that did this may as
+well not bother with resctrl at all.
+
+
+>>> I can give them a try. Or do these need to be put together
+>>> from the ground up? Any pointers greatly appreciated.
+>>
+>> There are some extra things added in the extras branch [1] e.g. cache
+>> maximum usage controls (cmax). However, lots of possible things are
+>> still missing e.g. any monitors on L2. If it doesn't fit with the
+>> topology expected by resctrl then it is unlikely to have been considered
+>> yet.
+> 
+> Thanks for the pointer. I'll give the snapshot+extras branch[1] a try.
+> 
+> The platform does have both controls and monitors attached to L2. If
+> this isn't being looked at, I can try and put something together. Thanks
+> for confirming that the limitation is likely due to resctrl.
+
+My view on 'extra' counters is to try and expose them via perf, as this would also
+allow platform specific counters. I worry that if we start adding 'easy' ones like
+l2_mbm_total to resctrl, someone will want left_hand_side_of_soc_mbm_total.
+
+
+Thanks,
+
+James
 
