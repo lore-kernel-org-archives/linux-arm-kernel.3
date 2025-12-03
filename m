@@ -4,94 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBD43D1266C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 03:05:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8CD4D1266D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 03:15:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2SUCSRcAh5wfvR1Ga9HOQmp+DboJkGyQoezHpnT4C/w=; b=aJb78jo9MnF0744EJbBOiLjSfT
-	Vm8NozvSppFflfyUuDHNh0EXVEvrhHCHTPHNbnimAmVFqW5kbmkaexuTgzP6TFstNpmHuzKhVf7Lv
-	V0Oj+ucP2nu8exa7Ow9u+/JJToTTjX2RxsqiHTklePmtMRqmNkDuAuBSeomKVr2jytj6cuHvJKumR
-	OGVL6aqFAcwsZUxLbGMCb9Fw7+6L+Fl3PO/M/o60qkuHP0ttu7d0mSGYZgVLyUhYXjQ2fztV8y9NC
-	E8pZpzQQ4Fr6oWjdU5SBYXm176MSEvFrWKjOEDrf6GQGOG6s5VQlgf0wPfG5QXIC9Axc9khTKs+pk
-	WL5Wcp0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J5Da1hFKP6t1mpI82lHD7hcCa172UDvRJ1C2h5SZUKM=; b=l+DQeQ8/KbF1NeJ+kldkmXa9/M
+	FZU0Qb+dV9ySzL8F+fVP8iPgS8hgIQHoq7AlguKr2QIfLfWdPSl4wWgOS/ld/ya5jdJ4L89G7yinS
+	S9lp9a+eEjwmeeVx/itgSN1gci9rkQvpjsU38mLaC/qIU7W2lxd1cGralQys9yInKoxwT7ANqnqW1
+	7j4IV7D16mufhndOc2ytLjdGljlIm4uzMmrLvdvb+6lgNKJSq2zsJBYwb0Y46pdmoJIRgVfSRSjLN
+	I7vndFo98pwATD+P+O4hFvXP+mUPOiKXftAvuLZjk/VzJl6RJYorFEC14OjypBXlBgyWPpIlGTru1
+	UU1vFagw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQdBS-000000063cA-1vIc;
-	Wed, 03 Dec 2025 03:05:38 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1vQdKS-0000000643l-122A;
+	Wed, 03 Dec 2025 03:14:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQdBP-000000063bL-0nwb
+	id 1vQdKO-0000000643M-49I0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 03:05:36 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-7bb3092e4d7so6371704b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 02 Dec 2025 19:05:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764731134; x=1765335934; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2SUCSRcAh5wfvR1Ga9HOQmp+DboJkGyQoezHpnT4C/w=;
-        b=UUoYMeRpXI19q+pMm/wa76FM5P+JPXdpARHTWCtCpO79gRy/hFNwFbFaTW01EyOJOI
-         45FNv05KPhs0dqMA25QBH7HccSTl/cb5wMFwTHnmR/KPdwDsvP2Nv+jr5Cxz5kE2uObi
-         V9x+WcHUcWRw2+5qB+wA6dUxsMcWTVXheGstYDMICf+XUUtQBROxS4Eg++oJbF3Eq4F5
-         LNbYm9QXqF88/eDPIuS4T2zzEW+lf0n90uemPuzQ4pzKjn70wj8J4kVvb8O0097UMh9N
-         pXSCKU7BTlkmhP5Pgxm1CZ6OOTq5iEfVUQltfcMOWTj9aUehLsq67B2L3aUXdsl5egl4
-         FTUw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764731134; x=1765335934;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=2SUCSRcAh5wfvR1Ga9HOQmp+DboJkGyQoezHpnT4C/w=;
-        b=Ti3or7DOM6xZ/iZ8BAwggwVkKbpTWnd7qF1objnXMGrcvJ/Swme2azk+MEnCcHzTDU
-         smxVI8pVzKAr7zPfWP1mBm8XZZkEdhE8ta32zS4kfmC2Fo8fZHPBqu7KnLSCZE49e/+m
-         zJu+btA6KlMoylLOXIW53pr5oJ5Ch3mE4Ou/vhPmr/N0EUFMqoE1LzIVdfUxoVlW3rLr
-         hJDq79v9lZqUBtzWeOLirdqIOBqgLOsSo2XW0a0YprBLYiJ4tcpUs9La0sYDez7E5/tv
-         03halgs6Oi/mmjFym3k/nNa7WQxs/xOgtWmfeKzhZ382jb2B6DS80RHWBl9L24EBHOS2
-         uD9A==
-X-Forwarded-Encrypted: i=1; AJvYcCVjo/HofiQms0uDDkcRIN2jIt4AqKxxuY6ntDzGu+4swqhHfiuZU+1wv9V01OZMV3XQuQW6q76z5BeWIWtGd+pW@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzzx1y3QscWM/nktWkBI1yKF7xRu1/CxH2YX9EhCsBo4oOq+56O
-	AQMCg8kOQr2dDBjupq2N43lnH0aOMb+00Nu9yiMo2/lz83VhhAPzz/qnHEaJwVaYUQNXH6OvVfq
-	oHEKEXjgSB60Q3kQUqh18uSEnhr7SvQ1LuEIRukmV
-X-Gm-Gg: ASbGncspuzkZ45gSQtYnbBVBqIHJg21DwhFXCY6mKC5zQVSECUD2HSgP5hvZh019LyM
-	uQKeiUmQUhPlTTtQ34hsVoE4sQ3+2MukGG9CYTi+260EsodpKIXisxPGckyjAt4OAx1lwE0n+Cd
-	l1VNQlo5zvOs1LVQt05X/AaRCf3KZvuNE6abM1+fuM570+C0U6UbuPXrR728KatpVB8fyV5o43d
-	U+teiEcVIUGMXTLK52OX50b7vuqx5CTIXCC2mocUtYRrK2ZHyWSer/QD2NMOrFtXN5H8+VlJp2H
-	cDoDJg==
-X-Google-Smtp-Source: AGHT+IEaw/KAaB9NQPn92QcJbyFAkEiHxEvdc+JFEc5o3oBuUZIzccLg55YH3cTE7CxVtrjUj9n7SYHTGXfIZWZDfhI=
-X-Received: by 2002:a05:7022:1b0f:b0:119:e569:fba0 with SMTP id
- a92af1059eb24-11df0bee281mr624917c88.15.1764731133682; Tue, 02 Dec 2025
- 19:05:33 -0800 (PST)
-MIME-Version: 1.0
-References: <20251122-controller-v8-0-e7562e0df658@google.com>
- <20251122-controller-v8-2-e7562e0df658@google.com> <2025112226-heave-refrain-53e6@gregkh>
- <CA+zupgwzQ5r=-_L79D74=9VRqRO94N0yTApHChM+Nu0cn1ss3w@mail.gmail.com>
- <2025120209-unstylish-john-2a6c@gregkh> <00d75fd3-a796-402a-a1a3-2172862fcf91@kernel.org>
- <CAD=FV=VLOLiGDfQOWXOL0H+M4EnSj1kouYK37WHV=8OVEwt+qg@mail.gmail.com>
-In-Reply-To: <CAD=FV=VLOLiGDfQOWXOL0H+M4EnSj1kouYK37WHV=8OVEwt+qg@mail.gmail.com>
-From: Roy Luo <royluo@google.com>
-Date: Wed, 3 Dec 2025 11:04:56 +0800
-X-Gm-Features: AWmQ_bnH8zw5DfDwDs1QuKD2A0QWVUVTK2D542APdmuEtTsd_99YivSDqmKY8X8
-Message-ID: <CA+zupgwiJmS9+MFt8F02HrPkRYPDidjg9dxNUJxd8d_0RM6cww@mail.gmail.com>
-Subject: Re: [PATCH v8 2/2] usb: dwc3: Add Google Tensor SoC DWC3 glue driver
-To: Doug Anderson <dianders@google.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Badhri Jagan Sridharan <badhri@google.com>, linux-usb@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 03 Dec 2025 03:14:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E4D324433D;
+	Wed,  3 Dec 2025 03:14:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C08E0C4CEFB;
+	Wed,  3 Dec 2025 03:14:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764731691;
+	bh=GKQ2ak6q4t30pRCw2QUUMC0EJMIeKYrUpbmi3ltyMUg=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=gQw426jpYHGM+OrO4B9Obv5z5mpF/ZLR2p2VvXN4gCJtLKsfH4DjswjJmiGiXKfNz
+	 c0z6P2HBEnVO9GH84Y1vqmDm9/dImwuQ1fWGIWvgLcymKUA8WxH8ipV/uXeCfKAFPi
+	 QaATm3Jto+MUGoyJus20+qkqd6xU4Zl8vRp/1AMfvCsgP/bRSQmKcrC0/dHZU2/x1Z
+	 V6NZNt2KXlYohVBbJa+FUGuqyKllj8ZssrK61/4EHBUbfhEehbqn7sD1hSxRAkgSpO
+	 lf9e+uWQTSKXcEK0yOWjTQMBJtLKymRhKZCGa697e5Fmu5pdzPfGk5jvXmOQP5oNXr
+	 j2nkcdAaPh6nA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3B8C53A72A63;
+	Wed,  3 Dec 2025 03:11:52 +0000 (UTC)
+Subject: Re: [GIT PULL] arm64 FPSIMD buffer on-stack for 6.19
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <20251130030105.GF12664@sol>
+References: <20251130030105.GF12664@sol>
+X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
+X-PR-Tracked-Message-Id: <20251130030105.GF12664@sol>
+X-PR-Tracked-Remote: https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git tags/fpsimd-on-stack-for-linus
+X-PR-Tracked-Commit-Id: 5dc8d277520be6f0be11f36712e557167b3964c8
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: f617d24606553159a271f43e36d1c71a4c317e48
+Message-Id: <176473151071.3498170.16297964704270989529.pr-tracker-bot@kernel.org>
+Date: Wed, 03 Dec 2025 03:11:50 +0000
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>, "Jason A. Donenfeld" <Jason@zx2c4.com>, Herbert Xu <herbert@gondor.apana.org.au>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Jonathan Cameron <jonathan.cameron@huawei.com>, Kees Cook <kees@kernel.org>, Leon Romanovsky <leon@kernel.org>, Mark Bloch <mbloch@nvidia.com>, Mark Brown <broonie@kernel.org>, Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_190535_258498_ECDCA601 
-X-CRM114-Status: GOOD (  41.51  )
+X-CRM114-CacheID: sfid-20251202_191453_071291_7DD3B4EB 
+X-CRM114-Status: UNSURE (   5.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,93 +78,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 3, 2025 at 12:25=E2=80=AFAM Doug Anderson <dianders@google.com>=
- wrote:
->
-> Hi,
->
-> On Tue, Dec 2, 2025 at 1:42=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.o=
-rg> wrote:
-> >
-> > >> I plan to add ARCH_GOOGLE as a dependency in the next
-> > >> version per [1], so the "depends on" would probably look like
-> > >> the following per your suggestion:
-> > >
-> > > But "Google" is not an arch :(
-> > >
-> > > And really, the whole "only have a sub-arch symbol" is something that
-> > > personally, I think is totally wrong and prevents kernel images from
-> > > being built for more than one "arch".  As an example, the Android GKI
-> >
-> > Probably you think ARCH_FOO as arch/FOO/ directory, but this is not the
-> > case. ARCH_FOO in this context is SoC platform, so e.g.
-> > arch/arm64/boot/dts/FOO/.
-> >
-> > All of ARCH_FOO build into one image and that's recommended way to limi=
-t
-> > unnecessary drivers.
-> >
-> > It's just confusing naming for whatever reason.
-> >
-> > > kernel has to support more than one of these, so what does putting th=
-is
-> > > behind a symbol that no one will actually use mean anything?  Android
-> > > will never be only building a ARCH_GOOGLE kernel.
-> >
-> > But distros will be, people will be. OK, maybe not for ARCH_GOOGLE, but
-> > ARCH_QCOM we do for Qualcomm-based laptops and embedded folks even more=
-.
-> >
-> > We had this talk in the past. The point is that these drivers here are
-> > unusable outside of that hardware platform, so only when you choose
-> > hardware platform (ARCH_EXYNOS, ARCH_GOOGLE, ARCH_QCOM) you will be abl=
-e
-> > to choose these drivers.
-> >
-> > You can also look at ARCH_FOO a bit orthogonal to actual kernel
-> > architecture, because ARCH_EXYNOS is for both arm (arm32) and arm64. Th=
-e
-> > drivers should be available for all Exynos-platforms, regardless whethe=
-r
-> > this is arm32 or arm64.
->
-> FWIW I don't feel strongly about the ARCH_XYZ Kconfig settings, but
-> I'd tend to agree with Krzysztof that I personally find them useful.
-> Sure, it's fine to just turn all of the ARCH_XYZ values on and they
-> shouldn't conflict with each other, but it provides an easy way for
-> someone to know that certain drivers are only useful if the kernel
-> you're building supports a given arch. If I'm building a kernel that
-> doesn't need to support any Qualcomm boards, for instance, I can just
-> turn that arch off and I don't even need to think about all of the
-> Qualcomm-related config options.
->
-> FWIW, if you do add a "depend" on ARCH_GOOGLE you should mention
-> somewhere (maybe "after the cut" in your patch) that ARCH_GOOGLE
-> doesn't exist yet. It should eventually exist when some version of
-> this patch lands:
->
-> https://lore.kernel.org/r/20251111112158.3.I35b9e835ac49ab408e5ca3e098393=
-0a1f1395814@changeid/
->
-> ...but it's not there yet. ;-)
->
-> -Doug
+The pull request you sent on Sat, 29 Nov 2025 19:01:05 -0800:
 
-Hi all,
+> https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git tags/fpsimd-on-stack-for-linus
 
-I appreciate the detailed discussion regarding Kconfig dependencies.
-Based on all the feedback, I'll make the following adjustments:
-- I will update the Kconfig dependency to depends on
-  ARCH_GOOGLE || COMPILE_TEST and drop the other
-  dependencies on OF && COMMON_CLK && RESET_CONTROLLER
-  as suggested by Krzysztof. This should also address the build
-  coverage concern from Greg.
-- As Doug pointed out, the ARCH_GOOGLE Kconfig option does
-  not exist... yet. I will add a note about this in the next version.
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/f617d24606553159a271f43e36d1c71a4c317e48
 
-Thank you all again for helping me improve this patch.
-I will send out a new version with these changes soon.
+Thank you!
 
-Regards,
-Roy Luo
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
