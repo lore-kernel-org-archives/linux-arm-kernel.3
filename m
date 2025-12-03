@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F39ED1BDD8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 20:21:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64C15D1BDD8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 20:23:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QznpLbY2spuWEypj9L2Cm6Dkh93rC1iUN/v7eCmrY4Q=; b=gP2EzXeXs8YLm9RMLz3Vn5+eQA
-	ESyHx8aZMT1IzHfqLWnFy6I6l8nS8HfcjpzqH/E/LuVJ/pIa6oNFpIXzFXeQ6l+KfSW78lYwaQuPF
-	rVUXT6C3lwY1uzISwG5y+sXA8go6naKr7ocwAc0GHak2C8Zz8FLDEX0Wa/evyDPIolzRl10brpzz/
-	6FhVfPZmTN6amvuuNmHEWgnEM3lVfn8UGRZzpQ3eicVX6qyn1dQyvfH8dobxY0i24o40nt2fLQq/T
-	8doPT3OQwQ2+mx1CqEWPFuSbvU7aGdujPNXrVHgMqxi2D0lCmSq3uq0my6iSx8gRPzewGsEwTVT1y
-	SJCiFztw==;
+	bh=XgIWvn45Ol59YX7A4N6l+xNIXT/v+a5H6neu07duj+o=; b=R1XEDULTa272JR9nvDvKbNlxeS
+	7nprSA3lBES0m2MrHkOf40wbJiQHIQqo2XUlt+dJptLL4B8s6EwmwpgDloy/LeP8hfo/oaWHs7U5L
+	CYavARD+3Jm9gYCBqv5agQl7V21iaLy5aspP4miHjMiHAnyaOBsVX06Lim0OcuSMhpExXnedFfcju
+	EE2ueDrK6p8Unap/3PUcJwXZDy9hWsj/hKGXOkpYVHCzllSW7clraCA5wKNWCQ1Z0pmeI5Hgga8WY
+	uEXSX1hoYETxA7dYVma6TwGAMIbDrS5VC+SwymGYLCSAMDCTeNJyGNOS2ODYFRT0YsH7Aczo8EYOg
+	mkgkjKhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQtM3-000000071cM-0toU;
-	Wed, 03 Dec 2025 20:21:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vQtNZ-000000071l7-3X01;
+	Wed, 03 Dec 2025 20:23:13 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQtM1-000000071bx-0RlA;
-	Wed, 03 Dec 2025 20:21:38 +0000
+	id 1vQtNX-000000071kD-2xOZ;
+	Wed, 03 Dec 2025 20:23:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4D75243B65;
-	Wed,  3 Dec 2025 20:21:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69DA7C4CEF5;
-	Wed,  3 Dec 2025 20:21:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 1B55E4355C;
+	Wed,  3 Dec 2025 20:23:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8565C4CEF5;
+	Wed,  3 Dec 2025 20:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764793296;
-	bh=O9CMw9zfUdZXbfDejAv/vHh09KuF634TFeTYh1UC4Mc=;
+	s=k20201202; t=1764793391;
+	bh=XgIWvn45Ol59YX7A4N6l+xNIXT/v+a5H6neu07duj+o=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=JjucZfJeY0OH9UWppFBT8tZoDIgM5X6kkGFdfa0GMDJTj8LJwdl37QIq0zTVkaVJ1
-	 saHKMTF8FxXZ60ffDNLavD+5nBvv1LuxG+wVC3wGxO9SQdkzLILuwgZGYObtleh6VQ
-	 41TCH055K1gO5rJ4SSunCW0L469BI1Ro0GouxOm40tkEWIsE+1oLNnEoX9XASPNME5
-	 p/0fLQoHcob4lBYr3KDhzNemZ5swnRImrLJACMctIRyjHXLIb53ZNTS5I3hDSUpSK5
-	 HA9eRkPvZE5uXcAbjUHMAK+yFfc6r+gw7zNY1jghkkUHb+8UbulhL45Joete5Z4k8b
-	 X+W8WThe5WggQ==
-Message-ID: <4dbab3a5-64bf-4c34-ad4c-94620a041993@kernel.org>
-Date: Wed, 3 Dec 2025 21:21:29 +0100
+	b=t1Gdf+iXwLN9LMuloorNGQYaolXRWMFPzt0jbqaLTUFnEmtunSgfVXBeC/a5xvR3i
+	 vxgHZqtI4xfMya49R/5myR08ZXyJLyrGJ5em7E7Fvzy6boEtidU2v243mzuClt3/BQ
+	 hUb1R8qs+P66mcLkEL/XJ8OryYjByuZHzS/yhq0rEajkTQspmOvY6yf70SneQKoPn6
+	 2hkBFwNRk0QbmVRv6WFcYdU9cpr8hSu3AIpqqNVgQu14/xokeLCn+0ft9iy90NTSVI
+	 xg8ltZTbniR7/H2KGuSuhgXTHbL86nSBQ932jP8Ne14bt/byttuHxZL7pwmn4DsXOX
+	 K3ieeeqHgUnCg==
+Message-ID: <1d516e97-5bfd-4bba-8496-65b00c26f76a@kernel.org>
+Date: Wed, 3 Dec 2025 21:23:06 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] dt-bindings: serial: mediatek,uart: Add compatible
- for MT8189 SoC
+Subject: Re: [PATCH 2/4] dt-bindings: arm: mediatek: add compatibles for
+ Mediatek Genio 520/720-EVK boards
 To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -58,7 +58,7 @@ Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
  linux-serial@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 References: <20251203-add-mediatek-genio-520-720-evk-v1-0-df794b2a30ae@collabora.com>
- <20251203-add-mediatek-genio-520-720-evk-v1-1-df794b2a30ae@collabora.com>
+ <20251203-add-mediatek-genio-520-720-evk-v1-2-df794b2a30ae@collabora.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,12 +104,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251203-add-mediatek-genio-520-720-evk-v1-1-df794b2a30ae@collabora.com>
+In-Reply-To: <20251203-add-mediatek-genio-520-720-evk-v1-2-df794b2a30ae@collabora.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_122137_193078_511A1485 
-X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-CacheID: sfid-20251203_122311_784962_1510D026 
+X-CRM114-Status: UNSURE (   7.25  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -126,15 +126,14 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 03/12/2025 14:59, Louis-Alexis Eyraud wrote:
-> Add a compatible string for the MT8189 SoC.
-> The UART IPs in this chip are fully compatible with the one found in
-> MT6577 SoC.
-> 
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-> ---
->  Documentation/devicetree/bindings/serial/mediatek,uart.yaml | 1 +
->  1 file changed, 1 insertion(+)
+> Add compatible strings for the Mediatek Genio 520-EVK (based on
+> MT8371 SoC) and Mediatek Genio 720-EVK (based on MT8391 SoC) boards.
+> MT8391 and MT8371 SoC are less powerful variants of MT8189 SoC,
+> with identical hardware register maps.
 
+BTW, subject length is precious, so you can skip redundant parts like
+"compatibles for" and just have it "add Mediatek foobar boards". That's
+also expressed in submitting patches in DT. No need to resend for this.
 
 Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
