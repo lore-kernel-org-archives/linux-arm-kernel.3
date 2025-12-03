@@ -4,66 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34530D15DB7
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 17:35:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5E67D15DB7
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 17:35:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QyRTIlA83lB7dKUhohqLPkWo1MVq5eVKHTK3JfG4Qh8=; b=I15hmL88Hwc+WX/GLqwd2y5UBM
-	/e1UYKAuZoxAyn+d67ZLjYXp3zk1r9xXm0WEulP0uL59d/PSpkAqpOAYjrtNoyVfKX+IEbB1rWlZs
-	lXVnJR1coveJYnw6BdAZatEh65Aozae+U5qmXGIk4eTnIL4l/YPcEmYMjZVkREaN6leKLrIab93uN
-	s39ddDtzUAOC8lTNPxKRemsQppIvyYw+85ToXEXOtI/d2JWbv8yfFbBps3VR6pL80ySRyN6XHu2DC
-	czYpiA/I/fwgypgchukUyu3ToKV5rpll7cDkgThP92jdQpDLNsW6yWIhwgSuReuGZPO7W7ymrmYrV
-	x1AhcuCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pBIAeD6BBunL3ffoRWNKg8vwEKhNUFVUNSD+huHswwI=; b=sS9+i7ig9vS3Ue6oKobnnHVHh7
+	worNAkP+A1Yw6w/IXLaiX8rewfmmdyZtdialMzSO8MVIrrNRg0agxxYNcEDqornmfGASO4YP+wOle
+	dKBw+khldJ2o5IDt1C+cW1w4kKojh9aPbQHBFf1GneTCa4LfPkCVyoTwG7B96Q8fJSd/vqFWeHN72
+	ekYS8R0jsBhJ+DlLqnhWQ274YeaLxcBUI4IOQ2f5+KSM+laeOa1SVsTYVaemniCbP/2pk8CimQ7On
+	VuzCmzbsznR9RfUSEeaZxIwvKNLBaHgF0sytGjlZtNWmiFxIXIp8AEAz5oCJPv/5EurtdmDdrWsFF
+	zYVvecrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQqkh-00000006rvD-42in;
-	Wed, 03 Dec 2025 17:34:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQqke-00000006ru5-1nWR
+	id 1vQqlN-00000006rzp-1HUQ;
+	Wed, 03 Dec 2025 17:35:37 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQqlK-00000006ryq-3mNc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 17:34:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6D3EC339;
-	Wed,  3 Dec 2025 09:34:41 -0800 (PST)
-Received: from [10.1.197.58] (eglon.cambridge.arm.com [10.1.197.58])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 45E733F59E;
-	Wed,  3 Dec 2025 09:34:40 -0800 (PST)
-Message-ID: <642767c9-f926-490a-83a1-160978c37553@arm.com>
-Date: Wed, 3 Dec 2025 17:34:37 +0000
-MIME-Version: 1.0
+	Wed, 03 Dec 2025 17:35:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=rYcn1Ea4hQXG59j3d3A11EMWwAGaT5eMjq3SsRFwLyhpPpgqTL8BdXs/KaFnBTA7u0Y5uvvUhwVPo+/63xfn3TJMSEqOlZcPPBfnwJ0Ey1xXhgXY3Bv6hG1MuWaa4/NKe2topOkLB/dKkkGBFxq3c5pwTMad19prRcMmcepEdEnOU0klaFWGsA4FZR0Vk4TPwh/u5HbeaIvFnaw1yOIcSJeEU+nqhc7SVWuK7cFu895j2I3q3K2eVjPCjB5oUs2naf1WvGM+s8ewaEncHb1FBcScO+hdNNK40We79Fz2VCFGey5QnWs5/KEo5fW3rzMNjqFjIc77SSqWA1y3weF4Cw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pBIAeD6BBunL3ffoRWNKg8vwEKhNUFVUNSD+huHswwI=;
+ b=VSG0YE7fg+6QADkxXe3yQAOP122lRh7PPt6MdLiW/lriTBUeaBnf7F819erTQ66lpQ6y7LSAblKnH2Nksxr41l3SAVqxffnrqYfzjWOrwzaMROD9TZuZRkZ0IhUjN4b1M3rZ3MlznRhOTChwsQC5yFUylEM5hsqzSYOrKSsOiQw16DBWbQ036hwsrpM/X3KEWDe4pSE0MohPMxO3KFFF/TuA5XnzbJCdW1gC5WWH/LBMLbNlp6omi9BjYCiTgqStZZQzlcAkmjFoTcw8cJ4hWC+yGFNw9S0/Mg2nBgE+UnuWQ89nHqJjpYA6GoenZHmD3lm3daE0BBP+1YJl2yrneg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pBIAeD6BBunL3ffoRWNKg8vwEKhNUFVUNSD+huHswwI=;
+ b=mKQVlCwiKlEO4IuSqRcO1Lo+fFTt8p+lfQ+ECADa8XlDQQn5W9VN/xp+J0ZIwcorBmkDnuP5dV591mawjsuejsLQ6aL/j5vCZrM8jJCBARgA7HWEms2m4dpYHqnRseZ5+0jiAI0exXH7uVPeDjFdWoCuon61MBO+kviS0jJUqo6G437n0FSm0EZYb0OYj4P8Nz43jYS3vgE3u4mkE6amLh2syBO95fS2pPP3fn5LUtAiykUjevvV2aeLtLF95zLch7rkkGmvpUA76a5LgnHFEZ388vJGNDOjr01/K+nHSsZHZroPkd5ZnEVb/CrEZXITs7G2k37W54cuzLD8SsdnDA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM9PR04MB8907.eurprd04.prod.outlook.com (2603:10a6:20b:40a::22)
+ by DU2PR04MB8805.eurprd04.prod.outlook.com (2603:10a6:10:2e0::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Wed, 3 Dec
+ 2025 17:35:28 +0000
+Received: from AM9PR04MB8907.eurprd04.prod.outlook.com
+ ([fe80::a361:2618:7785:3bc9]) by AM9PR04MB8907.eurprd04.prod.outlook.com
+ ([fe80::a361:2618:7785:3bc9%4]) with mapi id 15.20.9388.003; Wed, 3 Dec 2025
+ 17:35:28 +0000
+Message-ID: <36564f56-eb61-449d-a90b-980304b0f5ea@nxp.com>
+Date: Wed, 3 Dec 2025 19:35:27 +0200
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 00/34] arm_mpam: Add basic mpam driver
-To: Punit Agrawal <punit.agrawal@oss.qualcomm.com>,
- Ben Horgan <ben.horgan@arm.com>
-Cc: amitsinght@marvell.com, baisheng.gao@unisoc.com,
- baolin.wang@linux.alibaba.com, bobo.shaobowang@huawei.com,
- carl@os.amperecomputing.com, catalin.marinas@arm.com, dakr@kernel.org,
- dave.martin@arm.com, david@redhat.com, dfustini@baylibre.com,
- fenghuay@nvidia.com, gregkh@linuxfoundation.org, gshan@redhat.com,
- guohanjun@huawei.com, jeremy.linton@arm.com, jonathan.cameron@huawei.com,
- kobak@nvidia.com, lcherian@marvell.com, lenb@kernel.org,
- linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, lpieralisi@kernel.org, peternewman@google.com,
- quic_jiles@quicinc.com, rafael@kernel.org, robh@kernel.org,
- rohit.mathew@arm.com, scott@os.amperecomputing.com, sdonthineni@nvidia.com,
- sudeep.holla@arm.com, tan.shaopeng@fujitsu.com, will@kernel.org,
- xhao@linux.alibaba.com, reinette.chatre@intel.com
-References: <20251119122305.302149-1-ben.horgan@arm.com>
- <877bvfa23i.fsf@stealth> <a04aa337-a3eb-42a0-855b-500ba549e2d8@arm.com>
- <87sedrlsjk.fsf@stealth>
-Content-Language: en-GB
-From: James Morse <james.morse@arm.com>
-In-Reply-To: <87sedrlsjk.fsf@stealth>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH 1/2] remoteproc: imx_dsp_rproc: Skip
+ RP_MBOX_SUSPEND_SYSTEM when mailbox TX channel is uninitialized
+To: Bjorn Andersson <andersson@kernel.org>,
+ "Iuliana Prodan (OSS)" <iuliana.prodan@oss.nxp.com>
+Cc: Mathieu Poirier <mathieu.poirier@linaro.org>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ "S.J. Wang" <shengjiu.wang@nxp.com>, Fabio Estevam <festevam@gmail.com>,
+ Daniel Baluta <daniel.baluta@nxp.com>, imx@lists.linux.dev,
+ linux-remoteproc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>
+References: <20251125124903.962295-1-iuliana.prodan@oss.nxp.com>
+ <mkgc3gpgzvdvotzw4752om5ascwxpscocaj2x5urzaa7ss4iys@rsqb3ebrexw7>
+Content-Language: en-US
+From: Iuliana Prodan <iuliana.prodan@nxp.com>
+In-Reply-To: <mkgc3gpgzvdvotzw4752om5ascwxpscocaj2x5urzaa7ss4iys@rsqb3ebrexw7>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: AS4P251CA0002.EURP251.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5d2::8) To AM9PR04MB8907.eurprd04.prod.outlook.com
+ (2603:10a6:20b:40a::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8907:EE_|DU2PR04MB8805:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7f666854-2df1-4797-5e9e-08de329259a8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?eit3aDg1V21GNVZhS2FYMTh4TElFYUpGVmVyTVExU2ZqVHVjc1NsL2hkSXR4?=
+ =?utf-8?B?NS81MkxpTU5Ibk9DdmJpRk5kOFdIZ3MyOEYvOFVxcEsrZGtPZGdIMEJKN0ly?=
+ =?utf-8?B?eXRJbklPc3lpVDB2dTN1NUVlaWlrYktRYXF3dzVERlVVVFZtbWd5c1ZVWVdD?=
+ =?utf-8?B?N3p1aWJMckJTVmkvMWNTRUlJTkxzakNrOXd6SUVMSGY3QTVWRHZFcVF1NWtN?=
+ =?utf-8?B?RlVxMDE4VGQ2VFhCL2gyL3RldlMxZTErOWtnWVZDZjlYK3FnK01ya2lOZ1B5?=
+ =?utf-8?B?di9NZkRmUkdFNnQxbXZ4MnUyaXZTd1VyRm1LUVR5cUhzZjBJcjlyOEpGUE9k?=
+ =?utf-8?B?WEs0OFJxdGdKUXlpdEZkdmczY1pTd1EvUXM5bG9NNmhZWTJHWmtJd0ZOWlNP?=
+ =?utf-8?B?TFBkVFh0ZGZCUUYyOExlRGFNc3EvUU92WUNPVVJJWmxtSkNKQnlFNFBGOE1v?=
+ =?utf-8?B?Z2Q3T2JvVkJmVFhDcEdNbnIyUCs5REZHNnVHQU04T2E2bDNlUzZNdjdDczdC?=
+ =?utf-8?B?NXVLNk80em85MXFsMHFXZllUOW1BZ0tBYVIvQy85dHorbmh1QnB3bTRoeG5U?=
+ =?utf-8?B?bDNSVm5UM0RzT1NMalNXSDhnOU1zTkxXaTMzRDZuWnM2dFYvaXJXWkt5Q1h2?=
+ =?utf-8?B?VTJ5ZmtIVHZYcGZBRG53ckVjWTRaZmtMQ0FNTWVWY3JNYzc4SWNCMVBqQXgz?=
+ =?utf-8?B?TzBqOXlZRXVSb1QrY1MvaS94ZW1TTE1hekFUWUlKK0ErT3A4VHQ0cVk5Y3JE?=
+ =?utf-8?B?MVVSb09IYVhPeU5lYWxudGVxaTgyMnRZa3lITUt2ZUhsd3JZb0JXWGlOOTNZ?=
+ =?utf-8?B?dHVQRWdueHJtOGdHVUwvWGw2djhXOGRvSWZXa0dGNjltZEVqMURub1pmN25B?=
+ =?utf-8?B?RTB3MlpZOFJnalExdGRsTTdvOUlmclJFZ0dBSWFJMmJ4dmVhSnVzWWN6djJt?=
+ =?utf-8?B?ai9YVkZZenR5M2ZVQXREdGQ4M0dRd2NZSnZpU3JKMGdnblRVQjJPeTNCeStx?=
+ =?utf-8?B?cGh0RjUrakl0UzAvT1FOYUZkZkJaSGtCcHQxSkpvbTZoYThZY3A5cDF2NFl3?=
+ =?utf-8?B?eW1iZ2xlNFlSbXRnMmVnTFpOSStoalNSZmRYWkQvdGVLVEEzMnVPR3B3VWo2?=
+ =?utf-8?B?MDBabFk5VU9UV2dQNjNTL3c2Wmw1VzF1UCtXZWErTEdZQ3ZyYjNFazV4VVJs?=
+ =?utf-8?B?VmxoRzRPNi9BYnVsbE5KQTE4UnFndm1lWlZLYmNnNm03aG1GYmxYSWlsclVQ?=
+ =?utf-8?B?NkNnUmxiT0JJRVZrRWx1NkoyVDBTbzhzWDg3MmNwQ0xkY3BIVkhYYkg0WXZC?=
+ =?utf-8?B?VzZNR2QwY0hMT3U0dEw1b3F3elN1QjgxemNhNUU3S2NvSis0WFhVQXJ2MWc3?=
+ =?utf-8?B?L2V6dTNadGdYYnBHU3I3UFVwOE9hY09NbVhCTXdsSVNHSDNOYWtQRnhlcHYx?=
+ =?utf-8?B?OTFNWlVKRmhVMytHMFBPZXIrQTJvYUx4VU82cVBmdUVKVEczRGU0WkdoMFJo?=
+ =?utf-8?B?eVdIYkUxVTZUcVBkeVNTTXZOZDdQMjViM1V1OUkzR1FPMmtyMXRkc3FrV1ZO?=
+ =?utf-8?B?dkg1WUN4aE1rREJjTEF5ZVpqMXRCeE1YV1RRREQrZXU2VDNoUlZzUStFbFZG?=
+ =?utf-8?B?Nkh5ZmhIay9JemlLWHN0Znh2dW0wdEJudVRoMEFpYXNCM3N5RkdWbllVQ003?=
+ =?utf-8?B?eGNOV1dpK0Y1Um9zcmwyQWNFVVcvNHlveXloNmhIUVdWbXEzTlp3YUc1TTdI?=
+ =?utf-8?B?blRwUWtVQ3Jzcm1wVHRZZ0dNLzJIVkduVkpFVXpoRDZFUkJBenZEMWdaaUxX?=
+ =?utf-8?B?QnpjanJVZjk0RE5Xc0VLL0hyWGtBemNnZzY4L0JTZUlSYWpKYjRGNXNobWJN?=
+ =?utf-8?B?SGNHM3NmQ2NUa1BSSDZrWGcwT1NMajRPSmcycklsY2VPbzFaWEJxUU52SVVF?=
+ =?utf-8?Q?6I5klbeuz/GDSidHPkYlfcLS7t4x2qQ9?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8907.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?d2hHUERIVE1uamJxK0JoeUZjREh6SXczNFAvQ2dPYzRta21xa3hMY3FJWjhZ?=
+ =?utf-8?B?ZlNWUXJhR1BaMm1vVlVNaEJtejIySFplRWlsekdnMGIzNjhVc3pybVBzcThs?=
+ =?utf-8?B?NWlkVGM0dk1MRnFjWUpua1R3UDVQMzliU2I2ZkQ4MXhWYlJXZXN5TE9pSll4?=
+ =?utf-8?B?cDF1a0sxQ3krb3hzeExrNEI0TWlsei83VGhNdk5XeU5mQ0t1SnQ2Z1hudFFT?=
+ =?utf-8?B?R05saWhCT1AzUURtMUo0cFFmYmp6c3ZjS01kNjY0d0lMTXp4OTNFWnA1VXM3?=
+ =?utf-8?B?elByeVBSd1hUbW40VGVzaG01b2orN1d4ODhlZ0kxQlB5K1BGZkN2TkNGQlV1?=
+ =?utf-8?B?ZENnWTdTc1BPb21HZWp6M05CcTlDVk50dXIwWW90Qkl2SENCMTl6SVc4SDN4?=
+ =?utf-8?B?eFM2TytONUh2NHFrZjdMMzNxM3FIaEJ1QmJTdHl6QXZ5VjY0WjFxa0NvTFZW?=
+ =?utf-8?B?MmFCU1gxWEMxamVSbnN3cys3RVNDTnhOejFsQmRjMWZVSWIvRGxaQkg1QmlG?=
+ =?utf-8?B?QTZBWCtmWXN0dXNtV0NJWURxZFl0cTBmR1p5aFo3VEE5NWVSQm4wNmlJSzlw?=
+ =?utf-8?B?UDFuREF5aUZ3U3dqWHFtd1RRVUhpZ2xWbzA5RVNwZ1lZN0VXMitYaThjbUta?=
+ =?utf-8?B?VWZXNStyRlZUUHJYbUl0YmtCT0dtSnpOc2R0SFBaRGdscnVmL3F6R0dCT2JE?=
+ =?utf-8?B?dHV4QWcxYm9JWUc0TjlvNDVXTHVJbncvSGZzQkRCWlEwc0lKVFlLWUMxYUdx?=
+ =?utf-8?B?d0NSbC9WZlZYTno3aDVMT2tOS1ZERFhqUUdvKzBucm41ODRiR1gvbXhxU0Fl?=
+ =?utf-8?B?SGJ5TGJrVVgyUHI2cWZqTzZBSTZjaEF3bUdUTWRvUko3Z3JyNVBhRFJqaXlj?=
+ =?utf-8?B?cWtwSFdIVEZOOHlKRUxVRFZhSFEwajUvdG10aFpJaTdPakVMcmFIOUowZU50?=
+ =?utf-8?B?ekZqMDhNR0k0dWR1SGhqeWVqMzlQckZRNHlreTdOcWI0dDVLcEw3Z0dEa3Jw?=
+ =?utf-8?B?YWJGeDFGSGNFam5RaklJYkRYZmdnRDN2cVBpYnlxYmFEeml1eEI0WEhXL2hY?=
+ =?utf-8?B?MnozSnFIOEhTNVB4OWFmbngyU1JNOHJtRC9LRGRCYmZaMEM0SG1CS2oySHZK?=
+ =?utf-8?B?TE14MDBqaFYvblV5U2xQSkYxUjFqaDY5NGFtN09laStLU3hQd3ltcGdGRHUx?=
+ =?utf-8?B?VHZubkZ2RFFyUTBhdnMyb29Dd3FuZnFuRFhWVVVQbExFTFVJNTBZeHhBenV1?=
+ =?utf-8?B?elI3S1pGckpRSUp2cUkzclFHZ0ttTjFaaUcvTVlaN0xyd2QxWFo1VTZsYUxB?=
+ =?utf-8?B?bzc5ak45bU5SMUVqNGVBNW5aaFlsbWRtbFZQQ3hvdjVGTG5uaFFRaU90MDJm?=
+ =?utf-8?B?SzhkaHBVSjVZWjk0YnJlem9melUrR3UwQjlCa09XcXBCYmRJRnd0M1F6eU5S?=
+ =?utf-8?B?TGpvUDQrNm1BS0UxRk1HS3Rwa1ZQMCsxUHRjTGZBOVU5TGtMSXY3dUJ3R3Nv?=
+ =?utf-8?B?VDQ5dFFOM01EdTg5dXJQUkpJVkFyc3VIeG93YTZ3bm1TQUJ1eVpKMlhRQUN3?=
+ =?utf-8?B?eHl1QnBTVENCLzdNN1VjK0wzZnZmQVh0V3ZKMGlIK1hlam5jNGQrMHBpUDYv?=
+ =?utf-8?B?a1M3dlhPYmFCTUhyc0JWclRxN29aYjB4YmxnYzV3TjFoUGZ0NTlTc3RHbk5u?=
+ =?utf-8?B?V2tjLytFSnR2VjlmQTRCOU0xRDJPOG03M3lrWDNsVVJTcUNpbGVTaGg3UjRW?=
+ =?utf-8?B?TG5BY09PV2dvQWdVTjY1VW0zd1RmdEpyS3dFRC94Q0F3NDFBN3ZFdnZOUzBx?=
+ =?utf-8?B?UVNKMkJpK2VtZmo0Uk5oWXRBbTRhdW9rMndnMzZPaDZoOUs1TExTaWpWMkZT?=
+ =?utf-8?B?K3pTY0wxTnVuS1E1cHoyT2lKMWdrcXdkSmVib25FVWI0NURYSG9pSkhSYjl1?=
+ =?utf-8?B?cTU3NUNPTmg4OWdtK0t6ejJ3STlvTHo2OTcxSElZU3ByakdOL3RPdnZSKzNt?=
+ =?utf-8?B?Zkw4RE85K3FKSEk4dEU2clFmc2VnbkdrRlB4ckVjOWJOeU1XS0ZNYzJPQ1A5?=
+ =?utf-8?B?THNlRngzbGdjQnlNd0F5NzY1VW1yUnhhNEJFSGZKYm1CZHJzdUpIMGNkM0NE?=
+ =?utf-8?B?U0hTVEJpZUZlSjJuZi9Fb0IwVHJRRjV1TEVqNXVwb3Rnc1U3WEZ0RjlDQ2wz?=
+ =?utf-8?B?eHc9PQ==?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7f666854-2df1-4797-5e9e-08de329259a8
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8907.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Dec 2025 17:35:28.5183
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: A8+a+4+E4Ra9AFLHI7I/UWNNN9gJmJYrEol7tkGPij9O7Gb+rJ6yHyvzhPZua+io3FAqmHAkAT0NsXf1kSc9rw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8805
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_093452_622333_AD733972 
-X-CRM114-Status: GOOD (  21.16  )
+X-CRM114-CacheID: sfid-20251203_093534_950642_C564C526 
+X-CRM114-Status: GOOD (  19.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,87 +182,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Punit,
-
-On 03/12/2025 11:21, Punit Agrawal wrote:
-> Ben Horgan <ben.horgan@arm.com> writes:
->> On 11/24/25 15:21, Punit Agrawal wrote:
->>> Although a little late to the party,
-
-There was a party?!
-
-
->>> I've managed to throw together
->>> enough firmware to describe the MPAM hardware and take this set (more
->>> specifically mpam/snapshot/v6.18-rc4-v5 branch from James' repository)
->>> for a spin. Using the branch, the kernel is able to probe the hardware
->>> and discover the advertised features. Yay! We are in business.
+On 11/26/2025 10:14 PM, Bjorn Andersson wrote:
+> On Tue, Nov 25, 2025 at 02:49:02PM +0200, Iuliana Prodan (OSS) wrote:
+>> From: Iuliana Prodan <iuliana.prodan@nxp.com>
 >>
->> Thanks for giving it a go. :)
+>> Firmwares that do not use mailbox communication
+>> (e.g., the hello_world sample) leave priv->tx_ch
+>> as NULL. The current suspend logic unconditionally
+>> sends RP_MBOX_SUSPEND_SYSTEM, which is invalid without
+>> an initialized TX channel.
 >>
->>>
->>> Having said that, there are a few quirks of the platform that run into
->>> issues with later patches in the branch.
-
-So something in the resctrl support code is causing this.
-Any idea which patch causes this to happen?
-
-There are a load of pr_debug() in the picking logic, if you enable DYNDEBUG and add:
-| dyndbg="file mpam_resctrl.c +pl"
-
-to the commandline, you should get some snotty messages about what non-Xeon-like property
-your platform has.
-
-
-
->>> The platform has MSCs attached
->>> to shared L2 caches which are being skipped during later stages of
->>> initialisation. IIUC, the L2 MSCs' limitations stems from the
->>> assumptions in the resctrl interface.
->>
->> What in particualar is being skipped?
-
-> The registration of the discovered MSCs with resctrl and subsequent
-> exposing it to the user.
-
-resctrl's 'L2' support is limited to the CPOR bitmap.
-If you have controls, there is no resctrl 'event' that can exposed them.
-(the problem being they all have 'L3' in the name!)
-
-
->>> I was wondering if there are any patches available to relax these
->>> limitations?
-
-Knowing which property it is will help - but some of these things are checked
-to match resctrl's ABI. They can't necessarily be relaxed without breaking
-user-space.
-
-Others are sanity checks, e.g. all CPUs are represented. This is to avoid tasks
-that run on cpu-9 escaping the resctrl controls. Platforms that did this may as
-well not bother with resctrl at all.
-
-
->>> I can give them a try. Or do these need to be put together
->>> from the ground up? Any pointers greatly appreciated.
->>
->> There are some extra things added in the extras branch [1] e.g. cache
->> maximum usage controls (cmax). However, lots of possible things are
->> still missing e.g. any monitors on L2. If it doesn't fit with the
->> topology expected by resctrl then it is unlikely to have been considered
->> yet.
+>> Detect the no_mailboxes case early and skip sending
+>> the suspend message. Instead, proceed directly to
+>> the runtime PM suspend path, which is the correct
+>> behavior for firmwares that cannot respond to mailbox
+>> requests.
 > 
-> Thanks for the pointer. I'll give the snapshot+extras branch[1] a try.
+> Please use the allotted 75 characters of width for your commit message.
 > 
-> The platform does have both controls and monitors attached to L2. If
-> this isn't being looked at, I can try and put something together. Thanks
-> for confirming that the limitation is likely due to resctrl.
+Right, will do in v2.
 
-My view on 'extra' counters is to try and expose them via perf, as this would also
-allow platform specific counters. I worry that if we start adding 'easy' ones like
-l2_mbm_total to resctrl, someone will want left_hand_side_of_soc_mbm_total.
+>>
+>> Signed-off-by: Iuliana Prodan <iuliana.prodan@nxp.com>
+>> ---
+>>   drivers/remoteproc/imx_dsp_rproc.c | 9 +++++++++
+>>   1 file changed, 9 insertions(+)
+>>
+>> diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
+>> index f11662f9a12f..fc0470aa72c1 100644
+>> --- a/drivers/remoteproc/imx_dsp_rproc.c
+>> +++ b/drivers/remoteproc/imx_dsp_rproc.c
+>> @@ -1308,6 +1308,15 @@ static int imx_dsp_suspend(struct device *dev)
+>>   	if (rproc->state != RPROC_RUNNING)
+>>   		goto out;
+>>   
+>> +	/*
+>> +	 * No channel available for sending messages;
+>> +	 * indicates no mailboxes present, so trigger PM runtime suspend
+>> +	 */
+>> +	if (!priv->tx_ch) {
+>> +		dev_err(dev, "No initialized mbox tx channel\n");
+> 
+> Commit message and comment above says this is "normal" behavior,
+> dev_err() indicates that it's not. Should this be a dev_info()?
+> 
+> That said, it's still a message every time you suspend, so perhaps even
+> omitting the print (or a dev_dbg()) makes more sense?
+There's no error here; it's just a use case.
+dev_dbg makes more sense, I agree.
 
+> 
+> Regards,
+> Bjorn
+> 
+>> +		goto out;
+>> +	}
+>> +
+>>   	reinit_completion(&priv->pm_comp);
+>>   
+>>   	/* Tell DSP that suspend is happening */
+>> -- 
+>> 2.34.1
+>>
 
-Thanks,
-
-James
 
