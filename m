@@ -4,55 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C60F2D12D66
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 13:59:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D7CD12D63
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 13:59:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+vYu6LjX8XT4IgKBK3O3pvK9BhTvhKVHAwMCcDLNsuE=; b=NGhvuynfBkAIzn8dQ0BHG0sCrS
-	osmOwYDohoCoesRNEbbfnyCbPa0qiUIs/0fYecTN2V62YLzJnYD1jiJXAaYJLYPOlBxKoDC7WuTJs
-	ZImmG1eqdCRBnn0LkEaBMBpWUhzI4KCata8TH6cf1C1aEnd6++EY9CvWZJ8gliBfS8vrmTZ0vakwq
-	yMkwDaiJ13D16BYg+C0V/B/spPqx+2Jj5qyA/wL31CQyN/lEQ4c5cFbluQveLrESzyiSDRe0wLGrv
-	OjdrGc4BZ39xyHpLB+KmRUO76FoIKt+d+aLIrWmAYeAXfa2AvYF0rZrDnuwbDbO+GuRuqgLt3Qusg
-	hHFZjLNw==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8izJh6f1bSPSHDTutLIF7RS5/aLoqbP9BWoy91mqRFQ=; b=Nytqt/xac3PCZB
+	ssyXapex5uNCmbPijHWZhyJKa1PPnWYXQVh2rN8JCURM7ValmEc3c2jC8QrrFrTiZfbVTPHK45H6D
+	E+ScS5XtBm8lundQuE8a0Oh3IOqEdmwprbC1sQzoeZaJxDaDBokgaEn/q8HqPxFYcEPJx3nyVzrD+
+	+pHCWpmlnr4GIEYgTuM897vmPbPq+k2FjoYdVqeoqM2odhKnFigE7XIFtMprEJKXaAu8ZVwDBG0fU
+	NCtXTK2JsV86dmdPoXl2Fv8390zSmh8DoZhdl+lGPl5dW0YWKhDtGY+Tg5zxuK2+4ZMSO+z3D7RUt
+	SlqeeAfCpKsL5BV4zX4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQnOT-00000006c5K-2yev;
-	Wed, 03 Dec 2025 13:59:45 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQnOQ-00000006c1Y-4BO7;
+	id 1vQnOS-00000006c32-0Rct;
 	Wed, 03 Dec 2025 13:59:44 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQnOO-00000006c12-3waU;
+	Wed, 03 Dec 2025 13:59:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1764770380;
-	bh=5RzIhfynSwf60ufTcSsowDIcBzDbf1yZS7wGFV2NLjQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=XCjhSghmG+sjwO7no+zMupcIuWrS6ev6eGEy2u94y4gS/ttibODVWFyyQioU7BKgY
-	 09OYiA4nA6UsTvE8bbGg4zFqxsfeolNz9jJ+VlwND9o2CSC04RhRr3Xopr78PPl3mh
-	 uqgl+aQioFvyWp32XF12XBOBEpjCNXb46ODyHm/uIDBNYkFgMQ6mGxHbPn87if2EJx
-	 g6BIvmHv8nP11FoZcnlPKGBsaFSM6iWfLJBSRVnOh9ENxVjS3hihKgYYbqChW0nxCS
-	 43Sjml2LtnODswWF4q606pkGTUO7xNOQ4qooS8+/0NfGxRz2F8Srq/rsFYY2c+UuFA
-	 hyQg1i7MNvSkg==
+	s=mail; t=1764770377;
+	bh=7rdCs97YBrArOUGWG2Izgfsf1uq95fUzJXwZjjk8CAU=;
+	h=From:Subject:Date:To:Cc:From;
+	b=lWatP1FtrOynHRXcB8k9cdCtkJrYIlvRZhwtN3vRhz15auBx9FfHi9pWgmbb7Efkf
+	 1KctHMwbhzJNauPI/RXdRWGuqpux28GRe6acMiAGw4qRaMa3sW0i/k8t5pl/DCDe8Q
+	 J1lno8UzqnGJ+4+5gtzn3FIDn7f290Vvh+HKKiQ/+BaH2s4Ldy0OXITYoK5YDUavKi
+	 cg4jcD07wsGzJQdEmH8Hs45hc9LWdA2VhwNXwUVOqFqaxkOEQrlUj1ZWIQrl88QxCO
+	 bac5BTWglrW81mZj538/s+KVhsJyIUTBrJp24buDWjJufcLigXPUXpWB5oT7iTq637
+	 GomKpELWEWh1w==
 Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2298E17E10F6;
-	Wed,  3 Dec 2025 14:59:40 +0100 (CET)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0EF0317E0117;
+	Wed,  3 Dec 2025 14:59:37 +0100 (CET)
 From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Wed, 03 Dec 2025 14:59:29 +0100
-Subject: [PATCH 4/4] arm64: dts: mediatek: add device-tree for Genio
- 520-EVK board
+Subject: [PATCH 0/4] Add support for the Mediatek Genio 520-EVK and 720-EVK
+ boards
+Date: Wed, 03 Dec 2025 14:59:25 +0100
+Message-Id: <20251203-add-mediatek-genio-520-720-evk-v1-0-df794b2a30ae@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251203-add-mediatek-genio-520-720-evk-v1-4-df794b2a30ae@collabora.com>
-References: <20251203-add-mediatek-genio-520-720-evk-v1-0-df794b2a30ae@collabora.com>
-In-Reply-To: <20251203-add-mediatek-genio-520-720-evk-v1-0-df794b2a30ae@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/42RyWrDMBCGX8X43DGjzbZCKXmPEoosjR2ReKmlm
+ LQh717FoZfSlhzmMBL6/kWXPNDsKeSb7JLPtPjgxyEt7CnL7d4MHYF3ac85csUYr8E4Bz05byI
+ doKPBj6A4QpWGlgNgyUouqkpX0uUJMs3U+vMq8Lq77zO9n5JOvB/mjQkEdux7HzfZQOcIqxZHc
+ XvfUwhmdbHJntcLFAh9rFmtwUVo/OD80AXw3MLCgIFqStRM2lIqsbXj8WiacTZFUnj5A8j1b8A
+ w9f5ObBsyjBtJTtEjRKzTCMFEWVQVqkT4TFXepuho+13eP45YapFLIbBgTKoSMSH8vCRbYPfF0
+ Q+PQFKB37HWP+sthNM0jXO8pUJolSUpOOMt6YdSaaaRo+KqqDTKZGmMb9bE/UdxPv0wtLtevwA
+ z+nfsWgIAAA==
+X-Change-ID: 20251128-add-mediatek-genio-520-720-evk-06162377974d
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
  Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -65,16 +71,16 @@ Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
  Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764770377; l=3311;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764770376; l=7049;
  i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=5RzIhfynSwf60ufTcSsowDIcBzDbf1yZS7wGFV2NLjQ=;
- b=wPwMYUZq6iOSoCHWLmsZHVjtkg4yetPn3n4kbFw6/K/Euen42IqOv6aTmYy5MxJn+xXoJzooR
- RhsfnXX2z/FC3gEeA0WpyvNQz4IR2cyjIS8UeilUdQwB5Xmqowpkeh3
+ bh=7rdCs97YBrArOUGWG2Izgfsf1uq95fUzJXwZjjk8CAU=;
+ b=7JHZiNf2mB0ojn1S4yGXzfOXq+DMc74QOfpKZVxN5Mgk2Pabloe373q+OTpu518rNZfXWXfTW
+ NvQoT/eGDm2DTwKFzjVXC9XRrvpzWpAKR3GHzsG0B5GD5pIe70NaycJ
 X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
  pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_055943_199906_A7E03999 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20251203_055941_155031_B3C9EE35 
+X-CRM114-Status: GOOD (  16.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,19 +95,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device-tree for the basic hardware enablement of the Genio 520-EVK
-board, based on MT8371 SoC.
+This patch series adds the support for the Mediatek Genio 520-EVK (based
+on MT8371 SoC) and Mediatek Genio 720-EVK (based on MT8391 SoC).
 
-MT8371 SoC is a variant of MT8189 SoC with the following differences:
-  - Arm Cortex-A78 CPU core maximum frequency (2.2 Ghz for MT8371, 3 Ghz
-  for MT8189).
-  - Arm Mali G57 MC2 GPU core maximum frequency (880 Mhz for MT8371, 1.1
-  Ghz for MT8189)
-  - one ISP engine instead of two
-MT8371 hardware register maps are identical to MT8189.
+MT8371 and MT8391 SoC are less powerful variants of MT8189 SoC
+with the following differences:
+  - Arm Cortex-A78 CPU core maximum frequency (2.2 Ghz for MT8371, 2.6
+    Ghz for MT8391, 3 Ghz for MT8189).
+  - Arm Mali G57 MC2 GPU core maximum frequency (880 Mhz for MT8371,
+    1.1 Ghz for MT8189 and MT8391)
+  - ISP engine number (1 for MT8371, 2 for MT8189 and MT8391)
+MT8371 and MT8391 SoC hardware register maps are identical to MT8189.
 
-The Genio 520-EVK has following features:
-  - MT8371 SoC
+The Genio 520/720-EVK boards have following features:
+  - MT8371 (or MT8391) SoC
   - MT6365 PMIC
   - MT6319 Buck IC
   - MT6375 Charger IC
@@ -133,51 +140,105 @@ The Genio 520-EVK has following features:
   - 40-Pin 2.54mm Pin Header x 1
   - CAN Bus x 1 (RS232 Connector)
 
+The series adds two include files for mt8189 (mt8189.dtsi) and common
+board definitions (mt8391-genio-common.dtsi) and a devicetree file for
+each board. In regard to the current MT8189 SoC upstream support and in
+order to limit the number of prerequisite patches, this series provides
+the following basic hardware enablement for:
+  - cpu
+  - clocks
+  - spmi and regulators
+  - UART 0/1/2/3
+  - eMMC and SD card
+  - watchdog
+  - timer
+  - efuse and socinfo
+  - auxadc
+
+The series is based on linux-next next-20251203 tag, and the
+following patch series are currently required:
+- I2C dt-bindings [1]
+- SPMI dt-bindings [2]
+- timer dt-bindings [3]
+- Add support for MT8189 clock/power controller [4]
+- Add SD/MMC Card driver support for Mediatek MT8189 SoC [5]
+- mt8189: Add pinmux macro header file [6]
+
+Note:
+The v3 revision of [4] patch series is causing the following `make dtbs_check`
+issue for both board devicetrees:
+```
+arch/arm64/boot/dts/mediatek/mt8391-genio-720-evk.dtb: /soc/clock-controller@1c000800: 
+  failed to match any schema with compatible: ['mediatek,mt8189-vlp-ao', 'syscon']
+```
+The mismatch between compatible string in driver and dt-bindings has
+already been reported during the series review ([7]) and hopefully will be
+fixed in its future revision.
+
+[1] https://lore.kernel.org/linux-mediatek/20251030-mt8189-dt-bindings-i2c-v1-1-5b60914c6453@collabora.com/
+[2] https://lore.kernel.org/linux-mediatek/20251029-mt8189-dt-bindings-spmi-v1-1-fbea12a4ed5e@collabora.com/
+[3] https://lore.kernel.org/linux-mediatek/20250825033136.7705-1-zhanzhan.ge@mediatek.com/
+[4] https://lore.kernel.org/linux-mediatek/20251106124330.1145600-1-irving-ch.lin@mediatek.com/
+[5] https://lore.kernel.org/linux-mediatek/20251203-mt8189-add-mmc-support-v1-0-f5ce43212fe9@collabora.com/
+[6] https://lore.kernel.org/linux-mediatek/20250919020525.7904-1-ot_cathy.xu@mediatek.com/
+[7] https://lore.kernel.org/linux-mediatek/a50e6d433afcf8b08a47694bc5a52acc28871ee5.camel@collabora.com/
+
 Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 ---
- arch/arm64/boot/dts/mediatek/Makefile                 |  1 +
- arch/arm64/boot/dts/mediatek/mt8371-genio-520-evk.dts | 19 +++++++++++++++++++
- 2 files changed, 20 insertions(+)
+Louis-Alexis Eyraud (4):
+      dt-bindings: serial: mediatek,uart: Add compatible for MT8189 SoC
+      dt-bindings: arm: mediatek: add compatibles for Mediatek Genio 520/720-EVK boards
+      arm64: dts: mediatek: add device-tree for Genio 720-EVK board
+      arm64: dts: mediatek: add device-tree for Genio 520-EVK board
 
-diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
-index e3b63085c0608b86dc8638c9d5e0b73441e9ed7b..e6356733a1c0ad5f3ccf9517f3e393ba5f114da8 100644
---- a/arch/arm64/boot/dts/mediatek/Makefile
-+++ b/arch/arm64/boot/dts/mediatek/Makefile
-@@ -106,6 +106,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8195-evb.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8365-evk.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8370-genio-510-evk.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8370-grinn-genio-510-sbc.dtb
-+dtb-$(CONFIG_ARCH_MEDIATEK) += mt8371-genio-520-evk.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-genio-1200-evk.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-genio-1200-evk-ufs.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8390-genio-700-evk.dtb
-diff --git a/arch/arm64/boot/dts/mediatek/mt8371-genio-520-evk.dts b/arch/arm64/boot/dts/mediatek/mt8371-genio-520-evk.dts
-new file mode 100644
-index 0000000000000000000000000000000000000000..b259fc6c01a13bb84c1ed8b4433a799241a28a6b
---- /dev/null
-+++ b/arch/arm64/boot/dts/mediatek/mt8371-genio-520-evk.dts
-@@ -0,0 +1,19 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (c) 2025 Collabora Ltd.
-+ * Author: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-+ */
-+/dts-v1/;
-+#include "mt8189.dtsi"
-+#include "mt8391-genio-common.dtsi"
-+
-+/*
-+ * MT8371 SoC is a variant of the MT8189 with only one ISP engine
-+ * and lower maximum frequency on the big cores and on the Mali GPU.
-+ */
-+
-+/ {
-+	model = "MediaTek Genio 520 EVK";
-+	compatible = "mediatek,mt8371-evk", "mediatek,mt8371",
-+		     "mediatek,mt8189";
-+};
+ .../devicetree/bindings/arm/mediatek.yaml          |  10 +
+ .../devicetree/bindings/serial/mediatek,uart.yaml  |   1 +
+ arch/arm64/boot/dts/mediatek/Makefile              |   2 +
+ arch/arm64/boot/dts/mediatek/mt8189.dtsi           | 860 +++++++++++++++++++++
+ .../boot/dts/mediatek/mt8371-genio-520-evk.dts     |  19 +
+ .../boot/dts/mediatek/mt8391-genio-720-evk.dts     |  15 +
+ .../boot/dts/mediatek/mt8391-genio-common.dtsi     | 555 +++++++++++++
+ 7 files changed, 1462 insertions(+)
+---
+base-commit: e47d97576181b31291cf58e77d737d21def0e160
+change-id: 20251128-add-mediatek-genio-520-720-evk-06162377974d
+prerequisite-message-id: <20251030-mt8189-dt-bindings-i2c-v1-1-5b60914c6453@collabora.com>
+prerequisite-patch-id: af92e103b9f50af16560a11d4eabc644bd724b07
+prerequisite-message-id: <20251029-mt8189-dt-bindings-spmi-v1-1-fbea12a4ed5e@collabora.com>
+prerequisite-patch-id: c82ad0d3145322fea43aed2e1d830ebc8eae8180
+prerequisite-message-id: <20250825033136.7705-1-zhanzhan.ge@mediatek.com>
+prerequisite-patch-id: 7aeee7d452186b3bc1c11722b7ddb7dfbae7d396
+prerequisite-message-id: <20251106124330.1145600-1-irving-ch.lin@mediatek.com>
+prerequisite-patch-id: ea3e5cf891c9753a77f126ad1ddad455a0752883
+prerequisite-patch-id: ae9a4cb1daadb56cc298b87142b29b749dc11835
+prerequisite-patch-id: 3df47b0207d75102032975e6811f71a5e7909e43
+prerequisite-patch-id: 1c25a1327d50152cef227f58c08076072d65cee3
+prerequisite-patch-id: f2cd301aea79253adb85bd3f62c012dd3850e1a7
+prerequisite-patch-id: 81dc09321182c48f6928582e8b9d22f35a757515
+prerequisite-patch-id: e0a251231fd14fa582800db8f3bb77011f6836f9
+prerequisite-patch-id: da7c54c83cb8566df39beac753c80615523479e5
+prerequisite-patch-id: 2f3d41e32b230ddc016fd75ace5b286cd11b2127
+prerequisite-patch-id: 309f350ed5c942b640b5c3434737fee28d6825b0
+prerequisite-patch-id: 7579b6db7ec7a31e28db616c73b4c1b0eb4ee106
+prerequisite-patch-id: 0cdea5380c8d35cfd89e01bf843ef7fdafbc7830
+prerequisite-patch-id: 3dc3e377981d3c894fc39122200a0f0d46f5d71b
+prerequisite-patch-id: b57bf39e50a5316d2f9264e1eb89071d3e8e8b0a
+prerequisite-patch-id: 56fd80d33667839823794173064860c613f911cd
+prerequisite-patch-id: 963a3ed54fb5fd9fd518f28254eaf93a70b2f603
+prerequisite-patch-id: 3c9cbc33093f754d867ca324cc7e689fbbaae8af
+prerequisite-patch-id: 336ba35d1924706d1d21c6e46718d973277f207a
+prerequisite-patch-id: f3322d6494603585fc4728074484055d07484dd6
+prerequisite-patch-id: f5a70e41fe9df7df0ab29538701bdfdb401a9d01
+prerequisite-patch-id: b46a91afc38bea2ee6a8440f59e71e39728df6ad
+prerequisite-message-id: <20251203-mt8189-add-mmc-support-v1-0-f5ce43212fe9@collabora.com>
+prerequisite-patch-id: feab935ed7d0d7234dcc1980185300782c61620e
+prerequisite-patch-id: efbd41a9926397f9b3ffd19235a04791b61f35c7
+prerequisite-patch-id: 5b12a1056dfe87e4d39af584d8b16c31a1a00a04
+prerequisite-message-id: <20250919020525.7904-1-ot_cathy.xu@mediatek.com>
+prerequisite-patch-id: 7f2d960cde2f0e0a307721150e83b7b05b9a60d7
 
+Best regards,
 -- 
-2.52.0
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
 
