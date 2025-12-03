@@ -4,94 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E98C9D1BDD8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 20:25:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31FDDD1BDD4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 20:26:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oizhgXioNHlMsxU7fpUazMHWzQeHiexW1qEA1YQTP5s=; b=02Nz+oi5tVItp0eGFIh/pY9qLe
-	9UvTB4JKJAePrBP8dQAuzJyQs9lnTputMcMBKpeQ0dmNte6vZvu2X1W5fEtQUL/a+gRJfC7DjqRzp
-	x5nQiMKDq0o7pf/yTR1DH2W2D78ZWePzLZmxMIiWRtosj8wjou9JSXsV231LoNuTZZLJtUniahco5
-	XRzU/arLPUY/8NTsdkx6QlYiHen8Nxk1zG2rChfWJ6hkkc60QsC/JL0GjvgEBUdZyXEpQDEbg/iIh
-	no+TV8LWV2K020zLn5PNV4sSaIuYE8S5FgUPhfpKIregQU1LJE5Y13aIq3Xxr9sXMeV82nRMhGdwc
-	+ake4+GQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QHhoJvXmUUdfSoud9hbXEJJ96AjgJheRg7j9O/4CTvk=; b=JpXkgLQpSmVABeLay2RVUQVIIB
+	18hrSpM27a/H5ateUvh7KFKwPeFGz1/V46VdL3rrhBmRF5mqNvf51QiJyQ2roMN/q+xYkTDAkUPo+
+	zv1eW7uoJ+SREbQ5f4ss3FL2DYiBiBVNo0pGhl842PCOVO05oqWrfQyr+kwtjThFicyFuyx3y2pTP
+	13cko6kVPIKSI+ynOjyWcztGbZj35bsbUmTjVz3MalsbQey1HdGsAjOni2zkdnYcdYHbrKb2A7kXX
+	hbMUPFLtPmz3cf6YO0VtQFUhi+o990v5IM3U0iawclXGS5zmL6BHeiGmWyLtddKhEFNBx0kOxc3AL
+	UJoVhSvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQtPb-000000072Bc-1Qp7;
-	Wed, 03 Dec 2025 20:25:19 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1vQtQG-000000072Iv-2weK;
+	Wed, 03 Dec 2025 20:26:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQtPY-000000072B4-1cCX
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 20:25:17 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-429ce7e79f8so160850f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 12:25:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764793514; x=1765398314; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=oizhgXioNHlMsxU7fpUazMHWzQeHiexW1qEA1YQTP5s=;
-        b=gwXmMvxOTFGOEtEtvr1qlBInMN/9F54Sdb+bHV4ZhrqF4/a3tKq6T8UiO1lJWOqkXo
-         ufNPlvO4UUICNc4vD8Ax7zp6MjAFa/+/x1MEj5nyoVJ0gjXnVpwKdZb5+XEyOONmhtZp
-         cBlBsWDrMaAhaOE+1XpcGNhYA3NjbBtJSxV1bplQSSnF3Yd/IkhBTwSsTG1GcD+m8F7w
-         eIToiyQ2ktO3IrvsJvGMFRgH3AqwlxyXoQ87z/+zh6ulN0BJNDwIxtfimG5EFCx/u47h
-         t+INkWMx7ssfHvGdFGD+JTZdP+l5SZJJOnY9AZsANXRFuSLGootGtygfOH7K4NUCcc9f
-         7HBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764793514; x=1765398314;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=oizhgXioNHlMsxU7fpUazMHWzQeHiexW1qEA1YQTP5s=;
-        b=HeU1ESep1hmOTK2kpADItR3nmMswJhlIEAqDXh67Gri+jiDIELWdgpmOvYS0VVPbZ4
-         jH2M3Css/iIuFmrAf55H/PSR176OSf7QhIWHvaWE5p++UOMJF0wqYsccbFDsGn+jk01X
-         nmF8Du5bYpXBQGjySh6lmOb/4I3ERSqyeGQcuHLaBCkGbUqtdbFayUoZjRq9qBwXO7uk
-         0MK1gtGMRb5aPFquzSUXFVXhcjIThyTOw0+pSEXTUFEvTpuxeqeATl0zpansV7qLMAWE
-         7fudvmtCXEoUd3IeF8qY3SXBAC6OsjP/PdGGUI/e8ImF3FbGv+qNHHPpN6zVSLyg3sN3
-         wnVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVJmhU1VIpRzEnMJonPAYQn3ZdlnJMBaTLDLxNyOh+Q46SL2I7WrlIwDYkv1spE3XtRAAeHTFQtbLj88UvV0y5x@lists.infradead.org
-X-Gm-Message-State: AOJu0YyxQv2CArnGD4HMDBL0EilMpL0Vc3/N/w8XZydJaDql3sg6uNL/
-	/jyCE9AZyXKHgamMtJi1CxZcmaKf9+dvBafoZTphtujOnE3w5+OP8uhS
-X-Gm-Gg: ASbGncuuGZZQJVq8aWpdWOX2vxPaOCOiv6io6YGuVP6QiGhIcyAs8t9wneDdWjMQxMe
-	IUamXWq3fTsbCPXei0k4es6VXIKkeEOw9n1iE70MU6LS9zW3sIIC5I+m7WWfrR+cTISg6lVf2BP
-	14kx5LQEcoh695k/vI5cHCiS/fXfwAjiFooJC68aeupyofc/1gy8k5eSufc+XAhnVn2noa7VdKj
-	I+yu1vKdi91oPofZ2G7uYyOdOkc5aVLGxbNINhkXOQFwnv1iDRAa9jFKblJPAQmvIAeolmkLKKR
-	JpWJkOTnXP3dPzu+eLIlH9QnUnooLGgY5DwRSjM5yyN5nPYreboJVxneylxng1gR3LYRoVxkukZ
-	VObYcUXDANZui5bTreanO2LAIvPSnfYVeG7ZEXVQ2u4OChpe+iTAFXxddf8zYbThZ/3/NNkzNHw
-	g=
-X-Google-Smtp-Source: AGHT+IFB0dXhJUy1H3c/C1Xkph6gjV5AO8hAVflW07n8nwfxgbiBQcjbDHqUFViroxpKvd/enGc4Jg==
-X-Received: by 2002:a05:6000:430e:b0:42b:2a41:f3d with SMTP id ffacd0b85a97d-42f797fdfe9mr305634f8f.19.1764793514432;
-        Wed, 03 Dec 2025 12:25:14 -0800 (PST)
-Received: from krava ([176.74.159.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42e1c5d614asm40905162f8f.12.2025.12.03.12.25.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Dec 2025 12:25:13 -0800 (PST)
-From: Jiri Olsa <olsajiri@gmail.com>
-X-Google-Original-From: Jiri Olsa <jolsa@kernel.org>
-Date: Wed, 3 Dec 2025 21:25:12 +0100
-To: bot+bpf-ci@kernel.org
-Cc: rostedt@kernel.org, revest@google.com, mark.rutland@arm.com,
-	bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, ast@kernel.org,
-	daniel@iogearbox.net, andrii@kernel.org, menglong8.dong@gmail.com,
-	song@kernel.org, martin.lau@kernel.org, eddyz87@gmail.com,
-	yonghong.song@linux.dev, clm@meta.com, ihor.solodrai@linux.dev
-Subject: Re: [PATCHv4 bpf-next 4/9] ftrace: Add update_ftrace_direct_add
- function
-Message-ID: <aTCcqGiWnEmGGuRI@krava>
-References: <20251203082402.78816-5-jolsa@kernel.org>
- <d0d8e0d78f614eb8b443772b50fb36093d48c7f43374316246ad3ad836b5c9ce@mail.kernel.org>
+	id 1vQtQE-000000072II-2w5T;
+	Wed, 03 Dec 2025 20:26:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3A2D043A0E;
+	Wed,  3 Dec 2025 20:25:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DAB2C4CEF5;
+	Wed,  3 Dec 2025 20:25:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764793558;
+	bh=1dHiE50PARVA55BHa12b+LSSa7hK9g+a5iEtRcxDlp0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=uqM1T9IGYpEfm3flEc6acjxt+jcMe1uCjtU7vIfGWEfzgkawFt7BTe1yGll+QeEEk
+	 W088Sxp/enJhCOfGkk+seRmTQJaOj52oYR3WCf8mJ6uZOdBMq9wASvh9VHzYrMN/FU
+	 o5IPUtvO1fkd9EqSAsTMPhDgNHQrwnNIQ9N3kmRTSWBcGU9rIZmyVXFlYqf9a89VNE
+	 +ykjhbq3EgILzXIog8n1JocFR8AmcUBNluHAPTz9bmsEcOId6H9NSw7K6bdm/sk6GY
+	 gRCJcmZ6QKJIQynMpq9rTJfqkHPusRPi0m4qaxb2xhaSHGgTUr60c6k6w4ONy8WXj2
+	 f8ovhSmPdVr7g==
+Message-ID: <87db9b43-ceae-47b9-9435-9fa297054fc2@kernel.org>
+Date: Wed, 3 Dec 2025 21:25:53 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d0d8e0d78f614eb8b443772b50fb36093d48c7f43374316246ad3ad836b5c9ce@mail.kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] arm64: dts: mediatek: add device-tree for Genio
+ 720-EVK board
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Sean Wang <sean.wang@mediatek.com>
+Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
+ linux-serial@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20251203-add-mediatek-genio-520-720-evk-v1-0-df794b2a30ae@collabora.com>
+ <20251203-add-mediatek-genio-520-720-evk-v1-3-df794b2a30ae@collabora.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251203-add-mediatek-genio-520-720-evk-v1-3-df794b2a30ae@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_122516_451248_C984EC7D 
-X-CRM114-Status: GOOD (  24.93  )
+X-CRM114-CacheID: sfid-20251203_122558_784221_39B20422 
+X-CRM114-Status: GOOD (  22.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,139 +124,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 03, 2025 at 08:47:45AM +0000, bot+bpf-ci@kernel.org wrote:
-> > diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
-> > index 8c034b028..eb60d971e 100644
-> > --- a/include/linux/ftrace.h
-> > +++ b/include/linux/ftrace.h
+On 03/12/2025 14:59, Louis-Alexis Eyraud wrote:
+> Add support for MediaTek MT8189 SoC and its variants, and a device-tree
+> for the basic hardware enablement of the Genio 720-EVK board, based on
+> MT8391 SoC.
 > 
-> [ ... ]
-> 
-> > diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-> > index 84aee9096..1660a8754 100644
-> > --- a/kernel/trace/ftrace.c
-> > +++ b/kernel/trace/ftrace.c
-> 
-> [ ... ]
-> 
-> > +int update_ftrace_direct_add(struct ftrace_ops *ops, struct ftrace_hash *hash)
-> > +{
-> > +	struct ftrace_hash *old_direct_functions = NULL, *new_direct_functions = NULL;
-> > +	struct ftrace_hash *old_filter_hash = NULL, *new_filter_hash = NULL;
-> > +	struct ftrace_func_entry *entry;
-> > +	int i, size, err = -EINVAL;
-> > +	bool reg;
-> > +
-> > +	if (!hash_count(hash))
-> > +		return -EINVAL;
-> > +
-> > +	mutex_lock(&direct_mutex);
-> > +
-> > +	/* Make sure requested entries are not already registered. */
-> > +	size = 1 << hash->size_bits;
-> > +	for (i = 0; i < size; i++) {
-> > +		hlist_for_each_entry(entry, &hash->buckets[i], hlist) {
-> > +			if (__ftrace_lookup_ip(direct_functions, entry->ip))
-> > +				goto out_unlock;
-> > +		}
-> > +	}
-> > +
-> > +	old_filter_hash = ops->func_hash ? ops->func_hash->filter_hash : NULL;
-> > +	old_direct_functions = direct_functions;
-> > +
-> > +	/* If there's nothing in filter_hash we need to register the ops. */
-> > +	reg = hash_count(old_filter_hash) == 0;
-> > +	if (reg) {
-> > +		if (ops->func || ops->trampoline)
-> > +			goto out_unlock;
-> > +		if (ops->flags & FTRACE_OPS_FL_ENABLED)
-> > +			goto out_unlock;
-> > +	}
-> > +
-> > +	err = -ENOMEM;
-> > +	new_filter_hash = hash_add(old_filter_hash, hash);
-> > +	if (!new_filter_hash)
-> > +		goto out_unlock;
-> > +
-> > +	new_direct_functions = hash_add(old_direct_functions, hash);
-> > +	if (!new_direct_functions)
-> > +		goto out_unlock;
-> 
-> Can new_filter_hash leak here?  If the second hash_add() fails but the
-> first one succeeds, update_ftrace_direct_add() will goto out_unlock
-> with new_filter_hash pointing to allocated memory.  At out_unlock, only
-> old_filter_hash gets freed, not new_filter_hash.
+> MT8391 SoC is a variant of MT8189 SoC with a difference for the Arm
+> Cortex-A78 CPU core maximum frequency (2.6 Ghz for MT8391, 3 Ghz for
+> MT8189). MT8391 hardware register maps are identical to MT8189.
 
-mamma mia, can't get this right apparently.. yea, will fix in next
-version, thanks
-
-jirka
-
+Subject: drop redundant "device-tree for" (not mentioning not correct
+name even...).
 
 > 
-> register_ftrace_direct() handles this by freeing new_hash on error:
+> The Genio 720-EVK board has following features:
+>   - MT8391 SoC
+>   - MT6365 PMIC
+>   - MT6319 Buck IC
+>   - MT6375 Charger IC
+>   - 8GB LPDDR5 RAM
+>   - 64GB eMMC 5.1
+>   - 128GB UFS
+>   - 20V DC Jack
+>   - USB Type-C Power Adapter
+>   - Micro SD card slot
+>   - Push Button x 4 (Power, Reset, Download and Home Key)
+>   - LED x 3 (System Power, Reset, DC-IN Power)
+>   - USB Type-C Connector (USB 3.2) x 2
+>   - USB Type-C Connector (USB 2.0) x 1
+>   - 3.5mm Earphone Jack x 1 (with Microphone Input)
+>   - 3.5mm Line Out Audio Jack x 1
+>   - Analog Microphone x 1
+>   - Digital Microphone x 2
+>   - Gigabit Ethernet with RJ45 connector
+>   - DP x 1 (Mode over USB Type-C)
+>   - LVDS port x 1
+>   - eDP port x 1
+>   - UART x2 with serial-to-usb converters and USB Type-C connectors
+>   - UART Port x 2 on Pin Header
+>   - M.2 Slot x 2
+>   - I2C Capacitive Touch Pad
+>   - 4-Lane DSI x 1
+>   - 4-Data Lane CSI x 2
+>   - I2S Pin header
+>   - 40-Pin 2.54mm Pin Header x 1
+>   - CAN Bus x 1 (RS232 Connector)
 > 
->     out_unlock:
->         mutex_unlock(&direct_mutex);
-> 
->         if (free_hash && free_hash != EMPTY_HASH)
->             call_rcu_tasks(&free_hash->rcu, register_ftrace_direct_cb);
-> 
->         if (new_hash)
->             free_ftrace_hash(new_hash);
-> 
->         return err;
-> 
-> > +
-> > +	rcu_assign_pointer(direct_functions, new_direct_functions);
-> > +
-> > +	if (reg) {
-> > +		ops->func = call_direct_funcs;
-> > +		ops->flags |= MULTI_FLAGS;
-> > +		ops->trampoline = FTRACE_REGS_ADDR;
-> > +		ops->local_hash.filter_hash = new_filter_hash;
-> > +
-> > +		err = register_ftrace_function_nolock(ops);
-> > +		if (err) {
-> > +			/* restore old filter on error */
-> > +			ops->local_hash.filter_hash = old_filter_hash;
-> > +			old_filter_hash = new_filter_hash;
-> > +
-> > +			/* cleanup for possible another register call */
-> > +			ops->func = NULL;
-> > +			ops->trampoline = 0;
-> > +		}
-> > +	} else {
-> > +		err = ftrace_update_ops(ops, new_filter_hash, EMPTY_HASH);
-> > +		/*
-> > +		 * new_filter_hash is dup-ed, so we need to release it anyway,
-> > +		 * old_filter_hash either stays on error or is released already
-> > +		 */
-> > +		old_filter_hash = new_filter_hash;
-> > +	}
-> > +
-> > +	if (err) {
-> > +		/* reset direct_functions and free the new one */
-> > +		rcu_assign_pointer(direct_functions, old_direct_functions);
-> > +		old_direct_functions = new_direct_functions;
-> > +	}
-> > +
-> > + out_unlock:
-> > +	mutex_unlock(&direct_mutex);
-> > +
-> > +	if (old_direct_functions && old_direct_functions != EMPTY_HASH)
-> > +		call_rcu_tasks(&old_direct_functions->rcu, register_ftrace_direct_cb);
-> > +	if (old_filter_hash)
-> > +		free_ftrace_hash(old_filter_hash);
-> > +
-> > +	return err;
-> > +}
-> 
-> 
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 > ---
-> AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-> See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+>  arch/arm64/boot/dts/mediatek/Makefile              |   1 +
+>  arch/arm64/boot/dts/mediatek/mt8189.dtsi           | 860 +++++++++++++++++++++
+>  .../boot/dts/mediatek/mt8391-genio-720-evk.dts     |  15 +
+>  .../boot/dts/mediatek/mt8391-genio-common.dtsi     | 555 +++++++++++++
+>  4 files changed, 1431 insertions(+)
 > 
-> CI run summary: https://github.com/kernel-patches/bpf/actions/runs/19887401362
+> diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
+> index c5fd6191a925ad8fcea401712f7a686e8b0a57c8..e3b63085c0608b86dc8638c9d5e0b73441e9ed7b 100644
+> --- a/arch/arm64/boot/dts/mediatek/Makefile
+> +++ b/arch/arm64/boot/dts/mediatek/Makefile
+> @@ -110,6 +110,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-genio-1200-evk.dtb
+>  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-genio-1200-evk-ufs.dtb
+>  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8390-genio-700-evk.dtb
+>  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8390-grinn-genio-700-sbc.dtb
+> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt8391-genio-720-evk.dtb
+>  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-kontron-3-5-sbc-i1200.dtb
+>  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l.dtb
+>  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l-8-hd-panel.dtbo
+> diff --git a/arch/arm64/boot/dts/mediatek/mt8189.dtsi b/arch/arm64/boot/dts/mediatek/mt8189.dtsi
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..bf8a232bcaf10cdf4c590109aea68c9a3e82cc42
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/mediatek/mt8189.dtsi
+> @@ -0,0 +1,860 @@
+> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
+> +/*
+> + * Copyright (c) 2025 MediaTek Inc.
+> + *
+> + * Copyright (c) 2025 Collabora Ltd.
+> + * Author: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> + */
+> +
+> +#include <dt-bindings/clock/mediatek,mt8189-clk.h>
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +/ {
+> +	compatible = "mediatek,mt8189";
+> +	interrupt-parent = <&gic>;
+> +	#address-cells = <2>;
+> +	#size-cells = <2>;
+> +
+> +	aliases {
+> +		i2c0 = &i2c0;
+> +		i2c1 = &i2c1;
+> +		i2c2 = &i2c2;
+> +		i2c3 = &i2c3;
+> +		i2c4 = &i2c4;
+> +		i2c5 = &i2c5;
+> +		i2c6 = &i2c6;
+> +		i2c7 = &i2c7;
+> +		i2c8 = &i2c8;
+> +		mmc0 = &mmc0;
+> +		mmc1 = &mmc1;
+> +		serial0 = &uart0;
 
+None of above are aliases of the soc. Please move them to the board,
+because these are properties of the board currently (we did not finish
+the discussion about soc-aliases, so it cannot be used as reason for above).
+
+
+
+> +	};
+> +
+> +	clk32k: oscillator-clk32k {
+
+Either oscillator or clock (clk). Not both. "clock-clk" makes no sense
+and this is implied by oscillator.
+
+Please use name for all fixed clocks which matches current format
+recommendation: 'clock-<freq>' (see also the pattern in the binding for
+any other options).
+
+https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/clock/fixed-clock.yaml
+
+
+Best regards,
+Krzysztof
 
