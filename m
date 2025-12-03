@@ -4,113 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64C15D1BDD8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 20:23:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9672CD1BDD4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 20:23:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XgIWvn45Ol59YX7A4N6l+xNIXT/v+a5H6neu07duj+o=; b=R1XEDULTa272JR9nvDvKbNlxeS
-	7nprSA3lBES0m2MrHkOf40wbJiQHIQqo2XUlt+dJptLL4B8s6EwmwpgDloy/LeP8hfo/oaWHs7U5L
-	CYavARD+3Jm9gYCBqv5agQl7V21iaLy5aspP4miHjMiHAnyaOBsVX06Lim0OcuSMhpExXnedFfcju
-	EE2ueDrK6p8Unap/3PUcJwXZDy9hWsj/hKGXOkpYVHCzllSW7clraCA5wKNWCQ1Z0pmeI5Hgga8WY
-	uEXSX1hoYETxA7dYVma6TwGAMIbDrS5VC+SwymGYLCSAMDCTeNJyGNOS2ODYFRT0YsH7Aczo8EYOg
-	mkgkjKhQ==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=la5DY+nye5Y4WsEMXBxzYTG6S0M/hvXAkvJ3L0NdBQ8=; b=1x474LP+dLtwGR0/W0ZQH1t6yr
+	TgXSz3zWcKIXM8B4WN1vz0GsRBTvKhoi60DfEftDMig251h2iCbC8X6oDLkU3AgQfGKiMAlntBCYI
+	gpf8vtq7xqODuYfVwlegm+BjXL9+EdrB7msKhulwn3EqEyNj7TEMsXaYNrnEs4K2vNEYzXqab/1PE
+	YXMDt6ajWNwTZHotza5FdbBtJim4n0wFuI4tu/fE49ugrBRNH69B+wGY/+nz5Wj+YAFzs7D573NBY
+	g0wiWZgwXwJaQzzGmnwMD0Dsr0l/t3RyOeQWAmhLWWhtySPFvs4+3iLgysrCq6tnf7bMe09z1QnuB
+	D2+azjjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQtNZ-000000071l7-3X01;
-	Wed, 03 Dec 2025 20:23:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vQtNc-000000071mX-1yGB;
+	Wed, 03 Dec 2025 20:23:16 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQtNX-000000071kD-2xOZ;
-	Wed, 03 Dec 2025 20:23:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1B55E4355C;
-	Wed,  3 Dec 2025 20:23:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8565C4CEF5;
-	Wed,  3 Dec 2025 20:23:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764793391;
-	bh=XgIWvn45Ol59YX7A4N6l+xNIXT/v+a5H6neu07duj+o=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=t1Gdf+iXwLN9LMuloorNGQYaolXRWMFPzt0jbqaLTUFnEmtunSgfVXBeC/a5xvR3i
-	 vxgHZqtI4xfMya49R/5myR08ZXyJLyrGJ5em7E7Fvzy6boEtidU2v243mzuClt3/BQ
-	 hUb1R8qs+P66mcLkEL/XJ8OryYjByuZHzS/yhq0rEajkTQspmOvY6yf70SneQKoPn6
-	 2hkBFwNRk0QbmVRv6WFcYdU9cpr8hSu3AIpqqNVgQu14/xokeLCn+0ft9iy90NTSVI
-	 xg8ltZTbniR7/H2KGuSuhgXTHbL86nSBQ932jP8Ne14bt/byttuHxZL7pwmn4DsXOX
-	 K3ieeeqHgUnCg==
-Message-ID: <1d516e97-5bfd-4bba-8496-65b00c26f76a@kernel.org>
-Date: Wed, 3 Dec 2025 21:23:06 +0100
+	id 1vQtNZ-000000071kQ-2QpA
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Dec 2025 20:23:15 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-477a2ab455fso2240435e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 12:23:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764793391; x=1765398191; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=la5DY+nye5Y4WsEMXBxzYTG6S0M/hvXAkvJ3L0NdBQ8=;
+        b=FnQ96lmMCnTwr7Z0kjGmauXNPVIM4zg/SSjl2MxUD4ftx0tTg+qxdBVgs5JLrZv+XM
+         5gxcOS2RkkdnW26p5Tc05dLGx7J4hkVO2mo4aMVRMB6384vEtHNpI7VeyXxMOpb8ytb9
+         uzY9Y9LNpM/GhUnTwx9RG7LExGl8P+3VqX2XHQN+NrDdlwZc/NaQTf0wOdSGNjfbSHHi
+         SLVHck9t4ACiKuBto/IrLs3Ysfl8MF3D7s+3LdwJBgi4qHHtHPEsC0zEAQ/W0vhJd2aX
+         sP6A++7zc4JjmCXGPdy8S5jiWdOL6FH/XxzDIrn7wz6Ro/S6XPojAVIbAATvGmP5VU1p
+         8K2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764793391; x=1765398191;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=la5DY+nye5Y4WsEMXBxzYTG6S0M/hvXAkvJ3L0NdBQ8=;
+        b=Gr+lUCgiJ/0N2GhG4emvOcmQoipSb9Mz9arg3rlauGHyrOSVDlmyFnajrncxNGq0+6
+         efPH8eafETJQ//rhYfIRKUiflrqxkE7cPQwcXTCtebz7rRezCqUvX7bBLjxBEYT5oayj
+         CPJRAKrXJg054GfRsaqgp5zAY1hXmFWXoMORJjRc8J85Y2fUd/FJWBgmSWyXI8cikVsm
+         l415FVZHe/0ZTHplRKlbXC156MLwIev5JeMAmc4/etDNv9Rpkn1/y/dHi4qRSWRjHMCg
+         pCIblI9mBorbq4iol9qPRunGZzVyCvCQJ0zFHQ7ydXyqJ7t/s3O61MHmP5B14F/WvGA0
+         aupQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWZQRT4oxoQkld7epNERgW+KmQHjNurh6E84qv0081tfvJ9ZMIx2p2+JL0Jt93TtL8kcfH8Ei+Em33LdA+BK1Pe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/ATb8Hxxm0o6m18RL+zoNJNyHdGNfsQRsdEyltfVqFKyUZsS8
+	0N5StNOliE8ch1pXOtQVgyVy+ZEIpHFxqdy6MqHwYGr7Z+0vXYKcHpE1DZIp
+X-Gm-Gg: ASbGncsweMbP0lw6pXVf89InDJEpYEu7j+Hk/fxXxTQ1QOZv0wOsCiTqbYRek+TVB7U
+	IVurPMQN+WUBvqLven6cqCk6S6U2EDpua27Ejxa2kHfVZ4IRqhjfs0atWhUQ7ppysQfDvtGHbTq
+	6g0+7bv38oGbB606JLmbwFrS6ln9AcJexyFyO2tKUZUMuDdMHwrpTIT3tru5fm1UZycI79DSy6s
+	sO6O5W8zu3DdxhxISRMTY0m74LyUoCXGmgC0Z65+ye7XvLOp5WQdRNWmQXH7OCWiZliMGKFMZRQ
+	89OvtAvexJp1RuajoXEm/GiIylfudy31nDWv2ozsux25goAZKCszl6DPYNQbOPBV5c3orwUR3LK
+	XKtmW7RRuOqSfBTw4VAKl8qWwQYZEMqWjqyh6uSTJvoxUeqWFdR645EVKvRdFCczjYHvdp7XiZj
+	ZzSDOHF7QWgp2/4AgmLI9OarznSCrzdY5REMCNsIYIOmB8PM/3DPYumtiaC9/SlkzfIdM=
+X-Google-Smtp-Source: AGHT+IEpGSW/EFraUJRRr3A4U1L8grZ6drN7sy7XuL6+qwvpsW1qlvzAiO5Upxd981TrT5V2Ub2FOw==
+X-Received: by 2002:a05:600c:4443:b0:477:9b35:3e36 with SMTP id 5b1f17b1804b1-4792aedfbf4mr38189915e9.2.1764793391265;
+        Wed, 03 Dec 2025 12:23:11 -0800 (PST)
+Received: from ?IPV6:2a02:810b:f13:8500:3079:1d24:47d4:553a? ([2a02:810b:f13:8500:3079:1d24:47d4:553a])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4792a7971c7sm68875275e9.2.2025.12.03.12.23.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 03 Dec 2025 12:23:10 -0800 (PST)
+Message-ID: <f0df035f-3c3d-4649-9f48-3e8e2e69d17b@gmail.com>
+Date: Wed, 3 Dec 2025 21:23:12 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/4] dt-bindings: arm: mediatek: add compatibles for
- Mediatek Genio 520/720-EVK boards
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Sean Wang <sean.wang@mediatek.com>
-Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
- linux-serial@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20251203-add-mediatek-genio-520-720-evk-v1-0-df794b2a30ae@collabora.com>
- <20251203-add-mediatek-genio-520-720-evk-v1-2-df794b2a30ae@collabora.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH] arm64: dts: rockchip: add SPDIF audio to Beelink A1
+To: Robin Murphy <robin.murphy@arm.com>,
+ Christian Hewitt <christianshewitt@gmail.com>,
+ Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250828164300.3829488-1-christianshewitt@gmail.com>
+ <66ae20b3-3316-4ec2-9c51-8414c053dc32@arm.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251203-add-mediatek-genio-520-720-evk-v1-2-df794b2a30ae@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Alex Bee <knaerzche@gmail.com>
+In-Reply-To: <66ae20b3-3316-4ec2-9c51-8414c053dc32@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_122311_784962_1510D026 
-X-CRM114-Status: UNSURE (   7.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251203_122313_654076_02CC42A7 
+X-CRM114-Status: GOOD (  15.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,18 +106,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/12/2025 14:59, Louis-Alexis Eyraud wrote:
-> Add compatible strings for the Mediatek Genio 520-EVK (based on
-> MT8371 SoC) and Mediatek Genio 720-EVK (based on MT8391 SoC) boards.
-> MT8391 and MT8371 SoC are less powerful variants of MT8189 SoC,
-> with identical hardware register maps.
+Hi Robin,
 
-BTW, subject length is precious, so you can skip redundant parts like
-"compatibles for" and just have it "add Mediatek foobar boards". That's
-also expressed in submitting patches in DT. No need to resend for this.
+Am 03.12.25 um 17:21 schrieb Robin Murphy:
+> [ Just noticed this... ]
+>
+> On 2025-08-28 5:43 pm, Christian Hewitt wrote:
+>> From: Alex Bee <knaerzche@gmail.com>
+>>
+>> Add the required nodes to enable SPDIF audio output on
+>> the Beelink A1 set-top-box.
+>
+> But the A1 doesn't have S/PDIF? Only HDMI plus a 3.5mm jack connected 
+> to the analog audio codec (and possibly the composite TV out) :/
+>
+Yeah, sorry - this patch wasn't supposed to be submitted upstream.
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Regards,
 
-Best regards,
-Krzysztof
+Alex
+
+> Thanks,
+> Robin.
+>
+>> Signed-off-by: Alex Bee <knaerzche@gmail.com>
+>> Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
+>> ---
+>>   arch/arm64/boot/dts/rockchip/rk3328-a1.dts | 23 ++++++++++++++++++++++
+>>   1 file changed, 23 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/rockchip/rk3328-a1.dts 
+>> b/arch/arm64/boot/dts/rockchip/rk3328-a1.dts
+>> index f7c4578865c5..b276a29bdd85 100644
+>> --- a/arch/arm64/boot/dts/rockchip/rk3328-a1.dts
+>> +++ b/arch/arm64/boot/dts/rockchip/rk3328-a1.dts
+>> @@ -58,6 +58,24 @@ ir-receiver {
+>>           gpios = <&gpio2 RK_PA2 GPIO_ACTIVE_LOW>;
+>>           linux,rc-map-name = "rc-beelink-gs1";
+>>       };
+>> +
+>> +    spdif_sound: spdif-sound {
+>> +        compatible = "simple-audio-card";
+>> +        simple-audio-card,name = "SPDIF";
+>> +
+>> +        simple-audio-card,cpu {
+>> +            sound-dai = <&spdif>;
+>> +        };
+>> +
+>> +        simple-audio-card,codec {
+>> +            sound-dai = <&spdif_dit>;
+>> +        };
+>> +    };
+>> +
+>> +    spdif_dit: spdif-dit {
+>> +        compatible = "linux,spdif-dit";
+>> +        #sound-dai-cells = <0>;
+>> +    };
+>>   };
+>>     &analog_sound {
+>> @@ -325,6 +343,11 @@ &sdmmc {
+>>       status = "okay";
+>>   };
+>>   +&spdif {
+>> +    pinctrl-0 = <&spdifm0_tx>;
+>> +    status = "okay";
+>> +};
+>> +
+>>   &tsadc {
+>>       rockchip,hw-tshut-mode = <0>;
+>>       rockchip,hw-tshut-polarity = <0>;
 
