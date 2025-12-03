@@ -4,54 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCE90D116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 08:47:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACA9DD1266D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 09:00:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Cc:To:From:Subject:
-	References:In-Reply-To:Message-Id:MIME-Version:Content-Type:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OhwJNdhLL4BGhngmppgYhTIgwJrnpcqsget1VLEkzqE=; b=wgVWFB1CudiN6FvJpDtO+biwq6
-	g43uOjDgAl0weisCs/1A8cae/ruAemPvcKBL41NfUpNgrxSPKufQbBPmxzV9qsvzjxIQgDvSFXp6g
-	TmE2wcOBnDMQm8m2aMj76c0zzWSplVE0zgOqoiguW55r8cv9kPAlsyxO3eEBPFgDTCvhXa7ODxvvF
-	7JOCZI1XORsIIicxqSHhSQS4Zn5Ga3xHp0lfBMdQfzs6qAO02HgxhftJyMMWAs6sZelkcB7lG19Ua
-	r3NFEhVFBovTIeaRMCeZiT4zIgj6wtvg0aAzFsHzCgx4yHnvfDhk6eLf8sZgvjIc10KLUi8xZbZX9
-	57B0iKzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=t/Fp+7scr7VBnR2M6WPA3HISzysXDjtp/nAmKgpZBFI=; b=y78/uUqOtRVHHCDJ09qtu0oivF
+	3rJNJLUN88BYJeEiyGJC/h1YbAGXk3gr+piPVumdEK8wHSwZOn9Z2WGDTH1KQqi75BB2F5z2eAfj3
+	lDjk3ukk4p5HsqnmBYYM+eGcBJ1tVdc3qXpy77w55RwVcHTZYzfV5nB1Ah9rFOhm3SRMOxtqUTzYN
+	hf/lmhxP5uTUEdqm6c8yGwaYRxzjRinsOzDnMY6P7nKWY1teoklE+xxJf033MBIsRB8TPcLuK4Lmc
+	zOT2Gafkqhit0/kra4xenkXQ24+cu+7eEW9EN6nViam28AnhK/ztsZ9/vUmGzfxMzEzmls0z7AEwn
+	sM2fk3bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQiWc-00000006Kba-1pHh;
-	Wed, 03 Dec 2025 08:47:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vQiii-00000006LHR-1pnT;
+	Wed, 03 Dec 2025 09:00:20 +0000
+Received: from mail-northeuropeazon11012041.outbound.protection.outlook.com ([52.101.66.41] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQiWa-00000006KbT-1jnv
+	id 1vQiig-00000006LFc-0pLy
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 08:47:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 736276019B;
-	Wed,  3 Dec 2025 08:47:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCF6BC19422;
-	Wed,  3 Dec 2025 08:47:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764751667;
-	bh=zZggOqyqpCFVEMcM9cHwsXefF4PRk8oAmhf5XqTg3nE=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date:From;
-	b=Hl5QYGaYXkUGRQCpvqRKGGxwk72j/uZIW+2KInS5UiITtjd7fhh0KOWuqZkkqC0ch
-	 RPOI7nYQr7R9cfdzxPZhjEoRat5tGEzxjZwv/RzOG9NLmbm2dtmtU6XNak89b59mqv
-	 5TP7FnB8Z7P5GdMIMNghZcum0ZXDHrcnAUpMNboZR7sejeYjK+X8wWh9IncPmV7Mg9
-	 nvbUgWWNnuleBsyBvknXHohHCAtLX0+IFgeQhnf0oJ9k+XZDmlIDhJfVvdxcG2PTfq
-	 Pz96eqw+7b+h5fgUsAZyut+31r9AmaG2/I6KYhfJmLZLQLY5x4rpA8QnmBwqSkqmvL
-	 xhdX17i0JyZQA==
-Content-Type: multipart/mixed; boundary="===============9160476271581551712=="
+	Wed, 03 Dec 2025 09:00:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SDdlXrN0lWS527M7YKn0VNi2ppquZ9Kl7J5re27FIS6MviN5WDgnPOkB1FP48itWirqzRQVaeeIBkHMaPmMBBReqpJzVZw96HZTndMvnLGHmh0P83tl0AtlhGso//x9oo8JygMRHPrAd0pfBvJQpOxgA7427pWS4pcg1qEkAeNES1MIccNw2kGPO5PEX6zktA/BW5Xggz19NIVTv/6kfiCyTWEwtzw5k1vb5Jeb+S2KBvzVkuVaMLAwYg66NsFLcCiqPPu0ShVNUfKFH+jI+E+Dj0aX9mZUb7xov/xzbUYZpvWfNJBc+DUpHMg77XQkOe5wFIWfrZCxwwsyZcn4j9Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=t/Fp+7scr7VBnR2M6WPA3HISzysXDjtp/nAmKgpZBFI=;
+ b=Sm9jhoeVAD32DIR17FYpTBzYW6brRASC+fihom5XFAcFDZ0141E/As66MT6vRoJf6Ua8FPHo/d7jxWeMeRHa3U03FC5wapMI4POZogfHiyO1hZsOf5ib6UvNonNPGBYUXW+ThySyGHueIUVtB5vsiIvk1s8zPTmyNldFtKFcjAixT0Rsasoi0bi5YP1wVzl5vpVJJZOYCsqm5Zyr4r5GBiYT/lkur3isdxDtlMz+p/6WZbPj814MllUPmjRFpGLSIDsXbC7vBgGVMitSR0wGaO7qUBHcvpsd1R6FauN9HGgJBav2kkRWkHTBhUWTn75/c7a+3JDHA/U4mR0BHFIm5Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=t/Fp+7scr7VBnR2M6WPA3HISzysXDjtp/nAmKgpZBFI=;
+ b=f7X1gJWaKRoVJipSvc3OF+2e44DZFLZCsWJa+70/EbVifJAiO6VdPxp18TWSUaGdC9N8CbCBeZT7WGHiN+TEIHMoBNQpqxWsc+660D9CgWxbEdAqnePxcW3k8LklsfxvwNgPcipRCIkYM6G7guVEWvlBK7ORldx9uYKL6PfFGrgczYK++lx9+MdsdH9ynS2zrpWfuSubKi+v8kEdYREd4eMNNXXmHpUT09EAbL0rcXdkCfKl81E63PBsJsKfv9Nxh4V28JncheeyzhQp26GN3+g21FwYYA5W7zEzh/h/TTCrG1ZTilRvzhJ5LeWspFkDaMeHsncqQ+zOq+52tRijCg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
+ (2603:10a6:800:293::14) by PA4PR04MB7981.eurprd04.prod.outlook.com
+ (2603:10a6:102:c0::24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Wed, 3 Dec
+ 2025 09:00:10 +0000
+Received: from VI2PR04MB11147.eurprd04.prod.outlook.com
+ ([fe80::75ad:fac7:cfe7:b687]) by VI2PR04MB11147.eurprd04.prod.outlook.com
+ ([fe80::75ad:fac7:cfe7:b687%6]) with mapi id 15.20.9366.012; Wed, 3 Dec 2025
+ 09:00:10 +0000
+From: Carlos Song <carlos.song@nxp.com>
+To: frank.li@nxp.com,
+	mkl@pengutronix.de,
+	broonie@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	kees@kernel.org,
+	gustavoars@kernel.org
+Cc: linux-spi@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	Carlos Song <carlos.song@nxp.com>
+Subject: [PATCH v3 0/6] Support ECSPI dynamic burst feature for DMA mode
+Date: Wed,  3 Dec 2025 16:59:43 +0800
+Message-Id: <20251203085949.2922166-1-carlos.song@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: AM0P190CA0017.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:208:190::27) To VI2PR04MB11147.eurprd04.prod.outlook.com
+ (2603:10a6:800:293::14)
 MIME-Version: 1.0
-Message-Id: <d0d8e0d78f614eb8b443772b50fb36093d48c7f43374316246ad3ad836b5c9ce@mail.kernel.org>
-In-Reply-To: <20251203082402.78816-5-jolsa@kernel.org>
-References: <20251203082402.78816-5-jolsa@kernel.org>
-Subject: Re: [PATCHv4 bpf-next 4/9] ftrace: Add update_ftrace_direct_add function
-From: bot+bpf-ci@kernel.org
-To: jolsa@kernel.org,rostedt@kernel.org,revest@google.com,mark.rutland@arm.com
-Cc: bpf@vger.kernel.org,linux-kernel@vger.kernel.org,linux-trace-kernel@vger.kernel.org,linux-arm-kernel@lists.infradead.org,ast@kernel.org,daniel@iogearbox.net,andrii@kernel.org,menglong8.dong@gmail.com,song@kernel.org,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,clm@meta.com,ihor.solodrai@linux.dev
-Date: Wed,  3 Dec 2025 08:47:45 +0000 (UTC)
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: VI2PR04MB11147:EE_|PA4PR04MB7981:EE_
+X-MS-Office365-Filtering-Correlation-Id: ad1bde1e-cc84-4e3d-d980-08de324a5c6f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|19092799006|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?NghTkmhdEN2Vmzlv3GBo8hMy5EhLE0N4ESjiQZ27CG8XjAv6xh0/g0GUaiik?=
+ =?us-ascii?Q?57fRLI7ORluH3fBY84H4E7oLA3EnPmGbCUM2SZySNNtnx79SfmACQ0RtubcB?=
+ =?us-ascii?Q?AAq6weSHHaeA1Y6+xVmYHruoyQna/QxoKeHrMBZagBduOV8Jx2ZdfhnLMFix?=
+ =?us-ascii?Q?1OmX8Gz7Jb8JbJjCScgp0tw8mnv7pKCaWhEns3DIgVntKrac2KX1rK40cXiv?=
+ =?us-ascii?Q?ISn4Mfq1SGBfFr7+avqbFhpmICsV4ydsl5hhnJK5FLW7qQ3++O0eKJ/hzrBh?=
+ =?us-ascii?Q?suUwaHHoDbjb2BBTBGbNxTFkc5wWHUL7lFJintShBz/h+h6JXx8voIz2Bvrj?=
+ =?us-ascii?Q?HXvW111kYaAh2tUq6iPDiboQu03WUCRcZhLJfpMemzsEP0/LNL7oxDs8nQgp?=
+ =?us-ascii?Q?LnGkCHPdb+FS8v2ZBTjxBDrkypn6dvfxrgq8c/yfBpiyN7gx6EUykwYSbjUG?=
+ =?us-ascii?Q?uOFRNXkicmRxWC7h1Xwboue3mYVkxQ8OQ0Dkr+h7rzUIKPKoEnQOk2rCdA+H?=
+ =?us-ascii?Q?/pQA4w+JTmV29EJ5sd29k8VN6fhxFaQt3eOm6Y242F1Drs/dRGqzoPUQbKir?=
+ =?us-ascii?Q?81xlrSnJWtBoSgkSWT/788JeDX/vln7E2+85ny2brd7CD6G4arNp8Wqg7mGF?=
+ =?us-ascii?Q?xpmCkFP+uJqgXa/dwYz3EeHbIk/giwhB+G7O4GK7eEh3Pc6TCKsZFkduTA2c?=
+ =?us-ascii?Q?DF5RmVovd1VVC1BFIb1cuzyJPeOb2fZMxU6JMM4LxjkpEGz7G7IGk5SfOudb?=
+ =?us-ascii?Q?8cd95xIfKIYPCd8G9ArjolAPe3FtA385rTYUzXR9ILQohWlZCCxcJtqARZXL?=
+ =?us-ascii?Q?F52H+DS6ZkFUSba4t5Sbgmq2Xa2qGedJD5VIl3Jz2CACbPMI2335ylpVnzcT?=
+ =?us-ascii?Q?N3M2e04pVgRpTzWMdkhVe/ILVWLJpgPsklH5c/WDqFhl9hvYHvNokwjSdzGK?=
+ =?us-ascii?Q?KuO7TXsVB2MxnL1VFwWo44GKaQWw/E/ArO1IvihkP0RGIL4IlpGYAoqCnLks?=
+ =?us-ascii?Q?/el3Uvrfqk12cwi3hZHhWsymUCHqPNHt1jY6UCCTRdtC7Bz7MMFC/4+PlKij?=
+ =?us-ascii?Q?L6RDR9WYp16trlC0RF5LAdoARifuvUk8syH8y4BCIxOBRzmcepS0unf2NTCA?=
+ =?us-ascii?Q?Ilk98V251x5i+dDN4w0y+4wFWeXgr+nf5kei9lC0aak7kw7+iiiZEAsdU41h?=
+ =?us-ascii?Q?dOi5nqGCdPixEHZYX3ubRJ49o31vyCoW2NBcoIGEsrMO2Kxdp1JJKTsHOcX2?=
+ =?us-ascii?Q?yNpaBiYQgDTRKF4vJpPtlc46oVM1qe+VATrpz8ggXTeAxAu6W3aftaS/JAkf?=
+ =?us-ascii?Q?20R+r70gV7JAtLY53WC8KEJ+XD9Mf8VFpMenwD23I3QDpggpQYBA3E8b4HBA?=
+ =?us-ascii?Q?FY6a+9f77bl1XmnF02p1qR9Vv8TR1MO3/MQi4rKZQ7Da2ytUBrUTCnV+Tmxs?=
+ =?us-ascii?Q?W7ThvNamb/Bgoq5hbGy4GiYqrJbekWbRNkCX6K2ezJQ/VmmjqXyilh9j/rFZ?=
+ =?us-ascii?Q?BTwVA7SgkaKogl8dTDmQjrG2XyiCAB933xuF?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2PR04MB11147.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(19092799006)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Vbh8NWuOxJ7wIPkDW5USlWUHo4sHquAQ9DZqU6PUp7eO38xQMf5vnzz0JCfP?=
+ =?us-ascii?Q?zl4Yxd5BNt9DHBkOqU9WRIIuLlWzJqpaHMAUUg5AqC4dsGOFmKXuAwWxa2Aj?=
+ =?us-ascii?Q?PHvzCRkb3Fs7/Y61MoLQX09JM0LxiVk7e+6wU5bNklZtiwBg51RtJNrs3VAi?=
+ =?us-ascii?Q?6hIQkWTnFdWGupS91zsn/J9BqjsXTQX2+icj829plZHdY3gNMCK5JAepyyRN?=
+ =?us-ascii?Q?/fbFlLw6fZYoaLxqj9Awb8D/wsJmzZkyo845MMrcyrwUExq7odX7wi0ufZf0?=
+ =?us-ascii?Q?XOseY0ShhGaKIcfXJb/6tNNgx/ZtCspTS29RyesV7g3TvuM6thDlvYCcrIwy?=
+ =?us-ascii?Q?Uu/fxAZ5NTBxjXsjsUFhvWdXbeL1fBSUBzEJiY2gSLw6uvwok1cPLkPvCv5Y?=
+ =?us-ascii?Q?UbMzTTjIShw6P+kkekzeYxPyi5gD0a/QKG2alyyACImboL3bzrm4HIVDsWpK?=
+ =?us-ascii?Q?j/bxDHPj25HAy923DUJ4n1UXdv8vx2npjNpnuIvnjSU3lSLIIdqTBADzODSx?=
+ =?us-ascii?Q?4zc2+r/WwSfhvwMwnzpF7RjwnpdqdRu7YD8CKv1bBN6ywWzD+4uVZ7hmGCNq?=
+ =?us-ascii?Q?LEUW69PLNNXSx11lOf44rX5+kQAefMRzzFqzmNbLbk3jqMpz6cdngtSdgSeD?=
+ =?us-ascii?Q?S+b+a1q+U01eZoLphMwQwk4JbQceqJsfEFVado4kGtjfl5vjBAEubS6tbjWR?=
+ =?us-ascii?Q?OAyRnd4vniRitcbC4AnMDZ8yUHO4ulmzXWFcXETkokUnhU5A/r7fBiQUYFDb?=
+ =?us-ascii?Q?kqBZNoHeJ++dAR4B6Tn188x33PCd29HCaaQLMaNUuYS/9M0JhFztfDx2Pum+?=
+ =?us-ascii?Q?aejkGCDky0uHyK8v+jA4QwkIqf8PswiQN5v+xPzF2mtyfRx2E921Gp+UV+dP?=
+ =?us-ascii?Q?+asPChYiKGIivZ1gkoH5vREjh8VZEdhEnv6yTMX2lNmlXY7fCqW0zPn3UZ3H?=
+ =?us-ascii?Q?2rCpMJkvgTiJ8LH6fEO3Nagf6rpoU9Etzx8Zso3fgk1iqgM37uhUnfuYfEhr?=
+ =?us-ascii?Q?p361YDfwZQsjj/qS1c92XepwlGPySYd2k1sZ5xlxb0DBdsfDKmFgciKZ7Dm9?=
+ =?us-ascii?Q?2ulsAksgt8PvtGAbI5RrqUNIaWRFdn9NHW8LAv6k+QhIHAeD2pXh2f68zJI+?=
+ =?us-ascii?Q?V6WF8weQeGw0byrf0T6+V325LKXNFbwOv8Xz94LVQPk5oc5fx32Mc/eKDT2d?=
+ =?us-ascii?Q?TUiNdaHNvVvj3P33cAWcF5d65IqCywpJyePiVUzb1V+j79ByhNsjixjkeKhh?=
+ =?us-ascii?Q?Gy+y9YmFwPixiEn4ovDI1nG1YOOyoML3uPRCWHgABtGg9NYQcqQrHLuN90mx?=
+ =?us-ascii?Q?lZawNMx9bt9Be5Duxq8tX/Ugk7uOHpuodOArxZkey5dgs/gcJrlVbarj07g5?=
+ =?us-ascii?Q?M5k2twq3TOJninLEIbvurqEh9r+cfs5eL6RuDk+KtY/1RpUgSrm0pACCLDS/?=
+ =?us-ascii?Q?w6Xn/nyCrhnjOONZF9016xSUeFRjcD4T5sVL38HuEZ905lcZY0A7F4JheUMu?=
+ =?us-ascii?Q?4CfzU6V+izlEWSVLRKfj19cwLVtpFFnTRfGdUbfgIo0etCEJPfIFV+CxQaJL?=
+ =?us-ascii?Q?G6/YOPMKTiOqioKmB2CdcGHQgoumxwNfqi2V14U/?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ad1bde1e-cc84-4e3d-d980-08de324a5c6f
+X-MS-Exchange-CrossTenant-AuthSource: VI2PR04MB11147.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Dec 2025 09:00:10.2267
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1W+e8PYYAnBZ0Fn+hy2Ju3IvgXbbrCOEqqMBQTGUOnn+lq9tJpZyzQ73t69Q4O6889NbusLoQ7x+q5iB4CLeVA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7981
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251203_010018_242182_4AC363B6 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,137 +167,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---===============9160476271581551712==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+ECSPI has a low throughput because of no dynamic burst support, it
+transfers only one word per frame in DMA mode, causing SCLK stalls
+between words due to BURST_LENGTH updates.
 
-> diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
-> index 8c034b028..eb60d971e 100644
-> --- a/include/linux/ftrace.h
-> +++ b/include/linux/ftrace.h
+This patch set is to support ECSPI dynamic burst feature to help improve
+the ECSPI DMA mode performance.
 
-[ ... ]
+Performance test (spidev_test @10MHz, 4KB):
+  Before: tx/rx ~6651.9 kbps
+  After:  tx/rx ~9922.2 kbps (~50% improvement)
 
-> diff --git a/kernel/trace/ftrace.c b/kernel/trace/ftrace.c
-> index 84aee9096..1660a8754 100644
-> --- a/kernel/trace/ftrace.c
-> +++ b/kernel/trace/ftrace.c
+For compatibility with slow SPI devices, add configurable word delay in
+DMA mode. When word delay is set, dynamic burst is disabled and
+BURST_LENGTH equals word length.
 
-[ ... ]
-
-> +int update_ftrace_direct_add(struct ftrace_ops *ops, struct ftrace_hash *hash)
-> +{
-> +	struct ftrace_hash *old_direct_functions = NULL, *new_direct_functions = NULL;
-> +	struct ftrace_hash *old_filter_hash = NULL, *new_filter_hash = NULL;
-> +	struct ftrace_func_entry *entry;
-> +	int i, size, err = -EINVAL;
-> +	bool reg;
-> +
-> +	if (!hash_count(hash))
-> +		return -EINVAL;
-> +
-> +	mutex_lock(&direct_mutex);
-> +
-> +	/* Make sure requested entries are not already registered. */
-> +	size = 1 << hash->size_bits;
-> +	for (i = 0; i < size; i++) {
-> +		hlist_for_each_entry(entry, &hash->buckets[i], hlist) {
-> +			if (__ftrace_lookup_ip(direct_functions, entry->ip))
-> +				goto out_unlock;
-> +		}
-> +	}
-> +
-> +	old_filter_hash = ops->func_hash ? ops->func_hash->filter_hash : NULL;
-> +	old_direct_functions = direct_functions;
-> +
-> +	/* If there's nothing in filter_hash we need to register the ops. */
-> +	reg = hash_count(old_filter_hash) == 0;
-> +	if (reg) {
-> +		if (ops->func || ops->trampoline)
-> +			goto out_unlock;
-> +		if (ops->flags & FTRACE_OPS_FL_ENABLED)
-> +			goto out_unlock;
-> +	}
-> +
-> +	err = -ENOMEM;
-> +	new_filter_hash = hash_add(old_filter_hash, hash);
-> +	if (!new_filter_hash)
-> +		goto out_unlock;
-> +
-> +	new_direct_functions = hash_add(old_direct_functions, hash);
-> +	if (!new_direct_functions)
-> +		goto out_unlock;
-
-Can new_filter_hash leak here?  If the second hash_add() fails but the
-first one succeeds, update_ftrace_direct_add() will goto out_unlock
-with new_filter_hash pointing to allocated memory.  At out_unlock, only
-old_filter_hash gets freed, not new_filter_hash.
-
-register_ftrace_direct() handles this by freeing new_hash on error:
-
-    out_unlock:
-        mutex_unlock(&direct_mutex);
-
-        if (free_hash && free_hash != EMPTY_HASH)
-            call_rcu_tasks(&free_hash->rcu, register_ftrace_direct_cb);
-
-        if (new_hash)
-            free_ftrace_hash(new_hash);
-
-        return err;
-
-> +
-> +	rcu_assign_pointer(direct_functions, new_direct_functions);
-> +
-> +	if (reg) {
-> +		ops->func = call_direct_funcs;
-> +		ops->flags |= MULTI_FLAGS;
-> +		ops->trampoline = FTRACE_REGS_ADDR;
-> +		ops->local_hash.filter_hash = new_filter_hash;
-> +
-> +		err = register_ftrace_function_nolock(ops);
-> +		if (err) {
-> +			/* restore old filter on error */
-> +			ops->local_hash.filter_hash = old_filter_hash;
-> +			old_filter_hash = new_filter_hash;
-> +
-> +			/* cleanup for possible another register call */
-> +			ops->func = NULL;
-> +			ops->trampoline = 0;
-> +		}
-> +	} else {
-> +		err = ftrace_update_ops(ops, new_filter_hash, EMPTY_HASH);
-> +		/*
-> +		 * new_filter_hash is dup-ed, so we need to release it anyway,
-> +		 * old_filter_hash either stays on error or is released already
-> +		 */
-> +		old_filter_hash = new_filter_hash;
-> +	}
-> +
-> +	if (err) {
-> +		/* reset direct_functions and free the new one */
-> +		rcu_assign_pointer(direct_functions, old_direct_functions);
-> +		old_direct_functions = new_direct_functions;
-> +	}
-> +
-> + out_unlock:
-> +	mutex_unlock(&direct_mutex);
-> +
-> +	if (old_direct_functions && old_direct_functions != EMPTY_HASH)
-> +		call_rcu_tasks(&old_direct_functions->rcu, register_ftrace_direct_cb);
-> +	if (old_filter_hash)
-> +		free_ftrace_hash(old_filter_hash);
-> +
-> +	return err;
-> +}
-
+Also support target DMA mode with enabled dynamic burst.
 
 ---
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+Changes since v2:
+* Patch1~4: no change
+* Patch5: remove __counted_by from *dma_data, because spi_imx struct
+  is allocated with a fixed memory in probe, flexible array is not
+  suitable, so just remove it to avoid the build error. Also add
+  review-by tag
+* Patch6: add review-by tag
+Changes since v1:
+* Patch1~3:
+* Add review-by tag
+* Patch4:
+  * Add review-by tag
+  * Improve patch commit log
+* Patch5:
+  * Clean up tab instead of space for dma_tx_addr and dma_rx_addr
+  * Add  __counted_by(dma_package_num) for dma_data_package *dma_data
+  * Move temp and bytes_per_word to if()
+  * Add comment for spi_imx_dma_rx_data_handle() and
+    spi_imx_dma_tx_data_handle()
+  * Use kzalloc instead of kmalloc(x, x | __GFP_ZERO)
+  * Use sizeof(*temp) instead of BYTES_PER_32BITS_WORD in suitable place
+  * Add comments and fix comments according to discussion
+  * Propagate the error value of dma_mapping_error()
+  * Use round_down() to replace DIV_ROUND_DOWN_ULL()
+  * Improve transfer->error |= SPI_TRANS_FAIL_NO_START judgment for
+    better readability
+* Patch6:
+  * Improve patch commit log
+  * Add READ_ONCE for spi_imx->target_aborted
+  * Add comments for data length limit
+  * Move data length limit to spi_imx_can_dma()
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/19887401362
+Carlos Song (6):
+  spi: imx: group spi_imx_dma_configure() with spi_imx_dma_transfer()
+  spi: imx: introduce helper to clear DMA mode logic
+  spi: imx: avoid dmaengine_terminate_all() on TX prep failure
+  spi: imx: handle DMA submission errors with dma_submit_error()
+  spi: imx: support dynamic burst length for ECSPI DMA mode
+  spi: imx: enable DMA mode for target operation
 
---===============9160476271581551712==--
+ drivers/spi/spi-imx.c | 625 +++++++++++++++++++++++++++++++++++-------
+ 1 file changed, 519 insertions(+), 106 deletions(-)
+
+-- 
+2.34.1
+
 
