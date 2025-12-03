@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14FAFD12D56
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 12:23:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BD81D12D56
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 12:23:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bQw2QNK0m7aXsFhROk4LDansnAN+1Su3gSOuHq49ol0=; b=zNq5gZYfErswV3a76vNmYYLOev
-	VLXsj6k/2lLUXr32RV/Q4sv2fB9g6hmvk/33A4/P0UBEr1meRsYFU2MGB1gdWW1mH45rs4g8T65qq
-	YEPdGAqPusV76BSrYI/DdaHk+wqOSG/tLJUbeo++1Zun9Cd5KGEcfF05QSR00XaIW+wfnjrfOuV7P
-	Al2fPkuRE5ma4hiPWi4GEc4SG5wFZpr74CFh585/MLuydW8o0lP5/8kGpTyn3zfiJuFIEIVzQXAcX
-	76uCvA+uaLihXjJdoFz0TVs8YMebTBMgs4os0lbMElDcn9BJkR0wk0h+mI/8l3znn8JwQ227kD60X
-	7oINBBVQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2UFfRQ/mCyul9iPxIkRd9hdWn0tYgTUuUvSNMVexe3M=; b=2qMOtvIhsk45V3lcOdCQ7B0Lb3
+	tCKFpeMuSTEaM0ydtE9zKqR4nmuQo75f/yAvdZWhEwGpD2qFAVPGEzytT+2JQyZqZ+Fw0pPAiVRJh
+	1MTpQlpLmK01qrNJMTlT2/CNpOEvyAwRm+dcwDruB+PjYj0fA8p+LyP8YQVncITDwX05hG7FRzgZs
+	I5geiXq0/WHNKQ4+iqCZiyRQiNVvX2bfMsdiMkGll+kxdwrsLczv5nmHIQjcNcMI8NXye82D3419v
+	3VKef0bYvgcMacOEoDhUR4t5uNkb1QvqZ0owfM3fNZQOetjlhdh7lodHv9GRZQnKHuNKp1F088m5n
+	lVRTgt+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQltL-00000006YKp-0EFd;
-	Wed, 03 Dec 2025 12:23:31 +0000
-Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
+	id 1vQltN-00000006YMG-3UZu;
+	Wed, 03 Dec 2025 12:23:33 +0000
+Received: from mail-qv1-xf2a.google.com ([2607:f8b0:4864:20::f2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQltI-00000006YKO-0TRf
+	id 1vQltL-00000006YKo-1zbP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 12:23:29 +0000
-Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-4eddfb8c7f5so60926281cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 04:23:27 -0800 (PST)
+	Wed, 03 Dec 2025 12:23:32 +0000
+Received: by mail-qv1-xf2a.google.com with SMTP id 6a1803df08f44-8823cde292eso62258226d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 04:23:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1764764607; x=1765369407; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=bQw2QNK0m7aXsFhROk4LDansnAN+1Su3gSOuHq49ol0=;
-        b=inyZoVI10nEyLCp2VlTDXAYt2HY5q4Yh3lBKKiEAY2/FjtAhvdvufgFsTnml0QcCpl
-         rmFJZ3tSQdHe2bYFuTt2/dZHMO/XyHOiWvoI3VYKzKcDmsp5raOUqa72VJrQBrp1e8Tk
-         hQ4uPhy1mNwpMziHF83ddwX/UiiLHtkSNygtahXPFdp1aRNdOQwMRNEfCTqzqb+BG49T
-         +xSJ2tGB8sai91gsVKsMuftliF44a5YNh1Mt+RPmw63F19BvHe/kH8uLtfXwCR9b7n3O
-         Ju7oGhy6LTweQnJea9ZHVdZCbgSDCv5Evyxl8+Uc2V5/khdtzUC1uPc+OPP+fpK4inEz
-         iPHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764764607; x=1765369407;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=sartura.hr; s=sartura; t=1764764610; x=1765369410; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=bQw2QNK0m7aXsFhROk4LDansnAN+1Su3gSOuHq49ol0=;
-        b=tDJIRPl/8RVrSfJNWuSbqncN3bmULftgoh74j+fkvBWt8KVgM2VAZN1BWEyXiaj6MU
-         2aSpM/jA/PMgkuO2HKR4YQDlglrQ8UwJ8NKnDxKXryS/fVzf7G+4r7piyu1RkaodCm6K
-         IBNm5qS28z0p3MsQW8EcxZoUZEl2OIvVKz55OjQ1ZtkA7yjo27HJ9vLYTHSOWAiC/cqh
-         5Pm3wfFXpKmFLd/gULoVgMYbt98xH5axyus7OBiwpnNDxEmzkwsxC6kmiBiyzTthKVrk
-         0oV0DGypQUC+uxqoDjT5QEI9v8qI0OHaXuJDJf5cFQMaC1CrYkRP7Q5oLfo7Y/Z7m/cM
-         Szeg==
-X-Forwarded-Encrypted: i=1; AJvYcCUqMcQZQJN+HtHb0Cz6pKjlqRPChyngBlTaSFDU6coUdn0FCDcCQrKJChMnTigON1f/aTNG2PIIzazLF7n1YJfY@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQfsoR+rSmYOqmFQt/gxmWb5s39VeHw5zOdB+kZZ4cUuYiU2sw
-	vD5c1k94UTjpVh2HfmjIpF9Gf/siw+7EWgnbzJ40zimW2T0p/SgB0BykF6szuZMLhA0=
-X-Gm-Gg: ASbGncu8qXtqISkX1lsYEujyo8DiZGlKwPIbjXDZ1HTW5nMNjsVuTH5drV8ZHCC8ZnH
-	YZ6528ApuLZvMW5jvUGTcjRsmG8jySDuJG6hMrEO91yO6WRHIGiNIm3ioHtPU6A/vZzMGvuVia7
-	mmZoHWFt/BTMcB3wfMxePCBbk7lHbsgB9SSwKO2YnA4yJ2Rmd07Q8WB2SThQMeCO4Wmypz0ZJlE
-	yrO+j8us4xRPAWRtjRv5/5xEAb9IeOnZQl9Qqke6ZVMUfa1rhzL1j7c11OM2nQcD1Ufq3PwiMaJ
-	0x/4SLDLjmOi3/1Zv9mQU7Um92CP0F5/HqNfU9JUUHmVKk5O/XPQ3EMwHh49YxX9SJXCni8iC54
-	edh7BeBLiGRwHcQh/17UDPMjsjccYj/NWmIMioyM0Rd+G7lkAa5T1kzu7fFHvbonDyM/hI9YqOx
-	p6TJpUKh9JOJsDMZZHUmOaQcXttFInbavPYDMEvHN4IX7N
-X-Google-Smtp-Source: AGHT+IFBqItcO02HwRqZQ09Eftjhy8B/A1LUHr5yIyZjuhioLZT8jA3EARqXdnEATjeL7hbCsn7I/g==
-X-Received: by 2002:a05:622a:d05:b0:4ed:423d:48ef with SMTP id d75a77b69052e-4f01f697666mr4823071cf.40.1764764606528;
-        Wed, 03 Dec 2025 04:23:26 -0800 (PST)
+        bh=2UFfRQ/mCyul9iPxIkRd9hdWn0tYgTUuUvSNMVexe3M=;
+        b=LzPk0Us7vm6e7tYFck5qIGccKLNreITgjUchbGQGxmrkjMmv2eKauxh1aNs6NgXa8F
+         XQZb0nzhB1m8h0XvwIydriBncay9BmrHlglar32Gu85GuRPwEQIp98OM7T80ttSIq6mr
+         I2IOSpfCvV+XHFrGHlwsxmZkzrF6arSFuYgqEexEDXcluekQh1C2mUfAyxHWxWsNnySd
+         oYFoeT6sQOvlHCoyqIDQxUXK/SYKcjNXI9d7yh1Lh0+nYkN7gTRNDAEK3qAe/WHkNwmr
+         xtgyyawpBRWXJeO2tTTTnTpxAkEDyOYZUbsPmYho/j46D9rTJPiPs37XG2Ci7jSw/oZ5
+         upvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764764610; x=1765369410;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=2UFfRQ/mCyul9iPxIkRd9hdWn0tYgTUuUvSNMVexe3M=;
+        b=K7ykNQaPz6ch03PtyHOH+mCf7YRYSMSubWsWHxP/01ZW2uYG0+0mU/I3Tru+eE/SeJ
+         mj6iS7clbMupLlymfw2JjeSYfKa/y+/6pjQAMEFfh/rfU+Dq5TXBy9oA4D8ACLZROqEX
+         MCoOPVGE4bMBIfIPfVG56ZFj3sCiORjlSSMqsRkVLB7taXr8CS8UzQS4KgY9376qYA9j
+         3q1HiMEDON6+uH3hrWv5OJzJxaQzPuodHLOvfJ9Wrg9P/W28gQoCWpoLWVEQV5Gk6CVa
+         kAZeWpRbMZ/efxcVYtKokL63pVhQ2Xc99INo6263qxas5q8iXXavMsHL1d+kXwQTtzDp
+         fLow==
+X-Forwarded-Encrypted: i=1; AJvYcCWd8qF+rM+8g9duW/7AdrggryjWUFPE38YmGTV15y4ZHYmT52hdEPpINEb2m5EuDrc4m4auOwNU5Es+TOC/PWS7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/0DToROacKK9SscJQld0F+yLoSgbJFl4ldfl/WRsoaSBvhjiU
+	JHUHR3OFm3KmgWbD9ellXZLtvf+IYQqJke85I7YS+kHKjBdFnWmFXzVXj3v/bSIVtB0=
+X-Gm-Gg: ASbGncvQ7zIObHRvRPRcmuWwRezjbcqqLiffYxKmpI5LFxvXkkKlEj3WmVnq9PFfaHB
+	fFvBqJTeyYTE35NEW4HaIDzQ94CqKwfJLhAiGbZkZezXZ+D2SwDo2ZRZE4jSnzZ/qmeUXzcT2+q
+	QUoepRtZw2+hrsW0uB/uNt6x0MVrVbdqjT9Ez01ZW4He/3WrcaFlexWnEU0Mp7KotS4QhoY4Sqd
+	gm2ce2nyXPGLbIRQH6ICVL7xbmYacF968nK1PLRtktFZ6kmNtlYJTqoYSMWx+aUO0J1OhHr/opD
+	/A2Wlr02i8I2pxcVa1nYCJuE7h4dtWdQ1DZtChoD72vxnhtCvu1i0hr7Oyt0rtuAo6Z8RfmlvBz
+	MDJwmHYm6cQixWotQ2tXjNdA9Nd/gxd6uDv0NaZ7xiIFdSrRxcpNphxBFJdnU188x961h8BNZWR
+	IMcva0+Oyyv8NfpmGa2Y7X/4blcbhHTgYnAx2oJymgvVho
+X-Google-Smtp-Source: AGHT+IGsaXlqNMoWBqDJybU7SgFep9PuPbieD5S4OluHzHLsLb5SxcZWmzH1944iGtWvvNXqPDBk/A==
+X-Received: by 2002:a05:6214:33c9:b0:886:3fd2:ea78 with SMTP id 6a1803df08f44-888194c597amr27028086d6.24.1764764610234;
+        Wed, 03 Dec 2025 04:23:30 -0800 (PST)
 Received: from fedora (cpezg-94-253-146-247-cbl.xnet.hr. [94.253.146.247])
-        by smtp.googlemail.com with ESMTPSA id d75a77b69052e-4efd2f9a755sm115214351cf.3.2025.12.03.04.23.23
+        by smtp.googlemail.com with ESMTPSA id d75a77b69052e-4efd2f9a755sm115214351cf.3.2025.12.03.04.23.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Dec 2025 04:23:25 -0800 (PST)
+        Wed, 03 Dec 2025 04:23:29 -0800 (PST)
 From: Robert Marko <robert.marko@sartura.hr>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -88,15 +89,17 @@ To: robh@kernel.org,
 	UNGLinuxDriver@microchip.com
 Cc: luka.perkov@sartura.hr,
 	Robert Marko <robert.marko@sartura.hr>
-Subject: [PATCH 1/4] dt-bindings: usb: Add Microchip LAN969x support
-Date: Wed,  3 Dec 2025 13:21:29 +0100
-Message-ID: <20251203122313.1287950-1-robert.marko@sartura.hr>
+Subject: [PATCH 2/4] dt-bindings: arm: Document Microchip LAN969x
+Date: Wed,  3 Dec 2025 13:21:30 +0100
+Message-ID: <20251203122313.1287950-2-robert.marko@sartura.hr>
 X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20251203122313.1287950-1-robert.marko@sartura.hr>
+References: <20251203122313.1287950-1-robert.marko@sartura.hr>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_042328_167070_E50D2F65 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20251203_042331_519887_62D4BB0F 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,89 +114,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Microchip LAN969x has DWC3 compatible controller, though limited to 2.0(HS)
-speed, so document it.
+Microchip LAN969x is a series of multi-port, multi-gigabit switches based
+on ARMv8 Cortex-A53 CPU.
 
 Signed-off-by: Robert Marko <robert.marko@sartura.hr>
 ---
- .../bindings/usb/microchip,lan9691-dwc3.yaml  | 68 +++++++++++++++++++
- 1 file changed, 68 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/usb/microchip,lan9691-dwc3.yaml
+ .../bindings/arm/microchip,lan969x.yaml       | 32 +++++++++++++++++++
+ 1 file changed, 32 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/arm/microchip,lan969x.yaml
 
-diff --git a/Documentation/devicetree/bindings/usb/microchip,lan9691-dwc3.yaml b/Documentation/devicetree/bindings/usb/microchip,lan9691-dwc3.yaml
+diff --git a/Documentation/devicetree/bindings/arm/microchip,lan969x.yaml b/Documentation/devicetree/bindings/arm/microchip,lan969x.yaml
 new file mode 100644
-index 000000000000..7ffcbbd1e0f4
+index 000000000000..3fa1d4ed40d1
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/usb/microchip,lan9691-dwc3.yaml
-@@ -0,0 +1,68 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++++ b/Documentation/devicetree/bindings/arm/microchip,lan969x.yaml
+@@ -0,0 +1,32 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/usb/microchip,lan9691-dwc3.yaml#
++$id: http://devicetree.org/schemas/arm/microchip,lan969x.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Microchip LAN969x SuperSpeed DWC3 USB SoC controller
++title: Microchip LAN969x Boards
 +
 +maintainers:
 +  - Robert Marko <robert.marko@sartura.hr>
 +
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        enum:
-+          - microchip,lan9691-dwc3
-+  required:
-+    - compatible
++description: |+
++   The Microchip LAN969x SoC is a ARMv8-based used in a family of
++   multi-port, multi-gigabit switches.
 +
 +properties:
++  $nodename:
++    const: '/'
 +  compatible:
-+    items:
-+      - enum:
-+          - microchip,lan9691-dwc3
-+      - const: snps,dwc3
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: Gated USB DRD clock
-+      - description: Controller reference clock
-+
-+  clock-names:
-+    items:
-+      - const: bus_early
-+      - const: ref
-+
-+unevaluatedProperties: false
++    oneOf:
++      - description: The LAN969x EVB (EV23X71A) is a 24x 1G + 4x 10G
++          Ethernet development system board.
++        items:
++          - const: microchip,ev23x71a
++          - const: microchip,lan969x
 +
 +required:
 +  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - clock-names
 +
-+allOf:
-+  - $ref: snps,dwc3.yaml#
++additionalProperties: true
 +
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/clock/microchip,lan969x.h>
-+
-+    usb@300000 {
-+      compatible = "microchip,lan9691-dwc3", "snps,dwc3";
-+      reg = <0x300000 0x80000>;
-+      interrupts = <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
-+      clocks = <&clks GCK_GATE_USB_DRD>,
-+               <&clks GCK_ID_USB_REFCLK>;
-+      clock-names = "bus_early", "ref";
-+    };
++...
 -- 
 2.52.0
 
