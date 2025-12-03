@@ -4,58 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6607D12D75
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 15:20:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C486FD12D75
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 15:21:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wJcdqxIsT+u0megtwIVsP3guFGwkXujN5UR/ZC3lTeg=; b=2boOpPj5Se7Re1RqLbrRTK2wy/
-	mh4dw98BwTT60H7WOx996yEPclOf4buUzka0USAb9ikhHpzApQp8TxIYiBbcN0t6JesKD7mULhjEI
-	5sDs878D/PbgrsD6lRtS7f1iZGxlJe0PxliHq4uSqGcsYvJV8oIiWCXh9Rg8SlUmcJnEIPwvECvpA
-	2BCVS/SzVWDwLSzYPD3tyX/JL5k5y6ItelnYg9sY1MloDIQy8+CflSPCvhzno4u8R5CcSK0hAp/G9
-	aX9mefMehvBBEZIZRcdVbfxIQTHBHGJv/yWalIn1FPTE3euXl97eYbAyZNAqENrsDRrJEA/pRIB9C
-	cPDaZdCw==;
+	bh=jWygY73nSQOiA+moxM13U6HWtAECUem8Io4KBvrEaL0=; b=Q/9xK4pEDYFa8tVLsYpeTn7tJM
+	+GeK1dMGm29s0IIGyrKSe7QDBcUDj6IEbUEahpjWnkLnbUqHkm9PsNu9+RD8fucwxuXa+7iYQvLCZ
+	QtSXRCO99TCrMxHQAFsiIljwkNscpMbtAKevXrxfLpc6PIZuwitQSlMNKsfVGDiFSiWSQC8MdsIys
+	BfT7YoBFEkjCKfFPFkR/aXIkPkwjjveEFnUCL1KwK6tA1Z5ZCyHTNXEcofjQ1R7qTf/dfW3j9s3QY
+	a2x84KkLDhRe1Z+Df+FgyYy7lPr55RVq9SJBvgY0U6nw79Mw96E9stD2ZIg4d3C9cg5+c316XECkL
+	YUqex1QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQoeX-00000006h6U-22Zj;
-	Wed, 03 Dec 2025 15:20:25 +0000
+	id 1vQofk-00000006hHt-0aPG;
+	Wed, 03 Dec 2025 15:21:40 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQoeV-00000006h67-15E6
+	id 1vQofi-00000006hHK-0BCt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 15:20:25 +0000
+	Wed, 03 Dec 2025 15:21:39 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4147A339;
-	Wed,  3 Dec 2025 07:20:13 -0800 (PST)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1881E3F59E;
-	Wed,  3 Dec 2025 07:20:18 -0800 (PST)
-Date: Wed, 3 Dec 2025 15:20:16 +0000
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH 4/4] KVM: arm64: Convert VTCR_EL2 to config-driven
- sanitisation
-Message-ID: <aTBVMIxeVbiZq0ee@raptor>
-References: <20251129144525.2609207-1-maz@kernel.org>
- <20251129144525.2609207-5-maz@kernel.org>
- <aTAijieCI8055FL0@raptor>
- <86ikenpvna.wl-maz@kernel.org>
- <aTBDRx1oeGDs2SFl@raptor>
- <86h5u7pq7u.wl-maz@kernel.org>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EB733339;
+	Wed,  3 Dec 2025 07:21:27 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 519FC3F59E;
+	Wed,  3 Dec 2025 07:21:34 -0800 (PST)
+Date: Wed, 3 Dec 2025 15:21:31 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 0/8] firmware: arm_scmi: Refactoring and enablement of
+ ACPI PCC transport
+Message-ID: <20251203-super-kagu-of-amplitude-fef078@sudeepholla>
+References: <20251017-acpi_scmi_pcc-v1-0-0adbab7709d9@arm.com>
+ <87wm44aect.fsf@stealth>
+ <20251126-camouflaged-delightful-cuckoo-ddeac8@sudeepholla>
+ <877bv3n7x2.fsf@stealth>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <86h5u7pq7u.wl-maz@kernel.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <877bv3n7x2.fsf@stealth>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_072023_411128_B8A74C33 
-X-CRM114-Status: GOOD (  41.70  )
+X-CRM114-CacheID: sfid-20251203_072138_120361_85E1D19A 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,155 +68,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
-
-On Wed, Dec 03, 2025 at 02:58:13PM +0000, Marc Zyngier wrote:
-> On Wed, 03 Dec 2025 14:03:51 +0000,
-> Alexandru Elisei <alexandru.elisei@arm.com> wrote:
-> > 
-> > Hi Marc,
-> > 
-> > On Wed, Dec 03, 2025 at 01:00:57PM +0000, Marc Zyngier wrote:
-> > > On Wed, 03 Dec 2025 11:44:14 +0000,
-> > > Alexandru Elisei <alexandru.elisei@arm.com> wrote:
-> > > > 
-> > > > Hi Marc,
-> > > > 
-> > > > On Sat, Nov 29, 2025 at 02:45:25PM +0000, Marc Zyngier wrote:
-> > > > > Describe all the VTCR_EL2 fields and their respective configurations,
-> > > > > making sure that we correctly ignore the bits that are not defined
-> > > > > for a given guest configuration.
-> > > > > 
-> > > > > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > > > > ---
-> > > > >  arch/arm64/kvm/config.c | 69 +++++++++++++++++++++++++++++++++++++++++
-> > > > >  arch/arm64/kvm/nested.c |  3 +-
-> > > > >  2 files changed, 70 insertions(+), 2 deletions(-)
-> > > > > 
-> > > > > diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-> > > > > index a02c28d6a61c9..c36e133c51912 100644
-> > > > > --- a/arch/arm64/kvm/config.c
-> > > > > +++ b/arch/arm64/kvm/config.c
-> > > > > @@ -141,6 +141,7 @@ struct reg_feat_map_desc {
-> > > > >  #define FEAT_AA64EL1		ID_AA64PFR0_EL1, EL1, IMP
-> > > > >  #define FEAT_AA64EL2		ID_AA64PFR0_EL1, EL2, IMP
-> > > > >  #define FEAT_AA64EL3		ID_AA64PFR0_EL1, EL3, IMP
-> > > > > +#define FEAT_SEL2		ID_AA64PFR0_EL1, SEL2, IMP
-> > > > >  #define FEAT_AIE		ID_AA64MMFR3_EL1, AIE, IMP
-> > > > >  #define FEAT_S2POE		ID_AA64MMFR3_EL1, S2POE, IMP
-> > > > >  #define FEAT_S1POE		ID_AA64MMFR3_EL1, S1POE, IMP
-> > > > > @@ -202,6 +203,8 @@ struct reg_feat_map_desc {
-> > > > >  #define FEAT_ASID2		ID_AA64MMFR4_EL1, ASID2, IMP
-> > > > >  #define FEAT_MEC		ID_AA64MMFR3_EL1, MEC, IMP
-> > > > >  #define FEAT_HAFT		ID_AA64MMFR1_EL1, HAFDBS, HAFT
-> > > > > +#define FEAT_HDBSS		ID_AA64MMFR1_EL1, HAFDBS, HDBSS
-> > > > > +#define FEAT_HPDS2		ID_AA64MMFR1_EL1, HPDS, HPDS2
-> > > > >  #define FEAT_BTI		ID_AA64PFR1_EL1, BT, IMP
-> > > > >  #define FEAT_ExS		ID_AA64MMFR0_EL1, EXS, IMP
-> > > > >  #define FEAT_IESB		ID_AA64MMFR2_EL1, IESB, IMP
-> > > > > @@ -219,6 +222,7 @@ struct reg_feat_map_desc {
-> > > > >  #define FEAT_FGT2		ID_AA64MMFR0_EL1, FGT, FGT2
-> > > > >  #define FEAT_MTPMU		ID_AA64DFR0_EL1, MTPMU, IMP
-> > > > >  #define FEAT_HCX		ID_AA64MMFR1_EL1, HCX, IMP
-> > > > > +#define FEAT_S2PIE		ID_AA64MMFR3_EL1, S2PIE, IMP
-> > > > >  
-> > > > >  static bool not_feat_aa64el3(struct kvm *kvm)
-> > > > >  {
-> > > > > @@ -362,6 +366,28 @@ static bool feat_pmuv3p9(struct kvm *kvm)
-> > > > >  	return check_pmu_revision(kvm, V3P9);
-> > > > >  }
-> > > > >  
-> > > > > +#define has_feat_s2tgran(k, s)						\
-> > > > > +  ((kvm_has_feat_enum(kvm, ID_AA64MMFR0_EL1, TGRAN##s##_2, TGRAN##s) && \
-> > > > > +    !kvm_has_feat_enum(kvm, ID_AA64MMFR0_EL1, TGRAN##s, NI))	     ||	\
-> > > > 
-> > > > Wouldn't that read better as kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN##s, IMP)?
-> > > > I think that would also be correct.
-> > > 
-> > > Sure, I don't mind either way,
-> > > 
-> > > > 
-> > > > > +   kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN##s##_2, IMP))
-> > > > 
-> > > > A bit unexpected to treat the same field first as an enum, then as an integer,
-> > > > but it saves one line.
-> > > 
-> > > It potentially saves more if the encoding grows over time. I don't
-> > > think it matters.
-> > 
-> > Doesn't, was just aestethics and saves someone having to check the values to
-> > make sure it wasn't an error.
-> > 
-> > > 
-> > > > 
-> > > > > +
-> > > > > +static bool feat_lpa2(struct kvm *kvm)
-> > > > > +{
-> > > > > +	return ((kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN4, 52_BIT)    ||
-> > > > > +		 !kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN4, IMP))	&&
-> > > > > +		(kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN16, 52_BIT)   ||
-> > > > > +		 !kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN16, IMP))	&&
-> > > > > +		(kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN4_2, 52_BIT)  ||
-> > > > > +		 !has_feat_s2tgran(kvm, 4))				&&
-> > > > > +		(kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN16_2, 52_BIT) ||
-> > > > > +		 !has_feat_s2tgran(kvm, 16)));
-> > > > > +}
-> > > > 
-> > > > That was a doozy, but looks correct to me if the intention was to have the check
-> > > > as relaxed as possible - i.e, a VM can advertise 52 bit support for one granule,
-> > > > but not the other (same for stage 1 and stage 2).
-> > > 
-> > > Not quite. The intent is that, for all the possible granules, at all
-> > > the possible stages, either the granule size isn't implemented at all,
-> > > or it supports 52 bits. I think this covers it, but as you said, this
-> > > is a bit of a bran fsck.
-> > 
-> > Hm... this sounds like something that should be sanitised in
-> > set_id_aa64mmfr0_el1(). Sorry, but I just can't tell if TGran{4,16,64} are
-> > writable by userspace.
+On Wed, Dec 03, 2025 at 11:04:09AM +0000, Punit Agrawal wrote:
+> Hi Sudeep,
 > 
-> Everything in ID_AA64MMFR0_EL1 is writable, except for ASIDBITS.
-
-Aaah, ok so a bit set in the 'mask' argument to ID_FILTERED means the bit is
-writable (the comment for ID_FILTERED doesn't explain that).
-
+> Sudeep Holla <sudeep.holla@arm.com> writes:
 > 
-> > 
-> > > 
-> > > This is essentially a transliteration of the MRS:
-> > > 
-> > > (FEAT_LPA2 && FEAT_S2TGran4K) <=> (UInt(ID_AA64MMFR0_EL1.TGran4_2) >= 3))
-> > > (FEAT_LPA2 && FEAT_S2TGran16K) <=> (UInt(ID_AA64MMFR0_EL1.TGran16_2) >= 3))
-> > > (FEAT_LPA2 && FEAT_TGran4K) <=> (SInt(ID_AA64MMFR0_EL1.TGran4) >= 1))
-> > > (FEAT_LPA2 && FEAT_TGran16K) <=> (UInt(ID_AA64MMFR0_EL1.TGran16) >= 2))
-> > > FEAT_S2TGran4K <=> (((UInt(ID_AA64MMFR0_EL1.TGran4_2) == 0) && FEAT_TGran4K) || (UInt(ID_AA64MMFR0_EL1.TGran4_2) >= 2))
-> > > FEAT_S2TGran16K <=> (((UInt(ID_AA64MMFR0_EL1.TGran16_2) == 0) && FEAT_TGran16K) || (UInt(ID_AA64MMFR0_EL1.TGran16_2) >= 2))
-> > > FEAT_TGran4K <=> (SInt(ID_AA64MMFR0_EL1.TGran4) >= 0)
-> > > FEAT_TGran16K <=> (UInt(ID_AA64MMFR0_EL1.TGran16) >= 1)
-> > 
-> > How about (untested):
-> > 
-> > static bool feat_lpas2(struct kvm *kvm)
-> > {
-> > 	if (kvm_has_feat_exact(kvm, ID_AA64MMFR0_EL1, TGRAN4, IMP) ||
-> > 	    kvm_has_feat_exact(kvm, ID_AA64MMFR0_EL1, TGRAN16, IMP) ||
-> > 	    kvm_has_feat_exact(kvm, ID_AA64MMFR0_EL1, TGRAN4_2, IMP) ||
-> > 	    kvm_has_feat_exact(kvm, ID_AA64MMFR0_EL1, TGRAN16_2, IMP))
-> > 		return false;
-> > 
-> > 	return true;
-> > }
+> > I can create one but that is not strictly necessary. As mentioned in the
+> > cover letter, the only dependency is on value of SCMI_PROTOCOL_TELEMETRY
+> > ins `scmi_std_protocol` enumeration. Just add one and you must be able to
+> > compile the series independent of Cristian series.
 > 
-> The combination (TGRAN4=NI, TGRAN2_4=TGRAN4, TGRAN16=52_BIT,
-> TGRAN16_2=52_BIT) is a valid LPA2 configuration, which the test above
-> rejects.
+> Thanks, I managed to get the patches building. Looking forward to the
+> series progressing. If possible, do keep me in the loop for future
+> updates.
 
-Thank you for taking the time to entertain my comments. It's not clear to me why
-the combination is rejected since there are no IMP values in your example, but I
-trust your judgement and I don't want to waste your time on nitpicking.
+Sure - I’ll try to remember to copy you on the next updates. I don’t have any
+immediate plans, though, unless the spec moves into beta, changes come up, or
+someone specifically requests important updates that would help them make
+progress.
 
-My Reviewed-by stands, by the way, in case that wasn't clear.
+Do you have immediate plans to use this on a platform ? Or you are reviewing
+just out of interest/curiosity 😉 ?
 
-Thanks,
-Alex
+-- 
+Regards,
+Sudeep
 
