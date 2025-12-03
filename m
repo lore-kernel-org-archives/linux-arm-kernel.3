@@ -4,68 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E93ED1266D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 03:51:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87FCCD1266D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 05:30:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i6mxjAhqN52fQLJBVjoKMe25fLU7L+nNfg1TFd0Xx6k=; b=udTM5y7GAig1q9SLWlOTe2aWsc
-	TIB3AIAjfFfoQH5gMWi8xjv0nUM5slf6ozzAlL/p17Mfr6yU1s2JRuUbiq1FkhqHIO5Jm5dSM7E5/
-	Cbf1T5fIT4ZKvfO9TkhIMTqhK1KOtGSyH2jLzX/zdg8Al8932HTtuZd2JzvsSt+P6eakghU4FeDd2
-	gT+QFMoG+fFqwLJyd81dQMvUlmgVz+mSMlPtd3NXIiAlyoa43goE+A8vS3lVn0tIq5mLkzf+8xG1R
-	ppvhWruHAbD4W60LMFHd7ALoDxareUKMIZSl0sl9AVr3m9fBL3EsBJlhte0/5MI4UFzNeIP0PXV8e
-	OKn4UZfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Gn2H98/zokZHbs7bduBwb6CosAnMTh6U7UL4EzlDSnU=; b=l2GtIMqpWiV/qKLoVPCliZyJfY
+	mnnf6ap+mnhzlL4dbkzIyCraYPS+nS4dSdTdtcwpjqZ8iFImZzxhBQt47scYlIR7UiRLRrxvHSuXo
+	4AUqJCa+iNhDHmGy2MH4ctPE46ERDxFwegBvW73771RFgOjRX2KoFTo7AQQrj/C1thpcYXdiuFyR0
+	dwiwKlp7rf7gmZw95W6f+iYzlWfhNgcIf6SFfWgByZQ81TmqS54oDa2lXo2lqoOATRyY5oxcYWZsJ
+	NiY7SzyEGEIyQx3Ka8oCmRbeHo+1Jq/BtrnwIrOjx5ik5IloP/JO40yC4wtX6LNDiKfbPD1hY81/Q
+	69J0py4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQdtG-000000065hu-49RH;
-	Wed, 03 Dec 2025 03:50:54 +0000
-Received: from mout-p-202.mailbox.org ([80.241.56.172])
+	id 1vQfRO-000000068RX-2zZo;
+	Wed, 03 Dec 2025 05:30:14 +0000
+Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQdtE-000000065hG-0t8G
+	id 1vQfRM-000000068R4-1BZE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 03:50:54 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4dLkFL3gd7z9tTX;
-	Wed,  3 Dec 2025 04:50:46 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1764733846;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=i6mxjAhqN52fQLJBVjoKMe25fLU7L+nNfg1TFd0Xx6k=;
-	b=CQB0p/y/26lKNS6WXnrwX5QZ/QKv8bOAU7fnPVorPqGzkrNkDcw+dT5G55q7MnKUrC109l
-	R+8+EBAYf9iq+4fE/he/smzs7UTEHV67WU/IgDcHVji5wtxQjEBf3iFjdRLFYXRapimyey
-	uTWTC8iPhM9UgR5B6lwxNFseODyrK17OPNn9zLoVHn7kh/5FMy/iQd1wXCaBEskq/tsM8n
-	XHr69HUKoe2dLsfuc13mIRpDr83Do9kScbON7nPQsnzAQ77AzlBjk6wG1kCXaLA5KcVa2B
-	lmi3URiVQ3mfGkTuJqvMqEdO1V+py4vcXIWdKYvBvBddXEMeJuwgPx62WGvWTQ==
-Message-ID: <c6e0e55a-06da-4665-972e-e9b5b8c08bf7@mailbox.org>
-Date: Wed, 3 Dec 2025 04:38:19 +0100
+	Wed, 03 Dec 2025 05:30:13 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZFIYP6dyunnNWsqPxCGkLm+EsB3J1YwQCH9MkALTyKXlrSz5kKuQFk8188AuvOf8/slGVoVRDBJsJIKWS1/V0HnM+IMp00SwR2E2h/cy9jZcmzT7FwDjsZREoqHPwMo3GgO0msnCSh4IEzkmwJ6Xuoy8aGuQTjHYOdoSiweQE+6VKESTNhicpz/YIFgoDmRYbikDTF+NQQyYVufrCnyP6Dxj8B2+rE2EbWQqfkDBi1gq5n/sIk7V/WP6vFYtNPQT7GMspiX2oKO51huoZgrEEgTnwS0uTpZRzFk7nLGykCqhIc2Ade32oQqlZOixmN9rUFTW/h1fX7PeDD/QoCGJKw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Gn2H98/zokZHbs7bduBwb6CosAnMTh6U7UL4EzlDSnU=;
+ b=Xk0FkZpP8YDXYxuNO6wcHsjr7Je5Wq/75bU7YGweTEHrBD2NoBLAOFb8v73sYDJ7ys4biHB2bJx/8ZAp3OWzeQmAfIKyLvRCDZTL9kmKm/5oRH7SRvw9K3fHoyqrXdBkSLlGg9W3yPxFdabdAslP93sTLuDVVNdZLkFW4rlurItQuulUFGDmJAkvGXRJE5ctMmzx7gqkl5orfNZdlSoZVxtf71A2yR6YZk7+0i2DvJnjjqMtix26NcDveOuCi+YpnadMFs6ujCMDTcym6tkf5dYfmhno73drS2Gi2ESX/NEpucuA6Qi2pA2BJvYTmnlX35ONViL9mLQCaEsMwkWCBQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Gn2H98/zokZHbs7bduBwb6CosAnMTh6U7UL4EzlDSnU=;
+ b=POYci4yiFIdFmIUZVam7DisNDdBPdILsGTfMlBa/VgBKZdZjPCF+cDTn8xmviKpFeUr23iTLBC86DDJiNU2q5gGIESLIOqdc5A4G2YVvsOl84FvHpE9BtYfPRGKd62zphk++CVMHzr8X+pCc/w5TuC6VpUVnAKblaDJzSml6n77IhJWMnLntgDTxJgB/+8J7KaUUnkLHoWcwk9vaEcDYSTbkvjtanzVUJQbnHGbnopZYhqZRpMHm5D/bBgKm2zYJtOCSBtnjo70t4dXuj3uOVMcmqLFl5FEPiZBuSimf0roBGbhD6emEWOG02ZTiUO7bSstf3mWZ5TAbT3um/wLEtA==
+Received: from SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12)
+ by JH0PR06MB6737.apcprd06.prod.outlook.com (2603:1096:990:3a::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Wed, 3 Dec
+ 2025 05:30:02 +0000
+Received: from SEYPR06MB5134.apcprd06.prod.outlook.com
+ ([fe80::6b58:6014:be6e:2f28]) by SEYPR06MB5134.apcprd06.prod.outlook.com
+ ([fe80::6b58:6014:be6e:2f28%6]) with mapi id 15.20.9366.012; Wed, 3 Dec 2025
+ 05:30:02 +0000
+From: Jacky Chou <jacky_chou@aspeedtech.com>
+To: Andrew Lunn <andrew@lunn.ch>
+CC: Tao Ren <rentao.bupt@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Po-Yu Chuang <ratbert@faraday-tech.com>, Joel
+ Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "taoren@meta.com" <taoren@meta.com>
+Subject: [PATCH net-next v4 4/4] net: ftgmac100: Add RGMII delay support for
+ AST2600
+Thread-Topic: [PATCH net-next v4 4/4] net: ftgmac100: Add RGMII delay support
+ for AST2600
+Thread-Index: AQHcUjKRp/5wUPPeG0Wo2Pz9fS4A+7TsCtCAgAJeVpCAAKBqgIABWbLAgAPq3QCADnQYkIABZcyAgACY8gCAAYfhoIAHwL3AgABzRoCAAQkkcA==
+Date: Wed, 3 Dec 2025 05:30:01 +0000
+Message-ID: <SEYPR06MB51347C9924E32731478BBDAB9DD9A@SEYPR06MB5134.apcprd06.prod.outlook.com>
+References: <68f10ee1-d4c8-4498-88b0-90c26d606466@lunn.ch>
+ <SEYPR06MB5134EBA2235B3D4BE39B19359DCCA@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <3af52caa-88a7-4b88-bd92-fd47421cc81a@lunn.ch>
+ <SEYPR06MB51342977EC2246163D14BDC19DCDA@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <041e23a2-67e6-4ebb-aee5-14400491f99c@lunn.ch>
+ <SEYPR06MB5134BC17E80DB66DD385024D9DD1A@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <1c2ace4e-f3bb-4efa-a621-53c3711f46cb@lunn.ch> <aSbA8i5S36GeryXc@fedora>
+ <SEYPR06MB513424DDB2D32ADB9C30B5119DDFA@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <SEYPR06MB5134A5D1603F39E6025629A19DD8A@SEYPR06MB5134.apcprd06.prod.outlook.com>
+ <4f0e4aa0-166d-4a7f-b91e-42dbc6b832e5@lunn.ch>
+In-Reply-To: <4f0e4aa0-166d-4a7f-b91e-42dbc6b832e5@lunn.ch>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SEYPR06MB5134:EE_|JH0PR06MB6737:EE_
+x-ms-office365-filtering-correlation-id: 2fc3cb4f-dc5b-4d67-f2d3-08de322d01ee
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?Z/SZq5GdzalR6YF0A1UASsq3gqU4FiBzZwcp+mP7romUbRQ6Zn/FZoE3qmAz?=
+ =?us-ascii?Q?0mbMtNzPE6Zy/HiQcHn1AGsqU46FPJ13tK2antQQ7txIfssAwLB/FJbuoE6d?=
+ =?us-ascii?Q?RonLxUAx9FiITqpi0MtZfUfmd0Km+M1Ok/KseIz/XPnXyXEjKoxgo5JXDouY?=
+ =?us-ascii?Q?xwBVODOZQw/CTy1Vb831dxHemwXIhbltXroI8SBufYa/x+BbNGD3FuuQIiL0?=
+ =?us-ascii?Q?g6F0AomsxWhczXEsM7TtdpD0MGH+OY/UCA7zRRfZVuH5PpV4+1QpaKyqIy5k?=
+ =?us-ascii?Q?CYgNt5Dgo+4ZW5BBazRA2iaStYHiNRruq8OT24dznu/fcKkdtaLuBHEeioCv?=
+ =?us-ascii?Q?frmoGbDHzyi5meA3XB2QCGpE8mdtCeNs42rzWtHmK1D9YC52AyZcKNrGiYLZ?=
+ =?us-ascii?Q?Rv01By581a0IKenmadv/0Yhj55PcGxMjI5uDvjKAfh5/Oa7CMFvQhIAdhw6v?=
+ =?us-ascii?Q?kaZdSPxX3OyXjf0UL8bJs/vNjgP8HStarydbHOyI6nPV8+JAvSVYt2WPRb9o?=
+ =?us-ascii?Q?ebHPM0iWsiYs9rVjR1KnruotA80N8NRwWl5LTSamrOUh/lQ2Dj7e0YSpNE5s?=
+ =?us-ascii?Q?/kejVYBRyjGgt71JaHOPOLpVfsOgyGlYpJ3FaOaOJ/M1keTlbxkG65z8ayfJ?=
+ =?us-ascii?Q?IT2AbBEMDpVLttoDzPVsEwcGC335AOa2TqPU5BuydtJuJAvnRAQ7DbdoX9sf?=
+ =?us-ascii?Q?7xKGgVH7yl7Y/aaQdOBShw8RK8BDrz7xRYdaN1tgmYWOwZVQAZMswVdaZMO3?=
+ =?us-ascii?Q?x70keKX5Z85KLA5mbNZYA0Q/JMsFsM6w2B5jy4usq3xH3dBOJV+afrF7N+V1?=
+ =?us-ascii?Q?LqC5wZ3tD6mmrkr/4XtrxS/0Tw/ksbqsd+0WMxXIo01Md9E6KMHkG3Hv2S7b?=
+ =?us-ascii?Q?Wl1vST/pEXj2+6X/9/uggT0142jeBW/+YEoHDa+F2nyO1pz/TqctwZ5fZT1c?=
+ =?us-ascii?Q?bolbZeQosPTXKnW1f5x31lIjVIrV0328LF2qSdFu527ypFywiSyUjvv5FNYA?=
+ =?us-ascii?Q?ESfrMb5wqxTwGXjbF719zzsdhyNysdMSqJ/mBny6pW/RvJNbRpbXE+tlV0sM?=
+ =?us-ascii?Q?l66k8IS5NgH4T8lmhyBotM4oHGDLEWg+hNBOIDdcXRVNTYU7HgpB6sdsi8uM?=
+ =?us-ascii?Q?Ze6czYaNvYn4gUFmYQXsY2LMR7x9eGiruiFm2qxFroawkP3ln8VDNs/ug8Xi?=
+ =?us-ascii?Q?kAAbgrHdaGvnTRYqs0eSKAS/kg7LmUuOXBr1TnKAnwW4jlMmmV9B0uPBXNbg?=
+ =?us-ascii?Q?E0ViAC1hJ1TXfuY5Q2w7taRQTNEE5KQ+ZYm7TdiCYa3UA4V1vqub3YnhoOYZ?=
+ =?us-ascii?Q?/X6tMrLq+rw+nVX2vNx/cZ+nl5IaGsE4p55/e8Me9dr3CZpR9sCz6c5/jOc6?=
+ =?us-ascii?Q?6J1m704Fn6R0EPhSJbGkA3yHZ7Cen/xoj0UidvLWoYo93uvsrGsa1CwaG79r?=
+ =?us-ascii?Q?BWVGrwW3/QOwmh6/ZOFPQadb+bZK/vS+mTYi+PZyGAFW01opMMvhaZmqQcpT?=
+ =?us-ascii?Q?//z8zMzKGj2ohC5EXlPqZHq9mas9+oqwF76Q?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB5134.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?FdjK46irx7VjpFL8bGTkUK62p5ejrsWonaWibigEFKzq7FQe53a9icpyfyAt?=
+ =?us-ascii?Q?eNmEiS7N185TxvTs0T40yUbqoE/fiISWbwqPVTnrajqqyHRk8LPH5RMr21qk?=
+ =?us-ascii?Q?6LWcon7gtFX4RzT/We5X+/BOpE3uA/YCe998kfVYQgDJCuxYVyIDQjHhnCXQ?=
+ =?us-ascii?Q?EFvsN1sLrxrVvAWSbQQynqyNZMILMuQ8dVnPnWRFeFqAqnLda/kjTe7KLwru?=
+ =?us-ascii?Q?ZO+AB9RrSRexeXQzEicNIeYOMMlKBVW90iRwTeaPHrtGEdDhfD+g8dWGd8Eu?=
+ =?us-ascii?Q?g0LJf+UFbeK9d6xn8Op6b5sB1ZU5uadbpcxYVYJgLgdslLq4eK/e2JFdiOGC?=
+ =?us-ascii?Q?BQQwftjzGaoTjf+5o0MNIk5DC7u8Phrc4An79wdvRpUOuzKfL3JOMCGe8lWP?=
+ =?us-ascii?Q?sEgQwVQwH4TuN7LedNEMM56xeBNOxckxs87G/UsaMYgJWrzvfNbHgfJbcs4u?=
+ =?us-ascii?Q?Ft+SUZN+Fvj9z1kx1V1EBJouEHekewFTNowLkJA4CJMWHp2tbye4yaMoZq3o?=
+ =?us-ascii?Q?1nyMxKXmjwxbTsMcTrFhMWaN9KLb3370oROyLLci+780E8loLAICZd+V4vqw?=
+ =?us-ascii?Q?7RXoumLNN3LHpmcsQ2xu1iFVes+dXoaTOVXxIRSyJL63EeQIhXFi9OSmGuhL?=
+ =?us-ascii?Q?FXvj4nVhNC7gZNPMd5TtUWdG8hzFlo1Ou+3ejGQX3FQz8VWR0o3hecGjrP1a?=
+ =?us-ascii?Q?vK3rrC4xzT4spK3+7fa3w7kbvDOSnNsaj8vBLLbU0PaFIOueRSacEewYW/2V?=
+ =?us-ascii?Q?fciagrGZycoBokc9Pc+E9DkgSN7rnmblbqboS3s728JjugGzflOPpy+eeu60?=
+ =?us-ascii?Q?FefWXJLOvGehoTvoSwbGQouSpv1rAo10v6tvpPISe1CFOC0m5wNV35mu2g5U?=
+ =?us-ascii?Q?OGkCf6P1i3ZCy4Tk6exXofkNbKguMHjtec0rDpj90C0rDSdH7298SnSSkfCn?=
+ =?us-ascii?Q?fn3vNHa8vq4EaPgyztHgj1Hc3hJq3k+VEDKAAkQ2z0iYCSGlE9+eV6gBUmsd?=
+ =?us-ascii?Q?IGyLIB9Cb4/bJlkvtHFyNo8zEjX3TuGypmlEFOz7n2GdKpXSt8IGiMC+JSC8?=
+ =?us-ascii?Q?gMy9Q0cQZ2aAGo7dtVb0kjua8nlt/8ULuO+4XeO4CyRHuZPDFBEErXmjM5Kp?=
+ =?us-ascii?Q?tdTtQDA/9HUMdtX8XmCjnvGpqqp92RPOBKMMYtCFFuFtZSJOAL09WpPVheaG?=
+ =?us-ascii?Q?mL025alXNXLfFgFkZ5LmMYn/WLRR6gtrPOaeM7DWPYCpojXd6iGABUFgsrwd?=
+ =?us-ascii?Q?DMnF1JEc9b3gOc7B3SiH1OEURrBNeH8OUzxibNgKFQaGMUniO6PZix0+hEcL?=
+ =?us-ascii?Q?EAcA9kla9bmFHACl6Jpxc9f6aQcExoZP6yJUrhUe3wcWFqlBlUzqDeTGPdL0?=
+ =?us-ascii?Q?f2/3WzTo0N/f65PT/nOINahTJjOVt/Jzd07PAZiC3j0LXx3X/Nv2gJveBP06?=
+ =?us-ascii?Q?sLiYYp4NLmp/ny6R1ikzFCyv19SdqnphIc6Sis5SIidtnoEuwTk6K7sHiD3C?=
+ =?us-ascii?Q?GYWaBky3wU1UCc07FAPwqOsu7cBvGixRZI253n6WJmMiO3kHGODP1sgQHgha?=
+ =?us-ascii?Q?fDJlToDq1Je9aVNV6MOz36Rvr5ScyI28wyOCvcF+?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Subject: Re: [PATCH] arm64: dts: imx95: Use GPU_CGC as core clock for GPU
-To: Rain Yang <jiyu.yang@oss.nxp.com>
-Cc: Frank.li@nxp.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
- festevam@gmail.com, imx@lists.linux.dev, kernel@pengutronix.de,
- krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org, peng.fan@nxp.com,
- robh@kernel.org, s.hauer@pengutronix.de, shawnguo@kernel.org
-References: <20251129143220.14834-1-marek.vasut@mailbox.org>
- <aS-lEibp3zTsaR6T@oss.nxp.com>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <aS-lEibp3zTsaR6T@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-ID: 52256cf8b3a3eab14fc
-X-MBO-RS-META: z5ckj1br1pp63h1rmuzx38dn6pe8qedj
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB5134.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2fc3cb4f-dc5b-4d67-f2d3-08de322d01ee
+X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Dec 2025 05:30:01.9944
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: p5+9jvGVf3+K4cXTRYUs/H05xGqFTXgUuM2s80Q0/0LRvYVg0/F3alMTROc4jE1NPzoIuyQ7HfaV/PZBvuozh0wtthpIBSMKsaidEOMCkvA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: JH0PR06MB6737
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_195052_400640_FDBE51CD 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20251202_213012_353316_7B01C9F6 
+X-CRM114-Status: GOOD (  22.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,54 +181,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/3/25 3:48 AM, Rain Yang wrote:
+> > I miss one condition is using fixed-link property.
+> > In ftgmac100, there are RGMII, NC-SI and fixed-link property.
+> > On RGMII, we have solution on dedicated PHY, but there is an issue on
+> > fixed-link property.
+> >
+> > Example on dedicated PHY.
+> > The driver can pass the "rgmii-id" to tell PHY driver to enable the
+> > internal delay on PHY side. Therefore, we can force to disable RGMII de=
+lay on
+> MAC side.
+> > But there is not any driver when using fixed-link property, which
+> > means no body can tell the outside device, like switch or MAC-to-MAC,
+> > to enable the internal delay on them. Also mean the phy-mode in fixed-l=
+ink
+> case is not used.
+> >
+> > Therefore, could we ignore the RGMII delay on MAC side when the
+> > ftgmac100 driver gets the fixed-link property? Just keep the original d=
+elay
+> value?
+>=20
+> MAC to MAC is one of the edge cases where phy-mode is not great. What is
+> generally accepted it to use rx-internal-delay-ps and tx-internal-delay-p=
+s with
+> 2ns and a comment explaining it is a MAC to MAC link, with this MAC addin=
+g
+> the delays.
+>=20
+> I suggest you see how messy it is to implement this for 2600. If the code=
+ looks
+> horrible, keep the bootloader delays. For 2700 you have a clean slate, yo=
+u can
+> implement all this correctly from the start.
+>=20
 
-Hello Rain,
+Thank you for your suggestion.
+We will discuss internally how to implement for these cases and prepare in =
+next
+version.
 
->> diff --git a/arch/arm64/boot/dts/freescale/imx95-clock.h b/arch/arm64/boot/dts/freescale/imx95-clock.h
->> index e1f91203e7947..22311612e4403 100644
->> --- a/arch/arm64/boot/dts/freescale/imx95-clock.h
->> +++ b/arch/arm64/boot/dts/freescale/imx95-clock.h
->> @@ -183,5 +183,6 @@
->> #define IMX95_CLK_SEL_A55P                 (IMX95_CCM_NUM_CLK_SRC + 123 + 7)
->> #define IMX95_CLK_SEL_DRAM                 (IMX95_CCM_NUM_CLK_SRC + 123 + 8)
->> #define IMX95_CLK_SEL_TEMPSENSE            (IMX95_CCM_NUM_CLK_SRC + 123 + 9)
->> +#define IMX95_CLK_GPU_CGC                  (IMX95_CCM_NUM_CLK_SRC + 123 + 10)
->>
->> #endif	/* __CLOCK_IMX95_H */
->> diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
->> index 6091c2713fa48..47f20e501315f 100644
->> --- a/arch/arm64/boot/dts/freescale/imx95.dtsi
->> +++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
->> @@ -2874,7 +2874,7 @@ netc_emdio: mdio@0,0 {
->> 		gpu: gpu@4d900000 {
->> 			compatible = "nxp,imx95-mali", "arm,mali-valhall-csf";
->> 			reg = <0 0x4d900000 0 0x480000>;
->> -			clocks = <&scmi_clk IMX95_CLK_GPU>, <&scmi_clk IMX95_CLK_GPUAPB>;
->> +			clocks = <&scmi_clk IMX95_CLK_GPU_CGC>, <&scmi_clk IMX95_CLK_GPUAPB>;
->> 			clock-names = "core", "coregroup";
->> 			interrupts = <GIC_SPI 289 IRQ_TYPE_LEVEL_HIGH>,
->> 				     <GIC_SPI 290 IRQ_TYPE_LEVEL_HIGH>,
->> -- 
->> 2.51.0
->>
-> Hi Marek,
-> 
-> Thanks for integrating this downstream patch.
+Thanks,
+Jacky
 
-Which downstream patch do you refer to ?
-
-> Please note that CLK_GPUAPB and CLK_GPU are
-> always-on, so the commit message should be amended accordingly.
-
-The GPU clock do not seem to be always-on, neither do the GPUAPB . It 
-seems the SM can turn those clock off perfectly well.
-
-> Additionally, the IMX95_CLK_GPUAPB handle shall be removed, as there is no valid OPP entry
-> in the frequency table, this also helps minimize differences between downstream and upstream,
-> reducing maintenance effort.
-
-Downstream kernel forks are not relevant to this discussion, upstream 
-your content and then you won't have to spend maintenance effort on 
-downstream stuff.
 
