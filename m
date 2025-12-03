@@ -4,80 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E71FD1BDE4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 21:21:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88652D1BDE3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 21:21:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QQYJPvwvgRgQ+uacXhfRNgoaW5IOSiziugCJWe/WiO0=; b=TOldGNqynQXUD091mjqSRrMGRr
-	dkSV6kp7obkNI0jijz1Ikqm9pSc1Uq7ye/5l6YxsTEYTej+r+9tUVXrN0nj5uWBMPiiwPLvF+sVn3
-	ZGLlYic5RS3GnTjb2NBegRpkYxQWhkjkBuDRKNkBOwjU007XHSSIMgdGtRHxj27a5lvhbrnrwapZF
-	btI2XOn6/D9qTvRhjqM5qeeS7Rk8NiYhAsOLc8WK9TWDuUuj33cBKokobWFYptdWYS8OBCc6A4mdj
-	WhHgvmOQm/ISy5i/gJcosV3CIGVA0mhJ3ByR8VzsDhnN/2hZa2YYD+miW1YqW/obCXtmdRST0Z7o8
-	RTailn3w==;
+	bh=Msy9WFwQwiYNqXHHT0OdrW68e8cjCcdw9jXNnG4MPTA=; b=tE537ZeiyS8pvdBrg2BhKAi6Sa
+	cFzOR2XZkwEuaCsWYdOMNTeqJTJBs+gVOImv4VmtEZsgNXzCyhiSPJQxs/dh3yQx/KOXtZV7P8B+/
+	B7jDivAhAPo+8WVdnYCjzFkJeL2Utw2abaKp8zec1GEanAZdvYhKGpVYlyj8Aw+U0VbWFEiBLK4qQ
+	pJtZWsHnSOturpOP8bEplpbiMB3R3jg5e0vNzikLV0BXWkf2B8fFEYQVLD8jQwL2vWWFdvGHdcq2J
+	vonJJUgCedrtMCXDDzv8WzRsletr6KxgyNNw03LRJwbrdi+cX5hUQgwbXl4HlPlhyZ1EyYh3AzJIe
+	4lz7uKdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQuHt-000000077eZ-3UUi;
+	id 1vQuHt-000000077d9-0VxI;
 	Wed, 03 Dec 2025 21:21:25 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQuHp-000000077WT-0cSb
+	id 1vQuHo-000000077VX-0Omd
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 21:21:23 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-42e2b80ab25so164630f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 13:21:20 -0800 (PST)
+	Wed, 03 Dec 2025 21:21:22 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-42e2d02a3c9so161835f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 13:21:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764796879; x=1765401679; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1764796878; x=1765401678; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=QQYJPvwvgRgQ+uacXhfRNgoaW5IOSiziugCJWe/WiO0=;
-        b=D9z+OT6wig+D5apQBBgR/JmNW+DV/CPCZeCxR3rGTyoYcbct+teGIX83zk3B1spwj/
-         g9vQxbkdZIIcQNnai+Bb+4HVaExcf3k4XpLs5iq2TiNljWDxKoyVJqp5YQome/mC18Z6
-         jd0DcPgHwp8EmgyaGOR5njSiNA0Ti3sqf118pyfgPsmHIQ5KqwpIQaL6k5n1FA39xTjT
-         Ny8kkwu0UaCrGvnJebtTtQvTd5CVGyyk7kNN9ZcLTSKERPIAkOj6k5k00lBpyZKUEvA/
-         mqE9g4nUhg10cmlP9Nt6oR/cRffT80qnpys0NzhS2gAxRcaN1GO8YVFHXg7gbIJOV2DC
-         t8LA==
+        bh=Msy9WFwQwiYNqXHHT0OdrW68e8cjCcdw9jXNnG4MPTA=;
+        b=gmGU90K6xj7jl90/FtF2Hy171+K0W3FxM7s0ocv6ZPSuQHPISbxzgTRLmRKzRCPuo0
+         bqZ39JPeMkPu3CtlixlTXNuDRrPRH2HGVRczgaqR6lEIfGz/OsjrA3YaRD8s7Q00cpzM
+         ZQ7qu/NpofXVLoFhNRGy3WuQFvKt5Sda7nlDoVlSK5c793XDbCjxoRiUB/kOJ5mQyqDH
+         V0ZxRiOZcZ7Bk6lSJZMogHfdhwy0i/5l8ZxVrqSWNaUXoHtM10YhyG9m0yWA4z1aQg7g
+         bAQCPnVNxeey+x3HpAwgFxGw+UD0NtLdeEF/y7ueWngfu0ngRJjJr8s8MEHHLhA/UKrA
+         S/8g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764796879; x=1765401679;
+        d=1e100.net; s=20230601; t=1764796878; x=1765401678;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=QQYJPvwvgRgQ+uacXhfRNgoaW5IOSiziugCJWe/WiO0=;
-        b=pk7p5DA8EwcAfDwsLFdd5HVToQZUfeoxu+nAcT+2j41JS/EurAkxPiVub4/qHkg/OQ
-         vAZsK0msyyBc4VQfXnXjEdV3cq/il8zYDG/8kLF8Vo3h6F0MFxEq0rFBL+dyY52NjjeX
-         dK7kdbR8E3E2j790DaT7noqow+YbBuiLRx1nBYumj/2tMnxB8gyZPwvxyIpHivNoi8WR
-         zZbtW/xCMNVwbopV6EuDH9i68lEJn6S8LX5POxZumVOGqcrXAKy4vtnE6wmDbNu7EdxU
-         zNQZNcF1loCs0ajUtokON7oDVgUJJATA3U3menxRpPScMMHza1cfLFZgEpS7QJObdt4Y
-         RblQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW2wRi1xYtrB4BwieQtfdgjRvyDLlvkCFaPS8fzqYAqzOBpR7bplk+BUTzlZMITessxM3KB+hp0jPNVttluGTf3@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsfIW6qU2kL4+UCvHv5/p56wT9WUShEHW+TAToJw43hZUg7Cf4
-	EnWCTI/CVeWkvYzht7lT6pdIEP8lnYXJwO07ktitPwAzO9FbqkzSq7ke
-X-Gm-Gg: ASbGncvGCb8usfwziivLXXu6UDCdAT25BShMipeByOSnfOCZWWM9PM8yruTK1i1Jc1r
-	unj+UXyplrL97f/WCMV7gzNC1rE3vOKHnKO/ld/B+C3IT30SPsrc8BE9XI9AF6CfoHhFZoRQHXg
-	ZGONn6RsMBjAEBfos0uT7D2QKTvFvbgzJ0AyUqMnNKwz25u6rgQwStpBfa2CWnyRoNokeAOTwsb
-	NX5NLaNGRlBcj5mXoy7t13XQPwTQupBtWlaAZ/lX7B3YTjA8Pa/Rm3rCjHAMHlkHuWDldkXrlhP
-	M3AOnzYMpxZ48JIYeljdqOqslISrt7j1vAKYPVT5kehQ0IH69MuEFEDb8N1+j9XL3y51FXTDuA2
-	bE4kunb8te3dpyLp/5aeIcp7FIUHbLX+4IG36tiusvaskgF2yhtcgMr34v5pnVXYOVQhJgbO262
-	jmNZ2IpEyQu0tI9m8v0MTPZR+5Qg==
-X-Google-Smtp-Source: AGHT+IE7S1JA9mBaFmTuoYgRyXZzK5/6ZUPVSz3qyQ9WBh4nTi0eMribDRvh3NSIjTNQKMCIakZKfw==
-X-Received: by 2002:a05:6000:2013:b0:426:eef2:fa86 with SMTP id ffacd0b85a97d-42f73173ff9mr3865087f8f.11.1764796879215;
-        Wed, 03 Dec 2025 13:21:19 -0800 (PST)
-Received: from [127.0.1.1] ([2001:861:3201:3d10:2034:6883:1f40:e708])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42e1c5c3c81sm41648667f8f.3.2025.12.03.13.21.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        bh=Msy9WFwQwiYNqXHHT0OdrW68e8cjCcdw9jXNnG4MPTA=;
+        b=JZJogwxuKPAvjqJxbTvfFG3HqtsUc37gtyrpUlvYIFx1GWwH6XCv5PoAsV9gGbfaXX
+         CXL4Pn/AQnmx8e1toes5JIpate09qv4tHckyMWET3tM8Bs1UIRfzaSqUTrVuubjcPt9S
+         uFQG/OYkab3EhzeISizVG2gGoJ1b+9fdWQ52jpfGhpvq5FUBv3A60+FdO1Dst79STn4G
+         0mbYTDbHBFWGpTcT5leOwkJHxX000uIN+GFNqmA0nMn2tUhY8jGihqae52IB8tE7yBLg
+         M/1pw5mYNkg4UyKi5b7BHMKsQQ5N2PHaEU71E0CRCIMEC/9n/xpfPJ0CYM8c88ACQTKo
+         LUiw==
+X-Forwarded-Encrypted: i=1; AJvYcCUwsBINtGSVeHgzfI54dABBij+q+WRW32hhO2n0q3627cJdEDtp4Jwguatx6eSA/v1ka1qPu7W42E4JdRq3t/ul@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8p6m7dCbIEIeEhMcarLznxTnNSy68BWwpk3UkFuC3W6SX5eQL
+	rwx+wI2NrgxSX21oRGF2urcOZV4bYZpLb4ujqBLyDw4XWHGo/GIUYTZO
+X-Gm-Gg: ASbGnctwtZ4Jle/F4/vbtDnbUplXyI8XrkO5F4YdJhgH6zcNdlZDr17sJl5QiaQ1flq
+	6V+70WR5eaY5UN2mPjylHSe7rM2WCoY2jhhY2BHg3HP6BFE3FGvc6lLnzD004n2JbtpeXyH5ws+
+	+gKdhvnb8zzMyoUyAMkWT/ghm6A/pNbw/X8oxe6YAnnhJCJ+fDeTYa9H1GJ/i6X/VQEGoQL9crj
+	C/zlQ16eF4z79jlY6DpOg8KPIK1xZbi16bdqsxjKh+3pq1ocjRaA1A3+Z8H8dQdbUPAyk32PtpD
+	oW6DkKWkUYUCMAJnaWlI+OFdphqBA9OyLOL4ZuA+rCH6jb6cKcSRpQILOG1cm4EdJq9pR6v1mWu
+	eP5+WhwqbO0TMDfYMiIAonJJJ6FDdvq0PdyEn16YFBRoS8h9I+/8SLn9aTvI=
+X-Google-Smtp-Source: AGHT+IFl74ex0bdry8RmTppT8hr9HibNTabkDOnZaLlU8Kb2wlM1Q8ObSvJCzD6oLXuVJsYvwDlnIA==
+X-Received: by 2002:a05:6000:4029:b0:429:b8e2:1064 with SMTP id ffacd0b85a97d-42f731c3147mr3649867f8f.47.1764796878072;
         Wed, 03 Dec 2025 13:21:18 -0800 (PST)
+Received: from [127.0.1.1] ([2001:861:3201:3d10:2034:6883:1f40:e708])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42e1c5c3c81sm41648667f8f.3.2025.12.03.13.21.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Dec 2025 13:21:17 -0800 (PST)
 From: Gary Bisson <bisson.gary@gmail.com>
-Date: Wed, 03 Dec 2025 22:20:41 +0100
-Subject: [PATCH v5 5/5] arm64: dts: mediatek: add device tree for Tungsten
- 700 board
+Date: Wed, 03 Dec 2025 22:20:40 +0100
+Subject: [PATCH v5 4/5] arm64: dts: mediatek: add device tree for Tungsten
+ 510 board
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251203-review-v5-5-b26d5512c6af@gmail.com>
+Message-Id: <20251203-review-v5-4-b26d5512c6af@gmail.com>
 References: <20251203-review-v5-0-b26d5512c6af@gmail.com>
 In-Reply-To: <20251203-review-v5-0-b26d5512c6af@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -89,16 +88,16 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
  Gary Bisson <bisson.gary@gmail.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764796869; l=2426;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764796869; l=35678;
  i=bisson.gary@gmail.com; s=20251201; h=from:subject:message-id;
- bh=1kcy4covU8RAPnEUqKANcyZxULd507eUO8g6XjGH2V4=;
- b=x6qWatvga+4olc5mMNH0ZKHSQe2NkVNuVbPQLbPiuTQp2oQU82LdSiLe5bnZTMnhxoE9PXKvV
- 1C3xuN9dI/KD9v3v/tJI4UKY/rU6rLavJ7RB4Vdot1scC/N1MBj0J+v
+ bh=Ez5I2RXn2KmnXEmoBRXQpJsoDyxm+cU0dKTl1oSS0yg=;
+ b=hxgW9Uw3loPDc2PNwKsUWJ+mf5KVmJLo7m2yMs3WMNvKUZvkYnBAJXW+eaLPWd/s5eTl5TReq
+ A5M8faY1Ju+An+s5za+CgX+XRj2tMbwRBix/DNcRVwL/R1u7XGKzrHp
 X-Developer-Key: i=bisson.gary@gmail.com; a=ed25519;
  pk=eaOrLwovHUZBMoLbrx+L1ppj+AH+TfgxkVhIEyrhkeE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_132121_274535_0AF43BB4 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20251203_132120_417773_46ECB8E3 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,70 +112,1559 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree to support Ezurio Tungsten 700 (MT8390) SMARC SOM [1] +
+Add device tree to support Ezurio Tungsten 510 (MT8370) SMARC SOM [1] +
 Universal SMARC carrier board [2].
 It includes support for the MIPI-DSI BD070LIC3 display which uses the
 Tianma TM070JDHG30 panel + TI SN65DSI84 MIPI-DSI to LVDS bridge [3].
 
-[1] https://www.ezurio.com/product/tungsten700-smarc
+[1] https://www.ezurio.com/product/tungsten510-smarc
 [2] https://www.ezurio.com/system-on-module/accessories/universal-smarc-carrier
 [3] https://www.ezurio.com/product/bd070lic3-7-touchscreen-display
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Signed-off-by: Gary Bisson <bisson.gary@gmail.com>
+
 ---
 Changes in v2:
-- None
+- Updated nodes to be generic (pmic, i2c, usb-typec)
 Changed in v3:
 - None
 Changed in v4:
-- None
+- Fixed remaining DTB warnings
 Changed in v5:
+- Fixed DTB issues per Angelo's feedback
 - Updated dtsi name to remove wildcard
 ---
- arch/arm64/boot/dts/mediatek/Makefile              |  1 +
- .../boot/dts/mediatek/mt8390-tungsten-smarc.dts    | 22 ++++++++++++++++++++++
- 2 files changed, 23 insertions(+)
+ arch/arm64/boot/dts/mediatek/Makefile              |    1 +
+ .../boot/dts/mediatek/mt8370-tungsten-smarc.dts    |   14 +
+ .../boot/dts/mediatek/mt8390-tungsten-smarc.dtsi   | 1489 ++++++++++++++++++++
+ 3 files changed, 1504 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
-index 30d169a31b10..85f338344dd3 100644
+index a4df4c21399e..30d169a31b10 100644
 --- a/arch/arm64/boot/dts/mediatek/Makefile
 +++ b/arch/arm64/boot/dts/mediatek/Makefile
-@@ -102,6 +102,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8370-genio-510-evk.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8370-tungsten-smarc.dtb
+@@ -99,6 +99,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8195-demo.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8195-evb.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8365-evk.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8370-genio-510-evk.dtb
++dtb-$(CONFIG_ARCH_MEDIATEK) += mt8370-tungsten-smarc.dtb
  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-genio-1200-evk.dtb
  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8390-genio-700-evk.dtb
-+dtb-$(CONFIG_ARCH_MEDIATEK) += mt8390-tungsten-smarc.dtb
  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-kontron-3-5-sbc-i1200.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l-8-hd-panel.dtbo
-diff --git a/arch/arm64/boot/dts/mediatek/mt8390-tungsten-smarc.dts b/arch/arm64/boot/dts/mediatek/mt8390-tungsten-smarc.dts
+diff --git a/arch/arm64/boot/dts/mediatek/mt8370-tungsten-smarc.dts b/arch/arm64/boot/dts/mediatek/mt8370-tungsten-smarc.dts
 new file mode 100644
-index 000000000000..7580f9e2f20d
+index 000000000000..4c3a7c4579c8
 --- /dev/null
-+++ b/arch/arm64/boot/dts/mediatek/mt8390-tungsten-smarc.dts
-@@ -0,0 +1,22 @@
++++ b/arch/arm64/boot/dts/mediatek/mt8370-tungsten-smarc.dts
+@@ -0,0 +1,14 @@
 +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
 +/*
 + * Copyright (C) 2025 Ezurio LLC
 + * Author: Gary Bisson <bisson.gary@gmail.com>
 + */
 +/dts-v1/;
-+#include "mt8188.dtsi"
++#include "mt8370.dtsi"
 +#include "mt8390-tungsten-smarc.dtsi"
 +
 +/ {
-+	model = "Ezurio Tungsten700 SMARC (MT8390)";
-+	compatible = "ezurio,mt8390-tungsten-smarc", "mediatek,mt8390",
++	model = "Ezurio Tungsten510 SMARC (MT8370)";
++	compatible = "ezurio,mt8370-tungsten-smarc", "mediatek,mt8370",
 +		     "mediatek,mt8188";
 +};
+diff --git a/arch/arm64/boot/dts/mediatek/mt8390-tungsten-smarc.dtsi b/arch/arm64/boot/dts/mediatek/mt8390-tungsten-smarc.dtsi
+new file mode 100644
+index 000000000000..40b381d4cc35
+--- /dev/null
++++ b/arch/arm64/boot/dts/mediatek/mt8390-tungsten-smarc.dtsi
+@@ -0,0 +1,1489 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (C) 2025 Ezurio LLC
++ * Author: Gary Bisson <bisson.gary@gmail.com>
++ */
 +
-+&cpu4 {
++#include "mt6359.dtsi"
++#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/input/input.h>
++#include <dt-bindings/input/linux-event-codes.h>
++#include <dt-bindings/interrupt-controller/irq.h>
++#include <dt-bindings/net/microchip-lan78xx.h>
++#include <dt-bindings/pinctrl/mediatek,mt8188-pinfunc.h>
++#include <dt-bindings/spmi/spmi.h>
++#include <dt-bindings/usb/pd.h>
++
++/ {
++	aliases {
++		dsi0 = &disp_dsi0;
++		ethernet0 = &eth;
++		i2c0 = &i2c0;
++		i2c1 = &i2c1;
++		i2c2 = &i2c2;
++		i2c3 = &i2c3;
++		i2c4 = &i2c4;
++		i2c5 = &i2c5;
++		i2c6 = &i2c6;
++		mmc0 = &mmc0;
++		mmc1 = &mmc1;
++		mmc2 = &mmc2;
++		rtc0 = &rv3028;
++		rtc1 = &mt6359rtc;
++		serial0 = &uart0;
++	};
++
++	backlight_lcd0: backlight-lcd0 {
++		compatible = "pwm-backlight";
++		brightness-levels = <0 1023>;
++		default-brightness-level = <768>;
++		num-interpolated-steps = <1023>;
++		enable-gpios = <&pio 30 GPIO_ACTIVE_HIGH>;
++		pwms = <&disp_pwm0 0 30000>;
++	};
++
++	chosen {
++		stdout-path = "serial0:115200n8";
++	};
++
++	firmware {
++		optee {
++			compatible = "linaro,optee-tz";
++			method = "smc";
++		};
++	};
++
++	memory@40000000 {
++		device_type = "memory";
++		reg = <0 0x40000000 0x1 0x00000000>;
++	};
++
++	panel-dsi0 {
++		compatible = "tianma,tm070jdhg30";
++		backlight = <&backlight_lcd0>;
++		power-supply = <&reg_5v>;
++
++		port {
++			dsi0_panel_in: endpoint {
++				remote-endpoint = <&sn65dsi84_bridge_out>;
++			};
++		};
++	};
++
++	reserved-memory {
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		/*
++		 * 12 MiB reserved for OP-TEE (BL32)
++		 * +-----------------------+ 0x43e0_0000
++		 * |      SHMEM 2MiB       |
++		 * +-----------------------+ 0x43c0_0000
++		 * |        | TA_RAM  8MiB |
++		 * + TZDRAM +--------------+ 0x4340_0000
++		 * |        | TEE_RAM 2MiB |
++		 * +-----------------------+ 0x4320_0000
++		 */
++		optee_reserved: optee@43200000 {
++			no-map;
++			reg = <0 0x43200000 0 0x00c00000>;
++		};
++
++		scp_mem: memory@50000000 {
++			compatible = "shared-dma-pool";
++			reg = <0 0x50000000 0 0x2900000>;
++			no-map;
++		};
++
++		/* 2 MiB reserved for ARM Trusted Firmware (BL31) */
++		bl31_secmon_reserved: memory@54600000 {
++			no-map;
++			reg = <0 0x54600000 0x0 0x200000>;
++		};
++
++		apu_mem: memory@55000000 {
++			compatible = "shared-dma-pool";
++			reg = <0 0x55000000 0 0x1400000>; /* 20 MB */
++		};
++
++		vpu_mem: memory@57000000 {
++			compatible = "shared-dma-pool";
++			reg = <0 0x57000000 0 0x1400000>; /* 20 MB */
++		};
++
++		adsp_mem: memory@60000000 {
++			compatible = "shared-dma-pool";
++			reg = <0 0x60000000 0 0xf00000>;
++			no-map;
++		};
++
++		afe_dma_mem: memory@60f00000 {
++			compatible = "shared-dma-pool";
++			reg = <0 0x60f00000 0 0x100000>;
++			no-map;
++		};
++
++		adsp_dma_mem: memory@61000000 {
++			compatible = "shared-dma-pool";
++			reg = <0 0x61000000 0 0x100000>;
++			no-map;
++		};
++	};
++
++	regulator-efuse {
++		compatible = "regulator-output";
++		vout-supply = <&mt6359_vefuse_ldo_reg>;
++	};
++
++	reg_1v8: regulator-1v8 {
++		compatible = "regulator-fixed";
++		regulator-name = "reg_1v8";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		regulator-always-on;
++	};
++
++	reg_3v3: regulator-3v3 {
++		compatible = "regulator-fixed";
++		regulator-name = "reg_3v3";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		regulator-always-on;
++	};
++
++	reg_5v: regulator-5v {
++		compatible = "regulator-fixed";
++		regulator-name = "reg_5v";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		regulator-always-on;
++	};
++
++	sdcard_en_3v3: regulator-sdcard-en {
++		compatible = "regulator-fixed";
++		regulator-always-on;
++		regulator-name = "sdcard_en_3v3";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		gpio = <&pio 111 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++	};
++
++	usb_p0_vbus: regulator-usb-p0-vbus {
++		compatible = "regulator-fixed";
++		regulator-name = "vbus_p0";
++		regulator-min-microvolt = <5000000>;
++		regulator-max-microvolt = <5000000>;
++		gpio = <&pio 84 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++	};
++
++	usb_p1_vbus: regulator-usb-p1-vbus {
++		compatible = "regulator-fixed";
++		pinctrl-names = "default";
++		pinctrl-0 = <&usb1_hub_pins>;
++		regulator-name = "vbus_p1";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		gpio = <&pio 147 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++	};
++
++	usb_p2_vbus: regulator-usb-p2-vbus {
++		compatible = "regulator-fixed";
++		pinctrl-names = "default";
++		pinctrl-0 = <&usb2_eth_pins>;
++		regulator-name = "vbus_p2";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <1800000>;
++		gpio = <&pio 80 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++	};
++
++	wifi_pwrseq: wifi-pwrseq {
++		compatible = "mmc-pwrseq-simple";
++		pinctrl-names = "default";
++		pinctrl-0 = <&wifi_pwrseq_pins>;
++		post-power-on-delay-ms = <200>;
++		reset-gpios = <&pio 89 GPIO_ACTIVE_LOW>;
++	};
++};
++
++&adsp {
++	memory-region = <&adsp_dma_mem>, <&adsp_mem>;
++	status = "okay";
++};
++
++&afe {
++	memory-region = <&afe_dma_mem>;
++	status = "okay";
++};
++
++&cpu0 {
 +	cpu-supply = <&mt6359_vcore_buck_reg>;
 +};
 +
-+&cpu5 {
++&cpu1 {
 +	cpu-supply = <&mt6359_vcore_buck_reg>;
++};
++
++&cpu2 {
++	cpu-supply = <&mt6359_vcore_buck_reg>;
++};
++
++&cpu3 {
++	cpu-supply = <&mt6359_vcore_buck_reg>;
++};
++
++&cpu6 {
++	cpu-supply = <&mt6315_6_vbuck1>;
++};
++
++&cpu7 {
++	cpu-supply = <&mt6315_6_vbuck1>;
++};
++
++&disp_pwm0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&disp_pwm0_pins>;
++	status = "okay";
++};
++
++&disp_dsi0 {
++	#address-cells = <1>;
++	#size-cells = <0>;
++	status = "okay";
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@0 {
++			reg = <0>;
++			dsi0_in: endpoint {
++				remote-endpoint = <&dither0_out>;
++			};
++		};
++
++		port@1 {
++			reg = <1>;
++			dsi0_out: endpoint {
++				remote-endpoint = <&sn65dsi84_bridge_in>;
++			};
++		};
++	};
++};
++
++&dither0_in {
++	remote-endpoint = <&postmask0_out>;
++};
++
++&dither0_out {
++	remote-endpoint = <&dsi0_in>;
++};
++
++&eth {
++	phy-mode ="rgmii-id";
++	phy-handle = <&ethernet_phy0>;
++	pinctrl-names = "default", "sleep";
++	pinctrl-0 = <&eth_default_pins>;
++	pinctrl-1 = <&eth_sleep_pins>;
++	mediatek,mac-wol;
++	snps,reset-gpio = <&pio 27 GPIO_ACTIVE_LOW>;
++	snps,reset-active-low;
++	snps,reset-delays-us = <0 11000 1000>;
++	status = "okay";
++};
++
++&eth_mdio {
++	ethernet_phy0: ethernet-phy@7 {
++		compatible = "ethernet-phy-ieee802.3-c22";
++		reg = <0x7>;
++		interrupts-extended = <&pio 148 IRQ_TYPE_LEVEL_LOW>;
++	};
++};
++
++&gamma0_out {
++	remote-endpoint = <&postmask0_in>;
++};
++
++&gpu {
++	mali-supply = <&mt6359_vproc2_buck_reg>;
++	status = "okay";
++};
++
++&i2c0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c0_pins>;
++	clock-frequency = <100000>;
++	status = "okay";
++
++	i2c-mux@73 {
++		compatible = "nxp,pca9546";
++		reg = <0x73>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&i2c0_mux_pins>;
++		reset-gpios = <&pio 6 GPIO_ACTIVE_LOW>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		i2c_mux_gp_0: i2c@0 {
++			reg = <0>;
++			clock-frequency = <100000>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++
++		i2c_mux_gp_1: i2c@1 {
++			reg = <1>;
++			clock-frequency = <100000>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++
++		i2c_mux_gp_2: i2c@2 {
++			reg = <2>;
++			clock-frequency = <100000>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++
++		i2c_mux_gp_3: i2c@3 {
++			reg = <3>;
++			clock-frequency = <100000>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++	};
++};
++
++&i2c1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c1_pins>;
++	clock-frequency = <400000>;
++	status = "okay";
++};
++
++&i2c2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c2_pins>;
++	clock-frequency = <400000>;
++	status = "okay";
++
++	i2c-mux@73 {
++		compatible = "nxp,pca9546";
++		reg = <0x73>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&i2c_mux_smarc_lcd_pins>;
++		reset-gpios = <&pio 5 GPIO_ACTIVE_LOW>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		i2c_mux_lcd_0: i2c@0 {
++			reg = <0>;
++			clock-frequency = <100000>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++
++		i2c_mux_lcd_1: i2c@1 {
++			reg = <1>;
++			clock-frequency = <100000>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++
++		i2c_mux_lcd_2: i2c@2 {
++			reg = <2>;
++			clock-frequency = <100000>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++
++		i2c_mux_lcd_3: i2c@3 {
++			reg = <3>;
++			clock-frequency = <100000>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++	};
++};
++
++&i2c3 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c3_pins>;
++	clock-frequency = <400000>;
++	status = "okay";
++};
++
++&i2c4 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c4_pins>;
++	clock-frequency = <400000>;
++	status = "okay";
++};
++
++&i2c_mux_gp_0 {
++	rv3028: rtc@52 {
++		compatible = "microcrystal,rv3028";
++		reg = <0x52>;
++		interrupts-extended = <&pio 42 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&rv3028_pins>;
++		#clock-cells = <0>;
++		wakeup-source;
++	};
++};
++
++&i2c_mux_gp_1 {
++	usb-typec@60 {
++		compatible = "ti,hd3ss3220";
++		reg = <0x60>;
++		interrupts-extended = <&pio 45 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&hd3ss3220_pins>;
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			port@0 {
++				reg = <0>;
++				hd3ss3220_in_ep: endpoint {
++					remote-endpoint = <&ss_ep>;
++				};
++			};
++
++			port@1 {
++				reg = <1>;
++				hd3ss3220_out_ep: endpoint {
++					remote-endpoint = <&usb_role_switch>;
++				};
++			};
++		};
++	};
++};
++
++&i2c_mux_gp_2 {
++	codec@1a {
++		compatible = "wlf,wm8962";
++		reg = <0x1a>;
++		clocks = <&topckgen CLK_TOP_I2SO1>;
++		AVDD-supply = <&reg_1v8>;
++		CPVDD-supply = <&reg_1v8>;
++		DBVDD-supply = <&reg_3v3>;
++		DCVDD-supply = <&reg_1v8>;
++		MICVDD-supply = <&reg_3v3>;
++		PLLVDD-supply = <&reg_1v8>;
++		SPKVDD1-supply = <&reg_5v>;
++		SPKVDD2-supply = <&reg_5v>;
++		gpio-cfg = <
++			0x0000 /* n/c */
++			0x0000 /* gpio2: */
++			0x0000 /* gpio3: */
++			0x0000 /* n/c */
++			0x8081 /* gpio5:HP detect */
++			0x8095 /* gpio6:Mic detect */
++		>;
++	};
++};
++
++&i2c_mux_lcd_2 {
++	bridge@2c {
++		compatible = "ti,sn65dsi84";
++		reg = <0x2c>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&dsi0_sn65dsi84_pins>;
++		enable-gpios = <&pio 25 GPIO_ACTIVE_HIGH>;
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			port@0 {
++				reg = <0>;
++
++				sn65dsi84_bridge_in: endpoint {
++					remote-endpoint = <&dsi0_out>;
++					data-lanes = <1 2 3 4>;
++				};
++			};
++
++			port@2 {
++				reg = <2>;
++
++				sn65dsi84_bridge_out: endpoint {
++					remote-endpoint = <&dsi0_panel_in>;
++				};
++			};
++		};
++	};
++
++	touchscren@5d {
++		compatible = "goodix,gt911";
++		reg = <0x5d>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&ts_dsi0_goodix_pins>;
++		interrupts-extended = <&pio 146 IRQ_TYPE_LEVEL_HIGH>;
++		irq-gpios = <&pio 146 GPIO_ACTIVE_HIGH>;
++		reset-gpios = <&pio 7 GPIO_ACTIVE_HIGH>;
++	};
++};
++
++&mfg0 {
++	domain-supply = <&mt6359_vproc2_buck_reg>;
++};
++
++&mfg1 {
++	domain-supply = <&mt6359_vsram_others_ldo_reg>;
++};
++
++&mmc0 {
++	bus-width = <8>;
++	cap-mmc-highspeed;
++	cap-mmc-hw-reset;
++	hs400-ds-delay = <0x1481b>;
++	max-frequency = <200000000>;
++	mmc-hs200-1_8v;
++	mmc-hs400-1_8v;
++	non-removable;
++	no-sd;
++	no-sdio;
++	supports-cqe;
++	pinctrl-names = "default", "state_uhs";
++	pinctrl-0 = <&mmc0_default_pins>;
++	pinctrl-1 = <&mmc0_uhs_pins>;
++	vmmc-supply = <&mt6359_vemc_1_ldo_reg>;
++	vqmmc-supply = <&mt6359_vufs_ldo_reg>;
++	status = "okay";
++};
++
++&mmc1 {
++	bus-width = <4>;
++	cap-sd-highspeed;
++	max-frequency = <200000000>;
++	sd-uhs-sdr104;
++	sd-uhs-sdr50;
++	pinctrl-names = "default", "state_uhs";
++	pinctrl-0 = <&mmc1_default_pins>;
++	pinctrl-1 = <&mmc1_uhs_pins>;
++	cd-gpios = <&pio 2 GPIO_ACTIVE_LOW>;
++	vqmmc-supply = <&mt6359_vsim1_ldo_reg>;
++	vmmc-supply = <&sdcard_en_3v3>;
++	status = "okay";
++};
++
++&mmc2 {
++	bus-width = <4>;
++	cap-sd-highspeed;
++	cap-sdio-irq;
++	keep-power-in-suspend;
++	max-frequency = <200000000>;
++	no-mmc;
++	non-removable;
++	no-sd;
++	sd-uhs-sdr104;
++	wakeup-source;
++	pinctrl-names = "default", "state_uhs", "state_eint";
++	pinctrl-0 = <&mmc2_default_pins>;
++	pinctrl-1 = <&mmc2_uhs_pins>;
++	pinctrl-2 = <&mmc2_eint_pins>;
++	interrupt-names = "msdc", "sdio_wakeup";
++	interrupts-extended = <&gic GIC_SPI 136 IRQ_TYPE_LEVEL_HIGH 0>,
++			      <&pio 172 IRQ_TYPE_LEVEL_LOW>;
++	vmmc-supply = <&mt6359_vcn33_2_bt_ldo_reg>;
++	vqmmc-supply = <&mt6359_vcn18_ldo_reg>;
++	mmc-pwrseq = <&wifi_pwrseq>;
++	status = "okay";
++};
++
++&mipi_tx_config0 {
++	status = "okay";
++};
++
++&mt6359codec {
++	mediatek,mic-type-0 = <1>;
++	mediatek,mic-type-1 = <3>;
++};
++
++&mt6359_vbbck_ldo_reg {
++	regulator-always-on;
++};
++
++&mt6359_vcn18_ldo_reg {
++	regulator-name = "vcn18_pmu";
++	regulator-always-on;
++	regulator-boot-on;
++};
++
++&mt6359_vcn33_1_bt_ldo_reg {
++	regulator-name = "vcn33_1_pmu";
++	regulator-always-on;
++};
++
++&mt6359_vcn33_2_bt_ldo_reg {
++	regulator-name = "vcn33_2_pmu";
++	regulator-min-microvolt = <3300000>;
++	regulator-max-microvolt = <3300000>;
++	regulator-always-on;
++	regulator-boot-on;
++};
++
++&mt6359_vcore_buck_reg {
++	regulator-name = "dvdd_proc_l";
++	regulator-always-on;
++};
++
++&mt6359_vemc_1_ldo_reg {
++	regulator-always-on;
++};
++
++&mt6359_vgpu11_buck_reg {
++	regulator-name = "dvdd_core";
++	regulator-always-on;
++};
++
++&mt6359_vmodem_buck_reg {
++	regulator-always-on;
++};
++
++&mt6359_vpa_buck_reg {
++	regulator-name = "vpa_pmu";
++	regulator-always-on;
++};
++
++&mt6359_vproc2_buck_reg {
++	/* The name "vgpu" is required by mtk-regulator-coupler */
++	regulator-name = "vgpu";
++	regulator-min-microvolt = <550000>;
++	regulator-max-microvolt = <800000>;
++	regulator-coupled-with = <&mt6359_vsram_others_ldo_reg>;
++	regulator-coupled-max-spread = <225000>;
++};
++
++&mt6359_vs2_buck_reg {
++	regulator-min-microvolt = <1600000>;
++	regulator-boot-on;
++};
++
++&mt6359_vpu_buck_reg {
++	regulator-name = "dvdd_adsp";
++	regulator-always-on;
++};
++
++&mt6359_vrf12_ldo_reg {
++	regulator-name = "va12_abb2_pmu";
++	regulator-always-on;
++};
++
++&mt6359_vsram_md_ldo_reg {
++	regulator-always-on;
++};
++
++&mt6359_vsram_others_ldo_reg {
++	/* The name "vsram_gpu" is required by mtk-regulator-coupler */
++	regulator-name = "vsram_gpu";
++	regulator-min-microvolt = <750000>;
++	regulator-max-microvolt = <800000>;
++	regulator-coupled-with = <&mt6359_vproc2_buck_reg>;
++	regulator-coupled-max-spread = <225000>;
++};
++
++&mt6359_vsim1_ldo_reg {
++	regulator-name = "vsim1_pmu";
++	regulator-max-microvolt = <1800000>;
++	regulator-enable-ramp-delay = <480>;
++};
++
++&mt6359_vufs_ldo_reg {
++	regulator-name = "vufs18_pmu";
++	regulator-always-on;
++};
++
++&ovl0_in {
++	remote-endpoint = <&vdosys0_ep_main>;
++};
++
++&pcie {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pcie_default_pins>;
++	status = "okay";
++};
++
++&pciephy {
++	status = "okay";
++};
++
++&pmic {
++	interrupts-extended = <&pio 222 IRQ_TYPE_LEVEL_HIGH>;
++
++	keys {
++		compatible = "mediatek,mt6359-keys";
++		mediatek,long-press-mode = <1>;
++		power-off-time-sec = <0>;
++
++		power-key {
++			linux,keycodes = <KEY_POWER>;
++			wakeup-source;
++		};
++	};
++};
++
++&postmask0_in {
++	remote-endpoint = <&gamma0_out>;
++};
++
++&postmask0_out {
++	remote-endpoint = <&dither0_in>;
++};
++
++&scp_cluster {
++	status = "okay";
++};
++
++&scp_c0 {
++	memory-region = <&scp_mem>;
++	status = "okay";
++};
++
++&spi0 {
++	pinctrl-0 = <&spi0_pins>;
++	pinctrl-names = "default";
++	mediatek,pad-select = <0>;
++	status = "okay";
++};
++
++&spi1 {
++	pinctrl-0 = <&spi1_pins>;
++	pinctrl-names = "default";
++	mediatek,pad-select = <0>;
++	status = "okay";
++};
++
++&spmi {
++	#address-cells = <2>;
++	#size-cells = <0>;
++
++	mt6315_6: pmic@6 {
++		compatible = "mediatek,mt6315-regulator";
++		reg = <0x6 SPMI_USID>;
++
++		regulators {
++			mt6315_6_vbuck1: vbuck1 {
++				regulator-name = "vbuck1";
++				regulator-min-microvolt = <300000>;
++				regulator-max-microvolt = <1193750>;
++				regulator-enable-ramp-delay = <256>;
++				regulator-allowed-modes = <0 1 2>;
++				regulator-always-on;
++			};
++
++			mt6315_6_vbuck3: vbuck3 {
++				regulator-name = "vbuck3";
++				regulator-min-microvolt = <300000>;
++				regulator-max-microvolt = <1193750>;
++				regulator-enable-ramp-delay = <256>;
++				regulator-allowed-modes = <0 1 2>;
++				regulator-always-on;
++			};
++
++			mt6315_6_vbuck4: vbuck4 {
++				regulator-name = "vbuck4";
++				regulator-min-microvolt = <1193750>;
++				regulator-max-microvolt = <1193750>;
++				regulator-enable-ramp-delay = <256>;
++				regulator-allowed-modes = <0 1 2>;
++				regulator-always-on;
++
++				regulator-state-mem {
++					regulator-on-in-suspend;
++					regulator-suspend-microvolt = <1193750>;
++				};
++			};
++		};
++	};
++};
++
++&uart0 {
++	pinctrl-0 = <&uart0_pins>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
++&uart1 {
++	pinctrl-0 = <&uart1_pins>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
++&uart2 {
++	pinctrl-0 = <&uart2_pins>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
++&ssusb0 {
++	dr_mode = "otg";
++	maximum-speed = "high-speed";
++	usb-role-switch;
++	wakeup-source;
++	vusb33-supply = <&mt6359_vusb_ldo_reg>;
++	pinctrl-0 = <&usbotg_pins>;
++	pinctrl-names = "default";
++	status = "okay";
++
++	connector {
++		compatible = "usb-c-connector";
++		label = "USB-C";
++		data-role = "dual";
++
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			port@0 {
++				reg = <0>;
++				hs_ep: endpoint {
++					remote-endpoint = <&usb_hs_ep>;
++				};
++			};
++
++			port@1 {
++				reg = <1>;
++				ss_ep: endpoint {
++					remote-endpoint = <&hd3ss3220_in_ep>;
++				};
++			};
++		};
++	};
++
++	ports {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		port@0 {
++			reg = <0>;
++			usb_hs_ep: endpoint {
++				remote-endpoint = <&hs_ep>;
++			};
++		};
++
++		port@1 {
++			reg = <1>;
++			usb_role_switch: endpoint {
++				remote-endpoint = <&hd3ss3220_out_ep>;
++			};
++		};
++	};
++};
++
++&u2port0 {
++	status = "okay";
++};
++
++&u3phy0 {
++	status = "okay";
++};
++
++&xhci0 {
++	vbus-supply = <&usb_p0_vbus>;
++	vusb33-supply = <&mt6359_vusb_ldo_reg>;
++	status = "okay";
++};
++
++&ssusb1 {
++	dr_mode = "host";
++	wakeup-source;
++	vusb33-supply = <&mt6359_vusb_ldo_reg>;
++	pinctrl-0 = <&usb1_pins>;
++	pinctrl-names = "default";
++	status = "okay";
++};
++
++&u2port1 {
++	status = "okay";
++};
++
++&u3port1 {
++	status = "okay";
++};
++
++&u3phy1 {
++	status = "okay";
++};
++
++&xhci1 {
++	vbus-supply = <&usb_p1_vbus>;
++	vusb33-supply = <&mt6359_vusb_ldo_reg>;
++	status = "okay";
++};
++
++&ssusb2 {
++	dr_mode = "host";
++	maximum-speed = "high-speed";
++	wakeup-source;
++	vusb33-supply = <&mt6359_vusb_ldo_reg>;
++	status = "okay";
++};
++
++&u2port2 {
++	status = "okay";
++};
++
++&u3phy2 {
++	status = "okay";
++};
++
++&xhci2 {
++	vbus-supply = <&usb_p2_vbus>;
++	vusb33-supply = <&mt6359_vusb_ldo_reg>;
++	#address-cells = <1>;
++	#size-cells = <0>;
++	status = "okay";
++
++	ethernet@1 {
++		compatible = "usb424,7850";
++		reg = <1>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		mdio {
++			#address-cells = <1>;
++			#size-cells = <0>;
++
++			ethernet-phy@1 {
++				reg = <1>;
++				microchip,led-modes = <
++					LAN78XX_LINK_1000_ACTIVITY
++					LAN78XX_LINK_10_ACTIVITY
++					LAN78XX_LINK_10_100_ACTIVITY
++					LAN78XX_LINK_ACTIVITY
++				>;
++			};
++		};
++	};
++};
++
++&vdosys0 {
++	port {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		vdosys0_ep_main: endpoint@0 {
++			reg = <0>;
++			remote-endpoint = <&ovl0_in>;
++		};
++	};
++};
++
++&watchdog {
++	pinctrl-names = "default";
++	pinctrl-0 = <&watchdog_pins>;
++};
++
++&pio {
++	audio_pins: audio-pins {
++		pins-aud-pmic {
++			pinmux = <PINMUX_GPIO101__FUNC_O_AUD_CLK_MOSI
++				  PINMUX_GPIO102__FUNC_O_AUD_SYNC_MOSI
++				  PINMUX_GPIO103__FUNC_O_AUD_DAT_MOSI0
++				  PINMUX_GPIO104__FUNC_O_AUD_DAT_MOSI1
++				  PINMUX_GPIO105__FUNC_I0_AUD_DAT_MISO0
++				  PINMUX_GPIO106__FUNC_I0_AUD_DAT_MISO1>;
++		};
++
++		pins-pcm-wifi {
++			pinmux = <PINMUX_GPIO121__FUNC_B0_PCM_CLK
++				  PINMUX_GPIO122__FUNC_B0_PCM_SYNC
++				  PINMUX_GPIO123__FUNC_O_PCM_DO
++				  PINMUX_GPIO124__FUNC_I0_PCM_DI>;
++		};
++
++		pins-i2s {
++			pinmux = <PINMUX_GPIO119__FUNC_O_I2SO1_MCK
++				  PINMUX_GPIO112__FUNC_O_I2SO1_WS
++				  PINMUX_GPIO120__FUNC_O_I2SO1_BCK
++				  PINMUX_GPIO113__FUNC_O_I2SO1_D0
++				  PINMUX_GPIO110__FUNC_I0_I2SIN_D0>;
++		};
++	};
++
++	disp_pwm0_pins: disp-pwm0-pins {
++		pins {
++			pinmux = <PINMUX_GPIO29__FUNC_O_DISP_PWM0>;
++			bias-pull-down;
++		};
++	};
++
++	dsi0_sn65dsi84_pins: dsi0-sn65dsi84-pins {
++		pins-irq {
++			pinmux = <PINMUX_GPIO128__FUNC_B_GPIO128>;
++			bias-pull-down;
++			input-enable;
++		};
++
++		pins-enable {
++			pinmux = <PINMUX_GPIO25__FUNC_B_GPIO25>;
++			bias-pull-down;
++		};
++	};
++
++	eth_default_pins: eth-default-pins {
++		pins-txd {
++			pinmux = <PINMUX_GPIO131__FUNC_O_GBE_TXD3>,
++				 <PINMUX_GPIO132__FUNC_O_GBE_TXD2>,
++				 <PINMUX_GPIO133__FUNC_O_GBE_TXD1>,
++				 <PINMUX_GPIO134__FUNC_O_GBE_TXD0>;
++			drive-strength = <8>;
++		};
++		pins-cc {
++			pinmux = <PINMUX_GPIO139__FUNC_B0_GBE_TXC>,
++				 <PINMUX_GPIO142__FUNC_O_GBE_TXEN>,
++				 <PINMUX_GPIO141__FUNC_I0_GBE_RXDV>;
++			drive-strength = <8>;
++		};
++		pins-rxd {
++			pinmux = <PINMUX_GPIO135__FUNC_I0_GBE_RXD3>,
++				 <PINMUX_GPIO136__FUNC_I0_GBE_RXD2>,
++				 <PINMUX_GPIO137__FUNC_I0_GBE_RXD1>,
++				 <PINMUX_GPIO138__FUNC_I0_GBE_RXD0>,
++				 <PINMUX_GPIO140__FUNC_I0_GBE_RXC>;
++			drive-strength = <8>;
++			bias-pull-up = <MTK_PUPD_SET_R1R0_10>;
++		};
++		pins-mdio {
++			pinmux = <PINMUX_GPIO143__FUNC_O_GBE_MDC>,
++				 <PINMUX_GPIO144__FUNC_B1_GBE_MDIO>;
++			drive-strength = <8>;
++			input-enable;
++		};
++		pins-power {
++			pinmux = <PINMUX_GPIO27__FUNC_B_GPIO27>; /* GP_EQOS_RESET */
++			output-high;
++		};
++		pins-intr {
++			pinmux = <PINMUX_GPIO148__FUNC_B_GPIO148>; /* GPIRQ_EQOS_PHY */
++			bias-pull-up = <MTK_PUPD_SET_R1R0_10>;
++			input-enable;
++		};
++	};
++
++	eth_sleep_pins: eth-sleep-pins {
++		pins-txd {
++			pinmux = <PINMUX_GPIO131__FUNC_B_GPIO131>,
++				 <PINMUX_GPIO132__FUNC_B_GPIO132>,
++				 <PINMUX_GPIO133__FUNC_B_GPIO133>,
++				 <PINMUX_GPIO134__FUNC_B_GPIO134>;
++		};
++		pins-cc {
++			pinmux = <PINMUX_GPIO139__FUNC_B_GPIO139>,
++				 <PINMUX_GPIO142__FUNC_B_GPIO142>,
++				 <PINMUX_GPIO141__FUNC_B_GPIO141>,
++				 <PINMUX_GPIO140__FUNC_B_GPIO140>;
++		};
++		pins-rxd {
++			pinmux = <PINMUX_GPIO135__FUNC_B_GPIO135>,
++				 <PINMUX_GPIO136__FUNC_B_GPIO136>,
++				 <PINMUX_GPIO137__FUNC_B_GPIO137>,
++				 <PINMUX_GPIO138__FUNC_B_GPIO138>;
++		};
++		pins-mdio {
++			pinmux = <PINMUX_GPIO143__FUNC_B_GPIO143>,
++				 <PINMUX_GPIO144__FUNC_B_GPIO144>;
++			input-disable;
++			bias-disable;
++		};
++	};
++
++	gpio_keys_pins: gpio-keys-pins {
++		pins-keys {
++			pinmux = <PINMUX_GPIO129__FUNC_B_GPIO129>,
++				 <PINMUX_GPIO65__FUNC_B_GPIO65>,
++				 <PINMUX_GPIO66__FUNC_B_GPIO66>;
++			bias-pull-up;
++		};
++	};
++
++	hd3ss3220_pins: hd3ss3320-pins {
++		pins-irq {
++			pinmux = <PINMUX_GPIO45__FUNC_B_GPIO45>;
++			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++			input-enable;
++		};
++	};
++
++	hdmi_vreg_pins: hdmi-vreg-pins {
++		pins-pwr {
++			pinmux = <PINMUX_GPIO50__FUNC_O_HDMITX20_PWR5V>;
++			bias-disable;
++		};
++	};
++
++	hdmi_pins: hdmi-pins {
++		pins-hotplug {
++			pinmux = <PINMUX_GPIO51__FUNC_I0_HDMITX20_HTPLG>;
++			bias-pull-down;
++		};
++
++		pins-cec {
++			pinmux = <PINMUX_GPIO52__FUNC_B1_HDMITX20_CEC>;
++			bias-disable;
++		};
++
++		pins-ddc {
++			pinmux = <PINMUX_GPIO53__FUNC_B1_HDMITX20_SCL>,
++				 <PINMUX_GPIO54__FUNC_B1_HDMITX20_SDA>;
++			drive-strength = <10>;
++		};
++	};
++
++	i2c0_pins: i2c0-pins {
++		pins-bus {
++			pinmux = <PINMUX_GPIO56__FUNC_B1_SDA0>,
++				 <PINMUX_GPIO55__FUNC_B1_SCL0>;
++			bias-pull-up = <MTK_PULL_SET_RSEL_011>;
++			drive-strength-microamp = <1000>;
++		};
++	};
++
++	i2c0_mux_pins: i2c0-mux-pins {
++		pins-reset {
++			pinmux = <PINMUX_GPIO6__FUNC_B_GPIO6>;
++			bias-pull-up;
++		};
++	};
++
++	i2c1_pins: i2c1-pins {
++		pins-bus {
++			pinmux = <PINMUX_GPIO58__FUNC_B1_SDA1>,
++				 <PINMUX_GPIO57__FUNC_B1_SCL1>;
++			bias-pull-up = <MTK_PULL_SET_RSEL_011>;
++			drive-strength-microamp = <1000>;
++		};
++	};
++
++	i2c2_pins: i2c2-pins {
++		pins-bus {
++			pinmux = <PINMUX_GPIO60__FUNC_B1_SDA2>,
++				 <PINMUX_GPIO59__FUNC_B1_SCL2>;
++			bias-pull-up = <MTK_PULL_SET_RSEL_011>;
++			drive-strength-microamp = <1000>;
++		};
++	};
++
++	i2c3_pins: i2c3-pins {
++		pins-bus {
++			pinmux = <PINMUX_GPIO62__FUNC_B1_SDA3>,
++				 <PINMUX_GPIO61__FUNC_B1_SCL3>;
++			bias-pull-up = <MTK_PULL_SET_RSEL_011>;
++			drive-strength-microamp = <1000>;
++		};
++	};
++
++	i2c4_pins: i2c4-pins {
++		pins-bus {
++			pinmux = <PINMUX_GPIO64__FUNC_B1_SDA4>,
++				 <PINMUX_GPIO63__FUNC_B1_SCL4>;
++			bias-pull-up = <MTK_PULL_SET_RSEL_011>;
++			drive-strength-microamp = <1000>;
++		};
++	};
++
++	i2c_mux_smarc_lcd_pins: i2c-mux-smarc-lcd-pins {
++		pins-reset {
++			pinmux = <PINMUX_GPIO5__FUNC_B_GPIO5>;
++			bias-pull-down;
++		};
++	};
++
++	mmc0_default_pins: mmc0-default-pins {
++		pins-cmd-dat {
++			pinmux = <PINMUX_GPIO161__FUNC_B1_MSDC0_DAT0>,
++				 <PINMUX_GPIO160__FUNC_B1_MSDC0_DAT1>,
++				 <PINMUX_GPIO159__FUNC_B1_MSDC0_DAT2>,
++				 <PINMUX_GPIO158__FUNC_B1_MSDC0_DAT3>,
++				 <PINMUX_GPIO154__FUNC_B1_MSDC0_DAT4>,
++				 <PINMUX_GPIO153__FUNC_B1_MSDC0_DAT5>,
++				 <PINMUX_GPIO152__FUNC_B1_MSDC0_DAT6>,
++				 <PINMUX_GPIO151__FUNC_B1_MSDC0_DAT7>,
++				 <PINMUX_GPIO156__FUNC_B1_MSDC0_CMD>;
++			input-enable;
++			drive-strength = <6>;
++			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++		};
++
++		pins-clk {
++			pinmux = <PINMUX_GPIO157__FUNC_B1_MSDC0_CLK>;
++			drive-strength = <6>;
++			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
++		};
++
++		pins-rst {
++			pinmux = <PINMUX_GPIO155__FUNC_O_MSDC0_RSTB>;
++			drive-strength = <6>;
++			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++		};
++	};
++
++	mmc0_uhs_pins: mmc0-uhs-pins {
++		pins-cmd-dat {
++			pinmux = <PINMUX_GPIO161__FUNC_B1_MSDC0_DAT0>,
++				 <PINMUX_GPIO160__FUNC_B1_MSDC0_DAT1>,
++				 <PINMUX_GPIO159__FUNC_B1_MSDC0_DAT2>,
++				 <PINMUX_GPIO158__FUNC_B1_MSDC0_DAT3>,
++				 <PINMUX_GPIO154__FUNC_B1_MSDC0_DAT4>,
++				 <PINMUX_GPIO153__FUNC_B1_MSDC0_DAT5>,
++				 <PINMUX_GPIO152__FUNC_B1_MSDC0_DAT6>,
++				 <PINMUX_GPIO151__FUNC_B1_MSDC0_DAT7>,
++				 <PINMUX_GPIO156__FUNC_B1_MSDC0_CMD>;
++			input-enable;
++			drive-strength = <8>;
++			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++		};
++
++		pins-clk {
++			pinmux = <PINMUX_GPIO157__FUNC_B1_MSDC0_CLK>;
++			drive-strength = <8>;
++			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
++		};
++
++		pins-ds {
++			pinmux = <PINMUX_GPIO162__FUNC_B0_MSDC0_DSL>;
++			drive-strength = <8>;
++			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
++		};
++
++		pins-rst {
++			pinmux = <PINMUX_GPIO155__FUNC_O_MSDC0_RSTB>;
++			drive-strength = <8>;
++			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++		};
++	};
++
++	mmc1_default_pins: mmc1-default-pins {
++		pins-cmd-dat {
++			pinmux = <PINMUX_GPIO163__FUNC_B1_MSDC1_CMD>,
++				 <PINMUX_GPIO165__FUNC_B1_MSDC1_DAT0>,
++				 <PINMUX_GPIO166__FUNC_B1_MSDC1_DAT1>,
++				 <PINMUX_GPIO167__FUNC_B1_MSDC1_DAT2>,
++				 <PINMUX_GPIO168__FUNC_B1_MSDC1_DAT3>;
++			input-enable;
++			drive-strength = <6>;
++			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++		};
++
++		pins-pwr {
++			pinmux = <PINMUX_GPIO111__FUNC_B_GPIO111>;
++			bias-pull-down;
++		};
++
++		pins-pullup {
++			pinmux = <PINMUX_GPIO11__FUNC_B_GPIO11>;
++			bias-pull-up;
++		};
++
++		pins-clk {
++			pinmux = <PINMUX_GPIO164__FUNC_B1_MSDC1_CLK>;
++			drive-strength = <6>;
++			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
++		};
++
++		pins-insert {
++			pinmux = <PINMUX_GPIO2__FUNC_B_GPIO2>;
++			bias-pull-up;
++		};
++	};
++
++	mmc1_uhs_pins: mmc1-uhs-pins {
++		pins-cmd-dat {
++			pinmux = <PINMUX_GPIO163__FUNC_B1_MSDC1_CMD>,
++				 <PINMUX_GPIO165__FUNC_B1_MSDC1_DAT0>,
++				 <PINMUX_GPIO166__FUNC_B1_MSDC1_DAT1>,
++				 <PINMUX_GPIO167__FUNC_B1_MSDC1_DAT2>,
++				 <PINMUX_GPIO168__FUNC_B1_MSDC1_DAT3>;
++			input-enable;
++			drive-strength = <6>;
++			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++		};
++
++		pins-clk {
++			pinmux = <PINMUX_GPIO164__FUNC_B1_MSDC1_CLK>;
++			drive-strength = <6>;
++			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
++		};
++	};
++
++	mmc2_default_pins: mmc2-default-pins {
++		pins-clk {
++			pinmux = <PINMUX_GPIO170__FUNC_B1_MSDC2_CLK>;
++			drive-strength = <4>;
++			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
++		};
++
++		pins-cmd-dat {
++			pinmux = <PINMUX_GPIO169__FUNC_B1_MSDC2_CMD>,
++				 <PINMUX_GPIO171__FUNC_B1_MSDC2_DAT0>,
++				 <PINMUX_GPIO172__FUNC_B1_MSDC2_DAT1>,
++				 <PINMUX_GPIO173__FUNC_B1_MSDC2_DAT2>,
++				 <PINMUX_GPIO174__FUNC_B1_MSDC2_DAT3>;
++			input-enable;
++			drive-strength = <6>;
++			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++		};
++	};
++
++	mmc2_uhs_pins: mmc2-uhs-pins {
++		pins-clk {
++			pinmux = <PINMUX_GPIO170__FUNC_B1_MSDC2_CLK>;
++			drive-strength = <4>;
++			bias-pull-down = <MTK_PUPD_SET_R1R0_10>;
++		};
++
++		pins-cmd-dat {
++			pinmux = <PINMUX_GPIO169__FUNC_B1_MSDC2_CMD>,
++				 <PINMUX_GPIO171__FUNC_B1_MSDC2_DAT0>,
++				 <PINMUX_GPIO172__FUNC_B1_MSDC2_DAT1>,
++				 <PINMUX_GPIO173__FUNC_B1_MSDC2_DAT2>,
++				 <PINMUX_GPIO174__FUNC_B1_MSDC2_DAT3>;
++			input-enable;
++			drive-strength = <6>;
++			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++		};
++	};
++
++	mmc2_eint_pins: mmc2-eint-pins {
++		pins-dat1 {
++			pinmux = <PINMUX_GPIO172__FUNC_B_GPIO172>;
++			input-enable;
++			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++		};
++	};
++
++	rv3028_pins: rv3028-pins {
++		pins-irq {
++			pinmux = <PINMUX_GPIO42__FUNC_B_GPIO42>;
++			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++			input-enable;
++		};
++	};
++
++	spi0_pins: spi0-pins {
++		pins-spi {
++			pinmux = <PINMUX_GPIO69__FUNC_O_SPIM0_CSB>,
++				 <PINMUX_GPIO70__FUNC_O_SPIM0_CLK>,
++				 <PINMUX_GPIO71__FUNC_B0_SPIM0_MOSI>,
++				 <PINMUX_GPIO72__FUNC_B0_SPIM0_MISO>;
++			bias-disable;
++		};
++	};
++
++	spi1_pins: spi1-pins {
++		pins-spi {
++			pinmux = <PINMUX_GPIO75__FUNC_O_SPIM1_CSB>,
++				 <PINMUX_GPIO76__FUNC_O_SPIM1_CLK>,
++				 <PINMUX_GPIO77__FUNC_B0_SPIM1_MOSI>,
++				 <PINMUX_GPIO78__FUNC_B0_SPIM1_MISO>;
++			bias-disable;
++		};
++	};
++
++	pcie_default_pins: pcie-default-pins {
++		pins {
++			pinmux = <PINMUX_GPIO47__FUNC_I1_WAKEN>,
++				 <PINMUX_GPIO48__FUNC_O_PERSTN>,
++				 <PINMUX_GPIO49__FUNC_B1_CLKREQN>;
++			bias-pull-up;
++		};
++	};
++
++	ts_dsi0_goodix_pins: ts-dsi0-goodix-pins {
++		pins-irq {
++			pinmux = <PINMUX_GPIO146__FUNC_B_GPIO146>;
++			bias-pull-up = <MTK_PUPD_SET_R1R0_01>;
++			input-enable;
++		};
++
++		pins-reset {
++			pinmux = <PINMUX_GPIO7__FUNC_B_GPIO7>;
++			bias-pull-down;
++		};
++	};
++
++	uart0_pins: uart0-pins {
++		pins {
++			pinmux = <PINMUX_GPIO31__FUNC_O_UTXD0>,
++				 <PINMUX_GPIO32__FUNC_I1_URXD0>;
++			bias-pull-up;
++		};
++	};
++
++	uart1_pins: uart1-pins {
++		pins {
++			pinmux = <PINMUX_GPIO33__FUNC_O_UTXD1>,
++				 <PINMUX_GPIO34__FUNC_I1_URXD1>;
++			bias-pull-up;
++		};
++	};
++
++	uart2_pins: uart2-pins {
++		pins {
++			pinmux = <PINMUX_GPIO35__FUNC_O_UTXD2>,
++				 <PINMUX_GPIO36__FUNC_I1_URXD2>;
++			bias-pull-up;
++		};
++	};
++
++	usbotg_pins: usbotg-pins {
++		pins-iddig {
++			pinmux = <PINMUX_GPIO83__FUNC_B_GPIO83>;
++			input-enable;
++			bias-pull-up;
++		};
++
++		pins-valid {
++			pinmux = <PINMUX_GPIO85__FUNC_I0_VBUSVALID>;
++			input-enable;
++		};
++
++		pins-vbus {
++			pinmux = <PINMUX_GPIO84__FUNC_O_USB_DRVVBUS>;
++			output-high;
++		};
++	};
++
++	usb1_hub_pins: usb1-hub-pins {
++		pins {
++			pinmux = <PINMUX_GPIO147__FUNC_B_GPIO147>;
++			output-low;
++		};
++	};
++
++	usb1_pins: usb1-pins {
++		pins {
++			pinmux = <PINMUX_GPIO88__FUNC_I0_VBUSVALID_1P>;
++			input-enable;
++		};
++	};
++
++	usb2_eth_pins: usb2-eth-pins {
++		pins {
++			pinmux = <PINMUX_GPIO80__FUNC_B_GPIO80>;
++			output-low;
++		};
++	};
++
++	wifi_pwrseq_pins: wifi-pwrseq-pins {
++		pins {
++			pinmux = <PINMUX_GPIO89__FUNC_B_GPIO89>;
++			output-low;
++		};
++	};
++
++	watchdog_pins: watchdog-pins {
++		pins {
++			pinmux = <PINMUX_GPIO100__FUNC_O_WATCHDOG>;
++			bias-pull-up;
++		};
++	};
 +};
 
 -- 
