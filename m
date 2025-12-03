@@ -4,154 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10D94D1266D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 07:07:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11214D1266D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 07:08:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YcG2aKcL/yDKEX5hb0JiBxC8H25M9A00FZ5iOYB9NHA=; b=SdxrFELNC888kNJuf+OK9woivz
-	3QZj68u387OEKS6z/G+I9VNUGl1WvBsgoE80QXt1yCQsuegXl8Yw0pp5Qbn1Y2BOpRDvxRJZI076m
-	KFwWbWekSBLg51B4xwv4OOWv7uM6O7ibGAfkOcwQ2x+5Y/xrkqm53z9e7he5I73Ybskd4dq2Zo0PE
-	FETaAv/+0HDWUsmvREyVBqETf+swMf22AiKzLbazc+gjDIIWMKyNhDs+oopsg0ZnqE8uT4qHnqqJe
-	TM1YpVEIrDoogsuIXf3HS9HMczv28g1b2VKPia70bhxymkrjMlbR1wHdwD0gDrj7mCpdzsmXXGOeZ
-	KKUZGTEg==;
+	bh=ktrdC3X3Wj1FDCJhFPUlOqx6Gm94Hz6vHaszbn8CHek=; b=W16JwOxv4l+vUybScdX53KqiiR
+	IpBngv870o3+yn9RnUERfJYquyVmXP3Zkj6mdMvmFaY08GVcAy0sUp9uV24I+1TnsB6fD04txTJZb
+	z+BzIAo7NmAPO7rlDoA1AHISCK0rD2SBxYzDhpS1oFDdUC7tHEaIIK7uKSkXXo4BnnkjkYayG8JNJ
+	zjbtoJQm/HtESt/iDPtpYZTRw2ZJSL5FGBeWAqk1YRf/HiHnZVG3BAgVPtUesI/cWO0IOIBoOewtX
+	YylWy165O05nKyFOleW8GJAhvayaHRYPqzq542LhsivEI5pQAHhGVbp7Xe9og2k5R6Xs/S1+7itVd
+	a6SwQl4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQgx6-00000006Egk-3TUp;
-	Wed, 03 Dec 2025 07:07:04 +0000
-Received: from mail-swedencentralazon11013050.outbound.protection.outlook.com ([52.101.83.50] helo=GVXPR05CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQgx2-00000006EXm-3d75
+	id 1vQgy3-00000006F65-0uYa;
+	Wed, 03 Dec 2025 07:08:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQgxx-00000006F2d-2Wv3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 07:07:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WbR2OXbfxzJGZ+8X2vo5AINvqX1EPZAzske5PWWYouShz05epulenAErCLygDL20nRVsdrdurooVWI/ETDfW6wozTVbg/PCZ1GKt/IFkmQEhRe1L6ykT2YxLk7HrC3dkh+USmvaMnoIzm6sVGTaKctkRUk29skPMn9fmKtggkVKnxMzPSv73ud0TQTuhvJ05QNdDxRVMedboEmsLc3waIWJi5SAHx9kshDH4hkbw0DdDLUEJGlHCx4yirI6kBcl+wkUjhMAYVnHuUfYkXS+Y+7pE3TTOBM1y04/gm6L6xcqG87HfwHH2Pyz60TceY5caKuUFnWB27pK+JkxEIdJ2Cg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YcG2aKcL/yDKEX5hb0JiBxC8H25M9A00FZ5iOYB9NHA=;
- b=TnDlqu7J2N6cjNqpKY2wloo6eo5n7fuT5EsEuzkMFOrgoAkt3Ups0JP1wj5Oe3b6m5nB6P4QUSQ5lHTWCUe3H9ON18VR+EBzy6MDuGggpfaWznx+0i1B5KHZjvMFdjhHaXLLLY+8AcUGF1GGegezvK/IO2IzOYAo/dLhKCF59YsDiO3WrVkJjQDm4J0pnE7ppAjY6sQmcIxEfQf4OK/1bfOLLoKQR4wQ7fQRM2w9NdRWaXwaLBXS/LwyLVCWVzbwN94/2uWl/Ry10s++yaF+iboNf1DZtpDjnJ5HyGtWAKh1YnMLgf+hAElEwXgYHmRl4fwfqjZRsO3JRoARhN6kLA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YcG2aKcL/yDKEX5hb0JiBxC8H25M9A00FZ5iOYB9NHA=;
- b=bb8lqH3YI8/zol2b0fQ4syS34j12r6MAM2VGBgS/UchRFT2ZFqDd74FxKxdpPSooXrMm6MgAXlG37T2MdLzgEr6+J62wYNiH5K7yIJ5WNoo08EmT5Rg0VnnJGOWAN7xVFZHLGRQTcle4YpXFo4MHddVZz4zLsESh72D4wj0Ki3G/tXbQR2TpfRXuk61PrtC9cPEWfyr39aS/9WasELthjGSeQd6wrNXkD7enwsSx8ihxD3otsTLCL236vWDUsAxzgydS9p6u6kYKf0vp5/1pTYyywilN+g+/gs0+slzoTqnmm3hODq5/XUO7vJugb/kEXzV9uqDuU6NS0vwc+LRDNQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM9PR04MB8353.eurprd04.prod.outlook.com (2603:10a6:20b:3ef::22)
- by AS8PR04MB9174.eurprd04.prod.outlook.com (2603:10a6:20b:449::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Wed, 3 Dec
- 2025 07:06:58 +0000
-Received: from AM9PR04MB8353.eurprd04.prod.outlook.com
- ([fe80::46ae:f774:f04c:a1bc]) by AM9PR04MB8353.eurprd04.prod.outlook.com
- ([fe80::46ae:f774:f04c:a1bc%2]) with mapi id 15.20.9366.012; Wed, 3 Dec 2025
- 07:06:58 +0000
-From: Chancel Liu <chancel.liu@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 5/5] arm64: dts: imx91-11x11-evk: Add audio XCVR sound card support
-Date: Wed,  3 Dec 2025 16:06:05 +0900
-Message-ID: <20251203070605.1868821-6-chancel.liu@nxp.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20251203070605.1868821-1-chancel.liu@nxp.com>
-References: <20251203070605.1868821-1-chancel.liu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SE2P216CA0156.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:2c1::16) To AM9PR04MB8353.eurprd04.prod.outlook.com
- (2603:10a6:20b:3ef::22)
+	Wed, 03 Dec 2025 07:08:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 67AA8339;
+	Tue,  2 Dec 2025 23:07:46 -0800 (PST)
+Received: from [10.163.49.22] (unknown [10.163.49.22])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 91BC43F59E;
+	Tue,  2 Dec 2025 23:07:51 -0800 (PST)
+Message-ID: <296f9c4b-8c93-4464-9b75-e06770a4bd31@arm.com>
+Date: Wed, 3 Dec 2025 12:37:48 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8353:EE_|AS8PR04MB9174:EE_
-X-MS-Office365-Filtering-Correlation-Id: 605f671b-8e03-44fe-98b2-08de323a8cd0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|19092799006|52116014|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?sgldRo9q8ZGqTlTLsLHkWUXzzw1EkiEs7ukW3qbkzGk8h/sEy7L8nSit/Rqu?=
- =?us-ascii?Q?GCpLDu4oZg7QirnAgOom5Auzda/us4ZiGNwVZcvffUw6H7/zs2gjLrQ0Dzju?=
- =?us-ascii?Q?D+vtOCR3tXJ2FQKSi/bbPz7mOT99zWCT07TU76Be769SGfEMN1+lh3kWaLYK?=
- =?us-ascii?Q?bqRTeSbal98TI+v8uRnjjCI7cu9pLiNsP4d749biLrn1jium+k10FiCmgGxT?=
- =?us-ascii?Q?g/GQydX0lamWZP8woHHBfclp//LVaPoG6g993YUkZghTThJl5mwNI4OaMnc4?=
- =?us-ascii?Q?eYjYm+Y1zQG1wMUmhifW/UxhIs/P9ejsmBfFlq9IlIDFRP/MWMHbJKP6fo+l?=
- =?us-ascii?Q?k1C4ScdPp+JsVsWhvHqcCT4HTiGRdMkFLwAYH1ztgkKrRkfhL/UtZDXC38c7?=
- =?us-ascii?Q?sMdzU7IyG+VAzjVIIrdSMMDg22eMXUKQDfNFO9WiFslm+4Kjvd2LC3U1Xxiz?=
- =?us-ascii?Q?9yOSJbuNmf6pHTf0jGQFB+xffyTBXJQltxlIfw93xFGZl/QXw/o6ql8qy8+c?=
- =?us-ascii?Q?TVlpbiy/GhEMZrqV3KH3iGynCYSTwAo5m0SByk4pXCGPYWt1cYH0BqUjWWxf?=
- =?us-ascii?Q?TzzfBVv7MOS8GMQh9/hhCVdSEGOEPMeAX4OEXHA69PFN98ZxRX8cQvQRgapf?=
- =?us-ascii?Q?Okw+xoxWEExMg9oVjVMJooNwldbUNPQHQcx1PvSnSYg5ycJUguEgVcjIH8uZ?=
- =?us-ascii?Q?0+ZNP0paeMtNyEQJhU8rZhWYMHYK9Zs/U8gz8/JiY6o5lBKfw7YqxmRCR6ab?=
- =?us-ascii?Q?hHTQKuh6xqoxR3Bw2k8SAmMCvqu8HpL6zTwrR5aSVr1Wy9upAvjRuSOAQuMg?=
- =?us-ascii?Q?ijNO1wYhxJCT6D591GQof7GFP8l/pJgKyvgkqDIm9MWNswJjiqS3UD8iOh1+?=
- =?us-ascii?Q?BYzljzsPUYZ+RbHNY4M9954KIvzLSM6KPj+8qwqvPFQMhQ3S7tAe6t57RRfe?=
- =?us-ascii?Q?rJGyn3b0dOXClo0aNbRkaB+oK97CUPM6h5TSHKEi2Xnx1A8L5EpbpBtgDFdd?=
- =?us-ascii?Q?PehisophOkt7Adwx6msqP5jyv5zH8X+w22843Kk0D3+yvW76J8U6sbOPmnXL?=
- =?us-ascii?Q?lLyxhsaXtN7Wmla9XaakDggoVjtjXv6sp2LFvZH9JpbjqcHA85YyNmEx4mXd?=
- =?us-ascii?Q?7ENMdSWEmxnmb7n2H5JQPdS4P2s6mYjDrkhMHgHcArJ9/VapbEzk5R/H7yKo?=
- =?us-ascii?Q?XWpOr3qyXAUb2otoUfV/svOo1MvLXwy+HxXmbnfku9MuUHkEW4eLR8jeeosv?=
- =?us-ascii?Q?PJ/pWzavTnwr/2VnUDhue8iBRxq+4zQpkEFkuPmq0/T3FZcvSjMYoT0rAZ4u?=
- =?us-ascii?Q?9DFVt1ARS15m9w+7qJOtP5lILlNzbFhHBVbqrQTTl3tXnlctMpUtEcoFN0BT?=
- =?us-ascii?Q?HNhyIGUhNXNeC4AVcjneUk3ZOlxlm+V8OdVqFOZh4OBYKdTrIlNK9g7BL/UI?=
- =?us-ascii?Q?tq3yiOZdDQh6SozrXb41X7+EcIN4CX/mGHmNm5Nkb7jFM+AqU5agr0Twcy0n?=
- =?us-ascii?Q?eIzIU2RXwlaV+NY/j0YQpwBDc2Oy7BwLrMou3qL9Ydpee75Xy/xDP+xRAA?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8353.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(19092799006)(52116014)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JqvHj8vyU56jmuInmu9lKuYmyPKuyerewTRSLkl65wfs1bW5saxXoQ9KBz6W?=
- =?us-ascii?Q?nU0mvkBR3UpJelkSJWMdVh0X+PYniS0npqZTr9NAPTRO8NMMeE/BWB246sM/?=
- =?us-ascii?Q?2Un/v4O9nDYDszkl9o7ANzihy49xS2RoO6VMiNekKzNdIR8T1WRWOYFT1D25?=
- =?us-ascii?Q?43vTYYCpdYjEUVO6f36MH42QyNdr7SRQ7XacV1fdcA2yIBiuAC06a6ZK/YzF?=
- =?us-ascii?Q?4fbWJd/VLpaR1FeI47dXqjgNK7Gk/ehO4yqPvtRZ1Qwdr9MNfsDsnUkwpvtr?=
- =?us-ascii?Q?uDUy09Aki6Ejj/FC4QXl2PF/fcMu7nizX50147SNaycBYlOmz+zgg2ecEoPk?=
- =?us-ascii?Q?2oIbILomhhycbCMpViwvh9cvQWpY+pcjAdb3//PAOyqJCV032ekQpEZ7hYZ6?=
- =?us-ascii?Q?/XD5HkYAycPW85bkVaFfaicrTxILwtIwfYFg4rWY5c/B3u0yVarcfSLeTCzD?=
- =?us-ascii?Q?zNbEgnUitQQJmanIu5Gw31yJmhpWFfYNhBbB87iMc2GTSTFDOxolFM5fqbaG?=
- =?us-ascii?Q?BN53GT1LJbxvul2VES1JQ5fGiMmnXh5HRFsxU4pXfUl/NTVvzDgTYiG0S5jl?=
- =?us-ascii?Q?xLmfIUAU59UqWnu8Q/cJ7nm/cHHKzDSgOTLkzv674wj2SPgU1G/g+cbQIdfo?=
- =?us-ascii?Q?JyGNhwp3VRmGnD+YcdjTtyN+aN7oNZEaekoEbXf1Iua0XUKkxm3WvUaP+WBk?=
- =?us-ascii?Q?4bcKekRUZh2b8xS+3xk7kfVYIImLcfxDR+cUQqnjANa/rQ2v+KIPVdjKLLBy?=
- =?us-ascii?Q?7t33B+HdJyNZeeiIiqDDBeODOvLbUdQqjVCHi2UcMobkFNXm1plja1FvxeEw?=
- =?us-ascii?Q?3b9bqvZKH+fefaO/LE77y7qQGs8Qu0VyZWuBJXbqERl6x7NqjZMy4g99Zbmw?=
- =?us-ascii?Q?deOlrYbVgrpcl1V5I2GIkk8gJRCcKbybEBmLH46Ox9qukeJVhJocxqmwCJ+j?=
- =?us-ascii?Q?2CRkofg/HfOdeYzEDdY/XHZC/Agpj/XRVcVUnGqjJ4GF4GNCpSNSMUDtRmoI?=
- =?us-ascii?Q?zgrC7Y6QYeUru4BPFMYwsM+XicT26CC8EBcGrTi8en/wEW0h3WFHcmgvdjVZ?=
- =?us-ascii?Q?pp1se9MlzcFeScVpDhd6YxK3sV5E504Kg+Ubn5eJFWcCm/JPR2IfTLcA62ip?=
- =?us-ascii?Q?BpprodYHvTt0eLgt5CA8FRZRiOhS8/B/CWFOxRkFC+2fu+J3X5cpxdn5LBoA?=
- =?us-ascii?Q?FTLl5RPOfOSSwi2inauOQegYI1nkFBwlygVMOx9/8dlIciI3vKPaaTxTKk6y?=
- =?us-ascii?Q?PjypG4Jw3Xf+wG9xq4NHkluG3ZbRkHOWrvsAfxFVeM4D2VHhAEZubz2EoolJ?=
- =?us-ascii?Q?mjQ2DCLCE942W7xo8fCgDjolJUt3khBzJ5B3zOUkRlS0LFO+qS77k3E4mJqc?=
- =?us-ascii?Q?cLaeFt0b9wWvg0XSKs7IcdnqkxU/lJ7WMpGCsU6fCEgaH3r5RXuR4AnlC4mg?=
- =?us-ascii?Q?vLUB36IqJeQaQ9aLymxCzeseqT9/+TfNjwsLT/rSWsaabmyXHnmxNBNme3QU?=
- =?us-ascii?Q?AwQZm8G0l5Y2tBirBQY/VqCgTlVoORxiWQlmDIya5vApKwyvKiU2rPUGKuEA?=
- =?us-ascii?Q?UnO3uPDe93giLC1TuvpRXhuaZuETF/PXqZ2Rqtv/?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 605f671b-8e03-44fe-98b2-08de323a8cd0
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8353.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Dec 2025 07:06:58.6038
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9mZ9z1iU/sgEv2I1vmhtsZ9vGOnMvlF2jWAMhozyGRJo7h2i+BZQYPrguDxP5LCFazD6KoGf2N7gJM9cs/i9GQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9174
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v2 PATCH] arm64: mm: Fix kexec failure after pte_mkwrite_novma()
+ change
+To: Jianpeng Chang <jianpeng.chang.cn@windriver.com>,
+ catalin.marinas@arm.com, will@kernel.org, ardb@kernel.org,
+ ying.huang@linux.alibaba.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251202022707.2720933-1-jianpeng.chang.cn@windriver.com>
+ <381a3974-aafa-419f-a7ad-ed6e4c1671f0@arm.com>
+ <58d796ec-b430-4fc0-9a1c-8f1a6150f051@windriver.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <58d796ec-b430-4fc0-9a1c-8f1a6150f051@windriver.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_230700_913921_44CDBCC0 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20251202_230757_761459_2E242B74 
+X-CRM114-Status: GOOD (  25.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,79 +68,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add audio XCVR sound card, which supports SPDIF TX & RX only,
-eARC RX, ARC RX are not supported.
 
-Signed-off-by: Chancel Liu <chancel.liu@nxp.com>
----
- .../boot/dts/freescale/imx91-11x11-evk.dts    | 39 +++++++++++++++++++
- 1 file changed, 39 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts b/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
-index 605b1d10513a..3cd9808fc332 100644
---- a/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts
-@@ -131,6 +131,19 @@ cpu {
- 			};
- 		};
- 	};
-+
-+	sound-xcvr {
-+		compatible = "fsl,imx-audio-card";
-+		model = "imx-audio-xcvr";
-+
-+		pri-dai-link {
-+			link-name = "XCVR PCM";
-+
-+			cpu {
-+				sound-dai = <&xcvr>;
-+			};
-+		};
-+	};
- };
- 
- &adc1 {
-@@ -523,6 +536,18 @@ &wdog3 {
- 	status = "okay";
- };
- 
-+&xcvr {
-+	pinctrl-names = "default", "sleep";
-+	pinctrl-0 = <&pinctrl_spdif>;
-+	pinctrl-1 = <&pinctrl_spdif_sleep>;
-+	assigned-clocks = <&clk IMX93_CLK_SPDIF>,
-+			  <&clk IMX93_CLK_AUDIO_XCVR>;
-+	assigned-clock-parents = <&clk IMX93_CLK_AUDIO_PLL>,
-+				 <&clk IMX93_CLK_SYS_PLL_PFD1_DIV2>;
-+	assigned-clock-rates = <12288000>, <200000000>;
-+	status = "okay";
-+};
-+
- &iomuxc {
- 	pinctrl_eqos: eqosgrp {
- 		fsl,pins = <
-@@ -668,6 +693,20 @@ MX91_PAD_GPIO_IO26__GPIO2_IO26			0x51e
- 		>;
- 	};
- 
-+	pinctrl_spdif: spdifgrp {
-+		fsl,pins = <
-+			MX91_PAD_GPIO_IO22__SPDIF_IN			0x31e
-+			MX91_PAD_GPIO_IO23__SPDIF_OUT			0x31e
-+		>;
-+	};
-+
-+	pinctrl_spdif_sleep: spdifsleepgrp {
-+		fsl,pins = <
-+			MX91_PAD_GPIO_IO22__GPIO2_IO22			0x51e
-+			MX91_PAD_GPIO_IO23__GPIO2_IO23			0x51e
-+		>;
-+	};
-+
- 	pinctrl_lpi2c3: lpi2c3grp {
- 		fsl,pins = <
- 			MX91_PAD_GPIO_IO28__LPI2C3_SDA                          0x40000b9e
--- 
-2.50.1
+On 02/12/25 1:25 PM, Jianpeng Chang wrote:
+> 
+> On 12/2/25 2:57 PM, Anshuman Khandual wrote:
+>> CAUTION: This email comes from a non Wind River email account!
+>> Do not click links or open attachments unless you recognize the sender and know the content is safe.
+>>
+>> On 02/12/25 7:57 AM, Jianpeng Chang wrote:
+>>> Commit 143937ca51cc ("arm64, mm: avoid always making PTE dirty in
+>>> pte_mkwrite()") modified pte_mkwrite_novma() to only clear PTE_RDONLY
+>>> when the page is already dirty (PTE_DIRTY is set). While this optimization
+>>> prevents unnecessary dirty page marking in normal memory management paths,
+>>> it breaks kexec on some platforms like NXP LS1043.
+>>>
+>>> The issue occurs in the kexec code path:
+>>> 1. machine_kexec_post_load() calls trans_pgd_create_copy() to create a
+>>>    writable copy of the linear mapping
+>>> 2. _copy_pte() calls pte_mkwrite_novma() to ensure all pages in the copy
+>>>    are writable for the new kernel image copying
+>>> 3. With the new logic, clean pages (without PTE_DIRTY) remain read-only
+>>> 4. When kexec tries to copy the new kernel image through the linear
+>>>    mapping, it fails on read-only pages, causing the system to hang
+>>>    after "Bye!"
+>>>
+>>> The same issue affects hibernation which uses the same trans_pgd code path.
+>>>
+>>> Fix this by explicitly clearing PTE_RDONLY in _copy_pte() for both
+>> via pte_mkdirty() ?
+> Sorry, for this.
+> 
+> Fix this by marking pages dirty with pte_mkdirty() in _copy_pte(), which
+> ensures pte_mkwrite_novma() clears PTE_RDONLY for both kexec and
+> hibernation, making all pages in the temporary mapping writable
+> regardless of their dirty state.
 
+Fair enough.
+
+>>
+>>> kexec and hibernation, ensuring all pages in the temporary mapping are
+>>> writable regardless of their dirty state. This preserves the original
+>>> commit's optimization for normal memory management while fixing the
+>>> kexec/hibernation regression.
+>>>
+>>> Fixes: 143937ca51cc ("arm64, mm: avoid always making PTE dirty in pte_mkwrite()")
+>>> Signed-off-by: Jianpeng Chang <jianpeng.chang.cn@windriver.com>
+>>> ---
+>>> v2:
+>>>   - Use pte_mkwrite_novma(pte_mkdirty(pte)) instead of manual bit manipulation
+>>>   - Updated comments to clarify pte_mkwrite_novma() alone cannot be used
+>>> v1: https://lore.kernel.org/all/20251127034350.3600454-1-jianpeng.chang.cn@windriver.com/
+>>>
+>>>  arch/arm64/mm/trans_pgd.c | 9 +++++++--
+>>>  1 file changed, 7 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/mm/trans_pgd.c b/arch/arm64/mm/trans_pgd.c
+>>> index 18543b603c77..08f5ee6643e1 100644
+>>> --- a/arch/arm64/mm/trans_pgd.c
+>>> +++ b/arch/arm64/mm/trans_pgd.c
+>>> @@ -40,8 +40,13 @@ static void _copy_pte(pte_t *dst_ptep, pte_t *src_ptep, unsigned long addr)
+>>>                * Resume will overwrite areas that may be marked
+>>>                * read only (code, rodata). Clear the RDONLY bit from
+>>>                * the temporary mappings we use during restore.
+>>> +              *
+>>> +              * For kexec/hibernation, we need writable access to all
+>>> +              * pages in the linear mapping to copy the new kernel image.
+>>> +              * Mark pages dirty first to ensure pte_mkwrite_novma()
+>>> +              * clears PTE_RDONLY.
+>>>                */
+>>                /*
+>>                 * For both kexec and hibernation, writable accesses are required
+>>                 * for all pages in the linear map to copy over new kernel image.
+>>                 * Hence mark these pages dirty first via pte_mkdirty() to ensure
+>>                 * pte_mkwrite_novma() subsequently clears PTE_RDONLY - providing
+>>                 * required write access for the pages.
+>>                 */
+> I will change it.
+>>
+>>> -             __set_pte(dst_ptep, pte_mkwrite_novma(pte));
+>>> +             __set_pte(dst_ptep, pte_mkwrite_novma(pte_mkdirty(pte)));
+>>>       } else if (!pte_none(pte)) {
+>>>               /*
+>>>                * debug_pagealloc will removed the PTE_VALID bit if
+>>> @@ -57,7 +62,7 @@ static void _copy_pte(pte_t *dst_ptep, pte_t *src_ptep, unsigned long addr)
+>>>                */
+>>>               BUG_ON(!pfn_valid(pte_pfn(pte)));
+>>>
+>> The comments should be replicated here as well given the same special situation.
+> I will change it.
+>>
+>>> -             __set_pte(dst_ptep, pte_mkvalid(pte_mkwrite_novma(pte)));
+>>> +             __set_pte(dst_ptep, pte_mkvalid(pte_mkwrite_novma(pte_mkdirty(pte))));
+>>>       }
+>>>  }
+>>>
+>> static inline pte_t pte_mkwrite_novma(pte_t pte)
+>> {
+>>         pte = set_pte_bit(pte, __pgprot(PTE_WRITE));
+>>         if (pte_sw_dirty(pte))
+>>                 pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
+>>         return pte;
+>> }
+>>
+>> static inline pte_t pte_mkdirty(pte_t pte)
+>> {
+>>         pte = set_pte_bit(pte, __pgprot(PTE_DIRTY));
+>>
+>>         if (pte_write(pte))
+>>                 pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
+>>
+>>         return pte;
+>> }
+>>
+>> So if pte_write() is true, there will be a redundant PTE_RDONLY clearing which is OK.
+>> Should this be mentioned in the commit message ?
+> TBH, I don't have a better idea - any suggestions?
+> 
+> Or, let's add some lines:
+> 
+> Using pte_mkdirty() causes redundant bit operations, but this is
+> acceptable since it's not a hot path.
+
+Makes sense - better to call out potential redundancies.
 
