@@ -4,62 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61ECFD1BDE3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 21:21:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4A9ED1BDE4
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 21:24:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mLOqfJ8See9aWRpeuv8zbGISxu+ElubaVwiRCHg5i7k=; b=zTSxHiXPe3fnRSxZACg4cFGnoL
-	1lIM+Sl9fTsFktue0/KiYSAtaPdwdEIsdbmfFyQknlE1s6OLDGsT2W2DVmuOwvtOvQLYAq/ewmGFE
-	k0bJyjodOpjb+qFQuqHyXIJyULtVUBu0nPwS7/L003tu3U3jg9r377E+bVT1IEKgiH1pGNQ8ZrCD4
-	J/lOUxNVKVCP4R2Jiu7nW0pASeeHBCMFM8+qKrJWO9K8aFXbiVag6elFR2oO/WncBlcUBybt137X1
-	c5SRJUukdBL2Ev4ZDGmn7Ry3iAnp+VXTHkGpLzkdC3xrlnQ78t5YKLY5Uchxol/bu60Sz0VnFDiVC
-	Kp55c20A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=S/TSQb2lwM76VzQuHis0KjwfYuyQ33C5MCHOseVLNrU=; b=jhusHglIbHYMQUZqI6WU0hniRv
+	UxqsP2AGJ1EtL3+pongwID/kW6nQLUayHd+FPu9WnqGu+2LVg5FQbZQB+cLt9Dq9tN/GXU5aeXaQl
+	H9FTNzE2YDzpfhBgG9onT7rjaHeOpatuc/AWuqFS+RjihC0z6TAjhZuM3HNIXgxyry0ErqVweztSA
+	/7y9624zYq1HB4nnc4Z/lfD8JhEr490aYQRnYNaaikKr71EYMURHq4c82UBcCekiBZdCPO8CZAqAi
+	RAlmDGMVoXgrb4fbtSrz+RH4MXg/zPeIQBQ/bDtTaT7ZZZmQPygvOHZBgGh1I5+nqCZ3dGPhQaGWJ
+	ihRTcuEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQuI1-000000077o1-2Xis;
-	Wed, 03 Dec 2025 21:21:33 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vQuL4-000000078w7-2LUG;
+	Wed, 03 Dec 2025 21:24:42 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQuHy-000000077kT-3Xrj
+	id 1vQuL1-000000078v9-43iX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 21:21:31 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1vQuHg-0000gJ-5X; Wed, 03 Dec 2025 22:21:12 +0100
-Message-ID: <1db3a9ee-ae09-431f-93ac-680bac088f79@pengutronix.de>
-Date: Wed, 3 Dec 2025 22:21:07 +0100
+	Wed, 03 Dec 2025 21:24:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1764797080; x=1796333080;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=0TehpwgFZ2L8M4iWs7xHgPxQr72Xb7Q3ZhPC0FXXTEo=;
+  b=hclVrvkN72G9Zoh2SI4BnIPxQUjkglM/PGK1OfV0bTzfGUxejnjhDW3y
+   XilRIfVhJTGg2eiq0pgwGjzPqRNR66i+UD+J/wbG0z9unECYLzCdPb3o9
+   mzolXnGSvNh/qlc9M7kMxFu7s1MZQHWIsd9cDShgsRV8pMIPOcl3FIfjM
+   4KX54PqzDF8UWwbXHHmwFHlsY5dICm9cvLHVexVPmMD0RG29zo7Bj1u6L
+   VwHPj3HZ3Uj7ZWvyzuZMs+PLhaAprrFFnghJY18gTzDy0tQYmvgJ0R4aQ
+   wUxlO5gqfYM65Tnk93qKPYIDg6Bp0kdqQVbEtgop6aUQvSAnseZDYoSjc
+   Q==;
+X-CSE-ConnectionGUID: d1gve/E5Q1yeUvzb0ttH5A==
+X-CSE-MsgGUID: 9tT8PwxaTWKoFWFITOG++A==
+X-IronPort-AV: E=McAfee;i="6800,10657,11631"; a="65806349"
+X-IronPort-AV: E=Sophos;i="6.20,247,1758610800"; 
+   d="scan'208";a="65806349"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Dec 2025 13:24:37 -0800
+X-CSE-ConnectionGUID: uz3TUeTUSdeOiDsdaabYbA==
+X-CSE-MsgGUID: Zf8w5r/eR8+XlNXN/lfV6w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,247,1758610800"; 
+   d="scan'208";a="194716772"
+Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
+  by fmviesa006.fm.intel.com with ESMTP; 03 Dec 2025 13:24:34 -0800
+Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vQuKt-00000000DAL-1ZRz;
+	Wed, 03 Dec 2025 21:24:31 +0000
+Date: Thu, 4 Dec 2025 05:24:24 +0800
+From: kernel test robot <lkp@intel.com>
+To: Guoniu Zhou <guoniu.zhou@oss.nxp.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Frank Li <frank.li@nxp.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org,
+	imx@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Guoniu Zhou <guoniu.zhou@nxp.com>
+Subject: Re: [PATCH 2/2] media: nxp: Add i.MX9 CSI pixel formatter v4l2 driver
+Message-ID: <202512040546.yLIh1wBH-lkp@intel.com>
+References: <20251203-csi_formatter-v1-2-eb9e1147b49e@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/22] media: dt-bindings: media: rockchip-rga: add
- rockchip,rk3588-rga3
-To: Krzysztof Kozlowski <krzk@kernel.org>, Jacob Chen
- <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, kernel@pengutronix.de
-References: <20251203-spu-rga3-v2-0-989a67947f71@pengutronix.de>
- <20251203-spu-rga3-v2-1-989a67947f71@pengutronix.de>
- <81593c42-fcc2-47ad-8d0f-69a2d17664a6@kernel.org>
-Content-Language: en-US
-From: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-In-Reply-To: <81593c42-fcc2-47ad-8d0f-69a2d17664a6@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251203-csi_formatter-v1-2-eb9e1147b49e@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_132130_880471_77FED9F7 
-X-CRM114-Status: GOOD (  16.74  )
+X-CRM114-CacheID: sfid-20251203_132440_021907_69BD8B22 
+X-CRM114-Status: GOOD (  12.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,48 +98,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+Hi Guoniu,
 
-On 12/3/25 9:28 PM, Krzysztof Kozlowski wrote:
-> On 03/12/2025 16:52, Sven Püschel wrote:
->> Add a new compatible for the RGA3 (Raster Graphic Acceleration 3)
->> peripheral found on the RK3588 SoC.
->>
->> The existing rga node refers to the RGA2 peripheral. The RK3588
-> What is "existing rga node"? There is no node here. This is a patch for
-> bindings, so you say which hardware existing binding describes and what
-> are the differences against that older hardware.
-Yeah that is misleading. I refer to the existing binding/compatible 
-values of rockchip-rk3xxx-rga which describe the hardware named RGA2 in 
-the rk3588 TRM.
->
->> contains one RGA2 core and two RGA3 cores. Both feature a similar
->> functionality of scaling, cropping and rotating of up to two input
->> images into one output image. Key differences of the RGA3 are:
->>
->> - supports 10bit YUV output formats
->> - supports 8x8 tiles and FBCD as inputs and outputs
->> - supports BT2020 color space conversion
->> - max output resolution of (8192-64)x(8192-64)
->> - MMU can map up to 32G DDR RAM
->> - fully planar formats (3 planes) are not supported
->> - max scale up/down factor of 8
-> "differences" in meaning nothing above is supported by RGA2?
+kernel test robot noticed the following build warnings:
 
-except the last two points yes. The RGA2 supports fully planar formats 
-with 3 planes and can scale up to a factor of 16. For the scaling I can 
-add a note to make it more obvious that the RGA3 is worse in this regard.
+[auto build test WARNING on 1f2353f5a1af995efbf7bea44341aa0d03460b28]
 
-Sincerely
-     Sven
+url:    https://github.com/intel-lab-lkp/linux/commits/Guoniu-Zhou/media-dt-bindings-Add-CSI-Pixel-Formatter-DT-bindings/20251203-143208
+base:   1f2353f5a1af995efbf7bea44341aa0d03460b28
+patch link:    https://lore.kernel.org/r/20251203-csi_formatter-v1-2-eb9e1147b49e%40nxp.com
+patch subject: [PATCH 2/2] media: nxp: Add i.MX9 CSI pixel formatter v4l2 driver
+config: sh-allyesconfig (https://download.01.org/0day-ci/archive/20251204/202512040546.yLIh1wBH-lkp@intel.com/config)
+compiler: sh4-linux-gcc (GCC) 15.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251204/202512040546.yLIh1wBH-lkp@intel.com/reproduce)
 
->
->> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
->> ---
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
->
->
-> Best regards,
-> Krzysztof
->
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512040546.yLIh1wBH-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/media/platform/nxp/imx9-csi-formatter.c:763:12: warning: 'csi_formatter_system_resume' defined but not used [-Wunused-function]
+     763 | static int csi_formatter_system_resume(struct device *dev)
+         |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+>> drivers/media/platform/nxp/imx9-csi-formatter.c:758:12: warning: 'csi_formatter_system_suspend' defined but not used [-Wunused-function]
+     758 | static int csi_formatter_system_suspend(struct device *dev)
+         |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+vim +/csi_formatter_system_resume +763 drivers/media/platform/nxp/imx9-csi-formatter.c
+
+   753	
+   754	/* -----------------------------------------------------------------------------
+   755	 * Suspend/resume
+   756	 */
+   757	
+ > 758	static int csi_formatter_system_suspend(struct device *dev)
+   759	{
+   760		return pm_runtime_force_suspend(dev);
+   761	}
+   762	
+ > 763	static int csi_formatter_system_resume(struct device *dev)
+   764	{
+   765		int ret;
+   766	
+   767		ret = pm_runtime_force_resume(dev);
+   768		if (ret < 0) {
+   769			dev_err(dev, "force resume %s failed!\n", dev_name(dev));
+   770			return ret;
+   771		}
+   772	
+   773		return 0;
+   774	}
+   775	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
