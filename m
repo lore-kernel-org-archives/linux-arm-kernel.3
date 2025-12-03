@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E79AD1268B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 01:32:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C435D1268C
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 01:35:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Date:Subject:Cc:To:From:Message-ID:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FgD4FVBsIZc/lJgWx44TSx1/rV+CY/xX0o1zBduphyg=; b=asxnzaXyfj4XG0D5NrGvvuSl6u
-	GlvIeh7sz8rn4qZ3Ci+31CYAS3V9SM1W4CYvwh0j/1CsKJBGtYwNgT88RnWBQWwcBun8Fwxd9cHEs
-	vfb2sMOP7ChPwcxONl3YDJqrHKd0cPGTxIuohP39btU89oIoDP/zULqpCHC0AliTEXpRxQdLNy9Ei
-	6XwIYeyrV3XMeh0EreHss+DNdcJamrvRAuGYJ6ukFdGjI+sAOCuDscW6Qt1NiAWhEJqMH6sx2fZv4
-	wqIqA1+3H6ULY2IycbIVvD5y/agmoSnONuA0mSodmnrl5dLNoqniNd5RyGCJFlSzHlA6gVlhP8W8A
-	u3zOL6NQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HPYfASO2JEwDfZ2TFadZRQFA8PMGaUrnYLkRlqeqMwc=; b=w+e9l2fUyo3dPgWS+EvEwwZ75j
+	VceFyx0EJSXZIcxWnaKxGclLROnkoQ3LdlP78djew6c83fewH+XvaKno4ksB+ZrR8kF+cusLJEj5q
+	hyDpn/K32cFgGSv7Sc+T4/QBY6LgevuXLYQOpch9KrYbXHj2nYZ3jcaGeMdJBkgfZtVki/h/Q36B1
+	vNcnukj6V/PsXejnw1ZmEKYRrmyerh1EdlwBUKKthy/BoSZpAS23qSfu+M6s94fevVh/fr08tI7wK
+	HaZCc489wbm2c7njb16sZBwmysoQE680qC8N+0XA2q1v5ni62zJTYqZbHm3a4H4hMo+nWw9Ac+Fq6
+	RrxNO1GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQbiw-0000000602r-2tol;
-	Wed, 03 Dec 2025 01:32:06 +0000
-Received: from out203-205-221-155.mail.qq.com ([203.205.221.155])
+	id 1vQbmP-000000060Ed-20sf;
+	Wed, 03 Dec 2025 01:35:41 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQbit-0000000602S-2bNZ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 01:32:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1764725517; bh=FgD4FVBsIZc/lJgWx44TSx1/rV+CY/xX0o1zBduphyg=;
-	h=From:To:Cc:Subject:Date;
-	b=YkOWFUDgoY329RdApQMaJfZissAdj/pwiDYdy5eM31fjtKOn6hcMGilwu3Fzi3RnB
-	 rFOALpCZOYJEpPLWW2hSsWhnCUvrz18E86yvB87Uhgb8S7wL1YRub6wJfiuhWvy8DL
-	 CP3iaSL5czzKH9Y19ODiIQoKKaKkPxBI2a/10Xd4=
-Received: from localhost ([58.246.87.66])
-	by newxmesmtplogicsvrszc50-0.qq.com (NewEsmtp) with SMTP
-	id 7F7B4684; Wed, 03 Dec 2025 09:31:55 +0800
-X-QQ-mid: xmsmtpt1764725515tevgm4er9
-Message-ID: <tencent_639FC431D959DA3E8FC007985FC88EA5A90A@qq.com>
-X-QQ-XMAILINFO: M07Ulnfy3VHKVnABMxCOZ4Vj1SFpQK+ANJvNR9/RsY3dnBXHnxT/POhN78hogO
-	 /MMywCcjYH3yAIEjAwzwA81HZaP9GrnFzp1bqdb9Wgs8y5S1rRchqkbzRMFDqfu/bPmsE7yK1QKy
-	 3heICWirMQ+63WnqaJMBlDs7tsaJWgZ7ke6KcSm3+kkAZEbCSLEZKaDLXfg+kctph1WgNYdVocWJ
-	 d+URF5SNp7WDk5+4ewcALjulP+mneOqRv0NTtBo0iG3TFQTo2/OwczD/03tb7C49E9azwCwCO8ta
-	 zTh88G+HnCHfKGcCvspNlF6IRss5E0OA6Po4ynJHU3buEH51ZkASzm3lKV9LEcQe+Zb01qpuwfHn
-	 +2z8W+mpaPJfZe45AbE2ofhhEy4Dc+blrPooQyH0d9DajoKjUAnuWPi5+fhzfjoAzVkZ4uIZuBo1
-	 ys/OwjTXsaIy+RJ1rT26/B6EofTfIfSd/+x0PLOeiyPaZ0g2KyGqB3KjAn7k+zVJnviIoOCO+b4W
-	 9/6prNXmraM5HvPcWRtRkCHnRbpSkYhcCtQPJ4ZUOVA1QAu4Vh4WWNPkrYfhXjcJJHdb/K5kuwkr
-	 CjeV+EES5jW3WNWQ2OWO3/Nm/iK1jUjezyJR4UbZpXw2dFtjxo+Rr6t1hKJ3sNynLLLPNaJOkPog
-	 tCmbUclzH0I12lWiqVPMYTSvQ6Hp5YE02arlWNcMyd2oPx6EahFiSxBjCJG1G5RsjqSHSXw1r8NA
-	 Y3DmS6GLsPAh+XvGL3cyDjIsEzUEKE7dO1QgZkwxXHNqsLcxDRDgqXrUy2PJ173INXa50JWUz4Hn
-	 BDlR7w8MA/fh43QcoOEabD52JtciPPIwaxKDLltAxqag5Y5G2P6HMzpF1io7wfWiQey5ilyHB3oW
-	 hjYwRCIiBFAtTCmHnyN1f9sqzPVjPBnu4qnKSqL63eR861Mw/ITdnZJETLMpaEZ4YO0rYVq4QTi5
-	 QwEw7thDoOTA0f9Qqw+e+9Pfb69qC+
-X-QQ-XMRINFO: OD9hHCdaPRBwq3WW+NvGbIU=
-From: 2694439648@qq.com
-To: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	hailong.fan@siengine.com
-Cc: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	inux-kernel@vger.kernel.org
-Subject: [PATCH v3] net: stmmac: Modify the judgment condition of "tx_avail" from 1 to 2
-Date: Wed,  3 Dec 2025 09:31:52 +0800
-X-OQ-MSGID: <1f65707a427512e7b549809ec40286fb12b4c114.1764725087.git.hailong.fan@siengine.com>
-X-Mailer: git-send-email 2.34.1
+	id 1vQbmM-000000060Dl-08uY;
+	Wed, 03 Dec 2025 01:35:39 +0000
+X-UUID: 5995ed1ecfe811f09f706fa2197c6ceb-20251202
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=HPYfASO2JEwDfZ2TFadZRQFA8PMGaUrnYLkRlqeqMwc=;
+	b=THhyfwgbvu5GyaRqJ9NlwLUwgr8u/j/Aets8s+3VnCa5cTKBRN2hrNPAwOH66L9biCvfgHHOPuEreYCtyqhkwo4YK5AH+GU4dQc8HlAo+39HYqF3Ov5IbNQynNLQSaTmvIqSCK7sQHHj4pVFGH/8lJMeDGpOkB79IBK+IjzhdRQ=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:122df503-3768-44a4-aceb-9acf50f8323b,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:acb05502-1fa9-44eb-b231-4afc61466396,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|102|817|836|888|898,TC:-5,Content
+	:-10|-8|-5|14|50,EDM:-3,IP:nil,URL:0,File:130,RT:-1,Bulk:nil,QS:nil,BEC:ni
+	l,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 5995ed1ecfe811f09f706fa2197c6ceb-20251202
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
+	(envelope-from <mingjin.ge@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 309337502; Tue, 02 Dec 2025 18:35:29 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Wed, 3 Dec 2025 09:35:25 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1748.26 via Frontend Transport; Wed, 3 Dec 2025 09:35:25 +0800
+From: Mingjin Ge <mingjin.ge@mediatek.com>
+To: Mathias Nyman <mathias.nyman@intel.com>, Chunfeng Yun
+	<chunfeng.yun@mediatek.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: <linux-usb@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
+	<jh.hsu@mediatek.com>, <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	Mingjin Ge <mingjin.ge@mediatek.com>
+Subject: [PATCH 0/1] add support remote wakeup of mt8189
+Date: Wed, 3 Dec 2025 09:34:49 +0800
+Message-ID: <20251203013521.2038888-1-mingjin.ge@mediatek.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_173203_989422_C282FEA4 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20251202_173538_082319_74C3BE2C 
+X-CRM114-Status: UNSURE (   9.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,70 +89,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "hailong.fan" <hailong.fan@siengine.com>
+> This series is based on linux-next, tag: next-20251201.
+> 
+> Changes in v1:
+> There are five USB controllers on mt8189,
+> each controller's wakeup control is the same.
+> Add a new specific version for them.
 
-Under certain conditions, a WARN_ON will be triggered
-if avail equals 1.
+Mingjin Ge (1):
+  usb: mtk-xhci: add support remote wakeup of mt8189
 
-For example, when a VLAN packet is to send,
-stmmac_vlan_insert consumes one unit of space,
-and the data itself consumes another.
-actually requiring 2 units of space in total.
+ drivers/usb/host/xhci-mtk.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-Changes from v3:
-        - format commit message
-Changes from v2:
-        - add fixes tag
-        - Add stmmac_extra_space to count the additional required space
-Changes from v1:
-        - Stop their queues earlier
-
-Fixes: 30d932279dc2 ("net: stmmac: Add support for VLAN Insertion Offload")
-Signed-off-by: hailong.fan <hailong.fan@siengine.com>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 7b90ecd3a..9a665a3b2 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -4476,6 +4476,15 @@ static bool stmmac_has_ip_ethertype(struct sk_buff *skb)
- 		(proto == htons(ETH_P_IP) || proto == htons(ETH_P_IPV6));
- }
- 
-+static inline int stmmac_extra_space(struct stmmac_priv *priv,
-+				     struct sk_buff *skb)
-+{
-+	if (!priv->dma_cap.vlins || !skb_vlan_tag_present(skb))
-+		return 0;
-+
-+	return 1;
-+}
-+
- /**
-  *  stmmac_xmit - Tx entry point of the driver
-  *  @skb : the socket buffer
-@@ -4529,7 +4538,8 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
- 		}
- 	}
- 
--	if (unlikely(stmmac_tx_avail(priv, queue) < nfrags + 1)) {
-+	if (unlikely(stmmac_tx_avail(priv, queue) <
-+		nfrags + 1 + stmmac_extra_space(priv, skb))) {
- 		if (!netif_tx_queue_stopped(netdev_get_tx_queue(dev, queue))) {
- 			netif_tx_stop_queue(netdev_get_tx_queue(priv->dev,
- 								queue));
-@@ -4675,7 +4685,7 @@ static netdev_tx_t stmmac_xmit(struct sk_buff *skb, struct net_device *dev)
- 		print_pkt(skb->data, skb->len);
- 	}
- 
--	if (unlikely(stmmac_tx_avail(priv, queue) <= (MAX_SKB_FRAGS + 1))) {
-+	if (unlikely(stmmac_tx_avail(priv, queue) <= (MAX_SKB_FRAGS + 2))) {
- 		netif_dbg(priv, hw, priv->dev, "%s: stop transmitted packets\n",
- 			  __func__);
- 		netif_tx_stop_queue(netdev_get_tx_queue(priv->dev, queue));
 -- 
-2.34.1
+2.45.2
 
 
