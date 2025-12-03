@@ -4,75 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D1B0D12D7A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 15:54:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 366E7D15DAF
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 16:10:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d/lqVRPzPD4iYF7zJCSfsnMnXhf/ay+L8P1xls46dcQ=; b=3XQIoh8t20JVOJ2xNEjCgRtEur
-	3LhSslFdtjMfBpuhf/nchrTe4AJDJvb/l1dqGdTib1wc9lqH9nRnD6ltPCOeF9mdinOm1qDTFSuNF
-	dV9y4GdCRW6tXo5Y6lr44wHCCEPxmnBYWVntC+R6xr86T+t55TOsxTlddOlWR6ODyt2sVB+41tgTZ
-	fKNmq+1WEzVQ7y5K4ofGRoERowrz1Lu9Wt2gpshFRatsTDRi3dNf/z+AAQqlhAlm00kYmPPonGwCh
-	dqrXJSPNvljvZ2OX+Ne9i+SFGLZQ1PQHXMXbGnsTy0m0zJPXjahScNOGoVLJM3jKbYaVVTEyZUiDW
-	jyGwFAqg==;
+	bh=jXScALikZ30hQ2GZgvAK3QYxrVSr7/W2SKCyOSYy+M8=; b=yOiRdYXzPgWrgcwQDI4TZzdDg6
+	A8JEM38gmkQm6PQL5DC3EpwuOGp1IsZohfanYBhGBGu2Gs+qtjf31hvfQwlP3g8TqJv/cECBgqhOw
+	w/n+cgWTtkh6STMd1RRDs24t/M8n2BeHqa8y8xBNgjLyjzAJDVRSpTWzHNyHc/91y8OVtdt4FLc4e
+	BPihV56TiSXJZ4VwkKPUkm4GyXPZseO0bUfELOlCSsOnCsGzbBdtzdb+oNtWKojnm0lfpRxWrzqjZ
+	OMQq0YtCRfCI+MH7bgoutcrDtdtiSm9wKN1IcEpI3WcOpvFM0I+LHVwiIhJV/TiDgGxVqmend4sEW
+	fh5Q/v9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQpB1-00000006jW3-0E0E;
-	Wed, 03 Dec 2025 15:53:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vQpQl-00000006mXA-2uym;
+	Wed, 03 Dec 2025 16:10:15 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQpAo-00000006jBB-39ii
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 03 Dec 2025 15:53:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=d/lqVRPzPD4iYF7zJCSfsnMnXhf/ay+L8P1xls46dcQ=; b=oWASAEM2L91YUGtXscYSG1sz/3
-	AwbdC2VELlom5buqSz54AulCwJ1JTZAehO8x6+27GrQHxmy6HAOW5IcdEHEW/QEQ9EYEQnBPoNDhu
-	2mruqpwdLC1F7JYzbqMkZks3HYoozw0wIVu/hrLoZ6gaTQImq2B401YmIzmYG0fcNj3fCIEwVhSQM
-	YdhYOXrXTwT4sXmepKagTbC7rl+cmAPfzoegV6hYR9b/G5kFG4EsaaId9+/RfXoz5V4g7Sgd3e2+x
-	scVIHJKNk4sqGocdy/y1ZYyujXoib6yV+I9PT+fekL2TLNql0WX+taDzMsaI5yI2NgiyzQdZTMn+R
-	Cj/ks5Gg==;
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQoJB-00000002TB9-0ZBW
+	id 1vQpQi-00000006mWf-3gut
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 14:58:25 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1vQpAf-0007dW-03; Wed, 03 Dec 2025 16:53:37 +0100
-From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Wed, 03 Dec 2025 16:52:43 +0100
-Subject: [PATCH v2 21/22] media: rockchip: rga: add rga3 support
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20251203-spu-rga3-v2-21-989a67947f71@pengutronix.de>
-References: <20251203-spu-rga3-v2-0-989a67947f71@pengutronix.de>
-In-Reply-To: <20251203-spu-rga3-v2-0-989a67947f71@pengutronix.de>
-To: Jacob Chen <jacob-chen@iotwrt.com>, 
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, kernel@pengutronix.de, 
- =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-X-Mailer: b4 0.14.3
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+	Wed, 03 Dec 2025 16:10:14 +0000
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5B3CO5ib017680;
+	Wed, 3 Dec 2025 16:09:15 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=jXScAL
+	ikZ30hQ2GZgvAK3QYxrVSr7/W2SKCyOSYy+M8=; b=OzAaPrJ9niAlz8YUabjc2c
+	D2rDIzen8I5c7OyZYxx2URHyV2XunQ2MUcgBaoNzneCJqJaoH45EyqRiZgfDjB+/
+	veCs0WNuB+IbYJeej2GoS0RN8J1IpA0hi2OgqVMfSotjONRPs+k2RuSnMpFy8HHN
+	uiAleHpdwlEsdAtRS2pAUCQ172+p/m8QMwvQAm9OmQg8jrxQBSxTCS49GJQDM/hd
+	YaiXShCl1Wyn3/gTBPTCgGV783dZ+t3yx4e2oTF2YM1ZjRt408LJ08mvqP4uL2wh
+	+BFiORtd4IG/QtGj3cFZ2h8ZbcqM1iCSyZ+Ofzu8c0xTKmsr/4136UJDD7xjesdw
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4aqrh73qnt-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 03 Dec 2025 16:09:15 +0000 (GMT)
+Received: from m0353729.ppops.net (m0353729.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 5B3G6PaS010932;
+	Wed, 3 Dec 2025 16:09:14 GMT
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4aqrh73qnm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 03 Dec 2025 16:09:14 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5B3E9LMX021504;
+	Wed, 3 Dec 2025 16:09:13 GMT
+Received: from smtprelay02.wdc07v.mail.ibm.com ([172.16.1.69])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4at8c6c5et-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 03 Dec 2025 16:09:13 +0000
+Received: from smtpav06.dal12v.mail.ibm.com (smtpav06.dal12v.mail.ibm.com [10.241.53.105])
+	by smtprelay02.wdc07v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5B3G9B5859572634
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 3 Dec 2025 16:09:11 GMT
+Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 7232D5805E;
+	Wed,  3 Dec 2025 16:09:11 +0000 (GMT)
+Received: from smtpav06.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2DA365805D;
+	Wed,  3 Dec 2025 16:09:00 +0000 (GMT)
+Received: from smtpclient.apple (unknown [9.61.245.178])
+	by smtpav06.dal12v.mail.ibm.com (Postfix) with ESMTPS;
+	Wed,  3 Dec 2025 16:08:59 +0000 (GMT)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3774.600.62\))
+Subject: Re: [PATCH v5 00/12] Nesting support for lazy MMU mode
+From: Venkat <venkat88@linux.ibm.com>
+In-Reply-To: <20251124132228.622678-1-kevin.brodsky@arm.com>
+Date: Wed, 3 Dec 2025 21:38:46 +0530
+Cc: linux-mm@kvack.org, LKML <linux-kernel@vger.kernel.org>,
+        Alexander Gordeev <agordeev@linux.ibm.com>,
+        Andreas Larsson <andreas@gaisler.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Boris Ostrovsky <boris.ostrovsky@oracle.com>,
+        Borislav Petkov <bp@alien8.de>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Christophe Leroy <christophe.leroy@csgroup.eu>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        David Hildenbrand <david@redhat.com>,
+        "David S. Miller" <davem@davemloft.net>,
+        David Woodhouse <dwmw2@infradead.org>,
+        "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+        Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
+        "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+        Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+        Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+        Ryan Roberts <ryan.roberts@arm.com>,
+        Suren Baghdasaryan <surenb@google.com>,
+        Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+        Will Deacon <will@kernel.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+        linux-arm-kernel@lists.infradead.org,
+        linuxppc-dev <linuxppc-dev@lists.ozlabs.org>,
+        sparclinux@vger.kernel.org, xen-devel@lists.xenproject.org,
+        x86@kernel.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <94889730-1AEF-458F-B623-04092C0D6819@linux.ibm.com>
+References: <20251124132228.622678-1-kevin.brodsky@arm.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+X-Mailer: Apple Mail (2.3774.600.62)
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=dK+rWeZb c=1 sm=1 tr=0 ts=693060ab cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=20KFwNOVAAAA:8 a=NEAV23lmAAAA:8
+ a=VnNF1IyMAAAA:8 a=ebG-ZW-8AAAA:8 a=Z4Rwk6OoAAAA:8 a=yPCof4ZbAAAA:8
+ a=1UX6Do5GAAAA:8 a=QyXUC8HyAAAA:8 a=J1Y8HTJGAAAA:8 a=JfrnYn6hAAAA:8
+ a=oGMlB6cnAAAA:8 a=1XWaLZrsAAAA:8 a=iox4zFpeAAAA:8 a=pGLkceISAAAA:8
+ a=voM4FWlXAAAA:8 a=cWRNjhkoAAAA:8 a=FiMq9w3UmxbX_X-K2aIA:9 a=QEXdDO2ut3YA:10
+ a=a-qgeE7W1pNrGK8U0ZQC:22 a=Bj2TwAA_C77lQ_X2_dkp:22 a=HkZW87K1Qel5hWWM3VKY:22
+ a=Et2XPkok5AAZYJIKzHr1:22 a=y1Q9-5lHfBjTkpIzbSAN:22 a=1CNFftbPRP8L7MoqJWF3:22
+ a=NdAtdrkLVvyUPsUoGJp4:22 a=WzC6qhA0u3u7Ye7llzcV:22 a=IC2XNlieTeVoXbcui8wp:22
+ a=sVa6W5Aao32NNC1mekxh:22
+X-Proofpoint-GUID: 793QMPZ1KY-blGu-SBEcqhhoUxKTBTPT
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMTI5MDAyMCBTYWx0ZWRfX0Y2RJ6pY6f9G
+ m7cnnUyc3HVayFdbJ8Y4k6LXm7VoMHSKC06j1sstdK8iRNOp43h8/5lXlJzRyMFMOkegM/YL0t7
+ uHv9SIDvRWXY/EKqqrIimWlBZRLSRAgOBF4gk2Xot87tbYXsiVnaukxT1saJqjqQ0r0bPe10fQw
+ ebRokn+rP5Dr6S57DFJViOyBvzPSu7nMhQXml2iQlGg8l7boxqiMcoTdjYFnse6EYftUPjxeWZe
+ MGmnOFTxzjWPZDmm/bKQ+e3L/l/GwpDCojvQuL7j2d5Yz5YuziA0XIkWiBZW3RPXY32AZclnmqt
+ wPoca86vF4yKC81xjojgszJzuCIvZcNgdX7sNhM04AVP6ms5j1l2VO43joUDFPf3weZ3oFA5u7V
+ hBuOHcByMOvgTlotD8Cjz6ve04L0kw==
+X-Proofpoint-ORIG-GUID: -W-wtyUpyFvwADIN6iXaZYxBgTf_cVPF
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-03_02,2025-11-27_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 lowpriorityscore=0 clxscore=1011 priorityscore=1501
+ bulkscore=0 adultscore=0 phishscore=0 impostorscore=0 spamscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2510240000
+ definitions=main-2511290020
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_145821_522426_A91A967C 
-X-CRM114-Status: GOOD (  32.31  )
+X-CRM114-CacheID: sfid-20251203_081012_937069_C88AF6E4 
+X-CRM114-Status: GOOD (  44.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,744 +160,306 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the RGA3 unit contained in the RK3588.
 
-Only a basic feature set consisting of scaling and color conversion is
-implemented. Also the BT601F color space conversion is currently hard
-coded. Currently unimplemented features include:
-- Advanced formats like 10bit YUV, FBCE mode and Tile8x8 mode
-- Colorspace conversions functions BT601L, BT709, BT2020
-- Background color (V4L2_CID_BG_COLOR)
-- Configurable alpha value (V4L2_CID_ALPHA_COMPONENT)
-- Image flipping (V4L2_CID_HFLIP and V4L2_CID_VFLIP)
-- Image rotation (V4L2_CID_ROTATE)
-- Image cropping/composing (VIDIOC_S_SELECTION)
 
-The register address defines were copied from the
-vendor Rockchip kernel sources and slightly adjusted to not start at 0
-again for the cmd registers.
+> On 24 Nov 2025, at 6:52=E2=80=AFPM, Kevin Brodsky =
+<kevin.brodsky@arm.com> wrote:
+>=20
+> When the lazy MMU mode was introduced eons ago, it wasn't made clear
+> whether such a sequence was legal:
+>=20
+> arch_enter_lazy_mmu_mode()
+> ...
+> arch_enter_lazy_mmu_mode()
+> ...
+> arch_leave_lazy_mmu_mode()
+> ...
+> arch_leave_lazy_mmu_mode()
+>=20
+> It seems fair to say that nested calls to
+> arch_{enter,leave}_lazy_mmu_mode() were not expected, and most
+> architectures never explicitly supported it.
+>=20
+> Nesting does in fact occur in certain configurations, and avoiding it
+> has proved difficult. This series therefore enables lazy_mmu sections =
+to
+> nest, on all architectures.
+>=20
+> Nesting is handled using a counter in task_struct (patch 8), like =
+other
+> stateless APIs such as pagefault_{disable,enable}(). This is fully
+> handled in a new generic layer in <linux/pgtable.h>; the arch_* API
+> remains unchanged. A new pair of calls, =
+lazy_mmu_mode_{pause,resume}(),
+> is also introduced to allow functions that are called with the lazy =
+MMU
+> mode enabled to temporarily pause it, regardless of nesting.
+>=20
+> An arch now opts in to using the lazy MMU mode by selecting
+> CONFIG_ARCH_LAZY_MMU; this is more appropriate now that we have a
+> generic API, especially with state conditionally added to task_struct.
+>=20
+> ---
+>=20
+> Background: Ryan Roberts' series from March [1] attempted to prevent
+> nesting from ever occurring, and mostly succeeded. Unfortunately, a
+> corner case (DEBUG_PAGEALLOC) may still cause nesting to occur on =
+arm64.
+> Ryan proposed [2] to address that corner case at the generic level but
+> this approach received pushback; [3] then attempted to solve the issue
+> on arm64 only, but it was deemed too fragile.
+>=20
+> It feels generally difficult to guarantee that lazy_mmu sections don't
+> nest, because callers of various standard mm functions do not know if
+> the function uses lazy_mmu itself.
+>=20
+> The overall approach in v3/v4 is very close to what David Hildenbrand
+> proposed on v2 [4].
+>=20
+> Unlike in v1/v2, no special provision is made for architectures to
+> save/restore extra state when entering/leaving the mode. Based on the
+> discussions so far, this does not seem to be required - an arch can
+> store any relevant state in thread_struct during arch_enter() and
+> restore it in arch_leave(). Nesting is not a concern as these =
+functions
+> are only called at the top level, not in nested sections.
+>=20
+> The introduction of a generic layer, and tracking of the lazy MMU =
+state
+> in task_struct, also allows to streamline the arch callbacks - this
+> series removes 67 lines from arch/.
+>=20
+> Patch overview:
+>=20
+> * Patch 1: cleanup - avoids having to deal with the powerpc
+>  context-switching code
+>=20
+> * Patch 2-4: prepare arch_flush_lazy_mmu_mode() to be called from the
+>  generic layer (patch 8)
+>=20
+> * Patch 5-6: new API + CONFIG_ARCH_LAZY_MMU
+>=20
+> * Patch 7: ensure correctness in interrupt context
+>=20
+> * Patch 8: nesting support
+>=20
+> * Patch 9-12: replace arch-specific tracking of lazy MMU mode with
+>  generic API
+>=20
+> This series has been tested by running the mm kselftests on arm64 with
+> DEBUG_VM, DEBUG_PAGEALLOC, KFENCE and KASAN. It was also build-tested =
+on
+> other architectures (with and without XEN_PV on x86).
+>=20
+> - Kevin
+>=20
+> [1] =
+https://lore.kernel.org/all/20250303141542.3371656-1-ryan.roberts@arm.com/=
 
-Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
----
- drivers/media/platform/rockchip/rga/Makefile  |   2 +-
- drivers/media/platform/rockchip/rga/rga.c     |   4 +
- drivers/media/platform/rockchip/rga/rga.h     |   2 +-
- drivers/media/platform/rockchip/rga/rga3-hw.c | 471 ++++++++++++++++++++++++++
- drivers/media/platform/rockchip/rga/rga3-hw.h | 190 +++++++++++
- 5 files changed, 667 insertions(+), 2 deletions(-)
+> [2] =
+https://lore.kernel.org/all/20250530140446.2387131-1-ryan.roberts@arm.com/=
 
-diff --git a/drivers/media/platform/rockchip/rga/Makefile b/drivers/media/platform/rockchip/rga/Makefile
-index 1bbecdc3d8df2..7326a548f3dc7 100644
---- a/drivers/media/platform/rockchip/rga/Makefile
-+++ b/drivers/media/platform/rockchip/rga/Makefile
-@@ -1,4 +1,4 @@
- # SPDX-License-Identifier: GPL-2.0-only
--rockchip-rga-objs := rga.o rga-hw.o rga-buf.o
-+rockchip-rga-objs := rga.o rga-hw.o rga3-hw.o rga-buf.o
- 
- obj-$(CONFIG_VIDEO_ROCKCHIP_RGA) += rockchip-rga.o
-diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index 65686228b7300..313d875c789bf 100644
---- a/drivers/media/platform/rockchip/rga/rga.c
-+++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -843,6 +843,10 @@ static const struct of_device_id rockchip_rga_match[] = {
- 		.compatible = "rockchip,rk3399-rga",
- 		.data = &rga2_hw,
- 	},
-+	{
-+		.compatible = "rockchip,rk3588-rga3",
-+		.data = &rga3_hw,
-+	},
- 	{},
- };
- 
-diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
-index b9c75b5fda4dc..2c5f0330879fa 100644
---- a/drivers/media/platform/rockchip/rga/rga.h
-+++ b/drivers/media/platform/rockchip/rga/rga.h
-@@ -163,6 +163,6 @@ static inline bool rga_has_internal_iommu(const struct rockchip_rga *rga)
- 	return rga->hw->has_internal_iommu;
- }
- 
--extern const struct rga_hw rga2_hw;
-+extern const struct rga_hw rga2_hw, rga3_hw;
- 
- #endif
-diff --git a/drivers/media/platform/rockchip/rga/rga3-hw.c b/drivers/media/platform/rockchip/rga/rga3-hw.c
-new file mode 100644
-index 0000000000000..2b8cd639da39b
---- /dev/null
-+++ b/drivers/media/platform/rockchip/rga/rga3-hw.c
-@@ -0,0 +1,471 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) Pengutronix e.K.
-+ * Author: Sven Püschel <s.pueschel@pengutronix.de>
-+ */
-+
-+#include <linux/pm_runtime.h>
-+#include <linux/bitfield.h>
-+#include <linux/delay.h>
-+#include <linux/printk.h>
-+
-+#include <media/v4l2-common.h>
-+
-+#include "rga3-hw.h"
-+#include "rga.h"
-+
-+static unsigned int rga3_get_scaling(unsigned int src, unsigned int dst)
-+{
-+	/*
-+	 * RGA3 scaling factor calculation as described in chapter 5.4.7 Resize
-+	 * of the TRM Part 2. The resulting scaling factor is a 16-bit value
-+	 * and therefore normalized with 2^16.
-+	 *
-+	 * While the TRM also mentions (dst-1)/(src-1) for the up-scaling case,
-+	 * it didn't work as the value always exceeds 16 bit. Flipping the
-+	 * factors results in a correct up-scaling. This is possible as the
-+	 * RGA3 has the RGA3_WIN_SCALE_XXX_UP bit to determine if it does
-+	 * an up or downscale.
-+	 *
-+	 * With a scaling factor of 1.0 the calculation technically also
-+	 * overflows 16 bit. This isn't relevant, as in this case the
-+	 * RGA3_WIN_SCALE_XXX_BYPASS bit completely skips the scaling operation.
-+	 */
-+	if (dst > src) {
-+		if (((src - 1) << 16) % (dst - 1) == 0)
-+			return ((src - 1) << 16) / (dst - 1) - 1;
-+		else
-+			return ((src - 1) << 16) / (dst - 1);
-+	} else {
-+		return ((dst - 1) << 16) / (src - 1) + 1;
-+	}
-+}
-+
-+/*
-+ * Check if the given format can be captured, as the RGA3 doesn't support all
-+ * input formats also on it's output.
-+ */
-+static bool rga3_can_capture(const struct rga3_fmt *fmt)
-+{
-+	return fmt->hw_format <= RGA3_COLOR_FMT_LAST_OUTPUT;
-+}
-+
-+/*
-+ * Map the transformations to the RGA3 command buffer.
-+ * Currently this is just the scaling settings and a fixed alpha value.
-+ */
-+static void rga3_cmd_set_trans_info(struct rga_ctx *ctx)
-+{
-+	u32 *cmd = ctx->cmdbuf_virt;
-+	unsigned int src_h, src_w, dst_h, dst_w;
-+	unsigned int reg;
-+	u16 hor_scl_fac, ver_scl_fac;
-+	const struct rga3_fmt *in = ctx->in.fmt;
-+
-+	src_h = ctx->in.pix.height;
-+	src_w = ctx->in.pix.width;
-+	dst_h = ctx->out.pix.height;
-+	dst_w = ctx->out.pix.width;
-+
-+	reg = RGA3_WIN0_RD_CTRL - RGA3_FIRST_CMD_REG;
-+	cmd[reg >> 2] |= FIELD_PREP(RGA3_WIN_SCALE_HOR_UP, dst_w > src_w)
-+		      |  FIELD_PREP(RGA3_WIN_SCALE_HOR_BYPASS, dst_w == src_w)
-+		      |  FIELD_PREP(RGA3_WIN_SCALE_VER_UP, dst_h > src_h)
-+		      |  FIELD_PREP(RGA3_WIN_SCALE_VER_BYPASS, dst_h == src_h);
-+
-+	hor_scl_fac = rga3_get_scaling(src_w, dst_w);
-+	ver_scl_fac = rga3_get_scaling(src_h, dst_h);
-+	reg = RGA3_WIN0_SCL_FAC - RGA3_FIRST_CMD_REG;
-+	cmd[reg >> 2] = FIELD_PREP(RGA3_SCALE_HOR_FAC, hor_scl_fac)
-+		      | FIELD_PREP(RGA3_SCALE_VER_FAC, ver_scl_fac);
-+
-+	if (v4l2_format_info(in->fourcc)->has_alpha) {
-+		/* copy alpha from input */
-+		reg = RGA3_OVLP_TOP_ALPHA - RGA3_FIRST_CMD_REG;
-+		cmd[reg >> 2] = FIELD_PREP(RGA3_ALPHA_SELECT_MODE, 1)
-+			      | FIELD_PREP(RGA3_ALPHA_BLEND_MODE, 1);
-+		reg = RGA3_OVLP_BOT_ALPHA - RGA3_FIRST_CMD_REG;
-+		cmd[reg >> 2] = FIELD_PREP(RGA3_ALPHA_SELECT_MODE, 1)
-+			      | FIELD_PREP(RGA3_ALPHA_BLEND_MODE, 1);
-+	} else {
-+		/* just use a 255 alpha value */
-+		reg = RGA3_OVLP_TOP_CTRL - RGA3_FIRST_CMD_REG;
-+		cmd[reg >> 2] = FIELD_PREP(RGA3_OVLP_GLOBAL_ALPHA, 0xff)
-+			      | FIELD_PREP(RGA3_OVLP_COLOR_MODE, 1);
-+		reg = RGA3_OVLP_BOT_CTRL - RGA3_FIRST_CMD_REG;
-+		cmd[reg >> 2] = FIELD_PREP(RGA3_OVLP_GLOBAL_ALPHA, 0xff)
-+			      | FIELD_PREP(RGA3_OVLP_COLOR_MODE, 1);
-+	}
-+}
-+
-+static void rga3_cmd_set_win0_addr(struct rga_ctx *ctx,
-+				   const struct rga_addrs *addrs)
-+{
-+	u32 *cmd = ctx->cmdbuf_virt;
-+	unsigned int reg;
-+
-+	reg = RGA3_WIN0_Y_BASE - RGA3_FIRST_CMD_REG;
-+	cmd[reg >> 2] = addrs->y_addr;
-+	reg = RGA3_WIN0_U_BASE - RGA3_FIRST_CMD_REG;
-+	cmd[reg >> 2] = addrs->u_addr;
-+}
-+
-+static void rga3_cmd_set_wr_addr(struct rga_ctx *ctx,
-+				 const struct rga_addrs *addrs)
-+{
-+	u32 *cmd = ctx->cmdbuf_virt;
-+	unsigned int reg;
-+
-+	reg = RGA3_WR_Y_BASE - RGA3_FIRST_CMD_REG;
-+	cmd[reg >> 2] = addrs->y_addr;
-+	reg = RGA3_WR_U_BASE - RGA3_FIRST_CMD_REG;
-+	cmd[reg >> 2] = addrs->u_addr;
-+}
-+
-+/* Map the input pixel format to win0 of the comamnd buffer. */
-+static void rga3_cmd_set_win0_format(struct rga_ctx *ctx)
-+{
-+	u32 *cmd = ctx->cmdbuf_virt;
-+	const struct rga3_fmt *in = ctx->in.fmt;
-+	const struct rga3_fmt *out = ctx->out.fmt;
-+	const struct v4l2_format_info *in_fmt, *out_fmt;
-+	unsigned int src_h, src_w;
-+	bool r2y, y2r;
-+	u8 rd_format;
-+	unsigned int reg;
-+
-+	src_h = ctx->in.pix.height;
-+	src_w = ctx->in.pix.width;
-+
-+	in_fmt = v4l2_format_info(in->fourcc);
-+	out_fmt = v4l2_format_info(out->fourcc);
-+	r2y = v4l2_is_format_rgb(in_fmt) && v4l2_is_format_yuv(out_fmt);
-+	y2r = v4l2_is_format_yuv(in_fmt) && v4l2_is_format_rgb(out_fmt);
-+
-+	if (in->semi_planar)
-+		rd_format = RGA3_RDWR_FORMAT_SEMI_PLANAR;
-+	else
-+		rd_format = RGA3_RDWR_FORMAT_INTERLEAVED;
-+
-+	/* set pixel format and CSC */
-+	reg = RGA3_WIN0_RD_CTRL - RGA3_FIRST_CMD_REG;
-+	cmd[reg >> 2] |= FIELD_PREP(RGA3_WIN_PIC_FORMAT, in->hw_format)
-+		      |  FIELD_PREP(RGA3_WIN_YC_SWAP, in->yc_swap)
-+		      |  FIELD_PREP(RGA3_WIN_RBUV_SWAP, in->rbuv_swap)
-+		      |  FIELD_PREP(RGA3_WIN_RD_FORMAT, rd_format)
-+		      |  FIELD_PREP(RGA3_WIN_R2Y, r2y)
-+		      |  FIELD_PREP(RGA3_WIN_Y2R, y2r)
-+		      |  FIELD_PREP(RGA3_WIN_CSC_MODE, RGA3_WIN_CSC_MODE_BT601_F);
-+
-+	/* set stride */
-+	reg = RGA3_WIN0_VIR_STRIDE - RGA3_FIRST_CMD_REG;
-+	/* stride needs to be in words */
-+	cmd[reg >> 2] = ctx->in.pix.plane_fmt[0].bytesperline >> 2;
-+	reg = RGA3_WIN0_UV_VIR_STRIDE - RGA3_FIRST_CMD_REG;
-+	/* The Hardware only supports formats with 1/2 planes */
-+	if (ctx->in.pix.num_planes == 2)
-+		cmd[reg >> 2] = ctx->in.pix.plane_fmt[1].bytesperline >> 2;
-+	else
-+		cmd[reg >> 2] = ctx->in.pix.plane_fmt[0].bytesperline >> 2;
-+
-+	/* set size */
-+	reg = RGA3_WIN0_ACT_SIZE - RGA3_FIRST_CMD_REG;
-+	cmd[reg >> 2] = FIELD_PREP(RGA3_WIDTH, src_w)
-+		      | FIELD_PREP(RGA3_HEIGHT, src_h);
-+	/* no cropping support. Use same value as ACT_SIZE */
-+	reg = RGA3_WIN0_SRC_SIZE - RGA3_FIRST_CMD_REG;
-+	cmd[reg >> 2] = FIELD_PREP(RGA3_WIDTH, src_w)
-+		      | FIELD_PREP(RGA3_HEIGHT, src_h);
-+}
-+
-+static void rga3_cmd_enable_win0(struct rga_ctx *ctx)
-+{
-+	u32 *cmd = ctx->cmdbuf_virt;
-+	unsigned int reg;
-+
-+	reg = RGA3_WIN0_RD_CTRL - RGA3_FIRST_CMD_REG;
-+	cmd[reg >> 2] |= FIELD_PREP(RGA3_WIN_ENABLE, 1);
-+}
-+
-+/* Map the output pixel format to the command buffer */
-+static void rga3_cmd_set_wr_format(struct rga_ctx *ctx)
-+{
-+	u32 *cmd = ctx->cmdbuf_virt;
-+	const struct rga3_fmt *out = ctx->out.fmt;
-+	unsigned int dst_h, dst_w;
-+	u8 wr_format;
-+	unsigned int reg;
-+
-+	dst_h = ctx->out.pix.height;
-+	dst_w = ctx->out.pix.width;
-+
-+	if (out->semi_planar)
-+		wr_format = RGA3_RDWR_FORMAT_SEMI_PLANAR;
-+	else
-+		wr_format = RGA3_RDWR_FORMAT_INTERLEAVED;
-+
-+	/* set pixel format */
-+	reg = RGA3_WR_CTRL - RGA3_FIRST_CMD_REG;
-+	cmd[reg >> 2] |= FIELD_PREP(RGA3_WR_PIC_FORMAT, out->hw_format)
-+		      |  FIELD_PREP(RGA3_WR_YC_SWAP, out->yc_swap)
-+		      |  FIELD_PREP(RGA3_WR_RBUV_SWAP, out->rbuv_swap)
-+		      |  FIELD_PREP(RGA3_WR_FORMAT, wr_format);
-+
-+	/* set stride */
-+	reg = RGA3_WR_VIR_STRIDE - RGA3_FIRST_CMD_REG;
-+	/* stride needs to be in words */
-+	cmd[reg >> 2] = ctx->out.pix.plane_fmt[0].bytesperline >> 2;
-+	reg = RGA3_WR_PL_VIR_STRIDE - RGA3_FIRST_CMD_REG;
-+	/* The Hardware only supports formats with 1/2 planes */
-+	if (ctx->out.pix.num_planes == 2)
-+		cmd[reg >> 2] = ctx->out.pix.plane_fmt[1].bytesperline >> 2;
-+	else
-+		cmd[reg >> 2] = ctx->out.pix.plane_fmt[0].bytesperline >> 2;
-+
-+	/* Set size.
-+	 * As two inputs are not supported, we don't use win1.
-+	 * Therefore only set the size for win0.
-+	 */
-+	reg = RGA3_WIN0_DST_SIZE - RGA3_FIRST_CMD_REG;
-+	cmd[reg >> 2] = FIELD_PREP(RGA3_WIDTH, dst_w)
-+		      | FIELD_PREP(RGA3_HEIGHT, dst_h);
-+}
-+
-+static void rga3_cmd_disable_wr_limitation(struct rga_ctx *ctx)
-+{
-+	u32 *cmd = ctx->cmdbuf_virt;
-+	unsigned int reg;
-+
-+	/* Use the max value to avoid limiting the write speed */
-+	reg = RGA3_WR_CTRL - RGA3_FIRST_CMD_REG;
-+	cmd[reg >> 2] |= FIELD_PREP(RGA3_WR_SW_OUTSTANDING_MAX, 63);
-+}
-+
-+static void rga3_hw_setup_cmdbuf(struct rga_ctx *ctx)
-+{
-+	memset(ctx->cmdbuf_virt, 0, RGA3_CMDBUF_SIZE * 4);
-+
-+	rga3_cmd_set_win0_format(ctx);
-+	rga3_cmd_enable_win0(ctx);
-+	rga3_cmd_set_trans_info(ctx);
-+	rga3_cmd_set_wr_format(ctx);
-+	rga3_cmd_disable_wr_limitation(ctx);
-+}
-+
-+static void rga3_hw_start(struct rockchip_rga *rga,
-+			  struct rga_vb_buffer *src, struct rga_vb_buffer *dst)
-+{
-+	struct rga_ctx *ctx = rga->curr;
-+
-+	rga3_cmd_set_win0_addr(ctx, &src->dma_addrs);
-+	rga3_cmd_set_wr_addr(ctx, &dst->dma_addrs);
-+
-+	rga_write(rga, RGA3_CMD_ADDR, ctx->cmdbuf_phy);
-+
-+	/* sync CMD buf for RGA */
-+	dma_sync_single_for_device(rga->dev, ctx->cmdbuf_phy,
-+				   PAGE_SIZE, DMA_BIDIRECTIONAL);
-+
-+	/* set to master mode and start the conversion */
-+	rga_write(rga, RGA3_SYS_CTRL,
-+		  FIELD_PREP(RGA3_CMD_MODE, RGA3_CMD_MODE_MASTER));
-+	rga_write(rga, RGA3_INT_EN, FIELD_PREP(RGA3_INT_FRM_DONE, 1));
-+	rga_write(rga, RGA3_CMD_CTRL,
-+		  FIELD_PREP(RGA3_CMD_LINE_START_PULSE, 1));
-+}
-+
-+static bool rga3_handle_irq(struct rockchip_rga *rga)
-+{
-+	u32 intr;
-+
-+	intr = rga_read(rga, RGA3_INT_RAW);
-+	/* clear all interrupts */
-+	rga_write(rga, RGA3_INT_CLR, intr);
-+
-+	return FIELD_GET(RGA3_INT_FRM_DONE, intr);
-+}
-+
-+static void rga3_get_version(struct rockchip_rga *rga)
-+{
-+	u32 version = rga_read(rga, RGA3_VERSION_NUM);
-+
-+	rga->version.major = FIELD_GET(RGA3_VERSION_NUM_MAJOR, version);
-+	rga->version.minor = FIELD_GET(RGA3_VERSION_NUM_MINOR, version);
-+}
-+
-+static struct rga3_fmt rga3_formats[] = {
-+	{
-+		.fourcc = V4L2_PIX_FMT_RGB24,
-+		.hw_format = RGA3_COLOR_FMT_BGR888,
-+		.rbuv_swap = 1,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_BGR24,
-+		.hw_format = RGA3_COLOR_FMT_BGR888,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_ABGR32,
-+		.hw_format = RGA3_COLOR_FMT_BGRA8888,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_RGBA32,
-+		.hw_format = RGA3_COLOR_FMT_BGRA8888,
-+		.rbuv_swap = 1,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_XBGR32,
-+		.hw_format = RGA3_COLOR_FMT_BGRA8888,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_RGBX32,
-+		.hw_format = RGA3_COLOR_FMT_BGRA8888,
-+		.rbuv_swap = 1,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_RGB565,
-+		.hw_format = RGA3_COLOR_FMT_BGR565,
-+		.rbuv_swap = 1,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_NV12M,
-+		.hw_format = RGA3_COLOR_FMT_YUV420,
-+		.semi_planar = 1,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_NV12,
-+		.hw_format = RGA3_COLOR_FMT_YUV420,
-+		.semi_planar = 1,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_NV21M,
-+		.hw_format = RGA3_COLOR_FMT_YUV420,
-+		.rbuv_swap = 1,
-+		.semi_planar = 1,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_NV21,
-+		.hw_format = RGA3_COLOR_FMT_YUV420,
-+		.rbuv_swap = 1,
-+		.semi_planar = 1,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_NV16M,
-+		.hw_format = RGA3_COLOR_FMT_YUV422,
-+		.semi_planar = 1,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_NV16,
-+		.hw_format = RGA3_COLOR_FMT_YUV422,
-+		.semi_planar = 1,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_NV61M,
-+		.hw_format = RGA3_COLOR_FMT_YUV422,
-+		.rbuv_swap = 1,
-+		.semi_planar = 1,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_NV61,
-+		.hw_format = RGA3_COLOR_FMT_YUV422,
-+		.rbuv_swap = 1,
-+		.semi_planar = 1,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_YUYV,
-+		.hw_format = RGA3_COLOR_FMT_YUV422,
-+		.yc_swap = 1,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_YVYU,
-+		.hw_format = RGA3_COLOR_FMT_YUV422,
-+		.yc_swap = 1,
-+		.rbuv_swap = 1,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_UYVY,
-+		.hw_format = RGA3_COLOR_FMT_YUV422,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_VYUY,
-+		.hw_format = RGA3_COLOR_FMT_YUV422,
-+		.rbuv_swap = 1,
-+	},
-+	/* Input only formats last to keep rga3_enum_format simple */
-+	{
-+		.fourcc = V4L2_PIX_FMT_ARGB32,
-+		.hw_format = RGA3_COLOR_FMT_ABGR8888,
-+		.rbuv_swap = 1,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_BGRA32,
-+		.hw_format = RGA3_COLOR_FMT_ABGR8888,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_XRGB32,
-+		.hw_format = RGA3_COLOR_FMT_ABGR8888,
-+		.rbuv_swap = 1,
-+	},
-+	{
-+		.fourcc = V4L2_PIX_FMT_BGRX32,
-+		.hw_format = RGA3_COLOR_FMT_ABGR8888,
-+	},
-+};
-+
-+static int rga3_enum_format(struct v4l2_fmtdesc *f)
-+{
-+	struct rga3_fmt *fmt;
-+
-+	if (f->index >= ARRAY_SIZE(rga3_formats))
-+		return -EINVAL;
-+
-+	fmt = &rga3_formats[f->index];
-+	if (V4L2_TYPE_IS_CAPTURE(f->type) && !rga3_can_capture(fmt))
-+		return -EINVAL;
-+
-+	f->pixelformat = fmt->fourcc;
-+	return 0;
-+}
-+
-+static void *rga3_adjust_and_map_format(struct v4l2_pix_format_mplane *format,
-+					bool is_output)
-+{
-+	unsigned int i;
-+
-+	if (!format)
-+		return &rga3_formats[0];
-+
-+	format->ycbcr_enc = V4L2_YCBCR_ENC_601;
-+	format->quantization = V4L2_QUANTIZATION_FULL_RANGE;
-+
-+	for (i = 0; i < ARRAY_SIZE(rga3_formats); i++) {
-+		if (!is_output && !rga3_can_capture(&rga3_formats[i]))
-+			continue;
-+
-+		if (rga3_formats[i].fourcc == format->pixelformat)
-+			return &rga3_formats[i];
-+	}
-+
-+	format->pixelformat = rga3_formats[0].fourcc;
-+	return &rga3_formats[0];
-+}
-+
-+const struct rga_hw rga3_hw = {
-+	.card_type = "rga3",
-+	.has_internal_iommu = false,
-+	.cmdbuf_size = RGA3_CMDBUF_SIZE,
-+	.min_width = RGA3_MIN_WIDTH,
-+	.min_height = RGA3_MIN_HEIGHT,
-+	/* use output size, as it's a bit smaller than the input size */
-+	.max_width = RGA3_MAX_OUTPUT_WIDTH,
-+	.max_height = RGA3_MAX_OUTPUT_HEIGHT,
-+	.max_scaling_factor = RGA3_MAX_SCALING_FACTOR,
-+	.stride_alignment = 16,
-+	.features = 0,
-+
-+	.setup_cmdbuf = rga3_hw_setup_cmdbuf,
-+	.start = rga3_hw_start,
-+	.handle_irq = rga3_handle_irq,
-+	.get_version = rga3_get_version,
-+	.enum_format = rga3_enum_format,
-+	.adjust_and_map_format = rga3_adjust_and_map_format,
-+};
-diff --git a/drivers/media/platform/rockchip/rga/rga3-hw.h b/drivers/media/platform/rockchip/rga/rga3-hw.h
-new file mode 100644
-index 0000000000000..fa16b95fb43ba
---- /dev/null
-+++ b/drivers/media/platform/rockchip/rga/rga3-hw.h
-@@ -0,0 +1,190 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+/*
-+ * Copyright (C) Pengutronix e.K.
-+ * Author: Sven Püschel <s.pueschel@pengutronix.de>
-+ */
-+#ifndef __RGA3_HW_H__
-+#define __RGA3_HW_H__
-+
-+#include <linux/bits.h>
-+#include <linux/types.h>
-+
-+#define RGA3_CMDBUF_SIZE 0x2e
-+
-+#define RGA3_MIN_WIDTH 128
-+#define RGA3_MIN_HEIGHT 128
-+#define RGA3_MAX_INPUT_WIDTH (8192 - 16)
-+#define RGA3_MAX_INPUT_HEIGHT (8192 - 16)
-+#define RGA3_MAX_OUTPUT_WIDTH (8192 - 64)
-+#define RGA3_MAX_OUTPUT_HEIGHT (8192 - 64)
-+#define RGA3_MAX_SCALING_FACTOR 8
-+#define RGA3_RESET_TIMEOUT 1000
-+
-+/* Registers address */
-+/* sys reg */
-+#define RGA3_SYS_CTRL				0x000
-+#define RGA3_CMD_CTRL				0x004
-+#define RGA3_CMD_ADDR				0x008
-+#define RGA3_MI_GROUP_CTRL			0x00c
-+#define RGA3_ARQOS_CTRL				0x010
-+#define RGA3_VERSION_NUM			0x018
-+#define RGA3_VERSION_TIM			0x01c
-+#define RGA3_INT_EN				0x020
-+#define RGA3_INT_RAW				0x024
-+#define RGA3_INT_MSK				0x028
-+#define RGA3_INT_CLR				0x02c
-+#define RGA3_RO_SRST				0x030
-+#define RGA3_STATUS0				0x034
-+#define RGA3_SCAN_CNT				0x038
-+#define RGA3_CMD_STATE				0x040
-+
-+/* cmd reg */
-+#define RGA3_WIN0_RD_CTRL			0x100
-+#define RGA3_FIRST_CMD_REG			RGA3_WIN0_RD_CTRL
-+#define RGA3_WIN0_Y_BASE			0x110
-+#define RGA3_WIN0_U_BASE			0x114
-+#define RGA3_WIN0_V_BASE			0x118
-+#define RGA3_WIN0_VIR_STRIDE			0x11c
-+#define RGA3_WIN0_FBC_OFF			0x120
-+#define RGA3_WIN0_SRC_SIZE			0x124
-+#define RGA3_WIN0_ACT_OFF			0x128
-+#define RGA3_WIN0_ACT_SIZE			0x12c
-+#define RGA3_WIN0_DST_SIZE			0x130
-+#define RGA3_WIN0_SCL_FAC			0x134
-+#define RGA3_WIN0_UV_VIR_STRIDE			0x138
-+#define RGA3_WIN1_RD_CTRL			0x140
-+#define RGA3_WIN1_Y_BASE			0x150
-+#define RGA3_WIN1_U_BASE			0x154
-+#define RGA3_WIN1_V_BASE			0x158
-+#define RGA3_WIN1_VIR_STRIDE			0x15c
-+#define RGA3_WIN1_FBC_OFF			0x160
-+#define RGA3_WIN1_SRC_SIZE			0x164
-+#define RGA3_WIN1_ACT_OFF			0x168
-+#define RGA3_WIN1_ACT_SIZE			0x16c
-+#define RGA3_WIN1_DST_SIZE			0x170
-+#define RGA3_WIN1_SCL_FAC			0x174
-+#define RGA3_WIN1_UV_VIR_STRIDE			0x178
-+#define RGA3_OVLP_CTRL				0x180
-+#define RGA3_OVLP_OFF				0x184
-+#define RGA3_OVLP_TOP_KEY_MIN			0x188
-+#define RGA3_OVLP_TOP_KEY_MAX			0x18c
-+#define RGA3_OVLP_TOP_CTRL			0x190
-+#define RGA3_OVLP_BOT_CTRL			0x194
-+#define RGA3_OVLP_TOP_ALPHA			0x198
-+#define RGA3_OVLP_BOT_ALPHA			0x19c
-+#define RGA3_WR_CTRL				0x1a0
-+#define RGA3_WR_FBCE_CTRL			0x1a4
-+#define RGA3_WR_VIR_STRIDE			0x1a8
-+#define RGA3_WR_PL_VIR_STRIDE			0x1ac
-+#define RGA3_WR_Y_BASE				0x1b0
-+#define RGA3_WR_U_BASE				0x1b4
-+#define RGA3_WR_V_BASE				0x1b8
-+
-+/* Registers value */
-+#define RGA3_COLOR_FMT_YUV420		0x0
-+#define RGA3_COLOR_FMT_YUV422		0x1
-+#define RGA3_COLOR_FMT_YUV420_10B	0x2
-+#define RGA3_COLOR_FMT_YUV422_10B	0x3
-+/*
-+ * Use memory ordering names
-+ * instead of the datasheet naming RGB formats in big endian order
-+ */
-+#define RGA3_COLOR_FMT_BGR565		0x4
-+#define RGA3_COLOR_FMT_BGR888		0x5
-+#define RGA3_COLOR_FMT_FIRST_HAS_ALPHA	RGA3_COLOR_FMT_BGRA8888
-+#define RGA3_COLOR_FMT_BGRA8888		0x6
-+#define RGA3_COLOR_FMT_LAST_OUTPUT	RGA3_COLOR_FMT_BGRA8888
-+/* the following are only supported as inputs */
-+#define RGA3_COLOR_FMT_ABGR8888		0x7
-+/*
-+ * the following seem to be unnecessary,
-+ * as they can be achieved with RB swaps
-+ */
-+#define RGA3_COLOR_FMT_RGBA8888		0x8
-+#define RGA3_COLOR_FMT_ARGB8888		0x9
-+
-+#define RGA3_RDWR_FORMAT_SEMI_PLANAR	0x1
-+#define RGA3_RDWR_FORMAT_INTERLEAVED	0x2
-+
-+#define RGA3_CMD_MODE_MASTER 0x1
-+
-+#define RGA3_WIN_CSC_MODE_BT601_F 0x2
-+
-+/* RGA masks */
-+/* SYS_CTRL */
-+#define RGA3_CCLK_SRESET BIT(4)
-+#define RGA3_ACLK_SRESET BIT(3)
-+#define RGA3_CMD_MODE BIT(1)
-+
-+/* CMD_CTRL */
-+#define RGA3_CMD_LINE_START_PULSE BIT(0)
-+
-+/* VERSION_NUM */
-+#define RGA3_VERSION_NUM_MAJOR GENMASK(31, 28)
-+#define RGA3_VERSION_NUM_MINOR GENMASK(27, 20)
-+
-+/* INT_* */
-+#define RGA3_INT_FRM_DONE BIT(0)
-+#define RGA3_INT_DMA_READ_BUS_ERR BIT(2)
-+#define RGA3_INT_WIN0_FBC_DEC_ERR BIT(5)
-+#define RGA3_INT_WIN0_HOR_ERR BIT(6)
-+#define RGA3_INT_WIN0_VER_ERR BIT(7)
-+#define RGA3_INT_WR_VER_ERR BIT(13)
-+#define RGA3_INT_WR_HOR_ERR BIT(14)
-+#define RGA3_INT_WR_BUS_ERR BIT(15)
-+#define RGA3_INT_WIN0_IN_FIFO_WR_ERR BIT(16)
-+#define RGA3_INT_WIN0_IN_FIFO_RD_ERR BIT(17)
-+#define RGA3_INT_WIN0_HOR_FIFO_WR_ERR BIT(18)
-+#define RGA3_INT_WIN0_HOR_FIFO_RD_ERR BIT(19)
-+#define RGA3_INT_WIN0_VER_FIFO_WR_ERR BIT(20)
-+#define RGA3_INT_WIN0_VER_FIFO_RD_ERR BIT(21)
-+
-+/* RO_SRST */
-+#define RGA3_RO_SRST_DONE GENMASK(5, 0)
-+
-+/* *_SIZE */
-+#define RGA3_HEIGHT GENMASK(28, 16)
-+#define RGA3_WIDTH GENMASK(12, 0)
-+
-+/* SCL_FAC */
-+#define RGA3_SCALE_VER_FAC GENMASK(31, 16)
-+#define RGA3_SCALE_HOR_FAC GENMASK(15, 0)
-+
-+/* WINx_CTRL */
-+#define RGA3_WIN_CSC_MODE GENMASK(27, 26)
-+#define RGA3_WIN_R2Y BIT(25)
-+#define RGA3_WIN_Y2R BIT(24)
-+#define RGA3_WIN_SCALE_VER_UP BIT(23)
-+#define RGA3_WIN_SCALE_VER_BYPASS BIT(22)
-+#define RGA3_WIN_SCALE_HOR_UP BIT(21)
-+#define RGA3_WIN_SCALE_HOR_BYPASS BIT(20)
-+#define RGA3_WIN_YC_SWAP BIT(13)
-+#define RGA3_WIN_RBUV_SWAP BIT(12)
-+#define RGA3_WIN_RD_FORMAT GENMASK(9, 8)
-+#define RGA3_WIN_PIC_FORMAT GENMASK(7, 4)
-+#define RGA3_WIN_ENABLE BIT(0)
-+
-+/* COLOR_CTRL */
-+#define RGA3_OVLP_GLOBAL_ALPHA GENMASK(23, 16)
-+#define RGA3_OVLP_COLOR_MODE BIT(0)
-+
-+/* ALPHA_CTRL */
-+#define RGA3_ALPHA_SELECT_MODE BIT(4)
-+#define RGA3_ALPHA_BLEND_MODE GENMASK(3, 2)
-+
-+/* WR_CTRL */
-+#define RGA3_WR_YC_SWAP BIT(20)
-+#define RGA3_WR_SW_OUTSTANDING_MAX GENMASK(18, 13)
-+#define RGA3_WR_RBUV_SWAP BIT(12)
-+#define RGA3_WR_FORMAT GENMASK(9, 8)
-+#define RGA3_WR_PIC_FORMAT GENMASK(7, 4)
-+
-+struct rga3_fmt {
-+	u32 fourcc;
-+	u8 hw_format;
-+	bool rbuv_swap;
-+	bool yc_swap;
-+	bool semi_planar;
-+};
-+
-+#endif
+> [3] =
+https://lore.kernel.org/all/20250606135654.178300-1-ryan.roberts@arm.com/
+> [4] =
+https://lore.kernel.org/all/ef343405-c394-4763-a79f-21381f217b6c@redhat.co=
+m/
+> ---
+> Changelog
+>=20
+> v4..v5:
+>=20
+> - Rebased on mm-unstable
+> - Patch 3: added missing radix_enabled() check in arch_flush()
+>  [Ritesh Harjani]
+> - Patch 6: declare arch_flush_lazy_mmu_mode() as static inline on x86
+>  [Ryan Roberts]
+> - Patch 7 (formerly 12): moved before patch 8 to ensure correctness in
+>  interrupt context [Ryan]. The diffs in in_lazy_mmu_mode() and
+>  queue_pte_barriers() are moved to patch 8 and 9 resp.
+> - Patch 8:
+>  * Removed all restrictions regarding lazy_mmu_mode_{pause,resume}().
+>    They may now be called even when lazy MMU isn't enabled, and
+>    any call to lazy_mmu_mode_* may be made while paused (such calls
+>    will be ignored). [David, Ryan]
+>  * lazy_mmu_state.{nesting_level,active} are replaced with
+>    {enable_count,pause_count} to track arbitrary nesting of both
+>    enable/disable and pause/resume [Ryan]
+>  * Added __task_lazy_mmu_mode_active() for use in patch 12 [David]
+>  * Added documentation for all the functions [Ryan]
+> - Patch 9: keep existing test + set TIF_LAZY_MMU_PENDING instead of
+>  atomic RMW [David, Ryan]
+> - Patch 12: use __task_lazy_mmu_mode_active() instead of accessing
+>  lazy_mmu_state directly [David]
+> - Collected R-b/A-b tags
+>=20
+> v4: =
+https://lore.kernel.org/all/20251029100909.3381140-1-kevin.brodsky@arm.com=
+/
+>=20
+> v3..v4:
+>=20
+> - Patch 2: restored ordering of preempt_{disable,enable}() [Dave =
+Hansen]
+> - Patch 5 onwards: s/ARCH_LAZY_MMU/ARCH_HAS_LAZY_MMU_MODE/ [Mike =
+Rapoport]
+> - Patch 7: renamed lazy_mmu_state members, removed VM_BUG_ON(),
+>  reordered writes to lazy_mmu_state members [David Hildenbrand]
+> - Dropped patch 13 as it doesn't seem justified [David H]
+> - Various improvements to commit messages [David H]
+>=20
+> v3: =
+https://lore.kernel.org/all/20251015082727.2395128-1-kevin.brodsky@arm.com=
+/
+>=20
+> v2..v3:
+>=20
+> - Full rewrite; dropped all Acked-by/Reviewed-by.
+> - Rebased on v6.18-rc1.
+>=20
+> v2: =
+https://lore.kernel.org/all/20250908073931.4159362-1-kevin.brodsky@arm.com=
+/
+>=20
+> v1..v2:
+> - Rebased on mm-unstable.
+> - Patch 2: handled new calls to enter()/leave(), clarified how the =
+"flush"
+>  pattern (leave() followed by enter()) is handled.
+> - Patch 5,6: removed unnecessary local variable [Alexander Gordeev's
+>  suggestion].
+> - Added Mike Rapoport's Acked-by.
+>=20
+> v1: =
+https://lore.kernel.org/all/20250904125736.3918646-1-kevin.brodsky@arm.com=
+/
+> ---
+> Cc: Alexander Gordeev <agordeev@linux.ibm.com>
+> Cc: Andreas Larsson <andreas@gaisler.com>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Boris Ostrovsky <boris.ostrovsky@oracle.com>
+> Cc: Borislav Petkov <bp@alien8.de>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+> Cc: Dave Hansen <dave.hansen@linux.intel.com>
+> Cc: David Hildenbrand <david@redhat.com>
+> Cc: "David S. Miller" <davem@davemloft.net>
+> Cc: David Woodhouse <dwmw2@infradead.org>
+> Cc: "H. Peter Anvin" <hpa@zytor.com>
+> Cc: Ingo Molnar <mingo@redhat.com>
+> Cc: Jann Horn <jannh@google.com>
+> Cc: Juergen Gross <jgross@suse.com>
+> Cc: "Liam R. Howlett" <Liam.Howlett@oracle.com>
+> Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+> Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
+> Cc: Michael Ellerman <mpe@ellerman.id.au>
+> Cc: Michal Hocko <mhocko@suse.com>
+> Cc: Mike Rapoport <rppt@kernel.org>
+> Cc: Nicholas Piggin <npiggin@gmail.com>
+> Cc: Peter Zijlstra <peterz@infradead.org>
+> Cc: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Suren Baghdasaryan <surenb@google.com>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Venkat Rao Bagalkote <venkat88@linux.ibm.com>
+> Cc: Vlastimil Babka <vbabka@suse.cz>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Yeoreum Yun <yeoreum.yun@arm.com>
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linuxppc-dev@lists.ozlabs.org
+> Cc: sparclinux@vger.kernel.org
+> Cc: xen-devel@lists.xenproject.org
+> Cc: x86@kernel.org
+> ---
+> Alexander Gordeev (1):
+>  powerpc/64s: Do not re-activate batched TLB flush
+>=20
+> Kevin Brodsky (11):
+>  x86/xen: simplify flush_lazy_mmu()
+>  powerpc/mm: implement arch_flush_lazy_mmu_mode()
+>  sparc/mm: implement arch_flush_lazy_mmu_mode()
+>  mm: introduce CONFIG_ARCH_HAS_LAZY_MMU_MODE
+>  mm: introduce generic lazy_mmu helpers
+>  mm: bail out of lazy_mmu_mode_* in interrupt context
+>  mm: enable lazy_mmu sections to nest
+>  arm64: mm: replace TIF_LAZY_MMU with in_lazy_mmu_mode()
+>  powerpc/mm: replace batch->active with in_lazy_mmu_mode()
+>  sparc/mm: replace batch->active with in_lazy_mmu_mode()
+>  x86/xen: use lazy_mmu_state when context-switching
+>=20
+> arch/arm64/Kconfig                            |   1 +
+> arch/arm64/include/asm/pgtable.h              |  41 +----
+> arch/arm64/include/asm/thread_info.h          |   3 +-
+> arch/arm64/mm/mmu.c                           |   4 +-
+> arch/arm64/mm/pageattr.c                      |   4 +-
+> .../include/asm/book3s/64/tlbflush-hash.h     |  20 ++-
+> arch/powerpc/include/asm/thread_info.h        |   2 -
+> arch/powerpc/kernel/process.c                 |  25 ---
+> arch/powerpc/mm/book3s64/hash_tlb.c           |  10 +-
+> arch/powerpc/mm/book3s64/subpage_prot.c       |   4 +-
+> arch/powerpc/platforms/Kconfig.cputype        |   1 +
+> arch/sparc/Kconfig                            |   1 +
+> arch/sparc/include/asm/tlbflush_64.h          |   5 +-
+> arch/sparc/mm/tlb.c                           |  14 +-
+> arch/x86/Kconfig                              |   1 +
+> arch/x86/boot/compressed/misc.h               |   1 +
+> arch/x86/boot/startup/sme.c                   |   1 +
+> arch/x86/include/asm/paravirt.h               |   1 -
+> arch/x86/include/asm/pgtable.h                |   1 +
+> arch/x86/include/asm/thread_info.h            |   4 +-
+> arch/x86/xen/enlighten_pv.c                   |   3 +-
+> arch/x86/xen/mmu_pv.c                         |   6 +-
+> fs/proc/task_mmu.c                            |   4 +-
+> include/linux/mm_types_task.h                 |   5 +
+> include/linux/pgtable.h                       | 147 +++++++++++++++++-
+> include/linux/sched.h                         |  45 ++++++
+> mm/Kconfig                                    |   3 +
+> mm/kasan/shadow.c                             |   8 +-
+> mm/madvise.c                                  |  18 +--
+> mm/memory.c                                   |  16 +-
+> mm/migrate_device.c                           |   8 +-
+> mm/mprotect.c                                 |   4 +-
+> mm/mremap.c                                   |   4 +-
+> mm/userfaultfd.c                              |   4 +-
+> mm/vmalloc.c                                  |  12 +-
+> mm/vmscan.c                                   |  12 +-
+> 36 files changed, 282 insertions(+), 161 deletions(-)
 
--- 
-2.52.0
+Tested this patch series by applying on top of mm-unstable, on both HASH =
+and RADIX MMU, and all tests are passed on both MMU=E2=80=99s.
+
+Ran: cache_shape, copyloops, mm from linux source, selftests/powerpc/ =
+and ran memory-hotplug from selftests/. Also ran below tests from =
+avocado misc-test repo.
+
+Link to repo: =
+https://github.com/avocado-framework-tests/avocado-misc-tests
+
+avocado-misc-tests/memory/stutter.py
+avocado-misc-tests/memory/eatmemory.py
+avocado-misc-tests/memory/hugepage_sanity.py
+avocado-misc-tests/memory/fork_mem.py
+avocado-misc-tests/memory/memory_api.py
+avocado-misc-tests/memory/mprotect.py
+avocado-misc-tests/memory/vatest.py =
+avocado-misc-tests/memory/vatest.py.data/vatest.yaml
+avocado-misc-tests/memory/transparent_hugepages.py
+avocado-misc-tests/memory/transparent_hugepages_swapping.py
+avocado-misc-tests/memory/transparent_hugepages_defrag.py
+avocado-misc-tests/memory/ksm_poison.py
+
+If its good enough, please add below tag for PowerPC changes.
+
+Tested-by: Venkat Rao Bagalkote <venkat88@linux.ibm.com>
+
+Regards,
+Venkat.
+>=20
+>=20
+> base-commit: 1f1edd95f9231ba58a1e535b10200cb1eeaf1f67
+> --=20
+> 2.51.2
+>=20
 
 
