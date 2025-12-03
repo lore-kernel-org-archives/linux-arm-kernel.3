@@ -4,56 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11214D1266D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 07:08:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29892D1266D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 07:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ktrdC3X3Wj1FDCJhFPUlOqx6Gm94Hz6vHaszbn8CHek=; b=W16JwOxv4l+vUybScdX53KqiiR
-	IpBngv870o3+yn9RnUERfJYquyVmXP3Zkj6mdMvmFaY08GVcAy0sUp9uV24I+1TnsB6fD04txTJZb
-	z+BzIAo7NmAPO7rlDoA1AHISCK0rD2SBxYzDhpS1oFDdUC7tHEaIIK7uKSkXXo4BnnkjkYayG8JNJ
-	zjbtoJQm/HtESt/iDPtpYZTRw2ZJSL5FGBeWAqk1YRf/HiHnZVG3BAgVPtUesI/cWO0IOIBoOewtX
-	YylWy165O05nKyFOleW8GJAhvayaHRYPqzq542LhsivEI5pQAHhGVbp7Xe9og2k5R6Xs/S1+7itVd
-	a6SwQl4g==;
+	bh=4IUv8amqB8vlAtyg+B9F/COkZDfJGsyto92wY84SlIA=; b=Y7tA58GoxRHCxsjHc7gY7zGWD2
+	tEtV8datzVlP8vX2HcYP7nE5u1IKIEXXqwwomYvvbIvMTwdRNax+mnmFC0n1e/cA85vjR4+jeIAVW
+	0ZrQqXhIEZBrmZDI2D4rAF4/vwHr1vn/kFLHUwyLC6BfFUc89Onu4LoOv+6K2JeA31zPx6tmYpMvQ
+	3gZLAEKUG6kvw+YgeE+HUrdtXUdS6t0n0KVDitqPxFJ/arajyoSkaab49NR9Nmr6H3ZTs7qrhQ9de
+	yNA3ohfGBktkOlrHsnf1kIcxEqvsP8J1x74F3PQV2sYJWVwgEwo2rU4kL94uYOb+PlLkjQJmhR1VH
+	JStO/ivQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQgy3-00000006F65-0uYa;
-	Wed, 03 Dec 2025 07:08:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQgxx-00000006F2d-2Wv3
+	id 1vQhAY-00000006Fam-46Eg;
+	Wed, 03 Dec 2025 07:20:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQhAX-00000006Fag-4Bzq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 07:08:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 67AA8339;
-	Tue,  2 Dec 2025 23:07:46 -0800 (PST)
-Received: from [10.163.49.22] (unknown [10.163.49.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 91BC43F59E;
-	Tue,  2 Dec 2025 23:07:51 -0800 (PST)
-Message-ID: <296f9c4b-8c93-4464-9b75-e06770a4bd31@arm.com>
-Date: Wed, 3 Dec 2025 12:37:48 +0530
+	Wed, 03 Dec 2025 07:20:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3386260172;
+	Wed,  3 Dec 2025 07:20:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9FF3C4CEFB;
+	Wed,  3 Dec 2025 07:20:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764746455;
+	bh=n2EyRpFeVYxE7vm8PuEZf1jmg9XZDoeUxffl4a+3DT4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JQbLP0/zsLkqeTNv/0Gv8wh4GM70+sEjyTZ2U6a1Xo8vhlb4xymxjFPTsChqWmVEY
+	 yu6AKQ2j7FRC1VtU6Jjp3wsYCblzE9dyDwBjV+gwD5/brnBtOOABIMQ2kJ9XRj5yRC
+	 4mUoGp6bnu0guhrDoHe5DfLiDji0otKK8V5B3ggiiBzisE4SJ58YrbzoR8PkFkFDzG
+	 qRQTIKXH9TSNy8jFykBM9FHFOWz/cLbFpalS/WInMIcoHIKRunSPjL/OVlyHckRoUH
+	 /6CjaTtN2xqS10+iGHYzYQdE42LbCUAqPXu9cyn4QS7UweD3u6AHWqppbvCDh8yq7T
+	 jNK7+moarRyHw==
+Message-ID: <1ee383c7-ccbc-4c90-adf3-bfbe87fb6765@kernel.org>
+Date: Wed, 3 Dec 2025 08:20:50 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [v2 PATCH] arm64: mm: Fix kexec failure after pte_mkwrite_novma()
- change
-To: Jianpeng Chang <jianpeng.chang.cn@windriver.com>,
- catalin.marinas@arm.com, will@kernel.org, ardb@kernel.org,
- ying.huang@linux.alibaba.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251202022707.2720933-1-jianpeng.chang.cn@windriver.com>
- <381a3974-aafa-419f-a7ad-ed6e4c1671f0@arm.com>
- <58d796ec-b430-4fc0-9a1c-8f1a6150f051@windriver.com>
+Subject: Re: [PATCH v20 3/7] firmware: imx: add driver for NXP EdgeLock
+ Enclave
+To: Pankaj Gupta <pankaj.gupta@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>
+References: <20251203-imx-se-if-v20-0-a04a25c4255f@nxp.com>
+ <20251203-imx-se-if-v20-3-a04a25c4255f@nxp.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <58d796ec-b430-4fc0-9a1c-8f1a6150f051@windriver.com>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251203-imx-se-if-v20-3-a04a25c4255f@nxp.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_230757_761459_2E242B74 
-X-CRM114-Status: GOOD (  25.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,127 +121,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 02/12/25 1:25 PM, Jianpeng Chang wrote:
+On 03/12/2025 07:48, Pankaj Gupta wrote:
+> Add driver for enabling MU based communication interface to secure-enclave.
 > 
-> On 12/2/25 2:57 PM, Anshuman Khandual wrote:
->> CAUTION: This email comes from a non Wind River email account!
->> Do not click links or open attachments unless you recognize the sender and know the content is safe.
->>
->> On 02/12/25 7:57 AM, Jianpeng Chang wrote:
->>> Commit 143937ca51cc ("arm64, mm: avoid always making PTE dirty in
->>> pte_mkwrite()") modified pte_mkwrite_novma() to only clear PTE_RDONLY
->>> when the page is already dirty (PTE_DIRTY is set). While this optimization
->>> prevents unnecessary dirty page marking in normal memory management paths,
->>> it breaks kexec on some platforms like NXP LS1043.
->>>
->>> The issue occurs in the kexec code path:
->>> 1. machine_kexec_post_load() calls trans_pgd_create_copy() to create a
->>>    writable copy of the linear mapping
->>> 2. _copy_pte() calls pte_mkwrite_novma() to ensure all pages in the copy
->>>    are writable for the new kernel image copying
->>> 3. With the new logic, clean pages (without PTE_DIRTY) remain read-only
->>> 4. When kexec tries to copy the new kernel image through the linear
->>>    mapping, it fails on read-only pages, causing the system to hang
->>>    after "Bye!"
->>>
->>> The same issue affects hibernation which uses the same trans_pgd code path.
->>>
->>> Fix this by explicitly clearing PTE_RDONLY in _copy_pte() for both
->> via pte_mkdirty() ?
-> Sorry, for this.
+> NXP hardware IP(s) for secure-enclaves like Edgelock Enclave(ELE), are
+> embedded in the SoC to support the features like HSM, SHE & V2X, using
+> message based communication interface.
 > 
-> Fix this by marking pages dirty with pte_mkdirty() in _copy_pte(), which
-> ensures pte_mkwrite_novma() clears PTE_RDONLY for both kexec and
-> hibernation, making all pages in the temporary mapping writable
-> regardless of their dirty state.
-
-Fair enough.
-
->>
->>> kexec and hibernation, ensuring all pages in the temporary mapping are
->>> writable regardless of their dirty state. This preserves the original
->>> commit's optimization for normal memory management while fixing the
->>> kexec/hibernation regression.
->>>
->>> Fixes: 143937ca51cc ("arm64, mm: avoid always making PTE dirty in pte_mkwrite()")
->>> Signed-off-by: Jianpeng Chang <jianpeng.chang.cn@windriver.com>
->>> ---
->>> v2:
->>>   - Use pte_mkwrite_novma(pte_mkdirty(pte)) instead of manual bit manipulation
->>>   - Updated comments to clarify pte_mkwrite_novma() alone cannot be used
->>> v1: https://lore.kernel.org/all/20251127034350.3600454-1-jianpeng.chang.cn@windriver.com/
->>>
->>>  arch/arm64/mm/trans_pgd.c | 9 +++++++--
->>>  1 file changed, 7 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/arch/arm64/mm/trans_pgd.c b/arch/arm64/mm/trans_pgd.c
->>> index 18543b603c77..08f5ee6643e1 100644
->>> --- a/arch/arm64/mm/trans_pgd.c
->>> +++ b/arch/arm64/mm/trans_pgd.c
->>> @@ -40,8 +40,13 @@ static void _copy_pte(pte_t *dst_ptep, pte_t *src_ptep, unsigned long addr)
->>>                * Resume will overwrite areas that may be marked
->>>                * read only (code, rodata). Clear the RDONLY bit from
->>>                * the temporary mappings we use during restore.
->>> +              *
->>> +              * For kexec/hibernation, we need writable access to all
->>> +              * pages in the linear mapping to copy the new kernel image.
->>> +              * Mark pages dirty first to ensure pte_mkwrite_novma()
->>> +              * clears PTE_RDONLY.
->>>                */
->>                /*
->>                 * For both kexec and hibernation, writable accesses are required
->>                 * for all pages in the linear map to copy over new kernel image.
->>                 * Hence mark these pages dirty first via pte_mkdirty() to ensure
->>                 * pte_mkwrite_novma() subsequently clears PTE_RDONLY - providing
->>                 * required write access for the pages.
->>                 */
-> I will change it.
->>
->>> -             __set_pte(dst_ptep, pte_mkwrite_novma(pte));
->>> +             __set_pte(dst_ptep, pte_mkwrite_novma(pte_mkdirty(pte)));
->>>       } else if (!pte_none(pte)) {
->>>               /*
->>>                * debug_pagealloc will removed the PTE_VALID bit if
->>> @@ -57,7 +62,7 @@ static void _copy_pte(pte_t *dst_ptep, pte_t *src_ptep, unsigned long addr)
->>>                */
->>>               BUG_ON(!pfn_valid(pte_pfn(pte)));
->>>
->> The comments should be replicated here as well given the same special situation.
-> I will change it.
->>
->>> -             __set_pte(dst_ptep, pte_mkvalid(pte_mkwrite_novma(pte)));
->>> +             __set_pte(dst_ptep, pte_mkvalid(pte_mkwrite_novma(pte_mkdirty(pte))));
->>>       }
->>>  }
->>>
->> static inline pte_t pte_mkwrite_novma(pte_t pte)
->> {
->>         pte = set_pte_bit(pte, __pgprot(PTE_WRITE));
->>         if (pte_sw_dirty(pte))
->>                 pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
->>         return pte;
->> }
->>
->> static inline pte_t pte_mkdirty(pte_t pte)
->> {
->>         pte = set_pte_bit(pte, __pgprot(PTE_DIRTY));
->>
->>         if (pte_write(pte))
->>                 pte = clear_pte_bit(pte, __pgprot(PTE_RDONLY));
->>
->>         return pte;
->> }
->>
->> So if pte_write() is true, there will be a redundant PTE_RDONLY clearing which is OK.
->> Should this be mentioned in the commit message ?
-> TBH, I don't have a better idea - any suggestions?
+> The secure enclave FW communicates with Linux over single or multiple
+> dedicated messaging unit(MU) based interface(s).
+> Exists on i.MX SoC(s) like i.MX8ULP, i.MX93, i.MX95 etc.
 > 
-> Or, let's add some lines:
+> For i.MX9x SoC(s) there is at least one dedicated ELE MU(s) for each
+> world - Linux(one or more) and OPTEE-OS (one or more).
 > 
-> Using pte_mkdirty() causes redundant bit operations, but this is
-> acceptable since it's not a hot path.
+> Other dependent kernel drivers will be:
+> - NVMEM: that supports non-volatile devices like EFUSES,
+>          managed by NXP's secure-enclave.
+> 
+> Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  drivers/firmware/imx/Kconfig        |  13 ++
+>  drivers/firmware/imx/Makefile       |   2 +
+>  drivers/firmware/imx/ele_base_msg.c | 269 ++++++++++++++++++++++++
+>  drivers/firmware/imx/ele_base_msg.h |  95 +++++++++
+>  drivers/firmware/imx/ele_common.c   | 333 ++++++++++++++++++++++++++++++
+>  drivers/firmware/imx/ele_common.h   |  45 ++++
+>  drivers/firmware/imx/se_ctrl.c      | 401 ++++++++++++++++++++++++++++++++++++
+>  drivers/firmware/imx/se_ctrl.h      |  86 ++++++++
+>  include/linux/firmware/imx/se_api.h |  14 ++
+>  9 files changed, 1258 insertions(+)
+> 
+> diff --git a/drivers/firmware/imx/Kconfig b/drivers/firmware/imx/Kconfig
+> index 127ad752acf8..5fe96299b704 100644
+> --- a/drivers/firmware/imx/Kconfig
+> +++ b/drivers/firmware/imx/Kconfig
+> @@ -55,3 +55,16 @@ config IMX_SCMI_MISC_DRV
+>  	  core that could provide misc functions such as board control.
+>  
+>  	  This driver can also be built as a module.
+> +
+> +config IMX_SEC_ENCLAVE
+> +	tristate "i.MX Embedded Secure Enclave - EdgeLock Enclave Firmware driver."
+> +	depends on IMX_MBOX && ARCH_MXC && ARM64
+> +	select FW_LOADER
+> +	default m if ARCH_MXC
+> +
+> +	help
+> +	  Exposes APIs supported by the iMX Secure Enclave HW IP called:
+> +	  - EdgeLock Enclave Firmware (for i.MX8ULP, i.MX93),
+> +	    like base, HSM, V2X & SHE using the SAB protocol via the shared Messaging
+> +	    Unit. This driver exposes these interfaces via a set of file descriptors
+> +	    allowing to configure shared memory, send and receive messages.
+> diff --git a/drivers/firmware/imx/Makefile b/drivers/firmware/imx/Makefile
+> index 3bbaffa6e347..4412b15846b1 100644
+> --- a/drivers/firmware/imx/Makefile
+> +++ b/drivers/firmware/imx/Makefile
+> @@ -4,3 +4,5 @@ obj-$(CONFIG_IMX_SCU)		+= imx-scu.o misc.o imx-scu-irq.o rm.o imx-scu-soc.o
+>  obj-${CONFIG_IMX_SCMI_CPU_DRV}	+= sm-cpu.o
+>  obj-${CONFIG_IMX_SCMI_MISC_DRV}	+= sm-misc.o
+>  obj-${CONFIG_IMX_SCMI_LMM_DRV}	+= sm-lmm.o
+> +sec_enclave-objs		= se_ctrl.o ele_common.o ele_base_msg.o
+> +obj-${CONFIG_IMX_SEC_ENCLAVE}	+= sec_enclave.o
+> diff --git a/drivers/firmware/imx/ele_base_msg.c b/drivers/firmware/imx/ele_base_msg.c
+> new file mode 100644
+> index 000000000000..a070acbd895c
+> --- /dev/null
+> +++ b/drivers/firmware/imx/ele_base_msg.c
+> @@ -0,0 +1,269 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/*
+> + * Copyright 2025 NXP
+> + */
+> +
+> +#include <linux/types.h>
+> +
+> +#include <linux/completion.h>
+> +#include <linux/dma-mapping.h>
+> +#include <linux/genalloc.h>
+> +
+> +#include "ele_base_msg.h"
+> +#include "ele_common.h"
+> +
+> +#define FW_DBG_DUMP_FIXED_STR		"ELE"
+> +
+> +int ele_get_info(struct se_if_priv *priv, struct ele_dev_info *s_info)
+> +{
+> +	struct se_api_msg *tx_msg __free(kfree) = NULL;
+> +	struct se_api_msg *rx_msg __free(kfree) = NULL;
 
-Makes sense - better to call out potential redundancies.
+No, don't use this syntax. This is explicitly discouraged.
+
+NAK
+
+Best regards,
+Krzysztof
 
