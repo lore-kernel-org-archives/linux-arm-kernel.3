@@ -4,131 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 605C2D12699
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 09:02:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AB20D116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 09:16:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vAnZPRoPnmAr0OgnZky4GgITZgZg+aavJ0T05/kKawc=; b=DgcQbozn8YPeCHGaDt4Y3DS7rV
-	fzx43vO1eU5m+oBVvEuGZK8Ss2lGSHF4QnWPv0YALIptJYEeF092M/hqpxg4TzA/50r3L7qe1eyPI
-	OfP9sE3y6TnWg+3/9kooWx8JCkSoOVsbb6OJ0IZniff8owjHDPKAz80IO7ERO3/UljVk9PQRQvL9U
-	SAyyFEpq8j1VFMoKTdswgoRf6kdC6Y6L19sHMs+tumdfouuVEujuo8qHVz/jC7SiUvn42reaWxcxR
-	XUvDKMN/uDV/B49cQyWIarxWgSfQmZf9fYjNAgIAqv1PzvS5XYrDkVi7zg4CVQZbSzztyQHGv6dgN
-	w2CKflsg==;
+	bh=Zvn9HrRJdFSvUw/pGaMaIOGegy9462R/6im+1ui/l3U=; b=PZDNcc1/gUuiLMBUvLhUePagsy
+	SHPht3ct9/CD9Sd0dXG4EftCuKBwG6MKwZHwqQT34qIlhjdKwSrLFrd9/e0IXobNxmL6weDdPGa7k
+	HqI+BjS+fiAXgmVWb6vdTQrBWL9fddweGZtnLuCZPHq9H/JWvkDNvAes5EFj5dMIQyy6tO+waNndp
+	n8hLUdSpaXwmAYauOhhoKGOkvYnwRDHYNDvH72Xg7iU8lrb9eXUScg22LN85ahAf8+3CUorVV8/Qz
+	3kn/4vvbq6Egatvm5CBrA3YuzD4fcmKsBlSD/o8QwKg4at8SCE9mI6KSQ0lrvjHPAiYzTx+51Rze9
+	2a5P625A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQikO-00000006MSD-05qc;
-	Wed, 03 Dec 2025 09:02:04 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vQiy2-00000006NRK-1BGm;
+	Wed, 03 Dec 2025 09:16:10 +0000
+Received: from mail-yx1-xb141.google.com ([2607:f8b0:4864:20::b141])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQikH-00000006MLL-39co
+	id 1vQixx-00000006NR0-0q9s
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 09:02:02 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B34ixxe385711
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 3 Dec 2025 09:01:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=vAnZPRoPnmA
-	r0OgnZky4GgITZgZg+aavJ0T05/kKawc=; b=AEAk5hj10MkZ9+sicBhh8B9h4l1
-	36lSLGMBnJHcvnVZhw99w/VOQ5JoNZ/cHlCLHJwSQ9+Il7tS7bKRFoAstGRRODzD
-	CwVpi0hzf/m0je7iAztt5cIP10MXTX5jWwIAQYATMMIcyEgCe8WIhFNU0jNsPScT
-	gzp8mRPF8TiLCnBsy1lD1q6ak+03Jno4GbMGGFt93j45kEJ3wCRzjF+uV8ZL0Vlp
-	Z9yibJN7bjPAO35DTzV2VR0PX+hXEd4qjP4Fe3oqA7qi5J/EHejyNl4wK+F/VCer
-	IzmhV4DfAb64PtbBeAV3kt3DNRKrKqvt2HeAPsH9/5SaPfH6pCWTAG68yeQ==
-Received: from mail-dl1-f69.google.com (mail-dl1-f69.google.com [74.125.82.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4at5db29v8-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 09:01:56 +0000 (GMT)
-Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-11bd7a827fdso905487c88.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 01:01:56 -0800 (PST)
+	Wed, 03 Dec 2025 09:16:08 +0000
+Received: by mail-yx1-xb141.google.com with SMTP id 956f58d0204a3-63f96d5038dso5648926d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 01:16:04 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1764752516; x=1765357316; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1764753363; x=1765358163; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=vAnZPRoPnmAr0OgnZky4GgITZgZg+aavJ0T05/kKawc=;
-        b=S0JdqfmHycmmL2xVm2c6FRQ4p58QDJpXeLgULd1etGeCIti1lsqoN4GUA6riDWoPGk
-         Y2pZMgJK7nmyHu7+zHyoi1bQ5wNRAU+MonUxP6+WpU2SOpadXOslQdtFYgTwksRM3TuP
-         zKCeg9x8615khkiE9TtOwDo4BZP2LTxG3TxMHycICeB6T0pObjiLTCH+hfR8SJRW8r8r
-         u31EpG1D3+n450rOruy9FQ/yKskqdh/io2tulWfpjSKdr4rUbZQRPApGlmM8ZW36X0Id
-         IlNCRH4zke7loM4DfP/zriNhT7DcThKp4k7hfzW5Qz1B1VruqoNfx7l1zquLrFmx0Zlf
-         AoIw==
+        bh=Zvn9HrRJdFSvUw/pGaMaIOGegy9462R/6im+1ui/l3U=;
+        b=KsuH2h7AJ/4ZQ1IqaKPMUAh+kZbaY4uaoi7aGMSjPR6jo59rxNIQ8dlfxWSkoWXU1X
+         8FJASLws9BEXelYS2uOSRNnnJPQtF2YaCe3DJlEqAOScwr2UdgmO2woBv5MAW0yvMhPy
+         pT3ZKDzFw9bXJ+DuDXHKJkq5lkYoUBJdsJifaWaxahosATHvGz4F7NeVC/LDBcan9W6L
+         j9+M3TN/GUcmbbwyasyY7strq8BDuDDOkQvDZyv0tWQ5HpPUqfvb97cPKNAjw/ctvQsr
+         OejrhK8Zc6ymxItqMXhPV2pgi/POvw15vYU19P1skyOhda5fkExzJ0ubuKepAja7bdkg
+         IOAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764752516; x=1765357316;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+        d=1e100.net; s=20230601; t=1764753363; x=1765358163;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=vAnZPRoPnmAr0OgnZky4GgITZgZg+aavJ0T05/kKawc=;
-        b=S69zF5a1PtohtZye3qt5Y2fZ+cpzN2++nLRN7Vgi9YIOSBBZLgAGlThXEmC8hyEnMs
-         cZYH/t3lFGALQSqGHY+cSqpUxtpBoKQ4Kuz0RY+deRixq4/J1f+lrPEIIA4XrEnA//sw
-         WuexEHqITZaeOM3Iys48Nm1fmHvFFT3E+GRMuP7s27c9RPLhxMI/SJjmfMw++fa5CF6e
-         OSe+cS7GSBUflHlBvNU4HlP6B3foXIF72NDSm6PQnIUFeLVNXSHdqIZdxjeN6sgEBp0X
-         D8r2tA6T2J+k1ui+crKIUCY/ep+Bh9W0qaSsrATVJkvQ3YIH8/ZXemHJr39yL50OtZN2
-         9PNg==
-X-Forwarded-Encrypted: i=1; AJvYcCWEooxlZkFRrpSI9bOHr3JUoWgs6F6FDhpkLt/Aptw6ksAfo+E+OIOn7DRzZ6LSSPmf63NqWXuLyyIslI1gZkEw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyz3WSDXJyG5DsVj6pRhzRvd0ivneju8X6pTQAf2BheQs4fL4gN
-	YMt2sJeVgeFsHW5qEZWAc33ymcuwzUJ1XXsuW6FKBsbCR0NZeTxOjVGcssDwIDCGKJvaYwLhTR1
-	FW4sSWaxwfbI2B5OldbS3ednT8wXvCYIl5NrAee46vfZ8KtQGmEyaWZm+onGy03zvb2gNAETD9Z
-	oOeg==
-X-Gm-Gg: ASbGncuOTMPif+MuC/IZ8JjHGDFqgM4137gffzbvtu/2jVSTFwDg2A/7phfB6XZ+g+5
-	7HDaxhu0JFXnfaHhUduiv1U0HPw2MXA/tjju0azjM4ybhqr4iEOhZA+KuJvoFM2fwzEnarCOuvL
-	kPQ+IgQCCuUVAWhBJ0Lp8C6e45/2bdnFmDY298wuv6+Zzv+2kIdguOfrG0frp5cLaLVf75MDnJ9
-	Zsv3SN/sdQcBYtsfm2Y5twb21pAUgyAtlmYJKrc/pEdsBGTFURsm4rACrdoSpWra6iFnEatsXQC
-	4CNKRGNgUglDrTjAdFZrwwmmlU4bjzv/+IG/R13VrTypkgfHXd2NE47q+Ehzgi6WL3V6vxAl8Y0
-	WoYFXGdlaTC/txjqVRp4lVmEsqaOgYHc+YQ4MjFOeuRpoZjWaxNTbmRYpMJ1RRbVx
-X-Received: by 2002:a05:7022:618f:b0:11b:82b8:40cd with SMTP id a92af1059eb24-11df0c463e5mr1170458c88.14.1764752515489;
-        Wed, 03 Dec 2025 01:01:55 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGSNRtAZGBTSJue+Ey8VONMYuwnZj4Kvoe/oRjlVagfklSEUJXSEiWRgsKNGcC6ntzC8e0u3g==
-X-Received: by 2002:a05:7022:618f:b0:11b:82b8:40cd with SMTP id a92af1059eb24-11df0c463e5mr1170428c88.14.1764752514936;
-        Wed, 03 Dec 2025 01:01:54 -0800 (PST)
-Received: from hu-songchai-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-11dcb057cb0sm100001866c88.9.2025.12.03.01.01.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Dec 2025 01:01:54 -0800 (PST)
-From: Songwei Chai <songwei.chai@oss.qualcomm.com>
-To: andersson@kernel.org, alexander.shishkin@linux.intel.com,
-        kernel@oss.qualcomm.com, mike.leach@linaro.org, suzuki.poulose@arm.com,
-        james.clark@arm.com, krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: Songwei Chai <songwei.chai@oss.qualcomm.com>, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        coresight@lists.linaro.org, devicetree@vger.kernel.org
-Subject: [PATCH v8 7/7] qcom-tgu: Add reset node to initialize
-Date: Wed,  3 Dec 2025 01:00:55 -0800
-Message-Id: <20251203090055.2432719-8-songwei.chai@oss.qualcomm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251203090055.2432719-1-songwei.chai@oss.qualcomm.com>
-References: <20251203090055.2432719-1-songwei.chai@oss.qualcomm.com>
+        bh=Zvn9HrRJdFSvUw/pGaMaIOGegy9462R/6im+1ui/l3U=;
+        b=v1enazoK3GHtScOYEHrew3tfi+ExWrq8eqv+5bxEi76DxgjMqXgzCpU5DowYRMKBuM
+         CIPKIzFhULLMGx9PKRvT1F9DyCATipVoNuPfbX9oPUkrEO6sdoxLO6S0jJ+rsMR04u3t
+         p51m0D9A/9JFAG+fgjySA6a7XQqXQCobndsZ09XTIADGAQGN61TZnx5+Lyz6TqUA6hsv
+         XBWbkHEM3RZ9hwVuBRN3aIXIzvYGxJ7RRhVDLgeRzIfXKgpc7g6orNhlutOKthL6WIv3
+         +ro7Md0CUMfl6XO7RmeRZstAzBWhy7H4DlIu9Lrha9x0D041HUNZpVGCeSAfivQupLEw
+         14+A==
+X-Forwarded-Encrypted: i=1; AJvYcCW22k0X+kP77S9tv5A+J69QupyKviLtN3Hr4QjdX/ahECMdb9BeO6tL91xuvAFKbgdT+I4Am6fHJqSooqSMCrSl@lists.infradead.org
+X-Gm-Message-State: AOJu0YwylsV/z/oyfKt/yEdwtu78kMdqH+zi6pQWyCIiwAJvQrb+HTan
+	fxGYNtCtsFQ8V2nlw7/bTB93IRDFg+VRVOr/LYGFfy5LCffr5VaO6I6xwjFPmEvkHtZY7WAvd3U
+	kU6Bd2Qg4as7IOQzww+3JCr6iTGbEto0=
+X-Gm-Gg: ASbGncskUIfHt9U7dPZ+09OSJ5OYpfsddaSj7q3gGxWYDmZ+gjPoXgSPoWy07NJB7lH
+	zg7VMq/qEy7XxtqUAlE1fmkk15/nxacvCt2QyBsEdx7NkUvt9/DpInDaTP1YJIAt2zACDKtIK5i
+	s3xMcyF1A/Pc7qiNrJAMqHcnK9+pHG/fBu38gup4Q+prDkkXmANIeCVm4fTF6rEf3tCPs541y+l
+	Oe14bBJZK66Izk6+Lbni+NyBUenOJWRszmOI0KxqP65fPa0lQVwumY2Vf+YzZteXwdCqwY=
+X-Google-Smtp-Source: AGHT+IGzwDFZDWme46YAnVAYHhM1JFHKL7Q/q8FoGtyn85xl72liVPRXP4MJCYeiDce1hUNnHIbvdVJiL9cFbDX/sAY=
+X-Received: by 2002:a05:690e:120e:b0:63f:b545:9960 with SMTP id
+ 956f58d0204a3-64436f6da37mr1340803d50.11.1764753363482; Wed, 03 Dec 2025
+ 01:16:03 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: A_aQ4NKZaFW-qXK7T8RtqTrLuTzcAPav
-X-Proofpoint-GUID: A_aQ4NKZaFW-qXK7T8RtqTrLuTzcAPav
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjAzMDA3MCBTYWx0ZWRfX77FGl10lO9g1
- U2iicuh5AHHVJrkGw0K98agyUiMBFrjYuz7Dwx37c0vGy4kytVfF9n/d+QVvDhGSqqdC0J6GyhN
- 4ZU46QTB2RXIip3lK5PyQGEfE99DY7EQmTGW8q6zuuDygpMx0oRHW3TRHsV4fjeeo1dJbnwTj4Q
- e4jmochGEi6ivXMklpbtDkjv4/RA8/ODzBS3w8R+8U2bRWylCaqYo2lhsaDaVj8RaRbU0rWXOu4
- lQxP1nwiuiDKOKYbUMMU/QAhNEz5JRqQnO319lfJwqrhoqL4tE6vjtRLnfDb4Sf+eO3//iUjE7F
- At5/uKI6XbbPUA9xrna5wMqmTk5gnJNop5UZ9sQeFpotRfxkC5fiiqakx+HadQX1b32pxj0KKo5
- WNwui2DEr3VLSDTIuTLuSCptzShcWg==
-X-Authority-Analysis: v=2.4 cv=VoMuwu2n c=1 sm=1 tr=0 ts=692ffc84 cx=c_pps
- a=kVLUcbK0zfr7ocalXnG1qA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
- a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=EUspDBNiAAAA:8 a=IgPCHI2mAnvcCQI4J_AA:9 a=vr4QvYf-bLy2KjpDp97w:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-02_01,2025-11-27_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 impostorscore=0 lowpriorityscore=0 bulkscore=0
- priorityscore=1501 phishscore=0 malwarescore=0 clxscore=1015 spamscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
- definitions=main-2512030070
+References: <20251203082402.78816-1-jolsa@kernel.org> <20251203082402.78816-2-jolsa@kernel.org>
+In-Reply-To: <20251203082402.78816-2-jolsa@kernel.org>
+From: Menglong Dong <menglong8.dong@gmail.com>
+Date: Wed, 3 Dec 2025 17:15:52 +0800
+X-Gm-Features: AWmQ_bmG0tIamKx5RfhXBBYAUrUfUZzFDuU-aYWqrSdiQGfV8mSCyiAygQcVpgo
+Message-ID: <CADxym3awpEbMiSKE5aDcyd2Cg1Cdo7++SLAMSuZmaggt3BSbUA@mail.gmail.com>
+Subject: Re: [PATCHv4 bpf-next 1/9] ftrace,bpf: Remove FTRACE_OPS_FL_JMP
+ ftrace_ops flag
+To: Jiri Olsa <jolsa@kernel.org>
+Cc: Steven Rostedt <rostedt@kernel.org>, Florent Revest <revest@google.com>, 
+	Mark Rutland <mark.rutland@arm.com>, bpf@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-trace-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Song Liu <song@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_010157_940093_55AC9A5D 
-X-CRM114-Status: GOOD (  18.66  )
+X-CRM114-CacheID: sfid-20251203_011605_270072_AC4ECEC3 
+X-CRM114-Status: GOOD (  28.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,124 +99,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add reset node to initialize the value of
-priority/condition_decode/condition_select/timer/counter nodes.
+On Wed, Dec 3, 2025 at 4:24=E2=80=AFPM Jiri Olsa <jolsa@kernel.org> wrote:
+>
+> At the moment the we allow the jmp attach only for ftrace_ops that
+> has FTRACE_OPS_FL_JMP set. This conflicts with following changes
+> where we use single ftrace_ops object for all direct call sites,
+> so all could be be attached via just call or jmp.
+>
+> We already limit the jmp attach support with config option and bit
+> (LSB) set on the trampoline address. It turns out that's actually
+> enough to limit the jmp attach for architecture and only for chosen
+> addresses (with LSB bit set).
+>
+> Each user of register_ftrace_direct or modify_ftrace_direct can set
+> the trampoline bit (LSB) to indicate it has to be attached by jmp.
+>
+> The bpf trampoline generation code uses trampoline flags to generate
+> jmp-attach specific code and ftrace inner code uses the trampoline
+> bit (LSB) to handle return from jmp attachment, so there's no harm
+> to remove the FTRACE_OPS_FL_JMP bit.
+>
+> The fexit/fmodret performance stays the same (did not drop),
+> current code:
+>
+>   fentry         :   77.904 =C2=B1 0.546M/s
+>   fexit          :   62.430 =C2=B1 0.554M/s
+>   fmodret        :   66.503 =C2=B1 0.902M/s
+>
+> with this change:
+>
+>   fentry         :   80.472 =C2=B1 0.061M/s
+>   fexit          :   63.995 =C2=B1 0.127M/s
+>   fmodret        :   67.362 =C2=B1 0.175M/s
+>
+> Fixes: 25e4e3565d45 ("ftrace: Introduce FTRACE_OPS_FL_JMP")
+> Signed-off-by: Jiri Olsa <jolsa@kernel.org>
+> ---
+>  include/linux/ftrace.h  |  1 -
+>  kernel/bpf/trampoline.c | 32 ++++++++++++++------------------
+>  kernel/trace/ftrace.c   | 14 --------------
+>  3 files changed, 14 insertions(+), 33 deletions(-)
+>
+> diff --git a/include/linux/ftrace.h b/include/linux/ftrace.h
+> index 015dd1049bea..505b7d3f5641 100644
+> --- a/include/linux/ftrace.h
+> +++ b/include/linux/ftrace.h
+> @@ -359,7 +359,6 @@ enum {
+>         FTRACE_OPS_FL_DIRECT                    =3D BIT(17),
+>         FTRACE_OPS_FL_SUBOP                     =3D BIT(18),
+>         FTRACE_OPS_FL_GRAPH                     =3D BIT(19),
+> -       FTRACE_OPS_FL_JMP                       =3D BIT(20),
 
-Signed-off-by: Songwei Chai <songwei.chai@oss.qualcomm.com>
----
- .../testing/sysfs-bus-coresight-devices-tgu   |  7 ++
- drivers/hwtracing/qcom/tgu.c                  | 75 +++++++++++++++++++
- 2 files changed, 82 insertions(+)
+Yeah, the FTRACE_OPS_FL_JMP is not necessary. I added
+it in case that we maybe want to implement such "jmp" for
+ftrace trampoline in the feature. But it's OK to remove it now.
 
-diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
-index 28d1743bd2fc..3029f342fc49 100644
---- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
-+++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
-@@ -42,3 +42,10 @@ KernelVersion	6.18
- Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
- Description:
- 		(RW) Set/Get the counter value with specific step for TGU.
-+
-+What:		/sys/bus/coresight/devices/<tgu-name>/reset_tgu
-+Date:		December 2025
-+KernelVersion	6.18
-+Contact:	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Songwei Chai <songwei.chai@oss.qualcomm.com>
-+Description:
-+		(Write) Write 1 to reset the dataset for TGU.
-diff --git a/drivers/hwtracing/qcom/tgu.c b/drivers/hwtracing/qcom/tgu.c
-index 5db876c31a63..a164867c6b66 100644
---- a/drivers/hwtracing/qcom/tgu.c
-+++ b/drivers/hwtracing/qcom/tgu.c
-@@ -434,6 +434,80 @@ static ssize_t enable_tgu_store(struct device *dev,
- }
- static DEVICE_ATTR_RW(enable_tgu);
- 
-+/* reset_tgu_store - Reset Trace and Gating Unit (TGU) configuration. */
-+static ssize_t reset_tgu_store(struct device *dev,
-+			       struct device_attribute *attr, const char *buf,
-+			       size_t size)
-+{
-+	unsigned long value;
-+	struct tgu_drvdata *drvdata = dev_get_drvdata(dev->parent);
-+	int i, j, ret;
-+
-+	if (kstrtoul(buf, 0, &value) || value == 0)
-+		return -EINVAL;
-+
-+	if (!drvdata->enable) {
-+		ret = pm_runtime_get_sync(drvdata->dev);
-+		if (ret < 0) {
-+			pm_runtime_put(drvdata->dev);
-+			return ret;
-+		}
-+	}
-+
-+	spin_lock(&drvdata->lock);
-+	CS_UNLOCK(drvdata->base);
-+
-+	writel(0, drvdata->base + TGU_CONTROL);
-+
-+	if (drvdata->value_table->priority)
-+		memset(drvdata->value_table->priority, 0,
-+			    MAX_PRIORITY * drvdata->max_step *
-+				drvdata->max_reg * sizeof(unsigned int));
-+
-+	if (drvdata->value_table->condition_decode)
-+		memset(drvdata->value_table->condition_decode, 0,
-+			    drvdata->max_condition_decode * drvdata->max_step *
-+				sizeof(unsigned int));
-+
-+		/* Initialize all condition registers to NOT(value=0x1000000) */
-+	for (i = 0; i < drvdata->max_step; i++) {
-+		for (j = 0; j < drvdata->max_condition_decode; j++) {
-+			drvdata->value_table
-+			->condition_decode[calculate_array_location(
-+			drvdata, i, TGU_CONDITION_DECODE, j)] =
-+			0x1000000;
-+		}
-+	}
-+
-+	if (drvdata->value_table->condition_select)
-+		memset(drvdata->value_table->condition_select, 0,
-+				drvdata->max_condition_select * drvdata->max_step *
-+				sizeof(unsigned int));
-+
-+	if (drvdata->value_table->timer)
-+		memset(drvdata->value_table->timer, 0,
-+			    (drvdata->max_step) *
-+				(drvdata->max_timer) *
-+				sizeof(unsigned int));
-+
-+	if (drvdata->value_table->counter)
-+		memset(drvdata->value_table->counter, 0,
-+			    (drvdata->max_step) *
-+				(drvdata->max_counter) *
-+				sizeof(unsigned int));
-+
-+	dev_dbg(dev, "Coresight-TGU reset complete\n");
-+
-+	CS_LOCK(drvdata->base);
-+
-+	drvdata->enable = false;
-+	spin_unlock(&drvdata->lock);
-+	pm_runtime_put(drvdata->dev);
-+
-+	return size;
-+}
-+static DEVICE_ATTR_WO(reset_tgu);
-+
- static const struct coresight_ops_helper tgu_helper_ops = {
- 	.enable = tgu_enable,
- 	.disable = tgu_disable,
-@@ -445,6 +519,7 @@ static const struct coresight_ops tgu_ops = {
- 
- static struct attribute *tgu_common_attrs[] = {
- 	&dev_attr_enable_tgu.attr,
-+	&dev_attr_reset_tgu.attr,
- 	NULL,
- };
- 
--- 
-2.34.1
+>  };
+>
+>  #ifndef CONFIG_DYNAMIC_FTRACE_WITH_ARGS
+> diff --git a/kernel/bpf/trampoline.c b/kernel/bpf/trampoline.c
+> index 976d89011b15..b9a358d7a78f 100644
+> --- a/kernel/bpf/trampoline.c
+> +++ b/kernel/bpf/trampoline.c
+> @@ -214,10 +214,15 @@ static int modify_fentry(struct bpf_trampoline *tr,=
+ u32 orig_flags,
+>         int ret;
+>
+>         if (tr->func.ftrace_managed) {
+> +               unsigned long addr =3D (unsigned long) new_addr;
+> +
+> +               if (bpf_trampoline_use_jmp(tr->flags))
+> +                       addr =3D ftrace_jmp_set(addr);
 
+nit: It seems that we can remove the variable "addr" can use
+the "new_addr" directly?
+
+> +
+>                 if (lock_direct_mutex)
+> -                       ret =3D modify_ftrace_direct(tr->fops, (long)new_=
+addr);
+> +                       ret =3D modify_ftrace_direct(tr->fops, addr);
+>                 else
+> -                       ret =3D modify_ftrace_direct_nolock(tr->fops, (lo=
+ng)new_addr);
+> +                       ret =3D modify_ftrace_direct_nolock(tr->fops, add=
+r);
+>         } else {
+>                 ret =3D bpf_trampoline_update_fentry(tr, orig_flags, old_=
+addr,
+>                                                    new_addr);
+> @@ -240,10 +245,15 @@ static int register_fentry(struct bpf_trampoline *t=
+r, void *new_addr)
+>         }
+>
+>         if (tr->func.ftrace_managed) {
+> +               unsigned long addr =3D (unsigned long) new_addr;
+> +
+> +               if (bpf_trampoline_use_jmp(tr->flags))
+> +                       addr =3D ftrace_jmp_set(addr);
+
+And here.
+
+Thanks!
+Menglong Dong
+
+> +
+[...]
+>
 
