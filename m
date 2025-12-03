@@ -4,40 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A68F2D15D88
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 15:53:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AC1AD12D7A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 15:53:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5nWj/A5SsIc1WAtsV/wMqdRFlGriX4oxYgjhDf1/b6g=; b=u6cNoHwXqf4WkhXihYmnxtenKs
-	R1vYfp6d7+hKju+NIk58iv2N3zKncPhczukjXCAwn3CQP5L/RAe1HUIrXJ7HprjqjafsfCdQSGhR2
-	OCiZyEvqkwgCfQMO9DdbIl1fQiFDbP/QDpiriKUoG5p0EsyN46bOGDFsGUyWMs4OOZRqxgCDcGOYn
-	bfQW8EIi6I+IGSO8JuaPrXjL1T4q1og1BqMQQkUmPth4T0Yvtj7qxA25LoIDbXVluOBRS9mpcN+pt
-	bGBh4mq1ty0n3SDZdkjBHC4b9ux1wJzDd7LCAoQVjwbU62eCpjT2eShcptbKxRzek31M/ck9Ag3/N
-	TaOCfwww==;
+	bh=agUdMVH6BfUybSG8fwoEA26TzsEcVk8Ot/G1TCsqD04=; b=HeHAVpryQGRJf+FZ8IuMZozkPU
+	PHv3HgN336xat+pXwNCdpokxOGZkyC8Qu6CshBmyrg59HVa+BUpIL/uiudfU/LHbmtLzd5AcuE29/
+	uNua1vlFRafR978vt5f4FbBXwhIuSgdJsvhxawy8dQkQCCmhc6BED/v2OL8OKJLb+dZ8tQ/L7QiJv
+	virBROadCUH++mfBLL/dp7JMPi9mpzQdjbdHb08ajW+79Qq9v9c0lRoYN2d0txTQKxNw1e782WUlm
+	qZSY+AYtRB8UxH+ExxjC/xqjL9JyGjzgNyHAXdfCx4U0rWpWJDfzzJVw6I7Ige8wLg2WTXkoJVdyK
+	KaBf3uBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQpAo-00000006jBI-0Sx4;
+	id 1vQpAo-00000006jCd-3aTb;
 	Wed, 03 Dec 2025 15:53:46 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQpAh-00000006j28-11YD
+	id 1vQpAh-00000006j22-1ZpX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 15:53:41 +0000
+	Wed, 03 Dec 2025 15:53:42 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1vQpAd-0007dW-Gg; Wed, 03 Dec 2025 16:53:35 +0100
+	id 1vQpAd-0007dW-2J; Wed, 03 Dec 2025 16:53:35 +0100
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Wed, 03 Dec 2025 16:52:32 +0100
-Subject: [PATCH v2 10/22] media: rockchip: rga: prepare cmdbuf on streamon
+Date: Wed, 03 Dec 2025 16:52:28 +0100
+Subject: [PATCH v2 06/22] media: rockchip: rga: remove redundant rga_frame
+ variables
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251203-spu-rga3-v2-10-989a67947f71@pengutronix.de>
+Message-Id: <20251203-spu-rga3-v2-6-989a67947f71@pengutronix.de>
 References: <20251203-spu-rga3-v2-0-989a67947f71@pengutronix.de>
 In-Reply-To: <20251203-spu-rga3-v2-0-989a67947f71@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -56,8 +57,8 @@ X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_075339_286969_063CB67E 
-X-CRM114-Status: GOOD (  15.37  )
+X-CRM114-CacheID: sfid-20251203_075339_567744_95C5A0FF 
+X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,110 +73,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prepare the command buffer on streamon to reuse it's contents instead of
-completely writing it for every frame. Due to the stream settings being
-fixed after a streamon we only need to replace the source and destination
-addresses for each frame. This reduces the amount of CPU and memory
-operations done in each frame.
+Remove the redundant rga_frame variables width, height and color space.
+The value of these variables is already contained in the pix member
+of rga_frame. The code also keeps these values in sync. Therefore drop
+them in favor of the existing pix member.
 
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
- drivers/media/platform/rockchip/rga/rga-hw.c | 13 +++++++++----
- drivers/media/platform/rockchip/rga/rga.c    | 13 ++++++++++++-
- drivers/media/platform/rockchip/rga/rga.h    |  1 +
- 3 files changed, 22 insertions(+), 5 deletions(-)
+ drivers/media/platform/rockchip/rga/rga-buf.c |  6 ++---
+ drivers/media/platform/rockchip/rga/rga-hw.c  |  6 ++---
+ drivers/media/platform/rockchip/rga/rga.c     | 32 ++++++++++-----------------
+ drivers/media/platform/rockchip/rga/rga.h     |  5 -----
+ 4 files changed, 18 insertions(+), 31 deletions(-)
 
+diff --git a/drivers/media/platform/rockchip/rga/rga-buf.c b/drivers/media/platform/rockchip/rga/rga-buf.c
+index b5e6b1b527ca8..0c59a4d330888 100644
+--- a/drivers/media/platform/rockchip/rga/rga-buf.c
++++ b/drivers/media/platform/rockchip/rga/rga-buf.c
+@@ -100,10 +100,10 @@ static int get_plane_offset(struct rga_frame *f,
+ 	if (plane == 0)
+ 		return 0;
+ 	if (plane == 1)
+-		return stride * f->height;
++		return stride * f->pix.height;
+ 	if (plane == 2)
+-		return stride * f->height +
+-		       (stride * f->height / info->hdiv / info->vdiv);
++		return stride * f->pix.height +
++		       (stride * f->pix.height / info->hdiv / info->vdiv);
+ 
+ 	return -EINVAL;
+ }
 diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
-index 56a2558539bfb..8cdfe089fd636 100644
+index 43ed742a16492..f1d5237472941 100644
 --- a/drivers/media/platform/rockchip/rga/rga-hw.c
 +++ b/drivers/media/platform/rockchip/rga/rga-hw.c
-@@ -408,8 +408,6 @@ static void rga_cmd_set(struct rga_ctx *ctx,
- {
- 	struct rockchip_rga *rga = ctx->rga;
+@@ -53,7 +53,7 @@ rga_get_addr_offset(struct rga_frame *frm, struct rga_addr_offset *offset,
+ 	x_div = frm->fmt->x_div;
+ 	y_div = frm->fmt->y_div;
+ 	uv_stride = frm->stride / x_div;
+-	pixel_width = frm->stride / frm->width;
++	pixel_width = frm->stride / frm->pix.width;
  
--	memset(ctx->cmdbuf_virt, 0, RGA_CMDBUF_SIZE * 4);
--
- 	rga_cmd_set_src_addr(ctx, src->dma_desc_pa);
- 	/*
- 	 * Due to hardware bug,
-@@ -418,11 +416,9 @@ static void rga_cmd_set(struct rga_ctx *ctx,
- 	rga_cmd_set_src1_addr(ctx, dst->dma_desc_pa);
+ 	lt->y_off = offset->y_off + y * frm->stride + x * pixel_width;
+ 	lt->u_off = offset->u_off + (y / y_div) * uv_stride + x / x_div;
+@@ -191,7 +191,7 @@ static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
  
- 	rga_cmd_set_dst_addr(ctx, dst->dma_desc_pa);
--	rga_cmd_set_mode(ctx);
+ 	if (RGA_COLOR_FMT_IS_YUV(ctx->in.fmt->hw_format) &&
+ 	    RGA_COLOR_FMT_IS_RGB(ctx->out.fmt->hw_format)) {
+-		switch (ctx->in.colorspace) {
++		switch (ctx->in.pix.colorspace) {
+ 		case V4L2_COLORSPACE_REC709:
+ 			src_info.data.csc_mode = RGA_SRC_CSC_MODE_BT709_R0;
+ 			break;
+@@ -203,7 +203,7 @@ static void rga_cmd_set_trans_info(struct rga_ctx *ctx)
  
- 	rga_cmd_set_src_info(ctx, &src->offset);
- 	rga_cmd_set_dst_info(ctx, &dst->offset);
--	rga_cmd_set_trans_info(ctx);
- 
- 	rga_write(rga, RGA_CMD_BASE, ctx->cmdbuf_phy);
- 
-@@ -431,6 +427,14 @@ static void rga_cmd_set(struct rga_ctx *ctx,
- 				   PAGE_SIZE, DMA_BIDIRECTIONAL);
- }
- 
-+static void rga_hw_setup_cmdbuf(struct rga_ctx *ctx)
-+{
-+	memset(ctx->cmdbuf_virt, 0, RGA_CMDBUF_SIZE * 4);
-+
-+	rga_cmd_set_mode(ctx);
-+	rga_cmd_set_trans_info(ctx);
-+}
-+
- static void rga_hw_start(struct rockchip_rga *rga,
- 			 struct rga_vb_buffer *src,  struct rga_vb_buffer *dst)
- {
-@@ -622,6 +626,7 @@ const struct rga_hw rga2_hw = {
- 	.max_height = MAX_HEIGHT,
- 	.stride_alignment = 4,
- 
-+	.setup_cmdbuf = rga_hw_setup_cmdbuf,
- 	.start = rga_hw_start,
- 	.handle_irq = rga_handle_irq,
- 	.get_version = rga_get_version,
+ 	if (RGA_COLOR_FMT_IS_RGB(ctx->in.fmt->hw_format) &&
+ 	    RGA_COLOR_FMT_IS_YUV(ctx->out.fmt->hw_format)) {
+-		switch (ctx->out.colorspace) {
++		switch (ctx->out.pix.colorspace) {
+ 		case V4L2_COLORSPACE_REC709:
+ 			dst_info.data.csc_mode = RGA_SRC_CSC_MODE_BT709_R0;
+ 			break;
 diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index 592c977a07cf3..f02ae02de26ca 100644
+index ef568b3758380..f50fbbab0645e 100644
 --- a/drivers/media/platform/rockchip/rga/rga.c
 +++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -523,6 +523,17 @@ static int vidioc_s_selection(struct file *file, void *priv,
- 	return ret;
+@@ -345,9 +345,6 @@ static struct rga_fmt *rga_fmt_find(u32 pixelformat)
  }
  
-+static int vidioc_streamon(struct file *file, void *priv,
-+			   enum v4l2_buf_type type)
-+{
-+	struct rga_ctx *ctx = file_to_rga_ctx(file);
-+	const struct rga_hw *hw = ctx->rga->hw;
-+
-+	hw->setup_cmdbuf(ctx);
-+
-+	return v4l2_m2m_streamon(file, ctx->fh.m2m_ctx, type);
-+}
-+
- static const struct v4l2_ioctl_ops rga_ioctl_ops = {
- 	.vidioc_querycap = vidioc_querycap,
+ static struct rga_frame def_frame = {
+-	.width = DEFAULT_WIDTH,
+-	.height = DEFAULT_HEIGHT,
+-	.colorspace = V4L2_COLORSPACE_DEFAULT,
+ 	.crop.left = 0,
+ 	.crop.top = 0,
+ 	.crop.width = DEFAULT_WIDTH,
+@@ -379,9 +376,9 @@ static int rga_open(struct file *file)
+ 	ctx->out = def_frame;
  
-@@ -547,7 +558,7 @@ static const struct v4l2_ioctl_ops rga_ioctl_ops = {
- 	.vidioc_subscribe_event = v4l2_ctrl_subscribe_event,
- 	.vidioc_unsubscribe_event = v4l2_event_unsubscribe,
+ 	v4l2_fill_pixfmt_mp(&ctx->in.pix,
+-			    ctx->in.fmt->fourcc, ctx->out.width, ctx->out.height);
++			    ctx->in.fmt->fourcc, DEFAULT_WIDTH, DEFAULT_HEIGHT);
+ 	v4l2_fill_pixfmt_mp(&ctx->out.pix,
+-			    ctx->out.fmt->fourcc, ctx->out.width, ctx->out.height);
++			    ctx->out.fmt->fourcc, DEFAULT_WIDTH, DEFAULT_HEIGHT);
  
--	.vidioc_streamon = v4l2_m2m_ioctl_streamon,
-+	.vidioc_streamon = vidioc_streamon,
- 	.vidioc_streamoff = v4l2_m2m_ioctl_streamoff,
+ 	if (mutex_lock_interruptible(&rga->mutex)) {
+ 		kfree(ctx);
+@@ -469,10 +466,8 @@ static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
+ 	if (IS_ERR(frm))
+ 		return PTR_ERR(frm);
  
- 	.vidioc_g_selection = vidioc_g_selection,
+-	v4l2_fill_pixfmt_mp(pix_fmt, frm->fmt->fourcc, frm->width, frm->height);
+-
++	*pix_fmt = frm->pix;
+ 	pix_fmt->field = V4L2_FIELD_NONE;
+-	pix_fmt->colorspace = frm->colorspace;
+ 
+ 	return 0;
+ }
+@@ -521,27 +516,24 @@ static int vidioc_s_fmt(struct file *file, void *priv, struct v4l2_format *f)
+ 	frm = rga_get_frame(ctx, f->type);
+ 	if (IS_ERR(frm))
+ 		return PTR_ERR(frm);
+-	frm->width = pix_fmt->width;
+-	frm->height = pix_fmt->height;
+ 	frm->size = 0;
+ 	for (i = 0; i < pix_fmt->num_planes; i++)
+ 		frm->size += pix_fmt->plane_fmt[i].sizeimage;
+ 	frm->fmt = rga_fmt_find(pix_fmt->pixelformat);
+ 	frm->stride = pix_fmt->plane_fmt[0].bytesperline;
+-	frm->colorspace = pix_fmt->colorspace;
+ 
+ 	/* Reset crop settings */
+ 	frm->crop.left = 0;
+ 	frm->crop.top = 0;
+-	frm->crop.width = frm->width;
+-	frm->crop.height = frm->height;
++	frm->crop.width = pix_fmt->width;
++	frm->crop.height = pix_fmt->height;
+ 
+ 	frm->pix = *pix_fmt;
+ 
+ 	v4l2_dbg(debug, 1, &rga->v4l2_dev,
+ 		 "[%s] fmt - %p4cc %dx%d (stride %d, sizeimage %d)\n",
+ 		  V4L2_TYPE_IS_OUTPUT(f->type) ? "OUTPUT" : "CAPTURE",
+-		  &frm->fmt->fourcc, frm->width, frm->height,
++		  &frm->fmt->fourcc, pix_fmt->width, pix_fmt->height,
+ 		  frm->stride, frm->size);
+ 
+ 	for (i = 0; i < pix_fmt->num_planes; i++) {
+@@ -595,8 +587,8 @@ static int vidioc_g_selection(struct file *file, void *priv,
+ 	} else {
+ 		s->r.left = 0;
+ 		s->r.top = 0;
+-		s->r.width = f->width;
+-		s->r.height = f->height;
++		s->r.width = f->pix.width;
++		s->r.height = f->pix.height;
+ 	}
+ 
+ 	return 0;
+@@ -645,8 +637,8 @@ static int vidioc_s_selection(struct file *file, void *priv,
+ 		return -EINVAL;
+ 	}
+ 
+-	if (s->r.left + s->r.width > f->width ||
+-	    s->r.top + s->r.height > f->height ||
++	if (s->r.left + s->r.width > f->pix.width ||
++	    s->r.top + s->r.height > f->pix.height ||
+ 	    s->r.width < MIN_WIDTH || s->r.height < MIN_HEIGHT) {
+ 		v4l2_dbg(debug, 1, &rga->v4l2_dev, "unsupported crop value.\n");
+ 		return -EINVAL;
+@@ -836,8 +828,8 @@ static int rga_probe(struct platform_device *pdev)
+ 		goto rel_m2m;
+ 	}
+ 
+-	def_frame.stride = (def_frame.width * def_frame.fmt->depth) >> 3;
+-	def_frame.size = def_frame.stride * def_frame.height;
++	def_frame.stride = (DEFAULT_WIDTH * def_frame.fmt->depth) >> 3;
++	def_frame.size = def_frame.stride * DEFAULT_HEIGHT;
+ 
+ 	ret = video_register_device(vfd, VFL_TYPE_VIDEO, -1);
+ 	if (ret) {
 diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
-index 0aef348dddb95..93162b118d069 100644
+index a922fac0c01a3..7ec1fcc03ed32 100644
 --- a/drivers/media/platform/rockchip/rga/rga.h
 +++ b/drivers/media/platform/rockchip/rga/rga.h
-@@ -154,6 +154,7 @@ struct rga_hw {
- 	u32 max_width, max_height;
- 	u8 stride_alignment;
+@@ -25,11 +25,6 @@ struct rga_fmt {
+ };
  
-+	void (*setup_cmdbuf)(struct rga_ctx *ctx);
- 	void (*start)(struct rockchip_rga *rga,
- 		      struct rga_vb_buffer *src, struct rga_vb_buffer *dst);
- 	bool (*handle_irq)(struct rockchip_rga *rga);
+ struct rga_frame {
+-	/* Original dimensions */
+-	u32 width;
+-	u32 height;
+-	u32 colorspace;
+-
+ 	/* Crop */
+ 	struct v4l2_rect crop;
+ 
 
 -- 
 2.52.0
