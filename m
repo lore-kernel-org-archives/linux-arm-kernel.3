@@ -4,66 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 951F5D12D4B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 11:42:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35EB5D12D4A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 11:43:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RdhHEJCiIhu3lRrlkmucOASnmWZN0uzlIT83Aub4Rj0=; b=09R045JQYar3Wjv97ZIUoCZW7+
-	TKmQWYOsoOJ7oLpqRKjypvl+4/hT4ZVYqBB1ln23Io7Lk12ih3pbA/MibiEak0ZhyWoFPRdXysU5T
-	uDjusapRYMzLtfj9r1d1menQofD90PVVxKCjrdVFJy9Qqb/NVO6rcN2O9gIXYkPYKYFTW2KzNtKaR
-	Fpg/o+V/SCzJNfQz0dRDRznBiVVixD07E8p2f1k2yZZ2lxVQFhdOx2XKyF6CTlgp3usPgy88WKrq2
-	IqWIffpmP/SF6LIPw6vVWUsLVovHxp6i54Ss/M4k2yQRjH0hzyLfBMT+oypx6+jo/AOAZClFAH4Jz
-	cuUySQuA==;
+	bh=47DfEO94akSW0g1NaVrM4ph4OTXiWPNxyOH0SAwE4Do=; b=N2ccuWQzBwqSyB1iJ6+2ByPbM+
+	JoLmFSiuUA/FDZU6J6qV2Ev9Ray5ek/n4A2fhKFlioW333bbWgZ9Wrx4a6kr3NOF2SVOXFkZpsdIC
+	jr72wZLLK9xhw71DpBC5hjGXyGnW7vdLCgWRj3kGfE7bSOYA7g51JNh5fSlesUiTYpau8saPxMn4k
+	hE/yS1iXBu18x03Cq9iTF1Als7FXplVl0oj8wLTEGH61r2g7LcPEbI28Ho9gaMFQLUcQkkvdYzy4O
+	O9ChVCmOnF5ouNcfxt2i3Jqy5tu16UvIe5jBY9bLnWvMH1BEfQNX32qPnbE1iJ6TlJBrCZtmrmJDb
+	05VDjrtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQlFB-00000006Vhg-1Qrd;
-	Wed, 03 Dec 2025 11:42:01 +0000
+	id 1vQlGV-00000006Vqk-0sm9;
+	Wed, 03 Dec 2025 11:43:23 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQlF9-00000006VhH-0Rtw
+	id 1vQlGT-00000006VqF-1S3i
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 11:42:00 +0000
+	Wed, 03 Dec 2025 11:43:22 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1150E339;
-	Wed,  3 Dec 2025 03:41:49 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 82F203F59E;
-	Wed,  3 Dec 2025 03:41:54 -0800 (PST)
-Date: Wed, 3 Dec 2025 11:41:51 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: firmware: arm,scmi: Document
- arm,poll-transport property
-Message-ID: <20251203-thick-didactic-cockatoo-deaa1d@sudeepholla>
-References: <20251023123644.8730-1-marek.vasut+renesas@mailbox.org>
- <aPoxfH_TLrsMxMVQ@pluto>
- <70554674-7020-4582-a4e7-dbee34907096@mailbox.org>
- <5ae0a793-d3e7-45d1-bf5c-3c46593d1824@mailbox.org>
- <aRW7BZimWdpq4TyX@pluto>
- <20251202-evasive-neon-rhino-d2745e@sudeepholla>
- <66257fcf-9024-454f-b776-4ba584963ebe@mailbox.org>
- <aS82GSN8c2SnRn4S@bogus>
- <8d773671-5e2e-4e21-ade6-2bf9a3b75066@mailbox.org>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C4203339;
+	Wed,  3 Dec 2025 03:43:10 -0800 (PST)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D44513F59E;
+	Wed,  3 Dec 2025 03:43:16 -0800 (PST)
+Date: Wed, 3 Dec 2025 11:43:14 +0000
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH 2/4] arm64: Convert VTCR_EL2 to sysreg infratructure
+Message-ID: <aTAiUuc_aK5Bgce0@raptor>
+References: <20251129144525.2609207-1-maz@kernel.org>
+ <20251129144525.2609207-3-maz@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <8d773671-5e2e-4e21-ade6-2bf9a3b75066@mailbox.org>
+In-Reply-To: <20251129144525.2609207-3-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_034159_243383_7B4FC953 
-X-CRM114-Status: GOOD (  47.17  )
+X-CRM114-CacheID: sfid-20251203_034321_476070_43567BD1 
+X-CRM114-Status: GOOD (  26.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,117 +65,280 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 02, 2025 at 08:25:11PM +0100, Marek Vasut wrote:
-> On 12/2/25 7:55 PM, Sudeep Holla wrote:
-> 
-> Hello Sudeep,
-> 
-> > > How do you imagine this -- a transport shared with other components, one
-> > > which does generate IRQs and one which does not -- would look like ? Can you
-> > > think of an example ?
-> > > 
-> > 
-> > Consider a system where a mailbox controller is present and one channel is
-> > used for SCMI communication, while another channel is used for an unrelated
-> > purpose. If both channels share the same interrupt line, and the other use
-> > case enables interrupt mode on its channel, what would be the impact on the
-> > SCMI-specific channel?
-> 
-> None, SCMI kernel driver and SCMI server side would still do polling on
-> their respective SHMEM areas, while whatever kernel driver needs to receive
-> the interrupt notifications would subscribe to them using request_irq(),
-> right ?
-> 
+Hi Marc,
 
-Fair enough. I was thinking if the controller manages to not call
-mbox_chan_received_data() in that case. Also IIUC, the irq request happens
-as part of channel startup and there are no explicit APIs for the mbox client
-driver to control that. SCMI is mbox client in this case.
+On Sat, Nov 29, 2025 at 02:45:23PM +0000, Marc Zyngier wrote:
+> Our definition of VTCR_EL2 is both partial (tons of fields are
+> missing) and totally inconsistent (some constants are shifted,
+> some are not). They are also expressed in terms of TCR, which is
+> rather inconvenient.
+> 
+> Replace the ad-hoc definitions with the the generated version.
+> This results in a bunch of additional changes to make the code
+> with the unshifted nature of generated enumerations.
+> 
+> The register data was extracted from the BSD licenced AARCHMRS
+> (AARCHMRS_OPENSOURCE_A_profile_FAT-2025-09_ASL0).
 
-> > I am aware of systems that implement such sharing, which is why I prefer to be
-> > explicit that this type of design is challenging to support within this
-> > binding. The intent is to support only minimal, constrained cases - essentially
-> > systems that are already somewhat broken. I do not see value in broadening the
-> > binding to cover every conceivable scenario.
-> > 
-> > > > Clearly defining these constraints would be helpful. It may also be useful to
-> > > > note that this is primarily intended for mailbox transports, if that’s
-> > > > accurate. Alternatively, we could keep the DT binding definition broader but
-> > > > emit warnings when a transport other than mailbox is used. That approach might
-> > > > make it easier to move forward.
-> > > 
-> > > DEN0056F refers to this polling mode in Shared memory based transports, that
-> > > can be other than mailbox transports, it includes e.g. SMC or OPTEE
-> > > transports.
-> > > 
-> > 
-> > However, polling does not make sense in the context of SMC. Once control
-> > returns from an SMC call, the command has completed. What form of polling in
-> > an SMC workflow do you have in mind?
-> 
-> I think the polling happens on the SHMEM and the SMC transport is capable of
-> that too, see :
-> 
-> drivers/firmware/arm_scmi/transports/smc.c
-> 
-> 175         /*
-> 176          * If there is an interrupt named "a2p", then the service and
-> 177          * completion of a message is signaled by an interrupt rather
-> than by
-> 178          * the return of the SMC call.
-> 179          */
-> 180         scmi_info->irq = of_irq_get_byname(cdev->of_node, "a2p");
-> 
+Looks correct to me:
 
-Ah this one, is actually implemented to avoid sort of implicit polling
-mode we get with any SMC/HVC. I don't know how the platform deals with it
-but SMC/HVC is synchronous and doesn't need this polling. The irq introduced
-here is again a sort of workaround to get some sort of async/non-polling
-mode with SMC/HVC. So, to repeat polling mode make absolutely no sense
-whatsoever for SMC/OPTEE(based on pure SMC) transports.
+Reviewed-by: Alexandru Elisei <alexandru.elisei@arm.com>
 
-> > I believe the same applies to OP-TEE.
-> > While OP-TEE now provides a notification mechanism that could, in theory,
-> > allow synchronous commands to be treated in a quasi-asynchronous manner, I
-> > strongly doubt that the current SCMI-over-OP-TEE implementation behaves this
-> > way, given that it ultimately reaches the secure side via an SMC call.
-> > 
-> > > I don't think a warning is justified, if the behavior follows the
-> > > specification. But I do agree the behavior is ... suboptimal.
-> > > 
-> > 
-> > The specification does not address SMC or OP-TEE transports, placing them
-> > outside its scope and likewise these DT bindings.
+Thanks,
+Alex
+
 > 
-> I believe the shmem transport includes the SMC and OPTEE ones, right ?
->
-
-Yes, but the expectation when the SMC completes is to have the shmem to be
-owned by the OS(except that irq workaround case). Again the OPTEE/SMC is
-completely out of spec, but I agree the SHMEM behaviour must conform to the
-specification.
-
-> > Consequently, what we
-> > decide here in this discussion effectively defines the expected behavior in
-> > this context, in my view. So I would like to start with minimal possible
-> > coverage, why do you think that is not a good idea here ?
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/include/asm/kvm_arm.h | 52 +++++++----------------------
+>  arch/arm64/include/asm/sysreg.h  |  1 -
+>  arch/arm64/kvm/hyp/pgtable.c     |  8 ++---
+>  arch/arm64/kvm/nested.c          |  8 ++---
+>  arch/arm64/tools/sysreg          | 57 ++++++++++++++++++++++++++++++++
+>  5 files changed, 76 insertions(+), 50 deletions(-)
 > 
-> I would argue the current implementation covers pretty much every transport
-> which could ever need to do polling on shmem, so the implementation is
-> generic and inline with the specification. Also, the current implementation
-> is some 20 lines, so I think it is minimalistic?
+> diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+> index 1da290aeedce7..cd2dc378baee6 100644
+> --- a/arch/arm64/include/asm/kvm_arm.h
+> +++ b/arch/arm64/include/asm/kvm_arm.h
+> @@ -123,37 +123,7 @@
+>  #define TCR_EL2_MASK	(TCR_EL2_TG0_MASK | TCR_EL2_SH0_MASK | \
+>  			 TCR_EL2_ORGN0_MASK | TCR_EL2_IRGN0_MASK)
+>  
+> -/* VTCR_EL2 Registers bits */
+> -#define VTCR_EL2_DS		TCR_EL2_DS
+> -#define VTCR_EL2_RES1		(1U << 31)
+> -#define VTCR_EL2_HD		(1 << 22)
+> -#define VTCR_EL2_HA		(1 << 21)
+> -#define VTCR_EL2_PS_SHIFT	TCR_EL2_PS_SHIFT
+> -#define VTCR_EL2_PS_MASK	TCR_EL2_PS_MASK
+> -#define VTCR_EL2_TG0_MASK	TCR_TG0_MASK
+> -#define VTCR_EL2_TG0_4K		TCR_TG0_4K
+> -#define VTCR_EL2_TG0_16K	TCR_TG0_16K
+> -#define VTCR_EL2_TG0_64K	TCR_TG0_64K
+> -#define VTCR_EL2_SH0_MASK	TCR_SH0_MASK
+> -#define VTCR_EL2_SH0_INNER	TCR_SH0_INNER
+> -#define VTCR_EL2_ORGN0_MASK	TCR_ORGN0_MASK
+> -#define VTCR_EL2_ORGN0_WBWA	TCR_ORGN0_WBWA
+> -#define VTCR_EL2_IRGN0_MASK	TCR_IRGN0_MASK
+> -#define VTCR_EL2_IRGN0_WBWA	TCR_IRGN0_WBWA
+> -#define VTCR_EL2_SL0_SHIFT	6
+> -#define VTCR_EL2_SL0_MASK	(3 << VTCR_EL2_SL0_SHIFT)
+> -#define VTCR_EL2_T0SZ_MASK	0x3f
+> -#define VTCR_EL2_VS_SHIFT	19
+> -#define VTCR_EL2_VS_8BIT	(0 << VTCR_EL2_VS_SHIFT)
+> -#define VTCR_EL2_VS_16BIT	(1 << VTCR_EL2_VS_SHIFT)
+> -
+> -#define VTCR_EL2_T0SZ(x)	TCR_T0SZ(x)
+> -
+>  /*
+> - * We configure the Stage-2 page tables to always restrict the IPA space to be
+> - * 40 bits wide (T0SZ = 24).  Systems with a PARange smaller than 40 bits are
+> - * not known to exist and will break with this configuration.
+> - *
+>   * The VTCR_EL2 is configured per VM and is initialised in kvm_init_stage2_mmu.
+>   *
+>   * Note that when using 4K pages, we concatenate two first level page tables
+> @@ -161,9 +131,6 @@
+>   *
+>   */
+>  
+> -#define VTCR_EL2_COMMON_BITS	(VTCR_EL2_SH0_INNER | VTCR_EL2_ORGN0_WBWA | \
+> -				 VTCR_EL2_IRGN0_WBWA | VTCR_EL2_RES1)
+> -
+>  /*
+>   * VTCR_EL2:SL0 indicates the entry level for Stage2 translation.
+>   * Interestingly, it depends on the page size.
+> @@ -195,30 +162,35 @@
+>   */
+>  #ifdef CONFIG_ARM64_64K_PAGES
+>  
+> -#define VTCR_EL2_TGRAN			VTCR_EL2_TG0_64K
+> +#define VTCR_EL2_TGRAN			64K
+>  #define VTCR_EL2_TGRAN_SL0_BASE		3UL
+>  
+>  #elif defined(CONFIG_ARM64_16K_PAGES)
+>  
+> -#define VTCR_EL2_TGRAN			VTCR_EL2_TG0_16K
+> +#define VTCR_EL2_TGRAN			16K
+>  #define VTCR_EL2_TGRAN_SL0_BASE		3UL
+>  
+>  #else	/* 4K */
+>  
+> -#define VTCR_EL2_TGRAN			VTCR_EL2_TG0_4K
+> +#define VTCR_EL2_TGRAN			4K
+>  #define VTCR_EL2_TGRAN_SL0_BASE		2UL
+>  
+>  #endif
+>  
+>  #define VTCR_EL2_LVLS_TO_SL0(levels)	\
+> -	((VTCR_EL2_TGRAN_SL0_BASE - (4 - (levels))) << VTCR_EL2_SL0_SHIFT)
+> +	FIELD_PREP(VTCR_EL2_SL0, (VTCR_EL2_TGRAN_SL0_BASE - (4 - (levels))))
+>  #define VTCR_EL2_SL0_TO_LVLS(sl0)	\
+>  	((sl0) + 4 - VTCR_EL2_TGRAN_SL0_BASE)
+>  #define VTCR_EL2_LVLS(vtcr)		\
+> -	VTCR_EL2_SL0_TO_LVLS(((vtcr) & VTCR_EL2_SL0_MASK) >> VTCR_EL2_SL0_SHIFT)
+> +	VTCR_EL2_SL0_TO_LVLS(FIELD_GET(VTCR_EL2_SL0, (vtcr)))
+> +
+> +#define VTCR_EL2_FLAGS	(SYS_FIELD_PREP_ENUM(VTCR_EL2, SH0, INNER)	    | \
+> +			 SYS_FIELD_PREP_ENUM(VTCR_EL2, ORGN0, WBWA)	    | \
+> +			 SYS_FIELD_PREP_ENUM(VTCR_EL2, IRGN0, WBWA)	    | \
+> +			 SYS_FIELD_PREP_ENUM(VTCR_EL2, TG0, VTCR_EL2_TGRAN) | \
+> +			 VTCR_EL2_RES1)
+>  
+> -#define VTCR_EL2_FLAGS			(VTCR_EL2_COMMON_BITS | VTCR_EL2_TGRAN)
+> -#define VTCR_EL2_IPA(vtcr)		(64 - ((vtcr) & VTCR_EL2_T0SZ_MASK))
+> +#define VTCR_EL2_IPA(vtcr)		(64 - FIELD_GET(VTCR_EL2_T0SZ, (vtcr)))
+>  
+>  /*
+>   * ARM VMSAv8-64 defines an algorithm for finding the translation table
+> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> index c231d2a3e5159..acad7a7621b9e 100644
+> --- a/arch/arm64/include/asm/sysreg.h
+> +++ b/arch/arm64/include/asm/sysreg.h
+> @@ -516,7 +516,6 @@
+>  #define SYS_TTBR1_EL2			sys_reg(3, 4, 2, 0, 1)
+>  #define SYS_TCR_EL2			sys_reg(3, 4, 2, 0, 2)
+>  #define SYS_VTTBR_EL2			sys_reg(3, 4, 2, 1, 0)
+> -#define SYS_VTCR_EL2			sys_reg(3, 4, 2, 1, 2)
+>  
+>  #define SYS_HAFGRTR_EL2			sys_reg(3, 4, 3, 1, 6)
+>  #define SYS_SPSR_EL2			sys_reg(3, 4, 4, 0, 0)
+> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> index 947ac1a951a5b..e0bd6a0172729 100644
+> --- a/arch/arm64/kvm/hyp/pgtable.c
+> +++ b/arch/arm64/kvm/hyp/pgtable.c
+> @@ -583,8 +583,8 @@ u64 kvm_get_vtcr(u64 mmfr0, u64 mmfr1, u32 phys_shift)
+>  	u64 vtcr = VTCR_EL2_FLAGS;
+>  	s8 lvls;
+>  
+> -	vtcr |= kvm_get_parange(mmfr0) << VTCR_EL2_PS_SHIFT;
+> -	vtcr |= VTCR_EL2_T0SZ(phys_shift);
+> +	vtcr |= FIELD_PREP(VTCR_EL2_PS, kvm_get_parange(mmfr0));
+> +	vtcr |= FIELD_PREP(VTCR_EL2_T0SZ, (UL(64) - phys_shift));
+>  	/*
+>  	 * Use a minimum 2 level page table to prevent splitting
+>  	 * host PMD huge pages at stage2.
+> @@ -624,9 +624,7 @@ u64 kvm_get_vtcr(u64 mmfr0, u64 mmfr1, u32 phys_shift)
+>  		vtcr |= VTCR_EL2_DS;
+>  
+>  	/* Set the vmid bits */
+> -	vtcr |= (get_vmid_bits(mmfr1) == 16) ?
+> -		VTCR_EL2_VS_16BIT :
+> -		VTCR_EL2_VS_8BIT;
+> +	vtcr |= (get_vmid_bits(mmfr1) == 16) ? VTCR_EL2_VS : 0;
+>  
+>  	return vtcr;
+>  }
+> diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+> index 911fc99ed99d9..e1ef8930c97b3 100644
+> --- a/arch/arm64/kvm/nested.c
+> +++ b/arch/arm64/kvm/nested.c
+> @@ -377,7 +377,7 @@ static void vtcr_to_walk_info(u64 vtcr, struct s2_walk_info *wi)
+>  {
+>  	wi->t0sz = vtcr & TCR_EL2_T0SZ_MASK;
+>  
+> -	switch (vtcr & VTCR_EL2_TG0_MASK) {
+> +	switch (FIELD_GET(VTCR_EL2_TG0_MASK, vtcr)) {
+>  	case VTCR_EL2_TG0_4K:
+>  		wi->pgshift = 12;	 break;
+>  	case VTCR_EL2_TG0_16K:
+> @@ -513,7 +513,7 @@ static u8 get_guest_mapping_ttl(struct kvm_s2_mmu *mmu, u64 addr)
+>  
+>  	lockdep_assert_held_write(&kvm_s2_mmu_to_kvm(mmu)->mmu_lock);
+>  
+> -	switch (vtcr & VTCR_EL2_TG0_MASK) {
+> +	switch (FIELD_GET(VTCR_EL2_TG0_MASK, vtcr)) {
+>  	case VTCR_EL2_TG0_4K:
+>  		ttl = (TLBI_TTL_TG_4K << 2);
+>  		break;
+> @@ -530,7 +530,7 @@ static u8 get_guest_mapping_ttl(struct kvm_s2_mmu *mmu, u64 addr)
+>  
+>  again:
+>  	/* Iteratively compute the block sizes for a particular granule size */
+> -	switch (vtcr & VTCR_EL2_TG0_MASK) {
+> +	switch (FIELD_GET(VTCR_EL2_TG0_MASK, vtcr)) {
+>  	case VTCR_EL2_TG0_4K:
+>  		if	(sz < SZ_4K)	sz = SZ_4K;
+>  		else if (sz < SZ_2M)	sz = SZ_2M;
+> @@ -593,7 +593,7 @@ unsigned long compute_tlb_inval_range(struct kvm_s2_mmu *mmu, u64 val)
+>  
+>  	if (!max_size) {
+>  		/* Compute the maximum extent of the invalidation */
+> -		switch (mmu->tlb_vtcr & VTCR_EL2_TG0_MASK) {
+> +		switch (FIELD_GET(VTCR_EL2_TG0_MASK, mmu->tlb_vtcr)) {
+>  		case VTCR_EL2_TG0_4K:
+>  			max_size = SZ_1G;
+>  			break;
+> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> index 9d388f87d9a13..6f43b2ae5993b 100644
+> --- a/arch/arm64/tools/sysreg
+> +++ b/arch/arm64/tools/sysreg
+> @@ -4400,6 +4400,63 @@ Field	56:12	BADDR
+>  Res0	11:0
+>  EndSysreg
+>  
+> +Sysreg	VTCR_EL2	3	4	2	1	2
+> +Res0	63:46	
+> +Field	45	HDBSS
+> +Field	44	HAFT
+> +Res0	43:42	
+> +Field	41	TL0
+> +Field	40	GCSH
+> +Res0	39
+> +Field	38	D128
+> +Field	37	S2POE
+> +Field	36	S2PIE
+> +Field	35	TL1
+> +Field	34	AssuredOnly
+> +Field	33	SL2
+> +Field	32	DS
+> +Res1	31
+> +Field	30	NSA
+> +Field	29	NSW
+> +Field	28	HWU62
+> +Field	27	HWU61
+> +Field	26	HWU60
+> +Field	25	HWU59
+> +Res0	24:23
+> +Field	22	HD
+> +Field	21	HA
+> +Res0	20
+> +Enum	19	VS
+> +	0b0	8BIT
+> +	0b1	16BIT
+> +EndEnum
+> +Field	18:16	PS
+> +Enum	15:14	TG0
+> +	0b00	4K
+> +	0b01	64K
+> +	0b10	16K
+> +EndEnum
+> +Enum	13:12	SH0
+> +	0b00	NONE
+> +	0b01	OUTER
+> +	0b11	INNER
+> +EndEnum
+> +Enum	11:10	ORGN0
+> +	0b00	NC
+> +	0b01	WBWA
+> +	0b10	WT
+> +	0b11	WBnWA
+> +EndEnum
+> +Enum	9:8	IRGN0
+> +	0b00	NC
+> +	0b01	WBWA
+> +	0b10	WT
+> +	0b11	WBnWA
+> +EndEnum
+> +Field	7:6	SL0
+> +Field	5:0	T0SZ
+> +EndSysreg
+> +
+>  Sysreg	GCSCR_EL2	3	4	2	5	0
+>  Fields	GCSCR_ELx
+>  EndSysreg
+> -- 
+> 2.47.3
 > 
-> What would you propose we do here ?
-> 
-
-Yes it can be minimalistic but not restrictive. As I already clearly mentioned
-I don't see it makes any sense to enable this for SMC/OPTEE. Lets start with
-just mailbox to start with and extend to other transports if and when needed.
-It would be good to impose that restriction in the binding as well but that
-is not a must IMO. I am fine if the bindings for whatever reasons(though I
-don't see the need) to apply for any transport.
-
--- 
-Regards,
-Sudeep
 
