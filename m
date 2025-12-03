@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2B24D1266D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 08:20:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C27B2D116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 08:21:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sJurdQX8qj6ifDDdWMxroqyLo5BS65+WtQIh7u6Nuto=; b=JBMxAHD9qmR9uSsdVZYbafi0jG
-	pTawFAj2i/qtV2Kw6liw6r41aSzBC6whqPfSXs2dH5xOsEo5Rm2U1TOeEpPgme+Ag/eXR0qFkGamS
-	7w88cp6UqcLQrch81uh9FvRRZfIFtAWaIzIdde690EcGLJUh/gfpcVywzfzGpJ4PgZKSWTHMf2q/j
-	AsdeoSPBBN/+IPlLeckZAufgGAOE52de1hMm1hOWn2rQMeJliBPQEujhsNQSz9fSWpSyZymo4mqc1
-	t2fMGSbVwgIx2UcKuwjYw7C4Nh3h8X7KThZ7OOBZmRY68W4vRn+csM4n3OIHuRlUO4NoaC9oUKsBl
-	Vi2+p0fQ==;
+	bh=e8MuL9dN4W4aZAtBVVyLVjE13/XsnSiE2gy07VCOnSE=; b=qj7PIYHWT1RM4Ik3Qmpy/9D03l
+	P/S7gwnn9uUoV4KNQ/+SF6TEvl8DwaD3dJ2t894Ue7VM/SG4losVDrlQZ1MYxSnbZi2/WOoPXifcL
+	ZyOo+bhdGYGSINQlxnfhAypfJsYbBXoWjOnlwL35riZfa37IL14BQX6L5hGFN/XOx7RASqP08Cheh
+	DJipRqMNmil/s192/3oAi2rueCIlWyc4XaRmhwK+uYMmC8dsSB1YhW+MihTUXprCnBZ3Rt/LeSYXY
+	1LHSepPLvZY/GDYge0ctB8amE0A76jjb5jQc2wzZCbqunZ7zCBlgQX83UKcxuXw3AAVfu58xx3x+C
+	X1Xw/1ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQi6T-00000006I7T-2PVJ;
-	Wed, 03 Dec 2025 08:20:49 +0000
+	id 1vQi6p-00000006ICC-3qdA;
+	Wed, 03 Dec 2025 08:21:11 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQi6Q-00000006I6x-3wIM
+	id 1vQi6o-00000006IBX-0Bx1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 08:20:48 +0000
+	Wed, 03 Dec 2025 08:21:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B547339;
-	Wed,  3 Dec 2025 00:20:38 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CDA3E1477;
+	Wed,  3 Dec 2025 00:21:00 -0800 (PST)
 Received: from [10.57.45.92] (unknown [10.57.45.92])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 49CE33F73B;
-	Wed,  3 Dec 2025 00:20:37 -0800 (PST)
-Message-ID: <51339cdd-3c73-433c-abf7-24553e0fbd6b@arm.com>
-Date: Wed, 3 Dec 2025 09:20:34 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 23FCA3F73B;
+	Wed,  3 Dec 2025 00:20:59 -0800 (PST)
+Message-ID: <703cbee6-a813-4970-9232-34ee91ed8961@arm.com>
+Date: Wed, 3 Dec 2025 09:20:57 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 06/12] mm: introduce generic lazy_mmu helpers
+Subject: Re: [PATCH v5 08/12] mm: enable lazy_mmu sections to nest
 To: Alexander Gordeev <agordeev@linux.ibm.com>
 Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  Andreas Larsson <andreas@gaisler.com>,
@@ -65,16 +65,17 @@ Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
  xen-devel@lists.xenproject.org, x86@kernel.org
 References: <20251124132228.622678-1-kevin.brodsky@arm.com>
- <20251124132228.622678-7-kevin.brodsky@arm.com>
- <07ffb66d-1e74-4634-bccb-75575b3862af-agordeev@linux.ibm.com>
+ <20251124132228.622678-9-kevin.brodsky@arm.com>
+ <23dcf752-0b75-45a7-84f8-25bddf97af08-agordeev@linux.ibm.com>
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 Content-Language: en-GB
-In-Reply-To: <07ffb66d-1e74-4634-bccb-75575b3862af-agordeev@linux.ibm.com>
+In-Reply-To: <23dcf752-0b75-45a7-84f8-25bddf97af08-agordeev@linux.ibm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_002047_023014_857B0EB9 
-X-CRM114-Status: GOOD (  12.58  )
+X-CRM114-CacheID: sfid-20251203_002110_124219_B4BB942A 
+X-CRM114-Status: UNSURE (   9.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,19 +90,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/11/2025 14:50, Alexander Gordeev wrote:
-> Would it make sense to explicitly describe the policy wrt sleeping while
-> in lazy MMU mode? If I understand the conclusion of conversation right:
+On 28/11/2025 14:55, Alexander Gordeev wrote:
+>> + * in_lazy_mmu_mode() can be used to check whether the lazy MMU mode is
+>> + * currently enabled.
+> The in_lazy_mmu_mode() name looks ambiguous to me. When the lazy MMU mode
+> is paused are we still in lazy MMU mode? The __task_lazy_mmu_mode_active()
+> implementation suggests we are not, while one could still assume we are,
+> just paused.
 >
-> * An arch implementation may disable preemption, but then it is arch
->   responsibility not to call any arch-specific code that might sleep;
-> * As result, while in lazy MMU mode the generic code should never
->   call a code that might sleep;
+> Should in_lazy_mmu_mode() be named e.g. as in_active_lazy_mmu_mode() such
+> a confusion would not occur in the first place.
 
-I think that's a good summary, and I agree that the second point is not
-obvious from the comment in <linux/pgtable.h>. This series it not making
-any change in that respect, but I'll add a clarification in this patch
-(or a separate patch).
+I see your point, how about is_lazy_mmu_mode_active()?
 
 - Kevin
 
