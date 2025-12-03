@@ -4,168 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 923A6D12D50
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 12:14:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D808D12D55
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 12:16:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6FItVlMrRvYSm/z5YIX5F8uem2kZe0Wd8fwcWbKXfT0=; b=rSIFRbnlio4+pam6nE3OIdp7au
-	DEf1XWfGS9BBoXhbTQwRCzS71UkOflt4mPVVYbVLnuAFcbJh02v8drWME3dEnL9+qBmuyl6tiV5rJ
-	5VZic/FDq0fBHTHo51AB6P1oQEJ97e5mHtg7AD83fLAN4/lTfaZQSia9Muv7jADM65MvNUDKjvcrz
-	g4rRyD1pEieTmHfEi2TFj3NrRwxRR/m/QXxyAPRcL0XgTrd1xXWQaRE1qXZC1K8lwJC3H3xTPlQbv
-	imlUWYZ+xB9KevBNel38VETDE4vYnPIbM2NUV25iNJWC5TyFP9MKzJmiYU5MhZogS1wfZL7z4tgva
-	M+g9YwZw==;
+	bh=FIRFJPwP0f15vft5vgumWwaPC5ZJED/YEB3QGW0Pmdc=; b=xgbXx4aFeSW39ZdRIpOXXVauKp
+	bARnuonvFZLhYSZdHgG4j8cRN2CnsDedNQKS/PGS08caKeULfUC1ijT9d4MefynStEUeeFbh6Kfj1
+	raqUR0LEi9bI8YQXW5SEFHlOUK+16VJCLUxRWhDoc/hCOyIKfgaqlUwQgOgHWDvN9ExmgFqHVPkDW
+	dDNQ3iplaTvwDhHBph1Jg6QoGGL9tzvz1OAmYDMCWR1ZqrXr7zMIPcgvT0abyPV6oe0leKLqXDBow
+	Oz16ze6FqphDjrs996k7A+KHTCTsNiHLS6bmO8n45BqIQLwZ3OvtHhYac1+pElrE+l3hHe6LI/zmL
+	rt4lIlFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQlkE-00000006Xnv-3GJO;
-	Wed, 03 Dec 2025 12:14:06 +0000
-Received: from mail-westus3azon11011038.outbound.protection.outlook.com ([40.107.208.38] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1vQlm6-00000006Xxs-3SA9;
+	Wed, 03 Dec 2025 12:16:02 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQlkB-00000006XnX-0xOb
+	id 1vQlm4-00000006XxR-0q8P
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 12:14:05 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qFVZc4uiOLn9FwQ/YVSv9wO0+vJMe33dMrNjBJkLzQU6Ozr5iortp8aCZo+DgugSxlpkt45udZuelwJlACBSzN+0OGCsxjph/5WHfsRonqPhwfRe5s5RuPPtB6v6oCAv+CevgFB4wkWtBvKIzbzOQ5W4q6pPTl6jvr8s/ghjRCS1v2HSe3+jPWm9+ob/iI/AqxKoSY22rJ956Igaj757TiHuaKbwYYvLJeHgZoKksAnuvkCiBoDfhI2MLJ5jd7kphncIzREX36ciM899unyemeoFEmOEMmKvntVTJfQgTvNLMHfrDjgWL13gXDh25+pT7sID0oMEvpKPut5ATZyt5g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6FItVlMrRvYSm/z5YIX5F8uem2kZe0Wd8fwcWbKXfT0=;
- b=dlaqPU76ALTAtR/9RS6lyC6s7KMnd6IQlDOV0A+5auKlYmFrOplBAyVGbqVhw7r2oMKgWxju4tdJiRxGGYoOJn2ljHy+nhnokuxQbr3OrlCqWKxtsgCxZvoY+fYKTluGP+Kjp74lFGDwZ7LqCm/TV/LVx1b0SuXZpPDhrJDksK0I9KLIaHQ2Ck1R5hhf3azuMwDtnm7z7KWYUTOFd2EhK/xoQIcREtbNsYthfcsK2xMEKNSwffILdSmw7HDsuJDOiwXhkISPV682xB+bDjwMVWl+VDLViPltQvMWYPWZE59o8Ue2Z/+dS6e5TPXpTrgr4z5Il1fXdru+KXn5IJ5TUw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6FItVlMrRvYSm/z5YIX5F8uem2kZe0Wd8fwcWbKXfT0=;
- b=DPET5RQiInC2S0YlnsqIfXVR2fpCqvEF2SwlijrlRdqdsDvd6MZaL2bZ981BELgq2llii1om5ZMiFCWoqSz4++kBAQ8jAGfhb23AAOUeUNiGVhrrF6PXIWXyKJl8iDj+ItbpUYSQVmSXURaCTbe+0G5F9+x+5cBQZ6KS86jbhpQ=
-Received: from BYAPR01CA0065.prod.exchangelabs.com (2603:10b6:a03:94::42) by
- CH3PR10MB7416.namprd10.prod.outlook.com (2603:10b6:610:156::6) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9388.9; Wed, 3 Dec 2025 12:13:57 +0000
-Received: from CO1PEPF000042A7.namprd03.prod.outlook.com
- (2603:10b6:a03:94:cafe::d0) by BYAPR01CA0065.outlook.office365.com
- (2603:10b6:a03:94::42) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9388.9 via Frontend Transport; Wed, 3
- Dec 2025 12:13:29 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- CO1PEPF000042A7.mail.protection.outlook.com (10.167.243.36) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9388.8 via Frontend Transport; Wed, 3 Dec 2025 12:13:55 +0000
-Received: from DFLE209.ent.ti.com (10.64.6.67) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 3 Dec
- 2025 06:13:49 -0600
-Received: from DFLE207.ent.ti.com (10.64.6.65) by DFLE209.ent.ti.com
- (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 3 Dec
- 2025 06:13:49 -0600
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE207.ent.ti.com
- (10.64.6.65) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 3 Dec 2025 06:13:49 -0600
-Received: from [172.24.233.20] (a0512632.dhcp.ti.com [172.24.233.20])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5B3CDdJN3987980;
-	Wed, 3 Dec 2025 06:13:40 -0600
-Message-ID: <3ebd23db-8ebb-4b04-88a6-415ce92da131@ti.com>
-Date: Wed, 3 Dec 2025 17:43:38 +0530
+	Wed, 03 Dec 2025 12:16:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id DB4E1408F6;
+	Wed,  3 Dec 2025 12:15:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D009C4CEFB;
+	Wed,  3 Dec 2025 12:15:55 +0000 (UTC)
+Message-ID: <bd25e903-30fc-4905-986c-96d1b42e9f02@linux-m68k.org>
+Date: Wed, 3 Dec 2025 22:15:52 +1000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/21] Clean and update tilcdc driver to support
- DRM_BRIDGE_ATTACH_NO_CONNECTOR
-To: Kory Maincent <kory.maincent@bootlin.com>
-CC: Jyri Sarha <jyri.sarha@iki.fi>, Tomi Valkeinen
-	<tomi.valkeinen@ideasonboard.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Russell
- King" <linux@armlinux.org.uk>, Bartosz Golaszewski <brgl@bgdev.pl>, "Tony
- Lindgren" <tony@atomide.com>, Andrzej Hajda <andrzej.hajda@intel.com>, "Neil
- Armstrong" <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
-	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, "Markus
- Schneider-Pargmann" <msp@baylibre.com>, Luca Ceresoli
-	<luca.ceresoli@bootlin.com>, Louis Chauvet <louis.chauvet@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Miguel Gazquez
-	<miguel.gazquez@bootlin.com>, <dri-devel@lists.freedesktop.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>
-References: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
- <7b8e22d1-a872-4ea0-8fce-4323d2bf81ff@ti.com>
- <20251203114941.1fafd9dd@kmaincent-XPS-13-7390>
+Subject: Re: [PATCH v4 2/2] m68k: coldfire: Add RNG support for MCF54418
+To: jeanmichel.hautbois@yoseli.org, Geert Uytterhoeven
+ <geert@linux-m68k.org>, Olivia Mackall <olivia@selenic.com>,
+ Herbert Xu <herbert@gondor.apana.org.au>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: linux-m68k@lists.linux-m68k.org, linux-kernel@vger.kernel.org,
+ linux-crypto@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>
+References: <20251126-b4-m5441x-add-rng-support-v4-0-5309548c9555@yoseli.org>
+ <20251126-b4-m5441x-add-rng-support-v4-2-5309548c9555@yoseli.org>
 Content-Language: en-US
-From: Swamil Jain <s-jain1@ti.com>
-In-Reply-To: <20251203114941.1fafd9dd@kmaincent-XPS-13-7390>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+From: Greg Ungerer <gerg@linux-m68k.org>
+In-Reply-To: <20251126-b4-m5441x-add-rng-support-v4-2-5309548c9555@yoseli.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000042A7:EE_|CH3PR10MB7416:EE_
-X-MS-Office365-Filtering-Correlation-Id: 68b2731b-44af-434e-464d-08de32656e54
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|36860700013|376014|82310400026|1800799024|13003099007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?d0FSTnVLUDd1bVJ2T3Nma3BBaHk5RXJxcVB1L0hyUXBrVDErZlptZmhqa2p4?=
- =?utf-8?B?R1ZseXhMRVErcmZmYUlBdVRlV3A4cDVNcFR0QnZ4VlRRQkg5QzNiMXI4TTdy?=
- =?utf-8?B?MmF6OFpMalJYdnRmekcrSGFJU0JLU0o2dm1HRjVlbmpOZTA1MzRSU1QyRG0x?=
- =?utf-8?B?OXhPSlI2dSs1Z0t5eHRCVXhlNFRTQVFjRjk0K0dCNjVSTjNNNzYzcUpVQUpP?=
- =?utf-8?B?b3NGd1hkNE84S3A5R1lwYll6dlNiY0p3MWtQcnpNZkNDeDkwTUJ0MVl6em1n?=
- =?utf-8?B?TTNadHYyYzJTRWJlWWxBWGFSdlpGZnNjMFpsNHpZQjhXVUlYMzVoNVVENFE2?=
- =?utf-8?B?azMzblp6VTEzNVZUdFY5T2xzaCsrTDI2QUx4QmU0SU1QNUlSUDB5Sm55cW5k?=
- =?utf-8?B?UE5mNlBpb2kzVGNBTVNzUTJNQjVOVVZiNVQrdmlqRzh3alNEc0Y1YkFKTEZm?=
- =?utf-8?B?QWE3NEQwSCs3VGxyM290REdyNFh3K3FqOHF1UVgzOHN6cGhoelVSV2pQS2NC?=
- =?utf-8?B?a05GZ1Z2dXVYSnlINWt1R2hCTUo4ek52K0QrcHN6dWxCcDVqdzZQMkd0MktP?=
- =?utf-8?B?cnFZSWo5U1hhMERhNGtzaDd1WjkrSzZlMGJ3RWhLanpheThSc3BwVDBVYnAx?=
- =?utf-8?B?K2E0cnJUYlpCQ2xGVCtLYUFFWTN1UmVUL2N4M3pVNkJtSzV6dkpWWW1aNkFR?=
- =?utf-8?B?TnZ3cS9rd29ibGljSWRlQy9nT0d1OGR5cExYc2ZuaFhJenpQNmtCR0lVMkM1?=
- =?utf-8?B?ZGRUeno5VGpna1plOHlXSkJYemVJdE1HT3JWK0VibjkrVUNJZDZZTExQOEto?=
- =?utf-8?B?QUVKY254dDhoTFlFVGs1OE9JVUFDZEFENGF0Y3FMWDNMWnhTck1rVERxa2tx?=
- =?utf-8?B?ZFpFTHpyd0s5bFFyQTNZdnQ5cmZxV1g3bnBDUnRyNkVmdzc4Wk5SWHNQMEJS?=
- =?utf-8?B?ZC83SjhLMVlzLzQ3U3ZvYldsbEJFUHZKM0tXazY2QnJVcWsxTWg3bUx5NDEw?=
- =?utf-8?B?ZDlNajRuT3ZudUp0aFp3U3BaWmUzL1lucjdySnhsZU8rdHlFVXRBZ2c3S09w?=
- =?utf-8?B?RnpJYXpuVHl4MGdldzkrbVZINWFpREFaSzdZZFVjdXQrU2p3dU42TXpyWjhN?=
- =?utf-8?B?VkltNFR3b1ZPdHdwSzhnY1FNWWYvZDdZWkVlWXNQZDhVY29mR3VtVnhkZTU3?=
- =?utf-8?B?YWh3amY5Z3UzZjgvRUNHSXR2T2I2aS9Kb3Q3Y3NHeU9NeG82Y2k1cmhYeEJN?=
- =?utf-8?B?VFVBZlpUcm9FM25SanJTdGJJWk53OUFteDljWjZRQW8vMkpmZ2F0aStRNy8r?=
- =?utf-8?B?WUM3ZGpoQjdZdTBxRnR3SWRnNWc5MzkwTHYwelZEaGMxYnFaR25DYkxnS3hv?=
- =?utf-8?B?ZjFOK1ZtS25BSFIrZU5zaENGUzNSUkU4NElxeFlwWnpwWTBnaUVyVm1YVWFY?=
- =?utf-8?B?d1NmdjJOQk9zYXM5THBxWHFrUmJoODhuekVqeTdiY1pjOXFVYk5sT1FucmRN?=
- =?utf-8?B?aHhUVmFRSmU3OEFYSWVuRDVJU05nM21zeSsya0U5Q29VZi9XY3U3OHhETVRH?=
- =?utf-8?B?eml6d0R1M0NjMGpEZVlISTN4SS9MejVCT2VZaVRzM3BiTVhDWU5Yd1RYenRm?=
- =?utf-8?B?YUdXVWxjdGtGbE1xM0FqN1ozeXYxN2E0TXRCN2Z6eDh4Q1MycXZyR0hodTlN?=
- =?utf-8?B?NXR4b3NZL0c3STRFNzVkTi9Ia2V2WHJUZnR0VW5ob3AvMnRFcWo3WFZjenFE?=
- =?utf-8?B?Qnp6WG16R1hmUFdLNG9Cc3FBQVpDenRBK1NNVW92NG13czh1VXpoT3BWQm8x?=
- =?utf-8?B?WU1JT3h3TlY5SzRSN1A2UHNqU3ZaTzBxb3hVK0cyMGg0U1pXVmp0ZVhqR2hY?=
- =?utf-8?B?dGdFNkFWTVhMbnBjRHVsSWI2VHdqRnNRclVteVZTci9DT2wya1NyNTVWV21P?=
- =?utf-8?B?Z1B0RUN1Y3RGMVk4cFY1NDRSTmgzTFNzb29xNllCRFNWRDhCSGNRSC9KODhZ?=
- =?utf-8?B?RTNNVHpwVW5ndGE0V1B0L09rT1J5bWNERHlGbmdwYm4vd2sxcWVVMTlWak9P?=
- =?utf-8?B?ZXQxZVpsZFpUZ0pwa1JFMmFmRnQxeERrUlNtNFhITlZWTUFzRVlYSG92STRK?=
- =?utf-8?Q?NS4A=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(7416014)(36860700013)(376014)(82310400026)(1800799024)(13003099007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Dec 2025 12:13:55.6336
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 68b2731b-44af-434e-464d-08de32656e54
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000042A7.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR10MB7416
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_041403_403994_560F642B 
-X-CRM114-Status: GOOD (  19.93  )
+X-CRM114-CacheID: sfid-20251203_041600_307946_EC7C6CAF 
+X-CRM114-Status: GOOD (  30.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,106 +70,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Jean-Michel,
 
-
-On 12/3/25 16:19, Kory Maincent wrote:
-> On Tue, 2 Dec 2025 17:55:15 +0530
-> Swamil Jain <s-jain1@ti.com> wrote:
+On 26/11/25 17:08, Jean-Michel Hautbois via B4 Relay wrote:
+> From: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
 > 
->> Hi Kory,
->> Thanks for the series.
->>
->> On 11/26/25 23:05, Kory Maincent (TI.com) wrote:
->>> The starting point for this work was adding support for the HDMI cape:
->>> https://www.seeedstudio.com/Seeed-Studio-BeagleBone-Green-HDMI-Cape.html
->>> This will be sent in a later series.
->>>
->>> Initially, Miguel proposed modifying the ite-it66121 bridge to support
->>> the legacy behavior without the DRM_BRIDGE_ATTACH_NO_CONNECTOR flag:
->>> https://lore.kernel.org/lkml/20250909-it66121-fix-v1-1-bc79ca83df17@bootlin.com/
->>> This patch was NAK'd as we don't want to add more legacy code. Maxime
->>> requested that the tilcdc driver be updated to use
->>> DRM_BRIDGE_ATTACH_NO_CONNECTOR instead.
->>>
->>> While working on this update, I discovered that the tilcdc driver
->>> contained significant amounts of legacy code that needed cleaning.
->>> Since this driver was developed alongside the tda998x driver for
->>> several AM335x boards, the tda998x driver also required cleanup and
->>> support for the DRM_BRIDGE_ATTACH_NO_CONNECTOR flag.
->>>
->>> This series is based on the tilcdc fix sent to mainline:
->>> https://lore.kernel.org/lkml/20251125090546.137193-1-kory.maincent@bootlin.com/
->>>
->>> Patch 1-7: Convert tilcdc binding to YAML and remove the ti,tilcdc,panel
->>> 	   sub-binding and driver
->>> Patch 8-16: Clean up tilcdc driver
->>> Patch 17-19: Clean up tda998x driver
->>> Patch 20: Add DRM_BRIDGE_ATTACH_NO_CONNECTOR support to tda998x
->>> Patch 21: Add DRM_BRIDGE_ATTACH_NO_CONNECTOR support to tilcdc
->>>
->>> Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
->>> ---
->>> Kory Maincent (TI.com) (21):
->>>         dt-bindings: display: tilcdc: Convert to DT schema
->>>         dt-bindings: display: tilcdc: Add fifo-threshold property
->>>         drm/tilcdc: Remove simulate_vesa_sync flag
->>>         drm/tilcdc: Add support for DRM bus flags and simplify panel config
->>>         ARM: dts: omap: Bind panel to panel-dpi instead of ti,tilcdc,panel
->>> driver dt-bindings: display: tilcdc: Remove panel binding
->>>         drm/tilcdc: Remove tilcdc panel driver
->>>         drm/tilcdc: Remove component framework support
->>>         drm/tilcdc: Remove tilcdc_panel_info structure
->>>         drm/tilcdc: Remove redundant #endif/#ifdef in debugfs code
->>>         drm/tilcdc: Remove unused encoder and connector tracking arrays
->>>         drm/tilcdc: Rename external_encoder and external_connector to
->>> encoder and connector drm/tilcdc: Rename tilcdc_external to tilcdc_encoder
->>>         drm/tilcdc: Remove the useless module list support
->>>         drm/tilcdc: Modernize driver initialization and cleanup paths
->>>         drm/tilcdc: Remove the use of drm_device private_data
->>>         drm/bridge: tda998x: Remove component support
->>>         drm/bridge: tda998x: Move tda998x_create/destroy into probe and
->>> remove drm/bridge: tda998x: Remove useless tda998x_connector_destroy wrapper
->>>         drm/bridge: tda998x: Add support for DRM_BRIDGE_ATTACH_NO_CONNECTOR
->>>         drm/tilcdc: Add support for DRM_BRIDGE_ATTACH_NO_CONNECTOR
->>>
->>>    .../devicetree/bindings/display/tilcdc/panel.txt   |  66 ---
->>>    .../devicetree/bindings/display/tilcdc/tilcdc.txt  |  82 ----
->>>    .../devicetree/bindings/display/tilcdc/tilcdc.yaml | 103 +++++
->>>    arch/arm/boot/dts/ti/davinci/da850-evm.dts         |  26 +-
->>>    arch/arm/boot/dts/ti/omap/am335x-guardian.dts      |  25 +-
->>>    arch/arm/boot/dts/ti/omap/am335x-pdu001.dts        |  21 +-
->>>    arch/arm/boot/dts/ti/omap/am335x-pepper.dts        |  22 +-
->>>    arch/arm/boot/dts/ti/omap/am335x-sbc-t335.dts      |  25 +-
->>>    arch/arm/boot/dts/ti/omap/am335x-sl50.dts          |  25 +-
->>>    drivers/gpu/drm/bridge/tda998x_drv.c               | 251 ++++++------
->>>    drivers/gpu/drm/tilcdc/Makefile                    |   3 +-
->>>    drivers/gpu/drm/tilcdc/tilcdc_crtc.c               | 117 ++----
->>>    drivers/gpu/drm/tilcdc/tilcdc_drv.c                | 456
->>> +++++++-------------- drivers/gpu/drm/tilcdc/tilcdc_drv.h                |
->>> 88 +--- drivers/gpu/drm/tilcdc/tilcdc_encoder.c            |  93 +++++
->>>    .../tilcdc/{tilcdc_external.h => tilcdc_encoder.h} |   5 +-
->>>    drivers/gpu/drm/tilcdc/tilcdc_external.c           | 179 --------
->>>    drivers/gpu/drm/tilcdc/tilcdc_panel.c              | 408
->>> ------------------ drivers/gpu/drm/tilcdc/tilcdc_panel.h              |  15
->>> - drivers/gpu/drm/tilcdc/tilcdc_plane.c              |   2 +-
->>>    drivers/gpu/drm/tilcdc/tilcdc_regs.h               |   8 +-
->>>    21 files changed, 589 insertions(+), 1431 deletions(-)
->>> ---
->>> base-commit: 670bacfc7579bdd79a3069cfb5ab60a6a7923003
->>
->> I was trying to test the patches, unable to find the base-commit, are
->> you using drm-misc-next?
+> Add support for the hardware Random Number Generator (RNGB) found on
+> MCF54418 ColdFire processors with clock enabled at platform
+> initialization.
 > 
-> It is based on the tilcdc fix as explained in the cover letter.
-> https://lore.kernel.org/lkml/20251125090546.137193-1-kory.maincent@bootlin.com/
-> Therefore you won't be able to find this base commit hash.
-
-Sorry I missed it. Thanks for pointing.
-
-Regards,
-Swamil.
-
+> The RNGB block is compatible with the imx-rngc driver.
 > 
-> Regards,
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
+> ---
+>   arch/m68k/coldfire/device.c       | 28 ++++++++++++++++++++++++++++
+>   arch/m68k/coldfire/m5441x.c       |  2 +-
+>   arch/m68k/include/asm/m5441xsim.h |  9 +++++++++
+>   drivers/char/hw_random/Kconfig    |  3 ++-
+>   drivers/char/hw_random/imx-rngc.c |  7 +++++++
+>   5 files changed, 47 insertions(+), 2 deletions(-)
+
+I am happy with the ColdFire arch parts, so from me:
+
+     Acked-by: Greg Ungerer <gerg@linux-m68k.org>
+
+I don't mind taking this commit via the m68knommu git tree if the hw_rng
+maintainers are ok with that. Otherwise if you break out the arch/m68k
+parts I can apply those on their own.
+
+Regards
+Greg
+
+
+
+> diff --git a/arch/m68k/coldfire/device.c b/arch/m68k/coldfire/device.c
+> index b6958ec2a220..9d8f844e319a 100644
+> --- a/arch/m68k/coldfire/device.c
+> +++ b/arch/m68k/coldfire/device.c
+> @@ -622,6 +622,31 @@ static struct platform_device mcf_flexcan0 = {
+>   };
+>   #endif /* MCFFLEXCAN_SIZE */
+>   
+> +#ifdef MCF_RNG_BASE
+> +/*
+> + * Random Number Generator (RNG) - only on MCF54418
+> + */
+> +static struct resource mcf_rng_resource[] = {
+> +	{
+> +		.start = MCF_RNG_BASE,
+> +		.end   = MCF_RNG_BASE + MCF_RNG_SIZE - 1,
+> +		.flags = IORESOURCE_MEM,
+> +	},
+> +	{
+> +		.start = MCF_IRQ_RNG,
+> +		.end   = MCF_IRQ_RNG,
+> +		.flags = IORESOURCE_IRQ,
+> +	},
+> +};
+> +
+> +static struct platform_device mcf_rng = {
+> +	.name           = "imx-rngc",
+> +	.id             = -1,
+> +	.num_resources  = ARRAY_SIZE(mcf_rng_resource),
+> +	.resource       = mcf_rng_resource,
+> +};
+> +#endif /* MCF_RNG_BASE */
+> +
+>   static struct platform_device *mcf_devices[] __initdata = {
+>   	&mcf_uart,
+>   #ifdef MCFFEC_BASE0
+> @@ -660,6 +685,9 @@ static struct platform_device *mcf_devices[] __initdata = {
+>   #ifdef MCFFLEXCAN_SIZE
+>   	&mcf_flexcan0,
+>   #endif
+> +#ifdef MCF_RNG_BASE
+> +	&mcf_rng,
+> +#endif
+>   };
+>   
+>   /*
+> diff --git a/arch/m68k/coldfire/m5441x.c b/arch/m68k/coldfire/m5441x.c
+> index 7a25cfc7ac07..ab5b00637237 100644
+> --- a/arch/m68k/coldfire/m5441x.c
+> +++ b/arch/m68k/coldfire/m5441x.c
+> @@ -158,6 +158,7 @@ static struct clk * const enable_clks[] __initconst = {
+>   	&__clk_0_33, /* pit.1 */
+>   	&__clk_0_37, /* eport */
+>   	&__clk_0_48, /* pll */
+> +	&__clk_0_49, /* rng */
+>   	&__clk_0_51, /* esdhc */
+>   
+>   	&__clk_1_36, /* CCM/reset module/Power management */
+> @@ -179,7 +180,6 @@ static struct clk * const disable_clks[] __initconst = {
+>   	&__clk_0_44, /* usb otg */
+>   	&__clk_0_45, /* usb host */
+>   	&__clk_0_47, /* ssi.0 */
+> -	&__clk_0_49, /* rng */
+>   	&__clk_0_50, /* ssi.1 */
+>   	&__clk_0_53, /* enet-fec */
+>   	&__clk_0_54, /* enet-fec */
+> diff --git a/arch/m68k/include/asm/m5441xsim.h b/arch/m68k/include/asm/m5441xsim.h
+> index f48cf63bd782..dd64cdfcad3e 100644
+> --- a/arch/m68k/include/asm/m5441xsim.h
+> +++ b/arch/m68k/include/asm/m5441xsim.h
+> @@ -198,6 +198,15 @@
+>   #define MCFRTC_SIZE		(0xfc0a8840 - 0xfc0a8000)
+>   #define MCF_IRQ_RTC		(MCFINT2_VECBASE + MCFINT2_RTC)
+>   
+> +/*
+> + *  Random Number Generator (RNG) Module.
+> + *  Note: Only present in MCF54418, not in MCF54410/54415/54417
+> + */
+> +#define MCF_RNG_BASE		0xfc0c4000
+> +#define MCF_RNG_SIZE		0x1c
+> +#define MCFINT2_RNG		28
+> +#define MCF_IRQ_RNG		(MCFINT2_VECBASE + MCFINT2_RNG)
+> +
+>   /*
+>    *  GPIO Module.
+>    */
+> diff --git a/drivers/char/hw_random/Kconfig b/drivers/char/hw_random/Kconfig
+> index 492a2a61a65b..2f301e43db84 100644
+> --- a/drivers/char/hw_random/Kconfig
+> +++ b/drivers/char/hw_random/Kconfig
+> @@ -270,12 +270,13 @@ config HW_RANDOM_MXC_RNGA
+>   config HW_RANDOM_IMX_RNGC
+>   	tristate "Freescale i.MX RNGC Random Number Generator"
+>   	depends on HAS_IOMEM
+> -	depends on SOC_IMX25 || SOC_IMX6SL || SOC_IMX6SLL || SOC_IMX6UL || COMPILE_TEST
+> +	depends on SOC_IMX25 || SOC_IMX6SL || SOC_IMX6SLL || SOC_IMX6UL || COLDFIRE || COMPILE_TEST
+>   	default HW_RANDOM
+>   	help
+>   	  This driver provides kernel-side support for the Random Number
+>   	  Generator Version C hardware found on some Freescale i.MX
+>   	  processors. Version B is also supported by this driver.
+> +	  Also supports RNGB on Freescale MCF54418 (Coldfire V4e).
+>   
+>   	  To compile this driver as a module, choose M here: the
+>   	  module will be called imx-rngc.
+> diff --git a/drivers/char/hw_random/imx-rngc.c b/drivers/char/hw_random/imx-rngc.c
+> index d6a847e48339..44f20a05de0a 100644
+> --- a/drivers/char/hw_random/imx-rngc.c
+> +++ b/drivers/char/hw_random/imx-rngc.c
+> @@ -353,12 +353,19 @@ static const struct of_device_id imx_rngc_dt_ids[] = {
+>   };
+>   MODULE_DEVICE_TABLE(of, imx_rngc_dt_ids);
+>   
+> +static const struct platform_device_id imx_rngc_devtype[] = {
+> +	{ .name = "imx-rngc" },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(platform, imx_rngc_devtype);
+> +
+>   static struct platform_driver imx_rngc_driver = {
+>   	.driver = {
+>   		.name = KBUILD_MODNAME,
+>   		.pm = pm_ptr(&imx_rngc_pm_ops),
+>   		.of_match_table = imx_rngc_dt_ids,
+>   	},
+> +	.id_table = imx_rngc_devtype,
+>   };
+>   
+>   module_platform_driver_probe(imx_rngc_driver, imx_rngc_probe);
+> 
 
 
