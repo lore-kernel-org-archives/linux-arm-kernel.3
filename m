@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31FDDD1BDD4
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 20:26:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62850D1BDD8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 20:28:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QHhoJvXmUUdfSoud9hbXEJJ96AjgJheRg7j9O/4CTvk=; b=JpXkgLQpSmVABeLay2RVUQVIIB
-	18hrSpM27a/H5ateUvh7KFKwPeFGz1/V46VdL3rrhBmRF5mqNvf51QiJyQ2roMN/q+xYkTDAkUPo+
-	zv1eW7uoJ+SREbQ5f4ss3FL2DYiBiBVNo0pGhl842PCOVO05oqWrfQyr+kwtjThFicyFuyx3y2pTP
-	13cko6kVPIKSI+ynOjyWcztGbZj35bsbUmTjVz3MalsbQey1HdGsAjOni2zkdnYcdYHbrKb2A7kXX
-	hbMUPFLtPmz3cf6YO0VtQFUhi+o990v5IM3U0iawclXGS5zmL6BHeiGmWyLtddKhEFNBx0kOxc3AL
-	UJoVhSvQ==;
+	bh=erPP+FN1JoHFfTOKfw2YzMOxP/nNvu/MmVWX/VGVv8Y=; b=PAvF8l9zUGpHIzz0+QAq4h1TNd
+	LTAJx4jPzdkayr5aFt3dJvdvacqV0+o/EOPGSMuMrz076qNI88QB6Ep8oIa9zv6OQfjb+7mYhYXqB
+	80IXr++liq96CikIMDfoydSebZrBZMH4/H6l3G7D2OYgEW5hnACAK6skHhmr8qFKcp5Jf7MJ2JNuu
+	lL2iiRKBB61j7klwFtALXnYICzPMlwJH10Dlz3Us3QdI026iXe8bk0aa/oGR8y25UiHN75HM/ZJ2b
+	1Z12EyJactzsHixyIjjI94e1dpTSsS9s3ypVc2UpMV2lUYroHXPiOCNPZCXhkUq5Mdd0/mKw+FVYu
+	WIf0xplw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQtQG-000000072Iv-2weK;
-	Wed, 03 Dec 2025 20:26:00 +0000
+	id 1vQtSm-000000072Xg-3kKo;
+	Wed, 03 Dec 2025 20:28:36 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQtQE-000000072II-2w5T;
-	Wed, 03 Dec 2025 20:26:00 +0000
+	id 1vQtSl-000000072X8-0eqN;
+	Wed, 03 Dec 2025 20:28:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3A2D043A0E;
-	Wed,  3 Dec 2025 20:25:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0DAB2C4CEF5;
-	Wed,  3 Dec 2025 20:25:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 71499443F5;
+	Wed,  3 Dec 2025 20:28:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67828C4CEFB;
+	Wed,  3 Dec 2025 20:28:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764793558;
-	bh=1dHiE50PARVA55BHa12b+LSSa7hK9g+a5iEtRcxDlp0=;
+	s=k20201202; t=1764793714;
+	bh=/Pw/ZfkaD7UiOYHsr9Mmwf+U3Hy4ekwK9M9qWlsLp0s=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=uqM1T9IGYpEfm3flEc6acjxt+jcMe1uCjtU7vIfGWEfzgkawFt7BTe1yGll+QeEEk
-	 W088Sxp/enJhCOfGkk+seRmTQJaOj52oYR3WCf8mJ6uZOdBMq9wASvh9VHzYrMN/FU
-	 o5IPUtvO1fkd9EqSAsTMPhDgNHQrwnNIQ9N3kmRTSWBcGU9rIZmyVXFlYqf9a89VNE
-	 +ykjhbq3EgILzXIog8n1JocFR8AmcUBNluHAPTz9bmsEcOId6H9NSw7K6bdm/sk6GY
-	 gRCJcmZ6QKJIQynMpq9rTJfqkHPusRPi0m4qaxb2xhaSHGgTUr60c6k6w4ONy8WXj2
-	 f8ovhSmPdVr7g==
-Message-ID: <87db9b43-ceae-47b9-9435-9fa297054fc2@kernel.org>
-Date: Wed, 3 Dec 2025 21:25:53 +0100
+	b=L/ExZlrXem22UeCby8d+SUnAjg3PCzyD1pU5n1N6IHVT8ut1QDlNPRtVTaICnrZyz
+	 FYIeLnJiwo+yt1q77bjnq9AJFilG9uYJcgyl08b1Ri8jnfEOPnLNBcL+YYixiyB0Mh
+	 SyHE/JabBacji5ty9QMdpXfFt1zih664IKrmvq3ulkKL9IA03HCiyCa+Td9BxB8XyN
+	 gaFlFLHlwmOC0xsy7b1XDr9/HWWY4VaURM4vbrLLThXFDr2r5W2pp7QxlWPeUaBDvw
+	 yIDedCYlbSWpjEqTvbJWhhQ4a1qEN0YBMJ+z9MhHCSEUgfowEu7q9fxrKdWVemohGn
+	 6Fxq5ybPqUJAA==
+Message-ID: <81593c42-fcc2-47ad-8d0f-69a2d17664a6@kernel.org>
+Date: Wed, 3 Dec 2025 21:28:28 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] arm64: dts: mediatek: add device-tree for Genio
- 720-EVK board
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Jiri Slaby <jirislaby@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Sean Wang <sean.wang@mediatek.com>
-Cc: kernel@collabora.com, linux-kernel@vger.kernel.org,
- linux-serial@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20251203-add-mediatek-genio-520-720-evk-v1-0-df794b2a30ae@collabora.com>
- <20251203-add-mediatek-genio-520-720-evk-v1-3-df794b2a30ae@collabora.com>
+Subject: Re: [PATCH v2 01/22] media: dt-bindings: media: rockchip-rga: add
+ rockchip,rk3588-rga3
+To: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>,
+ Jacob Chen <jacob-chen@iotwrt.com>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, kernel@pengutronix.de
+References: <20251203-spu-rga3-v2-0-989a67947f71@pengutronix.de>
+ <20251203-spu-rga3-v2-1-989a67947f71@pengutronix.de>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,12 +103,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251203-add-mediatek-genio-520-720-evk-v1-3-df794b2a30ae@collabora.com>
+In-Reply-To: <20251203-spu-rga3-v2-1-989a67947f71@pengutronix.de>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_122558_784221_39B20422 
-X-CRM114-Status: GOOD (  22.70  )
+X-CRM114-CacheID: sfid-20251203_122835_244574_6B8132F9 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,128 +123,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/12/2025 14:59, Louis-Alexis Eyraud wrote:
-> Add support for MediaTek MT8189 SoC and its variants, and a device-tree
-> for the basic hardware enablement of the Genio 720-EVK board, based on
-> MT8391 SoC.
+On 03/12/2025 16:52, Sven Püschel wrote:
+> Add a new compatible for the RGA3 (Raster Graphic Acceleration 3)
+> peripheral found on the RK3588 SoC.
 > 
-> MT8391 SoC is a variant of MT8189 SoC with a difference for the Arm
-> Cortex-A78 CPU core maximum frequency (2.6 Ghz for MT8391, 3 Ghz for
-> MT8189). MT8391 hardware register maps are identical to MT8189.
+> The existing rga node refers to the RGA2 peripheral. The RK3588
 
-Subject: drop redundant "device-tree for" (not mentioning not correct
-name even...).
+What is "existing rga node"? There is no node here. This is a patch for
+bindings, so you say which hardware existing binding describes and what
+are the differences against that older hardware.
+
+> contains one RGA2 core and two RGA3 cores. Both feature a similar
+> functionality of scaling, cropping and rotating of up to two input
+> images into one output image. Key differences of the RGA3 are:
+> 
+> - supports 10bit YUV output formats
+> - supports 8x8 tiles and FBCD as inputs and outputs
+> - supports BT2020 color space conversion
+> - max output resolution of (8192-64)x(8192-64)
+> - MMU can map up to 32G DDR RAM
+> - fully planar formats (3 planes) are not supported
+> - max scale up/down factor of 8
+
+"differences" in meaning nothing above is supported by RGA2?
 
 > 
-> The Genio 720-EVK board has following features:
->   - MT8391 SoC
->   - MT6365 PMIC
->   - MT6319 Buck IC
->   - MT6375 Charger IC
->   - 8GB LPDDR5 RAM
->   - 64GB eMMC 5.1
->   - 128GB UFS
->   - 20V DC Jack
->   - USB Type-C Power Adapter
->   - Micro SD card slot
->   - Push Button x 4 (Power, Reset, Download and Home Key)
->   - LED x 3 (System Power, Reset, DC-IN Power)
->   - USB Type-C Connector (USB 3.2) x 2
->   - USB Type-C Connector (USB 2.0) x 1
->   - 3.5mm Earphone Jack x 1 (with Microphone Input)
->   - 3.5mm Line Out Audio Jack x 1
->   - Analog Microphone x 1
->   - Digital Microphone x 2
->   - Gigabit Ethernet with RJ45 connector
->   - DP x 1 (Mode over USB Type-C)
->   - LVDS port x 1
->   - eDP port x 1
->   - UART x2 with serial-to-usb converters and USB Type-C connectors
->   - UART Port x 2 on Pin Header
->   - M.2 Slot x 2
->   - I2C Capacitive Touch Pad
->   - 4-Lane DSI x 1
->   - 4-Data Lane CSI x 2
->   - I2S Pin header
->   - 40-Pin 2.54mm Pin Header x 1
->   - CAN Bus x 1 (RS232 Connector)
-> 
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 > ---
->  arch/arm64/boot/dts/mediatek/Makefile              |   1 +
->  arch/arm64/boot/dts/mediatek/mt8189.dtsi           | 860 +++++++++++++++++++++
->  .../boot/dts/mediatek/mt8391-genio-720-evk.dts     |  15 +
->  .../boot/dts/mediatek/mt8391-genio-common.dtsi     | 555 +++++++++++++
->  4 files changed, 1431 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
-> index c5fd6191a925ad8fcea401712f7a686e8b0a57c8..e3b63085c0608b86dc8638c9d5e0b73441e9ed7b 100644
-> --- a/arch/arm64/boot/dts/mediatek/Makefile
-> +++ b/arch/arm64/boot/dts/mediatek/Makefile
-> @@ -110,6 +110,7 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-genio-1200-evk.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-genio-1200-evk-ufs.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8390-genio-700-evk.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8390-grinn-genio-700-sbc.dtb
-> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt8391-genio-720-evk.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-kontron-3-5-sbc-i1200.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l.dtb
->  dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l-8-hd-panel.dtbo
-> diff --git a/arch/arm64/boot/dts/mediatek/mt8189.dtsi b/arch/arm64/boot/dts/mediatek/mt8189.dtsi
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..bf8a232bcaf10cdf4c590109aea68c9a3e82cc42
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/mediatek/mt8189.dtsi
-> @@ -0,0 +1,860 @@
-> +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-> +/*
-> + * Copyright (c) 2025 MediaTek Inc.
-> + *
-> + * Copyright (c) 2025 Collabora Ltd.
-> + * Author: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-> + */
-> +
-> +#include <dt-bindings/clock/mediatek,mt8189-clk.h>
-> +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +/ {
-> +	compatible = "mediatek,mt8189";
-> +	interrupt-parent = <&gic>;
-> +	#address-cells = <2>;
-> +	#size-cells = <2>;
-> +
-> +	aliases {
-> +		i2c0 = &i2c0;
-> +		i2c1 = &i2c1;
-> +		i2c2 = &i2c2;
-> +		i2c3 = &i2c3;
-> +		i2c4 = &i2c4;
-> +		i2c5 = &i2c5;
-> +		i2c6 = &i2c6;
-> +		i2c7 = &i2c7;
-> +		i2c8 = &i2c8;
-> +		mmc0 = &mmc0;
-> +		mmc1 = &mmc1;
-> +		serial0 = &uart0;
 
-None of above are aliases of the soc. Please move them to the board,
-because these are properties of the board currently (we did not finish
-the discussion about soc-aliases, so it cannot be used as reason for above).
-
-
-
-> +	};
-> +
-> +	clk32k: oscillator-clk32k {
-
-Either oscillator or clock (clk). Not both. "clock-clk" makes no sense
-and this is implied by oscillator.
-
-Please use name for all fixed clocks which matches current format
-recommendation: 'clock-<freq>' (see also the pattern in the binding for
-any other options).
-
-https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/clock/fixed-clock.yaml
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 
 Best regards,
