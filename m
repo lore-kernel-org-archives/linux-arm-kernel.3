@@ -4,81 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 845BFD116F3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 07:00:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DD36D1266D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 07:06:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kblzKUU7ZnyBgKMRLKqxbH2vPYhclVDnd+JYT7c76hU=; b=01MlbeU170HTCLV7NUpWWSOQ4v
-	+0Ck1OwFGjTGpAT20FWgJjObIw8V3BxEbRlvVBMAtQ/LaCO6cyQds7ThYm8fs1HTsZNYWq5GeU6B9
-	H5AVvn4YN0qBStqNsXnN1S6D+fPpH/k49hdvKOeG1LDv/te7/KXUeQmEabeKYUurNYXSxFTcfwra2
-	B/x/3whDRYK0CkkJ/T7PVAgFSHkF0FWjs8NEAoplMjalQbM8zYCRtEqfATIMFwWjQ/+M0ngwmJZo0
-	7Ur+i8j3H8bV14zoW0/be0e3/r9rXxjiLem5XWYxEb1xUjkziAOMVyfClRYioHBz+IU1qLjS6aHg9
-	D3tjBp2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vCkwVOXNSTtWL3H2l2QYaPPlFTIyqM4GGZNFUx6Kzmc=; b=raesHb5YfPKqvQQhQQf+4YiI2P
+	O2EwfDFgaSJm9EP8zzIf2Sp3TPbPDmmYcOPcVeZ+75oOJRsQv+yqgnBIfV6Q8MFzBrxZcIRYEYL5T
+	OgmC5mlQ/nwp0/jD4fEhu8eyBp+iKX5DFb4cCWmJLv2m1OcnDiyTw03IexlG/SykgZs3tFwdbhFxv
+	CQNlNPnO/7RKiECi2jojmq4NTPi6z3ae8AXrXm4dqato+RzFSLM81Qd6v3GWepLTDJ7YW5Mlv8HgM
+	Z9w4fJkBWuXL21+IIw4f+tRHCfUwJduAC66lh31Ut2xrwMnalrtq/sXJ7EMaBARZgHNQDQwleQ9sv
+	aU/qIpiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQgqh-00000006EHi-2SL0;
-	Wed, 03 Dec 2025 07:00:27 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1vQgwt-00000006EZ3-2THI;
+	Wed, 03 Dec 2025 07:06:52 +0000
+Received: from mail-swedencentralazon11013050.outbound.protection.outlook.com ([52.101.83.50] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQgqe-00000006EHJ-1gyy
+	id 1vQgwr-00000006EXm-1fo3
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 07:00:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1764745224; x=1796281224;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=BbpnT+nHAKfc3yROfFOj29+WeIOEVrl1j2gKJu3ZWdA=;
-  b=FiMwlDkUwhkBoQt34Zabt4xvJYpI10lgZfipJ6xLAEqsVZtFD95f0Jae
-   d4uH8fpdNlIgq0+0nN8dk920Il/rUspmCQfV6T3aHC79iln7lSg7pvTbS
-   blEAlogItBdm894ZhQjNbYn+2MC5rfq/SdYs0imjSQK82y2tNJfMTDkEs
-   VfH34gmT2yCMV1fociq9MSJcNsJzIiMrQ4GmvTGxaHAPhU6sOpwar1q+T
-   CNZwdwkXnofnStHOO9fPo3EjuB1p+ad6n9huBLsSUOMJa1E6IXaFZZfir
-   5Jm5aLkZZMATeAFpqk4PS72qc9nrKXbKIbfP+GcX/LbYnV4sFbKanJqD6
-   Q==;
-X-CSE-ConnectionGUID: mNRNH50/SweJCymJZ72NLQ==
-X-CSE-MsgGUID: x9ukb/teSRWv89sxbzpk3w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11631"; a="54280048"
-X-IronPort-AV: E=Sophos;i="6.20,245,1758610800"; 
-   d="scan'208";a="54280048"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Dec 2025 23:00:23 -0800
-X-CSE-ConnectionGUID: vttOtOV4SHi8K8SNjtneyg==
-X-CSE-MsgGUID: 8k+m/DnYQPiasvfEOKvb7Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,245,1758610800"; 
-   d="scan'208";a="225271918"
-Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
-  by orviesa002.jf.intel.com with ESMTP; 02 Dec 2025 23:00:20 -0800
-Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vQgqX-00000000AgD-22Pq;
-	Wed, 03 Dec 2025 07:00:17 +0000
-Date: Wed, 3 Dec 2025 14:59:30 +0800
-From: kernel test robot <lkp@intel.com>
-To: Carlos Song <carlos.song@nxp.com>, frank.li@nxp.com, mkl@pengutronix.de,
-	broonie@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, kees@kernel.org,
-	gustavoars@kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, linux-spi@vger.kernel.org,
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Wed, 03 Dec 2025 07:06:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Sovs+JM+f8aXeNh5979aS6c2WvO6eGBTEEKwI7pEaLIHTViAztSw6PXwW4wp/JivA38qTJzp6t5LQKv4oaTdr4aGjSNHXQ0Ey/3O8nAJgX38jRzXaNAnuwzR3e/qT8qHfZ85SpG5NuxSkD8ISF13G3i44f4SJZgI5i0mlSj7KDnGOSSWxkrwXrMS3ChNHzt/46tq00IVQNtlHUA1C+Kr3Ug0aUTo1s47GPlnu2WMGBSBd5jd4lLGzxif0BpxlMlGglPVz2F9buz1ABdYlK3LNtoxYrES1L2X4kzu/2H27oNvlS4iqxQgDNeS5nvH0rjYwlxHXG8y8p9VMKh/kV97FA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vCkwVOXNSTtWL3H2l2QYaPPlFTIyqM4GGZNFUx6Kzmc=;
+ b=uR7tiU6Be3yIJaazCS6GYPIfRZUCXAa+4Lv/x3hK11jp1hCD7gTH6E5eKJO+Zy/tHROybPNvgMgkXtSx27Ghb3nw3TbWCZCdBJYljZpwRqoqAu7A5fHnXBs0i/8+bgRS5GkS0ZaVoa1WDVn3Ix477GszJijcUwbBk0I01PmLOyDOXThMC3zIQW8vI0Sx5yak1qmA1GAY3HK4GjTCLr5TJIDW29HiL8hC8B8VIqJzOV5y6BTZzhJdDHHX2J0nJJFnLEajzjwBUkC90fzmj4sTpPVUxaXm1L/If5dcdhZkbEsoioQMjILayzrnAupfvUkDVnKQ4D6xSbP3B8k83wuKbQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vCkwVOXNSTtWL3H2l2QYaPPlFTIyqM4GGZNFUx6Kzmc=;
+ b=CtYp/FadwgooIqbXYmZatzdOLFkDzULQQrLrx0YQLGZr2W7LlD8am9AWtief5PMJ5QZS2uI9LEPBtLbQS4ZC2OtCbsShTPnSr1Z7gSSdQOhP8zmWgzfDdjMq9Gl6cdaJ5y9csVueutVU343KybeBC8EaFPDiwHjXJJC9yHbdBmFZpgiFl47wJU9a+3fz/MVz6tUTC3VISnTpdG7VCtRtsoT3ycjFwGpFeo+ijsB/6y6rLuAXegTztjG4yMN8NHHRM9gPv3p+X9GRo25tSi/gyEpBtq6hAE9jXsFwfve3vUblxOn6qyozIFOQurwhGGJjPvYTizzn6Hw7uyKLSgtJuw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM9PR04MB8353.eurprd04.prod.outlook.com (2603:10a6:20b:3ef::22)
+ by AS8PR04MB9174.eurprd04.prod.outlook.com (2603:10a6:20b:449::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Wed, 3 Dec
+ 2025 07:06:41 +0000
+Received: from AM9PR04MB8353.eurprd04.prod.outlook.com
+ ([fe80::46ae:f774:f04c:a1bc]) by AM9PR04MB8353.eurprd04.prod.outlook.com
+ ([fe80::46ae:f774:f04c:a1bc%2]) with mapi id 15.20.9366.012; Wed, 3 Dec 2025
+ 07:06:41 +0000
+From: Chancel Liu <chancel.liu@nxp.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-hardening@vger.kernel.org, Carlos Song <carlos.song@nxp.com>
-Subject: Re: [PATCH v2 5/6] spi: imx: support dynamic burst length for ECSPI
- DMA mode
-Message-ID: <202512031425.cmBJXuXy-lkp@intel.com>
-References: <20251202075503.2448339-6-carlos.song@nxp.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/5] arm64: dts: imx91-11x11-evk: Add audio sound cards support
+Date: Wed,  3 Dec 2025 16:06:00 +0900
+Message-ID: <20251203070605.1868821-1-chancel.liu@nxp.com>
+X-Mailer: git-send-email 2.50.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SE2P216CA0156.KORP216.PROD.OUTLOOK.COM
+ (2603:1096:101:2c1::16) To AM9PR04MB8353.eurprd04.prod.outlook.com
+ (2603:10a6:20b:3ef::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251202075503.2448339-6-carlos.song@nxp.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8353:EE_|AS8PR04MB9174:EE_
+X-MS-Office365-Filtering-Correlation-Id: 178a0d7e-dae5-43e1-31bd-08de323a8279
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|19092799006|52116014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0u6XBme5ooQGgdnK/z/K/DAMV2yxpT/BtWwv/C4jq+P67AlMT568POkrNa9b?=
+ =?us-ascii?Q?P6ezFjfHmsBUyk3foYMQzYBe8fWDQSfQgcT3GJT4bAWD3vUHezEtmy2LUrAs?=
+ =?us-ascii?Q?1nFKwPNIbqRx0vyzqOBbDaWkr/Rus2DKNWiu36R6JMZlYRlC+o0gsVpzOgDL?=
+ =?us-ascii?Q?JOq7bGXz2iFDR44xALQ5hY9nT55HQUz7Xu5m8vccmu8pK/n0lc95umFjMwmB?=
+ =?us-ascii?Q?oZdUQRhW6Q1ZYlOZdl9BL/rv98gghCgmudF+1cH8qyWPH6q/kqAXaqh0O2/J?=
+ =?us-ascii?Q?1oikFdRC+IyQ+H05fGNriRAjVpWRhYH41m9hfJFxVV3CDxWP0bn0x9ucqk4I?=
+ =?us-ascii?Q?U201LveSYYx+JLozJmS9Eatdg7oH+EpWmQ8ZWDJJX+ZaHeavWKOOqG2ay0ej?=
+ =?us-ascii?Q?MuiVx1cMm2vEVv7yC8iFgKlfxr5Hx99KTEmznRPAGZij+jOhCNfC+N4STxa6?=
+ =?us-ascii?Q?Ppy2SVF95cPrNsV9B84T0R1r1Q2cps4N0cmZyKvcKyuicZUNssc4WDMrTThM?=
+ =?us-ascii?Q?03LyaVlQ6eo48PgPLWUUyXvyCmPrRxD1DzlQ+puEHWLOXKmSi9448CadNt2k?=
+ =?us-ascii?Q?wRdi42Weoh7uMggeEI8ZlK35v943mi4hmbEX3W2dfYdzcD6u5agS7EezT4r/?=
+ =?us-ascii?Q?hA3XjFKsN/niV2zc6ChtPngFYVEtvgzvgWSSPzTVMQyuk2lZuu+J4SUwQ5Tu?=
+ =?us-ascii?Q?fvCN8mjD2u+o+ls/oNbdOea7L2TFyafG+yAnd9NkNoVBwwcpv2nc/qOLPYL5?=
+ =?us-ascii?Q?GP4tmYMeU/tmdqnx9gqbaQHyGsKjZT9NjZmjX8+xYgH0vn8pVYRrQYu6ROdx?=
+ =?us-ascii?Q?5LbWA+ZLWqgEdc3olEylNodEBXuAOgggHXbtitc+lQgEeAdAaNvp6daZsvWJ?=
+ =?us-ascii?Q?mYNTRQKHJAZ6dHTTNPzfaJdzo74EQgXxzGOu+uW02zYK+mnexqkB+LusPy8a?=
+ =?us-ascii?Q?UevvzT8Spln8AqxQR2bGOIRgm6buU2WPjtJ0uzy0V9HUmNYUn4dh6ijA86TP?=
+ =?us-ascii?Q?B2DnNaK+nkx3pzSaTCKGtVtrilqXgBo7wKViDyu41IX6H3IlI93X7IIB69dl?=
+ =?us-ascii?Q?hP/zeLgNhg0YWejRl+Hwj3MFmDdOmKER4waz8noEblFkziIEcrdNoD4oV4OG?=
+ =?us-ascii?Q?iLCnF0jIaydYWz/NcUxJ6xibSVjQhm4IIhw8SvWIR8eUOlKAsiBVlwurjZSp?=
+ =?us-ascii?Q?gAhf85GIV6OlUfJx2NbyTihMo2w9jwEA/8g9cFp4Z15jZEicJdk3S2HjNnRP?=
+ =?us-ascii?Q?0Rom1TUsStnxkh9H1B4A04o06oUAEtXn+KNfRwM4hg3sJtXrQoa82+5dgOsB?=
+ =?us-ascii?Q?338b67CHo6Sx248uggreDlX0G8IEkls0KZ/oCKVEbAwdu+1tbOTBc+8ovwJZ?=
+ =?us-ascii?Q?fngqX6r6rFb4LVWb2HHgl4rHoIV58qjMHAiR4ZIg8KabYF9UeMeAZkeJvJtn?=
+ =?us-ascii?Q?romKeOSgl3+Nvh4tz8ozepI2OnLYWaTHY2ZvXZAgw3gLhbksHBexOX0uphXS?=
+ =?us-ascii?Q?qsyabIR53LS++Ln52+F0Q6FhkQT8rjBakkQxwHawJwTO4Ib62vbC5aXHPQ?=
+ =?us-ascii?Q?=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8353.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(19092799006)(52116014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WnyCzw6rcA7ZWQinwRLxDPuvfx4VphT3fowK97b1h5bsc3QjrbtByveqKriB?=
+ =?us-ascii?Q?WLcX+ZqVypWIESxAzybEJr0MRcgyKjrotsjHZO18xhH0wu5MJtPsRu5lRzxR?=
+ =?us-ascii?Q?rDwVdV3T4DcuNdEiMisaLoNy0e5y5kCKvIzIN9nlHSFZiW4QY7nW09m9GaoV?=
+ =?us-ascii?Q?fFISmrTcbOjWmqloPYpCh6Q6iP2gXt482W11EhUiNuQcSMYJqrDk644wTj7Y?=
+ =?us-ascii?Q?bCyhCyw+x4w0y9zDicgD0VOOk28TocjNmrZcqHr8IDQNrESnzhClP1X8A+J6?=
+ =?us-ascii?Q?cr3ouNoe0BaXXXVfVSksp3ITGctW36XAd2V8sGdXXr9sG7YEdLeaeJHoITFr?=
+ =?us-ascii?Q?CfxDrBIUSPJc76xsdZdIjZF+04wUr2pHcrpY9sS0bVlzrE2r+JdES99atiIK?=
+ =?us-ascii?Q?hYHbwkmlWASfROE9yLEnZfXAGq6fHxV0CMkEoU7GiunaDOtl1qDvCrDx6nZO?=
+ =?us-ascii?Q?+vfml7Rg17OermxMmClK3pjFB7MFKzT1UZwhaA8DyevvJaeE4UbmNzUm2tCl?=
+ =?us-ascii?Q?MLc2fHvw41coWwMwZppuBony4JGMu5gUSLWUOBWUoOQmw//h3vHW++Bdzunu?=
+ =?us-ascii?Q?8E7h/6devWQAop05IwLDPU0Cm64ESsCsQtGbC1db+xZ7fclg+5mSfWtrUyZk?=
+ =?us-ascii?Q?JqoZR8jOlhW00A4hJyCXIl6bLmz0FA4oYtOmh50XTckGOzGp9kf4HNavTvg6?=
+ =?us-ascii?Q?8yAPehOzFgUFaL1p4BDtGgwRHJyi6sdN0vFnSpdjdEeImworJcifV+R1gWt3?=
+ =?us-ascii?Q?KTrBY9Dy2v+HGPtBkJMFbT/dzjMn1q1F8NhsdW+rHad+Jk2OLCZq/D/DD6AF?=
+ =?us-ascii?Q?X7+NYzMXFmnwBPoYsrDygV6aXSZSErG8b963xhjbWEG58hByXHc65G2vGb0s?=
+ =?us-ascii?Q?W7e04Fhv3+Bexf9KJJ32Myj3VbpTXelFg44O14PLTF4eX+GU0rhs2tnDU6AX?=
+ =?us-ascii?Q?kMQg/2QzHCNVFVYCOwk44fK0XB2TA6gd4Z/wN5WZ1J3AIxKvzCitRP/bmnVi?=
+ =?us-ascii?Q?tuF9VFvrtMxvzWEFel4jo5blmWJ1CKKhPeqnN7MKo6dtWaep3U76IKoeHZKW?=
+ =?us-ascii?Q?ZBIcf1RWvQBY8bBP8iEX7VFVz4+In2Sp881V/QuyneoNB08L37MhxuxMy6C8?=
+ =?us-ascii?Q?f+EqDSAlwSHzheati6k6i+LVJZi7JcmPYsNfobjIP6EQ+tldqj+gvqaZ0HLV?=
+ =?us-ascii?Q?pBdhYotMrWkVTjk9hJzl7u2Kj89blFJOeHhm6JquIHTUpS+kH0RN+ayCeZBg?=
+ =?us-ascii?Q?XL9zaCeZXfbyyr/2ZC7+GcRhYjZVKTqJCfB//Zp1Z+ECv1hVCH9ggZ3Vs6SE?=
+ =?us-ascii?Q?WRaipYPPJ326KGdbxBaEtYO1nf++OkatHugkg47peWgR6fzWERDeJuMHoxRs?=
+ =?us-ascii?Q?Wyg/Hple7PPXXHaz3FijoogbtE2ZZyhA+LcSMQuo7h3lbwmWqrItJ9I/k9Sy?=
+ =?us-ascii?Q?XKBUm9FGHTwcS61YwkmFy2FTnHvEAgcFTmyftiv+XkLdciEfa9WGGBWO+uNu?=
+ =?us-ascii?Q?YoSaaBFYNkE6oGwHsRwUgrFDL6b+RxoGNiOsOntvayrGRGwcZ4z8HUM2oAX/?=
+ =?us-ascii?Q?hYliAdTBATbqTBWNkPA7Kp5eSZNeGYeO66yOaZgM?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 178a0d7e-dae5-43e1-31bd-08de323a8279
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8353.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Dec 2025 07:06:41.5159
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: U478dAR2hHXKTa+I18WGE6evjpdMtUKEMbIvC7pIhTYyzV/xDt2Q9MGcUy6L1vDmSLIWm9115srmnn05u7bjeQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB9174
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_230024_459979_D2C32626 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20251202_230649_464205_4FAF4F39 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,84 +165,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Carlos,
+Add audio sound cards support including bt-sco, WM8962, PDM microphone,
+and audio XCVR sound cards.
 
-kernel test robot noticed the following build errors:
+Chancel Liu (5):
+  arm64: dts: imx91-11x11-evk: Refine label and node name of WM8962
+  arm64: dts: imx91-11x11-evk: Add bt-sco sound card support
+  arm64: dts: imx91-11x11-evk: Add WM8962 sound card support
+  arm64: dts: imx91-11x11-evk: Add PDM microphone sound card support
+  arm64: dts: imx91-11x11-evk: Add audio XCVR sound card support
 
-[auto build test ERROR on v6.18]
-[also build test ERROR on linus/master next-20251202]
-[cannot apply to shawnguo/for-next]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Carlos-Song/spi-imx-group-spi_imx_dma_configure-with-spi_imx_dma_transfer/20251202-160030
-base:   v6.18
-patch link:    https://lore.kernel.org/r/20251202075503.2448339-6-carlos.song%40nxp.com
-patch subject: [PATCH v2 5/6] spi: imx: support dynamic burst length for ECSPI DMA mode
-config: csky-allmodconfig (https://download.01.org/0day-ci/archive/20251203/202512031425.cmBJXuXy-lkp@intel.com/config)
-compiler: csky-linux-gcc (GCC) 15.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251203/202512031425.cmBJXuXy-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512031425.cmBJXuXy-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/spi/spi-imx.c:144:34: error: 'counted_by' attribute is not allowed for a non-array field
-     144 |         struct dma_data_package *dma_data __counted_by(dma_package_num);
-         |                                  ^~~~~~~~
-
-
-vim +/counted_by +144 drivers/spi/spi-imx.c
-
-   107	
-   108	struct spi_imx_data {
-   109		struct spi_controller *controller;
-   110		struct device *dev;
-   111	
-   112		struct completion xfer_done;
-   113		void __iomem *base;
-   114		unsigned long base_phys;
-   115	
-   116		struct clk *clk_per;
-   117		struct clk *clk_ipg;
-   118		unsigned long spi_clk;
-   119		unsigned int spi_bus_clk;
-   120	
-   121		unsigned int bits_per_word;
-   122		unsigned int spi_drctl;
-   123	
-   124		unsigned int count, remainder;
-   125		void (*tx)(struct spi_imx_data *spi_imx);
-   126		void (*rx)(struct spi_imx_data *spi_imx);
-   127		void *rx_buf;
-   128		const void *tx_buf;
-   129		unsigned int txfifo; /* number of words pushed in tx FIFO */
-   130		unsigned int dynamic_burst;
-   131		bool rx_only;
-   132	
-   133		/* Target mode */
-   134		bool target_mode;
-   135		bool target_aborted;
-   136		unsigned int target_burst;
-   137	
-   138		/* DMA */
-   139		bool usedma;
-   140		u32 wml;
-   141		struct completion dma_rx_completion;
-   142		struct completion dma_tx_completion;
-   143		size_t dma_package_num;
- > 144		struct dma_data_package *dma_data __counted_by(dma_package_num);
-   145		int rx_offset;
-   146	
-   147		const struct spi_imx_devtype_data *devtype_data;
-   148	};
-   149	
+ .../boot/dts/freescale/imx91-11x11-evk.dts    | 181 +++++++++++++++++-
+ 1 file changed, 180 insertions(+), 1 deletion(-)
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.50.1
+
 
