@@ -4,78 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6308D15DB3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 16:43:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED65AD15DB3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 16:50:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5c+nc7S6m4RRgh7CUsFpa4LcPLmdMoyUNCHEdFI1R7Y=; b=TJTBzrvvOw5/RYBwtEPxyO+rqb
-	9yr6WcvB44glPjrmNK4wN2XwTW6mnK6c4IEbIz7IBBoyijoTFESlPv2eFuRewdIgK77Hlpy2aO9VG
-	no29f6PUb41Z0Cvzb7w6DHvWEbCBEw8CCQjzA0WTAVBhoYTC/s8sbYwysJeswuXlaJ1sVG4ZmgCWV
-	4SqgE8+xzhXiss0my8/hmhl6DWwEtaQp3r4RSDbrnB83xCW7Dm8GlD+Yunz4gAsJD0XLTmrDh1yb9
-	Yl2DcH8+HR1kHt7wwhqo2XRdROY/IirB/tjneNjkgxMsog+lWxaOeaBIccuAjwG0xB28kNz0mgpT4
-	Doo3fHYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SCL9jQ+9mInDWxc0m+bvuqpLUoH2l1iKsgEK61ZiYH0=; b=TCZUsW2KKtXkr45klrtcfMSFDG
+	eyLDQpVF0cYkA2R/f//8MElTlZNDb+QmYxsSJxq6LDKDdycG23wUUlprZuCW2aFh34X+yZyEA3hT1
+	UV1tWHH/lI5t5PXGxgQcWlkJJSFLmooTHcxuf1M5khD3jr10cmDn8SadBQjDgscGhMgtUvQo/ZfyC
+	suXOQx4ncJ/si1ddIb9GzcdZ6enXVoFI5E0m6gMT8J1GX5IpUU7iuMzfpBpHz/Z0o9Je6aW6OD7PR
+	ZKO8FZNDDOHn9gUVmN6PsIWLkZp4ZLPN+xBy5Uq2QTUQQQw4WO1jDH2b+oaDXu8hj+gHsc7ei1aE9
+	io5RR5Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQpx3-00000006oxU-33ID;
-	Wed, 03 Dec 2025 16:43:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vQq3L-00000006pGe-2BF7;
+	Wed, 03 Dec 2025 16:50:07 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQpx1-00000006ox5-2SWE
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 16:43:36 +0000
+	id 1vQq3J-00000006pGI-33DB;
+	Wed, 03 Dec 2025 16:50:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 42A8D438B1;
-	Wed,  3 Dec 2025 16:43:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 230B0C4CEF5;
-	Wed,  3 Dec 2025 16:43:34 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 94C76601D5;
+	Wed,  3 Dec 2025 16:50:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C21D4C4CEF5;
+	Wed,  3 Dec 2025 16:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764780214;
-	bh=iyflUZchaw873FTzogwUNqRT8cclH8+Swqz8EPmoL5w=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=CA29AkXSlTUEp4TCKC8TjYGZYOKPd7DJierroBKco/xQli3ma3HoMF9l3c6PHRdya
-	 jn0FuRwOgU8vlGAA18fWSxmbb2JYp0V60Fo9NO6UZRgRDpPNnObaaSjXFUenWstB4d
-	 RX9+AEOh0SUG7hMiiXnCgLzluYqH8tFVr06KHaiSlQyA4UTxM6Ft85SKI7nY+rPW63
-	 wxzUaIGBLxg62Z3EMxd/SKSHs5niGm/vb/7o/fSh1hGblzPKepAHg1nijjeYC6oWbR
-	 vyi7w+lsxnnkZuvJ6eWUpI8PNTOuU+Y7kdL3QaREIITPtwOpY29PZE59u62LJOVeAv
-	 ooqXhHdtZoEXA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vQpwx-0000000AEDg-38lh;
-	Wed, 03 Dec 2025 16:43:31 +0000
-Date: Wed, 03 Dec 2025 16:43:31 +0000
-Message-ID: <86fr9rplcc.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Joey Gouly <joey.gouly@arm.com>
-Cc: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>
-Subject: Re: [PATCH 4/4] KVM: arm64: Convert VTCR_EL2 to config-driven sanitisation
-In-Reply-To: <20251203161715.GA4187196@e124191.cambridge.arm.com>
-References: <20251129144525.2609207-1-maz@kernel.org>
-	<20251129144525.2609207-5-maz@kernel.org>
-	<20251203161715.GA4187196@e124191.cambridge.arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: joey.gouly@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, alexandru.elisei@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_084335_663995_0F8062CB 
-X-CRM114-Status: GOOD (  26.40  )
+	s=k20201202; t=1764780604;
+	bh=WE/MGjDXYkfLp/ASxbUyC53LMNdsfobdCP7BxApY2r0=;
+	h=From:To:In-Reply-To:References:Subject:Date:From;
+	b=kOSDsoBa4+of4dbFUeN3S+S0nuqVts/bOkUwD16XwQbjzVTj+NhYD0LIkxhGFWfm0
+	 LHzLg4Lifd5kiuroMAtL4WmHEdGD+YAL3dHVIa7frayQuQO71IkhZzMpkHsQYrudGo
+	 ZlVONlj3lmqwTjyJqgLLB35t9c7ZMyWsyknuCS2O1NBjhbCVPNc7XGO/rDPZz4YlPb
+	 HjRpjmwl1C+zTO2EuQw4+DSnaDLHt1+DmRmzvS8nCUZfN+X+tUal9mwxUFTnzp19x8
+	 C1DhWNMXK9YLwFFuFv46gAZaGCczke3v0ca5vq8FgRWm7Nu9Fwf++Fnfn5BSsNGTDM
+	 QevwICvNEOOFw==
+From: Mark Brown <broonie@kernel.org>
+To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>, 
+ Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+ linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ llvm@lists.linux.dev, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20251203141644.106459-2-krzysztof.kozlowski@oss.qualcomm.com>
+References: <20251203141644.106459-2-krzysztof.kozlowski@oss.qualcomm.com>
+Subject: Re: [PATCH] ASoC: rockchip: Fix Wvoid-pointer-to-enum-cast warning
+ (again)
+Message-Id: <176478060152.99790.2704238708778622367.b4-ty@kernel.org>
+Date: Wed, 03 Dec 2025 16:50:01 +0000
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.15-dev-88d78
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,122 +75,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 03 Dec 2025 16:17:15 +0000,
-Joey Gouly <joey.gouly@arm.com> wrote:
+On Wed, 03 Dec 2025 15:16:45 +0100, Krzysztof Kozlowski wrote:
+> 'version' is an enum, thus cast of pointer on 64-bit compile test with
+> clang W=1 causes:
 > 
-> Hi!
+>   rockchip_pdm.c:583:17: error: cast to smaller integer type 'enum rk_pdm_version' from 'const void *' [-Werror,-Wvoid-pointer-to-enum-cast]
 > 
-> On Sat, Nov 29, 2025 at 02:45:25PM +0000, Marc Zyngier wrote:
-> > Describe all the VTCR_EL2 fields and their respective configurations,
-> > making sure that we correctly ignore the bits that are not defined
-> > for a given guest configuration.
-> > 
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > ---
-> >  arch/arm64/kvm/config.c | 69 +++++++++++++++++++++++++++++++++++++++++
-> >  arch/arm64/kvm/nested.c |  3 +-
-> >  2 files changed, 70 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-> > index a02c28d6a61c9..c36e133c51912 100644
-> > --- a/arch/arm64/kvm/config.c
-> > +++ b/arch/arm64/kvm/config.c
-> > @@ -141,6 +141,7 @@ struct reg_feat_map_desc {
-> >  #define FEAT_AA64EL1		ID_AA64PFR0_EL1, EL1, IMP
-> >  #define FEAT_AA64EL2		ID_AA64PFR0_EL1, EL2, IMP
-> >  #define FEAT_AA64EL3		ID_AA64PFR0_EL1, EL3, IMP
-> > +#define FEAT_SEL2		ID_AA64PFR0_EL1, SEL2, IMP
-> >  #define FEAT_AIE		ID_AA64MMFR3_EL1, AIE, IMP
-> >  #define FEAT_S2POE		ID_AA64MMFR3_EL1, S2POE, IMP
-> >  #define FEAT_S1POE		ID_AA64MMFR3_EL1, S1POE, IMP
-> > @@ -202,6 +203,8 @@ struct reg_feat_map_desc {
-> >  #define FEAT_ASID2		ID_AA64MMFR4_EL1, ASID2, IMP
-> >  #define FEAT_MEC		ID_AA64MMFR3_EL1, MEC, IMP
-> >  #define FEAT_HAFT		ID_AA64MMFR1_EL1, HAFDBS, HAFT
-> > +#define FEAT_HDBSS		ID_AA64MMFR1_EL1, HAFDBS, HDBSS
-> > +#define FEAT_HPDS2		ID_AA64MMFR1_EL1, HPDS, HPDS2
-> >  #define FEAT_BTI		ID_AA64PFR1_EL1, BT, IMP
-> >  #define FEAT_ExS		ID_AA64MMFR0_EL1, EXS, IMP
-> >  #define FEAT_IESB		ID_AA64MMFR2_EL1, IESB, IMP
-> > @@ -219,6 +222,7 @@ struct reg_feat_map_desc {
-> >  #define FEAT_FGT2		ID_AA64MMFR0_EL1, FGT, FGT2
-> >  #define FEAT_MTPMU		ID_AA64DFR0_EL1, MTPMU, IMP
-> >  #define FEAT_HCX		ID_AA64MMFR1_EL1, HCX, IMP
-> > +#define FEAT_S2PIE		ID_AA64MMFR3_EL1, S2PIE, IMP
-> >  
-> >  static bool not_feat_aa64el3(struct kvm *kvm)
-> >  {
-> > @@ -362,6 +366,28 @@ static bool feat_pmuv3p9(struct kvm *kvm)
-> >  	return check_pmu_revision(kvm, V3P9);
-> >  }
-> >  
-> > +#define has_feat_s2tgran(k, s)						\
-> > +  ((kvm_has_feat_enum(kvm, ID_AA64MMFR0_EL1, TGRAN##s##_2, TGRAN##s) && \
-> > +    !kvm_has_feat_enum(kvm, ID_AA64MMFR0_EL1, TGRAN##s, NI))	     ||	\
-> > +   kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN##s##_2, IMP))
-> > +
-> > +static bool feat_lpa2(struct kvm *kvm)
-> > +{
-> > +	return ((kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN4, 52_BIT)    ||
-> > +		 !kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN4, IMP))	&&
-> > +		(kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN16, 52_BIT)   ||
-> > +		 !kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN16, IMP))	&&
-> > +		(kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN4_2, 52_BIT)  ||
-> > +		 !has_feat_s2tgran(kvm, 4))				&&
-> > +		(kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN16_2, 52_BIT) ||
-> > +		 !has_feat_s2tgran(kvm, 16)));
-> > +}
-> > +
-> > +static bool feat_vmid16(struct kvm *kvm)
-> > +{
-> > +	return kvm_has_feat_enum(kvm, ID_AA64MMFR1_EL1, VMIDBits, 16);
-> > +}
-> > +
-> >  static bool compute_hcr_rw(struct kvm *kvm, u64 *bits)
-> >  {
-> >  	/* This is purely academic: AArch32 and NV are mutually exclusive */
-> > @@ -1168,6 +1194,44 @@ static const struct reg_bits_to_feat_map mdcr_el2_feat_map[] = {
-> >  static const DECLARE_FEAT_MAP(mdcr_el2_desc, MDCR_EL2,
-> >  			      mdcr_el2_feat_map, FEAT_AA64EL2);
-> >  
-> > +static const struct reg_bits_to_feat_map vtcr_el2_feat_map[] = {
-> > +	NEEDS_FEAT(VTCR_EL2_HDBSS, FEAT_HDBSS),
-> > +	NEEDS_FEAT(VTCR_EL2_HAFT, FEAT_HAFT),
-> > +	NEEDS_FEAT(VTCR_EL2_TL0		|
-> > +		   VTCR_EL2_TL1		|
-> > +		   VTCR_EL2_AssuredOnly	|
-> > +		   VTCR_EL2_GCSH,
-> > +		   FEAT_THE),
+> This was already fixed in commit 49a4a8d12612 ("ASoC: rockchip: Fix
+> Wvoid-pointer-to-enum-cast warning") but then got bad in
+> commit 9958d85968ed ("ASoC: Use device_get_match_data()").
 > 
-> The text for VTCR_EL2.AssuredOnly says:
-> 
-> 	This field is RES0 when VTCR_EL2.D128 is 1.
-> 
-> > +	NEEDS_FEAT(VTCR_EL2_D128, FEAT_D128),
-> > +	NEEDS_FEAT(VTCR_EL2_S2POE, FEAT_S2POE),
-> > +	NEEDS_FEAT(VTCR_EL2_S2PIE, FEAT_S2PIE),
-> 
-> The text for VTCR_EL2.S2PIE says:
-> 
-> 	This field is RES1 when VTCR_EL2.D128 is set.
-> 
-> 
-> Are these cases that need to be handled here somehow?
+> [...]
 
-These are not static configurations. They are dynamic behaviours
-depending on other control bits.
+Applied to
 
-D128 code, if it ever exists, will have to *interpret* these bits as
-RES0 (resp. RES1) when evaluating the page tables.
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
 
-If you want a similar example in existing code, look at the way we
-handle TCR_EL1.HPDn in the S1 PTW. They are treated as RES1 if
-TCR2_EL1.PIE is set, as per R_JHSVW.
+Thanks!
+
+[1/1] ASoC: rockchip: Fix Wvoid-pointer-to-enum-cast warning (again)
+      commit: 57d508b5f718730f74b11e0dc9609ac7976802d1
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
 
 Thanks,
+Mark
 
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
