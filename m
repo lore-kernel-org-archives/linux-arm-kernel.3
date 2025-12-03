@@ -4,63 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED65AD15DB3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 16:50:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 304CFD15DB6
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 16:59:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SCL9jQ+9mInDWxc0m+bvuqpLUoH2l1iKsgEK61ZiYH0=; b=TCZUsW2KKtXkr45klrtcfMSFDG
-	eyLDQpVF0cYkA2R/f//8MElTlZNDb+QmYxsSJxq6LDKDdycG23wUUlprZuCW2aFh34X+yZyEA3hT1
-	UV1tWHH/lI5t5PXGxgQcWlkJJSFLmooTHcxuf1M5khD3jr10cmDn8SadBQjDgscGhMgtUvQo/ZfyC
-	suXOQx4ncJ/si1ddIb9GzcdZ6enXVoFI5E0m6gMT8J1GX5IpUU7iuMzfpBpHz/Z0o9Je6aW6OD7PR
-	ZKO8FZNDDOHn9gUVmN6PsIWLkZp4ZLPN+xBy5Uq2QTUQQQw4WO1jDH2b+oaDXu8hj+gHsc7ei1aE9
-	io5RR5Rw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GLNw0G6b149MCzPLLEzRuLxoLDWEj7jHYuM/qIPSZAs=; b=EDS7UrgpJIj9ACZKQPIkqNAyPy
+	8vkWYxyTiEz70RuY2XTISmuPrCkiwYBQ9/ZUiaZEGCGj4vZJl/nrrwzFVPdjhAs+8B86tosPX0s1C
+	o72An5MIsIW7iebvjNK9n8Bzrve4L36HSMh3YxLkRz4ju44VCr9M32XN9MU/zdXSudXz2gI4fTCtK
+	aXxaYZvtLuRDFWyd6fFGclmIiLSlQQNU9LhHt2cjO+s5PPIg8VNCzFpefXkPozoPrqzAkKDpCgvOH
+	G8RlcPFLqr/x/msQNvem4m/8qntSOpNdrx89b+y9cdxzE9nUysiMspy2LjS3qVIdKuI2PrZgoJZWs
+	figvlqsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQq3L-00000006pGe-2BF7;
-	Wed, 03 Dec 2025 16:50:07 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vQqCX-00000006peZ-3CCp;
+	Wed, 03 Dec 2025 16:59:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQq3J-00000006pGI-33DB;
-	Wed, 03 Dec 2025 16:50:05 +0000
+	id 1vQqCV-00000006pe9-3P5j
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 03 Dec 2025 16:59:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 94C76601D5;
-	Wed,  3 Dec 2025 16:50:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C21D4C4CEF5;
-	Wed,  3 Dec 2025 16:50:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BBC1244397
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Dec 2025 16:59:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CE85C19421
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  3 Dec 2025 16:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764780604;
-	bh=WE/MGjDXYkfLp/ASxbUyC53LMNdsfobdCP7BxApY2r0=;
-	h=From:To:In-Reply-To:References:Subject:Date:From;
-	b=kOSDsoBa4+of4dbFUeN3S+S0nuqVts/bOkUwD16XwQbjzVTj+NhYD0LIkxhGFWfm0
-	 LHzLg4Lifd5kiuroMAtL4WmHEdGD+YAL3dHVIa7frayQuQO71IkhZzMpkHsQYrudGo
-	 ZlVONlj3lmqwTjyJqgLLB35t9c7ZMyWsyknuCS2O1NBjhbCVPNc7XGO/rDPZz4YlPb
-	 HjRpjmwl1C+zTO2EuQw4+DSnaDLHt1+DmRmzvS8nCUZfN+X+tUal9mwxUFTnzp19x8
-	 C1DhWNMXK9YLwFFuFv46gAZaGCczke3v0ca5vq8FgRWm7Nu9Fwf++Fnfn5BSsNGTDM
-	 QevwICvNEOOFw==
-From: Mark Brown <broonie@kernel.org>
-To: Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Heiko Stuebner <heiko@sntech.de>, 
- Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
- linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- llvm@lists.linux.dev, 
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-In-Reply-To: <20251203141644.106459-2-krzysztof.kozlowski@oss.qualcomm.com>
-References: <20251203141644.106459-2-krzysztof.kozlowski@oss.qualcomm.com>
-Subject: Re: [PATCH] ASoC: rockchip: Fix Wvoid-pointer-to-enum-cast warning
- (again)
-Message-Id: <176478060152.99790.2704238708778622367.b4-ty@kernel.org>
-Date: Wed, 03 Dec 2025 16:50:01 +0000
+	s=k20201202; t=1764781174;
+	bh=GLNw0G6b149MCzPLLEzRuLxoLDWEj7jHYuM/qIPSZAs=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=JvwgrgcfGebBMg0+kif06uP4+Vu1gxC5loY2xSXlJZtgAzlldFv8S4vy2RyKW8TJf
+	 wN2B9KwnwO8jdAxqox8WRFRELSKTOJcpDSnY/Ie2MCFmVBRE1wiWIWYfSTxe3bBQJ1
+	 rhFRiWN3jpbitk07IXTF/9atAtyiqJUI6Iqk4RY1sUg0u15qWiirDgKJ0xcp9jhazb
+	 eLsEuxM8bIxpnLNnDUImwJTE78o0h4A8RBdofvlLtcuwKfNhhgAVFtVPNE5z/50OwK
+	 9wU5vsbUGkEXfMItdT/sF9Obxsbn6iaroqOtWfdz72NKOVyUgo1L/gYEsGuLmrcR+M
+	 AEvyvB3KedC5A==
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5958931c9c7so9065828e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 08:59:34 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXhlzRajcRooaj947JdrxsDfhTYhWt8ZxPnqDzgAMH0qUyeJryvoJsoNgIu7RL4/we9try3rGrh0ULv8TptdLKG@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVy7KRUZx18CSeEd5l1qkMs76t8G3VnVJ1uSKGSPjEjTLxCXV+
+	rE0vBIN2KoYrBmvtu/b/b+2N8uy2DriCoRDlnPifgPORocj5XGuOUSVmK1YEPVHIFJb+A7pUwLh
+	ws9LzQM6VfZd8CBLY5gSTplIcz5daz8M=
+X-Google-Smtp-Source: AGHT+IFxEQ2Jijkxcdh/scou3ByOpWOH6CyVQrhGC1j+BRsw+a4wNEkslTkW0FzZgwwrgB0TC7sHeOVJskTQid6Ey9M=
+X-Received: by 2002:a05:6512:3a95:b0:594:51ac:13e with SMTP id
+ 2adb3069b0e04-597d3f5be96mr1435500e87.17.1764781172972; Wed, 03 Dec 2025
+ 08:59:32 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-88d78
+References: <20251127092226.1439196-8-ardb+git@google.com> <20251127092226.1439196-10-ardb+git@google.com>
+ <20251127150614.GA3271003@e124191.cambridge.arm.com>
+In-Reply-To: <20251127150614.GA3271003@e124191.cambridge.arm.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Wed, 3 Dec 2025 17:59:21 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXHhSFj-ScYXCZu=9SyWp8j3ZrO4qwOcmKLZ9FBLwN6-Qg@mail.gmail.com>
+X-Gm-Features: AWmQ_bmIzYenu2M9X7IlJutEKtuuegnOzOylc9adBpVGEOeCZ6TUe0IIN3luTYU
+Message-ID: <CAMj1kXHhSFj-ScYXCZu=9SyWp8j3ZrO4qwOcmKLZ9FBLwN6-Qg@mail.gmail.com>
+Subject: Re: [RFC/RFT PATCH 2/6] arc: Wire up cmpxchg64_local() to generic implementation
+To: Joey Gouly <joey.gouly@arm.com>
+Cc: Ard Biesheuvel <ardb+git@google.com>, linux-hardening@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Kees Cook <kees@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>, 
+	Arnd Bergmann <arnd@arndb.de>, Jeremy Linton <jeremy.linton@arm.com>, 
+	Catalin Marinas <Catalin.Marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	"Jason A. Donenfeld" <Jason@zx2c4.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251203_085935_870422_933789AC 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,44 +87,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 03 Dec 2025 15:16:45 +0100, Krzysztof Kozlowski wrote:
-> 'version' is an enum, thus cast of pointer on 64-bit compile test with
-> clang W=1 causes:
-> 
->   rockchip_pdm.c:583:17: error: cast to smaller integer type 'enum rk_pdm_version' from 'const void *' [-Werror,-Wvoid-pointer-to-enum-cast]
-> 
-> This was already fixed in commit 49a4a8d12612 ("ASoC: rockchip: Fix
-> Wvoid-pointer-to-enum-cast warning") but then got bad in
-> commit 9958d85968ed ("ASoC: Use device_get_match_data()").
-> 
-> [...]
+On Thu, 27 Nov 2025 at 16:06, Joey Gouly <joey.gouly@arm.com> wrote:
+>
+> On Thu, Nov 27, 2025 at 10:22:29AM +0100, Ard Biesheuvel wrote:
+> > From: Ard Biesheuvel <ardb@kernel.org>
+> >
+> > Provide cmpxchg64_local() for hexagon so we can start using it in
+> > generic code.
+>
+> nit: this is for arc, not hexagon.
+>
 
-Applied to
-
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
-
-Thanks!
-
-[1/1] ASoC: rockchip: Fix Wvoid-pointer-to-enum-cast warning (again)
-      commit: 57d508b5f718730f74b11e0dc9609ac7976802d1
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+Indeed, thanks!
 
