@@ -4,60 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14C45D1BDCF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 18:30:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41C5ED1BDD0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 19:09:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d4IhYnYe+E5kAR+ZOidbjcdn07rPVy52Ae+PWCfYhFI=; b=jKukSGyoVMtgByE6WjAZC7dDoz
-	FxGBvKwhlMLEAm7OBaOTIEgMTwVSmQrSQb2MGPLjhkMMcNndnYV2cF7aW8z0Z4QRiCViULLuxRZbB
-	+M7thN9uVurk2lVByb88G6BGtmI11weMsmil3Rah3myDG2zX8G0/syAhFer3I2nB+jbf0IZhS7w0a
-	c6RdJB21hH5bP/cDjPBqIUI/SlM2jN59z1a6QLLJ75RmSqpFqjIiPc740fGkLhuxUEj6Z+/x5yup6
-	MhUl01V4h0KM0iFhzU4f9hKCHibigmchGUD5yUT7fZT7R7XUPMiq6KsEpL83uhkB+Qzqv/9RkSViJ
-	xDhuIvrg==;
+	bh=B3IRsPmCpiCqjml1bQ7Q4E8Gj2zFoNTCEFI1NKqRplI=; b=JcqXU5wskExDSw+FJFAaDoWyj0
+	WgzXP1pp+mddPuu2WCaHYpg9JJkzBlduhqIjKhkrCzOMUifrAQIGvfP6iDmi+wcBUU6uXrbrt7rou
+	ZuYOWgeLi8M2oOeNu3LFH08GZNwt3IKYLuz1WHTeQwgyJXNjm8a7MjwgdopitkJcGLYEt3pnconwO
+	wNrpQaBkHBhjUtJ0ZFv0pF1R3dXiG0DXWRBqOkvqTWqRejOSfRYrBsAtNx6cqxVZAEmuVhY8ROssh
+	8TilkIdkA4fyvq7Wr8SM2PareznMUCotgXDcc4u6z4R4aoCMvoFY+dE2wjo9KoZWOn+JoI2e4hYTg
+	AkC6jHVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQrbt-00000006wNW-34l2;
-	Wed, 03 Dec 2025 18:29:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQrbq-00000006wLA-01wj
+	id 1vQsET-00000006y4C-1p0w;
+	Wed, 03 Dec 2025 19:09:45 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vQsEQ-00000006y3X-3R4V
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 18:29:51 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B801339;
-	Wed,  3 Dec 2025 10:29:39 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2FBD83F66E;
-	Wed,  3 Dec 2025 10:29:46 -0800 (PST)
-Date: Wed, 3 Dec 2025 18:29:44 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	quic_yingdeng@quicinc.com, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	Jinlong Mao <jinlong.mao@oss.qualcomm.com>,
-	Mao Jinlong <quic_jinlmao@quicinc.com>
-Subject: Re: [PATCH v6 2/2] coresight: cti: Add Qualcomm extended CTI support
-Message-ID: <20251203182944.GG724103@e132581.arm.com>
-References: <20251202-extended_cti-v6-0-ab68bb15c4f5@oss.qualcomm.com>
- <20251202-extended_cti-v6-2-ab68bb15c4f5@oss.qualcomm.com>
+	Wed, 03 Dec 2025 19:09:44 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2956d816c10so1368885ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 11:09:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1764788981; x=1765393781; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=B3IRsPmCpiCqjml1bQ7Q4E8Gj2zFoNTCEFI1NKqRplI=;
+        b=CavZtT3R0b8Fl8kwr5O/D3vrC0GXHUL8ziqKFWdvkcisKqlKtp0M4DCgDHTitORHWa
+         GDoQ2ytVzrp7IrmiOuqM0Wf8rpFBE1HHSGSRa67TQtSBv4UnQPjCpGEdSB6s49R378oA
+         mtABhz62ztCkVYZ59wD+BhKqWa+D4oW18haXT94Iz2B+VbpXRnxpUXSMrg08GjRq0RH/
+         nGNhaDCCgUjGewtB0uVXxYk6Nuv6s4Q7aKX4G2sgC1T0WniCL4clrcKbLb0xrTm71Lp6
+         GvhQWWPvgrqikGqtYhV4u1qsAbR/wL502jBTN6bjjBr0uZuXLhijxwz39ySgJY6XslpE
+         lvhQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764788981; x=1765393781;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=B3IRsPmCpiCqjml1bQ7Q4E8Gj2zFoNTCEFI1NKqRplI=;
+        b=rPycfPYLq1WnpMdpK5MsiukdLKXKRM1+LpoOXg5xlRnQL2QNuy1PQeW4fKjT3aSqT3
+         bklxPZlcZr05DCoOQf/pvms/sBe1hgnVxtuMwHBy0Tkl+CbyJjsEK5n3jKxzRH27cG9C
+         KO3EgAPKihwc+flABZHpr2/uBkA/Fw/XZNpmME1KYypTHbQjovbxTUDnb//Cq3cAkJZj
+         +6wKa9/2i31KnLXJEjFa+hstiNShCpqWgdQCaxzRA7shhPx84dOt76GiP56kvrulFuKh
+         Y3jCsY/d+o3tZosfhaPkHFCIKIOTCcrlw4xuit20KnhizOR1GTHMp5SzvTsMThUQlD8k
+         481Q==
+X-Forwarded-Encrypted: i=1; AJvYcCX75b7pLQDPfyiwnENd/zpjaCIZjBi+MZiY/XAvjqSLBrX0nGBRWBVJgZXHQM563KxnOKxoNOhMyV2UmOoP1r/4@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQ6rguD5R9zhvvk1YtF9np81iiAcgl8aoHI4Bwm5paZpe9tweG
+	Hvz7LvcrAbZbp/F/VOSleh3xWJFgjfvhMUIrLduGdUvj/akG1ZzUJyDbWRop91rfUN0=
+X-Gm-Gg: ASbGncubNsTMMGYSGiWK1MMfQWJHWy5cEfz/f10S7Gix+rAL90NkweVpScD8penBxhQ
+	SUUaqx2mlJEnQYnI8M8O3b11e1WRwCPSxaHDgeXVoOoWSOF9gBYOzDksdsGopjtP8/42CGifKC8
+	82hKoefouFxgRJaPX4oKsWLNM7XGEuamZ64CBMPEf/FoHTTXF8Jyy3CX+1dOAkX+xAlwIWaGCQQ
+	Q1VtG9/r6pLtAcazBp86ZQesj7qj5pQV2VWu3qrealD7p0chZwh7Iabo7LMKvDh+2KmpNWEeOUk
+	EmqHhrvrtgwUy1SpnW2AyhnfLO/mZtc/TNPoT13wtFv9Z0/WIw7MbDWFmzd/zXW4hLMvGimurrX
+	eBX4sjIvrMK9ITxTWHB40e/mEkztV1muXdlFdWwNBHTVBWRGqTtQvhMZDrIslgEfusxmlIHjpq0
+	p3/qJNi496FOV9tJi5cAE8tJMY
+X-Google-Smtp-Source: AGHT+IF06RISZgnSJBztNS3j4oN16EtI84xL0/NkOjF0OCvNrCJXb3n/r6sR5sNc/4qd+kbVJVFsEA==
+X-Received: by 2002:a17:903:94f:b0:29d:73cc:c9f6 with SMTP id d9443c01a7336-29d73cce8bdmr29319365ad.1.1764788981186;
+        Wed, 03 Dec 2025 11:09:41 -0800 (PST)
+Received: from p14s ([2604:3d09:148c:c800:dc26:2c67:b58f:e40a])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29bceb7f69asm190635605ad.102.2025.12.03.11.09.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 03 Dec 2025 11:09:40 -0800 (PST)
+Date: Wed, 3 Dec 2025 12:09:37 -0700
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Shenwei Wang <shenwei.wang@nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-imx@nxp.com, Randy Dunlap <rdunlap@infradead.org>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>,
+	linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v5 0/5] Enable Remote GPIO over RPMSG on i.MX Platform
+Message-ID: <aTCK8e1SJA7Uh3wL@p14s>
+References: <20251104203315.85706-1-shenwei.wang@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251202-extended_cti-v6-2-ab68bb15c4f5@oss.qualcomm.com>
+In-Reply-To: <20251104203315.85706-1-shenwei.wang@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_102950_143936_D6DB4AC8 
-X-CRM114-Status: GOOD (  38.37  )
+X-CRM114-CacheID: sfid-20251203_110942_904558_7A38352F 
+X-CRM114-Status: GOOD (  24.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,389 +112,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 02, 2025 at 02:42:21PM +0800, Yingchao Deng wrote:
-> The QCOM extended CTI is a heavily parameterized version of ARM’s CSCTI.
-> It allows a debugger to send to trigger events to a processor or to send
-> a trigger event to one or more processors when a trigger event occurs
-> on another processor on the same SoC, or even between SoCs. Qualcomm CTI
-> implementation differs from the standard CTI in the following aspects:
+On Tue, Nov 04, 2025 at 02:33:10PM -0600, Shenwei Wang wrote:
+> Support the remote devices on the remote processor via the RPMSG bus on
+> i.MX platform.
 > 
-> 1. The number of supported triggers is extended to 128.
-> 2. Several register offsets differ from the CoreSight specification.
+> Changes in v5:
+>  - move the gpio-rpmsg.rst from admin-guide to staging directory after
+>    discussion with Randy Dunlap.
+>  - add include files with some code improvements per Bartosz's comments.
+> 
+> Changes in v4:
+>  - add a documentation to describe the transport protocol per Andrew's
+>    comments.
+>  - add a new handler to get the gpio direction.
+> 
+> Changes in v3:
+>  - fix various format issue and return value check per Peng 's review
+>    comments.
+>  - add the logic to also populate the subnodes which are not in the
+>    device map per Arnaud's request. (in imx_rproc.c)
+>  - update the yaml per Frank's review comments.
+> 
+> Changes in v2:
+>  - re-implemented the gpio driver per Linus Walleij's feedback by using
+>    GPIOLIB_IRQCHIP helper library.
+>  - fix various format issue per Mathieu/Peng 's review comments.
+>  - update the yaml doc per Rob's feedback
+> 
+> Cc: Bartosz Golaszewski <brgl@bgdev.pl>
+> Cc: Randy Dunlap <rdunlap@infradead.org>
+> Cc: Andrew Lunn <andrew@lunn.ch>
+> Cc: Mathieu Poirier <mathieu.poirier@linaro.org>
+> Cc: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+> Cc: Linus Walleij <linus.walleij@linaro.org>
+> Cc: linux-gpio@vger.kernel.org
+> 
+> Shenwei Wang (5):
+>   dt-bindings: remoteproc: imx_rproc: Add "rpmsg" subnode support
+>   remoteproc: imx_rproc: Populate devices under "rpmsg" subnode
+>   docs: staging: gpio-rpmsg: gpio over rpmsg bus
+>   gpio: imx-rpmsg: add imx-rpmsg GPIO driver
+>   arm64: dts: imx8ulp: Add rpmsg node under imx_rproc
+> 
+>  .../bindings/remoteproc/fsl,imx-rproc.yaml    | 123 +++++
+>  Documentation/staging/gpio-rpmsg.rst          | 202 ++++++++
+>  Documentation/staging/index.rst               |   1 +
+>  arch/arm64/boot/dts/freescale/imx8ulp.dtsi    |  27 +
+>  drivers/gpio/Kconfig                          |  17 +
+>  drivers/gpio/Makefile                         |   1 +
+>  drivers/gpio/gpio-imx-rpmsg.c                 | 475 ++++++++++++++++++
+>  drivers/remoteproc/imx_rproc.c                | 146 ++++++
+>  include/linux/rpmsg/imx_rpmsg.h               |  48 ++
+>  9 files changed, 1040 insertions(+)
+>  create mode 100644 Documentation/staging/gpio-rpmsg.rst
+>  create mode 100644 drivers/gpio/gpio-imx-rpmsg.c
+>  create mode 100644 include/linux/rpmsg/imx_rpmsg.h
+>
 
-I apologize for my late review of this series.  For easier maintenance
-later, I have several comments for register access.
+After reviewing this patchset I come to the following conclusion:
 
-[...]
+(1) Other people have pointed this out multiple time and I will do the same: the
+only way this work will move forward is by adopting a generic solution.  This
+proposal is not (no need to try to convince me otherwise).
 
-> +static const u32 cti_normal_offset[] = {
-> +	[INDEX_CTIINTACK]		= CTIINTACK,
-> +	[INDEX_CTIAPPSET]		= CTIAPPSET,
-> +	[INDEX_CTIAPPCLEAR]		= CTIAPPCLEAR,
-> +	[INDEX_CTIAPPPULSE]		= CTIAPPPULSE,
-> +	[INDEX_CTIINEN]			= CTIINEN(0),
-> +	[INDEX_CTIOUTEN]		= CTIOUTEN(0),
+(2) The right way to do this would be to have a separate set of virtqueues for
+each component that sits behind the remoteproc, instantiated using the content
+found in the resource table.  This would follow the same approach as the
+namespace, with their own VIRTIO IDS as published in [1].  That way we could
+re-use a lot of the work already done for other components, such as virtio-i2c
+and virtio-gpio.
 
-I prefer to update the these two macros to CTIINENn and CTIOUTENn, as
-later we will not use CTIINEN(n) and CTIOUTEN(n) anymore.
+(3) Some environment may be too memory constrained for option (2) above, hence
+using rpmsg as a transport protocol.  But as with option (2), that way also
+needs to look like virtio devices to the kernel.  It also means that protocol
+to interact with components need to follow the OASIS specification.  As such
+you'd have platform drivers for rpmsg-i2c and rpmsg-gpio that would register
+rpmsg_drivers.
 
-> +	[INDEX_CTITRIGINSTATUS]		= CTITRIGINSTATUS,
-> +	[INDEX_CTITRIGOUTSTATUS]	= CTITRIGOUTSTATUS,
-> +	[INDEX_CTICHINSTATUS]		= CTICHINSTATUS,
-> +	[INDEX_CTICHOUTSTATUS]		= CTICHOUTSTATUS,
-> +	[INDEX_CTIGATE]			= CTIGATE,
-> +	[INDEX_ASICCTL]			= ASICCTL,
-> +	[INDEX_ITCHINACK]		= ITCHINACK,
-> +	[INDEX_ITTRIGINACK]		= ITTRIGINACK,
-> +	[INDEX_ITCHOUT]			= ITCHOUT,
-> +	[INDEX_ITTRIGOUT]		= ITTRIGOUT,
-> +	[INDEX_ITCHOUTACK]		= ITCHOUTACK,
-> +	[INDEX_ITTRIGOUTACK]		= ITTRIGOUTACK,
-> +	[INDEX_ITCHIN]			= ITCHIN,
-> +	[INDEX_ITTRIGIN]		= ITTRIGIN,
-> +	[INDEX_ITCTRL]			= CORESIGHT_ITCTRL,
-> +};
-> +
-> +static const u32 cti_extended_offset[] = {
-> +	[INDEX_CTIINTACK]		= QCOM_CTIINTACK,
-> +	[INDEX_CTIAPPSET]		= QCOM_CTIAPPSET,
-> +	[INDEX_CTIAPPCLEAR]		= QCOM_CTIAPPCLEAR,
-> +	[INDEX_CTIAPPPULSE]		= QCOM_CTIAPPPULSE,
-> +	[INDEX_CTIINEN]			= QCOM_CTIINEN,
-> +	[INDEX_CTIOUTEN]		= QCOM_CTIOUTEN,
-> +	[INDEX_CTITRIGINSTATUS]		= QCOM_CTITRIGINSTATUS,
-> +	[INDEX_CTITRIGOUTSTATUS]	= QCOM_CTITRIGOUTSTATUS,
-> +	[INDEX_CTICHINSTATUS]		= QCOM_CTICHINSTATUS,
-> +	[INDEX_CTICHOUTSTATUS]		= QCOM_CTICHOUTSTATUS,
-> +	[INDEX_CTIGATE]			= QCOM_CTIGATE,
-> +	[INDEX_ASICCTL]			= QCOM_ASICCTL,
-> +	[INDEX_ITCHINACK]		= QCOM_ITCHINACK,
-> +	[INDEX_ITTRIGINACK]		= QCOM_ITTRIGINACK,
-> +	[INDEX_ITCHOUT]			= QCOM_ITCHOUT,
-> +	[INDEX_ITTRIGOUT]		= QCOM_ITTRIGOUT,
-> +	[INDEX_ITCHOUTACK]		= QCOM_ITCHOUTACK,
-> +	[INDEX_ITTRIGOUTACK]		= QCOM_ITTRIGOUTACK,
-> +	[INDEX_ITCHIN]			= QCOM_ITCHIN,
-> +	[INDEX_ITTRIGIN]		= QCOM_ITTRIGIN,
-> +	[INDEX_ITCTRL]			= CORESIGHT_ITCTRL,
-> +};
-
-I saw CTI registers are within 4KiB (0x1000), we can don't convert
-standard regiserts and only convert to QCOM register based on the
-standard ones.  So you can drop the cti_normal_offset strucuture and
-only have a cti_reg_qcom_offset[] struct:
-
-  static const u32 cti_extended_offset[] = {
-  	[CTIINTACK]		= QCOM_CTIINTACK,
-  	[CTIAPPSET]		= QCOM_CTIAPPSET,
-  	[CTIAPPCLEAR]		= QCOM_CTIAPPCLEAR,
-  	[CTIAPPPULSE]		= QCOM_CTIAPPPULSE,
-  	[CTIINEN]		= QCOM_CTIINEN,
-        ...
-  };
-
-Then you could create two helpers for register address:
-
-    static void __iomem *cti_reg_addr_with_nr(struct cti_drvdata *drvdata,
-                                              u32 reg, u32 nr)
-    {
-        /* convert to qcom specific offset */
-        if (unlikely(drvdata->is_qcom_cti))
-            reg = cti_extended_offset[reg];
-
-        return drvdata->base + reg + sizeof(u32) * nr;
-    }
-
-    static void __iomem *cti_reg_addr(struct cti_drvdata *drvdata, u32 reg)
-    {
-        return cti_reg_addr_with_nr(drvdata, reg, 0);
-    }
-
->  /*
->   * CTI devices can be associated with a PE, or be connected to CoreSight
-> @@ -70,15 +119,16 @@ void cti_write_all_hw_regs(struct cti_drvdata *drvdata)
->  
->  	/* write the CTI trigger registers */
->  	for (i = 0; i < config->nr_trig_max; i++) {
-> -		writel_relaxed(config->ctiinen[i], drvdata->base + CTIINEN(i));
-> +		writel_relaxed(config->ctiinen[i],
-> +			       drvdata->base + cti_offset(drvdata, INDEX_CTIINEN, i));
-
-writel_relaxed(config->ctiinen[i],
-               cti_reg_addr_with_nr(drvdata, CTIINENn, i));
-
-And apply for the same cases below.
-
->  	/* other regs */
-> -	writel_relaxed(config->ctigate, drvdata->base + CTIGATE);
-> -	writel_relaxed(config->asicctl, drvdata->base + ASICCTL);
-> -	writel_relaxed(config->ctiappset, drvdata->base + CTIAPPSET);
-> +	writel_relaxed(config->ctigate, drvdata->base + cti_offset(drvdata, INDEX_CTIGATE, 0));
-
-writel_relaxed(config->ctigate, cti_reg_addr(drvdata, CTIGATE));
-
-And apply for the same cases below.
-
-[...]
-
-> @@ -394,8 +447,8 @@ int cti_channel_trig_op(struct device *dev, enum cti_chan_op op,
->  
->  	/* update the local register values */
->  	chan_bitmask = BIT(channel_idx);
-> -	reg_offset = (direction == CTI_TRIG_IN ? CTIINEN(trigger_idx) :
-> -		      CTIOUTEN(trigger_idx));
-> +	reg_offset = (direction == CTI_TRIG_IN ? cti_offset(drvdata, INDEX_CTIINEN, trigger_idx) :
-> +			cti_offset(drvdata, INDEX_CTIOUTEN, trigger_idx));
-
-For readable, we can improve a bit with code alignment:
-
-  reg_offset = (direction == CTI_TRIG_IN) ? cti_reg_addr_with_nr(drvdata, CTIINENn, trigger_idx) :
-                                            cti_reg_addr_with_nr(drvdata, CTIOUTENn, trigger_idx);
-
-[...]
-
-> @@ -981,9 +1035,28 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
->  	drvdata->csdev_release = drvdata->csdev->dev.release;
->  	drvdata->csdev->dev.release = cti_device_release;
->  
-> +	/* check architect value*/
-> +	devarch = readl_relaxed(drvdata->base + CORESIGHT_DEVARCH);
-> +	if (CTI_DEVARCH_ARCHITECT(devarch) == ARCHITECT_QCOM) {
-> +		drvdata->subtype = QCOM_CTI;
-> +		drvdata->offsets = cti_extended_offset;
-
-As a result, we can only set the is_qcom_cti flag:
-
-  drvdata->is_qcom_cti = true;
-
-> +		/*
-> +		 * QCOM CTI does not implement Claimtag functionality as
-> +		 * per CoreSight specification, but its CLAIMSET register
-> +		 * is incorrectly initialized to 0xF. This can mislead
-> +		 * tools or drivers into thinking the component is claimed.
-> +		 *
-> +		 * Reset CLAIMSET to 0 to reflect that no claims are active.
-> +		 */
-> +		writel_relaxed(0, drvdata->base + CORESIGHT_CLAIMSET);
-
-I am confused for this.  If QCOM CTI does not implement claim tag,
-then what is the designed register at the offset CORESIGHT_CLAIMSET?
-
-Should you bypass all claim tag related operations for QCOM CTI case?
-(I don't see you touch anything for claim and declaim tags).
-
-> +	} else {
-> +		drvdata->subtype = ARM_STD_CTI;
-> +		drvdata->offsets = cti_normal_offset;
-> +	}
-> +
->  	/* all done - dec pm refcount */
->  	pm_runtime_put(&adev->dev);
-> -	dev_info(&drvdata->csdev->dev, "CTI initialized\n");
-> +	dev_info(&drvdata->csdev->dev, "CTI initialized; subtype=%d\n", drvdata->subtype);
-
-dev_info(&drvdata->csdev->dev, "%s CTI initialized\n",
-         drvdata->is_qcom_cti ? "QCOM" : "");
-
->  	return 0;
->  
->  pm_release:
-> diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-> index a9df77215141..12a495382999 100644
-> --- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-> +++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-> @@ -172,9 +172,8 @@ static struct attribute *coresight_cti_attrs[] = {
->  
->  /* register based attributes */
->  
-> -/* Read registers with power check only (no enable check). */
-> -static ssize_t coresight_cti_reg_show(struct device *dev,
-> -			   struct device_attribute *attr, char *buf)
-> +static ssize_t coresight_cti_mgmt_reg_show(struct device *dev,
-> +					   struct device_attribute *attr, char *buf)
->  {
->  	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
->  	struct cs_off_attribute *cti_attr = container_of(attr, struct cs_off_attribute, attr);
-> @@ -189,6 +188,40 @@ static ssize_t coresight_cti_reg_show(struct device *dev,
->  	return sysfs_emit(buf, "0x%x\n", val);
->  }
->  
-> +/* Read registers with power check only (no enable check). */
-> +static ssize_t coresight_cti_reg_show(struct device *dev,
-> +				      struct device_attribute *attr, char *buf)
-> +{
-> +	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +	struct cs_off_attribute *cti_attr = container_of(attr, struct cs_off_attribute, attr);
-> +	u32 idx, val = 0;
-> +
-> +	pm_runtime_get_sync(dev->parent);
-> +	raw_spin_lock(&drvdata->spinlock);
-> +	idx = drvdata->config.ext_reg_sel;
-> +	if (drvdata->config.hw_powered) {
-> +		switch (cti_attr->off) {
-> +		case INDEX_CTITRIGINSTATUS:
-> +		case INDEX_CTITRIGOUTSTATUS:
-> +		case INDEX_ITTRIGINACK:
-> +		case INDEX_ITTRIGOUT:
-> +		case INDEX_ITTRIGOUTACK:
-> +		case INDEX_ITTRIGIN:
-> +			val = readl_relaxed(drvdata->base +
-> +					    cti_offset(drvdata, cti_attr->off, idx));
-> +			break;
-> +
-> +		default:
-> +			val = readl_relaxed(drvdata->base + cti_offset(drvdata, cti_attr->off, 0));
-> +			break;
-> +		}
-> +	}
-> +
-> +	raw_spin_unlock(&drvdata->spinlock);
-> +	pm_runtime_put_sync(dev->parent);
-> +	return sysfs_emit(buf, "0x%x\n", val);
-> +}
-> +
->  /* Write registers with power check only (no enable check). */
->  static __maybe_unused ssize_t coresight_cti_reg_store(struct device *dev,
->  						      struct device_attribute *attr,
-> @@ -197,19 +230,39 @@ static __maybe_unused ssize_t coresight_cti_reg_store(struct device *dev,
->  	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
->  	struct cs_off_attribute *cti_attr = container_of(attr, struct cs_off_attribute, attr);
->  	unsigned long val = 0;
-> +	u32 idx;
->  
->  	if (kstrtoul(buf, 0, &val))
->  		return -EINVAL;
->  
->  	pm_runtime_get_sync(dev->parent);
->  	raw_spin_lock(&drvdata->spinlock);
-> -	if (drvdata->config.hw_powered)
-> -		cti_write_single_reg(drvdata, cti_attr->off, val);
-> +	idx = drvdata->config.ext_reg_sel;
-> +	if (drvdata->config.hw_powered) {
-> +		switch (cti_attr->off) {
-> +		case INDEX_ITTRIGINACK:
-> +		case INDEX_ITTRIGOUT:
-> +			cti_write_single_reg(drvdata, cti_offset(drvdata, cti_attr->off, idx), val);
-> +			break;
-> +
-> +		default:
-> +			cti_write_single_reg(drvdata, cti_offset(drvdata, cti_attr->off, 0), val);
-> +			break;
-> +		}
-> +	}
-
-For both coresight_cti_reg_show() and coresight_cti_reg_store(), can
-we always use "cti_attr->off" as the offset for regitser access?  I
-mean we don't need the extra config.ext_reg_sel, eventually any
-register we can calculate a offset for it.
-
->  	raw_spin_unlock(&drvdata->spinlock);
->  	pm_runtime_put_sync(dev->parent);
->  	return size;
->  }
->  
-> +#define coresight_cti_mgmt_reg(name, offset)	                        \
-> +	(&((struct cs_off_attribute[]) {                                \
-> +	   {                                                            \
-> +		__ATTR(name, 0444, coresight_cti_mgmt_reg_show, NULL),  \
-> +		offset							\
-> +	   }								\
-> +	})[0].attr.attr)
-> +
->  #define coresight_cti_reg(name, offset)					\
->  	(&((struct cs_off_attribute[]) {				\
->  	   {								\
-> @@ -237,17 +290,17 @@ static __maybe_unused ssize_t coresight_cti_reg_store(struct device *dev,
->  
->  /* coresight management registers */
->  static struct attribute *coresight_cti_mgmt_attrs[] = {
-> -	coresight_cti_reg(devaff0, CTIDEVAFF0),
-> -	coresight_cti_reg(devaff1, CTIDEVAFF1),
-> -	coresight_cti_reg(authstatus, CORESIGHT_AUTHSTATUS),
-> -	coresight_cti_reg(devarch, CORESIGHT_DEVARCH),
-> -	coresight_cti_reg(devid, CORESIGHT_DEVID),
-> -	coresight_cti_reg(devtype, CORESIGHT_DEVTYPE),
-> -	coresight_cti_reg(pidr0, CORESIGHT_PERIPHIDR0),
-> -	coresight_cti_reg(pidr1, CORESIGHT_PERIPHIDR1),
-> -	coresight_cti_reg(pidr2, CORESIGHT_PERIPHIDR2),
-> -	coresight_cti_reg(pidr3, CORESIGHT_PERIPHIDR3),
-> -	coresight_cti_reg(pidr4, CORESIGHT_PERIPHIDR4),
-> +	coresight_cti_mgmt_reg(devaff0, CTIDEVAFF0),
-> +	coresight_cti_mgmt_reg(devaff1, CTIDEVAFF1),
-> +	coresight_cti_mgmt_reg(authstatus, CORESIGHT_AUTHSTATUS),
-> +	coresight_cti_mgmt_reg(devarch, CORESIGHT_DEVARCH),
-> +	coresight_cti_mgmt_reg(devid, CORESIGHT_DEVID),
-> +	coresight_cti_mgmt_reg(devtype, CORESIGHT_DEVTYPE),
-> +	coresight_cti_mgmt_reg(pidr0, CORESIGHT_PERIPHIDR0),
-> +	coresight_cti_mgmt_reg(pidr1, CORESIGHT_PERIPHIDR1),
-> +	coresight_cti_mgmt_reg(pidr2, CORESIGHT_PERIPHIDR2),
-> +	coresight_cti_mgmt_reg(pidr3, CORESIGHT_PERIPHIDR3),
-> +	coresight_cti_mgmt_reg(pidr4, CORESIGHT_PERIPHIDR4),
-
-I don't see any benefit for updating from coresight_cti_reg() to
-coresight_cti_mgmt_reg().  If really want to do this, should remove
-the macro coresight_cti_reg()?
-
->  	NULL,
->  };
->  
-> @@ -258,13 +311,15 @@ static struct attribute *coresight_cti_mgmt_attrs[] = {
->   * If inaccessible & pcached_val not NULL then show cached value.
->   */
->  static ssize_t cti_reg32_show(struct device *dev, char *buf,
-> -			      u32 *pcached_val, int reg_offset)
-> +			      u32 *pcached_val, int index)
-
-We don't need to change anything for this.  The passed "reg_offset"
-should be always a final offset, no matter for standard CTI or QCOM
-case, the driver directly uses the offset for register access.
-
-[...]
-
-> +/*
-> + * QCOM CTI supports up to 128 triggers, there are 6 registers need to be
-> + * expanded to up to 4 instances, and ext_reg_sel can be used to indicate
-> + * which one is in use.
-> + * CTITRIGINSTATUS, CTITRIGOUTSTATUS,
-> + * ITTRIGIN, ITTRIGOUT,
-> + * ITTRIGINACK, ITTRIGOUTACK.
-> + */
-> +static ssize_t ext_reg_sel_show(struct device *dev,
-> +				struct device_attribute *attr,
-> +				char *buf)
-> +{
-> +	u32 val;
-> +	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +
-> +	raw_spin_lock(&drvdata->spinlock);
-> +	val = drvdata->config.ext_reg_sel;
-> +	raw_spin_unlock(&drvdata->spinlock);
-> +	return sprintf(buf, "%d\n", val);
-> +}
-> +
-> +static ssize_t ext_reg_sel_store(struct device *dev,
-> +				 struct device_attribute *attr,
-> +				 const char *buf, size_t size)
-> +{
-> +	unsigned long val;
-> +	struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +
-> +	if (kstrtoul(buf, 0, &val))
-> +		return -EINVAL;
-> +	if (val > ((drvdata->config.nr_trig_max + 31) / 32 - 1))
-> +		return -EINVAL;
-> +
-> +	raw_spin_lock(&drvdata->spinlock);
-> +	drvdata->config.ext_reg_sel = val;
-> +	raw_spin_unlock(&drvdata->spinlock);
-> +	return size;
-> +}
-
-As said, I don't think the trigger register is any different from
-other register access.  So the existed APIs would be sufficient.
-
-As a result, we don't need to add two above functions.
+I don't mind which approach is taken as they both represent the same amount of
+work.  Lastly, your next patchset should contain an implementation for GPIO or
+I2C, not both.
 
 Thanks,
-Leo
+Mathieu
+
+[1]. https://elixir.bootlin.com/linux/v6.18-rc7/source/include/uapi/linux/virtio_ids.h#L38
+ 
+> --
+> 2.43.0
+> 
 
