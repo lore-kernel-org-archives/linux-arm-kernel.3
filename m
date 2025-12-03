@@ -4,69 +4,184 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FF7AD1266D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 06:14:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D616D116F3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 06:29:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=4jxj5/q2jPDN+PnXk8C4taKalk6uwwQSto3Hu3YBnJU=; b=kk2NH76b91t01XHPMLSQ8T04Gs
-	M5tLUPc0IXm0zhYlZdijVHbmNwKJn9OTMyHytHPo8mfgak3A8Q/HfTmWxM5tv3meoGshfX2a1y1zB
-	Z73bKGOKZijLFxXSACIpmyWe2UCs57tMHmZGugk6zhsUASvPZEhypj4k8YrGvu2MAxfINI67Rbp57
-	nDGCf5XddLm0I6Acvo56wtM+HBhMm9AfSI30JbOtWgODwhGzDkIuEgIy/nZ4EPVa4/ndfx4bOo48Z
-	O1GwCq2efuh9IA8YYVkWEt9HnSYzQB47H23yKIjVe/kuWOKe379QZAfI6cteDPQGHPpwc2XAfFgsj
-	rduQjHIg==;
+	bh=YbSFecq4huNqK8dpwzZR303eBCBPF595HxtbJUn+mlU=; b=oHtPfDllgC19uurqn8fVd2XTND
+	xpeYPFB/H4LOvjiyYbOAAwnY3mLFNkD2c89vvXil9Uh1oXB/tiB4TP51bN7Ecxe7c0lCaS8IqEPvD
+	VB4QVC1uc6N5UJLRGoIz2BkAPw1JRygYuH+pQq6quAb0jgXh3i5rf4Kbtu+M/eHss7j+zqbKCvwS/
+	CZ7cm42CLr9f9u6nUloUFT8UHz18285OE8GhKEW+XcroDSCTgZxOda7jFkMYwS5WlfTAIxAIs1Q3A
+	UTFvymapjYFGuoAUwLUrQmCBhnlHI0wYLJcZWK+/kQWMakIif4OdCycSFBWyP2JEjPpdlzA5J7GWi
+	F6p9x+rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQg7z-00000006AtT-12Om;
-	Wed, 03 Dec 2025 06:14:15 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1vQgMf-00000006BVt-359X;
+	Wed, 03 Dec 2025 06:29:25 +0000
+Received: from mail-swedencentralazon11013043.outbound.protection.outlook.com ([52.101.83.43] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQg7v-00000006Asr-2sTJ
+	id 1vQgMc-00000006BUx-3x2H
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 06:14:14 +0000
-Received: from DESKTOP-L0HPE2S (unknown [124.16.141.245])
-	by APP-03 (Coremail) with SMTP id rQCowAC3RNcu1S9pcZMBAw--.492S2;
-	Wed, 03 Dec 2025 14:14:06 +0800 (CST)
-From: Haotian Zhang <vulab@iscas.ac.cn>
-To: tony@atomide.com,
-	haojian.zhuang@linaro.org,
-	linus.walleij@linaro.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-omap@vger.kernel.org,
-	linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Haotian Zhang <vulab@iscas.ac.cn>
-Subject: [PATCH] pinctrl: single: Fix incorrect type for error return variable
-Date: Wed,  3 Dec 2025 14:13:47 +0800
-Message-ID: <20251203061347.381-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1.windows.1
+	Wed, 03 Dec 2025 06:29:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BuhTeD7uepCVs+0CIMrHcGYEYUlCg39z7djlea580JApoa8zp6bPPTQ+BVRFkFpMYoX6hRUedky4kyXrYqDyCCjlJB3d6qmbp5mlMVdAAtkpCVr2lm24zYXwo+LdSkTEYE+N2OWfGdUzB7cTDpYtRIdkuDC/NMQC2900dSVPchmYLYMSyC8YKxOs2PWwN9FHaETb6cF+29PH/OuW9z8Iey+jl2stefrffIDGaAC490IYEqm1+XzdnbE5cbaAyndZmvesdkc4ylPR4Ug4H/up/xOwFEZCYc4zXSekhf4EAa2fCjv1TWSXgdOXI//AfobnPIhrLAEi5CIpj8a7lAYHEw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YbSFecq4huNqK8dpwzZR303eBCBPF595HxtbJUn+mlU=;
+ b=EuGCrTvrm0gDpCYKP/vOxEQvzmc7i9NZr5GAG6b9GwfmH2OURbLVptZcW/WudkZ2Y58UN6hpbu7GH0zME/rT841je0BWx3eUEQVk0PyqUjKUXeJmM1gXJcin+0bFh1fNBI+C4Htxful5rhIqTXFM3/9NmGzpPKbzLl7iH1Zy+81HEwAgoleZMPv7Nr8CmYQCo4x0+tvsc8sViya+R2wwDNnJRuSiK9j+ZQEWhzvCUpW1exaP6GEQtbUaRSWGKFZ4zhNFW/xpNvyxWk8F5sySs+hgeBdsLwYjdORDLESpOK3uPZ+gw4pcYbjRfJy5e2XiCZ5+FQem1Wi7zK8O3YCAXA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YbSFecq4huNqK8dpwzZR303eBCBPF595HxtbJUn+mlU=;
+ b=oDc/g3t6fCLYNbN3gXn5ut/9kj5vDqToPiVUxmWER4runpnm8w9uMjLrA72wXy2ZwJpOMLt36FFT1XahvoCD0+IiFUnmvCKXsPTzeoKlYRR29MasRgLI49yrEDkuuk9TJ2cKKRh/XXKwEk8NQpoCXx5XQpkyPlMYtIJ2a4+v6YAGQW0DAdiHk6qNvydbGnrd73s0+o/XaaO76JRbFRt2CJckjoOSTRZtFF1gpMz1zNzzwYnf8Cq6nxhejkpP6IONofW1CVjVhyjQIpug4u9O7UncsxYlpG6suxiKJzTQeZkT6r0Jgcj4ZoekC+/J6EwgyX5268e9HIqZ2cLp7iu6Qg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com (2603:10a6:20b:447::16)
+ by PR3PR04MB7451.eurprd04.prod.outlook.com (2603:10a6:102:93::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.9; Wed, 3 Dec
+ 2025 06:29:16 +0000
+Received: from AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb]) by AS8PR04MB9080.eurprd04.prod.outlook.com
+ ([fe80::92c2:2e03:bf99:68eb%6]) with mapi id 15.20.9366.012; Wed, 3 Dec 2025
+ 06:29:16 +0000
+From: Guoniu Zhou <guoniu.zhou@oss.nxp.com>
+Subject: [PATCH 0/2] media: nxp: Add CSI Pixel Formatter support
+Date: Wed, 03 Dec 2025 14:30:01 +0800
+Message-Id: <20251203-csi_formatter-v1-0-eb9e1147b49e@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAOnYL2kC/x3MQQqAIBBA0avErBPSUKirRIToWLNIY5QIpLsnL
+ d/i/woZmTDD3FVgvClTig2y78AdNu4oyDeDGpSWUmnhMm0h8WlLQRZovJpGabxDA625GAM9/29
+ Z3/cDVhTjC18AAAA=
+X-Change-ID: 20251125-csi_formatter-e6d29316dce6
+To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Frank Li <frank.li@nxp.com>
+Cc: imx@lists.linux.dev, linux-media@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Guoniu Zhou <guoniu.zhou@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764743424; l=3906;
+ i=guoniu.zhou@nxp.com; s=20250815; h=from:subject:message-id;
+ bh=QUMS3dnrJMLEHXfaJ9rNMqIcVZb79HT0GP2ANb4v7yU=;
+ b=9sInCqiJSfAB1P+Poi+pYL73XRaLVDaLZNteGG2IIHI5wlzV/pMlRIdMWeFSIT1s8x6zB7hVA
+ vJOO4VOu4+2BXFDo6NHpSuFU1GqDNR3kUC3efU2aWXHzf8pknDahIvC
+X-Developer-Key: i=guoniu.zhou@nxp.com; a=ed25519;
+ pk=MM+/XICg5S78/gs+f9wtGP6yIvkyjTdZwfaxXeu5rlo=
+X-ClientProxiedBy: SI1PR02CA0041.apcprd02.prod.outlook.com
+ (2603:1096:4:1f6::18) To AS8PR04MB9080.eurprd04.prod.outlook.com
+ (2603:10a6:20b:447::16)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowAC3RNcu1S9pcZMBAw--.492S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7CFWrtF1UJr18Ar43XF1xuFg_yoW8XrW7pF
-	Z3Ja45GrW5KrW3uryDJ395WFy3Can7J3yrGayak3s8Za15AFykAa45KrWYqan0krZ8uF1a
-	9a15Xr909w1DA3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvm14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26F4UJVW0owA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Gc
-	CE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E
-	2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJV
-	W8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_
-	JF0_Jw1lc2xSY4AK67AK6r47MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r
-	4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF
-	67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2I
-	x0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2
-	z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnU
-	UI43ZEXa7VUjz6zUUUUUU==
-X-Originating-IP: [124.16.141.245]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwsFA2kvyV0ndQAAsK
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB9080:EE_|PR3PR04MB7451:EE_
+X-MS-Office365-Filtering-Correlation-Id: f4d9e22c-5faa-4749-472d-08de3235482f
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|376014|19092799006|366016|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TEFka0ZTcUVBZ0Q2V3Y2MFc0eW9lYTFKL3BodnU0MVpkNnhidVAxMHZFUjNl?=
+ =?utf-8?B?WWo3ek84M29ZTGpFU1JHcWZ5YnRYR0xJK2MvTWFVdG02QXMrSFZTK0phdUpK?=
+ =?utf-8?B?U0tuNC85czc0OEJMRXU1MlBUcUFIaWk4bjFpZ1UzQTlSUU1DUHdqNnpJaTJy?=
+ =?utf-8?B?T2d2V3VjSGEzVW9VUlZ1S0lUbjJkTHVQQ3FKNkR5YzlyM1BpdmpLdGhTTDJi?=
+ =?utf-8?B?RXBZUUZDajd4eEMyTlRtdGt5VmNkUndoK1RBV2JSazd3OGpYQlplV2hBY1pq?=
+ =?utf-8?B?UmNHcmg5RGhlSHgxTEE3dTkwZ1VNb1BBSDFWMHJqSENLcGlEUkNEKzF2M3N5?=
+ =?utf-8?B?ZDY3LzlrQ1kwVUltOTc1b3duYkdjUHFucEp4Y3J2L2VIMDRNVWtZZEZuTjEy?=
+ =?utf-8?B?ZXk4WU52T0lleGF0c1c5QnhuMGJqcmJFUDRTYVRRVGdBOFJjS1l1U3RWdUFw?=
+ =?utf-8?B?Wk9GQm92eGVXTkpwQ2ZqM0pBcUZMUTdKQmdRWmNQeSt3Smd4aG04eU1IY0pB?=
+ =?utf-8?B?cDN4Ylg2c3ZTS2pIRllZdlVYQWFFUTNlcERPbGtoSUVpcEpmQWljbzcyYzZQ?=
+ =?utf-8?B?cTVWSnc2WHZMRDdxNitzb1p2RzVFYWh5d1lNVWtLcUV2R3dadi96Y00ybXZk?=
+ =?utf-8?B?NEZ0S3FKdEQzY1Z1Qi9IQzEvMDlFYnhSODkwaFJRQjRlais2eEY3R3VEVUFD?=
+ =?utf-8?B?OHYrWWxwMWxNbG5UV0hQK0NEZ3RpSFc5bTF3RTJOYUd3OG5hNFlrQk9WOE5E?=
+ =?utf-8?B?dTA1TUlGdWlxWHRzcS9tMzhib1VHZG1vWXRmUSs1S3FuUDNoZkJZWTJhSCtP?=
+ =?utf-8?B?NzBVQWFVTmR4c2cyb2xNbnNXTlRGWkc5VlFEZlBETjhzcWZnREdLQTgzV1BS?=
+ =?utf-8?B?Z2haOW9lN1BldUU0LzEycHRnRk9RQml2M1NiRXhOSnFicWxSYnpPK2FFQXZn?=
+ =?utf-8?B?U0tXVld5UWsvNkVQd3BXNnAxRFIyMHdPS3pFYStGVEgyRFRtVWxONVIwOWNN?=
+ =?utf-8?B?cW02a0dhWnFSQWNBNE9yczFTclFiOG9nN3BIZGtPcXl0Q2orVnpPZkVlTFhE?=
+ =?utf-8?B?OVlNRUJpOUN5NmpNZGgyRVQ2bDFLUWdTZmhJSXdkbU9SeHpaY3J4Y1hKaExt?=
+ =?utf-8?B?Z0VBYlI2VytkK1J0UFZnOGQ4c2hUUWp0ZHFBTEx5dWJ5Vnl3OWRoeW94WEho?=
+ =?utf-8?B?emlNMDBndEEvYmhyYU05U2srUUNkNmdmZDF2bXYrNk0rUmt5Z3Vha1hIaWZM?=
+ =?utf-8?B?Rjh4S0t0czlZU2RFWjZ1Y2ZvbkZFVDZrQmZmS1AyTFRaZlYwTFA0N2p1dTZl?=
+ =?utf-8?B?aGV1Q1VUZnh0cEUzYWFydmdqWjhGN201cDhDSmFqSzJRUDMyQmZzdWlLNGM3?=
+ =?utf-8?B?ZGVVTUErRklCdXd5d2JpQzAxSjYyeUNqREE2YlVtTWNUWFVPdkVuaWdjaEQ3?=
+ =?utf-8?B?VHk3ekE4ZXdhTXlLc2gyV3VnKzVvbEFsNmV6aDlOWlFvMFo4WWJTbVU3SnZp?=
+ =?utf-8?B?Q1llM3NlVmRQQ0JDOUR3SWRWMGJ4aG1KL2dGaFNuY0Q1bFNVZ3NCWVR2Mytt?=
+ =?utf-8?B?K0hQaVpvVVo3ZkgxRngvL0JaMW9iZmlOdVVuWlZJcEtsQmYwaHVnUlpMOFg1?=
+ =?utf-8?B?bllkRjhZZzRFSnVLUy9XSHZCaGVFaGRVemgxRktaeDQ0L0lkUU5oTUR1OHZh?=
+ =?utf-8?B?cC9QalhoSmFpdTIvQ3BYZHZLbGFILzE4S1hiSlpNNHRvVG0zSUtJYWRqRE5v?=
+ =?utf-8?B?Z3p6UFZYR1NaVkVmUitDdHozRG5SSmoxMHBjL0JKSk1ua21JaFJDbnBPeEFB?=
+ =?utf-8?B?Z21oZHlTTkliV3YwK0N3SkZybFFvak1MUzBmNFhPRFFSRVdBRzJxNElHT2t0?=
+ =?utf-8?B?dUordFVvZ1dQaFd0QVA5R1p4RnYwR0tSeWdLaHR1L0haR0NaZ01NeUFscTFT?=
+ =?utf-8?B?c2I5bmxtN3lvb01oNUU1Ulpiam5ic0l5dkhkbDROZVBobVRvemNFMHZnMEoy?=
+ =?utf-8?B?NUNRbFJycXJhamEyMTV1dWVwcXNDVmpQZFh5QmVxYmtCQVZFTnJLRk1NdSs1?=
+ =?utf-8?B?Vkw3SWRmZytXVXZodnp6SjZPcmlvQk14NDFiQT09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB9080.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(376014)(19092799006)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Ty9na3BEMHNWY3ZNUjhwSmJrTEJOYkE1d2JzT2hReUM0cW1oSm0yMnhXck90?=
+ =?utf-8?B?ZEZFWkxVWWxES3NzUkJaa1JhZjFkYUpJb0EwbjM2MW5aRldvRTZWa3VMR2hS?=
+ =?utf-8?B?QjVqd3ZFdkh6NXN4aXB1aFlwRUxIS0NGWWR2TlpQcnB4Wi96dGNiUzQ5UXRZ?=
+ =?utf-8?B?bHNzcngyREJHYW1QU2J2Q3RDK0V3UGM3TmNqTEJ0ZWVmMzNmZzNPVlJXQmhU?=
+ =?utf-8?B?WEtXNnd5bkt0d1N3cnV6Wk9NejhKSG9uUkFsbG5kN2poSXZ6SlUrTEdobmhO?=
+ =?utf-8?B?WEVSMHczN1VGY1hXVGJPcUl0ZkE4UnZxK1Z2dmhLeUNQQm45VTZ2dGZMMjZM?=
+ =?utf-8?B?VVVJTDhPR2laVGxMUFBBMTN3aWRoNk9rL1JPK0p5clQ2T0NyNThqcy85a3lO?=
+ =?utf-8?B?cXB0T2JUUlVieEY1em00UHptcGtnV1hjWVhEdHJiZ0lzOFVlR2o3YjF3ZUtt?=
+ =?utf-8?B?RUpWRkFkQVpLbWZvcElzY3NqVEJPMFdWMmszTEpUV0JCNUsrMWxNdmFvN1Vy?=
+ =?utf-8?B?djNFeXl3TXJjbmVuME00Yk5DbVJGYmJnUVpSVFN6M1BJK0lCTy9OM1oxRWdM?=
+ =?utf-8?B?eWd1YkJ2YlJDOE91Vm92KzNKT1J0ZmtvNVZHaGpxeE5oOTEyOC9xUW1nOGlh?=
+ =?utf-8?B?UkZ1Z3k2YTkzRDc3aEh0SzcrU20yQnBYMER2WHZtNUVNaSsvS1I0dVJITGlH?=
+ =?utf-8?B?eXp4RXFVVngvOVRKbDRwUzUrZ1BzK3VSTU9xcGtGaVV0bGZMcFZHS3NOdXl4?=
+ =?utf-8?B?c3JXaDV2MnlPUStMZnVEc29pSVh4WWNCQnBtNTcrbFc1Ukt2UzNlSEpKek9L?=
+ =?utf-8?B?VUFzVHNHWW55UUZGcWF6K1RTMUFxNGFmeFVucEZrSDYzVVVZR3hsZmF0MlRW?=
+ =?utf-8?B?cmYreVJmVnpVY2hQdHFFTnRMV0tKUHcrSVlJNEF5VTV3NnhQT1haenZVRWF3?=
+ =?utf-8?B?NHpubmFSTTVIblNuVjl3RVFWV1hUV0xYTnRCQm03T0plK2VqZy9CQ1UrM1Uy?=
+ =?utf-8?B?VlFaQ2dnTTB0UlNJb3pjOGMwMUZkMnBuSUNhSFBvUmVJZndEVDNzTGk0OUtl?=
+ =?utf-8?B?K3hSK01JRVJ2clRJUDU4Z05nelZpdUlwRm9nUTQzaEVzNmxQRTgzMTlBMnVD?=
+ =?utf-8?B?UTg0ekRZVzczMkt3Ly9lQnExaThEamw1UkprYWtKVVd6dEZYVDNDS1BDTmtQ?=
+ =?utf-8?B?Y0M2YkI2aHRWNTdrMHlROVNNNjRqY0ZPbHBCT0t6dUN0eW1NVmM3L2Z1UDFa?=
+ =?utf-8?B?M0h4L0JhWFVkNmdBazgremRzTkxrS0Y5RjN2NDRhYmVMQzl1dmkwWHFiL09B?=
+ =?utf-8?B?S1NhcWFHN0dMODI4Q2kwS1d0eWMxY3MxbjEzTWZHNFkzckdxMXBpOWJKcDBU?=
+ =?utf-8?B?aDhkOHBPK3NVZFVqOGVJbkFLUEwycFdMV1g0RFpxeTR3UlYxYmZiOXh4a1lY?=
+ =?utf-8?B?TW1BL21kRjNVbHVrRlBWczY0cGpSUHc0akpJV1VIY3IranVydkFiYThPWkxZ?=
+ =?utf-8?B?WDE2RitpazArek1VTTRnU0lrcGZmRXJweVlIOVowb2VpcktGL3hQanZkUzlh?=
+ =?utf-8?B?WDd5b29tUDhxcFltcXdSK1kzYmRNVU1kd0VKRnpaVS9vUHc0N2tGZkV3dmR1?=
+ =?utf-8?B?UEdOSlMzUGR6cGVvdG0wK3cwMDJXb3pMeWpQclFCZDM0Q3RrVVRFaTF6c0g5?=
+ =?utf-8?B?WHBYLzlZVHdMQkxvQngrTWFja0ZOaTR4TzMrNU9HSTZ3bitqYXRaVmZWNXYx?=
+ =?utf-8?B?K002UVdyNmFnbzZYbnNDbHVlRmwvRU5aekszZWNlNDBSSUQwMkFrZkZNRlJR?=
+ =?utf-8?B?SmRJNUVTcEF3ZWNsTVhXVCt5OGtaOXlpM0Naa3RkOHJPMHhYOTRMTno0VHY1?=
+ =?utf-8?B?UTdkRGF6aDhYTFVER2dpSENqakxXU3hDT2FtYm1oYVhZQWlteSt0a2l3aXY2?=
+ =?utf-8?B?NldhWUhqR3BNQjJ0SzJ2RGs3YjNHeVRETVVFYVQ3VzV0YjVrZHdHcTkxR2p6?=
+ =?utf-8?B?Z2x3SDBrdVVOUE1IMkR4bSt2RnVEeW00MmVaRHlxa2JuNDN0cS9zY0FKTDk5?=
+ =?utf-8?B?NVA0TjFRRlMwNzljVjUvUEl2VFJjUVZydW10ZmFDNkZtanFSOW9NNHM5VXFE?=
+ =?utf-8?Q?kW0W0YhjcwQ179WhCDSI5W/AK?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f4d9e22c-5faa-4749-472d-08de3235482f
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB9080.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Dec 2025 06:29:16.1850
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: vh+vR8cn5GHnxH4iZfW35fh1RbAF8gtCh0X4v/OvEPp+mpf0Sp/UueVMnOWx7PCmZhwPwVPLFtrKU55VYFyLdA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7451
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_221412_086934_A7F829E8 
-X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-CacheID: sfid-20251202_222923_168652_B1EB2213 
+X-CRM114-Status: UNSURE (   8.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,46 +197,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-pcs_pinconf_get() and pcs_pinconf_set() declare ret as unsigned int,
-but assign it the return values of pcs_get_function() that may return
-negative error codes. This causes negative error codes to be
-converted to large positive values.
+CSI Pixel Formatter is a module found on i.MX95. It could unpack the
+pixels received by the formatter and reformat them to meet the pixel
+link format requirement.
 
-Change ret from unsigned int to int in both functions.
+This patch series adds a new v4l2 driver for CSI Pixel Formatter.
 
-Fixes: 9dddb4df90d1 ("pinctrl: single: support generic pinconf")
-Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
+v4l2-compliance 1.28.1-5233, 64 bits, 64-bit time_t
+v4l2-compliance SHA: fc15e229d9d3 2024-07-23 19:22:15
+
+Compliance test for device /dev/v4l-subdev9:
+
+Driver Info:
+	Driver version   : 6.18.0
+	Capabilities     : 0x00000002
+		Streams Support
+	Client Capabilities: 0x0000000000000003
+streams interval-uses-which
+Required ioctls:
+	test VIDIOC_SUDBEV_QUERYCAP: OK
+	test invalid ioctls: OK
+
+Allow for multiple opens:
+	test second /dev/v4l-subdev9 open: OK
+	test VIDIOC_SUBDEV_QUERYCAP: OK
+	test for unlimited opens: OK
+
+Debug ioctls:
+	test VIDIOC_LOG_STATUS: OK (Not Supported)
+
+Input ioctls:
+	test VIDIOC_G/S_TUNER/ENUM_FREQ_BANDS: OK (Not Supported)
+	test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+	test VIDIOC_S_HW_FREQ_SEEK: OK (Not Supported)
+	test VIDIOC_ENUMAUDIO: OK (Not Supported)
+	test VIDIOC_G/S/ENUMINPUT: OK (Not Supported)
+	test VIDIOC_G/S_AUDIO: OK (Not Supported)
+	Inputs: 0 Audio Inputs: 0 Tuners: 0
+
+Output ioctls:
+	test VIDIOC_G/S_MODULATOR: OK (Not Supported)
+	test VIDIOC_G/S_FREQUENCY: OK (Not Supported)
+	test VIDIOC_ENUMAUDOUT: OK (Not Supported)
+	test VIDIOC_G/S/ENUMOUTPUT: OK (Not Supported)
+	test VIDIOC_G/S_AUDOUT: OK (Not Supported)
+	Outputs: 0 Audio Outputs: 0 Modulators: 0
+
+Input/Output configuration ioctls:
+	test VIDIOC_ENUM/G/S/QUERY_STD: OK (Not Supported)
+	test VIDIOC_ENUM/G/S/QUERY_DV_TIMINGS: OK (Not Supported)
+	test VIDIOC_DV_TIMINGS_CAP: OK (Not Supported)
+	test VIDIOC_G/S_EDID: OK (Not Supported)
+
+Sub-Device routing ioctls:
+	test Try VIDIOC_SUBDEV_G_ROUTING/VIDIOC_SUBDEV_S_ROUTING: OK
+	test Active VIDIOC_SUBDEV_G_ROUTING/VIDIOC_SUBDEV_S_ROUTING: OK
+
+Control ioctls:
+	test VIDIOC_QUERY_EXT_CTRL/QUERYMENU: OK (Not Supported)
+	test VIDIOC_QUERYCTRL: OK (Not Supported)
+	test VIDIOC_G/S_CTRL: OK (Not Supported)
+	test VIDIOC_G/S/TRY_EXT_CTRLS: OK (Not Supported)
+	test VIDIOC_(UN)SUBSCRIBE_EVENT/DQEVENT: OK (Not Supported)
+	test VIDIOC_G/S_JPEGCOMP: OK (Not Supported)
+	Standard Controls: 0 Private Controls: 0
+
+Format ioctls:
+	test VIDIOC_ENUM_FMT/FRAMESIZES/FRAMEINTERVALS: OK (Not Supported)
+	test VIDIOC_G/S_PARM: OK (Not Supported)
+	test VIDIOC_G_FBUF: OK (Not Supported)
+	test VIDIOC_G_FMT: OK (Not Supported)
+	test VIDIOC_TRY_FMT: OK (Not Supported)
+	test VIDIOC_S_FMT: OK (Not Supported)
+	test VIDIOC_G_SLICED_VBI_CAP: OK (Not Supported)
+	test Cropping: OK (Not Supported)
+	test Composing: OK (Not Supported)
+	test Scaling: OK (Not Supported)
+
+Codec ioctls:
+	test VIDIOC_(TRY_)ENCODER_CMD: OK (Not Supported)
+	test VIDIOC_G_ENC_INDEX: OK (Not Supported)
+	test VIDIOC_(TRY_)DECODER_CMD: OK (Not Supported)
+
+Buffer ioctls:
+	test VIDIOC_REQBUFS/CREATE_BUFS/QUERYBUF: OK (Not Supported)
+	test CREATE_BUFS maximum buffers: OK
+	test VIDIOC_REMOVE_BUFS: OK
+	test VIDIOC_EXPBUF: OK (Not Supported)
+	test Requests: OK (Not Supported)
+
+Total for device /dev/v4l-subdev9: 47, Succeeded: 47, Failed: 0, Warnings: 0
+
+Signed-off-by: Guoniu Zhou <guoniu.zhou@nxp.com>
 ---
- drivers/pinctrl/pinctrl-single.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+Guoniu Zhou (2):
+      media: dt-bindings: Add CSI Pixel Formatter DT bindings
+      media: nxp: Add i.MX9 CSI pixel formatter v4l2 driver
 
-diff --git a/drivers/pinctrl/pinctrl-single.c b/drivers/pinctrl/pinctrl-single.c
-index 5cda6201b60f..21b2580480ca 100644
---- a/drivers/pinctrl/pinctrl-single.c
-+++ b/drivers/pinctrl/pinctrl-single.c
-@@ -485,7 +485,8 @@ static int pcs_pinconf_get(struct pinctrl_dev *pctldev,
- 	struct pcs_device *pcs = pinctrl_dev_get_drvdata(pctldev);
- 	struct pcs_function *func;
- 	enum pin_config_param param;
--	unsigned offset = 0, data = 0, i, j, ret;
-+	unsigned offset = 0, data = 0, i, j;
-+	int ret;
- 
- 	ret = pcs_get_function(pctldev, pin, &func);
- 	if (ret)
-@@ -549,9 +550,9 @@ static int pcs_pinconf_set(struct pinctrl_dev *pctldev,
- {
- 	struct pcs_device *pcs = pinctrl_dev_get_drvdata(pctldev);
- 	struct pcs_function *func;
--	unsigned offset = 0, shift = 0, i, data, ret;
-+	unsigned offset = 0, shift = 0, i, data;
- 	u32 arg;
--	int j;
-+	int j, ret;
- 	enum pin_config_param param;
- 
- 	ret = pcs_get_function(pctldev, pin, &func);
+ .../bindings/media/nxp,imx9-csi-formatter.yaml     |  96 +++
+ MAINTAINERS                                        |   8 +
+ drivers/media/platform/nxp/Kconfig                 |  14 +
+ drivers/media/platform/nxp/Makefile                |   1 +
+ drivers/media/platform/nxp/imx9-csi-formatter.c    | 894 +++++++++++++++++++++
+ 5 files changed, 1013 insertions(+)
+---
+base-commit: 1f2353f5a1af995efbf7bea44341aa0d03460b28
+change-id: 20251125-csi_formatter-e6d29316dce6
+
+Best regards,
 -- 
-2.50.1.windows.1
+Guoniu Zhou <guoniu.zhou@nxp.com>
 
 
