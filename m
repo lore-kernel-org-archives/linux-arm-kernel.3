@@ -4,91 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 780BBD12D69
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 14:30:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E5FCD12D73
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 14:58:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=13jA8V8frcQh+Kv0METbSRDdSF+gbSTvzPzmiYwzA0c=; b=fulv3aphWHjgQkZhtZykXRItcf
-	O5rc05pK5pbQx2oMNcWaT29BH6Kyi/SdTESd/QcscVS71GB8M8kuemsvcGN5/9AdWvajM55OXUXu0
-	pT0o4UX5k2xyy6nxIggW1elr+cDARYldYCFjV3CJRHr0tkvJljunDEvtoSVTwsbDF12FB5CuvCrSf
-	GG64972UdkmCSJ9rLAQ+CxSQcYuljLqJUI0hmlkOPLz7pDVboxt7ARSzvwoMciMKdn7Em0kZ/jfjE
-	UDRVSwiBIimI3eT3TCvXKZzG/8eOy/MfSk4eROlF5lVAWt3j2/fy1iLahdb0WPrLC2W1Xw1mCD+aN
-	C+FF6vFA==;
+	bh=+B38H298B4jXy1yqI6ZnGVHLolk0EWpA8KzXhwcB1cs=; b=CWf48uncke6713FRUjELko1/lD
+	0h5VyRp/PheTx3SbAEd/n31XyA/un3bxf5fCbSjvwlGFvpOoZi9YJvtYFtdCJQR5NTeMyOaOfHxUU
+	ZCcufmVTXyE3bTZi7nRnZJem9KVbRyVpg9sWZz3H5PCN8LZbeIx/VoevgiefGSfZvXmD+1g8gm4Pa
+	AhfTVPeym/V3awwwsZhbnGlHiTh7t3rrx6xuSawZMWr/KTDZpJOu+qAmQg1Oyek7qjBCnxmGhYAbg
+	gBYJlrxpC9jOUQvhYtgI4pyfSdzpu5+KNM5BqmbnI3/a7d9OTMrV9d7Ev/z+C1uEoTz6vT3aO0/VZ
+	SIVj5XEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQnsL-00000006eT0-3NUZ;
-	Wed, 03 Dec 2025 14:30:37 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
+	id 1vQoJ8-00000006fx9-2lDj;
+	Wed, 03 Dec 2025 14:58:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQnsI-00000006eSa-2wMk
+	id 1vQoJ7-00000006fx3-1PuO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 14:30:35 +0000
-Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-8b2ed01b95dso652657085a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 06:30:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764772233; x=1765377033; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=13jA8V8frcQh+Kv0METbSRDdSF+gbSTvzPzmiYwzA0c=;
-        b=ax6zujGJSxrwbrCy/ynS0vHxvUFKTDL3eUaexEFkOr36qJQk1IHNyikQ/z6W0JYlYi
-         QSimMbWCH6f48rkgdX6V0YfQf49u0vssHuuZ0zR4ynfrewNKj8FyejaPf+TKn1/w2SXL
-         f2sjwPdAxLFn9AijQZRGkrbb7VG4H1ysvEVGfSxtI6XhS55VlKc6zxRPoGTsymvDiiTZ
-         JJtaG9MY/ouq4kRiTW/7dpbheaWSWNtI/k37Bi4mHVtXuJhRcGuZseLak44nWfEwmWW+
-         kmJMbc7jNYYVFkRSv2oYuGSg3h1v0jFcXVCKDFrkSOuD7HdLd/DV1i///hnaGcSV+MOb
-         mSjw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764772233; x=1765377033;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=13jA8V8frcQh+Kv0METbSRDdSF+gbSTvzPzmiYwzA0c=;
-        b=MqLP83GUYS+6YxL/mClIn16ZwOkt3YoKezyZsE1YHA5QJX2KaN0y5Nu9827eo3bLL1
-         r9/1VU0s9FBnXQLVfSsDTUISBu00ssB3uVaAYcRdJmUwnb3wXeinBVKQumAinFT1StIx
-         Y4IDexUtGIvQrAHJkRqf1SHNHpf5lw4dUVTTV7TPm2bl6mWJWgOgSWSfd72waarh2rBK
-         MDcZSYLHY3qpr4HMgvnr1+PUYOdbYfnjZIChNmZjeEjTOBTf0GKId0U6aVlhpf7U0g+v
-         2GJkkRhGzYJ8wIz+Uuq+tY9GnooPTjL0SL3p6UqwQQLGei/Yqn6nK6WLN68e7LiAEV8A
-         3nrw==
-X-Forwarded-Encrypted: i=1; AJvYcCWZw7qo7McGS93YZchBndxs23Xw1PGBUurYKAImcseerEUyc559+RLbSQ3JMbhsRYTIrCvwWPv/GCXJJ0pxhRZ4@lists.infradead.org
-X-Gm-Message-State: AOJu0YxOL8yiAfCSxLO7DPspn2SYTWyimHOrzAQfHlb4YmFhcZAk1nsv
-	HlFzfaR/OXoi8WkvBdXRCf9kRDPlU/iL42BZas6m/xyoQ0Y2jG0m8TO2KGEYji8j6aEW4sYz/fh
-	oR8RatybS5U+gtDyX1lj95zdtybOPP3MvwFxsp5E8Ww==
-X-Gm-Gg: ASbGncusWGl95uSenox+jvQoEAmOxaXBA7PqP6lOjOar1zbUg+ZNXFNgSRQu424NJNH
-	Ju7Frnh39owXjfzc1a0hYg6vw55J/kKK7bLsO+U4NhMaae9xh8dyPHT2LyKid2H16kZtG+L8Dlw
-	D49Y1R1ImAN1NLCTzNh+bvIitUWHks2PUqO43bqWEUoruHzRERAIxOeRLwK59j6GlHNQz4/eGyY
-	um88DhA+a4yGlyY6m1m3j5TJJAHm3IDo/MmfecG0vyLSCeEa3h6ctFiHH0/gnw34JzHkGGqDyVh
-	G3nyuDZuyGFhy+wFnMlnvzsDzVUU
-X-Google-Smtp-Source: AGHT+IG+dtM/tA0+7V4eO7aEdSCo29eBvV6UxX/J0OEYRSm8uig5vICwrUHf4L3vwGq/i2bZdmVG47rgb3kSBNUvnZQ=
-X-Received: by 2002:a05:620a:2584:b0:8b1:c1d3:8e91 with SMTP id
- af79cd13be357-8b5e5b15b5bmr314414185a.39.1764772232991; Wed, 03 Dec 2025
- 06:30:32 -0800 (PST)
-MIME-Version: 1.0
-References: <20250908-enable-byte-cntr-for-tmc-v6-0-1db9e621441a@oss.qualcomm.com>
- <20250908-enable-byte-cntr-for-tmc-v6-6-1db9e621441a@oss.qualcomm.com>
-In-Reply-To: <20250908-enable-byte-cntr-for-tmc-v6-6-1db9e621441a@oss.qualcomm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Wed, 3 Dec 2025 14:30:22 +0000
-X-Gm-Features: AWmQ_bnPEN-1MzILBf1Rpw3Tgp2yMP9ShncM3uAGstu8OXc6GMqh6xi_bqmbgKo
-Message-ID: <CAJ9a7VitqEix7dumLq2ND=6+PU_eCkm8=YkHB0n7iHdJ8iKeVA@mail.gmail.com>
-Subject: Re: [PATCH v6 6/9] dt-bindings: arm: add an interrupt property for
- Coresight CTCU
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, Jinlong Mao <jinlong.mao@oss.qualcomm.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	devicetree@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_063034_761304_DEB4F470 
-X-CRM114-Status: GOOD (  17.40  )
+	Wed, 03 Dec 2025 14:58:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 753716015C;
+	Wed,  3 Dec 2025 14:58:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05D61C4CEF5;
+	Wed,  3 Dec 2025 14:58:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764773896;
+	bh=q6xtpA3Ne2GVQqviQ2yAHz9kGWrU02LdKiLnietBFIE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ms/BIW2TEXNMnkHQTbPaWXCYSz3tauK7A+HNvqrzAb6MzYchMz0KqwBFZB1QwFFJW
+	 9h65GWCFVSGruHbIZJwHnLlfLjKs7Yz43XR6mgRw9r1mHNQMIKU9EkwVCLuQjAQjGX
+	 tnYE3bjlantv4+044UjudWVA0KJkiEe5naRmuKHvUXfl+aeY5EQuip2Nue4q2R2cSH
+	 Fr/tmaF+3bFxMInlQ8gDb5If0+LnHbPD4+spZ02YOgpywW/tm4oxT9bLDEDhkXOsf/
+	 TVrCP0JomwlN26c+cGx5K4G8gGf85/3uZ/xOJDEgEii+NjWZP35lRYbQvjuf5j7rOz
+	 KRyUzlbnhul8g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vQoJ3-0000000AD00-3BQL;
+	Wed, 03 Dec 2025 14:58:13 +0000
+Date: Wed, 03 Dec 2025 14:58:13 +0000
+Message-ID: <86h5u7pq7u.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH 4/4] KVM: arm64: Convert VTCR_EL2 to config-driven sanitisation
+In-Reply-To: <aTBDRx1oeGDs2SFl@raptor>
+References: <20251129144525.2609207-1-maz@kernel.org>
+	<20251129144525.2609207-5-maz@kernel.org>
+	<aTAijieCI8055FL0@raptor>
+	<86ikenpvna.wl-maz@kernel.org>
+	<aTBDRx1oeGDs2SFl@raptor>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: alexandru.elisei@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,72 +89,162 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 8 Sept 2025 at 03:02, Jie Gan <jie.gan@oss.qualcomm.com> wrote:
->
-> Add an interrupt property to CTCU device. The interrupt will be triggered
-> when the data size in the ETR buffer exceeds the threshold of the
-> BYTECNTRVAL register. Programming a threshold in the BYTECNTRVAL register
-> of CTCU device will enable the interrupt.
->
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> ---
->  .../devicetree/bindings/arm/qcom,coresight-ctcu.yaml    | 17 +++++++++++++++++
->  1 file changed, 17 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
-> index 843b52eaf872..ea05ad8f3dd3 100644
-> --- a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
-> +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
-> @@ -39,6 +39,16 @@ properties:
->      items:
->        - const: apb
->
-> +  interrupts:
-> +    items:
-> +      - description: Byte cntr interrupt for etr0
-> +      - description: Byte cntr interrupt for etr1
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: etr0
-> +      - const: etr1
-> +
->    in-ports:
->      $ref: /schemas/graph.yaml#/properties/ports
->
-> @@ -56,6 +66,8 @@ additionalProperties: false
->
->  examples:
->    - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
->      ctcu@1001000 {
->          compatible = "qcom,sa8775p-ctcu";
->          reg = <0x1001000 0x1000>;
-> @@ -63,6 +75,11 @@ examples:
->          clocks = <&aoss_qmp>;
->          clock-names = "apb";
->
-> +        interrupts = <GIC_SPI 270 IRQ_TYPE_EDGE_RISING>,
-> +                     <GIC_SPI 262 IRQ_TYPE_EDGE_RISING>;
-> +        interrupt-names = "etr0",
-> +                          "etr1";
-> +
->          in-ports {
->              #address-cells = <1>;
->              #size-cells = <0>;
->
-> --
-> 2.34.1
->
-Not sure if you need me to review this purely DT hardware description
-update but...
+On Wed, 03 Dec 2025 14:03:51 +0000,
+Alexandru Elisei <alexandru.elisei@arm.com> wrote:
+> 
+> Hi Marc,
+> 
+> On Wed, Dec 03, 2025 at 01:00:57PM +0000, Marc Zyngier wrote:
+> > On Wed, 03 Dec 2025 11:44:14 +0000,
+> > Alexandru Elisei <alexandru.elisei@arm.com> wrote:
+> > > 
+> > > Hi Marc,
+> > > 
+> > > On Sat, Nov 29, 2025 at 02:45:25PM +0000, Marc Zyngier wrote:
+> > > > Describe all the VTCR_EL2 fields and their respective configurations,
+> > > > making sure that we correctly ignore the bits that are not defined
+> > > > for a given guest configuration.
+> > > > 
+> > > > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > > > ---
+> > > >  arch/arm64/kvm/config.c | 69 +++++++++++++++++++++++++++++++++++++++++
+> > > >  arch/arm64/kvm/nested.c |  3 +-
+> > > >  2 files changed, 70 insertions(+), 2 deletions(-)
+> > > > 
+> > > > diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+> > > > index a02c28d6a61c9..c36e133c51912 100644
+> > > > --- a/arch/arm64/kvm/config.c
+> > > > +++ b/arch/arm64/kvm/config.c
+> > > > @@ -141,6 +141,7 @@ struct reg_feat_map_desc {
+> > > >  #define FEAT_AA64EL1		ID_AA64PFR0_EL1, EL1, IMP
+> > > >  #define FEAT_AA64EL2		ID_AA64PFR0_EL1, EL2, IMP
+> > > >  #define FEAT_AA64EL3		ID_AA64PFR0_EL1, EL3, IMP
+> > > > +#define FEAT_SEL2		ID_AA64PFR0_EL1, SEL2, IMP
+> > > >  #define FEAT_AIE		ID_AA64MMFR3_EL1, AIE, IMP
+> > > >  #define FEAT_S2POE		ID_AA64MMFR3_EL1, S2POE, IMP
+> > > >  #define FEAT_S1POE		ID_AA64MMFR3_EL1, S1POE, IMP
+> > > > @@ -202,6 +203,8 @@ struct reg_feat_map_desc {
+> > > >  #define FEAT_ASID2		ID_AA64MMFR4_EL1, ASID2, IMP
+> > > >  #define FEAT_MEC		ID_AA64MMFR3_EL1, MEC, IMP
+> > > >  #define FEAT_HAFT		ID_AA64MMFR1_EL1, HAFDBS, HAFT
+> > > > +#define FEAT_HDBSS		ID_AA64MMFR1_EL1, HAFDBS, HDBSS
+> > > > +#define FEAT_HPDS2		ID_AA64MMFR1_EL1, HPDS, HPDS2
+> > > >  #define FEAT_BTI		ID_AA64PFR1_EL1, BT, IMP
+> > > >  #define FEAT_ExS		ID_AA64MMFR0_EL1, EXS, IMP
+> > > >  #define FEAT_IESB		ID_AA64MMFR2_EL1, IESB, IMP
+> > > > @@ -219,6 +222,7 @@ struct reg_feat_map_desc {
+> > > >  #define FEAT_FGT2		ID_AA64MMFR0_EL1, FGT, FGT2
+> > > >  #define FEAT_MTPMU		ID_AA64DFR0_EL1, MTPMU, IMP
+> > > >  #define FEAT_HCX		ID_AA64MMFR1_EL1, HCX, IMP
+> > > > +#define FEAT_S2PIE		ID_AA64MMFR3_EL1, S2PIE, IMP
+> > > >  
+> > > >  static bool not_feat_aa64el3(struct kvm *kvm)
+> > > >  {
+> > > > @@ -362,6 +366,28 @@ static bool feat_pmuv3p9(struct kvm *kvm)
+> > > >  	return check_pmu_revision(kvm, V3P9);
+> > > >  }
+> > > >  
+> > > > +#define has_feat_s2tgran(k, s)						\
+> > > > +  ((kvm_has_feat_enum(kvm, ID_AA64MMFR0_EL1, TGRAN##s##_2, TGRAN##s) && \
+> > > > +    !kvm_has_feat_enum(kvm, ID_AA64MMFR0_EL1, TGRAN##s, NI))	     ||	\
+> > > 
+> > > Wouldn't that read better as kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN##s, IMP)?
+> > > I think that would also be correct.
+> > 
+> > Sure, I don't mind either way,
+> > 
+> > > 
+> > > > +   kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN##s##_2, IMP))
+> > > 
+> > > A bit unexpected to treat the same field first as an enum, then as an integer,
+> > > but it saves one line.
+> > 
+> > It potentially saves more if the encoding grows over time. I don't
+> > think it matters.
+> 
+> Doesn't, was just aestethics and saves someone having to check the values to
+> make sure it wasn't an error.
+> 
+> > 
+> > > 
+> > > > +
+> > > > +static bool feat_lpa2(struct kvm *kvm)
+> > > > +{
+> > > > +	return ((kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN4, 52_BIT)    ||
+> > > > +		 !kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN4, IMP))	&&
+> > > > +		(kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN16, 52_BIT)   ||
+> > > > +		 !kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN16, IMP))	&&
+> > > > +		(kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN4_2, 52_BIT)  ||
+> > > > +		 !has_feat_s2tgran(kvm, 4))				&&
+> > > > +		(kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN16_2, 52_BIT) ||
+> > > > +		 !has_feat_s2tgran(kvm, 16)));
+> > > > +}
+> > > 
+> > > That was a doozy, but looks correct to me if the intention was to have the check
+> > > as relaxed as possible - i.e, a VM can advertise 52 bit support for one granule,
+> > > but not the other (same for stage 1 and stage 2).
+> > 
+> > Not quite. The intent is that, for all the possible granules, at all
+> > the possible stages, either the granule size isn't implemented at all,
+> > or it supports 52 bits. I think this covers it, but as you said, this
+> > is a bit of a bran fsck.
+> 
+> Hm... this sounds like something that should be sanitised in
+> set_id_aa64mmfr0_el1(). Sorry, but I just can't tell if TGran{4,16,64} are
+> writable by userspace.
 
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
+Everything in ID_AA64MMFR0_EL1 is writable, except for ASIDBITS.
+
+> 
+> > 
+> > This is essentially a transliteration of the MRS:
+> > 
+> > (FEAT_LPA2 && FEAT_S2TGran4K) <=> (UInt(ID_AA64MMFR0_EL1.TGran4_2) >= 3))
+> > (FEAT_LPA2 && FEAT_S2TGran16K) <=> (UInt(ID_AA64MMFR0_EL1.TGran16_2) >= 3))
+> > (FEAT_LPA2 && FEAT_TGran4K) <=> (SInt(ID_AA64MMFR0_EL1.TGran4) >= 1))
+> > (FEAT_LPA2 && FEAT_TGran16K) <=> (UInt(ID_AA64MMFR0_EL1.TGran16) >= 2))
+> > FEAT_S2TGran4K <=> (((UInt(ID_AA64MMFR0_EL1.TGran4_2) == 0) && FEAT_TGran4K) || (UInt(ID_AA64MMFR0_EL1.TGran4_2) >= 2))
+> > FEAT_S2TGran16K <=> (((UInt(ID_AA64MMFR0_EL1.TGran16_2) == 0) && FEAT_TGran16K) || (UInt(ID_AA64MMFR0_EL1.TGran16_2) >= 2))
+> > FEAT_TGran4K <=> (SInt(ID_AA64MMFR0_EL1.TGran4) >= 0)
+> > FEAT_TGran16K <=> (UInt(ID_AA64MMFR0_EL1.TGran16) >= 1)
+> 
+> How about (untested):
+> 
+> static bool feat_lpas2(struct kvm *kvm)
+> {
+> 	if (kvm_has_feat_exact(kvm, ID_AA64MMFR0_EL1, TGRAN4, IMP) ||
+> 	    kvm_has_feat_exact(kvm, ID_AA64MMFR0_EL1, TGRAN16, IMP) ||
+> 	    kvm_has_feat_exact(kvm, ID_AA64MMFR0_EL1, TGRAN4_2, IMP) ||
+> 	    kvm_has_feat_exact(kvm, ID_AA64MMFR0_EL1, TGRAN16_2, IMP))
+> 		return false;
+> 
+> 	return true;
+> }
+
+The combination (TGRAN4=NI, TGRAN2_4=TGRAN4, TGRAN16=52_BIT,
+TGRAN16_2=52_BIT) is a valid LPA2 configuration, which the test above
+rejects.
+
+> where, in case there's not something similar already and I just don't know about
+> it:
+> 
+> #define kvm_has_feat_exact(kvm, id, fld, val)			\
+> 	kvm_cmp_feat(kvm, id, fld, =, val)
+
+#define __kvm_has_feat_enum(kvm, id, fld, val)				\
+	kvm_cmp_feat_unsigned(kvm, id, fld, ==, val)
+
+#define kvm_has_feat_enum(kvm, ...) __kvm_has_feat_enum(kvm, __VA_ARGS__)
+
+> The idea being that if one of the granules does not support 52 bit, then it's
+> not supported by any of the other granules.
+
+See above why I think your proposal doesn't work.
+
+Thanks,
+
+	M.
 
 -- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+Without deviation from the norm, progress is not possible.
 
