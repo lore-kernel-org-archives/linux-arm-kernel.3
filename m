@@ -4,133 +4,170 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F614D12694
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 11:04:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 437A1D12694
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 11:04:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UFJKTwjHiAis4wfTQBy6AYXPEaNWvPiC5x9VaYm8ow4=; b=oLFR5ZIBcScMKkRhYNhpC3AHon
-	HelYxOorf8H9jflMysRJo25qFfFkUHbpejom9WhChKHynP9UICNa8BB9OxTJETmFFgitgZ3kS9vDO
-	WsXB/Tpow14dW7sLU8au8LMjgon0b4qPwDLTldIzBMsoKxJBM7S4EFbpmHe1FYdhUAOGHpfThHI78
-	TLjfUEWqSmFr3HAHvTw6MJcqN4DcDGKJykGPUzWNS0BvrcEZviBzYFPISuCDdNsU1v7imYJyX+ViT
-	9CqryLsdFh/M3/A7KT0aotYd+JniAKbcAhFI2B7yB+WNTA1bch9KQzMKEvvIRtVN33WXv6rET0khd
-	0bLdA3Kw==;
+	bh=o6xkIYl6TPl5FcyGQaVkGRPG+Qcjpbr86t/UrQgzqFs=; b=cgauQGp6bOQFZHTozPn2Sg7DFG
+	8tZD7xRNRt2e6bE666ZEJF1kl6poIC+2v5wSzUGaG0OEkEPJ/msn2ObRTZO9yuOlMqE6m+hZTHDRA
+	31e1+ckrZvUgzDNOebKgEHktZGBGAiD839Cnx+P4gtCUI1d5KGa8HwbAiSL7ixbKXTAO6T29eQzSE
+	XodyvabOiiVjBrrxEW98fYIrHEj+JCo/RQxZ+OmTmtr2cPXyYz1PxiYYYiGDfmfHG4lCh2u1qOd1s
+	5lMzzehCK/cxltZ6CA6Cg2BpYequ6M5Bgele+sbv+5cm5+DEo5g8FYfNzCDreX5uqPXVoCZlv9qIB
+	OXTGM4Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQkef-00000006TqT-2Vvk;
-	Wed, 03 Dec 2025 11:04:17 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vQkeu-00000006TsI-3sfl;
+	Wed, 03 Dec 2025 11:04:32 +0000
+Received: from mail-eastusazon11011014.outbound.protection.outlook.com ([52.101.52.14] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQkec-00000006Tq1-2Zhg
+	id 1vQkes-00000006Tri-3Bl0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 11:04:16 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B39Q1GA1969544
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 3 Dec 2025 11:04:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=UFJKTwjHiAis4wfTQBy6AYXP
-	EaNWvPiC5x9VaYm8ow4=; b=Gg00H11qipOHcrB7keAw49wsoP8Cp9Tq3ogmFR4a
-	e7sRK6abkd/3G4Wvt9I4RlnZCc/rh6mIbkLkPIfALL7Y1ZgN40NGW9PvnxAM3bJn
-	MKeoLUUXOqL7BaFpvRqbWpV2lFpANC8zp0Ry4/Uea9w9yTJHVLc3dUGqMarZZHXU
-	XpLBU8gfXCagKknovJommArBx7SS/YSjDLrh9vmlryIcFehDVFANyg9RvZsDTvhe
-	QCwSPYrhwfoO8BGJzqzt/cRjVZ5sULdrNevaL1kQgao9N/CTOoGwKD6XLDdQiVr6
-	FPlU907ZZ6avMMWNS3oMxptbo0riAC2tFDvp4UVjSBhzTA==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4atjjs0bf0-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 11:04:12 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8b30b6abb7bso1257134885a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 03:04:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1764759851; x=1765364651; darn=lists.infradead.org;
-        h=mime-version:user-agent:message-id:date:references:in-reply-to
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=UFJKTwjHiAis4wfTQBy6AYXPEaNWvPiC5x9VaYm8ow4=;
-        b=Jvpa9VJVlZ3LYMBfipfJZ6oK21yZWHOe5FXxU2xUySvrWu5tx4ac+VmUkTbdbcE3aU
-         CPHBRFeW3gPFoFtFqeIe5xOeTTSb0nEoRcgGBsA7dNpTO0+rKpL8Oer7m9s3mEBX03Ie
-         FEuvr7ekLda0VLZ2/rb9CXpPTFoLyQ4iOD97Z9oVB/5iRgQHf2qSkr32jZNyEzimgi5I
-         GVs4jTpnIR+fkqiNNT/zyZym+b0uLLCVjrJtB3/syM+qWjnOSL58H7BmwVqc9ncXpVEa
-         19x1LTxzVGVGzua9+0pI8dRf8eT1eQocf3wQhFriwfVckyfOVr+4GJpiASG/akPWs1rp
-         5AWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764759851; x=1765364651;
-        h=mime-version:user-agent:message-id:date:references:in-reply-to
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=UFJKTwjHiAis4wfTQBy6AYXPEaNWvPiC5x9VaYm8ow4=;
-        b=AugHDYIE+G5HT4KpPQZslRZhcC55xNUmaB82WZbh6jfHuOccVU+bcKGOZ5VDMtsiW9
-         uwJ+is0kiR5AGS5ujWPmIi6XKunaMwD3la8mUkkyUtEHOJFj+zmoJVfa/fP1tGTWAPHL
-         XCDQwJaqRxDG1s3O/6/zGs9ZgUsVRteRAceJyH9zpakyekl2l+/uv3v1Asopr5qtYp4e
-         Azj1VQ8uSdXGmD/SlFtmxvhR2CH/gzAwgYldj4KAuKvx9iMyYAiDtw25WJlXiY03k3Qj
-         tA6tsLUzcbED6AYjAq41We8jzTOqW7xhr5BbRKx3pLd4vLV3QJmghuoOjgLhM249/ykM
-         424w==
-X-Forwarded-Encrypted: i=1; AJvYcCXEn4ZslxDnWIsy5pdPUBSEzf85BNrpK8c0NyN1EFeKy25kwBO+I2TI2Few2odORgQhTNtL29PDXsjb/76sBBO1@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywzudues4P63NuPXGFk/zobtBbIgtbmiXZ81Z0PNyz5JY0yTMq0
-	iotVnTcnwzIKRuSbkryvig1NkUcAu5TqF0kk6AWx8evO0gM6v1YG3ysFOIHtUZsgyQxG398oaao
-	uGJy+6Hv3OQbhGe2ZGo5EJDCotNGtockeFWGF5OcTYTv8+kI3RRaozE8gNcI5Zo0JFTcomfC8Pc
-	h6tw==
-X-Gm-Gg: ASbGncvpAxn/7VuZiD9evglv2HNT9pEx1VER2VWkztGhaiTye07k4+UtgaeD7byejTF
-	ZsNhl0xzLpaB+HlSG2OrVxuD+lJzdQuk7GhdAl0juxbyvsD3Zaxjzli5PlBBhMJUdtlFqIe/R65
-	PmpHGTNjoHy8l4XMSAJwApOmXuRnH8MwkV7ajWJ4S3de7fg8sRvu3qlMGnDP2G7dew8LSe1sxTe
-	JDG8BV1ao3aFERTyvzTeeUnPeqONUnxHjiUr3upjFmTh49eY+88Q3nSiDtsBE5hFwXvRvD0ZemA
-	fRshh2mohh4jrFX1UBoFHUQrBNXdAQpreZy5ySlQ9VG5g9wzyHDgZv9arPKTZ8bBn8a815fkKEv
-	Gfc3r79sXeRAhQyOvoN/4u3jO
-X-Received: by 2002:a05:620a:44d4:b0:8b1:fde4:59ee with SMTP id af79cd13be357-8b5e763d0aemr234587285a.85.1764759851350;
-        Wed, 03 Dec 2025 03:04:11 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFNbWJbzcy/B+fJSd0ZSuNTdWoH8tv96dKu+U9fsX4anpstqGkK1k1pN4CLnfJoddBVt0Y8gw==
-X-Received: by 2002:a05:620a:44d4:b0:8b1:fde4:59ee with SMTP id af79cd13be357-8b5e763d0aemr234581985a.85.1764759850885;
-        Wed, 03 Dec 2025 03:04:10 -0800 (PST)
-Received: from localhost ([2a01:4b00:b703:c200:1ac0:4dff:fe39:5426])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-42e1cac995esm37331534f8f.43.2025.12.03.03.04.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 03 Dec 2025 03:04:10 -0800 (PST)
-From: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: Punit Agrawal <punit.agrawal@oss.qualcomm.com>,
-        Cristian Marussi
- <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 0/8] firmware: arm_scmi: Refactoring and enablement of
- ACPI PCC transport
-In-Reply-To: <20251126-camouflaged-delightful-cuckoo-ddeac8@sudeepholla>
-	(Sudeep Holla's message of "Wed, 26 Nov 2025 14:31:30 +0000")
-References: <20251017-acpi_scmi_pcc-v1-0-0adbab7709d9@arm.com>
-	<87wm44aect.fsf@stealth>
-	<20251126-camouflaged-delightful-cuckoo-ddeac8@sudeepholla>
-Date: Wed, 03 Dec 2025 11:04:09 +0000
-Message-ID: <877bv3n7x2.fsf@stealth>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	Wed, 03 Dec 2025 11:04:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=L11RDLNyrR8Mxy0bgovnaWV5KWt63T7upOrXVLZANN8VlTNrif0OeMeXt9yQ1gyGuhvgaRRHrsqBaPas9pHDl5HDRYUDJZghz28i8y2tRt/Mjv+p58VEsHgVMu09FOdnNN7PmnvBwX5SY/XzrEMI450c7Z3iAlA2kv/5uEYi+MARvmwBC+tNxKTgd8bS//kQQeyZcZBPsv2TrSmEGw/CJ/1f8shKi67DHCLl+wi7d3Q7HRJeRR0iHAnOih2e47K6KC36LxMc2U5NLcO53GUqpTMcCRnVxQudNvLdatscEIaH5C8n65p1qvEwUGKbpi85LE5yPqhdLEoMgxER/bWfhg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=o6xkIYl6TPl5FcyGQaVkGRPG+Qcjpbr86t/UrQgzqFs=;
+ b=JCqlyEw01uoZYFhZ0Cvzuzq7CSPAc5TuTijHwrwmPe8zDUBlYQUwlq4zwZ/VabmrGwNgTKOfWfJj5HVqLsUMfqpiDPwbWEpG0ZiD3Q5hvd69bblVs76lBYINL6O3bwn74NXVR3Gwgpo0rfOJgdPv0FBb11W5FrkCJYFH/XlJQbpY7caGQFPM9IbnVMDwR/ElaEgafeWfCq7sByVI4LjSubLp0T28ei+UJT3VAEzen61oAJLXXOM5vhu6o1fiNqFd/+on5myA8j0JVRGR78XxzhUyT8kXgnbsdwzHqUlA4jxYrI7kGG7YWN7Aa0bOuv2d6Z8taryZUsliBqBBAXBeFg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=o6xkIYl6TPl5FcyGQaVkGRPG+Qcjpbr86t/UrQgzqFs=;
+ b=gl5xD1UjZdldgOqa+7IpMPWYVHWYCnbl2U6Iyr5S76xrRDLRZLPXKvMAxQ91FNBHTkjJPgdukKinw0BdePPT67NiY05ih97RPMg4HideQTLCzpP1DzUlF1gsH70+Nx/PUVcxag611PeaNrp21ZQyD+DDkzAg3f6Bggtrq+3H9Y6XElm6jA1j+dOCDAL14+He8X07tJEn6O2g2cJikwHHjf6y/wLDO5m8gVCnRnw5uXRew1bIjKJZ2HV85HNMlgFcQhgwLiLOOEElFHjmA67unRIwqZBE/9iOFP0ON6q1iAszHgjhYbOBntrYV+723wqIhDl73Qom9I5Z1PUutkB4TQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from BN5PR12MB9511.namprd12.prod.outlook.com (2603:10b6:408:2a9::14)
+ by PH7PR12MB7793.namprd12.prod.outlook.com (2603:10b6:510:270::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.9; Wed, 3 Dec
+ 2025 11:04:22 +0000
+Received: from BN5PR12MB9511.namprd12.prod.outlook.com
+ ([fe80::4d8d:5f91:6c3c:dc8c]) by BN5PR12MB9511.namprd12.prod.outlook.com
+ ([fe80::4d8d:5f91:6c3c:dc8c%4]) with mapi id 15.20.9388.003; Wed, 3 Dec 2025
+ 11:04:22 +0000
+Message-ID: <47684b91-7c0f-4260-abfd-2795fdaa2b31@nvidia.com>
+Date: Wed, 3 Dec 2025 16:34:10 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V3 1/3] iommu/arm-smmu-v3: Add device-tree support for
+ CMDQV driver
+To: will@kernel.org, robin.murphy@arm.com, nicolinc@nvidia.com
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+ thierry.reding@gmail.com, jonathanh@nvidia.com, vdumpa@nvidia.com,
+ jgg@ziepe.ca, linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-tegra@vger.kernel.org, conor+dt@kernel.org, krzk+dt@kernel.org,
+ joro@8bytes.org, robh@kernel.org, kernel test robot <lkp@intel.com>
+References: <20251201163219.3237266-2-amhetre@nvidia.com>
+ <202512031601.IpliwbHW-lkp@intel.com>
+Content-Language: en-US
+From: Ashish Mhetre <amhetre@nvidia.com>
+In-Reply-To: <202512031601.IpliwbHW-lkp@intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: BMXPR01CA0083.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:b00:54::23) To BN5PR12MB9511.namprd12.prod.outlook.com
+ (2603:10b6:408:2a9::14)
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Proofpoint-ORIG-GUID: sNoCLhM5QZXd6WiFw6usIRtaoHl68taf
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjAzMDA4NyBTYWx0ZWRfXwlJijfI6D+04
- KMN7G6V+4pOFY+6AqSF/JmRK36y/WtgJ9uQlu9K8Rc0+efEnraL6XdTTozygpodtLcptQxntSml
- OqgUx2usxeGLGHb7r9iG0pinx5aU1QTt9V1jawklcoR5REVmYd9Kx+aUzPMzOvHSjs8AXo/9a7C
- WFkjUirkUJ7biBdnGC4ICjVqebbijDfn34irx05zpAvtpTw53E55TWAGrWwLP7pH2mEQo4OO+O/
- Sk+GVjHB9Nl6FGiJ5OXt1tPfrNuUFp8S2KR/Adlsek2cCiESj2zWVIgJeqk8iSI7SY8+JTpiN4V
- cdLosLarq7PWfck68lrtodVfC5tcyCXTbpjbnzzPX0+DmJYxXb+qtYUotJvbpN4n5HRZ1GWp31e
- vah1wgHejRWnrZwJUzGgxFV9T+jeXw==
-X-Proofpoint-GUID: sNoCLhM5QZXd6WiFw6usIRtaoHl68taf
-X-Authority-Analysis: v=2.4 cv=ZqDg6t7G c=1 sm=1 tr=0 ts=6930192c cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=wP3pNCr1ah4A:10
- a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7CQSdrXTAAAA:8
- a=Wh0JOPiwVpfDxFduUbEA:9 a=bTQJ7kPSJx9SKPbeHEYW:22 a=a-qgeE7W1pNrGK8U0ZQC:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-02_01,2025-11-27_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 impostorscore=0 lowpriorityscore=0 suspectscore=0
- priorityscore=1501 spamscore=0 bulkscore=0 adultscore=0 phishscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
- definitions=main-2512030087
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN5PR12MB9511:EE_|PH7PR12MB7793:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3e3eabcf-336d-4863-65d1-08de325bb6a9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?WkNXWk5XRDFxZnR1N0gzdTd5cDFqaWpQeDcweXlNaFZhV0tqMWRNemdJUlZl?=
+ =?utf-8?B?ZHhWL0RzbXhJWS9qS2w3dDNCRjUrOHAzZFNrRWlqL0p4RXI1R1VaV0dINTFF?=
+ =?utf-8?B?djgzVWpQYWFWS21Qa3lxZHQ0ZVh5WkpPVDVJZ2pKYUNzMFVhSEFxRnRDclAz?=
+ =?utf-8?B?WE03WkVVZll2dStrVEdQNVArT2ltK1BKN3NQaUJkaXZZbDdiWXhpSjBlSS9q?=
+ =?utf-8?B?bDZOeWVvcElEbVJoaEUwMXpPZ2V5OUdZTitZalZnOEYrSlhlY0hGcjNJSHhx?=
+ =?utf-8?B?Q0Jrc3hiczhHVnRoY2tubHRXU1RSYnBqVElUZ3dRS2dNcWpORW9jQWttRnE0?=
+ =?utf-8?B?Y1FiVUtOeVJuakhHbVFVeUxQeHpJUkw3aXdhbzFUMThvWTdJMmNpRTBVRGFw?=
+ =?utf-8?B?dFJNcVkrczRGTlpoR2piWUhRWmswTklLdlpMaDl4T2dLNlhjeWxQY3RVK0RL?=
+ =?utf-8?B?YWYzcUpIQ2NFcDJ2OHVmUzB4VGwzT1FKSkFCV1JWd1RSamdudE01WHMzcE1Q?=
+ =?utf-8?B?MW1POCsxUGFQeEZsS3kxVDZLdnR4WVVVTkZFMys5UUZRaFFYNXl5UHBVeTlC?=
+ =?utf-8?B?akVlV1VvdE5hOFJ4UEFKbDYrRGVtR09URi9zcndIc1NsWjAzQ0VLcCtPeEtl?=
+ =?utf-8?B?QmdsOFJpb2JlOTdWblViRGFMSVdTa1djbnFmL3dYSXcrS2FmODNiTVptYWNW?=
+ =?utf-8?B?eFVZWEFSUXhwZ3RDTDNCcXM2NkZ2SHpNWmFjY2pseHRaZEluWkVXdW8wVUxO?=
+ =?utf-8?B?MVJFNXV0VFNYQjFPTFpsNzdCRVZJZk9rN3Z3NlpaUlFEWnJicU9QZC9Dck40?=
+ =?utf-8?B?Z2FxbjNCcjRFK3ZZbElReGN4YVRMeXU4TndmTWlYU201REthaDZudEIzWnVj?=
+ =?utf-8?B?LzJBcUtuY1c0bGFNdk12OHdQQ0syMWdzdWYwVU1OVy84N3hVdjgwcDhWTVMr?=
+ =?utf-8?B?R2lnaHpnM2EwVEdGSWdZQ3ZheWtWZmx0ZW9LNTA5KzJYcks5S0dhSzN5VDVj?=
+ =?utf-8?B?eXh2TTdTMHpRUW5OalV3bTZQQThjeWJmdDBNc0hBcDkvbDR5eWFwVzJEUGQ5?=
+ =?utf-8?B?Rk8xc1RHaTlEOEpjKys0aUlnZTVWNm1teGhtdUF4ODBWQ0w4ZEZHajBQbDlI?=
+ =?utf-8?B?OW85Y0U4SzBwVXgrbHEwZEVuL3QrUjErRElPdmtzQjdhZXdyaitmSHdHUDRC?=
+ =?utf-8?B?UWdnRHRtdHlTaXRNQzFtSk03dHREb0JlWGc0L0xHUko4TjdPV0F4SFk5KzBI?=
+ =?utf-8?B?TWVUanI1Ym1pVVhUZXA1L0FEMUYzbk9xOFNRVFJmT1lDaGlMZUhUTkN3WUtO?=
+ =?utf-8?B?QTk4eWovZjh4VytCTHZPUUwvTkEyc0ltMEV1ME9rY2o5aytqdG4wYU9PTSty?=
+ =?utf-8?B?VFh0NDBvVVJKTkIwRVNkU2F5d2V1ay80aElFMUF6aGUrZERhb1kwRk5qQzAr?=
+ =?utf-8?B?d0w5eW5LTnBwSmU1TmU3bWxkTFV0emF3c2N1alZWUUZZUm00ZEFXMW9CUlo0?=
+ =?utf-8?B?Z3BlNld2MUdrb2VkeGJ6L2xEYUd3Z2w1bnBXT3BjYXRpZll4ZnhqTVJhUEdN?=
+ =?utf-8?B?S0R5Z1EvVTZjYTFpMVllU1FYSllBWmI4MW1DbFJMRVVQbXdFZFBnalBtY3lp?=
+ =?utf-8?B?SUJYVHRyY09reG1xMFB0WjE0cHErM0JLYnpFZVJlcHc5WE1WQy9KeWtOT2FY?=
+ =?utf-8?B?TEFlVCt4cjJqbzNGOElUSjlOSGJKR0lCV2hGTXZDSWFJcFBMTzMzMWt1YWc4?=
+ =?utf-8?B?U3dNUFR0dXlPZjZNK3hpU1ZuWnV0Q1MycDFMQndCSXd1RThpZjBLaVFmR29Y?=
+ =?utf-8?B?cW93b0JDNWFHV1I4TWh3WUhGdE5DN3dYcUUzR0t6QXFmbUw4T3RaZjFpOHNW?=
+ =?utf-8?B?NUZ5SEFrV3oxc3JueGxBa3ZhM0cwMlh1NTRndG1raUZyNFlZemtJdC9iTWhv?=
+ =?utf-8?B?cmZJemd5eU1QQzIxWG5rTUVOcTdVdVdnWERhR0dGTHdPYnRubmgvYWtMSCtI?=
+ =?utf-8?B?NkNqRUJFQ1hBPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN5PR12MB9511.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?azRFVEdubWxrR0MwcDVhMGFnWlpRbzg3WXhTc3JkUzVncmxKSjI1TEVsU0Ja?=
+ =?utf-8?B?b1hJcCtjMHE5azVMdTNvMlBBN1gyRGltVEJjY3RTR0xLUkZmNmFyMHY4TEF6?=
+ =?utf-8?B?VVBWVVdWYml5bFVCN1lUcFlNYVRUcXkyS2Nzc2ZyY0phdEpoL0ZuTEQ0NDlF?=
+ =?utf-8?B?ZklWR0JXZWI1S282MTVWZE11WDZaMG13b092QStvU2Q1d1dJVEJUT2daWW1q?=
+ =?utf-8?B?elBoOE9ER05BMitQWktEMFlXUWg2aklwcktIOVh3cHNreitxajdPUXN1bUxh?=
+ =?utf-8?B?WTRBU0dsWFI2QWo3Z2N2eGJKL1duQmVUK2R1YmJWbWh4NW5pcCs3OTJ5OUJO?=
+ =?utf-8?B?Q0FDUXozbFQ1YXJBbTFueGNUcmhIeXE0VTB6YnltV1lYQzZhRGRFMzNpQjRN?=
+ =?utf-8?B?Q3ZXK0ZRS3NIZ0s5aDNJbHpMTnM3bFN5eUJnc2VHN2pPWlc2NUNSNHN1SEd1?=
+ =?utf-8?B?eVhGY3dPeHl1ZHRheXhTdGZER3ZTS0xzV2FKZ1daUEt4ckVOeGRIU2FrQTJ4?=
+ =?utf-8?B?OGwxOC9pZzJ0VHM1TnkrajdCZHo0alcwSzE3d3VRcnRZT1YvUjUxNm11WUxv?=
+ =?utf-8?B?QUJ1bGN1R0padlJBclBuQUQzbnd1MnZlMzBES1oweVhvcHV2ZFJUcGluazFN?=
+ =?utf-8?B?Nk53MXM5T0VrcHVSbXEwdnlxZXhuV1A5Zm5KMHNBZVNzMDVUVjFIK1RyOVFo?=
+ =?utf-8?B?Lzk3WXZIRnhPWVhYSXBOSURjVEtIWGt5QU16YVNVRi80aW1HYUZDb1h6N2NT?=
+ =?utf-8?B?SkwvdmRWWE9aNS8xTnpWbU5HblNyMitGR2hlMmE4UHRKdWZZdzBBNmYyNkVT?=
+ =?utf-8?B?Q05XcTQ3VkIwai9Gc2hGQlNNNmV4elRYL3dJdk1TdEhSaC9vTUtyZG54RzVR?=
+ =?utf-8?B?dnhTSG1FMWJkSEZ4ZkprckhWazFSK0p0L2FvWGw3bG9hQWhBTG1EdmxYTmNO?=
+ =?utf-8?B?MzJ2UWtnRDU1dHhOOHdINWIraUxkMzZmYzY4dDZLSWhra0xFdVdNeXljdG1p?=
+ =?utf-8?B?MnZQMVNNUjNkVHBjTVkwNkVjS2lPajU2dXZkaXUwbEE2ZHdWazl3RVR0ZG1P?=
+ =?utf-8?B?ZGpscmczU20xbXJ6dzJSQW1qTDQ5dEFoSENDNmdtVUFoYnZmemV2Mjc2ZDFv?=
+ =?utf-8?B?QUx0R0g1THB6ZGU2c0tZTDFwZEtObmFET2ZaMWs5dW9Qa1FaWHBRYVZialA5?=
+ =?utf-8?B?eTVjK0Vpb29sVG5zKzN2NmVMT0pWV1FyV3lZV2NyZnAxYjcxem9GTldLc21E?=
+ =?utf-8?B?NXRZRFYvSDhWeWpjMjVsZ2k0Ny9HQy9zblYySG0xUTYzZ01zL2NqU3hTQXp3?=
+ =?utf-8?B?cnVtclcrTVl0bmM3dExqeDYvRCtoaHF4K2hDU090YWFxM3RKLzBPV2RDc0Jw?=
+ =?utf-8?B?SnVRRThyc3pVZEk0ZVNRUlVNRjVmRkZqdnJVdThLRCtlNTVmSVBXTEJueFh0?=
+ =?utf-8?B?VlVFTFpneDF5STJVMS95RFZsc3Nqc2xUL0pPTm1QYUtHVnFyeDJOSDZiNGo3?=
+ =?utf-8?B?VHhxcEs4L3o5dmpab0tQVGtBWElwUlJBamI3NVFBbW1OWmtWNW1BUW83VVJS?=
+ =?utf-8?B?LzdrN0xSRlk5eTRqTTJNdHl4WlVDczlGM3FWbEhqY3R5d2ZndUZ1WXh3U3po?=
+ =?utf-8?B?RU9LdE8yZmZTZ1RLQTArUDRSaVJvLzZhMG8weGVTZVdoR0ZsL0FhU0VRc2JP?=
+ =?utf-8?B?bUZqY0Vwd2p6RTRId0ZEMzJNOGxmdlBLUkhma2ZRMDl2K1JZdDV2bEhGM3l0?=
+ =?utf-8?B?c01TTDVQcXpZem50YjBONm5nWXdRUi9oU3laRXRocWZieDZXS1RhNWxiMzd5?=
+ =?utf-8?B?aVNYWTc1RzRZMHB5NkI3K09HWWwvWlJYd25Yc3E1UkJuN1lxUCtDT1ZldDZq?=
+ =?utf-8?B?RlJtT0RYMWUyMXVxR1UrZTE5NVdhR2MrdHFMd0xHUzBYMGdEMU1QZ0RzeHpm?=
+ =?utf-8?B?cFhiSVY2bUI4cXVNb3p0ZU9SOEcwSGNQUlNQN1Q3NmxSQm50TXRVNHRyOGU1?=
+ =?utf-8?B?OFlPOG9wNFM5UUNuazZvREdVWDFxRnZBeDFjdHpjVWJId2FkdXdiYlNrK01J?=
+ =?utf-8?B?ZFU4S3lQSW9sTWQ0OXZ0QVRsdjhNV3NtUGlQajB6TVFRZDJmUnJ6SEtLb3VZ?=
+ =?utf-8?Q?ECG49f0CGwGLF+mHkcDkMwgT6?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3e3eabcf-336d-4863-65d1-08de325bb6a9
+X-MS-Exchange-CrossTenant-AuthSource: BN5PR12MB9511.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Dec 2025 11:04:22.3808
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ljGP2yI6kU3zi7gP3UMoB26mS8Z2HQ21+4GSBpnbDu1E/zfJ5r8EfatwAPBh7DQVoRt7vSM7rMSntob17YIaBQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7793
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_030414_799150_9BF28FEB 
-X-CRM114-Status: GOOD (  31.51  )
+X-CRM114-CacheID: sfid-20251203_030430_811990_78336547 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,75 +182,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sudeep,
 
-Sudeep Holla <sudeep.holla@arm.com> writes:
-
-> On Wed, Nov 05, 2025 at 11:49:38AM +0000, Punit Agrawal wrote:
->> Hi Sudeep,
->> 
->> Sudeep Holla <sudeep.holla@arm.com> writes:
->> 
->> > The SCMI can be utilized in systems using either the FDT or ACPI specification.
->> > While FDT-based systems can natively use SCMI, ACPI-based systems often
->> > need to abstract the functionality provided by SCMI under ASL methods.
->> > So far, there has been no need to support SCMI natively on ACPI systems.
->> >
->> > However, with the addition of a few new protocols such as Powercap and Telemetry,
->> > which lack abstractions in the ACPI specification, there is now a need to
->> > run SCMI natively for those use cases.
->> >
->> > This patch series introduces ACPI PCC transport support for the Arm SCMI
->> > framework, alongside several foundational refactors and enhancements to
->> > achieve firmware-node neutrality between Device Tree (DT) and ACPI systems.
->> >
->> > The key changes include:
->> >
->> > 1. ACPI/DT abstraction and fwnode transition
->> >
->> >    Converted the core SCMI code to use `fwnode_handle` instead of DT-specific
->> >    structures, ensuring seamless operation across both ACPI and DT
->> >    environments. All property lookups, child enumeration, and device
->> >    association paths have been updated accordingly.
->> >
->> > 2. Unified transport registration for ACPI and DT
->> >
->> >    Extended the SCMI transport driver macros to support ACPI match tables,
->> >    enabling transports to probe using ACPI device IDs while maintaining
->> >    backward compatibility with DT-only systems.
->> >
->> > 3. Protocol device initialization and refactoring
->> >
->> >    Refactored the protocol device creation and validation logic into a new
->> >    helper for improved readability and maintainability. Enhanced the
->> >    initialization logic to handle ACPI-based SCMI devices without explicit
->> >    child fwnodes.
->> >
->> > 4. Introduction of ACPI PCC transport
->> >
->> >    Added a new SCMI transport driver leveraging ACPI PCCT (Platform
->> >    Communications Channel Table) subspaces via the Linux PCC mailbox
->> >    framework. This enables SCMI communication over PCC on ACPI-based
->> >    platforms.
->> >
->> > Collectively, these changes lay the groundwork for robust SCMI operation on
->> > ACPI platforms, achieving near parity with DT systems where applicable,
->> > while enabling the new PCC transport path for firmware communication.
->> 
->> I was interested in taking a closer look at the patches here but they
->> have a dependency on support for the telemetry protocol patches. I get a
->> compile error.
->> 
->> I was wondering if you have a branch with the dependencies included. Are
->> the v1 telemetry support patches[0] the right version to be using?
->>
+On 12/3/2025 2:05 PM, kernel test robot wrote:
+> External email: Use caution opening links or attachments
 >
-> I can create one but that is not strictly necessary. As mentioned in the
-> cover letter, the only dependency is on value of SCMI_PROTOCOL_TELEMETRY
-> ins `scmi_std_protocol` enumeration. Just add one and you must be able to
-> compile the series independent of Cristian series.
+>
+> Hi Ashish,
+>
+> kernel test robot noticed the following build errors:
+>
+> [auto build test ERROR on next-20251201]
+> [also build test ERROR on v6.18]
+> [cannot apply to robh/for-next linus/master v6.18 v6.18-rc7 v6.18-rc6]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+>
+> url:    https://github.com/intel-lab-lkp/linux/commits/Ashish-Mhetre/iommu-arm-smmu-v3-Add-device-tree-support-for-CMDQV-driver/20251202-003517
+> base:   next-20251201
+> patch link:    https://lore.kernel.org/r/20251201163219.3237266-2-amhetre%40nvidia.com
+> patch subject: [PATCH V3 1/3] iommu/arm-smmu-v3: Add device-tree support for CMDQV driver
+> config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20251203/202512031601.IpliwbHW-lkp@intel.com/config)
+> compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251203/202512031601.IpliwbHW-lkp@intel.com/reproduce)
+>
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202512031601.IpliwbHW-lkp@intel.com/
+>
+> All errors (new ones prefixed by >>):
+>
+>>> ld.lld: error: duplicate symbol: init_module
+>     >>> defined at arm-smmu-v3.c
+>     >>>            drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.o:(init_module)
+>     >>> defined at tegra241-cmdqv.c
+>     >>>            drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.o:(.init.text+0x4)
+> --
+>>> ld.lld: error: duplicate symbol: cleanup_module
+>     >>> defined at arm-smmu-v3.c
+>     >>>            drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.o:(cleanup_module)
+>     >>> defined at tegra241-cmdqv.c
+>     >>>            drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.o:(.exit.text+0x4)
 
-Thanks, I managed to get the patches building. Looking forward to the
-series progressing. If possible, do keep me in the loop for future
-updates.
+Hi Nic, Robin,
+
+How do you suggest fixing this? Is it fine to compile tegra241-cmdqv as 
+separate module
+and export tegra241_cmdqv_probe() to fix this warning?
+I am using GCC compiler and was not able to reproduce this with W=1 build.
+
+Thanks,
+Ashish Mhetre
+
+> --
+> 0-DAY CI Kernel Test Service
+> https://github.com/intel/lkp-tests/wiki
 
