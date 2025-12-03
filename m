@@ -4,105 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0AEDCD15DAF
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 16:25:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6308D15DB3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 16:43:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jOmbe3vzAARQVwHwMPSNLWrHj5szl0MDHgWp97fNf0I=; b=Wl21LcCyuJLamauJhafyBrmqx6
-	ROnxRxNNsAxWplxA3xegvWwiPOKhS9wDT8RnJ+pIiIimiCZ4C2gitbKpZ3WTTzdYiApO+L5zLyVKN
-	CjXCKdgWjTp4piEstI03+fN7HlU4cO7JRrFrh+YK3ZJQSVnZtiJkAi3IWv+DeZzoywkdHNilUK6sy
-	KWGKuPG0c16hfR8l5yxuQcAfbPlMFzlwDwHeGSqGdjpvdAMKha0VnO66IBhP2KgYeQ1gL+QMXfuJ+
-	Q6WUWNwqq/dTldpEihv1LqTwybukbsWd27gzD0NYImcMVPlFMBj613h1pO8hIv+K/2eiF8mnxIVWg
-	/Wz4YB+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5c+nc7S6m4RRgh7CUsFpa4LcPLmdMoyUNCHEdFI1R7Y=; b=TJTBzrvvOw5/RYBwtEPxyO+rqb
+	9yr6WcvB44glPjrmNK4wN2XwTW6mnK6c4IEbIz7IBBoyijoTFESlPv2eFuRewdIgK77Hlpy2aO9VG
+	no29f6PUb41Z0Cvzb7w6DHvWEbCBEw8CCQjzA0WTAVBhoYTC/s8sbYwysJeswuXlaJ1sVG4ZmgCWV
+	4SqgE8+xzhXiss0my8/hmhl6DWwEtaQp3r4RSDbrnB83xCW7Dm8GlD+Yunz4gAsJD0XLTmrDh1yb9
+	Yl2DcH8+HR1kHt7wwhqo2XRdROY/IirB/tjneNjkgxMsog+lWxaOeaBIccuAjwG0xB28kNz0mgpT4
+	Doo3fHYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQpfP-00000006njl-1LxV;
-	Wed, 03 Dec 2025 16:25:23 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1vQpx3-00000006oxU-33ID;
+	Wed, 03 Dec 2025 16:43:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQpfM-00000006njK-43bj
+	id 1vQpx1-00000006ox5-2SWE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 03 Dec 2025 16:25:22 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-b79b9113651so461836166b.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 08:25:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1764779116; x=1765383916; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jOmbe3vzAARQVwHwMPSNLWrHj5szl0MDHgWp97fNf0I=;
-        b=TBYvcYb3XycT7AkBDYLbnPDH2buMuufZl3WseBrfcfNYV3FE5dAHpsLWYEINPxqHeD
-         RKtdytuIOYG5TdmKfmVA+qQY3uQYgeiaqccb6Sq90KfOccWl2HfNGty/M6BLUC4pyugd
-         J67PDiO8PKrMIrIWUzQR0ZiqSjFFmTlJPjR8k=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764779116; x=1765383916;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=jOmbe3vzAARQVwHwMPSNLWrHj5szl0MDHgWp97fNf0I=;
-        b=LhN6E6Gk8pXQ3xDyJxhRKgTwIma/ZPW/xP8NDReuozcjiKCKnoa5p9PKpuKzAv+AOH
-         TTpF32iiZ8YSeKtmA8KROkvmPAFrzZHz2th02vEzjzHOMf1tyIhXFMeE11uosIReJToy
-         hEa2rTQslFHOFLugkmiU4WyEJozfID/tdjIetVXCQY85/z8vtTzalKJwo1EsoO+vJFyF
-         Mj+XJBdBaN/eG0A4vbTMEcyr4uI+2OYdvhkO03oivL/ugxpZWlESEPZlEChfW5Fn98vE
-         Biv7ri0olEG1QvxJMgBDkD6SlcfteQjBUJeYnhKYaGTBYExuB4dTCdmjwyBsA3Q4+rKB
-         uVBw==
-X-Forwarded-Encrypted: i=1; AJvYcCWWZW5s8G0cj5eGHTApaQXSGxYBsQ2off2Ft8SX3IBZf0iQuV0fvSgSfePPvG33oIW3SKagiSbiOOF7q9H8tAHf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzn6xEO8+/0lbI9rKZFaVQfUlIgNU8kbQtkPl3CSMrOf/NM2lyX
-	yjK/VcLU2O16NicvSyTQlrbnW/lJD0igYTvTOMi5F80kVE23cMmkYuauMXU5GGN0agTibUGHS2v
-	nR3r2n9z+
-X-Gm-Gg: ASbGncs1PnvY5omZGZZUCdmvvjRxEbwdZbSCwuViTuPljizeHRnxlkNZmApgdsUDe4g
-	izHRkWlvFPQMxLdB7HaNjspo2syzIdsJSp3doWlhA1vAvb2EqcXuV0X+I/2wAFjEriz0W3Ny1Qf
-	YxjRfzadtjOam0cvYkW4VlAtuStdGBHfc6RYZxFks3IIKCol0DOpLe0DtLPQgecSQ6NpwWnekoG
-	6/rjrssTJOwTjFpwef3f4+Yxz/TwFoH1gBZRB2OLQO+BmgLXI8NrfkOgLUvq8zNXskrownZ9n+O
-	IjsMdTYbMNuCaUQGcac2tS3I6LYOSFCykZwhSAuiJJpNI2PYaBgvUCBXMxxGX/fw4E5q9h15G0A
-	GzFBp4pFatUStb4PHxziPgGKnDpapYldR9zBf3atOhVgAEyzMwl6UmDHLh/reItgnDdTz3qqqI9
-	XiFMgdRYP2Ai04qm12UhqUFX6ei12w143ABwFxJUXR7GfacTpvXw==
-X-Google-Smtp-Source: AGHT+IH28h/wzhs9Zj9JUhaWX30ZEXXD6YSQANaAQdmPinnkqtkoRX96xW4cth9mpz5Srl922vUgLQ==
-X-Received: by 2002:a17:907:7e9d:b0:b6f:9db1:f831 with SMTP id a640c23a62f3a-b79dc4b59bamr255099566b.23.1764779116158;
-        Wed, 03 Dec 2025 08:25:16 -0800 (PST)
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com. [209.85.128.52])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b76f5a4a652sm1867823266b.65.2025.12.03.08.25.14
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 03 Dec 2025 08:25:14 -0800 (PST)
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-477770019e4so59784955e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 08:25:14 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCX/+HK/SeghjKwbk8469oX7Vy/5iSY+ZpW1ddPXLjrjsLNIibsgwaGrjoQ6s64QhvWP187FF3VSFxSHGy5TT0zA@lists.infradead.org
-X-Received: by 2002:a05:600c:35ce:b0:476:84e9:b571 with SMTP id
- 5b1f17b1804b1-4792aef7e8emr35377505e9.14.1764779114094; Wed, 03 Dec 2025
- 08:25:14 -0800 (PST)
-MIME-Version: 1.0
-References: <CAD=FV=Ux7nGFnYEyX0cUL-9__BKnTYc+kAJjkF458ZnFS7zoJA@mail.gmail.com>
- <CAD++jLkuRQKoiEN928GtAj7wUts5PxH905bLp6ZhKsJ3NnenEA@mail.gmail.com>
- <CAD=FV=X5=AK4XMANv+fatn3d9Y5vo9AXsHWb_47HmNaMWUtMwA@mail.gmail.com>
- <CAGXv+5HyMYgKmLc+jmkj-gytm9SNVg9dS7Vn3dQ-dsH8Wo+4sg@mail.gmail.com>
- <CAD=FV=Uq9yfUkLUgg116G+2AvEKkEPmdRgUJ5f1bj229j=LxUg@mail.gmail.com> <CAGXv+5HU2y-8AZhXDjneaTdD1yr2h06OXbkozcQJj2mBcR1HmQ@mail.gmail.com>
-In-Reply-To: <CAGXv+5HU2y-8AZhXDjneaTdD1yr2h06OXbkozcQJj2mBcR1HmQ@mail.gmail.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Wed, 3 Dec 2025 08:25:01 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=U54Uwny=kHY+VjG5DGCSHeRUCcWMG=hG88ov8hC6Ynew@mail.gmail.com>
-X-Gm-Features: AWmQ_bkDjTZX2TJKEcgkE7D_dL3KInx1SDfyqXNvFHSLkZzFxywJ641Qd3tcrIU
-Message-ID: <CAD=FV=U54Uwny=kHY+VjG5DGCSHeRUCcWMG=hG88ov8hC6Ynew@mail.gmail.com>
-Subject: Re: Proposal: Officially allow "incomplete" trees as a base
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Linus Walleij <linusw@kernel.org>, devicetree-spec@vger.kernel.org, 
-	boot-architecture@lists.linaro.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
-	William McVicker <willmcvicker@google.com>, Julius Werner <jwerner@chromium.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Simon Glass <sjg@chromium.org>, Yu-Ping Wu <yupingso@chromium.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 03 Dec 2025 16:43:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 42A8D438B1;
+	Wed,  3 Dec 2025 16:43:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 230B0C4CEF5;
+	Wed,  3 Dec 2025 16:43:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764780214;
+	bh=iyflUZchaw873FTzogwUNqRT8cclH8+Swqz8EPmoL5w=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=CA29AkXSlTUEp4TCKC8TjYGZYOKPd7DJierroBKco/xQli3ma3HoMF9l3c6PHRdya
+	 jn0FuRwOgU8vlGAA18fWSxmbb2JYp0V60Fo9NO6UZRgRDpPNnObaaSjXFUenWstB4d
+	 RX9+AEOh0SUG7hMiiXnCgLzluYqH8tFVr06KHaiSlQyA4UTxM6Ft85SKI7nY+rPW63
+	 wxzUaIGBLxg62Z3EMxd/SKSHs5niGm/vb/7o/fSh1hGblzPKepAHg1nijjeYC6oWbR
+	 vyi7w+lsxnnkZuvJ6eWUpI8PNTOuU+Y7kdL3QaREIITPtwOpY29PZE59u62LJOVeAv
+	 ooqXhHdtZoEXA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vQpwx-0000000AEDg-38lh;
+	Wed, 03 Dec 2025 16:43:31 +0000
+Date: Wed, 03 Dec 2025 16:43:31 +0000
+Message-ID: <86fr9rplcc.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Joey Gouly <joey.gouly@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>
+Subject: Re: [PATCH 4/4] KVM: arm64: Convert VTCR_EL2 to config-driven sanitisation
+In-Reply-To: <20251203161715.GA4187196@e124191.cambridge.arm.com>
+References: <20251129144525.2609207-1-maz@kernel.org>
+	<20251129144525.2609207-5-maz@kernel.org>
+	<20251203161715.GA4187196@e124191.cambridge.arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: joey.gouly@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, alexandru.elisei@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_082521_095536_52C7649B 
-X-CRM114-Status: GOOD (  38.76  )
+X-CRM114-CacheID: sfid-20251203_084335_663995_0F8062CB 
+X-CRM114-Status: GOOD (  26.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,155 +90,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Wed, 03 Dec 2025 16:17:15 +0000,
+Joey Gouly <joey.gouly@arm.com> wrote:
+> 
+> Hi!
+> 
+> On Sat, Nov 29, 2025 at 02:45:25PM +0000, Marc Zyngier wrote:
+> > Describe all the VTCR_EL2 fields and their respective configurations,
+> > making sure that we correctly ignore the bits that are not defined
+> > for a given guest configuration.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/kvm/config.c | 69 +++++++++++++++++++++++++++++++++++++++++
+> >  arch/arm64/kvm/nested.c |  3 +-
+> >  2 files changed, 70 insertions(+), 2 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+> > index a02c28d6a61c9..c36e133c51912 100644
+> > --- a/arch/arm64/kvm/config.c
+> > +++ b/arch/arm64/kvm/config.c
+> > @@ -141,6 +141,7 @@ struct reg_feat_map_desc {
+> >  #define FEAT_AA64EL1		ID_AA64PFR0_EL1, EL1, IMP
+> >  #define FEAT_AA64EL2		ID_AA64PFR0_EL1, EL2, IMP
+> >  #define FEAT_AA64EL3		ID_AA64PFR0_EL1, EL3, IMP
+> > +#define FEAT_SEL2		ID_AA64PFR0_EL1, SEL2, IMP
+> >  #define FEAT_AIE		ID_AA64MMFR3_EL1, AIE, IMP
+> >  #define FEAT_S2POE		ID_AA64MMFR3_EL1, S2POE, IMP
+> >  #define FEAT_S1POE		ID_AA64MMFR3_EL1, S1POE, IMP
+> > @@ -202,6 +203,8 @@ struct reg_feat_map_desc {
+> >  #define FEAT_ASID2		ID_AA64MMFR4_EL1, ASID2, IMP
+> >  #define FEAT_MEC		ID_AA64MMFR3_EL1, MEC, IMP
+> >  #define FEAT_HAFT		ID_AA64MMFR1_EL1, HAFDBS, HAFT
+> > +#define FEAT_HDBSS		ID_AA64MMFR1_EL1, HAFDBS, HDBSS
+> > +#define FEAT_HPDS2		ID_AA64MMFR1_EL1, HPDS, HPDS2
+> >  #define FEAT_BTI		ID_AA64PFR1_EL1, BT, IMP
+> >  #define FEAT_ExS		ID_AA64MMFR0_EL1, EXS, IMP
+> >  #define FEAT_IESB		ID_AA64MMFR2_EL1, IESB, IMP
+> > @@ -219,6 +222,7 @@ struct reg_feat_map_desc {
+> >  #define FEAT_FGT2		ID_AA64MMFR0_EL1, FGT, FGT2
+> >  #define FEAT_MTPMU		ID_AA64DFR0_EL1, MTPMU, IMP
+> >  #define FEAT_HCX		ID_AA64MMFR1_EL1, HCX, IMP
+> > +#define FEAT_S2PIE		ID_AA64MMFR3_EL1, S2PIE, IMP
+> >  
+> >  static bool not_feat_aa64el3(struct kvm *kvm)
+> >  {
+> > @@ -362,6 +366,28 @@ static bool feat_pmuv3p9(struct kvm *kvm)
+> >  	return check_pmu_revision(kvm, V3P9);
+> >  }
+> >  
+> > +#define has_feat_s2tgran(k, s)						\
+> > +  ((kvm_has_feat_enum(kvm, ID_AA64MMFR0_EL1, TGRAN##s##_2, TGRAN##s) && \
+> > +    !kvm_has_feat_enum(kvm, ID_AA64MMFR0_EL1, TGRAN##s, NI))	     ||	\
+> > +   kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN##s##_2, IMP))
+> > +
+> > +static bool feat_lpa2(struct kvm *kvm)
+> > +{
+> > +	return ((kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN4, 52_BIT)    ||
+> > +		 !kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN4, IMP))	&&
+> > +		(kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN16, 52_BIT)   ||
+> > +		 !kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN16, IMP))	&&
+> > +		(kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN4_2, 52_BIT)  ||
+> > +		 !has_feat_s2tgran(kvm, 4))				&&
+> > +		(kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN16_2, 52_BIT) ||
+> > +		 !has_feat_s2tgran(kvm, 16)));
+> > +}
+> > +
+> > +static bool feat_vmid16(struct kvm *kvm)
+> > +{
+> > +	return kvm_has_feat_enum(kvm, ID_AA64MMFR1_EL1, VMIDBits, 16);
+> > +}
+> > +
+> >  static bool compute_hcr_rw(struct kvm *kvm, u64 *bits)
+> >  {
+> >  	/* This is purely academic: AArch32 and NV are mutually exclusive */
+> > @@ -1168,6 +1194,44 @@ static const struct reg_bits_to_feat_map mdcr_el2_feat_map[] = {
+> >  static const DECLARE_FEAT_MAP(mdcr_el2_desc, MDCR_EL2,
+> >  			      mdcr_el2_feat_map, FEAT_AA64EL2);
+> >  
+> > +static const struct reg_bits_to_feat_map vtcr_el2_feat_map[] = {
+> > +	NEEDS_FEAT(VTCR_EL2_HDBSS, FEAT_HDBSS),
+> > +	NEEDS_FEAT(VTCR_EL2_HAFT, FEAT_HAFT),
+> > +	NEEDS_FEAT(VTCR_EL2_TL0		|
+> > +		   VTCR_EL2_TL1		|
+> > +		   VTCR_EL2_AssuredOnly	|
+> > +		   VTCR_EL2_GCSH,
+> > +		   FEAT_THE),
+> 
+> The text for VTCR_EL2.AssuredOnly says:
+> 
+> 	This field is RES0 when VTCR_EL2.D128 is 1.
+> 
+> > +	NEEDS_FEAT(VTCR_EL2_D128, FEAT_D128),
+> > +	NEEDS_FEAT(VTCR_EL2_S2POE, FEAT_S2POE),
+> > +	NEEDS_FEAT(VTCR_EL2_S2PIE, FEAT_S2PIE),
+> 
+> The text for VTCR_EL2.S2PIE says:
+> 
+> 	This field is RES1 when VTCR_EL2.D128 is set.
+> 
+> 
+> Are these cases that need to be handled here somehow?
 
-On Tue, Dec 2, 2025 at 11:34=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org> w=
-rote:
->
-> On Wed, Dec 3, 2025 at 6:11=E2=80=AFAM Doug Anderson <dianders@chromium.o=
-rg> wrote:
-> >
-> > > In the simplest example we could have one base dts and two overlays
-> > > for two different DSI panel models:
-> > >
-> > >   - base.dtb
-> > >     - panel-model-a.dtbo
-> > >     - panel-model-b.dtbo
-> > >
-> > > The problem we then run into is that the base.dtb will only have the
-> > > generic model compatible "google,foo", not the sku and revision
-> > > specific ones like "google,foo-sku1-rev2".
-> > >
-> > > And we'd really like to avoid having _more_ overlays just to add the
-> > > final specific compatible string, as that kind of defeats the purpose
-> > > of using overlays to reduce the number of dts files.
-> >
-> > I think you may have simplified the above a little too much to the
-> > point where it's confusing. At least I'm a bit confused. I _think_ the
-> > problems you're talking about are the kinds of things we run into when
-> > we take overlays above just two levels. I'm imagining:
-> >
-> > - base.dtb
-> > - board1-rev1.dtbo
-> > - board2-rev1.dtbo
-> > - board1-rev2.dtbo
-> > - board2-rev2.dtbo
-> > - panel-a.dtbo
-> > - panel-b.dtbo
-> >
-> > So I think you're saying that you'd start with the "base.dtb" and then
-> > extend it with exactly one of the "board" overlays and then exactly
-> > one of the "panel" overlays. Is that right?
->
-> For now I think we just experiment with having one end "model" or
-> "product" as the base.dtb. The panel-*.dtbo selected describe the
-> optional components, while the board-rev??.dtbo just provides the
-> top level compatible and model.
->
-> In an example that I plan to send out this week, I would rework:
->
->   - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri.dtsi
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dts
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dts
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dts
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dts
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dts
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dts
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dts
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dts
->
-> into:
->
->   - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri.dts
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-audio-max98390-es83=
-26.dtso
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-audio-max98390-rt56=
-82s.dtso
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-audio-tas2563-es832=
-6.dtso
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-audio-tas2563-rt568=
-2s.dtso
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-panel-boe.dtso
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-panel-ivo.dtso
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dtso
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dtso
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dtso
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dtso
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dtso
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dtso
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtso
->     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dtso
->
-> The "mt8188-geralt-ciri-sku?.dtso" files only contain the following
-> boilerplate:
->
->     /dts-v1/;
->     /plugin/;
->
->     &{/} {
->         model =3D "Google Ciri sku? board (rev4)";
->         compatible =3D "google,ciri-sku?", "google,ciri", "mediatek,mt818=
-8";
->     };
->
-> The base "mt8188-geralt-ciri.dts" would already have a generic board-
-> specific compatible:
->
->     model =3D "Google Ciri board";
->     compatible =3D "google,ciri", "mediatek,mt8188";
->
-> > So I'd imagine that each of the "board" overlays could have "full"
-> > compatible strings. For instance, I'd imagine "board2-rev2" could
-> > have:
-> >
-> > compatible =3D "google,booard2-rev2", "socVendor,soc"
-> >
-> >
-> > The problem you're struggling with (I think) is that the panel
-> > overlays won't be represented in the compatible string (and "model")
-> > even though (historically) we always did in ChromeOS (they were
-> > included in the "sku" part of the compatible string).
-> >
-> > Did I get that right?
->
-> In a sense you've generalized the problem I was describing.
->
-> In my example, the top level compatible gets fixed up by the final
-> SKU-specific overlay. But that's 8 extra files to do one bit of
-> fixup that supposedly the bootloader could be taught to do, and
-> could do even better. The bootloader knows exactly which SKU and
-> revision it's running on and can insert the information appropriately.
-> We could get rid of those awkwardly long compatible string sequences:
->
->   compatible =3D "google,tentacruel-sku262147", "google,tentacruel-sku262=
-146",
->                "google,tentacruel-sku262145", "google,tentacruel-sku26214=
-4",
->                "google,tentacruel", "mediatek,mt8186";
->
-> Going back to what I think you're describing, is that instead of one
-> base board DTB for each product, we could have one base DTB for the
-> reference design (in place of the .dtsi file we currently have), and
-> make products and component selection all use overlays.
->
-> If we do that, then inserting the correct top level compatible and model
-> becomes more important, since we do have things such as the ChromeOS OF
-> component prober working based on top level compatible. Also, the model
-> is present in logs, and would be very misleading to say one device name
-> while in reality it is a different one.
+These are not static configurations. They are dynamic behaviours
+depending on other control bits.
 
-I wasn't saying that you'd just have the same "compatible" for every
-derivative of a reference board. That seems over the top. I was
-thinking that you'd even have a unique "compatible" for each revision
-of each board instance. I'm simply suggesting that you don't need a
-per-SKU "compatible". Those don't add any real benefit, do they?
+D128 code, if it ever exists, will have to *interpret* these bits as
+RES0 (resp. RES1) when evaluating the page tables.
 
-In your Ciri example above, you could get rid of all of the "sku"
-overlay files since you've said that all they're doing is updating the
-"compatible". Since (I think) you're only trying to support "rev4"
-based on your model string, that would leave you just one file for
-Ciri. If you had more than one revision then you'd have more than one,
-but it doesn't need to be multiplied by the SKUs, right?
+If you want a similar example in existing code, look at the way we
+handle TCR_EL1.HPDn in the S1 PTW. They are treated as RES1 if
+TCR2_EL1.PIE is set, as per R_JHSVW.
 
--Doug
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
