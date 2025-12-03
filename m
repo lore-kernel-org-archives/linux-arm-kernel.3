@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48864D1268E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 06:56:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACB9AD1266D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 06:56:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9aDPLWk/OgQOeUSFQ764uKQUG6YhHel40mSErpACxzU=; b=dUPkfnY36y8OqlOSEaIU56LS2f
-	7zsGaZas93FgoD8QEQnjpVESePMyQh1rpcs4NGNxyKMobuiuT9ElhoEObDewXiVC3QCc3lI2Ht/4v
-	RS3VjYVr5lUeccRibvd9Lw8IDbHG4NuR3VcxIcBSS8ez9l+lsMIMH7v155/14uCBEIrxaZcDlbR/K
-	vQe479/cueiMQP4FpWavJ+PC8lQkSL9/tSQFTy4rNl539+n0eTtoZuErmmICpgQteNP5A+k1j0Yxy
-	G4LOWEjGrndCfANnHwA0HyojWlax4i9vq8hZTElPwJu4eCyZ2o4FwoFfAp4doLZQnNRZ0b5MmzbXC
-	13BTI/xw==;
+	bh=i20hbqvP55IyXBV4D2jMT+oxFvBKY8IKEVZOfneP6RQ=; b=oZRSVNuGpbCas/P9zwBbnCZ21r
+	UGDGkpPz5aozeVhw68L8Tw0zppwx1zJIdT8Qj7IogsWUihSkdV+OPLWR9GqhTGjOpE/xqmfRpuAF0
+	j4mMrRV6l05ijQjdNk/dZP0uFRCsGcoVthQ9u6WMZkpb1p/iolMz9r6B3GVyzE7nibq9azKmW2L8/
+	GFlYwisonmzMgMbJ9nU9hv5+8P0AK8455K2tH9nJp4Y2JHb/8sxl9ICP04GDCMIVLMcXxxmZWqM1t
+	FflfWfWZzNcFMFfSQLfpEfGG8pFhn98UC0AmpckFeAd6fPwkcUo6IYn/c2sziOMyO9LPaoSk5P9bZ
+	L003rUOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQgmM-00000006DtW-3gAk;
-	Wed, 03 Dec 2025 06:55:58 +0000
+	id 1vQgmN-00000006Du5-2Grf;
+	Wed, 03 Dec 2025 06:55:59 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQgmK-00000006DsA-1U5N;
+	id 1vQgmK-00000006Ds0-0sMr;
 	Wed, 03 Dec 2025 06:55:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1764744954;
-	bh=Jr3cLN07BBBACpo2PlbpyKSvyKJvAvyoTJy/BiaPrWw=;
+	s=mail; t=1764744952;
+	bh=gsFLc2zmBo4F0KsnAgDtyrBQx7AbnJC6RqAr81QjdDw=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NaO9rnjTYoJeEBZ+ro4jHNYOVm1U6K1E5lujJy7HHDQJk+hmfxL/wbu2J4sXNzI5M
-	 umTA8mPn91ULLAi5MhVgUY46aq8OaHMIz+51r6ImtHDAb0N54q4i03Rjc6CLrfAUy7
-	 UahC+DjeKR6ZehQlf5Ssz4IIGbsG9sKyfdJTjISqDUQ/rP+joyT7OBKaFkahr5GLwZ
-	 RxKKtQ2n8gJtYHPm/jtywhrYhqa+MJ4D9EGU16B0887Y7BaygUAQbcpNOwk9MVKiYQ
-	 /18I8NSPM6CeZ+nK5saSYYYEtpi/ROHtso+2Rhen4D5QP0KIrx0QTEpKS8WAkl3NMP
-	 keG00c9V3X7qA==
+	b=CW3CAbAsmQxZbP/bT7Jc5sJlHtZtm1JVemPgee+ntOP9RUamxGioEn5u7EPa2V1YH
+	 +KI9gQlHIf5/OJXFDM9CwMuRdk1Tl/B6cWWaV4JJWNqLNvs4BaOIC4ZDUN3jfECtc/
+	 f/bw/7ufv+R70i2nPRrXKYPhQJVvncUpR5gYOOoChCfB8umRDluYPUI5hZls0iQBmI
+	 av3PoOycawILqjd9OAlEAje/J00g0NkVPjp4QtW2eaNGBphd5Ty+H3R3vQj/Ky56rd
+	 Ne9g/Bk9F2asktVaMieoEHGQpiu3I+6Soco22FYZKQrdGsQp8yzZYVlY4jXQrn89Fy
+	 890gylMhtHUVQ==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C1B3717E0610;
-	Wed,  3 Dec 2025 07:55:53 +0100 (CET)
-Message-ID: <81ea7372-9172-4ee5-9a90-66cf06c40062@collabora.com>
-Date: Wed, 3 Dec 2025 07:55:53 +0100
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3C0E117E0330;
+	Wed,  3 Dec 2025 07:55:52 +0100 (CET)
+Message-ID: <7b09d179-be5f-4daf-bb74-c1420a3b6fa8@collabora.com>
+Date: Wed, 3 Dec 2025 07:55:51 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/4] dt-bindings: vendor-prefixes: Add Ezurio LLC
+Subject: Re: [PATCH v4 2/4] dt-bindings: arm: mediatek: Add Ezurio Tungsten
+ entries
 To: Gary Bisson <bisson.gary@gmail.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
  Sean Wang <sean.wang@mediatek.com>
 Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 References: <20251202-review-v4-0-93f5cd2a0d4a@gmail.com>
- <20251202-review-v4-1-93f5cd2a0d4a@gmail.com>
+ <20251202-review-v4-2-93f5cd2a0d4a@gmail.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20251202-review-v4-1-93f5cd2a0d4a@gmail.com>
+In-Reply-To: <20251202-review-v4-2-93f5cd2a0d4a@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251202_225556_580976_8B7A6D7A 
-X-CRM114-Status: UNSURE (   6.57  )
+X-CRM114-CacheID: sfid-20251202_225556_431629_F7296FBE 
+X-CRM114-Status: UNSURE (   6.29  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,11 +81,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Il 02/12/25 23:08, Gary Bisson ha scritto:
-> Ezurio is the new name of Laird Connectivity after it acquired Boundary
-> Devices.
+> Add device tree bindings support for the Ezurio Tungsten 510 (MT8370)
+> SMARC [1] / Ezurio Tungsten 700 (MT8390) SMARC [2] + Universal SMARC
+> carrier board [3].
 > 
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+> [1] https://www.ezurio.com/product/tungsten510-smarc
+> [2] https://www.ezurio.com/product/tungsten700-smarc
+> [3] https://www.ezurio.com/system-on-module/accessories/universal-smarc-carrier
+> 
 > Signed-off-by: Gary Bisson <bisson.gary@gmail.com>
+> 
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
