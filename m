@@ -4,60 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82A2FD1F9D3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 12:25:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A48B8D1F9D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 12:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R4OSnOKzbu5cbxbklT751VmZfbralVfKLxKt4n1nav0=; b=JUdMosb9ddiwhS7D9Q4k4AGYlX
-	PM4fXHnlRDnNedulctDj6h6aF/9CExd8UgMxCBPcZMI+f0uP8xxLQfl3A1mzKN3fkyq1zkb8n6v7l
-	q8K4rM5H/cIe1zEIY056BWznBtfm4CUXJm98K8yKvnEJjTtObc7ZqJIHKLH/5h6BNM39fke5ZIKTS
-	p706pBk7PAEchtL8GUsW99km/wgiix+nKao+wkSh6H3lFA7bVx5tyVm+9xvLjNOJGEQwq/DavnpTm
-	9xbN3GH+6J5Z/xl3OCsG1R/j4UhOePJyC8PWFySOsGfK2bnP/m+RC+1mlSKn94/3eXEuFDJ4atzkN
-	CvwY4bSg==;
+	bh=ntrkK5ngwL04sLtoW4Sv8APHLop043OBw9D0nKKE4pM=; b=m2BS0vUGjXXG+nr6N7J8IhUezG
+	16cr+DxyI38JJRZpiHhSZf1zoMu5UPIRVP2+2zHkBofUOdvx9rxb4QzCd5RISC/rxmDJATn7WeUsE
+	bIn+Rot7flwmFlqp45RcelnKUtrDCVTWuY87mufWwigvtHQmBnBPqHX2axEKS/iyeJZ/G58fB+NuW
+	n+p3ceq+69l7YJdKqzw8AR30VCHZr98QQBDHYDhHzefY4zv5DOKiBefJMEZqoWk4d4Y80PMoW3uoL
+	EzI4eJtHcR9cNWjeU7LnB9YEcEvmyM7tBoeL8ULhuMcPmanpug3YgF4dVUSSBEo4oFJOSTtOmza1f
+	X54BXqCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR8OZ-00000007ygb-3hiT;
-	Thu, 04 Dec 2025 12:25:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR8OX-00000007ygE-4262
+	id 1vR8Pf-00000007ymg-0yCt;
+	Thu, 04 Dec 2025 12:26:23 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vR8Pa-00000007ylk-0Owd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 12:25:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1B108339;
-	Thu,  4 Dec 2025 04:25:05 -0800 (PST)
-Received: from [10.163.49.196] (unknown [10.163.49.196])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2FD283F73B;
-	Thu,  4 Dec 2025 04:25:06 -0800 (PST)
-Message-ID: <26841df4-04d5-45d6-b589-e6061db2ad33@arm.com>
-Date: Thu, 4 Dec 2025 17:55:03 +0530
+	Thu, 04 Dec 2025 12:26:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1764851177;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ntrkK5ngwL04sLtoW4Sv8APHLop043OBw9D0nKKE4pM=;
+	b=I6pDtZPws4bVhnm0U8/v+ICRr703P3rjVS/LtjIVWvwgLjWEPn/x472FAR3AFfIig4crFI
+	1hexXPNcHPjEH2zDl87RT4eZeas6sqFsLvgIRPtHQArnA/TW2e42QwkhPbQq32YECFkIwT
+	yoI8WHRyi3A107mO7H3ktdPrsCrG1lk=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-207-54B8uSJKMnmuXAGSQPDG1g-1; Thu, 04 Dec 2025 07:26:15 -0500
+X-MC-Unique: 54B8uSJKMnmuXAGSQPDG1g-1
+X-Mimecast-MFC-AGG-ID: 54B8uSJKMnmuXAGSQPDG1g_1764851174
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-42e2e2ee360so621335f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 04:26:15 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764851174; x=1765455974;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ntrkK5ngwL04sLtoW4Sv8APHLop043OBw9D0nKKE4pM=;
+        b=ekenzN7rz+SDVXffT0OjptxJRPyVHqjSCveF3YUx/Zui5+CwTmv7Rq0r134Qw/yo90
+         HJDPcdYXvTURcizfKZ0Cf9lc5sM3IIY1DJ01/IF1OPTml8gIBxwPB5hry98o9ewqBTKW
+         XFpSARfjYFGNrBZqF4fP5dRszM2B0G2IJVpsbia6MksJNQ970zLSlYgHQ+K6T7jp0Elr
+         SYuRQQanVQnz6L6+qa4t/55zCh0/fgtQAsZ2Irkea/awQX87Ek0H9Oow5vDmwzNd0Ajn
+         8WD6s66vxRd2HR0r0EdB/LmL2T6PtABRdBP16IAGz5q3nN5uNBYpEnm0rUCUPChqrbZJ
+         wlRw==
+X-Forwarded-Encrypted: i=1; AJvYcCVSSFz912zH5Ug8wsWFWiN5yPutyvnItRgzIkeocb6MiEVRR9FvrwBdJiKXjiMv8sexi2ee+YjHLILtg4E8e8EB@lists.infradead.org
+X-Gm-Message-State: AOJu0YxGkqXOb5oaMFtbZx7g5jY64UcrGIKmcbbN3+tRli5UkKato9tF
+	5V55kJ3hix3vS946b53e32d79yoglDh2G4yknScvGs7B1/9TFyk0tcgVlji+1mQXBUbv3hh6AZf
+	b6BSzJeBBV2lWES0wUXys47e8qWlSHjd1vv0+R9yBooVKMEed8LK3JmK0MCBQSmc4iXMLRbm981
+	lZ
+X-Gm-Gg: ASbGncvD7w1zWisXbMAwq1lxkfgXKePQMe4lc+DZiPFv3w1iFQ4XmD/2gMJX3jhyscD
+	e2qyWYDLD13ZMMEIpN123kyW8Xchst4d8zIGGCHrFyu3IRiqNH2w9+lAuqGPRO+gipL0lrO3J8R
+	aUZG+FaiSBNCREK/Dy/vZbIyPAfCxVvE4wOeKIqd6c6iowadiQzm6zp/+LxQPTbEKAeWLRC0g99
+	G3pruA8mJaUunesqLkOd99pJUiaC1nmAQpqJp6rijCiYYY783VGaLoDTkIZmjKcN0Usi6NGUg+r
+	VRMvJ6SmCK8ghvVtUXo/XIxU72Lc/LBU9/H681vAuAbknUHKRhcTL/ydx241w8BSzq4PdyvwYFD
+	Sbg14mfUnLznM
+X-Received: by 2002:a05:6000:2c07:b0:42b:3ed2:c079 with SMTP id ffacd0b85a97d-42f731a2fccmr6636007f8f.48.1764851174437;
+        Thu, 04 Dec 2025 04:26:14 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IE6gmno3wWmw/T0ba/JcUdJo3RTAy+j1I7RB2376m0GMm4A3gdkyRtvDjK4Ir85kEN7eqyU1w==
+X-Received: by 2002:a05:6000:2c07:b0:42b:3ed2:c079 with SMTP id ffacd0b85a97d-42f731a2fccmr6635966f8f.48.1764851173922;
+        Thu, 04 Dec 2025 04:26:13 -0800 (PST)
+Received: from [192.168.88.32] ([212.105.153.24])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42f7d222506sm3442295f8f.28.2025.12.04.04.26.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 04 Dec 2025 04:26:13 -0800 (PST)
+Message-ID: <81491196-2872-4fd3-a1f3-f27ce0bb998b@redhat.com>
+Date: Thu, 4 Dec 2025 13:26:11 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 02/19] coresight: trbe: Remove redundant disable operation
-To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Yeoreum Yun <yeoreum.yun@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Tamas Petz <tamas.petz@arm.com>,
- Tamas Zsoldos <tamas.zsoldos@arm.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
- Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org
-References: <20251201-trbe_buffer_refactor_v1-1-v1-0-7da32b076b28@arm.com>
- <20251201-trbe_buffer_refactor_v1-1-v1-2-7da32b076b28@arm.com>
+Subject: Re: [PATCH] net: stmmac: fix oops when split header is enabled
+To: Jie Zhang <jzhang918@gmail.com>, netdev@vger.kernel.org
+Cc: Jie Zhang <jie.zhang@analog.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>,
+ "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+ Furong Xu <0x1207@gmail.com>,
+ Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251202025421.4560-1-jie.zhang@analog.com>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20251202025421.4560-1-jie.zhang@analog.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: ZWglDLTjpM8u08FoxC7DcaxJONbNSKSmSIQxv9Iz4D4_1764851174
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20251201-trbe_buffer_refactor_v1-1-v1-2-7da32b076b28@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_042514_146418_CE27BA68 
-X-CRM114-Status: GOOD (  21.41  )
+X-CRM114-CacheID: sfid-20251204_042618_206002_9C88B2DD 
+X-CRM114-Status: GOOD (  17.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,71 +122,101 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+n 12/2/25 3:54 AM, Jie Zhang wrote:
+> For GMAC4, when split header is enabled, in some rare cases, the
+> hardware does not fill buf2 of the first descriptor with payload.
+> Thus we cannot assume buf2 is always fully filled if it is not
+> the last descriptor. Otherwise, the length of buf2 of the second
+> descriptor will be calculated wrong and cause an oops:
+> 
+> Unable to handle kernel paging request at virtual address ffff00019246bfc0
+> Mem abort info:
+>   ESR = 0x0000000096000145
+>   EC = 0x25: DABT (current EL), IL = 32 bits
+>   SET = 0, FnV = 0
+>   EA = 0, S1PTW = 0
+>   FSC = 0x05: level 1 translation fault
+> Data abort info:
+>   ISV = 0, ISS = 0x00000145, ISS2 = 0x00000000
+>   CM = 1, WnR = 1, TnD = 0, TagAccess = 0
+>   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+> swapper pgtable: 4k pages, 48-bit VAs, pgdp=0000000090d8b000
+> [ffff00019246bfc0] pgd=180000009dfff403, p4d=180000009dfff403, pud=0000000000000000
+> Internal error: Oops: 0000000096000145 [#1]  SMP
+> Modules linked in:
+> CPU: 0 UID: 0 PID: 157 Comm: iperf3 Not tainted 6.18.0-rc6 #1 PREEMPT
+> Hardware name: ADI 64-bit SC598 SOM EZ Kit (DT)
+> pstate: 00400009 (nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> pc : dcache_inval_poc+0x28/0x58
+> lr : arch_sync_dma_for_cpu+0x28/0x34
+> sp : ffff800080dcbc40
+> x29: ffff800080dcbc40 x28: 0000000000000008 x27: ffff000091c50980
+> x26: ffff000091c50980 x25: 0000000000000000 x24: ffff000092a5fb00
+> x23: ffff000092768f28 x22: 000000009246c000 x21: 0000000000000002
+> x20: 00000000ffffffdc x19: ffff000091844c10 x18: 0000000000000000
+> x17: ffff80001d308000 x16: ffff800080dc8000 x15: ffff0000929fb034
+> x14: 70f709157374dd21 x13: ffff000092812ec0 x12: 0000000000000000
+> x11: 000000000000dd86 x10: 0000000000000040 x9 : 0000000000000600
+> x8 : ffff000092a5fbac x7 : 0000000000000001 x6 : 0000000000004240
+> x5 : 000000009246c000 x4 : ffff000091844c10 x3 : 000000000000003f
+> x2 : 0000000000000040 x1 : ffff00019246bfc0 x0 : ffff00009246c000
+> Call trace:
+>  dcache_inval_poc+0x28/0x58 (P)
+>  dma_direct_sync_single_for_cpu+0x38/0x6c
+>  __dma_sync_single_for_cpu+0x34/0x6c
+>  stmmac_napi_poll_rx+0x8f0/0xb60
+>  __napi_poll.constprop.0+0x30/0x144
+>  net_rx_action+0x160/0x274
+>  handle_softirqs+0x1b8/0x1fc
+>  __do_softirq+0x10/0x18
+>  ____do_softirq+0xc/0x14
+>  call_on_irq_stack+0x30/0x48
+>  do_softirq_own_stack+0x18/0x20
+>  __irq_exit_rcu+0x64/0xe8
+>  irq_exit_rcu+0xc/0x14
+>  el1_interrupt+0x3c/0x58
+>  el1h_64_irq_handler+0x14/0x1c
+>  el1h_64_irq+0x6c/0x70
+>  __arch_copy_to_user+0xbc/0x240 (P)
+>  simple_copy_to_iter+0x28/0x30
+>  __skb_datagram_iter+0x1bc/0x268
+>  skb_copy_datagram_iter+0x1c/0x24
+>  tcp_recvmsg_locked+0x3ec/0x778
+>  tcp_recvmsg+0x10c/0x194
+>  inet_recvmsg+0x64/0xa0
+>  sock_recvmsg_nosec+0x1c/0x24
+>  sock_read_iter+0x8c/0xdc
+>  vfs_read+0x144/0x1a0
+>  ksys_read+0x74/0xdc
+>  __arm64_sys_read+0x14/0x1c
+>  invoke_syscall+0x60/0xe4
+>  el0_svc_common.constprop.0+0xb0/0xcc
+>  do_el0_svc+0x18/0x20
+>  el0_svc+0x80/0xc8
+>  el0t_64_sync_handler+0x58/0x134
+>  el0t_64_sync+0x170/0x174
+> Code: d1000443 ea03003f 8a230021 54000040 (d50b7e21)
+> ---[ end trace 0000000000000000 ]---
+> Kernel panic - not syncing: Oops: Fatal exception in interrupt
+> Kernel Offset: disabled
+> CPU features: 0x080000,00008000,08006281,0400520b
+> Memory Limit: none
+> ---[ end Kernel panic - not syncing: Oops: Fatal exception in interrupt ]---
 
-On 01/12/25 4:51 PM, Leo Yan wrote:
-> The trace unit is already disabled when trbe_stop_and_truncate_event()
-> is called, so draining and stopping the buffer in the function is
-> redundant.
+Please avoid including the last 6 lines in the commit message, the '---'
+separator could foul git when applying the patch and truncate the commit
+message.
+> To fix this, the PL bit-field in RDES3 register is used for all
+> descriptors, whether it is the last descriptor or not.
 > 
-> Remove the unnecessary disable operation and rename the function to
-> trbe_truncate_event() to better reflect its purpose.
-> 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->  drivers/hwtracing/coresight/coresight-trbe.c | 14 +++-----------
->  1 file changed, 3 insertions(+), 11 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-> index 0ddb3db0213cf0014e29decfb79da68b0a351b31..2f44e4a65e0ee2b2c8fdd06a51ab01fc57f44a4e 100644
-> --- a/drivers/hwtracing/coresight/coresight-trbe.c
-> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
-> @@ -284,18 +284,10 @@ static void trbe_report_wrap_event(struct perf_output_handle *handle)
->  	perf_aux_output_flag(handle, PERF_AUX_FLAG_COLLISION);
->  }
->  
-> -static void trbe_stop_and_truncate_event(struct perf_output_handle *handle)
-> +static void trbe_truncate_event(struct perf_output_handle *handle)
->  {
->  	struct trbe_buf *buf = etm_perf_sink_config(handle);
->  
-> -	/*
-> -	 * We cannot proceed with the buffer collection and we
-> -	 * do not have any data for the current session. The
-> -	 * etm_perf driver expects to close out the aux_buffer
-> -	 * at event_stop(). So disable the TRBE here and leave
-> -	 * the update_buffer() to return a 0 size.
-> -	 */
-> -	trbe_drain_and_disable_local(buf->cpudata);
->  	perf_aux_output_flag(handle, PERF_AUX_FLAG_TRUNCATED);
->  	perf_aux_output_end(handle, 0);
->  	*this_cpu_ptr(buf->cpudata->drvdata->handle) = NULL;
-> @@ -1008,7 +1000,7 @@ static int __arm_trbe_enable(struct trbe_buf *buf,
->  	trbe_enable_hw(buf);
->  	return 0;
->  err:
-> -	trbe_stop_and_truncate_event(handle);
-> +	trbe_truncate_event(handle);
->  	return ret;
->  }
->  
-> @@ -1169,7 +1161,7 @@ static irqreturn_t arm_trbe_irq_handler(int irq, void *dev)
->  		trbe_handle_spurious(handle);
->  		break;
->  	case TRBE_FAULT_ACT_FATAL:
-> -		trbe_stop_and_truncate_event(handle);
-> +		trbe_truncate_event(handle);
->  		truncated = true;
->  		break;
->  	}
-> 
+> Signed-off-by: Jie Zhang <jie.zhang@analog.com>
+Looks like a fixes suitable for net; a fix tag is required and you should
+include the target tree into the subj prefix, see:
+https://elixir.bootlin.com/linux/v6.18/source/Documentation/process/maintainer-netdev.rst#L64The
+patch does not apply to 'net' anymore, please rebase and resubmit. You
+can retain Jacob's ack.
 
-In arm_trbe_irq_handler() function trbe_drain_and_disable_local() is
-called early on before TRBE_FAULT_ACT_FATAL gets handled but for the
-other case __arm_trbe_enable() - do all the code paths leading upto
-present trbe_stop_and_truncate_event() would have definitely called
-trbe_drain_and_disable_local() as well ? If yes, please do call out
-those code paths clearly in the commit message.
+/P
 
-Besides it might be worth adding an WARN_ON() in trbe_truncate_event()
-if the TRBE has not been disabled as now being expected there.
+
 
