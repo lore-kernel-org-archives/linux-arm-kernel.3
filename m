@@ -4,62 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7EFCD1F9C2
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 11:23:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6655BD1F9C9
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 11:39:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U4HN1ODRxsnTDmi4098i1Q+naahHnMBRsf+Px2cNeZU=; b=V4zCJ/0LiBJOOJI/xG9jNqZIXK
-	GK2hOg4+4X/29sEBfXHCgVw9v2Hh4V/v8fim8ucqgtF/T/czX0W1/oeb2vrh15ozz+0ld3pL2MWlq
-	U2rJh6o9DlahRtj3xh1GKPTNanWIjvxzdQShu6nYs9sOFS0XNohtUa0xx8zXRa7D3YeP9j8b14QAq
-	D8dwNFJmuKSxxge34K6QaScLnRnc+jOJeHpkvzuXDuACGMA5V5sgsAZ+PgJCtREjwv6cCqGt0g7m9
-	HzdEpc4UXVpQ1jbuwBxxjzkPhyu7I9opT9c+MRAW2vaQr9FMfzVfPhsSBwXiEJtGvpg6EjqSTBfBz
-	3RD5nibA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=69yqmIoyiPubXzFm9eTn6rbyp435f7R4HZkguSHyvhA=; b=LQEzDaArQ+SZWcvPkDLi/h+pEz
+	DDizRGVbAyIqKwHlUjncu51IGCpXCodlTAkjUsuF+u7BptwHxtTLtaAc+I2ap4hlMdzE4pHzpheEE
+	WedmZi0g3IZ338/y2m//MTsBOyvAbKizt8HxTjF/TlQwKg3R7BT+tVq78ykhMuDVVpnAPu2f2jxOU
+	zK3dhyZAnazRVbJfc+XTHzf5E8wGio3XjgOG3LpeGqd3MVaOqrXkk003YcbYzBto2xpBJ2r81H1Pt
+	2nibACGCV9DDzrpVhGjNrm/JrAiDQ0FZJWZQM7Dqj/IpBwKBdzpmX6u+HTZty67GQgxFKhAfKFFtx
+	t8Pjtkhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR7QI-00000007uug-2jUX;
-	Thu, 04 Dec 2025 11:22:58 +0000
-Received: from jabberwock.ucw.cz ([46.255.230.98])
+	id 1vR7gD-00000007vVE-2Yba;
+	Thu, 04 Dec 2025 11:39:25 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR7QF-00000007uuI-2VFR
+	id 1vR7gC-00000007vV6-0F97
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 11:22:57 +0000
-Received: by jabberwock.ucw.cz (Postfix, from userid 1017)
-	id CF1B81C008F; Thu,  4 Dec 2025 12:22:47 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ucw.cz; s=gen1;
-	t=1764847367;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=U4HN1ODRxsnTDmi4098i1Q+naahHnMBRsf+Px2cNeZU=;
-	b=f1l+oW+Ujo9yqI4ZLtQ4rFS54wszz2IFaGz/gJnFhj8Yo3J2lvjV26d/vfTsN2l/08zcwi
-	zWQTbkOnGdf4km4Z+hfMBdbiK9HtWzbZkaT3s6XKatraHD2r9YUFjQThShOAsrp1+q95gp
-	xfIwC1H+8wmk3TV/u8WKzYDJh3Hek34=
-Date: Thu, 4 Dec 2025 12:22:47 +0100
-From: Pavel Machek <pavel@ucw.cz>
-To: Lukas Timmermann <linux@timmermann.space>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Alexandre Marquet <tb@a-marquet.fr>
-Subject: Re: [PATCH v2 3/3] ARM: samsung: exynos5250: Allow CPU1 to boot
-Message-ID: <aTFvBwjms8msxIae@duo.ucw.cz>
-References: <20251125-google-manta-v2-0-0f097cfff39c@timmermann.space>
- <20251125-google-manta-v2-3-0f097cfff39c@timmermann.space>
+	Thu, 04 Dec 2025 11:39:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0DC21601E2;
+	Thu,  4 Dec 2025 11:39:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D03C3C4CEFB;
+	Thu,  4 Dec 2025 11:39:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764848362;
+	bh=oGOR/Gy9sovZXJOpLcgTuOfyjEMxsxmxhHmHgTDnlvg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=PE+WiSnZpBNNRcaVS0QWTpayXH+dWoN5nt+357dXYUJWSjuOlaAsOBoe3SqzwB59R
+	 0BhfuC55fmyIKS+5sWgvrif65X9dIQNyx1j8zScdnb4JsSuXTbZHZKOdhJztBH13oI
+	 Z2xVQUclq5bzMcDG9oXYqty7pxfA/Wou/aR2Tjfhg2wQpAVF58f5Wxsu7+lh42EsgU
+	 tzePMKUtQaqGs3/m7uKwUZJa+NFZNeb3W7vSvEYI4cegv0lxJrfu/RurxuRx1OGmTe
+	 IzJrQ0kiAZGVJ74Dcu7D6yrF3jlh37vFw4mnVpHVXtFq7j5uuCInmCGOIVhoeMwI7Z
+	 muM8WetLK5bJw==
+Message-ID: <b341e7fa-4382-48b5-896a-1a0d347b66ca@kernel.org>
+Date: Thu, 4 Dec 2025 12:39:10 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha1;
-	protocol="application/pgp-signature"; boundary="XH4lO7UPQqMRxwOD"
-Content-Disposition: inline
-In-Reply-To: <20251125-google-manta-v2-3-0f097cfff39c@timmermann.space>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_032255_948370_A4921E99 
-X-CRM114-Status: GOOD (  19.21  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 09/12] arm64: mm: replace TIF_LAZY_MMU with
+ in_lazy_mmu_mode()
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ David Woodhouse <dwmw2@infradead.org>, "H. Peter Anvin" <hpa@zytor.com>,
+ Ingo Molnar <mingo@redhat.com>, Jann Horn <jannh@google.com>,
+ Juergen Gross <jgross@suse.com>, "Liam R. Howlett"
+ <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Suren Baghdasaryan <surenb@google.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
+ xen-devel@lists.xenproject.org, x86@kernel.org
+References: <20251124132228.622678-1-kevin.brodsky@arm.com>
+ <20251124132228.622678-10-kevin.brodsky@arm.com>
+ <89ecddb7-83ee-427b-823b-984204939ecf@arm.com>
+From: "David Hildenbrand (Red Hat)" <david@kernel.org>
+Content-Language: en-US
+In-Reply-To: <89ecddb7-83ee-427b-823b-984204939ecf@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,64 +96,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 12/4/25 07:52, Anshuman Khandual wrote:
+> On 24/11/25 6:52 PM, Kevin Brodsky wrote:
+>> The generic lazy_mmu layer now tracks whether a task is in lazy MMU
+>> mode. As a result we no longer need a TIF flag for that purpose -
+>> let's use the new in_lazy_mmu_mode() helper instead.
+>>
+>> The explicit check for in_interrupt() is no longer necessary either
+>> as in_lazy_mmu_mode() always returns false in interrupt context.
+>>
+>> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+>> ---
+>>   arch/arm64/include/asm/pgtable.h     | 19 +++----------------
+>>   arch/arm64/include/asm/thread_info.h |  3 +--
+>>   2 files changed, 4 insertions(+), 18 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+>> index a7d99dee3dc4..dd7ed653a20d 100644
+>> --- a/arch/arm64/include/asm/pgtable.h
+>> +++ b/arch/arm64/include/asm/pgtable.h
+>> @@ -62,28 +62,16 @@ static inline void emit_pte_barriers(void)
+>>   
+>>   static inline void queue_pte_barriers(void)
+>>   {
+>> -	unsigned long flags;
+>> -
+>> -	if (in_interrupt()) {
+>> -		emit_pte_barriers();
+>> -		return;
+>> -	}
+>> -
+>> -	flags = read_thread_flags();
+>> -
+>> -	if (flags & BIT(TIF_LAZY_MMU)) {
+>> +	if (in_lazy_mmu_mode()) {
+>>   		/* Avoid the atomic op if already set. */
+>> -		if (!(flags & BIT(TIF_LAZY_MMU_PENDING)))
+>> +		if (!test_thread_flag(TIF_LAZY_MMU_PENDING))
+> 
+> A small nit - will it be better not to use test_thread_flag() here and just
+> keep checking flags like earlier to avoid non-related changes. Although not
+> a problem TBH.
 
---XH4lO7UPQqMRxwOD
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+I'd assume the existing code wanted to avoid fetching the flags two 
+times? So switching to test_thread_flag() should be fine now.
 
-On Tue 2025-11-25 16:12:42, Lukas Timmermann wrote:
-> From: Alexandre Marquet <tb@a-marquet.fr>
->=20
-> Add an exception to let the secondary CPU boot.
->=20
-> Signed-off-by: Alexandre Marquet <tb@a-marquet.fr>
-> Signed-off-by: Lukas Timmermann <linux@timmermann.space>
-> ---
->  arch/arm/mach-exynos/firmware.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->=20
-> diff --git a/arch/arm/mach-exynos/firmware.c b/arch/arm/mach-exynos/firmw=
-are.c
-> index a5e22678e27b..80e645b4d338 100644
-> --- a/arch/arm/mach-exynos/firmware.c
-> +++ b/arch/arm/mach-exynos/firmware.c
-> @@ -61,10 +61,10 @@ static int exynos_cpu_boot(int cpu)
->  	 * Exynos3250 doesn't need to send smc command for secondary CPU boot
->  	 * because Exynos3250 removes WFE in secure mode.
->  	 *
-> -	 * On Exynos5 devices the call is ignored by trustzone firmware.
-> +	 * On most Exynos5 devices the call is ignored by trustzone firmware.
->  	 */
->  	if (!soc_is_exynos4210() && !soc_is_exynos4212() &&
-> -	    !soc_is_exynos4412())
-> +	    !soc_is_exynos4412() && !of_machine_is_compatible("samsung,nexus10-=
-manta"))
->  		return 0;
+-- 
+Cheers
 
-Strange -- +       compatible =3D "google,manta", "samsung,exynos5250", "sa=
-msung,exynos5";
-
-Should this be google,manta or something?
-
-Also please cc: phone-devel mailing list with phone related patches.
-
-Best regards,
-								Pavel
-
---=20
-I don't work for Nazis and criminals, and neither should you.
-Boycott Putin, Trump, Netanyahu and Musk!
-
---XH4lO7UPQqMRxwOD
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCaTFvBwAKCRAw5/Bqldv6
-8n+vAKCsQYO2dRBSz9dpzzGmMIKoUrmaTwCdGFG1KdJa3VKWcrHRT/yQ/yhaVno=
-=V8Ni
------END PGP SIGNATURE-----
-
---XH4lO7UPQqMRxwOD--
+David
 
