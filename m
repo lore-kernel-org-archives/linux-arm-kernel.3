@@ -4,90 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A49D2168D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 15:07:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EBC9D2168D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 15:08:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tjHwpOaJDmP0t3MeUI8ElolfA57YlcBm5BKDBzuz6TQ=; b=oNpv7ob5UZhaOyg1Pxw2Kihx1U
-	tXWExoFOmIudE/YyD4H7Tq0b/TWKco441GDC/M8qpGNHWTimp90/SA8NP8UI5+Ma7G6fGA+ztMhhL
-	IAjD4tabGrAd+ysUJUOi3XSnLlN3eyeHrx2LyIYTVxeJzNLDZfwvbfV/dpWboCcyckY0zHnQOjw5q
-	6VLY9Lbe5evfqFc2NkPDEPsN/oRu66+1Iw+TtVj/f4C26daCTQkbyiIiIcdOtlI8AB2k1fq64UxBR
-	Zf25nNATj6Oe0KI7egNzxfGBmnbZDa6BtDy8HYrMaMAKV2UNjU9M7DiV36r3RkDCf9JMZLFEbNOSo
-	jteC6UDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FEE0L6Gu5l6EH/93lf0qbZxWP+dxC4iioVD3I4H9awg=; b=rojle2KoOVzWLgRQXEshS2BhvF
+	2C7gSLpwn6O8ex4yl+X4fM36UmFaCEa3RKcxEA8boIn7vfkNWVlwuaao8FsAP9Y/fASeBAnn0YP9T
+	MXpzCCODdM0qBhNSrQ58BIwwHXuZdikJaP8WUyltzTbpztbiCOfAchb6b6cHZibY+QHgSll/X/PUd
+	iI+iuPWQQsdRvxyWvFo9waxAxNUaMWaoXsNUp0cE1j3nuDC0LUqZkZdgtwDy8jEGMfhuekcHyrU5x
+	uNZEyqtIbLf/7Ur4IfOtsPDrtd4fMX90gcBbA9ksFhO90XiWBgDZCTpM3drd2D5szKA+sYoIoZaRD
+	1Ctk7n+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRAvV-00000008BKm-3h9W;
-	Thu, 04 Dec 2025 15:07:25 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
+	id 1vRAw3-00000008BRN-2tMY;
+	Thu, 04 Dec 2025 15:07:59 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRAvT-00000008BKJ-3JfM
+	id 1vRAvz-00000008BQF-43VD
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 15:07:25 +0000
-Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-8b2dcdde698so151223785a.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 07:07:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764860842; x=1765465642; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=tjHwpOaJDmP0t3MeUI8ElolfA57YlcBm5BKDBzuz6TQ=;
-        b=pB/p4sigwUZLioSVLwTou0mBX/i/PZ/e7XjSsZR1Jcfn8VehcKBse6Cd47LUWlY0Ml
-         w75DvcYOEVIpKSQCIzfonRBAdU0MaUGmDq8RiSOxScHadzxCMulymemVMriQbZllELOc
-         +Ljqwb31ijTc8taiddP15jQ/dHDydb2GLOzNVNEbJSoq7zR01v5gNaUTpzbTCB5Yslg2
-         JCXQTpl9Q9fdDiEpWucj5HanC3iMX4y8EduPxnPNO+UisfYKVXpcfiV1UYxINxm3mTOV
-         22FCZ5TDfhSzlTcmw4v7imaVDrTgSvqzC4SLbWoFkx6mLTzKShaPumWr9/fSUO9fREKs
-         DbbA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764860842; x=1765465642;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tjHwpOaJDmP0t3MeUI8ElolfA57YlcBm5BKDBzuz6TQ=;
-        b=B3LiqMSVUEsiOCLCWU2Gf2petqG8Y7ODsy8etEAaiVqEdVdplieWGOjjtGD78266hV
-         mVxUzlQbT64O7EQAWWK9zNKyOk2eC1mWCFScCJ7yBc7xf29beL2mtWybGGVTPiVgyzY6
-         f3lSL1JkGEtcjDZeT4hu5IWGTIG3r9LlP4oBa823Xm8ZmKo5wa0QIFRy0MqaI6ZaTq9f
-         kRNFDEJ+kJpT+uRuY1ieuKWNEp9geuyXDuhhTIc1lDnQ7/gXP/sR67WeSLYl0crS/OvY
-         EOunBpiqzIJfOtVHi4LC+wF7ivVhpPMTrJysT5opsxyFDv5JfJAcCke9Fzz+EL9D7Qrd
-         9CEw==
-X-Forwarded-Encrypted: i=1; AJvYcCUz8YWLEmGS+sp8xPkIn8oovsWNl7PhzxXpgJU01HNQqAafzlSDFN8qMQL22sv6QE04D53COGszgxafjfvGXQZX@lists.infradead.org
-X-Gm-Message-State: AOJu0YztvGrgoGPSstFv5OaoG/vq4d3eTTquOGY6O6LnXZfWke5GfSl0
-	UxQgTwNFRvjYoBzxAa1ZHPp6k/03Nc8jrGfzGzJch/z7zeBymwSDsJ241AQNuyZ/Ton9QLcZnSN
-	TMh+VUM/2jmwMFSFvaIRZOIGRKz32CqZwNZSHFdDhhw==
-X-Gm-Gg: ASbGncvS9qckN02x0nrPVIgPOiyTHaFt9aUUiL6hHs/AoEWB5CoANxci84YrzYFdni+
-	k14KBKLNZ86dwy4+wAIPYE8NuK5are3bRUwXgwgsXlanGj+R7JMr9KwEqCGn5re7Pxvy2ErPaLh
-	4NWqRZPPqwbXiUM/Ns0+mPUEveW+S3F/iNXMk+f8SeYf8dUuk+gHf2iZ0111wyCdkD49898/nbd
-	l9YqFRWZq+kbgYX/fQhfoppmT1uI0uxUsl7DUOzJR1YX3VNVes6e8dr9oPfevzOySZ7L02RoAqj
-	xA7QJKFHoKgLEjeP1lf6+Fau/Xau
-X-Google-Smtp-Source: AGHT+IGW4QHe/3D4ozEpzDM51LfMiRME80VbqEXFqmEzO/LEeQXjUvDFBWO/0int2YzlU5zMoEDkYH97s+NQOJMcWzc=
-X-Received: by 2002:a05:620a:1a9c:b0:8b5:a0fd:fb5c with SMTP id
- af79cd13be357-8b5e6c923dcmr872267685a.57.1764860841778; Thu, 04 Dec 2025
- 07:07:21 -0800 (PST)
+	Thu, 04 Dec 2025 15:07:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1764860876; x=1796396876;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=urTFeoWVXYP1UTfnvMJ4zX48iZOPpLh61uW/on3qHz8=;
+  b=Wx7rG9RbI8MGnZ79ky1Bhf7kBvxni3ZcfrGYX8Zv3DwJQ1iNTKunkZI+
+   7BDHGDltPU4a7Uxulp26Vd1ZBQRhprxoro8R2MXvC3oQyXR8+G8TAOKVW
+   Y70Tygspgk5BOp+S26vXjPloM0jU3rfIaSyt2VYP57VIIgKLmyQnkh1oc
+   HPUolhpFC7sk8X8/+6DpW5M7+lwxl51s7HPeR8CbJJjjhwsPOVsUhQYXF
+   THEaQvIcH6bkcqR56P7WCdekRW5doQJfXfaurQpFfKTPRC7nbNMKMZkws
+   YduPxF7sirzlKAP7+qhkraor4xctUiy8Xugk3sqZVHqS0KjaKe6HzUmrH
+   w==;
+X-CSE-ConnectionGUID: JkXnrwqtQpu0Y6AeU4Ux4g==
+X-CSE-MsgGUID: d9s/fc/FSISdCZBNLCdz6g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11632"; a="84280112"
+X-IronPort-AV: E=Sophos;i="6.20,249,1758610800"; 
+   d="scan'208";a="84280112"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Dec 2025 07:07:55 -0800
+X-CSE-ConnectionGUID: umuhlK09QZSlWjUQcvTnGg==
+X-CSE-MsgGUID: c3jQ5apMR2yDCSI9T6vksA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,249,1758610800"; 
+   d="scan'208";a="194072801"
+Received: from schen9-mobl4.amr.corp.intel.com (HELO [10.125.108.95]) ([10.125.108.95])
+  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Dec 2025 07:07:54 -0800
+Message-ID: <77ff15d7-cdb9-46f7-9f05-97aff2dc8ee9@intel.com>
+Date: Thu, 4 Dec 2025 08:07:53 -0700
 MIME-Version: 1.0
-References: <20251202-extended_cti-v6-0-ab68bb15c4f5@oss.qualcomm.com>
- <20251202-extended_cti-v6-2-ab68bb15c4f5@oss.qualcomm.com>
- <20251203182944.GG724103@e132581.arm.com> <CAJ9a7VhcSxTTaxMR4SS+GbHoPHXm0honykjXy92fbv0HG=1o4Q@mail.gmail.com>
- <20251204104713.GL724103@e132581.arm.com>
-In-Reply-To: <20251204104713.GL724103@e132581.arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Thu, 4 Dec 2025 15:07:10 +0000
-X-Gm-Features: AWmQ_bnB9RPHEhVlkAJoAfLxxhVlrvDqC-dJqQafsxrkuGYt4hiNi28eUPF-ZaM
-Message-ID: <CAJ9a7VgV6chvWmeG2xta11YqyNpdRZqx4=EF7vC7k=J2utpRYQ@mail.gmail.com>
-Subject: Re: [PATCH v6 2/2] coresight: cti: Add Qualcomm extended CTI support
-To: Leo Yan <leo.yan@arm.com>
-Cc: Yingchao Deng <yingchao.deng@oss.qualcomm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, quic_yingdeng@quicinc.com, 
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Mao Jinlong <quic_jinlmao@quicinc.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/2] dmaengine: Add cleanup FREE defines for
+ dma_async_tx_descriptor
+To: Frank Li <Frank.li@nxp.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>,
+ Andi Shyti <andi.shyti@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, dmaengine@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ carlos.song@nxp.com
+References: <20251003-dma_chan_free-v2-0-564946b6c563@nxp.com>
+ <20251003-dma_chan_free-v2-1-564946b6c563@nxp.com>
+ <2c457a46-2b7f-4d66-8555-3b3cb52afe64@intel.com>
+ <aTDkODHZg0JfrZJC@lizhi-Precision-Tower-5810>
+From: Dave Jiang <dave.jiang@intel.com>
+Content-Language: en-US
+In-Reply-To: <aTDkODHZg0JfrZJC@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_070723_880588_E87F445F 
-X-CRM114-Status: GOOD (  26.75  )
+X-CRM114-CacheID: sfid-20251204_070756_081548_AA563C96 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,73 +95,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo
-
-On Thu, 4 Dec 2025 at 10:47, Leo Yan <leo.yan@arm.com> wrote:
->
-> On Thu, Dec 04, 2025 at 09:15:07AM +0000, Mike Leach wrote:
->
-> [...]
->
-> > > > +             /*
-> > > > +              * QCOM CTI does not implement Claimtag functionality as
-> > > > +              * per CoreSight specification, but its CLAIMSET register
-> > > > +              * is incorrectly initialized to 0xF. This can mislead
-> > > > +              * tools or drivers into thinking the component is claimed.
-> > > > +              *
-> > > > +              * Reset CLAIMSET to 0 to reflect that no claims are active.
-> > > > +              */
-> > > > +             writel_relaxed(0, drvdata->base + CORESIGHT_CLAIMSET);
-> > >
-> > > I am confused for this.  If QCOM CTI does not implement claim tag,
-> > > then what is the designed register at the offset CORESIGHT_CLAIMSET?
-> > >
-> > > Should you bypass all claim tag related operations for QCOM CTI case?
-> > > (I don't see you touch anything for claim and declaim tags).
-> > >
-> >
-> > The patch I have created to handle systems without correct claim tag
-> > operation is a dependency for this patch set. Thus no need for
-> > override here as the core code will handle this correctly.
-> >
-> > The only issue is ensuring the non-CTI spec implementation will result
-> > in the correct detection of no claim tags present.
->
-> Your patch works only when a module has implemented claim registers.
->
-
-Per the Coresight spec - unimplemented registers must be RAZ/WI- so
-this still works for non implemented claim registers.
-
-> This leads to two issues: we end up clearing an unknown register in the
-> CTI driver, and then the coresight core layer assumes it is reading a
-> claim register even though it is not.
-
-Again RAZ will simply read 0x0 - which is an indication that there are
-no claim bits implemented.
-
->
-> For QCOM CTI, combined with your patch, I would suggest directly
-> setting csdev->access.claim_tag_impl to false (perhaps using a helper).
-
-That would be a better solution, though as Qcom appear to have
-implemented a pair of standard RW registers rather than the claim tag
-functionality, the write solution works for this particular
-implementation.
-
-Regards
-
-Mike
-
-> This would be much clearer than the "hacking" way.
->
-> Thanks,
-> Leo
 
 
+On 12/3/25 6:30 PM, Frank Li wrote:
+> On Wed, Dec 03, 2025 at 03:48:41PM -0700, Dave Jiang wrote:
+>>
+>>
+>> On 10/3/25 9:26 AM, Frank Li wrote:
+>>> Add cleanup FREE defines for dma_async_tx_descriptor to support automatic
+>>> cleanup and simplify error handling.
+>>>
+>>> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+>>> ---
+>>> Check patch report exceed 100 chars, but it's still better put into one
+>>> line to keep consistent with other DEFINE_FREE and better readablity
+>>>
+>>> change in v2
+>>> - remove surpoiouse remove empty line
+>>> ---
+>>>  include/linux/dmaengine.h | 3 +++
+>>>  1 file changed, 3 insertions(+)
+>>>
+>>> diff --git a/include/linux/dmaengine.h b/include/linux/dmaengine.h
+>>> index 99efe2b9b4ea9844ca6161208362ef18ef111d96..27fa1646a807c49c781e1bce9e3e7d9a3c66f41d 100644
+>>> --- a/include/linux/dmaengine.h
+>>> +++ b/include/linux/dmaengine.h
+>>> @@ -5,6 +5,7 @@
+>>>  #ifndef LINUX_DMAENGINE_H
+>>>  #define LINUX_DMAENGINE_H
+>>>
+>>> +#include <linux/cleanup.h>
+>>>  #include <linux/device.h>
+>>>  #include <linux/err.h>
+>>>  #include <linux/uio.h>
+>>> @@ -1612,6 +1613,8 @@ static inline int dmaengine_desc_free(struct dma_async_tx_descriptor *desc)
+>>>  	return desc->desc_free(desc);
+>>>  }
+>>>
+>>> +DEFINE_FREE(dma_async_tx_descriptor, struct dma_async_tx_descriptor *, if (_T) dmaengine_desc_free(_T))
+>>
+>> maybe free_dma_async_tx may be clearer as the name vs dma_async_tx_descriptor.
+> 
+> If that, 'dmaengine_desc_free' is better because avoid create new name for
+> it.
 
--- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+That works too.
+
+> 
+> Frank
+>>
+>> DJ
+>>
+>>> +
+>>>  /* --- DMA device --- */
+>>>
+>>>  int dma_async_device_register(struct dma_device *device);
+>>>
+>>
+> 
+
 
