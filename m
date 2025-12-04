@@ -4,75 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E435BD1D89F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 09:48:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14347D1F9A1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 09:54:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RrFqRWymodKrCzUcOd1tuaSU9EWP4JmJKlR/UO6L0/0=; b=tU0gbYgC0CcmRRkSkCjzk5/clW
-	TmR0e1cEmH0gVTJbS32rj1fCxU23g/ypWep0hpAH2nLyjyTLndQ5e+NyhCpVTj18TP6o6orqliQLL
-	RwMHOPnfA7w6qHFCeIBNuOpIKEbftZ5xkISdm95SssXujz+djfrBvRzZRiYAgH9/aJtBcp6pld5Uy
-	/kbOG6FIVzAG5OoB/GAEi6M27KTj/MY7TzaDDbrAAqxSWwQUyTI+0+sg8oBHRonKKh/HwkHuWfxWH
-	9tBLVJDSi3RaJ+yBzx8yJaas7/APVs2w38UTOTQ3cbp5mwdqighl3Pj9pAWPhES3ACmGqGPnCh6eB
-	bgdJvsIQ==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=n9pQTcr9XDWaDD9c1jLgmI7vVoQ2f01n0HkHYkWnDno=; b=PuMzxi6zN2BSFrsz1Ldgfl7l4B
+	gugkG99ISuiIc6x7CKS6EfQul/gtpTmfUVir3VpPxKc+91GM1SS2zndOOVFAvgMA7hrGl6tWnxkvY
+	M3KIrcBPP0U/UAmHj/+LugJGE3GfJ/VSwbfbFCpP9U13GQPDybTIbx9MckNSJa/imcd5dcp+kYhc+
+	+hUNKGAxVzkuNaRzH7rTQlo2LRcN2WB23Aljniy1GQspbVzMImD0p4HMss5PB/SX5lDrcRszjcxB+
+	TGu8udvORgcUWBh2VzGOvBNlLYH/scc1h7pvlKI8QEWWpkIoMZLSN/4bjGd41Yh99rbAuD5gYwMiC
+	qKm3arbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR5x7-00000007myP-2y7H;
-	Thu, 04 Dec 2025 09:48:45 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vR62F-00000007nu7-0J0w;
+	Thu, 04 Dec 2025 09:54:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR5x2-00000007mrq-1aJ0
+	id 1vR62D-00000007ntk-0Koi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 09:48:41 +0000
+	Thu, 04 Dec 2025 09:54:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0BED94447D;
-	Thu,  4 Dec 2025 09:48:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E447EC16AAE;
-	Thu,  4 Dec 2025 09:48:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E91A342B26;
+	Thu,  4 Dec 2025 09:53:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6022C4CEFB;
+	Thu,  4 Dec 2025 09:53:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764841717;
-	bh=0HAJBmXE+rJLYXs5hMQhZFeGzkrf7YieZyrcWFUBa8g=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=skzIHvo361R6cFWTk0/B7v/saenmADx8sGUgieKHNuKz3Yyui6CykOJ4MffKiJLCc
-	 hnXCMhhEmj9MVb/zhRJUqhPyWYMRZWM+NOybYZv8JqQry5UOKbvGZADFmvR0xxTK/v
-	 F1e5eqX8nxr6NXUXQ2I1pCA9/t/71KRu2v7yDmQIbs/V/rQWG0c0mejgZ23UExgHoQ
-	 GXtuklmg5arm4H8nBaDMycjIVpQpSv2uOdvdvOjaZ8kFVg5Ow0evbu6m8vxjrj8M5M
-	 c0vufZ4GC3NpvkC9LTdoFltdYU/PZB9L6tMg1WCDY/18hccPqZZJ+aCeACAWlJbl63
-	 1DnKG4zW2t2aA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vR5wy-0000000AP90-0hw0;
-	Thu, 04 Dec 2025 09:48:36 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	Yao Yuan <yaoyuan@linux.alibaba.com>
-Subject: [PATCH v3 9/9] KVM: arm64: selftests: Add a test for FEAT_IDST
-Date: Thu,  4 Dec 2025 09:48:06 +0000
-Message-ID: <20251204094806.3846619-10-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251204094806.3846619-1-maz@kernel.org>
-References: <20251204094806.3846619-1-maz@kernel.org>
+	s=k20201202; t=1764842039;
+	bh=GS/k0U4iAQ8wizfHFCeeqa07LgcPPHjcnZCXp5vD9ko=;
+	h=From:To:Cc:Subject:Date:From;
+	b=uRw/dW+v1MhAkgEtfmyA8lY7GaZXdTi+hRyTFFKAyHVQCHeALTl/LVpFr8eBEsU+Q
+	 3REnaJ3dmHeg32IU/l0tiaC9lF0oe34CndIVG1I2X3HUoRQ8IC8xf7O2qRH6/vPj6P
+	 ZcvxjjaVeTlZH7Y2pQne8xEy2UlFNBgN458dpL+xMK9MxHceNnB9ZpimAuc2us2AMg
+	 hiqdDB1gimpkgDF5UsjlsO2/U9g5CVHKdnKaoDcDUZVO9nfdUXg/vbuqWmmV/qX8Vl
+	 d5w4yaYlza0BcOX0xGjpLWXKr/MXu7aTyPXLldca4ygmHf8oy0XXJnDFx+XsLvza9g
+	 vxVLgYNiiA/KQ==
+From: Arnd Bergmann <arnd@kernel.org>
+To: soc@lists.linux.dev,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Janusz Krzysztofik <jmkrzyszt@gmail.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	Tony Lindgren <tony@atomide.com>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-omap@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] ARM: omap1: avoid symbol clashes in fiq handler
+Date: Thu,  4 Dec 2025 10:53:47 +0100
+Message-Id: <20251204095355.1032786-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, ben.horgan@arm.com, yaoyuan@linux.alibaba.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_014840_522356_0E587221 
-X-CRM114-Status: GOOD (  16.80  )
+X-CRM114-CacheID: sfid-20251204_015401_182098_6846DADF 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,152 +75,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a very basic test checking that FEAT_IDST actually works for
-the {GMID,SMIDR,CSSIDR2}_EL1 registers.
+From: Arnd Bergmann <arnd@arndb.de>
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
+The ams-delta-fiq-handler.S file has a number of symbols with fairly
+generic names, including one named 'exit' that causes a compiler warning
+in some configuration options:
+
+vmlinux.o: error: exit() function name creates ambiguity with -ffunction-sections
+
+Change all these symbols to use a .L prefix to make them local to
+the fiq handler.
+
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- tools/testing/selftests/kvm/Makefile.kvm      |   1 +
- .../testing/selftests/kvm/arm64/idreg-idst.c  | 117 ++++++++++++++++++
- 2 files changed, 118 insertions(+)
- create mode 100644 tools/testing/selftests/kvm/arm64/idreg-idst.c
+ arch/arm/mach-omap1/ams-delta-fiq-handler.S | 38 ++++++++++-----------
+ 1 file changed, 19 insertions(+), 19 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 148d427ff24be..fa44e6d9afc35 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -171,6 +171,7 @@ TEST_GEN_PROGS_arm64 += arm64/vgic_irq
- TEST_GEN_PROGS_arm64 += arm64/vgic_lpi_stress
- TEST_GEN_PROGS_arm64 += arm64/vpmu_counter_access
- TEST_GEN_PROGS_arm64 += arm64/no-vgic-v3
-+TEST_GEN_PROGS_arm64 += arm64/idreg-idst
- TEST_GEN_PROGS_arm64 += arm64/kvm-uuid
- TEST_GEN_PROGS_arm64 += access_tracking_perf_test
- TEST_GEN_PROGS_arm64 += arch_timer
-diff --git a/tools/testing/selftests/kvm/arm64/idreg-idst.c b/tools/testing/selftests/kvm/arm64/idreg-idst.c
-new file mode 100644
-index 0000000000000..9ca9f125abdb7
---- /dev/null
-+++ b/tools/testing/selftests/kvm/arm64/idreg-idst.c
-@@ -0,0 +1,117 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+/*
-+ * Access all FEAT_IDST-handled registers that depend on more than
-+ * just FEAT_AA64, and fail if we don't get an a trap with an 0x18 EC.
-+ */
-+
-+#include <test_util.h>
-+#include <kvm_util.h>
-+#include <processor.h>
-+
-+static volatile bool sys64, undef;
-+
-+#define __check_sr_read(r)					\
-+	({							\
-+		uint64_t val;					\
-+								\
-+		sys64 = false;					\
-+		undef = false;					\
-+		dsb(sy);					\
-+		val = read_sysreg_s(SYS_ ## r);			\
-+		val;						\
-+	})
-+
-+/* Fatal checks */
-+#define check_sr_read(r)					\
-+	do {							\
-+		__check_sr_read(r);				\
-+		__GUEST_ASSERT(!undef, #r " unexpected UNDEF");	\
-+		__GUEST_ASSERT(sys64, #r " didn't trap");	\
-+	} while(0)
-+
-+
-+static void guest_code(void)
-+{
-+	check_sr_read(CCSIDR2_EL1);
-+	check_sr_read(SMIDR_EL1);
-+	check_sr_read(GMID_EL1);
-+
-+	GUEST_DONE();
-+}
-+
-+static void guest_sys64_handler(struct ex_regs *regs)
-+{
-+	sys64 = true;
-+	undef = false;
-+	regs->pc += 4;
-+}
-+
-+static void guest_undef_handler(struct ex_regs *regs)
-+{
-+	sys64 = false;
-+	undef = true;
-+	regs->pc += 4;
-+}
-+
-+static void test_run_vcpu(struct kvm_vcpu *vcpu)
-+{
-+	struct ucall uc;
-+
-+	do {
-+		vcpu_run(vcpu);
-+
-+		switch (get_ucall(vcpu, &uc)) {
-+		case UCALL_ABORT:
-+			REPORT_GUEST_ASSERT(uc);
-+			break;
-+		case UCALL_PRINTF:
-+			printf("%s", uc.buffer);
-+			break;
-+		case UCALL_DONE:
-+			break;
-+		default:
-+			TEST_FAIL("Unknown ucall %lu", uc.cmd);
-+		}
-+	} while (uc.cmd != UCALL_DONE);
-+}
-+
-+static void test_guest_feat_idst(void)
-+{
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+
-+	/* This VM has no MTE, no SME, no CCIDX */
-+	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
-+
-+	vm_init_descriptor_tables(vm);
-+	vcpu_init_descriptor_tables(vcpu);
-+
-+	vm_install_sync_handler(vm, VECTOR_SYNC_CURRENT,
-+				ESR_ELx_EC_SYS64, guest_sys64_handler);
-+	vm_install_sync_handler(vm, VECTOR_SYNC_CURRENT,
-+				ESR_ELx_EC_UNKNOWN, guest_undef_handler);
-+
-+	test_run_vcpu(vcpu);
-+
-+	kvm_vm_free(vm);
-+}
-+
-+int main(int argc, char *argv[])
-+{
-+	struct kvm_vcpu *vcpu;
-+	struct kvm_vm *vm;
-+	uint64_t mmfr2;
-+
-+	test_disable_default_vgic();
-+
-+	vm = vm_create_with_one_vcpu(&vcpu, NULL);
-+	mmfr2 = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64MMFR2_EL1));
-+	__TEST_REQUIRE(FIELD_GET(ID_AA64MMFR2_EL1_IDS, mmfr2) > 0,
-+		       "FEAT_IDST not supported");
-+	kvm_vm_free(vm);
-+
-+	test_guest_feat_idst();
-+
-+	return 0;
-+}
+diff --git a/arch/arm/mach-omap1/ams-delta-fiq-handler.S b/arch/arm/mach-omap1/ams-delta-fiq-handler.S
+index 35c2f9574dbd..5cf6fcca602c 100644
+--- a/arch/arm/mach-omap1/ams-delta-fiq-handler.S
++++ b/arch/arm/mach-omap1/ams-delta-fiq-handler.S
+@@ -97,7 +97,7 @@ ENTRY(qwerty_fiqin_start)
+ 
+ 	ldr r13, [r12, #IRQ_ITR_REG_OFFSET]	@ fetch interrupts status
+ 	bics r13, r13, r11			@ clear masked - any left?
+-	beq exit				@ none - spurious FIQ? exit
++	beq .Lexit				@ none - spurious FIQ? exit
+ 
+ 	ldr r10, [r12, #IRQ_SIR_FIQ_REG_OFFSET]	@ get requested interrupt number
+ 
+@@ -105,25 +105,25 @@ ENTRY(qwerty_fiqin_start)
+ 	str r8, [r12, #IRQ_CONTROL_REG_OFFSET]
+ 
+ 	cmp r10, #(INT_GPIO_BANK1 - NR_IRQS_LEGACY)	@ is it GPIO interrupt?
+-	beq gpio				@ yes - process it
++	beq .Lgpio				@ yes - process it
+ 
+ 	mov r8, #1
+ 	orr r8, r11, r8, lsl r10		@ mask spurious interrupt
+ 	str r8, [r12, #IRQ_MIR_REG_OFFSET]
+-exit:
++.Lexit:
+ 	subs	pc, lr, #4			@ return from FIQ
+ 	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ 
+ 
+ 	@@@@@@@@@@@@@@@@@@@@@@@@@@@
+-gpio:	@ GPIO bank interrupt handler
++.Lgpio:	@ GPIO bank interrupt handler
+ 	ldr r12, omap1510_gpio_base		@ set base pointer to GPIO bank
+ 
+ 	ldr r11, [r12, #OMAP1510_GPIO_INT_MASK]	@ fetch GPIO interrupts mask
+-restart:
++.Lrestart:
+ 	ldr r13, [r12, #OMAP1510_GPIO_INT_STATUS]	@ fetch status bits
+ 	bics r13, r13, r11			@ clear masked - any left?
+-	beq exit				@ no - spurious interrupt? exit
++	beq .Lexit				@ no - spurious interrupt? exit
+ 
+ 	orr r11, r11, r13			@ mask all requested interrupts
+ 	str r11, [r12, #OMAP1510_GPIO_INT_MASK]
+@@ -131,7 +131,7 @@ restart:
+ 	str r13, [r12, #OMAP1510_GPIO_INT_STATUS] @ ack all requested interrupts
+ 
+ 	ands r10, r13, #KEYBRD_CLK_MASK		@ extract keyboard status - set?
+-	beq hksw				@ no - try next source
++	beq .Lhksw				@ no - try next source
+ 
+ 
+ 	@@@@@@@@@@@@@@@@@@@@@@
+@@ -145,10 +145,10 @@ restart:
+ 
+ 	ldr r10, [r9, #BUF_STATE]		@ fetch kbd interface state
+ 	cmp r10, #0				@ are we expecting start bit?
+-	bne data				@ no - go to data processing
++	bne .Ldata				@ no - go to data processing
+ 
+ 	ands r8, r8, #KEYBRD_DATA_MASK		@ check start bit - detected?
+-	beq hksw				@ no - try next source
++	beq .Lhksw				@ no - try next source
+ 
+ 	@ r8 contains KEYBRD_DATA_MASK, use it
+ 	str r8, [r9, #BUF_STATE]		@ enter data processing state
+@@ -162,9 +162,9 @@ restart:
+ 	mvn r11, #KEYBRD_CLK_MASK		@ prepare all except kbd mask
+ 	str r11, [r12, #OMAP1510_GPIO_INT_MASK]	@ store into the mask register
+ 
+-	b restart				@ restart
++	b .Lrestart				@ restart
+ 
+-data:	ldr r10, [r9, #BUF_MASK]		@ fetch current input bit mask
++.Ldata:	ldr r10, [r9, #BUF_MASK]		@ fetch current input bit mask
+ 
+ 	@ r8 still contains GPIO input bits
+ 	ands r8, r8, #KEYBRD_DATA_MASK		@ is keyboard data line low?
+@@ -175,7 +175,7 @@ data:	ldr r10, [r9, #BUF_MASK]		@ fetch current input bit mask
+ 	mov r10, r10, lsl #1			@ shift mask left
+ 	bics r10, r10, #0x800			@ have we got all the bits?
+ 	strne r10, [r9, #BUF_MASK]		@ not yet - store the mask
+-	bne restart				@ and restart
++	bne .Lrestart				@ and restart
+ 
+ 	@ r10 already contains 0, reuse it
+ 	str r10, [r9, #BUF_STATE]		@ reset state to start
+@@ -189,7 +189,7 @@ data:	ldr r10, [r9, #BUF_MASK]		@ fetch current input bit mask
+ 	ldr r10, [r9, #BUF_KEYS_CNT]		@ get saved keystrokes count
+ 	ldr r8, [r9, #BUF_BUF_LEN]		@ get buffer size
+ 	cmp r10, r8				@ is buffer full?
+-	beq hksw				@ yes - key lost, next source
++	beq .Lhksw				@ yes - key lost, next source
+ 
+ 	add r10, r10, #1			@ incremet keystrokes counter
+ 	str r10, [r9, #BUF_KEYS_CNT]
+@@ -213,9 +213,9 @@ data:	ldr r10, [r9, #BUF_MASK]		@ fetch current input bit mask
+ 	@@@@@@@@@@@@@@@@@@@@@@@@
+ 
+ 
+-hksw:	@Is hook switch interrupt requested?
++.Lhksw:	@Is hook switch interrupt requested?
+ 	tst r13, #HOOK_SWITCH_MASK 		@ is hook switch status bit set?
+-	beq mdm					@ no - try next source
++	beq .Lmdm				@ no - try next source
+ 
+ 
+ 	@@@@@@@@@@@@@@@@@@@@@@@@
+@@ -230,9 +230,9 @@ hksw:	@Is hook switch interrupt requested?
+ 	@@@@@@@@@@@@@@@@@@@@@@@@
+ 
+ 
+-mdm:	@Is it a modem interrupt?
++.Lmdm:	@Is it a modem interrupt?
+ 	tst r13, #MODEM_IRQ_MASK 		@ is modem status bit set?
+-	beq irq					@ no - check for next interrupt
++	beq .Lirq				@ no - check for next interrupt
+ 
+ 
+ 	@@@@@@@@@@@@@@@@@@@@@@@@
+@@ -245,13 +245,13 @@ mdm:	@Is it a modem interrupt?
+ 	@@@@@@@@@@@@@@@@@@@@@@@@
+ 
+ 
+-irq:	@ Place deferred_fiq interrupt request
++.Lirq:	@ Place deferred_fiq interrupt request
+ 	ldr r12, deferred_fiq_ih_base		@ set pointer to IRQ handler
+ 	mov r10, #DEFERRED_FIQ_MASK		@ set deferred_fiq bit
+ 	str r10, [r12, #IRQ_ISR_REG_OFFSET] 	@ place it in the ISR register
+ 
+ 	ldr r12, omap1510_gpio_base		@ set pointer back to GPIO bank
+-	b restart				@ check for next GPIO interrupt
++	b .Lrestart				@ check for next GPIO interrupt
+ 	@@@@@@@@@@@@@@@@@@@@@@@@@@@
+ 
+ 
 -- 
-2.47.3
+2.39.5
 
 
