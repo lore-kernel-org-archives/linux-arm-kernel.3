@@ -4,60 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34619D20680
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 12:57:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FFF2D20682
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 13:01:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7TjRPCXKx93O6s0+VRRmB6qbvgfcTph0rzx28MDwe14=; b=3EKDLUuNxMMBelCUG3YbBUefAv
-	XhRR8cnfeVJ0efVkJ+mRecreV0ci71vbIrWzxDqlfpB9EQbgYaQvDW5aiSytiMky4xlpf3LrUcFCC
-	I8rFTHWVX/P/SpoV6i+H9C/0gtyfbPl/LWmcPvScbh4n1K8b31zH9TQRW7DdMEucy6B6527L0uUAs
-	T2IYcucI7GpY5ovrjKfVfYdlohy6e4td6Jt4JJ8OlMNQz3KV7OuR9GDWwY1sOzRGeXTid4BhXZKG+
-	VuSfQNnwV6Zl3oBU+ULiyARdPSAKsvyvU9ndBjbqShw7HJZ0Km0vez48IUNMNLrS4VFpfKtTFnAGf
-	XqCp1Sqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LS+EuiHslT/L78YAItlfxu1O4qSNFKEHjW0KbNj81tk=; b=kTZ6cEtEjPX9Kdkksfh+DHr+g6
+	jkrMGP7kgK3LkDhnI+bV0Zcuz+cR9mBlpT+iolgaax3VdAz1Suq+pwPf6VFWDPv7HgaEEDo2HBkF2
+	Oxc/7jIMxOIv+jY4P8ta8XJdWXs7LARH2PpKlVv4MPTuiCW6+2cFKpCkWn767gRrSFavpPVCc7a+j
+	JE71UUTNYSXjHscynac0Wko8/FVK9NPwatYcpmcVTVjHa/5W6gIH+kjy234ipo7bebOhx0mENlTPY
+	TUDRp3D+cagGCuwFgk1gPGglxlfuuvJJOJkoE047Y3hDt4qqMqxrcedeI4IOppuAp/TlXdao/W6M4
+	3IVgHLpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR8tv-000000080qh-29a0;
-	Thu, 04 Dec 2025 12:57:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR8tt-000000080qI-0MZt
+	id 1vR8xt-0000000815u-34mo;
+	Thu, 04 Dec 2025 13:01:45 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vR8xt-0000000815m-0GzW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 12:57:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 59344339;
-	Thu,  4 Dec 2025 04:57:28 -0800 (PST)
-Received: from [10.163.49.196] (unknown [10.163.49.196])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5E5763F59E;
-	Thu,  4 Dec 2025 04:57:30 -0800 (PST)
-Message-ID: <fb3b495a-3e04-417f-a674-e1753fd85177@arm.com>
-Date: Thu, 4 Dec 2025 18:27:27 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/19] coresight: trbe: Refactor status clearing
-To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Yeoreum Yun <yeoreum.yun@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Tamas Petz <tamas.petz@arm.com>,
- Tamas Zsoldos <tamas.zsoldos@arm.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
- Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org
-References: <20251201-trbe_buffer_refactor_v1-1-v1-0-7da32b076b28@arm.com>
- <20251201-trbe_buffer_refactor_v1-1-v1-5-7da32b076b28@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20251201-trbe_buffer_refactor_v1-1-v1-5-7da32b076b28@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_045737_191175_C4579773 
-X-CRM114-Status: GOOD (  19.87  )
+	Thu, 04 Dec 2025 13:01:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0C0F5601E7;
+	Thu,  4 Dec 2025 13:01:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADD33C4CEFB;
+	Thu,  4 Dec 2025 13:01:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764853303;
+	bh=y8Dpxq/qac2yfhGme+RbqjKcFBbu3jxAWjEWDiTog8I=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Q5FfdSKvDj+KHCLkDd+HBIGhhv+z8ttkvqzxPm5TJQMqguHwvlGI3lndWXSFKnc9X
+	 Zhx4BTsYRKWgI+lW3LdgWUmIIn1ZMLj/FO9l/icI2DKYTO92LkmDXYU3GerC7cQQMF
+	 /i6RA+QlFVyn8Z/lBEzuBFkbTOlDutRvw4jIT15kdeL7iHqdiiKAfqI7dJMWpdJwN6
+	 mND5pWkZfIAlN5/Vpan/QiAePMeCiO4NtDqL+UlebuxWKX/rk1mmUl32PSIn8HYBJF
+	 4aqp2TrCOINjVFL+6nq9mEiQsBh+uod8LI3qTG7F5+jJOO2rJ3/R5FP8nMpMfQMmxK
+	 PlVQSrG8F+pqA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vR8xp-0000000AS1y-1ZLD;
+	Thu, 04 Dec 2025 13:01:41 +0000
+Date: Thu, 04 Dec 2025 13:01:40 +0000
+Message-ID: <868qfipfij.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org
+Subject: Re: Alternative to arm64.nopauth cmdline for disabling Pointer Authentication
+In-Reply-To: <adc22b19-7dcc-4c38-9319-d979f1e3886a@quicinc.com>
+References: <3fcf6614-ee83-4a06-9024-83573b2e642e@quicinc.com>
+	<86ecpappzi.wl-maz@kernel.org>
+	<adc22b19-7dcc-4c38-9319-d979f1e3886a@quicinc.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: pavan.kondeti@oss.qualcomm.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,62 +85,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/12/25 4:51 PM, Leo Yan wrote:
-> If the driver does not clear the status when disabling the trace buffer
-> unit, stale state will carry over to the next enable, though the driver
-> clears it again on enable.
+[dropping Ricardo, as his address bounces]
 
-There is no problem now ! Because trbe_enable_hw() calls clr_trbe_status().
+On Thu, 04 Dec 2025 10:36:12 +0000,
+Pavan Kondeti <pavan.kondeti@oss.qualcomm.com> wrote:
+> 
+> Hi Marc,
+> 
+> On Thu, Dec 04, 2025 at 09:15:29AM +0000, Marc Zyngier wrote:
+> > On Thu, 04 Dec 2025 04:07:15 +0000,
+> > Pavan Kondeti <pavan.kondeti@oss.qualcomm.com> wrote:
+> > > 
+> > > Hi
+> > > 
+> > > The pointer authentication feature (PAuth) is only supported on
+> > > 0-3 CPUs but it is not supported on 4-7 CPUS on QCS8300.
+> > 
+> > On what grounds? Hardware incompatibility? I seriously doubt it, since
+> > nobody glues pre-8.3 CPUs to anything more modern. Or, as I expect it,
+> > a firmware implemented with little understanding of what is required?
+> 
+> I don't know the answer to this question. I will talk to folks who may
+> know answer to this question and get back.
+> 
+> Can you please elaborate on the firmware part you are talking here? I
+> see that Linux runs at EL2 and AA64ISAR1 register values on CPU#0 (A78)
+> indicates that PAuth is supported but not for CPU#4 (A55). I am told, there
+> are no other controls outside EL2 (trap) to manipulate this feature. So,
+> I am assuming that this is indeed reflecting the HW.
+
+Neither A78 nor A55 have PAuth. They are both firmly ARMv8.2 CPUs, and
+predate this functionality. So I guess that there are only two possible
+outcomes:
+
+- either the FW is indeed not at fault, but that you have a *third*
+  type of CPU that is at least 8.3 in the mix
+
+- or that you misidentified the CPUs that are on your system, they
+  have PAuth, and the firmware is borked
+
+Which one is it?
 
 > 
-> Explicitly clear status after the trace is disabled in the interrupt
-> handling and when a perf session ends.  Keep the status for spurious
-> interrupts for continuous tracing.
-
-But is not that the behaviour already without this change ?
-
-clr_trbe_status() in trbe_enable_hw() ensures that no TRBE session can be
-started without first clearing the existing status. Still wondering what
-is the purpose of this change ?
-
+> > 
+> > > The ARM64 cpufeature discovery code expects late CPUs to have
+> > > this feature if boot CPU feature has it since PAuth is enabled
+> > > early. When a conflict like this is detected, the late CPUs are
+> > > not allowed to boot. It is expected that system will continue
+> > > to be functional with CPUs with Pauth feature supported and enabled.
+> > > This is not a desired behavior in production.
+> > 
+> > What is even less desirable is to produce this sort of contraption.
+> > 
+> > > We started seeing this problem when Linux is booted in EL2. When Linux
+> > > is running under Gunyah (Type-1 hypervisor), Pointer Authentication
+> > > feature is hidden from EL1 via HCR_EL2.TID3. 
+> > > 
+> > > arm64.nopauth can be passed on kernel cmdline to disable the feature
+> > > in kernel so that all all CPUs can boot on QCS8300. I am told 
+> > > maintaining a custom kernel commandline per SoC in a Generic OS 
+> > > distribution is not recommended and asked to discuss the problem with
+> > > the comunity [1]
+> > 
+> > Well, you get to own the problem you have created for yourself. You
+> > build hardware/firmware that cannot run generic SW, and yet you want
+> > generic SW to run seamlessly on it. Spot the issue?
+> > 
+> > > This patch [2] from Catalin adds a devicetree property under memory {}
+> > > to disable MTE. I believe this work predates the id-reg override
+> > > mechanism. However, this made me think if workarounds like this can be
+> > > detected via devicetree, for example a property under cpu { } node.
+> > 
+> > Not only it predates it, but it also doesn't work in general. For a
+> > start, it is DT specific. How are you going to make that work for
+> > ACPI? I know you don't care, but I do.
 > 
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->  drivers/hwtracing/coresight/coresight-trbe.c | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
+> Point taken. I understand that this does not fall under errata but is
+> there a possiblity to introduce an Errata targeting CPU#0 MIDR and
+> disabling the Pointer authentication? I understand that if there is
+> another Qualcomm SoC that exists with all CPUs supporting pointer
+> authentication with same MIDR, we may be disabling the feature but this
+> is something I can check internally.
 > 
-> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
-> index e426991e2c2c398a9d3982e9d0f7f542e404cbab..9e565122816949b37b8ff5e4ba04cfbc317c6f25 100644
-> --- a/drivers/hwtracing/coresight/coresight-trbe.c
-> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
-> @@ -629,7 +629,6 @@ static void trbe_enable_hw(struct trbe_buf *buf)
->  	WARN_ON(buf->trbe_hw_base < buf->trbe_base);
->  	WARN_ON(buf->trbe_write < buf->trbe_hw_base);
->  	WARN_ON(buf->trbe_write >= buf->trbe_limit);
-> -	clr_trbe_status();
->  	set_trbe_base_pointer(buf->trbe_hw_base);
->  	set_trbe_write_pointer(buf->trbe_write);
->  
-> @@ -1036,6 +1035,8 @@ static int arm_trbe_disable(struct coresight_device *csdev)
->  		return -EINVAL;
->  
->  	trbe_drain_and_disable_local(cpudata);
-> +	clr_trbe_status();
-> +
->  	buf->cpudata = NULL;
->  	cpudata->buf = NULL;
->  	cpudata->mode = CS_MODE_DISABLED;
-> @@ -1151,6 +1152,10 @@ static irqreturn_t arm_trbe_irq_handler(int irq, void *dev)
->  		return IRQ_NONE;
->  
->  	act = trbe_get_fault_act(handle, status);
-> +
-> +	if (act != TRBE_FAULT_ACT_SPURIOUS)
-> +		clr_trbe_status();
-> +
->  	switch (act) {
->  	case TRBE_FAULT_ACT_WRAP:
->  		truncated = !!trbe_handle_overflow(handle);
+> > 
+> > > Given that what we put in `chosen { bootargs="" }` kernel under
+> > > respective SoC devicetree can be overridden by bootloader, should we
+> > > have a **sticky** cmdline to specify critical workarounds like this?
+> > > This would be more generic than introducing any new parameters.
+> > 
+> > You already have a way to have a sticky command-line, by building it
+> > into the kernel. Yes, I understand that this isn't what you want, but:
+> > 
+> > (1) a user should be allowed to pass the kernel command-line *they*
+> >     want, not what someone has decided for them
 > 
+> Agreed. This is what made me to ask the question. Should kernel have a
+> sticky command line which may have critical workarounds like this?
 
+Absolutely *not*. You are not in charge of defining what is good for
+the user. If the user themselves want that, they have plenty of ways
+to achieve that particular goal already. Put it in the bootargs
+string, in the kernel build, in a grub config file, as a u-boot
+hack... There is an infinite number of choices already, and we don't
+need an extra one to hide how ugly their HW is.
+
+> > (2) the generic mechanism exists, doesn't rely on additional firmware
+> >     specifications, and is used for a whole lot of other QC platforms
+> >     suffering from the same issue of broken firmware.  What are you
+> >     going to do for these?
+> 
+> The generic mechanism, you mean bootloader passing the kernel cmdline
+> with `arm64.nopauth`? or something else.
+
+Exactly that. This is the mechanism by which we instruct the kernel
+not to use a particular feature if it can avoid it. It is easy to add,
+doesn't depend on new esoteric firmware interfaces, and is a constant
+reminder that you are dealing with stuff that isn't fit for purpose.
+
+> > (3) what if you, by miracle, happened to *fix* the firmware?
+> 
+> As I have asked above, the firmware part is not clear. 
+
+Well, your description of the root cause of the problem isn't clear
+either, so we're even! ;-)
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
