@@ -4,106 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 633DBD2444A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 17:12:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D51C7D24440
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 17:18:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uGUWJRfLEGG5MQjirrXoFGblqtB6v7zhyuKgj/1LsZ8=; b=18e6vePAkmy1089a5pHYZLs9X1
-	tklDlGkmjP4DSXPJnUZ9lIIPrhjl5F3vczWMAYaCbxfOSN9SC8Acl7CH8z/7/oN6iKrtKDu6FJT36
-	pZQPOsXoThnfuraH/uXJxuRepVmloXM508pHAeWQcpC+Qqy3FRrjdL0e9xDu/RwX0dt5ZYQLaiHE9
-	84bHBP5ZfVR84NufDXcuh9daGR7yKaB1TPVYBKjnJpVrj2VnEOnK2kwzUHmt4lUSLNnA44qwrq82B
-	7WUZD59pgWSKB8w1iRCY+pKqeu/QnnQB3uTlVpiihXFXx6/aoFlMEBWYSTxTW6ux/PEoSohy5upzE
-	549sceww==;
+	bh=vz4OM5Ue6KvEhxsWvuZ2KXd/BUsOTLovIKrh2kxZrkc=; b=Xi4yGFts03UNcNE1xaA/46bKNg
+	gnYjD5xAdnpVYFNk/BnfLFYx1cgZVB7U2axWqiZrlp+tFPEcClWYBlwLq0cdL551K22k4uu0wsnZZ
+	rowdKHonWcnT57p3p/PedBXUDBDsgNSjfBVP0NxnJ7iZYjh298FuYgfpiaydmS7opIx2pUhjg7zVg
+	A7YOW4/6eJSnM3TCH+hdaGR4Yf8QuC+u23i/nhKflga7Sgpw4QOccMnW1qvSejOK+6cgrzTX/aDR/
+	o1P/rrkppQEEXYP0A8l0K0SimCw9ZeqrLFVR/4FSbpguaaX5zUOjew7XtK3SGng6IVyWGSWMfbRNB
+	Z5Oxr+Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRCsG-00000008LwA-0sVM;
-	Thu, 04 Dec 2025 17:12:12 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1vRCxz-00000008MMP-0nW9;
+	Thu, 04 Dec 2025 17:18:07 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRCs9-00000008Lv0-0BBG
+	id 1vRCxx-00000008MLb-2pRE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 17:12:10 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-429c844066fso84672f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 09:12:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764868323; x=1765473123; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=uGUWJRfLEGG5MQjirrXoFGblqtB6v7zhyuKgj/1LsZ8=;
-        b=gCiBpy4zlizrtJCagQU77OuY3gRcjqorzEXrx06//yX6DuYG0gOHZ0cWVpvL5Jwa0F
-         RQg8w4wtE7vp1uHhL3zOU1TKKzJ+q67hh7kMaRb6mIt3gg+69cUMMXNIZrBRe6lO8GEl
-         F4u3BC+iaRePzy2Sw8VCC/M8sESr2NjeMyBDsuhbSh3wf45qHb7ZRo4zWIMbEU4LQ/Mv
-         hltafCki2V6jXS9aqBrigpne2Wh5J71K3Tc0FCAw2e6vESicuM7sKv5w78e5pXxI0TlW
-         AVfRe8hITeb9deD1pX7ijeDdXegTBBZ4PuA5+lGtPyuSzfMhLZkxIfVtV6Vip77mGEc2
-         RrxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764868323; x=1765473123;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=uGUWJRfLEGG5MQjirrXoFGblqtB6v7zhyuKgj/1LsZ8=;
-        b=eHskKGAVRgHi0L8Xe9al5V1s/TFXBH0SOGfkCW8UyCiPdHwspymcNFeommKkuckEs3
-         FDUZY/waTDxbmPYGxg1E8+h4B5H0eYY2odiA3znFNyG7cHXhqVDqZqnrLXVWc+NjrDS1
-         wJ5i6eUwhvJmPX2v5SDF51mi5rBJh7BCEBx/RiwxAB27i8m6+vZ9PU/8Nal7DCE0J+Lp
-         T+0fmxMl5DylwhQVUXvhEzcWHww5ZiFl76RlhrXP9KJZUpTCe5/9Ujl+oXFA2tHxodEN
-         S6uAngLT7VDghWtCZXiYD+BdilEQGBkkTW5/OKGFCIAjY9bWoXDBXQFQanXIYQkHxkU9
-         E/Ew==
-X-Forwarded-Encrypted: i=1; AJvYcCXpDljsz6vx/wbbmVTLmUzjCohY95wzhmVQl/uobAxDZXIeDY+wxnEBoSayNeVIcYQDdQXRdUUr+4rk6/SGFL1v@lists.infradead.org
-X-Gm-Message-State: AOJu0YzOS1PUB8PF3o1xA4MNsQQAkjNSHXTmRkeQhg6X8vg/ka1g2S6A
-	aHGQGPJJNFp7g5lEG2Tl85W29iAFY+uhHtRBzjpqlVakH7S8D+T96sdQ
-X-Gm-Gg: ASbGncsouzS76x6i2W07rhdzBZCTsQSeULvlBwbSpjWhGBhrJbXsld+LvbiyXYmB40Z
-	rSfuTCuH6/XDP5QP8iyvA4NLv9S+L28ZnaUC7+1A3KJWlUibOwJyXNc2saF/jiQ/jJTnTiwdE2d
-	jGHsx09pbyl5QQbYAbLilxLYQvsLj57m1dkzsWxvk3U9JGDkizBISUrKH4eazSwEYsK6iv7S+oq
-	fJG8Kro2KIKAnCV7DFqbN8fy5K0C4f8WWzRsnvi1X++48+mN78wkojfSqo0ubZfSzy/9p3qqSHk
-	IYB/zTJjLKhEhKwQchzIa8/DIVpf9a9DIP8rq0rWMMYJQbtFT+Ny4g3epBQ563rYLIc71qntazF
-	Kq1Bw0MwfRxMSPXSv/VpwYavtGES7RfkoCUvyWM41h3muEowd+VSk7ui50Z2HJzJ0s1Rz/vhp3I
-	F8sPM=
-X-Google-Smtp-Source: AGHT+IGxkkIvEqrKzXYEjrd610hQ5Joilqojfn2sZR57wWJ4rYVFOquGZdhrsExO4Zfqp1zUdehCbA==
-X-Received: by 2002:a05:6000:2f83:b0:42b:2dff:d394 with SMTP id ffacd0b85a97d-42f731e6940mr4153566f8f.8.1764868322949;
-        Thu, 04 Dec 2025 09:12:02 -0800 (PST)
-Received: from skbuf ([2a02:2f04:d106:d600:dbb2:245d:2cf5:21d3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42f7cbe9065sm4190267f8f.8.2025.12.04.09.12.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Dec 2025 09:12:02 -0800 (PST)
-Date: Thu, 4 Dec 2025 19:11:59 +0200
-From: Vladimir Oltean <olteanv@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Daniel Golle <daniel@makrotopia.org>, Frank Wunderlich <frankwu@gmx.de>,
-	Andrew Lunn <andrew@lunn.ch>, Chen Minqiang <ptpt52@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] net: dsa: mt7530: Use GPIO polarity to generate
- correct reset sequence
-Message-ID: <20251204171159.yy3nkvzttxecmhfo@skbuf>
-References: <0675b35f-217d-4261-9e3f-2eb24753d43c@lunn.ch>
- <20251130080731.ty2dlxaypxvodxiw@skbuf>
- <3fbc4e67-b931-421c-9d83-2214aaa2f6ed@lunn.ch>
- <0d85e1e6-ea75-4f20-aef1-90d446b4bfa1@kernel.org>
- <00f308a1-a4b1-4f20-8d8e-459ddf4c39b1@gmx.de>
- <aS7Zj3AFsSp2CTNv@makrotopia.org>
- <20251204131626.upw77jncqfwxydww@skbuf>
- <4170c560-1edd-4ff8-96af-a479063be4a5@kernel.org>
- <20251204160247.yz42mnxvzhxas5jc@skbuf>
- <66d080f1-e989-451f-9d5e-34460e5eb1b0@kernel.org>
-MIME-Version: 1.0
+	Thu, 04 Dec 2025 17:18:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ncxuG4bg5bf4Te4GEo5/15Y4bErx58pZ8VPHrothhUBiqPTtc3++9WjFlVtXCDyVJNNfMiWoJXHjZzknHcRq8qvCnycMBGS4okcCHLO+qvYJu37TOLghAhpqUR8eYx6ZE4RxnPr63qygec02LGebAf/6Atyh8n1YQivltuPqAiys2m/S4nlPmV4H9RQ++v7jrg4YuEWNw/E3OrmSKIkWRJoaraEj07aYwezspcrjCzCgvgedWKYrILO77oh9zBKfk/AKcTsPmEGzN0iOwxjmataIIbf4LvnE6BLnAn6pnyCOgLz3T2E2z9NxWk3SNbogSwXcvUDX/WAIB1br2AZKdg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vz4OM5Ue6KvEhxsWvuZ2KXd/BUsOTLovIKrh2kxZrkc=;
+ b=NSYXLn58UWOPXkjJYPOWvyTIIMXDaUcEZxqzG/qReSeXWaD7h6lPBy+P0gp6EmncsDJGbU8314Pn1UfpOd0Z7DYJtKuICX4oNjTdrj15XyN2smYircKT7BJqrYWLXOQvKFMJWB0xuElAiY+poI6n3jv5t9Uczp1C+/Gr2W+Jj13RNfeRP3TpXXDetSZtH0wVWW4fGkWTwsfZ2k4I/ISkMjspbNaWX2tpw4x1euYQDXNefKD/Xs8M2OcLlDuLleMtNMdQykklEpKMhiQ65kAJDcQKENFwvjcVcm/5ROKoYmTG1PrN+Jm93zxNEwBA0tpko9ZY0XQFcBzCysNk2M/+FA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vz4OM5Ue6KvEhxsWvuZ2KXd/BUsOTLovIKrh2kxZrkc=;
+ b=KzDLdgY41rj/CmBlwppyz7oes3hHUrgfS0xKecCZyr+sc77P/MFHC/KAggJpg/Md5VomM8+4DkJIuXJxhGIc8P/TdQrBMlUbclZqdfwmmO5Apvjxk8tanlhqkprYQwy3/ZyHojUdoCRcL8CddYqX9DGxlnV1Ab9zzYTbCpcagWArzHp7zE3tNbOYPECLvBpoQECXUtgLrHI2vY43Y6pWdP8AjDCEbJwxkPRgCNjhsfYUhiu+dl37jeeja55l/FDySm/QMGWkwJrTLZt7M18xJy8oie0RiK3WtHf+oPDq9laLmuv8uV40fuSYG2qS32/cjwWVtuguQLuTSKz1Y3fimw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8957.eurprd04.prod.outlook.com (2603:10a6:102:20c::5)
+ by PAXPR04MB9108.eurprd04.prod.outlook.com (2603:10a6:102:22b::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.11; Thu, 4 Dec
+ 2025 17:17:59 +0000
+Received: from PAXPR04MB8957.eurprd04.prod.outlook.com
+ ([fe80::9c5d:8cdf:5a78:3c5]) by PAXPR04MB8957.eurprd04.prod.outlook.com
+ ([fe80::9c5d:8cdf:5a78:3c5%3]) with mapi id 15.20.9388.003; Thu, 4 Dec 2025
+ 17:17:58 +0000
+Date: Thu, 4 Dec 2025 12:17:41 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: "Iuliana Prodan (OSS)" <iuliana.prodan@oss.nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	"S.J. Wang" <shengjiu.wang@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Iuliana Prodan <iuliana.prodan@nxp.com>, imx@lists.linux.dev,
+	linux-remoteproc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: Re: [PATCH v2 2/3] remoteproc: imx_dsp_rproc: Rename macro to
+ reflect multiple contexts
+Message-ID: <aTHCNeb7eXpttUwp@lizhi-Precision-Tower-5810>
+References: <20251204122825.756106-1-iuliana.prodan@oss.nxp.com>
+ <20251204122825.756106-2-iuliana.prodan@oss.nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <66d080f1-e989-451f-9d5e-34460e5eb1b0@kernel.org>
+In-Reply-To: <20251204122825.756106-2-iuliana.prodan@oss.nxp.com>
+X-ClientProxiedBy: PH0PR07CA0040.namprd07.prod.outlook.com
+ (2603:10b6:510:e::15) To PAXPR04MB8957.eurprd04.prod.outlook.com
+ (2603:10a6:102:20c::5)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8957:EE_|PAXPR04MB9108:EE_
+X-MS-Office365-Filtering-Correlation-Id: c8797a8b-6d7b-4a31-4243-08de33590dc0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|19092799006|52116014|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?RXydnPQBUdYqcmdsABBj2BZA/w+kvkegLzM7Piz9H22qkXbGVnn4b9V7/LrA?=
+ =?us-ascii?Q?c9wBoit57SvShO/SKV6t1vlzGz2lK1tR75Q43iQGs09t9Vjsnh2ZW+Bnb9Ii?=
+ =?us-ascii?Q?wRNBIusekF5i5hEKzuJ4e5VCUHpE30pgsBfxjpQh0pszuNLtvB/bhpArFEyi?=
+ =?us-ascii?Q?ZSv6Droe/pBdM3LhdgsQJ0079S2L06H/uT1tOSAL5Wl6Q6jIISsXBrjbkCkM?=
+ =?us-ascii?Q?givaakoGC7N0Ov7X3CC6kuYMbA1kJRCg7aAR65dK0W2XGrKSEEIyT3MdoHbb?=
+ =?us-ascii?Q?qF6GjGDU0cF1NECnWRt9waJPBmIeP0vFCw2G7qQH1rSVUZSkRZ4Kk4i0cAJ+?=
+ =?us-ascii?Q?74mVIHzsjMDeqJ9juL/p8SrQWDCuTZ+nIkY9jG4ltqpvwddyAeA/HsiH/QyD?=
+ =?us-ascii?Q?irdfgVxge1KDgP4qSAGZQb14DoBMe5LaN7xcLiZZ8zuBm2YHZeOuXUwPnHwl?=
+ =?us-ascii?Q?nJ3J2wp9A7w9/M2MmYnb0GKXjJjylEJtswuZWo+cVBiE+zL3jOOEKHdpcvN4?=
+ =?us-ascii?Q?yj4C8deewUaVPFGovXHuR9nQeZgJWMMdhdTcu1zPyPgb8EtoruOjIi7A5KNx?=
+ =?us-ascii?Q?G9FtRWer0G2N4Sq6vDFWKJ31KHx18fzjDo59N9EVWZraq21xXeAfereSxKcB?=
+ =?us-ascii?Q?1lfthLj6U5c5zm0uNqsFud/l3FK9eBgLgBDX+J9vW8g+LV1+9Sbrbmqkj22z?=
+ =?us-ascii?Q?kbp+3Wvmj+/rEi2HPhZHFM+nxhiohTdduF6Zcg2jjGetLWnuVjG+Qa5iuodL?=
+ =?us-ascii?Q?Yi3VSkv1T7V6xWcbq4yY+SVnrDdnSQbYXc2/XesgSEYW7o98wNlrofsQi0Es?=
+ =?us-ascii?Q?OwSW4QBtYbyo+SEsw5xDfvdGW6bQnr0TtbAaCV5ShGTfipmcc7Q9IvX49w8w?=
+ =?us-ascii?Q?k0PtsLbqca52PCEF+4P2UKgszLfI8k9S6+UwypiRQYRo0PqN7ASa3k8NgWni?=
+ =?us-ascii?Q?XnhKc1NK6i43a6c6tnkHCYY9HiXn30B5j0qV5fkrgIbR6OV9aE8g/nPyPyat?=
+ =?us-ascii?Q?o02E/EnY9vsdDxAGYswEXrxBv3ARZupI5IDoDu0JXFExp9Kpz7xKNOf+y4iQ?=
+ =?us-ascii?Q?NUxJngsj8uDhYZnRKEgf7VRDGM/nYwqspO9fJkkcR2b3grkbJ9lx0YsNYzTF?=
+ =?us-ascii?Q?IvMj5CqfjWqX7EZ1c3GG6oneIDdwI65vrSdU31SkK9fjxyeFOVCN743ljvPQ?=
+ =?us-ascii?Q?KdnhGUk3kF5yGFC0l6W7yj7MddICv2VArDk6AyNy0rO8EzfkZoX0cNJXHM4Y?=
+ =?us-ascii?Q?F9jnmG9WcLRdwcDGmS5f0QGqN/yGy9/Ag0w8T/GaAF5g3odcZFSmS3Me8kFX?=
+ =?us-ascii?Q?80jSGAXrbi0haqQtrOFbt7Jwzf5AXBcvpcjD575ZVqjqn2t1HNY6HSdT+cyi?=
+ =?us-ascii?Q?dd15ZAMifY4V7frzpa2pDNd/boR/APsLQgAM1DmyK5lo5uMJ3XarTlCqpfXC?=
+ =?us-ascii?Q?iii7voVPUVO1k4MqVHg5d2Y+34E3EIs4pTEov84U14p/tFbwfeCvQVBVtfrB?=
+ =?us-ascii?Q?etxMrt4kB6dGclfo4dhSRBqRTx1S9dACblEQ?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8957.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(19092799006)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uiLO0QoFzmQnRwmNqMuj4BGkgURkHdJ89ni3WER0I442/rLJWQKK5u0eSPfs?=
+ =?us-ascii?Q?vldvbaBimegujVTX+o586vmyKHDkYBfCQG1khA4/yGUgKlJ+/abldvxJzI3M?=
+ =?us-ascii?Q?NMrmQOpIqq2W7eFQqEefhu+TI4jtkw94ER4+NcnKNo/lSBmsx18zI4k9eDNC?=
+ =?us-ascii?Q?R579Gcgv897S0E5POGlhgNyOcWPOzCVZbX5LZe6EpZEwtJgHDDN2MfUTBe/9?=
+ =?us-ascii?Q?njp6WzrA68cAJEFBhdeoZgoQ5s3YFjC1lxJYaGLetRQ7QkvRS5nbzty03fa+?=
+ =?us-ascii?Q?bwWH3xIyntqid5iF01iuJqosSu3172BBNDGzPBWk51HJOQPoYudpqzZivWob?=
+ =?us-ascii?Q?qXeXWNR5XwxSPcExvB32g14EDTfR3F8IsXTR4uw7IIy3sb5Kzvz3+ti/W1ib?=
+ =?us-ascii?Q?Y/rNe7WG8LllI6Ij7o0dHPKp95GVYs/wsBTLJzsjci24QutRLLkD/EexK5IU?=
+ =?us-ascii?Q?P2UPxx6bCn9lpNMLF+xmJIs07uCyxokEKzU6jXY0LMdeGklPBkYtZQ78rIbJ?=
+ =?us-ascii?Q?hMDdrnkzMugjgrtNGk8En6J7rIqWHltqGtJnrVi7pSLRns4GLfZwJclrBYQE?=
+ =?us-ascii?Q?aVnigXq14WpCIMsvwqa2PtTEBTSKEftOLXCPDHVcHIq7L0PK01BBltD2ik6F?=
+ =?us-ascii?Q?33IsLdcMZxEilwk6kC9lumXot0oXiA31uShmq6z/mzjn/qaNi15P1Z9AQ57o?=
+ =?us-ascii?Q?3wYke5hEBbtxDyPinI9VzqYJDXRVsvMuOIXzsV9M3KQu/hn98Bv6RcwRzcdR?=
+ =?us-ascii?Q?niJEDuE6tOn2+i986Sk3hNGGvOse8rZxPmGrih9cHNzJYibikp2SdVM4TFpl?=
+ =?us-ascii?Q?jV9sudeZltWM/FOhrG44hU62vJgeKXCZbVyeG9RiQKYnNFC/YIMfvowEINAo?=
+ =?us-ascii?Q?Tu1ZtFqKoHjIK6tEnyvg/scDeBmgNtPzA8bk6txUSIrCrsirsygOWsyJXJTM?=
+ =?us-ascii?Q?FPZZwlFvsqMnt8KT8nVx5F2y7s06ResiPxPQ495N1FCgY4kbnQAINLs1Xdys?=
+ =?us-ascii?Q?77sxg43X7Vdm5Qa6pY7F8FL7DuW2TtPHeD7UjTGMpACk+/+0WQWgQbG/B5k1?=
+ =?us-ascii?Q?xnpmqEdM07RvOFHIzV1R4pDKpNx7YZ95B1iggRlWdwFkYY+Q5bfM02q7VjB2?=
+ =?us-ascii?Q?jFVh3L0PBqYonsMBJib01NxpkKY9ftDTYyIPuAFGohOBaFhfsdY8gRlTBj3K?=
+ =?us-ascii?Q?tpq8fAEpQojGis9DboCtvP9LdaZ7AoicXsTdjmKSM5aJIA3ptNSI4QTbSEQb?=
+ =?us-ascii?Q?OCyVNBAudreRWzc43xZJY4uL3Gsx8LF24Ip09JD1Pmq7YJ18owHQsecwYgxJ?=
+ =?us-ascii?Q?zrruPKt3ZxkHOdVdQmIXBQzl9dYIZLbjMw5qbQcDCeflajA2Ruk8vutE963s?=
+ =?us-ascii?Q?NG+kc8pdTQxH2JwSQLdVEHWHl5EMPi/RsjdYuvGgbh7FW8th6f0lmsvFKmHj?=
+ =?us-ascii?Q?zPYZS0BfUc9Dm3RGTqxeABMmEbKSOxZZ2Kj5056q8LfQYDAn7m15oluhreW9?=
+ =?us-ascii?Q?5x/IMfrZ7QYnVMHRt6SFCNLSBka4LPCca1/rxxn4Z6+rIQNqZWAV3GyjZmFc?=
+ =?us-ascii?Q?a4jGMAJTrZYo5G3gcH+douwG87S9iKxVZ8zRVzQ8?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c8797a8b-6d7b-4a31-4243-08de33590dc0
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8957.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Dec 2025 17:17:58.8357
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 4Jv0RrxVEx2OsQmjTiDSp8D6wh4LkUY2gHmSwaCHCJOkyr7MqxdlCuti+lXYRTSzGWI33cRf6AaQRbY2uUuqVg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9108
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_091206_303992_89A646EC 
-X-CRM114-Status: GOOD (  13.68  )
+X-CRM114-CacheID: sfid-20251204_091805_742703_BCBC99BD 
+X-CRM114-Status: GOOD (  27.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,23 +167,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 04, 2025 at 05:48:07PM +0100, Krzysztof Kozlowski wrote:
-> Both are the same - inverter or NOT gate, same stuff. It is just
-> connecting wire to pull up, not actual component on the board (although
-> one could make and buy such component as well...). We never describe
-> these inverters in the DTS, these are just too trivial circuits, thus
-> the final GPIO_ACTIVE_XXX should already include whatever is on the wire
-> between SoC and device.
+On Thu, Dec 04, 2025 at 02:28:24PM +0200, Iuliana Prodan (OSS) wrote:
+> From: Iuliana Prodan <iuliana.prodan@nxp.com>
+>
+> Rename WAIT_FW_READY to WAIT_FW_CONFIRMATION and FEATURE_DONT_WAIT_FW_READY
+> to FEATURE_SKIP_FW_CONFIRMATION. This way, the term CONFIRMATION covers:
+> - waiting for firmware to confirm it is ready to start;
+> - waiting for any other confirmation from firmware.
+>
+> Signed-off-by: Iuliana Prodan <iuliana.prodan@nxp.com>
+> ---
 
-Please read what Andrew said:
-https://lore.kernel.org/netdev/3fbc4e67-b931-421c-9d83-2214aaa2f6ed@lunn.ch/
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-  Assuming there is not a NOT gate placed between the GPIO and the reset
-  pin, because the board designer decided to do that for some reason?
-                   ~~~~~~~~~~~~~~
-
-You two are *not* talking about the same thing. I dismissed the
-probability of there being a NOT gate in the form of a discrete chip on
-the PCB, *exactly because* you can most likely invert the signal in the
-GPIO pin itself.
+> Changes since v1:
+> - New commit
+> ---
+>  drivers/remoteproc/imx_dsp_rproc.c | 22 +++++++++++-----------
+>  1 file changed, 11 insertions(+), 11 deletions(-)
+>
+> diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
+> index f51deaacc700..1f3a35756769 100644
+> --- a/drivers/remoteproc/imx_dsp_rproc.c
+> +++ b/drivers/remoteproc/imx_dsp_rproc.c
+> @@ -38,15 +38,15 @@ MODULE_PARM_DESC(no_mailboxes,
+>
+>  /* Flag indicating that the remote is up and running */
+>  #define REMOTE_IS_READY				BIT(0)
+> -/* Flag indicating that the host should wait for a firmware-ready response */
+> -#define WAIT_FW_READY				BIT(1)
+> +/* Flag indicating that the host should wait for a firmware-confirmation response */
+> +#define WAIT_FW_CONFIRMATION				BIT(1)
+>  #define REMOTE_READY_WAIT_MAX_RETRIES		500
+>
+>  /*
+>   * This flag is set in the DSP resource table's features field to indicate
+> - * that the firmware requires the host NOT to wait for a FW_READY response.
+> + * that the firmware requires the host NOT to wait for a FW_CONFIRMATION response.
+>   */
+> -#define FEATURE_DONT_WAIT_FW_READY		BIT(0)
+> +#define FEATURE_SKIP_FW_CONFIRMATION		BIT(0)
+>
+>  /* att flags */
+>  /* DSP own area */
+> @@ -287,7 +287,7 @@ static int imx_dsp_rproc_ready(struct rproc *rproc)
+>   * @avail: available space in the resource table
+>   *
+>   * Parse the DSP-specific resource entry and update flags accordingly.
+> - * If the WAIT_FW_READY feature is set, the host must wait for the firmware
+> + * If the WAIT_FW_CONFIRMATION feature is set, the host must wait for the firmware
+>   * to signal readiness before proceeding with execution.
+>   *
+>   * Return: RSC_HANDLED if processed successfully, RSC_IGNORED otherwise.
+> @@ -322,7 +322,7 @@ static int imx_dsp_rproc_handle_rsc(struct rproc *rproc, u32 rsc_type,
+>
+>  	/*
+>  	 * For now, in struct fw_rsc_imx_dsp, version 0,
+> -	 * only FEATURE_DONT_WAIT_FW_READY is valid.
+> +	 * only FEATURE_SKIP_FW_CONFIRMATION is valid.
+>  	 *
+>  	 * When adding new features, please upgrade version.
+>  	 */
+> @@ -332,8 +332,8 @@ static int imx_dsp_rproc_handle_rsc(struct rproc *rproc, u32 rsc_type,
+>  		return RSC_IGNORED;
+>  	}
+>
+> -	if (imx_dsp_rsc->features & FEATURE_DONT_WAIT_FW_READY)
+> -		priv->flags &= ~WAIT_FW_READY;
+> +	if (imx_dsp_rsc->features & FEATURE_SKIP_FW_CONFIRMATION)
+> +		priv->flags &= ~WAIT_FW_CONFIRMATION;
+>
+>  	return RSC_HANDLED;
+>  }
+> @@ -385,7 +385,7 @@ static int imx_dsp_rproc_start(struct rproc *rproc)
+>  		return ret;
+>  	}
+>
+> -	if (priv->flags & WAIT_FW_READY)
+> +	if (priv->flags & WAIT_FW_CONFIRMATION)
+>  		return imx_dsp_rproc_ready(rproc);
+>
+>  	return 0;
+> @@ -1131,8 +1131,8 @@ static int imx_dsp_rproc_probe(struct platform_device *pdev)
+>  	priv = rproc->priv;
+>  	priv->rproc = rproc;
+>  	priv->dsp_dcfg = dsp_dcfg;
+> -	/* By default, host waits for fw_ready reply */
+> -	priv->flags |= WAIT_FW_READY;
+> +	/* By default, host waits for fw_confirmation reply */
+> +	priv->flags |= WAIT_FW_CONFIRMATION;
+>
+>  	if (no_mailboxes)
+>  		imx_dsp_rproc_mbox_init = imx_dsp_rproc_mbox_no_alloc;
+> --
+> 2.25.1
+>
 
