@@ -4,109 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A48B8D1F9D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 12:26:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 260CBD1F9D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 12:29:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ntrkK5ngwL04sLtoW4Sv8APHLop043OBw9D0nKKE4pM=; b=m2BS0vUGjXXG+nr6N7J8IhUezG
-	16cr+DxyI38JJRZpiHhSZf1zoMu5UPIRVP2+2zHkBofUOdvx9rxb4QzCd5RISC/rxmDJATn7WeUsE
-	bIn+Rot7flwmFlqp45RcelnKUtrDCVTWuY87mufWwigvtHQmBnBPqHX2axEKS/iyeJZ/G58fB+NuW
-	n+p3ceq+69l7YJdKqzw8AR30VCHZr98QQBDHYDhHzefY4zv5DOKiBefJMEZqoWk4d4Y80PMoW3uoL
-	EzI4eJtHcR9cNWjeU7LnB9YEcEvmyM7tBoeL8ULhuMcPmanpug3YgF4dVUSSBEo4oFJOSTtOmza1f
-	X54BXqCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=g8eQJcxuAhFRKdXmwefDcAXK2wiFcqqUOeI0PcelzJY=; b=ENc+MXS0vGJiFA/TArIklOckmm
+	QhG2hIplYZI43lSmcUmgdoCQLFn67DHpap1fb9XVtR337CB5bxFvsryBF5BdvfHnW04gDHDjLbybj
+	6dM9ofCSdfwgXo5KKcaXOj2wdv6KhvmbCtR6t0mpP7HnLzpG855XOvkCGfKf7nw2guamlEurV3ucG
+	QQ4e1sDyCoBuoOyaBjJDcf5d3+ilQUpFJOx2Wlzqf3l3fw0mI6dKHV7TIT7sDWp0gHMUnsSbBy4Xx
+	Om41TiFHNUWe6/xLQrQhgn7ZYE9vj38z6A40n2KjxruapX+potLq+BGm1FDRLWIru3SV7PToYelqU
+	pQgFlCCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR8Pf-00000007ymg-0yCt;
-	Thu, 04 Dec 2025 12:26:23 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1vR8SF-00000007z07-1lza;
+	Thu, 04 Dec 2025 12:29:03 +0000
+Received: from mail-francecentralazon11013016.outbound.protection.outlook.com ([40.107.162.16] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR8Pa-00000007ylk-0Owd
+	id 1vR8SD-00000007yze-0oTr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 12:26:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1764851177;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ntrkK5ngwL04sLtoW4Sv8APHLop043OBw9D0nKKE4pM=;
-	b=I6pDtZPws4bVhnm0U8/v+ICRr703P3rjVS/LtjIVWvwgLjWEPn/x472FAR3AFfIig4crFI
-	1hexXPNcHPjEH2zDl87RT4eZeas6sqFsLvgIRPtHQArnA/TW2e42QwkhPbQq32YECFkIwT
-	yoI8WHRyi3A107mO7H3ktdPrsCrG1lk=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-207-54B8uSJKMnmuXAGSQPDG1g-1; Thu, 04 Dec 2025 07:26:15 -0500
-X-MC-Unique: 54B8uSJKMnmuXAGSQPDG1g-1
-X-Mimecast-MFC-AGG-ID: 54B8uSJKMnmuXAGSQPDG1g_1764851174
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-42e2e2ee360so621335f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 04:26:15 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764851174; x=1765455974;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ntrkK5ngwL04sLtoW4Sv8APHLop043OBw9D0nKKE4pM=;
-        b=ekenzN7rz+SDVXffT0OjptxJRPyVHqjSCveF3YUx/Zui5+CwTmv7Rq0r134Qw/yo90
-         HJDPcdYXvTURcizfKZ0Cf9lc5sM3IIY1DJ01/IF1OPTml8gIBxwPB5hry98o9ewqBTKW
-         XFpSARfjYFGNrBZqF4fP5dRszM2B0G2IJVpsbia6MksJNQ970zLSlYgHQ+K6T7jp0Elr
-         SYuRQQanVQnz6L6+qa4t/55zCh0/fgtQAsZ2Irkea/awQX87Ek0H9Oow5vDmwzNd0Ajn
-         8WD6s66vxRd2HR0r0EdB/LmL2T6PtABRdBP16IAGz5q3nN5uNBYpEnm0rUCUPChqrbZJ
-         wlRw==
-X-Forwarded-Encrypted: i=1; AJvYcCVSSFz912zH5Ug8wsWFWiN5yPutyvnItRgzIkeocb6MiEVRR9FvrwBdJiKXjiMv8sexi2ee+YjHLILtg4E8e8EB@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGkqXOb5oaMFtbZx7g5jY64UcrGIKmcbbN3+tRli5UkKato9tF
-	5V55kJ3hix3vS946b53e32d79yoglDh2G4yknScvGs7B1/9TFyk0tcgVlji+1mQXBUbv3hh6AZf
-	b6BSzJeBBV2lWES0wUXys47e8qWlSHjd1vv0+R9yBooVKMEed8LK3JmK0MCBQSmc4iXMLRbm981
-	lZ
-X-Gm-Gg: ASbGncvD7w1zWisXbMAwq1lxkfgXKePQMe4lc+DZiPFv3w1iFQ4XmD/2gMJX3jhyscD
-	e2qyWYDLD13ZMMEIpN123kyW8Xchst4d8zIGGCHrFyu3IRiqNH2w9+lAuqGPRO+gipL0lrO3J8R
-	aUZG+FaiSBNCREK/Dy/vZbIyPAfCxVvE4wOeKIqd6c6iowadiQzm6zp/+LxQPTbEKAeWLRC0g99
-	G3pruA8mJaUunesqLkOd99pJUiaC1nmAQpqJp6rijCiYYY783VGaLoDTkIZmjKcN0Usi6NGUg+r
-	VRMvJ6SmCK8ghvVtUXo/XIxU72Lc/LBU9/H681vAuAbknUHKRhcTL/ydx241w8BSzq4PdyvwYFD
-	Sbg14mfUnLznM
-X-Received: by 2002:a05:6000:2c07:b0:42b:3ed2:c079 with SMTP id ffacd0b85a97d-42f731a2fccmr6636007f8f.48.1764851174437;
-        Thu, 04 Dec 2025 04:26:14 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IE6gmno3wWmw/T0ba/JcUdJo3RTAy+j1I7RB2376m0GMm4A3gdkyRtvDjK4Ir85kEN7eqyU1w==
-X-Received: by 2002:a05:6000:2c07:b0:42b:3ed2:c079 with SMTP id ffacd0b85a97d-42f731a2fccmr6635966f8f.48.1764851173922;
-        Thu, 04 Dec 2025 04:26:13 -0800 (PST)
-Received: from [192.168.88.32] ([212.105.153.24])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42f7d222506sm3442295f8f.28.2025.12.04.04.26.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 04 Dec 2025 04:26:13 -0800 (PST)
-Message-ID: <81491196-2872-4fd3-a1f3-f27ce0bb998b@redhat.com>
-Date: Thu, 4 Dec 2025 13:26:11 +0100
+	Thu, 04 Dec 2025 12:29:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XA0wuhq0TwCEx6ozYbNNm4S7kIpJSbf68DxZ9YEnDSZwY3LhSDV1Orz0+8OE/dHqIwer1/pKZKEfYtCmJwvknmFHCzOYO/SXv8K5IZ9KZRn1G3ssVISAsaUP6SwGwT6AETsG/F4CNLONlQGwWCQWbV8gJLO5X+aFWvypjOmpEudNiwjAOzvuIEOscArmnuoRBAdbOYeK6bA2STnK2GHyO56YATBGZiSOw1d2d/t5hXDoS4bjr1vRo9fcUvgo52VDPlrdt0tIyA+J4Q/TLexWxVv5k1eRbMRz3sH/tQdt4otKjGMJfoEkd/H9ZMYufVN0ZxslShHavxoz7GSZiyGQXA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=g8eQJcxuAhFRKdXmwefDcAXK2wiFcqqUOeI0PcelzJY=;
+ b=INcpzT0ZZMFE3ePQkDtNtNauVT3T1MZRHc/JXWof1Yhv33VIK7w/fLfM9uqjZOg/9+QTDrb72GgxfU15UhtD0GzjPk/EAA3YoPSysA4vK71N9nQyYasgWMxuqyDnMV8j5oucGkq0wnNPeh3idlwa2x3TiF6POdlbFjQdTaPPSGzxUh4ebvul9upavx/FYmtFu1ETqbEAr2lh8iBJZ6q/ikSmZ+c4aGA0uSfJizjkmcXep3i7Vg/mQfuIkcxp+10nVxDxAzUZgNn8TJaEKC7bqWc2zltHQvVn1oCoFBBmCUWriv3R7MNVwH7ca21rODmakiTkxziqi8uBAU/aMu5Rlw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=g8eQJcxuAhFRKdXmwefDcAXK2wiFcqqUOeI0PcelzJY=;
+ b=s9n+bnbmDt9EdLXgNWaQ2UUBBqV07tPS23zdQIcjZVqnqICxjHXPQHI3pA0W0lBniYVWf8SZCiMgvtrI/PJEcDluy6PeumcB10/e46KllMYf0sfhvY8HZ5Qv51Z+WS7ZL46OIZH5cL4MZDzYaoEcMmHphtERP+hoZWw/V9idXfc4vSS5EQPOnMttpCIwbw+dn+tXAGhWtq4erPPX6J3K2ihsmjsFV+ohydhzYo+ppqrXe+WT5//ZI5SQll+cJWYAQYoc/SUtsDbwmyObVqFqAc0jPhVcp1+aqk6Q8JV2YbZ6qmue3cuKUBBJR4r/vdZG+hKjTN7jqQIhs6OLc3h1dg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from AM9PR04MB8907.eurprd04.prod.outlook.com (2603:10a6:20b:40a::22)
+ by AS8PR04MB7782.eurprd04.prod.outlook.com (2603:10a6:20b:28a::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Thu, 4 Dec
+ 2025 12:28:53 +0000
+Received: from AM9PR04MB8907.eurprd04.prod.outlook.com
+ ([fe80::a361:2618:7785:3bc9]) by AM9PR04MB8907.eurprd04.prod.outlook.com
+ ([fe80::a361:2618:7785:3bc9%4]) with mapi id 15.20.9388.003; Thu, 4 Dec 2025
+ 12:28:53 +0000
+From: "Iuliana Prodan (OSS)" <iuliana.prodan@oss.nxp.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	"S.J. Wang" <shengjiu.wang@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Iuliana Prodan <iuliana.prodan@nxp.com>
+Cc: imx@lists.linux.dev,
+	linux-remoteproc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: [PATCH v2 1/3] remoteproc: imx_dsp_rproc: Skip RP_MBOX_SUSPEND_SYSTEM when mailbox TX channel is uninitialized
+Date: Thu,  4 Dec 2025 14:28:23 +0200
+Message-Id: <20251204122825.756106-1-iuliana.prodan@oss.nxp.com>
+X-Mailer: git-send-email 2.25.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: AS4P250CA0003.EURP250.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5df::19) To AM9PR04MB8907.eurprd04.prod.outlook.com
+ (2603:10a6:20b:40a::22)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] net: stmmac: fix oops when split header is enabled
-To: Jie Zhang <jzhang918@gmail.com>, netdev@vger.kernel.org
-Cc: Jie Zhang <jie.zhang@analog.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>,
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
- Furong Xu <0x1207@gmail.com>,
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251202025421.4560-1-jie.zhang@analog.com>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20251202025421.4560-1-jie.zhang@analog.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ZWglDLTjpM8u08FoxC7DcaxJONbNSKSmSIQxv9Iz4D4_1764851174
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM9PR04MB8907:EE_|AS8PR04MB7782:EE_
+X-MS-Office365-Filtering-Correlation-Id: 07ded725-b572-4517-ccac-08de3330af76
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mhCfIQxVpiHH7GE6y5Nt4IVx2tj3jGr1rNfkGcqP6GU6VDkwYsNAH2NE+zYn?=
+ =?us-ascii?Q?tbdcfBbADc6EfMNtFytzbZ6jsQEZZLnEiJTgsRacbbkhgSejJknztn53u85A?=
+ =?us-ascii?Q?/sszJshlouJ5HK2TQeylc2kw0veL8TZrIC17ecS0LB2/cw53CaCHHJJkgVw9?=
+ =?us-ascii?Q?3oypSzKqC5cveJf+FBuWmlvnzWNb8iFbS7njvYVnEGReQs2pVH/0OveEOh7d?=
+ =?us-ascii?Q?m0/gnpsinln8JUVye3HscpSCtJzEdkZwK6YcVUJVTrtr8lbuyyIlNroPZaAw?=
+ =?us-ascii?Q?OwvpDgbSj4TP+pKaOmE0uB/GNDOKg/4FSahaC3J8gGYygDDS91fn9VNba7Wz?=
+ =?us-ascii?Q?YLBA1yLWbTHt9eLETu7baqqV2a0e5zolosJxrGbsA73FbK/AGRLHB3qXb/CB?=
+ =?us-ascii?Q?Lrxzops5DhYM5OWVwI0Xc+p9puHKNtlp8a2kneko71K3tXP8mZA8zZW5o6M2?=
+ =?us-ascii?Q?gstr3wT9MxrnZUfQ71bgydx16YmAUn7bGALGxkxIUkRv7xXwnLfmxtrT2tQg?=
+ =?us-ascii?Q?5W+kncKlKnrVwYhfGiN0E6doDBne9P7X9r20gshH9wQaF40ATa5DILGJR4Ib?=
+ =?us-ascii?Q?URTC+pg1dqaZni8UTNsdPQBasC1k25siwZ9MPPFy8PG6vMdEUXW+NmrHTxMR?=
+ =?us-ascii?Q?0UhryU9/iBFjA25azWUg+C2qxsK5CWVIYS562J0KiQwPZxFSLYvJ05f7Tbwu?=
+ =?us-ascii?Q?LUHrZQpcrZXwS8wQc2GPsX+3n3JEQnzKq/Yn9mTw8RKBFdhmtoyMwbOGOA4R?=
+ =?us-ascii?Q?QB6A4BQpyfLmmtaHJgk7w2u6E7N/kZtlH2GaxbFXet6nkV9+2XBLUCFwBHQa?=
+ =?us-ascii?Q?9kbMWauJHNiCGg0b/ssOqxDeAPi5UBWeaHtPHsNQTh/ULIvWWCRfYpbjKNZC?=
+ =?us-ascii?Q?q2ujvmXYki3AbwKARJE7KCAMZFcJDQtYxsjdiw/myrVfD1oxpX4QGG8vB/IZ?=
+ =?us-ascii?Q?EZVgYPWHM/keQPQCOAIPswhl400OoIxQIZOUoSVfobDEMEf3tlvMyz9OkQWV?=
+ =?us-ascii?Q?GdpgONTiRhINYAa2SyPM5fwKhWs7RfDXhcBOZYbj2aR1XqzMLQxmx9+7/kpM?=
+ =?us-ascii?Q?OnOygm7QdfKipuB66iTnwlTwdsB65+mYfRMFei7cSEWrmFfkt9+98ZF7Ahs5?=
+ =?us-ascii?Q?f33Qw67bL79hR5G8Pej6uXzrs6SSxsWKNIOkcx4Yf8NH1qbUpg+lMuYyfgAN?=
+ =?us-ascii?Q?CK6Ik2tbfMBIsfClG/4B3Wm+0XRO0gkIA93tZLhAr4M/aC+GGTWCWOXkb1p6?=
+ =?us-ascii?Q?0J59KzH1GivuJm/Cj3Zn5j0uFYoQXoM0Ygy/uWdGKGm/TnOFWSlq8ET9gyCv?=
+ =?us-ascii?Q?nkzrUQuj1yaYF5VEbH/C3d8rc1JzWvf9yPV4EayjzD12BgthBznU1gcgXgcs?=
+ =?us-ascii?Q?iBKi6ZBCTAlm7MvD7O4lWV+UgKD+XXPwp1Hh9Kdof2NjgCoYymI6ta5gnsvd?=
+ =?us-ascii?Q?CDvzVawN+DkhCiQ6roQnHW/5YL0C0a4qWN/dBN3hV4dc9wUmFaOdynVSX8wE?=
+ =?us-ascii?Q?fBMOOfFA4/P5ygdi/Iajc+OV6pClsan775Me?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8907.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LUAJ94bg5iTZa9ld5qRFrtNCMFiAWhiuhGd7f65YDiteXOUZzR7YYo8ODm6o?=
+ =?us-ascii?Q?C0U3Vrq4qMfp40GCZA7XAkIgVCPMgSwVLXFnWjPmWOx7k1/2D+MJDfAXWQ6+?=
+ =?us-ascii?Q?BgcZOdKiRZBtNusz9HIXAsvyohxG9xRqZFBkIHgTD9W3eItKZDpi29u+VkS0?=
+ =?us-ascii?Q?phwrdZsJB/53gazFO3oxnFGUbUHI7hrIwtrcJ/UomibxR1dqknkApC9C0lzb?=
+ =?us-ascii?Q?ldA7eYmR+ATRS6Y/V2BS3st9yAzMV2XnYMKlom4JORD31QJevzx11ChCRjL0?=
+ =?us-ascii?Q?uAZkYb/Pu1T2/OgCCkLvH8HUj5Z9EB1NJ+yJJGmeeDpmhgx5a5AfZOUfkdem?=
+ =?us-ascii?Q?u/lbDQ+4Ak1DB5NBRthCDSqhsANYrlGG2yDnTQMPA/Qq84SnpSmaVfVurAmv?=
+ =?us-ascii?Q?K/EjSSbafuJigLmychvI+xBAwaEyORI0m0MyqC6kd0fOEa4eyVY95HpWbr2h?=
+ =?us-ascii?Q?VXzW2Q/jzKg9pp+qK4ojaUNRd9s7DfnFKS6SbNm+9AWXn/31P/TRdSfNAJUQ?=
+ =?us-ascii?Q?gf55/PLk5P1U2biams4MhdZbInsbYT/GuLyWJiWaQM6hun1w5jF9sWG8y7w1?=
+ =?us-ascii?Q?h/eyv7oAtaeSpBrL2qnVz7dsFpvqGL4OL2SCw7RyeRSgWckYWIJRWpbRkJF9?=
+ =?us-ascii?Q?7rmRcBAMb/0aBUv+PayqzW5BPoxTkdfPNlD03mReLKC7knTt1HvOQUnKqlbd?=
+ =?us-ascii?Q?vxj5xjCdvevnSYWRLQ8YdG5wKIQmGlqh3dtAJuzeOvZSfjWZlgzorW7LLS8A?=
+ =?us-ascii?Q?COS/qiASmUldvg6PGULuai1k12fSGPzjCndI1tmzdSkiA/tUSZ/RpskWEuWu?=
+ =?us-ascii?Q?G7rTfWVszdRHcxq3TRai8B2EolW1HApu7sgh7Ei0XenkdY3Qz5bb1zdP8hwW?=
+ =?us-ascii?Q?sp143D5xs2GOU68hRv2Ib6drbtt1ACeZpkED1qlmhGYY5km6zgBl0iS7P2du?=
+ =?us-ascii?Q?RP91kUym2s28l/83JuM5g7WSgin89GEU40VizA1ULdLqLNezF71zp+RzpaTl?=
+ =?us-ascii?Q?aWLK55O0uwdQh9HVg6Yo7Hz7GLZqO2J+GHtAAbrNcymeq+NH53QVgyCOJ2b5?=
+ =?us-ascii?Q?7wUqDCUXZ3Y4jk2ue/BsTL2kz1GdmKAVI+9V2C6vuwezV4tzOTdonFRWvfOV?=
+ =?us-ascii?Q?PUBlT/1w5p8oBYr4eVDVNDrPhkLrVdrNO4Sughb4bqLfuqf8ymHIE/Gc8M2A?=
+ =?us-ascii?Q?VDot7509typ+VtxrPdM4L5wHVMJ929YnQSb1+JSrACmEV19iLBsbeoTB7DF+?=
+ =?us-ascii?Q?fQjh/IsNO3lAeLaPvyg7aTjBaVkX9ohFlH+JW4rob0cLpmavnUe9xBbgslVI?=
+ =?us-ascii?Q?n6IMEsMqGg00VMWnnptZKIF/BosqqUFK3ZAUz9frlva7Fo5XeWTDtWf7YNJs?=
+ =?us-ascii?Q?PU4r5wyL3uJsoa9wdVTeWY5xtS0StRp9YqGmvICwB5pypm/5wjCr0zaQwJJT?=
+ =?us-ascii?Q?buUHxmKWf6wGRUddrIDQMNUM5C80YXwLqm3YYK3cY4q11gpSPbJdn/8I68Nz?=
+ =?us-ascii?Q?AIkiyTz+VfYJ6iNwfJHYTv2kH634xTOLZMcgC4Jb615lMTWs5hrC6BoZ7D+T?=
+ =?us-ascii?Q?rjZTzB5CUGAOaXK6edi+F40WmECzROJNk+CMvxqpfZYQmZsGDS4HbS2Comzx?=
+ =?us-ascii?Q?Aw=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 07ded725-b572-4517-ccac-08de3330af76
+X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8907.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Dec 2025 12:28:53.0483
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: i2yCIneLI1xCGHZjuFIdiLtqtQs9CnMw5dY7i2ANbLkukoXHhWZCBSt1kRrYR8aFUMBHlBm5EewV6NcWWtCz+Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7782
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_042618_206002_9C88B2DD 
-X-CRM114-Status: GOOD (  17.66  )
+X-CRM114-CacheID: sfid-20251204_042901_242943_A65C00D8 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,102 +169,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Iuliana Prodan <iuliana.prodan@nxp.com>
 
-n 12/2/25 3:54 AM, Jie Zhang wrote:
-> For GMAC4, when split header is enabled, in some rare cases, the
-> hardware does not fill buf2 of the first descriptor with payload.
-> Thus we cannot assume buf2 is always fully filled if it is not
-> the last descriptor. Otherwise, the length of buf2 of the second
-> descriptor will be calculated wrong and cause an oops:
-> 
-> Unable to handle kernel paging request at virtual address ffff00019246bfc0
-> Mem abort info:
->   ESR = 0x0000000096000145
->   EC = 0x25: DABT (current EL), IL = 32 bits
->   SET = 0, FnV = 0
->   EA = 0, S1PTW = 0
->   FSC = 0x05: level 1 translation fault
-> Data abort info:
->   ISV = 0, ISS = 0x00000145, ISS2 = 0x00000000
->   CM = 1, WnR = 1, TnD = 0, TagAccess = 0
->   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-> swapper pgtable: 4k pages, 48-bit VAs, pgdp=0000000090d8b000
-> [ffff00019246bfc0] pgd=180000009dfff403, p4d=180000009dfff403, pud=0000000000000000
-> Internal error: Oops: 0000000096000145 [#1]  SMP
-> Modules linked in:
-> CPU: 0 UID: 0 PID: 157 Comm: iperf3 Not tainted 6.18.0-rc6 #1 PREEMPT
-> Hardware name: ADI 64-bit SC598 SOM EZ Kit (DT)
-> pstate: 00400009 (nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> pc : dcache_inval_poc+0x28/0x58
-> lr : arch_sync_dma_for_cpu+0x28/0x34
-> sp : ffff800080dcbc40
-> x29: ffff800080dcbc40 x28: 0000000000000008 x27: ffff000091c50980
-> x26: ffff000091c50980 x25: 0000000000000000 x24: ffff000092a5fb00
-> x23: ffff000092768f28 x22: 000000009246c000 x21: 0000000000000002
-> x20: 00000000ffffffdc x19: ffff000091844c10 x18: 0000000000000000
-> x17: ffff80001d308000 x16: ffff800080dc8000 x15: ffff0000929fb034
-> x14: 70f709157374dd21 x13: ffff000092812ec0 x12: 0000000000000000
-> x11: 000000000000dd86 x10: 0000000000000040 x9 : 0000000000000600
-> x8 : ffff000092a5fbac x7 : 0000000000000001 x6 : 0000000000004240
-> x5 : 000000009246c000 x4 : ffff000091844c10 x3 : 000000000000003f
-> x2 : 0000000000000040 x1 : ffff00019246bfc0 x0 : ffff00009246c000
-> Call trace:
->  dcache_inval_poc+0x28/0x58 (P)
->  dma_direct_sync_single_for_cpu+0x38/0x6c
->  __dma_sync_single_for_cpu+0x34/0x6c
->  stmmac_napi_poll_rx+0x8f0/0xb60
->  __napi_poll.constprop.0+0x30/0x144
->  net_rx_action+0x160/0x274
->  handle_softirqs+0x1b8/0x1fc
->  __do_softirq+0x10/0x18
->  ____do_softirq+0xc/0x14
->  call_on_irq_stack+0x30/0x48
->  do_softirq_own_stack+0x18/0x20
->  __irq_exit_rcu+0x64/0xe8
->  irq_exit_rcu+0xc/0x14
->  el1_interrupt+0x3c/0x58
->  el1h_64_irq_handler+0x14/0x1c
->  el1h_64_irq+0x6c/0x70
->  __arch_copy_to_user+0xbc/0x240 (P)
->  simple_copy_to_iter+0x28/0x30
->  __skb_datagram_iter+0x1bc/0x268
->  skb_copy_datagram_iter+0x1c/0x24
->  tcp_recvmsg_locked+0x3ec/0x778
->  tcp_recvmsg+0x10c/0x194
->  inet_recvmsg+0x64/0xa0
->  sock_recvmsg_nosec+0x1c/0x24
->  sock_read_iter+0x8c/0xdc
->  vfs_read+0x144/0x1a0
->  ksys_read+0x74/0xdc
->  __arm64_sys_read+0x14/0x1c
->  invoke_syscall+0x60/0xe4
->  el0_svc_common.constprop.0+0xb0/0xcc
->  do_el0_svc+0x18/0x20
->  el0_svc+0x80/0xc8
->  el0t_64_sync_handler+0x58/0x134
->  el0t_64_sync+0x170/0x174
-> Code: d1000443 ea03003f 8a230021 54000040 (d50b7e21)
-> ---[ end trace 0000000000000000 ]---
-> Kernel panic - not syncing: Oops: Fatal exception in interrupt
-> Kernel Offset: disabled
-> CPU features: 0x080000,00008000,08006281,0400520b
-> Memory Limit: none
-> ---[ end Kernel panic - not syncing: Oops: Fatal exception in interrupt ]---
+Firmwares that do not use mailbox communication (e.g., the hello_world
+sample) leave priv->tx_ch as NULL. The current suspend logic
+unconditionally sends RP_MBOX_SUSPEND_SYSTEM, which is invalid without
+an initialized TX channel.
 
-Please avoid including the last 6 lines in the commit message, the '---'
-separator could foul git when applying the patch and truncate the commit
-message.
-> To fix this, the PL bit-field in RDES3 register is used for all
-> descriptors, whether it is the last descriptor or not.
-> 
-> Signed-off-by: Jie Zhang <jie.zhang@analog.com>
-Looks like a fixes suitable for net; a fix tag is required and you should
-include the target tree into the subj prefix, see:
-https://elixir.bootlin.com/linux/v6.18/source/Documentation/process/maintainer-netdev.rst#L64The
-patch does not apply to 'net' anymore, please rebase and resubmit. You
-can retain Jacob's ack.
+Detect the no_mailboxes case early and skip sending the suspend
+message. Instead, proceed directly to the runtime PM suspend path,
+which is the correct behavior for firmwares that cannot respond to
+mailbox requests.
 
-/P
+Signed-off-by: Iuliana Prodan <iuliana.prodan@nxp.com>
+---
+Changes since v1:
+- Wrapped commit message to 75 characters
+- Changed dev_err to dev_dbg since this case is normal behavior
+---
+ drivers/remoteproc/imx_dsp_rproc.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
+diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
+index 5130a35214c9..f51deaacc700 100644
+--- a/drivers/remoteproc/imx_dsp_rproc.c
++++ b/drivers/remoteproc/imx_dsp_rproc.c
+@@ -1242,6 +1242,15 @@ static int imx_dsp_suspend(struct device *dev)
+ 	if (rproc->state != RPROC_RUNNING)
+ 		goto out;
+ 
++	/*
++	 * No channel available for sending messages;
++	 * indicates no mailboxes present, so trigger PM runtime suspend
++	 */
++	if (!priv->tx_ch) {
++		dev_dbg(dev, "No initialized mbox tx channel, suspend directly.\n");
++		goto out;
++	}
++
+ 	reinit_completion(&priv->pm_comp);
+ 
+ 	/* Tell DSP that suspend is happening */
+-- 
+2.25.1
 
 
