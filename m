@@ -4,99 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0CACD206A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 14:13:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAA14D206AC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 14:22:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A+d+kOXWZ77Pa79XMX8gLZVtaDKOXA1/iNRWjymG+eA=; b=Sq5/fCXEiQv5fH2Vs2rpyyMgzX
-	tmN0qFf43yJxDmkcptlMqYyemiuuqOY59CaidjISwfUTCFHwhtdXO3onLUOVCS+76sPNyEqNbne5v
-	qpM98E/NBhrDUl9kXRh0ihZ14cqgra2sRZubSj1YaC5tF7hhx6zzHoappxRtswJFvDhYMkUnSH8tF
-	CdiQHisZ3gdARRncRe83up+yEHOCkBSrGdh8UekEV1qXVjsTqaC/lwnyT8p1EebXzPlZYAOWthjf1
-	2ltw+2XzEAutFJo3jElvScj+FFRD7ZeAGwFDu2PwsHJ89cKbFnW4kKGjK4i9mdPNLCs2D1ZDwboVw
-	pl7aLx/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b+la2Ls6xihgxzAduBENntpsex19eBi3G4VVpf0iliU=; b=y8pP0SmqOuH/dKZQ5UrXow1M2Z
+	DwlSnvOJk8uTDpNktwUZO74hVFnTXCHa3L9uloYRv97aj6/bE086Hx5ATaichhaoYnJWzPjQu3PFm
+	sE2FW4K3yvvko08jVd69mnz0HbNS6RvtkVVGWn/RBmlSSAggPTR+3XQzMacHpsySamGZyag7y7Mw2
+	ba5JNn0Zwh9QFo5/0UR4orQiXkJQa2l3IG7SJxc1PhHB/ZytZ7wqJSvddZxAJuNnJKk7w9tdHMffT
+	BSggxLPeT+xZZT99/vCLG/kxLcmyTx9/VaylCNcSRZPu/KuxB4gjcFQTkB0OWGYvM4IguYLbGJ2ru
+	p4ZUOeGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRA5d-000000086Zd-1VFZ;
-	Thu, 04 Dec 2025 14:13:49 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vRADV-00000008723-2UYv;
+	Thu, 04 Dec 2025 14:21:57 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRA5a-000000086Yh-2Un9
+	id 1vRADU-0000000871u-1hOR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 14:13:48 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-47118259fd8so9857295e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 06:13:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764857624; x=1765462424; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=A+d+kOXWZ77Pa79XMX8gLZVtaDKOXA1/iNRWjymG+eA=;
-        b=M0xy9DqsW32OFPrkasFe5ucf9q/s1M/xI+JWtAY1A451QaM+C6wkaqTMrkMDcE/32F
-         YGDEFSKHEG4f5MZpzp3kvXpo1QCkGjGM2Qr4JD35F5C4uGwosMP/mX+DCHo5ADph+Pas
-         DRoxjvN411sV3pEzap1tEDkqngd7dt4bhkABwDu5B84qLlcjwLspZwZ+jT9jGarXFVWt
-         sm256MrAoQ/u527UCADmWfj0ka73l7xYcqBydMJrZWvhql8lN5j2IyGL5wxlgVxXovVn
-         +dpBy25bqvne8DkrIXRCqw0CAlC4layK6gIXLKZ2Yb+3FzT41Gr46SAUcT9imIeJwM4P
-         p7qA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764857624; x=1765462424;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=A+d+kOXWZ77Pa79XMX8gLZVtaDKOXA1/iNRWjymG+eA=;
-        b=FgiDB/TCMTycjllBpKU9xEB7avLMf+7hj99CJnPm8UMESC6Nn8j2LK8vakilnZ64eF
-         ZxV0g0fIvz7Uyw9Ssr5hG+J9G4YDY36J98muNPD1oAtfhtn7lMu+1FYZeV2JqupTNSXo
-         xM+KAq+TJmHP5zDB1zL5y1mg02uAysHgChr4QfBoUUHAH1BSF4PtVdo89A1pYe+FlJ7/
-         p00qwG8EzLkUfOp1ks7dU1UITDFuKGaXJ76p09CrqFLj/s2CUefsMDLgPnvmUFwrwI6u
-         jXtBJTFIQXBsOY3oNJoqgG9N7u6N4tpCnpnqfXml+k2RyFHagU7AP7eVY+B7dq0Vsuri
-         p3CQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXeSjd4RonELuQ/xCMEaQ8VHhsrsknyWgtNQwPmJtldgBMXqZAAhXCMwTq/VSIMs0l5Yua/Bjs6tfJvJAxxjHMQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCjYkdBSAzDxrRq1+skp20B+htdHfPSYYE1+eQAqhuNIxhFY99
-	JNcTiVsdVnYo0CVxF91pjiZTevEM+o3K9ivE1LSt2Qc6V4oKtQNAy5MQ
-X-Gm-Gg: ASbGncu0yanTszOkwamHHvEJnX0Zg/6u/UJF7JtzFzS6Ao3hymvB5sHRLvKQa5bA2Tn
-	xPMtePfTO8joala8gYApc8CjK8aaIPBFx2KP1IPPp7bD4VC1g/n3POlAGhI6bp5HuU626a7BnmZ
-	Ev4EL7s3qXcc4UZG1G4zsjhtVz9b3iDyDCavoiI+9rIMwFV68h83gKprik78FFyevJgnffF5yh/
-	VP10vzG+t6AGw8Qpo8aNjyC9yWr1JjGKSdk7nJIpSswHj/OZd6G5qFkwm9QK1/2vSYdeBg63AT0
-	kqbcSD9i4mbVbBacRM8oYx87chA/uXNtYd+TLCfH8T4zY/x0tnSHToM536SEjuB3mKynsKISOqy
-	2vTcXr5zebuL8KFKfa6wyP95vprtuVi88UFiInFt2OE0o9BgndJDnFPwfH3fk8xOV6iVs3s3ylz
-	IKR8/baK9eU+ehbhPJig5OC27fKRHxUyRVFL2kT8Ecm1i/9Fptqltqu2bTN5WcndOucW8vX43YC
-	yls5B3umA==
-X-Google-Smtp-Source: AGHT+IHtYgz33VbUlNe7osl81HTRTx4C13vE9/CW5P0/J5lUDoT4fb4a8vSZ742vyf6Iomub3fxbbQ==
-X-Received: by 2002:a05:6000:24ca:b0:429:d3a7:18bd with SMTP id ffacd0b85a97d-42f79875179mr3681891f8f.59.1764857624145;
-        Thu, 04 Dec 2025 06:13:44 -0800 (PST)
-Received: from smtpclient.apple (static.253.36.98.91.clients.your-server.de. [91.98.36.253])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42f7cbfeb38sm3386105f8f.12.2025.12.04.06.13.41
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 04 Dec 2025 06:13:43 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.3\))
-Subject: Re: [PATCH] arm64: dts: rockchip: add SPDIF audio to Beelink A1
-From: Christian Hewitt <christianshewitt@gmail.com>
-In-Reply-To: <f0df035f-3c3d-4649-9f48-3e8e2e69d17b@gmail.com>
-Date: Thu, 4 Dec 2025 18:13:29 +0400
-Cc: Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <5557C31E-3B1D-426C-BF9F-C417FF29E97C@gmail.com>
-References: <20250828164300.3829488-1-christianshewitt@gmail.com>
- <66ae20b3-3316-4ec2-9c51-8414c053dc32@arm.com>
- <f0df035f-3c3d-4649-9f48-3e8e2e69d17b@gmail.com>
-To: Alex Bee <knaerzche@gmail.com>,
- Robin Murphy <robin.murphy@arm.com>,
- Heiko Stuebner <heiko@sntech.de>
-X-Mailer: Apple Mail (2.3826.700.81.1.3)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_061346_646550_11811340 
-X-CRM114-Status: GOOD (  14.76  )
+	Thu, 04 Dec 2025 14:21:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 299E8601E7;
+	Thu,  4 Dec 2025 14:21:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5353C4CEFB;
+	Thu,  4 Dec 2025 14:21:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764858114;
+	bh=Ix4HAjzi2WlFfbJt7VTMxHQfAkw4id96Xxu6hbqhPmA=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Y+bDJ+oBSuytrRGrA1/IeWKGjwOp/ZGF7vweh2xg2gWzgCyssqRjWsrI41ZAUass8
+	 0ZyjkEcxeEDfLkb8i3ZjzGBGRr1z3eCHdOmLi9qeeF4uh3KuI6kGjS6flpdv+sWhCE
+	 x058GGYzauOameSVw86ITd5aIngE+grBP6RBIUiwkDvmf/t8T/YdwyhIgZmMugFbs0
+	 9+dyM2PjIsQ+yA6mhL+qjZoDlOHQD1xyKRBzJWAXo/3GaeyKLE0ftRUOIbQH6kHaxM
+	 rTVM7WMh1EvKMT20Ynl+pQ/dSXo9mj5YJunSM/lfEAdsFwT5rzaCSywiOvSp6AaBBD
+	 c35yjxCXPdknA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vRADQ-0000000AT9t-1T1w;
+	Thu, 04 Dec 2025 14:21:52 +0000
+Date: Thu, 04 Dec 2025 14:21:51 +0000
+Message-ID: <867bv2pbsw.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Daniel Thompson <danielt@kernel.org>
+Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-acpi@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Will Deacon <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Jinjie Ruan <ruanjinjie@huawei.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	linux-mips@vger.kernel.org
+Subject: Re: [PATCH v4 16/26] genirq: Allow per-cpu interrupt sharing for non-overlapping affinities
+In-Reply-To: <aTFozefMQRg7lYxh@aspen.lan>
+References: <20251020122944.3074811-1-maz@kernel.org>
+	<20251020122944.3074811-17-maz@kernel.org>
+	<aTFozefMQRg7lYxh@aspen.lan>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: danielt@kernel.org, tsbogend@alpha.franken.de, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, tglx@linutronix.de, mark.rutland@arm.com, will@kernel.org, rafael@kernel.org, robh@kernel.org, saravanak@google.com, gregkh@linuxfoundation.org, sven@kernel.org, j@jannau.net, suzuki.poulose@arm.com, james.clark@linaro.org, jonathan.cameron@huawei.com, ruanjinjie@huawei.com, alexandru.elisei@arm.com, linux-mips@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,86 +99,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On 4 Dec 2025, at 12:23=E2=80=AFam, Alex Bee <knaerzche@gmail.com> =
-wrote:
->=20
-> Hi Robin,
->=20
-> Am 03.12.25 um 17:21 schrieb Robin Murphy:
->> [ Just noticed this... ]
->>=20
->> On 2025-08-28 5:43 pm, Christian Hewitt wrote:
->>> From: Alex Bee <knaerzche@gmail.com>
->>>=20
->>> Add the required nodes to enable SPDIF audio output on
->>> the Beelink A1 set-top-box.
->>=20
->> But the A1 doesn't have S/PDIF? Only HDMI plus a 3.5mm jack connected =
-to the analog audio codec (and possibly the composite TV out) :/
->>=20
-> Yeah, sorry - this patch wasn't supposed to be submitted upstream.
+On Thu, 04 Dec 2025 10:56:13 +0000,
+Daniel Thompson <danielt@kernel.org> wrote:
+> 
+> On Mon, Oct 20, 2025 at 01:29:33PM +0100, Marc Zyngier wrote:
+> > Interrupt sharing for percpu-devid interrupts is forbidden, and
+> > for good reasons. These are interrupts generated *from* a CPU and
+> > handled by itself (timer, for example). Nobody in their right mind
+> > would put two devices on the same pin (and if they have, they get to
+> > keep the pieces...).
+> >
+> > But this also prevents more benign cases, where devices are connected
+> > to groups of CPUs, and for which the affinities are not overlapping.
+> > Effectively, the only thing they share is the interrupt number, and
+> > nothing else.
+> >
+> > Let's tweak the definition of IRQF_SHARED applied to percpu_devid
+> > interrupts to allow this particular case. This results in extra
+> > validation at the point of the interrupt being setup and freed,
+> > as well as a tiny bit of extra complexity for interrupts at handling
+> > time (to pick the correct irqaction).
+> >
+> > Tested-by: Will Deacon <will@kernel.org>
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> 
+> I picked up this patch via linux-next and it appears be causing boot
+> regressions on MIPS/qemu. This patch was identified with a bisect and
+> a git revert of this patch from the linux-next tip resolves the problem
+> (specifically, next-20251204 with git revert bdf4e2ac295f).
+> 
+> I'm running the code as part of the kgdb test suite but the system
+> doesn't survive long enough for kgdb to be involved. In fact I was able
+> to reduce things to the following reproduction with all the kgdb pieces
+> removed:
+> 
+>     make malta_kvm_defconfig generic/64r6.config
+>     ../scripts/config \
+>         --enable WERROR --enable CPU_MIPS64_R6 --enable MIPS_CPS \
+> 	--enable BLK_DEV_INITRD --set-val FRAME_WARN 2048
+>     make olddefconfig
+>     make -j$(nproc) all
+>     qemu-system-mips64el -cpu I6400 -M malta -m 1G -smp 2 \
+>         -kernel vmlinux -nographic \
+> 	-append " console=ttyS0,115200 clk_ignore_unused"
 
-Apologies, this is my enthusiasm for trying to clear out the patch
-collection LibreELEC has been hoarding by sending things upstream
-on behalf of the original authors (and hoarders).
+Many thanks for the minimal reproducer, that really helped a lot!
 
-Would you like me to send a revert patch?
+[...]
 
-Christian
+> CPU 0 Unable to handle kernel paging request at virtual address 0000000000000000, epc == ffffffff801c2398, ra == ffffffff801bab00
+> Oops[#1]:
+> CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted 6.18.0-next-20251204 #20 NONE
+> Hardware name: mti,malta
+> $ 0   : 0000000000000000 0000000000000001 0000000000000000 0000000000000000
+> $ 4   : 0000000000000001 a8000000020e8008 0000000000000000 ffffffff80c23b80
+> $ 8   : 0000000000000004 0000000000000000 0000000000000000 000000000000002f
+> $12   : a8000000020f4000 0000000000003ff0 0000000000003000 0000000000000003
+> $16   : ffffffff80d095c0 ffffffff80ceb410 0000000000000019 ffffffff80c378c0
+> $20   : ffffffff80c4bec8 0000000000000000 ffffffff80e00000 ffffffff80de0000
+> $24   : 0000000000000000 0000000000000010
+> $28   : ffffffff80c20000 a8000000020f7ec0 a800000000e12fcd ffffffff801bab00
+> epc   : ffffffff801c2398 handle_percpu_devid_irq+0xb8/0x250
+> ra    : ffffffff801bab00 handle_irq_desc+0x48/0x88
+> Status: 1400a4e2	KX SX UX KERNEL EXL
+> Cause : 00800408 (ExcCode 02)
+> BadVA : 0000000000000000
+> PrId  : 0001a900 (MIPS I6400)
+> Modules linked in:
+> Process swapper/0 (pid: 0, threadinfo=(____ptrval____), task=(____ptrval____), tls=0000000000000000)
+> Stack : ffffffff80c35a2c 0000000000000002 ffffffff80e00000 0fffffffffffffff
+>         ffffffff80c50000 0000000000000001 0000000000000003 ffffffff801bab00
+>         0000000000000000 ffffffff805d82a8 0000000000000000 0000000000000008
+>         0000000000000000 0000000000000000 0000000000000000 5189d95a7a4f4800
+>         a800000002014300 0000000000000002 0000000000000001 000000000000001f
+>         ffffffff80e00000 0000000000000004 0000000000000000 ffffffff801bab00
+>         0000000000000000 ffffffff809ec128 0000000000000001 fffffffffffffffb
+>         0000000000000001 ffffffff805d7ebc 0000000000000000 0000000000000000
+>         ffffffff80c23c80 ffffffff80c50000 ffffffff80de0000 ffffffff80db0000
+>         0000000000000000 ffffffff80112f10 ffffffff80c23c80 0000000000000000
+> Call Trace:
+> [<ffffffff801c2398>] handle_percpu_devid_irq+0xb8/0x250
+> [<ffffffff801bab00>] handle_irq_desc+0x48/0x88
+> [<ffffffff805d82a8>] gic_irq_dispatch+0xc0/0x288
+> [<ffffffff801bab00>] handle_irq_desc+0x48/0x88
+> [<ffffffff809ec128>] do_domain_IRQ+0x28/0x40
+> [<ffffffff805d7ebc>] plat_irq_dispatch+0x64/0xe8
+> [<ffffffff80112f10>] handle_int+0x134/0x140
+> [<ffffffff80110dc8>] calibrate_delay+0x158/0x290
+> [<ffffffff80d58e48>] start_kernel+0x754/0x7a4
 
-> Regards,
->=20
-> Alex
->=20
->> Thanks,
->> Robin.
->>=20
->>> Signed-off-by: Alex Bee <knaerzche@gmail.com>
->>> Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
->>> ---
->>>   arch/arm64/boot/dts/rockchip/rk3328-a1.dts | 23 =
-++++++++++++++++++++++
->>>   1 file changed, 23 insertions(+)
->>>=20
->>> diff --git a/arch/arm64/boot/dts/rockchip/rk3328-a1.dts =
-b/arch/arm64/boot/dts/rockchip/rk3328-a1.dts
->>> index f7c4578865c5..b276a29bdd85 100644
->>> --- a/arch/arm64/boot/dts/rockchip/rk3328-a1.dts
->>> +++ b/arch/arm64/boot/dts/rockchip/rk3328-a1.dts
->>> @@ -58,6 +58,24 @@ ir-receiver {
->>>           gpios =3D <&gpio2 RK_PA2 GPIO_ACTIVE_LOW>;
->>>           linux,rc-map-name =3D "rc-beelink-gs1";
->>>       };
->>> +
->>> +    spdif_sound: spdif-sound {
->>> +        compatible =3D "simple-audio-card";
->>> +        simple-audio-card,name =3D "SPDIF";
->>> +
->>> +        simple-audio-card,cpu {
->>> +            sound-dai =3D <&spdif>;
->>> +        };
->>> +
->>> +        simple-audio-card,codec {
->>> +            sound-dai =3D <&spdif_dit>;
->>> +        };
->>> +    };
->>> +
->>> +    spdif_dit: spdif-dit {
->>> +        compatible =3D "linux,spdif-dit";
->>> +        #sound-dai-cells =3D <0>;
->>> +    };
->>>   };
->>>     &analog_sound {
->>> @@ -325,6 +343,11 @@ &sdmmc {
->>>       status =3D "okay";
->>>   };
->>>   +&spdif {
->>> +    pinctrl-0 =3D <&spdifm0_tx>;
->>> +    status =3D "okay";
->>> +};
->>> +
->>>   &tsadc {
->>>       rockchip,hw-tshut-mode =3D <0>;
->>>       rockchip,hw-tshut-polarity =3D <0>;
+This hack fixes it for me, but really, mips needs to grow up and stop
+using these antiquated APIs.
 
+Can please you give it a go?
+
+Thanks,
+
+	M.
+
+diff --git a/kernel/irq/manage.c b/kernel/irq/manage.c
+index 0bb29316b4362..8b1b4c8a4f54c 100644
+--- a/kernel/irq/manage.c
++++ b/kernel/irq/manage.c
+@@ -2470,6 +2470,9 @@ int setup_percpu_irq(unsigned int irq, struct irqaction *act)
+ 	if (retval < 0)
+ 		return retval;
+ 
++	if (!act->affinity)
++		act->affinity = cpu_online_mask;
++
+ 	retval = __setup_irq(irq, desc, act);
+ 
+ 	if (retval)
+
+-- 
+Without deviation from the norm, progress is not possible.
 
