@@ -4,57 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4146D206A7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 14:33:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07222D206B8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 14:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eE2Uvh99MMqIIvSd8KCYplYmteqyQ+tOEAxNmRJMzEA=; b=CwbhoYopDUsdm9bPB7+7zL9cJc
-	YnUKebfwcWfFXYe2KueSm8t46pbXfdIpesN8NcWOlHTS2i6/lTHqZFIjZbnVOd1MLYs10++SWkUxG
-	9Qggpj0+RAwTXg/0CumWbnQSXY2sqfqfPxm0UJgXfuBfO8f6bE0G+RvuWO+2Do5zy9f17N0GxnfIw
-	eaDr+SrnoXTvjH4OihLuUQ9PR6VDw5H36tH30TzDJ/27nlkg7ahUYMtAmDmMwjPUzhr8UqHbrmdBY
-	N7sF/XTow7UMfgyOfYF6Qyljvf1jClritFEGzvJ0EGgBfrmutQgFcbD47lXvvIn0HqwszW3l9kou2
-	LJDaQopw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gkQCstPwFaXUBoLnwB8u1TIrNKfkW3xWkDDKGz+ydi8=; b=K+Gj5ZUn5zNsfn9/aQWsvngCeE
+	WPhzEKkZqAiVAToemYEbjhe66uxXH7aJA9A81lvXNiMs3yCn4DIUwbZMgddPETrBIsFnE2BYYKwry
+	Z3VcxlC4Uk8xGkzZ7nhk609LLCCJeOgiHttMKl/8Zx7+TD7cfu9tRRxLuNX0PPv5BsBxvsf5RgXOx
+	pkBCmbD010Uq/uhWMmwkDIOhyWQkRjYR69GzWpO2ax7mnrq1yD5GuNqnL/AQe02ZQHOK/XIOt/g3G
+	YGMaISltXAQYQcOgqKmWzLrJASsGz8ISGyVC/vFa0Ao1FfXfjN6H1ztqRF/P7GvX6ml6qbQ30jmUG
+	HCBbhYYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRAOu-000000087jO-2ksY;
-	Thu, 04 Dec 2025 14:33:44 +0000
+	id 1vRAYc-000000088ez-2ELq;
+	Thu, 04 Dec 2025 14:43:46 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRAOq-000000087ij-4C21;
-	Thu, 04 Dec 2025 14:33:42 +0000
+	id 1vRAYY-000000088eR-03lR
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Dec 2025 14:43:46 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5303A339;
-	Thu,  4 Dec 2025 06:33:32 -0800 (PST)
-Received: from [10.1.28.112] (010265703453.cambridge.arm.com [10.1.28.112])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3B9F93F66E;
-	Thu,  4 Dec 2025 06:33:38 -0800 (PST)
-Message-ID: <43f9753d-2e63-4b52-a4af-ca8d22f0b351@arm.com>
-Date: Thu, 4 Dec 2025 14:33:36 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EA605339;
+	Thu,  4 Dec 2025 06:43:31 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DDAD23F66E;
+	Thu,  4 Dec 2025 06:43:38 -0800 (PST)
+Date: Thu, 4 Dec 2025 14:43:36 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	Leo Yan <leo.yan@linux.dev>, linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 6/7] perf cs-etm: Don't hard code config attribute when
+ configuring the event
+Message-ID: <20251204144336.GN724103@e132581.arm.com>
+References: <20251201-james-perf-config-bits-v1-0-22ecbbf8007c@linaro.org>
+ <20251201-james-perf-config-bits-v1-6-22ecbbf8007c@linaro.org>
+ <20251202121528.GX724103@e132581.arm.com>
+ <857538e7-cac2-4871-9711-4c434420df8a@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: dts: rockchip: add SPDIF audio to Beelink A1
-To: Christian Hewitt <christianshewitt@gmail.com>,
- Alex Bee <knaerzche@gmail.com>, Heiko Stuebner <heiko@sntech.de>
-Cc: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250828164300.3829488-1-christianshewitt@gmail.com>
- <66ae20b3-3316-4ec2-9c51-8414c053dc32@arm.com>
- <f0df035f-3c3d-4649-9f48-3e8e2e69d17b@gmail.com>
- <5557C31E-3B1D-426C-BF9F-C417FF29E97C@gmail.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <5557C31E-3B1D-426C-BF9F-C417FF29E97C@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <857538e7-cac2-4871-9711-4c434420df8a@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_063341_178215_F95E657D 
-X-CRM114-Status: GOOD (  14.55  )
+X-CRM114-CacheID: sfid-20251204_064342_090750_4B6273B6 
+X-CRM114-Status: GOOD (  16.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,94 +77,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-12-04 2:13 pm, Christian Hewitt wrote:
->> On 4 Dec 2025, at 12:23 am, Alex Bee <knaerzche@gmail.com> wrote:
->>
->> Hi Robin,
->>
->> Am 03.12.25 um 17:21 schrieb Robin Murphy:
->>> [ Just noticed this... ]
->>>
->>> On 2025-08-28 5:43 pm, Christian Hewitt wrote:
->>>> From: Alex Bee <knaerzche@gmail.com>
->>>>
->>>> Add the required nodes to enable SPDIF audio output on
->>>> the Beelink A1 set-top-box.
->>>
->>> But the A1 doesn't have S/PDIF? Only HDMI plus a 3.5mm jack connected to the analog audio codec (and possibly the composite TV out) :/
->>>
->> Yeah, sorry - this patch wasn't supposed to be submitted upstream.
+On Thu, Dec 04, 2025 at 02:08:59PM +0000, James Clark wrote:
+
+[...]
+
+> > > +	err = evsel__get_config_val(cs_etm_pmu, evsel, "contextid", &ctxt);
+> > > +	if (err)
+> > > +		return err;
+> > > +	err = evsel__get_config_val(cs_etm_pmu, evsel, "contextid1", &ctxt1);
+> > > +	if (err)
+> > > +		return err;
+> > > +	err = evsel__get_config_val(cs_etm_pmu, evsel, "contextid2", &ctxt2);
+> > > +	if (err)
+> > > +		return err;
+> > 
+> > Seems to me, this is not right.  The current code checks any context
+> > ID setting but it can tolerate if missing "contexid[*]" format.
+> > 
+> > After calling evsel__get_config_val(), if any "contextid[*]" format is
+> > missed, it returns error and will diretly bail out.  As a result,
+> > cs_etm_validate_context_id() will always return error.
+> > 
 > 
-> Apologies, this is my enthusiasm for trying to clear out the patch
-> collection LibreELEC has been hoarding by sending things upstream
-> on behalf of the original authors (and hoarders).
+> Missed by the driver or the user? evsel__get_config_val() only returns an
+> error when "contextid" isn't published by the driver, not when the user
+> doesn't supply one of those options. The actual user supplied value is in
+> the out param, not the return value.
 
-No worries :)
+My question is for missing format from user.  Thanks for reminding the
+error is only for driver's publishing.
 
-> Would you like me to send a revert patch?
+> Having said that, this does make it an error if the driver did stop
+> publishing one, which might be too inflexible and is a new behavior. I can
+> change to it ignore the errors instead.
 
-Since I'm the only one complaining, and I'm liable to have a couple more 
-Rockchip DT patches to send soon anyway, feel free to leave it with me 
-unless you're particularly keen.
+Yeah, this will likely break nVHE / pKVM cases.
 
-Cheers,
-Robin.
-
-> 
-> Christian
-> 
->> Regards,
->>
->> Alex
->>
->>> Thanks,
->>> Robin.
->>>
->>>> Signed-off-by: Alex Bee <knaerzche@gmail.com>
->>>> Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
->>>> ---
->>>>    arch/arm64/boot/dts/rockchip/rk3328-a1.dts | 23 ++++++++++++++++++++++
->>>>    1 file changed, 23 insertions(+)
->>>>
->>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3328-a1.dts b/arch/arm64/boot/dts/rockchip/rk3328-a1.dts
->>>> index f7c4578865c5..b276a29bdd85 100644
->>>> --- a/arch/arm64/boot/dts/rockchip/rk3328-a1.dts
->>>> +++ b/arch/arm64/boot/dts/rockchip/rk3328-a1.dts
->>>> @@ -58,6 +58,24 @@ ir-receiver {
->>>>            gpios = <&gpio2 RK_PA2 GPIO_ACTIVE_LOW>;
->>>>            linux,rc-map-name = "rc-beelink-gs1";
->>>>        };
->>>> +
->>>> +    spdif_sound: spdif-sound {
->>>> +        compatible = "simple-audio-card";
->>>> +        simple-audio-card,name = "SPDIF";
->>>> +
->>>> +        simple-audio-card,cpu {
->>>> +            sound-dai = <&spdif>;
->>>> +        };
->>>> +
->>>> +        simple-audio-card,codec {
->>>> +            sound-dai = <&spdif_dit>;
->>>> +        };
->>>> +    };
->>>> +
->>>> +    spdif_dit: spdif-dit {
->>>> +        compatible = "linux,spdif-dit";
->>>> +        #sound-dai-cells = <0>;
->>>> +    };
->>>>    };
->>>>      &analog_sound {
->>>> @@ -325,6 +343,11 @@ &sdmmc {
->>>>        status = "okay";
->>>>    };
->>>>    +&spdif {
->>>> +    pinctrl-0 = <&spdifm0_tx>;
->>>> +    status = "okay";
->>>> +};
->>>> +
->>>>    &tsadc {
->>>>        rockchip,hw-tshut-mode = <0>;
->>>>        rockchip,hw-tshut-polarity = <0>;
-> 
-
+Thanks,
+Leo
 
