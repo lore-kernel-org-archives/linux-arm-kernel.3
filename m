@@ -4,94 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03EE0D1D878
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 07:44:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6608CD1D893
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 08:07:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nRKpe5m4uI+URjqo+MF4NUpskf9/M3efMzxetxiqdyo=; b=taTo+ValqxKduJYqeQTp7bX9N6
-	jUWrBg0I2Q0y7+w2VDu/3IpPU6VYYLmvk5HEPqRivpgn4rvKtfXygtz4e3UE/6ervj8UGxF5A8Ozv
-	OwsXffo3ATsmsT5dOJloYl1wdfFrewmsyJ8aCMSWzyzYjj7NsWvPzQ+oG2ROv+r6oMVHGfCVsVtfr
-	sK5Qm6NOJpgRSBnbGHp+/kFGW+0ZeP7W0NvaqEGvBvsYSZWHfiys27eI0SRLJuKnrkXpAGaNo7qFK
-	ELgh/S8winAe0kiP+4vHnHxRE8iW3Bjsx+QmgJ096F+96SS+lOZIa4ldp1BjsbLm1Yl4BNz+ez1Uj
-	M98vpwdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5W7wNmuypsJF46yhDyGNTvVyhNWPHHjBNdtDIrnVsV4=; b=0gHh4KSEd5nY2Z1AEZyx/mMJi0
+	f0sX5xjxQ7A5VIxwxS7q1SKVpYm6cx0GWd5e8/FoPsjQSAxtx5YtpQlXsBdnBFaYIiCsLnpDTAZWe
+	VG15TmpPsHG5Lqy02ku1zbRE4Q9/mgl7MT1xDCj/ZDnAg/iaVpuQ1nEnDjX9iPRznU0J7uTHT6P4u
+	kIaSN84KKCwbePW3xr5FGbLxZj6ijql6G3efqmbpNiO14Gs5Gnq+rklCc74ZYusDjtnp328BkGsAq
+	Cdrz/DaKS43hsREA/vUyIqMiJbRgA+ezoBYSy+z4a0itv97z6pbbpZDgzZ1ZK7hukR6WuoFrkIWnX
+	N0ENwuHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR41C-00000007ctH-16xk;
-	Thu, 04 Dec 2025 07:44:50 +0000
-Received: from mx-relay112-hz1.antispameurope.com ([94.100.132.104])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR417-00000007csC-21Ii
+	id 1vR4N0-00000007eLY-1r4x;
+	Thu, 04 Dec 2025 08:07:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vR4Mx-00000007eL9-2Hhx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 07:44:49 +0000
-ARC-Authentication-Results: i=1; mx-gate112-hz1.hornetsecurity.com 1;
- spf=pass reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out01-hz1.hornetsecurity.com;
- dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=nRKpe5m4uI+URjqo+MF4NUpskf9/M3efMzxetxiqdyo=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1764834269;
- b=hauK3F0hyuRpfZsndQ2ju9w/NsKZXd8+38jowQ3LNPhu87MeHJ/DKbLlYuGz1XInLMBsV2Yp
- MkCFNeX9M8H+UlCB/nfH+R/sSRssNivHblHDJstuqehoDBtTDeKSFW7rZi77uj4evjJkQ5ii9DJ
- v1tSiXFzGP8I+OFfbL57Ycp1zhD8AGihsLSRrkgjbnz6pJGmcS2KsB0pEZpNpqkiO2V2DMiqjWM
- jYWlg7BHOtcW/WCEQJCIRE09tsSetgv1yq5/kmp1A465niSXareuLocPCAvenedr2aJLbvdBzRr
- PcTBQzqOe7HKWd9qm90C7jONVWbFo6qGWVszHQiLYHBjw==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1764834269;
- b=ASacCQaC0ZjY7apRk8f7J8FTNL0xCBtto/V7oGdpvrucoKcHkcgoW9GHz2RShbYWKVsCGkXQ
- l3EsUTmeItNSab5YsO30wcqryxK3CeaYPBWQuq4RAsrGhn1RnviwgcLn5hvH86f96/1LqoTYodD
- sWaOzj1CQTB5iu2fKaR3Vf1G3t0xNdNwSecDKeb2Sqz0WesfcxLG3/ZP6NePpvVjgVdRiEYO18Z
- IySgWEj4ko9bja3PnkSRpwav4c7oMU87fGqmQhb6Pwsg9aw/d9Kn2XxyPgRTwy5bUhbK05dqiz4
- HPb+iingFLGBEXocFWaQ56H93VKFnhWPyqJKVs9qK1qaw==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay112-hz1.antispameurope.com;
- Thu, 04 Dec 2025 08:44:29 +0100
-Received: from steina-w.localnet (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by smtp-out01-hz1.hornetsecurity.com (Postfix) with ESMTPSA id ABE6CA4134F;
-	Thu,  4 Dec 2025 08:44:13 +0100 (CET)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- shawnguo@kernel.org, s.hauer@pengutronix.de, festevam@gmail.com,
- frank.li@nxp.com, Sherry Sun <sherry.sun@nxp.com>
-Cc: devicetree@vger.kernel.org, kernel@pengutronix.de,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH V2] arm64: dts: imx8qm-ss-dma: correct the dma channels of lpuart
-Date: Thu, 04 Dec 2025 08:44:12 +0100
-Message-ID: <3023939.e9J7NaK4W3@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20251203015956.116364-1-sherry.sun@nxp.com>
-References: <20251203015956.116364-1-sherry.sun@nxp.com>
+	Thu, 04 Dec 2025 08:07:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1105E339;
+	Thu,  4 Dec 2025 00:07:09 -0800 (PST)
+Received: from [10.164.18.78] (unknown [10.164.18.78])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6DDB43F73B;
+	Thu,  4 Dec 2025 00:07:14 -0800 (PST)
+Message-ID: <8248c3fa-5c17-419c-ad8d-7abda988f0aa@arm.com>
+Date: Thu, 4 Dec 2025 13:37:11 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay112-hz1.antispameurope.com with 4dMRNG3FgKzwTWn
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 073b527d389ddc73e181e67b15c075cb
-X-cloud-security: scantime:2.175
-DKIM-Signature: a=rsa-sha256;
- bh=nRKpe5m4uI+URjqo+MF4NUpskf9/M3efMzxetxiqdyo=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1764834268; v=1;
- b=oHqbXFs56S+NxLZMag1QkJ+4/6dZojukRLdK5+Zv7rxwqSbIfuzuRFi2jgxJiR8TXjXDHNy+
- qcdcoe/Vad6U7ISWuA2bYc4jHgpLxGs14sAc5vTwZUh7f+mNBYriaEMBfCoEi77hzp27vwqW8NL
- iIfNxlHEDZ6kZ+SnN3PyXrvbsAp19b53+Ora7gXGQDoxoxIEm3kscr3vecg8w360eEiCAVGJ0Zr
- hfBZiuEYe0STvIwHu28KflhgXH0e1eyg5JPNpZmAhpIfs+mN5aqzRQsIjiftR8DbzXMm5KI3LuX
- a+liKpKeFSkXEkuUyQS3c4Tgwb8gyO1YjHwTqeeCHku6Q==
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v3 PATCH] arm64: mm: Fix kexec failure after pte_mkwrite_novma()
+ change
+To: Jianpeng Chang <jianpeng.chang.cn@windriver.com>,
+ catalin.marinas@arm.com, will@kernel.org, ying.huang@linux.alibaba.com,
+ ardb@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251204062722.3367201-1-jianpeng.chang.cn@windriver.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20251204062722.3367201-1-jianpeng.chang.cn@windriver.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_234445_991113_2AB4E530 
-X-CRM114-Status: GOOD (  15.31  )
+X-CRM114-CacheID: sfid-20251204_000719_718777_4A6BCA87 
+X-CRM114-Status: GOOD (  29.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,74 +66,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 04/12/25 11:57 AM, Jianpeng Chang wrote:
+> Commit 143937ca51cc ("arm64, mm: avoid always making PTE dirty in
+> pte_mkwrite()") modified pte_mkwrite_novma() to only clear PTE_RDONLY
+> when the page is already dirty (PTE_DIRTY is set). While this optimization
+> prevents unnecessary dirty page marking in normal memory management paths,
+> it breaks kexec on some platforms like NXP LS1043.
 
-Am Mittwoch, 3. Dezember 2025, 02:59:56 CET schrieb Sherry Sun:
-> The commit 616effc0272b5 ("arm64: dts: imx8: Fix lpuart DMA channel
-> order") swap uart rx and tx channel at common imx8-ss-dma.dtsi. But miss
-> update imx8qm-ss-dma.dtsi.
->=20
-> The commit 5a8e9b022e569 ("arm64: dts: imx8qm-ss-dma: Pass lpuart
-> dma-names") just simple add dma-names as binding doc requirement.
->=20
-> Correct lpuart0 - lpuart3 dma rx and tx channels, and use defines for
-> the FSL_EDMA_RX flag.
->=20
-> Fixes: 5a8e9b022e56 ("arm64: dts: imx8qm-ss-dma: Pass lpuart dma-names")
-> Signed-off-by: Sherry Sun <sherry.sun@nxp.com>
+Why is this problem only applicable for NXP LS1043 ? OR is that the only
+platform you have observed the issue ? although that is problematic else
+where as well.
 
-Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-
+> 
+> The issue occurs in the kexec code path:
+> 1. machine_kexec_post_load() calls trans_pgd_create_copy() to create a
+>    writable copy of the linear mapping
+> 2. _copy_pte() calls pte_mkwrite_novma() to ensure all pages in the copy
+>    are writable for the new kernel image copying
+> 3. With the new logic, clean pages (without PTE_DIRTY) remain read-only
+> 4. When kexec tries to copy the new kernel image through the linear
+>    mapping, it fails on read-only pages, causing the system to hang
+>    after "Bye!"
+> 
+> The same issue affects hibernation which uses the same trans_pgd code path.
+> 
+> Fix this by marking pages dirty with pte_mkdirty() in _copy_pte(), which
+> ensures pte_mkwrite_novma() clears PTE_RDONLY for both kexec and
+> hibernation, making all pages in the temporary mapping writable regardless
+> of their dirty state. This preserves the original commit's optimization
+> for normal memory management while fixing the kexec/hibernation regression.
+> 
+> Using pte_mkdirty() causes redundant bit operations when the page is
+> already writable (redundant PTE_RDONLY clearing), but this is acceptable
+> since it's not a hot path and only affects kexec/hibernation scenarios.
+> 
+> Fixes: 143937ca51cc ("arm64, mm: avoid always making PTE dirty in pte_mkwrite()")
+> Signed-off-by: Jianpeng Chang <jianpeng.chang.cn@windriver.com>
+> Reviewed-by: Huang Ying <ying.huang@linux.alibaba.com>
 > ---
-> Changes in V2:
-> 1. Correct the fixes commit as Frank and Alexander suggested.
-> ---
->  arch/arm64/boot/dts/freescale/imx8qm-ss-dma.dtsi | 8 ++++----
->  1 file changed, 4 insertions(+), 4 deletions(-)
->=20
-> diff --git a/arch/arm64/boot/dts/freescale/imx8qm-ss-dma.dtsi b/arch/arm6=
-4/boot/dts/freescale/imx8qm-ss-dma.dtsi
-> index 5f24850bf322..974e193f8dcb 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8qm-ss-dma.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8qm-ss-dma.dtsi
-> @@ -172,25 +172,25 @@ &flexcan3 {
-> =20
->  &lpuart0 {
->  	compatible =3D "fsl,imx8qm-lpuart", "fsl,imx8qxp-lpuart";
-> -	dmas =3D <&edma2 13 0 0>, <&edma2 12 0 1>;
-> +	dmas =3D <&edma2 12 0 FSL_EDMA_RX>, <&edma2 13 0 0>;
->  	dma-names =3D "rx","tx";
->  };
-> =20
->  &lpuart1 {
->  	compatible =3D "fsl,imx8qm-lpuart", "fsl,imx8qxp-lpuart";
-> -	dmas =3D <&edma2 15 0 0>, <&edma2 14 0 1>;
-> +	dmas =3D <&edma2 14 0 FSL_EDMA_RX>, <&edma2 15 0 0>;
->  	dma-names =3D "rx","tx";
->  };
-> =20
->  &lpuart2 {
->  	compatible =3D "fsl,imx8qm-lpuart", "fsl,imx8qxp-lpuart";
-> -	dmas =3D <&edma2 17 0 0>, <&edma2 16 0 1>;
-> +	dmas =3D <&edma2 16 0 FSL_EDMA_RX>, <&edma2 17 0 0>;
->  	dma-names =3D "rx","tx";
->  };
-> =20
->  &lpuart3 {
->  	compatible =3D "fsl,imx8qm-lpuart", "fsl,imx8qxp-lpuart";
-> -	dmas =3D <&edma2 19 0 0>, <&edma2 18 0 1>;
-> +	dmas =3D <&edma2 18 0 FSL_EDMA_RX>, <&edma2 19 0 0>;
->  	dma-names =3D "rx","tx";
->  };
-> =20
->=20
-
-
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
+> v3: 
+>   - Add the description about pte_mkdirty in commit message
+>   - Note that the redundant bit operations in commit message
+>   - Fix the comments following the suggestions
+> v2: https://lore.kernel.org/all/20251202022707.2720933-1-jianpeng.chang.cn@windriver.com/
+>   - Use pte_mkwrite_novma(pte_mkdirty(pte)) instead of manual bit manipulation
+>   - Updated comments to clarify pte_mkwrite_novma() alone cannot be used
+> v1: https://lore.kernel.org/all/20251127034350.3600454-1-jianpeng.chang.cn@windriver.com/
+> 
+>  arch/arm64/mm/trans_pgd.c | 17 +++++++++++++++--
+>  1 file changed, 15 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/mm/trans_pgd.c b/arch/arm64/mm/trans_pgd.c
+> index 18543b603c77..766883780d2a 100644
+> --- a/arch/arm64/mm/trans_pgd.c
+> +++ b/arch/arm64/mm/trans_pgd.c
+> @@ -40,8 +40,14 @@ static void _copy_pte(pte_t *dst_ptep, pte_t *src_ptep, unsigned long addr)
+>  		 * Resume will overwrite areas that may be marked
+>  		 * read only (code, rodata). Clear the RDONLY bit from
+>  		 * the temporary mappings we use during restore.
+> +		 *
+> +		 * For both kexec and hibernation, writable accesses are required
+> +		 * for all pages in the linear map to copy over new kernel image.
+> +		 * Hence mark these pages dirty first via pte_mkdirty() to ensure
+> +		 * pte_mkwrite_novma() subsequently clears PTE_RDONLY - providing
+> +		 * required write access for the pages.
+>  		 */
+> -		__set_pte(dst_ptep, pte_mkwrite_novma(pte));
+> +		__set_pte(dst_ptep, pte_mkwrite_novma(pte_mkdirty(pte)));
+>  	} else if (!pte_none(pte)) {
+>  		/*
+>  		 * debug_pagealloc will removed the PTE_VALID bit if
+> @@ -57,7 +63,14 @@ static void _copy_pte(pte_t *dst_ptep, pte_t *src_ptep, unsigned long addr)
+>  		 */
+>  		BUG_ON(!pfn_valid(pte_pfn(pte)));
+>  
+> -		__set_pte(dst_ptep, pte_mkvalid(pte_mkwrite_novma(pte)));
+> +		/*
+> +		 * For both kexec and hibernation, writable accesses are required
+> +		 * for all pages in the linear map to copy over new kernel image.
+> +		 * Hence mark these pages dirty first via pte_mkdirty() to ensure
+> +		 * pte_mkwrite_novma() subsequently clears PTE_RDONLY - providing
+> +		 * required write access for the pages.
+> +		 */
+> +		__set_pte(dst_ptep, pte_mkvalid(pte_mkwrite_novma(pte_mkdirty(pte))));
+>  	}
+>  }
+>  
 
 
