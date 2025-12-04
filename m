@@ -4,153 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB8CD2444A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 17:34:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04C49D2444A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 17:46:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BV0Yb1u3N48vDaJZeNoUIT4D6+T4UKSLwnwgfm84j8o=; b=seP7BjyUB/YVSHNXkzp11mZhB2
-	rjt2FgtyZYM318wfrzDkXL1U/aIoYpqQPkb7YXZ+PNO/ck3HweBkNGRzC6Y6DCrDMVBYdYT+kavpQ
-	iqaaEXs5cskTc/j92/OeYkHEVsDI4fAcsKCiszqHsLzyJR+N8N2fCzCzEaDWlJ+ZtdzsKpp7O7Fft
-	EhprGvC9N1pxkkS1ESnMHWUcV+Ja5Q0FGne36K7X4sJ0rt0Bg11hxuzMGHVrAUs9iWSilkdfjZHAY
-	Hl7xzC8sLqNoW3HeskbTDg5aZo0/kZ1u1mVDxEbb3BJR4uN+CUUYr3UJ7932FCEPXe9iKOrVhnBWA
-	ND+HAoIQ==;
+	bh=0cO2qwM6L3EPg2vfelggnZUt0s+FxmVDVs3kFBnU6uc=; b=XWoG7YbqfvP05uTc5aFE2xoP37
+	+eP/WnfOyV3HynU1PttdQ9/ZMD1ryCs2vsbhmIFY+o0oXSfoaxGlAgbH2cNUp1wEJWqCFF9Vme2P9
+	rd6amgeb6LXe5X/HZ6mUsiDVtvJQW9rPN8xeNyJLcb0bkCfqzVEhW7kGhKakSiCx+HMO3Gf9rTauP
+	l5bAjnw90Has2zaCFcrF1EpG5DzTzQihSAJi6s9cmuZjwuREZSZeNKQrT7M8GsB8v5r+2iyrE9Ifh
+	T7CC6b7Y58k5zdzcuvB9LYFOM4nCGIi4KkOpARR4tIZ+WknAcJQzbH1BwK/skGK7cGNtHTizykdLg
+	kiuhdCOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRDEF-00000008NyI-1DlM;
-	Thu, 04 Dec 2025 17:34:55 +0000
-Received: from mail-francesouthazon11011021.outbound.protection.outlook.com ([40.107.130.21] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vRDOx-00000008Oav-3a7O;
+	Thu, 04 Dec 2025 17:45:59 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRDEB-00000008Nxq-034E
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 17:34:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qZcfp5a1e6KY/ZGbnPesdW/JbJYa/ePAgi3dkq+/2EsK45cVcS2WuCwATQoJyje3wP+IB8rFUrs1mH5fCj0OxaayWnFCRzYUkfJWZP1TCmv/S5cvpgBoD0PbhfZA7p7zG1KBIwoTqyUvrhobRXn/g/MYryZcHDoJBcqyo7C35r7j0Y4O1So9Mx/M1/2WbmxNUIKjEXuix/sPxdAxRqi85C9DsKpC/UKJcP168mUtJdUlMNr5a3p0k3xeacj7O5+6xmIihb1vEcWxEbVBPlCVH0nZ1MzN84Rp8iVu78H+8UbinsgYklqjZURB5JWvqyiFwBvhL7TJgIp680Gqn7k7nQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=BV0Yb1u3N48vDaJZeNoUIT4D6+T4UKSLwnwgfm84j8o=;
- b=sf3aWHpjOZtPEqd+uMtZSbSEIGHLsizPpCkaemIM0KsgHY20womSZen+mu9WnAHQ3zy1Zji4FpC7vswDLNqdvpsWratyhQi4M5O3VkB7tb32S7UOi4FV/vJUrJkZ3QXWb/mGcgMQyQSuKZTX5699k6tdUdCZUF8+9Vnrgtd13bUF3bDF1OA7rzB1+D6MtekHoNfpm8mMj0YRxPk/I3hab1He+8K3qMWe97GRR5Ie0yp/ou/KcM2zmkSzUTSliDv1x5YXKM0B6f1MCoo9/mq80gUcqt3PYWl21FNtKlqBzowb+cIPJqSKhEaUc3ZE1J72CCVcrA1wc92aym90ggZOew==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=BV0Yb1u3N48vDaJZeNoUIT4D6+T4UKSLwnwgfm84j8o=;
- b=BHKiZuy1XGSOY1CuVR8lErhUpKnoePkW/p1ZVPylqm4dZuCvjBJ35SG+62BNJLCJ7zW3w622dOHalVLgGyJu2sxwv/oYZbF1c9upcCa4dgTxEJ9D5cHH6fp4aE2ZEPmspLIZyhwNnqAx6d4JSsngYm5+yu/rKVhkXKF5kWS+c9hUA/ffJKM4C8Qqle9Uf4Q6oR1YNdAxR8k+HOTemvntpM2pZn9Qo4UbmYI1O5qu91vgqw2fwCsa7StFJehU9QzARzzjvMFL0IQzgpUkz799wl0jSNTn13p3CEGUiWqBc3QtC9CT1bg3gRli1QA/GychLLv7J95FcoZYe1yzWKYGyg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8957.eurprd04.prod.outlook.com (2603:10a6:102:20c::5)
- by GVXPR04MB10384.eurprd04.prod.outlook.com (2603:10a6:150:1dc::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.9; Thu, 4 Dec
- 2025 17:34:39 +0000
-Received: from PAXPR04MB8957.eurprd04.prod.outlook.com
- ([fe80::9c5d:8cdf:5a78:3c5]) by PAXPR04MB8957.eurprd04.prod.outlook.com
- ([fe80::9c5d:8cdf:5a78:3c5%3]) with mapi id 15.20.9388.003; Thu, 4 Dec 2025
- 17:34:39 +0000
-Date: Thu, 4 Dec 2025 12:34:31 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: ming.qian@oss.nxp.com
-Cc: linux-media@vger.kernel.org, mchehab@kernel.org,
-	hverkuil-cisco@xs4all.nl, nicolas@ndufresne.ca,
-	benjamin.gaignard@collabora.com, p.zabel@pengutronix.de,
-	sebastian.fricke@collabora.com, shawnguo@kernel.org,
-	ulf.hansson@linaro.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
-	l.stach@pengutronix.de, peng.fan@nxp.com, eagle.zhou@nxp.com,
-	imx@lists.linux.dev, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 3/3] media: verisilicon: Avoid G2 bus error while
- decoding H.264 and HEVC
-Message-ID: <aTHGJzVKa7PbEifJ@lizhi-Precision-Tower-5810>
-References: <20251204090813.595-1-ming.qian@oss.nxp.com>
- <20251204090813.595-3-ming.qian@oss.nxp.com>
+	id 1vRDOr-00000008OaK-1TqO;
+	Thu, 04 Dec 2025 17:45:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=0cO2qwM6L3EPg2vfelggnZUt0s+FxmVDVs3kFBnU6uc=; b=clNCBxmlCGM0HhVh2VXZ6icmP8
+	oSueq0dvBIE8BP/3TBBtZAk/K5txk6BEEGPKYY/bXlHpfq2KC9clh7nn73sM3vfETZTKhjsTAZ4Uf
+	D8lqN2jU7y69GN5VKxNPnlu/KZ35AHRbI6fAF5AXYcUfNsdnsR0630NGuURekT72+JgCXbR+XdFF5
+	r3aJyzswnAO80rLfQ5E8bLFPOS+XXuuPbIOmNCrYeUGYkqp1qYItS73dQGvSRZemCyp+Owp6SFWQi
+	F4LCpmxxu34p50oXIVGxODtuBPeW2/PRjGX3ktdwx9fGf0+5xGw1RnTTZfa+bKU2zhTXD7KGKaiJ0
+	595XM0kA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:47100)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vRDOa-000000003qK-1dCp;
+	Thu, 04 Dec 2025 17:45:36 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vRDOU-000000001Ca-302V;
+	Thu, 04 Dec 2025 17:45:30 +0000
+Date: Thu, 4 Dec 2025 17:45:30 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Vladimir Oltean <olteanv@gmail.com>,
+	Daniel Golle <daniel@makrotopia.org>,
+	Frank Wunderlich <frankwu@gmx.de>, Andrew Lunn <andrew@lunn.ch>,
+	Chen Minqiang <ptpt52@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] net: dsa: mt7530: Use GPIO polarity to generate
+ correct reset sequence
+Message-ID: <aTHIulPW055AyLW_@shell.armlinux.org.uk>
+References: <3fbc4e67-b931-421c-9d83-2214aaa2f6ed@lunn.ch>
+ <0d85e1e6-ea75-4f20-aef1-90d446b4bfa1@kernel.org>
+ <00f308a1-a4b1-4f20-8d8e-459ddf4c39b1@gmx.de>
+ <aS7Zj3AFsSp2CTNv@makrotopia.org>
+ <20251204131626.upw77jncqfwxydww@skbuf>
+ <4170c560-1edd-4ff8-96af-a479063be4a5@kernel.org>
+ <20251204160247.yz42mnxvzhxas5jc@skbuf>
+ <66d080f1-e989-451f-9d5e-34460e5eb1b0@kernel.org>
+ <20251204171159.yy3nkvzttxecmhfo@skbuf>
+ <178afbeb-168f-4765-bb0b-fad0bcd29382@kernel.org>
+MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251204090813.595-3-ming.qian@oss.nxp.com>
-X-ClientProxiedBy: SA0PR11CA0050.namprd11.prod.outlook.com
- (2603:10b6:806:d0::25) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8957:EE_|GVXPR04MB10384:EE_
-X-MS-Office365-Filtering-Correlation-Id: a139c99b-9ff2-4e7e-1016-08de335b6681
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|52116014|1800799024|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?rL7q+dQQbo3zi+eiN1tpZg86snv+8OpRbTU04zrl5kGsPPwEXxQ32kR49No7?=
- =?us-ascii?Q?o7wxEGg9FGaykLRzfwIz68jiYahnDRjPLPHmUsaTXLVvfEgt4I8QBFCbDWlk?=
- =?us-ascii?Q?CXlIXvJPqF/gLmVbL5nMHpg72tMv1emJP8uYroskp16HE2DmR2kVGnpr54AD?=
- =?us-ascii?Q?6aWv8qudAuKzUPrdY+bBb+h+Q6uT+qiYxcIsfXAqJxQAqEk79W+oObLE1wGD?=
- =?us-ascii?Q?mBQN7Z1AvQX3ixr+ifvjA76slCQkt760bFzauO2j3zljjau//iaAmNRjR11+?=
- =?us-ascii?Q?FIZVQniAYynsaTltS5KgYankOQgWO2ku3XCxjQYhYQJbkRp/YQOpgrms/zFQ?=
- =?us-ascii?Q?E+sSq9bPwVvgGMAibem71Rk2YxfiU+IkH0RVtwKJIdthtdi+dNzTjRnlMKMl?=
- =?us-ascii?Q?DOCAbIHu/IAbPKkP6rNbmuCNEJDeVHCTGdDNZ0BGXJqWV2rKr7T7fNnAp3QI?=
- =?us-ascii?Q?b6pRRd9p7UcKHPOrpprbWKFWR44oFwHidAEAWOdQjO7T10U9BIyrPy5d4kbJ?=
- =?us-ascii?Q?dJeJmMGYLgja5XwbyX7+liwkS2Pzb5n//m5jQNcVM4BeLeypyWA/tEVMtsCu?=
- =?us-ascii?Q?UI9NK9dt6izdeArEKv5a4GYBk0TEw3UZlTm8hpwW888Y2lIbDIqKyNA7VVj3?=
- =?us-ascii?Q?6TX2HaHIWmfAus659lr++jmHe7L/NjIsaBzrI6Lxg7M1B0BanLhQE2nPZwcy?=
- =?us-ascii?Q?GIkVzVtRH4hwLx43KwlZW6cilFhBHSkJK/9z5qKgnFjA7SO1o+aUdiOXh4Ey?=
- =?us-ascii?Q?40CJ9IvIOEYzaxH7Dsi64lAFDZJ/ybtjMjXrVm6vDbP0nPLe6QmVOxHMiIZu?=
- =?us-ascii?Q?jFHIyH9PwTCBrHz9IskNCsmt2X75NIfjJRcTBL8cXWPNjv5ZLWvyxoe7UQ7o?=
- =?us-ascii?Q?9DorPvDkHMvfBJ1+9tFDHwyNX4MmovM+5S8DL1e9falI7yjuHLdQ0w8X5bHV?=
- =?us-ascii?Q?8xU954ZYATeyN2cGyCLii+MgAtFiumo2WNiFOvID7Yf18Iy/eMzbH1zsB7cO?=
- =?us-ascii?Q?NjXChHihaoPn9Y8JSpLAJIThBm2gJdbu1+zAZlkIbv9ukf3kFVv+xTNxfWE0?=
- =?us-ascii?Q?JV0NrhdHfzRdU3MwF9VNZWojuTJeOQHx1DJevAKOaQqbqMVQTI1fgy2aIblc?=
- =?us-ascii?Q?FPyLC0rmVH6G85x7hNtUKXHbc4CcZMNrtts7Ff7tDDhnVNOPvC3f0rTWfG4v?=
- =?us-ascii?Q?lEL3FtASjYXL7B02zHdy7xEujAhjqQsZZrFbVLEJyZwZyvoCtVZNRmqmYoy4?=
- =?us-ascii?Q?vDvjSZeJLdw0vRm8FDq1Z+y5fAkRW+BGIZm5+yIrA+mJlcbJVkWzSU9azNIN?=
- =?us-ascii?Q?CyIRkAhhTyAqeM3r+s1iUUF4nMOtxUTr4F73bFs0tB0OkU+9p/C71z9049rr?=
- =?us-ascii?Q?v9PRlsKnkJGoKIEfYnycYSjTAQ+sd5dMCpbLNnD7st/kCFSvkjQxX6qlkIW9?=
- =?us-ascii?Q?OHXw15lDQVNLAH0Z10YXtGRWQ8RVW1ltZGcK7zighEKkHoNrxs23Lro6boxC?=
- =?us-ascii?Q?cv2jNDOHOM9/akGLJ/rlOckMtCm8R6hkcx7t?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8957.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(52116014)(1800799024)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wk47N4OnQlalxpfRH1s//KGaDGVj9+IXGSO2IeH0NqWb3CwnBOlSFMQc4VdJ?=
- =?us-ascii?Q?he1SKiWi5C5D90KU1oj6a7LMwMmSQ4zBVm+j8l1vo5M3snO3NQk6X/QYANZM?=
- =?us-ascii?Q?Mo1olC0TqNIYrzaIAqskdOtsULEQtAWoX52UAN5OF7DyRaUoOKJRtpKQd30e?=
- =?us-ascii?Q?xuLK2oQODabphEqn5JAxPgmFA3b6BCQIVpR3C74TxL8unm72AbRhbr+PZrxT?=
- =?us-ascii?Q?YG8q7gzUFY5gIPas+9iWoIQ/V4aou+tH8ap/sfyEc0fo8Ro8LDd8tFzHBU02?=
- =?us-ascii?Q?UVm8GQ16tfI480xaOIvT0SUdsBWxEaOqNFjEipxPgLNzIyi+yALWChtQS7VZ?=
- =?us-ascii?Q?OAqODyyt7nlxp0Ipj7zzG8sO46Cyux+68ns2IvZk38IcFfK5jAY0d703nLii?=
- =?us-ascii?Q?/EwyqE6IFYx141BjD91BjwdTevvlnNxeA5MIEEpHIlva5MPxCX4lCR8vZKYy?=
- =?us-ascii?Q?7dR2F8qe3SW0ftaZHsXowUpUgUH4vjCnq/IaQ4V2BsrW4sDZPtTIfI84F/hC?=
- =?us-ascii?Q?hDwGallk3gdw4XGWLP3S0w9IXb1aP+ifX/hBhJPX6ypumFXm0euk9hOabI8l?=
- =?us-ascii?Q?vBdHpd36h8AvQEqce0R1V7ftCdkkbvyjSDZkdgL2Yy16sAKChtVw8oNIhbwP?=
- =?us-ascii?Q?OZvtaLgXcG/KNw+/IKgPuXb5xKKp83tCxAOpfz3aUIG3gSd/l7HfYKe9tW1z?=
- =?us-ascii?Q?09S6W+Q+f3fveigiM9ukqosAvl7OTKYZ4qDYtGjRaBJmHVxzBCUiO0xevSoq?=
- =?us-ascii?Q?8PEPnIaRSjLLpk4oftnAwVaWxJwTW0ON0jMOSY0zIaP/ZkO6k0LqWehJizaQ?=
- =?us-ascii?Q?AGCvHBuD3DzX53ycNeUfsSgJEA73AXdDL3IP1r+V70CBEaHOc9RE9yI9loze?=
- =?us-ascii?Q?qahVRUesq4dvSAfhQK23m2YlyY6JBUSwshmujRWUDCVWI6Xmnidv4j4E9U4q?=
- =?us-ascii?Q?hX5qgXhprZxF2vhmLWYZj3gBkpBASjgbsxohgtZ3hDSRT8Ym4BwhzzV5wG7e?=
- =?us-ascii?Q?NB0KJXVNUwtKLc7Xy0YCmlnM89nBOY/XrLMtZpB04xsl553Yvdy18Z3taHGZ?=
- =?us-ascii?Q?mZ51CmdH4iCScdj/ULrzYUUfoV5QsBxBJSYavqjJp62DQF9+ecFPXaFZ0OiM?=
- =?us-ascii?Q?toRBVnB4NDuC79Fqyk4uRPNbFbe/4Wh+dl2LpBhuPNFj/JiNU8Xm6tQTi6X1?=
- =?us-ascii?Q?+1jpVGQ0v9jytgyBIQfuz0LZIeMkONuNLl6IPyBvqHbZ+6sl0F/IMrEuu4Cu?=
- =?us-ascii?Q?v4280exDriPLsm4V3LBEPu/EdB3lf5yVdxBaYCKUSmkq7/dH9M91SciSND6D?=
- =?us-ascii?Q?1QhBNHxSF93XXMXiSa1W57Mno3aP8QSCspwAu+8Ag2l2anjaOx3ppHAWX+kf?=
- =?us-ascii?Q?8Qs1Zsu3wy33MwH9XrngbcOMR4Buqm2L+VZovNwuA1LlhCUYsDz0LXqSwapm?=
- =?us-ascii?Q?wpzAViwDaMvTjQXL27RuF8PDTrGTkDxvZC4ubVc1Jmk0yIUK5MGyEmYKKp5T?=
- =?us-ascii?Q?oZgwHBmIqCmyGj4MuA8146x6EJSadVPYV3rxNq+Nksp6XMAbdBtxWvDt2zVr?=
- =?us-ascii?Q?cFVVx4VVGqaDPjJDI8w0BlzynAg3BKHDBtzdPNQU?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a139c99b-9ff2-4e7e-1016-08de335b6681
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Dec 2025 17:34:39.3438
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: saUXRzqz1ZRmg5Kn3NHBAIK2z1i0JQuAVultJe4EfgXa+HHwI3BcLIoiqAhZkGyjvhwJZIfnaG1OrbSIvnUpxw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10384
+In-Reply-To: <178afbeb-168f-4765-bb0b-fad0bcd29382@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_093451_210379_AD921A6C 
-X-CRM114-Status: GOOD (  29.53  )
+X-CRM114-CacheID: sfid-20251204_094553_395255_590F01A5 
+X-CRM114-Status: GOOD (  21.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,184 +98,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 04, 2025 at 05:08:11PM +0800, ming.qian@oss.nxp.com wrote:
-> From: Ming Qian <ming.qian@oss.nxp.com>
->
-> For the i.MX8MQ platform, there is a hardware limitation: the g1 VPU and
-> g2 VPU cannot decode simultaneously; otherwise, it will cause below bus
-> error and produce corrupted pictures, even potentially lead to system hang.
->
-> [  110.527986] hantro-vpu 38310000.video-codec: frame decode timed out.
-> [  110.583517] hantro-vpu 38310000.video-codec: bus error detected.
->
-> Therefore, it is necessary to ensure that g1 and g2 operate alternately.
-> This allows for successful multi-instance decoding of H.264 and HEVC.
->
-> To achieve this, we can have g1 and g2 share the same v4l2_m2m_dev, and
-> then the v4l2_m2m_dev can handle the scheduling.
+On Thu, Dec 04, 2025 at 06:23:48PM +0100, Krzysztof Kozlowski wrote:
+> On 04/12/2025 18:11, Vladimir Oltean wrote:
+> > You two are *not* talking about the same thing. I dismissed the
+> 
+> It's the same thing. NOT gate is just pulling some pin down or up.
+> 
+> > probability of there being a NOT gate in the form of a discrete chip on
+> 
+> We do not describe NOT gates as discreet chips. I don't think anyone
+> actually places something as NOT gate. It's logical NOT gate, but on
+> circuit it is just pull up/down as I said multiple times. The pull +
+> resistor is the "NOT gate".
 
-To achieve this, g1 and g2 share the same v4l2_m2m_dev, ...
+You can get SOT-23 packages that are NOT gates. E.g.
+https://www.ti.com/lit/ds/symlink/sn74ahc1g04.pdf?ts=1764851465989
 
->
-> Fixes: cb5dd5a0fa518 ("media: hantro: Introduce G2/HEVC decoder")
-> Co-developed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
-> ---
-> v3
-> - Apply Nicolas's approach that use an array list to define the shared
->   devices
->
-> v2
-> - Abandon the waiting approach.
-> - Switch to a shared v4l2_m2m_dev solution.
->
->  drivers/media/platform/verisilicon/hantro.h   |  2 +
->  .../media/platform/verisilicon/hantro_drv.c   | 42 +++++++++++++++++--
->  .../media/platform/verisilicon/imx8m_vpu_hw.c |  8 ++++
->  3 files changed, 49 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/media/platform/verisilicon/hantro.h b/drivers/media/platform/verisilicon/hantro.h
-> index e0fdc4535b2d..0353de154a1e 100644
-> --- a/drivers/media/platform/verisilicon/hantro.h
-> +++ b/drivers/media/platform/verisilicon/hantro.h
-> @@ -77,6 +77,7 @@ struct hantro_irq {
->   * @double_buffer:		core needs double buffering
->   * @legacy_regs:		core uses legacy register set
->   * @late_postproc:		postproc must be set up at the end of the job
-> + * @shared_devices:		an array of device ids that cannot run concurrently
->   */
->  struct hantro_variant {
->  	unsigned int enc_offset;
-> @@ -101,6 +102,7 @@ struct hantro_variant {
->  	unsigned int double_buffer : 1;
->  	unsigned int legacy_regs : 1;
->  	unsigned int late_postproc : 1;
-> +	const struct of_device_id *shared_devices;
->  };
->
->  /**
-> diff --git a/drivers/media/platform/verisilicon/hantro_drv.c b/drivers/media/platform/verisilicon/hantro_drv.c
-> index 60b95b5d8565..70160eaf3d15 100644
-> --- a/drivers/media/platform/verisilicon/hantro_drv.c
-> +++ b/drivers/media/platform/verisilicon/hantro_drv.c
-> @@ -13,6 +13,7 @@
->  #include <linux/clk.h>
->  #include <linux/module.h>
->  #include <linux/of.h>
-> +#include <linux/of_platform.h>
->  #include <linux/platform_device.h>
->  #include <linux/pm.h>
->  #include <linux/pm_runtime.h>
-> @@ -1035,6 +1036,41 @@ static int hantro_disable_multicore(struct hantro_dev *vpu)
->  	return 0;
->  }
->
-> +static struct v4l2_m2m_dev *hantro_get_v4l2_m2m_dev(struct hantro_dev *vpu)
-> +{
-> +	struct device_node *node;
-> +	struct hantro_dev *shared_vpu;
-> +
-> +	if (!vpu->variant || !vpu->variant->shared_devices)
-> +		goto init_new_m2m_dev;
+This is a real NOT gate - it's absolute max ratings state that it
+can source/sink up to 25mA through its output. So no external
+resistor required.
 
-I found only use shared_devices here, how to  ensure that g1 and g2 operate
-alternately by using shared_devices?
+What you describe sounds to me more like a normal transistor though.
 
-Frank
+Irrespective of this, the exact nature of a device that inverts the
+level of a reset signal in the path between a GPIO pin and a device
+is irrelevant. What matters is whether there is or is not such a
+device.
 
-> +
-> +	for_each_matching_node(node, vpu->variant->shared_devices) {
-> +		struct platform_device *pdev;
-> +		struct v4l2_m2m_dev *m2m_dev;
-> +
-> +		pdev = of_find_device_by_node(node);
-> +		of_node_put(node);
-> +
-> +		if (!pdev)
-> +			continue;
-> +
-> +		shared_vpu = platform_get_drvdata(pdev);
-> +		if (IS_ERR_OR_NULL(shared_vpu) || shared_vpu == vpu) {
-> +			platform_device_put(pdev);
-> +			continue;
-> +		}
-> +
-> +		v4l2_m2m_get(shared_vpu->m2m_dev);
-> +		m2m_dev = shared_vpu->m2m_dev;
-> +		platform_device_put(pdev);
-> +
-> +		return m2m_dev;
-> +	}
-> +
-> +init_new_m2m_dev:
-> +	return v4l2_m2m_init(&vpu_m2m_ops);
-> +}
-> +
->  static int hantro_probe(struct platform_device *pdev)
->  {
->  	const struct of_device_id *match;
-> @@ -1186,7 +1222,7 @@ static int hantro_probe(struct platform_device *pdev)
->  	}
->  	platform_set_drvdata(pdev, vpu);
->
-> -	vpu->m2m_dev = v4l2_m2m_init(&vpu_m2m_ops);
-> +	vpu->m2m_dev = hantro_get_v4l2_m2m_dev(vpu);
->  	if (IS_ERR(vpu->m2m_dev)) {
->  		v4l2_err(&vpu->v4l2_dev, "Failed to init mem2mem device\n");
->  		ret = PTR_ERR(vpu->m2m_dev);
-> @@ -1225,7 +1261,7 @@ static int hantro_probe(struct platform_device *pdev)
->  	hantro_remove_enc_func(vpu);
->  err_m2m_rel:
->  	media_device_cleanup(&vpu->mdev);
-> -	v4l2_m2m_release(vpu->m2m_dev);
-> +	v4l2_m2m_put(vpu->m2m_dev);
->  err_v4l2_unreg:
->  	v4l2_device_unregister(&vpu->v4l2_dev);
->  err_clk_unprepare:
-> @@ -1248,7 +1284,7 @@ static void hantro_remove(struct platform_device *pdev)
->  	hantro_remove_dec_func(vpu);
->  	hantro_remove_enc_func(vpu);
->  	media_device_cleanup(&vpu->mdev);
-> -	v4l2_m2m_release(vpu->m2m_dev);
-> +	v4l2_m2m_put(vpu->m2m_dev);
->  	v4l2_device_unregister(&vpu->v4l2_dev);
->  	clk_bulk_unprepare(vpu->variant->num_clocks, vpu->clocks);
->  	reset_control_assert(vpu->resets);
-> diff --git a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
-> index 5be0e2e76882..6f8e43b7f157 100644
-> --- a/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
-> +++ b/drivers/media/platform/verisilicon/imx8m_vpu_hw.c
-> @@ -343,6 +343,12 @@ const struct hantro_variant imx8mq_vpu_variant = {
->  	.num_regs = ARRAY_SIZE(imx8mq_reg_names)
->  };
->
-> +static const struct of_device_id imx8mq_vpu_shared_resources[] __initconst = {
-> +	{ .compatible = "nxp,imx8mq-vpu-g1", },
-> +	{ .compatible = "nxp,imx8mq-vpu-g2", },
-> +	{ /* sentinel */ }
-> +};
-> +
->  const struct hantro_variant imx8mq_vpu_g1_variant = {
->  	.dec_fmts = imx8m_vpu_dec_fmts,
->  	.num_dec_fmts = ARRAY_SIZE(imx8m_vpu_dec_fmts),
-> @@ -356,6 +362,7 @@ const struct hantro_variant imx8mq_vpu_g1_variant = {
->  	.num_irqs = ARRAY_SIZE(imx8mq_irqs),
->  	.clk_names = imx8mq_g1_clk_names,
->  	.num_clocks = ARRAY_SIZE(imx8mq_g1_clk_names),
-> +	.shared_devices = imx8mq_vpu_shared_resources,
->  };
->
->  const struct hantro_variant imx8mq_vpu_g2_variant = {
-> @@ -371,6 +378,7 @@ const struct hantro_variant imx8mq_vpu_g2_variant = {
->  	.num_irqs = ARRAY_SIZE(imx8mq_g2_irqs),
->  	.clk_names = imx8mq_g2_clk_names,
->  	.num_clocks = ARRAY_SIZE(imx8mq_g2_clk_names),
-> +	.shared_devices = imx8mq_vpu_shared_resources,
->  };
->
->  const struct hantro_variant imx8mm_vpu_g1_variant = {
-> --
-> 2.52.0
->
+So, can we stop splitting hairs about what a NOT gate is in this
+discussion? It's irrelevant.
+
+> It's so easy and that's why it is potentially so common design.
+
+Do you have any real evidence of this when used with a GPIO pin for
+a reset input?
+
+It would make sense if a single GPIO pin is used for resetting
+several devices, some of them with an active-high reset input and
+others with active-low.
+
+What matters for a GPIO pin used to source a reset signal is "what
+is the active level at the GPIO pin for the reset to be asserted to
+the connected device(s)."
+
+If we have a device that requires an active-low reset input, but there
+is some form of inversion in the path to that input from a GPIO, then
+the GPIO _should_ be marked active-high. If the same active-low reset
+input is connected directly to a GPIO, the GPIO _should_ be marked as
+active-low. Thus, to assert reset, writing '1' through
+gpiod_set_value() _should_ assert the reset input on the target device
+in both cases.
+
+This is why gpiolib supports software inversion - so software engineers
+can think in terms of positive non-inverted logic when programming
+GPIOs.
+
+Sadly, we keep having people mark active-low signals as "active high"
+in DT, and then have to write '0' to assert the signal. These people
+basically don't understand electronics and/or our GPIO model.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
