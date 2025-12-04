@@ -4,99 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E028D216A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 16:17:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CB8ED216A4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 16:18:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aNxmDbbdKqIboODXWdbYm3bL1ySA2CUYBdNtl6MTmVk=; b=goSSONPPuKWh+tG+PNnDZIajlz
-	T1TN1YV4bhj1RPEFDHSxGzJ/76W6Lskt4u3gawDLMwtwjXprmMkjv2pkzDY1uoJ72wldFc4QEoa7d
-	9tEvhBOx1nJec2+LaQurKuJtHJ5GiKSjFAJbfwyKMbeJu1uXnRQONvjC9GC8MDcImW+dFk0bu1uuG
-	uycbCeQcirqdyCfDc0vV4hxAgsZWGWZ0tC9LTk6qb4PInBNFuovjW2oieYHfPxgA3b4/8QdJADZ/h
-	29WppNaLXq5XinHPPdXDNQNKiqzHQZZo4GthqpQoBQU4huGBQRZewvMqgClIbeLE3OOgGp1tDCak6
-	2JotXn9Q==;
+	bh=TcYtubvKcGoSq4YWnqE43T9j+Qij7FD/s8vUU4QGez4=; b=patVtP9ObvyRKFt9w4hXC8Hbga
+	YtjpS28Klj3X6qo9Z7QksgKq7LiprPcY3e+nrqRPUJNYVw7jXYHJoXj9+pUVlF2tGLeYcgYRXDyiI
+	wGFykF3JhhXFKrD2djkcppxsIzPAMP/3OLNgGnqja7YAO1ypEzHpujY0DS1tpxnAz3apB/db1QBH/
+	Iv4yuOblv1btRJmwkJeXlJhRbt4gvbOAfdMcOHcJItADxkzJyiFWwQxUD4UfKhsgsRSPFqFZs3GqU
+	YyMEyCiRB6xpQYnXIcR4SXibwcUROPmuB6T+rULTqLB3MTDtVDHvuXp+xDTXFiXiRidhJ0pC3enRU
+	XB+FhkFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRC1H-00000008H0v-2Ab2;
-	Thu, 04 Dec 2025 16:17:27 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1vRC1j-00000008H6O-2xUD;
+	Thu, 04 Dec 2025 16:17:55 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRC1F-00000008H0X-28zR
+	id 1vRC1h-00000008H61-1ITd
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 04 Dec 2025 16:17:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=TcYtubvKcGoSq4YWnqE43T9j+Qij7FD/s8vUU4QGez4=; b=denfrO4UIDl2WdNwC4HNyZAY5/
+	pTivGhOHJ9FuofTe/Ulqt3keY2u+YkzoORUXa8BigBeaLjP6YJjA1/4sz++WNdki0PISPvC0GUtYt
+	OuH/cqne288ltQk71FaVhcbIu1D+lHpU1vlw8PKTrzOGWJNCBiBGhtBOJkQxcAKWF/v9QFPRe5Vhm
+	EGfZGrWnsqXGAWY3D8blmBSzqLIt2vYJAWgOykGKxWiXnZuPjZ6L5YK/S9iPH7CnO87kmAoh/t6wl
+	Es2K/H5HEy+XvKPfjYq/6B7d8xlnALBiY/fncwZJ0YQN8C/TtVkcT5Di4SaYSRWi8kp9SW0bhGOz7
+	4aBm2adQ==;
+Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vRBA5-00000004OhR-2al2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 16:17:26 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-47796a837c7so9505865e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 08:17:24 -0800 (PST)
+	Thu, 04 Dec 2025 15:22:31 +0000
+Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-8823d5127daso10267056d6.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 08:17:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1764865043; x=1765469843; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=aNxmDbbdKqIboODXWdbYm3bL1ySA2CUYBdNtl6MTmVk=;
-        b=eahE13XJBnATxt3CkItl5Oa3OmhEy4GVkBmij3Uhx9ludACxh0eb/AGYw/GlaxzW/M
-         U1ITJTlnEJ1pLwN68VeN8cGtpBn2Cjb6u9bFeX/ZZS6tchqwoS1LShFQn+iabLr2uFXW
-         g+SPNxH4p6QqDiN8F7pKVQzd6tun1sqiGMfe/BtU3nk8AkK1lkeMDscZvP14RPYEvGYB
-         LRNmOcLb9AEITGnXktHRzbU2CrEIKhJUVFZUqmgjwHubIBzWM4hvPyTsD6YKo5f8PnMB
-         S2ZxgdVYjem+HjyvYQk9hYs47reFGn09Yh0/9USto0PciBGfMVImT/o8fuk49kZ9sVYb
-         LAMw==
+        d=linaro.org; s=google; t=1764865067; x=1765469867; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=TcYtubvKcGoSq4YWnqE43T9j+Qij7FD/s8vUU4QGez4=;
+        b=xJuaWJEa4wivp9OgVJJkv4qaN2hBvE3NZfQfmRKGnwW2G+fybHYYh5ga55qZfPnmEd
+         S7zjvwrB5fXNGHwHVh4yRnENnIu5rozu6D4VewQRrYtvC3NfVcGVhA+7ixxgiBmSlwrc
+         eOlmH/wunalYpIPQzc/Ax4yYR4u2TPAS+D1FTnp5fe05TS0rbAbo9TMcA1rEc5TQeUDe
+         Ekuwqub9w19PCmnhB4+viOtvemHb5F30LkxWLlGhk819qMIUr8Eqq2fXdMbQWr5rwfEk
+         4n9B/rgG7TZX2hphWxDJ2HbiZiIEQI0SIqdm9MvO1XGgNn1+LRfrSgSBnaRBVVSfzjbb
+         TE8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764865043; x=1765469843;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=aNxmDbbdKqIboODXWdbYm3bL1ySA2CUYBdNtl6MTmVk=;
-        b=YPaHa3O4OtNmcchtM2qmn9y/Xqw9IvelObqcnXcYeb8II58hR7BILA/6Ys/j/Lerlz
-         TT4l4SA0yLaFgWBfGH18/Jo4SGSTjOz5aOCxPczxFf9DhX7dkmzB14JRIsDnhoVoFOh7
-         F1jj/iLcuZforrzzypKJ4UHrB13fTX04s8pt88O2KDu6qIn5+XdtO07E8Dwmzy5cyFcC
-         u1rzyquB7p48/kHRjH/H2Nr4Y/YrWqyQwaxdEfUOfBc0oFORXEiaKE2U86Raxx7IwuSW
-         RptIrV3MvgEnUUokMn+YJcy6IEiCd1s3liXQfP7rWEzC+8kAyl8UtBbNJHmXkhw82j46
-         5gAg==
-X-Forwarded-Encrypted: i=1; AJvYcCXJUD4Emd3yON9BHTmzGF2gahNtGz7f9gnuqENvgCqylU45nOVZ6ayr8HpIGoaaODyDQswwnktJov+XYqgzFwUc@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzM9FJIHjuUQNJalZDefRAHQ3o/O2+byFrEQBI/wadqIkclww9
-	Pdr1+E7CG1rLGlE8LzMKZJjeLDlRzPGFQMbb/5+qJzUIVP0AXUw8sBApygxuAACvV3o=
-X-Gm-Gg: ASbGnctPifIr+g0hJtkZ7raMR9SBesSjO3qzoRP98jdW3QeRZb4SStqPYrZQGyJX6R8
-	Jyr8XTpCx4whthNPLVCLaX6T5LT48bZWWqGba3xG5k3+PzWxr01dSEa9eWV1nqiJ0nIphtWEZ53
-	D1A80zM0SJ06aZ0D7f8dOuI9XRLjWl4YuMDFk8gRSoePihqUJdoWr2HNEx+QWJuJ+L2jv2AmMgx
-	7URexYL5ojGW7SLxk9u50P77ScE+bX5zzgbIlz2mNfho3qBRyEDc/NkKcQjDye+V5/0+zJ7wnuF
-	Mr8ko3LxQzEkbywwtoWQWwJy/8OyBY0VsZ8v/yIDBj7vBydAMRq8usYZtsC+UaBIfr1BOo2po23
-	1dMvfjr7HKx5ff4TnrMCN+vqJuElFiuUVGMU6u7VJHk/k91CN7i6h0YTKRXxhpNOk3tf4x7Mev7
-	XxHxI/saVZ96v4WkXtohZWo6wG2MhBSJdJMqYcILvNLdsfx/YgaPZSKE3veacV2i3+7B7Jwg==
-X-Google-Smtp-Source: AGHT+IH6HRzgtWVSRwk2pLy54f/ZcykaKll9/7ioHYJyiAfAQ0RExVb1Rrhx4JL/zXiO1Ib8Xi1u/g==
-X-Received: by 2002:a05:600c:310c:b0:477:7b9a:bb0a with SMTP id 5b1f17b1804b1-4792af34a44mr65294315e9.21.1764865043101;
-        Thu, 04 Dec 2025 08:17:23 -0800 (PST)
-Received: from aspen.lan (aztw-34-b2-v4wan-166919-cust780.vm26.cable.virginm.net. [82.37.195.13])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42f7d353f8bsm4033746f8f.43.2025.12.04.08.17.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Dec 2025 08:17:22 -0800 (PST)
-Date: Thu, 4 Dec 2025 16:17:20 +0000
-From: Daniel Thompson <daniel@riscstar.com>
-To: maudspierings@gocontroll.com
-Cc: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>,
-	Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, dri-devel@lists.freedesktop.org,
-	linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v6 2/4] backlight: add max25014atg backlight
-Message-ID: <aTG0EK_zuSB-U_bb@aspen.lan>
-References: <20251201-max25014-v6-0-88e3ac8112ff@gocontroll.com>
- <20251201-max25014-v6-2-88e3ac8112ff@gocontroll.com>
+        d=1e100.net; s=20230601; t=1764865067; x=1765469867;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TcYtubvKcGoSq4YWnqE43T9j+Qij7FD/s8vUU4QGez4=;
+        b=bshmgKqNxRDwZmnDRj/peOKxsB0sg5c4hW7EjSFsaOq3inHaMdusyGn9LtOZ3SRWgG
+         tVkFw2BHUZtjqHc6L4fht02qgtUheIlWJ7pI54174Lik8mQVfq2+PsDDggvbWR0JWxWb
+         eSZ4iAL5FlLNMLs44jxj7F7knmP8Hm834FTpg2bPRhCTmDz7pB8xP4pMUZ15i/gZg20F
+         s7/4uHILZj8KLIBWSJSg+vOnbWF2LLw8Px3inBrFI4WsUG4di3MPNIQ9Dq8YZkLb01HS
+         lu6mLz5psQWT4YeWISqGIo1dBJBGBUqllXJ8mEleflwxEr4GBt0FwmBSTbtzfKoS/BUr
+         Komg==
+X-Forwarded-Encrypted: i=1; AJvYcCVIhNhk4QcKDD1LntULBFbnqY1h/wW56bhKOTIE5PmOPYd1fjLKZXrl4tW6GwguCQEjkDjVunT8XBpj4+kpZ1m2@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXhdx662+VjwqJnpqF2MJmNFWW2jvCC0pw896FoKwou9LfjDRk
+	54FbJ5LStRAEc6IsQK59Htp9iQCw4nkkXTJa59Zfx4MYS1vZTpkblXSHQDThrqvwe8VAWftDPnX
+	NZhrsVLomEMSonhN2TTnYcRTQzenUzqJ4zjK2YK4G2w==
+X-Gm-Gg: ASbGncsqtdfLRs8GTYkB6WfHLlZCytER5zc9ciSkouwKsxylx090ikWF/nWBa4RMDHS
+	iIwyudsYzSpTOgGz6p+aekPG0x3rkAO4EU+F/vDV0gGAYGD9eccjrjzYJ+Aol5TBJ1S1OfpKtqP
+	m4/EB+3IcSAUhhdlFA8P8u5eVnL/iAMDj84PUeh0yo8xZSjNLkpLAzH1T5vSf2I4MvYeZIAGr9+
+	AyZMEjOmed0TZcTy19eKD/+8o2bo/KUPbGEVTUcjcpT/SbTSs0tJlCDQQw0Ng6lz0HTElycEEPo
+	7NYfcOK4jel1UqB7CaNZE3PyL61Y
+X-Google-Smtp-Source: AGHT+IF8z11XLGfYzUm91CMdZf4GezIwYVVnF1KmzD5fxiCI7uZI3auSv7HjayTXTjcC2dCJDroO2z1dhzcB1niqEsc=
+X-Received: by 2002:a05:6214:21ee:b0:87c:2360:d404 with SMTP id
+ 6a1803df08f44-88819483e38mr101446386d6.7.1764865066864; Thu, 04 Dec 2025
+ 08:17:46 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251201-max25014-v6-2-88e3ac8112ff@gocontroll.com>
+References: <20251202-extended_cti-v6-0-ab68bb15c4f5@oss.qualcomm.com>
+ <20251202-extended_cti-v6-2-ab68bb15c4f5@oss.qualcomm.com>
+ <20251203182944.GG724103@e132581.arm.com> <CAJ9a7VjWDBEwdmMf53geACBWGusC8BC3pJuOLETeecw24+N35Q@mail.gmail.com>
+ <20251204103151.GK724103@e132581.arm.com>
+In-Reply-To: <20251204103151.GK724103@e132581.arm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Thu, 4 Dec 2025 16:17:35 +0000
+X-Gm-Features: AWmQ_blm_2rs2si_vAcMXoW5zZu2s4mytZpslYby8tsAcsAdu9x6GoUJ81x6Q9c
+Message-ID: <CAJ9a7VjHHkkTz9XJqjdQ+11_XX9zXuY0ZcQzPtq=Zvi4CN__0A@mail.gmail.com>
+Subject: Re: [PATCH v6 2/2] coresight: cti: Add Qualcomm extended CTI support
+To: Leo Yan <leo.yan@arm.com>
+Cc: Yingchao Deng <yingchao.deng@oss.qualcomm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, quic_yingdeng@quicinc.com, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Mao Jinlong <quic_jinlmao@quicinc.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_081725_704934_AB9A56E1 
-X-CRM114-Status: GOOD (  33.80  )
+X-CRM114-CacheID: sfid-20251204_152229_850986_F3BBE959 
+X-CRM114-Status: GOOD (  27.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,340 +117,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 01, 2025 at 12:53:21PM +0100, Maud Spierings via B4 Relay wrote:
-> From: Maud Spierings <maudspierings@gocontroll.com>
+Hi Leo
+
+On Thu, 4 Dec 2025 at 10:31, Leo Yan <leo.yan@arm.com> wrote:
 >
-> The Maxim MAX25014 is a 4-channel automotive grade backlight driver IC
-> with integrated boost controller.
+> On Thu, Dec 04, 2025 at 09:07:56AM +0000, Mike Leach wrote:
 >
-> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+> [...]
+>
+> > > I saw CTI registers are within 4KiB (0x1000), we can don't convert
+> > > standard regiserts and only convert to QCOM register based on the
+> > > standard ones.  So you can drop the cti_normal_offset strucuture and
+> > > only have a cti_reg_qcom_offset[] struct:
+> > >
+> > >   static const u32 cti_extended_offset[] = {
+> > >         [CTIINTACK]             = QCOM_CTIINTACK,
+> > >         [CTIAPPSET]             = QCOM_CTIAPPSET,
+> > >         [CTIAPPCLEAR]           = QCOM_CTIAPPCLEAR,
+> > >         [CTIAPPPULSE]           = QCOM_CTIAPPPULSE,
+> > >         [CTIINEN]               = QCOM_CTIINEN,
+> > >         ...
+> > >   };
+> > >
+> >
 
-> <snip>
+The tables in the patch are
 
-> +static int max25014_check_errors(struct max25014 *maxim)
-> +{
-> +	uint32_t val;
-> +	uint8_t i;
-> +	int ret;
-> +
-> +	ret = regmap_read(maxim->regmap, MAX25014_OPEN, &val);
-> +	if (ret)
-> +		return ret;
-> +	if (val) {
-> +		dev_err(&maxim->client->dev, "Open led strings detected on:\n");
-> +		for (i = 0; i < 4; i++) {
-> +			if (val & 1 << i)
-> +				dev_err(&maxim->client->dev, "string %d\n", i + 1);
-> +		}
-> +		return -EIO;
-> +	}
-> +
-> +	ret = regmap_read(maxim->regmap, MAX25014_SHORT_GND, &val);
-> +	if (ret)
-> +		return ret;
-> +	if (val) {
-> +		dev_err(&maxim->client->dev, "Short to ground detected on:\n");
-> +		for (i = 0; i < 4; i++) {
-> +			if (val & 1 << i)
-> +				dev_err(&maxim->client->dev, "string %d\n", i + 1);
-> +		}
-> +		return -EIO;
-> +	}
-> +
-> +	ret = regmap_read(maxim->regmap, MAX25014_SHORT_GND, &val);
+    [reg_type_array_index] = offset_address;
 
-Shouldn't this be MAX25014_SHORT_LED?
+e.g.
 
+  [INDEX_CTIINTACK]  = QCOM_CTIINTACK
 
-> +	if (ret)
-> +		return ret;
-> +	if (val) {
-> +		dev_err(&maxim->client->dev, "Shorted led detected on:\n");
-> +		for (i = 0; i < 4; i++) {
-> +			if (val & 1 << i)
-> +				dev_err(&maxim->client->dev, "string %d\n", i + 1);
-> +		}
-> +		return -EIO;
-> +	}
-> +
-> +	ret = regmap_read(maxim->regmap, MAX25014_DIAG, &val);
-> +	if (ret)
-> +		return ret;
-> +	/*
-> +	 * The HW_RST bit always starts at 1 after power up.
-> +	 * It is reset on first read, does not indicate an error.
-> +	 */
-> +	if (val && val != MAX25014_DIAG_HW_RST) {
-> +		if (val & MAX25014_DIAG_OT)
-> +			dev_err(&maxim->client->dev,
-> +				"Overtemperature shutdown\n");
-> +		if (val & MAX25014_DIAG_OTW)
-> +			dev_err(&maxim->client->dev,
-> +				 "Chip is getting too hot (>125C)\n");
-> +		if (val & MAX25014_DIAG_BSTOV)
-> +			dev_err(&maxim->client->dev,
-> +				"Boost converter overvoltage\n");
-> +		if (val & MAX25014_DIAG_BSTUV)
-> +			dev_err(&maxim->client->dev,
-> +				"Boost converter undervoltage\n");
-> +		if (val & MAX25014_DIAG_IREFOOR)
-> +			dev_err(&maxim->client->dev, "IREF out of range\n");
-> +		return -EIO;
-> +	}
-> +	return 0;
-> +}
-> +
-> +/*
-> + * 1. disable unused strings
-> + * 2. set dim mode
-> + * 3. set setting register
-> + * 4. enable the backlight
-> + */
-> +static int max25014_configure(struct max25014 *maxim, int initial_state)
-> +{
-> +	uint32_t val;
-> +	int ret;
-> +
-> +	/*
-> +	 * Strings can only be disabled when MAX25014_ISET_ENA == 0, check if
-> +	 * it needs to be changed at all to prevent the backlight flashing when
-> +	 * it is configured correctly by the bootloader
-> +	 */
+which resolves to
 
-Attach the comment to the if statement rather than the read.
+ [1] = 0x020
+
+where index is constant for a given register type,
+
+As far as I can tell what you have suggested above is a table that is
+
+  [std_addr_offset] = qcom_addr_offset;
+
+e.g.
+
+[CTIINTACK]             = QCOM_CTIINTACK,
+
+which resolves to
+
+[0x10]  = 0x020
+
+which does not appear to work correctly?
+
+The registers are sparsely spread across the memory map, so a simple
+mapping does not work, even if we divide the original offset by 4 to
+create a register number.
+
+The largest standard offset we have is ITTRIGIN = 0xEF8, so assuming
+the compiler allows us to sparselly populate the array (which I think
+it does, along with some padding), we end up with an array of at least
+0xEF8 elements, rather then the indexed 21?
+
+Regards
+
+Mike
+
+> > I suggested the dual offset approach a couple of patchset revisions
+> > ago as it actually simplifies the code & makes it more efficient. The
+> > offset array in use is set during probe and the remaining code is then
+> > common to both without lots of "if qcom else " occurences.
+>
+> AFAICS, we will handle the QCOM CTI particularly in three cases:
+>
+>   1) The register access;
+>   2) The claim tag;
+>   3) Sysfs attr is visible.
+>
+> Now we are discussing the reigster access.  As suggested, the
+> "if qcom / else" is encapsulated (e.g., in cti_reg_addr_with_nr()), it
+> will not spread out.
+>
+> I'd use standard registers by default and convert to non-standard ones
+> only when needed.  A new "neutral" index layer seems redundant, as the
+> existing standard register indexes already serve this purpose.
+>
+> For the sysfs attrs, it makes sense to use a central place to decide
+> which knobs are only visible for QCOM CTI, otherwise, we also will not
+> spread the condition check.
+>
+> I will reply separately for claim tag issue.
+>
+> Thanks,
+> Leo
 
 
-> +	ret = regmap_read(maxim->regmap, MAX25014_DISABLE, &val);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (!((val & MAX25014_DISABLE_DIS_MASK) == maxim->strings_mask)) {
-> +		if (initial_state == BACKLIGHT_POWER_ON) {
-> +			ret = regmap_write(maxim->regmap, MAX25014_ISET, 0);
-> +			if (ret)
-> +				return ret;
-> +		}
-> +		ret = regmap_write(maxim->regmap, MAX25014_DISABLE, maxim->strings_mask);
-> +		if (ret)
-> +			return ret;
-> +	}
-> +
-> +	ret = regmap_write(maxim->regmap, MAX25014_IMODE, MAX25014_IMODE_HDIM);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = regmap_read(maxim->regmap, MAX25014_SETTING, &val);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = regmap_write(maxim->regmap, MAX25014_SETTING,
-> +			   val & ~MAX25014_SETTING_FPWM);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = regmap_write(maxim->regmap, MAX25014_ISET,
-> +			   maxim->iset | MAX25014_ISET_ENA |
-> +			   MAX25014_ISET_PSEN);
-> +	return ret;
-> +}
-> +
-> +static int max25014_update_status(struct backlight_device *bl_dev)
-> +{
-> +	struct max25014 *maxim = bl_get_data(bl_dev);
-> +	uint32_t reg;
-> +	int ret;
-> +
-> +	if (backlight_is_blank(maxim->bl))
-> +		bl_dev->props.brightness = 0;
-
-This isn't right. Why would you change the backlight level just because
-it is currently blanked (and sorry I missed this one last time).
-
-> +
-> +	reg  = TON_STEP * bl_dev->props.brightness;
-
-The correct way to honour blanking is just go call
-backlight_get_brightness() instead of reading the property directly.
-
-
-> +
-> +	/*
-> +	 * 18 bit number lowest, 2 bits in first register,
-> +	 * next lowest 8 in the L register, next 8 in the H register
-> +	 * Seemingly setting the strength of only one string controls all of
-> +	 * them, individual settings don't affect the outcome.
-> +	 */
-> +
-> +	ret = regmap_write(maxim->regmap, MAX25014_TON_1_4_LSB, reg & 0b00000011);
-> +	if (ret != 0)
-> +		return ret;
-> +	ret = regmap_write(maxim->regmap, MAX25014_TON1L, (reg >> 2) & 0b11111111);
-> +	if (ret != 0)
-> +		return ret;
-> +	return regmap_write(maxim->regmap, MAX25014_TON1H, (reg >> 10) & 0b11111111);
-> +}
-> +
-> +static const struct backlight_ops max25014_bl_ops = {
-> +	.options = BL_CORE_SUSPENDRESUME,
-> +	.update_status = max25014_update_status,
-> +};
-> +
-> +static int max25014_parse_dt(struct max25014 *maxim,
-> +			     uint32_t *initial_brightness)
-> +{
-> +	struct device *dev = &maxim->client->dev;
-> +	struct device_node *node = dev->of_node;
-> +	struct fwnode_handle *child;
-> +	uint32_t strings[4];
-> +	int res, i;
-> +
-> +	if (!node)
-> +		return dev_err_probe(dev, -EINVAL, "no platform data\n");
-> +
-> +	child = device_get_next_child_node(dev, NULL);
-> +	if (child) {
-> +		res = fwnode_property_count_u32(child, "led-sources");
-> +		if (res > 0) {
-> +			fwnode_property_read_u32_array(child, "led-sources",
-> +						       strings, res);
-> +
-> +			/* set all strings as disabled, then enable those in led-sources*/
-> +			maxim->strings_mask = 0xf;
-> +			for (i = 0; i < res; i++) {
-> +				if (strings[i] <= 4)
-> +					maxim->strings_mask &= ~BIT(strings[i]);
-> +			}
-> +		}
-> +
-> +		fwnode_property_read_u32(child, "default-brightness",
-> +					 initial_brightness);
-> +
-> +		fwnode_handle_put(child);
-> +	}
-> +
-> +	maxim->iset = MAX25014_ISET_DEFAULT_100;
-> +	of_property_read_u32(node, "maxim,iset", &maxim->iset);
-> +
-> +	if (maxim->iset > 15)
-> +		return dev_err_probe(dev, -EINVAL,
-> +				     "Invalid iset, should be a value from 0-15, entered was %d\n",
-> +				     maxim->iset);
-> +
-> +	if (*initial_brightness > 100)
-> +		return dev_err_probe(dev, -EINVAL,
-> +				     "Invalid initial brightness, should be a value from 0-100, entered was %d\n",
-> +				     *initial_brightness);
-> +
-> +	return 0;
-> +}
-> +
-> +static int max25014_probe(struct i2c_client *cl)
-> +{
-> +	const struct i2c_device_id *id = i2c_client_get_device_id(cl);
-> +	struct backlight_properties props;
-> +	uint32_t initial_brightness = 50;
-> +	struct backlight_device *bl;
-> +	struct max25014 *maxim;
-> +	int ret;
-> +
-> +	maxim = devm_kzalloc(&cl->dev, sizeof(struct max25014), GFP_KERNEL);
-> +	if (!maxim)
-> +		return -ENOMEM;
-> +
-> +	maxim->client = cl;
-> +
-> +	ret = max25014_parse_dt(maxim, &initial_brightness);
-> +	if (ret)
-> +		return ret;
-> +
-> +	maxim->vin = devm_regulator_get(&maxim->client->dev, "power");
-> +	if (IS_ERR(maxim->vin)) {
-> +		return dev_err_probe(&maxim->client->dev, PTR_ERR(maxim->vin),
-> +				     "failed to get power-supply");
-> +	}
-> +
-> +	ret = regulator_enable(maxim->vin);
-> +	if (ret)
-> +		return dev_err_probe(&maxim->client->dev, ret,
-> +			"failed to enable power-supply\n");
-
-Can this use devm_regulator_get_enable()?
-
-
-> +
-> +	maxim->enable = devm_gpiod_get_optional(&maxim->client->dev, "enable",
-> +						GPIOD_OUT_HIGH);
-> +	if (IS_ERR(maxim->enable)) {
-> +		ret = dev_err_probe(&maxim->client->dev, PTR_ERR(maxim->enable),
-> +				    "failed to get enable gpio\n");
-> +		goto disable_vin;
-> +	}
-> +
-> +	/* Datasheet Electrical Characteristics tSTARTUP 2ms */
-> +	fsleep(2000);
-> +
-> +	maxim->regmap = devm_regmap_init_i2c(cl, &max25014_regmap_config);
-> +	if (IS_ERR(maxim->regmap)) {
-> +		ret = dev_err_probe(&maxim->client->dev, PTR_ERR(maxim->regmap),
-> +			"failed to initialize the i2c regmap\n");
-> +		goto disable_full;
-> +	}
-> +
-> +	i2c_set_clientdata(cl, maxim);
-> +
-> +	ret = max25014_check_errors(maxim);
-> +	if (ret) { /* error is already reported in the above function */
-> +		goto disable_full;
-> +	}
-> +
-> +	ret = max25014_initial_power_state(maxim);
-> +	if (ret < 0) {
-> +		dev_err_probe(&maxim->client->dev, ret, "Could not get enabled state\n");
-> +		goto disable_full;
-> +	}
-> +
-> +	memset(&props, 0, sizeof(struct backlight_properties));
-> +	props.type = BACKLIGHT_PLATFORM;
-> +	props.max_brightness = MAX_BRIGHTNESS;
-> +	props.brightness = initial_brightness;
-> +	props.scale = BACKLIGHT_SCALE_LINEAR;
-> +	props.power = ret;
-> +
-> +	ret = max25014_configure(maxim, ret);
-> +	if (ret) {
-> +		dev_err_probe(&maxim->client->dev, ret, "device config error");
-> +		goto disable_full;
-> +	}
-> +
-> +	bl = devm_backlight_device_register(&maxim->client->dev, id->name,
-> +					    &maxim->client->dev, maxim,
-> +					    &max25014_bl_ops, &props);
-> +	if (IS_ERR(bl)) {
-> +		ret = dev_err_probe(&maxim->client->dev, PTR_ERR(bl),
-> +				    "failed to register backlight\n");
-> +		goto disable_full;
-> +	}
-> +
-> +	maxim->bl = bl;
-> +
-> +	backlight_update_status(maxim->bl);
-> +
-> +	return 0;
-> +
-> +disable_full:
-> +	gpiod_set_value_cansleep(maxim->enable, 0);
-
-Why is this needed? It was only ever set by devm_gpiod_get_optional().
-
-> +disable_vin:
-> +	regulator_disable(maxim->vin);
-
-This is also not needed if you use devm_regulator_get_enable().
-
-
-> +	return ret;
-> +}
-
-
-Daniel.
+--
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
