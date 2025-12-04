@@ -4,152 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FEA6D24440
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 17:23:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7C16D2444B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 17:23:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GTR/crLhK/jv5t/UyXOjQru8DsDEkTS/DdlZpttXbu0=; b=jTc+5cBAFpwHv0F2bbRVcx5OBg
-	PNSC35Q+i/CTgcKaz/iADtnDBwfTFQHENFH91IFUiqn4EzJee8yaqgel5uVVKmGHvGsPiEEjiqlEc
-	7fMNiXrrAXaI/E5yoOMAvPpHLKu9egEnq2z5ZxRe9iliz51WH+4BlFRE/yX3dhEcAr33jeahu1mjh
-	nlye1kLETWpvN9UTBClzRHns9QW8waIT9KOiF+K6pRYzGveo8hoJIx5Kejj0onq6HEg0EKa/k3KhS
-	X4gZNo5Y5pWZf4COcG2lVFIeJGGhKdhiW6DN5i4P5ZvHqO0B7P/iUabPQU8+6qwpyBmHDG5LOKaOu
-	aJwFWPig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7XAPGpDF6SeuuHCTwrypKrihZo7oSp+mBZnXZpxJtM0=; b=izE1mssD7lhX3BS8CJGtH//Etb
+	EAlrU2QOGF0zeFcezNutcidWvdzXgsJawTR+QrmoMKxWawMN5S6JOfGXrh2ST4UmrV6LqTfTxkN72
+	wrVKK8pQAKwIEBQM5Kyd3nUW/JcnuiXT4jwgar7bczn47UV7nKAJN3fbzQl9ws5AY0wZGGdgsijgc
+	JLCmAZISE0dkWCyyOtJNP5fDxagPH/gvrekTARQUrG0GyenPPNUp0Rb9lz3/oRbLoDNUxgh43HM2j
+	9WMgwmmjBM7jRrIy4dMRTfKypSwGpVRax5WxxyVh1EWyrLsEuA6pGR2wEM5mfZSx/3iSO3HR2sI6m
+	GvfQKHTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRD3N-00000008Mss-0gUk;
-	Thu, 04 Dec 2025 17:23:41 +0000
-Received: from mail-westeuropeazon11010059.outbound.protection.outlook.com ([52.101.69.59] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vRD3c-00000008Mwv-00nm;
+	Thu, 04 Dec 2025 17:23:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRD3K-00000008MsP-0SI8
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 17:23:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FZ75UiWXJ1vahhYz/kxHp3ZPjJ9epNLKnmbR+Qc9sHOr2aTZ0DP+sFUCw/QjQeIfeMSSZDW+LU+sOoRfz0a9VJYtp0zfLJr0AqGBXZeir3DEQLM6vrUMylH3+hMFCcYsFHJ04zY7ZggjaY1H+apqiFdIwusheGwCP8gy2IXFlrQAVPTVh9up2hRVTjSQdX0hnzUMSyZp0hnXkHfphfxVbeMEA5rhtNcZ+ea9pz1qCA/xqO7TEEQI+JCmM+/6w/y0P/faccT2WEjsEdzCM8dWLCCUkfcQ9EmefPgzRRkvg2yWs4Er861peDcqa3k/BCvZo2wfhzTzME0Cv3hAEVDAqQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GTR/crLhK/jv5t/UyXOjQru8DsDEkTS/DdlZpttXbu0=;
- b=KGGyhImoUjBX8H77d445S7u7EaeB/PI6bw2j7019zOitPU4xz841OHDqWbgrQBzTy/zBrruZfXdzkNUTzqBB0SPatWR0mbdmVo/E/qM82XvGnEqUKwNmBHRxXznZhu+CAoI0PwRsFULWoyHecKFDihy1ez2aPynGZd+aUtfFwe3Uqov9vg393fNmfu1IcugQ96aYElDR2BGEi61zsd9s1e9zLSkfQRJtgtPBluybz88U6/PxwtF9FZIfEGwyPjfXBZGn6D3rwshc9RETtNGQXzL9ORuKC1H6H/hczfIQLGcsidwOEtlg97j6JdDMuZzIgyas+6qpHcTnSBQiaHg//w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GTR/crLhK/jv5t/UyXOjQru8DsDEkTS/DdlZpttXbu0=;
- b=fbrukrAmTPCBrV1NTY+tRVP/ZYBqtzxId4SyIhBKW88PY8NVq2YqFfESZGA903WRLdxNWD4YYDneitaoSJIWAl6rlhXtd93JMaq45xWMzFBXOEco0MWi3w+tYHcvLIZc4KBvTROUGBVvfpZE3YkFYvKgWfCUO05SxKNzJq9gWLf4Pwu/zsUl5WY0u32mgrJ04EO/kLsjpOcJ8sPvevmPx8f91tXyjQJyoV34gXhJK4Fb1wZZgqzI1K2fLbbq6GoAnzq6P+76lq0fBD+VTwfykMoo3YzNjpQGLUnIlT+Ukhyh63FYLvl1I4Z5Fm8ZhIP4qv1QTsSo09WedM5gMtUXiA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8957.eurprd04.prod.outlook.com (2603:10a6:102:20c::5)
- by VI1PR04MB7072.eurprd04.prod.outlook.com (2603:10a6:800:12c::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.9; Thu, 4 Dec
- 2025 17:23:32 +0000
-Received: from PAXPR04MB8957.eurprd04.prod.outlook.com
- ([fe80::9c5d:8cdf:5a78:3c5]) by PAXPR04MB8957.eurprd04.prod.outlook.com
- ([fe80::9c5d:8cdf:5a78:3c5%3]) with mapi id 15.20.9388.003; Thu, 4 Dec 2025
- 17:23:32 +0000
-Date: Thu, 4 Dec 2025 12:23:21 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: ming.qian@oss.nxp.com
-Cc: linux-media@vger.kernel.org, mchehab@kernel.org,
-	hverkuil-cisco@xs4all.nl, nicolas@ndufresne.ca,
-	benjamin.gaignard@collabora.com, p.zabel@pengutronix.de,
-	sebastian.fricke@collabora.com, shawnguo@kernel.org,
-	ulf.hansson@linaro.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
-	l.stach@pengutronix.de, peng.fan@nxp.com, eagle.zhou@nxp.com,
-	imx@lists.linux.dev, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 1/3] media: v4l2-mem2mem: Add a kref to the
- v4l2_m2m_dev structure
-Message-ID: <aTHDiVI6ZB3E7Anh@lizhi-Precision-Tower-5810>
-References: <20251204090813.595-1-ming.qian@oss.nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251204090813.595-1-ming.qian@oss.nxp.com>
-X-ClientProxiedBy: BYAPR02CA0033.namprd02.prod.outlook.com
- (2603:10b6:a02:ee::46) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+	id 1vRD3a-00000008MwG-3Z4N;
+	Thu, 04 Dec 2025 17:23:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 10D08601FD;
+	Thu,  4 Dec 2025 17:23:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 542C9C4CEFB;
+	Thu,  4 Dec 2025 17:23:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764869033;
+	bh=RdCPDCtGj09k6W4RZzgSRfIdQorpFJpu+oFk7ag/R0E=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=PXFMZVJhPsYZ9qxtY1JYoo80yfyc40OIXO2xfqFRDuWkwv/xeRL5W0L36KwNH6B8J
+	 9q7eGzpX0N84iAbAGQu+vtMQ4HoZlanCrFnZyW9BgavsRdbAmOve5waniqID2FNLeE
+	 JGVEjhsjkrUUGYSS8czdsTs29H2fNB4S8mjGzoU7GKQMO5pUhPYHg3lBac8r8BdAJG
+	 vL+7idoIW8OVON6i04U7H8Jj3R+OAYH0eMY2ryylzzP2JP+dBuiDidyvaR9JDiQyAP
+	 GM2totZZ44wWXJxuOtD4APneSse82aNUZh/UkKv56uZeTGtJ/EESO1SX2zbaN+qGz3
+	 /VsUV1o+H8ASw==
+Message-ID: <178afbeb-168f-4765-bb0b-fad0bcd29382@kernel.org>
+Date: Thu, 4 Dec 2025 18:23:48 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8957:EE_|VI1PR04MB7072:EE_
-X-MS-Office365-Filtering-Correlation-Id: e26b470a-ffe8-44bc-f6ea-08de3359d8c0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|52116014|1800799024|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?S6vY92RSLLlX7VRoVto4y/0aTLxz9aWVwwnV6aXqQsS2r+AIt3yMx7cMcMws?=
- =?us-ascii?Q?BDAY5YMGx+M+nsAG9jNbCPuJMzVw480r6Zrr6V2wp7Ao+Y3CrY6lQ8ip1P7z?=
- =?us-ascii?Q?qq1Elrbgx2NNHQM7NsY77yrgNfH32S6fGogqu5qwYYhEdsfrlJHyeadBpZTN?=
- =?us-ascii?Q?fA5vuSwQyBfWWv10Mkmfye3Ldun6/Q2uSFDXj0eYsferBJr6KYw15rcJOkAJ?=
- =?us-ascii?Q?bQsW9HsidMnJfpkuIuAEudxgBsmotXscqmxv3k/ze0s8jsNlyzLMZlJuijHz?=
- =?us-ascii?Q?2QU4RgRxTkdUd0Dj8Gxq7a+CCBHHXZBhtvFGt0Vy0DILua5j0+QX/wOmLCJj?=
- =?us-ascii?Q?S+VV2pTFyqjdtHFiKvdG/4UCkgqpKxJin6H7N7sqElk0dGDly2mL+ILjwv8M?=
- =?us-ascii?Q?75kZOYtJmpZkl6cZ0SIJBuei26KC6Mr6hx1HItUmFRTfHmD/VFoDHcEj4lAf?=
- =?us-ascii?Q?L14iGTpEo+D8Gs/gwrUDxqBZkolajFRB96FHwA5/rgGbFKQQzzjrCYUpUrYJ?=
- =?us-ascii?Q?2vYLMPWicKEf+Mc34B1CisZVHdoDBcPWoXgqRSbne5Xp9AK9p8vhqRoCaTR/?=
- =?us-ascii?Q?ihclNPjCwDdBk2USQ3eEwosj7B/a4/Yxbfbfw3haX3oBH3gJbGG8BkXkUgn0?=
- =?us-ascii?Q?uwmdKPw1R2conK8zYxso6yH9dcaDvPO/u2fAmxCGgZGbanO0+fsJ3xUA/1Jo?=
- =?us-ascii?Q?rlEMKFH3alAeD0oAvTu0013+g4U+8nGACIMteHYl12Nd8QGbjvduj+jaJEca?=
- =?us-ascii?Q?eq8HKiYytp598txLFou9AyllVc6M2Pm9M8SjDfjiPmuu+hvFwkWLLqdk+72X?=
- =?us-ascii?Q?Cjkc+9lbY4EGAoBu72Lgt4RUkIQlhSZYfhLkeuKwIC0WRW/cbvFcSPjggovO?=
- =?us-ascii?Q?QblCfp4T5COLh21glpSehlPKML59rF6N1n7h8Q/4kAWjBAYXKzVdFLR1sQnV?=
- =?us-ascii?Q?18WBRQcNl22V0GklrIrBfx8x1LbI/diIlxMskNU2SguHWff+XWghZnswID5X?=
- =?us-ascii?Q?eIFbiQ5qD2InXwYA8atEKJwgelbpWCsbii6X55owRil5oR0/hxi/wmI+MQ/7?=
- =?us-ascii?Q?KZIxZM9JDlOpo+EeeEZ1NnUNr7cCrWNMlnJ4cskwQ9qpvEFFz7NsZGK1mYJV?=
- =?us-ascii?Q?wXpPsT5O/VTQxtSa9CPZWZ0MItqoeSCqNWW6MChyi+6qGG3d8JFkhlCW8GLC?=
- =?us-ascii?Q?O6mxsG0ytikIWoTFVywhen6z2c/xf6oGbE9Vry0SHVqIbeFp16/zliket3rG?=
- =?us-ascii?Q?eRczJgChptYTXjvWsL7WCy/VaiJ4EVkAH3ptU/BMOle1cUrhbCJSOHq2EWeQ?=
- =?us-ascii?Q?cnyVl4h16krp3wDkGm1sBcMU7Ofy/dNMIyA3G3ZLgn7aBvzFhpCL0uMjdPtd?=
- =?us-ascii?Q?G6teL9dh+KdeJkxcTaIh8nllU9hP+/lNjWl5jjSpQAm8i0AVW/ShroLjYFWM?=
- =?us-ascii?Q?BDyh2txl/D7LUjNOXcA3TGflPIlOXW9WvL3T575e/5mt24e5ecU0gXZXXr/U?=
- =?us-ascii?Q?bwlMh4f8Mmcf6axsaIhXP+uTYfFMjAInJEsb?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8957.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(52116014)(1800799024)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ShBUhi+xbMOf3dziE8hbBoY9VF6/RFp54f1aJf8vuBz0Ua9DXTv4b96k+9c/?=
- =?us-ascii?Q?/un1BRK3CD+uJ9uIXR8MttkAX4jzzMJboI/vN32PTPdmzWb8P0fuZIx7TdlW?=
- =?us-ascii?Q?E5q0jVpP3XzowY6OWlGfSN0qGJkcbyhqqBcPUHN3Sh1tTPNi0XauTYh4RTQL?=
- =?us-ascii?Q?bIke+dpuZWdWHQwMNYQ1sDKthJLVwzsrWSus1EAV+c5JAt1K4x8mJMXDF27g?=
- =?us-ascii?Q?0vPxYu729hqqkUMDFcrE3bdKSCkIz3md7hnwQK+9A76GXf3drAw4W/dgzlDO?=
- =?us-ascii?Q?L47zAO9Oi+RGvdID/f/wG8v9nP0IQP+GyU4aeJ6bvND7L6HMfmMd97Ii+iNJ?=
- =?us-ascii?Q?hPlmMOkl5poOmTSh2sF8tUlRpqcDKbjZN9Z6dOUrA+Mlfd3esLkoaJ+X+gwx?=
- =?us-ascii?Q?Uw573u+2aHhaY9+CyH6u7BZixqXWMTASrNX7g96oFqukpIR7YpprK+4OqILw?=
- =?us-ascii?Q?xXmXsiQjNAdb0Z1dz02B6k2LZw4rWO3clrSsCRiODQE38AzDh9761wUV3/f0?=
- =?us-ascii?Q?hoGQH0nlARncLQ8/voFCE/rWI+ETY2GRJUFCldY/PfZYRrefCC6sCGR4JBB6?=
- =?us-ascii?Q?GOprNMTvaXxmgLh6m2pCQyH8CmXQ65HcLKCgC/kXlF+9JC9w5cFBQn3gAfVQ?=
- =?us-ascii?Q?07im8p42CwB0GdcYniFSAP45BUSMrYTpVbLRF4MypAyec7koUkoFK9AVjZOa?=
- =?us-ascii?Q?bcJiiPzsA1AB0V23LstzJ5WDEKAFzh2WBOZPzf2XHVmjUSVOTqlO+iiIpWN9?=
- =?us-ascii?Q?pOAYH/JZDVSGQ/uXBnXyU4g64Ije74B0wlExcEsgK3zICgd2ZAFUslcH93NP?=
- =?us-ascii?Q?nvvx3M5O5LuQO+/qRPRTHGa43ezOwvmrGyV5Kb0SEkl+2uQdLtG7l3+Qs25q?=
- =?us-ascii?Q?nrtT262u19thqhUYs3DRJAPBQVyf54/XQ/ox/lkcCrrhTp1H2q3vWiFk2/uO?=
- =?us-ascii?Q?BYHbX/+gLBHOo3bi7rLBy+WY3/VhnVGDzhyN2neL4C0Tap8+4EVrd3gh1Spg?=
- =?us-ascii?Q?g5ZSnIJLTwENHX8ilCTYMN0QfarOUllXTjSS4KSWRkjQ4KyiWMSV8hOSMg2A?=
- =?us-ascii?Q?sggtX92cXjecQajfZbrJYwxozpq6FSMZYc6W75XW29X3O/2XI7Vv9C3m04c0?=
- =?us-ascii?Q?u8Lzx7HmPWdIbZyey3vbyfupO42Z6ohyAe/vR+C5oQeuBbVUb7i4owCQ5+rH?=
- =?us-ascii?Q?sFtaRdZPngk323zU/Lgg+fn+h/zqB1yjxxoQ4kfNz50uoS/cODSPC+7DCwAR?=
- =?us-ascii?Q?LZr9Aa+Lvw8RfqsROa2r4YEVETEwTOsNQVIA4eo/0aQYuLzYxWHHMUJh98yB?=
- =?us-ascii?Q?CTxHWCMRj5n/r1E2kBCSKUpV8rtoYtqCFg70s4lJPVfvmoJEVknGOCyzaIKB?=
- =?us-ascii?Q?YWXBvbDMDpSC2eb5iF7/HhTxo6WO99v2sbD/R3EHlJkKa1g3WiTNakNVIRhu?=
- =?us-ascii?Q?xHZfzIaSrxvHa+KyFH0oU9XQ6/9sDhLogY19zU1TseHlqDWw6uSAvZZ1nnpR?=
- =?us-ascii?Q?wLNo/4Gobz+MoQqfhJL+0I1x9pj70OqQJ7v5b3dslxhJAPopeAFlTaQ6mGkB?=
- =?us-ascii?Q?pPvpzoXxjG496iEADoJQa6IQujNqmBuoX0LyAjUM?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e26b470a-ffe8-44bc-f6ea-08de3359d8c0
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Dec 2025 17:23:32.4826
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: m2p9/YmXDdH3jrLTBNrAq/ByS5FcuKLDeUqyF531Qty6s1gQImyLEnXUmY9ssu9vV+Y1PyCf+oHfGqbMXc6/nw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB7072
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_092338_176048_044399A0 
-X-CRM114-Status: GOOD (  25.68  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] net: dsa: mt7530: Use GPIO polarity to generate
+ correct reset sequence
+To: Vladimir Oltean <olteanv@gmail.com>
+Cc: Daniel Golle <daniel@makrotopia.org>, Frank Wunderlich <frankwu@gmx.de>,
+ Andrew Lunn <andrew@lunn.ch>, Chen Minqiang <ptpt52@gmail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "Chester A. Unal" <chester.a.unal@arinc9.com>,
+ DENG Qingfang <dqfext@gmail.com>, Sean Wang <sean.wang@mediatek.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+References: <0675b35f-217d-4261-9e3f-2eb24753d43c@lunn.ch>
+ <20251130080731.ty2dlxaypxvodxiw@skbuf>
+ <3fbc4e67-b931-421c-9d83-2214aaa2f6ed@lunn.ch>
+ <0d85e1e6-ea75-4f20-aef1-90d446b4bfa1@kernel.org>
+ <00f308a1-a4b1-4f20-8d8e-459ddf4c39b1@gmx.de>
+ <aS7Zj3AFsSp2CTNv@makrotopia.org> <20251204131626.upw77jncqfwxydww@skbuf>
+ <4170c560-1edd-4ff8-96af-a479063be4a5@kernel.org>
+ <20251204160247.yz42mnxvzhxas5jc@skbuf>
+ <66d080f1-e989-451f-9d5e-34460e5eb1b0@kernel.org>
+ <20251204171159.yy3nkvzttxecmhfo@skbuf>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251204171159.yy3nkvzttxecmhfo@skbuf>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,113 +130,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 04, 2025 at 05:08:09PM +0800, ming.qian@oss.nxp.com wrote:
-> From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
->
-> Adding a reference count to the v4l2_m2m_dev structure allow safely
-> sharing it across multiple hardware nodes. This can be used to prevent
-> running jobs concurrently on m2m cores that have some internal resource
-> sharing.
->
-> Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+On 04/12/2025 18:11, Vladimir Oltean wrote:
+> On Thu, Dec 04, 2025 at 05:48:07PM +0100, Krzysztof Kozlowski wrote:
+>> Both are the same - inverter or NOT gate, same stuff. It is just
+>> connecting wire to pull up, not actual component on the board (although
+>> one could make and buy such component as well...). We never describe
+>> these inverters in the DTS, these are just too trivial circuits, thus
+>> the final GPIO_ACTIVE_XXX should already include whatever is on the wire
+>> between SoC and device.
+> 
+> Please read what Andrew said:
+> https://lore.kernel.org/netdev/3fbc4e67-b931-421c-9d83-2214aaa2f6ed@lunn.ch/
+> 
+>   Assuming there is not a NOT gate placed between the GPIO and the reset
+>   pin, because the board designer decided to do that for some reason?
+>                    ~~~~~~~~~~~~~~
+> 
+> You two are *not* talking about the same thing. I dismissed the
 
-Also need your s-o-b, or just said refer to other thread if it already
-posted.
 
-Frank
-> ---
->  drivers/media/v4l2-core/v4l2-mem2mem.c | 23 +++++++++++++++++++++++
->  include/media/v4l2-mem2mem.h           | 21 +++++++++++++++++++++
->  2 files changed, 44 insertions(+)
->
-> diff --git a/drivers/media/v4l2-core/v4l2-mem2mem.c b/drivers/media/v4l2-core/v4l2-mem2mem.c
-> index fec93c1a9231..ae0de54d4c3e 100644
-> --- a/drivers/media/v4l2-core/v4l2-mem2mem.c
-> +++ b/drivers/media/v4l2-core/v4l2-mem2mem.c
-> @@ -90,6 +90,7 @@ static const char * const m2m_entity_name[] = {
->   * @job_work:		worker to run queued jobs.
->   * @job_queue_flags:	flags of the queue status, %QUEUE_PAUSED.
->   * @m2m_ops:		driver callbacks
-> + * @kref:		device reference count
->   */
->  struct v4l2_m2m_dev {
->  	struct v4l2_m2m_ctx	*curr_ctx;
-> @@ -109,6 +110,8 @@ struct v4l2_m2m_dev {
->  	unsigned long		job_queue_flags;
->
->  	const struct v4l2_m2m_ops *m2m_ops;
-> +
-> +	struct kref kref;
->  };
->
->  static struct v4l2_m2m_queue_ctx *get_queue_ctx(struct v4l2_m2m_ctx *m2m_ctx,
-> @@ -1200,6 +1203,7 @@ struct v4l2_m2m_dev *v4l2_m2m_init(const struct v4l2_m2m_ops *m2m_ops)
->  	INIT_LIST_HEAD(&m2m_dev->job_queue);
->  	spin_lock_init(&m2m_dev->job_spinlock);
->  	INIT_WORK(&m2m_dev->job_work, v4l2_m2m_device_run_work);
-> +	kref_init(&m2m_dev->kref);
->
->  	return m2m_dev;
->  }
-> @@ -1211,6 +1215,25 @@ void v4l2_m2m_release(struct v4l2_m2m_dev *m2m_dev)
->  }
->  EXPORT_SYMBOL_GPL(v4l2_m2m_release);
->
-> +void v4l2_m2m_get(struct v4l2_m2m_dev *m2m_dev)
-> +{
-> +	kref_get(&m2m_dev->kref);
-> +}
-> +EXPORT_SYMBOL_GPL(v4l2_m2m_get);
-> +
-> +static void v4l2_m2m_release_from_kref(struct kref *kref)
-> +{
-> +	struct v4l2_m2m_dev *m2m_dev = container_of(kref, struct v4l2_m2m_dev, kref);
-> +
-> +	v4l2_m2m_release(m2m_dev);
-> +}
-> +
-> +void v4l2_m2m_put(struct v4l2_m2m_dev *m2m_dev)
-> +{
-> +	kref_put(&m2m_dev->kref, v4l2_m2m_release_from_kref);
-> +}
-> +EXPORT_SYMBOL_GPL(v4l2_m2m_put);
-> +
->  struct v4l2_m2m_ctx *v4l2_m2m_ctx_init(struct v4l2_m2m_dev *m2m_dev,
->  		void *drv_priv,
->  		int (*queue_init)(void *priv, struct vb2_queue *src_vq, struct vb2_queue *dst_vq))
-> diff --git a/include/media/v4l2-mem2mem.h b/include/media/v4l2-mem2mem.h
-> index bf6a09a04dcf..ca295c660c7f 100644
-> --- a/include/media/v4l2-mem2mem.h
-> +++ b/include/media/v4l2-mem2mem.h
-> @@ -547,6 +547,27 @@ v4l2_m2m_register_media_controller(struct v4l2_m2m_dev *m2m_dev,
->   */
->  void v4l2_m2m_release(struct v4l2_m2m_dev *m2m_dev);
->
-> +/**
-> + * v4l2_m2m_get() - take a reference to the m2m_dev structure
-> + *
-> + * @m2m_dev: opaque pointer to the internal data to handle M2M context
-> + *
-> + * This is used to share the M2M device across multiple devices. This
-> + * can be used to avoid scheduling two hardware nodes concurrently.
-> + */
-> +void v4l2_m2m_get(struct v4l2_m2m_dev *m2m_dev);
-> +
-> +/**
-> + * v4l2_m2m_put() - remove a reference to the m2m_dev structure
-> + *
-> + * @m2m_dev: opaque pointer to the internal data to handle M2M context
-> + *
-> + * Once the M2M device have no more references, v4l2_m2m_realse() will be
-> + * called automatically. Users of this method should never call
-> + * v4l2_m2m_release() directly. See v4l2_m2m_get() for more details.
-> + */
-> +void v4l2_m2m_put(struct v4l2_m2m_dev *m2m_dev);
-> +
->  /**
->   * v4l2_m2m_ctx_init() - allocate and initialize a m2m context
->   *
-> --
-> 2.52.0
->
+It's the same thing. NOT gate is just pulling some pin down or up.
+
+> probability of there being a NOT gate in the form of a discrete chip on
+
+We do not describe NOT gates as discreet chips. I don't think anyone
+actually places something as NOT gate. It's logical NOT gate, but on
+circuit it is just pull up/down as I said multiple times. The pull +
+resistor is the "NOT gate".
+
+It's so easy and that's why it is potentially so common design.
+
+> the PCB, *exactly because* you can most likely invert the signal in the
+> GPIO pin itself.
+
+
+
+Best regards,
+Krzysztof
 
