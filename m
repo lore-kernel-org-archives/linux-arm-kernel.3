@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FEFBD1D89F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A85E2D1F9A1
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 09:48:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=73LQXRexns6qFwaoPcD4bDG2MWMt2e16tCwRaKo1ZGk=; b=ykHDWUa5+ZX2w5LLwbVmn3EowH
-	N+W3zA8+pbMkaDeYRuP7zYtds24K3Uei3dJ2lAiRIQxXmaGQ4sXWVXeCJnsP/NiiT3bgJZ5gRgYod
-	Y6+T4gmNBDYFvaDB+b8kq3drBQaU75y953HhdQopMXXI6KJB4LJa6dg0tRQMcxNIsFuJnw+Rtdvxe
-	Hi4JDNldr/bB/dpFKvREl8XSB2XK98n8I5LDhdcMYUOjtHNRpqkpKkNqZggqUttGN0FBJc1pXfNJ5
-	oM8jOaMzGYnLzef58xCwPjkiyHE02SasUAHJ3KGbVLO4FT3+hdkY1ESq+5ZNFbzqXG87oPbSIC43d
-	faAOBWQA==;
+	bh=/b54dtjfLCpQPfTXWOh1TwTgLOx2rTYAakzbfZ4vFYI=; b=Wy7CakcipkcZUXWo2NX8tsLLC/
+	svDpxXh4tV90goUzq5SePxT1lA+XEuVkf1PxylYCo2Fe0GQnfPOMFZhJ2WhR8Cihe+9yzegH+/Ej9
+	j1qqgsoSc4L50qJu8zi8lLojZBp6FCWqZEmsS0aqGcZdt5V9/bHNnKriYd8My6LieLeSiDDQEu+3l
+	eL6jTGAB4EFkk0oLuqMQRyx7Q7zvdvnKycFwKdOfNvU2be9Yg/599pUXBTdqJ3AddN6CnwcpP689q
+	t0+jqM3jibeCmaalkMgIhXc2EKYbEq2fy5pRSIRIyoGXzZ8HM9JOfNrY9aC0809IeffoNqQmJu92d
+	cUcitQfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR5x3-00000007mtD-2Xxu;
-	Thu, 04 Dec 2025 09:48:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR5wz-00000007moz-2aGz
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vR5x1-00000007mqv-15BO;
 	Thu, 04 Dec 2025 09:48:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vR5x0-00000007mqE-27dY
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Dec 2025 09:48:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 46F7743D7C;
+	by tor.source.kernel.org (Postfix) with ESMTP id E5B08601E4;
 	Thu,  4 Dec 2025 09:48:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A57FC4CEFB;
-	Thu,  4 Dec 2025 09:48:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2B5BC113D0;
+	Thu,  4 Dec 2025 09:48:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1764841717;
-	bh=jke8sLY83eQqm9PthdlrVbBxAMjnY6wssHXk/JP7Z9g=;
+	bh=il8COfiF1FhMwmH8tRnlXmaXeF2Tmchwrjdh9u49mVY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Vx3gfLtQR+WCHsQb+uksfJOcJFVHj6hhgrdUz8qrkty0aWlkYOItaI0c2Wr/dYgn0
-	 vpyS3QAAlKQ0ekc3ELWeCxZzC8wdhCGCD4+GhgFHpOb+gRZ2dHBK+KpAFXsovuDxPm
-	 0KvUIzllBm1oMzvko2lxdn/mmOqr4pKBppEOMDUeD7WhUt/Bgz52Uf5Utlw8M82mic
-	 D1j2zdfZqomV/nDzisn9pweTjetcGTbfAEdeI/PK0REefFP+7qP0PzL432n5V/r9KQ
-	 Ja3Ax1zpxQaIINObhojE6sYbgYd2FUSuxygWd7IrbFt2WVePthryIqH8Ijy2cEI1JO
-	 yY5BDJaWz3zFw==
+	b=s28FcMyjwMNwULAc6L+uyVPfLy+inyctkJtZBE6bRUqO8KtDrGYxsTM8+d/I+1X1F
+	 diAHfHPxLvUuv6QTHSJ92VCAKA4ZhiaS3gZyu/xf1Yrr3yA9XK4PHS5bp1Xr9KFn6O
+	 ltbB7QsSM2TXO+I+CIsJhr+9w36/0/R6D4pNBoDLgsXBV5HK7XiveuRHaXgC4BwmIM
+	 tMuT/dWEOwPHMZVJ5ylVJEPjxHuFndgYNzmEXn5rPF3kHgQalI/kFx6pnzHkJBFjFa
+	 ZoNUXp/ihvw7cy4yzL2h9f6vqGXH8Xs5aI2RXjd5fQltj7L146IeCa2tyaZnsBhF9v
+	 S7Pe0JQ3RdoTA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vR5wx-0000000AP90-1Dzo;
-	Thu, 04 Dec 2025 09:48:35 +0000
+	id 1vR5ww-0000000AP90-3Vw7;
+	Thu, 04 Dec 2025 09:48:34 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Ben Horgan <ben.horgan@arm.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>
-Subject: [PATCH v3 5/9] KVM: arm64: Handle CSSIDR2_EL1 and SMIDR_EL1 in a generic way
-Date: Thu,  4 Dec 2025 09:48:02 +0000
-Message-ID: <20251204094806.3846619-6-maz@kernel.org>
+Subject: [PATCH v3 3/9] KVM: arm64: Add a generic synchronous exception injection primitive
+Date: Thu,  4 Dec 2025 09:48:00 +0000
+Message-ID: <20251204094806.3846619-4-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251204094806.3846619-1-maz@kernel.org>
 References: <20251204094806.3846619-1-maz@kernel.org>
@@ -70,9 +70,6 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, ben.horgan@arm.com, yaoyuan@linux.alibaba.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_014837_993227_0DF02015 
-X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,27 +84,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that we can handle ID registers using the FEAT_IDST infrastrcuture,
-get rid of the handling of CSSIDR2_EL1 and SMIDR_EL1.
+Maybe in a surprising way, we don't currently have a generic way
+to inject a synchronous exception at the EL the vcpu is currently
+running at.
 
+Extract such primitive from the UNDEF injection code.
+
+Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/sys_regs.c | 2 --
- 1 file changed, 2 deletions(-)
+ arch/arm64/include/asm/kvm_emulate.h |  1 +
+ arch/arm64/kvm/inject_fault.c        | 10 +++++++---
+ 2 files changed, 8 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index ec3fbe0b8d525..ae1e72df1ed45 100644
---- a/arch/arm64/kvm/sys_regs.c
-+++ b/arch/arm64/kvm/sys_regs.c
-@@ -3399,8 +3399,6 @@ static const struct sys_reg_desc sys_reg_descs[] = {
- 	{ SYS_DESC(SYS_CCSIDR_EL1), access_ccsidr },
- 	{ SYS_DESC(SYS_CLIDR_EL1), access_clidr, reset_clidr, CLIDR_EL1,
- 	  .set_user = set_clidr, .val = ~CLIDR_EL1_RES0 },
--	{ SYS_DESC(SYS_CCSIDR2_EL1), undef_access },
--	{ SYS_DESC(SYS_SMIDR_EL1), undef_access },
- 	IMPLEMENTATION_ID(AIDR_EL1, GENMASK_ULL(63, 0)),
- 	{ SYS_DESC(SYS_CSSELR_EL1), access_csselr, reset_unknown, CSSELR_EL1 },
- 	ID_FILTERED(CTR_EL0, ctr_el0,
+diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+index c9eab316398e2..df20d47f0d256 100644
+--- a/arch/arm64/include/asm/kvm_emulate.h
++++ b/arch/arm64/include/asm/kvm_emulate.h
+@@ -45,6 +45,7 @@ bool kvm_condition_valid32(const struct kvm_vcpu *vcpu);
+ void kvm_skip_instr32(struct kvm_vcpu *vcpu);
+ 
+ void kvm_inject_undefined(struct kvm_vcpu *vcpu);
++void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr);
+ int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr);
+ int kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr);
+ void kvm_inject_size_fault(struct kvm_vcpu *vcpu);
+diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
+index dfcd66c655179..7102424a3fa5e 100644
+--- a/arch/arm64/kvm/inject_fault.c
++++ b/arch/arm64/kvm/inject_fault.c
+@@ -162,12 +162,16 @@ static void inject_abt64(struct kvm_vcpu *vcpu, bool is_iabt, unsigned long addr
+ 	vcpu_write_sys_reg(vcpu, esr, exception_esr_elx(vcpu));
+ }
+ 
++void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr)
++{
++	pend_sync_exception(vcpu);
++	vcpu_write_sys_reg(vcpu, esr, exception_esr_elx(vcpu));
++}
++
+ static void inject_undef64(struct kvm_vcpu *vcpu)
+ {
+ 	u64 esr = (ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT);
+ 
+-	pend_sync_exception(vcpu);
+-
+ 	/*
+ 	 * Build an unknown exception, depending on the instruction
+ 	 * set.
+@@ -175,7 +179,7 @@ static void inject_undef64(struct kvm_vcpu *vcpu)
+ 	if (kvm_vcpu_trap_il_is32bit(vcpu))
+ 		esr |= ESR_ELx_IL;
+ 
+-	vcpu_write_sys_reg(vcpu, esr, exception_esr_elx(vcpu));
++	kvm_inject_sync(vcpu, esr);
+ }
+ 
+ #define DFSR_FSC_EXTABT_LPAE	0x10
 -- 
 2.47.3
 
