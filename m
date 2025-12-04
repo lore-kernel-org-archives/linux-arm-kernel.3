@@ -4,61 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4C09D2A547
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 21:28:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C791DD2A54F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 22:14:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WKxgel+E8bc+TwMillVrJNHI9tIYk82Ca1aMh9ByvQs=; b=XiSp9Lf9QztNTEiV2B9Ygjs6O2
-	/bEAwZlqJ4dLuIoZPEI1Us4c6P3U+vkh/oQrkY8VeuImCfBG/dnkijIhuYCyMrsUT1qSr0ifzpLz5
-	L0hB0ak/S8XDIsbIFO5yAhEzAhLZQtQqRu7Yk7H5MLtpugF45knw+yi+8TGiM0yNxfP+4HYHOH240
-	YFfD8zuxWAFtGGEtB3AjDaGnGyh9apwS5R9B8r2IW1CzGh6cgfwWdq62vq76DI81Sf1gpJKozUuq6
-	fJ8UnYvWmtDyqaJXik2IksDbYWxvJOI3pcbqtRiZEtii+IqtbEOmv1w6xjhfqIOFnUBg29rEEtFLi
-	R8f2p5PA==;
+	bh=Aw+8q5H4sqe+dvU2eZvM8MEEkzw3G4w1aIITeluECJc=; b=46Nu4gdMExc/3JiUX0I3wNdF7z
+	cC6RLK1MAVawEsaBrlnwfchfgz/XDblvHr4v+YjXujCc7PzD0vza0gJrsEDo9cCaWLxIaCc4Wb17R
+	uyBCXEkhf4V7n58f0Ar5a9yJBfFYnNlBoZlbgyH1PezrH8xQPruhUQ8L6uvEhFdm21Bu9Ww9qXGr9
+	pRIMR53wyik1mpmQS7IruBZzAtBda6ponkeHj/shGmoLmffay+GjT+zKGGnyopP9IYRUdLR4gLIa0
+	VXLyGqZBtnMyMAlG0s6C+6J2SEAybY26mfWRiLjrfbD4iBupWzwpppJIgqEFqA9sR38DXmFlfODWJ
+	o7Fl9yeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRGsK-00000008fyk-3zey;
-	Thu, 04 Dec 2025 21:28:32 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vRHaj-00000008iMf-1BnI;
+	Thu, 04 Dec 2025 22:14:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRGsJ-00000008fyS-382m
+	id 1vRHad-00000008iLk-2Hrp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 21:28:31 +0000
+	Thu, 04 Dec 2025 22:14:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EA72F60202;
-	Thu,  4 Dec 2025 21:28:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71998C4CEFB;
-	Thu,  4 Dec 2025 21:28:28 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A60B16020A;
+	Thu,  4 Dec 2025 22:14:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A98CC4CEFB;
+	Thu,  4 Dec 2025 22:14:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764883708;
-	bh=X8tPs9E6uh+VtgXU41XCn/OUQj8VPbapViZgvzXZmqg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oL8AMU1H9u/kQnCLhQPiR/4W7X8gevJNJMq9MHRESr5Uh3iMs3dMulOAWxAGbCajN
-	 iUrgGj349WZ+JwTd5AoFpVrv17YrLe3K9ObpzkoULntZCzfHVaKCDUNZGD8pZdXj1P
-	 CP42WR2GRGoCXpOgI5VX6RlzVkO3eAOZGVEnNhwfy/CkQiNhW7rADRoVbg2fQscMQD
-	 JOoF+kqXoHX1Y2jN6+83sUV/tjcJLRpFq/hvgQQRE0jpf0M2x1lbFB8xTdswPc2i3l
-	 1Zd2X9E0L6bckUM9WaNeEdkaa1IHMYYKBXtCzue/OWQPIUXTlBBtLuEu/I5r1WdJGP
-	 BWf0N7K/D+05Q==
-Date: Thu, 4 Dec 2025 15:28:25 -0600
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Ashish Mhetre <amhetre@nvidia.com>
-Cc: nicolinc@nvidia.com, jgg@ziepe.ca, linux-arm-kernel@lists.infradead.org,
-	krzk+dt@kernel.org, devicetree@vger.kernel.org,
-	jonathanh@nvidia.com, iommu@lists.linux.dev,
-	linux-kernel@vger.kernel.org, will@kernel.org, conor+dt@kernel.org,
-	vdumpa@nvidia.com, joro@8bytes.org, robin.murphy@arm.com,
-	linux-tegra@vger.kernel.org, thierry.reding@gmail.com
-Subject: Re: [PATCH V3 2/3] dt-bindings: iommu: Add NVIDIA Tegra CMDQV support
-Message-ID: <176488370517.2196325.5157844880170253515.robh@kernel.org>
-References: <20251201163219.3237266-1-amhetre@nvidia.com>
- <20251201163219.3237266-3-amhetre@nvidia.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251201163219.3237266-3-amhetre@nvidia.com>
+	s=k20201202; t=1764886458;
+	bh=i1b1OQLbG2VEL7KIHfRWVF/kPVHS15MWLIozPya6duk=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=g696lonnyXTQm+KvyJU0HUnTuWHNnIXxh7Hly4cwOqoE1gR8xa0A+iBYV3MZHZbe0
+	 Xkoy04ujgnzAhNwERmPf+tWeI1BOanrvwwVi3JG55x7fGSCDejnuwcHd2zEdcFGFte
+	 1vklZ2/mm9rZNyDEsNr1+qm9p0yW1DOakQF/Qcu6bprBrdp/zuRCihJh4QkfUZBeYH
+	 WPbyixIrC42vb9t4oz44VzTTNxycg2P30UTYz+2jRI+L5yaIlPNrZ3fGyFf76/vXo9
+	 cQkVXbYYPDy1C6vrzhGtz5ae+BaWONdV8JmRHb0NCL3+83/Mxi/fuDucH5PkfL8Yaz
+	 Havgp7oY1lXtw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B5C063AA9A85;
+	Thu,  4 Dec 2025 22:11:17 +0000 (UTC)
+Subject: Re: [GIT PULL] pmdomain/cpuidle-psci updates for v6.19
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <20251201175125.34284-1-ulf.hansson@linaro.org>
+References: <20251201175125.34284-1-ulf.hansson@linaro.org>
+X-PR-Tracked-List-Id: <linux-arm-kernel.lists.infradead.org>
+X-PR-Tracked-Message-Id: <20251201175125.34284-1-ulf.hansson@linaro.org>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.19
+X-PR-Tracked-Commit-Id: 1f67707fafa598e2338dba08e3de0db3e468afd1
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 52206f82d9244546e5790f5ad64465343aa7ffd5
+Message-Id: <176488627629.997489.5449329879391180741.pr-tracker-bot@kernel.org>
+Date: Thu, 04 Dec 2025 22:11:16 +0000
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Linus <torvalds@linux-foundation.org>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>, linux-arm-kernel@lists.infradead.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,27 +74,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The pull request you sent on Mon,  1 Dec 2025 18:51:25 +0100:
 
-On Mon, 01 Dec 2025 16:32:18 +0000, Ashish Mhetre wrote:
-> The Command Queue Virtualization (CMDQV) hardware is part of the
-> SMMUv3 implementation on NVIDIA Tegra SoCs. It assists in
-> virtualizing the command queue for the SMMU.
-> 
-> Add a new device tree binding document for nvidia,tegra264-cmdqv.
-> 
-> Also update the arm,smmu-v3 binding to include an optional nvidia,cmdqv
-> property. This property is a phandle to the CMDQV device node, allowing
-> the SMMU driver to associate with its corresponding CMDQV instance.
-> Restrict this property usage to Nvidia Tegra264 only.
-> 
-> Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
-> ---
->  .../bindings/iommu/arm,smmu-v3.yaml           | 30 ++++++++++++-
->  .../bindings/iommu/nvidia,tegra264-cmdqv.yaml | 42 +++++++++++++++++++
->  2 files changed, 70 insertions(+), 2 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/iommu/nvidia,tegra264-cmdqv.yaml
-> 
+> git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.19
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/52206f82d9244546e5790f5ad64465343aa7ffd5
 
+Thank you!
+
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
