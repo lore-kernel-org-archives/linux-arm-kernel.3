@@ -4,120 +4,135 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26EABD216B5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 16:49:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E6B2D216BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 16:55:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kow0MV2K1CId/Eh5iohI4Av+EHQLgs1R/Ap1oddrdIU=; b=rLHDE0aBF1x8nMMYeKRBXWCKbF
-	EvBc6yFmvgJKKv3Qj9/b0PLIuRCrLV4VvpL7vlStTRbMXAaOS/gmp33mcBB8We57aWDbuu8523esd
-	Ov2fKMDwgOgq7m+VWA+Rg0219cw1JNs+kM40FaRjKj3dTNYN648OI4KDSHokqgC/OEq/wec/efUtf
-	J7O5QyFPd90BQOig1uWNzK1Q1Rq2TAugs0+ZbN3MBnMFdKX4h4SsIr9mmlOr5TF+KT+6NNGo39qkF
-	2hILmfARmbk5n3nqGzvl0Xq75mlhEeFM4KzLo9paY9OQcrKAw8vmF6mhPod87w5HpZ2m0wYSi8l2V
-	y2o7s6sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=696GRQQxqyCN41tUvMfT2OP6gr0o5pHGbrT8RfFEnEc=; b=F8V09G6sXNej35XbRQomxzKrPn
+	6JVQ2rR34posL7agSlkJt8NhZJXQgu+cX/05wMAdNtQQqxMJ6CYAeH+4PDB/yQoipUX1SDEYGAApy
+	rx57L8kv+Ef/moc4ELTpUsZXhveNA2qGbNleJ/Qy7dhEkRmtaHAa794x0KByb7LPIuV01Ejq9/ogw
+	eK9t4YrnmPx0x7bt4N6h/zgZnk8LfhxChZ3BOGfukM03NT2lNJhSWJcD62gbAhQFx8P5+Zpk8Szgb
+	NuuzRELAn7QxvPGuyvS5AzWIs13oMC/ocRynfK/Bk4zICrjuWdXREPIX0eIDIoJ0dRK4jAjVpgowm
+	TGb6tH0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRCVu-00000008JhR-2RU1;
-	Thu, 04 Dec 2025 16:49:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vRCcU-00000008K9D-1Kls;
+	Thu, 04 Dec 2025 16:55:54 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRCVs-00000008Jh6-3oQP;
-	Thu, 04 Dec 2025 16:49:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 56CED601FD;
-	Thu,  4 Dec 2025 16:49:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0A99C4CEFB;
-	Thu,  4 Dec 2025 16:48:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764866944;
-	bh=s/jCJ2FpUP11SPYO8fzMlmRQfnOVawPPT6/iEbGbJgI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ftGKXrNeYQ1po2piaPKUeDZLuQnVyRpTPq6K+3sZBQXbxanU6cohAuPxppl3YF6be
-	 74WjFWEFuqAf6m8ukmUuAKAUfjosXj1p/I/cL2DXvV4YpvZNnPnzoIxZMZ3F4iUpcR
-	 ZQ+w5Fc959ptz8BoYeoe7mM/t1ds4JR1/NfJhwMttDPIClXQtiAk76cr7GTn1HhZW+
-	 afDxEKUmf8Te0PUCMFK6NiIE9P9kbIYUCQZTpMbyMtlGN5muEV6SGlJ20GOnEESW2i
-	 bVtRWNuchIk6g3xwwpJ9XxoIjNEfsluUc+hk/HDi3v9GoaWCKPXyCIAmzj9bS3O843
-	 wjdy5KCVy6BEg==
-Message-ID: <c7cbdaaa-e786-4842-9346-e2fde998fde5@kernel.org>
-Date: Thu, 4 Dec 2025 17:48:57 +0100
+	id 1vRCcR-00000008K8l-2S56
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Dec 2025 16:55:53 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B4AErv21130933
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 4 Dec 2025 16:55:50 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=696GRQQxqyCN41tUvMfT2OP6
+	gr0o5pHGbrT8RfFEnEc=; b=Lx/3WszRZx71yC9TsS/SJ7/ziL4tv233rDSVnAVW
+	qOu8Ig0lpdfpIRipphLvIWnQjOvJzPk9SjcKVieiVGjfBCVQIWUDLCygmvfsNjz8
+	Zo+/6QFqQut8jnDJmDaukOqg/wAbGL7dqd+E56N9It+RONcEMee6WZ9xFpwBJP7I
+	zq8iBjeeG16yZPg1Hv12Mv/JCAxlFu75VU31gmBeuMI7KRgLv/63eZamGs6GB1Sq
+	zzh/lIk7zP6Hc9OhYDwaHMT73gaCObhXHuMhHogl2uaHVuzb1JK8INKNohQfirG/
+	gagyvGpktQIbqIKj1j4DbEceUtiC59OtUrSyD/KCRuqVAg==
+Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4au1f02fss-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 16:55:50 +0000 (GMT)
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-7b895b520a2so1100444b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 08:55:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1764867349; x=1765472149; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=696GRQQxqyCN41tUvMfT2OP6gr0o5pHGbrT8RfFEnEc=;
+        b=XX2BFKMOXrVCiiNBeA7dO0EZGQaSKFYJP4/NjF8fSUASxsXJmTFzZGRjYMsRqjVDNg
+         w7HVb7/qRN37RIvtHWBa/I+dWKBG6RcHK0c+9uwS54ZdZaoljy/JkMi16+kf9qMe6gmD
+         vV0D5vY7AMEgvRVC46zuG5yTyCj+7LXCTtssVFsLRLo+mZE/GfvbGkKqxx2ijVGrmSTg
+         GNwyNPfcreOdQT2wvSt2i9QFVEMiLjXB69Arlap0HdRoh2pyvrbnr5+P3UTRSbQfMzu4
+         1gFZIgzwS4gTA4o2PoTG6sTzf7k+DxTIaOGh4dA2GZUueuluHhPaxD42VNPE1gHuItHN
+         cMcA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764867349; x=1765472149;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=696GRQQxqyCN41tUvMfT2OP6gr0o5pHGbrT8RfFEnEc=;
+        b=rN1b/JUP8JqX4Sz0vdLpE6t5/qaFmBuEU6x+3g9h0k/OtueXoJYBl5MRvpYsVx91oo
+         eTYno9tzYoR9i/aCGoprlzaxKaDAavyrkejkT9u3Ill6NR8u2gLtT4gqmDg/kG4pAjqg
+         Pk7SXu7YQI/lYidmFrZ4tyH9gx4sVwqWlXS8ag8S5NuJjijxaiUvdUHpni5ZsIEPsycw
+         IramKoHVKUrDirTiVkbOgRwYuTpQT55c8uZgTvz3TqeMQOWuCEy2MjjgXBifgQgQ316R
+         ORLQycEozGMUgOa4LO1iLt/TAfgLSTotrorC9dwejmeChYXWUh1SGPuuBTZT/VFQlRkh
+         NECQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVtEPxGPUlfez/gwAdqma7RJgZSbSVFQcn1+tcwjdYBYJSh38TwHQk30sUDy+a6sSXmeF6XOB+iKb2M2R9bY4Z9@lists.infradead.org
+X-Gm-Message-State: AOJu0YyXfAAgtOor/weDO+spgG6h4u1nZxt/IX/NbZ0635sBLeb46ByB
+	urbJOVimKzfBbKC1yum4i+H2MYBCpVujocLjYt2Jf7KnTabf0Q0svvhO0rVUgdRYHqJhuSs02Qh
+	60WL4Ph/tdDK8KMJKG9xrE98hGgTdohdlyYhKjydEX2A9zEK/+VzuHABUC0bhDYp0sMoDbur3eD
+	+k3A==
+X-Gm-Gg: ASbGnctYE2MC2SiPl/kPBxMb3k8gYY7bnyvgn6tke5aMCPVIo20PnEaXXFRnNl8lYRN
+	gNU38o5X2cRI6HS9SZVLudsmT0fAAsF+Se2eyNKAuESA2UiEigVqNz9aLCT6n5ZJkI4AaH/1LPe
+	zD8UuI7w4mPRmfROTDKmR1did90e1/7Hj7e1kYe4UWraibLeRn3lSG8oWEtNFRI23sHOQsk8IUt
+	7XfUJpQgG9zTPxyhM1Ok7V3cYJmTfLO8ziGPJ+PV85nzw5Q2lQn4U3rOP1X7yBr7vrP5n8R78hj
+	Sgfrx7Eyk2W4oAzUFBOxd4k1hz+XMJr/0rLCgEDLwUSTGDoXSgS5Gd8qZbMFBKmXeoatSY3HFDm
+	YQ3iUGyrNbo5oDLobe9ZT/mCFAGw14w7DnWomhocNUGY=
+X-Received: by 2002:a05:6a20:7f9a:b0:35f:27d:2ded with SMTP id adf61e73a8af0-364037bbe31mr4323544637.25.1764867349089;
+        Thu, 04 Dec 2025 08:55:49 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHw2kT6hEWnd272sKBcT9eqh7v0Rt/OEQRgifO1zaMD5O5RJ8rQVzs+BV0eYAiBOr9b7Fd7zw==
+X-Received: by 2002:a05:6a20:7f9a:b0:35f:27d:2ded with SMTP id adf61e73a8af0-364037bbe31mr4323517637.25.1764867348579;
+        Thu, 04 Dec 2025 08:55:48 -0800 (PST)
+Received: from hu-pkondeti-hyd.qualcomm.com ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7e29ff6b56esm2702035b3a.20.2025.12.04.08.55.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 04 Dec 2025 08:55:48 -0800 (PST)
+Date: Thu, 4 Dec 2025 22:25:43 +0530
+From: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
+        Marc Zyngier <maz@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        rsalveti@oss.qualcomm.com
+Subject: Re: Alternative to arm64.nopauth cmdline for disabling Pointer
+ Authentication
+Message-ID: <33ab9112-39c5-4dba-9e56-089b7e8a7243@quicinc.com>
+References: <3fcf6614-ee83-4a06-9024-83573b2e642e@quicinc.com>
+ <86ecpappzi.wl-maz@kernel.org>
+ <adc22b19-7dcc-4c38-9319-d979f1e3886a@quicinc.com>
+ <aTF42v5dpTuCe7r3@J2N7QTR9R3>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 5/9] phy: add phy_get_rx_polarity() and
- phy_get_tx_polarity()
-To: Vladimir Oltean <vladimir.oltean@nxp.com>, Vinod Koul <vkoul@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Daniel Golle <daniel@makrotopia.org>,
- Horatiu Vultur <horatiu.vultur@microchip.com>, Andrew Lunn <andrew@lunn.ch>,
- Heiner Kallweit <hkallweit1@gmail.com>, Russell King
- <linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Eric Woudstra <ericwouds@gmail.com>, =?UTF-8?B?TWFyZWsgQmVo4oia4oirbg==?=
- <kabel@kernel.org>, Lee Jones <lee@kernel.org>,
- Patrice Chotard <patrice.chotard@foss.st.com>
-References: <20251122193341.332324-1-vladimir.oltean@nxp.com>
- <20251122193341.332324-6-vladimir.oltean@nxp.com>
- <20251124200121.5b82f09e@kernel.org> <aS1T5i3pCHsNVql6@vaman>
- <69ac21ea-eed2-449a-b231-c43e3cd0bdc0@kernel.org>
- <20251204153401.tinrt57ifjthw55r@skbuf>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251204153401.tinrt57ifjthw55r@skbuf>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aTF42v5dpTuCe7r3@J2N7QTR9R3>
+X-Proofpoint-GUID: wQmwKBmoVanPPS714SOWWhj7OdDdinBI
+X-Proofpoint-ORIG-GUID: wQmwKBmoVanPPS714SOWWhj7OdDdinBI
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjA0MDEzNiBTYWx0ZWRfXxDbqkAeNJTTt
+ ZN1KPk4MCIkv9fOzlLdbGtRUvXrHctHQGO9aC9/ownSHobpE8mQLecHCGv1Toll8Ysmq6IZw9NI
+ LEUiQm8n1wopZPOH6/Hjgxzx7rIvWdax+dm6Yp/7YgdkJ25twS4d41biekDNATreF7yW9rT7hyV
+ FH0t147C3wzb7rYqR4MqnybRiUZEHYK7fUjddRjU35fsV8k5jtFt7XWY+27YNt1QkQ7qAVY582k
+ jtdm9Olu1mtghF116F4C6/97sEyMlGJmyAHmivJzbQMrD3wv3ESrre+x7MODqy8le2A3gV7/jWY
+ SFpFpITbSYqPDeFQ2RwDINVWaMoyx858yBvfkGhqR3YfNUeKVubkdY4upIkqqnhPu3ooy6tFQER
+ h+HQxQ6vnLbsW9iTb9WwlnlbE+3IYA==
+X-Authority-Analysis: v=2.4 cv=Scz6t/Ru c=1 sm=1 tr=0 ts=6931bd16 cx=c_pps
+ a=m5Vt/hrsBiPMCU0y4gIsQw==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=kj9zAlcOel0A:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=Hg61_yuSoULxYLHEoxwA:9 a=CjuIK1q_8ugA:10 a=IoOABgeZipijB_acs4fv:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-04_04,2025-12-04_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 lowpriorityscore=0 adultscore=0 clxscore=1015 impostorscore=0
+ bulkscore=0 suspectscore=0 malwarescore=0 priorityscore=1501 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512040136
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251204_085551_757795_BFFB925C 
+X-CRM114-Status: GOOD (  35.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,75 +147,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/12/2025 16:34, Vladimir Oltean wrote:
-> On Mon, Dec 01, 2025 at 09:41:21AM +0100, Krzysztof Kozlowski wrote:
->> On 01/12/2025 09:37, Vinod Koul wrote:
->>> On 24-11-25, 20:01, Jakub Kicinski wrote:
->>>> On Sat, 22 Nov 2025 21:33:37 +0200 Vladimir Oltean wrote:
->>>>> Add helpers in the generic PHY folder which can be used using 'select
->>>>> GENERIC_PHY_COMMON_PROPS' from Kconfig, without otherwise needing to
->>>>> enable GENERIC_PHY.
->>>>>
->>>>> These helpers need to deal with the slight messiness of the fact that
->>>>> the polarity properties are arrays per protocol, and with the fact that
->>>>> there is no default value mandated by the standard properties, all
->>>>> default values depend on driver and protocol (PHY_POL_NORMAL may be a
->>>>> good default for SGMII, whereas PHY_POL_AUTO may be a good default for
->>>>> PCIe).
->>>>>
->>>>> Push the supported mask of polarities to these helpers, to simplify
->>>>> drivers such that they don't need to validate what's in the device tree
->>>>> (or other firmware description).
->>>>>
->>>>> The proposed maintainership model is joint custody between netdev and
->>>>> linux-phy, because of the fact that these properties can be applied to
->>>>> Ethernet PCS blocks just as well as Generic PHY devices. I've added as
->>>>> maintainers those from "ETHERNET PHY LIBRARY", "NETWORKING DRIVERS" and
->>>>> "GENERIC PHY FRAMEWORK".
->>>>
->>>> I dunno.. ain't no such thing as "joint custody" maintainership.
->>>> We have to pick one tree. Given the set of Ms here, I suspect 
->>>> the best course of action may be to bubble this up to its own tree.
->>>> Ask Konstantin for a tree in k.org, then you can "co-post" the patches
->>>> for review + PR link in the cover letter (e.g. how Tony from Intel
->>>> submits their patches). This way not networking and PHY can pull
->>>> the shared changes with stable commit IDs.
->>>
->>> How much is the volume of the changes that we are talking about, we can
->>> always ack and pull into each other trees..?
->>
->> That's just one C file, isn't it? Having dedicated tree for one file
->> feels like huge overhead.
+On Thu, Dec 04, 2025 at 12:04:42PM +0000, Mark Rutland wrote:
+> Hi Pavan, Marc,
 > 
-> I have to admit, no matter how we define what pertains to this presumed
-> new git tree, the fact is that the volume of patches will be quite low.
+> On Thu, Dec 04, 2025 at 04:06:12PM +0530, Pavan Kondeti wrote:
+> > On Thu, Dec 04, 2025 at 09:15:29AM +0000, Marc Zyngier wrote:
+> > > On Thu, 04 Dec 2025 04:07:15 +0000,
+> > > Pavan Kondeti <pavan.kondeti@oss.qualcomm.com> wrote:
+> > > > Hi
+> > > > 
+> > > > The pointer authentication feature (PAuth) is only supported on
+> > > > 0-3 CPUs but it is not supported on 4-7 CPUS on QCS8300.
 > 
-> Since the API provider always sits in drivers/phy/ in every case that I
-> can think about, technically all situations can be resolved by linux-phy
-> providing these stable PR branches to netdev. In turn, to netdev it
-> makes no difference whether the branches are coming from linux-phy or a
-> third git tree. Whereas to linux-phy, things would even maybe a bit
-> simpler, due to already having the patches vs needing to pull them from
-> the 3rd tree.
+> > > On what grounds? Hardware incompatibility? I seriously doubt it,
+> > > since nobody glues pre-8.3 CPUs to anything more modern.
 > 
-> From my perspective, if I'm perfectly honest, the idea was attractive
-> because of the phenomenal difference in turnaround times between netdev
-> and linux-phy review&merge processes (very fast in netdev, very slow and
-> patchy in linux-phy). If there's a set like this, where all API consumers
-> are in netdev for now but the API itself is in linux-phy, you'd have to
-> introduce 1000 NOP cycles just to wait for the PR branch.
+> Marc, it seems like that's exactly that's happened here. :/
 > 
-> In that sense, having more people into the mix would help just because
-> there's more people (i.e. fewer points of failure), even though overall
-> there's more overhead.
+> > I see that Linux runs at EL2 and AA64ISAR1 register values on CPU#0
+> > (A78) indicates that PAuth is supported but not for CPU#4 (A55). I am
+> > told, there are no other controls outside EL2 (trap) to manipulate
+> > this feature. So, I am assuming that this is indeed reflecting the HW.
 > 
-> IDK, these are my 2 cents, I can resubmit this set in 2 weeks with the
-> maintainership of the PHY common properties exclusive to linux-phy.
+> Cortex-A78 doesn't have pointer authentication, but Cortex-A78C does, so
+> maybe you actually have Cortex-A78C?
+> 
+> What are the MIDRs on this SoC? e.g. the output of:
+> 
+>   cat /sys/devices/system/cpu/cpu*/regs/identification/midr_el1 | sort | uniq
+> 
+> If this SoC has both Cortex-A78C and Cortex-A55, that's a rather
+> unfortunate combination that should have been caught at the SoC design
+> phase, as Marc alluded to.
 
+Yes. The MIDR register indicate the same. A78C + A55
 
-Jakub supported the idea, so I also do not oppose, and if that helps you
-folks, then go ahead.
+root@v8a-arm64:~# cat /sys/devices/system/cpu/cpu*/regs/identification/midr_el1
+0x00000000410fd4b2
+0x00000000410fd4b2
+0x00000000410fd4b2
+0x00000000410fd4b2
+0x00000000412fd050
+0x00000000412fd050
+0x00000000412fd050
+0x00000000412fd050
 
-Best regards,
-Krzysztof
+> 
+> [...]
+> 
+> > > > This patch [2] from Catalin adds a devicetree property under memory {}
+> > > > to disable MTE.
+> 
+> Catalin's patch was a bit different. It described whether the memory
+> range supported tags (and was actually a property of the memory). That
+> patch didn't make it into mainline AFAICT.
+> 
+> [...]
+> 
+> > I understand that this does not fall under errata but is
+> > there a possiblity to introduce an Errata targeting CPU#0 MIDR and
+> > disabling the Pointer authentication? I understand that if there is
+> > another Qualcomm SoC that exists with all CPUs supporting pointer
+> > authentication with same MIDR, we may be disabling the feature but this
+> > is something I can check internally.
+> 
+> I strongly suspect we cannot use the MIDR for this. Per:
+> 
+>   https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=53a52a0ec7680287b170b36488203b5822e6da2d
+> 
+> ... Qualcomm's Kryo {Prime,Gold,Silver} parts seem to identify
+> themselves as Arm ltd implementations, and those will appear in other
+> non-Qualcomm SoCs.
+
+Thank you for explaining this. Agree that we can't use MIDR based
+workaround here. 
+> 
+> Without know *exactly* which MIDRs you have on this part, we cannot say.
+> 
+> Regardless, I strongly suspect that we have to live with the command
+> line option for these parts.
+> 
+
+Got it. 
+
+Thanks,
+Pavan
 
