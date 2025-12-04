@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26DBCD1F9D5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 12:38:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3CD1D1F9D4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 12:44:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9WGtrfu3GuTI9Wqc1fIfjBwAoYn0B6GSnlgu0ZqZYFA=; b=MR/jfcic0x6UAPg63Mp48xSh8S
-	UFqBIzGbcd6UMir5deqOigQIS5yJeGL+DOkcrekNRyo+UE9Xe3hmuuSIdij7JcbiMFuZAgJxDMfUI
-	6WwkmWwjjujMmZ/cXMFiNJ2AfPu2lsTOCfwz97PniC6+M3Co46Q/iKxenlPdQSerPGkLWn+MZuuS6
-	aBKInkAV9SnyMU5ZEpH8eFn3lkiW81G6xh28FyPco8CkqE0dn0lu1Zqbs5YPjNTzMVE5Njj2S27ul
-	0+akmZzyxepB2eIy9XUbMRqtlMna+9JxFmgaxQkt3igRSDowlxG2eE85E1eRvdRP/kkJjKBgr8krw
-	+rkGRxvA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aaqOk1Elaki/Q+AoDDTW41NnBNg5d05Fm+RXSWNeEtw=; b=FTYx60TPPKBvNnXqmJetfMtdwo
+	RBfm/6ZQq0nJ2OObk66OdhLIESsUTDtsMo2pR04yX3f5xj2jbeKnunwjNTadgah4HS4Tcqnk6egpH
+	gbQZt2biTMacMNIbCxNVZkfRsu0K9X93c2sCBTi3q9hm49etMRChir2S74VOqTAPzijkHy/qoqY6E
+	nkVf0Z894V01FIw6SUiSHCjtZSwl6mkzpi3x/xSeybTlPxdvLZ8rAKzhbHTlT6JOF1h7uwmXWghA2
+	1oDuSYjddTuTIGlcX1MN01YPnmHic7rxsFpBz+Cbsr1SNTMQKosTXYaXqttrVcO2i3ps+r/BPSqOM
+	0SIhGV2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR8b7-00000007zub-0lId;
-	Thu, 04 Dec 2025 12:38:13 +0000
-Received: from jabberwock.ucw.cz ([46.255.230.98])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR8b4-00000007zuB-2ok5
+	id 1vR8gr-000000080I7-16yn;
+	Thu, 04 Dec 2025 12:44:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vR8go-000000080Hl-2wEe
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 12:38:12 +0000
-Received: by jabberwock.ucw.cz (Postfix, from userid 1017)
-	id 2C1761C008F; Thu,  4 Dec 2025 13:38:07 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ucw.cz; s=gen1;
-	t=1764851887;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9WGtrfu3GuTI9Wqc1fIfjBwAoYn0B6GSnlgu0ZqZYFA=;
-	b=Qy81Kbu3tlE7YgdGOaWZdYNsKPtKfmyIoX1OZ95HzWM5MYfloBrBmxjGPk/9tnKceBBVco
-	BArlNXNMk0A/p0kiD4s6CYci1Cjtm33TJdfFTNTFwmpqA+lE0jTQkP2h55ttnxMmv3iQmV
-	aKiUn5rwVV7pZT4190yRUzDoOFHgTzc=
-Date: Thu, 4 Dec 2025 13:38:06 +0100
-From: Pavel Machek <pavel@ucw.cz>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Lukas Timmermann <linux@timmermann.space>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Alexandre Marquet <tb@a-marquet.fr>
-Subject: Re: [PATCH v2 3/3] ARM: samsung: exynos5250: Allow CPU1 to boot
-Message-ID: <aTGAruX7N/7ZT0ur@duo.ucw.cz>
-References: <20251125-google-manta-v2-0-0f097cfff39c@timmermann.space>
- <20251125-google-manta-v2-3-0f097cfff39c@timmermann.space>
- <aTFvBwjms8msxIae@duo.ucw.cz>
- <73efeaeb-0cde-45af-af92-4fd7b5d4589c@kernel.org>
- <aTF2H0f9TJiwCLe5@duo.ucw.cz>
- <a68ee81f-1d2c-47f4-b86f-e0e803c1cfd3@kernel.org>
- <aTF2z5HbvmEuu9Iy@duo.ucw.cz>
- <39ac918c-0394-495b-b717-dfa0fd35d7dc@kernel.org>
+	Thu, 04 Dec 2025 12:44:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3F02F339;
+	Thu,  4 Dec 2025 04:43:58 -0800 (PST)
+Received: from [10.163.49.196] (unknown [10.163.49.196])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 85A4C3F73B;
+	Thu,  4 Dec 2025 04:43:59 -0800 (PST)
+Message-ID: <789573eb-c12b-419f-80bc-3de65367583e@arm.com>
+Date: Thu, 4 Dec 2025 18:13:56 +0530
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha1;
-	protocol="application/pgp-signature"; boundary="IZAWxPHhTjLaLg0o"
-Content-Disposition: inline
-In-Reply-To: <39ac918c-0394-495b-b717-dfa0fd35d7dc@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 04/19] coresight: trbe: Remove set_trbe_disabled() from
+ the enable flow
+To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Tamas Petz <tamas.petz@arm.com>,
+ Tamas Zsoldos <tamas.zsoldos@arm.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+ Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org
+References: <20251201-trbe_buffer_refactor_v1-1-v1-0-7da32b076b28@arm.com>
+ <20251201-trbe_buffer_refactor_v1-1-v1-4-7da32b076b28@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20251201-trbe_buffer_refactor_v1-1-v1-4-7da32b076b28@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_043811_003183_4F282E3F 
-X-CRM114-Status: GOOD (  19.80  )
+X-CRM114-CacheID: sfid-20251204_044406_795582_E16B971B 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,69 +73,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 01/12/25 4:51 PM, Leo Yan wrote:
+> set_trbe_disabled() should never appear in the enable flow, otherwise,
+> it may potentially hide bugs in the disable flow.
+> 
+> Remove set_trbe_disabled() from the enable path.
 
---IZAWxPHhTjLaLg0o
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+IIRC without first disabling TRBLIMITR_EL1_E - TRBE registers or their
+fields should not be fetched or interpreted. Without that none of the
+subsequent HW operations should be performed inside trbe_enable_hw()
+leading upto enabling it.
 
-On Thu 2025-12-04 13:02:00, Krzysztof Kozlowski wrote:
-> On 04/12/2025 12:55, Pavel Machek wrote:
-> > On Thu 2025-12-04 12:54:03, Krzysztof Kozlowski wrote:
-> >> On 04/12/2025 12:53, Pavel Machek wrote:
-> >>> On Thu 2025-12-04 12:51:36, Krzysztof Kozlowski wrote:
-> >>>> On 04/12/2025 12:22, Pavel Machek wrote:
-> >>>>> Also please cc: phone-devel mailing list with phone related patches.
-> >>>>
-> >>>> You don't have to. This list is not part of any upstream Linux kernel
-> >>>> process (see `git grep`), it's not relevant to upstream kernel devel=
-opment.
-> >>>
-> >>> Yes, you should. Its a relevant mailing list.
-> >>
-> >> git grep for it. Stop inventing rules.
-> >=20
-> > Who is inventing rules here? Stop sabotaging review process.
->=20
-> You invented rule that some specific list of your interest has to be
-> CCed, even though no one knows about that list and it is nowhere document=
-ed.
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>  drivers/hwtracing/coresight/coresight-trbe.c | 1 -
+>  1 file changed, 1 deletion(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+> index f5597bd9b5fba9a8f5053d5823b03380fd468b5c..e426991e2c2c398a9d3982e9d0f7f542e404cbab 100644
+> --- a/drivers/hwtracing/coresight/coresight-trbe.c
+> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
+> @@ -629,7 +629,6 @@ static void trbe_enable_hw(struct trbe_buf *buf)
+>  	WARN_ON(buf->trbe_hw_base < buf->trbe_base);
+>  	WARN_ON(buf->trbe_write < buf->trbe_hw_base);
+>  	WARN_ON(buf->trbe_write >= buf->trbe_limit);
+> -	set_trbe_disabled(buf->cpudata);
+>  	clr_trbe_status();
+>  	set_trbe_base_pointer(buf->trbe_hw_base);
+>  	set_trbe_write_pointer(buf->trbe_write);
+> 
 
-No. I'm asking people to please cc the mailing list so that interested
-people can see the patches. It is you blabbering nonsense about "git
-grep" and "get_maintainer" as if those were rules.
-
-> > "Many kernel-related lists are hosted on vger.kernel.org; you can find a
-> > list of them at http://vger.kernel.org/vger-lists.html.  There are
-> > kernel-related lists hosted elsewhere as well, though."
->=20
-> This proves nothing. There are just some lists there. No one has to cc
-> whatever list there just because Pavel Machek asks them. Kernel process
-> defines it or not. Not you.
-
-And not you.
-
-Kernel process is to cc relevant people, and relevant mailing lists,
-SubmittingPatches points you to http://vger.kernel.org/vger-lists.html
-=2E If people are interested in the patch (for example because they
-reacted to previous version), you should cc them. People in
-phone-devel expressed interest in phone-related kernel development, so
-you should cc them.
-
-								Pavel
---=20
-I don't work for Nazis and criminals, and neither should you.
-Boycott Putin, Trump, Netanyahu and Musk!
-
---IZAWxPHhTjLaLg0o
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCaTGArgAKCRAw5/Bqldv6
-8lfNAJ432b08VuCapDRQakftJA9JEIYhzQCfScFdiAFfVXRbIz9O1NPJ+TJ09hE=
-=qAGG
------END PGP SIGNATURE-----
-
---IZAWxPHhTjLaLg0o--
 
