@@ -4,86 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC10BD2A532
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 20:47:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11E66D2A532
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 20:50:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=90lPoCGIeZvibFvI+Jj7Aj4Z4grOEkzE4KDDgVz3fS8=; b=Xah1P138LpQibmqCHbTJgi6QJn
-	QRQMpZi4JzLZCmc+xwFMmOOl8SFzPCzQ3KMbq1I/D0YLAdVwG72c2GRIPQWYolQJSXYod69/m5ofS
-	rLxDrfqu4ldW4BlnnrfcR10+eEq1bNH4/K7A+uRZeFg1kouvVI5raRE3jGvkpujxbxJkbnmplTlVe
-	2S4zIpW388i8XUDIXrzpevtWYyQwAuXyrDxddg31jR6T4ingbzWhSvn95cwNHPmqENDlTD3BozDVE
-	yrJNuWMw1X5MlBAf6VWiBK4EihBzoMQJBfPga5tJEyRQ5Kfxm0CnDnWbZuy7mFDxnlAzKvMvoZmyt
-	vLq1IYkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jfhXtjVpMYWte58x/PC24J5XI6+isvfw/8Zcbl9+DZA=; b=wfDPSOQ7nn50zFYq1EdTwRXre9
+	fxb4rlqNHhrfWmQ6wZFtfv1zuIi/9gpTaN3o+xDK5631txRHqBoDH6AhEGU2H9UmGEc7TioeEP1s8
+	pl4qrLuafHkwd4iGEeK7eeTeCvsNcLMMLOlHR8FgeSQmnI+ZvVAiSt1jmP117DR1N+D2Z8+19X4ME
+	HlSNkCeNm9pMoKk5AD8HcIMKtX2hpqCkPTZzgWi6UVnGeNq4lB8kjC2SfVP5vUGrht4LG92nuIOhH
+	xsXSRfsR/pijtLwwtU5ZgkjEL4+gNieFVN6wuLfiKop6bl9FnJDqeZW6T4eVinPqbF8CPKfhfqmHc
+	hW9zn8KA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRGF0-00000008czN-1Df4;
-	Thu, 04 Dec 2025 20:47:54 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vRGHL-00000008dF7-01Qu;
+	Thu, 04 Dec 2025 20:50:19 +0000
+Received: from mail-ot1-x34a.google.com ([2607:f8b0:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRGEx-00000008cyb-0Ds2;
-	Thu, 04 Dec 2025 20:47:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=90lPoCGIeZvibFvI+Jj7Aj4Z4grOEkzE4KDDgVz3fS8=; b=T/SIfiqDXVikO9O0tu4uZBNlLW
-	6PMOsEibq8S9h3DE3ovp9EN5cl/7WTTpDdxenrHdNtAeCsqlo1hH8k3dnhCJenq/VnizEzAHbCv6s
-	crE4bj22iCna436g2Iqoqwd8IKtACPqvPCtv1jAF2/vjBryDOi2SU3fbdHxccoBbjOluy3utx/Xhr
-	WLzi/hGK0ayRycPwbfh1gsKYrrfEUwJelwKQGGbKTdnPgalqsgXxV6zwFLfmnn50PPjzzzpceDqKh
-	KkZX+cS2QzNka7NhIIcEV6VS232P7EO2438bRCGz1z+PS7rKgOvELaLHLkm1INShBT18CE1oSEfdU
-	Y71n0DPQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56322)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vRGEh-000000003wd-1CNC;
-	Thu, 04 Dec 2025 20:47:35 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vRGEc-000000001L6-1Grf;
-	Thu, 04 Dec 2025 20:47:30 +0000
-Date: Thu, 4 Dec 2025 20:47:30 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Vladimir Oltean <olteanv@gmail.com>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Frank Wunderlich <frankwu@gmx.de>, Andrew Lunn <andrew@lunn.ch>,
-	Chen Minqiang <ptpt52@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] net: dsa: mt7530: Use GPIO polarity to generate
- correct reset sequence
-Message-ID: <aTHzYq5L7kvAPrjQ@shell.armlinux.org.uk>
-References: <0d85e1e6-ea75-4f20-aef1-90d446b4bfa1@kernel.org>
- <00f308a1-a4b1-4f20-8d8e-459ddf4c39b1@gmx.de>
- <aS7Zj3AFsSp2CTNv@makrotopia.org>
- <20251204131626.upw77jncqfwxydww@skbuf>
- <4170c560-1edd-4ff8-96af-a479063be4a5@kernel.org>
- <20251204160247.yz42mnxvzhxas5jc@skbuf>
- <66d080f1-e989-451f-9d5e-34460e5eb1b0@kernel.org>
- <20251204171159.yy3nkvzttxecmhfo@skbuf>
- <178afbeb-168f-4765-bb0b-fad0bcd29382@kernel.org>
- <9f7da6ae-9e3e-442f-a203-28a8881dbe0f@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9f7da6ae-9e3e-442f-a203-28a8881dbe0f@kernel.org>
+	id 1vRGHI-00000008dEh-3ysO
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Dec 2025 20:50:18 +0000
+Received: by mail-ot1-x34a.google.com with SMTP id 46e09a7af769-7c702347c6eso1384433a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 12:50:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1764881415; x=1765486215; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=jfhXtjVpMYWte58x/PC24J5XI6+isvfw/8Zcbl9+DZA=;
+        b=q9XhDi+SiA4c8ZyzDUxEAVAvSkAEaaYQ5rrXhHA3sQ3V1bbr5vKmELkwkJ3dLlwsHC
+         ZH9iBccH8WeKf4Reaktsb0ys/dW9D4dQDi3loT9fMr9tiD1slS2hdyyDVRqOGzZiaAcF
+         LpTV+HWa+Z7mDfs0tGXUm1hnR+nZC9Ij5a0QYZjo11+RoM4BPx+1bp06izv789EozF4W
+         aEJhm/PAXKds/7x2ZWwX02AdegMmu9FP9p4/ZHE2Nr46ngA1b6XBtC8YRWZxhypSU9KZ
+         TS9bzjXcJAFV1U3Jy8C89H+tTzjTJKfx5CkuH+k0AorKUF+2tlvvuIwx4rexEFjKYiM1
+         cEaQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764881415; x=1765486215;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=jfhXtjVpMYWte58x/PC24J5XI6+isvfw/8Zcbl9+DZA=;
+        b=J3Si807Xo1YpjawpXbhJ1qLaLN/Tx109zYl3bzWlU+pR1MfoSv24Wz5bSB8mkhZ8uV
+         FxPiQGiSp6D+wwrIpAUfB0KzjyOhneIwKYyC5M0WmLFswNV/XK0ao57UyUnUv9TlmePR
+         oAxIEVETdvmGQGy1joR7A1iM40t+hoYAr/2pAurG909dTLmj14XkVmQSNfRjf3PLXQX2
+         TC9iZrvk6qRvpgQVFsWUl/zmEnzfstO1Gloy3wCgDW61LgT7o3vVp7+IKJr1p6PHX/Ak
+         fc7mWSN9TppK5Q6iaYdm0gAzI9rjKL99LyVhzWVPr4q5/n5tL49e2AMNhdesqggzHlVr
+         /Zyw==
+X-Gm-Message-State: AOJu0Yw0+Co/yhwGDqHeG4922vWtEV0kvaP2XdU0kUNLR/W5w2tXsul0
+	uyC6tcwycOjPVVHU6rNaBnVmZxOkKO8pEmK2AMvCQMX2n8VSAQmWH1dS/rpIQCJflfq3E5O+nG5
+	P4sw+4X9LJ4u9pwy4vc2Mi/sV9A==
+X-Google-Smtp-Source: AGHT+IHKRkFsm1qvW8FHQgUBY9rowKQV8LQD4wg/pfFAOzqqCDtedAh9KEfVk/fSu+irJi0QEI5yC6OCMXP8ByDcyQ==
+X-Received: from ilbbb7.prod.google.com ([2002:a05:6e02:7:b0:433:56ba:b9cb])
+ (user=justinstitt job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6808:1184:b0:450:c0c4:3728 with SMTP id 5614622812f47-4536e428247mr3791671b6e.30.1764881415297;
+ Thu, 04 Dec 2025 12:50:15 -0800 (PST)
+Date: Thu, 04 Dec 2025 12:50:11 -0800
+Mime-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAAP0MWkC/42NQQ7CIBBFr9LM2jGAlUZXvYfpQmBsJ6nQADaah
+ ruLPYHL95L//gaJIlOCa7NBpJUTB19BHhqw092PhOwqgxLqLDrVomnRzuwivjz7jDb4lHHJETt
+ y5qKFsSfjoM6XSA9+7+nbUHnilEP87E+r/Nk/oqtEibqzrdNKGG10P4YwznS04QlDKeULzWUJn sEAAAA=
+X-Developer-Key: i=justinstitt@google.com; a=ed25519; pk=tC3hNkJQTpNX/gLKxTNQKDmiQl6QjBNCGKJINqAdJsE=
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764881414; l=1644;
+ i=justinstitt@google.com; s=20230717; h=from:subject:message-id;
+ bh=QdxSdzVzK5xrxxMWmz/dhJgRurzJ2W+fjhM9MUROI4E=; b=xsVQAx0YLXTKT8wTYbzwnSITaZIYSGNlnwQWqZJic5nR3ojchC2UaEVQCaQ7cnY5/r5sGShFg
+ e7G0a5kMKZmDg9asmBU5U2THu+tB9937IvPJlrFBxjct0SSPaHwhSq/
+X-Mailer: b4 0.12.3
+Message-ID: <20251204-b4-clidr-unint-const-ptr-v1-1-95161315ad92@google.com>
+Subject: [PATCH 6.1.y RESEND] KVM: arm64: silence -Wuninitialized-const-pointer
+ warning
+From: Justin Stitt <justinstitt@google.com>
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Alexandru Elisei <alexandru.elisei@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
+	Nathan Chancellor <nathan@kernel.org>, Christopher Covington <cov@codeaurora.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, stable@vger.kernel.org, 
+	Justin Stitt <justinstitt@google.com>
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_124751_090709_0408D92B 
-X-CRM114-Status: GOOD (  19.74  )
+X-CRM114-CacheID: sfid-20251204_125017_020653_76C80A53 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,41 +100,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 04, 2025 at 06:32:23PM +0100, Krzysztof Kozlowski wrote:
-> On 04/12/2025 18:23, Krzysztof Kozlowski wrote:
-> > On 04/12/2025 18:11, Vladimir Oltean wrote:
-> >> On Thu, Dec 04, 2025 at 05:48:07PM +0100, Krzysztof Kozlowski wrote:
-> >>> Both are the same - inverter or NOT gate, same stuff. It is just
-> >>> connecting wire to pull up, not actual component on the board (although
-> >>> one could make and buy such component as well...). We never describe
-> >>> these inverters in the DTS, these are just too trivial circuits, thus
-> >>> the final GPIO_ACTIVE_XXX should already include whatever is on the wire
-> >>> between SoC and device.
-> >>
-> >> Please read what Andrew said:
-> >> https://lore.kernel.org/netdev/3fbc4e67-b931-421c-9d83-2214aaa2f6ed@lunn.ch/
-> >>
-> >>   Assuming there is not a NOT gate placed between the GPIO and the reset
-> >>   pin, because the board designer decided to do that for some reason?
-> >>                    ~~~~~~~~~~~~~~
-> >>
-> >> You two are *not* talking about the same thing. I dismissed the
-> > 
-> > 
-> > It's the same thing. NOT gate is just pulling some pin down or up.
-> 
-> Although transistor would be still needed, so indeed that's still a bit
-> more than a wire and resistor as I implied.
-> 
-> It looks like:
-> https://www.electronics-tutorials.ws/wp-content/uploads/2018/05/logic-log47.gif
+A new warning in Clang 22 [1] complains that @clidr passed to
+get_clidr_el1() is an uninitialized const pointer. get_clidr_el1()
+doesn't really care since it casts away the const-ness anyways.
 
-A bit more than even that... I do hope folk don't use exactly that,
-that's the kind of thing that would be used in "learning about
-electronics" projects! That's a recipe to drive a transistor into
-full saturation, which makes it comparitively very slow to turn off.
+Silence the warning by initializing the struct.
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+This patch won't apply to anything past v6.1 as this code section was
+reworked in Commit 7af0c2534f4c ("KVM: arm64: Normalize cache
+configuration"). There is no upstream equivalent so this patch only
+needs to be applied (stable only) to 6.1.
+
+Cc: stable@vger.kernel.org
+Fixes: 7c8c5e6a9101e ("arm64: KVM: system register handling")
+Link: https://github.com/llvm/llvm-project/commit/00dacf8c22f065cb52efb14cd091d441f19b319e [1]
+Signed-off-by: Justin Stitt <justinstitt@google.com>
+---
+Resending this with Nathan's RB tag, an updated commit log and better
+recipients from checkpatch.pl.
+
+I've also sent a similar patch resend for 5.15
+---
+ arch/arm64/kvm/sys_regs.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index f4a7c5abcbca..d7ebd7387221 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -2948,7 +2948,7 @@ int kvm_sys_reg_table_init(void)
+ {
+ 	bool valid = true;
+ 	unsigned int i;
+-	struct sys_reg_desc clidr;
++	struct sys_reg_desc clidr = {0};
+ 
+ 	/* Make sure tables are unique and in order. */
+ 	valid &= check_sysreg_table(sys_reg_descs, ARRAY_SIZE(sys_reg_descs), false);
+
+---
+base-commit: 830b3c68c1fb1e9176028d02ef86f3cf76aa2476
+change-id: 20250724-b4-clidr-unint-const-ptr-7edb960bc3bd
+
+Best regards,
+--
+Justin Stitt <justinstitt@google.com>
+
 
