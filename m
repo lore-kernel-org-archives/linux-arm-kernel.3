@@ -4,93 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58F2CD1D87F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 07:23:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5A44D1D87E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 07:39:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=okWEC/iPxwHapBCL3ZZGyYvTBzssGUbkrGoBgDrV58Y=; b=cOb+hpVCgJ30WC8dm88DdART4J
-	eTTx3+uGNBtR8nfhluG2QTatbvFdO6ixuciWT0H+sctry1RytYiMnIf4CRs5f189zFORjAJchKrbS
-	uMCQE+4sPfxY5NnkN4qc9jSgWmrvP3C5lwOXvcwD6SLVxAKl8EZNZdfSWvEs7MqW7LQu0bleaS5cO
-	kKir2BYCrva4c2g3PxuaED3pqnlR22Qzg8l1q9wQmIpolD+sPsxQyiIXFN1D22EdAFY20Io8nsRvt
-	b2wLDgCDNugQdf+QL+QDxkfiBRuDFTZwhlVo6PhhEaCKcl3hfyB3ydXAjflhrtces0Ai6bPqga/VG
-	4647D9Hg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D2JO7dT4mu/qzfJgFHEQIGFJwhTt/Aly7I9ZiChTjrs=; b=NRflUQwApyBf8rpdMAq0T62oCU
+	5PfpYAF9Qxp41p/BZPwsnrZcEEnpNnZHQKgUb3ZY5yDlz4THs+ixLgzIk4Q8MShIfoz2knL9lQFB0
+	wqc7Kr7EgSYFkpTSXXe/PUgL0kT8ljCNQ/SXQlyP+7eJURZUWI9ZTYy0hByqx0S0Fn8q36wCwh1NY
+	Dn4hSB+eNv0VoRnrhOH/TwSgXxCvyiTH91QIlwzns0Amsl7aunGkiL1F+9iPgCcgAClQ7Fmyllift
+	U0JtX2aPUQr8z1njluwXgO3V8KwrdlfvIdQCQbObfC0UUFnXLlc0XZRv37vkOKbDigR73FocFVarg
+	ofN/zXqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR3gN-00000007bup-31SV;
-	Thu, 04 Dec 2025 07:23:21 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1vR3vq-00000007cd7-2H5E;
+	Thu, 04 Dec 2025 07:39:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR3gJ-00000007bu1-45ur
+	id 1vR3vn-00000007cbu-3lri
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 07:23:18 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-4779a637712so3763725e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 23:23:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1764832994; x=1765437794; darn=lists.infradead.org;
-        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=okWEC/iPxwHapBCL3ZZGyYvTBzssGUbkrGoBgDrV58Y=;
-        b=bCnSaiehozvQkiVhRSJruYMHWBGZQNE57drE+oxtLnoBBpLmQ9AkLBFRIfTHnjRuYm
-         Uzh6PSp64iVF7suhKojaAAL6hmP+pHl7mzxj15HA1AK34lsfI+YalVbpV0I02DXWwGrn
-         TddNLfGIY3WXhDAj3hnYRHOcwhGAYEykhgFlfIparykByaaOSYSqK2LxVGFLrvLV7gES
-         /WbZIat/tkbb+bghAVrtnoS1OG/+yr20UPZNmZ9y6KSxZHxZULYNoqhfyswwEtTcWgDR
-         iLjS8shH4PbLAAWgpiGUs37+Zh+CQ3X4Vp7FV2ejlgUqim8a71z1xwaU+uJXFw2NOpXm
-         7FbQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764832994; x=1765437794;
-        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=okWEC/iPxwHapBCL3ZZGyYvTBzssGUbkrGoBgDrV58Y=;
-        b=C6pU0/Sm5zAiOmRp53g/M9yVc8QQbIpRxM8WXDPjTHmw5HWFJZ3CIjNoc9TxjcaBYE
-         kJXloYsRa2wqo1WIwHSy1IYgXjm6BPeHTt25IpOUc2kDwABE83gTsfnA9WqVFkBkRJlT
-         2Zyp7pRFEB6fxmRI3WarR5WFdp9TidXE5kVGqdkX/DZ5mZq5/hIiHKBn30OglsjTnLDA
-         RdWIR5bRjnB5ImlNCkGRGrII/7Ggc/KrdDbSTtCHL2WCVtCqVG1tvhzlbLVgIO05PV49
-         4+YDU6jC727owUZV9+c5gKdNbRcIROhuyQtBvZMseKoC558HPk1EQ6svRcglMjvFs7eM
-         tqhw==
-X-Forwarded-Encrypted: i=1; AJvYcCUof1+BCSHVrJv1Sf0yO9o/FLH72SNjItlixq+VyZ1lez+T5NUvX2SvS2vDyWSyoBR5v50CuzC2HWhMeDlholt8@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQgdxRQnh5kQB1k3GOtwqTPYhYyGtSqXK+Tkf+qDPaDGT2ywrl
-	V/60kpZ4hrKnXu1qNwArLzCf/acgTYu5v0SRVxc5sCnh6lcBieKMEoH3qEF/8kvrHlUWrBU0vuB
-	TTQxq3sT+xj4hphwcVov2evi3CUU3AdUQsvgUJmygpg==
-X-Gm-Gg: ASbGncuMdl8nvgZ/x77pS7MiIrIqbRh4ssA7m4gaPLpcwFQk0qzBGdMi297KUz/jYLv
-	RlqUamwQOKACc1vJXHEiN2ix0ZiWrW57EvIv3wYc6EqTUR2XR4liWFv2v95MpJ6PqwS6WplYC+I
-	C5vX6feO/bc+yMT0t6A3/qT3AVwG1y1aiBup3gcGmFWWpJmO66s4VjfzWoqfv05/NDY1mqP19O7
-	gT5D97scfWbjMtZfk5XYP/qM9dqxbicMbPxOecQeVKy/7Y1ECD0nhdXDlI6G3MiPY26ZMhL7w==
-X-Google-Smtp-Source: AGHT+IFaKGk1a1cfaFCq3oEJHjtRMI9goTFpitEtb54cbEHZjPz6jL2+k2TkdRXspbNqqeM3uYcrqB70IssR3M+MU1k=
-X-Received: by 2002:a05:6000:4012:b0:42b:3701:c4c6 with SMTP id
- ffacd0b85a97d-42f731eb4d1mr4801776f8f.38.1764832993790; Wed, 03 Dec 2025
- 23:23:13 -0800 (PST)
+	Thu, 04 Dec 2025 07:39:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3B07C440A7;
+	Thu,  4 Dec 2025 07:39:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F690C113D0;
+	Thu,  4 Dec 2025 07:39:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764833953;
+	bh=Qq0GWTvBPgCqUz9m3+8fVUgJ9uPY8K9dp5GcVDT/CYE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=naH7XhYEsEkbtlW6bsr51zK1N3fr04bg7n2X9YlcuhrVgKW+16Y+Zb8p2vXqWEOvm
+	 p9IJks1elvXfDM72avZm44WkyA6S6axvsOO9yKOt107nN/XGV+syj1R0x2FySHa/dS
+	 ZsLnhKU8Vrt4l32kXkLXUT30bZaMTIP+zLvWVRwtijoZXIbe12bkkdIac79lyYcg7w
+	 KpKF8/bwnuwzXk75yU4uqCdpd7Ts3Cbb2sc+bOrThfJ9ZF+OuZIbCZk4chVYq1nAXF
+	 eBYKxcJR0XQctjXiK1mK01OaMZU6amOD6yjnjSy2A5qlDw9gZJxrPmhRDDX2kCtYNA
+	 8L5PdBOJKtD1g==
+Message-ID: <b896d109-d707-4651-8bb0-6cf5071e46bf@kernel.org>
+Date: Thu, 4 Dec 2025 08:39:03 +0100
 MIME-Version: 1.0
-References: <20250523-b4-ctr_upstream_v3-v3-0-ad355304ba1c@rivosinc.com>
- <20250523-b4-ctr_upstream_v3-v3-6-ad355304ba1c@rivosinc.com>
- <CAPqJEFr=3Re=L0CmEpCRHxovB74MDB9C8neNMfouYvWWbR0hyw@mail.gmail.com> <CAJh9TSJk0nZvqJrvTe5ENMpAB=56--+CFai0tXQnYFakKxQxQw@mail.gmail.com>
-In-Reply-To: <CAJh9TSJk0nZvqJrvTe5ENMpAB=56--+CFai0tXQnYFakKxQxQw@mail.gmail.com>
-From: Jimmy Ho <jimmy.ho@sifive.com>
-Date: Thu, 4 Dec 2025 15:23:02 +0800
-X-Gm-Features: AWmQ_bmUiiW9pn488x-Fr8fuYuHfeGljg_pilmkGRtBxdEqZhbPqlS98C4-BBjg
-Message-ID: <CAJh9TS+MM+4ytsQ4tOhddNihvTrRMwV0rFRmMv1xRQTGcE18Dw@mail.gmail.com>
-Subject: Re: [PATCH v3 6/7] riscv: pmu: Integrate CTR Ext support in
- riscv_pmu_dev driver
-To: Peter Zijlstra <peterz@infradead.org>, mingo@redhat.com, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, mark.rutland@arm.com, 
-	alexander.shishkin@linux.intel.com, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, adrian.hunter@intel.com, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, aou@eecs.berkeley.edu, 
-	Alexandre Ghiti <alex@ghiti.fr>, Patra <atishp@rivosinc.com>, Anup Patel <anup@brainfault.org>, 
-	Deacon <will@kernel.org>, Rob Herring <robh@kernel.org>, Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Beeman Strong <beeman@rivosinc.com>, 
-	"Cc:" <linux-perf-users@vger.kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	palmer@sifive.com, Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, 
-	Rajnesh Kanwal <rkanwal@rivosinc.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ALSA: Do not build obsolete API
+To: david@ixit.cz, Russell King <linux@armlinux.org.uk>,
+ Vladimir Zapolskiy <vz@mleia.com>,
+ Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+ Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Janusz Krzysztofik <jmkrzyszt@gmail.com>, Tony Lindgren <tony@atomide.com>,
+ Thierry Reding <thierry.reding@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Keguang Zhang <keguang.zhang@gmail.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-omap@vger.kernel.org, linux-tegra@vger.kernel.org,
+ linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ linux-sh@vger.kernel.org, linux-sound@vger.kernel.org
+References: <20251203-old-alsa-v1-1-ac80704f52c3@ixit.cz>
+Content-Language: fr-FR
+From: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+In-Reply-To: <20251203-old-alsa-v1-1-ac80704f52c3@ixit.cz>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_232316_093203_14231AC0 
-X-CRM114-Status: GOOD (  30.53  )
+X-CRM114-CacheID: sfid-20251203_233915_980616_9527F7A8 
+X-CRM114-Status: GOOD (  15.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,234 +88,262 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rajnesh,
 
-> This integrates recently added CTR ext support in riscv_pmu_dev driver
-> to enable branch stack sampling using PMU events.
->
-> This mainly adds CTR enable/disable callbacks in rvpmu_ctr_stop()
-> and rvpmu_ctr_start() function to start/stop branch recording along
-> with the event.
->
-> PMU overflow handler rvpmu_ovf_handler() is also updated to sample
-> CTR entries in case of the overflow for the particular event programmed
-> to records branches. The recorded entries are fed to core perf for
-> further processing.
->
-> Signed-off-by: Rajnesh Kanwal <rkanwal@rivosinc.com>
+
+Le 03/12/2025 à 23:34, David Heidelberg via B4 Relay a écrit :
+> [Vous ne recevez pas souvent de courriers de devnull+david.ixit.cz@kernel.org. Découvrez pourquoi ceci est important à https://aka.ms/LearnAboutSenderIdentification ]
+> 
+> From: David Heidelberg <david@ixit.cz>
+> 
+> ALSA 0.9.0-rc3 is from 2002, 23 years old.
+> 
+> Signed-off-by: David Heidelberg <david@ixit.cz>
 > ---
->  drivers/perf/riscv_pmu_common.c |  3 +-
->  drivers/perf/riscv_pmu_dev.c    | 67 ++++++++++++++++++++++++++++++++++++++++-
->  2 files changed, 67 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/perf/riscv_pmu_common.c b/drivers/perf/riscv_pmu_common.c
-> index b2dc78cbbb93926964f81f30be9ef4a1c02501df..0b032b8d8762e77d2b553643b0f9064e7c789cfe
-> 100644
-> --- a/drivers/perf/riscv_pmu_common.c
-> +++ b/drivers/perf/riscv_pmu_common.c
-> @@ -329,8 +329,7 @@ static int riscv_pmu_event_init(struct perf_event *event)
->         u64 event_config = 0;
->         uint64_t cmask;
->
-> -       /* driver does not support branch stack sampling */
-> -       if (has_branch_stack(event))
-> +       if (needs_branch_stack(event) && !riscv_pmu_ctr_supported(rvpmu))
->                 return -EOPNOTSUPP;
->
->         hwc->flags = 0;
-> diff --git a/drivers/perf/riscv_pmu_dev.c b/drivers/perf/riscv_pmu_dev.c
-> index 95e6dd272db69f53b679e5fc3450785e45d5e8b9..b0c616fb939fcc61f7493877a8801916069f16f7
-> 100644
-> --- a/drivers/perf/riscv_pmu_dev.c
-> +++ b/drivers/perf/riscv_pmu_dev.c
-> @@ -1038,7 +1038,7 @@ static void rvpmu_sbi_ctr_stop(struct perf_event
-> *event, unsigned long flag)
->  static void pmu_sched_task(struct perf_event_pmu_context *pmu_ctx,
->                            bool sched_in)
->  {
-> -       /* Call CTR specific Sched hook. */
-> +       riscv_pmu_ctr_sched_task(pmu_ctx, sched_in);
->  }
->
->  static int rvpmu_sbi_find_num_ctrs(void)
-> @@ -1370,6 +1370,13 @@ static irqreturn_t rvpmu_ovf_handler(int irq, void *dev)
->                 hw_evt->state |= PERF_HES_UPTODATE;
->                 perf_sample_data_init(&data, 0, hw_evt->last_period);
->                 if (riscv_pmu_event_set_period(event)) {
-> +                       if (needs_branch_stack(event)) {
-> +                               riscv_pmu_ctr_consume(cpu_hw_evt, event);
-> +                               perf_sample_save_brstack(
-> +                                       &data, event,
-> +
-> &cpu_hw_evt->branches->branch_stack, NULL);
-> +                       }
-> +
->                         /*
->                          * Unlike other ISAs, RISC-V don't have to
-> disable interrupts
->                          * to avoid throttling here. As per the
-> specification, the
-> @@ -1569,16 +1576,23 @@ static int rvpmu_deleg_ctr_get_idx(struct
-> perf_event *event)
->
->  static void rvpmu_ctr_add(struct perf_event *event, int flags)
->  {
-> +       if (needs_branch_stack(event))
-> +               riscv_pmu_ctr_add(event);
->  }
->
->  static void rvpmu_ctr_del(struct perf_event *event, int flags)
->  {
-> +       if (needs_branch_stack(event))
-> +               riscv_pmu_ctr_del(event);
->  }
->
->  static void rvpmu_ctr_start(struct perf_event *event, u64 ival)
->  {
->         struct hw_perf_event *hwc = &event->hw;
->
-> +       if (needs_branch_stack(event))
-> +               riscv_pmu_ctr_enable(event);
-> +
->         if (riscv_pmu_cdeleg_available() && !pmu_sbi_is_fw_event(event))
->                 rvpmu_deleg_ctr_start(event, ival);
->         else
-> @@ -1593,6 +1607,9 @@ static void rvpmu_ctr_stop(struct perf_event
-> *event, unsigned long flag)
->  {
->         struct hw_perf_event *hwc = &event->hw;
->
-> +       if (needs_branch_stack(event) && flag != RISCV_PMU_STOP_FLAG_RESET)
-> +               riscv_pmu_ctr_disable(event);
-> +
->         if ((hwc->flags & PERF_EVENT_FLAG_USER_ACCESS) &&
->             (hwc->flags & PERF_EVENT_FLAG_USER_READ_CNT))
->                 rvpmu_reset_scounteren((void *)event);
-> @@ -1650,6 +1667,9 @@ static u32 rvpmu_find_ctrs(void)
->
->  static int rvpmu_event_map(struct perf_event *event, u64 *econfig)
->  {
-> +       if (needs_branch_stack(event) && !riscv_pmu_ctr_valid(event))
-> +               return -EOPNOTSUPP;
-> +
->         if (riscv_pmu_cdeleg_available() && !pmu_sbi_is_fw_event(event))
->                 return rvpmu_cdeleg_event_map(event, econfig);
->         else
-> @@ -1696,6 +1716,8 @@ static int rvpmu_starting_cpu(unsigned int cpu,
-> struct hlist_node *node)
->                 enable_percpu_irq(riscv_pmu_irq, IRQ_TYPE_NONE);
->         }
->
-> +       riscv_pmu_ctr_starting_cpu();
-> +
->         if (sbi_pmu_snapshot_available())
->                 return pmu_sbi_snapshot_setup(pmu, cpu);
->
-> @@ -1710,6 +1732,7 @@ static int rvpmu_dying_cpu(unsigned int cpu,
-> struct hlist_node *node)
->
->         /* Disable all counters access for user mode now */
->         csr_write(CSR_SCOUNTEREN, 0x0);
-> +       riscv_pmu_ctr_dying_cpu();
->
->         if (sbi_pmu_snapshot_available())
->                 return pmu_sbi_snapshot_disable();
-> @@ -1833,6 +1856,29 @@ static void riscv_pmu_destroy(struct riscv_pmu *pmu)
->         cpuhp_state_remove_instance(CPUHP_AP_PERF_RISCV_STARTING, &pmu->node);
->  }
->
-> +static int branch_records_alloc(struct riscv_pmu *pmu)
-> +{
-> +       struct branch_records __percpu *tmp_alloc_ptr;
-> +       struct branch_records *records;
-> +       struct cpu_hw_events *events;
-> +       int cpu;
-> +
-> +       if (!riscv_pmu_ctr_supported(pmu))
-> +               return 0;
-> +
-> +       tmp_alloc_ptr = alloc_percpu_gfp(struct branch_records, GFP_KERNEL);
-> +       if (!tmp_alloc_ptr)
-> +               return -ENOMEM;
-> +
-> +       for_each_possible_cpu(cpu) {
-> +               events = per_cpu_ptr(pmu->hw_events, cpu);
-> +               records = per_cpu_ptr(tmp_alloc_ptr, cpu);
-> +               events->branches = records;
-> +       }
-> +
-> +       return 0;
-> +}
-> +
->  static void rvpmu_event_init(struct perf_event *event)
->  {
->         /*
-> @@ -1845,6 +1891,9 @@ static void rvpmu_event_init(struct perf_event *event)
->                 event->hw.flags |= PERF_EVENT_FLAG_USER_ACCESS;
->         else
->                 event->hw.flags |= PERF_EVENT_FLAG_LEGACY;
-> +
-> +       if (branch_sample_call_stack(event))
-> +               event->attach_state |= PERF_ATTACH_TASK_DATA;
->  }
->
->  static void rvpmu_event_mapped(struct perf_event *event, struct mm_struct *mm)
-> @@ -1992,6 +2041,15 @@ static int rvpmu_device_probe(struct
-> platform_device *pdev)
->                 pmu->pmu.attr_groups = riscv_cdeleg_pmu_attr_groups;
->         else
->                 pmu->pmu.attr_groups = riscv_sbi_pmu_attr_groups;
-> +
-> +       ret = riscv_pmu_ctr_init(pmu);
-> +       if (ret)
-> +               goto out_free;
-> +
-> +       ret = branch_records_alloc(pmu);
-> +       if (ret)
-> +               goto out_ctr_finish;
-> +
->         pmu->cmask = cmask;
->         pmu->ctr_add = rvpmu_ctr_add;
->         pmu->ctr_del = rvpmu_ctr_del;
-> @@ -2008,6 +2066,10 @@ static int rvpmu_device_probe(struct
-> platform_device *pdev)
->         pmu->csr_index = rvpmu_csr_index;
->         pmu->sched_task = pmu_sched_task;
->
-> +       ret = cpuhp_state_add_instance(CPUHP_AP_PERF_RISCV_STARTING,
-> &pmu->node);
-> +       if (ret)
-> +               goto out_ctr_finish;
+> Maybe I could drop also the code and Kconfig option?
+> 
+> David
+> ---
+>   arch/arm/configs/am200epdkit_defconfig    | 1 -
+>   arch/arm/configs/lpc32xx_defconfig        | 1 -
+>   arch/arm/configs/omap1_defconfig          | 1 -
+>   arch/arm/configs/tegra_defconfig          | 1 -
+>   arch/mips/configs/gcw0_defconfig          | 1 -
+>   arch/mips/configs/loongson1_defconfig     | 1 -
+>   arch/mips/configs/qi_lb60_defconfig       | 1 -
+>   arch/mips/configs/rbtx49xx_defconfig      | 1 -
+>   arch/mips/configs/rs90_defconfig          | 1 -
+>   arch/powerpc/configs/85xx-hw.config       | 1 -
+>   arch/powerpc/configs/86xx-hw.config       | 1 -
+>   arch/powerpc/configs/mpc5200_defconfig    | 1 -
+>   arch/powerpc/configs/ppc6xx_defconfig     | 1 -
 
-This hotplug registration should be removed, since there is already
-one in the original code.
-Otherwise, It will cause the CPU hotplug down to loop infinitely.
+For powerpc:
 
-Best regards,
-Jimmy Ho
+Reviewed-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
+Acked-by: Christophe Leroy (CS GROUP) <chleroy@kernel.org>
 
-> +
->         ret = riscv_pm_pmu_register(pmu);
->         if (ret)
->                 goto out_unregister;
-> @@ -2057,6 +2119,9 @@ static int rvpmu_device_probe(struct
-> platform_device *pdev)
->  out_unregister:
->         riscv_pmu_destroy(pmu);
->
-> +out_ctr_finish:
-> +       riscv_pmu_ctr_finish(pmu);
-> +
->  out_free:
->         kfree(pmu);
->         return ret;
->
+
+
+>   arch/sh/configs/edosk7760_defconfig       | 1 -
+>   arch/sh/configs/se7724_defconfig          | 1 -
+>   arch/sh/configs/sh7785lcr_32bit_defconfig | 1 -
+>   sound/core/Kconfig                        | 2 +-
+>   17 files changed, 1 insertion(+), 17 deletions(-)
+> 
+> diff --git a/arch/arm/configs/am200epdkit_defconfig b/arch/arm/configs/am200epdkit_defconfig
+> index 134a559aba3dd..2367b1685c1cf 100644
+> --- a/arch/arm/configs/am200epdkit_defconfig
+> +++ b/arch/arm/configs/am200epdkit_defconfig
+> @@ -68,7 +68,6 @@ CONFIG_SOUND=m
+>   CONFIG_SND=m
+>   CONFIG_SND_MIXER_OSS=m
+>   CONFIG_SND_PCM_OSS=m
+> -# CONFIG_SND_SUPPORT_OLD_API is not set
+>   # CONFIG_SND_VERBOSE_PROCFS is not set
+>   CONFIG_SND_PXA2XX_AC97=m
+>   CONFIG_USB_GADGET=y
+> diff --git a/arch/arm/configs/lpc32xx_defconfig b/arch/arm/configs/lpc32xx_defconfig
+> index 2bddb0924a8c0..b9e2e603cd95e 100644
+> --- a/arch/arm/configs/lpc32xx_defconfig
+> +++ b/arch/arm/configs/lpc32xx_defconfig
+> @@ -113,7 +113,6 @@ CONFIG_LOGO=y
+>   # CONFIG_LOGO_LINUX_VGA16 is not set
+>   CONFIG_SOUND=y
+>   CONFIG_SND=y
+> -# CONFIG_SND_SUPPORT_OLD_API is not set
+>   # CONFIG_SND_VERBOSE_PROCFS is not set
+>   CONFIG_SND_DEBUG=y
+>   CONFIG_SND_DEBUG_VERBOSE=y
+> diff --git a/arch/arm/configs/omap1_defconfig b/arch/arm/configs/omap1_defconfig
+> index dee820474f444..df88763fc7c3d 100644
+> --- a/arch/arm/configs/omap1_defconfig
+> +++ b/arch/arm/configs/omap1_defconfig
+> @@ -148,7 +148,6 @@ CONFIG_SOUND=y
+>   CONFIG_SND=y
+>   CONFIG_SND_MIXER_OSS=y
+>   CONFIG_SND_PCM_OSS=y
+> -# CONFIG_SND_SUPPORT_OLD_API is not set
+>   # CONFIG_SND_VERBOSE_PROCFS is not set
+>   CONFIG_SND_DUMMY=y
+>   CONFIG_SND_USB_AUDIO=y
+> diff --git a/arch/arm/configs/tegra_defconfig b/arch/arm/configs/tegra_defconfig
+> index ce70ff07c978a..68aedaf92667a 100644
+> --- a/arch/arm/configs/tegra_defconfig
+> +++ b/arch/arm/configs/tegra_defconfig
+> @@ -219,7 +219,6 @@ CONFIG_FRAMEBUFFER_CONSOLE_ROTATION=y
+>   CONFIG_LOGO=y
+>   CONFIG_SOUND=y
+>   CONFIG_SND=y
+> -# CONFIG_SND_SUPPORT_OLD_API is not set
+>   # CONFIG_SND_DRIVERS is not set
+>   CONFIG_SND_HDA_TEGRA=y
+>   CONFIG_SND_HDA_INPUT_BEEP=y
+> diff --git a/arch/mips/configs/gcw0_defconfig b/arch/mips/configs/gcw0_defconfig
+> index fda9971bdd8d9..adb9fd62ddb0d 100644
+> --- a/arch/mips/configs/gcw0_defconfig
+> +++ b/arch/mips/configs/gcw0_defconfig
+> @@ -79,7 +79,6 @@ CONFIG_LOGO=y
+>   # CONFIG_LOGO_LINUX_VGA16 is not set
+>   CONFIG_SOUND=y
+>   CONFIG_SND=y
+> -# CONFIG_SND_SUPPORT_OLD_API is not set
+>   # CONFIG_SND_PROC_FS is not set
+>   # CONFIG_SND_DRIVERS is not set
+>   # CONFIG_SND_SPI is not set
+> diff --git a/arch/mips/configs/loongson1_defconfig b/arch/mips/configs/loongson1_defconfig
+> index 02d29110f7024..1d9781ff96986 100644
+> --- a/arch/mips/configs/loongson1_defconfig
+> +++ b/arch/mips/configs/loongson1_defconfig
+> @@ -119,7 +119,6 @@ CONFIG_WATCHDOG_SYSFS=y
+>   CONFIG_LOONGSON1_WDT=y
+>   CONFIG_SOUND=y
+>   CONFIG_SND=y
+> -# CONFIG_SND_SUPPORT_OLD_API is not set
+>   # CONFIG_SND_DRIVERS is not set
+>   # CONFIG_SND_MIPS is not set
+>   # CONFIG_SND_USB is not set
+> diff --git a/arch/mips/configs/qi_lb60_defconfig b/arch/mips/configs/qi_lb60_defconfig
+> index 5f5b0254d75e7..a1bb0792f6eb1 100644
+> --- a/arch/mips/configs/qi_lb60_defconfig
+> +++ b/arch/mips/configs/qi_lb60_defconfig
+> @@ -81,7 +81,6 @@ CONFIG_LOGO=y
+>   # CONFIG_LOGO_LINUX_CLUT224 is not set
+>   CONFIG_SOUND=y
+>   CONFIG_SND=y
+> -# CONFIG_SND_SUPPORT_OLD_API is not set
+>   # CONFIG_SND_VERBOSE_PROCFS is not set
+>   # CONFIG_SND_DRIVERS is not set
+>   # CONFIG_SND_SPI is not set
+> diff --git a/arch/mips/configs/rbtx49xx_defconfig b/arch/mips/configs/rbtx49xx_defconfig
+> index 03a7bbe28a532..49c709d663beb 100644
+> --- a/arch/mips/configs/rbtx49xx_defconfig
+> +++ b/arch/mips/configs/rbtx49xx_defconfig
+> @@ -53,7 +53,6 @@ CONFIG_TXX9_WDT=m
+>   # CONFIG_VGA_ARB is not set
+>   CONFIG_SOUND=m
+>   CONFIG_SND=m
+> -# CONFIG_SND_SUPPORT_OLD_API is not set
+>   # CONFIG_SND_VERBOSE_PROCFS is not set
+>   # CONFIG_SND_DRIVERS is not set
+>   # CONFIG_SND_PCI is not set
+> diff --git a/arch/mips/configs/rs90_defconfig b/arch/mips/configs/rs90_defconfig
+> index a53dd66e9b864..8382d535e6dc1 100644
+> --- a/arch/mips/configs/rs90_defconfig
+> +++ b/arch/mips/configs/rs90_defconfig
+> @@ -105,7 +105,6 @@ CONFIG_LOGO=y
+>   CONFIG_SOUND=y
+>   CONFIG_SND=y
+>   # CONFIG_SND_PCM_TIMER is not set
+> -# CONFIG_SND_SUPPORT_OLD_API is not set
+>   # CONFIG_SND_PROC_FS is not set
+>   # CONFIG_SND_DRIVERS is not set
+>   # CONFIG_SND_MIPS is not set
+> diff --git a/arch/powerpc/configs/85xx-hw.config b/arch/powerpc/configs/85xx-hw.config
+> index 8aff832173977..2b19c20a9a2c4 100644
+> --- a/arch/powerpc/configs/85xx-hw.config
+> +++ b/arch/powerpc/configs/85xx-hw.config
+> @@ -117,7 +117,6 @@ CONFIG_SND_INTEL8X0=y
+>   CONFIG_SND_POWERPC_SOC=y
+>   # CONFIG_SND_PPC is not set
+>   CONFIG_SND_SOC=y
+> -# CONFIG_SND_SUPPORT_OLD_API is not set
+>   # CONFIG_SND_USB is not set
+>   CONFIG_SND=y
+>   CONFIG_SOUND=y
+> diff --git a/arch/powerpc/configs/86xx-hw.config b/arch/powerpc/configs/86xx-hw.config
+> index e7bd265fae5a4..07f30ab881e59 100644
+> --- a/arch/powerpc/configs/86xx-hw.config
+> +++ b/arch/powerpc/configs/86xx-hw.config
+> @@ -80,7 +80,6 @@ CONFIG_SERIO_LIBPS2=y
+>   CONFIG_SND_INTEL8X0=y
+>   CONFIG_SND_MIXER_OSS=y
+>   CONFIG_SND_PCM_OSS=y
+> -# CONFIG_SND_SUPPORT_OLD_API is not set
+>   CONFIG_SND=y
+>   CONFIG_SOUND=y
+>   CONFIG_ULI526X=y
+> diff --git a/arch/powerpc/configs/mpc5200_defconfig b/arch/powerpc/configs/mpc5200_defconfig
+> index c0fe5e76604a0..617650cea56a9 100644
+> --- a/arch/powerpc/configs/mpc5200_defconfig
+> +++ b/arch/powerpc/configs/mpc5200_defconfig
+> @@ -75,7 +75,6 @@ CONFIG_FB_SM501=m
+>   CONFIG_LOGO=y
+>   CONFIG_SOUND=y
+>   CONFIG_SND=y
+> -# CONFIG_SND_SUPPORT_OLD_API is not set
+>   # CONFIG_SND_DRIVERS is not set
+>   # CONFIG_SND_PCI is not set
+>   # CONFIG_SND_PPC is not set
+> diff --git a/arch/powerpc/configs/ppc6xx_defconfig b/arch/powerpc/configs/ppc6xx_defconfig
+> index b082c1fae13c9..787d707f64a42 100644
+> --- a/arch/powerpc/configs/ppc6xx_defconfig
+> +++ b/arch/powerpc/configs/ppc6xx_defconfig
+> @@ -726,7 +726,6 @@ CONFIG_SND_OSSEMUL=y
+>   CONFIG_SND_MIXER_OSS=m
+>   CONFIG_SND_PCM_OSS=m
+>   CONFIG_SND_DYNAMIC_MINORS=y
+> -# CONFIG_SND_SUPPORT_OLD_API is not set
+>   CONFIG_SND_VERBOSE_PRINTK=y
+>   CONFIG_SND_DEBUG=y
+>   CONFIG_SND_DEBUG_VERBOSE=y
+> diff --git a/arch/sh/configs/edosk7760_defconfig b/arch/sh/configs/edosk7760_defconfig
+> index abeae220606a3..905fac1072845 100644
+> --- a/arch/sh/configs/edosk7760_defconfig
+> +++ b/arch/sh/configs/edosk7760_defconfig
+> @@ -79,7 +79,6 @@ CONFIG_FB_TILEBLITTING=y
+>   CONFIG_FB_SH_MOBILE_LCDC=m
+>   CONFIG_SOUND=y
+>   CONFIG_SND=y
+> -# CONFIG_SND_SUPPORT_OLD_API is not set
+>   # CONFIG_SND_VERBOSE_PROCFS is not set
+>   CONFIG_SND_VERBOSE_PRINTK=y
+>   CONFIG_SND_SOC=y
+> diff --git a/arch/sh/configs/se7724_defconfig b/arch/sh/configs/se7724_defconfig
+> index 9e3a54936f76f..8ca46d704c8ba 100644
+> --- a/arch/sh/configs/se7724_defconfig
+> +++ b/arch/sh/configs/se7724_defconfig
+> @@ -83,7 +83,6 @@ CONFIG_LOGO=y
+>   # CONFIG_LOGO_SUPERH_VGA16 is not set
+>   CONFIG_SOUND=y
+>   CONFIG_SND=m
+> -# CONFIG_SND_SUPPORT_OLD_API is not set
+>   # CONFIG_SND_DRIVERS is not set
+>   # CONFIG_SND_SPI is not set
+>   # CONFIG_SND_SUPERH is not set
+> diff --git a/arch/sh/configs/sh7785lcr_32bit_defconfig b/arch/sh/configs/sh7785lcr_32bit_defconfig
+> index eb63aa61b0465..5468cc53cddb4 100644
+> --- a/arch/sh/configs/sh7785lcr_32bit_defconfig
+> +++ b/arch/sh/configs/sh7785lcr_32bit_defconfig
+> @@ -93,7 +93,6 @@ CONFIG_SND_PCM_OSS=y
+>   CONFIG_SND_SEQUENCER_OSS=y
+>   CONFIG_SND_HRTIMER=y
+>   CONFIG_SND_DYNAMIC_MINORS=y
+> -# CONFIG_SND_SUPPORT_OLD_API is not set
+>   # CONFIG_SND_VERBOSE_PROCFS is not set
+>   CONFIG_SND_VERBOSE_PRINTK=y
+>   CONFIG_SND_DEBUG=y
+> diff --git a/sound/core/Kconfig b/sound/core/Kconfig
+> index 48db44fa56feb..4e7bc370ffd7f 100644
+> --- a/sound/core/Kconfig
+> +++ b/sound/core/Kconfig
+> @@ -155,7 +155,7 @@ config SND_MAX_CARDS
+> 
+>   config SND_SUPPORT_OLD_API
+>          bool "Support old ALSA API"
+> -       default y
+> +       default n
+>          help
+>            Say Y here to support the obsolete ALSA PCM API (ver.0.9.0 rc3
+>            or older).
+> 
+> ---
+> base-commit: b2c27842ba853508b0da00187a7508eb3a96c8f7
+> change-id: 20251203-old-alsa-fa2c2cb038e1
+> 
+> Best regards,
 > --
-> 2.43.0
->
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> David Heidelberg <david@ixit.cz>
+> 
+> 
+
 
