@@ -4,81 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED79ED2444A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 17:09:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 633DBD2444A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 17:12:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aNaY4Xp11z7CIwlZFJgR83dSZLkci8XyLzs0K/rt6vc=; b=dpJZC1z8JKmSfccky2DcsD4snN
-	nICzCPOSKOd1lMpVLMIDi1OOrjZyrDmeE3X12u9N7fL0lpuD0hx0o1jpTBcxVU87oUcMpB4PwGECK
-	65YtjctB0H+B8VxeMEKFVIAQxg8cSxrFKPrg/XY0k976wUCyr8A/4NmS426MaZ5l72hpTIgfHwcTz
-	gpym0IgROQYsPlsSbrre4J2yh1Yd0gwlMmQ58Q7nBCnqDEv8HLWYBO3FRpJozqH3+PVwIIMQpkA/e
-	gMgVWwaPwv5tjUKJcwhK+lvUB4gWIBF7UCEjFf/j13fYTxcfaW6094lwGJcyx5ympmq1S3PQ0JLXV
-	FPu1TXSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uGUWJRfLEGG5MQjirrXoFGblqtB6v7zhyuKgj/1LsZ8=; b=18e6vePAkmy1089a5pHYZLs9X1
+	tklDlGkmjP4DSXPJnUZ9lIIPrhjl5F3vczWMAYaCbxfOSN9SC8Acl7CH8z/7/oN6iKrtKDu6FJT36
+	pZQPOsXoThnfuraH/uXJxuRepVmloXM508pHAeWQcpC+Qqy3FRrjdL0e9xDu/RwX0dt5ZYQLaiHE9
+	84bHBP5ZfVR84NufDXcuh9daGR7yKaB1TPVYBKjnJpVrj2VnEOnK2kwzUHmt4lUSLNnA44qwrq82B
+	7WUZD59pgWSKB8w1iRCY+pKqeu/QnnQB3uTlVpiihXFXx6/aoFlMEBWYSTxTW6ux/PEoSohy5upzE
+	549sceww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRCpZ-00000008Lg7-1jG6;
-	Thu, 04 Dec 2025 17:09:25 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vRCsG-00000008LwA-0sVM;
+	Thu, 04 Dec 2025 17:12:12 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRCpX-00000008LfY-05a7
+	id 1vRCs9-00000008Lv0-0BBG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 17:09:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 68E044434E
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Dec 2025 17:09:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17334C16AAE
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Dec 2025 17:09:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764868162;
-	bh=ozsg4eLgtauKgJ3H79DciPuHkymo9rMsTDj/oVDQG/Y=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=tvI0t3PppjBwAgLlyJx1wWZC9indt/Tx10fEBb3gp9gJfIrtha8sE106jk5mNvVx/
-	 111V3vcH7rETlbaupvlcSyS81CV3AEeSQy+zV7ZibqlENbWAyniti+b0FQCnU5lqW7
-	 1G2QYLL9CsEPJLkOS7V+CdkajMD36mowAg9U7p7mfCpFl2degElYrc7JHl5Uul7sAB
-	 FRPga1InK+wMGkB1xkPuOaF6fpEw58vsCnifaRXZQjBvDoNVp7cpRdsfoQ3YBlWOXl
-	 tTV92sJ80l/pxFe90ycKaf6DIeRK6Vl+6Me6ig0y3jh9wO6bYrQb7R5gCE0O+/Q7hR
-	 0Js6MFCcTD4WA==
-Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-63c489f1e6cso1970783a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 09:09:21 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXRvv5t5+sHZl2zfWFIPuRZJunZ0GY0l6WSRZQZNDtAwoVvJOvkzS7hX8PSlln5PF81BMr5Tjy6FFspuGWC5I2a@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoD9ILKlcyb3OoH5eMHKLLcWCEAv1DapxVVeu4zzUsgLQ+KTqG
-	kJKSG2nspvVPCXZW4ZEdMrOBYCwjDg56batoevLZU04U1bzqLztvlSw7G4mxtnQhmvujVmtL14p
-	z4oDIEIUljF4pZWKToyj4q/ByLxc7dA==
-X-Google-Smtp-Source: AGHT+IE0h1OfhwPlHlU/zqfmmwyoK86/xLpsj/AoOe6qs54NDfjqeNrTcOPci/SfJTS7EyFSSYCViXJ4jSy9O3HUuCE=
-X-Received: by 2002:a05:6402:1a43:b0:640:aae6:adc5 with SMTP id
- 4fb4d7f45d1cf-647a69f6860mr2612946a12.4.1764868160633; Thu, 04 Dec 2025
- 09:09:20 -0800 (PST)
+	Thu, 04 Dec 2025 17:12:10 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-429c844066fso84672f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 09:12:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764868323; x=1765473123; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=uGUWJRfLEGG5MQjirrXoFGblqtB6v7zhyuKgj/1LsZ8=;
+        b=gCiBpy4zlizrtJCagQU77OuY3gRcjqorzEXrx06//yX6DuYG0gOHZ0cWVpvL5Jwa0F
+         RQg8w4wtE7vp1uHhL3zOU1TKKzJ+q67hh7kMaRb6mIt3gg+69cUMMXNIZrBRe6lO8GEl
+         F4u3BC+iaRePzy2Sw8VCC/M8sESr2NjeMyBDsuhbSh3wf45qHb7ZRo4zWIMbEU4LQ/Mv
+         hltafCki2V6jXS9aqBrigpne2Wh5J71K3Tc0FCAw2e6vESicuM7sKv5w78e5pXxI0TlW
+         AVfRe8hITeb9deD1pX7ijeDdXegTBBZ4PuA5+lGtPyuSzfMhLZkxIfVtV6Vip77mGEc2
+         RrxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764868323; x=1765473123;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=uGUWJRfLEGG5MQjirrXoFGblqtB6v7zhyuKgj/1LsZ8=;
+        b=eHskKGAVRgHi0L8Xe9al5V1s/TFXBH0SOGfkCW8UyCiPdHwspymcNFeommKkuckEs3
+         FDUZY/waTDxbmPYGxg1E8+h4B5H0eYY2odiA3znFNyG7cHXhqVDqZqnrLXVWc+NjrDS1
+         wJ5i6eUwhvJmPX2v5SDF51mi5rBJh7BCEBx/RiwxAB27i8m6+vZ9PU/8Nal7DCE0J+Lp
+         T+0fmxMl5DylwhQVUXvhEzcWHww5ZiFl76RlhrXP9KJZUpTCe5/9Ujl+oXFA2tHxodEN
+         S6uAngLT7VDghWtCZXiYD+BdilEQGBkkTW5/OKGFCIAjY9bWoXDBXQFQanXIYQkHxkU9
+         E/Ew==
+X-Forwarded-Encrypted: i=1; AJvYcCXpDljsz6vx/wbbmVTLmUzjCohY95wzhmVQl/uobAxDZXIeDY+wxnEBoSayNeVIcYQDdQXRdUUr+4rk6/SGFL1v@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOS1PUB8PF3o1xA4MNsQQAkjNSHXTmRkeQhg6X8vg/ka1g2S6A
+	aHGQGPJJNFp7g5lEG2Tl85W29iAFY+uhHtRBzjpqlVakH7S8D+T96sdQ
+X-Gm-Gg: ASbGncsouzS76x6i2W07rhdzBZCTsQSeULvlBwbSpjWhGBhrJbXsld+LvbiyXYmB40Z
+	rSfuTCuH6/XDP5QP8iyvA4NLv9S+L28ZnaUC7+1A3KJWlUibOwJyXNc2saF/jiQ/jJTnTiwdE2d
+	jGHsx09pbyl5QQbYAbLilxLYQvsLj57m1dkzsWxvk3U9JGDkizBISUrKH4eazSwEYsK6iv7S+oq
+	fJG8Kro2KIKAnCV7DFqbN8fy5K0C4f8WWzRsnvi1X++48+mN78wkojfSqo0ubZfSzy/9p3qqSHk
+	IYB/zTJjLKhEhKwQchzIa8/DIVpf9a9DIP8rq0rWMMYJQbtFT+Ny4g3epBQ563rYLIc71qntazF
+	Kq1Bw0MwfRxMSPXSv/VpwYavtGES7RfkoCUvyWM41h3muEowd+VSk7ui50Z2HJzJ0s1Rz/vhp3I
+	F8sPM=
+X-Google-Smtp-Source: AGHT+IGxkkIvEqrKzXYEjrd610hQ5Joilqojfn2sZR57wWJ4rYVFOquGZdhrsExO4Zfqp1zUdehCbA==
+X-Received: by 2002:a05:6000:2f83:b0:42b:2dff:d394 with SMTP id ffacd0b85a97d-42f731e6940mr4153566f8f.8.1764868322949;
+        Thu, 04 Dec 2025 09:12:02 -0800 (PST)
+Received: from skbuf ([2a02:2f04:d106:d600:dbb2:245d:2cf5:21d3])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42f7cbe9065sm4190267f8f.8.2025.12.04.09.12.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 04 Dec 2025 09:12:02 -0800 (PST)
+Date: Thu, 4 Dec 2025 19:11:59 +0200
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Daniel Golle <daniel@makrotopia.org>, Frank Wunderlich <frankwu@gmx.de>,
+	Andrew Lunn <andrew@lunn.ch>, Chen Minqiang <ptpt52@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] net: dsa: mt7530: Use GPIO polarity to generate
+ correct reset sequence
+Message-ID: <20251204171159.yy3nkvzttxecmhfo@skbuf>
+References: <0675b35f-217d-4261-9e3f-2eb24753d43c@lunn.ch>
+ <20251130080731.ty2dlxaypxvodxiw@skbuf>
+ <3fbc4e67-b931-421c-9d83-2214aaa2f6ed@lunn.ch>
+ <0d85e1e6-ea75-4f20-aef1-90d446b4bfa1@kernel.org>
+ <00f308a1-a4b1-4f20-8d8e-459ddf4c39b1@gmx.de>
+ <aS7Zj3AFsSp2CTNv@makrotopia.org>
+ <20251204131626.upw77jncqfwxydww@skbuf>
+ <4170c560-1edd-4ff8-96af-a479063be4a5@kernel.org>
+ <20251204160247.yz42mnxvzhxas5jc@skbuf>
+ <66d080f1-e989-451f-9d5e-34460e5eb1b0@kernel.org>
 MIME-Version: 1.0
-References: <20250812085037.13517-1-andrea.porta@suse.com> <4fee3870-f9d5-48e3-a5be-6df581d3e296@kernel.org>
- <aKc5nMT1xXpY03ip@apocalypse> <e7875f70-2b79-48e0-a63b-caf6f1fd287b@kernel.org>
- <aLVePQRfU4IB1zK8@apocalypse>
-In-Reply-To: <aLVePQRfU4IB1zK8@apocalypse>
-From: Rob Herring <robh@kernel.org>
-Date: Thu, 4 Dec 2025 11:09:09 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqJUzB71QdMcxJtNZ7raoPcK+SfTh7EVzGmk=syo8xLKQw@mail.gmail.com>
-X-Gm-Features: AWmQ_bk-kALt_k3I5clEjqRRUksBAOMX1BPr5dYQDHIANQpdcGuEg7qIa9ngHh0
-Message-ID: <CAL_JsqJUzB71QdMcxJtNZ7raoPcK+SfTh7EVzGmk=syo8xLKQw@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: pci: brcmstb: Add rp1-nexus node to fix DTC warning
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Jim Quinlan <jim2101024@gmail.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, kwilczynski@kernel.org, 
-	Manivannan Sadhasivam <mani@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rpi-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, iivanov@suse.de, svarbanov@suse.de, 
-	mbrugger@suse.com, Jonathan Bell <jonathan@raspberrypi.com>, 
-	Phil Elwell <phil@raspberrypi.com>, kernel test robot <lkp@intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <66d080f1-e989-451f-9d5e-34460e5eb1b0@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_090923_104034_9379A87D 
-X-CRM114-Status: GOOD (  47.05  )
+X-CRM114-CacheID: sfid-20251204_091206_303992_89A646EC 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,159 +118,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 1, 2025 at 3:48=E2=80=AFAM Andrea della Porta <andrea.porta@sus=
-e.com> wrote:
->
-> Hi Krzysztof,
->
-> On 08:50 Fri 22 Aug     , Krzysztof Kozlowski wrote:
-> > On 21/08/2025 17:22, Andrea della Porta wrote:
-> > > Hi Krzysztof,
-> > >
-> > > On 10:55 Tue 12 Aug     , Krzysztof Kozlowski wrote:
-> > >> On 12/08/2025 10:50, Andrea della Porta wrote:
-> > >>> The devicetree compiler is complaining as follows:
-> > >>>
-> > >>> arch/arm64/boot/dts/broadcom/rp1-nexus.dtsi:3.11-14.3: Warning (uni=
-t_address_vs_reg): /axi/pcie@1000120000/rp1_nexus: node has a reg or ranges=
- property, but no unit name
-> > >>> /home/andrea/linux-torvalds/arch/arm64/boot/dts/broadcom/bcm2712-rp=
-i-5-b.dtb: pcie@1000120000: Unevaluated properties are not allowed ('rp1_ne=
-xus' was unexpected)
-> > >>
-> > >> Please trim the paths.
-> > >
-> > > Ack.
-> > >
-> > >>
-> > >>>
-> > >>> Add the optional node that fix this to the DT binding.
-> > >>>
-> > >>> Reported-by: kernel test robot <lkp@intel.com>
-> > >>> Closes: https://lore.kernel.org/oe-kbuild-all/202506041952.baJDYBT4=
--lkp@intel.com/
-> > >>> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> > >>> ---
-> > >>>  Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml | 9 +++++=
-++++
-> > >>>  1 file changed, 9 insertions(+)
-> > >>>
-> > >>> diff --git a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.ya=
-ml b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-> > >>> index 812ef5957cfc..7d8ba920b652 100644
-> > >>> --- a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-> > >>> +++ b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-> > >>> @@ -126,6 +126,15 @@ required:
-> > >>>  allOf:
-> > >>>    - $ref: /schemas/pci/pci-host-bridge.yaml#
-> > >>>    - $ref: /schemas/interrupt-controller/msi-controller.yaml#
-> > >>> +  - if:
-> > >>> +      properties:
-> > >>> +        compatible:
-> > >>> +          contains:
-> > >>> +            const: brcm,bcm2712-pcie
-> > >>> +    then:
-> > >>> +      properties:
-> > >>> +        rp1_nexus:
-> > >>
-> > >> No, you cannot document post-factum... This does not follow DTS codi=
-ng
-> > >> style.
-> > >
-> > > I think I didn't catch what you mean here: would that mean that
-> > > we cannot resolve that warning since we cannot add anything to the
-> > > binding?
-> >
-> > I meant, you cannot use a warning from the code you recently introduced
-> > as a reason to use incorrect style.
-> >
-> > Fixing warning is of course fine and correct, but for the code recently
-> > introduced and which bypassed ABI review it is basically like new revie=
-w
-> > of new ABI.
-> >
-> > This needs standard review practice, so you need to document WHY you
-> > need such node. Warning is not the reason here why you are doing. If
-> > this was part of original patchset, like it should have been, you would
-> > not use some imaginary warning as reason, right?
-> >
-> > So provide reason why you need here this dedicated child, what is that
-> > child representing.
->
-> Ack.
->
-> >
-> > Otherwise I can suggest: drop the child and DTSO, this also solves the
-> > warning...
->
-> This would not fix the issue: it's the non overlay that needs the specifi=
-c
-> node. But I got the point, and we have a solution for that (see below).
->
-> >
-> > >
-> > > Regarding rp1_nexus, you're right I guess it should be
-> > > rp1-nexus as per DTS coding style.
-> > >
-> > >>
-> > >> Also:
-> > >>
-> > >> Node names should be generic. See also an explanation and list of
-> > >> examples (not exhaustive) in DT specification:
-> > >> https://devicetree-specification.readthedocs.io/en/latest/chapter2-d=
-evicetree-basics.html#generic-names-recommendation
-> > >
-> > > In this case it could be difficult: we need to search for a DT node
-> >
-> > Search like in driver? That's wrong, you should be searching by compati=
-ble.
->
-> Thanks for the hint. Searching by compatble is the solution.
+On Thu, Dec 04, 2025 at 05:48:07PM +0100, Krzysztof Kozlowski wrote:
+> Both are the same - inverter or NOT gate, same stuff. It is just
+> connecting wire to pull up, not actual component on the board (although
+> one could make and buy such component as well...). We never describe
+> these inverters in the DTS, these are just too trivial circuits, thus
+> the final GPIO_ACTIVE_XXX should already include whatever is on the wire
+> between SoC and device.
 
-No, it is not.
+Please read what Andrew said:
+https://lore.kernel.org/netdev/3fbc4e67-b931-421c-9d83-2214aaa2f6ed@lunn.ch/
 
-> >
-> > > starting from the DT root and using generic names like pci@0,0 or
-> > > dev@0,0 could possibly led to conflicts with other peripherals.
-> > > That's why I chose a specific name.
-> >
-> > Dunno, depends what can be there, but you do not get a specific
-> > (non-generic) device node name for a generic PCI device or endpoint.
->
-> I would use 'port' instead of rp1-nexus. Would it work for you?
+  Assuming there is not a NOT gate placed between the GPIO and the reset
+  pin, because the board designer decided to do that for some reason?
+                   ~~~~~~~~~~~~~~
 
-Do you still plan to fix this? This is broken far worse than just the node =
-name.
-
-The 'rp1_nexus' node is applied to the PCI host bridge. That's wrong
-unless this is PCI rather than PCIe. There's the root port device in
-between.
-
-The clue that things are wrong are start in the driver here:
-
-rp1_node =3D of_find_node_by_name(NULL, "rp1_nexus");
-if (!rp1_node) {
-  rp1_node =3D dev_of_node(dev);
-  skip_ovl =3D false;
-}
-
-You should not need to do this nor care what the node name is. The PCI
-core should have populated pdev->dev.of_node for you. If not, your DT
-is wrong. Turn on CONFIG_PCI_DYNAMIC_OF_NODES and look at the
-resulting PCI nodes. They should also match what the hierarchy looks
-like with lspci. I don't recommend you rely on
-CONFIG_PCI_DYNAMIC_OF_NODES, but statically populate the nodes in the
-DT. First, CONFIG_PCI_DYNAMIC_OF_NODES is an under development thing
-and I hope to get rid of the config option. Second, your case is
-static (i.e. not a PCIe card in a slot) so there is no issue
-hardcoding the DT.
-
-As far as the node name, I don't care so much as long as the driver
-doesn't care and you don't use '_' or 'pcie?' (that's for PCI
-bridges).
-
-And why do we have drivers/misc/rp1/rp1-pci.dtso and a .dtso in
-arch/arm64? There should not be both.
-
-Rob
+You two are *not* talking about the same thing. I dismissed the
+probability of there being a NOT gate in the form of a discrete chip on
+the PCB, *exactly because* you can most likely invert the signal in the
+GPIO pin itself.
 
