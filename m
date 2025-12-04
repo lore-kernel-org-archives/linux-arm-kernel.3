@@ -4,72 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3317DD1D899
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 09:17:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B9F9D1D899
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 09:22:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bdxR7v9DL4giaQ0nD6cGSOn8HPdLK+CBHB+mv5p51TE=; b=R5a61xItTbixrGwB6OMqr1IXLS
-	e38sIfYdnHFJy1aj7NlGIVMSJ6MijeEh51O7wQmcSPk0TTKBdoml7+uMMU9qDAPKBP/hj4KrU8Eg6
-	YTj3dY4TkDZgToMG0zqlPvfogYgxNOxwdKu90oO3kUPhxzAnNcpCQidMkUodzpaGU7kaFeMyxaH2Y
-	ep1lAlV2PbeqtdacjN6sgrfJxZm3If4OxW0XuQgWas21LVdxaXA5kHmRwIk5eXy+TilRph9WJJVBV
-	Gym+oIQNzmvCCVSTHi102ZSz6BffoFDw1n1DZpp5IwM6zfpgbJ2KOt+6fzRLurMmKUdswS+ADO4l/
-	1hkRMCGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FLSpuz/6+85v/AQDFlteEhbG2rBrPi0Jt5bHAcppCMk=; b=QPz9CtckgRHasy+K0aZyL/7oEW
+	BreH3M4dMYs08W3Zf2B2YBgFpkO3sD6iX5zzXkPz9jyd+3ALNr+lg0SCqSQmj5s9izOfbJ3VoRGQ+
+	ePJrB+WanPChZKflRe9hP5OZe5KtZ6fFvYB4pOOxA4k3HKM7cwnDEbJUOjz5Ny+sLW8QyUj+5jl7n
+	93OoBRSu3nfnEE3xTJkQXOJSWWPZ1xF1UenWcjlzapIG9xnh0uTYhgFbAK1Qg839ox9BioQuxLdbW
+	QFltxf+hQL093S5FGThJIG30zBaO70k1aDzsPIazwC0fR98lUvdHRMI0LAOkknzATgMp6p+j0lWlM
+	5sI34+AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR5T8-00000007kfE-3cDN;
-	Thu, 04 Dec 2025 09:17:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR5T6-00000007ken-3V0t
+	id 1vR5Xy-00000007lBI-2m5U;
+	Thu, 04 Dec 2025 09:22:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vR5Xv-00000007lAX-44Ks
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 09:17:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EA161601E2
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Dec 2025 09:17:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 97CAFC2BC87
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Dec 2025 09:17:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764839863;
-	bh=bdxR7v9DL4giaQ0nD6cGSOn8HPdLK+CBHB+mv5p51TE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=lXMJFlx51rTedas29KHnOrmyDSqkZ9OMYrKSulTiX57PBwHm2eQiqLevCstNDBnVT
-	 nCVGTNp7fzETozRNuQAA5mbYmXhdurch8QsIn1ts0SUX0878qPP6F5FVDYrBr3wT9W
-	 AkgTKbQXFCzm1WMgZMKHaINZLTSqwLCCAD0dAxU5Kk45tsxO0uZPJvt91vcWn+0bYC
-	 C2IgMJeK7my4B4xpP9tsR0pWBNKZ4d4GMAlf00wpJGT2bjit1qFoztrZDlC8sl6QNP
-	 7TWkDlYiX/OoujuaVpQfW9eeV92YLP9lkU3JZRQx/bEk4561i1k13l8QYbKxWEI4oz
-	 nLySSoiGo2EBQ==
-Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-37e56b0712aso5750681fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 01:17:43 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWLEwIl2r81NXn76WO4WGj5y8jSM8EXS7iUiK3WzecxQvuzc4E1eRQqWckc0n7jcOGkIkImPT5Z7QzhUrbaunNW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwfKGXHkiQMLLwHSmFa6zXVNY1axcppFYCN4fugiDu+eNufNve0
-	8F3u4dBjBbEeJe6yWXtLFtrY9bu1hzV1X32Nq8VPekz8X37ueEi0UFlI9uM4WXV/GQ9pbrmcG5C
-	1IIlR7BH+Hxf4ztMvvXSLPx2N1XCYvH8=
-X-Google-Smtp-Source: AGHT+IEepIIomfWFRr0Rx3UmKjb+4HGFPEe9u/4871RbpTRAjdKjp2QqrAmQWNspq2CaP1lGYKWgUBnucw5FQcFMAE4=
-X-Received: by 2002:a05:6512:3b0e:b0:55f:4633:7b2 with SMTP id
- 2adb3069b0e04-597d3fdddf4mr1972090e87.46.1764839861912; Thu, 04 Dec 2025
- 01:17:41 -0800 (PST)
+	Thu, 04 Dec 2025 09:22:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A7296339;
+	Thu,  4 Dec 2025 01:22:34 -0800 (PST)
+Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 234933F59E;
+	Thu,  4 Dec 2025 01:22:40 -0800 (PST)
+Message-ID: <9c00516c-6e07-4c57-a1f1-6dfc32ab3a53@arm.com>
+Date: Thu, 4 Dec 2025 09:22:38 +0000
 MIME-Version: 1.0
-References: <20251126160854.553077-1-tzimmermann@suse.de> <aSe1ZBXa3JBidhem@r1chard>
- <fc4ea259-3389-46e2-b860-972aa8179507@suse.de>
-In-Reply-To: <fc4ea259-3389-46e2-b860-972aa8179507@suse.de>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 4 Dec 2025 10:17:29 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXE8Q6FGX5+64gPyW=ExicR4UbnEDeW4ycCsSsD2WtaYJA@mail.gmail.com>
-X-Gm-Features: AWmQ_bm9xn92SSdHRbzJXHCDOFUkHMVJIr0kEdVYpgmMwEspup4WiDKMgeR24mo
-Message-ID: <CAMj1kXE8Q6FGX5+64gPyW=ExicR4UbnEDeW4ycCsSsD2WtaYJA@mail.gmail.com>
-Subject: Re: [PATCH v3 0/9] arch,sysfb,efi: Support EDID on non-x86 EFI systems
-To: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: Richard Lyu <richard.lyu@suse.com>, javierm@redhat.com, arnd@arndb.de, 
-	helgaas@kernel.org, x86@kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-efi@vger.kernel.org, 
-	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org, 
-	dri-devel@lists.freedesktop.org, linux-hyperv@vger.kernel.org, 
-	linux-pci@vger.kernel.org, linux-fbdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 6/9] dt-bindings: arm: add an interrupt property for
+ Coresight CTCU
+To: Jie Gan <jie.gan@oss.qualcomm.com>, Mike Leach <mike.leach@linaro.org>,
+ James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+ Jinlong Mao <jinlong.mao@oss.qualcomm.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20250908-enable-byte-cntr-for-tmc-v6-0-1db9e621441a@oss.qualcomm.com>
+ <20250908-enable-byte-cntr-for-tmc-v6-6-1db9e621441a@oss.qualcomm.com>
+ <66d4488f-941a-4716-b81f-e0f9e1165931@arm.com>
+ <5a0e4abf-9e7f-4ef9-af02-dd6e34f5cfa8@oss.qualcomm.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <5a0e4abf-9e7f-4ef9-af02-dd6e34f5cfa8@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251204_012244_140174_C976896F 
+X-CRM114-Status: GOOD (  16.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,38 +77,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 27 Nov 2025 at 08:43, Thomas Zimmermann <tzimmermann@suse.de> wrote:
->
-> Hi
->
-> Am 27.11.25 um 03:20 schrieb Richard Lyu:
-> > Hi Thomas,
-> >
-> > I am attempting to test this patch series but encountered merge conflicts when applying it to various trees.
-> > Could you please clarify the specific base commit (or branch/tag) this series was generated against?
->
-> Thanks for testing.
->
-> >
-> > When testing on the next branch on commits 7a2ff00 and e41ef37, I hit a conflict on PATCH v3 4/9:
-> > patching file drivers/pci/vgaarb.c
-> > Hunk #2 FAILED at 557.
-> > 1 out of 2 hunks FAILED -- rejects in file drivers/pci/vgaarb.c
-> >
-> > When testing against 3a86608 (Linux 6.18-rc1), the following conflicts occurred:
-> > patching file drivers/gpu/drm/sysfb/efidrm.c
-> > Hunk #1 FAILED at 24.
-> > 1 out of 2 hunks FAILED -- rejects in file drivers/gpu/drm/sysfb/efidrm.c
-> > patching file drivers/gpu/drm/sysfb/vesadrm.c
-> > Hunk #1 FAILED at 25.
-> > 1 out of 2 hunks FAILED -- rejects in file drivers/gpu/drm/sysfb/vesadrm.c
-> >
-> > Please let me know the correct base, and I will retest.
->
-> It's in the cover letter: d724c6f85e80a23ed46b7ebc6e38b527c09d64f5 The
-> commit is in linux-next. The idea is that the EFI tree can pick up the
-> changes easily in the next cycle. linux-next seemed like the best
-> choice. Best regards Thomas
+On 04/12/2025 02:53, Jie Gan wrote:
+> 
+> 
+> On 12/4/2025 2:14 AM, Suzuki K Poulose wrote:
+>> On 08/09/2025 03:01, Jie Gan wrote:
+>>> Add an interrupt property to CTCU device. The interrupt will be 
+>>> triggered
+>>> when the data size in the ETR buffer exceeds the threshold of the
+>>> BYTECNTRVAL register. Programming a threshold in the BYTECNTRVAL 
+>>> register
+>>> of CTCU device will enable the interrupt.
+>>>
+>>> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>>> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+>>> ---
+>>>   .../devicetree/bindings/arm/qcom,coresight-ctcu.yaml    | 17 ++++++ 
+>>> + ++++++++++
+>>>   1 file changed, 17 insertions(+)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight- 
+>>> ctcu.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight- 
+>>> ctcu.yaml
+>>> index 843b52eaf872..ea05ad8f3dd3 100644
+>>> --- a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
+>>> +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
+>>> @@ -39,6 +39,16 @@ properties:
+>>>       items:
+>>>         - const: apb
+>>> +  interrupts:
+>>> +    items:
+>>> +      - description: Byte cntr interrupt for etr0
+>>> +      - description: Byte cntr interrupt for etr1
+>>> +
+>>> +  interrupt-names:
+>>> +    items:
+>>> +      - const: etr0
+>>> +      - const: etr1
+>>
+> 
+> Hi Suzuki,
+> 
+>> Why are they named "etr0" "etr1" ? That would be confusing, isn't it, 
+>> especially with the Linux driver naming things randomly for the TMC-ETRs.
+>>
+> 
+> Yes, it will cause misunderstandings since the "etr0" here may not the 
+> right device we are expecting.
+> 
+>>
+>> What we want is the "port" number corresponding to the "TMC-ETR" being
+>> monitored ?
+>>
+>> Have you explored other options, "port-0", "port-1" ?
+>>
+> 
+> I think it's much better. Will update in next version.
 
-Thanks. I will queue this up as soon as -rc1 is released.
+I am not sure if there exists a better scheme for identifying or
+numbering the interrupts. Happy to listen to the DT experts.
+
+Rob, Krzysztof, thoughts ?
+
+Suzuki
+
+
+> 
+> Thanks,
+> Jie
+> 
+>> Suzuki
+>>
+>>> +
+>>>     in-ports:
+>>>       $ref: /schemas/graph.yaml#/properties/ports
+>>> @@ -56,6 +66,8 @@ additionalProperties: false
+>>>   examples:
+>>>     - |
+>>> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+>>> +
+>>>       ctcu@1001000 {
+>>>           compatible = "qcom,sa8775p-ctcu";
+>>>           reg = <0x1001000 0x1000>;
+>>> @@ -63,6 +75,11 @@ examples:
+>>>           clocks = <&aoss_qmp>;
+>>>           clock-names = "apb";
+>>> +        interrupts = <GIC_SPI 270 IRQ_TYPE_EDGE_RISING>,
+>>> +                     <GIC_SPI 262 IRQ_TYPE_EDGE_RISING>;
+>>> +        interrupt-names = "etr0",
+>>> +                          "etr1";
+>>> +
+>>>           in-ports {
+>>>               #address-cells = <1>;
+>>>               #size-cells = <0>;
+>>>
+>>
+>>
+> 
+
 
