@@ -4,114 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 917A7D1F9CB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 12:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA08ED1F9D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 12:02:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3dWeg0Gou5cL43+Fwb20JB5Vj02q8FUWDT52VhRtvxo=; b=tUMd3+ST39LJcMzkZoNiZVs3x0
-	WYp9rcwPpHkVaJGOwf4vDuw/ZwwE0MehfhmsIBykFt4edqsynCZpJT51EFRuPhO3z5hn2ARsesMyl
-	D9KtqbXCgznkKSgS1/+myLnvW8XpirUNcl/Ig/+ZUjdJPFvYqz+r0ePPvVGfQoXjjRFDr4r21+2hL
-	84iyy16mvASfrQKAb6a9PkMjdMLFoTgWSQTE3FZOMOKZSvgXNHiyKb7gIqPlELo+4S/zichVgYUZV
-	F8nqJ5OHlXJoF8pdPqdTyg6ySU58xPfCo1agwb6fqJF/Pv7OxCFPyKsFN3K7DC6sSrX0RFvEfZDko
-	esXVChHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7pScc9OMlOahLVz734DzEX17niS1eZXgML4q9K2qgCQ=; b=EmynJDk/Nb0z8xRqKv8W2TYtZk
+	4OprxJzISMAnAjpO+6+lJ9v8J/nNXDuISiTO1moLiEexilwaFS2p3xsrIk4gK9X1eGBWVD3YkThdp
+	i1ySL7ilAIE5gScJfPuTBXM1Vmrzf5s7jxo9UoqvIPZe/1N7YJgHMWNmQsNCyms4jFyPFZueECYyr
+	IfGPU4Nw7Kx4NlbXqqDemnKQTOHccXMAuA/CpzcMJmr8usM5d688TZmS9WWkCevMyLXEqBjUYDmN7
+	twHm4u9pT+zIsjanAiX/9wGIEiRWp5Qu4SNHC3U+ZIWWSgUZLL5sEeqjBrN9++1fAS3gxpUm2YXj2
+	d4WH7S2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR82C-00000007xEq-1GuA;
-	Thu, 04 Dec 2025 12:02:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vR82s-00000007xJr-2qIc;
+	Thu, 04 Dec 2025 12:02:50 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR829-00000007xET-2ura
+	id 1vR82r-00000007xJW-3IXz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 12:02:06 +0000
+	Thu, 04 Dec 2025 12:02:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 12C1E419D6;
-	Thu,  4 Dec 2025 12:02:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 922C0C4CEFB;
-	Thu,  4 Dec 2025 12:02:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E5034601E6;
+	Thu,  4 Dec 2025 12:02:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93C1DC4CEFB;
+	Thu,  4 Dec 2025 12:02:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764849724;
-	bh=3BRzLReeFtvcAcTdmDGdblgB7rbbCW3J1VY1q6iGpuU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SttjbrhJ/oQpSzZRLm4gh0I1XIjOzYDP0bhjZlBoq0Bls3+s+2Jyz7+j8Dx1aZg3a
-	 o1HWOg8TN2lvNS6zyyyAMH3DGXYXBb+z/sjZOG/d0CTv0AESuzGJDzzVSb5Z/h+03P
-	 Fu/KFNAlLo/qRgibwJF4OOKmgONfAahW7ZHtGzHlhveW+IdMoZBf807kVCulSiwTBL
-	 ZtNWeqN96zW5IUJGsM/DfbNZH4L8x9Nyvhrnaau6VRp/DJbz5e0SZ8z3hbDKNs1WmU
-	 a9tN025L0G95chXeRVpnE8QKEgE6VzsuoT8XFcEz5kt2P2WpPSvAxRWMQ5o70iPlMc
-	 pjEsOmA18xzdw==
-Message-ID: <39ac918c-0394-495b-b717-dfa0fd35d7dc@kernel.org>
-Date: Thu, 4 Dec 2025 13:02:00 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] ARM: samsung: exynos5250: Allow CPU1 to boot
-To: Pavel Machek <pavel@ucw.cz>
-Cc: Lukas Timmermann <linux@timmermann.space>,
- Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Alexandre Marquet <tb@a-marquet.fr>
-References: <20251125-google-manta-v2-0-0f097cfff39c@timmermann.space>
- <20251125-google-manta-v2-3-0f097cfff39c@timmermann.space>
- <aTFvBwjms8msxIae@duo.ucw.cz>
- <73efeaeb-0cde-45af-af92-4fd7b5d4589c@kernel.org>
- <aTF2H0f9TJiwCLe5@duo.ucw.cz>
- <a68ee81f-1d2c-47f4-b86f-e0e803c1cfd3@kernel.org>
- <aTF2z5HbvmEuu9Iy@duo.ucw.cz>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <aTF2z5HbvmEuu9Iy@duo.ucw.cz>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_040205_779968_CEB26967 
-X-CRM114-Status: GOOD (  11.64  )
+	s=k20201202; t=1764849768;
+	bh=qAFev/ZMR+BvH9bpLAKRlFmk+BNmyUPl+SRKdAw5gt0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=u4oXrp0oVv3YCP/h84RVudsXPgHYL9O+cuZOsBm6sWa2kINAWtlbOj7Dhd//xmaxJ
+	 n/6ZiWpgpFuNfYS4e/SUD8ar9kBTjFl39et6B24yBU5Lf7W2E2RD5xQspYizIeLUQG
+	 Oh7aDlymvfpO25RAxAbLOjdPVUF1zW/cDn4a4xjDhYfY/ZNMkL1QEZQTtuQ4+8Ix//
+	 RU3810sBs92AONbLrwu1mKyWT541HNLyEZQRjfqwneoHzaG/gIJrOAzNk0LClIGRLy
+	 LD7ZcSDZsf8pxbrI8IeLCvS8qDrVtQZ+SYuVr28vCR2FdB8iVRiRTO1LrwZIN4iYjt
+	 KrlJd+OS8ErZg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vR82o-0000000ARD4-1xKl;
+	Thu, 04 Dec 2025 12:02:46 +0000
+Date: Thu, 04 Dec 2025 12:02:46 +0000
+Message-ID: <86bjkepi8p.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>
+Subject: Re: [PATCH v3 1/9] arm64: Repaint ID_AA64MMFR2_EL1.IDS description
+In-Reply-To: <d546725b-e96f-461e-887d-8679cf747c7d@arm.com>
+References: <20251204094806.3846619-1-maz@kernel.org>
+	<20251204094806.3846619-2-maz@kernel.org>
+	<b98c154a-1658-4501-bfa5-a93303aa5b3f@arm.com>
+	<86cy4uplo5.wl-maz@kernel.org>
+	<d546725b-e96f-461e-887d-8679cf747c7d@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ben.horgan@arm.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, yaoyuan@linux.alibaba.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,35 +90,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/12/2025 12:55, Pavel Machek wrote:
-> On Thu 2025-12-04 12:54:03, Krzysztof Kozlowski wrote:
->> On 04/12/2025 12:53, Pavel Machek wrote:
->>> On Thu 2025-12-04 12:51:36, Krzysztof Kozlowski wrote:
->>>> On 04/12/2025 12:22, Pavel Machek wrote:
->>>>> Also please cc: phone-devel mailing list with phone related patches.
->>>>
->>>> You don't have to. This list is not part of any upstream Linux kernel
->>>> process (see `git grep`), it's not relevant to upstream kernel development.
->>>
->>> Yes, you should. Its a relevant mailing list.
->>
->> git grep for it. Stop inventing rules.
+On Thu, 04 Dec 2025 11:13:41 +0000,
+Ben Horgan <ben.horgan@arm.com> wrote:
 > 
-> Who is inventing rules here? Stop sabotaging review process.
-
-You invented rule that some specific list of your interest has to be
-CCed, even though no one knows about that list and it is nowhere documented.
-
+> Hi Marc,
 > 
-> "Many kernel-related lists are hosted on vger.kernel.org; you can find a
-> list of them at http://vger.kernel.org/vger-lists.html.  There are
-> kernel-related lists hosted elsewhere as well, though."
+> On 12/4/25 10:48, Marc Zyngier wrote:
+> > On Thu, 04 Dec 2025 10:36:54 +0000,
+> > Ben Horgan <ben.horgan@arm.com> wrote:
+> >>
+> >> Hi Marc,
+> >>
+> >> On 12/4/25 09:47, Marc Zyngier wrote:
+> >>> ID_AA64MMFR2_EL1.IDS, as described in the sysreg file, is pretty horrible
+> >>> as it diesctly give the ESR value. Repaint it using the usual NI/IMP
+> >>> identifiers to describe the absence/presence of FEAT_IDST.
+> >>>
+> >>> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> >>> ---
+> >>>  arch/arm64/kvm/hyp/nvhe/sys_regs.c | 2 +-
+> >>>  arch/arm64/tools/sysreg            | 4 ++--
+> >>>  2 files changed, 3 insertions(+), 3 deletions(-)
+> >>>
+> >>> diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> >>> index 82da9b03692d4..107d62921b168 100644
+> >>> --- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> >>> +++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> >>> @@ -134,7 +134,7 @@ static const struct pvm_ftr_bits pvmid_aa64mmfr2[] = {
+> >>>  	MAX_FEAT(ID_AA64MMFR2_EL1, UAO, IMP),
+> >>>  	MAX_FEAT(ID_AA64MMFR2_EL1, IESB, IMP),
+> >>>  	MAX_FEAT(ID_AA64MMFR2_EL1, AT, IMP),
+> >>> -	MAX_FEAT_ENUM(ID_AA64MMFR2_EL1, IDS, 0x18),
+> >>> +	MAX_FEAT_ENUM(ID_AA64MMFR2_EL1, IDS, IMP),
+> >>>  	MAX_FEAT(ID_AA64MMFR2_EL1, TTL, IMP),
+> >>>  	MAX_FEAT(ID_AA64MMFR2_EL1, BBM, 2),
+> >>>  	MAX_FEAT(ID_AA64MMFR2_EL1, E0PD, IMP),
+> >>> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> >>> index 1c6cdf9d54bba..3261e8791ac03 100644
+> >>> --- a/arch/arm64/tools/sysreg
+> >>> +++ b/arch/arm64/tools/sysreg
+> >>> @@ -2257,8 +2257,8 @@ UnsignedEnum	43:40	FWB
+> >>>  	0b0001	IMP
+> >>>  EndEnum
+> >>>  Enum	39:36	IDS
+> >>
+> >> Should this also be changed to an UnsignedEnum?
+> > 
+> > I'm not sure this brings much when you only have two values. If IDS
+> > was growing a third value, and that there was an actual order in the
+> > numbering scheme, then yes, that'd be useful.
+> 
+> Joey just pointed out to me that there is a new third field. Not in the
+> arm reference manual yet, but mentioned in the xml. I'm unsure if it's
+> necessary to consider this at the moment though.
+> 
+> https://developer.arm.com/documentation/ddi0601/2025-09/AArch64-Registers/ID-AA64MMFR2-EL1--AArch64-Memory-Model-Feature-Register-2?lang=en
 
-This proves nothing. There are just some lists there. No one has to cc
-whatever list there just because Pavel Machek asks them. Kernel process
-defines it or not. Not you.
+Ah, nice catch. In which case I agree that this should become
+UnsignedEnum, as the new EL3 feature is a strict superset of 0b0001.
 
+I'll add fix for that on top.
 
-Best regards,
-Krzysztof
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
