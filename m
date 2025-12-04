@@ -4,65 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9720CD1CDAE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  3 Dec 2025 23:55:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3249BD1CDAE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 00:05:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LjEjhgB3SoWdMvIeP5RbyFQkL6DtMOMzx3chxCrGCxw=; b=EXa5IjfeKdO88o4kLecsXA9dcW
-	5fCV/DMwSP2g7rSj0/W9hxj1wYZZRkxzLrogdoPVYtgiU0R2Tdw0neRMNtwXM38S7V2/1aHppNcIJ
-	g0o2pGPM47fXD42eqKH/hlBhKISY1ZRriCKvu/BPmXU6r1nylLR+JawN3jHmoKYkchiBDifeaUPCb
-	lAwLEjqq2klYW4GYpKB2Toj6cgMmeBmdfghGlGME3SAf3HOCeshSgbbgdYtq0cwYEYujGgykWyDEl
-	8G8eR7SWMKLLy8ypseTn6bAX+wFvSoAQENfHcZjQDMxnT/dMbHVXmyNCU7DziQiJz3AnFOAlpHZgl
-	7ZsLCCvA==;
+	bh=Zd9WoFQTvNfYXS0FutJkOHLRDDNZG45Z8fkn2eFEtfA=; b=bj7bK6tQMRUHhCLJwZC7BECAhE
+	xxU4tORj1dKwkAE6YiZdPoZwPtyoOk16EX1b7eODvaJjAQYMesbrR+pF3BlqFZggcJ5Dx4D4F3Z6i
+	NIkwlTBmUCiuaaaQ9mr7GBApWvyINlJ66muzkBtltS6nYSfRt1ctMFdFB8ESj8mHp43uB9GfHl4vO
+	XuHK9Dxl7hV4sle3VpRqthTwrK5jCcYxgmrSF9RDXnl57thtZIpTCq32wogj/gPwok1y1txBTDW8U
+	McX1z+Gt/WmOqf3WdRdJ+R+z/LnmDej9fiwz5g4NzaOMThEWcp46wCCo9cxUayKfxIiBl+52mJ9b4
+	mwnvbtBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQwgy-00000007Goq-1G7G;
-	Wed, 03 Dec 2025 23:55:28 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vQwqZ-00000007HSa-0mrv;
+	Thu, 04 Dec 2025 00:05:23 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQwgu-00000007GnK-25cb;
-	Wed, 03 Dec 2025 23:55:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1764806120;
-	bh=lfwx5dWdmB91fro96PRWljjZswN6jZAfvgtTYs9ZWBk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=A3tFM4rrT//Wbk5ZjB+zLf4/OdSYIzUFqkDYRA0/3ByNaRCPhUspf/vuamrTWI8eh
-	 9KQtJ3RxIgm2xDYP+XPVttX3Y0n9ytD6LbZ5iViumpmCpM/AGqJi+YsXqu0Znr0Iji
-	 wyAJ6FIRteY69v51X/zYrzz/xBDWGZQR/RGrUTTtxLc6KbIfX28BVfZEQoO1XYIGYi
-	 f+he9MKtsq7w3ybsdyWOnS/UfV04PPMzRIrXvoQDDlkJgv0lYtm8CBRHLtYfOFC9S0
-	 jM2Rb1nst0lTBrEztLmu5kHAEroQPnw57W1C9jBYsF5M2iRWre2RWCkSAgc7qbK75q
-	 7tABys8PcClDA==
-Received: from localhost (unknown [82.79.138.145])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5AA8D17E0CF5;
-	Thu,  4 Dec 2025 00:55:20 +0100 (CET)
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Date: Thu, 04 Dec 2025 01:54:09 +0200
-Subject: [PATCH 1/2] phy: rockchip: samsung-hdptx: Pre-compute HDMI PLL
- config for 461.10125 MHz output
+	id 1vQwqU-00000007HRS-1Gfq
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Dec 2025 00:05:19 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-594270ec7f9so281064e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 16:05:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1764806715; x=1765411515; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Zd9WoFQTvNfYXS0FutJkOHLRDDNZG45Z8fkn2eFEtfA=;
+        b=1CXqANjYiFFlKp9ftWDR2yPyqTVXyegf1rwShRdeLWGH+JEYiYhN2b9xqZmnzEmrYd
+         F5ZGkqPy7e3YFOA2Z26dImzGkWa3nH96T+1BFWnoWsxxbAbUsrIyFSHr69ekSprQR2k3
+         0fGci5L4Z/7mXCLjPiJI0eRhv4aCANcfDA0CDFitCf1AhLP8zBDG/v+IAWM0s2Uvlzfa
+         r4D0zJeixlGWR0MYUXvogMPL6jWsKwDVROKWiSl+5tLdjh7hYVku5E4EQB3FcGFIV8d0
+         wrW8TiJpc4lejKZEBctzm3jqAUMpLrC37e3VCuylHh7ANssEMdh3uCn5E0QnCdmOKXSP
+         eckg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764806715; x=1765411515;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=Zd9WoFQTvNfYXS0FutJkOHLRDDNZG45Z8fkn2eFEtfA=;
+        b=rJd7cPEo6l3sEu4yyafu78sbNLOmFLgxvSTISFxzN7Ef8nOk8LsTR0ddJ3chBa6aHz
+         PBrRexA3OiTPWi3Dqqa4DSlzt7bM/X8THcflXqgfBYgD/7ratJBsR+48bXwTJqxPwxdU
+         H86doWstouFNhf0HG6RtBAKHPU+X8AMHLxZO72zk72JhnD1Leuzs0Yd3HT6AYvZkOl9A
+         aY1oNTDgBT5gX3x/rugu79/M2YO5RSy1Ll5U/HH1fD3/t70j8poaACkOUcK0Quuo6X9W
+         sxl7Wr2AxxpbWRSb1PDxLZriT82GYkdHnJkvsLFAfry3+DVRMoBXAZ+LTRd42V0UzTMx
+         6U4w==
+X-Forwarded-Encrypted: i=1; AJvYcCW5HtIg3sV9lnuPz50uPC1aO7QVG10dL8LhCur+oYZCNNvTLABAQxXwWMCEbpiCoYECEZqKhK4yRIpaRiOobb/P@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZmwrAwdxNWxB98UQEjt1ASozkizDRa+DwmGJX8q/K5NzdSFSp
+	bSpliRg7+IpHdtCNV/hXZ3j8HwLeQr3FswTfpCo5UDMJAWVigsXdFX7JXBhU6d7iF2XcZj7Wgex
+	YbtcEj2YRn776bV9M6ACKMRyseyTNthsseEugL+C3
+X-Gm-Gg: ASbGncvvL3Yn9kM0LBTgOh65iWrSnfqex7N9Av/z8isoVWPzoRFzN5KRNcOfKZzl5Jt
+	yOquQTWrqkbVQapwJ6Iuw3EaSkoFYmSIBjf/lpMyTeZwh8NJCajyyJVBI5m5FSd54EN1GUsSb7k
+	wOW3DQ9MGrf0lnZMi709G/HJ4dyNXDXQq81qm1afjBJ+lXDwb6MMDJxvTh0jSADf+6Bz+ruscrk
+	4c8YO1EJFIOxcj5yTGlvuPoi3vmduV2dcjY/GK7QJKz8lILU+enJ483X1Ww0+GPSVagh9Ye
+X-Google-Smtp-Source: AGHT+IF4CyNFKv3NT4Ky0XeOn1TQzX5YXD6kxpQuevTbiLqvfi0Z1H0r6mqBjI/VHgPS5RUsjZgaT368W08YU9UmgDU=
+X-Received: by 2002:a05:6512:12c4:b0:578:ed03:7b5f with SMTP id
+ 2adb3069b0e04-597d3f7b821mr1673675e87.26.1764806715139; Wed, 03 Dec 2025
+ 16:05:15 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251204-phy-hdptx-pll-fix-v1-1-d94fd6cfd59b@collabora.com>
-References: <20251204-phy-hdptx-pll-fix-v1-0-d94fd6cfd59b@collabora.com>
-In-Reply-To: <20251204-phy-hdptx-pll-fix-v1-0-d94fd6cfd59b@collabora.com>
-To: Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Heiko Stuebner <heiko@sntech.de>, Dmitry Baryshkov <lumag@kernel.org>
-Cc: kernel@collabora.com, linux-phy@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-X-Mailer: b4 0.14.3
+References: <20250501183304.2433192-1-dmatlack@google.com> <aBPhs39MJz-rt_Ob@google.com>
+ <CALzav=eqv0Fh9pzaBgjZ-fehwFbD4YscoLQz0=o0TKQT_zLTwQ@mail.gmail.com> <aRZ9SQ_G2lsmXtur@google.com>
+In-Reply-To: <aRZ9SQ_G2lsmXtur@google.com>
+From: David Matlack <dmatlack@google.com>
+Date: Wed, 3 Dec 2025 16:04:47 -0800
+X-Gm-Features: AWmQ_blvUOA-vJuP7PArgXkGtxVwcyZaljS6okCvAjRlV-VnKxXpsCQN-Lg9GyA
+Message-ID: <CALzav=fN4FpZsfzwbdLeNSj4nx4OpRkwHvKiZNVgP8S-zsUvJA@mail.gmail.com>
+Subject: Re: [PATCH 00/10] KVM: selftests: Convert to kernel-style types
+To: Sean Christopherson <seanjc@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
+	Claudio Imbrenda <imbrenda@linux.ibm.com>, David Hildenbrand <david@redhat.com>, 
+	Andrew Jones <ajones@ventanamicro.com>, Isaku Yamahata <isaku.yamahata@intel.com>, 
+	Reinette Chatre <reinette.chatre@intel.com>, Eric Auger <eric.auger@redhat.com>, 
+	James Houghton <jthoughton@google.com>, Colin Ian King <colin.i.king@gmail.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_155524_695456_B80BA3B8 
-X-CRM114-Status: GOOD (  11.85  )
+X-CRM114-CacheID: sfid-20251203_160518_368376_3B40F0C0 
+X-CRM114-Status: GOOD (  24.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,53 +107,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Attempting to make use of the 1080p@120Hz HDMI mode with 10 bpc RGB on
-my Acer XV275K P3 monitor results in a blank image.  A similar behavior
-has been reported on Philips 279M1RV.
+On Thu, Nov 13, 2025 at 4:52=E2=80=AFPM Sean Christopherson <seanjc@google.=
+com> wrote:
+>
+> On Fri, Oct 17, 2025, David Matlack wrote:
+> > On Thu, May 1, 2025 at 2:03=E2=80=AFPM Sean Christopherson <seanjc@goog=
+le.com> wrote:
+> > > On Thu, May 01, 2025, David Matlack wrote:
+> > > > This series renames types across all KVM selftests to more align wi=
+th
+> > > > types used in the kernel:
+> > > >
+> > > >   vm_vaddr_t -> gva_t
+> > > >   vm_paddr_t -> gpa_t
+> > >
+> > > 10000% on these.
+> > >
+> > > >   uint64_t -> u64
+> > > >   uint32_t -> u32
+> > > >   uint16_t -> u16
+> > > >   uint8_t  -> u8
+> > > >
+> > > >   int64_t -> s64
+> > > >   int32_t -> s32
+> > > >   int16_t -> s16
+> > > >   int8_t  -> s8
+> > >
+> > > I'm definitely in favor of these renames.  I thought I was the only o=
+ne that
+> > > tripped over the uintNN_t stuff; at this point, I've probably lost ho=
+urs of my
+> > > life trying to type those things out.
+> >
+> > What should the next step be here? I'd be happy to spin a new version
+> > whenever on whatever base commit you prefer.
+>
+> Sorry for the slow reply, I've had this window sitting open for something=
+ like
+> two weeks.
 
-The faulty modeline is created by drm_gtf_mode_complex() based on the
-following EDID entry from the Standard Timings block:
+No worries, thanks for taking a look :)
 
-  GTF:  1920x1080  119.999987 Hz  16:9    138.840 kHz    368.759000 MHz
+>
+> My slowness is largely because I'm not sure how to land/approach this.  I=
+'m 100%
+> in favor of the renames, it's the timing and coordination I'm unsure of.
+>
+> In hindsight, it probably would have best to squeeze it into 6.18, so at =
+least
+> the most recent LTS wouldn't generate conflicts all over the place.  The =
+next
+> best option would probably be to spin a new version, bribe Paolo to apply=
+ it at
+> the end of the next merge window, and tag the whole thing for stable@ (ma=
+ybe
+> limited to 6.18+?) to minimize downstream pain.
 
-It's worth noting the computed pixel clock ends up being slightly higher
-at 368.881000 MHz.  Nevertheless, this seems to work consistently fine
-with 8 bpc RGB.
+With LPC coming up I won't have cycles to post a new version before
+the 6.19 merge window closes.
 
-After switching to 10 bpc, the TMDS character rate expected for the mode
-increases to 461.101250 MHz, as per drm_hdmi_compute_mode_clock().
-
-Since there is no entry for this rate in the ropll_tmds_cfg table, the
-necessary HDMI PLL configuration parameters are calculated dynamically
-by rk_hdptx_phy_clk_pll_calc().  However, the resulting output rate is
-not quite a perfect match, i.e. 461.100000 MHz, that proved to be the
-actual root cause of the problem.
-
-Add a new entry to the TMDS configuration table and provide the
-necessary frequency division coefficients for the PHY PLL to generate
-the expected 461.101250 MHz output.
-
-Fixes: 9d0ec51d7c22 ("phy: rockchip: samsung-hdptx: Add high color depth management")
-Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
----
- drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-index 29de2f7bdae8..cafa618d70fd 100644
---- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-+++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-@@ -414,6 +414,8 @@ struct rk_hdptx_phy {
- static const struct ropll_config ropll_tmds_cfg[] = {
- 	{ 594000000ULL, 124, 124, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
- 	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
-+	{ 461101250ULL, 97, 97, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 71, 1, 53, 2, 6,
-+	  35, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
- 	{ 371250000ULL, 155, 155, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
- 	  1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
- 	{ 297000000ULL, 124, 124, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
-
--- 
-2.51.2
-
+I'm tempted to say let's just wait for the next LTS release and merge
+it in then. This is low priorit, so I'm fine with waiting.
 
