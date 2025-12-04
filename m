@@ -4,87 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAA14D206AC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 14:22:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4146D206A7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 14:33:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b+la2Ls6xihgxzAduBENntpsex19eBi3G4VVpf0iliU=; b=y8pP0SmqOuH/dKZQ5UrXow1M2Z
-	DwlSnvOJk8uTDpNktwUZO74hVFnTXCHa3L9uloYRv97aj6/bE086Hx5ATaichhaoYnJWzPjQu3PFm
-	sE2FW4K3yvvko08jVd69mnz0HbNS6RvtkVVGWn/RBmlSSAggPTR+3XQzMacHpsySamGZyag7y7Mw2
-	ba5JNn0Zwh9QFo5/0UR4orQiXkJQa2l3IG7SJxc1PhHB/ZytZ7wqJSvddZxAJuNnJKk7w9tdHMffT
-	BSggxLPeT+xZZT99/vCLG/kxLcmyTx9/VaylCNcSRZPu/KuxB4gjcFQTkB0OWGYvM4IguYLbGJ2ru
-	p4ZUOeGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eE2Uvh99MMqIIvSd8KCYplYmteqyQ+tOEAxNmRJMzEA=; b=CwbhoYopDUsdm9bPB7+7zL9cJc
+	YnUKebfwcWfFXYe2KueSm8t46pbXfdIpesN8NcWOlHTS2i6/lTHqZFIjZbnVOd1MLYs10++SWkUxG
+	9Qggpj0+RAwTXg/0CumWbnQSXY2sqfqfPxm0UJgXfuBfO8f6bE0G+RvuWO+2Do5zy9f17N0GxnfIw
+	eaDr+SrnoXTvjH4OihLuUQ9PR6VDw5H36tH30TzDJ/27nlkg7ahUYMtAmDmMwjPUzhr8UqHbrmdBY
+	N7sF/XTow7UMfgyOfYF6Qyljvf1jClritFEGzvJ0EGgBfrmutQgFcbD47lXvvIn0HqwszW3l9kou2
+	LJDaQopw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRADV-00000008723-2UYv;
-	Thu, 04 Dec 2025 14:21:57 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRADU-0000000871u-1hOR
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 14:21:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 299E8601E7;
-	Thu,  4 Dec 2025 14:21:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5353C4CEFB;
-	Thu,  4 Dec 2025 14:21:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764858114;
-	bh=Ix4HAjzi2WlFfbJt7VTMxHQfAkw4id96Xxu6hbqhPmA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Y+bDJ+oBSuytrRGrA1/IeWKGjwOp/ZGF7vweh2xg2gWzgCyssqRjWsrI41ZAUass8
-	 0ZyjkEcxeEDfLkb8i3ZjzGBGRr1z3eCHdOmLi9qeeF4uh3KuI6kGjS6flpdv+sWhCE
-	 x058GGYzauOameSVw86ITd5aIngE+grBP6RBIUiwkDvmf/t8T/YdwyhIgZmMugFbs0
-	 9+dyM2PjIsQ+yA6mhL+qjZoDlOHQD1xyKRBzJWAXo/3GaeyKLE0ftRUOIbQH6kHaxM
-	 rTVM7WMh1EvKMT20Ynl+pQ/dSXo9mj5YJunSM/lfEAdsFwT5rzaCSywiOvSp6AaBBD
-	 c35yjxCXPdknA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vRADQ-0000000AT9t-1T1w;
-	Thu, 04 Dec 2025 14:21:52 +0000
-Date: Thu, 04 Dec 2025 14:21:51 +0000
-Message-ID: <867bv2pbsw.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Daniel Thompson <danielt@kernel.org>
-Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-acpi@vger.kernel.org,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Sven Peter <sven@kernel.org>,
-	Janne Grunau <j@jannau.net>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Jinjie Ruan <ruanjinjie@huawei.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	linux-mips@vger.kernel.org
-Subject: Re: [PATCH v4 16/26] genirq: Allow per-cpu interrupt sharing for non-overlapping affinities
-In-Reply-To: <aTFozefMQRg7lYxh@aspen.lan>
-References: <20251020122944.3074811-1-maz@kernel.org>
-	<20251020122944.3074811-17-maz@kernel.org>
-	<aTFozefMQRg7lYxh@aspen.lan>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: danielt@kernel.org, tsbogend@alpha.franken.de, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, tglx@linutronix.de, mark.rutland@arm.com, will@kernel.org, rafael@kernel.org, robh@kernel.org, saravanak@google.com, gregkh@linuxfoundation.org, sven@kernel.org, j@jannau.net, suzuki.poulose@arm.com, james.clark@linaro.org, jonathan.cameron@huawei.com, ruanjinjie@huawei.com, alexandru.elisei@arm.com, linux-mips@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1vRAOu-000000087jO-2ksY;
+	Thu, 04 Dec 2025 14:33:44 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vRAOq-000000087ij-4C21;
+	Thu, 04 Dec 2025 14:33:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5303A339;
+	Thu,  4 Dec 2025 06:33:32 -0800 (PST)
+Received: from [10.1.28.112] (010265703453.cambridge.arm.com [10.1.28.112])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3B9F93F66E;
+	Thu,  4 Dec 2025 06:33:38 -0800 (PST)
+Message-ID: <43f9753d-2e63-4b52-a4af-ca8d22f0b351@arm.com>
+Date: Thu, 4 Dec 2025 14:33:36 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: rockchip: add SPDIF audio to Beelink A1
+To: Christian Hewitt <christianshewitt@gmail.com>,
+ Alex Bee <knaerzche@gmail.com>, Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250828164300.3829488-1-christianshewitt@gmail.com>
+ <66ae20b3-3316-4ec2-9c51-8414c053dc32@arm.com>
+ <f0df035f-3c3d-4649-9f48-3e8e2e69d17b@gmail.com>
+ <5557C31E-3B1D-426C-BF9F-C417FF29E97C@gmail.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <5557C31E-3B1D-426C-BF9F-C417FF29E97C@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251204_063341_178215_F95E657D 
+X-CRM114-Status: GOOD (  14.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,119 +69,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 04 Dec 2025 10:56:13 +0000,
-Daniel Thompson <danielt@kernel.org> wrote:
+On 2025-12-04 2:13 pm, Christian Hewitt wrote:
+>> On 4 Dec 2025, at 12:23 am, Alex Bee <knaerzche@gmail.com> wrote:
+>>
+>> Hi Robin,
+>>
+>> Am 03.12.25 um 17:21 schrieb Robin Murphy:
+>>> [ Just noticed this... ]
+>>>
+>>> On 2025-08-28 5:43 pm, Christian Hewitt wrote:
+>>>> From: Alex Bee <knaerzche@gmail.com>
+>>>>
+>>>> Add the required nodes to enable SPDIF audio output on
+>>>> the Beelink A1 set-top-box.
+>>>
+>>> But the A1 doesn't have S/PDIF? Only HDMI plus a 3.5mm jack connected to the analog audio codec (and possibly the composite TV out) :/
+>>>
+>> Yeah, sorry - this patch wasn't supposed to be submitted upstream.
 > 
-> On Mon, Oct 20, 2025 at 01:29:33PM +0100, Marc Zyngier wrote:
-> > Interrupt sharing for percpu-devid interrupts is forbidden, and
-> > for good reasons. These are interrupts generated *from* a CPU and
-> > handled by itself (timer, for example). Nobody in their right mind
-> > would put two devices on the same pin (and if they have, they get to
-> > keep the pieces...).
-> >
-> > But this also prevents more benign cases, where devices are connected
-> > to groups of CPUs, and for which the affinities are not overlapping.
-> > Effectively, the only thing they share is the interrupt number, and
-> > nothing else.
-> >
-> > Let's tweak the definition of IRQF_SHARED applied to percpu_devid
-> > interrupts to allow this particular case. This results in extra
-> > validation at the point of the interrupt being setup and freed,
-> > as well as a tiny bit of extra complexity for interrupts at handling
-> > time (to pick the correct irqaction).
-> >
-> > Tested-by: Will Deacon <will@kernel.org>
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Apologies, this is my enthusiasm for trying to clear out the patch
+> collection LibreELEC has been hoarding by sending things upstream
+> on behalf of the original authors (and hoarders).
+
+No worries :)
+
+> Would you like me to send a revert patch?
+
+Since I'm the only one complaining, and I'm liable to have a couple more 
+Rockchip DT patches to send soon anyway, feel free to leave it with me 
+unless you're particularly keen.
+
+Cheers,
+Robin.
+
 > 
-> I picked up this patch via linux-next and it appears be causing boot
-> regressions on MIPS/qemu. This patch was identified with a bisect and
-> a git revert of this patch from the linux-next tip resolves the problem
-> (specifically, next-20251204 with git revert bdf4e2ac295f).
+> Christian
 > 
-> I'm running the code as part of the kgdb test suite but the system
-> doesn't survive long enough for kgdb to be involved. In fact I was able
-> to reduce things to the following reproduction with all the kgdb pieces
-> removed:
+>> Regards,
+>>
+>> Alex
+>>
+>>> Thanks,
+>>> Robin.
+>>>
+>>>> Signed-off-by: Alex Bee <knaerzche@gmail.com>
+>>>> Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
+>>>> ---
+>>>>    arch/arm64/boot/dts/rockchip/rk3328-a1.dts | 23 ++++++++++++++++++++++
+>>>>    1 file changed, 23 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/boot/dts/rockchip/rk3328-a1.dts b/arch/arm64/boot/dts/rockchip/rk3328-a1.dts
+>>>> index f7c4578865c5..b276a29bdd85 100644
+>>>> --- a/arch/arm64/boot/dts/rockchip/rk3328-a1.dts
+>>>> +++ b/arch/arm64/boot/dts/rockchip/rk3328-a1.dts
+>>>> @@ -58,6 +58,24 @@ ir-receiver {
+>>>>            gpios = <&gpio2 RK_PA2 GPIO_ACTIVE_LOW>;
+>>>>            linux,rc-map-name = "rc-beelink-gs1";
+>>>>        };
+>>>> +
+>>>> +    spdif_sound: spdif-sound {
+>>>> +        compatible = "simple-audio-card";
+>>>> +        simple-audio-card,name = "SPDIF";
+>>>> +
+>>>> +        simple-audio-card,cpu {
+>>>> +            sound-dai = <&spdif>;
+>>>> +        };
+>>>> +
+>>>> +        simple-audio-card,codec {
+>>>> +            sound-dai = <&spdif_dit>;
+>>>> +        };
+>>>> +    };
+>>>> +
+>>>> +    spdif_dit: spdif-dit {
+>>>> +        compatible = "linux,spdif-dit";
+>>>> +        #sound-dai-cells = <0>;
+>>>> +    };
+>>>>    };
+>>>>      &analog_sound {
+>>>> @@ -325,6 +343,11 @@ &sdmmc {
+>>>>        status = "okay";
+>>>>    };
+>>>>    +&spdif {
+>>>> +    pinctrl-0 = <&spdifm0_tx>;
+>>>> +    status = "okay";
+>>>> +};
+>>>> +
+>>>>    &tsadc {
+>>>>        rockchip,hw-tshut-mode = <0>;
+>>>>        rockchip,hw-tshut-polarity = <0>;
 > 
->     make malta_kvm_defconfig generic/64r6.config
->     ../scripts/config \
->         --enable WERROR --enable CPU_MIPS64_R6 --enable MIPS_CPS \
-> 	--enable BLK_DEV_INITRD --set-val FRAME_WARN 2048
->     make olddefconfig
->     make -j$(nproc) all
->     qemu-system-mips64el -cpu I6400 -M malta -m 1G -smp 2 \
->         -kernel vmlinux -nographic \
-> 	-append " console=ttyS0,115200 clk_ignore_unused"
 
-Many thanks for the minimal reproducer, that really helped a lot!
-
-[...]
-
-> CPU 0 Unable to handle kernel paging request at virtual address 0000000000000000, epc == ffffffff801c2398, ra == ffffffff801bab00
-> Oops[#1]:
-> CPU: 0 UID: 0 PID: 0 Comm: swapper/0 Not tainted 6.18.0-next-20251204 #20 NONE
-> Hardware name: mti,malta
-> $ 0   : 0000000000000000 0000000000000001 0000000000000000 0000000000000000
-> $ 4   : 0000000000000001 a8000000020e8008 0000000000000000 ffffffff80c23b80
-> $ 8   : 0000000000000004 0000000000000000 0000000000000000 000000000000002f
-> $12   : a8000000020f4000 0000000000003ff0 0000000000003000 0000000000000003
-> $16   : ffffffff80d095c0 ffffffff80ceb410 0000000000000019 ffffffff80c378c0
-> $20   : ffffffff80c4bec8 0000000000000000 ffffffff80e00000 ffffffff80de0000
-> $24   : 0000000000000000 0000000000000010
-> $28   : ffffffff80c20000 a8000000020f7ec0 a800000000e12fcd ffffffff801bab00
-> epc   : ffffffff801c2398 handle_percpu_devid_irq+0xb8/0x250
-> ra    : ffffffff801bab00 handle_irq_desc+0x48/0x88
-> Status: 1400a4e2	KX SX UX KERNEL EXL
-> Cause : 00800408 (ExcCode 02)
-> BadVA : 0000000000000000
-> PrId  : 0001a900 (MIPS I6400)
-> Modules linked in:
-> Process swapper/0 (pid: 0, threadinfo=(____ptrval____), task=(____ptrval____), tls=0000000000000000)
-> Stack : ffffffff80c35a2c 0000000000000002 ffffffff80e00000 0fffffffffffffff
->         ffffffff80c50000 0000000000000001 0000000000000003 ffffffff801bab00
->         0000000000000000 ffffffff805d82a8 0000000000000000 0000000000000008
->         0000000000000000 0000000000000000 0000000000000000 5189d95a7a4f4800
->         a800000002014300 0000000000000002 0000000000000001 000000000000001f
->         ffffffff80e00000 0000000000000004 0000000000000000 ffffffff801bab00
->         0000000000000000 ffffffff809ec128 0000000000000001 fffffffffffffffb
->         0000000000000001 ffffffff805d7ebc 0000000000000000 0000000000000000
->         ffffffff80c23c80 ffffffff80c50000 ffffffff80de0000 ffffffff80db0000
->         0000000000000000 ffffffff80112f10 ffffffff80c23c80 0000000000000000
-> Call Trace:
-> [<ffffffff801c2398>] handle_percpu_devid_irq+0xb8/0x250
-> [<ffffffff801bab00>] handle_irq_desc+0x48/0x88
-> [<ffffffff805d82a8>] gic_irq_dispatch+0xc0/0x288
-> [<ffffffff801bab00>] handle_irq_desc+0x48/0x88
-> [<ffffffff809ec128>] do_domain_IRQ+0x28/0x40
-> [<ffffffff805d7ebc>] plat_irq_dispatch+0x64/0xe8
-> [<ffffffff80112f10>] handle_int+0x134/0x140
-> [<ffffffff80110dc8>] calibrate_delay+0x158/0x290
-> [<ffffffff80d58e48>] start_kernel+0x754/0x7a4
-
-This hack fixes it for me, but really, mips needs to grow up and stop
-using these antiquated APIs.
-
-Can please you give it a go?
-
-Thanks,
-
-	M.
-
-diff --git a/kernel/irq/manage.c b/kernel/irq/manage.c
-index 0bb29316b4362..8b1b4c8a4f54c 100644
---- a/kernel/irq/manage.c
-+++ b/kernel/irq/manage.c
-@@ -2470,6 +2470,9 @@ int setup_percpu_irq(unsigned int irq, struct irqaction *act)
- 	if (retval < 0)
- 		return retval;
- 
-+	if (!act->affinity)
-+		act->affinity = cpu_online_mask;
-+
- 	retval = __setup_irq(irq, desc, act);
- 
- 	if (retval)
-
--- 
-Without deviation from the norm, progress is not possible.
 
