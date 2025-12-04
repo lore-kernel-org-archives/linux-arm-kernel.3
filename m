@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B693CD1D892
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 09:48:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15DB3D1D89F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 09:48:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iFa1DW99j6gVNZW6g0YLnZP+nQt7kAceUNNMyS/mDgU=; b=aLmO1x8GuxdjJn+DMa0gy/t7MA
-	kG1tlJv+Ir9aNF+4dtQMT+BQ2JCuCBIJrsRyd91QI4XiqqTKGN/gmMW50BLdY1d2M2/1VWd42CweR
-	M7yOmk3VHjUqyv3V+jxAeklxJXgKgbmEuQHyPMt0YNyO2h9fsJJbupbCGtu7Kf93QwEXndivpGyGY
-	/9tLBNl8AiFv9gYmoxiqTTnHS3KX+PCaCmz4e3p/6bQC58mIKrnl7sVYSOP/t3PzvbP3hcY6pdU8u
-	jTgGvWcg/mCX6VIG0+vNFKRqnt5NGEFBtxwEvWC1GFKJmrMCzd+DQmRdtdFFzEi84dcyZZvAhT6Li
-	5a7Xv2rQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ONE0djmXdFXyOCYcMZhfrppYZIGRN59rsZraO7G+BFQ=; b=GKp7muMv4nyv/gtsNLYo+xAYtf
+	y9Qp6V5pNBsgz/stzfAcHrcHI9DhcFnBM0/yjwcJ1rlf50YcKQ2ku5uZfMmTQpF+vfUz2fNK8P68R
+	vWYyspxliJTdNfgQZmlDFFxE1/jTnD3+e9ojh324Be0WVrDX0V+GImlECGGpBrSXXwM+ehiWLKVbq
+	PW/Ndwaeh3pzclnBgDNrAey/mIxj8dZGj6qrGNuuKVrOeRcZm+xeboZrKlGsZZ0zGQpdGk6oIVz1+
+	ElXzLwSTwGOX4ePWU9p0dbZUWoC1yxktH5PSGbFUeJuWDDB4m3OY1heAei7UjuXeHf7Ccg2bxX4ya
+	gfv5WfNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR5x3-00000007mtf-3xMH;
-	Thu, 04 Dec 2025 09:48:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vR5x6-00000007mw6-1qBX;
+	Thu, 04 Dec 2025 09:48:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR5wz-00000007mp2-3m2L
+	id 1vR5wz-00000007mox-0XhW
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 04 Dec 2025 09:48:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8D7404444F;
-	Thu,  4 Dec 2025 09:48:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6CCD5C19421;
+	by sea.source.kernel.org (Postfix) with ESMTP id 74F9A43C50;
+	Thu,  4 Dec 2025 09:48:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50AD6C4CEFB;
 	Thu,  4 Dec 2025 09:48:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764841717;
-	bh=si+8MTGO26F/F4k3uMd0juQ9tO6Gxb5QxflpsHGJ3G0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Z4bU6XTcdt+v3Kdol3M/Ni3Kd3j/0yJoYVLUn0MstA+PTCT1eXJcCxGzfq+eI/axC
-	 eW6qRv6dEd+M1j6y7jsm+TCv40RS+kJ01gAXFPyZ9tJAg8LWbK3rXLwYwwqH4Sls4N
-	 9BppbVn8/nblB4QsNI1t0AuW//7z/EXp0ieJ769DpE493ByBA2Z24WHHPO+tWgyrfI
-	 3RQXTOBPhqEbuGH+HblKV/8KBlPxkxmY0eJ6k2Ycw5NIhylTsJ3gC6WHAIJHxqYmad
-	 QCAHdz5XgxcW1QLzbtmo1rzQNbaQw/8mcK2VBUFJ6q7pvHRcqge3qEL1DcSWJknEq6
-	 rsPrnzMTPcwcQ==
+	s=k20201202; t=1764841716;
+	bh=H60AiTeTzKaEMtMo0Wpw3pM5yVyroEt8ri3eLfcsf7Y=;
+	h=From:To:Cc:Subject:Date:From;
+	b=li9bWD+cbvG9uGOLckEFc3UgZon0KhHvVh8y/3Ae7MVyIYkUBakFqf+RQddkTrNlU
+	 GkRGomTccrcvp5VT/32wuEOIIdny3etEv1j+TfL4uzdrPSwKHzDnsA/gqEBcuRrrd0
+	 sTcCDIJ5NdyhiOVmUShJzUvvA5aEaTNf3+eiP0PQr+Y4j+65ZxLaaBMoVx3BY9Cdl5
+	 0nFpUEBuvHOoyhKjuxZV03l49cWfzXqbI543/MU13Q549bUpANloIJQ96yKvwJrgPX
+	 ZLREZ3fteSDpWKz/PJKSlrsE/ocB8kFi5zQsZvJCH8JsL/6WSwTWDok+ybdE4mlexq
+	 mJ3+Po8VDqgiw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vR5ww-0000000AP90-1fVv;
+	id 1vR5ww-0000000AP90-0fQ6;
 	Thu, 04 Dec 2025 09:48:34 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -58,12 +58,10 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Ben Horgan <ben.horgan@arm.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>
-Subject: [PATCH v3 1/9] arm64: Repaint ID_AA64MMFR2_EL1.IDS description
-Date: Thu,  4 Dec 2025 09:47:58 +0000
-Message-ID: <20251204094806.3846619-2-maz@kernel.org>
+Subject: [PATCH v3 0/9] KVM: arm64: Add support for FEAT_IDST
+Date: Thu,  4 Dec 2025 09:47:57 +0000
+Message-ID: <20251204094806.3846619-1-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251204094806.3846619-1-maz@kernel.org>
-References: <20251204094806.3846619-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -71,8 +69,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_014838_005001_BC05B5C9 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20251204_014838_046467_EC139852 
+X-CRM114-Status: GOOD (  14.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,44 +85,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ID_AA64MMFR2_EL1.IDS, as described in the sysreg file, is pretty horrible
-as it diesctly give the ESR value. Repaint it using the usual NI/IMP
-identifiers to describe the absence/presence of FEAT_IDST.
+FEAT_IDST appeared in ARMv8.4, and allows ID registers to be trapped
+if they are not implemented. This only concerns 3 registers (GMID_EL1,
+CCSIDR2_EL1 and SMIDR_EL1), which are part of features that may not be
+exposed to the guest even if present on the host.
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/hyp/nvhe/sys_regs.c | 2 +-
- arch/arm64/tools/sysreg            | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
+For these registers, the HW should report them with EC=0x18, even if
+the feature isn't implemented.
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-index 82da9b03692d4..107d62921b168 100644
---- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-+++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-@@ -134,7 +134,7 @@ static const struct pvm_ftr_bits pvmid_aa64mmfr2[] = {
- 	MAX_FEAT(ID_AA64MMFR2_EL1, UAO, IMP),
- 	MAX_FEAT(ID_AA64MMFR2_EL1, IESB, IMP),
- 	MAX_FEAT(ID_AA64MMFR2_EL1, AT, IMP),
--	MAX_FEAT_ENUM(ID_AA64MMFR2_EL1, IDS, 0x18),
-+	MAX_FEAT_ENUM(ID_AA64MMFR2_EL1, IDS, IMP),
- 	MAX_FEAT(ID_AA64MMFR2_EL1, TTL, IMP),
- 	MAX_FEAT(ID_AA64MMFR2_EL1, BBM, 2),
- 	MAX_FEAT(ID_AA64MMFR2_EL1, E0PD, IMP),
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 1c6cdf9d54bba..3261e8791ac03 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -2257,8 +2257,8 @@ UnsignedEnum	43:40	FWB
- 	0b0001	IMP
- EndEnum
- Enum	39:36	IDS
--	0b0000	0x0
--	0b0001	0x18
-+	0b0000	NI
-+	0b0001	IMP
- EndEnum
- UnsignedEnum	35:32	AT
- 	0b0000	NI
+Add support for this feature by handling these registers in a specific
+way and implementing GMID_EL1 support in the process. A very basic
+selftest checks that these registers behave as expected.
+
+* From v2: [2]
+
+  - Repainted ID_AA64MMFR2_EL1.IDS description (Oliver)
+
+  - Made the IDST handling more generic in the core KVM code, which
+    resulted in the series being restructured a bit
+
+  - Added handling to pKVM (in a slightly different way, as pKVM
+    insist on seeing a full enumeration of the trapped registers)
+
+  - Some cleanups
+
+  - Collected RBs, with thanks
+
+* From v1: [1]
+
+  - Fixed commit message in patch #4 (Ben)
+
+  - Collected RB, with thanks (Joey)
+
+[1] https://lore.kernel.org/r/20251120133202.2037803-1-maz@kernel.org
+[2] https://lore.kernel.org/r/20251126155951.1146317-1-maz@kernel.org
+
+Marc Zyngier (9):
+  arm64: Repaint ID_AA64MMFR2_EL1.IDS description
+  KVM: arm64: Add trap routing for GMID_EL1
+  KVM: arm64: Add a generic synchronous exception injection primitive
+  KVM: arm64: Handle FEAT_IDST for sysregs without specific handlers
+  KVM: arm64: Handle CSSIDR2_EL1 and SMIDR_EL1 in a generic way
+  KVM: arm64: Force trap of GMID_EL1 when the guest doesn't have MTE
+  KVM: arm64: pkvm: Add a generic synchronous exception injection
+    primitive
+  KVM: arm64: pkvm: Report optional ID register traps with a 0x18
+    syndrome
+  KVM: arm64: selftests: Add a test for FEAT_IDST
+
+ arch/arm64/include/asm/kvm_emulate.h          |   1 +
+ arch/arm64/kvm/emulate-nested.c               |  28 +++++
+ arch/arm64/kvm/hyp/nvhe/sys_regs.c            |  39 ++++--
+ arch/arm64/kvm/inject_fault.c                 |  10 +-
+ arch/arm64/kvm/sys_regs.c                     |   4 +-
+ arch/arm64/tools/sysreg                       |   4 +-
+ tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+ .../testing/selftests/kvm/arm64/idreg-idst.c  | 117 ++++++++++++++++++
+ 8 files changed, 189 insertions(+), 15 deletions(-)
+ create mode 100644 tools/testing/selftests/kvm/arm64/idreg-idst.c
+
 -- 
 2.47.3
 
