@@ -4,107 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CEDED1D89F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 09:58:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADABBD1D89F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 10:02:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uGMYk1sfGljMrx70XS76pz0+JZldIxvVU7ZbZaIA+pI=; b=BUPrUF6hCrU+FAKY/ZveVGEk0H
-	QfSo0Ht4FjYy83GRxnhBm3YJ3YVHTJTOWZUAsIhptwbYAIJauy+eV85LVC/nFbEABOybl/joHrUTy
-	XNpoKyiQmc0MMKVOQ0+CL68dgfwYoO/IAq9tGbEn1d5eAIdUU6O19TbmLzeRGkU3sVE0+ewCF7B2v
-	mLQ8zjb7PQw8XlMWlpFsJlmoFQLdy2gc95vgITmOvp4L5ntSuHQq4i+QMAX07EI0bMH95csLSDzuR
-	p7C5y1TbW7pMA+tSU0qDTWcFCh2wo1dwR/U260mXxhsOawukaOjuJiqldcKvj5X2rVDY2xNZBxWVq
-	XheXgIVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=217qDeGCB+Ir7vF08Xg1FzRE6+rT+VQjGqOvY5QizU8=; b=3XezqSyDNg1lTK8+XI6eH1iTNO
+	vgHGq2CbG/biM24oDOwlazfH8QfsZqxQ3E6jT+3LqDwQGZW9pynUJnOCRsGRP5LWxRBCCA4WRPXPW
+	mrEA3cqX8kgT8gGO0PGXl+69f05DvxMPIGGHVjx+ztt7sF2099F/oy7QNgihmp1mz0mXFAhSlsyS3
+	FLqBZyZlpPLw5bqCXVQCOUeXbGRV07D9qU80B9eVTqg60Jw64TeQoYhAy97GBm+s42avCxB6iPGNe
+	+INWD6bAa0fRZOxNiIVWeqq2fZzqyecJ4LNoKTnZDCvU7yEJwsOaiQ4mgR+ME6L+eQn7u6O3hF9aR
+	DC90ra/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR66s-00000007oOZ-0zHN;
-	Thu, 04 Dec 2025 09:58:50 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR66p-00000007oNw-2g0p
+	id 1vR6A5-00000007ofD-3XrV;
+	Thu, 04 Dec 2025 10:02:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vR6A3-00000007oel-1A4i
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 09:58:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1764842325;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=uGMYk1sfGljMrx70XS76pz0+JZldIxvVU7ZbZaIA+pI=;
-	b=Zeh85N6riuMWszORPbar8CgZ3IZVUbwtfGxM96vWGfrbVdeEijs/rcb3zMm9haHO9gdveQ
-	rNXrGvf2mHfYhpcjCMCoP0508fmPPiwWYupXtPyYOQOy5IOP7NCNmQcP7nilBkS7XVzS6o
-	1Spl4+prTInQgOxT4rZzXNdu+y6HVpE=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-605-u9mjIpwWO2qZNoImLT8p_Q-1; Thu, 04 Dec 2025 04:58:44 -0500
-X-MC-Unique: u9mjIpwWO2qZNoImLT8p_Q-1
-X-Mimecast-MFC-AGG-ID: u9mjIpwWO2qZNoImLT8p_Q_1764842323
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-42b2ffe9335so481146f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 01:58:43 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764842323; x=1765447123;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=uGMYk1sfGljMrx70XS76pz0+JZldIxvVU7ZbZaIA+pI=;
-        b=OmmOrnmXhA9nK0sRKbz/eKe7z5YOE0oqkMHJSjRCEM3ypgDO1reUMybj4OFjoeLHCc
-         0n0aIcbvmfEyqLxEjTe1KVznDHUOhdd7D17t60mnucqKVmbNyPcXa30p2XA8eSpZW3nl
-         KCkfh67O5jYrYN/XIkWEjEUQyvJrg8bZKcEpY0BTZAfalnb9YFibFwYXbpFgJ5YcQKCc
-         fbBb+3tjgZMjp53uZGkj1HCeCG9hzP2KTW0v+RdvPU3F3LGzB9qeJJ5m5q+klvdVfJt0
-         xZFKYUBAZHb99yfxsslbnVvPhip7sd8zAvbdnyXs5PAOU31zl1BGGeTICB90UxZai/BI
-         1+/w==
-X-Forwarded-Encrypted: i=1; AJvYcCVsprxY57vcAaqryuY+qgj47PMPrBd32YO5uq385ecSXiEocOLnqK3Yz6fDmjFWy/gt4FXA43peaOrtq3VYyT2c@lists.infradead.org
-X-Gm-Message-State: AOJu0YwELG+ORxIu9Q+mAgq0hWnhmAcj3Q8/TJSPoN6XqDg7kGxN5GUi
-	UxjegGMFVaKvqa9Z8jxt5KLd73o1E+rwaswaoa6PTf6++1pulIJxz1Sp4TuVzmfhiBxeWQOio4d
-	srMekuPKm/r/clFWUdDl3SOQy6vd7pUqdVsxedLCzkvJj5hdOhXM8Mxsj7J9rui+FK+Kc0OZaMw
-	RR
-X-Gm-Gg: ASbGnctJJplzEbasJx9bq/WA0r5I8iv+zn7PpLvldhMaA7YSNHXt6LdxmO+ZKy9hxya
-	SuoE5OdvafJr+0r5z+RWvlCgVDwM9D8h4vi2F+lIblBHln5Gkq93PgQAPJN5hi1DIJTmwt2Gyf1
-	dFxe4AXIWhZXGGrFUrQN07fGwQNCvWj+uYvIF9UAFWfVWNdlhZMK7yJtFdg7JQLzLiP+Nt9Bxlu
-	XyXIIwSecToSoSEKW8XBJxWWfh86x9yZtfyl0THZqIpic83X+bTQm6/fYB+widrA6lKjs1AlauX
-	LHDpHmrEJOE2XLdAh5Jym06/z2cIWrWlbyZzegVR/9GSrtpeJSE3CqH8gjG95tF9OE2sFAQeoKx
-	SRa87Jrx+NKXc
-X-Received: by 2002:a05:6000:2410:b0:42b:3a84:1ee1 with SMTP id ffacd0b85a97d-42f7317dbc9mr5978657f8f.18.1764842322736;
-        Thu, 04 Dec 2025 01:58:42 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IER0C5ptlDk7jPg7WID0quVbFz2V15FUInT+2qvmmyu5lX8HX6WC9NCtkC3D/YD1+okBxxd+w==
-X-Received: by 2002:a05:6000:2410:b0:42b:3a84:1ee1 with SMTP id ffacd0b85a97d-42f7317dbc9mr5978625f8f.18.1764842322345;
-        Thu, 04 Dec 2025 01:58:42 -0800 (PST)
-Received: from [192.168.88.32] ([212.105.153.24])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42f7d353f8bsm2297919f8f.43.2025.12.04.01.58.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 04 Dec 2025 01:58:41 -0800 (PST)
-Message-ID: <26656845-d9d6-4fd2-bfff-99996cf03741@redhat.com>
-Date: Thu, 4 Dec 2025 10:58:40 +0100
+	Thu, 04 Dec 2025 10:02:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 90593339;
+	Thu,  4 Dec 2025 02:01:58 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 817523F73B;
+	Thu,  4 Dec 2025 02:02:05 -0800 (PST)
+Date: Thu, 4 Dec 2025 10:02:03 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Mike Leach <mike.leach@linaro.org>
+Cc: Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+	quic_yingdeng@quicinc.com, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	Jinlong Mao <jinlong.mao@oss.qualcomm.com>,
+	Mao Jinlong <quic_jinlmao@quicinc.com>
+Subject: Re: [PATCH v6 2/2] coresight: cti: Add Qualcomm extended CTI support
+Message-ID: <20251204100203.GJ724103@e132581.arm.com>
+References: <20251202-extended_cti-v6-0-ab68bb15c4f5@oss.qualcomm.com>
+ <20251202-extended_cti-v6-2-ab68bb15c4f5@oss.qualcomm.com>
+ <20251203182944.GG724103@e132581.arm.com>
+ <20251204083802.GI724103@e132581.arm.com>
+ <CAJ9a7VhNW6cQt_O6NX+99LXfo-t3mFTejzdNjWcyssbMrXR4OQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2] net: stmmac: Fix E2E delay mechanism
-To: Rohan G Thomas <rohan.g.thomas@altera.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Richard Cochran <richardcochran@gmail.com>,
- Jose Abreu <Jose.Abreu@synopsys.com>, Fugang Duan <fugang.duan@nxp.com>,
- Kurt Kanzenbach <kurt@linutronix.de>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251129-ext-ptp-2v-v2-1-d23aca3e694f@altera.com>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20251129-ext-ptp-2v-v2-1-d23aca3e694f@altera.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: zwKCb-gqNvD9K46C_u-7h0yhgz90CvJzfNgTIfjI3Yc_1764842323
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAJ9a7VhNW6cQt_O6NX+99LXfo-t3mFTejzdNjWcyssbMrXR4OQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_015847_774513_A8945E4D 
-X-CRM114-Status: GOOD (  14.93  )
+X-CRM114-CacheID: sfid-20251204_020207_437231_34D12607 
+X-CRM114-Status: GOOD (  26.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,38 +73,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/29/25 4:07 AM, Rohan G Thomas wrote:
-> For E2E delay mechanism, "received DELAY_REQ without timestamp" error
-> messages show up for dwmac v3.70+ and dwxgmac IPs.
+On Thu, Dec 04, 2025 at 09:04:03AM +0000, Mike Leach wrote:
+> Hi,
 > 
-> This issue affects socfpga platforms, Agilex7 (dwmac 3.70) and
-> Agilex5 (dwxgmac). According to the databook, to enable timestamping
-> for all events, the SNAPTYPSEL bits in the MAC_Timestamp_Control
-> register must be set to 2'b01, and the TSEVNTENA bit must be cleared
-> to 0'b0.
+> On Thu, 4 Dec 2025 at 08:38, Leo Yan <leo.yan@arm.com> wrote:
+> >
+> > On Wed, Dec 03, 2025 at 06:29:44PM +0000, Coresight ML wrote:
+> >
+> > [...]
+> >
+> > > > +/* Read registers with power check only (no enable check). */
+> > > > +static ssize_t coresight_cti_reg_show(struct device *dev,
+> > > > +                                 struct device_attribute *attr, char *buf)
+> > > > +{
+> > > > +   struct cti_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> > > > +   struct cs_off_attribute *cti_attr = container_of(attr, struct cs_off_attribute, attr);
+> > > > +   u32 idx, val = 0;
+> > > > +
+> > > > +   pm_runtime_get_sync(dev->parent);
+> > > > +   raw_spin_lock(&drvdata->spinlock);
+> > > > +   idx = drvdata->config.ext_reg_sel;
+> > > > +   if (drvdata->config.hw_powered) {
+> > > > +           switch (cti_attr->off) {
+> > > > +           case INDEX_CTITRIGINSTATUS:
+> > > > +           case INDEX_CTITRIGOUTSTATUS:
+> > > > +           case INDEX_ITTRIGINACK:
+> > > > +           case INDEX_ITTRIGOUT:
+> > > > +           case INDEX_ITTRIGOUTACK:
+> > > > +           case INDEX_ITTRIGIN:
+> >
+> > I read again and now I understand why you need "config.ext_reg_sel"
+> > as an index for these expending registers.
+> >
 > 
-> Commit 3cb958027cb8 ("net: stmmac: Fix E2E delay mechanism") already
-> addresses this problem for all dwmacs above version v4.10. However,
-> same holds true for v3.70 and above, as well as for dwxgmac. Updates
-> the check accordingly.
-> 
-> Fixes: 14f347334bf2 ("net: stmmac: Correctly take timestamp for PTPv2")
-> Fixes: f2fb6b6275eb ("net: stmmac: enable timestamp snapshot for required PTP packets in dwmac v5.10a")
-> Fixes: 3cb958027cb8 ("net: stmmac: Fix E2E delay mechanism")
-> Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
-> ---
-> v1 -> v2:
->    - Rebased patch to net tree
->    - Replace core_type with has_xgmac
->    - Nit changes in the commit message
->    - Link: https://lore.kernel.org/all/20251125-ext-ptp-fix-v1-1-83f9f069cb36@altera.com/
+> Having this index for these extended registers matches what we do for
+> the INEN and OUTEN registers. This gives the user a consistent
+> approach. We do not want the unnecessary attributes as  it will
+> increase the memory footprint for all cti instances, not just the qcom
+> ones.
 
-Given there is some uncertain WRT the exact oldest version to be used,
-it would be great to have some 3rd party testing/feedback on this. Let's
-wait a little more.
+I agree with using index for CTI triggers, but it is not necessary to
+add a new index for other registers (status, mode setting, ACK, etc).
+
+It would be directive to present the status and mode setting
+registers, given these registers are only from 0-3.  This will be easy
+accessed from userspace, and avoid complexity in the driver.
+
+> The first patch in this series works to reduce the memory footprint by
+> only allocating resource based on the actual configuration. For
+> example for an ARM designed CTI with 8 trigger registers, we no longer
+> declare static 128 x 32 bit arrays for each of INEN and OUTEN which
+> were required by the original design.
+> 
+> Given that there can be 10s or 100s of CTIs in a large multicore
+> system, reducing the footprint to match the actual configuration, and
+> offering a level of compression by using an index + single file to
+> access a set of registers improves the efficiency of the driver.
+
+It is good for reducing footprint, but I would give priority for a
+neat implementation and easy use interfaces.
+
+And the sysfs attr code and global structures (e.g. register conversion
+struct) can shared by all instances, so I don't worry much the scale
+issue if we extend them.
 
 Thanks,
-
-Paolo
-
+Leo
 
