@@ -4,68 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 366A0D20698
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 13:51:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC1B8D206A5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 14:09:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hGp8j58OPB1aBft+UW60xYewwlPZNdHyx8j9xzHE9Og=; b=VNW7/3tfwr2RCViR0b6cLmF37y
-	H4x0ieErEbED0sEcIioO89pWzanMoafgfb/hxsN+mumAeixCQXejXYZaogTOovM7vuI2ktDLNXyTG
-	r2mPvzTaeSMxCxLD/Rsdy8obe1t5G/hkn6gOwomlHbnnEho3Ft1GVFd52KX8la2EE8PLT+KgKffmS
-	IW3XveDlbO4YzzMg2H89a1WMBFa8lu4CjhNPQG6vJ3CLMVJYqMLTXNYjvJXCP8CvzMCdhfNrTexrV
-	q+cm4Q6AzYxCkhUrduxJUW5tPOE86JRVKoa+AKCYCWGVmfNY2F32eaAsiHNjeTp5vn1n8BASPA6S4
-	iKPNTAqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=K76Qia/ZXCjjiEWFg52fUrDZVdVaau3amc8W3Ejug+E=; b=fEthIh/03eqzKb7KlzhBexO455
+	iCKBQtIos5Hgh2aL8W32mvswcG2cfYt6LYT4Se+i15/bQVtMNcEbI02WU0Hz4FQfPUSDcXmOcdnyg
+	b565otippEDIcO71BPjnxZvpFxhfSc/P9F7gJGv02+aVGoLoBgzgQsltYTicMQ5780nAL1rYPmygY
+	l+mQoc3qv/MXDd/vBjmYtjOQMhnvCSvulxuer37WwNBZtTuiya49ztna5/l/qKPMHsVQ9pTJCj4dC
+	8pQFpuOQlKW48h/CeTpSxYG7B365R/dz6FKjRfu5IWgLk5aAPHQdbO2cUPvVQsoO+Qxqg9TgE1u7f
+	/9cqqt3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR9jj-000000085N1-1nnY;
-	Thu, 04 Dec 2025 13:51:11 +0000
-Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	id 1vRA13-000000086Cj-0OWt;
+	Thu, 04 Dec 2025 14:09:05 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR9jh-000000085M1-0eeg;
-	Thu, 04 Dec 2025 13:51:10 +0000
-Received: from local
-	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
-	 (Exim 4.98.2)
-	(envelope-from <daniel@makrotopia.org>)
-	id 1vR9jU-000000007EO-0W0z;
-	Thu, 04 Dec 2025 13:50:56 +0000
-Date: Thu, 4 Dec 2025 13:50:52 +0000
-From: Daniel Golle <daniel@makrotopia.org>
-To: Vladimir Oltean <olteanv@gmail.com>
-Cc: Frank Wunderlich <frankwu@gmx.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
-	Chen Minqiang <ptpt52@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] net: dsa: mt7530: Use GPIO polarity to generate
- correct reset sequence
-Message-ID: <aTGRvADkT-1kAQgA@makrotopia.org>
-References: <20251129234603.2544-1-ptpt52@gmail.com>
- <20251129234603.2544-2-ptpt52@gmail.com>
- <0675b35f-217d-4261-9e3f-2eb24753d43c@lunn.ch>
- <20251130080731.ty2dlxaypxvodxiw@skbuf>
- <3fbc4e67-b931-421c-9d83-2214aaa2f6ed@lunn.ch>
- <0d85e1e6-ea75-4f20-aef1-90d446b4bfa1@kernel.org>
- <00f308a1-a4b1-4f20-8d8e-459ddf4c39b1@gmx.de>
- <aS7Zj3AFsSp2CTNv@makrotopia.org>
- <20251204131626.upw77jncqfwxydww@skbuf>
+	id 1vRA11-000000086CI-2WhO
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Dec 2025 14:09:04 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-477a219dbcaso10509295e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 06:09:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1764857342; x=1765462142; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=K76Qia/ZXCjjiEWFg52fUrDZVdVaau3amc8W3Ejug+E=;
+        b=dyiEcUOEWY8DmYpbVb/lHWymAHtJNi3CYRjTJ9uYM4mJyRdd0At3/OD6ynrJyTdjit
+         dhSOlPqPo0TVZXZa1O3Iax1EawEcM5ziU1UUFBdKK8878hNmelexW3uZ1Df/Lkn+mEPK
+         RtONsLdxUMXhrzOAfIf3zx/OQ95S3P+KXfDXGX/k818/YDnlkQoZgvSvAfQmDFMd2Ilm
+         2ryk7YG/aNVIXMdLBeFjdkPR/mfZWr4oLkh1+qnW5KbjaDzUsj3r7H8WnopJ7apegqVF
+         HDtETwef2kK72tGoloaoTzIS+wtKgdzw0tdtzrN4x0MREQBbUKcLPZBQob+iQaAn+FeA
+         ucKw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764857342; x=1765462142;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=K76Qia/ZXCjjiEWFg52fUrDZVdVaau3amc8W3Ejug+E=;
+        b=Kkx+NHbhDHy0H+ycQ7NiAWqfef/468/JiGG4VtF/5oMaiuWoI/iIq83ToIOjKHlyHE
+         DPjt9+AxDnyTLC+okjh3ulLS/I8QEC5onfL0PcuHLp1atW4sURrXYlUTOipEGwTjZ251
+         dj7aRGrHde7gPzHdaQG1uPaXM3oT9fj02MGOvDY+UPxynFvDwIbqb83XKnnTC+wQUyv6
+         lVhORRfyot0UJzImQF9gGQeaB0ZOybgJcvZJu931nZ+Ls60xmUkyPnRq4V5Hdj8DEpMf
+         UljnYYRUfuAsSQ7Vz1Q8TynNe2Ni1F9ow0iYudP1VIOfMIcO3qf1luHDb1qka2IMqsZg
+         xAug==
+X-Forwarded-Encrypted: i=1; AJvYcCXLzj6fvnXQnxdwQyPR5k7crg/6BWJ7ai6R3U3AUXF8qrzmM5KnY54eVuZnaVEqhOC8+UtUKH2QumAmeJVwSGiL@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLn7RLrHfrNa+miMsejberLOtjqhiae6Fcf4m8FKabmeiA+ofq
+	RIj7d1f+2B99qv8ZHE/93+SbktV1rvNZPcVGTKES0wJwjG7ja34BHSLeGf/ZaAUSN7Q=
+X-Gm-Gg: ASbGncvTe59cTRwarDBg0OJDWmpUvkm3e7xvLLpnF1QBJlPowN8LC1DGdkWTthj96OD
+	LgUvIzhRdHW2u3jXeBXJt3pQQApdpklP4qEKUE5TT3ASLNJosEAOm/2JLhk1jAejI4WoM2gyqAK
+	0ms4uw+7JYa+9W7bLMUwKHx6rYRqn2VdyjPOr7YqbhvdbTlW9nfzDR2w7y35YRXhYYNaQjdgSNg
+	zHaBWBrJhoCHd5ifw2cT7/qOaITTCSxSEiUo2lYk4Eomh1gyxyb6pOi0KISYvoHKsETTWgbff/2
+	h0rQXY6S1pMger5qv1CDrZNKP9hJJ7ADMBGg/brjglk92GuaBS7lGYwVcoOcBc//M0iz/VJj72G
+	5uPHLP67bTXC9QsPzMVMJrcdKrYJLhbmry+IfPxfJ2TR2n1YjlAl3YOsYjeAhL8DMjGBZZapCWR
+	uCurECB8A7D5BX0WAf
+X-Google-Smtp-Source: AGHT+IE2K35j9CdlrIvdH8Bojq1tholsrKjYuSZd1hMIs3XjAOQLvnDBCIItIYw5O13dYS68vstw3Q==
+X-Received: by 2002:a5d:490a:0:b0:42b:3366:6330 with SMTP id ffacd0b85a97d-42f731cf312mr4668252f8f.57.1764857341593;
+        Thu, 04 Dec 2025 06:09:01 -0800 (PST)
+Received: from [192.168.1.3] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42f7cbe90f0sm3477398f8f.9.2025.12.04.06.09.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 04 Dec 2025 06:09:01 -0800 (PST)
+Message-ID: <857538e7-cac2-4871-9711-4c434420df8a@linaro.org>
+Date: Thu, 4 Dec 2025 14:08:59 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251204131626.upw77jncqfwxydww@skbuf>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6/7] perf cs-etm: Don't hard code config attribute when
+ configuring the event
+To: Leo Yan <leo.yan@arm.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>,
+ Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>,
+ linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+References: <20251201-james-perf-config-bits-v1-0-22ecbbf8007c@linaro.org>
+ <20251201-james-perf-config-bits-v1-6-22ecbbf8007c@linaro.org>
+ <20251202121528.GX724103@e132581.arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20251202121528.GX724103@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_055109_216893_E9A786AB 
-X-CRM114-Status: GOOD (  44.65  )
+X-CRM114-CacheID: sfid-20251204_060903_698501_5DBFE500 
+X-CRM114-Status: GOOD (  21.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,79 +114,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 04, 2025 at 03:16:26PM +0200, Vladimir Oltean wrote:
-> On Tue, Dec 02, 2025 at 12:20:31PM +0000, Daniel Golle wrote:
-> > On Tue, Dec 02, 2025 at 12:52:44PM +0100, Frank Wunderlich wrote:
-> > > Hi,
-> > > 
-> > > Am 01.12.25 um 08:48 schrieb Krzysztof Kozlowski:
-> > > > On 30/11/2025 21:17, Andrew Lunn wrote:
-> > > > > On Sun, Nov 30, 2025 at 10:07:31AM +0200, Vladimir Oltean wrote:
-> > > > > > On Sun, Nov 30, 2025 at 02:11:05AM +0100, Andrew Lunn wrote:
-> > > > > > > > -		gpiod_set_value_cansleep(priv->reset, 0);
-> > > > > > > > +		int is_active_low = !!gpiod_is_active_low(priv->reset);
-> > > > > > > > +		gpiod_set_value_cansleep(priv->reset, is_active_low);
-> > > > > > > I think you did not correctly understand what Russell said. You pass
-> > > > > > > the logical value to gpiod_set_value(). If the GPIO has been marked as
-> > > > > > > active LOW, the GPIO core will invert the logical values to the raw
-> > > > > > > value. You should not be using gpiod_is_active_low().
-> > > > > > > 
-> > > > > > > But as i said to the previous patch, i would just leave everything as
-> > > > > > > it is, except document the issue.
-> > > > > > > 
-> > > > > > > 	Andrew
-> > > > > > > 
-> > > > > > It was my suggestion to do it like this (but I don't understand why I'm
-> > > > > > again not in CC).
-> > > > > > 
-> > > > > > We _know_ that the reset pin of the switch should be active low. So by
-> > > > > > using gpiod_is_active_low(), we can determine whether the device tree is
-> > > > > > wrong or not, and we can work with a wrong device tree too (just invert
-> > > > > > the logical values).
-> > > > > Assuming there is not a NOT gate placed between the GPIO and the reset
-> > > > > pin, because the board designer decided to do that for some reason?
-> > > jumping in because i prepare mt7987 / BPI-R4Lite dts for upstreaming when
-> > > driver-changes are in.
-> > > With current driver i need to define the reset-gpio for mt7531 again wrong
-> > > to get it
-> > > working. So to have future dts correct, imho this (or similar) change to
-> > > driver is needed.
-> > > 
-> > > Of course we cannot simply say that current value is wrong and just invert
-> > > it because of
-> > > possible "external" inversion of reset signal between SoC and switch.
-> > > I have to look on schematics for the boards i have (BPI-R64, BPI-R3,
-> > > BPI-R2Pro) if there is such circuit.
-> > 
-> > I'm also not aware of any board which doesn't directly connect the
-> > reset of the MT7530 to a GPIO pin of the SoC. For MediaTek's designs
-> > there is often even a specific pin desginated for this purpose and
-> > most vendors do follow this. If they deviate at all, then it's just
-> > that a different pin is used for the switch reset, but I've never
-> > seen any logic between the SoC's GPIO pin and the switch reset.
-> > 
-> > > Maybe the mt7988 (mt7530-mmio) based boards also affected?
-> > 
-> > There is no GPIO reset for switches which are integrated in the SoC,
-> > so this only matters for external MT7530 and MT7531 ICs for which an
-> > actual GPIO line connected to the SoC is used to reset the switch.
-> 
-> I get the feeling that we're complicating a simple solution because of a
-> theoretical "what if" scenario. The "NOT" gate is somewhat contrived
-> given the fact that most GPIOs can already be active high or low, but OK.
-> 
-> If this is blocking progress for new device trees, can we just construct,
-> using of_machine_is_compatible(), a list of all boards where the device
-> tree defines incorrect reset polarity that shouldn't be trusted by the
-> driver when driving the reset GPIO? If we do this, we can also leave
-> those existing device trees alone.
 
-From OpenWrt's point of view this would be kind of ugly as we would either
-have to extend the list of affected boards downstream, or fix the polarity
-in some but not all of our downstream DTS files. I'd prefer to rather
-have the option to force the "wrong" GPIO polarity for theoretical future
-boards with that (very unlikely to ever exist) NOT gate between the SoC
-GPIO and switch reset line. That would allow to gradually update boards
-to reflect the physical reality and yet the driver would not break if the
-GPIO polarity is stated wrongly.
+
+On 02/12/2025 12:15 pm, Leo Yan wrote:
+> On Mon, Dec 01, 2025 at 04:41:09PM +0000, Coresight ML wrote:
+> 
+> [...]
+> 
+>> @@ -103,13 +103,20 @@ static int cs_etm_validate_context_id(struct perf_pmu *cs_etm_pmu, struct evsel
+>>   				      struct perf_cpu cpu)
+>>   {
+>>   	int err;
+>> -	__u64 val;
+>> -	u64 contextid = evsel->core.attr.config &
+>> -		(perf_pmu__format_bits(cs_etm_pmu, "contextid") |
+>> -		 perf_pmu__format_bits(cs_etm_pmu, "contextid1") |
+>> -		 perf_pmu__format_bits(cs_etm_pmu, "contextid2"));
+>> +	u64 ctxt, ctxt1, ctxt2;
+>> +	__u64 trcidr2;
+>>   
+>> -	if (!contextid)
+>> +	err = evsel__get_config_val(cs_etm_pmu, evsel, "contextid", &ctxt);
+>> +	if (err)
+>> +		return err;
+>> +	err = evsel__get_config_val(cs_etm_pmu, evsel, "contextid1", &ctxt1);
+>> +	if (err)
+>> +		return err;
+>> +	err = evsel__get_config_val(cs_etm_pmu, evsel, "contextid2", &ctxt2);
+>> +	if (err)
+>> +		return err;
+> 
+> Seems to me, this is not right.  The current code checks any context
+> ID setting but it can tolerate if missing "contexid[*]" format.
+> 
+> After calling evsel__get_config_val(), if any "contextid[*]" format is
+> missed, it returns error and will diretly bail out.  As a result,
+> cs_etm_validate_context_id() will always return error.
+> 
+
+Missed by the driver or the user? evsel__get_config_val() only returns 
+an error when "contextid" isn't published by the driver, not when the 
+user doesn't supply one of those options. The actual user supplied value 
+is in the out param, not the return value.
+
+Having said that, this does make it an error if the driver did stop 
+publishing one, which might be too inflexible and is a new behavior. I 
+can change to it ignore the errors instead.
+
+>> +
+>> +	if (!ctxt && !ctxt1 && !ctxt2)
+>>   		return 0;
+>>   
+>>   	/* Not supported in etmv3 */
+>> @@ -120,12 +127,11 @@ static int cs_etm_validate_context_id(struct perf_pmu *cs_etm_pmu, struct evsel
+>>   	}
+>>   
+>>   	/* Get a handle on TRCIDR2 */
+>> -	err = cs_etm_get_ro(cs_etm_pmu, cpu, metadata_etmv4_ro[CS_ETMV4_TRCIDR2], &val);
+>> +	err = cs_etm_get_ro(cs_etm_pmu, cpu, metadata_etmv4_ro[CS_ETMV4_TRCIDR2], &trcidr2);
+>>   	if (err)
+>>   		return err;
+>>   
+>> -	if (contextid &
+>> -	    perf_pmu__format_bits(cs_etm_pmu, "contextid1")) {
+>> +	if (ctxt1) {
+>>   		/*
+>>   		 * TRCIDR2.CIDSIZE, bit [9-5], indicates whether contextID
+>>   		 * tracing is supported:
+>> @@ -133,15 +139,14 @@ static int cs_etm_validate_context_id(struct perf_pmu *cs_etm_pmu, struct evsel
+>>   		 *  0b00100 Maximum of 32-bit Context ID size.
+>>   		 *  All other values are reserved.
+>>   		 */
+>> -		if (BMVAL(val, 5, 9) != 0x4) {
+>> +		if (BMVAL(trcidr2, 5, 9) != 0x4) {
+>>   			pr_err("%s: CONTEXTIDR_EL1 isn't supported, disable with %s/contextid1=0/\n",
+>>   			       CORESIGHT_ETM_PMU_NAME, CORESIGHT_ETM_PMU_NAME);
+>>   			return -EINVAL;
+>>   		}
+>>   	}
+>>   
+>> -	if (contextid &
+>> -	    perf_pmu__format_bits(cs_etm_pmu, "contextid2")) {
+>> +	if (ctxt2) {
+>>   		/*
+>>   		 * TRCIDR2.VMIDOPT[30:29] != 0 and
+>>   		 * TRCIDR2.VMIDSIZE[14:10] == 0b00100 (32bit virtual contextid)
+>> @@ -149,7 +154,7 @@ static int cs_etm_validate_context_id(struct perf_pmu *cs_etm_pmu, struct evsel
+>>   		 * virtual context id is < 32bit.
+>>   		 * Any value of VMIDSIZE >= 4 (i.e, > 32bit) is fine for us.
+>>   		 */
+>> -		if (!BMVAL(val, 29, 30) || BMVAL(val, 10, 14) < 4) {
+>> +		if (!BMVAL(trcidr2, 29, 30) || BMVAL(trcidr2, 10, 14) < 4) {
+>>   			pr_err("%s: CONTEXTIDR_EL2 isn't supported, disable with %s/contextid2=0/\n",
+>>   			       CORESIGHT_ETM_PMU_NAME, CORESIGHT_ETM_PMU_NAME);
+>>   			return -EINVAL;
+>> @@ -163,10 +168,14 @@ static int cs_etm_validate_timestamp(struct perf_pmu *cs_etm_pmu, struct evsel *
+>>   				     struct perf_cpu cpu)
+>>   {
+>>   	int err;
+>> -	__u64 val;
+>> +	u64 val;
+>> +	__u64 trcidr0;
+>>   
+>> -	if (!(evsel->core.attr.config &
+>> -	      perf_pmu__format_bits(cs_etm_pmu, "timestamp")))
+>> +	err = evsel__get_config_val(cs_etm_pmu, evsel, "timestamp", &val);
+>> +	if (err)
+>> +		return err;
+>> +
+>> +	if (!val)
+>>   		return 0;
+> 
+> Similiar issue here.  The current code returns 0 if not find "timestamp"
+> format.  With this change, it returns error instead.
+> 
+> Thanks,
+> Leo
+
 
