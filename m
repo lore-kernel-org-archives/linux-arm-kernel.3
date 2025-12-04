@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5317D1D862
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22961D1D86A
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 06:32:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,35 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9oGlaHNtIhbTx7QkJKVpo4Ol7UjzU3rpuzSq9kjRP4w=; b=s0gb1ncxAusR56KAKSUQB3NZ9+
-	4tTtN32xi4c0lpQT3ta6RrZwiiOXefg7LQLP9Xkhy34/r34We/LlbS6jhH4V1vq6rhfrhvYr9VGGO
-	ddd3O3GVg0vjuv0v1EPYpsBcrL+TeWQS/fkfOeQqmLo0Z5AKSBWf57Tk0LTm8zQtRAVcW053Di06t
-	fcRoH89Jm/d/CmzITGTtG1+PRvln0se91JNafGOQZvGkErKK5TrsrfElkUah0DVqDBfJ2gQPvppwZ
-	cKKHsxGKzD4yEq4wYVy/F0V9+6+vCMSomPu32E6uAlUn/+2d5huS9FpT0kISin7y83xy3CX/fWQNS
-	WH2n2X0w==;
+	bh=PVv1xsqqidIoI2U23NI9Jv3q1ZlBuLOzxwZ/6KTor1M=; b=hrTzo9VVdosqCSrBtALwTbv6/q
+	LVOshe+cIjTXJbNpChxLjQ6CjFHrWY5JFaYdyVOI6sjp4v9kwA3dK7ZEA6628VGudC1llkYR/lu0X
+	AX4d5/OmWHQtfuehXaHyg8972jRbILqLHpM2yleI3PLq1bid+qaESdWmVeaCVT734nA+sQtbfV4C9
+	NrnsD9Slcn8VKeS9mGmrNja7IFQAiRyPm0YTEXEczK8tKa63ffDtws9P5o2ob2ve0GJhK3KH/yWJb
+	G3uve+6iNBettZpmA9KRU6l4bC39FXmpzn/Vv1r+BZS0KAig4k5Y6JdfHvxE1Oud7WTGKbVMd6TbV
+	RwF7vTjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR2tB-00000007YEg-2O9C;
-	Thu, 04 Dec 2025 06:32:29 +0000
+	id 1vR2t8-00000007YAc-3Uqn;
+	Thu, 04 Dec 2025 06:32:26 +0000
 Received: from smtpbg154.qq.com ([15.184.224.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR2t5-00000007Y3U-3hFM;
-	Thu, 04 Dec 2025 06:32:27 +0000
+	id 1vR2sr-00000007Y2i-1YRZ;
+	Thu, 04 Dec 2025 06:32:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1764829891;
-	bh=9oGlaHNtIhbTx7QkJKVpo4Ol7UjzU3rpuzSq9kjRP4w=;
+	s=altu2504; t=1764829886;
+	bh=PVv1xsqqidIoI2U23NI9Jv3q1ZlBuLOzxwZ/6KTor1M=;
 	h=From:To:Subject:Date:Message-Id;
-	b=eeMnGU3jK8jtn9w8UQOkBCGqSy2kaUb2KZDynNxn5Gk9u87Zuu0fRZWtHflPr2pXa
-	 eGdJMVVrlyDoeCdqG9FxKIgYYzsb4vIl/eQ3KMmOl1FiPDDtiYnwVSACWiYIf+lsIX
-	 tF8coF75Py/S/8Xp2QOH6qLFaqXrj8PcpA9kf7IM=
-X-QQ-mid: esmtpsz21t1764829888t35ff679a
-X-QQ-Originating-IP: kpCg3rmbDMu7YW/T8tSReERndLggkBplSug+8Go0WqA=
+	b=RGfIvD3fE0i+5lBtFpfAND6ukSPn4p0JUDSeTafbI5sWRKpNdd+g9OOKLhzu6ctGD
+	 wMyPypvrltNovH4i5IGkXCZqLe4X8ism0YSyQ+NHeKjIRBq0vxSsd63s9Xd1Gcf0nn
+	 RTX2eHbtYlQuwCw9B4iRxp3X3o7GNXmUa0vSIseE=
+X-QQ-mid: esmtpsz21t1764829884tc17b2163
+X-QQ-Originating-IP: odLdDzr386V3ELRgMYH0pV6G0XtymjdZmOpFajWIJ7w=
 Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 04 Dec 2025 14:31:25 +0800 (CST)
+	id ; Thu, 04 Dec 2025 14:31:21 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 17088035227337033504
+X-BIZMAIL-ID: 8827471872452544979
 From: Chaoyi Chen <kernel@airkyi.com>
 To: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -81,34 +81,35 @@ Cc: linux-usb@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	dri-devel@lists.freedesktop.org
-Subject: [RESEND PATCH v11 02/11] usb: typec: Export typec bus and typec altmode device type
-Date: Thu,  4 Dec 2025 14:31:00 +0800
-Message-Id: <20251204063109.104-3-kernel@airkyi.com>
+Subject: [RESEND PATCH v11 01/11] usb: typec: Set the bus also for the port and plug altmodes
+Date: Thu,  4 Dec 2025 14:30:59 +0800
+Message-Id: <20251204063109.104-2-kernel@airkyi.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20251204063109.104-1-kernel@airkyi.com>
 References: <20251204063109.104-1-kernel@airkyi.com>
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: Mo8ayuSLF3j9QxrZKtGk6kKkW/H+u39FFu7es7peju+Vts8wBr0hUV+3
-	N29zGWHkJfBV69U3GKlDPBv1ItUf8BWF10zjDUyDeaT7JNFEWMiKAZIgVgZpyUg3/eWK2Qi
-	RaMlKeekZfGu8n4bDlUEZBq/cKD1t/z+rhiJTyBSoGIsdP6cn/Nykuzqc6NtcHqrzM8uDj6
-	CPKbEGUNO1oDyQfmskjsTcQ+MU4rasi2uoIAVUOvxGRMQyPKRKhxdcYcpUncgL4DfLaYIDu
-	QjkOHhpCvPPOKtkft2jpERXO7eQoU0SkusZoIk3TrVylFpAGBtCgC+JFLqA18ZwPpkVuJFt
-	bl1GCOaVf79BHXENSgs7nfcM2yZrJUJl67AbqauExJc2pVXXBMWkYkBGO7j+xYFy9pJraMO
-	vq0mE99bwlBHe7BDPeZ8ViJWj0n9u4U7B0YFS8No7ZRIpFNh1rNTKZrLFTFNHFNqnl6TMzk
-	Xo2F0ysYvsNCGZPGX1vMk9vBeNHVcCGq4g9Yt46UEDz67VqmrGJnG9k5DP33lmGjPolnnU4
-	eERFPSexlCdTdbwmvxUKEIv4rAYl8uRSR9FD+yXQgarsOdEmJ3eFXila72wy/6mGv01AJxx
-	HLZHmlsq34+aoegzmKZhrrIeYDy3iSXb34He41qMAsm96uRtj6w1N0DnikatGJBiSMd0hEE
-	qTX+2nawJsIAs4g2zSFolScQT7fv9Xa/p6vj13dj+N+3W2IyG0T/mMTUZTxgY/Z5Fax7A8O
-	/E1ogTziceJOhUo8LS3G4OasH0NoAhg/EQNYHnGhxbgjIcYSISIw3wiPZa9ZnI0AZmdjy9N
-	OeSk4YxCb0RqV7bGp1GvYmKtrJuHNCqGTTW3pJY0hkqWz6mtqNdNpC/DpNwQhOAqLgiUVMB
-	bmMMBL1yT6tQzesGaLVbkoZQMIKEexYiDK1JT/ecMXlSLD2/u2VUNwvE/oBFL8EmaOoCZrC
-	PnTmb3cfWy+q787DO6cwbhJSv9Sd6G8Px2opgkIRF0KTmM4CL7zulMyvCc4TVUOK/rAU=
-X-QQ-XMRINFO: Nq+8W0+stu50PRdwbJxPCL0=
+X-QQ-XMAILINFO: Mi+38GKm5OhVJjZtHqVKxva7MvTWDAU1n5K4oA2CQdWIh/m4eTgpnB7Y
+	/81qaPWhGkZq92DtSfjsxi8NPAmXHPONf7VX0pZ+ciq7HxBMCWJCwk7sG45eEEo98irxOB8
+	TI/dJEvDCJak0qSkgeQVz9r08aKpp/iYrsEsKUmwu9ueWXl4O21YBKNECsyHy0PCI2ZNcT8
+	dUbvj2zE4PX6cgdhK5c1bqgxfCqfcwIfO3v/4+73NhyU8TTyWzYuLrK6XVHm4VPn9JLfM3m
+	o48GU8uR9AYWd378pWUnZkLovR8jXdTrj7vWM0r+siqAo4EJexChgLAcK6/5pXx+QDyH5nC
+	jN0wldsAED1BbaWE/9kPzxGjahaoBidY1a/2cMkotGD13R4QBaYaE1yNxlYxzVCWBijqRMH
+	WZ8ipXv5vkCFpzan4EMAjZLfLw9KCzKf/YFQOjJHzun5ny6KcpePwKGOFyoK8/2obyg+jYP
+	LIOmIa4I2l2NdS5/1pdBkGyF+11Rm0B1lsVucyLAnlW9nBdOhze1biuHWJW+zFEt7YH/X3U
+	Y0MiWQUtXqZXHk3xrYsF1Z5zSSJj+qf8RXS1dOMWXbGPxciSH+u0XCTTC5AeH5iw1XfnwVS
+	LapQaA1qH/JA7K+Ihvgwsdus4SZHz7wtFvwUaDQBC4CX/N1uRO4/fY6iEL8jRYHHriOhatI
+	C0qM/RlRkBHP20I8ZxahcVkaiTd9E4qZu6KqlDJ3Jhm8oiIT5NEunpjUoXQqfDB4saAxZmy
+	NClP7Q99RnpqCyDbGq8j7VhSfPgP39hdj9w826su+oUp9X1Z2yc79eHUvSOU9vvdalhgzkJ
+	doUAl7Dhx7+FYt6Pk6QzHgnBIz6tWyzJ+37ELFh8a3NEKFEg0Bb6MQTMCaBALTshuxr6mn5
+	PzqzGrwySjnvoG3mSwIpQ0P2kHlSHedvP9iDNMHED9V612w4HrjsV0XY4hdedGXrslDn39s
+	xr8b67WOKtPbFKERR0/Maz1n85Uehp2N/UFeLetENGDwHV4mbTnbPzxXgz4kPG8Jqc9w7BS
+	Y6sHJqt7V6PWmJdc3sZ3bNcS3N94ZoOtu5XDyeUSYAHliTcCfs
+X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_223225_671633_9902C4CF 
-X-CRM114-Status: GOOD (  13.28  )
+X-CRM114-CacheID: sfid-20251203_223210_024652_5F2AD95E 
+X-CRM114-Status: GOOD (  18.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,130 +124,187 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
 
-The DRM may want to register a notifier on the typec bus to know when
-a typec altmode device is added, and distinguish between different
-types of typec altmode device.
+The port and plug altmodes can't be bound to the altmode
+drivers because the altmode drivers are meant for partner
+communication using the VDM (vendor defined messages), but
+they can still be part of the bus. The bus will make sure
+that the normal bus notifications are available also with
+the port altmodes.
 
-Export these things.
+The previously used common device type for all alternate
+modes is replaced with separate dedicated device types for
+port, plug, and partner alternate modes.
 
+Signed-off-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
 Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 ---
-
-Changes in v11:
-- Also export typec bus.
-- Add more detailed comments.
-
-(no changes since v9)
-
- drivers/usb/typec/bus.c           |  1 +
- drivers/usb/typec/bus.h           | 10 ----------
- drivers/usb/typec/class.c         |  3 +++
- include/linux/usb/typec.h         |  3 +++
- include/linux/usb/typec_altmode.h |  8 ++++++++
- 5 files changed, 15 insertions(+), 10 deletions(-)
+ drivers/usb/typec/bus.c   | 24 +++++++++++++++++++++++-
+ drivers/usb/typec/bus.h   |  8 ++++++--
+ drivers/usb/typec/class.c | 33 ++++++++++++++++++++++-----------
+ 3 files changed, 51 insertions(+), 14 deletions(-)
 
 diff --git a/drivers/usb/typec/bus.c b/drivers/usb/typec/bus.c
-index a33da7f458a5..e84b134a3381 100644
+index a884cec9ab7e..a33da7f458a5 100644
 --- a/drivers/usb/typec/bus.c
 +++ b/drivers/usb/typec/bus.c
-@@ -569,3 +569,4 @@ const struct bus_type typec_bus = {
- 	.probe = typec_probe,
- 	.remove = typec_remove,
+@@ -445,7 +445,23 @@ static struct attribute *typec_attrs[] = {
+ 	&dev_attr_description.attr,
+ 	NULL
  };
-+EXPORT_SYMBOL_GPL(typec_bus);
+-ATTRIBUTE_GROUPS(typec);
++
++static umode_t typec_is_visible(struct kobject *kobj, struct attribute *attr, int n)
++{
++	if (is_typec_partner_altmode(kobj_to_dev(kobj)))
++		return attr->mode;
++	return 0;
++}
++
++static const struct attribute_group typec_group = {
++	.is_visible = typec_is_visible,
++	.attrs = typec_attrs,
++};
++
++static const struct attribute_group *typec_groups[] = {
++	&typec_group,
++	NULL
++};
+ 
+ static int typec_match(struct device *dev, const struct device_driver *driver)
+ {
+@@ -453,6 +469,9 @@ static int typec_match(struct device *dev, const struct device_driver *driver)
+ 	struct typec_altmode *altmode = to_typec_altmode(dev);
+ 	const struct typec_device_id *id;
+ 
++	if (!is_typec_partner_altmode(dev))
++		return 0;
++
+ 	for (id = drv->id_table; id->svid; id++)
+ 		if (id->svid == altmode->svid)
+ 			return 1;
+@@ -463,6 +482,9 @@ static int typec_uevent(const struct device *dev, struct kobj_uevent_env *env)
+ {
+ 	const struct typec_altmode *altmode = to_typec_altmode(dev);
+ 
++	if (!is_typec_partner_altmode(dev))
++		return 0;
++
+ 	if (add_uevent_var(env, "SVID=%04X", altmode->svid))
+ 		return -ENOMEM;
+ 
 diff --git a/drivers/usb/typec/bus.h b/drivers/usb/typec/bus.h
-index b58e131450d1..7df5deb1dd3a 100644
+index 643b8c81786d..b58e131450d1 100644
 --- a/drivers/usb/typec/bus.h
 +++ b/drivers/usb/typec/bus.h
-@@ -5,7 +5,6 @@
- 
- #include <linux/usb/typec_altmode.h>
- 
--struct bus_type;
- struct typec_mux;
- struct typec_retimer;
- 
-@@ -28,13 +27,4 @@ struct altmode {
- 
+@@ -29,8 +29,12 @@ struct altmode {
  #define to_altmode(d) container_of(d, struct altmode, adev)
  
--extern const struct bus_type typec_bus;
--extern const struct device_type typec_port_altmode_dev_type;
--extern const struct device_type typec_plug_altmode_dev_type;
--extern const struct device_type typec_partner_altmode_dev_type;
--
--#define is_typec_port_altmode(dev) ((dev)->type == &typec_port_altmode_dev_type)
--#define is_typec_plug_altmode(dev) ((dev)->type == &typec_plug_altmode_dev_type)
--#define is_typec_partner_altmode(dev) ((dev)->type == &typec_partner_altmode_dev_type)
--
- #endif /* __USB_TYPEC_ALTMODE_H__ */
-diff --git a/drivers/usb/typec/class.c b/drivers/usb/typec/class.c
-index d6b88317f8a4..c4ff4310ff58 100644
---- a/drivers/usb/typec/class.c
-+++ b/drivers/usb/typec/class.c
-@@ -537,18 +537,21 @@ const struct device_type typec_port_altmode_dev_type = {
- 	.groups = typec_altmode_groups,
- 	.release = typec_altmode_release,
- };
-+EXPORT_SYMBOL_GPL(typec_port_altmode_dev_type);
- 
- const struct device_type typec_plug_altmode_dev_type = {
- 	.name = "typec_plug_alternate_mode",
- 	.groups = typec_altmode_groups,
- 	.release = typec_altmode_release,
- };
-+EXPORT_SYMBOL_GPL(typec_plug_altmode_dev_type);
- 
- const struct device_type typec_partner_altmode_dev_type = {
- 	.name = "typec_partner_alternate_mode",
- 	.groups = typec_altmode_groups,
- 	.release = typec_altmode_release,
- };
-+EXPORT_SYMBOL_GPL(typec_partner_altmode_dev_type);
- 
- static struct typec_altmode *
- typec_register_altmode(struct device *parent,
-diff --git a/include/linux/usb/typec.h b/include/linux/usb/typec.h
-index 309251572e2e..c6fd46902fce 100644
---- a/include/linux/usb/typec.h
-+++ b/include/linux/usb/typec.h
-@@ -20,12 +20,15 @@ struct typec_port;
- struct typec_altmode_ops;
- struct typec_cable_ops;
- 
-+struct bus_type;
- struct fwnode_handle;
- struct device;
- 
- struct usb_power_delivery;
- struct usb_power_delivery_desc;
- 
-+extern const struct bus_type typec_bus;
-+
- enum typec_port_type {
- 	TYPEC_PORT_SRC,
- 	TYPEC_PORT_SNK,
-diff --git a/include/linux/usb/typec_altmode.h b/include/linux/usb/typec_altmode.h
-index f7db3bd4c90e..9197a4637a93 100644
---- a/include/linux/usb/typec_altmode.h
-+++ b/include/linux/usb/typec_altmode.h
-@@ -9,6 +9,14 @@
- 
- #define MODE_DISCOVERY_MAX	6
- 
+ extern const struct bus_type typec_bus;
+-extern const struct device_type typec_altmode_dev_type;
 +extern const struct device_type typec_port_altmode_dev_type;
 +extern const struct device_type typec_plug_altmode_dev_type;
 +extern const struct device_type typec_partner_altmode_dev_type;
-+
+ 
+-#define is_typec_altmode(_dev_) (_dev_->type == &typec_altmode_dev_type)
 +#define is_typec_port_altmode(dev) ((dev)->type == &typec_port_altmode_dev_type)
 +#define is_typec_plug_altmode(dev) ((dev)->type == &typec_plug_altmode_dev_type)
 +#define is_typec_partner_altmode(dev) ((dev)->type == &typec_partner_altmode_dev_type)
-+
- struct typec_altmode_ops;
  
- /**
+ #endif /* __USB_TYPEC_ALTMODE_H__ */
+diff --git a/drivers/usb/typec/class.c b/drivers/usb/typec/class.c
+index 9b2647cb199b..d6b88317f8a4 100644
+--- a/drivers/usb/typec/class.c
++++ b/drivers/usb/typec/class.c
+@@ -235,7 +235,7 @@ static int altmode_match(struct device *dev, const void *data)
+ 	struct typec_altmode *adev = to_typec_altmode(dev);
+ 	const struct typec_device_id *id = data;
+ 
+-	if (!is_typec_altmode(dev))
++	if (!is_typec_port_altmode(dev))
+ 		return 0;
+ 
+ 	return (adev->svid == id->svid);
+@@ -532,15 +532,28 @@ static void typec_altmode_release(struct device *dev)
+ 	kfree(alt);
+ }
+ 
+-const struct device_type typec_altmode_dev_type = {
+-	.name = "typec_alternate_mode",
++const struct device_type typec_port_altmode_dev_type = {
++	.name = "typec_port_alternate_mode",
++	.groups = typec_altmode_groups,
++	.release = typec_altmode_release,
++};
++
++const struct device_type typec_plug_altmode_dev_type = {
++	.name = "typec_plug_alternate_mode",
++	.groups = typec_altmode_groups,
++	.release = typec_altmode_release,
++};
++
++const struct device_type typec_partner_altmode_dev_type = {
++	.name = "typec_partner_alternate_mode",
+ 	.groups = typec_altmode_groups,
+ 	.release = typec_altmode_release,
+ };
+ 
+ static struct typec_altmode *
+ typec_register_altmode(struct device *parent,
+-		       const struct typec_altmode_desc *desc)
++		       const struct typec_altmode_desc *desc,
++		       const struct device_type *type)
+ {
+ 	unsigned int id = altmode_id_get(parent);
+ 	bool is_port = is_typec_port(parent);
+@@ -575,7 +588,7 @@ typec_register_altmode(struct device *parent,
+ 
+ 	alt->adev.dev.parent = parent;
+ 	alt->adev.dev.groups = alt->groups;
+-	alt->adev.dev.type = &typec_altmode_dev_type;
++	alt->adev.dev.type = type;
+ 	dev_set_name(&alt->adev.dev, "%s.%u", dev_name(parent), id);
+ 
+ 	get_device(alt->adev.dev.parent);
+@@ -584,9 +597,7 @@ typec_register_altmode(struct device *parent,
+ 	if (!is_port)
+ 		typec_altmode_set_partner(alt);
+ 
+-	/* The partners are bind to drivers */
+-	if (is_typec_partner(parent))
+-		alt->adev.dev.bus = &typec_bus;
++	alt->adev.dev.bus = &typec_bus;
+ 
+ 	/* Plug alt modes need a class to generate udev events. */
+ 	if (is_typec_plug(parent))
+@@ -963,7 +974,7 @@ struct typec_altmode *
+ typec_partner_register_altmode(struct typec_partner *partner,
+ 			       const struct typec_altmode_desc *desc)
+ {
+-	return typec_register_altmode(&partner->dev, desc);
++	return typec_register_altmode(&partner->dev, desc, &typec_partner_altmode_dev_type);
+ }
+ EXPORT_SYMBOL_GPL(typec_partner_register_altmode);
+ 
+@@ -1193,7 +1204,7 @@ struct typec_altmode *
+ typec_plug_register_altmode(struct typec_plug *plug,
+ 			    const struct typec_altmode_desc *desc)
+ {
+-	return typec_register_altmode(&plug->dev, desc);
++	return typec_register_altmode(&plug->dev, desc, &typec_plug_altmode_dev_type);
+ }
+ EXPORT_SYMBOL_GPL(typec_plug_register_altmode);
+ 
+@@ -2493,7 +2504,7 @@ typec_port_register_altmode(struct typec_port *port,
+ 		return ERR_CAST(retimer);
+ 	}
+ 
+-	adev = typec_register_altmode(&port->dev, desc);
++	adev = typec_register_altmode(&port->dev, desc, &typec_port_altmode_dev_type);
+ 	if (IS_ERR(adev)) {
+ 		typec_retimer_put(retimer);
+ 		typec_mux_put(mux);
 -- 
 2.51.1
 
