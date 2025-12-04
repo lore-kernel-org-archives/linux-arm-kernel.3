@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD9B3D1CDC0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 03:25:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D8C3D1CDC7
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 03:37:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ei7m5Ns3dLPcNqCQJpDdvbPz0mDTTjmXQeeMl3O7nUE=; b=rxQfkW2C2+elNNj48jhWPkN7FV
-	SbXYqKhC8Q5vmAdJnvl4/IXd7dDAiI3S/q3TcXjbnHqlN/MG8Vh/Ace28+z9UULELqLLrnKjfRmBS
-	eyLNJLsiAaTQnBEMZiDTQzu3HxGWROgEUXPm2a1jb3cVqgnmfIDgxoFIEjA3ipO+yZVdjR6Hzjvs/
-	ZPGf2HF0F7UiPXMPlcT6Za7ietXQjoJgkWV0YiyBf03b2N4KknHeiqVlTyrT1ygdyxwoh2/tvFxWK
-	UI1we++EkgFzjY6OL6Aw+l/jfmhFEVbL0gnzgim/oGZ+azPtTT+wZQ5NDLoqwKeBkiasX5yNt0T62
-	6AerJt9g==;
+	bh=dVecSCDZ4D/iA2ATENTvjoFCAr/DQefu4KL07xBdnlY=; b=b8+uveuy/MahfUJtq03J8Ba/sf
+	6FhgnVqNvtBEfCtZuofYVKvlCG631BzkageEa6+4mY+QsFYhrjhfF1fNnqAiZjilp2cQ6HXZnQe21
+	h6lnz2G7kIbbF8WjrqN0cIavlmQMukIVLoBRBJLuDNSFzmvyAItnuMEUFqQQBjBT9Mpf/nPyQUdp9
+	3uC95oV8DXTzMkwP1Y4r88K4XfN9/ZV9s9YcBUEr39CvRBTGsgaSe0e//Lrz3z9c/F9bc4S0/V4Ls
+	n7FUdAR3lX92SW5gFAf5jP/T9LJqugp2JEMQGEaKBLD350RbRWwcCd48HdIrafp8jpfWnJ3nfZ7yR
+	uK3/XjhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQzyV-00000007PDA-3ayj;
-	Thu, 04 Dec 2025 03:25:47 +0000
-Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vQzyT-00000007PCo-3IVb
+	id 1vR09Z-00000007PfL-1ytB;
+	Thu, 04 Dec 2025 03:37:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vR09W-00000007Pev-3Z80
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 03:25:47 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4dMKdw6YvBz9tgF;
-	Thu,  4 Dec 2025 04:25:40 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1764818741;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ei7m5Ns3dLPcNqCQJpDdvbPz0mDTTjmXQeeMl3O7nUE=;
-	b=dwE+My0UVhY4v5eRLWSFRAPYw2kNUO4i/dcFjOjGdyk4BO5RU8MZocxagUQIRqJ3RBo4wD
-	uq6lAY48PfCrZu2iKST6NyPE0yLppY1/mryGjF3bCgPtEjOUBizcXNlrFSzuF+zf7iPqHQ
-	sbqTPWd7P9qS8c5cMXlY9qZX8g79ZuDMwEg3S+j+7ho6X8aoQYsqE1ge5MoVDPOJzys89X
-	y/WClgmaUQGH++o5jqOzXnSzf8yHazWcjC4icGa6fZ54DLSPsgpOtOlcSN+Lr8L+8QRFnh
-	XzPb5OvRWTkdiOuIRUeFM+cVDrTQ62Zzi+otFv3Hqz5cbFtDNaqfpfxE7wYFog==
-Message-ID: <5944d872-01a3-47e9-977b-029f3be4fd83@mailbox.org>
-Date: Thu, 4 Dec 2025 04:25:38 +0100
+	Thu, 04 Dec 2025 03:37:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 63087339;
+	Wed,  3 Dec 2025 19:37:01 -0800 (PST)
+Received: from [10.164.18.78] (unknown [10.164.18.78])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EBB883F59E;
+	Wed,  3 Dec 2025 19:36:58 -0800 (PST)
+Message-ID: <15cc652c-937b-4d5b-98f3-7cdcecf28e27@arm.com>
+Date: Thu, 4 Dec 2025 09:06:56 +0530
 MIME-Version: 1.0
-Subject: Re: [PATCH] arm64: dts: imx95: Use GPU_CGC as core clock for GPU
-To: Rain Yang <jiyu.yang@oss.nxp.com>
-Cc: Frank.li@nxp.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
- festevam@gmail.com, imx@lists.linux.dev, kernel@pengutronix.de,
- krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org, peng.fan@nxp.com,
- robh@kernel.org, s.hauer@pengutronix.de, shawnguo@kernel.org
-References: <20251129143220.14834-1-marek.vasut@mailbox.org>
- <aS-lEibp3zTsaR6T@oss.nxp.com>
- <c6e0e55a-06da-4665-972e-e9b5b8c08bf7@mailbox.org>
- <aTACuRjC_Zpf8IOU@oss.nxp.com>
- <de36091e-c890-4897-b3e3-2a7575029a5d@mailbox.org>
- <aTD5np-HGaJqhzkD@oss.nxp.com>
+User-Agent: Mozilla Thunderbird
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+Subject: Re: [PATCH v5 02/12] x86/xen: simplify flush_lazy_mmu()
+To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>, "David S. Miller"
+ <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+ Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Suren Baghdasaryan <surenb@google.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
+ xen-devel@lists.xenproject.org, x86@kernel.org
+References: <20251124132228.622678-1-kevin.brodsky@arm.com>
+ <20251124132228.622678-3-kevin.brodsky@arm.com>
 Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <aTD5np-HGaJqhzkD@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+In-Reply-To: <20251124132228.622678-3-kevin.brodsky@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-MBO-RS-META: eytu18s5usyrho7etfqi6p3r8n6fmfbr
-X-MBO-RS-ID: a5ef938b78277bca17e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_192545_995141_99797E40 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20251203_193710_955008_21D12A78 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,28 +88,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/4/25 4:01 AM, Rain Yang wrote:
 
-[...]
->>> For the Linux working environment,
->>> CLK_GPU and CLK_GPUAPB are always-on, while CLK_GPU_CGC can be gated off.
->>>
->>> Regarding the IMX95_CLK_GPUAPB handle, my suggestion was based on the absence
->>> of its frequency in any OPP entry within the frequency table. Removing it
->>> could simplify the OPP handling logic and reduce unnecessary complexity.
->>
->> If the clock can be disabled by SM, Linux has to make sure they are NOT
->> disabled, so they must be described in DT, right ?
->>
->>> [1] https://github.com/nxp-imx/linux-imx/commit/695f2bdc57b869ca5189313e4b5fa7eb5a12f622
-> Currently, only CLK_GPU_CGC shall be described in the Device Tree[1], as it can be gated.
-> The other clocks (CLK_GPU and CLK_GPUAPB) are always-on in the Linux environment,
-> so describing any of them in DT is not necessary and would not be proper in this context.
 
-Since this discussion is in fact unrelated to this bugfix, I would 
-propose to fork the discussion into a separate patch. Can you please 
-submit a patch for the GPUAPB clock ? Note that I believe GPUAPB clock 
-have to be described in DT, if only because DT is a hardware 
-description, and to make sure the GPUAPB clock are correctly enabled by 
-the driver.
+On 24/11/25 6:52 PM, Kevin Brodsky wrote:
+> arch_flush_lazy_mmu_mode() is called when outstanding batched
+> pgtable operations must be completed immediately. There should
+> however be no need to leave and re-enter lazy MMU completely. The
+> only part of that sequence that we really need is xen_mc_flush();
+> call it directly.
+> 
+> Reviewed-by: David Hildenbrand <david@redhat.com>
+> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
+> Reviewed-by: Juergen Gross <jgross@suse.com>
+> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> ---
+
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+
+>  arch/x86/xen/mmu_pv.c | 6 ++----
+>  1 file changed, 2 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/x86/xen/mmu_pv.c b/arch/x86/xen/mmu_pv.c
+> index 2a4a8deaf612..7a35c3393df4 100644
+> --- a/arch/x86/xen/mmu_pv.c
+> +++ b/arch/x86/xen/mmu_pv.c
+> @@ -2139,10 +2139,8 @@ static void xen_flush_lazy_mmu(void)
+>  {
+>  	preempt_disable();
+>  
+> -	if (xen_get_lazy_mode() == XEN_LAZY_MMU) {
+> -		arch_leave_lazy_mmu_mode();
+> -		arch_enter_lazy_mmu_mode();
+> -	}
+> +	if (xen_get_lazy_mode() == XEN_LAZY_MMU)
+> +		xen_mc_flush();
+>  
+>  	preempt_enable();
+>  }
+
 
