@@ -4,92 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7057D1D866
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 05:29:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52F4CD1D868
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 05:36:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BGcGdJQ4d2lSMQGLwi6l+oRPZTLZMjA9uQc8WfswYHM=; b=OpuG16ORiI6GBoWRuxvidRrALp
-	Jn2IogCm/15UWoCLOWMC87mehh9FO3KXQOrvOiTcTfCdkhNgIgkb8zmqfwaUKB/GsZQ/xzUYmKwFG
-	coW0lCQDIvnQBhlSZesice+jiUoFMTA+uWpsc1XA+JzB2wq8CLUoRByY5ji9kZaHHl3hn8d9H5cid
-	/Cy/Ui67q5+QtPhwD7jz1pYIZGIx8SB2vb7nHjF1NBrWx/uuN7dgfw/OLGF5peFm/2o6KSMR+NlYV
-	UTtUdtLk7nEW57/M5SEXXZf8ooqlcw2MQLaK088oVg3orglyz6kKjtHDbNv8/vpxNjNOfb8bBk/hO
-	RSsdsUDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=D/InzIERIn2I5sMSaV3GCPU31Kh+Eg4w8h2x2ssxFLA=; b=vwASOLx4T4OhqLHNVg36z2feAh
+	tuQtzrQEXZ+Ksjysnv83FvDLYQ5i7fpvWg5NPxu58IjqJtZIb5L9nCVztgPFthgDHIOZbROzZZ55G
+	QDpF4Ef/w9aF+avepQLfPb+j45pmWwCrauNceEA9OHyyQc6FAllA0MYMcCrgdOXHHLI3kctOx9Rhw
+	OBoVfRwEYVeWz8V5NuF1lMX2No46mN8sPiC4bh167Zi4PEQKHQkT18OxLQA4eWGqj8NJ8o9HfdfsL
+	17D8bf5JeaTzoxxFeKNL7ywBC1Dz2diMR7e4oz0ETvoK5cwgwSecE+DooCSfWY/h9tusy+bxRROsG
+	mjmvjgMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR1tl-00000007V7f-0KsO;
-	Thu, 04 Dec 2025 05:29:01 +0000
-Received: from mail-oi1-x236.google.com ([2607:f8b0:4864:20::236])
+	id 1vR21K-00000007VV3-1yx5;
+	Thu, 04 Dec 2025 05:36:50 +0000
+Received: from [114.94.151.114] (helo=mail-sh.amlogic.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR1ti-00000007V6d-2HYa
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 05:29:00 +0000
-Received: by mail-oi1-x236.google.com with SMTP id 5614622812f47-44fe6771b2dso124311b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 21:28:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1764826137; x=1765430937; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BGcGdJQ4d2lSMQGLwi6l+oRPZTLZMjA9uQc8WfswYHM=;
-        b=YkGFFSQxDPTy6HF4xU6FU7hqAFjdRlDmdjxim6KAY+iDfz2jJsvE1eb1g5nwXsyV53
-         QjpX+v3SCuDoQSbtuOjBtJPmCBmB4VhFHtb1edEK5kEuXWmbeVgqkzzY3JLWlK2DLUUx
-         QdWnft95SWJO87d/VrL7yLOfCIFpR4DtSJcjnvhet/IqGCJIcQUsTMwdAm5gvsVewbTr
-         XA3T4Fi7bmH/oNOLMpP4r8xP31z6sEEvtACCNs36BMEHS9OqLUBZchCcjesvHCRg3zqu
-         RpnrMsn6QF3wTB6NmxNPMKSHmlXiNaoIaflaRCcYlt0cCbcYMVQQudjjF+/DpZwxQefp
-         uBCg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764826137; x=1765430937;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=BGcGdJQ4d2lSMQGLwi6l+oRPZTLZMjA9uQc8WfswYHM=;
-        b=soiv9ThKBLB96Tck+vVpiBCaHZuSqqyaKU8SX2atCiGjL2x/+zs8XjaBiCb9feipyR
-         vr0Bjm5ZEIM8mPGQezCFoKi7oD+pmxUBEEKA2gfVriAs/IHcbejt7PctrXilNTALjy2z
-         pD/k369qsV8AIs+mzoeKnlRqqafsbccqE8CXlK0nfzFf34WPeMryIj82bxCYWjD8xVUJ
-         lElHSWuhIJkMOtUrS6djM+g21Vww/wAWp4JS25G5arMFA530ZCccT4SHHYnWa7rI9CoH
-         YT+/ihrTCBMsJ+DXPeusotTKRxIEicNZ4lEIap/pyEzM0xHXnJzTVsG2tV8VKSXP+4YZ
-         wDWA==
-X-Forwarded-Encrypted: i=1; AJvYcCViez1+syQxEuZrimPpioJQ2VlrP4JMgrxNW3fcbiWdFefi19XXWQ8o3Un6PoSn7teTJb59dFttDMyrjqbZ2eE+@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywj+j8Aj8UeIMzg1Q4FvI9inKthlBkAIHNeTEvDaV+T7TFJ4Nfy
-	VYNDsD6TqSGmOR4upHY37dXy2R6k9nfxRv7c+SlyKLCTZAhUlZp7QrKk+dl7dmHQilt+O/PJx+Q
-	Y0ibe5CqAkO680XPkiOB5KIU54rpAyzHBysW6RIhSRg==
-X-Gm-Gg: ASbGnctvcR2YsP6WCa1M668yo5gLqTQ9gTlLATvlvlDJswioBhPnQwZ+s8NJl/yAXQt
-	UxMj1GUxxTPirndq0RPkrQAT68/LQQ5k43QUDAOffJbuHC+oyhzsP7oaxuBw3/mjDCefYfGb8PE
-	oArfKB3+zWSXWy6Xql2N3AsXiQKqqiDfEnI2Lnp9i24PRd/XGCpnP2jczRST1HUUnAkVZZJrh7G
-	XO0hrez2pacL3RBMQqusoLFrqNy24sPGujudBleqPU6Vg7MclAW1tBVnUK9n+CwjG6HG2H5Ue8=
-X-Google-Smtp-Source: AGHT+IHPXO4mJt6XFTl0jVeuamRWHb5DefXnFnY2jPbicVsNKKRdQsCgbNBsmbzVUe+uXweaiUokpDpWwGHff2RkRUM=
-X-Received: by 2002:a05:6808:10d5:b0:450:44b9:68e0 with SMTP id
- 5614622812f47-4536e3de274mr2882636b6e.11.1764826137356; Wed, 03 Dec 2025
- 21:28:57 -0800 (PST)
+	id 1vR21H-00000007VUF-0BsC;
+	Thu, 04 Dec 2025 05:36:48 +0000
+Received: from rd03-sz.software.amlogic (10.28.11.121) by mail-sh.amlogic.com
+ (10.18.11.5) with Microsoft SMTP Server id 15.1.2507.61; Thu, 4 Dec 2025
+ 13:36:37 +0800
+From: Jian Hu <jian.hu@amlogic.com>
+To: Jerome Brunet <jbrunet@baylibre.com>, Xianwei Zhao
+	<xianwei.zhao@amlogic.com>, Chuan Liu <chuan.liu@amlogic.com>, Neil Armstrong
+	<neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, "Stephen
+ Boyd" <sboyd@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
+	robh+dt <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>
+CC: Jian Hu <jian.hu@amlogic.com>, devicetree <devicetree@vger.kernel.org>,
+	linux-clk <linux-clk@vger.kernel.org>, linux-amlogic
+	<linux-amlogic@lists.infradead.org>, linux-kernel
+	<linux-kernel@vger.kernel.org>, linux-arm-kernel
+	<linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH v6 0/5] add support for T7 family clock controller
+Date: Thu, 4 Dec 2025 13:36:29 +0800
+Message-ID: <20251204053635.1234150-1-jian.hu@amlogic.com>
+X-Mailer: git-send-email 2.47.1
 MIME-Version: 1.0
-References: <20251127125305.89961-1-cuiyunhui@bytedance.com>
- <20251127125305.89961-6-cuiyunhui@bytedance.com> <DEP4X1DAIOU5.2WLIV4BMWLMRR@ventanamicro.com>
-In-Reply-To: <DEP4X1DAIOU5.2WLIV4BMWLMRR@ventanamicro.com>
-From: yunhui cui <cuiyunhui@bytedance.com>
-Date: Thu, 4 Dec 2025 13:28:45 +0800
-X-Gm-Features: AWmQ_blKLNMUWj4oLV3fkP9gPW-qpOON3cyf_xYq6m6lr9r97yBqEg-AEwpXlh4
-Message-ID: <CAEEQ3wmAn=9w=fR=OMTMF17_tAcEnsdJWL_w8fw-3wA-Bfi6xw@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH v3 5/8] riscv: smp: use NMI for CPU stop
-To: =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>
-Cc: conor@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, alex@ghiti.fr, luxu.kernel@bytedance.com, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	jassisinghbrar@gmail.com, conor.dooley@microchip.com, 
-	valentina.fernandezalanis@microchip.com, catalin.marinas@arm.com, 
-	will@kernel.org, maz@kernel.org, timothy.hayes@arm.com, lpieralisi@kernel.org, 
-	arnd@arndb.de, kees@kernel.org, tglx@linutronix.de, viresh.kumar@linaro.org, 
-	boqun.feng@gmail.com, linux-arm-kernel@lists.infradead.org, 
-	cleger@rivosinc.com, atishp@rivosinc.com, ajones@ventanamicro.com, 
-	linux-riscv <linux-riscv-bounces@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.28.11.121]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_212858_579575_8FB7BB44 
-X-CRM114-Status: GOOD (  11.40  )
+X-CRM114-CacheID: sfid-20251203_213647_107182_5D2A009E 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,37 +65,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Radim,
+It introduces three clock controllers:
+- SCMI clock controller: these clocks are managed by the SCP and handled through SCMI.
+- PLL clock controller.
+- peripheral clock controller.
 
-On Thu, Dec 4, 2025 at 12:07=E2=80=AFPM Radim Kr=C4=8Dm=C3=A1=C5=99 <rkrcma=
-r@ventanamicro.com> wrote:
->
-> 2025-11-27T20:53:02+08:00, Yunhui Cui <cuiyunhui@bytedance.com>:
-> > Use NMI instead of IPI for CPU stop if RISC-V SSE NMI is supported.
-> >
-> > Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
-> > ---
-> > diff --git a/drivers/firmware/riscv/riscv_sse_nmi.c b/drivers/firmware/=
-riscv/riscv_sse_nmi.c
-> > @@ -58,6 +58,7 @@ static int local_nmi_handler(u32 evt, void *arg, stru=
-ct pt_regs *regs)
-> >       type =3D atomic_read(this_cpu_ptr(&local_nmi));
-> >
-> >       NMI_HANDLE(LOCAL_NMI_CRASH, cpu_crash_stop, cpu, regs);
-> > +     NMI_HANDLE(LOCAL_NMI_STOP, cpu_stop);
->
-> Please document the intended preemption design for all SSE events,
-> because it will be a nightmare if we forget some assumptions in the
-> coming years.  (That includes the relative priorities of RAS/PMU/...)
+Changes v6 since v5 at [5]:
+- add a blank line after each PLL register region
+- update GP1 PLL note
+- update PLL and peripherals help message
+- add parentheses around the _iflags member in MESON_COMP_GATE
+- drop CLK_SET_RATE_PARENT and the 4th parent for rtc
+- move sd_emmc_c after sd_emmc_b
 
-Actually, LOCAL_NMI_CRASH, LOCAL_NMI_STOP, LOCAL_NMI_BACKTRACE,
-LOCAL_NMI_KGDB, ... are all implemented via the single SSE event
-SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED. Per the SSE design, no
-preemption will occur among CRASH, STOP, BACKTRACE, and KGDB events.
+Changes v5 since v4 at [4]:
+- rename rtc and cec dualdiv clocks
+- rename dsp clocks
+- rename anakin clocks
+- rename fdiv2_divn to 25m and fix its parent
+- add flag for T7_COMP_GATE
+- use T7_COMP_SEL/DIV/GATE to define glitch clocks
+- add CLK_SET_RATE_NO_REPARENT for t7_eth_rmii_sel and rtc
+- move module_platform_driver after clock driver
 
->
-> Thanks.
+Changes v4 since v3 at [3]:
+- drop amlogic_t7_pll_probe, use meson_clkc_mmio_probe instead
+- add CLK_DIVIDER_MAX_AT_ZERO for pcie_pll_od clk
+- add frac for hifi_dco_pll_dco
+- add l_detect for mclk_pll_dco
+- drop v3 5/6 patch, and use MESON_PCLK
+- drop SPI_PWM_CLK_XX macro and use MESON_COMP_XX
+- drop the register's prefix
 
-Thanks,
-Yunhui
+Changes v3 since v2 at [2]:
+- update T7 PLL YAML
+- add 't7_' prefix for t7 clock name and variable in t7-pll.c and t7-peripherals.c
+- correct v1 patch link
+- add new macro MESON_PCLK_V2
+- update the driver,header,yaml file license
+
+Changes v2 since v1 at [1]:
+- add CLK_MESON import
+- add const for clkc_regmap_config in PLL driver
+- fix eth_rmii_sel parent
+- update T7 PLL YAML file
+
+[1]: https://lore.kernel.org/all/20241231060047.2298871-1-jian.hu@amlogic.com
+[2]: https://lore.kernel.org/all/20250108094025.2664201-1-jian.hu@amlogic.com
+[3]: https://lore.kernel.org/all/20250509074825.1933254-1-jian.hu@amlogic.com
+[4]: https://lore.kernel.org/all/20251030094345.2571222-1-jian.hu@amlogic.com
+[5]: https://lore.kernel.org/all/20251121105934.1759745-1-jian.hu@amlogic.com
+Jian Hu (5):
+  dt-bindings: clock: add Amlogic T7 PLL clock controller
+  dt-bindings: clock: add Amlogic T7 SCMI clock controller
+  dt-bindings: clock: add Amlogic T7 peripherals clock controller
+  clk: meson: t7: add support for the T7 SoC PLL clock
+  clk: meson: t7: add t7 clock peripherals controller driver
+
+ .../clock/amlogic,t7-peripherals-clkc.yaml    |  116 ++
+ .../bindings/clock/amlogic,t7-pll-clkc.yaml   |  114 ++
+ drivers/clk/meson/Kconfig                     |   27 +
+ drivers/clk/meson/Makefile                    |    2 +
+ drivers/clk/meson/t7-peripherals.c            | 1271 +++++++++++++++++
+ drivers/clk/meson/t7-pll.c                    | 1074 ++++++++++++++
+ .../clock/amlogic,t7-peripherals-clkc.h       |  228 +++
+ .../dt-bindings/clock/amlogic,t7-pll-clkc.h   |   56 +
+ include/dt-bindings/clock/amlogic,t7-scmi.h   |   47 +
+ 9 files changed, 2935 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/amlogic,t7-peripherals-clkc.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/amlogic,t7-pll-clkc.yaml
+ create mode 100644 drivers/clk/meson/t7-peripherals.c
+ create mode 100644 drivers/clk/meson/t7-pll.c
+ create mode 100644 include/dt-bindings/clock/amlogic,t7-peripherals-clkc.h
+ create mode 100644 include/dt-bindings/clock/amlogic,t7-pll-clkc.h
+ create mode 100644 include/dt-bindings/clock/amlogic,t7-scmi.h
+
+-- 
+2.47.1
+
 
