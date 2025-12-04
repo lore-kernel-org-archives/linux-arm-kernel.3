@@ -4,56 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6566AD1F9D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 12:04:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D1C8D1F9D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 12:06:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n0SZ/BwxplpUehnXIwTyiQz6fanbn+g+7X25vWezG6o=; b=B2ld5brRrFLqW/cMiCkPZ7PSyc
-	3lk81+FNh97qMuek1/yNQvNNzRmaBNb/TDukCFjMSzQubL7FWRcL7rcCRq4xhXFIjrwhs2psTqsmY
-	n1R7VKWpkSMTCN6W31ep4NGl2QK3Ei4n7mOH12KZsmi9asn0NF6UuP05nOj3spCxTpmKgW2RPgvAk
-	ui+jFRCDMP28LbL7TnZ+eXouPUpc3iDeXGViXLGAODCmYc2nEMs2bGVgmweFaNdWJQ/R9+Munh+s6
-	RHBW/VP727pej5L92QCk43tZ3HlA20dIqWI64M/fCvk/D4hs+k5vDyCyMLDVS/l+BJ5Uy681x4FY5
-	gIaZP69A==;
+	bh=llMamPV5KywteSdLTiR3KkJKp9/ogeIeZi6/YJf11sA=; b=sNs+HYNN5AJO3MjKzMfjDQtHjC
+	PAIyqA3FMdOpW+ZNyBXjyf2SoTCxTMQ3iZDH6wxP9TvQPSfbtOcWYdsR62onj7yw0msHh+2EraR0J
+	MzGSBHCG/obIHdYGirtMueQgb41usIGx7wGOoV4Ud5qBBQDbVtP2QnxFLUEQB3foddK/9B5ZUAPIv
+	77cKSThEu6HZFETh35TTaxRfv+WNOtl6U2lhtCjbDLokgiW990aLHXaW42GE62u1vjVqisBWYLnU8
+	Y9Y6iB1mg/RgUULO8ApG12988sGA+RBKf/FCwOZzvMMTECd0n+LuPAD2Cuo7SdhVMH/AUeOhdSoV/
+	el3DHNeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR84t-00000007xXs-1nkl;
-	Thu, 04 Dec 2025 12:04:55 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR84q-00000007xXA-2ZKq
+	id 1vR866-00000007xi1-3kFl;
+	Thu, 04 Dec 2025 12:06:11 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vR863-00000007xhK-3pXT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 12:04:54 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5BAE1339;
-	Thu,  4 Dec 2025 04:04:42 -0800 (PST)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 88DCB3F73B;
-	Thu,  4 Dec 2025 04:04:48 -0800 (PST)
-Date: Thu, 4 Dec 2025 12:04:42 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
-Cc: Marc Zyngier <maz@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	rsalveti@oss.qualcomm.com
-Subject: Re: Alternative to arm64.nopauth cmdline for disabling Pointer
- Authentication
-Message-ID: <aTF42v5dpTuCe7r3@J2N7QTR9R3>
-References: <3fcf6614-ee83-4a06-9024-83573b2e642e@quicinc.com>
- <86ecpappzi.wl-maz@kernel.org>
- <adc22b19-7dcc-4c38-9319-d979f1e3886a@quicinc.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <adc22b19-7dcc-4c38-9319-d979f1e3886a@quicinc.com>
+	Thu, 04 Dec 2025 12:06:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 50BE34176C;
+	Thu,  4 Dec 2025 12:06:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26991C4CEFB;
+	Thu,  4 Dec 2025 12:06:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764849967;
+	bh=KAwt9YmF0MdTkjuXPCwrEtTOnMnIeg8UKwNlBdD09n8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=cTw9PFvuwgMzOOX7mPdw/vBRFALpKrgH9twL2OEnXhVu4Xn8XzaBM2RUad5E7kr1f
+	 dtaDqRucDcpvV98fiYSrOgjge8Y2BiTV50+xk8KkrvmOao4NTmg0tA2UmbyZ2t4UY7
+	 WKwzefQgC0RnZnxlg6yQpIUhitxJo38eT2VyO5b23nX1AjDrXUBEiH99h7yrU+NUY8
+	 bNyg6KjVNlm+p7wGhFz5W28xBkZ7h6sVOfnaKyYWJZc8wzomUx7f+nWav7X2cKl5fV
+	 6zy1KdXB7FtadE4oWQv+QB+0fUqD4bjD0PFch1bfEhxxNRiRxPn0+Z3SwdbpD2jIwT
+	 wpGWbsshwbgHg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vR861-0000000ARGn-0147;
+	Thu, 04 Dec 2025 12:06:05 +0000
+Date: Thu, 04 Dec 2025 12:06:04 +0000
+Message-ID: <86a4zypi37.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose
+ <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>
+Subject: Re: [PATCH v3 8/9] KVM: arm64: pkvm: Report optional ID register traps with a 0x18 syndrome
+In-Reply-To: <7f853a85-f1da-4e6f-ab3f-63507731f8ee@arm.com>
+References: <20251204094806.3846619-1-maz@kernel.org>
+	<20251204094806.3846619-9-maz@kernel.org>
+	<7f853a85-f1da-4e6f-ab3f-63507731f8ee@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ben.horgan@arm.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, yaoyuan@linux.alibaba.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_040452_693785_11703F8D 
-X-CRM114-Status: GOOD (  22.74  )
+X-CRM114-CacheID: sfid-20251204_040607_987124_04B3C90B 
+X-CRM114-Status: GOOD (  25.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,68 +92,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pavan, Marc,
+On Thu, 04 Dec 2025 10:51:19 +0000,
+Ben Horgan <ben.horgan@arm.com> wrote:
+> 
+> Hi Marc,
+> 
+> On 12/4/25 09:48, Marc Zyngier wrote:
+> > With FEAT_IDST, unimplemented system registers in the feature ID space
+> > must be reported using EC=0x18 at the closest handling EL, rather than
+> > with an UNDEF.
+> > 
+> > Most of these system registers are always implemented thanks to their
+> > dependency on FEAT_AA64, except for a set of (currently) three registers:
+> > GMID_EL1 (depending on MTE2), CCSIDR2_EL1 (depending on FEAT_CCIDX),
+> > and SMIDR_EL1 (depending on SME).
+> > 
+> > For these three registers, report their trap as EC=0x18 if they
+> > end-up trapping into KVM and that FEAT_IDST is implemented in the guest.
+> > Otherwise, just make them UNDEF.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/sys_regs.c | 15 +++++++++++++++
+> >  1 file changed, 15 insertions(+)
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> > index 876b36d3d4788..efc36645f4b5a 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> > @@ -347,6 +347,18 @@ static bool pvm_gic_read_sre(struct kvm_vcpu *vcpu,
+> >  	return true;
+> >  }
+> >  
+> > +static bool pvm_idst_access(struct kvm_vcpu *vcpu,
+> > +			    struct sys_reg_params *p,
+> > +			    const struct sys_reg_desc *r)
+> > +{
+> > +	if (kvm_has_feat_enum(vcpu->kvm, ID_AA64MMFR2_EL1, IDS, NI))
+> > +		inject_undef64(vcpu);
+> > +	else
+> > +		inject_sync64(vcpu, kvm_vcpu_get_esr(vcpu));
+> > +
+> > +	return false;
+> > +}
+> > +
+> 
+> Just wondering, why is the pkvm version register specific? You changed
+> the non-pkvm from register specific to generic.
 
-On Thu, Dec 04, 2025 at 04:06:12PM +0530, Pavan Kondeti wrote:
-> On Thu, Dec 04, 2025 at 09:15:29AM +0000, Marc Zyngier wrote:
-> > On Thu, 04 Dec 2025 04:07:15 +0000,
-> > Pavan Kondeti <pavan.kondeti@oss.qualcomm.com> wrote:
-> > > Hi
-> > > 
-> > > The pointer authentication feature (PAuth) is only supported on
-> > > 0-3 CPUs but it is not supported on 4-7 CPUS on QCS8300.
+Because pKVM relies on a full enumeration of the registers as a design
+principle, and refrains from having wide-casting nets as a catch-all.
 
-> > On what grounds? Hardware incompatibility? I seriously doubt it,
-> > since nobody glues pre-8.3 CPUs to anything more modern.
+That's to ensure that there is a "surprise trap" always results in an
+UNDEF. Different model from the rest of KVM.
 
-Marc, it seems like that's exactly that's happened here. :/
+Thanks,
 
-> I see that Linux runs at EL2 and AA64ISAR1 register values on CPU#0
-> (A78) indicates that PAuth is supported but not for CPU#4 (A55). I am
-> told, there are no other controls outside EL2 (trap) to manipulate
-> this feature. So, I am assuming that this is indeed reflecting the HW.
+	M.
 
-Cortex-A78 doesn't have pointer authentication, but Cortex-A78C does, so
-maybe you actually have Cortex-A78C?
-
-What are the MIDRs on this SoC? e.g. the output of:
-
-  cat /sys/devices/system/cpu/cpu*/regs/identification/midr_el1 | sort | uniq
-
-If this SoC has both Cortex-A78C and Cortex-A55, that's a rather
-unfortunate combination that should have been caught at the SoC design
-phase, as Marc alluded to.
-
-[...]
-
-> > > This patch [2] from Catalin adds a devicetree property under memory {}
-> > > to disable MTE.
-
-Catalin's patch was a bit different. It described whether the memory
-range supported tags (and was actually a property of the memory). That
-patch didn't make it into mainline AFAICT.
-
-[...]
-
-> I understand that this does not fall under errata but is
-> there a possiblity to introduce an Errata targeting CPU#0 MIDR and
-> disabling the Pointer authentication? I understand that if there is
-> another Qualcomm SoC that exists with all CPUs supporting pointer
-> authentication with same MIDR, we may be disabling the feature but this
-> is something I can check internally.
-
-I strongly suspect we cannot use the MIDR for this. Per:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=53a52a0ec7680287b170b36488203b5822e6da2d
-
-... Qualcomm's Kryo {Prime,Gold,Silver} parts seem to identify
-themselves as Arm ltd implementations, and those will appear in other
-non-Qualcomm SoCs.
-
-Without know *exactly* which MIDRs you have on this part, we cannot say.
-
-Regardless, I strongly suspect that we have to live with the command
-line option for these parts.
-
-Mark.
+-- 
+Without deviation from the norm, progress is not possible.
 
