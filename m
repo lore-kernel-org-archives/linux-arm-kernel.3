@@ -4,91 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC7FAD216A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 15:37:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 664CAD216A3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 15:46:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iasODFwnrpej5ihKsaAUgxOzvlJy+tRXrHwJOSqIP0Q=; b=mN2pSe5sZYPaUXhe3si15dtmfp
-	ZE8T/wue6BLUkQdq4NWqHs4IR6VxMKX5pesDzsKDkZl/7IpLkOoLA1hMLKb0X6BDANMcybekrAYH8
-	1a1ceVdYlTlI0ee329giTZH6vG83u5VnCO5ZXfm2m6OIPoKc0L3TTBC11Vnku6Ez9n7v2p2yhr0yu
-	4ZV+bmXReG5isU0tk11qMOmc+vqPth5hsoWZeHQUNI83T0IHFnEKw2XuiIne6ZDeeEF9VFDavwtq5
-	8obLN+TOQrG0WjBkuoW4VSmlcPfx25dMLcwx4lV4C5W1J6tBmGoE8L7zMmZBeS5WjQu0rLfBTDjjp
-	AMIDfU+A==;
+	bh=UA/yY7fbsmAtbpdVmUxmHBhgln+Uq+ruk57Ak1wbz+s=; b=qj4/3q66Y2Eb3hE5bwlSgGYtt9
+	KP3L7i1wQMTewZPmySuoNIlxHcdK1EKxjMB6n0SeDyNc4UFsR86LHyk0JSL6NQycPd1HWSKh0b2Z7
+	m6Df6Xz7QC5RRr5VQOj7A2KMIYpa4gL8RigEOAkEZuCIXc5RLFymuB3/VZ9k0+wHbQEbODI+/Topf
+	X/9WAcFH7lD3Q2K03/XG+Ijdl2/y04gOT5h31Gb0sxhA1C3oIc4uJUjDlqqKpksIUZWPyu1Tu9qpw
+	5mzRUH/jADuAmCQB9Vph/QXUpuZevOhdc6kPGLJjm2b5tHihO7N6qVTbe2aEjOdDU6eB4ozgiKrt4
+	O4k5lEYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRBOe-00000008DYf-42Nt;
-	Thu, 04 Dec 2025 15:37:32 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vRBWv-00000008E4l-3P2g;
+	Thu, 04 Dec 2025 15:46:05 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRBOc-00000008DXv-3A5R
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 04 Dec 2025 15:37:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=iasODFwnrpej5ihKsaAUgxOzvlJy+tRXrHwJOSqIP0Q=; b=BEz8jKMjcMnDh2VaSiTiflLoNy
-	Wr5wruHnqrTtn6RGZcoPMEvcs8ri3oHrx462XRbP50W4gNYgpF6BuW6mkdvbRZSJfyXRZlDVEeu7t
-	rIjZuN6Cg+YlXLzNqPzrHj6HLcL0i7eAPQ6dG7wPQZGv2PErIu23/cwu1xYVjfxaFgeLuWz/x/hT2
-	WRKcoxhT0KsDGwZ+qNjUKxKR72k1sVZ3stkO1Z4fRow1aEZ63/KoPDoZYFgrpeS0zkO0dLHe0goAY
-	kzpyMYVJsC61ktLh65ac7LyhajaoJhusO5pPRz3BXuyNasa+H9ilYMaOnHMg5cKjAROnRQqfgmgSN
-	wNAOdUgg==;
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRAX2-00000004KWF-0eI6
+	id 1vRBWs-00000008E3t-38bT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 14:42:10 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-4790f0347bfso1213645e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 07:37:27 -0800 (PST)
+	Thu, 04 Dec 2025 15:46:04 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-47798f4059fso1551265e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 07:46:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764862646; x=1765467446; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1764863161; x=1765467961; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=iasODFwnrpej5ihKsaAUgxOzvlJy+tRXrHwJOSqIP0Q=;
-        b=OVvXp8OnnMFuW/GLaOjOvdEqkRsydEwFR4tg0cg3utGd0w0jJnRkGfxv7Y9nbLMNUO
-         xYeHNx3sbrzzRkiZhIzmc70gHoKUxpSIQa7X19Wsl5gQ1+aCTcow8xQrCzdaYwP3LUqb
-         Omk3Fkqa5R79xYoPGKPzK3jMvFHaMRnzKWjS0tHeEZKBrMaNKldJs5kJAMbSIAmRG1fi
-         m0TYbm/azJwxd+4Z7zPdNgfagAcMzBCBGoVLAQDT9puCGexbH+lhBCW5Io4kaB+hsZh3
-         NNdLonkbA23kbFmIRZ0m3YB/+Q6zwFeUnkmJ2iT4OXI3kMFKsY3DZfgj+LtshWcok74U
-         IaCw==
+        bh=UA/yY7fbsmAtbpdVmUxmHBhgln+Uq+ruk57Ak1wbz+s=;
+        b=g3enQ4AKNn7mCCgmppevJ8esnozxTbsbhOD4jL8D/cOOAt8LL7/ZQDoXffl5NxeXnC
+         /dXThd9DTxTnhYx5YOBCjc3rdj7eKA7thdjmskyM/i3lrFPJm70rGSoS+4vXxj7Wboi6
+         qlWyfCGE/bMJprcqBJ/6Wq7zdPRvN164E2VZp7hnlFINx+LCgPlhafP8cOtG1yloVCxe
+         Vn/tkyZE80TJgui460UTSzHlhav46MeoKrJwi3Ed7NkkzsLcNNFYKaX0azfsX3s9Zwbc
+         0VxS2sVdBcp66dBwW/y+Jo6e4FOzOIJmpVKlMY9ePAN7dFfwkMMksaDwfpSAvDYX0HLI
+         L/sg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764862646; x=1765467446;
+        d=1e100.net; s=20230601; t=1764863161; x=1765467961;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=iasODFwnrpej5ihKsaAUgxOzvlJy+tRXrHwJOSqIP0Q=;
-        b=kpNPdqkNRVr9uv4VDZWEoqeYnaeznhvlX15XHTN7P8OWWKyONaAzGs4UgHssTGaWxl
-         Vid5kCyRfcIJ/LYc2t8OX5DjaNPQd7s3v/mUSmRDM1YSaOqVa5mrsILIlj56lrY+MUoc
-         y8acc5nwBfQzOaLl3T2YEe8QF6wyse1Wi3vmwmn5yU+w2MMdXPlDMv/YjgABhWLEQ7Rx
-         kyii78grgpcXlscKglqNc0yF/rXWReIvD83iQIKhE9v2Kk9Ieubur6Fc89btwP2W3AtW
-         T+wmcjMfqoaAH9u0GFKCHMUOqZwl2iUwmVON9/MWxVOibUieNRfH1EFl+BTC7IGHFrQm
-         o3SA==
-X-Forwarded-Encrypted: i=1; AJvYcCXIyca7iE8Wdy5eLIFn1mOAK2H24uZTgWlFdlwkFw1YvY9uZMBCQCXWeNoA8fi5hwAMOxHMAkpTWMto8uSyAt0U@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzi4A9bIOsy32l4Mh5/xFiF9CrWmDUV4mTrw7NchN3FZz4CBlED
-	IYRVhEh0Jh+6w+p0J/dQi228COBnqxb/OkPkm1ofv32Elylt6e1c4Ru2
-X-Gm-Gg: ASbGncszp5rImd6i3QqtZGsGRXwmGfSWvXtx57LD4A0o1jeZmqllL8MibuBmTYezRYH
-	PCGzqXyk8vC8tFQG8TNMOwQFJKxo+UxEUEmE1lRF2jXm+JZqtQMyD/2WC2ka2mXbFIoYizcfzxc
-	1ba1Ud8GKoA5aSc0GTpVinEkgpjnZ7svbLmQsv0dWiQk4PH553XGtGBf42wccEogwL0w6Wdumqz
-	dBpslwx0OlqqTtFDkTK0/+hQZMhlaDf8QBoXoiyi6JKv/a8xWX22FMAfpHKQoYOGqP7pFU+s7b+
-	82tGZLZa1K2YFxX7GnBFjqzQ1pRq4tAc8/ZttunWY6mS8T1SXZcbxlxeOhHBwDS11HlhD0s5nMP
-	vCbnF2Pt1BspTND+6LhtQGxG4WSLnmLIIDsooiLiRXSlx8uKXY6jeHF9U9Z3OPI//RQENetZPXh
-	kLdnM=
-X-Google-Smtp-Source: AGHT+IG0YF6qmFx9hfyT69cJ/NJuiahXcMZFrcwdfYs4/eTXFVZRKEz/Y6SPeFs3HRVMeBHdDKXaRQ==
-X-Received: by 2002:a05:6000:186c:b0:42b:4219:268 with SMTP id ffacd0b85a97d-42f7568973cmr3423808f8f.4.1764862645565;
-        Thu, 04 Dec 2025 07:37:25 -0800 (PST)
+        bh=UA/yY7fbsmAtbpdVmUxmHBhgln+Uq+ruk57Ak1wbz+s=;
+        b=X4z5ZzH/az5wgio6GeWqVuDcC+pn/qdiyWVhYR4AXdieO1VaAKmmL9Lc4brQ9KzZur
+         TDre+mHVhrh2FS9OEY+p8x8BL0uF5ibe0146qGqSUASnhG5zfNjFGZgxqMafuB0MBNha
+         s6Ek0i+yLNSTTUuDlaNPldeB1nVngSlDTazPheBUJpNHnDECrJBLblnvJSoCrUFYwXqr
+         GJ0KFD51iXOkWKV7y4qL2+w5OzC95zMwy5I8ilF3uim2i553qtkYhjyHYpBPFMVwGB7t
+         jteMSnGA+Ib7WeRdfyv1iH+RhGH68hCHR1qZKQ2Jfw4ffQhJenHba/0ERMfLk2tZw60z
+         F+UQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXf15Aaja8aThRrYO+jAmoy/gyMwQ35wFnePiPynMEBI8ybQ5ro3TqpqpSD1cptanRz+hSmGmdsI+e1luqDzTHZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxYC9e7nt/urdGbBcxWhtxWjcRxp8teDk+KgaI4sS9JQuwn8yYC
+	ABAr9Fi8bsGZxV2cJ4kSbT3QqbaKc0IM39k5F57rrTXHOMbNc6sqOmS+
+X-Gm-Gg: ASbGncuSHj79dCfOxuc8Q1TURBfPBU56GF9YpC++UK9GrSt6IwXlRm0+tuOIQ/nSYJU
+	uBagjZL9TKCzUhoBAvQQjDQ4jOJP+lKSasA5Qs8upXRrTbTl46oy4rf1y9Fq9eWhUTQbjOxEx07
+	iTxTd6s2/I/fVKaxn2II5AUobDwmBKnWCt1UCLBt7gqzZNXtiOWP4X51ynO1YLt763DHIkD74Ws
+	LiF08ltx+gGjqw/oLuOuEEWrgei8P9ha+1AzngOggSjNUDntdCIYGyedO/mddjg4jaxqToGOMiW
+	Q8xNFg7VtRFTVPNrHS1sYM6DPVklOgb5lcjBbyNe+A7oOdzCMEtNX27BxCmxHsHoLk40FZtN/ZY
+	f9+S2rpUUdbILC0/+ASFm0jBtQ3XWMRarG3Nw/msQ6i8DKGv38RDn7UGSrAhgv4kyMfQW7iIwXf
+	BjjEI=
+X-Google-Smtp-Source: AGHT+IHDhvMR+KTLaJIj8x4ZJCrP7vfLKbK4kH2ayI19QzVBsuMMnG5taOmZS+QplfMCnJIxB2E8tw==
+X-Received: by 2002:a05:600c:3b90:b0:477:9c9e:ec6c with SMTP id 5b1f17b1804b1-4792c8f2462mr33160085e9.8.1764863160680;
+        Thu, 04 Dec 2025 07:46:00 -0800 (PST)
 Received: from skbuf ([2a02:2f04:d106:d600:dbb2:245d:2cf5:21d3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42f7d353f75sm3948069f8f.42.2025.12.04.07.37.23
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42f7d331a4fsm4069295f8f.33.2025.12.04.07.45.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Dec 2025 07:37:24 -0800 (PST)
-Date: Thu, 4 Dec 2025 17:37:21 +0200
+        Thu, 04 Dec 2025 07:45:59 -0800 (PST)
+Date: Thu, 4 Dec 2025 17:45:57 +0200
 From: Vladimir Oltean <olteanv@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Daniel Golle <daniel@makrotopia.org>, Frank Wunderlich <frankwu@gmx.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
+To: Daniel Golle <daniel@makrotopia.org>
+Cc: Frank Wunderlich <frankwu@gmx.de>,
+	Krzysztof Kozlowski <krzk@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
 	Chen Minqiang <ptpt52@gmail.com>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -101,7 +86,7 @@ Cc: Daniel Golle <daniel@makrotopia.org>, Frank Wunderlich <frankwu@gmx.de>,
 	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
 Subject: Re: [PATCH v3 2/2] net: dsa: mt7530: Use GPIO polarity to generate
  correct reset sequence
-Message-ID: <20251204153721.ubmxifrev4cre6ab@skbuf>
+Message-ID: <20251204154557.b7asnuxq7hiy5zlq@skbuf>
 References: <20251129234603.2544-1-ptpt52@gmail.com>
  <20251129234603.2544-2-ptpt52@gmail.com>
  <0675b35f-217d-4261-9e3f-2eb24753d43c@lunn.ch>
@@ -111,14 +96,14 @@ References: <20251129234603.2544-1-ptpt52@gmail.com>
  <00f308a1-a4b1-4f20-8d8e-459ddf4c39b1@gmx.de>
  <aS7Zj3AFsSp2CTNv@makrotopia.org>
  <20251204131626.upw77jncqfwxydww@skbuf>
- <7aacc2c2-50d0-4a08-9800-dc4a572dffcb@lunn.ch>
+ <aTGRvADkT-1kAQgA@makrotopia.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <7aacc2c2-50d0-4a08-9800-dc4a572dffcb@lunn.ch>
+In-Reply-To: <aTGRvADkT-1kAQgA@makrotopia.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_144208_281369_F26CC4D5 
-X-CRM114-Status: GOOD (  20.10  )
+X-CRM114-CacheID: sfid-20251204_074602_821722_04E52F18 
+X-CRM114-Status: GOOD (  20.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,27 +118,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 04, 2025 at 04:22:10PM +0100, Andrew Lunn wrote:
+On Thu, Dec 04, 2025 at 01:50:52PM +0000, Daniel Golle wrote:
+> On Thu, Dec 04, 2025 at 03:16:26PM +0200, Vladimir Oltean wrote:
 > > If this is blocking progress for new device trees, can we just construct,
 > > using of_machine_is_compatible(), a list of all boards where the device
 > > tree defines incorrect reset polarity that shouldn't be trusted by the
 > > driver when driving the reset GPIO? If we do this, we can also leave
 > > those existing device trees alone.
 > 
-> I've still not seen a good answer to my question, why not just leave
-> it 'broken', and document the fact.
-> 
-> Does the fact it is inverted in both DT and the driver prevent us from
-> making some board work?
-> 
-> Why do we need to fix this?
-> 
-> Sometimes it is better to just leave it alone, if it is not hurting
-> anybody.
-> 
-> 	Andrew
+> From OpenWrt's point of view this would be kind of ugly as we would either
+> have to extend the list of affected boards downstream, or fix the polarity
+> in some but not all of our downstream DTS files.
 
-Frank said that the fact the driver expecting a wrong device tree is
-forcing him to keep introducing even more wrong device trees for new
-boards.
+Including the downstream-only boards, how many compatibles are we
+talking about? If we patched mainline to cover all, are you confident
+that it would be an exhaustive solution?
+
+> I'd prefer to rather have the option to force the "wrong" GPIO
+> polarity for theoretical future boards with that (very unlikely to
+> ever exist) NOT gate between the SoC GPIO and switch reset line. That
+> would allow to gradually update boards to reflect the physical reality
+> and yet the driver would not break if the GPIO polarity is stated
+> wrongly.
+
+I didn't get that from this thread - how would you prefer having this
+option implemented exactly?
 
