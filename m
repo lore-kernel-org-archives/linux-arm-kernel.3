@@ -4,56 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E4BAD1F9BC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 11:13:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64D7BD1F9C0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 11:19:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HB+z2v0qrN14S6ulzi+KlnATKl0WfRyBviY2Yru3dVE=; b=cUbjsMHmTpokBPIwoAHLOZCb6X
-	N2hjtJk0x6n2cP+RBHflmaUKZGHTMh2ZcEjIWda/rHenWKKh7++expoa1UY898Ft1MMTZfwxlhInG
-	/kaOwe+WPYTMywgBMda17SSnvOxnge+mXP2OvfJOrM8WN4SNHikYDJBxAsbWF7Pzc4OgD/aqGhPqq
-	TWN93x+6SSrwPD41RZsMthhsWzINW7ws/B9jt4Hm+m7c3KgDwN5yoVHmUpi6E+RCfwspiaQ2XIEwq
-	oybqURdCWn7ppdshsoeetiRMOCFCt6HshaisQRg1rudNsmNDhagKUwApH7Y2OwJm4jOi1NwMVFYyw
-	j0mqNGpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k3+IvcN5Cb0nJ6VY6yDksNa4bwyh6/su6R64NgY1qyg=; b=1R9Rn84j0xMgHxs66rY/Zuld2v
+	VQ1j1rs5qQPOWTpz8NpINMXlVWZEkDIsQrB/nfTlnxa5eSbBmJ9shx7DW+lF5IxEDtvLoPlnKikqB
+	T2jLGmK1GXJbJXCsaWqHPVVRcYeVIAhJ3OdQ4l5D3HFFGwIOG7Wa+7BrbhWpONTMBLcUzaNPgUUQN
+	3/No5b2hmajMF6rwETknacKzTrNjeEYlQJd7ydMh/oKLwBdWE18+/1ZerFZlMAtT3PG69p3JUBEj/
+	8ecQmvUtluSFHMJ2mhxRaC2I53kuki7vnfYcNrotSHjepj8Ab6Bn21AflQb102xQz/Gmr1Tyrxtx6
+	FDcsJ45Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR7HR-00000007uDv-1NfY;
-	Thu, 04 Dec 2025 11:13:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR7HN-00000007uDE-12cP
+	id 1vR7Mx-00000007ugb-1tw7;
+	Thu, 04 Dec 2025 11:19:31 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vR7Mu-00000007ug6-3FeU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 11:13:47 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 70617339;
-	Thu,  4 Dec 2025 03:13:36 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 851183F59E;
-	Thu,  4 Dec 2025 03:13:42 -0800 (PST)
-Message-ID: <d546725b-e96f-461e-887d-8679cf747c7d@arm.com>
-Date: Thu, 4 Dec 2025 11:13:41 +0000
+	Thu, 04 Dec 2025 11:19:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=k3+IvcN5Cb0nJ6VY6yDksNa4bwyh6/su6R64NgY1qyg=; b=niif8Ri3Pr6EIrYqqNhb3vmNvQ
+	uOhFIpjmURLVVntX8gXkZYAcVnw4wwsFiHVnoGRbXtjLF55vzyiZVBC9YKVq88t+bg+/VC/LJog0+
+	YNFUP/WoCBH28h5O4qjhgx8r2eYtnY6+w/EMWRz400ttTS5TXBdXrWTT3+Hixf6mpLunEWCZSWH47
+	9nmzvATT2UfIb/JiZUlteOrMSeO8PV4uQGVsFXJA0za0BGOybVbaTVFyAtv1auWpYVs889xt3OKJc
+	MMFH2wROwaUTpOr/vt6Pbjppxbrh2MrTgqFg6GIGDJYy0YAACEDPtBbSx1h4u0swldFg9UxItkKBO
+	vGv85reg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40064)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vR7MY-000000003Sm-2E0E;
+	Thu, 04 Dec 2025 11:19:06 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vR7MT-000000000yA-3MBl;
+	Thu, 04 Dec 2025 11:19:01 +0000
+Date: Thu, 4 Dec 2025 11:19:01 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: Rohan G Thomas <rohan.g.thomas@altera.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Jose Abreu <Jose.Abreu@synopsys.com>,
+	Fugang Duan <fugang.duan@nxp.com>,
+	Kurt Kanzenbach <kurt@linutronix.de>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2] net: stmmac: Fix E2E delay mechanism
+Message-ID: <aTFuJUiLMnHrnpW5@shell.armlinux.org.uk>
+References: <20251129-ext-ptp-2v-v2-1-d23aca3e694f@altera.com>
+ <26656845-d9d6-4fd2-bfff-99996cf03741@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/9] arm64: Repaint ID_AA64MMFR2_EL1.IDS description
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>,
- Zenghui Yu <yuzenghui@huawei.com>, Yao Yuan <yaoyuan@linux.alibaba.com>
-References: <20251204094806.3846619-1-maz@kernel.org>
- <20251204094806.3846619-2-maz@kernel.org>
- <b98c154a-1658-4501-bfa5-a93303aa5b3f@arm.com> <86cy4uplo5.wl-maz@kernel.org>
-Content-Language: en-US
-From: Ben Horgan <ben.horgan@arm.com>
-In-Reply-To: <86cy4uplo5.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <26656845-d9d6-4fd2-bfff-99996cf03741@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_031345_325893_5EA036BC 
-X-CRM114-Status: GOOD (  16.20  )
+X-CRM114-CacheID: sfid-20251204_031928_815319_6D59A6CA 
+X-CRM114-Status: GOOD (  29.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,70 +90,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
-
-On 12/4/25 10:48, Marc Zyngier wrote:
-> On Thu, 04 Dec 2025 10:36:54 +0000,
-> Ben Horgan <ben.horgan@arm.com> wrote:
->>
->> Hi Marc,
->>
->> On 12/4/25 09:47, Marc Zyngier wrote:
->>> ID_AA64MMFR2_EL1.IDS, as described in the sysreg file, is pretty horrible
->>> as it diesctly give the ESR value. Repaint it using the usual NI/IMP
->>> identifiers to describe the absence/presence of FEAT_IDST.
->>>
->>> Signed-off-by: Marc Zyngier <maz@kernel.org>
->>> ---
->>>  arch/arm64/kvm/hyp/nvhe/sys_regs.c | 2 +-
->>>  arch/arm64/tools/sysreg            | 4 ++--
->>>  2 files changed, 3 insertions(+), 3 deletions(-)
->>>
->>> diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
->>> index 82da9b03692d4..107d62921b168 100644
->>> --- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
->>> +++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
->>> @@ -134,7 +134,7 @@ static const struct pvm_ftr_bits pvmid_aa64mmfr2[] = {
->>>  	MAX_FEAT(ID_AA64MMFR2_EL1, UAO, IMP),
->>>  	MAX_FEAT(ID_AA64MMFR2_EL1, IESB, IMP),
->>>  	MAX_FEAT(ID_AA64MMFR2_EL1, AT, IMP),
->>> -	MAX_FEAT_ENUM(ID_AA64MMFR2_EL1, IDS, 0x18),
->>> +	MAX_FEAT_ENUM(ID_AA64MMFR2_EL1, IDS, IMP),
->>>  	MAX_FEAT(ID_AA64MMFR2_EL1, TTL, IMP),
->>>  	MAX_FEAT(ID_AA64MMFR2_EL1, BBM, 2),
->>>  	MAX_FEAT(ID_AA64MMFR2_EL1, E0PD, IMP),
->>> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
->>> index 1c6cdf9d54bba..3261e8791ac03 100644
->>> --- a/arch/arm64/tools/sysreg
->>> +++ b/arch/arm64/tools/sysreg
->>> @@ -2257,8 +2257,8 @@ UnsignedEnum	43:40	FWB
->>>  	0b0001	IMP
->>>  EndEnum
->>>  Enum	39:36	IDS
->>
->> Should this also be changed to an UnsignedEnum?
+On Thu, Dec 04, 2025 at 10:58:40AM +0100, Paolo Abeni wrote:
+> On 11/29/25 4:07 AM, Rohan G Thomas wrote:
+> > For E2E delay mechanism, "received DELAY_REQ without timestamp" error
+> > messages show up for dwmac v3.70+ and dwxgmac IPs.
+> > 
+> > This issue affects socfpga platforms, Agilex7 (dwmac 3.70) and
+> > Agilex5 (dwxgmac). According to the databook, to enable timestamping
+> > for all events, the SNAPTYPSEL bits in the MAC_Timestamp_Control
+> > register must be set to 2'b01, and the TSEVNTENA bit must be cleared
+> > to 0'b0.
+> > 
+> > Commit 3cb958027cb8 ("net: stmmac: Fix E2E delay mechanism") already
+> > addresses this problem for all dwmacs above version v4.10. However,
+> > same holds true for v3.70 and above, as well as for dwxgmac. Updates
+> > the check accordingly.
+> > 
+> > Fixes: 14f347334bf2 ("net: stmmac: Correctly take timestamp for PTPv2")
+> > Fixes: f2fb6b6275eb ("net: stmmac: enable timestamp snapshot for required PTP packets in dwmac v5.10a")
+> > Fixes: 3cb958027cb8 ("net: stmmac: Fix E2E delay mechanism")
+> > Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
+> > ---
+> > v1 -> v2:
+> >    - Rebased patch to net tree
+> >    - Replace core_type with has_xgmac
+> >    - Nit changes in the commit message
+> >    - Link: https://lore.kernel.org/all/20251125-ext-ptp-fix-v1-1-83f9f069cb36@altera.com/
 > 
-> I'm not sure this brings much when you only have two values. If IDS
-> was growing a third value, and that there was an actual order in the
-> numbering scheme, then yes, that'd be useful.
+> Given there is some uncertain WRT the exact oldest version to be used,
+> it would be great to have some 3rd party testing/feedback on this. Let's
+> wait a little more.
 
-Joey just pointed out to me that there is a new third field. Not in the
-arm reference manual yet, but mentioned in the xml. I'm unsure if it's
-necessary to consider this at the moment though.
+As I said, in the v3.74 documentation, it is stated that the SNAPTYPSEL
+functions changed between v3.50 and v3.60, so I think it would be better
+to propose a patch to test for < v3.6.
 
-https://developer.arm.com/documentation/ddi0601/2025-09/AArch64-Registers/ID-AA64MMFR2-EL1--AArch64-Memory-Model-Feature-Register-2?lang=en
+Alternatively, if someone has the pre-v3.6 databook to check what the
+SNAPTYPSEL definition is and compare it with the v3.6+ definition, that
+would also be a good thing to do.
 
-> 
-> But at this stage, I'm not confident that this is desirable, let alone
-> necessary.
-> 
-> Thanks,
-> 
-> 	M.
-> 
+From the 3.74:
 
-Thanks,
+SNAPTYPSEL
+00		?
+01		?
+10		Sync, Delay_Req
+11		Sync, PDelay_Req, PDelay_Resp
 
-Ben
+TSEVNTENA
+0		All messages except Announce, Management and Signalling
+1		Sync, Delay_Req, PDelay_Req, PDelay_Resp
 
+No table is provided, so it's difficult to know what all the bit
+combinations do for v3.74.
+
+From STM32MP151 documentation (v4.2 according to GMAC4_VERSION
+register):
+
+SNAPTYPSEL	TSMSTRENA	TSEVNTENA
+00		x		0		Sync, Delay_Req
+00		0		1		Delay_Req
+00		1		1		Sync
+01		x		0		Sync, PDelay_Req, PDelay_Resp
+01		0		1		Sync, Delay_Req, PDelay_Req,
+						PDelay_Resp
+01		1		1		Sync, PDelay_Req, PDelay_Resp
+10		x		x		Sync, Delay_Req
+11		x		x		Sync, PDelay_Req, PDelay_Resp
+
+For iMX8MP (v5.1) and STM32MP23/25xx (v5.3) documentatiion:
+
+SNAPTYPSEL	TSMSTRENA	TSEVNTENA
+00		x		0		Sync, Follow_Up, Delay_Req,
+						Delay_Resp
+00		0		1		Sync
+00		1		1		Delay_Req
+01		x		0		Sync, Follow_Up, Delay_Req,
+						Delay_Resp, PDelay_Req,
+						PDelay_Resp
+01		0		1		Sync, PDelay_Req, PDelay_Resp
+01		1		1		Delay_Req, PDelay_Req,
+						PDelay_Resp
+10		x		x		Sync, Delay_Req
+11		x		x		PDelay_Req, PDelay_Resp
+
+Differences:
+00 x 0 - adds Follow_Up
+00 X 1 - TSMSTRENA bit inverted
+01 x 0 - adds Follow_Up, Delay_Req, Delay_Resp
+01 0 1 - removes Delay_Req
+01 1 1 - removes Sync, adds Delay_Req
+11 x x - removes Sync
+
+So, it looks like there's another difference between v4.2 and v5.1.
+
+If the STM32MP151 (v4.2) documentation is correct, then from what I see
+in the driver, if HWTSTAMP_FILTER_PTP_V1_L4_SYNC is requested, we set
+SNAPTYPSEL=00 TSMSTRENA=0 TSEVNTENA=1, which semects Delay_Req messages
+only, but on iMX8MP this selects Sync messages.
+
+HWTSTAMP_FILTER_PTP_V1_L4_DELAY_REQ is the opposite (due to the
+inversion of TSMSTRENA) for SNAPTYPSEL=00.
+
+For HWTSTAMP_FILTER_PTP_V2_EVENT, we currently set SNAPTYPSEL=01
+TSMSTRENA=0 and TSEVNTENA=1 for cores < v4.1:
+- For STM32MP151 (v4.2) we get Sync, PDelay_Req, PDelay_Resp but
+  _not_ Delay_Req. Seems broken.
+- For iMX8MP (v5.1) and STM32MP23/25xx (v5.3), we get
+  Sync, Follow_Up, Delay_Req, Delay_Resp, PDelay_Req, PDelay_Resp
+
+Basically, the conclusion I am coming to is that Synopsys's idea
+of "lets tell the hardware what _kind_ of PTP clock we want to be,
+whether we're master, etc" is subject to multiple revisions in
+terms of which messages each mode selects, and it would have been
+_far_ simpler and easier to understand had they just provided a
+16-bit bitfield of message types to accept.
+
+So, I'm wary about this change - I think there's more "mess"
+here than just that single version check in
+HWTSTAMP_FILTER_PTP_V2_EVENT, I think it's a lot more complicated.
+I'm not sure what the best solution is right now, because I don't
+have the full information, but it looks to me like the current
+approach does not result in the expected configuration for each
+of the dwmac core versions, and there are multiple issues here.
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
