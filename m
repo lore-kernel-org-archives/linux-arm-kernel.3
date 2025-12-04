@@ -4,78 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64D7BD1F9C0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 11:19:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7EFCD1F9C2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 11:23:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k3+IvcN5Cb0nJ6VY6yDksNa4bwyh6/su6R64NgY1qyg=; b=1R9Rn84j0xMgHxs66rY/Zuld2v
-	VQ1j1rs5qQPOWTpz8NpINMXlVWZEkDIsQrB/nfTlnxa5eSbBmJ9shx7DW+lF5IxEDtvLoPlnKikqB
-	T2jLGmK1GXJbJXCsaWqHPVVRcYeVIAhJ3OdQ4l5D3HFFGwIOG7Wa+7BrbhWpONTMBLcUzaNPgUUQN
-	3/No5b2hmajMF6rwETknacKzTrNjeEYlQJd7ydMh/oKLwBdWE18+/1ZerFZlMAtT3PG69p3JUBEj/
-	8ecQmvUtluSFHMJ2mhxRaC2I53kuki7vnfYcNrotSHjepj8Ab6Bn21AflQb102xQz/Gmr1Tyrxtx6
-	FDcsJ45Q==;
+	bh=U4HN1ODRxsnTDmi4098i1Q+naahHnMBRsf+Px2cNeZU=; b=V4zCJ/0LiBJOOJI/xG9jNqZIXK
+	GK2hOg4+4X/29sEBfXHCgVw9v2Hh4V/v8fim8ucqgtF/T/czX0W1/oeb2vrh15ozz+0ld3pL2MWlq
+	U2rJh6o9DlahRtj3xh1GKPTNanWIjvxzdQShu6nYs9sOFS0XNohtUa0xx8zXRa7D3YeP9j8b14QAq
+	D8dwNFJmuKSxxge34K6QaScLnRnc+jOJeHpkvzuXDuACGMA5V5sgsAZ+PgJCtREjwv6cCqGt0g7m9
+	HzdEpc4UXVpQ1jbuwBxxjzkPhyu7I9opT9c+MRAW2vaQr9FMfzVfPhsSBwXiEJtGvpg6EjqSTBfBz
+	3RD5nibA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR7Mx-00000007ugb-1tw7;
-	Thu, 04 Dec 2025 11:19:31 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1vR7QI-00000007uug-2jUX;
+	Thu, 04 Dec 2025 11:22:58 +0000
+Received: from jabberwock.ucw.cz ([46.255.230.98])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR7Mu-00000007ug6-3FeU
+	id 1vR7QF-00000007uuI-2VFR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 11:19:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=k3+IvcN5Cb0nJ6VY6yDksNa4bwyh6/su6R64NgY1qyg=; b=niif8Ri3Pr6EIrYqqNhb3vmNvQ
-	uOhFIpjmURLVVntX8gXkZYAcVnw4wwsFiHVnoGRbXtjLF55vzyiZVBC9YKVq88t+bg+/VC/LJog0+
-	YNFUP/WoCBH28h5O4qjhgx8r2eYtnY6+w/EMWRz400ttTS5TXBdXrWTT3+Hixf6mpLunEWCZSWH47
-	9nmzvATT2UfIb/JiZUlteOrMSeO8PV4uQGVsFXJA0za0BGOybVbaTVFyAtv1auWpYVs889xt3OKJc
-	MMFH2wROwaUTpOr/vt6Pbjppxbrh2MrTgqFg6GIGDJYy0YAACEDPtBbSx1h4u0swldFg9UxItkKBO
-	vGv85reg==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40064)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vR7MY-000000003Sm-2E0E;
-	Thu, 04 Dec 2025 11:19:06 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vR7MT-000000000yA-3MBl;
-	Thu, 04 Dec 2025 11:19:01 +0000
-Date: Thu, 4 Dec 2025 11:19:01 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: Rohan G Thomas <rohan.g.thomas@altera.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Jose Abreu <Jose.Abreu@synopsys.com>,
-	Fugang Duan <fugang.duan@nxp.com>,
-	Kurt Kanzenbach <kurt@linutronix.de>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2] net: stmmac: Fix E2E delay mechanism
-Message-ID: <aTFuJUiLMnHrnpW5@shell.armlinux.org.uk>
-References: <20251129-ext-ptp-2v-v2-1-d23aca3e694f@altera.com>
- <26656845-d9d6-4fd2-bfff-99996cf03741@redhat.com>
+	Thu, 04 Dec 2025 11:22:57 +0000
+Received: by jabberwock.ucw.cz (Postfix, from userid 1017)
+	id CF1B81C008F; Thu,  4 Dec 2025 12:22:47 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ucw.cz; s=gen1;
+	t=1764847367;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=U4HN1ODRxsnTDmi4098i1Q+naahHnMBRsf+Px2cNeZU=;
+	b=f1l+oW+Ujo9yqI4ZLtQ4rFS54wszz2IFaGz/gJnFhj8Yo3J2lvjV26d/vfTsN2l/08zcwi
+	zWQTbkOnGdf4km4Z+hfMBdbiK9HtWzbZkaT3s6XKatraHD2r9YUFjQThShOAsrp1+q95gp
+	xfIwC1H+8wmk3TV/u8WKzYDJh3Hek34=
+Date: Thu, 4 Dec 2025 12:22:47 +0100
+From: Pavel Machek <pavel@ucw.cz>
+To: Lukas Timmermann <linux@timmermann.space>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Alexandre Marquet <tb@a-marquet.fr>
+Subject: Re: [PATCH v2 3/3] ARM: samsung: exynos5250: Allow CPU1 to boot
+Message-ID: <aTFvBwjms8msxIae@duo.ucw.cz>
+References: <20251125-google-manta-v2-0-0f097cfff39c@timmermann.space>
+ <20251125-google-manta-v2-3-0f097cfff39c@timmermann.space>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha1;
+	protocol="application/pgp-signature"; boundary="XH4lO7UPQqMRxwOD"
 Content-Disposition: inline
-In-Reply-To: <26656845-d9d6-4fd2-bfff-99996cf03741@redhat.com>
+In-Reply-To: <20251125-google-manta-v2-3-0f097cfff39c@timmermann.space>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_031928_815319_6D59A6CA 
-X-CRM114-Status: GOOD (  29.09  )
+X-CRM114-CacheID: sfid-20251204_032255_948370_A4921E99 
+X-CRM114-Status: GOOD (  19.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,131 +74,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 04, 2025 at 10:58:40AM +0100, Paolo Abeni wrote:
-> On 11/29/25 4:07 AM, Rohan G Thomas wrote:
-> > For E2E delay mechanism, "received DELAY_REQ without timestamp" error
-> > messages show up for dwmac v3.70+ and dwxgmac IPs.
-> > 
-> > This issue affects socfpga platforms, Agilex7 (dwmac 3.70) and
-> > Agilex5 (dwxgmac). According to the databook, to enable timestamping
-> > for all events, the SNAPTYPSEL bits in the MAC_Timestamp_Control
-> > register must be set to 2'b01, and the TSEVNTENA bit must be cleared
-> > to 0'b0.
-> > 
-> > Commit 3cb958027cb8 ("net: stmmac: Fix E2E delay mechanism") already
-> > addresses this problem for all dwmacs above version v4.10. However,
-> > same holds true for v3.70 and above, as well as for dwxgmac. Updates
-> > the check accordingly.
-> > 
-> > Fixes: 14f347334bf2 ("net: stmmac: Correctly take timestamp for PTPv2")
-> > Fixes: f2fb6b6275eb ("net: stmmac: enable timestamp snapshot for required PTP packets in dwmac v5.10a")
-> > Fixes: 3cb958027cb8 ("net: stmmac: Fix E2E delay mechanism")
-> > Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
-> > ---
-> > v1 -> v2:
-> >    - Rebased patch to net tree
-> >    - Replace core_type with has_xgmac
-> >    - Nit changes in the commit message
-> >    - Link: https://lore.kernel.org/all/20251125-ext-ptp-fix-v1-1-83f9f069cb36@altera.com/
-> 
-> Given there is some uncertain WRT the exact oldest version to be used,
-> it would be great to have some 3rd party testing/feedback on this. Let's
-> wait a little more.
 
-As I said, in the v3.74 documentation, it is stated that the SNAPTYPSEL
-functions changed between v3.50 and v3.60, so I think it would be better
-to propose a patch to test for < v3.6.
+--XH4lO7UPQqMRxwOD
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Alternatively, if someone has the pre-v3.6 databook to check what the
-SNAPTYPSEL definition is and compare it with the v3.6+ definition, that
-would also be a good thing to do.
+On Tue 2025-11-25 16:12:42, Lukas Timmermann wrote:
+> From: Alexandre Marquet <tb@a-marquet.fr>
+>=20
+> Add an exception to let the secondary CPU boot.
+>=20
+> Signed-off-by: Alexandre Marquet <tb@a-marquet.fr>
+> Signed-off-by: Lukas Timmermann <linux@timmermann.space>
+> ---
+>  arch/arm/mach-exynos/firmware.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>=20
+> diff --git a/arch/arm/mach-exynos/firmware.c b/arch/arm/mach-exynos/firmw=
+are.c
+> index a5e22678e27b..80e645b4d338 100644
+> --- a/arch/arm/mach-exynos/firmware.c
+> +++ b/arch/arm/mach-exynos/firmware.c
+> @@ -61,10 +61,10 @@ static int exynos_cpu_boot(int cpu)
+>  	 * Exynos3250 doesn't need to send smc command for secondary CPU boot
+>  	 * because Exynos3250 removes WFE in secure mode.
+>  	 *
+> -	 * On Exynos5 devices the call is ignored by trustzone firmware.
+> +	 * On most Exynos5 devices the call is ignored by trustzone firmware.
+>  	 */
+>  	if (!soc_is_exynos4210() && !soc_is_exynos4212() &&
+> -	    !soc_is_exynos4412())
+> +	    !soc_is_exynos4412() && !of_machine_is_compatible("samsung,nexus10-=
+manta"))
+>  		return 0;
 
-From the 3.74:
+Strange -- +       compatible =3D "google,manta", "samsung,exynos5250", "sa=
+msung,exynos5";
 
-SNAPTYPSEL
-00		?
-01		?
-10		Sync, Delay_Req
-11		Sync, PDelay_Req, PDelay_Resp
+Should this be google,manta or something?
 
-TSEVNTENA
-0		All messages except Announce, Management and Signalling
-1		Sync, Delay_Req, PDelay_Req, PDelay_Resp
+Also please cc: phone-devel mailing list with phone related patches.
 
-No table is provided, so it's difficult to know what all the bit
-combinations do for v3.74.
+Best regards,
+								Pavel
 
-From STM32MP151 documentation (v4.2 according to GMAC4_VERSION
-register):
+--=20
+I don't work for Nazis and criminals, and neither should you.
+Boycott Putin, Trump, Netanyahu and Musk!
 
-SNAPTYPSEL	TSMSTRENA	TSEVNTENA
-00		x		0		Sync, Delay_Req
-00		0		1		Delay_Req
-00		1		1		Sync
-01		x		0		Sync, PDelay_Req, PDelay_Resp
-01		0		1		Sync, Delay_Req, PDelay_Req,
-						PDelay_Resp
-01		1		1		Sync, PDelay_Req, PDelay_Resp
-10		x		x		Sync, Delay_Req
-11		x		x		Sync, PDelay_Req, PDelay_Resp
+--XH4lO7UPQqMRxwOD
+Content-Type: application/pgp-signature; name="signature.asc"
 
-For iMX8MP (v5.1) and STM32MP23/25xx (v5.3) documentatiion:
+-----BEGIN PGP SIGNATURE-----
 
-SNAPTYPSEL	TSMSTRENA	TSEVNTENA
-00		x		0		Sync, Follow_Up, Delay_Req,
-						Delay_Resp
-00		0		1		Sync
-00		1		1		Delay_Req
-01		x		0		Sync, Follow_Up, Delay_Req,
-						Delay_Resp, PDelay_Req,
-						PDelay_Resp
-01		0		1		Sync, PDelay_Req, PDelay_Resp
-01		1		1		Delay_Req, PDelay_Req,
-						PDelay_Resp
-10		x		x		Sync, Delay_Req
-11		x		x		PDelay_Req, PDelay_Resp
+iF0EABECAB0WIQRPfPO7r0eAhk010v0w5/Bqldv68gUCaTFvBwAKCRAw5/Bqldv6
+8n+vAKCsQYO2dRBSz9dpzzGmMIKoUrmaTwCdGFG1KdJa3VKWcrHRT/yQ/yhaVno=
+=V8Ni
+-----END PGP SIGNATURE-----
 
-Differences:
-00 x 0 - adds Follow_Up
-00 X 1 - TSMSTRENA bit inverted
-01 x 0 - adds Follow_Up, Delay_Req, Delay_Resp
-01 0 1 - removes Delay_Req
-01 1 1 - removes Sync, adds Delay_Req
-11 x x - removes Sync
-
-So, it looks like there's another difference between v4.2 and v5.1.
-
-If the STM32MP151 (v4.2) documentation is correct, then from what I see
-in the driver, if HWTSTAMP_FILTER_PTP_V1_L4_SYNC is requested, we set
-SNAPTYPSEL=00 TSMSTRENA=0 TSEVNTENA=1, which semects Delay_Req messages
-only, but on iMX8MP this selects Sync messages.
-
-HWTSTAMP_FILTER_PTP_V1_L4_DELAY_REQ is the opposite (due to the
-inversion of TSMSTRENA) for SNAPTYPSEL=00.
-
-For HWTSTAMP_FILTER_PTP_V2_EVENT, we currently set SNAPTYPSEL=01
-TSMSTRENA=0 and TSEVNTENA=1 for cores < v4.1:
-- For STM32MP151 (v4.2) we get Sync, PDelay_Req, PDelay_Resp but
-  _not_ Delay_Req. Seems broken.
-- For iMX8MP (v5.1) and STM32MP23/25xx (v5.3), we get
-  Sync, Follow_Up, Delay_Req, Delay_Resp, PDelay_Req, PDelay_Resp
-
-Basically, the conclusion I am coming to is that Synopsys's idea
-of "lets tell the hardware what _kind_ of PTP clock we want to be,
-whether we're master, etc" is subject to multiple revisions in
-terms of which messages each mode selects, and it would have been
-_far_ simpler and easier to understand had they just provided a
-16-bit bitfield of message types to accept.
-
-So, I'm wary about this change - I think there's more "mess"
-here than just that single version check in
-HWTSTAMP_FILTER_PTP_V2_EVENT, I think it's a lot more complicated.
-I'm not sure what the best solution is right now, because I don't
-have the full information, but it looks to me like the current
-approach does not result in the expected configuration for each
-of the dwmac core versions, and there are multiple issues here.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+--XH4lO7UPQqMRxwOD--
 
