@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46ACAD1D892
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E435BD1D89F
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 09:48:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iPJ9k3jWQJjEaxIk9aXA2JWOUzKgaQLCybsGAb7i/pk=; b=VQaoHPtFwJIstZZqEiW6DUtEtC
-	LY9Bv6zjAzBpymCrViOHfWrgNrxdkFaE4ByNW0Yt2wd2SKlZhww6/7MGT9+xf+GrNMgas3vrGwXDL
-	pFPWY0kOqZVRQ0TsCvputFKttGVxaj0lQasJT3aoG4iheMMSi0dNNBLUMH258m4UbDrC21y4ObfA+
-	9Ker1ky7f9JV6fgMyPsHMur6IylU56Bvc//44s2kgqL/TAb6LMqZ23EiZQ/lbI4879T8zHZqn5Yuu
-	WdJh7805DaatB1I1ghgEbE3hGSl1JjvuhuD0pcLdod4rUlexyLn9DJOE2h72iLjChBswGBS2K8t7r
-	Dtdb4f8w==;
+	bh=RrFqRWymodKrCzUcOd1tuaSU9EWP4JmJKlR/UO6L0/0=; b=tU0gbYgC0CcmRRkSkCjzk5/clW
+	TmR0e1cEmH0gVTJbS32rj1fCxU23g/ypWep0hpAH2nLyjyTLndQ5e+NyhCpVTj18TP6o6orqliQLL
+	RwMHOPnfA7w6qHFCeIBNuOpIKEbftZ5xkISdm95SssXujz+djfrBvRzZRiYAgH9/aJtBcp6pld5Uy
+	/kbOG6FIVzAG5OoB/GAEi6M27KTj/MY7TzaDDbrAAqxSWwQUyTI+0+sg8oBHRonKKh/HwkHuWfxWH
+	9tBLVJDSi3RaJ+yBzx8yJaas7/APVs2w38UTOTQ3cbp5mwdqighl3Pj9pAWPhES3ACmGqGPnCh6eB
+	bgdJvsIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR5x6-00000007mwf-3UNV;
-	Thu, 04 Dec 2025 09:48:44 +0000
+	id 1vR5x7-00000007myP-2y7H;
+	Thu, 04 Dec 2025 09:48:45 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR5x1-00000007mql-1Lfm
+	id 1vR5x2-00000007mrq-1aJ0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 09:48:40 +0000
+	Thu, 04 Dec 2025 09:48:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A70B8441A6;
-	Thu,  4 Dec 2025 09:48:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 88668C19424;
+	by sea.source.kernel.org (Postfix) with ESMTP id 0BED94447D;
+	Thu,  4 Dec 2025 09:48:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E447EC16AAE;
 	Thu,  4 Dec 2025 09:48:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1764841717;
-	bh=9h9YsTsk5vn4vCNtdHh8qjme05rekVSJ2pUxZ7SnzH0=;
+	bh=0HAJBmXE+rJLYXs5hMQhZFeGzkrf7YieZyrcWFUBa8g=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gVP2oguJz42dqE3YljNBpawv/MxrxWGRUluteUC3wevwekNYQXj0k4f0Tg2ABSJ0M
-	 XC+moOejr7Dt5feDdNx/Go6gEx4e6F6R2KYlS6NyUNGMw+IHDDgrCO9lKAY2+34uVv
-	 ISY5Tt0aYj6mhjB+hZq5+QCpc5QQ2bb5UxXpUzg8sO95/OKRlMlLQWYsY8LoaryvTQ
-	 RbZnvwkwDOmhCzb/WqPxlC5QUedDNH5GW2+DK3uPpAoSpoJ8H2WlKeB4OlGGZj7wia
-	 9rpoQWlMgP1DDiCTJ3tVbpLN4RWUkiEfrCoX53R3l5ibn3b/xgGKz2MPjCe6EsT3OZ
-	 0YY+gQxCLt/pQ==
+	b=skzIHvo361R6cFWTk0/B7v/saenmADx8sGUgieKHNuKz3Yyui6CykOJ4MffKiJLCc
+	 hnXCMhhEmj9MVb/zhRJUqhPyWYMRZWM+NOybYZv8JqQry5UOKbvGZADFmvR0xxTK/v
+	 F1e5eqX8nxr6NXUXQ2I1pCA9/t/71KRu2v7yDmQIbs/V/rQWG0c0mejgZ23UExgHoQ
+	 GXtuklmg5arm4H8nBaDMycjIVpQpSv2uOdvdvOjaZ8kFVg5Ow0evbu6m8vxjrj8M5M
+	 c0vufZ4GC3NpvkC9LTdoFltdYU/PZB9L6tMg1WCDY/18hccPqZZJ+aCeACAWlJbl63
+	 1DnKG4zW2t2aA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vR5wx-0000000AP90-36QO;
-	Thu, 04 Dec 2025 09:48:35 +0000
+	id 1vR5wy-0000000AP90-0hw0;
+	Thu, 04 Dec 2025 09:48:36 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Ben Horgan <ben.horgan@arm.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>
-Subject: [PATCH v3 7/9] KVM: arm64: pkvm: Add a generic synchronous exception injection primitive
-Date: Thu,  4 Dec 2025 09:48:04 +0000
-Message-ID: <20251204094806.3846619-8-maz@kernel.org>
+Subject: [PATCH v3 9/9] KVM: arm64: selftests: Add a test for FEAT_IDST
+Date: Thu,  4 Dec 2025 09:48:06 +0000
+Message-ID: <20251204094806.3846619-10-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251204094806.3846619-1-maz@kernel.org>
 References: <20251204094806.3846619-1-maz@kernel.org>
@@ -71,8 +71,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_014839_405441_94F136F8 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20251204_014840_522356_0E587221 
+X-CRM114-Status: GOOD (  16.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,59 +87,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Similarly to the "classic" KVM code, pKVM doesn't have an "anything
-goes" synchronous exception injection primitive.
-
-Carve one out of the UNDEF injection code.
+Add a very basic test checking that FEAT_IDST actually works for
+the {GMID,SMIDR,CSSIDR2}_EL1 registers.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/hyp/nvhe/sys_regs.c | 22 +++++++++++++++-------
- 1 file changed, 15 insertions(+), 7 deletions(-)
+ tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+ .../testing/selftests/kvm/arm64/idreg-idst.c  | 117 ++++++++++++++++++
+ 2 files changed, 118 insertions(+)
+ create mode 100644 tools/testing/selftests/kvm/arm64/idreg-idst.c
 
-diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-index 107d62921b168..876b36d3d4788 100644
---- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-+++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
-@@ -243,16 +243,15 @@ static u64 pvm_calc_id_reg(const struct kvm_vcpu *vcpu, u32 id)
- 	}
- }
- 
--/*
-- * Inject an unknown/undefined exception to an AArch64 guest while most of its
-- * sysregs are live.
-- */
--static void inject_undef64(struct kvm_vcpu *vcpu)
-+static void inject_sync64(struct kvm_vcpu *vcpu, u64 esr)
- {
--	u64 esr = (ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT);
--
- 	*vcpu_pc(vcpu) = read_sysreg_el2(SYS_ELR);
- 	*vcpu_cpsr(vcpu) = read_sysreg_el2(SYS_SPSR);
+diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+index 148d427ff24be..fa44e6d9afc35 100644
+--- a/tools/testing/selftests/kvm/Makefile.kvm
++++ b/tools/testing/selftests/kvm/Makefile.kvm
+@@ -171,6 +171,7 @@ TEST_GEN_PROGS_arm64 += arm64/vgic_irq
+ TEST_GEN_PROGS_arm64 += arm64/vgic_lpi_stress
+ TEST_GEN_PROGS_arm64 += arm64/vpmu_counter_access
+ TEST_GEN_PROGS_arm64 += arm64/no-vgic-v3
++TEST_GEN_PROGS_arm64 += arm64/idreg-idst
+ TEST_GEN_PROGS_arm64 += arm64/kvm-uuid
+ TEST_GEN_PROGS_arm64 += access_tracking_perf_test
+ TEST_GEN_PROGS_arm64 += arch_timer
+diff --git a/tools/testing/selftests/kvm/arm64/idreg-idst.c b/tools/testing/selftests/kvm/arm64/idreg-idst.c
+new file mode 100644
+index 0000000000000..9ca9f125abdb7
+--- /dev/null
++++ b/tools/testing/selftests/kvm/arm64/idreg-idst.c
+@@ -0,0 +1,117 @@
++// SPDX-License-Identifier: GPL-2.0
 +
-+	/*
-+	 * Make sure we have the latest update to VBAR_EL1, as pKVM
-+	 * handles traps very early, before sysregs are resync'ed
-+	 */
- 	__vcpu_assign_sys_reg(vcpu, VBAR_EL1, read_sysreg_el1(SYS_VBAR));
- 
- 	kvm_pend_exception(vcpu, EXCEPT_AA64_EL1_SYNC);
-@@ -265,6 +264,15 @@ static void inject_undef64(struct kvm_vcpu *vcpu)
- 	write_sysreg_el2(*vcpu_cpsr(vcpu), SYS_SPSR);
- }
- 
 +/*
-+ * Inject an unknown/undefined exception to an AArch64 guest while most of its
-+ * sysregs are live.
++ * Access all FEAT_IDST-handled registers that depend on more than
++ * just FEAT_AA64, and fail if we don't get an a trap with an 0x18 EC.
 + */
-+static void inject_undef64(struct kvm_vcpu *vcpu)
++
++#include <test_util.h>
++#include <kvm_util.h>
++#include <processor.h>
++
++static volatile bool sys64, undef;
++
++#define __check_sr_read(r)					\
++	({							\
++		uint64_t val;					\
++								\
++		sys64 = false;					\
++		undef = false;					\
++		dsb(sy);					\
++		val = read_sysreg_s(SYS_ ## r);			\
++		val;						\
++	})
++
++/* Fatal checks */
++#define check_sr_read(r)					\
++	do {							\
++		__check_sr_read(r);				\
++		__GUEST_ASSERT(!undef, #r " unexpected UNDEF");	\
++		__GUEST_ASSERT(sys64, #r " didn't trap");	\
++	} while(0)
++
++
++static void guest_code(void)
 +{
-+	inject_sync64(vcpu, (ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT));
++	check_sr_read(CCSIDR2_EL1);
++	check_sr_read(SMIDR_EL1);
++	check_sr_read(GMID_EL1);
++
++	GUEST_DONE();
 +}
 +
- static u64 read_id_reg(const struct kvm_vcpu *vcpu,
- 		       struct sys_reg_desc const *r)
- {
++static void guest_sys64_handler(struct ex_regs *regs)
++{
++	sys64 = true;
++	undef = false;
++	regs->pc += 4;
++}
++
++static void guest_undef_handler(struct ex_regs *regs)
++{
++	sys64 = false;
++	undef = true;
++	regs->pc += 4;
++}
++
++static void test_run_vcpu(struct kvm_vcpu *vcpu)
++{
++	struct ucall uc;
++
++	do {
++		vcpu_run(vcpu);
++
++		switch (get_ucall(vcpu, &uc)) {
++		case UCALL_ABORT:
++			REPORT_GUEST_ASSERT(uc);
++			break;
++		case UCALL_PRINTF:
++			printf("%s", uc.buffer);
++			break;
++		case UCALL_DONE:
++			break;
++		default:
++			TEST_FAIL("Unknown ucall %lu", uc.cmd);
++		}
++	} while (uc.cmd != UCALL_DONE);
++}
++
++static void test_guest_feat_idst(void)
++{
++	struct kvm_vcpu *vcpu;
++	struct kvm_vm *vm;
++
++	/* This VM has no MTE, no SME, no CCIDX */
++	vm = vm_create_with_one_vcpu(&vcpu, guest_code);
++
++	vm_init_descriptor_tables(vm);
++	vcpu_init_descriptor_tables(vcpu);
++
++	vm_install_sync_handler(vm, VECTOR_SYNC_CURRENT,
++				ESR_ELx_EC_SYS64, guest_sys64_handler);
++	vm_install_sync_handler(vm, VECTOR_SYNC_CURRENT,
++				ESR_ELx_EC_UNKNOWN, guest_undef_handler);
++
++	test_run_vcpu(vcpu);
++
++	kvm_vm_free(vm);
++}
++
++int main(int argc, char *argv[])
++{
++	struct kvm_vcpu *vcpu;
++	struct kvm_vm *vm;
++	uint64_t mmfr2;
++
++	test_disable_default_vgic();
++
++	vm = vm_create_with_one_vcpu(&vcpu, NULL);
++	mmfr2 = vcpu_get_reg(vcpu, KVM_ARM64_SYS_REG(SYS_ID_AA64MMFR2_EL1));
++	__TEST_REQUIRE(FIELD_GET(ID_AA64MMFR2_EL1_IDS, mmfr2) > 0,
++		       "FEAT_IDST not supported");
++	kvm_vm_free(vm);
++
++	test_guest_feat_idst();
++
++	return 0;
++}
 -- 
 2.47.3
 
