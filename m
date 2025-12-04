@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16B4CD20695
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 13:42:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A5FAD20697
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 13:42:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LA27eETEMeKn2TVb6y+owtRyY3BBlRXR9GEPMauKk30=; b=z7nHNpB6nrMh7+ANCFwww2SBWN
-	k6r/Mm+wJ5yh9FjEuwDSCxWxJD/VNUIlOJFW0YSK0MAA7nwxtO1Ak561TXnQosDQzrUSdvEFJuDcx
-	bd9pFfGPWsOFdh1zITwxOwJAg9hN1a3L6vNc55PNJc39KjtDxNoiZoWKBnDKZe82puzR6k2v6/2GP
-	kxIuuMB93wxR1+Do2d7ohhqZkRRe6b15H9n9y2EnuAJzFOUoyq3fB27jQjlQQyV0B+WOITAvTbYE5
-	1Qv/8bmGCpZhDfFtHx5Iqt52DHU1/DDT0Stm49Dl+SDEF2TizZEJ3GhWtLsFCPriHNDZxk4Sttq6h
-	orA64FSA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8wQ25eK9rtOdDvZ2WDSfbjIg4nCUaaXpwfzi5L9+e/I=; b=douJt5vXJcN/6i9Qi05WQEtrqL
+	4UePyU9nUzjt+hCGcOBV26Pf628xbWoX2RbthpIeQud90VHRGOf6H9drazsq4IvLVJjuOGltGSD2C
+	kuATKoFD3BISxpVHItLcBbWaBV1KZBlDnpgsM5CkHXTnWqMhbFejcZtmnJiw3uF7xYp0+gXqbzeLj
+	veAVOlJSaeC9+DkLHbis73nANlEQnIP93wL7d8dM6PMm4sibIj1LS2i2W1zizocPFjUtR0GEvePFD
+	RY4Xp3zs0v6wp2dLtezXPrSSZ/WA2H90efUefcOPg/b+W/32lnkEdwxu/O5V0wco44ynoHIQJWxXB
+	ZbsNQ5bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR9bX-000000084XA-3S2O;
-	Thu, 04 Dec 2025 13:42:43 +0000
+	id 1vR9bb-000000084ZD-28IL;
+	Thu, 04 Dec 2025 13:42:47 +0000
 Received: from mail11.truemail.it ([217.194.8.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR9bR-000000084Sp-1dyT
+	id 1vR9bU-000000084Sq-2iV2
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 13:42:43 +0000
+	Thu, 04 Dec 2025 13:42:44 +0000
 Received: from francesco-nb.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 68A1D1FA5F;
+	by mail11.truemail.it (Postfix) with ESMTPA id EC3AA1FBD6;
 	Thu,  4 Dec 2025 14:42:30 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1764855750;
-	bh=LA27eETEMeKn2TVb6y+owtRyY3BBlRXR9GEPMauKk30=; h=From:To:Subject;
-	b=HvkTHMxd4ioPdsJVVac+RcIbiIPiUjkTj8wYc+DcdOkK3M0WixFNJ4pgeVek1Nufn
-	 ZxRx0Z4QOmDiKcXXEdjUaOGAK6rBAKquqXNBXo6HZslUrTK8ZSw6z15aKTsstANvyh
-	 3wKIcryi24P3inZLyfPCZtb/inDYH7bMy2udVxod+7/QJqcFjBxOpVjktoMdqaux8u
-	 5w46ZHI+QrPYVfURGCdBN8oLu31IW4qmIKlq2fBIg0PH5fasdO85y4buH0AH9oq1Bd
-	 HJ32l+ZqSUBgdM3qGT6UZA+SN5QzDHOjCEIhg+8By5XC/9+s86rfWpEwfCzYFfnS8C
-	 HG9sZh6vCAV4w==
+	s=default; t=1764855751;
+	bh=8wQ25eK9rtOdDvZ2WDSfbjIg4nCUaaXpwfzi5L9+e/I=; h=From:To:Subject;
+	b=jBMICrEUga+Tmai9JqyaffuG3B+H3RxltATzFlCLD4thSX3Wfk4YhUx1FR2xehK0o
+	 QQrdq1C0gAHWMqSPye/yQAq0PEQd8vNKSS5O7W3Ibz8BttpKG7GyzeetPHmINYHU8L
+	 Q8UYpNAC59WhpPb3McpnfC5tNyWTk7Co7zKp9NJj8nXyjbVkUVPi5pWqm1Qy6FUrzC
+	 neBkQQWc2FTyXbsP2D2IdFvfGGVcoyYuSbyhF7CN9GpPdnBK7gy8ThQMdks6NeB03k
+	 axf+hj3o8w3Du7MCKF5gho/UbxRmU5+/rNMQOtqZXlRUY5HruXOW3ED1nxe02A5ONG
+	 N7hvX0HFTmFhQ==
 From: Francesco Dolcini <francesco@dolcini.it>
 To: Nishanth Menon <nm@ti.com>,
 	Vignesh Raghavendra <vigneshr@ti.com>,
@@ -50,15 +50,17 @@ Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
 	linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 0/2] arm64: dts: ti: k3-am69-aquila: Fix USB-C Sink PDO
-Date: Thu,  4 Dec 2025 14:42:17 +0100
-Message-ID: <20251204134220.129304-1-francesco@dolcini.it>
+Subject: [PATCH v1 1/2] arm64: dts: ti: k3-am69-aquila-dev: Fix USB-C Sink PDO
+Date: Thu,  4 Dec 2025 14:42:18 +0100
+Message-ID: <20251204134220.129304-2-francesco@dolcini.it>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251204134220.129304-1-francesco@dolcini.it>
+References: <20251204134220.129304-1-francesco@dolcini.it>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_054238_028661_DB2BD49C 
-X-CRM114-Status: UNSURE (   6.37  )
+X-CRM114-CacheID: sfid-20251204_054243_064782_03D167AC 
+X-CRM114-Status: UNSURE (   9.92  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,18 +78,31 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Change USB-C Sink PDO and the amount of power that the device can sink to
-zero to maximize compatibility with other USB peers (the Aquila Clover and
-Development Boards are not sinking any current, they are self powered).
+Change USB-C Sink PDO and the amount of power that the device can sink
+to zero to maximize compatibility with other USB peers (the Aquila
+Development Board is not sinking any current, it is self powered).
 
-Francesco Dolcini (2):
-  arm64: dts: ti: k3-am69-aquila-dev: Fix USB-C Sink PDO
-  arm64: dts: ti: k3-am69-aquila-clover: Fix USB-C Sink PDO
+Fixes: 39ac6623b1d8 ("arm64: dts: ti: Add Aquila AM69 Support")
+Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+---
+ arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
- arch/arm64/boot/dts/ti/k3-am69-aquila-clover.dts | 4 ++--
- arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts    | 4 ++--
- 2 files changed, 4 insertions(+), 4 deletions(-)
-
+diff --git a/arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts b/arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts
+index c7ce804eac70..f48601ae38b7 100644
+--- a/arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts
++++ b/arch/arm64/boot/dts/ti/k3-am69-aquila-dev.dts
+@@ -399,8 +399,8 @@ connector {
+ 			try-power-role = "sink";
+ 			self-powered;
+ 			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
+-			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
+-			op-sink-microwatt = <1000000>;
++			sink-pdos = <PDO_FIXED(5000, 0, PDO_FIXED_USB_COMM)>;
++			op-sink-microwatt = <0>;
+ 
+ 			ports {
+ 				#address-cells = <1>;
 -- 
 2.47.3
 
