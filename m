@@ -4,94 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3B33D1D865
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 05:18:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79ED2D1D866
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 05:26:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iNDnKlHp/ZUbhmRkZfp5DLTg2xmo1qEY2RoZ68xLETE=; b=HrbLTEGmzYkSW7JPy5q5FOIa5C
-	63+KXRFLd0cQG9wIcchRB5KTipxAsS4TeR1EIkRUzKtLxl+IIsrkAebNSkeLY06NWJByYsVfLnAeB
-	9ses+kBkK70Jfj3CfkXahAV8U4KqT91AeTLEiJVZ3f48FMe4fPkl4NpA9FzRNBg69Y9BeFvAiZpYC
-	8oeIMTggqMlAfU+xs3ii+5K16KAK2Q4rClfVn+/G8qdt2htg4rUZ8m9ElbUJEz70fY7/NVzmlLCZe
-	TN4qy2V/ZGPnynlnv4OCBiNGRtfUj9O6eUNTrsFGWI9uXFArT4j1SUUGTt2DQE5OuJCJyHCsBUbdd
-	L5nRh8Gw==;
+	bh=K0Grv1Va+x0sJ/0g9wgFwBpEp9cwhWm39UVuKbjacKw=; b=bL/pkjhppxpH9BrVRF8rjjcwRY
+	pZ3EV5FgOe79ixLj8sbt0dWZbTu9dHlrzwAsAa/n4DSLpP7bCLNE7xaHLSJi+cQXoQvMrZINfZCkR
+	HZ9RQpLtV1lxK2WRgM9J+UuzfTVkyDzMPWb2aL0AwxoItrBdrana+3MtdSslXw+TVNLugpgzgkspx
+	E8QR8cihdw1kLFt7KsUMtUQnFrre2zNqMw//omgUqmHEw0KOxLHlh7xvNAC8qgU8VovD8L+Wt5DrP
+	sGiMhbNO+sSK4IMhtBEBTOKaSDdfObg6M8TPKmbklBgHRLbViT/N5nw9AQeN0rNW1NSnyjK0zoKAx
+	6NLwjdlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR1jL-00000007UZU-0rGd;
-	Thu, 04 Dec 2025 05:18:15 +0000
-Received: from mail-oa1-x35.google.com ([2001:4860:4864:20::35])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR1jJ-00000007UYd-06U0
+	id 1vR1qz-00000007Uvn-2QIL;
+	Thu, 04 Dec 2025 05:26:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vR1qw-00000007UvK-26QJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 05:18:14 +0000
-Received: by mail-oa1-x35.google.com with SMTP id 586e51a60fabf-3f0d1a39cabso335705fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 21:18:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1764825491; x=1765430291; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iNDnKlHp/ZUbhmRkZfp5DLTg2xmo1qEY2RoZ68xLETE=;
-        b=FO8856yWyLeUNFsYGdDwHbBQHDSqBlhHaTdF2+RPMlicGChhr7EvAc3FNf8i5l4Y6n
-         kqYf80qI3R428f5nsZwbqL02eoIYrzLFKroJuWM1Nnh4Jq6lVXG2bducaHt0836jONaM
-         /KokNzIrzpwe+wTa/Jb6loZOeWl8u8gj2NQgll6XaYNXV/Pv/P29DymWr56gZt6PudD0
-         9IUBQrKDHCtmLbjFek+0sIoQF8stP+XBaA8JUNmrJpUb5s5ZtmhPr/ghrmKely4SASox
-         35/KQLl3fZYQ3MhnYBnnGAKvi5Yqrkj4yuFg5DFV9hXU1oQsUuyU6Tu5HHISYK1uvbX7
-         nOzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764825491; x=1765430291;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=iNDnKlHp/ZUbhmRkZfp5DLTg2xmo1qEY2RoZ68xLETE=;
-        b=YFs/5WgH3FUmswWGkKR0TdZ4DzukF0tcpvaB2xyCg5Z/UQR4FRhN15R0JzJvMAxVTn
-         p/wMSR+aspO0Gz00kmkBpZcfTb49tDVrYfOxK+6vfWQMMwVsJjo+vshkTautwJeH+vIk
-         tgC65s0ay3tPuovFAvHdYMd4RJb1JoAAAhWYISHKivBWov90lYBKtEqjPtGsPDmXr+el
-         iFVrNMT8Yl2X15oKYnUBOnw+oMc6i4zF9kDo3g8VUukFBdFh4r2gtrUya7cErCIzUuro
-         2EpPE//WoutplsEVag6eKxh56M6Uc1xeNTMHfclI1JoinIHoUaxDhK+VHiC3/1fnuouy
-         DpDA==
-X-Forwarded-Encrypted: i=1; AJvYcCX96ccmiNswdkl9+kevhMIBOuJ0Z/IeaAEdWAq5J+alr28/EqLwsFgrBDZOX9kmtE0FZi1J/wYmEXaOoZuQy9jV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxd/CwzHv9WNZIEUVTLLo+WOKjRV+h2aF1qBmQlDN+UIvEs8RGN
-	3c2ebMv8oiseM78v3VM8CbWoLibyqPYBP0eYGGUAri9E5wuUufRrEHR+1AjtjfcdZWvQIBwiCMo
-	9Os/45Q8mxB47mZbt8alwBFiT7I6VsIV8sjjqgkhZQw==
-X-Gm-Gg: ASbGncttm5QBUxlcc7btPF8nSk4/O+M7PlJM2PNX+f1wc3jTTb5RvwXm/DYGksW0Pfa
-	WBDbEp6897Im3Z4rA2ZhtioMzAjj7naG+zw86Z30cjI0laQOIJRxBzBEg/c4pdPR5jt4/MavcET
-	9TJdO19TLB7s2Vv5aHrDxVmTYP0rYuxUuI9BYmctEysT7X9nffH9loN1C7X5rQFViLOUOs+Zjo5
-	9KT7NeEHQuEsBYYbp82XSGbr8qztUwIKvjBh5OJYLE7KE2LvgpN7MeKCiHmaFoArP9Kwky+RhBn
-	tQ==
-X-Google-Smtp-Source: AGHT+IE6Uo+mUT5GOvC/ChjVWxuELDhLbIjvw8L0mngRXN/XyCudJ4rOSwMT4tx1Bd5AVcgCYi5RjboTifVzzdPFKpI=
-X-Received: by 2002:a05:6808:4fd4:b0:450:ccc6:4113 with SMTP id
- 5614622812f47-45379e76627mr949636b6e.52.1764825491585; Wed, 03 Dec 2025
- 21:18:11 -0800 (PST)
+	Thu, 04 Dec 2025 05:26:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EEB83339;
+	Wed,  3 Dec 2025 21:25:56 -0800 (PST)
+Received: from [10.164.18.78] (unknown [10.164.18.78])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 80D2B3F59E;
+	Wed,  3 Dec 2025 21:25:54 -0800 (PST)
+Message-ID: <2c2b3382-7bdb-41a9-b48e-4fa9a44312ba@arm.com>
+Date: Thu, 4 Dec 2025 10:55:51 +0530
 MIME-Version: 1.0
-References: <20251127125305.89961-1-cuiyunhui@bytedance.com>
- <20251127125305.89961-9-cuiyunhui@bytedance.com> <DEP50CD8K22E.1JW7GL6WLK44W@ventanamicro.com>
-In-Reply-To: <DEP50CD8K22E.1JW7GL6WLK44W@ventanamicro.com>
-From: yunhui cui <cuiyunhui@bytedance.com>
-Date: Thu, 4 Dec 2025 13:18:00 +0800
-X-Gm-Features: AWmQ_bkci0NzLiA0LVBzrZMqySYI1Agon6sfMnpqxOwRNPLLk4lieoHNTIjoqIo
-Message-ID: <CAEEQ3wkmFXAqBfHwJYbJRc5pagOJvtu-wEYGwXBF2beQiSMT1w@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH v3 8/8] drivers: firmware: riscv: add
- unknown nmi support
-To: =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>
-Cc: conor@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu, alex@ghiti.fr, luxu.kernel@bytedance.com, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	jassisinghbrar@gmail.com, conor.dooley@microchip.com, 
-	valentina.fernandezalanis@microchip.com, catalin.marinas@arm.com, 
-	will@kernel.org, maz@kernel.org, timothy.hayes@arm.com, lpieralisi@kernel.org, 
-	arnd@arndb.de, kees@kernel.org, tglx@linutronix.de, viresh.kumar@linaro.org, 
-	boqun.feng@gmail.com, linux-arm-kernel@lists.infradead.org, 
-	cleger@rivosinc.com, atishp@rivosinc.com, ajones@ventanamicro.com, 
-	linux-riscv <linux-riscv-bounces@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 08/12] mm: enable lazy_mmu sections to nest
+To: Kevin Brodsky <kevin.brodsky@arm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>, "David S. Miller"
+ <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+ Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Suren Baghdasaryan <surenb@google.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
+ xen-devel@lists.xenproject.org, x86@kernel.org
+References: <20251124132228.622678-1-kevin.brodsky@arm.com>
+ <20251124132228.622678-9-kevin.brodsky@arm.com>
+ <23dcf752-0b75-45a7-84f8-25bddf97af08-agordeev@linux.ibm.com>
+ <703cbee6-a813-4970-9232-34ee91ed8961@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <703cbee6-a813-4970-9232-34ee91ed8961@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_211813_092345_2DAC757F 
-X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-CacheID: sfid-20251203_212606_590994_F9E41CE5 
+X-CRM114-Status: UNSURE (   9.27  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -107,32 +92,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Radim,
 
-On Thu, Dec 4, 2025 at 12:11=E2=80=AFPM Radim Kr=C4=8Dm=C3=A1=C5=99 <rkrcma=
-r@ventanamicro.com> wrote:
->
-> 2025-11-27T20:53:05+08:00, Yunhui Cui <cuiyunhui@bytedance.com>:
-> > Register unknown_nmi_handler() as the handler for the UNKNOWN_NMI
-> > event. When the system becomes unresponsive, unknown_nmi_handler()
-> > can be manually triggered, which in turn invokes nmi_panic() to
-> > collect vmcore for root cause analysis.
->
-> Is UNKNOWN_NMI what we expect the watchdog to send?
 
-For reference: As stated in
-https://github.com/riscv-non-isa/riscv-sbi-doc/pull/223, "Generally,
-an external interrupt is used as an Unknown NMI pin, and an Unknown
-NMI event is sent to the SBI firmware by triggering this pin. Then the
-SBI firmware will send SBI_SSE_EVENT_GLOBAL_UNKNOWN_NMI to the
-kernel."
+On 03/12/25 1:50 PM, Kevin Brodsky wrote:
+> On 28/11/2025 14:55, Alexander Gordeev wrote:
+>>> + * in_lazy_mmu_mode() can be used to check whether the lazy MMU mode is
+>>> + * currently enabled.
+>> The in_lazy_mmu_mode() name looks ambiguous to me. When the lazy MMU mode
+>> is paused are we still in lazy MMU mode? The __task_lazy_mmu_mode_active()
+>> implementation suggests we are not, while one could still assume we are,
+>> just paused.
+>>
+>> Should in_lazy_mmu_mode() be named e.g. as in_active_lazy_mmu_mode() such
+>> a confusion would not occur in the first place.
+> 
+> I see your point, how about is_lazy_mmu_mode_active()?
 
-When the Linux system is unresponsive, we can manually trigger it via
-BMC (ipmitool).
-
->
-> Thanks.
-
-Thanks,
-Yunhui
+Agreed - is_lazy_mmu_mode_active() seems better.
 
