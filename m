@@ -4,101 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAB4FD20694
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 13:42:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43790D20694
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 13:42:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mxNSh3uqsvRQHPP9JyLF8azQRo39ggf7kTVsPnTssOc=; b=CJvXbAJmK41lJ3bhMCkk7qt8D2
-	Ia5frtMi+iIu4nGe9aVO6aCuGZff3DlN8+mcfZpcBYZss42FP2BK5ysfIm3T9oL/7b24HjbkwnQl9
-	+v7jzObHG6Rps7fwN+g15/PL7nO2RafeHfZj5YIU+i/BoXDhWS/+eSemc0FTJPPunkPWAsn6AqIpk
-	D27NUV3c+SQ63fMNLx6ezzc+BVf91x8WozSk6GqNQkHlGlqstmgaKEfMqhLeJ7HReAXQJOgqBEZPz
-	WVKV62Lnjxj/iU+URlhMdJ3G7ocVhmTVy6BWJIRl8r73zAI7P3lvheR6nXpCJPfGiuNBnjOGXU0tC
-	FyaEu/5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r8CGdx4QbymWZMNrQfPhb0eO4ThzNB+W0rAATdSxR+I=; b=d5nt6ZJFfKkiYIHAE4WImC/APZ
+	MYUfUzUy9qJjHqZv7MelshifoBfUmxUAjwgeJG5g4j/WlTEWg4rRr0TcsgzLCGuLGA1bb+8nPrm5j
+	k2Y8v3bTwl6kxwEvvK1ibiVcSknkHmtSjPGf+fhULqeAX7LluCN6B16AavYMNTuNJnZjZNhcSPGad
+	N5tfKDLBoXnLfA/IBspZw5oMYT7Xsn6icSqOX9tTwbBfayMa76DjtvAUAbHkBmXQaFKJbf6Pih1Kk
+	0tV9vLFzWihRZeQktImsObkdWoR+EeLiPJE+xqMJRb0Z6z4X30takfzIGx072ZtrHzgYHYalgZy/X
+	cFc5Avlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR9bD-000000084OX-3OAD;
-	Thu, 04 Dec 2025 13:42:23 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1vR9bY-000000084XR-0ibu;
+	Thu, 04 Dec 2025 13:42:44 +0000
+Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR9b9-000000084Nw-2hAj;
-	Thu, 04 Dec 2025 13:42:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1764855739; x=1796391739;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=30wP0TX1VK3UbNCz19GHE9bCOLKLD8pr5Gzk2VuxvGw=;
-  b=J7OdXf88VyB6clJ4hxA884AlVbem4J/36zELpUTUsx2ijzaaLFdQ76Aq
-   Y79iBGYKWX7fMJkm9Mke+XENN8f1GzDZrqXeJoYI4I0jnK49FhvwW5iQp
-   3aJfqeOhaNFbbSWHViBXRxP3Nl9umH6EApoKeuICF1r/RKU5tfCwz0azw
-   C6XrxAxqrlUOfT4pXb62Ls1SND/XqGHcnbDfaBDUQ7qhq+nU0zyHi5gtV
-   Sdxzu215tt3yUwzC/h+hp9yHPDpjz2YFKpASLBUxgbNATh7b/a6HGCgKZ
-   jhPcbt59Zd1N7eNRiNPFovFZneaWsFJJIkw71M8Rq1nbJK/SDr0fdv3vY
-   g==;
-X-CSE-ConnectionGUID: NwMioDJ2SEW5Q/KTl+h45g==
-X-CSE-MsgGUID: 5l76NYeUTuO+er16hLYgtg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11632"; a="66911018"
-X-IronPort-AV: E=Sophos;i="6.20,248,1758610800"; 
-   d="scan'208";a="66911018"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Dec 2025 05:42:18 -0800
-X-CSE-ConnectionGUID: DxyftxzaSmuGPOccXE4iKQ==
-X-CSE-MsgGUID: kBWCfuAfTk6HBNfipdewYA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,248,1758610800"; 
-   d="scan'208";a="199164378"
-Received: from rfrazer-mobl3.amr.corp.intel.com (HELO kuha) ([10.124.220.149])
-  by orviesa003.jf.intel.com with SMTP; 04 Dec 2025 05:42:05 -0800
-Received: by kuha (sSMTP sendmail emulation); Thu, 04 Dec 2025 15:41:56 +0200
-Date: Thu, 4 Dec 2025 15:41:56 +0200
-From: Heikki Krogerus <heikki.krogerus@linux.intel.com>
-To: Chaoyi Chen <kernel@airkyi.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	Peter Chen <hzpeterchen@gmail.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	id 1vR9bR-000000084Sw-1e0x
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Dec 2025 13:42:43 +0000
+Received: from francesco-nb.pivistrello.it (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
+	by mail11.truemail.it (Postfix) with ESMTPA id 74F281FBDB;
+	Thu,  4 Dec 2025 14:42:31 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
+	s=default; t=1764855751;
+	bh=r8CGdx4QbymWZMNrQfPhb0eO4ThzNB+W0rAATdSxR+I=; h=From:To:Subject;
+	b=UpPDhNBCQhtg2bs2kuMwpYRREVEFcKayep4BNdBo/7byUB4EGoKCVmEMXPgmDWXha
+	 us5Fb/RGBTIdzGF73wAW0R5aWFufhb+uQ+4VNth/WSBAXJgbwPSPUumESuafSHw90+
+	 qOvRD3ji3x+r7lizZKvm8El/8y1qSyuHGFJKO2WwMAp4OQXr/MMfppRbxyuoiIeMV3
+	 8jlIdl7OypT2iPpzdr2lMaJoQhT725kBLGd6DAiGpe6UXJbsaoXHI1p69zP6Kx16mY
+	 km8GeiBkZDBDRowbt9MJDheHcHfTDh9odRgPcBtcrCriebw4CsarWAjjnOK3+pZF1b
+	 Z7Y+E0JzGszaw==
+From: Francesco Dolcini <francesco@dolcini.it>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Yubing Zhang <yubing.zhang@rock-chips.com>,
-	Frank Wang <frank.wang@rock-chips.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Amit Sunil Dhamne <amitsd@google.com>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
-	Diederik de Haas <didi.debian@cknow.org>,
-	Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-Subject: Re: [RESEND PATCH v11 02/11] usb: typec: Export typec bus and typec
- altmode device type
-Message-ID: <aTGPpInIEzFhftf4@kuha>
-References: <20251204063109.104-1-kernel@airkyi.com>
- <20251204063109.104-3-kernel@airkyi.com>
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v1 2/2] arm64: dts: ti: k3-am69-aquila-clover: Fix USB-C Sink PDO
+Date: Thu,  4 Dec 2025 14:42:19 +0100
+Message-ID: <20251204134220.129304-3-francesco@dolcini.it>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251204134220.129304-1-francesco@dolcini.it>
+References: <20251204134220.129304-1-francesco@dolcini.it>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251204063109.104-3-kernel@airkyi.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_054219_697065_0FF367DA 
-X-CRM114-Status: GOOD (  20.54  )
+X-CRM114-CacheID: sfid-20251204_054238_026435_185FF171 
+X-CRM114-Status: UNSURE (   9.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,137 +76,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thu, Dec 04, 2025 at 02:31:00PM +0800, Chaoyi Chen kirjoitti:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> 
-> The DRM may want to register a notifier on the typec bus to know when
-> a typec altmode device is added, and distinguish between different
-> types of typec altmode device.
-> 
-> Export these things.
-> 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+From: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+Change USB-C Sink PDO and the amount of power that the device can sink
+to zero to maximize compatibility with other USB peers (the Aquila
+Clover Board is not sinking any current, it is self powered).
 
-> ---
-> 
-> Changes in v11:
-> - Also export typec bus.
-> - Add more detailed comments.
-> 
-> (no changes since v9)
-> 
->  drivers/usb/typec/bus.c           |  1 +
->  drivers/usb/typec/bus.h           | 10 ----------
->  drivers/usb/typec/class.c         |  3 +++
->  include/linux/usb/typec.h         |  3 +++
->  include/linux/usb/typec_altmode.h |  8 ++++++++
->  5 files changed, 15 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/usb/typec/bus.c b/drivers/usb/typec/bus.c
-> index a33da7f458a5..e84b134a3381 100644
-> --- a/drivers/usb/typec/bus.c
-> +++ b/drivers/usb/typec/bus.c
-> @@ -569,3 +569,4 @@ const struct bus_type typec_bus = {
->  	.probe = typec_probe,
->  	.remove = typec_remove,
->  };
-> +EXPORT_SYMBOL_GPL(typec_bus);
-> diff --git a/drivers/usb/typec/bus.h b/drivers/usb/typec/bus.h
-> index b58e131450d1..7df5deb1dd3a 100644
-> --- a/drivers/usb/typec/bus.h
-> +++ b/drivers/usb/typec/bus.h
-> @@ -5,7 +5,6 @@
->  
->  #include <linux/usb/typec_altmode.h>
->  
-> -struct bus_type;
->  struct typec_mux;
->  struct typec_retimer;
->  
-> @@ -28,13 +27,4 @@ struct altmode {
->  
->  #define to_altmode(d) container_of(d, struct altmode, adev)
->  
-> -extern const struct bus_type typec_bus;
-> -extern const struct device_type typec_port_altmode_dev_type;
-> -extern const struct device_type typec_plug_altmode_dev_type;
-> -extern const struct device_type typec_partner_altmode_dev_type;
-> -
-> -#define is_typec_port_altmode(dev) ((dev)->type == &typec_port_altmode_dev_type)
-> -#define is_typec_plug_altmode(dev) ((dev)->type == &typec_plug_altmode_dev_type)
-> -#define is_typec_partner_altmode(dev) ((dev)->type == &typec_partner_altmode_dev_type)
-> -
->  #endif /* __USB_TYPEC_ALTMODE_H__ */
-> diff --git a/drivers/usb/typec/class.c b/drivers/usb/typec/class.c
-> index d6b88317f8a4..c4ff4310ff58 100644
-> --- a/drivers/usb/typec/class.c
-> +++ b/drivers/usb/typec/class.c
-> @@ -537,18 +537,21 @@ const struct device_type typec_port_altmode_dev_type = {
->  	.groups = typec_altmode_groups,
->  	.release = typec_altmode_release,
->  };
-> +EXPORT_SYMBOL_GPL(typec_port_altmode_dev_type);
->  
->  const struct device_type typec_plug_altmode_dev_type = {
->  	.name = "typec_plug_alternate_mode",
->  	.groups = typec_altmode_groups,
->  	.release = typec_altmode_release,
->  };
-> +EXPORT_SYMBOL_GPL(typec_plug_altmode_dev_type);
->  
->  const struct device_type typec_partner_altmode_dev_type = {
->  	.name = "typec_partner_alternate_mode",
->  	.groups = typec_altmode_groups,
->  	.release = typec_altmode_release,
->  };
-> +EXPORT_SYMBOL_GPL(typec_partner_altmode_dev_type);
->  
->  static struct typec_altmode *
->  typec_register_altmode(struct device *parent,
-> diff --git a/include/linux/usb/typec.h b/include/linux/usb/typec.h
-> index 309251572e2e..c6fd46902fce 100644
-> --- a/include/linux/usb/typec.h
-> +++ b/include/linux/usb/typec.h
-> @@ -20,12 +20,15 @@ struct typec_port;
->  struct typec_altmode_ops;
->  struct typec_cable_ops;
->  
-> +struct bus_type;
->  struct fwnode_handle;
->  struct device;
->  
->  struct usb_power_delivery;
->  struct usb_power_delivery_desc;
->  
-> +extern const struct bus_type typec_bus;
-> +
->  enum typec_port_type {
->  	TYPEC_PORT_SRC,
->  	TYPEC_PORT_SNK,
-> diff --git a/include/linux/usb/typec_altmode.h b/include/linux/usb/typec_altmode.h
-> index f7db3bd4c90e..9197a4637a93 100644
-> --- a/include/linux/usb/typec_altmode.h
-> +++ b/include/linux/usb/typec_altmode.h
-> @@ -9,6 +9,14 @@
->  
->  #define MODE_DISCOVERY_MAX	6
->  
-> +extern const struct device_type typec_port_altmode_dev_type;
-> +extern const struct device_type typec_plug_altmode_dev_type;
-> +extern const struct device_type typec_partner_altmode_dev_type;
-> +
-> +#define is_typec_port_altmode(dev) ((dev)->type == &typec_port_altmode_dev_type)
-> +#define is_typec_plug_altmode(dev) ((dev)->type == &typec_plug_altmode_dev_type)
-> +#define is_typec_partner_altmode(dev) ((dev)->type == &typec_partner_altmode_dev_type)
-> +
->  struct typec_altmode_ops;
->  
->  /**
-> -- 
-> 2.51.1
+Fixes: 9f748a6177e1 ("arm64: dts: ti: am69-aquila: Add Clover")
+Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+---
+ arch/arm64/boot/dts/ti/k3-am69-aquila-clover.dts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
+diff --git a/arch/arm64/boot/dts/ti/k3-am69-aquila-clover.dts b/arch/arm64/boot/dts/ti/k3-am69-aquila-clover.dts
+index 55fd214a82e4..c816ba3bfbdf 100644
+--- a/arch/arm64/boot/dts/ti/k3-am69-aquila-clover.dts
++++ b/arch/arm64/boot/dts/ti/k3-am69-aquila-clover.dts
+@@ -280,8 +280,8 @@ connector {
+ 			try-power-role = "sink";
+ 			self-powered;
+ 			source-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
+-			sink-pdos = <PDO_FIXED(5000, 3000, PDO_FIXED_USB_COMM)>;
+-			op-sink-microwatt = <1000000>;
++			sink-pdos = <PDO_FIXED(5000, 0, PDO_FIXED_USB_COMM)>;
++			op-sink-microwatt = <0>;
+ 
+ 			ports {
+ 				#address-cells = <1>;
 -- 
-heikki
+2.47.3
+
 
