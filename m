@@ -4,61 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 242C6D1F9B3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 10:47:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C2B1D1F9B4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 10:48:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oHAU3C/3Zd3gbOdr7jKTK74vhnb5I94WtpqgIHjL3N8=; b=U2+qxxn9bHXfKsY/cgUac5JOWk
-	0pTbWbfZV+QOD0d2T4UBtu+atgA6bbRULym1L/Ofb4xr09XCsieNH51PFeBNDa9V/XD8GVT+1rHGo
-	/FrBM1fZNCzhg5QAQ2FtM5b6+wEeoUEljpBPBhet873gkg5FsILGkd9Y0f03J1hI+5xjLD6v/hOP6
-	AoR0dyMYm0BMyL60i5tGF5RXSQvQKOyanUA4zKB8Y4LYcC1/M114JjHlNoJJy0RLQbfyv9yNLjRE0
-	ieF29Gwuhm+qGBZ6WxH+UZvji6gYegYd7uEc17EGQ1tAqIEJjTJsJ+laDq36MkAb4LD+g/T2Co1s3
-	hhGbpm3g==;
+	bh=sxMPTWjgR6d2V/IkoxyCBbe+JrmSAFsIpL8uOa4nkMI=; b=JruBqB9N40E+YIrooe5Y6qE1PK
+	VxQbotJ6E00HsNvyTdH/ftNNTVwQx272t/cU9hasvbn21eMCfpXczz5dLPSnz5eoGm1WMGp76SP/g
+	CCgR0S5oZEY2eU4jen8x8gN0yfes8fqEWbFqHDePc5+xYy3KfB0yWTXcDzzoQA+OvjcHplA/viGY+
+	Xs9OkahO5S9mRq1odagI/n7NBvni/b0qy5bh9qVz/Wz8BhluIOb8Spfs+xcB0vs8QO5CN6S62XHUV
+	vxZyQNSVQVogtg7OgIeqsdC6bLkFP9ASuaWp7ta524XQmMEVBukHr0lHJDd6Oj47JSLnttwcWxwGL
+	QSQOGluQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR6ro-00000007ra4-2WLb;
-	Thu, 04 Dec 2025 10:47:20 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR6rm-00000007rZW-25BX
+	id 1vR6tC-00000007rto-3js2;
+	Thu, 04 Dec 2025 10:48:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vR6tB-00000007rtc-3Sw1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 10:47:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 16071339;
-	Thu,  4 Dec 2025 02:47:08 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0715E3F73B;
-	Thu,  4 Dec 2025 02:47:14 -0800 (PST)
-Date: Thu, 4 Dec 2025 10:47:13 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Mike Leach <mike.leach@linaro.org>
-Cc: Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	quic_yingdeng@quicinc.com, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	Jinlong Mao <jinlong.mao@oss.qualcomm.com>,
-	Mao Jinlong <quic_jinlmao@quicinc.com>
-Subject: Re: [PATCH v6 2/2] coresight: cti: Add Qualcomm extended CTI support
-Message-ID: <20251204104713.GL724103@e132581.arm.com>
-References: <20251202-extended_cti-v6-0-ab68bb15c4f5@oss.qualcomm.com>
- <20251202-extended_cti-v6-2-ab68bb15c4f5@oss.qualcomm.com>
- <20251203182944.GG724103@e132581.arm.com>
- <CAJ9a7VhcSxTTaxMR4SS+GbHoPHXm0honykjXy92fbv0HG=1o4Q@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAJ9a7VhcSxTTaxMR4SS+GbHoPHXm0honykjXy92fbv0HG=1o4Q@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_024718_571964_2149C214 
-X-CRM114-Status: GOOD (  19.75  )
+	Thu, 04 Dec 2025 10:48:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EC7A060192;
+	Thu,  4 Dec 2025 10:48:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 959CEC4CEFB;
+	Thu,  4 Dec 2025 10:48:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764845324;
+	bh=5/oknxb9c2y6+JA43OWmQfGTtidST836yMTAIMN8Zu8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=m5YYNaFRvIOCNKGDHnAF8/Lkp3EUc6SQr8o1TaZqRRMMos2/UEC5xBSuemSTNwWat
+	 fJs1ELOTTGx+IxF9nApKew2gF737Nx85S2jQ9m7F628fswmJ+2ZBmlbL6EOPtlvHya
+	 KccSRP5TCJBBn+lkvGQaXwPVgxI3As3ZKflSOJUwBAooBvByyCU52Bo5nBcjPiv7lh
+	 SpyMIrLxuJ+j2mcudgj9F+XMNN1J5xE1RgqEwvv1bWqSSrH75wpMnfx9d8pqPFvNlT
+	 5w1W5rw9nbzVTeCyGIyheyjwe9PrZphd8cTmqOOunB2p9eCp7+UWp9Fp7c0WIWL6zz
+	 YqdSbfURoHEkg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vR6t8-0000000AQD6-2XFp;
+	Thu, 04 Dec 2025 10:48:42 +0000
+Date: Thu, 04 Dec 2025 10:48:42 +0000
+Message-ID: <86cy4uplo5.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ben Horgan <ben.horgan@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose
+ <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Yao Yuan <yaoyuan@linux.alibaba.com>
+Subject: Re: [PATCH v3 1/9] arm64: Repaint ID_AA64MMFR2_EL1.IDS description
+In-Reply-To: <b98c154a-1658-4501-bfa5-a93303aa5b3f@arm.com>
+References: <20251204094806.3846619-1-maz@kernel.org>
+	<20251204094806.3846619-2-maz@kernel.org>
+	<b98c154a-1658-4501-bfa5-a93303aa5b3f@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ben.horgan@arm.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, yaoyuan@linux.alibaba.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,44 +89,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 04, 2025 at 09:15:07AM +0000, Mike Leach wrote:
-
-[...]
-
-> > > +             /*
-> > > +              * QCOM CTI does not implement Claimtag functionality as
-> > > +              * per CoreSight specification, but its CLAIMSET register
-> > > +              * is incorrectly initialized to 0xF. This can mislead
-> > > +              * tools or drivers into thinking the component is claimed.
-> > > +              *
-> > > +              * Reset CLAIMSET to 0 to reflect that no claims are active.
-> > > +              */
-> > > +             writel_relaxed(0, drvdata->base + CORESIGHT_CLAIMSET);
-> >
-> > I am confused for this.  If QCOM CTI does not implement claim tag,
-> > then what is the designed register at the offset CORESIGHT_CLAIMSET?
-> >
-> > Should you bypass all claim tag related operations for QCOM CTI case?
-> > (I don't see you touch anything for claim and declaim tags).
-> >
+On Thu, 04 Dec 2025 10:36:54 +0000,
+Ben Horgan <ben.horgan@arm.com> wrote:
 > 
-> The patch I have created to handle systems without correct claim tag
-> operation is a dependency for this patch set. Thus no need for
-> override here as the core code will handle this correctly.
+> Hi Marc,
 > 
-> The only issue is ensuring the non-CTI spec implementation will result
-> in the correct detection of no claim tags present.
+> On 12/4/25 09:47, Marc Zyngier wrote:
+> > ID_AA64MMFR2_EL1.IDS, as described in the sysreg file, is pretty horrible
+> > as it diesctly give the ESR value. Repaint it using the usual NI/IMP
+> > identifiers to describe the absence/presence of FEAT_IDST.
+> > 
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/kvm/hyp/nvhe/sys_regs.c | 2 +-
+> >  arch/arm64/tools/sysreg            | 4 ++--
+> >  2 files changed, 3 insertions(+), 3 deletions(-)
+> > 
+> > diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> > index 82da9b03692d4..107d62921b168 100644
+> > --- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> > +++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+> > @@ -134,7 +134,7 @@ static const struct pvm_ftr_bits pvmid_aa64mmfr2[] = {
+> >  	MAX_FEAT(ID_AA64MMFR2_EL1, UAO, IMP),
+> >  	MAX_FEAT(ID_AA64MMFR2_EL1, IESB, IMP),
+> >  	MAX_FEAT(ID_AA64MMFR2_EL1, AT, IMP),
+> > -	MAX_FEAT_ENUM(ID_AA64MMFR2_EL1, IDS, 0x18),
+> > +	MAX_FEAT_ENUM(ID_AA64MMFR2_EL1, IDS, IMP),
+> >  	MAX_FEAT(ID_AA64MMFR2_EL1, TTL, IMP),
+> >  	MAX_FEAT(ID_AA64MMFR2_EL1, BBM, 2),
+> >  	MAX_FEAT(ID_AA64MMFR2_EL1, E0PD, IMP),
+> > diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+> > index 1c6cdf9d54bba..3261e8791ac03 100644
+> > --- a/arch/arm64/tools/sysreg
+> > +++ b/arch/arm64/tools/sysreg
+> > @@ -2257,8 +2257,8 @@ UnsignedEnum	43:40	FWB
+> >  	0b0001	IMP
+> >  EndEnum
+> >  Enum	39:36	IDS
+> 
+> Should this also be changed to an UnsignedEnum?
 
-Your patch works only when a module has implemented claim registers.
+I'm not sure this brings much when you only have two values. If IDS
+was growing a third value, and that there was an actual order in the
+numbering scheme, then yes, that'd be useful.
 
-This leads to two issues: we end up clearing an unknown register in the
-CTI driver, and then the coresight core layer assumes it is reading a
-claim register even though it is not.
-
-For QCOM CTI, combined with your patch, I would suggest directly
-setting csdev->access.claim_tag_impl to false (perhaps using a helper).
-This would be much clearer than the "hacking" way.
+But at this stage, I'm not confident that this is desirable, let alone
+necessary.
 
 Thanks,
-Leo
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
