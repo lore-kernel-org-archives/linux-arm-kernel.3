@@ -4,63 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D74FAD1F9B4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 11:05:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E4BAD1F9BC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 11:13:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1fJcygxJ8ktEMFPvVfhD1h7orWfXdouaakmxwB4pUxs=; b=g/GIvz57hdJjOyphW22ZDsgrkH
-	1LmH7dLaFDfVo6EI9kE8++s/QzLYwo/6ptanWnaDHANipZcMswS7vPIXv/cVPpvWCxLKjr2uoF9rc
-	fbZhAC62kMlD7HGsj8vXpBqBlVi/KK9ABbw9ssPrJKQF2sX8twKB9vi6D8XyehtVfmBEnB37sv+YO
-	9TVTtBdkoOScpWnTXZ/o/Lr/zWlRSkv+1sDvcmtJTcPj9Dch5McY3XJiOBbxJzsX645F7BZ8BJzSH
-	Ku1AotKyM3hNia8DwEBq7a4MydvNYyKGcGYrLs2MwH3HGEBar8BFH5iqD28/IDPTejLhfWzXzfHZ/
-	gFNB0kyg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HB+z2v0qrN14S6ulzi+KlnATKl0WfRyBviY2Yru3dVE=; b=cUbjsMHmTpokBPIwoAHLOZCb6X
+	N2hjtJk0x6n2cP+RBHflmaUKZGHTMh2ZcEjIWda/rHenWKKh7++expoa1UY898Ft1MMTZfwxlhInG
+	/kaOwe+WPYTMywgBMda17SSnvOxnge+mXP2OvfJOrM8WN4SNHikYDJBxAsbWF7Pzc4OgD/aqGhPqq
+	TWN93x+6SSrwPD41RZsMthhsWzINW7ws/B9jt4Hm+m7c3KgDwN5yoVHmUpi6E+RCfwspiaQ2XIEwq
+	oybqURdCWn7ppdshsoeetiRMOCFCt6HshaisQRg1rudNsmNDhagKUwApH7Y2OwJm4jOi1NwMVFYyw
+	j0mqNGpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR79C-00000007tTU-17HR;
-	Thu, 04 Dec 2025 11:05:18 +0000
-Received: from m16.mail.163.com ([117.135.210.5])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR798-00000007tRU-0Yjk;
-	Thu, 04 Dec 2025 11:05:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=1f
-	JcygxJ8ktEMFPvVfhD1h7orWfXdouaakmxwB4pUxs=; b=OA0zEY7/4TPdJ25Cut
-	alV6aIG2a/7/USN59kLCRmdrNByPTLnLhF6VG18YOXU1pQTY/wMCdh4QhLgo6h3F
-	VQWYF1UWixF6LJmkMQI2v+Db0/TSZRDiLiKjnwXX54n6xxnqdajmGoGJm8oeZXLi
-	AIrzjpJ1/iJXJc2/FX8DnMYrs=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wB36w7WajFpT_14EQ--.41851S4;
-	Thu, 04 Dec 2025 19:04:55 +0800 (CST)
-From: Haoxiang Li <haoxiang_li2024@163.com>
-To: matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	khilman@baylibre.com,
-	roger.lu@mediatek.com
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Haoxiang Li <haoxiang_li2024@163.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] soc: mediatek: SVS: Fix a reference leak bug in svs_add_device_link()
-Date: Thu,  4 Dec 2025 19:04:52 +0800
-Message-Id: <20251204110452.93867-1-haoxiang_li2024@163.com>
-X-Mailer: git-send-email 2.25.1
+	id 1vR7HR-00000007uDv-1NfY;
+	Thu, 04 Dec 2025 11:13:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vR7HN-00000007uDE-12cP
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 04 Dec 2025 11:13:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 70617339;
+	Thu,  4 Dec 2025 03:13:36 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 851183F59E;
+	Thu,  4 Dec 2025 03:13:42 -0800 (PST)
+Message-ID: <d546725b-e96f-461e-887d-8679cf747c7d@arm.com>
+Date: Thu, 4 Dec 2025 11:13:41 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wB36w7WajFpT_14EQ--.41851S4
-X-Coremail-Antispam: 1Uf129KBjvdXoWrZrW3GryUuFW8Wr43ur4DJwb_yoWkCrX_Gr
-	9FvFy7Xrn8Jr1fKF4xtF13AryS9Fs7t3ykGFy5t3WSqrW5WFyjqF90vrZ0qFZru3y8CFyU
-	XF1UWF4xKF4rGjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7sRM4E_DUUUUU==
-X-Originating-IP: [36.112.3.223]
-X-CM-SenderInfo: xkdr5xpdqjszblsqjki6rwjhhfrp/xtbCxhd25GkxatfZEgAA3t
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/9] arm64: Repaint ID_AA64MMFR2_EL1.IDS description
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>,
+ Zenghui Yu <yuzenghui@huawei.com>, Yao Yuan <yaoyuan@linux.alibaba.com>
+References: <20251204094806.3846619-1-maz@kernel.org>
+ <20251204094806.3846619-2-maz@kernel.org>
+ <b98c154a-1658-4501-bfa5-a93303aa5b3f@arm.com> <86cy4uplo5.wl-maz@kernel.org>
+Content-Language: en-US
+From: Ben Horgan <ben.horgan@arm.com>
+In-Reply-To: <86cy4uplo5.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_030514_566225_0EBB8762 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20251204_031345_325893_5EA036BC 
+X-CRM114-Status: GOOD (  16.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,39 +68,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-svs_get_subsys_device() increases the reference count of the returned
-device, if error happens, put_device() is required to drop the device
-reference.
+Hi Marc,
 
-Fixes: 681a02e95000 ("soc: mediatek: SVS: introduce MTK SVS engine")
-Cc: stable@vger.kernel.org
-Signed-off-by: Haoxiang Li <haoxiang_li2024@163.com>
----
- drivers/soc/mediatek/mtk-svs.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+On 12/4/25 10:48, Marc Zyngier wrote:
+> On Thu, 04 Dec 2025 10:36:54 +0000,
+> Ben Horgan <ben.horgan@arm.com> wrote:
+>>
+>> Hi Marc,
+>>
+>> On 12/4/25 09:47, Marc Zyngier wrote:
+>>> ID_AA64MMFR2_EL1.IDS, as described in the sysreg file, is pretty horrible
+>>> as it diesctly give the ESR value. Repaint it using the usual NI/IMP
+>>> identifiers to describe the absence/presence of FEAT_IDST.
+>>>
+>>> Signed-off-by: Marc Zyngier <maz@kernel.org>
+>>> ---
+>>>  arch/arm64/kvm/hyp/nvhe/sys_regs.c | 2 +-
+>>>  arch/arm64/tools/sysreg            | 4 ++--
+>>>  2 files changed, 3 insertions(+), 3 deletions(-)
+>>>
+>>> diff --git a/arch/arm64/kvm/hyp/nvhe/sys_regs.c b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+>>> index 82da9b03692d4..107d62921b168 100644
+>>> --- a/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+>>> +++ b/arch/arm64/kvm/hyp/nvhe/sys_regs.c
+>>> @@ -134,7 +134,7 @@ static const struct pvm_ftr_bits pvmid_aa64mmfr2[] = {
+>>>  	MAX_FEAT(ID_AA64MMFR2_EL1, UAO, IMP),
+>>>  	MAX_FEAT(ID_AA64MMFR2_EL1, IESB, IMP),
+>>>  	MAX_FEAT(ID_AA64MMFR2_EL1, AT, IMP),
+>>> -	MAX_FEAT_ENUM(ID_AA64MMFR2_EL1, IDS, 0x18),
+>>> +	MAX_FEAT_ENUM(ID_AA64MMFR2_EL1, IDS, IMP),
+>>>  	MAX_FEAT(ID_AA64MMFR2_EL1, TTL, IMP),
+>>>  	MAX_FEAT(ID_AA64MMFR2_EL1, BBM, 2),
+>>>  	MAX_FEAT(ID_AA64MMFR2_EL1, E0PD, IMP),
+>>> diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+>>> index 1c6cdf9d54bba..3261e8791ac03 100644
+>>> --- a/arch/arm64/tools/sysreg
+>>> +++ b/arch/arm64/tools/sysreg
+>>> @@ -2257,8 +2257,8 @@ UnsignedEnum	43:40	FWB
+>>>  	0b0001	IMP
+>>>  EndEnum
+>>>  Enum	39:36	IDS
+>>
+>> Should this also be changed to an UnsignedEnum?
+> 
+> I'm not sure this brings much when you only have two values. If IDS
+> was growing a third value, and that there was an actual order in the
+> numbering scheme, then yes, that'd be useful.
 
-diff --git a/drivers/soc/mediatek/mtk-svs.c b/drivers/soc/mediatek/mtk-svs.c
-index f45537546553..c8f15bb139c6 100644
---- a/drivers/soc/mediatek/mtk-svs.c
-+++ b/drivers/soc/mediatek/mtk-svs.c
-@@ -2155,12 +2155,15 @@ static struct device *svs_add_device_link(struct svs_platform *svsp,
- 	sup_link = device_link_add(svsp->dev, dev,
- 				   DL_FLAG_AUTOREMOVE_CONSUMER);
- 	if (!sup_link) {
-+		put_device(dev);
- 		dev_err(svsp->dev, "sup_link is NULL\n");
- 		return ERR_PTR(-EINVAL);
- 	}
- 
--	if (sup_link->supplier->links.status != DL_DEV_DRIVER_BOUND)
-+	if (sup_link->supplier->links.status != DL_DEV_DRIVER_BOUND) {
-+		put_device(dev);
- 		return ERR_PTR(-EPROBE_DEFER);
-+	}
- 
- 	return dev;
- }
--- 
-2.25.1
+Joey just pointed out to me that there is a new third field. Not in the
+arm reference manual yet, but mentioned in the xml. I'm unsure if it's
+necessary to consider this at the moment though.
+
+https://developer.arm.com/documentation/ddi0601/2025-09/AArch64-Registers/ID-AA64MMFR2-EL1--AArch64-Memory-Model-Feature-Register-2?lang=en
+
+> 
+> But at this stage, I'm not confident that this is desirable, let alone
+> necessary.
+> 
+> Thanks,
+> 
+> 	M.
+> 
+
+Thanks,
+
+Ben
 
 
