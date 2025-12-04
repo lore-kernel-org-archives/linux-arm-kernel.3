@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0973D1D892
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 09:48:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FEFBD1D89F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 09:48:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6k5OQFkjKRhDwo0iXNt1/546+974/zl6x7HWDQ5ZolU=; b=dby8G/eBSD6Ycxe4JQ55HgPjXB
-	62EhJN9X6TnHXI1fH3LTJpZ+fH8lznz5PjwRG4KQG0plE+QfVN1I3nqwAjWQJtHwf2sX2eXpfwLEK
-	yxZSmL02FnRTQixCDAmrReR2NYU+PGnQlT+J3TbIyTKbzq5kPLCa0xnd1vHaKJt4s56kUZgy5ryfz
-	VT3L/BNcuUCvTEyjfzzBzgbo0hrcqCqPgqoB4i0h8D67ufzJ39t5sjX1tVKXzFC8Ys3NXsAih6PqO
-	t6IK1/haZvZB2Ebv9bjsYpD0wMHSo3uqU4uV4buBOc8yElmzcuG00skpv40kKsifERVESSabec8Jd
-	ITp60+1g==;
+	bh=73LQXRexns6qFwaoPcD4bDG2MWMt2e16tCwRaKo1ZGk=; b=ykHDWUa5+ZX2w5LLwbVmn3EowH
+	N+W3zA8+pbMkaDeYRuP7zYtds24K3Uei3dJ2lAiRIQxXmaGQ4sXWVXeCJnsP/NiiT3bgJZ5gRgYod
+	Y6+T4gmNBDYFvaDB+b8kq3drBQaU75y953HhdQopMXXI6KJB4LJa6dg0tRQMcxNIsFuJnw+Rtdvxe
+	Hi4JDNldr/bB/dpFKvREl8XSB2XK98n8I5LDhdcMYUOjtHNRpqkpKkNqZggqUttGN0FBJc1pXfNJ5
+	oM8jOaMzGYnLzef58xCwPjkiyHE02SasUAHJ3KGbVLO4FT3+hdkY1ESq+5ZNFbzqXG87oPbSIC43d
+	faAOBWQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR5x0-00000007mqU-3xHq;
-	Thu, 04 Dec 2025 09:48:38 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vR5x3-00000007mtD-2Xxu;
+	Thu, 04 Dec 2025 09:48:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR5x0-00000007mp0-0zLw
+	id 1vR5wz-00000007moz-2aGz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 09:48:38 +0000
+	Thu, 04 Dec 2025 09:48:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C4EE6601E0;
-	Thu,  4 Dec 2025 09:48:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 726F3C16AAE;
-	Thu,  4 Dec 2025 09:48:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 46F7743D7C;
+	Thu,  4 Dec 2025 09:48:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A57FC4CEFB;
+	Thu,  4 Dec 2025 09:48:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764841716;
-	bh=lBM9O1xiYp3upt+sE8CBR/zZAFQ7xYSFnh/kkG4Fd4c=;
+	s=k20201202; t=1764841717;
+	bh=jke8sLY83eQqm9PthdlrVbBxAMjnY6wssHXk/JP7Z9g=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Mt3uTq4Z3eQXVCPXV2/ehrLJtZnB9aiRZFdoW4rNOprmtT35H1R2vXiVHakAjmMjO
-	 7flF5tb0gcaKGv8xC165cGDsZqFP9eqiQ9GKUZ02IHSrdxEIN/8/PfsCWPCKlfbdDf
-	 SLZbBCdbXCfc0zkIWHbPEcWzmINHFeVWG5owVIycH1pmoHdnO3Lv2sJ22DH9fvgDRQ
-	 uhmUrL8Hj/4QfxpHDJjH8hC+a5vBqfCo7qOcFFQbG5fpC+bplZyYK5LkiciHqhSy0b
-	 RhKoD1NM07Y4CHrthr9ID5csnPpdec7gActD5TVKiwhLShW4BULMZphQamKkJGFClL
-	 thKqH5t6ad43w==
+	b=Vx3gfLtQR+WCHsQb+uksfJOcJFVHj6hhgrdUz8qrkty0aWlkYOItaI0c2Wr/dYgn0
+	 vpyS3QAAlKQ0ekc3ELWeCxZzC8wdhCGCD4+GhgFHpOb+gRZ2dHBK+KpAFXsovuDxPm
+	 0KvUIzllBm1oMzvko2lxdn/mmOqr4pKBppEOMDUeD7WhUt/Bgz52Uf5Utlw8M82mic
+	 D1j2zdfZqomV/nDzisn9pweTjetcGTbfAEdeI/PK0REefFP+7qP0PzL432n5V/r9KQ
+	 Ja3Ax1zpxQaIINObhojE6sYbgYd2FUSuxygWd7IrbFt2WVePthryIqH8Ijy2cEI1JO
+	 yY5BDJaWz3zFw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vR5ww-0000000AP90-2bbb;
-	Thu, 04 Dec 2025 09:48:34 +0000
+	id 1vR5wx-0000000AP90-1Dzo;
+	Thu, 04 Dec 2025 09:48:35 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Ben Horgan <ben.horgan@arm.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>
-Subject: [PATCH v3 2/9] KVM: arm64: Add trap routing for GMID_EL1
-Date: Thu,  4 Dec 2025 09:47:59 +0000
-Message-ID: <20251204094806.3846619-3-maz@kernel.org>
+Subject: [PATCH v3 5/9] KVM: arm64: Handle CSSIDR2_EL1 and SMIDR_EL1 in a generic way
+Date: Thu,  4 Dec 2025 09:48:02 +0000
+Message-ID: <20251204094806.3846619-6-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251204094806.3846619-1-maz@kernel.org>
 References: <20251204094806.3846619-1-maz@kernel.org>
@@ -70,6 +70,9 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, ben.horgan@arm.com, yaoyuan@linux.alibaba.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251204_014837_993227_0DF02015 
+X-CRM114-Status: GOOD (  10.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,48 +87,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-HCR_EL2.TID5 is currently ignored by the trap routing infrastructure.
-Wire it in the routing table so that GMID_EL1, the sole register
-trapped by this bit, is correctly handled in the NV case.
+Now that we can handle ID registers using the FEAT_IDST infrastrcuture,
+get rid of the handling of CSSIDR2_EL1 and SMIDR_EL1.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/emulate-nested.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ arch/arm64/kvm/sys_regs.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-index 834f13fb1fb7d..616eb6ad68701 100644
---- a/arch/arm64/kvm/emulate-nested.c
-+++ b/arch/arm64/kvm/emulate-nested.c
-@@ -70,6 +70,7 @@ enum cgt_group_id {
- 	CGT_HCR_ENSCXT,
- 	CGT_HCR_TTLBIS,
- 	CGT_HCR_TTLBOS,
-+	CGT_HCR_TID5,
- 
- 	CGT_MDCR_TPMCR,
- 	CGT_MDCR_TPM,
-@@ -308,6 +309,12 @@ static const struct trap_bits coarse_trap_bits[] = {
- 		.mask		= HCR_TTLBOS,
- 		.behaviour	= BEHAVE_FORWARD_RW,
- 	},
-+	[CGT_HCR_TID5] = {
-+		.index		= HCR_EL2,
-+		.value		= HCR_TID5,
-+		.mask		= HCR_TID5,
-+		.behaviour	= BEHAVE_FORWARD_RW,
-+	},
- 	[CGT_MDCR_TPMCR] = {
- 		.index		= MDCR_EL2,
- 		.value		= MDCR_EL2_TPMCR,
-@@ -665,6 +672,7 @@ static const struct encoding_to_trap_config encoding_to_cgt[] __initconst = {
- 	SR_TRAP(SYS_CCSIDR2_EL1,	CGT_HCR_TID2_TID4),
- 	SR_TRAP(SYS_CLIDR_EL1,		CGT_HCR_TID2_TID4),
- 	SR_TRAP(SYS_CSSELR_EL1,		CGT_HCR_TID2_TID4),
-+	SR_TRAP(SYS_GMID_EL1,		CGT_HCR_TID5),
- 	SR_RANGE_TRAP(SYS_ID_PFR0_EL1,
- 		      sys_reg(3, 0, 0, 7, 7), CGT_HCR_TID3),
- 	SR_TRAP(SYS_ICC_SGI0R_EL1,	CGT_HCR_IMO_FMO_ICH_HCR_TC),
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index ec3fbe0b8d525..ae1e72df1ed45 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -3399,8 +3399,6 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 	{ SYS_DESC(SYS_CCSIDR_EL1), access_ccsidr },
+ 	{ SYS_DESC(SYS_CLIDR_EL1), access_clidr, reset_clidr, CLIDR_EL1,
+ 	  .set_user = set_clidr, .val = ~CLIDR_EL1_RES0 },
+-	{ SYS_DESC(SYS_CCSIDR2_EL1), undef_access },
+-	{ SYS_DESC(SYS_SMIDR_EL1), undef_access },
+ 	IMPLEMENTATION_ID(AIDR_EL1, GENMASK_ULL(63, 0)),
+ 	{ SYS_DESC(SYS_CSSELR_EL1), access_csselr, reset_unknown, CSSELR_EL1 },
+ 	ID_FILTERED(CTR_EL0, ctr_el0,
 -- 
 2.47.3
 
