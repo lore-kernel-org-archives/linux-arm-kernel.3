@@ -4,105 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CB8ED216A4
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 16:18:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98596D216AE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 16:27:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TcYtubvKcGoSq4YWnqE43T9j+Qij7FD/s8vUU4QGez4=; b=patVtP9ObvyRKFt9w4hXC8Hbga
-	YtjpS28Klj3X6qo9Z7QksgKq7LiprPcY3e+nrqRPUJNYVw7jXYHJoXj9+pUVlF2tGLeYcgYRXDyiI
-	wGFykF3JhhXFKrD2djkcppxsIzPAMP/3OLNgGnqja7YAO1ypEzHpujY0DS1tpxnAz3apB/db1QBH/
-	Iv4yuOblv1btRJmwkJeXlJhRbt4gvbOAfdMcOHcJItADxkzJyiFWwQxUD4UfKhsgsRSPFqFZs3GqU
-	YyMEyCiRB6xpQYnXIcR4SXibwcUROPmuB6T+rULTqLB3MTDtVDHvuXp+xDTXFiXiRidhJ0pC3enRU
-	XB+FhkFg==;
+	bh=88tPUK02ZLrC9M/8Z+z/1Oq9I1aD8192v0FSJkrRNjw=; b=Q1qNmrPSR1WorgwLAFEaN3W0PX
+	JoCEzik01iuRc0Mu77qP5Ys26u3WKQqTcYKKaBHYJxQAMdzpKSkIgucR9d3Zxzdm7hFUgjWjw5l9k
+	5b2k2PhEmg347kVuRgOTLqA3ZaDgimmpnVol2KNk8rwMH3N2JzKLeLzKeM0SH77rjvIU0vseQjgdP
+	ibtlusSiPOcY4dn+8x4VPXg/vPMq5CI35Pv74hxW7sgt3/yJycaYG63+N1g7Jxi8rRxQlAezcyWBo
+	MnlRshccDufkluZTIHYIJpgFeo7/LOdoHN0ZYI68ce26iqYnCCoGrc9FppvY/qNJ15dSLKN8vTl+i
+	2lcpSX4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRC1j-00000008H6O-2xUD;
-	Thu, 04 Dec 2025 16:17:55 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vRCAv-00000008Hky-26wv;
+	Thu, 04 Dec 2025 16:27:25 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRC1h-00000008H61-1ITd
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 04 Dec 2025 16:17:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=TcYtubvKcGoSq4YWnqE43T9j+Qij7FD/s8vUU4QGez4=; b=denfrO4UIDl2WdNwC4HNyZAY5/
-	pTivGhOHJ9FuofTe/Ulqt3keY2u+YkzoORUXa8BigBeaLjP6YJjA1/4sz++WNdki0PISPvC0GUtYt
-	OuH/cqne288ltQk71FaVhcbIu1D+lHpU1vlw8PKTrzOGWJNCBiBGhtBOJkQxcAKWF/v9QFPRe5Vhm
-	EGfZGrWnsqXGAWY3D8blmBSzqLIt2vYJAWgOykGKxWiXnZuPjZ6L5YK/S9iPH7CnO87kmAoh/t6wl
-	Es2K/H5HEy+XvKPfjYq/6B7d8xlnALBiY/fncwZJ0YQN8C/TtVkcT5Di4SaYSRWi8kp9SW0bhGOz7
-	4aBm2adQ==;
-Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRBA5-00000004OhR-2al2
+	id 1vRCAs-00000008HkS-3pmk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 15:22:31 +0000
-Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-8823d5127daso10267056d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 08:17:48 -0800 (PST)
+	Thu, 04 Dec 2025 16:27:24 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-4779aa4f928so11860615e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 08:27:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1764865067; x=1765469867; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=TcYtubvKcGoSq4YWnqE43T9j+Qij7FD/s8vUU4QGez4=;
-        b=xJuaWJEa4wivp9OgVJJkv4qaN2hBvE3NZfQfmRKGnwW2G+fybHYYh5ga55qZfPnmEd
-         S7zjvwrB5fXNGHwHVh4yRnENnIu5rozu6D4VewQRrYtvC3NfVcGVhA+7ixxgiBmSlwrc
-         eOlmH/wunalYpIPQzc/Ax4yYR4u2TPAS+D1FTnp5fe05TS0rbAbo9TMcA1rEc5TQeUDe
-         Ekuwqub9w19PCmnhB4+viOtvemHb5F30LkxWLlGhk819qMIUr8Eqq2fXdMbQWr5rwfEk
-         4n9B/rgG7TZX2hphWxDJ2HbiZiIEQI0SIqdm9MvO1XGgNn1+LRfrSgSBnaRBVVSfzjbb
-         TE8Q==
+        d=gmail.com; s=20230601; t=1764865638; x=1765470438; darn=lists.infradead.org;
+        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=88tPUK02ZLrC9M/8Z+z/1Oq9I1aD8192v0FSJkrRNjw=;
+        b=deep7YCJjGp0euSnjfjcLUzMc0rQVnc5WUy4mpY54QUUCRuur4PjXJELmtVmT9o5q/
+         lFW4xEfVnvsLSifA4vU6Xl2eJg6dH1v675miEulGCZ/eMFxPGB3KqjmKB8Hztow4JpsA
+         SdAzgYf/PFpsnF6UvYmT2IMJ3DS/kK7xHOUNPttZ+vsb9B3Pqc0INHcsDQo2hEXr3yWR
+         uhCKCy2anic7zIINDYdJBzmkpbwTNr46wuvq/a1gIM/m+gVIQOL/YmdkRumB+OYklPCE
+         VLltEiabkD5PDPJorYJ7taDH5bCGokvK1kb+fxaIuXGZOjn+blSRZK9s/m5wVeyQxjN+
+         yAvg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764865067; x=1765469867;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TcYtubvKcGoSq4YWnqE43T9j+Qij7FD/s8vUU4QGez4=;
-        b=bshmgKqNxRDwZmnDRj/peOKxsB0sg5c4hW7EjSFsaOq3inHaMdusyGn9LtOZ3SRWgG
-         tVkFw2BHUZtjqHc6L4fht02qgtUheIlWJ7pI54174Lik8mQVfq2+PsDDggvbWR0JWxWb
-         eSZ4iAL5FlLNMLs44jxj7F7knmP8Hm834FTpg2bPRhCTmDz7pB8xP4pMUZ15i/gZg20F
-         s7/4uHILZj8KLIBWSJSg+vOnbWF2LLw8Px3inBrFI4WsUG4di3MPNIQ9Dq8YZkLb01HS
-         lu6mLz5psQWT4YeWISqGIo1dBJBGBUqllXJ8mEleflwxEr4GBt0FwmBSTbtzfKoS/BUr
-         Komg==
-X-Forwarded-Encrypted: i=1; AJvYcCVIhNhk4QcKDD1LntULBFbnqY1h/wW56bhKOTIE5PmOPYd1fjLKZXrl4tW6GwguCQEjkDjVunT8XBpj4+kpZ1m2@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXhdx662+VjwqJnpqF2MJmNFWW2jvCC0pw896FoKwou9LfjDRk
-	54FbJ5LStRAEc6IsQK59Htp9iQCw4nkkXTJa59Zfx4MYS1vZTpkblXSHQDThrqvwe8VAWftDPnX
-	NZhrsVLomEMSonhN2TTnYcRTQzenUzqJ4zjK2YK4G2w==
-X-Gm-Gg: ASbGncsqtdfLRs8GTYkB6WfHLlZCytER5zc9ciSkouwKsxylx090ikWF/nWBa4RMDHS
-	iIwyudsYzSpTOgGz6p+aekPG0x3rkAO4EU+F/vDV0gGAYGD9eccjrjzYJ+Aol5TBJ1S1OfpKtqP
-	m4/EB+3IcSAUhhdlFA8P8u5eVnL/iAMDj84PUeh0yo8xZSjNLkpLAzH1T5vSf2I4MvYeZIAGr9+
-	AyZMEjOmed0TZcTy19eKD/+8o2bo/KUPbGEVTUcjcpT/SbTSs0tJlCDQQw0Ng6lz0HTElycEEPo
-	7NYfcOK4jel1UqB7CaNZE3PyL61Y
-X-Google-Smtp-Source: AGHT+IF8z11XLGfYzUm91CMdZf4GezIwYVVnF1KmzD5fxiCI7uZI3auSv7HjayTXTjcC2dCJDroO2z1dhzcB1niqEsc=
-X-Received: by 2002:a05:6214:21ee:b0:87c:2360:d404 with SMTP id
- 6a1803df08f44-88819483e38mr101446386d6.7.1764865066864; Thu, 04 Dec 2025
- 08:17:46 -0800 (PST)
+        d=1e100.net; s=20230601; t=1764865638; x=1765470438;
+        h=mime-version:references:in-reply-to:message-id:date:subject:cc:to
+         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=88tPUK02ZLrC9M/8Z+z/1Oq9I1aD8192v0FSJkrRNjw=;
+        b=hmKPmMSF4H1b9Jj7vB1OOeUI3gFhg45uP4rwWL8zmxVCd+mW2u4bY1hI3Km3YBIBR/
+         tyyA28aRlumZwns4VsNGp8aWmflcJ84ttaCQdGHM9yA8vfEQ34zOWd0HUc02ueap3On3
+         /UW/EtFdz5baIMB1uZ/o4oFe23PqHx+raY0QY3rlCie8+8RCTTP+z2e2qZcc3jH0nhgu
+         Gl/CKIlrJ5ovQdfpx+R4nbNNfkRoIf8bdYaUMFS2pUucSurWSb5ZcuA4Z3i/wagvyJtx
+         EfI0fu5E73436jh7nBGiB07dk+pUxYsMwy4vzfHYFhf47mLVs7ifm0gO9LaZlz/Xlv8I
+         ccVg==
+X-Forwarded-Encrypted: i=1; AJvYcCWL7hH7k6gLTEZrX+PFdlsQHSGupNlApLkPuPdPFBptLkP/Rw80+BHqkZ+9Q5KtJroGuahxY0IIDxcg2cPN3E8g@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+/NdNb8fkufdcU2wlWWgTOLQjaRNLghOiS2rEWikPQ6layx30
+	y010TDfBlw0ChMccEF8NMJqzf76eh3O2BHe/XZZ0J3jlwb3OVIWG/NOh
+X-Gm-Gg: ASbGncsKNdXIgMhWDvHA7Mtc7yJJ42CAt2XWIJKtYNXhDXz592wfjdGB+89JqQwcAcn
+	Q3h6yUlHB2TmGXiBeEZCfaJMP3fXTX6A5jVnxfUKC7DS/wwyfQnK5XLVtKP8yC8bY9HdGguBXBr
+	X71Rjh/rYZOIbtByGxbaP55UBr6W2fY8gTskpvN8jM489aPiDx7nK/eZdLlg0Oux2VS+tyxLdgi
+	usk6r+BUlU9y1A0bohhvaJtYvrwL02rKUqTNi4iOqwr09U+u9GNMEFlo4KZwTpmjDnKazvuJWFR
+	em99CcWkGYsyVvVE23KMEiFmrtB9ooXiSiTe26gS13c5ZU22dOXsto8sEOBxNd9GUPpeLa+usjC
+	giMx/JKvUcdXOhzCLPTNTq/FiHNs3oA2k/MO57pRhC58BD4srQh7Tm58nxqLGHbzFcf9yPLjnuZ
+	VRrk0moB19qtzgjHZjmI8AoTs/bs0w9z+QzVYtq4G/lm7X5gTkgjk4BpwK8CipAEB4eVhDGNKnt
+	qoJQE9axoxD66AA
+X-Google-Smtp-Source: AGHT+IEeiFh5JMgnQ8pShAVUYlCPwfqLImrWniLzd/dBupEr9CI1rxYrCJtKX41c/om1WIELKCCDCw==
+X-Received: by 2002:a05:600c:1f8e:b0:477:8985:4036 with SMTP id 5b1f17b1804b1-4792f23c727mr34378505e9.1.1764865638123;
+        Thu, 04 Dec 2025 08:27:18 -0800 (PST)
+Received: from dell.localnet (2a01-114f-4013-18c0-0000-0000-0000-0540.ea.ipv6.supernova.orange.pl. [2a01:114f:4013:18c0::540])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42f7d2226e7sm4044141f8f.27.2025.12.04.08.27.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 04 Dec 2025 08:27:17 -0800 (PST)
+From: Janusz Krzysztofik <jmkrzyszt@gmail.com>
+To: soc@lists.linux.dev, Aaro Koskinen <aaro.koskinen@iki.fi>,
+ Arnd Bergmann <arnd@kernel.org>
+Cc: Arnd Bergmann <arnd@arndb.de>, Tony Lindgren <tony@atomide.com>,
+ Russell King <linux@armlinux.org.uk>, linux-arm-kernel@lists.infradead.org,
+ linux-omap@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Janusz Krzysztofik <jmkrzyszt@gmail.com>
+Subject: Re: [PATCH] ARM: omap1: avoid symbol clashes in fiq handler
+Date: Thu, 04 Dec 2025 17:27:16 +0100
+Message-ID: <6216166.lOV4Wx5bFT@dell>
+In-Reply-To: <20251204095355.1032786-1-arnd@kernel.org>
+References: <20251204095355.1032786-1-arnd@kernel.org>
 MIME-Version: 1.0
-References: <20251202-extended_cti-v6-0-ab68bb15c4f5@oss.qualcomm.com>
- <20251202-extended_cti-v6-2-ab68bb15c4f5@oss.qualcomm.com>
- <20251203182944.GG724103@e132581.arm.com> <CAJ9a7VjWDBEwdmMf53geACBWGusC8BC3pJuOLETeecw24+N35Q@mail.gmail.com>
- <20251204103151.GK724103@e132581.arm.com>
-In-Reply-To: <20251204103151.GK724103@e132581.arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Thu, 4 Dec 2025 16:17:35 +0000
-X-Gm-Features: AWmQ_blm_2rs2si_vAcMXoW5zZu2s4mytZpslYby8tsAcsAdu9x6GoUJ81x6Q9c
-Message-ID: <CAJ9a7VjHHkkTz9XJqjdQ+11_XX9zXuY0ZcQzPtq=Zvi4CN__0A@mail.gmail.com>
-Subject: Re: [PATCH v6 2/2] coresight: cti: Add Qualcomm extended CTI support
-To: Leo Yan <leo.yan@arm.com>
-Cc: Yingchao Deng <yingchao.deng@oss.qualcomm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, quic_yingdeng@quicinc.com, 
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Mao Jinlong <quic_jinlmao@quicinc.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; boundary="nextPart5058772.31r3eYUQgx";
+ micalg="pgp-sha512"; protocol="application/pgp-signature"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_152229_850986_F3BBE959 
-X-CRM114-Status: GOOD (  27.37  )
+X-CRM114-CacheID: sfid-20251204_082722_999825_A68BF2FF 
+X-CRM114-Status: GOOD (  23.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,102 +102,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo
+--nextPart5058772.31r3eYUQgx
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Janusz Krzysztofik <jmkrzyszt@gmail.com>
+Subject: Re: [PATCH] ARM: omap1: avoid symbol clashes in fiq handler
+Date: Thu, 04 Dec 2025 17:27:16 +0100
+Message-ID: <6216166.lOV4Wx5bFT@dell>
+In-Reply-To: <20251204095355.1032786-1-arnd@kernel.org>
+References: <20251204095355.1032786-1-arnd@kernel.org>
+MIME-Version: 1.0
 
-On Thu, 4 Dec 2025 at 10:31, Leo Yan <leo.yan@arm.com> wrote:
->
-> On Thu, Dec 04, 2025 at 09:07:56AM +0000, Mike Leach wrote:
->
-> [...]
->
-> > > I saw CTI registers are within 4KiB (0x1000), we can don't convert
-> > > standard regiserts and only convert to QCOM register based on the
-> > > standard ones.  So you can drop the cti_normal_offset strucuture and
-> > > only have a cti_reg_qcom_offset[] struct:
-> > >
-> > >   static const u32 cti_extended_offset[] = {
-> > >         [CTIINTACK]             = QCOM_CTIINTACK,
-> > >         [CTIAPPSET]             = QCOM_CTIAPPSET,
-> > >         [CTIAPPCLEAR]           = QCOM_CTIAPPCLEAR,
-> > >         [CTIAPPPULSE]           = QCOM_CTIAPPPULSE,
-> > >         [CTIINEN]               = QCOM_CTIINEN,
-> > >         ...
-> > >   };
-> > >
-> >
+On Thursday, 4 December 2025 10:53:47 CET Arnd Bergmann wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
+> 
+> The ams-delta-fiq-handler.S file has a number of symbols with fairly
+> generic names, including one named 'exit' that causes a compiler warning
+> in some configuration options:
+> 
+> vmlinux.o: error: exit() function name creates ambiguity with -ffunction-sections
+> 
+> Change all these symbols to use a .L prefix to make them local to
+> the fiq handler.
 
-The tables in the patch are
+Reviewed-by: Janusz Krzysztofik <jmkrzyszt@gmail.com>
 
-    [reg_type_array_index] = offset_address;
+> 
+> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+> ---
+>  arch/arm/mach-omap1/ams-delta-fiq-handler.S | 38 ++++++++++-----------
+>  1 file changed, 19 insertions(+), 19 deletions(-)
+> 
+> diff --git a/arch/arm/mach-omap1/ams-delta-fiq-handler.S b/arch/arm/mach-omap1/ams-delta-fiq-handler.S
+> index 35c2f9574dbd..5cf6fcca602c 100644
+> --- a/arch/arm/mach-omap1/ams-delta-fiq-handler.S
+> +++ b/arch/arm/mach-omap1/ams-delta-fiq-handler.S
+> @@ -97,7 +97,7 @@ ENTRY(qwerty_fiqin_start)
+>  
+>  	ldr r13, [r12, #IRQ_ITR_REG_OFFSET]	@ fetch interrupts status
+>  	bics r13, r13, r11			@ clear masked - any left?
+> -	beq exit				@ none - spurious FIQ? exit
+> +	beq .Lexit				@ none - spurious FIQ? exit
+>  
+>  	ldr r10, [r12, #IRQ_SIR_FIQ_REG_OFFSET]	@ get requested interrupt number
+>  
+> @@ -105,25 +105,25 @@ ENTRY(qwerty_fiqin_start)
+>  	str r8, [r12, #IRQ_CONTROL_REG_OFFSET]
+>  
+>  	cmp r10, #(INT_GPIO_BANK1 - NR_IRQS_LEGACY)	@ is it GPIO interrupt?
+> -	beq gpio				@ yes - process it
+> +	beq .Lgpio				@ yes - process it
+>  
+>  	mov r8, #1
+>  	orr r8, r11, r8, lsl r10		@ mask spurious interrupt
+>  	str r8, [r12, #IRQ_MIR_REG_OFFSET]
+> -exit:
+> +.Lexit:
+>  	subs	pc, lr, #4			@ return from FIQ
+>  	@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+>  
+>  
+>  	@@@@@@@@@@@@@@@@@@@@@@@@@@@
+> -gpio:	@ GPIO bank interrupt handler
+> +.Lgpio:	@ GPIO bank interrupt handler
+>  	ldr r12, omap1510_gpio_base		@ set base pointer to GPIO bank
+>  
+>  	ldr r11, [r12, #OMAP1510_GPIO_INT_MASK]	@ fetch GPIO interrupts mask
+> -restart:
+> +.Lrestart:
+>  	ldr r13, [r12, #OMAP1510_GPIO_INT_STATUS]	@ fetch status bits
+>  	bics r13, r13, r11			@ clear masked - any left?
+> -	beq exit				@ no - spurious interrupt? exit
+> +	beq .Lexit				@ no - spurious interrupt? exit
+>  
+>  	orr r11, r11, r13			@ mask all requested interrupts
+>  	str r11, [r12, #OMAP1510_GPIO_INT_MASK]
+> @@ -131,7 +131,7 @@ restart:
+>  	str r13, [r12, #OMAP1510_GPIO_INT_STATUS] @ ack all requested interrupts
+>  
+>  	ands r10, r13, #KEYBRD_CLK_MASK		@ extract keyboard status - set?
+> -	beq hksw				@ no - try next source
+> +	beq .Lhksw				@ no - try next source
+>  
+>  
+>  	@@@@@@@@@@@@@@@@@@@@@@
+> @@ -145,10 +145,10 @@ restart:
+>  
+>  	ldr r10, [r9, #BUF_STATE]		@ fetch kbd interface state
+>  	cmp r10, #0				@ are we expecting start bit?
+> -	bne data				@ no - go to data processing
+> +	bne .Ldata				@ no - go to data processing
+>  
+>  	ands r8, r8, #KEYBRD_DATA_MASK		@ check start bit - detected?
+> -	beq hksw				@ no - try next source
+> +	beq .Lhksw				@ no - try next source
+>  
+>  	@ r8 contains KEYBRD_DATA_MASK, use it
+>  	str r8, [r9, #BUF_STATE]		@ enter data processing state
+> @@ -162,9 +162,9 @@ restart:
+>  	mvn r11, #KEYBRD_CLK_MASK		@ prepare all except kbd mask
+>  	str r11, [r12, #OMAP1510_GPIO_INT_MASK]	@ store into the mask register
+>  
+> -	b restart				@ restart
+> +	b .Lrestart				@ restart
+>  
+> -data:	ldr r10, [r9, #BUF_MASK]		@ fetch current input bit mask
+> +.Ldata:	ldr r10, [r9, #BUF_MASK]		@ fetch current input bit mask
+>  
+>  	@ r8 still contains GPIO input bits
+>  	ands r8, r8, #KEYBRD_DATA_MASK		@ is keyboard data line low?
+> @@ -175,7 +175,7 @@ data:	ldr r10, [r9, #BUF_MASK]		@ fetch current input bit mask
+>  	mov r10, r10, lsl #1			@ shift mask left
+>  	bics r10, r10, #0x800			@ have we got all the bits?
+>  	strne r10, [r9, #BUF_MASK]		@ not yet - store the mask
+> -	bne restart				@ and restart
+> +	bne .Lrestart				@ and restart
+>  
+>  	@ r10 already contains 0, reuse it
+>  	str r10, [r9, #BUF_STATE]		@ reset state to start
+> @@ -189,7 +189,7 @@ data:	ldr r10, [r9, #BUF_MASK]		@ fetch current input bit mask
+>  	ldr r10, [r9, #BUF_KEYS_CNT]		@ get saved keystrokes count
+>  	ldr r8, [r9, #BUF_BUF_LEN]		@ get buffer size
+>  	cmp r10, r8				@ is buffer full?
+> -	beq hksw				@ yes - key lost, next source
+> +	beq .Lhksw				@ yes - key lost, next source
+>  
+>  	add r10, r10, #1			@ incremet keystrokes counter
+>  	str r10, [r9, #BUF_KEYS_CNT]
+> @@ -213,9 +213,9 @@ data:	ldr r10, [r9, #BUF_MASK]		@ fetch current input bit mask
+>  	@@@@@@@@@@@@@@@@@@@@@@@@
+>  
+>  
+> -hksw:	@Is hook switch interrupt requested?
+> +.Lhksw:	@Is hook switch interrupt requested?
+>  	tst r13, #HOOK_SWITCH_MASK 		@ is hook switch status bit set?
+> -	beq mdm					@ no - try next source
+> +	beq .Lmdm				@ no - try next source
+>  
+>  
+>  	@@@@@@@@@@@@@@@@@@@@@@@@
+> @@ -230,9 +230,9 @@ hksw:	@Is hook switch interrupt requested?
+>  	@@@@@@@@@@@@@@@@@@@@@@@@
+>  
+>  
+> -mdm:	@Is it a modem interrupt?
+> +.Lmdm:	@Is it a modem interrupt?
+>  	tst r13, #MODEM_IRQ_MASK 		@ is modem status bit set?
+> -	beq irq					@ no - check for next interrupt
+> +	beq .Lirq				@ no - check for next interrupt
+>  
+>  
+>  	@@@@@@@@@@@@@@@@@@@@@@@@
+> @@ -245,13 +245,13 @@ mdm:	@Is it a modem interrupt?
+>  	@@@@@@@@@@@@@@@@@@@@@@@@
+>  
+>  
+> -irq:	@ Place deferred_fiq interrupt request
+> +.Lirq:	@ Place deferred_fiq interrupt request
+>  	ldr r12, deferred_fiq_ih_base		@ set pointer to IRQ handler
+>  	mov r10, #DEFERRED_FIQ_MASK		@ set deferred_fiq bit
+>  	str r10, [r12, #IRQ_ISR_REG_OFFSET] 	@ place it in the ISR register
+>  
+>  	ldr r12, omap1510_gpio_base		@ set pointer back to GPIO bank
+> -	b restart				@ check for next GPIO interrupt
+> +	b .Lrestart				@ check for next GPIO interrupt
+>  	@@@@@@@@@@@@@@@@@@@@@@@@@@@
+>  
+>  
+> 
 
-e.g.
 
-  [INDEX_CTIINTACK]  = QCOM_CTIINTACK
+--nextPart5058772.31r3eYUQgx
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
 
-which resolves to
+-----BEGIN PGP SIGNATURE-----
 
- [1] = 0x020
+iQEzBAABCgAdFiEEnyr6IsGnTYAeAkHJ2WqSnltsjBoFAmkxtmQACgkQ2WqSnlts
+jBrMsQgAnOqLcgqd4VMzVjjHNYxPJsmd+I7OzdOytaNRJ0eqRFAYC36GAVqlkuqB
+Dwwv+bh+cCPlES3ozAUr0WJ9fCgfA2Zvi1EHNdIJlyDwZOkpHKMm7BGN9drPBFST
+XjUsixxJWQKQBUVFK4aASFoZ3cbrQ2KtOOHjqBQ1coaPw6cWZa8fbwWRDxLXGcDC
+ISeJBjlLxHH5BJrUhlJ7iGw9LN1kDGleu/wal2gJfnuGZ6WVApDLujyDWhUsAV0M
+IMf7x7yfyyCA9YoSNpZus4+w716T0/fKkVflh7TvqeQGqA1+FH8HRYguVYeRQkUQ
+rnnTEfB6obbtIPimzaw1lvcrV9OvLw==
+=X4/I
+-----END PGP SIGNATURE-----
 
-where index is constant for a given register type,
-
-As far as I can tell what you have suggested above is a table that is
-
-  [std_addr_offset] = qcom_addr_offset;
-
-e.g.
-
-[CTIINTACK]             = QCOM_CTIINTACK,
-
-which resolves to
-
-[0x10]  = 0x020
-
-which does not appear to work correctly?
-
-The registers are sparsely spread across the memory map, so a simple
-mapping does not work, even if we divide the original offset by 4 to
-create a register number.
-
-The largest standard offset we have is ITTRIGIN = 0xEF8, so assuming
-the compiler allows us to sparselly populate the array (which I think
-it does, along with some padding), we end up with an array of at least
-0xEF8 elements, rather then the indexed 21?
-
-Regards
-
-Mike
-
-> > I suggested the dual offset approach a couple of patchset revisions
-> > ago as it actually simplifies the code & makes it more efficient. The
-> > offset array in use is set during probe and the remaining code is then
-> > common to both without lots of "if qcom else " occurences.
->
-> AFAICS, we will handle the QCOM CTI particularly in three cases:
->
->   1) The register access;
->   2) The claim tag;
->   3) Sysfs attr is visible.
->
-> Now we are discussing the reigster access.  As suggested, the
-> "if qcom / else" is encapsulated (e.g., in cti_reg_addr_with_nr()), it
-> will not spread out.
->
-> I'd use standard registers by default and convert to non-standard ones
-> only when needed.  A new "neutral" index layer seems redundant, as the
-> existing standard register indexes already serve this purpose.
->
-> For the sysfs attrs, it makes sense to use a central place to decide
-> which knobs are only visible for QCOM CTI, otherwise, we also will not
-> spread the condition check.
->
-> I will reply separately for claim tag issue.
->
-> Thanks,
-> Leo
+--nextPart5058772.31r3eYUQgx--
 
 
---
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+
 
