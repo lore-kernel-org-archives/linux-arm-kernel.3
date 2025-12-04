@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A85E2D1F9A1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 09:48:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68B16D1F9A2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 09:48:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/b54dtjfLCpQPfTXWOh1TwTgLOx2rTYAakzbfZ4vFYI=; b=Wy7CakcipkcZUXWo2NX8tsLLC/
-	svDpxXh4tV90goUzq5SePxT1lA+XEuVkf1PxylYCo2Fe0GQnfPOMFZhJ2WhR8Cihe+9yzegH+/Ej9
-	j1qqgsoSc4L50qJu8zi8lLojZBp6FCWqZEmsS0aqGcZdt5V9/bHNnKriYd8My6LieLeSiDDQEu+3l
-	eL6jTGAB4EFkk0oLuqMQRyx7Q7zvdvnKycFwKdOfNvU2be9Yg/599pUXBTdqJ3AddN6CnwcpP689q
-	t0+jqM3jibeCmaalkMgIhXc2EKYbEq2fy5pRSIRIyoGXzZ8HM9JOfNrY9aC0809IeffoNqQmJu92d
-	cUcitQfg==;
+	bh=5Zz7gxxhjTFjOLjIw0Pw1675QnjNIaEfyx60fMUeA+8=; b=h6wTfaS7v/ukeq+qmRFUeGIvCN
+	M192+qpJn56DTKITCc7UJu/d7A+jRkehUH5VfZMcTlrZ00KTCc3hJAB2dzc7lZ7JqovF1YHrSslFN
+	+XuOM293v1Fcj59D/z54vMFzin2QNMG9kkOnZ9Z+pzY81SAQuRKLjwi+P9cvVF1zLU0PX0TU3Bn7X
+	K12+a5z5ICttxoZEXYnuvwAD86AC5tG0uGK0Ubn/9pd1e/Q+q9cCXhD/4d5s9Wg9DwkvUJB5YQQhP
+	/nR0qK5btsyiSaEh1F/bFmBhZ8jB/yUtiEooJ2h0y5R0FJQiRKg8Lo66R318C3bR/HA+1P10j9qsW
+	IpgbU3cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR5x1-00000007mqv-15BO;
-	Thu, 04 Dec 2025 09:48:39 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vR5x5-00000007mv7-3Jpd;
+	Thu, 04 Dec 2025 09:48:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR5x0-00000007mqE-27dY
+	id 1vR5wz-00000007moy-3bBf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 09:48:38 +0000
+	Thu, 04 Dec 2025 09:48:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E5B08601E4;
+	by sea.source.kernel.org (Postfix) with ESMTP id 3C99244468;
 	Thu,  4 Dec 2025 09:48:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2B5BC113D0;
-	Thu,  4 Dec 2025 09:48:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B776C116C6;
+	Thu,  4 Dec 2025 09:48:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1764841717;
-	bh=il8COfiF1FhMwmH8tRnlXmaXeF2Tmchwrjdh9u49mVY=;
+	bh=4XVkua0rEg/vz2zwquEpsKlRnQFatRDvaCblm+Lr3ac=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=s28FcMyjwMNwULAc6L+uyVPfLy+inyctkJtZBE6bRUqO8KtDrGYxsTM8+d/I+1X1F
-	 diAHfHPxLvUuv6QTHSJ92VCAKA4ZhiaS3gZyu/xf1Yrr3yA9XK4PHS5bp1Xr9KFn6O
-	 ltbB7QsSM2TXO+I+CIsJhr+9w36/0/R6D4pNBoDLgsXBV5HK7XiveuRHaXgC4BwmIM
-	 tMuT/dWEOwPHMZVJ5ylVJEPjxHuFndgYNzmEXn5rPF3kHgQalI/kFx6pnzHkJBFjFa
-	 ZoNUXp/ihvw7cy4yzL2h9f6vqGXH8Xs5aI2RXjd5fQltj7L146IeCa2tyaZnsBhF9v
-	 S7Pe0JQ3RdoTA==
+	b=nYbUB4OHlg/w1pXC/ufdNxR2DhvnYpiuJagy6bN68/+EeySWZ41OrQpqQLm8cKSb7
+	 p608CI9t+4j3uS+lS5VzSBhrFCBRizQsTBWURm5h9AJMJVwOKaAE6MRT/DuY6k2utF
+	 HBu99WfUfDXnyYFV0MsqFdg7/DhsXxA/7iRimsL1SLFBqxga/53DOxOtqG9Tz83l1C
+	 sDDeO8kXIonGXDyoYYDFhDlEQpNSXpbNu/GEGy7HdNNwaMHnGK5fP3mCAtR4X0lvpw
+	 8DiGyBsNG5cIcuNHXL2rruOFOALzcnd8pCj7FClLuIu0DU1IQj19jBZ0obB1EEPKIC
+	 Lh3huyyxenKsA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vR5ww-0000000AP90-3Vw7;
-	Thu, 04 Dec 2025 09:48:34 +0000
+	id 1vR5wx-0000000AP90-0I6P;
+	Thu, 04 Dec 2025 09:48:35 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Ben Horgan <ben.horgan@arm.com>,
 	Yao Yuan <yaoyuan@linux.alibaba.com>
-Subject: [PATCH v3 3/9] KVM: arm64: Add a generic synchronous exception injection primitive
-Date: Thu,  4 Dec 2025 09:48:00 +0000
-Message-ID: <20251204094806.3846619-4-maz@kernel.org>
+Subject: [PATCH v3 4/9] KVM: arm64: Handle FEAT_IDST for sysregs without specific handlers
+Date: Thu,  4 Dec 2025 09:48:01 +0000
+Message-ID: <20251204094806.3846619-5-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251204094806.3846619-1-maz@kernel.org>
 References: <20251204094806.3846619-1-maz@kernel.org>
@@ -70,6 +70,9 @@ X-SA-Exim-Connect-IP: 185.219.108.64
 X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, ben.horgan@arm.com, yaoyuan@linux.alibaba.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251204_014838_006166_F70FF211 
+X-CRM114-Status: GOOD (  13.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,64 +87,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Maybe in a surprising way, we don't currently have a generic way
-to inject a synchronous exception at the EL the vcpu is currently
-running at.
+Add a bit of infrastrtcture to triage_sysreg_trap() to handle the
+case of registers falling into the Feature ID space that do not
+have a local handler.
 
-Extract such primitive from the UNDEF injection code.
+For these, we can directly apply the FEAT_IDST semantics and inject
+an EC=0x18 exception. Otherwise, an UNDEF will do.
 
-Reviewed-by: Ben Horgan <ben.horgan@arm.com>
-Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/kvm_emulate.h |  1 +
- arch/arm64/kvm/inject_fault.c        | 10 +++++++---
- 2 files changed, 8 insertions(+), 3 deletions(-)
+ arch/arm64/kvm/emulate-nested.c | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index c9eab316398e2..df20d47f0d256 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -45,6 +45,7 @@ bool kvm_condition_valid32(const struct kvm_vcpu *vcpu);
- void kvm_skip_instr32(struct kvm_vcpu *vcpu);
+diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+index 616eb6ad68701..fac2707221b47 100644
+--- a/arch/arm64/kvm/emulate-nested.c
++++ b/arch/arm64/kvm/emulate-nested.c
+@@ -2588,6 +2588,26 @@ bool triage_sysreg_trap(struct kvm_vcpu *vcpu, int *sr_index)
  
- void kvm_inject_undefined(struct kvm_vcpu *vcpu);
-+void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr);
- int kvm_inject_serror_esr(struct kvm_vcpu *vcpu, u64 esr);
- int kvm_inject_sea(struct kvm_vcpu *vcpu, bool iabt, u64 addr);
- void kvm_inject_size_fault(struct kvm_vcpu *vcpu);
-diff --git a/arch/arm64/kvm/inject_fault.c b/arch/arm64/kvm/inject_fault.c
-index dfcd66c655179..7102424a3fa5e 100644
---- a/arch/arm64/kvm/inject_fault.c
-+++ b/arch/arm64/kvm/inject_fault.c
-@@ -162,12 +162,16 @@ static void inject_abt64(struct kvm_vcpu *vcpu, bool is_iabt, unsigned long addr
- 	vcpu_write_sys_reg(vcpu, esr, exception_esr_elx(vcpu));
- }
+ 		params = esr_sys64_to_params(esr);
  
-+void kvm_inject_sync(struct kvm_vcpu *vcpu, u64 esr)
-+{
-+	pend_sync_exception(vcpu);
-+	vcpu_write_sys_reg(vcpu, esr, exception_esr_elx(vcpu));
-+}
++		/*
++		 * This implements the pseudocode UnimplementedIDRegister()
++		 * helper for the purpose of fealing with FEAT_IDST.
++		 *
++		 * The Feature ID space is defined as the System register
++		 * space in AArch64 with op0==3, op1=={0, 1, 3}, CRn==0,
++		 * CRm=={0-7}, op2=={0-7}.
++		 */
++		if (params.Op0 == 3 &&
++		    !(params.Op1 & 0b100) && params.Op1 != 2 &&
++		    params.CRn == 0 &&
++		    !(params.CRm & 0b1000)) {
++			if (kvm_has_feat_enum(vcpu->kvm, ID_AA64MMFR2_EL1, IDS, IMP))
++				kvm_inject_sync(vcpu, kvm_vcpu_get_esr(vcpu));
++			else
++				kvm_inject_undefined(vcpu);
 +
- static void inject_undef64(struct kvm_vcpu *vcpu)
- {
- 	u64 esr = (ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT);
- 
--	pend_sync_exception(vcpu);
--
- 	/*
- 	 * Build an unknown exception, depending on the instruction
- 	 * set.
-@@ -175,7 +179,7 @@ static void inject_undef64(struct kvm_vcpu *vcpu)
- 	if (kvm_vcpu_trap_il_is32bit(vcpu))
- 		esr |= ESR_ELx_IL;
- 
--	vcpu_write_sys_reg(vcpu, esr, exception_esr_elx(vcpu));
-+	kvm_inject_sync(vcpu, esr);
- }
- 
- #define DFSR_FSC_EXTABT_LPAE	0x10
++			return true;
++		}
++
+ 		/*
+ 		 * Check for the IMPDEF range, as per DDI0487 J.a,
+ 		 * D18.3.2 Reserved encodings for IMPLEMENTATION
 -- 
 2.47.3
 
