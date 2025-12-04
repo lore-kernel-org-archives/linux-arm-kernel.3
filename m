@@ -4,95 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C695D1CDCA
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 10:20:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11976D1F9AE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 10:32:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YWndlYmmP/ziqcPNiLCxF5pZQ45lalch3dWqqxWyVdM=; b=DaiAjHx6v43B62qVMTozHVNwLU
-	ixDEP4ctZ7crJNZa5eFPmupUTvakRWPsCSPYhgN6+Q2y0Ye/WoSnloYHuNhkkXzoThL9BuAL9aRdi
-	AO+bf9jOcpf7SP2NiyDGTvBlJ2c6lDLaThrjazIxDWV1LGoL4AT96n+5TYDP8x4Jjg5eVg77XN5gE
-	YViftGdxknVB8V/Lpf/BLwqKlE15xrnEQ+oSRa89oRD1oZfuOdUNQvUJLyuhWVtjeFj7YFOfXUbaB
-	dtweOj7C6CAdkzMSAtv3fkRLqfzVK+jeJTHqdzFyJJ9tPEu5zmLdvjFQlgxq66vd3CARZf26NVx2n
-	6FsoIGpg==;
+	bh=4EBpXU61ZQEoOTX+cW7yeiSElN/Bto8IzYh+gLF9OA8=; b=ckK0xu72Vcx6G0T7znEqM/oMUf
+	2Q5FrjuXlHIuKhXLt9KMm0F19wg1PNGj15Gu90gaqbsZoaJKvDwoOjPR/ghPX3xNl4Dlthwqh/LBT
+	Ind5rhfWGhKpf2HxXYpyj8TsdU1e4vxf03mJqQXVsURjPmkssC86+Dg2fqsNZU8xur44KSpEQrAY7
+	yb2XeX5G1kdz9SMcoaIDJbGJROl5Fvf16Mlh3owYKXvZFV9X2n++gCapp6lRbZnODSOhTV3a//zyY
+	pXoadBoQ9K8pOL2wUD/5pQrq9eXvGZBTJH7dNABIfcwhK09r8aiq6C2rbm1tKAmUgcPsEvAkicvsE
+	89NpuEAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR6S6-00000007ple-0P9Y;
-	Thu, 04 Dec 2025 10:20:46 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR6S2-00000007plG-3UlK
+	id 1vR6cw-00000007qJo-1wjx;
+	Thu, 04 Dec 2025 10:31:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vR6ct-00000007qJL-3a17
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 10:20:44 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4779aa4f928so7543925e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 02:20:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1764843640; x=1765448440; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=YWndlYmmP/ziqcPNiLCxF5pZQ45lalch3dWqqxWyVdM=;
-        b=ROUI3NjllXEyuut0/V0E/QVFvcJrjc88gXmcpeOrJ+SMYhNc/2TvUxjzeMNLR7bVnF
-         MmoyZ4ay79rUFnLwPn5Y63fJGfHduhfRzLf6t+OOowGtTwnad3sgiA+w/AqWZ/p6usow
-         Md9kRuV67NwgmLApvGxYWvw7CZneeBYfT/TOGnJ2jwmSpwg7hC+A9sLsGyXE4Ug4h17Q
-         RoHugASMwUJVyqmVge4eZoE7n1i3MLmPP1ElhSn6aEUdrsIkmpJFKs9Qfj15B377oV0O
-         Xc6jDf2gS9sej+PpmyI66t31N79tfQbRLguhhqD0cDQiGV6s+0KIo6V0qMLIpKD52MVC
-         nMgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764843640; x=1765448440;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YWndlYmmP/ziqcPNiLCxF5pZQ45lalch3dWqqxWyVdM=;
-        b=OVCIJEvxXXQyxw9rszpw7gC/Jxfi81C2kD8FvxJJ/xvQe4ab7O0naqpnfqWAh3rDHB
-         pfDhp+PGXZFa8xONcjEYx+RsllB0f9mo/jju/VMrE+H00QGzK21eXEfF9xRWP+N7GFyu
-         aPvl0qphRAvsuEs+8CLLc3Rw2lQH7scXPNKuveCaQIMxpu4QARqyFklvKFDRn3bYCVLj
-         yZhaQ+8ynS071FHEW3g6MBLifeho2ZM+2qqwDg9BmRWmDN9eI/2WX5D3dMbhrurPi9kO
-         lCxDnJrVyrodTeBMY1lIV5gHkZYV7kYmltrgW8LEM9omrnbsIPWZFWfedc+h9CMlAwx3
-         gfKA==
-X-Forwarded-Encrypted: i=1; AJvYcCWyeWritLRhm9NJe1zs9Qnb6mdPElYey+en6/Y1pO9cWjkX8jWgGvy0ZzYqBRLcGUbnZshr8JrVon9kdz0mQAqy@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpT7dff3q41kcvEDKGeuJSk9/RqrdJHbdPjK+3NT0Lz8Bz1Gl6
-	o2mI4ertkfgAq68QqiOyldEjgiNSaFFDHFzJDV96Mj4n7WJTOCCbkHMg/XC7KKgI3DQ=
-X-Gm-Gg: ASbGncsFln++ebRm4DDPX8WP5Ba4RYJHOYmeOUFLiv1gQSRkSFLszK5iKCOH7wshrcT
-	X5mLNT6QghF4hWTTVCrmeba1+XrpFWLj/kQiWp28lRVQ5dtOBlVOsEwvTsYCiSW52tFONaSZ20q
-	PnKpph7xTR6ldnV2VUlbpy/Y+n3JuU/4rOyeEdygfflmRbQkXUBpoVTok8HMjUj/G5L9vn8tOiG
-	3kuSy4zagniSIOVwpXGg0SIe1YdjSVH3jhDCDaFcPQYUTxdiG3PRTSAPonHjNoh30q8rQIbScNa
-	PWhe68JTbhwv5Hp+LHbG5YARPniUSe/90eCUzmWABuYuUvv81WepiNvyJv/71aQvIcbCtBYwu/k
-	0D7aheXaKT9g5XnUmvzcvwyp4UsC+mNfO/Irh0LbPmDktLXJgcbxnR54iCHAy4pns3knPTIvoSw
-	pnALskG7+daq0ZpA==
-X-Google-Smtp-Source: AGHT+IGjXxBqCI3nHyvyKZ8gwjTRWgF1uFsxgb0njJqQCdjIbfZ8SPxmGGQrKiRSeV8F05NFAcnbCA==
-X-Received: by 2002:a5d:5d86:0:b0:42b:3907:a38b with SMTP id ffacd0b85a97d-42f79855e9amr2270006f8f.44.1764843639686;
-        Thu, 04 Dec 2025 02:20:39 -0800 (PST)
-Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42f7d2226c5sm2492488f8f.23.2025.12.04.02.20.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Dec 2025 02:20:39 -0800 (PST)
-Date: Thu, 4 Dec 2025 11:20:37 +0100
-From: Petr Mladek <pmladek@suse.com>
-To: John Ogness <john.ogness@linutronix.de>
-Cc: Leo Yan <leo.yan@arm.com>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Breno Leitao <leitao@debian.org>, linux@armlinux.org.uk,
-	paulmck@kernel.org, usamaarif642@gmail.com,
+	Thu, 04 Dec 2025 10:31:57 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9EBA0339;
+	Thu,  4 Dec 2025 02:31:46 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8FE6C3F73B;
+	Thu,  4 Dec 2025 02:31:53 -0800 (PST)
+Date: Thu, 4 Dec 2025 10:31:51 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Mike Leach <mike.leach@linaro.org>
+Cc: Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+	quic_yingdeng@quicinc.com, coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-team@meta.com, rmikey@meta.com
-Subject: Re: [PATCH] printk/nbcon: Restore IRQ in atomic flush after each
- emitted record
-Message-ID: <aTFgdQNeKb0k4SQS@pathway.suse.cz>
-References: <20251202135832.156559-1-pmladek@suse.com>
- <87o6oheywd.fsf@jogness.linutronix.de>
- <20251202162639.GD724103@e132581.arm.com>
- <87ikenyclh.fsf@jogness.linutronix.de>
+	linux-arm-msm@vger.kernel.org,
+	Jinlong Mao <jinlong.mao@oss.qualcomm.com>,
+	Mao Jinlong <quic_jinlmao@quicinc.com>
+Subject: Re: [PATCH v6 2/2] coresight: cti: Add Qualcomm extended CTI support
+Message-ID: <20251204103151.GK724103@e132581.arm.com>
+References: <20251202-extended_cti-v6-0-ab68bb15c4f5@oss.qualcomm.com>
+ <20251202-extended_cti-v6-2-ab68bb15c4f5@oss.qualcomm.com>
+ <20251203182944.GG724103@e132581.arm.com>
+ <CAJ9a7VjWDBEwdmMf53geACBWGusC8BC3pJuOLETeecw24+N35Q@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <87ikenyclh.fsf@jogness.linutronix.de>
+In-Reply-To: <CAJ9a7VjWDBEwdmMf53geACBWGusC8BC3pJuOLETeecw24+N35Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_022043_286624_E56D6A47 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20251204_023155_952027_F048356D 
+X-CRM114-Status: GOOD (  15.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,50 +73,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed 2025-12-03 13:33:38, John Ogness wrote:
-> On 2025-12-02, Leo Yan <leo.yan@arm.com> wrote:
-> >> I am not really happy about all the local_irq_restore() usage. Using
-> >> guard syntax would be nice here, but AFAICT there is no guard for
-> >> local_irq_save()/_restore().
+On Thu, Dec 04, 2025 at 09:07:56AM +0000, Mike Leach wrote:
+
+[...]
+
+> > I saw CTI registers are within 4KiB (0x1000), we can don't convert
+> > standard regiserts and only convert to QCOM register based on the
+> > standard ones.  So you can drop the cti_normal_offset strucuture and
+> > only have a cti_reg_qcom_offset[] struct:
 > >
-> > Sorry for suddenly jumping in.  Wouldn't guard(irqsave)() be helpful
-> > here?
+> >   static const u32 cti_extended_offset[] = {
+> >         [CTIINTACK]             = QCOM_CTIINTACK,
+> >         [CTIAPPSET]             = QCOM_CTIAPPSET,
+> >         [CTIAPPCLEAR]           = QCOM_CTIAPPCLEAR,
+> >         [CTIAPPPULSE]           = QCOM_CTIAPPPULSE,
+> >         [CTIINEN]               = QCOM_CTIINEN,
+> >         ...
+> >   };
+> >
 > 
-> Thanks, I was not aware of the irqsave variant. We would want the scoped
-> version. So something like this?
-> 
-> $ git diff -w
-> diff --git a/kernel/printk/nbcon.c b/kernel/printk/nbcon.c
-> index 3fa403f9831f..55beb64c4f4a 100644
-> --- a/kernel/printk/nbcon.c
-> +++ b/kernel/printk/nbcon.c
-> @@ -1557,6 +1557,14 @@ static int __nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
->  	ctxt->allow_unsafe_takeover	= nbcon_allow_unsafe_takeover();
->  
->  	while (nbcon_seq_read(con) < stop_seq) {
-> +		/*
-> +		 * Atomic flushing does not use console driver synchronization
-> +		 * (i.e. it does not hold the port lock for uart consoles).
-> +		 * Therefore IRQs must be disabled to avoid being interrupted
-> +		 * and then calling into a driver that will deadlock trying
-> +		 * to acquire console ownership.
-> +		 */
-> +		scoped_guard(irqsave) {
->  			if (!nbcon_context_try_acquire(ctxt, false))
->  				return -EPERM;
->  
-> @@ -1569,6 +1577,7 @@ static int __nbcon_atomic_flush_pending_con(struct console *con, u64 stop_seq)
->  				return -EAGAIN;
->  
->  			nbcon_context_release(ctxt);
-> +		}
->  
->  		if (!ctxt->backlog) {
->  			/* Are there reserved but not yet finalized records? */
-> 
+> I suggested the dual offset approach a couple of patchset revisions
+> ago as it actually simplifies the code & makes it more efficient. The
+> offset array in use is set during probe and the remaining code is then
+> common to both without lots of "if qcom else " occurences.
 
-Great. Thanks for hint. I am going to send v2 with this change.
+AFAICS, we will handle the QCOM CTI particularly in three cases:
 
-Best Regards,
-Petr
+  1) The register access;
+  2) The claim tag;
+  3) Sysfs attr is visible.
+
+Now we are discussing the reigster access.  As suggested, the
+"if qcom / else" is encapsulated (e.g., in cti_reg_addr_with_nr()), it
+will not spread out.
+
+I'd use standard registers by default and convert to non-standard ones
+only when needed.  A new "neutral" index layer seems redundant, as the
+existing standard register indexes already serve this purpose.
+
+For the sysfs attrs, it makes sense to use a central place to decide
+which knobs are only visible for QCOM CTI, otherwise, we also will not
+spread the condition check.
+
+I will reply separately for claim tag issue.
+
+Thanks,
+Leo
 
