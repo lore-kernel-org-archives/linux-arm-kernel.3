@@ -4,77 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CBC7D1D86F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 06:52:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B481FD1D878
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 07:13:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RqFa2b+K3fcKtemSHIfEKXbku0CciHAsPdEHPf8F7c8=; b=WN6XRP0eMUyRu+jXKEBs7+E8YY
-	l3mE5Ox0uWVVaNgv1KxB3UUzo6TSzqFNybLIWddPjIAjt/XyryH0K1hgQt/UhBBih2yk3a7OVi3HF
-	CGFrFZxXYoU5f4vcpUdALulmMy+S8DaAdJ3R7TyE+Sd18cTDUxPnBYNZBHZf1l3+1la74F1ZZltQM
-	AY8qW8xWAPi75TRL6WRBAmA1kHXVkTRk5v/bmZboB6kICio5QUXzbXQpIYxwMOW3Z6da43TQQMyAs
-	5wJ0g8kkDjVn7Gm3gdXmYeQP0A9WTaAZJKYT0pyBBL2xurEy4238MKyLj5U5oJdk+ZW8VMhYLDb66
-	7XrZENtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qIP/R1Am2jtLn2tNTHREzJcdQj6E6Ch3IniE5mg2gic=; b=VZG0ab8A1EN5LBxWUeoOZudN5p
+	K61TtSlBz5bSGnw5nJwUzB92OPpN5oh8/OXU/D5L3TmqpiydvroBADUAy4meC9YihBqYNVsJBaFJD
+	4/NTJzleaHoKkuHdPEH2q1+51HJzYwglElCmqdhcfxQIJYjO4JNDn5a0FIZxc1lTsOmrG5PnhAMYU
+	zu/sGw4tIr2/7VnKpVM2d20DYqLdSmVbe/YPfPwEnYUkem6dLSyrR3WB8RHcwLNswUtq97OMmPW9n
+	YVs41GH/o1LytRACxlruAMTAcpZlEOKG6+v9ENGsw1PQNKawApSqzQUo76eNjCd/oLWigBcT3NX0D
+	AY+h/zxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR3Cc-00000007aRI-0lAP;
-	Thu, 04 Dec 2025 06:52:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR3CW-00000007aQP-2XCG
+	id 1vR3WR-00000007bP5-3kvA;
+	Thu, 04 Dec 2025 07:13:03 +0000
+Received: from mail-northeuropeazon11011020.outbound.protection.outlook.com ([52.101.65.20] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vR3WP-00000007bOV-2Qqn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 06:52:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AEABB339;
-	Wed,  3 Dec 2025 22:52:18 -0800 (PST)
-Received: from [10.164.18.78] (unknown [10.164.18.78])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3C0333F59E;
-	Wed,  3 Dec 2025 22:52:16 -0800 (PST)
-Message-ID: <89ecddb7-83ee-427b-823b-984204939ecf@arm.com>
-Date: Thu, 4 Dec 2025 12:22:13 +0530
+	Thu, 04 Dec 2025 07:13:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Y1Teo5GNe4e7exitoiOgX5n37HBNVuVsKo/9WBKtyVAd5CVkKGlD2I8CcO8jvpsSwqIoSGua4D1HyAJH+y3RyDwdvLnagdFt0wU0cRFwvB7//nmeEgXzvpU3VEgwI9MtmaKXMho44mYkhiFS+r0k14DjmByaEhORd7VTgS/Jl0gWRIYsPNnVOowWYVJuewFprR7NsS9hSKyPoGRxLvXPJnGMWw4Jx32AiXYNcd6GpCbKn7AjkVwUtBlZ9vxAN1tXGBIUOPX3aZNLGWg5qSDKvKDczWigHWX66T53gO6bNgwfWzw1m3P2Qvzcr3AnshpftzSZUkAoYazFfWB44BNIAQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qIP/R1Am2jtLn2tNTHREzJcdQj6E6Ch3IniE5mg2gic=;
+ b=ubUyuSfxsP5EVOJksaSxdeSoe1kzjmHXkU5TucHSQ4OmC1vV3jmOzNAE/CIRfcrtuFwRdS0dyK26t8Q5zK6wL+d7GoBI9w2d8cADWo+b3HmZnwMhQoPstFIaYYjCZmk42BLe6mBkZM/g1On+rDZtLG+hhR4O4p9EiPBlU+Cf5VLTSfPtFRrQCPAdUbqW/IrJ+A6PknYl+JBeTOKK/4iWh0WWzCMTpClkh52Xk60DaGhAahtKlsYklBZceAuPNOC9PbW3/i354bfVFIgDEDSZhNenvEU+lt+dWqxg0PaUtODXuDnXtQYHp2LX8Vz6q893HsUU3JqRKhHIy0qhNX2WNQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qIP/R1Am2jtLn2tNTHREzJcdQj6E6Ch3IniE5mg2gic=;
+ b=cEN0mtXro7qbnLGrWM1KaCgLDsa5m9IBST6gFUyBHJNApAwkRqeNq+WdqZzrgFRSBaS3uPIM78qgxLok7lh7vBOR8Od1v0+lhluc3QOv+aZX3MtFXfUqrQpMVcc/w3va/OfiaETH4Ew9uKU0cOU+oUT653UHrQ/7BtedotR6mN3u7ow9M8E5jDLD2M5ajiithrkIc/dXPiByMJy32LDn2DPHs+5ZkpHWnEiHkrAdeyswiVMvrLJsqlmi0cengQIhg5AkOP/Df/tVRv1+OajVuq0PiRmnYGk/Fe65nc+Ar3Cigi/pXobnGBohn9ExEvtd6OP8Rnv9Ix1lS7p4nHBEnQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
+ by DU6PR04MB11184.eurprd04.prod.outlook.com (2603:10a6:10:5c1::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Thu, 4 Dec
+ 2025 07:12:55 +0000
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db]) by PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db%4]) with mapi id 15.20.9388.009; Thu, 4 Dec 2025
+ 07:12:55 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	ast@kernel.org,
+	daniel@iogearbox.net,
+	hawk@kernel.org,
+	john.fastabend@gmail.com,
+	sdf@fomichev.me,
+	rmk+kernel@armlinux.org.uk,
+	0x1207@gmail.com,
+	hayashi.kunihiko@socionext.com,
+	vladimir.oltean@nxp.com,
+	boon.leong.ong@intel.com
+Cc: imx@lists.linux.dev,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	bpf@vger.kernel.org
+Subject: [PATCH net] net: stmmac: fix the crash issue for zero copy XDP_TX action
+Date: Thu,  4 Dec 2025 15:13:32 +0800
+Message-Id: <20251204071332.1907111-1-wei.fang@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SG2P153CA0039.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c6::8)
+ To PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 09/12] arm64: mm: replace TIF_LAZY_MMU with
- in_lazy_mmu_mode()
-To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
-Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>, "David S. Miller"
- <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
- Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Suren Baghdasaryan <surenb@google.com>,
- Thomas Gleixner <tglx@linutronix.de>,
- Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
- xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251124132228.622678-1-kevin.brodsky@arm.com>
- <20251124132228.622678-10-kevin.brodsky@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20251124132228.622678-10-kevin.brodsky@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8510:EE_|DU6PR04MB11184:EE_
+X-MS-Office365-Filtering-Correlation-Id: c219e869-efa3-4d5f-5d36-08de33048bc5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|1800799024|366016|19092799006|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?zcDDwxt+KD+0QNhn2qWvhyfnjCQRM91J+yoMcWPIT/mobinI6YqT5iwBHQm4?=
+ =?us-ascii?Q?rS6v8T4CLTiF98cCJiX7mMfGHMTUSDVt+GqemOvqLCOkmXVVng/jrvgbwcmN?=
+ =?us-ascii?Q?R6BLmdq3/GkndTFJ6itbD7TJTuhFLViOXX/RCqHn5o8OVWcux1gIWhF8DD1A?=
+ =?us-ascii?Q?9QThSZVxJRRYlefyXRXe6ExDxpsSuzhofliB52s3reW6qPwwX2XbG6VzvsKO?=
+ =?us-ascii?Q?Tnk9seBdZ7W+lqlu+e9eBk0toF9fFUmI2EorUMHAJldKTZ26i72ZuZt2O3EG?=
+ =?us-ascii?Q?LELDIyqRynz0zAAFFCAZYMbvdvC/9LDhbdBAKZzG1M7c4VrjpVsnk87elyhR?=
+ =?us-ascii?Q?RT3TPwirbyJEvugMWiEat2hZq5ZLh/2KAt2v8IqNjNgc0DidjI+ZJ9TTXE4j?=
+ =?us-ascii?Q?Uvi9lZetGSKo8n5n42YegI+i77+sPUJNgcjkJnyolIlhmzdJH2s2cJWpx9LW?=
+ =?us-ascii?Q?idlc3ndoX8RFbmII4eHtM+234a5C8IIK/oUm5FVIv2bSgOrkPk73YEwnSo5a?=
+ =?us-ascii?Q?6kMrsN9fRBU/Z7c2Xfo2ZkMyrdLZc5Oh7wbrNXAAE63AFExC8DC9PlWc0jrj?=
+ =?us-ascii?Q?LO97fe0o9KgrQJx+hhAg2ZeBarhbic1iBRjjeWShRrDHq7sfSV15jMLXg5zn?=
+ =?us-ascii?Q?yOW0FKNjNGMfW2Q7Odztdu8kZhfbydl1kkRYIMteJOkyOS+Znw41V1JoJa1c?=
+ =?us-ascii?Q?dX3qTqNCXXLKHODb2ltRvGrMCPqfDN2bhKaztKvKoI6kSq/QQpQ0PGKXowTb?=
+ =?us-ascii?Q?lFUpyRaKEP7SNbiREUF61IfAQJLwtzurKIkMhcUOWS6mcJSVv186XSOEC4FT?=
+ =?us-ascii?Q?WbUsC/R6bBBqaG8RPUnNx48sP+Sr9AKZp8dHzhIrNesMCWPxlMwDp3Ngl+HH?=
+ =?us-ascii?Q?b2dY/qTGw0nZLrbGPWQcEUcjrvwLGvV3vKzfpFwbdZljCLDySqU4X+uwwHNF?=
+ =?us-ascii?Q?PrtOdBQHSWnRtjbOqECQJAz8rzq9xUHLVPCSbFtw5JXp9MJ7nXK3chkbMGuQ?=
+ =?us-ascii?Q?O4tLJMGdizUD0vtesS8sN0UJ1l9fFubtOd2kCTRz6qzHBOqw+0MhF8yz5waI?=
+ =?us-ascii?Q?uIR4bsnVz9o7QOU7As2VVuXe45IL+8MMzUHRe9mfNUilOHRWVzhY/I9uqB6S?=
+ =?us-ascii?Q?Rl4tyBZhFodnRBqhlSlZwGfmupdSYQhfnm5PvNMRzy67SdNz9VebMlytf7qS?=
+ =?us-ascii?Q?YiopF1gmVrrwNwmGukNRGxHq6EvnDuJ0W4UU3Sgr6pHdFUzW7uzesV56GrEu?=
+ =?us-ascii?Q?6K/e0iyOTomx1Yd7M5kbsTHEzd2gDxEeibr3KHaO1VIwM0IglDBRfynW7zmZ?=
+ =?us-ascii?Q?jFfOfryHDUvBdVaJ606fSNU/EhaR7U1mF/4BxpBDW/JMpHk/YAGlbzOgoe1t?=
+ =?us-ascii?Q?1Ta9K5JtBLalyEz8nfacnkUq5KPEB7wqg5HhsnL0NQjeiyr3nol4qbGYduDJ?=
+ =?us-ascii?Q?q4Z609+F1pNasiNcGVIOcm6hD00BWJ+vOWKJB4zQZAzI8fqVjh18U+WVDhJ8?=
+ =?us-ascii?Q?8VoQ0am4C40HYFcvo+GCVBSiNzFpKDiJNS2r693Jehn1oajDhIKnIibu/g?=
+ =?us-ascii?Q?=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(1800799024)(366016)(19092799006)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?3OcbNs0OusLY+pwDq1AnjB5cViSU1aQuh4k0Tyjg224piU+eVRlo53nKTFK6?=
+ =?us-ascii?Q?UM61uV7dFd7sUcOzFE9kQYzvYemU3Iatw5sPLnDIU4+T/8+tAumNmqiypcxi?=
+ =?us-ascii?Q?+J1zlDyEqYRTYj3nsaBq21Oz/x1p7pf5AdW5I0T9UXlp3en0QBjek/3zn6Nz?=
+ =?us-ascii?Q?Q1NQXk5i8k07mUeOV7Aw9iAiqyXIm4OTO12/JTSnzo4S/w71OtFOGAWNJr28?=
+ =?us-ascii?Q?e/yEHV+6zyuNKW0WQxebSetryl0i5LvHs42ZadzUxYE8Yns2k+qBVYOWSpra?=
+ =?us-ascii?Q?cuSX1PLPNPG/C72Z5AHzdCM7XrLQzaLie5MsuROWHiRb3UMAzK2osNt41VlB?=
+ =?us-ascii?Q?2ALGEEaivKQbnutWHyuCAITLEVHEV495DVvnOZ3DQMU4bxhgD4ouTR5hElAQ?=
+ =?us-ascii?Q?1AIRw6YB+7isMpdX8jShmkuOXmSuS9aLa2VfJCZRyGbDN49BkVMcQcG5qzs7?=
+ =?us-ascii?Q?ukNVQxH1QWVuWSYn3xJwtVH2jtL//vl1burQg65oqF5HPplNMb9xlXELFfw0?=
+ =?us-ascii?Q?qGvOEqcTzmKJP2xTXNz08D4w/yKb0DiHO4dMutHmVRi8KqhGaQooF99/FEKp?=
+ =?us-ascii?Q?TzYt6PwuVQYntcBfCpIRcfEdhBFNmbplPDdsfJQ6t2yAcC1k+ihIlGNyRC/f?=
+ =?us-ascii?Q?o/vNXQGZr4dQUS0T0BfPYdVUCkRNIwIkjaC92Lkh2WPEQueuXoGsGhFD3hsp?=
+ =?us-ascii?Q?6PeC8xOjjnS141Np0TFODM0QasgY2CDaeUZxUTyQ2OoAWWLQI6Ia2FWtaAZh?=
+ =?us-ascii?Q?VEGzLmKuvoPktdEKUd2+xj97cYCYd4jnfty9gBlnXcuPfY/nNgfLx5nItndM?=
+ =?us-ascii?Q?UY1cDyL2xTMNBak4l/pl+mb8ytASiLnnogRrZCOFji0aqo1eWFmzy86IkT4I?=
+ =?us-ascii?Q?eGHyxFQRMcAZmObQt/trT55SE/M2rf+iSvK6BmlAdgIPu6CmFtrKpaTXaF+a?=
+ =?us-ascii?Q?bsVJA2ddt9KHjbpWKcy9IlOTgeBr5G+W58ZZx9Xurc6kVBQo8AL3QcC4vVgw?=
+ =?us-ascii?Q?+DCItbwefZ2Iba/yebXjKsqyZzb+45XeucIaCJBV/B6e9vIIUHRsjqf+9DsE?=
+ =?us-ascii?Q?bZpzAUY+utL6NENFz5FBukZSj8oCwY5lKlFsTCI6yLjv5T4GsEdzQ/ZRi4yF?=
+ =?us-ascii?Q?+lOTtJpoKqP6ifW0YcPQXgAqCvKB2qFPgT340aNUtBHzXexNafwu3f+V34nR?=
+ =?us-ascii?Q?Ip2CFPHO83SmkXbQqQGbkxtGqprKCdAGEi/drb2aN3HN5adHnJaj0DzGJmuI?=
+ =?us-ascii?Q?0SWLpiSMF/sSmpBFCo6BzghJuqNYkjhj0F0CGOu6AlXMRhh3SB61y/Nybu+Z?=
+ =?us-ascii?Q?ojHnH8qZplND/V7RnQvJNT1Wl1DWzOrQOloRh9i0R4rAv9Rhv86FjNOqE23l?=
+ =?us-ascii?Q?wLMt9s+FUu21JVeSirbi1Pub+sqqkMwvBUkKxoYLrX5SnfNUipYdTR0FEk6F?=
+ =?us-ascii?Q?wKDQY9KBBMl74YvyOZ6OhPzvBYCg+cP6XBVCYKGID01o/C4NZHnEps4YWl8F?=
+ =?us-ascii?Q?r/71T8sNG8vKNH3WfkRYoj1MkQq3jiWiFzbRLua5Bc0wxckNTLX93Fa4E9zF?=
+ =?us-ascii?Q?hnra8Mzf5PWUAaAbdN7f1EutM9ldWwJmyZS2ug5I?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c219e869-efa3-4d5f-5d36-08de33048bc5
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Dec 2025 07:12:55.3881
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: yKXbyn/EBiDm07D9I9e7BaGcdR4xFnnI6vr9T2xRUNl9tzrYbuh4EH6xt5ximR8hKfM/XOrI7VMNzSAFnAkZrQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU6PR04MB11184
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_225228_722237_4C02AE52 
-X-CRM114-Status: GOOD (  20.76  )
+X-CRM114-CacheID: sfid-20251203_231301_629236_AD92111C 
+X-CRM114-Status: GOOD (  17.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,87 +175,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/11/25 6:52 PM, Kevin Brodsky wrote:
-> The generic lazy_mmu layer now tracks whether a task is in lazy MMU
-> mode. As a result we no longer need a TIF flag for that purpose -
-> let's use the new in_lazy_mmu_mode() helper instead.
-> 
-> The explicit check for in_interrupt() is no longer necessary either
-> as in_lazy_mmu_mode() always returns false in interrupt context.
-> 
-> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> ---
->  arch/arm64/include/asm/pgtable.h     | 19 +++----------------
->  arch/arm64/include/asm/thread_info.h |  3 +--
->  2 files changed, 4 insertions(+), 18 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-> index a7d99dee3dc4..dd7ed653a20d 100644
-> --- a/arch/arm64/include/asm/pgtable.h
-> +++ b/arch/arm64/include/asm/pgtable.h
-> @@ -62,28 +62,16 @@ static inline void emit_pte_barriers(void)
->  
->  static inline void queue_pte_barriers(void)
->  {
-> -	unsigned long flags;
-> -
-> -	if (in_interrupt()) {
-> -		emit_pte_barriers();
-> -		return;
-> -	}
-> -
-> -	flags = read_thread_flags();
-> -
-> -	if (flags & BIT(TIF_LAZY_MMU)) {
-> +	if (in_lazy_mmu_mode()) {
->  		/* Avoid the atomic op if already set. */
-> -		if (!(flags & BIT(TIF_LAZY_MMU_PENDING)))
-> +		if (!test_thread_flag(TIF_LAZY_MMU_PENDING))
+There is a crash issue when running zero copy XDP_TX action, the crash
+log is shown below.
 
-A small nit - will it be better not to use test_thread_flag() here and just
-keep checking flags like earlier to avoid non-related changes. Although not
-a problem TBH.
+[  216.122464] Unable to handle kernel paging request at virtual address fffeffff80000000
+[  216.187524] Internal error: Oops: 0000000096000144 [#1]  SMP
+[  216.301694] Call trace:
+[  216.304130]  dcache_clean_poc+0x20/0x38 (P)
+[  216.308308]  __dma_sync_single_for_device+0x1bc/0x1e0
+[  216.313351]  stmmac_xdp_xmit_xdpf+0x354/0x400
+[  216.317701]  __stmmac_xdp_run_prog+0x164/0x368
+[  216.322139]  stmmac_napi_poll_rxtx+0xba8/0xf00
+[  216.326576]  __napi_poll+0x40/0x218
+[  216.408054] Kernel panic - not syncing: Oops: Fatal exception in interrupt
 
->  			set_thread_flag(TIF_LAZY_MMU_PENDING);
->  	} else {
->  		emit_pte_barriers();
->  	}
->  }
->  
-> -static inline void arch_enter_lazy_mmu_mode(void)
-> -{
-> -	set_thread_flag(TIF_LAZY_MMU);
-> -}
-> +static inline void arch_enter_lazy_mmu_mode(void) {}
->  
->  static inline void arch_flush_lazy_mmu_mode(void)
->  {
-> @@ -94,7 +82,6 @@ static inline void arch_flush_lazy_mmu_mode(void)
->  static inline void arch_leave_lazy_mmu_mode(void)
->  {
->  	arch_flush_lazy_mmu_mode();
-> -	clear_thread_flag(TIF_LAZY_MMU);
->  }
->  
->  #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-> diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
-> index f241b8601ebd..4ff8da0767d9 100644
-> --- a/arch/arm64/include/asm/thread_info.h
-> +++ b/arch/arm64/include/asm/thread_info.h
-> @@ -84,8 +84,7 @@ void arch_setup_new_exec(void);
->  #define TIF_SME_VL_INHERIT	28	/* Inherit SME vl_onexec across exec */
->  #define TIF_KERNEL_FPSTATE	29	/* Task is in a kernel mode FPSIMD section */
->  #define TIF_TSC_SIGSEGV		30	/* SIGSEGV on counter-timer access */
-> -#define TIF_LAZY_MMU		31	/* Task in lazy mmu mode */
-> -#define TIF_LAZY_MMU_PENDING	32	/* Ops pending for lazy mmu mode exit */
-> +#define TIF_LAZY_MMU_PENDING	31	/* Ops pending for lazy mmu mode exit */
->  
->  #define _TIF_SIGPENDING		(1 << TIF_SIGPENDING)
->  #define _TIF_NEED_RESCHED	(1 << TIF_NEED_RESCHED)
+For XDP_TX action, the xdp_buff is converted to xdp_frame by
+xdp_convert_buff_to_frame(). The memory type of the resulting xdp_frame
+depends on the memory type of the xdp_buff. For page pool based xdp_buff
+it produces xdp_frame with memory type MEM_TYPE_PAGE_POOL. For zero copy
+XSK pool based xdp_buff it produces xdp_frame with memory type
+MEM_TYPE_PAGE_ORDER0. However, stmmac_xdp_xmit_back() does not check the
+memory type and always uses the page pool type, this leads to invalid
+mappings and causes the crash. Therefore, check the xdp_buff memory type
+in stmmac_xdp_xmit_back() to fix this issue.
 
-LGTM.
+Fixes: bba2556efad6 ("net: stmmac: Enable RX via AF_XDP zero-copy")
+Signed-off-by: Wei Fang <wei.fang@nxp.com>
+---
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c   | 17 +++++++++++++++--
+ 1 file changed, 15 insertions(+), 2 deletions(-)
 
-Hence with or without the 'flags' changes in queue_pte_barriers() above.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 7b90ecd3a55e..a6664f300e4a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -88,6 +88,7 @@ MODULE_PARM_DESC(phyaddr, "Physical device address");
+ #define STMMAC_XDP_CONSUMED	BIT(0)
+ #define STMMAC_XDP_TX		BIT(1)
+ #define STMMAC_XDP_REDIRECT	BIT(2)
++#define STMMAC_XSK_CONSUMED	BIT(3)
+ 
+ static int flow_ctrl = 0xdead;
+ module_param(flow_ctrl, int, 0644);
+@@ -4988,6 +4989,7 @@ static int stmmac_xdp_get_tx_queue(struct stmmac_priv *priv,
+ static int stmmac_xdp_xmit_back(struct stmmac_priv *priv,
+ 				struct xdp_buff *xdp)
+ {
++	bool zc = !!(xdp->rxq->mem.type == MEM_TYPE_XSK_BUFF_POOL);
+ 	struct xdp_frame *xdpf = xdp_convert_buff_to_frame(xdp);
+ 	int cpu = smp_processor_id();
+ 	struct netdev_queue *nq;
+@@ -5004,9 +5006,18 @@ static int stmmac_xdp_xmit_back(struct stmmac_priv *priv,
+ 	/* Avoids TX time-out as we are sharing with slow path */
+ 	txq_trans_cond_update(nq);
+ 
+-	res = stmmac_xdp_xmit_xdpf(priv, queue, xdpf, false);
+-	if (res == STMMAC_XDP_TX)
++	/* For zero copy XDP_TX action, dma_map is true */
++	res = stmmac_xdp_xmit_xdpf(priv, queue, xdpf, zc);
++	if (res == STMMAC_XDP_TX) {
+ 		stmmac_flush_tx_descriptors(priv, queue);
++	} else if (res == STMMAC_XDP_CONSUMED && zc) {
++		/* xdp has been freed by xdp_convert_buff_to_frame(),
++		 * no need to call xsk_buff_free() again, so return
++		 * STMMAC_XSK_CONSUMED.
++		 */
++		res = STMMAC_XSK_CONSUMED;
++		xdp_return_frame(xdpf);
++	}
+ 
+ 	__netif_tx_unlock(nq);
+ 
+@@ -5356,6 +5367,8 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
+ 			break;
+ 		case STMMAC_XDP_CONSUMED:
+ 			xsk_buff_free(buf->xdp);
++			fallthrough;
++		case STMMAC_XSK_CONSUMED:
+ 			rx_dropped++;
+ 			break;
+ 		case STMMAC_XDP_TX:
+-- 
+2.34.1
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
