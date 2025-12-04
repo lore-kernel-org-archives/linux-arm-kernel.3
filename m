@@ -4,85 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9A60D21680
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 21:03:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49924D21680
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 21:03:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=I3JyN6uQ6yNFenjv47EfSd7nrikiNFLfs5LjBOSqI2o=; b=hgZFE+9LaTgDijFLK/az+ypu9Z
-	FO/5aQXGFOTRBiI79X0oJV0FofN800IPB1a2cO5Pnr9ANAOuqCeE6WiqAoP1/Wk4naebNmRzls2Ku
-	fRrAoLWA9sRaj7LGZ8pIwFCj97B/IJElFGA83cefEDAtb0Cw+vwb4h9m2rvcNb1bE1mZObeCffLqh
-	bRRN5WfYu9kodEIx9IWBut4KeHkDX9CotXbXRi67ZRrcAXz8wPBow5BmU2x7IwXXhwGVJy9ifMamn
-	gVSTKFkh/1WNtoNyg+NUC9okJllwKEowNBs6MohGMYkNr2b1ZKEHOHJp5OmA0abv/CwIhoJ0Mmc4O
-	/epXVMkA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=STIWp+LK9lHzsE57fvJ0syJ4Lb1Zn5aVURhVAumuFSQ=; b=MMSMSXsBTOB3E0k1sLqtK3HFZX
+	1QLqCc0gcLqacyBHYQv4L8aXHY/mnjRgcZkETgkJ6f4zcRD3d56nXrxaaGEzABDo1+mfcucQ6HqJX
+	3GI8lvlDJ67fVfj4p2LObkih1CYa6lDT+YIm48AYuip/nFxeJUTCCjIsSoYi7O9sOVNfb1L6LRLut
+	QqyJ2gN65csjajYYI9WVdLk5rVEZ9r5f4F7RB73ivZ7M+GI1rlbnZp2+nOQXempGXH4AbEfh+2QYn
+	zXVSvO3/GKvVjMRFMpZaXoSH492bOD1A1SOp29tm8cNlu5SGb9Q7j3Jq+DEINyneIqIrGiUenHPKI
+	XPW8MLcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRGTg-00000008dzE-37gZ;
-	Thu, 04 Dec 2025 21:03:04 +0000
-Received: from fout-b2-smtp.messagingengine.com ([202.12.124.145])
+	id 1vRGTl-00000008e0K-0RL0;
+	Thu, 04 Dec 2025 21:03:09 +0000
+Received: from fhigh-b2-smtp.messagingengine.com ([202.12.124.153])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRGTd-00000008dyf-3w2J
+	id 1vRGTi-00000008dza-3Bgo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 21:03:03 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfout.stl.internal (Postfix) with ESMTP id E2B151D0014C;
-	Thu,  4 Dec 2025 16:02:57 -0500 (EST)
+	Thu, 04 Dec 2025 21:03:08 +0000
+Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 908D87A008A;
+	Thu,  4 Dec 2025 16:03:05 -0500 (EST)
 Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-04.internal (MEProxy); Thu, 04 Dec 2025 16:02:58 -0500
+  by phl-compute-10.internal (MEProxy); Thu, 04 Dec 2025 16:03:05 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bsdio.com; h=cc
 	:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=fm2; t=1764882177; x=1764968577; bh=I3JyN6uQ6yNFenjv47EfS
-	d7nrikiNFLfs5LjBOSqI2o=; b=rK0RJANIOIsD0uqvPoJBbyRWEGXwXsHapTZb5
-	n910WWWjTmj3QftdJ57Uy2jJ1bLH3XvnZaTnxZjtAZipXKfP01+Pf8sQA/eAY2nl
-	8nEgTcWFLTYay0wbQ9kB0y+xl5DaoeAZW0K/gxVBHfZQm0BlRfzRJDP7OgrrSSEJ
-	VQ2ujhPG1D8yGYe26lCnZwN24GBzfokVgyvhUEBNqUa8Hwu6ydzPGCew61oYJdPk
-	VzC9wAxRW+PP7Pq1W5JO75EiVwdNPwkNiA5W/0l8ShAdvMQQ+CAia3QKlrhJLWkO
-	GYDkapB3RLwWKHW1lYvpe5ue1+u3WOZuzKqyTtG8BN1OKPg9w==
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm2; t=1764882185; x=
+	1764968585; bh=STIWp+LK9lHzsE57fvJ0syJ4Lb1Zn5aVURhVAumuFSQ=; b=f
+	4Be1Qg+CdB/SicCDVOpWrolnmK+rGQpubxAgOrnI6qNe757Glr9A8JszzQLNZEQD
+	8zlAtdCqDtVXicMIj4WkVpUtiGh+f4+MubHbD+UQs2dlVBGS811hHOcB+6Vdfvkm
+	tjU6g10WfC1mCiXwVCkq9h7KuabjAVHL7/OM6hfNA/qEgFBlvESilSCwSwGZatLd
+	5z2znlTI3DUfN3Kvwm5yvSEDHkKofxWMUyRf8qX0W5TMNLiUtXXJoUFjrwuKHI6/
+	n89adWPtCm7sZ2utes+xpmLhS3GJH3871gXoJmK3WUXYzfRoy4lkgCnOiMxr9cJg
+	JgytouIumcAtQoIRhW04A==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
-	1764882177; x=1764968577; bh=I3JyN6uQ6yNFenjv47EfSd7nrikiNFLfs5L
-	jBOSqI2o=; b=lsIfHw/c0wyswHBUCEHZAR99I2ZVJs6H2rJDnl81RqGfBhSLjYB
-	Tu/f6Uwm+mqu/EcRsG51Ooxg91cgYM4R3NrmMq79o5H+31b9eaIxdepdb8824Kdq
-	AEaDepttW5X/iQHrQpXLFl0PP1TzwAFwe70DXszs+9KVHkYaF2fQtfKBy+HRI4if
-	0x1/of4E3T4Hm/MdRoQHKpQeQsUh1/8AKWPmIv+aBWtLDEMWEL1PUduARWQw2pHz
-	GKsCBiMhKqR1gcaKcwjDD828xOZihlixayfHZJ2XSLHW796HlkKiFyvJ0nxclpEj
-	7K1kNURCHN3EyC9kyRTfovxoW3Rl0F8WFKw==
-X-ME-Sender: <xms:APcxabIWzF6Epg04HgGAHowvaBtGMYLtGpCLXciMydnv3j90imAGIA>
-    <xme:APcxaXRnYCxHfoc-W5TNwh98HH9KjvcTYoRp0_9_nBrYwHwry3A2ScQKamZEXlbDW
-    9dE8YmFRRCKheAmpPRw2j7l92JPheGdGUz1QKa0UGo58jPxaVyyhCI>
-X-ME-Received: <xmr:APcxaTNSh0LbfLUx28dXIGEYvo1-Ch_PtTuVHOme3xKMJI4yUVZUm_4vuBqcQXdSMuUqSKcmPE87YtZB>
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm1; t=1764882185; x=1764968585; bh=S
+	TIWp+LK9lHzsE57fvJ0syJ4Lb1Zn5aVURhVAumuFSQ=; b=uCsNBk70yHeWpW3gw
+	sFUGK3Bul/JsyQnMCXOnCzwcZXbU1P+8ND4iHdgZVCpptMPr2NmVh9JMPMJOUeY3
+	P0zGJktF0tns0mwcDthTDGxhTS0+PYfa+1SoxwrelYlRNHIoW/d7V7pEwHiMQOTw
+	G17tmVfWUAxPtLGfNkkLI0YH3zwgkdJLVL48zzeOyYiY/x+vC7SyM+HoCHIsM6TL
+	6AskkWDkoMOf96dHFihcHTuwVyrgMBqQa3hj7/cgC6QCgf78B5vHWA85B2sERTFy
+	d/+V18kQ4Vg9fhjQOl2iSDEvx6nAnl9vjqai73rbNu5pTcB7MEirSxbdywriL4z5
+	lfmPg==
+X-ME-Sender: <xms:CfcxaVQsSHP4DAmAwRJ2Ha2rG_E5qnCLzxrNxQ_mkMlufLbLOimvSA>
+    <xme:CfcxaZNll2yMi3sDI3IJFVnb8DY8FHMzi8Hgole8dW4GXwmoHFLHcRQfG0EO1WRwn
+    5w-x93oWSzkIpJm4i6NzBgpb9-BPtZnXzTwNGs6Z1H-51I3wM8g-v8>
+X-ME-Received: <xmr:CfcxaSXQprHh9-qrQoIYZZBDu-SOXOgkbagi7q1INhBk9kic826GSWymixmfSIqporHbNeiEAK-2d-Lb>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdeiiedtucetufdoteggodetrfdotf
     fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
     lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
-    ephffvvefufffkofgggfestdekredtredttdenucfhrhhomheptfgvsggvtggtrgcuvehr
-    rghnuceorhgvsggvtggtrgessghsughiohdrtghomheqnecuggftrfgrthhtvghrnhepue
-    dvkedtleekueekgfejjeettefftdduiefffeehveefgfevueelgffhleelgfdvnecuvehl
-    uhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprhgvsggvtggtrg
-    essghsughiohdrtghomhdpnhgspghrtghpthhtohepuddupdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhrii
-    hkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghr
-    nhgvlhdrohhrghdprhgtphhtthhopehjohgvlhesjhhmshdrihgurdgruhdprhgtphhtth
-    hopegrnhgurhgvfiestghouggvtghonhhsthhruhgtthdrtghomhdrrghupdhrtghpthht
-    ohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoh
-    eplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdho
-    rhhgpdhrtghpthhtoheplhhinhhugidqrghsphgvvggusehlihhsthhsrdhoiihlrggssh
-    drohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgv
-    lhdrohhrgh
-X-ME-Proxy: <xmx:APcxaUVQ5jpOmrPV83ebfhCrLGhZwxMpIb2Y_Olwzz0zGm1EsZ1BAA>
-    <xmx:APcxaehMulI1aS0ZlQkrTqWdpiGetmW75epFd08Bi8_QfuHTafGGiw>
-    <xmx:APcxaVjOuBW8RmnoyjVWzpgnVtUfMPTXrbhT393U0IwqwuWJlwEwug>
-    <xmx:APcxaUH2HGs_Rv84w7jNn5Pyd_9JU5gxH8CnuagzpKHpLdYgN4JT5Q>
-    <xmx:AfcxacqgAeFqijyrJL-ZmIPnX4vTi-qw3svllPXxjXco1azWn1FLzmgi>
+    ephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomheptfgvsggvtggtrgcu
+    vehrrghnuceorhgvsggvtggtrgessghsughiohdrtghomheqnecuggftrfgrthhtvghrnh
+    epgeffueeuledvgefgvddvgfetvdduhfefkedukeeikedtudekfeetteeifedvleefnecu
+    vehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprhgvsggvtg
+    gtrgessghsughiohdrtghomhdpnhgspghrtghpthhtohepuddupdhmohguvgepshhmthhp
+    ohhuthdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkh
+    hriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehk
+    vghrnhgvlhdrohhrghdprhgtphhtthhopehjohgvlhesjhhmshdrihgurdgruhdprhgtph
+    htthhopegrnhgurhgvfiestghouggvtghonhhsthhruhgtthdrtghomhdrrghupdhrtghp
+    thhtohepuggvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpth
+    htoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggu
+    rdhorhhgpdhrtghpthhtoheplhhinhhugidqrghsphgvvggusehlihhsthhsrdhoiihlrg
+    gsshdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghr
+    nhgvlhdrohhrgh
+X-ME-Proxy: <xmx:CfcxaUj_E_g1b9NBVbYT51NxuF1RdrwCfquCNof4uH8dK_ZX1A-wJw>
+    <xmx:CfcxaTgBrMPxGSyLTKePaL_H0LLdL1yeLd_UsmRrJlZQnPnqkl--TQ>
+    <xmx:CfcxaaHf3iG3EQ7DCP5tH9wAH3BMq3tlqS0jK85lEK13qK4iZUWktg>
+    <xmx:CfcxaYAp5nymu1xnS9DXfgUG6YpHHQJhz2fdbTMWRYICwyHIPIsSEg>
+    <xmx:CfcxabfYLoKp-yKYOpbIYcdps2j-uzpzqaEFULPqb5E-Lj_mLk8xvh3H>
 Feedback-ID: i5b994698:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 4 Dec 2025 16:02:55 -0500 (EST)
+ 4 Dec 2025 16:03:04 -0500 (EST)
 From: Rebecca Cran <rebecca@bsdio.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -95,15 +97,17 @@ To: Rob Herring <robh@kernel.org>,
 	linux-kernel@vger.kernel.org
 Cc: Rebecca Cran <rebecca@bsdio.com>,
 	Billy Tsai <billy_tsai@aspeedtech.com>
-Subject: [PATCH v3 0/3] Add device tree for ASRock Rack ALTRAD8 BMC
-Date: Thu,  4 Dec 2025 14:02:33 -0700
-Message-ID: <20251204210238.40742-1-rebecca@bsdio.com>
+Subject: [PATCH v3 2/3] ARM: dts: aspeed: add device tree for ASRock Rack ALTRAD8 BMC
+Date: Thu,  4 Dec 2025 14:02:35 -0700
+Message-ID: <20251204210238.40742-3-rebecca@bsdio.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251204210238.40742-1-rebecca@bsdio.com>
+References: <20251204210238.40742-1-rebecca@bsdio.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_130302_389979_B7355C84 
-X-CRM114-Status: GOOD (  12.51  )
+X-CRM114-CacheID: sfid-20251204_130306_883563_0AB361ED 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,53 +122,645 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apologies for the long delay between v2 and v3 patches.
+The ALTRAD8 BMC is an Aspeed AST2500-based BMC for the ASRock Rack
+ALTRAD8UD-1L2T and ALTRAD8UD2-1L2Q boards.
 
-cc Billy Tsai for the move of ast2500 pwm-tacho docs from
-aspeed-pwm-tacho.txt to aspeed,g5-pwm-tacho.yaml.
+Signed-off-by: Rebecca Cran <rebecca@bsdio.com>
+---
+ arch/arm/boot/dts/aspeed/Makefile                      |   1 +
+ arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts | 612 ++++++++++++++++++++
+ 2 files changed, 613 insertions(+)
 
-The ASRock Rack ALTRAD8 BMC is an Aspeed AST2500-based BMC for the
-ALTRAD8UD-1L2T and ALTRAD8UD2-1L2Q boards with an Ampere Altra
-processor. The BMC runs OpenBMC.
-
-These patches add a device tree and binding for the BMC.
-
-**Changes between v2 and v3**
-
-- Removed system fault and enclosure identify LEDs; added heartbeat.
-- Removed the code partition from the BIOS/UEFI flash.
-- Renoved bus-frequency from i2c nodes.
-- Renamed hardware-monitor to temperature-sensor.
-- Fixed indentation of nct7802 subnodes.
-- Swapped eth0_macaddress and eth1_macaddress.
-- Removed pca9557 subnodes.
-- Reworked GPIO names to be more consistent.
-- Moved documentation of aspeed-pwm-tacho from txt to yaml file.
-
-**Testing**
-
-Ran `make ARCH=arm CHECK_DTBS=y aspeed/aspeed-bmc-asrock-altrad8.dtb` and
-verified the messages about the aspeed,pwm-tacho device are no longer present.
-The remaining messages are:
-
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: /ahb/apb/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2500-lhc']
-arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dtb: /ahb/apb/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2500-ibt-bmc']
-
-Rebecca Cran (3):
-  dt-bindings: arm: aspeed: add ASRock Rack ALTRAD8 board
-  ARM: dts: aspeed: add device tree for ASRock Rack ALTRAD8 BMC
-  dt-bindings: hwmon: (aspeed,g5-pwm-tacho) Move info from txt to yaml
-
- Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml      |   1 +
- Documentation/devicetree/bindings/hwmon/aspeed,pwm-tacho.yaml |  91 +++
- Documentation/devicetree/bindings/hwmon/aspeed-pwm-tacho.txt  |  73 ---
- arch/arm/boot/dts/aspeed/Makefile                             |   1 +
- arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts        | 612 ++++++++++++++++++++
- 5 files changed, 705 insertions(+), 73 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/hwmon/aspeed,pwm-tacho.yaml
- delete mode 100644 Documentation/devicetree/bindings/hwmon/aspeed-pwm-tacho.txt
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts
-
+diff --git a/arch/arm/boot/dts/aspeed/Makefile b/arch/arm/boot/dts/aspeed/Makefile
+index 0f0b5b707654..9fd42a30c56d 100644
+--- a/arch/arm/boot/dts/aspeed/Makefile
++++ b/arch/arm/boot/dts/aspeed/Makefile
+@@ -9,6 +9,7 @@ dtb-$(CONFIG_ARCH_ASPEED) += \
+ 	aspeed-bmc-ampere-mtjefferson.dtb \
+ 	aspeed-bmc-ampere-mtmitchell.dtb \
+ 	aspeed-bmc-arm-stardragon4800-rep2.dtb \
++	aspeed-bmc-asrock-altrad8.dtb \
+ 	aspeed-bmc-asrock-e3c246d4i.dtb \
+ 	aspeed-bmc-asrock-e3c256d4i.dtb \
+ 	aspeed-bmc-asrock-romed8hm3.dtb \
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts
+new file mode 100644
+index 000000000000..2696a8692607
+--- /dev/null
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts
+@@ -0,0 +1,612 @@
++// SPDX-License-Identifier: GPL-2.0+
++/dts-v1/;
++
++#include "aspeed-g5.dtsi"
++#include <dt-bindings/gpio/aspeed-gpio.h>
++#include <dt-bindings/leds/common.h>
++#include <dt-bindings/i2c/i2c.h>
++
++/ {
++	model = "ASRock ALTRAD8 BMC";
++	compatible = "asrock,altrad8-bmc", "aspeed,ast2500";
++
++	aliases {
++		serial4 = &uart5;
++		i2c50 = &nvme1;
++		i2c51 = &pcie4;
++		i2c52 = &pcie5;
++		i2c53 = &pcie6;
++		i2c54 = &pcie7;
++		i2c55 = &nvme3;
++		i2c56 = &nvme2;
++		i2c57 = &nvme0;
++		i2c58 = &nvme4;
++		i2c59 = &nvme5;
++		i2c60 = &nvme6;
++		i2c61 = &nvme7;
++		i2c62 = &nvme8;
++		i2c63 = &nvme9;
++		i2c64 = &nvme10;
++		i2c65 = &nvme11;
++	};
++
++	chosen {
++		stdout-path = "uart5:115200n8";
++	};
++
++	iio-hwmon {
++		compatible = "iio-hwmon";
++		io-channels =	<&adc 0>, <&adc 1>, <&adc 2>, <&adc 3>,
++				<&adc 4> ,<&adc 5>, <&adc 6>, <&adc 7>,
++				<&adc 8>, <&adc 9>, <&adc 10>, <&adc 11>,
++				<&adc 12>, <&adc 13>, <&adc 14>, <&adc 15>;
++	};
++
++	leds {
++		compatible = "gpio-leds";
++
++		led-heartbeat {
++			gpios = <&gpio ASPEED_GPIO(G,0) GPIO_ACTIVE_LOW>;
++			label = "platform:green:heartbeat";
++			color = <LED_COLOR_ID_GREEN>;
++			function = LED_FUNCTION_INDICATOR;
++		};
++
++		led-fan1-fault {
++			retain-state-shutdown;
++			default-state = "off";
++			gpios = <&io_expander0 0 GPIO_ACTIVE_LOW>;
++			label = "fan1:red:fault";
++			color = <LED_COLOR_ID_RED>;
++			function = LED_FUNCTION_FAULT;
++		};
++
++		led-fan2-fault {
++			retain-state-shutdown;
++			default-state = "off";
++			gpios = <&io_expander0 1 GPIO_ACTIVE_LOW>;
++			label = "fan2:red:fault";
++			color = <LED_COLOR_ID_RED>;
++			function = LED_FUNCTION_FAULT;
++		};
++
++		led-fan3-fault {
++			retain-state-shutdown;
++			default-state = "off";
++			gpios = <&io_expander0 2 GPIO_ACTIVE_LOW>;
++			label = "fan3:red:fault";
++			color = <LED_COLOR_ID_RED>;
++			function = LED_FUNCTION_FAULT;
++		};
++
++		led-fan4-fault {
++			retain-state-shutdown;
++			default-state = "off";
++			gpios = <&io_expander0 3 GPIO_ACTIVE_LOW>;
++			label = "fan4:red:fault";
++			color = <LED_COLOR_ID_RED>;
++			function = LED_FUNCTION_FAULT;
++		};
++
++		led-fan5-fault {
++			retain-state-shutdown;
++			default-state = "off";
++			gpios = <&io_expander0 4 GPIO_ACTIVE_LOW>;
++			label = "fan5:red:fault";
++			color = <LED_COLOR_ID_RED>;
++			function = LED_FUNCTION_FAULT;
++		};
++	};
++
++	memory@80000000 {
++		reg = <0x80000000 0x20000000>;
++	};
++
++	reserved-memory {
++		#address-cells = <1>;
++		#size-cells = <1>;
++		ranges;
++
++		gfx_memory: framebuffer {
++			compatible = "shared-dma-pool";
++			size = <0x01000000>;
++			alignment = <0x01000000>;
++			reusable;
++		};
++
++		vga_memory: framebuffer@9f000000 {
++			no-map;
++			reg = <0x9f000000 0x01000000>; /* 16M */
++		};
++
++		video_engine_memory: jpegbuffer {
++			compatible = "shared-dma-pool";
++			size = <0x02000000>;	/* 32M */
++			alignment = <0x01000000>;
++			reusable;
++		};
++	};
++};
++
++&adc {
++	status = "okay";
++};
++
++&fmc {
++	status = "okay";
++
++	flash@0 {
++		label = "bmc";
++		m25p,fast-read;
++		spi-max-frequency = <50000000>;
++		status = "okay";
++#include "openbmc-flash-layout-64.dtsi"
++	};
++};
++
++&gfx {
++	memory-region = <&gfx_memory>;
++	status = "okay";
++};
++
++&gpio {
++	gpio-line-names =
++	/*A0-A7*/	"","","","bmc-ready","","","","",
++	/*B0-B7*/	"i2c-backup-sel","","","","","","","host0-shd-ack-n",
++	/*C0-C7*/	"","","","","","","","",
++	/*D0-D7*/	"power-button","power-out","button-reset",
++			"host0-sysreset-n","","","power-chassis-good","",
++	/*E0-E7*/	"","s0-vrd1-vddq0123-fault-n",
++			"s0-vrd1-vddq4567-fault-n","s0-vrd0-vddc-fault-n",
++			"s0-vrd3-p0v75-fault-n","","","",
++	/*F0-F7*/	"","","ps-atx-on-n","","","","","",
++	/*G0-G7*/	"led-identify","button-identify","","","uboot-ready",\
++			"bmc-salt2-n","","",
++	/*H0-H7*/	"ps-pwr-ok","uart1-mode1","uart2-mode1","uart3-mode1",
++			"uart4-mode1","","led-bmc-heartbeat","",
++	/*I0-I7*/	"","","","","","","","",
++	/*J0-J7*/	"s0-hightemp-n","","","","","","","",
++	/*K0-K7*/	"","","","","","","","",
++	/*L0-L7*/	"","","","","","","","",
++	/*M0-M7*/	"","","","","","s0-spi-auth-fail-n","","",
++	/*N0-N7*/	"","","","","","","","",
++	/*O0-O7*/	"","","","","","","","",
++	/*P0-P7*/	"","","cpld-disable-bmc","","","","","",
++	/*Q0-Q7*/	"","","ext-hightemp-n","","","","",
++			"chassis-intrusion",
++	/*R0-R7*/	"","","ext-hightemp-n","spi0-program-sel","",
++			"hwm-bat-en","","",
++	/*S0-S7*/	"s0-vr-hot-n","","","bmc-sysreset-n","","","","",
++	/*T0-T7*/	"","","","","","","","",
++	/*U0-U7*/	"","","","","","","","",
++	/*V0-V7*/	"","","","","","","","",
++	/*W0-W7*/	"","","","","","","","",
++	/*X0-X7*/	"","","","","","","","",
++	/*Y0-Y7*/	"sio-s3","sio-s5","sio-pwr-req","sio-on-ctrl","","","","",
++	/*Z0-Z7*/	"","sio-pwr-good","","s0-rtc-lock","","","","",
++	/*AA0-AA7*/	"rtc-int","","","","","pmbus-sel-n","","",
++	/*AB0-AB7*/	"host0-reboot-ack-n","s0-sys-auth-failure-n",
++			"","","","","","",
++	/*AC0-AC7*/	"s0-fault-alert","host0-ready","s0-overtemp-n",
++			"","bmc-ok","host0-special-boot","presence-cpu0",
++			"host0-shd-req-n";
++
++	status = "okay";
++};
++
++&i2c0 {
++	status = "okay";
++
++	ipmb@10 {
++		compatible = "ipmb-dev";
++		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
++		i2c-protocol;
++	};
++
++};
++
++&i2c1 {
++	status = "okay";
++
++	i2c-mux1@73 {
++		compatible = "nxp,pca9548";
++		reg = <0x73>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++		i2c-mux-idle-disconnect;
++
++		nvme1: i2c@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0>;
++		};
++
++		pcie4: i2c@1 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <1>;
++		};
++
++		pcie5: i2c@2 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <2>;
++		};
++
++		pcie6: i2c@3 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <3>;
++		};
++
++		pcie7: i2c@4 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <4>;
++		};
++
++		nvme3: i2c@5 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <5>;
++		};
++
++		nvme2: i2c@6 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <6>;
++		};
++
++		nvme0: i2c@7 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <7>;
++		};
++	};
++
++	i2c-mux2@75 {
++		compatible = "nxp,pca9548";
++		reg = <0x75>;
++		#address-cells = <1>;
++		#size-cells = <0>;
++		i2c-mux-idle-disconnect;
++
++		nvme4: i2c@0 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <0>;
++		};
++
++		nvme5: i2c@1 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <1>;
++		};
++
++		nvme6: i2c@2 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <2>;
++		};
++
++		nvme7: i2c@3 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <3>;
++		};
++
++		nvme8: i2c@4 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <4>;
++		};
++
++		nvme9: i2c@5 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <5>;
++		};
++
++		nvme10: i2c@6 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <6>;
++		};
++
++		nvme11: i2c@7 {
++			#address-cells = <1>;
++			#size-cells = <0>;
++			reg = <7>;
++		};
++	};
++};
++
++&i2c2 {
++	status = "okay";
++
++	smpro@4f {
++		compatible = "ampere,smpro";
++		reg = <0x4f>;
++	};
++};
++
++&i2c3 {
++	status = "okay";
++
++	// PSU FRU
++	eeprom@38 {
++		compatible = "atmel,24c02";
++		reg = <0x38>;
++	};
++};
++
++&i2c4 {
++	status = "okay";
++
++	temperature-sensor@29 {
++		compatible = "nuvoton,nct7802";
++		reg = <0x29>;
++
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		channel@0 { /* LTD */
++			reg = <0>;
++			status = "okay";
++		};
++
++		channel@1 { /* RTD1 */
++			reg = <1>;
++			sensor-type = "temperature";
++			temperature-mode = "thermistor";
++		};
++
++		channel@2 { /* RTD2 */
++			reg = <2>;
++			sensor-type = "temperature";
++			temperature-mode = "thermal-diode";
++		};
++	};
++
++	temperature-sensor@4c {
++		compatible = "nuvoton,w83773g";
++		reg = <0x4c>;
++	};
++};
++
++&i2c5 {
++	status = "okay";
++};
++
++&i2c6 {
++	status = "okay";
++
++	rtc@6f {
++		compatible = "isil,isl1208";
++		reg = <0x6f>;
++	};
++};
++
++&i2c7 {
++	status = "okay";
++
++	// BMC FRU
++	eeprom@57 {
++		compatible = "atmel,24c128";
++		reg = <0x57>;
++
++		nvmem-layout {
++			compatible = "fixed-layout";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			eth1_macaddress: macaddress@3f80 {
++				reg = <0x3f80 6>;
++			};
++
++			eth0_macaddress: macaddress@3f88 {
++				reg = <0x3f88 6>;
++			};
++		};
++	};
++};
++
++&i2c8 {
++	status = "okay";
++
++	io_expander0: gpio@1c {
++		compatible = "nxp,pca9557";
++		reg = <0x1c>;
++		gpio-controller;
++		#gpio-cells = <2>;
++	};
++};
++
++&i2c9 {
++	status = "okay";
++};
++
++&i2c10 {
++	status = "okay";
++};
++
++&i2c11 {
++	status = "okay";
++};
++
++&i2c12 {
++	status = "okay";
++};
++
++&i2c13 {
++	status = "okay";
++
++	ssif-bmc@10 {
++		compatible = "ssif-bmc";
++		reg = <0x10>;
++	};
++};
++
++// Connected to host Intel X550 (ALTRAD8UD-1L2T) or
++// Broadcom BCM57414 (ALTRAD8UD2-1L2Q) interface
++&mac0 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_rmii1_default>;
++	clocks = <&syscon ASPEED_CLK_GATE_MAC1CLK>,
++		 <&syscon ASPEED_CLK_MAC1RCLK>;
++	clock-names = "MACCLK", "RCLK";
++	use-ncsi;
++	nvmem-cells = <&eth0_macaddress>;
++	nvmem-cell-names = "mac-address";
++
++	status = "okay";
++};
++
++// Connected to Realtek RTL8211E
++&mac1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_rgmii2_default &pinctrl_mdio2_default>;
++
++	nvmem-cells = <&eth1_macaddress>;
++	nvmem-cell-names = "mac-address";
++
++	status = "okay";
++};
++
++&pinctrl {
++	aspeed,external-nodes = <&gfx &lhc>;
++};
++
++&pwm_tacho {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_pwm0_default
++			&pinctrl_pwm1_default
++			&pinctrl_pwm2_default
++			&pinctrl_pwm3_default
++			&pinctrl_pwm4_default
++			&pinctrl_pwm5_default
++			&pinctrl_pwm6_default
++			&pinctrl_pwm7_default>;
++
++	status = "okay";
++
++	fan@0 {
++		reg = <0x00>;
++		aspeed,fan-tach-ch = /bits/ 8 <0x00 0x08>;
++	};
++
++	fan@1 {
++		reg = <0x01>;
++		aspeed,fan-tach-ch = /bits/ 8 <0x01 0x09>;
++	};
++
++	fan@2 {
++		reg = <0x02>;
++		aspeed,fan-tach-ch = /bits/ 8 <0x02 0x0a>;
++	};
++
++	fan@3 {
++		reg = <0x03>;
++		aspeed,fan-tach-ch = /bits/ 8 <0x03 0x0b>;
++	};
++
++	fan@4 {
++		reg = <0x04>;
++		aspeed,fan-tach-ch = /bits/ 8 <0x04 0x0c>;
++	};
++
++	fan@5 {
++		reg = <0x05>;
++		aspeed,fan-tach-ch = /bits/ 8 <0x05 0x0d>;
++	};
++
++	fan@6 {
++		reg = <0x06>;
++		aspeed,fan-tach-ch = /bits/ 8 <0x06 0x0e>;
++	};
++
++	fan@7 {
++		reg = <0x07>;
++		aspeed,fan-tach-ch = /bits/ 8 <0x07 0x0f>;
++	};
++};
++
++&spi1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_spi1_default>;
++
++	status = "okay";
++
++	// Host BIOS/UEFI EEPROM
++	flash@0 {
++		m25p,fast-read;
++		label = "pnor";
++		spi-max-frequency = <100000000>;
++		status = "okay";
++
++		partitions {
++			compatible = "fixed-partitions";
++			#address-cells = <1>;
++			#size-cells = <1>;
++
++			tfa@400000 {
++				reg = <0x400000 0x200000>;
++				label = "pnor-tfa";
++			};
++
++			uefi@600000 {
++				reg = <0x600000 0x1A00000>;
++				label = "pnor-uefi";
++			};
++		};
++	};
++};
++
++&uart1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_txd1_default
++			 &pinctrl_rxd1_default
++			 &pinctrl_ncts1_default
++			 &pinctrl_nrts1_default>;
++
++	status = "okay";
++};
++
++&uart2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_txd2_default
++			&pinctrl_rxd2_default>;
++
++	status = "okay";
++};
++
++&uart3 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_txd3_default
++			&pinctrl_rxd3_default>;
++
++	status = "okay";
++};
++
++&uart4 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_txd4_default
++			&pinctrl_rxd4_default>;
++
++	status = "okay";
++};
++
++// The BMC's uart
++&uart5 {
++	status = "okay";
++};
++
++&vhub {
++	status = "okay";
++};
++
++&video {
++	memory-region = <&video_engine_memory>;
++
++	status = "okay";
++};
 -- 
 2.47.3
 
