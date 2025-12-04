@@ -4,70 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 648B5D20682
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 13:11:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9904AD20683
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 13:13:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+j/Dyt2kX1KcZTxk4BFPDXWyhzYkXuFwe5a7yW2SXhg=; b=VLiD6v2ZzdYifpj6xlMs6p9MOj
-	R0dqEZVO+T6iUmsnFgRgCEpKXeWSodxVWcTBTqzsJUwQy9zlRgFADoeBxaX3wt/cTaiYFDd7bj0x6
-	zBEBwnRDTaS4+KOimIejASij26uYbZjUVIitPnsKYU0ghq4xfd60GZc+zikLpzqyDwMX9xloI4+Ou
-	8qRj87TijL+6OQBUJQdP7tCSTrrEjj9LP3N+N9pCUlsD93DnYIzPm6rql/ANQcsGdnWMq/VeOhU4S
-	pg1Y/0BPiismHznGvIgDEYfzA6H8E2YqlyAS0dWvpFVNbPIlo7a+IBHOsQFps1YOMwI0heRzlXLIG
-	/TtiQ3rQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0LHCCdnddYjx/7QEARYvl0k8iwfuy+IgXvCmYkI98VA=; b=vLnD/PhRRq4fJ5
+	de44Vg2JzSif6K2mA/OYC4J2QLma7FyTUWk6RQwzv4q2nky6PFTYNPFNWp4pK+bQVi3JaX40XnUO2
+	cn958X54uf/VRleIcZAxpUKNySzADudxo7WLfuEdP8hlKhNnsvDHyz6/GEwFbp7tQ71EIZ/Ge1mUA
+	6YyRwY1J2IJn27Xe8IezkpHkdWLpJyTRpzPaWmE8zlRcu0uB06bN2cmQga058YLHki+xMcAftyW0Z
+	/PsV2E2D5IIY9wf7p0L3X1XzYe0jYpifpz5IjA6Uld4Az3EebXgQtn5JaqR6l5ambu2mCziIi8H0R
+	h3COPM9IL+wu46UO2Xbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR97e-000000081of-1aV4;
-	Thu, 04 Dec 2025 13:11:50 +0000
+	id 1vR99a-00000008202-3ef6;
+	Thu, 04 Dec 2025 13:13:50 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR97a-000000081nf-3tPe
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 13:11:47 +0000
+	id 1vR99Y-000000081ze-0nao;
+	Thu, 04 Dec 2025 13:13:49 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BD883440A1;
-	Thu,  4 Dec 2025 13:11:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 793D7C4CEFB;
-	Thu,  4 Dec 2025 13:11:42 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D17B741502;
+	Thu,  4 Dec 2025 13:13:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30CF0C4CEFB;
+	Thu,  4 Dec 2025 13:13:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764853905;
-	bh=+j/Dyt2kX1KcZTxk4BFPDXWyhzYkXuFwe5a7yW2SXhg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EdbHbA+kiUZDRXwApyFbS8/kSEPio8MVHsoe7cCdxa4qu0+SShbA9HZKQRO5XVT5M
-	 5pI/eDL1skHttyIeVy3WtGPUeYg9ma4iCDaDGFbV/hHsELYZ6xKXAQTFN2x75BO3uw
-	 v5o9Z0DnZveASsbZZBDggo5nC2DeJR+QXmB3UuPGz9OH4u7iKiFvp4+xmQqBZJNihd
-	 XONQn+wZMmKFlPwFfZrQps4Bu1zFOsrtKKmLu2IyGDp57xbbiJrog6Io6NB4CBZdjk
-	 weHtGtAYyjKQ5pcvbggaYAAkFNWVi8mbhf0/eZRPzvILRbkw0hnmLfrklFx2Wgwhij
-	 krCwcXhQ2ut9A==
-Date: Thu, 4 Dec 2025 13:11:40 +0000
-From: Simon Horman <horms@kernel.org>
-To: Jie Zhang <jzhang918@gmail.com>
-Cc: netdev@vger.kernel.org, Jie Zhang <jie.zhang@analog.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Furong Xu <0x1207@gmail.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] net: stmmac: fix oops when split header is enabled
-Message-ID: <aTGIjNiHhWHd_RkN@horms.kernel.org>
-References: <20251202025421.4560-1-jie.zhang@analog.com>
+	s=k20201202; t=1764854027;
+	bh=LX5m6gmwF2s+hTAWnWC6SZ5hgbfLK8EmTlC3zSOFwfA=;
+	h=From:Subject:Date:To:Cc:From;
+	b=E/aDWsxu6fzANFFFSSV7NbiDgPUyieLItRp5Zo+HplFWE3rwdBZpTGZdQUoU/ftrd
+	 yGYNniyAzs1b0SCzXgPKJyECpfKy5sFMiYyE62KCbzdtQ80vszsNW3kikIyvQoQK/v
+	 dZnkExaXSThnrIkRFzT8Hv9uuxhVdCXB/G7TqSkb+/v7njZScPECqeu7liw/7J/YvR
+	 GKdTXIQkGlJ21yLQlkr0PsBlteJzupaZgnRrRyIMLbRWVcNEoYrqB+fdYh8NS5a3eU
+	 vUEK7fvZpyebiWixNJCe7QB5DQPv6KoGug9iy+gZeG48UIcP7kLt/Byf2Zr9qqPAE0
+	 AsWn91dxxhUKg==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Subject: [PATCH mt76 0/3] wifi: mt76: mt7996: Some MLO link management
+ fixes
+Date: Thu, 04 Dec 2025 14:13:27 +0100
+Message-Id: <20251204-mt76-txq-wicd-fix-v1-0-1f4b2f2b3b2c@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251202025421.4560-1-jie.zhang@analog.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MQQqAIBAAvxJ7biEXM+or0SFyqz1kpVGC9Pek4
+ wzMJAjshQN0RQLPtwTZXQZVFjCto1sYxWYGqqhWVGncrsbgFU98ZLI4S0QyzahbrQwRQ+4Oz1n
+ /z3543w+C1aQ2YwAAAA==
+X-Change-ID: 20251204-mt76-txq-wicd-fix-267a4941622e
+To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_051146_983252_CB96CD1F 
-X-CRM114-Status: GOOD (  13.00  )
+X-CRM114-CacheID: sfid-20251204_051348_250481_84B6BA78 
+X-CRM114-Status: UNSURE (   5.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,23 +79,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 01, 2025 at 09:54:16PM -0500, Jie Zhang wrote:
-> For GMAC4, when split header is enabled, in some rare cases, the
-> hardware does not fill buf2 of the first descriptor with payload.
-> Thus we cannot assume buf2 is always fully filled if it is not
-> the last descriptor. Otherwise, the length of buf2 of the second
-> descriptor will be calculated wrong and cause an oops:
 
-...
+---
+Lorenzo Bianconi (3):
+      wifi: mt76: mt7996: Set mtxq->wcid just for primary link
+      wifi: mt76: mt7996: Reset mtxq->idx if primary link is removed in mt7996_vif_link_remove()
+      wifi: mt76: mt7996: Switch to the secondary link if the default one is removed
 
-As a bug fix this should have a Fixes tag here
-(no blank line between it and your Signed-off-by line).
-As a rule of thumb, it should cite the patch where
-the bug was introduced.
+ drivers/net/wireless/mediatek/mt76/mt7996/main.c | 84 ++++++++++++++++--------
+ 1 file changed, 58 insertions(+), 26 deletions(-)
+---
+base-commit: 53d1548612670aa8b5d89745116cc33d9d172863
+change-id: 20251204-mt76-txq-wicd-fix-267a4941622e
 
-Perhaps in this case the following is appropriate:
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
-Fixes: ec222003bd94 ("net: stmmac: Prepare to add Split Header support")
-
-> Signed-off-by: Jie Zhang <jie.zhang@analog.com>
 
