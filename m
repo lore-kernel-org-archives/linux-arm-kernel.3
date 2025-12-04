@@ -4,134 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3A69D24444
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 17:02:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED79ED2444A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 17:09:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UDkOUHSKrwDS98ex3XZsDtLzEb2vIwexnNSn7aSF6DQ=; b=p/VaqVke3TQI3WF9/YcC2eAnki
-	jzOuocLQTczABY3Ss7/JlmMdTLc1Q7P3Zl9UvNpFasSbtM2QWcmXxWsWd3+pPU6mpdL6W4zXkNcak
-	294JvA3xl3zs/c+wefC32jomU7dZzXsa6XTILYwovZTMUE/nppdLkBVNp6XOkmFJF2MyL+tlKdxBi
-	h5NLL5uU2PBSZ2GgHMXl94PfQJZWIsOvf5e5N062cX4qs1lQLb4cOT5JWpG/H+bDg588+WcwlPSFn
-	VfdrIgBkjhECszgmdLv/X+dcc2+t35M0zFjsu9GkyKWA9rNMedkrukraM7TOQsqAMrNX7KS4Q3AXK
-	myCFrtog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aNaY4Xp11z7CIwlZFJgR83dSZLkci8XyLzs0K/rt6vc=; b=dpJZC1z8JKmSfccky2DcsD4snN
+	nICzCPOSKOd1lMpVLMIDi1OOrjZyrDmeE3X12u9N7fL0lpuD0hx0o1jpTBcxVU87oUcMpB4PwGECK
+	65YtjctB0H+B8VxeMEKFVIAQxg8cSxrFKPrg/XY0k976wUCyr8A/4NmS426MaZ5l72hpTIgfHwcTz
+	gpym0IgROQYsPlsSbrre4J2yh1Yd0gwlMmQ58Q7nBCnqDEv8HLWYBO3FRpJozqH3+PVwIIMQpkA/e
+	gMgVWwaPwv5tjUKJcwhK+lvUB4gWIBF7UCEjFf/j13fYTxcfaW6094lwGJcyx5ympmq1S3PQ0JLXV
+	FPu1TXSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRCiW-00000008L7I-0sZN;
-	Thu, 04 Dec 2025 17:02:08 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vRCpZ-00000008Lg7-1jG6;
+	Thu, 04 Dec 2025 17:09:25 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRCiT-00000008L6H-16hY
+	id 1vRCpX-00000008LfY-05a7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 17:02:06 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B4C9wh0909535
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 4 Dec 2025 17:02:04 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=UDkOUHSKrwDS98ex3XZsDtLz
-	Eb2vIwexnNSn7aSF6DQ=; b=cOi26Uf7y6ox+TgnLUo0DcJ6yxP5nM7uxmP/ajJK
-	gthQDAiMoG0rhwsg5Yv04qWVKPuKgd4rE+4WRtEomIxue0frwtC9wecqB69aoCZ7
-	BAu7WtGs22fEpeNCzil5/TOy6MUO4Pq3DqwxC+4Loleec7zaYPi4vR7pJXLfJssp
-	0o7AwJPHBZAQD4MS/yT7TXy0cg/jwRZTHocNnLrpkZBccZ34TqB/fKRUbaUoW2yR
-	pqKonlj1DF2qQblcZ0eItJcL9h/piit5LEfnSYweoYNKq4p2f3Av2C93i3fymNFb
-	Qy0TGBS6NR/gwzRNNUBJpVpQ5EwRXZgcc77T9VRjB+38Yw==
-Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4aua2erw83-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 17:02:04 +0000 (GMT)
-Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-340bc4ef67fso1290271a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 09:02:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1764867724; x=1765472524; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=UDkOUHSKrwDS98ex3XZsDtLzEb2vIwexnNSn7aSF6DQ=;
-        b=kwVrlv2yDFA5ahM7t9XuR7snpJ9RHG06WJtVDqVj3aChUYSllwKTJcEuM6NfA2DS2a
-         KT2cexFVMmnQgGgHFsh3ZoHueMmHaEUe0d7RgRzYFAg8s/luK6La8of9jAUoObfwl53E
-         4qcdCGr/c2lG4HsyQKgxBoS8aq/Iak662HR4x4wkuqeJw6QhjdMmwcIpYbF+qiWg4Bdq
-         FKX1smTfyX2ZemkBwm0lYjmTHym7NuPe3G6cstEsBJzIhl15PE5d4WFsim8qA+0OB4S0
-         oOIgJn/cnevk3DAtM0ODxCr6ACAscZvWPF6coEUaBV7O9x/d/Yf2DPXbVsy1wliArfoX
-         QGdg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764867724; x=1765472524;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=UDkOUHSKrwDS98ex3XZsDtLzEb2vIwexnNSn7aSF6DQ=;
-        b=nkLXeNmQRywYHcaALsUt9T3J5op7s5Q7/EQHPz1WbRY/RQiHEVJp9CaGUpaMjxmysG
-         gE9EbzynhoSmO3+yeNRLdk4vlwWU7+RXywjUMjgevqeiPv9oxnNshYEbNoa3sf5ol3Nj
-         zz1S13AzW7YnVBFN9MP23NmM9d7Vq2y02tbup8lvzNzT3Ij6RwFJhJ51oZLIw0O0etyy
-         4FDAOT4Z3FpNpNXYs634ZA47291y42MNOHvDhPlk7x8zicbyCWI4vDi5GujcAL9xY7cA
-         9obnXjm+eXTPFDE0HS2a+9C7gweYefbJjaWfyC3g9KUOuQVsfMhR2ZxsTostmsdzXMrf
-         y3iQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVn6/Th8v3SpMffA8ZxNC/E6fXB6ZeFV6Bw3UqZcSO0IU5CbgDB4KuiwxMPrdgvd55tJP6HgFNzHj4r1AH0a7SM@lists.infradead.org
-X-Gm-Message-State: AOJu0YytVB0P2fIKmf4BFU0W9nTgyD2fzClf8wTVN4auGWS3qLTUDKIQ
-	eLBwTr95LIkf5onX7gDFvcBh3p48KTDn8S9gORJztAZlnzNZj3aJszspW1LyZq9MWmSiIHrItDY
-	yJ2T8SW2jKI89YP7OtHRcbNDEFr4yefi3CUjK8NmsZW6n5XWSkIpgkOBKZJ/Z0X+YmuiEyMnYSB
-	0WoQ==
-X-Gm-Gg: ASbGncscVh3ggpzHRKucpIstEHf9ZirpuMFifcqlOf/IRFD+hALNp5hILhCL7HgVkd4
-	tfPJ6V+rGWa0j0zRCYQbXXdrUccuVzjwqLvGw9WrRTc7zcEC2EZ1cuOnbq7BbhXDXYuOiSNEO2L
-	uUMxWWpldB16QHPJByjZy7zC0A8VMeMBRzZ1gyQD+ijcLsEZajXFnvxCM/6VbfES7N98fxqIYwq
-	4H/oVfNcr6ot/vWjtoLWqWHlAxdvJCy7wTtXOX9+GDMzMsYjZHs5Qhv+cCBNrezbRX/En5O3qiU
-	mm8FTrQ4BumQ8gFNAZzsKqRUnZcN5UjSL/ZuwxOXk02lsUSZgr3DT3PGxzTiFr5yiFuzpYSroYi
-	mXqpDA27bqZP6dKN8RcYdzT11Xs0OuX+2OYQwutZyfYk=
-X-Received: by 2002:a17:90b:2e46:b0:349:30b4:6365 with SMTP id 98e67ed59e1d1-34947f1afb6mr3714082a91.27.1764867723521;
-        Thu, 04 Dec 2025 09:02:03 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGj25Sgl7PRn2htoTjoU/kKOMt66L4Ir+ascv5tI1/pZYPKRRpiCYmryN5Ou/eMvOZjrDl3PA==
-X-Received: by 2002:a17:90b:2e46:b0:349:30b4:6365 with SMTP id 98e67ed59e1d1-34947f1afb6mr3714013a91.27.1764867722686;
-        Thu, 04 Dec 2025 09:02:02 -0800 (PST)
-Received: from hu-pkondeti-hyd.qualcomm.com ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34912d3a476sm2867949a91.6.2025.12.04.09.02.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Dec 2025 09:02:02 -0800 (PST)
-Date: Thu, 4 Dec 2025 22:31:57 +0530
-From: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Pavan Kondeti <pavan.kondeti@oss.qualcomm.com>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Subject: Re: Alternative to arm64.nopauth cmdline for disabling Pointer
- Authentication
-Message-ID: <ef2d04e5-4687-4d2f-83a7-6cf9a7990ade@quicinc.com>
-References: <3fcf6614-ee83-4a06-9024-83573b2e642e@quicinc.com>
- <86ecpappzi.wl-maz@kernel.org>
- <adc22b19-7dcc-4c38-9319-d979f1e3886a@quicinc.com>
- <868qfipfij.wl-maz@kernel.org>
+	Thu, 04 Dec 2025 17:09:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 68E044434E
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Dec 2025 17:09:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17334C16AAE
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  4 Dec 2025 17:09:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764868162;
+	bh=ozsg4eLgtauKgJ3H79DciPuHkymo9rMsTDj/oVDQG/Y=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=tvI0t3PppjBwAgLlyJx1wWZC9indt/Tx10fEBb3gp9gJfIrtha8sE106jk5mNvVx/
+	 111V3vcH7rETlbaupvlcSyS81CV3AEeSQy+zV7ZibqlENbWAyniti+b0FQCnU5lqW7
+	 1G2QYLL9CsEPJLkOS7V+CdkajMD36mowAg9U7p7mfCpFl2degElYrc7JHl5Uul7sAB
+	 FRPga1InK+wMGkB1xkPuOaF6fpEw58vsCnifaRXZQjBvDoNVp7cpRdsfoQ3YBlWOXl
+	 tTV92sJ80l/pxFe90ycKaf6DIeRK6Vl+6Me6ig0y3jh9wO6bYrQb7R5gCE0O+/Q7hR
+	 0Js6MFCcTD4WA==
+Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-63c489f1e6cso1970783a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 09:09:21 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXRvv5t5+sHZl2zfWFIPuRZJunZ0GY0l6WSRZQZNDtAwoVvJOvkzS7hX8PSlln5PF81BMr5Tjy6FFspuGWC5I2a@lists.infradead.org
+X-Gm-Message-State: AOJu0YwoD9ILKlcyb3OoH5eMHKLLcWCEAv1DapxVVeu4zzUsgLQ+KTqG
+	kJKSG2nspvVPCXZW4ZEdMrOBYCwjDg56batoevLZU04U1bzqLztvlSw7G4mxtnQhmvujVmtL14p
+	z4oDIEIUljF4pZWKToyj4q/ByLxc7dA==
+X-Google-Smtp-Source: AGHT+IE0h1OfhwPlHlU/zqfmmwyoK86/xLpsj/AoOe6qs54NDfjqeNrTcOPci/SfJTS7EyFSSYCViXJ4jSy9O3HUuCE=
+X-Received: by 2002:a05:6402:1a43:b0:640:aae6:adc5 with SMTP id
+ 4fb4d7f45d1cf-647a69f6860mr2612946a12.4.1764868160633; Thu, 04 Dec 2025
+ 09:09:20 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <868qfipfij.wl-maz@kernel.org>
-X-Proofpoint-ORIG-GUID: MFRCj9sXbJ8k1e54QK5h_ow7-D2E0ULB
-X-Authority-Analysis: v=2.4 cv=Rv/I7SmK c=1 sm=1 tr=0 ts=6931be8c cx=c_pps
- a=vVfyC5vLCtgYJKYeQD43oA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=kj9zAlcOel0A:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=-uWyUKA5Yu5Vf0UlR58A:9
- a=CjuIK1q_8ugA:10 a=rl5im9kqc5Lf4LNbBjHf:22
-X-Proofpoint-GUID: MFRCj9sXbJ8k1e54QK5h_ow7-D2E0ULB
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjA0MDEzOCBTYWx0ZWRfX8wCE3u4HHoZJ
- ntnuRwVhkMuAnxjzA24aKfVbLXKlBYhPMii91WGcTSVXoSQBHggCxYlbkndW7YfB4Hvow4kais8
- tvgQMImOWqM0duf8AW1C3pql0erwEtnmbl7phmxpB2fveoYikigmUVQvQcfKdRcxZdHKF7eIW5+
- bLdHcIoap3dJdxQjA2D/ULukfinmpzqAke3/2lMyg2IgHaqSbuvGZzw3UZpDO/zB0bWJZM29FZo
- E31OQlGoerVbJF+Hnq/92LlGQ6ZLaZ1oKfzp8zDVdDqG/WiI+N29gnKcGrhkFUc6PC+7hqjHSZs
- MXz12YJvqYcKxqYRYDI25EtW2FI5I5hChklez7kEFkIyJzJ6rq5PS8Ere6Uh6NeXdH/Nzr/tcPr
- l8CjqnUdIZmUjuCdAyJYUxAV9pv2nw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-04_04,2025-12-04_02,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 spamscore=0 adultscore=0 impostorscore=0 clxscore=1015
- suspectscore=0 malwarescore=0 lowpriorityscore=0 priorityscore=1501
- bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
- definitions=main-2512040138
+References: <20250812085037.13517-1-andrea.porta@suse.com> <4fee3870-f9d5-48e3-a5be-6df581d3e296@kernel.org>
+ <aKc5nMT1xXpY03ip@apocalypse> <e7875f70-2b79-48e0-a63b-caf6f1fd287b@kernel.org>
+ <aLVePQRfU4IB1zK8@apocalypse>
+In-Reply-To: <aLVePQRfU4IB1zK8@apocalypse>
+From: Rob Herring <robh@kernel.org>
+Date: Thu, 4 Dec 2025 11:09:09 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqJUzB71QdMcxJtNZ7raoPcK+SfTh7EVzGmk=syo8xLKQw@mail.gmail.com>
+X-Gm-Features: AWmQ_bk-kALt_k3I5clEjqRRUksBAOMX1BPr5dYQDHIANQpdcGuEg7qIa9ngHh0
+Message-ID: <CAL_JsqJUzB71QdMcxJtNZ7raoPcK+SfTh7EVzGmk=syo8xLKQw@mail.gmail.com>
+Subject: Re: [PATCH] dt-bindings: pci: brcmstb: Add rp1-nexus node to fix DTC warning
+To: Andrea della Porta <andrea.porta@suse.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Jim Quinlan <jim2101024@gmail.com>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, kwilczynski@kernel.org, 
+	Manivannan Sadhasivam <mani@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rpi-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, iivanov@suse.de, svarbanov@suse.de, 
+	mbrugger@suse.com, Jonathan Bell <jonathan@raspberrypi.com>, 
+	Phil Elwell <phil@raspberrypi.com>, kernel test robot <lkp@intel.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_090205_328414_F99BD055 
-X-CRM114-Status: GOOD (  61.79  )
+X-CRM114-CacheID: sfid-20251204_090923_104034_9379A87D 
+X-CRM114-Status: GOOD (  47.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,131 +93,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 04, 2025 at 01:01:40PM +0000, Marc Zyngier wrote:
-> [dropping Ricardo, as his address bounces]
-> 
-> On Thu, 04 Dec 2025 10:36:12 +0000,
-> Pavan Kondeti <pavan.kondeti@oss.qualcomm.com> wrote:
-> > 
-> > Hi Marc,
-> > 
-> > On Thu, Dec 04, 2025 at 09:15:29AM +0000, Marc Zyngier wrote:
-> > > On Thu, 04 Dec 2025 04:07:15 +0000,
-> > > Pavan Kondeti <pavan.kondeti@oss.qualcomm.com> wrote:
-> > > > 
-> > > > Hi
-> > > > 
-> > > > The pointer authentication feature (PAuth) is only supported on
-> > > > 0-3 CPUs but it is not supported on 4-7 CPUS on QCS8300.
-> > > 
-> > > On what grounds? Hardware incompatibility? I seriously doubt it, since
-> > > nobody glues pre-8.3 CPUs to anything more modern. Or, as I expect it,
-> > > a firmware implemented with little understanding of what is required?
-> > 
-> > I don't know the answer to this question. I will talk to folks who may
-> > know answer to this question and get back.
-> > 
-> > Can you please elaborate on the firmware part you are talking here? I
-> > see that Linux runs at EL2 and AA64ISAR1 register values on CPU#0 (A78)
-> > indicates that PAuth is supported but not for CPU#4 (A55). I am told, there
-> > are no other controls outside EL2 (trap) to manipulate this feature. So,
-> > I am assuming that this is indeed reflecting the HW.
-> 
-> Neither A78 nor A55 have PAuth. They are both firmly ARMv8.2 CPUs, and
-> predate this functionality. So I guess that there are only two possible
-> outcomes:
-> 
-> - either the FW is indeed not at fault, but that you have a *third*
->   type of CPU that is at least 8.3 in the mix
-> 
-> - or that you misidentified the CPUs that are on your system, they
->   have PAuth, and the firmware is borked
-> 
-> Which one is it?
-> 
+On Mon, Sep 1, 2025 at 3:48=E2=80=AFAM Andrea della Porta <andrea.porta@sus=
+e.com> wrote:
+>
+> Hi Krzysztof,
+>
+> On 08:50 Fri 22 Aug     , Krzysztof Kozlowski wrote:
+> > On 21/08/2025 17:22, Andrea della Porta wrote:
+> > > Hi Krzysztof,
+> > >
+> > > On 10:55 Tue 12 Aug     , Krzysztof Kozlowski wrote:
+> > >> On 12/08/2025 10:50, Andrea della Porta wrote:
+> > >>> The devicetree compiler is complaining as follows:
+> > >>>
+> > >>> arch/arm64/boot/dts/broadcom/rp1-nexus.dtsi:3.11-14.3: Warning (uni=
+t_address_vs_reg): /axi/pcie@1000120000/rp1_nexus: node has a reg or ranges=
+ property, but no unit name
+> > >>> /home/andrea/linux-torvalds/arch/arm64/boot/dts/broadcom/bcm2712-rp=
+i-5-b.dtb: pcie@1000120000: Unevaluated properties are not allowed ('rp1_ne=
+xus' was unexpected)
+> > >>
+> > >> Please trim the paths.
+> > >
+> > > Ack.
+> > >
+> > >>
+> > >>>
+> > >>> Add the optional node that fix this to the DT binding.
+> > >>>
+> > >>> Reported-by: kernel test robot <lkp@intel.com>
+> > >>> Closes: https://lore.kernel.org/oe-kbuild-all/202506041952.baJDYBT4=
+-lkp@intel.com/
+> > >>> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> > >>> ---
+> > >>>  Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml | 9 +++++=
+++++
+> > >>>  1 file changed, 9 insertions(+)
+> > >>>
+> > >>> diff --git a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.ya=
+ml b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> > >>> index 812ef5957cfc..7d8ba920b652 100644
+> > >>> --- a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> > >>> +++ b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> > >>> @@ -126,6 +126,15 @@ required:
+> > >>>  allOf:
+> > >>>    - $ref: /schemas/pci/pci-host-bridge.yaml#
+> > >>>    - $ref: /schemas/interrupt-controller/msi-controller.yaml#
+> > >>> +  - if:
+> > >>> +      properties:
+> > >>> +        compatible:
+> > >>> +          contains:
+> > >>> +            const: brcm,bcm2712-pcie
+> > >>> +    then:
+> > >>> +      properties:
+> > >>> +        rp1_nexus:
+> > >>
+> > >> No, you cannot document post-factum... This does not follow DTS codi=
+ng
+> > >> style.
+> > >
+> > > I think I didn't catch what you mean here: would that mean that
+> > > we cannot resolve that warning since we cannot add anything to the
+> > > binding?
+> >
+> > I meant, you cannot use a warning from the code you recently introduced
+> > as a reason to use incorrect style.
+> >
+> > Fixing warning is of course fine and correct, but for the code recently
+> > introduced and which bypassed ABI review it is basically like new revie=
+w
+> > of new ABI.
+> >
+> > This needs standard review practice, so you need to document WHY you
+> > need such node. Warning is not the reason here why you are doing. If
+> > this was part of original patchset, like it should have been, you would
+> > not use some imaginary warning as reason, right?
+> >
+> > So provide reason why you need here this dedicated child, what is that
+> > child representing.
+>
+> Ack.
+>
+> >
+> > Otherwise I can suggest: drop the child and DTSO, this also solves the
+> > warning...
+>
+> This would not fix the issue: it's the non overlay that needs the specifi=
+c
+> node. But I got the point, and we have a solution for that (see below).
+>
+> >
+> > >
+> > > Regarding rp1_nexus, you're right I guess it should be
+> > > rp1-nexus as per DTS coding style.
+> > >
+> > >>
+> > >> Also:
+> > >>
+> > >> Node names should be generic. See also an explanation and list of
+> > >> examples (not exhaustive) in DT specification:
+> > >> https://devicetree-specification.readthedocs.io/en/latest/chapter2-d=
+evicetree-basics.html#generic-names-recommendation
+> > >
+> > > In this case it could be difficult: we need to search for a DT node
+> >
+> > Search like in driver? That's wrong, you should be searching by compati=
+ble.
+>
+> Thanks for the hint. Searching by compatble is the solution.
 
-As Mark pointed out and MIDR indicates, it is A78C. sorry for the
-confusion.
+No, it is not.
 
-> > 
-> > > 
-> > > > The ARM64 cpufeature discovery code expects late CPUs to have
-> > > > this feature if boot CPU feature has it since PAuth is enabled
-> > > > early. When a conflict like this is detected, the late CPUs are
-> > > > not allowed to boot. It is expected that system will continue
-> > > > to be functional with CPUs with Pauth feature supported and enabled.
-> > > > This is not a desired behavior in production.
-> > > 
-> > > What is even less desirable is to produce this sort of contraption.
-> > > 
-> > > > We started seeing this problem when Linux is booted in EL2. When Linux
-> > > > is running under Gunyah (Type-1 hypervisor), Pointer Authentication
-> > > > feature is hidden from EL1 via HCR_EL2.TID3. 
-> > > > 
-> > > > arm64.nopauth can be passed on kernel cmdline to disable the feature
-> > > > in kernel so that all all CPUs can boot on QCS8300. I am told 
-> > > > maintaining a custom kernel commandline per SoC in a Generic OS 
-> > > > distribution is not recommended and asked to discuss the problem with
-> > > > the comunity [1]
-> > > 
-> > > Well, you get to own the problem you have created for yourself. You
-> > > build hardware/firmware that cannot run generic SW, and yet you want
-> > > generic SW to run seamlessly on it. Spot the issue?
-> > > 
-> > > > This patch [2] from Catalin adds a devicetree property under memory {}
-> > > > to disable MTE. I believe this work predates the id-reg override
-> > > > mechanism. However, this made me think if workarounds like this can be
-> > > > detected via devicetree, for example a property under cpu { } node.
-> > > 
-> > > Not only it predates it, but it also doesn't work in general. For a
-> > > start, it is DT specific. How are you going to make that work for
-> > > ACPI? I know you don't care, but I do.
-> > 
-> > Point taken. I understand that this does not fall under errata but is
-> > there a possiblity to introduce an Errata targeting CPU#0 MIDR and
-> > disabling the Pointer authentication? I understand that if there is
-> > another Qualcomm SoC that exists with all CPUs supporting pointer
-> > authentication with same MIDR, we may be disabling the feature but this
-> > is something I can check internally.
-> > 
-> > > 
-> > > > Given that what we put in `chosen { bootargs="" }` kernel under
-> > > > respective SoC devicetree can be overridden by bootloader, should we
-> > > > have a **sticky** cmdline to specify critical workarounds like this?
-> > > > This would be more generic than introducing any new parameters.
-> > > 
-> > > You already have a way to have a sticky command-line, by building it
-> > > into the kernel. Yes, I understand that this isn't what you want, but:
-> > > 
-> > > (1) a user should be allowed to pass the kernel command-line *they*
-> > >     want, not what someone has decided for them
-> > 
-> > Agreed. This is what made me to ask the question. Should kernel have a
-> > sticky command line which may have critical workarounds like this?
-> 
-> Absolutely *not*. You are not in charge of defining what is good for
-> the user. If the user themselves want that, they have plenty of ways
-> to achieve that particular goal already. Put it in the bootargs
-> string, in the kernel build, in a grub config file, as a u-boot
-> hack... There is an infinite number of choices already, and we don't
-> need an extra one to hide how ugly their HW is.
-> 
-> > > (2) the generic mechanism exists, doesn't rely on additional firmware
-> > >     specifications, and is used for a whole lot of other QC platforms
-> > >     suffering from the same issue of broken firmware.  What are you
-> > >     going to do for these?
-> > 
-> > The generic mechanism, you mean bootloader passing the kernel cmdline
-> > with `arm64.nopauth`? or something else.
-> 
-> Exactly that. This is the mechanism by which we instruct the kernel
-> not to use a particular feature if it can avoid it. It is easy to add,
-> doesn't depend on new esoteric firmware interfaces, and is a constant
-> reminder that you are dealing with stuff that isn't fit for purpose.
-> 
+> >
+> > > starting from the DT root and using generic names like pci@0,0 or
+> > > dev@0,0 could possibly led to conflicts with other peripherals.
+> > > That's why I chose a specific name.
+> >
+> > Dunno, depends what can be there, but you do not get a specific
+> > (non-generic) device node name for a generic PCI device or endpoint.
+>
+> I would use 'port' instead of rp1-nexus. Would it work for you?
 
-Got it. 
+Do you still plan to fix this? This is broken far worse than just the node =
+name.
 
-Thanks,
-Pavan
+The 'rp1_nexus' node is applied to the PCI host bridge. That's wrong
+unless this is PCI rather than PCIe. There's the root port device in
+between.
+
+The clue that things are wrong are start in the driver here:
+
+rp1_node =3D of_find_node_by_name(NULL, "rp1_nexus");
+if (!rp1_node) {
+  rp1_node =3D dev_of_node(dev);
+  skip_ovl =3D false;
+}
+
+You should not need to do this nor care what the node name is. The PCI
+core should have populated pdev->dev.of_node for you. If not, your DT
+is wrong. Turn on CONFIG_PCI_DYNAMIC_OF_NODES and look at the
+resulting PCI nodes. They should also match what the hierarchy looks
+like with lspci. I don't recommend you rely on
+CONFIG_PCI_DYNAMIC_OF_NODES, but statically populate the nodes in the
+DT. First, CONFIG_PCI_DYNAMIC_OF_NODES is an under development thing
+and I hope to get rid of the config option. Second, your case is
+static (i.e. not a PCIe card in a slot) so there is no issue
+hardcoding the DT.
+
+As far as the node name, I don't care so much as long as the driver
+doesn't care and you don't use '_' or 'pcie?' (that's for PCI
+bridges).
+
+And why do we have drivers/misc/rp1/rp1-pci.dtso and a .dtso in
+arch/arm64? There should not be both.
+
+Rob
 
