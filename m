@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A25D1D899
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 08:22:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 278BDD1D892
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 08:22:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HeOxLrjw/czjXLl4+ESl1GzdVLjikIv/6OJaVbcjhXk=; b=ubTKVtpZtu7lqOcXvVjlo8Sfrt
-	e7N2MQELqKU2ESXpJrgjnqZhxDdgjrQ8Bm2gBFgBMriv3h4s8f7R2eGKaQYs1CEJjC6sVIp4LefFS
-	bEB95PvoX+nKadsUVqgB88IM7GFIRe48bxEGqRX/3akTYTbPewJTqeBza9r822h4n6Z6ns+kqa2oH
-	uPPg++YLz+g0POoRLdgAsY66/bUpFLZ/WcEIZAbnb2klvhNnLh8GYq89b39w9Alq4A4xgw0/7uQ2W
-	EQPxTUDokuWCMs68gJG7Am8L9+x7x+DMfMyL+cvryuL10kY/V0pV6l/Dga3+k9GVcVa4SKZUgdA6L
-	gY+fJoGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ku18Ipvn1/p95XvWnM7VZb05cEr4p40blp8tTJNd3bc=; b=0rb8DNR0ngOJ5va9TkWlZBhBDU
+	nDJ40E35LStpeYC/WwiwCKAA0mVjG8Y0QC2874uZPj6h+mfZH7SzID9xa1cCyvxkzfKheQ4Re0KfO
+	BZztllzsVe2hB9/fHwohYizVTEJWWYDA4mlM4/RzoE6LOGKwHmSU2a6QzDUAIDNU7rSW//JpLDf85
+	W6oX+kTIV7St25AThug8G947qIOGsy42FUOX4UqCI6jGu0AZWjytFX4nadTmUFhxNq1DSGYSbD8eq
+	0QwVaO1LvybDKpChsIt15hgOPnvNAlPMUmQ/Xsmzt81N4rhZCwtJGp4l8EE/0bg60gwV1uuoYJ2r+
+	oPpBXiFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR4b8-00000007gJy-3kAr;
+	id 1vR4b8-00000007gJZ-2BKU;
 	Thu, 04 Dec 2025 08:21:58 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR4b0-00000007gEd-48DS
+	id 1vR4b0-00000007gEc-4AXh
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 04 Dec 2025 08:21:53 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=HeOxLrjw/czjXLl4+ESl1GzdVLjikIv/6OJaVbcjhXk=;
-	b=W2EpN1PuHXwsYbiLnlfExTMgMPtDiapgby4OBl8HpxrJaDrEuSqb0ndOIHjLjGBg/IZ3Oxv6n
-	8aLyYUFBuU2g/t7RfxPlzd3n0jXyZJxrydqg3rJBTldsMv+iFgnbxc9EbTxTMOIAEfv13pkRj8i
-	DUnfqj/z7r3fVY//CZAsWzo=
-Received: from mail.maildlp.com (unknown [172.19.163.44])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4dMS9J61Cbz1cyPG;
-	Thu,  4 Dec 2025 16:19:48 +0800 (CST)
+	bh=ku18Ipvn1/p95XvWnM7VZb05cEr4p40blp8tTJNd3bc=;
+	b=AqFiwppKqYGvZVxcRFQJZ4uTpeHzIzJPk0s4R6NyVFN6wDH3jon7hmMZYqX8aanPOl0zb18Q3
+	HBIKsD5XSdfmeDzLm3WT/WC9GQ+L6WIKEYLMSHMf+m/G31hfW8cp9fkFMArsSYzpKclm3JF+2yz
+	olXTTuw4ZOOvB4ove0yxU0o=
+Received: from mail.maildlp.com (unknown [172.19.163.252])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4dMS8s6jXTzpSy3;
+	Thu,  4 Dec 2025 16:19:25 +0800 (CST)
 Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id EACB51400D4;
-	Thu,  4 Dec 2025 16:21:41 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 06448180B67;
+	Thu,  4 Dec 2025 16:21:47 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by dggpemf500011.china.huawei.com
  (7.185.36.131) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 4 Dec
- 2025 16:21:40 +0800
+ 2025 16:21:45 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
 	<tglx@linutronix.de>, <peterz@infradead.org>, <luto@kernel.org>,
@@ -55,19 +55,21 @@ To: <catalin.marinas@arm.com>, <will@kernel.org>, <oleg@redhat.com>,
 	<dvyukov@google.com>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
 CC: <ruanjinjie@huawei.com>
-Subject: [PATCH v9 00/16] arm64: entry: Convert to Generic Entry
-Date: Thu, 4 Dec 2025 16:21:07 +0800
-Message-ID: <20251204082123.2792067-1-ruanjinjie@huawei.com>
+Subject: [PATCH v9 04/16] arm64/ptrace: Refactor syscall_trace_enter/exit()
+Date: Thu, 4 Dec 2025 16:21:11 +0800
+Message-ID: <20251204082123.2792067-5-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20251204082123.2792067-1-ruanjinjie@huawei.com>
+References: <20251204082123.2792067-1-ruanjinjie@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-Originating-IP: [10.90.53.73]
 X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
  dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_002151_349766_E0BD1B70 
-X-CRM114-Status: GOOD (  19.88  )
+X-CRM114-CacheID: sfid-20251204_002151_375847_39581340 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,218 +84,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently, x86, Riscv, Loongarch use the Generic Entry which makes
-maintainers' work easier and codes more elegant. arm64 has already
-successfully switched to the Generic IRQ Entry in commit
-b3cf07851b6c ("arm64: entry: Switch to generic IRQ entry"), it is
-time to completely convert arm64 to Generic Entry.
+The generic syscall entry code has the following form, which use
+the input syscall work flag and syscall number:
 
-The goal is to bring arm64 in line with other architectures that already
-use the generic entry infrastructure, reducing duplicated code and
-making it easier to share future changes in entry/exit paths, such as
-"Syscall User Dispatch".
+| syscall_trace_enter(struct pt_regs *regs, long syscall,
+|		      unsigned long work)
+|
+| syscall_exit_work(struct pt_regs *regs, unsigned long work)
 
-This patch set is rebased on v6.18-rc7. And the performance was measured
-on Kunpeng 920 using "perf bench basic syscall" with "arm64.nopauth
-selinux=0 audit=1".
+In preparation for moving arm64 over to the generic entry code,
+refactor syscall_trace_enter/exit() to also pass thread flags, and
+get syscall number by syscall_get_nr() helper.
 
-After switch to Generic Entry, the performance are below:
+No functional changes.
 
-| Metric     | W/O Generic Framework | With Generic Framework | Change |
-| ---------- | --------------------- | ---------------------- | ------ |
-| Total time | 2.130 [sec]           | 2.235 [sec]            | ↑4.90% |
-| usecs/op   | 0.213095              | 0.223512               | ↑4.89% |
-| ops/sec    | 4,692,753             | 4,474,044              | ↓4.89% |
+Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
+Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+---
+ arch/arm64/include/asm/syscall.h |  4 ++--
+ arch/arm64/kernel/ptrace.c       | 25 ++++++++++++++++---------
+ arch/arm64/kernel/syscall.c      |  5 +++--
+ 3 files changed, 21 insertions(+), 13 deletions(-)
 
-Compared to earlier with arch specific handling, the performance decreased
-by approximately 4.9%.
-
-On the basis of optimizing syscall_get_arguments()[1], el0_svc_common()
-and syscall_exit_work(), the performance are below:
-
-| Metric     | W/O Generic Entry | With Generic Entry opt| Change |
-| ---------- | ----------------- | ------------------    | ------ |
-| Total time | 2.130 [sec]       | 2.134 [sec]           | ↑0.18% |
-| usecs/op   | 0.213095          | 0.213414              | ↑0.15% |
-| ops/sec    | 4,692,753         | 4,685,737             | ↓0.15% |
-
-Therefore, after the optimization, ARM64 System Call performance remains
-almost unchanged.
-
-It was tested ok with following test cases on kunpeng920 and QEMU
-virt platform:
- - Perf tests.
- - Different `dynamic preempt` mode switch.
- - Pseudo NMI tests.
- - Stress-ng CPU stress test.
- - Hackbench stress test.
- - MTE test case in Documentation/arch/arm64/memory-tagging-extension.rst
-   and all test cases in tools/testing/selftests/arm64/mte/*.
- - "sud" selftest testcase.
- - get_set_sud, get_syscall_info, set_syscall_info, peeksiginfo
-   in tools/testing/selftests/ptrace.
- - breakpoint_test_arm64 in selftests/breakpoints.
- - syscall-abi and ptrace in tools/testing/selftests/arm64/abi
- - fp-ptrace, sve-ptrace, za-ptrace in selftests/arm64/fp.
- - vdso_test_getrandom in tools/testing/selftests/vDSO
- - Strace tests.
-
-The test QEMU configuration is as follows:
-
-	qemu-system-aarch64 \
-		-M virt,gic-version=3,virtualization=on,mte=on \
-		-cpu max,pauth-impdef=on \
-		-kernel Image \
-		-smp 8,sockets=1,cores=4,threads=2 \
-		-m 512m \
-		-nographic \
-		-no-reboot \
-		-device virtio-rng-pci \
-		-append "root=/dev/vda rw console=ttyAMA0 kgdboc=ttyAMA0,115200 \
-			earlycon preempt=voluntary irqchip.gicv3_pseudo_nmi=1" \
-		-drive if=none,file=images/rootfs.ext4,format=raw,id=hd0 \
-		-device virtio-blk-device,drive=hd0 \
-
-[1]: https://lore.kernel.org/all/20251201120633.1193122-3-ruanjinjie@huawei.com/
-
-Changes in v9:
-- Move "Return early for ptrace_report_syscall_entry() error" patch ahead
-  to make it not introduce a regression.
-- Not check _TIF_SECCOMP/SYSCALL_EMU for syscall_exit_work() in
-  a separate patch.
-- Do not report_syscall_exit() for PTRACE_SYSEMU_SINGLESTEP in a separate
-  patch.
-- Add two performance patch to improve the arm64 performance.
-- Add Reviewed-by.
-- Link to v8: https://lore.kernel.org/all/20251126071446.3234218-1-ruanjinjie@huawei.com/
-
-Changes in v8:
-- Rename "report_syscall_enter()" to "report_syscall_entry()".
-- Add ptrace_save_reg() to avoid duplication.
-- Remove unused _TIF_WORK_MASK in a standalone patch.
-- Align syscall_trace_enter() return value with the generic version.
-- Use "scno" instead of regs->syscallno in el0_svc_common().
-- Move rseq_syscall() ahead in a standalone patch to clarify it clearly.
-- Rename "syscall_trace_exit()" to "syscall_exit_work()".
-- Keep the goto in el0_svc_common().
-- No argument was passed to __secure_computing() and check -1 not -1L.
-- Remove "Add has_syscall_work() helper" patch.
-- Move "Add syscall_exit_to_user_mode_prepare() helper" patch later.
-- Add miss header for asm/entry-common.h.
-- Update the implementation of arch_syscall_is_vdso_sigreturn().
-- Add "ARCH_SYSCALL_WORK_EXIT" to be defined as "SECCOMP | SYSCALL_EMU"
-  to keep the behaviour unchanged.
-- Add more testcases test.
-- Add Reviewed-by.
-- Update the commit message.
-- Link to v7: https://lore.kernel.org/all/20251117133048.53182-1-ruanjinjie@huawei.com/
-
-Chanegs in v7:
-- Support "Syscall User Dispatch" by implementing
-  arch_syscall_is_vdso_sigreturn() as kemal suggested.
-- Add aarch64 support for "sud" selftest testcase, which tested ok with
-  the patch series.
-- Fix the kernel test robot warning for arch_ptrace_report_syscall_entry()
-  and arch_ptrace_report_syscall_exit() in asm/entry-common.h.
-- Add perf syscall performance test.
-- Link to v6: https://lore.kernel.org/all/20250916082611.2972008-1-ruanjinjie@huawei.com/
-
-Changes in v6:
-- Rebased on v6.17-rc5-next as arm64 generic irq entry has merged.
-- Update the commit message.
-- Link to v5: https://lore.kernel.org/all/20241206101744.4161990-1-ruanjinjie@huawei.com/
-
-Changes in v5:
-- Not change arm32 and keep inerrupts_enabled() macro for gicv3 driver.
-- Move irqentry_state definition into arch/arm64/kernel/entry-common.c.
-- Avoid removing the __enter_from_*() and __exit_to_*() wrappers.
-- Update "irqentry_state_t ret/irq_state" to "state"
-  to keep it consistently.
-- Use generic irq entry header for PREEMPT_DYNAMIC after split
-  the generic entry.
-- Also refactor the ARM64 syscall code.
-- Introduce arch_ptrace_report_syscall_entry/exit(), instead of
-  arch_pre/post_report_syscall_entry/exit() to simplify code.
-- Make the syscall patches clear separation.
-- Update the commit message.
-- Link to v4: https://lore.kernel.org/all/20241025100700.3714552-1-ruanjinjie@huawei.com/
-
-Changes in v4:
-- Rework/cleanup split into a few patches as Mark suggested.
-- Replace interrupts_enabled() macro with regs_irqs_disabled(), instead
-  of left it here.
-- Remove rcu and lockdep state in pt_regs by using temporary
-  irqentry_state_t as Mark suggested.
-- Remove some unnecessary intermediate functions to make it clear.
-- Rework preempt irq and PREEMPT_DYNAMIC code
-  to make the switch more clear.
-- arch_prepare_*_entry/exit() -> arch_pre_*_entry/exit().
-- Expand the arch functions comment.
-- Make arch functions closer to its caller.
-- Declare saved_reg in for block.
-- Remove arch_exit_to_kernel_mode_prepare(), arch_enter_from_kernel_mode().
-- Adjust "Add few arch functions to use generic entry" patch to be
-  the penultimate.
-- Update the commit message.
-- Add suggested-by.
-- Link to v3: https://lore.kernel.org/all/20240629085601.470241-1-ruanjinjie@huawei.com/
-
-Changes in v3:
-- Test the MTE test cases.
-- Handle forget_syscall() in arch_post_report_syscall_entry()
-- Make the arch funcs not use __weak as Thomas suggested, so move
-  the arch funcs to entry-common.h, and make arch_forget_syscall() folded
-  in arch_post_report_syscall_entry() as suggested.
-- Move report_single_step() to thread_info.h for arm64
-- Change __always_inline() to inline, add inline for the other arch funcs.
-- Remove unused signal.h for entry-common.h.
-- Add Suggested-by.
-- Update the commit message.
-
-Changes in v2:
-- Add tested-by.
-- Fix a bug that not call arch_post_report_syscall_entry() in
-  syscall_trace_enter() if ptrace_report_syscall_entry() return not zero.
-- Refactor report_syscall().
-- Add comment for arch_prepare_report_syscall_exit().
-- Adjust entry-common.h header file inclusion to alphabetical order.
-- Update the commit message.
-
-Jinjie Ruan (15):
-  arm64: Remove unused _TIF_WORK_MASK
-  arm64/ptrace: Split report_syscall()
-  arm64/ptrace: Return early for ptrace_report_syscall_entry() error
-  arm64/ptrace: Refactor syscall_trace_enter/exit()
-  arm64: ptrace: Move rseq_syscall() before audit_syscall_exit()
-  arm64: syscall: Rework el0_svc_common()
-  arm64/ptrace: Not check _TIF_SECCOMP/SYSCALL_EMU for
-    syscall_exit_work()
-  arm64/ptrace: Do not report_syscall_exit() for
-    PTRACE_SYSEMU_SINGLESTEP
-  arm64/ptrace: Expand secure_computing() in place
-  arm64/ptrace: Use syscall_get_arguments() helper
-  entry: Split syscall_exit_to_user_mode_work() for arch reuse
-  entry: Add arch_ptrace_report_syscall_entry/exit()
-  arm64: entry: Convert to generic entry
-  arm64: Inline el0_svc_common()
-  entry: Inline syscall_exit_work()
-
-kemal (1):
-  selftests: sud_test: Support aarch64
-
- arch/arm64/Kconfig                            |  2 +-
- arch/arm64/include/asm/entry-common.h         | 76 ++++++++++++++
- arch/arm64/include/asm/syscall.h              | 19 +++-
- arch/arm64/include/asm/thread_info.h          | 22 +----
- arch/arm64/kernel/debug-monitors.c            |  7 ++
- arch/arm64/kernel/ptrace.c                    | 94 ------------------
- arch/arm64/kernel/signal.c                    |  2 +-
- arch/arm64/kernel/syscall.c                   | 29 ++----
- include/linux/entry-common.h                  | 98 ++++++++++++++++---
- kernel/entry/syscall-common.c                 | 60 +++++-------
- .../syscall_user_dispatch/sud_test.c          |  4 +
- 11 files changed, 220 insertions(+), 193 deletions(-)
-
+diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
+index 5e4c7fc44f73..cef1d9ce6e1b 100644
+--- a/arch/arm64/include/asm/syscall.h
++++ b/arch/arm64/include/asm/syscall.h
+@@ -120,7 +120,7 @@ static inline int syscall_get_arch(struct task_struct *task)
+ 	return AUDIT_ARCH_AARCH64;
+ }
+ 
+-int syscall_trace_enter(struct pt_regs *regs);
+-void syscall_trace_exit(struct pt_regs *regs);
++int syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long flags);
++void syscall_trace_exit(struct pt_regs *regs, unsigned long flags);
+ 
+ #endif	/* __ASM_SYSCALL_H */
+diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+index 3926ce6aa268..b962cbcca11d 100644
+--- a/arch/arm64/kernel/ptrace.c
++++ b/arch/arm64/kernel/ptrace.c
+@@ -2381,9 +2381,8 @@ static void report_syscall_exit(struct pt_regs *regs)
+ 	}
+ }
+ 
+-int syscall_trace_enter(struct pt_regs *regs)
++int syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long flags)
+ {
+-	unsigned long flags = read_thread_flags();
+ 	int ret;
+ 
+ 	if (flags & (_TIF_SYSCALL_EMU | _TIF_SYSCALL_TRACE)) {
+@@ -2396,19 +2395,27 @@ int syscall_trace_enter(struct pt_regs *regs)
+ 	if (secure_computing() == -1)
+ 		return NO_SYSCALL;
+ 
+-	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
+-		trace_sys_enter(regs, regs->syscallno);
++	/* Either of the above might have changed the syscall number */
++	syscall = syscall_get_nr(current, regs);
+ 
+-	audit_syscall_entry(regs->syscallno, regs->orig_x0, regs->regs[1],
++	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT)) {
++		trace_sys_enter(regs, syscall);
++
++		/*
++		 * Probes or BPF hooks in the tracepoint may have changed the
++		 * system call number as well.
++		 */
++		 syscall = syscall_get_nr(current, regs);
++	}
++
++	audit_syscall_entry(syscall, regs->orig_x0, regs->regs[1],
+ 			    regs->regs[2], regs->regs[3]);
+ 
+-	return regs->syscallno;
++	return syscall;
+ }
+ 
+-void syscall_trace_exit(struct pt_regs *regs)
++void syscall_trace_exit(struct pt_regs *regs, unsigned long flags)
+ {
+-	unsigned long flags = read_thread_flags();
+-
+ 	audit_syscall_exit(regs);
+ 
+ 	if (flags & _TIF_SYSCALL_TRACEPOINT)
+diff --git a/arch/arm64/kernel/syscall.c b/arch/arm64/kernel/syscall.c
+index aba7ca6bca2d..ec31f82d2e9f 100644
+--- a/arch/arm64/kernel/syscall.c
++++ b/arch/arm64/kernel/syscall.c
+@@ -124,7 +124,7 @@ static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
+ 		 */
+ 		if (scno == NO_SYSCALL)
+ 			syscall_set_return_value(current, regs, -ENOSYS, 0);
+-		scno = syscall_trace_enter(regs);
++		scno = syscall_trace_enter(regs, scno, flags);
+ 		if (scno == NO_SYSCALL)
+ 			goto trace_exit;
+ 	}
+@@ -143,7 +143,8 @@ static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
+ 	}
+ 
+ trace_exit:
+-	syscall_trace_exit(regs);
++	flags = read_thread_flags();
++	syscall_trace_exit(regs, flags);
+ }
+ 
+ void do_el0_svc(struct pt_regs *regs)
 -- 
 2.34.1
 
