@@ -4,92 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B14DCD1CDD0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 05:01:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3B33D1D865
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 05:18:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ynb1Pz7S4Rh+mM2HiZZ5on0pKnh8R/gdfodATPNKL0A=; b=o3T/s6mGU2mSVM00u/Yt3z3ClU
-	JLwpYGI3sQpacgn10P0TrCu2l26QSYJl1vNEoQdKQ/dnGJ0HcCpzJhGpB25sfi1BQ/ibv7NjPWna2
-	B4K7AvE68PFbxn7HXLQYb+JlfAa/x9hFUb6AAtqDm7jLJvm7yIpirKWF8ZhPGiRrGGCThnyCccQqb
-	yUoNpXokA7HMWZPg+B//m6+G2/7vAUbah/zJJzYmkY7h0DFhHiPNr1EflnT+UHA+xl7pqUo0X7D3J
-	j/o8oCrH2G62moiq+7gJqpkas0JdnEhzZof5WQB2nC/LAKYLK7p/9dgTeDMfLOKWlxOttsWC5wg6O
-	KWVyXu0w==;
+	bh=iNDnKlHp/ZUbhmRkZfp5DLTg2xmo1qEY2RoZ68xLETE=; b=HrbLTEGmzYkSW7JPy5q5FOIa5C
+	63+KXRFLd0cQG9wIcchRB5KTipxAsS4TeR1EIkRUzKtLxl+IIsrkAebNSkeLY06NWJByYsVfLnAeB
+	9ses+kBkK70Jfj3CfkXahAV8U4KqT91AeTLEiJVZ3f48FMe4fPkl4NpA9FzRNBg69Y9BeFvAiZpYC
+	8oeIMTggqMlAfU+xs3ii+5K16KAK2Q4rClfVn+/G8qdt2htg4rUZ8m9ElbUJEz70fY7/NVzmlLCZe
+	TN4qy2V/ZGPnynlnv4OCBiNGRtfUj9O6eUNTrsFGWI9uXFArT4j1SUUGTt2DQE5OuJCJyHCsBUbdd
+	L5nRh8Gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR1Sh-00000007Tvu-33qM;
-	Thu, 04 Dec 2025 05:01:03 +0000
-Received: from mail-oa1-x2a.google.com ([2001:4860:4864:20::2a])
+	id 1vR1jL-00000007UZU-0rGd;
+	Thu, 04 Dec 2025 05:18:15 +0000
+Received: from mail-oa1-x35.google.com ([2001:4860:4864:20::35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR1Sd-00000007TuV-1kXM
+	id 1vR1jJ-00000007UYd-06U0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 05:01:02 +0000
-Received: by mail-oa1-x2a.google.com with SMTP id 586e51a60fabf-3ed15120e55so426658fac.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 21:00:53 -0800 (PST)
+	Thu, 04 Dec 2025 05:18:14 +0000
+Received: by mail-oa1-x35.google.com with SMTP id 586e51a60fabf-3f0d1a39cabso335705fac.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 21:18:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1764824452; x=1765429252; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1764825491; x=1765430291; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ynb1Pz7S4Rh+mM2HiZZ5on0pKnh8R/gdfodATPNKL0A=;
-        b=Pnt72wQxUPHT32UBmZQCqGpMIlEbzsE33E6u+dJUDPTj2YvaXGYxbcl5skaNdFkq2N
-         Y/noc7Bp2t/NG4DEkCBmir80t6vYa2+dOesQiX/dT3g3zU62nrhOvP/5FmyI4gjKU8ou
-         u8tD6Lq+M/DcRgpbnp+8d7PuA4Mce6MMyH6vEUSSDzRuKK0XNJ2HRDkx25LcfEpKyZ/G
-         sKra5jj+d5qTqw0PuCiwzniyiwnqU8/Fi21hDcq0EEkvZGBlpkXef9s+tw26EpPxEdN6
-         Bo3QCrSAgmOluQz646ey1+9jZr1+OfuDV5C27xNMB0hyVqTbDBKf6kA6eS/Nsn6G17Hl
-         i51A==
+        bh=iNDnKlHp/ZUbhmRkZfp5DLTg2xmo1qEY2RoZ68xLETE=;
+        b=FO8856yWyLeUNFsYGdDwHbBQHDSqBlhHaTdF2+RPMlicGChhr7EvAc3FNf8i5l4Y6n
+         kqYf80qI3R428f5nsZwbqL02eoIYrzLFKroJuWM1Nnh4Jq6lVXG2bducaHt0836jONaM
+         /KokNzIrzpwe+wTa/Jb6loZOeWl8u8gj2NQgll6XaYNXV/Pv/P29DymWr56gZt6PudD0
+         9IUBQrKDHCtmLbjFek+0sIoQF8stP+XBaA8JUNmrJpUb5s5ZtmhPr/ghrmKely4SASox
+         35/KQLl3fZYQ3MhnYBnnGAKvi5Yqrkj4yuFg5DFV9hXU1oQsUuyU6Tu5HHISYK1uvbX7
+         nOzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764824452; x=1765429252;
+        d=1e100.net; s=20230601; t=1764825491; x=1765430291;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=ynb1Pz7S4Rh+mM2HiZZ5on0pKnh8R/gdfodATPNKL0A=;
-        b=ACJ45XR8rKeLeZ7/goAI7bM6tJh/Zb+otrcMipfBPzwjZqzrQt5ZT1DtWy+t9mM/1y
-         3Xvs5HOnsJWYWgkbhYVu9XWMiavjpg7gc96GFNyRULvGB05d02GiqNSrmqJMJTxo+wAb
-         BCU/yiMiecPte2voCeO5eRfEh7am5SqxELPkK+/IgaMTu4/byRtxOtZT3dgBkAi7/DGQ
-         BunGDOuQ97p53CIWIESe8dJUu7fk5dDZah6u+BSrzlVu1kqnQU8x2+EHemWCRaeiBjzV
-         Inncft2EYSuOrjywl7q5JSfX4bf/dF2Mjk4HK449CfNgIyoIrRGIAFFPU7L3LKL2sabo
-         00VQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVh4z/viY5PWg5aDzSVL+2CCcksMTfhzTDSdGtuBdYqHvUf5wQCnhD+lNx3/8MGQZ7qUpX1uJapayiO5V3//sjw@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWqHH6K0rAOfDjwDxb7nWhq5BtaofUcDu6Ztmfz5XkzDvS36Pp
-	Dv71h+Ppuw9rNqhjU+7PHAqYVR2sYCP2ClFCt5jBVVuv54yHJzKoBpFGijO5g6iwFnOdxGh4qd8
-	fYfovh+nduZnU3OeoIqzuYMj83pk3qCvzemzkpnvDdw==
-X-Gm-Gg: ASbGncsYYgE6ucNfZgVoVSrYKm48vkdspznoO3stlC7qxj74D99U80iJlWIEaa94X+y
-	+8XpM8tpNlfASvNINEcyOplZnntX4aT3Qiv+fpWFReOxCMW7V56YOx7Mqe7XMWmjue2YTtnoSRK
-	GS6W2KndggLDDoWUKqkWIA+cAmbSlmO4jeddV8MsJhdjh5uye3ljSdYSDiZsRBTW2D+iWcdI1d3
-	xXI6l5AL//niQHfkaH1kyHt7iuJJfZAA0IY8slzy2EYiaIm6wdXmecahvpHtf/ov4EJrXisb3Ef
-	bA==
-X-Google-Smtp-Source: AGHT+IGs1i5jYMwbaLlrfd7bj2pB6zXQmPz0bH8HdsC7EIxuIEFzisuXnQAnT8qR0b61+0KWK9jUwDlnypRtY3EbS0o=
-X-Received: by 2002:a05:6871:7426:b0:3d2:e13c:5ea7 with SMTP id
- 586e51a60fabf-3f1693a56e9mr2970174fac.39.1764824452474; Wed, 03 Dec 2025
- 21:00:52 -0800 (PST)
+        bh=iNDnKlHp/ZUbhmRkZfp5DLTg2xmo1qEY2RoZ68xLETE=;
+        b=YFs/5WgH3FUmswWGkKR0TdZ4DzukF0tcpvaB2xyCg5Z/UQR4FRhN15R0JzJvMAxVTn
+         p/wMSR+aspO0Gz00kmkBpZcfTb49tDVrYfOxK+6vfWQMMwVsJjo+vshkTautwJeH+vIk
+         tgC65s0ay3tPuovFAvHdYMd4RJb1JoAAAhWYISHKivBWov90lYBKtEqjPtGsPDmXr+el
+         iFVrNMT8Yl2X15oKYnUBOnw+oMc6i4zF9kDo3g8VUukFBdFh4r2gtrUya7cErCIzUuro
+         2EpPE//WoutplsEVag6eKxh56M6Uc1xeNTMHfclI1JoinIHoUaxDhK+VHiC3/1fnuouy
+         DpDA==
+X-Forwarded-Encrypted: i=1; AJvYcCX96ccmiNswdkl9+kevhMIBOuJ0Z/IeaAEdWAq5J+alr28/EqLwsFgrBDZOX9kmtE0FZi1J/wYmEXaOoZuQy9jV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxd/CwzHv9WNZIEUVTLLo+WOKjRV+h2aF1qBmQlDN+UIvEs8RGN
+	3c2ebMv8oiseM78v3VM8CbWoLibyqPYBP0eYGGUAri9E5wuUufRrEHR+1AjtjfcdZWvQIBwiCMo
+	9Os/45Q8mxB47mZbt8alwBFiT7I6VsIV8sjjqgkhZQw==
+X-Gm-Gg: ASbGncttm5QBUxlcc7btPF8nSk4/O+M7PlJM2PNX+f1wc3jTTb5RvwXm/DYGksW0Pfa
+	WBDbEp6897Im3Z4rA2ZhtioMzAjj7naG+zw86Z30cjI0laQOIJRxBzBEg/c4pdPR5jt4/MavcET
+	9TJdO19TLB7s2Vv5aHrDxVmTYP0rYuxUuI9BYmctEysT7X9nffH9loN1C7X5rQFViLOUOs+Zjo5
+	9KT7NeEHQuEsBYYbp82XSGbr8qztUwIKvjBh5OJYLE7KE2LvgpN7MeKCiHmaFoArP9Kwky+RhBn
+	tQ==
+X-Google-Smtp-Source: AGHT+IE6Uo+mUT5GOvC/ChjVWxuELDhLbIjvw8L0mngRXN/XyCudJ4rOSwMT4tx1Bd5AVcgCYi5RjboTifVzzdPFKpI=
+X-Received: by 2002:a05:6808:4fd4:b0:450:ccc6:4113 with SMTP id
+ 5614622812f47-45379e76627mr949636b6e.52.1764825491585; Wed, 03 Dec 2025
+ 21:18:11 -0800 (PST)
 MIME-Version: 1.0
-References: <20251114033243.76509-1-cuiyunhui@bytedance.com> <CAD=FV=Vh-guJS+5BAqhao9aECtkRFgoqEjpzhuDYEsRVqtVA6w@mail.gmail.com>
-In-Reply-To: <CAD=FV=Vh-guJS+5BAqhao9aECtkRFgoqEjpzhuDYEsRVqtVA6w@mail.gmail.com>
+References: <20251127125305.89961-1-cuiyunhui@bytedance.com>
+ <20251127125305.89961-9-cuiyunhui@bytedance.com> <DEP50CD8K22E.1JW7GL6WLK44W@ventanamicro.com>
+In-Reply-To: <DEP50CD8K22E.1JW7GL6WLK44W@ventanamicro.com>
 From: yunhui cui <cuiyunhui@bytedance.com>
-Date: Thu, 4 Dec 2025 13:00:40 +0800
-X-Gm-Features: AWmQ_bm8VR4mmm7gM0qxlsCJG381p5n9-XFc6fATbqwFqWlsUG-TXpi8vcKmNZI
-Message-ID: <CAEEQ3wmz=CHkbxZwyMHGTSeXj0OFjBskgzyEKeZHk9rNOWge+w@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH v6 0/2] Add HARDLOCKUP_DETECTOR_PERF
- support for RISC-V
-To: Doug Anderson <dianders@chromium.org>
-Cc: akpm@linux-foundation.org, alex@ghiti.fr, anup@brainfault.org, 
-	aou@eecs.berkeley.edu, atish.patra@linux.dev, catalin.marinas@arm.com, 
-	johannes@sipsolutions.net, lihuafei1@huawei.com, mark.rutland@arm.com, 
-	masahiroy@kernel.org, maz@kernel.org, mingo@kernel.org, 
-	nicolas.schier@linux.dev, palmer@dabbelt.com, paul.walmsley@sifive.com, 
-	suzuki.poulose@arm.com, thorsten.blum@linux.dev, wangjinchao600@gmail.com, 
-	will@kernel.org, yangyicong@hisilicon.com, zhanjie9@hisilicon.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org
+Date: Thu, 4 Dec 2025 13:18:00 +0800
+X-Gm-Features: AWmQ_bkci0NzLiA0LVBzrZMqySYI1Agon6sfMnpqxOwRNPLLk4lieoHNTIjoqIo
+Message-ID: <CAEEQ3wkmFXAqBfHwJYbJRc5pagOJvtu-wEYGwXBF2beQiSMT1w@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v3 8/8] drivers: firmware: riscv: add
+ unknown nmi support
+To: =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>
+Cc: conor@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, alex@ghiti.fr, luxu.kernel@bytedance.com, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	jassisinghbrar@gmail.com, conor.dooley@microchip.com, 
+	valentina.fernandezalanis@microchip.com, catalin.marinas@arm.com, 
+	will@kernel.org, maz@kernel.org, timothy.hayes@arm.com, lpieralisi@kernel.org, 
+	arnd@arndb.de, kees@kernel.org, tglx@linutronix.de, viresh.kumar@linaro.org, 
+	boqun.feng@gmail.com, linux-arm-kernel@lists.infradead.org, 
+	cleger@rivosinc.com, atishp@rivosinc.com, ajones@ventanamicro.com, 
+	linux-riscv <linux-riscv-bounces@lists.infradead.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_210059_761134_766EC0E2 
-X-CRM114-Status: GOOD (  16.81  )
+X-CRM114-CacheID: sfid-20251203_211813_092345_2DAC757F 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,55 +107,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+Hi Radim,
 
-On Sat, Nov 15, 2025 at 3:21=E2=80=AFAM Doug Anderson <dianders@chromium.or=
-g> wrote:
+On Thu, Dec 4, 2025 at 12:11=E2=80=AFPM Radim Kr=C4=8Dm=C3=A1=C5=99 <rkrcma=
+r@ventanamicro.com> wrote:
 >
-> Hi,
+> 2025-11-27T20:53:05+08:00, Yunhui Cui <cuiyunhui@bytedance.com>:
+> > Register unknown_nmi_handler() as the handler for the UNKNOWN_NMI
+> > event. When the system becomes unresponsive, unknown_nmi_handler()
+> > can be manually triggered, which in turn invokes nmi_panic() to
+> > collect vmcore for root cause analysis.
 >
-> On Thu, Nov 13, 2025 at 7:33=E2=80=AFPM Yunhui Cui <cuiyunhui@bytedance.c=
-om> wrote:
-> >
-> > After discussion [1],[2], hardlockup_perf cannot be completely replaced=
- by
-> > the hardlockup_buddy approach, so this patch is still being submitted.
-> >
-> > v1->v2:
-> > The contents of arch/arm64/watchdog_hld.c are directly consolidated int=
-o
-> > kernel/watchdog_perf.c.
-> >
-> >
-> > v2->v3:
-> > Add CONFIG_WATCHDOG_PERF_ADJUST_PERIOD to enclose the period update log=
-ic,
-> > select it by default on arm64 and riscv, without affecting other arches
-> > like x86 and PPC.
-> >
-> > v3->v4:
-> > Place the line "select WATCHDOG_PERF_ADJUST_PERIOD if HARDLOCKUP_DETECT=
-OR_PERF && CPU_FREQ"
-> > in the Kconfig files for arm64 and riscv in one line, with no line brea=
-ks.
-> >
-> > v4->v5:
-> > Remove __weak from hw_nmi_get_sample_period()
-> >
-> > v5->v6:
-> > Removed the dependency on CPU_FREQ for WATCHDOG_PERF_ADJUST_PERIOD in K=
-config, which fixes the
-> > issue reported at: https://lore.kernel.org/oe-kbuild-all/202510240701.e=
-B6r97V3-lkp@intel.com/
->
-> I haven't tried compiling this myself, but it seems like an OK
-> solution for the compile-time error to me.
->
-> -Doug
+> Is UNKNOWN_NMI what we expect the watchdog to send?
 
-Could you please help review and merge this again? Thank you!
+For reference: As stated in
+https://github.com/riscv-non-isa/riscv-sbi-doc/pull/223, "Generally,
+an external interrupt is used as an Unknown NMI pin, and an Unknown
+NMI event is sent to the SBI firmware by triggering this pin. Then the
+SBI firmware will send SBI_SSE_EVENT_GLOBAL_UNKNOWN_NMI to the
+kernel."
+
+When the Linux system is unresponsive, we can manually trigger it via
+BMC (ipmitool).
 
 >
+> Thanks.
 
 Thanks,
 Yunhui
