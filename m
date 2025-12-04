@@ -4,80 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79ED2D1D866
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 05:26:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7057D1D866
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 05:29:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K0Grv1Va+x0sJ/0g9wgFwBpEp9cwhWm39UVuKbjacKw=; b=bL/pkjhppxpH9BrVRF8rjjcwRY
-	pZ3EV5FgOe79ixLj8sbt0dWZbTu9dHlrzwAsAa/n4DSLpP7bCLNE7xaHLSJi+cQXoQvMrZINfZCkR
-	HZ9RQpLtV1lxK2WRgM9J+UuzfTVkyDzMPWb2aL0AwxoItrBdrana+3MtdSslXw+TVNLugpgzgkspx
-	E8QR8cihdw1kLFt7KsUMtUQnFrre2zNqMw//omgUqmHEw0KOxLHlh7xvNAC8qgU8VovD8L+Wt5DrP
-	sGiMhbNO+sSK4IMhtBEBTOKaSDdfObg6M8TPKmbklBgHRLbViT/N5nw9AQeN0rNW1NSnyjK0zoKAx
-	6NLwjdlA==;
+	bh=BGcGdJQ4d2lSMQGLwi6l+oRPZTLZMjA9uQc8WfswYHM=; b=OpuG16ORiI6GBoWRuxvidRrALp
+	Jn2IogCm/15UWoCLOWMC87mehh9FO3KXQOrvOiTcTfCdkhNgIgkb8zmqfwaUKB/GsZQ/xzUYmKwFG
+	coW0lCQDIvnQBhlSZesice+jiUoFMTA+uWpsc1XA+JzB2wq8CLUoRByY5ji9kZaHHl3hn8d9H5cid
+	/Cy/Ui67q5+QtPhwD7jz1pYIZGIx8SB2vb7nHjF1NBrWx/uuN7dgfw/OLGF5peFm/2o6KSMR+NlYV
+	UTtUdtLk7nEW57/M5SEXXZf8ooqlcw2MQLaK088oVg3orglyz6kKjtHDbNv8/vpxNjNOfb8bBk/hO
+	RSsdsUDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR1qz-00000007Uvn-2QIL;
-	Thu, 04 Dec 2025 05:26:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR1qw-00000007UvK-26QJ
+	id 1vR1tl-00000007V7f-0KsO;
+	Thu, 04 Dec 2025 05:29:01 +0000
+Received: from mail-oi1-x236.google.com ([2607:f8b0:4864:20::236])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vR1ti-00000007V6d-2HYa
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 05:26:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EEB83339;
-	Wed,  3 Dec 2025 21:25:56 -0800 (PST)
-Received: from [10.164.18.78] (unknown [10.164.18.78])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 80D2B3F59E;
-	Wed,  3 Dec 2025 21:25:54 -0800 (PST)
-Message-ID: <2c2b3382-7bdb-41a9-b48e-4fa9a44312ba@arm.com>
-Date: Thu, 4 Dec 2025 10:55:51 +0530
+	Thu, 04 Dec 2025 05:29:00 +0000
+Received: by mail-oi1-x236.google.com with SMTP id 5614622812f47-44fe6771b2dso124311b6e.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 03 Dec 2025 21:28:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1764826137; x=1765430937; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BGcGdJQ4d2lSMQGLwi6l+oRPZTLZMjA9uQc8WfswYHM=;
+        b=YkGFFSQxDPTy6HF4xU6FU7hqAFjdRlDmdjxim6KAY+iDfz2jJsvE1eb1g5nwXsyV53
+         QjpX+v3SCuDoQSbtuOjBtJPmCBmB4VhFHtb1edEK5kEuXWmbeVgqkzzY3JLWlK2DLUUx
+         QdWnft95SWJO87d/VrL7yLOfCIFpR4DtSJcjnvhet/IqGCJIcQUsTMwdAm5gvsVewbTr
+         XA3T4Fi7bmH/oNOLMpP4r8xP31z6sEEvtACCNs36BMEHS9OqLUBZchCcjesvHCRg3zqu
+         RpnrMsn6QF3wTB6NmxNPMKSHmlXiNaoIaflaRCcYlt0cCbcYMVQQudjjF+/DpZwxQefp
+         uBCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764826137; x=1765430937;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=BGcGdJQ4d2lSMQGLwi6l+oRPZTLZMjA9uQc8WfswYHM=;
+        b=soiv9ThKBLB96Tck+vVpiBCaHZuSqqyaKU8SX2atCiGjL2x/+zs8XjaBiCb9feipyR
+         vr0Bjm5ZEIM8mPGQezCFoKi7oD+pmxUBEEKA2gfVriAs/IHcbejt7PctrXilNTALjy2z
+         pD/k369qsV8AIs+mzoeKnlRqqafsbccqE8CXlK0nfzFf34WPeMryIj82bxCYWjD8xVUJ
+         lElHSWuhIJkMOtUrS6djM+g21Vww/wAWp4JS25G5arMFA530ZCccT4SHHYnWa7rI9CoH
+         YT+/ihrTCBMsJ+DXPeusotTKRxIEicNZ4lEIap/pyEzM0xHXnJzTVsG2tV8VKSXP+4YZ
+         wDWA==
+X-Forwarded-Encrypted: i=1; AJvYcCViez1+syQxEuZrimPpioJQ2VlrP4JMgrxNW3fcbiWdFefi19XXWQ8o3Un6PoSn7teTJb59dFttDMyrjqbZ2eE+@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywj+j8Aj8UeIMzg1Q4FvI9inKthlBkAIHNeTEvDaV+T7TFJ4Nfy
+	VYNDsD6TqSGmOR4upHY37dXy2R6k9nfxRv7c+SlyKLCTZAhUlZp7QrKk+dl7dmHQilt+O/PJx+Q
+	Y0ibe5CqAkO680XPkiOB5KIU54rpAyzHBysW6RIhSRg==
+X-Gm-Gg: ASbGnctvcR2YsP6WCa1M668yo5gLqTQ9gTlLATvlvlDJswioBhPnQwZ+s8NJl/yAXQt
+	UxMj1GUxxTPirndq0RPkrQAT68/LQQ5k43QUDAOffJbuHC+oyhzsP7oaxuBw3/mjDCefYfGb8PE
+	oArfKB3+zWSXWy6Xql2N3AsXiQKqqiDfEnI2Lnp9i24PRd/XGCpnP2jczRST1HUUnAkVZZJrh7G
+	XO0hrez2pacL3RBMQqusoLFrqNy24sPGujudBleqPU6Vg7MclAW1tBVnUK9n+CwjG6HG2H5Ue8=
+X-Google-Smtp-Source: AGHT+IHPXO4mJt6XFTl0jVeuamRWHb5DefXnFnY2jPbicVsNKKRdQsCgbNBsmbzVUe+uXweaiUokpDpWwGHff2RkRUM=
+X-Received: by 2002:a05:6808:10d5:b0:450:44b9:68e0 with SMTP id
+ 5614622812f47-4536e3de274mr2882636b6e.11.1764826137356; Wed, 03 Dec 2025
+ 21:28:57 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 08/12] mm: enable lazy_mmu sections to nest
-To: Kevin Brodsky <kevin.brodsky@arm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
- <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- David Hildenbrand <david@redhat.com>, "David S. Miller"
- <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
- "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
- Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
- Peter Zijlstra <peterz@infradead.org>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Suren Baghdasaryan <surenb@google.com>,
- Thomas Gleixner <tglx@linutronix.de>,
- Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
- Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
- Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
- xen-devel@lists.xenproject.org, x86@kernel.org
-References: <20251124132228.622678-1-kevin.brodsky@arm.com>
- <20251124132228.622678-9-kevin.brodsky@arm.com>
- <23dcf752-0b75-45a7-84f8-25bddf97af08-agordeev@linux.ibm.com>
- <703cbee6-a813-4970-9232-34ee91ed8961@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <703cbee6-a813-4970-9232-34ee91ed8961@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20251127125305.89961-1-cuiyunhui@bytedance.com>
+ <20251127125305.89961-6-cuiyunhui@bytedance.com> <DEP4X1DAIOU5.2WLIV4BMWLMRR@ventanamicro.com>
+In-Reply-To: <DEP4X1DAIOU5.2WLIV4BMWLMRR@ventanamicro.com>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Thu, 4 Dec 2025 13:28:45 +0800
+X-Gm-Features: AWmQ_blKLNMUWj4oLV3fkP9gPW-qpOON3cyf_xYq6m6lr9r97yBqEg-AEwpXlh4
+Message-ID: <CAEEQ3wmAn=9w=fR=OMTMF17_tAcEnsdJWL_w8fw-3wA-Bfi6xw@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v3 5/8] riscv: smp: use NMI for CPU stop
+To: =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>
+Cc: conor@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, alex@ghiti.fr, luxu.kernel@bytedance.com, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	jassisinghbrar@gmail.com, conor.dooley@microchip.com, 
+	valentina.fernandezalanis@microchip.com, catalin.marinas@arm.com, 
+	will@kernel.org, maz@kernel.org, timothy.hayes@arm.com, lpieralisi@kernel.org, 
+	arnd@arndb.de, kees@kernel.org, tglx@linutronix.de, viresh.kumar@linaro.org, 
+	boqun.feng@gmail.com, linux-arm-kernel@lists.infradead.org, 
+	cleger@rivosinc.com, atishp@rivosinc.com, ajones@ventanamicro.com, 
+	linux-riscv <linux-riscv-bounces@lists.infradead.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_212606_590994_F9E41CE5 
-X-CRM114-Status: UNSURE (   9.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251203_212858_579575_8FB7BB44 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,21 +104,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Radim,
 
+On Thu, Dec 4, 2025 at 12:07=E2=80=AFPM Radim Kr=C4=8Dm=C3=A1=C5=99 <rkrcma=
+r@ventanamicro.com> wrote:
+>
+> 2025-11-27T20:53:02+08:00, Yunhui Cui <cuiyunhui@bytedance.com>:
+> > Use NMI instead of IPI for CPU stop if RISC-V SSE NMI is supported.
+> >
+> > Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> > ---
+> > diff --git a/drivers/firmware/riscv/riscv_sse_nmi.c b/drivers/firmware/=
+riscv/riscv_sse_nmi.c
+> > @@ -58,6 +58,7 @@ static int local_nmi_handler(u32 evt, void *arg, stru=
+ct pt_regs *regs)
+> >       type =3D atomic_read(this_cpu_ptr(&local_nmi));
+> >
+> >       NMI_HANDLE(LOCAL_NMI_CRASH, cpu_crash_stop, cpu, regs);
+> > +     NMI_HANDLE(LOCAL_NMI_STOP, cpu_stop);
+>
+> Please document the intended preemption design for all SSE events,
+> because it will be a nightmare if we forget some assumptions in the
+> coming years.  (That includes the relative priorities of RAS/PMU/...)
 
-On 03/12/25 1:50 PM, Kevin Brodsky wrote:
-> On 28/11/2025 14:55, Alexander Gordeev wrote:
->>> + * in_lazy_mmu_mode() can be used to check whether the lazy MMU mode is
->>> + * currently enabled.
->> The in_lazy_mmu_mode() name looks ambiguous to me. When the lazy MMU mode
->> is paused are we still in lazy MMU mode? The __task_lazy_mmu_mode_active()
->> implementation suggests we are not, while one could still assume we are,
->> just paused.
->>
->> Should in_lazy_mmu_mode() be named e.g. as in_active_lazy_mmu_mode() such
->> a confusion would not occur in the first place.
-> 
-> I see your point, how about is_lazy_mmu_mode_active()?
+Actually, LOCAL_NMI_CRASH, LOCAL_NMI_STOP, LOCAL_NMI_BACKTRACE,
+LOCAL_NMI_KGDB, ... are all implemented via the single SSE event
+SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED. Per the SSE design, no
+preemption will occur among CRASH, STOP, BACKTRACE, and KGDB events.
 
-Agreed - is_lazy_mmu_mode_active() seems better.
+>
+> Thanks.
+
+Thanks,
+Yunhui
 
