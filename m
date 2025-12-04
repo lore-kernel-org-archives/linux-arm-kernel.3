@@ -4,83 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 806AFD2168D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 15:09:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E2F0D21687
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 15:22:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T3/3Hb3qfYZzW2bYv2yTJjcAh5kwXWl3c9WrFjjDxww=; b=HH0//hrJeE/JqNgyBAyWgJangD
-	vb78eSqEDOCEqp8F5OqyuK+r5AnUnhX/Pa2wIZSK9QXcPXtZyO0p6CIOrpb0chbpNH073y4t14QsP
-	8v7SLK/mrIjUkaWQdPVsw6GTZFjIknRwIZ3rok8SJiDTN+i8REPV+ha2nzdyusi/imdobahrbjX52
-	cueaSoXnXZXqPBF7LP05DLIgTctv3iUFIG+dTvyDaUI9Iy4Nhb7URI/j23vp23WTk6HrC2HgVO5cN
-	CLGjhpxYtvQSinvcCElq/04Z0nrhtnntL3D9DFbYt3DbriySeeD/0atTwwO+b/JUh5qR0xbAMyPPT
-	4Oj5nhcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CSXwppmi/1KlyaunSxcGPfEGwrM8gH9Rv/W1n4Do2uY=; b=j4GfCcFf/tN4YbLxs2isUtqriR
+	IuyBQ5wqUyBT3h5BlS95TDycNs94Wj/JGtfqHCnDaUZF3sT7y+0Pvomr9ez8pYpww00KV62P7iRCa
+	6oQ1XlLEuFmljGFchpRvfjxRzn73J7yh6b47JYuNK3/ZH5+BXDq3MoiGVb9zKM5Zoc7EKpSCBM3jR
+	F/UEHW4i8D87uzdXV39QMh+VErHDeMJDh+MYFgdRE8jSyWpbjjgxyhlw3dGwLMCe7zGuHJ537D+Hb
+	1QE5bcMLtwtmHjCI84TxQoEOSXaeWVuLS0lReXMSWPni12seHNI3j9TQdy6FQdSIDXBlADfA3mLuK
+	W3T3HPTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRAxK-00000008BcO-0igY;
-	Thu, 04 Dec 2025 15:09:18 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1vRBAA-00000008Chv-0V3H;
+	Thu, 04 Dec 2025 15:22:34 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRAxI-00000008Bbw-0omT
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 15:09:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1764860956; x=1796396956;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=0sFsd5k8Q0vVJXdJf/IRTs0ofL7IMrAGQDQFMFrLC5c=;
-  b=A5YSqXS6229/46i2HBFEUrGLtht86vv5ZlzRvjGxHuIfZCQrQ89a+XZL
-   Ej3fs1V1XoK1Jb8WySn+ZHbVpkxbXcJY/hTOjF5hiyVBqI8V63UhZsRae
-   p8f38LJB58GYYvzUnDI3AaYxj+TukNcfH/o9jdYyi4vQtg5DJ75GmDdEI
-   q8fN1nWHVf3YfFJaslzrEOMbb32uTD9icnAEa7o4GX2ZPX22UnlyigKEh
-   HnJTU0SmC01OdkSLXR9fm48bw3utSVBJBpdlQgAD15N9/bKpSsAbTi6L/
-   +C77IPqkh1ermiiOwMVWA/Xvw+AbNbY/g5oEsTL1oZpdRKKEeBwEDUI0y
-   Q==;
-X-CSE-ConnectionGUID: wR0tSpEQT3eH/1z9zMsOpA==
-X-CSE-MsgGUID: zIlNKMMPSj6hoHV4SJYoQQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11632"; a="84280664"
-X-IronPort-AV: E=Sophos;i="6.20,249,1758610800"; 
-   d="scan'208";a="84280664"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Dec 2025 07:09:14 -0800
-X-CSE-ConnectionGUID: ea1+yHXsTTKRqWUCFFHAag==
-X-CSE-MsgGUID: FMlvhaqoQ2q5MO16oqZAdQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,249,1758610800"; 
-   d="scan'208";a="194073418"
-Received: from schen9-mobl4.amr.corp.intel.com (HELO [10.125.108.95]) ([10.125.108.95])
-  by orviesa006-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Dec 2025 07:09:13 -0800
-Message-ID: <3a065c54-f043-4c94-ac52-ef5b48a0dc71@intel.com>
-Date: Thu, 4 Dec 2025 08:09:12 -0700
+	id 1vRBA7-00000008Ch7-38pE;
+	Thu, 04 Dec 2025 15:22:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=CSXwppmi/1KlyaunSxcGPfEGwrM8gH9Rv/W1n4Do2uY=; b=Aup0I71GV6QggM+CaxB8OpiuFo
+	tYkm3eMrKXTK9w2z5uiG17StE3nApVL8+dGEQIWkYGIJ41IkErJU033NPYFfto9IId4oMoDEL6YcT
+	eH39NIoKYicYV9vnYDWSBgTiZkjwpzoTGFuTezstBvenDyRnXFDvs6z0VvRV2edtZrO4=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vRB9m-00Fytb-Hm; Thu, 04 Dec 2025 16:22:10 +0100
+Date: Thu, 4 Dec 2025 16:22:10 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Vladimir Oltean <olteanv@gmail.com>
+Cc: Daniel Golle <daniel@makrotopia.org>, Frank Wunderlich <frankwu@gmx.de>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Chen Minqiang <ptpt52@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"Chester A. Unal" <chester.a.unal@arinc9.com>,
+	DENG Qingfang <dqfext@gmail.com>,
+	Sean Wang <sean.wang@mediatek.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] net: dsa: mt7530: Use GPIO polarity to generate
+ correct reset sequence
+Message-ID: <7aacc2c2-50d0-4a08-9800-dc4a572dffcb@lunn.ch>
+References: <20251129234603.2544-1-ptpt52@gmail.com>
+ <20251129234603.2544-2-ptpt52@gmail.com>
+ <0675b35f-217d-4261-9e3f-2eb24753d43c@lunn.ch>
+ <20251130080731.ty2dlxaypxvodxiw@skbuf>
+ <3fbc4e67-b931-421c-9d83-2214aaa2f6ed@lunn.ch>
+ <0d85e1e6-ea75-4f20-aef1-90d446b4bfa1@kernel.org>
+ <00f308a1-a4b1-4f20-8d8e-459ddf4c39b1@gmx.de>
+ <aS7Zj3AFsSp2CTNv@makrotopia.org>
+ <20251204131626.upw77jncqfwxydww@skbuf>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] i2c: lpi2c: Use cleanup helper for
- dma_async_tx_descriptor error handling
-To: Frank Li <Frank.li@nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>,
- Andi Shyti <andi.shyti@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, dmaengine@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- carlos.song@nxp.com
-References: <20251003-dma_chan_free-v2-0-564946b6c563@nxp.com>
- <20251003-dma_chan_free-v2-2-564946b6c563@nxp.com>
- <26b9cb6d-8370-4908-aed9-9c5b07e5fb82@intel.com>
- <aTDjmdfUk94R3Dyk@lizhi-Precision-Tower-5810>
-From: Dave Jiang <dave.jiang@intel.com>
-Content-Language: en-US
-In-Reply-To: <aTDjmdfUk94R3Dyk@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251204131626.upw77jncqfwxydww@skbuf>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_070916_279602_520CF956 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20251204_072231_788568_02AF9BF9 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,95 +85,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> If this is blocking progress for new device trees, can we just construct,
+> using of_machine_is_compatible(), a list of all boards where the device
+> tree defines incorrect reset polarity that shouldn't be trusted by the
+> driver when driving the reset GPIO? If we do this, we can also leave
+> those existing device trees alone.
 
+I've still not seen a good answer to my question, why not just leave
+it 'broken', and document the fact.
 
-On 12/3/25 6:27 PM, Frank Li wrote:
-> On Wed, Dec 03, 2025 at 03:52:09PM -0700, Dave Jiang wrote:
->>
->>
->> On 10/3/25 9:26 AM, Frank Li wrote:
->>> Use the cleanup helper to simplify dma_async_tx_descriptor error handling.
->>>
->>> No functional change.
->>>
->>> Signed-off-by: Frank Li <Frank.Li@nxp.com>
->>> ---
->>> change v2
->>>  need goto unmap buffer.
->>>
->>> desc_prepare_err_exit:
->>>         dma_unmap_single(txchan->device->dev, dma->dma_tx_addr,
->>>                          dma->rx_cmd_buf_len, DMA_TO_DEVICE);
->>>         return -EINVAL;
->>>
->>> submit_err_exit:
->>>         dma_unmap_single(txchan->device->dev, dma->dma_tx_addr,
->>>                          dma->rx_cmd_buf_len, DMA_TO_DEVICE);
->>>         dmaengine_desc_free(rx_cmd_desc)
->>>
->>> auto cleanup by __free, so whole error path submit_err_exit can be removed
->>> and use desc_prepare_err_exit label.
->>> ---
->>>  drivers/i2c/busses/i2c-imx-lpi2c.c | 11 +++--------
->>>  1 file changed, 3 insertions(+), 8 deletions(-)
->>>
->>> diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
->>> index 03b5a7e8c361abe1d75fb4d31f9614bbc6387d93..e31c2d81f59f18a09d34f79896a7fa4bb83c0a12 100644
->>> --- a/drivers/i2c/busses/i2c-imx-lpi2c.c
->>> +++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
->>> @@ -722,7 +722,7 @@ static void lpi2c_dma_callback(void *data)
->>>
->>>  static int lpi2c_dma_rx_cmd_submit(struct lpi2c_imx_struct *lpi2c_imx)
->>>  {
->>> -	struct dma_async_tx_descriptor *rx_cmd_desc;
->>> +	struct dma_async_tx_descriptor *rx_cmd_desc __free(dma_async_tx_descriptor) = NULL;
->>>  	struct lpi2c_imx_dma *dma = lpi2c_imx->dma;
->>>  	struct dma_chan *txchan = dma->chan_tx;
->>>  	dma_cookie_t cookie;
->>> @@ -746,10 +746,11 @@ static int lpi2c_dma_rx_cmd_submit(struct lpi2c_imx_struct *lpi2c_imx)
->>>  	cookie = dmaengine_submit(rx_cmd_desc);
->>>  	if (dma_submit_error(cookie)) {
->>>  		dev_err(&lpi2c_imx->adapter.dev, "submitting DMA failed, use pio\n");
->>> -		goto submit_err_exit;
->>> +		goto desc_prepare_err_exit;
->>
->> Typically if you are introducing cleanup usage, you will want to remove all the goto usages. Otherwise it gets kinda messy having both styles. Although not sure how to do a cleanup macro with dma_unmap_*. Unless a local one where lpi2c_imx_dma also contains a ptr to the device. Then that may be doable.
-> 
-> dma_unmap() patch at
-> https://lore.kernel.org/imx/aPZbuY5bLpkoO2J%2F@lizhi-Precision-Tower-5810/
-> 
-> The first patch need be pickup and dma umap firstly.  Then I can remove all
-> goto.
+Does the fact it is inverted in both DT and the driver prevent us from
+making some board work?
 
-perfect
+Why do we need to fix this?
 
+Sometimes it is better to just leave it alone, if it is not hurting
+anybody.
 
-> 
-> Frank
-> 
->>
->> DJ>  	}
->>>
->>>  	dma_async_issue_pending(txchan);
->>> +	retain_and_null_ptr(rx_cmd_desc);
->>>
->>>  	return 0;
->>>
->>> @@ -757,12 +758,6 @@ static int lpi2c_dma_rx_cmd_submit(struct lpi2c_imx_struct *lpi2c_imx)
->>>  	dma_unmap_single(txchan->device->dev, dma->dma_tx_addr,
->>>  			 dma->rx_cmd_buf_len, DMA_TO_DEVICE);
->>>  	return -EINVAL;
->>> -
->>> -submit_err_exit:
->>> -	dma_unmap_single(txchan->device->dev, dma->dma_tx_addr,
->>> -			 dma->rx_cmd_buf_len, DMA_TO_DEVICE);
->>> -	dmaengine_desc_free(rx_cmd_desc);
->>> -	return -EINVAL;
->>>  }
->>>
->>>  static int lpi2c_dma_submit(struct lpi2c_imx_struct *lpi2c_imx)
->>>
->>
-> 
-
+	Andrew
 
