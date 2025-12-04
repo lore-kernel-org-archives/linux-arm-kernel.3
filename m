@@ -4,159 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26D53D1F9D3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 12:29:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CA23D1F9D3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 12:32:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ETjyxIAb4miAuJJmdY6bORcEFwPtpy3jkqRoG5NP/m8=; b=kJ27dmObgmJipS+2khJuql+dFI
-	VcVvintyLXeOABsiKoQaysvsekfj+bQzIE2lOprIZhxqUEBmoG7x+RjLnXtJ4dRq3zv7Se7Kk/RA1
-	IB8RycjoD7Rxn9ZbByne17z9YJZkWrwG4BHw0ICWhXgwS0gA8HPBZyMYLt37fbXk6t91JH304on0x
-	RF1ICR8RZpmHmp2mowStBKmoWvfK/VPJRbKlqHEWKb4p4P67+DpuhcfoEUZW2XsuDW8ISJOcJZTIH
-	Zs+NGZ6OcxfRgkIX04gRPh3ZDXCdKI7C0YHMmfqbuFfCz93FoQH++sYWq8cGXsflxWFPV+gRaU1Gy
-	oHPt+KMg==;
+	bh=dafRh57dgCcXZRJfs7G2Sjtc6JTcrlRUlsNrsEgi+c4=; b=Dk7w+/iQfReIrQn4RcOKjB1fol
+	8c7OK6LYtzqBM/+kHGbmNr7416t0WUSf7sB4akTRhE4qmQVNrpqAn50jJaxfmFFSmG0QQ7nTlx5mg
+	PP2momWxF7IH0ndSntz2VlMLMIK1fn1jNekEhxt655aFbweQfjielIHQhESh9HzF8op0EWJbvidUG
+	FX1UsddMgZE1szHVFwbzposNmBygHm+/NGsB8Tt+IPeFerBtyHbMbd52CSPI9DoKb+U3l6enS4nh0
+	4zJKekS4WlZjM+Ji/xnHP+3VdqbmlKS5vrzLRQJcVkuXsKcYvKsvETI1JBN95EUXTARVJbonw96F5
+	4Cndz7/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR8SV-00000007z4w-302A;
-	Thu, 04 Dec 2025 12:29:19 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR8SS-00000007z3B-2wci
+	id 1vR8VD-00000007zOL-1OF7;
+	Thu, 04 Dec 2025 12:32:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vR8V9-00000007zNv-0kRx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 12:29:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FTrjxhS9C9XSfagk4nNebZBANWOK5OGiBWh+g1wXCFiKndmiiYksmTf7qBgTqfs+nHIp/4C7fV1d+a3t3Q6CoUEwWxZ9nbGngpdd6zExQtlSEJQFxoopUrSiNOWq+Hj3474uhELEhnobeLbm/8dq5aqg+sMoXLR0xzWj7ue+8t4c4CHj2tjQdT/xN4EHbK3Pkgl7CAdPJWkNhautUMYBKbmxE98kIXIQ5viSSuod4knySYCo/okinPsUBJccLBDPmg3CPVspUV6cnGY9W0kNkd9vPRWi7vyqw5e+2L9IifKpfTpb70Bx7fxVKmVRGlPJAWExIi8oUAEIW+kRYaj1Tw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ETjyxIAb4miAuJJmdY6bORcEFwPtpy3jkqRoG5NP/m8=;
- b=GEhUWoUREFf2+cZMxKYir7ljgJ9GcEzarM/ULnQO5BxdBOt3oCkTQwRmd+8OeCP4A0aYOB9neCR/Jf+WbXTHSGklXkz/p+7UAagKQZ8Nc1ND7pkN9MHeZel4zBzsEvz71qSC9cRNXe0bbSTcymRzdbg7efYokESdJdRZfpsyul6upMuMKD1U3rIN4VdMqwgNV2jvGKkElEIIOboQ88p5xK6jMKzqkxzD1y2+c2SoZlttY3CgM/lX3rBP19fpbEtqYi2t7lkSb01qh6XCb29aMHSjqV1TvfIzLvu1sGvz0776ZwKGxx3ylUBpLZ/nPbSOOtHMsWAFUwkhEayvZ6DrBw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ETjyxIAb4miAuJJmdY6bORcEFwPtpy3jkqRoG5NP/m8=;
- b=VTsycaoIfgQisX/20NQu6JJYH8mAmmA1PjIoQLQcIYOVKGbtVErHr532+vRM3b7q4pGznp1Vc3HWiVVUW3jUAQTnJ5dEuaHiCgBTt8TbMharbEU7p0/TxAqUOra/az8sZ5rdRfrs2ZRTpJCEpUw80AS5S2oBZ5vN3gMXP9sL9Pa9RlJGDAJOCGgAiS4RRBDXVQYsaqw4xiLNy8qcKGz2oZz3OUtfzFBAI1dAD7oNEZOtthwlnHU8+2BJLsdGIjeazsHDSCkOtb87ABGjWIjEE+1C2vWy1XG/TVG6On7l9cy/bAHT+IzrEWm5RZDoY6DRW/+hGg/3v1nT3bmuIbjCTw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from AM9PR04MB8907.eurprd04.prod.outlook.com (2603:10a6:20b:40a::22)
- by AS8PR04MB7782.eurprd04.prod.outlook.com (2603:10a6:20b:28a::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Thu, 4 Dec
- 2025 12:29:07 +0000
-Received: from AM9PR04MB8907.eurprd04.prod.outlook.com
- ([fe80::a361:2618:7785:3bc9]) by AM9PR04MB8907.eurprd04.prod.outlook.com
- ([fe80::a361:2618:7785:3bc9%4]) with mapi id 15.20.9388.003; Thu, 4 Dec 2025
- 12:29:07 +0000
-From: "Iuliana Prodan (OSS)" <iuliana.prodan@oss.nxp.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	"S.J. Wang" <shengjiu.wang@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Iuliana Prodan <iuliana.prodan@nxp.com>
-Cc: imx@lists.linux.dev,
-	linux-remoteproc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: [PATCH v2 3/3] remoteproc: imx_dsp_rproc: Wait for suspend ACK only if WAIT_FW_CONFIRMATION is set
-Date: Thu,  4 Dec 2025 14:28:25 +0200
-Message-Id: <20251204122825.756106-3-iuliana.prodan@oss.nxp.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20251204122825.756106-1-iuliana.prodan@oss.nxp.com>
-References: <20251204122825.756106-1-iuliana.prodan@oss.nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AS4P250CA0003.EURP250.PROD.OUTLOOK.COM
- (2603:10a6:20b:5df::19) To AM9PR04MB8907.eurprd04.prod.outlook.com
- (2603:10a6:20b:40a::22)
+	Thu, 04 Dec 2025 12:32:04 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 92ECD339;
+	Thu,  4 Dec 2025 04:31:54 -0800 (PST)
+Received: from [10.163.49.196] (unknown [10.163.49.196])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DEF183F73B;
+	Thu,  4 Dec 2025 04:31:56 -0800 (PST)
+Message-ID: <92ab073c-c2fc-4218-a8c8-458a69619db7@arm.com>
+Date: Thu, 4 Dec 2025 18:01:53 +0530
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR04MB8907:EE_|AS8PR04MB7782:EE_
-X-MS-Office365-Filtering-Correlation-Id: f58ad3ff-59ff-4479-0600-08de3330b83b
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?G3mV3V1CUnYOfQ5KRPPFW7FZfQOc6OyXkCaqGOfahTWsZtTMwvIOFz/BAoGX?=
- =?us-ascii?Q?BPbbv2dPrcuC83tsKYWUHKleYTlgn0IRkh2Yg4MG6BDuNEmPbtnvZwa8gLkV?=
- =?us-ascii?Q?vfwWwpSwpyrQKJyNVW0b1hSer6lqyty+R4YbnDBYxYFydwE+SMEtAvL5Y++d?=
- =?us-ascii?Q?af4X59ygsqJN1JaIABduxvl6TvK8TgBlx08ttebP+OyH2Btk97BYnfsDd5aB?=
- =?us-ascii?Q?INh6Bpyl+yOp3a2A6PGVi0TYM4O9SP/fDBdRjjEnWyN7rwlWPK5cBBfA4JSX?=
- =?us-ascii?Q?/9UeWHY3CSx7Oqp16/OMG1al2wNr/7q6QgIjQYxTL1sCAP6p5RB4uUkNv18q?=
- =?us-ascii?Q?kG5fEzjvO2VaifS5XIF/V5HnLjTqH5A/yq/GlABi46cWc6KZ3qySY6qBTthj?=
- =?us-ascii?Q?ld6WGf2y08gpg1KZGfS63RrUIjnQNQIK3TQRkskNYdlAQIcN4W+brWUdVW6K?=
- =?us-ascii?Q?YReDR4te4/RVvEwv+PNIalw095/D3L1mjwVb+VAUrQ6Jg2xi4ZbsedOmsYlH?=
- =?us-ascii?Q?oXiPOqHQ//owbu5l9AeBVVy3umLwGudITeXJ0hkJ8LDefbLIjhn6Nkd9ESeW?=
- =?us-ascii?Q?IGuov+8eQzUgumx3yIoPuv0+b3zdf4RQjbOunXt04t+sj7A1qBwvs5rJkiDW?=
- =?us-ascii?Q?1pXpxOJVz09176bmkD2hiGRhNOVGLo74ANpe8idYnPtHsKGYMTX5iivEC19V?=
- =?us-ascii?Q?SoVeXj135MF024fX/uIk5uCa3uN/tpwIIMdWXJTWVEmr2k5K9JO/6xr6tIQq?=
- =?us-ascii?Q?LtncKEPpO/+vGXtVeAXtDXMV4kEDtvb3yo8YxS5/MOg3IRAnfzX1UOzayXHe?=
- =?us-ascii?Q?t3p4+g+hLuxNdc83DndRI5MZsnFHgZomaUCUgBCN4NQm15O97TyJiDHfIIXz?=
- =?us-ascii?Q?cW6ga12uK/knTQ01iyv7miVuzaAGslUTv+KN/M6yUR3HSuYZ4XRM5ILh3v/y?=
- =?us-ascii?Q?br3A3j40zahGgHpmLORbIKWTiEFWFV9P4B0ejTjGtiXqFeuUUt3TDurY1nAx?=
- =?us-ascii?Q?ij4u+hmX81F6i+36v6uCnVNJjMBytVzwKQzp67X3lckIvZE6h0hkopm2vTbX?=
- =?us-ascii?Q?PDjDoy90qF5MDRP1nWAzsrQW4NQWMMUDBWXSbJNU0UxCL75YLeBtoVwjotss?=
- =?us-ascii?Q?M6D+T6EIsL6wDsF1pi2RjyL9L0SsQ3H2ikA8L7dmSfUdmsJL/5SEELf/a1Eq?=
- =?us-ascii?Q?c4uzOMvflDERDQrbwmH4Ok/MoCPi6dF0HbNpcmib+lN90GbmyQwSKRjkSIVQ?=
- =?us-ascii?Q?M5jq7CBv2GchdYhoDeDr0ceM1lBZz321HZ9B94A3h9Lch/kx3mAcy8a0yga2?=
- =?us-ascii?Q?7oyjdmDu5viZHYcvJdSDBLJVWe3e9DXPg/PcrI/+PJWCZ1xufOZIqZJKIoai?=
- =?us-ascii?Q?c9rSxqZYLOUGI01olj9OfC9bssJfFOh+8FjDWdXRmDuSmlSsTji5h9xGwalD?=
- =?us-ascii?Q?QMf7c7yeUWzwkbUc12zTxW/k0B8XI5hElQqwBEEFtTdZaN/2qDjNw59ybmlH?=
- =?us-ascii?Q?q5/dWM3KdpWwSO5ZgDh65BygQIFSWe1Tm7Bq?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR04MB8907.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(19092799006)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1s23qi0QaV3KGISvS4BoDkQl6QGFxlo5xWOrZr0Ia6FSOpPbMxkImoor2+uE?=
- =?us-ascii?Q?DDOgVPux6mt8hCsipNAX4robDqFbiRo2ODKRxcO8gv/DQEajNRqSErKhr7Sc?=
- =?us-ascii?Q?LzxagcobB91GLCnPhPzewzEIvly11y0+hvfcgeBjDq4cc11MCC89WNGYeJ+s?=
- =?us-ascii?Q?q7BflBtnaMz2yq8jKnV6VDZJ23BzchxfD8gcKVop/GKJJMCPFjIWLQGXPcwN?=
- =?us-ascii?Q?0bJj6MCrY++WrcfE/zKvWC0lvc49DDvaK9raTJ5dQfcOkhO2OvFA5SFRzPVN?=
- =?us-ascii?Q?dllzObGZceR+PvK7Ynpmfe6OMNPRjzVJE/MPueqRmyhz6829MC9AseHjhK0m?=
- =?us-ascii?Q?UWKn1pwmiPTc74aDouJuhxSxSBB/9cn95BwQOVxxEfzV0QnAQR4W9E4YE9dZ?=
- =?us-ascii?Q?/LbTxCQMA4Q2y3ijXcbpbXRplw2VJFfY3f1xw/0fU84cyS4/1VZi0ET+m9NC?=
- =?us-ascii?Q?cCa+czMd0sV/LZOy0Pwxu2iRag/VxEPZftb37cafEI9ZrGht4zWz/3Unipiv?=
- =?us-ascii?Q?G8+WRWS5GiFKCnMCmQFAndF2+HOqa+ZUBW/DrtFBMgdl3O0R+52Y0UhR8R0I?=
- =?us-ascii?Q?7qctn5qMLpzTX1jvRlCBO4MULehuuSvP5dOaOV4bk6ysDqPFXTDxdk9MpZDS?=
- =?us-ascii?Q?CIvqoBBqDfski7V35ukBd9y0SQcw6yetXrqYL/yGIT6wT7gWknHpITM0gCLZ?=
- =?us-ascii?Q?Tr6qqRG6SieLKqUZzPevaNXuYakD/WRcTzl2T9mlKB8L1ex0HKE4acsBg/gH?=
- =?us-ascii?Q?cemgAcTVXsSnsDLVRYhF4oQGx2v0Lxi2dzskIQwQaKj+vf5P6IaI7GBGfh0h?=
- =?us-ascii?Q?IHakBnDhFZSqPUcaqcWzKnqXeaPJllUJUTBGSWJ337K4fnSIlHr5LdUSedKR?=
- =?us-ascii?Q?5gbHXNCQsHqaqwB0nKSRgtenBKcuwvdcUBQIaue9kfM8pBGvl+1ffSuYn+wz?=
- =?us-ascii?Q?vMxy2HVUuE6uLatL13SuBK7sEDf98sZFRZz6GaatoaT6h5zZOAUstrklQF/F?=
- =?us-ascii?Q?xkLd3F5BwQ0z26HprONihOh2FaYNmlfGUc6X9sSBSIHjfWOi3j4olPgdut61?=
- =?us-ascii?Q?3Lwyp2cedXPTYXdFPT+kpkc0e7jPE6U9a4qXLqygqg8flug+YwFbWTCimv2/?=
- =?us-ascii?Q?9Ejr3jpyMfMFbaW6KNAldbUIclOnzvbLhya0TKHrJmnaxdUcTKYOZiLeOKMO?=
- =?us-ascii?Q?p0ecH10vrqNlj5EIp29BTE/0Qu1Me8gKzd2jW0nrz4OD3IAXyyDgipS41qlA?=
- =?us-ascii?Q?WxWs+oKmlOHfWEDVQ9zY0g4MocyZOUbOD0FqrHaKYBGlVzdFexLZgvaJIldR?=
- =?us-ascii?Q?/ozr3mhk9JY1i2wnxYng2v/magWC8ku+C7sM9Dt8PSgvbxZ7JejJU6/P+e+t?=
- =?us-ascii?Q?A3X2JI4Ad40WZK5RIZPkXTemXZt6pvMcyQdqs1ihyBRBQTP5c5JCbAhvFNS7?=
- =?us-ascii?Q?7Df9qX0t61jhZHB/7IT5WE+y64md7sBkJHYxE5h4+SyzP8lvM1IpQxyp/kju?=
- =?us-ascii?Q?IUJFAF+HIgJ52JyETOF5efUkt8YmS1dWxGzX/nN1L+kK/AA/877725Ci0a4B?=
- =?us-ascii?Q?8fnSLZZ1Ic4PXccQFURzi2ve0JB9XLKVieVAPfjm9UzhzA6rduh+Qg1xGAXr?=
- =?us-ascii?Q?kA=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f58ad3ff-59ff-4479-0600-08de3330b83b
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR04MB8907.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Dec 2025 12:29:07.6939
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jckGavNBqU1RvI7eFs5E6GHReURU+zZCy7BShHCZ3WrwEq//R8mMbc75Nq9Pb2TxqBylb/Ox8lFXKSuqTFzOMA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7782
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 03/19] coresight: trbe: Remove buffer disabling in
+ trbe_handle_overflow()
+To: Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Tamas Petz <tamas.petz@arm.com>,
+ Tamas Zsoldos <tamas.zsoldos@arm.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+ Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org
+References: <20251201-trbe_buffer_refactor_v1-1-v1-0-7da32b076b28@arm.com>
+ <20251201-trbe_buffer_refactor_v1-1-v1-3-7da32b076b28@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20251201-trbe_buffer_refactor_v1-1-v1-3-7da32b076b28@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_042916_742762_86FA654D 
-X-CRM114-Status: GOOD (  14.85  )
+X-CRM114-CacheID: sfid-20251204_043203_285003_FE75E16B 
+X-CRM114-Status: GOOD (  16.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,46 +73,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Iuliana Prodan <iuliana.prodan@nxp.com>
+On 01/12/25 4:51 PM, Leo Yan wrote:
+> When trbe_handle_overflow() runs, the buffer has already been disabled
+> and drained, so the duplicate operation is unnecessary.  Remove it.
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>  drivers/hwtracing/coresight/coresight-trbe.c | 1 -
+>  1 file changed, 1 deletion(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+> index 2f44e4a65e0ee2b2c8fdd06a51ab01fc57f44a4e..f5597bd9b5fba9a8f5053d5823b03380fd468b5c 100644
+> --- a/drivers/hwtracing/coresight/coresight-trbe.c
+> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
+> @@ -1077,7 +1077,6 @@ static int trbe_handle_overflow(struct perf_output_handle *handle)
+>  		 * is able to detect this with a disconnected handle
+>  		 * (handle->event = NULL).
+>  		 */
+> -		trbe_drain_and_disable_local(buf->cpudata);
+>  		*this_cpu_ptr(buf->cpudata->drvdata->handle) = NULL;
+>  		return -EINVAL;
+>  	}
+> 
 
-The DSP suspend path currently waits unconditionally for a suspend ack
-from the firmware. This breaks firmwares that do not implement the
-mailbox-based CONFIRMATION handshake, as the DSP never responds and
-system suspend fails with -EBUSY.
+Like the previous patch - trbe_drain_and_disable_local() would have run
+if TRBE_FAULT_ACT_WRAP case is being handled via trbe_handle_overflow().
+But please do mention these details in the commit message for things to
+be clear and explicit.
 
-The driver already uses the WAIT_FW_CONFIRMATION flag to indicate that
-the firmware supports the CONFIRMATION handshake at boot. Apply the same
-logic during suspend: only send the suspend message and wait for the
-suspend ack when the firmware is expected to support it.
-
-Signed-off-by: Iuliana Prodan <iuliana.prodan@nxp.com>
----
-Changes since v1:
-- Moved confirmation check earlier to avoid sending the message when
-FEATURE_SKIP_FW_CONFIRMATION is set, since RP_MBOX_SUSPEND_SYSTEM is
-not handled on the remote side.
----
- drivers/remoteproc/imx_dsp_rproc.c | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
-index 1f3a35756769..d03017d6b214 100644
---- a/drivers/remoteproc/imx_dsp_rproc.c
-+++ b/drivers/remoteproc/imx_dsp_rproc.c
-@@ -1251,6 +1251,12 @@ static int imx_dsp_suspend(struct device *dev)
- 		goto out;
- 	}
- 
-+	/* No fw confirmation expected, so trigger PM runtime suspend */
-+	if (!(priv->flags & WAIT_FW_CONFIRMATION)) {
-+		dev_dbg(dev, "No FW_CONFIRMATION needed, suspend directly.\n");
-+		goto out;
-+	}
-+
- 	reinit_completion(&priv->pm_comp);
- 
- 	/* Tell DSP that suspend is happening */
--- 
-2.25.1
-
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
