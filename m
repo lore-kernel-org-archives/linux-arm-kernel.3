@@ -4,83 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5168D24477
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 18:35:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCF79D29FAE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 18:37:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CNFVkT//jAn0ntoSiOF9wyVK2wfETPwEGj9Sy8/u8kg=; b=fDf6ZMpEhqnkgSVVsFb2KScDOR
-	Q1g/E3CM2TtjsmRTLj6c/5wE1XoACyb+iQp0WoNnU36ZgaslT87Un9MMFgvp3vcxyGKBuPH7dFjF0
-	X0rIZMub5b2keDvOpmg/mP+m6ZXjjxwtvFB5D1XUMXIQYELAWQWlcrxDy3ygygUyaTnhNCOOzZsPD
-	DQTiNE0VoUMvWmzfT0Zhtft8ERVHLF50Qat7ZV92WP7OCxKS2Ds4BRU0qEB9vTN+BFKuJy18cQwNH
-	lNR9vRT23UZa/+E5y3hCTg2Lp2pcHPC5ciR7YC84/pTCU18y6VdDDn3D3RZk9pmbw+/hCGVqcLKET
-	kaHrF/hg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZnikBdJoxxg8wHn9SWnSAU8ENnmXRyP1O/uoqrq/9Pw=; b=EUxFn0IIYdrfz+RUqKrIGbdczk
+	Uwf7g3YtNk3j9AD6iVb4vOMRd3EjaxhQV8XyB5tA4B4hmm77L0wgDS6hO80gD3rOa2+O2FFfv40rn
+	DIQ2bGLaPfikKP7+hHkwnaxKIiJqEKkTUc8G/9QbVcye2VvlqIUBN1l5fmIE/f9y8f4rwf6FIQHVz
+	wqcvox/lIKIJOhyocQlTJvHBOrKUFUfY2dppP7uLpkayMluzlcI/62MhR39xgZ91WXEDRCjDZpjzi
+	wl98PxzQLOIF11+XqCscwFPUzmEDtDpPVuez+QeL29XhtSbxTPJh3SS0Snt51azO0NegCz0hGTbMz
+	d0OGQbEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vREB8-00000008S2I-42zu;
-	Thu, 04 Dec 2025 18:35:46 +0000
+	id 1vRED2-00000008SCR-0L2F;
+	Thu, 04 Dec 2025 18:37:44 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vREB6-00000008S23-3kc0
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 18:35:45 +0000
+	id 1vRED0-00000008SCF-0eJf;
+	Thu, 04 Dec 2025 18:37:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BAC16601ED;
-	Thu,  4 Dec 2025 18:35:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 321F0C4CEFB;
-	Thu,  4 Dec 2025 18:35:43 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 94314601ED;
+	Thu,  4 Dec 2025 18:37:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 640D6C116C6;
+	Thu,  4 Dec 2025 18:37:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764873343;
-	bh=tEylYSei33M1XBl8PJHnxTIUreXZOvA8TltwN1iYV8g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hcihNh/GYAZ8COxL8Npkxqz9He0OSgwgodLKdCc2hv1T0w0XiwzYLy7uON4Zb3BWv
-	 xVdgz5TT+6owWqYLNnDCQjVL/ugXVSW14VUSr0PNnZ9GLJyYZTjECXP7JCpEnOjAUb
-	 CilTPZ8MUWX5BO/z+lJ7gTX1gVuNHAY8YIp5TsWAbHpmKStR2GhESPsOiVODL2Zvle
-	 6GE1S+HE7nz8WrPYwVPyLtBfP9taDRWdXsgPb+x170B0DaqkldzA+m/0pl10hOLRpe
-	 yR5txubsAWNhoQUABOWjX/Z1PrKSI2HMl7kY8pTSWB1/oRvy27F3xRDwM1U5yFThY6
-	 dUQjwHHYFWfkA==
-Date: Thu, 4 Dec 2025 12:35:41 -0600
-From: Rob Herring <robh@kernel.org>
-To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Marek =?iso-8859-1?Q?Beh=FAn?= <kabel@kernel.org>,
-	Antoine Tenart <atenart@kernel.org>, mwojtas@chromium.org,
-	netdev@vger.kernel.org, Daniel Golle <daniel@makrotopia.org>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Eric Dumazet <edumazet@google.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	linux-arm-msm@vger.kernel.org, thomas.petazzoni@bootlin.com,
-	davem@davemloft.net, Florian Fainelli <f.fainelli@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	devicetree@vger.kernel.org, Paolo Abeni <pabeni@redhat.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	linux-arm-kernel@lists.infradead.org,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Dimitri Fedrau <dimitri.fedrau@liebherr.com>,
-	=?iso-8859-1?Q?Nicol=F2?= Veronese <nicveronese@gmail.com>,
-	Tariq Toukan <tariqt@nvidia.com>,
-	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Andrew Lunn <andrew@lunn.ch>, Simon Horman <horms@kernel.org>
-Subject: Re: [PATCH net-next v21 01/14] dt-bindings: net: Introduce the
- ethernet-connector description
-Message-ID: <20251204183541.GA1936817-robh@kernel.org>
-References: <20251129082228.454678-1-maxime.chevallier@bootlin.com>
- <20251129082228.454678-2-maxime.chevallier@bootlin.com>
- <176440811455.3523222.6418355134728802633.robh@kernel.org>
- <5dc32a3f-42d8-43d7-854b-3cf11c05544c@kernel.org>
+	s=k20201202; t=1764873461;
+	bh=bYWLSgF9p7Y5PVUDIPslbzBPgg5NlyMtulDnw+w6ZEc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=C/TdZ+0jKLvwtqzuLmY578EyageX500aWx4B97L2AGETjMz0TJtXQNw3NqF331SYg
+	 HQvqoIsdo+CZr3PFCYlyJ5B9EmQWdx26dms+p64N7yKDON3EFAG0pK0HFLYeUZmNg5
+	 9NUNkf7CzSG2+Y5NhPqGR3USJaQ6FH90zPwG3Ois3qUAjV1Vqy+2YHm2KgUq3z+Q78
+	 QH8XEqDETRW4EAqdOcfN7O8+T8hnzi/ADTvHqBZPtfpdze5TrVACCXuZZ9vDli5zay
+	 ZYHoDohjEzZZ7aQLOJeM2Xpje6kziAgtH+cRLIhw53JRfGDYCV3h68D6YQvaOzJ9r3
+	 e0W5KIg1Vc/Zw==
+Date: Thu, 4 Dec 2025 10:37:39 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Frank Wunderlich <linux@fw-web.de>
+Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Matthias Brugger
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, Russell King
+ <linux@armlinux.org.uk>, Frank Wunderlich <frank-w@public-files.de>, Daniel
+ Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, Mason Chang
+ <mason-cw.chang@mediatek.com>
+Subject: Re: [RFC v2 2/3] net: ethernet: mtk_eth_soc: Add RSS support
+Message-ID: <20251204103739.013d053b@kernel.org>
+In-Reply-To: <20251204165849.8214-3-linux@fw-web.de>
+References: <20251204165849.8214-1-linux@fw-web.de>
+	<20251204165849.8214-3-linux@fw-web.de>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <5dc32a3f-42d8-43d7-854b-3cf11c05544c@kernel.org>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,74 +77,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 29, 2025 at 12:40:15PM +0100, Christophe Leroy (CS GROUP) wrote:
-> 
-> 
-> Le 29/11/2025 à 10:21, Rob Herring (Arm) a écrit :
-> > 
-> > On Sat, 29 Nov 2025 09:22:13 +0100, Maxime Chevallier wrote:
-> > > The ability to describe the physical ports of Ethernet devices is useful
-> > > to describe multi-port devices, as well as to remove any ambiguity with
-> > > regard to the nature of the port.
-> > > 
-> > > Moreover, describing ports allows for a better description of features
-> > > that are tied to connectors, such as PoE through the PSE-PD devices.
-> > > 
-> > > Introduce a binding to allow describing the ports, for now with 2
-> > > attributes :
-> > > 
-> > >   - The number of pairs, which is a quite generic property that allows
-> > >     differentating between multiple similar technologies such as BaseT1
-> > >     and "regular" BaseT (which usually means BaseT4).
-> > > 
-> > >   - The media that can be used on that port, such as BaseT for Twisted
-> > >     Copper, BaseC for coax copper, BaseS/L for Fiber, BaseK for backplane
-> > >     ethernet, etc. This allows defining the nature of the port, and
-> > >     therefore avoids the need for vendor-specific properties such as
-> > >     "micrel,fiber-mode" or "ti,fiber-mode".
-> > > 
-> > > The port description lives in its own file, as it is intended in the
-> > > future to allow describing the ports for phy-less devices.
-> > > 
-> > > Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> > > Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-> > > Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> > > Tested-by: Christophe Leroy <christophe.leroy@csgroup.eu>
-> > > Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> > > ---
-> > >   .../bindings/net/ethernet-connector.yaml      | 57 +++++++++++++++++++
-> > >   .../devicetree/bindings/net/ethernet-phy.yaml | 18 ++++++
-> > >   MAINTAINERS                                   |  1 +
-> > >   3 files changed, 76 insertions(+)
-> > >   create mode 100644 Documentation/devicetree/bindings/net/ethernet-connector.yaml
-> > > 
-> > 
-> > My bot found errors running 'make dt_binding_check' on your patch:
-> > 
-> > yamllint warnings/errors:
-> > 
-> > dtschema/dtc warnings/errors:
-> > Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c263000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
-> > Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c263000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
-> > Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c265000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
-> > Documentation/devicetree/bindings/thermal/thermal-sensor.example.dtb: /example-0/soc/thermal-sensor@c265000: failed to match any schema with compatible: ['qcom,sdm845-tsens', 'qcom,tsens-v2']
-> 
-> Those errors are unrelated to the blamed patch, the patch is about Ethernet
-> the error is about thermal-sensors.
+On Thu,  4 Dec 2025 17:58:44 +0100 Frank Wunderlich wrote:
+> +static int mtk_rss_init(struct mtk_eth *eth)
+> +{
+> +	const struct mtk_soc_data *soc = eth->soc;
+> +	const struct mtk_reg_map *reg_map = eth->soc->reg_map;
+> +	struct mtk_rss_params *rss_params = &eth->rss_params;
+> +	static u8 hash_key[MTK_RSS_HASH_KEYSIZE] = {
+> +		0xfa, 0x01, 0xac, 0xbe, 0x3b, 0xb7, 0x42, 0x6a,
+> +		0x0c, 0xf2, 0x30, 0x80, 0xa3, 0x2d, 0xcb, 0x77,
+> +		0xb4, 0x30, 0x7b, 0xae, 0xcb, 0x2b, 0xca, 0xd0,
+> +		0xb0, 0x8f, 0xa3, 0x43, 0x3d, 0x25, 0x67, 0x41,
+> +		0xc2, 0x0e, 0x5b, 0x25, 0xda, 0x56, 0x5a, 0x6d};
+> +	u32 val;
+> +	int i;
+> +
+> +	memcpy(rss_params->hash_key, hash_key, MTK_RSS_HASH_KEYSIZE);
 
-There was an assumption that the base (generally linux-next if not 
-defined) works. That unfortunately was not the case when a patch applied 
-introduced a tab char presumably as part of conflict resolution. So now 
-almost every patch fails. Applying the months old patch was timed 
-perfectly with my disappearing for US holidays as well as the merge 
-window because as an added bonus it went into Linus' tree too. Anyways, 
-Linus' tree and today's next are fixed now. The automated testing now 
-aborts if the base has issues, so this shouldn't happen again (it will 
-be for other reasons). So most of the patches aren't getting tested now 
-until folks move of the broken linux-next versions.  
+netdev_rss_key_fill()
 
-And thanks to all this, now Linus wants to change all kernel YAML files 
-over to tabs instead. That's been my week...
+> +	for (i = 0; i < MTK_RSS_MAX_INDIRECTION_TABLE; i++)
+> +		rss_params->indirection_table[i] = i % eth->soc->rss_num;
 
-Rob
+ethtool_rxfh_indir_default()
+
+> +static int mtk_get_rxfh(struct net_device *dev, struct ethtool_rxfh_param *rxfh)
+> +{
+> +	struct mtk_mac *mac = netdev_priv(dev);
+> +	struct mtk_eth *eth = mac->hw;
+> +	struct mtk_rss_params *rss_params = &eth->rss_params;
+> +	int i;
+> +
+> +	if (rxfh->hfunc)
+> +		rxfh->hfunc = ETH_RSS_HASH_TOP;	/* Toeplitz */
+
+hfunc is not a pointer, you should just set it?
+
+> +	if (rxfh->key) {
+> +		memcpy(rxfh->key, rss_params->hash_key,
+> +		       sizeof(rss_params->hash_key));
+> +	}
+> +
+> +	if (rxfh->indir) {
+> +		for (i = 0; i < MTK_RSS_MAX_INDIRECTION_TABLE; i++)
+> +			rxfh->indir[i] = rss_params->indirection_table[i];
+> +	}
+> +
+> +	return 0;
+> +}
 
