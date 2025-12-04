@@ -4,107 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D244DD29FA7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 18:21:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E781DD29FAB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 18:25:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fv8P+6IVWvIL0bC+f9n0QNbXSqmfD+me3uZoZ0RY/2g=; b=HVm+QzmIT2E8mP26YfcZmjJXls
-	pY/HnUL1l9oTKFdvFGm/lsP7C8dJBiRHQ326Mfgg3CvTAJ5sQxOKUPI63+g6SLaIx+4yrhXfH2Jgx
-	NWzQGoy67DDuscunIpOeVaPGCznOI6FQw8K8yOtsyXR9BrX+VF2ufqVvpNdr6WRgkNyCGKEaL9doC
-	rbeXZ1iRvtHHvkD3KDg69Sjjq+5+C/UePI8BR+/fDozOe7zTMcayjOETicb4SIk6Hm3uDl67LZjB6
-	MchJVPYvUMvFCbbOV5IHD9qcVv2Pu/OWcQBHE8+BWyLd70dzAjRKWfaQYUEfqmufw92ozN464yjTH
-	gVypY1PA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IhlnwTUuu94mYE5+7gwV/b1e4+P4DIXzG48bpME6e84=; b=Q0W0k4r01Odr+oUkxQzEarwvK/
+	tYfHemL1M+KRmTWnhdVUjsdbQe+4qb/ccIvva4vth9MCYdFdirq6gkQGsbHm/EYXdOq8GFbVlCxrv
+	0pDnRCZbQdXMCPP8/1r0SshyOeZzgf7yaIauv4w68f81hpYQtGhtavXVk4k9wqY7Ys8IEQR+op7k7
+	84RWH5rK6pFEK6v+hbR7ePdbdqJCAbAm4WuYBdpdMfFgqWAwIXnokBiqcUGyG0Nxds9QYPvzk3al6
+	iVZ43TU8SqfaqC3ENVCbKr1QkDVlge8sYWLLClZNDJO+ZLyX2eGCRY08pIb6FtI9cLUPiY4HTJB9q
+	hEYxkypQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRDxV-00000008R2O-2NWd;
-	Thu, 04 Dec 2025 18:21:41 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1vRE1R-00000008RVh-2jCN;
+	Thu, 04 Dec 2025 18:25:45 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRDxQ-00000008R1c-3pBg
+	id 1vRE1P-00000008RVB-32KO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 18:21:40 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-42b2de74838so79923f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 10:21:36 -0800 (PST)
+	Thu, 04 Dec 2025 18:25:45 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B4E1dFp1566871
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 4 Dec 2025 18:25:40 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	IhlnwTUuu94mYE5+7gwV/b1e4+P4DIXzG48bpME6e84=; b=dEwyNu6TfJKZIWmZ
+	Dkg2OteskjpjAd0AcRwZ1j1TmSdP2h95zStnJSTJka3ZZVa7AyBgQ+luS/HYv96u
+	SHrswjC8yskQTUhh1kVhLnEwtfyyFzuDthnu3CO8cJZja6UDZXGba2ojgHkTcoSJ
+	fy3CuIxjSWou6MXZr2TexSFr+bxqkyGoaYX/xjCapXmTtqoQIKU+4Ezz9ZxXPCBN
+	aiPyfVRKeRcDiBZR7jtcnEOWgSBDlwLt5xEEjjvmC2C1503wKO1z8g3y7OpRd1dR
+	I/6GbgHJ6sjds0p1LMWlAx1Xd3ZACo37Vtfg+opLIDlp2OzjiguWR4lm5p1HCZCg
+	Jj2McA==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4aubpx0urc-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 18:25:39 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-8b2657cfcdaso166975685a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 10:25:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764872495; x=1765477295; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=fv8P+6IVWvIL0bC+f9n0QNbXSqmfD+me3uZoZ0RY/2g=;
-        b=mhpbC7/R1GFmePTZhaRf2w9O+J1mEz0YO+3oHoeoJn14ZhGMiqEwP5QmAubKRPnqnT
-         8C7CiRDz0yM1b3jLbGRJsiBaQfEE8OvITo7NdLeqt/aEiV59xLaoTRgAhtDcPH/LVGNt
-         O7szyy2bMA9rB1hJkOWSGJYOjYivVG8SSivBnnlkB4rdbL+qClv3ldilz+AUGDb8mFMP
-         yDzHEu4xzAh5TNi4UlghPKqLW9l5PVID0L8ejHws1qw0GeJtijifaGcONA4CqHWLZVdi
-         nErRPWZX/oEswfbQzn0Q52tUuU0dKZ6UA3RD0Pdib975AFVsA5yLaLASyquN91s3vI8i
-         Ki1g==
+        d=oss.qualcomm.com; s=google; t=1764872739; x=1765477539; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=IhlnwTUuu94mYE5+7gwV/b1e4+P4DIXzG48bpME6e84=;
+        b=JAkyq4wFdd3k2jO0jPn4unynFcPuZqSxJSOqlH8Y0rgElVwzPzjErjdW+uh3G2PL+m
+         f2EifJRJUsqtWVznG12yvxyXr0UYLKrXOymbcxXBU6mWlgwdCKhZPj7xcdhnMk8//k9B
+         kd1hVWe1aB4Ma8xzRHgz/btrn2KPDRNZFJ9EV+jWiZ1bahAngXfB8KCnHY9KOCqHR+XW
+         rV8WFjxNfIzoykE7FyO/OiBegAFZUuV55dnP4AaQmWp3xEbQjXAr3/tuwx+0VDpUCBtl
+         IO9AICWlLb1v5edTTvTsH48PVJvt5yTOW0CRv3pWxQekp4ji7lvRLSb4uOBrd00QtWeY
+         Qonw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764872495; x=1765477295;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fv8P+6IVWvIL0bC+f9n0QNbXSqmfD+me3uZoZ0RY/2g=;
-        b=W5LiC+7X6WeVE2qEb47lPqZqeop80T/n/hynVaoBS2uyLLAr9K5XFsMCBloqiLQmSa
-         2gG0wkIFsBpt6/NzjXsSQ+oRVR/uREIXWTh44R/0+X2YJz+uoZQ30QqUF1Ok3rG8UJj1
-         kZXd8ll7+r5lRbwrO4VP4tZ3b/Ivsw2x8lK9P8ne8YDArBrZUotcsFyE75Y4qvSUFyG4
-         SdUb4gXI2WpWpHuFh4BDBwpRQHhRlW8k7D0zMSf18ZBOMKt7DCVUYH3eur+jzdzEOgII
-         znGV1xK1Fzs5BO36dWbxS3d4qnrMr2E5mHIe4/NVaD93I7/aJrUbWNwNYqguOthhxGdC
-         AvRw==
-X-Forwarded-Encrypted: i=1; AJvYcCVXqnL++w31+Yc4vQMxyFmbqj74w9gPTrueJIMFopzXNuq1SoaWRGM5XDdAle4bDOvaoL3CEc0dReHIbdA9/Ziu@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywtelq0EY/bXsj6kT0uHoslJqg2Tao5W39w+FUxVOlTBMXZhHsj
-	hPHvMZelyCrZbIndRXR6f+or9aET9y5xuSQvmMK4/qPIW0NcI+nv94ni
-X-Gm-Gg: ASbGnct9teXfgHP7P5yMxHAq+iV/zPYzRWmhWZyjivE4ScKB4j9eoPVMbT8Tpnso7YN
-	HkKyDtOMPZhPM/QetlCbTwVXeiH0p8JshaZXvh8typB4YQJk94T8SQsBAmR7t2GiWbN5fCOTJLw
-	82Z3GV09UkPBOQ2owM/WWO+1nkNntJLEqiTP7pRB2E+sF9Bcr/4llYaYY7+zHeDVVUWgjWYvoPv
-	3qTBFr5y256KAnFtRv2DS5z1GAuQe0MpqD8dn22VZt6ZuGLYNCj7fs9EXvSV6aLDghQBI4i0wTc
-	b1WILcBNLbJl0b55qaQHFneacbXnLq97qghtNiEjr0eYrXhMM+FjFwm2rm1k5IGxMgT44Ae64Rx
-	Cm1Ir7Odc667Q/y28P3QagwrvLr4aSyvHk0KwevtvDj62Vnqcm9pM/Zx1dJ695YF5aWWOUPxY6C
-	0Ujjg=
-X-Google-Smtp-Source: AGHT+IEzgG4TzCJXxABGuutxcIrI+o/G6IuaOtE2bigp/vNM2WwpcI6tNhb5bLyGJf4XeLf7rYmrFA==
-X-Received: by 2002:a05:600c:8b42:b0:46f:ab96:58e9 with SMTP id 5b1f17b1804b1-4792ae634e8mr38393335e9.0.1764872494836;
-        Thu, 04 Dec 2025 10:21:34 -0800 (PST)
-Received: from skbuf ([2a02:2f04:d106:d600:dbb2:245d:2cf5:21d3])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-479308cd87csm45669115e9.0.2025.12.04.10.21.32
+        d=1e100.net; s=20230601; t=1764872739; x=1765477539;
+        h=content-transfer-encoding:mime-version:message-id:date:user-agent
+         :references:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=IhlnwTUuu94mYE5+7gwV/b1e4+P4DIXzG48bpME6e84=;
+        b=ZDd9vRS95SDKb3qxpS0s87vRMtysdSqqAxn0XaQeWSFGy1KFKdGC00h2YajgSCpQJd
+         n6j0XezUdzXuJ7EC53Y4eYRwk+9MQh8MedOWO/XfSCGk7y8w6+CNOrFi90aF3b+I7Ji3
+         AMsoG9iSVCma5N4qLTLcvkWhfJR3z1nPeu+0Yjy2vDA5tcIi9Zv2OR1HYYfl6j6j/oxK
+         2acPti5EBxdOHs6s/3YrYQKtCn7HAe3Qfk7kP/4UU3LIgb6/oM6eM1fRiTM+YCKDrejH
+         syhe8eZRzbfwHG8n6Vs7QveiT4DU1t07IwWcElZBMfwb9hmeVR/l1htd0PRA45nnI9kg
+         7CTw==
+X-Forwarded-Encrypted: i=1; AJvYcCXYiVUwWb60sdSPWZf2Tu47u7Pwj8Sc6ECPKh/oRvRJ9Qn/xunKboozsZ33TNELWSw3jP8VxDtOZiDWaU2TROdo@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrsHtufYb+ZwjQPVjmPjMmaQndHkZBuYJQzjmStbzbTrzALhh8
+	K14uuEqnyxec8s92xe7XoDtE7gkjzd+4X7z/mYBOfy368PGCx5QDljFKWfBCwd7lUDv0+c/KIYe
+	kSRYunEGTz4DkwGNmh+wqAAdMFwmdq3wE4kCtXMJjWo5FnsyiuPv3K140zagABqBpmz1HjNROoX
+	4yV7XnvN+4Jg==
+X-Gm-Gg: ASbGncsLPD+A+4CU+eQ1h3DdquyXDbkUsEmQV4KebrTiQxdEJ6ALn68uC3pLbMXw2FK
+	XPX4I+LlAwnXzrIy2QMcAtqltY9Q6QxkAaDEXprWaeYG5H3gBLMdmF+hfbqJtF+2/oKVXIS5Eq1
+	IDOYKcpPz62lMZqu2MkTM1lWKuQYzddozNa0s1ln+r/ah1Vbqvu3+0L8Bxx7xhmNoLoCYWQNx0x
+	l8Kwd5AL789qOowrbTrCt6DY2llQ7pgBO9ouD5d2Ec8JYr66UfHbGg7Jv5H4sw1in5Py6LpsuK5
+	UEbM3k4s/16VY2YDgAVvWxWGViGqOlHxtvgttJ/KJVc9wBw0uoaSU3EO1B438/lPRKUHnRk0qkM
+	DSTUoFBrlShppXpE3BnV1k5aW
+X-Received: by 2002:a05:620a:3720:b0:8b2:a4ec:6f5 with SMTP id af79cd13be357-8b61817302dmr505912785a.11.1764872739036;
+        Thu, 04 Dec 2025 10:25:39 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IF5aWqiaetsamvKNgp+D6pbKGjz3C7s4SQA1ECEYT8J6MJtch66K/7k9GTaanXbvz9dZojKMA==
+X-Received: by 2002:a05:620a:3720:b0:8b2:a4ec:6f5 with SMTP id af79cd13be357-8b61817302dmr505909585a.11.1764872738552;
+        Thu, 04 Dec 2025 10:25:38 -0800 (PST)
+Received: from localhost ([2a01:4b00:b703:c200:1ac0:4dff:fe39:5426])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-42f7d222506sm5214118f8f.28.2025.12.04.10.25.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Dec 2025 10:21:34 -0800 (PST)
-Date: Thu, 4 Dec 2025 20:21:31 +0200
-From: Vladimir Oltean <olteanv@gmail.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>,
-	Daniel Golle <daniel@makrotopia.org>,
-	Frank Wunderlich <frankwu@gmx.de>, Andrew Lunn <andrew@lunn.ch>,
-	Chen Minqiang <ptpt52@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	"Chester A. Unal" <chester.a.unal@arinc9.com>,
-	DENG Qingfang <dqfext@gmail.com>,
-	Sean Wang <sean.wang@mediatek.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] net: dsa: mt7530: Use GPIO polarity to generate
- correct reset sequence
-Message-ID: <20251204182131.gfqwy566gjzd7dbx@skbuf>
-References: <0d85e1e6-ea75-4f20-aef1-90d446b4bfa1@kernel.org>
- <00f308a1-a4b1-4f20-8d8e-459ddf4c39b1@gmx.de>
- <aS7Zj3AFsSp2CTNv@makrotopia.org>
- <20251204131626.upw77jncqfwxydww@skbuf>
- <4170c560-1edd-4ff8-96af-a479063be4a5@kernel.org>
- <20251204160247.yz42mnxvzhxas5jc@skbuf>
- <66d080f1-e989-451f-9d5e-34460e5eb1b0@kernel.org>
- <20251204171159.yy3nkvzttxecmhfo@skbuf>
- <178afbeb-168f-4765-bb0b-fad0bcd29382@kernel.org>
- <aTHIulPW055AyLW_@shell.armlinux.org.uk>
+        Thu, 04 Dec 2025 10:25:38 -0800 (PST)
+From: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Punit Agrawal <punit.agrawal@oss.qualcomm.com>,
+        Cristian Marussi
+ <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 0/8] firmware: arm_scmi: Refactoring and enablement of
+ ACPI PCC transport
+In-Reply-To: <20251203-super-kagu-of-amplitude-fef078@sudeepholla> (Sudeep
+	Holla's message of "Wed, 3 Dec 2025 15:21:31 +0000")
+References: <20251017-acpi_scmi_pcc-v1-0-0adbab7709d9@arm.com>
+	<87wm44aect.fsf@stealth>
+	<20251126-camouflaged-delightful-cuckoo-ddeac8@sudeepholla>
+	<877bv3n7x2.fsf@stealth>
+	<20251203-super-kagu-of-amplitude-fef078@sudeepholla>
+User-Agent: Gnus/5.13 (Gnus v5.13)
+Date: Thu, 04 Dec 2025 18:25:37 +0000
+Message-ID: <87h5u6ksta.fsf@stealth>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aTHIulPW055AyLW_@shell.armlinux.org.uk>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Proofpoint-GUID: Odhbdc1yekbCbLJifZwTZSf7nvzylTHl
+X-Authority-Analysis: v=2.4 cv=H7LWAuYi c=1 sm=1 tr=0 ts=6931d224 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=7CQSdrXTAAAA:8 a=0Dndub6nNIkmeintA3sA:9 a=QEXdDO2ut3YA:10
+ a=NFOGd7dJGGMPyQGDc5-O:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-ORIG-GUID: Odhbdc1yekbCbLJifZwTZSf7nvzylTHl
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjA0MDE1MCBTYWx0ZWRfXwlmQUb/NSHrE
+ ueuhdfKGYdwQtVuwlwduvfG1vliZpLhha9YgrYdQwrSmGV6CRVT6g10S4PCrZbb60HanryCM+0k
+ s/DZpNsy6MTh5eRXMhqN0zRKgpwMC+Qkyx3mzdbtdrNxPkSH3f6ad/OrVXBetlIm+6z/cHELDFs
+ 6+fOWCI7wRSLj+VWpyy/yPiEgwd40QUmC4CdHfDOh0TunxFeRjfni+aT5UsOCuzHrj11pdBARY7
+ y3c3ra7i3uJbeWJDbJSr8NB1aUV9/2s0YFc1uTr4q+for6fTCkmYa6k/rXpX6y2aEtHtwxOJH1v
+ szidnM51eSn1WCdNIAEWH26/NJ4sng00BKlHf9Hnu+iSiEm1hLxL8ciaGm7r/mlxOjHFPgdJxFg
+ GZIgjUa5n/qBBSPaP86MjiTQfnIPUw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-04_04,2025-12-04_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 phishscore=0 bulkscore=0 spamscore=0 malwarescore=0
+ adultscore=0 lowpriorityscore=0 clxscore=1015 impostorscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512040150
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_102139_082659_B6B55E8B 
-X-CRM114-Status: GOOD (  26.89  )
+X-CRM114-CacheID: sfid-20251204_102543_891583_4FEA9B5A 
+X-CRM114-Status: GOOD (  19.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,55 +150,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 04, 2025 at 05:45:30PM +0000, Russell King (Oracle) wrote:
-> It would make sense if a single GPIO pin is used for resetting
-> several devices, some of them with an active-high reset input and
-> others with active-low.
-> 
-> What matters for a GPIO pin used to source a reset signal is "what
-> is the active level at the GPIO pin for the reset to be asserted to
-> the connected device(s)."
-> 
-> If we have a device that requires an active-low reset input, but there
-> is some form of inversion in the path to that input from a GPIO, then
-> the GPIO _should_ be marked active-high. If the same active-low reset
-> input is connected directly to a GPIO, the GPIO _should_ be marked as
-> active-low. Thus, to assert reset, writing '1' through
-> gpiod_set_value() _should_ assert the reset input on the target device
-> in both cases.
-> 
-> This is why gpiolib supports software inversion - so software engineers
-> can think in terms of positive non-inverted logic when programming
-> GPIOs.
+Sudeep Holla <sudeep.holla@arm.com> writes:
 
-Thanks for this message, to me it brought new info which I didn't
-consider before, which is that if there are *future* boards where some
-sort of inversion on the reset signal (likely due to it being shared as
-you say), they should be described as GPIO_ACTIVE_HIGH, but this patch
-locks us out of that possibility.
+> On Wed, Dec 03, 2025 at 11:04:09AM +0000, Punit Agrawal wrote:
+>> Hi Sudeep,
+>>=20
+>> Sudeep Holla <sudeep.holla@arm.com> writes:
+>>=20
+>> > I can create one but that is not strictly necessary. As mentioned in t=
+he
+>> > cover letter, the only dependency is on value of SCMI_PROTOCOL_TELEMET=
+RY
+>> > ins `scmi_std_protocol` enumeration. Just add one and you must be able=
+ to
+>> > compile the series independent of Cristian series.
+>>=20
+>> Thanks, I managed to get the patches building. Looking forward to the
+>> series progressing. If possible, do keep me in the loop for future
+>> updates.
+>
+> Sure - I=E2=80=99ll try to remember to copy you on the next updates. I do=
+n=E2=80=99t have any
+> immediate plans, though, unless the spec moves into beta, changes come up=
+, or
+> someone specifically requests important updates that would help them make
+> progress.
+>
+> Do you have immediate plans to use this on a platform ? Or you are review=
+ing
+> just out of interest/curiosity =F0=9F=98=89 ?
 
-If I may bring one more data point into the discussion: the switch
-binding specifically requests not to describe shared reset lines
-(because unrelated drivers might reset the switch after it probed):
+Ah right - although I'd read it in the cover letter it slipped my mind.
 
-  reset-gpios:
-    description: |
-      GPIO to reset the switch. Use this if mediatek,mcm is not used.
-      This property is optional because some boards share the reset line with
-      other components which makes it impossible to probe the switch if the
-      reset line is used.
-
-so I guess that the probability for a reset signal inversion, even if
-it exists, to cause problems in the GPIO_ACTIVE_HIGH reinterpretation,
-is still low, albeit for a completely different reason than the one I
-initially claimed (which is bogus and Krzysztof was right to challenge it).
-
-> Sadly, we keep having people mark active-low signals as "active high"
-> in DT, and then have to write '0' to assert the signal. These people
-> basically don't understand electronics and/or our GPIO model.
-
-This is the case we seem to be in.
-
-On a scale of safety, having quirks for the affected device trees still
-ranks a bit higher, though.
+I am hoping to migrate some prototype code on top of your patches. Only
+worry is if there are big changes planned in your patches. I should be
+able to use the posted version for now.
 
