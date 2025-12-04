@@ -4,93 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67F50D216AE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 16:42:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A53DD216B2
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 16:48:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=aqAQjayzKkiK+UyokaheK11TIpMBdBsbzUQ3poyNPt4=; b=HO5tY2KlkE6KDGpi2vfh0X53tK
-	RE2KeKtgOd6EzuNZidxWMZ10DI5U+v9epv9B0iKqHt2HCjh/Rw/BxtSFpI8vaEUxmboA5IC2CPe/M
-	DJQHrwTg0WPNIJGxCcL7UZwynMeXAMuuPioyrDvXmU4jDZdGnARdQHeb79c8sWbxh36UewyT4BLn+
-	IIrmggLMPRADwGg5jeYg1vHRT/r8kfs2bo0BlexJk7X4wgcI/qIxlKouiz/YtO5FjdFdrbuJxSTG8
-	huksiQ1g4mNKTglEyqXvXnZSrh6W47w+DJEZ/0GrVKka0bmfrBQjcuIfuPnT/Ec81BlF8jCTQ/22s
-	oEKQ4Utw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xjinBqQteehGM6jaRBiqXNFnQoRix6VxRiUOtQ6uvBI=; b=C5HT4RL6PgpulPKRjg90wyFu0y
+	EFwkTVN55JwNNqVO+dAyAKHuqNkuyBFSJACeZKI58GtdTvtJPRDTLNQfFsN4U7Mdcgk8Dpmg+2/Vc
+	zQinjxoAgVDtM+4n5albyLypwnpAu7sfN8vVbupvNPTTpqv6FRMdcsBFflrK17RIc6rD3AI20xtwi
+	B6Lwz8rmDueG7QwrzjIa50NF7URnNe0RRRPChvrOWMvtjzxzIoqjOIroWAFzX6OfZHMuaqTEdGaHy
+	g6yP70HrUdg7+RLPkHLyhDNZOEzmIIQnJsd3Ze5YyWiRcXqzobWBXjInza1/xxiS3m/G9kCs+kMV9
+	VT254LtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRCPm-00000008J7N-0Zq4;
-	Thu, 04 Dec 2025 16:42:46 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1vRCV5-00000008Jae-2yiH;
+	Thu, 04 Dec 2025 16:48:15 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRCPj-00000008J6F-19fW
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 16:42:44 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-29845b06dd2so15737075ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 08:42:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764866562; x=1765471362; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=aqAQjayzKkiK+UyokaheK11TIpMBdBsbzUQ3poyNPt4=;
-        b=hM5ICf+TQXjLlk3mAl8/NoUZsFeeAZV+taxOo5VxHGHGr1SC/iDDi63ylUWEiIq8lI
-         1EVmgbS5LNZNGL7TlOAxdavxPIM5R1NL0J4/5FysnLGYtWpuIopcn7mNuTMDwQ5WQV8F
-         u2jN6eK5UXRi64kkcGiHK2WMnALeyrcKo2ph8a68pilZ9u75jleZlvy16vudY2B/4MfC
-         ZxfBex4/oVqXuNkMdPfM9vHtSewRewrn400mbiX76q9DAm13R2S9x40JC+LZygSqzKAn
-         JmJa+QCgsmmutpw9Q3FlptkSzUpbBwsD8jZd4LuP5QdNlrTFu+go4KMsYwIGmQ3Cuf+y
-         F40A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764866562; x=1765471362;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=aqAQjayzKkiK+UyokaheK11TIpMBdBsbzUQ3poyNPt4=;
-        b=KTFDP/1EWvtCZfUITw1D0p69mMaDldcuwLObHqPGesgvn3koRLhYk3s9bZDYpUiOry
-         v9D80Udy1GTAeZDZAVIYSSYlLwqZNLL6YjEMuzqgO8hKErlWwnXVMkZTTY+63QHXwg8a
-         6rbZBC+GeccQwr9wSFh7FWzloYaYLbA93bP4ZozC2sVHU5PTA2LqBW3hwtdHELc12BVO
-         De6G9SStUSQu7vLb23QEPc/vMuF4cKrYn0ztphmNLKRbEROY3pB0/egHYmtwWDZW/y3E
-         hv00+/NAX5iYwT6XD83KCscI9k2IZCuDOCyp8yoXmdX0wFfQ/UN/jzfGQE+vcXTRaYIZ
-         zaHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU84JX1k4d0rN9SFJHyZpl5Ws4fOerol8EPtszXwXUZ2OgOUtstyFBYBUYtPG1/2P2J8a2a1+B6GFzNLf24xzTE@lists.infradead.org
-X-Gm-Message-State: AOJu0YwaPGiUdKy81NSU/PKLFNsUDzO7QWjvTp/mGZddARawVlCDGIE8
-	sTTKaqYou7t3ggg9mSxOXQkQXpEEwytm1Uc9DtjLkzTK5bpEWDH2dVSQ
-X-Gm-Gg: ASbGncvPYakaCUgWH7yvs4OdBHhy1VsZ3RnJ7PlEweZUdZo5UvgP4AL+4sdvhLOUxek
-	PZiOvEw7Fid4d6S2BfNKbaHskd3S1ihWB0Zt4rdzP4OLLFZoJzWma+htoBY33iDtWk7Szsl2AWf
-	vB1coFwER33bApmT548USDaxyvQFgcgZ6RpZqrL28urMWDCYXwFrJloOQM7Q4sKRuaSpDTqKs6+
-	HbPJHsN7kFPpYIdPWSw7ridC+HGS/3rtpjv8LHV/U5T9+MdjsXsLRX++6A2GyDxq/eu8NvwTjD0
-	qXI78mGuCDPaOmZQrxX4/BpIKEnGjQEaV3Oi6NLSy3D7o3D3Oi5DoI8lcKftbf5+DIxh7GD79mh
-	pLbMXr5Swjj88As5yh/4hwbQuUXASMv9Fzyym3XyJz1o6f+OpRtqILITQnAWLdOPofZLSx1f4da
-	aK4xyakYONTueBcBVb/jx/leTVt1CQBVIO4UKeSAcuNV18FWpaaQMHS3bPypOTvZME3lNtW1Qy7
-	t8V8M5Dzh7Q4aGbrqxRO80RillGc0pT4ds=
-X-Google-Smtp-Source: AGHT+IHmL3NdODN0biOQSZv09OUmAKp6RXCeEtSR9fQ8w6iCx3oooNzpze9mqTtVMIc2Y+Z/hfgp4w==
-X-Received: by 2002:a17:902:e807:b0:299:d5a5:3f7b with SMTP id d9443c01a7336-29d684764b1mr84258175ad.53.1764866562008;
-        Thu, 04 Dec 2025 08:42:42 -0800 (PST)
-Received: from visitorckw-work01.c.googlers.com.com (14.250.194.35.bc.googleusercontent.com. [35.194.250.14])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29dae49c8absm25090275ad.16.2025.12.04.08.42.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Dec 2025 08:42:41 -0800 (PST)
-From: Kuan-Wei Chiu <visitorckw@gmail.com>
-To: linus.walleij@linaro.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	arnd@arndb.de
-Cc: jserv@ccns.ncku.edu.tw,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Kuan-Wei Chiu <visitorckw@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH] ARM: dts: integrator: Fix DMA ranges mismatch warning on IM-PD1
-Date: Thu,  4 Dec 2025 16:42:28 +0000
-Message-ID: <20251204164228.113587-1-visitorckw@gmail.com>
-X-Mailer: git-send-email 2.52.0.177.g9f829587af-goog
+	id 1vRCV4-00000008JaS-2M4j;
+	Thu, 04 Dec 2025 16:48:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id A51D960200;
+	Thu,  4 Dec 2025 16:48:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C59AEC116B1;
+	Thu,  4 Dec 2025 16:48:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764866893;
+	bh=UkC+QMQ4k9lCMANWG3quk95RKaYDeofbdrxNz9Jdz/M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=a10rYX0xwCL5ATxmQuGOKfiv0qz690sWMLTqCrGvIcebZOvyRvBHwg2VH22vaet03
+	 QGl4P+7uvAuCbk/SI4IctgZTbmm55y2uDb+9Y8vPuOW96LDra9PB2Ml0hPDWdpqa56
+	 6Wpgu2DyYI9t5gdU/tk0QgNJKlj810pUK7Qcn4RpWs6m5UuZ786A5o26M4sph8vp7K
+	 j8Wac6zwZjPpqG0I+oTf+mZ5xXKDGUWIs6ype/4nc5vq7ghHK/hx75mzSN1XMbqOr2
+	 Vh0URcOOa9ewEbEx0r/uMU6d9lrUR7ytU+4AFNBM6KlkVHssjOAn01WtqoA3WoEbDH
+	 8Og2CEFf1Yf2w==
+Message-ID: <66d080f1-e989-451f-9d5e-34460e5eb1b0@kernel.org>
+Date: Thu, 4 Dec 2025 17:48:07 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_084243_316480_4818089A 
-X-CRM114-Status: GOOD (  10.61  )
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/2] net: dsa: mt7530: Use GPIO polarity to generate
+ correct reset sequence
+To: Vladimir Oltean <olteanv@gmail.com>
+Cc: Daniel Golle <daniel@makrotopia.org>, Frank Wunderlich <frankwu@gmx.de>,
+ Andrew Lunn <andrew@lunn.ch>, Chen Minqiang <ptpt52@gmail.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "Chester A. Unal" <chester.a.unal@arinc9.com>,
+ DENG Qingfang <dqfext@gmail.com>, Sean Wang <sean.wang@mediatek.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+References: <20251129234603.2544-1-ptpt52@gmail.com>
+ <20251129234603.2544-2-ptpt52@gmail.com>
+ <0675b35f-217d-4261-9e3f-2eb24753d43c@lunn.ch>
+ <20251130080731.ty2dlxaypxvodxiw@skbuf>
+ <3fbc4e67-b931-421c-9d83-2214aaa2f6ed@lunn.ch>
+ <0d85e1e6-ea75-4f20-aef1-90d446b4bfa1@kernel.org>
+ <00f308a1-a4b1-4f20-8d8e-459ddf4c39b1@gmx.de>
+ <aS7Zj3AFsSp2CTNv@makrotopia.org> <20251204131626.upw77jncqfwxydww@skbuf>
+ <4170c560-1edd-4ff8-96af-a479063be4a5@kernel.org>
+ <20251204160247.yz42mnxvzhxas5jc@skbuf>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251204160247.yz42mnxvzhxas5jc@skbuf>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,47 +130,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When compiling the device tree for the Integrator/AP with IM-PD1, the
-following warning is observed regarding the display controller node:
+On 04/12/2025 17:02, Vladimir Oltean wrote:
+> On Thu, Dec 04, 2025 at 03:49:52PM +0100, Krzysztof Kozlowski wrote:
+>> On 04/12/2025 14:16, Vladimir Oltean wrote:
+>>> I get the feeling that we're complicating a simple solution because of a
+>>> theoretical "what if" scenario. The "NOT" gate is somewhat contrived
+>>
+>> You downplay this case and suggest (if I get it right) that NOT gate is
+>> something unusual.
+>>
+>>  I mentioned "line inverter" but it's not about NOT gate. There is no
+>> need for NOT gate at all, like some magical component which no one puts
+>> to the board. The only thing needed is just to pull the GPIO up or down,
+>> that's it. It's completely normal design thus it CAN happen.
+>>
+>> Of course "can" does not mean it actually does, because certain
+>> configurations like powerdown-fail-safe are more likely and I am not an
+>> electric circuit designer to tell which one is better, but that
+>> downplaying does not help here.
+> 
+> I don't want to dismiss this comment, but I don't really understand it.
+> What do you mean by "line inverter", is it the component inside the GPIO
+> pin which makes it active low?
 
-arch/arm/boot/dts/arm/integratorap-im-pd1.dts:251.3-14: Warning
-(dma_ranges_format):
-/bus@c0000000/bus@c0000000/display@1000000:dma-ranges: empty
-"dma-ranges" property but its #address-cells (2) differs from
-/bus@c0000000/bus@c0000000 (1)
+I mentioned much earlier "line inverter" and here the "NOT gate"
+appeared and both suggest you need some dedicated component.
 
-The display node specifies an empty "dma-ranges" property, intended to
-describe a 1:1 identity mapping. However, the node lacks explicit
-"#address-cells" and "#size-cells" properties. In this case, the device
-tree compiler defaults the address cells to 2 (64-bit), which conflicts
-with the parent bus configuration (32-bit, 1 cell).
+What I want to say that it is not true. You do not need dedicated
+component to have different polarity, because it is as simple as
+connecting the wire to ground or to voltage and moving a resistor from
+one place to another.
 
-Fix this by explicitly defining "#address-cells" and "#size-cells" as
-1. This matches the 32-bit architecture of the Integrator platform and
-ensures the address translation range is correctly parsed by the
-compiler.
+> 
+> I thought that the premise of this patch set is that old device trees
+> are all (incorrectly) defined as GPIO_ACTIVE_HIGH, but someone familiar
+> with the matter needs to fact-check this statement.
 
-Fixes: 7bea67a99430 ("ARM: dts: integrator: Fix DMA ranges")
-Cc: stable@vger.kernel.org
-Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
----
- arch/arm/boot/dts/arm/integratorap-im-pd1.dts | 2 ++
- 1 file changed, 2 insertions(+)
+Yes, that's most likely true.
 
-diff --git a/arch/arm/boot/dts/arm/integratorap-im-pd1.dts b/arch/arm/boot/dts/arm/integratorap-im-pd1.dts
-index db13e09f2fab..6d90d9a42dc9 100644
---- a/arch/arm/boot/dts/arm/integratorap-im-pd1.dts
-+++ b/arch/arm/boot/dts/arm/integratorap-im-pd1.dts
-@@ -248,6 +248,8 @@ display@1000000 {
- 		/* 640x480 16bpp @ 25.175MHz is 36827428 bytes/s */
- 		max-memory-bandwidth = <40000000>;
- 		memory-region = <&impd1_ram>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
- 		dma-ranges;
- 
- 		port@0 {
--- 
-2.52.0.177.g9f829587af-goog
+> 
+> Anyway, you and Andrew are talking about different things, you haven't
+> made it clear (or at least it wasn't clear to me) that the inverter you
+> are talking about isn't his NOT gate (that isn't described in the device
+> tree at all, as opposed to your inverter which would make the GPIO line
+> GPIO_ACTIVE_LOW - that's something verifiable).
 
+Both are the same - inverter or NOT gate, same stuff. It is just
+connecting wire to pull up, not actual component on the board (although
+one could make and buy such component as well...). We never describe
+these inverters in the DTS, these are just too trivial circuits, thus
+the final GPIO_ACTIVE_XXX should already include whatever is on the wire
+between SoC and device.
+
+> 
+>> Just to clarify: I expect clear communication that some users will be
+>> broken with as good as you can provide analysis of the impact (which
+>> users). I only object the clame here "no one can ever pull down a GPIO
+>> line thus I handled all possible cases and made it backward compatible".
+>>
+>> And that claim to quote was:
+>> "Therefore, regardless of whether a DTS is old or new, correct or
+>> incorrect, the driver now generates the correct electrical reset pulse."
+>>
+>> which is 100% false and I am surprised how one could claim that.
+> 
+> Agree, the communication should be better.
+
+
+Best regards,
+Krzysztof
 
