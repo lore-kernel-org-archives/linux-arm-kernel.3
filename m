@@ -4,83 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F11D1CDD1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 04:29:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDDD2D1D862
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  4 Dec 2025 04:34:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FnhqN37j+NCiS9XWqgPFJ6kWHXvr3eXxxm+zh+RvXf8=; b=jkt3VRAyYAyXUOqlwAA7AeCw2/
-	ZlibijhpR+5C1S7zRaDRUfToB9I7le+SUQ/uDEb4SPq3Dqmvw3jmlBxKu0U7U3qSJtkoPQJlFwZBD
-	ffgAI4fcFY4bq5hfjVuQuwvWRCDqMBdx3X+VD1qHGcJRGBSxeaAU1SlMdD9gxtwZRuc6jTywWZ2Mz
-	CfiPxyyJG+BQF9MIZcPMM8JfquQn6QQyZ8rSVjX5SY+n6DNrOEKm76DIIqzg7eT7I/CozDjcgftVr
-	x6XgrxC3EYBY+qQ6V80lla/O5z1MX4ZTGcrIkTNMWRsVBldz6e05JLdvG4HUggG3Nujb8/KqDnbxm
-	iudet8bQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b2Ag9VGHjtd8hN53cp9DjV4/7coNBMtZPqugNMBysgw=; b=Njn8IwQQHCt3AaMHgZtopLC/dY
+	lop6Wf3moh2C5aR7V3pY9DsDKThWQwa+W9vXFi3IF0xwe5Y/MTkaq3JDwgUGjzwPuNTQYn425nadS
+	g86EnESMspEKJI9ngYJZDrun8v9zlq/5mS1eZ07Lqvfo4V1tJ0tQUMBjf1eWEIhsETRuV5dFNN47m
+	PwOwZaBPeXKMeDdFy+8/JTwl/3/np2jEtNRDwt6qVDibFdOcf6o/pH/pMOZSY7dy1NqJx6jo6CjwQ
+	m4aKKva2EP0jdJwmcHhuSEsCrY2VqqNeKEEWfJJ4RO/dvrIkFOwAn1iJ4YAfcFQNOHOiJa/lWFM0u
+	t5DEWyHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR0xd-00000007SJt-2PME;
-	Thu, 04 Dec 2025 04:28:57 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vR0xa-00000007SJT-2qiI
+	id 1vR12r-00000007SXz-1K7Z;
+	Thu, 04 Dec 2025 04:34:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vR12o-00000007SXa-35PQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 04 Dec 2025 04:28:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1764822534; x=1796358534;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=fu4Otl1HGi7uqxldCp6FC+mJwbMpk4YSIaDzkvRP9rU=;
-  b=aNF5vYvLDM4bQBNe9ff+Hr4F540rlGWo87OQXvyOuyPuR4N8fBsYCs95
-   +Kaa+o2Rr7dH/tkIPV4weABtw1IHgriW1+SxhCN4J+dMGCulRm1F0ES3E
-   HK8K+U2XU9KhCQDuwSDR9DjUiJNzzwSMyaT4dGgOQCeHq/UQAC5qQ2Bfm
-   GGoNX8Q/HQWameLMN72rdIR2+xeKkOXwLLXIWCpsDChTWhL3DCOHVE5zn
-   7t6anu96CK8KLl5X7U6jp+AKJ6hH/tAhCCgWJTzLFeovhXonQbmigOW+L
-   5pL2ANXRKeZQSUrW+A/YlOO/HxKkU+wxmekPqYQ2WM22w76+g4fqeD8EN
-   w==;
-X-CSE-ConnectionGUID: oerE18imS1ORWzT7GlP66Q==
-X-CSE-MsgGUID: p63biykER9ShXudeEkM72Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11631"; a="77939822"
-X-IronPort-AV: E=Sophos;i="6.20,247,1758610800"; 
-   d="scan'208";a="77939822"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Dec 2025 20:28:53 -0800
-X-CSE-ConnectionGUID: emaq0chZQvCufN9+C+JBvA==
-X-CSE-MsgGUID: 5T152UeURjmuiR2QhfUVmg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,247,1758610800"; 
-   d="scan'208";a="199360138"
-Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
-  by orviesa004.jf.intel.com with ESMTP; 03 Dec 2025 20:28:48 -0800
-Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vR0xR-00000000DRN-1pJI;
-	Thu, 04 Dec 2025 04:28:45 +0000
-Date: Thu, 4 Dec 2025 12:28:05 +0800
-From: kernel test robot <lkp@intel.com>
-To: Pankaj Gupta <pankaj.gupta@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH v20 5/7] firmware: drivers: imx: adds miscdev
-Message-ID: <202512041241.yDXC2vpg-lkp@intel.com>
-References: <20251203-imx-se-if-v20-5-a04a25c4255f@nxp.com>
+	Thu, 04 Dec 2025 04:34:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 64906339;
+	Wed,  3 Dec 2025 20:34:09 -0800 (PST)
+Received: from [10.164.18.78] (unknown [10.164.18.78])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E05AF3F73B;
+	Wed,  3 Dec 2025 20:34:06 -0800 (PST)
+Message-ID: <565ac89c-1e7a-4e2f-a866-15039fbe22f6@arm.com>
+Date: Thu, 4 Dec 2025 10:04:04 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251203-imx-se-if-v20-5-a04a25c4255f@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 07/12] mm: bail out of lazy_mmu_mode_* in interrupt
+ context
+To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org
+Cc: linux-kernel@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
+ Andreas Larsson <andreas@gaisler.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Boris Ostrovsky <boris.ostrovsky@oracle.com>, Borislav Petkov
+ <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>, "David S. Miller"
+ <davem@davemloft.net>, David Woodhouse <dwmw2@infradead.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, Ingo Molnar <mingo@redhat.com>,
+ Jann Horn <jannh@google.com>, Juergen Gross <jgross@suse.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Nicholas Piggin <npiggin@gmail.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Suren Baghdasaryan <surenb@google.com>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Venkat Rao Bagalkote <venkat88@linux.ibm.com>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
+ xen-devel@lists.xenproject.org, x86@kernel.org
+References: <20251124132228.622678-1-kevin.brodsky@arm.com>
+ <20251124132228.622678-8-kevin.brodsky@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20251124132228.622678-8-kevin.brodsky@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251203_202854_759299_9964F060 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20251203_203418_863852_C673DC7E 
+X-CRM114-Status: GOOD (  24.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,132 +89,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pankaj,
+On 24/11/25 6:52 PM, Kevin Brodsky wrote:
+> The lazy MMU mode cannot be used in interrupt context. This is
+> documented in <linux/pgtable.h>, but isn't consistently handled
+> across architectures.
+> 
+> arm64 ensures that calls to lazy_mmu_mode_* have no effect in
+> interrupt context, because such calls do occur in certain
+> configurations - see commit b81c688426a9 ("arm64/mm: Disable barrier
+> batching in interrupt contexts"). Other architectures do not check
+> this situation, most likely because it hasn't occurred so far.
+> 
+> Let's handle this in the new generic lazy_mmu layer, in the same
+> fashion as arm64: bail out of lazy_mmu_mode_* if in_interrupt().
+> Also remove the arm64 handling that is now redundant.
 
-kernel test robot noticed the following build warnings:
+Ensuring a common behaviour across platforms such as this in interrupt
+context bail out - can now be easily achieved now as there are generic
+helpers that call the platform ones.
 
-[auto build test WARNING on 4a26e7032d7d57c998598c08a034872d6f0d3945]
+> > Both arm64 and x86/Xen also ensure that any lazy MMU optimisation is
+> disabled while in interrupt (see queue_pte_barriers() and
+> xen_get_lazy_mode() respectively). This will be handled in the
+> generic layer in a subsequent patch.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Pankaj-Gupta/Documentation-firmware-add-imx-se-to-other_interfaces/20251203-145202
-base:   4a26e7032d7d57c998598c08a034872d6f0d3945
-patch link:    https://lore.kernel.org/r/20251203-imx-se-if-v20-5-a04a25c4255f%40nxp.com
-patch subject: [PATCH v20 5/7] firmware: drivers: imx: adds miscdev
-config: arm64-randconfig-r132-20251204 (https://download.01.org/0day-ci/archive/20251204/202512041241.yDXC2vpg-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 734a912d0f025559fcf76bde9aaaeb0383c1625a)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251204/202512041241.yDXC2vpg-lkp@intel.com/reproduce)
+Makes sense.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512041241.yDXC2vpg-lkp@intel.com/
+> 
+> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> ---
+>  arch/arm64/include/asm/pgtable.h |  9 ---------
+>  include/linux/pgtable.h          | 17 +++++++++++++++--
+>  2 files changed, 15 insertions(+), 11 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+> index 54f8d6bb6f22..e596899f4029 100644
+> --- a/arch/arm64/include/asm/pgtable.h
+> +++ b/arch/arm64/include/asm/pgtable.h
+> @@ -94,26 +94,17 @@ static inline void arch_enter_lazy_mmu_mode(void)
+>  	 * keeps tracking simple.
+>  	 */
+>  
+> -	if (in_interrupt())
+> -		return;
+> -
+>  	set_thread_flag(TIF_LAZY_MMU);
+>  }
+>  
+>  static inline void arch_flush_lazy_mmu_mode(void)
+>  {
+> -	if (in_interrupt())
+> -		return;
+> -
+>  	if (test_and_clear_thread_flag(TIF_LAZY_MMU_PENDING))
+>  		emit_pte_barriers();
+>  }
+>  
+>  static inline void arch_leave_lazy_mmu_mode(void)
+>  {
+> -	if (in_interrupt())
+> -		return;
+> -
+>  	arch_flush_lazy_mmu_mode();
+>  	clear_thread_flag(TIF_LAZY_MMU);
+>  }
+> diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+> index c121358dba15..8ff6fdb4b13d 100644
+> --- a/include/linux/pgtable.h
+> +++ b/include/linux/pgtable.h
+> @@ -228,27 +228,40 @@ static inline int pmd_dirty(pmd_t pmd)
+>   * of the lazy mode. So the implementation must assume preemption may be enabled
+>   * and cpu migration is possible; it must take steps to be robust against this.
+>   * (In practice, for user PTE updates, the appropriate page table lock(s) are
+> - * held, but for kernel PTE updates, no lock is held). Nesting is not permitted
+> - * and the mode cannot be used in interrupt context.
+> + * held, but for kernel PTE updates, no lock is held). The mode is disabled in
+> + * interrupt context and calls to the lazy_mmu API have no effect.
+> + * Nesting is not permitted.
 
-sparse warnings: (new ones prefixed by >>)
->> drivers/firmware/imx/se_ctrl.c:517:40: sparse: sparse: cast removes address space '__user' of expression
-   drivers/firmware/imx/se_ctrl.c:745:48: sparse: sparse: cast removes address space '__user' of expression
+Right - nesting is still not not permitted.
 
-vim +/__user +517 drivers/firmware/imx/se_ctrl.c
+>   */>  #ifdef CONFIG_ARCH_HAS_LAZY_MMU_MODE
+>  static inline void lazy_mmu_mode_enable(void)
+>  {
+> +	if (in_interrupt())
+> +		return;
+> +
+>  	arch_enter_lazy_mmu_mode();
+>  }
+>  
+>  static inline void lazy_mmu_mode_disable(void)
+>  {
+> +	if (in_interrupt())
+> +		return;
+> +
+>  	arch_leave_lazy_mmu_mode();
+>  }
+>  
+>  static inline void lazy_mmu_mode_pause(void)
+>  {
+> +	if (in_interrupt())
+> +		return;
+> +
+>  	arch_leave_lazy_mmu_mode();
+>  }
+>  
+>  static inline void lazy_mmu_mode_resume(void)
+>  {
+> +	if (in_interrupt())
+> +		return;
+> +
+>  	arch_enter_lazy_mmu_mode();
+>  }
+>  #else
 
-   491	
-   492	static int se_ioctl_cmd_snd_rcv_rsp_handler(struct se_if_device_ctx *dev_ctx,
-   493						    u64 arg)
-   494	{
-   495		struct se_ioctl_cmd_snd_rcv_rsp_info cmd_snd_rcv_rsp_info = {0};
-   496		struct se_api_msg *tx_msg __free(kfree) = NULL;
-   497		struct se_api_msg *rx_msg __free(kfree) = NULL;
-   498		struct se_if_priv *priv = dev_ctx->priv;
-   499		int err = 0;
-   500	
-   501		if (copy_from_user(&cmd_snd_rcv_rsp_info, (u8 __user *)arg,
-   502				   sizeof(cmd_snd_rcv_rsp_info))) {
-   503			dev_err(priv->dev,
-   504				"%s: Failed to copy cmd_snd_rcv_rsp_info from user.",
-   505				dev_ctx->devname);
-   506			err = -EFAULT;
-   507			goto exit;
-   508		}
-   509	
-   510		if (cmd_snd_rcv_rsp_info.tx_buf_sz < SE_MU_HDR_SZ) {
-   511			dev_err(priv->dev, "%s: User buffer too small(%d < %d)",
-   512				dev_ctx->devname, cmd_snd_rcv_rsp_info.tx_buf_sz, SE_MU_HDR_SZ);
-   513			err = -ENOSPC;
-   514			goto exit;
-   515		}
-   516	
- > 517		err = se_chk_tx_msg_hdr(priv, (struct se_msg_hdr *)cmd_snd_rcv_rsp_info.tx_buf);
-   518		if (err)
-   519			goto exit;
-   520	
-   521		rx_msg = kzalloc(cmd_snd_rcv_rsp_info.rx_buf_sz, GFP_KERNEL);
-   522		if (!rx_msg) {
-   523			err = -ENOMEM;
-   524			goto exit;
-   525		}
-   526	
-   527		tx_msg = memdup_user(cmd_snd_rcv_rsp_info.tx_buf,
-   528				     cmd_snd_rcv_rsp_info.tx_buf_sz);
-   529		if (IS_ERR(tx_msg)) {
-   530			err = PTR_ERR(tx_msg);
-   531			goto exit;
-   532		}
-   533	
-   534		if (tx_msg->header.tag != priv->if_defs->cmd_tag) {
-   535			err = -EINVAL;
-   536			goto exit;
-   537		}
-   538	
-   539		if (tx_msg->header.ver == priv->if_defs->fw_api_ver &&
-   540		    get_load_fw_instance(priv)->is_fw_tobe_loaded) {
-   541			err = se_load_firmware(priv);
-   542			if (err) {
-   543				dev_err(priv->dev, "Could not send msg as FW is not loaded.");
-   544				err = -EPERM;
-   545				goto exit;
-   546			}
-   547		}
-   548		set_se_rcv_msg_timeout(priv, SE_RCV_MSG_LONG_TIMEOUT);
-   549	
-   550		err = ele_msg_send_rcv(dev_ctx, tx_msg, cmd_snd_rcv_rsp_info.tx_buf_sz,
-   551				       rx_msg, cmd_snd_rcv_rsp_info.rx_buf_sz);
-   552		if (err < 0)
-   553			goto exit;
-   554	
-   555		dev_dbg(priv->dev, "%s: %s %s.", dev_ctx->devname, __func__,
-   556			"message received, start transmit to user");
-   557	
-   558		/* We may need to copy the output data to user before
-   559		 * delivering the completion message.
-   560		 */
-   561		err = se_dev_ctx_cpy_out_data(dev_ctx);
-   562		if (err < 0)
-   563			goto exit;
-   564	
-   565		/* Copy data from the buffer */
-   566		print_hex_dump_debug("to user ", DUMP_PREFIX_OFFSET, 4, 4, rx_msg,
-   567				     cmd_snd_rcv_rsp_info.rx_buf_sz, false);
-   568	
-   569		if (copy_to_user(cmd_snd_rcv_rsp_info.rx_buf, rx_msg,
-   570				 cmd_snd_rcv_rsp_info.rx_buf_sz)) {
-   571			dev_err(priv->dev, "%s: Failed to copy to user.", dev_ctx->devname);
-   572			err = -EFAULT;
-   573		}
-   574	
-   575	exit:
-   576	
-   577		/* shared memory is allocated before this IOCTL */
-   578		se_dev_ctx_shared_mem_cleanup(dev_ctx);
-   579	
-   580		if (copy_to_user((void __user *)arg, &cmd_snd_rcv_rsp_info,
-   581				 sizeof(cmd_snd_rcv_rsp_info))) {
-   582			dev_err(priv->dev, "%s: Failed to copy cmd_snd_rcv_rsp_info from user.",
-   583				dev_ctx->devname);
-   584			err = -EFAULT;
-   585		}
-   586	
-   587		return err;
-   588	}
-   589	
+LGTM
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
