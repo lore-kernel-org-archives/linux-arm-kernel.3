@@ -4,99 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DDB9D32D8A
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 14:38:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC4A4D32D8E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 14:49:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rZeX/t9XBIstd9pSBZ5++UMA+6ZEbyBEMYNpSCQ2HHE=; b=j6EXVIp0fITi8xgIh5n2cAwHXr
-	AqwVBdYute9L4SA1YRiVmJxytj2giI6ccAEf4RvwG6h4GKTTL1WyYMpVL8GIV5WOcTnQYg0u7xowO
-	vwkL0H9Do791GuHy98YUH6oVselqw7X+lXJDAVCpvn/BW37p152zR/Vg8XdUilwv3VbbfBzlhx9G9
-	pFxMpAh/QBvtP1rz+fpjOZaJivUJTap53Zt2F+86obkzH07twE0t1lZjCS8ZqHFcRXNZ/TduTMHXy
-	3iHlwfDLo+v3bTVc8WuCFfJRF5aubaXYvJU1mDo9DOu94K4I5z7V5Q2Og8N9vAems04Odz0Xmknl+
-	gHLKoPMg==;
+	bh=yBbh9YfFHCCqVeddEkBPEg6ghYqmMa7/9RWA+WpI8VU=; b=tXlUFF+v4PNU6fwrzqHIiX6haW
+	RJlj8ADkTu+ebfeBH502kKrHSgx60HIlVag1m6GzjkVfplaH7/6DkxtdAoNjvep6i/5C/Wn5EFxUa
+	cj2pQ8mBo/Rcmt+8UB61XimaQv20jZOfyLOoYoJnL3WMX7I4CZla03eczbuDiENTed1+QPvJdtyyG
+	Vkw01jIoTNQGael/kl4IGDU+/zzji4eawLIGxAluK3k4xR54jc11nIzx/ekX/kHG7Z1w/B+R/tG0Z
+	Cg0ei0/18KlrUfJ3fDVZ7dtSd+PhNsYLLz9AO89444MefhlCo1pqWAEWychOAk/1BI8WGFRL3xcJC
+	ep+3Q8ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRWwj-00000009bbG-4BJB;
-	Fri, 05 Dec 2025 14:38:10 +0000
-Received: from mail-yx1-xb136.google.com ([2607:f8b0:4864:20::b136])
+	id 1vRX7r-00000009c4k-3Ne2;
+	Fri, 05 Dec 2025 14:49:39 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRWwg-00000009bau-2rUb
+	id 1vRX7p-00000009c4T-2iSU
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 14:38:07 +0000
-Received: by mail-yx1-xb136.google.com with SMTP id 956f58d0204a3-642fcb38f35so1826056d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 06:38:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764945485; x=1765550285; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rZeX/t9XBIstd9pSBZ5++UMA+6ZEbyBEMYNpSCQ2HHE=;
-        b=GCNoE7CvpF/5I9zF+1bHJZ0qU5+fJHDScy/kYBNyC0wW285wF+M8gn9hhl4HPcNeS0
-         nfx726mLY0mIgZZWYAk6zejrPWdVNFHAHh53LyDNLboOWiMLiz87sqss9A+SnIz9DxFJ
-         2N9lcG7FO2fO+8ph3R4ZZ7yt2zDq/OOev5X9HoiPVXzbr0N7/yn9LmYesff4SM5rqXpw
-         sxBrPRh2iuv8UOID4IobK7w3xWgZJTHlFayg6OwAOYMcd4cN3cj1orpV7PN8tYth0UTh
-         z/LSteFnSdoffrFxvvP+Ddvh2UQfUoUvNBE9u3QVditRTTCacZwpQMxrKhJ7BwQ0bo6Q
-         3gtw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764945485; x=1765550285;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rZeX/t9XBIstd9pSBZ5++UMA+6ZEbyBEMYNpSCQ2HHE=;
-        b=XU0+WkOu0coAY/RzxQuo2p/NlJl2JoYXZHMPSv3U/BgcBRGmvht0A4KE8wsAWcJsrx
-         QlkiuXRyaAdQ7WfLO84Agj3EzI4FqTeW/Kq4xoP+v6OJ95M1MWh3D7mo4DUnGq+2Vc6t
-         KQMiCtmkpzwlyKx3pgBrAE96fs9+wz3AYJLYIt4dQXJUIdKf6cCERsonokh+dTNksCkU
-         48wydx/5dcQ2lAUnT6EKqp60/HB1sXx8vv6Ppv9wuBBQ6uCO+RO1cfTERP5gB6hYAFSI
-         7lV4LjSrjShruAwrSegcGh97yd8y/GkvXLi0O0FlN/kH0hjkOV6+LNxmMDzr0XJV+cC3
-         G8ow==
-X-Forwarded-Encrypted: i=1; AJvYcCUDOvNcWiekeKkynjrSMbLA3uN6DXsk4T8it8PmQkrT0MStUk842LhWGF9QWTQ6stfFCMhum7FlU2W2+OsBFnww@lists.infradead.org
-X-Gm-Message-State: AOJu0YxgpFIUyszLfURrZgUTL8wPe5ONlY/fC+0umCRKmWCMnbQiSonq
-	x0OLrp0yxOGN2/XXTzf5+KMNfN8Ll0KG24khCJdNLIGo/17SEhd4xLFX
-X-Gm-Gg: ASbGncshBfm26dIMrkaNh0iunLaq84JUMRP0DKNfUumvf7a327BFhssbVPlygXvvx0T
-	l+YqZOFTXg6ZgyF+YT4LWiMtcftCATq1s3bckRJidXez2Q/oJEVX5ESdTCj17tfz3sMPRCub7CI
-	NaS/iNx321Ljt8ceHomblS4niSI5zg3yiVfzOJAbBhpSuiTmQM5j/kZvYN0/ULBr0SQFBnLZN0s
-	SJUdbq4g/7s1v+vE/dbz4JTkQEhwkAfd7dC73EnrUXJG7rU72122Cj6OtA1GH0MC+q8BPwMMsct
-	voqZH0ujB7i4HBo6YlOll1LWGABaN2XQcKG3GPrTwjwZ3Mt/QzwBx/erRyiKaqvwPoGH3rWD6h9
-	TWoayMmYENuUFlE7yvJeTS1hIA526a7BYnUJm69Q0IuAd9I1NJ9+zC3rL3UD+PWNCjHceJG51UZ
-	hS09zZqlG2KqCHOidb/oqJml15ADzHkA==
-X-Google-Smtp-Source: AGHT+IHZolp98udP+u1AjHHX7nPNhJRkfNJpkP0YtwmKdcia0YfdLvMiUF1UHkN2//HLsO8YP+Ij8g==
-X-Received: by 2002:a05:690e:12ca:b0:640:d038:faf9 with SMTP id 956f58d0204a3-64436fab5f7mr7781946d50.25.1764945484906;
-        Fri, 05 Dec 2025 06:38:04 -0800 (PST)
-Received: from hoboy.vegasvil.org ([2600:1700:2430:6f6f:e2d5:5eff:fea5:802f])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-78c1b4ae638sm17499737b3.4.2025.12.05.06.38.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Dec 2025 06:38:04 -0800 (PST)
-Date: Fri, 5 Dec 2025 06:38:01 -0800
-From: Richard Cochran <richardcochran@gmail.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Paolo Abeni <pabeni@redhat.com>,
-	Rohan G Thomas <rohan.g.thomas@altera.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Jose Abreu <Jose.Abreu@synopsys.com>,
-	Fugang Duan <fugang.duan@nxp.com>,
-	Kurt Kanzenbach <kurt@linutronix.de>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2] net: stmmac: Fix E2E delay mechanism
-Message-ID: <aTLuSZugpZDNCRzf@hoboy.vegasvil.org>
-References: <20251129-ext-ptp-2v-v2-1-d23aca3e694f@altera.com>
- <26656845-d9d6-4fd2-bfff-99996cf03741@redhat.com>
- <aTFuJUiLMnHrnpW5@shell.armlinux.org.uk>
+	Fri, 05 Dec 2025 14:49:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C33B160156;
+	Fri,  5 Dec 2025 14:49:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49447C4CEF1;
+	Fri,  5 Dec 2025 14:49:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764946176;
+	bh=y46lOh3uiDJdon0wY2+qojpA7h8dJLDS70+GF62iHwo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ceyFAXvxphL0FT5av2Xs7vcxFoSccfTGt/iVLs9wP/iXQUsfJccu6awsubBHZ46Zz
+	 oftzNfAjw+rTQfd4d2Hj1S0DzVRt2bLZ3mFgwyuTBHgsnQBn2QvotZct+5eTAmHrhR
+	 lsRZm8CXbm4oRZwCKjmQDMsBYu9nd5M5XsfX/fDgMn4KrBc7+bFxCwbBJoowEyuRDg
+	 bVwUMixp7XwNJ3+1Ne46bXzmmWkfBEgwpJHpOZVuZk9FpTWUwYlC9QXA8YCPEJIadx
+	 9AXqkt7DygY7c+Wh3L9WfG/WnHy6VtkBGNj9uXQyDuafH4j8vWvvOhAdyGfwzy2wAA
+	 o0GuaxsFmrOGA==
+Date: Fri, 5 Dec 2025 08:49:29 -0600
+From: Rob Herring <robh@kernel.org>
+To: Rebecca Cran <rebecca@bsdio.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	Billy Tsai <billy_tsai@aspeedtech.com>
+Subject: Re: [PATCH v3 3/3] dt-bindings: hwmon: (aspeed,g5-pwm-tacho) Move
+ info from txt to yaml
+Message-ID: <20251205144929.GA76422-robh@kernel.org>
+References: <20251204210238.40742-1-rebecca@bsdio.com>
+ <20251204210238.40742-4-rebecca@bsdio.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aTFuJUiLMnHrnpW5@shell.armlinux.org.uk>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_063806_724943_AB885E5E 
-X-CRM114-Status: GOOD (  11.50  )
+In-Reply-To: <20251204210238.40742-4-rebecca@bsdio.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,21 +74,210 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 04, 2025 at 11:19:01AM +0000, Russell King (Oracle) wrote:
+On Thu, Dec 04, 2025 at 02:02:36PM -0700, Rebecca Cran wrote:
+> Move the documentation for the aspeed,ast2400-pwm-tacho and
+> aspeed,ast2500-pwm-tacho devices from a text file to yaml file.
+> 
+> This allows for dts files containing these devices to be validated.
+> 
+> Where the text file documenation of required properties differ from the
+> implementation, prefer the implementation and update the schema to
+> match.
+> 
+> "#size-cells" was 1 but implementation is 0.
+> "#cooling-cells" was marked as required but appears optional.
+> 
+> In the fan subnode, "cooling-levels" is optional according to the code
+> in drivers/hwmon/aspeed-pwm-tacho.c.
 
-> Basically, the conclusion I am coming to is that Synopsys's idea
-> of "lets tell the hardware what _kind_ of PTP clock we want to be,
-> whether we're master, etc" is subject to multiple revisions in
-> terms of which messages each mode selects, and it would have been
-> _far_ simpler and easier to understand had they just provided a
-> 16-bit bitfield of message types to accept.
+Please see this one:
 
-Encoding the PTP role in the hardware is a fundamentally stupid idea,
-because it makes changing roles (which is a normal and expected)
-impossible without losing time stamps during the transition.  Some
-early PTP hardware designs had this defect, but vendors figured it out
-in the second generation of cards.
+https://lore.kernel.org/all/20251029185448.2121857-1-robh@kernel.org/
 
-Thanks,
-Richard
+> 
+> Signed-off-by: Rebecca Cran <rebecca@bsdio.com>
+> ---
+>  Documentation/devicetree/bindings/hwmon/aspeed,pwm-tacho.yaml | 91 ++++++++++++++++++++
+>  Documentation/devicetree/bindings/hwmon/aspeed-pwm-tacho.txt  | 73 ----------------
+>  2 files changed, 91 insertions(+), 73 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/hwmon/aspeed,pwm-tacho.yaml b/Documentation/devicetree/bindings/hwmon/aspeed,pwm-tacho.yaml
+> new file mode 100644
+> index 000000000000..b23c3519604b
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/hwmon/aspeed,pwm-tacho.yaml
+> @@ -0,0 +1,91 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +# Copyright (C) 2023 Aspeed, Inc.
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/hwmon/aspeed,g5-pwm-tacho.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: ASPEED AST2400/AST2500 PWM and Fan Tacho controller
+> +
+> +maintainers:
+> +  - Billy Tsai <billy_tsai@aspeedtech.com>
+> +
+> +description: |
+> +  The ASPEED PWM controller can support up to 8 PWM outputs. The ASPEED Fan
+> +  Tacho controller can support up to 16 Fan tachometer inputs.
+> +
+> +  There can be up to 8 fans supported. Each fan can have one PWM output and
+> +  one/two Fan tach inputs.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - aspeed,ast2400-pwm-tacho
+> +      - aspeed,ast2500-pwm-tacho
+> +
+> +  "#address-cells":
+> +    const: 1
+> +
+> +  "#size-cells":
+> +    const: 0
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +patternProperties:
+> +  "^fan@[0-9]+$":
+> +    $ref: fan-common.yaml#
+> +    unevaluatedProperties: false
+> +    properties:
+> +      aspeed,fan-tach-ch:
+> +        description:
+> +          The tach channel used for the fan.
+> +        $ref: /schemas/types.yaml#/definitions/uint8-array
+> +
+> +    required:
+> +      - reg
+> +      - aspeed,fan-tach-ch
+> +
+> +required:
+> +  - compatible
+> +  - "#address-cells"
+> +  - "#size-cells"
+> +  - reg
+> +  - pinctrl-names
+> +  - pinctrl-0
+> +  - clocks
+> +  - resets
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/clock/aspeed-clock.h>
+> +    pwm_tacho: pwmtachocontroller@1e786000 {
+> +        #address-cells = <1>;
+> +        #size-cells = <0>;
+> +        #cooling-cells = <2>;
+> +        reg = <0x1E786000 0x1000>;
+> +        compatible = "aspeed,ast2500-pwm-tacho";
+> +        clocks = <&syscon ASPEED_CLK_APB>;
+> +        resets = <&syscon ASPEED_RESET_PWM>;
+> +        pinctrl-names = "default";
+> +        pinctrl-0 = <&pinctrl_pwm0_default &pinctrl_pwm1_default>;
+> +
+> +        fan@0 {
+> +                reg = <0x00>;
+> +                cooling-levels = /bits/ 8 <125 151 177 203 229 255>;
+> +                aspeed,fan-tach-ch = /bits/ 8 <0x00>;
+> +        };
+> +
+> +        fan@1 {
+> +                reg = <0x01>;
+> +                aspeed,fan-tach-ch = /bits/ 8 <0x01 0x02>;
+> +        };
+> +    };
+> diff --git a/Documentation/devicetree/bindings/hwmon/aspeed-pwm-tacho.txt b/Documentation/devicetree/bindings/hwmon/aspeed-pwm-tacho.txt
+> deleted file mode 100644
+> index 8645cd3b867a..000000000000
+> --- a/Documentation/devicetree/bindings/hwmon/aspeed-pwm-tacho.txt
+> +++ /dev/null
+> @@ -1,73 +0,0 @@
+> -ASPEED AST2400/AST2500 PWM and Fan Tacho controller device driver
+> -
+> -The ASPEED PWM controller can support upto 8 PWM outputs. The ASPEED Fan Tacho
+> -controller can support upto 16 Fan tachometer inputs.
+> -
+> -There can be upto 8 fans supported. Each fan can have one PWM output and
+> -one/two Fan tach inputs.
+> -
+> -Required properties for pwm-tacho node:
+> -- #address-cells : should be 1.
+> -
+> -- #size-cells : should be 1.
+> -
+> -- #cooling-cells: should be 2.
+> -
+> -- reg : address and length of the register set for the device.
+> -
+> -- pinctrl-names : a pinctrl state named "default" must be defined.
+> -
+> -- pinctrl-0 : phandle referencing pin configuration of the PWM ports.
+> -
+> -- compatible : should be "aspeed,ast2400-pwm-tacho" for AST2400 and
+> -	       "aspeed,ast2500-pwm-tacho" for AST2500.
+> -
+> -- clocks : phandle to clock provider with the clock number in the second cell
+> -
+> -- resets : phandle to reset controller with the reset number in the second cell
+> -
+> -fan subnode format:
+> -===================
+> -Under fan subnode there can upto 8 child nodes, with each child node
+> -representing a fan. If there are 8 fans each fan can have one PWM port and
+> -one/two Fan tach inputs.
+> -For PWM port can be configured cooling-levels to create cooling device.
+> -Cooling device could be bound to a thermal zone for the thermal control.
+> -
+> -Required properties for each child node:
+> -- reg : should specify PWM source port.
+> -	integer value in the range 0 to 7 with 0 indicating PWM port A and
+> -	7 indicating PWM port H.
+> -
+> -- cooling-levels: PWM duty cycle values in a range from 0 to 255
+> -                  which correspond to thermal cooling states.
+> -
+> -- aspeed,fan-tach-ch : should specify the Fan tach input channel.
+> -                integer value in the range 0 through 15, with 0 indicating
+> -		Fan tach channel 0 and 15 indicating Fan tach channel 15.
+> -		At least one Fan tach input channel is required.
+> -
+> -Examples:
+> -
+> -pwm_tacho: pwmtachocontroller@1e786000 {
+> -	#address-cells = <1>;
+> -	#size-cells = <1>;
+> -	#cooling-cells = <2>;
+> -	reg = <0x1E786000 0x1000>;
+> -	compatible = "aspeed,ast2500-pwm-tacho";
+> -	clocks = <&syscon ASPEED_CLK_APB>;
+> -	resets = <&syscon ASPEED_RESET_PWM>;
+> -	pinctrl-names = "default";
+> -	pinctrl-0 = <&pinctrl_pwm0_default &pinctrl_pwm1_default>;
+> -
+> -	fan@0 {
+> -		reg = <0x00>;
+> -		cooling-levels = /bits/ 8 <125 151 177 203 229 255>;
+> -		aspeed,fan-tach-ch = /bits/ 8 <0x00>;
+> -	};
+> -
+> -	fan@1 {
+> -		reg = <0x01>;
+> -		aspeed,fan-tach-ch = /bits/ 8 <0x01 0x02>;
+> -	};
+> -};
+> -- 
+> 2.47.3
+> 
 
