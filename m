@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2CB2D33992
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 17:13:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5F11D3399E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 17:14:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3JloaBl4rlgDci2uiwC1HcZeEPMxAhnyN6C1iIHa2CA=; b=zgqM/OK+3hSHZ7QhJIlMlmReIM
-	fAL54whr58lv990c6SmPQd2TCwZ2/X+LCuQ0MW4B2+E+ILiuouvejtEBg3Xbn/FBfu9YkXuqYzY1z
-	dmV3ESPomaoiIWaMTytaMzqycd/5erzfwY+zDhU8OB9XU4u7nkY1+5XTHNGnCAIPJI2UtJnARP0Bp
-	UX8gejgtucKkt9bsTW6LaQCJpTmL70Pnrfl6jo44MGnxBHwZZrtgXDZUW0oA1eIjnoVwtDCqSEhKI
-	ZpIhHuD3Jp9Iw1cka/kyg4aaL5wDoLnoEN/S4N/+ZVt+oa0qPAJsmjjWwzPkXepvtJjHCx1Vo36sh
-	zKb/iy8Q==;
+	bh=u4ZhD1vru4FI5EnZ2/QVD4ZiDvB3tBGgFknDQExZy2E=; b=LYRmWPgH9TFdD4lPrby27V3tpj
+	ERsrbgK3E9OgWcqFuPfCtAy0vfs4sTiOvw6swjYjmDIoCT38HX2C/w0iU788yI5dJDYt5SKVupjJe
+	QSNZEVJAhmPJ1zBuQ5sdtzS5jCvoW5vorKe3Y1LOFNl1O6SVAESIBLfYnWfPVxYUpx7d/TMNZGO9x
+	6qtaccErEVJ79G/lagPFpUT9aFhnUHP7vjepdEBu5wuEaehTD+9oY9veY+C2uhmmHhayyBAvEg1c9
+	28m0o4gSmr825abB/FwL4CeLwWqkoYaQqeo2Rnc7l03CD8tz/wu0h8iQ/Qz+MgqBBD7UpDvMsBVOq
+	nRfLQ9wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRZN9-00000009k1f-2u0l;
-	Fri, 05 Dec 2025 17:13:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vRZNt-00000009k6S-1ACQ;
+	Fri, 05 Dec 2025 17:14:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRZN7-00000009k1A-1RPb;
-	Fri, 05 Dec 2025 17:13:34 +0000
+	id 1vRZNr-00000009k6G-2OsT
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Dec 2025 17:14:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2A926435CD;
-	Fri,  5 Dec 2025 17:13:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 387F1C4CEF1;
-	Fri,  5 Dec 2025 17:13:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BAFA760053;
+	Fri,  5 Dec 2025 17:14:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77752C4CEF1;
+	Fri,  5 Dec 2025 17:14:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764954812;
-	bh=4G9Kt5ZYk1+ldZzyiWEvbKsl4PYFjTqYeP0O5U3nRXc=;
+	s=k20201202; t=1764954858;
+	bh=YJjyGQz0Nz3xraq+jlWUz8KnKNvRmuemEX+3ryqyk9k=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=tz5VUxI8+BlhSRztOKjfn1mfVx7a6K/JOnY5Ika35qmAUFzeT8rxr9/WEgljk9GQ6
-	 CMlkvdoXHsjMMp9JoeBx9RWWq74t3sY2nDibM/MjtHSNE4ceU3M2DCSMiqOx9qDRJl
-	 6yipdpqsN2m8b7BADwmcIqBYIKPLBxnNaa8say2bjt37ld0nzyuwsm5FbVkTBD82aK
-	 QjGX/NWfi1auS2D6KHKQKe60INfhl4pRI2E2xWP2LNDHSJhYd9PY1DvlE2Sf72tt1Q
-	 f5PAVNswaw1vRwMK6XcVApZlPCnSnJKccml0uQcmlSS1QvRyDS0DBBCiTclxB1jGV2
-	 SdW+5yveQ1CQQ==
-Message-ID: <18eeb1c5-d21b-4505-b6a4-472f6e191864@kernel.org>
-Date: Fri, 5 Dec 2025 18:13:26 +0100
+	b=of9s4N0q4VytYO41lvIyE2WraQ3oxI+GXU40ul5tiYhP20CAMdkewEDs+dKCRGyM/
+	 VFVtETNjewnbhj0q3K6hqtz4sue5cXClJ4EQrFWSVneBOvnZc9EHwVikHkNuFYi8TE
+	 tVafy5ACXQ0mYXsP3MKar0exwy/qT0aCwlC78em/csrQ3t4oy9YUc2Og/CT8jFG26y
+	 HUbnRh8uvr1x5RGGA9rNbeYjjR3LsYbijDjCzyzpHcHDkgjS1Ng4ga9WknaUn2DIkD
+	 WRuVM69sIF9WekMTHAT90qzs57m04CqvvfmBWWWGN9B1U4Sq/1jIh+NOLPy9ituuC6
+	 nQ5FZ5f8msYGw==
+Message-ID: <3b367841-326c-4697-9fe9-041a32001d94@kernel.org>
+Date: Fri, 5 Dec 2025 18:14:12 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 1/2] dt-bindings: phy: google: Add Google Tensor G5 USB
- PHY
-To: Roy Luo <royluo@google.com>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
+Subject: Re: [PATCH v9 1/2] dt-bindings: usb: dwc3: Add Google Tensor G5 DWC3
+To: Roy Luo <royluo@google.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Peter Griffin
+ <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+ <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
  Philipp Zabel <p.zabel@pengutronix.de>
 Cc: Badhri Jagan Sridharan <badhri@google.com>,
- Doug Anderson <dianders@google.com>, linux-phy@lists.infradead.org,
+ Doug Anderson <dianders@google.com>, linux-usb@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
  Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>
-References: <20251205-phyb4-v8-0-c59ea80a4458@google.com>
- <20251205-phyb4-v8-1-c59ea80a4458@google.com>
+References: <20251205-controller-v9-0-9f158b18f979@google.com>
+ <20251205-controller-v9-1-9f158b18f979@google.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,12 +107,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251205-phyb4-v8-1-c59ea80a4458@google.com>
+In-Reply-To: <20251205-controller-v9-1-9f158b18f979@google.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_091333_432451_D8C3CB68 
-X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,22 +124,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/12/2025 04:54, Roy Luo wrote:
-> Document the device tree bindings for the USB PHY interfaces integrated
-> with the DWC3 controller on Google Tensor SoCs, starting with G5
-> generation (Laguna). The USB PHY on Tensor G5 includes two integrated
-> Synopsys PHY IPs: the eUSB 2.0 PHY IP and the USB 3.2/DisplayPort combo
-> PHY IP.
+On 05/12/2025 03:26, Roy Luo wrote:
+> Document the device tree bindings for the DWC3 USB controller found in
+> Google Tensor SoCs, starting with the G5 generation (codename: laguna).
 > 
-> Due to a complete architectural overhaul in the Google Tensor G5, the
-> existing Samsung/Exynos USB PHY binding for older generations of Google
-> silicons such as gs101 are no longer compatible, necessitating this new
-> device tree binding.
+> The Tensor G5 silicon represents a complete architectural departure from
+> previous generations (like gs101), including entirely new clock/reset
+> schemes, top-level wrapper and register interface. Consequently,
+> existing Samsung/Exynos DWC3 USB bindings are incompatible, necessitating
+> this new device tree binding.
+> 
+> The USB controller on Tensor G5 is based on Synopsys DWC3 IP and features
+> Dual-Role Device single port with hibernation support.
 > 
 > Signed-off-by: Roy Luo <royluo@google.com>
+> ---
+>  .../devicetree/bindings/usb/google,lga-dwc3.yaml   | 140 +++++++++++++++++++++
+>  MAINTAINERS                                        |   1 +
+>  2 files changed, 141 insertions(+)
+> 
 
-Why intentionally dropping the tag? How are you handling this patchset?
-Rewrite every time from scratch?
+Nothing explains reason to ignore review. I am not doing same work
+twice, please respect maintainers' time.
 
 <form letter>
 This is a friendly reminder during the review process.
