@@ -4,144 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80FE3D2F7E7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 13:01:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46747D2F7E7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 13:08:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4kQyoSraOEXVID+ZJvxoZ4s60JAS/KetMSwStMq2z7M=; b=fRekg1fO8qtdJ1UhOFQYpUxOvy
-	5q6WvALr5sLYTuftxiXIHbK+/P0MC4lSdsrXYYZUulQMkmImkfP1suXpTF5ZM9Nt1ybwiQzG5/mTy
-	LuV9ccp/1nrtYQhf3desJ6WqnJ+ovdB9UK6obK0U1LDWI25xVJQYq3aabqKalk+ifFS8Swl6mYeVI
-	NtvQjwvuEbY6jUEJMNOThLkGsz9Q8JEmv+uk6TAK3/4sxekyiKWfzqsH/xpb6qdkIX2GkeqalMVXs
-	kFKqBcOw9JfbfVYqIL1VC4bFJGVKZk0xMFUFotux+Hu0Ee786zBHkUCIJ4qnMAg1xVVyNI9/RDBFM
-	i57hgA1Q==;
+	bh=aJNZlqMyVpKqCVauRzrnOtmMcjDznFVaeApZ23rdtJQ=; b=wqGE5TH5Qs277DXF8K9tHo/8Zy
+	92BNP/k6DyfNRRRqYa6cHYyfVEQ1c0PIbjgOvQ3TYrYJ2oCRz2I/B0DUYdFIJ2L5kssNOz2sQ+2zQ
+	nAFZQD079VUBiwyF8deyE/zOdsiGSd5iGypz7f8tYiKqARyQFPgjuIglsIMowRnSq0XiPodPEdSmV
+	9tufMS/Y6YT2YUmc7w3aUZZV2zDAED6D6m2dxQwdXIQ+aBObKzYv+R2WPsrO4QamfnmbSFN/4aQSE
+	4nw/27Mu1wAX23ZX/gYINgFgwrwpiTfEE6ElxEqq5lPffy8Ere5G3Uxq1Sj3+1zWCOyVrAi3VEcpi
+	Igjr0pTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRVRJ-00000009VYQ-14JA;
-	Fri, 05 Dec 2025 13:01:37 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1vRVYG-00000009VvH-1HVq;
+	Fri, 05 Dec 2025 13:08:48 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRVRG-00000009VXr-288d
+	id 1vRVYC-00000009Vus-2oYI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 13:01:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DP03NzoB0qi5lF/u673p3bWygRpky4YKVj8xCbdYCqPhgu1zgoP8t/itjGtLzCnZJpYjMNC/LrCAL0xwd36cuVuQ4rzAiB5Cuwjnr7jGQqv1nQOZvcFOX3lrgJf9LWyizmfcx16ziS22GiGR5XU3jbreh0z8/BmdVMRaLywi4iur+GJEWOTVL/shp3rjt6qWzBlMz2WZ+RiVSNdBbd00SbmHHJ1uq1dVOyEt7vNu8iWBTc6Qz3E9dIEha71eSOws8GwnRCn4BY6Y4OVNjI1JIBh2Gh5Kx6N06sDqN8x3tcEwD/tBBAmrdQrmp8ButJsJe9zxa3byWvCNypS6CcG3Og==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4kQyoSraOEXVID+ZJvxoZ4s60JAS/KetMSwStMq2z7M=;
- b=MpwTBZQdJ/USFF0lbCnz3F7mmqZ8xbbOufbXPB0Mz2Xl8VOzC9Ms6rM0N6SAYoEljfzevn9sB5leXDfAKSPkydaGUmFnfJWJc5ya8n+iE+sGB3AzPNUHUuS1uq8C1vhTT8oPmvq2Qh+edYoXcy2zQ1TU364MYOqV8F/M9xPMWxfYY30JM9MNZtMPIJMMhu+7+42jg31iYSv2l23G0fVtmCa6AfmRRJWPsBDjqtjiB2JsXIVXuoPBTv+wJaW9ND9ccaVsTJ3rEh40yIGaz74k9ryMuHN9YAhkjN2qqJdsWI2asDKQEDNuT/At9EkRZkqYjyRLVxiQHN8U6E5u4yVUEA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 198.47.21.194) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=ti.com;
- dmarc=pass (p=quarantine sp=none pct=100) action=none header.from=ti.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4kQyoSraOEXVID+ZJvxoZ4s60JAS/KetMSwStMq2z7M=;
- b=pZl1faMFobpFXhe6aZZkNLqchp2qTutiFfPgODgRDpd7GO6hh0EcUsmfc113ytOueZpbV25CjwMA41goj8jfINQRliiJ1z8QMZaC5fWIIUrK0HePotvNBSfeYVtlng1M4HDBKzLagc1hQUxt0zmInRRhA8NJHPblV/VPfJajkbU=
-Received: from BYAPR02CA0005.namprd02.prod.outlook.com (2603:10b6:a02:ee::18)
- by DS0PR10MB8104.namprd10.prod.outlook.com (2603:10b6:8:1f4::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.12; Fri, 5 Dec
- 2025 13:01:28 +0000
-Received: from SJ5PEPF000001EA.namprd05.prod.outlook.com
- (2603:10b6:a02:ee:cafe::fb) by BYAPR02CA0005.outlook.office365.com
- (2603:10b6:a02:ee::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9388.11 via Frontend Transport; Fri,
- 5 Dec 2025 13:01:27 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 198.47.21.194)
- smtp.mailfrom=ti.com; dkim=none (message not signed) header.d=none;dmarc=pass
- action=none header.from=ti.com;
-Received-SPF: Pass (protection.outlook.com: domain of ti.com designates
- 198.47.21.194 as permitted sender) receiver=protection.outlook.com;
- client-ip=198.47.21.194; helo=flwvzet200.ext.ti.com; pr=C
-Received: from flwvzet200.ext.ti.com (198.47.21.194) by
- SJ5PEPF000001EA.mail.protection.outlook.com (10.167.242.198) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9412.4 via Frontend Transport; Fri, 5 Dec 2025 13:01:26 +0000
-Received: from DFLE201.ent.ti.com (10.64.6.59) by flwvzet200.ext.ti.com
- (10.248.192.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 5 Dec
- 2025 07:01:22 -0600
-Received: from DFLE213.ent.ti.com (10.64.6.71) by DFLE201.ent.ti.com
- (10.64.6.59) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 5 Dec
- 2025 07:01:21 -0600
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE213.ent.ti.com
- (10.64.6.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 5 Dec 2025 07:01:21 -0600
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 5B5D1LoN3337859;
-	Fri, 5 Dec 2025 07:01:21 -0600
-Date: Fri, 5 Dec 2025 07:01:21 -0600
-From: Nishanth Menon <nm@ti.com>
-To: Anshul Dalal <anshuld@ti.com>
-CC: Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Andrew Davis <afd@ti.com>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>
-Subject: Re: [PATCH v4] dt-bindings: arm: keystone: add boot_* mboxes to
- ti,sci
-Message-ID: <20251205130121.7cqsy5zihelh6ity@launch>
-References: <20251205-k3_syscon_add_boot_mailboxes-v4-1-8e216fb88941@ti.com>
+	Fri, 05 Dec 2025 13:08:46 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B5CqGYC231531
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 5 Dec 2025 13:08:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=aJNZlqMyVpKqCVauRzrnOtmM
+	cjDznFVaeApZ23rdtJQ=; b=jdtk4Ma60YUKV/uVdaOGpuNZS0SdVyoAHNOogZnA
+	b4m1hBNXgYSzExerCqlvPC49B5Ehr7YfhzMwiNSfQGgfHq99ygdWQvkCjQU4hGkv
+	wEoZr0HO4F7efWkhzHWcmdKAVIp0d9DOUx75lH8YDfTD5oYKRvoa6WGlfRGY8ZAD
+	j+CwXqCWelgHlSM1D5TLlv+IRTyLrOrJeH+7oyUSAXC/U0dwzfmt4m2nXBnuMFBX
+	a0R7Fit8RGqOX/oR3wQD5cfaPT2gN5wyKaWCp9leTYOwQrs5GnsxJa5KjORwhr81
+	0QqvhzQPirqFY6hORkSZwm+lnfceTlbwEKjuuGN8jlA+HQ==
+Received: from mail-ua1-f70.google.com (mail-ua1-f70.google.com [209.85.222.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4auys7g18p-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 13:08:43 +0000 (GMT)
+Received: by mail-ua1-f70.google.com with SMTP id a1e0cc1a2514c-9371a5de34bso3255809241.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 05:08:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1764940123; x=1765544923; darn=lists.infradead.org;
+        h=mime-version:user-agent:message-id:date:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=aJNZlqMyVpKqCVauRzrnOtmMcjDznFVaeApZ23rdtJQ=;
+        b=ZefMdCTauYOWvYU181878FKlBmNjagDev5Y6O58Wtt71Cn6cOtcDjchZ7oHOvBk6e2
+         AorjxGv1dAv2RAJbgMDKBVyibZVZGouycGkxazsuBBEdeF09rirB1lDoeTt8MAHv4Ze8
+         BdNrilL4zY8LQpGWrCxs7NPAG8prmEiDCVFvmT79FP24GX1ghc2yOF35675j9NsAGG9o
+         5F6cIW3Q7XpwQpH0SDmJCqlRQePNF0oG/8SRIXbHlSmMgHv4saI5ycYvLHW7AHXg1vXh
+         O998fICtYFwdCcF+WtUAlvu0voS1pk/KV9G+ss+paNTsc+ulk2OCZFR6Rj8h377F2ZfQ
+         xH5w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764940123; x=1765544923;
+        h=mime-version:user-agent:message-id:date:references:in-reply-to
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=aJNZlqMyVpKqCVauRzrnOtmMcjDznFVaeApZ23rdtJQ=;
+        b=SZU9Bsq1x62DcjFlTu8yXH1cNJTE3SH5qlZi65MZZ0ynoT3Ye+NDTjGx/Ko82GDwFn
+         C4Zsabi7GEmnMzRPU2M4Tj3OjyIcbv4645I0JhsglWdHJWARiJpE9XAKFmOgfU2Jx+hw
+         TsfI1lZ2eOHvdK3dhfPs8OajI3ouwLfsvGZrEqr+e07xHQ4gLw/wnZ5tzXIKRyYYhTIQ
+         vjeqYbGnhjuQHW2Ofn7bh+w8RIpMXmEjNDFdt/LdYsJwZ6lsLrRYb7RX1P1wmYclavHm
+         Xb+LiQdzR86wG4Mb8edSNVoGfpYxVQ3HFweLFrh28YBhK4rEFJfm7VCBIAgBt1zf12Fr
+         FYkA==
+X-Forwarded-Encrypted: i=1; AJvYcCWKBKCIToM3/bD0UrXcBeZy4SnjPfFICbppTbNAVWG2e2FOzS+BCT0KxvSBXsq8cz319/dFsMY9J9kzvt88OOph@lists.infradead.org
+X-Gm-Message-State: AOJu0YzknjZHG1shgCBeS0Ov2NrLDt59DqdoHtq5QI0nU+xswEpgEACP
+	z4STHtjTPtsJc0xDq57DoQGAhy9LOAfPOyTJMlmCo4YnuWeEVLfl44CXXK2tPKbKS8UcODkQrVO
+	Y8e9Bodd2gvepd0NJ4bTVbAhJVVKPdJgNDkSfZI7YB4NtVobp9S7U6I1z5Iy1CD8TNLHpYresnJ
+	q8qg==
+X-Gm-Gg: ASbGncsG01Ypl3GEuTbwjUv271uIDCa+bjvlarutZvit4uMxOJ2q5Tebma1E103nfAe
+	a7K9nOY05UGdt2fXQJRgZNke+D8BAxyEbighcycBrq8uweLfFcdcLW1/Zhvele/FaowSU76Fr52
+	89Z+lBmIQSCiapieZPPCe1NE43iFui/Ce0jM2fGKkaQrsL6b8Xf1A/DyQLEs90oEAc1fXcxBlPX
+	GN8wcDat6JEGjUpARwcO5lvRoLwtpatkWcxM2c1qIq+HL50dHiuBYiXJWb0Dm8ASJj3Zfrv/lUN
+	68s2AIkIA5dfHdl9Lt7jNglpCOTJttb5RIlNCxLtAtkiGHE0gc1SJ9JA9w22b+YagUsQhWeZknS
+	14mc72Kk6V99PajtnACJnMKz4
+X-Received: by 2002:a05:6102:5818:b0:5e1:866c:4f7c with SMTP id ada2fe7eead31-5e48e3d3c32mr3751093137.39.1764940122637;
+        Fri, 05 Dec 2025 05:08:42 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHoVFLXE/I17RgN98+gHQViOk7KSVZOb5/MXqt1hrIeWuM9v9uKcV9QR6B6Q6gd7CA/qJwGVQ==
+X-Received: by 2002:a05:6102:5818:b0:5e1:866c:4f7c with SMTP id ada2fe7eead31-5e48e3d3c32mr3751005137.39.1764940122130;
+        Fri, 05 Dec 2025 05:08:42 -0800 (PST)
+Received: from localhost ([2a01:4b00:b703:c200:1ac0:4dff:fe39:5426])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-47930c76edcsm82740975e9.11.2025.12.05.05.08.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 05 Dec 2025 05:08:41 -0800 (PST)
+From: Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+To: James Morse <james.morse@arm.com>
+Cc: Punit Agrawal <punit.agrawal@oss.qualcomm.com>,
+        Ben Horgan
+ <ben.horgan@arm.com>, amitsinght@marvell.com,
+        baisheng.gao@unisoc.com, baolin.wang@linux.alibaba.com,
+        bobo.shaobowang@huawei.com, carl@os.amperecomputing.com,
+        catalin.marinas@arm.com, dakr@kernel.org, dave.martin@arm.com,
+        david@redhat.com, dfustini@baylibre.com, fenghuay@nvidia.com,
+        gregkh@linuxfoundation.org, gshan@redhat.com, guohanjun@huawei.com,
+        jeremy.linton@arm.com, jonathan.cameron@huawei.com, kobak@nvidia.com,
+        lcherian@marvell.com, lenb@kernel.org, linux-acpi@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        lpieralisi@kernel.org, peternewman@google.com, quic_jiles@quicinc.com,
+        rafael@kernel.org, robh@kernel.org, rohit.mathew@arm.com,
+        scott@os.amperecomputing.com, sdonthineni@nvidia.com,
+        sudeep.holla@arm.com, tan.shaopeng@fujitsu.com, will@kernel.org,
+        xhao@linux.alibaba.com, reinette.chatre@intel.com
+Subject: Re: [PATCH v6 00/34] arm_mpam: Add basic mpam driver
+In-Reply-To: <642767c9-f926-490a-83a1-160978c37553@arm.com> (James Morse's
+	message of "Wed, 3 Dec 2025 17:34:37 +0000")
+References: <20251119122305.302149-1-ben.horgan@arm.com>
+	<877bvfa23i.fsf@stealth>
+	<a04aa337-a3eb-42a0-855b-500ba549e2d8@arm.com>
+	<87sedrlsjk.fsf@stealth>
+	<642767c9-f926-490a-83a1-160978c37553@arm.com>
+Date: Fri, 05 Dec 2025 13:08:40 +0000
+Message-ID: <871pl9krdz.fsf@stealth>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20251205-k3_syscon_add_boot_mailboxes-v4-1-8e216fb88941@ti.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001EA:EE_|DS0PR10MB8104:EE_
-X-MS-Office365-Filtering-Correlation-Id: f44989bc-da9e-4ccd-6fed-08de33fe6639
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|36860700013|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?uD4hz9rTUdVwUpaXDsSz/s32jmbgBZrTdZaLeQe3PoBm+2G3uitp2LK5IMyT?=
- =?us-ascii?Q?a9IoEQV/5y6T2hjRe5H1Ufas+RjmNXsyqNGKWzc9JGtbDUqsMDyCBXbnLWQd?=
- =?us-ascii?Q?oH4fTqoAFCAtzmzJK+VazXg69ZsJIVXhVV3/OZTA5PdoFSCbtHiZH+OJKKnr?=
- =?us-ascii?Q?Z7xuNodxBe58KYOkPwnTGRTP6oTH+34I93DWM11ciQUgjEmxgmsbF0uCXqTR?=
- =?us-ascii?Q?MPWnUI7cg++GTr4zzHJ7zU2OJjmRMZ7oj9BHaX/VALfi6fGEwB85GH4UkTgI?=
- =?us-ascii?Q?4chxYOPh2Ny0J1wYTT8hh/L6fCSPazp7lP7AmlME/JkGHleFWmhjnPyU7pfR?=
- =?us-ascii?Q?gJbMEs2nYZCc0vb2FWzv1KCsLN4pUGMMXIIGKPyBkJieLnPYWr9wXS21tG1W?=
- =?us-ascii?Q?JytnCTO7LJogfdHRiTd4P/BO3y1otPTbXOY6gzWDRTyjUMyVAJ9M8b8xS5YE?=
- =?us-ascii?Q?CEwhvtZGDCBNO+TFxtCasUdZV4fmUD9LfIuqRY6bbwyNSDlCeKMsE3ekFxkk?=
- =?us-ascii?Q?KpP/V8ceNnOBqZfguo3jcqe5VscIXNCOI0ohUcyfYPZna2xgI0p38jt6Y2YO?=
- =?us-ascii?Q?FzCi4tuVrgoMQ6Fo5ng8REwyJueApVWYKfc3OUYzXDX4lk2Kdf0PZgjZFlvU?=
- =?us-ascii?Q?BPajFhfxcCejV9sQFsuQkNDeC8HMq72t/E23RzelEZCcCsm6A3xVby+HuV6p?=
- =?us-ascii?Q?uL/cGEL3jFdHzn1OhtnpwuQfnSv6J1oZTzMujqcIrDZ2wlNpqIjtdwSNA67G?=
- =?us-ascii?Q?3caWXJHhT3APzElXluEu+Y9nmaqANSXN9urFFyhWBTj0uqM3SouV9aavxyle?=
- =?us-ascii?Q?Ehh/X/AT5Wy55wJoNBRjihOmqRB/sK45fcNU1Z/robzI6uX7x5aWPB90dnd5?=
- =?us-ascii?Q?U2tFiCjmHZG/7C00S9+VkFA2K1LskowRH5ICwP+alGBVcN6ZwB1yA1WSd0Q8?=
- =?us-ascii?Q?xWvPJ9wluMjzKegxbXXUd2NcN0b9WjXdX3unD8RMPCDw2FyQ2hhQmOtHAS8+?=
- =?us-ascii?Q?IEjWNcezCMc+l9yln32dG4uIOF1EZxTW0gCSI0jW3C9ok2I7bGpeX+pHnKcc?=
- =?us-ascii?Q?BbafPSUkeq1xQMwEjgX+BuwkxcHgy9gt4NEXsixLPZOiivAuSc9vR+QUjpbB?=
- =?us-ascii?Q?onF5BWEqvYKGlzt9W5xeXa8mBOgl5lbr9bu/C5eluVnGR8qJgHSJY/eV5bUa?=
- =?us-ascii?Q?YuoZ23Gih/bXCOWphmrCmq9Kg4M2joIGAoILg3Fgvk2QjaEyCj3pOsFaOZKU?=
- =?us-ascii?Q?osw6MlcS19GG6Z8mzP4dgNlZFcTroAx8dLW7jjClx9f8MJ/myIBJoPUT7+nX?=
- =?us-ascii?Q?FVS8r5+aVz/v9gUmO4eIWuVsGGePX/fKoMzK6hKZSFVg8UUhAug/m7IvTuzZ?=
- =?us-ascii?Q?6LcRd14M1pBJdcqdyOOiDbSCJOOXEmGEYSP+K+Ib06aw2Yjpd/xLyE4GWCtD?=
- =?us-ascii?Q?g9F7KDWPjh5ucL9cTBFXUQ6kirWxhe7h7WbOGkoyfaH8w8GyENb2YbB1E1wF?=
- =?us-ascii?Q?NhMxYEf04qsT4DFi1HoCxposqpBThuQabEo6zgcXIf+Jhq6MaGGy50W1sZMM?=
- =?us-ascii?Q?NTxBcW1C3MJXyiISaAU=3D?=
-X-Forefront-Antispam-Report: CIP:198.47.21.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:flwvzet200.ext.ti.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(376014)(1800799024)(36860700013)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: ti.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Dec 2025 13:01:26.1926
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f44989bc-da9e-4ccd-6fed-08de33fe6639
-X-MS-Exchange-CrossTenant-Id: e5b49634-450b-4709-8abb-1e2b19b982b7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e5b49634-450b-4709-8abb-1e2b19b982b7;Ip=[198.47.21.194];Helo=[flwvzet200.ext.ti.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001EA.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR10MB8104
+Content-Type: text/plain
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjA1MDA5MyBTYWx0ZWRfX9qH/RqXVok3F
+ QUPUaBIymk2TbyVCTvtax4dAdubVQ392qrizMVfRsfqy1aXS2+uBsMDtLhJYhXP35eU3ScXF62D
+ co1IcmKu29Phyf1On7yKGXseyosgn6aEJFl24a3QLZC0J/7CQVX7FeYqK45JH4CbJbibTTVIMQS
+ 4fRX5ySvCIXhPG4F7Oe7fV4bNQOW/23jxPe6sWM8CO2C/dGn6dyt89oV/kOJVshVyoXyWX0U9bi
+ hzu5pdBcrtY7PxkKJxbiWfV0gTaOIKZUXQEEQjtRiNtXwm2u6w+lbB+YRtOmjBEsx9CFIS2azLw
+ UkgNt2VoGoVFBIydlS8W7ACQq1k55YkFz7lmlAOrOpLG3nMqM6glnQWAJdmo0BiPY+NjF8adIoG
+ DGVbPX0RC5WtzdayMpDwdLtAVwmjrA==
+X-Proofpoint-ORIG-GUID: CYxwfhCP3VY--SDbWmtKDzS2FgxbchEe
+X-Proofpoint-GUID: CYxwfhCP3VY--SDbWmtKDzS2FgxbchEe
+X-Authority-Analysis: v=2.4 cv=GtVPO01C c=1 sm=1 tr=0 ts=6932d95b cx=c_pps
+ a=R6oCqFB+Yf/t2GF8e0/dFg==:117 a=xqWC_Br6kY4A:10 a=wP3pNCr1ah4A:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7CQSdrXTAAAA:8
+ a=aZ4QdqtX2bFftAu5rtMA:9 a=TD8TdBvy0hsOASGTdmB-:22 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-05_04,2025-12-04_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 lowpriorityscore=0 priorityscore=1501 malwarescore=0 bulkscore=0
+ adultscore=0 suspectscore=0 impostorscore=0 clxscore=1015 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512050093
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_050134_551018_18D878DF 
-X-CRM114-Status: GOOD (  23.62  )
+X-CRM114-CacheID: sfid-20251205_050844_735191_82445D42 
+X-CRM114-Status: GOOD (  37.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,142 +157,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11:45-20251205, Anshul Dalal wrote:
-> The bootloader on K3 devices makes use of mailboxes as per the ROM spec
-> which might be different than one's available to the kernel (firmware
-> spec).
-> 
-> Therefore, this patch adds the missing mailbox entries to the DT binding
-> if the matching compatible is ti,am654-sci to represent the mailboxes
-> exposed by the hardware during boot for the purpose of loading the
-> firmware.
-> 
-> Signed-off-by: Anshul Dalal <anshuld@ti.com>
-> ---
-> Changes in v4:
-> - Make new boot_* mboxes conditional on ti,am654-sci compatible
-> - Link to v3: https://lore.kernel.org/r/20251112-k3_syscon_add_boot_mailboxes-v3-1-66155a4236dc@ti.com
-> 
-> Changes in v3:
-> - Drop [1/2] of the last patch series
-> - Update existing example with boot_* mailboxes instead of adding a new one
-> - Link to v2: https://lore.kernel.org/r/20251112-k3_syscon_add_boot_mailboxes-v2-0-aebc1e47b391@ti.com
-> 
-> Changes in v2:
-> - Remove maxItems entry
-> - Remove RFC tag from patch (added by mistake in v1)
-> - Document the new mailboxes in mboxes instead of mbox-names
-> - Provide example with all the mailboxes set
-> - Update commit title to have "ti,sci"
-> - Split into two patches
-> - Link to v1: https://lore.kernel.org/r/20251111-k3_syscon_add_boot_mailboxes-v1-1-529a27f21076@ti.com
-> ---
->  .../devicetree/bindings/arm/keystone/ti,sci.yaml   | 50 +++++++++++++++++++---
->  1 file changed, 43 insertions(+), 7 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml b/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
-> index 25a2b42105e5..d9eb2a81e539 100644
-> --- a/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
-> +++ b/Documentation/devicetree/bindings/arm/keystone/ti,sci.yaml
-> @@ -51,15 +51,15 @@ properties:
->      minItems: 1
->  
->    mbox-names:
-> +    minItems: 2
-> +    maxItems: 6
->      description: |
->        Specifies the mailboxes used to communicate with TI-SCI Controller
->        made available from TI-SCI controller.
-> -    items:
-> -      - const: rx
-> -      - const: tx
->  
->    mboxes:
->      minItems: 2
-> +    maxItems: 6
->  
->    ti,host-id:
->      $ref: /schemas/types.yaml#/definitions/uint32
-> @@ -79,6 +79,42 @@ properties:
->      type: object
->      $ref: /schemas/reset/ti,sci-reset.yaml#
->  
-> +if:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        const: ti,am654-sci
-> +then:
-> +  properties:
-> +    mbox-names:
-> +      minItems: 2
-> +      items:
-> +        - const: rx
-> +        - const: tx
-> +        - const: notify
-> +        - const: boot_rx
-> +        - const: boot_tx
-> +        - const: boot_notify
-> +    mboxes:
-> +      minItems: 2
-> +      items:
-> +        - description: RX thread
-> +        - description: TX thread
-> +        - description: Notify thread
-> +        - description: boot stage RX thread
-> +        - description: boot stage TX thread
-> +        - description: boot stage Notify thread
-> +else:
-> +  properties:
-> +    mbox-names:
-> +      items:
-> +        - const: rx
-> +        - const: tx
-> +    mboxes:
-> +      items:
-> +        - description: RX thread
-> +        - description: TX thread
-> +
->  required:
->    - compatible
->    - mbox-names
-> @@ -99,11 +135,11 @@ examples:
->  
->    - |
->      dmsc: system-controller@44083000 {
-> -      compatible = "ti,k2g-sci";
-> +      compatible = "ti,am654-sci";
->        ti,host-id = <12>;
-> -      mbox-names = "rx", "tx";
-> -      mboxes = <&secure_proxy_main 11>,
-> -               <&secure_proxy_main 13>;
-> +      mbox-names = "rx", "tx", "notify", "boot_rx", "boot_tx";
-> +      mboxes= <&secure_proxy_mcu 6>, <&secure_proxy_mcu 8>,
-> +        <&secure_proxy_mcu 5>, <&secure_proxy_mcu 5>, <&secure_proxy_mcu 4>;
->        reg-names = "debug_messages";
->        reg = <0x44083000 0x1000>;
+James Morse <james.morse@arm.com> writes:
 
-Create another example. why are we dropping k2g-sci - that is still
-valid and the schema must continue to support - so functions as a
-validation.
+> Hi Punit,
+>
+> On 03/12/2025 11:21, Punit Agrawal wrote:
+>> Ben Horgan <ben.horgan@arm.com> writes:
+>>> On 11/24/25 15:21, Punit Agrawal wrote:
+>>>> Although a little late to the party,
+>
+> There was a party?!
+>
+>
+>>>> I've managed to throw together
+>>>> enough firmware to describe the MPAM hardware and take this set (more
+>>>> specifically mpam/snapshot/v6.18-rc4-v5 branch from James' repository)
+>>>> for a spin. Using the branch, the kernel is able to probe the hardware
+>>>> and discover the advertised features. Yay! We are in business.
+>>>
+>>> Thanks for giving it a go. :)
+>>>
+>>>>
+>>>> Having said that, there are a few quirks of the platform that run into
+>>>> issues with later patches in the branch.
+>
+> So something in the resctrl support code is causing this.
+> Any idea which patch causes this to happen?
+>
+> There are a load of pr_debug() in the picking logic, if you enable DYNDEBUG and add:
+> | dyndbg="file mpam_resctrl.c +pl"
+>
+> to the commandline, you should get some snotty messages about what non-Xeon-like property
+> your platform has.
 
-However, i'd like to make sure this can handle two different patterns -
-example: AM62x and j784s4.
+Thanks - I've got this enabled.
 
->  
-> 
-> ---
-> base-commit: 4427259cc7f7571a157fbc9b5011e1ef6fe0a4a8
-> change-id: 20251105-k3_syscon_add_boot_mailboxes-8452bdd98962
-> 
-> Best regards,
-> -- 
-> Anshul Dalal <anshuld@ti.com>
-> 
+The platform looks very different to a Xeon. One notable difference
+being a shared L2. Hence all the MSCs attached there.
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+>>>> The platform has MSCs attached
+>>>> to shared L2 caches which are being skipped during later stages of
+>>>> initialisation. IIUC, the L2 MSCs' limitations stems from the
+>>>> assumptions in the resctrl interface.
+>>>
+>>> What in particualar is being skipped?
+>
+>> The registration of the discovered MSCs with resctrl and subsequent
+>> exposing it to the user.
+>
+> resctrl's 'L2' support is limited to the CPOR bitmap.
+> If you have controls, there is no resctrl 'event' that can exposed them.
+> (the problem being they all have 'L3' in the name!)
+
+>>>> I was wondering if there are any patches available to relax these
+>>>> limitations?
+
+> Knowing which property it is will help - but some of these things are checked
+> to match resctrl's ABI. They can't necessarily be relaxed without breaking
+> user-space.
+
+This platform has portion, capacity and priority partitioning, as well
+as memory bandwidth and cache storage monitoring. The MPAM code seems to
+correctly parse the properties.
+
+But as you point out, the resctrl 'L2' support doesn't have anything
+other than CPOR bitmap yet. Have you looked at what's needed to extend
+resctrl to support some of the others?
+
+> Others are sanity checks, e.g. all CPUs are represented. This is to avoid tasks
+> that run on cpu-9 escaping the resctrl controls. Platforms that did this may as
+> well not bother with resctrl at all.
+>
+>
+>>>> I can give them a try. Or do these need to be put together
+>>>> from the ground up? Any pointers greatly appreciated.
+>>>
+>>> There are some extra things added in the extras branch [1] e.g. cache
+>>> maximum usage controls (cmax). However, lots of possible things are
+>>> still missing e.g. any monitors on L2. If it doesn't fit with the
+>>> topology expected by resctrl then it is unlikely to have been considered
+>>> yet.
+>> 
+>> Thanks for the pointer. I'll give the snapshot+extras branch[1] a try.
+>> 
+>> The platform does have both controls and monitors attached to L2. If
+>> this isn't being looked at, I can try and put something together. Thanks
+>> for confirming that the limitation is likely due to resctrl.
+>
+> My view on 'extra' counters is to try and expose them via perf, as this would also
+> allow platform specific counters. I worry that if we start adding 'easy' ones like
+> l2_mbm_total to resctrl, someone will want
+> left_hand_side_of_soc_mbm_total.
+
+I wouldn't club L2 in the same category as 'left_hand_side_of_soc'. You
+call it 'easy' for a reason. L2 is pretty well understood and resctrl
+already exposes an interface for it. I would avoid creating a new
+interface for users.
+
+For some of the other boundaries, things like 'left_hand_side_of_soc' I
+wonder if firmware provided topology (e.g., PPTT, SRAT, etc) could be
+used to make even this work.
 
