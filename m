@@ -4,49 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24528D2F7CD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 09:52:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAE3ED2F7CD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 09:52:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=qt3EtITe5CtWE6F3jVNtNOBQRgaD3NOIImCHAwwQILE=; b=gRPyJ9XgwS1/sr
-	k9m/RjlSNj5fwhR8pgVyoOkYzFyl2CIlvXEibx8nYqoW2FUuBAI6qTHPEWT2+HnJTsk6muWqMvMCv
-	fS2yVAedMKGLRCgPYfNHyDfiXPZG/3+J8ZO1TXOuS3wRbO6Nk00HWoTXCp64N3dHhr6KNViQ9B5j7
-	JTcOsJcLMr14Io+O1ZamhR2I/Rgl7gBCnUr9MYoYWnj0uPZEQDcSr5rS9K/namdKuD/JigAi5Wzbp
-	g/7CoOjcWnkm7oBDqiacj7YlOa5u8qIkL/ip/mm9slqIPMsYAF8raTy8x7+Ab1b9YvUsQSp9V3WxD
-	alOOLp+x7EF50wIiYp0w==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0xcMmu7OCUOWPWvYucw66B5NSZI6e0AO8LcYH6BE7ZU=; b=tl/5Esvt4ZTSRLRc+jGqBCQwlb
+	z+GR0kRWPTjxvJLayvYcrFNHx3qP05cxTax/lKFQAZ7qhZqKL1IaINWFcu2EL9r4tZVi4xsyeIJUc
+	jL1rg+wgsXbRPZu7DyB89Nu0C8g4ChWzVJD6leKGI7qd8FFCauERzsZ45Y6FR3yyrSeMXeHyzaBgd
+	edOMWL225nhdfQrkT339dXM0WPbXHtfYBnotrqFbgLhBkbUN5m7q5MDbCy5RXCvssJ+/PcxE7prFg
+	JpD/QzNj21fi+JjyrSTq/Cf2U8JvKH+bPUtZAIWtKBYIOqi9Ebx/NMaZsr9JXzMuqM8pfMbi2syB9
+	tvvjfHYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRSUL-00000009KPq-0bo5;
-	Fri, 05 Dec 2025 09:52:33 +0000
+	id 1vRSUN-00000009KSv-3anc;
+	Fri, 05 Dec 2025 09:52:35 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRSUI-00000009KOb-2AIv;
-	Fri, 05 Dec 2025 09:52:31 +0000
+	id 1vRSUJ-00000009KOi-1nCX;
+	Fri, 05 Dec 2025 09:52:33 +0000
 Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 33843EAE;
-	Fri,  5 Dec 2025 10:50:07 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 66F3F1340;
+	Fri,  5 Dec 2025 10:50:10 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1764928208;
-	bh=MwhXgW4rnOQ3KSc+GudAM5PShTGwJykoDUKEmfRikoI=;
-	h=From:Subject:Date:To:Cc:From;
-	b=fbiRk4tg7s7BEQm0DNSKCqvfONzM9PYmpxTgwuUqk3nVU0a6Mw5JW/J+mF/3lS0bp
-	 tEoHuNKYGONHG1MSvZ3UFqM9g8gUSCpa/u3xVDMpq4uppgxXYvoP+eZG/z0LOMGyjP
-	 moCJLA2vjrejj4nuB7QX7z1vCpPaEzLiQaFJr+qU=
+	s=mail; t=1764928211;
+	bh=RzSq2b7h3pXJJqHtjfZMXpUK9z6SZ1dKteyFwNFQZAs=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=gkwjp2IAdh2jZ5E7vLLh4PMPn8r4TSJDnPuwKgZyGUDMaLaDIRNQ9lA/CG9L8Z50Y
+	 gKwfpjwznXi2bXvzMCNsUK42CFR3jbQwwOEjBGevv3jTImTHZ+cPqgTC7edVPVakKq
+	 QOg6Ncwrtko+dgTewQ9G/77axGYuONVvuEhBj6Sk=
 From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Subject: [PATCH 0/4] drm: Revert and fix enable/disable sequence
-Date: Fri, 05 Dec 2025 11:51:47 +0200
-Message-Id: <20251205-drm-seq-fix-v1-0-fda68fa1b3de@ideasonboard.com>
+Date: Fri, 05 Dec 2025 11:51:49 +0200
+Subject: [PATCH 2/4] Revert "drm/mediatek: dsi: Fix DSI host and panel
+ bridge pre-enable order"
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIADSrMmkC/x2MQQqAIBAAvyJ7bkFFPfSV6JC51h6yUohA/HvSc
- QZmKhTKTAVGUSHTw4XP1EENAtZ9SRshh86gpbZKS4shH1joxsgvekNBReucNB56cWXq+r9Nc2s
- fls7cZF0AAAA=
-X-Change-ID: 20251205-drm-seq-fix-b4ed1f56604b
+Message-Id: <20251205-drm-seq-fix-v1-2-fda68fa1b3de@ideasonboard.com>
+References: <20251205-drm-seq-fix-v1-0-fda68fa1b3de@ideasonboard.com>
+In-Reply-To: <20251205-drm-seq-fix-v1-0-fda68fa1b3de@ideasonboard.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
  Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
  David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
@@ -70,26 +69,26 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Marek Vasut <marek.vasut+renesas@mailbox.org>, 
  Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, stable@vger.kernel.org
 X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1909;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1126;
  i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=MwhXgW4rnOQ3KSc+GudAM5PShTGwJykoDUKEmfRikoI=;
- b=kA0DAAgB+j2qjLyWHvUByyZiAGkyq1Gj1d8xlj6diu63t7iZIaLIFc3fvXjAEHe/VLZfrvIfQ
- okCMwQAAQgAHRYhBMQ4DD6WXv2BB5/zp/o9qoy8lh71BQJpMqtRAAoJEPo9qoy8lh717W0P+wRa
- 1bq77t/4zLJJmCAjxcRV1DhoWfVPncOTXA2HSsEIMgPBHpUKZyan6fBYxHp6XkG0gNVZlwTrYhW
- pSyAvXsrnTNhW8q5otmzGyWpCw023NDpDDWbiGUgGg43yQml50nFn6Ij48jk2lXLvpfPWvcsvk6
- bpX+tDXMn0m+FLf1bYvhoJdJIyvq/0wvT5ZIgRfzsZZjWqjDR+WXbdtPV/hyleczIwGaJWqFNhV
- 9op0yeeanXhucwBN2xqL73naXLUq9EBNDWtFE4LSmBBXBBLtqTx2K4b5Tsr8g3C9Ch5pf+Qqodm
- OVcabnpPmbZVlxRiBF11N0zi0chMynlCJDfFX0HjltHxOaqXW/LySuusslTdBU0FFpkdS9AwyEa
- lbdnRRJFwaU18kSgasLNEzSBV77gug1YhZ4kkVVTyblKCLlK0GojYFPsQEdPXoIjIXQcpurCr22
- Ln5os9CZuhApjyd3l241B6ZIvimL2MMi6eJE+MGkg6dRaD6GQdslRy1cbxJsY+nhPrku/DS5+58
- IwydYy0PKmXzLH4IcgDqAnmLcFnUstEvCq5lXmvbOPzAGKbIHyIIcxuy9vMmnG03hpyeD+7JY53
- EC2vrgEsPyrVDzXTj+rH5LCRxtu0UFsfuArS7xPBa95f4PCtPr5Cf4MCstwKNERRerTYeCdl8b1
- C77QO
+ bh=RzSq2b7h3pXJJqHtjfZMXpUK9z6SZ1dKteyFwNFQZAs=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBpMqtV1Bz5YLupAlqCBVQfV0Mb8hNkfkNlmb4RE
+ 8M28qdYt6+JAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCaTKrVQAKCRD6PaqMvJYe
+ 9YAND/92tsJW0TaalpvTYvqAmYF3JK82lYKeIh0n3ljbzoYQWOF0dQwLi3Fgw5CAcvJgNmhdLb1
+ bTGtcMk2CrFsb/4dmaSBGsdRA5i6tn0IlToo4Rc5xk+JnY6NmsNJCn/+gPvLY0CBaCl1wxL+Z9H
+ LxY+kyTWuw7zqTh2/FbQDdSNMxcp5SwHWJTdLQkoISnFDlQ8ElEtkjJ7GD8i3GUDseWYRGokDc5
+ FAbdx7/f0KBBc0i0hcz0ruBEsN+dkex/EPt5ZRswQhm7G853gEZtgIE5vZ9bMc4EYsr5ok+kXBm
+ 3DfwhATiXByEjJhyPZug+jl+kGowPoSeRNPQSNbtd2NmTnGUxvKTqz0Tiw6ZsMVIG7pDj4oDS7r
+ coN/IzcPwJTMIRBWufEPTRDF5Nu/BDj3D106qUgsZ6LQCMQwL0+wd+Pu2vokbbZ3c21bI/Xh7f9
+ uNzEPs1Eict9x+0y716f8sst5eyvCP0froqSwOuOLcU7UXoRf0fix0Y7zzYNt4KTdFZZbUSLFGS
+ 8CfTLBaPIdl8AwIOFUdoFQnJTup0qAHlFqmuldUotdmj5mk/XBFJrsXQtHaamfPrcZP77wJHO6S
+ S6C364XUBDfRltXP2ftIq3NdfU3tya8Jf0/6N/r3lvfZgN2P7zNK5LzsMBPRFbCGtUYSRV+uDlD
+ otnLqA/gy60hWkQ==
 X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
  fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_015230_717174_642C2BF0 
-X-CRM114-Status: GOOD (  10.02  )
+X-CRM114-CacheID: sfid-20251205_015231_608766_8A60A005 
+X-CRM114-Status: GOOD (  10.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,50 +103,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Changing the enable/disable sequence in commit c9b1150a68d9
-("drm/atomic-helper: Re-order bridge chain pre-enable and post-disable")
-has caused regressions on multiple platforms: R-Car, MCDE, Rockchip.
+This reverts commit f5b1819193667bf62c3c99d3921b9429997a14b2.
 
-This is an alternate series to Linus' series:
-
-https://lore.kernel.org/all/20251202-mcde-drm-regression-thirdfix-v6-0-f1bffd4ec0fa%40kernel.org/
-
-This series first reverts the original commit and reverts a fix for
-mediatek which is no longer needed. It then exposes helper functions
-from DRM core, and finally implements the new sequence only in the tidss
-driver.
-
-There is one more fix in upstream for the original commit, commit
-5d91394f2361 ("drm/exynos: fimd: Guard display clock control with
-runtime PM calls"), but I have not reverted that one as it looks like a
-valid patch in its own.
-
-I added Cc stable v6.17+ to all patches, but I didn't add Fixes tags, as
-I wasn't sure what should they point to. But I could perhaps add Fixes:
-<original commit> to all of these.
+As the original commit (c9b1150a68d9 ("drm/atomic-helper: Re-order
+bridge chain pre-enable and post-disable")) causing the issue has been
+reverted, let's revert the fix for mediatek.
 
 Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Cc: stable@vger.kernel.org # v6.17+
 ---
-Linus Walleij (1):
-      drm/atomic-helper: Export and namespace some functions
+ drivers/gpu/drm/mediatek/mtk_dsi.c | 6 ------
+ 1 file changed, 6 deletions(-)
 
-Tomi Valkeinen (3):
-      Revert "drm/atomic-helper: Re-order bridge chain pre-enable and post-disable"
-      Revert "drm/mediatek: dsi: Fix DSI host and panel bridge pre-enable order"
-      drm/tidss: Fix enable/disable order
+diff --git a/drivers/gpu/drm/mediatek/mtk_dsi.c b/drivers/gpu/drm/mediatek/mtk_dsi.c
+index 0e2bcd5f67b7..d7726091819c 100644
+--- a/drivers/gpu/drm/mediatek/mtk_dsi.c
++++ b/drivers/gpu/drm/mediatek/mtk_dsi.c
+@@ -1002,12 +1002,6 @@ static int mtk_dsi_host_attach(struct mipi_dsi_host *host,
+ 			return PTR_ERR(dsi->next_bridge);
+ 	}
+ 
+-	/*
+-	 * set flag to request the DSI host bridge be pre-enabled before device bridge
+-	 * in the chain, so the DSI host is ready when the device bridge is pre-enabled
+-	 */
+-	dsi->next_bridge->pre_enable_prev_first = true;
+-
+ 	drm_bridge_add(&dsi->bridge);
+ 
+ 	ret = component_add(host->dev, &mtk_dsi_component_ops);
 
- drivers/gpu/drm/drm_atomic_helper.c | 122 ++++++++++++++----
- drivers/gpu/drm/mediatek/mtk_dsi.c  |   6 -
- drivers/gpu/drm/tidss/tidss_kms.c   |  30 ++++-
- include/drm/drm_atomic_helper.h     |  22 ++++
- include/drm/drm_bridge.h            | 249 ++++++++++--------------------------
- 5 files changed, 214 insertions(+), 215 deletions(-)
----
-base-commit: 88e721ab978a86426aa08da520de77430fa7bb84
-change-id: 20251205-drm-seq-fix-b4ed1f56604b
-
-Best regards,
 -- 
-Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+2.43.0
 
 
