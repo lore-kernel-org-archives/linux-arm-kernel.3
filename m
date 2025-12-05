@@ -4,74 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3862BD2F7D0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 10:03:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91FDCD2F7CF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 10:04:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SnBrJPw7Z3jyKtLq7uKxbLX2ovFJtWMMcKLLgJmmV34=; b=gVUBqJ12d3nzX75+1ThIiLMZJE
-	H09ZxWl52YRyM3+uhmIWs4s+4KboXs0GlSqZurV+pnYbbuqUua/Rj5VHF+MDZDLcjqr9vpupvCXP8
-	HNK9jdm0sCUuhaCUKdCRTEvBzGhrF1va9wXAzPOAhfz8/oUQA7IxFoGij/C2bcUNrkkgKyOpY6edE
-	VTmSjFogb3xx7FSd4CnxLSkvygIEQxjL5KNeBO18CfpolMzrIjzbFMv8HijEsnxFzyHmsHyLuiZdh
-	7S7d2e+uRg6NhxaYAu386i8vtyGKIVyY7tV6seb/Uo13YCiwjG25RezkKW0q1/xDM6F27NNH0Rz3N
-	TW5acAGA==;
+	bh=UrPIgvsg58eOsedSnhLH7or6+6ch9iVeKdBWBSvRqYc=; b=j9HwOPBqhjJ3duowh3TeXCNjz0
+	nfSBDIRVXRDLnCXIBGaE2uWPAZD3RX6rVjRCEZUQIPHM0gXU+6CsVWQXkkQ2jaO7mGCLJZQEHnhog
+	ZQnUCT3hhYGpbxAdUi1pDgY0Wlg2dG11moxArcZgpkL9Wskd/4xQL/lRGT3yj/L/EX38h/QmOHW/M
+	gVoNZiwQ7+kIYwzHmaoNvq8GqM14sQL6QEX32tsLScyuC+demp5RFT5hltjxjuGcV8kcJiSI6kbFL
+	GDkprnu6U2cfOVyHtj0ODPyEv73zqnNtEuCN9NUNj6n2NchfE4R2hZGusNNGhTbNo7uShnnqjKbiB
+	dKejyk+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRSeV-00000009M2b-43Hk;
-	Fri, 05 Dec 2025 10:03:03 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vRSfT-00000009MOy-36TV;
+	Fri, 05 Dec 2025 10:04:03 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRSeP-00000009LzR-37xr
+	id 1vRSfQ-00000009MMG-3thA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 10:03:01 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id CF67D4E41A64;
-	Fri,  5 Dec 2025 10:02:54 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 9C5B860731;
-	Fri,  5 Dec 2025 10:02:54 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 361B310B6075F;
-	Fri,  5 Dec 2025 11:02:51 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764928973; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=SnBrJPw7Z3jyKtLq7uKxbLX2ovFJtWMMcKLLgJmmV34=;
-	b=u/uKBh13nUS50aVoPcUHSso6gdVGUoc6HpNsez7UGT2C0hw0TTvFmUOw3DkugGjmcdIEtK
-	G5YqzOjVpzeGwVhzzVWxbnCJgW0I/+oPoKspPpizfZkt4f009OnMvIF10YH/LIndzl6Bqb
-	5mAlLB81RpUMZu+xplgUDIknPmlf7QXYj63msZJu3yDkpVchoVsU3KfwzlSurh9s6mbYpm
-	xaqfRUXHpcGye99BEHkR2BdAv3m6KAXKa3UxZ9w/mDpWf2yHWCoF6xelAUwOQC5fCYI1vV
-	S305ZyVH0Gh+8KBm4NiHvYcQ5vj/WSyybKKH3WqTKnQt//b2MyvaC/QaWMi8Nw==
-From: Richard Genoud <richard.genoud@bootlin.com>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Richard Genoud <richard.genoud@bootlin.com>
-Subject: [PATCH 2/4] pwm: sun50i: Add H616 PWM support
-Date: Fri,  5 Dec 2025 11:02:37 +0100
-Message-ID: <20251205100239.1563353-3-richard.genoud@bootlin.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251205100239.1563353-1-richard.genoud@bootlin.com>
-References: <20251205100239.1563353-1-richard.genoud@bootlin.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+	Fri, 05 Dec 2025 10:04:02 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b7277324054so275789366b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 02:04:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764929039; x=1765533839; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UrPIgvsg58eOsedSnhLH7or6+6ch9iVeKdBWBSvRqYc=;
+        b=ZnDZv3PQP3ByVrgBY/Ueq3nld3LMZOl+jrP9s5fVTpJGoxw0aqfg+rge0qbM3OElTB
+         aLQIqqKqOBLjmFXqWhHJMy+vn3kJzPKOML2C7M1PQpt14mukRwz69838DXIS7/4pOZhM
+         mRn8m7G/ffmSqbi3Xrxz3+dReGhzRz0BEKdd+zT0J/oy93avxRfxk3ldwHZdiy/s6yDN
+         r1SvUmmf9ON6VMz2hdy5iIq29V/Bm7HTKY84DC4mgdBuAunRrhyw1XsGrwtDNikg7AGd
+         VDkqfJKtAivFTQW7//vTvJOrBvOv31XMrpWc/wKIKFWMr7Zo2twY10PXou98/ahzx6PZ
+         ucJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764929039; x=1765533839;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=UrPIgvsg58eOsedSnhLH7or6+6ch9iVeKdBWBSvRqYc=;
+        b=UqsUu2zZ3CLa1XyV141vJzp4BiCCAO1YiD6jZzK8J9ZOD/ACUoQBlyMMXFBlo2gTjq
+         OKy94OdOWuq26kFI/ewcS/8LfTXttb7h4XqmQmZD3TrMGmArJuCXWgI9OTaGViDQHdFW
+         3QVw+cWe2Y6o8NTm9ZNmhCtorVNDDpjASXFpRK1A2lSXwRVl4Lt7btQR/3kDT/B7ei0k
+         S9D+kmU82xIgYRyb8SH/wQNE0Rz+NKcJXkklNEunVKsXzfTMOiy9Tz/VNjDyk0wwmzkO
+         WgwzaUsn83jZbDN3uhvI8lYs56Kq9e6YUimLWzW+4o+zjcSYGhwe9WK/h7A4C43TSn3v
+         y0xg==
+X-Forwarded-Encrypted: i=1; AJvYcCXX/kG2r++j0wg6WA/SN9QtYKQwg86DWOP5WBUDYYxjZ4PC1m+AYxJeOEeH8SqDLa33ckMn7GCbVFytSmcMYEca@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbugaeRByOugfgGblygZ7i8J4ki5x6jKI8KrjHy5PjL41lTdjl
+	bVGc3FeM1AiHx/JybVZCfJSkay6x8c8S2lAPtzrwt9jbEECCSmCWJwXX
+X-Gm-Gg: ASbGncvwExppqOTWl/xliYj7dvB4fgFXjiY7on8JvZ6oqYm7biB39vzaUti2jupM7n5
+	FzKS+cBf4qwpqR6kqMRgy2MmeRr5lhmVb0R+AppxK3ncTycHj36cEj6XSHyhE1WjjT4pJ0AN9LA
+	P4xzwQYWY9Ze+E/nU1EuYyYp6Zgf4TGNokrYLrVHCQ20/tuEQ8en5cVj+2d1h1Kx0L2fHMgtayd
+	RCsAEGk2269oxv3xhhPQ1tpz+laf6IxhrWN05+nT1xLH9/Eyzhl70LnKlIgS66ZbfAltAW1y0aZ
+	NpWTSEejaCFGnLHg2DWUkmHW2yDMG7ned6HrwbhDPl4rAxCVcGPasR5UXVqGgVi4JdvYdk+yW4x
+	wQWIIhwmrVX2+JYmYJff6jRCFjn4U7paJrajkynFdnemsfOvc1JI69CGVCV1HbauxJVSFA96jsO
+	tNGvvM9Lnn2MAiI3MsGz4UbwdG4B352r7vsu1Hs22bgujFO++JCHLHlTCLwdYgaHvJpKZQfOFrF
+	4E=
+X-Google-Smtp-Source: AGHT+IGmVNPybgxaTnBEjYF9iUoQvCh+If0y7frV3hE4t1NG2W8NXsB234VYEXtYlgdaKQwxequung==
+X-Received: by 2002:a17:907:daa:b0:b72:fd32:a463 with SMTP id a640c23a62f3a-b79dbe9000bmr989333866b.23.1764929038231;
+        Fri, 05 Dec 2025 02:03:58 -0800 (PST)
+Received: from smtpclient.apple (89-66-237-154.dynamic.play.pl. [89.66.237.154])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b79f4a2f401sm333937766b.65.2025.12.05.02.03.55
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 05 Dec 2025 02:03:57 -0800 (PST)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81\))
+Subject: Re: [PATCH 01/11] dt-bindings: display: meson-dw-hdmi: Add compatible
+ for S4 HDMI controller
+From: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
+In-Reply-To: <b6b8203d-2a51-428f-8124-fa65d2c073a0@amlogic.com>
+Date: Fri, 5 Dec 2025 11:03:44 +0100
+Cc: Chuan Liu <chuan.liu@amlogic.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>,
+ Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Kevin Hilman <khilman@baylibre.com>,
+ Jerome Brunet <jbrunet@baylibre.com>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ dri-devel@lists.freedesktop.org,
+ linux-amlogic@lists.infradead.org,
+ devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <9BCB2E8F-F8FA-4CA4-9039-FADE0D875404@gmail.com>
+References: <20250110-drm-s4-v1-0-cbc2d5edaae8@amlogic.com>
+ <20250110-drm-s4-v1-1-cbc2d5edaae8@amlogic.com>
+ <3AC316FA-A633-4B6C-81BA-CCCA290E7F03@gmail.com>
+ <8c3b9fa4-326e-4791-8154-07b268faa132@amlogic.com>
+ <7703796D-35D4-4AD2-B7F8-B75D2BE0F7AD@gmail.com>
+ <a71f24c9-1f40-45a1-8fdb-6075bbf89930@amlogic.com>
+ <F04DC684-AD64-447F-87EC-F503D411F25D@gmail.com>
+ <070eb0a3-2f6e-41ef-8310-0c592a2816dc@amlogic.com>
+ <b6b8203d-2a51-428f-8124-fa65d2c073a0@amlogic.com>
+To: Ao Xu <ao.xu@amlogic.com>
+X-Mailer: Apple Mail (2.3826.700.81)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_020258_068693_DD20EEFE 
-X-CRM114-Status: GOOD (  28.48  )
+X-CRM114-CacheID: sfid-20251205_020401_011105_AABFA27E 
+X-CRM114-Status: GOOD (  26.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,939 +127,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add driver for Allwinner H616 PWM controller, supporting up to 6
-channels.
-Those channels output can be either a PWM signal output or a clock
-output, thanks to the bypass.
+Ao,
 
-The channels are paired (0/1, 2/3 and 4/5) and each pair has a
-prescaler/mux/gate.
-Moreover, each channel has its own prescaler and bypass.
+Thx!
 
-Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
----
- drivers/pwm/Kconfig           |  12 +
- drivers/pwm/Makefile          |   1 +
- drivers/pwm/pwm-sun50i-h616.c | 874 ++++++++++++++++++++++++++++++++++
- 3 files changed, 887 insertions(+)
- create mode 100644 drivers/pwm/pwm-sun50i-h616.c
+Indeed patch helps with boot freeze.
+I started to see on monitor - with correct resolution - 4 tuxes in upper =
+left corner :-)
 
-diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-index bf2d101f67a1..1f724e1cf992 100644
---- a/drivers/pwm/Kconfig
-+++ b/drivers/pwm/Kconfig
-@@ -736,6 +736,18 @@ config PWM_SUN4I
- 	  To compile this driver as a module, choose M here: the module
- 	  will be called pwm-sun4i.
- 
-+config PWM_SUN50I_H616
-+	tristate "Allwinner H616 PWM support"
-+	depends on ARCH_SUNXI || COMPILE_TEST
-+	depends on HAS_IOMEM && COMMON_CLK
-+	help
-+	  Generic PWM framework driver for Allwinner H616 SoCs.
-+	  It supports generic PWM, but can also provides a plain clock.
-+	  The AC300 PHY integrated in H616 SoC needs such a clock.
-+
-+	  To compile this driver as a module, choose M here: the module
-+	  will be called pwm-h616.
-+
- config PWM_SUNPLUS
- 	tristate "Sunplus PWM support"
- 	depends on ARCH_SUNPLUS || COMPILE_TEST
-diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-index 0dc0d2b69025..a16ae9eef9e5 100644
---- a/drivers/pwm/Makefile
-+++ b/drivers/pwm/Makefile
-@@ -67,6 +67,7 @@ obj-$(CONFIG_PWM_STM32)		+= pwm-stm32.o
- obj-$(CONFIG_PWM_STM32_LP)	+= pwm-stm32-lp.o
- obj-$(CONFIG_PWM_STMPE)		+= pwm-stmpe.o
- obj-$(CONFIG_PWM_SUN4I)		+= pwm-sun4i.o
-+obj-$(CONFIG_PWM_SUN50I_H616)	+= pwm-sun50i-h616.o
- obj-$(CONFIG_PWM_SUNPLUS)	+= pwm-sunplus.o
- obj-$(CONFIG_PWM_TEGRA)		+= pwm-tegra.o
- obj-$(CONFIG_PWM_TH1520)	+= pwm_th1520.o
-diff --git a/drivers/pwm/pwm-sun50i-h616.c b/drivers/pwm/pwm-sun50i-h616.c
-new file mode 100644
-index 000000000000..82b4a30d34f1
---- /dev/null
-+++ b/drivers/pwm/pwm-sun50i-h616.c
-@@ -0,0 +1,874 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Driver for Allwinner H616 Pulse Width Modulation Controller
-+ *
-+ * (C) Copyright 2025 Richard Genoud, Bootlin <richard.genoud@bootlin.com>
-+ *
-+ * Based on drivers/pwm/pwm-sun4i.c with Copyright:
-+ *
-+ * Copyright (C) 2014 Alexandre Belloni <alexandre.belloni@bootlin.com>
-+ *
-+ * Limitations:
-+ * - When outputing the source clock directly, the PWM logic is bypassed and the
-+ *   currently running period is not guaranteed to be completed.
-+ * - As the channels are paired (0/1, 2/3, 4/5), they share the same clock
-+ *   source and prescaler(div_m), but they also have their own prescaler(div_k)
-+ *   and bypass.
-+ *
-+ */
-+
-+#include <linux/bitops.h>
-+#include <linux/clk.h>
-+#include <linux/clk-provider.h>
-+#include <linux/delay.h>
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/platform_device.h>
-+#include <linux/pwm.h>
-+#include <linux/reset.h>
-+
-+#ifndef UINT32_MAX
-+#define UINT32_MAX 0xffffffffU
-+#endif
-+
-+/* PWM IRQ Enable Register */
-+#define PWM_IER				0x0
-+
-+/* PWM IRQ Status Register */
-+#define PWM_ISR				0x4
-+
-+/* PWM Capture IRQ Enable Register */
-+#define PWM_CIER			0x10
-+
-+/* PWM Capture IRQ Status Register */
-+#define PWM_CISR			0x14
-+
-+/* PWMCC Pairs Clock Configuration Registers */
-+#define PWM_XY_CLK_CR(pair)		(0x20 + ((pair) * 0x4))
-+#define PWM_XY_CLK_CR_SRC_SHIFT		7
-+#define PWM_XY_CLK_CR_SRC_MASK		1
-+#define PWM_XY_CLK_CR_GATE_BIT		4
-+#define PWM_XY_CLK_CR_BYPASS_BIT(chan)	((chan) % 2 + 5)
-+#define PWM_XY_CLK_CR_DIV_M_SHIFT	0
-+
-+/* PWMCC Pairs Dead Zone Control Registers */
-+#define PWM_XY_DZ(pair)			(0x30 + ((pair) * 0x4))
-+
-+/* PWM Enable Register */
-+#define PWM_ENR				0x40
-+#define PWM_ENABLE(x)			BIT(x)
-+
-+/* PWM Capture Enable Register */
-+#define PWM_CER				0x44
-+
-+/* PWM Control Register */
-+#define PWM_CTRL_REG(chan)		(0x60 + (chan) * 0x20)
-+#define PWM_CTRL_PRESCAL_K_SHIFT	0
-+#define PWM_CTRL_PRESCAL_K_WIDTH	8
-+#define PWM_CTRL_ACTIVE_STATE		BIT(8)
-+
-+/* PWM Period Register */
-+#define PWM_PERIOD_REG(ch)		(0x64 + (ch) * 0x20)
-+#define PWM_PERIOD_MASK			GENMASK(31, 16)
-+#define PWM_DUTY_MASK			GENMASK(15, 0)
-+#define PWM_REG_PERIOD(reg)		(FIELD_GET(PWM_PERIOD_MASK, reg) + 1)
-+#define PWM_REG_DUTY(reg)		FIELD_GET(PWM_DUTY_MASK, reg)
-+#define PWM_PERIOD(prd)			FIELD_PREP(PWM_PERIOD_MASK, (prd) - 1)
-+#define PWM_DUTY(dty)			FIELD_PREP(PWM_DUTY_MASK, dty)
-+#define PWM_PERIOD_MAX			FIELD_MAX(PWM_PERIOD_MASK)
-+
-+
-+/* PWM Count Register */
-+#define PWM_CNT_REG(x)			(0x68 + (x) * 0x20)
-+
-+/* PWM Capture Control Register */
-+#define PWM_CCR(x)			(0x6c + (x) * 0x20)
-+
-+/* PWM Capture Rise Lock Register */
-+#define PWM_CRLR(x)			(0x70 + (x) * 0x20)
-+
-+/* PWM Capture Fall Lock Register */
-+#define PWM_CFLR(x)			(0x74 + (x) * 0x20)
-+
-+#define PWM_PAIR_IDX(chan)		((chan) >> 2)
-+
-+/*
-+ * Block diagram of the PWM clock controller:
-+ *
-+ *             _____      ______      ________
-+ * OSC24M --->|     |    |      |    |        |
-+ * APB1 ----->| Mux |--->| Gate |--->| /div_m |-----> PWM_clock_src_xy
-+ *            |_____|    |______|    |________|
-+ *                           ________
-+ *                          |        |
-+ *                       +->| /div_k |---> PWM_clock_x
-+ *                       |  |________|
-+ *                       |    ______
-+ *                       |   |      |
-+ *                       +-->| Gate |----> PWM_bypass_clock_x
-+ *                       |   |______|
-+ * PWM_clock_src_xy -----+   ________
-+ *                       |  |        |
-+ *                       +->| /div_k |---> PWM_clock_y
-+ *                       |  |________|
-+ *                       |    ______
-+ *                       |   |      |
-+ *                       +-->| Gate |----> PWM_bypass_clock_y
-+ *                           |______|
-+ *
-+ * NB: when the bypass is set, all the PWM logic is bypassed.
-+ * So, the duty cycle and polarity can't be modified (we just have a clock).
-+ * The bypass in PWM mode is used to achieve a 1/2 duty cycle with the fastest
-+ * clock.
-+ *
-+ * PWM_clock_x/y serve for the PWM purpose.
-+ * PWM_bypass_clock_x/y serve for the clock-provider purpose.
-+ *
-+ */
-+
-+/*
-+ * Table used for /div_m (diviser before obtaining PWM_clock_src_xy)
-+ * It's actually CLK_DIVIDER_POWER_OF_TWO, but limited to /256
-+ */
-+static const struct clk_div_table clk_table_div_m[] = {
-+	{ .val = 0, .div = 1, },
-+	{ .val = 1, .div = 2, },
-+	{ .val = 2, .div = 4, },
-+	{ .val = 3, .div = 8, },
-+	{ .val = 4, .div = 16, },
-+	{ .val = 5, .div = 32, },
-+	{ .val = 6, .div = 64, },
-+	{ .val = 7, .div = 128, },
-+	{ .val = 8, .div = 256, },
-+	{ .val = 0, .div = 0, }, /* last entry */
-+};
-+
-+#define PWM_XY_SRC_GATE(_pair, _reg)			\
-+struct clk_gate gate_xy_##_pair = {			\
-+	.reg = (void *)_reg,				\
-+	.bit_idx = PWM_XY_CLK_CR_GATE_BIT,		\
-+	.hw.init = &(struct clk_init_data){		\
-+		.ops =  &clk_gate_ops,			\
-+	}						\
-+}
-+
-+#define PWM_XY_SRC_MUX(_pair, _reg)			\
-+struct clk_mux mux_xy_##_pair = {			\
-+	.reg = (void *)_reg,				\
-+	.shift = PWM_XY_CLK_CR_SRC_SHIFT,		\
-+	.mask = PWM_XY_CLK_CR_SRC_MASK,			\
-+	.flags = CLK_MUX_ROUND_CLOSEST,			\
-+	.hw.init = &(struct clk_init_data){		\
-+		.ops =  &clk_mux_ops,			\
-+	}						\
-+}
-+
-+#define PWM_XY_SRC_DIV(_pair, _reg)			\
-+struct clk_divider rate_xy_##_pair = {			\
-+	.reg = (void *)_reg,				\
-+	.shift = PWM_XY_CLK_CR_DIV_M_SHIFT,		\
-+	.table = clk_table_div_m,			\
-+	.hw.init = &(struct clk_init_data){		\
-+		.ops =  &clk_divider_ops,		\
-+	}						\
-+}
-+
-+#define PWM_X_DIV(_idx, _reg)				\
-+struct clk_divider rate_x_##_idx = {			\
-+	.reg = (void *)_reg,				\
-+	.shift = PWM_CTRL_PRESCAL_K_SHIFT,		\
-+	.width = PWM_CTRL_PRESCAL_K_WIDTH,		\
-+	.hw.init = &(struct clk_init_data){		\
-+		.ops =  &clk_divider_ops,		\
-+	}						\
-+}
-+
-+#define PWM_X_BYPASS_GATE(_idx)				\
-+struct clk_gate gate_x_bypass_##_idx = {		\
-+	.reg = (void *)PWM_ENR,				\
-+	.bit_idx = _idx,				\
-+	.hw.init = &(struct clk_init_data){		\
-+		.ops =  &clk_gate_ops,			\
-+	}						\
-+}
-+
-+#define PWM_XY_CLK_SRC(_pair, _reg)			\
-+	static PWM_XY_SRC_MUX(_pair, _reg);		\
-+	static PWM_XY_SRC_GATE(_pair, _reg);		\
-+	static PWM_XY_SRC_DIV(_pair, _reg)
-+
-+#define PWM_X_CLK(_idx)					\
-+	static PWM_X_DIV(_idx, PWM_CTRL_REG(_idx))
-+
-+#define PWM_X_BYPASS_CLK(_idx)						\
-+	PWM_X_BYPASS_GATE(_idx)
-+
-+#define REF_CLK_XY_SRC(_pair)						\
-+	{								\
-+		.name = "pwm-clk-src" #_pair,				\
-+		.parent_names = (const char *[]){ "osc24M", "apb1" },	\
-+		.num_parents = 2,					\
-+		.mux_hw = &mux_xy_##_pair.hw,				\
-+		.gate_hw = &gate_xy_##_pair.hw,				\
-+		.rate_hw = &rate_xy_##_pair.hw,				\
-+	}
-+
-+#define REF_CLK_X(_idx, _pair)						\
-+	{								\
-+		.name = "pwm-clk" #_idx,				\
-+		.parent_names = (const char *[]){ "pwm-clk-src" #_pair }, \
-+		.num_parents = 1,					\
-+		.rate_hw = &rate_x_##_idx.hw,				\
-+		.flags = CLK_SET_RATE_PARENT,				\
-+	}
-+
-+#define REF_CLK_BYPASS(_idx, _pair)					\
-+	{								\
-+		.name = "pwm-clk-bypass" #_idx,				\
-+		.parent_names = (const char *[]){ "pwm-clk-src" #_pair }, \
-+		.num_parents = 1,					\
-+		.gate_hw = &gate_x_bypass_##_idx.hw,			\
-+		.flags = CLK_SET_RATE_PARENT,	\
-+	}
-+
-+/*
-+ * PWM_clock_src_xy generation:
-+ *             _____      ______      ________
-+ * OSC24M --->|     |    |      |    |        |
-+ * APB1 ----->| Mux |--->| Gate |--->| /div_m |-----> PWM_clock_src_xy
-+ *            |_____|    |______|    |________|
-+ */
-+PWM_XY_CLK_SRC(01, PWM_XY_CLK_CR(0));
-+PWM_XY_CLK_SRC(23, PWM_XY_CLK_CR(1));
-+PWM_XY_CLK_SRC(45, PWM_XY_CLK_CR(2));
-+
-+/*
-+ * PWM_clock_x_div generation:
-+ *                       ________
-+ *                      |        | PWM_clock_x/y
-+ * PWM_clock_src_xy --->| /div_k |--------------->
-+ *                      |________|
-+ */
-+PWM_X_CLK(0);
-+PWM_X_CLK(1);
-+PWM_X_CLK(2);
-+PWM_X_CLK(3);
-+PWM_X_CLK(4);
-+PWM_X_CLK(5);
-+
-+/*
-+ * PWM_bypass_clock_xy generation:
-+ *                        ______
-+ *                       |      |
-+ * PWM_clock_src_xy ---->| Gate |-------> PWM_bypass_clock_x
-+ *                       |______|
-+ *
-+ * The gate is actually PWM_ENR register.
-+ */
-+PWM_X_BYPASS_CLK(0);
-+PWM_X_BYPASS_CLK(1);
-+PWM_X_BYPASS_CLK(2);
-+PWM_X_BYPASS_CLK(3);
-+PWM_X_BYPASS_CLK(4);
-+PWM_X_BYPASS_CLK(5);
-+
-+struct clk_pwm_data {
-+	const char *name;
-+	const char * const *parent_names;
-+	int num_parents;
-+	struct clk_hw *mux_hw;
-+	struct clk_hw *rate_hw;
-+	struct clk_hw *gate_hw;
-+	unsigned long flags;
-+};
-+
-+#define CLK_BYPASS(h616chip, ch) ((h616chip)->data->npwm + (ch))
-+#define CLK_XY_SRC_IDX(h616chip, ch) ((h616chip)->data->npwm * 2 + ((ch) >> 1))
-+static struct clk_pwm_data pwmcc_data[] = {
-+	REF_CLK_X(0, 01),
-+	REF_CLK_X(1, 01),
-+	REF_CLK_X(2, 23),
-+	REF_CLK_X(3, 23),
-+	REF_CLK_X(4, 45),
-+	REF_CLK_X(5, 45),
-+	REF_CLK_BYPASS(0, 01),
-+	REF_CLK_BYPASS(1, 01),
-+	REF_CLK_BYPASS(2, 23),
-+	REF_CLK_BYPASS(3, 23),
-+	REF_CLK_BYPASS(4, 45),
-+	REF_CLK_BYPASS(5, 45),
-+	REF_CLK_XY_SRC(01),
-+	REF_CLK_XY_SRC(23),
-+	REF_CLK_XY_SRC(45),
-+	{ /* sentinel */ },
-+};
-+
-+enum h616_pwm_mode {
-+	H616_PWM_MODE_NONE,
-+	H616_PWM_MODE_PWM,
-+	H616_PWM_MODE_CLK,
-+};
-+
-+struct h616_pwm_data {
-+	unsigned int npwm;
-+};
-+
-+struct h616_pwm_channel {
-+	struct clk *pwm_clk;
-+	unsigned long rate;
-+	unsigned int entire_cycles;
-+	unsigned int active_cycles;
-+	enum h616_pwm_mode mode;
-+	bool bypass;
-+};
-+
-+struct clk_pwm_pdata {
-+	struct clk_hw_onecell_data *hw_data;
-+	spinlock_t lock;
-+	void __iomem *reg;
-+};
-+
-+struct h616_pwm_chip {
-+	struct clk_pwm_pdata *clk_pdata;
-+	struct h616_pwm_channel *channels;
-+	struct clk *bus_clk;
-+	struct reset_control *rst;
-+	void __iomem *base;
-+	const struct h616_pwm_data *data;
-+};
-+
-+static inline struct h616_pwm_chip *to_h616_pwm_chip(struct pwm_chip *chip)
-+{
-+	return pwmchip_get_drvdata(chip);
-+}
-+
-+static inline u32 h616_pwm_readl(struct h616_pwm_chip *h616chip,
-+				 unsigned long offset)
-+{
-+	return readl(h616chip->base + offset);
-+}
-+
-+static inline void h616_pwm_writel(struct h616_pwm_chip *h616chip,
-+				   u32 val, unsigned long offset)
-+{
-+	writel(val, h616chip->base + offset);
-+}
-+
-+static void h616_pwm_set_bypass(struct h616_pwm_chip *h616chip, unsigned int idx,
-+				bool en_bypass)
-+{
-+	unsigned long flags;
-+	u32 val;
-+
-+	spin_lock_irqsave(&h616chip->clk_pdata->lock, flags);
-+
-+	val = h616_pwm_readl(h616chip, PWM_XY_CLK_CR(PWM_PAIR_IDX(idx)));
-+	if (en_bypass)
-+		val |= BIT(PWM_XY_CLK_CR_BYPASS_BIT(idx));
-+	else
-+		val &= ~BIT(PWM_XY_CLK_CR_BYPASS_BIT(idx));
-+
-+	h616_pwm_writel(h616chip, val, PWM_XY_CLK_CR(PWM_PAIR_IDX(idx)));
-+
-+	spin_unlock_irqrestore(&h616chip->clk_pdata->lock, flags);
-+}
-+
-+static int h616_pwm_request(struct pwm_chip *chip, struct pwm_device *pwm)
-+{
-+	struct h616_pwm_chip *h616chip = to_h616_pwm_chip(chip);
-+	struct h616_pwm_channel *chan = &h616chip->channels[pwm->hwpwm];
-+	struct device *dev = pwmchip_parent(chip);
-+	unsigned long flags;
-+	int ret = 0;
-+
-+	spin_lock_irqsave(&h616chip->clk_pdata->lock, flags);
-+
-+	if (chan->mode == H616_PWM_MODE_CLK)
-+		ret = -EBUSY;
-+	else
-+		chan->mode = H616_PWM_MODE_PWM;
-+
-+	spin_unlock_irqrestore(&h616chip->clk_pdata->lock, flags);
-+	if (ret)
-+		goto out;
-+
-+	ret = clk_prepare_enable(chan->pwm_clk);
-+	if (ret < 0) {
-+		dev_err(dev, "Failed to enable clock %s: %d\n",
-+			__clk_get_name(chan->pwm_clk), ret);
-+	}
-+out:
-+	return ret;
-+}
-+
-+static void h616_pwm_free(struct pwm_chip *chip, struct pwm_device *pwm)
-+{
-+	struct h616_pwm_chip *h616chip = to_h616_pwm_chip(chip);
-+	struct h616_pwm_channel *chan = &h616chip->channels[pwm->hwpwm];
-+
-+	clk_disable_unprepare(chan->pwm_clk);
-+	chan->mode = H616_PWM_MODE_NONE;
-+}
-+
-+static int h616_pwm_get_state(struct pwm_chip *chip,
-+			      struct pwm_device *pwm,
-+			      struct pwm_state *state)
-+{
-+	struct h616_pwm_chip *h616chip = to_h616_pwm_chip(chip);
-+	struct h616_pwm_channel *chan = &h616chip->channels[pwm->hwpwm];
-+	u64 clk_rate, tmp;
-+	u32 val;
-+
-+	clk_rate = clk_get_rate(chan->pwm_clk);
-+	if (!clk_rate)
-+		return -EINVAL;
-+
-+	val = h616_pwm_readl(h616chip, PWM_ENR);
-+	state->enabled = !!(PWM_ENABLE(pwm->hwpwm) & val);
-+
-+	val = h616_pwm_readl(h616chip, PWM_XY_CLK_CR(PWM_PAIR_IDX(pwm->hwpwm)));
-+	if (val & BIT(PWM_XY_CLK_CR_BYPASS_BIT(pwm->hwpwm))) {
-+		/*
-+		 * When bypass is enabled, the PWM logic is inactive.
-+		 * The PWM_clock_src_xy is directly routed to PWM_clock_x
-+		 */
-+		state->period = DIV_ROUND_UP_ULL(NSEC_PER_SEC, clk_rate);
-+		state->duty_cycle = DIV_ROUND_UP_ULL(state->period, 2);
-+		state->polarity = PWM_POLARITY_NORMAL;
-+		return 0;
-+	}
-+
-+	state->enabled &= !!(BIT(PWM_XY_CLK_CR_GATE_BIT) & val);
-+
-+	val = h616_pwm_readl(h616chip, PWM_CTRL_REG(pwm->hwpwm));
-+	if (val & PWM_CTRL_ACTIVE_STATE)
-+		state->polarity = PWM_POLARITY_NORMAL;
-+	else
-+		state->polarity = PWM_POLARITY_INVERSED;
-+
-+	val = h616_pwm_readl(h616chip, PWM_PERIOD_REG(pwm->hwpwm));
-+
-+	tmp = NSEC_PER_SEC * PWM_REG_DUTY(val);
-+	state->duty_cycle = DIV_ROUND_CLOSEST_ULL(tmp, clk_rate);
-+
-+	tmp = NSEC_PER_SEC * PWM_REG_PERIOD(val);
-+	state->period = DIV_ROUND_CLOSEST_ULL(tmp, clk_rate);
-+
-+	return 0;
-+}
-+
-+static int h616_pwm_calc(struct pwm_chip *chip, unsigned int idx,
-+			 const struct pwm_state *state)
-+{
-+	struct h616_pwm_chip *h616chip = to_h616_pwm_chip(chip);
-+	struct h616_pwm_channel *chan = &h616chip->channels[idx];
-+	unsigned int cnt, duty_cnt;
-+	unsigned long max_rate;
-+	long calc_rate;
-+	u64 duty, period, freq;
-+
-+	duty = state->duty_cycle;
-+	period = state->period;
-+
-+	max_rate = clk_round_rate(chan->pwm_clk, UINT32_MAX);
-+
-+	dev_dbg(pwmchip_parent(chip), "max_rate: %ld Hz\n", max_rate);
-+
-+	if ((period * max_rate >= NSEC_PER_SEC) &&
-+	    (period * max_rate < 2 * NSEC_PER_SEC) &&
-+	    (duty * max_rate * 2 >= NSEC_PER_SEC)) {
-+		/*
-+		 * If the requested period is to small to be generated by the
-+		 * PWM, we can just select the highest clock and bypass the
-+		 * PWM logic
-+		 */
-+		dev_dbg(pwmchip_parent(chip), "Setting bypass (period=%lld)\n",
-+			period);
-+		freq = div64_u64(NSEC_PER_SEC, period);
-+		chan->bypass = true;
-+		duty = period / 2;
-+	} else {
-+		chan->bypass = false;
-+		freq = div64_u64(NSEC_PER_SEC * (u64)PWM_PERIOD_MAX, period);
-+		if (freq > UINT32_MAX)
-+			freq = UINT32_MAX;
-+	}
-+
-+	calc_rate = clk_round_rate(chan->pwm_clk, freq);
-+	if (calc_rate <= 0) {
-+		dev_err(pwmchip_parent(chip),
-+			"Invalid source clock frequency %llu\n", freq);
-+		return calc_rate ? calc_rate : -EINVAL;
-+	}
-+
-+	dev_dbg(pwmchip_parent(chip), "calc_rate: %ld Hz\n", calc_rate);
-+
-+	cnt = mul_u64_u64_div_u64(calc_rate, period, NSEC_PER_SEC);
-+	if ((cnt == 0) || (cnt > PWM_PERIOD_MAX)) {
-+		dev_err(pwmchip_parent(chip), "Period out of range\n");
-+		return -EINVAL;
-+	}
-+
-+	duty_cnt = mul_u64_u64_div_u64(calc_rate, duty, NSEC_PER_SEC);
-+
-+	if (duty_cnt >= cnt)
-+		duty_cnt = cnt - 1;
-+
-+	dev_dbg(pwmchip_parent(chip), "period=%llu cnt=%u duty=%llu duty_cnt=%u\n",
-+		period, cnt, duty, duty_cnt);
-+
-+	chan->active_cycles = duty_cnt;
-+	chan->entire_cycles = cnt;
-+
-+	chan->rate = calc_rate;
-+
-+	return 0;
-+}
-+
-+static int h616_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
-+			  const struct pwm_state *state)
-+{
-+	struct h616_pwm_chip *h616chip = to_h616_pwm_chip(chip);
-+	struct h616_pwm_channel *chan = &h616chip->channels[pwm->hwpwm];
-+	struct pwm_state cstate;
-+	unsigned long flags;
-+	u32 val;
-+	int ret;
-+
-+	ret = h616_pwm_calc(chip, pwm->hwpwm, state);
-+	if (ret) {
-+		dev_err(pwmchip_parent(chip), "period exceeds the maximum value\n");
-+		return ret;
-+	}
-+
-+	pwm_get_state(pwm, &cstate);
-+
-+	ret = clk_set_rate(chan->pwm_clk, chan->rate);
-+	if (ret) {
-+		dev_err(pwmchip_parent(chip), "failed to set PWM %d clock rate to %lu\n",
-+			pwm->hwpwm, chan->rate);
-+		return ret;
-+	}
-+
-+	h616_pwm_set_bypass(h616chip, pwm->hwpwm, chan->bypass);
-+
-+	/*
-+	 * If bypass is set, the PWM logic (polarity, duty) can't be applied
-+	 */
-+
-+	if (chan->bypass && (state->polarity == PWM_POLARITY_INVERSED)) {
-+		dev_warn(pwmchip_parent(chip),
-+			 "Can't set inversed polarity with bypass enabled\n");
-+	} else {
-+		val = h616_pwm_readl(h616chip, PWM_CTRL_REG(pwm->hwpwm));
-+		val &= ~PWM_CTRL_ACTIVE_STATE;
-+		if (state->polarity == PWM_POLARITY_NORMAL)
-+			val |= PWM_CTRL_ACTIVE_STATE;
-+		h616_pwm_writel(h616chip, val, PWM_CTRL_REG(pwm->hwpwm));
-+	}
-+
-+	if (chan->bypass && (state->duty_cycle * 2 != state->period)) {
-+		dev_warn(pwmchip_parent(chip),
-+			 "Can't set a duty cycle with bypass enabled\n");
-+	}
-+
-+	if (!chan->bypass) {
-+		val = PWM_DUTY(chan->active_cycles);
-+		val |= PWM_PERIOD(chan->entire_cycles);
-+		h616_pwm_writel(h616chip, val, PWM_PERIOD_REG(pwm->hwpwm));
-+	}
-+
-+	if (state->enabled == cstate.enabled)
-+		return 0;
-+
-+	if (cstate.enabled) {
-+		unsigned long delay_us;
-+
-+		/*
-+		 * We need a full period to elapse before
-+		 * disabling the channel.
-+		 */
-+		delay_us = DIV_ROUND_UP_ULL(cstate.period, NSEC_PER_USEC);
-+		fsleep(delay_us);
-+	}
-+
-+	spin_lock_irqsave(&h616chip->clk_pdata->lock, flags);
-+
-+	val = h616_pwm_readl(h616chip, PWM_ENR);
-+	if (state->enabled)
-+		val |= PWM_ENABLE(pwm->hwpwm);
-+	else
-+		val &= ~PWM_ENABLE(pwm->hwpwm);
-+	h616_pwm_writel(h616chip, val, PWM_ENR);
-+
-+	spin_unlock_irqrestore(&h616chip->clk_pdata->lock, flags);
-+
-+	return 0;
-+}
-+
-+static const struct pwm_ops h616_pwm_ops = {
-+	.apply = h616_pwm_apply,
-+	.get_state = h616_pwm_get_state,
-+	.request = h616_pwm_request,
-+	.free = h616_pwm_free,
-+};
-+
-+static struct clk_hw *h616_pwm_of_clk_get(struct of_phandle_args *clkspec,
-+					  void *data)
-+{
-+	struct h616_pwm_chip *h616chip = data;
-+	struct clk_hw_onecell_data *hw_data = h616chip->clk_pdata->hw_data;
-+	unsigned int idx = clkspec->args[0];
-+	struct h616_pwm_channel *chan;
-+	struct clk_hw *ret_clk = NULL;
-+	unsigned long flags;
-+
-+	if (idx >= h616chip->data->npwm)
-+		return ERR_PTR(-EINVAL);
-+
-+	chan = &h616chip->channels[idx];
-+
-+	spin_lock_irqsave(&h616chip->clk_pdata->lock, flags);
-+
-+	if (chan->mode == H616_PWM_MODE_PWM) {
-+		ret_clk = ERR_PTR(-EBUSY);
-+	} else {
-+		chan->mode = H616_PWM_MODE_CLK;
-+		ret_clk = hw_data->hws[CLK_BYPASS(h616chip, idx)];
-+	}
-+	spin_unlock_irqrestore(&h616chip->clk_pdata->lock, flags);
-+
-+	if (IS_ERR(ret_clk))
-+		goto out;
-+
-+	chan->bypass = true;
-+	h616_pwm_set_bypass(h616chip, idx, chan->bypass);
-+out:
-+	return ret_clk;
-+}
-+
-+static int h616_add_composite_clk(const struct clk_pwm_data *data,
-+				  void __iomem *reg, spinlock_t *lock,
-+				  struct device *dev, struct clk_hw **hw)
-+{
-+	const struct clk_ops *mux_ops = NULL, *gate_ops = NULL, *rate_ops = NULL;
-+	struct clk_hw *mux_hw = NULL, *gate_hw = NULL, *rate_hw = NULL;
-+
-+
-+	if (data->mux_hw) {
-+		struct clk_mux *mux;
-+
-+		mux_hw = data->mux_hw;
-+		mux = to_clk_mux(mux_hw);
-+		mux->lock = lock;
-+		mux_ops = mux_hw->init->ops;
-+		mux->reg = (u64)mux->reg + reg;
-+	}
-+
-+	if (data->gate_hw) {
-+		struct clk_gate *gate;
-+
-+		gate_hw = data->gate_hw;
-+		gate = to_clk_gate(gate_hw);
-+		gate->lock = lock;
-+		gate_ops = gate_hw->init->ops;
-+		gate->reg = (u64)gate->reg + reg;
-+	}
-+
-+	if (data->rate_hw) {
-+		struct clk_divider *rate;
-+
-+		rate_hw = data->rate_hw;
-+		rate = to_clk_divider(rate_hw);
-+		rate_ops = rate_hw->init->ops;
-+		rate->lock = lock;
-+		rate->reg = (u64)rate->reg + reg;
-+
-+		if (rate->table) {
-+			const struct clk_div_table *clkt;
-+			int table_size = 0;
-+
-+			for (clkt = rate->table; clkt->div; clkt++)
-+				table_size++;
-+			rate->width = order_base_2(table_size);
-+		}
-+	}
-+
-+	*hw = clk_hw_register_composite(dev, data->name, data->parent_names,
-+					data->num_parents, mux_hw,
-+					mux_ops, rate_hw, rate_ops,
-+					gate_hw, gate_ops, data->flags);
-+
-+	return PTR_ERR_OR_ZERO(*hw);
-+}
-+
-+static int h616_pwm_init_clocks(struct platform_device *pdev,
-+				struct h616_pwm_chip *h616chip)
-+{
-+	struct clk_pwm_pdata *pdata;
-+	struct device *dev = &pdev->dev;
-+	int num_clocks = 0;
-+	int ret;
-+
-+	pdata = devm_kzalloc(dev, sizeof(*pdata), GFP_KERNEL);
-+	if (!pdata)
-+		return -ENOMEM;
-+
-+	while (pwmcc_data[num_clocks].name)
-+		num_clocks++;
-+
-+	pdata->hw_data = devm_kzalloc(dev, struct_size(pdata->hw_data, hws, num_clocks),
-+				      GFP_KERNEL);
-+	if (!pdata->hw_data)
-+		return -ENOMEM;
-+
-+	pdata->hw_data->num = num_clocks;
-+	pdata->reg = h616chip->base;
-+
-+	spin_lock_init(&pdata->lock);
-+
-+	for (int i = 0; i < num_clocks; i++) {
-+		struct clk_hw **hw = &pdata->hw_data->hws[i];
-+
-+		ret = h616_add_composite_clk(&pwmcc_data[i], pdata->reg,
-+					     &pdata->lock, dev, hw);
-+		if (ret) {
-+			dev_err_probe(dev, ret,
-+				      "Failed to register hw clock %s\n",
-+				      pwmcc_data[i].name);
-+			for (i--; i >= 0; i--)
-+				clk_hw_unregister_composite(pdata->hw_data->hws[i]);
-+			return ret;
-+		}
-+	}
-+
-+	h616chip->clk_pdata = pdata;
-+
-+	return 0;
-+}
-+
-+static int h616_pwm_probe(struct platform_device *pdev)
-+{
-+	const struct h616_pwm_data *data;
-+	struct device *dev = &pdev->dev;
-+	struct h616_pwm_chip *h616chip;
-+	struct pwm_chip *chip;
-+	int ret;
-+
-+	data = of_device_get_match_data(dev);
-+	if (!data)
-+		return -ENODEV;
-+
-+	chip = devm_pwmchip_alloc(dev, data->npwm, sizeof(*h616chip));
-+	if (IS_ERR(chip))
-+		return dev_err_probe(dev, PTR_ERR(chip),
-+				     "Failed to allocate pwmchip\n");
-+
-+	h616chip = to_h616_pwm_chip(chip);
-+	h616chip->data = data;
-+	h616chip->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(h616chip->base))
-+		return dev_err_probe(dev, PTR_ERR(h616chip->base),
-+				     "Failed to get PWM base address\n");
-+
-+	h616chip->bus_clk = devm_clk_get_enabled(dev, "bus");
-+	if (IS_ERR(h616chip->bus_clk))
-+		return dev_err_probe(dev, PTR_ERR(h616chip->bus_clk),
-+				     "Failed to get bus clock\n");
-+
-+	h616chip->channels = devm_kmalloc_array(dev, data->npwm,
-+						sizeof(*(h616chip->channels)),
-+						GFP_KERNEL);
-+	if (!h616chip->channels)
-+		return dev_err_probe(dev, -ENOMEM,
-+				     "Failed to allocate %d channels array\n",
-+				     data->npwm);
-+
-+	h616chip->rst = devm_reset_control_get_shared(dev, NULL);
-+	if (IS_ERR(h616chip->rst))
-+		return dev_err_probe(dev, PTR_ERR(h616chip->rst),
-+				     "Failed to get reset control\n");
-+
-+	chip->ops = &h616_pwm_ops;
-+
-+	ret = h616_pwm_init_clocks(pdev, h616chip);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to initialize clocks\n");
-+
-+	for (unsigned int i = 0; i < data->npwm; i++) {
-+		struct h616_pwm_channel *chan = &h616chip->channels[i];
-+		struct clk_hw **hw = &h616chip->clk_pdata->hw_data->hws[i];
-+
-+		chan->pwm_clk = devm_clk_hw_get_clk(dev, *hw, NULL);
-+		if (IS_ERR(chan->pwm_clk)) {
-+			ret = dev_err_probe(dev, PTR_ERR(chan->pwm_clk),
-+					    "Failed to register PWM clock %d\n", i);
-+			goto err_get_clk;
-+		}
-+		chan->mode = H616_PWM_MODE_NONE;
-+	}
-+
-+	ret = devm_of_clk_add_hw_provider(dev, h616_pwm_of_clk_get, h616chip);
-+	if (ret) {
-+		dev_err_probe(dev, ret, "Failed to add HW clock provider\n");
-+		goto err_add_clk_provider;
-+	}
-+
-+	/* Deassert reset */
-+	ret = reset_control_deassert(h616chip->rst);
-+	if (ret) {
-+		dev_err_probe(dev, ret, "Cannot deassert reset control\n");
-+		goto err_ctrl_deassert;
-+	}
-+
-+	ret = pwmchip_add(chip);
-+	if (ret < 0) {
-+		dev_err_probe(dev, ret, "Failed to add PWM chip\n");
-+		goto err_pwm_add;
-+	}
-+
-+	platform_set_drvdata(pdev, chip);
-+
-+	return 0;
-+
-+err_pwm_add:
-+	reset_control_assert(h616chip->rst);
-+
-+err_ctrl_deassert:
-+err_add_clk_provider:
-+err_get_clk:
-+	for (int i = 0; i < h616chip->clk_pdata->hw_data->num; i++)
-+		clk_hw_unregister_composite(h616chip->clk_pdata->hw_data->hws[i]);
-+
-+	return ret;
-+}
-+
-+static const struct h616_pwm_data sun50i_h616_pwm_data = {
-+	.npwm = 6,
-+};
-+
-+static const struct of_device_id h616_pwm_dt_ids[] = {
-+	{
-+		.compatible = "allwinner,sun50i-h616-pwm",
-+		.data = &sun50i_h616_pwm_data,
-+	}, {
-+		/* sentinel */
-+	},
-+};
-+MODULE_DEVICE_TABLE(of, h616_pwm_dt_ids);
-+
-+
-+static struct platform_driver h616_pwm_driver = {
-+	.driver = {
-+		.name = "h616-pwm",
-+		.of_match_table = h616_pwm_dt_ids,
-+	},
-+	.probe = h616_pwm_probe,
-+};
-+module_platform_driver(h616_pwm_driver);
-+
-+MODULE_ALIAS("platform:h616-pwm");
-+MODULE_AUTHOR("Richard Genoud <richard.genoud@bootlin.com>");
-+MODULE_DESCRIPTION("Allwinner H616 PWM driver");
-+MODULE_LICENSE("GPL");
--- 
-2.47.3
+Now i'm getting user space oops like this:=20
+
+https://gist.github.com/warpme/b8b757bc1444be8a137849301698ee4b
+
+i'm pretty sure it is related to lack of (or issue with) console at =
+kernel early init in user space.
+
+As kernel with s4 hdmi code works for you - but traps for me - i think =
+there is still issue with s4 hdmi code.
+I suspect it is because diff between: my kernel config and yours.
+(so it is exposing existing hidden issue)
+
+btw: I'm not surprised by this as my kernel config is multi-soc (common =
+for =
+bcm25xx/27xx/s905/s912/g12/sm1/s4/h6/h616/a523/h700/rk33xx/rk35xx/qcs6490)=
+
+Usually kernel configs done for single soc (probably config you are =
+using to test s4 hdmi code) are not exposing hidden issues exposed by =
+multi-soc config (like mine config).=20
+I deal with such issues multiple times in past.
+
+multi-soc config i'm using is like this: =
+https://github.com/warpme/minimyth2/blob/master/script/kernel/linux-6.18/f=
+iles/linux-6.18-arm64-armv8.config
+
+May you pls try to compile your s4 hdmi code with above config?
+I'm quite sure it will expose to you issue i'm getting....
+
+
+
+
+> Wiadomo=C5=9B=C4=87 napisana przez Ao Xu <ao.xu@amlogic.com> w dniu 5 =
+gru 2025, o godz. 08:09:
+>=20
+> Hi Piotr=EF=BC=8C
+>=20
+>     I applied this patch: =
+https://github.com/warpme/minimyth2/blob/master/script/kernel/linux-6.18/f=
+iles/0312-drm-meson-add-vpu-clk-setting-for-S4.patch, and ran it on the =
+board.
+>=20
+>     I encountered the same issue=E2=80=94the system froze.
+>=20
+>     I found that the patch has a few minor problems. After fixing =
+them, the system runs normally. Could you try the following patch?
+>=20
+>=20
+> =E5=9C=A8 2025/12/3 13:56, Ao Xu =E5=86=99=E9=81=93:
+>> Hi Piotr=EF=BC=8C
+>>=20
+>>     I will need about two more days to look into it. I will follow up =
+with you ASAP.
+>>=20
+>>=20
+>> =E5=9C=A8 2025/12/2 16:29, Piotr Oniszczuk =E5=86=99=E9=81=93:
+>>> [You don't often get email from piotr.oniszczuk@gmail.com. Learn why =
+this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>>>=20
+>>> [ EXTERNAL EMAIL ]
+>>>=20
+>>> Ao,
+>>> Any chance for updated s4 hdmi series for 6.18?
+>>>=20
+>>>=20
+>>>> Wiadomo=C5=9B=C4=87 napisana przez Ao Xu <ao.xu@amlogic.com> w dniu =
+21 lis 2025, o godz. 03:55:
+>>>>=20
+>>>> Hi Piotr=EF=BC=8C
+>>>>=20
+>>>>      I will check this issue
+>>>>=20
+>>>> =E5=9C=A8 2025/11/19 18:27, Piotr Oniszczuk =E5=86=99=E9=81=93:
+>>>>> [You don't often get email from piotr.oniszczuk@gmail.com. Learn =
+why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>>>>>=20
+>>>>> [ EXTERNAL EMAIL ]
+>>>>>=20
+>>>>> Pls see inline
+>>>>>=20
+>>>>>> Wiadomo=C5=9B=C4=87 napisana przez Chuan Liu =
+<chuan.liu@amlogic.com> w dniu 19 lis 2025, o godz. 03:57:
+>>>>>>=20
+>>>>>> Hi Piotr,
+>>>>>>=20
+>>>>>>=20
+>>>>>> On 11/18/2025 10:50 PM, Piotr Oniszczuk wrote:
+>>>>>>> [You don't often get email from piotr.oniszczuk@gmail.com. Learn =
+why this is important at https://aka.ms/LearnAboutSenderIdentification ]
+>>>>>>> [ EXTERNAL EMAIL ]
+>>>>>>> Ao,
+>>>>>>> Is there any chance to get this s4 drm hdmi series for current =
+6.18?
+>>>>>>> (i tried backport this series to 6.18 but have some issues with =
+reparent vpu_0_sel to sysclk_b_sel)
+>>>>>> Why do we need to reparent vpu_0_sel to sysclk_b_sel? is there =
+any
+>>>>>> background here?
+>>>>> Well - it looks it is because bug....
+>>>>> Martin Blumenstingl had perfect eye and catch typo in patch =
+https://lore.kernel.org/all/20250110-drm-s4-v1-11-cbc2d5edaae8@amlogic.com=
+/:=20
+>>>>>=20
+>>>>> By replacing:
+>>>>> assigned-clock-parents =3D <&clkc_periphs CLKID_FCLK_DIV3>,
+>>>>> <0>, /* Do Nothing */
+>>>>> <&clkc_periphs CLKID_VPU_0>,
+>>>>> <&clkc_periphs CLKID_FCLK_DIV4>,
+>>>>> <0>, /* Do Nothing */
+>>>>> <&clkc_periphs CLKID_VAPB_0>;
+>>>>>=20
+>>>>> with:
+>>>>> assigned-clock-parents =3D <&clkc_pll CLKID_FCLK_DIV3>,
+>>>>> <0>, /* Do Nothing */
+>>>>> <&clkc_periphs CLKID_VPU_0>,
+>>>>> <&clkc_pll CLKID_FCLK_DIV4>,
+>>>>> <0>, /* Do Nothing */
+>>>>> <&clkc_periphs CLKID_VAPB_0>;
+>>>>>=20
+>>>>> dmesg is like this https://termbin.com/6020
+>>>>>=20
+>>>>> So i'm getting hdmi working - but only when device boots _without_ =
+connected hdmi at boot (and connected later)
+>>>>> If hdmi is connected at boot - boot hangs at:
+>>>>>=20
+>>>>>      0.341676] meson-dw-hdmi fe300000.hdmi-tx: Detected HDMI TX =
+controller v2.01a with HDCP (meson_dw_hdmi_phy)
+>>>>> [    0.342750] meson-dw-hdmi fe300000.hdmi-tx: registered =
+DesignWare HDMI I2C bus driver
+>>>>> [    0.343660] meson-drm ff000000.vpu: bound fe300000.hdmi-tx (ops =
+meson_dw_hdmi_ops)
+>>>>> [    0.344832] [drm] Initialized meson 1.0.0 for ff000000.vpu on =
+minor 0
+>>>>>=20
+>>>>> FYI: It is after applying =
+https://patchwork.kernel.org/project/linux-amlogic/cover/20250110-drm-s4-v=
+1-0-cbc2d5edaae8@amlogic.com/ on mainline 6.18 (with some my adjustments =
+on this series required by changes in 6.18).
+>>>>> For VPU clk changes see =
+https://github.com/warpme/minimyth2/blob/master/script/kernel/linux-6.18/f=
+iles/0312-drm-meson-add-vpu-clk-setting-for-S4.patch
+>>>>> It is 6.18 adaptation of =
+https://patchwork.kernel.org/project/linux-amlogic/patch/20250110-drm-s4-v=
+1-9-cbc2d5edaae8@amlogic.com/
+>>>>>=20
+>>>>> As kernel hangs - i have limited caps to drill where root cause =
+is.
+>>>>>=20
+>>>>> Maybe above hang is reason of my backports or missing any pre-req =
+required to get s4 drm working?
+>>>>> Anyway - it will be good to test with updated to 6.18 series of =
+Add DRM support for Amlogic S4 (plus info about any pre-req required to =
+get s4 drm working)
+>>>>>=20
+>>>>>=20
+>>>>>> The vpu_clk on S4 doesn't support sysclk_b_sel as one of its
+>>>>>> selectable clock sources, so this reparent operation will =
+definitely
+>>>>>> fail. This has nothing to do with the kernel version.
+>>>>>>=20
+>>>>>>>> Wiadomo=C5=9B=C4=87 napisana przez Ao Xu via B4 Relay =
+<devnull+ao.xu.amlogic.com@kernel.org> w dniu 10 sty 2025, o godz. =
+06:39:
+>>>>>>>>=20
+>>>>>>>> From: Ao Xu <ao.xu@amlogic.com>
+>>>>>>>>=20
+>>>>>>>> Add devicetree document for S4 HDMI controller
+>>>>>>>>=20
+>>>>>>>> Signed-off-by: Ao Xu <ao.xu@amlogic.com>
+>>>>>>>> ---
+>>>>>>>> =
+Documentation/devicetree/bindings/display/amlogic,meson-dw-hdmi.yaml | 1 =
++
+>>>>>>>> 1 file changed, 1 insertion(+)
+>>>>>>>>=20
+>>>>>>>> diff --git =
+a/Documentation/devicetree/bindings/display/amlogic,meson-dw-hdmi.yaml =
+b/Documentation/devicetree/bindings/display/amlogic,meson-dw-hdmi.yaml=20=
+
+>>>>>>>> index =
+84d68b8cfccc86fd87a6a0fd2b70af12e51eb8a4..6e0a8369eee915fab55af24d450a6c40=
+e08def38 100644
+>>>>>>>> --- =
+a/Documentation/devicetree/bindings/display/amlogic,meson-dw-hdmi.yaml=20=
+
+>>>>>>>> +++ =
+b/Documentation/devicetree/bindings/display/amlogic,meson-dw-hdmi.yaml=20=
+
+>>>>>>>> @@ -55,6 +55,7 @@ properties:
+>>>>>>>>            - const: amlogic,meson-gx-dw-hdmi
+>>>>>>>>        - enum:
+>>>>>>>>            - amlogic,meson-g12a-dw-hdmi # G12A (S905X2, S905Y2, =
+S905D2)
+>>>>>>>> +          - amlogic,meson-s4-dw-hdmi # S4 (S905Y4)
+>>>>>>>>=20
+>>>>>>>>    reg:
+>>>>>>>>      maxItems: 1
+>>>>>>>>=20
+>>>>>>>> --=20
+>>>>>>>> 2.43.0
+>>>>>>>>=20
+>>>>>>>>=20
+>>>>>>>>=20
+>>>>>>>> _______________________________________________
+>>>>>>>> linux-amlogic mailing list
+>>>>>>>> linux-amlogic@lists.infradead.org
+>>>>>>>> http://lists.infradead.org/mailman/listinfo/linux-amlogic
+>>>>>>> _______________________________________________
+>>>>>>> linux-amlogic mailing list
+>>>>>>> linux-amlogic@lists.infradead.org
+>>>>>>> http://lists.infradead.org/mailman/listinfo/linux-amlogic
+> <fix-vpu-clk-setting-for-s4.patch>
+
 
 
