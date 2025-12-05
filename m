@@ -4,85 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3B32D32D60
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 14:26:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27EC3D32D62
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 14:28:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6gmqcOwSNc0+xhzL2UsZFCz72iWFcGpUCCkzE2dmMWA=; b=hh8vPPH928JtMuo2yyH5++Z2oM
-	cYJGaLdOvbBrfnGNdHz560/MPJCuC4eS6tMUohU+HviRU8DT3hs/sxa+K73jiD7DDvVE1cOiwM/+g
-	321KMnaD1a5cdP/v/jda4+7oeOz3hel4yuFkItyeylo0YG6C+0UtK2HNhq9yxKgalfXx5n+XwgJed
-	cu3kg0vsDOVMdKNl2CmDFYzclwrCNSNOdlIMPqwKt1oHWNZJ875GMPeUBOZ5nrNW4NS/8owsrEP3K
-	AeHmtYSK0dMmVXqTVCo2wVkHoWymtFOY/PJHIA5/1MnElY4jUXuvywX/8CINiYgn/IwttGzz20opv
-	LiyZtX1w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xXzmocA+TCHPS8L8CGlGDBhJ9jbUgIy1gGVkekBgKW8=; b=ac071Vzf918Dp1
+	OQt3mTjb1XgJeVk1xBXJi9bXf+uy9JpKprG2xtINWxVo9hIn28OV/w8L1GMc494vjpiGgCRxEEAB6
+	CPIHdWdncAARTc8ha9upikX7ovmYJ3andLJDkQqEwn9Jq1bMsU3CMCtOScB4jDNeQFv8IZ58h3G+e
+	7CQv2yh4Z1LxIRFXFK6JefR7poYyS2AXL5rQpQiUwBfCOT0UpjXqlWN7VUXa9UR4REc8aTJxsSCqR
+	SRReGLzAMP5f5IXsnqCu7+7FB803T/SkTwEVC47VxblUn9UIjdjKdLW6/P0e6kutUxv+c9RjuGKSa
+	UA7+IohQq89irm1JB8aA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRWl5-00000009aP1-0aSG;
-	Fri, 05 Dec 2025 14:26:07 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1vRWnf-00000009afH-04Gr;
+	Fri, 05 Dec 2025 14:28:47 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRWkz-00000009aNu-23XV
+	id 1vRWnb-00000009adX-45HX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 14:26:06 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20251205142556euoutp01779ad6de9485aa7ca25d62a5beb6de70~_V_egKpDP2653426534euoutp01E
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  5 Dec 2025 14:25:56 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20251205142556euoutp01779ad6de9485aa7ca25d62a5beb6de70~_V_egKpDP2653426534euoutp01E
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1764944756;
-	bh=6gmqcOwSNc0+xhzL2UsZFCz72iWFcGpUCCkzE2dmMWA=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=F4NoGPDcG2LPkzlCRHCJrQdt7ggfb1R20wG+ILP7OURnlGKEu5jogmZcG73MZwegx
-	 VhtNsYtFdcpzIf0fBX5yIQ30ttmmFtM4PuEBdFNe59bQ3qlKeiHuq00UxvE5r0eyRj
-	 Jc+4Yub/CsoXVnqZFJJ88gWVoQ0eOsVo8gCnWuZs=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20251205142555eucas1p2e96cf9def9641e26e060f05139d24941~_V_d9WlrN2971629716eucas1p2H;
-	Fri,  5 Dec 2025 14:25:55 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20251205142553eusmtip11d66a1f54e847d5d4b609dd79aef82bb~_V_b7m79k0312503125eusmtip1E;
-	Fri,  5 Dec 2025 14:25:53 +0000 (GMT)
-Message-ID: <b2f3e15c-1a15-427d-90d9-ea0e33b50ecb@samsung.com>
-Date: Fri, 5 Dec 2025 15:25:52 +0100
+	Fri, 05 Dec 2025 14:28:46 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 660A24E41A6E;
+	Fri,  5 Dec 2025 14:28:40 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 2C910606AC;
+	Fri,  5 Dec 2025 14:28:40 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 395D3102F06E6;
+	Fri,  5 Dec 2025 15:28:34 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1764944919; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=xXzmocA+TCHPS8L8CGlGDBhJ9jbUgIy1gGVkekBgKW8=;
+	b=HVpuUSnLjhVQeNmPIbC3ZQjOhRzzuLzyuWW7g8AJhxsSyWlQaVQsO9wcpEp1UFgeWsQRDJ
+	Foq2uExu/DuW1g/BsBt/3zfJKZGO0cVFg9tB0s7Il+kxfdFagwpKeiUOmGYka+TobVKlIY
+	W6qTHgslLWaIlJXCU8whsuhipMOJkFX3fA++wE3orHB/mhmzsLvlN+uwIEVWWbPDo2aIZV
+	KhxE1PzPZF+syNCGNpf+ygG32YxRHcMSf2SrDG2vJZKv3/jqptg+Izei4dc28ou0jPqLZs
+	ZM05waZmrl35PvKXIof+BnJE2gGZEfODi8GOFrVxMh1XZ9FQqFegxnDZy7nDNQ==
+From: "Thomas Richard (TI.com)" <thomas.richard@bootlin.com>
+Subject: [PATCH v3 0/4] firmware: ti_sci: Introduce BOARDCFG_MANAGED mode
+ for Jacinto family
+Date: Fri, 05 Dec 2025 15:28:22 +0100
+Message-Id: <20251205-ti-sci-jacinto-s2r-restore-irq-v3-0-d06963974ad4@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH 0/4] drm: Revert and fix enable/disable sequence
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
-	<jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Dmitry
-	Baryshkov <lumag@kernel.org>, Chun-Kuang Hu <chunkuang.hu@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, Matthias Brugger
-	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, Jyri Sarha <jyri.sarha@iki.fi>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, Aradhya Bhatia
-	<aradhya.bhatia@linux.dev>, Linus Walleij <linusw@kernel.org>, Chaoyi Chen
-	<chaoyi.chen@rock-chips.com>, Vicente Bergas <vicencb@gmail.com>, Marek
-	Vasut <marek.vasut+renesas@mailbox.org>, stable@vger.kernel.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20251205-drm-seq-fix-v1-0-fda68fa1b3de@ideasonboard.com>
-Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20251205142555eucas1p2e96cf9def9641e26e060f05139d24941
-X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20251205095238eucas1p1b7cf95d86a9aecf19877ac568148e265
-X-EPHeader: CA
-X-CMS-RootMailID: 20251205095238eucas1p1b7cf95d86a9aecf19877ac568148e265
-References: <CGME20251205095238eucas1p1b7cf95d86a9aecf19877ac568148e265@eucas1p1.samsung.com>
-	<20251205-drm-seq-fix-v1-0-fda68fa1b3de@ideasonboard.com>
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAbsMmkC/4WOQQ7CIBBFr2JYOwYGTKsr72FcIAU7RosFbDRN7
+ y6tMY2rLt/P5L3pWbSBbGT7Vc+C7SiSbzLI9YqZWjcXC1RlZshxK7jgkAiiIbhqQ03yEDFAsDH
+ 5kC9DCwpLy3npKsENy5JHsI5eU+B4+nKw7TN30jzWNAre0xOdGNdfr1jqdQI4SFUpKXcVqkIfz
+ t6nGzUb4+9slHc4CwUuCzELtSoLp6VziOJfOAzDByp3cN00AQAA
+X-Change-ID: 20251010-ti-sci-jacinto-s2r-restore-irq-428e008fd10c
+To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
+ Santosh Shilimkar <ssantosh@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>
+Cc: Gregory CLEMENT <gregory.clement@bootlin.com>, 
+ richard.genoud@bootlin.com, Udit Kumar <u-kumar1@ti.com>, 
+ Prasanth Mantena <p-mantena@ti.com>, Abhash Kumar <a-kumar2@ti.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-clk@vger.kernel.org, 
+ "Thomas Richard (TI.com)" <thomas.richard@bootlin.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_062601_803463_AA3D612C 
-X-CRM114-Status: GOOD (  19.86  )
+X-CRM114-CacheID: sfid-20251205_062844_160177_5DB882E1 
+X-CRM114-Status: UNSURE (   7.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,55 +87,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05.12.2025 10:51, Tomi Valkeinen wrote:
-> Changing the enable/disable sequence in commit c9b1150a68d9
-> ("drm/atomic-helper: Re-order bridge chain pre-enable and post-disable")
-> has caused regressions on multiple platforms: R-Car, MCDE, Rockchip.
->
-> This is an alternate series to Linus' series:
->
-> https://lore.kernel.org/all/20251202-mcde-drm-regression-thirdfix-v6-0-f1bffd4ec0fa%40kernel.org/
->
-> This series first reverts the original commit and reverts a fix for
-> mediatek which is no longer needed. It then exposes helper functions
-> from DRM core, and finally implements the new sequence only in the tidss
-> driver.
->
-> There is one more fix in upstream for the original commit, commit
-> 5d91394f2361 ("drm/exynos: fimd: Guard display clock control with
-> runtime PM calls"), but I have not reverted that one as it looks like a
-> valid patch in its own.
+This is the fourth iteration. In this new version the sci-clk driver also
+restores the clock rate. I rebased the series on linux-next so we should
+not have conflict with next rc1.
 
-Right, that patch is a fix on its own, the changes in the atomic 
-sequence just revealed the issue.
+Signed-off-by: Thomas Richard (TI.com) <thomas.richard@bootlin.com>
+---
+Changes in v3:
+- rebased on linux-next
+- sci-clk: context_restore() operation restores also rate.
+- Link to v2: https://lore.kernel.org/r/20251127-ti-sci-jacinto-s2r-restore-irq-v2-0-a487fa3ff221@bootlin.com
 
-> I added Cc stable v6.17+ to all patches, but I didn't add Fixes tags, as
-> I wasn't sure what should they point to. But I could perhaps add Fixes:
-> <original commit> to all of these.
->
-> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> ---
-> Linus Walleij (1):
->        drm/atomic-helper: Export and namespace some functions
->
-> Tomi Valkeinen (3):
->        Revert "drm/atomic-helper: Re-order bridge chain pre-enable and post-disable"
->        Revert "drm/mediatek: dsi: Fix DSI host and panel bridge pre-enable order"
->        drm/tidss: Fix enable/disable order
->
->   drivers/gpu/drm/drm_atomic_helper.c | 122 ++++++++++++++----
->   drivers/gpu/drm/mediatek/mtk_dsi.c  |   6 -
->   drivers/gpu/drm/tidss/tidss_kms.c   |  30 ++++-
->   include/drm/drm_atomic_helper.h     |  22 ++++
->   include/drm/drm_bridge.h            | 249 ++++++++++--------------------------
->   5 files changed, 214 insertions(+), 215 deletions(-)
-> ---
-> base-commit: 88e721ab978a86426aa08da520de77430fa7bb84
-> change-id: 20251205-drm-seq-fix-b4ed1f56604b
+Changes in v2:
+- ti_sci: use hlist to store IRQs.
+- sci-clk: add context_restore operation
+- ti_sci: restore clock parents during resume 
+- Link to v1: https://lore.kernel.org/r/20251017-ti-sci-jacinto-s2r-restore-irq-v1-0-34d4339d247a@bootlin.com
 
-Best regards
+---
+Thomas Richard (TI.com) (4):
+      firmware: ti_sci: add BOARDCFG_MANAGED mode support
+      firmware: ti_sci: handle IRQ restore in BOARDCFG_MANAGED mode during resume
+      clk: keystone: sci-clk: add restore_context() operation
+      firmware: ti_sci: restore clock context during resume in BOARDCFG_MANAGED mode
+
+ drivers/clk/keystone/sci-clk.c |  42 ++++++++---
+ drivers/firmware/ti_sci.c      | 160 +++++++++++++++++++++++++++++++++++++----
+ drivers/firmware/ti_sci.h      |   2 +
+ 3 files changed, 184 insertions(+), 20 deletions(-)
+---
+base-commit: 6c95d7e679d5d01fa48d6a8b8bdb92b6effe34f6
+change-id: 20251010-ti-sci-jacinto-s2r-restore-irq-428e008fd10c
+
+Best regards,
 -- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+Thomas Richard (TI.com) <thomas.richard@bootlin.com>
 
 
