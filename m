@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE524D374AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:02:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAE03D374AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:02:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9RITj9sqxABVEOfScRNfViPst7aXao94YisTkC1vBYE=; b=erTMdMPyOHCeb/e2U0ExlruGzG
-	mG/bjc2atN+3YbmyC2Blc1X7nykgT9/KIJ4WE8nSmBRYbq/On2a+fxVUPY41N6uJhs10Lyzx/GUuR
-	RFd8dnp++A8rHZqYF9O6NMVJrGO29/l40PF/nzjnjCGfEn/6opM5+EEULNGvv4/wp7VJuNMVgKB/j
-	jtYQxFPZmK7StgxtSrQVXEM4ki3MFExVI3b5eFK5kqHmhtZ8/T9nEJ760cJQFo7KniAmaSNekoBYr
-	ipHM/flpBrAZ6vDBEKP5RZ5tae4gksGDiXDAFckNcwoHRT+KB6X/9ltyqGMQGucIq4HrbHgLCM3y7
-	+OpLmIWw==;
+	bh=e4paXIVN+8xiXfc4ceGx39Vz6ctd7y3uaRXi0VP2CnI=; b=CxKMvcVBn8D5CX3WvGZZUNmlG9
+	xp/35/eVxKi79VbKaypbSr8J8NVi1vXwXyhSPuUcUsr5am6l3okBZBD6qH0VQYvp/50QbA6rZXt6q
+	Y0vKdjiDA+wg1urdaI0Qev3aIUqUwGQhENtSbY9gl6mlsocyKh5jeP1aj9eChRPGh7V2pIzOn2jSp
+	0rr5DWrHAj61zVS+FU+naaJ+H1jEFTk9wybusP5IAor/Q1Xo1qGGugN9EAFxnhJY3KeQiNGsd+E72
+	ZvNuRb/VxH00WfR6S8nW+gQGRBd8aFw5Q1ZZnoTGFmC/vaO5irIMrOrP8PManx+FyvzciR/emomf6
+	ccYM4t3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdsH-0000000A7P7-0Q2J;
-	Fri, 05 Dec 2025 22:02:01 +0000
+	id 1vRdse-0000000A7hh-1lqO;
+	Fri, 05 Dec 2025 22:02:24 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdsF-0000000A7ND-3GlQ
+	id 1vRdsc-0000000A7fu-2bkW
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 05 Dec 2025 22:01:59 +0000
+	Fri, 05 Dec 2025 22:02:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=9RITj9sqxABVEOfScRNfViPst7aXao94YisTkC1vBYE=; b=RK9wittVtI4xWkwm0NEPyccNZW
-	2XNooKSqLuMA7SsGTxu+WG9mJviTNKenbyhfyQVxXcx09zrg+nv1qJvU/6hZ7lE0pG8obk9df1J4Y
-	hJyv8xZclmarQ70o2Yp0nCaPXU3ROjisupuN/NPGcxSH6xt5cWxhp/axjyTcMuRt7WC7LKE60EzBa
-	DGmbrP9Bm6SM1eJD0oiyVHOvJihj+cIH15L5u1ue6O/SDptQIkLWvjnKkvGsyc7yuaTw3AfU32/aC
-	pAqo0qVDgwj+mXPw86IEzZ1y+eGdM1shOCn9ZeaUBhgvavPzKfr5w1pQ4YBt7/loRBbWRC9HfSgGs
-	wYlCaAVQ==;
+	bh=e4paXIVN+8xiXfc4ceGx39Vz6ctd7y3uaRXi0VP2CnI=; b=bdYRS71dcA6d7o1lWpO8DD2faD
+	1NZFQR5SYdKlvmYIG7S3sVOFZVQjUGsWxsPWE1lwrjykmuiYcZZ0QEJWR5Pugiri0xIw47uxTmBKG
+	qluxh/S791X/RwZJxZYbBCkNW5xLYXIBsy96URF27aVa1OL5t5fTWoybCGdBr5nFWfBk+Fp4ve4a7
+	lyimEcKP5VCy9hDF9qHlP8+KTt/PnBO/3rAi64ZT4BRuhwxkG69xkQLcVk7r7/PGqAvpD8I7L7O/A
+	uYzS2EGCFrHJEEZeOPDQy+/HV8pRU0JpKGMTQU5aglcY67YSc2EmMUUCCkP7XWqWxir4t+q+NeWVr
+	7fOx91TA==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRd0X-00000006sww-0nri
+	id 1vRd0o-00000006t19-0foF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 21:06:39 +0000
+	Fri, 05 Dec 2025 21:06:55 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 482581BCB;
-	Fri,  5 Dec 2025 14:01:39 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5EF771A9A;
+	Fri,  5 Dec 2025 14:01:55 -0800 (PST)
 Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CA59E3F740;
-	Fri,  5 Dec 2025 14:01:42 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 001003F740;
+	Fri,  5 Dec 2025 14:01:58 -0800 (PST)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
@@ -75,17 +75,17 @@ Cc: James Morse <james.morse@arm.com>,
 	rohit.mathew@arm.com,
 	reinette.chatre@intel.com,
 	Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-Subject: [RFC PATCH 34/38] arm_mpam: Add quirk framework
-Date: Fri,  5 Dec 2025 21:58:57 +0000
-Message-Id: <20251205215901.17772-35-james.morse@arm.com>
+Subject: [RFC PATCH 38/38] arm_mpam: Quirk CMN-650's CSU NRDY behaviour
+Date: Fri,  5 Dec 2025 21:59:01 +0000
+Message-Id: <20251205215901.17772-39-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20251205215901.17772-1-james.morse@arm.com>
 References: <20251205215901.17772-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_210630_785272_26A68C2D 
-X-CRM114-Status: GOOD (  17.52  )
+X-CRM114-CacheID: sfid-20251205_210654_456469_2E797F2D 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,146 +100,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shanker Donthineni <sdonthineni@nvidia.com>
+CMN-650 is afflicted with an erratum where the CSU NRDY bit never clears.
+This tells us the monitor never finishes scanning the cache. The erratum
+document says to wait the maximum time, then ignore the field.
 
-The MPAM specification includes the MPAMF_IIDR, which serves to
-uniquely identify the MSC implementation through a combination of
-implementer details, product ID, variant, and revision. Certain
-hardware issues/errata can be resolved using software workarounds.
+Add a flag to indicate whether this is the final attempt to read the
+counter, and when this quirk is applied, ignore the NRDY field.
 
-Introduce a quirk framework to allow workarounds to be enabled based
-on the MPAMF_IIDR value.
+This means accesses to this counter will always retry, even if the
+counter was previously programmed to the same values.
 
-Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
-[ morse: Stash the IIDR so this doesn't need an IPI, enable quirks only
-  once, move the description to the callback so it can be pr_once()d, add
-  an enum of workarounds for popular errata. Add macros for making lists
-  of product/revision/vendor half readable ]
+The counter value is not expected to be stable, it drifts up and down
+with each allocation and eviction. The CSU register provides the value
+for a point in time.
+
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
- drivers/resctrl/mpam_devices.c  | 27 +++++++++++++++++++++++++++
- drivers/resctrl/mpam_internal.h | 26 ++++++++++++++++++++++++++
- 2 files changed, 53 insertions(+)
+ Documentation/arch/arm64/silicon-errata.rst |  3 +++
+ drivers/resctrl/mpam_devices.c              | 12 ++++++++++++
+ drivers/resctrl/mpam_internal.h             |  5 +++++
+ 3 files changed, 20 insertions(+)
 
+diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+index e810b2a8f40e..3667650036fb 100644
+--- a/Documentation/arch/arm64/silicon-errata.rst
++++ b/Documentation/arch/arm64/silicon-errata.rst
+@@ -213,6 +213,9 @@ stable kernels.
+ | ARM            | GIC-700         | #2941627        | ARM64_ERRATUM_2941627       |
+ +----------------+-----------------+-----------------+-----------------------------+
+ +----------------+-----------------+-----------------+-----------------------------+
++| ARM            | CMN-650         | #3642720        | N/A                         |
+++----------------+-----------------+-----------------+-----------------------------+
+++----------------+-----------------+-----------------+-----------------------------+
+ | Broadcom       | Brahma-B53      | N/A             | ARM64_ERRATUM_845719        |
+ +----------------+-----------------+-----------------+-----------------------------+
+ | Broadcom       | Brahma-B53      | N/A             | ARM64_ERRATUM_843419        |
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 741e14e1e6cf..f0f6f9b55ad4 100644
+index c17a6fdea982..174a0224ed62 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -630,6 +630,25 @@ static struct mpam_msc_ris *mpam_get_or_create_ris(struct mpam_msc *msc,
- 	return ERR_PTR(-ENOENT);
- }
+@@ -690,6 +690,12 @@ static const struct mpam_quirk mpam_quirks[] = {
+ 	.iidr_mask  = MPAM_IIDR_MATCH_ONE,
+ 	.workaround = T241_MBW_COUNTER_SCALE_64,
+ 	},
++	{
++	/* ARM CMN-650 CSU erratum 3642720 */
++	.iidr       = MPAM_IIDR_ARM_CMN_650,
++	.iidr_mask  = MPAM_IIDR_MATCH_ONE,
++	.workaround = IGNORE_CSU_NRDY,
++	},
+ 	{ NULL }, /* Sentinel */
+ };
  
-+static const struct mpam_quirk mpam_quirks[] = {
-+	{ NULL }, /* Sentinel */
-+};
-+
-+static void mpam_enable_quirks(struct mpam_msc *msc)
-+{
-+	const struct mpam_quirk *quirk;
-+
-+	for (quirk = &mpam_quirks[0]; quirk->iidr_mask; quirk++) {
-+		if (quirk->iidr != (msc->iidr & quirk->iidr_mask))
-+			continue;
-+
-+		if (quirk->init)
-+			quirk->init(msc, quirk);
-+		else
-+			mpam_set_quirk(quirk->workaround, msc);
-+	}
-+}
-+
- /*
-  * IHI009A.a has this nugget: "If a monitor does not support automatic behaviour
-  * of NRDY, software can use this bit for any purpose" - so hardware might not
-@@ -864,8 +883,11 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
- 	/* Grab an IDR value to find out how many RIS there are */
- 	mutex_lock(&msc->part_sel_lock);
- 	idr = mpam_msc_read_idr(msc);
-+	msc->iidr = mpam_read_partsel_reg(msc, IIDR);
- 	mutex_unlock(&msc->part_sel_lock);
+@@ -997,6 +1003,7 @@ struct mon_read {
+ 	enum mpam_device_features	type;
+ 	u64				*val;
+ 	int				err;
++	bool				waited_timeout;
+ };
  
-+	mpam_enable_quirks(msc);
+ static bool mpam_ris_has_mbwu_long_counter(struct mpam_msc_ris *ris)
+@@ -1242,6 +1249,10 @@ static void __ris_msmon_read(void *arg)
+ 		if (mpam_has_feature(mpam_feat_msmon_csu_hw_nrdy, rprops))
+ 			nrdy = now & MSMON___NRDY;
+ 		now = FIELD_GET(MSMON___VALUE, now);
 +
- 	msc->ris_max = FIELD_GET(MPAMF_IDR_RIS_MAX, idr);
- 
- 	/* Use these values so partid/pmg always starts with a valid value */
-@@ -1987,6 +2009,7 @@ static bool mpam_has_cmax_wd_feature(struct mpam_props *props)
-  * resulting safe value must be compatible with both. When merging values in
-  * the tree, all the aliasing resources must be handled first.
-  * On mismatch, parent is modified.
-+ * Quirks on an MSC will apply to all MSC in that class.
-  */
- static void __props_mismatch(struct mpam_props *parent,
- 			     struct mpam_props *child, bool alias)
-@@ -2106,6 +2129,7 @@ static void __props_mismatch(struct mpam_props *parent,
-  * nobble the class feature, as we can't configure all the resources.
-  * e.g. The L3 cache is composed of two resources with 13 and 17 portion
-  * bitmaps respectively.
-+ * Quirks on an MSC will apply to all MSC in that class.
-  */
- static void
- __class_props_mismatch(struct mpam_class *class, struct mpam_vmsc *vmsc)
-@@ -2119,6 +2143,9 @@ __class_props_mismatch(struct mpam_class *class, struct mpam_vmsc *vmsc)
- 	dev_dbg(dev, "Merging features for class:0x%lx &= vmsc:0x%lx\n",
- 		(long)cprops->features, (long)vprops->features);
- 
-+	/* Merge quirks */
-+	class->quirks |= vmsc->msc->quirks;
++		if (mpam_has_quirk(IGNORE_CSU_NRDY, msc) && m->waited_timeout)
++			nrdy = false;
 +
- 	/* Take the safe value for any common features */
- 	__props_mismatch(cprops, vprops, false);
- }
+ 		break;
+ 	case mpam_feat_msmon_mbwu_31counter:
+ 	case mpam_feat_msmon_mbwu_44counter:
+@@ -1377,6 +1388,7 @@ int mpam_msmon_read(struct mpam_component *comp, struct mon_cfg *ctx,
+ 			.ctx = ctx,
+ 			.type = type,
+ 			.val = val,
++			.waited_timeout = true,
+ 		};
+ 		*val = 0;
+ 
 diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index d381906545ed..de3e5faa12b2 100644
+index 108a8373901c..00a61e4277f5 100644
 --- a/drivers/resctrl/mpam_internal.h
 +++ b/drivers/resctrl/mpam_internal.h
-@@ -88,6 +88,8 @@ struct mpam_msc {
- 	u8			pmg_max;
- 	unsigned long		ris_idxs;
- 	u32			ris_max;
-+	u32			iidr;
-+	u16			quirks;
+@@ -225,6 +225,7 @@ enum mpam_device_quirks {
+ 	T241_SCRUB_SHADOW_REGS,
+ 	T241_FORCE_MBW_MIN_TO_ONE,
+ 	T241_MBW_COUNTER_SCALE_64,
++	IGNORE_CSU_NRDY,
+ 	MPAM_QUIRK_LAST,
+ };
  
- 	/*
- 	 * error_irq_lock is taken when registering/unregistering the error
-@@ -215,6 +217,29 @@ struct mpam_props {
- #define mpam_set_feature(_feat, x)	set_bit(_feat, (x)->features)
- #define mpam_clear_feature(_feat, x)	clear_bit(_feat, (x)->features)
+@@ -250,6 +251,10 @@ struct mpam_quirk {
+ 				FIELD_PREP_CONST(MPAMF_IIDR_REVISION,    0    ) | \
+ 				FIELD_PREP_CONST(MPAMF_IIDR_IMPLEMENTER, 0x36b)
  
-+/* Workaround bits for msc->quirks */
-+enum mpam_device_quirks {
-+	MPAM_QUIRK_LAST,
-+};
-+
-+#define mpam_has_quirk(_quirk, x)	((1 << (_quirk) & (x)->quirks))
-+#define mpam_set_quirk(_quirk, x)	((x)->quirks |= (1 << (_quirk)))
-+
-+struct mpam_quirk {
-+	void (*init)(struct mpam_msc *msc, const struct mpam_quirk *quirk);
-+
-+	u32 iidr;
-+	u32 iidr_mask;
-+
-+	enum mpam_device_quirks workaround;
-+};
-+
-+#define MPAM_IIDR_MATCH_ONE	FIELD_PREP_CONST(MPAMF_IIDR_PRODUCTID,   0xfff) | \
-+				FIELD_PREP_CONST(MPAMF_IIDR_VARIANT,     0xf  ) | \
-+				FIELD_PREP_CONST(MPAMF_IIDR_REVISION,    0xf  ) | \
-+				FIELD_PREP_CONST(MPAMF_IIDR_IMPLEMENTER, 0xfff)
-+
-+
++#define MPAM_IIDR_ARM_CMN_650   FIELD_PREP_CONST(MPAMF_IIDR_PRODUCTID,   0    ) | \
++				FIELD_PREP_CONST(MPAMF_IIDR_VARIANT,     0    ) | \
++				FIELD_PREP_CONST(MPAMF_IIDR_REVISION,    0    ) | \
++				FIELD_PREP_CONST(MPAMF_IIDR_IMPLEMENTER, 0x43b)
+ 
  /* The values for MSMON_CFG_MBWU_FLT.RWBW */
  enum mon_filter_options {
- 	COUNT_BOTH	= 0,
-@@ -258,6 +283,7 @@ struct mpam_class {
- 
- 	struct mpam_props	props;
- 	u32			nrdy_usec;
-+	u16			quirks;
- 	u8			level;
- 	enum mpam_class_types	type;
- 
 -- 
 2.39.5
 
