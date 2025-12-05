@@ -4,108 +4,131 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 392C4D37497
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 20:19:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64AD9D374A3
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 20:55:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QvV5ac3UPAUOpNjnIM4GRf8TjdDG2xguqUsq832Ab1Q=; b=XHq/VDjUxqt8Ri/3uuD+ZFPsSM
-	0oBOrWWdKeL8wW9NkTIwfsb590GdaDjkxNWqDa2Nqg5Fj7LuYL37H71/UvQFYXs0SKWDmfwMV9pce
-	48jE45SANBu9TcsAoZIFlYtqWFrWDfOzkkfWhqXRb3FxbpLXFczFYl3Icmj7BUWEmtedtoZs+fGPk
-	zRs5VEHmSc4QgNnC2HmRAqcgCL7pxmoe+kiha/sgYvqG0++/BougpUf6enSNjVSQFW1ZRxaVXykKE
-	OIkkCB1L+fi1vkwxEWYvZ9pJpTCIoJ8uzhDdiL4kfpR8MqlPx+UaO4LxNwCHUNG44MLUf0c3IrN9e
-	coUKlEIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GtFPosF2LgiE2WjxvqOOGkRyYJUYOXnYWCtT9Q8AA0k=; b=uvmT7SIF4cNChug9tuqCfZJNi+
+	HI9jiyPKmPL6zzVpaTxqADfk/apMhsM/hkWWWee7gvYvMcl16j5g/UAZjlzkDRhPHBJaMOx2ECA0B
+	AKxn19x2jntc1W1sLruEDSDjW0WpQaCEqfv7lpH3OUtGuyfjIO6peVuvqMg6QXrjWKkgSzEa3Jvld
+	gFZ6nYF8A+0Z394O09nwxRt3SEZsp3wK1c3Wi2aosadseMeeEefRVnCenVaNkeQ4tAdpSb0Z1/bPK
+	sjJwQdKCw4Q7Tmx9KTYpB7L/7k0wC6UgbOufZZyTQC+mdXhv69DKp5QaUOzATlLQE1giKCmaGT3IV
+	fypa5O8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRcHG-0000000A0sQ-1ToF;
-	Fri, 05 Dec 2025 20:19:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vRcpE-0000000A2PP-0xyq;
+	Fri, 05 Dec 2025 20:54:48 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRcHF-0000000A0rN-12qg
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 05 Dec 2025 20:19:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=QvV5ac3UPAUOpNjnIM4GRf8TjdDG2xguqUsq832Ab1Q=; b=EhjDJOm4k9lFGFfuZWdRZOjE1+
-	yyDgSxP1Fp8lIJJBKkyh1k0TiJmzozBZSHj9DK/NIQt8ga8Ph5lATCGrPfVekUvjT/fyO8lsbhiyI
-	03hh1wEw3tkTHy5GVdG9LcYBjsXrSqjTCUJot72lP1PGQBR0KCF7M150B7l0IrMwSmc1vGxxMBQCi
-	jcr+dwJ2mV5fNlXEVwno1B7cR4uiYf6ayvR7UV4fxS/CxPBdbQaL91xcCGUMryTgPXvY3lXlph1IO
-	cxHtbXfiU8xobR8ou5PxDjp4/i2+Tve2OCSOr5q7Q21XA2mfQrSBgR+JcuhoWeZ2CP5iRcPp9ICja
-	jpflfcKg==;
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRbPf-00000006lmW-0Uv4
+	id 1vRcpC-0000000A2Oz-0N6A
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 19:24:21 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2953e415b27so28839735ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 12:19:37 -0800 (PST)
+	Fri, 05 Dec 2025 20:54:47 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B5HrXqx867199
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 5 Dec 2025 20:54:45 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=GtFPosF2LgiE2WjxvqOOGkRy
+	YJUYOXnYWCtT9Q8AA0k=; b=HyrcEeh2fn/ST9g1pNlY/hYo11L1eO++CR0/+5ZB
+	otctzrL8Zxp+lAZMsT60n9fuKoqO5Sl+T5w5wVKda7svL+TgaJyDwx+/bKYK0IW6
+	EeuxZI0yohjTQ/c9s9L6s8owJaAd+FUW/ZuNt0rxD8/QxFvV8d7TBJRt5tuq2ob/
+	x2g20EKV7EtWw7+QP2G8vNQqIR7StMjbPK2zXq6RQWVMNigI9NSW8HmaK2mGq+Uz
+	5L/cMOF5ShxctyxukcbA+mJzN2gx5RWCUw3n7kNWtxiAB3XU8wwwYsuoJJmofCdg
+	sdp+trN2r0VV6RRhsurq39Potdu/fDQJK5XM9TYjy/ziTw==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4av46f8es3-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 20:54:45 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8b26bc4984bso889261885a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 12:54:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764965976; x=1765570776; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QvV5ac3UPAUOpNjnIM4GRf8TjdDG2xguqUsq832Ab1Q=;
-        b=QSQ29NZn2ittFwo0g7CjEVDEWEzj2pfW5drrz8uYz69XHlfHYypve7L05JxRZ+OpJi
-         Uep7xvh+3VcSbHjTbacaxGMpoyip8KRSo1+H3pSn3wQk/5kwRc96khjy3decicgWUcsu
-         flpWb5tMYWu8iVnc9MjPFHh4Q7XkC1R8cXWhHK5eUmgD9bd4B+vXBlPXo3UmJTpTr7Bk
-         KUyUxFkS6N7hzdVIsLbw87i0TOcTDSL91hj9PH6fyPnt39W7vt01A0sQu79wHRQFfPSD
-         cNCDVavu+g2I33QHAeVfvKrsMIPmxnOSPRpq5G1lZaB9BczvcVS9pKdHKtNxtM9bdtKt
-         U2Og==
+        d=oss.qualcomm.com; s=google; t=1764968084; x=1765572884; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=GtFPosF2LgiE2WjxvqOOGkRyYJUYOXnYWCtT9Q8AA0k=;
+        b=ZITI4bFDmgAOez0EFW9EG9l7Ot3GAwUHAPrRP3ifoQcVA0UcLnrcUNZ6ARp5f6v7U1
+         HHoF04z049ewFKHPSbFlKTiPTYpOv85DKgwXgXpYg8qdN25q9yDgcMPSnYkY0Q4jP5yz
+         iBgjVRlp4RNUB6QXWS1O4e7FPVrpi9cXAV55YhTOJghJvPbSb2z58xoyXnZJVGGDx16A
+         zCS+Ls8LPGaM5H4G+Y81Y6DGI2taTKA+kFy2pcBsYeHRcozVDzKi5SivdPD2gtMLyE9i
+         cDpP646qe5cJ/wsN1rlOX1sFCcEDCIH8dZTNw/tJtJqj3DHtCWiTQAlBBNjk+I3ZqKxO
+         VRoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764965976; x=1765570776;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=QvV5ac3UPAUOpNjnIM4GRf8TjdDG2xguqUsq832Ab1Q=;
-        b=MTqucEUh7P4izcFR6TeDrzgdlNHFjIZrbARhV6wkLdEFUhNlrmDeLc6GsXunKjITdF
-         EPPw8e6UtzjKJJFYnAPET5j+oapk6/gLQYfJL3SHh0c46USdGhO208gSaQ/m90SsF/nN
-         fFzqkDK5D03dDQi/MxCiiVY+ZBWdQW5rDxG/0B+od4mrzxT6PTctXA3QdW6mIBKpvZfQ
-         bSspahHLBNq1QIEIZCOGQFPAeN9CnMhOhEJ0J5j7OX1L5g3Ueilxgs143OGKhLWbx8Uy
-         qId5Jc0RnUInKpHFJ6ob606MDNrlrCbL1y0fZ8Mg1HcmYy5qHUinEUBzN+k8brGMMnbY
-         x4vg==
-X-Forwarded-Encrypted: i=1; AJvYcCWg1IyQDh1gZ8xiBPV73ZZN8kvoqrecyXQhrZxpFujwv1h4BxnDCGaXHyt3tOhDyMgG9HBCOQ4KfdFgyJUo4Jcl@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtEbWcOAmONGDWDoC/T2KKsAfYyntgbfq6bU4pFs2Rl5vwK9BG
-	opgXn5fH6ZbwX9asL0n5SSNlvJg/aiKM/hKYZwX3GoshV2meFsX/8odp8BC3pIKSWGiRxCyWq7V
-	g3wVTKmZWvHA6gcRdCAKYHIhoVviOhm4SvlL87Wm9
-X-Gm-Gg: ASbGncuajpiIW0IBf30u68HwKzIGLaFXRKVeZKgB+dAHTI5OAwG898L3OmhtAHKKPCP
-	xTqH3t34cHMmGsoSGEKE1H2ZexpCyKnVl2CrmH7rdn/jrFCeMbqgWBheXTMagmLXTcuk9Drtr/x
-	5XjzZN0G/+n6VIGdI2xn+3dWUB03ue3FpMmk/DjwT0DAmEBlgOnQC5ZHoC+dksvo+NM/NyUcuEI
-	JQSotbXHsDoit8JvDp6oq6Sj0xNOodbe/JH18YVobPB7/T5WFd89LJL4B+flqz1/AMkcsEMZnKO
-	nGESFYaC8iioxZM/IXEu6y6y8EA=
-X-Google-Smtp-Source: AGHT+IGbi66b69isMZCCE2vWfm2l3aWjIU/6Jm7GoDCB7TYGbRrZY7LzGOWLW8ndmCQQy2C2xov9C9hN/n0jZy26kcQ=
-X-Received: by 2002:a05:7022:b95:b0:119:e56b:c74a with SMTP id
- a92af1059eb24-11e0315aa31mr278198c88.15.1764965975826; Fri, 05 Dec 2025
- 12:19:35 -0800 (PST)
+        d=1e100.net; s=20230601; t=1764968084; x=1765572884;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GtFPosF2LgiE2WjxvqOOGkRyYJUYOXnYWCtT9Q8AA0k=;
+        b=Jg9k94V8q9GlUj8wUzed3upOXZ1hsTa8RU0mdtUTi/hfS3k7v7/UhzKIcxmTjCi08g
+         FiU9/J6QV+NwPdPO1ByekbRPE0AiKMTyKV84Gxt9wjGat1mFU8Ug8ggG2IWtPbolBhvM
+         F98MMsocIC7RTKNm4Q7lca92Z5IRh9fAL537hkTRIBLkWBiQKa8xXQYOAELg2+E5HxxF
+         72UqINfJ+hkCnROIT/wQJAVeZEszJEY2iotufRbe2UnMjxHTP7CA/lJheX/b5IVBxBzK
+         /QCqkILM/+o70+tC+nIvxKNA27aSjjTYdpJdeR0uswsfvO56mCSirsxCyX4h4WjlcrzI
+         w6cQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXIFkkYyP5nX5/hq9bnmH1hSFwZL24sX/afWoh4TJ4uTjZV9JUgmMDgMzOpWaJsQ/WMzxPBb9GxBJvGHXGgnoVH@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBOwuDF03suq8eBN7oPo+Z4lFsqyyNQ+ITBlmshrjl91SvD7xJ
+	mFMNQLQHsyIKljtaIczhGEObmCffsxyqUjjbc3hKpvahLFZbQoLHQS3WO6CuVVmgTlPhHecrvuH
+	inLcetIORjfBQRHLZllYfZ2dGnoO/0qQr7t3WJWeHIHa/5kUhEAVonUbFm8l1lf/v2dW4TpaY5f
+	SNEA==
+X-Gm-Gg: ASbGncttOogQ7mxrHwbjmSwVHsUAKGXN4TAR1mTm+LuJYZKyK1mioauuaIWA2IVd8MT
+	hdAR4C3Revec1nUFnqTrgDrQ0S6/dubiyL32Ny6MJoilLsTrw14SqPchVK7Ztky3j4Paehuf+q6
+	EuaS9YaP55Sh8vG+dehdxwpC2PIw33XSRYJKRFAmy9A0eg2WiyScyqe+MZl4WP3R90ZP8Kvsh5C
+	4Xe/nVh85LcWmm1aV5Q7+Is3fCLcL7aMjCgevTWdVVNuI9LGS6yZADCXxzDYKjeubr+9rQkTV3P
+	fabSjMw9cEAe6sK2AJb3sEqk4gtaQ3/jemoGuqfMitOsdtMGB+rIr1yzwJx+00WaNyu16Of1SBH
+	oeo0zFIlD2Q4NJZA1W/BNnL/ZvlPH2/vxxQAO7871gtBwBRf9w0Zm1kcHqe99SUZAvHUKmuh+dT
+	7uD1rVUZTSBIr4Jl7OqNa9L3g=
+X-Received: by 2002:a05:620a:294d:b0:8b1:426d:2b87 with SMTP id af79cd13be357-8b6a2503493mr64555785a.21.1764968084186;
+        Fri, 05 Dec 2025 12:54:44 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFAybpfmIdKabPoU0b3dhUbqBBQq3XsZxjf+SdNpObrlWklaDL5pyA+vTb0we9EyoSRApMq/w==
+X-Received: by 2002:a05:620a:294d:b0:8b1:426d:2b87 with SMTP id af79cd13be357-8b6a2503493mr64540185a.21.1764968081599;
+        Fri, 05 Dec 2025 12:54:41 -0800 (PST)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-597d7c1e2c2sm1826782e87.63.2025.12.05.12.54.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 05 Dec 2025 12:54:40 -0800 (PST)
+Date: Fri, 5 Dec 2025 22:54:39 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
+Cc: konrad.dybcio@oss.qualcomm.com, robin.clark@oss.qualcomm.com,
+        will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
+        iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V4] iommu/arm-smmu: add actlr settings for mdss on
+ Qualcomm platforms
+Message-ID: <ombtqnvej7vxot7fzhtbgt7doqky4b4wwtockyvorpfi2hl4zz@wslecjpuhmmj>
+References: <20251202125447.2102658-1-charan.kalla@oss.qualcomm.com>
 MIME-Version: 1.0
-References: <20251205-phyb4-v8-0-c59ea80a4458@google.com> <20251205-phyb4-v8-1-c59ea80a4458@google.com>
- <18eeb1c5-d21b-4505-b6a4-472f6e191864@kernel.org> <CA+zupgwa+m8Pa=+8shORaOA1OO6zoo6zYEojFS2UDuP0doBq7A@mail.gmail.com>
- <f32e0810-56f9-417e-abf6-0cc7b361bd15@kernel.org> <CA+zupgyxQisYBnLj9_3DtcN3R1Ugfv+-p-wimFp-hnqkhrrgyA@mail.gmail.com>
- <988b3fcb-44db-45ca-823b-5ab13206bd04@kernel.org>
-In-Reply-To: <988b3fcb-44db-45ca-823b-5ab13206bd04@kernel.org>
-From: Roy Luo <royluo@google.com>
-Date: Fri, 5 Dec 2025 12:18:59 -0800
-X-Gm-Features: AWmQ_bkSdeahcfk9MTu5RJ__-7yt4YnGMQ_a-ehzxXaIp_XrZSBLGUDbWDooSxE
-Message-ID: <CA+zupgzi55svWK4gHsFtdQSD9jFKbxHx_0GE2R1R5DafmYyGNA@mail.gmail.com>
-Subject: Re: [PATCH v8 1/2] dt-bindings: phy: google: Add Google Tensor G5 USB PHY
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Badhri Jagan Sridharan <badhri@google.com>, Doug Anderson <dianders@google.com>, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251202125447.2102658-1-charan.kalla@oss.qualcomm.com>
+X-Authority-Analysis: v=2.4 cv=Wvom8Nfv c=1 sm=1 tr=0 ts=69334695 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=EUspDBNiAAAA:8 a=8Kug02PE9PhwNHeq3GEA:9 a=CjuIK1q_8ugA:10
+ a=bTQJ7kPSJx9SKPbeHEYW:22
+X-Proofpoint-ORIG-GUID: InCT447LdYr2_8CZs27KvtHc8QFXIp-D
+X-Proofpoint-GUID: InCT447LdYr2_8CZs27KvtHc8QFXIp-D
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjA1MDE1NiBTYWx0ZWRfX+SIlbMz9nxw7
+ AE9h0DzJn4ap/ZBZvGJ+WQNm0gt7Gin1wyvGePFPnJJ8xgDrpI+IEGKrhAaoNfhQ0UkexNGDZrq
+ WAP8S1IHCzhRLL9vuajaQaJAqkR+GzzgSlP6sGOhG7be9II/kxTDh2TJezBSPymc8FnLqzvMBHx
+ Rd0GfjTijlteaAWXQ2kMVq1Ixnlzy/vm052mEcqOzsKGe3g3OAvklq7qY/CH2ZEaglRBJ7l54Un
+ lR7d6Gj8OrxdjVRQuZQ9HTpl0gJb4MAEkmr9YK8pLHibTHm/4wd00fI2jHcrI4v6kBxmIlThcy3
+ D1OynMxA8K8eojEMULtCP9BC+EN1evsjoeurxnpV32Z8C7ofeUEFZWyB40KnGZRRdSIuJ8RSAqg
+ 0xVsFUzKBkFLmiV6vM6TErIZybuWLQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-05_07,2025-12-04_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 lowpriorityscore=0 impostorscore=0 bulkscore=0 phishscore=0
+ priorityscore=1501 spamscore=0 suspectscore=0 clxscore=1015 malwarescore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512050156
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_192419_293422_A9B687C2 
-X-CRM114-Status: GOOD (  41.25  )
+X-CRM114-CacheID: sfid-20251205_125446_153338_2429671B 
+X-CRM114-Status: GOOD (  16.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,144 +143,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 5, 2025 at 11:26=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On 05/12/2025 20:11, Roy Luo wrote:
-> > On Fri, Dec 5, 2025 at 10:52=E2=80=AFAM Krzysztof Kozlowski <krzk@kerne=
-l.org> wrote:
-> >>
-> >> On 05/12/2025 19:47, Roy Luo wrote:
-> >>> On Fri, Dec 5, 2025 at 9:13=E2=80=AFAM Krzysztof Kozlowski <krzk@kern=
-el.org> wrote:
-> >>>>
-> >>>> On 05/12/2025 04:54, Roy Luo wrote:
-> >>>>> Document the device tree bindings for the USB PHY interfaces integr=
-ated
-> >>>>> with the DWC3 controller on Google Tensor SoCs, starting with G5
-> >>>>> generation (Laguna). The USB PHY on Tensor G5 includes two integrat=
-ed
-> >>>>> Synopsys PHY IPs: the eUSB 2.0 PHY IP and the USB 3.2/DisplayPort c=
-ombo
-> >>>>> PHY IP.
-> >>>>>
-> >>>>> Due to a complete architectural overhaul in the Google Tensor G5, t=
-he
-> >>>>> existing Samsung/Exynos USB PHY binding for older generations of Go=
-ogle
-> >>>>> silicons such as gs101 are no longer compatible, necessitating this=
- new
-> >>>>> device tree binding.
-> >>>>>
-> >>>>> Signed-off-by: Roy Luo <royluo@google.com>
-> >>>>
-> >>>> Why intentionally dropping the tag? How are you handling this patchs=
-et?
-> >>>> Rewrite every time from scratch?
-> >>>
-> >>> Hi Krzysztof,
-> >>>
-> >>> I dropped the tag because a new file is being modified in this versio=
-n,
-> >>> Although it's just MAINTAINER file but I thought you might also want
-> >>> to take a look. I wasn't sure if modifying a new file qualifies as
-> >>> "substantial" so I erred on the side of caution. I should've called i=
-t
-> >>> out specifically in the change log. Sorry for the inconvenience.
-> >>
-> >> 1. so just squeeze that change into second patch and no need to ask fo=
-r
-> >> re-review
-> >
-> > That's a fair point. I will be more mindful of the review overhead
-> > going forward.
-> >
-> >> 2. You did not read my complain fully, look:
-> >>
-> >>>
-> >>> Regards,
-> >>> Roy Luo
-> >>>
-> >>>>
-> >>>> <form letter>
-> >>>> This is a friendly reminder during the review process.
-> >>>>
-> >>>> It looks like you received a tag and forgot to add it.
-> >>>>
-> >>>> If you do not know the process, here is a short explanation:
-> >>>> Please add Acked-by/Reviewed-by/Tested-by tags when posting new vers=
-ions
-> >>>> of patchset, under or above your Signed-off-by tag, unless patch cha=
-nged
-> >>>> significantly (e.g. new properties added to the DT bindings). Tag is
-> >>>> "received", when provided in a message replied to you on the mailing
-> >>>> list. Tools like b4 can help here. However, there's no need to repos=
-t
-> >>>> patches *only* to add the tags. The upstream maintainer will do that=
- for
-> >>>> tags received on the version they apply.
-> >>>>
-> >>>> Please read:
-> >>>> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/proc=
-ess/submitting-patches.rst#L577
-> >>>>
-> >>>> If a tag was not added on purpose, please state why and what changed=
-.
-> >>
-> >> Where did you address this? You dropped the tag silently.
-> >
-> > Why: a new file is being modified.
-> > What changed: MAINTAINER
-> > What's not changed:
-> > Documentation/devicetree/bindings/phy/google,lga-usb-phy.yaml
->
-> I don't know if you still did not get the problem or you think that I
-> really need that clear answer. So no, I do not need that clear answer, I
-> understood with first reply, but you kept explaining instead of
-> admitting that your changelog needs fixes. So I still do not believe you
-> understood the problem here and you might repeat the mistake.
+On Tue, Dec 02, 2025 at 06:24:47PM +0530, Charan Teja Kalla wrote:
+> Add ACTLR settings for missing MDSS devices on Qualcomm platforms.
+> 
+> These are QoS settings and are specific to per SoC thus different
+> settings, eg: some have shallow prefetch while others have no
+> prefetch.
+> 
+> Aswell, this prefetch feature is not implemented for all the
+> platforms, capturing to those are implemented to the best of my
+> knowledge.
+> 
+> Signed-off-by: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
+> ---
+> Changes from V3:
+>  1) Add actlr setting for missing sc8180x & sm6115.
 
-I admitted that my changelog needs fixes in my first reply.
-"I should've called it out specifically in the change log. Sorry for the
-inconvenience.".
-Maybe you think I didn't read through because my reply was placed
-before the <form letter> section, but that's a misunderstanding.
-I did read through the paragraph, that's why I mentioned the
-changelog in my first reply.
+Thanks!
 
-I also misunderstood your question of "Where did you address
-this?". If you were asking where this should have been addressed,
-obviously the answer is to address it in the changelog,
-but I thought that was already made clear in the first reply and
-you might be asking for a clear answer.
 
->
-> I think you need someone in Google to coach in this process, because I
-> even gave you the exact link describing the process and what was
-> expected. I even pointed specific paragraph, so you don't need to read
-> entire file!
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
-I appreciate you pointing out the specific paragraph, I understand
-you're going above and beyond here. I did read and understand
-what should've been done instead for this patch.
 
->
-> I assume you understood what should be done instead in this patchset.
-> Anyway, my previous tag applies if there were no bindings changes, but I
-> wasted too much time here to care anymore. The expectation from big
-> companies is they do not ask community to coach on basic submission
-> process. It's quite unfair to my spare, personal time after work,
-> considering how much big company is making. Big company should invest in
-> this coaching.
->
->
-> Best regards,
-> Krzysztof
+> 
 
-Thank you for the feedback. I understand your frustration, and I
-apologize for taking up your time. I will be sure to be more thorough
-in the future.
-
-Thanks,
-Roy Luo
+-- 
+With best wishes
+Dmitry
 
