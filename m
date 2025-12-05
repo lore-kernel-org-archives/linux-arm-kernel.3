@@ -4,67 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7D6CD2F7CD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 09:55:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDFAFD2F7CC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 09:55:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HgxJp6fxhP/SfQFxfDGnMwzKHjeQS707ltfdADmiZXc=; b=GQiwJHnz7ebFbmz+J+yiqdTo8a
-	stZKhgZTsrlpHQP4RPJ+vfYR50yXxTbDmqN6EGcm14sPoSYXgc6MQX/usmB3lRpYwqfLk41atK7KJ
-	iUig7OeTCu6VdjaBaz+usAVxUxMAKheI7B9EqTt8kgZ+u3/ufwuW4JhQ+DltwoqGOL8fZI5LcKlmd
-	O4T5uVLiAIgToF0N+XgMUZtxmYubCCAxcqlg4UEr/CH8qCF5ne+rxn8b8o9MKCj7zbjDzGsvdZYGx
-	5pQn7b5A6YwWC/X0R52Zc+eD+XOQPPtBdoa2VvcTmXTx+RpKL7f1lkcYcMgf0yixw9k6YEX2kezYI
-	hy2HK01Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oG/e/R0PPkHFkI16XoV2QWWbc7zrzT3YMNu3HZYjOic=; b=4yZ3FevQJ8vEqH+jwvYlw/nzC+
+	8MapDQx1ZSkzonsC5qNwRB58q1m46OF5c2uB0E+6OtXmy8TAa7T9jaJkBEe8/c+6MB4R7lBUV5wTB
+	mAc5HUulz18+LaYee9QLkIApauNLx0lIsi3uDEDiHKU+DzgShUA8blzZWWyNAwFdXk8/XCGmDna7k
+	pqMHq+9KOYzak+auLr4X6lPcQJ75ag202KVRNIJxuOoxz+UCjywbZon3fZbYJyVD2RwaqYHh2XqC+
+	WnkiPP0JHRKWoYszxxL5b+POHbVgQTyYA2rzR+FyVHUMLYF8yTErqMNafkLU7tDmAlIaQXPi9WGuT
+	ZmWcyFTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRSWr-00000009LS9-15yU;
-	Fri, 05 Dec 2025 09:55:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRSWn-00000009LRb-1i21
+	id 1vRSXH-00000009LVe-36VH;
+	Fri, 05 Dec 2025 09:55:35 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vRSXD-00000009LUY-1SgN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 09:55:07 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E4510339;
-	Fri,  5 Dec 2025 01:54:55 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5BF1B3F86F;
-	Fri,  5 Dec 2025 01:55:01 -0800 (PST)
-Date: Fri, 5 Dec 2025 09:54:58 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: firmware: arm,scmi: Document
- arm,poll-transport property
-Message-ID: <20251205-winged-quizzical-pigeon-ed692d@sudeepholla>
-References: <5ae0a793-d3e7-45d1-bf5c-3c46593d1824@mailbox.org>
- <aRW7BZimWdpq4TyX@pluto>
- <20251202-evasive-neon-rhino-d2745e@sudeepholla>
- <66257fcf-9024-454f-b776-4ba584963ebe@mailbox.org>
- <aS82GSN8c2SnRn4S@bogus>
- <8d773671-5e2e-4e21-ade6-2bf9a3b75066@mailbox.org>
- <20251203-thick-didactic-cockatoo-deaa1d@sudeepholla>
- <4ccbcffd-bcc7-478b-a525-a4a11e3092ee@mailbox.org>
- <20251204-calm-peacock-of-fantasy-6b8cbe@sudeepholla>
- <e25c690c-e74d-4641-a97e-8eae81a59168@mailbox.org>
+	Fri, 05 Dec 2025 09:55:34 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20251205095524euoutp02e284288e8e498c6e25522565f9960f0b~_SSRv7vMW1129411294euoutp02I
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  5 Dec 2025 09:55:24 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20251205095524euoutp02e284288e8e498c6e25522565f9960f0b~_SSRv7vMW1129411294euoutp02I
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1764928524;
+	bh=oG/e/R0PPkHFkI16XoV2QWWbc7zrzT3YMNu3HZYjOic=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=rjzlEPSsHHG8uoafhi2ejOyAj4OELE5NqS6odMWOQ6JKvpAMJ2z/deM/NLCeAceyN
+	 FkFzcaKBfl4YUtvbqEunNz2SInCMmDW/Z5v+EbuF7qfeAOGzBy6cCsxNb+awTWgjuu
+	 rjuAhz+zyxRsXvfoHSTekBm/Kkl+rwelBQCynlZM=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20251205095524eucas1p185064dd92492fc4a6cc45221d660a74b~_SSRM4e5W2892728927eucas1p1Q;
+	Fri,  5 Dec 2025 09:55:24 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20251205095522eusmtip1651c1628e115cd65bbb8e9696d67370b~_SSPT2f-b2241422414eusmtip16;
+	Fri,  5 Dec 2025 09:55:22 +0000 (GMT)
+Message-ID: <b81adc49-6e8a-49a6-9377-acd304ccfbc4@samsung.com>
+Date: Fri, 5 Dec 2025 10:55:20 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v7 0/6] Add module support for Arm64 Exynos MCT driver
+To: Will McVicker <willmcvicker@google.com>, Catalin Marinas
+	<catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, Krzysztof
+	Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Donghoon Yu <hoony.yu@samsung.com>, Rob Herring <robh@kernel.org>, John
+	Stultz <jstultz@google.com>, Youngmin Nam <youngmin.nam@samsung.com>, Peter
+	Griffin <peter.griffin@linaro.org>, Tudor Ambarus
+	<tudor.ambarus@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?=
+	<andre.draszik@linaro.org>, Conor Dooley <conor+dt@kernel.org>, "Russell
+ King (Oracle)" <linux@armlinux.org.uk>, linux-samsung-soc@vger.kernel.org,
+	kernel-team@android.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20251205011027.720512-1-willmcvicker@google.com>
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <e25c690c-e74d-4641-a97e-8eae81a59168@mailbox.org>
+X-CMS-MailID: 20251205095524eucas1p185064dd92492fc4a6cc45221d660a74b
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20251205011037eucas1p2bfaec27d78550b53099ebb0ca8713b2f
+X-EPHeader: CA
+X-CMS-RootMailID: 20251205011037eucas1p2bfaec27d78550b53099ebb0ca8713b2f
+References: <CGME20251205011037eucas1p2bfaec27d78550b53099ebb0ca8713b2f@eucas1p2.samsung.com>
+	<20251205011027.720512-1-willmcvicker@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_015505_548855_5909435C 
-X-CRM114-Status: GOOD (  58.84  )
+X-CRM114-CacheID: sfid-20251205_015532_756143_ACBF58D2 
+X-CRM114-Status: GOOD (  42.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,153 +92,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 04, 2025 at 07:59:20PM +0100, Marek Vasut wrote:
-> On 12/4/25 1:33 PM, Sudeep Holla wrote:
-> 
-> Hello Sudeep,
-> 
-> > > Wouldn't such a setup use separate mailbox channels, therefore even if
-> > > mailbox driver calls mbox_chan_received_data(), it would be called for a
-> > > specific mailbox channel , and it won't interfere with the SCMI mailbox
-> > > channel.
-> > > 
-> > 
-> > Ideally yes. Because PCC uses shared interrupts and provides no mechanism to
-> > identify the channel that raised the interrupt, we must run the handler for
-> > every registered channel. This behaviour is specific to PCC; other controllers
-> > that support interrupt source detection may not need to do this. But SCMI
-> > must work with any mailbox or other transports.
-> 
-> It seems the pcc_mbox_irq() operates per-channel, so it seems even the PCC
-> can demux channels for each IRQ and does trigger mbox_chan_received_data()
-> for correct channel ?
-> 
-> What exactly happens on the PCC mailbox driver with this polling mode
-> enabled ?
-> 
-> > > > Also IIUC, the irq request happens
-> > > > as part of channel startup and there are no explicit APIs for the mbox client
-> > > > driver to control that. SCMI is mbox client in this case.
-> > > 
-> > > Sure, but the mailbox driver has to make sure it is correctly demuxing the
-> > > IRQs it handles and correctly sends received_data notifications to the right
-> > > channel(s) .
-> > > 
-> > 
-> > Agreed, but the concern is that if SCMI is forced to use polling when the
-> > channel is opened, and IRQs are enabled by default with no way for SCMI to
-> > disable them in polling mode, we could run into issues.
-> 
-> This constellation seems odd -- if the channel can do IRQs, then this
-> property should not be present in DT.
-> 
+On 05.12.2025 02:10, Will McVicker wrote:
+> This series adds support to build the Arm64 Exynos MCT driver as a module.
+> This is only possible on Arm64 SoCs since they can use the Arm architected
+> timer as the clocksource. Once the Exynos MCT module is loaded and the device
+> probes, the MCT is used as the wakeup source for the arch_timer to ensure the
+> device can wakeup from the "c2" idle state.
+>
+> These patches are originally from the downstream Pixel 6 (gs101) kernel found
+> at [1] and have been adapted for upstream. Not only has the Exynos MCT driver
+> been shipping as a module in the field with Android, but I've also tested this
+> series with the upstream kernel on my Pixel 6 Pro.
+>
+> To the driver changes (both as built-in and as module) on Pixel 6 Pro, I ran
+> these tests:
+>
+> # cat /proc/interrupts | grep -E "mct|arch_timer"
+>   23:       6823      10938       7795       5607       8935      12828      21947       2200    GICv3  30 Level     arch_timer
+> 104:          1          0          0          0          0          0          0          0    GICv3 785 Level     mct_comp_irq
+> 105:        547          0          0          0          0          0          0          0    GICv3 789 Level     mct_tick0
+> 106:          0       1333          0          0          0          0          0          0    GICv3 790 Level     mct_tick1
+> 107:          0          0       1467          0          0          0          0          0    GICv3 791 Level     mct_tick2
+> 108:          0          0          0        583          0          0          0          0    GICv3 792 Level     mct_tick3
+> 109:          0          0          0          0        206          0          0          0    GICv3 793 Level     mct_tick4
+> 110:          0          0          0          0          0        153          0          0    GICv3 794 Level     mct_tick5
+> 111:          0          0          0          0          0          0         13          0    GICv3 795 Level     mct_tick6
+> 112:          0          0          0          0          0          0          0         87    GICv3 796 Level     mct_tick7
+>
+> # cat /sys/devices/system/clocksource/clocksource0/current_clocksource
+> arch_sys_counter
+>
+> When built and loaded as a module, you can verify via:
+>
+> # lsmod | grep exynos_mct
+> exynos_mct             20480  9
+>
+> I also compile tested for ARCH=ARM DEFCONFIG=multi_v7_defconfig with the
+> following debug configs to ensure the section mismatches are fixed:
+>    CONFIG_DEBUG_SECTION_MISMATCH=y
+>    # CONFIG_SECTION_MISMATCH_WARN_ONLY is not set
+>
+> Any additional testing is much appreciated!
+>
+> Thanks,
+> Will
+>
+> Note1, instructions to build and flash a Pixel 6 device with the upstream
+> kernel can be found at [2].
+>
+> Note2, this series is based off of krzk/for-next commit bca42080637c (Merge
+> branch 'next/drivers-late' into for-next).
+>
+> [1] https://android.googlesource.com/kernel/gs/+log/refs/heads/android-gs-raviole-5.10-android12-d1
+> [2] https://gitlab.com/LinaroLtd/googlelt/pixelscripts/-/blob/clo/main/README.md?ref_type=heads
+>
+> Cc: Alim Akhtar <alim.akhtar@samsung.com>
+> Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
+> Cc: Donghoon Yu <hoony.yu@samsung.com>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: John Stultz <jstultz@google.com>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Youngmin Nam <youngmin.nam@samsung.com>
+> Cc: Peter Griffin <peter.griffin@linaro.org>
+> Cc: Tudor Ambarus <tudor.ambarus@linaro.org>
+> Cc: André Draszik <andre.draszik@linaro.org>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Krzysztof Kozlowski <krzk@kernel.org>
+> Cc: Marek Szyprowski <m.szyprowski@samsung.com>
+> Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>
+> Cc: linux-samsung-soc@vger.kernel.org
+> Cc: kernel-team@android.com
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-kernel@vger.kernel.org
 
-Yes, but there is no way to validate or check this and that is the root
-cause for all my worries.
+Works fine on ARM Exynos 32bit based boards.
 
-> > I realise it’s a very
-> > specific corner case, but every time I’ve assumed such scenarios wouldn’t
-> > occur, we eventually ended up encountering them. So sorry if I am very
-> > pedantic, but I prefer to start smaller and restrictive and expand if and
-> > when necessary or required only.
-> 
-> I don't think this case, where mailbox channel does IRQs and polling is
-> enabled, can/should even be considered valid. Either the channel does not do
-> IRQs and then it should do polling, or it does IRQs and then it should use
-> IRQs, but not both.
-> 
+Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
 
-Yes ideally, but having loose ends like this binding which allows someone
-to add it to their DT complicates though it is invalid. We have no way to
-detect and I don't want to work around such configs in the future.
 
-> > > > > > I am aware of systems that implement such sharing, which is why I prefer to be
-> > > > > > explicit that this type of design is challenging to support within this
-> > > > > > binding. The intent is to support only minimal, constrained cases - essentially
-> > > > > > systems that are already somewhat broken. I do not see value in broadening the
-> > > > > > binding to cover every conceivable scenario.
-> > > > > > 
-> > > > > > > > Clearly defining these constraints would be helpful. It may also be useful to
-> > > > > > > > note that this is primarily intended for mailbox transports, if that’s
-> > > > > > > > accurate. Alternatively, we could keep the DT binding definition broader but
-> > > > > > > > emit warnings when a transport other than mailbox is used. That approach might
-> > > > > > > > make it easier to move forward.
-> > > > > > > 
-> > > > > > > DEN0056F refers to this polling mode in Shared memory based transports, that
-> > > > > > > can be other than mailbox transports, it includes e.g. SMC or OPTEE
-> > > > > > > transports.
-> > > > > > > 
-> > > > > > 
-> > > > > > However, polling does not make sense in the context of SMC. Once control
-> > > > > > returns from an SMC call, the command has completed. What form of polling in
-> > > > > > an SMC workflow do you have in mind?
-> > > > > 
-> > > > > I think the polling happens on the SHMEM and the SMC transport is capable of
-> > > > > that too, see :
-> > > > > 
-> > > > > drivers/firmware/arm_scmi/transports/smc.c
-> > > > > 
-> > > > > 175         /*
-> > > > > 176          * If there is an interrupt named "a2p", then the service and
-> > > > > 177          * completion of a message is signaled by an interrupt rather
-> > > > > than by
-> > > > > 178          * the return of the SMC call.
-> > > > > 179          */
-> > > > > 180         scmi_info->irq = of_irq_get_byname(cdev->of_node, "a2p");
-> > > > > 
-> > > > 
-> > > > Ah this one, is actually implemented to avoid sort of implicit polling
-> > > > mode we get with any SMC/HVC. I don't know how the platform deals with it
-> > > > but SMC/HVC is synchronous and doesn't need this polling. The irq introduced
-> > > > here is again a sort of workaround to get some sort of async/non-polling
-> > > > mode with SMC/HVC. So, to repeat polling mode make absolutely no sense
-> > > > whatsoever for SMC/OPTEE(based on pure SMC) transports.
-> > > 
-> > > I can drop the SMC part from this patch if you think that's helpful ?
-> > > 
-> > 
-> > Yes, that’s essential, because polling in an SMC context is meaningless in my
-> > opinion.
-> 
-> Maybe the "a2p" IRQ is also used for notifications from longer running
-> operations ?
-> 
+> ---
+>
+> Changes in v7:
+> - Dropped v6 patch 1/6 that removed __init from register_current_timer_delay()
+> - Refactored the init function in patch 4/7 to handle the case of registering
+>    the timer delay function for ARM 32-bit systems from an __init tagged function.
+>    This addresses the original section mismatch issues reported in v4.
+> - Rebased series onto base commit bca42080637c (Merge branch
+>    'next/drivers-late' into for-next).
+>
+> Changes in v6:
+> - Updated module support to only register the MCT driver as a platform driver
+>    for ARM64 to ensure ARM 32-bit SoCs continue to probe the MCT driver very
+>    early.
+> - Squashed the percpu fix suggested by Marek Szyprowski in
+>    https://lore.kernel.org/all/20250827102645.1964659-1-m.szyprowski@samsung.com/
+>    together with patch 3/6.
+>
+> Changes in v5:
+> - Fixed section mismatch issues.
+> - Addressed Arnd's concerns regarding potential issues with unloading and/or
+>    unbinding the driver.
+> - Fixed SoB concerns to clarify the development chain from AOSP to Linux.
+> - Pulled in https://lore.kernel.org/all/20250827102645.1964659-1-m.szyprowski@samsung.com/
+>    to limit percpu interrupts only for ARM64.
+>
+> Changes in v4:
+> - Missed the "v3" string in the previous series for the actual patches
+> - Re-generated patches with --base a15edf91668beefdb5171c53fa698c9b43dd1e0d
+>    for kernel test robot.
+>
+> Changes in v3:
+> - Rebased on top of Daniel's timer modularization prep series [3] and
+>    krzk/for-next commit a15edf91668b ("Merge branch 'next/dt64' into
+>    for-next")
+> - Added owner references to Exynos MCT clocksource and clockevent objects.
+> - Dropped #ifdef MODULE conditional section in favor of just using
+>    module_platform_driver() which will properly handle setting up the
+>    of_device_id table based on if the driver is built-in or a module.
+> - Update commit message for patch 2 based on John's feedback.
+> - Dropped DT change from v2 as it was picked up by Krzysztof for CPU Idle.
+>
+> Changes in v2:
+> - Re-worked patch v1 5 based on Rob Herring's review to use the compatible
+>    data for retrieving the mct_init function pointer.
+> - Updated the Kconfig logic to disallow building the Exynos MCT driver as
+>    a module for ARM32 configurations based on Krzysztof Kozlowski's findings.
+> - Added comments and clarified commit messages in patches 1 and 2 based on
+>    reviews from John Stultz and Youngmin Nam.
+> - Fixed an issue found during testing that resulted in the device getting
+>    stuck on boot. This is included in v2 as patch 5.
+> - Collected *-by tags
+> - Rebased to the latest linux-next/master.
+> ---
+>
+> Donghoon Yu (1):
+>    clocksource/drivers/exynos_mct: Don't register as a sched_clock on
+>      arm64
+>
+> Hosung Kim (1):
+>    clocksource/drivers/exynos_mct: Set percpu local timer interrupts for
+>      ARM64
+>
+> Will McVicker (4):
+>    clocksource/drivers/exynos_mct: Fix uninitialized irq name warning
+>    clocksource/drivers/exynos_mct: Refactor driver init
+>    clocksource/drivers/exynos_mct: Add module support for ARM64
+>    arm64: exynos: Drop select CLKSRC_EXYNOS_MCT
+>
+>   arch/arm64/Kconfig.platforms     |   1 -
+>   drivers/clocksource/Kconfig      |   3 +-
+>   drivers/clocksource/exynos_mct.c | 255 ++++++++++++++++++++++---------
+>   3 files changed, 182 insertions(+), 77 deletions(-)
+>
+>
+> base-commit: bca42080637ce3a21092fc0f7d5411e853b0c3b3
 
-Yes, it is some sort of work around some platforms implemented as by design
-when the SMC returns, the synchronous commands must complete and it is had
-to support async SCMI commands without platform specific interrupt(p2a). This
-a2p is sort of completion interrupt for synchronous command. I assume the
-platform may offload the task from secure f/w to something else otherwise
-secure side needs to be given CPU cycles to complete which complicates this.
-In short SMC is synchronous and if the execution returns from it in NS world,
-the command is complete.
-
-> [...]
-> 
-> > > > Yes it can be minimalistic but not restrictive. As I already clearly mentioned
-> > > > I don't see it makes any sense to enable this for SMC/OPTEE. Lets start with
-> > > > just mailbox to start with and extend to other transports if and when needed.
-> > > > It would be good to impose that restriction in the binding as well but that
-> > > > is not a must IMO. I am fine if the bindings for whatever reasons(though I
-> > > > don't see the need) to apply for any transport.
-> > > So I should simply drop the smc.c changes , keep the rest, and send V2 ?
-> > 
-> > Not just that. Unless DT maintainers oppose, I just want to keep this
-> > new property valid only for mailbox transport(i.e. "arm,scmi" compatible
-> > not otherwise) so that we can catch any other use in binding checks and
-> > interested parties must discuss on the list and expand that if they require.
-> > 
-> > Also we can explore if we can parse and scan this in mailbox transport for
-> > now.
-> I feel that this only adds more implementation complexity and makes the
-> solution less generic, while it does win us very little in the end ? The
-> generic solution implementation is actually easier to implement.
-
-Yes I want it less generic to start with. Why you want to start making
-this workaround on your platform a generic implementation just because
-the specification has provision for it ?
-
+Best regards
 -- 
-Regards,
-Sudeep
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
 
