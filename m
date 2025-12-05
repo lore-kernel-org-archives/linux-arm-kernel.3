@@ -4,84 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64D8CD2F7E7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 12:36:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A872D2F7EB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 12:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=40WaPL3xSyqPdfQ0BAFTST386p7tT1HulIdRWXHJkKo=; b=bM+84B8Etj0/ZYsbWh8vYVjpS8
-	+QqmcCsIONepBNXVlP8p5yUowJCNFdKZ/J3vH9WdULrrnFo6vjTuRtsQ3vy89+ISADFADra/2+a4Z
-	/vAs4CL41+rBgyXIYx5tbfV+QkgxAkXFO9IWcm7IKaZjVUHOEc4LbG+ai3IStj0YRxRIA6ZjSrmvN
-	MqqWyWsTgCOVaBTAW1Ow0P6SDrlULb5eWIote2NslhP+HZUGscXcdvwt2sP3ujwKvvSTNHQCORQKS
-	62ECEfWQNQAnNHxQYGx/SHGfvnMoVcO8zhl7Z477VrH+2zTU2nm+Jh8vgnsLGqPxmVD592sK6oxk0
-	I7Oap9kA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+5ey1vEyaFeJo4owzrkg8DDhyLrlTjfQ2w0NshlQyYE=; b=A+xpc5fNeTz2Gg1SheXXnGjNHW
+	i5sNY+0s91htci4bXTm8ngpF75YzpvfY8sQxQ0HDHUsm28OOuseJUt1vtPd0cBCamFifXM3z7F+hX
+	b8ip0PQIPniMDFmOgAQ7Po4W/jM0o2IZYMIGqBSzwZcgDgMwzHG4XTZ+k9GTJ4qOIsqXg4tCeNqG5
+	m5ZJB0V8hQnOBuMaz31TMPk8A7IA7ibzKCNWpuj43nDcpspb3ubPhdqiapJAxI8t8r+0GWz1/llai
+	dY4Ey/GWQu5iJsVcDz/j9V1ZZ2dsOrLoRt9n9IkpjbizvaWKriDwSdANG4ZcI4SoUHHx5y77BCG9K
+	n6SsFz3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRV31-00000009U43-44B3;
-	Fri, 05 Dec 2025 12:36:31 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vRV4n-00000009UCg-2iQM;
+	Fri, 05 Dec 2025 12:38:21 +0000
+Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRV2z-00000009U3I-15Qs
+	id 1vRV4l-00000009UCN-0GXQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 12:36:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 408D5444A3
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  5 Dec 2025 12:36:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26226C19424
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  5 Dec 2025 12:36:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764938188;
-	bh=40WaPL3xSyqPdfQ0BAFTST386p7tT1HulIdRWXHJkKo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=kA9jAiXM5XfELxuKU9/l9OpMOt7HLiUaJi/7R5aGry/eGkBeBaRtm1w9auQ3EGkDk
-	 daZ1xEFxRCUxO2MhMrxLlHdzG/9Cu39Wj9QBJ5/OF0sQfGnnx7a4bL0FWzsUaRCSxr
-	 GMcrXuuIOSvQDiqpufJzCiIGhx0LiwbHjB8F1SFsWyde9l4ZKQzGdkljBmfTpIPDTC
-	 4xkAZ58K5JMAiu3XuGb36DJ6WypdTSVnzfpxILFJJKVOd2AJZH+tgSvVDBrx/j1dAt
-	 TlNwWkvcoEH28P/xAPkWqu/tbBWQw+fvin+z6lcsIWsGHpn75h1HSrTV9aQWP99VJr
-	 5h8spjUvoS/mg==
-Received: by mail-yw1-f172.google.com with SMTP id 00721157ae682-78a712cfbc0so23417637b3.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 04:36:28 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCU4DnK9tZK759SmUK06lj8Y/Ki7Kpt/GXDZnoXGSLWWTh0bTDa7BNw2+ZmkMqL4A2DBKCSitmcsvddqz9n7iqFt@lists.infradead.org
-X-Gm-Message-State: AOJu0YywPxnBcEQGqOh/jT/CsnsnVh+UK+XFlhjcVpAuVWIxJBrugxyG
-	1YeKAdj9laUwP+LOUrRQIkaAyDrGfQuWtY8gKunCEUrm/GzOUtDddGPMjF/BDrbqKd34oryGFSW
-	1MdmZJJDBGelKRFocrqUqQloIee2ZBC8=
-X-Google-Smtp-Source: AGHT+IFJmlLvuUNZfx9GIfUBDjC2grftRlFjbvDqqrPRzj/oZgXVOMBUT7kbSYooxA8gr0guXcBsmXxXrD2+uuIJcXg=
-X-Received: by 2002:a05:690c:6007:b0:784:883c:a88d with SMTP id
- 00721157ae682-78c0c18ea37mr70979807b3.52.1764938187032; Fri, 05 Dec 2025
- 04:36:27 -0800 (PST)
+	Fri, 05 Dec 2025 12:38:20 +0000
+Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-5957db5bdedso2612505e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 04:38:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1764938296; x=1765543096; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+5ey1vEyaFeJo4owzrkg8DDhyLrlTjfQ2w0NshlQyYE=;
+        b=ckx1zH4ggyYVp5jDa7wPe5OHRBcSjIzfJbGBbQzkd4MdpEv0YcSwzR47Jih13RWF7F
+         hwliMZmBzr1tUMJ4OBvH2DB5G1dK/5WSVOJ5pl+NC859nkbUKIsfmBt1HCLpiKTvR7PZ
+         sVxzj7ABP4X+B1sl/zBvD5xocZYQfWTS52xvCSpQM6ingS2Z+vz2et/xbG9qfbaEeLN3
+         EhSDUNE0mixkemSGm12tGPi8mRa6d/wjzPvDd5Detw+SsjBL56d3AkVk/APgxEYAMkUU
+         uz3NP7vZ6kNAEfmhkVrDq9xs1CuVZw7QCNPh4+4fygQYboGCdmn8Fh8+Mla7R1NvN0pT
+         Jv6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764938296; x=1765543096;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+5ey1vEyaFeJo4owzrkg8DDhyLrlTjfQ2w0NshlQyYE=;
+        b=FIJ7ZJexFrVPpnR09zmdUIQcAmMfap3v24EaO1oWb+P7DVQBA7Ajb8b4M+y3fq7iDo
+         AWShV8tgLXysKmbyRE6Dd8z2HIbqPWtzw8JIIKFSDBglPetljNMC9uZikTHxtFAYCdF4
+         f405XvMuA5p9JI3cPls6ChiCUWoFuKYnEl1p2Ps3Sy1bqmoEQTsV18l+PHnmPJXxYyFD
+         Hb4KA65Y9kslgL5Ehz4D0dArw5zdlywfYBV2g52Q3xwyz6qxU0PA6pfoTtenEwHXQiBa
+         idvKyCzO9l9eU4lfY+6XFNshtwLGR9EP8ZHnPLUuEXWCsLAcQOQ1ZLTsZxCayqc+cgA9
+         fvFw==
+X-Forwarded-Encrypted: i=1; AJvYcCUZx2x7PudN38JI2dw9qVvxv0TM8xGBGuwHf8ZHUZjWhqOor4cQdf/h7pxvLSq15Bi5Y/ZovgT1NF2q7eCXepMB@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJQ2Z7wZjhziQzl2mw0kk7s30v8xBugHwccWm6wv5kuQEQRuSo
+	7whtRc8uyjbEiQGeNQJyVc9OqLdioCb9rW7A0/eyOQSbh5owCEg8pYWhIFyxry1X9qM=
+X-Gm-Gg: ASbGncsYRB1hnXQQMwtQFvd3MbEOnAIZ9aKcG7mxQMrs2wseClMztPLHhDu/pIcqPKj
+	1Cf/n7nsYwN0iRJQ+Pt/TSifFC3yEV/xgAp1Rj+rJ7rniwd0+qIOT14WXERKkswwBwzhzBmGOBz
+	10iiIy7mbqYciPc7/PG6LkvfpL8ym4qQ8mzowyDCtn6NvA0Azokqte8CZqaAtKQhSko1l0OcxEP
+	oTUkvu9zycEOtkH8v8ziFK2PTlaa6zMKuZX9QmfrJGPI/WhWbkp+/fX+0fZJKmyAuZGeN0Uq8CA
+	gSIZ7MHWJLUyW/AsAFGhQJHGnXnNJY4rX7/Sf13QvWtf3avPlj2Gjt7RAmgXDHRfgtq55F2IKX7
+	HtMn/mqQLZvC5m0iFixHbcr1dFKqK4pACzMq8h/OQYrtxeO26+u627bC9dglUxzkiAnTg6uZ/3I
+	Y7DWA+x+MZcPGOY9ivdcEx6TMNRauxDUR9euw40B55ONP3OnkLthThE8o=
+X-Google-Smtp-Source: AGHT+IGW2bb2aXb80GsQX+9Ems/GXyuy3a+l7wu6YocZqKOXTMs0CQftJf6gYMoE9NHuomun6mch5g==
+X-Received: by 2002:a05:6512:1113:b0:594:2e8a:1663 with SMTP id 2adb3069b0e04-597d3f3e67dmr4010247e87.17.1764938296402;
+        Fri, 05 Dec 2025 04:38:16 -0800 (PST)
+Received: from nuoska (87-100-249-247.bb.dnainternet.fi. [87.100.249.247])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-597d7b1a3d9sm1462351e87.4.2025.12.05.04.38.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 05 Dec 2025 04:38:16 -0800 (PST)
+From: Mikko Rapeli <mikko.rapeli@linaro.org>
+To: dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Michal Simek <michal.simek@amd.com>,
+	Bill Mills <bill.mills@linaro.org>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	Mikko Rapeli <mikko.rapeli@linaro.org>
+Subject: [PATCH 0/2] drm: xlnx: zynqmp_kms: 16 bpp fixes for Xorg startup on AMD KV260
+Date: Fri,  5 Dec 2025 14:37:49 +0200
+Message-ID: <20251205123751.2257694-1-mikko.rapeli@linaro.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-References: <20251205-drm-seq-fix-v1-0-fda68fa1b3de@ideasonboard.com>
-In-Reply-To: <20251205-drm-seq-fix-v1-0-fda68fa1b3de@ideasonboard.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Fri, 5 Dec 2025 13:36:15 +0100
-X-Gmail-Original-Message-ID: <CAD++jLkpWoHe5qYSABF1GeDq-9hZh7ZdL-+8Xqu5MA_erzNqsA@mail.gmail.com>
-X-Gm-Features: AQt7F2rYtL9k7rH39ohC1dih2VUr1gAYC2XO7dYs8vpOSbzH63P91fhZJWxLMZY
-Message-ID: <CAD++jLkpWoHe5qYSABF1GeDq-9hZh7ZdL-+8Xqu5MA_erzNqsA@mail.gmail.com>
-Subject: Re: [PATCH 0/4] drm: Revert and fix enable/disable sequence
-To: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
-	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Jyri Sarha <jyri.sarha@iki.fi>, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
-	Aradhya Bhatia <aradhya.bhatia@linux.dev>, Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
-	Vicente Bergas <vicencb@gmail.com>, Marek Vasut <marek.vasut+renesas@mailbox.org>, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_043629_342000_059E99DF 
-X-CRM114-Status: GOOD (  17.54  )
+X-CRM114-CacheID: sfid-20251205_043819_109034_72AF8AD6 
+X-CRM114-Status: UNSURE (   7.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,43 +108,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 5, 2025 at 10:52=E2=80=AFAM Tomi Valkeinen
-<tomi.valkeinen@ideasonboard.com> wrote:
+Hi,
 
-> Changing the enable/disable sequence in commit c9b1150a68d9
-> ("drm/atomic-helper: Re-order bridge chain pre-enable and post-disable")
-> has caused regressions on multiple platforms: R-Car, MCDE, Rockchip.
->
-> This is an alternate series to Linus' series:
->
-> https://lore.kernel.org/all/20251202-mcde-drm-regression-thirdfix-v6-0-f1=
-bffd4ec0fa%40kernel.org/
->
-> This series first reverts the original commit and reverts a fix for
-> mediatek which is no longer needed. It then exposes helper functions
-> from DRM core, and finally implements the new sequence only in the tidss
-> driver.
->
-> There is one more fix in upstream for the original commit, commit
-> 5d91394f2361 ("drm/exynos: fimd: Guard display clock control with
-> runtime PM calls"), but I have not reverted that one as it looks like a
-> valid patch in its own.
->
-> I added Cc stable v6.17+ to all patches, but I didn't add Fixes tags, as
-> I wasn't sure what should they point to. But I could perhaps add Fixes:
-> <original commit> to all of these.
->
-> Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Currently on default yocto images Xorg fails to start on AMD KV260
+because 24/32 color depth gets detected but does not actually work.
 
-The series:
-Reviewed-by: Linus Walleij <linusw@kernel.org>
-Tested-by: Linus Walleij <linusw@kernel.org>
+These two patches fix the issue and now 16 bpp gets detected
+and Xorg starts and draws on external HDMI display using
+kernel.org based linux-yocto kernel.
 
-In my opinion Laurent is the more senior maintainer and my
-trust level in him is the highest of all the maintainers, so
-I think we should apply this revert series if
-Laurent ACKs that this is what he thinks is best for DRI.
+Anatoliy Klymenko (1):
+  drm: xlnx: zynqmp_kms: Init fbdev with 16 bit color
 
-Yours,
-Linus Walleij
+Mikko Rapeli (1):
+  drm: xlnx: zynqmp_kms: set preferred_depth to 16 bpp
+
+ drivers/gpu/drm/xlnx/zynqmp_kms.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+-- 
+2.34.1
+
 
