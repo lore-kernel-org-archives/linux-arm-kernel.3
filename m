@@ -4,59 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 248CFD33992
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 17:00:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2CB2D33992
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 17:13:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2HpzFKVfReUYpGSnAB6y94g7QASoiuC/PSTT/yRecTk=; b=RemNpYyNCqQ4UflW6ze2mgdCfy
-	UphQ6ZMv2nKtQRTm+EYK1+aFDgIX7VRyYfDMT/yqbuOVLSDwPC7Ls305K90nZqG83SjpuHj7L+KgL
-	7sPzh30DWx4/eqp0B5y/AFT1t5I31sk7XN1OkA2ytLdQMEpYwNfxRyMW0fpjc2my4+7Yk9hRSgJEl
-	6WvKcUmN2KFfmUD9D8ZZW4nhtTrPg2r4HEsF95wAd9hWyFS0KBAHJJfQ26xm2a8L2V4boMFOYbvBt
-	3uOcAmRajmSXGxX7mi5wf/xl2aDA8hgNIzQu38PSyjbubTW2lpBTM2tkVSGli+3zT7Kx0M5xxzDDJ
-	p10srXTg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3JloaBl4rlgDci2uiwC1HcZeEPMxAhnyN6C1iIHa2CA=; b=zgqM/OK+3hSHZ7QhJIlMlmReIM
+	fAL54whr58lv990c6SmPQd2TCwZ2/X+LCuQ0MW4B2+E+ILiuouvejtEBg3Xbn/FBfu9YkXuqYzY1z
+	dmV3ESPomaoiIWaMTytaMzqycd/5erzfwY+zDhU8OB9XU4u7nkY1+5XTHNGnCAIPJI2UtJnARP0Bp
+	UX8gejgtucKkt9bsTW6LaQCJpTmL70Pnrfl6jo44MGnxBHwZZrtgXDZUW0oA1eIjnoVwtDCqSEhKI
+	ZpIhHuD3Jp9Iw1cka/kyg4aaL5wDoLnoEN/S4N/+ZVt+oa0qPAJsmjjWwzPkXepvtJjHCx1Vo36sh
+	zKb/iy8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRZAP-00000009jDX-2UTm;
-	Fri, 05 Dec 2025 17:00:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vRZN9-00000009k1f-2u0l;
+	Fri, 05 Dec 2025 17:13:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRZAM-00000009jCy-1FdZ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 17:00:22 +0000
+	id 1vRZN7-00000009k1A-1RPb;
+	Fri, 05 Dec 2025 17:13:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F2806600C4;
-	Fri,  5 Dec 2025 17:00:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9686C19424;
-	Fri,  5 Dec 2025 17:00:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 2A926435CD;
+	Fri,  5 Dec 2025 17:13:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 387F1C4CEF1;
+	Fri,  5 Dec 2025 17:13:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764954020;
-	bh=bQaicZElGWpPclJv8Q7F14L4vqc96yraUR5va+jry88=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EwWy473Reu64vPTt4Bj3ZOib9vBdWVZ4je+3cT3NlXAffYDSQi3YYjoIx2ymawyel
-	 04Ub+oXS9uB41rITYFfzywYfM7Yw9xArA0Fs9ilkdf0lZNFuFVFsqHA+qMHn4pgtwx
-	 fUGSWeZdByeLm5ItzsalPUQL+48kA+XxVkylkCC7V2wU25T5s4UVEz7guUg74VhbZG
-	 szEykXG4ownraWcIj0dSSONcgGsT4QLdRUGZBtrebHOHNwtBPVJZ6mDupbfgwCWgCC
-	 7o4eXJaVke3x7W2UhL6+YDf3DrPwV4kYrw1ty52jBU2B7/hyTG47woFnGWYLw5D6sf
-	 T9JJnBdm652Tw==
-Date: Fri, 5 Dec 2025 17:00:15 +0000
-From: Will Deacon <will@kernel.org>
-To: Oliver Upton <oupton@kernel.org>
-Cc: Fuad Tabba <tabba@google.com>, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, catalin.marinas@arm.com
-Subject: Re: [PATCH v1 0/5] KVM: arm64: Enforce MTE disablement at EL2
-Message-ID: <aTMPn0dBbSVUwwJ1@willie-the-truck>
-References: <20251127122210.4111702-1-tabba@google.com>
- <aS9rmMgNna7I5g4F@kernel.org>
+	s=k20201202; t=1764954812;
+	bh=4G9Kt5ZYk1+ldZzyiWEvbKsl4PYFjTqYeP0O5U3nRXc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=tz5VUxI8+BlhSRztOKjfn1mfVx7a6K/JOnY5Ika35qmAUFzeT8rxr9/WEgljk9GQ6
+	 CMlkvdoXHsjMMp9JoeBx9RWWq74t3sY2nDibM/MjtHSNE4ceU3M2DCSMiqOx9qDRJl
+	 6yipdpqsN2m8b7BADwmcIqBYIKPLBxnNaa8say2bjt37ld0nzyuwsm5FbVkTBD82aK
+	 QjGX/NWfi1auS2D6KHKQKe60INfhl4pRI2E2xWP2LNDHSJhYd9PY1DvlE2Sf72tt1Q
+	 f5PAVNswaw1vRwMK6XcVApZlPCnSnJKccml0uQcmlSS1QvRyDS0DBBCiTclxB1jGV2
+	 SdW+5yveQ1CQQ==
+Message-ID: <18eeb1c5-d21b-4505-b6a4-472f6e191864@kernel.org>
+Date: Fri, 5 Dec 2025 18:13:26 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aS9rmMgNna7I5g4F@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 1/2] dt-bindings: phy: google: Add Google Tensor G5 USB
+ PHY
+To: Roy Luo <royluo@google.com>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Badhri Jagan Sridharan <badhri@google.com>,
+ Doug Anderson <dianders@google.com>, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>
+References: <20251205-phyb4-v8-0-c59ea80a4458@google.com>
+ <20251205-phyb4-v8-1-c59ea80a4458@google.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251205-phyb4-v8-1-c59ea80a4458@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251205_091333_432451_D8C3CB68 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,61 +126,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 02, 2025 at 02:43:36PM -0800, Oliver Upton wrote:
-> On Thu, Nov 27, 2025 at 12:22:05PM +0000, Fuad Tabba wrote:
-> > pKVM never exposes MTE to protected guests (pVM), but we must also
-> > ensure a malicious host cannot use MTE to attack the hypervisor or a
-> > pVM.
-> > 
-> > If MTE is supported by the hardware (and is enabled at EL3), it remains
-> > available to lower exception levels by default. Disabling it in the host
-> > kernel (e.g., via 'arm64.nomte') only stops the kernel from advertising
-> > the feature; it does not physically disable MTE in the hardware.
-> > 
-> > In this scenario, a malicious host could still access tags in pages
-> > donated to a guest using MTE instructions (e.g., STG and LDG), bypassing
-> > the kernel's configuration.
-> > 
-> > To prevent this, explicitly disable MTE at EL2 (by clearing HCR_EL2.ATA)
-> > when the host has MTE disabled. This causes any MTE instruction usage to
-> > generate a Data Abort (trap) to the hypervisor.
-> > 
-> > Additionally, to faithfully mimic hardware that does not support MTE,
-> > trap accesses to MTE system registers (e.g., GCR_EL1) and inject an
-> > Undefined Instruction exception back to the host.
-> > 
-> > This logic is applied in all non-VHE modes. For non-protected modes,
-> > this remains beneficial as it prevents unpredictable behavior caused by
-> > accessing allocation tags when the system considers them disabled.
-> > 
-> > Note that this ties into my other outgoing patch series [1], which also
-> > has some MTE-related fixes, but is not dependent on it.
+On 05/12/2025 04:54, Roy Luo wrote:
+> Document the device tree bindings for the USB PHY interfaces integrated
+> with the DWC3 controller on Google Tensor SoCs, starting with G5
+> generation (Laguna). The USB PHY on Tensor G5 includes two integrated
+> Synopsys PHY IPs: the eUSB 2.0 PHY IP and the USB 3.2/DisplayPort combo
+> PHY IP.
 > 
-> To be honest, I've actually been having a bit of a hard time
-> rationalizing some of these targeted fixes for pKVM. It has been in a
-> half working state upstream for O(years) and we haven't made forward
-> progress on enabling pVMs.
+> Due to a complete architectural overhaul in the Google Tensor G5, the
+> existing Samsung/Exynos USB PHY binding for older generations of Google
+> silicons such as gs101 are no longer compatible, necessitating this new
+> device tree binding.
 > 
-> Fully aware that guest_memfd has been one of the long poles here, but
-> I'm becoming less interested in fixes addressing "pKVM policy is XYZ"
-> without having the full picture of the feature.
+> Signed-off-by: Roy Luo <royluo@google.com>
 
-That's completely understandable and we're similarly frustrated.
+Why intentionally dropping the tag? How are you handling this patchset?
+Rewrite every time from scratch?
 
-> What are the upstream plans on enabling some basic implementation of
-> protected VMs?
+<form letter>
+This is a friendly reminder during the review process.
 
-Funnily enough, I've been hacking on this recently and I've ended up
-with something that I think serves as a good basis for enabling pvms
-incrementally upstream. I need to clean the patches up but I'll be
-flying to Japan and back next week so that gives me a good opportunity
-to do exactly that!
+It looks like you received a tag and forgot to add it.
 
-In the meantime, I hope you'll still consider fixes for non-protected
-guests under pKVM (e.g. [1]), as that is an area where I think we've
-made some reasonable progress.
+If you do not know the process, here is a short explanation:
+Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
+of patchset, under or above your Signed-off-by tag, unless patch changed
+significantly (e.g. new properties added to the DT bindings). Tag is
+"received", when provided in a message replied to you on the mailing
+list. Tools like b4 can help here. However, there's no need to repost
+patches *only* to add the tags. The upstream maintainer will do that for
+tags received on the version they apply.
 
-Will
+Please read:
+https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
 
-[1] https://lore.kernel.org/all/20251128141710.19472-1-will@kernel.org/
+If a tag was not added on purpose, please state why and what changed.
+</form letter>
+
+Best regards,
+Krzysztof
 
