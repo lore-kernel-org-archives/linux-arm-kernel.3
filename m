@@ -4,35 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCA3CD374AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:01:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1941D374AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:01:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x7T/jWkXTRUSZSK9tuzWBYA4vIzcJnODWvXAs+7NvT0=; b=dZ18zHzD4Z/+qSO1k6lfY3VXiL
-	jzVf7uBucUvDZSz5RfzUF4VZTIarf3k/HjBsLGUWHI5L8X6WbZEmtQRddd09y+LEiHDMMkt/UG/S+
-	G2OmIPV1MaPUqiHfN2nPoazWgkEAsqtOa25oj7IbHwrXOOad87olKjAn1+3k5JuF9NWuUvmQrWzC4
-	qFOJlDPlmXSkAjMaGDaIpyBsXFuDdeuLWHqyrKnGYDVjL4W/NvAPaCfrjb0aM/zEh3R5aJv+U+dZw
-	/H0SaVvVxwyeRd4OwDPN15p3ZCZQIfsCSwyx0Vpne21YqQtMF84Opez/2bjw4ESNy1Tr40lzaekkb
-	YgHX2bgA==;
+	bh=Lc9J5lvEv7upyVjEjf3Fct2vRKHOsrYNRWB14qGNny8=; b=FeCC6ndSnWqCATW/jhXTbB2yJe
+	of8celsCL44sWI12pG0vrQ/0mbwAdeoFzAcc/qq3Ch8IfH9ItoY/YLvvFk2aJSgpZ+fqI4sX2Apco
+	eRd2Tu/oFN2AFj9oOZe9tIoDigO9UeRnywh+/0BJ9OIoskjvCae3eNsQEWFewuO5mjeROtdVovTRU
+	6JepG4cFN45uMx18udHKzOxZKyK7lXDAjKWy51FjJFjZ8TRml4zKdiN2ozDHYfkPwkNidWVC0QzdP
+	tqEejE/lfQdX9TqTDzkj7DiaZ4bkx284qSAyi3JqCHqjhVzg7iizjqHkvgz8ugpVLIIrrCUE459XV
+	2xd2zJJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdru-0000000A6yQ-0fMS;
-	Fri, 05 Dec 2025 22:01:38 +0000
+	id 1vRds8-0000000A7Ec-35XH;
+	Fri, 05 Dec 2025 22:01:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vRds7-0000000A7Bp-0IEE
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 05 Dec 2025 22:01:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=Lc9J5lvEv7upyVjEjf3Fct2vRKHOsrYNRWB14qGNny8=; b=Z7uf5Qkr3Ubo44U9OQDMSf/68e
+	/zaS9DDnjET3AprKtdVI6ISrOmq7PjrF5niZQKD+QkR0kyFy0f+7csKEzmGlEQduwZD/gyiT1wMc1
+	rRkQ8lwUqhhV0fUztas2Uf75jL1ySpgBwNNSnwX1cMopklltAOspII2sMbPkeGXQ5lpOV3wKbsV+E
+	TPTy/O9EWC/J/7BnQMtp3Y+iUIt/48rrpwd45d0ChFI7Ga24Ro6W2iTx6c7ZWrrfXo5XBDhbljJ1A
+	8W2Gw6+uLDR3Psga5KHTwwFlvZt7dnPH8U5QbsgvTy/Qdz1vs4Q7XULD5+caZXtp5ztwD7KGRDF8F
+	aLaCdp5Q==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdrq-0000000A6to-40y7
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vRd0S-00000006swK-3oZj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 22:01:36 +0000
+	Fri, 05 Dec 2025 21:06:30 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 11AA31AED;
-	Fri,  5 Dec 2025 14:01:27 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F2541BC0;
+	Fri,  5 Dec 2025 14:01:35 -0800 (PST)
 Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 925E53F740;
-	Fri,  5 Dec 2025 14:01:30 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A45663F740;
+	Fri,  5 Dec 2025 14:01:38 -0800 (PST)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
@@ -59,18 +74,19 @@ Cc: James Morse <james.morse@arm.com>,
 	Ben Horgan <ben.horgan@arm.com>,
 	rohit.mathew@arm.com,
 	reinette.chatre@intel.com,
-	Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-Subject: [RFC PATCH 31/38] arm_mpam: resctrl: Update the rmid reallocation limit
-Date: Fri,  5 Dec 2025 21:58:54 +0000
-Message-Id: <20251205215901.17772-32-james.morse@arm.com>
+	Punit Agrawal <punit.agrawal@oss.qualcomm.com>,
+	Zeng Heng <zengheng4@huawei.com>
+Subject: [RFC PATCH 33/38] arm_mpam: Generate a configuration for min controls
+Date: Fri,  5 Dec 2025 21:58:56 +0000
+Message-Id: <20251205215901.17772-34-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20251205215901.17772-1-james.morse@arm.com>
 References: <20251205215901.17772-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_140135_109167_2473FDF0 
-X-CRM114-Status: GOOD (  19.20  )
+X-CRM114-CacheID: sfid-20251205_210628_623065_228BC909 
+X-CRM114-Status: GOOD (  22.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,121 +101,239 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-resctrl's limbo code needs to be told when the data left in a cache is
-small enough for the partid+pmg value to be re-allocated.
+MPAM supports a minimum and maximum control for memory bandwidth. The
+purpose of the minimum control is to give priority to tasks that are
+below their minimum value. Resctrl only provides one value for the
+bandwidth configuration, which is used for the maximum.
 
-x86 uses the cache size divided by the number of rmid users the cache
-may have. Do the same, but for the smallest cache, and with the
-number of partid-and-pmg users.
+The minimum control is always programmed to zero on hardware that
+supports it.
 
-Querying the cache size can't happen until after cacheinfo_sysfs_init()
-has run, so mpam_resctrl_setup() must wait until then.
+Generate a minimum bandwidth value that is 5% lower than the
+value provided by resctrl. This means tasks that are not
+receiving their target bandwidth can be prioritised by the
+hardware.
 
+CC: Zeng Heng <zengheng4@huawei.com>
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
- drivers/resctrl/mpam_resctrl.c | 54 ++++++++++++++++++++++++++++++++++
- 1 file changed, 54 insertions(+)
+ drivers/resctrl/mpam_devices.c      | 68 +++++++++++++++++++++++++++--
+ drivers/resctrl/mpam_internal.h     |  2 +
+ drivers/resctrl/test_mpam_devices.c | 66 ++++++++++++++++++++++++++++
+ 3 files changed, 132 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index 506063bd3348..ccdf8db742c9 100644
---- a/drivers/resctrl/mpam_resctrl.c
-+++ b/drivers/resctrl/mpam_resctrl.c
-@@ -16,6 +16,7 @@
- #include <linux/resctrl.h>
- #include <linux/slab.h>
- #include <linux/types.h>
-+#include <linux/wait.h>
+diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+index 1334093fc03e..741e14e1e6cf 100644
+--- a/drivers/resctrl/mpam_devices.c
++++ b/drivers/resctrl/mpam_devices.c
+@@ -721,6 +721,13 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
+ 			mpam_set_feature(mpam_feat_mbw_part, props);
  
- #include <asm/mpam.h>
- 
-@@ -58,6 +59,13 @@ static bool cdp_enabled;
-  */
- static bool resctrl_enabled;
- 
-+/*
-+ * mpam_resctrl_pick_caches() needs to know the size of the caches. cacheinfo
-+ * populates this from a device_initcall(). mpam_resctrl_setup() must wait.
-+ */
-+static bool cacheinfo_ready;
-+static DECLARE_WAIT_QUEUE_HEAD(wait_cacheinfo_ready);
+ 		props->bwa_wd = FIELD_GET(MPAMF_MBW_IDR_BWA_WD, mbw_features);
 +
- /*
-  * L3 local/total may come from different classes - what is the number of MBWU
-  * 'on L3'?
-@@ -584,6 +592,38 @@ void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_mon_domain *d,
- 	reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
++		/*
++		 * The BWA_WD field can represent 0-63, but the control fields it
++		 * describes have a maximum of 16 bits.
++		 */
++		props->bwa_wd = min(props->bwa_wd, 16);
++
+ 		if (props->bwa_wd && FIELD_GET(MPAMF_MBW_IDR_HAS_MAX, mbw_features))
+ 			mpam_set_feature(mpam_feat_mbw_max, props);
+ 
+@@ -1387,7 +1394,7 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
+ 
+ 	if (mpam_has_feature(mpam_feat_mbw_min, rprops) &&
+ 	    mpam_has_feature(mpam_feat_mbw_min, cfg))
+-		mpam_write_partsel_reg(msc, MBW_MIN, 0);
++		mpam_write_partsel_reg(msc, MBW_MIN, cfg->mbw_min);
+ 
+ 	if (mpam_has_feature(mpam_feat_mbw_max, rprops) &&
+ 	    mpam_has_feature(mpam_feat_mbw_max, cfg)) {
+@@ -2693,24 +2700,77 @@ static bool mpam_update_config(struct mpam_config *cfg,
+ 	maybe_update_config(cfg, mpam_feat_cpor_part, newcfg, cpbm, has_changes);
+ 	maybe_update_config(cfg, mpam_feat_mbw_part, newcfg, mbw_pbm, has_changes);
+ 	maybe_update_config(cfg, mpam_feat_mbw_max, newcfg, mbw_max, has_changes);
++	maybe_update_config(cfg, mpam_feat_mbw_min, newcfg, mbw_min, has_changes);
+ 
+ 	return has_changes;
  }
  
-+/*
-+ * The rmid realloc threshold should be for the smallest cache exposed to
-+ * resctrl.
-+ */
-+static int update_rmid_limits(struct mpam_class *class)
++static void mpam_extend_config(struct mpam_class *class, struct mpam_config *cfg)
 +{
-+	u32 num_unique_pmg = resctrl_arch_system_num_rmid_idx();
 +	struct mpam_props *cprops = &class->props;
-+	struct cacheinfo *ci;
++	u16 min, min_hw_granule, delta;
++	u16 max_hw_value, res0_bits;
 +
-+	lockdep_assert_cpus_held();
++	/*
++	 * MAX and MIN should be set together. If only one is provided,
++	 * generate a configuration for the other. If only one control
++	 * type is supported, the other value will be ignored.
++	 *
++	 * Resctrl can only configure the MAX.
++	 */
++	if (mpam_has_feature(mpam_feat_mbw_max, cfg) &&
++	    !mpam_has_feature(mpam_feat_mbw_min, cfg)) {
++		/*
++		 * Calculate the values the 'min' control can hold.
++		 * e.g. on a platform with bwa_wd = 8, min_hw_granule is 0x00ff
++		 * because those bits are RES0. Configurations of this value
++		 * are effectively zero. But configurations need to saturate
++		 * at min_hw_granule on systems with mismatched bwa_wd, where
++		 * the 'less than 0' values are implemented on some MSC, but
++		 * not others.
++		 */
++		res0_bits = 16 - cprops->bwa_wd;
++		max_hw_value = ((1 << cprops->bwa_wd) - 1) << res0_bits;
++		min_hw_granule = ~max_hw_value;
 +
-+	/* Assume cache levels are the same size for all CPUs... */
-+	ci = get_cpu_cacheinfo_level(smp_processor_id(), class->level);
-+	if (!ci || ci->size == 0) {
-+		pr_debug("Could not read cache size for class %u\n",
-+			 class->level);
-+		return -EINVAL;
++		delta = ((5 * MPAMCFG_MBW_MAX_MAX) / 100) - 1;
++		if (cfg->mbw_max > delta)
++			min = cfg->mbw_max - delta;
++		else
++			min = 0;
++
++		cfg->mbw_min = max(min, min_hw_granule);
++		mpam_set_feature(mpam_feat_mbw_min, cfg);
 +	}
-+
-+	if (!mpam_has_feature(mpam_feat_msmon_csu, cprops))
-+		return 0;
-+
-+	if (!resctrl_rmid_realloc_limit ||
-+	    ci->size < resctrl_rmid_realloc_limit) {
-+		resctrl_rmid_realloc_limit = ci->size;
-+		resctrl_rmid_realloc_threshold = ci->size / num_unique_pmg;
-+	}
-+
-+	return 0;
 +}
 +
- static bool cache_has_usable_cpor(struct mpam_class *class)
+ int mpam_apply_config(struct mpam_component *comp, u16 partid,
+-		      struct mpam_config *cfg)
++		      struct mpam_config *user_cfg)
  {
- 	struct mpam_props *cprops = &class->props;
-@@ -1025,6 +1065,9 @@ static void mpam_resctrl_pick_counters(void)
- 			/* CSU counters only make sense on a cache. */
- 			switch (class->type) {
- 			case MPAM_CLASS_CACHE:
-+				if (update_rmid_limits(class))
-+					continue;
-+
- 				counter_update_class(QOS_L3_OCCUP_EVENT_ID, class);
- 				return;
- 			default:
-@@ -1731,6 +1774,8 @@ int mpam_resctrl_setup(void)
- 	struct mpam_resctrl_res *res;
- 	struct mpam_resctrl_mon *mon;
+ 	struct mpam_write_config_arg arg;
+ 	struct mpam_msc_ris *ris;
++	struct mpam_config cfg;
+ 	struct mpam_vmsc *vmsc;
+ 	struct mpam_msc *msc;
  
-+	wait_event(wait_cacheinfo_ready, cacheinfo_ready);
+ 	lockdep_assert_cpus_held();
+ 
 +
- 	cpus_read_lock();
- 	for (i = 0; i < RDT_NUM_RESOURCES; i++) {
- 		res = &mpam_resctrl_controls[i];
-@@ -1854,6 +1899,15 @@ void mpam_resctrl_teardown_class(struct mpam_class *class)
- 	}
+ 	/* Don't pass in the current config! */
+-	WARN_ON_ONCE(&comp->cfg[partid] == cfg);
++	WARN_ON_ONCE(&comp->cfg[partid] == user_cfg);
+ 
+-	if (!mpam_update_config(&comp->cfg[partid], cfg))
++	/*
++	 * Copy the config to avoid writing back the 'extended' version to
++	 * the caller.
++	 * This avoids mpam_devices.c setting a mbm_min that mpam_resctrl.c
++	 * is unaware of ... when it then changes mbm_max to be lower than
++	 * mbm_min.
++	 */
++	cfg = *user_cfg;
++
++	mpam_extend_config(comp->class, &cfg);
++
++	if (!mpam_update_config(&comp->cfg[partid], &cfg))
+ 		return 0;
+ 
+ 	arg.comp = comp;
+diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+index b13d5e55e701..d381906545ed 100644
+--- a/drivers/resctrl/mpam_internal.h
++++ b/drivers/resctrl/mpam_internal.h
+@@ -277,6 +277,7 @@ struct mpam_config {
+ 	u32	cpbm;
+ 	u32	mbw_pbm;
+ 	u16	mbw_max;
++	u16	mbw_min;
+ 
+ 	bool	reset_cpbm;
+ 	bool	reset_mbw_pbm;
+@@ -618,6 +619,7 @@ static inline void mpam_resctrl_teardown_class(struct mpam_class *class) { }
+  * MPAMCFG_MBW_MAX - MPAM memory maximum bandwidth partitioning configuration
+  *                   register
+  */
++#define MPAMCFG_MBW_MAX_MAX_NR_BITS	16
+ #define MPAMCFG_MBW_MAX_MAX		GENMASK(15, 0)
+ #define MPAMCFG_MBW_MAX_HARDLIM		BIT(31)
+ 
+diff --git a/drivers/resctrl/test_mpam_devices.c b/drivers/resctrl/test_mpam_devices.c
+index 3e8d564a0c64..2f802fd9f249 100644
+--- a/drivers/resctrl/test_mpam_devices.c
++++ b/drivers/resctrl/test_mpam_devices.c
+@@ -322,6 +322,71 @@ static void test_mpam_enable_merge_features(struct kunit *test)
+ 	mutex_unlock(&mpam_list_lock);
  }
  
-+static int __init __cacheinfo_ready(void)
++static void test_mpam_extend_config(struct kunit *test)
 +{
-+	cacheinfo_ready = true;
-+	wake_up(&wait_cacheinfo_ready);
++	struct mpam_config fake_cfg = { };
++	struct mpam_class fake_class = { };
 +
-+	return 0;
++	/* Configurations with both are not modified */
++	fake_class.props.bwa_wd = 16;
++	fake_cfg.mbw_max = 0xfeef;
++	fake_cfg.mbw_min = 0xfeef;
++	bitmap_zero(fake_cfg.features, MPAM_FEATURE_LAST);
++	mpam_set_feature(mpam_feat_mbw_max, &fake_cfg);
++	mpam_set_feature(mpam_feat_mbw_min, &fake_cfg);
++	mpam_extend_config(&fake_class, &fake_cfg);
++	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_max, &fake_cfg));
++	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_min, &fake_cfg));
++	KUNIT_EXPECT_EQ(test, fake_cfg.mbw_max, 0xfeef);
++	KUNIT_EXPECT_EQ(test, fake_cfg.mbw_min, 0xfeef);
++
++	/* When a min is missing, it is generated */
++	fake_class.props.bwa_wd = 16;
++	fake_cfg.mbw_max = 0xfeef;
++	fake_cfg.mbw_min = 0;
++	bitmap_zero(fake_cfg.features, MPAM_FEATURE_LAST);
++	mpam_set_feature(mpam_feat_mbw_max, &fake_cfg);
++	mpam_extend_config(&fake_class, &fake_cfg);
++	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_max, &fake_cfg));
++	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_min, &fake_cfg));
++	KUNIT_EXPECT_EQ(test, fake_cfg.mbw_max, 0xfeef);
++	KUNIT_EXPECT_EQ(test, fake_cfg.mbw_min, 0xf224);
++
++	fake_class.props.bwa_wd = 8;
++	fake_cfg.mbw_max = 0xfeef;
++	fake_cfg.mbw_min = 0;
++	bitmap_zero(fake_cfg.features, MPAM_FEATURE_LAST);
++	mpam_set_feature(mpam_feat_mbw_max, &fake_cfg);
++	mpam_extend_config(&fake_class, &fake_cfg);
++	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_max, &fake_cfg));
++	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_min, &fake_cfg));
++	KUNIT_EXPECT_EQ(test, fake_cfg.mbw_max, 0xfeef);
++	KUNIT_EXPECT_EQ(test, fake_cfg.mbw_min, 0xf224);
++
++	/* 5% below the minimum granule, is still the minimum granule */
++	fake_class.props.bwa_wd = 12;
++	fake_cfg.mbw_max = 0xf;
++	fake_cfg.mbw_min = 0;
++	bitmap_zero(fake_cfg.features, MPAM_FEATURE_LAST);
++	mpam_set_feature(mpam_feat_mbw_max, &fake_cfg);
++	mpam_extend_config(&fake_class, &fake_cfg);
++	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_max, &fake_cfg));
++	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_min, &fake_cfg));
++	KUNIT_EXPECT_EQ(test, fake_cfg.mbw_max, 0xf);
++	KUNIT_EXPECT_EQ(test, fake_cfg.mbw_min, 0xf);
++
++	fake_class.props.bwa_wd = 16;
++	fake_cfg.mbw_max = 0x4;
++	fake_cfg.mbw_min = 0;
++	bitmap_zero(fake_cfg.features, MPAM_FEATURE_LAST);
++	mpam_set_feature(mpam_feat_mbw_max, &fake_cfg);
++	mpam_extend_config(&fake_class, &fake_cfg);
++	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_max, &fake_cfg));
++	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_min, &fake_cfg));
++	KUNIT_EXPECT_EQ(test, fake_cfg.mbw_max, 0x4);
++	KUNIT_EXPECT_EQ(test, fake_cfg.mbw_min, 0x0);
 +}
-+device_initcall_sync(__cacheinfo_ready);
 +
- #ifdef CONFIG_MPAM_KUNIT_TEST
- #include "test_mpam_resctrl.c"
- #endif
+ static void test_mpam_reset_msc_bitmap(struct kunit *test)
+ {
+ 	char __iomem *buf = kunit_kzalloc(test, SZ_16K, GFP_KERNEL);
+@@ -378,6 +443,7 @@ static struct kunit_case mpam_devices_test_cases[] = {
+ 	KUNIT_CASE(test_mpam_reset_msc_bitmap),
+ 	KUNIT_CASE(test_mpam_enable_merge_features),
+ 	KUNIT_CASE(test__props_mismatch),
++	KUNIT_CASE(test_mpam_extend_config),
+ 	{}
+ };
+ 
 -- 
 2.39.5
 
