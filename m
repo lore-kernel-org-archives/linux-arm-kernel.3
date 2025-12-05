@@ -4,152 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1C48D2E012
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 07:16:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5F6ED2E02E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 07:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=dRDUTsAhoXIkUcHB2XQN5stHi33MogA/3RpfMgdlRBE=; b=Zfs84Qk0yfEoZ/kxl+10YGiMmg
-	5aexi2Dt4fdQOlztokQ0GfQZQKs/xly164ebKaTUKVoJ5xXnPpiSXBamUUtP1bpYKw4LTMwYLzCiw
-	PxbDv4XdHixpbSOW7YejMUoJNrxuRvcury+Pti06lQbtanO6/OGfkimPjBFjuAq6cUM76XJwoJn6G
-	CmjgPDJbHN+yenynCRSIXK6D2nh/GxL3cGCjCLEae4GLwaulDGwlHFftjGpJ/Y2ihDT+CJ2gRElh/
-	m9xZF46KDzh7fpEtwxLk0ijTx9/kZIxdhH3Sle8CjWD+b10WgS2BgfgY9Uqb1ZQCqG0maTNVrW9x8
-	fAEqnLUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SLD+VL6KxaJNpLbOdAPh6PBCjAs3r0xZd7BY2IsaVLQ=; b=L/nAiyIkQGos1TVpCUyIeaRmgx
+	lwSF8KBoZ4I5AXb1U5mQwDZ7ZT3BAaVZ0L29hIxRo1dMSo5CU90N5TEDpdz11eOJU+XtVyMW5i+T8
+	OZfcOhoVCV1Zqg134zEK9ueI1A9c+vGUJVhSzadwYBrfuuIbQUEcl7eiK5vm9KM+K+Jp6Hnuwr3Iw
+	XBUYWaPmiEr+YWJmD4Jo35BUnUQQatYmkOlje3zvdAbovYv9AtagH43Kk0cg0GRh+QRMUYoaedhy3
+	Tus7jqMrsSQ6QPTb+csnXESeNzJ2VYfnQWGZX0djpuzLgK+N8WrntAHFSSERI8nhaVpptxsT5xa0e
+	05/mqP3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRQ2m-000000098hB-3U0v;
-	Fri, 05 Dec 2025 07:15:59 +0000
-Received: from mail-swedencentralazon11013022.outbound.protection.outlook.com ([52.101.83.22] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vRQgy-00000009BjU-3ZYM;
+	Fri, 05 Dec 2025 07:57:28 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRQ2g-000000098g7-1itI
+	id 1vRQgv-00000009Biu-2XPn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 07:15:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wPMdH2Ph4EDiFifM6Z9ojzv6SsJ2LgbnoEfyxGte+S1NpbSNmG9r776pxmrySRBg0uLCObzMLNYHtncMvfyjM1+VGgJxwN0mcZ9MtHkaGExhzpIQ+7oYElgr91JGxc+GxgsLRN7DKG8PGvDuYrkoipYKt0Zb/cgidaJGKEAaJZIDtH6xmDtZqgoK1WEafiUCWvvIGmZ0MXngHM+DwtIIr7P42QJYqKctEK0feznmL9ouNeHda9l+4P2wGs1VL69FHYDziPxyZc+Z15Sig25H1l8thReXQDGNhS1UJtywEx6Zqzix4U+9ZdO595KorRyQ85cQpEdSmIFfvhbW5Gcmaw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dRDUTsAhoXIkUcHB2XQN5stHi33MogA/3RpfMgdlRBE=;
- b=k2aUlQRyO2nikQlKrdEleGik1OeJy3HZVmAYi8R4y5A7EY5NJXR/9yM/eBUNEH948zYePGIQmJS0QZ26uzRwhYfce7CzU3H1g8lkdiW+38vV0HEpPxH7VpRJ1P9423wlkGDMydISIGhcCDMaCKbqbMlo8lTfVlvQkBHlDBsvyiXuC5LtlShZiszKgGy0tdSJJbaHH0x2rQGXXaQGOQpqsBcm2ahcVhTOrNxuWKL9tHmG+2A3VSP6D5o74cpCLjMny/82vCs4ixljO2B/wZ4cJ3HCP7D0WUd4MO+TZsJ2QZ5xUW3VctZIM7vF5DherAy8PQ6jJUumFoVGlEQ5xj6yZA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dRDUTsAhoXIkUcHB2XQN5stHi33MogA/3RpfMgdlRBE=;
- b=XIXvGcqYnSBSV5JevYnMn8eCcIdve2QmbJnqYSBCVCqiZgl/NwCWl1CXXZBLKdGCC0aauAUXk3p40aKNLD7dqiiFrMlqORwA6y5BQ4FjLThLH+pwAyyzdhnxUcKkM7ycoJ6rVKsdXZGISyQJL87U0poBsMqP5vm6I+8ibAZyE4SlOkTUDFObfuWpCyF441jRlFLbGMmQGLsGJn49B6V0nNJ168e5N9GDc4nFJcMpZcIYHvxGRHCRz9txZu6p8i1tYYwdqDXM6mfl8ch7LO/zfoB7xCvu0baDF7SvVb76swFYy03yxTWFMePyg4d6DaZzPqf8SNZE2igEPOJwMH45mw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8574.eurprd04.prod.outlook.com (2603:10a6:102:215::19)
- by AMDPR04MB11555.eurprd04.prod.outlook.com (2603:10a6:20b:71d::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.9; Fri, 5 Dec
- 2025 07:15:42 +0000
-Received: from PAXPR04MB8574.eurprd04.prod.outlook.com
- ([fe80::60b6:6a5c:8db3:cce]) by PAXPR04MB8574.eurprd04.prod.outlook.com
- ([fe80::60b6:6a5c:8db3:cce%6]) with mapi id 15.20.9388.003; Fri, 5 Dec 2025
- 07:15:42 +0000
-From: ziniu.wang_1@nxp.com
-To: adrian.hunter@intel.com,
-	haibo.chen@nxp.com,
-	ulf.hansson@linaro.org
-Cc: shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	linux-mmc@vger.kernel.org,
-	imx@lists.linux.dev,
-	s32@nxp.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] mmc: sdhci-esdhc-imx: wait for data transfer completion before reset
-Date: Fri,  5 Dec 2025 15:17:29 +0800
-Message-Id: <20251205071729.83857-1-ziniu.wang_1@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AS4P191CA0048.EURP191.PROD.OUTLOOK.COM
- (2603:10a6:20b:657::17) To PAXPR04MB8574.eurprd04.prod.outlook.com
- (2603:10a6:102:215::19)
+	Fri, 05 Dec 2025 07:57:26 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-5957d7e0bf3so2743804e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 23:57:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1764921443; x=1765526243; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SLD+VL6KxaJNpLbOdAPh6PBCjAs3r0xZd7BY2IsaVLQ=;
+        b=ZWQ6gm4WwhxfkqOTM0bDSD0EmkG31xQOrwl5Ay62pJN6zI01Vk3xHCDDYxIQZdu96w
+         aLmrlFs2dj+5U+bKDKA5HsurUIN2xErZ9zqqx3Ok8OKplXozNulqcAh+48+nqL7gZKlU
+         0GzeEUritxCuvacdlvGO+pmE4gJiHiHJrR0iU=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764921443; x=1765526243;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=SLD+VL6KxaJNpLbOdAPh6PBCjAs3r0xZd7BY2IsaVLQ=;
+        b=Ctil+5iMTWoDRDvXIsoz78h0M+KHVxfiaeTQhlqFsXaMpo/dC3DArqFDrDwYp5wwZ8
+         Lh0BF8DLSSwhety7USoZ8A+5aE0sb+wVHhrySiCMovIfDZADtnMlloNuyfS9XRbuhPsg
+         WYwfSHZPAaIx44bwlngPSD4bS2P4Xv9jattXkgb2cZoYMsl4IrIHSp5V3vzDrO3O1GTq
+         3NzvlB0EV6QGvcCpeYl+Tlt71EoXvC/8CYuuVnIZHu9hJbr+HILXM3gKK3itrpxh8xNB
+         2fDTsPZ0B3lJarid00W1O6NQoY3OrzHjU9LovXqft8o8uiCDhnB46pLUamFMxq06u7WI
+         b7BQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWcIDL0eqzFvHhSW9fXOFcLyD+H4gKCnpaKy3830rej3vrW51Z6guioD0udHv1UzON60ze630ybrW3D7JiYIxwT@lists.infradead.org
+X-Gm-Message-State: AOJu0YyDnnUeclbcHDbaJkDShDWcmVif4jstpUR48Ih6Zix4YCLTSX7k
+	cnXq2ro6K8qYVluR/aXcd4LroY2Ti079q4XW53L6nSwqIBh3EwvdaNWSOwtP2664oL9SPwtGMNc
+	6W8va6mKHVk/AlWqsjfLZ3d283EnmBd37bpQ2oPT+
+X-Gm-Gg: ASbGncsb37yn8s9SppHPipDH4m5KPL1StOkqvivhsjbTklGfoozNOFlpKjZ50UKpooD
+	egTT8akTKwUgeBnnPglS+d18iWQP5/NP9ljzRZrdn8LS32sbu/3tJPd37eid/iqimeEOhewK8xc
+	lrVf4BcBUq8+jITnbzOoGoULw1HCGub+xcnYJ6Cvcn7dHITt4A4nLBcUR+dFn54l65F6ejm6Z+n
+	YWq1+tWvqUknxxIyTA4u8KHY1K1Q+OZTQPu7NEnPe+gBmrZoBU+ECwIYjIth/kA4G0tYAOqg6n9
+	Pg2T/a/ViAyRX9FTvw9rAzdD
+X-Google-Smtp-Source: AGHT+IEpuCs/7c2leWW5Fv2G0gCbsdyCo98UVmtlRB6eHIxhmqgN9otJElNisDv5KbMphc2+s2OcSCWG2ig6PuULtVM=
+X-Received: by 2002:a05:6512:3f1b:b0:596:b1bd:cbe4 with SMTP id
+ 2adb3069b0e04-597d63eab9emr2191700e87.8.1764921442858; Thu, 04 Dec 2025
+ 23:57:22 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8574:EE_|AMDPR04MB11555:EE_
-X-MS-Office365-Filtering-Correlation-Id: 128c08ab-9206-4b43-00a1-08de33ce19ef
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|52116014|366016|7416014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?dPfTznsph7dosEHiuEDNE9lpKa6EgjXcSHC4VczPloMPrrDQfOvrdHTqIRmt?=
- =?us-ascii?Q?nkqqTPogxTrpPecerh94KgbdQa1aDtmTfsTfsEK/PK6PSEg90BjW9FqRsHSK?=
- =?us-ascii?Q?CPLruWYFao3hvUSmuZw+bIYdcogiEhrdaLnzNRI0P8deB+E2v3tEVqvxUke4?=
- =?us-ascii?Q?/h8xKwzjlhWXXZtbvXxv6f2G1nvwp0R+8smqQMz2aLramhC3nEW7vD2x991q?=
- =?us-ascii?Q?FOV5QQjzTaNK4H837d3cfs3aozNCU6R1EmWivFSa44N1d6Aszrf6MBa6kCYJ?=
- =?us-ascii?Q?mCStYFuLY59F/m5G8cqbwMQ4pnBJTtaWVP+g1v0K03jrmZIJF21D/3kOBkVC?=
- =?us-ascii?Q?QGjfra/0KPi8RO7ohUV7H3NoeyeMCr+PBlKgBLuf0Ie1SV/USWfqnJr3lgK4?=
- =?us-ascii?Q?+BWMeYEMn1ofbxJQfuiN+fUjrAyeXm/rPuqI/3dKiiIHumkoEkKbGUcWcOVx?=
- =?us-ascii?Q?hyaLg/PEdhK6cnKMwzCE513b9kbRnrtHNQHBfvTQvf7vo4dHYNMnTpPqZEFK?=
- =?us-ascii?Q?jTupBlcDxbGyniva06Wj4zQtLGuOI1QgyK4TfcNYnnwmp2HaNow7LlPUIDpt?=
- =?us-ascii?Q?v1MLhfqgIXQRdRDhbtyogKFG90P0SaLV/ExweMeD30sgbU3kxTCKu5PVnRkE?=
- =?us-ascii?Q?rCddQYj2UOLCJBnFPWpIOWX+77cdKxaV0v8CLJ/mF5SOvbheZ3crUJDVxI2f?=
- =?us-ascii?Q?CKz5ywq24k7vunpsK2mDHotRnhqDTIUavtgnBJ+rjOTq4vw4PBiy36ZHhUE4?=
- =?us-ascii?Q?WNQtwhXlwkL5ECG7Idb4wEUu/L2Dxu88qMcOfdGN/3cJ1Ry3+06Ze8zvr+x/?=
- =?us-ascii?Q?jmb78joKlrsnGKQ8us7Rnq0etmA7RKtCaPXZfUdIEsqkXHplfeAhLJDHZ+lT?=
- =?us-ascii?Q?wFs69zB4xEfEqLpr8bmleZfq5obFwISNpVxbtSHg37bCYnPaQyxl6cN2mCd2?=
- =?us-ascii?Q?UcrU6CYDhypvH95TBLXtlbzGo0kQTtHfBpYcBkPV5IQRZXZioPe1Sjo9Mo6O?=
- =?us-ascii?Q?fq0iJ6N7Ix/6+XDhLoqme4BonGhrQJdnvzEDndji8xA7iMCwb1dYkWa9TlrT?=
- =?us-ascii?Q?la0sgIADB51lfeYU814kQsZpOM3EILZa5tMviWL2B2Z37fll8yOo1/9bm8oN?=
- =?us-ascii?Q?yz0/7zXIumOMTTvMhUmobvqZ5WOu7rJUhehIWbVSfpnZVZBjlMiKzQmpdYkV?=
- =?us-ascii?Q?mR2dO2mpPeQgTznAXri8pEwZlTn5IIoJwnxiGOkWUiJ3Kitdfi9QS58r92jA?=
- =?us-ascii?Q?6vzau+b+Inc7bhHRvj3touP4/XhpToW+rAxSda3Te0oq1bPEh8NtiYnrqp2r?=
- =?us-ascii?Q?nLTqJ4wgFisQy2toJqDuLNYqR2pMq1pt7PnTdacsujsNyDP1opIycnhgzedV?=
- =?us-ascii?Q?Lm4hNDLBgolmnQ0R1bCFJtecR+297YWJjqMTUzK++mTRSaDXtP69KVp1waXS?=
- =?us-ascii?Q?BHLqu23BCwfa8D32pTjAOd4gVrrWogZalPaoACG6uApt3rNafrdzrQ7TTUX/?=
- =?us-ascii?Q?B73eBrqlGRUy33zea6CNksxlDP1Cj3SlNj+n?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8574.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(52116014)(366016)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?SBIWP0WxehyoDEuCkfXYmNH2i/AGoyJSEjuyqi8Ck/qtLhBNa527qfh8F/n2?=
- =?us-ascii?Q?KM1OMF9NsNlKKwLZwSbzBodhKK9tRDNea0Rc1W2BlPKmBsh4oahVNJqf5zC9?=
- =?us-ascii?Q?zrU1xql4fTMYcDOTtjDKmpROrA0TQNYuC0G9tsGrDd72BFbkP4ZtX3UcxWdY?=
- =?us-ascii?Q?cE29S8jlCLuzO6r3r/vHGIeOHw1Du+uf4PtKUa8H8YVGWNh31ivM94f9TVXf?=
- =?us-ascii?Q?TrupuceJrJXFGk0g7Fa9I8jKWgCXfZdB+/XZgZMKJkxKz6LuRX9DUS1QFVVv?=
- =?us-ascii?Q?/eM+dg9Phk17rVRArAHfGf63/jmxGVVJwixm5vE2WoqbkHamQfvKtikjbJet?=
- =?us-ascii?Q?VhN0B30xW9AJcSONf/w5yVph4Q80hgE13tpwt/+b8IPg1rz+5z5h6cqxVCdB?=
- =?us-ascii?Q?flJDC3UNtNeeu3CtankD2qxC5lXqv56JqFKXZN3NakGwwM1Rj4Q25LPAI7Tf?=
- =?us-ascii?Q?GAnaqz2yI8XSPNr7ken7dkVfAZP7CGG6QyGVYXSFvNN6mXuIOx4R4FTk/2Zx?=
- =?us-ascii?Q?SNQmp3rxKbKS+XzLxjX7MHDRgyoGmtatFngx4n1e/+7tbDq4cp/fHqwSbEe8?=
- =?us-ascii?Q?JSv1AGzunVJVU7pIbBAf8PEkCaW17FWmoa/j+KVxoNJVt+oREXaQ5czfaAf2?=
- =?us-ascii?Q?yWNUGislWR1kPtPrGu6/5dkWG3x/saN2/LEGwTIzUU1H4dpw3hegJoITBkcB?=
- =?us-ascii?Q?+of8FBIcRuByHQ/G3XhDkDXPKIs/D/RN3d78KnqUbJ5LVYbHv300llxN4KDa?=
- =?us-ascii?Q?g2fWpOMPucp7Jao/f83mqR3Od/R7HRH7QbDUuSy5uvEMKYSj/jcHloC9N8c0?=
- =?us-ascii?Q?terKFwg+nWyza63nLnQsllFaPim6Bpj9m+OCSip3/Es++CBrZN0tCkhz0ObP?=
- =?us-ascii?Q?F+K802S8nYojEpkwbFMV6IzPkNCx5p4vWLL+o6PXLlxoSahPF0+GZN5/+c20?=
- =?us-ascii?Q?AsZo9TFWbT4vwd5/385vBVDY9tc5RFR/c56BBQ/TG6RzyClE9wtzgFNCdoLy?=
- =?us-ascii?Q?6WLoMlEogVKWD8ZZNwbBvgEDRxFYB8c3a4C+/+hL+ahlGvMw8Afk7ATv/iEl?=
- =?us-ascii?Q?sZDTXdAm2ykFbZHdO35CMt1HWWCENyavXY4SlCHja+2SIk6hsRxW25W8ovye?=
- =?us-ascii?Q?DNjlTYvn8xTbH3PtVjd+p/t+5hcfPMKM8vPQv4hed2+nXlMY+5nG+Amb0rkv?=
- =?us-ascii?Q?WVzLU6r/y3VPFrhCwELc65cKQV+V/Ejg7IXTvFm4h5vxtPghwKmFIkaMvryg?=
- =?us-ascii?Q?vmTa6hLLzNzOcGtEPX1sR7H2e1RMPyep6lIdjRMmnt0hRMpONWq3ApkHaGgF?=
- =?us-ascii?Q?ImsgUy1oCehGQHNIhhK/jHktzJOcsnUkPFSb04MXdZWzkvROsGe71D1R7aRk?=
- =?us-ascii?Q?MqGXXAPIL8jL2NBH5XNK4ZqNnwdtHEpTMokTg1KgxDxbpTPd9qOLiT9RgFWb?=
- =?us-ascii?Q?8EhH5CLEG4I0rRRg4Yr0st7gATAkxiWCAtByedeFxwLVST3nD5yx/om2ecXt?=
- =?us-ascii?Q?9NenDlZaKqcHFhzdPOFwwr1x3PSJVVYg8SMvqs7/zMJxn7dIynIhHltSOAYL?=
- =?us-ascii?Q?js6x/Ev41reTZQ7uX4Fks6ylBmtMhUuhqTLALPul?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 128c08ab-9206-4b43-00a1-08de33ce19ef
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8574.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Dec 2025 07:15:42.7784
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rlWfSwMxHdxLWilANNOWBMP0uHThP76KjWpEFOwjbcn7NO20LywbFcPriieqQ2HwE1SzIjDDFiIwv8UgPpbuNA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMDPR04MB11555
+References: <CAD=FV=Ux7nGFnYEyX0cUL-9__BKnTYc+kAJjkF458ZnFS7zoJA@mail.gmail.com>
+ <CAD++jLkuRQKoiEN928GtAj7wUts5PxH905bLp6ZhKsJ3NnenEA@mail.gmail.com>
+ <CAD=FV=X5=AK4XMANv+fatn3d9Y5vo9AXsHWb_47HmNaMWUtMwA@mail.gmail.com>
+ <CAGXv+5HyMYgKmLc+jmkj-gytm9SNVg9dS7Vn3dQ-dsH8Wo+4sg@mail.gmail.com>
+ <CAD=FV=Uq9yfUkLUgg116G+2AvEKkEPmdRgUJ5f1bj229j=LxUg@mail.gmail.com>
+ <CAGXv+5HU2y-8AZhXDjneaTdD1yr2h06OXbkozcQJj2mBcR1HmQ@mail.gmail.com> <CAD=FV=U54Uwny=kHY+VjG5DGCSHeRUCcWMG=hG88ov8hC6Ynew@mail.gmail.com>
+In-Reply-To: <CAD=FV=U54Uwny=kHY+VjG5DGCSHeRUCcWMG=hG88ov8hC6Ynew@mail.gmail.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Fri, 5 Dec 2025 15:57:09 +0800
+X-Gm-Features: AWmQ_bnyMAQiZOYBBfvhrL-p7NWwcYHWTn73VcRsGKhm3OKMH_INaVMR_dcDzI4
+Message-ID: <CAGXv+5EXBimfLyK7bmyyHmNcPBNQ=wN+i1_siaMUcibiB7BCPQ@mail.gmail.com>
+Subject: Re: Proposal: Officially allow "incomplete" trees as a base
+To: Doug Anderson <dianders@chromium.org>
+Cc: Linus Walleij <linusw@kernel.org>, devicetree-spec@vger.kernel.org, 
+	boot-architecture@lists.linaro.org, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk@kernel.org>, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	Linux ARM <linux-arm-kernel@lists.infradead.org>, 
+	William McVicker <willmcvicker@google.com>, Julius Werner <jwerner@chromium.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Simon Glass <sjg@chromium.org>, Yu-Ping Wu <yupingso@chromium.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_231550_656972_BC406243 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20251204_235725_784152_B042E2B0 
+X-CRM114-Status: GOOD (  43.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,54 +105,169 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Luke Wang <ziniu.wang_1@nxp.com>
+On Thu, Dec 4, 2025 at 12:32=E2=80=AFAM Doug Anderson <dianders@chromium.or=
+g> wrote:
+>
+> Hi,
+>
+> On Tue, Dec 2, 2025 at 11:34=E2=80=AFPM Chen-Yu Tsai <wenst@chromium.org>=
+ wrote:
+> >
+> > On Wed, Dec 3, 2025 at 6:11=E2=80=AFAM Doug Anderson <dianders@chromium=
+.org> wrote:
+> > >
+> > > > In the simplest example we could have one base dts and two overlays
+> > > > for two different DSI panel models:
+> > > >
+> > > >   - base.dtb
+> > > >     - panel-model-a.dtbo
+> > > >     - panel-model-b.dtbo
+> > > >
+> > > > The problem we then run into is that the base.dtb will only have th=
+e
+> > > > generic model compatible "google,foo", not the sku and revision
+> > > > specific ones like "google,foo-sku1-rev2".
+> > > >
+> > > > And we'd really like to avoid having _more_ overlays just to add th=
+e
+> > > > final specific compatible string, as that kind of defeats the purpo=
+se
+> > > > of using overlays to reduce the number of dts files.
+> > >
+> > > I think you may have simplified the above a little too much to the
+> > > point where it's confusing. At least I'm a bit confused. I _think_ th=
+e
+> > > problems you're talking about are the kinds of things we run into whe=
+n
+> > > we take overlays above just two levels. I'm imagining:
+> > >
+> > > - base.dtb
+> > > - board1-rev1.dtbo
+> > > - board2-rev1.dtbo
+> > > - board1-rev2.dtbo
+> > > - board2-rev2.dtbo
+> > > - panel-a.dtbo
+> > > - panel-b.dtbo
+> > >
+> > > So I think you're saying that you'd start with the "base.dtb" and the=
+n
+> > > extend it with exactly one of the "board" overlays and then exactly
+> > > one of the "panel" overlays. Is that right?
+> >
+> > For now I think we just experiment with having one end "model" or
+> > "product" as the base.dtb. The panel-*.dtbo selected describe the
+> > optional components, while the board-rev??.dtbo just provides the
+> > top level compatible and model.
+> >
+> > In an example that I plan to send out this week, I would rework:
+> >
+> >   - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri.dtsi
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dts
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dts
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dts
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dts
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dts
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dts
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dts
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dts
+> >
+> > into:
+> >
+> >   - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri.dts
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-audio-max98390-es=
+8326.dtso
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-audio-max98390-rt=
+5682s.dtso
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-audio-tas2563-es8=
+326.dtso
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-audio-tas2563-rt5=
+682s.dtso
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-panel-boe.dtso
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-panel-ivo.dtso
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dtso
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dtso
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dtso
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dtso
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dtso
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dtso
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtso
+> >     - arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dtso
+> >
+> > The "mt8188-geralt-ciri-sku?.dtso" files only contain the following
+> > boilerplate:
+> >
+> >     /dts-v1/;
+> >     /plugin/;
+> >
+> >     &{/} {
+> >         model =3D "Google Ciri sku? board (rev4)";
+> >         compatible =3D "google,ciri-sku?", "google,ciri", "mediatek,mt8=
+188";
+> >     };
+> >
+> > The base "mt8188-geralt-ciri.dts" would already have a generic board-
+> > specific compatible:
+> >
+> >     model =3D "Google Ciri board";
+> >     compatible =3D "google,ciri", "mediatek,mt8188";
+> >
+> > > So I'd imagine that each of the "board" overlays could have "full"
+> > > compatible strings. For instance, I'd imagine "board2-rev2" could
+> > > have:
+> > >
+> > > compatible =3D "google,booard2-rev2", "socVendor,soc"
+> > >
+> > >
+> > > The problem you're struggling with (I think) is that the panel
+> > > overlays won't be represented in the compatible string (and "model")
+> > > even though (historically) we always did in ChromeOS (they were
+> > > included in the "sku" part of the compatible string).
+> > >
+> > > Did I get that right?
+> >
+> > In a sense you've generalized the problem I was describing.
+> >
+> > In my example, the top level compatible gets fixed up by the final
+> > SKU-specific overlay. But that's 8 extra files to do one bit of
+> > fixup that supposedly the bootloader could be taught to do, and
+> > could do even better. The bootloader knows exactly which SKU and
+> > revision it's running on and can insert the information appropriately.
+> > We could get rid of those awkwardly long compatible string sequences:
+> >
+> >   compatible =3D "google,tentacruel-sku262147", "google,tentacruel-sku2=
+62146",
+> >                "google,tentacruel-sku262145", "google,tentacruel-sku262=
+144",
+> >                "google,tentacruel", "mediatek,mt8186";
+> >
+> > Going back to what I think you're describing, is that instead of one
+> > base board DTB for each product, we could have one base DTB for the
+> > reference design (in place of the .dtsi file we currently have), and
+> > make products and component selection all use overlays.
+> >
+> > If we do that, then inserting the correct top level compatible and mode=
+l
+> > becomes more important, since we do have things such as the ChromeOS OF
+> > component prober working based on top level compatible. Also, the model
+> > is present in logs, and would be very misleading to say one device name
+> > while in reality it is a different one.
+>
+> I wasn't saying that you'd just have the same "compatible" for every
+> derivative of a reference board. That seems over the top. I was
+> thinking that you'd even have a unique "compatible" for each revision
+> of each board instance. I'm simply suggesting that you don't need a
+> per-SKU "compatible". Those don't add any real benefit, do they?
+>
+> In your Ciri example above, you could get rid of all of the "sku"
+> overlay files since you've said that all they're doing is updating the
+> "compatible". Since (I think) you're only trying to support "rev4"
+> based on your model string, that would leave you just one file for
+> Ciri. If you had more than one revision then you'd have more than one,
+> but it doesn't need to be multiplied by the SKUs, right?
 
-On IMX7ULP platforms, certain SD cards (e.g. Kingston Canvas Go! Plus)
-cause system hangs and reboots during manual tuning. These cards exhibit
-large gaps (~16us) between tuning command response and data transmission.
-When cmd CRC errors occur during tuning, the code assumes data errors even
-tuning data hasn't been fully received and then reset host data circuit.
+That's right. What I was saying was that the final device tree only has
+a simplified compatible, but maybe someone would want a proper one inserted=
+.
 
-Per IMX7ULP reference manual, reset operations (RESET_DATA/ALL) need to
-make sure no active data transfers. Previously, resetting while data was
-in-flight would clear data circuit, including ADMA/SDMA address, causing
-data to be transmitted to incorrect memory address. This patch adds
-polling for data transfer completion before executing resets.
-
-Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
----
-v2: amend commit message
----
- drivers/mmc/host/sdhci-esdhc-imx.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
-
-diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-index a7a5df673b0f..affde1936510 100644
---- a/drivers/mmc/host/sdhci-esdhc-imx.c
-+++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-@@ -1453,6 +1453,21 @@ static void esdhc_set_uhs_signaling(struct sdhci_host *host, unsigned timing)
- 
- static void esdhc_reset(struct sdhci_host *host, u8 mask)
- {
-+	u32 present_state;
-+	int ret;
-+
-+	/*
-+	 * For data or full reset, ensure any active data transfer completes
-+	 * before resetting to avoid system hang.
-+	 */
-+	if (mask & (SDHCI_RESET_DATA | SDHCI_RESET_ALL)) {
-+		ret = readl_poll_timeout_atomic(host->ioaddr + ESDHC_PRSSTAT, present_state,
-+						!(present_state & SDHCI_DATA_INHIBIT), 2, 100000);
-+		if (ret == -ETIMEDOUT)
-+			dev_warn(mmc_dev(host->mmc),
-+				 "timeout waiting for data transfer completion\n");
-+	}
-+
- 	sdhci_and_cqhci_reset(host, mask);
- 
- 	sdhci_writel(host, host->ier, SDHCI_INT_ENABLE);
--- 
-2.34.1
-
+ChenYu
 
