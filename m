@@ -4,88 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28F72D374B1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:51:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B06CD374B1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:54:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KZ6t7ECEa6TXHskG0snKO3BunyXOALdoY4sWT/SldB4=; b=TpWN2RlsJfHcxJvvVBOWuh2GMM
-	DjQTo/06uzujUfxQqYlSYZWo/tbTSq/q/sVXA4Qo+FTiSvGHqybh9ey3BcoWaQdc2zebkIkgNjr2W
-	8QRYXdF/sgunVTRs8e+SVboSMba0iq2hYBgW0fYDE3JfP/CztC2sMr3aGqIw97ErWJs2cdm7r/LiW
-	lidHABwDV2gmit4WgGyRnotz53gqtQk0dzh/TQjPENChNr9W7rQBc4x1BpihxsQBBiooupVIFVzHv
-	8CkUJi6TQT4mOIKXYhgzva8I4eyqJt2IwMjLzyTqjLnb7pzkas5LdGSiZwSQhiy44NPPwyOI+p/re
-	+LjMYBww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Kxdaj8XvuPU7tC1NYzWDQ//BWgRc9lqBUZULAQw0owM=; b=0zZZSgUFLGOEzeZz+1KX/NDe8w
+	T0b0F/NIKw+a+Ac2m/PNJSGVs4kcb6IO88sZ1MOlcNKonTF7ssdcmXNBoSKoBSPLO/Q/W/mMvMJ8h
+	FHv1O6bQ8LDbNMVqDzUelF1ggx5YciyqTixDFk5dAJHp0akDM/5UJLiH23XsTlybWIMkmLuaWg5wJ
+	Se7X/CYxFnUJ96CiQ1fbKZksybziytjG1LZkeRZWnlpaU8eGAYd92BpIJTD/J9G6OYS14fNl33BiO
+	ec/PMWM+uXbqCzjYdOv6e5popRD+9t7EQfitMCBKz4E10yguNl+kKaYZaK9WJvBMmlYfQnX3Jn/X9
+	iNZihw1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vReeS-0000000AAFh-3kDE;
-	Fri, 05 Dec 2025 22:51:48 +0000
-Received: from mail-ot1-x349.google.com ([2607:f8b0:4864:20::349])
+	id 1vRegX-0000000AAO6-1Jdv;
+	Fri, 05 Dec 2025 22:53:57 +0000
+Received: from mail-oo1-xc29.google.com ([2607:f8b0:4864:20::c29])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vReeQ-0000000AAFI-03a5
+	id 1vRegU-0000000AANi-2Wk8
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 22:51:47 +0000
-Received: by mail-ot1-x349.google.com with SMTP id 46e09a7af769-7c7595cde21so4795922a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 14:51:44 -0800 (PST)
+	Fri, 05 Dec 2025 22:53:55 +0000
+Received: by mail-oo1-xc29.google.com with SMTP id 006d021491bc7-656de56ce7aso819028eaf.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 14:53:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764975104; x=1765579904; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=KZ6t7ECEa6TXHskG0snKO3BunyXOALdoY4sWT/SldB4=;
-        b=1AkUgGTTZ0+m/1V79TzIlA9E8+dsqUahlDVeTr+kHkwl43+dq+mlzzW7gN1P+ADTuz
-         tSVWmqTw8T7B34RBNL9bqkCS/7rigw/LhXPeVEYU/dUC/b9Om8QxmKchbv8Wd+j9BVa6
-         6qGjWxVBLXJ2iLqrflu4JK6iUN/BwT8dedcE4+N0sACV0WSCc1Mf8fPbYi2jEoqy/NJ4
-         TxaJOgZV4KKwEDR8cR/tatyedDyohRUGZLJUCh/18JSkiwLEXHRwL808qsVWkXYXfWLX
-         SoDTW1BzK/5OuwZ0CzT93iUTS4pUednYJ9diu5LN7aRJHGZtHuHYk/JwaFWNlLcuub9D
-         Cc9w==
+        d=google.com; s=20230601; t=1764975233; x=1765580033; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Kxdaj8XvuPU7tC1NYzWDQ//BWgRc9lqBUZULAQw0owM=;
+        b=tws6PZzq8QnlBFeCdjk1O8iY8peIx4ICB/3MaTSaEG4UAIp8wG99i+f1yM6+2N94g/
+         KqQMyOAzGvmmVrvnVYeSiE6pfQ4Rr82EkmmUp0GJMcQK94dfR8HMmHYHSvv2eNuxsP+p
+         hmmAwU7v5hU5XUMfgUUNLFCDiFT5qdfYjYvVj/LuMyHXI14d7LOHeEmj58tHJU+CAIxg
+         iHPzZr7G484ATYBC3Al3uPul/CJap9YpzRyGTym6SoPYf30lXQP9Zgr6pQ7vqzqwyRjc
+         1lmrw0BuOr36WvOI6VakBJeUOjUk/NFLYaWTnKcOiCK0aThJ8wV5+XcxjY3W+5lGcrN5
+         81MQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764975104; x=1765579904;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=KZ6t7ECEa6TXHskG0snKO3BunyXOALdoY4sWT/SldB4=;
-        b=cfHo5MdatQ+P+EdcItVNaTtwNkLTMxcguFyRepELZSt7vUziDUDg+I55ycLWxUmlsA
-         +0eRSVq5ZgMqen1zxeYyoDPVpCjbTn0kkTXf385yWbAxJLaEiDHS4DQr9VUw6LoY/Xpv
-         6ujLwl2W5ka21wuyrugkOBR3QeZFMVmjOU2YI/KKYh0qKMiZEtKBUOPfGTaCua1TAGFT
-         2E41oLHFkfK5wsLZHjlb2xiFzEdhNbjkIc1yWQDs1Mfr7LkTBCYJh+eY11IlbXhvAi7r
-         m2U08GOa8NLLu7k0pUIHNcqR+Wo43ORwVzP4eS1lejFjMgB6MqbD2GZN/7KQK1bqHCxr
-         ipFg==
-X-Gm-Message-State: AOJu0YwElc64afF2EwsmP1wlB5bC6glhtHk8Xxep6yc3n2LEaVg+KoX0
-	k8UIvvTPG+XN+y6miNH7SqCTcnO5vMCKA/sRpN7UGmbyMB3N9nXjQElBaHNOzodPhk7QnFzmGoO
-	9ngdwqRRMU0FBoG2yLQBprXH2lA==
-X-Google-Smtp-Source: AGHT+IGtsCfXiK6Ca9aoNBk4FCPOxvVSHwXC29bCUXc+AJsis0zprJjFy5EwP7iFzoRRKCHwHGUL9V6/X/OhgFQ8rg==
-X-Received: from ilbbk5.prod.google.com ([2002:a05:6e02:3285:b0:433:7ad9:4c25])
- (user=justinstitt job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6820:178a:b0:659:9a49:9017 with SMTP id 006d021491bc7-6599a986298mr335711eaf.68.1764975104215;
- Fri, 05 Dec 2025 14:51:44 -0800 (PST)
-Date: Fri, 05 Dec 2025 14:51:41 -0800
-Mime-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAPxhM2kC/42NvQ6CMBSFX8Xc2RJaUyxODrI66GgY+LnATbAlb
- UUJ4d2tfQKn85OT76zg0BI6OO1WsDiTI6NDEPsdNEOle2TUhgwiFTI9CsWcr+oRWUsu6kuTZ5O
- 37F1ZzYTiHaIS8pA3EBCTxY4+Ef+ALOHJ8mtvxb24XqAMdiDnjV3i/czj7L+nmTPOcqlqzOssk yI998b0IyaNeUK5bdsXVem9KdoAAAA=
-X-Developer-Key: i=justinstitt@google.com; a=ed25519; pk=tC3hNkJQTpNX/gLKxTNQKDmiQl6QjBNCGKJINqAdJsE=
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764975103; l=2094;
- i=justinstitt@google.com; s=20230717; h=from:subject:message-id;
- bh=Ok8jTmdXZxogtxskwYzvmB15+ePBZ1aBYdxuQVq8go4=; b=+5fF9xjzd/gKfdwP8eCwDRuFOJpnnxJkpqF1OjNQdwbauu1LndafYJx35q8YJ0TDFXjqD60mE
- Rf4IC5n1OVHDQPc5ol2vyveK/sd6BcjvbO3xh/WRL1rUq+soDPpFDXv
-X-Mailer: b4 0.12.3
-Message-ID: <20251205-stable-disable-unit-ptr-warn-v2-1-cec53a8f736b@google.com>
-Subject: [PATCH 6.1.y RESEND v2] KVM: arm64: sys_regs: disable
- -Wuninitialized-const-pointer warning
+        d=1e100.net; s=20230601; t=1764975233; x=1765580033;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Kxdaj8XvuPU7tC1NYzWDQ//BWgRc9lqBUZULAQw0owM=;
+        b=kma2BUHWBx622Wp6kuFbTO8BP3DRxBlKvhpGldNCJUQSLiPCDLo1mJ9UQxRDw1NI3X
+         cT6h5IXXW8kW3Yg21qvI9ya9KYz2ROsaAdMzqLGzdZL/KnePcOtKrQapUyrockO/V4wY
+         25gAbi6uC/vuBQqmQoV8ih6MziVVXyY66FItXLQfSFmXfSz1SvDKIeaPaI6X+aNBNHIN
+         y6aLwoZR2en/fxH/6bo3OtRjCvtwRq/cKj892+lz1EhMW3FTcoKJ40Qu0KvUULRLjLcU
+         sskfPQf6aQhvM6V0m/gtBK4nNlXAQorA5TI+F649exTHxNU8C193Dq6u/MjeDfjgo1X3
+         uZfQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW1ulvJ+16PSuirUavH8+j3X6UukQUxmW4Mblsf4VVQruqmJlnd0vBmDD4f2dv+8Y2bwkQDBOOd/foWda4ILwY7@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoO8FLTzaQcsWNPwCkldFHOWGLtI8BaK3FU/iLT3Dz8MGEj9XJ
+	k/BMRqhC8iq7qAhR4Imi2ypSsEoC7QoDfg9aqmhRdIVyCe8all0ND3fOYRq+/kMG+w==
+X-Gm-Gg: ASbGncurZgTyknRYeKmTgITBKNvHa6LBRCRUBBt6CSGAAXpRFncAjiTI8ZK127Qc4eU
+	V1GuYz6rZK8zlZamaikM6vT1HjKzPTr+FTHqU0u1sHNPweWDdhq1AXZwoR7syi17qbbmZP2imcr
+	TT1Z+XdRjETBuiBKFFqf+0RmCguy568qFv5JW3WsRgezXdqirWyAGlWd7Z7vRCuWRyzBUPwQT9C
+	7pvk9+PJjs8NQwGoogYnSZjerl0Kdk/Egpxsl7ACB7G5fxjH5S6xtvLu0MP5iIo0Z7D2qgbE9Hj
+	Q+zeWY91D40m2ZLeAxPIR8XndZNKmmWNgfJlRqbOXsO2bm9Cc2GDJNlWKy2Vr/pbYvFyszRzFmK
+	iXk2c2cgcKk3MjXFHiTmeCy1KLbSzYWXQ29bS1li0RKzBoVT106bmyp6jGgnByWXYPUvbM0zRvZ
+	/+KPEFrpwY18TZSSU+sJJgr8dO5uCGy7e6py2tp3gxicOq57nJmGCrc/za
+X-Google-Smtp-Source: AGHT+IHFhRnliDQG56ynaPUfrvYkb15pzZZPHThQqlHTj/wS5YVOBzORn8GShCTA0dGK9AIk0FRxfQ==
+X-Received: by 2002:a05:6820:81c9:b0:659:9a49:8dde with SMTP id 006d021491bc7-6599a8ea4b3mr367263eaf.32.1764975232750;
+        Fri, 05 Dec 2025 14:53:52 -0800 (PST)
+Received: from google.com (122.130.171.34.bc.googleusercontent.com. [34.171.130.122])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-3f50aa9675fsm4497431fac.6.2025.12.05.14.53.52
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 05 Dec 2025 14:53:52 -0800 (PST)
+Date: Fri, 5 Dec 2025 14:53:49 -0800
 From: Justin Stitt <justinstitt@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Alexandru Elisei <alexandru.elisei@arm.com>, Joey Gouly <joey.gouly@arm.com>, 
 	Suzuki K Poulose <suzuki.poulose@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, 
 	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>, 
-	Nathan Chancellor <nathan@kernel.org>, Christopher Covington <cov@codeaurora.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.cs.columbia.edu, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, stable@vger.kernel.org, 
-	Justin Stitt <justinstitt@google.com>
-Content-Type: text/plain; charset="utf-8"
+	Christopher Covington <cov@codeaurora.org>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.cs.columbia.edu, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH 6.1.y RESEND] KVM: arm64: silence
+ -Wuninitialized-const-pointer warning
+Message-ID: <hafkvcj6frhjrzqotsdwws2buy7c6tfwjt5kkjkjc2emuxud7n@cv5vp4ftwvdv>
+References: <20251204-b4-clidr-unint-const-ptr-v1-1-95161315ad92@google.com>
+ <2lse2swdqrovimdsakgtriadki2fsvikhuetjzxztoui5hpsai@6mmc64ugt22k>
+ <20251205002245.GA3463270@ax162>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251205002245.GA3463270@ax162>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_145146_060152_5407C4FE 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20251205_145354_647469_4CA96009 
+X-CRM114-Status: GOOD (  22.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,56 +106,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A new warning in Clang 22 [1] complains that @clidr passed to
-get_clidr_el1() is an uninitialized const pointer. get_clidr_el1()
-doesn't really care since it casts away the const-ness anyways -- it is
-a false positive.
+Hi,
 
-This patch isn't needed for anything past 6.1 as this code section was
-reworked in Commit 7af0c2534f4c ("KVM: arm64: Normalize cache
-configuration") which incidentally removed the aforementioned warning.
-Since there is no upstream equivalent, this patch just needs to be
-applied to 6.1.
+On Thu, Dec 04, 2025 at 05:22:45PM -0700, Nathan Chancellor wrote:
+> On Thu, Dec 04, 2025 at 12:53:58PM -0800, Justin Stitt wrote:
+> > Quick correction:
+> > 
+> > On Thu, Dec 04, 2025 at 12:50:11PM -0800, Justin Stitt wrote:
+> > > A new warning in Clang 22 [1] complains that @clidr passed to
+> > > get_clidr_el1() is an uninitialized const pointer. get_clidr_el1()
+> > > doesn't really care since it casts away the const-ness anyways.
+> > > 
+> > > Silence the warning by initializing the struct.
+> > > 
+> > > This patch won't apply to anything past v6.1 as this code section was
+> > > reworked in Commit 7af0c2534f4c ("KVM: arm64: Normalize cache
+> > > configuration"). There is no upstream equivalent so this patch only
+> > > needs to be applied (stable only) to 6.1.
+> > > 
+> > > Cc: stable@vger.kernel.org
+> > > Fixes: 7c8c5e6a9101e ("arm64: KVM: system register handling")
+> > > Link: https://github.com/llvm/llvm-project/commit/00dacf8c22f065cb52efb14cd091d441f19b319e [1]
+> > > Signed-off-by: Justin Stitt <justinstitt@google.com>
+> > > ---
+> > > Resending this with Nathan's RB tag, an updated commit log and better
+> > > recipients from checkpatch.pl.
+> > 
+> > My usage of $ b4 trailers must've not been correct because this 6.1
+> > version didn't pick up Nathan's RB tag. Whoops! Hopefully whoever picks
+> > this up can add that for me :)
+> 
+> Looks like you resent the first iteration of this change [1] instead of
+> the second [2], hence why 'b4 trailers -u' did not work, since I never
+> reviewed the first iteration after Marc rejected it :)
+> 
+> Your 5.15 resend looks correct though.
+> 
+> [1]: https://lore.kernel.org/20250724-b4-clidr-unint-const-ptr-v1-1-67c4d620b6b6@google.com/
+> [2]: https://lore.kernel.org/20250728-stable-disable-unit-ptr-warn-v1-1-958be9b66520@google.com/
 
-Disable this warning for sys_regs.o instead of backporting the patches
-from 6.2+ that modified this code area.
+Thanks for spotting this, I got lost in my b4 branches. I've sent the v2
+resend [1]. Hopefully all is good there :)
 
-Cc: stable@vger.kernel.org
-Fixes: 7c8c5e6a9101e ("arm64: KVM: system register handling")
-Link: https://github.com/llvm/llvm-project/commit/00dacf8c22f065cb52efb14cd091d441f19b319e [1]
-Reviewed-by: Nathan Chancellor <nathan@kernel.org>
-Signed-off-by: Justin Stitt <justinstitt@google.com>
----
-Changes in v2:
-- disable warning for TU instead of initialising the struct
-- update commit message
-- Link to v1: https://lore.kernel.org/all/20250724-b4-clidr-unint-const-ptr-v1-1-67c4d620b6b6@google.com/
-- Link to v1 resend (sent wrong diff, thanks Nathan): https://lore.kernel.org/all/20251204-b4-clidr-unint-const-ptr-v1-1-95161315ad92@google.com/
----
- arch/arm64/kvm/Makefile | 3 +++
- 1 file changed, 3 insertions(+)
+> 
+> Cheers,
+> Nathan
 
-diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
-index 5e33c2d4645a..5fdb5331bfad 100644
---- a/arch/arm64/kvm/Makefile
-+++ b/arch/arm64/kvm/Makefile
-@@ -24,6 +24,9 @@ kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
- 
- kvm-$(CONFIG_HW_PERF_EVENTS)  += pmu-emul.o pmu.o
- 
-+# Work around a false positive Clang 22 -Wuninitialized-const-pointer warning
-+CFLAGS_sys_regs.o := $(call cc-disable-warning, uninitialized-const-pointer)
-+
- always-y := hyp_constants.h hyp-constants.s
- 
- define rule_gen_hyp_constants
+[1]: https://lore.kernel.org/r/20251205-stable-disable-unit-ptr-warn-v2-1-cec53a8f736b@google.com
 
----
-base-commit: 830b3c68c1fb1e9176028d02ef86f3cf76aa2476
-change-id: 20250728-stable-disable-unit-ptr-warn-281fee82539c
-
-Best regards,
---
-Justin Stitt <justinstitt@google.com>
-
+Justin
 
