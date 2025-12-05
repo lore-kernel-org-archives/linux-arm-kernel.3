@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1941D374AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:01:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7FACD374A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:01:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lc9J5lvEv7upyVjEjf3Fct2vRKHOsrYNRWB14qGNny8=; b=FeCC6ndSnWqCATW/jhXTbB2yJe
-	of8celsCL44sWI12pG0vrQ/0mbwAdeoFzAcc/qq3Ch8IfH9ItoY/YLvvFk2aJSgpZ+fqI4sX2Apco
-	eRd2Tu/oFN2AFj9oOZe9tIoDigO9UeRnywh+/0BJ9OIoskjvCae3eNsQEWFewuO5mjeROtdVovTRU
-	6JepG4cFN45uMx18udHKzOxZKyK7lXDAjKWy51FjJFjZ8TRml4zKdiN2ozDHYfkPwkNidWVC0QzdP
-	tqEejE/lfQdX9TqTDzkj7DiaZ4bkx284qSAyi3JqCHqjhVzg7iizjqHkvgz8ugpVLIIrrCUE459XV
-	2xd2zJJA==;
+	bh=Uh/5bLZd3hIYBijnpaBhPm282H97qGzt7HlwIk6lAdo=; b=lrDpA0ZSzcCppGDSw3iYRVOKe2
+	Y6sb06cJ49gcqG7LuuOaTsOt8obUMPwfB890m+WWSk1oupFcuugfk/V9ov/1jutbOpPba2MV2+YGQ
+	XjiA3cN6YlZs+NE+7iPhKfuETn3t1dL0DLAKmj2xTH5scCEdBDhdXCwgyXz6RzNSNflfo+LckAej4
+	7yPJho6N3WHQMB0wMWOs9UYj4yumNIiqLASvC4WYykNRZ75cxYWTA7Tqdn4bMUuKLSKV4LpryKPFj
+	WNTiJK3r8fMKTnMJB5pMIO8cz889IDLky9om5joKoO2D5M/7VESZVomH1gngtyEhzwYcrxvsw6LBn
+	ajg8Ptvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRds8-0000000A7Ec-35XH;
+	id 1vRds8-0000000A7E1-1g4r;
 	Fri, 05 Dec 2025 22:01:52 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRds7-0000000A7Bp-0IEE
+	id 1vRds7-0000000A7Bv-0I30
 	for linux-arm-kernel@bombadil.infradead.org;
 	Fri, 05 Dec 2025 22:01:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=Lc9J5lvEv7upyVjEjf3Fct2vRKHOsrYNRWB14qGNny8=; b=Z7uf5Qkr3Ubo44U9OQDMSf/68e
-	/zaS9DDnjET3AprKtdVI6ISrOmq7PjrF5niZQKD+QkR0kyFy0f+7csKEzmGlEQduwZD/gyiT1wMc1
-	rRkQ8lwUqhhV0fUztas2Uf75jL1ySpgBwNNSnwX1cMopklltAOspII2sMbPkeGXQ5lpOV3wKbsV+E
-	TPTy/O9EWC/J/7BnQMtp3Y+iUIt/48rrpwd45d0ChFI7Ga24Ro6W2iTx6c7ZWrrfXo5XBDhbljJ1A
-	8W2Gw6+uLDR3Psga5KHTwwFlvZt7dnPH8U5QbsgvTy/Qdz1vs4Q7XULD5+caZXtp5ztwD7KGRDF8F
-	aLaCdp5Q==;
+	bh=Uh/5bLZd3hIYBijnpaBhPm282H97qGzt7HlwIk6lAdo=; b=a1qCmvjdE1rUBZLmAfm5bv4833
+	RYvAs9pvPvaVZQ/wI6DBPbV/foWXA/yxw9OSlAwbYeSj+g3GnivUNcFaqnhUVxZ4nTrJP1nI9Hwz7
+	oDIBlj7PMlswNmTrRoSt9VZT0Mz7hltVZJx0hT8+9x0vxGpbSoyAwBcQMchNXUl3WhAO0BIouteM2
+	CSXUACbpGGRbwuEJliJVBnBbVsl7NVprbxIp5XtbLdccyk9157UAnmAW+ywfWe2L+ssgWfpoiuR29
+	V9jtDGyrsMoSxuVxQXXh/YIZWPUh1yNnUI0veU2w13Dk/l4agxqIcRE7I5Noh7KiUwFicz7I3fvV3
+	JOOhF7Sw==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRd0S-00000006swK-3oZj
+	id 1vRd0O-00000006svp-2GYg
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 05 Dec 2025 21:06:30 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2F2541BC0;
-	Fri,  5 Dec 2025 14:01:35 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 099D11BA8;
+	Fri,  5 Dec 2025 14:01:31 -0800 (PST)
 Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A45663F740;
-	Fri,  5 Dec 2025 14:01:38 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9BCC13F740;
+	Fri,  5 Dec 2025 14:01:34 -0800 (PST)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
@@ -74,19 +74,18 @@ Cc: James Morse <james.morse@arm.com>,
 	Ben Horgan <ben.horgan@arm.com>,
 	rohit.mathew@arm.com,
 	reinette.chatre@intel.com,
-	Punit Agrawal <punit.agrawal@oss.qualcomm.com>,
-	Zeng Heng <zengheng4@huawei.com>
-Subject: [RFC PATCH 33/38] arm_mpam: Generate a configuration for min controls
-Date: Fri,  5 Dec 2025 21:58:56 +0000
-Message-Id: <20251205215901.17772-34-james.morse@arm.com>
+	Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+Subject: [RFC PATCH 32/38] arm_mpam: resctrl: Sort the order of the domain lists
+Date: Fri,  5 Dec 2025 21:58:55 +0000
+Message-Id: <20251205215901.17772-33-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20251205215901.17772-1-james.morse@arm.com>
 References: <20251205215901.17772-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_210628_623065_228BC909 
-X-CRM114-Status: GOOD (  22.48  )
+X-CRM114-CacheID: sfid-20251205_210628_828523_B14B11C4 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,239 +100,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MPAM supports a minimum and maximum control for memory bandwidth. The
-purpose of the minimum control is to give priority to tasks that are
-below their minimum value. Resctrl only provides one value for the
-bandwidth configuration, which is used for the maximum.
+resctrl documents that the domains appear in numeric order in the
+schemata file. This means a little more work is needed when bringing
+a domain online.
 
-The minimum control is always programmed to zero on hardware that
-supports it.
+Add the support for this, using resctrl_find_domain() to find the
+point to insert in the list.
 
-Generate a minimum bandwidth value that is 5% lower than the
-value provided by resctrl. This means tasks that are not
-receiving their target bandwidth can be prioritised by the
-hardware.
-
-CC: Zeng Heng <zengheng4@huawei.com>
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
- drivers/resctrl/mpam_devices.c      | 68 +++++++++++++++++++++++++++--
- drivers/resctrl/mpam_internal.h     |  2 +
- drivers/resctrl/test_mpam_devices.c | 66 ++++++++++++++++++++++++++++
- 3 files changed, 132 insertions(+), 4 deletions(-)
+ drivers/resctrl/mpam_resctrl.c | 21 +++++++++++++++++----
+ 1 file changed, 17 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 1334093fc03e..741e14e1e6cf 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -721,6 +721,13 @@ static void mpam_ris_hw_probe(struct mpam_msc_ris *ris)
- 			mpam_set_feature(mpam_feat_mbw_part, props);
- 
- 		props->bwa_wd = FIELD_GET(MPAMF_MBW_IDR_BWA_WD, mbw_features);
-+
-+		/*
-+		 * The BWA_WD field can represent 0-63, but the control fields it
-+		 * describes have a maximum of 16 bits.
-+		 */
-+		props->bwa_wd = min(props->bwa_wd, 16);
-+
- 		if (props->bwa_wd && FIELD_GET(MPAMF_MBW_IDR_HAS_MAX, mbw_features))
- 			mpam_set_feature(mpam_feat_mbw_max, props);
- 
-@@ -1387,7 +1394,7 @@ static void mpam_reprogram_ris_partid(struct mpam_msc_ris *ris, u16 partid,
- 
- 	if (mpam_has_feature(mpam_feat_mbw_min, rprops) &&
- 	    mpam_has_feature(mpam_feat_mbw_min, cfg))
--		mpam_write_partsel_reg(msc, MBW_MIN, 0);
-+		mpam_write_partsel_reg(msc, MBW_MIN, cfg->mbw_min);
- 
- 	if (mpam_has_feature(mpam_feat_mbw_max, rprops) &&
- 	    mpam_has_feature(mpam_feat_mbw_max, cfg)) {
-@@ -2693,24 +2700,77 @@ static bool mpam_update_config(struct mpam_config *cfg,
- 	maybe_update_config(cfg, mpam_feat_cpor_part, newcfg, cpbm, has_changes);
- 	maybe_update_config(cfg, mpam_feat_mbw_part, newcfg, mbw_pbm, has_changes);
- 	maybe_update_config(cfg, mpam_feat_mbw_max, newcfg, mbw_max, has_changes);
-+	maybe_update_config(cfg, mpam_feat_mbw_min, newcfg, mbw_min, has_changes);
- 
- 	return has_changes;
+diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+index ccdf8db742c9..84ef3c1b4f53 100644
+--- a/drivers/resctrl/mpam_resctrl.c
++++ b/drivers/resctrl/mpam_resctrl.c
+@@ -1547,6 +1547,21 @@ static struct mpam_component *find_component(struct mpam_class *victim, int cpu)
+ 	return NULL;
  }
  
-+static void mpam_extend_config(struct mpam_class *class, struct mpam_config *cfg)
++static void mpam_resctrl_domain_insert(struct list_head *list,
++				       struct rdt_domain_hdr *new)
 +{
-+	struct mpam_props *cprops = &class->props;
-+	u16 min, min_hw_granule, delta;
-+	u16 max_hw_value, res0_bits;
++	struct rdt_domain_hdr *err;
++	struct list_head *pos = NULL;
 +
-+	/*
-+	 * MAX and MIN should be set together. If only one is provided,
-+	 * generate a configuration for the other. If only one control
-+	 * type is supported, the other value will be ignored.
-+	 *
-+	 * Resctrl can only configure the MAX.
-+	 */
-+	if (mpam_has_feature(mpam_feat_mbw_max, cfg) &&
-+	    !mpam_has_feature(mpam_feat_mbw_min, cfg)) {
-+		/*
-+		 * Calculate the values the 'min' control can hold.
-+		 * e.g. on a platform with bwa_wd = 8, min_hw_granule is 0x00ff
-+		 * because those bits are RES0. Configurations of this value
-+		 * are effectively zero. But configurations need to saturate
-+		 * at min_hw_granule on systems with mismatched bwa_wd, where
-+		 * the 'less than 0' values are implemented on some MSC, but
-+		 * not others.
-+		 */
-+		res0_bits = 16 - cprops->bwa_wd;
-+		max_hw_value = ((1 << cprops->bwa_wd) - 1) << res0_bits;
-+		min_hw_granule = ~max_hw_value;
++	lockdep_assert_held(&domain_list_lock);
 +
-+		delta = ((5 * MPAMCFG_MBW_MAX_MAX) / 100) - 1;
-+		if (cfg->mbw_max > delta)
-+			min = cfg->mbw_max - delta;
-+		else
-+			min = 0;
++	err = resctrl_find_domain(list, new->id, &pos);
++	if (WARN_ON_ONCE(err))
++		return;
 +
-+		cfg->mbw_min = max(min, min_hw_granule);
-+		mpam_set_feature(mpam_feat_mbw_min, cfg);
-+	}
++	list_add_tail_rcu(&new->list, pos);
 +}
 +
- int mpam_apply_config(struct mpam_component *comp, u16 partid,
--		      struct mpam_config *cfg)
-+		      struct mpam_config *user_cfg)
+ static struct mpam_resctrl_dom *
+ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
  {
- 	struct mpam_write_config_arg arg;
- 	struct mpam_msc_ris *ris;
-+	struct mpam_config cfg;
- 	struct mpam_vmsc *vmsc;
- 	struct mpam_msc *msc;
- 
- 	lockdep_assert_cpus_held();
- 
-+
- 	/* Don't pass in the current config! */
--	WARN_ON_ONCE(&comp->cfg[partid] == cfg);
-+	WARN_ON_ONCE(&comp->cfg[partid] == user_cfg);
- 
--	if (!mpam_update_config(&comp->cfg[partid], cfg))
-+	/*
-+	 * Copy the config to avoid writing back the 'extended' version to
-+	 * the caller.
-+	 * This avoids mpam_devices.c setting a mbm_min that mpam_resctrl.c
-+	 * is unaware of ... when it then changes mbm_max to be lower than
-+	 * mbm_min.
-+	 */
-+	cfg = *user_cfg;
-+
-+	mpam_extend_config(comp->class, &cfg);
-+
-+	if (!mpam_update_config(&comp->cfg[partid], &cfg))
- 		return 0;
- 
- 	arg.comp = comp;
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index b13d5e55e701..d381906545ed 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -277,6 +277,7 @@ struct mpam_config {
- 	u32	cpbm;
- 	u32	mbw_pbm;
- 	u16	mbw_max;
-+	u16	mbw_min;
- 
- 	bool	reset_cpbm;
- 	bool	reset_mbw_pbm;
-@@ -618,6 +619,7 @@ static inline void mpam_resctrl_teardown_class(struct mpam_class *class) { }
-  * MPAMCFG_MBW_MAX - MPAM memory maximum bandwidth partitioning configuration
-  *                   register
-  */
-+#define MPAMCFG_MBW_MAX_MAX_NR_BITS	16
- #define MPAMCFG_MBW_MAX_MAX		GENMASK(15, 0)
- #define MPAMCFG_MBW_MAX_HARDLIM		BIT(31)
- 
-diff --git a/drivers/resctrl/test_mpam_devices.c b/drivers/resctrl/test_mpam_devices.c
-index 3e8d564a0c64..2f802fd9f249 100644
---- a/drivers/resctrl/test_mpam_devices.c
-+++ b/drivers/resctrl/test_mpam_devices.c
-@@ -322,6 +322,71 @@ static void test_mpam_enable_merge_features(struct kunit *test)
- 	mutex_unlock(&mpam_list_lock);
- }
- 
-+static void test_mpam_extend_config(struct kunit *test)
-+{
-+	struct mpam_config fake_cfg = { };
-+	struct mpam_class fake_class = { };
-+
-+	/* Configurations with both are not modified */
-+	fake_class.props.bwa_wd = 16;
-+	fake_cfg.mbw_max = 0xfeef;
-+	fake_cfg.mbw_min = 0xfeef;
-+	bitmap_zero(fake_cfg.features, MPAM_FEATURE_LAST);
-+	mpam_set_feature(mpam_feat_mbw_max, &fake_cfg);
-+	mpam_set_feature(mpam_feat_mbw_min, &fake_cfg);
-+	mpam_extend_config(&fake_class, &fake_cfg);
-+	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_max, &fake_cfg));
-+	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_min, &fake_cfg));
-+	KUNIT_EXPECT_EQ(test, fake_cfg.mbw_max, 0xfeef);
-+	KUNIT_EXPECT_EQ(test, fake_cfg.mbw_min, 0xfeef);
-+
-+	/* When a min is missing, it is generated */
-+	fake_class.props.bwa_wd = 16;
-+	fake_cfg.mbw_max = 0xfeef;
-+	fake_cfg.mbw_min = 0;
-+	bitmap_zero(fake_cfg.features, MPAM_FEATURE_LAST);
-+	mpam_set_feature(mpam_feat_mbw_max, &fake_cfg);
-+	mpam_extend_config(&fake_class, &fake_cfg);
-+	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_max, &fake_cfg));
-+	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_min, &fake_cfg));
-+	KUNIT_EXPECT_EQ(test, fake_cfg.mbw_max, 0xfeef);
-+	KUNIT_EXPECT_EQ(test, fake_cfg.mbw_min, 0xf224);
-+
-+	fake_class.props.bwa_wd = 8;
-+	fake_cfg.mbw_max = 0xfeef;
-+	fake_cfg.mbw_min = 0;
-+	bitmap_zero(fake_cfg.features, MPAM_FEATURE_LAST);
-+	mpam_set_feature(mpam_feat_mbw_max, &fake_cfg);
-+	mpam_extend_config(&fake_class, &fake_cfg);
-+	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_max, &fake_cfg));
-+	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_min, &fake_cfg));
-+	KUNIT_EXPECT_EQ(test, fake_cfg.mbw_max, 0xfeef);
-+	KUNIT_EXPECT_EQ(test, fake_cfg.mbw_min, 0xf224);
-+
-+	/* 5% below the minimum granule, is still the minimum granule */
-+	fake_class.props.bwa_wd = 12;
-+	fake_cfg.mbw_max = 0xf;
-+	fake_cfg.mbw_min = 0;
-+	bitmap_zero(fake_cfg.features, MPAM_FEATURE_LAST);
-+	mpam_set_feature(mpam_feat_mbw_max, &fake_cfg);
-+	mpam_extend_config(&fake_class, &fake_cfg);
-+	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_max, &fake_cfg));
-+	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_min, &fake_cfg));
-+	KUNIT_EXPECT_EQ(test, fake_cfg.mbw_max, 0xf);
-+	KUNIT_EXPECT_EQ(test, fake_cfg.mbw_min, 0xf);
-+
-+	fake_class.props.bwa_wd = 16;
-+	fake_cfg.mbw_max = 0x4;
-+	fake_cfg.mbw_min = 0;
-+	bitmap_zero(fake_cfg.features, MPAM_FEATURE_LAST);
-+	mpam_set_feature(mpam_feat_mbw_max, &fake_cfg);
-+	mpam_extend_config(&fake_class, &fake_cfg);
-+	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_max, &fake_cfg));
-+	KUNIT_EXPECT_TRUE(test, mpam_has_feature(mpam_feat_mbw_min, &fake_cfg));
-+	KUNIT_EXPECT_EQ(test, fake_cfg.mbw_max, 0x4);
-+	KUNIT_EXPECT_EQ(test, fake_cfg.mbw_min, 0x0);
-+}
-+
- static void test_mpam_reset_msc_bitmap(struct kunit *test)
- {
- 	char __iomem *buf = kunit_kzalloc(test, SZ_16K, GFP_KERNEL);
-@@ -378,6 +443,7 @@ static struct kunit_case mpam_devices_test_cases[] = {
- 	KUNIT_CASE(test_mpam_reset_msc_bitmap),
- 	KUNIT_CASE(test_mpam_enable_merge_features),
- 	KUNIT_CASE(test__props_mismatch),
-+	KUNIT_CASE(test_mpam_extend_config),
- 	{}
- };
- 
+@@ -1584,8 +1599,7 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+ 		ctrl_d = &dom->resctrl_ctrl_dom;
+ 		mpam_resctrl_domain_hdr_init(cpu, ctrl_comp, &ctrl_d->hdr);
+ 		ctrl_d->hdr.type = RESCTRL_CTRL_DOMAIN;
+-		/* TODO: this list should be sorted */
+-		list_add_tail_rcu(&ctrl_d->hdr.list, &r->ctrl_domains);
++		mpam_resctrl_domain_insert(&r->ctrl_domains, &ctrl_d->hdr);
+ 		err = resctrl_online_ctrl_domain(r, ctrl_d);
+ 		if (err) {
+ 			dom = ERR_PTR(err);
+@@ -1623,8 +1637,7 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
+ 		mon_d = &dom->resctrl_mon_dom;
+ 		mpam_resctrl_domain_hdr_init(cpu, any_mon_comp, &mon_d->hdr);
+ 		mon_d->hdr.type = RESCTRL_MON_DOMAIN;
+-		/* TODO: this list should be sorted */
+-		list_add_tail_rcu(&mon_d->hdr.list, &r->mon_domains);
++		mpam_resctrl_domain_insert(&r->mon_domains, &mon_d->hdr);
+ 		err = resctrl_online_mon_domain(r, mon_d);
+ 		if (err) {
+ 			dom = ERR_PTR(err);
 -- 
 2.39.5
 
