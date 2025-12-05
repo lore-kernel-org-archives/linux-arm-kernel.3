@@ -4,45 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6C4BD2F7CD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 09:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0207CD2F7CC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 09:52:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/JP+4ckmzRNCAKbVL9lJPhNRJD2tZ2UdMNCmVCP9SsM=; b=WOM/GgjSuHXBj5FU5cax6XTIl4
-	mZA/mJmS6O7+Y0UoUYnC5wDuf/4FpTB9aS7y4DgtZki5Gm2JwJs2xg4piQ+pvtQyv54kg99jPCLrP
-	Oye603OYQ7z15EqSwVYUxHU1e2jl2r4EHnBb+Hs6gDZWc4pldXMBM1BUGH3WXJXCvCewe+5ImYorj
-	XrXrHK2xi9I5QxPkJenw8et8vhv3CAKoTdXNBreql6B6Uu+Dh/LjdDGn8NbwehoF4/PB9XuIVBQMN
-	9f0kZPmjIBCsqWTPuMgemIm+hMvri4m6f9vDbPX0YgYBa0JsuMgpgXdrH7u0desDJ8Bwu+TU79ha2
-	yPVdTShg==;
+	bh=if2K+8QFGNiXuVzGCiR09bKaMMd+1fhAdtjZbTuB4cU=; b=11ybv0BscnxAWjbLtdyPpyDoJY
+	SD60YGjKhBfHo1LpyHImff7WNW3wC7XyI6Jrl0mqvf5GimT2NnQgjoTYJo1H2YeQ9lJl/7E30H1HG
+	6UH9JGOafbRaMqwmvwcwCZArZpLGIngbOkAaomdeoJ/yGrKp1L4CfOU5munhZ3dF/oPrItk0eK6ty
+	FMk92B3RZlRfYLVY4EduYQ/Y9bubbLO839oUN2Jt2qiSqpIjmIkM7ZFi3Zf81sdcs6XS44PuiiCnb
+	TE6qJn8kW0IfbWM326ROUKz67wkw92WO1yi/WkEEEcYCos4aUi5vvyVuJWpNQpXDawSJ+UyCPOoh0
+	85Wp8Qrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRSUS-00000009KXJ-1W1u;
-	Fri, 05 Dec 2025 09:52:41 +0000
+	id 1vRSUL-00000009KQl-3J6w;
+	Fri, 05 Dec 2025 09:52:33 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRSUL-00000009KPp-4AKi;
-	Fri, 05 Dec 2025 09:52:35 +0000
+	id 1vRSUI-00000009KOh-396M;
+	Fri, 05 Dec 2025 09:52:32 +0000
 Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 992781776;
-	Fri,  5 Dec 2025 10:50:13 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id C10FC11EF;
+	Fri,  5 Dec 2025 10:50:08 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1764928215;
-	bh=tk41aXJM1hAnommQL/yZ5bKIvn8A1Y3535egq0jrEXs=;
+	s=mail; t=1764928210;
+	bh=+ymyio3eA+DYlmRJI9W1XgVmwy5/B3PG90stDf9BFHk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=dDozfNOw0kPmG5KSLNrZMNRxUH1xcCssnfVhWxGCOvmEgCkuPW6O+l6+/X7XySbjb
-	 g0Mauy1M5GGEPC1Z5vzpfIbZLyrKS7/fCfaNoSsdPhWXIYilfCMZQBLeTdPwQUDSix
-	 O8D0SNfXvZjTKBPh48X2Ch5gvtKOy3Yx6uvYcxK0=
+	b=HPCE1hrpDv12tDiTdPw6hNHZN7y2Bemr0Q/tT/rqbI8Nd6g5HeH9Nh8o/Aj1jtpN2
+	 NaWqECU+jF/emCI4tJh3ocUMmz7gT3Vcj5tK/1c6M4zVr1I3Q8Jo8rY7YNWmknWFc2
+	 zqqLZiCgSq868LtamJn66/aF9gwvANEAyS1JRfIk=
 From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Fri, 05 Dec 2025 11:51:51 +0200
-Subject: [PATCH 4/4] drm/tidss: Fix enable/disable order
+Date: Fri, 05 Dec 2025 11:51:48 +0200
+Subject: [PATCH 1/4] Revert "drm/atomic-helper: Re-order bridge chain
+ pre-enable and post-disable"
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251205-drm-seq-fix-v1-4-fda68fa1b3de@ideasonboard.com>
+Message-Id: <20251205-drm-seq-fix-v1-1-fda68fa1b3de@ideasonboard.com>
 References: <20251205-drm-seq-fix-v1-0-fda68fa1b3de@ideasonboard.com>
 In-Reply-To: <20251205-drm-seq-fix-v1-0-fda68fa1b3de@ideasonboard.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -68,26 +69,26 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Marek Vasut <marek.vasut+renesas@mailbox.org>, 
  Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, stable@vger.kernel.org
 X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2817;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=15709;
  i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=tk41aXJM1hAnommQL/yZ5bKIvn8A1Y3535egq0jrEXs=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBpMqtWv5wZpSaeF7nzdL79PpuSJS+G7FkUG1S7F
- CjPbI7L85yJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCaTKrVgAKCRD6PaqMvJYe
- 9dFZD/43MtWBz4xkH5Go8fDRvOeAMN3nMetCypyzpaYU8SDCxiHW3R4cvCQCBz5ptVjtBmY2soo
- j6TbcKyMormmah0v5qlbSm5cdRC6ewqdO40MrJD25s1iMMI4striFD/Rbz+h/cBoVMthXCKFKcU
- SYgA8Vm0hdvQRTgXN1H6X1zUGaJ3wWeO/bodZnATIJO2FMxmcczJ7LX+xnCbmSrl11Wss7jOJoY
- 17pQPD0R8dgMmIO3KOKDrtodE6a9M1mLPqdN0Go6WvpD68UGiaUZ2ogyA5lAd54XGP3Y0fskIu+
- l07xPUfRTajLrS7P2AHHwjModBlLAZF+2QaI4JyxJq9laAFPJLJLOOXjsBHHYYB3T3Lk3dAo9G+
- y5D653lz2jZ2qyxfezh9QHATtYAOIz+H7Sf8PDF2NIMd2jjMOKdsdBduxMt1uSpIoHyjK4bXRb5
- uwgvIp+c0bGaNgVTVUgnVLAhkHIhNodsWXuWt2YupEvCp1nH8oDjCdCW2iCsAuEy+8JAKE+TKsa
- mqPoEzWuMu0NB0LGR08Av5ZE/ajflmmSUcJG7BW5nc2vWZBTvm19zf5L+5sBjbz/wo+417eu+oG
- kpE6f0Sz2HrYLdCAsRystA9O0ko0oMc3myR9YWc5VzfTltcxkaZSlYYxz7BAeSJkNUUvMUmLiWt
- 1I1wsU3rnpVQTrg==
+ bh=+ymyio3eA+DYlmRJI9W1XgVmwy5/B3PG90stDf9BFHk=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBpMqtVMxyofo+pk0fUCqHAhIUnHAjWKXUvxnj2p
+ fn8zsG2WvGJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCaTKrVQAKCRD6PaqMvJYe
+ 9eQ1D/955qRo5DUhVivaV9qn/ywyAe8jSOTEmcU7FW6Xvo2tKQtXMUW2O2jaGPWqulXroi/8Nui
+ DhF++yKo405cyuKemE+VcxzKjsqrWLrK2kB30vyJp5aZHrK73BotHcu/QAV9sQXPqrEI1a9763b
+ 5h/16PAATPHoIe1dKZZCz4wHuIdtmOoFLgV4OJ6TjFqmlx4pqdJ/K5KhBHoRfvqbAdT5DSE08EQ
+ 554hSq2lpPXBbba1PFSjDdcr0Icuu02/0Adg4sDaQcpXSuMxYvSQC/JXd3f7+n+JOEF61sW+K0h
+ 3FhMnl+Ai3CHLn/DyadoF5O2aDZh1Qjq2iJGZO9dBYmDhvZ8HrJ2Mc+ugHViyC7rLg0Ug2sUQxu
+ ordKS2CRW/enj0vwlr9Mq4Q6bdugfPPndWI5jMS6IzmQBp09H4JY/1kWKVl69B544ES+cGPcpJ2
+ nJjZ8Lat/QVfU65ottYfi0MbHmxzgABUnqB4MJLGZojYy+eljUELZMDsJ4vrv0EidHZ1+tRD6v4
+ V4CukJgE1wdnETKxGqC3DgD/oKcAahDat+AWLag3IJvB4y8utoffC90F44fLRXA5O1vaDMCVyFP
+ tmzcXYsp2zy/cO33N9vMXYGVeRiI+I8pe1KQdhHBb5tGC1IK/JXUj0eN+LpsHBD/G6SV0JTB/e6
+ MVnD/SPfP7tAygg==
 X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
  fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_015234_200303_F9DCF007 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20251205_015231_096664_6CBE423B 
+X-CRM114-Status: GOOD (  19.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,68 +103,387 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-TI's OLDI and DSI encoders need to be set up before the crtc is enabled,
-but the DRM helpers will enable the crtc first. This causes various
-issues on TI platforms, like visual artifacts or crtc sync lost
-warnings.
+This reverts commit c9b1150a68d9362a0827609fc0dc1664c0d8bfe1.
 
-Thus drm_atomic_helper_commit_modeset_enables() and
-drm_atomic_helper_commit_modeset_disables() cannot be used, as they
-enable the crtc before bridges' pre-enable, and disable the crtc after
-bridges' post-disable.
+Changing the enable/disable sequence has caused regressions on multiple
+platforms: R-Car, MCDE, Rockchip. A series (see link below)  was sent to
+fix these, but it was decided that it's better to revert the original
+patch and change the enable/disable sequence only in the tidss driver.
 
-Open code the drm_atomic_helper_commit_modeset_enables() and
-drm_atomic_helper_commit_modeset_disables(), and first call the bridges'
-pre-enables, then crtc enable, then bridges' post-enable (and vice versa
-for disable).
+Reverting this commit breaks tidss's DSI and OLDI outputs, which will be
+fixed in the following commits.
 
 Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+Link: https://lore.kernel.org/all/20251202-mcde-drm-regression-thirdfix-v6-0-f1bffd4ec0fa%40kernel.org/
+Fixes: c9b1150a68d9 ("drm/atomic-helper: Re-order bridge chain pre-enable and post-disable")
 Cc: stable@vger.kernel.org # v6.17+
 ---
- drivers/gpu/drm/tidss/tidss_kms.c | 30 +++++++++++++++++++++++++++---
- 1 file changed, 27 insertions(+), 3 deletions(-)
+ drivers/gpu/drm/drm_atomic_helper.c |   8 +-
+ include/drm/drm_bridge.h            | 249 ++++++++++--------------------------
+ 2 files changed, 70 insertions(+), 187 deletions(-)
 
-diff --git a/drivers/gpu/drm/tidss/tidss_kms.c b/drivers/gpu/drm/tidss/tidss_kms.c
-index 86eb5d97410b..8bb93194e5ac 100644
---- a/drivers/gpu/drm/tidss/tidss_kms.c
-+++ b/drivers/gpu/drm/tidss/tidss_kms.c
-@@ -26,9 +26,33 @@ static void tidss_atomic_commit_tail(struct drm_atomic_state *old_state)
+diff --git a/drivers/gpu/drm/drm_atomic_helper.c b/drivers/gpu/drm/drm_atomic_helper.c
+index 10adac9397cf..ef97f37560b2 100644
+--- a/drivers/gpu/drm/drm_atomic_helper.c
++++ b/drivers/gpu/drm/drm_atomic_helper.c
+@@ -1341,9 +1341,9 @@ disable_outputs(struct drm_device *dev, struct drm_atomic_state *state)
+ {
+ 	encoder_bridge_disable(dev, state);
  
- 	tidss_runtime_get(tidss);
+-	crtc_disable(dev, state);
+-
+ 	encoder_bridge_post_disable(dev, state);
++
++	crtc_disable(dev, state);
+ }
  
--	drm_atomic_helper_commit_modeset_disables(ddev, old_state);
--	drm_atomic_helper_commit_planes(ddev, old_state, DRM_PLANE_COMMIT_ACTIVE_ONLY);
--	drm_atomic_helper_commit_modeset_enables(ddev, old_state);
-+	/*
-+	 * TI's OLDI and DSI encoders need to be set up before the crtc is
-+	 * enabled. Thus drm_atomic_helper_commit_modeset_enables() and
-+	 * drm_atomic_helper_commit_modeset_disables() cannot be used here, as
-+	 * they enable the crtc before bridges' pre-enable, and disable the crtc
-+	 * after bridges' post-disable.
-+	 *
-+	 * Open code the functions here and first call the bridges' pre-enables,
-+	 * then crtc enable, then bridges' post-enable (and vice versa for
-+	 * disable).
-+	 */
-+
-+	drm_atomic_helper_commit_encoder_bridge_disable(ddev, old_state);
-+	drm_atomic_helper_commit_crtc_disable(ddev, old_state);
-+	drm_atomic_helper_commit_encoder_bridge_post_disable(ddev, old_state);
-+
-+	drm_atomic_helper_update_legacy_modeset_state(ddev, old_state);
-+	drm_atomic_helper_calc_timestamping_constants(old_state);
-+	drm_atomic_helper_commit_crtc_set_mode(ddev, old_state);
-+
-+	drm_atomic_helper_commit_planes(ddev, old_state,
-+					DRM_PLANE_COMMIT_ACTIVE_ONLY);
-+
-+	drm_atomic_helper_commit_encoder_bridge_pre_enable(ddev, old_state);
-+	drm_atomic_helper_commit_crtc_enable(ddev, old_state);
-+	drm_atomic_helper_commit_encoder_bridge_enable(ddev, old_state);
-+	drm_atomic_helper_commit_writebacks(ddev, old_state);
+ /**
+@@ -1682,10 +1682,10 @@ encoder_bridge_enable(struct drm_device *dev, struct drm_atomic_state *state)
+ void drm_atomic_helper_commit_modeset_enables(struct drm_device *dev,
+ 					      struct drm_atomic_state *state)
+ {
+-	encoder_bridge_pre_enable(dev, state);
+-
+ 	crtc_enable(dev, state);
  
- 	drm_atomic_helper_commit_hw_done(old_state);
- 	drm_atomic_helper_wait_for_flip_done(ddev, old_state);
++	encoder_bridge_pre_enable(dev, state);
++
+ 	encoder_bridge_enable(dev, state);
+ 
+ 	drm_atomic_helper_commit_writebacks(dev, state);
+diff --git a/include/drm/drm_bridge.h b/include/drm/drm_bridge.h
+index 0ff7ab4aa868..dbafe136833f 100644
+--- a/include/drm/drm_bridge.h
++++ b/include/drm/drm_bridge.h
+@@ -176,33 +176,17 @@ struct drm_bridge_funcs {
+ 	/**
+ 	 * @disable:
+ 	 *
+-	 * The @disable callback should disable the bridge.
++	 * This callback should disable the bridge. It is called right before
++	 * the preceding element in the display pipe is disabled. If the
++	 * preceding element is a bridge this means it's called before that
++	 * bridge's @disable vfunc. If the preceding element is a &drm_encoder
++	 * it's called right before the &drm_encoder_helper_funcs.disable,
++	 * &drm_encoder_helper_funcs.prepare or &drm_encoder_helper_funcs.dpms
++	 * hook.
+ 	 *
+ 	 * The bridge can assume that the display pipe (i.e. clocks and timing
+ 	 * signals) feeding it is still running when this callback is called.
+ 	 *
+-	 *
+-	 * If the preceding element is a &drm_bridge, then this is called before
+-	 * that bridge is disabled via one of:
+-	 *
+-	 * - &drm_bridge_funcs.disable
+-	 * - &drm_bridge_funcs.atomic_disable
+-	 *
+-	 * If the preceding element of the bridge is a display controller, then
+-	 * this callback is called before the encoder is disabled via one of:
+-	 *
+-	 * - &drm_encoder_helper_funcs.atomic_disable
+-	 * - &drm_encoder_helper_funcs.prepare
+-	 * - &drm_encoder_helper_funcs.disable
+-	 * - &drm_encoder_helper_funcs.dpms
+-	 *
+-	 * and the CRTC is disabled via one of:
+-	 *
+-	 * - &drm_crtc_helper_funcs.prepare
+-	 * - &drm_crtc_helper_funcs.atomic_disable
+-	 * - &drm_crtc_helper_funcs.disable
+-	 * - &drm_crtc_helper_funcs.dpms.
+-	 *
+ 	 * The @disable callback is optional.
+ 	 *
+ 	 * NOTE:
+@@ -215,34 +199,17 @@ struct drm_bridge_funcs {
+ 	/**
+ 	 * @post_disable:
+ 	 *
+-	 * The bridge must assume that the display pipe (i.e. clocks and timing
+-	 * signals) feeding this bridge is no longer running when the
+-	 * @post_disable is called.
++	 * This callback should disable the bridge. It is called right after the
++	 * preceding element in the display pipe is disabled. If the preceding
++	 * element is a bridge this means it's called after that bridge's
++	 * @post_disable function. If the preceding element is a &drm_encoder
++	 * it's called right after the encoder's
++	 * &drm_encoder_helper_funcs.disable, &drm_encoder_helper_funcs.prepare
++	 * or &drm_encoder_helper_funcs.dpms hook.
+ 	 *
+-	 * This callback should perform all the actions required by the hardware
+-	 * after it has stopped receiving signals from the preceding element.
+-	 *
+-	 * If the preceding element is a &drm_bridge, then this is called after
+-	 * that bridge is post-disabled (unless marked otherwise by the
+-	 * @pre_enable_prev_first flag) via one of:
+-	 *
+-	 * - &drm_bridge_funcs.post_disable
+-	 * - &drm_bridge_funcs.atomic_post_disable
+-	 *
+-	 * If the preceding element of the bridge is a display controller, then
+-	 * this callback is called after the encoder is disabled via one of:
+-	 *
+-	 * - &drm_encoder_helper_funcs.atomic_disable
+-	 * - &drm_encoder_helper_funcs.prepare
+-	 * - &drm_encoder_helper_funcs.disable
+-	 * - &drm_encoder_helper_funcs.dpms
+-	 *
+-	 * and the CRTC is disabled via one of:
+-	 *
+-	 * - &drm_crtc_helper_funcs.prepare
+-	 * - &drm_crtc_helper_funcs.atomic_disable
+-	 * - &drm_crtc_helper_funcs.disable
+-	 * - &drm_crtc_helper_funcs.dpms
++	 * The bridge must assume that the display pipe (i.e. clocks and timing
++	 * signals) feeding it is no longer running when this callback is
++	 * called.
+ 	 *
+ 	 * The @post_disable callback is optional.
+ 	 *
+@@ -285,30 +252,18 @@ struct drm_bridge_funcs {
+ 	/**
+ 	 * @pre_enable:
+ 	 *
+-	 * The display pipe (i.e. clocks and timing signals) feeding this bridge
+-	 * will not yet be running when the @pre_enable is called.
+-	 *
+-	 * This callback should perform all the necessary actions to prepare the
+-	 * bridge to accept signals from the preceding element.
+-	 *
+-	 * If the preceding element is a &drm_bridge, then this is called before
+-	 * that bridge is pre-enabled (unless marked otherwise by
+-	 * @pre_enable_prev_first flag) via one of:
+-	 *
+-	 * - &drm_bridge_funcs.pre_enable
+-	 * - &drm_bridge_funcs.atomic_pre_enable
+-	 *
+-	 * If the preceding element of the bridge is a display controller, then
+-	 * this callback is called before the CRTC is enabled via one of:
+-	 *
+-	 * - &drm_crtc_helper_funcs.atomic_enable
+-	 * - &drm_crtc_helper_funcs.commit
+-	 *
+-	 * and the encoder is enabled via one of:
++	 * This callback should enable the bridge. It is called right before
++	 * the preceding element in the display pipe is enabled. If the
++	 * preceding element is a bridge this means it's called before that
++	 * bridge's @pre_enable function. If the preceding element is a
++	 * &drm_encoder it's called right before the encoder's
++	 * &drm_encoder_helper_funcs.enable, &drm_encoder_helper_funcs.commit or
++	 * &drm_encoder_helper_funcs.dpms hook.
+ 	 *
+-	 * - &drm_encoder_helper_funcs.atomic_enable
+-	 * - &drm_encoder_helper_funcs.enable
+-	 * - &drm_encoder_helper_funcs.commit
++	 * The display pipe (i.e. clocks and timing signals) feeding this bridge
++	 * will not yet be running when this callback is called. The bridge must
++	 * not enable the display link feeding the next bridge in the chain (if
++	 * there is one) when this callback is called.
+ 	 *
+ 	 * The @pre_enable callback is optional.
+ 	 *
+@@ -322,31 +277,19 @@ struct drm_bridge_funcs {
+ 	/**
+ 	 * @enable:
+ 	 *
+-	 * The @enable callback should enable the bridge.
++	 * This callback should enable the bridge. It is called right after
++	 * the preceding element in the display pipe is enabled. If the
++	 * preceding element is a bridge this means it's called after that
++	 * bridge's @enable function. If the preceding element is a
++	 * &drm_encoder it's called right after the encoder's
++	 * &drm_encoder_helper_funcs.enable, &drm_encoder_helper_funcs.commit or
++	 * &drm_encoder_helper_funcs.dpms hook.
+ 	 *
+ 	 * The bridge can assume that the display pipe (i.e. clocks and timing
+ 	 * signals) feeding it is running when this callback is called. This
+ 	 * callback must enable the display link feeding the next bridge in the
+ 	 * chain if there is one.
+ 	 *
+-	 * If the preceding element is a &drm_bridge, then this is called after
+-	 * that bridge is enabled via one of:
+-	 *
+-	 * - &drm_bridge_funcs.enable
+-	 * - &drm_bridge_funcs.atomic_enable
+-	 *
+-	 * If the preceding element of the bridge is a display controller, then
+-	 * this callback is called after the CRTC is enabled via one of:
+-	 *
+-	 * - &drm_crtc_helper_funcs.atomic_enable
+-	 * - &drm_crtc_helper_funcs.commit
+-	 *
+-	 * and the encoder is enabled via one of:
+-	 *
+-	 * - &drm_encoder_helper_funcs.atomic_enable
+-	 * - &drm_encoder_helper_funcs.enable
+-	 * - drm_encoder_helper_funcs.commit
+-	 *
+ 	 * The @enable callback is optional.
+ 	 *
+ 	 * NOTE:
+@@ -359,30 +302,17 @@ struct drm_bridge_funcs {
+ 	/**
+ 	 * @atomic_pre_enable:
+ 	 *
+-	 * The display pipe (i.e. clocks and timing signals) feeding this bridge
+-	 * will not yet be running when the @atomic_pre_enable is called.
+-	 *
+-	 * This callback should perform all the necessary actions to prepare the
+-	 * bridge to accept signals from the preceding element.
+-	 *
+-	 * If the preceding element is a &drm_bridge, then this is called before
+-	 * that bridge is pre-enabled (unless marked otherwise by
+-	 * @pre_enable_prev_first flag) via one of:
+-	 *
+-	 * - &drm_bridge_funcs.pre_enable
+-	 * - &drm_bridge_funcs.atomic_pre_enable
++	 * This callback should enable the bridge. It is called right before
++	 * the preceding element in the display pipe is enabled. If the
++	 * preceding element is a bridge this means it's called before that
++	 * bridge's @atomic_pre_enable or @pre_enable function. If the preceding
++	 * element is a &drm_encoder it's called right before the encoder's
++	 * &drm_encoder_helper_funcs.atomic_enable hook.
+ 	 *
+-	 * If the preceding element of the bridge is a display controller, then
+-	 * this callback is called before the CRTC is enabled via one of:
+-	 *
+-	 * - &drm_crtc_helper_funcs.atomic_enable
+-	 * - &drm_crtc_helper_funcs.commit
+-	 *
+-	 * and the encoder is enabled via one of:
+-	 *
+-	 * - &drm_encoder_helper_funcs.atomic_enable
+-	 * - &drm_encoder_helper_funcs.enable
+-	 * - &drm_encoder_helper_funcs.commit
++	 * The display pipe (i.e. clocks and timing signals) feeding this bridge
++	 * will not yet be running when this callback is called. The bridge must
++	 * not enable the display link feeding the next bridge in the chain (if
++	 * there is one) when this callback is called.
+ 	 *
+ 	 * The @atomic_pre_enable callback is optional.
+ 	 */
+@@ -392,31 +322,18 @@ struct drm_bridge_funcs {
+ 	/**
+ 	 * @atomic_enable:
+ 	 *
+-	 * The @atomic_enable callback should enable the bridge.
++	 * This callback should enable the bridge. It is called right after
++	 * the preceding element in the display pipe is enabled. If the
++	 * preceding element is a bridge this means it's called after that
++	 * bridge's @atomic_enable or @enable function. If the preceding element
++	 * is a &drm_encoder it's called right after the encoder's
++	 * &drm_encoder_helper_funcs.atomic_enable hook.
+ 	 *
+ 	 * The bridge can assume that the display pipe (i.e. clocks and timing
+ 	 * signals) feeding it is running when this callback is called. This
+ 	 * callback must enable the display link feeding the next bridge in the
+ 	 * chain if there is one.
+ 	 *
+-	 * If the preceding element is a &drm_bridge, then this is called after
+-	 * that bridge is enabled via one of:
+-	 *
+-	 * - &drm_bridge_funcs.enable
+-	 * - &drm_bridge_funcs.atomic_enable
+-	 *
+-	 * If the preceding element of the bridge is a display controller, then
+-	 * this callback is called after the CRTC is enabled via one of:
+-	 *
+-	 * - &drm_crtc_helper_funcs.atomic_enable
+-	 * - &drm_crtc_helper_funcs.commit
+-	 *
+-	 * and the encoder is enabled via one of:
+-	 *
+-	 * - &drm_encoder_helper_funcs.atomic_enable
+-	 * - &drm_encoder_helper_funcs.enable
+-	 * - drm_encoder_helper_funcs.commit
+-	 *
+ 	 * The @atomic_enable callback is optional.
+ 	 */
+ 	void (*atomic_enable)(struct drm_bridge *bridge,
+@@ -424,32 +341,16 @@ struct drm_bridge_funcs {
+ 	/**
+ 	 * @atomic_disable:
+ 	 *
+-	 * The @atomic_disable callback should disable the bridge.
++	 * This callback should disable the bridge. It is called right before
++	 * the preceding element in the display pipe is disabled. If the
++	 * preceding element is a bridge this means it's called before that
++	 * bridge's @atomic_disable or @disable vfunc. If the preceding element
++	 * is a &drm_encoder it's called right before the
++	 * &drm_encoder_helper_funcs.atomic_disable hook.
+ 	 *
+ 	 * The bridge can assume that the display pipe (i.e. clocks and timing
+ 	 * signals) feeding it is still running when this callback is called.
+ 	 *
+-	 * If the preceding element is a &drm_bridge, then this is called before
+-	 * that bridge is disabled via one of:
+-	 *
+-	 * - &drm_bridge_funcs.disable
+-	 * - &drm_bridge_funcs.atomic_disable
+-	 *
+-	 * If the preceding element of the bridge is a display controller, then
+-	 * this callback is called before the encoder is disabled via one of:
+-	 *
+-	 * - &drm_encoder_helper_funcs.atomic_disable
+-	 * - &drm_encoder_helper_funcs.prepare
+-	 * - &drm_encoder_helper_funcs.disable
+-	 * - &drm_encoder_helper_funcs.dpms
+-	 *
+-	 * and the CRTC is disabled via one of:
+-	 *
+-	 * - &drm_crtc_helper_funcs.prepare
+-	 * - &drm_crtc_helper_funcs.atomic_disable
+-	 * - &drm_crtc_helper_funcs.disable
+-	 * - &drm_crtc_helper_funcs.dpms.
+-	 *
+ 	 * The @atomic_disable callback is optional.
+ 	 */
+ 	void (*atomic_disable)(struct drm_bridge *bridge,
+@@ -458,34 +359,16 @@ struct drm_bridge_funcs {
+ 	/**
+ 	 * @atomic_post_disable:
+ 	 *
+-	 * The bridge must assume that the display pipe (i.e. clocks and timing
+-	 * signals) feeding this bridge is no longer running when the
+-	 * @atomic_post_disable is called.
+-	 *
+-	 * This callback should perform all the actions required by the hardware
+-	 * after it has stopped receiving signals from the preceding element.
++	 * This callback should disable the bridge. It is called right after the
++	 * preceding element in the display pipe is disabled. If the preceding
++	 * element is a bridge this means it's called after that bridge's
++	 * @atomic_post_disable or @post_disable function. If the preceding
++	 * element is a &drm_encoder it's called right after the encoder's
++	 * &drm_encoder_helper_funcs.atomic_disable hook.
+ 	 *
+-	 * If the preceding element is a &drm_bridge, then this is called after
+-	 * that bridge is post-disabled (unless marked otherwise by the
+-	 * @pre_enable_prev_first flag) via one of:
+-	 *
+-	 * - &drm_bridge_funcs.post_disable
+-	 * - &drm_bridge_funcs.atomic_post_disable
+-	 *
+-	 * If the preceding element of the bridge is a display controller, then
+-	 * this callback is called after the encoder is disabled via one of:
+-	 *
+-	 * - &drm_encoder_helper_funcs.atomic_disable
+-	 * - &drm_encoder_helper_funcs.prepare
+-	 * - &drm_encoder_helper_funcs.disable
+-	 * - &drm_encoder_helper_funcs.dpms
+-	 *
+-	 * and the CRTC is disabled via one of:
+-	 *
+-	 * - &drm_crtc_helper_funcs.prepare
+-	 * - &drm_crtc_helper_funcs.atomic_disable
+-	 * - &drm_crtc_helper_funcs.disable
+-	 * - &drm_crtc_helper_funcs.dpms
++	 * The bridge must assume that the display pipe (i.e. clocks and timing
++	 * signals) feeding it is no longer running when this callback is
++	 * called.
+ 	 *
+ 	 * The @atomic_post_disable callback is optional.
+ 	 */
 
 -- 
 2.43.0
