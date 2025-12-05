@@ -4,72 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D7BCD32D60
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 14:28:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DDB9D32D8A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 14:38:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qQQPUYWzC4MVTVocsZ5Vaqxv+1vD3oOyYMIVagNfpfo=; b=LEEvL9zlVhOgcYj8+k4OFfwYIk
-	V2vqNiOoFK94zc/yL+BbeiWpUp1td8mtPbAH7nGY2e+iAvH3XOB7girFQUIhwMsNPaTq4lbtUKxaK
-	DjdsebfgGqtwriLemX/PwWr7c84vJHxKRXyqUh79YoQqCCyK4MnTFl4u4K8OrYoSDHezHQtRQV2U9
-	g0cCe5IYk52hmMxD+XNYxHKqCevb5NA3SdTK1vDIQXibx1Vk2gxQidn3u3/8bFq3NQx7G3gR/Y7ir
-	wS38Im2xS0+XpneujiulBfRAHNVgP0B8wHI241sYYwQpz78+udO21TS3BYOgk+dNb1/O8ISonvowj
-	Eg/Z3iBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rZeX/t9XBIstd9pSBZ5++UMA+6ZEbyBEMYNpSCQ2HHE=; b=j6EXVIp0fITi8xgIh5n2cAwHXr
+	AqwVBdYute9L4SA1YRiVmJxytj2giI6ccAEf4RvwG6h4GKTTL1WyYMpVL8GIV5WOcTnQYg0u7xowO
+	vwkL0H9Do791GuHy98YUH6oVselqw7X+lXJDAVCpvn/BW37p152zR/Vg8XdUilwv3VbbfBzlhx9G9
+	pFxMpAh/QBvtP1rz+fpjOZaJivUJTap53Zt2F+86obkzH07twE0t1lZjCS8ZqHFcRXNZ/TduTMHXy
+	3iHlwfDLo+v3bTVc8WuCFfJRF5aubaXYvJU1mDo9DOu94K4I5z7V5Q2Og8N9vAems04Odz0Xmknl+
+	gHLKoPMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRWnk-00000009ajG-1Gj0;
-	Fri, 05 Dec 2025 14:28:52 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vRWwj-00000009bbG-4BJB;
+	Fri, 05 Dec 2025 14:38:10 +0000
+Received: from mail-yx1-xb136.google.com ([2607:f8b0:4864:20::b136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRWng-00000009aft-3n9Q
+	id 1vRWwg-00000009bau-2rUb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 14:28:50 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 858721A1F98;
-	Fri,  5 Dec 2025 14:28:47 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 571BB606AC;
-	Fri,  5 Dec 2025 14:28:47 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BBFB4102F0A9C;
-	Fri,  5 Dec 2025 15:28:44 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764944926; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=qQQPUYWzC4MVTVocsZ5Vaqxv+1vD3oOyYMIVagNfpfo=;
-	b=wjqbJzejUGhNfXPzI1AMvsXgzJYpEZdUKWMGoF5ERPpaGOf23wwuyV1cF1qFbNrj3hBzCu
-	hL3JHvKG7ceFAhjYvoCYBAHMi/bQB1usM0osoPxZvOvx/EFjxr/mfhfMsjgIqSNO3RSOt5
-	N4qnCLXpSROWhrYycXRIIhzy/NJq5GsnltEgPFnC2gj8fEx7hemYrmxRzkcK3X+SfQalZ4
-	nPFo+G+AMOjO2CyEF/hvR+NE3LdzaSMxoTOkwSX7ciGx2LsxcBpsORvSfmd5a+6hFaArgh
-	QDXfBpafg8K3YDS03kLkGI1Qvpl+GF9vj1//ZWaUOD17X9XNiSwGHoGAm1Z9kw==
-From: "Thomas Richard (TI.com)" <thomas.richard@bootlin.com>
-Date: Fri, 05 Dec 2025 15:28:26 +0100
-Subject: [PATCH v3 4/4] firmware: ti_sci: restore clock context during
- resume in BOARDCFG_MANAGED mode
+	Fri, 05 Dec 2025 14:38:07 +0000
+Received: by mail-yx1-xb136.google.com with SMTP id 956f58d0204a3-642fcb38f35so1826056d50.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 06:38:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764945485; x=1765550285; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=rZeX/t9XBIstd9pSBZ5++UMA+6ZEbyBEMYNpSCQ2HHE=;
+        b=GCNoE7CvpF/5I9zF+1bHJZ0qU5+fJHDScy/kYBNyC0wW285wF+M8gn9hhl4HPcNeS0
+         nfx726mLY0mIgZZWYAk6zejrPWdVNFHAHh53LyDNLboOWiMLiz87sqss9A+SnIz9DxFJ
+         2N9lcG7FO2fO+8ph3R4ZZ7yt2zDq/OOev5X9HoiPVXzbr0N7/yn9LmYesff4SM5rqXpw
+         sxBrPRh2iuv8UOID4IobK7w3xWgZJTHlFayg6OwAOYMcd4cN3cj1orpV7PN8tYth0UTh
+         z/LSteFnSdoffrFxvvP+Ddvh2UQfUoUvNBE9u3QVditRTTCacZwpQMxrKhJ7BwQ0bo6Q
+         3gtw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764945485; x=1765550285;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rZeX/t9XBIstd9pSBZ5++UMA+6ZEbyBEMYNpSCQ2HHE=;
+        b=XU0+WkOu0coAY/RzxQuo2p/NlJl2JoYXZHMPSv3U/BgcBRGmvht0A4KE8wsAWcJsrx
+         QlkiuXRyaAdQ7WfLO84Agj3EzI4FqTeW/Kq4xoP+v6OJ95M1MWh3D7mo4DUnGq+2Vc6t
+         KQMiCtmkpzwlyKx3pgBrAE96fs9+wz3AYJLYIt4dQXJUIdKf6cCERsonokh+dTNksCkU
+         48wydx/5dcQ2lAUnT6EKqp60/HB1sXx8vv6Ppv9wuBBQ6uCO+RO1cfTERP5gB6hYAFSI
+         7lV4LjSrjShruAwrSegcGh97yd8y/GkvXLi0O0FlN/kH0hjkOV6+LNxmMDzr0XJV+cC3
+         G8ow==
+X-Forwarded-Encrypted: i=1; AJvYcCUDOvNcWiekeKkynjrSMbLA3uN6DXsk4T8it8PmQkrT0MStUk842LhWGF9QWTQ6stfFCMhum7FlU2W2+OsBFnww@lists.infradead.org
+X-Gm-Message-State: AOJu0YxgpFIUyszLfURrZgUTL8wPe5ONlY/fC+0umCRKmWCMnbQiSonq
+	x0OLrp0yxOGN2/XXTzf5+KMNfN8Ll0KG24khCJdNLIGo/17SEhd4xLFX
+X-Gm-Gg: ASbGncshBfm26dIMrkaNh0iunLaq84JUMRP0DKNfUumvf7a327BFhssbVPlygXvvx0T
+	l+YqZOFTXg6ZgyF+YT4LWiMtcftCATq1s3bckRJidXez2Q/oJEVX5ESdTCj17tfz3sMPRCub7CI
+	NaS/iNx321Ljt8ceHomblS4niSI5zg3yiVfzOJAbBhpSuiTmQM5j/kZvYN0/ULBr0SQFBnLZN0s
+	SJUdbq4g/7s1v+vE/dbz4JTkQEhwkAfd7dC73EnrUXJG7rU72122Cj6OtA1GH0MC+q8BPwMMsct
+	voqZH0ujB7i4HBo6YlOll1LWGABaN2XQcKG3GPrTwjwZ3Mt/QzwBx/erRyiKaqvwPoGH3rWD6h9
+	TWoayMmYENuUFlE7yvJeTS1hIA526a7BYnUJm69Q0IuAd9I1NJ9+zC3rL3UD+PWNCjHceJG51UZ
+	hS09zZqlG2KqCHOidb/oqJml15ADzHkA==
+X-Google-Smtp-Source: AGHT+IHZolp98udP+u1AjHHX7nPNhJRkfNJpkP0YtwmKdcia0YfdLvMiUF1UHkN2//HLsO8YP+Ij8g==
+X-Received: by 2002:a05:690e:12ca:b0:640:d038:faf9 with SMTP id 956f58d0204a3-64436fab5f7mr7781946d50.25.1764945484906;
+        Fri, 05 Dec 2025 06:38:04 -0800 (PST)
+Received: from hoboy.vegasvil.org ([2600:1700:2430:6f6f:e2d5:5eff:fea5:802f])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-78c1b4ae638sm17499737b3.4.2025.12.05.06.38.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 05 Dec 2025 06:38:04 -0800 (PST)
+Date: Fri, 5 Dec 2025 06:38:01 -0800
+From: Richard Cochran <richardcochran@gmail.com>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Paolo Abeni <pabeni@redhat.com>,
+	Rohan G Thomas <rohan.g.thomas@altera.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jose Abreu <Jose.Abreu@synopsys.com>,
+	Fugang Duan <fugang.duan@nxp.com>,
+	Kurt Kanzenbach <kurt@linutronix.de>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2] net: stmmac: Fix E2E delay mechanism
+Message-ID: <aTLuSZugpZDNCRzf@hoboy.vegasvil.org>
+References: <20251129-ext-ptp-2v-v2-1-d23aca3e694f@altera.com>
+ <26656845-d9d6-4fd2-bfff-99996cf03741@redhat.com>
+ <aTFuJUiLMnHrnpW5@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251205-ti-sci-jacinto-s2r-restore-irq-v3-4-d06963974ad4@bootlin.com>
-References: <20251205-ti-sci-jacinto-s2r-restore-irq-v3-0-d06963974ad4@bootlin.com>
-In-Reply-To: <20251205-ti-sci-jacinto-s2r-restore-irq-v3-0-d06963974ad4@bootlin.com>
-To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
- Santosh Shilimkar <ssantosh@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>
-Cc: Gregory CLEMENT <gregory.clement@bootlin.com>, 
- richard.genoud@bootlin.com, Udit Kumar <u-kumar1@ti.com>, 
- Prasanth Mantena <p-mantena@ti.com>, Abhash Kumar <a-kumar2@ti.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-clk@vger.kernel.org, 
- "Thomas Richard (TI.com)" <thomas.richard@bootlin.com>
-X-Mailer: b4 0.14.3
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aTFuJUiLMnHrnpW5@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_062849_087139_A8B4E87B 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20251205_063806_724943_AB885E5E 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,41 +111,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In BOARDCFG_MANAGED mode, the firmware cannot restore the clock rates and
-the clock parents. This responsibility is therefore delegated to the ti_sci
-driver, which uses clk_restore_context() to trigger the context_restore()
-operation for all registered clocks, including those managed by the sci-clk
-driver. The sci-clk driver implements the context_restore() operation to
-ensure rates and clock parents are correctly restored.
+On Thu, Dec 04, 2025 at 11:19:01AM +0000, Russell King (Oracle) wrote:
 
-Signed-off-by: Thomas Richard (TI.com) <thomas.richard@bootlin.com>
----
- drivers/firmware/ti_sci.c | 3 +++
- 1 file changed, 3 insertions(+)
+> Basically, the conclusion I am coming to is that Synopsys's idea
+> of "lets tell the hardware what _kind_ of PTP clock we want to be,
+> whether we're master, etc" is subject to multiple revisions in
+> terms of which messages each mode selects, and it would have been
+> _far_ simpler and easier to understand had they just provided a
+> 16-bit bitfield of message types to accept.
 
-diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-index 8d94745376e2a..6ef687e481c49 100644
---- a/drivers/firmware/ti_sci.c
-+++ b/drivers/firmware/ti_sci.c
-@@ -9,6 +9,7 @@
- #define pr_fmt(fmt) "%s: " fmt, __func__
- 
- #include <linux/bitmap.h>
-+#include <linux/clk.h>
- #include <linux/cpu.h>
- #include <linux/debugfs.h>
- #include <linux/export.h>
-@@ -3980,6 +3981,8 @@ static int ti_sci_resume_noirq(struct device *dev)
- 				if (ret)
- 					return ret;
- 			}
-+
-+			clk_restore_context();
- 		}
- 		break;
- 	default:
+Encoding the PTP role in the hardware is a fundamentally stupid idea,
+because it makes changing roles (which is a normal and expected)
+impossible without losing time stamps during the transition.  Some
+early PTP hardware designs had this defect, but vendors figured it out
+in the second generation of cards.
 
--- 
-2.51.0
-
+Thanks,
+Richard
 
