@@ -4,75 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7092D33981
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 15:42:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04E30D33994
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 16:42:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:References:
-	In-Reply-To:Subject:CC:To:From:Date:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m52HUG2ozdh/t95+oxWP0b3row4ZsNckyGzjnNOPYg4=; b=CUbkFXvddvtdoY
-	s1zE5D2hJoX4+xBuSU8hxc/xuTCbuxDksMfRDTvv61P80hAOPqIxA8kvI+hv2/njH0xys4FkwJxQB
-	gLMmaeQse9UsFDT1e3U5BSfAKJ+9MaGsu42QEPibRXiF/ErG0unb4pungGkP3HCRgWNz0ngpoRw10
-	Y1guwVKI/fZ/DxInM0lMv/AG0nFd9z/on5NJ/7HCfFAKRKU+sEnSxVVqcURqkglWky0sGTkk7TYt5
-	E2NZ1cT7vtypa7hCtgGNoOaDqAvjkOoPioo7r9EPqvFKBXrQiUjMb2SjRpK2wOes51c2GE5aeZUMl
-	24fBFJFfvl0EdUlLGJmQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x8vWFsGyx37EcR9Ck3rWLZNCzDMVpsZ+MmmOiw3mV4E=; b=FZDMs78l440AAZqupSO81sB9rl
+	7AIPbUMVkBTIrD8/+KVE8vSvfa8UQ/Xr1HtYwA/hUVEMuzavKSGz9zVzrmsFQsQRkIOOYBnFUm55Q
+	ulcSuZxHAC9xbM1WV7BQhNZaGnLvpntFA/qQ1+58YvYaqXGwK+l7VAd4EfwvvUO8m1ZOLA20PoeDd
+	sdTN7Yk5BM7bBxnca/Kj6IQXIRBUqrIlEuhWif7Bd6bm1DSrnYLQduVRWmCH8EkUpqacfs3i7mAus
+	cXH77WIiql9U0+GDjV7m809+p3hXScS6gjYc5391T5mdOuUx+ZjTgLDVzvHtQ11lMFx8kONC+MZTF
+	93l8LlYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRXx4-00000009fWn-3OSc;
-	Fri, 05 Dec 2025 15:42:34 +0000
-Received: from mout.gmx.net ([212.227.17.20])
+	id 1vRYsS-00000009iPU-0csi;
+	Fri, 05 Dec 2025 16:41:52 +0000
+Received: from mail-pl1-x661.google.com ([2607:f8b0:4864:20::661])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRXx1-00000009fVX-44zb;
-	Fri, 05 Dec 2025 15:42:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
-	s=s31663417; t=1764949321; x=1765554121; i=frank-w@public-files.de;
-	bh=m52HUG2ozdh/t95+oxWP0b3row4ZsNckyGzjnNOPYg4=;
-	h=X-UI-Sender-Class:Date:From:To:CC:Subject:Reply-to:In-Reply-To:
-	 References:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=qi4aZsfz57/ZkFsIN0J5I/KnO/mQ6JNiY/XO9sbO4bS8fBPFyThQdkf4MEjwJ3Nd
-	 /RXGTwSfodU+CQzVe83WZ8lb1tUKc/1A9KmpuiIjQwZI1Z3bnooNJyxP7IGorA3cz
-	 ZpnQ9eWZ0iP+JcnpIxpNi26rjaKdoeiRkltj4XpxPs0Z/weyIBtbfB/F55657Ng5a
-	 OTBK7fFRxvLe9n8OqjjWLOdi6AV+keYvj91xHOao8v/8yRoPWI9GM0pkVGW3tPrVS
-	 bg3GP6AcZadn+2NL9qeICNKYpv6RNFyAlH2RL5tWyi1jQ1kEpYS+I7dlKVy2Fk8rT
-	 lW93PGBltg1kQqmcPA==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from ehlo.thunderbird.net ([80.187.71.20]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MPGRp-1viDie2Bob-00Xd6V; Fri, 05
- Dec 2025 16:42:01 +0100
-Date: Fri, 05 Dec 2025 16:41:59 +0100
-From: Frank Wunderlich <frank-w@public-files.de>
-To: Rob Herring <robh@kernel.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: Krzysztof Kozlowski <krzk@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Frank Wunderlich <linux@fw-web.de>, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- devicetree@vger.kernel.org
-Subject: =?US-ASCII?Q?Re=3A_=5BPATCH_v1_1/2=5D_arm64=3A_dts=3A_mediatek=3A_mt79?=
- =?US-ASCII?Q?86=3A_add_dtbs_with_applied_overlays_for_bpi-r3?=
-User-Agent: K-9 Mail for Android
-In-Reply-To: <CAL_Jsq+Zu14ojvNNjgOFWA40iaqYrgGQsrHNWraooOML98fXyw@mail.gmail.com>
-References: <20251119175124.48947-1-linux@fw-web.de> <20251119175124.48947-2-linux@fw-web.de> <fc5c9829-96fa-4028-a642-0792699e92a5@kernel.org> <ddad2f21-4853-41c9-acfb-1613f5000f0c@collabora.com> <CAL_Jsq+Zu14ojvNNjgOFWA40iaqYrgGQsrHNWraooOML98fXyw@mail.gmail.com>
-Message-ID: <9C47E860-BE37-4EDF-8C9A-613CAE509053@public-files.de>
+	id 1vRYsO-00000009iOh-2oPB
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Dec 2025 16:41:50 +0000
+Received: by mail-pl1-x661.google.com with SMTP id d9443c01a7336-297f35be2ffso35460155ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 08:41:47 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764952907; x=1765557707;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=x8vWFsGyx37EcR9Ck3rWLZNCzDMVpsZ+MmmOiw3mV4E=;
+        b=DYKxikCcn+NBRNR3J7+J2kEWu+X0guMldh6SaUmSbkKc8w6w1vCzuBcqb3nb8+zrRG
+         D3eo4vhCooHQJ2V6sWec9mzCm+tyVXiNibA8mPy1TcQoUiBo/r8vq5CpMzFGUxqJbjPr
+         fYKR6e+Vrnr0gejSVxbLvismDU7LxGi/orssUKzt4DXNvS3b7wRuf8Knllo5vBvCai/j
+         H78iFm38i8ZF8dza/DmaOGR41J0Kl1xmEoKBy+Vy49l1JQ6lOItkx5fhMnlMQZcixYsG
+         wgLOaggTo3QZ81ph9OT1hlFEJgjCLqdLhCfrh5w7ZbFuHwZ8XsdPrDfJ7d9AMRCFCOxF
+         HWtw==
+X-Forwarded-Encrypted: i=1; AJvYcCV4/1lzkpT340qgdWNxtvwJuhlKHnvYEWXG9b7Ex6Xwg6CmWfuhLG3vE/c3mDqwm/IVHAX5tJAxss3B1Cly2Gwz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5yG3ZO/CmgrajKKz1q8VDByCe2/01KkSb226oycUn7cv04/1a
+	iC2MofMWRxuarG9WCSc4QKy45j0Xn9W3wf/gw0JtGXAn/bOhFx3T1PdBR3L1FdoHffljny1B9xQ
+	7bl9Y0Rx1lP9Sw1SHwe7Rq61AxaBVZCYj79Lbd/OPGyByMmw1+iERDoPPrRea3up5t7EIMFpDKA
+	0vBSkVZwPWU51GJzPUm4mH8LfNe0OHwvdWUVCO0yCzjYYc24iiZIHZAtw2L7PNuanfDSfNC7uxd
+	ytv5+4WrkrwoGMjBKJuzUqvnyWP/wnaGxs=
+X-Gm-Gg: ASbGnct7THGwlKo6gvwkTMRZLVXhjxz8xtcWVcOLCDZRAHM53DgqXnk1ENrL8J8Z2iN
+	pETPo61Z6QdVgQqS8BwRhWaXpXkaILlEurbFUgd8nrPuZY9SAKlcLEKTFesQyx8mg+xl/cJVWbn
+	DPiqZKEDbrTe3hY0yebjbSSIKK7l195x88Dn5akpCbKQamZfLB1sRf440YytrTR00lc5g/IRPh8
+	QIEyyFqK+13nf2tJu1KXs4kAQmDfAssioyMBvcIS6N1XkWjRqjkidMiDSMrTmTX2ct51sfC0WaD
+	9danRrh/oc/mnSRa3DkSI5Kxz46cfQ5CvMGSzJVcNxRiUe+8JLmO9kAw54tQn5/e+xF3e3VCGCZ
+	kC2Y0po9z+Cq9dkXS4bjxfoMOeMbJfSiQaS3WqsaTRRmhb55o8MNCkgHixVspTh63CCzkolfGpQ
+	TC6l0s4vAMDRBq4AoToYPtF5/CQC1KBTk2Yxw13odOqNhxW0D0QiXf
+X-Google-Smtp-Source: AGHT+IEkXT+98TQp45DgX+YBKvFXpgMAjENBsNwyM3diyCAlwGwRIxZ9UUwgzEGioH880//YYk29fFzYwiRF
+X-Received: by 2002:a17:90b:48c4:b0:341:8ac7:39b7 with SMTP id 98e67ed59e1d1-349127fd714mr9556212a91.25.1764952907237;
+        Fri, 05 Dec 2025 08:41:47 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-122.dlp.protect.broadcom.com. [144.49.247.122])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3494e720a92sm540987a91.0.2025.12.05.08.41.46
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 05 Dec 2025 08:41:47 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-47799717212so14660065e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 08:41:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1764952905; x=1765557705; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=x8vWFsGyx37EcR9Ck3rWLZNCzDMVpsZ+MmmOiw3mV4E=;
+        b=Qf9WLcR9n3yhwwQn7/LHra9seDbk/GveQyrQBXb1V+RNOvta+8IOLsZM6zVJTanogM
+         EJQntvh74Wm5JIq9sudbkxyZ7EHE4GROjVlH+AtRzLiuqqjIQsWxqxZnojHvr6IVJHmE
+         w2CyTyA3FzoSpKpc7aQW7LXrwCqV/h9o8ltYo=
+X-Forwarded-Encrypted: i=1; AJvYcCWUjHfGx1ujNkfBHbzpJjrXxaQHty6T0+08JYSsjy4ucB81RnwCMM25ME6uQXMMPrOUQRye6Z1yNQTJDQoNDKGP@lists.infradead.org
+X-Received: by 2002:a05:6000:310e:b0:429:d6fa:da32 with SMTP id ffacd0b85a97d-42f731d1ab7mr11349010f8f.59.1764952905190;
+        Fri, 05 Dec 2025 08:41:45 -0800 (PST)
+X-Received: by 2002:a05:6000:310e:b0:429:d6fa:da32 with SMTP id ffacd0b85a97d-42f731d1ab7mr11348971f8f.59.1764952904652;
+        Fri, 05 Dec 2025 08:41:44 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42f7d331e62sm10059554f8f.35.2025.12.05.08.41.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 05 Dec 2025 08:41:43 -0800 (PST)
+Message-ID: <7f051318-0aaf-454d-8a85-b6d16fa10d2b@broadcom.com>
+Date: Fri, 5 Dec 2025 08:41:38 -0800
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:0RvG6joc3Y7jr8SCWNtx9fH/1gq5fy72CCgIRE7up/qQQJ9Z5sL
- ZElwrJuGZPlUDkmULsEq5bt9Nqe6+16LXDxCcx/wvJAvh7XRqQZzm9o+n2SWW7ZYWK3QxXz
- MEXAmMmpyuKSxdA/EVC2VV+XJ1Y1/b3hvBqviW8xSsIlWUJu2orw7t5+eSYlU+NIFr8Sope
- YmXwAh8O/8L/hwf4XvtJQ==
-UI-OutboundReport: notjunk:1;M01:P0:1HE+xtfe7LY=;NLlNljx21TMNixA1Y/voQxCyTwV 4KfY3p2nPiVu+Fkl0room92aQIaacuQuCh8+nWTk1ebwB5WtdcRI2MnxMKugDJYMB5aM7B+2U 3/0S7B40TOgTwyBSl0GmAPt2WXE9lL+YHyh5mSytr0FTmuqdzbwtdjKmldGClN/kcRYM0V7aY hlahUDOXrVFDIRUfL2dEEcA7enoNc3DGrce+OjTOvvs6pJ+hBk/mvW+EOTpDzOtAU6s2mS47c 9v3yYWRHqxkb3TDYAoQ44elJUEhTbyG+7nUZ+LJ9u1Q1POWZSRMMcHdFUFFgfCnambgW3t24M ynk68aCQiaElZsadlarYp86i0YDUSO5upv2aSTAbj9hWlLE48OfTH3rDBG5vD50IPq29jHIq+ 76lqMXqq/He8h6FkzHJW18GDbB7EkbD8QI0VPHxcOJj4JVGAMlt8DgJj9iFe948j1H5kmPimr 0HF/qPdcXnXnpsAWbLs+SOKU603YR3Wt+B+mQCPlexYFUJowLPnYwv48LZ5EeAAm4z0ToruWn PcfUt1lSFHl7FkInvj+94vRFNRaX2N22KJm+i6F9WvhrHeQfjr8i2yrzGCYWIzVhRl3fMkCLe xA85Iv69AsGJLTb3XUIcuWpEybODDburLu8o8xBfPc4716cKrYknWEzDWEoJCj7kRR2ndxOYA LduTjD8jErt0lSwBz4jT3Ryxl0wUF8m+b+gE+jCcyL2q7hIEiUpBlkx4FgQR72EThjUNQJazf o4wEj/6b0DzgYASSwhzTOf4sfTJMSsjpGjnpa3N4u5rU+ar6KoObopE3+ujp3ex5uBErWsze2 DkSLZEhxhVqcHtxILxmyShHx0w2CjCIEg13BWL1Ofkql9ACD/vQu0een7jrYAqpcge9wgivEy CM7Tvmbv566w4b26VKTtMW+OWWnyu0qTXK46OaETPsngc9tgeVZzB4PV9cirAGCSRD/kFpnTq T3/LcVxWk/n2gHNH4xcl61PrXEqR0kRC7g6BKckYPG1Kl23zlqhaSCwSSxm+HdnL4lf7HV+mP pmxybGTIU0kqkuplfaF6y4qBGt21l00cVkzbnjbp87rVOC1txmVZAgenSuqXExV/lN4gc2ShE spVh/+agdUbzTf4EUYxlrHSslHmL4A8xXrMavlg6eOfRe4eACqH8kLmQy83BO/67c0uZVz/W4 sOy0ZaSdIEhuthlKp7iwd7Qll8DOzZjf1oGa1alCvEQeAJnUw/G8UK3astFpjh0lsi6Jg8DyT pFMZJ53PZU9gFLLPnBR0ngw4Gh90HV8JRmrEUpXFVtiw5ofXDuQUCu6z9Jhp1GN+tlbaLhYNz WuaCKKJvPfxJ/8/EIf0J6KdMKrhSTDyAF0d3+VDhYdNWLQSaTE5rol5ejhKFywjKvqv7IQpmm H8UipK7NUH49orz66uMfQwj2ZWy5ON5Fxy8wloB7TCZCNyqJp2to2Pe2Q6n3KcZb6rfIX2rYe 0DZUirTlA/WjBQhxjHzRYb3ntL5MvVxDBRCf+s5PQ32mcfZIuMdxoyv1mx7B/6HCwlikSguxf IXCxA/bPXfpaV5Z4JSW8M2OddZO3CpEQCOlMXpOqibZ9e7wDe4BH2o2q0DQoREsXnyQoPZhve OGKjwlr9J9l0rIG6Tddmv/9BVgV/6FN+ZqNJ4bFoRnUuJRTUtwEq/1eqHmUf3raaDQQV11GGg +hL/Jz40AbiYorblmDV3MK6IAcip/rGE9Gq1DNZ/DAfLb5Y7xSlDlKKrwt7ZvoD9Rsjqsqd9o FuhHRTRIE82DFZ8T7JIWhFZ/28s06aM3r91qf+oN0C4fHMyRK4nsLWDAvPbRwK72yc9OoqkEx QLMWZdbMFX5b92TtfsD+5XlRkUGOHTbeBvVVEQREBIKS4CqnS3wa+1ZtLNS+aodpS8QBFPJBd rqWCyZC+goc7eaRJ1zE3grJSpfnzUbuNBVsd9dO2sh1igadmqEt5WagQN34K9XtRdTkpMwOnZ HMZ4F0iKXQV1gaht240rk4Hzcz9ngoOtRJaRDP2h9wBZjAo69mk1lQSZfI28WvYCEdwF9DciF 45dNKbMlVmpJC9JpNya4XJoD7oiHRd7B4mWy0DWi9v2v8jfiSvFxhsBV/zTjgVeKiF9l/lRli ivvM/2TGo/k3cPaQhJzVwdrq9uv+s9/rAw12zxvVcFqT0SAt4J2E7yJt0mdLnafEjyZ2Qoqw9 z6II9yZDNWzKB4ziJdHQFyw2+AHF4xgWXi8TPO8Q3SvptKeiYPlKwh/wti+MmaO2UBQ57XN9b Pty7AuI8pW9Yxo0V/EOX7/EyECyDr93ccMlO93bRL0KjCiOSTLnoSux6p1qEZr1veKHRe+aeS BhtyqrZ0n1hat2adbrulyuEy+XcNBKuE0X+zV5HgIqiwmv+RqJcGZj/Q/hQvcMlZ6FalEFP1N pr0cOml6/0+K0+kxe9dEJGr+iEUQysx4mb0ISdz+mvkrnfixYAnt86stiVJOk7woRWstn72U1 eDj85YUkbfXRDlxB271HIpoKdzIce5P0A+2YKiTRDZLv32MdXPallTPxLkPT2M/cIaW3KAWSs nyhRjcMUsF9I8Q60QAirkKYDzAlJhBaXeZf6nE/RMFXGHprU8FaMMRfeT0klKpYTpmyb9pF+F We/4xn57RiodQqD1Q9jxFk3VNM9AnCdhSl/te0o/3O7NChVBSbkC+sRGCKLmAFj6Z7XupM3vr vHoOsYwyDJLNYAEq0doPTSNKPhBcAjgSR7qX4dlGfAbOO8S9gKP4sXmbJg2FrvewT5LGil+MS T8cRlDhfce0tIeheldYTWMMsD+w3gC5oIqCdiZU6a5ejgcEKS+1YKGSE/rSUsfdaToEoV2aUQ eYR7JBWPHwNBVDAAMK4TNSAAoW4uBngB839vQfqHDxunrpSZpzAlf8o1eZXPN9aeuxaAUhSWI +L4Szdrv2DrObtipPibok2vWHodl2E1D0PYGOUgwqgf7yiC4aSqEiHDj6Ixr/kxUCEOkf63xe do3KkB124yeaItfnlC/cSaQ0S6r9j8u6EnVX7wrgE63I3FrG8WoCqWYbzl0BuIho3DfyQS7vS xfzcTTPEc0s2melccw0VbKkG1Mrx0XnMsLbAk65pZ9q5ycwW3iRfKlvdITZcupNZ4TyiRwACw WxpYsLDF76W89bpKOn9hkD5WclVbb8TowIN7uxO5IvmJ4t3XeYeqCivho+OAvxDZ4W1amNbPF s3CLHOVK7h5zr7uR+oZe/NGJxCGOy+6bwGAocCT0IzyUfKsc9Dm3S8tmNSfAqMvTB6l4/8qiu rANIw+rfhpc+ItVlvSbaDd0jx17nFWj594YzE02KUF/epqQgGT0eHUPIfqdxdCfaZzly0RPDe GLIBMbiRLAgrFPL8cc5JyLXCe/6DSksYAJy9HJsg4ZZMtaY/XOcwVqTRh/C9pNLJwGivdeMK2 HWc9M3lEWVBXZOXXLZOC6umnk9ohgZxCPRd/OLTb7nrxYx120pSbvyhAANqjBThChqqMnATIm A8wdJV/q3a5uCJ4BtF1PUpg5FtKGaY8iizwNvzvvjp5EJFJs68i8HjxO5gcZlczwhmolqqC3a lyd1099VcBTmzOi089gEwCFxvrBOuujb0xRqqhwodF/n/YVmvoR9Em2SJKNdrUN0jVG89RUEt Er/bDVzB28yRBIHlumN0h66LXu9r2Qwhtv6X3RlIV9wLExHp1Ipnk+97XO0gZqYlQoIjfnMO/ I+dHKb1LsGl21O1IhkCPYo/JvS9qrSyvSisgG2jLjIj3gI6QsJIrheAcrHen+4TM/KMEMiyPI I4v84Y3DEae3apCEBmTT6fpMv0E+iqdHF5d59ilmPuoNkkXR3+10SqGINjXiuuXFKCbhCvq1H f7RSl+YMZWla6cVN+CgfY/AcvyFKcutIsaTM3tUgvsXNipRJUq0FWAilD8Y6Rmns2RFEE714r
- 4q4PVcxSqpOibPV/iWztCoYMfrqdo0XDQaqOZuip+aDuKNxBavol+odAwHnfD+y4AjF8sfuEI jdpkOspknZaivTs4ziHbsbZR1THu0WFrjytYrsJHFh9FkSTQx7dX8gl+GDAoyCjHMTySMrExH L98e7v5Wg5+4l3ij1z0Miwnndsait3DLt9WflCGQIqx+CljXfISkfRy7XfE6GO0vEGUQ9z9gY lAutVfJAxaFz9M5aDoZsD7rS+6nsG4Z+DtAcemMBX9MUGZ9Hjt7lSyYQs1di2kiD+NWNUz1z7 TlyjB9l2LqS8ViKRnVhdYSU+g3j5pX8Sn02rbEmsG6YUKPy/Vn1gpGp26Uim/KTkpYWxLL7gA aD0laFgKIwIM/KrEaGfNci9OQ6i0Iz+E0xnS/dzmMOZKZyACw/li+wMsOImuyc3Re+oOK5gEO G22w09ll3EBGvqHVq0o6RgU4Mv4D13nDoQTdpASnodJL41fonyhJAHTxqcrve2ZFFVgDciySR /wJkYppFzNQyr4zikiWSUO4fo+iqI5nO2ksHjTnzQDzIPyKbiQhfpaxhs/BdqZvafe9LJzxvT wqrv4pLLGy89w+i6Lvbcpux+rl5xIt0GPBkIXLB+f0sU2EFLoehFCAE9jfa/759jJN6OfnfqM OKBdXExX8bODK37xSuk+Sv2JppgG6DI5ghxDce3vrWuaxWxuYuAzci5XlxVwelPu2uUzXHuxS Sc+GEAPcs9q2hA3JIysgv01V/ChWpn+lRlQvTo4ubJBX2vOY2lXjP/XUBPnJ6JjT551cektw9 eR0TQHxIcrZES08GVpLzrgMfODMjE3TBZmZ09Lweg1DrdBBnDJW8QuLvpTIA4EhCJVCtp4BvH E+cQ7bd9G1FLzazareAlgvmA7RE+s1l7HK+TW4bmB6qDDqYz0zGsIYTy6Rr352N79/fe5kx1R PDaeYcJrpU8+Yu+ZacRi9h8j3R+KfmWRl1/rOTQpVbER6Y+NgySsao7KsTEoIggslY4fT1jEK sFJEhOhbHENiIHHDnmDE+kBBSXKMWyeIxqzuVuY36KjK2Z3zk6fr3fmndLY1D6vQo8KQS3KNr bOvVqk4HcLNA7Hbjbw7wIvzxYF9qBLI1Yofz5Ne4wry2c9dEXvZDMmfu7FbOw0UswyFbLDyqA SCGBxvtaagEZPVnm/XMg13RDz2oNhQV/CqcevYbv7ANpvs/jgrLMZjwgR3oWDHuTvWTOmwRHw zNDwdToZJZdq+JGKy65vpCzKsrerBLXGnS7/oGiAWrszw2EWifTiohcegS8w==
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] arm64: broadcom: bcm2712: Rework rp1 overlay handling
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: "Rob Herring (Arm)" <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Phil Elwell
+ <phil@raspberrypi.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Andrea della Porta <andrea.porta@suse.com>
+References: <20251117211503.728354-2-robh@kernel.org>
+ <ae5d1a37-9af9-46a2-9ca0-83c276248931@kernel.org>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <ae5d1a37-9af9-46a2-9ca0-83c276248931@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_074232_396782_08AF9405 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20251205_084148_742763_2266AA22 
+X-CRM114-Status: GOOD (  13.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,60 +153,43 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: frank-w@public-files.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 5=2E Dezember 2025 14:46:45 MEZ schrieb Rob Herring <robh@kernel=2Eorg>:
->On Fri, Dec 5, 2025 at 3:05=E2=80=AFAM AngeloGioacchino Del Regno
-><angelogioacchino=2Edelregno@collabora=2Ecom> wrote:
+On 12/5/25 00:08, Krzysztof Kozlowski wrote:
+> On 17/11/2025 22:15, Rob Herring (Arm) wrote:
+>> It's a requirement that DT overlays be applied at build time in order to
+>> validate them as overlays are not validated on their own.
 >>
->> Il 05/12/25 09:10, Krzysztof Kozlowski ha scritto:
->> > On 19/11/2025 18:51, Frank Wunderlich wrote:
->> >> From: Frank Wunderlich <frank-w@public-files=2Ede>
->> >>
->> >> Build devicetree binaries for testing overlays and providing users
->> >> full dtb without using overlays=2E
->> >>
->> >> Suggested-by: Rob Herring <robh+dt@kernel=2Eorg>
->> >> Signed-off-by: Frank Wunderlich <frank-w@public-files=2Ede>
->> >> ---
->> >> resend of
->> >> https://patchwork=2Ekernel=2Eorg/project/linux-mediatek/patch/202406=
-08080530=2E9436-2-linux@fw-web=2Ede/
->> >> due to discussions here:
->> >> https://patchwork=2Ekernel=2Eorg/project/linux-mediatek/patch/202511=
-17211306=2E725678-1-robh@kernel=2Eorg/
->> >>
->> >> changes:
->> >> - updated sd-nand with sata-overlay
->> >> ---
->> >>   arch/arm64/boot/dts/mediatek/Makefile | 21 +++++++++++++++++++++
->> >>   1 file changed, 21 insertions(+)
->> >
->> >
->> > This looks like still not being applied and now it is a warning in
->> > Linus' tree=2E
->> >
->> > Can this be applied and sent as fixes?
->
->There's still one warning remaining after applying this series which I re=
-ported:
->
->scripts/Makefile=2Edtbs:20: =2Edtbo is not applied to any base:
->mt8395-radxa-nio-12l-8-hd-panel=2Edtbo
->
->It's fixed in my original patch=2E Can you all take that and drop the bpi=
- hunks=2E
+>> Simply adding a build time target is possible, but it's also not desirable
+>> to have targets which include the overlay contents and apply the same
+>> overlay.
+>>
+>> Rework the targets such that there are 2 overlays: the existing RP1 overlay
+>> and the board specific configuration of the RP1 (bcm2712-rpi-5-b.dtso).
+>>
+>> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+>> ---
+>> The missing applying of rp1.dtbo will soon be a warning[1].
+>>
+>> The comment in bcm2712-rpi-5-b.dts(o) needs updating or removing. The RP1
+>> driver or userspace handling of the overlay probably needs updating to
+>> handle the 2 overlays. IIRC, I think we can apply overlays to overlays
+>> which may be useful here. If not, adding that to the tools should be
+>> possible.
+>>
+>> [1] https://lore.kernel.org/all/20251114222759.4181152-1-robh@kernel.org/
+>> ---
+>>   arch/arm64/boot/dts/broadcom/Makefile                 | 10 ++++++++--
+>>   ...m2712-d-rpi-5-b.dts => bcm2712-d-rpi-5-b-base.dts} |  2 +-
+>>   .../{bcm2712-rpi-5-b.dts => bcm2712-rpi-5-b.dtso}     | 11 +++++------
+> 
+> 
+> So now Linus' tree has warnings. Can this be applied by anyone around
+> Broadcom and sent as fixes?
 
-Sorry, missed this part and i do not have this board,so
-I'm not sure if this should be applied this way=2E
-But if it helps i can separate it from robs patch and send tomorrow=2E
-
->FWIW:
->
->Acked-by: Rob Herring (Arm) <robh@kernel=2Eorg>
-
-
-regards Frank
+It's an RFC and I was hoping to get Andrea to comment on this patch 
+before applying.
+-- 
+Florian
 
