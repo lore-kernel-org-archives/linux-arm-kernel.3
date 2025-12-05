@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3959CD2F7D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 10:12:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE9F5D2F7D5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 10:25:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PeQ5w9JI2U+u93WcNx+OHZKvHgY1tekXmNamojx/WOM=; b=4hMTdoRUGUopbbSupdtHp0zvEb
-	joAiH3RqLnbjUB0m10Ptt4syXSFAoDmGS4ZkQyKMzh6S9FGal84NzjCzvPpJ7fKjj4huNos6E1ASK
-	I/0A8lOiDx+0gkBXSaIRXAlZMfvTJZEe7l+Zg/dXfAuY/ZuAQoTD/f4vAzNRJXp4hg53DofeDpt21
-	H1j4+QYaoyw2mAdH8YmwqYgs3JRfGfx076XIg+JxAyFvG2kEl/Ikh+cBnZ5XZ7KrUo71V7LoPC4N2
-	2i+04AjZK8IL3+/AMEpQiml8S7hKrf7WnPMUdwNT8PWi4q4rksNrjlmV0KivQjw5HL/SSphYaktbe
-	z0XgjkpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=T7e2Hcul9HfyPfeSApSfmdRkW4WBHd/VfKe5KKth8xk=; b=gDeraLvGXh9L4f
+	fz/qOZXCrqPO609eLTg6atw6bE6IlISaFlpshY4fALg1GBvvzHsDZlNnbDPkQofTGh9UUZ6WmtwEh
+	KpeFI6wXUZ/Cep5XEGDjisexYsIdAsVS5OeFadv+c35etby6dfxcL8kkxpqglGbceDOlftFfIAanq
+	olcacMk3HmRpPv3mzv6n8MMAxSifoIkflXrvUf8yc0sAvlvdepHhr4pvW5+wDMAJdz4KREJep9W8c
+	6LVrGDxsGvrCGVh0ris+8yRVNL4TI+1IG1ePW3MUFHSkah4aI2T8OUyxYCY5z+QV6vTXupW4VhyMI
+	mmQ92qYNV3qFwDVy8iXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRSnY-00000009N8Q-2O81;
-	Fri, 05 Dec 2025 10:12:24 +0000
-Received: from mxout4.routing.net ([2a03:2900:1:a::9])
+	id 1vRSzj-00000009NiK-4AhG;
+	Fri, 05 Dec 2025 10:24:59 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRSnW-00000009N7i-0wmm;
-	Fri, 05 Dec 2025 10:12:23 +0000
-Received: from mxbox2.masterlogin.de (unknown [192.168.10.89])
-	by mxout4.routing.net (Postfix) with ESMTP id F40571003CD;
-	Fri,  5 Dec 2025 10:12:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=routing; t=1764929539;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PeQ5w9JI2U+u93WcNx+OHZKvHgY1tekXmNamojx/WOM=;
-	b=TXv64BkeLki+uCVapB3Qw9iYC0d1w3GX22KoNiqmVfI8RN3PqITLubCD12mQWDudWXgnRO
-	ipsHTfXEYchZhwhYfx8SU5BcB4JsIt0vHRLBMm6ynVpFOzKXq4taCuAPHUZxSGK3aJqROX
-	OghncKRLnPfraPEkjfHp4KdOAMWZDPY=
-Received: from webmail.hosting.de (unknown [134.0.26.148])
-	by mxbox2.masterlogin.de (Postfix) with ESMTPSA id 4B772100681;
-	Fri,  5 Dec 2025 10:12:18 +0000 (UTC)
+	id 1vRSzh-00000009Nhi-1g0B;
+	Fri, 05 Dec 2025 10:24:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D519E437CE;
+	Fri,  5 Dec 2025 10:24:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65067C4CEF1;
+	Fri,  5 Dec 2025 10:24:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764930295;
+	bh=QoqGL3t+IzslFi3fJoCRUrQYkQAMnqJUdwxlYp3/A1Q=;
+	h=From:Subject:Date:To:Cc:From;
+	b=BxB4ml/q+mWTTucdlAEc5griRYi/lhxVKbDHjTV7kc40RhwuqhY6M5usV9eqocvDl
+	 3fwH7b4JyVjB0GnFpnk2aiOXkU/qk1ccwRv8B8Csi50xMieZ+gY2qcYj9tqJ+XNfR1
+	 hSGzlp+psnWFURyxH4G7P3OM8S7YRaEUp72I+Fp6nco5o7ayAL255UuPdGPnrcXKrG
+	 Mylx1BSXxBuRqbOjdsIIJtaFg6qJz14fkNKKoZmolws56kt/JrHmLQUQsoIA4o8I3u
+	 4rJ0nfV7aIy2xJECsC55Axg+l83+KPHf2Ts+8CLpGDaYssGzEGA/njHXwOtNUmkNOA
+	 EUw+SmcUBO0YQ==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Subject: [PATCH mt76 v2 0/4] wifi: mt76: mt7996: Some MLO link management
+ fixes
+Date: Fri, 05 Dec 2025 11:24:35 +0100
+Message-Id: <20251205-mt76-txq-wicd-fix-v2-0-f19ba48af7c1@kernel.org>
 MIME-Version: 1.0
-Date: Fri, 05 Dec 2025 11:12:18 +0100
-From: "Frank Wunderlich (linux)" <linux@fw-web.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Conor Dooley
- <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Frank
- Wunderlich <frank-w@public-files.de>, Rob Herring <robh@kernel.org>,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org, Rob Herring
- <robh+dt@kernel.org>
-Subject: Re: [PATCH v1 1/2] arm64: dts: mediatek: mt7986: add dtbs with
- applied overlays for bpi-r3
-In-Reply-To: <fc5c9829-96fa-4028-a642-0792699e92a5@kernel.org>
-References: <20251119175124.48947-1-linux@fw-web.de>
- <20251119175124.48947-2-linux@fw-web.de>
- <fc5c9829-96fa-4028-a642-0792699e92a5@kernel.org>
-Message-ID: <942df0f5995a2929eecd38e4066865c0@fw-web.de>
-X-Sender: linux@fw-web.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Mail-ID: 58a40c37-ab18-4aa8-b309-90bca7573869
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32NQQ6CMBBFr0Jm7Rg6VoiuvIdhQWEKE7XVllQM4
+ e5WDuDyveS/v0DkIBzhXCwQOEkU7zLQroBubN3AKH1moJKOikqNj6mucJpf+JauRyszUlW3+qR
+ VRcSQd8/AWW/Na5N5lDj58NkukvrZf7WksERltSFL5mCou9w4OL7vfRigWdf1C1bQePuzAAAA
+X-Change-ID: 20251204-mt76-txq-wicd-fix-267a4941622e
+To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>, Bo Jiao <Bo.Jiao@mediatek.com>, 
+ Peter Chiu <chui-hao.chiu@mediatek.com>
+Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_021222_489295_E6CC50CF 
-X-CRM114-Status: GOOD (  11.32  )
+X-CRM114-CacheID: sfid-20251205_022457_486222_9B138476 
+X-CRM114-Status: UNSURE (   7.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,53 +80,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
 
-Am 2025-12-05 09:10, schrieb Krzysztof Kozlowski:
-> On 19/11/2025 18:51, Frank Wunderlich wrote:
->> From: Frank Wunderlich <frank-w@public-files.de>
->> 
->> Build devicetree binaries for testing overlays and providing users
->> full dtb without using overlays.
->> 
->> Suggested-by: Rob Herring <robh+dt@kernel.org>
->> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
->> ---
->> resend of
->> https://patchwork.kernel.org/project/linux-mediatek/patch/20240608080530.9436-2-linux@fw-web.de/
->> due to discussions here:
->> https://patchwork.kernel.org/project/linux-mediatek/patch/20251117211306.725678-1-robh@kernel.org/
->> 
->> changes:
->> - updated sd-nand with sata-overlay
->> ---
->>  arch/arm64/boot/dts/mediatek/Makefile | 21 +++++++++++++++++++++
->>  1 file changed, 21 insertions(+)
-> 
-> 
-> This looks like still not being applied and now it is a warning in
-> Linus' tree.
-> 
-> Can this be applied and sent as fixes?
+---
+Changes in v2:
+- Add missing changes in mt7996_mac_reset_sta_iter() for patch 3/4
+- Add patch 4/4 to the series
+- Link to v1: https://lore.kernel.org/r/20251204-mt76-txq-wicd-fix-v1-0-1f4b2f2b3b2c@kernel.org
 
-afair the series was sent after the pull-request from angelo and maybe 
-he waited
-for an ack from you/rob before applying ;)
+---
+Lorenzo Bianconi (4):
+      wifi: mt76: mt7996: Set mtxq->wcid just for primary link
+      wifi: mt76: mt7996: Reset mtxq->idx if primary link is removed in mt7996_vif_link_remove()
+      wifi: mt76: mt7996: Switch to the secondary link if the default one is removed
+      wifi: mt76: mt7996: Clear wcid pointer in mt7996_mac_sta_deinit_link()
 
-if it helps i collected the commits for (possibly) sending as fix
+ drivers/net/wireless/mediatek/mt76/mt7996/mac.c  | 12 ++--
+ drivers/net/wireless/mediatek/mt76/mt7996/main.c | 85 ++++++++++++++++--------
+ 2 files changed, 64 insertions(+), 33 deletions(-)
+---
+base-commit: 53d1548612670aa8b5d89745116cc33d9d172863
+change-id: 20251204-mt76-txq-wicd-fix-267a4941622e
 
-Fixes: a58c36806741 ("arm64: dts: mediatek: mt7988a-bpi-r4pro: Add mmc 
-overlays")
-Fixes: dec929e61a42 ("arm64: dts: mediatek: mt7988a-bpi-r4-pro: Add PCIe 
-overlays")
-Fixes: 714a80ced07a ("arm64: dts: mediatek: mt7988a-bpi-r4: Add dt 
-overlays for sd + emmc")
-Fixes: 312189ebb802 ("arm64: dts: mt7986: add overlay for SATA power 
-socket on BPI-R3")
-Fixes: 8e01fb15b815 ("arm64: dts: mt7986: add Bananapi R3")
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
-> Best regards,
-> Krzysztof
-
-regards Frank
 
