@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B83CD2CDFE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 01:10:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E9BD2CDFE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 01:10:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pXKo9jae8GPx/nkXX05Y0xFfBHYzG41JeWrmmml+Pic=; b=243fkBHKXIFqguSTemam0PLZuM
-	cBkFSuFhNVqfP9SxWo99R1VKPx8fxCEekdh5fA20y8MOWUnqrtvhzy8NK137t5Cit4ZzHcOah60sL
-	AkeDu+TxwFIdYZfKJDGwgbAiYo2gcYS7gejJrlxEEDMt6LbJ4RqGlUxC1zZjDWKDS9aBlCkpRvaMW
-	UxuVT/XA0pcQpT6XmPOfQzVOidFJXjC32qLoM0P77RHluZs2BWj26PlgVKe/4r1zdm7Wfmd9Pm1cY
-	pLxV0S69EFYcAZwEUY2s+DVus9fs5lpRWvYwAf1l4lLUIT0W5TgwxwNRzvK+c60+kyqV0UmllUAAt
-	6n/GqgxQ==;
+	bh=VGzNZAgSmf1hKexSS7kscyRDWNyrH6DCvG9Q4nvREV0=; b=H1vXtDZfU+CWC/MRZEPcFKEJHo
+	+IxDI/DLOJOaVM4zC+YCyt/hrG8EkAwE7MeUHN2R6m9EdxkOlJzjN9muOy6vzT6rAP0vW1C/o+y4i
+	9l+D+VZiutB7sDK/lp9CnW/dusdsSTWtimnkN21Z+aRtuvmoZSAZG0p8xJys7747Zx90hmWjD3Mej
+	xzlV7JuDU6AC5hpvB7gI3DSLH9/V+KqPKSsF/mQ86vPJH7IhUzF7/Ao+hhZRH3a4oDdQyBSv8iHvL
+	hapIhGZy7P/2qqrfRm29v8t/seSpgZatCiiufgXaZui2QF4oTzegnY2bE7j4X27b5kJi6TU83OKpt
+	218OB4VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRKLS-00000008qaE-189h;
-	Fri, 05 Dec 2025 01:10:50 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1vRKLU-00000008qbr-2kiU;
+	Fri, 05 Dec 2025 01:10:55 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRKLM-00000008qVl-18TT
+	id 1vRKLP-00000008qXW-2gOm
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 01:10:45 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-34740cc80d5so2992365a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 17:10:43 -0800 (PST)
+	Fri, 05 Dec 2025 01:10:48 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-34566e62f16so1775237a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 17:10:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764897043; x=1765501843; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1764897045; x=1765501845; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pXKo9jae8GPx/nkXX05Y0xFfBHYzG41JeWrmmml+Pic=;
-        b=ss+wcIzjhdWaDh3X8NH6+fePW5NBRjxWCZd65medD9uj20I8Jn8P734kYKgNRlh3RR
-         uaCH+zNWlRh32mKECXSEDhF6WEOfwji6LDxFcIk1blp9Xxqt70o/iZ++8dt3IGwWZyTU
-         por8+j2OXvtb0NVygTiN90zF+fN6ch+yQuxLhCdfa5JPLg8ZSo8uuEBX4hR8tfrC1/78
-         vwxSF4oQp74DjYpaFt6VKIKs06DUqM92RjYxksSAYtYbnc0HDP3/mQyecnNYJW4/gEDc
-         Ace30iPTMj4p9BPY+0i+lgynmcHrADjIAWik94mdh/CaRupQz8yHuleCRhpI2ymuI/xx
-         +hjg==
+        bh=VGzNZAgSmf1hKexSS7kscyRDWNyrH6DCvG9Q4nvREV0=;
+        b=DypKTaC+PKXMF7N5KuHFesNuyR6zqDHuYAGE2iyrTmFhp+6Fk30A6GeEIdKAKKjZ8g
+         EHR5K8Q2UU90x830rDHOc4vjG8v80XR4gMq2NRckAACzOOuei4NbmiLsuY6WeI5KXlPx
+         8wjhOQ2TUiPFerxsfElGuP1g7/q1pgI5kvh/HP+NYNuKClQNfSI6Opwnqjv0ZjlZc6LE
+         LQ1hTcspYQFWyJYU22ucz28omiqh9NQy+4/pFpOvNG6Y3rdYNlWw2ApClajBe4jueMRC
+         xEW8pD13Xyq/6YhgIY7hK/i+eK4IH6Q+mJoxoNqTbjh2XOM/374FU6k6ZpzfiaX6A4jr
+         MG8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764897043; x=1765501843;
+        d=1e100.net; s=20230601; t=1764897045; x=1765501845;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=pXKo9jae8GPx/nkXX05Y0xFfBHYzG41JeWrmmml+Pic=;
-        b=Qzg+Mda057uViaulFk+S7psGFGTr+yYrlQAA0Tb5e2cEfZOk3UOE4eJ6+gITvWzYhd
-         pv/GnYn3WukaZ1tzA09Lx3+6LHnRLYJrgOEsMrR3LTd7Ec0AKpb1VX5PfcQIbGzvzY1X
-         ZmFEDqQj3X10WfctpdS9ZC9GgdyaXfByMF/pN0RNk2tQYxEbpA/kdPMdPfmhkXVBXIJt
-         IeBHSga11Qz4H4sPcPqdeCANfJHbCB0I+g6Rch5c0R6ZC+SPfMFgbfapK7ydokZv528m
-         C9Q7YvMDo2lGNCBma8LdvHTW+BeBL2scc8nU11fKfWMyw+3XAc7v5in8IFAzwyKw43hc
-         Q+mA==
-X-Forwarded-Encrypted: i=1; AJvYcCVdanLfvsO6lkf5Is79wIcGulQ99f94zULLWlvOc2WHxDb8xeGeee+3zCWN3z3rw11/NZDODfamvc3JzqT2nnHQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx98H47Dn5HkMfHxH0MsOFPKoN9Ux9nALk86K41I6GZYlIaS/iA
-	3J/I26eurjf0I+xevl9Ayiz8T+MBjJF0fkCu1ScY52/NmmVNrV7oroCA27z8VgOdvgS4ZBoeK8/
-	6W6bt5uONjdVQnesELRmXrk494zbXFQ==
-X-Google-Smtp-Source: AGHT+IGYFV6MU4YB63AJyKdvva+eVU8KUbYz33XJWjAtkBwDnomi6wq1povsUBPPhQoD986KcORpY779p4tk4+RsEF0=
-X-Received: from pjbie17.prod.google.com ([2002:a17:90b:4011:b0:33b:dccb:b328])
+        bh=VGzNZAgSmf1hKexSS7kscyRDWNyrH6DCvG9Q4nvREV0=;
+        b=CSXlakqdnwWLQBWeIKTTwH/8LSR6JMoSdQCTInHU5F2p1xzabrwZmAphjExXyvMCO8
+         R0rjWduGYXGSlrYeI1xupE6RVzx3qx+ItZatgrlkyhjj8mmBKI7egFBVlvzlXGsvl86G
+         2vKGRZch4D9Ec36xw2mGXH14h4bO2L54d6fyTDsh7TtA9RtxOLMpmRwIJQYDJ95ENE8h
+         VBRSf8Mkn0/H8jilo6sT5QXi9C4Gv6Uv7f3rm3ijAvhZ2feuXIL2oSE89AL4ugE01jaX
+         1uT6A0bJMDmx4p2670TrHaEO6eW3kwj3vKTm7QxiQFzYBSWbzUDfeo4ZH7/w0IxGRuh7
+         LCuA==
+X-Forwarded-Encrypted: i=1; AJvYcCUd2RF3UZ8tjIGuWxcCEzVaWapHIx/rocrK4W1DjnYp/na0iayjk3hHx4ggNn76FjJ8RJhKP9RYtCewbnHXkhxO@lists.infradead.org
+X-Gm-Message-State: AOJu0YypjuNxZsc7K0u1czLRGePzFhikJ+pT9vJmEiesXQnVP1/1Sg9B
+	CJsSRJKcbxjhWKUEOLFqlmVJqY7y7TIoSHSc0ujYK4uQ/N4dyzgiYgcVM0TpdBmSzbkdfFstnuW
+	sGDlAkuZjb3+Lv58257MO3YE2N5y0nw==
+X-Google-Smtp-Source: AGHT+IEshhpLrp+m+z5Lio7zTtyyfuyj3rt2WlZv8C9AbKaTeKWuFxioSmKqiZC+EdgZW5b6KBHOwrLop22uhDqYJzo=
+X-Received: from pjbmt14.prod.google.com ([2002:a17:90b:230e:b0:33b:d40a:d93a])
  (user=willmcvicker job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:2f83:b0:349:2125:be60 with SMTP id 98e67ed59e1d1-3492125c2b9mr7143191a91.8.1764897042691;
- Thu, 04 Dec 2025 17:10:42 -0800 (PST)
-Date: Fri,  5 Dec 2025 01:10:18 +0000
+ 2002:a17:90a:9f84:b0:340:e8e9:cc76 with SMTP id 98e67ed59e1d1-349125d3475mr6578882a91.11.1764897044574;
+ Thu, 04 Dec 2025 17:10:44 -0800 (PST)
+Date: Fri,  5 Dec 2025 01:10:19 +0000
 In-Reply-To: <20251205011027.720512-1-willmcvicker@google.com>
 Mime-Version: 1.0
 References: <20251205011027.720512-1-willmcvicker@google.com>
 X-Mailer: git-send-email 2.52.0.223.gf5cc29aaa4-goog
-Message-ID: <20251205011027.720512-6-willmcvicker@google.com>
-Subject: [PATCH v7 5/6] clocksource/drivers/exynos_mct: Add module support for ARM64
+Message-ID: <20251205011027.720512-7-willmcvicker@google.com>
+Subject: [PATCH v7 6/6] arm64: exynos: Drop select CLKSRC_EXYNOS_MCT
 From: Will McVicker <willmcvicker@google.com>
 To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
 	Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -81,8 +81,8 @@ Cc: Will McVicker <willmcvicker@google.com>, Donghoon Yu <hoony.yu@samsung.com>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_171044_323183_39BDC6F1 
-X-CRM114-Status: GOOD (  24.29  )
+X-CRM114-CacheID: sfid-20251204_171047_692501_272D9E7D 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,175 +97,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Arm64 platforms the Exynos MCT driver can be built as a module. On
-boot (and even after boot) the arch_timer is used as the clocksource and
-tick timer. Once the MCT driver is loaded, it can be used as the wakeup
-source for the arch_timer.
+Since the Exynos MCT driver can be built as a module for some Arm64 SoCs
+like gs101, drop force-selecting it as a built-in driver by ARCH_EXYNOS
+and instead depend on `default y if ARCH_EXYNOS` to select it
+automatically. This allows platforms like Android to build the driver as
+a module if desired.
 
-Note, this commit was derived from
-https://android.googlesource.com/kernel/gs/+/8a52a8288ec7d88ff78f0b37480dbb0e9c65bbfd.
-
-Signed-off-by: Daniel Lezcano <daniel.lezcano@linaro.org>
-Reviewed-by: Youngmin Nam <youngmin.nam@samsung.com> # AOSP -> Linux port
-Tested-by: Youngmin Nam <youngmin.nam@samsung.com> # AOSP -> Linux port
+Reviewed-by: Youngmin Nam <youngmin.nam@samsung.com>
+Tested-by: Youngmin Nam <youngmin.nam@samsung.com>
 Signed-off-by: Will McVicker <willmcvicker@google.com>
 ---
- drivers/clocksource/Kconfig      |  3 +-
- drivers/clocksource/exynos_mct.c | 51 ++++++++++++++++++++++++++++----
- 2 files changed, 47 insertions(+), 7 deletions(-)
+ arch/arm64/Kconfig.platforms | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
-index ffcd23668763..9450cfaf982f 100644
---- a/drivers/clocksource/Kconfig
-+++ b/drivers/clocksource/Kconfig
-@@ -451,7 +451,8 @@ config ATMEL_TCB_CLKSRC
- 	  Support for Timer Counter Blocks on Atmel SoCs.
- 
- config CLKSRC_EXYNOS_MCT
--	bool "Exynos multi core timer driver" if COMPILE_TEST
-+	tristate "Exynos multi core timer driver" if ARM64
-+	default y if ARCH_EXYNOS || COMPILE_TEST
- 	depends on ARM || ARM64
- 	depends on ARCH_ARTPEC || ARCH_EXYNOS || COMPILE_TEST
- 	help
-diff --git a/drivers/clocksource/exynos_mct.c b/drivers/clocksource/exynos_mct.c
-index 922c2b519a39..d9a888607726 100644
---- a/drivers/clocksource/exynos_mct.c
-+++ b/drivers/clocksource/exynos_mct.c
-@@ -15,9 +15,11 @@
- #include <linux/cpu.h>
- #include <linux/delay.h>
- #include <linux/percpu.h>
-+#include <linux/module.h>
- #include <linux/of.h>
- #include <linux/of_irq.h>
- #include <linux/of_address.h>
-+#include <linux/platform_device.h>
- #include <linux/clocksource.h>
- #include <linux/sched_clock.h>
- 
-@@ -232,6 +234,7 @@ static struct clocksource mct_frc = {
- 	.mask		= CLOCKSOURCE_MASK(32),
- 	.flags		= CLOCK_SOURCE_IS_CONTINUOUS,
- 	.resume		= exynos4_frc_resume,
-+	.owner		= THIS_MODULE,
- };
- 
- /*
-@@ -256,7 +259,7 @@ static cycles_t exynos4_read_current_timer(void)
- }
- #endif
- 
--static int __init exynos4_clocksource_init(struct mct_context *ctx, bool frc_shared)
-+static int __init_or_module exynos4_clocksource_init(struct mct_context *ctx, bool frc_shared)
- {
- 	/*
- 	 * When the frc is shared, the main processor should have already
-@@ -343,6 +346,7 @@ static struct mct_clock_event_device mct_comp_device = {
- 		.set_state_oneshot	= mct_set_state_shutdown,
- 		.set_state_oneshot_stopped = mct_set_state_shutdown,
- 		.tick_resume		= mct_set_state_shutdown,
-+		.owner			= THIS_MODULE,
- 	},
- };
- 
-@@ -484,6 +488,7 @@ static int exynos4_mct_starting_cpu(unsigned int cpu)
- 	evt->features = CLOCK_EVT_FEAT_PERIODIC | CLOCK_EVT_FEAT_ONESHOT |
- 			CLOCK_EVT_FEAT_PERCPU;
- 	evt->rating = MCT_CLKEVENTS_RATING;
-+	evt->owner = THIS_MODULE;
- 
- 	exynos4_mct_write(TICK_BASE_CNT, mevt->base + MCT_L_TCNTB_OFFSET);
- 
-@@ -520,7 +525,7 @@ static int exynos4_mct_dying_cpu(unsigned int cpu)
- 	return 0;
- }
- 
--static int __init exynos4_timer_resources(struct mct_context *ctx,
-+static int __init_or_module exynos4_timer_resources(struct mct_context *ctx,
- 					  struct device_node *np)
- {
- 	struct clk *mct_clk, *tick_clk;
-@@ -549,7 +554,7 @@ static int __init exynos4_timer_resources(struct mct_context *ctx,
-  * @local_idx: array mapping CPU numbers to local timer indices
-  * @nr_local: size of @local_idx array
-  */
--static int __init exynos4_timer_interrupts(struct mct_context *ctx,
-+static int __init_or_module exynos4_timer_interrupts(struct mct_context *ctx,
- 					   struct device_node *np,
- 					   const u32 *local_idx,
- 					   size_t nr_local)
-@@ -662,7 +667,7 @@ static int __init exynos4_timer_interrupts(struct mct_context *ctx,
- 	return err;
- }
- 
--static int __init mct_init_dt(struct mct_context *ctx, struct device_node *np)
-+static int __init_or_module mct_init_dt(struct mct_context *ctx, struct device_node *np)
- {
- 	bool frc_shared = of_property_read_bool(np, "samsung,frc-shared");
- 	u32 local_idx[MCT_NR_LOCAL] = {0};
-@@ -722,7 +727,9 @@ static const struct of_device_id exynos4_mct_match_table[] = {
- 	{ .compatible = "samsung,exynos4412-mct", .data = &exynos4412_mct_data, },
- 	{}
- };
-+MODULE_DEVICE_TABLE(of, exynos4_mct_match_table);
- 
-+#if defined(CONFIG_ARM)
- /* Note, legacy ARM 32-bit systems depend on the MCT as the only clocksource
-  * which requires this driver to be initialized very early. We need to keep this
-  * special condition until we can transparently support modular and early init
-@@ -748,13 +755,11 @@ static int __init mct_of_declare_init(struct device_node *np)
- 	if (ret)
- 		goto out_ctx;
- 
--#if defined(CONFIG_ARM)
- 	sched_clock_register(exynos4_read_sched_clock, 32, ctx->clk_rate);
- 
- 	exynos4_delay_timer.read_current_timer = &exynos4_read_current_timer;
- 	exynos4_delay_timer.freq = ctx->clk_rate;
- 	register_current_timer_delay(&exynos4_delay_timer);
--#endif
- 
- 	return 0;
- 
-@@ -764,3 +769,37 @@ static int __init mct_of_declare_init(struct device_node *np)
- }
- TIMER_OF_DECLARE(exynos4210, "samsung,exynos4210-mct", mct_of_declare_init);
- TIMER_OF_DECLARE(exynos4412, "samsung,exynos4412-mct", mct_of_declare_init);
-+#else
-+static int exynos4_mct_probe(struct platform_device *pdev)
-+{
-+	struct mct_context *ctx;
-+	struct device *dev = &pdev->dev;
-+
-+	ctx = devm_kzalloc(dev, sizeof(*ctx), GFP_KERNEL);
-+	if (!ctx)
-+		return -ENOMEM;
-+
-+	ctx->drvdata = of_device_get_match_data(dev);
-+	if (!ctx->drvdata)
-+		return -EINVAL;
-+
-+	return mct_init_dt(ctx, dev->of_node);
-+}
-+
-+static struct platform_driver exynos4_mct_driver = {
-+	.probe		= exynos4_mct_probe,
-+	.driver		= {
-+		.name	= "exynos-mct",
-+		.of_match_table = exynos4_mct_match_table,
-+	},
-+};
-+
-+static int __init exynos_mct_init(void)
-+{
-+	return platform_driver_register(&exynos4_mct_driver);
-+}
-+module_init(exynos_mct_init);
-+
-+MODULE_DESCRIPTION("Exynos Multi Core Timer Driver");
-+MODULE_LICENSE("GPL");
-+#endif /* CONFIG_ARM */
+diff --git a/arch/arm64/Kconfig.platforms b/arch/arm64/Kconfig.platforms
+index 13173795c43d..fc6026c368ca 100644
+--- a/arch/arm64/Kconfig.platforms
++++ b/arch/arm64/Kconfig.platforms
+@@ -128,7 +128,6 @@ config ARCH_CIX
+ config ARCH_EXYNOS
+ 	bool "Samsung Exynos SoC family"
+ 	select COMMON_CLK_SAMSUNG
+-	select CLKSRC_EXYNOS_MCT
+ 	select EXYNOS_PM_DOMAINS if PM_GENERIC_DOMAINS
+ 	select EXYNOS_PMU
+ 	select PINCTRL
 -- 
 2.52.0.223.gf5cc29aaa4-goog
 
