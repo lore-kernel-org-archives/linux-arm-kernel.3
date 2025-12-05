@@ -4,78 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05C18D374AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:00:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B9ADD374AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:00:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Bsaeh+R85W3yqBXY0/3dvY5ZY1X6APknzRRJmY7imCA=; b=LUpMc/rrdZ1a2t0EHrRVLwqO4K
-	9jB/yWjXOwZeq+bkNKzG1aAEk1xE+OHwOg8gwDgBqX4YkTsBvbBbXiuhPg1+NGfE6k7PXEoRCxnH6
-	BGPmbKEg5HkfBBmc/LO5PnVIHKkmd+2u2xEriyqwNg8mKGPWLUBY8tNMGaS7en1Nc72hiLZd4jrXa
-	5LEBUgm2w+N4eNsgFB2n7en9vLlPaoVPtVtS+BOkElTtjeiY9eugZqCXy6JcCR6entjzFFSe2V20W
-	H2qVMwbk98KNn/DDJBt/pZNtNddx8KaWfNzowg46vf9Grqtkno/MF312gSmK/zAjhyO6V0Xnz+4yw
-	Q+yjLGHA==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DSMkcICSgzpQSpGwVQ8lH/hj4sHvp0cuILnAKyWEtdg=; b=rp1JoWTvkQgJqjdz3/rnVLEql0
+	noiyOEd1/K0L2wT9eV+HLVlkWMTZoMFbambMdDIF+gz8oLjSFtfJFMEIIHPgJ0R7mQ34Qcp2Pb0j3
+	XbkC5Idx+K97YldIUjyj1x3/Jy3S03NMDAISV8BwUpJvvX34fQ6BNG8iEUKH2mBLzVM5CBubQWtcK
+	7CSquUMXTbdfhy+j3j+u6H+dTXnk66vHgRdLJW84z9fa+lQCJSb1WXQyJVeVtknZmVt9pjX4+ZGo/
+	5ktxU0grjyHBTy86ZppDZkn/SgmdXV7NV22DfgzC6rRbBWYVfu5CtplkKN6xyiIyAVPhwJucdAfmX
+	WNWTNrNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdqg-0000000A5RD-3hMr;
-	Fri, 05 Dec 2025 22:00:22 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdqf-0000000A5OZ-28SI;
-	Fri, 05 Dec 2025 22:00:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=Bsaeh+R85W3yqBXY0/3dvY5ZY1X6APknzRRJmY7imCA=; b=gVPFAFitucrsfMwuC88SaBaC5K
-	lEZbb6hTwYbfgKyCYizCM8AF/uHrtgWhbzLgfyJw9SQTH0UsoFMZ4oY9Gq1Urh/KYtJ6OFB9cCYYZ
-	pCWUIDJz5QZR9eiGhrFN2y2YR2k8D0jsfZrkW4r5ljQEHR0S58tRbOx5WWOPC32+pFHsKjlRNhmLJ
-	q0gE6Ic90s0N6enpl/Yd6LOr7dXm4ERUQVCLxrNhY+FMvvcwyghZ/S9QWwXgo/Suj8GqN8Wg3GvG9
-	AxVlO2bi9IqD87iVj5aO1GEd2wZR5xxtqYbD6flzxpQlrkKt2IUzBuvSMkmnuIDkkSDzktjIuOl1+
-	Ve/EUaVg==;
-Received: from mxout1.routing.net ([2a03:2900:1:a::a])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdqa-00000006IYH-45f5;
-	Fri, 05 Dec 2025 22:00:19 +0000
-Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
-	by mxout1.routing.net (Postfix) with ESMTP id 1BE7A3FD50;
-	Fri,  5 Dec 2025 22:00:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
-	s=routing; t=1764972005;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Bsaeh+R85W3yqBXY0/3dvY5ZY1X6APknzRRJmY7imCA=;
-	b=yJRRRkihclJuRSI/DLO1f3PO8oASBGmyaBC+rF5SUnfv3zT3xsbKyKAU+KRrSq5t7crTf+
-	2Nx695LypGQojaYqtGjLjg/HcFW4QTJuJ1q8qn01KK8KLph2NxfimDi/actEOVldkm5z1Q
-	N108qUsFeV8T4xwo6l+ef9z+zSDJVZA=
-Received: from frank-u24.. (fttx-pool-157.180.225.155.bambit.de [157.180.225.155])
-	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id E5F1F1226F1;
-	Fri,  5 Dec 2025 22:00:04 +0000 (UTC)
-From: Frank Wunderlich <linux@fw-web.de>
-To: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	Frank Wunderlich <frank-w@public-files.de>
-Subject: [PATCH] arm64: dts: mediatek: Apply mt8395-radxa DT overlay at build time
-Date: Fri,  5 Dec 2025 22:59:38 +0100
-Message-ID: <20251205215940.19287-1-linux@fw-web.de>
-X-Mailer: git-send-email 2.43.0
+	id 1vRdqr-0000000A5cx-0ff7;
+	Fri, 05 Dec 2025 22:00:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vRdqp-0000000A5Zq-0GHv
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Dec 2025 22:00:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EA4541BB0;
+	Fri,  5 Dec 2025 14:00:21 -0800 (PST)
+Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 667213F740;
+	Fri,  5 Dec 2025 14:00:25 -0800 (PST)
+From: James Morse <james.morse@arm.com>
+To: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: James Morse <james.morse@arm.com>,
+	D Scott Phillips OS <scott@os.amperecomputing.com>,
+	carl@os.amperecomputing.com,
+	lcherian@marvell.com,
+	bobo.shaobowang@huawei.com,
+	tan.shaopeng@fujitsu.com,
+	baolin.wang@linux.alibaba.com,
+	Jamie Iles <quic_jiles@quicinc.com>,
+	Xin Hao <xhao@linux.alibaba.com>,
+	peternewman@google.com,
+	dfustini@baylibre.com,
+	amitsinght@marvell.com,
+	David Hildenbrand <david@kernel.org>,
+	Dave Martin <dave.martin@arm.com>,
+	Koba Ko <kobak@nvidia.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	fenghuay@nvidia.com,
+	baisheng.gao@unisoc.com,
+	Jonathan Cameron <jonathan.cameron@huawei.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Ben Horgan <ben.horgan@arm.com>,
+	rohit.mathew@arm.com,
+	reinette.chatre@intel.com,
+	Punit Agrawal <punit.agrawal@oss.qualcomm.com>,
+	Dave Martin <Dave.Martin@arm.com>
+Subject: [RFC PATCH 15/38] arm_mpam: resctrl: Convert to/from MPAMs fixed-point formats
+Date: Fri,  5 Dec 2025 21:58:38 +0000
+Message-Id: <20251205215901.17772-16-james.morse@arm.com>
+X-Mailer: git-send-email 2.20.1
+In-Reply-To: <20251205215901.17772-1-james.morse@arm.com>
+References: <20251205215901.17772-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_220017_274692_29E4473F 
-X-CRM114-Status: UNSURE (   8.36  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251205_140031_234942_A6BB5EAF 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,47 +86,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: "Rob Herring (Arm)" <robh@kernel.org>
+From: Dave Martin <Dave.Martin@arm.com>
 
-It's a requirement that DT overlays be applied at build time in order to
-validate them as overlays are not validated on their own.
+MPAM uses a fixed-point formats for some hardware controls.
+Resctrl provides the bandwidth controls as a percentage. Add helpers to
+convert between these.
 
-Add missing target for mt8395-radxa hd panel overlay.
-
-Fixes: 4c8ff61199a7 ("arm64: dts: mediatek: mt8395-radxa-nio-12l: Add Radxa 8 HD panel")
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
+Signed-off-by: Dave Martin <Dave.Martin@arm.com>
+Signed-off-by: James Morse <james.morse@arm.com>
 ---
-This will show a warning [1] in upcoming 6.19.
+ drivers/resctrl/mpam_resctrl.c | 41 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 41 insertions(+)
 
-Note that if it is desired that the combined .dtb is not installed, then
-the combined .dtb should be added to 'dtb-' variable instead.
----
-extracted missing part from [2] with updated commit title/description
-after my bananapi series [3] to solve all warnings. Added Fixes-tag to
-make sure it lands in 6.19.
-
-[1] https://lore.kernel.org/all/20251114222759.4181152-1-robh@kernel.org/
-[2] https://patchwork.kernel.org/project/linux-mediatek/patch/20251117211306.725678-1-robh@kernel.org/
-[3] https://patchwork.kernel.org/project/linux-mediatek/cover/20251119175124.48947-1-linux@fw-web.de/
----
- arch/arm64/boot/dts/mediatek/Makefile | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
-index cac8f4c6d76f..3f76d9ce9879 100644
---- a/arch/arm64/boot/dts/mediatek/Makefile
-+++ b/arch/arm64/boot/dts/mediatek/Makefile
-@@ -166,6 +166,8 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8390-grinn-genio-700-sbc.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-kontron-3-5-sbc-i1200.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l-8-hd-panel.dtbo
-+mt8395-radxa-nio-12l-8-hd-panel-dtbs := mt8395-radxa-nio-12l.dtb mt8395-radxa-nio-12l-8-hd-panel.dtbo
-+dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l-8-hd-panel.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8516-pumpkin.dtb
+diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+index 19d70d00bbcc..55576d0caf12 100644
+--- a/drivers/resctrl/mpam_resctrl.c
++++ b/drivers/resctrl/mpam_resctrl.c
+@@ -10,6 +10,7 @@
+ #include <linux/errno.h>
+ #include <linux/limits.h>
+ #include <linux/list.h>
++#include <linux/math.h>
+ #include <linux/printk.h>
+ #include <linux/rculist.h>
+ #include <linux/resctrl.h>
+@@ -246,6 +247,46 @@ static bool cache_has_usable_cpor(struct mpam_class *class)
+ 	return (class->props.cpbm_wd <= 32);
+ }
  
- # Device tree overlays support
++/*
++ * Each fixed-point hardware value architecturally represents a range
++ * of values: the full range 0% - 100% is split contiguously into
++ * (1 << cprops->bwa_wd) equal bands.
++ * Find the nearest percentage value to the upper bound of the selected band:
++ */
++static u32 mbw_max_to_percent(u16 mbw_max, struct mpam_props *cprops)
++{
++	u32 val = mbw_max;
++
++	val >>= 16 - cprops->bwa_wd;
++	val += 1;
++	val *= MAX_MBA_BW;
++	val = DIV_ROUND_CLOSEST(val, 1 << cprops->bwa_wd);
++
++	return val;
++}
++
++/*
++ * Find the band whose upper bound is closest to the specified percentage.
++ *
++ * A round-to-nearest policy is followed here as a balanced compromise
++ * between unexpected under-commit of the resource (where the total of
++ * a set of resource allocations after conversion is less than the
++ * expected total, due to rounding of the individual converted
++ * percentages) and over-commit (where the total of the converted
++ * allocations is greater than expected).
++ */
++static u16 percent_to_mbw_max(u8 pc, struct mpam_props *cprops)
++{
++	u32 val = pc;
++
++	val <<= cprops->bwa_wd;
++	val = DIV_ROUND_CLOSEST(val, MAX_MBA_BW);
++	val = max(val, 1) - 1;
++	val <<= 16 - cprops->bwa_wd;
++
++	return val;
++}
++
+ /* Test whether we can export MPAM_CLASS_CACHE:{2,3}? */
+ static void mpam_resctrl_pick_caches(void)
+ {
 -- 
-2.43.0
+2.39.5
 
 
