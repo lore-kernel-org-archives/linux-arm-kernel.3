@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78E9DD374AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:01:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0C97D374A6
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:01:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yWAYB9lFHvPH/zEtuNFLdnlJL+nC6gYqMKbHVtQrqic=; b=X0BjvwFBZs1OPmITyLfQHsSbLZ
-	fCWeax4T+qMwMKb9G0rQ/Tw7abHIbnuqPZgkpW8o3c6sA5NQlpU8Se7sCVtbV1FCzfY03aFEIw7oz
-	S6UMuopFilL8zixfPUghDIsyUYPvNPM4BLMfBovy+GB0/lH60oq/NSg3CA11WxuLZZFupg/7wsDQ3
-	3SKBiekHWph2DUr0xosZMYXRON/8cN4IOizWarn/UFgtmlzgLRAKItIgV4sN2JfSMzEcpWKkEIY2k
-	8VYZI9Hy0R2wYMPFQbLfZAD8xGF876cZumZAmOPV5s6nRHMEXcjQAwc/f+7BBgsBxIaqGkvLGIMNX
-	uZAuVEmw==;
+	bh=VzrwjXDb7KovTpj6ZT4L4GDOtO3PzUeenp48P1CDY8M=; b=UUh9Tj3W/EdpKW/CXzqz3FtSms
+	dom04Rwu9lIA0rR9zuOgbMcYl1F5NHiIH9c+VovXO2AOwD2Q8ECML25o7/itrYorY8ubR5lXra4As
+	IwkVNWnNgU7M2ELKUY2g8BpmDfTds75XbbNoyxDAN8Okcn64IuOoC7AKP+vTQBVk2IZBIgitR9LLv
+	e1/jWHiLZSj5vZ5KUmQaVlL6I4DSdZt8uasBPeuUCz9sToH1EuoTQrCxZzDzBRj7xMeqqoMhMpSem
+	IVKSjhxbklqCuX4bseIDYmadQF0IjN+KxHFv7nAfEKP0U4xAWAu2W05DZYCHspBDnffD2xhcSCFX9
+	BhInTGyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdrK-0000000A6Fk-1HGU;
-	Fri, 05 Dec 2025 22:01:02 +0000
+	id 1vRdrN-0000000A6JY-2gmM;
+	Fri, 05 Dec 2025 22:01:05 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdrH-0000000A6Bx-3XFP
+	id 1vRdrK-0000000A6Bx-3LYn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 22:01:01 +0000
+	Fri, 05 Dec 2025 22:01:04 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 99DCF1AED;
-	Fri,  5 Dec 2025 14:00:50 -0800 (PST)
-Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 38D443F740;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A62B81A25;
 	Fri,  5 Dec 2025 14:00:54 -0800 (PST)
+Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 41FCB3F740;
+	Fri,  5 Dec 2025 14:00:58 -0800 (PST)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
@@ -60,17 +60,17 @@ Cc: James Morse <james.morse@arm.com>,
 	rohit.mathew@arm.com,
 	reinette.chatre@intel.com,
 	Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-Subject: [RFC PATCH 22/38] arm_mpam: resctrl: Add kunit test for ABMC/CDP interactions
-Date: Fri,  5 Dec 2025 21:58:45 +0000
-Message-Id: <20251205215901.17772-23-james.morse@arm.com>
+Subject: [RFC PATCH 23/38] arm_mpam: resctrl: Add resctrl_arch_config_cntr() for ABMC use
+Date: Fri,  5 Dec 2025 21:58:46 +0000
+Message-Id: <20251205215901.17772-24-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20251205215901.17772-1-james.morse@arm.com>
 References: <20251205215901.17772-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_140100_194412_0B870E13 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20251205_140102_987000_F4565E44 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,96 +85,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-ABMC exposes a fun corner case where a platform with one monitor can
-use ABMC for assignable counters - but not when CDP is enabled.
+ABMC has a helper resctrl_arch_config_cntr() for changing the mapping
+between 'cntr_id' and a CLOSID/RMID pair.
 
-Add some tests.
+Add the helper.
+
+For MPAM this is done by updating the mon->mbwu_idx_to_mon[] array,
+and as usual CDP means it needs doing in three different ways.
 
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
- drivers/resctrl/test_mpam_resctrl.c | 62 +++++++++++++++++++++++++++++
- 1 file changed, 62 insertions(+)
+ drivers/resctrl/mpam_resctrl.c | 37 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 37 insertions(+)
 
-diff --git a/drivers/resctrl/test_mpam_resctrl.c b/drivers/resctrl/test_mpam_resctrl.c
-index d0615aa7671c..c83d54f21fa0 100644
---- a/drivers/resctrl/test_mpam_resctrl.c
-+++ b/drivers/resctrl/test_mpam_resctrl.c
-@@ -293,6 +293,67 @@ static void test_percent_to_max_rounding(struct kunit *test)
- 	KUNIT_EXPECT_LE(test, 4 * num_rounded_up, 3 * total);
+diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+index f607feaf0126..22ad5dd3c383 100644
+--- a/drivers/resctrl/mpam_resctrl.c
++++ b/drivers/resctrl/mpam_resctrl.c
+@@ -767,6 +767,43 @@ static void mpam_resctrl_pick_counters(void)
+ 			     mpam_resctrl_counters[QOS_L3_MBM_TOTAL_EVENT_ID].class);
  }
  
-+static void test_num_assignable_counters(struct kunit *test)
++static void __config_cntr(struct mpam_resctrl_mon *mon, u32 cntr_id,
++			  enum resctrl_conf_type cdp_type, u32 closid, u32 rmid,
++			  bool assign)
 +{
-+	unsigned int orig_l3_num_allocated_mbwu = l3_num_allocated_mbwu;
-+	u32 orig_mpam_partid_max = mpam_partid_max;
-+	u32 orig_mpam_pmg_max = mpam_pmg_max;
-+	bool orig_cdp_enabled = cdp_enabled;
-+	struct rdt_resource fake_l3;
++	u32 mbwu_idx, mon_idx = resctrl_get_config_index(cntr_id, cdp_type);
 +
-+	/* Force there to be some PARTID/PMG */
-+	mpam_partid_max = 3;
-+	mpam_pmg_max = 1;
++	closid = resctrl_get_config_index(closid, cdp_type);
++	mbwu_idx = resctrl_arch_rmid_idx_encode(closid, rmid);
++	WARN_ON_ONCE(mon_idx > l3_num_allocated_mbwu);
 +
-+	cdp_enabled = false;
-+
-+	/* ABMC off, CDP off */
-+	l3_num_allocated_mbwu = resctrl_arch_system_num_rmid_idx();
-+	mpam_resctrl_monitor_sync_abmc_vals(&fake_l3);
-+	KUNIT_EXPECT_EQ(test, fake_l3.mon.num_mbm_cntrs, resctrl_arch_system_num_rmid_idx());
-+	KUNIT_EXPECT_FALSE(test, fake_l3.mon.mbm_cntr_assignable);
-+	KUNIT_EXPECT_FALSE(test, fake_l3.mon.mbm_assign_on_mkdir);
-+
-+	/* ABMC on, CDP off */
-+	l3_num_allocated_mbwu = 4;
-+	mpam_resctrl_monitor_sync_abmc_vals(&fake_l3);
-+	KUNIT_EXPECT_EQ(test, fake_l3.mon.num_mbm_cntrs, 4);
-+	KUNIT_EXPECT_TRUE(test, fake_l3.mon.mbm_cntr_assignable);
-+	KUNIT_EXPECT_TRUE(test, fake_l3.mon.mbm_assign_on_mkdir);
-+
-+	cdp_enabled = true;
-+
-+	/* ABMC off, CDP on */
-+	l3_num_allocated_mbwu = resctrl_arch_system_num_rmid_idx();
-+	mpam_resctrl_monitor_sync_abmc_vals(&fake_l3);
-+
-+	/* (value not consumed by resctrl) */
-+	KUNIT_EXPECT_EQ(test, fake_l3.mon.num_mbm_cntrs, resctrl_arch_system_num_rmid_idx() / 2);
-+
-+	KUNIT_EXPECT_FALSE(test, fake_l3.mon.mbm_cntr_assignable);
-+	KUNIT_EXPECT_FALSE(test, fake_l3.mon.mbm_assign_on_mkdir);
-+
-+	/* ABMC on, CDP on */
-+	l3_num_allocated_mbwu = 4;
-+	mpam_resctrl_monitor_sync_abmc_vals(&fake_l3);
-+	KUNIT_EXPECT_EQ(test, fake_l3.mon.num_mbm_cntrs, 2);
-+	KUNIT_EXPECT_TRUE(test, fake_l3.mon.mbm_cntr_assignable);
-+	KUNIT_EXPECT_TRUE(test, fake_l3.mon.mbm_assign_on_mkdir);
-+
-+	/* ABMC 'on', CDP on - but not enough counters */
-+	l3_num_allocated_mbwu = 1;
-+	mpam_resctrl_monitor_sync_abmc_vals(&fake_l3);
-+	KUNIT_EXPECT_EQ(test, fake_l3.mon.num_mbm_cntrs, 0);
-+	KUNIT_EXPECT_FALSE(test, fake_l3.mon.mbm_cntr_assignable);
-+	KUNIT_EXPECT_FALSE(test, fake_l3.mon.mbm_assign_on_mkdir);
-+
-+	/* Restore global variables that were messed with */
-+	l3_num_allocated_mbwu = orig_l3_num_allocated_mbwu;
-+	mpam_partid_max = orig_mpam_partid_max;
-+	mpam_pmg_max = orig_mpam_pmg_max;
-+	cdp_enabled = orig_cdp_enabled;
++	if (assign)
++		mon->mbwu_idx_to_mon[mbwu_idx] = mon->assigned_counters[mon_idx];
++	else
++		mon->mbwu_idx_to_mon[mbwu_idx] = -1;
 +}
 +
- static struct kunit_case mpam_resctrl_test_cases[] = {
- 	KUNIT_CASE(test_get_mba_granularity),
- 	KUNIT_CASE_PARAM(test_mbw_max_to_percent, test_percent_value_gen_params),
-@@ -301,6 +362,7 @@ static struct kunit_case mpam_resctrl_test_cases[] = {
- 	KUNIT_CASE(test_percent_to_max_rounding),
- 	KUNIT_CASE_PARAM(test_percent_max_roundtrip_stability,
- 			 test_all_bwa_wd_gen_params),
-+	KUNIT_CASE(test_num_assignable_counters),
- 	{}
- };
- 
++void resctrl_arch_config_cntr(struct rdt_resource *r, struct rdt_mon_domain *d,
++			      enum resctrl_event_id evtid, u32 rmid, u32 closid,
++			      u32 cntr_id, bool assign)
++{
++	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[evtid];
++
++	if (!mon->mbwu_idx_to_mon || !mon->assigned_counters) {
++		pr_debug("monitor arrays not allocated\n");
++		return;
++	}
++
++	if (cdp_enabled) {
++		__config_cntr(mon, cntr_id, CDP_CODE, closid, rmid, assign);
++		__config_cntr(mon, cntr_id, CDP_DATA, closid, rmid, assign);
++	} else {
++		__config_cntr(mon, cntr_id, CDP_NONE, closid, rmid, assign);
++	}
++
++	resctrl_arch_reset_rmid(r, d, closid, rmid, evtid);
++}
++
+ bool resctrl_arch_mbm_cntr_assign_enabled(struct rdt_resource *r)
+ {
+ 	if (r != &mpam_resctrl_controls[RDT_RESOURCE_L3].resctrl_res)
 -- 
 2.39.5
 
