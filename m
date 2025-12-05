@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34C2BD374AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:00:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F5CAD374AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:00:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MtnynvEWy5EVu5W1An2lWqoRRK06b3sMyBZcav3PZhE=; b=u2/Ld5Yrx6kI6WW7jur3GanGYG
-	U6p2TJC73TXtsVXWn4hjZs5h1RNNptaICEMOlQfqY+jvhrxCnpwuGt3x8cgD6fdySSTS989kmCirB
-	ITkASNbyx+vPWCKq2rMhQhwgLbcxU1XC5ZGyUJWm/Qa9ZR5ntbde3AVQof+Zr92rm3dcKmzMzAy80
-	LjF2UcSnaj/6y3otIKBkHIrpE09Z5GriDGeSJzqsnIH3rasZLpU/UOrFgruJ/TZP/TiyZyGQWeRik
-	tt+5RDdWeDrvRH2XhKqxOyj/QWPHo7QGO7MMLW1h3byRYEe3DCfKVxOFqLoIFbQUrFjRHcFsHrDda
-	g56/QUqA==;
+	bh=qoZrfVQQ8vGYDMM+h0Bpv/Pg3V6Dr3iQmBHWdtOrGq8=; b=aR9z8kG8yJh6zLPJGLcz1Vm450
+	WgpH2+MmA2S+yM3Fmjo32xl7q59yG6iU+46g0dZqkBbR9DdKvKeSO6odb5eqIqhBVDoMUpy+XQZzv
+	djyIQF2EkwI9ba8HB24rzU4hELEZq+zOi/jfVLJJ1znCXsn2poLK2oySxJJAZUlwIpK9frbIN/IIF
+	ybSRUTcGLdnuR3W5WbYqq4Xi+Gpa/3XktRS883ICikdZ4vtel456UahR/cWgQYpzWbN0sgv6zLFmD
+	PdQLaH6uwSToLtTdzVm3Bsm5Wp2b9OsV2QMR3ei8K00AFA2UTNWVu7EEDVn5wHhdH+HQa6q1r4inL
+	r1OEfBmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdqZ-0000000A5KC-2TYF;
-	Fri, 05 Dec 2025 22:00:15 +0000
+	id 1vRdqd-0000000A5Nj-3x9E;
+	Fri, 05 Dec 2025 22:00:19 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdqX-0000000A5IE-1ofr
+	id 1vRdqb-0000000A5Lp-2q2r
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 22:00:14 +0000
+	Fri, 05 Dec 2025 22:00:18 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 85CE01A25;
-	Fri,  5 Dec 2025 14:00:05 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A038D1AED;
+	Fri,  5 Dec 2025 14:00:09 -0800 (PST)
 Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1DC9B3F740;
-	Fri,  5 Dec 2025 14:00:08 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2DCCB3F740;
+	Fri,  5 Dec 2025 14:00:13 -0800 (PST)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
@@ -60,17 +60,17 @@ Cc: James Morse <james.morse@arm.com>,
 	rohit.mathew@arm.com,
 	reinette.chatre@intel.com,
 	Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-Subject: [RFC PATCH 11/38] arm_mpam: resctrl: Implement helpers to update configuration
-Date: Fri,  5 Dec 2025 21:58:34 +0000
-Message-Id: <20251205215901.17772-12-james.morse@arm.com>
+Subject: [RFC PATCH 12/38] arm_mpam: resctrl: Add plumbing against arm64 task and cpu hooks
+Date: Fri,  5 Dec 2025 21:58:35 +0000
+Message-Id: <20251205215901.17772-13-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20251205215901.17772-1-james.morse@arm.com>
 References: <20251205215901.17772-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_140013_591140_7714AAAA 
-X-CRM114-Status: GOOD (  16.53  )
+X-CRM114-CacheID: sfid-20251205_140017_826723_F25753D1 
+X-CRM114-Status: GOOD (  12.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,107 +85,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-resctrl has two helpers for updating the configuration.
-resctrl_arch_update_one() updates a single value, and is used by the
-software-controller to apply feedback to the bandwidth controls,
-it has to be called on one of the CPUs in the resctrl:domain.
+arm64 provides helpers for changing a tasks and a cpus mpam partid/pmg
+values.
 
-resctrl_arch_update_domains() copies multiple staged configurations,
-it can be called from anywhere.
-
-Both helpers should update any changes to the underlying hardware.
-
-Imlpement resctrl_arch_update_domains() to use
-resctrl_arch_update_one(). Neither need to be called on a specific
-CPU as the mpam driver will send IPIs as needed.
+These are used to back a number of resctrl_arch_ functions. Connect them
+up.
 
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
- drivers/resctrl/mpam_resctrl.c | 71 ++++++++++++++++++++++++++++++++++
- 1 file changed, 71 insertions(+)
+ drivers/resctrl/mpam_resctrl.c | 58 ++++++++++++++++++++++++++++++++++
+ include/linux/arm_mpam.h       |  5 +++
+ 2 files changed, 63 insertions(+)
 
 diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index a26eb1f3efd0..ae0d17857b78 100644
+index ae0d17857b78..c2650abb99ec 100644
 --- a/drivers/resctrl/mpam_resctrl.c
 +++ b/drivers/resctrl/mpam_resctrl.c
-@@ -211,6 +211,77 @@ u32 resctrl_arch_get_config(struct rdt_resource *r, struct rdt_ctrl_domain *d,
- 	}
+@@ -8,6 +8,7 @@
+ #include <linux/cpu.h>
+ #include <linux/cpumask.h>
+ #include <linux/errno.h>
++#include <linux/limits.h>
+ #include <linux/list.h>
+ #include <linux/printk.h>
+ #include <linux/rculist.h>
+@@ -32,6 +33,8 @@ static DEFINE_MUTEX(domain_list_lock);
+ static bool exposed_alloc_capable;
+ static bool exposed_mon_capable;
+ 
++static bool cdp_enabled;
++
+ bool resctrl_arch_alloc_capable(void)
+ {
+ 	return exposed_alloc_capable;
+@@ -52,6 +55,61 @@ u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
+ 	return mpam_partid_max + 1;
  }
  
-+int resctrl_arch_update_one(struct rdt_resource *r, struct rdt_ctrl_domain *d,
-+			    u32 closid, enum resctrl_conf_type t, u32 cfg_val)
++void resctrl_arch_sched_in(struct task_struct *tsk)
 +{
-+	u32 partid;
-+	struct mpam_config cfg;
-+	struct mpam_props *cprops;
-+	struct mpam_resctrl_res *res;
-+	struct mpam_resctrl_dom *dom;
++	lockdep_assert_preemption_disabled();
 +
-+	lockdep_assert_cpus_held();
-+	lockdep_assert_irqs_enabled();
-+
-+	/*
-+	 * No need to check the CPU as mpam_apply_config() doesn't care, and
-+	 * resctrl_arch_update_domains() relies on this.
-+	 */
-+	res = container_of(r, struct mpam_resctrl_res, resctrl_res);
-+	dom = container_of(d, struct mpam_resctrl_dom, resctrl_ctrl_dom);
-+	cprops = &res->class->props;
-+
-+	partid = resctrl_get_config_index(closid, t);
-+	if (!r->alloc_capable || partid >= resctrl_arch_get_num_closid(r)) {
-+		pr_debug("Not alloc capable or computed PARTID out of range\n");
-+		return -EINVAL;
-+	}
-+
-+       /*
-+	* Copy the current config to avoid clearing other resources when the
-+	* same component is exposed multiple times through resctrl.
-+	*/
-+	cfg = dom->ctrl_comp->cfg[partid];
-+
-+	switch (r->rid) {
-+	case RDT_RESOURCE_L2:
-+	case RDT_RESOURCE_L3:
-+		cfg.cpbm = cfg_val;
-+		mpam_set_feature(mpam_feat_cpor_part, &cfg);
-+		break;
-+	default:
-+		return -EINVAL;
-+	}
-+
-+	return mpam_apply_config(dom->ctrl_comp, partid, &cfg);
++	mpam_thread_switch(tsk);
 +}
 +
-+int resctrl_arch_update_domains(struct rdt_resource *r, u32 closid)
++void resctrl_arch_set_cpu_default_closid_rmid(int cpu, u32 closid, u32 rmid)
 +{
-+	int err = 0;
-+	enum resctrl_conf_type t;
-+	struct rdt_ctrl_domain *d;
-+	struct resctrl_staged_config *cfg;
++	WARN_ON_ONCE(closid > U16_MAX);
++	WARN_ON_ONCE(rmid > U8_MAX);
 +
-+	lockdep_assert_cpus_held();
-+	lockdep_assert_irqs_enabled();
++	if (!cdp_enabled) {
++		mpam_set_cpu_defaults(cpu, closid, closid, rmid, rmid);
++	} else {
++		/*
++		 * When CDP is enabled, resctrl halves the closid range and we
++		 * use odd/even partid for one closid.
++		 */
++		u32 partid_d = resctrl_get_config_index(closid, CDP_DATA);
++		u32 partid_i = resctrl_get_config_index(closid, CDP_CODE);
 +
-+	list_for_each_entry(d, &r->ctrl_domains, hdr.list) {
-+		for (t = 0; t < CDP_NUM_TYPES; t++) {
-+			cfg = &d->staged_config[t];
-+			if (!cfg->have_new_ctrl)
-+				continue;
-+
-+			err = resctrl_arch_update_one(r, d, closid, t,
-+						      cfg->new_ctrl);
-+			if (err)
-+				return err;
-+		}
++		mpam_set_cpu_defaults(cpu, partid_d, partid_i, rmid, rmid);
 +	}
-+
-+	return err;
 +}
 +
- void resctrl_arch_reset_all_ctrls(struct rdt_resource *r)
++void resctrl_arch_sync_cpu_closid_rmid(void *info)
++{
++	struct resctrl_cpu_defaults *r = info;
++
++	lockdep_assert_preemption_disabled();
++
++	if (r) {
++		resctrl_arch_set_cpu_default_closid_rmid(smp_processor_id(),
++							 r->closid, r->rmid);
++	}
++
++	resctrl_arch_sched_in(current);
++}
++
++void resctrl_arch_set_closid_rmid(struct task_struct *tsk, u32 closid, u32 rmid)
++{
++	WARN_ON_ONCE(closid > U16_MAX);
++	WARN_ON_ONCE(rmid > U8_MAX);
++
++	if (!cdp_enabled) {
++		mpam_set_task_partid_pmg(tsk, closid, closid, rmid, rmid);
++	} else {
++		u32 partid_d = resctrl_get_config_index(closid, CDP_DATA);
++		u32 partid_i = resctrl_get_config_index(closid, CDP_CODE);
++
++		mpam_set_task_partid_pmg(tsk, partid_d, partid_i, rmid, rmid);
++	}
++}
++
+ struct rdt_resource *resctrl_arch_get_resource(enum resctrl_res_level l)
  {
- 	struct mpam_resctrl_res *res;
+ 	if (l >= RDT_NUM_RESOURCES)
+diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
+index 2c7d1413a401..5a78299ec464 100644
+--- a/include/linux/arm_mpam.h
++++ b/include/linux/arm_mpam.h
+@@ -52,6 +52,11 @@ static inline int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
+ bool resctrl_arch_alloc_capable(void);
+ bool resctrl_arch_mon_capable(void);
+ 
++void resctrl_arch_set_cpu_default_closid(int cpu, u32 closid);
++void resctrl_arch_set_closid_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
++void resctrl_arch_set_cpu_default_closid_rmid(int cpu, u32 closid, u32 rmid);
++void resctrl_arch_sched_in(struct task_struct *tsk);
++
+ /**
+  * mpam_register_requestor() - Register a requestor with the MPAM driver
+  * @partid_max:		The maximum PARTID value the requestor can generate.
 -- 
 2.39.5
 
