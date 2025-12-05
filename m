@@ -4,73 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74741D2F7E7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 12:08:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E787D2F7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 12:14:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qOqOO1RkHv+TL4sHO2I/M94wigINI1Cn0aqofm8+DJM=; b=PS1ZLIHWOPuZy7xUbA6WOmdxiS
-	iz5NOr+Vc/D5cTZbG21xXOVvopoOQ3Nzqm9Sj0YGifNgltoFTrnrLKtCTmuR0BY0aOUNsxhrSV88T
-	I4bxUmdcdDea9xaca8HuHVi5v+mqQtsKXwQ/boMpgM7VDe2gujeFunZwLTTbnnwH/VX2uI1EFaDWB
-	0HQYmar+V2OHx7ayexEjFbnPvtYUcY2UCbuWnvTo1cjVSn7GfVK7nhTHnUBuxSpBKfwfyFUjhCtFU
-	VkGlUVxBw2otJM5xUHlA8LEwkw3HyBouHui/b5zZZ4PD/uHy9z9nMQ4e7YwdyS86jvgJ654hyoWXX
-	c1bBxA7A==;
+	bh=JCsUXh+AfwPXe0u6LuO/SiS0fQbCrD/4dtVXpPFRNQY=; b=ujTEdZYGRhfhg0AZ7ui0AL/DC5
+	cAUZeGfVMvqp5G86K1QjSODwGSeQXK8ktI8Uj2wHAVdZXUjq5ttU146zOhlhAF+GCbYJOfAbvXUIe
+	Un22t+tXKyp6yoXQqmYQAS7d17j8CpxjUGLBVz8oR+E5IPxtm1FL8XjWWIumu1p3TIezi5cuRYtuD
+	prxo398qu3uDrZiMpukTvR2hFZ7HW2doq2DBHK8EYqhWxFbJcHta6SIp5/S7oa2DI50PtO6US/X0f
+	sTkP1v3UTmNif1oPSyLtek/XM+/F0wgw9vuPKrnwwBahwsfKIgHGhMJMLSGSk0qt2ZtDr3evHfSzZ
+	17eC3vmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRUc5-00000009SLF-2bBC;
-	Fri, 05 Dec 2025 12:08:41 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRUc2-00000009SKg-2gT9
+	id 1vRUhU-00000009Scf-1Ylt;
+	Fri, 05 Dec 2025 12:14:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vRUhQ-00000009ScA-48lI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 12:08:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=qOqOO1RkHv+TL4sHO2I/M94wigINI1Cn0aqofm8+DJM=; b=JrZon1c+goGZ/cvJPITZz+HQAG
-	H8Glqh4GmzB4ynFJAlqotxWYu/at+K2gILu3ugTSYfgyyA9nlgkYCOH9DsRXqv3mk+Id9XnDEeOyo
-	KPPF7riTyhWttscjHg/UmGw+FFzHJ+L3PDkBoL47BA7n8mYjoZSHW/H/o341Ym97v+olzn/mai3wg
-	jtud26oX+CTo/9jlt8VAMQYI2a5VHeGTe/kcmC2pGu8768drFMpPega2QiNq3vkswcBw485F65wHM
-	TiWeqs1otv1R5KDD6QrYP4z85DZ5jaJokaX/uCSIHMgPaKqDiJ87vv2t31h78rMOxahMYDXcOxl2s
-	+bhzADnQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:53922)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1vRUbi-000000004aX-0Y8R;
-	Fri, 05 Dec 2025 12:08:18 +0000
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1vRUbe-0000000025R-1Eju;
-	Fri, 05 Dec 2025 12:08:14 +0000
-Date: Fri, 5 Dec 2025 12:08:14 +0000
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Xie Yuanbin <xieyuanbin1@huawei.com>
-Cc: torvalds@linux-foundation.org, akpm@linux-foundation.org,
-	brauner@kernel.org, catalin.marinas@arm.com, hch@lst.de,
-	jack@suse.com, linux-arm-kernel@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org, pangliyuan1@huawei.com,
-	wangkefeng.wang@huawei.com, will@kernel.org,
-	wozizhi@huaweicloud.com, yangerkun@huawei.com
-Subject: Re: [Bug report] hash_name() may cross page boundary and trigger
- sleep in RCU context
-Message-ID: <aTLLLuup7TeAqFVL@shell.armlinux.org.uk>
-References: <CAHk-=wg4ZnsfpgXYL5qhjYDYo1Gnssz+VxnKZzHXMEmE7qrnQQ@mail.gmail.com>
- <20251203014800.4988-1-xieyuanbin1@huawei.com>
+	Fri, 05 Dec 2025 12:14:14 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7FBBC339;
+	Fri,  5 Dec 2025 04:14:04 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A816F3F86F;
+	Fri,  5 Dec 2025 04:14:10 -0800 (PST)
+Date: Fri, 5 Dec 2025 12:14:07 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Artem Shimko <a.shimko.dev@gmail.com>
+Cc: cristian.marussi@arm.com, arm-scmi@vger.kernel.org,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4] firmware: arm_scmi: refactor reset domain handling
+Message-ID: <20251205-calculating-unique-ibex-de824e@sudeepholla>
+References: <aRW4PpPjVw1-melm@pluto>
+ <20251123163557.230530-1-a.shimko.dev@gmail.com>
+ <20251204-slick-granite-chameleon-58ebc2@sudeepholla>
+ <CAOPX747pTsnTzKnaai-ytnmcf6reraTTSk+mssvHri4GMhCsOA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251203014800.4988-1-xieyuanbin1@huawei.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAOPX747pTsnTzKnaai-ytnmcf6reraTTSk+mssvHri4GMhCsOA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_040838_858895_DCAF78E9 
-X-CRM114-Status: GOOD (  36.70  )
+X-CRM114-CacheID: sfid-20251205_041413_113261_72CB4FDE 
+X-CRM114-Status: GOOD (  37.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,153 +67,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 03, 2025 at 09:48:00AM +0800, Xie Yuanbin wrote:
-> On Tue, 2 Dec 2025 14:07:25 -0800, Linus Torvalds wrote:
-> > On Tue, 2 Dec 2025 at 04:43, Russell King (Oracle)
-> > <linux@armlinux.org.uk> wrote:
-> >>
-> >> What I'm thinking is to address both of these by handling kernel space
-> >> page faults (which will be permission or PTE-not-present) separately
-> >> (not even build tested):
+On Fri, Dec 05, 2025 at 01:36:23PM +0300, Artem Shimko wrote:
+> On Thu, Dec 4, 2025 at 7:26 PM Sudeep Holla <sudeep.holla@arm.com> wrote:
 > >
-> > That patch looks sane to me.
+> > On Sun, Nov 23, 2025 at 07:35:57PM +0300, Artem Shimko wrote:
+> > > Improve the SCMI reset protocol implementation by centralizing domain
+> > > validation and enhancing error handling.
+> > >
+> > > Add scmi_reset_domain_lookup() helper function to validate
+> > > domain ids and return appropriate error codes. Refactor all
+> > > domain-specific functions to use this helper, ensuring consistent
+> > > error handling throughout the reset protocol.
+> > >
+> > > Suggested-by: Cristian Marussi <cristian.marussi@arm.com>
+> > > Signed-off-by: Artem Shimko <a.shimko.dev@gmail.com>
+> > > ---
+> > >
+> > > Hi Cristian,
+> > >
+> > > Thank you for suggesting! If it works for you I'll try to improve the others protocols.
+> > >
+> > > It was tested on my board in QEMU and on real hardware.
+> > > The functionality didn't break, and peripherals that are reseted via SCMI work correctly.
+> > >
+> > > As an example, I can provide DMA test results (as one of the processor units dependent on SCMI reset).
+> > >
+> > > [    2.559040] dw_axi_dmac_platform 1000nda0.nda_dma_0: DesignWare AXI DMA Controller, nda channels
+> > > [    2.569265] dw_axi_dmac_platform 1000nda0.nda_dma_1: DesignWare AXI DMA Controller, nda channels
+> > > [    2.580601] dw_axi_dmac_platform 1000nda0.nda_dma_2: DesignWare AXI DMA Controller, nda channels
+> > >
+> > > # echo 2000 > /sys/module/dmatest/parameters/timeout
+> > > # echo 1000 > /sys/module/dmatest/parameters/iterations
+> > > # echo dma0chan0 > /sys/module/dmatest/parameters/channel
+> > > [   95.917504] dmatest: Added 1 threads using dma0chan0
+> > > # echo 1 > /sys/module/dmatest/parameters/run
+> > > [  101.931372] dmatest: Started 1 threads using dma0chan0
+> > > [  102.731009] dmatest: dma0chan0-copy0: summary 1000 tests, 0 failures 2508.42 iops 19706 KB/s (0)
+> > >
+> > > And vice versa:
+> > >
+> > > 1. Confirmed that the DMA module is non-functional without a proper reset via SCMI.
+> > > Disabling the reset logic causes a system crash on first access to its registers.
+> > >
+> > > 2. Requesting a non-existent reset domain:
+> > >
+> > > [    2.463400] dw_axi_dmac_platform 1000nda0.nda_dma_0: error -EINVAL: Failed to deassert resets
+> > > [    2.472091] dw_axi_dmac_platform 1000nda0.nda_dma_0: probe with driver dw_axi_dmac_platform failed with error -22
+> > > [    2.482911] dw_axi_dmac_platform 1000nda0.nda_dma_1: error -EINVAL: Failed to deassert resets
+> > > [    2.491553] dw_axi_dmac_platform 1000nda0.nda_dma_1: probe with driver dw_axi_dmac_platform failed with error -22
+> > > [    2.502256] dw_axi_dmac_platform 1000nda0.nda_dma_2: error -EINVAL: Failed to deassert resets
+> > > [    2.510735] dw_axi_dmac_platform 1000nda0.nda_dma_2: probe with driver dw_axi_dmac_platform failed with error -22
+> > >
+> > > --
+> > > Regards,
+> > > Artem
+> > >
+> > > ---
+> > > ChangeLog:
+> > >   v4: Add Suggested-by tag
+> > >
+> > >  drivers/firmware/arm_scmi/reset.c | 59 ++++++++++++++++++++-----------
+> > >  1 file changed, 39 insertions(+), 20 deletions(-)
+> > >
+> > > diff --git a/drivers/firmware/arm_scmi/reset.c b/drivers/firmware/arm_scmi/reset.c
+> > > index 0aa82b96f41b..9854a3016d13 100644
+> > > --- a/drivers/firmware/arm_scmi/reset.c
+> > > +++ b/drivers/firmware/arm_scmi/reset.c
+> > > @@ -100,6 +100,7 @@ static int scmi_reset_attributes_get(const struct scmi_protocol_handle *ph,
+> > >
+> > >  static int
+> > >  scmi_reset_domain_attributes_get(const struct scmi_protocol_handle *ph,
+> > > +                              struct reset_dom_info *dom_info,
 > >
-> > But I also didn't build test it, just scanned it visually ;)
+> > Instead of changing this, ...
+> >
+> > >                                struct scmi_reset_info *pinfo,
+> > >                                u32 domain, u32 version)
+> > >  {
+> > > @@ -107,7 +108,6 @@ scmi_reset_domain_attributes_get(const struct scmi_protocol_handle *ph,
+> > >       u32 attributes;
+> > >       struct scmi_xfer *t;
+> > >       struct scmi_msg_resp_reset_domain_attributes *attr;
+> > > -     struct reset_dom_info *dom_info = pinfo->dom_info + domain;
+> > >
+> >
+> > ... You can just follow the pattern you have done everywhere else in this
+> > change like:
+> >
+> > struct reset_dom_info *dom_info;
+> >
+> > dom_info = scmi_reset_domain_lookup(ph, domain);
+> > if (IS_ERR(dom_info))
+> >         return PTR_ERR(dom_info);
+> >
+> > Any particular reason for not doing that ?
 > 
-> That patch removes harden_branch_predictor() from __do_user_fault(), and
-> moves it to do_page_fault()->do_kernel_address_page_fault(). 
-> This resolves previously mentioned kernel warning issue. However,
-> __do_user_fault() is not only called by do_page_fault(), it is
-> alse called by do_bad_area(), do_sect_fault() and do_translation_fault().
+> Hi Sudeep,
 > 
-> So I think that some harden_branch_predictor() is missing on other paths.
-> According to my tests, when CONFIG_ARM_LPAE=n, harden_branch_predictor()
-> will never be called anymore, even if a user program trys to access the
-> kernel address.
+> Based on perf.c, I added this pattern only to functions that can be
+> called externally with an invalid domain value.
+> Therefore, I decided it would be better to change the signature of
+> scmi_reset_domain_attributes_get (similar to
+> scmi_perf_domain_attributes_get from pref.c)
+> to ensure consistency across drivers when working with domain numbers.
 > 
-> Or perhaps I've misunderstood something, could you please point it out?
-> Thank you very much.
+> If you believe this pattern should be used in
+> scmi_reset_domain_attributes_get, I'll send you the next version of
+> the patch.
+>
 
-Right, let's split these issues into separate patches. Please test this
-patch, which should address only the hash_name() fault issue, and
-provides the basis for fixing the branch predictor issue.
-
-Yes, at the moment, do_kernel_address_page_fault() looks very much like
-do_bad_area(), but with the addition of the IRQ-enable if the parent
-context was enabled, but the following patch to address the branch
-predictor hardening will show why its different.
-
-In my opinion, this approach makes the handling for kernel address
-page faults (non-present pages and page permission faults) much easier
-to understand.
-
-Note that this will call __do_user_fault() with interrupts disabled.
-
-Build tested, and remotely boot tested on Cortex-A5 hardware but
-without kfence enabled. Also tested usermode access to kernel space
-which fails with SEGV:
-- read from 0xc0000000 (section permission fault, do_sect_fault)
-- read from 0xffff2000 (page translation fault, do_page_fault)
-- read from 0xffff0000 (vectors page - read possible as expected)
-- write to 0xffff0000 (page permission fault, do_page_fault)
-
-8<===
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Subject: [PATCH] ARM: fix hash_name() fault
-
-Zizhi Wo reports:
-
-"During the execution of hash_name()->load_unaligned_zeropad(), a
- potential memory access beyond the PAGE boundary may occur. For
- example, when the filename length is near the PAGE_SIZE boundary.
- This triggers a page fault, which leads to a call to
- do_page_fault()->mmap_read_trylock(). If we can't acquire the lock,
- we have to fall back to the mmap_read_lock() path, which calls
- might_sleep(). This breaks RCU semantics because path lookup occurs
- under an RCU read-side critical section."
-
-This is seen with CONFIG_DEBUG_ATOMIC_SLEEP=y and CONFIG_KFENCE=y.
-
-Kernel addresses (with the exception of the vectors/kuser helper
-page) do not have VMAs associated with them. If the vectors/kuser
-helper page faults, then there are two possibilities:
-
-1. if the fault happened while in kernel mode, then we're basically
-   dead, because the CPU won't be able to vector through this page
-   to handle the fault.
-2. if the fault happened while in user mode, that means the page was
-   protected from user access, and we want to fault anyway.
-
-Thus, we can handle kernel addresses from any context entirely
-separately without going anywhere near the mmap lock. This gives us
-an entirely non-sleeping path for all kernel mode kernel address
-faults.
-
-Reported-by: Zizhi Wo <wozizhi@huaweicloud.com>
-Reported-by: Xie Yuanbin <xieyuanbin1@huawei.com>
-Link: https://lore.kernel.org/r/20251126090505.3057219-1-wozizhi@huaweicloud.com
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- arch/arm/mm/fault.c | 35 +++++++++++++++++++++++++++++++++++
- 1 file changed, 35 insertions(+)
-
-diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
-index 46169fe42c61..2bbec38ced97 100644
---- a/arch/arm/mm/fault.c
-+++ b/arch/arm/mm/fault.c
-@@ -260,6 +260,35 @@ static inline bool ttbr0_usermode_access_allowed(struct pt_regs *regs)
- }
- #endif
- 
-+static int __kprobes
-+do_kernel_address_page_fault(struct mm_struct *mm, unsigned long addr,
-+			     unsigned int fsr, struct pt_regs *regs)
-+{
-+	if (user_mode(regs)) {
-+		/*
-+		 * Fault from user mode for a kernel space address. User mode
-+		 * should not be faulting in kernel space, which includes the
-+		 * vector/khelper page. Send a SIGSEGV.
-+		 */
-+		__do_user_fault(addr, fsr, SIGSEGV, SEGV_MAPERR, regs);
-+	} else {
-+		/*
-+		 * Fault from kernel mode. Enable interrupts if they were
-+		 * enabled in the parent context. Section (upper page table)
-+		 * translation faults are handled via do_translation_fault(),
-+		 * so we will only get here for a non-present kernel space
-+		 * PTE or PTE permission fault. This may happen in exceptional
-+		 * circumstances and need the fixup tables to be walked.
-+		 */
-+		if (interrupts_enabled(regs))
-+			local_irq_enable();
-+
-+		__do_kernel_fault(mm, addr, fsr, regs);
-+	}
-+
-+	return 0;
-+}
-+
- static int __kprobes
- do_page_fault(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
- {
-@@ -273,6 +302,12 @@ do_page_fault(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
- 	if (kprobe_page_fault(regs, fsr))
- 		return 0;
- 
-+	/*
-+	 * Handle kernel addresses faults separately, which avoids touching
-+	 * the mmap lock from contexts that are not able to sleep.
-+	 */
-+	if (addr >= TASK_SIZE)
-+		return do_kernel_address_page_fault(mm, addr, fsr, regs);
- 
- 	/* Enable interrupts if they were enabled in the parent context. */
- 	if (interrupts_enabled(regs))
--- 
-2.47.3
+No need to post yet, I fixed it up here[1], let's see if Cristian agrees
+with that. Let me know if you are happy too with that change. I will rebase
+at -rc1 and apply it officially then.
 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Regards,
+Sudeep
+
+[1] https://git.kernel.org/sudeep.holla/c/8bc55f21a345
 
