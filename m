@@ -4,112 +4,165 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6C80D2CDF1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 00:05:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 870E0D2CDF0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 00:13:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QsEkGNQ0X1iLzP6SENhOBfRJJANLqH3MtVROdQOe/tI=; b=pBD8O9jml+ycc7B3+dFi1syQEn
-	hoYfBaJrShXxIt5yzzQ7VnP2/RroZ6ukngUJx7SBoTmHvusJndXjeZG73wEwrb8Fy67gIWX1zc77+
-	quB3V5vJt/IK5BfSgRgWlpbmE+SB5Z0EUdNxa/sSLPx94utGKPy7b4fEfKX/UpjVoq/VYrVUEIttf
-	frdrPODUKjb+E/Th3DSQ2DfvYOH5B9WGC4+6/LGaw1g7ikhqzZJT/WVz+FkonOymlMFgHez75Fas0
-	gs8n2Gpt2D8ud4E1HeEV9tUJ8nr30K7Scpn0VZQCDz19VuddtI9Rerb4yEfduuo8hnF6QbgqjuXiw
-	rQO9qwOg==;
+	bh=zizRArxNHuhXsiCmnuVrqQhzUgg4lLWLxGfw2foAeh0=; b=XgJGdULpI30zJuMiMo/WY97bgm
+	dHV+8BCTFyVsB98ewXKyyDDTW03E0rG/0ShEg4mnPmNohoXj1Q08vZi+JCslXR9IzMlMNNkjHXVQd
+	ctlu1Y6ylbhDrvVocsWLdpE6w0Xqp8uKwykYquov3pnHVxDUGPh3wf1Y35UnSbOYR6qrf1jv2oNfC
+	oZCKErlU/XgPMyciLjyYP6KVuuLHD6Yy36DGRPeP9EsBGOVCvL6Dam27DrN4MKmhYhfueG5la2R6N
+	pYQQUu0a26CtTu2eAWcaxuPe17mmxA2929nr9fO3DJeWKRiAxI7wppmYe7N3kj9yfp4tdJUZULb8R
+	fVW3L8Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRJJt-00000008nVD-089p;
-	Fri, 05 Dec 2025 00:05:10 +0000
-Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
+	id 1vRJRR-00000008nr2-11ZA;
+	Fri, 05 Dec 2025 00:12:57 +0000
+Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRJJq-00000008nUl-0ffQ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 00:05:07 +0000
-Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-8b2ed01ba15so115238685a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 16:05:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1764893105; x=1765497905; darn=lists.infradead.org;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=QsEkGNQ0X1iLzP6SENhOBfRJJANLqH3MtVROdQOe/tI=;
-        b=qad2BbcXTVsSe8WSXT68XeHjpNFt4Qmr8pDETtZVce3RCoHAj6y68+dHGMKwIO59Rx
-         QYd5kfQb3CP+22BRU5uHznnzAI9vNlx/DCWHSD2JSFVeeYLEw0B4+kPZ3M99laCRW3UW
-         R+hFHHqw8Xsc6i4P7X6zvixxmOvCfYLYvHL41u4D+iBNqJW4po/ArIX7Tq0+drJ5wf83
-         kkvDBogrUgJv5zwFjTnpIFIOSJYKH4rz+LQRwRrXYtWjrNRLB+l2gBUfv0vuB5XE2zxz
-         GZB+nGoafpZsnXMb/M4EKJEQ9PaHTXK00gWmyKKHxMrllBYLNKmE2oDg59UORp43SAIT
-         cqsA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764893105; x=1765497905;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=QsEkGNQ0X1iLzP6SENhOBfRJJANLqH3MtVROdQOe/tI=;
-        b=OLQd4/f8AVqLVOmbZ+k0foMe/s03T8W1F4liYuLnVy42kApXlrgi/NqAJoARB0Yopq
-         ndZHRolxy/KoEBYo81VFHcy0Cgdxp/nOPi3QmzHsoqm+8LCmyh5b4bNqVftQelXFVoFX
-         LzDtFakZ4K4hvS6lPItO3KXPDc8GkUMQlvpRFRgsOI4HHsC5R3zY5h4qEMzYwCsNOQ6h
-         iwV5PyO+2ZUAeJYs6UmN7OkgSV72TKcZNWOSB7aGEaCbSRxiYJGvuKANvKxCu4LhWXuD
-         Y/YwMfUrv5q0MvbfE2wlJk4fhHgh/n/5ITfLNcdMSGkQhsKpr59LwEZpYCwLPvto4PH8
-         NP7Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVj8ueSj9N9FSmV/8lpqCGkxepbTqdcrAxt3nvqu5CsqaWLxGhKRfZwasIJ51PXDGAb9Ryh9pSNuKd9mu7o4QPA@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywwn8Xyu5JgJlqypjQloLHm0MqQQVlVSGHSJRctUkTg4OW+S3Qz
-	hgb8y/BuOejf+FuOBXUb0QKfZSYjZq3FL7HNgMK/HNiHoVQxvnvBFz64MstdcYRhVm3OeUgoVjS
-	M/w5qOW4uEw==
-X-Gm-Gg: ASbGnctgP9gfh0S0BQ86jOcsffSEwMA4SqK/5biyZd0R0Lk6IKpA0okOkgEv5ppNFoE
-	fXfWq2bK5mADxOZryinMudrMRe1PzOit82MpvJtsl/Z+3ZQ2JryILlZN6fOEYCX9wejFD6RFUQ/
-	IxdrbLNFECqlYeggmKOmrTFQbo5d3H/BWUNqQpvzOqSMRunKHKdeybSXQ/9u+XV3VLLnKAXTP5f
-	syrRcRpHbSglwbIL0c/7uQjalLHWUYZDhmZ5Olg83YWWiyOosVthS/zDC2Dgbe3sIx2MXpga7ZV
-	sF4kORziLKLmk+DWBYZPHnyjnn/JutgxAHXkDCHhAvAyZfYdREn5ZpjYDb16htfFMng1qpy+Lmy
-	Zhjycr9bdVPzC8ajatLn+fD7x0CabcecgJsOSA1LaVgomvHZXNmHjQ51HFs2jZx5xepw9brENz8
-	/0oa+7iqatcrd5kvJ5
-X-Google-Smtp-Source: AGHT+IGSnH/JXwRwm6jBIx+8DOrUaP2xqYV4k8pRacxA2nEEaHNzRx2PV5KL8Zh8YrfImVMtOQRvRw==
-X-Received: by 2002:a05:6214:4613:b0:87d:e32:81c4 with SMTP id 6a1803df08f44-8881955b913mr136009156d6.48.1764893104770;
-        Thu, 04 Dec 2025 16:05:04 -0800 (PST)
-Received: from ?IPv6:2606:6d00:17:7b4b::c41? ([2606:6d00:17:7b4b::c41])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-88827f59c3fsm21465976d6.25.2025.12.04.16.05.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 04 Dec 2025 16:05:04 -0800 (PST)
-Message-ID: <b45a73845e66355080cfad0f0040b6e7a9d78241.camel@ndufresne.ca>
-Subject: Re: [PATCH v3 3/3] media: verisilicon: Avoid G2 bus error while
- decoding H.264 and HEVC
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Frank Li <Frank.li@nxp.com>
-Cc: ming.qian@oss.nxp.com, linux-media@vger.kernel.org, mchehab@kernel.org, 
-	hverkuil-cisco@xs4all.nl, benjamin.gaignard@collabora.com, 
-	p.zabel@pengutronix.de, sebastian.fricke@collabora.com,
- shawnguo@kernel.org, 	ulf.hansson@linaro.org, s.hauer@pengutronix.de,
- kernel@pengutronix.de, 	festevam@gmail.com, linux-imx@nxp.com,
- l.stach@pengutronix.de, peng.fan@nxp.com, 	eagle.zhou@nxp.com,
- imx@lists.linux.dev, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Date: Thu, 04 Dec 2025 19:05:01 -0500
-In-Reply-To: <aTIRwcocnye0Y6yV@lizhi-Precision-Tower-5810>
-References: <20251204090813.595-1-ming.qian@oss.nxp.com>
-	 <20251204090813.595-3-ming.qian@oss.nxp.com>
-	 <aTHGJzVKa7PbEifJ@lizhi-Precision-Tower-5810>
-	 <9f38bda2f1753645a1ae392ce5364ea0165fdc01.camel@ndufresne.ca>
-	 <aTIRwcocnye0Y6yV@lizhi-Precision-Tower-5810>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-vhLAVdUguC0rEDc5y4Vo"
-User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
+	id 1vRJRN-00000008nqR-2qVV;
+	Fri, 05 Dec 2025 00:12:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=a0F7LsBIAPEikw9/8Tl8A8xaYh/wInc46N/4hVnMiR38ZOtykIYcjsvZnw2zgYXcM5s4kVlBmpjSblEQnvru8TLPc2yxyia7cguRJERUye1L+s8Y/z23KYwaUldfGi4IqfAPM/fkctBzpFRqjtt5IslGNIka48hI6KARAIJk2XD671iOcXyh8mXQjxhn+aOGFLhegV+yOOb7vbKM+MrXylkn2kC3eBXklERCWPkPewZH0JFukHOGTdEhr8BzFAlKFjrc/LbJPa/AKCFJhhDeTOuC+KC033vxw8yKzCQt8l7VVc+1PL10H6SPgs4bNuRvQnSTHVN2wujSEDzkP4A3Aw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zizRArxNHuhXsiCmnuVrqQhzUgg4lLWLxGfw2foAeh0=;
+ b=vtkdgVqoMUN9N4GGIqbMyl8iSbZqLnwXb+7AhK2rKf653XL4OuTfSRmEE+9E9bWl4sbaWaHnOR+IsyeAkDKP2m6JVhImGzc+ATgByBbVjy6WTGDWCkYV2L/wRav89dZf7DoOnMxHmQvedXjV8FiRNFuNx7NcsXBtsHjy7vdaTwVRmDUEPw6G6U1B0OyY0NwT7cx6jLXiGsc32L2EAchgBHbRpbAfXn9yAs5SBw6ubpZvOQIPfnj0JUNdxWtXilspQUbPU9EfE4lhf1hs139pYZBXfLMn8nKromwwRGdyhpOeVA4GDNeZbncjue0O3uvUefzdRrTYrK+FzKycHWTSxQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zizRArxNHuhXsiCmnuVrqQhzUgg4lLWLxGfw2foAeh0=;
+ b=RgXzUmo4PZZhfMPFjiswHD+42J8N9Ys4FyVusdPxUIdJZCe0iD6T9m9e7wEufJ9tzlV+BS+XcPSFR/4cDjB1tMm6bWe5Mj/K9JANzCRWqsV3VdkZGJSjQmP5MrzSkH4XI5fxF6wC6a52i1Xlr35NhvaG6EwgdPhYBfvTWBslFG10w7EfXRBwhwmWXfnWT5C9Va7D8vBjpzQl3XhYjXR+PYKy8m5I/B2bFAAqXtIUrPidTVYbtlhPupnMe9F8F75b79S/IJpLleBn3HWVwrK3nVox5ux8AgEZkBGwXnqjl3QgK8UbQ2dCsubXmLDtytWm1NzJTg2xVgnHhChXzq1QoA==
+Received: from SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12)
+ by SG2PR06MB5059.apcprd06.prod.outlook.com (2603:1096:4:1c7::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.9; Fri, 5 Dec
+ 2025 00:12:35 +0000
+Received: from SEYPR06MB5134.apcprd06.prod.outlook.com
+ ([fe80::6b58:6014:be6e:2f28]) by SEYPR06MB5134.apcprd06.prod.outlook.com
+ ([fe80::6b58:6014:be6e:2f28%6]) with mapi id 15.20.9388.009; Fri, 5 Dec 2025
+ 00:12:35 +0000
+From: Jacky Chou <jacky_chou@aspeedtech.com>
+To: Rob Herring <robh@kernel.org>
+CC: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, =?iso-8859-2?Q?Krzysztof_Wilczy=F1ski?=
+	<kwilczynski@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, Linus
+ Walleij <linus.walleij@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>,
+	"linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-phy@lists.infradead.org" <linux-phy@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Andrew Jeffery <andrew@aj.id.au>,
+	"openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>
+Subject: [PATCH v6 0/7] Add ASPEED PCIe Root Complex support
+Thread-Topic: [PATCH v6 0/7] Add ASPEED PCIe Root Complex support
+Thread-Index: AQHcYovTiOKpFL2Yzky+VI550x/5ybUR6lmAgABEAbA=
+Date: Fri, 5 Dec 2025 00:12:35 +0000
+Message-ID: <SEYPR06MB5134D0D5911E3C86D869151E9DA7A@SEYPR06MB5134.apcprd06.prod.outlook.com>
+References: <20251201-upstream_pcie_rc-v6-0-8c8800c56b16@aspeedtech.com>
+ <20251204195355.GA1975043-robh@kernel.org>
+In-Reply-To: <20251204195355.GA1975043-robh@kernel.org>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SEYPR06MB5134:EE_|SG2PR06MB5059:EE_
+x-ms-office365-filtering-correlation-id: 45071fd4-0970-4801-eb29-08de3392fe0d
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|38070700021;
+x-microsoft-antispam-message-info: =?iso-8859-2?Q?Qb2V7InUnu+A4M+t9+pWdnyY7QCSteapPW5zcM07HEPzx610KnA364bwZx?=
+ =?iso-8859-2?Q?Mnk9f/YLop1RZnjAA7NcRcMs9pc4dYyIKKkvRQ2ye/UcZ4kcF8yaJNE9Na?=
+ =?iso-8859-2?Q?ZYQmUb5wlb0bsb3mu+Icu/am5sKRHDrUfxbGBl4UjiQGyPAtFu/UGrIo4u?=
+ =?iso-8859-2?Q?2xm1C9U0xmLIwxQO5RFXVXZ8SQgnd/e01U5x0XJUWqOtKsD//URxolWNA0?=
+ =?iso-8859-2?Q?zfvrQZbBmz48n/OE2+TPFs5edwbpGtDLCY/MPUrKFMotgERslEYrZ3wI2E?=
+ =?iso-8859-2?Q?Nv9rl4Ub3q1XxPnPTIsrB7gHQc5XOtA5l6vhKacLQW0A4UZpxcr+RwVodO?=
+ =?iso-8859-2?Q?wEWm+3CrsXZzPnIcaLTKvYWPwLLTMi9pfS2zVyjT5JO/trafnfwQhQwf9k?=
+ =?iso-8859-2?Q?N6UmGLCXOxoU1TYaVBAbJ8vEEVeQdfXkguxw/PeMkQrC+JUeFA/BLmwfXT?=
+ =?iso-8859-2?Q?XdrVllmm9iv60p2L3yPWnc6+jIbq6oVv9En/3LC9Ti1grAarQ6ngP+7Y2q?=
+ =?iso-8859-2?Q?gDIVIgfu2LHHxT6puYrjIqn0fQNa4nm0TWA9lZy2qkaxCsWYIfJhhSb0X+?=
+ =?iso-8859-2?Q?YDkUbMq0OGq/Q9tLvIJXWQf8djtjFVLEecDW4GJXLqRuiBXUUSdUbqHw4u?=
+ =?iso-8859-2?Q?6EtzOO5+Af/UbWysF1acJ75rbmpcSAxZgV1Z9nV9BUa5VGTBvbCHirsqY8?=
+ =?iso-8859-2?Q?jv4wjpoyL7J4UEyZ2m0lFyg7XZIKWfpMDU4Zx/vvfI+WdODq934Pb3Zm1P?=
+ =?iso-8859-2?Q?pUsD7WrfZDNXmy2tSSFtf2f57rjb16tOfmRGYYzbgwqKEw2WDEV8UxJSZK?=
+ =?iso-8859-2?Q?ZmBFNxzMh2xiWODWg9GwdBYAzTt0J3TUWmieUER7laHgb9dnW6wM7Lc5BL?=
+ =?iso-8859-2?Q?g9tZLn0m6ZIePQMZWxQ770HLgFFjwPPRGpEXZ62etO3Xk6qx/3uMCZFyM/?=
+ =?iso-8859-2?Q?G1yDtUx7cylXIpZJ2tslslN+L26mTvF/Q6QnQye+NqIeCfDhi7dWUeMwxA?=
+ =?iso-8859-2?Q?3MM36NyESV6AT49/wLz2i5l3YBdtX++Q35ZYp2JN47dPIAHwQ1bAnr8+e0?=
+ =?iso-8859-2?Q?W8WpBxuhBt3mG5mxlrOi5okIfdo1vFIVsCfo6Ej3+26XnG0lW6Uf2KFUIy?=
+ =?iso-8859-2?Q?6c/D2/ewgtezcBQ4uzd+X6CjCOTKg7T/UZwXL2YWFyFQzlUWNZjxSL7CSR?=
+ =?iso-8859-2?Q?pgJTusZi5K5oxFYLFDunqzDJfN0A+B6l4utGrHzZ8OjKUzrX/QnqMPxMmL?=
+ =?iso-8859-2?Q?SayohC9QWtakA5WRbshsEEmJyYar0DGG5OHDYx6DQS/sEVVBmoNzPALHgq?=
+ =?iso-8859-2?Q?ONATb3S0XbeRWNTiCI/fBGvlO6QqF/UQLu0UsSdustSI+DJFDS84K46yNo?=
+ =?iso-8859-2?Q?HfNPqKIvhyYiEaEXri+S1leIQGwT4y8w/bEz0oSYas43AQa9DzYTHMvwno?=
+ =?iso-8859-2?Q?TtQ6WhHIYu31pCu8PhQVhO8LSdYfVehOEjhyJJ3Feu/SeMFbqMvfQcJiOw?=
+ =?iso-8859-2?Q?R6lZ01zpqQfb82SSBwSRG+iJP5T18XNLCpklrwTruXKKSn6r0IzfeIcXcs?=
+ =?iso-8859-2?Q?tWDK+xKVUw+jGK0XcRqjk69iUDcy?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB5134.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-2?Q?a/Urz+T/gWsBSTG3HzfoyxrDEfQP6Y/OYxPi/9aDv0A2msfHO5LkTNdW1o?=
+ =?iso-8859-2?Q?XvmjUff08YMB0bTAcfEGzyrmnv7nndtLC+FHRxzW8AZQ01HDQkHeFWlS9R?=
+ =?iso-8859-2?Q?mKNuIiSiv5Q1LmFtccCa8HetuGbM9X/7RS7Drp65iZ0M3aUoRW1U9qPErj?=
+ =?iso-8859-2?Q?CijgWW3fk2C9tHwOQEBldIqSm35PJ2cJ04cZn+hlbqPmE495pAvjsS6K36?=
+ =?iso-8859-2?Q?6f95PVZIElMscwKl/vK5aXiadsmkifgd+M7ASYhpi5QFL9rQLNjqUrexGa?=
+ =?iso-8859-2?Q?tKrG4US5OjeTy7TZTUBpAlELlOpTJBGO0mW4ev3v7DRmALW4Hhz6fbpP/r?=
+ =?iso-8859-2?Q?Nk3b4B8smN+EQvIsRawuqPgeIRjTCeQrOO7Y5BWEuKLyf/m1lZymIL+fVN?=
+ =?iso-8859-2?Q?K7JoMROQhDnQl017J5dc8epoZ9tlFdTuLpqEF0m02pxkapkFoKOq+7wIL+?=
+ =?iso-8859-2?Q?FeeANGYkEej4Okox7E/Hs5kx6PJdSZF+AD2q78b35KY35Q9Ied2pg2Pv0/?=
+ =?iso-8859-2?Q?L7KcwMFQt4Wh4kWsiVmqfLPYNBsg/0MCz+sBclz3+mE93rTcAY3cpRnXqD?=
+ =?iso-8859-2?Q?aa8SOeZ/TdvdOR9mlDu+e+b+XrHBoIKOmLDKuKaYM+IYScc3tuqQQFuT1r?=
+ =?iso-8859-2?Q?lRBlXoujLKMLnH0sJXlxoS2AvVC7IirBlcWRKASC3PIuKWDD7QD491shxl?=
+ =?iso-8859-2?Q?H79Z6bpk/ibp4zjnMx613PONsC/kei8L9aVWm2kaeXWBrOcALWyka2pdta?=
+ =?iso-8859-2?Q?8J8ZJTTwCpbUalGDGXmxKKxvb3ItxzVWIo6ke87ocYYPF0jrGyoge7jidP?=
+ =?iso-8859-2?Q?DknmvbA5oaIfL0mzszZP/SexZB2I2PB/02q4fR7Ulba2qMdPCjlU2HZL7V?=
+ =?iso-8859-2?Q?w3i4TKIrCEnjf9obYdrbdIl/DQlvVlWSSqShj9iFfNivWIrot3jqhtU/kd?=
+ =?iso-8859-2?Q?0iwE+pgI8m7grzVkSl0shpPTbZ2MRphHMYR+k1LUuSWQFMlHfWgr4TUnb7?=
+ =?iso-8859-2?Q?5q5qpQXpWt7Cmyl5Dg0MS5n/UFieHz5G3zuSG5V6z6Hac6Lpfues2t5LwX?=
+ =?iso-8859-2?Q?QxP1k7qadWfkGZ0/fyx5WwqWCDF4bokX+Prf7lRBHbKQRcniSVK5rk7GqL?=
+ =?iso-8859-2?Q?+ojtguYPPWEegw5ZM52L/4NeyzIhASVc/dp5+UmJAgYY0kXlzYVqvsRfiF?=
+ =?iso-8859-2?Q?JXAIrf9Drf4CZtRME4V61sd3FvlLXcNZkcgUH+o1WD87BRE47/jLuoVN2E?=
+ =?iso-8859-2?Q?h9i38v+Uwe/BEzsSOy67mLMf10qfnOo5t6BKfYJfx942T/lr9XKGc4GaTs?=
+ =?iso-8859-2?Q?CrYWWN7WLDQA22a+II4mh1S5MjQ6C8EclvEGhMe3+khnaTzriXrddGKRX0?=
+ =?iso-8859-2?Q?dEdxEDG1chl9yA1tYiAGsFn5SsoJnEbPWld0ZNeyUiqNhr3wTVoJuuZUES?=
+ =?iso-8859-2?Q?pUJO9t0VNiAIvVI6CzVnykLNcmhAvZO1Xo0oTvetgh64AtZrR76ExTPnx0?=
+ =?iso-8859-2?Q?t2S2pO0Wkymkhe93O4oCKPcow4GEgIaeFJOVGYHsO0uf6SaQ6RJi+5u9/M?=
+ =?iso-8859-2?Q?6c1OT24qSP0amu2u3paM///tgjWr5BlOv/58hfl3l3YKilef8xFt1whcio?=
+ =?iso-8859-2?Q?AznPKGAj/9VZXztxeFesPdCwHIJ1QCHYD8?=
+Content-Type: text/plain; charset="iso-8859-2"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB5134.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 45071fd4-0970-4801-eb29-08de3392fe0d
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Dec 2025 00:12:35.3697
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: s7HufH05LsG1BU8BQwUzU3y/a2Hxe4iNW0lgIhITpWGCbPDH1uTsRz5dX2vhfQGT4Cd6hPO3mA/5pQVhh5EGSQwvC+Yx7/B+WsD5X5DOmsE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR06MB5059
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_160506_405767_D822E490 
-X-CRM114-Status: GOOD (  20.44  )
+X-CRM114-CacheID: sfid-20251204_161254_466650_921AAC54 
+X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,113 +177,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Rob,
 
---=-vhLAVdUguC0rEDc5y4Vo
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Thanks for your comments.
 
-Le jeudi 04 d=C3=A9cembre 2025 =C3=A0 17:57 -0500, Frank Li a =C3=A9crit=C2=
-=A0:
-> On Thu, Dec 04, 2025 at 01:15:35PM -0500, Nicolas Dufresne wrote:
-> > Hi Frank,
-> >=20
-> > Le jeudi 04 d=C3=A9cembre 2025 =C3=A0 12:34 -0500, Frank Li a =C3=A9cri=
-t=C2=A0:
-> > > > +static struct v4l2_m2m_dev *hantro_get_v4l2_m2m_dev(struct hantro_=
-dev *vpu)
-> > > > +{
-> > > > +	struct device_node *node;
-> > > > +	struct hantro_dev *shared_vpu;
-> > > > +
-> > > > +	if (!vpu->variant || !vpu->variant->shared_devices)
-> > > > +		goto init_new_m2m_dev;
-> > >=20
-> > > I found only use shared_devices here, how to=C2=A0 ensure that g1 and=
- g2 operate
-> > > alternately by using shared_devices?
-> >=20
-> > shared_devices is an array of of_device_id we match against. All the ma=
-tching
-> > devices will share the same v4l2_m2m_dev (aka m2m scheduler). Typically=
-, both
-> > cores will be schedule as one. This achieve what alternate operations w=
-ithout
-> > active polling or blocking locks/mutex.
+> > Changes in v6:
+> > - Refer to pci-cpi-bridge.yaml to update aspeed,ast2600-pcie.yaml and
+> >   the pcie node of aspeed-g6.dtsi.
 >=20
-> Okay, but this code require shared_devices=3D=3DNULL's device probe first=
-ly.
-> generally not order guaranteed, if there are not depentance at DT.
-
-shared_devices is a constant array that is set inside the variant. It is
-normally NULL, except for the imx8mq SoC, for which its always set.
-
+> Where is this? You don't describe the root port and its properties at all=
+ now.
 >=20
-> Does VPU always probe before g1/g2?
->=20
-> and if there are two VPU instances, what's happen?
 
-Since there is two VPU, g1 and g2, we will enter this loop:
+May I confirm whether the pcie@8,0 in aspeed-g6.dtsi is not considered the=
+=20
+root port? From my understanding, that node represents the root port, so I=
+=20
+want to make sure I'm aligning with your expectation before updating the bi=
+nding.
 
-> +	for_each_matching_node(node, vpu->variant->shared_devices) {
+Could you help clarify how you would like the root port and its properties =
+to=20
+be described in the schema?
 
-On imx8mq, this will match twice.
+Thanks,
+Jacky
 
-> +		struct platform_device *pdev;
-> +		struct v4l2_m2m_dev *m2m_dev;
-> +
-> +		pdev =3D of_find_device_by_node(node);
-> +		of_node_put(node);
-> +
-> +		if (!pdev)
-> +			continue;
-
-If the match does not have a device yet (not probe yet), we skip.
-
-> +
-> +		shared_vpu =3D platform_get_drvdata(pdev);
-> +		if (IS_ERR_OR_NULL(shared_vpu) || shared_vpu =3D=3D vpu) {
-> +			platform_device_put(pdev);
-> +			continue;
-> +		}
-
-If its the current VPU, we also skip.
-
-> +
-> +		v4l2_m2m_get(shared_vpu->m2m_dev);
-> +		m2m_dev =3D shared_vpu->m2m_dev;
-> +		platform_device_put(pdev);
-
-Finally, if the other VPU was initialized, we ref the v4l2_m2m_dev. We will=
- then
-create m2m_ctx from it which will cause the two VPU to be scheduled one aft=
-er
-the other.
-
-> +
-> +		return m2m_dev;
-> +	}
-
-> +
-> +init_new_m2m_dev:
-> +	return v4l2_m2m_init(&vpu_m2m_ops);
-
-Otherwhise we create a fresh one.
-
-Does it make sense now ?
-
-Nicolas
-
---=-vhLAVdUguC0rEDc5y4Vo
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaTIhrQAKCRDZQZRRKWBy
-9GE5AQDJOm22eqxSILGUVYuLEGZXBEYnvCqwMf4OaSeoN4eG6gEAshUhjhSYRqW9
-GJYH8F9tSP/jNRsCAnew+09GBU8MXQ0=
-=gSqa
------END PGP SIGNATURE-----
-
---=-vhLAVdUguC0rEDc5y4Vo--
 
