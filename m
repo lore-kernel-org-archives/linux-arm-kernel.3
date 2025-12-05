@@ -4,144 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D4B1D2F7E4
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 11:58:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74741D2F7E7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 12:08:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IIeEbHT2VcCtWz2n+Opyz7ieZwO0LhGLiuIEjFNJcYU=; b=M6zSdAfjClr2ZDSQ4MeBuH2YNb
-	KK//bpBHngMesUZQCiiTkm7yCvReoKdxSUe9+19Ka8JvmIq1HV4C5VFe+KnIyk12zHsiYAM5zsi9G
-	OMag1+dr1tA1uK+crJ2EzO3xaqcRVJaxVQXWxHqn6Yawgm44otfzUBsLdK50ltTh46i7DXz51E04/
-	xfyWtlyLXVQbErckExXN7Hsf7wyQvPkz0I4hZ1XEGUO1CIljxgBmwSAaBzAGq9MQKAxPYaq1tP+Yt
-	LPCn60aKe7YWfMDrJ33pTHuX3wivNKOh0jeqEp5nwnRgOZy2GRv9iaapbqcygH83twx4kNvgQU2lg
-	pzAV9pMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qOqOO1RkHv+TL4sHO2I/M94wigINI1Cn0aqofm8+DJM=; b=PS1ZLIHWOPuZy7xUbA6WOmdxiS
+	iz5NOr+Vc/D5cTZbG21xXOVvopoOQ3Nzqm9Sj0YGifNgltoFTrnrLKtCTmuR0BY0aOUNsxhrSV88T
+	I4bxUmdcdDea9xaca8HuHVi5v+mqQtsKXwQ/boMpgM7VDe2gujeFunZwLTTbnnwH/VX2uI1EFaDWB
+	0HQYmar+V2OHx7ayexEjFbnPvtYUcY2UCbuWnvTo1cjVSn7GfVK7nhTHnUBuxSpBKfwfyFUjhCtFU
+	VkGlUVxBw2otJM5xUHlA8LEwkw3HyBouHui/b5zZZ4PD/uHy9z9nMQ4e7YwdyS86jvgJ654hyoWXX
+	c1bBxA7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRUSM-00000009RmK-0iRK;
-	Fri, 05 Dec 2025 11:58:38 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vRUc5-00000009SLF-2bBC;
+	Fri, 05 Dec 2025 12:08:41 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRUSJ-00000009Rlq-0crs
+	id 1vRUc2-00000009SKg-2gT9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 11:58:36 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B58XGHs2516887
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 5 Dec 2025 11:58:32 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	IIeEbHT2VcCtWz2n+Opyz7ieZwO0LhGLiuIEjFNJcYU=; b=OY0HldBLAoFsiGbO
-	ALG0eqbs0lRGfH/fyO8HQNG8A1l2w261sj94DZ5a7lp+DxajjjUgcEEZzf9xf2MV
-	rSMqPyvRce1oWlIGDFubE1leuznXerYPv0dcOFlGuB7W++75mQWp8wSDg6JvirkU
-	NuPeSZDhHC2xvkKYBpF7J7WALYPH9xZji3Aiiocs02caKS0LAf3/hxsC6yn3Nm6o
-	iI/0F3L3UsRfaQ0e0+3pELhvxo+L4R1liTI0V5oyXHbhMOuHk7+NzrPswrqjK/zd
-	tKfyUC3WkFLlratEp3RfjJal+UrDprVIxt4JhCM2bT3CyZmBRNaYiMPf0pUMra/V
-	vSruOA==
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4auj7n22ty-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 11:58:32 +0000 (GMT)
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-8b25c5dc2c3so41905085a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 03:58:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1764935912; x=1765540712; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=IIeEbHT2VcCtWz2n+Opyz7ieZwO0LhGLiuIEjFNJcYU=;
-        b=G0qWFqdNQEI5uLlMIacV2WGLGZ97MA1cWqK5PXEvH7RvOBYQtix8cMfd7dLD9Fk5PM
-         qdK11ZjH1vLtIv40b0I0zle+EnPfBpn/kgh1GTJjp7ImfPpOxU23IJ/aIESpFfv0TNNQ
-         4bQSQVW63oCoPph8KbxAK43auReTiiXXkOkr1WlvahYHwwFqmTacIzBWUhiu1RcTGLqz
-         vgvM6Bz/JS5LtGclTq3J+SfGzNoluQKtmJxXDi2dfGVbiJQaiGdpG+ca4bGo4OvV2rBZ
-         YTfGe1USGraXeJ9akc/XSzkj73VAkwQAHF6GmHe3TJxP41qaLK18TMPafBi9E9Iarpfi
-         9q1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764935912; x=1765540712;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=IIeEbHT2VcCtWz2n+Opyz7ieZwO0LhGLiuIEjFNJcYU=;
-        b=J1GXTq5DQ7QzjXJw6boczFKqJg2Vpjy0cfJwPYN3Utw7FJGBGX3uNIU4G2faCjvbXq
-         yLttTYqIKKtTzLlpaz0Eq0OwwswxRCiYmMAwjF50tVJIhsGporrtTZuGhalz+YpFfO5l
-         4xBHHJxaQZ+zO8KuoKEuyqOuLO6L41R7WmUZ+wEi1AWnPY73yZPAnNNA8kvOIJ6AmK42
-         BayGt5eaBkdmG1i4j2ri9bjYCVPINr6FnrDZC35rQn/2abu3VEN3lLM5JbE3VE3Wx92O
-         hHB1ggzbHjfQBmowtwuZRT6QjE4dfTPrK9wfMSY91POpaONqZcHju3vCU8YsnqyPwZy9
-         c0sg==
-X-Forwarded-Encrypted: i=1; AJvYcCUPZ6+igkZwKFFb+BTdWXKIk9iShzf9+9/2/5o8kasbkPpeZ1FwGpg+nWhoGD3MjpgzxMIqb1l2gJq6BuydUPQN@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPOaGzODZcF/+OnzJ0jbALWcIoQgJP6AMBAT6Y4aJ8qSyLAmr6
-	/ZoLt9dDWuXVxGZU+rOcjqxPxHICPqWju/yLL20RGMHXATZAONxInCVCrnl5QdJa5CoI/Oln2h+
-	/3Ps8WTz7To+KV2OHbofvB2GEpHYvjOEG0BKCmJxN42WcNQ2XP56H6q+FmDpOEfH03+hzyQqk08
-	Jziw==
-X-Gm-Gg: ASbGnctyqGvzuRCFlQFDLClgKWooqSsn1D3uwBevUok/kRNQQsIHcWJws5WVv6QQx8H
-	Tu7b5t4RlErXL9uzFeH8wHLeQS7mspLxSvAHfQi65sDui6a8fH2EpJDHukPf21B58pQZ2H6e4WQ
-	x8dZ0U+Nkj2uLcSYjjrGvSaNHxNNgWejGluefD+6dSFLFndB9FDizj/zaA4c5+hdwT47ljnnBC6
-	uJWId/UwnhKp1TlxFEg8N/5c7HyiPUJK6KPgsXR+pgSwQ13eJmPhQKz43ET9pIRiFZ7ETwuQ4fz
-	0C2OD3Vh818QgQi4LPa4Sl10I6Diri7u+4uITufpDSobAHv6CDU1weHOz+kg5Vwjpl9/gm6iYn/
-	Py2sPp+thE2be7FnKSS1JOgejwNrVDNXogzcoZtxlNe+80MlpDF5pJMw02HzW3zpg+Q==
-X-Received: by 2002:ac8:7f54:0:b0:4ee:1588:6186 with SMTP id d75a77b69052e-4f0176844ddmr100707251cf.11.1764935911672;
-        Fri, 05 Dec 2025 03:58:31 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFov2I2X1RO4Ob8MYXyaeF8rMVGALAElCw7tm9Bp7+qYh3T528OfAwWshEwbYv5+VJc7P3dSA==
-X-Received: by 2002:ac8:7f54:0:b0:4ee:1588:6186 with SMTP id d75a77b69052e-4f0176844ddmr100706771cf.11.1764935911237;
-        Fri, 05 Dec 2025 03:58:31 -0800 (PST)
-Received: from [192.168.119.72] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b79f445967fsm349282966b.10.2025.12.05.03.58.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 05 Dec 2025 03:58:30 -0800 (PST)
-Message-ID: <6e6ecdbf-f3cb-4d7e-a679-4640d6603ac8@oss.qualcomm.com>
-Date: Fri, 5 Dec 2025 12:58:27 +0100
+	Fri, 05 Dec 2025 12:08:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=qOqOO1RkHv+TL4sHO2I/M94wigINI1Cn0aqofm8+DJM=; b=JrZon1c+goGZ/cvJPITZz+HQAG
+	H8Glqh4GmzB4ynFJAlqotxWYu/at+K2gILu3ugTSYfgyyA9nlgkYCOH9DsRXqv3mk+Id9XnDEeOyo
+	KPPF7riTyhWttscjHg/UmGw+FFzHJ+L3PDkBoL47BA7n8mYjoZSHW/H/o341Ym97v+olzn/mai3wg
+	jtud26oX+CTo/9jlt8VAMQYI2a5VHeGTe/kcmC2pGu8768drFMpPega2QiNq3vkswcBw485F65wHM
+	TiWeqs1otv1R5KDD6QrYP4z85DZ5jaJokaX/uCSIHMgPaKqDiJ87vv2t31h78rMOxahMYDXcOxl2s
+	+bhzADnQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:53922)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vRUbi-000000004aX-0Y8R;
+	Fri, 05 Dec 2025 12:08:18 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vRUbe-0000000025R-1Eju;
+	Fri, 05 Dec 2025 12:08:14 +0000
+Date: Fri, 5 Dec 2025 12:08:14 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Xie Yuanbin <xieyuanbin1@huawei.com>
+Cc: torvalds@linux-foundation.org, akpm@linux-foundation.org,
+	brauner@kernel.org, catalin.marinas@arm.com, hch@lst.de,
+	jack@suse.com, linux-arm-kernel@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org, pangliyuan1@huawei.com,
+	wangkefeng.wang@huawei.com, will@kernel.org,
+	wozizhi@huaweicloud.com, yangerkun@huawei.com
+Subject: Re: [Bug report] hash_name() may cross page boundary and trigger
+ sleep in RCU context
+Message-ID: <aTLLLuup7TeAqFVL@shell.armlinux.org.uk>
+References: <CAHk-=wg4ZnsfpgXYL5qhjYDYo1Gnssz+VxnKZzHXMEmE7qrnQQ@mail.gmail.com>
+ <20251203014800.4988-1-xieyuanbin1@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/3] arm64: dts: qcom: qcs8300: Add CCI definitions
-To: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>,
-        Vikram Sharma <quic_vikramsa@quicinc.com>
-Cc: bryan.odonoghue@linaro.org, mchehab@kernel.org, robh@kernel.org,
-        krzk+dt@kernel.org, conor+dt@kernel.org, andersson@kernel.org,
-        konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
-        cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com,
-        will@kernel.org, linux-arm-kernel@lists.infradead.org,
-        quic_svankada@quicinc.com, linux-media@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, Ravi Shankar <quic_rshankar@quicinc.com>,
-        Vishal Verma <quic_vishverm@quicinc.com>
-References: <DS0PR02MB11311CE33DFFE0739BE747590E3D8A@DS0PR02MB11311.namprd02.prod.outlook.com>
- <d49920eb-0b4e-4042-b0c6-28d1ba348ddc@quicinc.com>
- <3f1dbf91-f967-44dc-bb21-25fdcbbc8db2@quicinc.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <3f1dbf91-f967-44dc-bb21-25fdcbbc8db2@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=DOSCIiNb c=1 sm=1 tr=0 ts=6932c8e8 cx=c_pps
- a=HLyN3IcIa5EE8TELMZ618Q==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
- a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=COk6AnOGAAAA:8 a=JE8FtNjG4eDj_IBO3V8A:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=bTQJ7kPSJx9SKPbeHEYW:22
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: mjZqW_VhpFVQK8DMD9CJh0BXZ7fXV5LI
-X-Proofpoint-GUID: mjZqW_VhpFVQK8DMD9CJh0BXZ7fXV5LI
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjA1MDA4NiBTYWx0ZWRfX+Y4u+Kn+ao7d
- 7/tZQchXwAz/U2LJ2h0POq7POzRJ7oZd9Bv16YFpNWxfwJ9jMQVVLG1m7JsRskTfOgM5a+ZavOV
- dnpTRmA4THka1rgzagw1vPBdhLUs/pahHTZvhM/ndJoJrCgvWUAqxC12sHVTOTk2JXv/czvE3r1
- Rh56qG5X+h44bMvWFrZpBl9RnRuEsIMESnlbOUyx1VQz1MnWWCZZMLSLfSzTKk5qE1VB9ITs43F
- yXhZDVzktBdqV8hXXQDiV+reUVdVL1JMK2A048d3jVryx0SamSKEsi7Z4khFAHs8rJIDgse47AT
- S4/Ekh6SSyoSYFIiJ0Y5uWFnZBmjsyp7K22gWRtwwPhUuZ31vAlbnLvm7UfeTcBce2733nZwHhz
- j4Wz6UNWmiRuvaVPSdnzNE9VYjOn/g==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-05_04,2025-12-04_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 bulkscore=0 clxscore=1015 priorityscore=1501
- suspectscore=0 spamscore=0 phishscore=0 impostorscore=0 malwarescore=0
- adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
- definitions=main-2512050086
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251203014800.4988-1-xieyuanbin1@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_035835_320669_B4703C5A 
-X-CRM114-Status: GOOD (  20.21  )
+X-CRM114-CacheID: sfid-20251205_040838_858895_DCAF78E9 
+X-CRM114-Status: GOOD (  36.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,75 +85,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/2/25 8:35 AM, Nihal Kumar Gupta wrote:
+On Wed, Dec 03, 2025 at 09:48:00AM +0800, Xie Yuanbin wrote:
+> On Tue, 2 Dec 2025 14:07:25 -0800, Linus Torvalds wrote:
+> > On Tue, 2 Dec 2025 at 04:43, Russell King (Oracle)
+> > <linux@armlinux.org.uk> wrote:
+> >>
+> >> What I'm thinking is to address both of these by handling kernel space
+> >> page faults (which will be permission or PTE-not-present) separately
+> >> (not even build tested):
+> >
+> > That patch looks sane to me.
+> >
+> > But I also didn't build test it, just scanned it visually ;)
 > 
+> That patch removes harden_branch_predictor() from __do_user_fault(), and
+> moves it to do_page_fault()->do_kernel_address_page_fault(). 
+> This resolves previously mentioned kernel warning issue. However,
+> __do_user_fault() is not only called by do_page_fault(), it is
+> alse called by do_bad_area(), do_sect_fault() and do_translation_fault().
 > 
-> On 11/26/25 9:10 AM, Vikram Sharma wrote:
->>> From: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
->>>
->>> Qualcomm QCS8300 SoC contains three Camera Control Interface (CCI).
->>> Compared to Lemans, the key difference is in SDA/SCL GPIO assignments
->>> and number of CCIs.
->> [...]
->>
->>> @@ -5071,6 +5182,240 @@ tlmm: pinctrl@f100000 {
->>>                       #interrupt-cells = <2>;
->>>                       wakeup-parent = <&pdc>;
->>>
->>> +                     cam0_avdd_2v8_en_default: cam0-avdd-2v8-en-state {
->>> +                             pins = "gpio73";
->>> +                             function = "gpio";
->>> +                             drive-strength = <2>;
->>> +                             bias-disable;
->>> +                     };
->> I'm not sure whether I was unclear, but my intention was to ask you to move the MCLK pin definitions to the SoC DTSI, because that comes from the design of the platform and doesn't vary between end products.
->>
->> GPIO_73 being related to a voltage regulator is strictly a property of the EVK.
+> So I think that some harden_branch_predictor() is missing on other paths.
+> According to my tests, when CONFIG_ARM_LPAE=n, harden_branch_predictor()
+> will never be called anymore, even if a user program trys to access the
+> kernel address.
 > 
-> MCLK pin definitions are already present under the tlmm block in SoC dtsi(monaco.dtsi) as required by the pinctrl subsystem(qcom,qcs8300-tlmm.yaml).
+> Or perhaps I've misunderstood something, could you please point it out?
+> Thank you very much.
 
-The latter part of your sentence refers to the pin definition having to end
-up under TLMM in the final DT, which it will be regardless of where exactly
-in the source files it appears.
+Right, let's split these issues into separate patches. Please test this
+patch, which should address only the hash_name() fault issue, and
+provides the basis for fixing the branch predictor issue.
 
-What I'm alluding to is that we organize some of these definitions in a
-specific source file to make logical sense and keep them within relevant
-scope (i.e. you shouldn't be able to refer to a board X-specific setting
-from board Y DT - that's unnecessary room for error, whereas pin definitions
-that are a result of the SoC design make sense to be shared)
+Yes, at the moment, do_kernel_address_page_fault() looks very much like
+do_bad_area(), but with the addition of the IRQ-enable if the parent
+context was enabled, but the following patch to address the branch
+predictor hardening will show why its different.
 
-> Are you suggesting they shouldn’t be part of TLMM in the SoC DTSI? This doesn’t align with the YAML file.
+In my opinion, this approach makes the handling for kernel address
+page faults (non-present pages and page permission faults) much easier
+to understand.
 
-That's not exactly true, the YAML file you're referencing only lists the
-allowed entries in the 'function' property of the pinmux subnodes.
+Note that this will call __do_user_fault() with interrupts disabled.
 
-The DT checker makes no effort to analyze your file structure, it only
-makes sure that you're not adding illegal properties (or lacking required
-ones) for a given device described by a binding.
+Build tested, and remotely boot tested on Cortex-A5 hardware but
+without kfence enabled. Also tested usermode access to kernel space
+which fails with SEGV:
+- read from 0xc0000000 (section permission fault, do_sect_fault)
+- read from 0xffff2000 (page translation fault, do_page_fault)
+- read from 0xffff0000 (vectors page - read possible as expected)
+- write to 0xffff0000 (page permission fault, do_page_fault)
 
-> Regarding GPIO_73: Noted. I will move it to monaco-evk.dts under the tlmm section.
-> 
-> Below are the example snippets:
-> In monaco.dtsi (SoC level):
-> tlmm: pinctrl@... {
->     cam_mclk0_default: cam-mclk0-default-state {
->         pins = "gpio67"; 
->         function = "cam_mclk";
->         drive-strength = <2>;
->     };
->     ....
-> };
-> 
-> In monaco-evk.dts (Board level):
-> &tlmm {
->     cam0_avdd_2v8_en_default: cam0-avdd-2v8-en-state {
->         pins = "gpio73";
->         function = "gpio";
->         drive-strength = <2>;
->         bias-disable;
->     };
+8<===
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Subject: [PATCH] ARM: fix hash_name() fault
 
-That was my entire points, thanks
+Zizhi Wo reports:
 
-Konrad
+"During the execution of hash_name()->load_unaligned_zeropad(), a
+ potential memory access beyond the PAGE boundary may occur. For
+ example, when the filename length is near the PAGE_SIZE boundary.
+ This triggers a page fault, which leads to a call to
+ do_page_fault()->mmap_read_trylock(). If we can't acquire the lock,
+ we have to fall back to the mmap_read_lock() path, which calls
+ might_sleep(). This breaks RCU semantics because path lookup occurs
+ under an RCU read-side critical section."
+
+This is seen with CONFIG_DEBUG_ATOMIC_SLEEP=y and CONFIG_KFENCE=y.
+
+Kernel addresses (with the exception of the vectors/kuser helper
+page) do not have VMAs associated with them. If the vectors/kuser
+helper page faults, then there are two possibilities:
+
+1. if the fault happened while in kernel mode, then we're basically
+   dead, because the CPU won't be able to vector through this page
+   to handle the fault.
+2. if the fault happened while in user mode, that means the page was
+   protected from user access, and we want to fault anyway.
+
+Thus, we can handle kernel addresses from any context entirely
+separately without going anywhere near the mmap lock. This gives us
+an entirely non-sleeping path for all kernel mode kernel address
+faults.
+
+Reported-by: Zizhi Wo <wozizhi@huaweicloud.com>
+Reported-by: Xie Yuanbin <xieyuanbin1@huawei.com>
+Link: https://lore.kernel.org/r/20251126090505.3057219-1-wozizhi@huaweicloud.com
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ arch/arm/mm/fault.c | 35 +++++++++++++++++++++++++++++++++++
+ 1 file changed, 35 insertions(+)
+
+diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
+index 46169fe42c61..2bbec38ced97 100644
+--- a/arch/arm/mm/fault.c
++++ b/arch/arm/mm/fault.c
+@@ -260,6 +260,35 @@ static inline bool ttbr0_usermode_access_allowed(struct pt_regs *regs)
+ }
+ #endif
+ 
++static int __kprobes
++do_kernel_address_page_fault(struct mm_struct *mm, unsigned long addr,
++			     unsigned int fsr, struct pt_regs *regs)
++{
++	if (user_mode(regs)) {
++		/*
++		 * Fault from user mode for a kernel space address. User mode
++		 * should not be faulting in kernel space, which includes the
++		 * vector/khelper page. Send a SIGSEGV.
++		 */
++		__do_user_fault(addr, fsr, SIGSEGV, SEGV_MAPERR, regs);
++	} else {
++		/*
++		 * Fault from kernel mode. Enable interrupts if they were
++		 * enabled in the parent context. Section (upper page table)
++		 * translation faults are handled via do_translation_fault(),
++		 * so we will only get here for a non-present kernel space
++		 * PTE or PTE permission fault. This may happen in exceptional
++		 * circumstances and need the fixup tables to be walked.
++		 */
++		if (interrupts_enabled(regs))
++			local_irq_enable();
++
++		__do_kernel_fault(mm, addr, fsr, regs);
++	}
++
++	return 0;
++}
++
+ static int __kprobes
+ do_page_fault(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
+ {
+@@ -273,6 +302,12 @@ do_page_fault(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
+ 	if (kprobe_page_fault(regs, fsr))
+ 		return 0;
+ 
++	/*
++	 * Handle kernel addresses faults separately, which avoids touching
++	 * the mmap lock from contexts that are not able to sleep.
++	 */
++	if (addr >= TASK_SIZE)
++		return do_kernel_address_page_fault(mm, addr, fsr, regs);
+ 
+ 	/* Enable interrupts if they were enabled in the parent context. */
+ 	if (interrupts_enabled(regs))
+-- 
+2.47.3
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
