@@ -4,68 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24FEFD32D9C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 15:08:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48FF8D33980
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 15:08:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pS5ymrqr8k6u4zcuVAgBUk0q3nhQZorKFo9+HaAwnbo=; b=hxFmqJ/EAwaZXS8mnRlzkyTKc1
-	FqMnbKrsUx9L8jUKl4osBwg9XRJ4qry4rRToC+bDkwnuGjdtlEmsjiQ/iV0gOWSQXi55JQgOwSWyc
-	tqC6GCjUPaiSHjqOHLFXWx9SMKy8EN11M08BYFUpL2DCk3CZtfLveEjM1lGfmV3Wp8vlW8A8skIbq
-	a6KKb2DsH4EGPu7FaLL2fYYGordCYSypsSte3uP2p3FC9muMqsbb4Wo/b9Yt/c7dV8x+REJ43GRm0
-	YK/Zgl41tefMwsMugMIGU2lIlk0bY29aidAmdcZzwkYGztIowfq0ZAGZqDuv7/cJQvfJxoKnjR6Y0
-	6LtmBYYQ==;
+	bh=wTfY6EWmq2gzRb9AeJBUVjP2xs908KwCCUHhuQ8w7Yg=; b=PR+yytXKcc3sH4KN0kiw+ayX1K
+	8Gd89g6vIyDLrAhBH9HlD6pbM+iZOkco2TltCT1+vM/rI4CArNpNKv5dUqrrKhS7UBtunb5yrpcJm
+	up87b04g2ze7Qa2fiSTlvuWCnZtiYOZfxEhR9LZEdekY2AEk77UT7k0nDRX53jTLDdfdNY5aJN6p4
+	KJb/V1Hg5wK0Uq1u6aqfINGeQZHkwuAza+CCJuFBdXqZn6/PzXzM0SnOJx2pFmg1Fb05d8DTfv3Pl
+	11J4d9Wr6s07maiCDWl3YRKff1T87Yjhkmzh6Umj6kYLujSk5sCUhovr6u49OMXreGMms0areUkxb
+	Xu2tjsAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRXPY-00000009d6U-1dUf;
-	Fri, 05 Dec 2025 15:07:56 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vRXPz-00000009dBy-2vi0;
+	Fri, 05 Dec 2025 15:08:23 +0000
+Received: from mail-northeuropeazon11010071.outbound.protection.outlook.com ([52.101.84.71] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRXPX-00000009d6D-0fRT
+	id 1vRXPx-00000009dB9-0sEw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 15:07:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 974E5601F0;
-	Fri,  5 Dec 2025 15:07:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C3B9C4CEF1;
-	Fri,  5 Dec 2025 15:07:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764947274;
-	bh=Btrf2pkJCWZijzZcvy/muKQ3+oGgoj6S6CYvcVWIQrk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TAIrLK5lY6tbIMZDXSaylFE0NQrndOHSyUGk0YaIxSZtnw/TdkoI3YjlqHA7OYtZO
-	 GTsnIpz2g1H6OBepN9YbTEtS/ML+DEM2HpHfCHI3so2uL+u4zE2MvbqhA/qGlsRNMo
-	 tyxAUxnmas8OwCUVJznh84YNC6ZGPLNfQV0APcvwtBvTqzt9VOiZnd8Wk5A9NW/VMJ
-	 qK+az0ifq91qYJ1iqtgRCctAtNyZdi1oh8lGPP8tPUqspCujiwkPu15TIpWEIzROf7
-	 YlJke5tJGKyHMX5s4V3BMX7Wb9HdMIHUa54sMBIYOf8dJC7FtIeKRzRAcNGna1gAsH
-	 Npiav9APMasgg==
-Date: Fri, 5 Dec 2025 09:07:51 -0600
-From: Rob Herring <robh@kernel.org>
-To: Maud Spierings <maudspierings@gocontroll.com>
-Cc: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>,
-	Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, dri-devel@lists.freedesktop.org,
-	linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v6 1/4] dt-bindings: backlight: Add max25014 support
-Message-ID: <20251205150751.GA124954-robh@kernel.org>
-References: <20251201-max25014-v6-0-88e3ac8112ff@gocontroll.com>
- <20251201-max25014-v6-1-88e3ac8112ff@gocontroll.com>
-MIME-Version: 1.0
+	Fri, 05 Dec 2025 15:08:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UoMe0dhU34FkA5kg312MdQWbM0SIygqzEGGxEWN28+lWvtfUlT0TOu9ovPHRxkoZt/QtWvwwoxE7/vA/vF2PcfuyO0vcaCtF5LgCp1NeRTGNgPQn4Z62aOfVVcLfNo/GC1z7vlPaW46WpWlmNqNmtXOzB5L4NyiN+lR1yW+DFvvQjXu65TOiArQ418XgkoyeJcRpPOyJThVo5WI3Kut6HFFCfB2kd+WlyOmUdi4Gfmgnf9ExnEfapVdo6cK/Gt2q35aWuRLmv/o6IZOH06XhqI2tPePJGUEZyAMoapiphUKBxpO3QhnrqqXfraCOjXidUMc1wxpx8oUGGoT14jO91A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wTfY6EWmq2gzRb9AeJBUVjP2xs908KwCCUHhuQ8w7Yg=;
+ b=LLBOu40A3JS0ULR9IyJqdeclv+pAmZN3qm4gUYeAkz6yxpyTQodiMNaFLjkOZO8IZJXL9Xk+hi7gYW4x76fAaXHR19+myQfgNuj88pcacdI8P4E4BiXfxB4qKH7bYhcoDnUs2qbEfzedSEbnTP0nSIpBppMNB02gQ2PjU0JrnQP0uL4DCyzm5+vXQDDtIqg5p6tz8sdMsJqBsZTwcciMGK+Bj6kqGy6SBCI8xCqNXofO/lSHbrtMYUZ8T+EJy6baZVerx19okmKxcwAVES6dBLqLtdgjFaVnLWp0mbDxGYJv1C4p2ssJznPz4NDF3w9IgERWqWWBHDVfevu0JHDlNQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wTfY6EWmq2gzRb9AeJBUVjP2xs908KwCCUHhuQ8w7Yg=;
+ b=QfxhTYCcuX7si7H4xRwh+k/4Orr1XA3d5GapRURlM03u4mwNQx605Cy/r3ayqGtjYmYFU8PpN4aLwD+TVrOtrBwb5RpmGBylQOvrh7Dcw1b+yc8CXGCVkGuwwESMQrT0OhxpmJW8Q4qjNrTmxya6OoPZ6Lca9JhaWmlc5l7jLVZEQbdsPqMNXtD5pkTdBI2Kzxgl4Yq+WFv7p8Xoxq4spzhA4eljaRBWhpN2D4xxwBJuGYsiiEQhhTQtu95ijnmx2EH27Qrqal9besCbrwGnzPbijdzukn7KqJgKhx6aZJNHe9mYvSOh/VV02Q2sKwl5wpgpGkjspQuURa7odoXyFg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by GVXPR04MB9779.eurprd04.prod.outlook.com (2603:10a6:150:111::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.9; Fri, 5 Dec
+ 2025 15:08:16 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9388.003; Fri, 5 Dec 2025
+ 15:08:16 +0000
+Date: Fri, 5 Dec 2025 10:08:06 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: ming.qian@oss.nxp.com
+Cc: linux-media@vger.kernel.org, mchehab@kernel.org,
+	hverkuil-cisco@xs4all.nl, nicolas@ndufresne.ca,
+	benjamin.gaignard@collabora.com, p.zabel@pengutronix.de,
+	sebastian.fricke@collabora.com, shawnguo@kernel.org,
+	ulf.hansson@linaro.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com, linux-imx@nxp.com,
+	l.stach@pengutronix.de, peng.fan@nxp.com, eagle.zhou@nxp.com,
+	imx@lists.linux.dev, linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 1/3] media: v4l2-mem2mem: Add a kref to the
+ v4l2_m2m_dev structure
+Message-ID: <aTL1VleoygCIap3N@lizhi-Precision-Tower-5810>
+References: <20251205015428.643-1-ming.qian@oss.nxp.com>
+ <20251205015428.643-2-ming.qian@oss.nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251201-max25014-v6-1-88e3ac8112ff@gocontroll.com>
+In-Reply-To: <20251205015428.643-2-ming.qian@oss.nxp.com>
+X-ClientProxiedBy: PH0P220CA0014.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:d3::28) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|GVXPR04MB9779:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7bee49de-00c6-4caa-3768-08de34101dbb
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|52116014|19092799006|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?On2X8vTN2DFlsHv7K9dqH7PVc8OgdInisDg0CnCFgqq2CsR8FIrSM9PJln5O?=
+ =?us-ascii?Q?KLhlzEXreyRpyectZ2lye34Jiyv5s9ddHAH222vWrSjHGk1QVaJIgSvdDQv8?=
+ =?us-ascii?Q?rY0SV0UbH3fnveDaLgDhzALKxCp2IKa6fHIFkWXpgnPaSVCYyzqN9bvjQgWI?=
+ =?us-ascii?Q?HhOePRlDxjC257/yLKGzx5v2rnsk7T/+ZhiB4+Cr/ziXUvVZoNXDlTmcyf5i?=
+ =?us-ascii?Q?3otX1YW8+4Vol6gdQxb8AZnOIObNBx7SOq4YTymfK2mIGnqmGTIC6HLoUmgp?=
+ =?us-ascii?Q?zNNYZUXJE7mIp5jsQ/ESZ/ciAknDUHQwCOSqf2pAMjqaUrSAIIKa1zkdyDsn?=
+ =?us-ascii?Q?pg2W90Ru3OFnZsOP96THtww8W+ASo1RyZAIdLW1WFDHTcwYAQAd+QZsrbA8v?=
+ =?us-ascii?Q?vElfKNZTZq5yLWiP/EnqC8dt6vX4bh0i9iXguR/6bZJcW2PfRqEpoy8PjLxS?=
+ =?us-ascii?Q?1zEk9Pp0ihj+uMGz9Z8ZEnEQ1M0yjnROALgMFFcxjfVmGTPHckSWngDKqqeB?=
+ =?us-ascii?Q?M/fcC7XUlSsmnyk1haOEteqVAHOmXJOBNuAl0ktaLR4FoRnpUD4i1Q+jb9Yl?=
+ =?us-ascii?Q?7Z8nGUIC5YVPVTehD83bnVlque1qjRcABUhtuhfBRERcTv3SfLQ7woP1Hea3?=
+ =?us-ascii?Q?Mt0RaXtFkeK1BTyhyxkdtuVk/IRosHyVlA+dRinS3CPVPFJu5UgI+yjTtQ1Y?=
+ =?us-ascii?Q?WlVe2AI8FpjDN5Er38iDORTMp8HXa861/Sv/ThpDJKo3BvBUuMfiWlw4sHJg?=
+ =?us-ascii?Q?Zdg9DnUeoZjks+UD8ikLleY7V3MgtC6zUBRDEyBSrciNyRzIs2sJ9hBXdwKj?=
+ =?us-ascii?Q?B8EPDq2D7uxMCYNkar82d6+Ni2nuct/+rtvCq48pc86rphVlTz/kXv+WonLl?=
+ =?us-ascii?Q?Y76YyurSyuXPHHaXgF7fE8uStfevyjUw7aDVnuh3KKX4fmmiI2MmRaKC9n1z?=
+ =?us-ascii?Q?cD90B/suRRwKjCb8vyo9glb9E/rTukmGzVbB6Blj4eaVOYa8Tm3z2cZ0RkCm?=
+ =?us-ascii?Q?+qn2VYnX4dCeTnzl5g3EvVfiLlEz11l1/L7NQ6ClbygGOCPTcjXy8kQMkOq8?=
+ =?us-ascii?Q?sSqXxpjhi8fUlNkFjCCLUQST+pSoS26o42HIiErXLSjVvkvT3CYVDFcsaccQ?=
+ =?us-ascii?Q?T6raL1kvmeJ7sL6ONconnvQ+eVdYzt4dggBv0T551eRjcJY8RF9PyyYm+lGZ?=
+ =?us-ascii?Q?ZVhSGSXpoOHhernEjSCnPhnpcVjipviUlYvWl2ETrsLei2DZrHbyhjaVIRXR?=
+ =?us-ascii?Q?OZo7f0waUPYQKrNA7QSuI8tTy7Be4B5RlxwYvu15+qCHGABqnvzQrRFenIXb?=
+ =?us-ascii?Q?oVo9MPkM4lx6kLqQXb30iU8fSmE1CeKSYeC7bgT8/K/T7GdPa8qbPOehO/Ui?=
+ =?us-ascii?Q?dtHwRytB878OQ63+PDY/jZLmm9DHm2/JPfpbQ+VG3xr8VjBNNU94U8dcWaGO?=
+ =?us-ascii?Q?KaVa/NSJttU2KruMhe5puwpkBzM74VvJoiM+yauTaXlov35onyHZ5/J4va0l?=
+ =?us-ascii?Q?JbBDdypjbFonxvDbEQJROqyj1kDkNyQR5uat?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(52116014)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iwkYT0mzCzncSzpNdU4iPv1CiM8hh4lApene8D60U17y+VrntXhIoSlK/lM9?=
+ =?us-ascii?Q?BAMjyBRbBumAdYH1IKXNpEdVpLRtrf3eMkXxVEC06W4PRHmBpt6HUaQIqB0O?=
+ =?us-ascii?Q?oA/9t/LeqpzHqNiHTTmmLS2ImZOX7a16RenE0omWMcnfQLlXM34A7JRA1a3/?=
+ =?us-ascii?Q?MtwaCAtyOXWt6sM+6y1kg0Oxh6PCJ73o7uMoZcTeHXYCCGqn5i6GaeGX79wY?=
+ =?us-ascii?Q?osZtNY1qkYOYc3IF6qNSrfD9yoblxgsDlOtOMAH/iiRuY9MNDuh+MFnGxA9p?=
+ =?us-ascii?Q?RVklghBSYYMBleGx64s7VbpkhoVOf8Hojj2EJk7GHDDrEsze0eeG2WHRjf75?=
+ =?us-ascii?Q?MapHqqqM11qXj+IUVDjHrBGdOLrEJDUw+LOHbo7y9N/+w01J9aMJYsnIW0w8?=
+ =?us-ascii?Q?X3nYKhqIxtU9lje19SWyNhMHLoJsX2bU4raYL+yS3hjIY0O59gOk9pvpZdo4?=
+ =?us-ascii?Q?FQ6vhqby7AxMr7g5l/Ky63Tx7jl/fz7qpsYltBpVHaU1f9SF2zC5A1XFhczu?=
+ =?us-ascii?Q?1ZxLofB7SlH7O1QYd1wbmlQCD+lTSKObBrP93hYx7b4bR3lK62pRAqE3W9MS?=
+ =?us-ascii?Q?ST3HL6Rb7LPpPs5NoUybpjfI1LNt+T6+F9u7Bo4vSYtVQBA5hojRCsiiflg8?=
+ =?us-ascii?Q?Hv2/AP0B4F/SnXKnfQ2aIYhoZLAus1sh4k7aiYfZL9zc672i9F8RXTxskeMC?=
+ =?us-ascii?Q?AQkAgrUHLypms+fsoKLWHX6tdtYuqp8ieYS04OiVfsrrzsU+CchcZCLgFbDu?=
+ =?us-ascii?Q?6E8UlrfcwwStOVoI8FG3egqRzesBV7CLeK8sbiuK5GshzKwgZZKUuGnqh+dj?=
+ =?us-ascii?Q?yjFsijwjclYKVdNgvmqYt0QSZCQqMhdhxBV+NMr3KFhYOv3QMUaoJbJz/dmu?=
+ =?us-ascii?Q?E2wPYUM3LsfTMAqw83VvrwfHzaEhGko5B5fQF310Gl0gR0FADwta4Lb5cfqO?=
+ =?us-ascii?Q?dYfd5HMQ00LaxbEjnTa8xdKZjXYHP4t117g+2dB1lGXvuz1bdH5rhz/PKvm+?=
+ =?us-ascii?Q?an5HyAQnlBuCD0puRplsIugPGoxuQbrtR9vQT/8DMEtUrpVI7Z4X3dLVvpTQ?=
+ =?us-ascii?Q?ELSoRMxo1p5ltX83nyNvXp+arRH0TW8ivVFAs34kQIeQFhOZ5iqKFOQeqfe0?=
+ =?us-ascii?Q?PFjP3Ifvw0DZWcWBBqdKZReEgpo5eRUFTaTnZxmXJ+el3SExoCL6luuksfxU?=
+ =?us-ascii?Q?NaIoGJPC3vMAMVlxfT9TcfejCGKba0GU7aSOsrfmbLZ5NXkpeWkYWDWlYWhu?=
+ =?us-ascii?Q?P6/QAFv1KCaZ0bLnLVQtPMmQy1FmJIdsyqmsXvwEjt3ri9au7YEtAnjTB3k+?=
+ =?us-ascii?Q?Y2rX23ZZ8rjQCFejQFGxpl1+dWzU2OM2/9sEA1UI/rPDilQF8iaULo+2XBuK?=
+ =?us-ascii?Q?tmBn3bKp07vVJ0SLFqK93fq17SBdl2bHTfbEpRvBXtjbQZ4OhNuMmTSkm1jF?=
+ =?us-ascii?Q?HB8+MBVbxM6jJf2BuLZUFlxN7qGSMgWNTNHIeS7Bgs5HpbRZWlCvl4+GAblF?=
+ =?us-ascii?Q?zjN7EpaY5lbdXWgvvTSsCHqYYl1ss419vB/zRja215RjDlOQSzutPBrUunqy?=
+ =?us-ascii?Q?YPsZfSsdMot+AlHSxHM=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7bee49de-00c6-4caa-3768-08de34101dbb
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Dec 2025 15:08:15.7529
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: paYhtDbB4qZjMO/DCT88x75BVnYaETJQHpptSA4Q6+vtRYZlfhioRxcs9a+cn9/EczXhr9ya5PKKNTsIUPI+GA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9779
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251205_070821_249483_B67BB255 
+X-CRM114-Status: GOOD (  24.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,163 +165,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 01, 2025 at 12:53:20PM +0100, Maud Spierings wrote:
-> The Maxim MAX25014 is a 4-channel automotive grade backlight driver IC
-> with integrated boost controller.
+On Fri, Dec 05, 2025 at 09:54:24AM +0800, ming.qian@oss.nxp.com wrote:
+> From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
 >
-> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
-> 
+> Adding a reference count to the v4l2_m2m_dev structure allow safely
+> sharing it across multiple hardware nodes. This can be used to prevent
+> running jobs concurrently on m2m cores that have some internal resource
+> sharing.
+>
+> Signed-off-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+> Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
 > ---
-> 
-> In the current implementation the control registers for channel 1,
-> control all channels. So only one led subnode with led-sources is
-> supported right now. If at some point the driver functionality is
-> expanded the bindings can be easily extended with it.
 
-What's the relationship between the LEDs and backlight? It's a backlight 
-plus LEDs or just 4 identical channels.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-> 
-> ---
->  .../bindings/leds/backlight/maxim,max25014.yaml    | 107 +++++++++++++++++++++
->  MAINTAINERS                                        |   5 +
->  2 files changed, 112 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml b/Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml
-> new file mode 100644
-> index 000000000000..e83723224b07
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml
-> @@ -0,0 +1,107 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/leds/backlight/maxim,max25014.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> v4
+> - Add my Signed-off-by
+>
+>  drivers/media/v4l2-core/v4l2-mem2mem.c | 23 +++++++++++++++++++++++
+>  include/media/v4l2-mem2mem.h           | 21 +++++++++++++++++++++
+>  2 files changed, 44 insertions(+)
+>
+> diff --git a/drivers/media/v4l2-core/v4l2-mem2mem.c b/drivers/media/v4l2-core/v4l2-mem2mem.c
+> index fec93c1a9231..ae0de54d4c3e 100644
+> --- a/drivers/media/v4l2-core/v4l2-mem2mem.c
+> +++ b/drivers/media/v4l2-core/v4l2-mem2mem.c
+> @@ -90,6 +90,7 @@ static const char * const m2m_entity_name[] = {
+>   * @job_work:		worker to run queued jobs.
+>   * @job_queue_flags:	flags of the queue status, %QUEUE_PAUSED.
+>   * @m2m_ops:		driver callbacks
+> + * @kref:		device reference count
+>   */
+>  struct v4l2_m2m_dev {
+>  	struct v4l2_m2m_ctx	*curr_ctx;
+> @@ -109,6 +110,8 @@ struct v4l2_m2m_dev {
+>  	unsigned long		job_queue_flags;
+>
+>  	const struct v4l2_m2m_ops *m2m_ops;
 > +
-> +title: Maxim max25014 backlight controller
+> +	struct kref kref;
+>  };
+>
+>  static struct v4l2_m2m_queue_ctx *get_queue_ctx(struct v4l2_m2m_ctx *m2m_ctx,
+> @@ -1200,6 +1203,7 @@ struct v4l2_m2m_dev *v4l2_m2m_init(const struct v4l2_m2m_ops *m2m_ops)
+>  	INIT_LIST_HEAD(&m2m_dev->job_queue);
+>  	spin_lock_init(&m2m_dev->job_spinlock);
+>  	INIT_WORK(&m2m_dev->job_work, v4l2_m2m_device_run_work);
+> +	kref_init(&m2m_dev->kref);
+>
+>  	return m2m_dev;
+>  }
+> @@ -1211,6 +1215,25 @@ void v4l2_m2m_release(struct v4l2_m2m_dev *m2m_dev)
+>  }
+>  EXPORT_SYMBOL_GPL(v4l2_m2m_release);
+>
+> +void v4l2_m2m_get(struct v4l2_m2m_dev *m2m_dev)
+> +{
+> +	kref_get(&m2m_dev->kref);
+> +}
+> +EXPORT_SYMBOL_GPL(v4l2_m2m_get);
 > +
-> +maintainers:
-> +  - Maud Spierings <maudspierings@gocontroll.com>
+> +static void v4l2_m2m_release_from_kref(struct kref *kref)
+> +{
+> +	struct v4l2_m2m_dev *m2m_dev = container_of(kref, struct v4l2_m2m_dev, kref);
 > +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - maxim,max25014
+> +	v4l2_m2m_release(m2m_dev);
+> +}
 > +
-> +  reg:
-> +    maxItems: 1
+> +void v4l2_m2m_put(struct v4l2_m2m_dev *m2m_dev)
+> +{
+> +	kref_put(&m2m_dev->kref, v4l2_m2m_release_from_kref);
+> +}
+> +EXPORT_SYMBOL_GPL(v4l2_m2m_put);
 > +
-> +  "#address-cells":
-> +    const: 1
+>  struct v4l2_m2m_ctx *v4l2_m2m_ctx_init(struct v4l2_m2m_dev *m2m_dev,
+>  		void *drv_priv,
+>  		int (*queue_init)(void *priv, struct vb2_queue *src_vq, struct vb2_queue *dst_vq))
+> diff --git a/include/media/v4l2-mem2mem.h b/include/media/v4l2-mem2mem.h
+> index bf6a09a04dcf..ca295c660c7f 100644
+> --- a/include/media/v4l2-mem2mem.h
+> +++ b/include/media/v4l2-mem2mem.h
+> @@ -547,6 +547,27 @@ v4l2_m2m_register_media_controller(struct v4l2_m2m_dev *m2m_dev,
+>   */
+>  void v4l2_m2m_release(struct v4l2_m2m_dev *m2m_dev);
+>
+> +/**
+> + * v4l2_m2m_get() - take a reference to the m2m_dev structure
+> + *
+> + * @m2m_dev: opaque pointer to the internal data to handle M2M context
+> + *
+> + * This is used to share the M2M device across multiple devices. This
+> + * can be used to avoid scheduling two hardware nodes concurrently.
+> + */
+> +void v4l2_m2m_get(struct v4l2_m2m_dev *m2m_dev);
 > +
-> +  "#size-cells":
-> +    const: 0
+> +/**
+> + * v4l2_m2m_put() - remove a reference to the m2m_dev structure
+> + *
+> + * @m2m_dev: opaque pointer to the internal data to handle M2M context
+> + *
+> + * Once the M2M device have no more references, v4l2_m2m_realse() will be
+> + * called automatically. Users of this method should never call
+> + * v4l2_m2m_release() directly. See v4l2_m2m_get() for more details.
+> + */
+> +void v4l2_m2m_put(struct v4l2_m2m_dev *m2m_dev);
 > +
-> +  enable-gpios:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  power-supply:
-> +    description: Regulator which controls the boost converter input rail.
-> +
-> +  pwms:
-> +    maxItems: 1
-> +
-> +  maxim,iset:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    maximum: 15
-> +    default: 11
-> +    description:
-> +      Value of the ISET field in the ISET register. This controls the current
-> +      scale of the outputs, a higher number means more current.
-
-We have properties for setting the current (in uA). That can't work 
-here?
-
-> +
-> +  led@0:
-> +    type: object
-> +    description: Properties for a string of connected LEDs.
-> +    $ref: common.yaml#
-> +
-> +    properties:
-> +      reg:
-> +        const: 0
-> +
-> +      led-sources:
-> +        allOf:
-> +          - minItems: 1
-> +            maxItems: 4
-> +            items:
-> +              minimum: 0
-> +              maximum: 3
-> +            default: [0, 1, 2, 3]
-> +
-> +      default-brightness:
-> +        minimum: 0
-> +        maximum: 100
-> +        default: 50
-> +
-> +    required:
-> +      - reg
-> +
-> +    additionalProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/gpio/gpio.h>
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    i2c {
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
-> +
-> +        backlight@6f {
-> +            compatible = "maxim,max25014";
-> +            reg = <0x6f>;
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
-> +            enable-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
-> +            interrupt-parent = <&gpio1>;
-> +            interrupts = <2 IRQ_TYPE_EDGE_FALLING>;
-> +            power-supply = <&reg_backlight>;
-> +            pwms = <&pwm1>;
-> +            maxim,iset = <7>;
-> +
-> +            led@0 {
-> +                reg = <0>;
-> +                led-sources = <0 1 2 3>;
-> +                default-brightness = <50>;
-> +            };
-> +        };
-> +    };
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 58c7e3f678d8..606ce086f758 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -15261,6 +15261,11 @@ F:	Documentation/userspace-api/media/drivers/max2175.rst
->  F:	drivers/media/i2c/max2175*
->  F:	include/uapi/linux/max2175.h
->  
-> +MAX25014 BACKLIGHT DRIVER
-> +M:	Maud Spierings <maudspierings@gocontroll.com>
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml
-> +
->  MAX31335 RTC DRIVER
->  M:	Antoniu Miclaus <antoniu.miclaus@analog.com>
->  L:	linux-rtc@vger.kernel.org
-> 
-> -- 
+>  /**
+>   * v4l2_m2m_ctx_init() - allocate and initialize a m2m context
+>   *
+> --
 > 2.52.0
-> 
+>
 
