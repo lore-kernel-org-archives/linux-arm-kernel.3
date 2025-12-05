@@ -4,58 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB65AD2E033
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 08:09:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0509ED2E037
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 08:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GkPDRpzvnCa0LpOYxJLQ483LuEZLUXnnl2jF8NEFNnc=; b=mNHs2PsmGHlFeJcOdRkvE5rA9z
-	jNXAjN8hfakcSKLkTgaKXzVIrNkCKScONCpULGnkZodJLoop7Mx1bUsObwOc+146hVsbfvCh1h3Do
-	yh4VBPMvb/LnfY7jikGevDsMeWNDzYelEJUa/Vj5vODXPwCr1AHZGyMjx/7syFVzTCdSDsrk2x89u
-	4TFBEnxlT/Ko715iLt1wZL74WsmMWq8o7ecjLcW1xJ+wd8kPwElS1Ks87SRyYah0vXmPblWupvpR/
-	JttnPAZqE9h0lZpv1hVbvA8ALWJgZg3ryM1mNtOTJ+vabM3lCPVKsv2JZPHWn5Atwb3tCPp/8GKGa
-	QOjD4/vQ==;
+	bh=ABqyVMCkGtqy3KtRAi60mSAcpEt2Hul3Do+UkfnsTZ0=; b=utpGsUedq/xGIYnSOOfPaULuAQ
+	2yPtWtC6oOMwKZhqM4MST74dleVO9tdD/inbI8myTvjg32u+ztT46V3vG6rxR5jxBNpn1cxWMnrXr
+	4HimM9zjCV0xOCL5Gcj1tOKEBPo1m/3vDpI4kKaB5Z3LIeMRc5JcXGovJUDGyJM/jbPBmnXOkw2gT
+	XBT95bvjRuoU4x2XgdBsgik7IYVEvOwqw4BbuPdNvPGNIjAGYt9yiV7roEHHiZVJtPOLzp0Abirax
+	FcCPqqUoT4LX7pPlsdjU20MynSjFLDh+5IglSk7BNzelCyAw9l1WAhTSAv6MrmWYF/jm4TccRiXAJ
+	Ox2YgEig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRQs9-00000009Cfu-1r7K;
-	Fri, 05 Dec 2025 08:09:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vRQtR-00000009Cnm-3sMI;
+	Fri, 05 Dec 2025 08:10:21 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRQs7-00000009CfS-1jEI;
-	Fri, 05 Dec 2025 08:09:00 +0000
+	id 1vRQtN-00000009CnT-41lp;
+	Fri, 05 Dec 2025 08:10:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AA9C443E04;
-	Fri,  5 Dec 2025 08:08:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35C77C4CEF1;
-	Fri,  5 Dec 2025 08:08:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1DC9F6000A;
+	Fri,  5 Dec 2025 08:10:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 347B4C4CEF1;
+	Fri,  5 Dec 2025 08:10:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764922138;
-	bh=uDMIUxMDwlKVBIc+Lk+xFokJcFCeFvx0VMvgpa2qhZA=;
+	s=k20201202; t=1764922216;
+	bh=5/kdbpH28trQ2zUwCIqBZdSZ/gky+mI/MuZzjF3UA7U=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=kb76jhaJCz9XKCGu+Y0A+4FG3jgNG1xWmAK8JZwBpIDiEMLhjjHtW68EmRLJJp+KO
-	 NlqTAAfLV9evS0ROi5z/6/I0/Doe1Fou7c+twEtYKmFJb4jtOCdZlbdo2J+BFpAIFa
-	 nWrkEijAgWCCoDEUzp88Div6qvzMP64zknELsNiHed1XCgazXRhiE78eHH0nx7qoK7
-	 Ekr6K+bV3tzFQfwhL8+wN04eDfKWmAIPerTuDS2kFSKqT9JvA2H7NHJck2Onid1lu2
-	 d//m5Pee+2F6/0QtR/lPXdSCaRSaHDyG/KLPplqr7sX2RgwQfY/ge4xPHcJhb7mBks
-	 J6X5qnCpHMkPg==
-Message-ID: <ae5d1a37-9af9-46a2-9ca0-83c276248931@kernel.org>
-Date: Fri, 5 Dec 2025 09:08:54 +0100
+	b=P3SQaI3BStgrda8liumTPrjHNR/vBwSDHVxk+fPuvnid3P0hRx+3TV2TYp2fXFlSB
+	 swn+XQ01VBCw7DGErKRXEgisbF+qluLNTH7mupwCBfPBA5hv+F/gPvcxCvt9uq98AN
+	 /YaCmgrw0mP0PViyqak/avPcjoEw/8xZcqD4OOfpreOJ0pTfs3So3ruunN9nX/rH8M
+	 uwpM/PXa7JCzpLcyVLDnFDNv/Ps1wS7+N6025JIiGN5EE+XlRtzBGsDgGrJ+NNFJGx
+	 2O+5Wj25Cz+pLyz0d6VedRoyxc9UXFf6YUmapudWPkOKUTdFw2qmON1fkyQRBHFoPd
+	 RTTG8AkGdsPXg==
+Message-ID: <fc5c9829-96fa-4028-a642-0792699e92a5@kernel.org>
+Date: Fri, 5 Dec 2025 09:10:12 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH] arm64: broadcom: bcm2712: Rework rp1 overlay handling
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: "Rob Herring (Arm)" <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Phil Elwell
- <phil@raspberrypi.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- Andrea della Porta <andrea.porta@suse.com>
-References: <20251117211503.728354-2-robh@kernel.org>
+Subject: Re: [PATCH v1 1/2] arm64: dts: mediatek: mt7986: add dtbs with
+ applied overlays for bpi-r3
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Frank Wunderlich <linux@fw-web.de>, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Frank Wunderlich <frank-w@public-files.de>, Rob Herring <robh@kernel.org>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+ Rob Herring <robh+dt@kernel.org>
+References: <20251119175124.48947-1-linux@fw-web.de>
+ <20251119175124.48947-2-linux@fw-web.de>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,12 +102,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251117211503.728354-2-robh@kernel.org>
+In-Reply-To: <20251119175124.48947-2-linux@fw-web.de>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_000859_519232_CF6F0DBC 
-X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,37 +119,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 17/11/2025 22:15, Rob Herring (Arm) wrote:
-> It's a requirement that DT overlays be applied at build time in order to
-> validate them as overlays are not validated on their own.
+On 19/11/2025 18:51, Frank Wunderlich wrote:
+> From: Frank Wunderlich <frank-w@public-files.de>
 > 
-> Simply adding a build time target is possible, but it's also not desirable
-> to have targets which include the overlay contents and apply the same
-> overlay.
+> Build devicetree binaries for testing overlays and providing users
+> full dtb without using overlays.
 > 
-> Rework the targets such that there are 2 overlays: the existing RP1 overlay
-> and the board specific configuration of the RP1 (bcm2712-rpi-5-b.dtso).
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> Suggested-by: Rob Herring <robh+dt@kernel.org>
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 > ---
-> The missing applying of rp1.dtbo will soon be a warning[1].
+> resend of
+> https://patchwork.kernel.org/project/linux-mediatek/patch/20240608080530.9436-2-linux@fw-web.de/
+> due to discussions here:
+> https://patchwork.kernel.org/project/linux-mediatek/patch/20251117211306.725678-1-robh@kernel.org/
 > 
-> The comment in bcm2712-rpi-5-b.dts(o) needs updating or removing. The RP1
-> driver or userspace handling of the overlay probably needs updating to
-> handle the 2 overlays. IIRC, I think we can apply overlays to overlays
-> which may be useful here. If not, adding that to the tools should be
-> possible.
-> 
-> [1] https://lore.kernel.org/all/20251114222759.4181152-1-robh@kernel.org/
+> changes:
+> - updated sd-nand with sata-overlay
 > ---
->  arch/arm64/boot/dts/broadcom/Makefile                 | 10 ++++++++--
->  ...m2712-d-rpi-5-b.dts => bcm2712-d-rpi-5-b-base.dts} |  2 +-
->  .../{bcm2712-rpi-5-b.dts => bcm2712-rpi-5-b.dtso}     | 11 +++++------
+>  arch/arm64/boot/dts/mediatek/Makefile | 21 +++++++++++++++++++++
+>  1 file changed, 21 insertions(+)
 
 
-So now Linus' tree has warnings. Can this be applied by anyone around
-Broadcom and sent as fixes?
+This looks like still not being applied and now it is a warning in
+Linus' tree.
 
+Can this be applied and sent as fixes?
 
 Best regards,
 Krzysztof
