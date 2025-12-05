@@ -4,50 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CEE5D374AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:01:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCA3CD374AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:01:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qLOxbNNlmSgHSP2J408N57Sx5RZBWQutoPpd4LRFU/o=; b=khunrLgQnk5cuhFTihNKCxNRfs
-	RcUv0mS4rpdM6+Lx1GUS1y0AmwZO5UzOvBdmOOZrZIeKqUk3VXq6l9mdlruUd/DG40EU6EA2JtlCv
-	7PJdNRKGbjlsiCIBn24rgunDZgvv3Y6I1zbrDABU8q4XbCDQM9LTSYueeQ/uHYGBaPe02J0IQelHg
-	/DYVBKapDMP97c6nWmn07NKY+ygNCakAYiQWoplfa+vL0t+09kX40EhSjkOe4yRj7xscR+EtZqj9Z
-	0PV05CabFlA3tbtbtTs9anjnfsxmlWiDr46FDnHkStqzzveYldwAiNN+SNkvOGIbkPbinHIqoQWnF
-	d+I6mFuQ==;
+	bh=x7T/jWkXTRUSZSK9tuzWBYA4vIzcJnODWvXAs+7NvT0=; b=dZ18zHzD4Z/+qSO1k6lfY3VXiL
+	jzVf7uBucUvDZSz5RfzUF4VZTIarf3k/HjBsLGUWHI5L8X6WbZEmtQRddd09y+LEiHDMMkt/UG/S+
+	G2OmIPV1MaPUqiHfN2nPoazWgkEAsqtOa25oj7IbHwrXOOad87olKjAn1+3k5JuF9NWuUvmQrWzC4
+	qFOJlDPlmXSkAjMaGDaIpyBsXFuDdeuLWHqyrKnGYDVjL4W/NvAPaCfrjb0aM/zEh3R5aJv+U+dZw
+	/H0SaVvVxwyeRd4OwDPN15p3ZCZQIfsCSwyx0Vpne21YqQtMF84Opez/2bjw4ESNy1Tr40lzaekkb
+	YgHX2bgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdro-0000000A6qS-3DAa;
-	Fri, 05 Dec 2025 22:01:32 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdrl-0000000A6l9-0zSt
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 05 Dec 2025 22:01:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=qLOxbNNlmSgHSP2J408N57Sx5RZBWQutoPpd4LRFU/o=; b=dinQ7D5GsiogZiSsLqDKur8huD
-	aZdZUf+0y82WmAsu0mJEPMa8fftEbtYGyD9kf3QXSMuHffNgEtReJ35rQx4+q65P5ILfXLDElHOfR
-	bA8TBqv48dIeUctmMuRm3UTb6Q9bkqzkSurQXLvfmKyrk80RYkofqSSkHsPp+/nlSpzxCvX41muIC
-	/Fz72ZUrSv0TiRFX0H4ypxgTNECZn6z7omslmN3waLRwLOfZnxLSjSrzooZPgzTfTT5xagupmjeFf
-	9heoUu4m2cCUsWVwxXn1wZCQjmT/seJYi9MxG0aLY0Bp9RCrq/ERwWxjADUDvxDlC54Vr7aeGh/b9
-	ZQrMs0MQ==;
+	id 1vRdru-0000000A6yQ-0fMS;
+	Fri, 05 Dec 2025 22:01:38 +0000
 Received: from foss.arm.com ([217.140.110.172])
-	by casper.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdrg-00000006IoD-0gIp
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vRdrq-0000000A6to-40y7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 22:01:27 +0000
+	Fri, 05 Dec 2025 22:01:36 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0104B1AC1;
-	Fri,  5 Dec 2025 14:01:15 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 11AA31AED;
+	Fri,  5 Dec 2025 14:01:27 -0800 (PST)
 Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 810FE3F740;
-	Fri,  5 Dec 2025 14:01:18 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 925E53F740;
+	Fri,  5 Dec 2025 14:01:30 -0800 (PST)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
@@ -75,17 +60,17 @@ Cc: James Morse <james.morse@arm.com>,
 	rohit.mathew@arm.com,
 	reinette.chatre@intel.com,
 	Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-Subject: [RFC PATCH 28/38] arm64: mpam: Select ARCH_HAS_CPU_RESCTRL
-Date: Fri,  5 Dec 2025 21:58:51 +0000
-Message-Id: <20251205215901.17772-29-james.morse@arm.com>
+Subject: [RFC PATCH 31/38] arm_mpam: resctrl: Update the rmid reallocation limit
+Date: Fri,  5 Dec 2025 21:58:54 +0000
+Message-Id: <20251205215901.17772-32-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20251205215901.17772-1-james.morse@arm.com>
 References: <20251205215901.17772-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_220124_515839_963E3245 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20251205_140135_109167_2473FDF0 
+X-CRM114-Status: GOOD (  19.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,81 +85,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enough MPAM support is present to enable ARCH_HAS_CPU_RESCTRL.
-Let it rip^Wlink!
+resctrl's limbo code needs to be told when the data left in a cache is
+small enough for the partid+pmg value to be re-allocated.
 
-ARCH_HAS_CPU_RESCTRL indicates resctrl can be enabled. It is enabled
-by the arch code sipmly because it has 'arch' in its name.
+x86 uses the cache size divided by the number of rmid users the cache
+may have. Do the same, but for the smallest cache, and with the
+number of partid-and-pmg users.
 
-This removes ARM_CPU_RESCTRL as a mimic of X86_CPU_RESCTRL.
-While here, move the ACPI dependency to the driver's Kconfig file.
+Querying the cache size can't happen until after cacheinfo_sysfs_init()
+has run, so mpam_resctrl_setup() must wait until then.
 
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
- arch/arm64/Kconfig               | 4 ++--
- arch/arm64/include/asm/resctrl.h | 2 ++
- drivers/resctrl/Kconfig          | 9 ++++++++-
- drivers/resctrl/Makefile         | 2 +-
- 4 files changed, 13 insertions(+), 4 deletions(-)
- create mode 100644 arch/arm64/include/asm/resctrl.h
+ drivers/resctrl/mpam_resctrl.c | 54 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 54 insertions(+)
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 558baa9e7c08..e67885ac7717 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -2025,8 +2025,8 @@ config ARM64_TLB_RANGE
+diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+index 506063bd3348..ccdf8db742c9 100644
+--- a/drivers/resctrl/mpam_resctrl.c
++++ b/drivers/resctrl/mpam_resctrl.c
+@@ -16,6 +16,7 @@
+ #include <linux/resctrl.h>
+ #include <linux/slab.h>
+ #include <linux/types.h>
++#include <linux/wait.h>
  
- config ARM64_MPAM
- 	bool "Enable support for MPAM"
--	select ARM64_MPAM_DRIVER if EXPERT	# does nothing yet
--	select ACPI_MPAM if ACPI
-+	select ARM64_MPAM_DRIVER
-+	select ARCH_HAS_CPU_RESCTRL
- 	help
- 	  Memory System Resource Partitioning and Monitoring (MPAM) is an
- 	  optional extension to the Arm architecture that allows each
-diff --git a/arch/arm64/include/asm/resctrl.h b/arch/arm64/include/asm/resctrl.h
-new file mode 100644
-index 000000000000..b506e95cf6e3
---- /dev/null
-+++ b/arch/arm64/include/asm/resctrl.h
-@@ -0,0 +1,2 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#include <linux/arm_mpam.h>
-diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
-index c808e0470394..672abea3b03c 100644
---- a/drivers/resctrl/Kconfig
-+++ b/drivers/resctrl/Kconfig
-@@ -1,6 +1,7 @@
- menuconfig ARM64_MPAM_DRIVER
- 	bool "MPAM driver"
--	depends on ARM64 && ARM64_MPAM && EXPERT
-+	depends on ARM64 && ARM64_MPAM
-+	select ACPI_MPAM if ACPI
- 	help
- 	  Memory System Resource Partitioning and Monitoring (MPAM) driver for
- 	  System IP, e.g. caches and memory controllers.
-@@ -22,3 +23,9 @@ config MPAM_KUNIT_TEST
- 	  If unsure, say N.
+ #include <asm/mpam.h>
  
- endif
+@@ -58,6 +59,13 @@ static bool cdp_enabled;
+  */
+ static bool resctrl_enabled;
+ 
++/*
++ * mpam_resctrl_pick_caches() needs to know the size of the caches. cacheinfo
++ * populates this from a device_initcall(). mpam_resctrl_setup() must wait.
++ */
++static bool cacheinfo_ready;
++static DECLARE_WAIT_QUEUE_HEAD(wait_cacheinfo_ready);
 +
-+config ARM64_MPAM_RESCTRL_FS
-+	bool
-+	default y if ARM64_MPAM_DRIVER && RESCTRL_FS
-+	select RESCTRL_RMID_DEPENDS_ON_CLOSID
-+	select RESCTRL_ASSIGN_FIXED
-diff --git a/drivers/resctrl/Makefile b/drivers/resctrl/Makefile
-index 40beaf999582..4f6d0e81f9b8 100644
---- a/drivers/resctrl/Makefile
-+++ b/drivers/resctrl/Makefile
-@@ -1,5 +1,5 @@
- obj-$(CONFIG_ARM64_MPAM_DRIVER)			+= mpam.o
- mpam-y						+= mpam_devices.o
--mpam-$(CONFIG_ARM_CPU_RESCTRL)			+= mpam_resctrl.o
-+mpam-$(CONFIG_ARM64_MPAM_RESCTRL_FS)		+= mpam_resctrl.o
+ /*
+  * L3 local/total may come from different classes - what is the number of MBWU
+  * 'on L3'?
+@@ -584,6 +592,38 @@ void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_mon_domain *d,
+ 	reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
+ }
  
- ccflags-$(CONFIG_ARM64_MPAM_DRIVER_DEBUG)	+= -DDEBUG
++/*
++ * The rmid realloc threshold should be for the smallest cache exposed to
++ * resctrl.
++ */
++static int update_rmid_limits(struct mpam_class *class)
++{
++	u32 num_unique_pmg = resctrl_arch_system_num_rmid_idx();
++	struct mpam_props *cprops = &class->props;
++	struct cacheinfo *ci;
++
++	lockdep_assert_cpus_held();
++
++	/* Assume cache levels are the same size for all CPUs... */
++	ci = get_cpu_cacheinfo_level(smp_processor_id(), class->level);
++	if (!ci || ci->size == 0) {
++		pr_debug("Could not read cache size for class %u\n",
++			 class->level);
++		return -EINVAL;
++	}
++
++	if (!mpam_has_feature(mpam_feat_msmon_csu, cprops))
++		return 0;
++
++	if (!resctrl_rmid_realloc_limit ||
++	    ci->size < resctrl_rmid_realloc_limit) {
++		resctrl_rmid_realloc_limit = ci->size;
++		resctrl_rmid_realloc_threshold = ci->size / num_unique_pmg;
++	}
++
++	return 0;
++}
++
+ static bool cache_has_usable_cpor(struct mpam_class *class)
+ {
+ 	struct mpam_props *cprops = &class->props;
+@@ -1025,6 +1065,9 @@ static void mpam_resctrl_pick_counters(void)
+ 			/* CSU counters only make sense on a cache. */
+ 			switch (class->type) {
+ 			case MPAM_CLASS_CACHE:
++				if (update_rmid_limits(class))
++					continue;
++
+ 				counter_update_class(QOS_L3_OCCUP_EVENT_ID, class);
+ 				return;
+ 			default:
+@@ -1731,6 +1774,8 @@ int mpam_resctrl_setup(void)
+ 	struct mpam_resctrl_res *res;
+ 	struct mpam_resctrl_mon *mon;
+ 
++	wait_event(wait_cacheinfo_ready, cacheinfo_ready);
++
+ 	cpus_read_lock();
+ 	for (i = 0; i < RDT_NUM_RESOURCES; i++) {
+ 		res = &mpam_resctrl_controls[i];
+@@ -1854,6 +1899,15 @@ void mpam_resctrl_teardown_class(struct mpam_class *class)
+ 	}
+ }
+ 
++static int __init __cacheinfo_ready(void)
++{
++	cacheinfo_ready = true;
++	wake_up(&wait_cacheinfo_ready);
++
++	return 0;
++}
++device_initcall_sync(__cacheinfo_ready);
++
+ #ifdef CONFIG_MPAM_KUNIT_TEST
+ #include "test_mpam_resctrl.c"
+ #endif
 -- 
 2.39.5
 
