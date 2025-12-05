@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAA5CD374A6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:02:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93758D374AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:10:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J4s1VhrWYXm+LWHEaeqYiZiRmXodr76yOzAMYrz9j/w=; b=OO8k8DM8DKMuG10+JD0KyQuI3I
-	EjsCqV0cHh0V0libLVr6HObdC4KaMMOxgHbGlyDjGdWrBdNVQkAubxzwhJgRuvCwbO4Esy2vfKclx
-	dsM8TYHXq2lxcD5Qfq5iGtYE7DoFBMiL9R5oE5rbkKn2PXf0VkWmWixMu33FFQT5H2r8+ZV6kjwxc
-	NSIjCcYkmJbDON75/dm34ax3J6AFBrzEhQTX4lrDspGieRBjp8pv9TJyMcExH2/5lVPp1w472P/ng
-	JdMV/+Jkdlc3JodCaE4sLZjQxl3irhzyOWRK04+k92h7cftxbjvvHM6K3VhzdTOm9GMNsXtY5LgCE
-	kCTX65Ag==;
+	bh=vWQIwEWSlt4xQRnu8tlUiFCJpBWybukUfgmqb3lB26Q=; b=hoN5eq98morcqESbVZ4cV0dAPB
+	Ng4WT0oEGP/UTyvxfLk9CssR+w1Xhym0tgntWF0lJ+jLN9ABCt49re/QyUiAVbuaIwdMGof2CaOhJ
+	LzVHX0Z/ZCjg5bJA9B8DUHCcOz+JV57xSlumsJXgK6EMxuZpvq67P02cd/cNd+xIlAtRl4/IxWjjz
+	rzJe70MYEdMv5XYJX/j5qV6QW1vY2OvEKkdBMro2gBWjWXVOlLfRkOhrwohc0F1Ie6D4hOO52Av9K
+	JjSR6b3/K5s4oBIFwC8ZdPX807QIhx185KSCY1YNJ12zLCxnXZgrtD3qe4JEr84RL6w/zNyeoKqdo
+	5y9Sr6jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdsn-0000000A7oZ-1MkK;
-	Fri, 05 Dec 2025 22:02:33 +0000
+	id 1vRe0R-0000000A8QS-2QkI;
+	Fri, 05 Dec 2025 22:10:27 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdsm-0000000A7nV-1Ao2
+	id 1vRe0Q-0000000A8Ps-1GLS
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 05 Dec 2025 22:02:32 +0000
+	Fri, 05 Dec 2025 22:10:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=J4s1VhrWYXm+LWHEaeqYiZiRmXodr76yOzAMYrz9j/w=; b=Kok8EHA3lNpw41ZKvLDqslsGwc
-	CjSbmKslriqcIitFPYKtyCrhYnDVYG9BYDVsB+lRR2Nc022kIdGKJy0EonubMPeCKjXWPR/ab+S/q
-	I/a/7f/YnevgZcp9e5TdNQyP1HvhK2fCT+HjqymhEYNgXVfZ3h0Vb262F78U83GHfy8Ht2Meco8lY
-	oy/k9vosTmt32XQ1X0Jte4gA/EH/C4L2EohnZ6Zxxh39B5hghrHVHJa1AS2CcKoED42O/j2gR4MAf
-	Uh8v7/7W5h/+5uFZq97O0UDRidVJ0IXRsbgsaLtL+7wZFSJH/n4ZbgL7Fx4UPR0RDRqoiQs6vhGUx
-	AvjPhG0A==;
+	bh=vWQIwEWSlt4xQRnu8tlUiFCJpBWybukUfgmqb3lB26Q=; b=oPGBRq/YtdNd1E2Od8dF5unLC9
+	cUJsFiMi4699DFd52skBI6G1Pidv14gqDBixHa9d/EsNOUDFIVGaGf25un+7fcowtytldqx+muGJk
+	u4651JEDDJuN5tPDuXCDeDu1McZyP82Cj/cbWI7BPVgPpkhOtgHMJ4sCT3qtpR8SIbU6qYQJNnDJv
+	6NdsznjULuhgCSfkOT/HKNNy9H812WO5WRn8yp9Xe3PgCQuJGFtneLdnmOG5uKRzuEuvsGZQmFWW+
+	a122lkP/6rwokfywhh/DS9BMcEoJQnR6LL2MAVdf3joMGZ22MgydSwDokDZ8tUNEtBJvYonHv5oiY
+	8FnRoIVQ==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRd0l-00000006t11-3rOk
+	id 1vRd8p-00000006tnQ-25UX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 21:06:49 +0000
+	Fri, 05 Dec 2025 21:15:05 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6B26D1C0A;
-	Fri,  5 Dec 2025 14:01:51 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C58E91A32;
+	Fri,  5 Dec 2025 14:01:02 -0800 (PST)
 Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F040B3F740;
-	Fri,  5 Dec 2025 14:01:54 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 60B863F740;
+	Fri,  5 Dec 2025 14:01:06 -0800 (PST)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
@@ -75,17 +75,17 @@ Cc: James Morse <james.morse@arm.com>,
 	rohit.mathew@arm.com,
 	reinette.chatre@intel.com,
 	Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-Subject: [RFC PATCH 37/38] arm_mpam: Add workaround for T241-MPAM-6
-Date: Fri,  5 Dec 2025 21:59:00 +0000
-Message-Id: <20251205215901.17772-38-james.morse@arm.com>
+Subject: [RFC PATCH 25/38] arm_mpam: resctrl: Add resctrl_arch_rmid_read() and resctrl_arch_reset_rmid()
+Date: Fri,  5 Dec 2025 21:58:48 +0000
+Message-Id: <20251205215901.17772-26-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20251205215901.17772-1-james.morse@arm.com>
 References: <20251205215901.17772-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_210646_621100_4612E387 
-X-CRM114-Status: GOOD (  19.19  )
+X-CRM114-CacheID: sfid-20251205_211504_210637_D17B5968 
+X-CRM114-Status: GOOD (  15.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,115 +100,202 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shanker Donthineni <sdonthineni@nvidia.com>
+resctrl uses resctrl_arch_rmid_read() to read counters. CDP emulation
+means the counter may need reading in three different ways. The same
+goes for reset.
 
-The registers MSMON_MBWU_L and MSMON_MBWU return the number of
-requests rather than the number of bytes transferred.
+The helpers behind the resctrl_arch_ functions will be re-used for the
+ABMC equivalent functions.
 
-Bandwidth resource monitoring is performed at the last level cache,
-where each request arrive in 64Byte granularity. The current
-implementation returns the number of transactions received at the
-last level cache but does not provide the value in bytes. Scaling
-by 64 gives an accurate byte count to match the MPAM specification
-for the MSMON_MBWU and MSMON_MBWU_L registers. This patch fixes
-the issue by reporting the actual number of bytes instead of the
-number of transactions from __ris_msmon_read().
+Add the rounding helper for checking monitor values while we're here.
 
-Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
- Documentation/arch/arm64/silicon-errata.rst |  2 ++
- drivers/resctrl/mpam_devices.c              | 24 +++++++++++++++++++--
- drivers/resctrl/mpam_internal.h             |  1 +
- 3 files changed, 25 insertions(+), 2 deletions(-)
+ drivers/resctrl/mpam_resctrl.c | 154 +++++++++++++++++++++++++++++++++
+ include/linux/arm_mpam.h       |   5 ++
+ 2 files changed, 159 insertions(+)
 
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index b18bc704d4a1..e810b2a8f40e 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -250,6 +250,8 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | NVIDIA         | T241 MPAM       | T241-MPAM-4     | N/A                         |
- +----------------+-----------------+-----------------+-----------------------------+
-+| NVIDIA         | T241 MPAM       | T241-MPAM-6     | N/A                         |
-++----------------+-----------------+-----------------+-----------------------------+
- +----------------+-----------------+-----------------+-----------------------------+
- | Freescale/NXP  | LS2080A/LS1043A | A-008585        | FSL_ERRATUM_A008585         |
- +----------------+-----------------+-----------------+-----------------------------+
-diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index 5ba0aa703807..c17a6fdea982 100644
---- a/drivers/resctrl/mpam_devices.c
-+++ b/drivers/resctrl/mpam_devices.c
-@@ -684,6 +684,12 @@ static const struct mpam_quirk mpam_quirks[] = {
- 	.iidr_mask  = MPAM_IIDR_MATCH_ONE,
- 	.workaround = T241_FORCE_MBW_MIN_TO_ONE,
- 	},
-+	{
-+	/* NVIDIA t241 erratum T241-MPAM-6 */
-+	.iidr       = MPAM_IIDR_NVIDIA_T421,
-+	.iidr_mask  = MPAM_IIDR_MATCH_ONE,
-+	.workaround = T241_MBW_COUNTER_SCALE_64,
-+	},
- 	{ NULL }, /* Sentinel */
- };
- 
-@@ -1140,7 +1146,7 @@ static void write_msmon_ctl_flt_vals(struct mon_read *m, u32 ctl_val,
- 	}
+diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
+index a2b238d47117..dc8a819d0976 100644
+--- a/drivers/resctrl/mpam_resctrl.c
++++ b/drivers/resctrl/mpam_resctrl.c
+@@ -355,6 +355,160 @@ void resctrl_arch_mon_ctx_free(struct rdt_resource *r,
+ 	resctrl_arch_mon_ctx_free_no_wait(evtid, mon_idx);
  }
  
--static u64 mpam_msmon_overflow_val(enum mpam_device_features type)
-+static u64 __mpam_msmon_overflow_val(enum mpam_device_features type)
- {
- 	/* TODO: implement scaling counters */
- 	switch (type) {
-@@ -1155,6 +1161,17 @@ static u64 mpam_msmon_overflow_val(enum mpam_device_features type)
- 	}
- }
- 
-+static u64 mpam_msmon_overflow_val(enum mpam_device_features type,
-+				   struct mpam_msc *msc)
++static int
++__read_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
++	   enum mpam_device_features mon_type,
++	   int mon_idx,
++	   enum resctrl_conf_type cdp_type, u32 closid, u32 rmid, u64 *val)
 +{
-+	u64 overflow_val = __mpam_msmon_overflow_val(type);
++	struct mon_cfg cfg = { };
 +
-+	if (mpam_has_quirk(T241_MBW_COUNTER_SCALE_64, msc))
-+		overflow_val *= 64;
++	if (!mpam_is_enabled())
++		return -EINVAL;
 +
-+	return overflow_val;
++	/* Shift closid to account for CDP */
++	closid = resctrl_get_config_index(closid, cdp_type);
++
++	if (mon_idx == USE_PRE_ALLOCATED) {
++		int mbwu_idx = resctrl_arch_rmid_idx_encode(closid, rmid);
++		mon_idx = mon->mbwu_idx_to_mon[mbwu_idx];
++		if (mon_idx == -1) {
++			if (mpam_resctrl_abmc_enabled()) {
++				/* Report Unassigned */
++				return -ENOENT;
++			}
++			/* Report Unavailable */
++			return -EINVAL;
++		}
++	}
++
++	cfg.mon = mon_idx;
++	cfg.match_pmg = true;
++	cfg.partid = closid;
++	cfg.pmg = rmid;
++
++	if (irqs_disabled()) {
++		/* Check if we can access this domain without an IPI */
++		return -EIO;
++	}
++
++	return mpam_msmon_read(mon_comp, &cfg, mon_type, val);
 +}
 +
- static void __ris_msmon_read(void *arg)
- {
- 	u64 now;
-@@ -1245,13 +1262,16 @@ static void __ris_msmon_read(void *arg)
- 			now = FIELD_GET(MSMON___VALUE, now);
- 		}
- 
-+		if (mpam_has_quirk(T241_MBW_COUNTER_SCALE_64, msc))
-+			now *= 64;
++static int read_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
++			     enum mpam_device_features mon_type,
++			     int mon_idx, u32 closid, u32 rmid, u64 *val)
++{
++	if (cdp_enabled) {
++		u64 code_val = 0, data_val = 0;
++		int err;
 +
- 		if (nrdy)
- 			break;
++		err = __read_mon(mon, mon_comp, mon_type, mon_idx,
++				 CDP_CODE, closid, rmid, &code_val);
++		if (err)
++			return err;
++
++		err = __read_mon(mon, mon_comp, mon_type, mon_idx,
++				 CDP_DATA, closid, rmid, &data_val);
++		if (!err)
++			*val += code_val + data_val;
++		return err;
++	}
++
++	return __read_mon(mon, mon_comp, mon_type, mon_idx,
++			  CDP_NONE, closid, rmid, val);
++}
++
++/* MBWU when not in ABMC mode, and CSU counters. */
++int resctrl_arch_rmid_read(struct rdt_resource	*r, struct rdt_mon_domain *d,
++			   u32 closid, u32 rmid, enum resctrl_event_id eventid,
++			   u64 *val, void *arch_mon_ctx)
++{
++	struct mpam_resctrl_dom *l3_dom;
++	struct mpam_component *mon_comp;
++	u32 mon_idx = *(u32 *)arch_mon_ctx;
++	enum mpam_device_features mon_type;
++	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
++
++	resctrl_arch_rmid_read_context_check();
++
++	if (eventid >= QOS_NUM_EVENTS || !mon->class)
++		return -EINVAL;
++
++	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
++	mon_comp = l3_dom->mon_comp[eventid];
++
++	switch (eventid) {
++	case QOS_L3_OCCUP_EVENT_ID:
++		mon_type = mpam_feat_msmon_csu;
++		break;
++	case QOS_L3_MBM_LOCAL_EVENT_ID:
++	case QOS_L3_MBM_TOTAL_EVENT_ID:
++		mon_type = mpam_feat_msmon_mbwu;
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	return read_mon_cdp_safe(mon, mon_comp, mon_type, mon_idx,
++				 closid, rmid, val);
++}
++
++static void __reset_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
++			int mon_idx,
++			enum resctrl_conf_type cdp_type, u32 closid, u32 rmid)
++{
++	struct mon_cfg cfg = { };
++
++	if (!mpam_is_enabled())
++		return;
++
++	/* Shift closid to account for CDP */
++	closid = resctrl_get_config_index(closid, cdp_type);
++
++	if (mon_idx == USE_PRE_ALLOCATED) {
++		int mbwu_idx = resctrl_arch_rmid_idx_encode(closid, rmid);
++		mon_idx = mon->mbwu_idx_to_mon[mbwu_idx];
++	}
++
++	if (mon_idx == -1)
++		return;
++	cfg.mon = mon_idx;
++	mpam_msmon_reset_mbwu(mon_comp, &cfg);
++}
++
++static void reset_mon_cdp_safe(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
++			       int mon_idx, u32 closid, u32 rmid)
++{
++	if (cdp_enabled) {
++		__reset_mon(mon, mon_comp, mon_idx, CDP_CODE, closid, rmid);
++		__reset_mon(mon, mon_comp, mon_idx, CDP_DATA, closid, rmid);
++	} else {
++		__reset_mon(mon, mon_comp, mon_idx, CDP_NONE, closid, rmid);
++	}
++}
++
++/* Called via IPI. Call with read_cpus_lock() held. */
++void resctrl_arch_reset_rmid(struct rdt_resource *r, struct rdt_mon_domain *d,
++			     u32 closid, u32 rmid, enum resctrl_event_id eventid)
++{
++	struct mpam_resctrl_dom *l3_dom;
++	struct mpam_component *mon_comp;
++	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
++
++	if (!mpam_is_enabled())
++		return;
++
++	/* Only MBWU counters are relevant, and for supported event types. */
++	if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
++		return;
++
++	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
++	mon_comp = l3_dom->mon_comp[eventid];
++
++	reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
++}
++
+ static bool cache_has_usable_cpor(struct mpam_class *class)
+ {
+ 	struct mpam_props *cprops = &class->props;
+diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
+index e1461e32af75..86d5e326d2bd 100644
+--- a/include/linux/arm_mpam.h
++++ b/include/linux/arm_mpam.h
+@@ -67,6 +67,11 @@ struct rdt_resource;
+ void *resctrl_arch_mon_ctx_alloc(struct rdt_resource *r, enum resctrl_event_id evtid);
+ void resctrl_arch_mon_ctx_free(struct rdt_resource *r, enum resctrl_event_id evtid, void *ctx);
  
- 		mbwu_state = &ris->mbwu_state[ctx->mon];
- 
- 		if (overflow)
--			mbwu_state->correction += mpam_msmon_overflow_val(m->type);
-+			mbwu_state->correction += mpam_msmon_overflow_val(m->type, msc);
- 
- 		/*
- 		 * Include bandwidth consumed before the last hardware reset and
-diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index 01882f0acee2..108a8373901c 100644
---- a/drivers/resctrl/mpam_internal.h
-+++ b/drivers/resctrl/mpam_internal.h
-@@ -224,6 +224,7 @@ struct mpam_props {
- enum mpam_device_quirks {
- 	T241_SCRUB_SHADOW_REGS,
- 	T241_FORCE_MBW_MIN_TO_ONE,
-+	T241_MBW_COUNTER_SCALE_64,
- 	MPAM_QUIRK_LAST,
- };
- 
++static inline unsigned int resctrl_arch_round_mon_val(unsigned int val)
++{
++	return val;
++}
++
+ /**
+  * mpam_register_requestor() - Register a requestor with the MPAM driver
+  * @partid_max:		The maximum PARTID value the requestor can generate.
 -- 
 2.39.5
 
