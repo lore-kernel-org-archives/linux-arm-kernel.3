@@ -4,175 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5B93D33980
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 15:13:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8871D33980
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 15:13:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zRq80T7+swUHBqMQ7sQd/Ybo5IDtiHbn/8dMMvocLoM=; b=qH28RQ/qvbmsAjAPYzIBrCYD5O
-	6UqCRY/tIDpyBjqwZNjQ5d6sRu4y6EzmGhzksxp+4w+JUUBR5bhnt4OyXrc9C8Td/xVXf+9EEArKO
-	x45uLMYnQQFHZO1kwi2D3ygldEn1BM/SxSbzUpZSNhc28nzq3lqxyVSGpizEhb9X0H3JcHhNyFw6q
-	gWlMZwM+sit7Q5hAoAslk5nKswXzY6c76sSPPLNJecH0yHSlddlrsGan/C6abo7RqrFm8z6g6yqhi
-	jTlE5BLljW1JaYQ8hFk+Ex/mA0u+CBAJEwlpXdWKuvvcIuh4pdLAhUm2n7rvgS3/kHxH4lyRV9onV
-	NQA3DIeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9Jl0m8Q2V5g3LQDOEvjkPAq/fefrmzjS3LIO2hCIOK0=; b=yLmsajKlgXRmJCoC9g9Ztz6sxg
+	b4360bH4hIaVkyWLYVBBfLN1TkXEsyDX1tziZkVnM8wcsyooGioeqKaKXtWAkTTcplhCuY9dk5JYR
+	aB8Xe5p2VVKPTTMSi/iJ1BLo5okllZWexCH2/sWIQuKZtDnwu3KB7ldhq/7cnmF1VaKoMRx+IRELD
+	hja2zs5cwJiT94JWeDVUYYeXg9eaDj/PMcQXQ/8f7Royj93KoG2RHlon4hk8UDwt3cp4jSkNw8nNA
+	2RvGhvyxQVphrCNe0VrIQOFNFZPVrOIxGY00fQeIo5sFIAHZMT9ghr2eva/w7P6E0xACGE5PfwNyu
+	x3apteWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRXUO-00000009dgi-1fxU;
-	Fri, 05 Dec 2025 15:12:56 +0000
-Received: from mail-northeuropeazon11020136.outbound.protection.outlook.com ([52.101.84.136] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1vRXV6-00000009doO-1nLs;
+	Fri, 05 Dec 2025 15:13:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRXUL-00000009dfo-2wGe
+	id 1vRXV3-00000009dnm-2HSs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 15:12:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ClW/unFJW8sAEJcus1CBoc09w6VpOaNV8Lmv/vA/S3HhkuHgUTU1dFJtR3ESmfW6kKF96WqWHQfqaBPRMwAcVcwU2sw1Ur6pBGnelDPBL69HhnC6lSUAcEvGL9xdEWKlUXkqk2dQXnbmRMZrMiW5QoqLruKpMI/zjtXGFRvgN8Vi4FIP75W/JfLf8xW/RovijfKPW7Bm9YRzMxpr6kfvPa/NNm0P3sYmLLvrY6SrPLknC0aXNx7L49b5O/JW0fRkR4sLuLDYvVhTYhNlAGA0BVgoZx6DO5VtNp438gkOkaYzmHRWKWpZAdMOCQdkhw3g6mor5tDnIsbCktGjAK/Pcw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zRq80T7+swUHBqMQ7sQd/Ybo5IDtiHbn/8dMMvocLoM=;
- b=LU5xMiPoPjEDDabXF1IB6heVcyq93vJkSG6oqKDof7dkupuOKApJHqg1FzIL0mo+a2MiJrBFStRsADtNeeOTIqh+OWVmIAKz+lbvgXAt65unVukKByLx1QjM9/ZWfD0y4QjEIz7pGl6DF2UG8f3WjiONpLC6PpLvGyJKCujkgNGwcY7g5Udp3y1g/BC/3zBqyJvzpzUFDDgPt5++xh/Z4QFvGDczeKRXzfDZlE+poGRMCbIaZOkTHMbRwBfJmOqX/DtZHDYuQv/oS/DdPl1AbJXOenvKdBYsqdrE4XduIDB79T2OByeOvnOwZW64WVSnnVe81kWoe2C+Pq37QmS3YQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=gocontroll.com; dmarc=pass action=none
- header.from=gocontroll.com; dkim=pass header.d=gocontroll.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gocontrollcom.onmicrosoft.com; s=selector1-gocontrollcom-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zRq80T7+swUHBqMQ7sQd/Ybo5IDtiHbn/8dMMvocLoM=;
- b=Y6bMTCe8yTRg1IAWV6YGMIx2g7tzDJfoI9Yu+0KSYKsUEZWPb1wKPNnl2b6L4Xf7QQ8Z8eZ+bWPWYesx4DVnz3W24R554qolxIqDTT2SIWTHX85xNXAxcmTSAdC5n7UsWLH+AjIXomPBhjuiR4oxAUH9yIfOmwUVdgAwran4JSASPUdZVtM47RdeF6Foo1SflITTvjc1ZCR1rjVb19SIvPR8N4hJlhGgt5lkOoWZ+66Y+wJNX7Mi1oBUwI+8P+Rh1AeT/1cO1Dd0b1h/+6R0cQtiVh5J/ikPrNnWZS63I3WBAEKE5lvvrVtZ9YD4eAo5sy8u9aveyAkRqZwpk6Ch8A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=gocontroll.com;
-Received: from AMBPR04MB11741.eurprd04.prod.outlook.com (2603:10a6:20b:6f3::7)
- by PA2PR04MB10374.eurprd04.prod.outlook.com (2603:10a6:102:41e::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.12; Fri, 5 Dec
- 2025 15:12:47 +0000
-Received: from AMBPR04MB11741.eurprd04.prod.outlook.com
- ([fe80::c39b:dab3:ae88:c5ba]) by AMBPR04MB11741.eurprd04.prod.outlook.com
- ([fe80::c39b:dab3:ae88:c5ba%4]) with mapi id 15.20.9388.011; Fri, 5 Dec 2025
- 15:12:47 +0000
-Message-ID: <a290ab5f-c6e7-49df-98f4-6e809c58c625@gocontroll.com>
-Date: Fri, 5 Dec 2025 16:12:42 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/4] dt-bindings: backlight: Add max25014 support
-To: Rob Herring <robh@kernel.org>
-Cc: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>,
- Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, dri-devel@lists.freedesktop.org,
- linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-References: <20251201-max25014-v6-0-88e3ac8112ff@gocontroll.com>
- <20251201-max25014-v6-1-88e3ac8112ff@gocontroll.com>
- <20251205150751.GA124954-robh@kernel.org>
-Content-Language: en-US
-From: Maud Spierings <maudspierings@gocontroll.com>
-In-Reply-To: <20251205150751.GA124954-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: AS4P192CA0027.EURP192.PROD.OUTLOOK.COM
- (2603:10a6:20b:5e1::17) To AMBPR04MB11741.eurprd04.prod.outlook.com
- (2603:10a6:20b:6f3::7)
+	Fri, 05 Dec 2025 15:13:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5B0A843EC2
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  5 Dec 2025 15:13:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D2F8C116D0
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  5 Dec 2025 15:13:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764947616;
+	bh=gToDeN6Xc25jVYcui6qGpeppUtC7Whn5YW0S6Qumrkk=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=pwywkSkOrM9W497oFGAp6bFMeHPHsAjetaQ83LHhMMByeP58M7PlIeS9uS/+7tSVH
+	 kbrv4yuLV4F4i/vb3BpgP+xlgLcde2S2TWOz+WK6P6aB7DgSQG0Sk5irxZQKNehrWa
+	 a0DKNRR6xFd55jAEh6d0ME2x9mPMrnIFeRPyqFYXb1Q53x97tscyjnATwpuXOxlSQn
+	 Oug5c5Si0KpXD1n2c07GZukXOv0lpK9cOSfFGY/siQ5v7WUZRDkD+Oy6/ZkAi/2tFl
+	 ngsOZZwhYcnGVmkdqem/UUJiqhxVb6mmL3K6IpAlYsdtOG7a4Rznje4JGIAK8J+GJu
+	 aBxYg6z3ZIFbQ==
+Received: by mail-ot1-f44.google.com with SMTP id 46e09a7af769-7c75fc222c3so1086500a34.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 07:13:36 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCV7LFz8drf/FAkcF4RyPp+uU3+xqe0OHCuAGzuuGAn7aFWipQUD8OHr2rV8EAPwZdWHosVEhti5PCF+dwjrXXI9@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjiEln6Ng47qN06VFWVEbvTymor7WEWWLUI+R6jJogRfTG+rsO
+	IqWPpLtoddaM1PmoLln4kd08V/J3ZMBnizgLl1eKADgVDlizGhiYHriy9YTTlnhOk+UQVHBZmEq
+	H5NcNmfWzt6EIYY3wcF/+5fZoAd5DJng=
+X-Google-Smtp-Source: AGHT+IHrXWrqtMGXJxmwV1GVuCRVKcQU0z6/rzwbxUJ6/BP2yyYwuq+UjnxGK8r3GeEdRUHh75+CQgXDFSasFrCHpBs=
+X-Received: by 2002:a05:6830:719c:b0:7c5:3798:fa4e with SMTP id
+ 46e09a7af769-7c94dc0bf51mr8467872a34.17.1764947615507; Fri, 05 Dec 2025
+ 07:13:35 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMBPR04MB11741:EE_|PA2PR04MB10374:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0c3aa908-9f49-4c0b-b2b7-08de3410bf00
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bmZweXVCRTN6NDlNRzhTNHZBQkdNRUtwR0t0OWJnNEZ4b1BNb1pyZU5Za3h1?=
- =?utf-8?B?WFdvZ1JBWmFVajM1aGlRd3lZY1ZzajhFdWQvSy9YUjZ2YU5WcjZzMzdZdDZP?=
- =?utf-8?B?SG5keFlpbW0rL0tNZ1NzRlJnb1JhT1VRZDloeldFOWlGekdRdkxOcVBVRDVk?=
- =?utf-8?B?N01JSnZwNlJjbnQ3LzkvelFuL2lLdzd6U2QyUEIybFpqSUE5U1h3OGZOWmN4?=
- =?utf-8?B?K2NTMW5aOUJYcjUwWEdrbVd1aXhsRW5RR3o5SXB1dzVuNWl0VDZvWDhGekc1?=
- =?utf-8?B?TzV1WDhtZ1h3b25nVTJNQjBWTk5vWkhUZ3Q4SVg1bFd1eXdjc3hGTk5xREFl?=
- =?utf-8?B?OWNWUXdWSnV5bUplQmVqY0xUaDd5Z25uUEdOdFFyTWVUZDNsSUQ2b2E0T20w?=
- =?utf-8?B?cHdmVlZKL1RqdjdlRTBBc1ZVcVpHWTkvM2huYWdCNDE1dktacVNISlgvc2kz?=
- =?utf-8?B?TXNhR2c4U1UvakIzRVl2eHVETDFMbFhiZFdtL1FYd01tcWRneFJsLzdmZFhn?=
- =?utf-8?B?YXVtUFpaVVhYVmR0Z1NYTHBwTjVsTEZldmpIaktwZm5sbHBZTEw1NzVYZkRx?=
- =?utf-8?B?alYxclFnSU0rTFpZTzltZnFNQkJyU1JhM1JOd1FqMWFQbWJxMWMvWm5FMkJU?=
- =?utf-8?B?Z1pyUUpCNnRDaGZsMWlFMG9CUW9kMmNJcjd3aEVwRDRUQjZNLzhwQ3hiOTBN?=
- =?utf-8?B?bHlGUGszSEhCYk1Nb2tIR2JrWDhwbHNaMTV0WjVRSmsvMFpSV29Icno1eFR1?=
- =?utf-8?B?b052ekllVklKNmp2YURMTmpQc3pyMzc3NE1KRTMreXB6MmVKQ2ZhTlJoMTBS?=
- =?utf-8?B?V2RYd1pkWE5PUEx4ZkNLcW5iWVBkeDk5NTlyYnpnWjdVNnFRcDdwYzJ3RzU1?=
- =?utf-8?B?aG4rUkZYZ3o3KzV6RmdpSDBkV0lGZ3NGWjVsdC9mUkxmSGJDY2grRVptNldw?=
- =?utf-8?B?SU8yOEZQMXlZUlBZbGVXVzIxVWhnRHFwY0dhZFVnZEgzRjhEYlJjZURGYUJW?=
- =?utf-8?B?L29pTGhBY1N1UEduSDhONU1tVzhPK01na2FucW1DL0pVNmJwSVRlYjdjbVJl?=
- =?utf-8?B?R2tOL2x0RnA0RFllZjlnOTdlU0Q2S21PNGlqMTJabGxmY212bVVBTHQvbUhx?=
- =?utf-8?B?L2RObTRHNCswQVU2OXo5ZTRIY3VQY3ZvazBjVDQ3RWVsbjFBOEZnbWhuSUhJ?=
- =?utf-8?B?UHpSblg3VDgzWUhYT3RTUkt6Wjg0Y3h1c2Y3VTNpakdUZjBzbEl4WUl1akFI?=
- =?utf-8?B?d3BUQmFsMmVMTGFaOEI4M0VRUGtwc2gwaGVhOExTK2JlRzEyQVdOTkVuL3I3?=
- =?utf-8?B?bTU4aHNUc3dVQXREZUhaQW4vK3UrM1RlKy9haVh6SlM1YzBIYTdYamRwa1JQ?=
- =?utf-8?B?d29YK2ZUbm9kOWdCcE81aHlOQmlzZ2QvbExwTkwrcG1aNlVSZ1RlY3I3SHEr?=
- =?utf-8?B?eHhlVzVyalhJOUFCS2xZYTBSWEROQitsNG80ckI0T2tQaGUrNmxLMkMrVkFj?=
- =?utf-8?B?UTNOSFloOWRPdnBMWkIzRlB5SzFBd3FiRHhkWk1lMmF4YmVUcXdDS3pyaDZ5?=
- =?utf-8?B?K21rdXRlZ1NES2ppVThrLzdudDF3aVhTY2VWWXl6Z1liMFNadmt3dEFHcEpD?=
- =?utf-8?B?ZXhnck10dXQvNEkyQ3h1SVVicUQ2Z09uc29qdGlrY0diTHVVeEd1MEtiVkVR?=
- =?utf-8?B?dXNVazYzTDRpVEg1aklXMWVaNzZscmxSaXNQMloyeXFtZG8wVEFzZnVrclpz?=
- =?utf-8?B?Z2UxV2hkR3FpZVMyZitOQjRwSENtYlN0OGxhMUNrcGp0a1RuaUo1NWNhTFNP?=
- =?utf-8?B?RGo1eThXVkFUVjdrVUszdkhyK1QxaHRxMG9XMmNxVkNuV0FWcU1WWUFwQzdu?=
- =?utf-8?B?V3grcHRtRHZkQncycHRyZXZhd1FMQ2tJZW4wczZXbis2b0E9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AMBPR04MB11741.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UG9RN3crMUhzY1JnN2tUSFFnMFlJUEd0QWV5OWFQelhuTW5MbzlORkY4SGZv?=
- =?utf-8?B?MFZ0YkRhL3pkRHN0VzdGdTRia1FRWUhrTm5IeGZ5SjhsMHlGSkNUUW1RWEJZ?=
- =?utf-8?B?YUlLUnVGUGJtU3BEM1A2eTB3a0JKY0hPKzRuUkVTMkREaGhHVEZqejBKbFY1?=
- =?utf-8?B?bW9ISUZ0WlJwbVgrUzdRK0JrL3dWTHVRRndCajI3VzRNaVhKTGw2TmFCdS94?=
- =?utf-8?B?MDNGaDFJY0JyWC9UV2JhUCtEVjZibnFrM05XSHBOM1gxV0ZKem9uUU9FSGcy?=
- =?utf-8?B?b0tIejVFK0w2NVM2VDRxRTRhaU5zZzgxSUZidytSTi9nQkNMRmtnK05QZkFL?=
- =?utf-8?B?cTB1U0k4Uk5EYXBzbkhDMEVSanJITzl5Y0ZhdTNQVk44UU9nc2tKYXNYOG5k?=
- =?utf-8?B?K0RLWmwxYnVqakM5K28rclBHelhrTHpUamN6NU9SQkpqZ1ZDT0FacnB6USsr?=
- =?utf-8?B?U3QwbjQ5NWM4U3Y0Mld5K1VBVHBqYWlTaUNrWVF4WG54a085b1Nmb2hHKzNN?=
- =?utf-8?B?RDJpZkt1VkMwdTV1R1gyWUo1T1EzRnpMTy92ajBYa3VBQ1lnQzZyYTcrT1FW?=
- =?utf-8?B?ZXJzQ1l0WkpQdzdKMXJIMWNxZDUraWV5eks4TzVBTHhvK1lPNWN0cjNLMXVj?=
- =?utf-8?B?dktocUVOSXhOWVRxd1JRSFlnNEpoQ0tWTzRZZ3R3U0FWUEYySVM3bFVxeTQ3?=
- =?utf-8?B?Y3VZNDRPbjAvbzQ2QlRzQytXOFpSL2k0SUZZa0xuemlWSXYvM1VyU05ENFFp?=
- =?utf-8?B?S0pIYXJ1c3E3MGFlNlZpYVdVbnp5Nnh5aHV3OTRDdEVOdUpVeTNIc3lkWDVl?=
- =?utf-8?B?cEpya05rYXBiR3MzcUpadVZyVjlDbmh4YzZjVXlHeit2UWRvMEJtOEdQNHBl?=
- =?utf-8?B?dzJwc2gwYmc2VzAreUNReHI4bmNCUEIyeDk5VG9UQkE2MHhuNElsZVZrS3Yv?=
- =?utf-8?B?ZVBnczlJa3pKZzlXTlduNmlzaUxWdFUxd1c2c3hDNHdkcnc2aGxKVTlrbC9V?=
- =?utf-8?B?TFpKUEp2UWNWVEQ1VkQxTkxacmRBeVVtZkQrdTNnbUpZTUo3d3I3Q2k0OXYy?=
- =?utf-8?B?N25EK3ZveDNlbC85ckpGSGJJZTE1dmMyRFpsNFJCNE1VbXpwL2kzUysvdFRa?=
- =?utf-8?B?QnRZVHBpRlVkMjYyTmhlYVVFVUJJaGRLZjJqRjVNVWl4YVR5WGUzR0FMMmZ1?=
- =?utf-8?B?YUN0b1o1dGwzN3JRMEY3MWN2Zjh2WmovSE04VDlqVGo5QjVEZ2NWeGdVRlk0?=
- =?utf-8?B?OGQwSHJZMHNaYm44QVpiaFM0ajFYb3NmWkdYVytQcVYxc0t5eDEvSVFQTVhr?=
- =?utf-8?B?SmNOQlJCUi8yRm1vT3p6T3FQVThUUVJETm5CMXFQN21oSEZHbGh4YzRveno1?=
- =?utf-8?B?V2hGVVd3TzkvSXI5eS82V0l0SEVPQmFkWkpRNUwrUVpsNm1GNjMvenBvLzF4?=
- =?utf-8?B?TkV1VmttOFBrQVZSS25xbjZVaXdOdTJ1SXFqMFRRRDRKVlp4OHkyeHFxYUly?=
- =?utf-8?B?MWZSSzgyenRucVVScHpPRnZxZFYzaEwzeVFzK0dZV3Y5SVVOM1RNTkdJOHpR?=
- =?utf-8?B?a3dQbm4xUjdXQ2dBeHVqQnVIVTJISmJzQnYzYTJjS0ZGYmhqdWhrbGpvaHJn?=
- =?utf-8?B?Y3ZLcTRraktQMFpKMzd6bGk4STZCbHl2cjkwU2NCalA3VTkrK2E5RER0THpa?=
- =?utf-8?B?N1NHZ0x2NmN0dHRNWWgxTmdOZFdYclBmS243TzZFSFljUWd4SXIwYVkyU2FQ?=
- =?utf-8?B?RVBCLzRDaHZzOVVzYVdka0hOeExxZDZVV3o0MVVQTDJ1bnZQY2hGeFRrNEIz?=
- =?utf-8?B?MCs0c0R6Y09ISEsxc2V1QnRuVGdad01RZ0hQOFZ0OVgzRUNZdG1GT0w3azBw?=
- =?utf-8?B?Q1J0dWdyME00bXZhazZWa2JvUDVDalF1WEJhajJwNDUrdWlRdlEzSWZIaFlu?=
- =?utf-8?B?S2UvaExDN0ZDWEpYOUNCMUZsRFI1bkhhSW9ZUHpNQ1Z2Q1dIKy8wVnNRR2JL?=
- =?utf-8?B?Nk1aajN6WDF6cWo3dVBQaW1XbVg5b1RHUWl5QkJqWGZYSVRMYjRMVkFwRTJ4?=
- =?utf-8?B?U1orWUVMMlRQTWo3dWNQMG8xNVNHcTZaVFFiMk5sbDZZS2c3aXVoSlBvRDUx?=
- =?utf-8?B?ZTRFRVJ5bTNsdU45MkllYVY5amtWR1k0NFBVU3ZEK3M0Z296NU1hK0xIWElq?=
- =?utf-8?B?M2M5a2tRdUlrRkpkOHZWektxUGNSYUJ4TUt4eHZ3NUc3UUU2NjQxeWR6ditJ?=
- =?utf-8?B?Uzh6dkxPMGI3WUhWbXpzeThkU2ZBPT0=?=
-X-OriginatorOrg: gocontroll.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0c3aa908-9f49-4c0b-b2b7-08de3410bf00
-X-MS-Exchange-CrossTenant-AuthSource: AMBPR04MB11741.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Dec 2025 15:12:47.4912
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4c8512ff-bac0-4d26-919a-ee6a4cecfc9d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: VqStxux3deJtnFrcUa4cOz5nZGUDTviErXDVWJlARkWrAFEiED27iEjlcsBnYWDRxjF5TB5TcrenI5xHpK6x3RklXR9Fl2MxRh3kffXNyag=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10374
+References: <20251203032422.3232957-1-zhanjie9@hisilicon.com> <20251203032422.3232957-2-zhanjie9@hisilicon.com>
+In-Reply-To: <20251203032422.3232957-2-zhanjie9@hisilicon.com>
+From: "Rafael J. Wysocki" <rafael@kernel.org>
+Date: Fri, 5 Dec 2025 16:13:24 +0100
+X-Gmail-Original-Message-ID: <CAJZ5v0jvk+gs+h+76__LLZDa=OGzLxQQsWEMDHXzeV8aV6UYsA@mail.gmail.com>
+X-Gm-Features: AWmQ_bmOH7nN5gWZs3xRPWHos4wTiEv97BodDPulN0JnoJDgcE3MNy86R_44060
+Message-ID: <CAJZ5v0jvk+gs+h+76__LLZDa=OGzLxQQsWEMDHXzeV8aV6UYsA@mail.gmail.com>
+Subject: Re: [PATCH v4 1/3] ACPI: CPPC: Factor out and export per-cpu cppc_perf_ctrs_in_pcc_cpu()
+To: Jie Zhan <zhanjie9@hisilicon.com>
+Cc: viresh.kumar@linaro.org, rafael@kernel.org, ionela.voinescu@arm.com, 
+	beata.michalska@arm.com, pierre.gondois@arm.com, zhenglifeng1@huawei.com, 
+	linux-pm@vger.kernel.org, linux-acpi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linuxarm@huawei.com, 
+	jonathan.cameron@huawei.com, prime.zeng@hisilicon.com, yubowen8@huawei.com, 
+	lihuisong@huawei.com, zhangpengjie2@huawei.com, wangzhi12@huawei.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_071253_750594_7BC7D263 
-X-CRM114-Status: GOOD (  17.79  )
+X-CRM114-CacheID: sfid-20251205_071337_621306_3D2355C1 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -187,101 +87,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for the review.
+On Wed, Dec 3, 2025 at 4:25=E2=80=AFAM Jie Zhan <zhanjie9@hisilicon.com> wr=
+ote:
+>
+> Factor out cppc_perf_ctrs_in_pcc_cpu() for checking whether per-cpu CPC
+> regs are defined in PCC channels, and export it out for further use.
+>
+> Signed-off-by: Jie Zhan <zhanjie9@hisilicon.com>
+> ---
+>  drivers/acpi/cppc_acpi.c | 45 +++++++++++++++++++++-------------------
+>  include/acpi/cppc_acpi.h |  5 +++++
+>  2 files changed, 29 insertions(+), 21 deletions(-)
+>
+> diff --git a/drivers/acpi/cppc_acpi.c b/drivers/acpi/cppc_acpi.c
+> index 3bdeeee3414e..aa80dbcf42c0 100644
+> --- a/drivers/acpi/cppc_acpi.c
+> +++ b/drivers/acpi/cppc_acpi.c
+> @@ -1422,6 +1422,29 @@ int cppc_get_perf_caps(int cpunum, struct cppc_per=
+f_caps *perf_caps)
+>  }
+>  EXPORT_SYMBOL_GPL(cppc_get_perf_caps);
+>
+> +bool cppc_perf_ctrs_in_pcc_cpu(unsigned int cpu)
+> +{
+> +       struct cpc_desc *cpc_desc =3D per_cpu(cpc_desc_ptr, cpu);
+> +       struct cpc_register_resource *ref_perf_reg;
+> +
+> +       /*
+> +        * If reference perf register is not supported then we should use=
+ the
+> +        * nominal perf value
+> +        */
+> +       ref_perf_reg =3D &cpc_desc->cpc_regs[REFERENCE_PERF];
+> +       if (!CPC_SUPPORTED(ref_perf_reg))
+> +               ref_perf_reg =3D &cpc_desc->cpc_regs[NOMINAL_PERF];
+> +
+> +       if (CPC_IN_PCC(&cpc_desc->cpc_regs[DELIVERED_CTR]) ||
+> +           CPC_IN_PCC(&cpc_desc->cpc_regs[REFERENCE_CTR]) ||
+> +           CPC_IN_PCC(&cpc_desc->cpc_regs[CTR_WRAP_TIME]) ||
+> +           CPC_IN_PCC(ref_perf_reg))
+> +               return true;
+> +
+> +       return false;
 
-On 12/5/25 16:07, Rob Herring wrote:
-> On Mon, Dec 01, 2025 at 12:53:20PM +0100, Maud Spierings wrote:
->> The Maxim MAX25014 is a 4-channel automotive grade backlight driver IC
->> with integrated boost controller.
->>
->> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
->>
->> ---
->>
->> In the current implementation the control registers for channel 1,
->> control all channels. So only one led subnode with led-sources is
->> supported right now. If at some point the driver functionality is
->> expanded the bindings can be easily extended with it.
-> 
-> What's the relationship between the LEDs and backlight? It's a backlight
-> plus LEDs or just 4 identical channels.
+Why not
 
-it is just 4 identical channels, represented as leds, or in this case 1 
-led. I still feel a bit weird about this representation when there is 
-also led-backlight. But it was requested to map it in this way.
+return CPC_IN_PCC(&cpc_desc->cpc_regs[DELIVERED_CTR]) ||
+          CPC_IN_PCC(&cpc_desc->cpc_regs[REFERENCE_CTR]) ||
+          CPC_IN_PCC(&cpc_desc->cpc_regs[CTR_WRAP_TIME]) ||
+          CPC_IN_PCC(ref_perf_reg);
 
->>
->> ---
->>   .../bindings/leds/backlight/maxim,max25014.yaml    | 107 +++++++++++++++++++++
->>   MAINTAINERS                                        |   5 +
->>   2 files changed, 112 insertions(+)
->>
->> diff --git a/Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml b/Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml
->> new file mode 100644
->> index 000000000000..e83723224b07
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/leds/backlight/maxim,max25014.yaml
->> @@ -0,0 +1,107 @@
->> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/leds/backlight/maxim,max25014.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: Maxim max25014 backlight controller
->> +
->> +maintainers:
->> +  - Maud Spierings <maudspierings@gocontroll.com>
->> +
->> +properties:
->> +  compatible:
->> +    enum:
->> +      - maxim,max25014
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  "#address-cells":
->> +    const: 1
->> +
->> +  "#size-cells":
->> +    const: 0
->> +
->> +  enable-gpios:
->> +    maxItems: 1
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  power-supply:
->> +    description: Regulator which controls the boost converter input rail.
->> +
->> +  pwms:
->> +    maxItems: 1
->> +
->> +  maxim,iset:
->> +    $ref: /schemas/types.yaml#/definitions/uint32
->> +    maximum: 15
->> +    default: 11
->> +    description:
->> +      Value of the ISET field in the ISET register. This controls the current
->> +      scale of the outputs, a higher number means more current.
-> 
-> We have properties for setting the current (in uA). That can't work
-> here?
-
-please refer to [1] and [2].
-
-Link: 
-https://lore.kernel.org/all/5c5cf363-db5c-4d0b-902f-97c6ef06c08f@gocontroll.com/ 
-[1]
-
-Link: 
-https://lore.kernel.org/all/20251009-overjoyed-unpopular-54f69e9bd82c@spud/ 
-[2]
-
-kind regards,
-Maud
-
-
+> +}
+> +EXPORT_SYMBOL_GPL(cppc_perf_ctrs_in_pcc_cpu);
+> +
+>  /**
+>   * cppc_perf_ctrs_in_pcc - Check if any perf counters are in a PCC regio=
+n.
+>   *
+> @@ -1436,27 +1459,7 @@ bool cppc_perf_ctrs_in_pcc(void)
+>         int cpu;
+>
+>         for_each_online_cpu(cpu) {
+> -               struct cpc_register_resource *ref_perf_reg;
+> -               struct cpc_desc *cpc_desc;
+> -
+> -               cpc_desc =3D per_cpu(cpc_desc_ptr, cpu);
+> -
+> -               if (CPC_IN_PCC(&cpc_desc->cpc_regs[DELIVERED_CTR]) ||
+> -                   CPC_IN_PCC(&cpc_desc->cpc_regs[REFERENCE_CTR]) ||
+> -                   CPC_IN_PCC(&cpc_desc->cpc_regs[CTR_WRAP_TIME]))
+> -                       return true;
+> -
+> -
+> -               ref_perf_reg =3D &cpc_desc->cpc_regs[REFERENCE_PERF];
+> -
+> -               /*
+> -                * If reference perf register is not supported then we sh=
+ould
+> -                * use the nominal perf value
+> -                */
+> -               if (!CPC_SUPPORTED(ref_perf_reg))
+> -                       ref_perf_reg =3D &cpc_desc->cpc_regs[NOMINAL_PERF=
+];
+> -
+> -               if (CPC_IN_PCC(ref_perf_reg))
+> +               if (cppc_perf_ctrs_in_pcc_cpu(cpu))
+>                         return true;
+>         }
+>
+> diff --git a/include/acpi/cppc_acpi.h b/include/acpi/cppc_acpi.h
+> index 13fa81504844..4bcdcaf8bf2c 100644
+> --- a/include/acpi/cppc_acpi.h
+> +++ b/include/acpi/cppc_acpi.h
+> @@ -154,6 +154,7 @@ extern int cppc_get_perf_ctrs(int cpu, struct cppc_pe=
+rf_fb_ctrs *perf_fb_ctrs);
+>  extern int cppc_set_perf(int cpu, struct cppc_perf_ctrls *perf_ctrls);
+>  extern int cppc_set_enable(int cpu, bool enable);
+>  extern int cppc_get_perf_caps(int cpu, struct cppc_perf_caps *caps);
+> +extern bool cppc_perf_ctrs_in_pcc_cpu(unsigned int cpu);
+>  extern bool cppc_perf_ctrs_in_pcc(void);
+>  extern unsigned int cppc_perf_to_khz(struct cppc_perf_caps *caps, unsign=
+ed int perf);
+>  extern unsigned int cppc_khz_to_perf(struct cppc_perf_caps *caps, unsign=
+ed int freq);
+> @@ -204,6 +205,10 @@ static inline int cppc_get_perf_caps(int cpu, struct=
+ cppc_perf_caps *caps)
+>  {
+>         return -EOPNOTSUPP;
+>  }
+> +static inline bool cppc_perf_ctrs_in_pcc_cpu(unsigned int cpu)
+> +{
+> +       return false;
+> +}
+>  static inline bool cppc_perf_ctrs_in_pcc(void)
+>  {
+>         return false;
+> --
+> 2.33.0
+>
+>
 
