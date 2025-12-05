@@ -4,56 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09EACD2E009
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 06:10:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D76FD2E008
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 06:13:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Subject:In-Reply-To:
+	Content-Transfer-Encoding:Message-Id:Mime-Version:Cc:To:References:
+	Content-Type:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UEapCQ/YexkXbHbXZi0Iom6o7Nizx7gI9KIuPyEGjHs=; b=uw3EyFf6Z1QPZr/+G6hz/pzdu1
-	goP28sdcPQUWGWPnA+J3pZeMenNPUAGwAk3pFkfvV2HClj1M3JzqMwlofpe+4rwg2htFGW40dOzhw
-	IuQy7jsbk7Vu5QdFha8iR7dKAqM+8mnj6O1zXk1IoggIf/bTOiAbrfwsGB6JYeOZI/5q1+skZDksk
-	AlqdbhT3eVxvn+Yg0B7Kl5lCcH/QbNcMm2SQPNhBzquUPH/3r1mfcN4B2tidZeLCfPLE33Ym3XxzZ
-	YRM1Ewr8qfAicgl+LwFO2BFVEJlqhL6WovvyrcHb0TLEpJMBH2t2DWdLNxcOYlhETHBMTX7JHN15l
-	BndXXNXA==;
+	bh=CbbPQmGT66XgpcQTC/NHTJu3sZ6jTELyOqJLg0OipEM=; b=pYqvXnTulp27DJuHIP5PEv+oaU
+	FbNJ16Jhq38V3zjsN12+uR6QLa/+HYLuwwBeEbi7nlgprXNJCdcUZgnVhF+Sl8OMKYnBpANcXN/zs
+	CsnzBpDwEneekrbz8yFZHxrSZOAoJJCT7j6YZyljEMkTMP8489eFrnCOvmoGEAxnKMgFSE0RqvYYc
+	5mQDdAf715wylpb0AGweYBjtlc3+IgH4uCbXTBjGa1du5HuyR6BOafWGacxrQaSRfAFATCFELkK9d
+	2rv8wVEXD96Te0sXwohPzBgTYR35QKGR+dnzk0kXqhRFgDE2ixOnU/ZsntoWUYIZMW4vFM9o4ZJen
+	x7wYGOCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRP1W-0000000955L-1SSh;
-	Fri, 05 Dec 2025 06:10:34 +0000
-Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
+	id 1vRP3n-000000095EY-3dbu;
+	Fri, 05 Dec 2025 06:12:55 +0000
+Received: from sg-1-38.ptr.blmpb.com ([118.26.132.38])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRP1T-0000000954v-2IIS
+	id 1vRP3j-000000095Dc-2CyG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 06:10:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1764915029; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=UEapCQ/YexkXbHbXZi0Iom6o7Nizx7gI9KIuPyEGjHs=;
-	b=nDjTQWK6kuEBN3cMFzuIyYvpiyl8Ky2jI+kzmObU81CLR0HSJ4203WZgKjZsd6B8HJBFUg/hVN8hCDSZtaa22W54+MBRe0vXGy2/lDR7RMBXjBMGYNC2FfxU5tYdsqOdMds/rMnr68Jni/s1lOUadCRpDX5hTOurPvjSnep6bP8=
-Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0Wu6v20O_1764915024 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Fri, 05 Dec 2025 14:10:24 +0800
-Date: Fri, 5 Dec 2025 14:10:23 +0800
-From: Yao Yuan <yaoyuan@linux.alibaba.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Ben Horgan <ben.horgan@arm.com>
-Subject: Re: [PATCH v3 4/9] KVM: arm64: Handle FEAT_IDST for sysregs without
- specific handlers
-Message-ID: <ibifd2p7fkwjmyfgfaerjdbzlmrabfdpepmn7zhure3s7k2aj7@wgqa7druilzt>
-References: <20251204094806.3846619-1-maz@kernel.org>
- <20251204094806.3846619-5-maz@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251204094806.3846619-5-maz@kernel.org>
+	Fri, 05 Dec 2025 06:12:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ s=s1; d=picoheart-com.20200927.dkim.feishu.cn; t=1764915159;
+  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
+ reply-to:content-type:mime-version:in-reply-to:message-id;
+ bh=CbbPQmGT66XgpcQTC/NHTJu3sZ6jTELyOqJLg0OipEM=;
+ b=JBfuGE69Do+bFrVN6EcOnjae8w/VdKFoH5FAjG+LcfFoNkUBEwUEPq/HA499GvjxjqF0m2
+ fIEgs56nbY3QIGXT0GIepUUM3kJiSh0722TMMb4aZWXR6Ylz5yOfcrkrMoK5pQTuSEmzKV
+ kh60gDU+K2qn/GcMtTpzv+Calxl9PmmY9+gwMbgfc/cuSXdI8a8wq8SdGNLMMiiKCC1uBb
+ mrjaE5wDsqGGf27ctDVJi96JBoj4rqErALrE5nFqb2/OIHFIH14sPvIAKiouxLyllN4zSi
+ hRfyfyzTizO9B7AmdtBl8WEUZi3rmEkGnuZ4jD4SZWpQLR0uioTEAbMk2c64Zg==
+From: "Yicong Yang" <yang.yicong@picoheart.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Language: en-US
+X-Lms-Return-Path: <lba+2693277d5+8bff50+lists.infradead.org+yang.yicong@picoheart.com>
+Received: from [100.86.226.133] ([58.250.106.109]) by smtp.feishu.cn with ESMTPS; Fri, 05 Dec 2025 14:12:36 +0800
+References: <20251114033243.76509-1-cuiyunhui@bytedance.com> <20251114033243.76509-3-cuiyunhui@bytedance.com>
+To: "Yunhui Cui" <cuiyunhui@bytedance.com>
+Cc: <akpm@linux-foundation.org>, <alex@ghiti.fr>, <anup@brainfault.org>, 
+	<aou@eecs.berkeley.edu>, <atish.patra@linux.dev>, 
+	<catalin.marinas@arm.com>, <dianders@chromium.org>, 
+	<johannes@sipsolutions.net>, <lihuafei1@huawei.com>, 
+	<mark.rutland@arm.com>, <masahiroy@kernel.org>, <maz@kernel.org>, 
+	<mingo@kernel.org>, <nicolas.schier@linux.dev>, <palmer@dabbelt.com>, 
+	<paul.walmsley@sifive.com>, <suzuki.poulose@arm.com>, 
+	<thorsten.blum@linux.dev>, <wangjinchao600@gmail.com>, <will@kernel.org>, 
+	<yangyicong@hisilicon.com>, <zhanjie9@hisilicon.com>, 
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>, 
+	<linux-perf-users@vger.kernel.org>, <linux-riscv@lists.infradead.org>, 
+	"Paul Walmsley" <pjw@kernel.org>, <yang.yicong@picoheart.com>, 
+	<geshijian@picoheart.com>
+Mime-Version: 1.0
+Message-Id: <96fd2a69-baf4-4109-8341-0d4bb6c60393@picoheart.com>
+Content-Transfer-Encoding: 7bit
+In-Reply-To: <20251114033243.76509-3-cuiyunhui@bytedance.com>
+Subject: Re: [PATCH v6 2/2] riscv: add HARDLOCKUP_DETECTOR_PERF support
+Date: Fri, 5 Dec 2025 14:12:33 +0800
+User-Agent: Mozilla Thunderbird
+X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_221032_083077_C869796B 
-X-CRM114-Status: GOOD (  19.00  )
+X-CRM114-CacheID: sfid-20251204_221252_634889_15F5BCE3 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,58 +82,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 04, 2025 at 09:48:01AM +0800, Marc Zyngier wrote:
-> Add a bit of infrastrtcture to triage_sysreg_trap() to handle the
-> case of registers falling into the Feature ID space that do not
-> have a local handler.
->
-> For these, we can directly apply the FEAT_IDST semantics and inject
-> an EC=0x18 exception. Otherwise, an UNDEF will do.
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+Hi Yunhui,
+
+this has conflicts on the mainline master. looks like you have a dependency
+on the SSE PMU support patchset [1], need to mention it for the maintainer
+to apply.
+
+[1] https://lore.kernel.org/linux-riscv/20250908181717.1997461-5-cleger@rivosinc.com/
+
+one comment below.
+
+On 2025/11/14 11:32, Yunhui Cui wrote:
+> Enable the HARDLOCKUP_DETECTOR_PERF function based on RISC-V SSE.
+> 
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+> Reviewed-by: Douglas Anderson <dianders@chromium.org>
+> Acked-by: Paul Walmsley <pjw@kernel.org>
 > ---
->  arch/arm64/kvm/emulate-nested.c | 20 ++++++++++++++++++++
->  1 file changed, 20 insertions(+)
->
-> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-> index 616eb6ad68701..fac2707221b47 100644
-> --- a/arch/arm64/kvm/emulate-nested.c
-> +++ b/arch/arm64/kvm/emulate-nested.c
-> @@ -2588,6 +2588,26 @@ bool triage_sysreg_trap(struct kvm_vcpu *vcpu, int *sr_index)
->
->  		params = esr_sys64_to_params(esr);
->
-> +		/*
-> +		 * This implements the pseudocode UnimplementedIDRegister()
-> +		 * helper for the purpose of fealing with FEAT_IDST.
-> +		 *
-> +		 * The Feature ID space is defined as the System register
-> +		 * space in AArch64 with op0==3, op1=={0, 1, 3}, CRn==0,
-> +		 * CRm=={0-7}, op2=={0-7}.
-> +		 */
-> +		if (params.Op0 == 3 &&
-> +		    !(params.Op1 & 0b100) && params.Op1 != 2 &&
-> +		    params.CRn == 0 &&
-> +		    !(params.CRm & 0b1000)) {
+>  arch/riscv/Kconfig           |  3 +++
+>  drivers/perf/riscv_pmu_sbi.c | 10 ++++++++++
+>  2 files changed, 13 insertions(+)
+> 
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index fadec20b87a8e..46ccd33732fa8 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -186,6 +186,9 @@ config RISCV
+>  	select HAVE_PAGE_SIZE_4KB
+>  	select HAVE_PCI
+>  	select HAVE_PERF_EVENTS
+> +	select HAVE_PERF_EVENTS_NMI if RISCV_PMU_SBI_SSE
+> +	select HAVE_HARDLOCKUP_DETECTOR_PERF if PERF_EVENTS && HAVE_PERF_EVENTS_NMI
+> +	select WATCHDOG_PERF_ADJUST_PERIOD if HARDLOCKUP_DETECTOR_PERF
+>  	select HAVE_PERF_REGS
+>  	select HAVE_PERF_USER_STACK_DUMP
+>  	select HAVE_POSIX_CPU_TIMERS_TASK_WORK
+> diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+> index c852f64a50221..0c7c5924687c9 100644
+> --- a/drivers/perf/riscv_pmu_sbi.c
+> +++ b/drivers/perf/riscv_pmu_sbi.c
+> @@ -22,6 +22,7 @@
+>  #include <linux/sched/clock.h>
+>  #include <linux/soc/andes/irq.h>
+>  #include <linux/workqueue.h>
+> +#include <linux/nmi.h>
+>  
+>  #include <asm/errata_list.h>
+>  #include <asm/sbi.h>
+> @@ -1192,6 +1193,13 @@ static int pmu_sbi_setup_sse(struct riscv_pmu *pmu)
+>  }
+>  #endif
+>  
+> +#ifdef CONFIG_HARDLOCKUP_DETECTOR_PERF
+> +bool arch_perf_nmi_is_available(void)
+> +{
+> +	return IS_ENABLED(CONFIG_RISCV_PMU_SBI_SSE);
 
-Hi Marc,
+this looks incorrect per implementation in [1]. we'll fallback to the normal
+interrupt if failed to register the SSE event, in which case NMI is not
+available for the PMU. Check the kconfig is not sufficient.
 
-May give a macro/inline function or local variable w/ name like "is_feat_id_space()"
-can simplify the long comment here. Others LGTM:
+you can check pmu->sse_evt instead for the NMI support here, or cached the
+NMI status somewhere like how arm_pmu does.
 
-Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+Thanks.
 
-> +			if (kvm_has_feat_enum(vcpu->kvm, ID_AA64MMFR2_EL1, IDS, IMP))
-> +				kvm_inject_sync(vcpu, kvm_vcpu_get_esr(vcpu));
-> +			else
-> +				kvm_inject_undefined(vcpu);
+> +}
+> +#endif
 > +
-> +			return true;
-> +		}
+>  static int pmu_sbi_starting_cpu(unsigned int cpu, struct hlist_node *node)
+>  {
+>  	struct riscv_pmu *pmu = hlist_entry_safe(node, struct riscv_pmu, node);
+> @@ -1618,6 +1626,8 @@ static int __init pmu_sbi_devinit(void)
+>  	/* Notify legacy implementation that SBI pmu is available*/
+>  	riscv_pmu_legacy_skip_init();
+>  
+> +	lockup_detector_retry_init();
 > +
->  		/*
->  		 * Check for the IMPDEF range, as per DDI0487 J.a,
->  		 * D18.3.2 Reserved encodings for IMPLEMENTATION
-> --
-> 2.47.3
+>  	return ret;
+>  }
+>  device_initcall(pmu_sbi_devinit)
 
