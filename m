@@ -4,61 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07060D2F7FE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 14:16:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30A30D2F7FD
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 14:16:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=faEdQwyqALbEvfgGmDIxXomnR131YER9QVOUbxN2Vfw=; b=Kd7ToK2sPJYJDWn2K+0ios7pkI
-	wCIvOj1fbTJuGemgnxHJravHMyrGJTFIAnPMtZayjAFLIEkzx2+rdaPexIyVKUtn6eDe36JflJTBZ
-	jRRM1hOb5DNZObk50S1Bmpk+BKyjde2sbvClnaL+zQO8q7JE2uU+DQwB42a/N8rv24tkpMp+q7+d3
-	agWS7tPTxagvNJEtGk3nJZGtzWuJeGh8mRoixGvx/TH4LkP3kcLYDC9fsBzNw9gZQKBL1CmInVX+6
-	X7uqimadfG085fFdSI42nohD08HKNn+uuUtLxXwl20wB7dVdP/5k3ZEjGXPgsamQ0kSpjJFAHH0eA
-	UIhVQZOA==;
+	bh=R2g5UQqK/xohmelVeTB9J/O7YssHoDCD3YBN0y3wfbQ=; b=l4KICUAt3yzDxVlsjPhag0Lqmt
+	8Wbk+aFyGaxiT+we/j+y+fHF+4mN2mbq0RxhMHJXirrRPfJFFXZ1TatHKMLmmN0mNXgVJLNPCoASj
+	ZNdNOWV03P8nqcCAFn18n9m/5llOVuxGU6sek+ratDEJRQ1LkqeYimZJn+TopWIcTJkTQFDjMZ+0T
+	Nv1eog0lRWhxUVWrrQf1BkX3zWIYqqRCsxUQ7dSKdJH5qFWRIu1zHTeqh6c6VsahcbYK0jNE9Cw5T
+	+SlkCf0ZalNDyihgMN5jxbuytMdmmgxf4f9VgpeYuQqjMq+CSy8VALc4KIHdpQ5LAdn3nI7j+55OI
+	F0buXBxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRWbG-00000009ZNR-0sO6;
-	Fri, 05 Dec 2025 14:15:58 +0000
-Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6])
+	id 1vRWc3-00000009ZUa-3aFT;
+	Fri, 05 Dec 2025 14:16:47 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRWbD-00000009ZMn-2UIx
+	id 1vRWc1-00000009ZU1-2lBe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 14:15:57 +0000
-Mime-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
-	s=key1; t=1764944146;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=faEdQwyqALbEvfgGmDIxXomnR131YER9QVOUbxN2Vfw=;
-	b=Idk5TT7QPwh/gNKN4gh1LhQ8PaTc8RWP2Noj9basMbh+dFn+ErvaCbeiiJPg/cqZm+K1n5
-	E2n3olE5h83ofUsdjeOIff+MxHzV6OUjgQLAq+CskrwpqFtJJyAaU4VvwSSJgo18RqIe/Y
-	AA1aoaVoXVq9xdqPIUzPgiqTEEqavas6MkCPxWB0eWMT34NcvTTQxpzgFzUay5R+uP++CB
-	NodoSZG5OpzLbkufKbianG4h8Q031ftaPJbcU+SDNNA3blbtiYtOGJyWsagvDb3SkY/YpF
-	YlViJArhEm6XZ4WZ5DZwWEA2vdpBdPiMKHxs25ebPdjb2DZG1Cn1Raina9uu6A==
+	Fri, 05 Dec 2025 14:16:46 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-6419aaced59so3087122a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 06:16:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764944204; x=1765549004; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=R2g5UQqK/xohmelVeTB9J/O7YssHoDCD3YBN0y3wfbQ=;
+        b=dBnP1vdVjqnDCprrlO254m05owHVwFOJJZ99hLsWprXKIJSRkRLA3gGFxOVe7nri5x
+         XcaM6Jqn7Q3NNwiayvqdNmTX9JjS8makOfl+HOOIzwSKBs7O66XWb3eRLBVEI4X5wpFX
+         e0gYLK1SNaCDaP3gn+gj2Yd8nVK4NroRumRlaBi+tZQl2+5N0TAw95idpsxzEn8NQpZO
+         ONnNktgwUI9Qo8cUsJQBuxS/G4z1NNuit1m9dXE3G7rQFhgVRkdqL6f2cVRzgydy/Qzs
+         y0am5k9mpq8t4khlWtymPZMrSQ1etTj8g8vX9cMzsiFjFAKqadQsWwJ/FOhhx/W4cHe1
+         X1JQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764944204; x=1765549004;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=R2g5UQqK/xohmelVeTB9J/O7YssHoDCD3YBN0y3wfbQ=;
+        b=r1gTtikFITc/hZAT+W5dtzUzAAjmpf753peykm1NqarylsQV+JELFInSaiz6oD4dbZ
+         Rss2mKbMjxrpNOh8u0cvLzgqwMTkQRJhEUgnZ64XUakuuyeyYr87K28NdY7OO1LP1p8d
+         Y+PTR5XutroLGlgC2HaeX3QfQzMH7FB5ITb4vL0xlLcqs2k8stnrCoLFtk/HNaNmhpe1
+         9sQSsGexrmFEDp2QjHM6YfBPwjM/Lqo0bB8O36bm4AXSxNmjKtmKYMTKug+ETvSIcfNm
+         34xR0pDD7ME7K5vx51UF1OOx3r2JOWYzaUbbrfKHj3CohtzhwaUNtYj6BniEm7WdJP6R
+         QuKQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVDxWoc1tYF0WJ0q9z0U8ft3z92TIdnTIYOS8ly9BMe9lamniQEcuP+WzkKxR2kaHmKxDrMOqm7BM1bfLnS8n46@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPZkLno1GN+r1tVZe7QjTkBo1kqQkgTjTBUbsydrNF2DCr26dN
+	TmJ+jYDzdT8fviQTwQulNt5B2/OOX8PPJzVY0f0IPY5uJBnUAO4eLrbIa+/b3uZwKySSy8yMd/u
+	2y3XF62UKq1KwZ3+x/AQfxPKeevmM5ag=
+X-Gm-Gg: ASbGncvjC3sh0Ys2oGSwijQfQj1OLVRZWT5SjYD1Mu4lR7wWCuOBQRmkxJ3uvMPnsLy
+	/BIPStsvcaaflgYIDrUQzXN/0/enSD++hIfhgGz/KIf5XpU51PBrpDSiZKULG7y9MeJFS/qXjJy
+	abc1R4cneAH5Fi7Z09A2p+7wFKJ9lNlzLAOjqU0KM6NiGZZc0yZLcTgCaX1vi6iFcpmV8v4tsVr
+	5b6O0ROncSBfuXgd23mQHQ7aMus5Nbw0oLLV5N4NDg5ui0ZAcpZ/oqZzp7bY1cDLj7kEiva
+X-Google-Smtp-Source: AGHT+IHceS+AcOZ5dW8w0Qbihdbu6HTr3XGszoy5BRb8+hd9e12iZk925rUFbcfaGYdUXSUHXwpDuM7CTOkXnm9/rB8=
+X-Received: by 2002:a05:6402:35cb:b0:63c:690d:6a46 with SMTP id
+ 4fb4d7f45d1cf-6479c497fdfmr9553716a12.13.1764944203595; Fri, 05 Dec 2025
+ 06:16:43 -0800 (PST)
+MIME-Version: 1.0
+References: <aRW4PpPjVw1-melm@pluto> <20251123163557.230530-1-a.shimko.dev@gmail.com>
+ <20251204-slick-granite-chameleon-58ebc2@sudeepholla> <CAOPX747pTsnTzKnaai-ytnmcf6reraTTSk+mssvHri4GMhCsOA@mail.gmail.com>
+ <20251205-calculating-unique-ibex-de824e@sudeepholla>
+In-Reply-To: <20251205-calculating-unique-ibex-de824e@sudeepholla>
+From: Artem Shimko <a.shimko.dev@gmail.com>
+Date: Fri, 5 Dec 2025 17:16:32 +0300
+X-Gm-Features: AQt7F2o6ZhdTfprtpRS_RXzzsEVCCZ1t3NBhD4shQ8_Ku4ZiRAv8S5HC5LZ7bEI
+Message-ID: <CAOPX747Nk5jOYREOYKO2=Zn0C-Zb=TY-nDbL_LzxbR2qcteexQ@mail.gmail.com>
+Subject: Re: [PATCH v4] firmware: arm_scmi: refactor reset domain handling
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: cristian.marussi@arm.com, arm-scmi@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 05 Dec 2025 15:15:39 +0100
-Message-Id: <DEQCHCIUQ8KK.DXHGCLW95XUC@cknow-tech.com>
-Cc: "Haotian Zhang" <vulab@iscas.ac.cn>, <linux-kernel@vger.kernel.org>,
- <linux-pci@vger.kernel.org>, <linux-rockchip@lists.infradead.org>,
- <linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH] regulator: fixed: Rely on the core freeing the enable
- GPIO
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: "Diederik de Haas" <diederik@cknow-tech.com>
-To: "Mark Brown" <broonie@kernel.org>, "Liam Girdwood"
- <lgirdwood@gmail.com>, "Diederik de Haas" <diederik@cknow-tech.com>
-References: <20251204-regulator-fixed-fix-gpiod-leak-v1-1-48efea5b82c2@kernel.org>
-In-Reply-To: <20251204-regulator-fixed-fix-gpiod-leak-v1-1-48efea5b82c2@kernel.org>
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_061556_202858_930D206C 
-X-CRM114-Status: GOOD (  16.19  )
+X-CRM114-CacheID: sfid-20251205_061645_705033_2E260744 
+X-CRM114-Status: UNSURE (   6.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,63 +98,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu Dec 4, 2025 at 8:39 PM CET, Mark Brown wrote:
+On Fri, Dec 5, 2025 at 3:14=E2=80=AFPM Sudeep Holla <sudeep.holla@arm.com> =
+wrote:
 
-s/enable GPIO/enabled GPIOs/ ? (in Subject)
+> Let me know if you are happy too with that change.
+Yes, sure, I'm happy with the change. Thank you!
 
-> In order to simplify ownership rules for enable GPIOs supplied by drivers
-> regulator_register() always takes ownership of them, even if it ends up
-> failing for some other reason. We therefore should	not free the GPIO if
-> registration fails but just let the core worry about things.
-
-I built a 6.18 kernel with this patch added and that fixed the problem.
-Thanks :-) Feel free to add:
-
-Tested-by: Diederik de Haas <diederik@cknow-tech.com>
-
-Cheers,
-  Diederik
-
-> Fixes: 636f4618b1cd (regulator: fixed: fix GPIO descriptor leak on regist=
-er failure)
-> Reported-by: Diederik de Haas <diederik@cknow-tech.com>
-> Closes: https://lore.kernel.org/r/DEPEYUF5BRGY.UKFBWRRE8HNP@cknow-tech.co=
-m
-> Signed-off-by: Mark Brown <broonie@kernel.org>
-> ---
->  drivers/regulator/fixed.c | 11 ++++-------
->  1 file changed, 4 insertions(+), 7 deletions(-)
->
-> diff --git a/drivers/regulator/fixed.c b/drivers/regulator/fixed.c
-> index a2d16e9abfb5..254c0a8a4555 100644
-> --- a/drivers/regulator/fixed.c
-> +++ b/drivers/regulator/fixed.c
-> @@ -330,13 +330,10 @@ static int reg_fixed_voltage_probe(struct platform_=
-device *pdev)
-> =20
->  	drvdata->dev =3D devm_regulator_register(&pdev->dev, &drvdata->desc,
->  					       &cfg);
-> -	if (IS_ERR(drvdata->dev)) {
-> -		ret =3D dev_err_probe(&pdev->dev, PTR_ERR(drvdata->dev),
-> -				    "Failed to register regulator: %ld\n",
-> -				    PTR_ERR(drvdata->dev));
-> -		gpiod_put(cfg.ena_gpiod);
-> -		return ret;
-> -	}
-> +	if (IS_ERR(drvdata->dev))
-> +		return dev_err_probe(&pdev->dev, PTR_ERR(drvdata->dev),
-> +				     "Failed to register regulator: %ld\n",
-> +				     PTR_ERR(drvdata->dev));
-> =20
->  	platform_set_drvdata(pdev, drvdata);
-> =20
->
-> ---
-> base-commit: 81d431130ae1af4e64030f6a956ee9137e6fc1b0
-> change-id: 20251204-regulator-fixed-fix-gpiod-leak-b1f50fb8c388
->
-> Best regards,
-> -- =20
-> Mark Brown <broonie@kernel.org>
-
+--
+Regards,
+Artem
 
