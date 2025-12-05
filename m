@@ -4,68 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E6F0D2E034
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 08:04:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB65AD2E033
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 08:09:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jx417/wSl6uxVgE2y43ExqE3Q8kWEsuBIOU44XgveVU=; b=FlOl9VkznqeUdYFuu0R2Yij7n1
-	ffuc91MkEd+w/9mTeVGOPLc/yRCQVEA6V9Se82dfDrmZ9vXGhZWQV7qEsy8AtQ8avYL7fjjok8c12
-	3c0n/omNBemtmDgMSEfrpU+Bcg/6i3nhEb9i3O5BeAiiweSBgBdGpeEgO5Owg0436aNRSlAfmLOBl
-	RjSrTOrZ7H1Y5YjiglHs39N9xwdKI8EwQsISpJ7vm/bK6pxjy9ZaMzDYCcJ742J+JMgD2VAMZMzUr
-	z8Pza0i/Pz/z+G4ax1XAdjhnc3c51p7j488ktEBXVkQoZs+cOXwYFjbmVo8JqMZAOTTB1Nh+yUUM2
-	l/4achjQ==;
+	bh=GkPDRpzvnCa0LpOYxJLQ483LuEZLUXnnl2jF8NEFNnc=; b=mNHs2PsmGHlFeJcOdRkvE5rA9z
+	jNXAjN8hfakcSKLkTgaKXzVIrNkCKScONCpULGnkZodJLoop7Mx1bUsObwOc+146hVsbfvCh1h3Do
+	yh4VBPMvb/LnfY7jikGevDsMeWNDzYelEJUa/Vj5vODXPwCr1AHZGyMjx/7syFVzTCdSDsrk2x89u
+	4TFBEnxlT/Ko715iLt1wZL74WsmMWq8o7ecjLcW1xJ+wd8kPwElS1Ks87SRyYah0vXmPblWupvpR/
+	JttnPAZqE9h0lZpv1hVbvA8ALWJgZg3ryM1mNtOTJ+vabM3lCPVKsv2JZPHWn5Atwb3tCPp/8GKGa
+	QOjD4/vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRQnl-00000009CFk-1kVX;
-	Fri, 05 Dec 2025 08:04:29 +0000
-Received: from inva020.nxp.com ([92.121.34.13])
+	id 1vRQs9-00000009Cfu-1r7K;
+	Fri, 05 Dec 2025 08:09:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRQnh-00000009CDZ-2165
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 08:04:27 +0000
-Received: from inva020.nxp.com (localhost [127.0.0.1])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 5B6451A3336;
-	Fri,  5 Dec 2025 09:04:22 +0100 (CET)
-Received: from aprdc01srsp001v.ap-rdc01.nxp.com (aprdc01srsp001v.ap-rdc01.nxp.com [165.114.16.16])
-	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 257C81A18F7;
-	Fri,  5 Dec 2025 09:04:22 +0100 (CET)
-Received: from lsvm11u0000554.swis.ap-northeast-2.aws.nxp.com (lsvm11u0000554.swis.ap-northeast-2.aws.nxp.com [10.52.9.11])
-	by aprdc01srsp001v.ap-rdc01.nxp.com (Postfix) with ESMTP id 712B818000AF;
-	Fri,  5 Dec 2025 16:04:20 +0800 (+08)
-From: "Yanan.Yang" <yanan.yang@nxp.com>
-Date: Fri, 05 Dec 2025 17:03:58 +0900
-Subject: [PATCH 1/2] dt-bindings: arm: fsl: Add FRDM-IMX91S board
+	id 1vRQs7-00000009CfS-1jEI;
+	Fri, 05 Dec 2025 08:09:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AA9C443E04;
+	Fri,  5 Dec 2025 08:08:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35C77C4CEF1;
+	Fri,  5 Dec 2025 08:08:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764922138;
+	bh=uDMIUxMDwlKVBIc+Lk+xFokJcFCeFvx0VMvgpa2qhZA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=kb76jhaJCz9XKCGu+Y0A+4FG3jgNG1xWmAK8JZwBpIDiEMLhjjHtW68EmRLJJp+KO
+	 NlqTAAfLV9evS0ROi5z/6/I0/Doe1Fou7c+twEtYKmFJb4jtOCdZlbdo2J+BFpAIFa
+	 nWrkEijAgWCCoDEUzp88Div6qvzMP64zknELsNiHed1XCgazXRhiE78eHH0nx7qoK7
+	 Ekr6K+bV3tzFQfwhL8+wN04eDfKWmAIPerTuDS2kFSKqT9JvA2H7NHJck2Onid1lu2
+	 d//m5Pee+2F6/0QtR/lPXdSCaRSaHDyG/KLPplqr7sX2RgwQfY/ge4xPHcJhb7mBks
+	 J6X5qnCpHMkPg==
+Message-ID: <ae5d1a37-9af9-46a2-9ca0-83c276248931@kernel.org>
+Date: Fri, 5 Dec 2025 09:08:54 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] arm64: broadcom: bcm2712: Rework rp1 overlay handling
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: "Rob Herring (Arm)" <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Phil Elwell
+ <phil@raspberrypi.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Andrea della Porta <andrea.porta@suse.com>
+References: <20251117211503.728354-2-robh@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251117211503.728354-2-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251205-imx91s-frdm-v1-1-afd6cd01c299@nxp.com>
-References: <20251205-imx91s-frdm-v1-0-afd6cd01c299@nxp.com>
-In-Reply-To: <20251205-imx91s-frdm-v1-0-afd6cd01c299@nxp.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- yanan.yang@nxp.com, qijian.guo@nxp.com, justin.jiang@nxp.com
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1764921858; l=884;
- i=yanan.yang@nxp.com; s=20251205; h=from:subject:message-id;
- bh=TkLQNIRC82yp0ynip0gyOhzeM+WBYVNCh0kICDpNKms=;
- b=XdpjCw1NKWOp2CeuUgX8VUc9Al+PphTDV2AvLmtsnVGtGtskurgBARvOa5bWCKENLCu0NoiVa
- joZnRB92KODCfLdwjawkR3fkX8GLTkRCvuVPezvlLqd15NxAaf84vHM
-X-Developer-Key: i=yanan.yang@nxp.com; a=ed25519;
- pk=d4hHTp5SW/PyyxexLEo/3c2RAaQDwym0zuYlifH95PI=
-X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_000425_691613_858D5957 
-X-CRM114-Status: UNSURE (   6.61  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251205_000859_519232_CF6F0DBC 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,30 +121,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add DT compatible string for NXP FRDM-IMX91S board
+On 17/11/2025 22:15, Rob Herring (Arm) wrote:
+> It's a requirement that DT overlays be applied at build time in order to
+> validate them as overlays are not validated on their own.
+> 
+> Simply adding a build time target is possible, but it's also not desirable
+> to have targets which include the overlay contents and apply the same
+> overlay.
+> 
+> Rework the targets such that there are 2 overlays: the existing RP1 overlay
+> and the board specific configuration of the RP1 (bcm2712-rpi-5-b.dtso).
+> 
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+> The missing applying of rp1.dtbo will soon be a warning[1].
+> 
+> The comment in bcm2712-rpi-5-b.dts(o) needs updating or removing. The RP1
+> driver or userspace handling of the overlay probably needs updating to
+> handle the 2 overlays. IIRC, I think we can apply overlays to overlays
+> which may be useful here. If not, adding that to the tools should be
+> possible.
+> 
+> [1] https://lore.kernel.org/all/20251114222759.4181152-1-robh@kernel.org/
+> ---
+>  arch/arm64/boot/dts/broadcom/Makefile                 | 10 ++++++++--
+>  ...m2712-d-rpi-5-b.dts => bcm2712-d-rpi-5-b-base.dts} |  2 +-
+>  .../{bcm2712-rpi-5-b.dts => bcm2712-rpi-5-b.dtso}     | 11 +++++------
 
-The FRDM i.MX 91S development board is an low-cost and compact
-development board featuring the i.MX 91 applications processor.
 
-Signed-off-by: Yanan.Yang <yanan.yang@nxp.com>
----
- Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
- 1 file changed, 1 insertion(+)
+So now Linus' tree has warnings. Can this be applied by anyone around
+Broadcom and sent as fixes?
 
-diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index 68a2d5fecc43..82f28be401b8 100644
---- a/Documentation/devicetree/bindings/arm/fsl.yaml
-+++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -1412,6 +1412,7 @@ properties:
-         items:
-           - enum:
-               - fsl,imx91-11x11-evk       # i.MX91 11x11 EVK Board
-+              - fsl,imx91-11x11-frdm-s    # FRDM-IMX91S Board
-           - const: fsl,imx91
- 
-       - description: i.MX93 based Boards
 
--- 
-2.43.0
-
+Best regards,
+Krzysztof
 
