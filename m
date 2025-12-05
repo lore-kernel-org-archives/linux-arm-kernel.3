@@ -4,46 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9961AD2F7C9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B38B6D2F7CF
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 10:03:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lcJDgYt4uOmEYvg+2YJwYcGPnE9cLxBjU9f46SXWfsg=; b=33/jWd8w4htUj5/qq+9IXqdfuD
-	NrPS/axvoM3emvYZCUB8KftkXYaCGbs8k8IMITZGOvF+COPKR/eoKnROW6CftvdzjOmxNkGZ8IxgO
-	BG4e5PwtavYpUNDIkzdaFhnaC8xGcWSpZlJk6kdhQrd0YDmjQ3lxsAencpRThhseQEXAn3vDcrIvz
-	Pk8RHL14J7eNn2zt1SOzKlwACkDzC4QIFa4jLQUGGFXuBhThvEDAYrlqItqoOdbiekescSDkRLRhi
-	relAe/J+cAmTJ0lQ4yQM97vpEMxPSD+pn5KLb3EcjSL4ac5Z82Oz+9rmXIEBDYLnku2mgPpLX1FYg
-	KzrJCSRw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ciEYlRaPS29SaCNp9VOvzP0yjCeypafv0bVq1+Exa2s=; b=i67yuB/egllrrA6iqHr5JBFDmt
+	1iXGrwiSaY+g7IWL9fyxXO03f6nJQd7vgO3TQZO+vhKB2ciFLj58KWB0PtL2y30FLMxRP9YtZewgT
+	J3ljI2ejGeZPrs9aibyljPyHpn3CSCR+gwRRvalJXiLzchjSZ+cJIOfV8FoKpRDTJz0h/3DdmJB7b
+	R5MQ5LqMNxUXWx/Tzv1wjlcJ6HCHZ8KHKPCkrpFoqJgJjlozP+g2bdw/UarC+eAH3y/SIIvmwm59s
+	BCnNazmTHeXEjU7J8TLHRCkPmVZJUJXHqIKxpuLIVy4w+xbwoyD/zmzRUkKWaXEqcR3+WPGHwByfK
+	cNvHpURw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRSeW-00000009M2y-19xl;
-	Fri, 05 Dec 2025 10:03:04 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRSeS-00000009M0W-107Q
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vRSeT-00000009M17-0Pcc;
 	Fri, 05 Dec 2025 10:03:01 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vRSeP-00000009LzM-2kTH
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Dec 2025 10:02:59 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id D3EF51A1F87;
-	Fri,  5 Dec 2025 10:02:58 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id DBB9A4E41A60;
+	Fri,  5 Dec 2025 10:02:50 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id A04B960731;
-	Fri,  5 Dec 2025 10:02:58 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 57C0B10B60769;
-	Fri,  5 Dec 2025 11:02:55 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id AA47B60731;
+	Fri,  5 Dec 2025 10:02:50 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BEA2810B60754;
+	Fri,  5 Dec 2025 11:02:45 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764928977; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=lcJDgYt4uOmEYvg+2YJwYcGPnE9cLxBjU9f46SXWfsg=;
-	b=QYH73ycqdkq9nIP4JkzGLReG3T2s82hM1YeCDTJ793yrPo/JT1ry06U+vbdF+Na1wJhdc8
-	Y9dp/i4/OtUMuZ6Zlwhh8qDWBxGrf3PTFqbRqIRlv9Q3+LgTmW7Qyd+kLJBwqijd5gPrBw
-	Rjit5qI4EgdGffp8AXFuhEy2AN8mhN9GBsEI/fLt9OmUNtGy9Deb6HkHSvfpBV2DkDsz9O
-	7xCgbQ7WwKr03gasvqBZyqJ+0WTHV9zWfY7YxXGQRQyQyHcDMVD6xzYB2zHS4IKwS87TxG
-	BlhVJIRXY1dZbAstlx88WfIrlCfcYmo+qraM+vB4nRhg2jM7sdzsyJA+zvu9Og==
+	t=1764928969; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=ciEYlRaPS29SaCNp9VOvzP0yjCeypafv0bVq1+Exa2s=;
+	b=pRDeWFnjBi9qBkYJ5mUydyXd3bbtI+w5dtoQsGf4P1mVceAA63VWsCIaT1pDExR35Q5nZ4
+	GinRGHtBNm+VZ1Z4dGA0j75YHM1YkJwqVr8paEwst61yaDwetFAY36kWVRHd/qMPHpuEjs
+	vXMygmOkRepWb4BINhFAIXmCt2mMVHRpIPqa83f/sKBye6/AB32vELhzyALQwfUFh9oH49
+	yN4WRVt7NSN5kDGcbUGvvvHrgvnHjeFl0w6c22/nIzaTyzTqDVsqbgNdlGQIjEUPg+SHzy
+	yKCngu/dtndfg5ixDm+1YCsdns8r2RCA4ZIyjBsSbni8hP/c30TC5QF+m6WTvw==
 From: Richard Genoud <richard.genoud@bootlin.com>
 To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
 	Rob Herring <robh@kernel.org>,
@@ -60,19 +59,16 @@ Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Richard Genoud <richard.genoud@bootlin.com>
-Subject: [PATCH 4/4] MAINTAINERS: Add entry on Allwinner H616 PWM driver
-Date: Fri,  5 Dec 2025 11:02:39 +0100
-Message-ID: <20251205100239.1563353-5-richard.genoud@bootlin.com>
+Subject: [PATCH 0/4] Introduce Allwinner H616 PWM controller
+Date: Fri,  5 Dec 2025 11:02:35 +0100
+Message-ID: <20251205100239.1563353-1-richard.genoud@bootlin.com>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251205100239.1563353-1-richard.genoud@bootlin.com>
-References: <20251205100239.1563353-1-richard.genoud@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_020300_406745_CE0F2EC6 
-X-CRM114-Status: UNSURE (   8.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251205_020257_826549_8BE49319 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,31 +83,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add myself as maintainer of Allwinner H616 PWM driver and device-tree
-bindings.
+Allwinner H616 PWM controller is quite different from the A10 one.
 
-Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
----
- MAINTAINERS | 6 ++++++
- 1 file changed, 6 insertions(+)
+It can drive 6 PWM channels, and like for the A10, each channel has a
+bypass that permits to output a clock, bypassing the PWM logic, when
+enabled.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 578c068b738b..b336c0fff4e4 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -903,6 +903,12 @@ S:	Maintained
- F:	Documentation/devicetree/bindings/sound/allwinner,sun50i-h6-dmic.yaml
- F:	sound/soc/sunxi/sun50i-dmic.c
- 
-+ALLWINNER H616 PWM DRIVER
-+M:	Richard Genoud <richard.genoud@bootlin.com>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/pwm/allwinner,sun50i-h616-pwm.yaml
-+F:	drivers/pwm/pwm-sun50i-h616.c
-+
- ALLWINNER HARDWARE SPINLOCK SUPPORT
- M:	Wilken Gottwalt <wilken.gottwalt@posteo.net>
- S:	Maintained
+But, the channels are paired 2 by 2, sharing a first set of
+MUX/prescaler/gate.
+Then, for each channel, there's another prescaler (that will be bypassed
+if the bypass is enabled for this channel).
+
+It looks like that:
+            _____      ______      ________
+OSC24M --->|     |    |      |    |        |
+APB1 ----->| Mux |--->| Gate |--->| /div_m |-----> PWM_clock_src_xy
+           |_____|    |______|    |________|
+                          ________
+                         |        |
+                      +->| /div_k |---> PWM_clock_x
+                      |  |________|
+                      |    ______
+                      |   |      |
+                      +-->| Gate |----> PWM_bypass_clock_x
+                      |   |______|
+PWM_clock_src_xy -----+   ________
+                      |  |        |
+                      +->| /div_k |---> PWM_clock_y
+                      |  |________|
+                      |    ______
+                      |   |      |
+                      +-->| Gate |----> PWM_bypass_clock_y
+                          |______|
+
+Where xy can be 0/1, 2/3, 4/5
+
+PWM_clock_x/y serve for the PWM purpose.
+PWM_bypass_clock_x/y serve for the clock-provider purpose.
+The common clock framework has been used to manage those clocks.
+
+This PWM driver serves as a clock-provider for PWM_bypass_clocks.
+This is needed for example by the embedded AC300 PHY which clock comes
+from PMW5 pin (PB12).
+
+This series is based onto next-20251205
+
+Richard Genoud (4):
+  dt-bindings: pwm: sunxi: add PWM controller for Allwinner H616
+  pwm: sun50i: Add H616 PWM support
+  arm64: dts: allwinner: h616: add PWM controller
+  MAINTAINERS: Add entry on Allwinner H616 PWM driver
+
+ .../pwm/allwinner,sun50i-h616-pwm.yaml        |  67 ++
+ MAINTAINERS                                   |   6 +
+ .../arm64/boot/dts/allwinner/sun50i-h616.dtsi |  47 +
+ drivers/pwm/Kconfig                           |  12 +
+ drivers/pwm/Makefile                          |   1 +
+ drivers/pwm/pwm-sun50i-h616.c                 | 874 ++++++++++++++++++
+ 6 files changed, 1007 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun50i-h616-pwm.yaml
+ create mode 100644 drivers/pwm/pwm-sun50i-h616.c
+
+
+base-commit: 6987d58a9cbc5bd57c983baa514474a86c945d56
 -- 
 2.47.3
 
