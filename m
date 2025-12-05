@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92609D2F7D7
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 10:25:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D40BD2F7D7
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 10:27:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XWofNQaDyYt398seRN716BHuIjx6Be+S6Tk80s3q5n4=; b=lU6fYh2nSf/IDOpgSekZ27pnoz
-	LePG0I+qeqxpIUdZ+Rt6zIUAyfftvDiB7Y8COMGAdwT+7mETo3lZ2mAm/zenB2F1lJJMA+zJB6l7S
-	9OxGVd0kYPXniBbOrBm4jzjE7YZ8n6M8Xfvr62JIXL3bH0e4QePMw7I9ECBu5JFhvttkJuPPI2v3g
-	s7rtoxFzOZtKfWk8e7mu6iMtSxbIGyz3J60F4t7X4ZN2xFdo7UHYNB0ZnPVzCMAzR5/N8P15SVWxN
-	krmv5M854nlO5d+/bG8SzCKlO1B+d70296NVOIC+LIoGBB8+xkHR/DqTxTi4YKX9dpbPeoM66LDaZ
-	R8/oNCfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Oe2ZVZ6VGjMJHE+isn21KsE1sXHgskVMk8FzETjMVEI=; b=vWWMdAnM73X14UGEhVJYopt3iE
+	lnJBMAtJ6IQm29nS1ZDbd8gQu5xWTHBrhMrB44yjLZYd8hrnO1Pd7CWwCg+JWuFiq6O+UVXDdEZ/t
+	xQX04Kj0cBMS5IGwgRv71Km//VExQgePlzDeIPRlBZJSxrIw4NdKk4Z7mGb3QYWvJqGJUrxNAuoiA
+	xQYFBA+e+xUe4uBCSHZOOgFXIM09rNfAx5Xpkw2BLQIAlOmXFX3gyITEbSDP2N8s+M7A40fFI7vaW
+	IjpkG3PvtwyhIHrDMzyShC043uUjO4IUYRuURhtnbYAA9UoxOjgGsSPDs+xGL6+ipVHLkeC/j70hr
+	fSMJZgcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRSzt-00000009Noe-1wUY;
-	Fri, 05 Dec 2025 10:25:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRSzq-00000009Nme-49lD;
-	Fri, 05 Dec 2025 10:25:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9B5B9442C0;
-	Fri,  5 Dec 2025 10:25:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 274BEC113D0;
-	Fri,  5 Dec 2025 10:25:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764930306;
-	bh=xVy6mYUJY3M3YBXRdoJaYabe4kSYexCVeSPnndn/gEQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=bmU4VHN0JTGck/+aXil0P9YXvN2aCQOOMt9WL2epaufp/OQUcWSxh3uwVcReG+OGT
-	 l6iIHJ08RPh23wfXYEggWrTWCkU73D0dHUlDwrQ1wBbw4fI7myYWjcknVIed7/h65Y
-	 m3QQObZgoRbT6QYYZQEUx72csenXHUbbB9qfvJpwNI/ts8ljuZ9yWBc0ZsYNiT7Ala
-	 bzjLqlG8Kn6o/lIGuAYXRQlgjO5Dcb2+A/C8ttLH3kHpwq2AcPpPv+hHHgLkHkkwc1
-	 tOYiusms6dVqqJ/jK42XvivjG7rtkDE0I6o0gHDlT3uOHhsZjP4Q0ac4Ja5y5c/lQq
-	 ihSdgY0MiAxWA==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 05 Dec 2025 11:24:39 +0100
-Subject: [PATCH mt76 v2 4/4] wifi: mt76: mt7996: Clear wcid pointer in
- mt7996_mac_sta_deinit_link()
+	id 1vRT25-00000009OIA-2e3V;
+	Fri, 05 Dec 2025 10:27:25 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vRT23-00000009OHp-2DIB
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Dec 2025 10:27:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 43C0F339;
+	Fri,  5 Dec 2025 02:27:15 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 30DC73F86F;
+	Fri,  5 Dec 2025 02:27:22 -0800 (PST)
+Date: Fri, 5 Dec 2025 10:27:20 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Mike Leach <mike.leach@linaro.org>
+Cc: Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
+	quic_yingdeng@quicinc.com, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	Jinlong Mao <jinlong.mao@oss.qualcomm.com>,
+	Mao Jinlong <quic_jinlmao@quicinc.com>
+Subject: Re: [PATCH v6 2/2] coresight: cti: Add Qualcomm extended CTI support
+Message-ID: <20251205102720.GP724103@e132581.arm.com>
+References: <20251202-extended_cti-v6-0-ab68bb15c4f5@oss.qualcomm.com>
+ <20251202-extended_cti-v6-2-ab68bb15c4f5@oss.qualcomm.com>
+ <20251203182944.GG724103@e132581.arm.com>
+ <CAJ9a7VhcSxTTaxMR4SS+GbHoPHXm0honykjXy92fbv0HG=1o4Q@mail.gmail.com>
+ <20251204104713.GL724103@e132581.arm.com>
+ <CAJ9a7VgV6chvWmeG2xta11YqyNpdRZqx4=EF7vC7k=J2utpRYQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251205-mt76-txq-wicd-fix-v2-4-f19ba48af7c1@kernel.org>
-References: <20251205-mt76-txq-wicd-fix-v2-0-f19ba48af7c1@kernel.org>
-In-Reply-To: <20251205-mt76-txq-wicd-fix-v2-0-f19ba48af7c1@kernel.org>
-To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
- Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>, Bo Jiao <Bo.Jiao@mediatek.com>, 
- Peter Chiu <chui-hao.chiu@mediatek.com>
-Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAJ9a7VgV6chvWmeG2xta11YqyNpdRZqx4=EF7vC7k=J2utpRYQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_022507_076523_AF145E7C 
-X-CRM114-Status: UNSURE (   7.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251205_022723_722644_D937ED30 
+X-CRM114-Status: GOOD (  29.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,29 +75,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Clear WCID pointer removing the sta link in mt7996_mac_sta_deinit_link
-routine.
+On Thu, Dec 04, 2025 at 03:07:10PM +0000, Mike Leach wrote:
 
-Fixes: dd82a9e02c054 ("wifi: mt76: mt7996: Rely on mt7996_sta_link in sta_add/sta_remove callbacks")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/wireless/mediatek/mt76/mt7996/main.c | 1 +
- 1 file changed, 1 insertion(+)
+[...]
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-index 1baace971ec3511dba3e8a64c236a2b55f9dbd36..78151197feccb0197e44f3f73c0f01c4589314ae 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-@@ -1027,6 +1027,7 @@ void mt7996_mac_sta_deinit_link(struct mt7996_dev *dev,
- 		list_del_init(&msta_link->rc_list);
- 	spin_unlock_bh(&dev->mt76.sta_poll_lock);
- 
-+	rcu_assign_pointer(dev->mt76.wcid[msta_link->wcid.idx], NULL);
- 	mt76_wcid_cleanup(&dev->mt76, &msta_link->wcid);
- 	mt76_wcid_mask_clear(dev->mt76.wcid_mask, msta_link->wcid.idx);
- }
+> > > > > +             /*
+> > > > > +              * QCOM CTI does not implement Claimtag functionality as
+> > > > > +              * per CoreSight specification, but its CLAIMSET register
+> > > > > +              * is incorrectly initialized to 0xF. This can mislead
+> > > > > +              * tools or drivers into thinking the component is claimed.
+> > > > > +              *
+> > > > > +              * Reset CLAIMSET to 0 to reflect that no claims are active.
+> > > > > +              */
+> > > > > +             writel_relaxed(0, drvdata->base + CORESIGHT_CLAIMSET);
+> > > >
+> > > > I am confused for this.  If QCOM CTI does not implement claim tag,
+> > > > then what is the designed register at the offset CORESIGHT_CLAIMSET?
+> > > >
+> > > > Should you bypass all claim tag related operations for QCOM CTI case?
+> > > > (I don't see you touch anything for claim and declaim tags).
+> > > >
+> > >
+> > > The patch I have created to handle systems without correct claim tag
+> > > operation is a dependency for this patch set. Thus no need for
+> > > override here as the core code will handle this correctly.
+> > >
+> > > The only issue is ensuring the non-CTI spec implementation will result
+> > > in the correct detection of no claim tags present.
+> >
+> > Your patch works only when a module has implemented claim registers.
+> >
+> 
+> Per the Coresight spec - unimplemented registers must be RAZ/WI- so
+> this still works for non implemented claim registers.
 
--- 
-2.52.0
+QCOM CTI does not follow the spec in two aspects:
 
+- Given the patch's comment: "QCOM CTI does not implement Claim tag
+  functionality as per CoreSight specification", I am suspect the CLAIM
+  registers are not implemented at all in QCOM CTI.
+
+- It neither follows up the "unimplemented registers must be RAZ/WI" -
+  the patch says its reset value is 0xF and then even can write 0 to it.
+
+> > This leads to two issues: we end up clearing an unknown register in the
+> > CTI driver, and then the coresight core layer assumes it is reading a
+> > claim register even though it is not.
+> 
+> Again RAZ will simply read 0x0 - which is an indication that there are
+> no claim bits implemented.
+> 
+> >
+> > For QCOM CTI, combined with your patch, I would suggest directly
+> > setting csdev->access.claim_tag_impl to false (perhaps using a helper).
+> 
+> That would be a better solution, though as Qcom appear to have
+> implemented a pair of standard RW registers rather than the claim tag
+> functionality, the write solution works for this particular
+> implementation.
+
+If an IP violates both the rules for implemented claim registers and
+the rules for non-implemented claim registers, how can we rely on
+these registers to detect the claim feature?
+
+My feeling is we are building a house on sand - these registers are not
+used for claim tags purpose at all.
+
+Thanks,
+Leo
 
