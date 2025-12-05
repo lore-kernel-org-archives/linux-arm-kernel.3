@@ -4,35 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02A72D374B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:02:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE524D374AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:02:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UPnYc7Nj2VUBmRTmPYDdoSF1MpKhSPML+gyA6p58mn8=; b=DV6zaHs6a0/m45s5MgxrraVqIt
-	sljMUqgVXSaYKi3VkWrZ8aIDrLD7+xp82Ly2vppsf3fG9nB5I3qiW/iT8Okphm7NRD5UjFkxKo6S+
-	VINrxh/63SfulRw4Oa1jSqc4Lxy4p4Bh2Cc2Flf6kS9kGaW/eacJYZCxyJzv0pcbVcejdw+APJb5X
-	zcGLn3sB8S9oSJaBHpmK+43h6YTh9DEkCCjol1oqXw9ig7IdN5ZsojMo0cxdrGfUNH8WIGI9N0Mu0
-	6RlL5gnFDiJVAecY3l7k/T89DKdTHCwGe2uYLmzOyoAb+zexNVcXBh5q5UBURQMU1/2W+84e0vMRv
-	1hye8XhQ==;
+	bh=9RITj9sqxABVEOfScRNfViPst7aXao94YisTkC1vBYE=; b=erTMdMPyOHCeb/e2U0ExlruGzG
+	mG/bjc2atN+3YbmyC2Blc1X7nykgT9/KIJ4WE8nSmBRYbq/On2a+fxVUPY41N6uJhs10Lyzx/GUuR
+	RFd8dnp++A8rHZqYF9O6NMVJrGO29/l40PF/nzjnjCGfEn/6opM5+EEULNGvv4/wp7VJuNMVgKB/j
+	jtYQxFPZmK7StgxtSrQVXEM4ki3MFExVI3b5eFK5kqHmhtZ8/T9nEJ760cJQFo7KniAmaSNekoBYr
+	ipHM/flpBrAZ6vDBEKP5RZ5tae4gksGDiXDAFckNcwoHRT+KB6X/9ltyqGMQGucIq4HrbHgLCM3y7
+	+OpLmIWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdsD-0000000A7LR-3Ndg;
-	Fri, 05 Dec 2025 22:01:57 +0000
+	id 1vRdsH-0000000A7P7-0Q2J;
+	Fri, 05 Dec 2025 22:02:01 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vRdsF-0000000A7ND-3GlQ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 05 Dec 2025 22:01:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=9RITj9sqxABVEOfScRNfViPst7aXao94YisTkC1vBYE=; b=RK9wittVtI4xWkwm0NEPyccNZW
+	2XNooKSqLuMA7SsGTxu+WG9mJviTNKenbyhfyQVxXcx09zrg+nv1qJvU/6hZ7lE0pG8obk9df1J4Y
+	hJyv8xZclmarQ70o2Yp0nCaPXU3ROjisupuN/NPGcxSH6xt5cWxhp/axjyTcMuRt7WC7LKE60EzBa
+	DGmbrP9Bm6SM1eJD0oiyVHOvJihj+cIH15L5u1ue6O/SDptQIkLWvjnKkvGsyc7yuaTw3AfU32/aC
+	pAqo0qVDgwj+mXPw86IEzZ1y+eGdM1shOCn9ZeaUBhgvavPzKfr5w1pQ4YBt7/loRBbWRC9HfSgGs
+	wYlCaAVQ==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdsB-0000000A7Cv-2eu2
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vRd0X-00000006sww-0nri
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 22:01:57 +0000
+	Fri, 05 Dec 2025 21:06:39 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 657E41C00;
-	Fri,  5 Dec 2025 14:01:47 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 482581BCB;
+	Fri,  5 Dec 2025 14:01:39 -0800 (PST)
 Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E5F883F740;
-	Fri,  5 Dec 2025 14:01:50 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CA59E3F740;
+	Fri,  5 Dec 2025 14:01:42 -0800 (PST)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
@@ -60,17 +75,17 @@ Cc: James Morse <james.morse@arm.com>,
 	rohit.mathew@arm.com,
 	reinette.chatre@intel.com,
 	Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-Subject: [RFC PATCH 36/38] arm_mpam: Add workaround for T241-MPAM-4
-Date: Fri,  5 Dec 2025 21:58:59 +0000
-Message-Id: <20251205215901.17772-37-james.morse@arm.com>
+Subject: [RFC PATCH 34/38] arm_mpam: Add quirk framework
+Date: Fri,  5 Dec 2025 21:58:57 +0000
+Message-Id: <20251205215901.17772-35-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20251205215901.17772-1-james.morse@arm.com>
 References: <20251205215901.17772-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_140155_998077_593C787C 
-X-CRM114-Status: GOOD (  22.96  )
+X-CRM114-CacheID: sfid-20251205_210630_785272_26A68C2D 
+X-CRM114-Status: GOOD (  17.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,172 +102,143 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Shanker Donthineni <sdonthineni@nvidia.com>
 
-In the T241 implementation of memory-bandwidth partitioning, in the
-absence of contention for bandwidth, the minimum bandwidth setting
-can affect the amount of achieved bandwidth. Specifically, the
-achieved bandwidth in the absence of contention can settle to any
-value between the values of MPAMCFG_MBW_MIN and MPAMCFG_MBW_MAX.
-Also, if MPAMCFG_MBW_MIN is set zero (below 0.78125%), once a core
-enters a throttled state, it will never leave that state.
+The MPAM specification includes the MPAMF_IIDR, which serves to
+uniquely identify the MSC implementation through a combination of
+implementer details, product ID, variant, and revision. Certain
+hardware issues/errata can be resolved using software workarounds.
 
-The first issue is not a cocern if the MPAM software allows to
-program MPAMCFG_MBW_MIN through the sysfs interface. This patch
-ensures program MBW_MIN=1 (0.78125%) whenever MPAMCFG_MBW_MIN=0
-is programmed.
-
-In the scenario where the resctrl doesn't support the MBW_MIN
-interface via sysfs, to achieve bandwidth closer to MW_MAX in the
-absence of contention, software should configure a relatively narrow
-gap between MBW_MIN and MBW_MAX. The recommendation is to use a 5%
-gap to mitigate the problem.
+Introduce a quirk framework to allow workarounds to be enabled based
+on the MPAMF_IIDR value.
 
 Signed-off-by: Shanker Donthineni <sdonthineni@nvidia.com>
-[ morse: Added as second quirk, adapted to use the new intermediate values
-  in mpam_extend_config() ]
+[ morse: Stash the IIDR so this doesn't need an IPI, enable quirks only
+  once, move the description to the callback so it can be pr_once()d, add
+  an enum of workarounds for popular errata. Add macros for making lists
+  of product/revision/vendor half readable ]
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
- Documentation/arch/arm64/silicon-errata.rst |  2 +
- drivers/resctrl/mpam_devices.c              | 60 ++++++++++++++++-----
- drivers/resctrl/mpam_internal.h             |  1 +
- 3 files changed, 49 insertions(+), 14 deletions(-)
+ drivers/resctrl/mpam_devices.c  | 27 +++++++++++++++++++++++++++
+ drivers/resctrl/mpam_internal.h | 26 ++++++++++++++++++++++++++
+ 2 files changed, 53 insertions(+)
 
-diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
-index 4e86b85fe3d6..b18bc704d4a1 100644
---- a/Documentation/arch/arm64/silicon-errata.rst
-+++ b/Documentation/arch/arm64/silicon-errata.rst
-@@ -248,6 +248,8 @@ stable kernels.
- +----------------+-----------------+-----------------+-----------------------------+
- | NVIDIA         | T241 MPAM       | T241-MPAM-1     | N/A                         |
- +----------------+-----------------+-----------------+-----------------------------+
-+| NVIDIA         | T241 MPAM       | T241-MPAM-4     | N/A                         |
-++----------------+-----------------+-----------------+-----------------------------+
- +----------------+-----------------+-----------------+-----------------------------+
- | Freescale/NXP  | LS2080A/LS1043A | A-008585        | FSL_ERRATUM_A008585         |
- +----------------+-----------------+-----------------+-----------------------------+
 diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-index f1f03ceade0a..5ba0aa703807 100644
+index 741e14e1e6cf..f0f6f9b55ad4 100644
 --- a/drivers/resctrl/mpam_devices.c
 +++ b/drivers/resctrl/mpam_devices.c
-@@ -678,6 +678,12 @@ static const struct mpam_quirk mpam_quirks[] = {
- 	.iidr_mask  = MPAM_IIDR_MATCH_ONE,
- 	.workaround = T241_SCRUB_SHADOW_REGS,
- 	},
-+	{
-+	/* NVIDIA t241 erratum T241-MPAM-4 */
-+	.iidr       = MPAM_IIDR_NVIDIA_T421,
-+	.iidr_mask  = MPAM_IIDR_MATCH_ONE,
-+	.workaround = T241_FORCE_MBW_MIN_TO_ONE,
-+	},
- 	{ NULL }, /* Sentinel */
- };
- 
-@@ -1622,6 +1628,22 @@ static void mpam_init_reset_cfg(struct mpam_config *reset_cfg)
- 	bitmap_fill(reset_cfg->features, MPAM_FEATURE_LAST);
+@@ -630,6 +630,25 @@ static struct mpam_msc_ris *mpam_get_or_create_ris(struct mpam_msc *msc,
+ 	return ERR_PTR(-ENOENT);
  }
  
-+/*
-+ * This is not part of mpam_init_reset_cfg() as high level callers have the
-+ * class, and low level callers a ris.
-+ */
-+static void mpam_wa_t241_force_mbw_min_to_one(struct mpam_config *cfg,
-+					      struct mpam_props *props)
++static const struct mpam_quirk mpam_quirks[] = {
++	{ NULL }, /* Sentinel */
++};
++
++static void mpam_enable_quirks(struct mpam_msc *msc)
 +{
-+	u16 max_hw_value, min_hw_granule, res0_bits;
++	const struct mpam_quirk *quirk;
 +
-+	res0_bits = 16 - props->bwa_wd;
-+	max_hw_value = ((1 << props->bwa_wd) - 1) << res0_bits;
-+	min_hw_granule = ~max_hw_value;
++	for (quirk = &mpam_quirks[0]; quirk->iidr_mask; quirk++) {
++		if (quirk->iidr != (msc->iidr & quirk->iidr_mask))
++			continue;
 +
-+	cfg->mbw_min = min_hw_granule + 1;
++		if (quirk->init)
++			quirk->init(msc, quirk);
++		else
++			mpam_set_quirk(quirk->workaround, msc);
++	}
 +}
 +
  /*
-  * Called via smp_call_on_cpu() to prevent migration, while still being
-  * pre-emptible. Caller must hold mpam_srcu.
-@@ -2524,7 +2546,8 @@ static void __destroy_component_cfg(struct mpam_component *comp)
- static void mpam_reset_component_cfg(struct mpam_component *comp)
- {
- 	int i;
--	struct mpam_props *cprops = &comp->class->props;
-+	struct mpam_class *class = comp->class;
-+	struct mpam_props *cprops = &class->props;
+  * IHI009A.a has this nugget: "If a monitor does not support automatic behaviour
+  * of NRDY, software can use this bit for any purpose" - so hardware might not
+@@ -864,8 +883,11 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+ 	/* Grab an IDR value to find out how many RIS there are */
+ 	mutex_lock(&msc->part_sel_lock);
+ 	idr = mpam_msc_read_idr(msc);
++	msc->iidr = mpam_read_partsel_reg(msc, IIDR);
+ 	mutex_unlock(&msc->part_sel_lock);
  
- 	mpam_assert_partid_sizes_fixed();
- 
-@@ -2539,6 +2562,10 @@ static void mpam_reset_component_cfg(struct mpam_component *comp)
- 			comp->cfg[i].mbw_pbm = GENMASK(cprops->mbw_pbm_bits - 1, 0);
- 		if (cprops->bwa_wd)
- 			comp->cfg[i].mbw_max = GENMASK(15, 16 - cprops->bwa_wd);
++	mpam_enable_quirks(msc);
 +
-+		if (mpam_has_quirk(T241_FORCE_MBW_MIN_TO_ONE, class))
-+			mpam_wa_t241_force_mbw_min_to_one(&comp->cfg[i],
-+							  &class->props);
- 	}
+ 	msc->ris_max = FIELD_GET(MPAMF_IDR_RIS_MAX, idr);
+ 
+ 	/* Use these values so partid/pmg always starts with a valid value */
+@@ -1987,6 +2009,7 @@ static bool mpam_has_cmax_wd_feature(struct mpam_props *props)
+  * resulting safe value must be compatible with both. When merging values in
+  * the tree, all the aliasing resources must be handled first.
+  * On mismatch, parent is modified.
++ * Quirks on an MSC will apply to all MSC in that class.
+  */
+ static void __props_mismatch(struct mpam_props *parent,
+ 			     struct mpam_props *child, bool alias)
+@@ -2106,6 +2129,7 @@ static void __props_mismatch(struct mpam_props *parent,
+  * nobble the class feature, as we can't configure all the resources.
+  * e.g. The L3 cache is composed of two resources with 13 and 17 portion
+  * bitmaps respectively.
++ * Quirks on an MSC will apply to all MSC in that class.
+  */
+ static void
+ __class_props_mismatch(struct mpam_class *class, struct mpam_vmsc *vmsc)
+@@ -2119,6 +2143,9 @@ __class_props_mismatch(struct mpam_class *class, struct mpam_vmsc *vmsc)
+ 	dev_dbg(dev, "Merging features for class:0x%lx &= vmsc:0x%lx\n",
+ 		(long)cprops->features, (long)vprops->features);
+ 
++	/* Merge quirks */
++	class->quirks |= vmsc->msc->quirks;
++
+ 	/* Take the safe value for any common features */
+ 	__props_mismatch(cprops, vprops, false);
  }
- 
-@@ -2825,6 +2852,18 @@ static void mpam_extend_config(struct mpam_class *class, struct mpam_config *cfg
- 	u16 min, min_hw_granule, delta;
- 	u16 max_hw_value, res0_bits;
- 
-+	/*
-+	 * Calculate the values the 'min' control can hold.
-+	 * e.g. on a platform with bwa_wd = 8, min_hw_granule is 0x00ff because
-+	 * those bits are RES0. Configurations of this value are effectively
-+	 * zero. But configurations need to saturate at min_hw_granule on
-+	 * systems with mismatched bwa_wd, where the 'less than 0' values are
-+	 * implemented on some MSC, but not others.
-+	 */
-+	res0_bits = 16 - cprops->bwa_wd;
-+	max_hw_value = ((1 << cprops->bwa_wd) - 1) << res0_bits;
-+	min_hw_granule = ~max_hw_value;
-+
- 	/*
- 	 * MAX and MIN should be set together. If only one is provided,
- 	 * generate a configuration for the other. If only one control
-@@ -2834,19 +2873,6 @@ static void mpam_extend_config(struct mpam_class *class, struct mpam_config *cfg
- 	 */
- 	if (mpam_has_feature(mpam_feat_mbw_max, cfg) &&
- 	    !mpam_has_feature(mpam_feat_mbw_min, cfg)) {
--		/*
--		 * Calculate the values the 'min' control can hold.
--		 * e.g. on a platform with bwa_wd = 8, min_hw_granule is 0x00ff
--		 * because those bits are RES0. Configurations of this value
--		 * are effectively zero. But configurations need to saturate
--		 * at min_hw_granule on systems with mismatched bwa_wd, where
--		 * the 'less than 0' values are implemented on some MSC, but
--		 * not others.
--		 */
--		res0_bits = 16 - cprops->bwa_wd;
--		max_hw_value = ((1 << cprops->bwa_wd) - 1) << res0_bits;
--		min_hw_granule = ~max_hw_value;
--
- 		delta = ((5 * MPAMCFG_MBW_MAX_MAX) / 100) - 1;
- 		if (cfg->mbw_max > delta)
- 			min = cfg->mbw_max - delta;
-@@ -2856,6 +2882,12 @@ static void mpam_extend_config(struct mpam_class *class, struct mpam_config *cfg
- 		cfg->mbw_min = max(min, min_hw_granule);
- 		mpam_set_feature(mpam_feat_mbw_min, cfg);
- 	}
-+
-+	if (mpam_has_quirk(T241_FORCE_MBW_MIN_TO_ONE, class) &&
-+	    cfg->mbw_min <= min_hw_granule) {
-+		cfg->mbw_min = min_hw_granule + 1;
-+		mpam_set_feature(mpam_feat_mbw_min, cfg);
-+	}
- }
- 
- int mpam_apply_config(struct mpam_component *comp, u16 partid,
 diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index 70b78cfd1f5b..01882f0acee2 100644
+index d381906545ed..de3e5faa12b2 100644
 --- a/drivers/resctrl/mpam_internal.h
 +++ b/drivers/resctrl/mpam_internal.h
-@@ -223,6 +223,7 @@ struct mpam_props {
- /* Workaround bits for msc->quirks */
- enum mpam_device_quirks {
- 	T241_SCRUB_SHADOW_REGS,
-+	T241_FORCE_MBW_MIN_TO_ONE,
- 	MPAM_QUIRK_LAST,
- };
+@@ -88,6 +88,8 @@ struct mpam_msc {
+ 	u8			pmg_max;
+ 	unsigned long		ris_idxs;
+ 	u32			ris_max;
++	u32			iidr;
++	u16			quirks;
+ 
+ 	/*
+ 	 * error_irq_lock is taken when registering/unregistering the error
+@@ -215,6 +217,29 @@ struct mpam_props {
+ #define mpam_set_feature(_feat, x)	set_bit(_feat, (x)->features)
+ #define mpam_clear_feature(_feat, x)	clear_bit(_feat, (x)->features)
+ 
++/* Workaround bits for msc->quirks */
++enum mpam_device_quirks {
++	MPAM_QUIRK_LAST,
++};
++
++#define mpam_has_quirk(_quirk, x)	((1 << (_quirk) & (x)->quirks))
++#define mpam_set_quirk(_quirk, x)	((x)->quirks |= (1 << (_quirk)))
++
++struct mpam_quirk {
++	void (*init)(struct mpam_msc *msc, const struct mpam_quirk *quirk);
++
++	u32 iidr;
++	u32 iidr_mask;
++
++	enum mpam_device_quirks workaround;
++};
++
++#define MPAM_IIDR_MATCH_ONE	FIELD_PREP_CONST(MPAMF_IIDR_PRODUCTID,   0xfff) | \
++				FIELD_PREP_CONST(MPAMF_IIDR_VARIANT,     0xf  ) | \
++				FIELD_PREP_CONST(MPAMF_IIDR_REVISION,    0xf  ) | \
++				FIELD_PREP_CONST(MPAMF_IIDR_IMPLEMENTER, 0xfff)
++
++
+ /* The values for MSMON_CFG_MBWU_FLT.RWBW */
+ enum mon_filter_options {
+ 	COUNT_BOTH	= 0,
+@@ -258,6 +283,7 @@ struct mpam_class {
+ 
+ 	struct mpam_props	props;
+ 	u32			nrdy_usec;
++	u16			quirks;
+ 	u8			level;
+ 	enum mpam_class_types	type;
  
 -- 
 2.39.5
