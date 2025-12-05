@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B899D374A6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:00:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05C18D374AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:00:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kYu1421JPjYdkkjwFDrZABhO4BBeAn+YN5n486JNWB8=; b=Use84pI1LgdIGOKkrWmfKC+J/S
-	DphZlOpvT5EKYArHzTPyGkx7j9PYU1BCIByXK2blAwoyHDYWP003u+iomL3LFwWHCFFTbdIhTDnV5
-	jNG1uKnryobii8UJhkMcG+enUBv2NE5R5ol1c9TtHKsbW1OZMVrOBIvU8IqOQofFJPGkxuY8clmT/
-	NgBUQtb1xeMi8ahNg/VinXLBhs45K6jEJ6YmXIl0QEREjMv4g8OCYQClgu4/yOD3kBVR87e0C7MTD
-	zeHTwEUFSydGRr1Xuaeda0tJ5Dx3PrZfI3LLXxbGDjlrmX4i5NACgcUyf7mjW7neIWRrq2v4ijPUj
-	52uivKIw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Bsaeh+R85W3yqBXY0/3dvY5ZY1X6APknzRRJmY7imCA=; b=LUpMc/rrdZ1a2t0EHrRVLwqO4K
+	9jB/yWjXOwZeq+bkNKzG1aAEk1xE+OHwOg8gwDgBqX4YkTsBvbBbXiuhPg1+NGfE6k7PXEoRCxnH6
+	BGPmbKEg5HkfBBmc/LO5PnVIHKkmd+2u2xEriyqwNg8mKGPWLUBY8tNMGaS7en1Nc72hiLZd4jrXa
+	5LEBUgm2w+N4eNsgFB2n7en9vLlPaoVPtVtS+BOkElTtjeiY9eugZqCXy6JcCR6entjzFFSe2V20W
+	H2qVMwbk98KNn/DDJBt/pZNtNddx8KaWfNzowg46vf9Grqtkno/MF312gSmK/zAjhyO6V0Xnz+4yw
+	Q+yjLGHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdqj-0000000A5UM-23qc;
-	Fri, 05 Dec 2025 22:00:25 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdqg-0000000A5Q7-1ayH
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 22:00:23 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CCA5E1BA8;
-	Fri,  5 Dec 2025 14:00:13 -0800 (PST)
-Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 347833F7BD;
-	Fri,  5 Dec 2025 14:00:17 -0800 (PST)
-From: James Morse <james.morse@arm.com>
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: James Morse <james.morse@arm.com>,
-	D Scott Phillips OS <scott@os.amperecomputing.com>,
-	carl@os.amperecomputing.com,
-	lcherian@marvell.com,
-	bobo.shaobowang@huawei.com,
-	tan.shaopeng@fujitsu.com,
-	baolin.wang@linux.alibaba.com,
-	Jamie Iles <quic_jiles@quicinc.com>,
-	Xin Hao <xhao@linux.alibaba.com>,
-	peternewman@google.com,
-	dfustini@baylibre.com,
-	amitsinght@marvell.com,
-	David Hildenbrand <david@kernel.org>,
-	Dave Martin <dave.martin@arm.com>,
-	Koba Ko <kobak@nvidia.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	fenghuay@nvidia.com,
-	baisheng.gao@unisoc.com,
-	Jonathan Cameron <jonathan.cameron@huawei.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Ben Horgan <ben.horgan@arm.com>,
-	rohit.mathew@arm.com,
-	reinette.chatre@intel.com,
-	Punit Agrawal <punit.agrawal@oss.qualcomm.com>,
-	Dave Martin <Dave.Martin@arm.com>
-Subject: [RFC PATCH 13/38] arm_mpam: resctrl: Add CDP emulation
-Date: Fri,  5 Dec 2025 21:58:36 +0000
-Message-Id: <20251205215901.17772-14-james.morse@arm.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20251205215901.17772-1-james.morse@arm.com>
-References: <20251205215901.17772-1-james.morse@arm.com>
+	id 1vRdqg-0000000A5RD-3hMr;
+	Fri, 05 Dec 2025 22:00:22 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vRdqf-0000000A5OZ-28SI;
+	Fri, 05 Dec 2025 22:00:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=Bsaeh+R85W3yqBXY0/3dvY5ZY1X6APknzRRJmY7imCA=; b=gVPFAFitucrsfMwuC88SaBaC5K
+	lEZbb6hTwYbfgKyCYizCM8AF/uHrtgWhbzLgfyJw9SQTH0UsoFMZ4oY9Gq1Urh/KYtJ6OFB9cCYYZ
+	pCWUIDJz5QZR9eiGhrFN2y2YR2k8D0jsfZrkW4r5ljQEHR0S58tRbOx5WWOPC32+pFHsKjlRNhmLJ
+	q0gE6Ic90s0N6enpl/Yd6LOr7dXm4ERUQVCLxrNhY+FMvvcwyghZ/S9QWwXgo/Suj8GqN8Wg3GvG9
+	AxVlO2bi9IqD87iVj5aO1GEd2wZR5xxtqYbD6flzxpQlrkKt2IUzBuvSMkmnuIDkkSDzktjIuOl1+
+	Ve/EUaVg==;
+Received: from mxout1.routing.net ([2a03:2900:1:a::a])
+	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vRdqa-00000006IYH-45f5;
+	Fri, 05 Dec 2025 22:00:19 +0000
+Received: from mxbulk.masterlogin.de (unknown [192.168.10.85])
+	by mxout1.routing.net (Postfix) with ESMTP id 1BE7A3FD50;
+	Fri,  5 Dec 2025 22:00:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailerdienst.de;
+	s=routing; t=1764972005;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Bsaeh+R85W3yqBXY0/3dvY5ZY1X6APknzRRJmY7imCA=;
+	b=yJRRRkihclJuRSI/DLO1f3PO8oASBGmyaBC+rF5SUnfv3zT3xsbKyKAU+KRrSq5t7crTf+
+	2Nx695LypGQojaYqtGjLjg/HcFW4QTJuJ1q8qn01KK8KLph2NxfimDi/actEOVldkm5z1Q
+	N108qUsFeV8T4xwo6l+ef9z+zSDJVZA=
+Received: from frank-u24.. (fttx-pool-157.180.225.155.bambit.de [157.180.225.155])
+	by mxbulk.masterlogin.de (Postfix) with ESMTPSA id E5F1F1226F1;
+	Fri,  5 Dec 2025 22:00:04 +0000 (UTC)
+From: Frank Wunderlich <linux@fw-web.de>
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	Frank Wunderlich <frank-w@public-files.de>
+Subject: [PATCH] arm64: dts: mediatek: Apply mt8395-radxa DT overlay at build time
+Date: Fri,  5 Dec 2025 22:59:38 +0100
+Message-ID: <20251205215940.19287-1-linux@fw-web.de>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_140022_507309_FB3DA0D8 
-X-CRM114-Status: GOOD (  25.08  )
+X-CRM114-CacheID: sfid-20251205_220017_274692_29E4473F 
+X-CRM114-Status: UNSURE (   8.36  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,234 +90,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Intel RDT's CDP feature allows the cache to use a different control value
-depending on whether the accesses was for instruction fetch or a data
-access. MPAM's equivalent feature is the other way up: the CPU assigns a
-different partid label to traffic depending on whether it was instruction
-fetch or a data access, which causes the cache to use a different control
-value based solely on the partid.
+From: "Rob Herring (Arm)" <robh@kernel.org>
 
-MPAM can emulate CDP, with the side effect that the alternative partid is
-seen by all MSC, it can't be enabled per-MSC.
+It's a requirement that DT overlays be applied at build time in order to
+validate them as overlays are not validated on their own.
 
-Add the resctrl hooks to turn this on or off. Add the helpers that
-match a closid against a task, which need to be aware that the value
-written to hardware is not the same as the one resctrl is using.
+Add missing target for mt8395-radxa hd panel overlay.
 
-Update the 'arm64_mpam_global_default' variable the arch code uses
-during context switch to know when the per-cpu value should be used
-instead.
-
-Awkwardly, the MB controls don't implement CDP. To emulate this, the
-MPAM equivalent needs programming twice by the resctrl glue, as
-resctrl expects the bandwidth controls to be applied independently for
-both data and isntruction-fetch.
-
-CC: Dave Martin <Dave.Martin@arm.com>
-CC: Ben Horgan <ben.horgan@arm.com>
-CC: Amit Singh Tomar <amitsinght@marvell.com>
-Signed-off-by: James Morse <james.morse@arm.com>
+Fixes: 4c8ff61199a7 ("arm64: dts: mediatek: mt8395-radxa-nio-12l: Add Radxa 8 HD panel")
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 ---
- arch/arm64/include/asm/mpam.h  |   1 +
- drivers/resctrl/mpam_resctrl.c | 115 ++++++++++++++++++++++++++++++++-
- include/linux/arm_mpam.h       |   3 +
- 3 files changed, 118 insertions(+), 1 deletion(-)
+This will show a warning [1] in upcoming 6.19.
 
-diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.h
-index 2960ffaf6574..689285c4c61f 100644
---- a/arch/arm64/include/asm/mpam.h
-+++ b/arch/arm64/include/asm/mpam.h
-@@ -4,6 +4,7 @@
- #ifndef __ASM__MPAM_H
- #define __ASM__MPAM_H
+Note that if it is desired that the combined .dtb is not installed, then
+the combined .dtb should be added to 'dtb-' variable instead.
+---
+extracted missing part from [2] with updated commit title/description
+after my bananapi series [3] to solve all warnings. Added Fixes-tag to
+make sure it lands in 6.19.
+
+[1] https://lore.kernel.org/all/20251114222759.4181152-1-robh@kernel.org/
+[2] https://patchwork.kernel.org/project/linux-mediatek/patch/20251117211306.725678-1-robh@kernel.org/
+[3] https://patchwork.kernel.org/project/linux-mediatek/cover/20251119175124.48947-1-linux@fw-web.de/
+---
+ arch/arm64/boot/dts/mediatek/Makefile | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
+index cac8f4c6d76f..3f76d9ce9879 100644
+--- a/arch/arm64/boot/dts/mediatek/Makefile
++++ b/arch/arm64/boot/dts/mediatek/Makefile
+@@ -166,6 +166,8 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8390-grinn-genio-700-sbc.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-kontron-3-5-sbc-i1200.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l-8-hd-panel.dtbo
++mt8395-radxa-nio-12l-8-hd-panel-dtbs := mt8395-radxa-nio-12l.dtb mt8395-radxa-nio-12l-8-hd-panel.dtbo
++dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l-8-hd-panel.dtb
+ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8516-pumpkin.dtb
  
-+#include <linux/arm_mpam.h>
- #include <linux/bitops.h>
- #include <linux/bitfield.h>
- #include <linux/init.h>
-diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index c2650abb99ec..d5f75ed67e46 100644
---- a/drivers/resctrl/mpam_resctrl.c
-+++ b/drivers/resctrl/mpam_resctrl.c
-@@ -33,6 +33,10 @@ static DEFINE_MUTEX(domain_list_lock);
- static bool exposed_alloc_capable;
- static bool exposed_mon_capable;
- 
-+/*
-+ * MPAM emulates CDP by setting different PARTID in the I/D fields of MPAM0_EL1.
-+ * This applies globally to all traffic the CPU generates.
-+ */
- static bool cdp_enabled;
- 
- bool resctrl_arch_alloc_capable(void)
-@@ -45,6 +49,67 @@ bool resctrl_arch_mon_capable(void)
- 	return exposed_mon_capable;
- }
- 
-+bool resctrl_arch_get_cdp_enabled(enum resctrl_res_level rid)
-+{
-+	switch (rid) {
-+	case RDT_RESOURCE_L2:
-+	case RDT_RESOURCE_L3:
-+		return cdp_enabled;
-+	case RDT_RESOURCE_MBA:
-+	default:
-+		/*
-+		 * x86's MBA control doesn't support CDP, so user-space doesn't
-+		 * expect it.
-+		 */
-+		return false;
-+	}
-+}
-+
-+/**
-+ * resctrl_reset_task_closids() - Reset the PARTID/PMG values for all tasks.
-+ *
-+ * At boot, all existing tasks use partid zero for D and I.
-+ * To enable/disable CDP emulation, all these tasks need relabelling.
-+ */
-+static void resctrl_reset_task_closids(void)
-+{
-+	struct task_struct *p, *t;
-+
-+	read_lock(&tasklist_lock);
-+	for_each_process_thread(p, t) {
-+		resctrl_arch_set_closid_rmid(t, RESCTRL_RESERVED_CLOSID,
-+					     RESCTRL_RESERVED_RMID);
-+	}
-+	read_unlock(&tasklist_lock);
-+}
-+
-+int resctrl_arch_set_cdp_enabled(enum resctrl_res_level ignored, bool enable)
-+{
-+	u32 partid_i, partid_d;
-+
-+	cdp_enabled = enable;
-+	partid_i = partid_d = RESCTRL_RESERVED_CLOSID;
-+
-+	if (enable) {
-+		u32 partid = RESCTRL_RESERVED_CLOSID;
-+
-+		partid_d = resctrl_get_config_index(partid, CDP_CODE);
-+		partid_i = resctrl_get_config_index(partid, CDP_DATA);
-+	}
-+
-+	mpam_set_task_partid_pmg(current, partid_d, partid_i, 0, 0);
-+	WRITE_ONCE(arm64_mpam_global_default, mpam_get_regval(current));
-+
-+	resctrl_reset_task_closids();
-+
-+	return 0;
-+}
-+
-+static bool mpam_resctrl_hide_cdp(enum resctrl_res_level rid)
-+{
-+	return cdp_enabled && !resctrl_arch_get_cdp_enabled(rid);
-+}
-+
- /*
-  * MSC may raise an error interrupt if it sees an out or range partid/pmg,
-  * and go on to truncate the value. Regardless of what the hardware supports,
-@@ -110,6 +175,30 @@ void resctrl_arch_set_closid_rmid(struct task_struct *tsk, u32 closid, u32 rmid)
- 	}
- }
- 
-+bool resctrl_arch_match_closid(struct task_struct *tsk, u32 closid)
-+{
-+	u64 regval = mpam_get_regval(tsk);
-+	u32 tsk_closid = FIELD_GET(MPAM0_EL1_PARTID_D, regval);
-+
-+	if (cdp_enabled)
-+		tsk_closid >>= 1;
-+
-+	return tsk_closid == closid;
-+}
-+
-+/* The task's pmg is not unique, the partid must be considered too */
-+bool resctrl_arch_match_rmid(struct task_struct *tsk, u32 closid, u32 rmid)
-+{
-+	u64 regval = mpam_get_regval(tsk);
-+	u32 tsk_closid = FIELD_GET(MPAM0_EL1_PARTID_D, regval);
-+	u32 tsk_rmid = FIELD_GET(MPAM0_EL1_PMG_D, regval);
-+
-+	if (cdp_enabled)
-+		tsk_closid >>= 1;
-+
-+	return (tsk_closid == closid) && (tsk_rmid == rmid);
-+}
-+
- struct rdt_resource *resctrl_arch_get_resource(enum resctrl_res_level l)
- {
- 	if (l >= RDT_NUM_RESOURCES)
-@@ -245,6 +334,14 @@ u32 resctrl_arch_get_config(struct rdt_resource *r, struct rdt_ctrl_domain *d,
- 	dom = container_of(d, struct mpam_resctrl_dom, resctrl_ctrl_dom);
- 	cprops = &res->class->props;
- 
-+	/*
-+	 * When CDP is enabled, but the resource doesn't support it,
-+	 * the control is cloned across both partids.
-+	 * Pick one at random to read:
-+	 */
-+	if (mpam_resctrl_hide_cdp(r->rid))
-+		type = CDP_DATA;
-+
- 	partid = resctrl_get_config_index(closid, type);
- 	cfg = &dom->ctrl_comp->cfg[partid];
- 
-@@ -272,6 +369,7 @@ u32 resctrl_arch_get_config(struct rdt_resource *r, struct rdt_ctrl_domain *d,
- int resctrl_arch_update_one(struct rdt_resource *r, struct rdt_ctrl_domain *d,
- 			    u32 closid, enum resctrl_conf_type t, u32 cfg_val)
- {
-+	int err;
- 	u32 partid;
- 	struct mpam_config cfg;
- 	struct mpam_props *cprops;
-@@ -311,7 +409,22 @@ int resctrl_arch_update_one(struct rdt_resource *r, struct rdt_ctrl_domain *d,
- 		return -EINVAL;
- 	}
- 
--	return mpam_apply_config(dom->ctrl_comp, partid, &cfg);
-+	/*
-+	 * When CDP is enabled, but the resource doesn't support it, we need to
-+	 * apply the same configuration to the other partid.
-+	 */
-+	if (mpam_resctrl_hide_cdp(r->rid)) {
-+		partid = resctrl_get_config_index(closid, CDP_CODE);
-+		err = mpam_apply_config(dom->ctrl_comp, partid, &cfg);
-+		if (err)
-+			return err;
-+
-+		partid = resctrl_get_config_index(closid, CDP_DATA);
-+		return mpam_apply_config(dom->ctrl_comp, partid, &cfg);
-+
-+	} else {
-+		return mpam_apply_config(dom->ctrl_comp, partid, &cfg);
-+	}
- }
- 
- int resctrl_arch_update_domains(struct rdt_resource *r, u32 closid)
-diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
-index 5a78299ec464..ba0312b55d9f 100644
---- a/include/linux/arm_mpam.h
-+++ b/include/linux/arm_mpam.h
-@@ -5,6 +5,7 @@
- #define __LINUX_ARM_MPAM_H
- 
- #include <linux/acpi.h>
-+#include <linux/resctrl_types.h>
- #include <linux/types.h>
- 
- struct mpam_msc;
-@@ -56,6 +57,8 @@ void resctrl_arch_set_cpu_default_closid(int cpu, u32 closid);
- void resctrl_arch_set_closid_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
- void resctrl_arch_set_cpu_default_closid_rmid(int cpu, u32 closid, u32 rmid);
- void resctrl_arch_sched_in(struct task_struct *tsk);
-+bool resctrl_arch_match_closid(struct task_struct *tsk, u32 closid);
-+bool resctrl_arch_match_rmid(struct task_struct *tsk, u32 closid, u32 rmid);
- 
- /**
-  * mpam_register_requestor() - Register a requestor with the MPAM driver
+ # Device tree overlays support
 -- 
-2.39.5
+2.43.0
 
 
