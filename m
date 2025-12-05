@@ -4,92 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEDF3D116F1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 03:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57279D2CE1A
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 03:53:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WezX6hNbQA28AqxZ2YLg6gysDGXXgYStXFDCsVPlTbo=; b=dPGd5KQvNVPHy3jfNgx1feuQW2
-	x+z1aHloznzTkeAK1Hd83FZzBPM+AUoUF51qCRQxe4C5kmYYtTZec+G5g1HV5RsP+BulAcmMrXPgI
-	JsNqq38yHchk0gLzAv8SzYZlb71iY57H/4NZeB+ag/4NiPqWi7CiuLI8FGZEsxIt/ac74CLklweoF
-	B4btTxdCqXKDd8Rp6B7w0bXCuei/AkjRSf3BFsUQS31zcewNbNPYhUpl5s7PR6mXA8C/vfbUKIBA+
-	Swm6qbPu7QaBlrXEXnQoIYSnTffaPXre9B87lpUejKxu0WSY3EjqgwiparVSwme6rk/PiTR+xHifF
-	EWjR4s/A==;
+	bh=uA42B2J5fwSQfu5FlZ7N38XeuATahpsmHOfzhfbeNbE=; b=pUzFd4ZQL9CaQMGqDmtBOSEqcZ
+	7nPT4QsadaP7Dif5f5t6EahHWTtEIYdceifp1CmLYFQUEtRsb1FaQGcU5Xw2/6vut3shOWeG6Jeu/
+	XNwRwpzjLeE7VpgL7MrxdaEiQITEVVXHJI2GFyrilcMttTx+jJAHfpKG0FD9hNUTzv7/9H9UFktOF
+	G50dKKA+KonrlYbIAsKqv72cM//DKPj3UKcIEJDs0F7PdBqDg+oNmn1XXpCXiAofZDw6RkKDjOLgh
+	uPmXx+3pQnIXSW3fLP4mOeDxbm3p3ft+jz4+JkH76qGQUowNV3tKUyrJoXvPKkv/O91qYRDex4x+v
+	ZfMpm3Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRMr9-00000008zAb-3e2a;
-	Fri, 05 Dec 2025 03:51:43 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1vRMsJ-00000008zIh-1uKr;
+	Fri, 05 Dec 2025 03:52:55 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRMr6-00000008z9o-1Phu
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 03:51:41 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-7ade456b6abso1489882b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 04 Dec 2025 19:51:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764906699; x=1765511499; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WezX6hNbQA28AqxZ2YLg6gysDGXXgYStXFDCsVPlTbo=;
-        b=uce0GEnnXeRRyzhUxW6eC051a9b7fWRwf8JeHnqTLefY9qoS21iPHs7Kq0B21XzabS
-         bC5wqtlhXWgad+anzDV5rPrMMFM9qrymIquMOuZDBKndq5VjXvzC1eUnudzGad8lGPpj
-         /4v+U3nes5M3wfnjjJV14CGzUQ7dw1xrjibMk/CjrdKxz7+ymGDcY8AmVxcxP0CGgBZf
-         KBXCwwzu8qdiBlrChCR+6uAAZovLQGV0peHJxhXfGCUf/K9yIhQbOIMPcpo6Urzg/zGo
-         II3hTZilgD9PPbj3SmEgcZQDLB/iWOHIyzZldL+rtrjlgiCC8NGOOgLui8Vm/c4g5Mvr
-         XSbA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764906699; x=1765511499;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=WezX6hNbQA28AqxZ2YLg6gysDGXXgYStXFDCsVPlTbo=;
-        b=ewKVpeEXOKJQpsl1dBnWul3+0/4HBva3iVWuP2JAHaPRRjExgYVi7R25+IXjvxmZmZ
-         u+OcI2MU0mY3jmQ1cA40pgqIqtilySD2wm19wP55Vk9RnUZIHfC7pgoT4CW9+G9kjIQJ
-         fTCrzp8IZGFS71IwklIQ9Mtf6+Q5H3v9UZWidcv6cBeomE/jobNSAIl4MBiPWE3x4pb5
-         aQG8c7duV8F0sHuU50Fc44sAlfPY3a8ygaSv8N7DG2F77NPAdnx3x6Db+1RM6tA1kQDn
-         /XwKh5yJSEvASHo46mJitwyKFCaQ/QzaR2bO8UK5dRPsD/S3P5YMCZkL3dhc0d0pX7un
-         3dXQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXWNDIsSUFzS4vxWOPsc51itajWrL2jINGKuijW0JLr/Xtvuc50vtTTaDOUiabgd9hSDcVi9APEA5g2/KGnUkRn@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKnGBDfDTBnyTN6tIlEcr6TcxlIk+M5RutGrWg/ZPcAIiStByo
-	ZdVrJxV/4GCTRnxAOQX7iKVlMHX+p/ZxNmmmIx45EXbmx09Y8L9O3gSAVTpn9oEbGZEkrWn+DET
-	qdS842SsnAGYVpk6Txetv8mgwURwIFdpoXiaTIhc2
-X-Gm-Gg: ASbGncstxAhgnTMvopae7p86KGq4a9XqRWhU8dSp948Tun+tVM0y5qjNsZotVy48M5+
-	0iH8jjilPQdxLFsai24omv4TIrnirxm9/twp/fiSvfHYqmHnoYub49XBnWUH+1ULm3cNL/IhguY
-	6BE09BJUbbhueNfCaSb5j7gnl8z/x8MBOrgxCYFaiGwvxg/oS9FmXSmRtK3QPO9fRLT8CaZEh+Q
-	/6H59iDRIe14QJFI9gZLvWOkVYVn2d5TJGmhp6JJEIoemhtHNt2aAd4p5XWhZ8p47NPR9Hxui6l
-	eRoi25N9gIbz7gGMryiA/gDox/Y/
-X-Google-Smtp-Source: AGHT+IH7GWuDo91VkkxlEQ1I2pmrwkMqe1WpyJDLcRf2GJbb70zopeBu3Xn1bmW37Gs5MbOfJb8chhFABiGk+XWPpXI=
-X-Received: by 2002:a05:7022:3841:b0:11b:c1fb:89a with SMTP id
- a92af1059eb24-11df0c3d70fmr6132695c88.32.1764906698269; Thu, 04 Dec 2025
- 19:51:38 -0800 (PST)
+	id 1vRMsI-00000008zI3-25lz;
+	Fri, 05 Dec 2025 03:52:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 879E760209;
+	Fri,  5 Dec 2025 03:52:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E18DCC116B1;
+	Fri,  5 Dec 2025 03:52:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1764906773;
+	bh=aCnktdb+wTVLC3gj9nec1duNC0hS3OcJnFItNItmnAQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=T2RxtvSMdslKaWhoOtZaHjmqC/MSnyHnAd9TLVevkydFuHJVs0P4nxWnDAhkzIvKl
+	 zVdbFFUVq4w5tVg3ormyLggB4Xp8OujJMTUsUcvrQgIqSTdUsPhD+pVSUxqgqoJ3b1
+	 wrp1x4EU4NiaWo6qeFVTyQWTOVH9qullRl+codpIW8Iqf1ihXhQN5iS2ndBdzSdRUS
+	 edzNBDushAKlMltIAmRH4lpJTAHMgg1OBWX9WTYlPadxktRcuSWmKofDfe3r+lNUK6
+	 r+DJWrvEP4bHqydVtgwq2vW8IxvfHqlP6UHaPSL/GIWAWTpBbx8V4hG0XYZ4KHI3WH
+	 QKKmEma42gNKA==
+From: Sasha Levin <sashal@kernel.org>
+To: patches@lists.linux.dev,
+	stable@vger.kernel.org
+Cc: Shuhao Fu <sfual@cse.ust.hk>,
+	Viresh Kumar <viresh.kumar@linaro.org>,
+	Sasha Levin <sashal@kernel.org>,
+	rafael@kernel.org,
+	krzk@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.18-5.10] cpufreq: s5pv210: fix refcount leak
+Date: Thu,  4 Dec 2025 22:52:34 -0500
+Message-ID: <20251205035239.341989-5-sashal@kernel.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251205035239.341989-1-sashal@kernel.org>
+References: <20251205035239.341989-1-sashal@kernel.org>
 MIME-Version: 1.0
-References: <20251121-phyb4-v7-0-df644fa62180@google.com> <20251121-phyb4-v7-2-df644fa62180@google.com>
- <CADrjBPpLn9qzg1y5_c_0CYL2U8p6taMWtPOw5RykAO4=4uNeUA@mail.gmail.com> <1a53d473-fc13-4ac5-ba52-4701d95e3073@kernel.org>
-In-Reply-To: <1a53d473-fc13-4ac5-ba52-4701d95e3073@kernel.org>
-From: Roy Luo <royluo@google.com>
-Date: Thu, 4 Dec 2025 19:51:01 -0800
-X-Gm-Features: AWmQ_bkI3gBipBfIh3J4uywjnOrs9760E4xYx1DdnhCprCkAyhSf6HmOxRGOWVk
-Message-ID: <CA+zupgw4_o7Po_Zw1qT13YU=PGXoJ_RAPKiAwFpt6RRyO14OAA@mail.gmail.com>
-Subject: Re: [PATCH v7 2/2] phy: Add Google Tensor SoC USB PHY driver
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Peter Griffin <peter.griffin@linaro.org>, Vinod Koul <vkoul@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Badhri Jagan Sridharan <badhri@google.com>, Doug Anderson <dianders@google.com>, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_195140_444848_65790ABD 
-X-CRM114-Status: GOOD (  21.77  )
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.18
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,67 +82,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 22, 2025 at 4:49=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.or=
-g> wrote:
->
-> On 22/11/2025 13:48, Peter Griffin wrote:
-> > Hi Roy,
-> >
-> > On Fri, 21 Nov 2025 at 08:56, Roy Luo <royluo@google.com> wrote:
-> >>
-> >> Support the USB PHY found on Google Tensor G5 (Laguna). This
-> >> particular USB PHY supports both high-speed and super-speed
-> >> operations, and is integrated with the SNPS DWC3 controller that's
-> >> also on the SoC. This initial patch specifically adds functionality
-> >> for high-speed.
-> >>
-> >> Co-developed-by: Joy Chakraborty <joychakr@google.com>
-> >> Signed-off-by: Joy Chakraborty <joychakr@google.com>
-> >> Co-developed-by: Naveen Kumar <mnkumar@google.com>
-> >> Signed-off-by: Naveen Kumar <mnkumar@google.com>
-> >> Signed-off-by: Roy Luo <royluo@google.com>
-> >> ---
-> >>  drivers/phy/Kconfig          |  13 ++
-> >>  drivers/phy/Makefile         |   1 +
-> >>  drivers/phy/phy-google-usb.c | 292 ++++++++++++++++++++++++++++++++++=
-+++++++++
-> >
-> > Please add this new file to Tensor SoC MAINTAINERS entry so it's
-> > easier to review future patches.
-> >
-> >>  3 files changed, 306 insertions(+)
-> >>
-> >> diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-> >> index 678dd0452f0aa0597773433f04d2a9ba77474d2a..af14ec74542a9879c856de=
-e8236753990fdf3705 100644
-> >> --- a/drivers/phy/Kconfig
-> >> +++ b/drivers/phy/Kconfig
-> >> @@ -101,6 +101,19 @@ config PHY_NXP_PTN3222
-> >>           schemes. It supports all three USB 2.0 data rates: Low Speed=
-, Full
-> >>           Speed and High Speed.
-> >>
-> >> +config PHY_GOOGLE_USB
-> >> +       tristate "Google Tensor SoC USB PHY driver"
-> >> +       depends on HAS_IOMEM
-> >> +       depends on OF
-> >> +       depends on TYPEC
-> >
-> > Add COMPILE_TEST for build testing.
->
-> ... and this probably should depend on your ARCH_xxx || COMPILE_TEST
->
-> Same for USB DWC driver.
->
->
-> Best regards,
-> Krzysztof
+From: Shuhao Fu <sfual@cse.ust.hk>
 
-Peter and Krzysztof,
+[ Upstream commit 2de5cb96060a1664880d65b120e59485a73588a8 ]
 
-Thanks for the review and ack to all the comments.
-Sending out a new version.
+In function `s5pv210_cpu_init`, a possible refcount inconsistency has
+been identified, causing a resource leak.
 
-Thanks,
-Roy Luo
+Why it is a bug:
+1. For every clk_get, there should be a matching clk_put on every
+successive error handling path.
+2. After calling `clk_get(dmc1_clk)`, variable `dmc1_clk` will not be
+freed even if any error happens.
+
+How it is fixed: For every failed path, an extra goto label is added to
+ensure `dmc1_clk` will be freed regardlessly.
+
+Signed-off-by: Shuhao Fu <sfual@cse.ust.hk>
+Signed-off-by: Viresh Kumar <viresh.kumar@linaro.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+
+LLM Generated explanations, may be completely bogus:
+
+## Analysis
+
+### 1. COMMIT MESSAGE ANALYSIS
+
+The commit message describes a refcount leak:
+- Subject: "cpufreq: s5pv210: fix refcount leak"
+- Explains the bug: `dmc1_clk` is not freed on error paths
+- Explains the fix: adds a new `out:` label to ensure cleanup
+- Signed-off-by: Shuhao Fu and Viresh Kumar (cpufreq maintainer)
+
+Missing tags:
+- No "Cc: stable@vger.kernel.org"
+- No "Fixes:" tag pointing to the commit that introduced the bug
+  (4911ca1031c2ad from 2011)
+
+### 2. CODE CHANGE ANALYSIS
+
+The bug:
+- In `s5pv210_cpu_init()`, after `dmc1_clk = clk_get(...)` succeeds, two
+  error paths jump to `out_dmc1`:
+  1. `policy->cpu != 0` (line 521)
+  2. Unsupported memory type (line 533)
+- `out_dmc1` only frees `dmc0_clk` and `policy->clk`, not `dmc1_clk`,
+  causing a refcount leak.
+
+The fix:
+- Adds a new `out:` label that calls `clk_put(dmc1_clk)`
+- Changes the two error paths to `goto out;` instead of `goto out_dmc1;`
+- `out:` falls through to `out_dmc1` for the rest of cleanup
+
+Change size: 4 lines added, 2 lines modified (minimal change)
+
+### 3. CLASSIFICATION
+
+- Bug fix: fixes a resource leak
+- Not a feature addition
+- Not a new API
+- Standard error handling pattern
+
+### 4. SCOPE AND RISK ASSESSMENT
+
+- Scope: single function, error paths only
+- Risk: low
+  - Only affects error paths
+  - Standard cleanup pattern
+  - No logic changes beyond cleanup
+- Subsystem: cpufreq (mature)
+- Dependencies: none; self-contained
+
+### 5. USER IMPACT
+
+- Affected users: systems using the S5PV210/S5PC110 cpufreq driver
+- Severity: resource leak (not a crash, but still a bug)
+- Trigger conditions:
+  1. `policy->cpu != 0` (non-zero CPU)
+  2. Unsupported memory type (not LPDDR/LPDDR2)
+- Impact: clock reference leak on error paths
+
+Historical context:
+- Driver introduced in v2.6.37 (2010)
+- Bug introduced in commit 4911ca1031c2ad (2011-06-06)
+- Present in all stable trees since 2011
+
+### 6. STABILITY INDICATORS
+
+- Tested: no "Tested-by:" tag
+- Reviewed: signed by Viresh Kumar (maintainer)
+- Age: commit is recent (Oct 2025), but the bug is old
+
+### 7. DEPENDENCY CHECK
+
+- No dependencies
+- Code exists in stable trees (driver present since v2.6.37)
+- Fix applies cleanly to stable trees
+
+### 8. COMPARISON WITH SIMILAR FIXES
+
+Similar refcount leak fixes in cpufreq:
+- `cpufreq: nforce2: fix reference count leak` (9600156bb9985)
+- `cpufreq: mediatek: fix device leak on probe failure` (ebc4ed14a4dbf)
+- `cpufreq: qcom-nvmem: fix memory leaks in probe error paths`
+  (e3fd01a810537)
+
+These follow the same pattern and are appropriate for stable.
+
+### 9. STABLE KERNEL RULES COMPLIANCE
+
+- Obviously correct: yes — standard cleanup pattern
+- Fixes a real bug: yes — resource leak
+- Important issue: moderate — resource leak, not a crash
+- Small and contained: yes — 6 lines changed
+- No new features: yes — only fixes cleanup
+- Applies cleanly: yes — no dependencies
+
+### 10. RISK VS BENEFIT TRADE-OFF
+
+Benefits:
+- Fixes a long-standing bug (14 years)
+- Prevents resource leaks
+- Low risk, small change
+- Standard pattern
+
+Risks:
+- Minimal — only touches error paths
+- No functional changes
+
+Concerns:
+- No explicit stable request tag
+- Driver targets older ARM SoCs (may have limited current use)
+- Leak only occurs on error paths
+
+### FINAL ASSESSMENT
+
+This is a valid bug fix that meets stable criteria:
+1. Fixes a real resource leak
+2. Small, contained change
+3. Low risk
+4. No new features
+5. Standard error handling pattern
+
+The lack of a "Cc: stable" tag is not a blocker; maintainers may add it,
+or it may have been missed. The fix is appropriate for stable backport.
+
+**YES**
+
+ drivers/cpufreq/s5pv210-cpufreq.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/cpufreq/s5pv210-cpufreq.c b/drivers/cpufreq/s5pv210-cpufreq.c
+index 4215621deb3fe..ba8a1c96427a1 100644
+--- a/drivers/cpufreq/s5pv210-cpufreq.c
++++ b/drivers/cpufreq/s5pv210-cpufreq.c
+@@ -518,7 +518,7 @@ static int s5pv210_cpu_init(struct cpufreq_policy *policy)
+ 
+ 	if (policy->cpu != 0) {
+ 		ret = -EINVAL;
+-		goto out_dmc1;
++		goto out;
+ 	}
+ 
+ 	/*
+@@ -530,7 +530,7 @@ static int s5pv210_cpu_init(struct cpufreq_policy *policy)
+ 	if ((mem_type != LPDDR) && (mem_type != LPDDR2)) {
+ 		pr_err("CPUFreq doesn't support this memory type\n");
+ 		ret = -EINVAL;
+-		goto out_dmc1;
++		goto out;
+ 	}
+ 
+ 	/* Find current refresh counter and frequency each DMC */
+@@ -544,6 +544,8 @@ static int s5pv210_cpu_init(struct cpufreq_policy *policy)
+ 	cpufreq_generic_init(policy, s5pv210_freq_table, 40000);
+ 	return 0;
+ 
++out:
++	clk_put(dmc1_clk);
+ out_dmc1:
+ 	clk_put(dmc0_clk);
+ out_dmc0:
+-- 
+2.51.0
+
 
