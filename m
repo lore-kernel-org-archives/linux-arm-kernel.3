@@ -4,99 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC57CD339AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 18:34:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AD16D339AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 18:48:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F5fT0V/7EcGVNeWv5Ukgul6S9sM0pvDeoYDyMv8o/Gc=; b=gmEJ6In/eKG9IIQc4Sm9ZsHND5
-	LDnwVdz8d8hIvuBOHPhC+DPvcAmK6yxpNFPNpp8PU+R5y6wmOlk44zZludlz7rmHxFajKfnrDuQSz
-	AY8EVQSc27flLcl9BnZ5OOICV4xlptdyqO3nvdo71oXe/z2OP8vwJ9Earh3ofgKeo/b1z4lJGbUXn
-	d7zcOJNh7Nx3TGOJjc5V76jt610Czxe6rOGGWGcOvTDvSwtPytZnA+kqkYVa9E8kKUTY5VIPQGewC
-	v6MV6Br6ZMbF9X7cU6DbfnoUQuT3nQ2GBNgYevkCsBGTEIG3Edvlz1qXmFRvxzVP1QA2pDAu4VUaw
-	B89pRH8g==;
+	bh=1Q6EcbywE6ObkGLQJKdWlwUFKpn2ScLerpcjwePaETY=; b=K5nO8HIh/7OZpnKurawvi1BCwF
+	q9BEBUKsBEvYpg9FZcpygje1khrGUtfuWA+JL1IAtRoHcV2h5tOla3uGBXNuAmi3+pqxXuduMh5HS
+	9kGQUQIwzJokEebLr2ER2auYYwM+uE+6hFTFNoMQ/xWBRnGCRbBCEWUvbMSfKeMU8M7pj8B2G5goI
+	owUhoIuxjtMKR4f1SwHakKlaLpNxB9P1SIfGTOkd7g63OEhonVHySwl8nxWXW8VP/C15s0cvooQPn
+	B/J4ihzSBo17iHavRWy3/9WnrCP9qVW3D4/1/9DFJPIU8qMz0DGSZZk2ltvCTemOrbuDyNc++OYhA
+	YO3uixfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRad2-00000009opb-1HFo;
-	Fri, 05 Dec 2025 18:34:04 +0000
-Received: from fhigh-b7-smtp.messagingengine.com ([202.12.124.158])
+	id 1vRar7-00000009u5I-2ucZ;
+	Fri, 05 Dec 2025 18:48:37 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRacz-00000009op5-0wkr
+	id 1vRar4-00000009u4X-4BxD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 18:34:02 +0000
-Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id A3E667A00B1;
-	Fri,  5 Dec 2025 13:33:59 -0500 (EST)
-Received: from phl-imap-17 ([10.202.2.105])
-  by phl-compute-04.internal (MEProxy); Fri, 05 Dec 2025 13:33:59 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1764959639;
-	 x=1765046039; bh=F5fT0V/7EcGVNeWv5Ukgul6S9sM0pvDeoYDyMv8o/Gc=; b=
-	GtGktRiHR7mRGIwQnGlJM7skezEgo02pm08ocXBxFKc1npvy881zwF2n0a5t75Ms
-	1uf4SCblSAQQCl9mnvlWbu0bTqKbx02AI0CTia2m64YGnuvsLRbvWqW7aI+LstX6
-	uzLBcIHCIM3XMx6eZCKBLu7nsmkQuGX8MvOEJKP+bTN8gpCPSXkc84RbkXJvD1NJ
-	FjEHR1/Ke1Nk/SG2EvlyVqBWeCIxfWCGCkShuF4lBIqxi/9VBd4iSShsqRwCik3c
-	vUA5wGQGWentLSc12piKwiH3I+1qE8ytwvtQoIrJW79WYNJKr39MrDYa5ANNck5E
-	U3vX2pizKWle9qTRbVBrgw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1764959639; x=
-	1765046039; bh=F5fT0V/7EcGVNeWv5Ukgul6S9sM0pvDeoYDyMv8o/Gc=; b=x
-	pfsyZ5jTSWHB6SbVeXbSiU77bh4lIKUM1Q0zNPUVpCjtj8vm5md/aWzkE1zOeWEx
-	i79dhI2SHYrnmZTMLEW5dxQAEUyRoKP3Z4nK2jVitkUhn/5V6/C+UiQO0SwrqRYl
-	mv+zs/L9IifL9PcxlZkAsRP2uYOEOUlTnMdCbXK9cnAfuP45SSvzm6iPKVSZUhQm
-	Aq3vetm1vpnzrp68ZMB9NIICVQAIcvhzNMrunWw87fviwuUmvkIDd4YAfaAr3Mwy
-	QIIrjG6eybdK1G8Pak1ZPAT9XIih6VUObOccaeejCZTWO7+/IQvO9V0cY1U87JKF
-	hDaIDTYgp4P/UZDJVT2+Q==
-X-ME-Sender: <xms:lyUzacER3BDEPqTyMfHH8m_CXfz_jcpmPwUm_-6xUsfpNrv53-sN2Q>
-    <xme:lyUzaQLJIX2KZ_K8EhFyh5XQ2kWnQulcOGncb7cMwsmIZpnOQXERLwQHPWTjq5mmR
-    KMrUYEfGTyXPQVf5cZvLdxt22PPepC4dgZSzOSx5K5emFVv8mQVIhk>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdeluddtucetufdoteggodetrfdotf
-    fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceurghi
-    lhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurh
-    epofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhguuceu
-    vghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvghrnh
-    epueevgeeigfehfeejuedufeffgfeivddvfffhjedvhfekkeduuedvteeujedutdetnecu
-    ffhomhgrihhnpehkvghrnhgvlhdrohhrghdpphgvnhhguhhtrhhonhhigidruggvnecuve
-    hluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnhgusegr
-    rhhnuggsrdguvgdpnhgspghrtghpthhtohepgedpmhhouggvpehsmhhtphhouhhtpdhrtg
-    hpthhtohepthhorhhvrghlughssehlihhnuhigqdhfohhunhgurghtihhonhdrohhrghdp
-    rhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrg
-    guvggrugdrohhrghdprhgtphhtthhopehsohgtsehlihhsthhsrdhlihhnuhigrdguvghv
-    pdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorh
-    hg
-X-ME-Proxy: <xmx:lyUzadwgPWlcMwJcZkBtxR-JTR0Yv5i7096gv8zvZM0X0XQYmPQnEA>
-    <xmx:lyUzaUKMieiKUhvVqYc_iqkmHxQ4T3RxbxHXQJ8vyDeG4USuVplY9A>
-    <xmx:lyUzafqWfsK963xpo970d-3Shi3uycgQo_rKfcymhwfHScbYtTFg-Q>
-    <xmx:lyUzabIOpAtxWw3ia9VAY9rG2wGuFMvWu9lFWzvKfvNELNAyEt7itw>
-    <xmx:lyUzaWZlidV9u5yLSGp08kEwT1aU5V0cxYuVASuY2kKhEDTsdT2wyStD>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 5F6A6C40054; Fri,  5 Dec 2025 13:33:59 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 05 Dec 2025 18:48:36 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7b8bbf16b71so2782922b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 10:48:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1764960514; x=1765565314; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1Q6EcbywE6ObkGLQJKdWlwUFKpn2ScLerpcjwePaETY=;
+        b=Tq9z631VxUd5Bj2XLtoKCUvgUKGVnpMTFLPXtJe3q4YCAXdV193ie3Xqv68M52Z814
+         1sPECS890bBRa9OnHHho8BOSQakRyKJQYZDJW278l8KNSx0RmROWAZvCclBd72s4yDzx
+         gtl5vsRwQwy8iwII6tuKWjqzYCFyT4kS+aZSKKi7pl/77Zs48KN19sGPQTdlhjOrKSFk
+         z64WUWeYkjh3SvLv/S7tXm7nImVguERGDQxIq/v7NHzPZI8Jf6FgdyEHJiGT3mfffPXp
+         ty5aFpWomXqK0Iy32N269XOoMuXUNXTXcINW2BnFtfIV0eAfcWN8k8ZN41s4wLBtHx/7
+         cRpg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764960514; x=1765565314;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=1Q6EcbywE6ObkGLQJKdWlwUFKpn2ScLerpcjwePaETY=;
+        b=RNpugVnmIx+OZt6spAdq/Z1Q5OY0xdqOceW3AF/IFHrAlPc/Ff6Km+bF9erx+5Zaaz
+         JcSQ9m4Ig2f0Ho2vFuZMvqh8eOTqJTR3p1w03WQftlimjEjH7KLUzx92pcVfG3VOj3re
+         aA4z+tEF6ZJMhmpwhJWJKKEMPgTj/t/eIWAIHY/HPRpQkzQsMq1d77+NaCYmay/zznYe
+         cfJOqzCozcm5cXNEeR4OQJYQs//7juokZ3NGcOKLiRfQ6cQF+ForPIRm1ym7lsWxpAOR
+         xuj56so7x27AuFFwhfy2Cr28XabWTxgCeoLkkyYoAxq2i4FTi4NNZVc1T6YXqShTee1w
+         v/8g==
+X-Forwarded-Encrypted: i=1; AJvYcCVRWDMCC3g3yRBmDlgDOdimuDXEiv2XBP6ZEe/LUg/h2F7deyJZ3T+94T7FNM9cnqFuRUjI2yWV+XhxvXxrhjOj@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXDpbBkF4FTcMXq2lLlEXJrDMi/EJdxyilpEsTHxOQ7bsypAMy
+	k3o6b7ZbNAnYW2Xsw6usFBoBjK+NtgfbIGdcyb/JBEfzJxfA8b8hDUcMU5XUbDnBPrfBtkO9Ufs
+	Wi+WHC6Wjheztb/m1GacWoAfWhXne3miZYXqLW81l
+X-Gm-Gg: ASbGncvUps+eUtF49KfvkZ04ZH0waMOg5j0y2RejJZX8JDmTI3MdrLSdsmgPFrnWhpO
+	jK0M51zOOlmYy96XAq3wSEike5m9iXgbdiJiFkqAHGDtKJ9HFlNep3Dcm1uEhtWOZ0GLj6drfOa
+	YEP3kxIBPld73MbjpJtxPMi6uc+hk9Fe6BHkNM0Quxc96tkrPXg7RDc7M+RYOTRfbnyZF7E4mX1
+	K9ue9lHad+JjRfFAHXxBJNP8f6VzgnciaRMQbaoqiVMtAShkdRHEZzmiOUljzIoUjVIsVmWprYa
+	MsV6cJ/FfVkSQ4uFmpEoLLcKqtcTyMEdPNXK/w==
+X-Google-Smtp-Source: AGHT+IHPjKxmUgUnc41hN8InTFTUB04ZMTHM8NxbTIHlyyEkurGa6h5cB+riJJxf4O6UOMxvtJ+cStktzfIrQZXN+UY=
+X-Received: by 2002:a05:7022:24a4:b0:119:e569:fb9b with SMTP id
+ a92af1059eb24-11e031662c8mr92285c88.10.1764960513510; Fri, 05 Dec 2025
+ 10:48:33 -0800 (PST)
 MIME-Version: 1.0
-Date: Fri, 05 Dec 2025 19:33:21 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Linus Torvalds" <torvalds@linux-foundation.org>
-Cc: soc@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Message-Id: <16f9deb7-8717-4983-99b7-91a6e84eb560@app.fastmail.com>
-In-Reply-To: <334684ec-5796-47a4-b9f4-96c60f449634@app.fastmail.com>
-References: <334684ec-5796-47a4-b9f4-96c60f449634@app.fastmail.com>
-Subject: [GIT PULL 6/6] soc: driver updates for 6.19, part 2
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+References: <20251205-phyb4-v8-0-c59ea80a4458@google.com> <20251205-phyb4-v8-1-c59ea80a4458@google.com>
+ <18eeb1c5-d21b-4505-b6a4-472f6e191864@kernel.org>
+In-Reply-To: <18eeb1c5-d21b-4505-b6a4-472f6e191864@kernel.org>
+From: Roy Luo <royluo@google.com>
+Date: Fri, 5 Dec 2025 10:47:57 -0800
+X-Gm-Features: AWmQ_bmySTT8joxXt75c1w2iUmXVlvf9G0SNEi5yExzmfdZw7r8lYP_ul02mNBU
+Message-ID: <CA+zupgwa+m8Pa=+8shORaOA1OO6zoo6zYEojFS2UDuP0doBq7A@mail.gmail.com>
+Subject: Re: [PATCH v8 1/2] dt-bindings: phy: google: Add Google Tensor G5 USB PHY
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Peter Griffin <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Badhri Jagan Sridharan <badhri@google.com>, Doug Anderson <dianders@google.com>, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_103401_376146_C38DA827 
-X-CRM114-Status: GOOD (  14.90  )
+X-CRM114-CacheID: sfid-20251205_104835_060050_6A644DDA 
+X-CRM114-Status: GOOD (  26.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,151 +103,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 6a23ae0a96a600d1d12557add110e0bb6e32730c:
+On Fri, Dec 5, 2025 at 9:13=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.org=
+> wrote:
+>
+> On 05/12/2025 04:54, Roy Luo wrote:
+> > Document the device tree bindings for the USB PHY interfaces integrated
+> > with the DWC3 controller on Google Tensor SoCs, starting with G5
+> > generation (Laguna). The USB PHY on Tensor G5 includes two integrated
+> > Synopsys PHY IPs: the eUSB 2.0 PHY IP and the USB 3.2/DisplayPort combo
+> > PHY IP.
+> >
+> > Due to a complete architectural overhaul in the Google Tensor G5, the
+> > existing Samsung/Exynos USB PHY binding for older generations of Google
+> > silicons such as gs101 are no longer compatible, necessitating this new
+> > device tree binding.
+> >
+> > Signed-off-by: Roy Luo <royluo@google.com>
+>
+> Why intentionally dropping the tag? How are you handling this patchset?
+> Rewrite every time from scratch?
 
-  Linux 6.18-rc6 (2025-11-16 14:25:38 -0800)
+Hi Krzysztof,
 
-are available in the Git repository at:
+I dropped the tag because a new file is being modified in this version,
+Although it's just MAINTAINER file but I thought you might also want
+to take a look. I wasn't sure if modifying a new file qualifies as
+"substantial" so I erred on the side of caution. I should've called it
+out specifically in the change log. Sorry for the inconvenience.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-drivers-6.19-2
+Regards,
+Roy Luo
 
-for you to fetch changes up to 68f9bbf4dfc356ccc6586ba6e7dd79576c48f7f0:
-
-  Merge tag 'samsung-drivers-6.19-2-late' of https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux into soc/drivers-late (2025-12-05 15:31:33 +0100)
-
-----------------------------------------------------------------
-soc: driver updates for 6.19, part 2
-
-These updates came a little late, or were based on a later 6.18-rc
-tag than the others:
-
- - A new driver for cache management on cxl devices with memory shared
-   in a coherent cluster. This is part of the drivers/cache/ tree, but
-   unlike the other drivers that back the dma-mapping interfaces, this
-   one is needed only during CPU hotplug.
-
- - A shared branch for reset controllers using swnode infrastructure
-
- - Added support for new SoC variants in the Amlogic soc_device
-   identification
-
- - Minor updates in Freescale, Microchip, Samsung, and Apple SoC drivers
-
-----------------------------------------------------------------
-Arnd Bergmann (8):
-      Merge tag 'reset-gpio-for-v6.19' of https://git.pengutronix.de/git/pza/linux into soc/drivers-late
-      Merge tag 'reset-gpio-for-v6.19-2' of https://git.pengutronix.de/git/pza/linux into soc/drivers-late
-      Merge tag 'amlogic-drivers-for-v6.19' of https://git.kernel.org/pub/scm/linux/kernel/git/amlogic/linux into soc/drivers-late
-      Merge tag 'soc_fsl-6.19-1' of git://git.kernel.org/pub/scm/linux/kernel/git/chleroy/linux into soc/drivers-late
-      Merge tag 'apple-soc-drivers-6.19' of https://git.kernel.org/pub/scm/linux/kernel/git/sven/linux into soc/drivers-late
-      Merge tag 'soc-drivers-for-v6.19' of https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux into soc/drivers-late
-      Merge tag 'cache-for-v6.19' of https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux into soc/drivers-late
-      Merge tag 'samsung-drivers-6.19-2-late' of https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux into soc/drivers-late
-
-Bartosz Golaszewski (9):
-      software node: read the reference args via the fwnode API
-      software node: increase the reference of the swnode by its fwnode
-      software node: allow referencing firmware nodes
-      gpio: swnode: allow referencing GPIO chips by firmware nodes
-      reset: order includes alphabetically in reset/core.c
-      reset: make the provider of reset-gpios the parent of the reset device
-      reset: gpio: convert the driver to using the auxiliary bus
-      reset: gpio: use software nodes to setup the GPIO lookup
-      platform/x86: intel: chtwc_int33fe: don't dereference swnode args
-
-Charles Keepax (1):
-      spi: cs42l43: Use actual ACPI firmware node for chip selects
-
-Christophe Leroy (CS GROUP) (1):
-      MAINTAINERS: Update email address for Christophe Leroy
-
-Conor Dooley (4):
-      dt-bindings: soc: microchip: document the simple-mfd syscon on PolarFire SoC
-      soc: microchip: add mfd drivers for two syscon regions on PolarFire SoC
-      MAINTAINERS: add new soc drivers to Microchip RISC-V entry
-      MAINTAINERS: rename Microchip RISC-V entry
-
-Gongwei Li (1):
-      soc: fsl: qbman: use kmalloc_array() instead of kmalloc()
-
-Johan Hovold (5):
-      soc: apple: mailbox: fix device leak on lookup
-      soc: apple: sart: drop device reference after lookup
-      soc: amlogic: canvas: fix device leak on lookup
-      soc: amlogic: canvas: simplify lookup error handling
-      soc: samsung: exynos-pmu: fix device leak on regmap lookup
-
-Jonathan Cameron (4):
-      memregion: Drop unused IORES_DESC_* parameter from cpu_cache_invalidate_memregion()
-      arm64: Select GENERIC_CPU_CACHE_MAINTENANCE
-      MAINTAINERS: Add Jonathan Cameron to drivers/cache and add lib/cache_maint.c + header
-      cache: Make top level Kconfig menu a boolean dependent on RISCV
-
-Lukas Bulwahn (1):
-      MAINTAINERS: refer to intended file in STANDALONE CACHE CONTROLLER DRIVERS
-
-Marco Crivellari (1):
-      soc: fsl: qbman: add WQ_PERCPU to alloc_workqueue users
-
-Marek Szyprowski (1):
-      soc: samsung: exynos-pmu: Fix structure initialization
-
-Pierre-Henry Moussay (1):
-      dt-bindings: cache: sifive,ccache0: add a pic64gx compatible
-
-Xianwei Zhao (2):
-      dt-bindings: arm: amlogic: meson-gx-ao-secure: support more SoCs
-      soc: amlogic: meson-gx-socinfo: add new SoCs id
-
-Yicong Yang (2):
-      memregion: Support fine grained invalidate by cpu_cache_invalidate_memregion()
-      lib: Support ARCH_HAS_CPU_CACHE_INVALIDATE_MEMREGION
-
-Yushan Wang (1):
-      cache: Support cache maintenance for HiSilicon SoC Hydra Home Agent
-
- .mailmap                                           |   3 +
- .../arm/amlogic/amlogic,meson-gx-ao-secure.yaml    |   3 +
- .../devicetree/bindings/cache/sifive,ccache0.yaml  |   5 +
- .../microchip/microchip,mpfs-mss-top-sysreg.yaml   |  47 +++++
- MAINTAINERS                                        |  17 +-
- arch/arm64/Kconfig                                 |   2 +
- arch/x86/mm/pat/set_memory.c                       |   2 +-
- drivers/base/swnode.c                              |  30 +++-
- drivers/cache/Kconfig                              |  37 +++-
- drivers/cache/Makefile                             |   2 +
- drivers/cache/hisi_soc_hha.c                       | 194 +++++++++++++++++++++
- drivers/cxl/core/region.c                          |   5 +-
- drivers/gpio/gpiolib-swnode.c                      |   3 +-
- drivers/nvdimm/region.c                            |   2 +-
- drivers/nvdimm/region_devs.c                       |   2 +-
- drivers/platform/x86/intel/chtwc_int33fe.c         |  29 ++-
- drivers/reset/Kconfig                              |   1 +
- drivers/reset/core.c                               | 138 +++++++++------
- drivers/reset/reset-gpio.c                         |  19 +-
- drivers/soc/amlogic/meson-canvas.c                 |  12 +-
- drivers/soc/amlogic/meson-gx-socinfo.c             |   6 +
- drivers/soc/apple/mailbox.c                        |  15 +-
- drivers/soc/apple/sart.c                           |  13 +-
- drivers/soc/fsl/qbman/qman.c                       |   2 +-
- drivers/soc/fsl/qbman/qman_test_stash.c            |   2 +-
- drivers/soc/microchip/Kconfig                      |  12 ++
- drivers/soc/microchip/Makefile                     |   1 +
- drivers/soc/microchip/mpfs-control-scb.c           |  38 ++++
- drivers/soc/microchip/mpfs-mss-top-sysreg.c        |  44 +++++
- drivers/soc/samsung/exynos-pmu.c                   |   9 +-
- drivers/spi/spi-cs42l43.c                          |  40 ++---
- include/linux/cache_coherency.h                    |  61 +++++++
- include/linux/memregion.h                          |  16 +-
- include/linux/property.h                           |  13 +-
- lib/Kconfig                                        |   3 +
- lib/Makefile                                       |   2 +
- lib/cache_maint.c                                  | 138 +++++++++++++++
- 37 files changed, 805 insertions(+), 163 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-mss-top-sysreg.yaml
- create mode 100644 drivers/cache/hisi_soc_hha.c
- create mode 100644 drivers/soc/microchip/mpfs-control-scb.c
- create mode 100644 drivers/soc/microchip/mpfs-mss-top-sysreg.c
- create mode 100644 include/linux/cache_coherency.h
- create mode 100644 lib/cache_maint.c
+>
+> <form letter>
+> This is a friendly reminder during the review process.
+>
+> It looks like you received a tag and forgot to add it.
+>
+> If you do not know the process, here is a short explanation:
+> Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
+> of patchset, under or above your Signed-off-by tag, unless patch changed
+> significantly (e.g. new properties added to the DT bindings). Tag is
+> "received", when provided in a message replied to you on the mailing
+> list. Tools like b4 can help here. However, there's no need to repost
+> patches *only* to add the tags. The upstream maintainer will do that for
+> tags received on the version they apply.
+>
+> Please read:
+> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/s=
+ubmitting-patches.rst#L577
+>
+> If a tag was not added on purpose, please state why and what changed.
+> </form letter>
+>
+> Best regards,
+> Krzysztof
 
