@@ -4,93 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7630BD33998
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 17:33:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48354D339A2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 18:23:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=amtNQuwco1BO2PnhLkDFqIyQgPKVg/vOsmaYbePwmG4=; b=uMH22GtKTxStTc3mzto58QUk51
-	3Rv6FdqyirgkdTWwul9E5pEHk3DPPVahL6nRyT0m5WdE+AHqVOIRpzR9jarDDIvQb45NB950TEdvo
-	So6VqQuc1yaPXaOOO/AycxzddMLzlki6R7ECdGYfQrQ/8h9UZUn0dQvSIrzjCkSlin+fj0kD7uLNN
-	ffMLKgWNO5BG1agN8owwdCqrExsZ2gURe5w1z9dbzFumi+SrayI9cEJyezEOz/qn+BKEjHBWLo/OV
-	DkLKBQm2JiqeUyMtXoeXIF244LA2lSsykUvSYodle8EgJFxi7jLoCgkljpA0TQfK6sTk1rg+hqOat
-	CLkKT9bQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=W/MpyvcBIFAM8YToly7xmiIFLnl5UCMAay42VGRdCj0=; b=jzAKCjAa+bqIHQ07ZZ1AJecxUB
+	ufklZ3ooQT7kyq8xIhQlW6wSPtq+yc0IH4J+m1j9BFORmztTctLQWTU51dDJeM7x/HxYAkSKmTKJC
+	sC24wrSdjbQM9fJOvpCDVGsYScmNbgMpVR7NBCRq/GL3VYCaW/9A4QmVRv3BlLiA6Ovwh3jk/3tLE
+	lDxMIeWpQ2u1m3ZM+zr3AEPRC6ASjETWmepYlxZfe+dXtgDIDckbMtqKvaWEA+k9AQqkCZT86BoXr
+	6hQyKKnxJdZA0aOqrnpJv1/iA0f80Z7SdU9vv2CbylROLR8NnDJwW2yE/3Di5deAswiqY4XHtEKKe
+	U8V4pGDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRZgQ-00000009l8K-3WVU;
-	Fri, 05 Dec 2025 17:33:30 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1vRaSS-00000009nCC-0uvN;
+	Fri, 05 Dec 2025 18:23:08 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRZgN-00000009l7d-3Bo7
+	id 1vRaSP-00000009nAy-1GDw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 17:33:29 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-42b32ff5d10so2254148f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 09:33:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764956005; x=1765560805; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=amtNQuwco1BO2PnhLkDFqIyQgPKVg/vOsmaYbePwmG4=;
-        b=f3A5snYFiefT1TFobXu0JDFQqLmcKeaOIp6kD8pCArJf79AiGR3NREC+llKv3OGI3r
-         nkPhgxlfl/CqnLendpb/3/8VqVH3yOdxaE44TjxuNRktD8YSpKFKZsdeybpDK4CThIUR
-         LxhykA8C6MGiAlbhmFbbN2KV0MFgfKH/+GMa1MkE44UJ33HF3pJOpLc9dK+BH1Ybf4ec
-         I78wp/t0eoD4uXJdagCgBYfYXhr1Bki3AHfCtgqF6nBZaraM0G71sgLAzC/2YZ8um0BU
-         0m5MPtONj3SnLrDxnHDDFessOyhy/d5yJgOiW1XIS5MnqH6cGzVANqChK2l7CYpqx8oO
-         WObw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764956005; x=1765560805;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=amtNQuwco1BO2PnhLkDFqIyQgPKVg/vOsmaYbePwmG4=;
-        b=qRcSuHnylgquepxtMOQmS0xn4lQpehQM6Sljvunrr0Wq5Jw1bSp2mk9YIoiLC1J3Sx
-         bn39JLK//4TUo4ZjHvx0ba66IJL4P09oWe/+HdCTTTdcKKe4WaPaqu0JP4YVlpyRDJCQ
-         AzSMPzY8gqV4UDPp6335gwzkPxTRKhTCnDFP133reMb959wYj9WXgoNFeyzCHrIb7waH
-         ZDG5l7AGtVm2lDNZz9T/gIbYhZNpViksDPUWQOsnO3/neXYrHZy2UOnI+1r5ZcH03gIL
-         ugTbn4rArRBstVpplexFArOTuh0Z22w7zKjtq+MSt+IajJoNUb+ZV+yN5pATaD4Pi2j2
-         U01g==
-X-Forwarded-Encrypted: i=1; AJvYcCWnh1IpcMT6XAUzBrYfe6c2H1y/rxI+Gux3RC0ERek3V+TIpfFomJ0lDSrCioQVnUflwkqMJjghBmi3cvPvG13F@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmcO9hD590Kc9GuwSmFhTydjDvLfNCudyZSwlUExlMGpEGp0Hv
-	vXqYMY+VCxgBw1+5WdqWGcQNQ2cCUuAjL5iO3N+2Ox38mRv9vw5MlcG/XEV6NbeBXA==
-X-Gm-Gg: ASbGnctnMu+2Nd3MNGts49NhKxzZmC6kz8NyqzRumpXxbUOYdYBi/lTLHBIVflc6P51
-	2Qx/R9IbhLNQ+FIzPL8VdbagfzO68LMOopCtVZCO3ZRxTshzvu75j2UgNjyuHo6skGs1bPaN+nj
-	ZM1HhI2IJOV3fNJtn6fMzbkXZ9hKwPioYror56Qb1UrRQ/jBTO5sa/VYKbP//BjYw1roNWQ4ILr
-	OGQG9MYrFNIpII2VHY6ZFGAsRvFM9xEVeVjZmdyAsJJ8G/DbjohCDBCSoG6tLz9QbgDE4hdmYcx
-	rrTX0/18Zp7Fu+bvU+2xAdmdHqGo+f5tWhz0Uc4d3ZX1s9T9p8cc5HFu/1J3xi/FbtYsvSH0cT7
-	/BIWtj6U/AhAAEzx37Xkc96V2ZcbZUr0cQ61wgqphlylsuf9jEwpxnry1c5mmH1zAJonn0dkyVr
-	iMM09AiGAcF0rbqn6Tx6KhHHpHPj+sqYB6+xPckl0Ri6pOS0pd9Q==
-X-Google-Smtp-Source: AGHT+IG7GHbywu/ls/wVemuOmr6xVx9MQPax08/Ei7Uq0ye9NoSzMgiNsTxCLJQTc1fcXLx9fTdYtw==
-X-Received: by 2002:a5d:64e3:0:b0:429:cf03:8b2e with SMTP id ffacd0b85a97d-42f89ecee3fmr43760f8f.13.1764956004866;
-        Fri, 05 Dec 2025 09:33:24 -0800 (PST)
-Received: from google.com (120.54.38.34.bc.googleusercontent.com. [34.38.54.120])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42f7d2226d0sm9793222f8f.21.2025.12.05.09.33.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Dec 2025 09:33:24 -0800 (PST)
-Date: Fri, 5 Dec 2025 17:33:21 +0000
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Jack Thomson <jackabt.amazon@gmail.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, pbonzini@redhat.com,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, shuah@kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	isaku.yamahata@intel.com, xmarcalx@amazon.co.uk,
-	kalyazin@amazon.co.uk, jackabt@amazon.com
-Subject: Re: [PATCH v3 2/3] KVM: selftests: Enable pre_fault_memory_test for
- arm64
-Message-ID: <aTMXYZgZM3QvZP2i@google.com>
-References: <20251119154910.97716-1-jackabt.amazon@gmail.com>
- <20251119154910.97716-3-jackabt.amazon@gmail.com>
+	Fri, 05 Dec 2025 18:23:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=EqgYJb29lqIZ+GiD/bqLvZP40mlqWfOWPgusTpcIkMoLsYm3blVCy9wV9Cvw/rixfDu5crQILGy6KXynHAgvha0pEAONDYZbe8oCWsHIqSxPrd9qPbYDkNdY8YLJzyDsvxs324E5DGjXzD6d8dhjqfzUvlUhVJKt0JsO3C2aVIwnORYSuVP/P9IOWD5f6hUQDNdeZg+jDqbpDjg7ailtWrNk8mW/w/22cFtX7GWp8Gwln7D3+Q/o6c4og99AhbT4NYu7305aHD5pjYOQwupsTCJ7a77Cr2XXm3+aU42XiDlMXj+2nKsV74WE5oYQuwlQofTzgGFc3BBTg/UEY1+/GQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=W/MpyvcBIFAM8YToly7xmiIFLnl5UCMAay42VGRdCj0=;
+ b=we+zUmGnPBIbXYz3vUaPGD+4W7V4UF52pDp68ykIUJyrS2cwzc+HAn7IhcFDRK53h02gPnnazx1QI4cs5P7WyqFTiSQCUSTS8jL2cFH+wi1uiDbZE3o7DzKQRb7c/imx9k7vA9u/Bk/hJsWZjWchhPw5O+iM2R/vP6I9fBOZDTYpI5VquwjPiV1RIw7q5jqbyLbE2BUkZjPLEq3V2TM4sM33TJFqEqxk/uEuHgay2qeZfNxZalyq2eTLIFc0zC6NsOtzmPglOd9OPR8EQzNwsistaR/w59bzJ6yngqTJqpepn007CgxadgozvLgHPf61SFIRcKhqYdnFYhR25vIf3g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=variscite.com; dmarc=pass action=none
+ header.from=variscite.com; dkim=pass header.d=variscite.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=variscite.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=W/MpyvcBIFAM8YToly7xmiIFLnl5UCMAay42VGRdCj0=;
+ b=adFGB45AdddwbpHtl/i8Y2/tkxT8SX8xEEmJBpmEAH0EwH1JCU29wyKrFnpAlOumRam1hnqB09XQtR4RKeYqM2Vsc/5spiUD2rhxF0q7dXGurBWmtuKodSRsVS/xX8VwBigt2JR2fDV97/UgTb46P7sVK1uytB8yxdKDe77rsHR+gvBPOV9wDaw3nFPhmWPCDOXe32r7tJw6d0wRKV19YLq7zriAXW7dBCyoKAe3QwExollGTXbUARVLKM/KaH+0/qNozieNdZZ4TUkB5OjMR6NDLLK0bZdUwgap+rH9DNvZna2wwvD66VU82MDNF1Cnr328dJ66AoC4s+//xnlMRA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=variscite.com;
+Received: from DB4PR08MB10341.eurprd08.prod.outlook.com (2603:10a6:10:3ff::18)
+ by AS8PR08MB6712.eurprd08.prod.outlook.com (2603:10a6:20b:393::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.9; Fri, 5 Dec
+ 2025 18:23:00 +0000
+Received: from DB4PR08MB10341.eurprd08.prod.outlook.com
+ ([fe80::24bb:a230:6690:f824]) by DB4PR08MB10341.eurprd08.prod.outlook.com
+ ([fe80::24bb:a230:6690:f824%6]) with mapi id 15.20.9388.009; Fri, 5 Dec 2025
+ 18:22:59 +0000
+From: Stefano Radaelli <stefano.r@variscite.com>
+To: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Stefano Radaelli <stefano.r@variscite.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v1 0/4] arm64: dts: imx93-var-som-symphony: align DTS with hw revision
+Date: Fri,  5 Dec 2025 19:22:53 +0100
+Message-ID: <20251205182258.50397-1-stefano.r@variscite.com>
+X-Mailer: git-send-email 2.47.3
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: ZR2P278CA0024.CHEP278.PROD.OUTLOOK.COM
+ (2603:10a6:910:46::13) To DB4PR08MB10341.eurprd08.prod.outlook.com
+ (2603:10a6:10:3ff::18)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251119154910.97716-3-jackabt.amazon@gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB4PR08MB10341:EE_|AS8PR08MB6712:EE_
+X-MS-Office365-Filtering-Correlation-Id: ffc13720-7fed-4333-f80a-08de342b5211
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?QWFucDZwU0YrTGpZdVBuQzQ1ZFB1bWNVaFR5UlNPODRnaG5XcnJoWnBhUWhk?=
+ =?utf-8?B?S2w5aFJzZWRmM2szS3VDNXNxWmRWakptUFNNRVZvUU13clcwSFppNDZ2QnlC?=
+ =?utf-8?B?QlR0ek80S0RqRnlVMGVnY2tocEJEQkpqY2ZrU2hURksxNUQ4MmVnNUtKYUVB?=
+ =?utf-8?B?ZTNhdTMvMFloSVZqZGNZVDVsb1NIa0thRTRZcmxDQjJaeGdNUFpFQVRnankv?=
+ =?utf-8?B?Mld4SndiNS8rcmQ0WFNyMzJlY3A1QndtendxdWdITE1yaTIyRDhzNitJWjZo?=
+ =?utf-8?B?OTZsTVduTnRQN29mTXl1QlpuRXpuenB0SWQzUVpGQnhyZitySFNBRy9hdTF3?=
+ =?utf-8?B?RW9pSE5iaEdjWGgxekxtM0ViZkR0dGlaRXl1WWJpUFpUby9hZ3BJcWpmT2xZ?=
+ =?utf-8?B?RG5vN3hDN291Rm1HaDVTSDVYYVU3azhncDVrZThRc1AwaG5NT3h3SGUxY0d0?=
+ =?utf-8?B?UkdyTkp5b2lIa3BzMEU5MjdvUDd6SUxPbWU2cmYrWWdRNnZRTUVFWXd4YWti?=
+ =?utf-8?B?WW5JTUlGOGxGdklzT3JzSkRQOElUMDFtdWk3S3dyMTVLQkhGTXFOdit1aERD?=
+ =?utf-8?B?MGdsSGM2QmFwall5bVNQMEJqd3Q4VDVKUG5pRDEyMVdNME40MllvMUE0VmpS?=
+ =?utf-8?B?VUM3eWVhYThGMHI5KzVIM3pUcXZ0U3ptZlNpWk5OS2t2QXBCU2ZmMDI5bDQz?=
+ =?utf-8?B?K1BZR25zb3RXMjdOVENDaWFiWis5VEZBczRZcjdVdVN1b3JjWUdTWUhzbHNI?=
+ =?utf-8?B?cG9GTHZtQ0VPK0QzaW5ZbUJPY0ViOVF5ZHpZQVp6a3lJbVphRS9sQnhaYXl2?=
+ =?utf-8?B?K05Nelp2TTVJMEhxcFBZWWtoUXNZZmt0cFFBL2gyeGdrN04rcGtFU1VicDZH?=
+ =?utf-8?B?L3JJcldpT2lkUnpJRUQvTlNsTkx5aWVCSmI1bFo2MTNoYkJTMUJDS2ZRN0gv?=
+ =?utf-8?B?ZWRXZmpTc0FmcGU3L1YwV2EySUFOdVh2bE1QVENrVlZHM1A4bWdiQWZtQmF2?=
+ =?utf-8?B?YXBtQTFWRlRtWTBzVnhSMHpCb3llenZkbVRPNHQvRmNrSkJvNlhDckxCRDVE?=
+ =?utf-8?B?b1RKU0s1L1I0b1QvZktuUi9rVlhiaE9NcVhmVDVZVy9HYmVPZkowdzFtTkp0?=
+ =?utf-8?B?aXFBcnFhSFJpSlFnZzhFd1ArVktJcVUzRzB3dUlHbk1xV002alVDZTNxalNn?=
+ =?utf-8?B?Ri9ORG8rNWtVdVZaUlJnRTVvZCtGY1FnYjhkbUk2R2owK3NOUTVYQWRwUjlv?=
+ =?utf-8?B?WlRsZlVkalZGdk1HTmlkaUNvVGk2QnNCWjQyY1VMb0orRjdaZ3RDdlpnR2w2?=
+ =?utf-8?B?a0hHS1VOeGpPRDFmMG9XNGNVSzdINUY3RkdyQzc3VlluZE0yQ1ZjN3Z3V0Ry?=
+ =?utf-8?B?Q3Vja3laYUJDNC84WE81My9kTHFlRWpycmVvcUdnaFpXTVBiS01RTjRBVGwr?=
+ =?utf-8?B?ZlJJM09uSnplZCtMeU1RWklBRjZ4dXk5cXBacFl4eWJ1NHpvZWcrYnBVbllV?=
+ =?utf-8?B?SHViSTQ3dmYxWnIzZG9QT2VML254bmVGVjNGSVlONEN0ZVJFd1VDWDJYZDJI?=
+ =?utf-8?B?YXgrY3d5Z2xCK2VadWVSbGY5VnZ5bFJDRnVLQUVPQXhpcUpOMDNUb2RWT3px?=
+ =?utf-8?B?Mk94MkJDd0luTmd1VThCRVpaMC9iTHJxTWM5VkRoV1E1NHhiQXRBNGlRWk5K?=
+ =?utf-8?B?dGdyWEVTODY3Ylc4T1pMaTRMWXdNS1JMVDFEZFlQQnlhTEo2dVRWbzRKelJL?=
+ =?utf-8?B?TWNBNWNQdG1zd2pmWUdSVEZxRTFwQWhhbWthU0gyVWJJamxDVzJ4Q2xkMXhq?=
+ =?utf-8?B?QVZoMUo5UHd5NGtqZ0dRY1pNZTR4dzl5MDVSQWJTODJ1eTUvTmdVOXJPVEI0?=
+ =?utf-8?B?MGZJTEpIQ0Z1ZlplUkhwQnkrcnA0TmVhUzdGYmJIMnl0c1hBZ0VHdGN5bTZT?=
+ =?utf-8?Q?cRRcfzUPl7GRYWs3xpvwtVjulZ22kyz7?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB4PR08MB10341.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?N0tnVWtpM2l6VmMrS1BnNGFDN0hOeld1Mkhjakt6WDZZclVXQWZTRWltUVFq?=
+ =?utf-8?B?c0g4em5adUNmaXkxMXJ0czIrL0lLdmQwV2tSMDVUd1FFUVBMYWphU0k0a2xR?=
+ =?utf-8?B?OU9EMzN3NDdIckxLU0J0U1BoSC95SVVhM0J6WGd6bkk3OURFcm96L2Rwb1FC?=
+ =?utf-8?B?bnV3dVdHNkI0ak5BYlF2dkdnOFNPNmI4WlNka2dkeWFOaW4rZDZCTnYzQ21K?=
+ =?utf-8?B?NDFFNk9zcWZYOS9MWmNOVFB3TVdlZWFjVWRBTlVpNWJUUE5kaXY5R0lSK0Nl?=
+ =?utf-8?B?NlRnSXhGVFc0VTAvUjBjQ2x0MUd1UzN5QlUrR0U4bis1enQybEhuWHZ3TE8z?=
+ =?utf-8?B?S2poZ2F1cEthT1ZXaGpSSk5qbzEzUVZYU3I0NkVwTHRhTUU2dlpFZ2RDQnZi?=
+ =?utf-8?B?b3kzdGdYOHZFS2dEWFRHTk12dUI4TnZnWEkzNWJCTExZd01CMXFCZkNsSFdh?=
+ =?utf-8?B?N01MRG4wYUgwMUV5S05nRzk2Q0k3N20wODhpdWpNY05EWitzcFg0QmF0Qnh4?=
+ =?utf-8?B?clVDVFNha1VOUnZURUhsUFpsYU1PZENYSldCaWhod0ViS1JNaXhTQ2RpVitM?=
+ =?utf-8?B?MVJCMzRTUkpxZmdESGRJbnMvTXp0NVpMTVFlbDk1K2wyNXlwVDUrVUdSTXVy?=
+ =?utf-8?B?cHFiMG8wOEZxL2FCcVp1S0NYT21NUVd6UGI5bHVxcmw2WldJMEhWOEF6UE0v?=
+ =?utf-8?B?ZFRwU0lVYUtlelNwQ1pMd29NeUhZUWpua01EelJIdnRZMEtOeEFoalh3amV2?=
+ =?utf-8?B?YmNFdGJKYnF5MXdFanYwRjRmUElFWGZVOXAweEJyK0RoR3cvSzVlelF0RGpF?=
+ =?utf-8?B?elN3YVlZU2dRSEIzVDVtdE5oUjFPU1BPMnRmSXZkZ2I4SnF6SThncWpvME1j?=
+ =?utf-8?B?L0FyUThnT1M1alZpVzZpZTI1eUk5U29LYUg1UWJvNVhuS3Jwc2tSOFFYMmpq?=
+ =?utf-8?B?Qno5MDRlUkN6K1R2SEpKWDFGY2pJbFhUYVdnbms4a1pzQjFnb0d1YndWSDJP?=
+ =?utf-8?B?ZEpIMGxCM2xWdFF4bGQzZFdEamRVSmFnem1qTktvaTZ6U09ObCtRZXl4eS9M?=
+ =?utf-8?B?UWlzRmFZR0tXRURNQWgyV0xBWisrR3laSDl0YTN6RDdveUR0U0dsaU1taExk?=
+ =?utf-8?B?TGFqYU41VHNpaDlXUGNNaUhlUDFYb21mSUJYR2l6bU9UOEtINmFFM2FTY1J5?=
+ =?utf-8?B?aTRSR0dmeU1qaWRXY3dZK2d1U052Ui9OQ09VOXo3RnVjZGQrbEJJaEo5NTBY?=
+ =?utf-8?B?Z2p5YkRqdkhFcXlRc1RLWE9CY0tJSEx5TWI0NVg3eHNwaUFXaXNpQ3RRdFRh?=
+ =?utf-8?B?aGtQQXplY1lsMlJvMFhHTXY3SWNWbDVKMnVxbUkvTHNzTlhjZzM4UHBtNWNJ?=
+ =?utf-8?B?TXBRSGE0MnRBbGRacGRYMGdmQ2pGSlpieFZCREhxZFZoNFVkdE9nRjZwTEFE?=
+ =?utf-8?B?cW1XcXVmd0dYaDBweUJzTDdaR3RzbGd6VWwzcDRURkhGaHBnVzB5Ky80U29z?=
+ =?utf-8?B?TTBQdUpGUk5XRjAwVnhkQzlpa2IxUjhWWEcrK3BJNklHRWVBTHRXZklrRDNn?=
+ =?utf-8?B?UVF5VFBBeVp0WU84dzBtRkFmRlkwc1hlQTI0cm00ejhiTElMV29KV3c2ZHF5?=
+ =?utf-8?B?NkpTWjdEbnBWRHJnR1VFQ1FjOFJCVncrUjdWNXJKRVpNNmZyT214d3pyTk55?=
+ =?utf-8?B?dnBZSXFPaUFzeEdpazUxdjVjSURHbUFhL2NKbGxPeG53WGVBRmlrUHpNUEFD?=
+ =?utf-8?B?dGRSZUFDSGVkbVl2akpvMCs4NFJWeWV4dW5pSUlzS2ZiUDhUWTcxR2FqY2tS?=
+ =?utf-8?B?dlZuOEs0eGdjNTZ4TmhFaGFUeDJkL2FkdmhLbHVyVGZCT0FjWVdJOTFHR1k4?=
+ =?utf-8?B?TFVmei92R1haTVRUdmk1bGxvT1ZtWDFSQzhXMXAzamY5YVgvNjQzSXBqU0FM?=
+ =?utf-8?B?bEdOVTBOZ0FIL2dyVktzSTNqVHFqdXJTSldtbXU3NTdOMTNUUmlkd3FEUWhn?=
+ =?utf-8?B?WHkwSHMwWVV6azg1NlQxUTlwcXhnTDgxWk0rTGZmMGErM2xrU1J0TkpYYWdS?=
+ =?utf-8?B?VExIY0RFdlZQOFhyczc5Nkswc3M5U3VXY1V5UHp1a3FPZHNUb3FGWEdTV1dw?=
+ =?utf-8?B?WDN5S3hZVnJidThHTzZOdkNjZ2FkaHgvZHJnRDdDRWorVzhHcTNNbzZzZzI4?=
+ =?utf-8?B?R0E9PQ==?=
+X-OriginatorOrg: variscite.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ffc13720-7fed-4333-f80a-08de342b5211
+X-MS-Exchange-CrossTenant-AuthSource: DB4PR08MB10341.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Dec 2025 18:22:59.8953
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 399ae6ac-38f4-4ef0-94a8-440b0ad581de
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: d32p1YLP//d5O0JKxfAhQqILOeUJwhwVASKItFdNUp3tENVvopqIF4tk7+x0Xlr7Yz2HDaW6+DpP1icEn54BxA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR08MB6712
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_093327_818428_9E101A0F 
-X-CRM114-Status: GOOD (  18.08  )
+X-CRM114-CacheID: sfid-20251205_102305_376444_93B18B2F 
+X-CRM114-Status: UNSURE (   7.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,63 +183,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Nov 19, 2025 at 03:49:09PM +0000, Jack Thomson wrote:
-> From: Jack Thomson <jackabt@amazon.com>
-> 
-> Enable the pre_fault_memory_test to run on arm64 by making it work with
-> different guest page sizes and testing multiple guest configurations.
-> 
-> Update the test_assert to compare against the UCALL_EXIT_REASON, for
-> portability, as arm64 exits with KVM_EXIT_MMIO while x86 uses
-> KVM_EXIT_IO.
-> 
-> Signed-off-by: Jack Thomson <jackabt@amazon.com>
-> ---
->  tools/testing/selftests/kvm/Makefile.kvm      |  1 +
->  .../selftests/kvm/pre_fault_memory_test.c     | 78 ++++++++++++++-----
->  2 files changed, 58 insertions(+), 21 deletions(-)
-> 
-> diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-> index 148d427ff24b..0ddd8db60197 100644
-> --- a/tools/testing/selftests/kvm/Makefile.kvm
-> +++ b/tools/testing/selftests/kvm/Makefile.kvm
-> @@ -183,6 +183,7 @@ TEST_GEN_PROGS_arm64 += memslot_perf_test
->  TEST_GEN_PROGS_arm64 += mmu_stress_test
->  TEST_GEN_PROGS_arm64 += rseq_test
->  TEST_GEN_PROGS_arm64 += steal_time
-> +TEST_GEN_PROGS_arm64 += pre_fault_memory_test
->  
->  TEST_GEN_PROGS_s390 = $(TEST_GEN_PROGS_COMMON)
->  TEST_GEN_PROGS_s390 += s390/memop
-> diff --git a/tools/testing/selftests/kvm/pre_fault_memory_test.c b/tools/testing/selftests/kvm/pre_fault_memory_test.c
-> index f04768c1d2e4..674931e7bb3a 100644
-> --- a/tools/testing/selftests/kvm/pre_fault_memory_test.c
-> +++ b/tools/testing/selftests/kvm/pre_fault_memory_test.c
-> @@ -11,19 +11,29 @@
->  #include <kvm_util.h>
->  #include <processor.h>
->  #include <pthread.h>
-> +#include <guest_modes.h>
->  
->  /* Arbitrarily chosen values */
-> -#define TEST_SIZE		(SZ_2M + PAGE_SIZE)
-> -#define TEST_NPAGES		(TEST_SIZE / PAGE_SIZE)
+This series adds support for several peripherals available on the
+Variscite Symphony carrier board for the VAR-SOM-MX93 module.
 
-After applying on top of the base commit
-8a4821412cf2c1429fffa07c012dd150f2edf78c, it does not build.
+The patches introduce:
 
-That TEST_NPAGES seems to still be used in delete_slot_worker(). I believe
-that's because of
+- GPIO aliases cleanup to better expose available GPIOs
+- FT5x06 capacitive touch controller
+- USB1 (OTG, via PTN5150 Type-C controller) and USB2 (host-only) support
+- LPSPI6 controller exposed on the expansion connector
 
-  "KVM: selftests: Test prefault memory during concurrent memslot removal"
+These changes describe real hardware connections and make the exposed
+interfaces available to user applications.
 
-Related issues with the pre_fault_memory() prototype.
+Tested on the Symphony board with a VAR-SOM-MX93.
 
-Is that the correct base-commit or shall I use something else?
+Stefano Radaelli (4):
+  arm64: dts: imx93-var-som-symphony: Update gpio aliases
+  arm64: dts: imx93-var-som-symphony: Add support for ft5x06 touch
+    controller
+  arm64: dts: imx93-var-som-symphony: Add USB support
+  arm64: dts: imx93-var-som-symphony: Enable LPSPI6 controller
 
-> +#define TEST_BASE_SIZE		SZ_2M
->  #define TEST_SLOT		10
->
+ .../dts/freescale/imx93-var-som-symphony.dts  | 84 +++++++++++++++++++
+ 1 file changed, 84 insertions(+)
 
-[...]
+
+base-commit: 3f9f0252130e7dd60d41be0802bf58f6471c691d
+-- 
+2.47.3
+
 
