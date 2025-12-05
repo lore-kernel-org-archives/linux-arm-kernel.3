@@ -4,85 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30A30D2F7FD
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 14:16:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAE5DD2F7FE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 14:22:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R2g5UQqK/xohmelVeTB9J/O7YssHoDCD3YBN0y3wfbQ=; b=l4KICUAt3yzDxVlsjPhag0Lqmt
-	8Wbk+aFyGaxiT+we/j+y+fHF+4mN2mbq0RxhMHJXirrRPfJFFXZ1TatHKMLmmN0mNXgVJLNPCoASj
-	ZNdNOWV03P8nqcCAFn18n9m/5llOVuxGU6sek+ratDEJRQ1LkqeYimZJn+TopWIcTJkTQFDjMZ+0T
-	Nv1eog0lRWhxUVWrrQf1BkX3zWIYqqRCsxUQ7dSKdJH5qFWRIu1zHTeqh6c6VsahcbYK0jNE9Cw5T
-	+SlkCf0ZalNDyihgMN5jxbuytMdmmgxf4f9VgpeYuQqjMq+CSy8VALc4KIHdpQ5LAdn3nI7j+55OI
-	F0buXBxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=GHOQvJwMsNaeLIrVHviQuzFqHp03oytYXhLUw8BBDac=; b=J5qf0amL5Aw2HD
+	kwzJqEXfnQXBcpTyzQstGRfQOsGqHVfDUSbhuVkrPUfnjOy06bFzE1xCL/tFoB/StBRhuM/9W5Kg9
+	ggsDjFpLyGNSU2Cydb2MIjlK5rOOP38eCyB7dpyCvL5qzTkF1LeMsLiBQzGY8Q7QWicldcu/sVxzK
+	rxUDmaGxWpfj5m8MGWb0ujdBv0sD0rySIQmUHQhDUObE0HIDadna9m7ovxphM1hV8Ft0ROOCZ+Ru4
+	9OyK8ASXWweWOTKewV/zC/Q6hAS0v14Wq7xlp6mmA2gXpZy5cwqHhScQfEIWmYTl9JlTQzDfFizXD
+	nH7SNlBCOMKy6xa3H2wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRWc3-00000009ZUa-3aFT;
-	Fri, 05 Dec 2025 14:16:47 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1vRWhz-00000009ZsT-31Wu;
+	Fri, 05 Dec 2025 14:22:55 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRWc1-00000009ZU1-2lBe
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 14:16:46 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-6419aaced59so3087122a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 06:16:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764944204; x=1765549004; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=R2g5UQqK/xohmelVeTB9J/O7YssHoDCD3YBN0y3wfbQ=;
-        b=dBnP1vdVjqnDCprrlO254m05owHVwFOJJZ99hLsWprXKIJSRkRLA3gGFxOVe7nri5x
-         XcaM6Jqn7Q3NNwiayvqdNmTX9JjS8makOfl+HOOIzwSKBs7O66XWb3eRLBVEI4X5wpFX
-         e0gYLK1SNaCDaP3gn+gj2Yd8nVK4NroRumRlaBi+tZQl2+5N0TAw95idpsxzEn8NQpZO
-         ONnNktgwUI9Qo8cUsJQBuxS/G4z1NNuit1m9dXE3G7rQFhgVRkdqL6f2cVRzgydy/Qzs
-         y0am5k9mpq8t4khlWtymPZMrSQ1etTj8g8vX9cMzsiFjFAKqadQsWwJ/FOhhx/W4cHe1
-         X1JQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764944204; x=1765549004;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=R2g5UQqK/xohmelVeTB9J/O7YssHoDCD3YBN0y3wfbQ=;
-        b=r1gTtikFITc/hZAT+W5dtzUzAAjmpf753peykm1NqarylsQV+JELFInSaiz6oD4dbZ
-         Rss2mKbMjxrpNOh8u0cvLzgqwMTkQRJhEUgnZ64XUakuuyeyYr87K28NdY7OO1LP1p8d
-         Y+PTR5XutroLGlgC2HaeX3QfQzMH7FB5ITb4vL0xlLcqs2k8stnrCoLFtk/HNaNmhpe1
-         9sQSsGexrmFEDp2QjHM6YfBPwjM/Lqo0bB8O36bm4AXSxNmjKtmKYMTKug+ETvSIcfNm
-         34xR0pDD7ME7K5vx51UF1OOx3r2JOWYzaUbbrfKHj3CohtzhwaUNtYj6BniEm7WdJP6R
-         QuKQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVDxWoc1tYF0WJ0q9z0U8ft3z92TIdnTIYOS8ly9BMe9lamniQEcuP+WzkKxR2kaHmKxDrMOqm7BM1bfLnS8n46@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPZkLno1GN+r1tVZe7QjTkBo1kqQkgTjTBUbsydrNF2DCr26dN
-	TmJ+jYDzdT8fviQTwQulNt5B2/OOX8PPJzVY0f0IPY5uJBnUAO4eLrbIa+/b3uZwKySSy8yMd/u
-	2y3XF62UKq1KwZ3+x/AQfxPKeevmM5ag=
-X-Gm-Gg: ASbGncvjC3sh0Ys2oGSwijQfQj1OLVRZWT5SjYD1Mu4lR7wWCuOBQRmkxJ3uvMPnsLy
-	/BIPStsvcaaflgYIDrUQzXN/0/enSD++hIfhgGz/KIf5XpU51PBrpDSiZKULG7y9MeJFS/qXjJy
-	abc1R4cneAH5Fi7Z09A2p+7wFKJ9lNlzLAOjqU0KM6NiGZZc0yZLcTgCaX1vi6iFcpmV8v4tsVr
-	5b6O0ROncSBfuXgd23mQHQ7aMus5Nbw0oLLV5N4NDg5ui0ZAcpZ/oqZzp7bY1cDLj7kEiva
-X-Google-Smtp-Source: AGHT+IHceS+AcOZ5dW8w0Qbihdbu6HTr3XGszoy5BRb8+hd9e12iZk925rUFbcfaGYdUXSUHXwpDuM7CTOkXnm9/rB8=
-X-Received: by 2002:a05:6402:35cb:b0:63c:690d:6a46 with SMTP id
- 4fb4d7f45d1cf-6479c497fdfmr9553716a12.13.1764944203595; Fri, 05 Dec 2025
- 06:16:43 -0800 (PST)
+	id 1vRWhx-00000009ZrY-3bzo;
+	Fri, 05 Dec 2025 14:22:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1764944570;
+	bh=aJqd/x98lZolKad85hSNqu1YISc+2ZTyVQEuBz55wEk=;
+	h=From:Subject:Date:To:Cc:From;
+	b=bS6Mz7JGtLh1U7c66w0WBSTDMOpL0QvMLx7Jdyb1DcSL5KP8Ka08sr9CnlHcNW/DZ
+	 kbk2I4CTauXhCCv3rPyOf+5eTK+PFfZReSKlHNnX/rTKHMxJaZvIO/3lWm9Vt1x6L8
+	 LdJrF4nN8UD8peJtKV3nOQOw5PBaOZOzVOlDvPWNrE8Z2NNh6pE18AcZXkCpE64kXh
+	 rNk6AgHZh710GsxnTQPCvfDnxjJjGiedBPeRgGPWzhTtXyWb/e4NsB0bHCrM+atVL+
+	 USwprcwGsBDKwv7V5oPp/F6G+bLmUdcSqstg/HpJRZKa6EXcMPHYQFiDKaFZtCQDrR
+	 q6RAgPwmWGGnA==
+Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: laeyraud)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 14E6217E003B;
+	Fri,  5 Dec 2025 15:22:50 +0100 (CET)
+From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Subject: [PATCH 0/2] drm/mediatek: HDMI DDC v2 driver fixes
+Date: Fri, 05 Dec 2025 15:22:25 +0100
+Message-Id: <20251205-mtk-hdmi-ddc-v2-fixes-v1-0-260dd0d320f4@collabora.com>
 MIME-Version: 1.0
-References: <aRW4PpPjVw1-melm@pluto> <20251123163557.230530-1-a.shimko.dev@gmail.com>
- <20251204-slick-granite-chameleon-58ebc2@sudeepholla> <CAOPX747pTsnTzKnaai-ytnmcf6reraTTSk+mssvHri4GMhCsOA@mail.gmail.com>
- <20251205-calculating-unique-ibex-de824e@sudeepholla>
-In-Reply-To: <20251205-calculating-unique-ibex-de824e@sudeepholla>
-From: Artem Shimko <a.shimko.dev@gmail.com>
-Date: Fri, 5 Dec 2025 17:16:32 +0300
-X-Gm-Features: AQt7F2o6ZhdTfprtpRS_RXzzsEVCCZ1t3NBhD4shQ8_Ku4ZiRAv8S5HC5LZ7bEI
-Message-ID: <CAOPX747Nk5jOYREOYKO2=Zn0C-Zb=TY-nDbL_LzxbR2qcteexQ@mail.gmail.com>
-Subject: Re: [PATCH v4] firmware: arm_scmi: refactor reset domain handling
-To: Sudeep Holla <sudeep.holla@arm.com>
-Cc: cristian.marussi@arm.com, arm-scmi@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/y2NwQqDMBBEfyXsuQsmbYT6K8VDzK51KYltEkUQ/
+ 72h9vhmeDM7ZE7CGTq1Q+JVssyxgr4o8JOLT0ahymAaY7VpbhjKCycKgkQeV4OjbJxxsNTqkdi
+ 11ztU9534V1T10Z+c+LPU+XKGMLjM6OcQpHQq8lbwf2GhP44vtpegVpgAAAA=
+X-Change-ID: 20251204-mtk-hdmi-ddc-v2-fixes-b5d61fdea639
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ CK Hu <ck.hu@mediatek.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1764944570; l=1302;
+ i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
+ bh=aJqd/x98lZolKad85hSNqu1YISc+2ZTyVQEuBz55wEk=;
+ b=j/SD0vU10cLK16S2S7xNM95fl54aNHJWMppvXbNpPyaXZjvkmkZud5524vKyXyxJRO+eCKtVn
+ 5sLQFVHEBwVAQPxpldufrAAspzi0eUDsTOOnLekIUrSwTiWS/pwyHzZ
+X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
+ pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_061645_705033_2E260744 
-X-CRM114-Status: UNSURE (   6.43  )
+X-CRM114-CacheID: sfid-20251205_062254_178688_097895EE 
+X-CRM114-Status: UNSURE (   8.00  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -98,13 +89,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 5, 2025 at 3:14=E2=80=AFPM Sudeep Holla <sudeep.holla@arm.com> =
-wrote:
+This patch series fixes two issues in the Mediatek HDMI DDC v2
+driver (mtk_hdmi_ddc_v2).
 
-> Let me know if you are happy too with that change.
-Yes, sure, I'm happy with the change. Thank you!
+Patch 1 fixes a potential issue on transfer timeout cases to properly
+abort read/write transfers.
+Patch 2 fixes DDC communication errors that occur when getting
+or modifying display features with ddcutil with subcommands such as
+detect, getvcp or setvcp:
+```
+$ ddcutil getvcp 10 -b 4 # read brightness
+DDC communication failed for monitor on bus /dev/i2c-4
 
---
-Regards,
-Artem
+$ ddcutil setvcp 10 75 -b 4 # change brightness
+DDC communication failed for monitor on bus /dev/i2c-4
+```
+
+These patches were tested on Mediatek Genio 510-EVK and 1200-EVK boards
+with a kernel based on next-20251205 tag plus devicetree patches to
+enable HDMI output.
+
+Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+---
+Louis-Alexis Eyraud (2):
+      drm/mediatek: mtk_hdmi_ddc_v2: Add transfer abort on timeout cases
+      drm/mediatek: mtk_hdmi_ddc_v2: Fix multi-byte writes
+
+ drivers/gpu/drm/mediatek/mtk_hdmi_ddc_v2.c | 58 +++++++++++++++++-------------
+ 1 file changed, 33 insertions(+), 25 deletions(-)
+---
+base-commit: 4e5a9b630580faea139e9837b4fba666db6bd728
+change-id: 20251204-mtk-hdmi-ddc-v2-fixes-b5d61fdea639
+
+Best regards,
+-- 
+Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+
 
