@@ -4,70 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 057E5D2CDE3
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 06:05:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09EACD2E009
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 06:10:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1V2JrRZLy50lGfYI+U2x/HtZk+7BEyYsKaQ2kS/wkdc=; b=4g3vK6xoJcVQgsArWAUNhLBfSI
-	EzwtNqtyPgMiWrPUuw5MERhQ7RKj9OSfhePGdY9r6BjoTl7qpqou/07HEDySoQs22844NDj0DY3ZY
-	/HMN8kK6+FZfvvxKfef7exqGt451PStRhB8SRxG162mIPmCZ72KUeaZoWgFD/LORJRyHLeFPP4Ifa
-	MaTEmJw4Qt3GIDR/S4/v/eQc5EspoFHhCY4Z/hPcLDI0M0cIRdXoGkVyHNeZyxMHMXQTfTATOljhb
-	jpVthIH319VWFbw/ZPlIEVdag/HIOYB31VyVovy68GRkdBqnfh/C1ppEYZES+uyqhepD9745NtEZm
-	r0MGuoEA==;
+	bh=UEapCQ/YexkXbHbXZi0Iom6o7Nizx7gI9KIuPyEGjHs=; b=uw3EyFf6Z1QPZr/+G6hz/pzdu1
+	goP28sdcPQUWGWPnA+J3pZeMenNPUAGwAk3pFkfvV2HClj1M3JzqMwlofpe+4rwg2htFGW40dOzhw
+	IuQy7jsbk7Vu5QdFha8iR7dKAqM+8mnj6O1zXk1IoggIf/bTOiAbrfwsGB6JYeOZI/5q1+skZDksk
+	AlqdbhT3eVxvn+Yg0B7Kl5lCcH/QbNcMm2SQPNhBzquUPH/3r1mfcN4B2tidZeLCfPLE33Ym3XxzZ
+	YRM1Ewr8qfAicgl+LwFO2BFVEJlqhL6WovvyrcHb0TLEpJMBH2t2DWdLNxcOYlhETHBMTX7JHN15l
+	BndXXNXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vROwg-000000094rJ-1kCH;
-	Fri, 05 Dec 2025 06:05:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vRP1W-0000000955L-1SSh;
+	Fri, 05 Dec 2025 06:10:34 +0000
+Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vROwe-000000094qi-0o3T
+	id 1vRP1T-0000000954v-2IIS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 06:05:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 355844340C;
-	Fri,  5 Dec 2025 06:05:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79510C4CEF1;
-	Fri,  5 Dec 2025 06:05:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1764914730;
-	bh=jab9snt46oPpyIlOxpmF0rFOtQv/+fyPPNBeaMr1cIw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ysHn1/ZB7IVhRmNXcEX77XYvFL5Tth6pQYyODG62Q5P5fRGU2k91InSh4EOy8mEdV
-	 7PUZC7RNjslG6UVWiVjCqX8Z2bxP1VlFpY4b0WS6IgRv5FA0mO/30lYJXSUPOdZf5e
-	 Sv6mkHFeApBsVGUVcuET1rXH0PVAEh0AipEoKyNY=
-Date: Fri, 5 Dec 2025 07:05:24 +0100
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Roy Luo <royluo@google.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Badhri Jagan Sridharan <badhri@google.com>,
-	Doug Anderson <dianders@google.com>, linux-usb@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	Joy Chakraborty <joychakr@google.com>,
-	Naveen Kumar <mnkumar@google.com>
-Subject: Re: [PATCH v9 2/2] usb: dwc3: Add Google Tensor SoC DWC3 glue driver
-Message-ID: <2025120553-suffrage-divisive-5890@gregkh>
-References: <20251205-controller-v9-0-9f158b18f979@google.com>
- <20251205-controller-v9-2-9f158b18f979@google.com>
+	Fri, 05 Dec 2025 06:10:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1764915029; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
+	bh=UEapCQ/YexkXbHbXZi0Iom6o7Nizx7gI9KIuPyEGjHs=;
+	b=nDjTQWK6kuEBN3cMFzuIyYvpiyl8Ky2jI+kzmObU81CLR0HSJ4203WZgKjZsd6B8HJBFUg/hVN8hCDSZtaa22W54+MBRe0vXGy2/lDR7RMBXjBMGYNC2FfxU5tYdsqOdMds/rMnr68Jni/s1lOUadCRpDX5hTOurPvjSnep6bP8=
+Received: from localhost(mailfrom:yaoyuan@linux.alibaba.com fp:SMTPD_---0Wu6v20O_1764915024 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Fri, 05 Dec 2025 14:10:24 +0800
+Date: Fri, 5 Dec 2025 14:10:23 +0800
+From: Yao Yuan <yaoyuan@linux.alibaba.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Ben Horgan <ben.horgan@arm.com>
+Subject: Re: [PATCH v3 4/9] KVM: arm64: Handle FEAT_IDST for sysregs without
+ specific handlers
+Message-ID: <ibifd2p7fkwjmyfgfaerjdbzlmrabfdpepmn7zhure3s7k2aj7@wgqa7druilzt>
+References: <20251204094806.3846619-1-maz@kernel.org>
+ <20251204094806.3846619-5-maz@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251205-controller-v9-2-9f158b18f979@google.com>
+In-Reply-To: <20251204094806.3846619-5-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_220532_358762_61C4CF12 
-X-CRM114-Status: UNSURE (   8.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251204_221032_083077_C869796B 
+X-CRM114-Status: GOOD (  19.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,16 +68,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 05, 2025 at 02:26:38AM +0000, Roy Luo wrote:
-> +config USB_DWC3_GOOGLE
-> +	tristate "Google Platform"
-> +	depends on ARCH_GOOGLE || COMPILE_TEST
+On Thu, Dec 04, 2025 at 09:48:01AM +0800, Marc Zyngier wrote:
+> Add a bit of infrastrtcture to triage_sysreg_trap() to handle the
+> case of registers falling into the Feature ID space that do not
+> have a local handler.
+>
+> For these, we can directly apply the FEAT_IDST semantics and inject
+> an EC=0x18 exception. Otherwise, an UNDEF will do.
+>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/emulate-nested.c | 20 ++++++++++++++++++++
+>  1 file changed, 20 insertions(+)
+>
+> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
+> index 616eb6ad68701..fac2707221b47 100644
+> --- a/arch/arm64/kvm/emulate-nested.c
+> +++ b/arch/arm64/kvm/emulate-nested.c
+> @@ -2588,6 +2588,26 @@ bool triage_sysreg_trap(struct kvm_vcpu *vcpu, int *sr_index)
+>
+>  		params = esr_sys64_to_params(esr);
+>
+> +		/*
+> +		 * This implements the pseudocode UnimplementedIDRegister()
+> +		 * helper for the purpose of fealing with FEAT_IDST.
+> +		 *
+> +		 * The Feature ID space is defined as the System register
+> +		 * space in AArch64 with op0==3, op1=={0, 1, 3}, CRn==0,
+> +		 * CRm=={0-7}, op2=={0-7}.
+> +		 */
+> +		if (params.Op0 == 3 &&
+> +		    !(params.Op1 & 0b100) && params.Op1 != 2 &&
+> +		    params.CRn == 0 &&
+> +		    !(params.CRm & 0b1000)) {
 
-There is no ARCH_GOOGLE in the tree now, so how is this supposed to
-work?  Shouldn't tools that check for "invalid config options" trigger
-on this?
+Hi Marc,
 
-thanks,
+May give a macro/inline function or local variable w/ name like "is_feat_id_space()"
+can simplify the long comment here. Others LGTM:
 
-greg k-h
+Reviewed-by: Yuan Yao <yaoyuan@linux.alibaba.com>
+
+> +			if (kvm_has_feat_enum(vcpu->kvm, ID_AA64MMFR2_EL1, IDS, IMP))
+> +				kvm_inject_sync(vcpu, kvm_vcpu_get_esr(vcpu));
+> +			else
+> +				kvm_inject_undefined(vcpu);
+> +
+> +			return true;
+> +		}
+> +
+>  		/*
+>  		 * Check for the IMPDEF range, as per DDI0487 J.a,
+>  		 * D18.3.2 Reserved encodings for IMPLEMENTATION
+> --
+> 2.47.3
 
