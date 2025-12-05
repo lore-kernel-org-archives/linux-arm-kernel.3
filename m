@@ -4,110 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 526BBD2E038
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 08:24:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1A8BD2E038
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 08:30:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6eB+pELnaXO/EFgvQYRmO1RVoCyEWCWMqcvN6CQY5Hw=; b=fap9F32rdq9y+h2Pu5Zd1TUQNK
-	k0U43pxPFUS9o0Wkc0gAeVXYxPAkWY+28gULpiNPvSRsZJEKRhHwuOwphmrQFrLB2rjBA+NBDNyHZ
-	4E5KN1ONXD2ofm+ls39cwAdx46vs8uCw80U/5S6+eACo9bPqlea1lkc6+/MYFgEnJ7aGhesA+N6Qe
-	qGwe42XixV7sE72uzAPSgddMje9y0PIlKuzwWFWiDKtpS6aGEJfqrxp90PE+/7020+OSdVZagwwre
-	tCtNkIcesvCrwrl6E/NWFrGl6+C5wr8ZwOmdphp57Zd3gHUdAq6xHUkgaGFIaliqJrVhgyc1/EsR9
-	x0UFMo0w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V+dVo2JNAn7MsrQQRK8VE52kJO6dog4ObFIZQRBPJw8=; b=xyaUQLnJtaiJOucPdOieUrbYK+
+	nOudnMU+0odYvKbuB7GlFU/1QL8P5qVVFlmBJ+eaXoHBBpqGM8BsARPLK5KyrGVabvF7hExIimc1T
+	mLX+hjXdsSKYfQdn82nKzRTTa+JEzm20SsFpy+2lrJ0MamKI3TBRJyMjLuxG1LL8Wmri66Xwp3YuN
+	euy5QZIr7WKm068IsNPAm/niVQjtP/IOf3fFF0Qdcfmln0/+N/MHI7DeW2AuQYeYOTdNeMyAIoGIl
+	wVDVgqCoMOcgykT5b/yQkYH4vDpCN0mH7fta9FpeEhO4yZed2q8CkKmmnUbniBk6ui07IXboFFbe9
+	cvUGJBwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRR7S-00000009DxD-1paX;
-	Fri, 05 Dec 2025 08:24:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vRRDG-00000009EEr-1cRj;
+	Fri, 05 Dec 2025 08:30:50 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRR7N-00000009Dwl-2cXE;
-	Fri, 05 Dec 2025 08:24:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4A2A143D8A;
-	Fri,  5 Dec 2025 08:24:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B09FC4CEF1;
-	Fri,  5 Dec 2025 08:24:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764923085;
-	bh=6eB+pELnaXO/EFgvQYRmO1RVoCyEWCWMqcvN6CQY5Hw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Xer64MyIVOGGi4OuAStLPFTcA6czqESMxsd7vidWUJg6l58WmADrOm3pUg6kPCUxm
-	 rgEFBOMc2x78QEkWEtDD7/4339QXlfwUJJxNl/OupMvM6Z1Y7CBroCsNHP8ayEmUXo
-	 ZxCl2JgU7Ia797yREqxX4Up0iJ5fBL85TXXeVWxOO+5uE+IDQnigFcozn1YBLov327
-	 hN4lnvmZ2yWohYnDM6X1dFOzsShjwamylJUoYELRqYhg3Y15npNDNlVhhADAdTBDlJ
-	 x58krwzHb1HMpYWtGvdfyoAy75K5MfV3zUJrXNY5eVrl7fw+j9l0uPg6X/KXkGPsy9
-	 ZplLbbQGwilEg==
-Message-ID: <ea71abc9-a661-4a78-8503-bac9d34bf8a4@kernel.org>
-Date: Fri, 5 Dec 2025 09:24:40 +0100
+	id 1vRRDD-00000009EER-1cko
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Dec 2025 08:30:48 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-64080ccf749so3024335a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 00:30:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764923445; x=1765528245; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=V+dVo2JNAn7MsrQQRK8VE52kJO6dog4ObFIZQRBPJw8=;
+        b=LRyUrE07MwAmuR3MDjcTzclVu2Dr1HMQPu3YpG3FPgDg1FgBUjmU0G05qLJIB0V38q
+         fdp+JRSP2c6rKl2I0UoKBFce2QUZih5kT7DI2f/c0ckRLUgq9fhoiyVvKU+rYBLOHHm4
+         qRbpgYOIB2fdWjJvapjINpDlXQQEVsSR1ejEneBvTnJnPE4731CtkYExBcrHeW96e2Jo
+         lN5YNvQc1nOY/ByrXybg3qGsMo/WuD/TVZE8mG0imJS+i54ixlPVGQNChE2zf+8dyUNi
+         Lid6e9Zc7CK3xON6wDevo32I33wgTfKQuKfSkDCHcL238722bn7q5VhT5l52uSZhc+XH
+         v55Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764923445; x=1765528245;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=V+dVo2JNAn7MsrQQRK8VE52kJO6dog4ObFIZQRBPJw8=;
+        b=EU1z9MhOvPU7Xsyvrquyh5rDN/ub5fHS6ky9B7D711EnHsGx4CrkQs5rAZpBhf3dQ7
+         /pPayqTycZc7t9AYrJ4PDoDaOCMnBitTNgTLLGvKhKD4jw4f7MkXwhSe9m/1ZbaK9llo
+         8MqcAT69o364Z3P8dETqgTtZoyhOj7TNaI7E54aKVdWiYhxyC6xhKE+XjTngpyFGbzWA
+         kzRKEhQoipVHAAImTdaZzpQfqN/1VTLibLkl1X03yIjXJ6728NDnDr560Sd6LjWaGkXj
+         R5ex4KfwBJ2yRngk5AETUw4QGWX84tQssuJ9j1KhXE4sxN/Teoc3IL07wEhAcJDevhu4
+         I3cg==
+X-Forwarded-Encrypted: i=1; AJvYcCXR3CLki3gd8/7zSH5HyVHuOX3uutM0JxejkLO5lIQm1oMkiVYsKWSpEbj5KcFTMNvtdfVmiUFgW3Y/qyXUmuQq@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJSLTPV7S8FcuYrFduMWf99z92FYOZw+AndfjxpQKCMARwZA7S
+	njeekBSo6NVzFFsayFuoxSGI44Q3mtKeRqpejBRBf28lxKDep7MRG3ARldYL94FkVrt+Ynhx09N
+	ktD1Meyu6I1+Ei4Y19jZiekCMt4oDgTM=
+X-Gm-Gg: ASbGnctJm+Ord9kL6k8KawBQmliPSL0Kj125Gc93R7lgAb8aamUerolrMx1pi2GCt6w
+	MdhpGzlDUs+cF/t/+gLw3DWlCmGGWAE7ziX3xE4ce7AUNL/BzyVoL9D4iaDXnwA1aLUhFftvM3u
+	VOgVmJn92Mao1XyXhpezAPhAEdIQhTrBQ/60kxYH/wTC1qE77qygEtQsluYNKW3JEiPQpW89zUq
+	T7zuZh8/HEH8zeHr7tPiRl6ZPic5xabOVGkyUDdleGFJCcpvDvlHiPdo1s4ywripqo5Iw==
+X-Google-Smtp-Source: AGHT+IHyhPhO5ji1Udtkp6jlBiDNdS1nJUTysDiG/BFsQGzVGkOYuq8S0+wdBeVac/yGVlo5iFM2k5xQ7B6Gl1w0/Sw=
+X-Received: by 2002:a17:907:3fa1:b0:b76:5b73:75fb with SMTP id
+ a640c23a62f3a-b79dbe72a9emr795463366b.9.1764923445456; Fri, 05 Dec 2025
+ 00:30:45 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64: dts: mediatek: mt8189: Add pinmux macro header
- file
-To: Cathy Xu <ot_cathy.xu@mediatek.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Yong Mao <yong.mao@mediatek.com>, Wenbin Mei <Wenbin.Mei@mediatek.com>,
- Lei Xue <Lei.Xue@mediatek.com>
-References: <20251205064357.13591-1-ot_cathy.xu@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251205064357.13591-1-ot_cathy.xu@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250813131007.343402-1-linux.amoon@gmail.com>
+In-Reply-To: <20250813131007.343402-1-linux.amoon@gmail.com>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Fri, 5 Dec 2025 14:00:29 +0530
+X-Gm-Features: AQt7F2qxbYSQuCXsYlo3s2RghAVsnJFzDr1A7ezZUPavGedOu8ugG3TEr0d0Qp4
+Message-ID: <CANAwSgRqFsRvCzrK7NXfqa91xhQLLVU_u2irLBBrRcpiK9gGkA@mail.gmail.com>
+Subject: Re: [PATCH v7 0/7] Exynos Thermal code improvement
+To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	"Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, 
+	"open list:SAMSUNG THERMAL DRIVER" <linux-pm@vger.kernel.org>, 
+	"open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>, 
+	"moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>, 
+	"open list:CLANG/LLVM BUILD SUPPORT:Keyword:b(?i:clang|llvm)b" <llvm@lists.linux.dev>
+Cc: Mateusz Majewski <m.majewski2@samsung.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_002445_724161_B673586A 
-X-CRM114-Status: UNSURE (   5.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251205_003047_551553_C1BBA0AA 
+X-CRM114-Status: GOOD (  19.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,11 +102,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/12/2025 07:43, Cathy Xu wrote:
-> Add the pinctrl header file on MediaTek mt8189.
+Hi All,
 
-Why? There is no user of this. Why do we dead code in unused heders?
+On Wed, 13 Aug 2025 at 18:40, Anand Moon <linux.amoon@gmail.com> wrote:
+>
+> Hi All,
+>
+> This patch series is a rework of my previous patch series [1],
+> where the code changes were not adequately justified.
+>
+> In this new series, I have improved the commit subject
+> and commit message to better explain the changes.
+>
+> v7: Integrated my RFC patch which improves the IRQ framework
+>     for all the SoC link below.
+>     [6] https://lore.kernel.org/all/20250616163831.8138-1-linux.amoon@gmail.com/
+>
+> v6: Add new patch to use devm_clk_get_enabled
+>     and Fix few typo in subject as suggested by Daniel.
+> v5: Drop the guard mutex patch
+> v4: Tried to address Lukasz review comments.
+>
+> I dont have any Arm64 device the test and verify
+> Tested on 32 bit Arch Odroid U3 amd XU4 SoC boards.
+> Build with clang with W=1 enable.
+>
+> Please sare the feedback on this.
 
-Best regards,
-Krzysztof
+Can you review the first 5 patches of this series?
+Do you want me to resend
+
+Thanks
+-Anand
 
