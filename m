@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F615D374AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:00:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B621D374B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:00:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tP87NxyDRd46CwUGWI96wBQfCW2Ylg+DFyhAEZiWbbs=; b=e1Grwooa0WVdvNdhVofCDdut6B
-	xSrVNp/bR/RA2WWJpE9hQW2AJ7xsoT0srURW/baHbIOlDd+GcgKMKKEEdEnB+xOEQe/CtNTYVQB2v
-	PkTp3xlnqHha9GOqD8Jat5//eDb47x+Dk3UTlCNP/OGJu2oHq+9hJPcj4I3HD7/4gKZf59xU+UHzX
-	PKPSVL1MD/PNeU/4xacUpBQZ4dCm3O+d8GhjicPhtFrUocA7TE3DroY5CP0ArjAxtVYDHr3XGRltw
-	+Z859JOsLNonfdV4n4o8KSGs08AkVF2tpgpXJz8VFX9fOrPdiVcZAqTV2F7SMhtCCdeqtvD93bPqL
-	Tp3NwTUQ==;
+	bh=IkzBeBm8I3T4GjvEBEQKWgFbszbzBKDoQtXCJknCo8U=; b=xjh/C5ta0+RfjFjwgBBGMgwu5y
+	/MT1wPgidvxNxIoqkmkk1lFSpKdO3ce0A6H8/vCELS5Ak8BZ3K0TfK+H6xj9R9JTef2IEsMFVDh6e
+	D+NtTVkFvBLx7o5s7XpaecNTXBx2vAUHb9D7LjWQvmWfEeR12WGB81mqAs6jnnR8eNY6uosl8HMRm
+	IHyQxLjAmI/A7hx85j6oiS6Olk5zhMlr3H8oWgOXImWEVblKFf+37Qhg+4Etvuj+ieBJwe+BwL2hA
+	j3hA9xmrQ6Izu5K+E8JT88lFCzRefGHIWVQNvIcpBGQSQZUzoV9eKptacE+dYE2G1Ey7WMI3UCIoe
+	w1S8L8jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdr8-0000000A5zU-308x;
-	Fri, 05 Dec 2025 22:00:50 +0000
+	id 1vRdrC-0000000A63o-06JP;
+	Fri, 05 Dec 2025 22:00:54 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdr5-0000000A5ue-0drV
+	id 1vRdr9-0000000A604-27wY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 22:00:48 +0000
+	Fri, 05 Dec 2025 22:00:52 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8D2491BA8;
-	Fri,  5 Dec 2025 14:00:38 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 840661BB0;
+	Fri,  5 Dec 2025 14:00:42 -0800 (PST)
 Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1A0053F740;
-	Fri,  5 Dec 2025 14:00:41 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2363F3F740;
+	Fri,  5 Dec 2025 14:00:46 -0800 (PST)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
@@ -60,17 +60,17 @@ Cc: James Morse <james.morse@arm.com>,
 	rohit.mathew@arm.com,
 	reinette.chatre@intel.com,
 	Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-Subject: [RFC PATCH 19/38] arm_mpam: resctrl: pick classes for use as mbm counters
-Date: Fri,  5 Dec 2025 21:58:42 +0000
-Message-Id: <20251205215901.17772-20-james.morse@arm.com>
+Subject: [RFC PATCH 20/38] arm_mpam: resctrl: Pre-allocate free running monitors
+Date: Fri,  5 Dec 2025 21:58:43 +0000
+Message-Id: <20251205215901.17772-21-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20251205215901.17772-1-james.morse@arm.com>
 References: <20251205215901.17772-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_140047_475857_C2D831E1 
-X-CRM114-Status: GOOD (  25.74  )
+X-CRM114-CacheID: sfid-20251205_140051_819214_54DD7888 
+X-CRM114-Status: GOOD (  19.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,266 +85,147 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-resctrl has two types of counters, NUMA-local and global. MPAM has only
-bandwidth counters, but the position of the MSC may mean it counts
-NUMA-local, or global traffic.
+When there are enough monitors, the resctrl mbm local and total
+files can be exposed. These need all the monitors that resctrl
+may use to be allocated up front.
 
-But the topology information is not available.
+Add helpers to do this.
 
-Apply a heuristic: the L2 or L3 supports bandwidth monitors, these are
-probably NUMA-local. If the memory controller supports bandwidth
-monitors, they are probably global.
-
-This also allows us to assert that we don't have the same class
-backing two different resctrl events.
-
-Because the class or component backing the event may not be 'the L3',
-it is necessary for mpam_resctrl_get_domain_from_cpu() to search
-the monitor domains too. This matters the most for 'monitor only'
-systems, where 'the L3' control domains may be empty, and the
-ctrl_comp pointer NULL.
-
-resctrl expects there to be enough monitors for every possible control
-and monitor group to have one. Such a system gets called 'free running'
-as the monitors can be programmed once and left running.
-Any other platform will need to emulate ABMC.
+If a different candidate class is discovered, the old array
+should be free'd and the allocated monitors returned to the
+driver.
 
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
- drivers/resctrl/mpam_internal.h |   8 ++
- drivers/resctrl/mpam_resctrl.c  | 141 ++++++++++++++++++++++++++++++--
- 2 files changed, 144 insertions(+), 5 deletions(-)
+ drivers/resctrl/mpam_internal.h |  8 +++-
+ drivers/resctrl/mpam_resctrl.c  | 84 ++++++++++++++++++++++++++++++++-
+ 2 files changed, 89 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-index f9d2a1004c32..0984ac32f303 100644
+index 0984ac32f303..b7c914febeb4 100644
 --- a/drivers/resctrl/mpam_internal.h
 +++ b/drivers/resctrl/mpam_internal.h
-@@ -339,6 +339,14 @@ struct mpam_msc_ris {
+@@ -359,7 +359,13 @@ struct mpam_resctrl_res {
+ struct mpam_resctrl_mon {
+ 	struct mpam_class	*class;
  
- struct mpam_resctrl_dom {
- 	struct mpam_component	*ctrl_comp;
-+
+-	/* per-class data that resctrl needs will live here */
 +	/*
-+	 * There is no single mon_comp because different events may be backed
-+	 * by different class/components. mon_comp is indexed by the event
-+	 * number.
++	 * Array of allocated MBWU monitors, indexed by (closid, rmid).
++	 * When ABMC is not in use, this array directly maps (closid, rmid)
++	 * to the allocated monitor. Otherwise this array is sparse, and
++	 * un-assigned (closid, rmid) are -1.
 +	 */
-+	struct mpam_component   *mon_comp[QOS_NUM_EVENTS];
-+
- 	struct rdt_ctrl_domain	resctrl_ctrl_dom;
- 	struct rdt_mon_domain	resctrl_mon_dom;
++	int			*mbwu_idx_to_mon;
  };
+ 
+ static inline int mpam_alloc_csu_mon(struct mpam_class *class)
 diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index fc1f054f187e..9978eb48c1f4 100644
+index 9978eb48c1f4..de5220fed97d 100644
 --- a/drivers/resctrl/mpam_resctrl.c
 +++ b/drivers/resctrl/mpam_resctrl.c
-@@ -50,6 +50,14 @@ static bool exposed_mon_capable;
-  */
- static bool cdp_enabled;
+@@ -559,10 +559,58 @@ static void mpam_resctrl_pick_mba(void)
+ 	}
+ }
  
-+/* Whether this num_mbw_mon could result in a free_running system */
-+static int __mpam_monitors_free_running(u16 num_mbwu_mon)
++static void __free_mbwu_mon(struct mpam_class *class, int *array,
++			    u16 num_mbwu_mon)
 +{
-+	if (num_mbwu_mon >= resctrl_arch_system_num_rmid_idx())
-+		return resctrl_arch_system_num_rmid_idx();
++	for (int i = 0; i < num_mbwu_mon; i++) {
++		if (array[i] < 0)
++			continue;
++
++		mpam_free_mbwu_mon(class, array[i]);
++		array[i] = ~0;
++	}
++}
++
++static int __alloc_mbwu_mon(struct mpam_class *class, int *array,
++			    u16 num_mbwu_mon)
++{
++	for (int i = 0; i < num_mbwu_mon; i++) {
++		int mbwu_mon = mpam_alloc_mbwu_mon(class);
++
++		if (mbwu_mon < 0) {
++			__free_mbwu_mon(class, array, num_mbwu_mon);
++			return mbwu_mon;
++		}
++		array[i] = mbwu_mon;
++	}
++
 +	return 0;
 +}
 +
- bool resctrl_arch_alloc_capable(void)
- {
- 	return exposed_alloc_capable;
-@@ -290,6 +298,26 @@ static bool cache_has_usable_csu(struct mpam_class *class)
- 	return (mpam_partid_max > 1) || (mpam_pmg_max != 0);
- }
- 
-+static bool class_has_usable_mbwu(struct mpam_class *class)
++static int *__alloc_mbwu_array(struct mpam_class *class, u16 num_mbwu_mon)
 +{
-+	struct mpam_props *cprops = &class->props;
++	int err;
++	size_t array_size = num_mbwu_mon * sizeof(int);
++	int *array __free(kfree) = kmalloc(array_size, GFP_KERNEL);
 +
-+	if (!mpam_has_feature(mpam_feat_msmon_mbwu, cprops))
-+		return false;
++	if (!array)
++		return ERR_PTR(-ENOMEM);
++
++	memset(array, -1, array_size);
++
++	err = __alloc_mbwu_mon(class, array, num_mbwu_mon);
++	if (err)
++		return ERR_PTR(err);
++	return_ptr(array);
++}
++
+ static void counter_update_class(enum resctrl_event_id evt_id,
+ 				 struct mpam_class *class)
+ {
+-	struct mpam_class *existing_class = mpam_resctrl_counters[evt_id].class;
++	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[evt_id];
++	struct mpam_class *existing_class = mon->class;
++	u16 num_mbwu_mon = class->props.num_mbwu_mon;
++	int *existing_array = mon->mbwu_idx_to_mon;
+ 
+ 	if (existing_class) {
+ 		if (class->level == 3) {
+@@ -575,8 +623,40 @@ static void counter_update_class(enum resctrl_event_id evt_id,
+ 		}
+ 	}
+ 
+-	mpam_resctrl_counters[evt_id].class = class;
++	pr_debug("Updating event %u to use class %u\n", evt_id, class->level);
++	mon->class = class;
+ 	exposed_mon_capable = true;
++
++	if (evt_id == QOS_L3_OCCUP_EVENT_ID)
++		return;
++
++	/* Might not need all the monitors */
++	num_mbwu_mon = __mpam_monitors_free_running(num_mbwu_mon);
++	if (!num_mbwu_mon) {
++		pr_debug("Not pre-allocating free-running counters\n");
++		return;
++	}
 +
 +	/*
-+	 * resctrl expects the bandwidth counters to be free running,
-+	 * which means we need as many monitors as resctrl has
-+	 * control/monitor groups.
++	 * This is the pre-allocated free-running monitors path. It always
++	 * allocates one monitor per PARTID * PMG.
 +	 */
-+	if (__mpam_monitors_free_running(cprops->num_mbwu_mon)) {
-+		pr_debug("monitors usable in free-running mode\n");
-+		return true;
++	WARN_ON_ONCE(num_mbwu_mon != resctrl_arch_system_num_rmid_idx());
++
++	mon->mbwu_idx_to_mon = __alloc_mbwu_array(class, num_mbwu_mon);
++	if (IS_ERR(mon->mbwu_idx_to_mon)) {
++		pr_debug("Failed to allocate MBWU array\n");
++		mon->class = existing_class;
++		mon->mbwu_idx_to_mon = existing_array;
++		return;
 +	}
 +
-+	return false;
-+}
-+
- /*
-  * Calculate the worst-case percentage change from each implemented step
-  * in the control.
-@@ -554,7 +582,7 @@ static void counter_update_class(enum resctrl_event_id evt_id,
++	if (existing_array) {
++		pr_debug("Releasing previous class %u's monitors\n",
++			 existing_class->level);
++		__free_mbwu_mon(existing_class, existing_array, num_mbwu_mon);
++		kfree(existing_array);
++	}
+ }
+ 
  static void mpam_resctrl_pick_counters(void)
- {
- 	struct mpam_class *class;
--	bool has_csu;
-+	bool has_csu, has_mbwu;
- 
- 	lockdep_assert_cpus_held();
- 
-@@ -586,7 +614,37 @@ static void mpam_resctrl_pick_counters(void)
- 				return;
- 			}
- 		}
-+
-+		has_mbwu = class_has_usable_mbwu(class);
-+		if (has_mbwu && topology_matches_l3(class)) {
-+			pr_debug("class %u has usable MBWU, and matches L3 topology",
-+				 class->level);
-+
-+			/*
-+			 * MBWU counters may be 'local' or 'total' depending on
-+			 * where they are in the topology. Counters on caches
-+			 * are assumed to be local. If it's on the memory
-+			 * controller, its assumed to be global.
-+			 */
-+			switch (class->type) {
-+			case MPAM_CLASS_CACHE:
-+				counter_update_class(QOS_L3_MBM_LOCAL_EVENT_ID,
-+						     class);
-+				break;
-+			case MPAM_CLASS_MEMORY:
-+				counter_update_class(QOS_L3_MBM_TOTAL_EVENT_ID,
-+						     class);
-+				break;
-+			default:
-+				break;
-+			}
-+		}
- 	}
-+
-+	/* Allocation of MBWU monitors assumes that the class is unique... */
-+	if (mpam_resctrl_counters[QOS_L3_MBM_LOCAL_EVENT_ID].class)
-+		WARN_ON_ONCE(mpam_resctrl_counters[QOS_L3_MBM_LOCAL_EVENT_ID].class ==
-+			     mpam_resctrl_counters[QOS_L3_MBM_TOTAL_EVENT_ID].class);
- }
- 
- static int mpam_resctrl_control_init(struct mpam_resctrl_res *res,
-@@ -910,6 +968,20 @@ static bool mpam_resctrl_offline_domain_hdr(unsigned int cpu,
- 	return false;
- }
- 
-+static struct mpam_component *find_component(struct mpam_class *victim, int cpu)
-+{
-+	struct mpam_component *victim_comp;
-+
-+	guard(srcu)(&mpam_srcu);
-+	list_for_each_entry_srcu(victim_comp, &victim->components, class_list,
-+				 srcu_read_lock_held(&mpam_srcu)) {
-+		if (cpumask_test_cpu(cpu, &victim_comp->affinity))
-+			return victim_comp;
-+	}
-+
-+	return NULL;
-+}
-+
- static struct mpam_resctrl_dom *
- mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
- {
-@@ -959,8 +1031,32 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
- 	}
- 
- 	if (exposed_mon_capable) {
-+		int i;
-+		struct mpam_component *mon_comp, *any_mon_comp;
-+
-+		/*
-+		 * Even if the monitor domain is backed by a different
-+		 * component, the L3 component IDs need to be used... only
-+		 * there may be no ctrl_comp for the L3.
-+		 * Search each event's class list for a component with
-+		 * overlapping CPUs and set up the dom->mon_comp array.
-+		 */
-+		for (i = 0; i < QOS_NUM_EVENTS; i++) {
-+			struct mpam_resctrl_mon *mon;
-+
-+			mon = &mpam_resctrl_counters[i];
-+			if (!mon->class)
-+				continue;       // dummy resource
-+
-+			mon_comp = find_component(mon->class, cpu);
-+			dom->mon_comp[i] = mon_comp;
-+			if (mon_comp)
-+				any_mon_comp = mon_comp;
-+		}
-+		WARN_ON_ONCE(!any_mon_comp);
-+
- 		mon_d = &dom->resctrl_mon_dom;
--		mpam_resctrl_domain_hdr_init(cpu, ctrl_comp, &mon_d->hdr);
-+		mpam_resctrl_domain_hdr_init(cpu, any_mon_comp, &mon_d->hdr);
- 		mon_d->hdr.type = RESCTRL_MON_DOMAIN;
- 		/* TODO: this list should be sorted */
- 		list_add_tail_rcu(&mon_d->hdr.list, &r->mon_domains);
-@@ -982,16 +1078,47 @@ mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
- 	return dom;
- }
- 
-+/*
-+ * We know all the monitors are associated with the L3, even if there are no
-+ * controls and therefore no control component. Find the cache-id for the CPU
-+ * and use that to search for existing resctrl domains.
-+ * This relies on mpam_resctrl_pick_domain_id() using the L3 cache-id
-+ * for anything that is not a cache.
-+ */
-+static struct mpam_resctrl_dom *mpam_resctrl_get_mon_domain_from_cpu(int cpu)
-+{
-+	u32 cache_id;
-+	struct rdt_mon_domain *mon_d;
-+	struct mpam_resctrl_dom *dom;
-+	struct mpam_resctrl_res *l3 = &mpam_resctrl_controls[RDT_RESOURCE_L3];
-+
-+	if (!l3->class)
-+		return NULL;
-+	/* TODO: how does this order with cacheinfo updates under cpuhp? */
-+	cache_id = get_cpu_cacheinfo_id(cpu, 3);
-+	if (cache_id == ~0)
-+		return NULL;
-+
-+	list_for_each_entry(mon_d, &l3->resctrl_res.mon_domains, hdr.list) {
-+		dom = container_of(mon_d, struct mpam_resctrl_dom, resctrl_mon_dom);
-+
-+		if (mon_d->hdr.id == cache_id)
-+			return dom;
-+	}
-+
-+	return NULL;
-+}
-+
- static struct mpam_resctrl_dom *
- mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
- {
- 	struct mpam_resctrl_dom *dom;
- 	struct rdt_ctrl_domain *ctrl_d;
-+	struct rdt_resource *r = &res->resctrl_res;
- 
- 	lockdep_assert_cpus_held();
- 
--	list_for_each_entry_rcu(ctrl_d, &res->resctrl_res.ctrl_domains,
--				hdr.list) {
-+	list_for_each_entry_rcu(ctrl_d, &r->ctrl_domains, hdr.list) {
- 		dom = container_of(ctrl_d, struct mpam_resctrl_dom,
- 				   resctrl_ctrl_dom);
- 
-@@ -999,7 +1126,11 @@ mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
- 			return dom;
- 	}
- 
--	return NULL;
-+	if (r->rid != RDT_RESOURCE_L3)
-+		return NULL;
-+
-+	/* Search the mon domain list too - needed on monitor only platforms. */
-+	return mpam_resctrl_get_mon_domain_from_cpu(cpu);
- }
- 
- int mpam_resctrl_online_cpu(unsigned int cpu)
 -- 
 2.39.5
 
