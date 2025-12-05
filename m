@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA0B1D32D62
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 14:28:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1B47D32D63
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 14:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0YB7fP9VENcqaQTeiiX8csIXvdpiaRJlkFQtcTuMfAU=; b=llXvw3Fk5ueiUJ8963dOufEaid
-	l24lqs+xImfr2BPzP6WyFse4EJHnbix5+sVHTlriDEtQruQ8Z1q68vSgKg3GMMNVZfX6y0nylIgxo
-	GqblImLIgvMsTLvtGYoUYRnd7J8cYeK90kSzn3o1Mg3QtjK5QvHhpU24z+a5U4tmrdqarg6jkqnDt
-	qXzcjTsh6OK4UKDp2fMTwkJIm8rLXrwo4j5Co7hhOiP5YeHMxWl2t8VOMNOwAdJct9SqyD5Ncr2pD
-	Zbyb6P1Qlgx54V6F0NiPWGlArsyLPM9WTudfX5ziWKhF5m42Zs10+TEAmY5sxsErBUk8GDLL5P4eq
-	hXj1xaFw==;
+	bh=7DAAKQlxLzd/buQQptF4TY/Q9Mm/9b4F6XHyYj/DlaE=; b=ErIFZrFlTsNls++/zcUYxZOsLc
+	0YT/m8FT31e7X5NdtbxkI36RvTR+6UraOJCFpGdOFbYtxR5Sh0wC2o7rW4gir/aIjkmf0PO2uQFd9
+	VndBEi4H+XfRsZQqGd5jOAd0Z7eDO68mBMFykozLm19RyvyiQDmbXgE1pM3xDbVYc652NkB7Q/EeP
+	xcKKTi1m8UurGXUJ40VCdLzSfj1E6q03cvDlriayfDfhmZOOUaSef1SVszp6GF7XUG4qXuXgxzmy4
+	yXbntTkI+XDvpEJGib9K399Mn1mMSN203NvT+wUNZlPvkIHrd8SASszb+0eHq6zvmBKyB9lqazSBH
+	mAcM2dxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRWnf-00000009afb-1P1O;
-	Fri, 05 Dec 2025 14:28:47 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vRWnj-00000009aiW-48gv;
+	Fri, 05 Dec 2025 14:28:51 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRWnc-00000009adp-3flK
+	id 1vRWng-00000009af1-0Fry
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 14:28:46 +0000
+	Fri, 05 Dec 2025 14:28:49 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id E72014E41A6F;
-	Fri,  5 Dec 2025 14:28:41 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id AF7411A1F9A;
+	Fri,  5 Dec 2025 14:28:45 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id BDB0E606AC;
-	Fri,  5 Dec 2025 14:28:41 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 664AC102F0A98;
-	Fri,  5 Dec 2025 15:28:39 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 77408606AC;
+	Fri,  5 Dec 2025 14:28:45 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C8CF3102F06E6;
+	Fri,  5 Dec 2025 15:28:42 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764944920; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1764944924; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=0YB7fP9VENcqaQTeiiX8csIXvdpiaRJlkFQtcTuMfAU=;
-	b=ywGoep1eYds3wJFO6zaJUwHC9sKGeFl4VL1TNJji0Kyp2ad4Gc/AmLtw14ZNqAHVzO3M2Y
-	XvQsNN7YJy5UMtDh/o98Jj3q5kLoez+mMt2aQBlXPLHRLr19ybqcvcPA3tFeTjBisXAZe6
-	2dcOIrbp+/BtuPeeREdqjognfwqGZ/E5TX/gKauiCYglHYic7KxjpPiQ0DU/uoFZZzTFi7
-	IltFS+d4OjVXrUuBLMM79zqWDvenbMA1gKbdnQYtSxg474wbIBduPyvMO6+vu3NXa+y9KA
-	X+oUCO8ClVjQYPVetZrsXcoqNGC/hEIJXh1YX+dY9VBwDJKyhEh2VlvogmC5DA==
+	bh=7DAAKQlxLzd/buQQptF4TY/Q9Mm/9b4F6XHyYj/DlaE=;
+	b=PsRbK6k/fVNkTg7mcO9/qxWp9Th2OSXPs2dSOCiogB2+X0yqHHLI5calBSgpfuBInKfJX1
+	NjCg/7VF3/NNnGba/4ch5ZuFgDFnB5TvsKzkYclOGLg/uyKvsaR7YcHQ7YRP2d8hK9TyPF
+	5z17aNGDZc0NgbK53I5OeLp6YiumMQMRZG1xlvIJq21hGKmS1u7dW/DpRbqTr+m8Q/oskO
+	TVxXM++k5uuQj2NrcEM8RPcKn1dJcMDI1+2cAR2o6uYI9H+TBCsAGaPkcTssOKgBFjglpg
+	c+kfS9mNydCZSQsd47/2a7LYWVlS8pWMZuE2EgRbmlUgmAldYnCQgkdCE6L11w==
 From: "Thomas Richard (TI.com)" <thomas.richard@bootlin.com>
-Date: Fri, 05 Dec 2025 15:28:23 +0100
-Subject: [PATCH v3 1/4] firmware: ti_sci: add BOARDCFG_MANAGED mode support
+Date: Fri, 05 Dec 2025 15:28:25 +0100
+Subject: [PATCH v3 3/4] clk: keystone: sci-clk: add restore_context()
+ operation
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251205-ti-sci-jacinto-s2r-restore-irq-v3-1-d06963974ad4@bootlin.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20251205-ti-sci-jacinto-s2r-restore-irq-v3-3-d06963974ad4@bootlin.com>
 References: <20251205-ti-sci-jacinto-s2r-restore-irq-v3-0-d06963974ad4@bootlin.com>
 In-Reply-To: <20251205-ti-sci-jacinto-s2r-restore-irq-v3-0-d06963974ad4@bootlin.com>
 To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
@@ -66,9 +67,10 @@ Cc: Gregory CLEMENT <gregory.clement@bootlin.com>,
  "Thomas Richard (TI.com)" <thomas.richard@bootlin.com>
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
+X-Rspamd-Fuzzy: 41a41182b59d79f583916f68cda4ce24371bbb78bb5201448cdda28aa13f7e12f6862ad9c69aaabad6cacf50bd7bcdc4e70062e7913d09bed0cb7f9b3ddaf05c
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_062845_076299_D56684DB 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20251205_062848_238620_8E24A0D3 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,69 +85,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In BOARDCFG_MANAGED mode, the low power mode configuration is done
-statically for the DM via the boardcfg. Constraints are not supported, and
-prepare_sleep() is not needed.
+Implement the restore_context() operation to restore the clock rate and the
+clock parent state. The clock rate is saved in sci_clk struct during
+set_rate() operation. The parent index is saved in sci_clk struct during
+set_parent() operation. During clock registration, the core retrieves each
+clock’s parent using get_parent() operation to ensure the internal clock
+tree reflects the actual hardware state, including any configurations made
+by the bootloader. So we also save the parent index in get_parent().
 
 Signed-off-by: Thomas Richard (TI.com) <thomas.richard@bootlin.com>
 ---
- drivers/firmware/ti_sci.c | 10 +++++++---
- drivers/firmware/ti_sci.h |  2 ++
- 2 files changed, 9 insertions(+), 3 deletions(-)
+ drivers/clk/keystone/sci-clk.c | 42 ++++++++++++++++++++++++++++++++++--------
+ 1 file changed, 34 insertions(+), 8 deletions(-)
 
-diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
-index 4a277937211f6..d77b631d9c855 100644
---- a/drivers/firmware/ti_sci.c
-+++ b/drivers/firmware/ti_sci.c
-@@ -3772,8 +3772,11 @@ static int ti_sci_prepare_system_suspend(struct ti_sci_info *info)
- 			return ti_sci_cmd_prepare_sleep(&info->handle,
- 							TISCI_MSG_VALUE_SLEEP_MODE_DM_MANAGED,
- 							0, 0, 0);
-+		} else if (info->fw_caps & MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED) {
-+			/* Nothing to do in the BOARDCFG_MANAGED mode */
-+			return 0;
- 		} else {
--			/* DM Managed is not supported by the firmware. */
-+			/* DM Managed and BoardCfg Managed are not supported by the firmware. */
- 			dev_err(info->dev, "Suspend to memory is not supported by the firmware\n");
- 			return -EOPNOTSUPP;
- 		}
-@@ -4011,12 +4014,13 @@ static int ti_sci_probe(struct platform_device *pdev)
+diff --git a/drivers/clk/keystone/sci-clk.c b/drivers/clk/keystone/sci-clk.c
+index 9d5071223f4cb..428050a05de31 100644
+--- a/drivers/clk/keystone/sci-clk.c
++++ b/drivers/clk/keystone/sci-clk.c
+@@ -47,6 +47,8 @@ struct sci_clk_provider {
+  * @node:	 Link for handling clocks probed via DT
+  * @cached_req:	 Cached requested freq for determine rate calls
+  * @cached_res:	 Cached result freq for determine rate calls
++ * @parent_id:	 Parent index for this clock
++ * @rate:	 Clock rate
+  */
+ struct sci_clk {
+ 	struct clk_hw hw;
+@@ -58,6 +60,8 @@ struct sci_clk {
+ 	struct list_head node;
+ 	unsigned long cached_req;
+ 	unsigned long cached_res;
++	u8 parent_id;
++	unsigned long rate;
+ };
+ 
+ #define to_sci_clk(_hw) container_of(_hw, struct sci_clk, hw)
+@@ -210,10 +214,16 @@ static int sci_clk_set_rate(struct clk_hw *hw, unsigned long rate,
+ 			    unsigned long parent_rate)
+ {
+ 	struct sci_clk *clk = to_sci_clk(hw);
++	int ret;
++
++	ret = clk->provider->ops->set_freq(clk->provider->sci, clk->dev_id,
++					   clk->clk_id, rate / 10 * 9, rate,
++					   rate / 10 * 11);
+ 
+-	return clk->provider->ops->set_freq(clk->provider->sci, clk->dev_id,
+-					    clk->clk_id, rate / 10 * 9, rate,
+-					    rate / 10 * 11);
++	if (!ret)
++		clk->rate = rate;
++
++	return ret;
+ }
+ 
+ /**
+@@ -237,9 +247,9 @@ static u8 sci_clk_get_parent(struct clk_hw *hw)
+ 		return 0;
  	}
  
- 	ti_sci_msg_cmd_query_fw_caps(&info->handle, &info->fw_caps);
--	dev_dbg(dev, "Detected firmware capabilities: %s%s%s%s%s\n",
-+	dev_dbg(dev, "Detected firmware capabilities: %s%s%s%s%s%s\n",
- 		info->fw_caps & MSG_FLAG_CAPS_GENERIC ? "Generic" : "",
- 		info->fw_caps & MSG_FLAG_CAPS_LPM_PARTIAL_IO ? " Partial-IO" : "",
- 		info->fw_caps & MSG_FLAG_CAPS_LPM_DM_MANAGED ? " DM-Managed" : "",
- 		info->fw_caps & MSG_FLAG_CAPS_LPM_ABORT ? " LPM-Abort" : "",
--		info->fw_caps & MSG_FLAG_CAPS_IO_ISOLATION ? " IO-Isolation" : ""
-+		info->fw_caps & MSG_FLAG_CAPS_IO_ISOLATION ? " IO-Isolation" : "",
-+		info->fw_caps & MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED ? " BoardConfig-Managed" : ""
- 	);
+-	parent_id = parent_id - clk->clk_id - 1;
++	clk->parent_id = (u8)(parent_id - clk->clk_id - 1);
  
- 	ti_sci_setup_ops(info);
-diff --git a/drivers/firmware/ti_sci.h b/drivers/firmware/ti_sci.h
-index 91f234550c438..5f5c1ae7a19a8 100644
---- a/drivers/firmware/ti_sci.h
-+++ b/drivers/firmware/ti_sci.h
-@@ -150,6 +150,7 @@ struct ti_sci_msg_req_reboot {
-  *		MSG_FLAG_CAPS_LPM_DM_MANAGED: LPM can be managed by DM
-  *		MSG_FLAG_CAPS_LPM_ABORT: Abort entry to LPM
-  *		MSG_FLAG_CAPS_IO_ISOLATION: IO Isolation support
-+ *		MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED: LPM config done statically for the DM via boardcfg
-  *
-  * Response to a generic message with message type TI_SCI_MSG_QUERY_FW_CAPS
-  * providing currently available SOC/firmware capabilities. SoC that don't
-@@ -162,6 +163,7 @@ struct ti_sci_msg_resp_query_fw_caps {
- #define MSG_FLAG_CAPS_LPM_DM_MANAGED	TI_SCI_MSG_FLAG(5)
- #define MSG_FLAG_CAPS_LPM_ABORT		TI_SCI_MSG_FLAG(9)
- #define MSG_FLAG_CAPS_IO_ISOLATION	TI_SCI_MSG_FLAG(7)
-+#define MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED	TI_SCI_MSG_FLAG(10)
- #define MSG_MASK_CAPS_LPM		GENMASK_ULL(4, 1)
- 	u64 fw_caps;
- } __packed;
+-	return (u8)parent_id;
++	return clk->parent_id;
+ }
+ 
+ /**
+@@ -252,12 +262,27 @@ static u8 sci_clk_get_parent(struct clk_hw *hw)
+ static int sci_clk_set_parent(struct clk_hw *hw, u8 index)
+ {
+ 	struct sci_clk *clk = to_sci_clk(hw);
++	int ret;
+ 
+ 	clk->cached_req = 0;
+ 
+-	return clk->provider->ops->set_parent(clk->provider->sci, clk->dev_id,
+-					      clk->clk_id,
+-					      index + 1 + clk->clk_id);
++	ret = clk->provider->ops->set_parent(clk->provider->sci, clk->dev_id,
++					     clk->clk_id,
++					     index + 1 + clk->clk_id);
++	if (!ret)
++		clk->parent_id = index;
++
++	return ret;
++}
++
++static void sci_clk_restore_context(struct clk_hw *hw)
++{
++	struct sci_clk *clk = to_sci_clk(hw);
++
++	sci_clk_set_parent(hw, clk->parent_id);
++
++	if (clk->rate)
++		sci_clk_set_rate(hw, clk->rate, 0);
+ }
+ 
+ static const struct clk_ops sci_clk_ops = {
+@@ -269,6 +294,7 @@ static const struct clk_ops sci_clk_ops = {
+ 	.set_rate = sci_clk_set_rate,
+ 	.get_parent = sci_clk_get_parent,
+ 	.set_parent = sci_clk_set_parent,
++	.restore_context = sci_clk_restore_context,
+ };
+ 
+ /**
 
 -- 
 2.51.0
