@@ -4,35 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 434E1D374A6
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:01:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E8DED374AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 22:01:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IuBuUSRGj3d1CvFjm8S/2aomgehYcPf3iUE1Yhm69P4=; b=ILIVcvCnkweSiM3IRMeCIifLGR
-	qSXT8AzNi6tYlv0n+QTNHWrh3D5WuyjpxSyVNd/6fZAk0iKl63sdrxs2bzrSPa+OV3omEyuy9rS62
-	e60iQe8FsEyoHeuUBijUstb0gvyGNHUlcQ8+jc1LD3pMkIQdVkIDfhK4ayFM2bQM1yUqJ5n/c8HLL
-	140GMytPJLozWJOjqkzoHkipgQuUHstnq4xmZjQxISKU97a7AjUVXHCI5969kv8orqI54YcYW/PfQ
-	iysG5HTncC/PX8LFwgltNnem1WqIttsbGd63r4CzX40q0VHTcZ6iiXdXDvfb+p6TE6KbAEGKet4gf
-	Gn+Kaq2A==;
+	bh=Xh2OGYi/yNjCMhYSwavzEO6CDFU65BThtG3ReFMZzto=; b=ilpBWujPUBbHUt204cCVG0112L
+	viZuJzBugsYJf80mDPsyvi8/1jhtRB+nXyhwcYe4gCETtD5ARcz4DaqysSwzM+CReuS4oBoF4JdOX
+	onigoc5b0AjzAybmPDIuzSMTJ26p/11e/6jKrUEsZswUm8Ml8p5t3KWllNxoFXNbk83HaunZtbHFr
+	cIpu2buUsSKgS1hU1EoRvR9eQ4kxN0sqD8rAMGAQ9GPLSBJIqVerwdcQOv3mvuS+0gbOBpKiNiG77
+	ReN6oWquWMm5/ljyrlmcwzkxcX1wb33tH5J7uXWVvjaWC40+Ff20DMBbgT+KEa5F1vLvIJxwf9pYy
+	laXjZ/UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdra-0000000A6ZG-09s1;
-	Fri, 05 Dec 2025 22:01:18 +0000
+	id 1vRdrl-0000000A6mV-3Bnz;
+	Fri, 05 Dec 2025 22:01:29 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vRdrj-0000000A6jm-45nW
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 05 Dec 2025 22:01:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=Xh2OGYi/yNjCMhYSwavzEO6CDFU65BThtG3ReFMZzto=; b=RoAfjGsO6TDMBRts5cIKFbG3iF
+	sXH64ctD/wq3aaV9M5e0R5uc9fV/mmaAQZltF+zDPJy76JosahDraJFR2UumBgW1kLtjYM1lXpLAN
+	mXh2EPS/OyR6cjBJozJ6LfmQt/CTnu3/lCquqYwtIQnMQNNtgD1yKISDimDDtuTXW8y1El2CaciQr
+	2P3vWeDftO7Ia06xzjJSCqWtuRmzHnfx73oEldAd4+3LWVZQN5kTeq5dCBb4Zj3BFkdjMJlsk3z9o
+	FDQvHYQXU9UjqmA7eWMCGkEm4RfotbBRoaXC8pnFc3BwH2JCvayHKzLS4x0ZkglJfvD+PxMD+o8YN
+	36uJXEmg==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRdrX-0000000A6Vr-2807
+	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vRczs-00000006snb-1cWL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 22:01:16 +0000
+	Fri, 05 Dec 2025 21:06:04 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CD1541BC0;
-	Fri,  5 Dec 2025 14:01:06 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B28E21BA8;
+	Fri,  5 Dec 2025 14:00:58 -0800 (PST)
 Received: from merodach.members.linode.com (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6E1E53F740;
-	Fri,  5 Dec 2025 14:01:10 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4E9B53F740;
+	Fri,  5 Dec 2025 14:01:02 -0800 (PST)
 From: James Morse <james.morse@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
@@ -60,18 +75,17 @@ Cc: James Morse <james.morse@arm.com>,
 	rohit.mathew@arm.com,
 	reinette.chatre@intel.com,
 	Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-Subject: [RFC PATCH 26/38] arm_mpam: resctrl: Add resctrl_arch_cntr_read() & resctrl_arch_reset_cntr()
-Date: Fri,  5 Dec 2025 21:58:49 +0000
-Message-Id: <20251205215901.17772-27-james.morse@arm.com>
+Subject: [RFC PATCH 24/38] arm_mpam: resctrl: Allow resctrl to allocate monitors
+Date: Fri,  5 Dec 2025 21:58:47 +0000
+Message-Id: <20251205215901.17772-25-james.morse@arm.com>
 X-Mailer: git-send-email 2.20.1
 In-Reply-To: <20251205215901.17772-1-james.morse@arm.com>
 References: <20251205215901.17772-1-james.morse@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_140115_662011_FBC7712E 
-X-CRM114-Status: UNSURE (   9.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251205_210603_010112_942A8108 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,77 +100,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When used in ABMC mode, resctrl uses a different set of helpers to
-read and reset the counters.
+When resctrl wants to read a domain's 'QOS_L3_OCCUP', it needs
+to allocate a monitor on the corresponding resource. Monitors are
+allocated by class instead of component.
 
-Add these.
+MBM monitors are much more complicated, if there are enough monitors,
+they will be pre-allocated and free-running. If ABMC is in use instead
+then 'some' are pre-allocated in a different way, and need assigning.
+
+Add helpers to allocate a CSU monitor. These helper return an out
+of range value for MBM counters.
+
+Allocating a montitor context is expected to block until hardware
+resources become available. This only makes sense for QOS_L3_OCCUP
+as unallocated MBM counters are losing data.
 
 Signed-off-by: James Morse <james.morse@arm.com>
 ---
- drivers/resctrl/mpam_resctrl.c | 43 ++++++++++++++++++++++++++++++++++
- 1 file changed, 43 insertions(+)
+Since ABMC got merged it may be possible to remove the monitor alloc
+call for MBM counters from resctrl as this work is now done by ABMC's
+assign call.
+---
+ drivers/resctrl/mpam_internal.h | 14 ++++++-
+ drivers/resctrl/mpam_resctrl.c  | 68 +++++++++++++++++++++++++++++++++
+ include/linux/arm_mpam.h        |  4 ++
+ 3 files changed, 85 insertions(+), 1 deletion(-)
 
+diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+index 05101186af17..3a68ebd498fa 100644
+--- a/drivers/resctrl/mpam_internal.h
++++ b/drivers/resctrl/mpam_internal.h
+@@ -32,6 +32,14 @@ DECLARE_STATIC_KEY_FALSE(mpam_enabled);
+ #define PACKED_FOR_KUNIT
+ #endif
+ 
++/*
++ * This 'mon' values must not alias an actual monitor, so must be larger than
++ * U16_MAX, but not be confused with an errno value, so smaller than
++ * (u32)-SZ_4K.
++ * USE_PRE_ALLOCATED is used to avoid confusion with an actual monitor.
++ */
++#define USE_PRE_ALLOCATED      (U16_MAX + 1)
++
+ static inline bool mpam_is_enabled(void)
+ {
+ 	return static_branch_likely(&mpam_enabled);
+@@ -215,7 +223,11 @@ enum mon_filter_options {
+ };
+ 
+ struct mon_cfg {
+-	u16			mon;
++	/*
++	 * mon must be large enough to hold out of range values like
++	 * USE_RMID_IDX
++	 */
++	u32                     mon;
+ 	u8			pmg;
+ 	bool			match_pmg;
+ 	bool			csu_exclude_clean;
 diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-index dc8a819d0976..1333dc40714a 100644
+index 22ad5dd3c383..a2b238d47117 100644
 --- a/drivers/resctrl/mpam_resctrl.c
 +++ b/drivers/resctrl/mpam_resctrl.c
-@@ -454,6 +454,28 @@ int resctrl_arch_rmid_read(struct rdt_resource	*r, struct rdt_mon_domain *d,
- 				 closid, rmid, val);
+@@ -21,6 +21,8 @@
+ 
+ #include "mpam_internal.h"
+ 
++DECLARE_WAIT_QUEUE_HEAD(resctrl_mon_ctx_waiters);
++
+ /*
+  * The classes we've picked to map to resctrl resources, wrapped
+  * in with their resctrl structure.
+@@ -287,6 +289,72 @@ struct rdt_resource *resctrl_arch_get_resource(enum resctrl_res_level l)
+ 	return &mpam_resctrl_controls[l].resctrl_res;
  }
  
-+/* MBWU counters when in ABMC mode */
-+int resctrl_arch_cntr_read(struct rdt_resource *r, struct rdt_mon_domain *d,
-+			   u32 closid, u32 rmid, int mon_idx,
-+			   enum resctrl_event_id eventid, u64 *val)
++static int resctrl_arch_mon_ctx_alloc_no_wait(enum resctrl_event_id evtid)
 +{
-+	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
-+	struct mpam_resctrl_dom *l3_dom;
-+	struct mpam_component *mon_comp;
++	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[evtid];
 +
-+	if (!mpam_is_enabled())
++	if (!mon->class)
 +		return -EINVAL;
 +
-+	if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
-+		return -EINVAL;
-+
-+	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
-+	mon_comp = l3_dom->mon_comp[eventid];
-+
-+	return read_mon_cdp_safe(mon, mon_comp, mpam_feat_msmon_mbwu, mon_idx,
-+				 closid, rmid, val);
++	switch (evtid) {
++	case QOS_L3_OCCUP_EVENT_ID:
++		/* With CDP, one monitor gets used for both code/data reads */
++		return mpam_alloc_csu_mon(mon->class);
++	case QOS_L3_MBM_LOCAL_EVENT_ID:
++	case QOS_L3_MBM_TOTAL_EVENT_ID:
++		return USE_PRE_ALLOCATED;
++	default:
++		return -EOPNOTSUPP;
++	}
 +}
 +
- static void __reset_mon(struct mpam_resctrl_mon *mon, struct mpam_component *mon_comp,
- 			int mon_idx,
- 			enum resctrl_conf_type cdp_type, u32 closid, u32 rmid)
-@@ -509,6 +531,27 @@ void resctrl_arch_reset_rmid(struct rdt_resource *r, struct rdt_mon_domain *d,
- 	reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
- }
- 
-+/* Reset an assigned counter */
-+void resctrl_arch_reset_cntr(struct rdt_resource *r, struct rdt_mon_domain *d,
-+			     u32 closid, u32 rmid, int cntr_id,
-+			     enum resctrl_event_id eventid)
++void *resctrl_arch_mon_ctx_alloc(struct rdt_resource *r,
++				 enum resctrl_event_id evtid)
 +{
-+	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[eventid];
-+	struct mpam_resctrl_dom *l3_dom;
-+	struct mpam_component *mon_comp;
++	DEFINE_WAIT(wait);
++	int *ret;
 +
-+	if (!mpam_is_enabled())
++	ret = kmalloc(sizeof(*ret), GFP_KERNEL);
++	if (!ret)
++		return ERR_PTR(-ENOMEM);
++
++	do {
++		prepare_to_wait(&resctrl_mon_ctx_waiters, &wait,
++				TASK_INTERRUPTIBLE);
++		*ret = resctrl_arch_mon_ctx_alloc_no_wait(evtid);
++		if (*ret == -ENOSPC)
++			schedule();
++	} while (*ret == -ENOSPC && !signal_pending(current));
++	finish_wait(&resctrl_mon_ctx_waiters, &wait);
++
++	return ret;
++}
++
++static void resctrl_arch_mon_ctx_free_no_wait(enum resctrl_event_id evtid,
++					      u32 mon_idx)
++{
++	struct mpam_resctrl_mon *mon = &mpam_resctrl_counters[evtid];
++
++	if (!mon->class)
 +		return;
 +
-+	if (eventid == QOS_L3_OCCUP_EVENT_ID || !mon->class)
-+		return;
++	if (evtid == QOS_L3_OCCUP_EVENT_ID)
++		mpam_free_csu_mon(mon->class, mon_idx);
 +
-+	l3_dom = container_of(d, struct mpam_resctrl_dom, resctrl_mon_dom);
-+	mon_comp = l3_dom->mon_comp[eventid];
++	wake_up(&resctrl_mon_ctx_waiters);
++}
 +
-+	reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
++void resctrl_arch_mon_ctx_free(struct rdt_resource *r,
++			       enum resctrl_event_id evtid, void *arch_mon_ctx)
++{
++	u32 mon_idx = *(u32 *)arch_mon_ctx;
++
++	kfree(arch_mon_ctx);
++	arch_mon_ctx = NULL;
++
++	resctrl_arch_mon_ctx_free_no_wait(evtid, mon_idx);
 +}
 +
  static bool cache_has_usable_cpor(struct mpam_class *class)
  {
  	struct mpam_props *cprops = &class->props;
+diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
+index 385554ceb452..e1461e32af75 100644
+--- a/include/linux/arm_mpam.h
++++ b/include/linux/arm_mpam.h
+@@ -63,6 +63,10 @@ u32 resctrl_arch_rmid_idx_encode(u32 closid, u32 rmid);
+ void resctrl_arch_rmid_idx_decode(u32 idx, u32 *closid, u32 *rmid);
+ u32 resctrl_arch_system_num_rmid_idx(void);
+ 
++struct rdt_resource;
++void *resctrl_arch_mon_ctx_alloc(struct rdt_resource *r, enum resctrl_event_id evtid);
++void resctrl_arch_mon_ctx_free(struct rdt_resource *r, enum resctrl_event_id evtid, void *ctx);
++
+ /**
+  * mpam_register_requestor() - Register a requestor with the MPAM driver
+  * @partid_max:		The maximum PARTID value the requestor can generate.
 -- 
 2.39.5
 
