@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1B47D32D63
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A471FD32D64
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 14:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7DAAKQlxLzd/buQQptF4TY/Q9Mm/9b4F6XHyYj/DlaE=; b=ErIFZrFlTsNls++/zcUYxZOsLc
-	0YT/m8FT31e7X5NdtbxkI36RvTR+6UraOJCFpGdOFbYtxR5Sh0wC2o7rW4gir/aIjkmf0PO2uQFd9
-	VndBEi4H+XfRsZQqGd5jOAd0Z7eDO68mBMFykozLm19RyvyiQDmbXgE1pM3xDbVYc652NkB7Q/EeP
-	xcKKTi1m8UurGXUJ40VCdLzSfj1E6q03cvDlriayfDfhmZOOUaSef1SVszp6GF7XUG4qXuXgxzmy4
-	yXbntTkI+XDvpEJGib9K399Mn1mMSN203NvT+wUNZlPvkIHrd8SASszb+0eHq6zvmBKyB9lqazSBH
-	mAcM2dxg==;
+	bh=8V74ZzPAFsmbbErIJrr1G49regbiGK8v0OVPHXg+wj0=; b=QvLKtycU+dk9z8tUlJVn0tHTK8
+	DW+OgBwXROtqevUmBvkOyCyy9+H4Ptzf2OAuano/eHKis14P7MRs9STLJoeyyzVxmnQBJbvEhjYhm
+	RNoHj9DbD/iTbDHrcJlM1DliK2zJCpNzpZoSngVGcPL2VA491bHTchL5PQhRuGW3TMYcCSqCNi3/2
+	qyRDgbznPogCxCKg83somZICFjVd+qdNWPDWyad59bFoXenycPWjL42YYYIwYsfdgL1Y0vuL2MA7W
+	meKWCL6BhX1IG6wIz5wwN4hke47u/0AQf6RTEMLcIMBGuqUU6DhICQn02M8gNBQT5ocYp7IuPRTOD
+	jOjG9lvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRWnj-00000009aiW-48gv;
-	Fri, 05 Dec 2025 14:28:51 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRWng-00000009af1-0Fry
-	for linux-arm-kernel@lists.infradead.org;
+	id 1vRWnh-00000009ahC-2jj7;
 	Fri, 05 Dec 2025 14:28:49 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vRWnd-00000009aeO-1Aqw
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 05 Dec 2025 14:28:47 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id AF7411A1F9A;
-	Fri,  5 Dec 2025 14:28:45 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id D2E264E41A70;
+	Fri,  5 Dec 2025 14:28:43 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 77408606AC;
-	Fri,  5 Dec 2025 14:28:45 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C8CF3102F06E6;
-	Fri,  5 Dec 2025 15:28:42 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 8FE61606AC;
+	Fri,  5 Dec 2025 14:28:43 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 26A8F102F0A99;
+	Fri,  5 Dec 2025 15:28:41 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1764944924; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1764944922; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=7DAAKQlxLzd/buQQptF4TY/Q9Mm/9b4F6XHyYj/DlaE=;
-	b=PsRbK6k/fVNkTg7mcO9/qxWp9Th2OSXPs2dSOCiogB2+X0yqHHLI5calBSgpfuBInKfJX1
-	NjCg/7VF3/NNnGba/4ch5ZuFgDFnB5TvsKzkYclOGLg/uyKvsaR7YcHQ7YRP2d8hK9TyPF
-	5z17aNGDZc0NgbK53I5OeLp6YiumMQMRZG1xlvIJq21hGKmS1u7dW/DpRbqTr+m8Q/oskO
-	TVxXM++k5uuQj2NrcEM8RPcKn1dJcMDI1+2cAR2o6uYI9H+TBCsAGaPkcTssOKgBFjglpg
-	c+kfS9mNydCZSQsd47/2a7LYWVlS8pWMZuE2EgRbmlUgmAldYnCQgkdCE6L11w==
+	bh=8V74ZzPAFsmbbErIJrr1G49regbiGK8v0OVPHXg+wj0=;
+	b=XdYb6fMNMCph5f+2BbY8PusMXh20gJZFKv4tcgiq0Ud/5WjVdf+VjUKBiK1n3nSCmXbrK0
+	6IsU8fRrx7Ne+b+9w8V4wIINY9h95cZ18tAbozXcAJfpM2pEUreW3wvZ4e/2xMuxAfn/z8
+	6lhlFH2k7cx9msw1ouIgvKYsMTYVDu0Luh8npaUjHZFJfIsluayFTSPKtNeb9eRHqC9MMc
+	HHtiGceVL42HazS2mSm8RdjJpKkGvjGNcqeYkiFF9/3f4KpDi3h5V5bgnh/8VIIpkgRLUD
+	jtlKRSCeav6jbji0Bqj/fhZxPjAyNB2rj4Mfov3OpOrKdM6dYSLJe0AeU6H0jQ==
 From: "Thomas Richard (TI.com)" <thomas.richard@bootlin.com>
-Date: Fri, 05 Dec 2025 15:28:25 +0100
-Subject: [PATCH v3 3/4] clk: keystone: sci-clk: add restore_context()
- operation
+Date: Fri, 05 Dec 2025 15:28:24 +0100
+Subject: [PATCH v3 2/4] firmware: ti_sci: handle IRQ restore in
+ BOARDCFG_MANAGED mode during resume
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20251205-ti-sci-jacinto-s2r-restore-irq-v3-3-d06963974ad4@bootlin.com>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251205-ti-sci-jacinto-s2r-restore-irq-v3-2-d06963974ad4@bootlin.com>
 References: <20251205-ti-sci-jacinto-s2r-restore-irq-v3-0-d06963974ad4@bootlin.com>
 In-Reply-To: <20251205-ti-sci-jacinto-s2r-restore-irq-v3-0-d06963974ad4@bootlin.com>
 To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
@@ -67,10 +67,9 @@ Cc: Gregory CLEMENT <gregory.clement@bootlin.com>,
  "Thomas Richard (TI.com)" <thomas.richard@bootlin.com>
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
-X-Rspamd-Fuzzy: 41a41182b59d79f583916f68cda4ce24371bbb78bb5201448cdda28aa13f7e12f6862ad9c69aaabad6cacf50bd7bcdc4e70062e7913d09bed0cb7f9b3ddaf05c
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_062848_238620_8E24A0D3 
-X-CRM114-Status: GOOD (  13.18  )
+X-CRM114-CacheID: sfid-20251205_062845_593074_55B38E15 
+X-CRM114-Status: GOOD (  19.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,112 +84,248 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implement the restore_context() operation to restore the clock rate and the
-clock parent state. The clock rate is saved in sci_clk struct during
-set_rate() operation. The parent index is saved in sci_clk struct during
-set_parent() operation. During clock registration, the core retrieves each
-clock’s parent using get_parent() operation to ensure the internal clock
-tree reflects the actual hardware state, including any configurations made
-by the bootloader. So we also save the parent index in get_parent().
+In BOARDCFG_MANAGED mode, the firmware cannot restore IRQs during
+resume. This responsibility is delegated to the ti_sci driver,
+which maintains an internal list of all requested IRQs. This list
+is updated on each set/free operation, and all IRQs are restored
+during the resume_noirq() phase.
 
 Signed-off-by: Thomas Richard (TI.com) <thomas.richard@bootlin.com>
 ---
- drivers/clk/keystone/sci-clk.c | 42 ++++++++++++++++++++++++++++++++++--------
- 1 file changed, 34 insertions(+), 8 deletions(-)
+ drivers/firmware/ti_sci.c | 147 +++++++++++++++++++++++++++++++++++++++++++---
+ 1 file changed, 138 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/clk/keystone/sci-clk.c b/drivers/clk/keystone/sci-clk.c
-index 9d5071223f4cb..428050a05de31 100644
---- a/drivers/clk/keystone/sci-clk.c
-+++ b/drivers/clk/keystone/sci-clk.c
-@@ -47,6 +47,8 @@ struct sci_clk_provider {
-  * @node:	 Link for handling clocks probed via DT
-  * @cached_req:	 Cached requested freq for determine rate calls
-  * @cached_res:	 Cached result freq for determine rate calls
-+ * @parent_id:	 Parent index for this clock
-+ * @rate:	 Clock rate
-  */
- struct sci_clk {
- 	struct clk_hw hw;
-@@ -58,6 +60,8 @@ struct sci_clk {
- 	struct list_head node;
- 	unsigned long cached_req;
- 	unsigned long cached_res;
-+	u8 parent_id;
-+	unsigned long rate;
+diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
+index d77b631d9c855..8d94745376e2a 100644
+--- a/drivers/firmware/ti_sci.c
++++ b/drivers/firmware/ti_sci.c
+@@ -12,6 +12,7 @@
+ #include <linux/cpu.h>
+ #include <linux/debugfs.h>
+ #include <linux/export.h>
++#include <linux/hashtable.h>
+ #include <linux/io.h>
+ #include <linux/iopoll.h>
+ #include <linux/kernel.h>
+@@ -87,6 +88,16 @@ struct ti_sci_desc {
+ 	int max_msg_size;
  };
  
- #define to_sci_clk(_hw) container_of(_hw, struct sci_clk, hw)
-@@ -210,10 +214,16 @@ static int sci_clk_set_rate(struct clk_hw *hw, unsigned long rate,
- 			    unsigned long parent_rate)
- {
- 	struct sci_clk *clk = to_sci_clk(hw);
-+	int ret;
++/**
++ * struct ti_sci_irq - Description of allocated irqs
++ * @node: Link to hash table
++ * @desc: Description of the irq
++ */
++struct ti_sci_irq {
++	struct hlist_node node;
++	struct ti_sci_msg_req_manage_irq desc;
++};
 +
-+	ret = clk->provider->ops->set_freq(clk->provider->sci, clk->dev_id,
-+					   clk->clk_id, rate / 10 * 9, rate,
-+					   rate / 10 * 11);
- 
--	return clk->provider->ops->set_freq(clk->provider->sci, clk->dev_id,
--					    clk->clk_id, rate / 10 * 9, rate,
--					    rate / 10 * 11);
-+	if (!ret)
-+		clk->rate = rate;
-+
-+	return ret;
+ /**
+  * struct ti_sci_info - Structure representing a TI SCI instance
+  * @dev:	Device pointer
+@@ -101,6 +112,7 @@ struct ti_sci_desc {
+  * @chan_rx:	Receive mailbox channel
+  * @minfo:	Message info
+  * @node:	list head
++ * @irqs:	List of allocated irqs
+  * @host_id:	Host ID
+  * @fw_caps:	FW/SoC low power capabilities
+  * @users:	Number of users of this instance
+@@ -117,6 +129,7 @@ struct ti_sci_info {
+ 	struct mbox_chan *chan_tx;
+ 	struct mbox_chan *chan_rx;
+ 	struct ti_sci_xfers_info minfo;
++	DECLARE_HASHTABLE(irqs, 8);
+ 	struct list_head node;
+ 	u8 host_id;
+ 	u64 fw_caps;
+@@ -2301,6 +2314,32 @@ static int ti_sci_manage_irq(const struct ti_sci_handle *handle,
+ 	return ret;
  }
  
- /**
-@@ -237,9 +247,9 @@ static u8 sci_clk_get_parent(struct clk_hw *hw)
- 		return 0;
- 	}
- 
--	parent_id = parent_id - clk->clk_id - 1;
-+	clk->parent_id = (u8)(parent_id - clk->clk_id - 1);
- 
--	return (u8)parent_id;
-+	return clk->parent_id;
- }
- 
- /**
-@@ -252,12 +262,27 @@ static u8 sci_clk_get_parent(struct clk_hw *hw)
- static int sci_clk_set_parent(struct clk_hw *hw, u8 index)
- {
- 	struct sci_clk *clk = to_sci_clk(hw);
-+	int ret;
- 
- 	clk->cached_req = 0;
- 
--	return clk->provider->ops->set_parent(clk->provider->sci, clk->dev_id,
--					      clk->clk_id,
--					      index + 1 + clk->clk_id);
-+	ret = clk->provider->ops->set_parent(clk->provider->sci, clk->dev_id,
-+					     clk->clk_id,
-+					     index + 1 + clk->clk_id);
-+	if (!ret)
-+		clk->parent_id = index;
-+
-+	return ret;
++/**
++ * ti_sci_irq_hash() - Helper API to compute irq hash for the hash table.
++ * @irq:	irq to hash
++ *
++ * Return: the computed hash value.
++ */
++static int ti_sci_irq_hash(struct ti_sci_msg_req_manage_irq *irq)
++{
++	return irq->src_id ^ irq->src_index;
 +}
 +
-+static void sci_clk_restore_context(struct clk_hw *hw)
++/**
++ * ti_sci_irq_equal() - Helper API to compare two irqs (generic headers are not
++ *                       compared)
++ * @irq_a:	irq_a to compare
++ * @irq_b:	irq_b to compare
++ *
++ * Return: true if the two irqs are equal, else false.
++ */
++static bool ti_sci_irq_equal(struct ti_sci_msg_req_manage_irq *irq_a,
++			     struct ti_sci_msg_req_manage_irq *irq_b)
 +{
-+	struct sci_clk *clk = to_sci_clk(hw);
++	return !memcmp(&irq_a->valid_params, &irq_b->valid_params,
++		       sizeof(*irq_a) - sizeof(irq_a->hdr));
++}
 +
-+	sci_clk_set_parent(hw, clk->parent_id);
+ /**
+  * ti_sci_set_irq() - Helper api to configure the irq route between the
+  *		      requested source and destination
+@@ -2324,15 +2363,43 @@ static int ti_sci_set_irq(const struct ti_sci_handle *handle, u32 valid_params,
+ 			  u16 dst_host_irq, u16 ia_id, u16 vint,
+ 			  u16 global_event, u8 vint_status_bit, u8 s_host)
+ {
++	struct ti_sci_info *info = handle_to_ti_sci_info(handle);
++	struct ti_sci_msg_req_manage_irq *desc;
++	struct ti_sci_irq *irq;
++	int ret;
 +
-+	if (clk->rate)
-+		sci_clk_set_rate(hw, clk->rate, 0);
+ 	pr_debug("%s: IRQ set with valid_params = 0x%x from src = %d, index = %d, to dst = %d, irq = %d,via ia_id = %d, vint = %d, global event = %d,status_bit = %d\n",
+ 		 __func__, valid_params, src_id, src_index,
+ 		 dst_id, dst_host_irq, ia_id, vint, global_event,
+ 		 vint_status_bit);
+ 
+-	return ti_sci_manage_irq(handle, valid_params, src_id, src_index,
+-				 dst_id, dst_host_irq, ia_id, vint,
+-				 global_event, vint_status_bit, s_host,
+-				 TI_SCI_MSG_SET_IRQ);
++	ret = ti_sci_manage_irq(handle, valid_params, src_id, src_index,
++				dst_id, dst_host_irq, ia_id, vint,
++				global_event, vint_status_bit, s_host,
++				TI_SCI_MSG_SET_IRQ);
++
++	if (ret)
++		return ret;
++
++	irq = kzalloc(sizeof(*irq), GFP_KERNEL);
++	if (!irq)
++		return -ENOMEM;
++
++	desc = &irq->desc;
++	desc->valid_params = valid_params;
++	desc->src_id = src_id;
++	desc->src_index = src_index;
++	desc->dst_id = dst_id;
++	desc->dst_host_irq = dst_host_irq;
++	desc->ia_id = ia_id;
++	desc->vint = vint;
++	desc->global_event = global_event;
++	desc->vint_status_bit = vint_status_bit;
++	desc->secondary_host = s_host;
++
++	hash_add(info->irqs, &irq->node, ti_sci_irq_hash(desc));
++
++	return 0;
  }
  
- static const struct clk_ops sci_clk_ops = {
-@@ -269,6 +294,7 @@ static const struct clk_ops sci_clk_ops = {
- 	.set_rate = sci_clk_set_rate,
- 	.get_parent = sci_clk_get_parent,
- 	.set_parent = sci_clk_set_parent,
-+	.restore_context = sci_clk_restore_context,
- };
+ /**
+@@ -2358,15 +2425,46 @@ static int ti_sci_free_irq(const struct ti_sci_handle *handle, u32 valid_params,
+ 			   u16 dst_host_irq, u16 ia_id, u16 vint,
+ 			   u16 global_event, u8 vint_status_bit, u8 s_host)
+ {
++	struct ti_sci_info *info = handle_to_ti_sci_info(handle);
++	struct ti_sci_msg_req_manage_irq irq_desc;
++	struct ti_sci_irq *this_irq;
++	struct hlist_node *tmp_node;
++	int ret;
++
+ 	pr_debug("%s: IRQ release with valid_params = 0x%x from src = %d, index = %d, to dst = %d, irq = %d,via ia_id = %d, vint = %d, global event = %d,status_bit = %d\n",
+ 		 __func__, valid_params, src_id, src_index,
+ 		 dst_id, dst_host_irq, ia_id, vint, global_event,
+ 		 vint_status_bit);
+ 
+-	return ti_sci_manage_irq(handle, valid_params, src_id, src_index,
+-				 dst_id, dst_host_irq, ia_id, vint,
+-				 global_event, vint_status_bit, s_host,
+-				 TI_SCI_MSG_FREE_IRQ);
++	ret = ti_sci_manage_irq(handle, valid_params, src_id, src_index,
++				dst_id, dst_host_irq, ia_id, vint,
++				global_event, vint_status_bit, s_host,
++				TI_SCI_MSG_FREE_IRQ);
++
++	if (ret)
++		return ret;
++
++	irq_desc.valid_params = valid_params;
++	irq_desc.src_id = src_id;
++	irq_desc.src_index = src_index;
++	irq_desc.dst_id = dst_id;
++	irq_desc.dst_host_irq = dst_host_irq;
++	irq_desc.ia_id = ia_id;
++	irq_desc.vint = vint;
++	irq_desc.global_event = global_event;
++	irq_desc.vint_status_bit = vint_status_bit;
++	irq_desc.secondary_host = s_host;
++
++	hash_for_each_possible_safe(info->irqs, this_irq, tmp_node, node,
++				    ti_sci_irq_hash(&irq_desc)) {
++		if (ti_sci_irq_equal(&irq_desc, &this_irq->desc)) {
++			hlist_del(&this_irq->node);
++			kfree(this_irq);
++			return 0;
++		}
++	}
++
++	return 0;
+ }
  
  /**
+@@ -3847,7 +3945,10 @@ static int ti_sci_suspend_noirq(struct device *dev)
+ static int ti_sci_resume_noirq(struct device *dev)
+ {
+ 	struct ti_sci_info *info = dev_get_drvdata(dev);
+-	int ret = 0;
++	struct ti_sci_msg_req_manage_irq *irq_desc;
++	struct ti_sci_irq *irq;
++	struct hlist_node *tmp_node;
++	int ret = 0, i;
+ 	u32 source;
+ 	u64 time;
+ 	u8 pin;
+@@ -3859,6 +3960,32 @@ static int ti_sci_resume_noirq(struct device *dev)
+ 			return ret;
+ 	}
+ 
++	switch (pm_suspend_target_state) {
++	case PM_SUSPEND_MEM:
++		if (info->fw_caps & MSG_FLAG_CAPS_LPM_BOARDCFG_MANAGED) {
++			hash_for_each_safe(info->irqs, i, tmp_node, irq, node) {
++				irq_desc = &irq->desc;
++				ret = ti_sci_manage_irq(&info->handle,
++							irq_desc->valid_params,
++							irq_desc->src_id,
++							irq_desc->src_index,
++							irq_desc->dst_id,
++							irq_desc->dst_host_irq,
++							irq_desc->ia_id,
++							irq_desc->vint,
++							irq_desc->global_event,
++							irq_desc->vint_status_bit,
++							irq_desc->secondary_host,
++							TI_SCI_MSG_SET_IRQ);
++				if (ret)
++					return ret;
++			}
++		}
++		break;
++	default:
++		break;
++	}
++
+ 	ret = ti_sci_msg_cmd_lpm_wake_reason(&info->handle, &source, &time, &pin, &mode);
+ 	/* Do not fail to resume on error as the wake reason is not critical */
+ 	if (!ret)
+@@ -4053,6 +4180,8 @@ static int ti_sci_probe(struct platform_device *pdev)
+ 	list_add_tail(&info->node, &ti_sci_list);
+ 	mutex_unlock(&ti_sci_list_mutex);
+ 
++	hash_init(info->irqs);
++
+ 	ret = of_platform_populate(dev->of_node, NULL, NULL, dev);
+ 	if (ret) {
+ 		dev_err(dev, "platform_populate failed %pe\n", ERR_PTR(ret));
 
 -- 
 2.51.0
