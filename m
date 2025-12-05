@@ -4,69 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45E54D2E00C
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 06:53:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF4A1D2E00E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  5 Dec 2025 06:59:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Mime-Version:Subject:Message-Id:Cc:Content-Type:Date:From:In-Reply-To:To:
-	References:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=efJE7XKSO4UauXHMwosjuUrfcnmNeBslKejP+uqxBFs=; b=mNV1cPyXCzX8iL6iQJRglfeT7c
-	+TaCSPevIUi34RSGSa4YNFKlc779BQiiCev/FqsKCJQr+vaLLnuActj/LOu0VrkMmlXChF5zoPYAB
-	ZqavZ6Fx7vFLGwh69LrA0WAEiGt4adCR3RLa065WoYHgBIqrbElyfuKjfWm7MvxMncbG3rcQkDIsZ
-	0NbN/UKwnuIMpzkBUYNCCJHHb7BV1/i2Cf0X9/xrUXkQlT6ecqjYXJV9wReRb/1FlmrjYsb7ROXDR
-	SQgAqhnL9/sQs8CPcvQIXKbbxiUrS0ZLWgVSbml/V+XVWOVitc3zIWaFx9fZ3PZkFFKnJPSlDyrxV
-	d4D10RFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EIzyzo2QsFvsi0KPK1n7WP2kKZ8STMCdLQJi0YHG8w0=; b=OvYsvFjJI9CIuLkaWVucAFT0VZ
+	9x6CPdeWOrN85HbGmlyH7FOzvzbNHsPxi/WDLkW2Py+nLPLM5eNGb92hNsPual2QzIkjgZs+mOH5e
+	5kbk0jA97lZQcci6UO1p81Sa14RMUlo6/Uzu4OJB4dJuRfIPRb9gGehKW38nXuSLv0ecb2pIKAyFh
+	u78+9AWx5mbjje0pYBNzMwkI74UEGJIdFwA1HY/dq/p9+/9Ob19chRRqAsAkrZOHQIszhIgylzL2d
+	WvFToLAMb+9AXbaCOyOqsT7AVVcFoxzOyYbUIGwm5o11SlknnhT+yAbeJclRiwbCEnQ0fGSLPg6h4
+	jysbmnNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRPgt-000000097BE-0k8I;
-	Fri, 05 Dec 2025 06:53:19 +0000
-Received: from sg-1-38.ptr.blmpb.com ([118.26.132.38])
+	id 1vRPmc-000000097WZ-1Lra;
+	Fri, 05 Dec 2025 06:59:14 +0000
+Received: from mail-southcentralusazon11013067.outbound.protection.outlook.com ([40.93.196.67] helo=SA9PR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRPgo-000000097AB-2VJS
+	id 1vRPmZ-000000097Vi-03Lh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 05 Dec 2025 06:53:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=picoheart-com.20200927.dkim.feishu.cn; t=1764917586;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=efJE7XKSO4UauXHMwosjuUrfcnmNeBslKejP+uqxBFs=;
- b=kP/qGH38UArd20i63V+LckPLFluv9168rV/1kL4PkIRSSJ81+rQvkBtBcVlve+zyap8jgI
- kW6kKAWPPA+WIL5JjDVY3M7+5HK7y6peWELyx6s6MBFBmmsKNFR1AlLQB1/kirZUCD52wS
- L2X69D+BD8wkhMiJTKG43RCnp8kYCubeY/o2DMfV5FdHfGhrqdUH3cPhKCfFcuhpoJ+0+C
- 0uTgkQaoFg0nxB/QTj/1lY9OAg5KeGNoZTGhKJiPiifVCoKAK7aq+aPNP/O6zhC+omyfzt
- wIJb1N70cLNeTaqtZgwKxfHIjTKNfmmKPJJ4Iw3+wSbERJNxLAl5uRcTVNeoNg==
-X-Lms-Return-Path: <lba+269328150+757db4+lists.infradead.org+yang.yicong@picoheart.com>
-References: <20251114033243.76509-1-cuiyunhui@bytedance.com> <20251114033243.76509-2-cuiyunhui@bytedance.com>
-To: "Yunhui Cui" <cuiyunhui@bytedance.com>
-Content-Language: en-US
-In-Reply-To: <20251114033243.76509-2-cuiyunhui@bytedance.com>
-From: "Yicong Yang" <yang.yicong@picoheart.com>
-Date: Fri, 5 Dec 2025 14:53:00 +0800
-Content-Type: text/plain; charset=UTF-8
-Cc: <akpm@linux-foundation.org>, <alex@ghiti.fr>, <anup@brainfault.org>, 
-	<aou@eecs.berkeley.edu>, <atish.patra@linux.dev>, 
-	<catalin.marinas@arm.com>, <dianders@chromium.org>, 
-	<johannes@sipsolutions.net>, <lihuafei1@huawei.com>, 
-	<mark.rutland@arm.com>, <masahiroy@kernel.org>, <maz@kernel.org>, 
-	<mingo@kernel.org>, <nicolas.schier@linux.dev>, <palmer@dabbelt.com>, 
-	<paul.walmsley@sifive.com>, <suzuki.poulose@arm.com>, 
-	<thorsten.blum@linux.dev>, <wangjinchao600@gmail.com>, <will@kernel.org>, 
-	<yangyicong@hisilicon.com>, <zhanjie9@hisilicon.com>, 
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>, 
-	<linux-perf-users@vger.kernel.org>, <linux-riscv@lists.infradead.org>, 
-	<yang.yicong@picoheart.com>, <geshijian@picoheart.com>
-Message-Id: <af5765d2-ba72-481c-8c7a-6fb09fe44709@picoheart.com>
-Received: from [100.86.226.133] ([61.141.241.105]) by smtp.feishu.cn with ESMTPS; Fri, 05 Dec 2025 14:53:03 +0800
-User-Agent: Mozilla Thunderbird
-X-Original-From: Yicong Yang <yang.yicong@picoheart.com>
-Subject: Re: [PATCH v6 1/2] watchdog: move arm64 watchdog_hld into common code
-Mime-Version: 1.0
-Content-Transfer-Encoding: 7bit
+	Fri, 05 Dec 2025 06:59:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Kg0WJ4rFf/6x8tbzFWO66yc8DfZs9oR4C8aI2wRl9XRGbn1HKFI3THHC1GugXfVU4hPjhAAy/ivmk/VWr1mptbyrCRFDI4VPFu3oYCla+54uPQsujvUwRNC44wrr7SJ4qlouk+HH25464s/LzYwlXvr6tasBCT5fV2KZGlVt4J7NQl5PZY3WuJo2cYpGO8PpA50DVY9JoPB0m1LdqQW7DxJNEQavrl6kFVmD/Jxk8gF+GKqYX7Y0DU4IMKMZt0iEduTIjQ4BRMJIEUJKaO4tdz2fg8L3yrGeCYCMecRj8sc9GiQlrnTqp8/YPRh4HTvq9d9Y7LD3JRJ0os7BGRlD6w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EIzyzo2QsFvsi0KPK1n7WP2kKZ8STMCdLQJi0YHG8w0=;
+ b=pFOuXuGRJpsZq5QMwBREqxqL8R9f1bzpUMZg+B4EHBhxr9bqr3G3JCIsOXnbYCTLsp4muHM03NHU0CJXX8DEW7G41jj8VOXsjXnEIa7wsNi01SJLZfgTq2I39cOVUh4xuxkqbdDJM/I7SGACrjS+hWKzFFE9PumXACMiOg6bW1FuQzWWvcOwmSeBe3z1Ac0Mv7OB/Bx7XE7zBNcyout23jsNnX6RlzrLRylSF3iFj5SOj5FKsg94lVXmRBqpL6DJvxbpsMpdmcNeuk0PFvzVXWcn/v96Bk/gK+5+WHc8URX9DIqCyFI7aLsvp9QaUdSXJKVC/WvPiwtafk2O423YlA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EIzyzo2QsFvsi0KPK1n7WP2kKZ8STMCdLQJi0YHG8w0=;
+ b=bdcXGlQG8kcHkU/Rc0ludpWhaU/Cpa8MdkoktjM3L8o5+jY1m1BSUQd4ywlx1PU4Xgn0NHMKwFwPItv7scHmdw8QhyKNQxLSsaWDtUObQHweVmfP5QQYoLouxf73wiApqQdzBsSREOQluZlKUwm5S9D/VUQptP+GdklWkP/vn9IpUMzKg+RrDl6QVms9LaiT96vkYpMBJO02sGUQOdNTOv/OJd8lV5X4+n8hNhj99dVD1PFC+/VYWYQ0BlsUP3K2CKRo6cw1BKOHkLZ3DWe6ygIqocRPyirgkR+QTeBnRN4d1DMqBpNgCm710DbmPwJqET8SS+oVPwn9In6IvEfiUg==
+Received: from SJ0PR03CA0003.namprd03.prod.outlook.com (2603:10b6:a03:33a::8)
+ by CH1PPF6B6BCC42C.namprd12.prod.outlook.com (2603:10b6:61f:fc00::612) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.9; Fri, 5 Dec
+ 2025 06:59:02 +0000
+Received: from SJ5PEPF000001CA.namprd05.prod.outlook.com
+ (2603:10b6:a03:33a:cafe::5a) by SJ0PR03CA0003.outlook.office365.com
+ (2603:10b6:a03:33a::8) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9388.9 via Frontend Transport; Fri, 5
+ Dec 2025 06:58:43 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ SJ5PEPF000001CA.mail.protection.outlook.com (10.167.242.39) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9388.8 via Frontend Transport; Fri, 5 Dec 2025 06:59:01 +0000
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 4 Dec
+ 2025 22:58:54 -0800
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail204.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 4 Dec
+ 2025 22:58:54 -0800
+Received: from build-amhetre-focal-20250825.internal (10.127.8.10) by
+ mail.nvidia.com (10.129.68.7) with Microsoft SMTP Server id 15.2.2562.20 via
+ Frontend Transport; Thu, 4 Dec 2025 22:58:54 -0800
+From: Ashish Mhetre <amhetre@nvidia.com>
+To: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<nicolinc@nvidia.com>
+CC: <thierry.reding@gmail.com>, <jonathanh@nvidia.com>, <vdumpa@nvidia.com>,
+	<jgg@ziepe.ca>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>, Ashish Mhetre
+	<amhetre@nvidia.com>
+Subject: [PATCH V4 0/3] Add device tree support for NVIDIA Tegra CMDQV
+Date: Fri, 5 Dec 2025 06:58:47 +0000
+Message-ID: <20251205065850.3841834-1-amhetre@nvidia.com>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+X-NVConfidentiality: public
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ5PEPF000001CA:EE_|CH1PPF6B6BCC42C:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7ba534d6-f3ee-4e23-3dc8-08de33cbc572
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?v3GbTj9x4smfYoiTWdHQq5+AxmrrFnom0sWMByyPX1ElZnkpTVvYhT1IEmRn?=
+ =?us-ascii?Q?pKH1b0puhAtmJ0fgUNS2qrrTZkNj0q9w+qoZ3YF0iXuS/B8k8+S+eVwXqIb3?=
+ =?us-ascii?Q?ZXS6D0doKYIkV9DdaXVabivJaGnTHM3Mx5FN3NdU/vq5AV4ZpcP4lIpirCGy?=
+ =?us-ascii?Q?nLvyo2LbEUSeApV2Zfgjl2anbvnDB7uFVw6baqICVZRHDjIhb4k1gnFf9D2H?=
+ =?us-ascii?Q?zaRhy4GcbE83xaY+eAgsMDgp3Wq3hck2fECrzXr0cDg/4/t0EIjmma3eaK54?=
+ =?us-ascii?Q?UMFKmZwXIwRn30KFyukyCyPolSuZZHnK4ETQmFEslYUpF6QWVQhvsPZElNLn?=
+ =?us-ascii?Q?3xHmFgf9Mvdeu8iZDEKjO8fspsD9RK+y1jMYAz+S/NUtaNijORmzla3TUrbf?=
+ =?us-ascii?Q?NXbgHgEUw2K3CT6QqB6tqeF7jY4oEhMsDVn2ZtrKEyHoVm/zi7LkPbR310Ko?=
+ =?us-ascii?Q?7DCUEJHsGV3yqhqSLDozEFAPeAjLm5Qe1uwBhtkSceVSRxTDYlBSQpL+1zf0?=
+ =?us-ascii?Q?VsBzdauJ96w6WzevKTBjBILjdpWB8jBcNX2UjSbWmrFlT1i2d9PIm2re7yDm?=
+ =?us-ascii?Q?ZFDBzdC5aHldOwEGODlpnVgmLVCNRqw9m0VzAAlYclSzeFVB/DZApRdtq27x?=
+ =?us-ascii?Q?m/aNRnkmgK5A9ZPJzYtljybvxWMrhyNlX1JpEA17IZCPYPREVAOmFKxee7gJ?=
+ =?us-ascii?Q?vswpylkEMAEd/xEu87sSIdXwSfhyOYbLOJCC3JeRW9TpdeUJltjKK93aVE7r?=
+ =?us-ascii?Q?mWxWguS7V3Mia9FeMwjaB5hQyzC3fG6TqOoRHwBWZDGr7LXNuzHAjCgm8/Wf?=
+ =?us-ascii?Q?YnYxQazEg77Sx3/E5viI4GwUQtQoZ+S7yAipW3496YsKytzO0bB4WAdF8Jfo?=
+ =?us-ascii?Q?xvGzTewD9kmxVnaBIfT9Zb/LRzqs3TjQQsicQr7+2yaCPULTt9qZEMriLcP1?=
+ =?us-ascii?Q?746pSymKQFKKPMRUxIbH0FlpbXmS18IV0fudxOtq/JuPYcK/B+FNFncvDzDA?=
+ =?us-ascii?Q?v/QP+tetoET9GcCrHt/Vh+qD5IX/kmMhSOrf8b95fVmw3mqPi6rymVlzSEo/?=
+ =?us-ascii?Q?nXLO9aMa0AOpbMowbvoVxo0w0MSu0x1cX+2mkuoV6z6eyQ+G3iSxmFAvYeCX?=
+ =?us-ascii?Q?ytYhQiuyQPLP/BltsNs/2ExmGfACD58TV7K/fCAvLIkcIWpgKcSYdtBvNJuV?=
+ =?us-ascii?Q?sMX0ehyHnAlrvwpQPDAEhc51kYnUedZkOm0tP7GX8/EaN0d3zVDvXlZIeLDm?=
+ =?us-ascii?Q?orw+apfg4cXl42OkX27+tSaZoYxL/ezFqylT3h26ZnQDyvAGOo3So7C5U90q?=
+ =?us-ascii?Q?ndEeGHL8Ihjl/AjNLx5uwZfMPsS4v8w3Eeibauz3XRd0P3Mq7HN7KZBT5Ueq?=
+ =?us-ascii?Q?Xoh0b0f1MucQ0+8LbejnccBJzpvA7sSv3fZDcD3q1ixfYRF/5WM48QR25l63?=
+ =?us-ascii?Q?yFyVa1UuxWCaJ0rlTJcUo5VbYuVDzPp8DaOrEzymo6DcB1QVQ16dNS6eBOKF?=
+ =?us-ascii?Q?9I0DFSdHr6Tmtq1u/IkYsoTdHDhB/IHEqGfmVJVhsNWoXxgVE1p4/KCQhoYE?=
+ =?us-ascii?Q?7zKZ8XxKgyc/pYXMQx4=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(7416014)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Dec 2025 06:59:01.6867
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7ba534d6-f3ee-4e23-3dc8-08de33cbc572
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001CA.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PPF6B6BCC42C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251204_225315_604386_49A48641 
-X-CRM114-Status: GOOD (  33.47  )
+X-CRM114-CacheID: sfid-20251204_225911_090755_5241AABB 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,325 +154,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/11/14 11:32, Yunhui Cui wrote:
-> Move the contents of arch/arm64/watchdog_hld.c to kernel/watchdog_perf.c
-> to create a generic implementation that can be reused by other arch,
-> such as RISC-V.
-> 
-> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
-> Reviewed-by: Douglas Anderson <dianders@chromium.org>
-> ---
->  arch/arm64/Kconfig               |  1 +
->  arch/arm64/kernel/Makefile       |  1 -
->  arch/arm64/kernel/watchdog_hld.c | 94 --------------------------------
->  drivers/perf/arm_pmu.c           | 10 +++-
->  include/linux/perf/arm_pmu.h     |  2 -
->  kernel/watchdog_perf.c           | 83 ++++++++++++++++++++++++++++
->  lib/Kconfig.debug                |  8 +++
->  7 files changed, 101 insertions(+), 98 deletions(-)
->  delete mode 100644 arch/arm64/kernel/watchdog_hld.c
-> 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 6663ffd23f252..6614ff45b1e06 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -231,6 +231,7 @@ config ARM64
->  	select HAVE_GCC_PLUGINS
->  	select HAVE_HARDLOCKUP_DETECTOR_PERF if PERF_EVENTS && \
->  		HW_PERF_EVENTS && HAVE_PERF_EVENTS_NMI
-> +	select WATCHDOG_PERF_ADJUST_PERIOD if HARDLOCKUP_DETECTOR_PERF
->  	select HAVE_HW_BREAKPOINT if PERF_EVENTS
->  	select HAVE_IOREMAP_PROT
->  	select HAVE_IRQ_TIME_ACCOUNTING
-> diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
-> index 76f32e424065e..12d77f373fea4 100644
-> --- a/arch/arm64/kernel/Makefile
-> +++ b/arch/arm64/kernel/Makefile
-> @@ -44,7 +44,6 @@ obj-$(CONFIG_KUSER_HELPERS)		+= kuser32.o
->  obj-$(CONFIG_FUNCTION_TRACER)		+= ftrace.o entry-ftrace.o
->  obj-$(CONFIG_MODULES)			+= module.o module-plts.o
->  obj-$(CONFIG_PERF_EVENTS)		+= perf_regs.o perf_callchain.o
-> -obj-$(CONFIG_HARDLOCKUP_DETECTOR_PERF)	+= watchdog_hld.o
->  obj-$(CONFIG_HAVE_HW_BREAKPOINT)	+= hw_breakpoint.o
->  obj-$(CONFIG_CPU_PM)			+= sleep.o suspend.o
->  obj-$(CONFIG_KGDB)			+= kgdb.o
-> diff --git a/arch/arm64/kernel/watchdog_hld.c b/arch/arm64/kernel/watchdog_hld.c
-> deleted file mode 100644
-> index 3093037dcb7be..0000000000000
-> --- a/arch/arm64/kernel/watchdog_hld.c
-> +++ /dev/null
-> @@ -1,94 +0,0 @@
-> -// SPDX-License-Identifier: GPL-2.0
-> -#include <linux/nmi.h>
-> -#include <linux/cpufreq.h>
-> -#include <linux/perf/arm_pmu.h>
-> -
-> -/*
-> - * Safe maximum CPU frequency in case a particular platform doesn't implement
-> - * cpufreq driver. Although, architecture doesn't put any restrictions on
-> - * maximum frequency but 5 GHz seems to be safe maximum given the available
-> - * Arm CPUs in the market which are clocked much less than 5 GHz. On the other
-> - * hand, we can't make it much higher as it would lead to a large hard-lockup
-> - * detection timeout on parts which are running slower (eg. 1GHz on
-> - * Developerbox) and doesn't possess a cpufreq driver.
-> - */
-> -#define SAFE_MAX_CPU_FREQ	5000000000UL // 5 GHz
-> -u64 hw_nmi_get_sample_period(int watchdog_thresh)
-> -{
-> -	unsigned int cpu = smp_processor_id();
-> -	unsigned long max_cpu_freq;
-> -
-> -	max_cpu_freq = cpufreq_get_hw_max_freq(cpu) * 1000UL;
-> -	if (!max_cpu_freq)
-> -		max_cpu_freq = SAFE_MAX_CPU_FREQ;
-> -
-> -	return (u64)max_cpu_freq * watchdog_thresh;
-> -}
-> -
-> -bool __init arch_perf_nmi_is_available(void)
-> -{
-> -	/*
-> -	 * hardlockup_detector_perf_init() will success even if Pseudo-NMI turns off,
-> -	 * however, the pmu interrupts will act like a normal interrupt instead of
-> -	 * NMI and the hardlockup detector would be broken.
-> -	 */
-> -	return arm_pmu_irq_is_nmi();
-> -}
-> -
-> -static int watchdog_perf_update_period(void *data)
-> -{
-> -	int cpu = smp_processor_id();
-> -	u64 max_cpu_freq, new_period;
-> -
-> -	max_cpu_freq = cpufreq_get_hw_max_freq(cpu) * 1000UL;
-> -	if (!max_cpu_freq)
-> -		return 0;
-> -
-> -	new_period = watchdog_thresh * max_cpu_freq;
-> -	hardlockup_detector_perf_adjust_period(new_period);
-> -
-> -	return 0;
-> -}
-> -
-> -static int watchdog_freq_notifier_callback(struct notifier_block *nb,
-> -					   unsigned long val, void *data)
-> -{
-> -	struct cpufreq_policy *policy = data;
-> -	int cpu;
-> -
-> -	if (val != CPUFREQ_CREATE_POLICY)
-> -		return NOTIFY_DONE;
-> -
-> -	/*
-> -	 * Let each online CPU related to the policy update the period by their
-> -	 * own. This will serialize with the framework on start/stop the lockup
-> -	 * detector (softlockup_{start,stop}_all) and avoid potential race
-> -	 * condition. Otherwise we may have below theoretical race condition:
-> -	 * (core 0/1 share the same policy)
-> -	 * [core 0]                      [core 1]
-> -	 *                               hardlockup_detector_event_create()
-> -	 *                                 hw_nmi_get_sample_period()
-> -	 * (cpufreq registered, notifier callback invoked)
-> -	 * watchdog_freq_notifier_callback()
-> -	 *   watchdog_perf_update_period()
-> -	 *   (since core 1's event's not yet created,
-> -	 *    the period is not set)
-> -	 *                                 perf_event_create_kernel_counter()
-> -	 *                                 (event's period is SAFE_MAX_CPU_FREQ)
-> -	 */
-> -	for_each_cpu(cpu, policy->cpus)
-> -		smp_call_on_cpu(cpu, watchdog_perf_update_period, NULL, false);
-> -
-> -	return NOTIFY_DONE;
-> -}
-> -
-> -static struct notifier_block watchdog_freq_notifier = {
-> -	.notifier_call = watchdog_freq_notifier_callback,
-> -};
-> -
-> -static int __init init_watchdog_freq_notifier(void)
-> -{
-> -	return cpufreq_register_notifier(&watchdog_freq_notifier,
-> -					 CPUFREQ_POLICY_NOTIFIER);
-> -}
-> -core_initcall(init_watchdog_freq_notifier);
-> diff --git a/drivers/perf/arm_pmu.c b/drivers/perf/arm_pmu.c
-> index 973a027d90639..294a5c3438ad1 100644
-> --- a/drivers/perf/arm_pmu.c
-> +++ b/drivers/perf/arm_pmu.c
-> @@ -17,6 +17,7 @@
->  #include <linux/cpu_pm.h>
->  #include <linux/export.h>
->  #include <linux/kernel.h>
-> +#include <linux/nmi.h>
->  #include <linux/perf/arm_pmu.h>
->  #include <linux/slab.h>
->  #include <linux/sched/clock.h>
-> @@ -703,10 +704,17 @@ static int armpmu_get_cpu_irq(struct arm_pmu *pmu, int cpu)
->  	return per_cpu(hw_events->irq, cpu);
->  }
->  
-> -bool arm_pmu_irq_is_nmi(void)
-> +#ifdef CONFIG_HARDLOCKUP_DETECTOR_PERF
-> +bool arch_perf_nmi_is_available(void)
->  {
-> +	/*
-> +	 * watchdog_hardlockup_probe() will success even if Pseudo-NMI turns off,
-> +	 * however, the pmu interrupts will act like a normal interrupt instead of
-> +	 * NMI and the hardlockup detector would be broken.
-> +	 */
+This series adds device tree support for the CMDQ-Virtualization (CMDQV)
+hardware on NVIDIA Tegra264 SoCs.
 
-the comment makes me a bit confused. we'll only declare the NMI support if we successfully
-registered the PMU interrupt as NMI interrupt. If pseudo-nmi is turned off, we'll
-failed to register the NMI interrupt since neither the gicv3 irqchip will declare NMI
-suppport [1] nor the irq_chip::irq_nmi_setup() will success [2], then the has_nmi will
-be false. In this case the hardlockup detector is not probed at all [3].
+CMDQV is a hardware block that works alongside the ARM SMMUv3 to assist in
+virtualizing the command queue. It was previously only supported through
+ACPI on Tegra241. This series extends the existing driver to support device
+tree based initialization, which is required for Tegra264 platforms.
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/irqchip/irq-gic-v3.c#n1956
-[2] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/irqchip/irq-gic-v3.c#n602
-[3] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/kernel/watchdog_perf.c#n268
+The series is structured as follows:
 
->  	return has_nmi;
->  }
-> +#endif
->  
->  /*
->   * PMU hardware loses all context when a CPU goes offline.
-> diff --git a/include/linux/perf/arm_pmu.h b/include/linux/perf/arm_pmu.h
-> index 52b37f7bdbf9e..8f06751f1e176 100644
-> --- a/include/linux/perf/arm_pmu.h
-> +++ b/include/linux/perf/arm_pmu.h
-> @@ -183,8 +183,6 @@ void kvm_host_pmu_init(struct arm_pmu *pmu);
->  #define kvm_host_pmu_init(x)	do { } while(0)
->  #endif
->  
-> -bool arm_pmu_irq_is_nmi(void);
-> -
->  /* Internal functions only for core arm_pmu code */
->  struct arm_pmu *armpmu_alloc(void);
->  void armpmu_free(struct arm_pmu *pmu);
-> diff --git a/kernel/watchdog_perf.c b/kernel/watchdog_perf.c
-> index d3ca70e3c256a..8aa5e9a0ba20a 100644
-> --- a/kernel/watchdog_perf.c
-> +++ b/kernel/watchdog_perf.c
-> @@ -15,6 +15,7 @@
->  #include <linux/panic.h>
->  #include <linux/nmi.h>
->  #include <linux/atomic.h>
-> +#include <linux/cpufreq.h>
->  #include <linux/module.h>
->  #include <linux/sched/debug.h>
->  
-> @@ -306,3 +307,85 @@ void __init hardlockup_config_perf_event(const char *str)
->  	wd_hw_attr.type = PERF_TYPE_RAW;
->  	wd_hw_attr.config = config;
->  }
-> +
-> +#ifdef CONFIG_WATCHDOG_PERF_ADJUST_PERIOD
-> +/*
-> + * Safe maximum CPU frequency in case a particular platform doesn't implement
-> + * cpufreq driver. Although, architecture doesn't put any restrictions on
-> + * maximum frequency but 5 GHz seems to be safe maximum given the available
-> + * CPUs in the market which are clocked much less than 5 GHz. On the other
-> + * hand, we can't make it much higher as it would lead to a large hard-lockup
-> + * detection timeout on parts which are running slower (eg. 1GHz on
-> + * Developerbox) and doesn't possess a cpufreq driver.
-> + */
-> +#define SAFE_MAX_CPU_FREQ	5000000000UL // 5 GHz
-> +u64 hw_nmi_get_sample_period(int watchdog_thresh)
-> +{
-> +	unsigned int cpu = smp_processor_id();
-> +	unsigned long max_cpu_freq;
-> +
-> +	max_cpu_freq = cpufreq_get_hw_max_freq(cpu) * 1000UL;
-> +	if (!max_cpu_freq)
-> +		max_cpu_freq = SAFE_MAX_CPU_FREQ;
-> +
-> +	return (u64)max_cpu_freq * watchdog_thresh;
-> +}
-> +
-> +static int watchdog_perf_update_period(void *data)
-> +{
-> +	int cpu = smp_processor_id();
-> +	u64 max_cpu_freq, new_period;
-> +
-> +	max_cpu_freq = cpufreq_get_hw_max_freq(cpu) * 1000UL;
-> +	if (!max_cpu_freq)
-> +		return 0;
-> +
-> +	new_period = watchdog_thresh * max_cpu_freq;
-> +	hardlockup_detector_perf_adjust_period(new_period);
-> +
-> +	return 0;
-> +}
-> +
-> +static int watchdog_freq_notifier_callback(struct notifier_block *nb,
-> +					   unsigned long val, void *data)
-> +{
-> +	struct cpufreq_policy *policy = data;
-> +	int cpu;
-> +
-> +	if (val != CPUFREQ_CREATE_POLICY)
-> +		return NOTIFY_DONE;
-> +
-> +	/*
-> +	 * Let each online CPU related to the policy update the period by their
-> +	 * own. This will serialize with the framework on start/stop the lockup
-> +	 * detector (softlockup_{start,stop}_all) and avoid potential race
-> +	 * condition. Otherwise we may have below theoretical race condition:
-> +	 * (core 0/1 share the same policy)
-> +	 * [core 0]                      [core 1]
-> +	 *                               hardlockup_detector_event_create()
-> +	 *                                 hw_nmi_get_sample_period()
-> +	 * (cpufreq registered, notifier callback invoked)
-> +	 * watchdog_freq_notifier_callback()
-> +	 *   watchdog_perf_update_period()
-> +	 *   (since core 1's event's not yet created,
-> +	 *    the period is not set)
-> +	 *                                 perf_event_create_kernel_counter()
-> +	 *                                 (event's period is SAFE_MAX_CPU_FREQ)
-> +	 */
-> +	for_each_cpu(cpu, policy->cpus)
-> +		smp_call_on_cpu(cpu, watchdog_perf_update_period, NULL, false);
-> +
-> +	return NOTIFY_DONE;
-> +}
-> +
-> +static struct notifier_block watchdog_freq_notifier = {
-> +	.notifier_call = watchdog_freq_notifier_callback,
-> +};
-> +
-> +static int __init init_watchdog_freq_notifier(void)
-> +{
-> +	return cpufreq_register_notifier(&watchdog_freq_notifier,
-> +					 CPUFREQ_POLICY_NOTIFIER);
-> +}
-> +core_initcall(init_watchdog_freq_notifier);
-> +#endif
-> diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
-> index 2cbfa3dead0be..85fdfa9b52346 100644
-> --- a/lib/Kconfig.debug
-> +++ b/lib/Kconfig.debug
-> @@ -1193,6 +1193,14 @@ config HARDLOCKUP_DETECTOR_PERF
->  	depends on !HAVE_HARDLOCKUP_DETECTOR_ARCH
->  	select HARDLOCKUP_DETECTOR_COUNTS_HRTIMER
->  
-> +config WATCHDOG_PERF_ADJUST_PERIOD
-> +	bool
+Patch 1: Extends the tegra241-cmdqv driver to support device tree probing
+         alongside the existing ACPI support. The SMMU driver now parses
+         the nvidia,cmdqv phandle to associate each SMMU with its
+         corresponding CMDQV instance.
 
-it's reasonable to make it depends on HARDLOCKUP_DETECTOR_PERF.
+Patch 2: Adds device tree binding documentation for nvidia,tegra264-cmdqv
+         and extends the arm,smmu-v3 binding with an optional nvidia,cmdqv
+         property.
 
-otherwise looks good to me :)
+Patch 3: Adds CMDQV device nodes to the Tegra264 device tree and enables
+         them on the tegra264-p3834 platform.
 
-Thanks.
+The implementation follows the existing ACPI probe path to minimize code
+divergence and maintain consistency with Tegra241 support.
 
-> +	help
-> +	  Adjust the watchdog hardlockup detector's period based on CPU max
-> +	  frequency. Uses cpufreq if available; falls back to a safe 5 GHz
-> +	  default otherwise. Registers a cpufreq notifier to update the period
-> +	  automatically.
-> +
->  config HARDLOCKUP_DETECTOR_BUDDY
->  	bool
->  	depends on HARDLOCKUP_DETECTOR
+Changes in V4:
+- Removed platform driver registration from tegra241-cmdqv.c to avoid
+  duplicate module init/cleanup symbols
+- Fixed the ordering of properties in CMDQV device tree nodes
+- Added "Reviewed-by: Rob Herring" for binding documentation patch(2/3)
+  carry-forwarding from V3.
+
+Changes in V3:
+- Remove the Kconfig dependency for CONFIG_TEGRA241_CMDQV
+- Drop the reference on the platform device after getting it from
+  of_find_device_by_node()
+- Remove the unnecessary "nvidia,tegra264-smmu" compatible string from
+  arm-smmu-v3 match table
+- Order CMDQV nodes in device tree files according to its address
+
+Changes in V2:
+- Updated dependency for CONFIG_TEGRA241_CMDQV on OF || ACPI
+- Changed maintainer to Nicolin Chen
+- Removed interrupt-names property
+- Added nvidia,tegra264-smmu to compatible enum for arm-smmu-v3
+- Added allOf constraint to restrict nvidia,cmdqv property to
+  nvidia,tegra264-smmu only
+- Updated SMMU nodes in device tree to use nvidia,tegra264-smmu compatible
+  string
+
+Ashish Mhetre (3):
+  iommu/arm-smmu-v3: Add device-tree support for CMDQV driver
+  dt-bindings: iommu: Add NVIDIA Tegra CMDQV support
+  arm64: dts: nvidia: Add nodes for CMDQV
+
+ .../bindings/iommu/arm,smmu-v3.yaml           | 30 ++++++++++-
+ .../bindings/iommu/nvidia,tegra264-cmdqv.yaml | 42 ++++++++++++++++
+ .../arm64/boot/dts/nvidia/tegra264-p3834.dtsi |  8 +++
+ arch/arm64/boot/dts/nvidia/tegra264.dtsi      | 50 +++++++++++++++++--
+ drivers/iommu/arm/Kconfig                     |  1 -
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 32 ++++++++++++
+ .../iommu/arm/arm-smmu-v3/tegra241-cmdqv.c    | 27 +++++++++-
+ 7 files changed, 181 insertions(+), 9 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/iommu/nvidia,tegra264-cmdqv.yaml
+
+-- 
+2.25.1
+
 
