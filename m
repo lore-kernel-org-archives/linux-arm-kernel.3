@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 051CBD3ABC7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 00:17:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10F31D3ABC2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 00:18:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wmQUDTBRI6uAYPiZERIyuwnHpmVucKzvhAShzUV1wg8=; b=hyvr/M/2HWalPIacCMVVDCHkMU
-	H34B4Z6q2982/ZXvKxuvhoxLS6JZl4peB0/ytlMX0oesX5SIUtidDUZkHlR9oGnpoQH2ymPnNkQbY
-	08GyY/NOUFcD8sX20IhIXfZ0U278if7R/xbuQ1z01xEfmtpaMGxqNwmZIHy19Hi6YX/LKRvyuhL2N
-	eN1uae1Or0qT9g9ZvucQml+1JXgRrAMbFP5kHUCb+xp2QTPDqoVl03wLVitwcpAKnLBMhDBWmz+Pm
-	aMeiy38Rq1V1L2kOR5RtOhB4g0tGZ1nny36vilRkSigE64g8lw3avRiSktsuazmefKj6Z8mhNjx/W
-	T3v1CoEg==;
+	bh=r6rVFSEwb9C3fWGiMX1SBAT8nySg6vSlU7f2Mtt+blE=; b=Z0CQi3O4msDY83yRcaU9dXH/mJ
+	mf92Np+1E84xx+pMIL5jDsMaZZQAQJj7UjHLucKyFKtMZ61aeSq1RypvsOAiKqphIafT/8MQh58gn
+	6tYwxTnZ0i6vjWEXhd+Ade/3IdudUl5sXvjD59zd+uPqQ2lNICtk/10l9gpveaxxLfPqyCvhdK3NF
+	R156H8AKOq4mgk9sZs9dXfWB61FF6PgCGP3JGoBbIburYmSvkf1l16AJrr3s/uGmGfOhOhkOdvWfn
+	8uwUFwY49HFvObkledU8zTt5L28yxKUP9AEr8Bmj4DddGkISMHJYEmdarhZ13mp7M59M9GH/JsDBD
+	n9ZD/8ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRfzZ-0000000AELi-0e9D;
-	Sat, 06 Dec 2025 00:17:41 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1vRfze-0000000AEUl-0uGR;
+	Sat, 06 Dec 2025 00:17:46 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRfzU-0000000AECj-1cyP
+	id 1vRfzX-0000000AEIM-3Gj0
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Dec 2025 00:17:37 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-342701608e2so2933588a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 16:17:35 -0800 (PST)
+	Sat, 06 Dec 2025 00:17:41 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-7b9208e1976so4917801b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 16:17:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764980255; x=1765585055; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1764980259; x=1765585059; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=wmQUDTBRI6uAYPiZERIyuwnHpmVucKzvhAShzUV1wg8=;
-        b=kwdK3JYqHZpTuziYJaiZ0l6fBCRprMwNwggzZe5JegnOyRFdns0STdF5/ZW4b2GY4I
-         WYwd+hptsV3v4KpLNXJf3ui5gBRHDHH2R0hVPAUxBPJ7yNcHJt30EjllIi5s/7B0CoW8
-         0P7rsb16FOjg9Ko4N0JuY46kQWO8cQtbJULkgDTKBZ/w1u1o+M0i+O7eT0J55zwg6Sc6
-         Eb/1LCLaeBt2WdVQoaZYsv23UGDVp5GPlL8whx+Hwn33kQinHRG038UW1iiIGwu3SSoO
-         rGqoCmYlcgA2H1masiWHCoxgicilVtBrczNcVXxXygRQqVOzzJdFTKAF2ffFedHCt/YE
-         u3+g==
+        bh=r6rVFSEwb9C3fWGiMX1SBAT8nySg6vSlU7f2Mtt+blE=;
+        b=QRJTCYa2mP4NYnISTxSDkkN3eRDjkCr9ED1Sbuvp3RuNzNwnHmomeBkN4asyijVqo0
+         zc9Uq7HKxXR0L0kAbsAfuYWCRZLUz0Ov3VElkaFAoUaGLl/4V53Pkz14t9Dnro0TUZQX
+         3cluR3cXNCHxQgaZlMnupK4pyW0X6EuNHrla1QtMHHB8A4uWyd5waFAFQT8Axsfmd1E0
+         6JeuA7jGDCSY4ji4OW9S94KFlVy+nZfxhNQP8sFb2EH6Xda0Ft4hfrQ3FiNBoXCLBVCx
+         LRChnJ6ZSUsE66RBzn0wOhrrY4W946/8CWeIRai8wv1tI2wjMbZPSE3WovwNsQBbSbPr
+         Umow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764980255; x=1765585055;
+        d=1e100.net; s=20230601; t=1764980259; x=1765585059;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=wmQUDTBRI6uAYPiZERIyuwnHpmVucKzvhAShzUV1wg8=;
-        b=X04aAYtPV/2fVLxzzTkvM5IfuGQ0XsJ+6AYd/mZHYwgtPJWOdcByDK6uINfV/N5IY6
-         HTyPfSZsVClTSuiV2TcmGxukhX1zV2IxXIcodWqqsaTCS+6jMhlBfsMV0RDFRp1tmMbO
-         6Vnxu3mQffIUFU2Qci0VE/nKzjW0KJFC1bD3EDfhHatQamR1BvzVrqrWBSlAJUi4PbVt
-         7cGWh723YF4otgtNcsom46WHjK+Mn1IWNZi1y7/8/kVrVpZh3zlUc/1GyMN4uhzmXLPv
-         CbdJGrExPtjCkR5gG7oLPetfk8oCTN6J4XTfoDl4xo8BgzRNfkWXJMiix6qonXVDwP85
-         DfWQ==
-X-Gm-Message-State: AOJu0YygLeKWt8+cufceJPOm1Xj05BaECVxSi+W68Nf1NwZQWuHK+K+a
-	0pjxZMiHPeIOlYE6oI9ZRUIPEie+KXo2DaQzlRW/OQAoscT3n4hR9+j5wodnyY0M91o8lZtk5DM
-	ReUT1+w==
-X-Google-Smtp-Source: AGHT+IEZRxY3LZNDar88VXHAyUm8Uc785TqYbcnbZTCQlLOLUTZJss/bvouzXSbB0o11yHRRJXuvDvjgcck=
-X-Received: from pjbhl15.prod.google.com ([2002:a17:90b:134f:b0:340:9a37:91a4])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:520f:b0:340:2a18:1536
- with SMTP id 98e67ed59e1d1-349a25e044emr617645a91.25.1764980254710; Fri, 05
- Dec 2025 16:17:34 -0800 (PST)
-Date: Fri,  5 Dec 2025 16:16:40 -0800
+        bh=r6rVFSEwb9C3fWGiMX1SBAT8nySg6vSlU7f2Mtt+blE=;
+        b=HJZR9P66L28cyr13sgAD3PA8/L9EkGlirsuqtM7ET2z7qADhGQF7fgGmAXMv7K9TfS
+         2kZZu9WeawwNGXvZ2MnpLhuANFbSCypZpi3tVlHQzArhOMqPyrnSmVhNHbkRvxyVnmmJ
+         lFf9m2meaCodUUzpGKUHUm0qAa+TJl2s4aNDlv8yVc+NR7tAzJKJkswh8Rps+/UCPO5L
+         z7FlVJC7NzYPfGbNzEU7idseKl44L4ryyBHYbJuJ3SL7WdjxIOZynH5bXnDuh5luRG9o
+         jTNWDwQ7yovRHv51GKifP9SFdd+d5Ia57HILUbYweULdCl/3bFSAwuE8USKTYVqjQUCn
+         rOaw==
+X-Gm-Message-State: AOJu0Yzm3BOR7r2fNsVgMQ4tqzXlaULG3d12I/Y+UPwudQjaTc2wUaR6
+	kNxSP+ozhwV9sT7DBEDjIuIjeU3vRZHMURa6omYXiLcidK+NfjzxpDKpNiE6WHLgT3CWx09K8Zt
+	RUq5iqA==
+X-Google-Smtp-Source: AGHT+IEPWY/PdairYW2WlOr0N+pVBVhqM0jggAM9xJALp3PL8+l3HzkQusARbXJ/7OYDI9LgIR3DcdcTBvg=
+X-Received: from pfmu8.prod.google.com ([2002:aa7:8388:0:b0:7b0:bc2e:959b])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:b93:b0:781:17fb:d3ca
+ with SMTP id d2e1a72fcca58-7e8c1661681mr779292b3a.15.1764980258501; Fri, 05
+ Dec 2025 16:17:38 -0800 (PST)
+Date: Fri,  5 Dec 2025 16:16:42 -0800
 In-Reply-To: <20251206001720.468579-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251206001720.468579-1-seanjc@google.com>
 X-Mailer: git-send-email 2.52.0.223.gf5cc29aaa4-goog
-Message-ID: <20251206001720.468579-5-seanjc@google.com>
-Subject: [PATCH v6 04/44] perf: Add APIs to create/release mediated guest vPMUs
+Message-ID: <20251206001720.468579-7-seanjc@google.com>
+Subject: [PATCH v6 06/44] perf: Add a EVENT_GUEST flag
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -85,8 +85,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_161736_426798_8F58F866 
-X-CRM114-Status: GOOD (  22.19  )
+X-CRM114-CacheID: sfid-20251205_161739_877093_5C956FE1 
+X-CRM114-Status: GOOD (  30.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,225 +104,532 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Kan Liang <kan.liang@linux.intel.com>
 
-Currently, exposing PMU capabilities to a KVM guest is done by emulating
-guest PMCs via host perf events, i.e. by having KVM be "just" another user
-of perf.  As a result, the guest and host are effectively competing for
-resources, and emulating guest accesses to vPMU resources requires
-expensive actions (expensive relative to the native instruction).  The
-overhead and resource competition results in degraded guest performance
-and ultimately very poor vPMU accuracy.
+Current perf doesn't explicitly schedule out all exclude_guest events
+while the guest is running. There is no problem with the current
+emulated vPMU. Because perf owns all the PMU counters. It can mask the
+counter which is assigned to an exclude_guest event when a guest is
+running (Intel way), or set the corresponding HOSTONLY bit in evsentsel
+(AMD way). The counter doesn't count when a guest is running.
 
-To address the issues with the perf-emulated vPMU, introduce a "mediated
-vPMU", where the data plane (PMCs and enable/disable knobs) is exposed
-directly to the guest, but the control plane (event selectors and access
-to fixed counters) is managed by KVM (via MSR interceptions).  To allow
-host perf usage of the PMU to (partially) co-exist with KVM/guest usage
-of the PMU, KVM and perf will coordinate to a world switch between host
-perf context and guest vPMU context near VM-Enter/VM-Exit.
+However, either way doesn't work with the introduced mediated vPMU.
+A guest owns all the PMU counters when it's running. The host should not
+mask any counters. The counter may be used by the guest. The evsentsel
+may be overwritten.
 
-Add two exported APIs, perf_{create,release}_mediated_pmu(), to allow KVM
-to create and release a mediated PMU instance (per VM).  Because host perf
-context will be deactivated while the guest is running, mediated PMU usage
-will be mutually exclusive with perf analysis of the guest, i.e. perf
-events that do NOT exclude the guest will not behave as expected.
+Perf should explicitly schedule out all exclude_guest events to release
+the PMU resources when entering a guest, and resume the counting when
+exiting the guest.
 
-To avoid silent failure of !exclude_guest perf events, disallow creating a
-mediated PMU if there are active !exclude_guest events, and on the perf
-side, disallowing creating new !exclude_guest perf events while there is
-at least one active mediated PMU.
+It's possible that an exclude_guest event is created when a guest is
+running. The new event should not be scheduled in as well.
 
-Exempt PMU resources that do not support mediated PMU usage, i.e. that are
-outside the scope/view of KVM's vPMU and will not be swapped out while the
-guest is running.
+The ctx time is shared among different PMUs. The time cannot be stopped
+when a guest is running. It is required to calculate the time for events
+from other PMUs, e.g., uncore events. Add timeguest to track the guest
+run time. For an exclude_guest event, the elapsed time equals
+the ctx time - guest time.
+Cgroup has dedicated times. Use the same method to deduct the guest time
+from the cgroup time as well.
 
-Guard mediated PMU with a new kconfig to help readers identify code paths
-that are unique to mediated PMU support, and to allow for adding arch-
-specific hooks without stubs.  KVM x86 is expected to be the only KVM
-architecture to support a mediated PMU in the near future (e.g. arm64 is
-trending toward a partitioned PMU implementation), and KVM x86 will select
-PERF_GUEST_MEDIATED_PMU unconditionally, i.e. won't need stubs.
-
-Immediately select PERF_GUEST_MEDIATED_PMU when KVM x86 is enabled so that
-all paths are compile tested.  Full KVM support is on its way...
-
-Suggested-by: Sean Christopherson <seanjc@google.com>
+Co-developed-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 Signed-off-by: Kan Liang <kan.liang@linux.intel.com>
 Signed-off-by: Mingwei Zhang <mizhang@google.com>
-[sean: add kconfig and WARNing, rewrite changelog, swizzle patch ordering]
+[sean: massage comments]
 Tested-by: Xudong Hao <xudong.hao@intel.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/Kconfig       |  1 +
- include/linux/perf_event.h |  6 +++
- init/Kconfig               |  4 ++
- kernel/events/core.c       | 82 ++++++++++++++++++++++++++++++++++++++
- 4 files changed, 93 insertions(+)
+ include/linux/perf_event.h |   6 +
+ kernel/events/core.c       | 232 ++++++++++++++++++++++++++++---------
+ 2 files changed, 186 insertions(+), 52 deletions(-)
 
-diff --git a/arch/x86/kvm/Kconfig b/arch/x86/kvm/Kconfig
-index 278f08194ec8..d916bd766c94 100644
---- a/arch/x86/kvm/Kconfig
-+++ b/arch/x86/kvm/Kconfig
-@@ -37,6 +37,7 @@ config KVM_X86
- 	select SCHED_INFO
- 	select PERF_EVENTS
- 	select GUEST_PERF_EVENTS
-+	select PERF_GUEST_MEDIATED_PMU
- 	select HAVE_KVM_MSI
- 	select HAVE_KVM_CPU_RELAX_INTERCEPT
- 	select HAVE_KVM_NO_POLL
 diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
-index fd1d91017b99..94f679634ef6 100644
+index 42d1debc519f..eaab830c9bf5 100644
 --- a/include/linux/perf_event.h
 +++ b/include/linux/perf_event.h
-@@ -305,6 +305,7 @@ struct perf_event_pmu_context;
- #define PERF_PMU_CAP_EXTENDED_HW_TYPE	0x0100
- #define PERF_PMU_CAP_AUX_PAUSE		0x0200
- #define PERF_PMU_CAP_AUX_PREFER_LARGE	0x0400
-+#define PERF_PMU_CAP_MEDIATED_VPMU	0x0800
+@@ -1044,6 +1044,11 @@ struct perf_event_context {
+ 	 */
+ 	struct perf_time_ctx		time;
  
- /**
-  * pmu::scope
-@@ -1914,6 +1915,11 @@ extern int perf_event_account_interrupt(struct perf_event *event);
- extern int perf_event_period(struct perf_event *event, u64 value);
- extern u64 perf_event_pause(struct perf_event *event, bool reset);
- 
-+#ifdef CONFIG_PERF_GUEST_MEDIATED_PMU
-+int perf_create_mediated_pmu(void);
-+void perf_release_mediated_pmu(void);
-+#endif
++	/*
++	 * Context clock, runs when in the guest mode.
++	 */
++	struct perf_time_ctx		timeguest;
 +
- #else /* !CONFIG_PERF_EVENTS: */
+ 	/*
+ 	 * These fields let us detect when two contexts have both
+ 	 * been cloned (inherited) from a common ancestor.
+@@ -1176,6 +1181,7 @@ struct bpf_perf_event_data_kern {
+  */
+ struct perf_cgroup_info {
+ 	struct perf_time_ctx		time;
++	struct perf_time_ctx		timeguest;
+ 	int				active;
+ };
  
- static inline void *
-diff --git a/init/Kconfig b/init/Kconfig
-index cab3ad28ca49..45b9ac626829 100644
---- a/init/Kconfig
-+++ b/init/Kconfig
-@@ -2010,6 +2010,10 @@ config GUEST_PERF_EVENTS
- 	bool
- 	depends on HAVE_PERF_EVENTS
- 
-+config PERF_GUEST_MEDIATED_PMU
-+	bool
-+	depends on GUEST_PERF_EVENTS
-+
- config PERF_USE_VMALLOC
- 	bool
- 	help
 diff --git a/kernel/events/core.c b/kernel/events/core.c
-index e34112df8b31..cfeea7d330f9 100644
+index 5db8f4c60b9e..f72d4844b05e 100644
 --- a/kernel/events/core.c
 +++ b/kernel/events/core.c
-@@ -5657,6 +5657,8 @@ static void __free_event(struct perf_event *event)
- 	call_rcu(&event->rcu_head, free_event_rcu);
- }
- 
-+static void mediated_pmu_unaccount_event(struct perf_event *event);
+@@ -164,7 +164,19 @@ enum event_type_t {
+ 	/* see ctx_resched() for details */
+ 	EVENT_CPU	= 0x10,
+ 	EVENT_CGROUP	= 0x20,
+-	EVENT_FLAGS	= EVENT_CGROUP,
 +
- DEFINE_FREE(__free_event, struct perf_event *, if (_T) __free_event(_T))
++	/*
++	 * EVENT_GUEST is set when scheduling in/out events between the host
++	 * and a guest with a mediated vPMU.  Among other things, EVENT_GUEST
++	 * is used:
++	 *
++	 * - In for_each_epc() to skip PMUs that don't support events in a
++	 *   MEDIATED_VPMU guest, i.e. don't need to be context switched.
++	 * - To indicate the start/end point of the events in a guest.  Guest
++	 *   running time is deducted for host-only (exclude_guest) events.
++	 */
++	EVENT_GUEST	= 0x40,
++	EVENT_FLAGS	= EVENT_CGROUP | EVENT_GUEST,
+ 	/* compound helpers */
+ 	EVENT_ALL         = EVENT_FLEXIBLE | EVENT_PINNED,
+ 	EVENT_TIME_FROZEN = EVENT_TIME | EVENT_FROZEN,
+@@ -457,6 +469,11 @@ static cpumask_var_t perf_online_pkg_mask;
+ static cpumask_var_t perf_online_sys_mask;
+ static struct kmem_cache *perf_event_cache;
  
- /* vs perf_event_alloc() success */
-@@ -5666,6 +5668,7 @@ static void _free_event(struct perf_event *event)
- 	irq_work_sync(&event->pending_disable_irq);
- 
- 	unaccount_event(event);
-+	mediated_pmu_unaccount_event(event);
- 
- 	if (event->rb) {
- 		/*
-@@ -6188,6 +6191,81 @@ u64 perf_event_pause(struct perf_event *event, bool reset)
- }
- EXPORT_SYMBOL_GPL(perf_event_pause);
- 
-+#ifdef CONFIG_PERF_GUEST_MEDIATED_PMU
-+static atomic_t nr_include_guest_events __read_mostly;
-+
-+static atomic_t nr_mediated_pmu_vms __read_mostly;
-+static DEFINE_MUTEX(perf_mediated_pmu_mutex);
-+
-+/* !exclude_guest event of PMU with PERF_PMU_CAP_MEDIATED_VPMU */
-+static inline bool is_include_guest_event(struct perf_event *event)
++static __always_inline bool is_guest_mediated_pmu_loaded(void)
 +{
-+	if ((event->pmu->capabilities & PERF_PMU_CAP_MEDIATED_VPMU) &&
-+	    !event->attr.exclude_guest)
-+		return true;
-+
 +	return false;
 +}
 +
-+static int mediated_pmu_account_event(struct perf_event *event)
-+{
-+	if (!is_include_guest_event(event))
-+		return 0;
-+
-+	guard(mutex)(&perf_mediated_pmu_mutex);
-+
-+	if (atomic_read(&nr_mediated_pmu_vms))
-+		return -EOPNOTSUPP;
-+
-+	atomic_inc(&nr_include_guest_events);
-+	return 0;
-+}
-+
-+static void mediated_pmu_unaccount_event(struct perf_event *event)
-+{
-+	if (!is_include_guest_event(event))
-+		return;
-+
-+	atomic_dec(&nr_include_guest_events);
-+}
-+
-+/*
-+ * Currently invoked at VM creation to
-+ * - Check whether there are existing !exclude_guest events of PMU with
-+ *   PERF_PMU_CAP_MEDIATED_VPMU
-+ * - Set nr_mediated_pmu_vms to prevent !exclude_guest event creation on
-+ *   PMUs with PERF_PMU_CAP_MEDIATED_VPMU
-+ *
-+ * No impact for the PMU without PERF_PMU_CAP_MEDIATED_VPMU. The perf
-+ * still owns all the PMU resources.
-+ */
-+int perf_create_mediated_pmu(void)
-+{
-+	guard(mutex)(&perf_mediated_pmu_mutex);
-+	if (atomic_inc_not_zero(&nr_mediated_pmu_vms))
-+		return 0;
-+
-+	if (atomic_read(&nr_include_guest_events))
-+		return -EBUSY;
-+
-+	atomic_inc(&nr_mediated_pmu_vms);
-+	return 0;
-+}
-+EXPORT_SYMBOL_GPL(perf_create_mediated_pmu);
-+
-+void perf_release_mediated_pmu(void)
-+{
-+	if (WARN_ON_ONCE(!atomic_read(&nr_mediated_pmu_vms)))
-+		return;
-+
-+	atomic_dec(&nr_mediated_pmu_vms);
-+}
-+EXPORT_SYMBOL_GPL(perf_release_mediated_pmu);
-+#else
-+static int mediated_pmu_account_event(struct perf_event *event) { return 0; }
-+static void mediated_pmu_unaccount_event(struct perf_event *event) {}
-+#endif
-+
  /*
-  * Holding the top-level event's child_mutex means that any
-  * descendant process that has inherited this event will block
-@@ -13078,6 +13156,10 @@ perf_event_alloc(struct perf_event_attr *attr, int cpu,
- 	if (err)
- 		return ERR_PTR(err);
+  * perf event paranoia level:
+  *  -1 - not paranoid at all
+@@ -783,6 +800,9 @@ static bool perf_skip_pmu_ctx(struct perf_event_pmu_context *pmu_ctx,
+ {
+ 	if ((event_type & EVENT_CGROUP) && !pmu_ctx->nr_cgroups)
+ 		return true;
++	if ((event_type & EVENT_GUEST) &&
++	    !(pmu_ctx->pmu->capabilities & PERF_PMU_CAP_MEDIATED_VPMU))
++		return true;
+ 	return false;
+ }
  
-+	err = mediated_pmu_account_event(event);
-+	if (err)
-+		return ERR_PTR(err);
+@@ -833,6 +853,39 @@ static inline void update_perf_time_ctx(struct perf_time_ctx *time, u64 now, boo
+ 	WRITE_ONCE(time->offset, time->time - time->stamp);
+ }
+ 
++static_assert(offsetof(struct perf_event_context, timeguest) -
++	      offsetof(struct perf_event_context, time) ==
++	      sizeof(struct perf_time_ctx));
 +
- 	/* symmetric to unaccount_event() in _free_event() */
- 	account_event(event);
++#define T_TOTAL		0
++#define T_GUEST		1
++
++static inline u64 __perf_event_time_ctx(struct perf_event *event,
++					struct perf_time_ctx *times)
++{
++	u64 time = times[T_TOTAL].time;
++
++	if (event->attr.exclude_guest)
++		time -= times[T_GUEST].time;
++
++	return time;
++}
++
++static inline u64 __perf_event_time_ctx_now(struct perf_event *event,
++					    struct perf_time_ctx *times,
++					    u64 now)
++{
++	if (is_guest_mediated_pmu_loaded() && event->attr.exclude_guest) {
++		/*
++		 * (now + times[total].offset) - (now + times[guest].offset) :=
++		 * times[total].offset - times[guest].offset
++		 */
++		return READ_ONCE(times[T_TOTAL].offset) - READ_ONCE(times[T_GUEST].offset);
++	}
++
++	return now + READ_ONCE(times[T_TOTAL].offset);
++}
++
+ #ifdef CONFIG_CGROUP_PERF
  
+ static inline bool
+@@ -869,12 +922,16 @@ static inline int is_cgroup_event(struct perf_event *event)
+ 	return event->cgrp != NULL;
+ }
+ 
++static_assert(offsetof(struct perf_cgroup_info, timeguest) -
++	      offsetof(struct perf_cgroup_info, time) ==
++	      sizeof(struct perf_time_ctx));
++
+ static inline u64 perf_cgroup_event_time(struct perf_event *event)
+ {
+ 	struct perf_cgroup_info *t;
+ 
+ 	t = per_cpu_ptr(event->cgrp->info, event->cpu);
+-	return t->time.time;
++	return __perf_event_time_ctx(event, &t->time);
+ }
+ 
+ static inline u64 perf_cgroup_event_time_now(struct perf_event *event, u64 now)
+@@ -883,9 +940,21 @@ static inline u64 perf_cgroup_event_time_now(struct perf_event *event, u64 now)
+ 
+ 	t = per_cpu_ptr(event->cgrp->info, event->cpu);
+ 	if (!__load_acquire(&t->active))
+-		return t->time.time;
+-	now += READ_ONCE(t->time.offset);
+-	return now;
++		return __perf_event_time_ctx(event, &t->time);
++
++	return __perf_event_time_ctx_now(event, &t->time, now);
++}
++
++static inline void __update_cgrp_guest_time(struct perf_cgroup_info *info, u64 now, bool adv)
++{
++	update_perf_time_ctx(&info->timeguest, now, adv);
++}
++
++static inline void update_cgrp_time(struct perf_cgroup_info *info, u64 now)
++{
++	update_perf_time_ctx(&info->time, now, true);
++	if (is_guest_mediated_pmu_loaded())
++		__update_cgrp_guest_time(info, now, true);
+ }
+ 
+ static inline void update_cgrp_time_from_cpuctx(struct perf_cpu_context *cpuctx, bool final)
+@@ -901,7 +970,7 @@ static inline void update_cgrp_time_from_cpuctx(struct perf_cpu_context *cpuctx,
+ 			cgrp = container_of(css, struct perf_cgroup, css);
+ 			info = this_cpu_ptr(cgrp->info);
+ 
+-			update_perf_time_ctx(&info->time, now, true);
++			update_cgrp_time(info, now);
+ 			if (final)
+ 				__store_release(&info->active, 0);
+ 		}
+@@ -924,11 +993,11 @@ static inline void update_cgrp_time_from_event(struct perf_event *event)
+ 	 * Do not update time when cgroup is not active
+ 	 */
+ 	if (info->active)
+-		update_perf_time_ctx(&info->time, perf_clock(), true);
++		update_cgrp_time(info, perf_clock());
+ }
+ 
+ static inline void
+-perf_cgroup_set_timestamp(struct perf_cpu_context *cpuctx)
++perf_cgroup_set_timestamp(struct perf_cpu_context *cpuctx, bool guest)
+ {
+ 	struct perf_event_context *ctx = &cpuctx->ctx;
+ 	struct perf_cgroup *cgrp = cpuctx->cgrp;
+@@ -948,8 +1017,12 @@ perf_cgroup_set_timestamp(struct perf_cpu_context *cpuctx)
+ 	for (css = &cgrp->css; css; css = css->parent) {
+ 		cgrp = container_of(css, struct perf_cgroup, css);
+ 		info = this_cpu_ptr(cgrp->info);
+-		update_perf_time_ctx(&info->time, ctx->time.stamp, false);
+-		__store_release(&info->active, 1);
++		if (guest) {
++			__update_cgrp_guest_time(info, ctx->time.stamp, false);
++		} else {
++			update_perf_time_ctx(&info->time, ctx->time.stamp, false);
++			__store_release(&info->active, 1);
++		}
+ 	}
+ }
+ 
+@@ -1153,7 +1226,7 @@ static inline int perf_cgroup_connect(pid_t pid, struct perf_event *event,
+ }
+ 
+ static inline void
+-perf_cgroup_set_timestamp(struct perf_cpu_context *cpuctx)
++perf_cgroup_set_timestamp(struct perf_cpu_context *cpuctx, bool guest)
+ {
+ }
+ 
+@@ -1565,16 +1638,24 @@ static void perf_unpin_context(struct perf_event_context *ctx)
+  */
+ static void __update_context_time(struct perf_event_context *ctx, bool adv)
+ {
+-	u64 now = perf_clock();
++	lockdep_assert_held(&ctx->lock);
++
++	update_perf_time_ctx(&ctx->time, perf_clock(), adv);
++}
+ 
++static void __update_context_guest_time(struct perf_event_context *ctx, bool adv)
++{
+ 	lockdep_assert_held(&ctx->lock);
+ 
+-	update_perf_time_ctx(&ctx->time, now, adv);
++	/* must be called after __update_context_time(); */
++	update_perf_time_ctx(&ctx->timeguest, ctx->time.stamp, adv);
+ }
+ 
+ static void update_context_time(struct perf_event_context *ctx)
+ {
+ 	__update_context_time(ctx, true);
++	if (is_guest_mediated_pmu_loaded())
++		__update_context_guest_time(ctx, true);
+ }
+ 
+ static u64 perf_event_time(struct perf_event *event)
+@@ -1587,7 +1668,7 @@ static u64 perf_event_time(struct perf_event *event)
+ 	if (is_cgroup_event(event))
+ 		return perf_cgroup_event_time(event);
+ 
+-	return ctx->time.time;
++	return __perf_event_time_ctx(event, &ctx->time);
+ }
+ 
+ static u64 perf_event_time_now(struct perf_event *event, u64 now)
+@@ -1601,10 +1682,9 @@ static u64 perf_event_time_now(struct perf_event *event, u64 now)
+ 		return perf_cgroup_event_time_now(event, now);
+ 
+ 	if (!(__load_acquire(&ctx->is_active) & EVENT_TIME))
+-		return ctx->time.time;
++		return __perf_event_time_ctx(event, &ctx->time);
+ 
+-	now += READ_ONCE(ctx->time.offset);
+-	return now;
++	return __perf_event_time_ctx_now(event, &ctx->time, now);
+ }
+ 
+ static enum event_type_t get_event_type(struct perf_event *event)
+@@ -2427,20 +2507,23 @@ group_sched_out(struct perf_event *group_event, struct perf_event_context *ctx)
+ }
+ 
+ static inline void
+-__ctx_time_update(struct perf_cpu_context *cpuctx, struct perf_event_context *ctx, bool final)
++__ctx_time_update(struct perf_cpu_context *cpuctx, struct perf_event_context *ctx,
++		  bool final, enum event_type_t event_type)
+ {
+ 	if (ctx->is_active & EVENT_TIME) {
+ 		if (ctx->is_active & EVENT_FROZEN)
+ 			return;
++
+ 		update_context_time(ctx);
+-		update_cgrp_time_from_cpuctx(cpuctx, final);
++		/* vPMU should not stop time */
++		update_cgrp_time_from_cpuctx(cpuctx, !(event_type & EVENT_GUEST) && final);
+ 	}
+ }
+ 
+ static inline void
+ ctx_time_update(struct perf_cpu_context *cpuctx, struct perf_event_context *ctx)
+ {
+-	__ctx_time_update(cpuctx, ctx, false);
++	__ctx_time_update(cpuctx, ctx, false, 0);
+ }
+ 
+ /*
+@@ -3512,7 +3595,7 @@ ctx_sched_out(struct perf_event_context *ctx, struct pmu *pmu, enum event_type_t
+ 	 *
+ 	 * would only update time for the pinned events.
+ 	 */
+-	__ctx_time_update(cpuctx, ctx, ctx == &cpuctx->ctx);
++	__ctx_time_update(cpuctx, ctx, ctx == &cpuctx->ctx, event_type);
+ 
+ 	/*
+ 	 * CPU-release for the below ->is_active store,
+@@ -3538,7 +3621,18 @@ ctx_sched_out(struct perf_event_context *ctx, struct pmu *pmu, enum event_type_t
+ 			cpuctx->task_ctx = NULL;
+ 	}
+ 
+-	is_active ^= ctx->is_active; /* changed bits */
++	if (event_type & EVENT_GUEST) {
++		/*
++		 * Schedule out all exclude_guest events of PMU
++		 * with PERF_PMU_CAP_MEDIATED_VPMU.
++		 */
++		is_active = EVENT_ALL;
++		__update_context_guest_time(ctx, false);
++		perf_cgroup_set_timestamp(cpuctx, true);
++		barrier();
++	} else {
++		is_active ^= ctx->is_active; /* changed bits */
++	}
+ 
+ 	for_each_epc(pmu_ctx, ctx, pmu, event_type)
+ 		__pmu_ctx_sched_out(pmu_ctx, is_active);
+@@ -3997,10 +4091,15 @@ static inline void group_update_userpage(struct perf_event *group_event)
+ 		event_update_userpage(event);
+ }
+ 
++struct merge_sched_data {
++	int can_add_hw;
++	enum event_type_t event_type;
++};
++
+ static int merge_sched_in(struct perf_event *event, void *data)
+ {
+ 	struct perf_event_context *ctx = event->ctx;
+-	int *can_add_hw = data;
++	struct merge_sched_data *msd = data;
+ 
+ 	if (event->state <= PERF_EVENT_STATE_OFF)
+ 		return 0;
+@@ -4008,13 +4107,22 @@ static int merge_sched_in(struct perf_event *event, void *data)
+ 	if (!event_filter_match(event))
+ 		return 0;
+ 
+-	if (group_can_go_on(event, *can_add_hw)) {
++	/*
++	 * Don't schedule in any host events from PMU with
++	 * PERF_PMU_CAP_MEDIATED_VPMU, while a guest is running.
++	 */
++	if (is_guest_mediated_pmu_loaded() &&
++	    event->pmu_ctx->pmu->capabilities & PERF_PMU_CAP_MEDIATED_VPMU &&
++	    !(msd->event_type & EVENT_GUEST))
++		return 0;
++
++	if (group_can_go_on(event, msd->can_add_hw)) {
+ 		if (!group_sched_in(event, ctx))
+ 			list_add_tail(&event->active_list, get_event_list(event));
+ 	}
+ 
+ 	if (event->state == PERF_EVENT_STATE_INACTIVE) {
+-		*can_add_hw = 0;
++		msd->can_add_hw = 0;
+ 		if (event->attr.pinned) {
+ 			perf_cgroup_event_disable(event, ctx);
+ 			perf_event_set_state(event, PERF_EVENT_STATE_ERROR);
+@@ -4037,11 +4145,15 @@ static int merge_sched_in(struct perf_event *event, void *data)
+ 
+ static void pmu_groups_sched_in(struct perf_event_context *ctx,
+ 				struct perf_event_groups *groups,
+-				struct pmu *pmu)
++				struct pmu *pmu,
++				enum event_type_t event_type)
+ {
+-	int can_add_hw = 1;
++	struct merge_sched_data msd = {
++		.can_add_hw = 1,
++		.event_type = event_type,
++	};
+ 	visit_groups_merge(ctx, groups, smp_processor_id(), pmu,
+-			   merge_sched_in, &can_add_hw);
++			   merge_sched_in, &msd);
+ }
+ 
+ static void __pmu_ctx_sched_in(struct perf_event_pmu_context *pmu_ctx,
+@@ -4050,9 +4162,9 @@ static void __pmu_ctx_sched_in(struct perf_event_pmu_context *pmu_ctx,
+ 	struct perf_event_context *ctx = pmu_ctx->ctx;
+ 
+ 	if (event_type & EVENT_PINNED)
+-		pmu_groups_sched_in(ctx, &ctx->pinned_groups, pmu_ctx->pmu);
++		pmu_groups_sched_in(ctx, &ctx->pinned_groups, pmu_ctx->pmu, event_type);
+ 	if (event_type & EVENT_FLEXIBLE)
+-		pmu_groups_sched_in(ctx, &ctx->flexible_groups, pmu_ctx->pmu);
++		pmu_groups_sched_in(ctx, &ctx->flexible_groups, pmu_ctx->pmu, event_type);
+ }
+ 
+ static void
+@@ -4069,9 +4181,11 @@ ctx_sched_in(struct perf_event_context *ctx, struct pmu *pmu, enum event_type_t
+ 		return;
+ 
+ 	if (!(is_active & EVENT_TIME)) {
++		/* EVENT_TIME should be active while the guest runs */
++		WARN_ON_ONCE(event_type & EVENT_GUEST);
+ 		/* start ctx time */
+ 		__update_context_time(ctx, false);
+-		perf_cgroup_set_timestamp(cpuctx);
++		perf_cgroup_set_timestamp(cpuctx, false);
+ 		/*
+ 		 * CPU-release for the below ->is_active store,
+ 		 * see __load_acquire() in perf_event_time_now()
+@@ -4087,7 +4201,23 @@ ctx_sched_in(struct perf_event_context *ctx, struct pmu *pmu, enum event_type_t
+ 			WARN_ON_ONCE(cpuctx->task_ctx != ctx);
+ 	}
+ 
+-	is_active ^= ctx->is_active; /* changed bits */
++	if (event_type & EVENT_GUEST) {
++		/*
++		 * Schedule in the required exclude_guest events of PMU
++		 * with PERF_PMU_CAP_MEDIATED_VPMU.
++		 */
++		is_active = event_type & EVENT_ALL;
++
++		/*
++		 * Update ctx time to set the new start time for
++		 * the exclude_guest events.
++		 */
++		update_context_time(ctx);
++		update_cgrp_time_from_cpuctx(cpuctx, false);
++		barrier();
++	} else {
++		is_active ^= ctx->is_active; /* changed bits */
++	}
+ 
+ 	/*
+ 	 * First go through the list and put on any pinned groups
+@@ -4095,13 +4225,13 @@ ctx_sched_in(struct perf_event_context *ctx, struct pmu *pmu, enum event_type_t
+ 	 */
+ 	if (is_active & EVENT_PINNED) {
+ 		for_each_epc(pmu_ctx, ctx, pmu, event_type)
+-			__pmu_ctx_sched_in(pmu_ctx, EVENT_PINNED);
++			__pmu_ctx_sched_in(pmu_ctx, EVENT_PINNED | (event_type & EVENT_GUEST));
+ 	}
+ 
+ 	/* Then walk through the lower prio flexible groups */
+ 	if (is_active & EVENT_FLEXIBLE) {
+ 		for_each_epc(pmu_ctx, ctx, pmu, event_type)
+-			__pmu_ctx_sched_in(pmu_ctx, EVENT_FLEXIBLE);
++			__pmu_ctx_sched_in(pmu_ctx, EVENT_FLEXIBLE | (event_type & EVENT_GUEST));
+ 	}
+ }
+ 
+@@ -6627,23 +6757,23 @@ void perf_event_update_userpage(struct perf_event *event)
+ 	if (!rb)
+ 		goto unlock;
+ 
+-	/*
+-	 * compute total_time_enabled, total_time_running
+-	 * based on snapshot values taken when the event
+-	 * was last scheduled in.
+-	 *
+-	 * we cannot simply called update_context_time()
+-	 * because of locking issue as we can be called in
+-	 * NMI context
+-	 */
+-	calc_timer_values(event, &now, &enabled, &running);
+-
+-	userpg = rb->user_page;
+ 	/*
+ 	 * Disable preemption to guarantee consistent time stamps are stored to
+ 	 * the user page.
+ 	 */
+ 	preempt_disable();
++
++	/*
++	 * Compute total_time_enabled, total_time_running based on snapshot
++	 * values taken when the event was last scheduled in.
++	 *
++	 * We cannot simply call update_context_time() because doing so would
++	 * lead to deadlock when called from NMI context.
++	 */
++	calc_timer_values(event, &now, &enabled, &running);
++
++	userpg = rb->user_page;
++
+ 	++userpg->lock;
+ 	barrier();
+ 	userpg->index = perf_event_index(event);
+@@ -7940,13 +8070,11 @@ static void perf_output_read(struct perf_output_handle *handle,
+ 	u64 read_format = event->attr.read_format;
+ 
+ 	/*
+-	 * compute total_time_enabled, total_time_running
+-	 * based on snapshot values taken when the event
+-	 * was last scheduled in.
++	 * Compute total_time_enabled, total_time_running based on snapshot
++	 * values taken when the event was last scheduled in.
+ 	 *
+-	 * we cannot simply called update_context_time()
+-	 * because of locking issue as we are called in
+-	 * NMI context
++	 * We cannot simply call update_context_time() because doing so would
++	 * lead to deadlock when called from NMI context.
+ 	 */
+ 	if (read_format & PERF_FORMAT_TOTAL_TIMES)
+ 		calc_timer_values(event, &now, &enabled, &running);
 -- 
 2.52.0.223.gf5cc29aaa4-goog
 
