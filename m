@@ -4,108 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7408BD3ABE0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 02:45:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09755D12692
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 03:19:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RUQybTF2z+MPRFgkFkdOwliSQw/1N7rvnbrbXmVsRSE=; b=ygqHIcP4NaLRLuCu6IIHqEJ9lj
-	QqFNolB9A/iy89jNAsDYyd6q+Q2rIaa65FWR4HDiiafg1JcdQf7KtwAdlteBJVtiU/fYnQXWXmCcT
-	hIIHcK7z9q3XFGfZOLs49KUpzZ96stepyWFHG+AyGA8+3bpLjkb//Fa8RWetjPqyFjXlF61/gR5Rl
-	6DtjyJwBgvFTs3N7EKAvsNel1zyKdguyAEwtCG7yX986YulV+B33aNDPGCbD0+Jljl5fD3/Gtv6LG
-	iiNwmh2dDk9+L1MnnWFsu1yetSowRPjSuiXwId8ajRqfvOjBzSkWqxpsYGG/B9iWzUFHeOAiRCztU
-	H0PbN64w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FFAdreauSNoqNkNTkr/DzuseKmYCWOi6IFiwFbZopQ0=; b=lthPqOjn+T9g6icmFMYlhrqA/Q
+	Fx0inTY7jF2mmuyzR5aJW0sklORJed0TOSoSI9d3NwWolXbMCgPv8a6hChmvY+cgZu+v39i3AMnbo
+	neZIY4ZRKRcMRORzMN/2i/dHNxpOCJH54c/tGy6H9zckNkVj1Q131VHKf8LBQ64PMaGxytDUoabjD
+	kjzfo+Bn/DvpG46F9NpgcVCOPRXXrYvXxnUc5KZWJWxO/Wjp1oxBxGfrK6otH51U6A/+4aXhAly5M
+	wsiqRyBnWgIAWr4DetdvC3BqtPbvoovmzUThV6NSi0r2qpBYkvvK4QKrsv4kAlKPF0q61i1VooqGf
+	9rKqVBrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRiIS-0000000AVMN-2Z5T;
-	Sat, 06 Dec 2025 02:45:20 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1vRipk-0000000AWsE-40Qq;
+	Sat, 06 Dec 2025 03:19:44 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRiIQ-0000000AVMC-42gc
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 06 Dec 2025 02:45:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=RUQybTF2z+MPRFgkFkdOwliSQw/1N7rvnbrbXmVsRSE=; b=ZmPU0qUjHcoZQRjKCtAlWdhBrK
-	wuHFfPjpKytQDMiSFZv946DNVKiGiX8YZqVi83VEL8c6iydrB5jwjwulDt/WrvwRRHJEfxLK6hz7I
-	AjkgaDNeRygfI3zYvoGu8VttyqCluk5jvVjZyklXVTQj9UCLSEtCx86WyZpPKNNm/17ERfS0hYQ8l
-	UqKTqXtOdiJNX0gsKcEv7uOIJc372YTp9kVkGtUyTd2GGl5DNLq+ttBA1tqmUc6L4+PpCOhyRCy9n
-	mu6Y+tkVar+uHVeqvdrFHmI91TjZ9pnZ/Tl0rUhGG0ZjfefJFFGfwUmciEQj/GuqjezR7uRhoY6lx
-	RLhEiUjg==;
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRhQl-00000007FnB-3yt8
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Dec 2025 01:49:58 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2981f9ce15cso36898715ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 18:45:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764989109; x=1765593909; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=RUQybTF2z+MPRFgkFkdOwliSQw/1N7rvnbrbXmVsRSE=;
-        b=muaxVTNWh2PvvcaBHYwm9iX944bUm9mf/j8dGLyBMuEufsDRIVurYRVigDBOHS0amo
-         45HMJDMuU+tk8GLTS3lXxX6YscpceWoEh9Fs8ocOHCdThJWrqHVTiFmWcXobPTaXeRdm
-         AOM57vjOzXz2jjC9YghjucrBLiPy4TPyt7Bf6pEMFK1ONUclrjRGLVdQh/PjlC1h9pr8
-         +4V8EXz3frUzkgtVB3dhnCnPRWleVyaMHMrzANKpySv0HyeDkGUU3odwsJEhYzuZEm1E
-         yhX9mZ3VIpWNvn5sA/ICk/tjF3XdapsJm7Fql7DkD7aAOCMOX5u8yHygsx+doTHm6FrO
-         ysfQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764989109; x=1765593909;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=RUQybTF2z+MPRFgkFkdOwliSQw/1N7rvnbrbXmVsRSE=;
-        b=gmxlwxtmjwlFHhwE/IexR+DX4eUHTfT1p0osqcBGv8GjRO14bBRGQOPJr7WiMdUR35
-         wWPWiG26wD78tt1p3FSQZQIiC1C0iK3XUWuMB2yq6RLHC/xTwEDQVKN8/baIZs0hwgE+
-         WD+aThwyWAq2hi3Yx2fCTOlOAwBN68gOQ7jhMUwhctsi5FqCJXwwKn8k/IiAQVUWWD5P
-         GV26yXlCEKAXdsK2QX82JILK2x47jpXj9qMowKlb7nLIRqKarsFEYU92kEv9fU+2o1w8
-         gJEzg062rF+RH21fOGdjPky7vDZObEoD41DjaN4AsFZgs/zQ60XkMMv5ig+w1bbBtc84
-         MMjA==
-X-Forwarded-Encrypted: i=1; AJvYcCV4gyrp/ibQkS6GigJpBOpW97NNvKfY/Pb1fkvL09f3F6hZPDb8bFKBD/AMIy57t1NhhC5Jaljf9v3Ruq7reqpt@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4vI+AWnHwenyrzkxzGqBoHEoAM7Hs07vz14rU2OFALGQt+hG/
-	MFB919mdrTJj6lE3alPR2mzQpapbgAFoKVsLLwBTqQieQN8+SCJ5rvsw1VYz5bUFTj3CKYJ2Wnk
-	RNIlfLEJ0/PGsU48lopV5MsbDFo3DnXuyHps8Qcie
-X-Gm-Gg: ASbGncvzjSqJ5UsXcF6Kk28qIzw9ro6GDmoSn2XwL+HoR2fSKv9jnSwectOcyRhDPUU
-	p2jFZPTL9n4H5hiKwa+csw+36fH3Rt5xnlkMr88guB/3YWe0K0RIEDF00eNU9ITqstk6kzbCkHd
-	I6XiOSgJa+pa1ikE+aQlMdDrvMPq7rKK1D3EWwejC4HZS8tfo22QRt+RFUObXeuDIgduV5CfcsH
-	Sjre8t4UogIoDvJJOwyLSNLVIGVVPwaF9JwSd5Rx8407Q93vht3ZdJMson2F184a1Ro0z6PBa3h
-	iPArsqjEc4c2rDG6uT8GkUY3Ji4=
-X-Google-Smtp-Source: AGHT+IFU1KYTSeq6FW6nQIMrzlj0NO5UvinjpD1M87pOOtWRqM4PAgvMxx7JqBY6yKTUwKBkDJhMObt3hsS9FZVHukg=
-X-Received: by 2002:a05:7022:f415:b0:11b:9386:a3cd with SMTP id
- a92af1059eb24-11e032ed8fcmr1007941c88.46.1764989108309; Fri, 05 Dec 2025
- 18:45:08 -0800 (PST)
+	id 1vRiph-0000000AWrk-31G2;
+	Sat, 06 Dec 2025 03:19:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1764991182; x=1796527182;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=5gH637Pes04sa8dca3MnyEjtJ4p46PyN8XeJW2eyJ/s=;
+  b=End4kVXZYaL1FtOQNiCI1f8LFRDc2ta0KZ4tBAMsjy+TV97hX+yD9u20
+   Fn0eMiYKj6aFbApH55j6M+4GSXYfZ1BG7ASlXE38gwbgeCqqF6d1IRROd
+   UQoUfwc8iiWEfV9rLaaAx/7SQpC9D5P8nzIRq5c5/Dyw+wg8mgJFkOxKn
+   9coDDDyN5X9MGYLYADRbbcdIiaczRoZAa51f2Yz4ysNO8T7De64iWMAle
+   l1fbM9Hjta8EAS/Mrc44l7Z7QrdylyhM5eM3zelvJTPnXMD39MyIE1OKU
+   qUspaVdOglewgaCLrKJdScSKIlJ3luFywR9U76Jjk2EU/fUxHAcsenrSn
+   A==;
+X-CSE-ConnectionGUID: OtIXD5uPTHGEPVvIenLbkQ==
+X-CSE-MsgGUID: IrTPpenhR9SkAupvJzMaig==
+X-IronPort-AV: E=McAfee;i="6800,10657,11633"; a="70877767"
+X-IronPort-AV: E=Sophos;i="6.20,253,1758610800"; 
+   d="scan'208";a="70877767"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Dec 2025 19:19:40 -0800
+X-CSE-ConnectionGUID: /FlQIMuHQ6WB1l5Y0IpOnA==
+X-CSE-MsgGUID: 1rZPUzLrShiRQVuphcTEzw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,253,1758610800"; 
+   d="scan'208";a="199929287"
+Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
+  by orviesa004.jf.intel.com with ESMTP; 05 Dec 2025 19:19:36 -0800
+Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vRipZ-00000000Fob-2I6r;
+	Sat, 06 Dec 2025 03:19:33 +0000
+Date: Sat, 6 Dec 2025 11:18:45 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jian Hu <jian.hu@amlogic.com>, Jerome Brunet <jbrunet@baylibre.com>,
+	Xianwei Zhao <xianwei.zhao@amlogic.com>,
+	Chuan Liu <chuan.liu@amlogic.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	robh+dt <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Jian Hu <jian.hu@amlogic.com>,
+	devicetree <devicetree@vger.kernel.org>,
+	linux-clk <linux-clk@vger.kernel.org>,
+	linux-amlogic <linux-amlogic@lists.infradead.org>,
+	linux-kernel <linux-kernel@vger.kernel.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v6 4/5] clk: meson: t7: add support for the T7 SoC PLL
+ clock
+Message-ID: <202512061054.wsIzRCCd-lkp@intel.com>
+References: <20251204053635.1234150-5-jian.hu@amlogic.com>
 MIME-Version: 1.0
-References: <20251205-phyb4-v8-0-c59ea80a4458@google.com> <20251205-phyb4-v8-1-c59ea80a4458@google.com>
- <18eeb1c5-d21b-4505-b6a4-472f6e191864@kernel.org> <CA+zupgwa+m8Pa=+8shORaOA1OO6zoo6zYEojFS2UDuP0doBq7A@mail.gmail.com>
- <f32e0810-56f9-417e-abf6-0cc7b361bd15@kernel.org> <CA+zupgyxQisYBnLj9_3DtcN3R1Ugfv+-p-wimFp-hnqkhrrgyA@mail.gmail.com>
- <988b3fcb-44db-45ca-823b-5ab13206bd04@kernel.org> <CA+zupgzi55svWK4gHsFtdQSD9jFKbxHx_0GE2R1R5DafmYyGNA@mail.gmail.com>
-In-Reply-To: <CA+zupgzi55svWK4gHsFtdQSD9jFKbxHx_0GE2R1R5DafmYyGNA@mail.gmail.com>
-From: Roy Luo <royluo@google.com>
-Date: Fri, 5 Dec 2025 18:44:31 -0800
-X-Gm-Features: AWmQ_bmtS6VqNvSPWWqMA48yCBiebLPdL-OG-iJ2CapE017dl4OEKL60P358vSw
-Message-ID: <CA+zupgy5TKWiVGwt5dFye7ztk7O_n7JQm4j7H8BCC2gzjfkgqw@mail.gmail.com>
-Subject: Re: [PATCH v8 1/2] dt-bindings: phy: google: Add Google Tensor G5 USB PHY
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Peter Griffin <peter.griffin@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Badhri Jagan Sridharan <badhri@google.com>, Doug Anderson <dianders@google.com>, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251204053635.1234150-5-jian.hu@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251206_014956_683777_B133359C 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20251205_191941_825368_61FD6F9F 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,47 +99,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 5, 2025 at 12:18=E2=80=AFPM Roy Luo <royluo@google.com> wrote:
->
-> On Fri, Dec 5, 2025 at 11:26=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.=
-org> wrote:
-> >
-> > I assume you understood what should be done instead in this patchset.
-> > Anyway, my previous tag applies if there were no bindings changes, but =
-I
-> > wasted too much time here to care anymore. The expectation from big
-> > companies is they do not ask community to coach on basic submission
-> > process. It's quite unfair to my spare, personal time after work,
-> > considering how much big company is making. Big company should invest i=
-n
-> > this coaching.
-> >
-> >
-> > Best regards,
-> > Krzysztof
->
-> Thank you for the feedback. I understand your frustration, and I
-> apologize for taking up your time. I will be sure to be more thorough
-> in the future.
->
-> Thanks,
-> Roy Luo
+Hi Jian,
 
-To confirm my takeaway: for this patch, the changes I introduced
-were not significant enough to remove your 'Reviewed-by' tag,
-and I should have kept it. Moving forward, I will calibrate my
-criteria for what changes are considered 'significant' (essentially
-any changes to binding), and more importantly, always document
-the rationale for dropping or keeping tags in the changelog when
-I make non-trivial changes to patches.
+kernel test robot noticed the following build errors:
 
-I plan to send a new version for this patchset and the controller
-patchset [1] next week with your tag re-added, please let me
-know if you disagree.
+[auto build test ERROR on clk/clk-next]
+[also build test ERROR on linus/master v6.18 next-20251205]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-[1] https://lore.kernel.org/linux-usb/20251205-controller-v9-0-9f158b18f979=
-@google.com
+url:    https://github.com/intel-lab-lkp/linux/commits/Jian-Hu/dt-bindings-clock-add-Amlogic-T7-PLL-clock-controller/20251204-135351
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/clk/linux.git clk-next
+patch link:    https://lore.kernel.org/r/20251204053635.1234150-5-jian.hu%40amlogic.com
+patch subject: [PATCH v6 4/5] clk: meson: t7: add support for the T7 SoC PLL clock
+config: arm64-randconfig-003-20251206 (https://download.01.org/0day-ci/archive/20251206/202512061054.wsIzRCCd-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 14bf95b06a18b9b59c89601cbc0e5a6f2176b118)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251206/202512061054.wsIzRCCd-lkp@intel.com/reproduce)
 
-Thanks,
-Roy Luo
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512061054.wsIzRCCd-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> ld.lld: error: undefined symbol: meson_clk_mpll_ops
+   >>> referenced by t7-pll.c
+   >>>               drivers/clk/meson/t7-pll.o:(.compoundliteral.51) in archive vmlinux.a
+   >>> referenced by t7-pll.c
+   >>>               drivers/clk/meson/t7-pll.o:(.compoundliteral.59) in archive vmlinux.a
+   >>> referenced by t7-pll.c
+   >>>               drivers/clk/meson/t7-pll.o:(.compoundliteral.67) in archive vmlinux.a
+   >>> referenced 1 more times
+   >>> did you mean: meson_clk_pll_ops
+   >>> defined in: vmlinux.a(drivers/clk/meson/clk-pll.o)
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
