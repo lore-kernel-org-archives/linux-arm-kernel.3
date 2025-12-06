@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B641D3ABF5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 05:09:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18BC1D3ABF8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 05:09:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=peBVdRDCYMluVzoh6VCOVP/33y4SVuD35nSziJTXUi8=; b=JnBSHwcGZRmSA5Y7bTOmDniBRJ
-	PpfK50BP0LI4gpFPYnHFH/FlzHhreuaGY4SNAkWjDJtbln7duCS6Ti9GbywHXriHPZnAn6SpY6HBh
-	QwguR//XLLCLimLrFaxGFtTJz7cHkYuMiUZXgPEQ0FGPrWU2opvuUNUhvCO6J/qsfM+jqiHRX8ZKF
-	+lyHku0fth1El4UagKkWecKZeJoGw0atS2+sBOdVXN3idrnk5Ge2JfCGJqqrKEL2+0JzAHJZf0lIS
-	yOHZKW+Kg7ZaczZeWuk1PGWahRhdZ1EENGiKZp65jrAtNSHcoFagFmOra7ytBRrKMnou5k/y1JBaa
-	h9hiXCkg==;
+	bh=0Db2q6dT/j6RKhINW0J1Xu2aTYUEmZfbY9ZOLYGcFW8=; b=hRiBwYc0Hp9L5VX8aTMAW5Gyqi
+	Qx81+lNul7co4EHeqnP2sDEoWuqXL8ga/kWouH1OvZpQQe2pBhuJRDg4xi0SdVKNhnlIDgIxBSfPe
+	Ldzh2sun6Uc3Hc8xXxUpQe4ajrhSFTFEmyycLOpqJKjeiCF7VeVpj7IP9XX9PAia0g3zqTS2B20UC
+	0LJW4d6F45C/Ayj55ZA0qrtjrJ15Shz1pHGJgSpbilabDAPHqzIx9XbZrV6aLtOV/SBKG606xTiiD
+	vVUsmTmenHXNr2nY1NEbdLO65Ftj8eEp8Mfs9KGLwPvmBHKXAQadpPwWmyHvfV76QO6cbHQZZ4ql1
+	+NDCvM7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRkXY-0000000AdFx-0XN2;
-	Sat, 06 Dec 2025 05:09:04 +0000
-Received: from mail-m49221.qiye.163.com ([45.254.49.221])
+	id 1vRkXV-0000000AdE7-3YLQ;
+	Sat, 06 Dec 2025 05:09:01 +0000
+Received: from mail-m49207.qiye.163.com ([45.254.49.207])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRkXR-0000000AdBX-2ezw;
-	Sat, 06 Dec 2025 05:09:00 +0000
+	id 1vRkXR-0000000AdBZ-2xFv;
+	Sat, 06 Dec 2025 05:08:59 +0000
 Received: from rockchip.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2c3493a67;
-	Sat, 6 Dec 2025 13:08:50 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2c3493a61;
+	Sat, 6 Dec 2025 13:08:47 +0800 (GMT+08:00)
 From: Ye Zhang <ye.zhang@rock-chips.com>
 To: Ye Zhang <ye.zhang@rock-chips.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
@@ -42,28 +42,29 @@ Cc: Bartosz Golaszewski <brgl@bgdev.pl>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	tao.huang@rock-chips.com
-Subject: [PATCH v2 3/8] dt-bindings: pinctrl: Add rv1126b pinctrl support
-Date: Sat,  6 Dec 2025 13:08:39 +0800
-Message-Id: <20251206050844.402958-4-ye.zhang@rock-chips.com>
+	tao.huang@rock-chips.com,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v2 1/8] dt-bindings: pinctrl: Add rk3506 pinctrl support
+Date: Sat,  6 Dec 2025 13:08:37 +0800
+Message-Id: <20251206050844.402958-2-ye.zhang@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251206050844.402958-1-ye.zhang@rock-chips.com>
 References: <20251206050844.402958-1-ye.zhang@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9af2100fed09d8kunmae94618c4ed3c65
+X-HM-Tid: 0a9af21006a009d8kunmae94618c4ed3ae7
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGRoaHlYaShgfSh8ZSk5OTx1WFRQJFh
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGRkdHVZJGBhDGU9MQk1IGE5WFRQJFh
 	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
 	hVSktLVUpCS0tZBg++
 DKIM-Signature: a=rsa-sha256;
-	b=j0DLJk/ldHyUNN1Lze38fkhfQWx2G4XeWPjZ5OjSM0RYbHcXbX4h3Ij3/bceXUt8wxI41y2S0+XQM1sjkgk9ol1pH+noROEq8YtQ1h+S0BnBqRAtpFI2PB+9PAO3HDlDQzpZxLABrV2vYPFl/6FJnxYbU34cM+D5ou7UgzKWSBE=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=peBVdRDCYMluVzoh6VCOVP/33y4SVuD35nSziJTXUi8=;
+	b=bG+/oVHC+FD2dNeKBHi7ZwwuxQRf9EpErKon41AD7ic+dUl+vm7z44dwS/EnRlYYtxLLGWyrErjWN0O2iH6pJ+20tb1tlfYNuJ+vVmIQRiQLQyYfZHHz3DK3JlhmWwr9ZleG1iyr1xA5+bDGNX0pRX5lXQurCrOCcBL+j292TRs=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=0Db2q6dT/j6RKhINW0J1Xu2aTYUEmZfbY9ZOLYGcFW8=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_210858_164128_ECFBB65A 
-X-CRM114-Status: UNSURE (   6.70  )
+X-CRM114-CacheID: sfid-20251205_210858_160415_F5BD5C8B 
+X-CRM114-Status: UNSURE (   6.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,25 +80,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the compatible string for the rv1126b SoC.
+Add the compatible string for the rk3506 SoC.
 
 Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
  Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml | 1 +
  1 file changed, 1 insertion(+)
 
 diff --git a/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml
-index 76e607281716..93bf8f352e48 100644
+index 125af766b992..76e607281716 100644
 --- a/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml
 +++ b/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml
-@@ -52,6 +52,7 @@ properties:
-       - rockchip,rk3588-pinctrl
-       - rockchip,rv1108-pinctrl
-       - rockchip,rv1126-pinctrl
-+      - rockchip,rv1126b-pinctrl
- 
-   rockchip,grf:
-     $ref: /schemas/types.yaml#/definitions/phandle
+@@ -44,6 +44,7 @@ properties:
+       - rockchip,rk3328-pinctrl
+       - rockchip,rk3368-pinctrl
+       - rockchip,rk3399-pinctrl
++      - rockchip,rk3506-pinctrl
+       - rockchip,rk3528-pinctrl
+       - rockchip,rk3562-pinctrl
+       - rockchip,rk3568-pinctrl
 -- 
 2.34.1
 
