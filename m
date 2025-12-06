@@ -4,70 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6FBAD3B7D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 16:51:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE680D3B7DB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 17:54:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bIZ07T4nV2E3I4dxrXBmXMAUaD/YmXQ/y7Eio1xutt8=; b=PL5M3O+Xa53GrxSV0NBhuEfIQ8
-	q0XbDH5I6siTR+SNWh+ggEROTTqlH4W9KfGfV00nbFMLfDFYcdWr5nRgcet7XBYQUI709xTuWUoxW
-	N6HB1Baf44VcdmdpgAhYh8807hRyCbqiDQSpRewgn7f9pup3+o5o9LgEffwpd9NiTl0n43s7Gt9gd
-	RgRAp4/EDaxlY5GuSZnHuu0ql29+/gXv7Q2Em4NSWBgBSTk7jpZDVNRQ68oRlUNyME3EketFl3hTg
-	1SPtikemrf2VO7vDE6udCRNqC1OUxvNFsdEp2pDtqo0feTRJ2mFLKwCfng3itMcGZblhIBQD3J9Lu
-	tvfLVtrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=P+iuscllDb8ilfy3+mvnn24ddRVkHcFUY/gEBiJ/Ps4=; b=0os6v2OBbKXuKX/R10S2YRJ+xN
+	C70he9KLtH7trtOXeZ536Hlsm7wqkDICjhcwLeU9qwTsC5rXsCccLDXkAUUltAAPEwKq/FcFm/0Lc
+	wLqwd0AlLNGzZna8rRdbVZYNjEQK/r+GZkuFGRMYteqnx6g93D8kqv+NQvmEVLKOeR4gfGVNBroGf
+	y6f7UdOWJYPxGUbLnLLv5t17CyJw5EFcuJ19TjGD6ddo4xPBE9cwxeVPmA5msPwhhtW37G+v1shto
+	ipYMiNmSLhmux3WKnPUwparsrGt7NLZFwGH/LXCrDLRfbm5vtX9IjekzXIm2YLdSFuePoctCy298g
+	1D5rGqow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRvVV-0000000B4ZK-1nKM;
-	Sat, 06 Dec 2025 16:51:41 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1vRwUA-0000000B6WO-1dNg;
+	Sat, 06 Dec 2025 17:54:22 +0000
+Received: from abscue.de ([89.58.28.240] helo=srv01.abscue.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRvVS-0000000B4YX-0YUF
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Dec 2025 16:51:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1765039898; x=1796575898;
-  h=date:from:to:cc:subject:message-id;
-  bh=+9A/hmU7mB6IYMu6F9nYXj2T4UsAwUWe/D3gtaJrWuQ=;
-  b=ESnErBclPjIMdPbT1WMwqC1rEzPdTfYIXeAAgWdv7Ga+kjyEvPnCF3bh
-   CWXlbB6pYeu21Z4YVDVj8HggU/mPsDIvfX8qNvngOQQUgFD+y+wG0MSBJ
-   aSldwkydGQMBMt/J4OYlO4mfjcZ4Q5VWOxU6xcEg6BYC0BdUiExS9I34O
-   tcNIaVUrVxVYOtiAWeq6KBhy1v1yVmWEWA6McbGFJ1CUHEdmPXQJu2QIQ
-   RXXbnKZizaq+9VSKFwhqxGWpiMdEAKgbsywCqv5uG91wOQpRsUv8hZB6Y
-   BsNdgcUv88Cxm7Y6SHZqVohBscHbmZxrv/pepLCeYhu0Vvjz+9sUn4hsI
-   w==;
-X-CSE-ConnectionGUID: gnXpslnJQsmyCfhC2W8hjQ==
-X-CSE-MsgGUID: TYQl+tlBRnSMzLWWIe4Njg==
-X-IronPort-AV: E=McAfee;i="6800,10657,11634"; a="66935527"
-X-IronPort-AV: E=Sophos;i="6.20,255,1758610800"; 
-   d="scan'208";a="66935527"
-Received: from fmviesa002.fm.intel.com ([10.60.135.142])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Dec 2025 08:51:37 -0800
-X-CSE-ConnectionGUID: ADf4OFA5ToKNnd1RJ0l0yg==
-X-CSE-MsgGUID: MKJbx+kPSxS8R2U/ewWNxA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,255,1758610800"; 
-   d="scan'208";a="218907982"
-Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
-  by fmviesa002.fm.intel.com with ESMTP; 06 Dec 2025 08:51:35 -0800
-Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vRvVM-00000000ISC-44q5;
-	Sat, 06 Dec 2025 16:51:32 +0000
-Date: Sun, 07 Dec 2025 00:51:28 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:soc/drivers-late] BUILD SUCCESS
- 68f9bbf4dfc356ccc6586ba6e7dd79576c48f7f0
-Message-ID: <202512070017.9vRMuFUJ-lkp@intel.com>
-User-Agent: s-nail v14.9.25
+	id 1vRwU7-0000000B6Vo-11tI;
+	Sat, 06 Dec 2025 17:54:21 +0000
+Received: from srv01.abscue.de (localhost [127.0.0.1])
+	by spamfilter.srv.local (Postfix) with ESMTP id BEA4D1C560C;
+	Sat, 06 Dec 2025 18:53:55 +0100 (CET)
+Received: from fluffy-mammal.metal.fwg-cag.de (unknown [IPv6:2001:9e8:cdc0:3900:2bdf:1fd3:90e3:ead1])
+	by srv01.abscue.de (Postfix) with ESMTPSA id 3764F1C560B;
+	Sat, 06 Dec 2025 18:53:55 +0100 (CET)
+From: =?utf-8?q?Otto_Pfl=C3=BCger?= <otto.pflueger@abscue.de>
+Date: Sat, 06 Dec 2025 18:53:51 +0100
+Subject: [PATCH] arm64: dts: mediatek: mt8183: Add missing endpoint IDs to
+ display graph
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20251206-mt8183-display-graph-v1-1-a30e54481f28@abscue.de>
+X-B4-Tracking: v=1; b=H4sIAK5tNGkC/x2MWwqAIBAArxL73YIainSV6ENzq4UeohFFdPekz
+ xmYeSBTYsrQVg8kOjnzvhWQdQXD7LaJkENhUEJpqYTB9bDSNhg4x8XdOCUXZ9TCFDkY6xsPJY2
+ JRr7+bde/7wecG5dVZgAAAA==
+X-Change-ID: 20251206-mt8183-display-graph-506183c68b3b
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Evans Jahja <evansjahja13@gmail.com>, 
+ =?utf-8?q?Otto_Pfl=C3=BCger?= <otto.pflueger@abscue.de>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251206_085138_267970_CE07937C 
-X-CRM114-Status: UNSURE (   4.61  )
+X-CRM114-CacheID: sfid-20251206_095419_440910_9E01B5FE 
+X-CRM114-Status: UNSURE (   9.55  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,124 +71,323 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git soc/drivers-late
-branch HEAD: 68f9bbf4dfc356ccc6586ba6e7dd79576c48f7f0  Merge tag 'samsung-drivers-6.19-2-late' of https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux into soc/drivers-late
+The endpoint IDs in the display graph are expected to match the
+associated display path number, i.e. all endpoints connected to
+mmsys_ep_main must have reg = <0> and all endpoints connected to
+mmsys_ep_ext must have reg = <1>.
 
-elapsed time: 1560m
+Add the missing ID to all endpoints in the display graph, based on
+mt8365.dtsi as an existing example that does this correctly.
 
-configs tested: 104
-configs skipped: 1
+Fixes: e72d63fa0563 ("arm64: dts: mediatek: mt8183: Migrate to display controller OF graph")
+Reported-by: Evans Jahja <evansjahja13@gmail.com>
+Closes: https://lore.kernel.org/linux-mediatek/CAAq5pW9o3itC0G16LnJO7KMAQ_XoqXUpB=cuJ_7e3-H11zKd5Q@mail.gmail.com/
+Signed-off-by: Otto Pflüger <otto.pflueger@abscue.de>
+---
+ arch/arm64/boot/dts/mediatek/mt8183.dtsi | 122 +++++++++++++++++++++++++------
+ 1 file changed, 98 insertions(+), 24 deletions(-)
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+diff --git a/arch/arm64/boot/dts/mediatek/mt8183.dtsi b/arch/arm64/boot/dts/mediatek/mt8183.dtsi
+index 4e20a8f2eb25803057955401a7737c7f029a1424..0c73043c67fd01147179e8f9b065684f67749ec2 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8183.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8183.dtsi
+@@ -1754,15 +1754,21 @@ ports {
+ 				#size-cells = <0>;
+ 
+ 				port@0 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <0>;
+-					ovl0_in: endpoint {
++					ovl0_in: endpoint@0 {
++						reg = <0>;
+ 						remote-endpoint = <&mmsys_ep_main>;
+ 					};
+ 				};
+ 
+ 				port@1 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <1>;
+-					ovl0_out: endpoint {
++					ovl0_out: endpoint@0 {
++						reg = <0>;
+ 						remote-endpoint = <&ovl_2l0_in>;
+ 					};
+ 				};
+@@ -1783,15 +1789,21 @@ ports {
+ 				#size-cells = <0>;
+ 
+ 				port@0 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <0>;
+-					ovl_2l0_in: endpoint {
++					ovl_2l0_in: endpoint@0 {
++						reg = <0>;
+ 						remote-endpoint = <&ovl0_out>;
+ 					};
+ 				};
+ 
+ 				port@1 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <1>;
+-					ovl_2l0_out: endpoint {
++					ovl_2l0_out: endpoint@0 {
++						reg = <0>;
+ 						remote-endpoint = <&rdma0_in>;
+ 					};
+ 				};
+@@ -1812,15 +1824,21 @@ ports {
+ 				#size-cells = <0>;
+ 
+ 				port@0 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <0>;
+-					ovl_2l1_in: endpoint {
++					ovl_2l1_in: endpoint@1 {
++						reg = <1>;
+ 						remote-endpoint = <&mmsys_ep_ext>;
+ 					};
+ 				};
+ 
+ 				port@1 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <1>;
+-					ovl_2l1_out: endpoint {
++					ovl_2l1_out: endpoint@1 {
++						reg = <1>;
+ 						remote-endpoint = <&rdma1_in>;
+ 					};
+ 				};
+@@ -1842,15 +1860,21 @@ ports {
+ 				#size-cells = <0>;
+ 
+ 				port@0 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <0>;
+-					rdma0_in: endpoint {
++					rdma0_in: endpoint@0 {
++						reg = <0>;
+ 						remote-endpoint = <&ovl_2l0_out>;
+ 					};
+ 				};
+ 
+ 				port@1 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <1>;
+-					rdma0_out: endpoint {
++					rdma0_out: endpoint@0 {
++						reg = <0>;
+ 						remote-endpoint = <&color0_in>;
+ 					};
+ 				};
+@@ -1872,15 +1896,21 @@ ports {
+ 				#size-cells = <0>;
+ 
+ 				port@0 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <0>;
+-					rdma1_in: endpoint {
++					rdma1_in: endpoint@1 {
++						reg = <1>;
+ 						remote-endpoint = <&ovl_2l1_out>;
+ 					};
+ 				};
+ 
+ 				port@1 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <1>;
+-					rdma1_out: endpoint {
++					rdma1_out: endpoint@1 {
++						reg = <1>;
+ 						remote-endpoint = <&dpi_in>;
+ 					};
+ 				};
+@@ -1901,15 +1931,21 @@ ports {
+ 				#size-cells = <0>;
+ 
+ 				port@0 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <0>;
+-					color0_in: endpoint {
++					color0_in: endpoint@0 {
++						reg = <0>;
+ 						remote-endpoint = <&rdma0_out>;
+ 					};
+ 				};
+ 
+ 				port@1 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <1>;
+-					color0_out: endpoint {
++					color0_out: endpoint@0 {
++						reg = <0>;
+ 						remote-endpoint = <&ccorr0_in>;
+ 					};
+ 				};
+@@ -1929,15 +1965,21 @@ ports {
+ 				#size-cells = <0>;
+ 
+ 				port@0 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <0>;
+-					ccorr0_in: endpoint {
++					ccorr0_in: endpoint@0 {
++						reg = <0>;
+ 						remote-endpoint = <&color0_out>;
+ 					};
+ 				};
+ 
+ 				port@1 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <1>;
+-					ccorr0_out: endpoint {
++					ccorr0_out: endpoint@0 {
++						reg = <0>;
+ 						remote-endpoint = <&aal0_in>;
+ 					};
+ 				};
+@@ -1957,15 +1999,21 @@ ports {
+ 				#size-cells = <0>;
+ 
+ 				port@0 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <0>;
+-					aal0_in: endpoint {
++					aal0_in: endpoint@0 {
++						reg = <0>;
+ 						remote-endpoint = <&ccorr0_out>;
+ 					};
+ 				};
+ 
+ 				port@1 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <1>;
+-					aal0_out: endpoint {
++					aal0_out: endpoint@0 {
++						reg = <0>;
+ 						remote-endpoint = <&gamma0_in>;
+ 					};
+ 				};
+@@ -1985,15 +2033,21 @@ ports {
+ 				#size-cells = <0>;
+ 
+ 				port@0 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <0>;
+-					gamma0_in: endpoint {
++					gamma0_in: endpoint@0 {
++						reg = <0>;
+ 						remote-endpoint = <&aal0_out>;
+ 					};
+ 				};
+ 
+ 				port@1 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <1>;
+-					gamma0_out: endpoint {
++					gamma0_out: endpoint@0 {
++						reg = <0>;
+ 						remote-endpoint = <&dither0_in>;
+ 					};
+ 				};
+@@ -2013,15 +2067,21 @@ ports {
+ 				#size-cells = <0>;
+ 
+ 				port@0 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <0>;
+-					dither0_in: endpoint {
++					dither0_in: endpoint@0 {
++						reg = <0>;
+ 						remote-endpoint = <&gamma0_out>;
+ 					};
+ 				};
+ 
+ 				port@1 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <1>;
+-					dither0_out: endpoint {
++					dither0_out: endpoint@0 {
++						reg = <0>;
+ 						remote-endpoint = <&dsi_in>;
+ 					};
+ 				};
+@@ -2047,15 +2107,22 @@ ports {
+ 				#size-cells = <0>;
+ 
+ 				port@0 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <0>;
+-					dsi_in: endpoint {
++					dsi_in: endpoint@0 {
++						reg = <0>;
+ 						remote-endpoint = <&dither0_out>;
+ 					};
+ 				};
+ 
+ 				port@1 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <1>;
+-					dsi_out: endpoint { };
++					dsi_out: endpoint@0 {
++						reg = <0>;
++					};
+ 				};
+ 			};
+ 		};
+@@ -2076,15 +2143,22 @@ ports {
+ 				#size-cells = <0>;
+ 
+ 				port@0 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <0>;
+-					dpi_in: endpoint {
++					dpi_in: endpoint@1 {
++						reg = <1>;
+ 						remote-endpoint = <&rdma1_out>;
+ 					};
+ 				};
+ 
+ 				port@1 {
++					#address-cells = <1>;
++					#size-cells = <0>;
+ 					reg = <1>;
+-					dpi_out: endpoint { };
++					dpi_out: endpoint@1 {
++						reg = <1>;
++					};
+ 				};
+ 			};
+ 		};
 
-tested configs:
-alpha                            allyesconfig    gcc-15.1.0
-alpha                               defconfig    gcc-15.1.0
-arc                                 defconfig    gcc-15.1.0
-arc                   randconfig-001-20251206    gcc-8.5.0
-arc                   randconfig-002-20251206    gcc-14.3.0
-arm                                 defconfig    clang-22
-arm                            mmp2_defconfig    gcc-15.1.0
-arm                       multi_v4t_defconfig    clang-16
-arm                   randconfig-001-20251206    clang-22
-arm                   randconfig-002-20251206    clang-22
-arm                   randconfig-003-20251206    clang-16
-arm                   randconfig-004-20251206    clang-20
-arm64                               defconfig    gcc-15.1.0
-arm64                 randconfig-001-20251206    gcc-8.5.0
-arm64                 randconfig-002-20251206    clang-22
-arm64                 randconfig-003-20251206    clang-22
-arm64                 randconfig-004-20251206    gcc-8.5.0
-csky                             allmodconfig    gcc-15.1.0
-csky                                defconfig    gcc-15.1.0
-csky                  randconfig-001-20251206    gcc-15.1.0
-csky                  randconfig-002-20251206    gcc-15.1.0
-hexagon                          allmodconfig    clang-17
-hexagon                             defconfig    clang-22
-hexagon               randconfig-001-20251206    clang-16
-hexagon               randconfig-002-20251206    clang-22
-i386                             allmodconfig    gcc-14
-i386                             allyesconfig    gcc-14
-i386        buildonly-randconfig-001-20251206    gcc-14
-i386        buildonly-randconfig-002-20251206    gcc-14
-i386        buildonly-randconfig-004-20251206    clang-20
-i386                                defconfig    clang-20
-i386                  randconfig-003-20251206    gcc-14
-i386                  randconfig-004-20251206    gcc-14
-i386                  randconfig-012-20251206    gcc-14
-loongarch                           defconfig    clang-19
-loongarch             randconfig-001-20251206    gcc-15.1.0
-loongarch             randconfig-002-20251206    gcc-12.5.0
-m68k                             allmodconfig    gcc-15.1.0
-m68k                                defconfig    gcc-15.1.0
-microblaze                       allyesconfig    gcc-15.1.0
-microblaze                          defconfig    gcc-15.1.0
-mips                             allyesconfig    gcc-15.1.0
-mips                       bmips_be_defconfig    gcc-15.1.0
-mips                        maltaup_defconfig    clang-22
-nios2                               defconfig    gcc-11.5.0
-nios2                 randconfig-001-20251206    gcc-8.5.0
-nios2                 randconfig-002-20251206    gcc-8.5.0
-openrisc                            defconfig    gcc-15.1.0
-parisc                              defconfig    gcc-15.1.0
-parisc                randconfig-001-20251206    gcc-11.5.0
-parisc                randconfig-002-20251206    gcc-15.1.0
-parisc64                            defconfig    gcc-15.1.0
-powerpc                    amigaone_defconfig    gcc-15.1.0
-powerpc                 mpc8313_rdb_defconfig    gcc-15.1.0
-powerpc               randconfig-001-20251206    gcc-11.5.0
-powerpc               randconfig-002-20251206    clang-22
-powerpc64             randconfig-001-20251206    gcc-15.1.0
-powerpc64             randconfig-002-20251206    clang-22
-riscv                               defconfig    clang-22
-riscv                 randconfig-001-20251206    clang-22
-riscv                 randconfig-002-20251206    clang-19
-s390                                defconfig    clang-22
-s390                  randconfig-001-20251206    clang-22
-s390                  randconfig-002-20251206    gcc-8.5.0
-sh                               allmodconfig    gcc-15.1.0
-sh                                  defconfig    gcc-15.1.0
-sh                    randconfig-001-20251206    gcc-15.1.0
-sh                    randconfig-002-20251206    gcc-15.1.0
-sparc                            alldefconfig    gcc-15.1.0
-sparc                               defconfig    gcc-15.1.0
-sparc                 randconfig-001-20251206    gcc-12.5.0
-sparc                 randconfig-002-20251206    gcc-8.5.0
-sparc64                             defconfig    clang-20
-sparc64               randconfig-001-20251206    clang-22
-sparc64               randconfig-002-20251206    gcc-8.5.0
-um                               allyesconfig    gcc-14
-um                                  defconfig    clang-22
-um                             i386_defconfig    gcc-14
-um                    randconfig-001-20251206    gcc-14
-um                    randconfig-002-20251206    gcc-14
-um                           x86_64_defconfig    clang-22
-x86_64                           allmodconfig    clang-20
-x86_64                           allyesconfig    clang-20
-x86_64      buildonly-randconfig-001-20251206    clang-20
-x86_64      buildonly-randconfig-002-20251206    gcc-14
-x86_64      buildonly-randconfig-003-20251206    clang-20
-x86_64      buildonly-randconfig-004-20251206    clang-20
-x86_64      buildonly-randconfig-005-20251206    gcc-13
-x86_64                              defconfig    gcc-14
-x86_64                randconfig-001-20251206    clang-20
-x86_64                randconfig-002-20251206    gcc-14
-x86_64                randconfig-003-20251206    gcc-14
-x86_64                randconfig-004-20251206    gcc-14
-x86_64                randconfig-005-20251206    gcc-14
-x86_64                randconfig-006-20251206    gcc-14
-x86_64                randconfig-071-20251206    clang-20
-x86_64                randconfig-072-20251206    clang-20
-x86_64                randconfig-073-20251206    gcc-14
-x86_64                randconfig-074-20251206    gcc-14
-x86_64                randconfig-075-20251206    gcc-14
-x86_64                randconfig-076-20251206    gcc-14
-x86_64                          rhel-9.4-rust    clang-20
-xtensa                randconfig-001-20251206    gcc-8.5.0
-xtensa                randconfig-002-20251206    gcc-8.5.0
+---
+base-commit: 6987d58a9cbc5bd57c983baa514474a86c945d56
+change-id: 20251206-mt8183-display-graph-506183c68b3b
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Best regards,
+-- 
+Otto Pflüger <otto.pflueger@abscue.de>
+
 
