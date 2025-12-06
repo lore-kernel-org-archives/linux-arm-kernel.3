@@ -4,104 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0508D3ABFC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 08:28:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98E51D3ABF4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 09:35:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ybnktA7yiPw4tJvX7FdmF5g8bI2fRM90QpenRWrGzHw=; b=YLacuiueUTg37lWBKq05oxTps0
-	bgKuw66B20d+F/hk4wJsd0u0uNksMJdqKQNLS0N98uOja7Q/NA8eUtEQmJOT6oljYgp5ofCUb5ABL
-	UZJhHaCfAfJJoIMgNJCnO7l55LE/EUqIEhtbpd0wGcknCj6U4I/3a2xQmEfhxocPyHEthMg67BYZ6
-	dHrzxDcl1XKQC6cO7UKRWVsDcWP+MQv6fvQwE+t+jzEfNeRSW1h4nDw8pZOCPnCMbxdScszeYKFUA
-	aaRPtiwYvcahXlVOpU8+/Sedo1UfQuWBpeaX0w+MchzbLUNVOlIKB7yYa/CTbIuQDMYDsqLfsbIk5
-	kcajorIQ==;
+	bh=GXTq3iDyjDADwZsgIQdjk8BZPcjCgD8fVY/36P+IKEw=; b=OTExRVlKMoxEBCLVFvVloFyyFm
+	m8K+9wzt+dK/MDxPDZ9rTyZjBKyJSpiSEek0uEaMCC4XhU4LqF32wZKInsb0aDxl10TMwqW49hXd4
+	qdtUrhlgTd9NdYV2wnwpL0Pneu1X9ASzb7N5J0RnxXyztx2+uIZTgdLyGi4gD7/Dvv2bNwAg5MkBN
+	hMgiQ2jYrqvRy6Fy1cS3BTU1grGMD9rPAXJfsoNpprMaV3kTECATmhP+ZV+3nDXUfwFb7neexZOHT
+	6UCnVA/IjA375MXyCewEoptC5N/rmazxgyVlkKy3xz9d2WsC+STg1BbAfBFN1HZXs5iKpTnhaAm3m
+	VLZNXbaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRnea-0000000AkUz-0uBy;
-	Sat, 06 Dec 2025 08:28:32 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1vRogs-0000000Amca-23S1;
+	Sat, 06 Dec 2025 09:34:58 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRneX-0000000AkT4-0WC0
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Dec 2025 08:28:30 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-477632d9326so20100445e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 06 Dec 2025 00:28:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765009707; x=1765614507; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ybnktA7yiPw4tJvX7FdmF5g8bI2fRM90QpenRWrGzHw=;
-        b=m/6lmi7qzzjfzSEAyVzS/ZN8beBbe5pufLSmmaDD93G3C0iJxmDy66d4GYJNgIFujg
-         6a7XQmzm8OvQA8pQWw9QKtO2qlmAf/r0BZ2ffZ2EpikjnPXANMFBycKB1fJZ5ZhPVlMD
-         IPSssFKH4w84YNivNh7sj39FZLKBy4S9v7T5UzoIl3rIxkXU8FaDFBAIaqbUPuU2sA7v
-         OkjX/9ZpmxUo41/nYSjRD5p5ZXw9ebGsHgHgQoIfyxkIc5MIM+IZ+VmIBITUBUCk8jp7
-         ZFeq+/Ni2iAjd/J7zidpSqhfg2mTM8icED1mPju2B/4zyuJtEMTStXUuMxI0L2Af4os0
-         O58w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765009707; x=1765614507;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=ybnktA7yiPw4tJvX7FdmF5g8bI2fRM90QpenRWrGzHw=;
-        b=Q2m3XUh1CmuHdTITyHX5WBDFq+UThE1YGORnrIo3sxkagj+ZCqvNqIeGctsG35Ky2H
-         tTj5RUNURfRdl7bCRVWrQOncIQoGtCIEIUm1FbXV8GFs0N2kkYVjdnv0FDdVbP/20SaD
-         by6q9FLgYP7eyqVSvNXRVk72WfCSJjgjWIMLl49895FkSYBCzVqYPllwVMUK5cHFzqJb
-         zJMDBxastuvyFM7nbqD0JpQ8qfUzcrpmun7Klkd8PS5motBLudeMPDwRvz1gPlO5ecaC
-         AWSrWQh/LfCISN1C1awxu5dWJ1q34nRGxrglzWD6GPtXsZHZye2DUMnzjTlT0YvQoRv7
-         qovw==
-X-Forwarded-Encrypted: i=1; AJvYcCUQauSYJ1iehSXL/rkux04cgAguSMTJ7n+VCguaStyLRsB7wNpQ0sRCA0dTMBnamyf2HBv92JcHb6ZvzhxNEUG1@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXOIn/gy/qyTYysQkCvkTcaTwNgIoX3dJ4McpRGmWd9BS2CRoK
-	tIYdG9EOQKgMIt8COSMuzmhsqOql1pkTVaxegm0gwMCuMZwFQ1fTJLqR
-X-Gm-Gg: ASbGnctMlhNOssCROJMCssLXgkFjivM5FDhP0E7fAWEj5r+adXG5v0DoXtoGk1Tu0ph
-	iA4kQhOVYWJaf65cwlWji4BR7b/W1G+/Or5z5ONwOCy6wNEL3/8dz6/9CmZ22zi5+Vjb8sz04cM
-	C4WkbuovBE6z9w7WHxjGlSkWhmQqvei4AWD3VYTsy14kVs+M45HpmhtXyGXq+wERQXgb2BPUejh
-	Y9BmmZmWAmPmKpzmFH/rJvsFE9wvEOpbPAPKUA4+Amtg6jBDylIfyKlYQ+Toj3RXAG3n/8Xhni4
-	2Zjjroaljkg/p59C80nalWIpx1WCWWN93FdstEAwWbGWLHdrf0mfL9cL+95/0vvd0DqJzIr6U7g
-	DiFmWqkw8Y3VIHHcF9snt95hMoJrDzMfauP+iyePz96QH8VSc1xWhok2szVXzmw5LIWsysJVlT1
-	RqUfXiqFezbGt8kvkJ5MTFsXIMAg==
-X-Google-Smtp-Source: AGHT+IF4fUERXjr9/GquO8BnCSUOnAm5kGVyznTwFVQh3KUd4dX0Gabps7xFnP/iqOvdByNlLK3i7g==
-X-Received: by 2002:a05:600c:3f12:b0:477:c478:46d7 with SMTP id 5b1f17b1804b1-47939e23802mr18875825e9.22.1765009707151;
-        Sat, 06 Dec 2025 00:28:27 -0800 (PST)
-Received: from toolbox.. ([87.200.95.144])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-479310a6d9dsm123094705e9.2.2025.12.06.00.28.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 06 Dec 2025 00:28:26 -0800 (PST)
-From: Christian Hewitt <christianshewitt@gmail.com>
-To: Detlev Casanova <detlev.casanova@collabora.com>,
-	=?UTF-8?q?Olivier=20Cr=C3=AAte?= <olivier.crete@collabora.com>,
-	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	id 1vRogo-0000000Amc5-0oXJ;
+	Sat, 06 Dec 2025 09:34:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E0BE2434A6;
+	Sat,  6 Dec 2025 09:34:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3542CC4CEF5;
+	Sat,  6 Dec 2025 09:34:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765013676;
+	bh=LVpVlpi6OB57YEEuOdpQyyiZg0u6TcCf1CGA1h9vpBg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=bx700QVJbLTGUIeKm0O22TtLPhUtMrkFcl7fdbcJZVOwdiqeLbjF5hrQeiOdJCXdC
+	 krutnylAbtSh9mi3fVU7U3Zf94ROz3cOezsxTnOp72rIOV1wxreOzIlSI3LBBeD3LU
+	 PO4RKzI66ic6zAclhP+WlgH+vrzyXwxUkL21B+JxTy1WI87F8DejeP0TQie8riE1A1
+	 G16crdFM3HpnnxUV/C4lSxpuDXimp0B9gJ+5vmkqIsU2HJGuob8KsyEnqSiWRlzeyZ
+	 OdncME6viW0HhYT7EVURDb4SvohUqn4RP4h0A9yO8gWT3ZsGeoDPZNjQ2cBW8dTAYb
+	 TYbJ2kwZIcq4g==
+From: William Breathitt Gray <wbg@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: William Breathitt Gray <wbg@kernel.org>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Heiko Stuebner <heiko@sntech.de>,
-	Diederik de Haas <diederik@cknow-tech.com>,
-	Dmitry Osipenko <dmitry.osipenko@collabora.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Chukun Pan <amadeus@jmu.edu.cn>,
-	linux-media@vger.kernel.org,
+	Lee Jones <lee@kernel.org>,
+	kernel@collabora.com,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Alexey Charkov <alchark@gmail.com>,
 	linux-rockchip@lists.infradead.org,
+	linux-pwm@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Diederik de Haas <didi.debian@cknow.org>,
-	Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
-Subject: [PATCH 4/4] arm64: dts: rockchip: Add the vdpu346 Video Decoders on RK356X
-Date: Sat,  6 Dec 2025 08:28:09 +0000
-Message-Id: <20251206082809.2040679-5-christianshewitt@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251206082809.2040679-1-christianshewitt@gmail.com>
-References: <20251206082809.2040679-1-christianshewitt@gmail.com>
+	linux-kernel@vger.kernel.org,
+	linux-iio@vger.kernel.org
+Subject: Re: [PATCH v3 4/5] counter: Add rockchip-pwm-capture driver
+Date: Sat,  6 Dec 2025 18:34:17 +0900
+Message-ID: <20251206093419.40067-1-wbg@kernel.org>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20251027-rk3576-pwm-v3-4-654a5cb1e3f8@collabora.com>
+References: <20251027-rk3576-pwm-v3-4-654a5cb1e3f8@collabora.com>
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5608; i=wbg@kernel.org; h=from:subject; bh=LVpVlpi6OB57YEEuOdpQyyiZg0u6TcCf1CGA1h9vpBg=; b=owGbwMvMwCW21SPs1D4hZW3G02pJDJnGPyYceT6/uuOowkeJzKMXdru+8oyTXW/9KnZb0Npb5 7YnyTsHdJSyMIhxMciKKbL0mp+9++CSqsaPF/O3wcxhZQIZwsDFKQATKctj+B/fezxbrcnBZa22 wAYGEZnP65yLGeM210wtSArdtY9jiTYjwy/3uODLKTURuz+fPbGii+Pa+yd/Tl7sa/pnEH5pndn eClYA
+X-Developer-Key: i=wbg@kernel.org; a=openpgp; fpr=8D37CDDDE0D22528F8E89FB6B54856CABE12232B
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251206_002829_174018_D719692C 
-X-CRM114-Status: GOOD (  10.38  )
+X-CRM114-CacheID: sfid-20251206_013454_305617_0F82141E 
+X-CRM114-Status: GOOD (  26.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,85 +86,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the vdpu346 Video Decoders to the rk356x-base devicetree to
-enable support on RK3566 and RK3568 boards. Also add the needed
-sram and vdec_mmu nodes.
+> +struct rockchip_pwm_capture {
+> +	struct rockchip_mfpwm_func *pwmf;
+> +	struct counter_device *counter;
 
-Suggested-by: Diederik de Haas <didi.debian@cknow.org>
-Suggested-by: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
-Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
----
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 49 +++++++++++++++++++
- 1 file changed, 49 insertions(+)
+Is this structure member used at all? If not, you should just remove it.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-index c005135089d4..c51179e13657 100644
---- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-@@ -383,6 +383,19 @@ usb2phy1_grf: syscon@fdca8000 {
- 		reg = <0x0 0xfdca8000 0x0 0x8000>;
- 	};
- 
-+	sram@fdcc0000 {
-+		compatible = "mmio-sram";
-+		reg = <0x0 0xfdcc0000 0x0 0xb000>;
-+		ranges = <0x0 0x0 0xfdcc0000 0xb000>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+
-+		vdec_sram: rkvdec-sram@0 {
-+			reg = <0x0 0xb000>;
-+			pool;
-+		};
-+	};
-+
- 	pmucru: clock-controller@fdd00000 {
- 		compatible = "rockchip,rk3568-pmucru";
- 		reg = <0x0 0xfdd00000 0x0 0x1000>;
-@@ -619,6 +632,42 @@ vepu_mmu: iommu@fdee0800 {
- 		#iommu-cells = <0>;
- 	};
- 
-+	vdec: video-codec@fdf80100 {
-+		compatible = "rockchip,rk3568-vdec";
-+		reg = <0x0 0xfdf80200 0x0 0x500>,
-+		      <0x0 0xfdf80100 0x0 0x100>,
-+		      <0x0 0xfdf80700 0x0 0x100>;
-+		reg-names = "function", "link", "cache";
-+		interrupts = <GIC_SPI 91 IRQ_TYPE_LEVEL_HIGH>;
-+		clocks = <&cru ACLK_RKVDEC>, <&cru HCLK_RKVDEC>,
-+			 <&cru CLK_RKVDEC_CA>, <&cru CLK_RKVDEC_CORE>,
-+			 <&cru CLK_RKVDEC_HEVC_CA>;
-+		clock-names = "axi", "ahb", "cabac", "core", "hevc_cabac";
-+		assigned-clocks = <&cru ACLK_RKVDEC>,
-+				  <&cru CLK_RKVDEC_CORE>,
-+				  <&cru CLK_RKVDEC_CA>,
-+				  <&cru CLK_RKVDEC_HEVC_CA>;
-+		assigned-clock-rates = <297000000>, <297000000>,
-+				       <297000000>, <600000000>;
-+		iommus = <&vdec_mmu>;
-+		power-domains = <&power RK3568_PD_RKVDEC>;
-+		resets = <&cru SRST_A_RKVDEC>, <&cru SRST_H_RKVDEC>,
-+			 <&cru SRST_RKVDEC_CA>, <&cru SRST_RKVDEC_CORE>,
-+			 <&cru SRST_RKVDEC_HEVC_CA>;
-+		reset-names = "axi", "ahb", "cabac", "core", "hevc_cabac";
-+		sram = <&vdec_sram>;
-+	};
-+
-+	vdec_mmu: iommu@fdf80800 {
-+		compatible = "rockchip,rk3568-iommu";
-+		reg = <0x0 0xfdf80800 0x0 0x40>, <0x0 0xfdf80840 0x0 0x40>;
-+		interrupts = <GIC_SPI 92 IRQ_TYPE_LEVEL_HIGH>;
-+		clocks = <&cru ACLK_RKVDEC>, <&cru HCLK_RKVDEC>;
-+		clock-names = "aclk", "iface";
-+		power-domains = <&power RK3568_PD_RKVDEC>;
-+		#iommu-cells = <0>;
-+	};
-+
- 	sdmmc2: mmc@fe000000 {
- 		compatible = "rockchip,rk3568-dw-mshc", "rockchip,rk3288-dw-mshc";
- 		reg = <0x0 0xfe000000 0x0 0x4000>;
--- 
-2.34.1
+> +	bool is_enabled;
 
+Does this device offer some way to probe whether PWM capture mode is
+enabled? I suspect so, because I see PWM_ENABLE.pwm_en enables the
+channel and PWM_CTRL.pwm_mode selects capture mode, so perhaps we're
+able to read the current state of those registers. If you're able to
+read those registers to determine the enable state, I'd suggest wrapping
+that into a helper function and calling it when you need to determine
+whether the capture mode is currently enabled.
+
+If we're not able to probe the enable state, is it safe to assume we're
+in a disabled state when the module loads, or should we ensure it by
+unconditionally disabling PWM capture mode during
+rockchip_pwm_capture_probe()?
+
+> +	spinlock_t enable_lock;
+> +};
+> +
+> +/*
+> + * Channel 0 receives a state changed notification whenever the LPC interrupt
+> + * fires.
+> + *
+> + * Channel 1 receives a state changed notification whenever the HPC interrupt
+> + * fires.
+> + */
+> +static struct counter_signal rkpwmc_signals[] = {
+> +	{
+> +		.id = 0,
+> +		.name = "Channel 0"
+> +	},
+> +	{
+> +		.id = 1,
+> +		.name = "Channel 1"
+> +	},
+> +};
+
+From "31.3.1 Capture Mode" of the Rockchip RK3506 Technical Reference
+Manual[^1], it looks like "clk_pwm" is the only signal that is counted
+for PWM_HPC AND PWM_LPC. So instead of two Signals, you would have just
+one Signal named "PWM Clock" which sources your two Synapses defined below.
+
+Technically, "pwm_in" is also a signal evaluated (its polarity is used
+to determine whether we're counting for PWM_HPC or PWM_LPC) but the
+respective Synapse would be COUNTER_SYNAPSE_ACTION_NONE because this
+signal not actually triggering the change in the count value. You're
+welcome to add the "pwm_in" signal here if you like, but I'd say it's
+optional if you actually want to expose it here.
+
+> +static const enum counter_synapse_action rkpwmc_hpc_lpc_actions[] = {
+> +	COUNTER_SYNAPSE_ACTION_BOTH_EDGES,
+> +
+> +};
+
+Add COUNTER_SYNAPSE_ACTION_NONE to this array. When the polarity is
+high, the Synapse for PWM_HPC will be active with
+COUNTER_SYNAPSE_ACTION_BOTH_EDGES, while the Synapse for PWM_LPC will be
+inactive with COUNTER_SYNAPSE_ACTION_NONE; the inverse occurs when the
+polarity switches to low.
+
+> +static struct counter_synapse rkpwmc_pwm_synapses[] = {
+> +	{
+> +		.actions_list = rkpwmc_hpc_lpc_actions,
+> +		.num_actions = ARRAY_SIZE(rkpwmc_hpc_lpc_actions),
+> +		.signal = &rkpwmc_signals[0]
+> +	},
+> +	{
+> +		.actions_list = rkpwmc_hpc_lpc_actions,
+> +		.num_actions = ARRAY_SIZE(rkpwmc_hpc_lpc_actions),
+> +		.signal = &rkpwmc_signals[1]
+> +	},
+> +};
+
+Both Synapses are sourced by the same single Signal ("PWM Clock") so set
+both "signal" members to &rkpwmc_signals[0].
+
+> +enum rkpwmc_count_id {
+> +	COUNT_LPC = 0,
+> +	COUNT_HPC = 1,
+> +};
+> +
+> +static struct counter_count rkpwmc_counts[] = {
+> +	{
+> +		.id = COUNT_LPC,
+> +		.name = "PWM core clock cycles during which the signal was low",
+> +		.functions_list = rkpwmc_functions,
+> +		.num_functions = ARRAY_SIZE(rkpwmc_functions),
+> +		.synapses = rkpwmc_pwm_synapses,
+> +		.num_synapses = ARRAY_SIZE(rkpwmc_pwm_synapses),
+> +		.ext = rkpwmc_ext,
+> +		.num_ext = ARRAY_SIZE(rkpwmc_ext),
+> +	},
+> +	{
+> +		.id = COUNT_HPC,
+> +		.name = "PWM core clock cycles during which the signal was high",
+> +		.functions_list = rkpwmc_functions,
+> +		.num_functions = ARRAY_SIZE(rkpwmc_functions),
+> +		.synapses = rkpwmc_pwm_synapses,
+> +		.num_synapses = ARRAY_SIZE(rkpwmc_pwm_synapses),
+> +		.ext = rkpwmc_ext,
+> +		.num_ext = ARRAY_SIZE(rkpwmc_ext),
+> +	},
+> +};
+
+Count names should be short and descriptive. I think the RK3506 manual
+section "31.4.2 Registers Summary" description for the PWM_HPC and
+PWM_LPC register do a pretty good job of that:
+
+* Low Polarity Capture
+* High Polarity Capture
+
+How about changing the two Count names to those respectively?
+
+> +static int rkpwmc_count_read(struct counter_device *counter,
+> +			     struct counter_count *count, u64 *value)
+> +{
+> +	struct rockchip_pwm_capture *pc = counter_priv(counter);
+> +
+> +	guard(spinlock)(&pc->enable_lock);
+> +
+> +	if (!pc->is_enabled) {
+> +		*value = 0;
+> +		return 0;
+> +	}
+
+I don't think there's a need to check whether capture mode is disabled.
+The user should be aware of the enable state of the Count by checking
+the respective "enable" attribute; and if they ignore that, a value of
+"0" doesn't inherently tell them that the Count is disabled which makes
+it moot to do so. I'd suggest just removing this check entirely and
+returning the register values unconditionally.
+
+> +
+> +	switch (count->id) {
+> +	case COUNT_LPC:
+> +		*value = mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_LPC);
+> +		return 0;
+> +	case COUNT_HPC:
+> +		*value = mfpwm_reg_read(pc->pwmf->base, PWMV4_REG_HPC);
+> +		return 0;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +}
+> +
+> +static const struct counter_ops rkpwmc_ops = {
+> +	.count_read = rkpwmc_count_read,
+> +};
+
+You should implement a signal_read() callback if its possible to probe
+the current state of PWM Clock. You should implement action_read() if
+its possible to probe the current polarity of "pwm_in" in order to set
+which Synapse is currently active.
+
+William Breathitt Gray
+
+[^1] https://opensource.rock-chips.com/images/3/36/Rockchip_RK3506_TRM_Part_1_V1.2-20250811.pdf
 
