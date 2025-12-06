@@ -4,77 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98DC4D3B7D2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 14:03:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A2D8D3B7D2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 14:19:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GKSnWg6NWwEkIcNKXNbfvm4L817slsSWPnT89fyPR1g=; b=M1Jdn+E94xcgyPEE5/TjBtjyaK
-	TTL1ToKWSySvA5SS4wY2ycUioquoOfWR9a57lt4WlNg8OZNO/LvvBaBGZsXfvHv3hq8aZHJDWiJzh
-	y13aGe3O2tF/zHZ5n9iaMgk60arY9c3hL9Aru85gU31IaBCOPR0FdNlVhNBrVhaHHj/4gH4lCbFi1
-	GeXR04Gt5nsfTlo89BcBZx2xibcIcuvXUo5ejSU7cATMBQwzpKQ/MT/vy6WkJ5ka1LZpwye6afEtG
-	KFb+6ra1ztFyr7irBSUkkijWoLsiNk57wNvhfSZY/uAgeCAfsDzotTqUOcJpOVyVWfkEU7VHnghe9
-	Nmvg2Axw==;
+	bh=LwXqL1oumPVi+Tsn8Xo+t9u6rxrBu5+Kx6A8R9PaH+8=; b=OX6IDK6ZKnBUn/RTUul/izf0UL
+	0hAPP+oueFcsX+oBG8Q7nXhdHHpwXJqZ6XUHdwjolArQz1VjRNEeq7SsuqlTTUaeXr82P0EPQpniO
+	9zhuINTWXjf7ior/nqQifQrE1nTjPIJFvItlYCINNjOz7pd9hVTtMCh7g7qWJr0T1GisUeVnbVXck
+	uSTzrwlWjp1RYn0UEkQ6ZnALgYluxW5uiUhK8S6dLYq3FgSUXxPDH0Pq90jb7wFBvv+lJ8xdT9kPI
+	Z2bhM+GOxjguFnzlPt+AkBBVHoYARCu7bYegRj2X6OCOmRvquU0sD+sZk1DyuNK4zn0/L09kOsRae
+	puXXwRiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRst5-0000000Axsd-0f4S;
-	Sat, 06 Dec 2025 14:03:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vRt86-0000000Ayft-0wdO;
+	Sat, 06 Dec 2025 14:19:22 +0000
+Received: from out30-119.freemail.mail.aliyun.com ([115.124.30.119])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRst3-0000000Axs5-1LOL;
-	Sat, 06 Dec 2025 14:03:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 033A440048;
-	Sat,  6 Dec 2025 14:03:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2150CC4CEF5;
-	Sat,  6 Dec 2025 14:03:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765029828;
-	bh=hNnKmiMyeRgIeXCMtSCwGavX0YkqanFzBfdi7Gpu9+4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=nYh6z6rpqfY2FbeUuFfjkodQ7A5pI52L49qoARyM7QmCedp4gtS+AtovDQUrtEVXu
-	 7QOPtvwxWBFKTh8Vj4sW+mt3IXqBLtv2vFrzg+TzMzaYVOIZrrGcfiPrXFgWO0EOLh
-	 t+Jv7CRsaqOUo27XxYe/4FFeA2ZTo+RNWLY+J5WsD4tgQg6nYhNrb6+RS1So25clTe
-	 6qoKSN7onIq6wOOR8Oca/IgAjEb5Cg2BkBgvc+Y5nmM0S1NKB0uG724OwKpZencAH/
-	 pyIl83ftRPUs/XX/2YFz+lci6ldms7Z/eF/cp6EGpupogKodQ8pgl8IVBZawhGcKnF
-	 LV4irtIO9EvKg==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Quan Zhou <quan.zhou@mediatek.com>,
-	druth@chromium.org,
-	Felix Fietkau <nbd@nbd.name>,
-	Sasha Levin <sashal@kernel.org>,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	leon.yen@mediatek.com,
-	alexandre.f.demers@gmail.com,
-	alexander.deucher@amd.com,
-	allan.wang@mediatek.com,
-	mingyen.hsieh@mediatek.com,
-	sean.wang@mediatek.com,
-	michael.lo@mediatek.com,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18-6.12] wifi: mt76: mt792x: fix wifi init fail by setting MCU_RUNNING after CLC load
-Date: Sat,  6 Dec 2025 09:02:29 -0500
-Message-ID: <20251206140252.645973-24-sashal@kernel.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251206140252.645973-1-sashal@kernel.org>
-References: <20251206140252.645973-1-sashal@kernel.org>
+	id 1vRt82-0000000AyfM-0c0h
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 06 Dec 2025 14:19:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1765030753; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=LwXqL1oumPVi+Tsn8Xo+t9u6rxrBu5+Kx6A8R9PaH+8=;
+	b=WjlWuvoN3614fMQI2dlTGRvYKZyB1AFV3UuPWle5iHJMjdZsa1gQpRn3Rpx5mDIGVGLGdFs4oC9q4zDMt9WhNoRXRd7q7mOUUkiwLWor6M55VUH8UaIy8KTub+TPWgX5rT9lF1gSXPlRsTDWy+W6Y1DPFnWXPGaWP6mhz82zGz4=
+Received: from 30.246.178.18(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WuBEwyB_1765030749 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Sat, 06 Dec 2025 22:19:10 +0800
+Message-ID: <1af0f768-4b3d-47a3-b59b-c56f034b1d1b@linux.alibaba.com>
+Date: Sat, 6 Dec 2025 22:19:08 +0800
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.18
-Content-Type: text/plain; charset=UTF-8
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH rc v1 1/4] iommu/arm-smmu-v3: Add ignored bits to fix STE
+ update sequence
+To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, will@kernel.org,
+ robin.murphy@arm.com
+Cc: joro@8bytes.org, linux-arm-kernel@lists.infradead.org,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ skolothumtho@nvidia.com, praan@google.com
+References: <cover.1764982046.git.nicolinc@nvidia.com>
+ <6ec73bb7cd03d90a0764f12c4b14071158163818.1764982046.git.nicolinc@nvidia.com>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <6ec73bb7cd03d90a0764f12c4b14071158163818.1764982046.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251206_060349_406418_B6EE8D01 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20251206_061919_656452_17468E86 
+X-CRM114-Status: GOOD (  30.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,207 +69,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Quan Zhou <quan.zhou@mediatek.com>
 
-[ Upstream commit 066f417be5fd8c7fe581c5550206364735dad7a3 ]
 
-Set the MT76_STATE_MCU_RUNNING bit only after mt7921_load_clc()
-has successfully completed. Previously, the MCU_RUNNING state
-was set before loading CLC, which could cause conflict between
-chip mcu_init retry and mac_reset flow, result in chip init fail
-and chip abnormal status. By moving the state set after CLC load,
-firmware initialization becomes robust and resolves init fail issue.
+在 2025/12/6 08:52, Nicolin Chen 写道:
+> From: Jason Gunthorpe <jgg@nvidia.com>
+> 
+> C_BAD_STE was observed when updating nested STE from an S1-bypass mode to
+> an S1DSS-bypass mode. As both modes enabled S2, the used bit is slightly
+> different than the normal S1-bypass and S1DSS-bypass modes. As a result,
+> fields like MEV and EATS in S2's used list marked the word1 as a critical
+> word that requested a STE.V=0. This breaks a hitless update.
+> 
+> However, both MEV and EATS aren't critical in terms of STE update. One
+> controls the merge of the events and the other controls the ATS that is
+> managed by the driver at the same time via pci_enable_ats().
+> 
+> Add an arm_smmu_get_ste_ignored() to allow STE update algorithm to ignore
+> those fields, avoiding the STE update breakages.
+> 
+> Note that this change is required by both MEV and EATS fields, which were
+> introduced in different kernel versions. So add this get_ignored() first.
+> The MEV and EATS will be added in arm_smmu_get_ste_ignored() separately.
+> 
+> Fixes: 1e8be08d1c91 ("iommu/arm-smmu-v3: Support IOMMU_DOMAIN_NESTED")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  2 ++
+>   .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  | 17 ++++++++++---
+>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 24 ++++++++++++-------
+>   3 files changed, 32 insertions(+), 11 deletions(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> index ae23aacc3840..d5f0e5407b9f 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> @@ -900,6 +900,7 @@ struct arm_smmu_entry_writer {
+>   
+>   struct arm_smmu_entry_writer_ops {
+>   	void (*get_used)(const __le64 *entry, __le64 *used);
+> +	void (*get_ignored)(__le64 *ignored_bits);
+>   	void (*sync)(struct arm_smmu_entry_writer *writer);
+>   };
+>   
+> @@ -911,6 +912,7 @@ void arm_smmu_make_s2_domain_ste(struct arm_smmu_ste *target,
+>   
+>   #if IS_ENABLED(CONFIG_KUNIT)
+>   void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits);
+> +void arm_smmu_get_ste_ignored(__le64 *ignored_bits);
+>   void arm_smmu_write_entry(struct arm_smmu_entry_writer *writer, __le64 *cur,
+>   			  const __le64 *target);
+>   void arm_smmu_get_cd_used(const __le64 *ent, __le64 *used_bits);
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
+> index d2671bfd3798..9287904c93a2 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
+> @@ -37,6 +37,7 @@ enum arm_smmu_test_master_feat {
+>   
+>   static bool arm_smmu_entry_differs_in_used_bits(const __le64 *entry,
+>   						const __le64 *used_bits,
+> +						const __le64 *ignored,
+>   						const __le64 *target,
+>   						unsigned int length)
+>   {
+> @@ -44,7 +45,7 @@ static bool arm_smmu_entry_differs_in_used_bits(const __le64 *entry,
+>   	unsigned int i;
+>   
+>   	for (i = 0; i < length; i++) {
+> -		if ((entry[i] & used_bits[i]) != target[i])
+> +		if ((entry[i] & used_bits[i]) != (target[i] & ~ignored[i]))
+>   			differs = true;
+>   	}
+>   	return differs;
+> @@ -56,12 +57,18 @@ arm_smmu_test_writer_record_syncs(struct arm_smmu_entry_writer *writer)
+>   	struct arm_smmu_test_writer *test_writer =
+>   		container_of(writer, struct arm_smmu_test_writer, writer);
+>   	__le64 *entry_used_bits;
+> +	__le64 *ignored_bits;
+>   
+>   	entry_used_bits = kunit_kzalloc(
+>   		test_writer->test, sizeof(*entry_used_bits) * NUM_ENTRY_QWORDS,
+>   		GFP_KERNEL);
+>   	KUNIT_ASSERT_NOT_NULL(test_writer->test, entry_used_bits);
+>   
+> +	ignored_bits = kunit_kzalloc(test_writer->test,
+> +				     sizeof(*ignored_bits) * NUM_ENTRY_QWORDS,
+> +				     GFP_KERNEL);
+> +	KUNIT_ASSERT_NOT_NULL(test_writer->test, ignored_bits);
+> +
+>   	pr_debug("STE value is now set to: ");
+>   	print_hex_dump_debug("    ", DUMP_PREFIX_NONE, 16, 8,
+>   			     test_writer->entry,
+> @@ -79,14 +86,17 @@ arm_smmu_test_writer_record_syncs(struct arm_smmu_entry_writer *writer)
+>   		 * configuration.
+>   		 */
+>   		writer->ops->get_used(test_writer->entry, entry_used_bits);
+> +		if (writer->ops->get_ignored)
+> +			writer->ops->get_ignored(ignored_bits);
+>   		KUNIT_EXPECT_FALSE(
+>   			test_writer->test,
+>   			arm_smmu_entry_differs_in_used_bits(
+>   				test_writer->entry, entry_used_bits,
+> -				test_writer->init_entry, NUM_ENTRY_QWORDS) &&
+> +				ignored_bits, test_writer->init_entry,
+> +				NUM_ENTRY_QWORDS) &&
+>   				arm_smmu_entry_differs_in_used_bits(
+>   					test_writer->entry, entry_used_bits,
+> -					test_writer->target_entry,
+> +					ignored_bits, test_writer->target_entry,
+>   					NUM_ENTRY_QWORDS));
+>   	}
+>   }
+> @@ -106,6 +116,7 @@ arm_smmu_v3_test_debug_print_used_bits(struct arm_smmu_entry_writer *writer,
+>   static const struct arm_smmu_entry_writer_ops test_ste_ops = {
+>   	.sync = arm_smmu_test_writer_record_syncs,
+>   	.get_used = arm_smmu_get_ste_used,
+> +	.get_ignored = arm_smmu_get_ste_ignored,
+>   };
+>   
+>   static const struct arm_smmu_entry_writer_ops test_cd_ops = {
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index d16d35c78c06..95a4cfc5882d 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -1082,6 +1082,12 @@ void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits)
+>   }
+>   EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_used);
+>   
+> +VISIBLE_IF_KUNIT
+> +void arm_smmu_get_ste_ignored(__le64 *ignored_bits)
+> +{
+> +}
+> +EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_ignored);
+> +
+>   /*
+>    * Figure out if we can do a hitless update of entry to become target. Returns a
+>    * bit mask where 1 indicates that qword needs to be set disruptively.
+> @@ -1094,11 +1100,14 @@ static u8 arm_smmu_entry_qword_diff(struct arm_smmu_entry_writer *writer,
+>   {
+>   	__le64 target_used[NUM_ENTRY_QWORDS] = {};
+>   	__le64 cur_used[NUM_ENTRY_QWORDS] = {};
+> +	__le64 ignored[NUM_ENTRY_QWORDS] = {};
+>   	u8 used_qword_diff = 0;
+>   	unsigned int i;
+>   
+>   	writer->ops->get_used(entry, cur_used);
+>   	writer->ops->get_used(target, target_used);
+> +	if (writer->ops->get_ignored)
+> +		writer->ops->get_ignored(ignored);
+>   
+>   	for (i = 0; i != NUM_ENTRY_QWORDS; i++) {
+>   		/*
+> @@ -1106,16 +1115,17 @@ static u8 arm_smmu_entry_qword_diff(struct arm_smmu_entry_writer *writer,
+>   		 * allowed to set a bit to 1 if the used function doesn't say it
+>   		 * is used.
+>   		 */
 
-Signed-off-by: Quan Zhou <quan.zhou@mediatek.com>
-Reviewed-by: druth@chromium.org
-Link: https://patch.msgid.link/19ec8e4465142e774f17801025accd0ae2214092.1763465933.git.quan.zhou@mediatek.com
-Signed-off-by: Felix Fietkau <nbd@nbd.name>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
+Hi, Jason,
 
-LLM Generated explanations, may be completely bogus:
+Instead of modifying the calculation logic, would it be cleaner to keep
+the original arm_smmu_get_ste_used() semantics intact and simply exclude
+ignored bits from cur_used after obtaining them?
 
-# Commit Analysis: wifi: mt76: mt792x: fix wifi init fail by setting
-MCU_RUNNING after CLC load
+For example, simply exclude the ignored bits from cur_used after
+obtaining it:
 
-## 1. COMMIT MESSAGE ANALYSIS
+         cur_used[i] &= ~ignored[i];
 
-**Subject:** Clearly indicates a bug fix ("fix wifi init fail")
+> -		WARN_ON_ONCE(target[i] & ~target_used[i]);
+> +		WARN_ON_ONCE(target[i] & ~target_used[i] & ~ignored[i]);
 
-**Problem described:** Setting `MT76_STATE_MCU_RUNNING` bit before CLC
-(Country/Legal Configuration) load completion could cause conflicts
-between MCU init retry and mac_reset flows, resulting in chip
-initialization failure and abnormal chip status.
+Keep arm_smmu_get_ste_used() unchanged so target_used still accurately
+reflects the bits actually used by hardware, then we do not need above
+changes.
 
-**Tags present:**
-- `Signed-off-by:` Quan Zhou (MediaTek - chip vendor) and Felix Fietkau
-  (mt76 maintainer)
-- `Reviewed-by:` druth@chromium.org (Chrome OS kernel team - indicates
-  real-world Chromebook impact)
-- No explicit `Cc: stable@vger.kernel.org` tag
-- No explicit `Fixes:` tag
 
-## 2. CODE CHANGE ANALYSIS
+>   
+>   		/* Bits can change because they are not currently being used */
+> -		unused_update[i] = (entry[i] & cur_used[i]) |
+> +		unused_update[i] = (entry[i] & (cur_used[i] | ignored[i])) |
+>   				   (target[i] & ~cur_used[i]);
+>   		/*
+>   		 * Each bit indicates that a used bit in a qword needs to be
+>   		 * changed after unused_update is applied.
+>   		 */
+> -		if ((unused_update[i] & target_used[i]) != target[i])
+> +		if ((unused_update[i] & target_used[i]) !=
+> +		    (target[i] & ~ignored[i]))
+>   			used_qword_diff |= 1 << i;
 
-The change is extremely simple and surgical:
+And since `ignored` bits are cleared from cur_used, applying
+unused_update to target will result in target itself. So we don't need
+the above changes either.
 
-**Before the fix:**
-```c
-set_bit(MT76_STATE_MCU_RUNNING, &dev->mphy.state);  // State set here
-err = mt7921_load_clc(dev, mt792x_ram_name(dev));   // CLC load after
-```
+The key insight is that we only need to exclude ignored bits from
+cur_used (which determines what can be updated non-disruptively), while
+keeping target_used intact for both the safety check and the final
+comparison.
 
-**After the fix:**
-```c
-err = mt7921_load_clc(dev, mt792x_ram_name(dev));   // CLC load first
-set_bit(MT76_STATE_MCU_RUNNING, &dev->mphy.state);  // State set after
-success
-```
+This way, we achieve the same goal with minimal changes to the existing
+logic.
 
-**Technical mechanism:**
-- `MT76_STATE_MCU_RUNNING` indicates the MCU is fully operational
-- Setting this flag prematurely (before CLC load) could allow other code
-  paths to think the MCU is ready when it's not
-- If something triggers MCU init retry or mac_reset during CLC load,
-  there's a race condition
-- The conflict causes complete initialization failure and abnormal chip
-  state
-
-**Why fix is correct:**
-- The state bit should only be set when initialization is truly complete
-- This ensures no code sees MCU_RUNNING during the vulnerable CLC
-  loading phase
-- Error handling remains intact (if CLC load fails, function returns
-  error)
-
-## 3. CLASSIFICATION
-
-- **Type:** Bug fix - initialization failure fix
-- **NOT** a feature addition
-- Fixes a real runtime bug affecting device usability
-
-## 4. SCOPE AND RISK ASSESSMENT
-
-| Factor | Assessment |
-|--------|------------|
-| Lines changed | ~6 lines (just moving 1 line in 2 files) |
-| Files touched | 2 (mt7921/mcu.c, mt7925/mcu.c) |
-| Complexity | Very low - simple reordering |
-| Regression risk | LOW - no logic changes, just timing |
-| Subsystem | Wireless driver (contained) |
-
-The change is almost purely a reordering operation within the same
-function. If CLC load succeeds, the state gets set (same as before, just
-later). If it fails, function returns error anyway.
-
-## 5. USER IMPACT
-
-**Affected hardware:** MediaTek mt7921 and mt7925 WiFi chips
-
-These are **extremely common** chips found in:
-- Many Chromebooks (Chrome OS review indicates this)
-- Consumer laptops (Dell, Lenovo, HP, etc.)
-- USB WiFi adapters
-- Various PC builds
-
-**Severity:** HIGH
-- WiFi initialization failure = device doesn't work at all
-- "chip abnormal status" suggests chip may be left in broken state
-- Users cannot use their WiFi until reboot or driver reload
-
-## 6. STABILITY INDICATORS
-
-- Reviewed by Chromium kernel team (indicates real-world testing on
-  Chromebooks)
-- From MediaTek engineer (hardware vendor knows their chip)
-- Accepted by mt76 maintainer Felix Fietkau
-- Clean, minimal change with clear rationale
-
-## 7. DEPENDENCY CHECK
-
-The change is self-contained. It only reorders existing function calls
-within `mt7921_run_firmware()` and `mt7925_run_firmware()`. No new
-dependencies are introduced.
-
-The mt7921 driver has been in stable kernels for some time. The mt7925
-is newer and may not exist in older stable trees, but the mt7921 portion
-would still be valuable.
-
-## STABLE KERNEL CRITERIA CHECK
-
-| Criterion | Met? | Notes |
-|-----------|------|-------|
-| Obviously correct | ✅ | Simple reordering, logic is clear |
-| Fixes real bug | ✅ | WiFi init failure - real user impact |
-| Small and contained | ✅ | 6 lines, 2 files, same subsystem |
-| No new features | ✅ | No new APIs or functionality |
-| No architectural changes | ✅ | Minimal change |
-
-## RISK vs BENEFIT
-
-**Benefit:** High - Fixes WiFi initialization failure on widely-deployed
-hardware. Without this fix, affected users may have non-functional WiFi.
-
-**Risk:** Very low - The change is a trivial reordering of two
-operations. The logic remains identical; only the timing of when the
-state bit is set changes. The fix has been reviewed by the chip vendor
-and Chrome OS team.
-
-## CONCLUSION
-
-This commit is an ideal candidate for stable backporting:
-
-1. **Fixes a real, user-visible bug** - WiFi doesn't work
-2. **Minimal change** - Just reordering one line in each of two files
-3. **Well-reviewed** - MediaTek and Chrome OS review
-4. **Low regression risk** - No logic changes, simple timing fix
-5. **High user impact** - mt7921/mt7925 are very common chips
-6. **Contained scope** - Only affects initialization path of specific
-   driver
-
-The lack of `Cc: stable` tag doesn't disqualify it - many legitimate
-fixes don't include this tag. The important factors are all positive: it
-fixes a real bug, is small, safe, and affects real users.
-
-**YES**
-
- drivers/net/wireless/mediatek/mt76/mt7921/mcu.c | 2 +-
- drivers/net/wireless/mediatek/mt76/mt7925/mcu.c | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7921/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7921/mcu.c
-index 86bd33b916a9d..edc1df3c071e5 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7921/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7921/mcu.c
-@@ -646,10 +646,10 @@ int mt7921_run_firmware(struct mt792x_dev *dev)
- 	if (err)
- 		return err;
- 
--	set_bit(MT76_STATE_MCU_RUNNING, &dev->mphy.state);
- 	err = mt7921_load_clc(dev, mt792x_ram_name(dev));
- 	if (err)
- 		return err;
-+	set_bit(MT76_STATE_MCU_RUNNING, &dev->mphy.state);
- 
- 	return mt7921_mcu_fw_log_2_host(dev, 1);
- }
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-index 8eda407e4135e..c12b71b71cfc7 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
-@@ -1003,10 +1003,10 @@ int mt7925_run_firmware(struct mt792x_dev *dev)
- 	if (err)
- 		return err;
- 
--	set_bit(MT76_STATE_MCU_RUNNING, &dev->mphy.state);
- 	err = mt7925_load_clc(dev, mt792x_ram_name(dev));
- 	if (err)
- 		return err;
-+	set_bit(MT76_STATE_MCU_RUNNING, &dev->mphy.state);
- 
- 	return mt7925_mcu_fw_log_2_host(dev, 1);
- }
--- 
-2.51.0
-
+Thanks.
+Shuai
 
