@@ -4,85 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA23D3ABC4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 00:20:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13E8ED3ABC2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 00:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DfpzWNiupf9oyWVJGMgXVTAvVfysSBzo629ptknGMjs=; b=lcvHKa8N609ZJ9burVVthqzWio
-	WD6cbo/sxQ/13PWJW9xoLHzc3pDXMJLMJeE4d4RntDF2dE+lv0FZMJoFIBqg0+0n8YMsMNsBk00ip
-	y/0WLJNW880470Micepib7fSaeMPEUhPICzwo2W7kRzTtHr5spAkRwopum5hrVxQmf4BwO43L0OK3
-	aOzIv+khS2FC1GOhjTXBVJCzRnengU0QK4vEdnb8eGgzm90Beu7/x9SlukOEXR9OByf+kMj9Uwi8I
-	GnOZcXPksBGWHA9E6y4oseIChOG4u7hA+ZpdF9sgU/nac267L7UUaZvJlp0NUkB94hhtILPiRvhb4
-	nISbYclA==;
+	bh=2n5D0Ng0cmebeVdxSFqRanF8f5+ncu9wEbeJjFPfHxU=; b=vphx29QfuaALamaM+LTFfDoSS0
+	axh+z7h4/72/laTPkYAfij8ZknPSbaYyZpe6xCIj2FSVYpD5y4dZSx8crHUgxr9AwDkuZkta7TSD6
+	zy84fjR14VlViILQtEnleizWD5C9sx6lDSivCMSyH5Lfnwximz/fAR06NqnnNLl1izQy8TvEPwsrt
+	+KdrzitPGS4FakFrwYLmOY/Nz3YTrJle+VsJhwNbsZ1PCF1/gL90C+zDWidSvpCJI14gofYvzP4pF
+	r22/IZQkxwTy8ahXLIpXpOnWlf7IQ1HzSk2TVhcVRA/+vdlf4iAEHHHbQ7onnNGRX9FA5ySQGEdXN
+	fq5bASHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRg1v-0000000AIcZ-1VIA;
-	Sat, 06 Dec 2025 00:20:07 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vRg20-0000000AIne-0m6t;
+	Sat, 06 Dec 2025 00:20:12 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRg0W-0000000AFth-3f0D
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 06 Dec 2025 00:18:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=DfpzWNiupf9oyWVJGMgXVTAvVfysSBzo629ptknGMjs=; b=DTjZvvF4CamwaFPl0Rf5ny5Gwc
-	BqUMjlyz9rqB8Gma4pAwjxlwNV5slEOcGFJqtHyE6ZMFT9d5z3GHQqYtQUkCOukJYiIHbdOukQkTH
-	HOERaF6wAWKtt/gaZbNwvn8jR/qGjp/+4Woo52yS7l7cN/Wy99eZhSSxgi8fHc5bjvm1i1RAVJRJk
-	9REuA70qX+iA6O7IafLqp5UumclAQJm4TDrkFOmGJyWrRe9jXImo5PEKmgyH+Xjxlv2FPHPdz2YLR
-	cOiM1U3YCP9rZgrTwFdREWu72sTTDTOGRV692+z6UMVR5vFJFEM6Cc7nlORm/ehFF5b9DOJw7M+XR
-	8bhGy3Jg==;
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRg0R-00000006ScB-2PKY
+	id 1vRg0a-0000000AFyX-28j3
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Dec 2025 00:18:39 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-3436d81a532so4711725a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 16:18:35 -0800 (PST)
+	Sat, 06 Dec 2025 00:18:45 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-29da1ea0b97so53775775ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 16:18:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764980312; x=1765585112; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1764980322; x=1765585122; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=DfpzWNiupf9oyWVJGMgXVTAvVfysSBzo629ptknGMjs=;
-        b=jP9Xn7aGP3pqAnot0DCWKGeeEndBWFH3NvCg1IxcqGoOEtpqiZK21Hc6mrn/hBbCe1
-         umTCPLdXYtjVVm/sILpM6B8LjM9xRf7xHdY9q73QyWnlM7Sc5TASqf3/kswJ+j1aSYnC
-         8QimUmwzr51qcp8/Zr6VxGgdhc6YYVLjiT1+OfmuokywZy8klKbB3PpEEQmiIqvcq5gc
-         ej/3HxIGymfKu3SHHT4uViAmgiaw81gBRuxMeUleAuZEyIreXMnOcOwSx0AKMtdJiMdc
-         JpLvfYcR0ETyvM9klu1aM615TP3uic8T2XzVFFhJAM2Myi09RQsXZlsiBu5UA+Ob1uyh
-         s+FA==
+        bh=2n5D0Ng0cmebeVdxSFqRanF8f5+ncu9wEbeJjFPfHxU=;
+        b=tdmL7xKhjLhTZVduKKDyjxC2Rkv4DCSprkYlytrxOrN9MDh+owlmiuk20D54TzPqKu
+         bIS3iuZzzooRFJ4fayglAo35iNwj231izzXheNcUQP+v0EtxKVYag0Kn2/CyiLgyP9m7
+         q8hz+PqdKCAzSsft3DTlZ8v98+TSKtHaerCzUpUhxTQUQ8hrHzNhuliIYGbxh6DCimF2
+         5vTanPGfLwHwyBlFkL5azpgddGv2+V++NJNsmKdgkJojaVVHqeMN42yV4+M4VYXi/nHi
+         AQbBwJyJcKpGYi4taQihlD/Uj6LdMsgGylzi9kVVu37K+7kfASPPHTwC72ksf9s+G8j9
+         9Qgw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764980312; x=1765585112;
+        d=1e100.net; s=20230601; t=1764980322; x=1765585122;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=DfpzWNiupf9oyWVJGMgXVTAvVfysSBzo629ptknGMjs=;
-        b=s6HnAwmLQ3kfFXuqh0oq3wLd935WNaSHrU+bPTqCsabZ2jdhYtLHkG/3pbv8MzdGqg
-         j8+dQZ1922U5l5rY5z9NYNkA8YzyG/QZrhL2bB7CwGaLPK9nHV/K27bvJHObGx98QEE0
-         MkAt+PCeCcbhnDTgYNHL6l3deCb/FoTpw0qQOO95WCC09fjw7urlZ9syKLj/2PvQgdLI
-         1qTRStXy/NK+LH/pGglotYnoVsaxteuTaqpLSvufW47hBwgD7hOl6WlRyGv0uCEXP2MM
-         Wc1YWenKYVBFTX6TeZzezOJWU6XJGo34ob/Qf3fSIIT0nmTKHO6+Lb+Pr4WGv8jDrvr0
-         8BLg==
-X-Gm-Message-State: AOJu0YyUrnmPd/Gq2rjtHICWt5xzPPA3xCNX3FWvR9fIcCqsiZYcgoQa
-	l1j1bGa84zaRHxlTg7jml5N6gWpO/xHqCl5pguIJ0nv2YJCUj+khefemGqUOhXUlh6/DLN56Uwn
-	tm9KqvA==
-X-Google-Smtp-Source: AGHT+IECzGPhAX0jAKjnbhpxSt8tw9U2yWj2g1X4v/o1b69MxFOOkQezmGTBDbALh6waJ5b9ZWPa3i4t9I0=
-X-Received: from pjbsb13.prod.google.com ([2002:a17:90b:50cd:b0:340:c0e9:24b6])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:55c4:b0:341:8adc:76d2
- with SMTP id 98e67ed59e1d1-349a2518ceamr601732a91.16.1764980312307; Fri, 05
- Dec 2025 16:18:32 -0800 (PST)
-Date: Fri,  5 Dec 2025 16:17:09 -0800
+        bh=2n5D0Ng0cmebeVdxSFqRanF8f5+ncu9wEbeJjFPfHxU=;
+        b=uxfkTux3giPbFTTX1DatwLPaPJyXUkT1uNrromL3C9j/tszDgdOTOQQ5nfXai9IbJP
+         S7xM1pc3CWkoYZ4aNcM+RLV7wO0mHdBDa2q9Ikl1boZGFceCLxPR73xWsmIJOkQMTZ/t
+         31jPm0M+dgQv+hGiQgQWstiCqGUjq8er1/nKB7bwq+mOiAKKsHRhlh2+RHsUWNbLQUju
+         i1OA7gQymwRk0AoYAaz9shWhln7JLPrX+eHerVXwMIboe42Zdk8VW/kEQruKgGDnymUM
+         gUuHR4fHm7Lb0spE8WPq7a2riKR1OWi0Utf3bDoB50lQBykGAi+KUDBAoKSTa+Jx1z+v
+         TbTA==
+X-Gm-Message-State: AOJu0YwhY8Fm2pC47pWEAshzZxBPL1MK9q33MgU3MMkvO/dDJABsSoq9
+	TLHwALT3/9Z5JGE8yGRBPTs5fjCNo4EvORKRDfqE93XuPyaTptvn40kgf22WqzYsSP860BB5cFB
+	qnXcIgw==
+X-Google-Smtp-Source: AGHT+IED91Xjb0+dxO7/M2E0zHU6IQhei8lnafvXM15EOvowaasBkt+pNEKc95Jh7HmLdvF7r/s8Wu6xUzQ=
+X-Received: from plbky13.prod.google.com ([2002:a17:902:f98d:b0:29d:5afa:2c5])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:d48f:b0:295:62d:5004
+ with SMTP id d9443c01a7336-29df5695ff4mr7109145ad.26.1764980321808; Fri, 05
+ Dec 2025 16:18:41 -0800 (PST)
+Date: Fri,  5 Dec 2025 16:17:13 -0800
 In-Reply-To: <20251206001720.468579-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251206001720.468579-1-seanjc@google.com>
 X-Mailer: git-send-email 2.52.0.223.gf5cc29aaa4-goog
-Message-ID: <20251206001720.468579-34-seanjc@google.com>
-Subject: [PATCH v6 33/44] KVM: x86/pmu: Expose enable_mediated_pmu parameter
- to user space
+Message-ID: <20251206001720.468579-38-seanjc@google.com>
+Subject: [PATCH v6 37/44] KVM: VMX: Dedup code for removing MSR from VMCS's
+ auto-load list
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -101,8 +86,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251206_001835_784229_E6F5AAB4 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20251205_161844_607507_5768E276 
+X-CRM114-Status: GOOD (  12.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,119 +103,69 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dapeng Mi <dapeng1.mi@linux.intel.com>
+Add a helper to remove an MSR from an auto-{load,store} list to dedup the
+msr_autoload code, and in anticipation of adding similar functionality for
+msr_autostore.
 
-Expose enable_mediated_pmu parameter to user space, i.e. allow userspace
-to enable/disable mediated vPMU support.
+No functional change intended.
 
-Document the mediated versus perf-based behavior as part of the
-kernel-parameters.txt entry, and opportunistically add an entry for the
-core enable_pmu param as well.
-
-Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
-Signed-off-by: Mingwei Zhang <mizhang@google.com>
-Tested-by: Xudong Hao <xudong.hao@intel.com>
-Co-developed-by: Sean Christopherson <seanjc@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- .../admin-guide/kernel-parameters.txt         | 49 +++++++++++++++++++
- arch/x86/kvm/svm/svm.c                        |  2 +
- arch/x86/kvm/vmx/vmx.c                        |  2 +
- 3 files changed, 53 insertions(+)
+ arch/x86/kvm/vmx/vmx.c | 31 ++++++++++++++++---------------
+ 1 file changed, 16 insertions(+), 15 deletions(-)
 
-diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
-index 6c42061ca20e..ed6f2ed94756 100644
---- a/Documentation/admin-guide/kernel-parameters.txt
-+++ b/Documentation/admin-guide/kernel-parameters.txt
-@@ -2926,6 +2926,26 @@
- 
- 			Default is Y (on).
- 
-+	kvm.enable_pmu=[KVM,X86]
-+			If enabled, KVM will virtualize PMU functionality based
-+			on the virtual CPU model defined by userspace.  This
-+			can be overridden on a per-VM basis via
-+			KVM_CAP_PMU_CAPABILITY.
-+
-+			If disabled, KVM will not virtualize PMU functionality,
-+			e.g. MSRs, PMCs, PMIs, etc., even if userspace defines
-+			a virtual CPU model that contains PMU assets.
-+
-+			Note, KVM's vPMU support implicitly requires running
-+			with an in-kernel local APIC, e.g. to deliver PMIs to
-+			the guest.  Running without an in-kernel local APIC is
-+			not supported, though KVM will allow such a combination
-+			(with severely degraded functionality).
-+
-+			See also enable_mediated_pmu.
-+
-+			Default is Y (on).
-+
- 	kvm.enable_virt_at_load=[KVM,ARM64,LOONGARCH,MIPS,RISCV,X86]
- 			If enabled, KVM will enable virtualization in hardware
- 			when KVM is loaded, and disable virtualization when KVM
-@@ -2972,6 +2992,35 @@
- 			If the value is 0 (the default), KVM will pick a period based
- 			on the ratio, such that a page is zapped after 1 hour on average.
- 
-+	kvm-{amd,intel}.enable_mediated_pmu=[KVM,AMD,INTEL]
-+			If enabled, KVM will provide a mediated virtual PMU,
-+			instead of the default perf-based virtual PMU (if
-+			kvm.enable_pmu is true and PMU is enumerated via the
-+			virtual CPU model).
-+
-+			With a perf-based vPMU, KVM operates as a user of perf,
-+			i.e. emulates guest PMU counters using perf events.
-+			KVM-created perf events are managed by perf as regular
-+			(guest-only) events, e.g. are scheduled in/out, contend
-+			for hardware resources, etc.  Using a perf-based vPMU
-+			allows guest and host usage of the PMU to co-exist, but
-+			incurs non-trivial overhead and can result in silently
-+			dropped guest events (due to resource contention).
-+
-+			With a mediated vPMU, hardware PMU state is context
-+			switched around the world switch to/from the guest.
-+			KVM mediates which events the guest can utilize, but
-+			gives the guest direct access to all other PMU assets
-+			when possible (KVM may intercept some accesses if the
-+			virtual CPU model provides a subset of hardware PMU
-+			functionality).  Using a mediated vPMU significantly
-+			reduces PMU virtualization overhead and eliminates lost
-+			guest events, but is mutually exclusive with using perf
-+			to profile KVM guests and adds latency to most VM-Exits
-+			(to context switch PMU state).
-+
-+			Default is N (off).
-+
- 	kvm-amd.nested=	[KVM,AMD] Control nested virtualization feature in
- 			KVM/SVM. Default is 1 (enabled).
- 
-diff --git a/arch/x86/kvm/svm/svm.c b/arch/x86/kvm/svm/svm.c
-index cbebd3a18918..20fb7c38bf75 100644
---- a/arch/x86/kvm/svm/svm.c
-+++ b/arch/x86/kvm/svm/svm.c
-@@ -170,6 +170,8 @@ module_param(intercept_smi, bool, 0444);
- bool vnmi = true;
- module_param(vnmi, bool, 0444);
- 
-+module_param(enable_mediated_pmu, bool, 0444);
-+
- static bool svm_gp_erratum_intercept = true;
- 
- static u8 rsm_ins_bytes[] = "\x0f\xaa";
 diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-index f0a20ff2a941..62ba2a2b9e98 100644
+index 52bcb817cc15..a51f66d1b201 100644
 --- a/arch/x86/kvm/vmx/vmx.c
 +++ b/arch/x86/kvm/vmx/vmx.c
-@@ -150,6 +150,8 @@ module_param_named(preemption_timer, enable_preemption_timer, bool, S_IRUGO);
- extern bool __read_mostly allow_smaller_maxphyaddr;
- module_param(allow_smaller_maxphyaddr, bool, S_IRUGO);
+@@ -1040,9 +1040,22 @@ static int vmx_find_loadstore_msr_slot(struct vmx_msrs *m, u32 msr)
+ 	return -ENOENT;
+ }
  
-+module_param(enable_mediated_pmu, bool, 0444);
++static void vmx_remove_auto_msr(struct vmx_msrs *m, u32 msr,
++				unsigned long vmcs_count_field)
++{
++	int i;
 +
- #define KVM_VM_CR0_ALWAYS_OFF (X86_CR0_NW | X86_CR0_CD)
- #define KVM_VM_CR0_ALWAYS_ON_UNRESTRICTED_GUEST X86_CR0_NE
- #define KVM_VM_CR0_ALWAYS_ON				\
++	i = vmx_find_loadstore_msr_slot(m, msr);
++	if (i < 0)
++		return;
++
++	--m->nr;
++	m->val[i] = m->val[m->nr];
++	vmcs_write32(vmcs_count_field, m->nr);
++}
++
+ static void clear_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr)
+ {
+-	int i;
+ 	struct msr_autoload *m = &vmx->msr_autoload;
+ 
+ 	switch (msr) {
+@@ -1063,21 +1076,9 @@ static void clear_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr)
+ 		}
+ 		break;
+ 	}
+-	i = vmx_find_loadstore_msr_slot(&m->guest, msr);
+-	if (i < 0)
+-		goto skip_guest;
+-	--m->guest.nr;
+-	m->guest.val[i] = m->guest.val[m->guest.nr];
+-	vmcs_write32(VM_ENTRY_MSR_LOAD_COUNT, m->guest.nr);
+ 
+-skip_guest:
+-	i = vmx_find_loadstore_msr_slot(&m->host, msr);
+-	if (i < 0)
+-		return;
+-
+-	--m->host.nr;
+-	m->host.val[i] = m->host.val[m->host.nr];
+-	vmcs_write32(VM_EXIT_MSR_LOAD_COUNT, m->host.nr);
++	vmx_remove_auto_msr(&m->guest, msr, VM_ENTRY_MSR_LOAD_COUNT);
++	vmx_remove_auto_msr(&m->host, msr, VM_EXIT_MSR_LOAD_COUNT);
+ }
+ 
+ static __always_inline void add_atomic_switch_msr_special(struct vcpu_vmx *vmx,
 -- 
 2.52.0.223.gf5cc29aaa4-goog
 
