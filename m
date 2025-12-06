@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D453D3ABC8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 00:24:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CE03D3ABC8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 00:25:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QTKuKPWFr6bVN6iN1gTHfORH5j78nQLhYRuj2ERNrVM=; b=3xUqLBFB328gvish2dj03PQAQp
-	7Nm808k8uvUiM/T3n1SrA+eQnjEp4dAW207ON1y65phzIqXpV5B5wBpy77REoP2yWTSGj7By9WmXj
-	b/8qfUqIjjJKmak4MIPJSbf8EoepCk4OgRtmvTfTpMlbIa+23qDsEcrgicimcGmRHFgfbq/Kwob3r
-	acpGIrvQvpSKoXqljMKG0q6w/WaC/r1FnotgWS/gR3rcJVRaefi3QGOfj+xMVi97idUDn7ntdFZjU
-	HszJuCRpIHSLxGIcqOyqW65xMi4krqNB2+PmuD0M5U29WR77vpH8Q0Altn+euUliBJfrjXYHIw+sr
-	Y2omJ7UA==;
+	bh=EW7FbaDPVd5t9h4ibnQZUOMw78F2xoAgB/he+4U2Bes=; b=B+HsxQDqVjlzthtskMiz9B3V8V
+	OcAcvhp0SDnWqBfoORkaqN6Ml3L/tkQINdhlzaFZMHlztWo58nFQJxuRFH0nlzfAVn47i42BbPQaA
+	9z1nqqUMpFI/q85RbVqtosrIyMT45VCxSlTDsRpXa9/ibXLgLL6wMjwpU3hu8QpccLH3+dh8mQgE2
+	8UekfJTnfaWe/zEaR6WpAB8P3nhnAH682iHfDlmlTiv6oNhA+8YiPp5k0PeScN1xdd0WspcxFKuyw
+	9AhrEmJnpa3i22IPnzQFEUagltnzZFosi0GxzReDXCKCR50ofi/a0jhwkQ4A/T5LbEln0GV+iiyVZ
+	jB80ijiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRg6N-0000000AMKW-2EUN;
-	Sat, 06 Dec 2025 00:24:43 +0000
-Received: from mail-vs1-xe4a.google.com ([2607:f8b0:4864:20::e4a])
+	id 1vRg6h-0000000AMPa-0jVT;
+	Sat, 06 Dec 2025 00:25:03 +0000
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRg6K-0000000AMK3-2w2T
+	id 1vRg6f-0000000AMOP-0BxL
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Dec 2025 00:24:41 +0000
-Received: by mail-vs1-xe4a.google.com with SMTP id ada2fe7eead31-5dfc0d331f9so3777593137.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 16:24:39 -0800 (PST)
+	Sat, 06 Dec 2025 00:25:02 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-7bad1cef9bcso5135998b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 16:25:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764980679; x=1765585479; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1764980700; x=1765585500; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=QTKuKPWFr6bVN6iN1gTHfORH5j78nQLhYRuj2ERNrVM=;
-        b=SeyWdugwjrOQszi8BmVDhG1qXd6cFyaK6looMQe9Beqedc49i3rmz74ZzwumdVHV/C
-         E8sv744kP4GBp6Vpuj2XOWWm26V9PrrTLxR10+LqEBmv2F0rLWEh3mjV04pcOWo1oUTg
-         ve9pDPdJ3tXr2nkpWa0qst130c3esJi+sMQUhbASolsJ2dstwTegHnZz2JOPn04TbjI6
-         1O+yFdyzmZwbBfU0TIJMonB0S8PWRVyhrqHQ1KMD/yrtXdptFhDkEqjcu+tDmOhaaKpl
-         b0szJ80dhwaK5hASqC4Be3mNbzgxblR66VryMaop9qVMoIjszqf7PUphU1LH5XBeqiwG
-         7DNg==
+        bh=EW7FbaDPVd5t9h4ibnQZUOMw78F2xoAgB/he+4U2Bes=;
+        b=PufYtinjmdWCor9QbJb9SedM/18D4XGrSmUFENt1tm7NSySeDsRd2fD66NPNTDw1x8
+         VGsibxWkyzAwzWz1gg27ap+CH9M3grZGk6qs4CVgpGF740UL9qJRU0QS3uwvckP2Okkj
+         4UoJtjKj/QsfHBaqrkm0ojMq1orvR/A82UB57I3EOB1v6eejXA2nh+3djnMCZ1YzBw6J
+         dRjsCPH0dvlcXLy1oiM1aA1b76x6ZeHhUImIahz9SEjUR70ysTrbyBVOPxeGDjV45o//
+         VuVR8RKgtMvr4O4G9BjdpUGbpLnaDtXUBm7nYCwNmkLVn2U+QgiBUXlZ7WhclAIUrWNc
+         GofA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764980679; x=1765585479;
+        d=1e100.net; s=20230601; t=1764980700; x=1765585500;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=QTKuKPWFr6bVN6iN1gTHfORH5j78nQLhYRuj2ERNrVM=;
-        b=K5QAzT4n5bwI0hv512XVmhUHM/SRG1bfAx21Aw6glwk8WiU2nw2X6zG0QF8J6pAnbs
-         DjSpNdkkbqSR2VEQda/ZL+jy8qjYUwKQRgvVaRy1Uyg9X7Q/Vr3I1J6v3XITcRroTlnA
-         QXpMBL6I6QcQ7gJ0ljVY/bRLzPa0/bo9csC5g4HlsWVPEJbiPveuG45YyZNYb9deSipr
-         QMpEULvGuN5M2LxSY9hSHOefonYOwSMzMi0NadscPnRNlYJqYUReh7FxMu9FDGEB9Lh6
-         gGvIpqaoE58nn4JgAWXbCoUixKFBQnOTdiqfR0ptR+4VdsJRfO2gDhjETmHH8dD009Dt
-         C6IQ==
-X-Gm-Message-State: AOJu0YzTIIk7OozLl2K2euYkvSGw9XgZL9W1xQh/a/ucjKNb2NggU3IU
-	Fsk8LDiUTdozhSFPJgBjEtUiJqSD1HMxgnP2Vc6cd8MRJwJl24sYlwLE8FelFupLxZfd/usXcWq
-	FhODlNw==
-X-Google-Smtp-Source: AGHT+IHwEgCif9QeztnHlCZf32TA1mft1ORkKdnbi9mkgV4eyxEEshqnwgTA7OOXOPfobSPR/sGAg/rO4Do=
-X-Received: from pfjc12.prod.google.com ([2002:a05:6a00:8c:b0:7e5:49a7:f55f])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:7f91:b0:363:cd5e:8f87
- with SMTP id adf61e73a8af0-36617ea8befmr929454637.13.1764980329483; Fri, 05
- Dec 2025 16:18:49 -0800 (PST)
-Date: Fri,  5 Dec 2025 16:17:17 -0800
+        bh=EW7FbaDPVd5t9h4ibnQZUOMw78F2xoAgB/he+4U2Bes=;
+        b=MKDWdsMbFjoKstOOna92UKREKz4EODyq+ZE3Hu7WzAuZU/vOGF/mTYFBOyKIzs+O+M
+         5zfXAXsmYdNfPWf5Itx8bNmC7ZqtbF1aP9oTGPouBj9h9XDAWTQRlGYOfBJfrMgila4N
+         N2A/VfrFm1eT/HMt2NRc2h3jsx2Q0u6XiMJTvtBj8nEtEHHwzF/RS++QSlxAQQCx+lS6
+         /SOcgfdGFhfPmU06VWEMLUjIBXMt59iylLLt2cm8LdaqemjZIR0+cIQe2uzwYIJAX6ux
+         yXqXUHrWl4pUR1HOg6AGaR+Qvyrau63k6g8RCRn/p8fls8dJsxVpvUoiwY6PcwXOr6Ai
+         KZ2w==
+X-Gm-Message-State: AOJu0YzdjUjrrcFRx6qHDSt/FsOLqzHLJZNHIQpT69m+9LDNQmlr7Q9a
+	2g4pIPgVPi+4EzOESQ9YoZ9pzEklq1dhpNgnqYXuydyFxuifhBcQ6oio3jPDXrH8qad9cVco/nV
+	M4i9KAg==
+X-Google-Smtp-Source: AGHT+IEzWFttnZLEQAsOaxYvtzWLuPcRq6QltY73DikVd5gmywMn7Yi+CzZHr3S07fvHdxIzVSJyvXKfRes=
+X-Received: from plrc6.prod.google.com ([2002:a17:902:aa46:b0:29d:5afa:2de])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:32d0:b0:294:f310:5218
+ with SMTP id d9443c01a7336-29df4cb6bfamr6615315ad.0.1764980310360; Fri, 05
+ Dec 2025 16:18:30 -0800 (PST)
+Date: Fri,  5 Dec 2025 16:17:08 -0800
 In-Reply-To: <20251206001720.468579-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251206001720.468579-1-seanjc@google.com>
 X-Mailer: git-send-email 2.52.0.223.gf5cc29aaa4-goog
-Message-ID: <20251206001720.468579-42-seanjc@google.com>
-Subject: [PATCH v6 41/44] KVM: VMX: Compartmentalize adding MSRs to host vs.
- guest auto-load list
+Message-ID: <20251206001720.468579-33-seanjc@google.com>
+Subject: [PATCH v6 32/44] KVM: nSVM: Disable PMU MSR interception as
+ appropriate while running L2
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -86,8 +86,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_162440_770895_94E45D2D 
-X-CRM114-Status: GOOD (  13.71  )
+X-CRM114-CacheID: sfid-20251205_162501_081963_6DFCBC8D 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,72 +103,54 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Undo the bundling of the "host" and "guest" MSR auto-load list logic so
-that the code can be deduplicated by factoring out the logic to a separate
-helper.  Now that "list full" situations are treated as fatal to the VM,
-there is no need to pre-check both lists.
+Add MSRs that might be passed through to L1 when running with a mediated
+PMU to the nested SVM's set of to-be-merged MSR indices, i.e. disable
+interception of PMU MSRs when running L2 if both KVM (L0) and L1 disable
+interception.  There is no need for KVM to interpose on such MSR accesses,
+e.g. if L1 exposes a mediated PMU (or equivalent) to L2.
 
-For all intents and purposes, this reverts the add_atomic_switch_msr()
-changes made by commit 3190709335dd ("x86/KVM/VMX: Separate the VMX
-AUTOLOAD guest/host number accounting").
-
+Tested-by: Xudong Hao <xudong.hao@intel.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/vmx/vmx.c | 23 ++++++++++++-----------
- 1 file changed, 12 insertions(+), 11 deletions(-)
+ arch/x86/kvm/svm/nested.c | 18 +++++++++++++++++-
+ 1 file changed, 17 insertions(+), 1 deletion(-)
 
-diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-index be2a2580e8f1..018e01daab68 100644
---- a/arch/x86/kvm/vmx/vmx.c
-+++ b/arch/x86/kvm/vmx/vmx.c
-@@ -1096,9 +1096,9 @@ static __always_inline void add_atomic_switch_msr_special(struct vcpu_vmx *vmx,
- static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
- 				  u64 guest_val, u64 host_val)
- {
--	int i, j = 0;
- 	struct msr_autoload *m = &vmx->msr_autoload;
- 	struct kvm *kvm = vmx->vcpu.kvm;
-+	int i;
+diff --git a/arch/x86/kvm/svm/nested.c b/arch/x86/kvm/svm/nested.c
+index ba0f11c68372..93140ccec95d 100644
+--- a/arch/x86/kvm/svm/nested.c
++++ b/arch/x86/kvm/svm/nested.c
+@@ -194,7 +194,7 @@ void recalc_intercepts(struct vcpu_svm *svm)
+  * Hardcode the capacity of the array based on the maximum number of _offsets_.
+  * MSRs are batched together, so there are fewer offsets than MSRs.
+  */
+-static int nested_svm_msrpm_merge_offsets[7] __ro_after_init;
++static int nested_svm_msrpm_merge_offsets[10] __ro_after_init;
+ static int nested_svm_nr_msrpm_merge_offsets __ro_after_init;
+ typedef unsigned long nsvm_msrpm_merge_t;
  
- 	switch (msr) {
- 	case MSR_EFER:
-@@ -1133,25 +1133,26 @@ static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
- 	}
- 
- 	i = vmx_find_loadstore_msr_slot(&m->guest, msr);
--	j = vmx_find_loadstore_msr_slot(&m->host, msr);
--
--	if (KVM_BUG_ON(i < 0 && m->guest.nr == MAX_NR_LOADSTORE_MSRS, kvm) ||
--	    KVM_BUG_ON(j < 0 &&  m->host.nr == MAX_NR_LOADSTORE_MSRS, kvm))
--		return;
--
- 	if (i < 0) {
-+		if (KVM_BUG_ON(m->guest.nr == MAX_NR_LOADSTORE_MSRS, kvm))
-+			return;
+@@ -222,6 +222,22 @@ int __init nested_svm_init_msrpm_merge_offsets(void)
+ 		MSR_IA32_LASTBRANCHTOIP,
+ 		MSR_IA32_LASTINTFROMIP,
+ 		MSR_IA32_LASTINTTOIP,
 +
- 		i = m->guest.nr++;
- 		m->guest.val[i].index = msr;
- 		vmcs_write32(VM_ENTRY_MSR_LOAD_COUNT, m->guest.nr);
- 	}
- 	m->guest.val[i].value = guest_val;
- 
--	if (j < 0) {
--		j = m->host.nr++;
--		m->host.val[j].index = msr;
-+	i = vmx_find_loadstore_msr_slot(&m->host, msr);
-+	if (i < 0) {
-+		if (KVM_BUG_ON(m->host.nr == MAX_NR_LOADSTORE_MSRS, kvm))
-+			return;
++		MSR_K7_PERFCTR0,
++		MSR_K7_PERFCTR1,
++		MSR_K7_PERFCTR2,
++		MSR_K7_PERFCTR3,
++		MSR_F15H_PERF_CTR0,
++		MSR_F15H_PERF_CTR1,
++		MSR_F15H_PERF_CTR2,
++		MSR_F15H_PERF_CTR3,
++		MSR_F15H_PERF_CTR4,
++		MSR_F15H_PERF_CTR5,
 +
-+		i = m->host.nr++;
-+		m->host.val[i].index = msr;
- 		vmcs_write32(VM_EXIT_MSR_LOAD_COUNT, m->host.nr);
- 	}
--	m->host.val[j].value = host_val;
-+	m->host.val[i].value = host_val;
- }
++		MSR_AMD64_PERF_CNTR_GLOBAL_CTL,
++		MSR_AMD64_PERF_CNTR_GLOBAL_STATUS,
++		MSR_AMD64_PERF_CNTR_GLOBAL_STATUS_CLR,
++		MSR_AMD64_PERF_CNTR_GLOBAL_STATUS_SET,
+ 	};
+ 	int i, j;
  
- static bool update_transition_efer(struct vcpu_vmx *vmx)
 -- 
 2.52.0.223.gf5cc29aaa4-goog
 
