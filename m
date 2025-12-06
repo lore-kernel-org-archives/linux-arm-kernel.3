@@ -4,31 +4,31 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07DF2D3ABF7
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 05:09:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DC5DD3ABF5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 05:09:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XB2+mXD6L2f+O1TNSUvMVZ7J8bMDiXM9ToZL/Hju3aU=; b=M3TSaY5rKXnm9yYkN65T+sDHDC
-	CAMqlUlC5qN7mmAoC5F6ZXN+kqN1UqwCyZCPcaf9gdO1p3eKyMMqljKjNfXyvEPeHmvMNq/C1PnOO
-	MNCKxaS8j53m1CmdhmxdEtV2jrpbxzJL+RfLWFRhCyi1xRL7tmuMB9GntvzMAWlsFitdFbYp641gR
-	HIVcZUTr0NSLSMDbgLJ8d5NV4dAN+NiCk89Xg43wfwznttj4bcqmvz7HSfc2q4nP4nWaqZu8TSorv
-	Y5rAR2HnOQheEDw14D2L3oKL0qonKfet9dtMEbxGdLCEVomVps1odYBnSHYE3qAjdOiskrAO78vu+
-	Rq2O4A4g==;
+	bh=hROdXb99JYSlT3iQf+bnbcYEmk90Jd765fZkjU+c7DU=; b=XOpb69DWFtrNGm+VD8xuh7ac9s
+	J5n+r+Pd2dnz0Zc8rvQQn0tf0BgukEdo4rZmsnW745IHXmdHWMIV2U0be0NkrZZ8uXvu4FmxwsHTb
+	T2knyjpsu3xBLkXuvv+liadB0jbdKqpyLJAS8Ky2WZdKbiCL3Gm87W1n/NADZHZw5xDDH3baFOvQj
+	MFnDgY6PnOdua4AJopyj+DcaMUyoxp8bZtCgFq+oZla/nJbjFZt+Ajfpkf3RK1IlOjXDeqpi8oRNk
+	grCH/rTCqOe3vulertEPzSt9lsnmZ95upz+c2leO2Dq5uZkuZ6lheOv8P3t5mM5AdayOaWtzUopo0
+	c7MBxwgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRkXd-0000000AdMo-0Sin;
-	Sat, 06 Dec 2025 05:09:09 +0000
-Received: from mail-m1973170.qiye.163.com ([220.197.31.70])
+	id 1vRkXl-0000000AdVc-2ix2;
+	Sat, 06 Dec 2025 05:09:17 +0000
+Received: from mail-m3288.qiye.163.com ([220.197.32.88])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRkXW-0000000AdDF-2aOK;
-	Sat, 06 Dec 2025 05:09:04 +0000
+	id 1vRkXf-0000000AdBc-3jnb;
+	Sat, 06 Dec 2025 05:09:13 +0000
 Received: from rockchip.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2c3493a71;
-	Sat, 6 Dec 2025 13:08:56 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2c3493a6c;
+	Sat, 6 Dec 2025 13:08:52 +0800 (GMT+08:00)
 From: Ye Zhang <ye.zhang@rock-chips.com>
 To: Ye Zhang <ye.zhang@rock-chips.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
@@ -43,27 +43,28 @@ Cc: Bartosz Golaszewski <brgl@bgdev.pl>,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	tao.huang@rock-chips.com
-Subject: [PATCH v2 8/8] pinctrl: rockchip: add rmio support
-Date: Sat,  6 Dec 2025 13:08:44 +0800
-Message-Id: <20251206050844.402958-9-ye.zhang@rock-chips.com>
+Subject: [PATCH v2 5/8] gpio: rockchip: support new version GPIO
+Date: Sat,  6 Dec 2025 13:08:41 +0800
+Message-Id: <20251206050844.402958-6-ye.zhang@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251206050844.402958-1-ye.zhang@rock-chips.com>
 References: <20251206050844.402958-1-ye.zhang@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9af210278f09d8kunmae94618c4ed3fbe
+X-HM-Tid: 0a9af210198909d8kunmae94618c4ed3e1c
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQklOGlYYTUpLT09LGUgaT0NWFRQJFh
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkgaGFZNGkseHk4YQk1MSE1WFRQJFh
 	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
 	hVSktLVUpCS0tZBg++
 DKIM-Signature: a=rsa-sha256;
-	b=dwJkpMXyJBb4XIqrMDT0/ec+aFkwDUy15/zr0pDiI82JWy6zhi1WyrVnqnYw+u8igR3xgqpF9yk9pGoEbUI7VKvpesytkJyFETJqwZa1S+yDGcve5++ucI5qrKsS+jf1R1L3H1NHT9Xi91uVnrHeogQYvzC6OhzcmVqFkFunxVs=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=XB2+mXD6L2f+O1TNSUvMVZ7J8bMDiXM9ToZL/Hju3aU=;
+	b=eSBTQEehL+XEEjHghtm6V9xG0iVxILE7KBCG/nUDdW8E5C8pQblXuIA1FRJM6BzuTgSSnG/TWLe9rpGVfGe0xCIQrAmFotPbOGM6YM3KuzP8Wp+qWRfXeVUih/1eQSLqL4MeROFQMQR0IMNMR1VjOBxju5HpGnt/evWRWOTtImM=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=hROdXb99JYSlT3iQf+bnbcYEmk90Jd765fZkjU+c7DU=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_210902_854641_1BBBA137 
-X-CRM114-Status: GOOD (  23.21  )
+X-CRM114-CacheID: sfid-20251205_210912_114058_8066BACA 
+X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,517 +79,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Support rockchip matrix io
+Support the next version GPIO controller on SoCs like rv1126b.
 
 Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
 ---
- drivers/pinctrl/pinctrl-rockchip.c | 397 ++++++++++++++++++++++++++++-
- drivers/pinctrl/pinctrl-rockchip.h |  42 +++
- 2 files changed, 438 insertions(+), 1 deletion(-)
+ drivers/gpio/gpio-rockchip.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/pinctrl/pinctrl-rockchip.c b/drivers/pinctrl/pinctrl-rockchip.c
-index dc7ef12dfcb0..66bd4a981f62 100644
---- a/drivers/pinctrl/pinctrl-rockchip.c
-+++ b/drivers/pinctrl/pinctrl-rockchip.c
-@@ -3961,6 +3961,11 @@ static const struct of_device_id rockchip_bank_match[] = {
- 	{},
- };
+diff --git a/drivers/gpio/gpio-rockchip.c b/drivers/gpio/gpio-rockchip.c
+index 47174eb3ba76..c3e831c6bcf1 100644
+--- a/drivers/gpio/gpio-rockchip.c
++++ b/drivers/gpio/gpio-rockchip.c
+@@ -36,6 +36,7 @@
+ #define GPIO_TYPE_V2		(0x01000C2B)
+ #define GPIO_TYPE_V2_1		(0x0101157C)
+ #define GPIO_TYPE_V2_2		(0x010219C8)
++#define GPIO_TYPE_V2_6          (0x01063F6E)
  
-+static const struct of_device_id rockchip_rmio_dt_match[] = {
-+	{ .compatible = "rockchip,rmio" },
-+	{},
-+};
-+
- static void rockchip_pinctrl_child_count(struct rockchip_pinctrl *info,
- 						struct device_node *np)
- {
-@@ -3969,6 +3974,8 @@ static void rockchip_pinctrl_child_count(struct rockchip_pinctrl *info,
- 	for_each_child_of_node(np, child) {
- 		if (of_match_node(rockchip_bank_match, child))
- 			continue;
-+		if (of_match_node(rockchip_rmio_dt_match, child))
-+			continue;
- 
- 		info->nfunctions++;
- 		info->ngroups += of_get_child_count(child);
-@@ -4101,6 +4108,8 @@ static int rockchip_pinctrl_parse_dt(struct platform_device *pdev,
- 	for_each_child_of_node_scoped(np, child) {
- 		if (of_match_node(rockchip_bank_match, child))
- 			continue;
-+		if (of_match_node(rockchip_rmio_dt_match, child))
-+			continue;
- 
- 		ret = rockchip_pinctrl_parse_functions(child, info, i++);
- 		if (ret) {
-@@ -4431,6 +4440,384 @@ static void rockchip_pinctrl_remove(struct platform_device *pdev)
- 	}
- }
- 
-+static int rockchip_rmio_set_mux(struct rockchip_rmio *info, int id, int func)
-+{
-+	struct device *dev = info->dev;
-+
-+	if (id >= info->nr_pins)
-+		return -EINVAL;
-+
-+	dev_dbg(dev, "setting function of %s%d to %d\n", dev_name(dev), id, func);
-+
-+	return regmap_write(info->regmap, info->offset + id * 4,
-+			    RK_RMIO_WRITE_ENABLE_MASK | func);
-+}
-+
-+static int rockchip_rmio_parse_groups(struct device_node *np,
-+				      struct rockchip_rmio_group *grp,
-+				      struct rockchip_rmio *info,
-+				      u32 index)
-+{
-+	struct device *dev = info->dev;
-+	int count;
-+	u32 *tmp;
-+	int i;
-+
-+	dev_dbg(dev, "group(%d): %pOFn\n", index, np);
-+
-+	/*
-+	 * the binding format is rockchip,rmio = <pin func>,
-+	 * do sanity check and calculate pins number
-+	 */
-+	count = of_property_count_u32_elems(np, "rockchip,rmio");
-+	if (count <= 0 || count % 2 != 0)
-+		return -EINVAL;
-+
-+	tmp = kcalloc(count, sizeof(u32), GFP_KERNEL);
-+	if (!tmp)
-+		return -ENOMEM;
-+
-+	of_property_read_u32_array(np, "rockchip,rmio", tmp, count);
-+
-+	/* Initialise group */
-+	grp->name = np->name;
-+	grp->npins = count / 2;
-+	grp->pins = devm_kcalloc(dev, grp->npins, sizeof(*grp->pins), GFP_KERNEL);
-+	grp->func = devm_kcalloc(dev, grp->npins, sizeof(*grp->func), GFP_KERNEL);
-+	if (!grp->pins || !grp->func)
-+		return -ENOMEM;
-+
-+	for (i = 0; i < grp->npins; i++) {
-+		grp->pins[i] = tmp[2 * i];
-+		grp->func[i] = tmp[2 * i + 1];
-+	}
-+	kfree(tmp);
-+
-+	return 0;
-+}
-+
-+static int rockchip_rmio_parse_functions(struct device_node *np,
-+					 struct rockchip_rmio *info,
-+					 u32 index)
-+{
-+	struct device *dev = info->dev;
-+	struct device_node *child;
-+	struct rockchip_rmio_func *func;
-+	struct rockchip_rmio_group *grp;
-+	int ret;
-+	u32 i, grp_index = 0;
-+
-+	dev_dbg(dev, "parse function(%d): %pOFn\n", index, np);
-+
-+	for (i = 0, func = info->functions; i < index; i++, func++)
-+		grp_index += func->ngroups;
-+
-+	func = &info->functions[index];
-+
-+	/* Initialise function */
-+	func->name = np->name;
-+	func->ngroups = of_get_child_count(np);
-+	if (func->ngroups <= 0)
-+		return 0;
-+
-+	func->groups = devm_kcalloc(dev, func->ngroups, sizeof(*func->groups), GFP_KERNEL);
-+	if (!func->groups)
-+		return -ENOMEM;
-+
-+	i = 0;
-+	for_each_child_of_node(np, child) {
-+		func->groups[i] = child->name;
-+		grp = &info->groups[grp_index + i];
-+		ret = rockchip_rmio_parse_groups(child, grp, info, i++);
-+		if (ret) {
-+			of_node_put(child);
-+			return ret;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static int rockchip_rmio_parse_dt(struct platform_device *pdev,
-+				  struct rockchip_rmio *info)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct device_node *np = dev->of_node;
-+	struct device_node *child;
-+	int ret;
-+	int i = 0;
-+
-+	for_each_child_of_node(np, child) {
-+		info->nfunctions++;
-+		info->ngroups += of_get_child_count(child);
-+	}
-+
-+	dev_dbg(dev, "nfunctions = %d\n", info->nfunctions);
-+	dev_dbg(dev, "ngroups = %d\n", info->ngroups);
-+
-+	info->functions = devm_kcalloc(dev, info->nfunctions, sizeof(*info->functions), GFP_KERNEL);
-+	if (!info->functions)
-+		return -ENOMEM;
-+
-+	info->groups = devm_kcalloc(dev, info->ngroups, sizeof(*info->groups), GFP_KERNEL);
-+	if (!info->groups)
-+		return -ENOMEM;
-+
-+	for_each_child_of_node(np, child) {
-+		ret = rockchip_rmio_parse_functions(child, info, i++);
-+		if (ret) {
-+			dev_err(dev, "failed to parse function, ret = %d\n", ret);
-+			of_node_put(child);
-+			return ret;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static int rockchip_rmio_get_groups_count(struct pinctrl_dev *pctldev)
-+{
-+	struct rockchip_rmio *info = pinctrl_dev_get_drvdata(pctldev);
-+
-+	return info->ngroups;
-+}
-+
-+static const char *rockchip_rmio_get_group_name(struct pinctrl_dev *pctldev,
-+						unsigned int selector)
-+{
-+	struct rockchip_rmio *info = pinctrl_dev_get_drvdata(pctldev);
-+
-+	return info->groups[selector].name;
-+}
-+
-+static int rockchip_rmio_get_group_pins(struct pinctrl_dev *pctldev,
-+					unsigned int selector,
-+					const unsigned int **pins,
-+					unsigned int *npins)
-+{
-+	struct rockchip_rmio *info = pinctrl_dev_get_drvdata(pctldev);
-+
-+	if (selector >= info->ngroups)
-+		return -EINVAL;
-+
-+	*pins = info->groups[selector].pins;
-+	*npins = info->groups[selector].npins;
-+
-+	return 0;
-+}
-+
-+static int rockchip_rmio_dt_node_to_map(struct pinctrl_dev *pctldev,
-+					struct device_node *np,
-+					struct pinctrl_map **map,
-+					unsigned int *num_maps)
-+{
-+	struct rockchip_rmio *info = pinctrl_dev_get_drvdata(pctldev);
-+	struct device *dev = info->dev;
-+	struct pinctrl_map *new_map;
-+	struct device_node *parent;
-+
-+	new_map = kcalloc(1, sizeof(*new_map), GFP_KERNEL);
-+	if (!new_map)
-+		return -ENOMEM;
-+
-+	*map = new_map;
-+	*num_maps = 1;
-+
-+	/* the rmio only need to create mux map */
-+	parent = of_get_parent(np);
-+	if (!parent) {
-+		kfree(new_map);
-+		return -EINVAL;
-+	}
-+	new_map->type = PIN_MAP_TYPE_MUX_GROUP;
-+	new_map->data.mux.function = parent->name;
-+	new_map->data.mux.group = np->name;
-+	of_node_put(parent);
-+
-+	dev_dbg(dev, "maps: function %s group %s\n",
-+		(*map)->data.mux.function, (*map)->data.mux.group);
-+
-+	return 0;
-+}
-+
-+static void rockchip_rmio_dt_free_map(struct pinctrl_dev *pctldev,
-+				      struct pinctrl_map *map,
-+				      unsigned int num_maps)
-+{
-+	kfree(map);
-+}
-+
-+static const struct pinctrl_ops rockchip_rmio_pctrl_ops = {
-+	.get_groups_count	= rockchip_rmio_get_groups_count,
-+	.get_group_name		= rockchip_rmio_get_group_name,
-+	.get_group_pins		= rockchip_rmio_get_group_pins,
-+	.dt_node_to_map		= rockchip_rmio_dt_node_to_map,
-+	.dt_free_map		= rockchip_rmio_dt_free_map,
-+};
-+
-+static int rockchip_rmio_get_funcs_count(struct pinctrl_dev *pctldev)
-+{
-+	struct rockchip_rmio *info = pinctrl_dev_get_drvdata(pctldev);
-+
-+	return info->nfunctions;
-+}
-+
-+static const char *rockchip_rmio_get_func_name(struct pinctrl_dev *pctldev,
-+					       unsigned int selector)
-+{
-+	struct rockchip_rmio *info = pinctrl_dev_get_drvdata(pctldev);
-+
-+	return info->functions[selector].name;
-+}
-+
-+static int rockchip_rmio_get_groups(struct pinctrl_dev *pctldev,
-+				    unsigned int selector,
-+				    const char * const **groups,
-+				    unsigned int * const num_groups)
-+{
-+	struct rockchip_rmio *info = pinctrl_dev_get_drvdata(pctldev);
-+
-+	*groups = info->functions[selector].groups;
-+	*num_groups = info->functions[selector].ngroups;
-+
-+	return 0;
-+}
-+
-+static int rockchip_rmio_pmx_set(struct pinctrl_dev *pctldev,
-+				 unsigned int selector,
-+				 unsigned int group)
-+{
-+	struct rockchip_rmio *info = pinctrl_dev_get_drvdata(pctldev);
-+	const unsigned int *pins = info->groups[group].pins;
-+	const unsigned int *func = info->groups[group].func;
-+	struct device *dev = info->dev;
-+	int cnt, ret = 0;
-+
-+	dev_dbg(dev, "enable function %s group %s\n",
-+		info->functions[selector].name, info->groups[group].name);
-+
-+	/*
-+	 * for each pin in the pin group selected, program the corresponding
-+	 * pin function number in the config register.
-+	 */
-+	for (cnt = 0; cnt < info->groups[group].npins; cnt++) {
-+		ret = rockchip_rmio_set_mux(info, pins[cnt], func[cnt]);
-+		if (ret)
-+			break;
-+	}
-+
-+	if (ret && cnt) {
-+		/* revert the already done pin settings */
-+		for (cnt--; cnt >= 0; cnt--)
-+			rockchip_rmio_set_mux(info, pins[cnt], RK_RMIO_NC);
-+
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct pinmux_ops rockchip_rmio_pmx_ops = {
-+	.get_functions_count	= rockchip_rmio_get_funcs_count,
-+	.get_function_name	= rockchip_rmio_get_func_name,
-+	.get_function_groups	= rockchip_rmio_get_groups,
-+	.set_mux		= rockchip_rmio_pmx_set,
-+};
-+
-+static int rockchip_rmio_register(struct platform_device *pdev,
-+				  struct rockchip_rmio *info)
-+{
-+	struct pinctrl_desc *ctrldesc = &info->pctl;
-+	struct pinctrl_pin_desc *pindesc, *pdesc;
-+	struct device *dev = &pdev->dev;
-+	char **pin_names;
-+	int ret;
-+	int i;
-+	int nr_pins = info->nr_pins;
-+
-+	ctrldesc->name = dev_name(dev);
-+	ctrldesc->owner = THIS_MODULE;
-+	ctrldesc->pctlops = &rockchip_rmio_pctrl_ops;
-+	ctrldesc->pmxops = &rockchip_rmio_pmx_ops;
-+
-+	pindesc = devm_kcalloc(dev, nr_pins, sizeof(*pindesc), GFP_KERNEL);
-+	if (!pindesc)
-+		return -ENOMEM;
-+
-+	ctrldesc->pins = pindesc;
-+	ctrldesc->npins = nr_pins;
-+
-+	pdesc = pindesc;
-+	pin_names = devm_kasprintf_strarray(dev, dev_name(dev), nr_pins);
-+	if (IS_ERR(pin_names))
-+		return PTR_ERR(pin_names);
-+	for (i = 0; i < nr_pins; i++) {
-+		pdesc->number = i;
-+		pdesc->name = pin_names[i];
-+		pdesc++;
-+	}
-+
-+	ret = rockchip_rmio_parse_dt(pdev, info);
-+	if (ret)
-+		return ret;
-+
-+	info->pctl_dev = devm_pinctrl_register(dev, ctrldesc, info);
-+	if (IS_ERR(info->pctl_dev))
-+		return dev_err_probe(dev, PTR_ERR(info->pctl_dev),
-+				     "could not register pinctrl driver\n");
-+
-+	return 0;
-+}
-+
-+static int rockchip_rmio_probe(struct platform_device *pdev)
-+{
-+	struct rockchip_rmio *info;
-+	struct device *dev = &pdev->dev;
-+	struct device_node *np = pdev->dev.of_node;
-+	int ret;
-+
-+	info = devm_kzalloc(&pdev->dev, sizeof(*info), GFP_KERNEL);
-+	if (!info)
-+		return -ENOMEM;
-+
-+	info->dev = dev;
-+
-+	info->regmap = syscon_regmap_lookup_by_phandle(np, "rockchip,grf");
-+	if (IS_ERR(info->regmap)) {
-+		dev_err(&pdev->dev, "missing rockchip,grf property\n");
-+		return PTR_ERR(info->regmap);
-+	}
-+
-+	ret = of_property_read_u32(np, "rockchip,offset", &info->offset);
-+	if (ret < 0) {
-+		dev_err(&pdev->dev, "missing rockchip,offset property\n");
-+		return ret;
-+	}
-+
-+	ret = of_property_read_u32(np, "rockchip,pins-num", &info->nr_pins);
-+	if (ret < 0) {
-+		dev_err(&pdev->dev, "missing rockchip,pins-num property\n");
-+		return ret;
-+	}
-+
-+	ret = rockchip_rmio_register(pdev, info);
-+	if (ret)
-+		return ret;
-+
-+	platform_set_drvdata(pdev, info);
-+	dev_info(dev, "probed %pfw\n", dev_fwnode(dev));
-+
-+	return 0;
-+}
-+
-+static struct platform_driver rockchip_rmio_driver = {
-+	.probe = rockchip_rmio_probe,
-+	.driver = {
-+		.name = "rockchip-rmio",
-+		.of_match_table = rockchip_rmio_dt_match,
-+	},
-+};
-+
- static struct rockchip_pin_bank px30_pin_banks[] = {
- 	PIN_BANK_IOMUX_FLAGS(0, 32, "gpio0", IOMUX_SOURCE_PMU,
- 					     IOMUX_SOURCE_PMU,
-@@ -5190,12 +5577,19 @@ static struct platform_driver rockchip_pinctrl_driver = {
- 
- static int __init rockchip_pinctrl_drv_register(void)
- {
--	return platform_driver_register(&rockchip_pinctrl_driver);
-+	int ret;
-+
-+	ret = platform_driver_register(&rockchip_pinctrl_driver);
-+	if (ret)
-+		return ret;
-+
-+	return platform_driver_register(&rockchip_rmio_driver);
- }
- postcore_initcall(rockchip_pinctrl_drv_register);
- 
- static void __exit rockchip_pinctrl_drv_unregister(void)
- {
-+	platform_driver_unregister(&rockchip_rmio_driver);
- 	platform_driver_unregister(&rockchip_pinctrl_driver);
- }
- module_exit(rockchip_pinctrl_drv_unregister);
-@@ -5204,3 +5598,4 @@ MODULE_DESCRIPTION("ROCKCHIP Pin Controller Driver");
- MODULE_LICENSE("GPL");
- MODULE_ALIAS("platform:pinctrl-rockchip");
- MODULE_DEVICE_TABLE(of, rockchip_pinctrl_dt_match);
-+MODULE_DEVICE_TABLE(of, rockchip_rmio_dt_match);
-diff --git a/drivers/pinctrl/pinctrl-rockchip.h b/drivers/pinctrl/pinctrl-rockchip.h
-index fe18b62ed994..db875f7a3d2f 100644
---- a/drivers/pinctrl/pinctrl-rockchip.h
-+++ b/drivers/pinctrl/pinctrl-rockchip.h
-@@ -183,6 +183,9 @@
- #define RK_GPIO4_D6	158
- #define RK_GPIO4_D7	159
- 
-+#define RK_RMIO_NC			0
-+#define RK_RMIO_WRITE_ENABLE_MASK	0xFFFF0000
-+
- enum rockchip_pinctrl_type {
- 	PX30,
- 	RV1108,
-@@ -473,4 +476,43 @@ struct rockchip_pinctrl {
- 	unsigned int			nfunctions;
- };
- 
-+/**
-+ * struct rockchip_rmio_group: represent a group of pins in RMIO controller.
-+ * @name: name of the pin group, used to lookup the group.
-+ * @pins: array of pins included in this group.
-+ * @npins: number of pins included in this group.
-+ * @func: local pins function select
-+ */
-+struct rockchip_rmio_group {
-+	const char			*name;
-+	unsigned int			npins;
-+	unsigned int			*pins;
-+	unsigned int			*func;
-+};
-+
-+/**
-+ * struct rockchip_rmio_func: represent a RMIO pin function.
-+ * @name: name of the RMIO function, used to lookup the function.
-+ * @groups: array of group names that can provide this RMIO function.
-+ * @ngroups: number of groups included in @groups.
-+ */
-+struct rockchip_rmio_func {
-+	const char		*name;
-+	const char		**groups;
-+	u8			ngroups;
-+};
-+
-+struct rockchip_rmio {
-+	struct regmap			*regmap;
-+	u32				offset;
-+	struct device			*dev;
-+	struct pinctrl_desc		pctl;
-+	struct pinctrl_dev		*pctl_dev;
-+	unsigned int			nr_pins;
-+	struct rockchip_rmio_group	*groups;
-+	unsigned int			ngroups;
-+	struct rockchip_rmio_func	*functions;
-+	unsigned int			nfunctions;
-+};
-+
- #endif
+ static const struct rockchip_gpio_regs gpio_regs_v1 = {
+ 	.port_dr = 0x00,
+@@ -674,6 +675,7 @@ static int rockchip_get_bank_data(struct rockchip_pin_bank *bank)
+ 	case GPIO_TYPE_V2:
+ 	case GPIO_TYPE_V2_1:
+ 	case GPIO_TYPE_V2_2:
++	case GPIO_TYPE_V2_6:
+ 		bank->gpio_regs = &gpio_regs_v2;
+ 		bank->gpio_type = GPIO_TYPE_V2;
+ 		bank->db_clk = of_clk_get(bank->of_node, 1);
 -- 
 2.34.1
 
