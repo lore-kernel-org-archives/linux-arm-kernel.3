@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A34EAD3ABC2
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 00:18:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6EB2D3ABC4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 00:18:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xvhz9N1L4N+mDurmwM1rhQiV/PP6RHnJJPdqNYMoi5g=; b=C0CkbaSaSyJICBJte4D1SG12QU
-	FiMkCXja3DWdpUneeuvPqdH3Kg/ABPsEzIKAoNGC8Yz/hgY6Ll2URiBgwCuOCCcmwu9RqFFxUa8Tv
-	8pFuViSlQAeGsvTYRWGEJyCh3lP6PycpLCqS1fO0I0b/n+QLKQ8eQl/56geaxr16MxhjEInFlx0MR
-	BypKJZDDDcjMg8VZuhAWB31nNYw6VmhYI64LQm9uSdxCp43qzhTP9M41JASnxwZe/1pl+BB7ryS13
-	cYVDbCBsooleGCPvAyBR1n6xvPD1I591N/bRKzcA0ubse0ye9+rT+t326F/SEcDy/5cR5IKSNlr3+
-	cw0/wHiQ==;
+	bh=eqIotjgCjEUdnt2WiVnuNRmRS2dnPuXPiOvBLci8ppE=; b=jM4nsuuW56xpXBRKHBXuxzxnXb
+	nDESO8mLfL/otY841YJnyQQDbpJ7J9g0U9/Xo1W+ce/aWXgIyoIFB1eMa3pljBmqQShmlf90FgwYT
+	csha3rjn07O6B6BxIoDYC/dSb+9Nqy+2lF2KvyKsSDwMUWuDBBh1qJD5zXZwozqk1GZFiSKLYy5rP
+	bF5DfAcvfVJck+LRLy3Wb36iucooqgKrDVibvg5LZPyM+oyZbZhPOtexpBTKw4iWlojbWvdvcXNSY
+	aLrrnfcUuIFdeoAD3d0wR4/4SitHJd9cuJq1rxs2mT1HCrmbR4UD5IjhIGUHur+7UuhG12UqJTWdx
+	pPULRo0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRg0P-0000000AFha-3CQN;
-	Sat, 06 Dec 2025 00:18:33 +0000
-Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
+	id 1vRg0R-0000000AFlS-3uic;
+	Sat, 06 Dec 2025 00:18:35 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRfzn-0000000AEhA-02nm
+	id 1vRfzn-0000000AEjP-3NQK
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Dec 2025 00:17:56 +0000
-Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-bcecfea0e8aso2141155a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 16:17:53 -0800 (PST)
+	Sat, 06 Dec 2025 00:17:57 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-340c07119bfso5048623a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 16:17:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764980273; x=1765585073; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1764980274; x=1765585074; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=Xvhz9N1L4N+mDurmwM1rhQiV/PP6RHnJJPdqNYMoi5g=;
-        b=qQ4UH169+H4kSKs/7SF9ezovOxZpEvlmFm0H/ehzF5ncmd/oPkfEqZ1WkVw+2dG+Nk
-         oTJ5z3vMAFLcCVn6iR3S+E81eaj6Vqlw3AC0XbQoRMRzF5herXWzXmW/fwrj+I6+V3pY
-         bbrrDn8UezQQvrGGEvyCyuz8orbq7bzCCSpe7R02jEXkY+7yOIb5NCk826Mmx/vEUcjv
-         Jk6LAZ35BSGcA/LIzJZoRc2iCZXBSKpHnk3Kh0xtOW8NHkKX0tfQuX0sJP/UTwKQna3I
-         zcOcTceXUGZJqo3Sux93h+FUIFHmuAgGXiSR7W1KXX4Ix9boV8Vv/ujh7PMCuKerFofg
-         u0UA==
+        bh=eqIotjgCjEUdnt2WiVnuNRmRS2dnPuXPiOvBLci8ppE=;
+        b=WWCMUgcEExed5uoAZGP1C6/ImDmBjfizTomus2abkuPLgw7ajtc+wWReBK/J5C4Ez/
+         VMoFgZaN3+OSSrxC69yVc3Jd0SBpBB+oykgKMe3zCpcUDcxmp9SiM19g5cSAG+PSuPHq
+         6ixDKEsDDajt5+lM73/I9tAaKBJn9gKj1E7p+WPHriLQpShEqlHPcyWjGuWc0nKEum9O
+         b8EfagcMWttmig3kBywNnlg+DmPboW+oSbyu707jf6mXQz1PAUxKUXEnkeZM7LmlhKOi
+         m4ydoYC/NCFauyPH42MkX+SBwpO8Ino+dTsHDfVLAWj0hCnG6mjKk8GCJMJ2N6xGhh33
+         MGkg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764980273; x=1765585073;
+        d=1e100.net; s=20230601; t=1764980274; x=1765585074;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Xvhz9N1L4N+mDurmwM1rhQiV/PP6RHnJJPdqNYMoi5g=;
-        b=jn3IYP325jpnqDvisudDW5PDyVAa+fdeNeFaydy+AAFnNsxnD+UwCXXlCBTMm08+4z
-         Z0qv8anlb51Qtk4AHFNvWUpfWxTccEMedCp5/iBrU0m5HbxNlUCsbR/5oIPUtTMQIb/4
-         4jAjRiQsr7KAba099AcFEaNMGd6aLWHgsDDaWxB6zt69498BwB9KzJGK6rZ/zXdGD6rF
-         w7tKer7GTXM/hNACmxcwyAulHBHRjEzGuDa513pPIWpy0Xtgxc4nagwqW5ZhuJi8o1F2
-         y6vca2Hqt1WWXhB0nW0TMyZxFf7y/zH65KLjshu4+dCvzDptw1tglKtERBr0AlmwIeA9
-         Zuaw==
-X-Gm-Message-State: AOJu0YweR75VxaMbEC1D9YgbnaFfvrK5UQysOYy7KTlofCPy6lhrj3VN
-	brt/+0Ie7KOxBwcZixy6sAOaZvDod9xeZI2gHOhlU4SEDOdZED4YMOo+E/IxsYs/D+PkA/JsGsy
-	gvhnwIQ==
-X-Google-Smtp-Source: AGHT+IFWUJIU/8E8cWwKD1KvVXfXTPgHtbYSY08/FWGA961BLSrK8ZlXaCtvUM6dR/7cetdvhZaXTRiVhyQ=
-X-Received: from pfdc17.prod.google.com ([2002:aa7:8c11:0:b0:7dd:1a70:fbc1])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:5605:b0:366:14b0:4b19
- with SMTP id adf61e73a8af0-366180292f3mr728551637.36.1764980272562; Fri, 05
- Dec 2025 16:17:52 -0800 (PST)
-Date: Fri,  5 Dec 2025 16:16:49 -0800
+        bh=eqIotjgCjEUdnt2WiVnuNRmRS2dnPuXPiOvBLci8ppE=;
+        b=no69aUyHDZX6dyB1GjkwhzuzyLs599OqYYPIVFHrxXqENacFR9ySTYorF+z8xChrZ0
+         AmP8u/i2hLoOCU9vuveq71h3zt9nCABsDdJA6NbfcSudeCwBcXiJa+Bj84CQnZN0B7Sb
+         nx8Pyh3Y7sAQPb1g/PSfzDDGhDF6iR/tIgJIPSCUUfbUEZdzDISeVXsfJ/kqsrOtn1SE
+         1vziHB79AlGYrKLL4sHPkY1AbTmSTJ+CQ1NGNcQU5Mw/PYFer27+WEtVoOs6GGUEXJ6d
+         QQMyDFBzuokywM7o99mZvCXO/xzrbNFteAQZ0lS5dSo7DXj3Ql7YG0BzHR5VjaG1aC79
+         39GA==
+X-Gm-Message-State: AOJu0YyLt2rsGW2ZFPn5c5781GfDqzk5v7eGVlHcygssUTogrrfk4Ade
+	NkbHW8VtsH9quPFMlDkfdE1QoH/JXWN5za/CMI7FFXsn2oO74uz9yRRQTneul9Mag+MZhySuw35
+	M7XzEeg==
+X-Google-Smtp-Source: AGHT+IEouBZxtWhTrY4lnM9VAu4F3ROpN1DG3BfY+U/j8YLDQib06swOT26j4RpeJbHBlGNlXEC9N5U6nuk=
+X-Received: from pjps10.prod.google.com ([2002:a17:90a:a10a:b0:340:99d8:c874])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3fc4:b0:32e:7270:9499
+ with SMTP id 98e67ed59e1d1-349a2383216mr737832a91.0.1764980274477; Fri, 05
+ Dec 2025 16:17:54 -0800 (PST)
+Date: Fri,  5 Dec 2025 16:16:50 -0800
 In-Reply-To: <20251206001720.468579-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251206001720.468579-1-seanjc@google.com>
 X-Mailer: git-send-email 2.52.0.223.gf5cc29aaa4-goog
-Message-ID: <20251206001720.468579-14-seanjc@google.com>
-Subject: [PATCH v6 13/44] perf/x86/amd: Support PERF_PMU_CAP_MEDIATED_VPMU for
- AMD host
+Message-ID: <20251206001720.468579-15-seanjc@google.com>
+Subject: [PATCH v6 14/44] KVM: Add a simplified wrapper for registering perf callbacks
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -86,8 +85,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_161755_093330_3158551A 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20251205_161755_957360_F103BFA9 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,39 +102,117 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sandipan Das <sandipan.das@amd.com>
+Add a parameter-less API for registering perf callbacks in anticipation of
+introducing another x86-only parameter for handling mediated PMU PMIs.
 
-Apply the PERF_PMU_CAP_MEDIATED_VPMU flag for version 2 and later
-implementations of the core PMU. Aside from having Global Control and
-Status registers, virtualizing the PMU using the mediated model requires
-an interface to set or clear the overflow bits in the Global Status MSRs
-while restoring or saving the PMU context of a vCPU.
+No functional change intended.
 
-PerfMonV2-capable hardware has additional MSRs for this purpose, namely
-PerfCntrGlobalStatusSet and PerfCntrGlobalStatusClr, thereby making it
-suitable for use with mediated vPMU.
-
-Signed-off-by: Sandipan Das <sandipan.das@amd.com>
-Signed-off-by: Mingwei Zhang <mizhang@google.com>
+Acked-by: Anup Patel <anup@brainfault.org>
 Tested-by: Xudong Hao <xudong.hao@intel.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/events/amd/core.c | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/arm64/kvm/arm.c      |  2 +-
+ arch/loongarch/kvm/main.c |  2 +-
+ arch/riscv/kvm/main.c     |  2 +-
+ arch/x86/kvm/x86.c        |  2 +-
+ include/linux/kvm_host.h  | 11 +++++++++--
+ virt/kvm/kvm_main.c       |  5 +++--
+ 6 files changed, 16 insertions(+), 8 deletions(-)
 
-diff --git a/arch/x86/events/amd/core.c b/arch/x86/events/amd/core.c
-index b20661b8621d..8179fb5f1ee3 100644
---- a/arch/x86/events/amd/core.c
-+++ b/arch/x86/events/amd/core.c
-@@ -1433,6 +1433,8 @@ static int __init amd_core_pmu_init(void)
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 97627638e802..153166ca626a 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -2357,7 +2357,7 @@ static int __init init_subsystems(void)
+ 	if (err)
+ 		goto out;
  
- 		amd_pmu_global_cntr_mask = x86_pmu.cntr_mask64;
+-	kvm_register_perf_callbacks(NULL);
++	kvm_register_perf_callbacks();
  
-+		x86_get_pmu(smp_processor_id())->capabilities |= PERF_PMU_CAP_MEDIATED_VPMU;
+ out:
+ 	if (err)
+diff --git a/arch/loongarch/kvm/main.c b/arch/loongarch/kvm/main.c
+index 80ea63d465b8..f62326fe29fa 100644
+--- a/arch/loongarch/kvm/main.c
++++ b/arch/loongarch/kvm/main.c
+@@ -394,7 +394,7 @@ static int kvm_loongarch_env_init(void)
+ 	}
+ 
+ 	kvm_init_gcsr_flag();
+-	kvm_register_perf_callbacks(NULL);
++	kvm_register_perf_callbacks();
+ 
+ 	/* Register LoongArch IPI interrupt controller interface. */
+ 	ret = kvm_loongarch_register_ipi_device();
+diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
+index 45536af521f0..0f3fe3986fc0 100644
+--- a/arch/riscv/kvm/main.c
++++ b/arch/riscv/kvm/main.c
+@@ -174,7 +174,7 @@ static int __init riscv_kvm_init(void)
+ 
+ 	kvm_riscv_setup_vendor_features();
+ 
+-	kvm_register_perf_callbacks(NULL);
++	kvm_register_perf_callbacks();
+ 
+ 	rc = kvm_init(sizeof(struct kvm_vcpu), 0, THIS_MODULE);
+ 	if (rc) {
+diff --git a/arch/x86/kvm/x86.c b/arch/x86/kvm/x86.c
+index 0c6d899d53dd..1b2827cecf38 100644
+--- a/arch/x86/kvm/x86.c
++++ b/arch/x86/kvm/x86.c
+@@ -10107,7 +10107,7 @@ int kvm_x86_vendor_init(struct kvm_x86_init_ops *ops)
+ 		set_hv_tscchange_cb(kvm_hyperv_tsc_notifier);
+ #endif
+ 
+-	kvm_register_perf_callbacks(ops->handle_intel_pt_intr);
++	__kvm_register_perf_callbacks(ops->handle_intel_pt_intr, NULL);
+ 
+ 	if (IS_ENABLED(CONFIG_KVM_SW_PROTECTED_VM) && tdp_mmu_enabled)
+ 		kvm_caps.supported_vm_types |= BIT(KVM_X86_SW_PROTECTED_VM);
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index d93f75b05ae2..8e410d1a63df 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -1749,10 +1749,17 @@ static inline bool kvm_arch_intc_initialized(struct kvm *kvm)
+ #ifdef CONFIG_GUEST_PERF_EVENTS
+ unsigned long kvm_arch_vcpu_get_ip(struct kvm_vcpu *vcpu);
+ 
+-void kvm_register_perf_callbacks(unsigned int (*pt_intr_handler)(void));
++void __kvm_register_perf_callbacks(unsigned int (*pt_intr_handler)(void),
++				   void (*mediated_pmi_handler)(void));
 +
- 		/* Update PMC handling functions */
- 		x86_pmu.enable_all = amd_pmu_v2_enable_all;
- 		x86_pmu.disable_all = amd_pmu_v2_disable_all;
++static inline void kvm_register_perf_callbacks(void)
++{
++	__kvm_register_perf_callbacks(NULL, NULL);
++}
++
+ void kvm_unregister_perf_callbacks(void);
+ #else
+-static inline void kvm_register_perf_callbacks(void *ign) {}
++static inline void kvm_register_perf_callbacks(void) {}
+ static inline void kvm_unregister_perf_callbacks(void) {}
+ #endif /* CONFIG_GUEST_PERF_EVENTS */
+ 
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 4954cbbb05e8..16b24da9cda5 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -6474,10 +6474,11 @@ static struct perf_guest_info_callbacks kvm_guest_cbs = {
+ 	.handle_mediated_pmi	= NULL,
+ };
+ 
+-void kvm_register_perf_callbacks(unsigned int (*pt_intr_handler)(void))
++void __kvm_register_perf_callbacks(unsigned int (*pt_intr_handler)(void),
++				   void (*mediated_pmi_handler)(void))
+ {
+ 	kvm_guest_cbs.handle_intel_pt_intr = pt_intr_handler;
+-	kvm_guest_cbs.handle_mediated_pmi = NULL;
++	kvm_guest_cbs.handle_mediated_pmi = mediated_pmi_handler;
+ 
+ 	perf_register_guest_info_callbacks(&kvm_guest_cbs);
+ }
 -- 
 2.52.0.223.gf5cc29aaa4-goog
 
