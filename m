@@ -4,145 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5394D3ABF5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 04:02:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29872D12692
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 04:22:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3P8RhC3cRbNOP0rl/IbzhEB9y9tPULpHaaL6+mDsxHs=; b=LHz6Ws5aaOr7P2advknZ8wnhLm
-	VZ18SaEMIPILu0fgsBgfDOQ+RKqmtud1/lH1QNNBSbbFLnQG9+ey/DvRsl1GWoOkSFZQDHoU7etMG
-	TDvPaGiIqKbD7B48LqbbAYCYWyvbRUL/uvMTw/th3hGVvUeJSZjC2SpQrpzzhxYy7jS2tqhW6PBov
-	wq65lRaFDV0nnuhCzYkwvlGQz6/1Dn5uWopyQ+hjPwzGSLQqxb8O1hbDJkYgBB1rANIkviZeYTPo8
-	coSFH7qXY2MFKxUQfp3Xm0kuGIVQmU+ppKZDpU82rbdG+jezab5gt7T72sa+Cjmo/wNIb4p/RlOZ1
-	jzaLUwIA==;
+	bh=Nu10Xq4mtJJqkwKAZJtqZndwQyRolDkZs+/NvgZILBw=; b=p38d5WQQ6JXKG8//k1rrwwJr6G
+	o7P/hO3rynI9MoHkH3yn2zFtHu/4UEr6v2OcOO3J/B4ooyC1n/H1GBwLa5MOLrN1YI6JeL3O7IKQc
+	kaVvG/cnqhAa6hSxki/67zVMxb0zCcS5RjACnAO02YpGW6kDTD+pOmXGxwA3rbRXllau2xlinRkMk
+	KOH6ZxbN5ScXIHKD8hv7DksS4703DSU1nLoTMvZ4h5kuzEDJxMHsB2VZAmmbX+iJ/wW6Fw4lQNS2t
+	jJDs5YHLUJBMxH5kvh5EPBfsNfoCcKltdhm0kfyZ5vEKrfiyPe1B3K/fUzGhATyjYiR1wUxU6jYVh
+	3UKKIH+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRjVP-0000000Aa1N-41iT;
-	Sat, 06 Dec 2025 04:02:47 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1vRjok-0000000Ab1K-2rh5;
+	Sat, 06 Dec 2025 04:22:46 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRjVN-0000000Aa0u-1ztS
+	id 1vRjoi-0000000Ab0u-0Zhh
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Dec 2025 04:02:46 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B5FBKoT4177194
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 6 Dec 2025 04:02:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=3P8RhC3cRbNOP0rl/IbzhEB9
-	y9tPULpHaaL6+mDsxHs=; b=QvNBqC0KzNzVPRU95PJPr/+qVS+YGanOuwTiCMlh
-	oNdhNbqndg49Ir+MILtlOUzbpIhlCMEcU2YYd7MUtwRzPz0N3yYfFeefna6JWCHn
-	kRbr0KCY13Ry0ypW1ZfqBIwq/DQQt4DmbbRUBCd89MrlxnS2LoLRGQwE9rCI7+l1
-	MohM4M3qnwoV+m+Tu6eZl8nKCDjmQ09XDy6kFelvGxdcWWtLhLP66zbkVKu7L8FR
-	AoNIbJfm84kO8y9a63fiZi/pqFVs1aw973SwL+cmPgXnrL8swf1HLDkYo8lN7mul
-	3/nKlOUpjyyA8lBo9gimL9fhB+0MUymrSqQYYCtwQD5jYw==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4auwm5af07-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 06 Dec 2025 04:02:44 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8b30b6abb7bso569746985a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 20:02:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1764993764; x=1765598564; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=3P8RhC3cRbNOP0rl/IbzhEB9y9tPULpHaaL6+mDsxHs=;
-        b=G1NAJ3TKq2ZvVMZse/v7vjw409r4cO1vte0lKTPrmNbCtigDS8S8WIqdWTYAD4oUXy
-         DLQ/JXCIAXwjzAY6HxdslsLOagxgUTXZTf9k92auAFXnyM1oBcrFIK5XqRkPPQPOjp7U
-         FZXIXyZw8l1IeOsiQBMX9hsitHreAqUPOgg2V/mnXoNp4Va4Dmg9uRGEUO+76bBJRfR4
-         N6UFNaCW7P2UMcKLfHm3stYxqae3X89J6iFgLAehaZqH70BOJ/0YGNKMK2bIrwLPMWsI
-         +IjZ2Wm4QDJTHVhlIOIIujcnBpjFTjgnVbJXNpLUL+EymTmucJK7bF+KvAfSUuIsdF/y
-         KF7A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764993764; x=1765598564;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3P8RhC3cRbNOP0rl/IbzhEB9y9tPULpHaaL6+mDsxHs=;
-        b=dgS8oYutKB4+D37s4B9cpWUs8eI5SAYia7r0Yq5hy9IaZq7ShPxRpPXNNXQ9HLHJRi
-         KI2bBoxwdHRm1zXFNAKRTpVqcP8U9crhUqCfvGSHyZ7M+SOEmLkNIVMjzBld6G8xydCd
-         QVrNssPTXY9BfTzLiJNKVdBk2/fDVgDsJwyNjV8/Jhzrw7RwMkvO/zKW3IsIQHMYA+Uu
-         oMogC6cv+ffphC39HhBTEud1GhG8IBbOCbSBqGMQOT0h4awvqgseaVu9PUQjp5o/cMYP
-         JIxOpIg37l++PjgObVuydtCb/NgMPiR7bogRR1p063llpG58lx7TbLYmCBbB3oOLECd8
-         w6rg==
-X-Forwarded-Encrypted: i=1; AJvYcCVEgZRcC5mkDK3ad/g1FxAHuNkAiQKBRc/K/qaSQk0q3Gdy2NgUwES0YePf/brzometk0rGdvm7mhRYZoGcbndg@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYJxAuy+Zx1Fmutspi1iQzsbokHi6h16OVSF/70Nqe0ykO+EUT
-	JAKqG4k4acGFreA+hMCzr5XUEzDWPVugX+VulMBFaLgx9aF2zndJqTyMq66NjqdD5n5bi9FNKs6
-	lLzg1F6vMbeyZ5ChZiRIV+uABf27Wk5JiRjbXrugaek8D4tCcDJ29QUMrp4mvSfN6zoMmGODeaS
-	yLkg==
-X-Gm-Gg: ASbGncvABHjMxV8VbjZ/3hnDKsevyKaj6QlaWDi216e5ruaG7n6HufUhBOI75b/Y6UY
-	0foJm/42cuRKYt00PA+8yY/sZRDDAXiJ20XvSan39TLQwykAgaEKItyvNnBg3UsgcArAAnZx7ns
-	OCcje4IRjxqTEJn3d4ao60Z56pWkP8eCXtgof2/b+x5+xuYJjLN2Y5uX6RrS9G9S6xrpIA9Te9m
-	WFPlgQCmxusN1dgTyNN0ih2VBCctyGqwVu5JE6nGhqYLbEmEm7a7iNwCdBpwFlc8vbeYQiI/RDQ
-	seqVcmqHVdYzLoQkHlItpRoa2EzZMtjn45CyDxwEZX3dtCZzl0Lyg/xcASd+rm+gSrvKj7CJObm
-	jq8parY+IkAz/taUGcZDDZYVJXgonWQK02kvZJSVbmfdzCQ8mdMLWz/9TaqeYpypCeah1yD+bxY
-	1ZXnrAaNSxLjvYS6qtyapUclA=
-X-Received: by 2002:a05:620a:4726:b0:8b2:7777:f662 with SMTP id af79cd13be357-8b6a2589ac8mr201823685a.64.1764993763769;
-        Fri, 05 Dec 2025 20:02:43 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEtdPTmuravVRhlZz8xV1WEVwbBUkAkyhjwHvpt7kRJcvSdxAlEvy5G47mBX7coj0tQB1w6+A==
-X-Received: by 2002:a05:620a:4726:b0:8b2:7777:f662 with SMTP id af79cd13be357-8b6a2589ac8mr201821985a.64.1764993763272;
-        Fri, 05 Dec 2025 20:02:43 -0800 (PST)
-Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-37e6fe6bb67sm19293071fa.6.2025.12.05.20.02.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 05 Dec 2025 20:02:41 -0800 (PST)
-Date: Sat, 6 Dec 2025 06:02:38 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Taniya Das <taniya.das@oss.qualcomm.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Jagadeesh Kona <quic_jkona@quicinc.com>,
-        Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
-        Imran Shaik <imran.shaik@oss.qualcomm.com>,
-        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 3/3] clk: qcom: camcc: Add camera clock controller driver
- for SM8750 SoC
-Message-ID: <mcvwms5logao4sz2o4h5yfyi7kloj7pkx5qzq7byvtcmhbymnk@ynegs32kkxyw>
-References: <20251202-sm8750_camcc-v1-0-b3f7ef6723f1@oss.qualcomm.com>
- <20251202-sm8750_camcc-v1-3-b3f7ef6723f1@oss.qualcomm.com>
+	Sat, 06 Dec 2025 04:22:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1764994964; x=1796530964;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=KoHQ1YurYEAqQvA+3ldEYO+Mkmk1wGzucehdLddRfIE=;
+  b=OvtmdlXgBPGKbeMrzWfem7C6MyySW+YIL1NPHKxFcN740R+nVFRfewXY
+   zBZH399lxEStVJXwFnGlFHrXsXPwSEcp90bYlVm5qkVpMI7PAlYZTeveZ
+   0oGrYBZHfUWJeNIEkuQ/0N75NyzbOR48Mi1xmSUjYDDXI793S5/vE5b5D
+   skbwTImryZG8VSH18c/m+3oRzlxX30cxvTvTIUsdMjHCTsAMCuRVtNXTe
+   MUwXBFwvIK/mq+5VBFFLk3xcrektN9uJPPO+a8Ithbisi8qmI7E1P+5Dn
+   OSOdgRCXfkjfJLsQaGSZzGRPmZjBy/Uj+3Be/3XnXpeWUREfOPzoh/W8I
+   A==;
+X-CSE-ConnectionGUID: tIbbNpV8SfuiJjH3I/LyrA==
+X-CSE-MsgGUID: 4RxTnCYNQK2dJcgE51knjw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11633"; a="78381004"
+X-IronPort-AV: E=Sophos;i="6.20,253,1758610800"; 
+   d="scan'208";a="78381004"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Dec 2025 20:22:41 -0800
+X-CSE-ConnectionGUID: 23Ol/a8aQaGKwXs3aouUqg==
+X-CSE-MsgGUID: Cm0ArHt/QdKN45YW4S2wNQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,253,1758610800"; 
+   d="scan'208";a="199901108"
+Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
+  by fmviesa005.fm.intel.com with ESMTP; 05 Dec 2025 20:22:37 -0800
+Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vRjoZ-00000000FqH-1Wwd;
+	Sat, 06 Dec 2025 04:22:35 +0000
+Date: Sat, 6 Dec 2025 12:22:14 +0800
+From: kernel test robot <lkp@intel.com>
+To: Richard Genoud <richard.genoud@bootlin.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>
+Cc: oe-kbuild-all@lists.linux.dev,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Richard Genoud <richard.genoud@bootlin.com>
+Subject: Re: [PATCH 2/4] pwm: sun50i: Add H616 PWM support
+Message-ID: <202512061109.UxaYeMZ9-lkp@intel.com>
+References: <20251205100239.1563353-3-richard.genoud@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251202-sm8750_camcc-v1-3-b3f7ef6723f1@oss.qualcomm.com>
-X-Proofpoint-GUID: I44buUc2U2HVcUnUJY7w2FlYXxVr9LQx
-X-Proofpoint-ORIG-GUID: I44buUc2U2HVcUnUJY7w2FlYXxVr9LQx
-X-Authority-Analysis: v=2.4 cv=XeOEDY55 c=1 sm=1 tr=0 ts=6933aae4 cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=EUspDBNiAAAA:8 a=_j3VNrtD_Kzz85i8SO4A:9 a=CjuIK1q_8ugA:10
- a=PEH46H7Ffwr30OY-TuGO:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjA2MDAyOSBTYWx0ZWRfX7CHvWCaKwrQI
- fInG+WzYF7QfQ0shsgPtBlsALMjQa5WbnDnmz01bGFzxPA2XzVgbExuxMETA6WI+70H8HhWlAWt
- jY5Cg7pYodMQYMtfKEsoIV1rhKrYJPMBjPR/wx/GxvPbGcKV5XfrJEXkwqLeDmO6JL5fuKNTule
- MohsnzWYBwcBiYn867hhdctEGHnkQKA6kIptbsUYICZ3J4qzvL6jmFtw1+ET28nOB+z2bI8kA1u
- ThcgxMcpRNTHn6Tj/SqZ8BD0Jk1m/5HsMgGZZpSkIu4lQhuXpnfzHv3xhVLJqWlvDYMH10E4yfX
- hoIw+4sPaNW+TBm3o9ecOzKBpiqOFt6XnTOHLlvL3ZL2QT0qGmqvRnnVabGaqOQ3tb+IN1hXRP/
- +mPdjVOKFNR+W7S+f8rheDdF3aH36A==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-05_09,2025-12-04_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 lowpriorityscore=0 adultscore=0 suspectscore=0
- priorityscore=1501 malwarescore=0 bulkscore=0 clxscore=1015 spamscore=0
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
- definitions=main-2512060029
+In-Reply-To: <20251205100239.1563353-3-richard.genoud@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_200245_542706_CE5AAD1E 
-X-CRM114-Status: GOOD (  16.03  )
+X-CRM114-CacheID: sfid-20251205_202244_227480_5F86CB76 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,27 +98,255 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 02, 2025 at 03:56:27PM +0530, Taniya Das wrote:
-> Add support for the Camera Clock Controller (CAMCC) on the SM8750
-> platform.
-> 
-> The CAMCC block on SM8750 includes both the primary camera clock
-> controller and the Camera BIST clock controller, which provides the
-> functional MCLK required for camera operations.
-> 
-> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
-> ---
->  drivers/clk/qcom/Kconfig                |   10 +
->  drivers/clk/qcom/Makefile               |    1 +
->  drivers/clk/qcom/cambistmclkcc-sm8750.c |  454 ++++++
->  drivers/clk/qcom/camcc-sm8750.c         | 2710 +++++++++++++++++++++++++++++++
->  4 files changed, 3175 insertions(+)
-> 
+Hi Richard,
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+kernel test robot noticed the following build errors:
 
+[auto build test ERROR on 6987d58a9cbc5bd57c983baa514474a86c945d56]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Richard-Genoud/dt-bindings-pwm-sunxi-add-PWM-controller-for-Allwinner-H616/20251205-214804
+base:   6987d58a9cbc5bd57c983baa514474a86c945d56
+patch link:    https://lore.kernel.org/r/20251205100239.1563353-3-richard.genoud%40bootlin.com
+patch subject: [PATCH 2/4] pwm: sun50i: Add H616 PWM support
+config: hexagon-randconfig-r073-20251206 (https://download.01.org/0day-ci/archive/20251206/202512061109.UxaYeMZ9-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 14bf95b06a18b9b59c89601cbc0e5a6f2176b118)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251206/202512061109.UxaYeMZ9-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512061109.UxaYeMZ9-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/pwm/pwm-sun50i-h616.c:452:23: error: call to undeclared function 'FIELD_GET'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     452 |         tmp = NSEC_PER_SEC * PWM_REG_DUTY(val);
+         |                              ^
+   drivers/pwm/pwm-sun50i-h616.c:76:28: note: expanded from macro 'PWM_REG_DUTY'
+      76 | #define PWM_REG_DUTY(reg)               FIELD_GET(PWM_DUTY_MASK, reg)
+         |                                         ^
+>> drivers/pwm/pwm-sun50i-h616.c:493:40: error: call to undeclared function 'FIELD_MAX'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     493 |                 freq = div64_u64(NSEC_PER_SEC * (u64)PWM_PERIOD_MAX, period);
+         |                                                      ^
+   drivers/pwm/pwm-sun50i-h616.c:79:26: note: expanded from macro 'PWM_PERIOD_MAX'
+      79 | #define PWM_PERIOD_MAX                  FIELD_MAX(PWM_PERIOD_MASK)
+         |                                         ^
+   drivers/pwm/pwm-sun50i-h616.c:508:27: error: call to undeclared function 'FIELD_MAX'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     508 |         if ((cnt == 0) || (cnt > PWM_PERIOD_MAX)) {
+         |                                  ^
+   drivers/pwm/pwm-sun50i-h616.c:79:26: note: expanded from macro 'PWM_PERIOD_MAX'
+      79 | #define PWM_PERIOD_MAX                  FIELD_MAX(PWM_PERIOD_MASK)
+         |                                         ^
+>> drivers/pwm/pwm-sun50i-h616.c:577:9: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     577 |                 val = PWM_DUTY(chan->active_cycles);
+         |                       ^
+   drivers/pwm/pwm-sun50i-h616.c:78:25: note: expanded from macro 'PWM_DUTY'
+      78 | #define PWM_DUTY(dty)                   FIELD_PREP(PWM_DUTY_MASK, dty)
+         |                                         ^
+   4 errors generated.
+
+
+vim +/FIELD_GET +452 drivers/pwm/pwm-sun50i-h616.c
+
+   413	
+   414	static int h616_pwm_get_state(struct pwm_chip *chip,
+   415				      struct pwm_device *pwm,
+   416				      struct pwm_state *state)
+   417	{
+   418		struct h616_pwm_chip *h616chip = to_h616_pwm_chip(chip);
+   419		struct h616_pwm_channel *chan = &h616chip->channels[pwm->hwpwm];
+   420		u64 clk_rate, tmp;
+   421		u32 val;
+   422	
+   423		clk_rate = clk_get_rate(chan->pwm_clk);
+   424		if (!clk_rate)
+   425			return -EINVAL;
+   426	
+   427		val = h616_pwm_readl(h616chip, PWM_ENR);
+   428		state->enabled = !!(PWM_ENABLE(pwm->hwpwm) & val);
+   429	
+   430		val = h616_pwm_readl(h616chip, PWM_XY_CLK_CR(PWM_PAIR_IDX(pwm->hwpwm)));
+   431		if (val & BIT(PWM_XY_CLK_CR_BYPASS_BIT(pwm->hwpwm))) {
+   432			/*
+   433			 * When bypass is enabled, the PWM logic is inactive.
+   434			 * The PWM_clock_src_xy is directly routed to PWM_clock_x
+   435			 */
+   436			state->period = DIV_ROUND_UP_ULL(NSEC_PER_SEC, clk_rate);
+   437			state->duty_cycle = DIV_ROUND_UP_ULL(state->period, 2);
+   438			state->polarity = PWM_POLARITY_NORMAL;
+   439			return 0;
+   440		}
+   441	
+   442		state->enabled &= !!(BIT(PWM_XY_CLK_CR_GATE_BIT) & val);
+   443	
+   444		val = h616_pwm_readl(h616chip, PWM_CTRL_REG(pwm->hwpwm));
+   445		if (val & PWM_CTRL_ACTIVE_STATE)
+   446			state->polarity = PWM_POLARITY_NORMAL;
+   447		else
+   448			state->polarity = PWM_POLARITY_INVERSED;
+   449	
+   450		val = h616_pwm_readl(h616chip, PWM_PERIOD_REG(pwm->hwpwm));
+   451	
+ > 452		tmp = NSEC_PER_SEC * PWM_REG_DUTY(val);
+   453		state->duty_cycle = DIV_ROUND_CLOSEST_ULL(tmp, clk_rate);
+   454	
+   455		tmp = NSEC_PER_SEC * PWM_REG_PERIOD(val);
+   456		state->period = DIV_ROUND_CLOSEST_ULL(tmp, clk_rate);
+   457	
+   458		return 0;
+   459	}
+   460	
+   461	static int h616_pwm_calc(struct pwm_chip *chip, unsigned int idx,
+   462				 const struct pwm_state *state)
+   463	{
+   464		struct h616_pwm_chip *h616chip = to_h616_pwm_chip(chip);
+   465		struct h616_pwm_channel *chan = &h616chip->channels[idx];
+   466		unsigned int cnt, duty_cnt;
+   467		unsigned long max_rate;
+   468		long calc_rate;
+   469		u64 duty, period, freq;
+   470	
+   471		duty = state->duty_cycle;
+   472		period = state->period;
+   473	
+   474		max_rate = clk_round_rate(chan->pwm_clk, UINT32_MAX);
+   475	
+   476		dev_dbg(pwmchip_parent(chip), "max_rate: %ld Hz\n", max_rate);
+   477	
+   478		if ((period * max_rate >= NSEC_PER_SEC) &&
+   479		    (period * max_rate < 2 * NSEC_PER_SEC) &&
+   480		    (duty * max_rate * 2 >= NSEC_PER_SEC)) {
+   481			/*
+   482			 * If the requested period is to small to be generated by the
+   483			 * PWM, we can just select the highest clock and bypass the
+   484			 * PWM logic
+   485			 */
+   486			dev_dbg(pwmchip_parent(chip), "Setting bypass (period=%lld)\n",
+   487				period);
+   488			freq = div64_u64(NSEC_PER_SEC, period);
+   489			chan->bypass = true;
+   490			duty = period / 2;
+   491		} else {
+   492			chan->bypass = false;
+ > 493			freq = div64_u64(NSEC_PER_SEC * (u64)PWM_PERIOD_MAX, period);
+   494			if (freq > UINT32_MAX)
+   495				freq = UINT32_MAX;
+   496		}
+   497	
+   498		calc_rate = clk_round_rate(chan->pwm_clk, freq);
+   499		if (calc_rate <= 0) {
+   500			dev_err(pwmchip_parent(chip),
+   501				"Invalid source clock frequency %llu\n", freq);
+   502			return calc_rate ? calc_rate : -EINVAL;
+   503		}
+   504	
+   505		dev_dbg(pwmchip_parent(chip), "calc_rate: %ld Hz\n", calc_rate);
+   506	
+   507		cnt = mul_u64_u64_div_u64(calc_rate, period, NSEC_PER_SEC);
+   508		if ((cnt == 0) || (cnt > PWM_PERIOD_MAX)) {
+   509			dev_err(pwmchip_parent(chip), "Period out of range\n");
+   510			return -EINVAL;
+   511		}
+   512	
+   513		duty_cnt = mul_u64_u64_div_u64(calc_rate, duty, NSEC_PER_SEC);
+   514	
+   515		if (duty_cnt >= cnt)
+   516			duty_cnt = cnt - 1;
+   517	
+   518		dev_dbg(pwmchip_parent(chip), "period=%llu cnt=%u duty=%llu duty_cnt=%u\n",
+   519			period, cnt, duty, duty_cnt);
+   520	
+   521		chan->active_cycles = duty_cnt;
+   522		chan->entire_cycles = cnt;
+   523	
+   524		chan->rate = calc_rate;
+   525	
+   526		return 0;
+   527	}
+   528	
+   529	static int h616_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+   530				  const struct pwm_state *state)
+   531	{
+   532		struct h616_pwm_chip *h616chip = to_h616_pwm_chip(chip);
+   533		struct h616_pwm_channel *chan = &h616chip->channels[pwm->hwpwm];
+   534		struct pwm_state cstate;
+   535		unsigned long flags;
+   536		u32 val;
+   537		int ret;
+   538	
+   539		ret = h616_pwm_calc(chip, pwm->hwpwm, state);
+   540		if (ret) {
+   541			dev_err(pwmchip_parent(chip), "period exceeds the maximum value\n");
+   542			return ret;
+   543		}
+   544	
+   545		pwm_get_state(pwm, &cstate);
+   546	
+   547		ret = clk_set_rate(chan->pwm_clk, chan->rate);
+   548		if (ret) {
+   549			dev_err(pwmchip_parent(chip), "failed to set PWM %d clock rate to %lu\n",
+   550				pwm->hwpwm, chan->rate);
+   551			return ret;
+   552		}
+   553	
+   554		h616_pwm_set_bypass(h616chip, pwm->hwpwm, chan->bypass);
+   555	
+   556		/*
+   557		 * If bypass is set, the PWM logic (polarity, duty) can't be applied
+   558		 */
+   559	
+   560		if (chan->bypass && (state->polarity == PWM_POLARITY_INVERSED)) {
+   561			dev_warn(pwmchip_parent(chip),
+   562				 "Can't set inversed polarity with bypass enabled\n");
+   563		} else {
+   564			val = h616_pwm_readl(h616chip, PWM_CTRL_REG(pwm->hwpwm));
+   565			val &= ~PWM_CTRL_ACTIVE_STATE;
+   566			if (state->polarity == PWM_POLARITY_NORMAL)
+   567				val |= PWM_CTRL_ACTIVE_STATE;
+   568			h616_pwm_writel(h616chip, val, PWM_CTRL_REG(pwm->hwpwm));
+   569		}
+   570	
+   571		if (chan->bypass && (state->duty_cycle * 2 != state->period)) {
+   572			dev_warn(pwmchip_parent(chip),
+   573				 "Can't set a duty cycle with bypass enabled\n");
+   574		}
+   575	
+   576		if (!chan->bypass) {
+ > 577			val = PWM_DUTY(chan->active_cycles);
+   578			val |= PWM_PERIOD(chan->entire_cycles);
+   579			h616_pwm_writel(h616chip, val, PWM_PERIOD_REG(pwm->hwpwm));
+   580		}
+   581	
+   582		if (state->enabled == cstate.enabled)
+   583			return 0;
+   584	
+   585		if (cstate.enabled) {
+   586			unsigned long delay_us;
+   587	
+   588			/*
+   589			 * We need a full period to elapse before
+   590			 * disabling the channel.
+   591			 */
+   592			delay_us = DIV_ROUND_UP_ULL(cstate.period, NSEC_PER_USEC);
+   593			fsleep(delay_us);
+   594		}
+   595	
+   596		spin_lock_irqsave(&h616chip->clk_pdata->lock, flags);
+   597	
+   598		val = h616_pwm_readl(h616chip, PWM_ENR);
+   599		if (state->enabled)
+   600			val |= PWM_ENABLE(pwm->hwpwm);
+   601		else
+   602			val &= ~PWM_ENABLE(pwm->hwpwm);
+   603		h616_pwm_writel(h616chip, val, PWM_ENR);
+   604	
+   605		spin_unlock_irqrestore(&h616chip->clk_pdata->lock, flags);
+   606	
+   607		return 0;
+   608	}
+   609	
 
 -- 
-With best wishes
-Dmitry
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
