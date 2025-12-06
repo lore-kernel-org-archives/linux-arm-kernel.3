@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE62AD3ABC4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 00:19:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCC6AD3ABC6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 00:19:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m3Z5nHAcUfdxfKrbAwjeK85mE0dJR71iRHLzzuZPmpA=; b=dhS6ADmN+fpJ9/ZoKcPIN20cHF
-	KcBkz6D0jdwfvaM/2b/3Ldhuhn1CyNbVqrWuuMW+hOV0itwJRTZuFQswrelMltA/iiLqRntB3Qs7A
-	JpyiC39adKn1uJelR3+G9griagTuGE2ieiZr4d5GPJiqBW7onM2G8g6JbLZYquiDf2U9tgt6AkpvS
-	2Kwk4hCz3adB2+/nSJ1H/9yVGJ/ewMGP334/W4JE5yvPPubz7YScdIpTkkUK4I3It0eWjUWNrdU1g
-	USCnsdtdZwFu4Mynp1Ah5feT8I5kT7MBJvDF6ImAfCtFvAiqDonfbtEV3SbwizpSnPVRXdCP0GIs8
-	XihGHenw==;
+	bh=hhYBOxKMeDA97YbyTKBhQywJKJiMZ56sAPho58tY+oI=; b=j+pNb/5wG08poF0BBG4uCgd7+A
+	AomkS7q5toGLIG9LoRWtnl55HNY+dsa3PHsYA0bsQM+PyoW4YU4l3IoxL5VALlOyEVDMwyNpArbTz
+	4MS9riWoFpEpuLDN0S6GgH4hwRmisz2cQVroph6tfvjdMuQlCVm4FX5GI7x2Go19UOPDU4yAglHqf
+	aI2777zBWmVBeNMH/Ktuw8gycXa2FR344z2MHUFw+GP2nK80R1Z3fkjzV3sKEEGqfVuhLDNGL0bim
+	YnTXD3mfRRJUQmGz4NW1gEsfvEOcC3KmtheSX3sObUKx5xFMhgiNK8G7n0PS5rYS8MYhQp2mc6pMX
+	Myl+svbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRg0h-0000000AGFX-2d7u;
-	Sat, 06 Dec 2025 00:18:51 +0000
+	id 1vRg0q-0000000AGU8-0xxr;
+	Sat, 06 Dec 2025 00:19:00 +0000
 Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRfzw-0000000AEwt-0dCM
+	id 1vRfzu-0000000AEtD-0K0A
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Dec 2025 00:18:06 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-3438744f11bso4919876a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 16:18:03 -0800 (PST)
+	Sat, 06 Dec 2025 00:18:03 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-340c261fb38so4315884a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 16:18:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764980282; x=1765585082; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1764980280; x=1765585080; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=m3Z5nHAcUfdxfKrbAwjeK85mE0dJR71iRHLzzuZPmpA=;
-        b=hyMWLGmih2ud/hZjqt9TCvAUeYOCMUEd7vP4LmYA/sKOlW6PnOZiQEgiAKvaeSsJdn
-         SXdHfr8o2yMhiJHvMjVgyqaa+Zk9p+H5vk2MQ6htCkXIDRDM/R/9CnMiBCL8cc8SfhAx
-         EKc0Gl0FCcnqLJRkEHjhr7YyHoW2A7f8x1PNcQl1isx6CZY7iaDLZAjrWLDArz5FBXvQ
-         3qZLLK0Fz8bjxIIkMbrmrYdHH4WSS/u61lXo8+zdbs6KsqsGAu4qKaUaitD3kJ4BN/Gx
-         NEJ30MKe9YpZnHG848/PIUmRoHFQ7N87ITIPs9uJBEmv7siv4pAaVPN2oeBhItlcDWsC
-         /ymA==
+        bh=hhYBOxKMeDA97YbyTKBhQywJKJiMZ56sAPho58tY+oI=;
+        b=hzQWoQshQ2LMvi0gbSNjpFOKB5fFwQKtlG2KxsvAWu3Pg7Yw3U/6Tm5DtivW2PPQ8v
+         zEkar2/cHzvt0hNZU5JAqY0AVi8XxkTOl0hRCPfuuZiV++nenkfsfUuN+Zw6UMpWiA78
+         tQSg9XHkriWjTOZBr2skvm0gs0q5JWXjWX7vAgboP6x14/PImn2A4SdfmAFYYCdXOQKt
+         Q9cZ5ew+gEftBEsYXPIPeLSTLNUtYZaN9blrXUjFbODJEgHlgxFjb3VtH2SdHJnxYzvj
+         nFDztz1gnMUG8igllh60naYJ13ZQHevqwu5xZq7opz0qTxB4YtxcR1Orgq+7ge349lxd
+         w6Rw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764980282; x=1765585082;
+        d=1e100.net; s=20230601; t=1764980280; x=1765585080;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=m3Z5nHAcUfdxfKrbAwjeK85mE0dJR71iRHLzzuZPmpA=;
-        b=nOKUYd6IwRrdPn6l67Czj6lgp923UhqQ0aqnn12JfOaIudWlFWPcSLF4uZ4HBNgwXH
-         WmIZzPxMwXH3Hqj8yfLXqU74U+Gah1+BSK2o7Cc1ULx1XasBK/yQ1JmKWwYyvMOMGnRk
-         EyFVFvh8cBOiUxuykjXkO9R9RsdumG6O2ccGsfMG31SMCrjEbV6DzKn64590tN6hc/7m
-         fPdgMIFfmfMk+YgMki7un3pTOfXLnEaQ/4ya8hNPXaipMilaKX9pTHzYbeudUz4okarh
-         sE0W8XTnnI0KvDXBO7z+vO2UH4MEjBpnSElbiaS6ba8LPrQ5k10z7zK5Hj4s5j0WminI
-         7xLg==
-X-Gm-Message-State: AOJu0YzY1wCUbdyVjbjNrHtK/q0BMMAet/zJchPrMJfD9sQV15yS3W/g
-	thNxa3pAkIq25YwS3EcpD6ybfzhEDibeObaEhjRvlX35dVn+a70qCvSdSsR79iQiV697IWgmGFJ
-	HKZL2gw==
-X-Google-Smtp-Source: AGHT+IGcOklQOzJ/lNZWJnk8g0uw9rVYfuzrIb6PtX+N9IOeiT702eHEqjavt0HC1DcnaOX9m2isN8tDRpE=
-X-Received: from pjyt22.prod.google.com ([2002:a17:90a:e516:b0:340:92f6:5531])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:d2cb:b0:33b:b078:d6d3
- with SMTP id 98e67ed59e1d1-349a25bcd68mr661307a91.23.1764980281984; Fri, 05
- Dec 2025 16:18:01 -0800 (PST)
-Date: Fri,  5 Dec 2025 16:16:54 -0800
+        bh=hhYBOxKMeDA97YbyTKBhQywJKJiMZ56sAPho58tY+oI=;
+        b=OjW37/Ef0eK6VCi+2zqrEEp6KJEGniOZuSQGtk7BGRKb6zyLSzkCMwMcvGD0wNTRQm
+         P1YMhKFyAT85p39xr4YhI+0cz4OygbUoGQNVXxLj3xACD3DvpekE5DRTVVoP+zLM0oKk
+         iQOx4ZMiJnmEADP57IGZ6NaCu34WrGvtGqxlI6uqvAeKXS4iREMb0w9jATuVql6qYIyg
+         Oewm5EZ/BhdUEWns7BmLu44z0RL/w1kyECL1FGmuEaV/W11y7TMleQwxwthMBthx1+cp
+         88oevbdP0V3oIsZ1Elrdm0Ne+HDTtyFb4kMQ+14NuM2OoWUw36I3rnHNmGpLreh4GQJk
+         OiKA==
+X-Gm-Message-State: AOJu0YzcLvZiyJuBPwu6vMWny99NGT14AZOz469BWZ+Bp54AQ63A4cBL
+	N6lQx7glv1SOZWFuCrMAoz8VSCA8uLJ9Ato4WSKJn8MHCzM6Ox0bqiLd76ZApp/AiCoWJdLuSX3
+	QfgwC/Q==
+X-Google-Smtp-Source: AGHT+IFFMAhL4pZP/9HCypRtffNLi9XXG9wzK7MTQvl2xq8p68VDBLvLazIKhLosMJgd33GPPNkDHe8jMow=
+X-Received: from pjbbo18.prod.google.com ([2002:a17:90b:912:b0:33b:c211:1fa9])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:ce07:b0:32d:d5f1:fe7f
+ with SMTP id 98e67ed59e1d1-349a24f3283mr493681a91.15.1764980280055; Fri, 05
+ Dec 2025 16:18:00 -0800 (PST)
+Date: Fri,  5 Dec 2025 16:16:53 -0800
 In-Reply-To: <20251206001720.468579-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251206001720.468579-1-seanjc@google.com>
 X-Mailer: git-send-email 2.52.0.223.gf5cc29aaa4-goog
-Message-ID: <20251206001720.468579-19-seanjc@google.com>
-Subject: [PATCH v6 18/44] KVM: x86/pmu: Implement AMD mediated PMU requirements
+Message-ID: <20251206001720.468579-18-seanjc@google.com>
+Subject: [PATCH v6 17/44] KVM: x86/pmu: Implement Intel mediated PMU
+ requirements and constraints
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -85,8 +86,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_161804_368664_A2C0D332 
-X-CRM114-Status: GOOD (  10.51  )
+X-CRM114-CacheID: sfid-20251205_161802_318642_C921DB81 
+X-CRM114-Status: GOOD (  15.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,46 +103,91 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Require host PMU version 2+ for AMD mediated PMU support, as
-PERF_GLOBAL_CTRL and friends are hard requirements for the mediated PMU.
+From: Dapeng Mi <dapeng1.mi@linux.intel.com>
+
+Implement Intel PMU requirements and constraints for mediated PMU support.
+Require host PMU version 4+ so that PERF_GLOBAL_STATUS_SET can be used to
+precisely load the guest's status value into hardware, and require full-
+width writes so that KVM can precisely load guest counter values.
+
+Disable PEBS and LBRs if mediated PMU support is enabled, as they won't be
+supported in the initial implementation.
 
 Signed-off-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
 Co-developed-by: Mingwei Zhang <mizhang@google.com>
 Signed-off-by: Mingwei Zhang <mizhang@google.com>
-[sean: extract to separate patch, write changelog]
-Reviewed-by: Sandipan Das <sandipan.das@amd.com>
+[sean: split to separate patch, add full-width writes dependency]
 Tested-by: Xudong Hao <xudong.hao@intel.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/svm/pmu.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ arch/x86/kvm/vmx/capabilities.h |  3 ++-
+ arch/x86/kvm/vmx/pmu_intel.c    | 17 +++++++++++++++++
+ arch/x86/kvm/vmx/vmx.c          |  3 ++-
+ 3 files changed, 21 insertions(+), 2 deletions(-)
 
-diff --git a/arch/x86/kvm/svm/pmu.c b/arch/x86/kvm/svm/pmu.c
-index bc062285fbf5..16c88b2a2eb8 100644
---- a/arch/x86/kvm/svm/pmu.c
-+++ b/arch/x86/kvm/svm/pmu.c
-@@ -227,6 +227,11 @@ static void amd_pmu_init(struct kvm_vcpu *vcpu)
+diff --git a/arch/x86/kvm/vmx/capabilities.h b/arch/x86/kvm/vmx/capabilities.h
+index 02aadb9d730e..26302fd6dd9c 100644
+--- a/arch/x86/kvm/vmx/capabilities.h
++++ b/arch/x86/kvm/vmx/capabilities.h
+@@ -395,7 +395,8 @@ static inline bool vmx_pt_mode_is_host_guest(void)
+ 
+ static inline bool vmx_pebs_supported(void)
+ {
+-	return boot_cpu_has(X86_FEATURE_PEBS) && kvm_pmu_cap.pebs_ept;
++	return boot_cpu_has(X86_FEATURE_PEBS) && kvm_pmu_cap.pebs_ept &&
++	       !enable_mediated_pmu;
+ }
+ 
+ static inline bool cpu_has_notify_vmexit(void)
+diff --git a/arch/x86/kvm/vmx/pmu_intel.c b/arch/x86/kvm/vmx/pmu_intel.c
+index de1d9785c01f..050c21298213 100644
+--- a/arch/x86/kvm/vmx/pmu_intel.c
++++ b/arch/x86/kvm/vmx/pmu_intel.c
+@@ -767,6 +767,20 @@ void intel_pmu_cross_mapped_check(struct kvm_pmu *pmu)
  	}
  }
  
-+static bool amd_pmu_is_mediated_pmu_supported(struct x86_pmu_capability *host_pmu)
++static bool intel_pmu_is_mediated_pmu_supported(struct x86_pmu_capability *host_pmu)
 +{
-+	return host_pmu->version >= 2;
++	u64 host_perf_cap = 0;
++
++	if (boot_cpu_has(X86_FEATURE_PDCM))
++		rdmsrq(MSR_IA32_PERF_CAPABILITIES, host_perf_cap);
++
++	/*
++	 * Require v4+ for MSR_CORE_PERF_GLOBAL_STATUS_SET, and full-width
++	 * writes so that KVM can precisely load guest counter values.
++	 */
++	return host_pmu->version >= 4 && host_perf_cap & PERF_CAP_FW_WRITES;
 +}
 +
- struct kvm_pmu_ops amd_pmu_ops __initdata = {
- 	.rdpmc_ecx_to_pmc = amd_rdpmc_ecx_to_pmc,
- 	.msr_idx_to_pmc = amd_msr_idx_to_pmc,
-@@ -236,6 +241,9 @@ struct kvm_pmu_ops amd_pmu_ops __initdata = {
- 	.set_msr = amd_pmu_set_msr,
- 	.refresh = amd_pmu_refresh,
- 	.init = amd_pmu_init,
+ struct kvm_pmu_ops intel_pmu_ops __initdata = {
+ 	.rdpmc_ecx_to_pmc = intel_rdpmc_ecx_to_pmc,
+ 	.msr_idx_to_pmc = intel_msr_idx_to_pmc,
+@@ -778,6 +792,9 @@ struct kvm_pmu_ops intel_pmu_ops __initdata = {
+ 	.reset = intel_pmu_reset,
+ 	.deliver_pmi = intel_pmu_deliver_pmi,
+ 	.cleanup = intel_pmu_cleanup,
 +
-+	.is_mediated_pmu_supported = amd_pmu_is_mediated_pmu_supported,
++	.is_mediated_pmu_supported = intel_pmu_is_mediated_pmu_supported,
 +
- 	.EVENTSEL_EVENT = AMD64_EVENTSEL_EVENT,
- 	.MAX_NR_GP_COUNTERS = KVM_MAX_NR_AMD_GP_COUNTERS,
- 	.MIN_NR_GP_COUNTERS = AMD64_NUM_COUNTERS,
+ 	.EVENTSEL_EVENT = ARCH_PERFMON_EVENTSEL_EVENT,
+ 	.MAX_NR_GP_COUNTERS = KVM_MAX_NR_INTEL_GP_COUNTERS,
+ 	.MIN_NR_GP_COUNTERS = 1,
+diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+index 4cbe8c84b636..fdd18ad1ede3 100644
+--- a/arch/x86/kvm/vmx/vmx.c
++++ b/arch/x86/kvm/vmx/vmx.c
+@@ -7958,7 +7958,8 @@ static __init u64 vmx_get_perf_capabilities(void)
+ 	if (boot_cpu_has(X86_FEATURE_PDCM))
+ 		rdmsrq(MSR_IA32_PERF_CAPABILITIES, host_perf_cap);
+ 
+-	if (!cpu_feature_enabled(X86_FEATURE_ARCH_LBR)) {
++	if (!cpu_feature_enabled(X86_FEATURE_ARCH_LBR) &&
++	    !enable_mediated_pmu) {
+ 		x86_perf_get_lbr(&vmx_lbr_caps);
+ 
+ 		/*
 -- 
 2.52.0.223.gf5cc29aaa4-goog
 
