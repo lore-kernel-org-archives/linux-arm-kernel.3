@@ -4,85 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B19FD3ABC4
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 00:20:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10544D3ABC4
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 00:20:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ku5/x+LjNQqCx84/WRP5NtSBvqHOmfXefyV2HWZpjLA=; b=gkVRarq6aGUKicUMCDtedRNaOh
-	w3E48jc5Zcshov5Wb3+Jns3KLdvpKR58UCNAhOiqoDd4HHmME6SuTegX0EqpXYwwG0lmxApx9r3vK
-	n98uwnVqmU80IN1ttdCiBwN8gsFvqwG/5Hg5CePYV9WPceNwwBNcmYXWyfLA+bLfnDz7YqK6aWdjK
-	jfMSlCRxbFzzDRPET6d4mFnEliUvCQSym1k8QoDxIgT2+cmS+5kCgS9WCVlvHLUmVaKWj6VADTSXb
-	aSVF/+trhwfLPhorGLVWEuAyCQ0uht3fpZm4nV/bREMJqGtjVQ60xtG9cvbAQO88/tYVvtBuWhdA3
-	jHTqo5PA==;
+	bh=0alQNA5MnRougM8104k8mY12SAXvJNUdA/VqOuM31LI=; b=AraoxUNPKPWmvK+JS+QybRBo6D
+	nAfTczfZMFOXSYqHnl1DrMXsnHPkUAHtgRfihjdXkLDli+ItMQ4WzcLndKphrVavp+7wLT24Wsq7u
+	CcOdsZcRSILMeRIwxp3lvjpoBoyujPrgDbDTk2mjI2qqlf+KJqfA7MYMvftznXWQT1AXO92TDz/6Q
+	mINDcnRJjXDCiBgsG+a3HLmC39SoUJko6m4Sea28QSeBFA8ebt5VvX4Gyui10QZr0RmIWiLkQmHlL
+	XVbqazgVxHjgdePqZV82XMttBQGVm6KiU0EoTat0iGd1/rfl32x0L4yLOpHak4zAjPl2jkf12b9kZ
+	1Rg8koDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRg28-0000000AJ5w-0XHh;
-	Sat, 06 Dec 2025 00:20:20 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vRg2G-0000000AJOf-0uyh;
+	Sat, 06 Dec 2025 00:20:28 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRg0f-0000000AG7e-0mUt
+	id 1vRg0i-0000000AGFm-1Y85
 	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 06 Dec 2025 00:18:49 +0000
+	Sat, 06 Dec 2025 00:18:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:Cc:To:From:Subject:
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
 	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=ku5/x+LjNQqCx84/WRP5NtSBvqHOmfXefyV2HWZpjLA=; b=mVgvUM1nDsF77hePh2bNyaOGxS
-	E+tHaqQbrOIdUcBoErhvf48lJEtEXWDrg4B7ajXErIN5h2/i3rzMBXer0MkShy9GRXfx/Y8XOVVgA
-	tTXS2o3HrNpE64Nybk3XFuZ0IRdiH0SbEhxuQoOX3VdAPRjIXIaM1FPZe9Io1VgcZky3w6ZOHjHsL
-	JQ2x/w2iUhNu94wrOfBlDdMFXNASyZ/6OoEioYSPgIbkPhM3n1IZk/W6gpvC5jXlppyiFGS2JTKxT
-	r0HmxnjSqbM72sX3K6UKT5UNGldafbe/GYOsSNNqMeJFd0uNX9mSp9zHvD4jxerMKXJR9o6bZ8zPS
-	BKPRMXzw==;
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
-	by casper.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRg0Z-00000006ShF-0yKu
+	bh=0alQNA5MnRougM8104k8mY12SAXvJNUdA/VqOuM31LI=; b=mQmaORGqBSIxeoZvwkZeUPch40
+	deAai2FRFz352VklSbMO5ecfrQUjmeIRNU6OdsrQwKbWVyOvD2xJhXZy1Phbr4+wDjPMafziM3RyA
+	UawIY24+s935Y258H6SJq+8l2b2GaRpxDUbICAMqtGzwVqABWt6C8vT3DUB5/p38AqyWP66N285pC
+	jmNi0+HRp3jiElcFGwXqexbUreWeiVAcakFe+YqiAVcf1XNpWQXdGqTUdOeDCCJWJGxeYfoHauhT8
+	pIwJZE8GghGRkOPzNpnQSd89cZCoCAq/v9z8DqYB1IdMhj26I5ehjsBBFKriCcPTLzBYgkNRcIA6l
+	P7oPZg/A==;
+Received: from mail-pf1-f202.google.com ([209.85.210.202])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vRf96-000000072nJ-46IT
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Dec 2025 00:18:47 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-340ad9349b3so4794290a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 16:18:42 -0800 (PST)
+	Fri, 05 Dec 2025 23:23:31 +0000
+Received: by mail-pf1-f202.google.com with SMTP id d2e1a72fcca58-7c240728e2aso4693168b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 16:18:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1764980320; x=1765585120; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1764980324; x=1765585124; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=ku5/x+LjNQqCx84/WRP5NtSBvqHOmfXefyV2HWZpjLA=;
-        b=0SdBqx0GVhDzvwRO9kaCB6ElrZAOYi1StpxLHBpdlvn0bM0HN4uIylXipH4HfMaah8
-         w4Lu1RC447gAhEwD+xkmCR6UPJP//VKscgoF+OE7VVD24d144F63xH8lV6dxqFWfWcQR
-         zavR2dpk1lRPBDkWMSsRua+4sDqlpU3D+PCRFnRKVja9odZ+40F+ltC8GpviS/Idu2R1
-         bSynbw7ggRX4mLoLypHDSK3JVMS0cBrl4nvFNn6WMq/pFnuKBNFReb/BLRcoXCzEVP/G
-         eftVTgZ/4L5Ka2BBs0RH1frjpnfmeRNQAd2ncqrh9UIrIbOgnq8b6g8mXOym5ZjSLVRw
-         k4jg==
+        bh=0alQNA5MnRougM8104k8mY12SAXvJNUdA/VqOuM31LI=;
+        b=TpuCIbyFQ89yixdtfcwu/98zsmetX1DHDp7mT+KPT3lN2/MtV0Yt3nRYYQFmX8D6KQ
+         dhJ3z2kI8YT+78D13ZWgvSLAecoO5AUtM25LJCxNW0g6hjL/1qghkIItb2sv3acJBvgL
+         hSZSp80Q3vieghQMg2Y65/dhwh8+LFBBIHBUbNQ4MXxwi8gvlH8SZ2P/xKZEr5M5pTmA
+         1jF06XyOZ/5ySxz6hqVqDFhL4KcCfMairNnOBD4k4F+N6RZbhfXWs3AWuVa9BfYEkt7Z
+         5op7jMjLgY1V+hYcwoh58AanF1PhT8nnYZlX5mOIowPMn4pEnH5tnfKk5Ad+002HsRcT
+         B9wA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764980320; x=1765585120;
+        d=1e100.net; s=20230601; t=1764980324; x=1765585124;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ku5/x+LjNQqCx84/WRP5NtSBvqHOmfXefyV2HWZpjLA=;
-        b=Lizzmo0wd4HIe8Bo8xHxeXtavwI6SQikEcXMvAjC3U1ElexICgiaIFdZmOjDQj7EFP
-         VQZ3OXDxnODjwZkJ+pBF2am810NfnW58AyiBnVn/0AbDuE+fhc0atuJYPUPHCKC+BpUt
-         V1x5pIf9ZkK3xW2EcAu3GVSdWUYyqbc2pSHEH4fJnXPq4HgDLeCM2UgYpC2ldX0GqLQF
-         3oNSg9AikcVnwSRT1Ny1mqVHOmqjQPQALiChLno7srdcNr0E9dC8Tc+XHbTrzXv7jnK2
-         4cqgc624fc5n9r+fksxmo/mOScmVDoTlslDuJKGEDf6tP0BiE8lIZazHx2uQlfz5oAl7
-         A1YA==
-X-Gm-Message-State: AOJu0Ywz/wII+y4MS1JuZUipY/B/qIJg884wlF7Ur/8p9qjDCWpxru9x
-	wxWprHlTxDsNLYa43n6+O0mSYYViJWxMLb0juDfhsMh9DAbrarvnWAOYfRAVlfM02XBBfheqpj6
-	ZpnyeZw==
-X-Google-Smtp-Source: AGHT+IEdp4wM145Xt6RAcxFUTnovxS6MiWgfOzkzkurnCS7JdSyw5SBAEDCrfo8aXCdOIaWJdQdQ/+16vt8=
-X-Received: from pjbft20.prod.google.com ([2002:a17:90b:f94:b0:347:40b0:958b])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:e70d:b0:343:66e2:5f9b
- with SMTP id 98e67ed59e1d1-349a25bd10emr622201a91.24.1764980320255; Fri, 05
- Dec 2025 16:18:40 -0800 (PST)
-Date: Fri,  5 Dec 2025 16:17:12 -0800
+        bh=0alQNA5MnRougM8104k8mY12SAXvJNUdA/VqOuM31LI=;
+        b=hIGeCLgfNaJ4uTfNAvFZ+GEyBgzkcvJw0UfJuGpEMu5/T8DoLipMog3gwAS4HXTHSJ
+         X8IXCSbcqXuiJVgiOj/D5Y7Y+fZyQH/P6BLpr74B4LgWMvJ+MfP5hME2ro5PRxkD+FC8
+         B19z7pKtZ8bFtg6MZ5nWsFRuS8eSdIDggzo1Ypy7TChkrpiGRno/x2SV2HFFDbGHp+Iw
+         Oj1QbcsyBh7BF4oueXMBC56r9K8MikM9wWYVO/7TSeD8xsGjrM7dElMP43NRc7aSZZC3
+         /1CVlfLwUrBdEBqo8cS1Ppp1UVhqYWH1NdaFl3p9jMFeul4zumHwWj+rDRqxjOMVCHl4
+         ZKzg==
+X-Gm-Message-State: AOJu0YwnscOaV1nl5xwG9cUZFBNMGgHo81WnZ7RZYXY0X5dmjLPJDNQW
+	Noe9nxhTKmIL0VjxA6M+zusaYYwP5t339QQvcfAdp2CR6s2aYqYiRO3VAt2phi5xIHIL8MGk+Jf
+	iJBgDEg==
+X-Google-Smtp-Source: AGHT+IE9VOcwrfHydwxf79golQ2o2etTa7qJp+DbC2tY99Fupcp+X66ru5yHSbM1504AJSJDzZlYcA1+Jcw=
+X-Received: from pgdc11.prod.google.com ([2002:a05:6a02:510b:b0:bd9:6028:d18c])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:4ed2:10b0:361:4ca3:e17d
+ with SMTP id adf61e73a8af0-36617e37b3fmr739726637.13.1764980324070; Fri, 05
+ Dec 2025 16:18:44 -0800 (PST)
+Date: Fri,  5 Dec 2025 16:17:14 -0800
 In-Reply-To: <20251206001720.468579-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251206001720.468579-1-seanjc@google.com>
 X-Mailer: git-send-email 2.52.0.223.gf5cc29aaa4-goog
-Message-ID: <20251206001720.468579-37-seanjc@google.com>
-Subject: [PATCH v6 36/44] KVM: nVMX: Don't update msr_autostore count when
- saving TSC for vmcs12
+Message-ID: <20251206001720.468579-39-seanjc@google.com>
+Subject: [PATCH v6 38/44] KVM: VMX: Drop unused @entry_only param from add_atomic_switch_msr()
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -101,8 +100,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251206_001843_533953_7AD628AF 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20251205_232329_352835_8F749EE5 
+X-CRM114-Status: GOOD (  15.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,185 +117,91 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rework nVMX's use of the MSR auto-store list to snapshot TSC to sneak
-MSR_IA32_TSC into the list _without_ updating KVM's software tracking,
-and drop the generic functionality so that future usage of the store list
-for nested specific logic needs to consider the implications of modifying
-the list.  Updating the list only for vmcs02 and only on nested VM-Enter
-is a disaster waiting to happen, as it means vmcs01 is stale relative to
-the software tracking, and KVM could unintentionally leave an MSR in the
-store list in perpetuity while running L1, e.g. if KVM addressed the first
-issue and updated vmcs01 on nested VM-Exit without removing TSC from the
-list.
+Drop the "on VM-Enter only" parameter from add_atomic_switch_msr() as it
+is no longer used, and for all intents and purposes was never used.  The
+functionality was added, under embargo, by commit 989e3992d2ec
+("x86/KVM/VMX: Extend add_atomic_switch_msr() to allow VMENTER only MSRs"),
+and then ripped out by commit 2f055947ae5e ("x86/kvm: Drop L1TF MSR list
+approach") just a few commits later.
 
-Furthermore, mixing KVM's desire to save an MSR with L1's desire to save
-an MSR result KVM clobbering/ignoring the needs of vmcs01 or vmcs02.
-E.g. if KVM added MSR_IA32_TSC to the store list for its own purposes, and
-then _removed_ MSR_IA32_TSC from the list after emulating nested VM-Enter,
-then KVM would remove MSR_IA32_TSC from the list even though saving TSC on
-VM-Exit from L2 is still desirable (to provide L1 with an accurate TSC).
+  2f055947ae5e x86/kvm: Drop L1TF MSR list approach
+  72c6d2db64fa x86/litf: Introduce vmx status variable
+  215af5499d9e cpu/hotplug: Online siblings when SMT control is turned on
+  390d975e0c4e x86/KVM/VMX: Use MSR save list for IA32_FLUSH_CMD if required
+  989e3992d2ec x86/KVM/VMX: Extend add_atomic_switch_msr() to allow VMENTER only MSRs
 
-Similarly, removing an MSR from the list based on vmcs12's settings could
-drop an MSR that KVM wants to save for its own purposes.
+Furthermore, it's extremely unlikely KVM will ever _need_ to load an MSR
+value via the auto-load lists only on VM-Enter.  MSRs writes via the lists
+aren't optimized in any way, and so the only reason to use the lists
+instead of a WRMSR are for cases where the MSR _must_ be load atomically
+with respect to VM-Enter (and/or VM-Exit).  While one could argue that
+command MSRs, e.g. IA32_FLUSH_CMD, "need" to be done exact at VM-Enter, in
+practice doing such flushes within a few instructons of VM-Enter is more
+than sufficient.
 
-In practice, the issues are currently benign, because KVM doesn't use the
-store list for vmcs01.  But that will change with upcoming mediated PMU
-support.
+Note, the shortlog and changelog for commit 390d975e0c4e ("x86/KVM/VMX: Use
+MSR save list for IA32_FLUSH_CMD if required") are misleading and wrong.
+That commit added MSR_IA32_FLUSH_CMD to the VM-Enter _load_ list, not the
+VM-Enter save list (which doesn't exist, only VM-Exit has a store/save
+list).
 
-Alternatively, a "full" solution would be to track MSR list entries for
-vmcs12 separately from KVM's standard lists, but MSR_IA32_TSC is likely
-the only MSR that KVM would ever want to save on _every_ VM-Exit purely
-based on vmcs12.  I.e. the added complexity isn't remotely justified at
-this time.
-
-Opportunistically escalate from a pr_warn_ratelimited() to a full WARN as
-KVM reserves eight entries in each MSR list, and as above KVM uses at most
-one entry.
-
-Opportunistically make vmx_find_loadstore_msr_slot() local to vmx.c as
-using it directly from nested code is unsafe due to the potential for
-mixing vmcs01 and vmcs02 state (see above).
-
-Cc: Jim Mattson <jmattson@google.com>
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- arch/x86/kvm/vmx/nested.c | 71 ++++++++++++---------------------------
- arch/x86/kvm/vmx/vmx.c    |  2 +-
- arch/x86/kvm/vmx/vmx.h    |  2 +-
- 3 files changed, 24 insertions(+), 51 deletions(-)
+ arch/x86/kvm/vmx/vmx.c | 13 ++++---------
+ 1 file changed, 4 insertions(+), 9 deletions(-)
 
-diff --git a/arch/x86/kvm/vmx/nested.c b/arch/x86/kvm/vmx/nested.c
-index 486789dac515..614b789ecf16 100644
---- a/arch/x86/kvm/vmx/nested.c
-+++ b/arch/x86/kvm/vmx/nested.c
-@@ -1075,16 +1075,12 @@ static bool nested_vmx_get_vmexit_msr_value(struct kvm_vcpu *vcpu,
- 	 * does not include the time taken for emulation of the L2->L1
- 	 * VM-exit in L0, use the more accurate value.
- 	 */
--	if (msr_index == MSR_IA32_TSC) {
--		int i = vmx_find_loadstore_msr_slot(&vmx->msr_autostore,
--						    MSR_IA32_TSC);
-+	if (msr_index == MSR_IA32_TSC && vmx->nested.tsc_autostore_slot >= 0) {
-+		int slot = vmx->nested.tsc_autostore_slot;
-+		u64 host_tsc = vmx->msr_autostore.val[slot].value;
- 
--		if (i >= 0) {
--			u64 val = vmx->msr_autostore.val[i].value;
--
--			*data = kvm_read_l1_tsc(vcpu, val);
--			return true;
--		}
-+		*data = kvm_read_l1_tsc(vcpu, host_tsc);
-+		return true;
- 	}
- 
- 	if (kvm_emulate_msr_read(vcpu, msr_index, data)) {
-@@ -1163,42 +1159,6 @@ static bool nested_msr_store_list_has_msr(struct kvm_vcpu *vcpu, u32 msr_index)
- 	return false;
- }
- 
--static void prepare_vmx_msr_autostore_list(struct kvm_vcpu *vcpu,
--					   u32 msr_index)
--{
--	struct vcpu_vmx *vmx = to_vmx(vcpu);
--	struct vmx_msrs *autostore = &vmx->msr_autostore;
--	bool in_vmcs12_store_list;
--	int msr_autostore_slot;
--	bool in_autostore_list;
--	int last;
--
--	msr_autostore_slot = vmx_find_loadstore_msr_slot(autostore, msr_index);
--	in_autostore_list = msr_autostore_slot >= 0;
--	in_vmcs12_store_list = nested_msr_store_list_has_msr(vcpu, msr_index);
--
--	if (in_vmcs12_store_list && !in_autostore_list) {
--		if (autostore->nr == MAX_NR_LOADSTORE_MSRS) {
--			/*
--			 * Emulated VMEntry does not fail here.  Instead a less
--			 * accurate value will be returned by
--			 * nested_vmx_get_vmexit_msr_value() by reading KVM's
--			 * internal MSR state instead of reading the value from
--			 * the vmcs02 VMExit MSR-store area.
--			 */
--			pr_warn_ratelimited(
--				"Not enough msr entries in msr_autostore.  Can't add msr %x\n",
--				msr_index);
--			return;
--		}
--		last = autostore->nr++;
--		autostore->val[last].index = msr_index;
--	} else if (!in_vmcs12_store_list && in_autostore_list) {
--		last = --autostore->nr;
--		autostore->val[msr_autostore_slot] = autostore->val[last];
--	}
--}
--
- /*
-  * Load guest's/host's cr3 at nested entry/exit.  @nested_ept is true if we are
-  * emulating VM-Entry into a guest with EPT enabled.  On failure, the expected
-@@ -2699,12 +2659,25 @@ static void prepare_vmcs02_rare(struct vcpu_vmx *vmx, struct vmcs12 *vmcs12)
- 	}
- 
- 	/*
--	 * Make sure the msr_autostore list is up to date before we set the
--	 * count in the vmcs02.
-+	 * If vmcs12 is configured to save TSC on exit via the auto-store list,
-+	 * append the MSR to vmcs02's auto-store list so that KVM effectively
-+	 * reads TSC at the time of VM-Exit from L2.  The saved value will be
-+	 * propagated to vmcs12's list on nested VM-Exit.
-+	 *
-+	 * Don't increment the number of MSRs in the vCPU structure, as saving
-+	 * TSC is specific to this particular incarnation of vmcb02, i.e. must
-+	 * not bleed into vmcs01.
- 	 */
--	prepare_vmx_msr_autostore_list(&vmx->vcpu, MSR_IA32_TSC);
-+	if (nested_msr_store_list_has_msr(&vmx->vcpu, MSR_IA32_TSC) &&
-+	    !WARN_ON_ONCE(vmx->msr_autostore.nr >= ARRAY_SIZE(vmx->msr_autostore.val))) {
-+		vmx->nested.tsc_autostore_slot = vmx->msr_autostore.nr;
-+		vmx->msr_autostore.val[vmx->msr_autostore.nr].index = MSR_IA32_TSC;
- 
--	vmcs_write32(VM_EXIT_MSR_STORE_COUNT, vmx->msr_autostore.nr);
-+		vmcs_write32(VM_EXIT_MSR_STORE_COUNT, vmx->msr_autostore.nr + 1);
-+	} else {
-+		vmx->nested.tsc_autostore_slot = -1;
-+		vmcs_write32(VM_EXIT_MSR_STORE_COUNT, vmx->msr_autostore.nr);
-+	}
- 	vmcs_write32(VM_EXIT_MSR_LOAD_COUNT, vmx->msr_autoload.host.nr);
- 	vmcs_write32(VM_ENTRY_MSR_LOAD_COUNT, vmx->msr_autoload.guest.nr);
- 
 diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-index 23c92c41fd83..52bcb817cc15 100644
+index a51f66d1b201..38491962b2c1 100644
 --- a/arch/x86/kvm/vmx/vmx.c
 +++ b/arch/x86/kvm/vmx/vmx.c
-@@ -1029,7 +1029,7 @@ static __always_inline void clear_atomic_switch_msr_special(struct vcpu_vmx *vmx
- 	vm_exit_controls_clearbit(vmx, exit);
+@@ -1094,7 +1094,7 @@ static __always_inline void add_atomic_switch_msr_special(struct vcpu_vmx *vmx,
  }
  
--int vmx_find_loadstore_msr_slot(struct vmx_msrs *m, u32 msr)
-+static int vmx_find_loadstore_msr_slot(struct vmx_msrs *m, u32 msr)
+ static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
+-				  u64 guest_val, u64 host_val, bool entry_only)
++				  u64 guest_val, u64 host_val)
  {
- 	unsigned int i;
+ 	int i, j = 0;
+ 	struct msr_autoload *m = &vmx->msr_autoload;
+@@ -1132,8 +1132,7 @@ static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
+ 	}
  
-diff --git a/arch/x86/kvm/vmx/vmx.h b/arch/x86/kvm/vmx/vmx.h
-index 4ce653d729ca..3175fedb5a4d 100644
---- a/arch/x86/kvm/vmx/vmx.h
-+++ b/arch/x86/kvm/vmx/vmx.h
-@@ -191,6 +191,7 @@ struct nested_vmx {
- 	u16 vpid02;
- 	u16 last_vpid;
+ 	i = vmx_find_loadstore_msr_slot(&m->guest, msr);
+-	if (!entry_only)
+-		j = vmx_find_loadstore_msr_slot(&m->host, msr);
++	j = vmx_find_loadstore_msr_slot(&m->host, msr);
  
-+	int tsc_autostore_slot;
- 	struct nested_vmx_msrs msrs;
+ 	if ((i < 0 && m->guest.nr == MAX_NR_LOADSTORE_MSRS) ||
+ 	    (j < 0 &&  m->host.nr == MAX_NR_LOADSTORE_MSRS)) {
+@@ -1148,9 +1147,6 @@ static void add_atomic_switch_msr(struct vcpu_vmx *vmx, unsigned msr,
+ 	m->guest.val[i].index = msr;
+ 	m->guest.val[i].value = guest_val;
  
- 	/* SMM related state */
-@@ -383,7 +384,6 @@ void vmx_spec_ctrl_restore_host(struct vcpu_vmx *vmx, unsigned int flags);
- unsigned int __vmx_vcpu_run_flags(struct vcpu_vmx *vmx);
- bool __vmx_vcpu_run(struct vcpu_vmx *vmx, unsigned long *regs,
- 		    unsigned int flags);
--int vmx_find_loadstore_msr_slot(struct vmx_msrs *m, u32 msr);
- void vmx_ept_load_pdptrs(struct kvm_vcpu *vcpu);
+-	if (entry_only)
+-		return;
+-
+ 	if (j < 0) {
+ 		j = m->host.nr++;
+ 		vmcs_write32(VM_EXIT_MSR_LOAD_COUNT, m->host.nr);
+@@ -1190,8 +1186,7 @@ static bool update_transition_efer(struct vcpu_vmx *vmx)
+ 		if (!(guest_efer & EFER_LMA))
+ 			guest_efer &= ~EFER_LME;
+ 		if (guest_efer != kvm_host.efer)
+-			add_atomic_switch_msr(vmx, MSR_EFER,
+-					      guest_efer, kvm_host.efer, false);
++			add_atomic_switch_msr(vmx, MSR_EFER, guest_efer, kvm_host.efer);
+ 		else
+ 			clear_atomic_switch_msr(vmx, MSR_EFER);
+ 		return false;
+@@ -7350,7 +7345,7 @@ static void atomic_switch_perf_msrs(struct vcpu_vmx *vmx)
+ 			clear_atomic_switch_msr(vmx, msrs[i].msr);
+ 		else
+ 			add_atomic_switch_msr(vmx, msrs[i].msr, msrs[i].guest,
+-					msrs[i].host, false);
++					      msrs[i].host);
+ }
  
- void vmx_set_intercept_for_msr(struct kvm_vcpu *vcpu, u32 msr, int type, bool set);
+ static void vmx_update_hv_timer(struct kvm_vcpu *vcpu, bool force_immediate_exit)
 -- 
 2.52.0.223.gf5cc29aaa4-goog
 
