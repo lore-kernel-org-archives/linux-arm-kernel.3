@@ -4,108 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31A98D3ABF5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 03:39:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5394D3ABF5
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 04:02:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KoD1NRD0QaV+f74bc5iSUT0wwYVNJpat/RcP0vQRNuI=; b=QmqLSckla4ySQdRck6aTpZufaq
-	HX9J+nk9mPA8XOM+JjKVPTsj8Vny6lE/mYVUi58MMJpF6HFyf/+25kXug9ewZ4cqdqjzcpPi7quYd
-	0cPSASj6sLZIas76d5hjrqje9UC95Gwr/0tNLrcEPBTabCwVoSXVx/w48VGzrID5bMnqQ0M3MX3Wq
-	U/6+tdqdz9X+xJlDTRg1l/9Okfdc2dBzxW4VsO//m10ETjVbwRhMjGMzLDGj+BhTvnqsnsWvKNsi3
-	vhqYFLJxzWPugMpbrND5z6mXxYeGrMOQB2+PDm6o3w9qhqPfeIogjwBqSK4an5nK4522fEvXlGg+B
-	4DJQ/0tQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3P8RhC3cRbNOP0rl/IbzhEB9y9tPULpHaaL6+mDsxHs=; b=LHz6Ws5aaOr7P2advknZ8wnhLm
+	VZ18SaEMIPILu0fgsBgfDOQ+RKqmtud1/lH1QNNBSbbFLnQG9+ey/DvRsl1GWoOkSFZQDHoU7etMG
+	TDvPaGiIqKbD7B48LqbbAYCYWyvbRUL/uvMTw/th3hGVvUeJSZjC2SpQrpzzhxYy7jS2tqhW6PBov
+	wq65lRaFDV0nnuhCzYkwvlGQz6/1Dn5uWopyQ+hjPwzGSLQqxb8O1hbDJkYgBB1rANIkviZeYTPo8
+	coSFH7qXY2MFKxUQfp3Xm0kuGIVQmU+ppKZDpU82rbdG+jezab5gt7T72sa+Cjmo/wNIb4p/RlOZ1
+	jzaLUwIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRj8Q-0000000AXxf-2ahb;
-	Sat, 06 Dec 2025 03:39:02 +0000
-Received: from omta36.uswest2.a.cloudfilter.net ([35.89.44.35])
+	id 1vRjVP-0000000Aa1N-41iT;
+	Sat, 06 Dec 2025 04:02:47 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRj8N-0000000AXvP-3TVc
+	id 1vRjVN-0000000Aa0u-1ztS
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Dec 2025 03:39:01 +0000
-Received: from eig-obgw-6005b.ext.cloudfilter.net ([10.0.30.162])
-	by cmsmtp with ESMTPS
-	id Rejcv45o0VCBNRj8BvSf4v; Sat, 06 Dec 2025 03:38:47 +0000
-Received: from gator4166.hostgator.com ([108.167.133.22])
-	by cmsmtp with ESMTPS
-	id Rj89v12i4HSQMRj89vm9Uz; Sat, 06 Dec 2025 03:38:45 +0000
-X-Authority-Analysis: v=2.4 cv=GIQIEvNK c=1 sm=1 tr=0 ts=6933a545
- a=1YbLdUo/zbTtOZ3uB5T3HA==:117 a=ujWNxKVE5dX343uAl30YYw==:17
- a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=7T7KSl7uo7wA:10 a=VwQbUJbxAAAA:8
- a=1XWaLZrsAAAA:8 a=_lKBnUPEwlkEFLTacEwA:9 a=QEXdDO2ut3YA:10 a=zZCYzV9kfG8A:10
- a=xYX6OU9JNrHFPr8prv8u:22
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=embeddedor.com; s=default; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=KoD1NRD0QaV+f74bc5iSUT0wwYVNJpat/RcP0vQRNuI=; b=coIeJHotksEB6dU0JU8LIyi2+L
-	uaDb55h2Mt1UuG3h/KfXxkyCM9kNkUWFXfKhHQ4o8JDSD7EQAoRXlQNhy2MPsqj9G6CEDFz/Atw+9
-	ZgQjnWppwz+a1nyxKyA8oa3XON37XtoLsHEsqBF7NciO4/cTYHyJsaGDdkZ1q96dXAR3vN+Ajgd8E
-	26oVQjWOBLooorvXiIFmWbm5h0W8vYG/Im+2W7ub8NiQ1hVB5GfsOo4OHyrJbTvh1tDzKIt53tiIR
-	QYbVpumaH0gvsFCV4zcXTBdq2yPsnMuu7hmsfqp+jYwJ4mvpvuF9UPJnj4fcmmFTX5nHWOJenYOGa
-	9yhq7lSQ==;
-Received: from i118-18-233-1.s41.a027.ap.plala.or.jp ([118.18.233.1]:61266 helo=[10.83.24.44])
-	by gator4166.hostgator.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.98.1)
-	(envelope-from <gustavo@embeddedor.com>)
-	id 1vRj86-00000002EOT-2JGv;
-	Fri, 05 Dec 2025 21:38:43 -0600
-Message-ID: <0018d1c0-58ec-4b31-b016-472795990923@embeddedor.com>
-Date: Sat, 6 Dec 2025 12:38:14 +0900
+	Sat, 06 Dec 2025 04:02:46 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B5FBKoT4177194
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 6 Dec 2025 04:02:45 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=3P8RhC3cRbNOP0rl/IbzhEB9
+	y9tPULpHaaL6+mDsxHs=; b=QvNBqC0KzNzVPRU95PJPr/+qVS+YGanOuwTiCMlh
+	oNdhNbqndg49Ir+MILtlOUzbpIhlCMEcU2YYd7MUtwRzPz0N3yYfFeefna6JWCHn
+	kRbr0KCY13Ry0ypW1ZfqBIwq/DQQt4DmbbRUBCd89MrlxnS2LoLRGQwE9rCI7+l1
+	MohM4M3qnwoV+m+Tu6eZl8nKCDjmQ09XDy6kFelvGxdcWWtLhLP66zbkVKu7L8FR
+	AoNIbJfm84kO8y9a63fiZi/pqFVs1aw973SwL+cmPgXnrL8swf1HLDkYo8lN7mul
+	3/nKlOUpjyyA8lBo9gimL9fhB+0MUymrSqQYYCtwQD5jYw==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4auwm5af07-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 06 Dec 2025 04:02:44 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8b30b6abb7bso569746985a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 20:02:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1764993764; x=1765598564; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=3P8RhC3cRbNOP0rl/IbzhEB9y9tPULpHaaL6+mDsxHs=;
+        b=G1NAJ3TKq2ZvVMZse/v7vjw409r4cO1vte0lKTPrmNbCtigDS8S8WIqdWTYAD4oUXy
+         DLQ/JXCIAXwjzAY6HxdslsLOagxgUTXZTf9k92auAFXnyM1oBcrFIK5XqRkPPQPOjp7U
+         FZXIXyZw8l1IeOsiQBMX9hsitHreAqUPOgg2V/mnXoNp4Va4Dmg9uRGEUO+76bBJRfR4
+         N6UFNaCW7P2UMcKLfHm3stYxqae3X89J6iFgLAehaZqH70BOJ/0YGNKMK2bIrwLPMWsI
+         +IjZ2Wm4QDJTHVhlIOIIujcnBpjFTjgnVbJXNpLUL+EymTmucJK7bF+KvAfSUuIsdF/y
+         KF7A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764993764; x=1765598564;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3P8RhC3cRbNOP0rl/IbzhEB9y9tPULpHaaL6+mDsxHs=;
+        b=dgS8oYutKB4+D37s4B9cpWUs8eI5SAYia7r0Yq5hy9IaZq7ShPxRpPXNNXQ9HLHJRi
+         KI2bBoxwdHRm1zXFNAKRTpVqcP8U9crhUqCfvGSHyZ7M+SOEmLkNIVMjzBld6G8xydCd
+         QVrNssPTXY9BfTzLiJNKVdBk2/fDVgDsJwyNjV8/Jhzrw7RwMkvO/zKW3IsIQHMYA+Uu
+         oMogC6cv+ffphC39HhBTEud1GhG8IBbOCbSBqGMQOT0h4awvqgseaVu9PUQjp5o/cMYP
+         JIxOpIg37l++PjgObVuydtCb/NgMPiR7bogRR1p063llpG58lx7TbLYmCBbB3oOLECd8
+         w6rg==
+X-Forwarded-Encrypted: i=1; AJvYcCVEgZRcC5mkDK3ad/g1FxAHuNkAiQKBRc/K/qaSQk0q3Gdy2NgUwES0YePf/brzometk0rGdvm7mhRYZoGcbndg@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYJxAuy+Zx1Fmutspi1iQzsbokHi6h16OVSF/70Nqe0ykO+EUT
+	JAKqG4k4acGFreA+hMCzr5XUEzDWPVugX+VulMBFaLgx9aF2zndJqTyMq66NjqdD5n5bi9FNKs6
+	lLzg1F6vMbeyZ5ChZiRIV+uABf27Wk5JiRjbXrugaek8D4tCcDJ29QUMrp4mvSfN6zoMmGODeaS
+	yLkg==
+X-Gm-Gg: ASbGncvABHjMxV8VbjZ/3hnDKsevyKaj6QlaWDi216e5ruaG7n6HufUhBOI75b/Y6UY
+	0foJm/42cuRKYt00PA+8yY/sZRDDAXiJ20XvSan39TLQwykAgaEKItyvNnBg3UsgcArAAnZx7ns
+	OCcje4IRjxqTEJn3d4ao60Z56pWkP8eCXtgof2/b+x5+xuYJjLN2Y5uX6RrS9G9S6xrpIA9Te9m
+	WFPlgQCmxusN1dgTyNN0ih2VBCctyGqwVu5JE6nGhqYLbEmEm7a7iNwCdBpwFlc8vbeYQiI/RDQ
+	seqVcmqHVdYzLoQkHlItpRoa2EzZMtjn45CyDxwEZX3dtCZzl0Lyg/xcASd+rm+gSrvKj7CJObm
+	jq8parY+IkAz/taUGcZDDZYVJXgonWQK02kvZJSVbmfdzCQ8mdMLWz/9TaqeYpypCeah1yD+bxY
+	1ZXnrAaNSxLjvYS6qtyapUclA=
+X-Received: by 2002:a05:620a:4726:b0:8b2:7777:f662 with SMTP id af79cd13be357-8b6a2589ac8mr201823685a.64.1764993763769;
+        Fri, 05 Dec 2025 20:02:43 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEtdPTmuravVRhlZz8xV1WEVwbBUkAkyhjwHvpt7kRJcvSdxAlEvy5G47mBX7coj0tQB1w6+A==
+X-Received: by 2002:a05:620a:4726:b0:8b2:7777:f662 with SMTP id af79cd13be357-8b6a2589ac8mr201821985a.64.1764993763272;
+        Fri, 05 Dec 2025 20:02:43 -0800 (PST)
+Received: from umbar.lan (2001-14ba-a073-af00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a073:af00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-37e6fe6bb67sm19293071fa.6.2025.12.05.20.02.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 05 Dec 2025 20:02:41 -0800 (PST)
+Date: Sat, 6 Dec 2025 06:02:38 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Taniya Das <taniya.das@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette <mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+        Jagadeesh Kona <quic_jkona@quicinc.com>,
+        Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
+        Imran Shaik <imran.shaik@oss.qualcomm.com>,
+        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
+        linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 3/3] clk: qcom: camcc: Add camera clock controller driver
+ for SM8750 SoC
+Message-ID: <mcvwms5logao4sz2o4h5yfyi7kloj7pkx5qzq7byvtcmhbymnk@ynegs32kkxyw>
+References: <20251202-sm8750_camcc-v1-0-b3f7ef6723f1@oss.qualcomm.com>
+ <20251202-sm8750_camcc-v1-3-b3f7ef6723f1@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: Remove subtle "struct kvm_stats_desc" pseudo-overlay
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>,
- Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>, Anup Patel <anup@brainfault.org>,
- Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Janosch Frank <frankja@linux.ibm.com>,
- Claudio Imbrenda <imbrenda@linux.ibm.com>,
- Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- "Gustavo A . R . Silva" <gustavoars@kernel.org>
-References: <20251205232655.445294-1-seanjc@google.com>
-Content-Language: en-US
-From: "Gustavo A. R. Silva" <gustavo@embeddedor.com>
-In-Reply-To: <20251205232655.445294-1-seanjc@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - gator4166.hostgator.com
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - embeddedor.com
-X-BWhitelist: no
-X-Source-IP: 118.18.233.1
-X-Source-L: No
-X-Exim-ID: 1vRj86-00000002EOT-2JGv
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-Source-Sender: i118-18-233-1.s41.a027.ap.plala.or.jp ([10.83.24.44]) [118.18.233.1]:61266
-X-Source-Auth: gustavo@embeddedor.com
-X-Email-Count: 10
-X-Org: HG=hgshared;ORG=hostgator;
-X-Source-Cap: Z3V6aWRpbmU7Z3V6aWRpbmU7Z2F0b3I0MTY2Lmhvc3RnYXRvci5jb20=
-X-Local-Domain: yes
-X-CMAE-Envelope: MS4xfPkYng9L2VUeL9Wf8iu+iyQWlw7QONMba/AEdaK8Etg7+OWrBo569SYD/wg0I3lz+EQu8aiXOnU20R6b0aVNtYBhrC2Hm3KlRJoZaDCpWQ866dOtTadi
- KGSxZZl0rWwXo4rjri8ysrg+lwcOvpzdxb7G/+OU5yi0s2wqYwZhgQNwwRFJqple+lx1njBDJb0kB+abbRsaKkOKMywQZel7sMJOgfn3XaA5LiCmHbM3WbZA
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251202-sm8750_camcc-v1-3-b3f7ef6723f1@oss.qualcomm.com>
+X-Proofpoint-GUID: I44buUc2U2HVcUnUJY7w2FlYXxVr9LQx
+X-Proofpoint-ORIG-GUID: I44buUc2U2HVcUnUJY7w2FlYXxVr9LQx
+X-Authority-Analysis: v=2.4 cv=XeOEDY55 c=1 sm=1 tr=0 ts=6933aae4 cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=EUspDBNiAAAA:8 a=_j3VNrtD_Kzz85i8SO4A:9 a=CjuIK1q_8ugA:10
+ a=PEH46H7Ffwr30OY-TuGO:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjA2MDAyOSBTYWx0ZWRfX7CHvWCaKwrQI
+ fInG+WzYF7QfQ0shsgPtBlsALMjQa5WbnDnmz01bGFzxPA2XzVgbExuxMETA6WI+70H8HhWlAWt
+ jY5Cg7pYodMQYMtfKEsoIV1rhKrYJPMBjPR/wx/GxvPbGcKV5XfrJEXkwqLeDmO6JL5fuKNTule
+ MohsnzWYBwcBiYn867hhdctEGHnkQKA6kIptbsUYICZ3J4qzvL6jmFtw1+ET28nOB+z2bI8kA1u
+ ThcgxMcpRNTHn6Tj/SqZ8BD0Jk1m/5HsMgGZZpSkIu4lQhuXpnfzHv3xhVLJqWlvDYMH10E4yfX
+ hoIw+4sPaNW+TBm3o9ecOzKBpiqOFt6XnTOHLlvL3ZL2QT0qGmqvRnnVabGaqOQ3tb+IN1hXRP/
+ +mPdjVOKFNR+W7S+f8rheDdF3aH36A==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-05_09,2025-12-04_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 lowpriorityscore=0 adultscore=0 suspectscore=0
+ priorityscore=1501 malwarescore=0 bulkscore=0 clxscore=1015 spamscore=0
+ impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
+ definitions=main-2512060029
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_193859_943293_FE41F426 
-X-CRM114-Status: UNSURE (   3.19  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251205_200245_542706_CE5AAD1E 
+X-CRM114-Status: GOOD (  16.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,29 +157,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 12/6/25 08:26, Sean Christopherson wrote:
-> Remove KVM's internal pseudo-overlay of kvm_stats_desc, which subtly
-> aliases the flexible name[] in the uAPI definition with a fixed-size array
-> of the same name.  The unusual embedded structure results in compiler
-> warnings due to -Wflex-array-member-not-at-end, and also necessitates an
-> extra level of dereferencing in KVM.  To avoid the "overlay", define the
-> uAPI structure to have a fixed-size name when building for the kernel.
-
-Nice. Thanks for this.
-
+On Tue, Dec 02, 2025 at 03:56:27PM +0530, Taniya Das wrote:
+> Add support for the Camera Clock Controller (CAMCC) on the SM8750
+> platform.
 > 
-> Opportunistically clean up the indentation for the stats macros, and
-> replace spaces with tabs.
+> The CAMCC block on SM8750 includes both the primary camera clock
+> controller and the Camera BIST clock controller, which provides the
+> functional MCLK required for camera operations.
 > 
-> No functional change intended.
+> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
+> ---
+>  drivers/clk/qcom/Kconfig                |   10 +
+>  drivers/clk/qcom/Makefile               |    1 +
+>  drivers/clk/qcom/cambistmclkcc-sm8750.c |  454 ++++++
+>  drivers/clk/qcom/camcc-sm8750.c         | 2710 +++++++++++++++++++++++++++++++
+>  4 files changed, 3175 insertions(+)
 > 
-> Reported-by: Gustavo A. R. Silva <gustavoars@kernel.org>
-> Closes: https://lore.kernel.org/all/aPfNKRpLfhmhYqfP@kspp
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
 
-Acked-by: Gustavo A. R. Silva <gustavoars@kernel.org>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
--Gustavo
+
+-- 
+With best wishes
+Dmitry
 
