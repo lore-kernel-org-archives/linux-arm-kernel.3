@@ -4,86 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE325D3ABF5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 04:33:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A4E0D3ABF6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 05:09:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5EiivMSBDVEZab0KSP3GcZhbd+MLfmkQ57LzeX+E7gY=; b=gXpES095nNCmdFEEWoMdj4/g2J
-	ZAavVO2eBPiFd6BMdS4tOeoVjN8t5XNnhJ2qJ9nwjs+uhyOCZaedPzlpYLXPkmhYPVE4sgCtyYayu
-	8Lkodg4EUmkiY+g0+u7dZnO9INjPZzVapOOp2OFnFdeBsA+GHH6w9ILum2IctVR2hLLMfEbGfTvg2
-	QoK1qbM4N1ZjwTsMZsa9wvu6m2JQg3sniwQnNJoTZ+hoKTYaHKvJz8UtxbWwEGJPGTugdEPnWsvpR
-	5o+pESmYHt3Zj3xqn8MgpxzEdzpBl+sAot+VDoQQvR+Cv+uSDziB80bPvuMN0Gpaj+3pOT+w5UjWz
-	9xL6SvLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=iD8eYq5ib5hN+a0GTaQhiJrNeylujhiGQE5LdxAwJmw=; b=kEx0OnP2PaJ4qNuuezv2/SdhvS
+	fGjNrVYzpNwcm4fzrhMXMobbLj/tpHk3/BBCY57lRRlL93XEOod6VH2NmoPUJEvsiWBwHSZMubOS0
+	On3KYC4mHyBJrQZHduJ7Eh60jbx2u391p+jiuLymQQRa81RQOc3QmgLu2dQQBzj6qF6LHOoGXQqlh
+	I7IKXVgnOLPH5Rr2pn/RmujjkU6Z97Gn1jdvOlEX5e9SGAaRWwaEEhzdfYOUv2O8yaJm+HNbQWvjg
+	NZsyFoKJltK8UtgvNVHLzN0UTbCBA5TrbgTXGMsRkBKZLcfwlfFSAv9NrFr0OQXTInFPkbyrAuAMM
+	74p+F1og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRjzN-0000000Abb1-3ERP;
-	Sat, 06 Dec 2025 04:33:45 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1vRkXW-0000000AdEk-3IlG;
+	Sat, 06 Dec 2025 05:09:02 +0000
+Received: from mail-m49226.qiye.163.com ([45.254.49.226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRjzL-0000000AbaU-1hsA
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Dec 2025 04:33:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1764995623; x=1796531623;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=1RXda8DebYFioOiumkkWKKD95G9Tw8ToK4dBLUquDSg=;
-  b=ZATwAjZkVBu1sDZff9xwZxmPTB07KET6SVhaUbn7fJTyeKRzU+fltgsH
-   PVVAc66OGWGHquZ0txaPEDr//h55XPrC0uu8xaaDgoMqnLFSQbdhIrAaU
-   62a8U7fwaD+wrOzb0vxvfXe7PYfZFJoiCu3HjD6JQHr8hYe6TzG1zoTHS
-   CaUR9/7nXsPCIwUGJ/DU3k+KsyfHnoB7z/xoBmHd1Wy0QEO/DbOI9gfHw
-   WxgY+HLSmX9FMKoIbcvM1+1OzOfELx/TILPNm00FV7JDz8v1Ndy6FBMWJ
-   IOB6UwFeERDuOqWhWrlxifDpEbduAvx5YK5gkz5hZQC2kPUCd6a8Pl6L+
-   A==;
-X-CSE-ConnectionGUID: wsVIe7X7QGK0h8IbjQK/Dw==
-X-CSE-MsgGUID: b3ylt0v6TcqIbT9+c27qpQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11633"; a="77714548"
-X-IronPort-AV: E=Sophos;i="6.20,254,1758610800"; 
-   d="scan'208";a="77714548"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Dec 2025 20:33:43 -0800
-X-CSE-ConnectionGUID: WgE21FiOSiGitnIlBwcihA==
-X-CSE-MsgGUID: Ak20VQHVTPSmYGdp4jTokA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,254,1758610800"; 
-   d="scan'208";a="199938011"
-Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
-  by orviesa004.jf.intel.com with ESMTP; 05 Dec 2025 20:33:39 -0800
-Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vRjzD-00000000Fqj-37PO;
-	Sat, 06 Dec 2025 04:33:35 +0000
-Date: Sat, 6 Dec 2025 12:32:50 +0800
-From: kernel test robot <lkp@intel.com>
-To: Richard Genoud <richard.genoud@bootlin.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	id 1vRkXR-0000000AdBa-31YN;
+	Sat, 06 Dec 2025 05:09:00 +0000
+Received: from rockchip.. (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2c3493a5c;
+	Sat, 6 Dec 2025 13:08:46 +0800 (GMT+08:00)
+From: Ye Zhang <ye.zhang@rock-chips.com>
+To: Ye Zhang <ye.zhang@rock-chips.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Heiko Stuebner <heiko@sntech.de>
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>,
 	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Cc: oe-kbuild-all@lists.linux.dev,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Richard Genoud <richard.genoud@bootlin.com>
-Subject: Re: [PATCH 2/4] pwm: sun50i: Add H616 PWM support
-Message-ID: <202512061246.jJ5UrB71-lkp@intel.com>
-References: <20251205100239.1563353-3-richard.genoud@bootlin.com>
+	tao.huang@rock-chips.com
+Subject: [PATCH v2 0/8] pinctrl: rockchip: Add RK3506 and RV1126B pinctrl and RMIO support
+Date: Sat,  6 Dec 2025 13:08:36 +0800
+Message-Id: <20251206050844.402958-1-ye.zhang@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251205100239.1563353-3-richard.genoud@bootlin.com>
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9af21001f509d8kunmae94618c4ed3a4a
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQk9OTVZOSUJDS09DTRpOGUJWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=JEhU243hs2yTG3n07dQ+K0RqbAKotLONHLm9cSoLpH6dyWIvZj2U2443n1vSlVf5wbTLG+pH6MVU3UNS6uyEJkvwOd2wrxBfpET851E/MD/XDViqGq5KFSK/Odknwms1t0HQ7hVgQt1AYtFztnEOfe89NRCuLkRwaACtv/Jm8xU=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=iD8eYq5ib5hN+a0GTaQhiJrNeylujhiGQE5LdxAwJmw=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_203343_481222_A197DC18 
-X-CRM114-Status: GOOD (  11.93  )
+X-CRM114-CacheID: sfid-20251205_210858_158424_C87A67A2 
+X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,120 +77,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Richard,
+This series adds pinctrl support for the Rockchip RK3506 and RV1126B SoC,
+and adds support for RMIO (Rockchip Matrix I/O).
 
-kernel test robot noticed the following build warnings:
+The series includes:
+- RK3506 pinctrl driver implementation
+- RV1126B pinctrl driver implementation
+- RMIO controller binding and driver support
+- GPIO driver update to support new version GPIO
 
-[auto build test WARNING on 6987d58a9cbc5bd57c983baa514474a86c945d56]
+Changes in v2:
+- Added RV1126B pinctrl support (patches 3 and 4)
+- Updated GPIO driver to support new version GPIO (patch 5)
+- Added header file for RK3506 RMIO (patch 6)
+- RMIO is now implemented as a separate pinctrl device (patches 7, 8)
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Richard-Genoud/dt-bindings-pwm-sunxi-add-PWM-controller-for-Allwinner-H616/20251205-214804
-base:   6987d58a9cbc5bd57c983baa514474a86c945d56
-patch link:    https://lore.kernel.org/r/20251205100239.1563353-3-richard.genoud%40bootlin.com
-patch subject: [PATCH 2/4] pwm: sun50i: Add H616 PWM support
-config: parisc-allyesconfig (https://download.01.org/0day-ci/archive/20251206/202512061246.jJ5UrB71-lkp@intel.com/config)
-compiler: hppa-linux-gcc (GCC) 15.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251206/202512061246.jJ5UrB71-lkp@intel.com/reproduce)
+Ye Zhang (8):
+  dt-bindings: pinctrl: Add rk3506 pinctrl support
+  pinctrl: rockchip: Add rk3506 pinctrl support
+  dt-bindings: pinctrl: Add rv1126b pinctrl support
+  pinctrl: rockchip: Add rv1126b pinctrl support
+  gpio: rockchip: support new version GPIO
+  dt-bindings: pinctrl: Add header for Rockchip RK3506 RMIO
+  dt-bindings: pinctrl: rockchip: Add RMIO controller binding
+  pinctrl: rockchip: add rmio support
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512061246.jJ5UrB71-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   drivers/pwm/pwm-sun50i-h616.c: In function 'h616_pwm_get_state':
-   drivers/pwm/pwm-sun50i-h616.c:76:41: error: implicit declaration of function 'FIELD_GET' [-Wimplicit-function-declaration]
-      76 | #define PWM_REG_DUTY(reg)               FIELD_GET(PWM_DUTY_MASK, reg)
-         |                                         ^~~~~~~~~
-   drivers/pwm/pwm-sun50i-h616.c:452:30: note: in expansion of macro 'PWM_REG_DUTY'
-     452 |         tmp = NSEC_PER_SEC * PWM_REG_DUTY(val);
-         |                              ^~~~~~~~~~~~
-   drivers/pwm/pwm-sun50i-h616.c: In function 'h616_pwm_calc':
-   drivers/pwm/pwm-sun50i-h616.c:79:41: error: implicit declaration of function 'FIELD_MAX' [-Wimplicit-function-declaration]
-      79 | #define PWM_PERIOD_MAX                  FIELD_MAX(PWM_PERIOD_MASK)
-         |                                         ^~~~~~~~~
-   drivers/pwm/pwm-sun50i-h616.c:493:54: note: in expansion of macro 'PWM_PERIOD_MAX'
-     493 |                 freq = div64_u64(NSEC_PER_SEC * (u64)PWM_PERIOD_MAX, period);
-         |                                                      ^~~~~~~~~~~~~~
-   drivers/pwm/pwm-sun50i-h616.c: In function 'h616_pwm_apply':
-   drivers/pwm/pwm-sun50i-h616.c:78:41: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
-      78 | #define PWM_DUTY(dty)                   FIELD_PREP(PWM_DUTY_MASK, dty)
-         |                                         ^~~~~~~~~~
-   drivers/pwm/pwm-sun50i-h616.c:577:23: note: in expansion of macro 'PWM_DUTY'
-     577 |                 val = PWM_DUTY(chan->active_cycles);
-         |                       ^~~~~~~~
-   drivers/pwm/pwm-sun50i-h616.c: In function 'h616_add_composite_clk':
->> drivers/pwm/pwm-sun50i-h616.c:666:28: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
-     666 |                 mux->reg = (u64)mux->reg + reg;
-         |                            ^
-   drivers/pwm/pwm-sun50i-h616.c:676:29: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
-     676 |                 gate->reg = (u64)gate->reg + reg;
-         |                             ^
-   drivers/pwm/pwm-sun50i-h616.c:686:29: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
-     686 |                 rate->reg = (u64)rate->reg + reg;
-         |                             ^
-
-
-vim +666 drivers/pwm/pwm-sun50i-h616.c
-
-   650	
-   651	static int h616_add_composite_clk(const struct clk_pwm_data *data,
-   652					  void __iomem *reg, spinlock_t *lock,
-   653					  struct device *dev, struct clk_hw **hw)
-   654	{
-   655		const struct clk_ops *mux_ops = NULL, *gate_ops = NULL, *rate_ops = NULL;
-   656		struct clk_hw *mux_hw = NULL, *gate_hw = NULL, *rate_hw = NULL;
-   657	
-   658	
-   659		if (data->mux_hw) {
-   660			struct clk_mux *mux;
-   661	
-   662			mux_hw = data->mux_hw;
-   663			mux = to_clk_mux(mux_hw);
-   664			mux->lock = lock;
-   665			mux_ops = mux_hw->init->ops;
- > 666			mux->reg = (u64)mux->reg + reg;
-   667		}
-   668	
-   669		if (data->gate_hw) {
-   670			struct clk_gate *gate;
-   671	
-   672			gate_hw = data->gate_hw;
-   673			gate = to_clk_gate(gate_hw);
-   674			gate->lock = lock;
-   675			gate_ops = gate_hw->init->ops;
-   676			gate->reg = (u64)gate->reg + reg;
-   677		}
-   678	
-   679		if (data->rate_hw) {
-   680			struct clk_divider *rate;
-   681	
-   682			rate_hw = data->rate_hw;
-   683			rate = to_clk_divider(rate_hw);
-   684			rate_ops = rate_hw->init->ops;
-   685			rate->lock = lock;
-   686			rate->reg = (u64)rate->reg + reg;
-   687	
-   688			if (rate->table) {
-   689				const struct clk_div_table *clkt;
-   690				int table_size = 0;
-   691	
-   692				for (clkt = rate->table; clkt->div; clkt++)
-   693					table_size++;
-   694				rate->width = order_base_2(table_size);
-   695			}
-   696		}
-   697	
-   698		*hw = clk_hw_register_composite(dev, data->name, data->parent_names,
-   699						data->num_parents, mux_hw,
-   700						mux_ops, rate_hw, rate_ops,
-   701						gate_hw, gate_ops, data->flags);
-   702	
-   703		return PTR_ERR_OR_ZERO(*hw);
-   704	}
-   705	
+ .../bindings/pinctrl/rockchip,pinctrl.yaml    |   11 +
+ .../bindings/pinctrl/rockchip,rmio.yaml       |  130 ++
+ drivers/gpio/gpio-rockchip.c                  |    2 +
+ drivers/pinctrl/pinctrl-rockchip.c            | 1188 +++++++++++++++--
+ drivers/pinctrl/pinctrl-rockchip.h            |   47 +
+ .../pinctrl/rockchip,rk3506-rmio.h            |  143 ++
+ 6 files changed, 1427 insertions(+), 94 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/rockchip,rmio.yaml
+ create mode 100644 include/dt-bindings/pinctrl/rockchip,rk3506-rmio.h
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.34.1
+
 
