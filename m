@@ -4,81 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F197D3ABF5
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 05:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80E0BD3ABF6
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 07:13:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G8o3YfQY7hKsuCq2GLsjvkFbr9nr7lBsO97Pk1xNZ0Q=; b=j7b/7BL+2zdt4jOaMFfx6WGVI2
-	1/TJb/HVqErsDBoEBSA8b8gKlV0bthAxbFiNkqMnHJwhi41ZS2GFQsIKH6sGO8soZe7PkyHZnisLL
-	vVr9oNBCTEkriO1DydYfrVyyGTsF9htg34p3Ekp3DWwG14OaXIDuS6dcwDMruqC7erFtPo/1FrqEe
-	mcfxF8YumD16iK6nWTW1AcrHBwNljDwbFYaRJGucaN3pV1BKLgDSLzilsDUd5K8fO9Ycf6xlbcEP5
-	oEx7O3odb+gnhA0mf5Bf36zdB4z2ijP79qC3c11N0SF5C6wtiD3IEcT0A9pdnzynG/H4BpFM4jo6E
-	4A3ZNxQA==;
+	bh=F6O9y5Z+AdkoL+Tm0wkCr7cebT9+l7JoZ+wcqNIg4NU=; b=gaOMeIRIdpOEVR6s5zr8xhjiCb
+	tf2fsy55uDVraMUkYp7aca1gVZNx7hQdVJ9BiDlb8U9BOTCjhP4f10gulaiXW+tV2hko8YuwlNIk5
+	jhdEobLcuJNgP46d5E11hkzUzzbGLFvdtZNItTFEXYEXSVu7s78x/gQZwHGa+gIgjveaw0WiaYrF2
+	wa9QY9rsLIS775kXmjsXHXzlAFkNKVv4IKoCvr/a5iLE5jyjM1XSNJQ3aoeBJ1c1dyQ8d+U9LURPE
+	V6yLO/xsdt9PRNjvf+t8Kl4cLs4GyOENb/CzEhqshKaRHumX+wHx0+VarYVnz6mWeVHxddoLb2XYm
+	DOzJLLqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRkir-0000000AesU-3css;
-	Sat, 06 Dec 2025 05:20:45 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1vRmTt-0000000Ahwr-13LN;
+	Sat, 06 Dec 2025 07:13:25 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRkip-0000000Aerc-04SU
+	id 1vRmTq-0000000AhwB-0yOh
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Dec 2025 05:20:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1764998443; x=1796534443;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ZFjNsLDmNldfG/5D2Bo1Qfl2RpXTUFrxrN62ffaxeME=;
-  b=jOnD4tXHFYfea9bqretoSovZs3Zr/piVDcxDyjjUrM+HDm47u7wWemS9
-   CQ+bEegNxuE/26SIZlMI3/z7a63x7ORfPmYI1NblOUQKL+h38cv07qaf4
-   OrX1QMoLBwa1S3yYFcqRXjTdW/Y87xE3OLzkAq41FrglfsR8rQqBvDFVd
-   fJJBnQfAWaNmjWzhVeBDuEd9YAk7M9/m2md1pgCnMIJhMWBG0DTo26zV+
-   j+LDgwxipCn3NmYzA4oJGW/fHtQtu0mGE7Yg1HaV4oPkxbAin0Wzbmwih
-   GmaYMA0DyamZHF7ivdXbPG24FgnSJT9HxEjmcfIU9MXYqdGIgLGCJJEPN
-   Q==;
-X-CSE-ConnectionGUID: p2FLWLzuT8OOX2/zguhjZw==
-X-CSE-MsgGUID: rcUJe8obTNSkbPbyUzy2lA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11633"; a="89684196"
-X-IronPort-AV: E=Sophos;i="6.20,254,1758610800"; 
-   d="scan'208";a="89684196"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Dec 2025 21:20:43 -0800
-X-CSE-ConnectionGUID: M8sn2e1iS7WipgYPGUEVrg==
-X-CSE-MsgGUID: FnNPjzW+SuyCFsShyfMMBQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,254,1758610800"; 
-   d="scan'208";a="200605245"
-Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
-  by orviesa005.jf.intel.com with ESMTP; 05 Dec 2025 21:20:40 -0800
-Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vRkij-00000000Fsj-1Jo7;
-	Sat, 06 Dec 2025 05:20:37 +0000
-Date: Sat, 6 Dec 2025 13:19:46 +0800
-From: kernel test robot <lkp@intel.com>
-To: Patrice Chotard <patrice.chotard@foss.st.com>,
-	Mark Brown <broonie@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: oe-kbuild-all@lists.linux.dev, linux-spi@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Patrice Chotard <patrice.chotard@foss.st.com>
-Subject: Re: [PATCH 3/8] spi: stm32-ospi: Remove CR_TCIE and CR_TEIE irq usage
-Message-ID: <202512061327.9CDC4SNs-lkp@intel.com>
-References: <20251205-upstream_qspi_ospi_updates-v1-3-7e6c8b9f5141@foss.st.com>
+	Sat, 06 Dec 2025 07:13:23 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-64320b9bb4bso5775465a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 23:13:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1765005200; x=1765610000; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=F6O9y5Z+AdkoL+Tm0wkCr7cebT9+l7JoZ+wcqNIg4NU=;
+        b=Iwp5fEu4MGdQDhn3Gofbzmge6A2h6HtcdIv07NPHn7sunri/G/+muzE1sbadSfK9oZ
+         umoVC6yiuKKQZtFglKhzv+jJXeYzuC+FFAakrsDtD/qfV4LDsvSiSSlBZKdMbWfVoxfT
+         myQBv9sAIK0LVA8zKExDwUeJc7DRH8L5wyYMrt9o30a7PJ8hupPQviKcOgsihcc+sNjk
+         ze4jnPtgkUktzU6lkHj2QBqYfguM9Xp8VqZPjZ6UL5qgesmXOhD9WR+IsZE3BlmqdSyM
+         fA+TZeRxMCtTN1MpIccoAnU6FNi75tD5QJJn0Jo8abBDwJj/txGnbiPnVenHg+YjTxj5
+         E0vQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765005200; x=1765610000;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=F6O9y5Z+AdkoL+Tm0wkCr7cebT9+l7JoZ+wcqNIg4NU=;
+        b=jZ6ZFjCVNshK1SXL8EhyyZ/bmbhcXVQAPF+rI/CwtRvmYFhTV10VFZ0hzRYGe9EPU4
+         ninMbmsUM04JrmryPWCzEqmX1W28o2Z/JIdaGxUAW5HxmYAPFEKLMnsKBtJBt9wR4/z9
+         zycNogI2oEc/HOyOks/OJ6skknUfv8vQOVQKZRwavFxtHe6eg+Dm85wuJA7dNVB6ytDA
+         dJTqfOyd3u5Mee8ccvA12moQIzyCJRqe8X/CEGhZH+HuLzo5vo+kgulBKGuN3YFyTx2L
+         7yGX0OyW3ey8lAaavYthezYyTJKasfB1xL7xAsLIjcfPMsAfGO6yG8ybEznH+Rn/csST
+         pVWA==
+X-Forwarded-Encrypted: i=1; AJvYcCVDpF9WBT5qcNRIaivNQZ4zhDjFZHyzONCX5+R0x37cHe92OG2g/OCLbRi20kn4zfDLqdhAnAV4GGiRoLBY2VYi@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5PvzWIYa15eePdbPPhb+IlPPOI7zE8HHkvFWnvsr6OlD88VXo
+	K6JON/arKhzfYkGX51dZWpxqzPZwRaRfHc1DaPxbhkYyf3JE4penUAz8sBLfq9yGrtEkeLvBKmE
+	QEdLZ8EKVSB18MBb9AW6f8kis1XHNdjw=
+X-Gm-Gg: ASbGncu/Nq2XlcL5pLyC7VAKfoZTwKGsxyQx4WE0nQqaxymDZ5LKeCjxLpHcNBbz2yh
+	f7XrNqd2ABlwJasnA5t2EdRGw1lrwxFVbCHqzPp9V7hbugkrpR4wFruPkizR5p2T8IJcEKj3D79
+	EwKkgr+JzGVh4aZZM37ncaCgT724VfA7aBqWlDAzzjtzL83s6LpbYvcuOAbMx+rE4pKU/kaZrQo
+	cMLfuiXHWDTyEDquTaMq6PQi5Jz2G0aviUuGldvOKKxyzW/omqW/AHzJFb7Hltg9HQrew==
+X-Google-Smtp-Source: AGHT+IGwqPkGdPum0faeStLtu2ktwCeeXpdd/Gr8bwvAvPpRB4dJntX84+9feZ0xNyk77ATtUZIZiKkj4xtUXhaRTNE=
+X-Received: by 2002:a05:6402:26c8:b0:649:19bf:bba2 with SMTP id
+ 4fb4d7f45d1cf-64919bfc0d5mr1360036a12.17.1765005199541; Fri, 05 Dec 2025
+ 23:13:19 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251205-upstream_qspi_ospi_updates-v1-3-7e6c8b9f5141@foss.st.com>
+References: <20251123-fixkhadas-v1-1-045348f0a4c2@baylibre.com>
+In-Reply-To: <20251123-fixkhadas-v1-1-045348f0a4c2@baylibre.com>
+From: Anand Moon <linux.amoon@gmail.com>
+Date: Sat, 6 Dec 2025 12:43:03 +0530
+X-Gm-Features: AQt7F2p5UjYlgHBMh4GKU7Y8S9VjvIpYJkR0ez5ZYJAnsWIvHhN0798bvgLMxKg
+Message-ID: <CANAwSgSqHR1kYxo8SaHcBfq=eij_YmVAidy8M+h1dFeK2nz1ug@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: amlogic: meson-g12b: Fix L2 cache reference
+ for S922X CPUs
+To: Guillaume La Roque <glaroque@baylibre.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_212043_121817_87CA83BF 
-X-CRM114-Status: UNSURE (   9.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251205_231322_311865_D5DB68D1 
+X-CRM114-Status: GOOD (  17.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,80 +98,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Patrice,
+Hi Guillaume,
 
-kernel test robot noticed the following build errors:
+On Sun, 23 Nov 2025 at 22:44, Guillaume La Roque <glaroque@baylibre.com> wrote:
+>
+> The original addition of cache information for the Amlogic S922X SoC
+> used the wrong next-level cache node for CPU cores 100 and 101,
+> incorrectly referencing `l2_cache_l`. These cores actually belong to
+> the big cluster and should reference `l2_cache_b`. Update the device
+> tree accordingly.
+>
+> Fixes: e7f85e6c155a ("arm64: dts: amlogic: Add cache information to the Amlogic S922X SoC")
+> Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
 
-[auto build test ERROR on 7d0a66e4bb9081d75c82ec4957c50034cb0ea449]
+Reviewed-by: Anand Moon <linux.amoon@gmail.com>
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Patrice-Chotard/spi-stm32-ospi-Set-DMA-maxburst-dynamically/20251205-174931
-base:   7d0a66e4bb9081d75c82ec4957c50034cb0ea449
-patch link:    https://lore.kernel.org/r/20251205-upstream_qspi_ospi_updates-v1-3-7e6c8b9f5141%40foss.st.com
-patch subject: [PATCH 3/8] spi: stm32-ospi: Remove CR_TCIE and CR_TEIE irq usage
-config: sparc64-randconfig-002-20251206 (https://download.01.org/0day-ci/archive/20251206/202512061327.9CDC4SNs-lkp@intel.com/config)
-compiler: sparc64-linux-gcc (GCC) 8.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251206/202512061327.9CDC4SNs-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512061327.9CDC4SNs-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from drivers/spi/spi-stm32-ospi.c:16:
-   drivers/spi/spi-stm32-ospi.c: In function 'stm32_ospi_wait_cmd':
->> drivers/spi/spi-stm32-ospi.c:246:48: error: 'struct stm32_ospi' has no member named 'io_base'; did you mean 'mm_base'?
-     err = readl_relaxed_poll_timeout_atomic(ospi->io_base + OSPI_SR, sr,
-                                                   ^~~~~~~
-   include/linux/iopoll.h:102:3: note: in definition of macro 'poll_timeout_us_atomic'
-      op; \
-      ^~
-   include/linux/iopoll.h:213:2: note: in expansion of macro 'read_poll_timeout_atomic'
-     read_poll_timeout_atomic(op, val, cond, delay_us, timeout_us, false, addr)
-     ^~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/iopoll.h:255:2: note: in expansion of macro 'readx_poll_timeout_atomic'
-     readx_poll_timeout_atomic(readl_relaxed, addr, val, cond, delay_us, timeout_us)
-     ^~~~~~~~~~~~~~~~~~~~~~~~~
-   drivers/spi/spi-stm32-ospi.c:246:8: note: in expansion of macro 'readl_relaxed_poll_timeout_atomic'
-     err = readl_relaxed_poll_timeout_atomic(ospi->io_base + OSPI_SR, sr,
-           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-vim +246 drivers/spi/spi-stm32-ospi.c
-
-   236	
-   237	static int stm32_ospi_wait_cmd(struct stm32_ospi *ospi)
-   238	{
-   239		void __iomem *regs_base = ospi->regs_base;
-   240		u32 sr;
-   241		int err = 0;
-   242	
-   243		if (ospi->fmode == CR_FMODE_APM)
-   244			goto out;
-   245	
- > 246		err = readl_relaxed_poll_timeout_atomic(ospi->io_base + OSPI_SR, sr,
-   247							(sr & (SR_TEF | SR_TCF)), 1,
-   248							STM32_WAIT_CMD_TIMEOUT_US);
-   249	
-   250		if (sr & SR_TCF)
-   251			/* avoid false timeout */
-   252			err = 0;
-   253		if (sr & SR_TEF)
-   254			err = -EIO;
-   255	
-   256	out:
-   257		/* clear flags */
-   258		writel_relaxed(FCR_CTCF | FCR_CTEF, regs_base + OSPI_FCR);
-   259	
-   260		if (!err)
-   261			err = stm32_ospi_wait_nobusy(ospi);
-   262	
-   263		return err;
-   264	}
-   265	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Thanks
+-Anand
+> ---
+>  arch/arm64/boot/dts/amlogic/meson-g12b.dtsi | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12b.dtsi
+> index f04efa828256..23358d94844c 100644
+> --- a/arch/arm64/boot/dts/amlogic/meson-g12b.dtsi
+> +++ b/arch/arm64/boot/dts/amlogic/meson-g12b.dtsi
+> @@ -87,7 +87,7 @@ cpu100: cpu@100 {
+>                         i-cache-line-size = <32>;
+>                         i-cache-size = <0x8000>;
+>                         i-cache-sets = <32>;
+> -                       next-level-cache = <&l2_cache_l>;
+> +                       next-level-cache = <&l2_cache_b>;
+>                         #cooling-cells = <2>;
+>                 };
+>
+> @@ -103,7 +103,7 @@ cpu101: cpu@101 {
+>                         i-cache-line-size = <32>;
+>                         i-cache-size = <0x8000>;
+>                         i-cache-sets = <32>;
+> -                       next-level-cache = <&l2_cache_l>;
+> +                       next-level-cache = <&l2_cache_b>;
+>                         #cooling-cells = <2>;
+>                 };
+>
+>
+> ---
+> base-commit: 6a23ae0a96a600d1d12557add110e0bb6e32730c
+> change-id: 20251123-fixkhadas-c84da7d7c47c
+>
+> Best regards,
+> --
+> Guillaume La Roque <glaroque@baylibre.com>
+>
 
