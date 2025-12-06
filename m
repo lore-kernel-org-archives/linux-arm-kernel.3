@@ -4,57 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92C67D3B7D3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 12:34:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D2CFD339BC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 13:53:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bjwnmRwNJgra34vToCJ4x7gNRKm2tiUS3qQS46PNKRY=; b=hVYd0bKFkuorr62qnzLg6+WIiN
-	Y5qTpKbdz5oSlnjrVuJmpfxwOAtgwx9RsEh6o7azQfnUJKm9hze+GdMNZyDxVEADwj1xKlPjO5wfS
-	4HYsYmqdmPnSBMIeWN/bZ80xDVSK5nAnK5fYHriFz0d8zoS+uAsA5r42NdefIn53sqIcI4qjgexF1
-	WK0VHrOxy8YEAXlcBrXrl36cYE7kLoeFhaKrm9MozJU+mL4JYnq6YHL2l0pa69NlTKxnvaKl2B7N2
-	w6IoM/m3EWpswSQYzsHpvUCSUGYxZbSR5srFceKr41/wsXkYPK4VnQsSBSCMv6z/DlWnoRmc/tKtz
-	tB+U9NgQ==;
+	bh=3ej50mL0PQBpJoaAzMT+aRzSelXZQe5+mjAA+ImPl78=; b=tzxnZq3J6InGM52uhWIHEoaFR7
+	QkmHqDTrWDEPAXC/gWzgHeROg109PnNZzPcRGC89KJeUKs7sa7Sf9E2yTbw7Fyy/FNHynzyvquIix
+	REm1NxloiuNaljV/C3ZzYgdBOotFkIfYNBaEo5BvIbWv9EyumtWsYWa/ltkmHzzE+EPvjCH+mPcNc
+	6Qx1WeRfAB4r01YAS6uQ3AyE7UqFaWcoR+tnZEJp9R4wQJgkgPOwTiUw2co30ElyMwGenj6bhbzFB
+	rPWHmzjloY7ZEGIjppmuMDVYCjgSOmw5G6f7MI6P2/DbZahcmfxGveh9vhzE3FCUWw8q7wQCxAIsv
+	VKyLrWWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRrUl-0000000AuSZ-2KU5;
-	Sat, 06 Dec 2025 12:34:39 +0000
-Received: from out30-99.freemail.mail.aliyun.com ([115.124.30.99])
+	id 1vRsjP-0000000AxMp-1Kdd;
+	Sat, 06 Dec 2025 13:53:51 +0000
+Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRrUY-0000000AuRF-0AyU
+	id 1vRsjL-0000000AxMO-21Sc
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Dec 2025 12:34:38 +0000
+	Sat, 06 Dec 2025 13:53:49 +0000
+Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-b734fcbf1e3so640798466b.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 06 Dec 2025 05:53:46 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1765024455; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=bjwnmRwNJgra34vToCJ4x7gNRKm2tiUS3qQS46PNKRY=;
-	b=Pp4lvxs65tCPaR0pi76IlKQfu+99R0MtTdG3RBRtiv76DaYlWv9BQ5BjG/7VTfxKcCcEoWq0zrNXKGyL9j8CJrqpIEvVXXS3Edw0ojmyWNN0h7/j3d6mTBEcFtAKcV4IEC+fEwrLLEF85yXN9/cY+Y4yIQ++7X79lRmzH3BHOSw=
-Received: from 30.246.178.18(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WuB-biP_1765024449 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Sat, 06 Dec 2025 20:34:10 +0800
-Message-ID: <703ba08f-eec0-44d8-a224-c96706df5fab@linux.alibaba.com>
-Date: Sat, 6 Dec 2025 20:34:09 +0800
+        d=tuxon.dev; s=google; t=1765029225; x=1765634025; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:from:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=3ej50mL0PQBpJoaAzMT+aRzSelXZQe5+mjAA+ImPl78=;
+        b=lCDzzIiBhLch2boqyC2EVmeRzUn/GZCsXuObpj5les3pwyLYWy2TfCTjJPBBrRF+Wj
+         Rv5ADgWZ8zqO96zVVO0ewnRr3d/ofc5MxbHqWLI2nYVOT3DgxXMQRdZxbTxB3iiErkRr
+         GbsEiQn03piMtMSWPyjxU/UhKHan7m7Hesj+eAquHqYuCJR6RS8qTAy48/LcCA9H3mSL
+         t3zvKrFoSv/MaA8puDmJ7z/xEqz/hYvIk8Bc09ey9YJo/Yo/7j8qYy4YPQz9o3q8ERw8
+         0MbO1pbJ3UWSwrkkd0e5qGwaBvT45QMwcnWRH/n57jWXxqROOjxNTnrNXpmxtCpry/OI
+         j1Hw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765029225; x=1765634025;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:subject:from:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=3ej50mL0PQBpJoaAzMT+aRzSelXZQe5+mjAA+ImPl78=;
+        b=mZNh6pVrFnme7QDiUN4YTPzEkFgcfjujKZCvBSZRXKHYt/AOfQtufpDePN93JbMKiP
+         5cycpfL3RtWnRtcTqu7gDr401mOgHbecHGPESQe1P39oxe2Mk7X97/ipf6Pydpzq0BfN
+         PBAQ5NrQuotGbdRz/76Wu6FdvkO1MQKeTcT32ugPeye7QR+fxsDMcfHc1NFswgXSygP5
+         PjBMAy1aeWsIAre6cT04thugk0y0MQrmhCZSiV4fV9yBOBmJFG2WjNAgQxAqjgsRNZ0j
+         jniwigyq4L5ALJ2jHWyVy0BNNXlOj+0ICBZcrJkhPGV8z7k9MZZhOIr+xIuHNq/FPj7r
+         jyzw==
+X-Forwarded-Encrypted: i=1; AJvYcCWMhzMWXmm7/KFD9pmYFu1aG5iUZb6+++eKVzNuc4EkBqLvmiE+5FiqYXaisx6x+SLAtcAesKne16RGu04LFp9/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzgopf9htqGOxicU5u1oGkSCoE8NLmaMU+Dk5L1QpYNdRtAlXBm
+	NLM+w1zq7nJqpHXq0Ut3c7S+2FwGWTH6w19FQdj0ZPAFvX01h5coj+HGfySOFQ0MlRM=
+X-Gm-Gg: ASbGnctgX/uPJwx8CXsgsFMvwKm139RsTJo+Al8yXdt61txhNFGe5D2Dy3uv1Tbru/c
+	0LoYjx6kVTW8fsFDiceZNUJa+GKSoPP25vglIf/QVJF3VndY8p+xE1LB8dTw09eFQUhlL4kB3LT
+	WBnxsIwc00/1LTHGY+EYzWsqy3HI8/Sd3MQIoo5zqdqNtbv/o+Ee3yWmu71WBIkaZcfYnVGCfjs
+	AcGi7JAbm3gr+RRSTuk1rmnjChEx9+57Y/VTciNP4LxbhBlKrCRAWGN46+L3OKzuZ7ahCOgS3ov
+	8IXePKWP2sxKrN0RnUP/MNuqf7eJPgVaCzXNsk7+jCJ91vL1cldQByskr3k4wgeSaDvygo2/mOw
+	afm5PFdfdGL4l4LsfAew/TLYeU3HLBIMW4DTOjPYDDDqTBbQLIUuJVT4maVzDxBByUz2+gPIaml
+	Ved534Z9GW5CbcSfiBrVk=
+X-Google-Smtp-Source: AGHT+IEciA1pzJmS5inMQoEt22ysOMLQTEOeUJcVMkAR+tmMdkaOCWLIsjNKgnhR8yd7V7RIipoweA==
+X-Received: by 2002:a17:907:2d26:b0:b75:7b39:88bc with SMTP id a640c23a62f3a-b7a247fb899mr236900666b.58.1765029224965;
+        Sat, 06 Dec 2025 05:53:44 -0800 (PST)
+Received: from [192.168.50.4] ([82.78.167.134])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b79f44d3d9esm607753066b.30.2025.12.06.05.53.43
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 06 Dec 2025 05:53:44 -0800 (PST)
+Message-ID: <a8185e0f-a3a2-44df-af37-1ad505ce9a7b@tuxon.dev>
+Date: Sat, 6 Dec 2025 15:53:42 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH rc v1 4/4] iommu/arm-smmu-v3-test: Add nested s1bypass
- coverage
-To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, will@kernel.org,
- robin.murphy@arm.com
-Cc: joro@8bytes.org, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
- skolothumtho@nvidia.com, praan@google.com
-References: <cover.1764982046.git.nicolinc@nvidia.com>
- <3c838833d8bbb69a72a85ddbcc325b22ae7a7d6d.1764982046.git.nicolinc@nvidia.com>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <3c838833d8bbb69a72a85ddbcc325b22ae7a7d6d.1764982046.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Subject: Re: [PATCH 4/4] arm64: dts: microchip: add LAN969x support
+To: Robert Marko <robert.marko@sartura.hr>, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, gregkh@linuxfoundation.org,
+ nicolas.ferre@microchip.com, mturquette@baylibre.com, sboyd@kernel.org,
+ richardcochran@gmail.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+ daniel.machon@microchip.com, UNGLinuxDriver@microchip.com
+Cc: luka.perkov@sartura.hr, Horatiu Vultur <horatiu.vultur@microchip.com>
+References: <20251203122313.1287950-1-robert.marko@sartura.hr>
+ <20251203122313.1287950-4-robert.marko@sartura.hr>
+Content-Language: en-US
+In-Reply-To: <20251203122313.1287950-4-robert.marko@sartura.hr>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251206_043436_877665_A4796D83 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20251206_055347_807098_4C26A154 
+X-CRM114-Status: GOOD (  18.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,54 +107,1409 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi, Robert,
 
+On 12/3/25 14:21, Robert Marko wrote:
+> Add support for Microchip LAN969x switch SoC, including the EV23X71A
+> EVB board.
 
-在 2025/12/6 08:52, Nicolin Chen 写道:
-> STE in a nested case requires both S1 and S2 fields. And this makes the use
-> case different from the existing one.
+Could you please split SoC and board device trees in different patches?
+
 > 
-> Add coverage for previously failed cases shifting between S2-only and S1+S2
-> STEs.
-> 
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> Signed-off-by: Robert Marko <robert.marko@sartura.hr>
 > ---
->   .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  | 32 +++++++++++++++++++
->   1 file changed, 32 insertions(+)
+>  arch/arm64/boot/dts/microchip/Makefile        |   2 +
+>  .../boot/dts/microchip/lan9696-ev23x71a.dts   | 761 ++++++++++++++++++
+>  arch/arm64/boot/dts/microchip/lan969x.dtsi    | 482 +++++++++++
+>  3 files changed, 1245 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/microchip/lan9696-ev23x71a.dts
+>  create mode 100644 arch/arm64/boot/dts/microchip/lan969x.dtsi
 > 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-> index 9287904c93a2..56bdcf5a517e 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-> @@ -553,6 +553,36 @@ static void arm_smmu_v3_write_ste_test_s2_to_s1_stall(struct kunit *test)
->   						       NUM_EXPECTED_SYNCS(3));
->   }
->   
-> +static void
-> +arm_smmu_v3_write_ste_test_nested_s1dssbypass_to_s1bypass(struct kunit *test)
-> +{
-> +	struct arm_smmu_ste s1_ste;
-> +	struct arm_smmu_ste s2_ste;
+> diff --git a/arch/arm64/boot/dts/microchip/Makefile b/arch/arm64/boot/dts/microchip/Makefile
+> index c6e0313eea0f..d02ac50aae79 100644
+> --- a/arch/arm64/boot/dts/microchip/Makefile
+> +++ b/arch/arm64/boot/dts/microchip/Makefile
+> @@ -2,3 +2,5 @@
+>  dtb-$(CONFIG_ARCH_SPARX5) += sparx5_pcb125.dtb
+>  dtb-$(CONFIG_ARCH_SPARX5) += sparx5_pcb134.dtb sparx5_pcb134_emmc.dtb
+>  dtb-$(CONFIG_ARCH_SPARX5) += sparx5_pcb135.dtb sparx5_pcb135_emmc.dtb
 > +
-> +	arm_smmu_test_make_s2_ste(&s1_ste, ARM_SMMU_MASTER_TEST_ATS);
-> +	arm_smmu_test_make_cdtable_ste(&s1_ste, STRTAB_STE_1_S1DSS_SSID0,
+> +dtb-$(CONFIG_ARCH_LAN969X) += lan9696-ev23x71a.dtb
 
-arm_smmu_test_make_s2_ste() makes a s2 ste and it will be overwrited by
-arm_smmu_test_make_cdtable_ste(). Finnaly, we got a s1 STE, not a nested
-s1dssbypass ste.
+Please keep it alphanumerically sorted, so before SPARCX5
 
-I think we need a function like arm_smmu_make_nested_cd_table_ste()
-here.
+> \ No newline at end of file
+> diff --git a/arch/arm64/boot/dts/microchip/lan9696-ev23x71a.dts b/arch/arm64/boot/dts/microchip/lan9696-ev23x71a.dts
+> new file mode 100644
+> index 000000000000..6bbddad2a0b9
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/microchip/lan9696-ev23x71a.dts
+> @@ -0,0 +1,761 @@
+> +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
+> +/*
+> + * Copyright (c) 2025 Microchip Technology Inc. and its subsidiaries.
+> + */
+> +
+> +/dts-v1/;
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/leds/common.h>
+> +#include "lan969x.dtsi"
+> +
+> +/ {
+> +	model = "Microchip EV23X71A";
+> +	compatible = "microchip,ev23x71a", "microchip,lan969x";
+> +
+> +	aliases {
+> +		serial0 = &usart0;
+> +	};
+> +
+> +	chosen {
+> +		stdout-path = "serial0:115200n8";
+> +	};
+> +
+> +	gpio-restart {
+> +		compatible = "gpio-restart";
+> +		gpios = <&gpio 60 GPIO_ACTIVE_LOW>;
+> +		open-source;
+> +		priority = <200>;
+> +	};
+> +
+> +	i2c-mux {
+> +		compatible = "i2c-mux-gpio";
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +		i2c-parent = <&i2c3>;
+> +
 
-Besides, from the function name, I think you mean
-STRTAB_STE_1_S1DSS_BYPASS?
+This line could be dropped.
 
-+	arm_smmu_test_make_s2_ste(&s2_ste, 0);
-+	arm_smmu_v3_test_ste_expect_hitless_transition(test, &s1_ste, &s2_ste,
-+						       NUM_EXPECTED_SYNCS(3));
+> +		mux-gpios = <&sgpio_out 0 1 GPIO_ACTIVE_HIGH
+> +			     &sgpio_out 0 2 GPIO_ACTIVE_HIGH
+> +			     &sgpio_out 0 3 GPIO_ACTIVE_HIGH>;
 
-With get_ignored(), a nested s1dssbypass STE to a nested s1bypass STE
-will be hitless, a.k.a, NUM_EXPECTED_SYNCS(1).
+Enclose each entry in <>. See
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/Documentation/devicetree/bindings/dts-coding-style.rst#n179
 
-Thanks.
-Shuai
+> +		idle-state = <0x8>;
+> +
+> +		i2c_sfp0: i2c@0 {
+> +			reg = <0x0>;
+> +		};
+> +
+> +		i2c_sfp1: i2c@1 {
+> +			reg = <0x1>;
+> +		};
+> +
+> +		i2c_sfp2: i2c@2 {
+> +			reg = <0x2>;
+> +		};
+> +
+> +		i2c_sfp3: i2c@3 {
+> +			reg = <0x3>;
+> +		};
+> +
+> +		i2c_poe: i2c@7 {
+> +			reg = <0x7>;
+> +		};
+> +	};
+> +
+> +	leds {
+> +		compatible = "gpio-leds";
+> +
+> +		led-status {
+> +			color = <LED_COLOR_ID_GREEN>;
+> +			function = LED_FUNCTION_STATUS;
+> +			gpios = <&gpio 61 GPIO_ACTIVE_LOW>;
+> +		};
+> +
+> +		led-sfp1-green {
+> +			color = <LED_COLOR_ID_GREEN>;
+> +			function = LED_FUNCTION_LAN;
+> +			function-enumerator = <0>;
+> +			gpios = <&sgpio_out 6 0 GPIO_ACTIVE_LOW>;
+> +			default-state = "off";
+> +		};
+> +
+> +		led-sfp1-yellow {
+> +			color = <LED_COLOR_ID_YELLOW>;
+> +			function = LED_FUNCTION_LAN;
+> +			function-enumerator = <0>;
+> +			gpios = <&sgpio_out 6 1 GPIO_ACTIVE_LOW>;
+> +			default-state = "off";
+> +		};
+> +
+> +		led-sfp2-green {
+> +			color = <LED_COLOR_ID_GREEN>;
+> +			function = LED_FUNCTION_LAN;
+> +			function-enumerator = <1>;
+> +			gpios = <&sgpio_out 7 0 GPIO_ACTIVE_LOW>;
+> +			default-state = "off";
+> +		};
+> +
+> +		led-sfp2-yellow {
+> +			color = <LED_COLOR_ID_YELLOW>;
+> +			function = LED_FUNCTION_LAN;
+> +			function-enumerator = <1>;
+> +			gpios = <&sgpio_out 7 1 GPIO_ACTIVE_LOW>;
+> +			default-state = "off";
+> +		};
+> +
+> +		led-sfp3-green {
+> +			color = <LED_COLOR_ID_GREEN>;
+> +			function = LED_FUNCTION_LAN;
+> +			function-enumerator = <2>;
+> +			gpios = <&sgpio_out 8 0 GPIO_ACTIVE_LOW>;
+> +			default-state = "off";
+> +		};
+> +
+> +		led-sfp3-yellow {
+> +			color = <LED_COLOR_ID_YELLOW>;
+> +			function = LED_FUNCTION_LAN;
+> +			function-enumerator = <2>;
+> +			gpios = <&sgpio_out 8 1 GPIO_ACTIVE_LOW>;
+> +			default-state = "off";
+> +		};
+> +
+> +		led-sfp4-green {
+> +			color = <LED_COLOR_ID_GREEN>;
+> +			function = LED_FUNCTION_LAN;
+> +			function-enumerator = <3>;
+> +			gpios = <&sgpio_out 9 0 GPIO_ACTIVE_LOW>;
+> +			default-state = "off";
+> +		};
+> +
+> +		led-sfp4-yellow {
+> +			color = <LED_COLOR_ID_YELLOW>;
+> +			function = LED_FUNCTION_LAN;
+> +			function-enumerator = <3>;
+> +			gpios = <&sgpio_out 9 1 GPIO_ACTIVE_LOW>;
+> +			default-state = "off";
+> +		};
+> +	};
+> +
+> +	mux-controller {
+> +		compatible = "gpio-mux";
+> +		#mux-control-cells = <0>;
+> +
+
+This line could be dropped.
+
+> +		mux-gpios = <&sgpio_out 1 2 GPIO_ACTIVE_LOW>,
+> +			    <&sgpio_out 1 3 GPIO_ACTIVE_LOW>;
+> +	};
+> +
+> +	sfp0: sfp0 {
+> +		compatible = "sff,sfp";
+> +		i2c-bus = <&i2c_sfp0>;
+> +		tx-disable-gpios = <&sgpio_out 6 2 GPIO_ACTIVE_HIGH>;
+> +		los-gpios = <&sgpio_in 6 0 GPIO_ACTIVE_HIGH>;
+> +		mod-def0-gpios = <&sgpio_in 6 1 GPIO_ACTIVE_LOW>;
+> +		tx-fault-gpios = <&sgpio_in 6 2 GPIO_ACTIVE_HIGH>;
+> +	};
+> +
+> +	sfp1: sfp1 {
+> +		compatible = "sff,sfp";
+> +		i2c-bus = <&i2c_sfp1>;
+> +		tx-disable-gpios = <&sgpio_out 7 2 GPIO_ACTIVE_HIGH>;
+> +		los-gpios = <&sgpio_in 7 0 GPIO_ACTIVE_HIGH>;
+> +		mod-def0-gpios = <&sgpio_in 7 1 GPIO_ACTIVE_LOW>;
+> +		tx-fault-gpios = <&sgpio_in 7 2 GPIO_ACTIVE_HIGH>;
+> +	};
+> +
+> +	sfp2: sfp2 {
+> +		compatible = "sff,sfp";
+> +		i2c-bus = <&i2c_sfp2>;
+> +		tx-disable-gpios = <&sgpio_out 8 2 GPIO_ACTIVE_HIGH>;
+> +		los-gpios = <&sgpio_in 8 0 GPIO_ACTIVE_HIGH>;
+> +		mod-def0-gpios = <&sgpio_in 8 1 GPIO_ACTIVE_LOW>;
+> +		tx-fault-gpios = <&sgpio_in 8 2 GPIO_ACTIVE_HIGH>;
+> +	};
+> +
+> +	sfp3: sfp3 {
+> +		compatible = "sff,sfp";
+> +		i2c-bus = <&i2c_sfp3>;
+> +		tx-disable-gpios = <&sgpio_out 9 2 GPIO_ACTIVE_HIGH>;
+> +		los-gpios = <&sgpio_in 9 0 GPIO_ACTIVE_HIGH>;
+> +		mod-def0-gpios = <&sgpio_in 9 1 GPIO_ACTIVE_LOW>;
+> +		tx-fault-gpios = <&sgpio_in 9 2 GPIO_ACTIVE_HIGH>;
+> +	};
+> +};
+> +
+> +&flx0 {
+> +	atmel,flexcom-mode = <ATMEL_FLEXCOM_MODE_USART>;
+> +	status = "okay";
+> +};
+> +
+> +&usart0 {
+> +	pinctrl-0 = <&fc0_pins>;
+> +	pinctrl-names = "default";
+> +	status = "okay";
+> +};
+
+Although, I understand why flexcom inner node labels were kept near their
+corresponding parent labels (and I know there is at least one board file
+that follow this approach), I tend to go forward with the approach that was
+proposed by Horatiu in [1], thus everything alphanumerically sorted, if
+everyone is OK with this.
+
+[1]
+https://lore.kernel.org/all/20251201082629.2326339-3-horatiu.vultur@microchip.com
+
+> +
+> +&flx2 {
+> +	atmel,flexcom-mode = <ATMEL_FLEXCOM_MODE_SPI>;
+> +	status = "okay";
+> +};
+> +
+> +&spi2 {
+> +	pinctrl-0 = <&fc2_pins>;
+> +	pinctrl-names = "default";
+> +	cs-gpios = <&gpio 63 GPIO_ACTIVE_LOW>;
+> +	status = "okay";
+> +};
+> +
+> +&flx3 {
+> +	atmel,flexcom-mode = <ATMEL_FLEXCOM_MODE_TWI>;
+> +	status = "okay";
+> +};
+> +
+> +&i2c3 {
+> +	pinctrl-0 = <&fc3_pins>;
+> +	pinctrl-names = "default";
+> +	i2c-analog-filter;
+> +	i2c-digital-filter;
+> +	i2c-digital-filter-width-ns = <35>;
+> +	i2c-sda-hold-time-ns = <1500>;
+> +	status = "okay";
+> +};
+> +
+> +&gpio {
+> +	emmc_sd_pins: emmc-sd-pins {
+> +		/* eMMC_SD - CMD, CLK, D0, D1, D2, D3, D4, D5, D6, D7, RSTN */
+> +		pins = "GPIO_14", "GPIO_15", "GPIO_16", "GPIO_17",
+> +		       "GPIO_18", "GPIO_19", "GPIO_20", "GPIO_21",
+> +		       "GPIO_22", "GPIO_23", "GPIO_24";
+> +		function = "emmc_sd";
+> +	};
+> +
+> +	fan_pins: fan-pins {
+> +		pins = "GPIO_25", "GPIO_26";
+> +		function = "fan";
+> +	};
+> +
+> +	fc0_pins: fc0-pins {
+> +		pins = "GPIO_3", "GPIO_4";
+> +		function = "fc";
+> +	};
+> +
+> +	fc2_pins: fc2-pins {
+> +		pins = "GPIO_64", "GPIO_65", "GPIO_66";
+> +		function = "fc";
+> +	};
+> +
+> +	fc3_pins: fc3-pins {
+> +		pins = "GPIO_55", "GPIO_56";
+> +		function = "fc";
+> +	};
+> +
+> +	mdio_pins: mdio-pins {
+> +		pins = "GPIO_9", "GPIO_10";
+> +		function = "miim";
+> +	};
+> +
+> +	mdio_irq_pins: mdio-irq-pins {
+> +		pins = "GPIO_11";
+> +		function = "miim_irq";
+> +	};
+> +
+> +	sgpio_pins: sgpio-pins {
+> +		/* SCK, D0, D1, LD */
+> +		pins = "GPIO_5", "GPIO_6", "GPIO_7", "GPIO_8";
+> +		function = "sgpio_a";
+> +	};
+> +
+> +	usb_ulpi_pins: usb-ulpi-pins {
+> +		pins = "GPIO_30", "GPIO_31", "GPIO_32", "GPIO_33",
+> +		"GPIO_34", "GPIO_35", "GPIO_36", "GPIO_37",
+
+Please align it to the above "GPIO_30" as it has been done for emmc.
+
+> +		"GPIO_38", "GPIO_39", "GPIO_40", "GPIO_41";
+> +		function = "usb_ulpi";
+> +	};
+> +
+> +	usb_rst_pins: usb-rst-pins {
+> +		pins = "GPIO_12";
+> +		function = "usb2phy_rst";
+> +	};
+> +
+> +	usb_over_pins: usb-over-pins {
+> +		pins = "GPIO_13";
+> +		function = "usb_over_detect";
+> +	};
+> +
+> +	usb_power_pins: usb-power-pins {
+> +		pins = "GPIO_1";
+> +		function = "usb_power";
+> +	};
+> +
+> +	ptp_out_pins: ptp-out-pins {
+> +		pins = "GPIO_58";
+> +		function = "ptpsync_4";
+> +	};
+> +
+> +	ptp_ext_pins: ptp-ext-pins {
+> +		pins = "GPIO_59";
+> +		function = "ptpsync_5";
+> +	};
+> +};
+> +
+> +&tmon {
+
+Keep entries alphanumerically sorted, thus after mdio0.
+
+> +	pinctrl-0 = <&fan_pins>;
+> +	pinctrl-names = "default";
+> +};
+> +
+> +&mdio0 {
+> +	pinctrl-0 = <&mdio_pins>, <&mdio_irq_pins>;
+> +	pinctrl-names = "default";
+> +	reset-gpios = <&gpio 62 GPIO_ACTIVE_LOW>;
+> +	status = "okay";
+> +
+> +	phy3: phy@3 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <3>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy4: phy@4 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <4>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy5: phy@5 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <5>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy6: phy@6 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <6>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy7: phy@7 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <7>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy8: phy@8 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <8>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy9: phy@9 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <9>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy10: phy@10 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <10>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy11: phy@11 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <11>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy12: phy@12 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <12>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy13: phy@13 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <13>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy14: phy@14 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <14>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy15: phy@15 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <15>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy16: phy@16 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <16>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy17: phy@17 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <17>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy18: phy@18 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <18>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy19: phy@19 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <19>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy20: phy@20 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <20>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy21: phy@21 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <21>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy22: phy@22 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <22>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy23: phy@23 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <23>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy24: phy@24 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <24>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy25: phy@25 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <25>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy26: phy@26 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <26>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +
+> +	phy27: phy@27 {
+> +		compatible = "ethernet-phy-ieee802.3-c22";
+> +		reg = <27>;
+> +		interrupts = <11 IRQ_TYPE_LEVEL_LOW>;
+> +		interrupt-parent = <&gpio>;
+> +	};
+> +};
+> +
+> +&serdes {
+> +	status = "okay";
+> +};
+> +
+> +&sgpio {
+> +	pinctrl-0 = <&sgpio_pins>;
+> +	pinctrl-names = "default";
+> +
+
+Please drop this line.
+
+> +	microchip,sgpio-port-ranges = <0 1>, <6 9>;
+> +	status = "okay";
+> +
+> +	gpio@0 {
+> +		ngpios = <128>;
+> +	};
+> +	gpio@1 {
+> +		ngpios = <128>;
+> +	};
+> +};
+> +
+> +&switch {
+> +	pinctrl-0 = <&ptp_out_pins>, <&ptp_ext_pins>;
+> +	pinctrl-names = "default";
+> +
+
+Plese drop this line.
+
+> +	status = "okay";
+
+And add one here.
+
+> +	ethernet-ports {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		port0: port@0 {
+> +			reg = <0>;
+> +			microchip,bandwidth = <1000>;
+
+Vendor specific properties goes at the end of the node, before status,
+according to this:
+https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git/tree/Documentation/devicetree/bindings/dts-coding-style.rst#n122.
+Valid for the rest of the port nodes.
+
+> +			phy-handle = <&phy4>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 0>;
+> +		};
+> +
+> +		port1: port@1 {
+> +			reg = <1>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy5>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 0>;
+> +		};
+> +
+> +		port2: port@2 {
+> +			reg = <2>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy6>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 0>;
+> +		};
+> +
+> +		port3: port@3 {
+> +			reg = <3>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy7>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 0>;
+> +		};
+> +
+> +		port4: port@4 {
+> +			reg = <4>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy8>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 1>;
+> +		};
+> +
+> +		port5: port@5 {
+> +			reg = <5>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy9>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 1>;
+> +		};
+> +
+> +		port6: port@6 {
+> +			reg = <6>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy10>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 1>;
+> +		};
+> +
+> +		port7: port@7 {
+> +			reg = <7>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy11>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 1>;
+> +		};
+> +
+> +		port8: port@8 {
+> +			reg = <8>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy12>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 2>;
+> +		};
+> +
+> +		port9: port@9 {
+> +			reg = <9>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy13>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 2>;
+> +		};
+> +
+> +		port10: port@10 {
+> +			reg = <10>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy14>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 2>;
+> +		};
+> +
+> +		port11: port@11 {
+> +			reg = <11>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy15>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 2>;
+> +		};
+> +
+> +		port12: port@12 {
+> +			reg = <12>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy16>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 3>;
+> +		};
+> +
+> +		port13: port@13 {
+> +			reg = <13>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy17>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 3>;
+> +		};
+> +
+> +		port14: port@14 {
+> +			reg = <14>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy18>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 3>;
+> +		};
+> +
+> +		port15: port@15 {
+> +			reg = <15>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy19>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 3>;
+> +		};
+> +
+> +		port16: port@16 {
+> +			reg = <16>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy20>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 4>;
+> +		};
+> +
+> +		port17: port@17 {
+> +			reg = <17>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy21>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 4>;
+> +		};
+> +
+> +		port18: port@18 {
+> +			reg = <18>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy22>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 4>;
+> +		};
+> +
+> +		port19: port@19 {
+> +			reg = <19>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy23>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 4>;
+> +		};
+> +
+> +		port20: port@20 {
+> +			reg = <20>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy24>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 5>;
+> +		};
+> +
+> +		port21: port@21 {
+> +			reg = <21>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy25>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 5>;
+> +		};
+> +
+> +		port22: port@22 {
+> +			reg = <22>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy26>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 5>;
+> +		};
+> +
+> +		port23: port@23 {
+> +			reg = <23>;
+> +			microchip,bandwidth = <1000>;
+> +			phy-handle = <&phy27>;
+> +			phy-mode = "qsgmii";
+> +			phys = <&serdes 5>;
+> +		};
+> +
+> +		port24: port@24 {
+> +			reg = <24>;
+> +			microchip,bandwidth = <10000>;
+> +			phys = <&serdes 6>;
+> +			phy-mode = "10gbase-r";
+> +			sfp = <&sfp0>;
+> +			microchip,sd-sgpio = <24>;
+> +			managed = "in-band-status";
+> +		};
+> +
+> +		port25: port@25 {
+> +			reg = <25>;
+> +			microchip,bandwidth = <10000>;
+> +			phys = <&serdes 7>;
+> +			phy-mode = "10gbase-r";
+> +			sfp = <&sfp1>;
+> +			microchip,sd-sgpio = <28>;
+> +			managed = "in-band-status";
+> +		};
+> +
+> +		port26: port@26 {
+> +			reg = <26>;
+> +			microchip,bandwidth = <10000>;
+> +			phys = <&serdes 8>;
+> +			phy-mode = "10gbase-r";
+> +			sfp = <&sfp2>;
+> +			microchip,sd-sgpio = <32>;
+> +			managed = "in-band-status";
+> +		};
+> +
+> +		port27: port@27 {
+> +			reg = <27>;
+> +			microchip,bandwidth = <10000>;
+> +			phys = <&serdes 9>;
+> +			phy-mode = "10gbase-r";
+> +			sfp = <&sfp3>;
+> +			microchip,sd-sgpio = <36>;
+> +			managed = "in-band-status";
+> +		};
+> +
+> +		port29: port@29 {
+> +			reg = <29>;
+> +			microchip,bandwidth = <1000>;
+> +			phys = <&serdes 11>;
+> +			phy-handle = <&phy3>;
+> +			phy-mode = "rgmii";
+
+From chekpatch:
+
+WARNING: phy-mode "rgmii" without comment -- delays on the PCB should be
+described, otherwise use "rgmii-id"
+#779: FILE: arch/arm64/boot/dts/microchip/lan9696-ev23x71a.dts:750:
++                       phy-mode = "rgmii";
+
+> +			rx-internal-delay-ps = <1000>;
+> +			tx-internal-delay-ps = <1000>;
+> +		};
+> +	};
+> +};
+> +
+> +&usb {
+> +	status = "okay";
+
+Status should be the last property in this node according to the links
+shared above.
+
+> +	pinctrl-0 = <&usb_ulpi_pins>, <&usb_rst_pins>, <&usb_over_pins>, <&usb_power_pins>;
+> +	pinctrl-names = "default";
+> +};
+> diff --git a/arch/arm64/boot/dts/microchip/lan969x.dtsi b/arch/arm64/boot/dts/microchip/lan969x.dtsi
+> new file mode 100644
+> index 000000000000..39ea1999c801
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/microchip/lan969x.dtsi
+> @@ -0,0 +1,482 @@
+> +// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
+> +/*
+> + * Copyright (c) 2025 Microchip Technology Inc. and its subsidiaries.
+> + */
+> +
+> +#include <dt-bindings/clock/microchip,lan969x.h>
+> +#include <dt-bindings/dma/at91.h>
+> +#include <dt-bindings/interrupt-controller/arm-gic.h>
+> +#include <dt-bindings/mfd/at91-usart.h>
+> +#include <dt-bindings/mfd/atmel-flexcom.h>
+> +
+
+As Conor mentioned, all nodes are missing SoC specific compatibles.
+
+> +/ {
+> +	#address-cells = <1>;
+> +	#size-cells = <1>;
+> +
+> +	model = "Microchip LAN969x";
+> +	compatible = "microchip,lan969x";
+> +	interrupt-parent = <&gic>;
+> +
+> +	psci {
+> +		compatible = "arm,psci-1.0";
+> +		method = "smc";
+> +	};
+
+Keep it alphanumerically sorted.
+
+> +
+> +	clocks {
+> +		fx100_clk: fx100-clk {
+> +			compatible = "fixed-clock";
+> +			#clock-cells = <0>;
+> +			clock-frequency = <320000000>;
+> +		};
+> +
+> +		cpu_clk: cpu-clk {
+> +			compatible = "fixed-clock";
+> +			#clock-cells = <0>;
+> +			clock-frequency = <1000000000>;
+> +		};
+> +
+> +		ddr_clk: ddr-clk {
+> +			compatible = "fixed-clock";
+> +			#clock-cells = <0>;
+> +			clock-frequency = <600000000>;
+> +		};
+> +
+> +		fabric_clk: fabric-clk {
+> +			compatible = "fixed-clock";
+> +			#clock-cells = <0>;
+> +			clock-frequency = <250000000>;
+> +		};
+> +	};
+> +
+> +	cpus {
+> +		#address-cells = <2>;
+> +		#size-cells = <0>;
+> +
+> +		cpu0: cpu@0 {
+> +			compatible = "arm,cortex-a53";
+> +			device_type = "cpu";
+> +			reg = <0x0 0x0>;
+> +			next-level-cache = <&l2_0>;
+> +		};
+> +
+> +		l2_0: l2-cache {
+> +			compatible = "cache";
+> +			cache-level = <2>;
+> +			cache-unified;
+> +		};
+> +	};
+> +
+> +	pmu {
+> +		compatible = "arm,cortex-a53-pmu";
+> +		interrupts = <GIC_SPI 77 IRQ_TYPE_LEVEL_HIGH>;
+> +	};
+> +
+> +	timer {
+> +		compatible = "arm,armv8-timer";
+> +		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW>, /* Secure Phys IRQ */
+> +			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW>, /* Non-secure Phys IRQ */
+> +			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW>, /* Virt IRQ */
+> +			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW>; /* Hyp IRQ */
+> +	};
+> +
+> +	axi: axi {
+> +		compatible = "simple-bus";
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +		ranges;
+> +
+> +		usb: usb@300000 {
+> +			compatible = "microchip,lan9691-dwc3", "snps,dwc3";
+> +			reg = <0x300000 0x80000>;
+> +			interrupts = <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&clks GCK_GATE_USB_DRD>,
+> +				 <&clks GCK_ID_USB_REFCLK>;
+> +			clock-names = "bus_early", "ref";
+> +			assigned-clocks = <&clks GCK_ID_USB_REFCLK>;
+> +			assigned-clock-rates = <60000000>;
+> +			maximum-speed = "high-speed";
+> +			dr_mode = "host";
+> +			status = "disabled";
+> +		};
+> +
+> +		flx0: flexcom@e0040000 {
+> +			compatible = "atmel,sama5d2-flexcom";
+> +			reg = <0xe0040000 0x100>;
+
+ranges would be here according to the dts coding style pointed above.
+
+> +			clocks = <&clks GCK_ID_FLEXCOM0>;
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +			ranges = <0x0 0xe0040000 0x800>;
+> +			status = "disabled";
+> +
+> +			usart0: serial@200 {
+> +				compatible = "atmel,at91sam9260-usart";
+> +				reg = <0x200 0x200>;
+> +				atmel,usart-mode = <AT91_USART_MODE_SERIAL>;
+
+Please keep vendor specific properties toward the end of the node as
+pointed above.
+
+> +				interrupts = <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>;
+> +				dmas = <&dma AT91_XDMAC_DT_PERID(3)>,
+> +				       <&dma AT91_XDMAC_DT_PERID(2)>;
+> +				dma-names = "tx", "rx";
+> +				clocks = <&fabric_clk>;
+> +				clock-names = "usart";
+> +				atmel,fifo-size = <32>;
+> +				status = "disabled";
+> +			};
+> +
+> +			spi0: spi@400 {
+> +				compatible = "atmel,at91rm9200-spi";
+> +				reg = <0x400 0x200>;
+> +				interrupts = <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>;
+> +				dmas = <&dma AT91_XDMAC_DT_PERID(3)>,
+> +				       <&dma AT91_XDMAC_DT_PERID(2)>;
+> +				dma-names = "tx", "rx";
+> +				clocks = <&fabric_clk>;
+> +				clock-names = "spi_clk";
+> +				atmel,fifo-size = <32>;
+
+Please move this line before the status one.
+
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +				status = "disabled";
+> +			};
+> +
+> +			i2c0: i2c@600 {
+> +				compatible = "microchip,sam9x60-i2c";
+> +				reg = <0x600 0x200>;
+> +				interrupts = <GIC_SPI 46 IRQ_TYPE_LEVEL_HIGH>;
+> +				dmas = <&dma AT91_XDMAC_DT_PERID(3)>,
+> +				       <&dma AT91_XDMAC_DT_PERID(2)>;
+> +				dma-names = "tx", "rx";
+> +				clocks = <&fabric_clk>;
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +				status = "disabled";
+> +			};
+> +		};
+> +
+> +		flx1: flexcom@e0044000 {
+> +			compatible = "atmel,sama5d2-flexcom";
+> +			reg = <0xe0044000 0x100>;
+
+Please move the ranges here.
+
+> +			clocks = <&clks GCK_ID_FLEXCOM1>;
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +			ranges = <0x0 0xe0044000 0x800>;
+> +			status = "disabled";
+> +
+> +			usart1: serial@200 {
+> +				compatible = "atmel,at91sam9260-usart";
+> +				reg = <0x200 0x200>;
+> +				atmel,usart-mode = <AT91_USART_MODE_SERIAL>;
+
+Please move this one close to atmel,fifo-size
+
+> +				interrupts = <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>;
+> +				dmas = <&dma AT91_XDMAC_DT_PERID(3)>,
+> +				       <&dma AT91_XDMAC_DT_PERID(2)>;
+> +				dma-names = "tx", "rx";
+> +				clocks = <&fabric_clk>;
+> +				clock-names = "usart";
+> +				atmel,fifo-size = <32>;
+> +				status = "disabled";
+> +			};
+> +
+> +			spi1: spi@400 {
+> +				compatible = "atmel,at91rm9200-spi";
+> +				reg = <0x400 0x200>;
+> +				interrupts = <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>;
+> +				dmas = <&dma AT91_XDMAC_DT_PERID(3)>,
+> +				       <&dma AT91_XDMAC_DT_PERID(2)>;
+> +				dma-names = "tx", "rx";
+> +				clocks = <&fabric_clk>;
+> +				clock-names = "spi_clk";
+> +				atmel,fifo-size = <32>;
+
+Please move this one before status.
+
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +				status = "disabled";
+> +			};
+> +
+> +			i2c1: i2c@600 {
+> +				compatible = "microchip,sam9x60-i2c";
+> +				reg = <0x600 0x200>;
+> +				interrupts = <GIC_SPI 47 IRQ_TYPE_LEVEL_HIGH>;
+> +				dmas = <&dma AT91_XDMAC_DT_PERID(3)>,
+> +				       <&dma AT91_XDMAC_DT_PERID(2)>;
+> +				dma-names = "tx", "rx";
+> +				clocks = <&fabric_clk>;
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +				status = "disabled";
+> +			};
+> +		};
+> +
+> +		trng: rng@e0048000 {
+> +			compatible = "atmel,at91sam9g45-trng";
+> +			reg = <0xe0048000 0x100>;
+> +			clocks = <&fabric_clk>;
+> +			status = "disabled";
+> +		};
+> +
+> +		aes: crypto@e004c000 {
+> +			compatible = "atmel,at91sam9g46-aes";
+> +			reg = <0xe004c000 0x100>;
+> +			interrupts = <GIC_SPI 51 IRQ_TYPE_LEVEL_HIGH>;
+> +			dmas = <&dma AT91_XDMAC_DT_PERID(12)>,
+> +			       <&dma AT91_XDMAC_DT_PERID(13)>;
+> +			dma-names = "tx", "rx";
+> +			clocks = <&fabric_clk>;
+> +			clock-names = "aes_clk";
+> +			status = "disabled";
+> +		};
+> +
+> +		flx2: flexcom@e0060000 {
+> +			compatible = "atmel,sama5d2-flexcom";
+> +			reg = <0xe0060000 0x100>;
+
+ranges would go here.
+
+> +			clocks = <&clks GCK_ID_FLEXCOM2>;
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +			ranges = <0x0 0xe0060000 0x800>;
+> +			status = "disabled";
+> +
+> +			usart2: serial@200 {
+> +				compatible = "atmel,at91sam9260-usart";
+> +				reg = <0x200 0x200>;
+> +				atmel,usart-mode = <AT91_USART_MODE_SERIAL>;
+
+Please move this close to atmel,fifo-size.
+
+> +				interrupts = <GIC_SPI 48 IRQ_TYPE_LEVEL_HIGH>;
+> +				dmas = <&dma AT91_XDMAC_DT_PERID(7)>,
+> +				       <&dma AT91_XDMAC_DT_PERID(6)>;
+> +				dma-names = "tx", "rx";
+> +				clocks = <&fabric_clk>;
+> +				clock-names = "usart";
+> +				atmel,fifo-size = <32>;
+> +				status = "disabled";
+> +			};
+> +
+> +			spi2: spi@400 {
+> +				compatible = "atmel,at91rm9200-spi";
+> +				reg = <0x400 0x200>;
+> +				interrupts = <GIC_SPI 48 IRQ_TYPE_LEVEL_HIGH>;
+> +				dmas = <&dma AT91_XDMAC_DT_PERID(7)>,
+> +				       <&dma AT91_XDMAC_DT_PERID(6)>;
+> +				dma-names = "tx", "rx";
+> +				clocks = <&fabric_clk>;
+> +				clock-names = "spi_clk";
+> +				atmel,fifo-size = <32>;
+
+Please move this one before status.
+
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +				status = "disabled";
+> +			};
+> +
+> +			i2c2: i2c@600 {
+> +				compatible = "microchip,sam9x60-i2c";
+> +				reg = <0x600 0x200>;
+> +				interrupts = <GIC_SPI 48 IRQ_TYPE_LEVEL_HIGH>;
+> +				clocks = <&fabric_clk>;
+
+No DMA for this node?
+
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +				status = "disabled";
+> +			};
+> +		};
+> +
+> +		flx3: flexcom@e0064000 {
+> +			compatible = "atmel,sama5d2-flexcom";
+> +			reg = <0xe0064000 0x100>;
+
+ranges would go here.
+
+> +			clocks = <&clks GCK_ID_FLEXCOM3>;
+> +			#address-cells = <1>;
+> +			#size-cells = <1>;
+> +			ranges = <0x0 0xe0064000 0x800>;
+> +			status = "disabled";
+> +
+> +			usart3: serial@200 {
+> +				compatible = "atmel,at91sam9260-usart";
+> +				reg = <0x200 0x200>;
+> +				atmel,usart-mode = <AT91_USART_MODE_SERIAL>;
+
+This line should go close to atmel,fifo-size
+
+> +				interrupts = <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>;
+> +				dmas = <&dma AT91_XDMAC_DT_PERID(9)>,
+> +				       <&dma AT91_XDMAC_DT_PERID(8)>;
+> +				dma-names = "tx", "rx";
+> +				clocks = <&fabric_clk>;
+> +				clock-names = "usart";
+> +				atmel,fifo-size = <32>;
+> +				status = "disabled";
+> +			};
+> +
+> +			spi3: spi@400 {
+> +				compatible = "atmel,at91rm9200-spi";
+> +				reg = <0x400 0x200>;
+> +				interrupts = <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>;
+> +				dmas = <&dma AT91_XDMAC_DT_PERID(9)>,
+> +				       <&dma AT91_XDMAC_DT_PERID(8)>;
+> +				dma-names = "tx", "rx";
+> +				clocks = <&fabric_clk>;
+> +				clock-names = "spi_clk";
+> +				atmel,fifo-size = <32>;
+
+Please move this one before status.
+
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +				status = "disabled";
+> +			};
+> +
+> +			i2c3: i2c@600 {
+> +				compatible = "microchip,sam9x60-i2c";
+> +				reg = <0x600 0x200>;
+> +				interrupts = <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>;
+> +				dmas = <&dma AT91_XDMAC_DT_PERID(9)>,
+> +				       <&dma AT91_XDMAC_DT_PERID(8)>;
+> +				dma-names = "tx", "rx";
+> +				clocks = <&fabric_clk>;
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +				status = "disabled";
+> +			};
+> +		};
+> +
+> +		dma: dma-controller@e0068000 {
+> +			compatible = "microchip,sama7g5-dma";
+> +			reg = <0xe0068000 0x1000>;
+> +			interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
+> +			dma-channels = <16>;
+> +			#dma-cells = <1>;
+> +			clocks = <&fabric_clk>;
+> +			clock-names = "dma_clk";
+> +		};
+> +
+> +		sha: crypto@e006c000 {
+> +			compatible = "atmel,at91sam9g46-sha";
+> +			reg = <0xe006c000 0xec>;
+> +			interrupts = <GIC_SPI 55 IRQ_TYPE_LEVEL_HIGH>;
+> +			dmas = <&dma AT91_XDMAC_DT_PERID(14)>;
+> +			dma-names = "tx";
+> +			clocks = <&fabric_clk>;
+> +			clock-names = "sha_clk";
+> +			status = "disabled";
+> +		};
+> +
+> +		timer: timer@e008c000 {
+> +			compatible = "snps,dw-apb-timer";
+> +			reg = <0xe008c000 0x400>;
+> +			clocks = <&fabric_clk>;
+> +			clock-names = "timer";
+> +			interrupts = <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>;
+> +			status = "disabled";
+> +		};
+> +
+> +		watchdog: watchdog@e0090000 {
+> +			compatible = "snps,dw-wdt";
+> +			reg = <0xe0090000 0x1000>;
+> +			interrupts = <GIC_SPI 36 IRQ_TYPE_LEVEL_HIGH>;
+> +			clocks = <&fabric_clk>;
+> +		};
+> +
+> +		cpu_ctrl: syscon@e00c0000 {
+> +			compatible = "microchip,lan966x-cpu-syscon", "syscon";
+> +			reg = <0xe00c0000 0x350>;
+> +		};
+> +
+> +		switch: switch@e00c0000 {
+> +			compatible = "microchip,lan9691-switch";
+> +			reg = <0xe00c0000 0x0010000>,
+> +			      <0xe2010000 0x1410000>;
+> +			reg-names = "cpu", "devices";
+> +			interrupt-names = "xtr", "fdma", "ptp";
+> +			interrupts = <GIC_SPI 10 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI 88 IRQ_TYPE_LEVEL_HIGH>,
+> +				     <GIC_SPI  9 IRQ_TYPE_LEVEL_HIGH>;
+> +			resets = <&reset 0>;
+> +			reset-names = "switch";
+> +			status = "disabled";
+> +		};
+> +
+> +		clks: clock-controller@e00c00b4 {
+> +			compatible = "microchip,lan9691-gck";
+> +			#clock-cells = <1>;
+> +			clocks = <&cpu_clk>, <&ddr_clk>, <&fx100_clk>;
+> +			clock-names = "cpu", "ddr", "sys";
+> +			reg = <0xe00c00b4 0x30>, <0xe00c0308 0x4>;
+
+This line should go after compatible. Please check the dts coding style
+pointed above.
+
+> +		};
+> +
+> +		reset: reset-controller@e201000c {
+> +			compatible = "microchip,lan9691-switch-reset",
+> +				     "microchip,lan966x-switch-reset";
+> +			reg = <0xe201000c 0x4>;
+> +			reg-names = "gcb";
+> +			#reset-cells = <1>;
+> +			cpu-syscon = <&cpu_ctrl>;
+> +		};
+> +
+> +		gpio: pinctrl@e20100d4 {
+> +			compatible = "microchip,lan9691-pinctrl";
+> +			reg = <0xe20100d4 0xd4>,
+> +			      <0xe2010370 0xa8>;
+> +			gpio-controller;
+> +			#gpio-cells = <2>;
+> +			gpio-ranges = <&gpio 0 0 66>;
+> +			interrupt-controller;
+> +			interrupts = <GIC_SPI 15 IRQ_TYPE_LEVEL_HIGH>;
+> +			#interrupt-cells = <2>;
+> +		};
+> +
+> +		mdio0: mdio@e20101a8 {
+> +			compatible = "mscc,ocelot-miim";
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			reg = <0xe20101a8 0x24>;
+
+Same here, please follow the dts coding style.
+
+> +			clocks = <&fx100_clk>;
+> +			status = "disabled";
+> +		};
+> +
+> +		mdio1: mdio@e20101cc {
+> +			compatible = "mscc,ocelot-miim";
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			reg = <0xe20101cc 0x24>;
+
+Same here
+
+> +			clocks = <&fx100_clk>;
+> +			status = "disabled";
+> +		};
+> +
+> +		sgpio: gpio@e2010230 {
+> +			compatible = "microchip,sparx5-sgpio";
+> +			reg = <0xe2010230 0x118>;
+> +			clocks = <&fx100_clk>;
+> +			resets = <&reset 0>;
+> +			reset-names = "switch";
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +			status = "disabled";
+> +
+> +			sgpio_in: gpio@0 {
+> +				compatible = "microchip,sparx5-sgpio-bank";
+> +				reg = <0>;
+> +				gpio-controller;
+> +				#gpio-cells = <3>;
+> +				interrupts = <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH>;
+> +				interrupt-controller;
+> +				#interrupt-cells = <3>;
+> +			};
+> +
+> +			sgpio_out: gpio@1 {
+> +				compatible = "microchip,sparx5-sgpio-bank";
+> +				reg = <1>;
+> +				gpio-controller;
+> +				#gpio-cells = <3>;
+> +			};
+> +		};
+> +
+> +		tmon: hwmon@e2020100 {
+> +			compatible = "microchip,sparx5-temp";
+> +			reg = <0xe2020100 0xc>;
+> +			clocks = <&fx100_clk>;
+> +			#thermal-sensor-cells = <0>;
+> +		};
+> +
+> +		serdes: serdes@e3410000 {
+> +			compatible = "microchip,lan9691-serdes";
+> +			#phy-cells = <1>;
+> +			clocks = <&fabric_clk>;
+> +			reg = <0xe3410000 0x150000>;
+
+Same here.
+
+> +		};
+> +
+> +		gic: interrupt-controller@e8c11000 {
+> +			compatible = "arm,gic-400";
+> +			#interrupt-cells = <3>;
+> +			interrupt-controller;
+> +			reg = <0xe8c11000 0x1000>, /* Distributor GICD_ */
+> +			      <0xe8c12000 0x2000>, /* CPU interface GICC_ */
+> +			      <0xe8c14000 0x2000>, /* Virt interface control */
+> +			      <0xe8c16000 0x2000>; /* Virt CPU interface */
+
+Same here.
+
+> +			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
+> +		};
+> +	};
+> +};
+
+Thank you,
+Claudiu
 
