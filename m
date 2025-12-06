@@ -4,65 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A354AD3B7D8
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 18:07:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B797D3B7DB
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 18:31:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wmiMhIObz4qJTw0WyrJ74DiYS/rNajQtsF986FAkJkI=; b=CxwR3P33u6yS2z0Uqv/+W36qJr
-	nbLdokZXS+Ky56RUeZIH305O/TmZOHrIkMhT0juzNav1eH88riJGrMc2e5XC0QCgKvjEfGN41EBjQ
-	zm/BPkU0rV2ID0bzOH7VqzrlfzO+wrHTjmyp3iEWSj3ABk0mRjz0MIuRXN/ZO0Z5lZsncJB367GSC
-	ZAV1d1EwNh38d4z10Leo4dHobfWAHWf8yUGqsYDXQmSgKgdUCwqK1+GwWjkyiZRP/Dl5cxdha8NXb
-	D17UgqnciMDPyUra6OJZsNPlHnd3yLsX62NZmUtnQyclD6WAhl0CjTTYLjBgdLW4s+KLHmEbviu9t
-	yFdN2B5w==;
+	bh=eR0JCfMa1hihJEB4R5UGxkldICyGNBsZvCir+nP242w=; b=jwC1FwQmxD0rGheNMJaD6s0Vu8
+	BBnHkd3Ai64H3JM2IfT1g2YDv58Sdab0C0B6k7mojPocr929/Mo0+8fsILBP3L7DkXJKFfrdH2Zjc
+	qZQegjIhF03q/jf22gnfFNbjjBsjcih5XGlUsNJ1Cz7Q008dT2KZddyQpRf/1Nxszb+C7qjStNf6U
+	J2Hjaql+cUcvI8lkusLobHj5I9mVmmVxx9ls4j316e25JdCnRvvjmbTPO1uAvRUUBQiu3VvQUJLik
+	B48LVIIon4OOsjkwxs/zUWiUCgBuubupiZQmUFSkAI6PNZS267ddU1nGh4aeJchldWgumDZzZs1pH
+	WYiVV6Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRwgK-0000000B79A-0vJA;
-	Sat, 06 Dec 2025 18:06:56 +0000
+	id 1vRx3m-0000000B86S-2YAD;
+	Sat, 06 Dec 2025 18:31:10 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRwgH-0000000B78k-0v8Q
+	id 1vRx3d-0000000B85w-3CdG
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Dec 2025 18:06:54 +0000
+	Sat, 06 Dec 2025 18:31:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=wmiMhIObz4qJTw0WyrJ74DiYS/rNajQtsF986FAkJkI=; b=f3LYA1VMSH+smHurSsL7bf7sMK
-	zvG+4WsnFEyOgwW10QDnzWvixTBySawa7YqJ6gbYiHV8dR4/9H7Fw/OWLSAyov9ine9BDiVCM/zLX
-	dH4pwe/PdWi511d4SWaB5IrGENmV4Xf1JpjuW+4FaKVbHmlXAded1JYT76HvutchG4og=;
+	bh=eR0JCfMa1hihJEB4R5UGxkldICyGNBsZvCir+nP242w=; b=g2JY95hL/fpCt3IAxbHjjZze1g
+	NYe+DQdbIM+LqdtZJ6bhsSOOj1t9LK4k1orHdP9yjpElpPx0++/6dMKom7LZLW9UNbw4Rzh3NP6b7
+	A/QYdrmOsE3D0ZhKtsm1AoL0nyT+rWiR/cQDSMVRTBLQIz07X3f4Py/fvW6jYnGbtEHw=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1vRwg5-00GDoz-HU; Sat, 06 Dec 2025 19:06:41 +0100
-Date: Sat, 6 Dec 2025 19:06:41 +0100
+	id 1vRx38-00GDwx-L4; Sat, 06 Dec 2025 19:30:30 +0100
+Date: Sat, 6 Dec 2025 19:30:30 +0100
 From: Andrew Lunn <andrew@lunn.ch>
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: Robert Marko <robert.marko@sartura.hr>, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, gregkh@linuxfoundation.org,
-	nicolas.ferre@microchip.com, mturquette@baylibre.com,
-	sboyd@kernel.org, richardcochran@gmail.com,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org, daniel.machon@microchip.com,
-	UNGLinuxDriver@microchip.com, luka.perkov@sartura.hr,
-	Horatiu Vultur <horatiu.vultur@microchip.com>
-Subject: Re: [PATCH 4/4] arm64: dts: microchip: add LAN969x support
-Message-ID: <d98b3069-861c-456d-8637-67e36dc107bb@lunn.ch>
-References: <20251203122313.1287950-1-robert.marko@sartura.hr>
- <20251203122313.1287950-4-robert.marko@sartura.hr>
- <a8185e0f-a3a2-44df-af37-1ad505ce9a7b@tuxon.dev>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Po-Yu Chuang <ratbert@faraday-tech.com>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org, taoren@meta.com
+Subject: Re: [PATCH net-next v5 3/4] net: ftgmac100: Add RGMII delay support
+ for AST2600
+Message-ID: <8a991b33-f653-4f0c-bbea-b5b3404cdfe6@lunn.ch>
+References: <20251205-rgmii_delay_2600-v5-0-bd2820ad3da7@aspeedtech.com>
+ <20251205-rgmii_delay_2600-v5-3-bd2820ad3da7@aspeedtech.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <a8185e0f-a3a2-44df-af37-1ad505ce9a7b@tuxon.dev>
+In-Reply-To: <20251205-rgmii_delay_2600-v5-3-bd2820ad3da7@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251206_100653_260855_01484EC0 
-X-CRM114-Status: UNSURE (   8.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251206_103101_807115_E3CEC106 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,34 +80,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 06, 2025 at 03:53:42PM +0200, Claudiu Beznea wrote:
-> > +		port29: port@29 {
-> > +			reg = <29>;
-> > +			microchip,bandwidth = <1000>;
-> > +			phys = <&serdes 11>;
-> > +			phy-handle = <&phy3>;
-> > +			phy-mode = "rgmii";
-> 
-> >From chekpatch:
-> 
-> WARNING: phy-mode "rgmii" without comment -- delays on the PCB should be
-> described, otherwise use "rgmii-id"
-> #779: FILE: arch/arm64/boot/dts/microchip/lan9696-ev23x71a.dts:750:
-> +                       phy-mode = "rgmii";
-> 
-> > +			rx-internal-delay-ps = <1000>;
-> > +			tx-internal-delay-ps = <1000>;
-> > +		};
+> @@ -1907,6 +2179,10 @@ static int ftgmac100_probe(struct platform_device *pdev)
+>  		priv->rxdes0_edorr_mask = BIT(30);
+>  		priv->txdes0_edotr_mask = BIT(30);
+>  		priv->is_aspeed = true;
+> +		/* Configure RGMII delay if there are the corresponding compatibles */
+> +		err = ftgmac100_set_internal_delay(priv, &phy_intf);
+> +		if (err)
+> +			goto err_phy_connect;
 
-I did a very quick scan of the patch and missed that. It is great that
-checkpatch is now commenting about "rgmii".
+Thinking forward to when you add 2700 support, i really think you need
+to break the probe up into helpers for 2500 and before, 2600 and in
+the future 2700. You currently have a couple of tests on the
+compatible which you can reduce to one.
 
-1ns is very odd. You need a total of 2ns, so where is the rest coming
-from? This definitely needs a comment explaining what is going on.
-
-Also, RGMII typically does not need a SERDES, unless there is
-something like an SGMII to RGMII converter being used. So is the phys
-property needed?
+In fact, this driver has 10 calls to of_device_is_compatible(). I
+think you should first refactor the code to list each compatible in
+ftgmac100_of_match[], and add a data structure which contains an enum
+of the MAC type. You can then transfer this to priv, and replace all
+the of_device_is_compatible() tests to just look at the enum value.
 
 	Andrew
 
