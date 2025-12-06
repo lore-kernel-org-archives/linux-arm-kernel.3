@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03862D3B7D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 11:41:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE97CD3B7D1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 11:48:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=iiDwBzndnl96hSb/q/NLb44uNYBwPkjb4oD5H7teprs=; b=jQ0iQ+6NF7yVhKYXEMbELfOBrL
-	Y2Jcvevb6EQzRNMaRg+mtAYJfZCiLtZZoRwcT5dE2G47OISsA/zAiGSQsWUgUhZ1r3yIVytk+D2A5
-	/682QTUmT8HsGtDKuoMk9+8lJSJ6Ly5dy8rQMMd9BBWdURVpnxteoRFRnkupVp1Q+cfTMP3gkpad1
-	Ir6drVUNUGw2j+zlfOV55yVXyOHlXBJCfF8yf60rsGiwuDyAvh4lMc9RlWYcM5E7yb9wVvdSTdHZu
-	6o6eYCKS0NlMMuqEomAgKSTX1nhXRVcFOP/hQojF3agHObcDk5nF5Ru/2wwNzp5M4kf7bSk7g/f8o
-	80LN4Y3w==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HePzOK2YwREM++8Zxr7PF7Xhi3Zuwv6TtIklSs2K0TA=; b=QD+LNPOw5WpWGOROuhMU9YPSLF
+	6FWSn5W6GWwwRZwxocPQ5accm8eAXS1nkQKxQegrlaWZXS1Xt+l7zoZD1cCUawdsPDGs94JwJsUtn
+	pDidoYYB16W2RLnXGJTaR5LaSasi1K2VrypLw8n6u0myukQ9qRMa3l5805YCU39DSRiASSzPwbpFJ
+	p58dt6rStlDUtmVYvRMuuwoOGizkcYJefRHjzjoghd4DQnvZS5wcV8PhvFJlp9CfT9nn8CNT8x0GL
+	azBpILeAzHcfa/PKhpbvxNCR3nKzn/K8hVL879q/q+WWAUq67mhlBaDO/tDdJ13EUjagukzKkSudn
+	/Kg3kl2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRqf7-0000000AscK-0bDu;
-	Sat, 06 Dec 2025 11:41:17 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1vRqlf-0000000Asv8-3w5p;
+	Sat, 06 Dec 2025 11:48:03 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRqf4-0000000Asby-0o8g
+	id 1vRqld-0000000Asun-2DUk
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Dec 2025 11:41:15 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-640c6577120so4786961a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 06 Dec 2025 03:41:13 -0800 (PST)
+	Sat, 06 Dec 2025 11:48:02 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-594270ec7f9so3384919e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 06 Dec 2025 03:48:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765021272; x=1765626072; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=iiDwBzndnl96hSb/q/NLb44uNYBwPkjb4oD5H7teprs=;
-        b=HX2tQr7weo3qv4lQw1ihjq98avFff1h9GZuhXjXKeBynYywx+T2eAVUoZ5MLZv27cL
-         glUKlUdXpB8EXHQdw1xkECFWmuPxydMkcM8CctiLp1mYO7n+PzjTasnJ91PnXWJ5kYtN
-         7sRTvQFU6Yy5sf79MQP1Nca481jXr+YMovkUrNANLofQVv3wtxrWCEwCRsvEh4Y9tSob
-         okTTs3a2HNca8U13O1mY/QZPUMKuXFLO0Go0hLFaKZUaM+bfAOheXrWqWyfsyPjHufTU
-         p26QUP6a9b5Oqw37F7TL6+HtYhjmde9F+HK6EbJ9JJ2M88HiY5LcNQ04aPmcUy6WAW3g
-         mAIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765021272; x=1765626072;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=gmail.com; s=20230601; t=1765021679; x=1765626479; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=iiDwBzndnl96hSb/q/NLb44uNYBwPkjb4oD5H7teprs=;
-        b=It1pQz+HkiJLsN+un0IpJdtYI50zL+8l3pqgOoXTLAT3qCyjdMDokW6OA3Zf5ixT9B
-         XNb64nU+m8MsLEp66rczOgpEvl86ksZtvnIcCvIzRfSCAxmdsr4abhIB09VCdHc+eGvW
-         cvFAD+ZYvOw78UY5wSXHZ24JIGMVqcnLIFwP5lZydDrcD56s1ykyAH/jC8Uk7QzDd5TS
-         qrscINlTyG5H2gB4+vfCMQKXy54ZpB8U+4HB1H9rwuU4llMKwgZYPRKacwpj7GO0Onee
-         AU9k754tqKiQdhsIpuKI6cTrnHy6zXzPPMNMtT4tJhMw6cNkuzKtivhDeoBMfleE/dPs
-         Gi3A==
-X-Forwarded-Encrypted: i=1; AJvYcCVTvtwX/eJca2V5WwlMWthxWvAi998bm/VDJK7Y/pNNTBWAtmhTLBm4orJM/pObM/CDRLbDSd6NkdQg2AEuik99@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxc1yX5kOL9G6GN2GR5mq+LtAsnAHjt32XntO27sk1FtSYNoLNR
-	IgLkGc98FCBKSi4hgtk1QqwQRl0IPcoEpb+IouqYA6o8yW5kh7vNYJD3zGxtFuOzfXY=
-X-Gm-Gg: ASbGncublJSMG0SOrnaRR1Li4DuUqyVM2Jm8Cf7oBD2AeSkCxtNAaqbcvQXWaddBIbs
-	4SAULlSE9d/LFiJKUgEGmsaIEl1fF2VQtxfX2ddQPEMtt/DmizWPQWZWF1VcCFJq8veayP85DNb
-	Iq/qXp6DrsQznn8GMEEAbRXFfXi+PtJkQXG9O0OKDOtjzFKch9kmxoTxsDhwSucBhkk+KODp1tZ
-	+hVNXxPGZ8NgGmNpb41rNRiEmnBWsykG3Ez0+qDpXQMjUH74/MZRxkfNw5UTAvHwdb+IUclrNVp
-	FkITRJCxawwwpWAYX9drYHjWz1zwJWefrSNUxn9VFmMMPLBljHjJp4vK3Hz3fQ+VsbjFwElI2dB
-	AFqkeBPDq3F+oS/sX3mpAsvF3a5/SYna2uMRPq1YP9/vy26BUqx66ymyOhbkALCpaqWpzpsJYaR
-	8FSR2t2orokk8MciY=
-X-Google-Smtp-Source: AGHT+IEutgnW3ziDYssPsy/rObFW3KXEtxwegCsIX+tFKBiL4raHPJrNmS+xnXzqQl+ZEEwHsCOK3Q==
-X-Received: by 2002:a05:600c:354d:b0:46d:ba6d:65bb with SMTP id 5b1f17b1804b1-47939e4a8e3mr22685325e9.31.1765015323917;
-        Sat, 06 Dec 2025 02:02:03 -0800 (PST)
+        bh=HePzOK2YwREM++8Zxr7PF7Xhi3Zuwv6TtIklSs2K0TA=;
+        b=gMl/kfrb6HAtyxXrxBAzZ/Ay6L9dryMRA7uQ2miCgTp7JRbYs/vBDwzXWmiFWFVlop
+         p3wwZ/mPxZNnQtsRuYjna/8e7uR05ybH9PxI0Q4E1DLXnczTyLVtRlJt1+3N2hmhAWwl
+         0ngdGYUZ6Wa/lOu91e44ii20UYT6wdtya1/Rn6FiaEUh0wFpYCuZcFDCzJzH5AhVYF+i
+         LCglIYGWorFJIk5ifdkwzzhTYn6jbgv+RyxQH/ejKJ5wdAcgj5lokJqkCS5JVy5iqC9g
+         uz7ZH8/vB6aZ53bWPO0IZth9kDFX03tJnxgcVl6tblnBglEpZwH61LHoL5j8KD4o90lp
+         zK7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765021679; x=1765626479;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=HePzOK2YwREM++8Zxr7PF7Xhi3Zuwv6TtIklSs2K0TA=;
+        b=Evyv0i84+IiwUT0tDIxl7/OnQ2hmWPKnTgpemADGOs0tP+voKE5fTRjXXy89op3l6I
+         l3wYHuK7VIJWL/nxAF9ZbAKfnf39wPEVCK7epJHK+5FRFEzaQkLiFDsADPvRXmPeZfHu
+         D4Zknd1K3ky4sulNm7tfg1vH1o8uZcg984yFz2tkiBGUphArhT/qfP56V268IVwnraBM
+         RO0CIYWoSVbah5ooSpkwzQ4+Ig6VLVkTjDuuo/xqDZi2AYrr+GepMaMQP6xL40uuLi3o
+         JenWg1lAkW6l5b1oMeVylcWUEbaonOA+QBaHhXWkVweISsiwO2FzZ9hYHbes7FaZ5Sjs
+         8mSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV3XSxs2rK49TPYHKA8xjmqV0XMzFwbr0bLJBoqG3OMr2J/JqLLWXBJ8r8gwoCMpGGQYl8YCLuk80h321chQUhS@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlZjCIhWrLBBZzVC27lk3zf9ZtAA5wR7KVKZfId/zy+sSrTpbA
+	R1lRG2Mq4VSxPqtd7fF6UIrBttxGqwhrNz4K7tSsOdYDk8GtxKdjRck4
+X-Gm-Gg: ASbGncv/PxRmPu6tMYqoSk7dYFeDoyymAKO62T1rzNJe3t0id4hFG9+M46qcwTUoSbE
+	BkQguqU37/rUMLIdjeVE2mAWZZe979EJLc0GGCMZBhySGdky0c+XVRyYSYNX3M/6wd0EOz0QZdN
+	aX0Ed9pj7x0xRDKahro6lFGc2LL8nEZbrsAVubS9UJXTtifCkds3htGQmBcO15vqUIZCR5prMdC
+	FdGIW4fX1U0urDp0/WnTaqgbJPT+2eiSP9NAp/ho9ACyr25t8EaSWsePu4TXmnuMFy6Sagv5Slm
+	R6Qom2GAn+u/Yb0Gn1L3SfbYsp/xncL27mUFNMqJRKBxRPe3bG7dr39vsFPWBADpEYDeBhaQzog
+	UhXhKIwB6XqFRaoZGJAl67ZijVpb8P9sD7pOYX8+FcDlfoiDhLYiTL92ANcka8BfWCc8sRt0BRF
+	3ZZAianqGzav5MMFA=
+X-Google-Smtp-Source: AGHT+IHLtSSBaH5vwkicDwq4VHYkBOA2QyJRB3rOh/XN2E2xH2ybmyHraxYc+LAfhlTKju/XpBChLA==
+X-Received: by 2002:a05:600c:828d:b0:477:7b16:5fb1 with SMTP id 5b1f17b1804b1-47939df0045mr23564235e9.7.1765015327245;
+        Sat, 06 Dec 2025 02:02:07 -0800 (PST)
 Received: from toolbox.. ([87.200.95.144])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-479310c802bsm126055205e9.6.2025.12.06.02.02.00
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-479310c802bsm126055205e9.6.2025.12.06.02.02.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 06 Dec 2025 02:02:03 -0800 (PST)
+        Sat, 06 Dec 2025 02:02:06 -0800 (PST)
 From: Christian Hewitt <christianshewitt@gmail.com>
 To: Detlev Casanova <detlev.casanova@collabora.com>,
 	=?UTF-8?q?Olivier=20Cr=C3=AAte?= <olivier.crete@collabora.com>,
@@ -88,16 +89,17 @@ To: Detlev Casanova <detlev.casanova@collabora.com>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/4] media: rockchip: rkvdec: add support for the VDPU346 variant
-Date: Sat,  6 Dec 2025 10:01:57 +0000
-Message-Id: <20251206100158.2041439-1-christianshewitt@gmail.com>
+Subject: [PATCH 3/4] media: rkvdec: Add support for the VDPU346 variant
+Date: Sat,  6 Dec 2025 10:01:58 +0000
+Message-Id: <20251206100158.2041439-2-christianshewitt@gmail.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20251206100158.2041439-1-christianshewitt@gmail.com>
+References: <20251206100158.2041439-1-christianshewitt@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251206_034114_268705_342A8C8D 
-X-CRM114-Status: GOOD (  16.60  )
+X-CRM114-CacheID: sfid-20251206_034801_598257_F84700C6 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,56 +114,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series depends upon Detlev Casanova's current v5 series for VDPU381 and
-VDPU383 support [0]. Patch 1 is marked DO-NOT-MERGE as it contains fixups
-for minor nits spotted in Detlev's series. I've flagged them on IRC after v2
-but the messages may have been missed as they are still present in v5.
+VDPU346 is derived from VDPU381 but with a single core and limited
+to 4K60 media. It is also limited to H264 L5.1 and omits AV1 and
+AVS2 capabilities. It is used with RK3566 and RK3568.
 
-Patches 2/3/4 add support for the VDPU346 IP block used for H264, HEVC and
-(in future work) VP9 on the RK356X boards. VDPU346 appears to be a close
-relation to VDPU381 used with RK3588, except with a single core, output
-limited to 4K, and minor feature differences, e.g. HEVC level 5.1 on VDPU346
-vs 6.1 on VDPU381. To handle differences we declare a new compatible.
-
-The device-tree changes are derived from prior-art in Detlev's patches for
-RK3576 and RK3588, the vendor kernel [1], and some earlier patch attempts
-from Piotr Oniszczuk and Diederik de Haas.
-
-The register differences between VDPU346 and VDPU381 appear to be minimal so
-we currently and intentionally reuse the VDPU381 h264, hevc, and regs files
-to avoid duplicating code. If further register analysis requires separate
-files for VDPU346 the refactoring to Detlev's drivers is a little beyond my
-current beginner level c skills. As the overall minor changeset to VDPU381
-it would be awesome if this series could be absorbed. I had some discussion
-with Olivier Crête during VideoLan Dev Days last month that suggested this
-might be possible? - hence sending now. If not, I'll wait until Detlev's
-series has been merged before sending a next iteration of these patches.
-
-Testing with Jellyfish files of varying bitrates shows that RK356X starts
-to experience jerky playback above 10mbps, which seems rather low compared
-to RK3588 which can play 300mbps media without issues. The vendor kernel
-documents 'advanced' assigned-clock-rates but increasing them does not have
-any obvious impact so the difference looks to be something deeper. NB: The
-same is also seen with Detlev's patches for RK3576 (max 15mpbs) so further
-or follow-up work is likely required. Despite the apparent limitation real-
-world media from my collection plays well.
-
-[0] https://patchwork.kernel.org/project/linux-rockchip/list/?series=1015221
-[1] https://github.com/rockchip-linux/kernel/blob/develop-6.6/arch/arm64/boot/dts/rockchip/rk356x.dtsi#L1539
-
-Christian Hewitt (4):
-  media: rkvdec: minor fixes for current DETLEV patches
-  media: dt-bindings: rockchip: Add RK3568 Video Decoder bindings
-  media: rkvdec: Add support for the VDPU346 variant
-  arm64: dts: rockchip: Add the vdpu346 Video Decoders on RK356X
-
- .../bindings/media/rockchip,vdec.yaml         |   2 +
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi |  49 ++++++++
- .../rockchip/rkvdec/rkvdec-vdpu381-regs.h     |   4 +-
- .../rockchip/rkvdec/rkvdec-vdpu383-hevc.c     |   6 +-
+Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
+---
  .../media/platform/rockchip/rkvdec/rkvdec.c   | 110 ++++++++++++++++++
- 5 files changed, 166 insertions(+), 5 deletions(-)
+ 1 file changed, 110 insertions(+)
 
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+index a1c02ef3a97c..cf68454b2217 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+@@ -295,6 +295,62 @@ static const struct rkvdec_ctrls rkvdec_h264_ctrls = {
+ 	.num_ctrls = ARRAY_SIZE(rkvdec_h264_ctrl_descs),
+ };
+ 
++static const struct rkvdec_ctrl_desc vdpu346_hevc_ctrl_descs[] = {
++	{
++		.cfg.id = V4L2_CID_STATELESS_HEVC_DECODE_PARAMS,
++	},
++	{
++		.cfg.id = V4L2_CID_STATELESS_HEVC_SPS,
++		.cfg.ops = &rkvdec_ctrl_ops,
++	},
++	{
++		.cfg.id = V4L2_CID_STATELESS_HEVC_PPS,
++	},
++	{
++		.cfg.id = V4L2_CID_STATELESS_HEVC_SCALING_MATRIX,
++	},
++	{
++		.cfg.id = V4L2_CID_STATELESS_HEVC_DECODE_MODE,
++		.cfg.min = V4L2_STATELESS_HEVC_DECODE_MODE_FRAME_BASED,
++		.cfg.max = V4L2_STATELESS_HEVC_DECODE_MODE_FRAME_BASED,
++		.cfg.def = V4L2_STATELESS_HEVC_DECODE_MODE_FRAME_BASED,
++	},
++	{
++		.cfg.id = V4L2_CID_STATELESS_HEVC_START_CODE,
++		.cfg.min = V4L2_STATELESS_HEVC_START_CODE_ANNEX_B,
++		.cfg.def = V4L2_STATELESS_HEVC_START_CODE_ANNEX_B,
++		.cfg.max = V4L2_STATELESS_HEVC_START_CODE_ANNEX_B,
++	},
++	{
++		.cfg.id = V4L2_CID_MPEG_VIDEO_HEVC_PROFILE,
++		.cfg.min = V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN,
++		.cfg.max = V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10,
++		.cfg.menu_skip_mask =
++			BIT(V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE),
++		.cfg.def = V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN,
++	},
++	{
++		.cfg.id = V4L2_CID_MPEG_VIDEO_HEVC_LEVEL,
++		.cfg.min = V4L2_MPEG_VIDEO_HEVC_LEVEL_1,
++		.cfg.max = V4L2_MPEG_VIDEO_HEVC_LEVEL_5_1,
++	},
++	{
++		.cfg.id = V4L2_CID_STATELESS_HEVC_EXT_SPS_ST_RPS,
++		.cfg.ops = &rkvdec_ctrl_ops,
++		.cfg.dims = { 65 },
++	},
++	{
++		.cfg.id = V4L2_CID_STATELESS_HEVC_EXT_SPS_LT_RPS,
++		.cfg.ops = &rkvdec_ctrl_ops,
++		.cfg.dims = { 65 },
++	},
++};
++
++static const struct rkvdec_ctrls vdpu346_hevc_ctrls = {
++	.ctrls = vdpu346_hevc_ctrl_descs,
++	.num_ctrls = ARRAY_SIZE(vdpu346_hevc_ctrl_descs),
++};
++
+ static const struct rkvdec_ctrl_desc vdpu38x_hevc_ctrl_descs[] = {
+ 	{
+ 		.cfg.id = V4L2_CID_STATELESS_HEVC_DECODE_PARAMS,
+@@ -449,6 +505,43 @@ static const struct rkvdec_coded_fmt_desc rkvdec_coded_fmts[] = {
+ 	}
+ };
+ 
++static const struct rkvdec_coded_fmt_desc vdpu346_coded_fmts[] = {
++	{
++		.fourcc = V4L2_PIX_FMT_H264_SLICE,
++		.frmsize = {
++			.min_width = 64,
++			.max_width =  65520,
++			.step_width = 64,
++			.min_height = 64,
++			.max_height =  65520,
++			.step_height = 16,
++		},
++		.ctrls = &rkvdec_h264_ctrls,
++		.ops = &rkvdec_vdpu381_h264_fmt_ops,
++		.num_decoded_fmts = ARRAY_SIZE(rkvdec_h264_decoded_fmts),
++		.decoded_fmts = rkvdec_h264_decoded_fmts,
++		.subsystem_flags = VB2_V4L2_FL_SUPPORTS_M2M_HOLD_CAPTURE_BUF,
++		.capability = RKVDEC_CAPABILITY_H264,
++	},
++	{
++		.fourcc = V4L2_PIX_FMT_HEVC_SLICE,
++		.frmsize = {
++			.min_width = 64,
++			.max_width = 65472,
++			.step_width = 64,
++			.min_height = 64,
++			.max_height = 65472,
++			.step_height = 16,
++		},
++		.ctrls = &vdpu346_hevc_ctrls,
++		.ops = &rkvdec_vdpu381_hevc_fmt_ops,
++		.num_decoded_fmts = ARRAY_SIZE(rkvdec_hevc_decoded_fmts),
++		.decoded_fmts = rkvdec_hevc_decoded_fmts,
++		.subsystem_flags = VB2_V4L2_FL_SUPPORTS_M2M_HOLD_CAPTURE_BUF,
++		.capability = RKVDEC_CAPABILITY_HEVC,
++	},
++};
++
+ static const struct rkvdec_coded_fmt_desc vdpu381_coded_fmts[] = {
+ 	{
+ 		.fourcc = V4L2_PIX_FMT_H264_SLICE,
+@@ -1654,6 +1747,19 @@ static const struct rkvdec_variant rk3399_rkvdec_variant = {
+ 			RKVDEC_CAPABILITY_VP9,
+ };
+ 
++static const struct rkvdec_variant rk3568_vdpu346_variant = {
++	.coded_fmts = vdpu346_coded_fmts,
++	.num_coded_fmts = ARRAY_SIZE(vdpu346_coded_fmts),
++	.rcb_sizes = vdpu381_rcb_sizes,
++	.num_rcb_sizes = ARRAY_SIZE(vdpu381_rcb_sizes),
++	.irq_handler = vdpu381_irq_handler,
++	.colmv_size = rkvdec_colmv_size,
++	.flatten_matrices = transpose_and_flatten_matrices,
++	.named_regs = true,
++	.capabilities = RKVDEC_CAPABILITY_H264 |
++			RKVDEC_CAPABILITY_HEVC,
++};
++
+ static const struct rkvdec_variant rk3588_vdpu381_variant = {
+ 	.coded_fmts = vdpu381_coded_fmts,
+ 	.num_coded_fmts = ARRAY_SIZE(vdpu381_coded_fmts),
+@@ -1693,6 +1799,10 @@ static const struct of_device_id of_rkvdec_match[] = {
+ 		.compatible = "rockchip,rk3399-vdec",
+ 		.data = &rk3399_rkvdec_variant,
+ 	},
++	{
++		.compatible = "rockchip,rk3568-vdec",
++		.data = &rk3568_vdpu346_variant,
++	},
+ 	{
+ 		.compatible = "rockchip,rk3588-vdec",
+ 		.data = &rk3588_vdpu381_variant,
 -- 
 2.34.1
 
