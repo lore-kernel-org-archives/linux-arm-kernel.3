@@ -4,86 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80E0BD3ABF6
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 07:13:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 588A3D374BD
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 07:18:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F6O9y5Z+AdkoL+Tm0wkCr7cebT9+l7JoZ+wcqNIg4NU=; b=gaOMeIRIdpOEVR6s5zr8xhjiCb
-	tf2fsy55uDVraMUkYp7aca1gVZNx7hQdVJ9BiDlb8U9BOTCjhP4f10gulaiXW+tV2hko8YuwlNIk5
-	jhdEobLcuJNgP46d5E11hkzUzzbGLFvdtZNItTFEXYEXSVu7s78x/gQZwHGa+gIgjveaw0WiaYrF2
-	wa9QY9rsLIS775kXmjsXHXzlAFkNKVv4IKoCvr/a5iLE5jyjM1XSNJQ3aoeBJ1c1dyQ8d+U9LURPE
-	V6yLO/xsdt9PRNjvf+t8Kl4cLs4GyOENb/CzEhqshKaRHumX+wHx0+VarYVnz6mWeVHxddoLb2XYm
-	DOzJLLqw==;
+	bh=dngvPrQ08mN5V1sqlELuQl7q7g0ulBwZCB2y10BveJ8=; b=A0/IelSd5Qg6oLjElDzxa5ZSc5
+	L5tdizu/t06awuDlA0XYquNEDBIkpVZp5UGM1OYJzpvQIKZXU6YXvWBkvVjXZ6Mo5iNQWcAlJMFpJ
+	ke5XOGWqkITjaIcGDVe1qrW/gpai0WGiDtIXCnsotuw0E8B8Gq+YWt5CVhCPoI/+qEToeACpNI82Q
+	V3PuEvSMSLtM0N0JtC8KczcAg6cEclCxsJVSsCZ8lI8ZZJMsWflR5ouEfsDq8I/Sd5Zjjzc2HDGrI
+	3AbaWVL0vsflBkq9y3aPdaS8Suo47Vj6jK//2G251yMSkyYVPp44PyIu7SavaeYJTsB9I7fsE+bIe
+	w0JdVw4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRmTt-0000000Ahwr-13LN;
-	Sat, 06 Dec 2025 07:13:25 +0000
-Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
+	id 1vRmZC-0000000AiBz-0ugM;
+	Sat, 06 Dec 2025 07:18:54 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRmTq-0000000AhwB-0yOh
+	id 1vRmZ9-0000000AiBW-0gH6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Dec 2025 07:13:23 +0000
-Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-64320b9bb4bso5775465a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 05 Dec 2025 23:13:21 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765005200; x=1765610000; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=F6O9y5Z+AdkoL+Tm0wkCr7cebT9+l7JoZ+wcqNIg4NU=;
-        b=Iwp5fEu4MGdQDhn3Gofbzmge6A2h6HtcdIv07NPHn7sunri/G/+muzE1sbadSfK9oZ
-         umoVC6yiuKKQZtFglKhzv+jJXeYzuC+FFAakrsDtD/qfV4LDsvSiSSlBZKdMbWfVoxfT
-         myQBv9sAIK0LVA8zKExDwUeJc7DRH8L5wyYMrt9o30a7PJ8hupPQviKcOgsihcc+sNjk
-         ze4jnPtgkUktzU6lkHj2QBqYfguM9Xp8VqZPjZ6UL5qgesmXOhD9WR+IsZE3BlmqdSyM
-         fA+TZeRxMCtTN1MpIccoAnU6FNi75tD5QJJn0Jo8abBDwJj/txGnbiPnVenHg+YjTxj5
-         E0vQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765005200; x=1765610000;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=F6O9y5Z+AdkoL+Tm0wkCr7cebT9+l7JoZ+wcqNIg4NU=;
-        b=jZ6ZFjCVNshK1SXL8EhyyZ/bmbhcXVQAPF+rI/CwtRvmYFhTV10VFZ0hzRYGe9EPU4
-         ninMbmsUM04JrmryPWCzEqmX1W28o2Z/JIdaGxUAW5HxmYAPFEKLMnsKBtJBt9wR4/z9
-         zycNogI2oEc/HOyOks/OJ6skknUfv8vQOVQKZRwavFxtHe6eg+Dm85wuJA7dNVB6ytDA
-         dJTqfOyd3u5Mee8ccvA12moQIzyCJRqe8X/CEGhZH+HuLzo5vo+kgulBKGuN3YFyTx2L
-         7yGX0OyW3ey8lAaavYthezYyTJKasfB1xL7xAsLIjcfPMsAfGO6yG8ybEznH+Rn/csST
-         pVWA==
-X-Forwarded-Encrypted: i=1; AJvYcCVDpF9WBT5qcNRIaivNQZ4zhDjFZHyzONCX5+R0x37cHe92OG2g/OCLbRi20kn4zfDLqdhAnAV4GGiRoLBY2VYi@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5PvzWIYa15eePdbPPhb+IlPPOI7zE8HHkvFWnvsr6OlD88VXo
-	K6JON/arKhzfYkGX51dZWpxqzPZwRaRfHc1DaPxbhkYyf3JE4penUAz8sBLfq9yGrtEkeLvBKmE
-	QEdLZ8EKVSB18MBb9AW6f8kis1XHNdjw=
-X-Gm-Gg: ASbGncu/Nq2XlcL5pLyC7VAKfoZTwKGsxyQx4WE0nQqaxymDZ5LKeCjxLpHcNBbz2yh
-	f7XrNqd2ABlwJasnA5t2EdRGw1lrwxFVbCHqzPp9V7hbugkrpR4wFruPkizR5p2T8IJcEKj3D79
-	EwKkgr+JzGVh4aZZM37ncaCgT724VfA7aBqWlDAzzjtzL83s6LpbYvcuOAbMx+rE4pKU/kaZrQo
-	cMLfuiXHWDTyEDquTaMq6PQi5Jz2G0aviUuGldvOKKxyzW/omqW/AHzJFb7Hltg9HQrew==
-X-Google-Smtp-Source: AGHT+IGwqPkGdPum0faeStLtu2ktwCeeXpdd/Gr8bwvAvPpRB4dJntX84+9feZ0xNyk77ATtUZIZiKkj4xtUXhaRTNE=
-X-Received: by 2002:a05:6402:26c8:b0:649:19bf:bba2 with SMTP id
- 4fb4d7f45d1cf-64919bfc0d5mr1360036a12.17.1765005199541; Fri, 05 Dec 2025
- 23:13:19 -0800 (PST)
+	Sat, 06 Dec 2025 07:18:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1765005531; x=1796541531;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=oQCyKfe48rYH5RAg2kQmpAmcDXxICCIuye7g2EDqWtw=;
+  b=JLN/Em5S9GN7qN1GxZdqZhu+eJp2TfNv05BTDXraaGae8tO4FcdSanEO
+   obAgmkvJ0EICJF9Hp8+kVlPR3/jpixuIBBNhjVdzYeg2fkGPL6Upf3zt4
+   3tbjTkF+7pq0oZhrhKPR0yX3BjxrH9TG/Jnnzxdys2I3DOGt7sZnGap0E
+   M4PMZiQfC+7qjHvs72J6oxlnOjkYubgH//48HaXGzK5odAyEJ65QlHb3R
+   QEzSVLw976WOO0aaG9J8enW95lHvaVlfIcz9ZZ3OS2A4KISZ1+gs+8+jf
+   9WS8yd1XPTuvSi1cg5FoXwGByc+GI9MnJgVvdON7Abl25WDtcZjrgp8lV
+   w==;
+X-CSE-ConnectionGUID: WzdtecoNRTyqxxdyuqLkvQ==
+X-CSE-MsgGUID: HtkWXQoXSV6fZOK7HsbQ3g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11633"; a="84636829"
+X-IronPort-AV: E=Sophos;i="6.20,254,1758610800"; 
+   d="scan'208";a="84636829"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Dec 2025 23:18:50 -0800
+X-CSE-ConnectionGUID: jeOhal7kQjOEIQ4xIheCkw==
+X-CSE-MsgGUID: 2BcrPTSDTMyAGkOdxvTlyA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,254,1758610800"; 
+   d="scan'208";a="194778838"
+Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
+  by orviesa010.jf.intel.com with ESMTP; 05 Dec 2025 23:18:47 -0800
+Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vRmZ3-00000000Fyf-0Vbv;
+	Sat, 06 Dec 2025 07:18:45 +0000
+Date: Sat, 6 Dec 2025 15:18:20 +0800
+From: kernel test robot <lkp@intel.com>
+To: Patrice Chotard <patrice.chotard@foss.st.com>,
+	Mark Brown <broonie@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-spi@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Patrice Chotard <patrice.chotard@foss.st.com>
+Subject: Re: [PATCH 3/8] spi: stm32-ospi: Remove CR_TCIE and CR_TEIE irq usage
+Message-ID: <202512061458.1wp2IbOG-lkp@intel.com>
+References: <20251205-upstream_qspi_ospi_updates-v1-3-7e6c8b9f5141@foss.st.com>
 MIME-Version: 1.0
-References: <20251123-fixkhadas-v1-1-045348f0a4c2@baylibre.com>
-In-Reply-To: <20251123-fixkhadas-v1-1-045348f0a4c2@baylibre.com>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Sat, 6 Dec 2025 12:43:03 +0530
-X-Gm-Features: AQt7F2p5UjYlgHBMh4GKU7Y8S9VjvIpYJkR0ez5ZYJAnsWIvHhN0798bvgLMxKg
-Message-ID: <CANAwSgSqHR1kYxo8SaHcBfq=eij_YmVAidy8M+h1dFeK2nz1ug@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: amlogic: meson-g12b: Fix L2 cache reference
- for S922X CPUs
-To: Guillaume La Roque <glaroque@baylibre.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251205-upstream_qspi_ospi_updates-v1-3-7e6c8b9f5141@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251205_231322_311865_D5DB68D1 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20251205_231851_236054_AD24972B 
+X-CRM114-Status: GOOD (  10.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,56 +92,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Guillaume,
+Hi Patrice,
 
-On Sun, 23 Nov 2025 at 22:44, Guillaume La Roque <glaroque@baylibre.com> wrote:
->
-> The original addition of cache information for the Amlogic S922X SoC
-> used the wrong next-level cache node for CPU cores 100 and 101,
-> incorrectly referencing `l2_cache_l`. These cores actually belong to
-> the big cluster and should reference `l2_cache_b`. Update the device
-> tree accordingly.
->
-> Fixes: e7f85e6c155a ("arm64: dts: amlogic: Add cache information to the Amlogic S922X SoC")
-> Signed-off-by: Guillaume La Roque <glaroque@baylibre.com>
+kernel test robot noticed the following build errors:
 
-Reviewed-by: Anand Moon <linux.amoon@gmail.com>
+[auto build test ERROR on 7d0a66e4bb9081d75c82ec4957c50034cb0ea449]
 
-Thanks
--Anand
-> ---
->  arch/arm64/boot/dts/amlogic/meson-g12b.dtsi | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm64/boot/dts/amlogic/meson-g12b.dtsi b/arch/arm64/boot/dts/amlogic/meson-g12b.dtsi
-> index f04efa828256..23358d94844c 100644
-> --- a/arch/arm64/boot/dts/amlogic/meson-g12b.dtsi
-> +++ b/arch/arm64/boot/dts/amlogic/meson-g12b.dtsi
-> @@ -87,7 +87,7 @@ cpu100: cpu@100 {
->                         i-cache-line-size = <32>;
->                         i-cache-size = <0x8000>;
->                         i-cache-sets = <32>;
-> -                       next-level-cache = <&l2_cache_l>;
-> +                       next-level-cache = <&l2_cache_b>;
->                         #cooling-cells = <2>;
->                 };
->
-> @@ -103,7 +103,7 @@ cpu101: cpu@101 {
->                         i-cache-line-size = <32>;
->                         i-cache-size = <0x8000>;
->                         i-cache-sets = <32>;
-> -                       next-level-cache = <&l2_cache_l>;
-> +                       next-level-cache = <&l2_cache_b>;
->                         #cooling-cells = <2>;
->                 };
->
->
-> ---
-> base-commit: 6a23ae0a96a600d1d12557add110e0bb6e32730c
-> change-id: 20251123-fixkhadas-c84da7d7c47c
->
-> Best regards,
-> --
-> Guillaume La Roque <glaroque@baylibre.com>
->
+url:    https://github.com/intel-lab-lkp/linux/commits/Patrice-Chotard/spi-stm32-ospi-Set-DMA-maxburst-dynamically/20251205-174931
+base:   7d0a66e4bb9081d75c82ec4957c50034cb0ea449
+patch link:    https://lore.kernel.org/r/20251205-upstream_qspi_ospi_updates-v1-3-7e6c8b9f5141%40foss.st.com
+patch subject: [PATCH 3/8] spi: stm32-ospi: Remove CR_TCIE and CR_TEIE irq usage
+config: riscv-randconfig-002-20251206 (https://download.01.org/0day-ci/archive/20251206/202512061458.1wp2IbOG-lkp@intel.com/config)
+compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251206/202512061458.1wp2IbOG-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512061458.1wp2IbOG-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/spi/spi-stm32-ospi.c:246:48: error: no member named 'io_base' in 'struct stm32_ospi'; did you mean 'mm_base'?
+     246 |         err = readl_relaxed_poll_timeout_atomic(ospi->io_base + OSPI_SR, sr,
+         |                                                       ^~~~~~~
+         |                                                       mm_base
+   include/linux/iopoll.h:255:43: note: expanded from macro 'readl_relaxed_poll_timeout_atomic'
+     255 |         readx_poll_timeout_atomic(readl_relaxed, addr, val, cond, delay_us, timeout_us)
+         |                                                  ^
+   include/linux/iopoll.h:213:71: note: expanded from macro 'readx_poll_timeout_atomic'
+     213 |         read_poll_timeout_atomic(op, val, cond, delay_us, timeout_us, false, addr)
+         |                                                                              ^
+   include/linux/iopoll.h:172:36: note: expanded from macro 'read_poll_timeout_atomic'
+     172 |         poll_timeout_us_atomic((val) = op(args), cond, sleep_us, timeout_us, sleep_before_read)
+         |                                           ^
+   note: (skipping 1 expansions in backtrace; use -fmacro-backtrace-limit=0 to see all)
+   arch/riscv/include/asm/mmio.h:90:76: note: expanded from macro 'readl_cpu'
+      90 | #define readl_cpu(c)            ({ u32 __r = le32_to_cpu((__force __le32)__raw_readl(c)); __r; })
+         |                                                                                      ^
+   include/uapi/linux/byteorder/little_endian.h:35:51: note: expanded from macro '__le32_to_cpu'
+      35 | #define __le32_to_cpu(x) ((__force __u32)(__le32)(x))
+         |                                                   ^
+   include/linux/iopoll.h:102:3: note: expanded from macro 'poll_timeout_us_atomic'
+     102 |                 op; \
+         |                 ^
+   drivers/spi/spi-stm32-ospi.c:124:16: note: 'mm_base' declared here
+     124 |         void __iomem *mm_base;
+         |                       ^
+   1 error generated.
+
+
+vim +246 drivers/spi/spi-stm32-ospi.c
+
+   236	
+   237	static int stm32_ospi_wait_cmd(struct stm32_ospi *ospi)
+   238	{
+   239		void __iomem *regs_base = ospi->regs_base;
+   240		u32 sr;
+   241		int err = 0;
+   242	
+   243		if (ospi->fmode == CR_FMODE_APM)
+   244			goto out;
+   245	
+ > 246		err = readl_relaxed_poll_timeout_atomic(ospi->io_base + OSPI_SR, sr,
+   247							(sr & (SR_TEF | SR_TCF)), 1,
+   248							STM32_WAIT_CMD_TIMEOUT_US);
+   249	
+   250		if (sr & SR_TCF)
+   251			/* avoid false timeout */
+   252			err = 0;
+   253		if (sr & SR_TEF)
+   254			err = -EIO;
+   255	
+   256	out:
+   257		/* clear flags */
+   258		writel_relaxed(FCR_CTCF | FCR_CTEF, regs_base + OSPI_FCR);
+   259	
+   260		if (!err)
+   261			err = stm32_ospi_wait_nobusy(ospi);
+   262	
+   263		return err;
+   264	}
+   265	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
