@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81EF8D3B7D3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 10:47:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B097ED3B7D2
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 10:48:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YoXkHMqEW+qV635ZOf7B0SAMsy9mwe60v92erWlwCB0=; b=CKbvzQqU93Ugv+sIsKkQ64L30e
-	mUY5KwYf5YXzWmA4czC2VwO28w3z45a0ITwEIY91Q08VbLMvzeDuhrHKnaO6xKnmmUSpgdH+TCqpk
-	LluGgt7oprDbEnE/ssVWCirmA8VyU6Z8BWuq9oH9MpuJNO4jJVlEGqar6eJAyol0Xk8k2JRHVNHyN
-	B/s1SfCr3Yh/BCSgEDlVh2zFn8j69w1KvbxTQgrPhl6cO+rQtdDwADOBXeMePS0FR0B+iOwYAVlxq
-	S3dIf+4Vw8njvfOa3ubwDW+aTHuVCSDl54+UoDWbobT2PO+QyIeqxaLRDnsmO/uyBRDqLz5bRZvJb
-	/INHYBOQ==;
+	bh=k4CiHQeTie1tgQSDwfCsCsS2achmKuY67qup1iHyDl8=; b=em1098XZS8PiI7axttdRKhSjTT
+	vjbHonAr8QmbA2ff6nOjtitPwc6lZw1P1Cmb8QZ8TO/Qh0m0tuloG4Lsa0jtoaITBn/hWYmxVBAlF
+	Lg9Myb+3/w1VaePcelmDUDeHt+WziBaRNfcF68YSxVDYh3EF4ICpBME8IpsfeHZHSYzZ3H2lPv27b
+	FzHpKsMIGWj4vLBdpe3vdQFBPQSwsaPd4W1+gS+SwZyq+w/dA17KGxh7zfMdSKukkqRfj79BLCH0d
+	mtCXOXwyX+aHbopS7MGZKnyc6hyWRuaizGHWcR4XNRQXhxUKbJSbhSaXpoEHivWLdiCEqyp4xIpsA
+	T56LX8vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRppJ-0000000ApkJ-1tZw;
-	Sat, 06 Dec 2025 10:47:45 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vRpq0-0000000Appp-3ODq;
+	Sat, 06 Dec 2025 10:48:28 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRppI-0000000ApkB-3DIE
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Dec 2025 10:47:44 +0000
+	id 1vRppy-0000000AppG-4BFh;
+	Sat, 06 Dec 2025 10:48:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E385160138;
-	Sat,  6 Dec 2025 10:47:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A011C4CEF5;
-	Sat,  6 Dec 2025 10:47:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4FDB140A9A;
+	Sat,  6 Dec 2025 10:48:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FD59C4CEF5;
+	Sat,  6 Dec 2025 10:48:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765018063;
-	bh=z/x/1pDOX2OLLC4hlVDnfT3qQtrpkFmTIq0Yt5Ja2Es=;
+	s=k20201202; t=1765018106;
+	bh=STlMorUBBdfacWXUVY0MYVqsAE1P74sX888Amhh4DqQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Bc8UGQCbBHA7FUoVdDqKDZQOmK0kA4G0RYShfN6nlWKgwbLBxtUmd27DI39yCyNSd
-	 6cBuAeUMuSBUMhZ+OV5J0ILJYR9VU9hNIUpOANtnMKBPei5ARc8138D8MGf2y3Fcw8
-	 QzihVaQkz6TSjCPxQIRPyYkh7DZvJfMNXb82NTVSzXjTCaaSyAjrI6b9X0vGFc8Vxt
-	 tF5iekf8K8um9uSxYKj83Ix2r7afDBAh66KC2U4UFj67QDCfZ0y4Jj09/1EiTVvuHE
-	 LfA6maXU7JMQIEoY9kG3l7IKdf0Bkv5pBpW88Pzd+S3L6IgrwD77pqQYPcqM3ibFJZ
-	 IsI5vPdm57rvg==
-Date: Sat, 6 Dec 2025 11:47:41 +0100
+	b=kTd5BxawgkEYe4L+iumdhan+lE8CnBtT01ThDZa7b0F0Ip81sUSc/9625ECYF/iQz
+	 442XYwhRYNxCZpEKsyRaQ0IvCTXIC1u4EDRv/yI1Jlu7ceV3rzD7xWhvi0n+LTKnLD
+	 7j75ukNgYNpUFa711h2OulwuVfSZ1cDd3DQVi38KrkdC7ISqgZWWf2iZc+ojRCUrQb
+	 ZXwxdU3v1HIuhyyT4OQfj97wb+k4KcrYZubuowSFWdT74jPAn3ybeDBgIIr7HJpTDQ
+	 IVXGf6v0cfspFMY3lizzo70QHNC0h4qndXeslofw7YcjSInbOiwjYK3BYnV9Dlxh5R
+	 Z2vsYF4DFlnlg==
+Date: Sat, 6 Dec 2025 11:48:23 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Roy Luo <royluo@google.com>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
-	=?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Badhri Jagan Sridharan <badhri@google.com>, Doug Anderson <dianders@google.com>, linux-usb@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Peter Griffin <peter.griffin@linaro.org>, =?utf-8?B?QW5kcsOp?= Draszik <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Badhri Jagan Sridharan <badhri@google.com>, Doug Anderson <dianders@google.com>, 
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
 	Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>
-Subject: Re: [PATCH v9 1/2] dt-bindings: usb: dwc3: Add Google Tensor G5 DWC3
-Message-ID: <20251206-perky-tentacled-lori-bc71d9@quoll>
-References: <20251205-controller-v9-0-9f158b18f979@google.com>
- <20251205-controller-v9-1-9f158b18f979@google.com>
+Subject: Re: [PATCH v8 1/2] dt-bindings: phy: google: Add Google Tensor G5
+ USB PHY
+Message-ID: <20251206-viridian-shrimp-of-growth-43ddd0@quoll>
+References: <20251205-phyb4-v8-0-c59ea80a4458@google.com>
+ <20251205-phyb4-v8-1-c59ea80a4458@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251205-controller-v9-1-9f158b18f979@google.com>
+In-Reply-To: <20251205-phyb4-v8-1-c59ea80a4458@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251206_024827_060080_34051892 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,24 +80,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 05, 2025 at 02:26:37AM +0000, Roy Luo wrote:
-> Document the device tree bindings for the DWC3 USB controller found in
-> Google Tensor SoCs, starting with the G5 generation (codename: laguna).
+On Fri, Dec 05, 2025 at 03:54:11AM +0000, Roy Luo wrote:
+> Document the device tree bindings for the USB PHY interfaces integrated
+> with the DWC3 controller on Google Tensor SoCs, starting with G5
+> generation (Laguna). The USB PHY on Tensor G5 includes two integrated
+> Synopsys PHY IPs: the eUSB 2.0 PHY IP and the USB 3.2/DisplayPort combo
+> PHY IP.
 > 
-> The Tensor G5 silicon represents a complete architectural departure from
-> previous generations (like gs101), including entirely new clock/reset
-> schemes, top-level wrapper and register interface. Consequently,
-> existing Samsung/Exynos DWC3 USB bindings are incompatible, necessitating
-> this new device tree binding.
-> 
-> The USB controller on Tensor G5 is based on Synopsys DWC3 IP and features
-> Dual-Role Device single port with hibernation support.
+> Due to a complete architectural overhaul in the Google Tensor G5, the
+> existing Samsung/Exynos USB PHY binding for older generations of Google
+> silicons such as gs101 are no longer compatible, necessitating this new
+> device tree binding.
 > 
 > Signed-off-by: Roy Luo <royluo@google.com>
 > ---
->  .../devicetree/bindings/usb/google,lga-dwc3.yaml   | 140 +++++++++++++++++++++
+>  .../bindings/phy/google,lga-usb-phy.yaml           | 133 +++++++++++++++++++++
 >  MAINTAINERS                                        |   1 +
->  2 files changed, 141 insertions(+)
+>  2 files changed, 134 insertions(+)
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
