@@ -4,91 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F47FD3B7D3
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 11:03:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6214D3B7D1
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  6 Dec 2025 11:04:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Di4nXMnpEeOTLfF6SZ5MHjacrS6rmAmqyqAmm0YeIzo=; b=l2+gagD1jP9WSi3XRXKoJcGLI2
-	XyL0Zh1LtIFYwK3hwVC9GaKhGED3G+HB8sxlgCI0MT4QBKj5WPMJ/Jp+Ojt43ebuM7X1QrhjNJtNH
-	Q39023NjuYx23mzxYdDPPh6gDulUuN6lqOiRgCS5twED1GuZy8qgtgyKhdEJrpdKadf9j0eC+CMwP
-	u3KsUXe7HdcjmZW5l2uVHCH1HPspVbAn/H6Z0dO5pgwxKyTAkSXWmEqnYnS2Dxtyy+pfDf1wZxsa+
-	vQr/SyMWiFHdj9e6xPVhIRoleUxkcXsj5Lg2NL43b/FG91lrQT4EkbQjKN9XbBZ/YDpnQxl6Uh+hH
-	gAaGjEcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BpDwNq/7YczMVmm3tqJ1perC0WzLPihn82sg+n0C0r8=; b=RQsg8BkOkjzfvkOHv0QBCiK9uP
+	inwvGHXiUWVNi05H4A8mos57LvAkchCaaO/80b5MS2LyYvGuAuWOD3EI8bZ4WDjAznLXwrz06gEe9
+	cX/R15AuJlechX66eczWjZJgptLgYtCUB6cXioiqdaunZNYRUUd4xTEfFtAbEjpFB+lG1/fHfdthO
+	0JlogeWDl5akX7P0x7sQ9x0NK68d8PRvhgclOconywy9PAy6LuuQusmVTfYUfKyho98APRN4Mk3DD
+	O5cBPsHtovpoq62041adpXxMFGbNPJfAOTuE/G+DDVkj/I/ipfHgB2GMjzsbdEG1dXh+W1Gd7hyBS
+	s05ETr+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRq4Y-0000000AqVF-16ep;
-	Sat, 06 Dec 2025 11:03:30 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vRq5a-0000000Aqfu-1zlt;
+	Sat, 06 Dec 2025 11:04:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vRq4V-0000000AqUr-3RHK
+	id 1vRq5Y-0000000AqfK-3CuF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 06 Dec 2025 11:03:29 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-477b1cc8fb4so20274315e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 06 Dec 2025 03:03:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tuxon.dev; s=google; t=1765019006; x=1765623806; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Di4nXMnpEeOTLfF6SZ5MHjacrS6rmAmqyqAmm0YeIzo=;
-        b=ISbkl4DTH3XGnBSaehfDpmPztZkYKFsjXOtwFc9Ax7UYYQhZgREhQpgKwEdozzlQuU
-         5HSjNQUYAfjVmXaEcpqg3LmlRs92xNQJfYoL+iwsJfvEr/ylpE/pjz+t9R0yz8wMobWr
-         98ZkhV2hTfvwPbotDj0CeL7LBr1rGq7XE9xyVdzX7GmbeIiOqfjp+5/uXGWVyc1MyYrC
-         rP7xANWwo2K0LklFCGfz4MWSWZaduWpLyYqlAOvWe/NnrUHK324aXsv/F1rk5h+daE0D
-         rToN6gD9jO+QuFX9P9/eiovHEF6vaTemFI0Ml5zG2Gj+Y3+L2UCT0LzUseCK4zVCtAK+
-         +gaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765019006; x=1765623806;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Di4nXMnpEeOTLfF6SZ5MHjacrS6rmAmqyqAmm0YeIzo=;
-        b=TkSyvIkw13GIKhfIV6vPpuh5lDFXzGNO+RRN1X9J1+5qFVp2AcyYOaHw1zesaANZc6
-         5QVIdq3/QA+oqXEhJMeb2041W8Na3/x5PQma77HpVrsi+3CIp6H09MIp41EviuxTkfc5
-         G+yDS4UFo2VmoTq1F8SEn1acsydASpI5k5Oj+kRg1UlsRUVrN2SRrIkgA0Jf7QRm+PVL
-         sBTZ+E79CR5/6JvjPpt/72M34EfvdvQbZSJ1lEv2XTvC3WykCej3wWCxh/YT7zV0/cYc
-         41evHHM2ijwS7iYrijGppSY2m6yez/QDM/92OEttMkSLLYjb0zmdr80kDY5NYbq1EeEo
-         mkRg==
-X-Gm-Message-State: AOJu0Yx96vMqvE/N7l+5ClGRfLlAY4SBMbAwZx6Up8g1D5rQqil66t7x
-	ETmV/rZyOyezJvRNgxTDuxhC05GgJFpeRpTz7jomHURv6uyBEBwezfUOpjC3uaksLdM=
-X-Gm-Gg: ASbGncv2KnIuSAN/rjNDBokjO0NoVQsvCc1kDEpXzYU2mgsU0GteMSWl+fImfUz32A6
-	/5h9n3Dd6/8B0tDOZ45CS+ViXT3WljyEUIBYriEvk9WyIP0dL7TnAFR3LYiLF7v28bXJDWbdVMx
-	hY2gpRCyRUG4WPgzNMtoeZkCz5A8yhYcksCN7SZ/haPTj+mNsCaH6AXxVT712D3rygIeEMQUv3p
-	4rzHUvRT1gl34BXWaTm8wGE0YNU7NZ0Ru1qGOz64WmaM/huhuAe8TssugD1AElVPS871DcLVqjd
-	NK2RahoYi26s+V0n+f0vx7fshCLFtHz7L1fSc3xLvP/AkDQWaZ1HNMEIebj3XeP9vNc76VaR8LP
-	6eOVeDsc7m0omzEXbT+S+XXyJoN7fmraRJnHBArUEWizP9Vg29K1nuCyMgyc+sOeu/MIsga2qd0
-	Aj8gWRIKSEtC64NcdOYxw=
-X-Google-Smtp-Source: AGHT+IGlK+iCvO82Fk/1C7qwDEFEQa4UjUl1pzdRaRhsSUr9urYgL5wdrtLcash8bZJTncBMl0oYaw==
-X-Received: by 2002:a05:600c:1c9e:b0:477:7b30:a6fc with SMTP id 5b1f17b1804b1-47939e4d0camr28235395e9.30.1765019005989;
-        Sat, 06 Dec 2025 03:03:25 -0800 (PST)
-Received: from [192.168.50.4] ([82.78.167.134])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42f7d22249esm14170448f8f.25.2025.12.06.03.03.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 06 Dec 2025 03:03:25 -0800 (PST)
-Message-ID: <51908ef6-f777-4a20-acef-538d9e715790@tuxon.dev>
-Date: Sat, 6 Dec 2025 13:03:24 +0200
+	Sat, 06 Dec 2025 11:04:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E8C5660168
+	for <linux-arm-kernel@lists.infradead.org>; Sat,  6 Dec 2025 11:04:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91124C4AF0C
+	for <linux-arm-kernel@lists.infradead.org>; Sat,  6 Dec 2025 11:04:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765019071;
+	bh=LQa7x2Xqo1R3BU1iXV2K28BQPa/asQzgGrxZOPXc3Xk=;
+	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
+	b=RkVE+rKuk6vqlW3wOjGewK6yLFURkkY7rICN6MN5rU4SJTIsmQoiC4q44ybmi+W/O
+	 8vof5AApEEZckXAaTSIJcYUA4p8LjKvFUv0eg9TbeQFektaikX5c8Rb/eqdgaX/TiH
+	 KD1SfaZT1/IfEDFSbgGQ2Psp+i/TBZ3oZzCXEy22LnLBg3LiA0ddhZsrL/zFC/mhDJ
+	 0oFKxVNkqNi85aLI8J4+iCDTQqx70VA8LQTkxUByU26b/DZSsF/9GjpQMoJSGT9zPX
+	 aW6suAvEjHbDaWcz0ikDiOpjYsuwtTnmtIjniizKq84SW/bCH5WG1AcPAbL4G4CaWc
+	 SuR4Q46lX32Bg==
+Received: by mail-lf1-f50.google.com with SMTP id 2adb3069b0e04-59581e32163so3839340e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 06 Dec 2025 03:04:31 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWL/xFs4PnWvSLRrYVGTsddi/Qwuo1WcC5ZPM8ZKpyKMPFbop1vFk6HWd8M3xik1obXbZsfvql5aw3bBeDlz6kV@lists.infradead.org
+X-Gm-Message-State: AOJu0YxWx2JsO0xuNyHsnOUxTfpFonLPR9RU8iJ5t8Di3P3Tq6dsYyIT
+	i+oCYiF/UWyIwNwMQk9V5Lm/kTUHQMXfS/vPZXRRlXvYGaz4wD3KbzhE2hiRzrOa46XXacgzPQo
+	OayH7Q/7QXT6I3m5RNgBaEuFsAnGtUXr9M5lkSTa4Cg==
+X-Google-Smtp-Source: AGHT+IGzVIVocC6EzRFxCGvPhOPXFCCvOsJH5zhVLbERuSaCGM4g0MgyH12GWd9f4cyL9Esvb2xyvVlzmOz3yFQy3CQ=
+X-Received: by 2002:a05:6512:2212:b0:594:2c51:f27b with SMTP id
+ 2adb3069b0e04-5987e88b210mr601668e87.18.1765019070175; Sat, 06 Dec 2025
+ 03:04:30 -0800 (PST)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Sat, 6 Dec 2025 03:04:28 -0800
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Sat, 6 Dec 2025 03:04:28 -0800
+From: Bartosz Golaszewski <brgl@kernel.org>
+In-Reply-To: <20251206050844.402958-6-ye.zhang@rock-chips.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: lan966x: Fix the access to the PHYs for pcb8290
-To: Horatiu Vultur <horatiu.vultur@microchip.com>,
- nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20251119134750.394655-1-horatiu.vultur@microchip.com>
-From: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Content-Language: en-US
-In-Reply-To: <20251119134750.394655-1-horatiu.vultur@microchip.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251206_030327_872464_4EF77669 
-X-CRM114-Status: GOOD (  16.44  )
+References: <20251206050844.402958-1-ye.zhang@rock-chips.com> <20251206050844.402958-6-ye.zhang@rock-chips.com>
+Date: Sat, 6 Dec 2025 03:04:28 -0800
+X-Gmail-Original-Message-ID: <CAMRc=MdNNkQpXiaK7J12QjsQiL-DjxGUarvveeYze19-1wqfxw@mail.gmail.com>
+X-Gm-Features: AQt7F2qQ1dE8DUY3pPJ8f0x-A-FdXwUF1S4eurzNXEEc-e8MOcdtpskXb3-4gCU
+Message-ID: <CAMRc=MdNNkQpXiaK7J12QjsQiL-DjxGUarvveeYze19-1wqfxw@mail.gmail.com>
+Subject: Re: [PATCH v2 5/8] gpio: rockchip: support new version GPIO
+To: Ye Zhang <ye.zhang@rock-chips.com>
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	tao.huang@rock-chips.com, Linus Walleij <linus.walleij@linaro.org>, 
+	Heiko Stuebner <heiko@sntech.de>
+Content-Type: text/plain; charset="UTF-8"
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,40 +87,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 11/19/25 15:47, Horatiu Vultur wrote:
-> The problem is that the MDIO controller can't detect any of the PHYs.
-> The reason is that the lan966x is not pulling high the GPIO 53 that is
-> connected to the PHYs reset GPIO. Without doing this the PHYs are kept
-> in reset. The mdio controller framework has the possiblity to control a
-
-s/possiblity/possibility
-
-I can adjust it while applying
-
-> GPIO to release the reset of the PHYs. So take advantage of this and set
-> line to be high before accessing the PHYs.
-> 
-> Signed-off-by: Horatiu Vultur <horatiu.vultur@microchip.com>
-
-Reviewed-by: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-
+On Sat, 6 Dec 2025 06:08:41 +0100, Ye Zhang <ye.zhang@rock-chips.com> said:
+> Support the next version GPIO controller on SoCs like rv1126b.
+>
+> Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
 > ---
->  arch/arm/boot/dts/microchip/lan966x-pcb8290.dts | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/arch/arm/boot/dts/microchip/lan966x-pcb8290.dts b/arch/arm/boot/dts/microchip/lan966x-pcb8290.dts
-> index 3b7577e48b467..50bd29572f3ed 100644
-> --- a/arch/arm/boot/dts/microchip/lan966x-pcb8290.dts
-> +++ b/arch/arm/boot/dts/microchip/lan966x-pcb8290.dts
-> @@ -54,6 +54,7 @@ udc_pins: ucd-pins {
->  &mdio0 {
->  	pinctrl-0 = <&miim_a_pins>;
->  	pinctrl-names = "default";
-> +	reset-gpios = <&gpio 53 GPIO_ACTIVE_LOW>;
->  	status = "okay";
->  
->  	ext_phy0: ethernet-phy@7 {
+>  drivers/gpio/gpio-rockchip.c | 2 ++
+>  1 file changed, 2 insertions(+)
+>
+> diff --git a/drivers/gpio/gpio-rockchip.c b/drivers/gpio/gpio-rockchip.c
+> index 47174eb3ba76..c3e831c6bcf1 100644
+> --- a/drivers/gpio/gpio-rockchip.c
+> +++ b/drivers/gpio/gpio-rockchip.c
+> @@ -36,6 +36,7 @@
+>  #define GPIO_TYPE_V2		(0x01000C2B)
+>  #define GPIO_TYPE_V2_1		(0x0101157C)
+>  #define GPIO_TYPE_V2_2		(0x010219C8)
+> +#define GPIO_TYPE_V2_6          (0x01063F6E)
+>
+>  static const struct rockchip_gpio_regs gpio_regs_v1 = {
+>  	.port_dr = 0x00,
+> @@ -674,6 +675,7 @@ static int rockchip_get_bank_data(struct rockchip_pin_bank *bank)
+>  	case GPIO_TYPE_V2:
+>  	case GPIO_TYPE_V2_1:
+>  	case GPIO_TYPE_V2_2:
+> +	case GPIO_TYPE_V2_6:
+>  		bank->gpio_regs = &gpio_regs_v2;
+>  		bank->gpio_type = GPIO_TYPE_V2;
+>  		bank->db_clk = of_clk_get(bank->of_node, 1);
+> --
+> 2.34.1
+>
+>
 
+Acked-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
 
