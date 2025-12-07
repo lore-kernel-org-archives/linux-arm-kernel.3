@@ -4,144 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6F75D2CE17
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Dec 2025 04:37:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DFD4D2CE17
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Dec 2025 04:55:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=afpksrLSIiuM5pMowGZ8a5ZhgCT/NZBQ2uCKcm2+3hE=; b=gxv5lgSvvxD2TLN6THiLuKYCnR
-	UGPQ8vS51zFhsO//L9+IlZ/VKTWZWaA6lCVWGvFJvRpb8YtlvhYAy8+PkiTYWeRCZ7Bo6hSwdZ0Ab
-	oJbW1Xo2w8MhUgkVnViD54K+KkygWvlfWso5u8+agxlplMofId8bGHuNJPUZlHbmeHGSfMWXrNwhL
-	08+cXJEii8fO+Syridj4SCXtMNfWgNQRY2op8NiSepfNc0A0TEThlekNKLEnkdkrU2vQM+Vd7sN9O
-	O5hg2CAqU+IT9mImHBY3jaNKBH56mP6IKWJTypsSe7LczsCYFOOFCn+CbIkU3oMsp9et2uf0+0mvq
-	ROZs4PQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Mz8gl+LQ+pQXR9Vk/AIbLOn/Re0FlMVXlpYXdJtawpw=; b=EbVjd0leiyUSsFWfhhi/TzA2a6
+	bZbVMMcgYhVXYMNzcz+HvVyUvj6Ulk9BQe3noYmBLNvmt6mcllkx8kSxTXjPrsud8tp8AaJc+iXYk
+	xgVG1kj0CvHKvTB2mKia7io76sBMjmRnnC49he7EtMExpmdlZXF/38pWZEtQN0BElKvkoOBRMN6fq
+	KRodFpRCEgQi8Q/xGXug7O+ZoGGLU7g79nYLCh1mh9b2fyEa22dnWYPhJ+O8KUHXg2I9SAoAeQcwA
+	m4H+w9T+w25KPXDgCbVgykw9JZ0HW8gZrp61ijJynHGctzWmd53XKzkPLtUMBvDuW/2ziTstQjM0N
+	ATaOm9kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vS6Wm-0000000BScz-1B2D;
-	Sun, 07 Dec 2025 04:37:44 +0000
-Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
+	id 1vS6o6-0000000BTM2-1hft;
+	Sun, 07 Dec 2025 04:55:38 +0000
+Received: from mailtransmit04.runbox.com ([2a0c:5a00:149::25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vS6Wj-0000000BScY-3SyZ
+	id 1vS6o2-0000000BTL6-3lt4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Dec 2025 04:37:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JN6pMbpgaXAREQUyAdBKXZsC2tz6PxBxUCrj2y4V/e8TYFqZdWVxTRUUUg1H1tVa0GZAO04I89KyWuUWguDt/i+f2eItFI4VyR5Bp23FESaY+UQ+CuXysVyiWA28yYvzRaYkUwxmii/YScNHAaiEjZvvzih7sfuKHMHIgUxV+FleUaJYjV6ArEmLBbpkkYcnuAKVTUTGrK6sCPmBgorQ2BdDKS4zE73NhqJ7SWyqaO24Z3PI5BTvQqE9UNwkp+1M2h4+bIoo6BBXzF1bfgzZr7BnuWnUg3GXEc76gxYHDETqBFVNjfFVc3fapBFLDSWGRvkAU20pSRvB3od+zOKS2w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=afpksrLSIiuM5pMowGZ8a5ZhgCT/NZBQ2uCKcm2+3hE=;
- b=kCZbG/AdGvoThwWuJn+Bu8W2bgqqnVMmSjOsqzB9Ebzd4WpUxEqgdWw3ltNoLl3tGGKO+/xx3dAA6WFNsvWRbNb4/dCdH+z8RU68qV5WSPjNoqbcvFjkundw/Pps3b3vJ5Q2aSlFwkyRLTsbdSWVPBtp1lfgkOa++UMYU+LOuz6ZAGUCpCcW6cFcBWFvewmeizYHGHicPuQRLF936W8pF8zWMwQW2rKH+dlxnopx3IiVWGnu6PXyX342gUHjXnODaugK2fIHdmK2YgQa2lO6X56fJP6FAQ5A+PJczbn40YS1e9xRVhxVOU8ioHYm/Cp0AbXiYdRDCBFHdSdTvJoZmg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=afpksrLSIiuM5pMowGZ8a5ZhgCT/NZBQ2uCKcm2+3hE=;
- b=FKSopptJq1Jfo/4CPzOuqj+02FdHl8nVTRxS05zIdZBgectXCXO4sN0m7T2ywid+7vBp3TaXCFJe4ohTAJal6iBUaO1qc8F8a88aShxpnr3ilDQbSo6/arUAJkNQ443ARIySyds//m9cvpZ8Q7qtN2P15nCVJdauJM30/NZ7BXH38UvQIF6XaJMTPy1f7jrhbPJck7Zqml/5L2TCMlvGavq2V9FkuZR1qi67cYU+NgxqDqMRbSEhBxkhac2O/uzzW/Ygv7QE+/r0D9HXNf7NVUX1YWrXtN6/zk7JspM8z6V87Jz7Qvv3bFoZrrphhALMf3xzymdC7LPPQSOcpbSBPw==
-Received: from SJ0PR05CA0210.namprd05.prod.outlook.com (2603:10b6:a03:330::35)
- by CH3PR12MB8754.namprd12.prod.outlook.com (2603:10b6:610:170::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.13; Sun, 7 Dec
- 2025 04:37:35 +0000
-Received: from SJ5PEPF000001F6.namprd05.prod.outlook.com
- (2603:10b6:a03:330:cafe::b3) by SJ0PR05CA0210.outlook.office365.com
- (2603:10b6:a03:330::35) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9412.0 via Frontend Transport; Sun, 7
- Dec 2025 04:37:29 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- SJ5PEPF000001F6.mail.protection.outlook.com (10.167.242.74) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9412.4 via Frontend Transport; Sun, 7 Dec 2025 04:37:34 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sat, 6 Dec
- 2025 20:37:34 -0800
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Sat, 6 Dec 2025 20:37:34 -0800
-Received: from nvidia.com (10.127.8.12) by mail.nvidia.com (10.126.190.180)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Sat, 6 Dec 2025 20:37:32 -0800
-Date: Sat, 6 Dec 2025 20:37:30 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <skolothumtho@nvidia.com>, <praan@google.com>
-Subject: Re: [PATCH rc v1 1/4] iommu/arm-smmu-v3: Add ignored bits to fix STE
- update sequence
-Message-ID: <aTUEikcWXWwKAS/1@nvidia.com>
-References: <cover.1764982046.git.nicolinc@nvidia.com>
- <6ec73bb7cd03d90a0764f12c4b14071158163818.1764982046.git.nicolinc@nvidia.com>
- <20251206193408.GD1219718@nvidia.com>
- <aTSH5Eap7leYQtPl@nvidia.com>
- <20251206195752.GI1219718@nvidia.com>
+	Sun, 07 Dec 2025 04:55:36 +0000
+Received: from mailtransmit03.runbox ([10.9.9.163] helo=aibo.runbox.com)
+	by mailtransmit04.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.93)
+	(envelope-from <daniel@gibson.sh>)
+	id 1vS6nt-009NAJ-8R; Sun, 07 Dec 2025 05:55:25 +0100
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=gibson.sh;
+	 s=selector2; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID;
+	bh=Mz8gl+LQ+pQXR9Vk/AIbLOn/Re0FlMVXlpYXdJtawpw=; b=SJYEXw6RUAfGmey+ZE0ON69ptG
+	ApnwIKXCuuRKS5epUGcCa3lJ8QodjtAQqioS7UiZaBOgf6yeb2env2p8Q/ckG5aT2gRQfMGAJ4Iru
+	0Ym7i9aP5iywvQblFr3kSZp0MT0w88J9RuLRP1Ode0LTR7ynbPT55gaKgpI4f1ixNkKuQ7n3tOQeS
+	F8sCAJYRQL74hkt36DuINcIp7+ynG023ctqdbDEqC7oBQePeoWWD+oO6TZyEIU1fZY2DDKixHuRBW
+	Ujqa4OTIQvzSUJlGWix5YSVxxWKEF24sMXWlonq7hMIFWqPWKIUOIp+vea5fgff4Yft5Ehwc6N2jH
+	/EjrXyYw==;
+Received: from [10.9.9.72] (helo=submission01.runbox)
+	by mailtransmit03.runbox with esmtp (Exim 4.86_2)
+	(envelope-from <daniel@gibson.sh>)
+	id 1vS6nr-0003yn-Id; Sun, 07 Dec 2025 05:55:23 +0100
+Received: by submission01.runbox with esmtpsa  [Authenticated ID (1104311)]  (TLS1.2:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.93)
+	id 1vS6nk-006ssX-8F; Sun, 07 Dec 2025 05:55:16 +0100
+Message-ID: <bd0a00e3-9b8c-43e8-8772-e67b91f4c71e@gibson.sh>
+Date: Sun, 7 Dec 2025 05:55:15 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20251206195752.GI1219718@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001F6:EE_|CH3PR12MB8754:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2e8adf79-6f4e-4836-0b2c-08de354a57b2
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WU6Gp9AnL/OXjZasDSJYzQm48KKBqt6I4bZshKFtchNgfSjbK4jBdeeI3pji?=
- =?us-ascii?Q?F5yYFbVTAzFyFK6UIgMLFExVakPTmZNKx8Xo6udUwUqBuY74KrijURv0MP3m?=
- =?us-ascii?Q?qfX9S2i4D7dXu5fa6kMzq7OFzOcl5bnAAbhRgCJdavmxrTU+TSxLvPBEzn9U?=
- =?us-ascii?Q?ge3Y74dSFlYA4vgu2jc++RWsrVZDh8nWkPb1umdI1CnawjObZkgNUyb4lJtX?=
- =?us-ascii?Q?rWIYDJYWm/UmdwDkWhEwYQgAEBkh4bvnbrX7p/PVoN0paYuqsQ1sCQpH2PjD?=
- =?us-ascii?Q?aVG2pAY/7XSWmWlA86rDG5wcSzaKvZ5HETS760PYPzf5pcT0xD/CrAx2dd53?=
- =?us-ascii?Q?uzogoov5Bd5nd5YCYM6DCbMgSbNXJgRhyqGBlhgFs0vIkRhBAs46HJuUv61g?=
- =?us-ascii?Q?NgcNgFIMsNSB83MVnk3BPvldkpxzv4i+GKXLZkLOCvKCa0nwBAF2mTnm3PPW?=
- =?us-ascii?Q?iFtXSbnCEvv6HXgak0PhLiGRz8ZmPenctUbPu796HSStEWW+MhaPPbwHNC5m?=
- =?us-ascii?Q?T5oxZAKJtJufGnymFmJ5pAdj830yjbhnO1C1Fs7GH7yz8h8jVIJi0MKzAEec?=
- =?us-ascii?Q?XqvkS+Wib7wWibcP3xMIj52OfySYWa9cg42vURfqE4qswFY7rvQJfJt81jEW?=
- =?us-ascii?Q?ZKC1zPITi0j6N8yMEb999KGaIANiYaofhJ8lFGDOD3XvCJxwQgymJ4yl+/C6?=
- =?us-ascii?Q?ZI+sWbFlEm4Ksc+A7Srjqxlif2hnSARwaTqGRDHQxTtA3stDlQ6EJ5/UORgn?=
- =?us-ascii?Q?WgEVTtCrbIk87484llyFOr0s3i1YPLUumduG/QaKU/vRYWVcA+Sc69Xbb/eh?=
- =?us-ascii?Q?tk54lZCo8agxOS/mrS2OkY2GOqJLu4ABBoAkCt6o9499AwihkT2xcEPt9Scy?=
- =?us-ascii?Q?lALqdzKnrMp10rwyQE9/Mrk1+5ZS6xdxyb+GLJdHmmTjx14RZ8G7Z6T5vg5M?=
- =?us-ascii?Q?qAajEvlumc7fDKSP9wPFa81JJLksSsIKF9I2C+kRqLVKBoxFdBRaxtUm7/lm?=
- =?us-ascii?Q?QglpIMy1EdSSgzAFRxgOrpfijUljIMCO6Q+3oJGAcxGhplSspBjUr56owjGs?=
- =?us-ascii?Q?nVyGm5SYlAO3WIcOGI0OpV/2HqZ2YhWwAt4IxUQWx+eXolYBal/1U7DmHbzJ?=
- =?us-ascii?Q?5WJLurZk/D/QUsZXe0sJEQZrLQjDcnGettdZ2e2KvskR+yyt6ABmOLZUvTLS?=
- =?us-ascii?Q?3R85H11N5vXaaWVlJe/91dGOI/MF2eFmucpcehd89x3grP73NN90d+RfV7xW?=
- =?us-ascii?Q?vpp4djJpGWWuaWYbNWQyPXZs6MH3QCQFREOcLraBAdysn/BD1w1+u/kKgDys?=
- =?us-ascii?Q?TsmXpvC3scTF/5GBOAxp2qJha0DGeqxwffPkGvIJ3u5E8/GdfadNmOv1riR+?=
- =?us-ascii?Q?3PGSR/b9B4PbjJyGKAqJRXGcEqksdOsieAoDDJulydumPR1vTZ/6ZSzGJ/mo?=
- =?us-ascii?Q?G+RVHJ2eLLA7nyRtv0IEJG4q/X5TzT5gfnv3xv7KsjNAKagW9C4fDE5iMBFM?=
- =?us-ascii?Q?Xl9cOy2FQXT5+XCmi7lTxGNtnCfXGAAnFqthvP2IlhQjI2xACg45KESCSQje?=
- =?us-ascii?Q?SgVJ/1o7ZWpGA52C69E=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Dec 2025 04:37:34.8133
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2e8adf79-6f4e-4836-0b2c-08de354a57b2
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001F6.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB8754
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 05/12] gpio: it87: use new line value setter callbacks
+To: Bartosz Golaszewski <brgl@bgdev.pl>,
+ Linus Walleij <linus.walleij@linaro.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Lixu Zhang <lixu.zhang@intel.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>, Yinbo Zhu <zhuyinbo@loongson.cn>
+Cc: linux-gpio@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+References: <20250423-gpiochip-set-rv-gpio-part2-v1-0-b22245cde81a@linaro.org>
+ <20250423-gpiochip-set-rv-gpio-part2-v1-5-b22245cde81a@linaro.org>
+Content-Language: de-DE, en-US
+From: Daniel Gibson <daniel@gibson.sh>
+In-Reply-To: <20250423-gpiochip-set-rv-gpio-part2-v1-5-b22245cde81a@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251206_203741_887070_3D295A39 
-X-CRM114-Status: GOOD (  16.87  )
+X-CRM114-CacheID: sfid-20251206_205535_264261_4D0B1420 
+X-CRM114-Status: UNSURE (   8.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,74 +87,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 06, 2025 at 03:57:52PM -0400, Jason Gunthorpe wrote:
-> I think that supports more that we should do what Shuai suggested and
-> keep used as-is.
+Hi,
+I got one nitpick/question about this, see below
 
-Yes, that will be probably cleaner.
-
-> Then ignored should be adjusted by the used: Only if both used are 1
-> should the bit become ignored. Otherwise we can rely on which ever
-> used is 0 to generate the hitless update.
-
-Hmm, not sure why it has to be both used.
-
-The unused_update is computed using cur_used, and the equation for
-used_qword_diff is computed using target_used, either of which can
-be affected by ignored bits, right?
-
-E.g.
-if cur_used[] includes ING bit, target_used doesn't:
-    // target must unset IGN bit, last equation isn't affected
-    if cur sets IGN bit
-        cur_used should exclude IGN bit
-    if cur unsets IGN bit
-        not affected
-if cur_used[] doesn't include ignores, target_used does:
-    // cur must unset IGN bit, cur_used isn't affected
-    if target sets IGN bit:
-        last equation must exclude IGN bit on both sides
-    if target unsets IGN bit:
-        not affected
-
-> @@ -1109,6 +1118,7 @@ static u8 arm_smmu_entry_qword_diff(struct arm_smmu_entry_writer *writer,
->                 WARN_ON_ONCE(target[i] & ~target_used[i]);
+On 4/23/25 09:15, Bartosz Golaszewski wrote:
+> @@ -249,7 +250,9 @@ static int it87_gpio_direction_out(struct gpio_chip *chip,
+>  	/* set the output enable bit */
+>  	superio_set_mask(mask, group + it87_gpio->output_base);
 >  
->                 /* Bits can change because they are not currently being used */
-> +               cur_used[i] &= ~ignored[i];
->                 unused_update[i] = (entry[i] & cur_used[i]) |
->                                    (target[i] & ~cur_used[i]);
+> -	it87_gpio_set(chip, gpio_num, val);
+> +	rc = it87_gpio_set(chip, gpio_num, val);
+> +	if (rc)
+> +		goto exit;
+>  >  	superio_exit();
 
-If one of ignored bits is set in entry[i] but unset in target[i],
-the unused_update will first mask it away, resulting in an extra
-unnecessary update (though it's still hitless).
+Are you sure that superio_exit() should be skipped (with goto exit) in
+case it87_gpio_set() fails?
+After all, superio_enter() above (not visible here) succeeded,
+only the it87_gpio_set() call failed.
 
-So, I think this might be better:
+Of course this is kinda academic because currently it87_gpio_set()
+always returns 0, but if it ever doesn't, this might become a bug?
 
--		cur_used[i] &= ~ignored[i];
-+		cur_unused[i] = ~cur_used[i] | ignored[i];
- 		unused_update[i] = (entry[i] & cur_used[i]) |
--				   (target[i] & ~cur_used[i]);
-+				   (target[i] & cur_unused[i]);
-
-Because cur_used includes ignored, the unused_update will retain
-the ignored bits from entry. On the other hand, having cur_unused
-will also retain the ignored bits from target.
-
-One more change that we need is at the last equation:
--		if ((unused_update[i] & target_used[i]) != target[i])
-+		if ((unused_update[i] & target_used[i] & ~ignored[i]) !=
-+		    (target[i] & ~ignored[i]))
-
-Either side might have the ignored bits, so we have to suppress
-ignored on both sides, which is required in the similar routine
-in arm_smmu_entry_differs_in_used_bits() of the kunit code.
-
-With these additional changes, nesting sanity and kunit test are
-both passing. I will do a few more tests to make sure things are
-okay, before wrapping up the v2. Please let me know if all these
-make sense to you.
-
-Thanks
-Nicolin
+Cheers,
+Daniel
 
