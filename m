@@ -4,93 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08250D1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Dec 2025 08:42:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE704D1CDC6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Dec 2025 09:22:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LL5/K1TLOew1Tsl3uROwjLfZ+mr1H9abaqMBpCaH/aI=; b=wWVJ9O6ntTFsQocP2/BABYObgI
-	fDmSdaPi5UuQmhTCRBQx0UZevhPM1sg0zAu4RHsHKKHYqWP/BozoNsQn+NW5cIZ4PXWSeEx7EjaNo
-	UD0R8ZB6PNoGqWs+nZIFKyRCVOBlR4No3oyBCQHkUokC09PvlEpYMSW42Mj/HsH7rwkZDwnZoW5Zo
-	ggGA57zjZXegEiiScohgQyLRH6bdwGMwPJl/ySnYIzrg8BpmCUKKBczcNmdBV7c/aq0TYFjOxaF+C
-	asF4chfAZovuWiGYzMg0zj/GnwnBNgstwjYj78o9//JeTLup4mLY7ENVRb1S3j3Pz7XaBLulS3DnJ
-	R/SVJTsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X9q+cDfMrg014EY9sJksn+6sdb8oD5faOWT5cDz9z5Y=; b=ZtL6TWn8Kxn9aWFoB7m2utCIRu
+	MDtqSAxykYRtoCQAf/M7CHmWlCJzYKnkembX6kB0rR/J2S6klD5yRCR9oCBdVMh2soYajNMQYijmt
+	sPeDDVi0E+EL9M0n9qNF7OQe4NsZRHXZ4B37UjX2kxpGFvzoK3n0H4m1Bj4gkJuNYmAtc6+vu0x90
+	zPKLrXHDNTtcaHYZoS3hmeBEGtx8DmAZn9l/r0aJkmBfFBgtF/te/p+Dzef8mYO2L6h1+R48E3gex
+	B6kCLqhnT7Gtph9oSOk7uURC0KOMwk7fpTwzwXQarwBoEfPKFu0wjqvz2gGeyCq7NBvx/idol37rM
+	1bdU4Adw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSALs-0000000BbPs-1Eph;
-	Sun, 07 Dec 2025 08:42:44 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1vSAyO-0000000BcyA-2cwf;
+	Sun, 07 Dec 2025 09:22:32 +0000
+Received: from mout-p-103.mailbox.org ([80.241.56.161])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSALp-0000000BbPH-0uiB
+	id 1vSAyK-0000000BcxH-42GP
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Dec 2025 08:42:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1765096961; x=1796632961;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=81fHP63wwjUBO7vufHEqW2i1/EwDrAJK5Nz166GaB5w=;
-  b=Oki/EnBz4p5ggSroBk5U1PKz5vXQ47iAk3FwLKJUtag3cEB5tRi06XNa
-   TDNwjpMF2AHfRQm7RNTqGu8HQuYsGsEiZh9Mzp+pJARzqDaO7xjx9N/oX
-   GpU3FZXrHx2ZB9KPQt7Oi0RFVeOI+OhnR4Ry2YoOWNDdh3F68xUupYfdy
-   clWBvpXgbsCCUJ/x4sxszdeqJfdoXs6KpW2USSFbEugDL2jYKf/gc4K9i
-   1i40v9/jch17Dkwy+nAhEis1J1Ozgb1RLAwYAoeQYPKFVWFIcuaIgUNvV
-   0k7AICyPezNydAiIed0qyL+Qr3LPNmV+jmU9cjXFwvhevRkMHm/kCbvhA
-   A==;
-X-CSE-ConnectionGUID: tCc5vvMtTy+xCkpjTue/DA==
-X-CSE-MsgGUID: bViNvI9ZSReg3Bz/oly5YQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11634"; a="78426773"
-X-IronPort-AV: E=Sophos;i="6.20,256,1758610800"; 
-   d="scan'208";a="78426773"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Dec 2025 00:42:37 -0800
-X-CSE-ConnectionGUID: WhjFVEa8S4Gn1dyYhP97Ng==
-X-CSE-MsgGUID: 85q/K6LiQPKuPr83qGUJFg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,256,1758610800"; 
-   d="scan'208";a="195738405"
-Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
-  by orviesa008.jf.intel.com with ESMTP; 07 Dec 2025 00:42:32 -0800
-Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vSALd-00000000J8r-1pzF;
-	Sun, 07 Dec 2025 08:42:29 +0000
-Date: Sun, 7 Dec 2025 16:42:15 +0800
-From: kernel test robot <lkp@intel.com>
-To: Will McVicker <willmcvicker@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Will McVicker <willmcvicker@google.com>,
-	Donghoon Yu <hoony.yu@samsung.com>, Rob Herring <robh@kernel.org>,
-	John Stultz <jstultz@google.com>,
-	Youngmin Nam <youngmin.nam@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	"Russell King (Oracle)" <linux@armlinux.org.uk>,
-	linux-samsung-soc@vger.kernel.org, kernel-team@android.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v7 5/6] clocksource/drivers/exynos_mct: Add module
- support for ARM64
-Message-ID: <202512071659.We0N43XW-lkp@intel.com>
-References: <20251205011027.720512-6-willmcvicker@google.com>
+	Sun, 07 Dec 2025 09:22:30 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4dPKQ274qbz9spZ;
+	Sun,  7 Dec 2025 10:22:18 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1765099339;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=X9q+cDfMrg014EY9sJksn+6sdb8oD5faOWT5cDz9z5Y=;
+	b=Ze40ACPPG06G4xRRBlXqZELB2bWqEdDO6PqZOf7s7XPX8N/jeTpZOBEd6XeG4qbObyPEn0
+	wfDMOF4besSbqSSIp++twiB5bf+Hmn7h3wLcpMRhYpg/Ghyzr8mRukqINgFRXbyBLbl/LP
+	9i1qyUHA+AbaZt25olGR9lOPS5lQslyvLSjyuF8OEhGS/LqDNnnof+qrrB1Ffuhtt4U38P
+	12KTI2RNYyjDp3+9VzUu+bcRfc9Nf5WRAhOPlrEBANJMWwA5zayrw0pl5JA+ESPQNkY+vP
+	S1RiQOF2Yea+VUeprlQLqhRNPtcTapMgelIVS+6F6DADiGL4RtPLvpZX5wkkBw==
+Message-ID: <9b593731-898f-46a7-8ee5-68f8c170351c@mailbox.org>
+Date: Sun, 7 Dec 2025 10:01:06 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251205011027.720512-6-willmcvicker@google.com>
+Subject: Re: [PATCH] arm64: dts: imx95: Use GPU_CGC as core clock for GPU
+To: Rain Yang <jiyu.yang@oss.nxp.com>
+Cc: Frank.li@nxp.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
+ festevam@gmail.com, imx@lists.linux.dev, kernel@pengutronix.de,
+ krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org, peng.fan@nxp.com,
+ robh@kernel.org, s.hauer@pengutronix.de, shawnguo@kernel.org
+References: <20251129143220.14834-1-marek.vasut@mailbox.org>
+ <aS-lEibp3zTsaR6T@oss.nxp.com>
+ <c6e0e55a-06da-4665-972e-e9b5b8c08bf7@mailbox.org>
+ <aTACuRjC_Zpf8IOU@oss.nxp.com>
+ <de36091e-c890-4897-b3e3-2a7575029a5d@mailbox.org>
+ <aTD5np-HGaJqhzkD@oss.nxp.com>
+ <5944d872-01a3-47e9-977b-029f3be4fd83@mailbox.org>
+ <aTKVMAMQ6v_BwD6R@oss.nxp.com>
+Content-Language: en-US
+From: Marek Vasut <marek.vasut@mailbox.org>
+In-Reply-To: <aTKVMAMQ6v_BwD6R@oss.nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: feb1c8f184211a18c7b
+X-MBO-RS-META: rqqhake851yp3bxp1345p13u66h15651
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251207_004241_298225_064A09BE 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20251207_012229_145650_6A5902D4 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,30 +86,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
+On 12/5/25 9:17 AM, Rain Yang wrote:
+> On Thu, Dec 04, 2025 at 04:25:38AM +0100, Marek Vasut wrote:
+>> On 12/4/25 4:01 AM, Rain Yang wrote:
+>>
+>> [...]
+>>>>> For the Linux working environment,
+>>>>> CLK_GPU and CLK_GPUAPB are always-on, while CLK_GPU_CGC can be gated off.
+>>>>>
+>>>>> Regarding the IMX95_CLK_GPUAPB handle, my suggestion was based on the absence
+>>>>> of its frequency in any OPP entry within the frequency table. Removing it
+>>>>> could simplify the OPP handling logic and reduce unnecessary complexity.
+>>>>
+>>>> If the clock can be disabled by SM, Linux has to make sure they are NOT
+>>>> disabled, so they must be described in DT, right ?
+>>>>
+>>>>> [1] https://github.com/nxp-imx/linux-imx/commit/695f2bdc57b869ca5189313e4b5fa7eb5a12f622
+>>> Currently, only CLK_GPU_CGC shall be described in the Device Tree[1], as it can be gated.
+>>> The other clocks (CLK_GPU and CLK_GPUAPB) are always-on in the Linux environment,
+>>> so describing any of them in DT is not necessary and would not be proper in this context.
+>>
+>> Since this discussion is in fact unrelated to this bugfix, I would propose to
+>> fork the discussion into a separate patch. Can you please submit a patch for
+>> the GPUAPB clock ? Note that I believe GPUAPB clock have to be described in
+>> DT, if only because DT is a hardware description, and to make sure the GPUAPB
+>> clock are correctly enabled by the driver.
+> 
+> Okay, I’ll submit a patch later.
+> The commit message should reflect that only CLK_GPU_CGC is enabled.
 
-kernel test robot noticed the following build warnings:
-
-[auto build test WARNING on bca42080637ce3a21092fc0f7d5411e853b0c3b3]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Will-McVicker/clocksource-drivers-exynos_mct-Don-t-register-as-a-sched_clock-on-arm64/20251205-091403
-base:   bca42080637ce3a21092fc0f7d5411e853b0c3b3
-patch link:    https://lore.kernel.org/r/20251205011027.720512-6-willmcvicker%40google.com
-patch subject: [PATCH v7 5/6] clocksource/drivers/exynos_mct: Add module support for ARM64
-config: arm64-randconfig-001-20251207 (https://download.01.org/0day-ci/archive/20251207/202512071659.We0N43XW-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project a805147ac1ba123916de182babb0831fbb148756)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251207/202512071659.We0N43XW-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512071659.We0N43XW-lkp@intel.com/
-
-All warnings (new ones prefixed by >>, old ones prefixed by <<):
-
->> WARNING: modpost: vmlinux: section mismatch in reference: exynos4_mct_probe+0x84 (section: .text) -> mct_init_dt (section: .init.text)
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+The commit message , and this change , is unrelated to GPUAPB clock.
 
