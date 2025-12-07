@@ -4,137 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBC4AD1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Dec 2025 20:50:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 820B5D1CDC6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Dec 2025 21:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=85supT5IucQM+S9V9xo5V6WF0Re7oaOptwZFU7VRjak=; b=u4ZIrCGdxjcvNTHrSgmQ+WLxCO
-	V9qrD4QNe4izZ2FLEm/eLYjqUZUIJHCeRnHELtlqtEk2FDLziWF6o3ARFfbfr9PNcimw1obMFc2+P
-	DfQbGZ/rieTTfRm4QRfDbF6wurSYQS6NHagMWaWp5qrMUgx1z1hTIBs3ItjK4fMVIUrNLBSzJdi7I
-	dPSHiUgO4rpF5Ye4hp1sB9KMzXk0cd2ZUv5DtxMGrvyKdsSHqXYxoPOwdgrpNT63xE5SEsx4qPU2z
-	hYF0dGwvBt7LWHdEGaPkGTyT5BCrQuhK91G/DwBnEQ3AhHdDlB8LvvF++lwN0VjCxcxi/z9P+dMFZ
-	q63dcQ5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ubmVBf2THb9WiaCuIxeJKsOm1jvo/yN428q54G2L8JE=; b=VHWbppSDwHHYYtgXiklN6pTiqp
+	2sUxbuiaYJ9+ofFuniS5ZFvv+SOsIxBoB6fMvSWiZ6Db/HfwLGGxTBBSKdpHvP1HoLtskTTADw67Q
+	bgncagvfNii8j3YI0Yov1bcg3V+85Q2E+kZPmhQP8EKF+8uV9A4ZYXoTWcluunCrTMJ8mOMNnIc2v
+	xJQ+s2wMHHxz1bJn9wd9f8ENBXWUzB2LuM2dYDy9pPT5QY53BTWb5/68dSl3DnmiBzdxPnf0Dosmr
+	6JXoYRctSkadmcslmcN+Sc5sbyDBjjOROMY4jsTrAfvRS7f866b5dMMhDRbuMugzfIHnLY365t80y
+	wO/2WOCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSLhl-0000000CEW5-2ZX8;
-	Sun, 07 Dec 2025 20:50:05 +0000
-Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1vSMT7-0000000CGId-1hvE;
+	Sun, 07 Dec 2025 21:39:01 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSLhi-0000000CEUC-2Bmc
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Dec 2025 20:50:04 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SBk/6f4//CYrqsqdjAvi4+hupwpzbz7oKZjKrTocMgzfgWlpVKurygzSrwgYMQ1gEDBOyP1rJEA57U9SbNr3U5+DOzg5tt61iQ8dwnwZPvd/txpI582zNtvcC66ym99WaXWaQp5jdytmOc4GrcaWGPsEgs4BsRYg7ns9XZztWybgTYehYMwPMG5xfGKJM78rdap8nv9rxHJ3Vp8YZ+3blg2lESQayaMGJtA7ur5Oyb2aAY+IURmsp4vq+xSZp4rQruHAGhsXXTe/bE2fSfDEFVuuQPEnUXgyWRDvl+Xw9O2xiTz0F5DKsarf/evfBZPMGuW/nfnHzGmgHZn1g9Akjw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=85supT5IucQM+S9V9xo5V6WF0Re7oaOptwZFU7VRjak=;
- b=Mx0ymw9PznML05BvGOyoXl4CX4vEHWuOOQaOwDNEQIrV2eFuhD1uHoOjFUTKv1SRquNTPoFVNhMv82u62Waf/cR3KAc88GV7CObVvrr32MX1yqooMxKEIbbYl4ktjsnd4Rr8S8tubhJRgkI3B3LGnUZ9VFEa1G8vP6P4+pVrcZ6JGZYDF2fZjHsYB+Uz8spx6HUbc9y4twgq8VsFFIASbQdGKmVePD3kPIkZ5aWe6iTE/N2YHNfka0Z0l7/SjkAohmIU/YYCVJbsUmGVlF6JMDOX2roQIYF0n71+NJQIFsLARWDNpyWz1M+k/OtPDajhwXGcMpEOGF3EYjEb8iK+mQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=85supT5IucQM+S9V9xo5V6WF0Re7oaOptwZFU7VRjak=;
- b=sG4TkNKulDoKMUzVtvS9sLpoJrbV9T8s9ZLmMQ4tu6fLvFeHujoxPgTP6cSQ0ntqQL9RmRaOJqPRsGJzl1VaZ3Ej80gTTmtPZQ+rtTPrIBpuCn/o2E7qnp3ndOYUYRbPjIVRVij3QpIDL8aE56lDkpOsEdgkH3ziNrk7LP9KQJtIHdeWFTL8NO/SN3Ppt0BJNNQ+jGZWFsC/A2sGi1almKJ5OWSAxSdwRRtKvH5vb8qxD/82nHcMbL1t6sXZ7T6HHNJt9et12trNqDf5g4TeRPo2MQHLs/QI/vTC2rZeZVwLUwj0+EVzf6OmT4KpYDoULN0102yHWqpA9mPvoDnG3Q==
-Received: from CY5PR13CA0088.namprd13.prod.outlook.com (2603:10b6:930:a::43)
- by BY5PR12MB4099.namprd12.prod.outlook.com (2603:10b6:a03:20f::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.14; Sun, 7 Dec
- 2025 20:49:55 +0000
-Received: from CY4PEPF0000FCBE.namprd03.prod.outlook.com
- (2603:10b6:930:a:cafe::94) by CY5PR13CA0088.outlook.office365.com
- (2603:10b6:930:a::43) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9412.6 via Frontend Transport; Sun, 7
- Dec 2025 20:49:56 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CY4PEPF0000FCBE.mail.protection.outlook.com (10.167.242.100) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9388.8 via Frontend Transport; Sun, 7 Dec 2025 20:49:54 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 7 Dec
- 2025 12:49:45 -0800
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 7 Dec
- 2025 12:49:44 -0800
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Sun, 7 Dec 2025 12:49:44 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <jgg@nvidia.com>, <will@kernel.org>, <robin.murphy@arm.com>
-CC: <joro@8bytes.org>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<skolothumtho@nvidia.com>, <praan@google.com>, <xueshuai@linux.alibaba.com>
-Subject: [PATCH rc v2 0/4] iommu/arm-smmu-v3: Fix hitless STE update in nesting cases
-Date: Sun, 7 Dec 2025 12:49:12 -0800
-Message-ID: <cover.1765140287.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
+	id 1vSMT5-0000000CGI8-1l0V;
+	Sun, 07 Dec 2025 21:39:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1765143533;
+	bh=imzAolqIJKjIbBRAXPxzblwltEq5JIsw4/FvhKhP6ww=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=orrmjAlagW6XDsR1fClEviYK79zgQeGISPlh1h59zn79/Dub36W76X9kawI0jnq7L
+	 l5neOqdpbF/L+JnzQzThej9fgzAZmHBda0jF24uHuf0HRuWgAnpP9xjgUsmgzlRA/F
+	 mOcUBUKE0N9F4gwtjeJYobHj2EuN74B9BvYJaJE3ThuPzs3PDqOQUcuxmz+1TkRCAc
+	 2iWi+g8AGWI7qj+LuB+fE4loES3o9RhFY3GQQI7sY8M6zU95Eqq3aCqsj+eIi89zDi
+	 iNA8GUzGzwbNHBF2bsm7Xnp4VXtPgIjyO8GxFu0rUbMdTZ3LTcFyfWdMHrEsOPWggF
+	 G0uM8DjE+iIAQ==
+Received: from [192.168.1.90] (unknown [82.79.138.145])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3345B17E1017;
+	Sun,  7 Dec 2025 22:38:53 +0100 (CET)
+Message-ID: <ab0eee09-56bf-4a8e-8feb-f0bc355d476b@collabora.com>
+Date: Sun, 7 Dec 2025 23:38:52 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY4PEPF0000FCBE:EE_|BY5PR12MB4099:EE_
-X-MS-Office365-Filtering-Correlation-Id: c2164bbc-c370-4b85-e94a-08de35d22d1c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|376014|82310400026|13003099007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vkh60jYnL7y4nTHmjq6konMdUa0rct0ljI3kmtfOZ1TB90inKls9EdpD6B2m?=
- =?us-ascii?Q?CKbqxEgAf157P4zMQvdKOjYzuWNx6joZwj2dezcyleUw5StbUtDRLoMebs5t?=
- =?us-ascii?Q?ELgjLniPFEevgRB19E66h1fpAYt9jjhFo7J9/BRUrz8AqjDnkfSI7npcE0RF?=
- =?us-ascii?Q?/mMeAc8SmO85laHTOgx+30n+JWxAsKZ1EvpvxDI6smn76oaBX6fZE4J62X9S?=
- =?us-ascii?Q?bhQiq8pkk6PYIZsWvAuWvZTLNsMwx8pzfhMl68G3LgwPIQBxgLoSuev0nM8y?=
- =?us-ascii?Q?Hmub0xf1j2eD9PbXwCny6fxHpPzIT7hZ4rclHtUbsd8vtY7YehRrOhBQdxGR?=
- =?us-ascii?Q?EuJW9XgiaixouFyWX2Ej2s6rztNrUxntFhnFWnG8lhvyi0bY02EhSHBtCzes?=
- =?us-ascii?Q?1pD6xjpq4FryKFqahxfAkoOdqU0MgDECp8OJRREQlFa4QJNzVOpLGBBnf1in?=
- =?us-ascii?Q?2fJVlqsFDhfewO0b67ujDLCiSWfJXqyqB01qJ5YV3rFGWy0rmbP82r0qd0BZ?=
- =?us-ascii?Q?i7xO6CR9V3loddtubb7PKx50i5hKWgtj/twrSsdBXeHRfmoM0vFW+y43ZAwC?=
- =?us-ascii?Q?afuc7j8pv2slls3bEgqEa4IkowsZqR66iiOuNeFcV/Vntw96xFtsWnezt+pV?=
- =?us-ascii?Q?JO0ywoktW6Wb0ur3BAJo2+pa/YBfb2FYgyNi4Txr/85uBkaW0ESl/d5jF88E?=
- =?us-ascii?Q?rN6gU9gKVXtV1Exx0pJwR4wAu6IJS8vbeOvRBSZ5mz8jLCW6tC2UX4QtR0LB?=
- =?us-ascii?Q?Gp4hG1Mvuprh6GzsI1dNxu+P+VXiswFYTqPentYdLEg7FN4zSDOBmFAmfifj?=
- =?us-ascii?Q?y93I8nwheIGaKMkLBY0BtIx4FuSObVYbcFQQy4I3Uwd1RqsV9zuReuMaaDxn?=
- =?us-ascii?Q?JfagvcBzBzq8+mwRQVUarp7iZCMCVIAGvmrR/5I6y5AwU4Njayvlykvlgnlj?=
- =?us-ascii?Q?wbwpQ/5Jng/3jUcALYxx6KeRh6SbeEhYaCWzvFGAraUHC/SRZihtXNkLzD49?=
- =?us-ascii?Q?6gohDVsXrC4ZTgfPrRiZl73lbDK2UGE8BuZrBL47ZdsDw3Pme3rlf0Dx+MQz?=
- =?us-ascii?Q?Zde1+2VydjxaNriZSqAcoK8b1FIq9XaPOVE1fySeD8bFR12rGCIEOHiBHdSV?=
- =?us-ascii?Q?E5xjW1oYNlBYK+qpIKdLaEF7MqPq167GOr0qfR9zVWVKzVrUNvhow+Pv/VKQ?=
- =?us-ascii?Q?shY6XTzwkwxNZI4DWBAUYhSld1tYJBw8/bXvth6tdBtsoMaw77N+YQzhMoZv?=
- =?us-ascii?Q?8OOsiZCH5gezNsZ4OwnqaDQ+U27MlieaaksbDyrZtGI42ptHNCFjL3soZO5r?=
- =?us-ascii?Q?PIXomnXXnQWNJUt/UAa9Ku6JmLDYpmNInlTZ/A/WvL1QpeKggxUit+J4VYgS?=
- =?us-ascii?Q?irv3zqB7kcZHkG8a069UdE1fWutUlDu3Xnm03Yf7ZWeGofxMql50fdTHveB4?=
- =?us-ascii?Q?z58wSDj20f7ouHtPF9Z4D54vsfdPAtPo8v5fAUGvbYt7msqMO1lYBNuCbSKJ?=
- =?us-ascii?Q?KkEceoFyVk8/6mbSohumfUumZUkj8yAPLm4FGIXLx2zfIaKkRvei1OyKye9R?=
- =?us-ascii?Q?M0T4tackIYWudadlFHY=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(376014)(82310400026)(13003099007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Dec 2025 20:49:54.8525
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c2164bbc-c370-4b85-e94a-08de35d22d1c
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CY4PEPF0000FCBE.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4099
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] Add HDMI 2.0 support to DW HDMI QP TX
+To: Maud Spierings <maud_spierings@murena.io>
+Cc: Laurent.pinchart@ideasonboard.com, airlied@gmail.com,
+ andrzej.hajda@intel.com, andy.yan@rock-chips.com,
+ dri-devel@lists.freedesktop.org, heiko@sntech.de, hjc@rock-chips.com,
+ jernej.skrabec@gmail.com, jonas@kwiboo.se, kernel@collabora.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, neil.armstrong@linaro.org, rfoss@kernel.org,
+ simona@ffwll.ch, tzimmermann@suse.de
+References: <20251203-dw-hdmi-qp-scramb-v1-0-836fe7401a69@collabora.com>
+ <4ec78537-5184-4e6b-9ada-ff268fbe9c3e@murena.io>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <4ec78537-5184-4e6b-9ada-ff268fbe9c3e@murena.io>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251207_125002_617714_D17C108D 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20251207_133859_628978_6DB9F5B7 
+X-CRM114-Status: UNSURE (   5.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,50 +82,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Occasional C_BAD_STE errors were observed in nesting setups where a device
-attached to a nested bypass/identity domain enables PASID.
+On 12/7/25 3:16 PM, Maud Spierings wrote:
+> Awesome work! I've been waiting for this feature!
+> 
+> I can now actually get 1440p100 on my display and 4k60 on my tv over HDMI.
+> 
+> Tested-by: Maud Spierings <maud_spierings@hotmail.com>
 
-This occurred when the physical STE was updated from S2-only mode to S1+S2
-nesting mode, but the update failed to use the hitless routine that it was
-supposed to use. Instead, it cleared STE.V bit to load the CD table, while
-the default substream was still actively performing DMA.
-
-It was later found that the diff algorithm in arm_smmu_entry_qword_diff()
-enforced an additional critical word due to misaligned MEV and EATS fields
-between S2-only and S1+S2 modes.
-
-Both fields are either well-managed or non-critical, so move them to the
-"ignored" list to relax the qword diff algorithm.
-
-Additionally, add KUnit test coverage for these nesting STE cases.
-
-This is on Github:
-https://github.com/nicolinc/iommufd/commits/smmuv3_ste_fixes/
-
-A host kernel must apply this to fix the bug.
-
-Changelog
-v2:
- * Fix kunit tests
- * Update commit message
- * Keep MEV/EATS in used list by masking them away using ignored_bits
-v1:
- https://lore.kernel.org/all/cover.1764982046.git.nicolinc@nvidia.com/
-
-Jason Gunthorpe (3):
-  iommu/arm-smmu-v3: Add ignored bits to fix STE update sequence
-  iommu/arm-smmu-v3: Ignore STE MEV when computing the update sequence
-  iommu/arm-smmu-v3: Ignore STE EATS when computing the update sequence
-
-Nicolin Chen (1):
-  iommu/arm-smmu-v3-test: Add nested s1bypass/s1dssbypass coverage
-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  2 +
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  | 80 ++++++++++++++++++-
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 43 ++++++++--
- 3 files changed, 117 insertions(+), 8 deletions(-)
-
--- 
-2.43.0
+Thanks,
+Cristian
 
 
