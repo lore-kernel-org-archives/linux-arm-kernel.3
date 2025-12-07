@@ -4,71 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C62CD1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Dec 2025 09:59:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3883BD2CE17
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Dec 2025 12:20:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xzV6VTi3heQS7OEBQTMqLKOcv1aH7RFKY+W86ZpOgjY=; b=DheCe6QN+o2EFnmE2Qn+wh86V4
-	pQCXvOvVTlK3oOEo8lJ+FlqA6AmXOmbPKU5MjbD4/n36nfeyG9W1i1neRtwZH+/oixfPk5zePFMrt
-	r+2/rjHVA/YJtWvOdSztblInf30V3khQkH/RTUSmZ1r43xhP8K2CiFmO9KiR+bfeasMrt2KiLJrRm
-	EJlSYiGU4UXeWyKCEtPx/fEinSde8vwFLz9hA4tAptNBgi2101L4lsucaeIKjEYDMdJni2grxKMIN
-	e7Uzm7VZWkQ52pUHKDTCyZLYjauTfRdhAtRLoCp5Juv/GilUsKoTxQI8xoxG3aQjJGlDqxH0Sk/MG
-	uyBIdu6g==;
+	bh=cBd0eFWa3WTOx819+QWxAtcmpEF3LgSjzGKmJhb1WOc=; b=cu3rOyet2yi7GV9fXFepKOFxTF
+	ucEPaLhddPP21PjMsiOB4whgKqDUx5Ej4Qcyfns1ZoNVi8hnLfxGwhl4pz0MAdOjSBylXdzFzcctG
+	U0qvJmYt6mcFUNGXXYx1ROeU4qfJDWujabgc40kHB9+DKhyPH/LexHqhsZYUnbouWlLSVYRxjmRgj
+	eb7b5/AAiOVFKrKRYsp+aBb3+YjCHNz/h+64tPlO3cW8wpCcejwUNeVF3H80Lk+lnqr2Y/cOQUjyf
+	A8QPOuqOGyaemhDkyAQ7eGiWLQ0IbUFJEClntvYHGPiuhgELahXtfxRXqH/751ZYbatzWDt9wazUp
+	wYjynIUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSBYR-0000000BeK3-3XIW;
-	Sun, 07 Dec 2025 09:59:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vSDkh-0000000Burw-3U20;
+	Sun, 07 Dec 2025 12:20:35 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSBYP-0000000BeJf-1r5t
+	id 1vSDkf-0000000BukP-3wBL
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Dec 2025 09:59:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 86C1743D6A
-	for <linux-arm-kernel@lists.infradead.org>; Sun,  7 Dec 2025 09:59:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6226DC4AF09
-	for <linux-arm-kernel@lists.infradead.org>; Sun,  7 Dec 2025 09:59:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765101582;
-	bh=uGPaKcAXCwluBElvNXo8BDPBTb28aZy1ms08Tpr950U=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=fmDTilKl5UfJeUwSA5kqIeECvBgWmBoKLlhEmf1OmH1Yfo9CnHlrds4/FT724WsC3
-	 9lfqbmVrX1IsflsbpzjjBEf//osePVjF3KWAGc/EkD5tg9lHJn6eEoekwmca7c9VCh
-	 kLe5I6jxnVgS/2ASBmjz1YeHl8angB8RBPq/bnlkCo2rOySe+Q6VW7+TfBgsPOACZO
-	 /svlx5YeFr1f55iGp1h81SrJqvWTcyz5vrjefvdD43vGgiHCS/G1vdfzVe7EJXtea6
-	 I0cAuzYpaY5L8cPWYw3VHbEkLFx/VzvF048un3EW2HReycqkdKp5k1ibi5kaRTlgg5
-	 ylnoUJ9lRzhMQ==
-Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5959105629bso3634986e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Dec 2025 01:59:42 -0800 (PST)
-X-Gm-Message-State: AOJu0Ywq8p6uLD/vEsUhOTN94b1SAoORk86z1M9tMsXpxwpgJr9guxAs
-	+HBh5UCd0KjOqbAh1yp9VOLYGyOOUN6BW4fzwGPweTY0X5ARHKl24iPJuIe5bxzuXij92CSXB6L
-	RSWQTzS6Q9Da11FVJvKYbVhnVvEWoftM=
-X-Google-Smtp-Source: AGHT+IFMmVSUmUSEk43NxxD0TDVPtzNN6TxJWqbhpuXN19U7veLd7x2sZIcvsglj4BUPMADLQD6gvXG33/u3xQ2EMrk=
-X-Received: by 2002:a05:6512:b98:b0:590:6598:4edf with SMTP id
- 2adb3069b0e04-598853bdd93mr1247185e87.47.1765101580691; Sun, 07 Dec 2025
- 01:59:40 -0800 (PST)
-MIME-Version: 1.0
-References: <20251204162815.522879-2-ardb@kernel.org> <20251205064809.GA26371@sol>
- <CAMj1kXE8qn7MSY1A31CrHRSxw+NXqNGLo=FLo4D-COMhxPAMiw@mail.gmail.com> <20251207013004.GA143349@sol>
-In-Reply-To: <20251207013004.GA143349@sol>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Sun, 7 Dec 2025 10:59:29 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXEWYQYW92=yRG6sJmmrjc8MBz-fdauxX2pq+P2rKhcxmg@mail.gmail.com>
-X-Gm-Features: AQt7F2r_c885jF7e5LFwwxhvJBSy2HGaP1WuTUjRCuI8rHNQbHcSJBPh29IiqDA
-Message-ID: <CAMj1kXEWYQYW92=yRG6sJmmrjc8MBz-fdauxX2pq+P2rKhcxmg@mail.gmail.com>
-Subject: Re: [PATCH] arm64/simd: Avoid pointless clearing of FP/SIMD buffer
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org, 
-	Will Deacon <will@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Kees Cook <keescook@chromium.org>, Justin Stitt <justinstitt@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Sun, 07 Dec 2025 12:20:35 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id 16A455BCFD;
+	Sun,  7 Dec 2025 12:17:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1765109879; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cBd0eFWa3WTOx819+QWxAtcmpEF3LgSjzGKmJhb1WOc=;
+	b=ptJ+j6YPX4g+bVfgoE8ZGTjROuh8vTpSPNCv/qp0Q1ZljH1k6a8NBRAl9PuRb/OAq+XIDy
+	Ms3IQNYL1UGQXarbvyUzIeXgSBkeivNsvAZU9knIC1uAehc4VZSgwD6WyKttisOejkucd4
+	wsZ8RlWhvRqiXF3CkmGsZ4ILGDkvVZo=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1765109879;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cBd0eFWa3WTOx819+QWxAtcmpEF3LgSjzGKmJhb1WOc=;
+	b=VkgzOLXvVzmsNyshw1DtVQoAoqZnxBQbXa/ajCsN5DdEWhfMRf3OddfIE276hMSQ5nWGvz
+	qgzw3pUkeCxWoFDw==
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=0YuJJ3XF;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b="yM/pJrbc"
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1765109878; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cBd0eFWa3WTOx819+QWxAtcmpEF3LgSjzGKmJhb1WOc=;
+	b=0YuJJ3XFWR17M6QyJQov2+FyIAhSdoGYPfrmbxb1xuXppPswhnxE1s6EE+4EqIbTRZu8Bp
+	8EX1Rjq6OSEDARqS9qICqkYEYcKjU0uA/07KnY5JMh6XQQnbIagxjjj5mgDtxZuknqyCQ7
+	S6z6B7TTfVPYuJuL+MrjDPCS+IZkj04=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1765109878;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cBd0eFWa3WTOx819+QWxAtcmpEF3LgSjzGKmJhb1WOc=;
+	b=yM/pJrbcO/dEmDdgL7ZVTAFBtzM7UxjjJqeIgGuIINwlyBUV6fSD7Tb1eGcAL+4S1SR8dQ
+	ln3+ze8SfTkZ/GCA==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 67A4E3EA63;
+	Sun,  7 Dec 2025 12:17:57 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id gID+FnVwNWl9JAAAD6G6ig
+	(envelope-from <tiwai@suse.de>); Sun, 07 Dec 2025 12:17:57 +0000
+Date: Sun, 07 Dec 2025 13:17:57 +0100
+Message-ID: <87pl8qv62y.wl-tiwai@suse.de>
+From: Takashi Iwai <tiwai@suse.de>
+To: david@ixit.cz,
+	David Heidelberg via B4 Relay <devnull+david.ixit.cz@kernel.org>
+Cc: Russell King <linux@armlinux.org.uk>,
+	Vladimir Zapolskiy <vz@mleia.com>,
+	Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Janusz Krzysztofik <jmkrzyszt@gmail.com>,
+	Tony Lindgren <tony@atomide.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Keguang Zhang <keguang.zhang@gmail.com>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	"Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+	Yoshinori Sato <ysato@users.sourceforge.jp>,
+	Rich Felker <dalias@libc.org>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-omap@vger.kernel.org,
+	linux-tegra@vger.kernel.org,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-sh@vger.kernel.org,
+	linux-sound@vger.kernel.org
+Subject: Re: [PATCH] ALSA: Do not build obsolete API
+In-Reply-To: <20251203-old-alsa-v1-1-ac80704f52c3@ixit.cz>
+References: <20251203-old-alsa-v1-1-ac80704f52c3@ixit.cz>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) Emacs/30.1 Mule/6.0
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-Rspamd-Queue-Id: 16A455BCFD
+X-Spamd-Result: default: False [-2.01 / 50.00];
+	BAYES_HAM(-3.00)[99.99%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_CONTAINS_FROM(1.00)[];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	RCPT_COUNT_TWELVE(0.00)[29];
+	MIME_TRACE(0.00)[0:+];
+	ARC_NA(0.00)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	FREEMAIL_CC(0.00)[armlinux.org.uk,mleia.com,timesys.com,iki.fi,gmail.com,atomide.com,nvidia.com,alpha.franken.de,linux.ibm.com,ellerman.id.au,kernel.org,users.sourceforge.jp,libc.org,physik.fu-berlin.de,perex.cz,suse.com,lists.infradead.org,vger.kernel.org,lists.ozlabs.org];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	TAGGED_RCPT(0.00)[david.ixit.cz];
+	R_RATELIMIT(0.00)[to_ip_from(RLin1spj7ezzoz4e1zj94tyerm)];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:dkim,suse.de:mid]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Action: no action
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251207_015945_529030_1BC7E782 
-X-CRM114-Status: GOOD (  42.10  )
+X-CRM114-CacheID: sfid-20251207_042034_177299_1F3132C1 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,96 +164,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 7 Dec 2025 at 02:30, Eric Biggers <ebiggers@kernel.org> wrote:
->
-> On Fri, Dec 05, 2025 at 09:13:46AM +0100, Ard Biesheuvel wrote:
-> > On Fri, 5 Dec 2025 at 07:50, Eric Biggers <ebiggers@kernel.org> wrote:
-> > >
-> > > On Thu, Dec 04, 2025 at 05:28:15PM +0100, Ard Biesheuvel wrote:
-> > > > The buffer provided to kernel_neon_begin() is only used if the task is
-> > > > scheduled out while the FP/SIMD is in use by the kernel, or when such a
-> > > > section is interrupted by a softirq that also uses the FP/SIMD.
-> > > >
-> > > > IOW, this happens rarely, and even if it happened often, there is still
-> > > > no reason for this buffer to be cleared beforehand, which happens by
-> > > > default when using a compiler that supports -ftrivial-auto-var-init.
-> > > >
-> > > > So mark the buffer as __uninitialized. Given that this is a variable
-> > > > attribute not a type attribute, this requires that the expression is
-> > > > tweaked a bit.
-> > > >
-> > > > Cc: Will Deacon <will@kernel.org>,
-> > > > Cc: Catalin Marinas <catalin.marinas@arm.com>,
-> > > > Cc: Kees Cook <keescook@chromium.org>
-> > > > Cc: Eric Biggers <ebiggers@kernel.org>
-> > > > Cc: Justin Stitt <justinstitt@google.com>
-> > > > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> > > > ---
-> > > >  arch/arm64/include/asm/simd.h | 3 ++-
-> > > >  1 file changed, 2 insertions(+), 1 deletion(-)
-> > > >
-> > > > The issue here is that returning a pointer to an automatic variable as
-> > > > it goes out of scope is slightly dodgy, especially in the context of
-> > > > __attribute__((cleanup())), on which the scoped guard API relies
-> > > > heavily. However, in this case it should be safe, given that this
-> > > > expression is the input to the guarded variable type's constructor.
-> > > >
-> > > > It is definitely not pretty, though, so hopefully here is a better way
-> > > > to attach this.
-> > > >
-> > > > diff --git a/arch/arm64/include/asm/simd.h b/arch/arm64/include/asm/simd.h
-> > > > index 0941f6f58a14..825b7fe94003 100644
-> > > > --- a/arch/arm64/include/asm/simd.h
-> > > > +++ b/arch/arm64/include/asm/simd.h
-> > > > @@ -48,6 +48,7 @@ DEFINE_LOCK_GUARD_1(ksimd,
-> > > >                   kernel_neon_begin(_T->lock),
-> > > >                   kernel_neon_end(_T->lock))
-> > > >
-> > > > -#define scoped_ksimd()       scoped_guard(ksimd, &(struct user_fpsimd_state){})
-> > > > +#define scoped_ksimd()       \
-> > > > +     scoped_guard(ksimd, ({ struct user_fpsimd_state __uninitialized s; &s; }))
-> > >
-> > > Ick.  I should have looked at the generated code more closely.
-> > >
-> > > It's actually worse than you describe, because the zeroing is there even
-> > > without CONFIG_INIT_STACK_ALL_ZERO=y, simply because the
-> > > user_fpsimd_state struct is declared using a compound literal.
-> > >
-> > > I'm afraid that this patch probably isn't a good idea, as it relies on
-> > > undefined behavior.  Before this patch, the user_fpsimd_state is
-> > > declared using a compound literal, which takes on its enclosing scope,
-> > > i.e. the 'for' statement generated by scoped_guard().  After this patch,
-> > > it's in a new inner scope, and the pointer to it escapes from it.
-> > >
-> > > Unfortunately I don't think there's any way to solve this while keeping
-> > > the scoped_ksimd() API as-is.
-> > >
-> >
-> > How about
-> >
-> > --- a/arch/arm64/include/asm/simd.h
-> > +++ b/arch/arm64/include/asm/simd.h
-> > @@ -48,6 +48,8 @@ DEFINE_LOCK_GUARD_1(ksimd,
-> >                     kernel_neon_begin(_T->lock),
-> >                     kernel_neon_end(_T->lock))
-> >
-> > -#define scoped_ksimd() scoped_guard(ksimd, &(struct user_fpsimd_state){})
-> > +#define scoped_ksimd()         __scoped_ksimd(__UNIQUE_ID(fpsimd_state))
-> > +#define __scoped_ksimd(id)     struct user_fpsimd_state __uninitialized id; \
-> > +                               scoped_guard(ksimd, &id)
->
-> I guess that will work.  It's not great that it will make scoped_ksimd()
-> expand into more than one statement, which is error-prone and not
-> normally allowed in macros.  But it looks okay for all the current users
-> of it.
->
+On Wed, 03 Dec 2025 23:34:10 +0100,
+David Heidelberg via B4 Relay wrote:
+> 
+> From: David Heidelberg <david@ixit.cz>
+> 
+> ALSA 0.9.0-rc3 is from 2002, 23 years old.
+> 
+> Signed-off-by: David Heidelberg <david@ixit.cz>
+> ---
+> Maybe I could drop also the code and Kconfig option?
 
-We could always repeat the 'for()' trick that the cleanup helpers use, e.g.,
+Thanks, applied now.
 
-for (struct user_fpsimd_state __uninitialized __st; true; ({ goto label; }))
-    if (0) {
-label:    break;
-    } else scoped_guard(ksimd, &__st)
+I believe it's safer to have this default only off for 6.19, then
+disable for 6.20, eventually drop the dead code later.
 
-Would you prefer that?
+
+Takashi
 
