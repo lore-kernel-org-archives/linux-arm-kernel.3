@@ -4,93 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC33D1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Dec 2025 05:14:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08250D1CDC6
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Dec 2025 08:42:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gIr6vMU+1WXTpE+kuQ5XIOvR7lhOKuME2h0aehuNw7U=; b=2HZBZinIx/9zRyZhgoK32bsUDM
-	5b0tkJGGGfpGaTGbnzVYHSzOsx38OH1NkjJsjhT6STfiC+kdHTYXoll6r/AfT4E5WoY8iMgSaHHot
-	ehfeGWdeWpqCVBLl3F+9IFJOPBzilGWp8Fcix5h9uh5KHmEALn9aZDszLmx4ti8+fND+pW2kT0lc4
-	QvfuEQXmmcpw0V7EyokNJuCCbVriqIbkB5f1/6KHCl3UEHAOb24V9gMV2GZPuqdLY0rQBRt3tWJBs
-	TCmaGVcnXPo1qegNbSOZ2LAoBqDZ6ofUoqxKVnxaXyJVm8N8bc9KRj9pleX/DTjn/WAmiXDNidAj+
-	1rHXb6HA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LL5/K1TLOew1Tsl3uROwjLfZ+mr1H9abaqMBpCaH/aI=; b=wWVJ9O6ntTFsQocP2/BABYObgI
+	fDmSdaPi5UuQmhTCRBQx0UZevhPM1sg0zAu4RHsHKKHYqWP/BozoNsQn+NW5cIZ4PXWSeEx7EjaNo
+	UD0R8ZB6PNoGqWs+nZIFKyRCVOBlR4No3oyBCQHkUokC09PvlEpYMSW42Mj/HsH7rwkZDwnZoW5Zo
+	ggGA57zjZXegEiiScohgQyLRH6bdwGMwPJl/ySnYIzrg8BpmCUKKBczcNmdBV7c/aq0TYFjOxaF+C
+	asF4chfAZovuWiGYzMg0zj/GnwnBNgstwjYj78o9//JeTLup4mLY7ENVRb1S3j3Pz7XaBLulS3DnJ
+	R/SVJTsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vS76L-0000000BU8W-0A3y;
-	Sun, 07 Dec 2025 05:14:29 +0000
-Received: from mail-oo1-xc2c.google.com ([2607:f8b0:4864:20::c2c])
+	id 1vSALs-0000000BbPs-1Eph;
+	Sun, 07 Dec 2025 08:42:44 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vS76H-0000000BU7N-2JJB
+	id 1vSALp-0000000BbPH-0uiB
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Dec 2025 05:14:27 +0000
-Received: by mail-oo1-xc2c.google.com with SMTP id 006d021491bc7-657c68a08a7so1790156eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 06 Dec 2025 21:14:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1765084464; x=1765689264; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gIr6vMU+1WXTpE+kuQ5XIOvR7lhOKuME2h0aehuNw7U=;
-        b=yphoFExAA6hw9FxEy79Q0Ktooulcc9EkrJ9pqdXEvLG6qOehRXefP1OnRnaNEVNhLc
-         Poky6A4ZJdREh/x8eKFnYaZT3857GWvtWxmk8nQFmT1znJ2J2KXWrCdELfW6gdephopu
-         4DR+dZ+uYk+4wjI8xgSDnCda9Qtoua7kHAxOWJhA7g/eia6rO3TYCsmskTiHmbdj21k8
-         y+DJtXXPhRmrjy9VW8z8q7gS+a2QlJ9arTOWgdp8NmjDXr73SrjMRLDH5uIgcnRWRO3E
-         BR/tSfSIUG7CSXrQ9SUIx2CcEDwy/ukbDWA/BzUILDPZWGXKFS/DpDF0zMVq44y42Bel
-         5JDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765084464; x=1765689264;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=gIr6vMU+1WXTpE+kuQ5XIOvR7lhOKuME2h0aehuNw7U=;
-        b=VQe54fG5xKtNDkW1hWaaWj5DNDHNvgYJjPbQmcLk1e0Uv/I3zST4Ekw6KSO1p3QteD
-         YrYjNiZibJB3lpdOC/ThuTWuuwq67JpkAhCyp+Yyp+K0MHehaMM005YnswgeKroul+Rb
-         xS+LVrZbHkMtA3CAUzehlXpI255FZNwMTCxwfvsJ5tjMcoEiZRXI/uSzqGtuQSDpAEqq
-         3LaVY02i/UbqTjsGqFONpp0Rxk9x8Gt5f5bOnkYTI4IzqQAOwUngobPwlx+tchSfIjPa
-         mOQfnqFy0EECBCk2Zr42BzB1vozyflut/raKw8R+BLK+x+Qh646kvgRl9IWg/ubHng72
-         h1Hw==
-X-Forwarded-Encrypted: i=1; AJvYcCVoHLqXTrkc0So/oTb/k2cLpG+4dhSL5FAv9iMt2XRX6AawhEhqBH/v9WJ+fXZPFNDerW+Igecod60S1iiUIN5P@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCoa2D72tN66D9PasfzSInM2uzIe4Su0CNHXWwgkZHqITPdHdV
-	Cy6GINi8L4PmcUKpdW1ukRm6m2F5joqudK2nM/4Ahtgf5peJAO+CalWjZvmFD00f831PResY/Pc
-	eUlco32bI9BB7EswNe1up/MKKBF9xmtYsVp5ZCXtwJQ==
-X-Gm-Gg: ASbGncsy4Fq6bLkr/aSfH5HrP7DN+PxKSd8+7ci/vQGx8x8dMe3WARf+Q4Tz94Jfp5i
-	Noat92pXwTi06Bhz8GxCPSVN7LkLZvMDWXQR7tZVkOyoDgezX7G58FqQtsmrgrBCnjdN17sUvPl
-	OXqffzw/r90HW46YDC5Eas/EYKx0tiQ5lRkFNLf10B2cLVEUd+0gWN03u4hXFlqP3BXBDINV3ld
-	k9dk1ZURyul6+zuAN/fzPm8Jhv2bHv2+TNHFgyoqGO7EULelaKMFUL8ELhSTts47ltyGzFy
-X-Google-Smtp-Source: AGHT+IH3teezYiglKMW0l9sCwPDXKzHK/uYMVzLl99zBL+8tY4BEmXzPQzc7f6ucWRYnVm2fOg07KrRcgASdUHrgci4=
-X-Received: by 2002:a05:6820:f030:b0:659:9a49:8f73 with SMTP id
- 006d021491bc7-6599a973da4mr2018657eaf.56.1765084463840; Sat, 06 Dec 2025
- 21:14:23 -0800 (PST)
+	Sun, 07 Dec 2025 08:42:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1765096961; x=1796632961;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=81fHP63wwjUBO7vufHEqW2i1/EwDrAJK5Nz166GaB5w=;
+  b=Oki/EnBz4p5ggSroBk5U1PKz5vXQ47iAk3FwLKJUtag3cEB5tRi06XNa
+   TDNwjpMF2AHfRQm7RNTqGu8HQuYsGsEiZh9Mzp+pJARzqDaO7xjx9N/oX
+   GpU3FZXrHx2ZB9KPQt7Oi0RFVeOI+OhnR4Ry2YoOWNDdh3F68xUupYfdy
+   clWBvpXgbsCCUJ/x4sxszdeqJfdoXs6KpW2USSFbEugDL2jYKf/gc4K9i
+   1i40v9/jch17Dkwy+nAhEis1J1Ozgb1RLAwYAoeQYPKFVWFIcuaIgUNvV
+   0k7AICyPezNydAiIed0qyL+Qr3LPNmV+jmU9cjXFwvhevRkMHm/kCbvhA
+   A==;
+X-CSE-ConnectionGUID: tCc5vvMtTy+xCkpjTue/DA==
+X-CSE-MsgGUID: bViNvI9ZSReg3Bz/oly5YQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11634"; a="78426773"
+X-IronPort-AV: E=Sophos;i="6.20,256,1758610800"; 
+   d="scan'208";a="78426773"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Dec 2025 00:42:37 -0800
+X-CSE-ConnectionGUID: WhjFVEa8S4Gn1dyYhP97Ng==
+X-CSE-MsgGUID: 85q/K6LiQPKuPr83qGUJFg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,256,1758610800"; 
+   d="scan'208";a="195738405"
+Received: from lkp-server01.sh.intel.com (HELO 4664bbef4914) ([10.239.97.150])
+  by orviesa008.jf.intel.com with ESMTP; 07 Dec 2025 00:42:32 -0800
+Received: from kbuild by 4664bbef4914 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vSALd-00000000J8r-1pzF;
+	Sun, 07 Dec 2025 08:42:29 +0000
+Date: Sun, 7 Dec 2025 16:42:15 +0800
+From: kernel test robot <lkp@intel.com>
+To: Will McVicker <willmcvicker@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Will McVicker <willmcvicker@google.com>,
+	Donghoon Yu <hoony.yu@samsung.com>, Rob Herring <robh@kernel.org>,
+	John Stultz <jstultz@google.com>,
+	Youngmin Nam <youngmin.nam@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	"Russell King (Oracle)" <linux@armlinux.org.uk>,
+	linux-samsung-soc@vger.kernel.org, kernel-team@android.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v7 5/6] clocksource/drivers/exynos_mct: Add module
+ support for ARM64
+Message-ID: <202512071659.We0N43XW-lkp@intel.com>
+References: <20251205011027.720512-6-willmcvicker@google.com>
 MIME-Version: 1.0
-References: <20251205232655.445294-1-seanjc@google.com>
-In-Reply-To: <20251205232655.445294-1-seanjc@google.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Sun, 7 Dec 2025 10:44:13 +0530
-X-Gm-Features: AQt7F2qP99gde5P8lRQoinF2DOSDMpaUpigWBx6hvnDvXPL66vGpk9e2egXMZ2I
-Message-ID: <CAAhSdy1cPnxjntaR=cwZqG+oVgFpZKM0rKYAEdkHUCToMvN0Ag@mail.gmail.com>
-Subject: Re: [PATCH] KVM: Remove subtle "struct kvm_stats_desc" pseudo-overlay
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	"Gustavo A . R . Silva" <gustavoars@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251205011027.720512-6-willmcvicker@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251206_211425_858053_C2822940 
-X-CRM114-Status: UNSURE (   8.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251207_004241_298225_064A09BE 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,29 +105,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 6, 2025 at 4:57=E2=80=AFAM Sean Christopherson <seanjc@google.c=
-om> wrote:
->
-> Remove KVM's internal pseudo-overlay of kvm_stats_desc, which subtly
-> aliases the flexible name[] in the uAPI definition with a fixed-size arra=
-y
-> of the same name.  The unusual embedded structure results in compiler
-> warnings due to -Wflex-array-member-not-at-end, and also necessitates an
-> extra level of dereferencing in KVM.  To avoid the "overlay", define the
-> uAPI structure to have a fixed-size name when building for the kernel.
->
-> Opportunistically clean up the indentation for the stats macros, and
-> replace spaces with tabs.
->
-> No functional change intended.
->
-> Reported-by: Gustavo A. R. Silva <gustavoars@kernel.org>
-> Closes: https://lore.kernel.org/all/aPfNKRpLfhmhYqfP@kspp
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+Hi Will,
 
-For KVM RISC-V:
-Acked-by: Anup Patel <anup@brainfault.org>
+kernel test robot noticed the following build warnings:
 
-Thanks,
-Anup
+[auto build test WARNING on bca42080637ce3a21092fc0f7d5411e853b0c3b3]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Will-McVicker/clocksource-drivers-exynos_mct-Don-t-register-as-a-sched_clock-on-arm64/20251205-091403
+base:   bca42080637ce3a21092fc0f7d5411e853b0c3b3
+patch link:    https://lore.kernel.org/r/20251205011027.720512-6-willmcvicker%40google.com
+patch subject: [PATCH v7 5/6] clocksource/drivers/exynos_mct: Add module support for ARM64
+config: arm64-randconfig-001-20251207 (https://download.01.org/0day-ci/archive/20251207/202512071659.We0N43XW-lkp@intel.com/config)
+compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project a805147ac1ba123916de182babb0831fbb148756)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251207/202512071659.We0N43XW-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512071659.We0N43XW-lkp@intel.com/
+
+All warnings (new ones prefixed by >>, old ones prefixed by <<):
+
+>> WARNING: modpost: vmlinux: section mismatch in reference: exynos4_mct_probe+0x84 (section: .text) -> mct_init_dt (section: .init.text)
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
