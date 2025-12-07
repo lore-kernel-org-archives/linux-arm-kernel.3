@@ -4,62 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8E98D2CE17
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Dec 2025 14:04:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B29BD2CE17
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  7 Dec 2025 16:09:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dHi1Q1Y+STYQM0t91VyK2Ck9Ggn4WcribMRHOxgfVMU=; b=SJJWBP4YgRBgtc+darYZoVpCz7
-	rLg392hxPd+wUAOSnK2txSu0Qd/RXuCQbE8QYfj8ljFZv3oHkVz3yUSGWyTb/JAN6MRuv8bGH9NTe
-	DacFJHEiMYzMvljjTj4q0+0yGTb69oJWh4mI2RJIuexGwUCweZPstMn1wvsmgch56nPvhABQYxStF
-	obpqWoCEUUZ+Cju9Zp5TjoTT/siDSfx2Dcr2mVDiT3f3PNIn1GbfyY6zFQ333YiQRw3JLB8tvQrPS
-	NT/zzofnQ1wxDplLOQA0/fqzBeYTD3LLnNXpy5C2IOAYJPkCPkUuec3tqBE4GzkwJ+or/HvE5Cx96
-	hp86FO6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RKZluHdK6Zpwk9KcISDxeweaJTXmlfKAbo/bji79gv8=; b=yemkB+1c4uA1AZp/CHl7Akyz9a
+	ri85bGii/KuKtKE0kWSsfkcXL1pt9aWDxQtlPc5iqO0uPNYOlbhuThlWyWp3iBOh784D76wnG3T6S
+	/mW7LdAH2VEdtKQD5atAxkhXxmu1sGAi7L2Tymdxh7olPA1C11PoDC2OAliNNMIPghNyO6zh77aTc
+	dWctHmKl9fK5Ea8whCd5SEVT16aefpyLnMV1O8A4UXdIj1kePn/EjpT0uQ9sffCyEKFesDc1jXVdX
+	znKvKLSTBccsomFqYHrrsW7cVlhgos5fytgPppDa7/xPFFxUEty2T2whsMO9lzLeoroxGmsHhpQEn
+	huc/BEgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSFNM-0000000BzUp-3bCR;
-	Sun, 07 Dec 2025 14:04:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vSHK8-0000000C57x-1KPu;
+	Sun, 07 Dec 2025 16:09:24 +0000
+Received: from mail-westus2azlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c005::5] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSFNK-0000000BzUQ-1KTv
+	id 1vSHK4-0000000C57a-3Qgq
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 07 Dec 2025 14:04:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 051454364B;
-	Sun,  7 Dec 2025 14:04:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 710D8C4CEFB;
-	Sun,  7 Dec 2025 14:04:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765116273;
-	bh=8C8MINyFxoQnTXXKrera1BLyHOmMVGTXjhAaIdgVhA8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=BYT81afbsj1snMK2wX5zH4Alvly0M7aUtaBVq+u6pT+lZRbuzEDilNogucCyqs+gs
-	 i7d422XDtQkOMsvWLvYjWb7KWC8GOMA9sCr6L0ksWWaxB1zdhKqt7ewcYQd1KqQp4H
-	 sPXuBXziZcGZq11ZeoOIzjlZkTHr2UXFu5SpLObSLiE3y5bshtL3lFRHvT6EbsTN+7
-	 dBJB0wouqsyat7kq9YY+sWlco6NNsj7LLaIsu19yjivch+s9pT8j7xH6kZVHqjUJmO
-	 8fIb9tk6gBOWzcinip/XgMSfoukWfJ6q2OSQsKPT2mxN1Ktgk6dIX7VY1cJfbYrs5F
-	 +1u/ywWgGJA9w==
-Date: Sun, 7 Dec 2025 14:04:25 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Linus Walleij <linusw@kernel.org>
-Cc: Bartosz Golaszewski <brgl@kernel.org>, linux-kernel@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-iio@vger.kernel.org,
- linux-input@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] MAINTAINERS: Change Linus Walleij mail address
-Message-ID: <20251207140425.2e373873@jic23-huawei>
-In-Reply-To: <20251130-linusw-kernelorg-email-v1-1-bcdbff7b896c@kernel.org>
-References: <20251130-linusw-kernelorg-email-v1-1-bcdbff7b896c@kernel.org>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-pc-linux-gnu)
+	Sun, 07 Dec 2025 16:09:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cwryldFoN+IfyDzrsHQ3cqvvDpJ3BXVEYYnz5zlLzLES6zkWuCtWD134dmkTq2OM2gVs5NYJg8d43cHzR37pmoyRfyZdC1LwuGstDKeRzYqy5mXlBKaYkyLqeZAE2/ZdAFe0vog7uYQeLtZhZH5OoyRmBCgQrTJbLTlQBUD8pPtAN47OT0LtFKwTyOF43WOMUB27peE7m2Mf/lLAeIiF05NrkaxqrPG4XP0MI8H+JsE8c4jZ+cA9OswCfwTnEHv8GSiTITP9mETWhFb81uQZ4/Ae7mREzSuLjZ+gpl9q+RobZprIQq6zkqvbYu8HqZHaD5TVLJndOQct2SG8ZJuBAA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RKZluHdK6Zpwk9KcISDxeweaJTXmlfKAbo/bji79gv8=;
+ b=ZYeQaFLcARm8psGZSHiM8yxM2AzENxCoVouf7Dn+fqq9zWjN7O1zJpj8DQNU+uLl03JabRSgVyW0I0sdSmnqq6YvclCPF+szqsMQAU/0T/slgahxozG7ZpFb3+YrM0qm8+xeNUagsDFXugSdEBWUAHCODb5XzdIWJ0Gc048gYWQZgobYWiDQRb5BLYAkqqhwCqlRli6CtA/3cTbWZNTNTNtQ6aCDFeeso6tvbmzKr+HNVZlxe3bbrFyvJqBUDf8w5AhtvSL//+souFNUicci28LYaFSlRE9V4BViWTy1oj9xFK226bYRxrqE86jjijPnWS1WqZqunuyu6EXi3GIiqg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RKZluHdK6Zpwk9KcISDxeweaJTXmlfKAbo/bji79gv8=;
+ b=UC3e+8SG34Vj6VqMlt6iIDLQMc/IJpJml659XKloSYJy1y1wXlCmZyks9bVlXZ0hTFctDEeRPEk7oqPmr0uCAjY9gy8bW0TORUN9UjPuZrR+LizZ9jcmbJV77MPGtFNc1byrqAVub9GjyKGNwGvBxaoNN2QqRPGC0iMUVxpbwfvQO5/VgLgZUzHBki3+VCLVZ9DTqkW90KUhLztTk0pq4rQd0pY6MJ8qIG6YfgFAtH1H/o5V6YwB7aqFXOjMET7nE8SaXC7s6El6IOAl+eKkgO43Z4+0edrIzW+QO5nX7oUTjEqZfBw+4JuvGzsVKA3LZ/mBto5+aBCzAViFVdStKw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from MN2PR12MB3613.namprd12.prod.outlook.com (2603:10b6:208:c1::17)
+ by SJ5PPFEB07C8E34.namprd12.prod.outlook.com (2603:10b6:a0f:fc02::9a8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9366.17; Sun, 7 Dec
+ 2025 16:09:13 +0000
+Received: from MN2PR12MB3613.namprd12.prod.outlook.com
+ ([fe80::1b3b:64f5:9211:608b]) by MN2PR12MB3613.namprd12.prod.outlook.com
+ ([fe80::1b3b:64f5:9211:608b%4]) with mapi id 15.20.9388.013; Sun, 7 Dec 2025
+ 16:09:12 +0000
+Date: Sun, 7 Dec 2025 12:09:10 -0400
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, skolothumtho@nvidia.com,
+	praan@google.com
+Subject: Re: [PATCH rc v1 1/4] iommu/arm-smmu-v3: Add ignored bits to fix STE
+ update sequence
+Message-ID: <aTWmpijaV75aixNb@nvidia.com>
+References: <cover.1764982046.git.nicolinc@nvidia.com>
+ <6ec73bb7cd03d90a0764f12c4b14071158163818.1764982046.git.nicolinc@nvidia.com>
+ <20251206193408.GD1219718@nvidia.com>
+ <aTSH5Eap7leYQtPl@nvidia.com>
+ <20251206195752.GI1219718@nvidia.com>
+ <aTUEikcWXWwKAS/1@nvidia.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aTUEikcWXWwKAS/1@nvidia.com>
+X-ClientProxiedBy: YQZPR01CA0087.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:c01:84::6) To MN2PR12MB3613.namprd12.prod.outlook.com
+ (2603:10b6:208:c1::17)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN2PR12MB3613:EE_|SJ5PPFEB07C8E34:EE_
+X-MS-Office365-Filtering-Correlation-Id: e9a99cd4-cf78-4ea8-ed41-08de35aaf5f9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?zK0qvCAt6xbFpXmhs4XPF+R46o8wbNB10hveHUdQjkiDLCaDJEAvNl1qwE+b?=
+ =?us-ascii?Q?ECZjlUTPuQMu+tAgq6FgpAc7oVgPsxapX7YDMfOz9Gk6qZZcpd9q9RgjW9i/?=
+ =?us-ascii?Q?jTZGIqZnOipcmPbHAzwxjOjg1gX2DNsVhFZpWQO32iJG6s1aInqgAh5bFUHK?=
+ =?us-ascii?Q?MjqS4zLggww0DUuvFayRaiN3vbpfpR/dwDHdhzBI+btpBsJTNxbK6iJr73nq?=
+ =?us-ascii?Q?ruiw4oH8y34Fa9W2+UFwDT5ZIXicr3pyChvHHIoKoBTX1D+ZCRhjbhoUiXQ+?=
+ =?us-ascii?Q?uNKfDZtIu+u0qrfv1xQ55VtP6FxdGBXCevoh1mCV1b/VD70iKauZZ6/GIyDk?=
+ =?us-ascii?Q?igVxlOE5eHrruOGHoeJPwPn0ej+0jHeAOWJQt/9uAmWprfhxYXZqQAC+HMzA?=
+ =?us-ascii?Q?DSLfmwxIA1MfEZ2f7qdtw65IFfCIudMfjJR61teBEzHrB+fgbnelidSIiTQi?=
+ =?us-ascii?Q?0JHwItKNj7A6zt06NseXtSWZ7LCZYFdndfCPG100WzWRJ7lRqOkHxxs51rzw?=
+ =?us-ascii?Q?/wXguHSgNnFeAs0l+tNpEdaw7+fLz5ogq8HbIo4RwbSUkZELYiZ3Gdfi5rNa?=
+ =?us-ascii?Q?F3O1cm/0XspQH0zJL6q8oThpDPHfz2+fQLu89/xb4p8KAd2U6y0NuGkmSvhX?=
+ =?us-ascii?Q?c8+FxoTjvAB0Wi0l8QCZ8FC+ASkB8LlRmWYK5h19AQEEC48HmIzOaLxRSQU9?=
+ =?us-ascii?Q?/Mo0P8MiAV0YaP1hEe6BqvOAooRAYLvnxPicJqbEOVPOXte+vVbBf/fAJo+K?=
+ =?us-ascii?Q?tylduTlmrRwEOpRerwgpPV4/yVKKmhINavbq+YXDjarMXa5S3OWtRpQ9Oh5l?=
+ =?us-ascii?Q?WQgx2Qg013UO4H23fWUVhCuxM0Yb3MwrDv2KR/XsKw7ht5C3nExZsxB5gssc?=
+ =?us-ascii?Q?YbPLBURGdffv1RVWUyFgncT9Zegc/Y1rt0ePHDL0u9X+LHaTtGN7LJiguqyI?=
+ =?us-ascii?Q?lpRPR1NRZIYs4b3VNR/VrRdD5a+Cssc1xBzxuQLUQqZE0UFx0i1B4xSN0odj?=
+ =?us-ascii?Q?jhrEEj3PVdSv+Ee0/D2qs6fD7lkwkoY1Nes/YITHxlpI7QtVsKyhNy5Wkw5A?=
+ =?us-ascii?Q?EuLa3Uv78py3X24GpWZAWR5+a2WfcQS7dZkQOjsp34AHop7sZ2OYnPpu7XGi?=
+ =?us-ascii?Q?6N5q6XAJ8v6NhSHO24CzHBzfUZ//doVBqtX/3tb1uO5RiNIfJMAj/5z42ag0?=
+ =?us-ascii?Q?dqDx5EJwgHw700oMw52YosrOcFUb45NHcCt4NPWtsZFkoMTbwTbCllCTX5CL?=
+ =?us-ascii?Q?0ovoJE28LASmkjfZLRWScjDrVN14cAGHyZPYWt/dX0Udd/UhwW0PqfMIkP/3?=
+ =?us-ascii?Q?gzofSJ3t/Isu27yB8JW4VlHwg7QnZcmbFRvKZvxFFT4rirDv3Z4EdGpY+DTD?=
+ =?us-ascii?Q?SCdyppcho/GuVHnBaFNdp5KBXW5ELZ20DMiA5IPyvNeTTvbmB7v4JHljKXx4?=
+ =?us-ascii?Q?9wy0ypm4S7VILpK1YEes1hNTklS4faMD?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN2PR12MB3613.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6pGHJgzj7Qc1WQt3ZHwEPf+mHVFmT3bQX0HUBvJraXrln0ZuZfcyo8LUzS2j?=
+ =?us-ascii?Q?OyT+t9GY0CuHNL6SJacjT4TUGk9FGSKD5Mpr9+kuHGxqDU5IPH9Oy34kCeZR?=
+ =?us-ascii?Q?I+uKeDiB9dlThXjwygp1Djk/8BGxCVyuP9lb5ffzJ2XUos3adK+jbjy2Ygb7?=
+ =?us-ascii?Q?Qm9kQComjCn5UtGfLhALv81oaCYXQi5+t7xbeinVaLah0KKmYRJXbUhg+zyv?=
+ =?us-ascii?Q?PpxYg7INzMv2Tf0rWrShIBEb1FzAqarju8mZfkJkIO+Z8Zea8YkY5x//07DY?=
+ =?us-ascii?Q?JMUXCRmUb+ihSsmTz7vtdH9F6kmdRUWNJp+JgDcWXkHAjNRCvQ38B7DS4AAo?=
+ =?us-ascii?Q?YgGOtLmPxYh/bhc0lTROWtrRULFD0seJ1mbsxkZc51gOdHI7MBghXknlxpT0?=
+ =?us-ascii?Q?8Ki7RljgVdS0sXPczI+Zdj4lm9Nq0zevpEgUKwNeNoO1te6VB72UfWsjRHwH?=
+ =?us-ascii?Q?XJ2ADBvGSHoYEpqJj6DsEEv9h8Sd/nFiwsJQdlkPN5TuP18e3wYs7lcpczjk?=
+ =?us-ascii?Q?jZLjhmn7xdmowNCE1SqFT54/J/9AYIyJ+3rzM8nb+nc9iTsAlQN69BgaQOyv?=
+ =?us-ascii?Q?a6pM9C9n0jdGlTa64Vd+aHRnERQ78AsitDuZmBpXfSPNT/a+aD6yCpv09S5h?=
+ =?us-ascii?Q?P6Wnnz8LY9AY/8al/hxANPArgH1NwgHbKNMIlMUoz76jG6y7yyO1giW7XWHP?=
+ =?us-ascii?Q?VzHvEBuKWcs6gFERprBZf1fT4WEDUmL5ow6UlKkQndWWPeOIrOsf4qM2d116?=
+ =?us-ascii?Q?XkHecoHWXvqFKy4FYR+6GRz3uYz8mgZ+p3eZIYASJf7VRp4STBbrS0bUoL9a?=
+ =?us-ascii?Q?UhOQ2cD89Ofy9WAlTSC/V/1nAp8VvUccDZwjANsm9UkiPhrtasHsRwfneTRa?=
+ =?us-ascii?Q?eqfh+9Ju3m3UpkzUzRS8xA6532jkoPHJbBBzeTaJmMsn9L1Eq6K5IncNJDuV?=
+ =?us-ascii?Q?hTa3GXjw7mvnb0kg/Hs1HxOV/CcWJTyAbbhYklpit+CFWMk5gusEZy1Y346z?=
+ =?us-ascii?Q?303wr59c0JcZKaFH8v3ZtjaqOfoPSleDJFRfVG3x61Ipdc+LqH2jzo1DzLUa?=
+ =?us-ascii?Q?8U1Mfw3MqTiUcSLDsXaYfeZ7d+R3XN9yaMkuR5X3hjgB+vXm/NkSZfmoRhJA?=
+ =?us-ascii?Q?+KW3JmYOBPzJrATylL7o859aH4NMth0asMHT4NL/RUNMfByjqHKgtiEvbudV?=
+ =?us-ascii?Q?8vz2HG6dMAWbNQAt4+NnJJrJKZZpmwBchaTu14gBfNZpQI5BFMsRdtQK2XXP?=
+ =?us-ascii?Q?eFuCOISxzAhO7Zq+RfP3hCpp/Xuhuo+yqjsbxziPfaTOBnKHJnx35t/OZiUX?=
+ =?us-ascii?Q?6gPPHyBvTWzaKOQ//b7uOz34LD5mEb5ejeY6YkrRy736RhbsInmy0VYm+cUY?=
+ =?us-ascii?Q?wB+mcjqXFSjisKm864W5k4vaCmuSk/9B1rYa1qX7hCnKWdCjmRUFDmklvFLS?=
+ =?us-ascii?Q?B5C/1k/Upts9TGdEEB/KZqcX5CwuoZZCsnJO6kBFiUsACMkAalY/paMv38/J?=
+ =?us-ascii?Q?DGWcW16pKCXqSfYFYiuwr8/GNYKw4Nr+mfZ/1E5/EsaMzq+HH2txgzEO667X?=
+ =?us-ascii?Q?GCFnZaBR2BCbZDG5/PLVCCDkLjzvduzG++av7WzH?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: e9a99cd4-cf78-4ea8-ed41-08de35aaf5f9
+X-MS-Exchange-CrossTenant-AuthSource: MN2PR12MB3613.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Dec 2025 16:09:12.5076
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2YHoKTGZqUHBo8gdUGM9efLAMu4lH/8uCtgPqvZMMQ0b5YJd7f51/la3FfjrHqQV
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ5PPFEB07C8E34
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251207_060434_420970_3D14A2D8 
-X-CRM114-Status: GOOD (  16.75  )
+X-CRM114-CacheID: sfid-20251207_080922_143065_2A8434BA 
+X-CRM114-Status: GOOD (  19.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,316 +164,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 30 Nov 2025 17:14:45 +0100
-Linus Walleij <linusw@kernel.org> wrote:
+On Sat, Dec 06, 2025 at 08:37:30PM -0800, Nicolin Chen wrote:
+> > Then ignored should be adjusted by the used: Only if both used are 1
+> > should the bit become ignored. Otherwise we can rely on which ever
+> > used is 0 to generate the hitless update.
+> 
+> Hmm, not sure why it has to be both used.
 
-> I will be using my kernel.org mail address going forward.
->=20
-> There is no point in splitting this MAINTAINERS patch up
-> per subsystem, I will just include it with the rest of my
-> patches to pin control in the next merge window.
+Thats the only case that causes an issue, if only one is used then
+there is no need to perform a breaking update.
 
-Trivial but wrap a tiny bit short of the normal 75 chars.
+If cur_used is 0 then the bit will be set in the first update, if
+target_used is 0 then the bit will be set during the last update.
 
->=20
-> Signed-off-by: Linus Walleij <linusw@kernel.org>
+> >                 /* Bits can change because they are not currently being used */
+> > +               cur_used[i] &= ~ignored[i];
+> >                 unused_update[i] = (entry[i] & cur_used[i]) |
+> >                                    (target[i] & ~cur_used[i]);
+> 
+> If one of ignored bits is set in entry[i] but unset in target[i],
+> the unused_update will first mask it away, resulting in an extra
+> unnecessary update (though it's still hitless).
 
-FWIW
-Acked-by: Jonathan Cameron <jonathan.cameron@huawei.com> #for-iio
+Yes, this is how it has always worked. The point is to leave the
+existing the same not try to optimize it using ignored.
 
-Good opportunity to say thanks for all your effort in a broad range
-of places!
+> One more change that we need is at the last equation:
+> -		if ((unused_update[i] & target_used[i]) != target[i])
+> +		if ((unused_update[i] & target_used[i] & ~ignored[i]) !=
+> +		    (target[i] & ~ignored[i]))
+> 
+> Either side might have the ignored bits, so we have to suppress
+> ignored on both sides, which is required in the similar routine
+> in arm_smmu_entry_differs_in_used_bits() of the kunit code.
 
-Jonathan
+The only way ignored is set is if both sides have it set and then we
+update the bit in the firsy cycle meaning unused_update must have the
+final value. There is no need to mask target since it will match. Not
+changing this line is a big part of what makes this appealing because
+it keeps the logic straightforward, in case ignored is used we shift
+the update always to the first cycle then everything else is the same.
 
-> ---
->  MAINTAINERS | 58 +++++++++++++++++++++++++++++--------------------------=
----
->  1 file changed, 29 insertions(+), 29 deletions(-)
->=20
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 181a58ec4a8d..13f61acdc8f7 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -195,7 +195,7 @@ F:	drivers/pinctrl/pinctrl-upboard.c
->  F:	include/linux/mfd/upboard-fpga.h
-> =20
->  AB8500 BATTERY AND CHARGER DRIVERS
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  F:	Documentation/devicetree/bindings/power/supply/*ab8500*
->  F:	drivers/power/supply/*ab8500*
-> =20
-> @@ -2045,7 +2045,7 @@ F:	Documentation/devicetree/bindings/display/arm,hd=
-lcd.yaml
->  F:	drivers/gpu/drm/arm/hdlcd_*
-> =20
->  ARM INTEGRATOR, VERSATILE AND REALVIEW SUPPORT
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/arm/arm,integrator.yaml
-> @@ -2203,7 +2203,7 @@ F:	Documentation/devicetree/bindings/memory-control=
-lers/arm,pl35x-smc.yaml
->  F:	drivers/memory/pl353-smc.c
-> =20
->  ARM PRIMECELL SSP PL022 SPI DRIVER
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/spi/spi-pl022.yaml
-> @@ -2216,7 +2216,7 @@ F:	drivers/tty/serial/amba-pl01*.c
->  F:	include/linux/amba/serial.h
-> =20
->  ARM PRIMECELL VIC PL190/PL192 DRIVER
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/interrupt-controller/arm,vic.yaml
-> @@ -2633,7 +2633,7 @@ F:	tools/perf/util/cs-etm.*
-> =20
->  ARM/CORTINA SYSTEMS GEMINI ARM ARCHITECTURE
->  M:	Hans Ulli Kroll <ulli.kroll@googlemail.com>
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
->  S:	Maintained
->  T:	git https://github.com/ulli-kroll/linux.git
-> @@ -3035,7 +3035,7 @@ F:	include/dt-bindings/clock/mstar-*
->  F:	include/dt-bindings/gpio/msc313-gpio.h
-> =20
->  ARM/NOMADIK/Ux500 ARCHITECTURES
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
->  S:	Maintained
->  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-nomadi=
-k.git
-> @@ -3732,7 +3732,7 @@ F:	Documentation/devicetree/bindings/media/i2c/asah=
-i-kasei,ak7375.yaml
->  F:	drivers/media/i2c/ak7375.c
-> =20
->  ASAHI KASEI AK8974 DRIVER
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  L:	linux-iio@vger.kernel.org
->  S:	Supported
->  W:	http://www.akm.com/
-> @@ -6758,7 +6758,7 @@ S:	Maintained
->  F:	drivers/pinctrl/pinctrl-cy8c95x0.c
-> =20
->  CYPRESS CY8CTMA140 TOUCHSCREEN DRIVER
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  L:	linux-input@vger.kernel.org
->  S:	Maintained
->  F:	drivers/input/touchscreen/cy8ctma140.c
-> @@ -6778,13 +6778,13 @@ Q:	http://patchwork.linuxtv.org/project/linux-med=
-ia/list/
->  F:	drivers/media/common/cypress_firmware*
-> =20
->  CYTTSP TOUCHSCREEN DRIVER
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  L:	linux-input@vger.kernel.org
->  S:	Maintained
->  F:	drivers/input/touchscreen/cyttsp*
-> =20
->  D-LINK DIR-685 TOUCHKEYS DRIVER
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  L:	linux-input@vger.kernel.org
->  S:	Supported
->  F:	drivers/input/keyboard/dlink-dir685-touchkeys.c
-> @@ -7653,13 +7653,13 @@ T:	git https://gitlab.freedesktop.org/drm/misc/ke=
-rnel.git
->  F:	drivers/gpu/drm/tiny/appletbdrm.c
-> =20
->  DRM DRIVER FOR ARM PL111 CLCD
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  S:	Maintained
->  T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
->  F:	drivers/gpu/drm/pl111/
-> =20
->  DRM DRIVER FOR ARM VERSATILE TFT PANELS
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  S:	Maintained
->  T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
->  F:	Documentation/devicetree/bindings/display/panel/arm,versatile-tft-pan=
-el.yaml
-> @@ -7709,7 +7709,7 @@ F:	Documentation/devicetree/bindings/display/panel/=
-ebbg,ft8719.yaml
->  F:	drivers/gpu/drm/panel/panel-ebbg-ft8719.c
-> =20
->  DRM DRIVER FOR FARADAY TVE200 TV ENCODER
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  S:	Maintained
->  T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
->  F:	drivers/gpu/drm/tve200/
-> @@ -7903,14 +7903,14 @@ F:	include/dt-bindings/clock/qcom,dsi-phy-28nm.h
->  F:	include/uapi/drm/msm_drm.h
-> =20
->  DRM DRIVER FOR NOVATEK NT35510 PANELS
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  S:	Maintained
->  T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
->  F:	Documentation/devicetree/bindings/display/panel/novatek,nt35510.yaml
->  F:	drivers/gpu/drm/panel/panel-novatek-nt35510.c
-> =20
->  DRM DRIVER FOR NOVATEK NT35560 PANELS
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  S:	Maintained
->  T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
->  F:	Documentation/devicetree/bindings/display/panel/sony,acx424akp.yaml
-> @@ -8028,7 +8028,7 @@ F:	Documentation/devicetree/bindings/display/panel/=
-raydium,rm67191.yaml
->  F:	drivers/gpu/drm/panel/panel-raydium-rm67191.c
-> =20
->  DRM DRIVER FOR SAMSUNG DB7430 PANELS
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  S:	Maintained
->  T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
->  F:	Documentation/devicetree/bindings/display/panel/samsung,lms397kf04.ya=
-ml
-> @@ -8112,7 +8112,7 @@ F:	Documentation/devicetree/bindings/display/solomo=
-n,ssd13*.yaml
->  F:	drivers/gpu/drm/solomon/ssd130x*
-> =20
->  DRM DRIVER FOR ST-ERICSSON MCDE
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  S:	Maintained
->  T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
->  F:	Documentation/devicetree/bindings/display/ste,mcde.yaml
-> @@ -8144,7 +8144,7 @@ F:	Documentation/devicetree/bindings/display/bridge=
-/ti,sn65dsi86.yaml
->  F:	drivers/gpu/drm/bridge/ti-sn65dsi86.c
-> =20
->  DRM DRIVER FOR TPO TPG110 PANELS
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  S:	Maintained
->  T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
->  F:	Documentation/devicetree/bindings/display/panel/tpo,tpg110.yaml
-> @@ -8188,7 +8188,7 @@ F:	drivers/gpu/drm/vmwgfx/
->  F:	include/uapi/drm/vmwgfx_drm.h
-> =20
->  DRM DRIVER FOR WIDECHIPS WS2401 PANELS
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  S:	Maintained
->  T:	git https://gitlab.freedesktop.org/drm/misc/kernel.git
->  F:	Documentation/devicetree/bindings/display/panel/samsung,lms380kf01.ya=
-ml
-> @@ -9482,7 +9482,7 @@ F:	include/linux/fanotify.h
->  F:	include/uapi/linux/fanotify.h
-> =20
->  FARADAY FOTG210 USB2 DUAL-ROLE CONTROLLER
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  L:	linux-usb@vger.kernel.org
->  S:	Maintained
->  F:	drivers/usb/fotg210/
-> @@ -10669,7 +10669,7 @@ F:	drivers/gpio/gpio-sloppy-logic-analyzer.c
->  F:	tools/gpio/gpio-sloppy-logic-analyzer.sh
-> =20
->  GPIO SUBSYSTEM
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  M:	Bartosz Golaszewski <brgl@bgdev.pl>
->  L:	linux-gpio@vger.kernel.org
->  S:	Maintained
-> @@ -13033,7 +13033,7 @@ F:	Documentation/devicetree/bindings/iio/imu/inve=
-nsense,icm42600.yaml
->  F:	drivers/iio/imu/inv_icm42600/
-> =20
->  INVENSENSE MPU-3050 GYROSCOPE DRIVER
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  L:	linux-iio@vger.kernel.org
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/iio/gyroscope/invensense,mpu3050.ya=
-ml
-> @@ -13948,7 +13948,7 @@ F:	drivers/auxdisplay/ks0108.c
->  F:	include/linux/ks0108.h
-> =20
->  KTD253 BACKLIGHT DRIVER
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/leds/backlight/kinetic,ktd253.yaml
->  F:	drivers/video/backlight/ktd253-backlight.c
-> @@ -14159,7 +14159,7 @@ F:	drivers/ata/pata_arasan_cf.c
->  F:	include/linux/pata_arasan_cf_data.h
-> =20
->  LIBATA PATA FARADAY FTIDE010 AND GEMINI SATA BRIDGE DRIVERS
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  L:	linux-ide@vger.kernel.org
->  S:	Maintained
->  F:	drivers/ata/pata_ftide010.c
-> @@ -19663,7 +19663,7 @@ F:	Documentation/devicetree/bindings/pci/fsl,imx6=
-q-pcie.yaml
->  F:	drivers/pci/controller/dwc/*imx6*
-> =20
->  PCI DRIVER FOR INTEL IXP4XX
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/pci/intel,ixp4xx-pci.yaml
->  F:	drivers/pci/controller/pci-ixp4xx.c
-> @@ -19774,7 +19774,7 @@ F:	drivers/pci/controller/cadence/pci-j721e.c
->  F:	drivers/pci/controller/dwc/pci-dra7xx.c
-> =20
->  PCI DRIVER FOR V3 SEMICONDUCTOR V360EPC
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  L:	linux-pci@vger.kernel.org
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/pci/v3,v360epc-pci.yaml
-> @@ -20219,7 +20219,7 @@ K:	(?i)clone3
->  K:	\b(clone_args|kernel_clone_args)\b
-> =20
->  PIN CONTROL SUBSYSTEM
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  L:	linux-gpio@vger.kernel.org
->  S:	Maintained
->  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/linusw/linux-pinctr=
-l.git
-> @@ -21631,7 +21631,7 @@ F:	Documentation/devicetree/bindings/watchdog/rea=
-ltek,otto-wdt.yaml
->  F:	drivers/watchdog/realtek_otto_wdt.c
-> =20
->  REALTEK RTL83xx SMI DSA ROUTER CHIPS
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  M:	Alvin =C5=A0ipraga <alsi@bang-olufsen.dk>
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/net/dsa/realtek.yaml
-> @@ -23384,7 +23384,7 @@ S:	Supported
->  F:	net/smc/
-> =20
->  SHARP GP2AP002A00F/GP2AP002S00F SENSOR DRIVER
-> -M:	Linus Walleij <linus.walleij@linaro.org>
-> +M:	Linus Walleij <linusw@kernel.org>
->  L:	linux-iio@vger.kernel.org
->  S:	Maintained
->  T:	git git://git.kernel.org/pub/scm/linux/kernel/git/jic23/iio.git
->=20
-> ---
-> base-commit: 6156424a7d001cceeafe59b52209d6f36719b51d
-> change-id: 20251130-linusw-kernelorg-email-0791125070f4
->=20
-> Best regards,
-
+Jason
 
