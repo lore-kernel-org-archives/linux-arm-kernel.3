@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 894D0D3B7EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 20:49:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A8A9D3B7E2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 22:09:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U7ZnXGxKhhwonAbIYoP4Tqgk8CKODIyRTD+Tp0bmyzc=; b=A5Tc6f61Hbs9aw8LXrtNHZPCl5
-	0PAjIVLFhtKVff7ARrQnILgrwzHLuloW7HAALVCgsiGUDng1Z2dFbQbIYlJLwftJ0FjdjlpxvqbGV
-	aFuKD0cRz0Yt1wRNbXzxw8jizXS3uWYpEu7j6I4tjovJ5fRCPsvW4DIiwbqlBOpwqwDQ+mAeJ4Sm/
-	mBWxSN2lBRijV5/zm5NLG2hXssZxxohSBFgTZ1yh68GzpwGFo/aTz5nzMrF7Vji5ulBXKz9xWdyZ3
-	1a24hCk3X1bK5OhIy/d/JgyHqHpMMaU98jmEYpNeqOCOcyvKb9vaS0RolkwPOc7yW54VE6dqEN9Ve
-	I6MWJi+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=txJRuHrrwV2ADW2a0LZ396P8T6DrwxOBcVmxIdFH5mY=; b=EMrd5xh2MZwezSakyHY5n9aAHL
+	ZhRzyxlyaRK5cjQMLYlivjyJs3R9+B2nWciMyF5e2do9sGiu0qMzhdvjtdg5bj6D6mETs25hfqbR2
+	A9l43ZTboLQWcRARuR2SuarsN0Ht/YGG343Ll0ZesnUx161+edU/nGe7ol2soSoZK955elIiPDImi
+	9MnG57UP9iGudko0UO8k26i7kkAj6JQn70362yio4PJu6/AMUr3UzEXUxZWAgdBlCRsfb/DP62oG0
+	duaje7L2wEwSfy2a2q6GJGQbB7rb3XbDkYXcHrBD7PK+ckBTMbMyE8XNeufVtoLc5DhUKycmu9RO/
+	NHnExZcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSiAd-0000000DWu2-0EZE;
-	Mon, 08 Dec 2025 20:49:23 +0000
-Received: from mailtransmit05.runbox.com ([2a0c:5a00:149::26])
+	id 1vSjQ3-0000000DZXP-1sra;
+	Mon, 08 Dec 2025 22:09:23 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSiAY-0000000DWtZ-41jK
+	id 1vSjQ0-0000000DZWv-2Xbt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 20:49:21 +0000
-Received: from mailtransmit03.runbox ([10.9.9.163] helo=aibo.runbox.com)
-	by mailtransmit05.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.93)
-	(envelope-from <daniel@gibson.sh>)
-	id 1vSiAO-00EY2P-27; Mon, 08 Dec 2025 21:49:08 +0100
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=gibson.sh;
-	 s=selector2; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID;
-	bh=U7ZnXGxKhhwonAbIYoP4Tqgk8CKODIyRTD+Tp0bmyzc=; b=HyWhzDTtmrAA78y5i3OdbtChpH
-	CgHlgZCFe4oZh1E34H+h5l5lbkNz4oldEis4vsKojWCKNKK8xSQ973/MNeUB6/jDG4ZPwOJGJHEBG
-	0CPOKMBuHhEcB3NVAg6gCEdcGdLDlScpvaa5eABzkNGoS7gK4Ap2Y3zTObalYCksJqi8seoZ5tbo2
-	cB9qAV4N54BKTFJ9BXKVdBWfs5lMabo5Z9sjEzjL6RN6Wmj4XYa2yAWV2ReTs4/MN13J8hNWuVWTX
-	F0B1QAUmmZs8xwrpFLLc2ZLhSbaUdVyrT0v9AkNOBCWpf4mJqPrgYbt2DTYydW1nSC99p3/vgruEu
-	m2djTlpw==;
-Received: from [10.9.9.74] (helo=submission03.runbox)
-	by mailtransmit03.runbox with esmtp (Exim 4.86_2)
-	(envelope-from <daniel@gibson.sh>)
-	id 1vSiAM-0000cK-4Z; Mon, 08 Dec 2025 21:49:06 +0100
-Received: by submission03.runbox with esmtpsa  [Authenticated ID (1104311)]  (TLS1.2:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.93)
-	id 1vSiAC-00An5I-7t; Mon, 08 Dec 2025 21:48:56 +0100
-Message-ID: <22ae55db-261d-4bb7-a83c-12fd00fa5527@gibson.sh>
-Date: Mon, 8 Dec 2025 21:48:54 +0100
+	Mon, 08 Dec 2025 22:09:22 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id B3C89C180D1;
+	Mon,  8 Dec 2025 22:08:52 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 78604606DD;
+	Mon,  8 Dec 2025 22:09:16 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 13D07103C8D5C;
+	Mon,  8 Dec 2025 23:09:08 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1765231755; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=txJRuHrrwV2ADW2a0LZ396P8T6DrwxOBcVmxIdFH5mY=;
+	b=ZIFFayhWWluy/Qms43QysyKzVEzgYbV0fvLPjTvuqBXZkXZsh477ayBau29XgKXhEO/9jp
+	nEVCYk0l9aNSPfiD9uDM7jbB3+NJ2uoMpn0IvxIpRa64dDpRe/CdYLNVVPA01tiZio5rjn
+	Hqv5AqlwlWViU+/fM4A9kiylenR3TeEpf3HZUayLznN/o0vtEr8D0wSDnxwgfmBBlrLYzd
+	6n5F7gVHJkqmvik2uMYPuY/rgnIESqxELcep1iZYvDMXwDUIssjWka7VQJLwbX4xMN2iIZ
+	eBpGAyA2siQARTp01ckbQm41jtJfqCuYSopaHjdIvT3sbRk2BVzHp2duiPTBog==
+Date: Mon, 8 Dec 2025 23:09:08 +0100
+From: Alexandre Belloni <alexandre.belloni@bootlin.com>
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Neal Gompa <neal@gompa.dev>, Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jean Delvare <jdelvare@suse.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	James Calligeros <jcalligeros99@gmail.com>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-rtc@vger.kernel.org, linux-hwmon@vger.kernel.org,
+	linux-input@vger.kernel.org, linux-doc@vger.kernel.org,
+	Mark Kettenis <kettenis@openbsd.org>,
+	Hector Martin <marcan@marcan.st>
+Subject: Re: (subset) [PATCH v5 00/11] mfd: macsmc: add rtc, hwmon and hid
+ subdevices
+Message-ID: <176523152354.342815.17888940507252789645.b4-ty@bootlin.com>
+References: <20251112-macsmc-subdevs-v5-0-728e4b91fe81@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 05/12] gpio: it87: use new line value setter callbacks
-To: Bartosz Golaszewski <brgl@kernel.org>
-Cc: linux-gpio@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Bartosz Golaszewski <brgl@bgdev.pl>, Linus Walleij
- <linus.walleij@linaro.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Lixu Zhang <lixu.zhang@intel.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>, Yinbo Zhu <zhuyinbo@loongson.cn>
-References: <20250423-gpiochip-set-rv-gpio-part2-v1-0-b22245cde81a@linaro.org>
- <20250423-gpiochip-set-rv-gpio-part2-v1-5-b22245cde81a@linaro.org>
- <bd0a00e3-9b8c-43e8-8772-e67b91f4c71e@gibson.sh>
- <CAMRc=Mc8ViSPyTn9Brr-us2V+D7Jv3u+B8Ek2nuzF36yH70RAw@mail.gmail.com>
-From: Daniel Gibson <daniel@gibson.sh>
-Content-Language: de-DE
-In-Reply-To: <CAMRc=Mc8ViSPyTn9Brr-us2V+D7Jv3u+B8Ek2nuzF36yH70RAw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251112-macsmc-subdevs-v5-0-728e4b91fe81@gmail.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_124920_359059_A6E7CE45 
-X-CRM114-Status: UNSURE (   9.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251208_140920_808870_868A7FC9 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,20 +88,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/8/25 05:48, Bartosz Golaszewski wrote:
+On Wed, 12 Nov 2025 21:16:46 +1000, James Calligeros wrote:
+> This series adds support for the remaining SMC subdevices. These are the
+> RTC, hwmon, and HID devices. They are being submitted together as the RTC
+> and hwmon drivers both require changes to the SMC DT schema.
 > 
-> Thanks for bringing it to my attention, you're probably right and thats's
-> just an unintentional omission on my part. Do you want to send a patch that
-> will fix it or do you prefer me to do it?
+> The RTC driver is responsible for getting and setting the system clock,
+> and requires an NVMEM cell. This series replaces Sven's original RTC driver
+> submission [1].
 > 
-> Bart
+> [...]
 
-Thanks for the quick reply!
+Applied, thanks!
 
-I'd prefer if you do it, I'm not too familiar with the kernel workflow.
+[01/11] dt-bindings: rtc: Add Apple SMC RTC
+        https://git.kernel.org/abelloni/c/07049187e830
+[03/11] rtc: Add new rtc-macsmc driver for Apple Silicon Macs
+        https://git.kernel.org/abelloni/c/49a51df427db
 
-Cheers,
-Daniel
+Best regards,
 
-
+-- 
+Alexandre Belloni, co-owner and COO, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
