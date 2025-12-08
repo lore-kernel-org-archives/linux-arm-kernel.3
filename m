@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72B15D3B7E2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 11:52:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25FE6D3B7E1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 12:34:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iPXwGwvEAAx1QdhY0az6JjqaxPOleQ46LMOtvOvZTJE=; b=b8TuY+Qm5tCZrbhAxPoXgb/Sek
-	2DZbBI2H4hu4WvCZfk/bTPWSj4W4dCbBUprM5ZPuT0h4Efxzt2XRoergErC+StEga40D9a1JjVIPc
-	KPfOa/7SiWZ22zsJbItDiry79tT+pMfLxcGou2aZnZStpAq0dp+go+WGU6wX26yR0QFmX6uA9LoYs
-	ow5vhGxbl23SXfb/ITnDjH1E84tEI3Pi+0tTg6Ph/G2FUrEEAOBSHaNkAIXi8lI9FTEVOqWyQwfql
-	QRnI/KX1NfmTUEymL9MReYMHBGILFCRBRIQy5uzT8/Tn0kwpKlQQJowmiKSWBV6y1g+xST9HO0l6B
-	+Fv5LktQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5uChk8UJmyeBSo7LNG4GONTAkozp4hObtHsSKt7m42s=; b=dOx7EsuRLgEBUAnTBSKvfcjMVK
+	ewhBtFnAUpQ8Xy5byg/Q4O/xzAdM68ywJH6iohc/mL7ujd7ymmOFw4LBVEPOEG1WEnZrYEAVKVk+s
+	FJUPqi/H9NjlDwqVo8AB9plQlK9NYdEn9so4LHYcJggccfzE+bS4LXT11v8B4+ErOJjmX2KL9MMcP
+	P1fA+3xRA5qu4RPfDRF8/8y3+abp80+6zgcyxYVLYv91MFHu2AOn1cBy9RmqiHpR2+wwplaXhh+Vc
+	g8zAMolaSP3tn3mWPgx7Vwt49EKyJrELs/THfB3amS05e/Az33JDDEl3sx7RJs8xTMqX7kFeNoEx7
+	D5SVaDaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSZmd-0000000D1nC-06mv;
-	Mon, 08 Dec 2025 11:52:03 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1vSaRx-0000000D4nV-1Kpg;
+	Mon, 08 Dec 2025 12:34:45 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSZmb-0000000D1mo-1527;
-	Mon, 08 Dec 2025 11:52:01 +0000
+	id 1vSaRl-0000000D4mR-2Y5C
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Dec 2025 12:34:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=iPXwGwvEAAx1QdhY0az6JjqaxPOleQ46LMOtvOvZTJE=; b=oZb0VXakegLWXQ5mbsFuowE7GM
-	DV34MR9DukwCZjUTx8pB/UtWn7yzdSsZgCfI8rfgihkL7mKaA5tuiBmo0kHZPfq/dZnSFY0+kEqUe
-	cAU+NExfBqZ3SLOaQJDsBd6kgaHEESbSKU0TPNvPiH3GDJohzU9/m0PDPAJNrujeN0rF4ZmLFAgL4
-	O0rhb5HB06eAuj11P/DfJQ9tH1k3SPKG9S6ZfQUHHo41QlumJOsPf6iWl1NCDUFvGfYVaQzogMQAM
-	q+J+KTnlnUaPGrJ0IJhvALjg9pQPoLk/z4TcES7CdMXs3ExRkhx9iI2dyI5Nj9+GcqpObncERbfnL
-	s8qIDapg==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSZmX-00000009jjc-1PBF;
-	Mon, 08 Dec 2025 11:51:57 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 6040D30301A; Mon, 08 Dec 2025 12:51:56 +0100 (CET)
-Date: Mon, 8 Dec 2025 12:51:56 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>,
-	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org, loongarch@lists.linux.dev,
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
-	Mingwei Zhang <mizhang@google.com>,
-	Xudong Hao <xudong.hao@intel.com>,
-	Sandipan Das <sandipan.das@amd.com>,
-	Dapeng Mi <dapeng1.mi@linux.intel.com>,
-	Xiong Zhang <xiong.y.zhang@linux.intel.com>,
-	Manali Shukla <manali.shukla@amd.com>,
-	Jim Mattson <jmattson@google.com>
-Subject: Re: [PATCH v6 04/44] perf: Add APIs to create/release mediated guest
- vPMUs
-Message-ID: <20251208115156.GE3707891@noisy.programming.kicks-ass.net>
-References: <20251206001720.468579-1-seanjc@google.com>
- <20251206001720.468579-5-seanjc@google.com>
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=5uChk8UJmyeBSo7LNG4GONTAkozp4hObtHsSKt7m42s=; b=e4kWGIcJT1Sp1iYMw/S6IYVHy1
+	BwvKtbH9ny8q6NFH9W5Axe7JpXEpJlw76f1OTAIReV6kUmAWVPvoUM8o8FrW42gMP+pEaGmY4+01P
+	cPeNXM8qH/OKanqNiJbT5iGuxK5HFQ96nAVZkvgfcbgtmCKCeO+3J2lPGimiRNHh0NO1D1jfLPiqR
+	kzUujTBOpqNAWtGFS6STsVxFDmmODNl2pbFqo8995RafT992OVD+rV3k2gHsXMIF9ztg8z2BIIaqT
+	Bq+skhfu3m3LsYpCxRl/1/5Vj8NL2xzWdojYM+pIk2rhIdhjNv1StL+lEdcF0KEzdBQfLX03c6N65
+	578uiEZA==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:49262)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vSaRh-000000007jP-227t;
+	Mon, 08 Dec 2025 12:34:29 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vSaRf-0000000051L-2uGb;
+	Mon, 08 Dec 2025 12:34:27 +0000
+Date: Mon, 8 Dec 2025 12:34:27 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Xie Yuanbin <xieyuanbin1@huawei.com>
+Cc: linux-arm-kernel@lists.infradead.org, torvalds@linux-foundation.org,
+	viro@zeniv.linux.org.uk, will@kernel.org
+Subject: [PATCH 0/3] ARM: fix hash_name() and branch predictor issues
+Message-ID: <aTbF009476Iufory@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251206001720.468579-5-seanjc@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251208_043440_024438_DD2BE31A 
+X-CRM114-Status: GOOD (  14.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,87 +76,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 05, 2025 at 04:16:40PM -0800, Sean Christopherson wrote:
+This series, which I'm intending to be part of my upcoming pull request
+for this merge window (note - will be sent before Thursday, otherwise
+it won't be until maybe the middle of January) fixes the recently
+reported hash_name() issue, and also the long standing branch predictor
+hardening smp_processor_id() warning which occurs due to interrupts
+being enabled.
 
-> +static atomic_t nr_include_guest_events __read_mostly;
-> +
-> +static atomic_t nr_mediated_pmu_vms __read_mostly;
-> +static DEFINE_MUTEX(perf_mediated_pmu_mutex);
+Fixing this isn't trivial because there are many paths through
+do_page_fault() which are non-obvious.
 
-> +static int mediated_pmu_account_event(struct perf_event *event)
-> +{
-> +	if (!is_include_guest_event(event))
-> +		return 0;
-> +
-> +	guard(mutex)(&perf_mediated_pmu_mutex);
-> +
-> +	if (atomic_read(&nr_mediated_pmu_vms))
-> +		return -EOPNOTSUPP;
-> +
-> +	atomic_inc(&nr_include_guest_events);
-> +	return 0;
-> +}
-> +
-> +static void mediated_pmu_unaccount_event(struct perf_event *event)
-> +{
-> +	if (!is_include_guest_event(event))
-> +		return;
-> +
-> +	atomic_dec(&nr_include_guest_events);
-> +}
+For example, we detect page faults by the kernel attempting to execute
+memory that it shouldn't and print such a warning. If we introduce an
+early address check, we avoid that detection, making it become a
+plain kernel oops without the informative error message.
 
-> +int perf_create_mediated_pmu(void)
-> +{
-> +	guard(mutex)(&perf_mediated_pmu_mutex);
-> +	if (atomic_inc_not_zero(&nr_mediated_pmu_vms))
-> +		return 0;
-> +
-> +	if (atomic_read(&nr_include_guest_events))
-> +		return -EBUSY;
-> +
-> +	atomic_inc(&nr_mediated_pmu_vms);
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL_GPL(perf_create_mediated_pmu);
-> +
-> +void perf_release_mediated_pmu(void)
-> +{
-> +	if (WARN_ON_ONCE(!atomic_read(&nr_mediated_pmu_vms)))
-> +		return;
-> +
-> +	atomic_dec(&nr_mediated_pmu_vms);
-> +}
-> +EXPORT_SYMBOL_GPL(perf_release_mediated_pmu);
+The first patch adds an additional check in __do_kernel_fault() to
+detect this condition. This patch is a non-obvious dependency for the
+next patch.
 
-These two things are supposed to be symmetric, but are implemented
-differently; what gives?
+The second patch handles faults above the top of userspace entirely
+separately, meaning we have a simpler and more obvious fault path,
+which avoids any possibility of taking any MM mutexes, which is the
+cause of the hash_name() problem.
 
-That is, should not both have the general shape:
+The third patch moves harden_branch_predictor() out of
+__do_user_fault() and to appropriate places in the parent functions.
+The reason this has been avoided thus far is because do_page_fault()
+can be a hot path (since it's used for page aging as well) but with
+kernel address faults being handled by an entirely separate path,
+this avoids adding to that overhead.
 
-	if (atomic_inc_not_zero(&A))
-		return 0;
+I would like to get some attributations for this - specifically
+tested-by.
 
-	guard(mutex)(&lock);
+Thanks.
 
-	if (atomic_read(&B))
-		return -EBUSY;
+ arch/arm/mm/alignment.c |  6 +++-
+ arch/arm/mm/fault.c     | 74 +++++++++++++++++++++++++++++++++++++++++--------
+ 2 files changed, 67 insertions(+), 13 deletions(-)
 
-	atomic_inc(&A);
-	return 0;
-
-Similarly, I would imagine both release variants to have the underflow
-warn on like:
-
-	if (WARN_ON_ONCE(!atomic_read(&A)))
-		return;
-
-	atomic_dec(&A);
-
-Hmm?
-
-Also, EXPORT_SYMBOL_FOR_KVM() ?
-
-I can make these edits when applying, if/when we get to applying. Let me
-continue reading.
-
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
