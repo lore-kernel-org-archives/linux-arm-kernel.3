@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1551D3B7E2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 09:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E906D3B7E2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 10:07:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uKk0jIlTFaRyVGcrv1jQP3EltUclBvcqcyXba0ulPFE=; b=zNimbke3Rd7if67VUEfWeQl9FV
-	D7dwDJH2wpidTztJT/UjA0U83d4fxN4Qz/tnwFgTEuv4+ZcN3QvQ22nLsZz1NDDTyzEBYSPD9BNCn
-	IoZroVXWwEAlA8DePKimmvfHDMkECXLqqLfML/uyBZ4MLGAexLvIZNwcpww1drafe/p930WC/kFH8
-	BFHgGCbSQUXF5L+3OSGFgmIuzVAVVixk+WAELgEZqabyRz2Q9/wYeZbGV3V74zAD7084suXsfNjGh
-	NQV907rM9UTRPUM/E78jQ20eSj5NeayY2VYAQnJ4+uR4dOQf6nJZcT9Yp03PIfbecv2WciuDM+KCf
-	qzNwIy/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=T2q3qIpB2rZdmxgNfQrdMX7fXgjlUn1FNnbk0gfok3I=; b=1MqkXhfKXLzdGbYPXLVdQUGKsq
+	z86kO4nm56NmYlcmmrdJHQ0ICb6y2I7y+cDebLeocDJ7Wi4zyGdknugKHindMAbQXyiOQ+7ezivSI
+	NaETiWZG9nn0xUSU0zPWicnObpCsKgTZ2FyBtpbn2+RTzI8oLiFEH7Z2bneu1Tx2aYD/mYaCDPCAM
+	gxeuMZeNOxHqAw41b5SnQ4XD6RzT5T/Ri8YsT7SduATgrdvYolMSRkjqa7LntiD2w0TBhUS8Fgu2+
+	O/m+Wv7FGF0jmNAY6oXcvYzpydyfrzFpT+UWYTJHy9O3OZ0MfIt9mjq4iEC3zZjWO0XUYVzwQt82c
+	dqw1XbnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSXv7-0000000Cuwm-1exS;
-	Mon, 08 Dec 2025 09:52:41 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vSY9c-0000000Cvf8-0FNL;
+	Mon, 08 Dec 2025 10:07:40 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSXv4-0000000Cuvh-2bW0;
-	Mon, 08 Dec 2025 09:52:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1765187555;
-	bh=W3g/qjurLiwWMVQbIZdUXiIhPWSknKR4dp2Kd3ms36k=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=QYCISWrPaBYGTPXrI3nmOaAIIodsirOfCW7Qs3hW62ZK6Qq1r4Kfz+X37xCV2wb73
-	 1ru+lqsp65UUBHK2gpV+aFvOUghn2u/5sH4+JgBr0z5kNecx2UqoqmwZsXJUyapXL7
-	 iIQ80RPDJ7qqljyc2Fc05ggfAWsNKbqwDlV7v0K2iNuIYBjv9Q/eAIyZXWBgKziUNY
-	 0xWIm4PEgx7JQSApaCzbh1ApYeeKPsr9nJUDwoBacfFyuihuey1w2nNnIMsBYFoiM9
-	 KJWxCaKW/WaZlD8tDe2uAOQuvL8Cv3yED1x13Xcq47bqjCEnl8Hny2atYN6GaJpVjB
-	 JRzthSTi313Sw==
-Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:e493:1c28:b2b2:21dc])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: benjamin.gaignard)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3BC8617E1104;
-	Mon,  8 Dec 2025 10:52:35 +0100 (CET)
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-To: nicolas.dufresne@collabora.com,
-	p.zabel@pengutronix.de,
-	mchehab@kernel.org,
-	heiko@sntech.de,
-	hverkuil@kernel.org
-Cc: linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kernel@collabora.com,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Subject: [PATCH] media: verisilicon: AV1: Fix tx mode bit setting
-Date: Mon,  8 Dec 2025 10:52:27 +0100
-Message-ID: <20251208095227.19720-2-benjamin.gaignard@collabora.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251208095227.19720-1-benjamin.gaignard@collabora.com>
-References: <20251208095227.19720-1-benjamin.gaignard@collabora.com>
+	id 1vSY9Z-0000000CveZ-02vG
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Dec 2025 10:07:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=T2q3qIpB2rZdmxgNfQrdMX7fXgjlUn1FNnbk0gfok3I=; b=Yq1FcK78y3w6nkgHfG8T/MDxrk
+	IxPuchTO5iIOBoYJahU8xB/t/TBjpRAjm/4AFYdSRl6UIeQ11DcKzstMyYC6itiWWr6tdIPLP5Y7H
+	oqkVhHPMfM+F4oWLKsC9B0VaLXpMAwRhWiAV1s4LEV2C3JSjEkHE7Kgc003Hh1bBk4X6AkWRoEpVW
+	oT+77Xz6SycoycRX1c0LeynFqnbm7G1n5TtAHY42t4W9I1dP7Iese3Pe5JIL2yvuHdlvtUE0NKd53
+	Oe9oqVQJa7G5XePlJlodhUKIs/7elRd9CSi08xcHHqeO66+yWWWAe3BmmTNtZmFjbpOl1VDVCQCzB
+	svgD+L+w==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:48358)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vSY9S-000000007bR-0fW9;
+	Mon, 08 Dec 2025 10:07:30 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vSY9N-000000004vY-2kGQ;
+	Mon, 08 Dec 2025 10:07:25 +0000
+Date: Mon, 8 Dec 2025 10:07:25 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Xie Yuanbin <xieyuanbin1@huawei.com>
+Cc: viro@zeniv.linux.org.uk, akpm@linux-foundation.org, brauner@kernel.org,
+	catalin.marinas@arm.com, hch@lst.de, jack@suse.com,
+	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	pangliyuan1@huawei.com, torvalds@linux-foundation.org,
+	wangkefeng.wang@huawei.com, will@kernel.org,
+	wozizhi@huaweicloud.com, yangerkun@huawei.com
+Subject: Re: [Bug report] hash_name() may cross page boundary and trigger
+ sleep in RCU context
+Message-ID: <aTajXdAVYh9qJI6B@shell.armlinux.org.uk>
+References: <aTLLLuup7TeAqFVL@shell.armlinux.org.uk>
+ <20251208023206.44238-1-xieyuanbin1@huawei.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251208023206.44238-1-xieyuanbin1@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_015238_855293_F2B22C76 
-X-CRM114-Status: UNSURE (   8.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251208_020737_077003_51F60120 
+X-CRM114-Status: GOOD (  21.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,29 +85,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If tx_mode field is non-zero then write it value + 2 else
-write 0.
+On Mon, Dec 08, 2025 at 10:32:06AM +0800, Xie Yuanbin wrote:
+> On Fri, 5 Dec 2025 12:08:14 +0000, Russell King wrote:
+> > Right, let's split these issues into separate patches. Please test this
+> > patch, which should address only the hash_name() fault issue, and
+> > provides the basis for fixing the branch predictor issue.
+> 
+> I conducted a simple test, and it seems that both the hash_name()
+> might sleep issue and the branch predictor issue have been fixed.
 
-Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Fixes: 727a400686a2c ("media: verisilicon: Add Rockchip AV1 decoder")
----
- drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+This isn't entirely fixed. A data abort for an alignment fault (thus
+calling do_alignment()) will enable interrupts, and then may call
+do_bad_area(). We can't short-circuit this path like we can with
+do_page_fault() as alignment faults from userspace can be valid for
+the vectors page - not that we should see them, but that doesn't mean
+that there isn't something in userspace that does.
 
-diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-index f4f7cb45b1f1..fccdece51b1b 100644
---- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-+++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-@@ -2005,7 +2005,7 @@ static void rockchip_vpu981_av1_dec_set_parameters(struct hantro_ctx *ctx)
- 			 !!(ctrls->frame->flags & V4L2_AV1_FRAME_FLAG_ALLOW_HIGH_PRECISION_MV));
- 	hantro_reg_write(vpu, &av1_comp_pred_mode,
- 			 (ctrls->frame->flags & V4L2_AV1_FRAME_FLAG_REFERENCE_SELECT) ? 2 : 0);
--	hantro_reg_write(vpu, &av1_transform_mode, (ctrls->frame->tx_mode == 1) ? 3 : 4);
-+	hantro_reg_write(vpu, &av1_transform_mode, ctrls->frame->tx_mode ? ctrls->frame->tx_mode + 2 : 0);
- 	hantro_reg_write(vpu, &av1_max_cb_size,
- 			 (ctrls->sequence->flags
- 			  & V4L2_AV1_SEQUENCE_FLAG_USE_128X128_SUPERBLOCK) ? 7 : 6);
+> BTW, even with this patch, test cases may still fail. There is another
+> bug in hash_name() will also be triggered by the testcase, which will be
+> fixed in this patch:
+> Link: https://lore.kernel.org/20251127025848.363992-1-pangliyuan1@huawei.com
+
+That patch got missed - I'm notoriously bad at catching every email.
+There's just way too much email coming in.
+
+> Test case is from:
+> Link: https://lore.kernel.org/20251127140109.191657-1-xieyuanbin1@huawei.com
+> 
+> Test in commit 6987d58a9cbc5bd57c98 ("Add linux-next specific files for
+> 20251205") from linux-next branch.
+> 
+> I still have a question about this patch: Is 
+> ```patch
+> +		if (interrupts_enabled(regs))
+> +			local_irq_enable();
+> ```
+> necessary? Although this implementation is closer to the original code,
+> which can reduce side effects, do_bad_area(), do_sect_fault(),
+> and do_translation_fault() all call __do_kernel_fault() with interrupts
+> disabled.
+
+It's to keep the behaviour closer to the original as possible, on the
+principle of avoiding unnecessary behavioural changes to the code. As
+noted above, do_bad_area() can be called with interrupts enabled.
+
+Whether RT folk would be happy removing that is a different question,
+given that they want as much of the kernel to be preemptable.
+
 -- 
-2.43.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
