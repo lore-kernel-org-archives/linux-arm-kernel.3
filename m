@@ -4,78 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47726D3B7E2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 19:45:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63EA9D3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 20:06:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CRkeVGS4AqHocZSTWOWaSAFetcvGdPDYvjY300czihY=; b=TsxKtGDKeqF9guh9j0pa0iZ09L
-	DBe4whIAXuIPrbhAc1jhQ88CbvDYbrK+kdk5MQwsFPZcU6gpcSrA6IGP7SmRP40kbWnOOhEhw8mTC
-	hn6mulmBeqr8Co7Yo5xKnpprefOXNFpKxKACo59UabSrz46el4xzSMpKSUrhfgOSFRq6Amo7cacMw
-	TjWDQI9UTlOliK5qgz6D2HbwVuDhaUbaj3O49UMNnr2sh/tsw1n8CdYOWMg7D8kyshV4U2yYojUKJ
-	Y+xdLo6c/seJ+F6HiZdSE0z9QPgcHo2bzIXBb4dqMHxvmN2UGYsqiefFLLlCR/UxBxXNhosxt5UPn
-	PG8xmkQA==;
+	bh=geGVe3G5SBgEZ59+oVuK/Iwq85pb8lTkLlayLey8xSA=; b=Y37TetaIAwBnnlsU2SyIEUlOdM
+	4lHEnMRYccRibigBvE4uDX8/uGgbCTxog175P1bFlbsas0oT5dIJ2y1WxnVxiES3uVpbgpH+qm8kd
+	ik97E4/8Ix85jnDhY2mEhUdjDEu3pl2hJ/Zv4mysKuA5t9iHKffJPVjToIGrCnYKj872e5Hw5wdTQ
+	hU0hGMD606C44HlThdI+zZhHV8SpgiSCXzpqiAMhRanylzggLVbz0gosmEqwuvNh5QW2mVnHaxsWd
+	7rGoyCBYVUs5ypXCHT3dug/wuF/XASgBrsK0KjoX2Qweqe72NLlMWJC0snh6BEVeExnoQ/4Gg37Ju
+	hcp0EECg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vShAX-0000000DTyn-1rsY;
-	Mon, 08 Dec 2025 19:45:13 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vShUp-0000000DVFg-3iMx;
+	Mon, 08 Dec 2025 20:06:11 +0000
+Received: from flow-a6-smtp.messagingengine.com ([103.168.172.141])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vShAU-0000000DTxy-11Yh;
-	Mon, 08 Dec 2025 19:45:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1765223106;
-	bh=L2dBgg6dJCDDUuZT2kYorlZ02Sm9yxKoUY6fnAroN5U=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=P8+erOnT63XjOq/fKJgUKRW2DYiHThMh33+RMHxkAvxW4MUrM2wYH8s5JkIX4fsE8
-	 UZZBCD/DIReeqaG1C7Q24e6hEfYWfMeHbu1RlZ/ly7xFXDyR2l+SQNFDYXQooh0hYu
-	 EVvY7sXAPf4VpXDnLe5hOZP+GnXy68tixssORNwJ2ZBMterYNnTKx4ohWVapTl0QDx
-	 mbbK754PUsRkImPLtmXFh1nJKUdeBquIoFqlrwvRaJiCuqVCcH1+7JKtR20C++bsif
-	 4eoaaWFtgEKfshJDKAajZLFJcnMyFz5CDs1bUEkSU/Ib8xcRktOXluheYAG2HefmEr
-	 e4MZhE1rA0wTQ==
-Received: from [IPv6:2606:6d00:17:7b4b::c41] (unknown [IPv6:2606:6d00:17:7b4b::c41])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2F54817E0E30;
-	Mon,  8 Dec 2025 20:45:04 +0100 (CET)
-Message-ID: <4545bc3df2592965388aee3f170cce577d8cf538.camel@collabora.com>
-Subject: Re: [PATCH] media: verisilicon: AV1: Fix enable cdef computation
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
-	p.zabel@pengutronix.de, mchehab@kernel.org, heiko@sntech.de,
- hverkuil@kernel.org
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kernel@collabora.com, amazingfate <liujianfeng1994@gmail.com>
-Date: Mon, 08 Dec 2025 14:45:02 -0500
-In-Reply-To: <20251208095227.19720-1-benjamin.gaignard@collabora.com>
-References: <20251208095227.19720-1-benjamin.gaignard@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-CybO3avH1GlETVvMet9Z"
-User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
+	id 1vShUm-0000000DVF5-2bKR
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Dec 2025 20:06:11 +0000
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailflow.phl.internal (Postfix) with ESMTP id 15BE51380418;
+	Mon,  8 Dec 2025 15:06:00 -0500 (EST)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-06.internal (MEProxy); Mon, 08 Dec 2025 15:06:00 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm3; t=1765224360; x=1765231560; bh=geGVe3G5SB
+	gEZ59+oVuK/Iwq85pb8lTkLlayLey8xSA=; b=RCw4MYw+7ZLDHkj305wxxjCRSX
+	rMrdbrBgi9f25g/3it320zvhMNV1ZQKoK4HMoVtdSMCSQxa3T1NtQGZK2ji7FaB+
+	4EAMXj2Z/18fg18HLzgIp1Xd2gaRaVf6aOd9tq+17uy6+b25gxNy3mnV9680Kb9/
+	5tqHVF1j8ty4YqRtlzJwDQD/AFabZMuWlqsu+ivO0qERdUZBTsbfvToLgDReiU2c
+	Lh/Eba71Uo99rQNJKXg+dWVZlsvVZ4EEWaxpUn0pfDgHeJqy1Ci7jT91cm3WjvPy
+	sTJxo0O0i2VTRszFsHu9XlHbQZYuMm/iGITipFRODxC1B8IcWm5/KrQbrMbg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
+	1765224360; x=1765231560; bh=geGVe3G5SBgEZ59+oVuK/Iwq85pb8lTkLla
+	yLey8xSA=; b=voCV257E8ExI8LRf6UdVA7F02TYLxADA60npChdBR6Y21xs0tRA
+	C1uw+AV9CLSaNfK6RAUV6AE1RZBKQaSh2/pgZThaQt1P282do/o12nWenujxz3Pg
+	/tdhnCFD0X7RQQSdVppzFajbBlqF0NSSuk+kHONsZxH3CEBuJYx+4gBEMsH+gyIP
+	razXamAr0cLJLucn4Z8U6ZvWzmg4VLNRkI8fW7bkvNN/o41lmXQ/g0VAlsbl0p+c
+	9kOr6shetIpWgA2fAxvQUSRm6uEgMj9wjThm4m3EyfuK4xRaW/GPDonriBPihui9
+	NKID6dEU3zuG8C0j+xnEP0PQag6LUCS0h3A==
+X-ME-Sender: <xms:pi83aTQUBBxxcwI8Ju7BapuF7LwulYjYQpKe7sWAR0r_uWtzDdDwRg>
+    <xme:pi83aebVHsxrKMEuQywvzdXSDZHpM9MK2UiluZkdXAVmh0J0nNZu6U6gfkZg9j0Ga
+    Ut53OsW7mEjA55oME3b-thugVKSe0_5Tbewl2mI88XfPPTSUxekmw>
+X-ME-Received: <xmr:pi83acQeu23D1kI1rLhQ4wr0x5rXNlW92yKuzfJ9DXbmbyD1PnQo3LIx3zAyL52iJBsHs4oNCdPXZZnY0nx-sHu7J1Hs6kJCHtU>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddujeehlecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpeffhffvvefukfhfgggtuggjsehttdertddttdejnecuhfhrohhmpeflrghnnhgvucfi
+    rhhunhgruhcuoehjsehjrghnnhgruhdrnhgvtheqnecuggftrfgrthhtvghrnhepgfduue
+    ffleefkeegueektdehkeejtedtffdtudejhfdvheetgfeigfeltdeufeejnecuffhomhgr
+    ihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
+    epmhgrihhlfhhrohhmpehjsehjrghnnhgruhdrnhgvthdpnhgspghrtghpthhtohepvdei
+    pdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehprghulhhksehshihsqdgsrghsvg
+    drihhopdhrtghpthhtoheprhguuhhnlhgrphesihhnfhhrrgguvggrugdrohhrghdprhgt
+    phhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprh
+    gtphhtthhopegrnhguhidrshhhvghvtghhvghnkhhosehgmhgrihhlrdgtohhmpdhrtghp
+    thhtoheprghrnhgusegrrhhnuggsrdguvgdprhgtphhtthhopegrnhgurhgvfidrjhhonh
+    gvsheslhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdhomhgrphesvhhgvghr
+    rdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehophgvnhgsmhgtsehlihhsthhsrdhoii
+    hlrggsshdrohhrghdprhgtphhtthhopehlihhnuhigqdhsohhunhgusehvghgvrhdrkhgv
+    rhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:pi83aZ4RCJmeDa-VR1cQPG2ul73JR-gGDUFjKdpu-22mFdL9oWUOfw>
+    <xmx:pi83aXrSwaSszaHmCrk55lMdmsGtmyEQHQ1s-QpJy4Rt1_cXfEHipg>
+    <xmx:pi83aUR5DbLatVwQOF8-uRLn9TImi_QeLc8Ti5pE_VqfQwUHqh1VcA>
+    <xmx:pi83aTtoeQfXbJumEOlxloGR9zkRk3a07od05eZIJLIDpzutEw-WGg>
+    <xmx:qC83aQtVE-oT3QFyD3EhDToVHKkkvo2HfKm_z0WZaMfBkC3mxyGDZ6m_>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 8 Dec 2025 15:05:57 -0500 (EST)
+Date: Mon, 8 Dec 2025 21:05:55 +0100
+From: Janne Grunau <j@jannau.net>
+To: Paul Kocialkowski <paulk@sys-base.io>
+Cc: Randy Dunlap <rdunlap@infradead.org>,
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
+	Andy Shevchenko <andy.shevchenko@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>, andrew.jones@linux.dev,
+	linux-omap@vger.kernel.org, openbmc@lists.ozlabs.org,
+	linux-sound@vger.kernel.org,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	linux-mips@vger.kernel.org, asahi@lists.linux.dev,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	chrome-platform@lists.linux.dev,
+	Paul Cercueil <paul@crapouillou.net>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Linux ARM <linux-arm-kernel@lists.infradead.org>,
+	linux-gpio@vger.kernel.org, Srinivas Kandagatla <srini@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	Jonathan Cameron <jic23@kernel.org>,
+	Vaibhav Hiremath <hvaibhav.linux@gmail.com>,
+	linux-sh@vger.kernel.org, x86@kernel.org,
+	Max Filippov <jcmvbkbc@gmail.com>
+Subject: Re: Kconfig dangling references (BZ 216748)
+Message-ID: <20251208200555.GA333481@robin.jannau.net>
+References: <22b92ddf-6321-41b5-8073-f9c7064d3432@infradead.org>
+ <aTcVXrUXVsyjaT22@shepard>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <aTcVXrUXVsyjaT22@shepard>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_114510_456981_9FB303EB 
-X-CRM114-Status: GOOD (  17.53  )
+X-CRM114-CacheID: sfid-20251208_120608_937942_DDB98020 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,100 +131,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Dec 08, 2025 at 07:13:50PM +0100, Paul Kocialkowski wrote:
+> Hi Randy,
+> 
+> On Sun 07 Dec 25, 18:04, Randy Dunlap wrote:
+> > from  https://bugzilla.kernel.org/show_bug.cgi?id=216748
+> > 
+> > The bugzilla entry includes a Perl script and a shell script.
+> > This is the edited result of running them (I removed some entries that were noise).
+> 
+> [...]
+> 
+> > DRM_KMS_DMA_HELPER ---
+> > drivers/gpu/drm/adp/Kconfig:9:	select DRM_KMS_DMA_HELPER
+> > drivers/gpu/drm/logicvc/Kconfig:7:	select DRM_KMS_DMA_HELPER
+> 
+> For these two, the symbol was removed in commit
+> 09717af7d13d63df141ae6e71686289989d17efd
 
---=-CybO3avH1GlETVvMet9Z
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+That commit removed DRM_KMS_CMA_HELPER. Later commit 6bcfe8eaeef0
+("drm/fb: rename FB CMA helpers to FB DMA helpers") renamed
+DRM_KMS_CMA_HELPER erroneously to DRM_KMS_DMA_HELPER.
 
-Hi,
+> but these two drivers either were
+> missed by the batch rename or were introduced a bit later.
 
-Le lundi 08 d=C3=A9cembre 2025 =C3=A0 10:52 +0100, Benjamin Gaignard a =C3=
-=A9crit=C2=A0:
-> Testing V4L2_AV1_SEQUENCE_FLAG_ENABLE_CDEF flag isn't enough
-> to know if cdef bit has to be set.
-> If any of the used cdef fields isn't zero then we must enable
-> cdef feature on the hardware.
+In the case of drivers/gpu/drm/adp/Kconfig it was missed much later
+during review (but iirc went through the same rename out of tree).
 
-I think the problem goes the other way around.
+> Since the symbol selected DRM_GEM_CMA_HELPER (which is still needed by the
+> drivers), it should be replaced with DRM_GEM_CMA_HELPER.
 
-   If all the fields of the CDEF parameters are zero (which is the default)=
-, then
-   av1_enable_cdef register needs to be unset (despite the
-   V4L2_AV1_SEQUENCE_FLAG_ENABLE_CDEF possibly being set).
+That symbol doesn't exist anymore either. It's now DRM_GEM_DMA_HELPER
+which is already present in both files.
 
-Its interesting to note that the other AV1 decoder also ignores this flag.
-Though, I don't have enough data to add something to the doc to try and con=
-vince
-future driver writers to not use it.
+So the "select DRM_KMS_DMA_HELPER" lines can be removed from both files.
 
->=20
-> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-> Fixes: 727a400686a2c ("media: verisilicon: Add Rockchip AV1 decoder")
-
-This is missing:
-
-Reported-by: Jianfeng Liu <liujianfeng1994@gmail.com>
-Link: https://gitlab.freedesktop.org/gstreamer/gstreamer/-/issues/4786
-
-Please also include my Rb in v2 with correct commit message.
-
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-
-Nicolas
-
-> ---
-> =C2=A0.../platform/verisilicon/rockchip_vpu981_hw_av1_dec.c=C2=A0 | 10 ++=
-++++++--
-> =C2=A01 file changed, 8 insertions(+), 2 deletions(-)
->=20
-> diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_de=
-c.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-> index e4703bb6be7c..f4f7cb45b1f1 100644
-> --- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-> +++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-> @@ -1396,8 +1396,16 @@ static void rockchip_vpu981_av1_dec_set_cdef(struc=
-t hantro_ctx *ctx)
-> =C2=A0	u16 luma_sec_strength =3D 0;
-> =C2=A0	u32 chroma_pri_strength =3D 0;
-> =C2=A0	u16 chroma_sec_strength =3D 0;
-> +	bool enable_cdef;
-> =C2=A0	int i;
-> =C2=A0
-> +	enable_cdef =3D !(cdef->bits =3D=3D 0 &&
-> +			cdef->damping_minus_3 =3D=3D 0 &&
-> +			cdef->y_pri_strength[0] =3D=3D 0 &&
-> +			cdef->y_sec_strength[0] =3D=3D 0 &&
-> +			cdef->uv_pri_strength[0] =3D=3D 0 &&
-> +			cdef->uv_sec_strength[0] =3D=3D 0);
-> +	hantro_reg_write(vpu, &av1_enable_cdef, enable_cdef);
-> =C2=A0	hantro_reg_write(vpu, &av1_cdef_bits, cdef->bits);
-> =C2=A0	hantro_reg_write(vpu, &av1_cdef_damping, cdef->damping_minus_3);
-> =C2=A0
-> @@ -1953,8 +1961,6 @@ static void rockchip_vpu981_av1_dec_set_parameters(=
-struct hantro_ctx *ctx)
-> =C2=A0			 !!(ctrls->frame->flags & V4L2_AV1_FRAME_FLAG_SHOW_FRAME));
-> =C2=A0	hantro_reg_write(vpu, &av1_switchable_motion_mode,
-> =C2=A0			 !!(ctrls->frame->flags & V4L2_AV1_FRAME_FLAG_IS_MOTION_MODE_SWI=
-TCHABLE));
-> -	hantro_reg_write(vpu, &av1_enable_cdef,
-> -			 !!(ctrls->sequence->flags & V4L2_AV1_SEQUENCE_FLAG_ENABLE_CDEF));
-> =C2=A0	hantro_reg_write(vpu, &av1_allow_masked_compound,
-> =C2=A0			 !!(ctrls->sequence->flags
-> =C2=A0			=C2=A0=C2=A0=C2=A0 & V4L2_AV1_SEQUENCE_FLAG_ENABLE_MASKED_COMPOU=
-ND));
-
---=-CybO3avH1GlETVvMet9Z
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaTcqvgAKCRDZQZRRKWBy
-9Fw5AP92k7QgfKSlxgl6L6eRxBXYU6QZgMFyDbQPvvbAgb1rDAD+J+m7WUxbqCaM
-mvebRnyiQRPjZgOBMwr76Ftkov64/Ag=
-=H8+3
------END PGP SIGNATURE-----
-
---=-CybO3avH1GlETVvMet9Z--
+Janne
 
