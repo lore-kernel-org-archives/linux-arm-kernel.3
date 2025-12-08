@@ -4,53 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41474D2CE17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 01:28:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F052D2CE17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 01:56:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jxqO74GvRwF3xgkuVPuR8lpXGraHCG+lP66mGGarGQg=; b=Re2Ha2n48gJ/pPH5yqpMyMqpqR
-	KZEIQIM3HmUBm1CdD2gS+uLRIlf5LQdnqe1KuvDOqHt+D+6IilsKXVPoknWLAXhEBCE0CHuutARCB
-	LD4Do74UsKAYoyfs1qyAwbx/bxoZR4gxn5ziUAheEd7jNZLkXqGBVmfDYHaPCzX6uCw6e20mokhlz
-	txq30a1aaftaUeM9FV2x4iPa8z5Edzvi8RlNzXdiuD2TzMZNwouAhU9Wdr3NlY3pdWBNqA8eVJc3r
-	lyvo0ed+rgpVSuj3j+UmxAfGoBlKJ7GrE0jeADTKWoZmDAJhtbK5RjT5DGknJZ444ML/KOfDjSGWx
-	ulhwckrA==;
+	bh=yduhPWdEryQOAmGdcqOwD6+bqzN4khXB1pWrS++U2Ac=; b=FY1+CscFVn1UKL3HfA+6va231Z
+	1sH8PAkYnKO48CXVWghRE8IkNWHjYnvE9UzWvEs32yEj/M8Fm5Bfnq56c1QJeBYtjzQtdN0OL0mTv
+	erMy3Fe8P+GTjuw8fubvSIz7yXIsJaEMkzsWBurav2rY+e5k1gfezFu5rsYeCvZJz1WflVxJOvuL9
+	KEL99q9+eY8X8GxN02zT1pLCDeE0fo63Fdb7zIRRAtgAQN2AyrJpzWY0K56SIQwD1EwXgYYSk9AzH
+	aBKfIeVpcb3fgthgR+WHmmi5BK5wxmIVCTJVAXpd2uTAs4qivqh5fu7aBzPhflL8dfOgZecgmNpUM
+	yytm0sDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSQ3F-0000000COHw-257d;
-	Mon, 08 Dec 2025 01:28:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vSQTz-0000000CPpo-3wld;
+	Mon, 08 Dec 2025 01:56:12 +0000
+Received: from smtpbguseast1.qq.com ([54.204.34.129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSQ3C-0000000COHd-3jTG
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 01:28:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B43C4600AC;
-	Mon,  8 Dec 2025 01:28:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34A2EC4CEFB;
-	Mon,  8 Dec 2025 01:28:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765157309;
-	bh=EdG95QZ0thcwVxnSLXQVKWQuULwbEqcqlz9F/E2H+qY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mxCO2s6scq9MCexy9brYAm+h5FqAHmgU/1NpJ1ZmA7T3ak9C9bmY7jMbOTNXvPjUM
-	 k6AddidjkTquiCgFjd25lwHE4z3GnLgtNJVeE0i9BowE8dFByy7MQCGhhwqiN3X4G2
-	 ZMdndUtqJrEDi59A2lnSZ5VEo4nEXM16V4l+ZZ86np5RDZLUt2EBDxNkbp9Xk1EICb
-	 YXAJE1WP3iYxw5U6yq6wXBQoBadokref0b/nWAEPzcKVm2g8D6qznyhkmlit0fMybd
-	 OQdjvbQflFlUM4FzXS+76JM9ca+jHqFT8zZZPLUCTfyLXAj+bxDTliLa8umsuxWeZ/
-	 3HsOQmZ4VWo+A==
-Date: Sun, 7 Dec 2025 19:28:26 -0600
-From: Rob Herring <robh@kernel.org>
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	Liu Ying <victor.liu@nxp.com>,
+	id 1vSQTq-0000000CPlQ-3ldx;
+	Mon, 08 Dec 2025 01:56:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
+	s=altu2504; t=1765158922;
+	bh=yduhPWdEryQOAmGdcqOwD6+bqzN4khXB1pWrS++U2Ac=;
+	h=From:To:Subject:Date:Message-Id;
+	b=kx/DrY2OEte3ZRViZtVtJXSSDRWmiagvzCsYl8igPjVkKD0TJS6hi5/SF9X10ADKB
+	 zgessn8u4aSkBY0OQbTMAE6irYaYsDCXvJHdw+eUAypM4Qo4liFrQtrccbf86TL4W4
+	 ovf0HwwV8j1909VsOjqCnrEP0oFqTCzZq/lFDeOs=
+X-QQ-mid: esmtpsz19t1765158919t97d72f03
+X-QQ-Originating-IP: Gj8s0/eHq01JGQQD6y5farK7KZ/tS0eZm6qo7o7KPhc=
+Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 08 Dec 2025 09:55:16 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 7821749842743038252
+From: Chaoyi Chen <kernel@airkyi.com>
+To: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+	Peter Chen <hzpeterchen@gmail.com>,
+	Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Yubing Zhang <yubing.zhang@rock-chips.com>,
+	Frank Wang <frank.wang@rock-chips.com>,
 	Andrzej Hajda <andrzej.hajda@intel.com>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
 	Robert Foss <rfoss@kernel.org>,
@@ -60,19 +66,50 @@ Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
 	Maxime Ripard <mripard@kernel.org>,
 	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Amit Sunil Dhamne <amitsd@google.com>,
+	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Johan Jonker <jbx6244@gmail.com>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	Peter Robinson <pbrobinson@gmail.com>
+Cc: linux-usb@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-phy@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
 	dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v7 1/3] dt-bindings: soc: imx93-media-blk-ctrl: Add PDFC
- subnode to schema and example
-Message-ID: <20251208012826.GA340359-robh@kernel.org>
-References: <20251202-v6-18-topic-imx93-parallel-display-v7-0-2cce31d64608@pengutronix.de>
- <20251202-v6-18-topic-imx93-parallel-display-v7-1-2cce31d64608@pengutronix.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251202-v6-18-topic-imx93-parallel-display-v7-1-2cce31d64608@pengutronix.de>
+Subject: [PATCH v13 02/11] usb: typec: Export typec bus and typec altmode device type
+Date: Mon,  8 Dec 2025 09:54:51 +0800
+Message-Id: <20251208015500.94-3-kernel@airkyi.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20251208015500.94-1-kernel@airkyi.com>
+References: <20251208015500.94-1-kernel@airkyi.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
+X-QQ-XMAILINFO: N4kN3xMDJERSTQ7G+4eQJsCxLDDyEHqvrQaUsG+Rtj8uCeT/ZAfbA+DM
+	ILZXO4mGP9pLVJcmgQHC5v/VZWj+XRXvGbELPwV1s2ujnksuMUUty2cwWxV8ToU+xbKTK0a
+	krRXEYLjQt7vM6zwVKYWZ5D7HpI84uCaLhOSXgfFHBvWqauYdnOTYLyKePh97KrcRQfwel5
+	W3lPN1Au33XWAFjavlcbsz7GQ2XiRusHryHJQUlnO+ZSOXAM414hmytWCW0A2+S1wf/i5UN
+	IXqZLHsI9cKVGVt9az4n7dEtmX2qsalNAquzo3g+bO4a5vmcSvorSXqpdwkCzdbxOR3G84H
+	iHcz/dR3qsEQckasX16wLecomIRWq/XNw0NdaAEM0QoI4nF+RIvKxaSFyrHPpH/i7aA2SYo
+	gwFPBQg3NZHNC9/r9YSa/Sld5LdWCpENM3Q3QqJjersC49EomRI+JVqEphODOuGJqlaso1F
+	tVX+EgWDjqXlrzc6gkeAjuaPMGwrFzLC2ciB6yeSYG07Cej3+VrcZyepf3jzARrDuxZg/sO
+	oz7i+4WIyGkJ79+gRTiIEiemTRUDuJIrdT/26nYfcIVYvat4DsyaI1a+RIY24Q59a+LbRWP
+	UYrJ6o8Go4ClWFYh5nxXAXcfv6IOYLF+7LuPLU1NxqUU1suDvUkie/zRGXmZddQPdG6+lfL
+	H6d3yOnTqy3l1pcmmOsC/Ggu4d36kirE+noDdemeNK/CEjy/pLgHnv1mzVKmo0VoMjplFrT
+	Bj3+O0vHVCXxSZd/E5NYxmBQm06SrUpbveT8b8fauWnGp8YwG9RQgQwn5UDQX6GCdx2+nPQ
+	j565dytBEh7Yt5QgzvVCprD2yN7rhTLoYaI9n75nZVOLKL3RqiAirHnXTc9Ga0p8cPS5pLA
+	TSH3RZ50/+lahT4f32UIGOPuPIsuX4LvyIqc82SFo2eImMxDfrM0v84SAwVa0B4izJjHvEd
+	ilmLqzrVDx98QyjGsnhaD/LU765iILnvOOYBu7BV4ppf57Y6TvXFHzej0X0nRhzhI/LsbHW
+	FDumQA7A==
+X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
+X-QQ-RECHKSPAM: 0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251207_175603_467046_023472D8 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,152 +124,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 02, 2025 at 02:32:58PM +0100, Marco Felsch wrote:
-> From: Liu Ying <victor.liu@nxp.com>
-> 
-> i.MX93 SoC mediamix blk-ctrl contains one DISPLAY_MUX register which
-> configures parallel display format by using the "PARALLEL_DISP_FORMAT"
-> field. Document the Parallel Display Format Configuration(PDFC) subnode
-> and add the subnode to example.
-> 
-> Signed-off-by: Liu Ying <victor.liu@nxp.com>
-> [m.felsch@pengutronix.de: port to v6.18-rc1]
-> [m.felsch@pengutronix.de: add bus-width]
-> Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-> ---
->  .../bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml | 92 ++++++++++++++++++++++
->  1 file changed, 92 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-> index 34aea58094e55365a2f9c86092f637e533f954ff..6e2d86d9341c75108b492bcbabc8a560d8e707cd 100644
-> --- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-> +++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctrl.yaml
-> @@ -26,6 +26,12 @@ properties:
->    reg:
->      maxItems: 1
->  
-> +  '#address-cells':
-> +    const: 1
-> +
-> +  '#size-cells':
-> +    const: 1
-> +
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-And 'ranges' needed.
+The DRM may want to register a notifier on the typec bus to know when
+a typec altmode device is added, and distinguish between different
+types of typec altmode device.
 
->    '#power-domain-cells':
->      const: 1
->  
-> @@ -40,6 +46,60 @@ properties:
->      minItems: 8
->      maxItems: 10
->  
-> +  bridge@60:
-> +    type: object
-> +    additionalProperties: false
-> +
-> +    properties:
-> +      compatible:
-> +        const: nxp,imx93-pdfc
-> +
-> +      reg:
-> +        maxItems: 1
-> +
-> +      ports:
-> +        $ref: /schemas/graph.yaml#/properties/ports
-> +
-> +        properties:
-> +          port@0:
-> +            $ref: /schemas/graph.yaml#/properties/port
-> +            description: Input port node to receive pixel data.
-> +
-> +          port@1:
-> +            $ref: /schemas/graph.yaml#/$defs/port-base
-> +            unevaluatedProperties: false
-> +            description: Output port node to downstream pixel data receivers.
-> +
-> +            properties:
-> +              endpoint:
-> +                $ref: /schemas/graph.yaml#/$defs/endpoint-base
-> +                unevaluatedProperties: false
-> +
-> +                properties:
-> +                  bus-width:
-> +                    enum: [ 16, 18, 24 ]
-> +                    description:
-> +                      Specify the physical parallel bus width.
-> +
-> +                      This property is optional if the display bus-width
-> +                      matches the SoC bus-width, e.g. a 18-bit RGB666 (display)
-> +                      is connected and all 18-bit data lanes are muxed to the
-> +                      parallel-output pads.
-> +
-> +                      This property must be set to 18 to cut only the LSBs
-> +                      instead of the MSBs in case a 24-bit RGB888 display is
-> +                      connected and only the lower 18-bit data lanes are muxed
-> +                      to the parallel-output pads.
-> +
-> +        required:
-> +          - port@0
-> +          - port@1
-> +
-> +    required:
-> +      - compatible
-> +      - reg
-> +      - ports
-> +
->  allOf:
->    - if:
->        properties:
-> @@ -81,9 +141,12 @@ allOf:
->              - const: isi
->              - const: csi
->              - const: dsi
-> +
->  required:
->    - compatible
->    - reg
-> +  - '#address-cells'
-> +  - '#size-cells'
->    - power-domains
->    - clocks
->    - clock-names
-> @@ -112,4 +175,33 @@ examples:
->                 clock-names = "apb", "axi", "nic", "disp", "cam",
->                               "pxp", "lcdif", "isi", "csi", "dsi";
->        #power-domain-cells = <1>;
-> +      #address-cells = <1>;
-> +      #size-cells = <1>;
-> +
-> +      bridge@60 {
-> +        compatible = "nxp,imx93-pdfc";
-> +        reg = <0x60 0x4>;
-> +
-> +        ports {
-> +          #address-cells = <1>;
-> +          #size-cells = <0>;
-> +
-> +          port@0 {
-> +            reg = <0>;
-> +
-> +            pdfc_from_lcdif: endpoint {
-> +              remote-endpoint = <&lcdif_to_pdfc>;
-> +            };
-> +          };
-> +
-> +          port@1 {
-> +            reg = <1>;
-> +
-> +            pdfc_to_panel: endpoint {
-> +              remote-endpoint = <&panel_from_pdfc>;
-> +              bus-width = <18>;
-> +            };
-> +          };
-> +        };
-> +      };
->      };
-> 
-> -- 
-> 2.47.3
-> 
+Export these things.
+
+Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
+---
+
+(no changes since v12)
+
+Changes in v11:
+- Also export typec bus.
+- Add more detailed comments.
+
+(no changes since v9)
+
+ drivers/usb/typec/bus.c           |  1 +
+ drivers/usb/typec/bus.h           | 10 ----------
+ drivers/usb/typec/class.c         |  3 +++
+ include/linux/usb/typec.h         |  3 +++
+ include/linux/usb/typec_altmode.h |  8 ++++++++
+ 5 files changed, 15 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/usb/typec/bus.c b/drivers/usb/typec/bus.c
+index a33da7f458a5..e84b134a3381 100644
+--- a/drivers/usb/typec/bus.c
++++ b/drivers/usb/typec/bus.c
+@@ -569,3 +569,4 @@ const struct bus_type typec_bus = {
+ 	.probe = typec_probe,
+ 	.remove = typec_remove,
+ };
++EXPORT_SYMBOL_GPL(typec_bus);
+diff --git a/drivers/usb/typec/bus.h b/drivers/usb/typec/bus.h
+index b58e131450d1..7df5deb1dd3a 100644
+--- a/drivers/usb/typec/bus.h
++++ b/drivers/usb/typec/bus.h
+@@ -5,7 +5,6 @@
+ 
+ #include <linux/usb/typec_altmode.h>
+ 
+-struct bus_type;
+ struct typec_mux;
+ struct typec_retimer;
+ 
+@@ -28,13 +27,4 @@ struct altmode {
+ 
+ #define to_altmode(d) container_of(d, struct altmode, adev)
+ 
+-extern const struct bus_type typec_bus;
+-extern const struct device_type typec_port_altmode_dev_type;
+-extern const struct device_type typec_plug_altmode_dev_type;
+-extern const struct device_type typec_partner_altmode_dev_type;
+-
+-#define is_typec_port_altmode(dev) ((dev)->type == &typec_port_altmode_dev_type)
+-#define is_typec_plug_altmode(dev) ((dev)->type == &typec_plug_altmode_dev_type)
+-#define is_typec_partner_altmode(dev) ((dev)->type == &typec_partner_altmode_dev_type)
+-
+ #endif /* __USB_TYPEC_ALTMODE_H__ */
+diff --git a/drivers/usb/typec/class.c b/drivers/usb/typec/class.c
+index d6b88317f8a4..c4ff4310ff58 100644
+--- a/drivers/usb/typec/class.c
++++ b/drivers/usb/typec/class.c
+@@ -537,18 +537,21 @@ const struct device_type typec_port_altmode_dev_type = {
+ 	.groups = typec_altmode_groups,
+ 	.release = typec_altmode_release,
+ };
++EXPORT_SYMBOL_GPL(typec_port_altmode_dev_type);
+ 
+ const struct device_type typec_plug_altmode_dev_type = {
+ 	.name = "typec_plug_alternate_mode",
+ 	.groups = typec_altmode_groups,
+ 	.release = typec_altmode_release,
+ };
++EXPORT_SYMBOL_GPL(typec_plug_altmode_dev_type);
+ 
+ const struct device_type typec_partner_altmode_dev_type = {
+ 	.name = "typec_partner_alternate_mode",
+ 	.groups = typec_altmode_groups,
+ 	.release = typec_altmode_release,
+ };
++EXPORT_SYMBOL_GPL(typec_partner_altmode_dev_type);
+ 
+ static struct typec_altmode *
+ typec_register_altmode(struct device *parent,
+diff --git a/include/linux/usb/typec.h b/include/linux/usb/typec.h
+index 309251572e2e..c6fd46902fce 100644
+--- a/include/linux/usb/typec.h
++++ b/include/linux/usb/typec.h
+@@ -20,12 +20,15 @@ struct typec_port;
+ struct typec_altmode_ops;
+ struct typec_cable_ops;
+ 
++struct bus_type;
+ struct fwnode_handle;
+ struct device;
+ 
+ struct usb_power_delivery;
+ struct usb_power_delivery_desc;
+ 
++extern const struct bus_type typec_bus;
++
+ enum typec_port_type {
+ 	TYPEC_PORT_SRC,
+ 	TYPEC_PORT_SNK,
+diff --git a/include/linux/usb/typec_altmode.h b/include/linux/usb/typec_altmode.h
+index f7db3bd4c90e..9197a4637a93 100644
+--- a/include/linux/usb/typec_altmode.h
++++ b/include/linux/usb/typec_altmode.h
+@@ -9,6 +9,14 @@
+ 
+ #define MODE_DISCOVERY_MAX	6
+ 
++extern const struct device_type typec_port_altmode_dev_type;
++extern const struct device_type typec_plug_altmode_dev_type;
++extern const struct device_type typec_partner_altmode_dev_type;
++
++#define is_typec_port_altmode(dev) ((dev)->type == &typec_port_altmode_dev_type)
++#define is_typec_plug_altmode(dev) ((dev)->type == &typec_plug_altmode_dev_type)
++#define is_typec_partner_altmode(dev) ((dev)->type == &typec_partner_altmode_dev_type)
++
+ struct typec_altmode_ops;
+ 
+ /**
+-- 
+2.51.1
+
 
