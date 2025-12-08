@@ -4,75 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54CA4D3ABEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 08:38:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 277D4D3ABEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 08:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Uu9zn9HAv+ji6Lk8Z9qnfiKPT2mPCyrkdUfp4InyZHw=; b=eaCOVGfaSBGdnMkDb5JZVQuFM0
-	4CaT4G3f09sF1llvHaIyWOdVwzkqeal9nUN1EHW6Trlkv8vdidGcpRzEntCP4keOdfK5eTx+r20uZ
-	avNKyGxQpK4hwiqMQxut9UNuknE7LBEMZNZcckYs3Ho/gvrGCmADkVwaQ6F/Y70PWyBtNeZE7SrUa
-	QeFEA5hM6QBxFiE5WSJ3TbXGyepHujva1/06YU1HXqA0gF9g/uaa8KLyJerxA1TQb3BA3wj4bALkb
-	jjjeNyxAfOsReUEflYrDGowL2GvFhHMpFm2Wnl6EhrNxbg/ZXTlIvp/zwoEW0BNBoJP78XmXH1wq2
-	y0dHMznA==;
+	bh=25gliexFIPw1xaXaA4p1vXERtNcjYDKdlRD07e+H4mA=; b=Gb1AosvQRcpZzaNycTggm+uROC
+	gF3na9GBJDH/MgDfY7klnjNv+ShmO0JwPcDjeTOpceGOxkecu7nbCViy9gnHIDeukh7rSbp9hjEO4
+	4SNjNTPwWuBX93ackj0PYBAnuNMN7K73+dmTAyNVVuzHnLSdsI14Ky/tpsOAJbeUZpRYkA+KuSkVX
+	nTv5M+9a/hgYhNNM/AitIR49uMGdcLXaOFjsU2Bsdst/uUkwk670oZBi840AfJF9ZH4O9TdyRp006
+	BSJm6YbqunS3ug7Hndi3GWDnzelTGVpwrZNCg1+Z8HUB7hXyoDm+Yi7TBnHoIXqaYsrmMisTXpZRB
+	Aup2LVvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSWky-0000000Cosm-0ZmX;
-	Mon, 08 Dec 2025 08:38:08 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1vSWny-0000000CpBx-0Hij;
+	Mon, 08 Dec 2025 08:41:14 +0000
+Received: from mail-japanwestazon11022110.outbound.protection.outlook.com ([40.107.75.110] helo=OS8PR02CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSWku-0000000Corr-2ps0
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 08:38:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1765183084; x=1796719084;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=aJVLiKB0hw4i7u+gPQHx4MVI2yABH5AWG0hgZzIhmoU=;
-  b=krPSgaqQ/br4IM3fk/MAmE1B9bdBvVCmjtfPNfXT2kv679acS0qYD9+0
-   L1K75N+qA1qd/T4vlQmydvpAOZ1KnuhvJIpWo3eJIVfJ4wUJEaogN2G3o
-   BgOE/IdGbjQSyGUl2s+HgUSo7VDW/5KzjLsdc03bIX7LUqV0ZDAsbLbCN
-   vFHWkW/ou5+sHJLgTeJkJq7+fiShByhEjY1DV3L88OLzAawHOJOF1U0lE
-   mUjc4FpNPA+bODFAGb+EdnZUlc5ZOU5U5MiLQOSnND/ntPufcRyEaZdeC
-   QsfJ8jajGz0HSnXRPZQnF0vPCJ4H0KRnuW9hnwNQCLgMYmDCy4FiVy6fu
-   Q==;
-X-CSE-ConnectionGUID: eA4pPB0/RzaLndq8Vflnpg==
-X-CSE-MsgGUID: yxxIIWcySz6uk9ihfY1OYg==
-X-IronPort-AV: E=Sophos;i="6.20,258,1758610800"; 
-   d="scan'208";a="49530812"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Dec 2025 01:38:03 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
- chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.29; Mon, 8 Dec 2025 01:37:09 -0700
-Received: from DEN-DL-M31836.microchip.com (10.10.85.11) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Mon, 8 Dec 2025 01:37:07 -0700
-From: Horatiu Vultur <horatiu.vultur@microchip.com>
-To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <wsa+renesas@sang-engineering.com>,
-	<romain.sioen@microchip.com>
-CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, Horatiu Vultur <horatiu.vultur@microchip.com>
-Subject: [PATCH v5 2/2] ARM: dts: Add support for pcb8385
-Date: Mon, 8 Dec 2025 09:35:45 +0100
-Message-ID: <20251208083545.3642168-3-horatiu.vultur@microchip.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251208083545.3642168-1-horatiu.vultur@microchip.com>
-References: <20251208083545.3642168-1-horatiu.vultur@microchip.com>
+	id 1vSWns-0000000CpB9-1JKn;
+	Mon, 08 Dec 2025 08:41:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UEGDP02NkI8FZx+2cojgK3KhnLmA+JUFKmwRUQ9qSWaJMg2eE2ynkPYEuKZtMjwM8xim5CbAkuXZOJ2CJQgzGxbuEZLGYEckg8rkhvzZdP+2bUrBsu2Ef796AdyTcgqOmf7yLslC+8+U0W7LXrqyEv30eaCVp9uGZE4d7L1gzT7DsulaxwmtbNeOo5ET+yeVejQ50Sd4Fbd+WFaBiVkPpnvZ6ZLJaWYMGgaSqxt9fSKXiZJYru6rp6M3kQW9/xN1BXMbIB+Icx0LJPJL/wFzQpQglGZagMp18eAtwKvMk3LP3SmtkvdavzvC6XDCuYi7jg/mmzZKBlDLetaQ1/nJaA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=25gliexFIPw1xaXaA4p1vXERtNcjYDKdlRD07e+H4mA=;
+ b=lUzuGNiZwNTMpkz0hgZKm6WGPMXs5GFmQRjJyYNjmli+SXACtHAVjCVKdIM0mw1/NwQKjQcefr7sl9wZMFyhJrr0FCF4Dgg3QPZO+JqNG6cdIcPx7HdqB2EKNULdNEG/A1KTBxyJxqOFoDMnvLj/JFsqv9apF79pUG9RVS/S7Qgjdzx195yNNLCItDi4/oALl+njV6SWULskMk6JhYGdJMdCjubbxeQEj51WOVokUK36LqciNUtKLdqGry+Qsbb7fsAnB+EWY+Ffq1t3q9XOAedeBr++f2zESPlvRMSIoFFu8U8vWu6Piu0RYyCCVZ9Ye0ClnCCboeQ3XDXsURfULg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
+ dkim=pass header.d=amlogic.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=25gliexFIPw1xaXaA4p1vXERtNcjYDKdlRD07e+H4mA=;
+ b=BhQwDyTqW0PnN9UmnEPsTAbwdEWmvj469ri2IGHBgKt+ZgxOVhRGDYBLIiG6gAw7zRjRYtPggOLWqObJbdD/zKBuvEb31PB05SBxqDFcdyYQLEkCIm8DW0jnEpTCzN10/HlvdOOnLLyYEuFOkyXD6J/zjUZz21wN+mtdLWgxFjYQiBwBihwvDxfxR6cbgu2IjN2x9QbQFwyB0/agwqvIQXRjCKDUqQNWVlMv9H9lR30+ejGSPeAQtF3ZAqMmJux6mWfudNYD1E+DLR4kqwwREK1ioN4IvOW0P/Q2y3g8/eQTtreowt0f4EvwSSTNfI9DEg3AmVzl5qAiLfmPVqkEMg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amlogic.com;
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com (2603:1096:820:ca::7)
+ by SEZPR03MB6569.apcprd03.prod.outlook.com (2603:1096:101:74::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.14; Mon, 8 Dec
+ 2025 08:40:59 +0000
+Received: from KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::a311:33f6:519d:73bf]) by KL1PR03MB7149.apcprd03.prod.outlook.com
+ ([fe80::a311:33f6:519d:73bf%6]) with mapi id 15.20.9388.011; Mon, 8 Dec 2025
+ 08:40:59 +0000
+Message-ID: <dd90b445-bafb-46d4-8cec-e0877cf425b3@amlogic.com>
+Date: Mon, 8 Dec 2025 16:40:57 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/5] dt-bindings: clock: add Amlogic T7 SCMI clock
+ controller
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Jerome Brunet <jbrunet@baylibre.com>,
+ Xianwei Zhao <xianwei.zhao@amlogic.com>, Chuan Liu <chuan.liu@amlogic.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, robh+dt <robh+dt@kernel.org>,
+ Rob Herring <robh@kernel.org>, devicetree <devicetree@vger.kernel.org>,
+ linux-clk <linux-clk@vger.kernel.org>,
+ linux-amlogic <linux-amlogic@lists.infradead.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+References: <20251204053635.1234150-1-jian.hu@amlogic.com>
+ <20251204053635.1234150-3-jian.hu@amlogic.com>
+ <20251208-independent-warping-macaw-74a169@quoll>
+From: Jian Hu <jian.hu@amlogic.com>
+In-Reply-To: <20251208-independent-warping-macaw-74a169@quoll>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SI1PR02CA0011.apcprd02.prod.outlook.com
+ (2603:1096:4:1f7::19) To KL1PR03MB7149.apcprd03.prod.outlook.com
+ (2603:1096:820:ca::7)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: KL1PR03MB7149:EE_|SEZPR03MB6569:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3506ffbf-ffe6-4298-b2e1-08de363582d0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?OVd3Q2VxQ0xiL3NaQk1kbEk5QVU4aEM2aWtPM3MzaU5SaEFrbi9QSVZTckIy?=
+ =?utf-8?B?SmxJcEhTQll5Tkl4RmJ3LzFzWWZEUFdobEd2OWRLaXZ0MTZkQTVTNzNqbmFT?=
+ =?utf-8?B?SkNYa0RnQ0NQR3UzaHpOZzczdTBJNzBxenZFL2U0N0ZxTVJ6VmRrSHp3OWdZ?=
+ =?utf-8?B?dVlURTY2byswN1krWXRLb1NrQmI4RnZMOVdBNTh3K29BVDh0eVdrcVdZUVcx?=
+ =?utf-8?B?MVQySDBnUE5LNkg1ekN6ejRSSVR5cEt6bG9DeFByRFN2aGlTQWRQdzExL2Ja?=
+ =?utf-8?B?UCszZnlsYUVGcXY1Ukw5Rk5Ec3lCZWk4VnhmRVpBbGFWaXc1YjROV1FjMzkv?=
+ =?utf-8?B?UkYvY2JGOGxRQnEzU2h1dmFKcGI2d2FvR2dzVk83TUtMSjVXbDNPZW5qWWhQ?=
+ =?utf-8?B?ZzEvTVpKNXlzOWRTeHF3UmlVSlRDbmxTMjU5RFl6Vnp5Z1dSdHZLMkNOTkhK?=
+ =?utf-8?B?S3BNVldSUlJoYVpZWm5KOFNMRldSMnNlMTdmdklZbVArL1VXb0Jvd2RSb0s0?=
+ =?utf-8?B?Zit3V1M4K3B2c2hMazBUbmFtc3g1eE9MSmRHWjdUeERmWENBM3VzSitxR3lh?=
+ =?utf-8?B?VmhqUXpIRVBodktMbVlOWjgvN3hsTFRzckJLeFRwN3lrcU80WEc2YmJCcG1i?=
+ =?utf-8?B?U3NlQUNPN2d1TWxxNjVPckNaYjRwTk4wODJjNXdwYnF2TjZxUFBrYkhGQnFw?=
+ =?utf-8?B?cE1GOVE0RVNjd3hIVER3L0xHSTZsSmZsQ1RhVng0TTI2WGo4MS8yMmU2Z1BF?=
+ =?utf-8?B?eWRVYXc4UzNYODg2SHBpbDhwVDFwVm9oMDVTVmx3eG5nOU41VmpFZHJDREwv?=
+ =?utf-8?B?dTlEaXpiMk5KQkdKZ29SMG9sWXZkVThTT1JvMTBkQWxQVFozZVlsSkVwbHZu?=
+ =?utf-8?B?WnVxSk1XdWs0ZWZ3aVRzNlRzZlppQ3pDZlV2SFhjbkVOR1JSMmFYL2QrVDA2?=
+ =?utf-8?B?Vkh2KzFMeTBHTVFPSFVwQVR4c3NPTU1rY3U1R3hkMy9kdTJxbU9Oa2Z2TzVr?=
+ =?utf-8?B?SWxkY3JpaWdBN0RZd3dxOEpQYjFLU01IQW5xdVpyaWZIalhnMjhuRjgrT25W?=
+ =?utf-8?B?Mm04Q1FZbzBJOVlHWStPSGFHbGRBUjA1azZncXlQR2lPT2tCazhncjRkZ0Zn?=
+ =?utf-8?B?WDlvbSttaDFhU08xc2NDMjRsc0paL2VCZWpVdHBzV3hsUGFCNDVBYlhFbkY2?=
+ =?utf-8?B?Rk1xWHZUMURMc1RQOUlkdzN1VEZsQ0lpUmg3cytLU1lVUlNtV2NhY1ByMEFv?=
+ =?utf-8?B?K0RpMkcyQVVJV3NzcWN1Umtzc1IySSs0RUM4VjF1Z3RnRGwwRERybUpGaWN6?=
+ =?utf-8?B?R3dudG5rNzFCbk00VXZadXlpY3JWTWY3ZENJOVQ5V2tpQVBwZFE0WVV5RFJ0?=
+ =?utf-8?B?QmhHK3RPNjZqVHNFOWV4ZXJYaEVEZWQ5a0VTdG5oNmZPcEpQRDdiTjQzZm9s?=
+ =?utf-8?B?NkMvenF2M2hUNGhLLzNEZldxaFJpU1NndUp6RWM3S0NDL2FYNGNybVZWaUdt?=
+ =?utf-8?B?TWZacUhNTjZNdjY4czhwRDltYjdWMXU3RSt0S3JHTHNpcjlPdllvWUIyL3ZR?=
+ =?utf-8?B?QlRXTG9FWEI4WkNPeGk2dzFESUFLTlhUbWRJNjd0MEJKemozSmpoeEUrTlJl?=
+ =?utf-8?B?NlhsWVhWMjBUSlZWRXRycTVxd09QMVVnQlJ0M0gvMDlzTlpzZGZ6emJaS3lU?=
+ =?utf-8?B?WEVMU21FMmVoMG43T0w0MXcwNGNMdkdxNXlNd2hBV1hUYzJBcVIxQklqRkNR?=
+ =?utf-8?B?aVdjT2dZSWFjNnhHbDZMc2J4K3p3SkwvbU03dmtUMjQrVFU1ZWVEemxmUEtk?=
+ =?utf-8?B?RFFlVWp6cmE2K1VMVUFuR0VyT3FIRUw0K2t1c1VRR3QzRUtDR0pZY3lWTWFD?=
+ =?utf-8?B?eEJPUGN6VGlCamg2YVJ1M3QwUTViTElPQjMzLzMvQzl6TG0vTm9YTVoyeGNP?=
+ =?utf-8?Q?rcSdwUkxZQReyqrB8Clw+YHIgtqq44/L?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB7149.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ZlpPQzNLVnlpemV5N0xnbCt1S1pRUGgwTTArcUJCdCtTbDJDT0c3ZFpPOS9J?=
+ =?utf-8?B?V3BmQ3dBUnk1dFJWNVRnY2dHdFFHZWI2V2hoSk9mSWlUL1JYRDR6bzdSRjJ4?=
+ =?utf-8?B?ZVdQc1ZyN1RvMjQ3UGpFUHR0N25mdnlXYk8xZVlhblJzb3pjQ3hWZ0VybzdU?=
+ =?utf-8?B?SUxQSjJsc3pzSmRrbTdLc0d3MVdvWUVQdlFNakpXbWZCdHRwSWo2cEVsNU9W?=
+ =?utf-8?B?U2MvNkNZd2c0Q0ZwZWNxSWxsd2dMc0c4SHZXdWJkZlEva2JaOWwxK1J4T2NY?=
+ =?utf-8?B?WThOZ0Fuek1JQkQ4Z2FEWndLeU9xOFlRODVRK3dxOWxPdGxLejNBdlhBUFRC?=
+ =?utf-8?B?U1B3Sjhsb0tCck9mUVZDeStBcjN6ZnBldm5nRTNkNnBjUTZRWWRXNGh1VEpq?=
+ =?utf-8?B?cERGb0U1d1lUdUJleHUvUVJVZG1jTnZOemJUV1gwOEJycko5QStaUitsWWRl?=
+ =?utf-8?B?U0dmZjE1Sng5R2dTSWFLb1pPRFpqMjNYRkswZ1hYaWFtU1VRSUd1MXhaM29P?=
+ =?utf-8?B?UWhTcm9sN2lEcWxFVHBFOGx5Sm9sUnI5WWUvNVdiZ2ZpZEpGb1M1Z3lJdVNN?=
+ =?utf-8?B?UkZ0SDQ4T01adi9OUmY1SDRnNnpteHNnQU01TzZRNW9sbVBjSmprckVlRThM?=
+ =?utf-8?B?eUpmdVZaMWQrL2hBZUNTa3crTkxKL0N3L005d2xoMWlrUURiMXF1VkQwcjh1?=
+ =?utf-8?B?TTZ5Z1d2MjFoY3RZY0k5U2VwWnpWNjQ4WVJhQ0hORDkzM1VKbVdId2kxRmho?=
+ =?utf-8?B?ZzY4WlJkeU01UnR3eVdHNzhFZmNVdDUxTmZwM0laS2lGTEFxQWVqdmUwNTNS?=
+ =?utf-8?B?MlMxMUZtcUtqRmJDYTFVMlNraEJyejN5N2VhQnQxSVI1djRkUHlrRXhzcSsw?=
+ =?utf-8?B?VHVzK2JRZVlqdG11L0QyQ29CcFMrSi9yYUNIazM0UnoxN0xPZjE5a0FFTFRI?=
+ =?utf-8?B?d3RRVFlZZ3VkTVdrSUd1eG1mWVFjcTNhblMwNW02eG1mYzZ1N3FhOE5OT3Fa?=
+ =?utf-8?B?K2NaSlByWno4OVUyMU9vZ09ONDRpWUp3YTMwLzNiOHVWTy94L044YnZTcVkx?=
+ =?utf-8?B?dk8yUm1DcGdNbWVsZkU4NjdGdVNCWmVINVdKNXVxVDg1ZWZEUDFkc1V0QlYv?=
+ =?utf-8?B?eUw2QnNmdXhNNGZFY2UzMUQ4blpEa2xqZ0orTU5BeGl6VjZzRHB2anNWMWVZ?=
+ =?utf-8?B?bW1wN25hZi9Ec0tld1hqS1o1ZzR0TnlVVEUxaGNoZWxmVk9NendCZVA5Q0Ni?=
+ =?utf-8?B?WlNzSDVlVkFjLzBxakpzUkpBNWdoeStOc2VtN2xDQitmQUx4cE03cmU5Y0VR?=
+ =?utf-8?B?TXJ6alU5cys3d3hCZmJnY2FHSUoxK2NVTU9rdjgyQTRMajFuaitsVjJoVU1l?=
+ =?utf-8?B?WlhtbUsxOVgyU3puZ2NhSXVYVndDcEh3d3JuczBFMFdrbllXaEtkTWIrdEF0?=
+ =?utf-8?B?dzYxVFZPaCtOMm5ucjNvVENZUCt6T3RhREJ1RHhvWEhodGRWdUc2VThCaDVP?=
+ =?utf-8?B?TnovS2F2Wnd1Tk5NaTY4TGFJRENoSFEyR0lqSWM0UWEzd2dOSHBSam14NElh?=
+ =?utf-8?B?WHVUOEZBbnd0SU02MDVVSk9FQmhPdUVHU2hTVjcvWGlSM2M1alZyakdPZXg0?=
+ =?utf-8?B?dUlCL0o5ejRtMTZaUERjU1ZOaUZ6K0NkU1JvWkRZdGlCb0JGQlVYYUZ4WURw?=
+ =?utf-8?B?WFVlMXByYzdWY1grU3lydG8vWWRRUmhvcmUvdnpyUlM5dXhpaUR5VjloTllZ?=
+ =?utf-8?B?RVo2K0pnWHhSRmx6UEJCQ29IbE5qTkY5bzVYVEZLVUthdDk2Tlk2a3cvRmlX?=
+ =?utf-8?B?Wno1eUl0d3VSN0I5NW5ldDQzcGpCUjVGSEg0MndaOGJ0dDhZOVRQek9kdG5P?=
+ =?utf-8?B?UVhBN2ZMVU5xOS9JSDZRNy9OM3pVWHgvRHZYd0xhSDFyU1FwY3lmSXhXMkRE?=
+ =?utf-8?B?ZEQ0clJQT1VxOXFtRjBMQ04wMTFmMUNCRy9tdnZFR1BZRjQ0QlY5aWJ2Qjhh?=
+ =?utf-8?B?Q2dxVmw1QjdUZU1YbzVNekU0cmRpbXZCV1E1V1lMcElBS3huTjNjZTlJdmtw?=
+ =?utf-8?B?OEJuczhPR3NqaUM2VkZCZ0xZc2lqNnVhbUVCMXFYektUVTUvK3NLelVyZldm?=
+ =?utf-8?Q?62HyjyPjwChc1vAT2kAEy9d5N?=
+X-OriginatorOrg: amlogic.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3506ffbf-ffe6-4298-b2e1-08de363582d0
+X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB7149.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Dec 2025 08:40:59.0557
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Ln1+cA2wetbz/spxCUToa9Cnfd3f888aN9zMBES7pXTYIEQ/zH0IGPvgHWwoMqrqCrbGyXy1ycBGeENCHWMn+A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB6569
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_003804_781893_601582DF 
-X-CRM114-Status: GOOD (  15.39  )
+X-CRM114-CacheID: sfid-20251208_004110_587061_E30A1470 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,168 +184,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add basic support for pcb8385 [1]. It is a modular board which allows
-to add different daughter cards on which there are different PHYs.
-This adds support for UART, LEDs and I2C.
+Hi, Krzysztof
 
-[1] https://www.microchip.com/en-us/development-tool/ev83e85a
 
-Signed-off-by: Horatiu Vultur <horatiu.vultur@microchip.com>
----
- arch/arm/boot/dts/microchip/Makefile          |   3 +-
- .../boot/dts/microchip/lan966x-pcb8385.dts    | 131 ++++++++++++++++++
- 2 files changed, 133 insertions(+), 1 deletion(-)
- create mode 100644 arch/arm/boot/dts/microchip/lan966x-pcb8385.dts
+Thans for your review.
 
-diff --git a/arch/arm/boot/dts/microchip/Makefile b/arch/arm/boot/dts/microchip/Makefile
-index 79cd38fdc7dab..08986c24a4700 100644
---- a/arch/arm/boot/dts/microchip/Makefile
-+++ b/arch/arm/boot/dts/microchip/Makefile
-@@ -102,4 +102,5 @@ dtb-$(CONFIG_SOC_LAN966) += \
- 	lan966x-kontron-kswitch-d10-mmt-8g.dtb \
- 	lan966x-pcb8290.dtb \
- 	lan966x-pcb8291.dtb \
--	lan966x-pcb8309.dtb
-+	lan966x-pcb8309.dtb \
-+	lan966x-pcb8385.dtb
-diff --git a/arch/arm/boot/dts/microchip/lan966x-pcb8385.dts b/arch/arm/boot/dts/microchip/lan966x-pcb8385.dts
-new file mode 100644
-index 0000000000000..d18969275efea
---- /dev/null
-+++ b/arch/arm/boot/dts/microchip/lan966x-pcb8385.dts
-@@ -0,0 +1,131 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * lan966x-pcb8385.dts - Device Tree file for PCB8385
-+ */
-+/dts-v1/;
-+
-+#include "lan966x.dtsi"
-+#include "dt-bindings/phy/phy-lan966x-serdes.h"
-+
-+/ {
-+	model = "Microchip EVB - LAN9668";
-+	compatible = "microchip,lan9668-pcb8385", "microchip,lan9668", "microchip,lan966";
-+
-+	aliases {
-+		serial0 = &usart3;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	gpio-restart {
-+		compatible = "gpio-restart";
-+		gpios = <&gpio 59 GPIO_ACTIVE_LOW>;
-+		open-source;
-+		priority = <200>;
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		led-p1-green {
-+			label = "cu0:green";
-+			gpios = <&sgpio_out 2 0 GPIO_ACTIVE_LOW>;
-+			default-state = "off";
-+		};
-+
-+		led-p1-yellow {
-+			label = "cu0:yellow";
-+			gpios = <&sgpio_out 2 1 GPIO_ACTIVE_LOW>;
-+			default-state = "off";
-+		};
-+
-+		led-p2-green {
-+			label = "cu1:green";
-+			gpios = <&sgpio_out 3 0 GPIO_ACTIVE_LOW>;
-+			default-state = "off";
-+		};
-+
-+		led-p2-yellow {
-+			label = "cu1:yellow";
-+			gpios = <&sgpio_out 3 1 GPIO_ACTIVE_LOW>;
-+			default-state = "off";
-+		};
-+	};
-+};
-+
-+&aes {
-+	status = "reserved"; /* Reserved by secure OS */
-+};
-+
-+&flx0 {
-+	atmel,flexcom-mode = <ATMEL_FLEXCOM_MODE_TWI>;
-+	status = "okay";
-+};
-+
-+&flx3 {
-+	atmel,flexcom-mode = <ATMEL_FLEXCOM_MODE_USART>;
-+	status = "okay";
-+};
-+
-+&gpio {
-+	fc0_b_pins: fc0-b-pins {
-+		/* SCL, SDA */
-+		pins = "GPIO_25", "GPIO_26";
-+		function = "fc0_b";
-+	};
-+
-+	fc3_b_pins: fc3-b-pins {
-+		/* RX, TX */
-+		pins = "GPIO_52", "GPIO_53";
-+		function = "fc3_b";
-+	};
-+
-+	sgpio_a_pins: sgpio-a-pins {
-+		/* SCK, D0, D1, LD */
-+		pins = "GPIO_32", "GPIO_33", "GPIO_34", "GPIO_35";
-+		function = "sgpio_a";
-+	};
-+};
-+
-+&i2c0 {
-+	pinctrl-0 = <&fc0_b_pins>;
-+	pinctrl-names = "default";
-+	dmas = <0>, <0>;
-+	i2c-analog-filter;
-+	i2c-digital-filter;
-+	i2c-digital-filter-width-ns = <35>;
-+	i2c-sda-hold-time-ns = <1500>;
-+	status = "okay";
-+
-+	eeprom@54 {
-+		compatible = "atmel,24c01";
-+		reg = <0x54>;
-+	};
-+
-+	eeprom@55 {
-+		compatible = "atmel,24c01";
-+		reg = <0x55>;
-+	};
-+};
-+
-+&sgpio {
-+	pinctrl-0 = <&sgpio_a_pins>;
-+	pinctrl-names = "default";
-+	microchip,sgpio-port-ranges = <0 3>;
-+	status = "okay";
-+
-+	gpio@0 {
-+		ngpios = <64>;
-+	};
-+	gpio@1 {
-+		ngpios = <64>;
-+	};
-+};
-+
-+&usart3 {
-+	pinctrl-0 = <&fc3_b_pins>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
--- 
-2.34.1
+On 12/8/2025 2:17 PM, Krzysztof Kozlowski wrote:
+> [ EXTERNAL EMAIL ]
+>
+> On Thu, Dec 04, 2025 at 01:36:31PM +0800, Jian Hu wrote:
+>> Add DT bindings for the SCMI clock controller of the Amlogic T7 SoC family.
+>>
+>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+>> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+>> ---
+>>   include/dt-bindings/clock/amlogic,t7-scmi.h | 47 +++++++++++++++++++++
+>>   1 file changed, 47 insertions(+)
+>>   create mode 100644 include/dt-bindings/clock/amlogic,t7-scmi.h
+>>
+> Where is any binding doc for this? Why is this a separate patch?
 
+
+The ARM SCMI device tree binding specification is located at 
+./Documentation/devicetree/bindings/firmware/arm,scmi.yaml.
+
+Certain secure clocks on the T7 rely on the ARM SCMI driver stack, which 
+is officially supported by ARM.
+
+The kernel-side SCMI client implementation resides in 
+./drivers/firmware/arm_scmi/.
+
+To enable ARM SCMI on T7, three components are needed:
+
+- Kernel-side definition of ARM SCMI clock indices (this patch addresses 
+this component);
+- SCMI server implementation in the ARM Trusted Firmware (ATF) running 
+at Exception Level 3 (EL3), which has been integrated into the bootloader;
+- Device Tree Source (DTS) configuration for ARM SCMI clock nodes (the 
+DTS changes will be submitted after the T7 clock driver patches are 
+merged upstream).
+
+
+>
+> Best regards,
+> Krzysztof
+>
 
