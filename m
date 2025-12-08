@@ -4,76 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70492D3ABEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 06:25:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D871D3ABEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 06:25:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KzMFh8Xc9hn86bPrXJKSWmnPboYI/YYS/BmmUfgFs7M=; b=mCDRKkCK6tUdGGweyA6urN7VTy
-	nkTTnU44t/sXnhffZdWEwUSro4hWkToxfCvqArWzXAztud/SHQ1MxtSWEDYpt5nK4jWE7kEgrnCkK
-	eoubEov+wjLPFmMoRjZW07KnFcVJUvUf+Z50jpZsfvURog+UXOeRvMjGhCgrmnYJWGcXQPQE3E/iF
-	lReepakp+mt72f+UZU2A6AhSXHG2oQAM91TUPUu20yD3Dm7lt6Kg2rP6J087nbGLebTKtepz+g9IF
-	DKX0TYVgDtbG1EUJg+Ltst5oDK1nvvnGeO8jcuKnOE7jyOkSyiEo/JltMl4Myn1gkPVkFlAn3sI7h
-	oAXSXi2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hPTzVBaqEy6TULFAz5dE1caK6KjuW23EPXH/+kI6e3w=; b=1IPY5/6h4Bo0rXYdPlWL9ehhsM
+	NdMzrJEjK5KrMxXanOXV3w/lbuVboL+fw/KuyH++XggYP+/xZ9wl2li6QFf0EE5j++a4r3R1jcErw
+	X+BF9ybTx0uocbesajSe7pQ43aV+QRbJzbWX36gDbLWQXIu5BKEoHExsFHuZ1ZZ8frZ5/96ZYcmxv
+	Kt3Tv1j9yz16XPM7xWgkgc/LVtq/Gzqkfbbi9wP/uGT90VMVdSxjB4s0A5a4DB64IlrExc3HVUVMP
+	k4VVDfoL+5eArHfTMluj7u/gQgSEQwbqm+m4tjiXT9cZF/IWcKdxrKHo7u1NC7FCNdmCiPF81C1+a
+	8WDaQz0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSUg5-0000000CgDu-2RtE;
-	Mon, 08 Dec 2025 06:24:57 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1vSUgG-0000000CgG4-3wIv;
+	Mon, 08 Dec 2025 06:25:09 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSUg1-0000000CgCy-3uYX
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 06:24:55 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=KzMFh8Xc9hn86bPrXJKSWmnPboYI/YYS/BmmUfgFs7M=;
-	b=mBoy5hisy2n1S6lFUsiXjL1q+NUMuMhoUL4DSOZvNUvxozZZ1npVGBlZk0Y7W6g0j7rwWqRYs
-	/zFT6NaT6FDi9g9KmXfjLz8ab/3DpO/s7LAdq9kp2dgN8LXruq7lpnZGdyoecbZp99qoSAnP0jN
-	oqrPSNcLPdNTjgXHqu0DhVc=
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4dPsMg3PQ2zcZxm;
-	Mon,  8 Dec 2025 14:22:07 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3B68E180BD7;
-	Mon,  8 Dec 2025 14:24:44 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 8 Dec 2025 14:24:42 +0800
-Message-ID: <9102697c-9159-395d-e1b5-78439aa5a8b9@huawei.com>
-Date: Mon, 8 Dec 2025 14:24:41 +0800
+	id 1vSUgF-0000000CgFb-09F7;
+	Mon, 08 Dec 2025 06:25:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D80AB43E02;
+	Mon,  8 Dec 2025 06:25:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D39EC4CEF1;
+	Mon,  8 Dec 2025 06:25:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765175105;
+	bh=hPTzVBaqEy6TULFAz5dE1caK6KjuW23EPXH/+kI6e3w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=km20+9PIg/iViZ0NYE8uaRiyLaTbKSmgch3obiYfXVs+ozkiZJZ8arJC9IiSsgUYQ
+	 neZTOdq7bafg4OT0DtMcMQBK7ztBDzbIa/0ByW/WS6A4BwJLxETD15VmYJIPjLPpjq
+	 Qpvb2cOkraeDtYJEMJTSlzq1H5FTOKcLM5PCjLchseIJSbwcoYlJFVyLfnheKoKlDC
+	 vnqDOyoYkXh1T2Tl0iRBoUw/Tfd04RgMNQ8UiH39UXVt3C4U65uagIDNjNalWUj2ou
+	 Vwt7db1NHtAZ8mOieOY17dMqF7uqV0YpB8EkOX/iaEJRjv68xP1kRNv7Rm1U3vqHyV
+	 RCsM+/6YfqevA==
+Date: Mon, 8 Dec 2025 07:25:03 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Ye Zhang <ye.zhang@rock-chips.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	tao.huang@rock-chips.com
+Subject: Re: [PATCH v2 3/8] dt-bindings: pinctrl: Add rv1126b pinctrl support
+Message-ID: <20251208-snobbish-curvy-mouse-67fafe@quoll>
+References: <20251206050844.402958-1-ye.zhang@rock-chips.com>
+ <20251206050844.402958-4-ye.zhang@rock-chips.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH v9 04/16] arm64/ptrace: Refactor
- syscall_trace_enter/exit()
-Content-Language: en-US
-To: Anshuman Khandual <anshuman.khandual@arm.com>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <oleg@redhat.com>, <tglx@linutronix.de>,
-	<peterz@infradead.org>, <luto@kernel.org>, <shuah@kernel.org>,
-	<kees@kernel.org>, <wad@chromium.org>, <deller@gmx.de>, <macro@orcam.me.uk>,
-	<charlie@rivosinc.com>, <kevin.brodsky@arm.com>, <ldv@strace.io>,
-	<mark.rutland@arm.com>, <song@kernel.org>, <ryan.roberts@arm.com>,
-	<ada.coupriediaz@arm.com>, <broonie@kernel.org>, <pengcan@kylinos.cn>,
-	<dvyukov@google.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
-References: <20251204082123.2792067-1-ruanjinjie@huawei.com>
- <20251204082123.2792067-5-ruanjinjie@huawei.com>
- <dd3a1421-dfb0-445e-b2f7-7c273fa4a020@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <dd3a1421-dfb0-445e-b2f7-7c273fa4a020@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- dggpemf500011.china.huawei.com (7.185.36.131)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251206050844.402958-4-ye.zhang@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251207_222454_704881_443D010B 
-X-CRM114-Status: GOOD (  14.33  )
+X-CRM114-CacheID: sfid-20251207_222507_113057_708FB874 
+X-CRM114-Status: UNSURE (   7.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,133 +76,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Sat, Dec 06, 2025 at 01:08:39PM +0800, Ye Zhang wrote:
+> Add the compatible string for the rv1126b SoC.
 
+Why? What is the difference against existing one? Please write useful
+commit msgs, not something obvious being copy of the diff and subject.
 
-On 2025/12/8 13:48, Anshuman Khandual wrote:
-> On 04/12/25 1:51 PM, Jinjie Ruan wrote:
->> The generic syscall entry code has the following form, which use
->> the input syscall work flag and syscall number:
->>
->> | syscall_trace_enter(struct pt_regs *regs, long syscall,
->> |		      unsigned long work)
->> |
->> | syscall_exit_work(struct pt_regs *regs, unsigned long work)
->>
->> In preparation for moving arm64 over to the generic entry code,
->> refactor syscall_trace_enter/exit() to also pass thread flags, and
->> get syscall number by syscall_get_nr() helper.
->>
->> No functional changes.
->>
->> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
->> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
->> ---
->>  arch/arm64/include/asm/syscall.h |  4 ++--
->>  arch/arm64/kernel/ptrace.c       | 25 ++++++++++++++++---------
->>  arch/arm64/kernel/syscall.c      |  5 +++--
->>  3 files changed, 21 insertions(+), 13 deletions(-)
->>
->> diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
->> index 5e4c7fc44f73..cef1d9ce6e1b 100644
->> --- a/arch/arm64/include/asm/syscall.h
->> +++ b/arch/arm64/include/asm/syscall.h
->> @@ -120,7 +120,7 @@ static inline int syscall_get_arch(struct task_struct *task)
->>  	return AUDIT_ARCH_AARCH64;
->>  }
->>  
->> -int syscall_trace_enter(struct pt_regs *regs);
->> -void syscall_trace_exit(struct pt_regs *regs);
->> +int syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long flags);
->> +void syscall_trace_exit(struct pt_regs *regs, unsigned long flags);
->>  
->>  #endif	/* __ASM_SYSCALL_H */
->> diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
->> index 3926ce6aa268..b962cbcca11d 100644
->> --- a/arch/arm64/kernel/ptrace.c
->> +++ b/arch/arm64/kernel/ptrace.c
->> @@ -2381,9 +2381,8 @@ static void report_syscall_exit(struct pt_regs *regs)
->>  	}
->>  }
->>  
->> -int syscall_trace_enter(struct pt_regs *regs)
->> +int syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long flags)
->>  {
->> -	unsigned long flags = read_thread_flags();
->>  	int ret;
->>  
->>  	if (flags & (_TIF_SYSCALL_EMU | _TIF_SYSCALL_TRACE)) {
->> @@ -2396,19 +2395,27 @@ int syscall_trace_enter(struct pt_regs *regs)
->>  	if (secure_computing() == -1)
->>  		return NO_SYSCALL;
->>  
->> -	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
->> -		trace_sys_enter(regs, regs->syscallno);
->> +	/* Either of the above might have changed the syscall number */
->> +	syscall = syscall_get_nr(current, regs);
->>  
->> -	audit_syscall_entry(regs->syscallno, regs->orig_x0, regs->regs[1],
->> +	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT)) {
->> +		trace_sys_enter(regs, syscall);
->> +
->> +		/*
->> +		 * Probes or BPF hooks in the tracepoint may have changed the
->> +		 * system call number as well.
->> +		 */
->> +		 syscall = syscall_get_nr(current, regs);
->> +	}
->> +
->> +	audit_syscall_entry(syscall, regs->orig_x0, regs->regs[1],
->>  			    regs->regs[2], regs->regs[3]);
->>  
->> -	return regs->syscallno;
->> +	return syscall;
-> 
-> regs->syscallno still remains unchanged even if syscall is evaluated to be different ?
+Best regards,
+Krzysztof
 
-No, arm64 syscall_get_nr() returns regs->syscallno, use syscall_get_nr()
-helper here to get the local "syscall" is to stay consistent with the
-generic entry, without any semantic change.
-
- 23 static inline int syscall_get_nr(struct task_struct *task,
- 24 >------->------->------->------- struct pt_regs *regs)
- 25 {
- 26 >-------return regs->syscallno;
- 27 }
-
-> 
->>  }
->>  
->> -void syscall_trace_exit(struct pt_regs *regs)
->> +void syscall_trace_exit(struct pt_regs *regs, unsigned long flags)
->>  {
->> -	unsigned long flags = read_thread_flags();
->> -
->>  	audit_syscall_exit(regs);
->>  
->>  	if (flags & _TIF_SYSCALL_TRACEPOINT)
->> diff --git a/arch/arm64/kernel/syscall.c b/arch/arm64/kernel/syscall.c
->> index aba7ca6bca2d..ec31f82d2e9f 100644
->> --- a/arch/arm64/kernel/syscall.c
->> +++ b/arch/arm64/kernel/syscall.c
->> @@ -124,7 +124,7 @@ static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
->>  		 */
->>  		if (scno == NO_SYSCALL)
->>  			syscall_set_return_value(current, regs, -ENOSYS, 0);
->> -		scno = syscall_trace_enter(regs);
->> +		scno = syscall_trace_enter(regs, scno, flags);
->>  		if (scno == NO_SYSCALL)
->>  			goto trace_exit;
->>  	}
->> @@ -143,7 +143,8 @@ static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
->>  	}
->>  
->>  trace_exit:
->> -	syscall_trace_exit(regs);
->> +	flags = read_thread_flags();
->> +	syscall_trace_exit(regs, flags);
->>  }
->>  
->>  void do_el0_svc(struct pt_regs *regs)
-> 
-> 
 
