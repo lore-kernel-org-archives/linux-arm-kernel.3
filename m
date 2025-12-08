@@ -4,69 +4,184 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 279DBD3B7F3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 17:10:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EAE2D3B7E2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 17:11:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g2EmsbSh+wdLOpkXuTE6mDTQFKjUSKxhk79rnFcaH3Y=; b=TMDyG4jsR7szDdLKS4XfwEJdvO
-	wQ4GB49FCoQNNnWAp0EZUU6kOb3nNsyxxPFtCA4PObWoVFyns28dnN0HzmSerhtqSdGXUGnHe17b1
-	D3B0lyAmg7cfo0++t0LT6BXfwwUPpTYaMnniD0A3u0pUcwGWqxHTFEBarCZ7LEuolS2O2jAti6Fpt
-	8cfzRzvn++jiehTPodCR+n+jCHtLDVhSLyUVW99iPBvJ1s8AWNYdEK8Q8F2HCq59i9uZVbNoDis1h
-	mB41hF0QU+Hi6f9olYkLhoRDfGcdaAXEVyT4zTI8VIOPW5tTtoP3w9QElK8OSyBJqf5Y3pJSjGrOL
-	4o7dWehQ==;
+	bh=4OF0NPTzno8P0i/09UAP4yGbxWYgyYeu5gICzVn963g=; b=XdnTLupgtSt9NN6istTXCwoz4K
+	8BfAT7/NWJRJHP9nKrVqiXqGcXk0+4iiR6/W6r7XJ3WB9Lj4W+xcSDM2ccUHC5OcKJieagpfn1sm+
+	/chTPALgnS7T/L6NdGuDo0mFpVjskETDmmdJoi96GwW2EHa1wSZgSb15nKTeopSWJNtyfP3UvfdgU
+	2HO/p9VWrlJh7Mb5+NzqMRRfJhB4CbIfExd1zypOgQmS+zUrRU3YmqYZMjx4SSh3BmXyG/hDHNLtV
+	uRoQXjNzSt9xPM4mcfqh7RSA0EGqFY43eRyPt8Fzj2Fd25842N6azGSHh6r0yCpxjoGRfTcP6yelW
+	4QUKzrrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSel4-0000000DLsm-2rkJ;
-	Mon, 08 Dec 2025 17:10:46 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vSel9-0000000DLxw-0Ygh;
+	Mon, 08 Dec 2025 17:10:51 +0000
+Received: from mail-westeuropeazon11011031.outbound.protection.outlook.com ([52.101.70.31] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSeky-0000000DLjn-39sN
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 17:10:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9ED4F44460;
-	Mon,  8 Dec 2025 17:10:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3945AC4CEF1;
-	Mon,  8 Dec 2025 17:10:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765213839;
-	bh=HUczN0JOy5c/9Nhyo4/4Hy2U/dsetbWKARZVVXVoP9Q=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IomiSZG43h+0wzBvViLmonXggdL1L8miPSoGm147yGhfQYDIp64e1fJGYbESJXiy8
-	 NqnE82zKagCuYc7xpcswOpSlliIJEg0He+IwQY++G7PcYLdtKJhoBW3Evg2tjAvV8x
-	 XAegUd63IVJ2e29Jh++NR/1f6koztv2A0KCs4TQW5Gf7i139Ysep8ATNbDgSdRDJ7n
-	 SpTRfbcamtXduMd1gLBdBMZ55NNPcnsQ4cQ2/i0NTitZyBp2sZ/lwz44rPSulZQhgH
-	 x4P8xHfiIK3N6cY5PY775Q0edhoVWQ4cdMQKCwk7KUfUIsIMjLZbTTC7ok5Wu/M18M
-	 h6ZG/jgxbklPA==
-Date: Mon, 8 Dec 2025 17:10:33 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Robert Marko <robert.marko@sartura.hr>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	gregkh@linuxfoundation.org, nicolas.ferre@microchip.com,
-	claudiu.beznea@tuxon.dev, mturquette@baylibre.com, sboyd@kernel.org,
-	richardcochran@gmail.com, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	daniel.machon@microchip.com, UNGLinuxDriver@microchip.com,
-	luka.perkov@sartura.hr
-Subject: Re: [PATCH 2/4] dt-bindings: arm: Document Microchip LAN969x
-Message-ID: <20251208-absolute-diploma-6575729ab43f@spud>
-References: <20251203122313.1287950-1-robert.marko@sartura.hr>
- <20251203122313.1287950-2-robert.marko@sartura.hr>
- <20251203-duly-leotard-86b83bd840c6@spud>
- <CA+HBbNH6wO2VWOp1Dn52ArrYg6z89FgYnT3x-jsHsTVJ5xSBSA@mail.gmail.com>
+	id 1vSel1-0000000DLcp-45sM;
+	Mon, 08 Dec 2025 17:10:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WBfjqqnqFyqFip8Mxkt9aDXubfcyqVVxrC0kaqCujrQOi+NLd1fJ14VunQktuGDKD7claO3M1DTDEbQnnU0mH6knCxwBkvWBQtD9Rwx3hAesgmCAfWLlIvpPqI5EVNj+S+u99EIMQ2Cm+R+dYpATiRvE7VlCQm6384YpZVs2znVwpNfXBwD4UFpUYVEj8YgJqrLORmXR82VIUG1/qmnfg7gNIU86OY0HmCgd0A9C3GlB5dDnTYR4J2t3LbdEzvMN6OeLA0FfxFCRsfQb44+kg6UhGXZp2LPGM/hVQt7WcASCU5Fw6q8ys8MeNEaBe2SlMd6f0302fd6ctNgFznRTQQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4OF0NPTzno8P0i/09UAP4yGbxWYgyYeu5gICzVn963g=;
+ b=TIJqywRZaKmLh3CKUSF3kDIqWcQA1izA1Difbg4O7NOC85LORqYulBgnKWZV9Jicfl20bgeWqyDKHfqzdjDG5Su0Gx4yTUwo9+r6eNHzYN/IizdP6wdNSaG8w+zX4jbRwm8QFBjtWAUPmEZWBQfrd64m98QbqoYIWj9pXqNZrXuGViVlGj3ZSQXDBoCdmV6htxF32D6NQReBy90C7lALyVbaix68Xk21XXKyXp64KBTNkt+/ADt3BVA/SCWW9O3XFWU4FmgDQjiwAZ9liMErwbKe8UwVgV08yJbJz9aexXzq+KI5D2r5JApVTzdbzTfSktIv8AT/lG9M48CtgALVxQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4OF0NPTzno8P0i/09UAP4yGbxWYgyYeu5gICzVn963g=;
+ b=Soatled9d0EyoeRApum1mRjbel9oY4I/57OijHOv3kaSEpdv2JYt2xaoqvPcHim/3q0D1Q1MhgiS5PPhC7Um2yGGSxel1KQFALbs4XMeQz/FtbkatuLHMuHzcvoX1dsEMh1Frc4+diQbNIhz9Q7cPsNSwOoUbMnEnLrnnIg0egO97zrCLzmeTFFTnqHEXduVMLUyQ/euxCjbPCUfDgHW+d7m4wEQoLRDzykPGiCbHlA+fFIYWd+Ilob+XnvEAu2AOMyul2X3UhI6V5MJgUUpPS0nbqZaMqOK9gm7XQwBl0avu+yPU9um06IRyKPZKgAhPrNiKCTAtSEqL7Z3cJtJKw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by PAWPR04MB9888.eurprd04.prod.outlook.com (2603:10a6:102:385::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.14; Mon, 8 Dec
+ 2025 17:10:38 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9388.013; Mon, 8 Dec 2025
+ 17:10:38 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Date: Mon, 08 Dec 2025 12:09:46 -0500
+Subject: [PATCH 7/8] PCI: epf-mhi:Using new API
+ dmaengine_prep_slave_single_config() to simple code.
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251208-dma_prep_config-v1-7-53490c5e1e2a@nxp.com>
+References: <20251208-dma_prep_config-v1-0-53490c5e1e2a@nxp.com>
+In-Reply-To: <20251208-dma_prep_config-v1-0-53490c5e1e2a@nxp.com>
+To: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>, 
+ Sagi Grimberg <sagi@grimberg.me>, Chaitanya Kulkarni <kch@nvidia.com>, 
+ Herbert Xu <herbert@gondor.apana.org.au>, 
+ "David S. Miller" <davem@davemloft.net>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, Koichiro Den <den@valinux.co.jp>, 
+ Niklas Cassel <cassel@kernel.org>
+Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org, 
+ mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
+ linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1765213799; l=4475;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=EwqEIPJgHF7NC9qDG/X8Xk08rImBkoWATPL7s0dkX4o=;
+ b=WQiMFbOH0IFwq1jktqxAug4kR4s4kLvJ52qklDH0htGMXPI4g0OBdZWe6FWa3JuYdeg4oZr0U
+ C/D1dHMhGN1D/Q90e16wq0l+oG5QsVnRDep4CVhGs3qYlmS1vkDUroI
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: PH8PR02CA0036.namprd02.prod.outlook.com
+ (2603:10b6:510:2da::28) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="f/ANzMaVIMozCDGI"
-Content-Disposition: inline
-In-Reply-To: <CA+HBbNH6wO2VWOp1Dn52ArrYg6z89FgYnT3x-jsHsTVJ5xSBSA@mail.gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|PAWPR04MB9888:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0385b28d-e66d-49c4-5c8a-08de367cb5b6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|19092799006|1800799024|366016|376014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?T0cwdUE3VFRISWlDdWRhM3lPamdleEtpUEVOZ1hlMFdBLzR4Zy9OU0RKZXBm?=
+ =?utf-8?B?b1N2SXhodXd1MXlCWldjYmF6NzdoQ0pwT2FCTU1qa05VN0FJT0laTExjVzZ0?=
+ =?utf-8?B?QitVRkxBalQ3VUV3WWNzK0hEcnRXdUkvSHNiaExMa0tHVmkyZVphUlZXRVFD?=
+ =?utf-8?B?Y0RoL3duaC83YmZOWnBoN1I3R3dHeVZSMmxuMHl6Y3RyenlRM1NaTGpVNXBK?=
+ =?utf-8?B?U3FoTkU3SXJOM2RzQmdKUkxqSG43RTdHWGM3dVJ5WnVuM2loN3BEM3RFZzhS?=
+ =?utf-8?B?VHA5MVR5Rk1lTFUzd3VJWnJ4MG9TN2hpL1VoM3BXSkx2RHE2QWZZSVN6aEl5?=
+ =?utf-8?B?RXA5Qmpsb1ViT210OEJQSHA5VXpMY0M1aUxpaUppbjFxZmtOZFlIQlEzclBC?=
+ =?utf-8?B?dHZxVFh4Smlwb3hhL1BEdDZZd3dsRXdaSHV5THR2b3UyNG5qSzdUYjJqaE03?=
+ =?utf-8?B?SW1SbHJ1TjlURUtXTFdzWTMrSmE1aWVJa2ZqWUd1alJpMDg3VVdyLzZhWmY3?=
+ =?utf-8?B?ajBBL3oxRWVFQ3RscjM3UWo2cGZRSUMzaWpkRXk1V09zaXl0bjZBTlJUSkZ6?=
+ =?utf-8?B?M0c1ME1zTEhCd0dsNTlaNStHK2JnalFERnJCTXRBYjdkejFlL2hGclg5Sm9v?=
+ =?utf-8?B?M2RhT3FqUCs3d3BscDlGM2ZaV29XcTlBclhUU1hCSGxiVUE4TWtQQitwNGhH?=
+ =?utf-8?B?ZnBJeHhrZ1hXTzdWNmt6S2RVdWhZV2xqc3lzV1pRS0c4YVRqd2RlNjFBTUpy?=
+ =?utf-8?B?bWMwckt5OFFEYi9oVzhVTjhYc1o1ZThlakpBRTZEam9jRXhiV2RycU5DdG1Q?=
+ =?utf-8?B?V1NmcE1Fd1JSckhwWXEwaWZWSytmbzh4UXBnRDJrSXhxNGYydXNkV2lIM2dq?=
+ =?utf-8?B?eFZ0MktYcklCbkFDQ2tRbmJZdFJoUGtOcXhxU21WUnpxYTM0dFMwNXlSZTdS?=
+ =?utf-8?B?bWhvY1BWOFZnVzcwT2FpeUpkbkJpS0w1K3IzbjZzV0ZvYVR0OGxLTDhrOU1t?=
+ =?utf-8?B?U3ZUQndJT0VrSzIxdkpFQkNWQ3ZsWUV2TUozbGpDSXM3amZsYkFGRXREUzU4?=
+ =?utf-8?B?QlNJWTgxWjdpcThxaGpkM2xoTXhaMGswQlFNM2J2UTAyU0wzT1NyUHZ2MmRk?=
+ =?utf-8?B?RUYxT2YzNHRPK2RGZG5tOG9HTVBpaWM2NFZ1RElLY2pBUnMzanROd1FQOTcr?=
+ =?utf-8?B?ejZYeGl5RWxGRW51ZVVKOFNBSUJObWpndjQyWmZ4WExjTW5YaGM3RnlLV3Zy?=
+ =?utf-8?B?cU1SMDJ0dklNVkJUcC9LTTNMSUl2VUJNUFRLVURvSFE4SXNjNmZzejcxUnc3?=
+ =?utf-8?B?V1dzbUFwTHJDM3B6YVM3VEp2OTFTbXpDUE9jMU1iYnl3SldFR1M2RWlTUEt0?=
+ =?utf-8?B?MFd6Z1RtejlLWmV6Tk84VGJwdjVpdGh0cVgxbWJGQ1lCV3NncUVFRmpoQlIy?=
+ =?utf-8?B?Y2pjK01VUDgvRndiNnFUbVMzNURIYWNHNWE3am1qdG5UZk5YQUw3blBTczds?=
+ =?utf-8?B?TTlycEtOSk5ob2haSGlMR0NvcVkzQVlzVStXWDBYbnNvb3YwblhrVElaMllZ?=
+ =?utf-8?B?QnFLellyUWVEVC9MZU9Va1krRncrTDBBTDkvT3Z4VlltUnV6YXRWVXAvV3FF?=
+ =?utf-8?B?bVhOYTlFdWcycmk5MHEraEREaXA0OHdyV1dOTEl0Z2NlQVVpOXFQd0E0eWtI?=
+ =?utf-8?B?SVlSbzNnMFFLZXRpWmdYRm1vZ0Y5eGFPZ3E3eFUyTHhTUzRSWXlpYkpKQ2VN?=
+ =?utf-8?B?UDRCUkZRa3phcGlFUVRtdEdHYndJN3loVEdST0VFRnEycm5BUnZBNG9NS0hH?=
+ =?utf-8?B?RkVCZ3BEL0NWcmVBNjRzMHRhNDJaQkVtVStlUlhhK25ZdEczRVVkNG4vOHps?=
+ =?utf-8?B?TTd0ekEvSm9CYzdJSFN3R01oWStBOEIrZ0IvMkpuUk5qekxCaFdNQWFGcGdT?=
+ =?utf-8?B?QitMdXZ5UjY1SDNsOGNpZEdpN2l0ZUJWbFNsSW04ZmRjK2JnOW5USkRObThR?=
+ =?utf-8?B?QWdISVZjTXpHWlBmdWgvYWJZYy9oRVBYUTJqSGFNay9ja0h3S1VxcHZSNTZ4?=
+ =?utf-8?B?UzRBZzlsN0J1V2Y1QmlXMEZNdEo0OFJLbW5kdz09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(19092799006)(1800799024)(366016)(376014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cmlJR3djSG1qeWhjdWJ3aDhEUHhpT05OZkQ0UW5VdlhKSHJvTEZwU1k0Rlhv?=
+ =?utf-8?B?QzRrbStGYkNhWkZxbHI4bzJHSGVZNnZjQjlheWYzRm1QbjBZUCsxTVFJTlVV?=
+ =?utf-8?B?b1BJcHlPd2lWbzJTRC9jSlpXK2ppSDQ3YmhJK1R5TEtybW1JYnNPZzcyQzRP?=
+ =?utf-8?B?UlhkVDlELzJVSU9NY0hRazNaOXhRYmZrMlduUXBaenpKdEVDRzh5S0pGL25C?=
+ =?utf-8?B?c2JBTnNoT2pFVDlMRVNDRVVqYkcwRGo0NTNWbjBReHdFcHJxVnlFUFJPS1Bw?=
+ =?utf-8?B?RExVWmttbEM5SUtwNDRuMHgwenU1eFlKVjI3ZEhrc1RMNnlzMG1CNkoxOEFy?=
+ =?utf-8?B?WGQ3alE2ODh6TTUyODJXMmNxY0dYSDNVTHJQVnJ2TXd3MEg1Mk8ycFV6Sy95?=
+ =?utf-8?B?UUxOV3RQZms5OU1pck5HYzVCaDlWM0hnYXFJdkkwQXQxY0ZFblkwMTBESFBB?=
+ =?utf-8?B?K2NPb0FrWE9BZmprY0FFdUVCeFB3YWJlSm5tS1VlaVdCZ1VMOTN2QUNpUnBO?=
+ =?utf-8?B?QzM1TDZNV29FbnBZVmpFNmZSRVZUZUxQcGJ5QUxkZHVkSlJaUkNQN0w0aTNN?=
+ =?utf-8?B?V3NSQTZhSXBPZ1NTZFBEczlHUTFPV2YyKzM3RlAwTHlUMXUxSkI0ZnRqU3du?=
+ =?utf-8?B?cEpKQVlESkxlMnFTSnJ4VU9QNzBhWm5HeFJ0dmptb2RFMnpIeWc4TlhabnU2?=
+ =?utf-8?B?S2pQOUFnMDRkdWNnKytJR3lpMU5PdXQvaWx6QjRKNEg3TTN2UmlVbTVGckxs?=
+ =?utf-8?B?cVRKVmxaQUl5bHNNbVNkYmY3dW1nRk5vQmJROFNqVjVxblQwTkJoT0xxTGk4?=
+ =?utf-8?B?MjlZYmR5VHQrTUVUejB2QTg2cTcrTDRPWkVtdThWS3M0THdETm95dlNKWU5w?=
+ =?utf-8?B?U0xWYjhFRTMrbXVnN3VNOWZvWDdJNWFCWEpzWlB3Zk9kdFBXOXVNM0JWWVJW?=
+ =?utf-8?B?Z0lnckhFYVV1WFdhZGpaNU5va0l6RU5QZVVQOFFrQVF2enZkN00vWGtDTkVj?=
+ =?utf-8?B?aUFZZHNMaHBmd3JPdm5LVlg4MjBSSzJ3M2h2VDYwTWdPUWdmY0J0bFc3N3U1?=
+ =?utf-8?B?OTVtYVpwM1MzUWcwQjR0SHEzTDNHR2k4SzZId2lyOUhyYWt0czNuM2NlL1kv?=
+ =?utf-8?B?WmxuYkVjRlNvRTlPM2FmQWsyaWw3UXhZaUZpYUFlN0haQ2Z3UnkzRGdrbFNV?=
+ =?utf-8?B?Uk1SblRvYmorbktLQ09tM0JkRldHQ2Y2SGhlc3pFQkIvSlZHZzlYR0c0a2lS?=
+ =?utf-8?B?dksxQTI4Z0ZVTnFCZjNxV0IyOWlZM2RWTHVaQmYrRkJObWlDSExkT3F6SjJ4?=
+ =?utf-8?B?RHY2Mnhjc0xGend4M3UzeTJTTkhsSEN4ZXdWbkltaGh3bFZDdWFoS0JGajlu?=
+ =?utf-8?B?OG0rNFhUT2tySkxmcTNiMGlHNDN5QjhtRElVOERzcWdPUjZrTnhSUHdIOG8z?=
+ =?utf-8?B?Q0o4QWNhNHg1SlQ3NXVsVWRZVWUxQW5nazBSNGEza2RkRGpMYjV5OHNsaURu?=
+ =?utf-8?B?K2ZQUXNkTldLanRmaWpmcUxsbDdscVd2amx2dCtncWJxUkxsOXVIWjlMN2xt?=
+ =?utf-8?B?RjM2MmtJWmorSHpqQldtTWEzNkdabDViU2p6bjNuK2VyRmIwdW1wT2RDbkNH?=
+ =?utf-8?B?c0IrWHNzVnBvS0RWR2piZXFrMy8xb25NRTV0ZC84UTcxanBIMWJ2UVBQY2lm?=
+ =?utf-8?B?Y3p0N0NvY0ZuaUpwSjZZUDhaenc3ay9VOTdtQlRIa1lMQlA1Zi83eDNBQVZp?=
+ =?utf-8?B?WncrNFlFNklJRTdsbE1LVHlZWkxrWmZSK3pvZFlqUU9jdkZnM2EvaEJGWTNq?=
+ =?utf-8?B?Qm5PRUJJeXpjTkFBTFo0ZEV1RWZwK0JuM0I2K0Y2R3dDUXp1dmJWWGNUTTZV?=
+ =?utf-8?B?MWc3czdzSkIyTFNsR1dUS1p6NnhhSEZCcDg1UyttditWTSsyTHpoV0pqQ29W?=
+ =?utf-8?B?N3F1ZDZhL3JsVGpPKzVJZVhBVzd3bWZwb0loVnUreHdVN0x3RkdDcmdLYThC?=
+ =?utf-8?B?MEx0TDhKSmZzVXI1QW5laEZBemhDNmR6bU5UUk5XUytmQWJwb2dlbEJpSDVP?=
+ =?utf-8?B?Szk5dWVBcXh3MXAxU3BWeUxkOXZxS0tYRDA2YXJRUEpmTE1YS0lwMkc5MHUr?=
+ =?utf-8?Q?m12A7fsB6KhX6P1ibGiYvp7Zk?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0385b28d-e66d-49c4-5c8a-08de367cb5b6
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Dec 2025 17:10:38.6567
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ygi5/WiwwWXPpV+UAIgWBVgYzZlYefrsz7t77O1DaSUzBgHpuryO4b7vw6Pfv3vFTN2jZelc66IBDhsFD4R6pQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAWPR04MB9888
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_091040_844612_27E54DBD 
-X-CRM114-Status: GOOD (  18.29  )
+X-CRM114-CacheID: sfid-20251208_091044_069384_78749418 
+X-CRM114-Status: UNSURE (   9.87  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,54 +196,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+No functional change.
 
---f/ANzMaVIMozCDGI
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Keep mutex lock because sync with other function.
+---
+ drivers/pci/endpoint/functions/pci-epf-mhi.c | 52 +++++++++-------------------
+ 1 file changed, 16 insertions(+), 36 deletions(-)
 
-On Mon, Dec 08, 2025 at 11:30:28AM +0100, Robert Marko wrote:
-> On Wed, Dec 3, 2025 at 8:19=E2=80=AFPM Conor Dooley <conor@kernel.org> wr=
-ote:
-> >
-> > On Wed, Dec 03, 2025 at 01:21:30PM +0100, Robert Marko wrote:
-> > > Microchip LAN969x is a series of multi-port, multi-gigabit switches b=
-ased
-> > > on ARMv8 Cortex-A53 CPU.
-> > >
-> > > Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-> > > ---
-> > >  .../bindings/arm/microchip,lan969x.yaml       | 32 +++++++++++++++++=
-++
-> >
-> > This should not be in a unique file, put it in with the other microchip
-> > arm devices please. Also, the wildcard in the compatible is not
-> > permitted, only way it'd make sense is if these are different binnings
-> > of the same silicon. If that's the case, you need to explain why,
-> > because compatibles are meant to be soc-specific.
->=20
-> Hi Conor,
-> The issue is that there is no unique place for Microchip SoC-s,
-> LAN966x series is in the AT91 bindings
-> while SparX-5 has its own bindings file.
->=20
-> What would you suggest in this case?
+diff --git a/drivers/pci/endpoint/functions/pci-epf-mhi.c b/drivers/pci/endpoint/functions/pci-epf-mhi.c
+index 6643a88c7a0ce38161bc6253c09d29f1c36ba394..11999a7a156dee057f04f0f9277f6ac5a7f1d7ee 100644
+--- a/drivers/pci/endpoint/functions/pci-epf-mhi.c
++++ b/drivers/pci/endpoint/functions/pci-epf-mhi.c
+@@ -328,12 +328,6 @@ static int pci_epf_mhi_edma_read(struct mhi_ep_cntrl *mhi_cntrl,
+ 	config.direction = DMA_DEV_TO_MEM;
+ 	config.src_addr = buf_info->host_addr;
+ 
+-	ret = dmaengine_slave_config(chan, &config);
+-	if (ret) {
+-		dev_err(dev, "Failed to configure DMA channel\n");
+-		goto err_unlock;
+-	}
+-
+ 	dst_addr = dma_map_single(dma_dev, buf_info->dev_addr, buf_info->size,
+ 				  DMA_FROM_DEVICE);
+ 	ret = dma_mapping_error(dma_dev, dst_addr);
+@@ -342,9 +336,10 @@ static int pci_epf_mhi_edma_read(struct mhi_ep_cntrl *mhi_cntrl,
+ 		goto err_unlock;
+ 	}
+ 
+-	desc = dmaengine_prep_slave_single(chan, dst_addr, buf_info->size,
+-					   DMA_DEV_TO_MEM,
+-					   DMA_CTRL_ACK | DMA_PREP_INTERRUPT);
++	desc = dmaengine_prep_slave_single_config(chan, dst_addr, buf_info->size,
++						  DMA_DEV_TO_MEM,
++						  DMA_CTRL_ACK | DMA_PREP_INTERRUPT,
++						  &config);
+ 	if (!desc) {
+ 		dev_err(dev, "Failed to prepare DMA\n");
+ 		ret = -EIO;
+@@ -399,12 +394,6 @@ static int pci_epf_mhi_edma_write(struct mhi_ep_cntrl *mhi_cntrl,
+ 	config.direction = DMA_MEM_TO_DEV;
+ 	config.dst_addr = buf_info->host_addr;
+ 
+-	ret = dmaengine_slave_config(chan, &config);
+-	if (ret) {
+-		dev_err(dev, "Failed to configure DMA channel\n");
+-		goto err_unlock;
+-	}
+-
+ 	src_addr = dma_map_single(dma_dev, buf_info->dev_addr, buf_info->size,
+ 				  DMA_TO_DEVICE);
+ 	ret = dma_mapping_error(dma_dev, src_addr);
+@@ -413,9 +402,10 @@ static int pci_epf_mhi_edma_write(struct mhi_ep_cntrl *mhi_cntrl,
+ 		goto err_unlock;
+ 	}
+ 
+-	desc = dmaengine_prep_slave_single(chan, src_addr, buf_info->size,
+-					   DMA_MEM_TO_DEV,
+-					   DMA_CTRL_ACK | DMA_PREP_INTERRUPT);
++	desc = dmaengine_prep_slave_single_config(chan, src_addr, buf_info->size,
++						  DMA_MEM_TO_DEV,
++						  DMA_CTRL_ACK | DMA_PREP_INTERRUPT,
++						  &config);
+ 	if (!desc) {
+ 		dev_err(dev, "Failed to prepare DMA\n");
+ 		ret = -EIO;
+@@ -502,12 +492,6 @@ static int pci_epf_mhi_edma_read_async(struct mhi_ep_cntrl *mhi_cntrl,
+ 	config.direction = DMA_DEV_TO_MEM;
+ 	config.src_addr = buf_info->host_addr;
+ 
+-	ret = dmaengine_slave_config(chan, &config);
+-	if (ret) {
+-		dev_err(dev, "Failed to configure DMA channel\n");
+-		goto err_unlock;
+-	}
+-
+ 	dst_addr = dma_map_single(dma_dev, buf_info->dev_addr, buf_info->size,
+ 				  DMA_FROM_DEVICE);
+ 	ret = dma_mapping_error(dma_dev, dst_addr);
+@@ -516,9 +500,10 @@ static int pci_epf_mhi_edma_read_async(struct mhi_ep_cntrl *mhi_cntrl,
+ 		goto err_unlock;
+ 	}
+ 
+-	desc = dmaengine_prep_slave_single(chan, dst_addr, buf_info->size,
+-					   DMA_DEV_TO_MEM,
+-					   DMA_CTRL_ACK | DMA_PREP_INTERRUPT);
++	desc = dmaengine_prep_slave_single_config(chan, dst_addr, buf_info->size,
++						  DMA_DEV_TO_MEM,
++						  DMA_CTRL_ACK | DMA_PREP_INTERRUPT,
++						  &config);
+ 	if (!desc) {
+ 		dev_err(dev, "Failed to prepare DMA\n");
+ 		ret = -EIO;
+@@ -581,12 +566,6 @@ static int pci_epf_mhi_edma_write_async(struct mhi_ep_cntrl *mhi_cntrl,
+ 	config.direction = DMA_MEM_TO_DEV;
+ 	config.dst_addr = buf_info->host_addr;
+ 
+-	ret = dmaengine_slave_config(chan, &config);
+-	if (ret) {
+-		dev_err(dev, "Failed to configure DMA channel\n");
+-		goto err_unlock;
+-	}
+-
+ 	src_addr = dma_map_single(dma_dev, buf_info->dev_addr, buf_info->size,
+ 				  DMA_TO_DEVICE);
+ 	ret = dma_mapping_error(dma_dev, src_addr);
+@@ -595,9 +574,10 @@ static int pci_epf_mhi_edma_write_async(struct mhi_ep_cntrl *mhi_cntrl,
+ 		goto err_unlock;
+ 	}
+ 
+-	desc = dmaengine_prep_slave_single(chan, src_addr, buf_info->size,
+-					   DMA_MEM_TO_DEV,
+-					   DMA_CTRL_ACK | DMA_PREP_INTERRUPT);
++	desc = dmaengine_prep_slave_single_config(chan, src_addr, buf_info->size,
++						  DMA_MEM_TO_DEV,
++						  DMA_CTRL_ACK | DMA_PREP_INTERRUPT,
++						  &config);
+ 	if (!desc) {
+ 		dev_err(dev, "Failed to prepare DMA\n");
+ 		ret = -EIO;
 
-Ideally, arm/atmel-at91.yaml and arm/microchip,sparx5.yaml would just
-become arm/microchip.yaml. The axi@600000000 thing in the sparx5 file
-looks pointless and can be deleted IMO.
+-- 
+2.34.1
 
-
---f/ANzMaVIMozCDGI
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaTcGiQAKCRB4tDGHoIJi
-0hJgAQDZXZvEtWbFycCBtjtvAkegJzipsK18lKX3sa/WHe6VoQEAzIrZMT4k0/6l
-bcJKf5xlAsTcmcBNT0hxrPSamMF+sA8=
-=rUuT
------END PGP SIGNATURE-----
-
---f/ANzMaVIMozCDGI--
 
