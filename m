@@ -4,73 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C388D3B7DD
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 09:15:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECA51D3B7DD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 09:27:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GcgYtYBjE4aOTpOdi0EKCUM3t4rcSIyZhWzT5/PDJxA=; b=On4lMCUshJMKihDSXZuOUyE2sN
-	xgnF202yTauw8fA205Qq4MhgPKhdkiClEgvwO0vgIlJbyGH2j1cg17x71K4CY2QnVB8RpLjQJLg7p
-	/AuzcNla/AkCVrYJynNEMJIAAs7431aewKCHZyp8lv5vNROocUBOGN2UihVcVwf9D82PQ8YEOI8xb
-	HFjiFRhIhItoMsI0gFZ+awIKQ3uXm8X5b2PRNPK/Nhj+HJGkJMf0uEjGseID59Lym/5qEfdn0HlQd
-	g8+90cUTWP8snZprN74g9pXAx10SERzBZRFi2KZYkRxUJnGQlaR00cH3BMzmybIVLdK6wsbmgJHwi
-	hko6bf+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NFLfpZ5l4wRVBkAGkPslmSuVObNJ4meI7Eg1f2GcF6M=; b=LktUvQE13vIKlVI9VOxKZ7WGh/
+	aZxD7Y5vmrfyOuyQG4PniqxNgfBU6BAA9Z3qm8ycxy3HbJqdNyvBOPyllkXcNNdVgjDCfE8F3rCJO
+	e59u6T/iIrRITqbKhbodbWHCqY6oOYQoGIrXFPlHU99kF/59HZP8tGOf9I+xENkiqI1yIEQgY6U8k
+	IqDFMt7k5+9ywwewW95EOITDUCiASIY4cjYZX/r0MAqgWfbDLO+5UpBFiDQ0UrjO63ZpNf0bGhuqT
+	P7NhthH4K+zykS53JOwvJXMwhtNxAizw0NMVAvnV+/pG5rgBefBGVHbOeJnq8lGpnG1SnuymJbIHj
+	8bfgYIog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSXLF-0000000CrDN-1Dme;
-	Mon, 08 Dec 2025 09:15:37 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vSXWI-0000000CrqV-0G2w;
+	Mon, 08 Dec 2025 09:27:02 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSXLB-0000000CrBr-3K9Q
+	id 1vSXWF-0000000Crpe-33j7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 09:15:35 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1vSXL4-00036i-NZ; Mon, 08 Dec 2025 10:15:26 +0100
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1vSXL4-004aS3-1A;
-	Mon, 08 Dec 2025 10:15:26 +0100
-Received: from pengutronix.de (p54b152ce.dip0.t-ipconnect.de [84.177.82.206])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 9C4D24B0F69;
-	Mon, 08 Dec 2025 09:15:24 +0000 (UTC)
-Date: Mon, 8 Dec 2025 10:15:20 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Lei Xu <lei.xu@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, linux-kernel@vger.kernel.org, qijian.guo@nxp.com, 
-	justin.jiang@nxp.com, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] arm64: dts: freescale: imx95: Add support for i.MX95
- 15x15 FRDM board
-Message-ID: <20251208-watchful-fluorescent-piculet-4b55a8-mkl@pengutronix.de>
-References: <20251207-127-v1-0-5a2eeb69f150@nxp.com>
- <20251207-127-v1-2-5a2eeb69f150@nxp.com>
+	Mon, 08 Dec 2025 09:27:01 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-477a219db05so29055075e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Dec 2025 01:26:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1765186017; x=1765790817; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NFLfpZ5l4wRVBkAGkPslmSuVObNJ4meI7Eg1f2GcF6M=;
+        b=h7g9f47eZnFC6GT11+RPmzTMDN8mNAjUmB+uf8NJKBIyG92HRrwTd2BEK5JbZYc5g5
+         I/TkegdwvIb5BtH3RZ/kOUEeR9Ngx5pVqzWuixbG4gYEmdUVhC5NaT67oGaknyzy1eu3
+         WXoQZnZeAqC4bniSicxizfZPFSxWZ1aQ29C7W36bHsbz0UD3KIjM2Er8r5Yi3kBnKIcD
+         J61vbPjlxC+hIU82Ib1X6I2c/vu2zIHY3eM6sXnsUm5q+ZfptED2sRNL1WK2bpR5+pI+
+         WzXhpNNZzniuCkWAt5nHk/Jty3yOlCcZiKx68uU3E+0r0WSvdyunefx2IWrF0Zydxks7
+         Uqzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765186017; x=1765790817;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=NFLfpZ5l4wRVBkAGkPslmSuVObNJ4meI7Eg1f2GcF6M=;
+        b=qimF7ce157PB5WjQHq7M3DrWYId4g/tlsJOyc7vjOko+7IZ1WCzVXqLiy8lyFqxhkR
+         QM64uce2WhHW0XWVn7R7hgOZ8pwEasJXzzl1t8bN8lu9M4QO2epGRMBaMYLt24EHFrZR
+         aOWd7S1ysueBz+a9kJuvCwyy6O8QuKxRmwNHrw4jDjRHuE6azQh+CFMClypTFV9DHQaA
+         5YZbfk4Z04DiJwQ55LEUsYXqpHZiNhuByWzaqKQl3nL0JAJ+fIQ9v2Cr3spAIs8/N3f8
+         oGE7MN3y0uDs6w8Dq7XabC7AjnVAgJNl9bDezLFIMkNv/ZkhvHHJIl6JDCiMSdA5x3yR
+         Rudw==
+X-Forwarded-Encrypted: i=1; AJvYcCWKtuAv+vLsUgtK10WMsIl13yJHM5JVUz+JoRLxAWDardtVfzOLovTMHeyTtWD4osYvhy0ARZHoA7FG7B+1quH/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpORvjnOTyyhHot4/W9y8kxlxOmHnAEW/WHd3PiYXA5K6de5YK
+	k06uAhf6TUGcimbOPHaJBehWcNXHZScKt+NvghdWTfydmo1xIdtyqNoP
+X-Gm-Gg: ASbGnctEMh/U4LfEsn7aewgGicN7iLoFoF+97VesO0atgVIDpup6FlC1AlI8VAbxpBW
+	fKyg4y21G8tyn6qrGNBHBK0ssHvEXj6Bb8uSfPOlolzAm1+lo0jxJvZJ1TRNvOPKZ6CXCVF5VRf
+	isMEtYvaBVg/IUuEYOrjToIIwE7nC3lsFFSDf7LevkJyw7uoTtQtYuVCxFcqsuiXO8n4HtD3Oq1
+	jVHcft/QMov79A+3bS64B2okjktVYdVW2hy9F81zQr3GAJ7lJQ8JzIcDFlyAnUvmyTs3M4RUwMv
+	HZVZdOSEp5pQMbJvux5yvoiJxQHNKDMB6NH/A09z70VJklOXFxsdOMSWwBL6zoVu6miLE/F5+Wi
+	G1qdYbvZJ6qge9u5vU/vTLSf8aYvYnhaKjUWKnMKJOm4AUM+ejOeZRttgLsbE8pNpZtIiKPl+Wl
+	KMdVsiAMKOSB24Bz19gY/oC8L0nmWyXyn11/ksgDtKJeZw8dUeHVXJ
+X-Google-Smtp-Source: AGHT+IHojEX23VDsygt3ALVaB6koy85KM2XZe3lsMntBbpBgGnMPUb++LOsJBnCIkyeM2dwfndjplA==
+X-Received: by 2002:a05:600c:a087:b0:477:7925:f7f3 with SMTP id 5b1f17b1804b1-47939df563amr90509565e9.14.1765186017202;
+        Mon, 08 Dec 2025 01:26:57 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4792b04e1c1sm118716705e9.5.2025.12.08.01.26.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Dec 2025 01:26:56 -0800 (PST)
+Date: Mon, 8 Dec 2025 09:26:54 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Xie Yuanbin <xieyuanbin1@huawei.com>
+Cc: <linux@armlinux.org.uk>, <viro@zeniv.linux.org.uk>,
+ <akpm@linux-foundation.org>, <brauner@kernel.org>,
+ <catalin.marinas@arm.com>, <hch@lst.de>, <jack@suse.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-fsdevel@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
+ <pangliyuan1@huawei.com>, <torvalds@linux-foundation.org>,
+ <wangkefeng.wang@huawei.com>, <will@kernel.org>, <wozizhi@huaweicloud.com>,
+ <yangerkun@huawei.com>
+Subject: Re: [Bug report] hash_name() may cross page boundary and trigger
+ sleep in RCU context
+Message-ID: <20251208092655.6d88af9f@pumpkin>
+In-Reply-To: <20251208023206.44238-1-xieyuanbin1@huawei.com>
+References: <aTLLLuup7TeAqFVL@shell.armlinux.org.uk>
+	<20251208023206.44238-1-xieyuanbin1@huawei.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bmknb3mg3ri2dueq"
-Content-Disposition: inline
-In-Reply-To: <20251207-127-v1-2-5a2eeb69f150@nxp.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mkl@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_011533_881301_32550696 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20251208_012659_793983_85346A54 
+X-CRM114-Status: GOOD (  34.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,63 +108,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 8 Dec 2025 10:32:06 +0800
+Xie Yuanbin <xieyuanbin1@huawei.com> wrote:
 
---bmknb3mg3ri2dueq
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 2/2] arm64: dts: freescale: imx95: Add support for i.MX95
- 15x15 FRDM board
-MIME-Version: 1.0
+> On Fri, 5 Dec 2025 12:08:14 +0000, Russell King wrote:
+> > On Wed, Dec 03, 2025 at 09:48:00AM +0800, Xie Yuanbin wrote:  
+> >> On Tue, 2 Dec 2025 14:07:25 -0800, Linus Torvalds wrote:  
+> >> > On Tue, 2 Dec 2025 at 04:43, Russell King (Oracle)
+> >> > <linux@armlinux.org.uk> wrote:  
+> >> >>
+> >> >> What I'm thinking is to address both of these by handling kernel space
+> >> >> page faults (which will be permission or PTE-not-present) separately
+> >> >> (not even build tested):  
+> >> >
+> >> > That patch looks sane to me.
+> >> >
+> >> > But I also didn't build test it, just scanned it visually ;)  
+> >>
+> >> That patch removes harden_branch_predictor() from __do_user_fault(), and
+> >> moves it to do_page_fault()->do_kernel_address_page_fault().
+> >> This resolves previously mentioned kernel warning issue. However,
+> >> __do_user_fault() is not only called by do_page_fault(), it is
+> >> alse called by do_bad_area(), do_sect_fault() and do_translation_fault().
+> >>
+> >> So I think that some harden_branch_predictor() is missing on other paths.
+> >> According to my tests, when CONFIG_ARM_LPAE=n, harden_branch_predictor()
+> >> will never be called anymore, even if a user program trys to access the
+> >> kernel address.
+> >>
+> >> Or perhaps I've misunderstood something, could you please point it out?
+> >> Thank you very much.  
+> >
+> > Right, let's split these issues into separate patches. Please test this
+> > patch, which should address only the hash_name() fault issue, and
+> > provides the basis for fixing the branch predictor issue.  
+> 
+> I conducted a simple test, and it seems that both the hash_name()
+> might sleep issue and the branch predictor issue have been fixed.
+> 
+> BTW, even with this patch, test cases may still fail. There is another
+> bug in hash_name() will also be triggered by the testcase, which will be
+> fixed in this patch:
+> Link: https://lore.kernel.org/20251127025848.363992-1-pangliyuan1@huawei.com
+> 
+> Test case is from:
+> Link: https://lore.kernel.org/20251127140109.191657-1-xieyuanbin1@huawei.com
+> 
+> Test in commit 6987d58a9cbc5bd57c98 ("Add linux-next specific files for
+> 20251205") from linux-next branch.
+> 
+> I still have a question about this patch: Is 
+> ```patch
+> +		if (interrupts_enabled(regs))
+> +			local_irq_enable();
+> ```
+> necessary? Although this implementation is closer to the original code,
+> which can reduce side effects, do_bad_area(), do_sect_fault(),
+> and do_translation_fault() all call __do_kernel_fault() with interrupts
+> disabled.
 
-On 07.12.2025 05:26:06, Lei Xu wrote:
-> The i.MX95 15x15 FRDM board is a compact and cost-effective development
-> platform based on the i.MX95 applications processor.
->
-> Add device tree support for this board, including:
-[...]
->  - FlexCAN2 and FlexCAN5
+It has to be safer to leave them disabled.
+But you don't want to do that over long code paths.
+But I'd have thought the 'act on an exception table entry or panic'
+path wouldn't be long compared to an actual ISR (or other code that
+disables interrupts) so there is no real point enabling them here.
+But that is just my 2c.
 
-[...]
+	David
 
-> +&flexcan2 {
-> +	pinctrl-0 =3D <&pinctrl_flexcan2>;
-> +	pinctrl-names =3D "default";
-> +	xceiver-supply =3D <&reg_can_stby>;
-> +	status =3D "okay";
-> +};
-> +
-> +&flexcan5 {
-> +	pinctrl-0 =3D <&pinctrl_flexcan5>;
-> +	pinctrl-names =3D "default";
-> +	xceiver-supply =3D <&reg_can_stby>;
-> +	status =3D "okay";
-> +};
+> 
+> Thanks very much!
+> 
 
-please use the "can-transceiver" instead of the "xceiver-supply" property.
-
-regards,
-Marc
---
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---bmknb3mg3ri2dueq
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmk2lyUACgkQDHRl3/mQ
-kZxqPQf6AyTsvZQb2ibfwoTfAHibR2yJxjK5zCkTgzu80GArfYo7C58EXHsFffwJ
-DOX+Ftf0YxKCIm1UqAry6guRPFPFSJLLldS5fKtaNBcED/szvLZ8NKAbatuZ+7uy
-SgDbtwJc+5j7bBssZ7JfXLeVJrYj8tpEOqYeHRLNgYlHu6/TnOrUSCTWLGvqZN/G
-On9Xltc8IDMrdpaBNp/BzV2GPl15PjODjhEFQQipca+si3chUPyv64iDAEkQou7e
-hrOSVJ4S+1E62o1f094o5YKFUTK79cdhmqzjsxTbGpTb8Fca53jgLaBnUKNn4cnO
-GMVG5cYL0ixktrTobrNgiipgf00Wwg==
-=TGy7
------END PGP SIGNATURE-----
-
---bmknb3mg3ri2dueq--
 
