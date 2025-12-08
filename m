@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D871D3ABEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 06:25:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 714B1CEBF88
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 06:26:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hPTzVBaqEy6TULFAz5dE1caK6KjuW23EPXH/+kI6e3w=; b=1IPY5/6h4Bo0rXYdPlWL9ehhsM
-	NdMzrJEjK5KrMxXanOXV3w/lbuVboL+fw/KuyH++XggYP+/xZ9wl2li6QFf0EE5j++a4r3R1jcErw
-	X+BF9ybTx0uocbesajSe7pQ43aV+QRbJzbWX36gDbLWQXIu5BKEoHExsFHuZ1ZZ8frZ5/96ZYcmxv
-	Kt3Tv1j9yz16XPM7xWgkgc/LVtq/Gzqkfbbi9wP/uGT90VMVdSxjB4s0A5a4DB64IlrExc3HVUVMP
-	k4VVDfoL+5eArHfTMluj7u/gQgSEQwbqm+m4tjiXT9cZF/IWcKdxrKHo7u1NC7FCNdmCiPF81C1+a
-	8WDaQz0Q==;
+	bh=V08DSyGGdYWStmmKp1XUezUVAVqbPDwxGNykpnRxFWI=; b=E1gefyMjrqg8BbeNJT9zHjH103
+	C6UcyuGaPlDJYhfaMBp9fVnkkvScO9g+HNWyIGMuFRL1sMKY79SZRxGq3/MnDcvj6+M+6FAASeaQg
+	FDl3Fk2ZwzgH1XDrVdec4VYoShQww0eaBL0Xok/hLj7vUaM+zATy1wIXNRGdHnOHspEItBkYzWJ+O
+	a5EKdlJtchtmPWf0YHIWlvUXnmjFbfSExcbLqZhcmNzfltdTFbrujBS8oVJJ0bA35aU2KiZctV5eY
+	e45oD4bqwR4Oasonn3VMdcRAI6yvPOQb1CEEuqXePPeRX7TZGVQxsCjbmSeWc9TvIYOP8f49n0bMq
+	deCFz3bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSUgG-0000000CgG4-3wIv;
-	Mon, 08 Dec 2025 06:25:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vSUhj-0000000CgUU-3NCv;
+	Mon, 08 Dec 2025 06:26:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSUgF-0000000CgFb-09F7;
-	Mon, 08 Dec 2025 06:25:08 +0000
+	id 1vSUhi-0000000CgTw-0tcm;
+	Mon, 08 Dec 2025 06:26:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D80AB43E02;
-	Mon,  8 Dec 2025 06:25:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D39EC4CEF1;
-	Mon,  8 Dec 2025 06:25:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 26CE4438D0;
+	Mon,  8 Dec 2025 06:26:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE569C4CEF1;
+	Mon,  8 Dec 2025 06:26:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765175105;
-	bh=hPTzVBaqEy6TULFAz5dE1caK6KjuW23EPXH/+kI6e3w=;
+	s=k20201202; t=1765175197;
+	bh=VfRCSRSZyuEZiyiiHqC5815wiOeaBDWsPYTCQKLJ/0E=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=km20+9PIg/iViZ0NYE8uaRiyLaTbKSmgch3obiYfXVs+ozkiZJZ8arJC9IiSsgUYQ
-	 neZTOdq7bafg4OT0DtMcMQBK7ztBDzbIa/0ByW/WS6A4BwJLxETD15VmYJIPjLPpjq
-	 Qpvb2cOkraeDtYJEMJTSlzq1H5FTOKcLM5PCjLchseIJSbwcoYlJFVyLfnheKoKlDC
-	 vnqDOyoYkXh1T2Tl0iRBoUw/Tfd04RgMNQ8UiH39UXVt3C4U65uagIDNjNalWUj2ou
-	 Vwt7db1NHtAZ8mOieOY17dMqF7uqV0YpB8EkOX/iaEJRjv68xP1kRNv7Rm1U3vqHyV
-	 RCsM+/6YfqevA==
-Date: Mon, 8 Dec 2025 07:25:03 +0100
+	b=AfKJHMPFDsmEQcxLnriPrRfkvRcWTsG1BczsVXM8ICvi4aGxiaNpw4tN3WL7+yFQu
+	 K5V5IOtf+QDgWJqOeTLCWCo3MgYXjjtQ3PSGH1qUDcjNIl2O+OQPMXICB79yhnmCyU
+	 SzPSH63XGRbUBsTi/OXAgQ2VAdMbaNkTSrVhWcSR4lTeGPrlfq8RO+dDafpqBJgEvj
+	 B4tfzH7Hl4tIyLRibD2M9bKgKQT8rPwoV9SAKiHxYNW3BWisSqIQX680lUM+lj3Axy
+	 0nNnixe4CdOaI3hzqEnSrYH0aXCOYsh+gNK34b1426vXrIgH2XoAj5D6YEIXj/LWro
+	 vr/8HBDasNohQ==
+Date: Mon, 8 Dec 2025 07:26:35 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Ye Zhang <ye.zhang@rock-chips.com>
 Cc: Linus Walleij <linus.walleij@linaro.org>, 
@@ -49,18 +49,18 @@ Cc: Linus Walleij <linus.walleij@linaro.org>,
 	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
 	Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	tao.huang@rock-chips.com
-Subject: Re: [PATCH v2 3/8] dt-bindings: pinctrl: Add rv1126b pinctrl support
-Message-ID: <20251208-snobbish-curvy-mouse-67fafe@quoll>
+	tao.huang@rock-chips.com, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v2 1/8] dt-bindings: pinctrl: Add rk3506 pinctrl support
+Message-ID: <20251208-invisible-ingenious-lori-b8aeb2@quoll>
 References: <20251206050844.402958-1-ye.zhang@rock-chips.com>
- <20251206050844.402958-4-ye.zhang@rock-chips.com>
+ <20251206050844.402958-2-ye.zhang@rock-chips.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251206050844.402958-4-ye.zhang@rock-chips.com>
+In-Reply-To: <20251206050844.402958-2-ye.zhang@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251207_222507_113057_708FB874 
-X-CRM114-Status: UNSURE (   7.01  )
+X-CRM114-CacheID: sfid-20251207_222638_300348_A2716DF9 
+X-CRM114-Status: UNSURE (   7.71  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,11 +76,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 06, 2025 at 01:08:39PM +0800, Ye Zhang wrote:
-> Add the compatible string for the rv1126b SoC.
+On Sat, Dec 06, 2025 at 01:08:37PM +0800, Ye Zhang wrote:
+> Add the compatible string for the rk3506 SoC.
+> 
+> Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
+> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Why? What is the difference against existing one? Please write useful
-commit msgs, not something obvious being copy of the diff and subject.
+Squash it, it is really  just churn to deal with one patch per
+compatible. Especially without any explanation in commit msg justyfing
+it.
 
 Best regards,
 Krzysztof
