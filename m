@@ -4,139 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05C84D3B7E2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 19:29:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7743D3B7E2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 19:33:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8yjmOYzXN+OctMZKMBsFTo1QqywLTcddJM6KrHURgSQ=; b=NMBQ5xMd6flO35ie2Xz5Wn2hd9
-	0kt99eiWwyXpzxtl957gEUvRexK0mdjE6t1tbwzgCBHBccgRadJDQlb5WxnkBmPYFMaIGimT03hSq
-	4Zi1FgJaUCx8s+ixB59ooh2eGqJQ0irphpgw8TQEB0Es26e/VYh/+nIG52nsTjkzU5Dn15JoRREHl
-	bRdALoaE60F0IXlhjb7sWNUXpvZ8+0bKPnlhXzs3xzdwqe9IfBtXO9/Mu9qjpbD/Y9/nvEmydQqdl
-	bEro4uA7aWpMzu1c+6YPGe8Jx2+9fzzmZAHW517fZrVMc0VdAcigiN6tNYjEVZe69r51jxCRj/srC
-	zPMUxuHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FJCFcZk1vtN/x9oLtLMX+KTigOOPmL1k4OMsgebEfA0=; b=n3mKQYiFvgALxv+xaxBcQmXMwl
+	GDIYpkBVncdiDSLTCl7PsFyIIGRRVTkNcQhWwLh4SfFNQmZDpFvBjIMQ7dd0YuDl2tD52jJh4T5a5
+	nC0uET+Vv9Ldpf2E4qp4l09M9oIPxOe/Gm3mnJYJugzlzHuLJPCD9Cw1HAkkHEK6uIEi2cMxafY7r
+	J7DxZhnClgj/9EoJNs0uqeb5WOVeac9oHOb/zfGrvclwGgk7WaTzPXGGmLJAcnc9qTZBarku5L0ze
+	2Er+eyrUaeZKFWJp6FmLRRdq+f7YZxb/xglazw3SMGx0D+9yqzSu7Gir5LomdlLjYCnA+HGwtvtoz
+	o+2Hf+2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSgun-0000000DT8o-1uMN;
-	Mon, 08 Dec 2025 19:28:57 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vSgyf-0000000DTQR-0CMH;
+	Mon, 08 Dec 2025 19:32:57 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSguj-0000000DT7u-0Rw8
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 19:28:56 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B8B49pb1130466
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 8 Dec 2025 19:28:51 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	8yjmOYzXN+OctMZKMBsFTo1QqywLTcddJM6KrHURgSQ=; b=LvSBS+OYd+2eregL
-	O0PXOxOfNBD1FHgof/+gg1nBzVqqG6ydlVohK3Wggpd/klUdsMhpbVe8yGfKjcio
-	QUa6v6/8hzB1/vAU5KP4850ZHQe3smd7FDJHjiwQdpL18WwbyydMak0RMUt2Keml
-	JBLwUtzKxXHF5j/8xRiSaHPUWe9VQ80GkwANv0aS/01MmxN1E84aklIB621bea5e
-	PG+fCNCF8jNe6R5cpWQTIeNLSHFzqj2Lmd8yEC8YwNTwReCCMcKOj+q+YD4ZogwN
-	pR5nwa08x2xaQPOVaO87zo769f6/UG1/1f5vbeNxvimfVnNuabop95FE4EF1vV7P
-	v2hPtA==
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4awwfr9g1g-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Dec 2025 19:28:51 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-7b9208e1976so8648326b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Dec 2025 11:28:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1765222130; x=1765826930; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=8yjmOYzXN+OctMZKMBsFTo1QqywLTcddJM6KrHURgSQ=;
-        b=gtBgjIXIeqlggzCCErcEA4eISj7WflT+vq9ADIElqEHTqsZZD2vWHPMHSXlau0NFiO
-         1iZ6zqtUvtLKKuu+C7/SwLpQGulypu3S4Ui2EIHd5msl/o0425S8zvhEHrnrLnyqB3Vo
-         dvrZtIH8Q9ykEaN8rEuQEBDw2Zccm9d0S+9yuTPQHYFZ6mD8xvU10l+mkMirjb3sNi/7
-         VGLt/LmGKBD3wet6levOOIZzIaVHwhxKha5ih+8TzEiHB7PufdLoG/4V2TAaIMWKF6XS
-         Y8F/HqCVOffu7RJIezZIdBIjQ6eBAdltMnW5wxYxz21R+CePRbjKyWztqIxLSOBd8gKA
-         JIXg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765222130; x=1765826930;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=8yjmOYzXN+OctMZKMBsFTo1QqywLTcddJM6KrHURgSQ=;
-        b=YmerJ2nDwoGYGeZfC7s3/acGyqd7TLGTZ8OqJa81qHFoMYP9s7rGGWykWxzLIrjMYr
-         q6+K8WLvVS9Sekrzy0r05ID+UIG32qMf7XxoApW/wsG42uX3N6L9Kh5Oi/LUYaVAu3zq
-         bdXe2dahBoLqQnoopYlfmGhpbw111a/3UvRvsrvxtovyzd8EWyYCrZFoZgdQulbASM4L
-         hjSe9qaBIs8u6g/tzyryiYlB450ivY1a5sAgnac4DHs9tEV6S+gSQfjHuONhe98msYFk
-         aR61XYZCC8QBoQaizIGJhCQCmeSh1emNYajcFKar4wYXDvk5sj5+1hsgSAbuvCgEAg1M
-         uRBw==
-X-Forwarded-Encrypted: i=1; AJvYcCVheX/lVKTZ9QQMQXLmtWTGrNnigmu3KmxDpJ3PuZme6IOrEW19MV5AjYPXJzCanUTx8hFpSWzkEFJ5JRRaF7Sf@lists.infradead.org
-X-Gm-Message-State: AOJu0YxkI5keNw+C0V0got0Bpelua3eZNc99p//PmKxNSLDTTpkRbzfX
-	HaPPpMo7OEPO7bdEKkScrfidf46mySr3PgK7oCqJCa9OP88Cffz26QPVxFCID669Q1nh9fby9tO
-	hR2w7MZtl2oQSjDcW9LnQnOKuwgnFk0e/QSdHe4KNNtOoKqzQ0smxzOrjaDchsOfiX2IBsMvvUG
-	0Phg==
-X-Gm-Gg: ASbGncscZdXDeczV7DwtPxx1HQN+xN8uZklcO74IjpJpKzG1Fi+V/aE4l+ejbyEvvXF
-	MDmd04mM2YH56apKDyOw+f5vdvgO4ay/O+jSCVbvHcU5UESNKa6vGK3dzOiVMCr5vCLGaKMQ50L
-	yhlTQ/qLtt+PezDK+r88z25g6Tj4hIFcsvguAfXaka60OZ7AMSAU7+F/y5qHN/HVvaLD1a6Jlp/
-	se2wZ/deo9oa+N7pbBAA38/sdm0fCZys5sRsDerRxiJkUqq0cQQMBx1tl8B9/iscl6kzBNDvIBZ
-	IJOcxTgwDxlu6lagCESnBVj2HltwGnHKxaUF2Hu4HjZht++C88cRGMPjKos5Dl7weQkuq/IQI4/
-	JhNlSV7Bw2UbqNJryje2I3WR0N48fpGLoxrp7PA==
-X-Received: by 2002:a05:6a00:23d2:b0:7e8:4398:b364 with SMTP id d2e1a72fcca58-7e8c580c004mr6248306b3a.55.1765222130197;
-        Mon, 08 Dec 2025 11:28:50 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEgn8R1nKUS0tnoxZy4qldCHnZ4XqbLpBA9yEzu93LuDAdycaH4O4tgmsv1jTQ8CYb1UTfXdg==
-X-Received: by 2002:a05:6a00:23d2:b0:7e8:4398:b364 with SMTP id d2e1a72fcca58-7e8c580c004mr6248289b3a.55.1765222129672;
-        Mon, 08 Dec 2025 11:28:49 -0800 (PST)
-Received: from [192.168.0.7] ([49.205.254.144])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7e2adc5c17esm13814703b3a.34.2025.12.08.11.28.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 08 Dec 2025 11:28:49 -0800 (PST)
-Message-ID: <0bcd5a92-5213-4862-9a31-8ea539b1b72c@oss.qualcomm.com>
-Date: Tue, 9 Dec 2025 00:58:24 +0530
+	id 1vSgyc-0000000DTPx-34C5;
+	Mon, 08 Dec 2025 19:32:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1765222370;
+	bh=SPy6IuXRQB6JWxPHINVrf9arRxcaSR93aH+ga+XRMfw=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=KrJybDW+JVRXbQZxk2yyWuUjCnRXHvZcFurpD1Duy15oF3YIEamYtYlyDoGtdxGLY
+	 eAqrgFVXkquR6CnnrxaQjRqighq2Dv7F/SLNHehis1GvwxsZmOZiQx8MFJmdNJ66dq
+	 4SKMah6pQWMuLU7KsPXxrKkaA87snplawy9z4aBbKlEm4shur2pSPX0WXyUvReKSt+
+	 mc8zPgYydKZfJp0dD0BaIbWy2FHgrGKcRhdrbyyKEWp5QszPA9pmEDYjFbUzS/ASSS
+	 eoSiIc5MPzIezA+yZBnQ69bpB1dJeKPMV98g5I5ToSr0sNKY36eLpYyxDuSxbMDpOt
+	 K5u40N2/ijKlw==
+Received: from [IPv6:2606:6d00:17:7b4b::c41] (unknown [IPv6:2606:6d00:17:7b4b::c41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2815C17E10DC;
+	Mon,  8 Dec 2025 20:32:49 +0100 (CET)
+Message-ID: <f03ed0ed3d5ffc780fb23d1945d75a6459ffbe22.camel@collabora.com>
+Subject: Re: [PATCH] media: verisilicon: AV1: Fix tx mode bit setting
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+	p.zabel@pengutronix.de, mchehab@kernel.org, heiko@sntech.de,
+ hverkuil@kernel.org
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	kernel@collabora.com
+Date: Mon, 08 Dec 2025 14:32:46 -0500
+In-Reply-To: <20251208095227.19720-2-benjamin.gaignard@collabora.com>
+References: <20251208095227.19720-1-benjamin.gaignard@collabora.com>
+	 <20251208095227.19720-2-benjamin.gaignard@collabora.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-CPOZjzucNTO3O4NhfpZO"
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V4] iommu/arm-smmu: add actlr settings for mdss on
- Qualcomm platforms
-To: Bjorn Andersson <andersson@kernel.org>,
-        Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
-Cc: konrad.dybcio@oss.qualcomm.com, robin.clark@oss.qualcomm.com,
-        dmitry.baryshkov@oss.qualcomm.com, will@kernel.org,
-        robin.murphy@arm.com, joro@8bytes.org, iommu@lists.linux.dev,
-        linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org
-References: <20251202125447.2102658-1-charan.kalla@oss.qualcomm.com>
- <gsjyj3arwoqcjln6nlmyhohlowyvkwqmxppdq5y7c3m4khoyq3@npzixjpibh5g>
-Content-Language: en-US
-From: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
-In-Reply-To: <gsjyj3arwoqcjln6nlmyhohlowyvkwqmxppdq5y7c3m4khoyq3@npzixjpibh5g>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjA4MDE2NSBTYWx0ZWRfXwQX6h08Vmx/S
- L7OvWAbpuFc9827zlNqgVYwSo5nTVoNkzFaOzckacz5BJhPEs31cmbNKeOqqpA0prlb6l9PRzEE
- LzOKQFu0eSfCt6AnAxm/9HUOyvB/ft4syDO9dw8y/+Sr1AN4NdbT3E/vVvqP6rp3RAsB3wr8Fvi
- DpViU8j7eh0d/vkpTXcggil1uixDNcCZuQzESacX+il7UzcTNiovHB22yw7plcck2AKAdUPcrF7
- 4Ry8+CKMHyCZ7YXF6DDagWoT/jVr+3aUjuWBqg1ZL2ZfQSXv5c2DFiCzSltjpGrT6zcVMHS9am8
- fZt6EUCkV21S3HA/uIM8ySBewIc+WG1f/wOxIK6SnMdDg5PY6Vu6zQ61sK+b3Hd01YbfuIieruN
- 9FQadDS/LoptkACumzfipLKvjoehUw==
-X-Proofpoint-ORIG-GUID: PpzFSd086M7CCPhgJzJy8dD1KZ44JP0H
-X-Proofpoint-GUID: PpzFSd086M7CCPhgJzJy8dD1KZ44JP0H
-X-Authority-Analysis: v=2.4 cv=fsXRpV4f c=1 sm=1 tr=0 ts=693726f3 cx=c_pps
- a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=21F0Ij6J+em9RIwR2lrOkw==:17
- a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
- a=SVaDBRFF2uN27j_ulVgA:9 a=QEXdDO2ut3YA:10 a=zc0IvFSfCIW2DFIPzwfm:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-06_02,2025-12-04_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 priorityscore=1501 phishscore=0 malwarescore=0
- suspectscore=0 adultscore=0 spamscore=0 clxscore=1015 bulkscore=0
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
- definitions=main-2512080165
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_112854_970264_08127A82 
-X-CRM114-Status: GOOD (  21.72  )
+X-CRM114-CacheID: sfid-20251208_113254_960274_308DEB7F 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,103 +92,101 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+--=-CPOZjzucNTO3O4NhfpZO
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 12/6/2025 2:36 AM, Bjorn Andersson wrote:
-> On Tue, Dec 02, 2025 at 06:24:47PM +0530, Charan Teja Kalla wrote:
-> 
-> Based on the other changes to this file, the subject prefix should be
-> "iommu/arm-smmu-qcom:"
-> 
+Hi,
 
-Sure Bjorn, I will address this in v4 RESEND and collect all reviewed-by
-tags.
-Let me know if you feel this change needs a revision update to v5
-instead of v4-RESEND.
+Le lundi 08 d=C3=A9cembre 2025 =C3=A0 10:52 +0100, Benjamin Gaignard a =C3=
+=A9crit=C2=A0:
+> If tx_mode field is non-zero then write it value + 2 else
 
-Thanks & regards,
-Bibek
+it -> its
 
-> Regards,
-> Bjorn
-> 
->> Add ACTLR settings for missing MDSS devices on Qualcomm platforms.
->>
->> These are QoS settings and are specific to per SoC thus different
->> settings, eg: some have shallow prefetch while others have no
->> prefetch.
->>
->> Aswell, this prefetch feature is not implemented for all the
->> platforms, capturing to those are implemented to the best of my
->> knowledge.
->>
->> Signed-off-by: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
->> ---
->> Changes from V3:
->>   1) Add actlr setting for missing sc8180x & sm6115.
->>   2) Improved commit message.
->> https://lore.kernel.org/all/20251124171030.323989-1-charan.kalla@oss.qualcomm.com/
->>
->> Changes from V2:
->>   1) Add actlr settings for all the mdss devices on Qualcomm platforms.
->>   2) Improved the commit message that explain why different ACTLR
->>      settings
->> https://lore.kernel.org/lkml/20251118171822.3539062-1-charan.kalla@oss.qualcomm.com/#t
->>
->> Changes from V1:
->>    1) Added actlr setting only for MDSS and dropped for fastrpc. --
->> konrad
->>    2) ACTLR table is updated per alphanumeric order -- konrad
->>    https://lore.kernel.org/all/20251105075307.1658329-1-charan.kalla@oss.qualcomm.com/
->>
->>   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 26 ++++++++++++++++++++++
->>   1 file changed, 26 insertions(+)
->>
->> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
->> index c21a401c71eb..149da53091de 100644
->> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
->> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
->> @@ -41,12 +41,38 @@ static const struct of_device_id qcom_smmu_actlr_client_of_match[] = {
->>   			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
->>   	{ .compatible = "qcom,fastrpc",
->>   			.data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
->> +	{ .compatible = "qcom,qcm2290-mdss",
->> +			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
->>   	{ .compatible = "qcom,sc7280-mdss",
->>   			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
->>   	{ .compatible = "qcom,sc7280-venus",
->>   			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
->> +	{ .compatible = "qcom,sc8180x-mdss",
->> +			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
->> +	{ .compatible = "qcom,sc8280xp-mdss",
->> +			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
->> +	{ .compatible = "qcom,sm6115-mdss",
->> +			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
->> +	{ .compatible = "qcom,sm6125-mdss",
->> +			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
->> +	{ .compatible = "qcom,sm6350-mdss",
->> +			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
->> +	{ .compatible = "qcom,sm8150-mdss",
->> +			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
->> +	{ .compatible = "qcom,sm8250-mdss",
->> +			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
->> +	{ .compatible = "qcom,sm8350-mdss",
->> +			.data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
->> +	{ .compatible = "qcom,sm8450-mdss",
->> +			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
->>   	{ .compatible = "qcom,sm8550-mdss",
->>   			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
->> +	{ .compatible = "qcom,sm8650-mdss",
->> +			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
->> +	{ .compatible = "qcom,sm8750-mdss",
->> +			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
->> +	{ .compatible = "qcom,x1e80100-mdss",
->> +			.data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
->>   	{ }
->>   };
->>   
->> -- 
->> 2.34.1
->>
->>
 
+
+> write 0.
+
+
+Please don't sent a an In-reply-to: email for a patch that isn't part of a
+series.
+
+
+>=20
+> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
+> Fixes: 727a400686a2c ("media: verisilicon: Add Rockchip AV1 decoder")
+> ---
+> =C2=A0drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c | 2=
+ +-
+> =C2=A01 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_de=
+c.c
+> b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> index f4f7cb45b1f1..fccdece51b1b 100644
+> --- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> +++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
+> @@ -2005,7 +2005,7 @@ static void
+> rockchip_vpu981_av1_dec_set_parameters(struct hantro_ctx *ctx)
+> =C2=A0			 !!(ctrls->frame->flags &
+> V4L2_AV1_FRAME_FLAG_ALLOW_HIGH_PRECISION_MV));
+> =C2=A0	hantro_reg_write(vpu, &av1_comp_pred_mode,
+> =C2=A0			 (ctrls->frame->flags &
+> V4L2_AV1_FRAME_FLAG_REFERENCE_SELECT) ? 2 : 0);
+> -	hantro_reg_write(vpu, &av1_transform_mode, (ctrls->frame->tx_mode =3D=
+=3D
+> 1) ? 3 : 4);
+> +	hantro_reg_write(vpu, &av1_transform_mode, ctrls->frame->tx_mode ?
+> ctrls->frame->tx_mode + 2 : 0);
+
+That all seem very hacky. Let's step back, and use that as inspiration for =
+a
+useful commit message. From bitstream we have:
+
+tx_mode:
+  0 =3D=3D 4x4 only
+  1 =3D=3D SELECT
+  2 =3D=3D LARGEST
+
+And the HW have:
+  0 =3D=3D 4x4 only
+  1 =3D=3D 8x8 and less
+  2 =3D=3D 16x16 and less
+  3 =3D=3D 32x32 and less
+  4 =3D=3D Select
+
+Since the two enums have no relation (except for value 0), I'd suggest to
+translate this in a switch (with nice enums so its readable).
+
+  0 -> 0
+  1 -> 4
+  2 -> 3
+
+Would be good to check if we can refine with some other params to reach HW =
+value
+1 and 2, but otherwise, that mapping is sufficient. Tha hacky +2 is really
+obscure to me and I'd rather not do that upstream.
+
+Nicolas
+
+> =C2=A0	hantro_reg_write(vpu, &av1_max_cb_size,
+> =C2=A0			 (ctrls->sequence->flags
+> =C2=A0			=C2=A0 & V4L2_AV1_SEQUENCE_FLAG_USE_128X128_SUPERBLOCK) ?
+> 7 : 6);
+
+--=-CPOZjzucNTO3O4NhfpZO
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaTcn3gAKCRDZQZRRKWBy
+9CVcAP0RNa8TlLEqo5wFP1mOMIarqad946RwYdDHHxPIaF4VnwEAyapE3XLOFmCq
+KL9Eo6Ma/SAxyHXJb/r5OsFwAQDxGgo=
+=+m1j
+-----END PGP SIGNATURE-----
+
+--=-CPOZjzucNTO3O4NhfpZO--
 
