@@ -4,177 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CB98D1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 02:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 650ECD2CE17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 02:04:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NdiHpXPdAh35EuPKTy7kBStHZnqtS65K/I9Y0lpgqPE=; b=wFyEWFP0x3OxkmYN0z5nUh5JmZ
-	kWHyv5IlT9J5KAJLb6iI+vUKn7NAAMkg+XqK5wi0/3cYYp7Qj+mGijKD/ALZ/wy3Yf/RqfLv9TnLn
-	Z4R4RJBP6eVXC7CcyNAlvlK/THd67Pxb67gzunDT5szwfw8RD+GdOqItYczWrHE/TqEs6YtAXENcx
-	yZuJ+PLXt2CCYHaoq7ay2TYIHKgsYbG0JqVIb3sjbadzrA1FRiJ12TYtf2yuCblb9Dd9xq7yVa/b9
-	TfUvwPCScc/Up2yDHCT3irL2oEFn1BpxsqM0YMS5ouEhMgxpQUDUEKsJWCWPkGzzZn1Rg7g07iWtn
-	4/1XEjHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:Subject:From:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gug9CwpDqb+TCtvtvwUyKvSMovynSjoGfeuTquKCNd8=; b=x1dDdZKoy9ehLlZ9rgox1Jizq3
+	Mwp+VW+dTDR0XwbbeboP17Nm2kKa2kTYPyEipjpQxdOk8lN0iN+tpv06LRSlPHHjBWUG/uQxsyIjW
+	uuhklivRwz30zVUsU0SZII2/dHzF26XNOVlIcxeyNdM/u+5W0iZFcDod6dcnWn+pPldB9AMVE3/Ib
+	1Yu26aJivacby6Qzk7qWwPyybpfIiGQyIYJoVjgkGkOXbSJG48p3hft9uLUWHig8nc/44ToqCJqjK
+	cR5t3RwKEbgRQggiB7kQnvoQ8oTvHIypdFZXA75aWB3oEFKKqleYVT/5lBphrkj3azvLMf+ga/pl2
+	Z4DSY6bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSQax-0000000CRiw-3C46;
-	Mon, 08 Dec 2025 02:03:24 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSQau-0000000CRiD-2mD8
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 02:03:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=V39KeDX/xGQ6OwtfWnzs6OYaKn0RCnnu6AHBLL1o28QmwFnnbDHbQ9LpPzreS2UVbk65etNU36jlSiFPZGBzxyTGDJ789xE9YNCn8mEfM8kJ7fQhQJt67Y2OvWPwF8c3Zce+CyLaITlSFFJ/oCW0//DNj+aadHDKuMDToJviax57LGMUXevAf+QnIBx1Tl0xTwhVbIeYcB21oyaZ0ISbZlthGTy2JWci8ZNo2GgBytQ7QZ4q0+rHM9df88HtMKzyW16J9We8jaSpe/9khz7ITZY9nq6bRMXFO1ZxzI84Xsvhr8koQ4cfV/GMBSqUmxoTDgNKsqo+wtJduFk6Cygs5Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NdiHpXPdAh35EuPKTy7kBStHZnqtS65K/I9Y0lpgqPE=;
- b=UVNXfZp5jwGmV0Ae8TTN2CyZIkKtSguue3BKHFJsEQRTQbn+B+UGVrMNGcWV9Py4VPtHECccjSg31GLm03SnrCMpUQSMYhKYJTYz7FOMKtgJ2jUb2rHJe/taj7Rb73i2eWlpIr2t+qoehmCAMVEzX6yqnfmXxLzuhUjLxP/yqbJOpjh6YPhdBwv+0xAm5lB7ZZEX8/s49yQX0uOBfkeSmQPskiBcEgxqdK8gYo3AbJSZ7XKz0rQl39ouq5ROCuy5roTlQrQiXsfaMkNod9pPINXJE+0RnYeafyv7nqPJr8Qs8IU5F6vfX62c+eNmf8bDhQoVpqVa2BexclZSJvhuVg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NdiHpXPdAh35EuPKTy7kBStHZnqtS65K/I9Y0lpgqPE=;
- b=MOTjvihGIVgeABxKlw0gaDt3OkVsHqzFzSUfjvcfVGvK0ZU1kT40oDIiaEhxWG9oPY15wyMSRLOZrGaEUcC0h+zA9JKcftkp0AOUSuQ9/8bV1v1TOMfvIQ/OUs1Te21fvWmNFEhUc9cNo5iDYEaMddIVHqX/zRwAziLvvFbyyQWsGCRnFultC9e71kKAUeNaOePfxv6hSixwyYuBQf2ld2ivpezoWkMIONRu4kQ1V5rCa/qONMZ3UPH0tzSQY9mXmLcm2PM3hzx0hcUKYwhD17ACGYJ3AEv9eHMcrAl5sfj20/R3PWiE0glDMYXruNamrXrqT9OCs9AmzCdpvLSIGw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by PA4PR04MB7533.eurprd04.prod.outlook.com (2603:10a6:102:f1::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.14; Mon, 8 Dec
- 2025 02:03:13 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.9388.011; Mon, 8 Dec 2025
- 02:03:13 +0000
-Date: Mon, 8 Dec 2025 10:02:03 +0800
-From: Rain Yang <jiyu.yang@oss.nxp.com>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: Frank.li@nxp.com, conor+dt@kernel.org, devicetree@vger.kernel.org,
-	festevam@gmail.com, imx@lists.linux.dev, jiyu.yang@oss.nxp.com,
-	kernel@pengutronix.de, krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org, peng.fan@nxp.com,
-	robh@kernel.org, s.hauer@pengutronix.de, shawnguo@kernel.org
-Subject: Re: [PATCH] arm64: dts: imx95: Use GPU_CGC as core clock for GPU
-Message-ID: <aTYxm_dfMwF4H0_b@oss.nxp.com>
-References: <20251129143220.14834-1-marek.vasut@mailbox.org>
- <aS-lEibp3zTsaR6T@oss.nxp.com>
- <c6e0e55a-06da-4665-972e-e9b5b8c08bf7@mailbox.org>
- <aTACuRjC_Zpf8IOU@oss.nxp.com>
- <de36091e-c890-4897-b3e3-2a7575029a5d@mailbox.org>
- <aTD5np-HGaJqhzkD@oss.nxp.com>
- <5944d872-01a3-47e9-977b-029f3be4fd83@mailbox.org>
- <aTKVMAMQ6v_BwD6R@oss.nxp.com>
- <9b593731-898f-46a7-8ee5-68f8c170351c@mailbox.org>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <9b593731-898f-46a7-8ee5-68f8c170351c@mailbox.org>
-X-ClientProxiedBy: SI2PR04CA0010.apcprd04.prod.outlook.com
- (2603:1096:4:197::11) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	id 1vSQbl-0000000CRqH-42bf;
+	Mon, 08 Dec 2025 02:04:13 +0000
+Received: from [50.53.43.113] (helo=[192.168.254.34])
+	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vSQbi-0000000CRpl-40tu;
+	Mon, 08 Dec 2025 02:04:11 +0000
+Message-ID: <22b92ddf-6321-41b5-8073-f9c7064d3432@infradead.org>
+Date: Sun, 7 Dec 2025 18:04:09 -0800
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|PA4PR04MB7533:EE_
-X-MS-Office365-Filtering-Correlation-Id: 82a1be5c-448c-45e1-c026-08de35fdf142
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|52116014|376014|7416014|19092799006|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?TFBRd1NkREFRTEhEWm02VEVCdGsvUW1HSm1kSllzYURTbXFZOEx0RjZXVjcx?=
- =?utf-8?B?VWlVblgyaWZ6NnNWU3ZycGZnNnNOVXVaWlJ2UGNDMjkzak5jdHl6Qk1YNjN0?=
- =?utf-8?B?R2N0d2RtVFVNS1dESU5saENCOHhVNk1XU3JRZkM0YjF6MVhaa1ZvQyswRmM1?=
- =?utf-8?B?b0dKTTVPSngxUlpkZk1xSVM4aFllV0JYemlkYytmbS8reEdjb1FkS25iVVVu?=
- =?utf-8?B?K0RPSmRYRkV0SFhiK3l2KzdJODRIOTBGUlcxZjdyWGN2NzdETXRCVnBiY0lF?=
- =?utf-8?B?YjJ3THBBY2tkR0lyS0tVLzViRVpWT29Gb3FvNXpweDZEKzF4UkNQcWJYYnJZ?=
- =?utf-8?B?SE82WnZMUWV6S01HU1c4c3JnM29pUjA5REYrU0wxVWZ5eXZJSTgzc2RZdUt4?=
- =?utf-8?B?VGJVZ0taN0lCK3lEZWR6SHQxZWk0UlJ5a0RrRTNYS241c0toOTltcmIwYUtt?=
- =?utf-8?B?NVpzNW5JVXVaNHp6THFiZkVpc0R3U3JVOTYrRk5kZkFqd3MrSWJNQlJOcUFZ?=
- =?utf-8?B?TmlPL0JNT2FTZDZVV0liZXJDWDJkUUZHRnJiemZJb1dDTGpBcGdkWWJYblV3?=
- =?utf-8?B?NWVrY1pNbmVRbUFBeURpaS9Md2cwQm1ZT01XbzROUytHSEZmR3Z5QUowdGQw?=
- =?utf-8?B?SllhaG9nTE5aRlpqNEpRSlgyekR6QVEwRkovWVczdkl0QlU4MThRTXVNdUlh?=
- =?utf-8?B?OW9IeTlheGlndndJNCtnT0EvTFc4WFNuVURWaXU4OHhRc0pISjU1Z3BaVDN1?=
- =?utf-8?B?eFo1NkVuMUMxMFhIb2xTeGczOGZadmhLcU82QW1tYTFUTGtSMEliNUhZNlRE?=
- =?utf-8?B?dEZ3LzBvN3BuTktJT0VtOThScTQ1MjZoUHBHUXloMWVRc2FBK0hWVEJSVEdj?=
- =?utf-8?B?WlYyQmVtVkxyTnZqejVzb2Ntbk5qaC9iRFhkTnJyYWN6djZ2ZVoxVDAxSGpz?=
- =?utf-8?B?NmVjYzdwWHJ2elBDa2dUc1Q1Wkg5SGc4d21QTHNDazBSMDFucGhtY0NvNVVF?=
- =?utf-8?B?dmdPbzdsbjNqWGg0elRKTlYwK2VlZFd1UGdzREN6NklpZHJqWHh4dGlEdW91?=
- =?utf-8?B?YVFNVWZ3OUFnUEZCWkc1ZU9MS2xKd3BWOWVla05iVDBXd1c4bVE4M0FyazZH?=
- =?utf-8?B?WERPVENkbnZwdE1JTmJJbXE1akVrZG82RXNiT2F3azJnNW9ldzRkK21wbWpa?=
- =?utf-8?B?em4vYlVJd21qZlo1dmhoNit2YTNWUTM0NUw0VkpjVHB6eUwwR1JmRG1uR3Yw?=
- =?utf-8?B?cHpRRWFjUkZRMnZ2MHUyRkVDRFBOenRVR0kvRUh4RHJaaDhkSlZJRlFpNjNu?=
- =?utf-8?B?OS9CUHF1bzNRYzd3QndjekljQWxoMWNBNnRUdG9xNjhSTTZLYlJ3K3NVb0Uy?=
- =?utf-8?B?RUZkVEJxRExzaVJWdm5LL0RmdEMvajFZZVhNVDhRZk5ENHVNdmo4N3hab3c1?=
- =?utf-8?B?TDVBTEpoT2tCeXd6aUsyRDNpUDUyTHEwbjFiTVRSSGQ0R0FHMnZwYVU2N0hy?=
- =?utf-8?B?dktxYTdvdlRybGpKTXF0RWZTNnBFLzcvVWlyakFDbGNFdHRNT0V4aXMveFQ2?=
- =?utf-8?B?WnQ3RVhpU2hPWUtKYi82TnRkZkk2M0xhaUZkOXlEZEVkL2lBVHpMQTNFQkhP?=
- =?utf-8?B?RmFRK1dmN0RLSEhEanFQZzVpTXJYeWwxT05ERzZSbVpDR2RXQmxjT3dxbmh1?=
- =?utf-8?B?Z2FXdyt5UjBHTXp4TWVmMW9JMythRWxWT1VSdXRUSmxSSjVtMDdPYWtoRGc3?=
- =?utf-8?B?NjM4d1FnV1NZRXQzREg2ekZFUGpHUDl2dHd6MmJ5cUZZZVBRcC9aNzJQcUcy?=
- =?utf-8?B?N0lCWVB3TjJ3Q3NzQm1BUU5kUlhaOEp3cmpGQ1lEeGZqbWFSWEZodkxKSVhK?=
- =?utf-8?B?elkwTkxVaU5zOTlMQXV0LzdOUDRyWWpvTzJpYnZtRU5NRnl5UDROSXRuSGRy?=
- =?utf-8?B?YWJaY2RGUHRKZlYrcWR5NUFZVnEvRGdVT2x5Yk9mMGhIb2UrV0xBQU9iM0F1?=
- =?utf-8?B?T1BVcmhjY3ZpeHBLY2hKdUcvLy9PSFdkQlcyUTI1K2lvWXFoWGlxSnR2VFp5?=
- =?utf-8?Q?mP32ER?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(52116014)(376014)(7416014)(19092799006)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?LzJEbE51ZDFtYWpmdmxRUWF6RmZGQVYvSUFOQ2p6UjhzMm4ra3Vvb0Q5N1hs?=
- =?utf-8?B?dUswSm9vbEY3akc2aXVNcUVhSDlVTzBray9XOGhGbDA0S1g3VnZPYldtcVVL?=
- =?utf-8?B?U1FGcVhkRmUxcU1ZL3dyRVQzc0NsT2R4YjVzcCtkVW5samFKdEw1cHp5TDRL?=
- =?utf-8?B?TFlSZ1c5UDJ1K3czSFVRUkdQemVKTUtxekozMENYUFhORFdMUTVNSW0zeUNW?=
- =?utf-8?B?bk5RY2dFNHRjelp6N1RsRXlmYnZKbm1CcE5pcUh5ZXkxU1B2Mk5oQ1B6VDdz?=
- =?utf-8?B?RzZwUEVoMnFzZTVNMHU5L0RxenRpcDdJalJGMktmUWMzVFBOSUpnVzNVR3hu?=
- =?utf-8?B?MlhISTFNY1MzM1ppRjhHd0VlR3hiRG84VGtlRzZJeUp3Ulc5dkpQeWVEWnRm?=
- =?utf-8?B?U0VZUno0Z0NqN0crL0pyMEFMbkpZZU9RZTJtN1F1QTJKTGNWUFR5VVlPdDds?=
- =?utf-8?B?VE5YalZscXNjNHJEdGw1RGVoRmxsMzU1Vk5MNkdkTi9aWFlwMTQya2syWmQ0?=
- =?utf-8?B?ME13MDJINURXOHpnb0pFbk1MZzlUWE1qd3ZOeFZEV1YrR1NaVWJBd2VYd2M1?=
- =?utf-8?B?ZHYxVzc5NEVVTis3Z3d2aThnYyt6cFJlMVZKS2YwZzFITzlsMmU2cmdVVlhM?=
- =?utf-8?B?eEI4NzVJMG1Eei9EQlpJZmhnc1dJMFl6ZUYzRWtLeUtBcGNjNno3dFFuNzVG?=
- =?utf-8?B?OUxxMGJYdzZ5MlhFWWR4bGpPN1BDS2kvMFprZ29rc3hKV2dKTkJCUVF4RlEr?=
- =?utf-8?B?Q2dDdmUrZ0hYdHF5Qi8rYy9FZjh2VU5pRTI5a0puMmowRmlEYWV6dHpqQzNy?=
- =?utf-8?B?MFNKdlVNRUpPemtjUkxkSVpwSllLVnk2MXcvZTF5T3ZHUXB3eFpTME9DQ1h5?=
- =?utf-8?B?YWVRNkc1RjdDcVp4N0RXVTBlOEFDRUttSWRLVVE0ZDJrUi9OVlVBWm5MS3Br?=
- =?utf-8?B?M0tScUcxTGxrQlk2eDczRjA1SHNFMEdaamhVKzNmWGdZL3I5RWk3dnpPNnNY?=
- =?utf-8?B?eGpCeFJxUHkyQmNMajBJY3dnK3V1TGpJdmhvbGM4RDI2NHRmMDRPOTlaSWZN?=
- =?utf-8?B?aUpnOWZTYnkvVUd5UFhuM09remdFSTRJR0hNcHNKQUh5M1lXaG0wRU9renZr?=
- =?utf-8?B?YktpNkFYSTBKZ25KeDZHdjhuUEV1QTJLM2dvd2lFVGM3MmxCMmN3UlZwZlhI?=
- =?utf-8?B?YlVaMWY0U0VXZHRIMDFhR2NpaHNQR1dZWUhrSEExQ2VYVHBSOVNPL1EvU21L?=
- =?utf-8?B?UmRMUnNaTE1HRU1CM3Q4SVFzNWdrWHh2ZnBELzVXYXFjVlVXbCtXNS85dldB?=
- =?utf-8?B?eWpaT1dHaEQ1K1Y0UURKT20xSmE2aXgxakxXVTJGaXo2TXpKaHY5Tmo5VWQ5?=
- =?utf-8?B?ejQzd0tMemZWYjRCKzlHdjRGRUh5R3BuRFNDaStlMVRacDZVNjRId0NTMktY?=
- =?utf-8?B?aTV1QkNwUktQV1F5ajlYZzBnS01LSGllbmZKTExPQmlFbEhhMjY4ejhjWU9w?=
- =?utf-8?B?aU81dXdWdDc4WHhoUHM1bm54QlBWTTEwa0xYNTNvYmREbStBTVdoMEV3cjFR?=
- =?utf-8?B?ak5HU2Yvc253WFRjUWxJVEJGMHF6Y0d1YzlyOWxnOHh1OFBXV2cwRTRJMlda?=
- =?utf-8?B?eTdwUFZUaU1HbTBOcGRXUlNFemVWNzNkTHZna2dLdjhUaG9XcjNKQ3hwa0Rl?=
- =?utf-8?B?LzdxTDBSSm1XK3VEdDVxTSttdU5RNjlkb0ZPS2tVWCtuZ1NzUytWU1RWK3Vp?=
- =?utf-8?B?SFM2L29PT05udHJDYUhWNFVZb3k1aDBIc1ZwMkJRK2JDUVVneDdKbmlBUGJJ?=
- =?utf-8?B?VStzc0lVd25xMGk2WmxZT05SaVk4VEhsSSsyTVpQclh5eDVYM2FtM2FFc1NC?=
- =?utf-8?B?UTRhTGxSV2NkQUxrNnpRYnVTNy9jQysxV29kRzhLenNhL2ZKRk5GNW9VQzlE?=
- =?utf-8?B?eVp3SkFWdVVkYlgvUi8xUERHc0ZuODhKb29SRVhzR0NzNGp0VHBoR0MzczdB?=
- =?utf-8?B?a1I4M1FpTDhhSnYxb3ZiaUllRFN0Sk1za3hDYi96cEFqSkpTUnIzb2RuOCs2?=
- =?utf-8?B?QzBvZ2pzNVB3K25rbnBoQjRyMWJINHBXeGdheEVRSlE1QkpiTnp4Z2FaN3Qz?=
- =?utf-8?Q?abF/zqlRucOJ71go8JOVAhhaf?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 82a1be5c-448c-45e1-c026-08de35fdf142
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Dec 2025 02:03:12.8311
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +9BnpmWjbn9/AyunM/c8Hbk72szE6S+aBX/ty1XEgbffsXC8Taue81ujR1Sx2cU0g1k2K48ohXg8Jis2SCFHxA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB7533
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251207_180320_822409_4ADCE58B 
-X-CRM114-Status: GOOD (  23.04  )
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
+From: Randy Dunlap <rdunlap@infradead.org>
+Subject: Kconfig dangling references (BZ 216748)
+Cc: Andy Shevchenko <andy.shevchenko@gmail.com>, Arnd Bergmann
+ <arnd@arndb.de>, andrew.jones@linux.dev, linux-omap@vger.kernel.org,
+ openbmc@lists.ozlabs.org, linux-sound@vger.kernel.org,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ linux-mips@vger.kernel.org, asahi@lists.linux.dev,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ Paul Kocialkowski <paulk@sys-base.io>, chrome-platform@lists.linux.dev,
+ Paul Cercueil <paul@crapouillou.net>,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ linux-gpio@vger.kernel.org, Srinivas Kandagatla <srini@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Matti Vaittinen <mazziesaccount@gmail.com>,
+ Jonathan Cameron <jic23@kernel.org>,
+ Vaibhav Hiremath <hvaibhav.linux@gmail.com>, linux-sh@vger.kernel.org,
+ x86@kernel.org, Max Filippov <jcmvbkbc@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,38 +66,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 07, 2025 at 10:01:06AM +0100, Marek Vasut wrote:
->On 12/5/25 9:17 AM, Rain Yang wrote:
->> On Thu, Dec 04, 2025 at 04:25:38AM +0100, Marek Vasut wrote:
->> > On 12/4/25 4:01 AM, Rain Yang wrote:
->> > 
->> > [...]
->> > > > > For the Linux working environment,
->> > > > > CLK_GPU and CLK_GPUAPB are always-on, while CLK_GPU_CGC can be gated off.
->> > > > > 
->> > > > > Regarding the IMX95_CLK_GPUAPB handle, my suggestion was based on the absence
->> > > > > of its frequency in any OPP entry within the frequency table. Removing it
->> > > > > could simplify the OPP handling logic and reduce unnecessary complexity.
->> > > > 
->> > > > If the clock can be disabled by SM, Linux has to make sure they are NOT
->> > > > disabled, so they must be described in DT, right ?
->> > > > 
->> > > > > [1] https://github.com/nxp-imx/linux-imx/commit/695f2bdc57b869ca5189313e4b5fa7eb5a12f622
->> > > Currently, only CLK_GPU_CGC shall be described in the Device Tree[1], as it can be gated.
->> > > The other clocks (CLK_GPU and CLK_GPUAPB) are always-on in the Linux environment,
->> > > so describing any of them in DT is not necessary and would not be proper in this context.
->> > 
->> > Since this discussion is in fact unrelated to this bugfix, I would propose to
->> > fork the discussion into a separate patch. Can you please submit a patch for
->> > the GPUAPB clock ? Note that I believe GPUAPB clock have to be described in
->> > DT, if only because DT is a hardware description, and to make sure the GPUAPB
->> > clock are correctly enabled by the driver.
->> 
->> Okay, I’ll submit a patch later.
->> The commit message should reflect that only CLK_GPU_CGC is enabled.
->
->The commit message , and this change , is unrelated to GPUAPB clock.
-The commit message is ambiguous. Could you clarify which parent clock
-you are referring to, and whether it can be enabled by CLK_GPU_CGC?
-If it was CLK_GPU, CLK_GPU_CGC can't be able to control it.     
+from  https://bugzilla.kernel.org/show_bug.cgi?id=216748
+
+The bugzilla entry includes a Perl script and a shell script.
+This is the edited result of running them (I removed some entries that were noise).
+
+I'll try to Cc: all of the relevant mailing lists or individuals.
+
+
+ARCH_HAS_HOLES_MEMORYMODEL ---
+arch/arm/mach-omap1/Kconfig:7:	select ARCH_HAS_HOLES_MEMORYMODEL
+
+ARM_ERRATA_794072 ---
+arch/arm/mach-npcm/Kconfig:33:	select ARM_ERRATA_794072
+
+ARM_SMC_MBOX ---
+arch/arm64/Kconfig.platforms:375:	select ARM_SMC_MBOX
+
+CLK_FIXED_FCH ---
+sound/soc/amd/Kconfig:11:	select CLK_FIXED_FCH
+sound/soc/amd/Kconfig:48:	select CLK_FIXED_FCH
+sound/soc/amd/acp/Kconfig:107:	select CLK_FIXED_FCH
+
+CONFIG_STM ---
+drivers/hwtracing/stm/Kconfig:16:	default CONFIG_STM  # should be STM
+drivers/hwtracing/stm/Kconfig:31:	default CONFIG_STM
+
+CPU_HAS_LOAD_STORE_LR ---
+arch/mips/Kconfig:1411:	select CPU_HAS_LOAD_STORE_LR
+
+DRM_KMS_DMA_HELPER ---
+drivers/gpu/drm/adp/Kconfig:9:	select DRM_KMS_DMA_HELPER
+drivers/gpu/drm/logicvc/Kconfig:7:	select DRM_KMS_DMA_HELPER
+
+EXTCON_TCSS_CROS_EC ---
+drivers/usb/typec/ucsi/Kconfig:76:	depends on !EXTCON_TCSS_CROS_EC
+
+MACH_JZ4755 ---
+drivers/clk/ingenic/Kconfig:20:	default MACH_JZ4755
+drivers/pinctrl/pinctrl-ingenic.c:158:	IS_ENABLED(CONFIG_MACH_JZ4755) << ID_JZ4755 |
+drivers/pinctrl/pinctrl-ingenic.c:4616:		.data = IF_ENABLED(CONFIG_MACH_JZ4755, &jz4755_chip_info)
+
+MACH_JZ4760 ---
+drivers/clk/ingenic/Kconfig:40:	default MACH_JZ4760
+drivers/pinctrl/pinctrl-ingenic.c:159:	IS_ENABLED(CONFIG_MACH_JZ4760) << ID_JZ4760 |
+drivers/pinctrl/pinctrl-ingenic.c:4620:		.data = IF_ENABLED(CONFIG_MACH_JZ4760, &jz4760_chip_info)
+drivers/pinctrl/pinctrl-ingenic.c:4624:		.data = IF_ENABLED(CONFIG_MACH_JZ4760, &jz4760_chip_info)
+
+MACH_STM32MP25 ---
+drivers/pinctrl/stm32/Kconfig:58:	default MACH_STM32MP25 || (ARCH_STM32 && ARM64)
+
+MFD_AIROHA_AN8855 ---
+drivers/nvmem/Kconfig:33:	depends on MFD_AIROHA_AN8855 || COMPILE_TEST
+
+MFD_TN48M_CPLD ---
+drivers/gpio/Kconfig:1624:	depends on MFD_TN48M_CPLD || COMPILE_TEST
+drivers/reset/Kconfig:365:	depends on MFD_TN48M_CPLD || COMPILE_TEST
+drivers/reset/Kconfig:366:	default MFD_TN48M_CPLD
+
+MIPS_BAIKAL_T1 ---
+drivers/ata/Kconfig:197:	select MFD_SYSCON if (MIPS_BAIKAL_T1 || COMPILE_TEST)
+drivers/bus/Kconfig:43:	depends on MIPS_BAIKAL_T1 || COMPILE_TEST
+drivers/bus/Kconfig:58:	depends on MIPS_BAIKAL_T1 || COMPILE_TEST
+drivers/clk/baikal-t1/Kconfig:4:	depends on (MIPS_BAIKAL_T1 && OF) || COMPILE_TEST
+drivers/clk/baikal-t1/Kconfig:5:	default MIPS_BAIKAL_T1
+drivers/clk/baikal-t1/Kconfig:20:	default MIPS_BAIKAL_T1
+drivers/clk/baikal-t1/Kconfig:33:	default MIPS_BAIKAL_T1
+drivers/clk/baikal-t1/Kconfig:45:	default MIPS_BAIKAL_T1
+drivers/hwmon/Kconfig:462:	depends on MIPS_BAIKAL_T1 || COMPILE_TEST
+drivers/i2c/busses/Kconfig:589:	select MFD_SYSCON if MIPS_BAIKAL_T1
+drivers/memory/Kconfig:69:	depends on MIPS_BAIKAL_T1 || COMPILE_TEST
+drivers/mtd/maps/Kconfig:81:	depends on MIPS_BAIKAL_T1 || COMPILE_TEST
+drivers/pci/controller/dwc/Kconfig:89:	depends on MIPS_BAIKAL_T1 || COMPILE_TEST
+drivers/spi/Kconfig:370:	depends on MIPS_BAIKAL_T1 || COMPILE_TEST
+
+PINCTRL_MILBEAUT ---
+arch/arm/mach-milbeaut/Kconfig:16:	select PINCTRL_MILBEAUT
+
+SND_SOC_AC97_BUS_NEW ---
+sound/soc/pxa/Kconfig:21:	select SND_SOC_AC97_BUS_NEW
+
+SND_SOC_CS35L56_CAL_SYSFS_COMMON ---
+sound/soc/codecs/Kconfig:920:	select SND_SOC_CS35L56_CAL_SYSFS_COMMON
+
+TEST_KUNIT_DEVICE_HELPERS ---
+drivers/iio/test/Kconfig:11:	select TEST_KUNIT_DEVICE_HELPERS
+
+USB_HSIC_USB3613 ---
+drivers/staging/greybus/Kconfig:209:	depends on USB_HSIC_USB3613 || COMPILE_TEST
+drivers/staging/greybus/arche-platform.c:26:#if IS_ENABLED(CONFIG_USB_HSIC_USB3613)
+
+USB_OHCI_SH ---
+arch/sh/Kconfig:334:	select USB_OHCI_SH if USB_OHCI_HCD
+arch/sh/Kconfig:344:	select USB_OHCI_SH if USB_OHCI_HCD
+arch/sh/Kconfig:429:	select USB_OHCI_SH if USB_OHCI_HCD
+arch/sh/Kconfig:455:	select USB_OHCI_SH if USB_OHCI_HCD
+arch/sh/configs/sh7757lcr_defconfig:61:CONFIG_USB_OHCI_SH=y
+
+X86_P6_NOP ---
+arch/x86/Kconfig.cpufeatures:41:	depends on X86_64 || X86_P6_NOP
+arch/x86/Makefile_32.cpu:48:ifneq ($(CONFIG_X86_P6_NOP),y)
+
+XTENSA_PLATFORM_ESP32 ---
+drivers/tty/serial/Kconfig:1598:	depends on XTENSA_PLATFORM_ESP32 || (COMPILE_TEST && OF)
+drivers/tty/serial/Kconfig:1611:	depends on XTENSA_PLATFORM_ESP32 || (COMPILE_TEST && OF)
+
+
+-- 
+~Randy
+
 
