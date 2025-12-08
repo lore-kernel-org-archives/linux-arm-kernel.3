@@ -4,137 +4,127 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D39AFD3B7EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 22:14:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFC08D3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 22:59:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7SbzCpewv0BHDLxYJt2Uo6zghjFTApMjSAo+xPwjQ9g=; b=kN3XZH868ef7+6K1L+gawibUiG
-	0EfkZ+HSEUjrKESXsQ1u6rTvvtHcS4TgHPMUwPFiOqoFQSoocjoR3eSqHebyRE0ClS2jXHhaxAtaz
-	B9lSzQcu2cY/DJzfl/QnSsb9tmJlRoYz8hWgITXKE5fkEl66Lp1MuKTUropmdqEyLQW1DLG5wRc3i
-	yP755YwjFgy1h5fFuYTq9+33hE8+8dYpymnConFSDR6XBhd4qQiojxpXMSnd1x4xC9I1VUPftEg1G
-	eo7uN0LNI+CSAdiydEoImDGHSlmWwmomBsKsz8XasWO7iFCqXoiN5i9FJV84WvBlm+9T+LN4xTtF8
-	MQeaI/YQ==;
+	bh=QKgt0p9I3O54Kz1mH4zj4pykAx2/kdfGcwbFjdAZiZ0=; b=NdxMACU7dmrJgoOpFAAdIdvBbP
+	yNqlK7kykyff952RZHXH35qX/OHiYr6Jvq68O4CA9/LufAEG+9DSqAiFJcBnhTafKY7wDQdzlPnLj
+	+7WDfcZ7tEkykX81EXBFa2+MTSwWCBLO+UoWjv+poANQx753ij6KXWgghMZ+qwo8RTTulVTLEmVMj
+	WbWXWJKGYqQY2WdsKqBs18fqvNkIGZ/GJIN8TPR42cEdkeNSY4sUvHBIHOKOeeHUkTMJ0cNAkQTjk
+	SX54Z4SfkGG2d1fyLi1LCGGapmMjGyaAUIPbT8OrKK5VlwPG94wkW4/El3LGn6y5BhDTfIcG3eV6D
+	oc8Rr/EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSjVB-0000000Da4T-3VLi;
-	Mon, 08 Dec 2025 22:14:41 +0000
-Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
+	id 1vSkC6-0000000Dbif-3pK8;
+	Mon, 08 Dec 2025 22:59:02 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSjV8-0000000Da1C-0VZX
+	id 1vSkC4-0000000DbiI-0lnH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 22:14:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xK3DtltTFlG239qcuTiHz3DDCvXhwXgFGPU12n+PUh2E3i/xqoKaOX3MFTPXAZG2kprkurjZB15VvWwUW1BbtdtRndYBZPVQ7Bhqk/FE/kqIcD6d2PzknskHodnAPeSY1d0EAarOIuTwnLHy7SL2s7Zw8Yshde2xmbXVoMiQ+HlzSKs5xC8rhm8+kpfLfTHPQSjxLqwApsJFhE2GfaD85U+teXkHIGpRAyr4zjuB2UZwOpl2OLnCUd14r+uUgHq3mARosbXB1vCXKbm9Zg6S1ZlzHOwIOyJg7hKWo+l4Bjy0nm1NThUOr0pxC/IIJ+85l+8mFXIwshCQyuHMpW4Dtg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7SbzCpewv0BHDLxYJt2Uo6zghjFTApMjSAo+xPwjQ9g=;
- b=VyDdkxlU+o1vRxIiyd2Ef74ZQcZnFMFDr7zqjMhhDXutERiL/ItDVPEbfR3EOKQ7MXfWVGB1K3SXhpCxeY9iGCS2LFAKDN9KxEkNmJEzhiyDF+n+qnkQVeBUWZUxfsISOm9OMCikNvA3PTbcQo2RMsPPKuXSYSY7lm3Im5K5vfrSc3sB9sjx16T5hqofXAy9tIfdVHr6wjfiMks8V7RzIDkXIo59omMjPgWOxOSPixSzQ4gOHOnOtfBwp7fPuZW9cX6SjPhYe67i3zf3GOBGmM6J93a9gAlI9ZA1vvujP1F68vwPhI37Zd/fZqCU3Wm36KD/9gfDFh1jloUrmyxtWg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7SbzCpewv0BHDLxYJt2Uo6zghjFTApMjSAo+xPwjQ9g=;
- b=CQuVWTB6kkTSt89jNj7L1GhA2HL4DYpNnfIXL8rACqDdqhxvsEazseNhajtqBd87mqt+QFLwbncOMeifxxqdDSqwsDnquMqvRMI8dk/C+YAwS/0sHdTcc0d3akg/WSPnQY5lgHdZqudhj0LesA2xyc9hGkiHdXvGKXU9SxOmRIysDxCf+XLvGPvkq3AtMvLOH+QygAESjdItM/qP/YjvkVL/prfY5ndPZ9mAQHRNjmaPH+c+GuNlkOy6P+ilfK/FeRz4s07swRNHzUtevfuX0Y8QfABofDsg+g7bJ4HD0yhu4RE0QKeVkc9E+tpbGeR5Au3zZ/La2c8APyL7sdfAqA==
-Received: from SJ0PR13CA0097.namprd13.prod.outlook.com (2603:10b6:a03:2c5::12)
- by MN2PR12MB4272.namprd12.prod.outlook.com (2603:10b6:208:1de::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.14; Mon, 8 Dec
- 2025 22:14:30 +0000
-Received: from CO1PEPF000044F5.namprd05.prod.outlook.com
- (2603:10b6:a03:2c5:cafe::42) by SJ0PR13CA0097.outlook.office365.com
- (2603:10b6:a03:2c5::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9412.6 via Frontend Transport; Mon, 8
- Dec 2025 22:14:28 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- CO1PEPF000044F5.mail.protection.outlook.com (10.167.241.75) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9412.4 via Frontend Transport; Mon, 8 Dec 2025 22:14:29 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 8 Dec
- 2025 14:14:10 -0800
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Mon, 8 Dec 2025 14:14:09 -0800
-Received: from build-vvidwans-noble-20250617.internal (10.127.8.10) by
- mail.nvidia.com (10.126.190.182) with Microsoft SMTP Server id 15.2.2562.20
- via Frontend Transport; Mon, 8 Dec 2025 14:14:09 -0800
-From: Vedashree Vidwans <vvidwans@nvidia.com>
-To: <salman.nabi@arm.com>, <sudeep.holla@arm.com>, <andre.przywara@arm.com>,
-	<lpieralisi@kernel.org>, <mark.rutland@arm.com>
-Subject: [RFC PATCH 5/5] firmware: smccc: lfa: refresh fw details
-Date: Mon, 8 Dec 2025 22:13:15 +0000
-Message-ID: <20251208221319.1524888-6-vvidwans@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251208221319.1524888-1-vvidwans@nvidia.com>
-References: <20251208221319.1524888-1-vvidwans@nvidia.com>
+	Mon, 08 Dec 2025 22:59:01 +0000
+Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B8IceLg459746
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 8 Dec 2025 22:58:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=QKgt0p9I3O54Kz1mH4zj4pyk
+	Ax2/kdfGcwbFjdAZiZ0=; b=pW0VgkT19csft4GkapYGtQPH1xVoQ/5SnK1kKGOd
+	psj/XuYI5TUSHIcY9lbdfjplkj7z21pBmpU4fz6umAL3GifURF/BCQzQCtDSDTlr
+	fAguo4UdZ4/cqDSajFbUMd/KizyRPoXt55G+rTe+u2dznqWjALL4x8us0tlo1ecX
+	ZqY24vI9cizWyEt/E42iVlf02WA1NDTpvdxEIMsWNqkcPzF7FoZbwhK6x4gYdyZS
+	Crp0qks0w9XxRDEGso0raop4sKfrDQ2DRSAUekUe+GCSUW+0yBeXO01aa314cdSJ
+	r+cw2K8y6rmAz+U5TmwgiVMuIwZ6mPQ95l7fmuBrMyNW6Q==
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4awwgmhyft-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Dec 2025 22:58:58 +0000 (GMT)
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-343daf0f488so4897871a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Dec 2025 14:58:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1765234738; x=1765839538; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=QKgt0p9I3O54Kz1mH4zj4pykAx2/kdfGcwbFjdAZiZ0=;
+        b=EB9c/Ait5pESVMqaRCIQAh3w04r1MVsdou2QXDT0f6eOkfqNkGKG9IkVsgXkOFvjdS
+         Ks+5DHy59T3B9meO2oyWxOR0RdkwdPD3wQMKw9mJRt/BmLTfaXHBqCm+N3p7/BcV/jms
+         Zg2Ze8rZ64T/nqtbZu+fyx53RNrGFX3xWaz82OAyEKfSapB9aqXLFYgO06XnjGCZeSGv
+         yxK8Wf6M0tFyPekNBxM9787mlmlWIQ+O1LYSa31P0L19BJg3wAnoJ1g9HnhFwNui18wD
+         w7eJbnwZZJ5ZaGISBXuKDlS4IU+UpkglY3MFopNqrmMiajbCWSdCCBKPgv+irFdwpalX
+         x72w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765234738; x=1765839538;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QKgt0p9I3O54Kz1mH4zj4pykAx2/kdfGcwbFjdAZiZ0=;
+        b=vV9bB8l5ptcffOgviK+DKfz9/4FmGo2nGsjRdQCg1ZS4/aPcZNNGMi/4mZ9HNjtRPx
+         qJuf6yJ/MdtdMgAvKZ/Cy2WVFm7iY4aBSkL6QLbTPUjVyvXjA3pxQu+OGpoD8pNZsthN
+         RgUuPsEzcXvxW3VhJP2Ias2pFUL0bxL9KnRUVworIbeOChquK2DODkP8hCtQJIkBEC+v
+         idzpw7JECWxLRfRs06qj2yRGcdGasCSnyYUoKNGelkr5m7gCKMK7zR4SR/VjQJUV1+8W
+         xa8OJWrTiomI/4tmDoKeOqoTeqz0xg+sbE3VItjS2ai/HJxTK/d3GmpLODabwSFbbB9w
+         SKoQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWOoAlyE3A74vaE8Qk9wFK44yDaDVfAXjyiVqOIOZ0uoE9+C9PrkpAiFQj0M350jT5IKs2XnYOVA3CaBYZS/2lu@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz983GytZGNncSd3KmLhvByW1UowhxweTh06ebeDuCACxS48URc
+	ycZTJrBYpSS6HLmSyf5J0KJSOIQGqTZh40UqI+csGyLAinfYTMGBTjvEKis7PJkoihXI0m/EnBX
+	Zf6t4tEa9aQxrC+++QJR8qg5goChla7BageIm08quQulj2QHd57ZabSLoJBKwGrwiVESJ8LD7xD
+	aHrX3atNKoeplvKkAWGsARXcfR1P+PmJZeVcr3vZNhM8ruzPtjIVJM
+X-Gm-Gg: ASbGncvGqoj6EVkGph+TS4T7+AoWPtRSqYenUZCs3hf6Y+iHBDGkoHZ8ZKyc+8/6Lmx
+	aefheLlxs7JrH5WNeFPlHj3bzPUEykZiMmcxAcSgt9NfPvMwjauUlYKVmFtEqeFDaXUL5eRn0kQ
+	GfM2Ws3QdtV655cxpjbkgAMkLwdAkE8XF/OtFoYXmCx5qNF/e/+Ev7PrfMLSd8A6mWXhelJlYw5
+	SVdurla
+X-Received: by 2002:a17:90b:2691:b0:33b:bf8d:6172 with SMTP id 98e67ed59e1d1-349a26c2cadmr6800347a91.34.1765234737925;
+        Mon, 08 Dec 2025 14:58:57 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IF+R13fCWlinwEbgpGmZPHyMFonury49ULZGv3kNILl7FaYcIst8UAk1P4CrxofUscq6obPPfCKjTY63VAOxS0=
+X-Received: by 2002:a17:90b:2691:b0:33b:bf8d:6172 with SMTP id
+ 98e67ed59e1d1-349a26c2cadmr6800335a91.34.1765234737428; Mon, 08 Dec 2025
+ 14:58:57 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PEPF000044F5:EE_|MN2PR12MB4272:EE_
-X-MS-Office365-Filtering-Correlation-Id: f65a3589-7b4f-4ded-a2e4-08de36a72827
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|7416014|376014|1800799024|82310400026|13003099007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?vq5TmBgSjD5S6jrul593pry40fZljHTqXY8wWHCZ9sDUsT5PeKo9TS5br7Ys?=
- =?us-ascii?Q?t8rbEJHSl/r59kdlg/BXsIvQUrC9wiIl4ZldodnQfY7BUt/niQtvjmVl+TJJ?=
- =?us-ascii?Q?eosk874Gia1SHVRN4fNwfnmLZNj85/YzKzzrjyCS/NLvpR/iwgSuBdxIctxa?=
- =?us-ascii?Q?i257xLnMjDMfWhE2NNOtOOSUzB6YQiwk9TOiTOrGOpmKMB3fHgzDDMwC0ldf?=
- =?us-ascii?Q?DZKacFhm2VT6bBHikr+H2fiWTcFuugBiKwGjFp7ORhOIl0ACTKecdd7T9Bzd?=
- =?us-ascii?Q?NT80tscA6aN+FCdDQrZfCVc+SdiIcJTnjS4ugTZ9Jmx+pV1nvFaUEEHg3TRv?=
- =?us-ascii?Q?mjtw2zS5iTC9eCnHxfhQMovJRbnOY9xSNqNpEOjwSWF1GY1IxoXch7WaoRWu?=
- =?us-ascii?Q?7cy7fJru4kTTgChKSuBz9FpcLn5+KhU17hfSt8wXgCSl8NweIZgVu1RWrTar?=
- =?us-ascii?Q?gLlBSPzAve8E6FVFxDYYsChoAv5VFivXvzTIc1Sz8OnaI4LMiao7GLXmyZqR?=
- =?us-ascii?Q?nqAVJZzxsaFC15SbYprb7HDWlsuob49HBoAGiDq+HsJkVjvWL83jIbqXvq5a?=
- =?us-ascii?Q?m5VUr31K7gWdnFP9O3xpfKWIDZoJlLXIHkGABtdSVBUu/8sjCYsZ8moT3XK0?=
- =?us-ascii?Q?oZkT1ffk9exhIZBL6PQSH++dOjoTtHLkkrp7MYBVqurzqLvqdTXMfJCuQqjs?=
- =?us-ascii?Q?SBHaFNKYJb7FLuaJ8KhS1E3dYH5ppfCahtAAOHgv9uL2OTT+wINLHPnLBnhG?=
- =?us-ascii?Q?nUc+fQmxj/b7rS6/boqNRiPDOXXxKu4jbu6s652DizNnD9rYGvMhOf5BeLFe?=
- =?us-ascii?Q?OEGv5u8/lPWVJeVADZL3cxMG7mOtv6S0nyAwa5uhzjszT52Imk5KeaCzWXyK?=
- =?us-ascii?Q?mjmmGy/t/YvZyE73y5lvhvlEAAjTQsrz27r6JxyHOBR5u7aYJ6lRrj4+qhGW?=
- =?us-ascii?Q?i7571I3zWF6fm/dntN/kohW4/uCF6wArSiNlvF/S4k39fULi/Osozqp87buH?=
- =?us-ascii?Q?heFCLd8UhfQFJ7DwI1MlsvFOx2WM7Vh3kFx6VnHp+KRpRCwXAoTEPC1sJwrq?=
- =?us-ascii?Q?vTT4XBPSk3hty433Gt2tGUs/mctnBlZaNn0GErHDMHjxuxFXJ084rbDuExg6?=
- =?us-ascii?Q?D4WicGMLMORajEzz4d6ybLJMvADLokuasqYxeCQdowg4yCRPyNPdlk+UMOBX?=
- =?us-ascii?Q?6u6EeBEw0PPUlvlnVjsVze9m3dwGPki5sJSGQO6xqi0nckkTn/d9KERX3agX?=
- =?us-ascii?Q?YjYk7CZ485t3CP5SyzwC82m3VY32TA4x4PH0v/xTXNYIScS9JYVcCscy/Sqn?=
- =?us-ascii?Q?YTOtsTHs5iUEnXDzhbWSCvRnUuybKdn/UH16uL/uTFGL5B5CcjBgZ8mJnwLA?=
- =?us-ascii?Q?RZBFO5d7m9PvdtO7xUe6zBjlQiVx4Ml5GEuWpJK0E7/A7X1aMVd8QL1Tp8wj?=
- =?us-ascii?Q?WzdA0jvYlLUmL0zsDTTUa0LU530NRXS4hHEAdqdHas3qjbGF3nD1KlsNP+C2?=
- =?us-ascii?Q?d6i5Alcs7ciXtRh3UinxYp6mTTHbf6CY4WG7qLW4FUphbwJUCZ/Jz/EfVqhy?=
- =?us-ascii?Q?4LeZT0apCKoz5GuOkM4=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(7416014)(376014)(1800799024)(82310400026)(13003099007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Dec 2025 22:14:29.3443
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f65a3589-7b4f-4ded-a2e4-08de36a72827
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CO1PEPF000044F5.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4272
+References: <20251202125447.2102658-1-charan.kalla@oss.qualcomm.com>
+ <gsjyj3arwoqcjln6nlmyhohlowyvkwqmxppdq5y7c3m4khoyq3@npzixjpibh5g> <0bcd5a92-5213-4862-9a31-8ea539b1b72c@oss.qualcomm.com>
+In-Reply-To: <0bcd5a92-5213-4862-9a31-8ea539b1b72c@oss.qualcomm.com>
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Date: Tue, 9 Dec 2025 00:58:51 +0200
+X-Gm-Features: AQt7F2qiksWXfb4QJZZD1j7gIWBPQusAazA7cTt2NoYXOiNgNKUjwRXhyxvLVwY
+Message-ID: <CAO9ioeW0fafwRnxvDJ7yHGcQYbgfkfRF1BMTpXpG=8tSKRptdw@mail.gmail.com>
+Subject: Re: [PATCH V4] iommu/arm-smmu: add actlr settings for mdss on
+ Qualcomm platforms
+To: Bibek Kumar Patro <bibek.patro@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+        Charan Teja Kalla <charan.kalla@oss.qualcomm.com>,
+        konrad.dybcio@oss.qualcomm.com, robin.clark@oss.qualcomm.com,
+        will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
+        iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-Authority-Analysis: v=2.4 cv=RtnI7SmK c=1 sm=1 tr=0 ts=69375832 cx=c_pps
+ a=RP+M6JBNLl+fLTcSJhASfg==:117 a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10
+ a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8
+ a=jas2bIbCv71b3E4NwwIA:9 a=QEXdDO2ut3YA:10 a=iS9zxrgQBfv6-_F4QbHw:22
+X-Proofpoint-ORIG-GUID: hqKD_BPLUKEd1-ncJoUm2RVXK9gZ0LzJ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjA4MDE5NSBTYWx0ZWRfX/uIVjKZ4LHjx
+ 7AK9Nxq0Bgoi45am2vQTbt5U5OD0tdHu2aun1o7XtqrB24HnYsdelrMg6Hwx3zVQbzKkY+kh0Ml
+ ue6wUlUhcNUdGTsNRnBXPTsVi3jiF1407LBbNWRlgZGK8FREnWSB8FULziezo3wUFH2TmoqYjIM
+ 2dUAFg386IrWMCIrh7YaBlKKm4LAIx5MB2cLF30dZjG+Ld2hcLJgTNvjpxeok+KE9/SernJf+cG
+ wRGUe6SnVu+B5eJwr5ce28B6AMvElUuMynu+34fh0Eq2qyLOSGs0t+qW4ybVYcow0JJ4wNMA7Rl
+ 6AVRYMxil1eXSat3+5zWrLTcP/wky2XLOosppdjHCNc8FBFny9sjfwp0M0b69wJ9jiJJ4EV3w7h
+ v9IvU1H6/NF0iwAHB4FWK4ZmRdQB3g==
+X-Proofpoint-GUID: hqKD_BPLUKEd1-ncJoUm2RVXK9gZ0LzJ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-06_02,2025-12-04_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 suspectscore=0 lowpriorityscore=0 spamscore=0 adultscore=0
+ phishscore=0 impostorscore=0 clxscore=1015 bulkscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512080195
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_141439_516571_D83D2A40 
-X-CRM114-Status: GOOD (  19.50  )
+X-CRM114-CacheID: sfid-20251208_145900_240900_7DF43FC4 
+X-CRM114-Status: GOOD (  29.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,276 +136,119 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: linux-kernel@vger.kernel.org, vwadekar@nvidia.com, sdonthineni@nvidia.com, vsethi@nvidia.com, linux-coco@lists.linux.dev, ardb@kernel.org, linux-arm-kernel@lists.infradead.org, chao.gao@intel.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FW image details are querried with a SMC call. Currently, these FW
-details are added as nodes in a linked list. This patch updates the
-FW node creation and update functions. Now the linked list is updated
-based on the current value of num_lfa_components.
-As per spec [1], FW inventory is updated after each activation.
+On Mon, 8 Dec 2025 at 21:28, Bibek Kumar Patro
+<bibek.patro@oss.qualcomm.com> wrote:
+>
+>
+>
+> On 12/6/2025 2:36 AM, Bjorn Andersson wrote:
+> > On Tue, Dec 02, 2025 at 06:24:47PM +0530, Charan Teja Kalla wrote:
+> >
+> > Based on the other changes to this file, the subject prefix should be
+> > "iommu/arm-smmu-qcom:"
+> >
+>
+> Sure Bjorn, I will address this in v4 RESEND and collect all reviewed-by
+> tags.
+> Let me know if you feel this change needs a revision update to v5
+> instead of v4-RESEND.
 
-[1] https://developer.arm.com/documentation/den0147/latest/
+RESEND means that there were no changes to the patches. If you've
+changed anything, it is a next iteration.
 
-Signed-off-by: Vedashree Vidwans <vvidwans@nvidia.com>
----
- drivers/firmware/smccc/lfa_fw.c | 148 +++++++++++++++++++++-----------
- 1 file changed, 100 insertions(+), 48 deletions(-)
+>
+> Thanks & regards,
+> Bibek
+>
+> > Regards,
+> > Bjorn
+> >
+> >> Add ACTLR settings for missing MDSS devices on Qualcomm platforms.
+> >>
+> >> These are QoS settings and are specific to per SoC thus different
+> >> settings, eg: some have shallow prefetch while others have no
+> >> prefetch.
+> >>
+> >> Aswell, this prefetch feature is not implemented for all the
+> >> platforms, capturing to those are implemented to the best of my
+> >> knowledge.
+> >>
+> >> Signed-off-by: Charan Teja Kalla <charan.kalla@oss.qualcomm.com>
+> >> ---
+> >> Changes from V3:
+> >>   1) Add actlr setting for missing sc8180x & sm6115.
+> >>   2) Improved commit message.
+> >> https://lore.kernel.org/all/20251124171030.323989-1-charan.kalla@oss.qualcomm.com/
+> >>
+> >> Changes from V2:
+> >>   1) Add actlr settings for all the mdss devices on Qualcomm platforms.
+> >>   2) Improved the commit message that explain why different ACTLR
+> >>      settings
+> >> https://lore.kernel.org/lkml/20251118171822.3539062-1-charan.kalla@oss.qualcomm.com/#t
+> >>
+> >> Changes from V1:
+> >>    1) Added actlr setting only for MDSS and dropped for fastrpc. --
+> >> konrad
+> >>    2) ACTLR table is updated per alphanumeric order -- konrad
+> >>    https://lore.kernel.org/all/20251105075307.1658329-1-charan.kalla@oss.qualcomm.com/
+> >>
+> >>   drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 26 ++++++++++++++++++++++
+> >>   1 file changed, 26 insertions(+)
+> >>
+> >> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> >> index c21a401c71eb..149da53091de 100644
+> >> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> >> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+> >> @@ -41,12 +41,38 @@ static const struct of_device_id qcom_smmu_actlr_client_of_match[] = {
+> >>                      .data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
+> >>      { .compatible = "qcom,fastrpc",
+> >>                      .data = (const void *) (PREFETCH_DEEP | CPRE | CMTLB) },
+> >> +    { .compatible = "qcom,qcm2290-mdss",
+> >> +                    .data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
+> >>      { .compatible = "qcom,sc7280-mdss",
+> >>                      .data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
+> >>      { .compatible = "qcom,sc7280-venus",
+> >>                      .data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
+> >> +    { .compatible = "qcom,sc8180x-mdss",
+> >> +                    .data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
+> >> +    { .compatible = "qcom,sc8280xp-mdss",
+> >> +                    .data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
+> >> +    { .compatible = "qcom,sm6115-mdss",
+> >> +                    .data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
+> >> +    { .compatible = "qcom,sm6125-mdss",
+> >> +                    .data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
+> >> +    { .compatible = "qcom,sm6350-mdss",
+> >> +                    .data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
+> >> +    { .compatible = "qcom,sm8150-mdss",
+> >> +                    .data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
+> >> +    { .compatible = "qcom,sm8250-mdss",
+> >> +                    .data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
+> >> +    { .compatible = "qcom,sm8350-mdss",
+> >> +                    .data = (const void *) (PREFETCH_SHALLOW | CPRE | CMTLB) },
+> >> +    { .compatible = "qcom,sm8450-mdss",
+> >> +                    .data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
+> >>      { .compatible = "qcom,sm8550-mdss",
+> >>                      .data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
+> >> +    { .compatible = "qcom,sm8650-mdss",
+> >> +                    .data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
+> >> +    { .compatible = "qcom,sm8750-mdss",
+> >> +                    .data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
+> >> +    { .compatible = "qcom,x1e80100-mdss",
+> >> +                    .data = (const void *) (PREFETCH_DEFAULT | CMTLB) },
+> >>      { }
+> >>   };
+> >>
+> >> --
+> >> 2.34.1
+> >>
+> >>
+>
 
-diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa_fw.c
-index 24916fc53420..334090708405 100644
---- a/drivers/firmware/smccc/lfa_fw.c
-+++ b/drivers/firmware/smccc/lfa_fw.c
-@@ -133,6 +133,7 @@ static const struct fw_image_uuid {
- 	},
- };
- 
-+static int update_fw_images_tree(void);
- static struct kobject *lfa_dir;
- static DEFINE_MUTEX(lfa_lock);
- 
-@@ -282,17 +283,6 @@ static int activate_fw_image(struct image_props *attrs)
- 	return ret;
- }
- 
--static void set_image_flags(struct image_props *attrs, int seq_id,
--			    u32 image_flags)
--{
--	attrs->fw_seq_id = seq_id;
--	attrs->activation_capable = !!(image_flags & BIT(0));
--	attrs->activation_pending = !!(image_flags & BIT(1));
--	attrs->may_reset_cpu = !!(image_flags & BIT(2));
--	/* cpu_rendezvous_optional bit has inverse logic in the spec */
--	attrs->cpu_rendezvous = !(image_flags & BIT(3));
--}
--
- static ssize_t name_show(struct kobject *kobj, struct kobj_attribute *attr,
- 			 char *buf)
- {
-@@ -395,7 +385,9 @@ static ssize_t activate_store(struct kobject *kobj, struct kobj_attribute *attr,
- 
- 	pr_info("Firmware activation succeeded\n");
- 
--	/* TODO: refresh image flags here*/
-+	ret = update_fw_images_tree();
-+	if (ret)
-+		pr_err("Failed to update FW images tree");
- 	mutex_unlock(&lfa_lock);
- 	return count;
- }
-@@ -425,20 +417,41 @@ static struct kobj_attribute image_attrs_group[LFA_ATTR_NR_IMAGES] = {
- 	[LFA_ATTR_CANCEL]		= __ATTR_WO(cancel)
- };
- 
-+static void delete_fw_image_node(struct image_props *attrs)
-+{
-+	int i;
-+
-+	for (i = 0; i < LFA_ATTR_NR_IMAGES; i++)
-+		sysfs_remove_file(attrs->image_dir, &attrs->image_attrs[i].attr);
-+
-+	kobject_put(attrs->image_dir);
-+	attrs->image_dir = NULL;
-+	list_del(&attrs->image_node);
-+	kfree(attrs);
-+}
-+
- static void clean_fw_images_tree(void)
- {
- 	struct image_props *attrs, *tmp;
- 
--	list_for_each_entry_safe(attrs, tmp, &lfa_fw_images, image_node) {
--		kobject_put(attrs->image_dir);
--		list_del(&attrs->image_node);
--		kfree(attrs);
--	}
-+	list_for_each_entry_safe(attrs, tmp, &lfa_fw_images, image_node)
-+		delete_fw_image_node(attrs);
-+}
-+
-+static void update_fw_image_node(struct image_props *attrs, int seq_id,
-+			    char *fw_uuid, u32 image_flags)
-+{
-+	attrs->fw_seq_id = seq_id;
-+	attrs->image_name = fw_uuid;
-+	attrs->activation_capable = !!(image_flags & BIT(0));
-+	attrs->activation_pending = !!(image_flags & BIT(1));
-+	attrs->may_reset_cpu = !!(image_flags & BIT(2));
-+	/* cpu_rendezvous_optional bit has inverse logic in the spec */
-+	attrs->cpu_rendezvous = !(image_flags & BIT(3));
- }
- 
--static int create_fw_inventory(char *fw_uuid, int seq_id, u32 image_flags)
-+static int create_fw_image_node(int seq_id, char *fw_uuid, u32 image_flags)
- {
--	const char *image_name = "(unknown)";
- 	struct image_props *attrs;
- 	int ret;
- 
-@@ -446,21 +459,12 @@ static int create_fw_inventory(char *fw_uuid, int seq_id, u32 image_flags)
- 	if (!attrs)
- 		return -ENOMEM;
- 
--	for (int i = 0; i < ARRAY_SIZE(fw_images_uuids); i++) {
--		if (!strcmp(fw_images_uuids[i].uuid, fw_uuid))
--			image_name = fw_images_uuids[i].name;
--		else
--			image_name = fw_uuid;
--	}
--
- 	attrs->image_dir = kobject_create_and_add(fw_uuid, lfa_dir);
- 	if (!attrs->image_dir)
- 		return -ENOMEM;
- 
--	INIT_LIST_HEAD(&attrs->image_node);
--	attrs->image_name = image_name;
--	attrs->cpu_rendezvous_forced = 1;
--	set_image_flags(attrs, seq_id, image_flags);
-+	/* Update FW attributes */
-+	update_fw_image_node(attrs, seq_id, fw_uuid, image_flags);
- 
- 	/*
- 	 * The attributes for each sysfs file are constant (handler functions,
-@@ -485,17 +489,19 @@ static int create_fw_inventory(char *fw_uuid, int seq_id, u32 image_flags)
- 			return ret;
- 		}
- 	}
--	list_add(&attrs->image_node, &lfa_fw_images);
-+	list_add_tail(&attrs->image_node, &lfa_fw_images);
- 
- 	return ret;
- }
- 
--static int create_fw_images_tree(void)
-+static int update_fw_images_tree(void)
- {
- 	struct arm_smccc_1_2_regs reg = { 0 };
- 	struct uuid_regs image_uuid;
-+	struct image_props *attrs, *tmp;
- 	char image_id_str[40];
- 	int ret, num_of_components;
-+	int node_idx = 0;
- 
- 	num_of_components = get_nr_lfa_components();
- 	if (num_of_components <= 0) {
-@@ -503,22 +509,67 @@ static int create_fw_images_tree(void)
- 		return -ENODEV;
- 	}
- 
--	for (int i = 0; i < num_of_components; i++) {
--		reg.a0 = LFA_1_0_FN_GET_INVENTORY;
--		reg.a1 = i; /* fw_seq_id under consideration */
--		arm_smccc_1_2_invoke(&reg, &reg);
--		if (reg.a0 == LFA_SUCCESS) {
-+	/*
-+	 * Pass 1:
-+	 *    For nodes < num_of_components, update fw_image_node
-+	 *    For nodes >= num_of_components, delete
-+	 */
-+	list_for_each_entry_safe(attrs, tmp, &lfa_fw_images, image_node) {
-+		if (attrs->fw_seq_id < num_of_components) {
-+			/* Update this FW image node */
-+
-+			/* Get FW details */
-+			reg.a0 = LFA_1_0_FN_GET_INVENTORY;
-+			reg.a1 = attrs->fw_seq_id;
-+			arm_smccc_1_2_invoke(&reg, &reg);
-+
-+			if (reg.a0 != LFA_SUCCESS)
-+				return -EINVAL;
-+
-+			/* Build image name with UUID */
- 			image_uuid.uuid_lo = reg.a1;
- 			image_uuid.uuid_hi = reg.a2;
-+			snprintf(image_id_str, sizeof(image_id_str), "%pUb", &image_uuid);
- 
--			snprintf(image_id_str, sizeof(image_id_str), "%pUb",
--				 &image_uuid);
--			ret = create_fw_inventory(image_id_str, i, reg.a3);
--			if (ret)
--				return ret;
-+			if (strcmp(attrs->image_name, image_id_str)) {
-+				/* UUID doesn't match previous UUID for given FW, not expected */
-+				pr_err("FW seq id %u: Previous UUID %s doesn't match current %s",
-+					attrs->fw_seq_id, attrs->image_name, image_id_str);
-+				return -EINVAL;
-+			}
-+
-+			/* Update FW attributes */
-+			update_fw_image_node(attrs, attrs->fw_seq_id, image_id_str, reg.a3);
-+			node_idx++;
-+		} else {
-+			/* This node is beyond valid FW components list */
-+			delete_fw_image_node(attrs);
- 		}
- 	}
- 
-+	/*
-+	 * Pass 2:
-+	 *    If current FW components number is more than previous list, add new component nodes.
-+	 */
-+	for (node_idx; node_idx < num_of_components; node_idx++) {
-+		/* Get FW details */
-+		reg.a0 = LFA_1_0_FN_GET_INVENTORY;
-+		reg.a1 = node_idx;
-+		arm_smccc_1_2_invoke(&reg, &reg);
-+
-+		if (reg.a0 != LFA_SUCCESS)
-+			return -EINVAL;
-+
-+		/* Build image name with UUID */
-+		image_uuid.uuid_lo = reg.a1;
-+		image_uuid.uuid_hi = reg.a2;
-+		snprintf(image_id_str, sizeof(image_id_str), "%pUb", &image_uuid);
-+
-+		ret = create_fw_image_node(node_idx, image_id_str, reg.a3);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	return 0;
- }
- 
-@@ -538,8 +589,9 @@ static irqreturn_t lfa_irq_thread(int irq, void *data)
- 	 */
- 
- 	do {
--		/* TODO: refresh image flags here */
--		/* If refresh fails goto exit_unlock */
-+		ret = update_fw_images_tree();
-+		if (ret)
-+			goto exit_unlock;
- 
- 		/* Initialize counters to track list traversal  */
- 		num_of_components = get_nr_lfa_components();
-@@ -561,13 +613,13 @@ static irqreturn_t lfa_irq_thread(int irq, void *data)
- 			}
- 
- 			pr_info("Firmware %s activation succeeded", attrs->image_name);
--			/* Refresh FW component details */
- 			break;
- 		}
- 	} while (curr_component < num_of_components);
- 
--	/* TODO: refresh image flags here */
--	/* If refresh fails goto exit_unlock */
-+	ret = update_fw_images_tree();
-+	if (ret)
-+		goto exit_unlock;
- 
- exit_unlock:
- 	mutex_unlock(&lfa_lock);
-@@ -657,7 +709,7 @@ static int __init lfa_init(void)
- 		return -ENOMEM;
- 
- 	mutex_lock(&lfa_lock);
--	err = create_fw_images_tree();
-+	err = update_fw_images_tree();
- 	if (err != 0)
- 		kobject_put(lfa_dir);
- 
+
 -- 
-2.43.0
-
+With best wishes
+Dmitry
 
