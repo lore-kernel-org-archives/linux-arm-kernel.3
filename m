@@ -4,91 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BD82D3B7F2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 14:47:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBCF7D3B7F3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 15:07:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Djl8rvrNTarTjqc7P3QXFkVH29nvnZ3byk5D9flUAb8=; b=VHFdSQVDwGXQdSrJwLalkARnuh
-	zicr60XYoxTGFniWKOilLqB1bG5bSYmbDfbPRL8ZEzsth/NuGTuLIj2r8iMg1L2MpT/l8ZZUPHZv2
-	CtBv4g+xc1NMDYHBj4MSlUycpSriEhmYUOxftzmOfNPSQCE5+sgWngglsQGh/iictsBhNH15KzNgY
-	wKHSIoRIXIOvyaaSX2635nQwzbWyXdpQjTcEtdWdV6U8+qD5+aHhgQIEBbrHC58vbs9hpfe90eXfN
-	VP+AgS6ETMKFQ4jboDpDJ3OZIKSLI5qnHJAFGPQ0G22dP2wy7MQE4A4BNHYiRD/pDj2aAQSAmEBUF
-	J/SiC+6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=koYXwoTEJsoPLyEPiz9nEdjQYdWChY6O9/DUrMalYaU=; b=rlyOHoZVbAMgRuQQOjdaAuviFm
+	Y9DNIJh5nsqXBY1PE9ER2n7F/k6YmisetC06mb5HOyQ55UyTgGx8vm5Qn3zTM6X8R3DMPpNQvMcXx
+	oPD9pJhBVLuS4kif9OWowfiVf44WJiVO/+/W1fHzQtTkSEurpmudBX5Anu02SMc9zMbqPwXqo8ZCJ
+	HDYafbimeHSTS/CMorbfN2F8tYXsy9Cruu40Cc6M/CMqNDZZkJqXoMr5t2g5UVHr45CD6ySCkmtSy
+	H/eEUedqpmszpcZm4l/iXtOmBOInHWlv/eFftJei25iI8LHUbguP1RVru9FAcVdf7H5QR7tSoi2kK
+	ESunMwvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vScWW-0000000DD1c-2AHd;
-	Mon, 08 Dec 2025 14:47:36 +0000
-Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
+	id 1vScpk-0000000DDrY-0BFp;
+	Mon, 08 Dec 2025 15:07:28 +0000
+Received: from mail-yx1-xb130.google.com ([2607:f8b0:4864:20::b130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vScWU-0000000DD1D-1qn6
+	id 1vScpg-0000000DDqc-3BI3
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 14:47:35 +0000
-Received: by mail-qv1-xf29.google.com with SMTP id 6a1803df08f44-8843ebf2facso66859666d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Dec 2025 06:47:33 -0800 (PST)
+	Mon, 08 Dec 2025 15:07:26 +0000
+Received: by mail-yx1-xb130.google.com with SMTP id 956f58d0204a3-641e9422473so3773836d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Dec 2025 07:07:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765205252; x=1765810052; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Djl8rvrNTarTjqc7P3QXFkVH29nvnZ3byk5D9flUAb8=;
-        b=H4HxeFTypJ7Y5RNo7Zm5w9b12/M/BtcU3s4L7M96Ja7ZLqeJasJnCWSpGaH71bAaqt
-         EU0nyDFvpT74yW2J38fK9BZxrjpXXunFOUMQDWhueJHhCxDj0UtSAJbAeYjjkaZ7GyBn
-         J4/vCIRKvujcNj5BJyMNS2subXJ2g4Z/LSB9OWG/ytLxPzM9gr5co8espftzfQlvzMGA
-         UOdDOdD077M/Ve1RYiGnNq4TjpcijEaYbHMSuQlOSrVtVpAAlvW/A1RCLYVGDvXn16ho
-         e2PtToQwdNYEpNb+OQPWr7M1ql1ravdjPq/huUwdVNEjshmfYYzJxLNzSWCQv/tlZnR4
-         sJ/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765205252; x=1765810052;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1765206443; x=1765811243; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Djl8rvrNTarTjqc7P3QXFkVH29nvnZ3byk5D9flUAb8=;
-        b=wgVrspzyR4MoOwX4xcrWYLBWlxbfZJ3nlTaP27jdq/Pd80hi0UhuDLCQjcaoSI2X+j
-         Z05fzvfYbhHqu0dBViIgcRVbgaUSngYcKLEBElbBhHg9Lf9U4bHsdjNuvEMtCRCjiYNb
-         BWMRUeFQ6XpQuZdVdrlks2GE9xfUi+W33Mtwx3d1zteIoAdx19h676XHNXGvEQnUfzAJ
-         e4rdmKSyQxOhHlkow63mSu9d5qM4cAwpL2msJcqCFtpfR6e25xsUXMNGlGQQLFPvF9tE
-         Sz732cRmr6CtTw9wpMJVVPwnPAPAgr4c4gJmo2D7ev523CDQ4bwtXUlawrwxjkblEG/a
-         WbzQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWRkA6f0/PoGg/bO/lTY52Aia0/qnEYL9EHngI2n/qaM+WAB96XSt9+2cVJ2z3LuV5wiloE+ZBdgkERB+aR3LRu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7WQrFix7A1YFi//7ylKX/mRJroJF70pm+nGwNcdLu0BDOMYdu
-	EcPGuAy8XLbHEiy83tebyUU5GA8bdB9u+ox1XGS8quBxzelt45+4/IPmTLFRLC/0feaXKCgJ3Nl
-	G39CjvnSaVZrt3Qz8T//F6/NGEiQ9mYIprp3QBvQVWA==
-X-Gm-Gg: ASbGncsaCS+NL2ncMHd0ZF1EsM/yUDml+eIDHWfdhfGEdi532kG9/duA7ILoNE7xWnm
-	YY2ZwH6E5eqlqIpU9K4q0LM32jMK7pujezuXu8ZwaCB0quMPrRQIJlr/MuATDZEiIDK1284VFN9
-	9fHRIjRC2VftyFeH1XYaZkXJpsallvv+s9I8aaKEHwLVjRxlkRfNlqZzIen16LSW4YoDWHABzTr
-	fZDzCPNtycZ53GHpIZNjiorvb1TKRvN1Rcsz5iFW9mLJDGbu3Wv9iGasFc/5CIOaPkWM32uBllv
-	PwZzJp/VaLdA+YWDm2yK5Cn4Gqci6B9U6iWiAb2xoe3VhVQt7mo3mKfUnEk=
-X-Google-Smtp-Source: AGHT+IH5SseQKoKB16I67ntJ67GG4BXBTKMzIYCCiw0CsG6rPQA3EtAxNow1MN/zkMLkl2Sb2mR0HkXWihB0+5jKCbY=
-X-Received: by 2002:a05:622a:1355:b0:4ee:2420:4f7a with SMTP id
- d75a77b69052e-4f03fd73a6fmr125424381cf.2.1765205252514; Mon, 08 Dec 2025
- 06:47:32 -0800 (PST)
+        bh=koYXwoTEJsoPLyEPiz9nEdjQYdWChY6O9/DUrMalYaU=;
+        b=aTzePrtzQqPtSNTqRBZcwpr0pXIvsKLpON+pryfpI2miTWQdz9Ib6yxY1USVSGduuf
+         ZjZFPthblEIGNPTGS+iZDoUEdxtbUN7X8/KGL8NRFdIB+OiQdAhavV2NdoRCgQWT8+nR
+         H0eIPoTWvIhParqEZF9tXSvWhx36D0AmMCrBqXqz49Oux8xOCsBv+NjD1j8i8BXbkID5
+         TNmK8x+RSmhry5YyapMCvgH52d5+2Ed2PP0VFV5Q7xBDITmPk6bwj8ZltI4DLyWWt+ql
+         T5dRbdQcS+S5o23huSNHo86bgsd2YuOkgRt9ogST2KlelAHxJ7Rt2kTSrtKEDU7dlhwH
+         tnKg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765206443; x=1765811243;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=koYXwoTEJsoPLyEPiz9nEdjQYdWChY6O9/DUrMalYaU=;
+        b=tUZ1NIG4FMJxazdLoI0HEIUmPpjjk/t+YYhm0YDK1NgHqV9gYpQQMX5wZbBm1oacDA
+         UdphmyNPVjvHSc6XdWnKvy+3KXo1w3pmJtl979fpcFrRHiG0TK60fgx5VG0WQ3+GiojL
+         WcYoqjAzoACAR40rkbbxVoQyzI1D3Hx/jYnllytfbZJWxYe4AT3FCVryz45gJNOJJ/Ot
+         bQ01cPLISy350ulIznR0QvayROAFm2XbVsx16z37ZdSjoFIQHtaFwqm6+dasacwJoLjI
+         tfl+3emTuD6VELGM/rZCu2v0BfZbcFd2wmiMQjSbAwMTp6X4+dFAobqmkLBeqVVCAbJu
+         KDSg==
+X-Forwarded-Encrypted: i=1; AJvYcCVHI37xbuTv6aqZ8CGkeS+LlQaJPoZssQbgGtSYatO425vJIMAU7B39MwqTNoayx4OMSWtvY40W/OL4fSgEFtLZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw+UN9doaarrqVcmTR13UutIliRudsBkzvt8Gqf9rdqOLzQv5Vu
+	D0O1tVOdbF3AkvxrEnu2Wm1u5BA8fVLDyLHI/Cjk6snEXd4HhiN8JJo/CNP+k5DU34EzZHqAZf3
+	Gb3MNj/biMkk3OeokezMTl9TyX3AhvLw=
+X-Gm-Gg: ASbGncsrVvaBPYretfjqhNRVqlNAx26IxeupTNxPIIM7uYSfp+KDYxwPV8vOWcd//zJ
+	kK+cw0T1pX1JKaZ2Pvzin66ts0R3MMc1SyfsJiJxx8UIobsyNm/pcNICt0RsDNesDt0dOhP+L8p
+	6Z7uJbbgyG50SxYLbfikHPyee0yziRMHPIvJ1CtxApLvw+FjWi9iSVRl34XAZp/LS0odkxQEVRd
+	3j5OvpsA6rWzFyNBbSrxb9fHzU3JPpSvHrxjoGZQDvkWamGXEyGn3lUYQ89vit2cBC+ni3kpg==
+X-Google-Smtp-Source: AGHT+IGYRXraUxNnTs25uPKI9qFKKJh9msu75YD1kNeHN+uqbvLo7zPFytcHo2xWkyYJWdyrK6Tt95u9MkZVGc/NOaA=
+X-Received: by 2002:a05:690c:46c1:b0:78c:24d2:8e46 with SMTP id
+ 00721157ae682-78c33b641a6mr128823087b3.23.1765206442917; Mon, 08 Dec 2025
+ 07:07:22 -0800 (PST)
 MIME-Version: 1.0
-References: <20251202-extended_cti-v6-0-ab68bb15c4f5@oss.qualcomm.com>
- <20251202-extended_cti-v6-2-ab68bb15c4f5@oss.qualcomm.com>
- <20251203182944.GG724103@e132581.arm.com> <CAJ9a7VjWDBEwdmMf53geACBWGusC8BC3pJuOLETeecw24+N35Q@mail.gmail.com>
- <20251204103151.GK724103@e132581.arm.com> <CAJ9a7VjHHkkTz9XJqjdQ+11_XX9zXuY0ZcQzPtq=Zvi4CN__0A@mail.gmail.com>
- <20251205100432.GO724103@e132581.arm.com>
-In-Reply-To: <20251205100432.GO724103@e132581.arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Mon, 8 Dec 2025 14:47:21 +0000
-X-Gm-Features: AQt7F2oAn2-nGLDKAafS-iz_tPYGSdBrMsxU5kNDu5FNNuxHPYo8oNtqnxE74P4
-Message-ID: <CAJ9a7Vg9Efi-5eecfiUF82_Qq8Jg9imN5q1-VKYZoPVUxNpjhA@mail.gmail.com>
-Subject: Re: [PATCH v6 2/2] coresight: cti: Add Qualcomm extended CTI support
-To: Leo Yan <leo.yan@arm.com>
-Cc: Yingchao Deng <yingchao.deng@oss.qualcomm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, quic_yingdeng@quicinc.com, 
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Mao Jinlong <quic_jinlmao@quicinc.com>
+References: <20251207123447.93233-1-madhurkumar004@gmail.com>
+In-Reply-To: <20251207123447.93233-1-madhurkumar004@gmail.com>
+From: Jonas Gorski <jonas.gorski@gmail.com>
+Date: Mon, 8 Dec 2025 16:07:11 +0100
+X-Gm-Features: AQt7F2pKE5CQRUA_xL32Yk7vUOwJ69Im78h8OWjd5vaMan4AvHfoEZP3-zr1coc
+Message-ID: <CAOiHx=n8osZ=b=MVNsxAKEtxDvNgt1ESohLNMWoz43c9RwNfOA@mail.gmail.com>
+Subject: Re: [PATCH] drivers: net: wireless: Replace deprecated PCI function
+To: Madhur Kumar <madhurkumar004@gmail.com>
+Cc: nbd@nbd.name, lorenzo@kernel.or, ryder.lee@mediatek.com, 
+	shayne.chen@mediatek.com, sean.wang@mediatek.co, matthias.bgg@gmail.com, 
+	angelogioacchino.delregno@collabora.com, linux-wireless@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_064734_516632_BDC28B74 
-X-CRM114-Status: GOOD (  35.07  )
+X-CRM114-CacheID: sfid-20251208_070724_807934_45C2670B 
+X-CRM114-Status: GOOD (  15.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,114 +97,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo
+Hi,
 
-On Fri, 5 Dec 2025 at 10:04, Leo Yan <leo.yan@arm.com> wrote:
+On Sun, Dec 7, 2025 at 1:35=E2=80=AFPM Madhur Kumar <madhurkumar004@gmail.c=
+om> wrote:
 >
-> Hi Mike,
+> pcim_iomap_table() and pcim_iomap_regions() have been
+> deprecated.
+> Replace them with pcim_iomap_region().
+
+The patch subject is wrong, please read
+https://wireless.docs.kernel.org/en/latest/en/developers/documentation/subm=
+ittingpatches.html
+
 >
-> On Thu, Dec 04, 2025 at 04:17:35PM +0000, Mike Leach wrote:
+> Signed-off-by: Madhur Kumar <madhurkumar004@gmail.com>
+> ---
+>  drivers/net/wireless/mediatek/mt76/mt7921/pci.c | 6 +-----
+>  1 file changed, 1 insertion(+), 5 deletions(-)
 >
-> [...]
+> diff --git a/drivers/net/wireless/mediatek/mt76/mt7921/pci.c b/drivers/ne=
+t/wireless/mediatek/mt76/mt7921/pci.c
+> index ec9686183251..5a82c3bf471f 100644
+> --- a/drivers/net/wireless/mediatek/mt76/mt7921/pci.c
+> +++ b/drivers/net/wireless/mediatek/mt76/mt7921/pci.c
+> @@ -284,10 +284,6 @@ static int mt7921_pci_probe(struct pci_dev *pdev,
+>         if (ret)
+>                 return ret;
 >
-> > The tables in the patch are
-> >
-> >     [reg_type_array_index] = offset_address;
-> >
-> > e.g.
-> >
-> >   [INDEX_CTIINTACK]  = QCOM_CTIINTACK
-> >
-> > which resolves to
-> >
-> >  [1] = 0x020
-> >
-> > where index is constant for a given register type,
-> >
-> > As far as I can tell what you have suggested above is a table that is
-> >
-> >   [std_addr_offset] = qcom_addr_offset;
-> >
-> > e.g.
-> >
-> > [CTIINTACK]             = QCOM_CTIINTACK,
-> >
-> > which resolves to
-> >
-> > [0x10]  = 0x020
-> >
-> > which does not appear to work correctly?
+> -       ret =3D pcim_iomap_regions(pdev, BIT(0), pci_name(pdev));
+> -       if (ret)
+> -               return ret;
+> -
+>         pci_read_config_word(pdev, PCI_COMMAND, &cmd);
+>         if (!(cmd & PCI_COMMAND_MEMORY)) {
+>                 cmd |=3D PCI_COMMAND_MEMORY;
+> @@ -325,7 +321,7 @@ static int mt7921_pci_probe(struct pci_dev *pdev,
+>         dev->fw_features =3D features;
+>         dev->hif_ops =3D &mt7921_pcie_ops;
+>         dev->irq_map =3D &irq_map;
+> -       mt76_mmio_init(&dev->mt76, pcim_iomap_table(pdev)[0]);
+> +       mt76_mmio_init(&dev->mt76, pcim_iomap_region(pdev, 0, pci_name(pd=
+ev)));
 
-Sorry - what I mean here is the contiguous array that appears to be in
-the source, does not match the reality when compiled into memory - not
-that it doesn't work programmatically.
+You are effectively removing the error checking by directly passing
+the result of pcim_iomap_region() to mt76_mmio_init(). You need to
+first make sure that pcim_iomap_region() succeeded.
 
-> >
-> > The registers are sparsely spread across the memory map, so a simple
-> > mapping does not work, even if we divide the original offset by 4 to
-> > create a register number.
->
-> This should work.  Though the array is not filled for each item, but
-> it will return back 0x20 when we access array[0x10], I don't see
-> problem here.
->
-> > The largest standard offset we have is ITTRIGIN = 0xEF8, so assuming
-> > the compiler allows us to sparselly populate the array (which I think
-> > it does, along with some padding), we end up with an array of at least
-> > 0xEF8 elements, rather then the indexed 21?
->
-> I tested locally and did not see the GCC complaint for this approach.
-> And this is a global structure with about 16KiB (~4K items x
-
-Which is precisely the issue - why use 16k bytes of space when a pair
-of indexed tables will use 21 x 32bit locations per table -> 168 bytes
-- 100x smaller!
-
-This space matters little to high end server systems but is much more
-important in smaller embedded systems.
-
-Moreover the table + inline helper is more efficient at extracting the
-correct offset value. The helper is a simple de-reference - whereas
-the helper functions you suggest require the code to make the
-comparison at every register access.
-The "if qcom ..." may be contained in one place in the source code,
-but is called and executed for every access.
-
-Why add inefficiencies, either in footprint or execution?
-
-Regards
-
-Mike
-
-
-> sizeof(u32)), we don't need to worry about scaling issue as it is
-> shared by device instances.
->
-> If you dislike this way, then a static function also can fulfill the
-> same task, something like:
->
->     static noinline u32 cti_qcom_reg_off(u32 offset)
->     {
->             switch (offset) {
->             CTIINTACK: return QCOM_CTIINTACK;
->             CTIAPPSET: return QCOM_CTIAPPSET;
->             ...
->             default:
->                 WARN(1, "Unknown offset=%u\n", offset);
->                 return 0;
->             }
->
->             /* Should not run here, just for compiling */
->             return 0;
->     }
->
-> Thanks,
-> Leo
-
-
-
--- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+Best regards,
+Jonas
 
