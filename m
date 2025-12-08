@@ -4,54 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 650ECD2CE17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 02:04:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58E67D1CDC6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 02:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:Subject:From:To:MIME-Version:Date:Message-ID:Reply-To:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gug9CwpDqb+TCtvtvwUyKvSMovynSjoGfeuTquKCNd8=; b=x1dDdZKoy9ehLlZ9rgox1Jizq3
-	Mwp+VW+dTDR0XwbbeboP17Nm2kKa2kTYPyEipjpQxdOk8lN0iN+tpv06LRSlPHHjBWUG/uQxsyIjW
-	uuhklivRwz30zVUsU0SZII2/dHzF26XNOVlIcxeyNdM/u+5W0iZFcDod6dcnWn+pPldB9AMVE3/Ib
-	1Yu26aJivacby6Qzk7qWwPyybpfIiGQyIYJoVjgkGkOXbSJG48p3hft9uLUWHig8nc/44ToqCJqjK
-	cR5t3RwKEbgRQggiB7kQnvoQ8oTvHIypdFZXA75aWB3oEFKKqleYVT/5lBphrkj3azvLMf+ga/pl2
-	Z4DSY6bg==;
+	bh=dKkJmoXSHwgOEmZ7UP4UhmBBGJtWa5ekgvOQqU+FCe0=; b=h6wQZSl0XVZsmiENLCCCBfOQTn
+	PfCu+usZgyWQmQpQw/dNJJDIcw8U5ViuLQud2OUq+K5VjdT/6JrE5LG3Qd0CWZxLsPpLnfFzDodfz
+	cEacRV8Is5EP0QS53f32aHLyAFQAUy32DeaYM3rZ0TwlKALJ3sG9hdOaDsFsvaJnkzjgt37XbP4cI
+	79ImxABVxAVUjEosYMzERt+lVg9PWBhdTrpamP8ipOs6ck2tAer6aUmnHL0LTEON/3QujGgddTQKp
+	bqn+GP3AHG8DuQCUqSMaEa1gMTmIEQqKsftaygxHozu3i7HQTjcW47Yde2gc0/mo47byfOUmMfr4p
+	IIGsP7Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSQbl-0000000CRqH-42bf;
-	Mon, 08 Dec 2025 02:04:13 +0000
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSQbi-0000000CRpl-40tu;
-	Mon, 08 Dec 2025 02:04:11 +0000
-Message-ID: <22b92ddf-6321-41b5-8073-f9c7064d3432@infradead.org>
-Date: Sun, 7 Dec 2025 18:04:09 -0800
+	id 1vSQgh-0000000CSUJ-1Mzm;
+	Mon, 08 Dec 2025 02:09:19 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vSQge-0000000CSTc-2OfN
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Dec 2025 02:09:17 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B7MRG9c3423126
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 8 Dec 2025 02:09:15 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=dKkJmoXSHwgOEmZ7UP4UhmBBGJtWa5ekgvO
+	QqU+FCe0=; b=CrKMnw2MWzHviiH5Z/70yR6Lwzhicg9W1crhk2pR3TcgHN5FRqd
+	ckXhQSSpkFlTMcp6N5zLL4r9obYj7DMLGblR2wxJbf0COPZ6403lSxtZm4fLho4f
+	LFLhxHbzxfbORBO34T/xaCvSPOah0PmzCvmFch+msAWy6G6umtBPbsBBPpUPpwbA
+	1Wdl+RLqPc2V6y3lGfb+Or4N1WpC23ZystWYahEP6HzNxjX8TIE8zOypY5z+KBuE
+	bHrT44nmV9vXsMLdp46WrEMh0GndjZrrrsQ54f5xcWPwWkKpTIS2neQL6Aclx00k
+	n4YkCwFDueda4YXBD98RN57Wi0RAeNO3tBA==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4avcjvb98y-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Dec 2025 02:09:15 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-297f48e81b8so53746245ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Dec 2025 18:09:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1765159755; x=1765764555; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=dKkJmoXSHwgOEmZ7UP4UhmBBGJtWa5ekgvOQqU+FCe0=;
+        b=i5WCVo9XfIBMUJTj2MZsqhREo5pFrI4wliyyOGpGA87fb4ueuVUrTkBqOdM7r7oNOX
+         U6S4OneTs+8y0BVweIYrrY2iptLKfkJuOFQGBRMgkez7PSmI5fbmYlodDpcn98Gl8et/
+         5F1lb+ZhUpzrrzScaI0Ym3aT3DjSdSk+F5lb+IdefCOVYzhb4NJWeONK6nLR5WdzOB9r
+         XA3mEJujiA8slQH+cCPzXBDsPPTdTmtXMWGGUvfuTSz/9MCjEvT6E23VQeOou46mTcgn
+         7y+8se/oA8v5v/4Akuwo0nAax4KS9S8O9wMQjUojKa+dpcc/+xRTseVhDapxErbkjZco
+         qx+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765159755; x=1765764555;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dKkJmoXSHwgOEmZ7UP4UhmBBGJtWa5ekgvOQqU+FCe0=;
+        b=I3N7Xi5mfzf2MEvmb0UmEpge+J4KPiLTYzdBjMEhLwkrjImK0zNUrcThUeLbVd4wUv
+         Ubb+LJj4dfgTO034bso7VGR3D4yUgTvpfGYAnZzN/5/v25zFvKTZoDSPn+Pmo2Tb1AUG
+         k8rlVVzBU+9kXU/DcmSwHXu0Sn9qkJf1J+DfMls3hOnmfI9hOM/GF8ROD62MmprcSV6H
+         P08EEZRw9owb8QqUkNrmeNZG55pImgLvhkBfY5kCD5mFkL+EkNp5aW39Ak/rPsiw07Gr
+         FuZkJSGDEGgN5w8sjNsiRf2gE6APvZObwQJhIuYuF1PrtNxnSr15lg+gL9iiGFQqcDiG
+         WcSg==
+X-Forwarded-Encrypted: i=1; AJvYcCX6zv82t4saprDMaNH2Vj1r+WRMufQA6pkyUEaBk0g1Sn9mrL/4JGELL+2f/4LQ/UYBwR9UC0gzpTJqw18+39QH@lists.infradead.org
+X-Gm-Message-State: AOJu0YxURNNAqd/2D+ezLwWjFNussmwLOICT/hE/LbPiMUrZTVdk5YpM
+	f1R45KVa2p3KrdLvkkkNnBOQ3Rr4YvqljA+5ejg5M3BKJ3+aCKiH2+AzGIElXkfBOIL9tNqJmHH
+	szobAV08FkC1t1m88Hjpxzned6l+q0UBd9G6S4e0bL03W+qbDa5n0g6GVYQmxUac5LUyx7Uv0Uv
+	tp/Q==
+X-Gm-Gg: ASbGnct5MC6N4s8ooXrP89KWu2m+hj1z7bOJCphMb2lY1TwhdGlmBFo5dyB1Ym+HFRe
+	xuZn9KNr7mnP5ANtgTa9UhxkA2kDhacD9yjxuDzLRPmJItAPkSuqSIS6q9w2sAM2Tc2txfCNhBE
+	++V9CBzBsTwrWb8SH18dYZ2HLdlXx0PRNE6moqA/nRgMdIU4IarI5x/7E9r+KP2UijEltQCp2r2
+	tTKFgiQLBOPOz9mcNXoefWK/k4/vsDLLIv2qnU9TPY56p+WYNnaAme5vMunEHvmPaEydY6+udSW
+	/Z4r5XXmIhCVmPwpqQg6iLb7dx3ZZS64A1CS5dgGUQDuXtOfmufiBdM7XCJBOl/zpk2xLlq1Wmt
+	JY4SnMcUqYBfEmyfyLTMriQ2a2b1gWsiSFE6YRk3hfvVdUDBgsO0LiOqf
+X-Received: by 2002:a17:903:1746:b0:295:592f:9496 with SMTP id d9443c01a7336-29df42a1e4fmr44650815ad.20.1765159754449;
+        Sun, 07 Dec 2025 18:09:14 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IE2HiKEGWVVMYF/13s6eSajPU59gNFCAfNUhHZX1potan5zoYXxppuI8gWLZg9/BuxTdDqlYg==
+X-Received: by 2002:a17:903:1746:b0:295:592f:9496 with SMTP id d9443c01a7336-29df42a1e4fmr44650605ad.20.1765159753782;
+        Sun, 07 Dec 2025 18:09:13 -0800 (PST)
+Received: from quoll (fs98a57d9d.tkyc007.ap.nuro.jp. [152.165.125.157])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29daeae2552sm105933945ad.88.2025.12.07.18.09.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 07 Dec 2025 18:09:13 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+To: Sudeep Holla <sudeep.holla@arm.com>,
+        Cristian Marussi <cristian.marussi@arm.com>,
+        Simon Trimmer <simont@opensource.cirrus.com>,
+        Charles Keepax <ckeepax@opensource.cirrus.com>,
+        Richard Fitzgerald <rf@opensource.cirrus.com>,
+        arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, patches@opensource.cirrus.com
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH 1/2] firmware: arm_scmi: Fix confusing cleanup.h syntax
+Date: Mon,  8 Dec 2025 03:09:08 +0100
+Message-ID: <20251208020907.5476-3-krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Content-Language: en-US
-To: Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-From: Randy Dunlap <rdunlap@infradead.org>
-Subject: Kconfig dangling references (BZ 216748)
-Cc: Andy Shevchenko <andy.shevchenko@gmail.com>, Arnd Bergmann
- <arnd@arndb.de>, andrew.jones@linux.dev, linux-omap@vger.kernel.org,
- openbmc@lists.ozlabs.org, linux-sound@vger.kernel.org,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- linux-mips@vger.kernel.org, asahi@lists.linux.dev,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- Paul Kocialkowski <paulk@sys-base.io>, chrome-platform@lists.linux.dev,
- Paul Cercueil <paul@crapouillou.net>,
- linux-stm32@st-md-mailman.stormreply.com,
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- linux-gpio@vger.kernel.org, Srinivas Kandagatla <srini@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Matti Vaittinen <mazziesaccount@gmail.com>,
- Jonathan Cameron <jic23@kernel.org>,
- Vaibhav Hiremath <hvaibhav.linux@gmail.com>, linux-sh@vger.kernel.org,
- x86@kernel.org, Max Filippov <jcmvbkbc@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1659; i=krzysztof.kozlowski@oss.qualcomm.com;
+ h=from:subject; bh=BxRojLwyf+c8qcMEFwrzJjujheqjdTZIXrt0VaiDzxk=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBpNjND2zygvphvTpli5om48fSGCk0RVRokty/wP
+ rTcOKsAWfGJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaTYzQwAKCRDBN2bmhouD
+ 13MuD/4wIBFhZBId+jjIeUCLxWleeQsPONBAJTz4zbOsefTT3TYRj/jI63obIrdDTsJ6jaUVlhT
+ Wnm09FF4DU20F/hMIe2mcH0RnNnaCMFTt1ObO4Wr3xnCeecMq9tflJYcsvSw4M5njjI/Sz3Sl1G
+ KJ3up0mQl38YRxhXyJJ0O9Cvh/nujhuV2oGDI9ABbw9dzDje6HmYNGhmXuge+I28nOasLBTR/UX
+ mVOU4c+80Mu9+hF3+iI4N0xoiwLtugwipolcvPRuiaBXImzWbdEvzfm+Y5U2Q7NeaUTDAUw8De6
+ ZP5yQnt0C03gmgU+2LFmXt3Su2N3COmTtVjjG7LBy1Yztc/F0NCgWvccENiYkm9p9vyJpYEZqmG
+ A8UBNYWLGX9y46pbQ7r5ALzQr4nNRXTjQ0ZAKLI2NWKMiTyU9Y9mp/I8VFy2ts7umzQ0Vi6b6eu
+ mtzJsTjFt00zVO1sLaQ3v9in/b5CT3+QkZ95lwc4TzSfvWwqYSh9OS47mMNgdiR9DgmtL3dISNp
+ 0V1f3h2VckPuo4tTnmAKOf2XkUe3ifQkL5NpTPCRNa5s4mmpslfreItl8sO6zvheuvTTcFN48Uy
+ esVdmNfP2mIxlZwcD/x0uTryl/rvjUKEUeAgrgy1eGU7n7DX2Cx/uu+Ijc56/8QMA2Pj0sVXTp3 EJy0BDWi1/fPeQQ==
+X-Developer-Key: i=krzysztof.kozlowski@oss.qualcomm.com; a=openpgp; fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Transfer-Encoding: 8bit
+X-Authority-Analysis: v=2.4 cv=Dccaa/tW c=1 sm=1 tr=0 ts=6936334b cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=vTE1kzb4AqIx7XBf0Bkr0A==:17
+ a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=EUspDBNiAAAA:8 a=U79RhWn09M75MijRk9YA:9 a=+jEqtf1s3R9VXZ0wqowq2kgwd+I=:19
+ a=324X-CrmTo6CU4MGRt3R:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjA4MDAxNiBTYWx0ZWRfX7pCPgHNxUPl9
+ 6rN+UVHP5DwuTI/WS64hBjA6RTGmGQh9teS8I4GhacLjrsgkfzv2DFYoy9YkavqSWA1czsambvx
+ C9+y6spCn69xNQk+xaaJIL/m3CN71ASkO+sR04bw01N6LavkunlQL+FSpynz494Mgu6VOKpW1iX
+ Tq3xxNKVXFum5unFRxQ3IUQd0Fr9FjOL9+JdCwDPZHmK1MBmMWGo7aj0/obCNgVM27nIDDV+xgR
+ in68xog3lKnL148htxAXm9HY55iWaj3HRzRq6Dzgt9jynEFurqr1tisMJG8gpB5ttoqZKUNKkUX
+ l8QI4RjOWdGluKS7sqb6hmqEE7701TmV4LVahxo8oG1gX3IAE8NpuP8YU/1mGT2Eonouyxx6z82
+ yklzxx/34X1loPdvBE9Qu25ttz5u3g==
+X-Proofpoint-ORIG-GUID: YpE2e1vCfq3H3Um_5yu44SHIPZa7j7fl
+X-Proofpoint-GUID: YpE2e1vCfq3H3Um_5yu44SHIPZa7j7fl
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-06_02,2025-12-04_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 impostorscore=0 suspectscore=0 clxscore=1015 malwarescore=0
+ lowpriorityscore=0 priorityscore=1501 adultscore=0 phishscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512080016
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251207_180916_850529_859F88EA 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,113 +156,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-from  https://bugzilla.kernel.org/show_bug.cgi?id=216748
+Initializing automatic __free variables to NULL without need (e.g.
+branches with different allocations), followed by actual allocation is
+in contrary to explicit coding rules guiding cleanup.h:
 
-The bugzilla entry includes a Perl script and a shell script.
-This is the edited result of running them (I removed some entries that were noise).
+"Given that the "__free(...) = NULL" pattern for variables defined at
+the top of the function poses this potential interdependency problem the
+recommendation is to always define and assign variables in one statement
+and not group variable definitions at the top of the function when
+__free() is used."
 
-I'll try to Cc: all of the relevant mailing lists or individuals.
+Code does not have a bug, but is less readable and uses discouraged
+coding practice, so fix that by moving declaration to the place of
+assignment.
 
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+---
+ drivers/firmware/arm_scmi/quirks.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-ARCH_HAS_HOLES_MEMORYMODEL ---
-arch/arm/mach-omap1/Kconfig:7:	select ARCH_HAS_HOLES_MEMORYMODEL
-
-ARM_ERRATA_794072 ---
-arch/arm/mach-npcm/Kconfig:33:	select ARM_ERRATA_794072
-
-ARM_SMC_MBOX ---
-arch/arm64/Kconfig.platforms:375:	select ARM_SMC_MBOX
-
-CLK_FIXED_FCH ---
-sound/soc/amd/Kconfig:11:	select CLK_FIXED_FCH
-sound/soc/amd/Kconfig:48:	select CLK_FIXED_FCH
-sound/soc/amd/acp/Kconfig:107:	select CLK_FIXED_FCH
-
-CONFIG_STM ---
-drivers/hwtracing/stm/Kconfig:16:	default CONFIG_STM  # should be STM
-drivers/hwtracing/stm/Kconfig:31:	default CONFIG_STM
-
-CPU_HAS_LOAD_STORE_LR ---
-arch/mips/Kconfig:1411:	select CPU_HAS_LOAD_STORE_LR
-
-DRM_KMS_DMA_HELPER ---
-drivers/gpu/drm/adp/Kconfig:9:	select DRM_KMS_DMA_HELPER
-drivers/gpu/drm/logicvc/Kconfig:7:	select DRM_KMS_DMA_HELPER
-
-EXTCON_TCSS_CROS_EC ---
-drivers/usb/typec/ucsi/Kconfig:76:	depends on !EXTCON_TCSS_CROS_EC
-
-MACH_JZ4755 ---
-drivers/clk/ingenic/Kconfig:20:	default MACH_JZ4755
-drivers/pinctrl/pinctrl-ingenic.c:158:	IS_ENABLED(CONFIG_MACH_JZ4755) << ID_JZ4755 |
-drivers/pinctrl/pinctrl-ingenic.c:4616:		.data = IF_ENABLED(CONFIG_MACH_JZ4755, &jz4755_chip_info)
-
-MACH_JZ4760 ---
-drivers/clk/ingenic/Kconfig:40:	default MACH_JZ4760
-drivers/pinctrl/pinctrl-ingenic.c:159:	IS_ENABLED(CONFIG_MACH_JZ4760) << ID_JZ4760 |
-drivers/pinctrl/pinctrl-ingenic.c:4620:		.data = IF_ENABLED(CONFIG_MACH_JZ4760, &jz4760_chip_info)
-drivers/pinctrl/pinctrl-ingenic.c:4624:		.data = IF_ENABLED(CONFIG_MACH_JZ4760, &jz4760_chip_info)
-
-MACH_STM32MP25 ---
-drivers/pinctrl/stm32/Kconfig:58:	default MACH_STM32MP25 || (ARCH_STM32 && ARM64)
-
-MFD_AIROHA_AN8855 ---
-drivers/nvmem/Kconfig:33:	depends on MFD_AIROHA_AN8855 || COMPILE_TEST
-
-MFD_TN48M_CPLD ---
-drivers/gpio/Kconfig:1624:	depends on MFD_TN48M_CPLD || COMPILE_TEST
-drivers/reset/Kconfig:365:	depends on MFD_TN48M_CPLD || COMPILE_TEST
-drivers/reset/Kconfig:366:	default MFD_TN48M_CPLD
-
-MIPS_BAIKAL_T1 ---
-drivers/ata/Kconfig:197:	select MFD_SYSCON if (MIPS_BAIKAL_T1 || COMPILE_TEST)
-drivers/bus/Kconfig:43:	depends on MIPS_BAIKAL_T1 || COMPILE_TEST
-drivers/bus/Kconfig:58:	depends on MIPS_BAIKAL_T1 || COMPILE_TEST
-drivers/clk/baikal-t1/Kconfig:4:	depends on (MIPS_BAIKAL_T1 && OF) || COMPILE_TEST
-drivers/clk/baikal-t1/Kconfig:5:	default MIPS_BAIKAL_T1
-drivers/clk/baikal-t1/Kconfig:20:	default MIPS_BAIKAL_T1
-drivers/clk/baikal-t1/Kconfig:33:	default MIPS_BAIKAL_T1
-drivers/clk/baikal-t1/Kconfig:45:	default MIPS_BAIKAL_T1
-drivers/hwmon/Kconfig:462:	depends on MIPS_BAIKAL_T1 || COMPILE_TEST
-drivers/i2c/busses/Kconfig:589:	select MFD_SYSCON if MIPS_BAIKAL_T1
-drivers/memory/Kconfig:69:	depends on MIPS_BAIKAL_T1 || COMPILE_TEST
-drivers/mtd/maps/Kconfig:81:	depends on MIPS_BAIKAL_T1 || COMPILE_TEST
-drivers/pci/controller/dwc/Kconfig:89:	depends on MIPS_BAIKAL_T1 || COMPILE_TEST
-drivers/spi/Kconfig:370:	depends on MIPS_BAIKAL_T1 || COMPILE_TEST
-
-PINCTRL_MILBEAUT ---
-arch/arm/mach-milbeaut/Kconfig:16:	select PINCTRL_MILBEAUT
-
-SND_SOC_AC97_BUS_NEW ---
-sound/soc/pxa/Kconfig:21:	select SND_SOC_AC97_BUS_NEW
-
-SND_SOC_CS35L56_CAL_SYSFS_COMMON ---
-sound/soc/codecs/Kconfig:920:	select SND_SOC_CS35L56_CAL_SYSFS_COMMON
-
-TEST_KUNIT_DEVICE_HELPERS ---
-drivers/iio/test/Kconfig:11:	select TEST_KUNIT_DEVICE_HELPERS
-
-USB_HSIC_USB3613 ---
-drivers/staging/greybus/Kconfig:209:	depends on USB_HSIC_USB3613 || COMPILE_TEST
-drivers/staging/greybus/arche-platform.c:26:#if IS_ENABLED(CONFIG_USB_HSIC_USB3613)
-
-USB_OHCI_SH ---
-arch/sh/Kconfig:334:	select USB_OHCI_SH if USB_OHCI_HCD
-arch/sh/Kconfig:344:	select USB_OHCI_SH if USB_OHCI_HCD
-arch/sh/Kconfig:429:	select USB_OHCI_SH if USB_OHCI_HCD
-arch/sh/Kconfig:455:	select USB_OHCI_SH if USB_OHCI_HCD
-arch/sh/configs/sh7757lcr_defconfig:61:CONFIG_USB_OHCI_SH=y
-
-X86_P6_NOP ---
-arch/x86/Kconfig.cpufeatures:41:	depends on X86_64 || X86_P6_NOP
-arch/x86/Makefile_32.cpu:48:ifneq ($(CONFIG_X86_P6_NOP),y)
-
-XTENSA_PLATFORM_ESP32 ---
-drivers/tty/serial/Kconfig:1598:	depends on XTENSA_PLATFORM_ESP32 || (COMPILE_TEST && OF)
-drivers/tty/serial/Kconfig:1611:	depends on XTENSA_PLATFORM_ESP32 || (COMPILE_TEST && OF)
-
-
+diff --git a/drivers/firmware/arm_scmi/quirks.c b/drivers/firmware/arm_scmi/quirks.c
+index 03848283c2a0..4fb09bb8c6b3 100644
+--- a/drivers/firmware/arm_scmi/quirks.c
++++ b/drivers/firmware/arm_scmi/quirks.c
+@@ -218,7 +218,7 @@ static unsigned int scmi_quirk_signature(const char *vend, const char *sub_vend)
+ 
+ static int scmi_quirk_range_parse(struct scmi_quirk *quirk)
+ {
+-	const char *last, *first __free(kfree) = NULL;
++	const char *last;
+ 	size_t len;
+ 	char *sep;
+ 	int ret;
+@@ -229,7 +229,8 @@ static int scmi_quirk_range_parse(struct scmi_quirk *quirk)
+ 	if (!len)
+ 		return 0;
+ 
+-	first = kmemdup(quirk->impl_ver_range, len + 1, GFP_KERNEL);
++	const char *first __free(kfree) = kmemdup(quirk->impl_ver_range, len + 1,
++						  GFP_KERNEL);
+ 	if (!first)
+ 		return -ENOMEM;
+ 
 -- 
-~Randy
+2.51.0
 
 
