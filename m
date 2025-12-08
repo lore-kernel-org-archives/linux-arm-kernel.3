@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F052D2CE17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 01:56:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF217D2CE17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 01:56:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yduhPWdEryQOAmGdcqOwD6+bqzN4khXB1pWrS++U2Ac=; b=FY1+CscFVn1UKL3HfA+6va231Z
-	1sH8PAkYnKO48CXVWghRE8IkNWHjYnvE9UzWvEs32yEj/M8Fm5Bfnq56c1QJeBYtjzQtdN0OL0mTv
-	erMy3Fe8P+GTjuw8fubvSIz7yXIsJaEMkzsWBurav2rY+e5k1gfezFu5rsYeCvZJz1WflVxJOvuL9
-	KEL99q9+eY8X8GxN02zT1pLCDeE0fo63Fdb7zIRRAtgAQN2AyrJpzWY0K56SIQwD1EwXgYYSk9AzH
-	aBKfIeVpcb3fgthgR+WHmmi5BK5wxmIVCTJVAXpd2uTAs4qivqh5fu7aBzPhflL8dfOgZecgmNpUM
-	yytm0sDg==;
+	bh=/ITohFNSR7lZRzb2jcZzCyseW4V9moYl6cPe0u/7eVQ=; b=hQRHOEg4Yoys6+yQNBC9JkdwkS
+	p8N0q5vof3R1yFxfqo3dVJVA50XvowVFEeDyB7GvGkcOsGUPJ0xNSOwtFAy+cO6Ju9e4JbpMsDMGb
+	eOVzMS+YMetI4yVY+YYZk6Xff/GmUTH31F4qSLpUHl79AFeNQICxZUmWu0ZzoHl9M9awdLsQQmL1F
+	NIaTfnxcmBNUrHR5ZtRdv1/rm1oYLSllbEk0SqtazhyMFwLE8rK9QKr4EQUh7YjbWrT7fjSKddSTi
+	R3j+Js6IqQlpDlkYe7a1N7E7/Gl4pCinWSy+UaaQNxUvMr3hJ/EdEHB3AnF5YyvjZRz4r98U6qzMa
+	/UnxFQUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSQTz-0000000CPpo-3wld;
-	Mon, 08 Dec 2025 01:56:12 +0000
-Received: from smtpbguseast1.qq.com ([54.204.34.129])
+	id 1vSQU2-0000000CPr7-1Nz8;
+	Mon, 08 Dec 2025 01:56:14 +0000
+Received: from smtpbg151.qq.com ([18.169.211.239])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSQTq-0000000CPlQ-3ldx;
+	id 1vSQTr-0000000CPlk-3059;
 	Mon, 08 Dec 2025 01:56:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1765158922;
-	bh=yduhPWdEryQOAmGdcqOwD6+bqzN4khXB1pWrS++U2Ac=;
+	s=altu2504; t=1765158926;
+	bh=/ITohFNSR7lZRzb2jcZzCyseW4V9moYl6cPe0u/7eVQ=;
 	h=From:To:Subject:Date:Message-Id;
-	b=kx/DrY2OEte3ZRViZtVtJXSSDRWmiagvzCsYl8igPjVkKD0TJS6hi5/SF9X10ADKB
-	 zgessn8u4aSkBY0OQbTMAE6irYaYsDCXvJHdw+eUAypM4Qo4liFrQtrccbf86TL4W4
-	 ovf0HwwV8j1909VsOjqCnrEP0oFqTCzZq/lFDeOs=
-X-QQ-mid: esmtpsz19t1765158919t97d72f03
-X-QQ-Originating-IP: Gj8s0/eHq01JGQQD6y5farK7KZ/tS0eZm6qo7o7KPhc=
+	b=VdO0Jn5MduDfj9k13G+diYn9Won2YEFhmTJZ9z5AI9UgkeM6cpL62Pvidk3Fzrgrc
+	 gAE/IWbmrXl1jkZYt25/7G5W48dietLPzNdpbhjtHm1vMoYwPeQNo79a1zs9+bDn9J
+	 iKkpiL+DNqtH9EcEBMoF9QvIzsKSE39MzSDIZ3LQ=
+X-QQ-mid: esmtpsz19t1765158924t760755d5
+X-QQ-Originating-IP: 3roZbY8eqQltdEXFqjutnrbNDJ5RRJ4S3DkEoxdunYw=
 Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 08 Dec 2025 09:55:16 +0800 (CST)
+	id ; Mon, 08 Dec 2025 09:55:21 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 7821749842743038252
+X-BIZMAIL-ID: 10138295490961143045
 From: Chaoyi Chen <kernel@airkyi.com>
 To: Heikki Krogerus <heikki.krogerus@linux.intel.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
@@ -81,35 +81,35 @@ Cc: linux-usb@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	dri-devel@lists.freedesktop.org
-Subject: [PATCH v13 02/11] usb: typec: Export typec bus and typec altmode device type
-Date: Mon,  8 Dec 2025 09:54:51 +0800
-Message-Id: <20251208015500.94-3-kernel@airkyi.com>
+Subject: [PATCH v13 03/11] drm/bridge: Implement generic USB Type-C DP HPD bridge
+Date: Mon,  8 Dec 2025 09:54:52 +0800
+Message-Id: <20251208015500.94-4-kernel@airkyi.com>
 X-Mailer: git-send-email 2.17.1
 In-Reply-To: <20251208015500.94-1-kernel@airkyi.com>
 References: <20251208015500.94-1-kernel@airkyi.com>
 X-QQ-SENDSIZE: 520
 Feedback-ID: esmtpsz:airkyi.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: N4kN3xMDJERSTQ7G+4eQJsCxLDDyEHqvrQaUsG+Rtj8uCeT/ZAfbA+DM
-	ILZXO4mGP9pLVJcmgQHC5v/VZWj+XRXvGbELPwV1s2ujnksuMUUty2cwWxV8ToU+xbKTK0a
-	krRXEYLjQt7vM6zwVKYWZ5D7HpI84uCaLhOSXgfFHBvWqauYdnOTYLyKePh97KrcRQfwel5
-	W3lPN1Au33XWAFjavlcbsz7GQ2XiRusHryHJQUlnO+ZSOXAM414hmytWCW0A2+S1wf/i5UN
-	IXqZLHsI9cKVGVt9az4n7dEtmX2qsalNAquzo3g+bO4a5vmcSvorSXqpdwkCzdbxOR3G84H
-	iHcz/dR3qsEQckasX16wLecomIRWq/XNw0NdaAEM0QoI4nF+RIvKxaSFyrHPpH/i7aA2SYo
-	gwFPBQg3NZHNC9/r9YSa/Sld5LdWCpENM3Q3QqJjersC49EomRI+JVqEphODOuGJqlaso1F
-	tVX+EgWDjqXlrzc6gkeAjuaPMGwrFzLC2ciB6yeSYG07Cej3+VrcZyepf3jzARrDuxZg/sO
-	oz7i+4WIyGkJ79+gRTiIEiemTRUDuJIrdT/26nYfcIVYvat4DsyaI1a+RIY24Q59a+LbRWP
-	UYrJ6o8Go4ClWFYh5nxXAXcfv6IOYLF+7LuPLU1NxqUU1suDvUkie/zRGXmZddQPdG6+lfL
-	H6d3yOnTqy3l1pcmmOsC/Ggu4d36kirE+noDdemeNK/CEjy/pLgHnv1mzVKmo0VoMjplFrT
-	Bj3+O0vHVCXxSZd/E5NYxmBQm06SrUpbveT8b8fauWnGp8YwG9RQgQwn5UDQX6GCdx2+nPQ
-	j565dytBEh7Yt5QgzvVCprD2yN7rhTLoYaI9n75nZVOLKL3RqiAirHnXTc9Ga0p8cPS5pLA
-	TSH3RZ50/+lahT4f32UIGOPuPIsuX4LvyIqc82SFo2eImMxDfrM0v84SAwVa0B4izJjHvEd
-	ilmLqzrVDx98QyjGsnhaD/LU765iILnvOOYBu7BV4ppf57Y6TvXFHzej0X0nRhzhI/LsbHW
-	FDumQA7A==
-X-QQ-XMRINFO: Mp0Kj//9VHAxr69bL5MkOOs=
+X-QQ-XMAILINFO: MShfLn39PbN2yDcQfiZSX7HG0VX8cENqmu7rD5ouHqomjF9F/FNkYRjc
+	zfulT/+yCyE2LYfFSdrjYcKDCnqYI055D3tS2LTd5ueZXKRFtGc9UuQqi9Ha5CKNuuqGpzf
+	g55+s2bFrGesK8idGBhNs2xUuqsD1AfW3GyHVE1ds3KTvW5Miw21sjW77oYeQ5x+ZF1IEPI
+	vhxrdaNojQ1KtC+5VK1MF1GbuNMmkQIDsLESJ39Nplj9/uPhpCx10fxwtaFlkVRrrcZiXeg
+	31RkOSp55zaJu+xONNvAl8Tl08007o8MUI+mB5T3Xw9G6eH8nK9XrCVU2mJfAxdFMf6BMDv
+	lRaXVa8RCTJ9021DnphpYQVDr+s/MtrMv+3P3ffGE+uota00Jgzs09GhGQq3uDKYysf3KYV
+	ILxxP7dDEOamYNZkLeTMp5AG3tK+Nr/JRB+zr+ltA+ASTM4czq/27WrKX8YCOx/xZ5bJdWJ
+	l4HpLS48MbKK1PMR/HQ0bPKoL0JJNzyXdzRoUOBbyDKLEjxC+TVB+bhFSBBkmn5avOQWOWF
+	UCrpBVhn2IS0pEDpfSSWxlXbSAskN7JiZGHBm9BBH5ccoDI8P2SoXDK/rvzc4j7Uk5s0DVx
+	Rl8wqlBM+s8Qb2piLRSZhYShBhzJnuQVAsX/oSAX9Unj/kNLqShcvBf1be2XayyRE6/eyc9
+	yQc/NAuLFRD0wQYWYXUCpFQpZxoqMBGG7trFqEHoQq+58JrtaG6mDE2AvT1UI0tzfSxLZZD
+	k8NEb/ETBBXiCLhd/ER5PcPdgHYjYMpwcbeco9G2QZDR30pnWULxXng0pzi3BXAiBph1ZgF
+	hyJ/nolDF8z8wqNHoLz6lxLuvknfuEaoAtpgoWhSvdbcqxMOd3KrR9RE6RpW1aa5sa1oy1q
+	s6cok4wAfaNP5C/eZyKVV28jhdGqycaFit6zeU9POdZyiLBwzg7pXRaGWVOTgWYcgAgfBAU
+	ys/2GKabSP4Im0AemaQdTgkG4FXUW5XobKM/xDmEaSrSPL56J+hWKWi6GsqQh97EKS5mJAo
+	FpzE/sXQ==
+X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251207_175603_467046_023472D8 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20251207_175604_379961_39136F74 
+X-CRM114-Status: GOOD (  21.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,131 +126,143 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-The DRM may want to register a notifier on the typec bus to know when
-a typec altmode device is added, and distinguish between different
-types of typec altmode device.
+The HPD function of Type-C DP is implemented through
+drm_connector_oob_hotplug_event(). For embedded DP, it is required
+that the DRM connector fwnode corresponds to the Type-C port fwnode.
 
-Export these things.
+To describe the relationship between the DP controller and the Type-C
+port device, we usually using drm_bridge to build a bridge chain.
+
+Now several USB-C controller drivers have already implemented the DP
+HPD bridge function provided by aux-hpd-bridge.c, it will build a DP
+HPD bridge on USB-C connector port device.
+
+But this requires the USB-C controller driver to manually register the
+HPD bridge. If the driver does not implement this feature, the bridge
+will not be create.
+
+So this patch implements a generic DP HPD bridge based on
+aux-hpd-bridge.c. It will monitor Type-C bus events, and when a
+Type-C port device containing the DP svid is registered, it will
+create an HPD bridge for it without the need for the USB-C controller
+driver to implement it.
 
 Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 Reviewed-by: Heikki Krogerus <heikki.krogerus@linux.intel.com>
 ---
 
+Changes in v13:
+- Only register drm dp hpd bridge for typec port altmode device.
+
 (no changes since v12)
 
 Changes in v11:
-- Also export typec bus.
-- Add more detailed comments.
+- Switch to using typec bus notifiers.
 
-(no changes since v9)
+(no changes since v10)
 
- drivers/usb/typec/bus.c           |  1 +
- drivers/usb/typec/bus.h           | 10 ----------
- drivers/usb/typec/class.c         |  3 +++
- include/linux/usb/typec.h         |  3 +++
- include/linux/usb/typec_altmode.h |  8 ++++++++
- 5 files changed, 15 insertions(+), 10 deletions(-)
+Changes in v9:
+- Remove the exposed DRM_AUX_HPD_BRIDGE option, and select
+DRM_AUX_HPD_TYPEC_BRIDGE when it is available.
+- Add more commit comment about problem background.
 
-diff --git a/drivers/usb/typec/bus.c b/drivers/usb/typec/bus.c
-index a33da7f458a5..e84b134a3381 100644
---- a/drivers/usb/typec/bus.c
-+++ b/drivers/usb/typec/bus.c
-@@ -569,3 +569,4 @@ const struct bus_type typec_bus = {
- 	.probe = typec_probe,
- 	.remove = typec_remove,
- };
-+EXPORT_SYMBOL_GPL(typec_bus);
-diff --git a/drivers/usb/typec/bus.h b/drivers/usb/typec/bus.h
-index b58e131450d1..7df5deb1dd3a 100644
---- a/drivers/usb/typec/bus.h
-+++ b/drivers/usb/typec/bus.h
-@@ -5,7 +5,6 @@
+Changes in v8:
+- Merge generic DP HPD bridge into one module.
+
+ drivers/gpu/drm/bridge/Kconfig                | 10 ++++
+ drivers/gpu/drm/bridge/Makefile               |  1 +
+ .../gpu/drm/bridge/aux-hpd-typec-dp-bridge.c  | 49 +++++++++++++++++++
+ 3 files changed, 60 insertions(+)
+ create mode 100644 drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
+
+diff --git a/drivers/gpu/drm/bridge/Kconfig b/drivers/gpu/drm/bridge/Kconfig
+index a250afd8d662..559487aa09a9 100644
+--- a/drivers/gpu/drm/bridge/Kconfig
++++ b/drivers/gpu/drm/bridge/Kconfig
+@@ -30,6 +30,16 @@ config DRM_AUX_HPD_BRIDGE
+ 	  Simple bridge that terminates the bridge chain and provides HPD
+ 	  support.
  
- #include <linux/usb/typec_altmode.h>
- 
--struct bus_type;
- struct typec_mux;
- struct typec_retimer;
- 
-@@ -28,13 +27,4 @@ struct altmode {
- 
- #define to_altmode(d) container_of(d, struct altmode, adev)
- 
--extern const struct bus_type typec_bus;
--extern const struct device_type typec_port_altmode_dev_type;
--extern const struct device_type typec_plug_altmode_dev_type;
--extern const struct device_type typec_partner_altmode_dev_type;
--
--#define is_typec_port_altmode(dev) ((dev)->type == &typec_port_altmode_dev_type)
--#define is_typec_plug_altmode(dev) ((dev)->type == &typec_plug_altmode_dev_type)
--#define is_typec_partner_altmode(dev) ((dev)->type == &typec_partner_altmode_dev_type)
--
- #endif /* __USB_TYPEC_ALTMODE_H__ */
-diff --git a/drivers/usb/typec/class.c b/drivers/usb/typec/class.c
-index d6b88317f8a4..c4ff4310ff58 100644
---- a/drivers/usb/typec/class.c
-+++ b/drivers/usb/typec/class.c
-@@ -537,18 +537,21 @@ const struct device_type typec_port_altmode_dev_type = {
- 	.groups = typec_altmode_groups,
- 	.release = typec_altmode_release,
- };
-+EXPORT_SYMBOL_GPL(typec_port_altmode_dev_type);
- 
- const struct device_type typec_plug_altmode_dev_type = {
- 	.name = "typec_plug_alternate_mode",
- 	.groups = typec_altmode_groups,
- 	.release = typec_altmode_release,
- };
-+EXPORT_SYMBOL_GPL(typec_plug_altmode_dev_type);
- 
- const struct device_type typec_partner_altmode_dev_type = {
- 	.name = "typec_partner_alternate_mode",
- 	.groups = typec_altmode_groups,
- 	.release = typec_altmode_release,
- };
-+EXPORT_SYMBOL_GPL(typec_partner_altmode_dev_type);
- 
- static struct typec_altmode *
- typec_register_altmode(struct device *parent,
-diff --git a/include/linux/usb/typec.h b/include/linux/usb/typec.h
-index 309251572e2e..c6fd46902fce 100644
---- a/include/linux/usb/typec.h
-+++ b/include/linux/usb/typec.h
-@@ -20,12 +20,15 @@ struct typec_port;
- struct typec_altmode_ops;
- struct typec_cable_ops;
- 
-+struct bus_type;
- struct fwnode_handle;
- struct device;
- 
- struct usb_power_delivery;
- struct usb_power_delivery_desc;
- 
-+extern const struct bus_type typec_bus;
++if DRM_AUX_HPD_BRIDGE
++config DRM_AUX_HPD_TYPEC_BRIDGE
++	tristate
++	depends on TYPEC || !TYPEC
++	default TYPEC
++	help
++	  Simple bridge that terminates the bridge chain and provides HPD
++	  support. It build bridge on each USB-C connector device node.
++endif
 +
- enum typec_port_type {
- 	TYPEC_PORT_SRC,
- 	TYPEC_PORT_SNK,
-diff --git a/include/linux/usb/typec_altmode.h b/include/linux/usb/typec_altmode.h
-index f7db3bd4c90e..9197a4637a93 100644
---- a/include/linux/usb/typec_altmode.h
-+++ b/include/linux/usb/typec_altmode.h
-@@ -9,6 +9,14 @@
+ menu "Display Interface Bridges"
+ 	depends on DRM && DRM_BRIDGE
  
- #define MODE_DISCOVERY_MAX	6
- 
-+extern const struct device_type typec_port_altmode_dev_type;
-+extern const struct device_type typec_plug_altmode_dev_type;
-+extern const struct device_type typec_partner_altmode_dev_type;
+diff --git a/drivers/gpu/drm/bridge/Makefile b/drivers/gpu/drm/bridge/Makefile
+index c7dc03182e59..a3a0393d2e72 100644
+--- a/drivers/gpu/drm/bridge/Makefile
++++ b/drivers/gpu/drm/bridge/Makefile
+@@ -1,6 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ obj-$(CONFIG_DRM_AUX_BRIDGE) += aux-bridge.o
+ obj-$(CONFIG_DRM_AUX_HPD_BRIDGE) += aux-hpd-bridge.o
++obj-$(CONFIG_DRM_AUX_HPD_TYPEC_BRIDGE) += aux-hpd-typec-dp-bridge.o
+ obj-$(CONFIG_DRM_CHIPONE_ICN6211) += chipone-icn6211.o
+ obj-$(CONFIG_DRM_CHRONTEL_CH7033) += chrontel-ch7033.o
+ obj-$(CONFIG_DRM_CROS_EC_ANX7688) += cros-ec-anx7688.o
+diff --git a/drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c b/drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
+new file mode 100644
+index 000000000000..d915e0fb0668
+--- /dev/null
++++ b/drivers/gpu/drm/bridge/aux-hpd-typec-dp-bridge.c
+@@ -0,0 +1,49 @@
++// SPDX-License-Identifier: GPL-2.0+
++#include <linux/of.h>
++#include <linux/usb/typec_altmode.h>
++#include <linux/usb/typec_dp.h>
 +
-+#define is_typec_port_altmode(dev) ((dev)->type == &typec_port_altmode_dev_type)
-+#define is_typec_plug_altmode(dev) ((dev)->type == &typec_plug_altmode_dev_type)
-+#define is_typec_partner_altmode(dev) ((dev)->type == &typec_partner_altmode_dev_type)
++#include <drm/bridge/aux-bridge.h>
 +
- struct typec_altmode_ops;
- 
- /**
++static int drm_typec_bus_event(struct notifier_block *nb,
++			       unsigned long action, void *data)
++{
++	struct device *dev = (struct device *)data;
++	struct typec_altmode *alt = to_typec_altmode(dev);
++
++	if (action != BUS_NOTIFY_ADD_DEVICE)
++		goto done;
++
++	/*
++	 * alt->dev.parent->parent : USB-C controller device
++	 * alt->dev.parent         : USB-C connector device
++	 */
++	if (is_typec_port_altmode(&alt->dev) && alt->svid == USB_TYPEC_DP_SID)
++		drm_dp_hpd_bridge_register(alt->dev.parent->parent,
++					   to_of_node(alt->dev.parent->fwnode));
++
++done:
++	return NOTIFY_OK;
++}
++
++static struct notifier_block drm_typec_event_nb = {
++	.notifier_call = drm_typec_bus_event,
++};
++
++static void drm_aux_hpd_typec_dp_bridge_module_exit(void)
++{
++	bus_unregister_notifier(&typec_bus, &drm_typec_event_nb);
++}
++
++static int __init drm_aux_hpd_typec_dp_bridge_module_init(void)
++{
++	bus_register_notifier(&typec_bus, &drm_typec_event_nb);
++
++	return 0;
++}
++
++module_init(drm_aux_hpd_typec_dp_bridge_module_init);
++module_exit(drm_aux_hpd_typec_dp_bridge_module_exit);
++
++MODULE_DESCRIPTION("DRM TYPEC DP HPD BRIDGE");
++MODULE_LICENSE("GPL");
 -- 
 2.51.1
 
