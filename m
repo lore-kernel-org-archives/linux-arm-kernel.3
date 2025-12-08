@@ -4,125 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C689D3B7E2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 10:32:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70631D3B7E2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 10:36:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Je9IIyqf3ckx1tk8Ni7hFzNEfi8CPmuUhAWbgT06pH4=; b=OzbwgMxca3leXytpFE6ePM5M7g
-	Xoj8/sUGLBHW7BKXy8pHZD7Hsi9ysp3KQn9ZS204T3Q7SKS4GjAyi8atC9sow5GgS/7Vk7kTa5bAq
-	9IARbYmpaj35SfEpm5tQcUr4iL1HgdrD4I9H0963PRMW3dsO+bTGBWVNaLd+4UW/8PwwUI7GRlfwN
-	kmGhvIdpVVvEntuSVxw+jD7eoR/2UMPm6mKjTyhneKlyfVJcG/bCizS2VZ2NV65sashCI0oEHX7E8
-	FIgvX1/9r123oRV3JPEzb/r7zGxP+75BkftXw+MKoyoSh7LRp9Bb2Sxdrpzq1dLiaQpUqhWw/s2MY
-	XY3iKFrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+E3SOYkqsEc+5aDXpHHAZRqmKpJ7LXworventsdWgtI=; b=lljBpRxJ0enkx9kDr2HxxUAACe
+	em0XV4cu6NBOmyRTgIY6zBmCgxJV3aU0Ml7XPz34W+uvoZ/ak3uDscfxVJIK3glP/6jhsZGBADxQE
+	fByz2kS3GDc6qhvFNikH0sKU9VsqrDCQeC2GKoeiz+65jwPBWkYKKf278QkGJMegkGM62BM59Exwi
+	WRi5gtVnUw7zPakYqb2JfN84E5ErwF93Kd0/Q2bQxa3HUcnCF1v7FsYwcLtgAI0pu81Go3L53gH8z
+	ct+/+/jZ/8IIYc+BQjy0xhTw0VFsW0GhxCnJ47zB2k7zgBj9VOLho8HLNSVKwAH84Rq6Vmtf9CJjL
+	Mcj5YiLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSYXs-0000000CxPk-1mDG;
-	Mon, 08 Dec 2025 10:32:44 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1vSYb6-0000000CxoP-0Xcz;
+	Mon, 08 Dec 2025 10:36:04 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSYXp-0000000CxML-0x8y;
-	Mon, 08 Dec 2025 10:32:42 +0000
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5B86b963010256;
-	Mon, 8 Dec 2025 10:32:35 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=Je9IIy
-	qf3ckx1tk8Ni7hFzNEfi8CPmuUhAWbgT06pH4=; b=BfzC3HxrPobuhS53ACWdZB
-	PA9iEG/1aL4jT1TRuchKotrzCF9xodygooM1550WBnCL65pVF3xXiljw12UBVbLl
-	lT+rak8kiOOioJ9cqZfrJ/ccy+UBPtvzp/8HFNZqWKthsUB1XFwvk4QBgX+oR4l2
-	iEBYiqVoRUgRtZMs2uBsno0TintxSEi5vcwDUtb+JotU+Kwm1A/ocXKUSZWbktMh
-	g4tOQ0bTghEU6cY1PLDtxzsPSxo1B5+CtrYCtPidOz0X79/QvKd91QLKbspeRwQw
-	V9xQ4P1lQPcSB1CjW4dA4pcTwPESBW5+P72Bw0gAK7/ETwLMsX/bE32v4LqRlX8A
-	==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4avc536st5-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 08 Dec 2025 10:32:35 +0000 (GMT)
-Received: from m0360072.ppops.net (m0360072.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 5B8ASQSK009105;
-	Mon, 8 Dec 2025 10:32:34 GMT
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4avc536ssv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 08 Dec 2025 10:32:34 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5B885xZo002034;
-	Mon, 8 Dec 2025 10:32:33 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4aw11j4wwg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 08 Dec 2025 10:32:33 +0000
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5B8AWU3o38535608
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 8 Dec 2025 10:32:30 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0F3E72004B;
-	Mon,  8 Dec 2025 10:32:30 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 73E4420040;
-	Mon,  8 Dec 2025 10:32:28 +0000 (GMT)
-Received: from [9.111.22.193] (unknown [9.111.22.193])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon,  8 Dec 2025 10:32:28 +0000 (GMT)
-Message-ID: <8f1c1b9e-2743-4326-9a6f-754885ae90f4@linux.ibm.com>
-Date: Mon, 8 Dec 2025 11:32:27 +0100
+	id 1vSYb3-0000000Cxo2-3PQn
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Dec 2025 10:36:03 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4779ce2a624so54842065e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Dec 2025 02:36:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1765190159; x=1765794959; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=+E3SOYkqsEc+5aDXpHHAZRqmKpJ7LXworventsdWgtI=;
+        b=xafl2qZjg0+vkMIh4nCeICCbdz0Gfdke33QiyMb1c63u3L5F9qJCM/NaGpLy1wR9ix
+         nI9e9GTn6b8mSTwoSDzCc8mSQuAmaJd2MoQ+PpkkX5LTVi5PFJaqVfd31+D/2i5j9tFX
+         6SVhgpGjCMOHL0HW3Ruwn+jJY9by75XlhPZZep6+/9oVlFwcGr8rMEprr1wWOfscDo1Z
+         U0ColLcfr8Ey/dmaDPtH72x3Z3ipnjzOfe1eFYKIFaaIdpIhn3aBy4Z8mnKKRGWb9eeT
+         q6d6lbatllKFzCd7ZND4wM6kjtrHIPIz40aq6re7cduJjg5aahBq5GolucEq+PoJr7YE
+         MquA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765190159; x=1765794959;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+E3SOYkqsEc+5aDXpHHAZRqmKpJ7LXworventsdWgtI=;
+        b=xMklCALnRoGPK4zzxfM3Viuwf73DxmrbG7oPr2BPF4nZ7pEj7NOg8wSI7x53p4CGxm
+         BTDDPfs1LUp5qkpt0+OC8XHM/BNNXC7o8BqRoSfk9fpRmn4XJtMGUB12UPvHusrSXcqm
+         BOMu0Rcr+2A0hXad0G3P8hS8cCHMGliJK0mT3gEYGL8N5G6dns6aRV4MNVPe4+GTztwp
+         F0nt6mHDbQjCbjJiWflKi17cNsvkADZ7H/FpgIgHGUweOAeALuRLuLtZulVBDoX7wxEX
+         18gm1ZKdxl9W4KyFSDOj76RzJhu7jrqXbRR5hVlxw7OB6VluWw5ZABG8kZx8g6dhwMgD
+         uoQg==
+X-Forwarded-Encrypted: i=1; AJvYcCW74dMokEmfhmDgPedkuOTAzQt/qA2Ed49Mr5fTvVu9wIKeJesxOXgbSoYl4dJ4umIIIKpCY2ejZdjZ8u2NNHAm@lists.infradead.org
+X-Gm-Message-State: AOJu0YyhAIdEgeK04h8mH7pdhyvrFgreH7a60nDsw8LfCQ3eOAYO5j2x
+	djvHJy4v1f2jYK9NzTSycjudLCJDiSrKwSBckxzCxqe5wclAQ2tItBM6esTAxTRudb0=
+X-Gm-Gg: ASbGncs2ys/VxvaOKOC9JgQmRzLkdEpD1we/R3L2DDyCss6QMaOxWOy+v//T4SI9Idn
+	3XwZw6csydh3Jta1s41JXTOQ9Ou02MYlXjqtfv9gC+VEiIWpfCTO2xlZzZPw7yZCCSjMrK5OcJB
+	8UK6jlp6PwhrjNvyGMnb11yVL26jEscDSBKZZDSQgsC6s/+dEOjH+Ozf4ztkK2Vbk5VmrYD1AQa
+	L1imNNIF41/B13XNiwzNxwfJDUuMISS6jFwStUgS4KMUjo2ZVNQRfHEO/0t0cC4vROpdpY9DNl0
+	RspZ82ui3FBncSZroEE2NLXglWjEgC5ZYP9AUe44v1QUVIC2aTKAAEQLk0MW1m9hOpSY+Fi3n0L
+	e2nJa0AvurtfOgZZMNJmEPy1fhZQU5zH6Qju6hQgOSLRuPeKUeyYvD3YXk9XpRKAXleegwyu38w
+	psKGkxD+wo4ny9X33MB+pms3cvn6CVSx+0cYL4cvTIn3y941pC+C3eoYcZ4RCnCm/D/QmUHw==
+X-Google-Smtp-Source: AGHT+IGge21HXj48TLUzsA7ggUbHSFC0xO5HgqxGNKT4MTX7Oe0oV8kQd6FtV8OIYLtnHQGrRwLESw==
+X-Received: by 2002:a05:600c:818e:b0:477:9fcf:3fe3 with SMTP id 5b1f17b1804b1-47939c87088mr76977635e9.0.1765190159388;
+        Mon, 08 Dec 2025 02:35:59 -0800 (PST)
+Received: from aspen.lan (aztw-34-b2-v4wan-166919-cust780.vm26.cable.virginm.net. [82.37.195.13])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-479311e712fsm240407865e9.9.2025.12.08.02.35.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Dec 2025 02:35:58 -0800 (PST)
+Date: Mon, 8 Dec 2025 10:35:55 +0000
+From: Daniel Thompson <daniel@riscstar.com>
+To: Maud Spierings <maudspierings@gocontroll.com>
+Cc: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>,
+	Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Mark Brown <broonie@kernel.org>, dri-devel@lists.freedesktop.org,
+	linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v6 2/4] backlight: add max25014atg backlight
+Message-ID: <aTaqCxsGj_waN92Y@aspen.lan>
+References: <20251201-max25014-v6-0-88e3ac8112ff@gocontroll.com>
+ <20251201-max25014-v6-2-88e3ac8112ff@gocontroll.com>
+ <aTG0EK_zuSB-U_bb@aspen.lan>
+ <8a9a59b8-d5c0-46b3-8f86-a4cd910b7af3@gocontroll.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: Remove subtle "struct kvm_stats_desc" pseudo-overlay
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
-        Oliver Upton <oupton@kernel.org>,
-        Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
-        Huacai Chen <chenhuacai@kernel.org>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
-        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
-        Janosch Frank <frankja@linux.ibm.com>,
-        Claudio Imbrenda <imbrenda@linux.ibm.com>,
-        Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        kvm@vger.kernel.org, loongarch@lists.linux.dev,
-        linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
-        linux-kernel@vger.kernel.org,
-        "Gustavo A . R . Silva" <gustavoars@kernel.org>
-References: <20251205232655.445294-1-seanjc@google.com>
-Content-Language: en-US
-From: Christian Borntraeger <borntraeger@linux.ibm.com>
-In-Reply-To: <20251205232655.445294-1-seanjc@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjA2MDAyMCBTYWx0ZWRfX/ZkvryR9rikx
- RRIhLIzEwTDFULt3caOu8S6wy6ncgQsyLzn5JBuqe/16x7rRK7DPdjVge5xAJA2z7rL/tT1lyFd
- YMh3EQIfgG8q57vyiiYdkyOyNbLFDPTLaENaDyuoNnPQpGHKZMal2jpHafVG+bQkdZsWG8NW7UX
- AlT3nARl8qerz3haG9zUXE0cGXVKSMt5DkrhWZpn/VgzlCYydbpaoEhPc+m7bnrKQcjwj0amtRB
- p7RTydIUxj8YhOmJYvTpU5HYiUaYpnHgR9Ox+9r7ValcFQxCBW7NuzkHf4WykCwt+6kvFjjjGAe
- 9Yp1mHPJC81eNRrbuDPcX0SwdooPdv90XQw8GuaCLPA48Ihvfn3NN+/xRxSX0h0xvHQNlMFWFsC
- kUNylzqzl1bbNR0XFFbgeDqefkUM1w==
-X-Authority-Analysis: v=2.4 cv=S/DUAYsP c=1 sm=1 tr=0 ts=6936a943 cx=c_pps
- a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
- a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VwQbUJbxAAAA:8 a=1XWaLZrsAAAA:8 a=VnNF1IyMAAAA:8 a=W9euR_DFE7q28BTGJBMA:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: QQLrcpyWW-8FcouxCOIdxqAKliO-gZxO
-X-Proofpoint-GUID: ADFjf-VsY2dJHYbJ59fyg02c4PSLuneX
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-06_02,2025-12-04_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 phishscore=0 clxscore=1011 impostorscore=0 suspectscore=0
- lowpriorityscore=0 adultscore=0 spamscore=0 bulkscore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510240000 definitions=main-2512060020
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <8a9a59b8-d5c0-46b3-8f86-a4cd910b7af3@gocontroll.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_023241_405237_809D33D2 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20251208_023602_128046_7AC2F0DD 
+X-CRM114-Status: GOOD (  20.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,49 +113,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am 06.12.25 um 00:26 schrieb Sean Christopherson:
-> Remove KVM's internal pseudo-overlay of kvm_stats_desc, which subtly
-> aliases the flexible name[] in the uAPI definition with a fixed-size array
-> of the same name.  The unusual embedded structure results in compiler
-> warnings due to -Wflex-array-member-not-at-end, and also necessitates an
-> extra level of dereferencing in KVM.  To avoid the "overlay", define the
-> uAPI structure to have a fixed-size name when building for the kernel.
-> 
-> Opportunistically clean up the indentation for the stats macros, and
-> replace spaces with tabs.
-> 
-> No functional change intended.
-> 
-> Reported-by: Gustavo A. R. Silva <gustavoars@kernel.org>
-> Closes: https://lore.kernel.org/all/aPfNKRpLfhmhYqfP@kspp
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+On Fri, Dec 05, 2025 at 04:20:55PM +0100, Maud Spierings wrote:
+> Thanks for the review.
+>
+> On 12/4/25 17:17, Daniel Thompson wrote:
+> > On Mon, Dec 01, 2025 at 12:53:21PM +0100, Maud Spierings via B4 Relay wrote:
+> > > The Maxim MAX25014 is a 4-channel automotive grade backlight driver IC
+> > > with integrated boost controller.
+> > >
+> > > Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
+>
+> <snip>
+>
+> > > +static int max25014_update_status(struct backlight_device *bl_dev)
+> > > +{
+> > > +	struct max25014 *maxim = bl_get_data(bl_dev);
+> > > +	uint32_t reg;
+> > > +	int ret;
+> > > +
+> > > +	if (backlight_is_blank(maxim->bl))
+> > > +		bl_dev->props.brightness = 0;
+> >
+> > This isn't right. Why would you change the backlight level just because
+> > it is currently blanked (and sorry I missed this one last time).
+>
+> so just remove this bit then jeah?
 
-Acked-by: Christian Borntraeger <borntraeger@linux.ibm.com>
-[..]
+Yes. backlight_get_brightness() is all you should need.
 
-> --- a/include/uapi/linux/kvm.h
-> +++ b/include/uapi/linux/kvm.h
-> @@ -14,6 +14,10 @@
->   #include <linux/ioctl.h>
->   #include <asm/kvm.h>
->   
-> +#ifdef __KERNEL__
-> +#include <linux/kvm_types.h>
-> +#endif
-> +
->   #define KVM_API_VERSION 12
->   
->   /*
-> @@ -1579,7 +1583,11 @@ struct kvm_stats_desc {
->   	__u16 size;
->   	__u32 offset;
->   	__u32 bucket_size;
-> +#ifdef __KERNEL__
-> +	char name[KVM_STATS_NAME_SIZE];
-> +#else
->   	char name[];
-> +#endif
->   };
 
-Not sure if we need a comment here or not. Maybe git blame is good enough.
+> > > +
+> > > +	reg  = TON_STEP * bl_dev->props.brightness;
+> >
+> > The correct way to honour blanking is just go call
+> > backlight_get_brightness() instead of reading the property directly.
+>
+> will do.
+
+Thanks.
+
+
+Daniel.
 
