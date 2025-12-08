@@ -4,79 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7743D3B7E2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 19:33:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A50A4D3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 19:44:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FJCFcZk1vtN/x9oLtLMX+KTigOOPmL1k4OMsgebEfA0=; b=n3mKQYiFvgALxv+xaxBcQmXMwl
-	GDIYpkBVncdiDSLTCl7PsFyIIGRRVTkNcQhWwLh4SfFNQmZDpFvBjIMQ7dd0YuDl2tD52jJh4T5a5
-	nC0uET+Vv9Ldpf2E4qp4l09M9oIPxOe/Gm3mnJYJugzlzHuLJPCD9Cw1HAkkHEK6uIEi2cMxafY7r
-	J7DxZhnClgj/9EoJNs0uqeb5WOVeac9oHOb/zfGrvclwGgk7WaTzPXGGmLJAcnc9qTZBarku5L0ze
-	2Er+eyrUaeZKFWJp6FmLRRdq+f7YZxb/xglazw3SMGx0D+9yqzSu7Gir5LomdlLjYCnA+HGwtvtoz
-	o+2Hf+2g==;
+	bh=fZ6xvBl0Zywo6aL2LLn8TZxnquREJdfFXToeuegNBtk=; b=DatoaA0IflSUne4ZdD2mYu/goi
+	65S/iwHwbHd7v95Uh0QdhJAg2d5snhozFYEV7aI5ivgi7Gue6NBreKU8vytaA9bFM2aIfjDqsYpIZ
+	iZPSuKbrzLZkf2z7lfM9Fpcr9sb+p8qRi08fohD8/W4klyu0uqbwcTf094KNDQ4VBKYp0IV7MW77J
+	Cb5xuTIKecVrD/EwlgexF7UfOd17ALClAx+oIZ1Sq1PAthvvTqn/DJgpn3FugmjGZ80X6iulINVSl
+	LjVfFtMA64gDyiDNhI00t9wfSvW2iArFiV8pXZIZr/7uDaCYze3Z+3K+n7X1MgH9+kLUv1XpnYI4w
+	GyRr/9+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSgyf-0000000DTQR-0CMH;
-	Mon, 08 Dec 2025 19:32:57 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vSh9T-0000000DTmm-3RR8;
+	Mon, 08 Dec 2025 19:44:07 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSgyc-0000000DTPx-34C5;
-	Mon, 08 Dec 2025 19:32:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1765222370;
-	bh=SPy6IuXRQB6JWxPHINVrf9arRxcaSR93aH+ga+XRMfw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=KrJybDW+JVRXbQZxk2yyWuUjCnRXHvZcFurpD1Duy15oF3YIEamYtYlyDoGtdxGLY
-	 eAqrgFVXkquR6CnnrxaQjRqighq2Dv7F/SLNHehis1GvwxsZmOZiQx8MFJmdNJ66dq
-	 4SKMah6pQWMuLU7KsPXxrKkaA87snplawy9z4aBbKlEm4shur2pSPX0WXyUvReKSt+
-	 mc8zPgYydKZfJp0dD0BaIbWy2FHgrGKcRhdrbyyKEWp5QszPA9pmEDYjFbUzS/ASSS
-	 eoSiIc5MPzIezA+yZBnQ69bpB1dJeKPMV98g5I5ToSr0sNKY36eLpYyxDuSxbMDpOt
-	 K5u40N2/ijKlw==
-Received: from [IPv6:2606:6d00:17:7b4b::c41] (unknown [IPv6:2606:6d00:17:7b4b::c41])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2815C17E10DC;
-	Mon,  8 Dec 2025 20:32:49 +0100 (CET)
-Message-ID: <f03ed0ed3d5ffc780fb23d1945d75a6459ffbe22.camel@collabora.com>
-Subject: Re: [PATCH] media: verisilicon: AV1: Fix tx mode bit setting
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
-	p.zabel@pengutronix.de, mchehab@kernel.org, heiko@sntech.de,
- hverkuil@kernel.org
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	kernel@collabora.com
-Date: Mon, 08 Dec 2025 14:32:46 -0500
-In-Reply-To: <20251208095227.19720-2-benjamin.gaignard@collabora.com>
-References: <20251208095227.19720-1-benjamin.gaignard@collabora.com>
-	 <20251208095227.19720-2-benjamin.gaignard@collabora.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-CPOZjzucNTO3O4NhfpZO"
-User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
+	id 1vSh9Q-0000000DTm7-30QS
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Dec 2025 19:44:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1765223045; x=1796759045;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=3ipuuZGft/S8N19xrr05kuT8U40MNWLgd1x0A0Em+OA=;
+  b=LRJl+H4F37v+q66RlJ0PyASxPHS7ml7oq6s+ZfL88A273fihsBpYHJM2
+   Iq4qoIOIOMyeDJ8AHqVFihJCtj3hvtx6TSG+EjgsdlhOzHwFu/FvYxGsh
+   Sy1WS/ObWvSaIg9GgoV0wAq2/NVI1OgBHM9JakmxDVgn/Rao7M4eMv8Ap
+   Bdyz1Zv0QZ1pIjvsdrKeM+QRjqynCx+4h7c9tCtyVtzgc33DJR6MUr3aD
+   kQRYrjSMui3UUKt1uM9CZIGQlvH999r6G6FEe5KqQyqLxFnpDzu5pBU7q
+   x2HyoFZhbw/1/0vmzgOG/fV00wY40DktdfI4twgJewUtrv/Eoeh2jIUM9
+   Q==;
+X-CSE-ConnectionGUID: 89zkwsmESbuJXflNx31K7w==
+X-CSE-MsgGUID: kGOqc3ZGQ7udhAzZxgYusQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11636"; a="54714118"
+X-IronPort-AV: E=Sophos;i="6.20,259,1758610800"; 
+   d="scan'208";a="54714118"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Dec 2025 11:44:04 -0800
+X-CSE-ConnectionGUID: n+XSjhiORGCFX38P4L/tgg==
+X-CSE-MsgGUID: NGCiOOtnRBmB7MoDx7MLow==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,259,1758610800"; 
+   d="scan'208";a="195921748"
+Received: from lkp-server01.sh.intel.com (HELO d335e3c6db51) ([10.239.97.150])
+  by fmviesa006.fm.intel.com with ESMTP; 08 Dec 2025 11:44:01 -0800
+Received: from kbuild by d335e3c6db51 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vSh9K-000000000mj-0dfK;
+	Mon, 08 Dec 2025 19:43:58 +0000
+Date: Tue, 9 Dec 2025 03:43:42 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ashish Mhetre <amhetre@nvidia.com>, will@kernel.org,
+	robin.murphy@arm.com, joro@8bytes.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, nicolinc@nvidia.com
+Cc: oe-kbuild-all@lists.linux.dev, thierry.reding@gmail.com,
+	jonathanh@nvidia.com, vdumpa@nvidia.com, jgg@ziepe.ca,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-tegra@vger.kernel.org, Ashish Mhetre <amhetre@nvidia.com>
+Subject: Re: [PATCH V4 1/3] iommu/arm-smmu-v3: Add device-tree support for
+ CMDQV driver
+Message-ID: <202512090331.QAFgb6vQ-lkp@intel.com>
+References: <20251205065850.3841834-2-amhetre@nvidia.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251205065850.3841834-2-amhetre@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_113254_960274_308DEB7F 
-X-CRM114-Status: GOOD (  16.37  )
+X-CRM114-CacheID: sfid-20251208_114404_767986_11BAA5D1 
+X-CRM114-Status: GOOD (  14.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,102 +93,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Ashish,
 
---=-CPOZjzucNTO3O4NhfpZO
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+kernel test robot noticed the following build warnings:
 
-Hi,
+[auto build test WARNING on next-20251204]
+[also build test WARNING on v6.18]
+[cannot apply to robh/for-next linus/master v6.18 v6.18-rc7 v6.18-rc6]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Le lundi 08 d=C3=A9cembre 2025 =C3=A0 10:52 +0100, Benjamin Gaignard a =C3=
-=A9crit=C2=A0:
-> If tx_mode field is non-zero then write it value + 2 else
+url:    https://github.com/intel-lab-lkp/linux/commits/Ashish-Mhetre/iommu-arm-smmu-v3-Add-device-tree-support-for-CMDQV-driver/20251205-151258
+base:   next-20251204
+patch link:    https://lore.kernel.org/r/20251205065850.3841834-2-amhetre%40nvidia.com
+patch subject: [PATCH V4 1/3] iommu/arm-smmu-v3: Add device-tree support for CMDQV driver
+config: arm64-randconfig-004-20251209 (https://download.01.org/0day-ci/archive/20251209/202512090331.QAFgb6vQ-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 11.5.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251209/202512090331.QAFgb6vQ-lkp@intel.com/reproduce)
 
-it -> its
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512090331.QAFgb6vQ-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c: In function 'tegra241_cmdqv_acpi_is_memory':
+   drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c:863:17: error: implicit declaration of function 'acpi_dev_resource_address_space' [-Werror=implicit-function-declaration]
+     863 |         return !acpi_dev_resource_address_space(res, &win);
+         |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c: In function 'tegra241_cmdqv_acpi_get_irqs':
+   drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c:871:26: error: implicit declaration of function 'acpi_dev_resource_interrupt' [-Werror=implicit-function-declaration]
+     871 |         if (*irq <= 0 && acpi_dev_resource_interrupt(ares, 0, &r))
+         |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c: In function 'tegra241_cmdqv_find_acpi_resource':
+   drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c:879:36: error: implicit declaration of function 'to_acpi_device'; did you mean 'to_acpi_device_node'? [-Werror=implicit-function-declaration]
+     879 |         struct acpi_device *adev = to_acpi_device(dev);
+         |                                    ^~~~~~~~~~~~~~
+         |                                    to_acpi_device_node
+>> drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c:879:36: warning: initialization of 'struct acpi_device *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+   drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c:886:15: error: implicit declaration of function 'acpi_dev_get_resources'; did you mean 'acpi_get_event_resources'? [-Werror=implicit-function-declaration]
+     886 |         ret = acpi_dev_get_resources(adev, &resource_list,
+         |               ^~~~~~~~~~~~~~~~~~~~~~
+         |               acpi_get_event_resources
+   drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c:907:9: error: implicit declaration of function 'acpi_dev_free_resource_list' [-Werror=implicit-function-declaration]
+     907 |         acpi_dev_free_resource_list(&resource_list);
+         |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+   cc1: some warnings being treated as errors
 
 
+vim +879 drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
 
-> write 0.
+918eb5c856f6ce Nate Watterson 2024-08-29  875  
+918eb5c856f6ce Nate Watterson 2024-08-29  876  static struct resource *
+918eb5c856f6ce Nate Watterson 2024-08-29  877  tegra241_cmdqv_find_acpi_resource(struct device *dev, int *irq)
+918eb5c856f6ce Nate Watterson 2024-08-29  878  {
+918eb5c856f6ce Nate Watterson 2024-08-29 @879  	struct acpi_device *adev = to_acpi_device(dev);
+918eb5c856f6ce Nate Watterson 2024-08-29  880  	struct list_head resource_list;
+918eb5c856f6ce Nate Watterson 2024-08-29  881  	struct resource_entry *rentry;
+918eb5c856f6ce Nate Watterson 2024-08-29  882  	struct resource *res = NULL;
+918eb5c856f6ce Nate Watterson 2024-08-29  883  	int ret;
+918eb5c856f6ce Nate Watterson 2024-08-29  884  
+918eb5c856f6ce Nate Watterson 2024-08-29  885  	INIT_LIST_HEAD(&resource_list);
+918eb5c856f6ce Nate Watterson 2024-08-29  886  	ret = acpi_dev_get_resources(adev, &resource_list,
+918eb5c856f6ce Nate Watterson 2024-08-29  887  				     tegra241_cmdqv_acpi_is_memory, NULL);
+918eb5c856f6ce Nate Watterson 2024-08-29  888  	if (ret < 0) {
+918eb5c856f6ce Nate Watterson 2024-08-29  889  		dev_err(dev, "failed to get memory resource: %d\n", ret);
+918eb5c856f6ce Nate Watterson 2024-08-29  890  		return NULL;
+918eb5c856f6ce Nate Watterson 2024-08-29  891  	}
+918eb5c856f6ce Nate Watterson 2024-08-29  892  
+918eb5c856f6ce Nate Watterson 2024-08-29  893  	rentry = list_first_entry_or_null(&resource_list,
+918eb5c856f6ce Nate Watterson 2024-08-29  894  					  struct resource_entry, node);
+918eb5c856f6ce Nate Watterson 2024-08-29  895  	if (!rentry) {
+918eb5c856f6ce Nate Watterson 2024-08-29  896  		dev_err(dev, "failed to get memory resource entry\n");
+918eb5c856f6ce Nate Watterson 2024-08-29  897  		goto free_list;
+918eb5c856f6ce Nate Watterson 2024-08-29  898  	}
+918eb5c856f6ce Nate Watterson 2024-08-29  899  
+918eb5c856f6ce Nate Watterson 2024-08-29  900  	/* Caller must free the res */
+918eb5c856f6ce Nate Watterson 2024-08-29  901  	res = kzalloc(sizeof(*res), GFP_KERNEL);
+918eb5c856f6ce Nate Watterson 2024-08-29  902  	if (!res)
+918eb5c856f6ce Nate Watterson 2024-08-29  903  		goto free_list;
+918eb5c856f6ce Nate Watterson 2024-08-29  904  
+918eb5c856f6ce Nate Watterson 2024-08-29  905  	*res = *rentry->res;
+918eb5c856f6ce Nate Watterson 2024-08-29  906  
+918eb5c856f6ce Nate Watterson 2024-08-29  907  	acpi_dev_free_resource_list(&resource_list);
+918eb5c856f6ce Nate Watterson 2024-08-29  908  
+918eb5c856f6ce Nate Watterson 2024-08-29  909  	INIT_LIST_HEAD(&resource_list);
+918eb5c856f6ce Nate Watterson 2024-08-29  910  
+918eb5c856f6ce Nate Watterson 2024-08-29  911  	if (irq)
+918eb5c856f6ce Nate Watterson 2024-08-29  912  		ret = acpi_dev_get_resources(adev, &resource_list,
+918eb5c856f6ce Nate Watterson 2024-08-29  913  					     tegra241_cmdqv_acpi_get_irqs, irq);
+918eb5c856f6ce Nate Watterson 2024-08-29  914  	if (ret < 0 || !irq || *irq <= 0)
+918eb5c856f6ce Nate Watterson 2024-08-29  915  		dev_warn(dev, "no interrupt. errors will not be reported\n");
+918eb5c856f6ce Nate Watterson 2024-08-29  916  
+918eb5c856f6ce Nate Watterson 2024-08-29  917  free_list:
+918eb5c856f6ce Nate Watterson 2024-08-29  918  	acpi_dev_free_resource_list(&resource_list);
+918eb5c856f6ce Nate Watterson 2024-08-29  919  	return res;
+918eb5c856f6ce Nate Watterson 2024-08-29  920  }
+918eb5c856f6ce Nate Watterson 2024-08-29  921  
 
-
-Please don't sent a an In-reply-to: email for a patch that isn't part of a
-series.
-
-
->=20
-> Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-> Fixes: 727a400686a2c ("media: verisilicon: Add Rockchip AV1 decoder")
-> ---
-> =C2=A0drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c | 2=
- +-
-> =C2=A01 file changed, 1 insertion(+), 1 deletion(-)
->=20
-> diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_de=
-c.c
-> b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-> index f4f7cb45b1f1..fccdece51b1b 100644
-> --- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-> +++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-> @@ -2005,7 +2005,7 @@ static void
-> rockchip_vpu981_av1_dec_set_parameters(struct hantro_ctx *ctx)
-> =C2=A0			 !!(ctrls->frame->flags &
-> V4L2_AV1_FRAME_FLAG_ALLOW_HIGH_PRECISION_MV));
-> =C2=A0	hantro_reg_write(vpu, &av1_comp_pred_mode,
-> =C2=A0			 (ctrls->frame->flags &
-> V4L2_AV1_FRAME_FLAG_REFERENCE_SELECT) ? 2 : 0);
-> -	hantro_reg_write(vpu, &av1_transform_mode, (ctrls->frame->tx_mode =3D=
-=3D
-> 1) ? 3 : 4);
-> +	hantro_reg_write(vpu, &av1_transform_mode, ctrls->frame->tx_mode ?
-> ctrls->frame->tx_mode + 2 : 0);
-
-That all seem very hacky. Let's step back, and use that as inspiration for =
-a
-useful commit message. From bitstream we have:
-
-tx_mode:
-  0 =3D=3D 4x4 only
-  1 =3D=3D SELECT
-  2 =3D=3D LARGEST
-
-And the HW have:
-  0 =3D=3D 4x4 only
-  1 =3D=3D 8x8 and less
-  2 =3D=3D 16x16 and less
-  3 =3D=3D 32x32 and less
-  4 =3D=3D Select
-
-Since the two enums have no relation (except for value 0), I'd suggest to
-translate this in a switch (with nice enums so its readable).
-
-  0 -> 0
-  1 -> 4
-  2 -> 3
-
-Would be good to check if we can refine with some other params to reach HW =
-value
-1 and 2, but otherwise, that mapping is sufficient. Tha hacky +2 is really
-obscure to me and I'd rather not do that upstream.
-
-Nicolas
-
-> =C2=A0	hantro_reg_write(vpu, &av1_max_cb_size,
-> =C2=A0			 (ctrls->sequence->flags
-> =C2=A0			=C2=A0 & V4L2_AV1_SEQUENCE_FLAG_USE_128X128_SUPERBLOCK) ?
-> 7 : 6);
-
---=-CPOZjzucNTO3O4NhfpZO
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaTcn3gAKCRDZQZRRKWBy
-9CVcAP0RNa8TlLEqo5wFP1mOMIarqad946RwYdDHHxPIaF4VnwEAyapE3XLOFmCq
-KL9Eo6Ma/SAxyHXJb/r5OsFwAQDxGgo=
-=+m1j
------END PGP SIGNATURE-----
-
---=-CPOZjzucNTO3O4NhfpZO--
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
