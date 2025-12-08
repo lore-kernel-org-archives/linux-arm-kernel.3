@@ -4,109 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB9BD3ABEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 07:13:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E116D3B7DD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 07:25:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YrhSCl4E52yAacpC0VG99u8I4iwiADbZlt+aKvDC3jc=; b=Oz6ytZ0CzypZ/qZg3dAhehfv27
-	8pTfauMyROisNIR+9URpixkiJzRTf1V8q4af0Ib61PHJ2Ti3R7nqtjcG2w2Hz0ePRyi2MqDJR37CA
-	xWmD2CGyjSulNZ0ebvtUXv78SUzJR2zJEU2Euyq/O8qc5JaeG8ls9n8D9oYcSGMYD68mfxdybdWOA
-	wgEiF30EmZKeacEyvtYJ42zly2Sp8NsKDBZzR7xa93Oem7do9Mg6EUZ2JngECXHyo7ORr4AlfUel7
-	kfW/LNOufU9F5mjlCz912PPvtKY5aIJqt6bcMz2bip5JExjREJF7U171VqvjEQFM4FIakT7y6UNky
-	fpD7UE4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lJPHCHT+6fsyjs+1ZZbsqkGYN8B/qM5j+hb/xUt2r6Y=; b=JUYu0xeMvtVI5BP9rMOvXXutjU
+	n0UoXDIHS2YCLVoDPJgKOcmOi3YctzS9X+hSIlPD4ut/IY2k1jyUy+TpMt4gLwjjP/WmHkC2FNvCI
+	7p+slani7uhsk2LFmnB7CDhs3kXdqIWM84ucy2+ryvmPLPTwUXdo51gVH9o+XT3fnW73u7d/nJ2Xf
+	xs77tnYhxWery1fAB3Vr43mjGf6HQVWTI/w/SAe3WNfHlM968aKxDaDyz2/f9NEtWW4Rlmoh9Sw/G
+	DW1OAZgjVwUba3gLJfwY5Gnu8Q32UHyNkShQwSA56k519EuzWKhCfNKP7bTx1nDRrXyMYLZZb+QBt
+	c2HPTeeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSVR2-0000000CjaI-3aOp;
-	Mon, 08 Dec 2025 07:13:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vSVcc-0000000CkCl-1ZI8;
+	Mon, 08 Dec 2025 07:25:26 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSVR1-0000000CjaC-3Bnn
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 07:13:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E51BB6013F;
-	Mon,  8 Dec 2025 07:13:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 924D3C4CEF1;
-	Mon,  8 Dec 2025 07:13:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765178006;
-	bh=XPnFglyw6lEb7GGfmHVyKc9kWVFqyj9ZUzaHTZKFtCk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lM5tkkDQn71ETaXOgh31ti1Np517oP2HdnXxfqmwageBIV61GnpVGqvM+HtN0UfH9
-	 DyEzRHlntBFtVgaZGPKo7zQIQMhonptS8OG/6CMF/4XgfIrMA4N4IW8dpUqer5gI5E
-	 YZ/44URZ3cUoye1U6VnJJO6kcXZTNCDUNCafr2kWJbeSIHU/HSGuU+N7A4ruqr83T0
-	 tPsW53boKD6YC7dXtAMdvicoZ7WsTEI9KwAxiI4QNpdFpGR+d8ofb0qdD634Q6907t
-	 w2P46pZQiCg+8qre2FCXc2JtsGJMq74f4uJ4GMkLUHlbrwt8MgaC/I4pSgJbLMuc0r
-	 Y0W26ziYfxqvQ==
-Message-ID: <a2b4cad2-28a8-4fcf-857a-cd002f2c1211@kernel.org>
-Date: Mon, 8 Dec 2025 08:13:22 +0100
+	id 1vSVcZ-0000000CkCE-063G;
+	Mon, 08 Dec 2025 07:25:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1765178700; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=ewJI6knbGrlnaZl7umoObm8pr5FJX3RNMkdDxMFQAT6f1kzqNGKD/bUVRmCBXWD3p0URdBZe9HxfTndO+dQl6Vcc18P2RAXPRfGqLeGhP6fnJsUvkQctn1i0j1HnJKSd9GubC/p8JMcsJ8vHfZVaRkcjSA1Rfm8Oc0AAyCQG3Sc=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1765178700; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=lJPHCHT+6fsyjs+1ZZbsqkGYN8B/qM5j+hb/xUt2r6Y=; 
+	b=GofoYoYdlC0Mv14fJn6E+evn9e2Xg0mpNaUK3TqSzgb33EUkrzfviyeJw0Sn/Hting1M3ws25eoYkWqvIs87cRA/DaGEZXnnWgZcpIkInyJaptE/yfsiqQ8eXeGvx+7qIVzKLLpNpVVnb8euAAXc9wFzEaGrSMec5XWejTvqAp4=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765178700;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=lJPHCHT+6fsyjs+1ZZbsqkGYN8B/qM5j+hb/xUt2r6Y=;
+	b=RwecaA6Pm538t7uoLW7pbZlSdnrB9lY85dulpDlsxp89dWzPSGLUTg3X1kD3XeB3
+	hsS7Gwgfl5DyEGk9Q7cDmSxQHQq858TDzAiTndgcOagIbX2O8TRumYfiUIk3vbXzutv
+	xRtUGiVY4h5d6HuXfXdQYcVK8L3LB0lAiVgN9T7k=
+Received: by mx.zohomail.com with SMTPS id 1765178699286809.6705037383997;
+	Sun, 7 Dec 2025 23:24:59 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>,
+ Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>
+Subject: Re: [PATCH v2 5/8] drm/rockchip: vop2: Enforce AFBC source alignment in
+ plane_check
+Date: Mon, 08 Dec 2025 08:24:52 +0100
+Message-ID: <4696988.LvFx2qVVIh@workhorse>
+In-Reply-To: <f9f7b446-8575-4f16-aa96-5197b22846e3@rock-chips.com>
+References: <20251206-vop2-atomic-fixups-v2-0-7fb45bbfbebd@collabora.com>
+ <20251206-vop2-atomic-fixups-v2-5-7fb45bbfbebd@collabora.com>
+ <f9f7b446-8575-4f16-aa96-5197b22846e3@rock-chips.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: arm: fsl: Add compatible for i.MX95
- 15x15 FRDM board
-To: Lei Xu <lei.xu@nxp.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- justin.jiang@nxp.com, qijian.guo@nxp.com
-References: <20251207-127-v1-0-5a2eeb69f150@nxp.com>
- <20251207-127-v1-1-5a2eeb69f150@nxp.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251207-127-v1-1-5a2eeb69f150@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251207_232523_154657_64A3EBEB 
+X-CRM114-Status: GOOD (  22.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,19 +85,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/12/2025 14:26, Lei Xu wrote:
-> Introduce a new DT compatible string for the NXP i.MX95 15x15 FRDM
-> development board, a compact and cost-effective platform based on
-> the i.MX95 applications processor.
+On Monday, 8 December 2025 03:48:24 Central European Standard Time Chaoyi Chen wrote:
+> Hello Nicolas, Daniel,
 > 
-> Signed-off-by: Lei Xu <lei.xu@nxp.com>
-> ---
->  Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
->  1 file changed, 1 insertion(+)
+> On 12/7/2025 4:45 AM, Nicolas Frattaroli wrote:
+> > From: Daniel Stone <daniels@collabora.com>
+> > 
+> > Planes can only source AFBC framebuffers at multiples of 4px wide on
+> > RK3566/RK3568. Instead of clipping on all SoCs when the user asks for an
+> > unaligned source rectangle, reject the configuration in the plane's
+> > atomic check on RK3566/RK3568 only.
+> > 
+> > Signed-off-by: Daniel Stone <daniels@collabora.com>
+> > [Make RK3566/RK3568 specific, reword message]
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > ---
+> >  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 14 +++++++++-----
+> >  1 file changed, 9 insertions(+), 5 deletions(-)
+> > 
+> > diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> > index bc1ed0ffede0..e23213337104 100644
+> > --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> > +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> > @@ -1076,6 +1076,13 @@ static int vop2_plane_atomic_check(struct drm_plane *plane,
+> >  		return -EINVAL;
+> >  	}
+> >  
+> > +	if (vop2->version == VOP_VERSION_RK3568 && drm_is_afbc(fb->modifier) && src_w % 4) {
+> > +		drm_dbg_kms(vop2->drm,
+> > +			    "AFBC source rectangles must be 4-byte aligned; is %d\n",
+> > +			    src_w);
+> > +		return -EINVAL;
+> > +	}
+> > +
+> >  	return 0;
+> >  }
+> >  
+> > @@ -1237,11 +1244,8 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
+> >  	WARN_ON(src_w < 4);
+> >  	WARN_ON(src_h < 4);
+> >  
+> > -	if (afbc_en && src_w % 4) {
+> > -		drm_dbg_kms(vop2->drm, "vp%d %s src_w[%d] not 4 pixel aligned\n",
+> > -			    vp->id, win->data->name, src_w);
+> > -		src_w = ALIGN_DOWN(src_w, 4);
+> > -	}
+> > +	if (vop2->version == VOP_VERSION_RK3568 && drm_is_afbc(fb->modifier))
+> > +		WARN_ON(src_w % 4);
+> >  
+> >  	act_info = (src_h - 1) << 16 | ((src_w - 1) & 0xffff);
+> >  	dsp_info = (dsp_h - 1) << 16 | ((dsp_w - 1) & 0xffff);
+> > 
+> 
+> You haven't replied to Andy's comment yet [0].
+> 
+> [0] https://lore.kernel.org/dri-devel/7b4e26ec.75f3.19a77276b53.Coremail.andyshrk@163.com/
+> 
+
+Hello,
+
+I addressed the follow-ups where it was clarified that the 4 pixel
+limitation was RK3566/RK3568-only. I'm not going to bring back the
+post-atomic_check modification for a fast path, but I'm open to
+suggestions on how to do this differently.
+
+One solution might be to modify the state with the ALIGN_DOWN stuff
+in atomic_check instead, where userspace is then aware of the change
+being done to its requested parameters. I'll need to double-check
+whether this is in line with atomic modesetting's design.
+
+Kind regards,
+Nicolas Frattaroli
 
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
-
-Best regards,
-Krzysztof
 
