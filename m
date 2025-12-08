@@ -4,77 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98546CEBF88
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 04:48:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FF9DD3ABEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 05:02:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:References:MIME-Version:In-Reply-To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wrmqll69GaPbWYkgjpEI8TbChltS4C6kWB4bJRvQkVs=; b=hLHSnybuIY/3yUGXPPuHbechzN
-	Y4oAgqvOq2+TgXUuUp98kL41YVnAnrvRLue0K6orhDC+EC9CFh05kuzgNSgXKoli1eZXoJI/aCaaL
-	AdwsYToApwaBuFCMUC6Yf0YmvC86AArtmCkpAdEXtZV+zWI9lY3AEwTMM/lB0DDoTo/0N9oSd5zca
-	1+7VY35X2r+Rq6qf5bGB+THrlPJzHINFXjAHJdFV5OexIG81WCHQRJmmvJNs1Z45KP4aPbEVi0ecz
-	IJXEpTX/e++SIPY/FDZ41o99wB8fRWeXQEn3ctXbrmLxOLOL9HB/29+wzLfhFqqb21YkpfvRfe1Mg
-	8wCuh32A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3gSMBENzzXEaeNJWYpLcNe7aCGIPyFqqlgzJPLn4DZU=; b=gbbHx3WOXOmmcI1u5ARJzFgl5X
+	dPi+kEH7JIc4RG9KQFCGfStJ7z0RhpYCqVYIyurOAUAsMmMrEu1nyia7+iG8jrA4l/sZzuoIFpe3W
+	yPEoJ3zS0Lmb3DRmq6P4GvNGedwiY9LJAklNmPqAA96PumlTqu0xg2pgY8IEab+ECZj9Iowupfp9g
+	vrqmX41QYuHbllJ1rTTfU1tBUDE1KFYdOiXW14HLbqoKNJNqkkEQ/SX/xoDKERV/sQbHVj5LVMYPb
+	8S8aWlHR6AIWZXspshTjFThY2j4myskcm1qzwXomhqbAtNvZaCL7CiGsz7+xNGvNpN2pt5X3ZaQ0a
+	sSBKARQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSTAn-0000000CaOS-06cm;
-	Mon, 08 Dec 2025 04:48:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSTAl-0000000CaOH-4469
+	id 1vSTOE-0000000Cb25-1zPU;
+	Mon, 08 Dec 2025 05:02:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vSTOB-0000000Cb1W-34rw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 04:48:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D2A3F60147
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Dec 2025 04:48:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 843DDC2BC9E
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  8 Dec 2025 04:48:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765169310;
-	bh=U06QhChZKx2bmiQF6RRhzFFQ87RA67jPMdsGmcOeeHk=;
-	h=From:In-Reply-To:References:Date:Subject:To:Cc:From;
-	b=Z/3KtXR8Jn/g0jn4+4yj5OZn0qxEU5Q9+QJR98nWmt/9sliuC9kiqjQuaj/Qwnd/a
-	 0+4Zy1EJjfCYU9tjO2t3gJ39sJnGfJZeyjszwqW3DJPQcdaqX1lPT0YVxUx4zMr746
-	 bKJwBbYhulfByjqc+2MVtIj9Nkz+Rg6HVH7AEdR/6I2HXznNv+e6uv5XWCcCPF61pi
-	 35tZmHZvEjjpVHP60nCejMxkkMkVYfMxC+4dlgmha+i0Fje/ipy/9bJOrw5egqFFKP
-	 AckrqJ/irnBQgM+HF8hnz8pidiweKGclusDvMS4iei1AHLU4utXaL9YyHT6YdiUEmr
-	 TUz/WKcq29EJw==
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5959da48139so4144350e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Dec 2025 20:48:30 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCU1dkIlc4NmO2+lyRqbR3foTIHKtXlt1qQ6ODFCIvW3PF9DijGt+YxW3yEHx2paXZ7Um0YmZq4UojuVrUPAGssQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwBE1E7S7mfDJltBtv0bkIocLN1dg9Fzwme874BkvU9HySQ4qVg
-	jsPVCHgnTKeyUymU17WWz7umKAPba4M62iXhZRzfpG5+y23yE6Qq0gQxVBd8SlvdZmqCOrzGpG4
-	TmOEgfMER6RatgEW+ZCTqkX0Km8p6IbDPbDok7eKErA==
-X-Google-Smtp-Source: AGHT+IEglGMTw/0NIB7BymKkmsEWMWY4xqrTd3qO2i8xPTS8cVfEcd3bVjNGV/6cnaEWU/XMsQTyEXZXDOOqglr6C0s=
-X-Received: by 2002:a05:6512:10c3:b0:594:51ac:13e with SMTP id
- 2adb3069b0e04-5987e8be763mr1426456e87.17.1765169309059; Sun, 07 Dec 2025
- 20:48:29 -0800 (PST)
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Sun, 7 Dec 2025 20:48:27 -0800
-Received: from 969154062570 named unknown by gmailapi.google.com with
- HTTPREST; Sun, 7 Dec 2025 20:48:27 -0800
-From: Bartosz Golaszewski <brgl@kernel.org>
-In-Reply-To: <bd0a00e3-9b8c-43e8-8772-e67b91f4c71e@gibson.sh>
+	Mon, 08 Dec 2025 05:02:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2CC1C1595;
+	Sun,  7 Dec 2025 21:02:14 -0800 (PST)
+Received: from [10.164.18.52] (unknown [10.164.18.52])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EC3033F762;
+	Sun,  7 Dec 2025 21:02:14 -0800 (PST)
+Message-ID: <b66f285f-20d8-4c29-ad0d-1ab0857b38b0@arm.com>
+Date: Mon, 8 Dec 2025 10:32:12 +0530
 MIME-Version: 1.0
-References: <20250423-gpiochip-set-rv-gpio-part2-v1-0-b22245cde81a@linaro.org>
- <20250423-gpiochip-set-rv-gpio-part2-v1-5-b22245cde81a@linaro.org> <bd0a00e3-9b8c-43e8-8772-e67b91f4c71e@gibson.sh>
-Date: Sun, 7 Dec 2025 20:48:27 -0800
-X-Gmail-Original-Message-ID: <CAMRc=Mc8ViSPyTn9Brr-us2V+D7Jv3u+B8Ek2nuzF36yH70RAw@mail.gmail.com>
-X-Gm-Features: AQt7F2oGzDmTWNj9eMqY6ksExRm8PgQHZKXZzR2EdaLKtTkgpmQR6QdZ6gL8zes
-Message-ID: <CAMRc=Mc8ViSPyTn9Brr-us2V+D7Jv3u+B8Ek2nuzF36yH70RAw@mail.gmail.com>
-Subject: Re: [PATCH 05/12] gpio: it87: use new line value setter callbacks
-To: Daniel Gibson <daniel@gibson.sh>
-Cc: linux-gpio@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
-	Linus Walleij <linus.walleij@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Lixu Zhang <lixu.zhang@intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Yinbo Zhu <zhuyinbo@loongson.cn>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 02/16] arm64/ptrace: Split report_syscall()
+To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
+ will@kernel.org, oleg@redhat.com, tglx@linutronix.de, peterz@infradead.org,
+ luto@kernel.org, shuah@kernel.org, kees@kernel.org, wad@chromium.org,
+ deller@gmx.de, macro@orcam.me.uk, charlie@rivosinc.com,
+ kevin.brodsky@arm.com, ldv@strace.io, mark.rutland@arm.com, song@kernel.org,
+ ryan.roberts@arm.com, ada.coupriediaz@arm.com, broonie@kernel.org,
+ pengcan@kylinos.cn, dvyukov@google.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org
+References: <20251204082123.2792067-1-ruanjinjie@huawei.com>
+ <20251204082123.2792067-3-ruanjinjie@huawei.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20251204082123.2792067-3-ruanjinjie@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251207_210223_926638_4223E3D0 
+X-CRM114-Status: GOOD (  18.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,33 +71,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 7 Dec 2025 05:55:15 +0100, Daniel Gibson <daniel@gibson.sh> said:
-> Hi,
-> I got one nitpick/question about this, see below
->
-> On 4/23/25 09:15, Bartosz Golaszewski wrote:
->> @@ -249,7 +250,9 @@ static int it87_gpio_direction_out(struct gpio_chip *chip,
->>  	/* set the output enable bit */
->>  	superio_set_mask(mask, group + it87_gpio->output_base);
->>
->> -	it87_gpio_set(chip, gpio_num, val);
->> +	rc = it87_gpio_set(chip, gpio_num, val);
->> +	if (rc)
->> +		goto exit;
->>  >  	superio_exit();
->
-> Are you sure that superio_exit() should be skipped (with goto exit) in
-> case it87_gpio_set() fails?
-> After all, superio_enter() above (not visible here) succeeded,
-> only the it87_gpio_set() call failed.
->
-> Of course this is kinda academic because currently it87_gpio_set()
-> always returns 0, but if it ever doesn't, this might become a bug?
->
+On 04/12/25 1:51 PM, Jinjie Ruan wrote:
+> The generic syscall entry code has the form:
+> 
+> | syscall_trace_enter()
+> | {
+> |	ptrace_report_syscall_entry()
+> | }
+> |
+> | syscall_exit_work()
+> | {
+> |	ptrace_report_syscall_exit()
+> | }
+> 
+> In preparation for moving arm64 over to the generic entry code, split
+> report_syscall() to two separate enter and exit functions to align
+> the structure of the arm64 code with syscall_trace_enter() and
+> syscall_exit_work() from the generic entry code.
+> 
+> No functional changes.
+> 
+> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> Suggested-by: Mark Rutland <mark.rutland@arm.com>
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
-Thanks for bringing it to my attention, you're probably right and thats's
-just an unintentional omission on my part. Do you want to send a patch that
-will fix it or do you prefer me to do it?
+LGTM.
 
-Bart
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+
+> ---
+> v8:
+> - report_syscall_enter() -> report_syscall_entry().
+> - Add ptrace_save_reg() helper.
+> ---
+>  arch/arm64/kernel/ptrace.c | 41 +++++++++++++++++++++++++++-----------
+>  1 file changed, 29 insertions(+), 12 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+> index 4b001121c72d..4532e9831856 100644
+> --- a/arch/arm64/kernel/ptrace.c
+> +++ b/arch/arm64/kernel/ptrace.c
+> @@ -2317,9 +2317,10 @@ enum ptrace_syscall_dir {
+>  	PTRACE_SYSCALL_EXIT,
+>  };
+>  
+> -static void report_syscall(struct pt_regs *regs, enum ptrace_syscall_dir dir)
+> +static __always_inline unsigned long ptrace_save_reg(struct pt_regs *regs,
+> +						     enum ptrace_syscall_dir dir,
+> +						     int *regno)
+>  {
+> -	int regno;
+>  	unsigned long saved_reg;
+>  
+>  	/*
+> @@ -2338,15 +2339,31 @@ static void report_syscall(struct pt_regs *regs, enum ptrace_syscall_dir dir)
+>  	 * - Syscall stops behave differently to seccomp and pseudo-step traps
+>  	 *   (the latter do not nobble any registers).
+>  	 */
+> -	regno = (is_compat_task() ? 12 : 7);
+> -	saved_reg = regs->regs[regno];
+> -	regs->regs[regno] = dir;
+> +	*regno = (is_compat_task() ? 12 : 7);
+> +	saved_reg = regs->regs[*regno];
+> +	regs->regs[*regno] = dir;
+>  
+> -	if (dir == PTRACE_SYSCALL_ENTER) {
+> -		if (ptrace_report_syscall_entry(regs))
+> -			forget_syscall(regs);
+> -		regs->regs[regno] = saved_reg;
+> -	} else if (!test_thread_flag(TIF_SINGLESTEP)) {
+> +	return saved_reg;
+> +}
+> +
+> +static void report_syscall_entry(struct pt_regs *regs)
+> +{
+> +	unsigned long saved_reg;
+> +	int regno;
+> +
+> +	saved_reg = ptrace_save_reg(regs, PTRACE_SYSCALL_ENTER, &regno);
+> +	if (ptrace_report_syscall_entry(regs))
+> +		forget_syscall(regs);
+> +	regs->regs[regno] = saved_reg;
+> +}
+> +
+> +static void report_syscall_exit(struct pt_regs *regs)
+> +{
+> +	unsigned long saved_reg;
+> +	int regno;
+> +
+> +	saved_reg = ptrace_save_reg(regs, PTRACE_SYSCALL_EXIT, &regno);
+> +	if (!test_thread_flag(TIF_SINGLESTEP)) {
+>  		ptrace_report_syscall_exit(regs, 0);
+>  		regs->regs[regno] = saved_reg;
+>  	} else {
+> @@ -2366,7 +2383,7 @@ int syscall_trace_enter(struct pt_regs *regs)
+>  	unsigned long flags = read_thread_flags();
+>  
+>  	if (flags & (_TIF_SYSCALL_EMU | _TIF_SYSCALL_TRACE)) {
+> -		report_syscall(regs, PTRACE_SYSCALL_ENTER);
+> +		report_syscall_entry(regs);
+>  		if (flags & _TIF_SYSCALL_EMU)
+>  			return NO_SYSCALL;
+>  	}
+> @@ -2394,7 +2411,7 @@ void syscall_trace_exit(struct pt_regs *regs)
+>  		trace_sys_exit(regs, syscall_get_return_value(current, regs));
+>  
+>  	if (flags & (_TIF_SYSCALL_TRACE | _TIF_SINGLESTEP))
+> -		report_syscall(regs, PTRACE_SYSCALL_EXIT);
+> +		report_syscall_exit(regs);
+>  
+>  	rseq_syscall(regs);
+>  }
+
 
