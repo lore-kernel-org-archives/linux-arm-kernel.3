@@ -4,91 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4422DD3B7DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 07:33:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44990D3B7DD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 07:37:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yk1cUWmBl5XhhK+g/p4690RHmYDgOIsh6ZzYZ8NiuW0=; b=vdlbKWg926k/Fyfre3GyzAt3tV
-	MMKo4+Oo9iBmqqj2XJt80ciBn3ngf21NK6gqxC4QwDb6/CatYmRgL4upo57SnYOP4veKMfO6BCEbQ
-	FwBuuKdWseA5yoIddyuvdTUVWwjIg+0XLOoBtxtPNXhoS7ktnrgnnA1Q57M7xKSujgEQYbYtaAJp7
-	wPBeUg1NEtt4pKysOeMSzzipnaNsNLEpjcmy5tns11CvGgGCSFpDk3UO59LeY1KgC/R54OClX/Cnq
-	LElSb4uiOSoexBxdjLt0Nn0/YaG/wY1gwjXt62d3VZ4zFwrRFSKF4aHrOVWXCzSUOixxdtioMFFX0
-	wEs74yUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8mFhsXynfYMRTAqLVNk7K0jzc5DMqiEN48/jhDZOcOk=; b=OzuIWVMS2CRAwXSj+g1fcqtV9r
+	SKbThh+ZnDSYJ9wtCp2p1yW067eNAfkvB3zM2XcJXl5c8di5bcJS5FlVNBlHzmfzyPkEQVGw7QZXq
+	Ygs/iWzE3oNy0Y04se+0Q9XTfno37dODKZB/Eozjsm8AIughRcIvxXVC5Dy8/IONgb9BsZexKjsZX
+	fPURiUCr9thZ8X/3nJW2CTYvWx2JIcmEeVfYR06X7Ol/RsgvxOXlU+7lF7iRXUSVpWOczLvUXJcgz
+	du8tcuaEae4ZbG4fQ+BjXzycn2152pNnmCPSA1O/oNQ+bx8De1L2Q/Bx1jRsx1Z60e7ogsIvkHwtZ
+	GyHagu2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSVkS-0000000ClXa-0Ndy;
-	Mon, 08 Dec 2025 07:33:32 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1vSVoZ-0000000Cm2e-0XcO;
+	Mon, 08 Dec 2025 07:37:47 +0000
+Received: from mail-norwayeastazon11013065.outbound.protection.outlook.com ([40.107.159.65] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSVkP-0000000ClUI-0T4n
+	id 1vSVoW-0000000Cm1x-3Rby
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 07:33:30 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7b86e0d9615so7230479b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 07 Dec 2025 23:33:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1765179208; x=1765784008; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yk1cUWmBl5XhhK+g/p4690RHmYDgOIsh6ZzYZ8NiuW0=;
-        b=GsQHnBa0xM1dRwTgMiqCUsw361YT6PxFHgVV9cEjCOw8rMTevJkQVrHoApc2QJyKvz
-         hqwK8Oe4dKreGrbQts/ujd8KEhBd87SAQ5aROyMDKIUH8uEaN6XqBEVMjnyJIHIkCuvK
-         qeRT3WAzqCq+2CDMdsfPnMjDGjAyQx1xXRqf8=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765179208; x=1765784008;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=yk1cUWmBl5XhhK+g/p4690RHmYDgOIsh6ZzYZ8NiuW0=;
-        b=Bzv+hvG0BwKIW6cqqbnYNaUQbZQR5MPp348AI9cHQW08T82RjkkoNjXj4v135JDpBv
-         iyc90pzQiq5l45RhVR12Dc+LIkgO3Bj3TsvPLHrRzun//S2wf2l1wOAoDbaKvUbE1AHf
-         8G5UCEiz74Se1VVb8HFs6QxwaTaPFjvdjsmQvCEaf723ImFr0dpUV21ZIkcvAGar5Q4d
-         uvAUXve2TD4Av0av7Dd90svCngbqKGTE8fY43cDGSIdmEa1JQIDQ52D1eLQDJVkEnA4Q
-         1eLI+YEDRS3GG6fFBx0c5/RzK7bkCXM8CQx8yOHBYije0aETzgAX2mf577QJoOJv+Vrb
-         Nj9w==
-X-Forwarded-Encrypted: i=1; AJvYcCWj9JeMXbHstvWLlV2dBRj+TtX3EusN+DiFwj/bd0HukA0Vr3MitAhNqULBerkC1WKByVGq2H7UD1QuEA4uywYO@lists.infradead.org
-X-Gm-Message-State: AOJu0YwsygA3dhk7r7lQwE7seOKqSm394YR0uBrZF+Yzy0pA4TSViAfy
-	tAy6L0BeupDU/sfwArfY1AdjRxfEkI/sfnnAspTxE2fjgLY0PYb0i5k22GjXfoIN6w==
-X-Gm-Gg: ASbGncv3zJheo8PGDyLRE6lQMV6JwXDoOE2QMdbEsniw2DReSj4mrDDqGg7uE52KvUX
-	RGavXAFYSx6jbsDn6JeYiM6NyeFYxUSs+EsoVRdd20aJEyOzAwp83X8IJP4slzplSRoVbEVgpWr
-	edGBpwggh/SxVn87VBju0tHR/sGGLtJMbxo9IrhLNDkOI4/BSp8mn1EH6w+ywzSunAQ7sYwQYD4
-	0P1Eu8digD4iWnnvzZDq9eN18CN7yjAe+bdHSMJmgYChsnDTYVMmhZQ0avoC552BWmhHcwOIj4z
-	04l3swfa0t6PeZibkVVeUMtgKCaccBGSIk/o8rClRpwJP9udzLKnuozpebkNlINclH41/Ua/2dr
-	aaXmgZzpQtw6UrBxuwzGGiDnY73z7H7gm+HrEUaYOXpbdjL4BWo0ZtIFbep5OBTJxSK1zKV3x0M
-	3VhH8yx8c1HG1k3Y2OHkC8q9wipSn94pNc4ydQK9eeWyhGBQQiPhjaLQvBGt4EkDj8rIwm
-X-Google-Smtp-Source: AGHT+IH03+VWpfw72JOyBUA2/6zHYSF0GZ6M4iF47ZhbShTJYVZdsObM/Okmg4+ncXpzCQ/1sI3Tkw==
-X-Received: by 2002:a05:6a00:a8e:b0:7b7:8aad:99cc with SMTP id d2e1a72fcca58-7e8c0ad15ecmr6144301b3a.3.1765179208186;
-        Sun, 07 Dec 2025 23:33:28 -0800 (PST)
-Received: from wenstp920.tpe.corp.google.com ([2a00:79e0:201d:8:d31e:c84f:5cc1:d554])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7e29ff6b56esm12127686b3a.20.2025.12.07.23.33.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 07 Dec 2025 23:33:27 -0800 (PST)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	linux-mediatek@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH 3/3] [EXAMPLE] arm64: dts: mediatek: ciri: Drop SKU-specific overlays
-Date: Mon,  8 Dec 2025 15:33:04 +0800
-Message-ID: <20251208073306.75279-4-wenst@chromium.org>
-X-Mailer: git-send-email 2.52.0.223.gf5cc29aaa4-goog
-In-Reply-To: <20251208073306.75279-1-wenst@chromium.org>
-References: <20251208073306.75279-1-wenst@chromium.org>
+	Mon, 08 Dec 2025 07:37:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lkuLGOh2DRmbzk6jwJ7lcZYQqrMrWn4lgE/1CMEL3o+RnHQIYqCBTg9svWxKd3nf1qFwBm30ek1cLTmnofcfG3DmM2E9+6UvlERN/GXr7Cp+c0drSHlRO1w6f/MtWlqKJZIe6+O8rI/oSeDTvwmGo8mNZtaP9d9+9POv7uMmf1p3dMOW8IdN0AwfW3QkH8kndNgADnE9XGqxOWjvU5WSiNMT5k0bGc3OXitG1zzcOOZqON7xS4cPCjoJs3XFw6qBcw8ZB40sVtrfKd0j2uru33ERSVwuHD+ejWG0xU5TbmU7plOrcxwrWksX+u8C6tSulzQqVhkVLPGgiDf3KFEb3Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8mFhsXynfYMRTAqLVNk7K0jzc5DMqiEN48/jhDZOcOk=;
+ b=sXPTcSFEvHwcHXVmc9EP9Zvyy6w+th7pyIfWh27Uh0BPdQ8Kmf0vXwHj4s2kFbwIj9/2xviTfpLsmXscsbfGVGlc5c+yNzIsGuPRSoFpKll/uklNj9RBM7wEK+DV53cZMoQ0634Uvjw9Si86I8pjAPJKX+GPcOi7gDnKIXrIeE0SwWaej6RAxGflDNUpkQ11taw5sAYgwzFzpwoyXOKV/a5bpY0seoVbKgp2qv9ZhRJpih4kxBn8SWuOhIQhTvaHuhbc16+ZoqZDK55BOp08zi8Nf7yqyAiRqQjYtnWD8MbeZR2OYzLZP+41HzA6lJMxa+diYL11Y05KDZZvbpU8Cw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8mFhsXynfYMRTAqLVNk7K0jzc5DMqiEN48/jhDZOcOk=;
+ b=ITgXD7tleKQmyy4m8JPlhoV7tt3xlXkARjBWgrGs5jh5GyJAkHQzxf3ne+j9odHabdNweNb5BekslZvS5mcdKHXajhgh5dHc+CDfrrlvtuRZJ9VWd0+wpjPh1lzg4Sc7qvZrO/TSMP2mwLT3SMHDTTeB7luOva/G71HbgNDr2jdaWENT3L6Mpz7ZeNMNa2Kkme8WzrFz9iPPMdSmp5mfQih4xHgN/PL3nr/HMo6WgdjHtmwFCQt3A3IY9+61aTxPZ3cjv4MfsoaCNIUFOn2i+2l1T3Fg/akPe1DUBLOYTWe69YIBEwIcwv5zqAi9YUCKJ3TFyrb2Hhww3mEibQcyYw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by AMDPR04MB11702.eurprd04.prod.outlook.com (2603:10a6:20b:719::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.14; Mon, 8 Dec
+ 2025 07:37:40 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64%6]) with mapi id 15.20.9388.013; Mon, 8 Dec 2025
+ 07:37:40 +0000
+Message-ID: <e4704da5-2532-4559-b0a5-58ebf087681e@nxp.com>
+Date: Mon, 8 Dec 2025 15:38:15 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/2] drm/atomic-helper: Support atomic flush with an
+ optional kthread worker
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20251031-drm-crtc-flush-worker-v1-0-9edc94da0fb7@nxp.com>
+From: Liu Ying <victor.liu@nxp.com>
+Content-Language: en-US
+In-Reply-To: <20251031-drm-crtc-flush-worker-v1-0-9edc94da0fb7@nxp.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SI2P153CA0030.APCP153.PROD.OUTLOOK.COM
+ (2603:1096:4:190::15) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|AMDPR04MB11702:EE_
+X-MS-Office365-Filtering-Correlation-Id: a4ba44e8-0f47-4486-10af-08de362caa6f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|19092799006|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MlJqcDRETUVRU3YwM05sNndVdllXNUFtL3RSdm50VU9Ld3E0ZDY5V0RjWTJR?=
+ =?utf-8?B?QTROWGtxbGlrL2VDdnNYSnhjQW96akhNTklqZDNoQ3FoRjNjTk9Jd2NoOGpH?=
+ =?utf-8?B?RGNnVGNyT05JY21DQi8rWUVHbU5TWm9Kb2FGUWRHeFZZRGQ0MERGNVpGeVVz?=
+ =?utf-8?B?cnBzQ215SDZxVW1LWXNaZEFISUNwTFdvUzQ2M0RoYmlCbXlzNWlSN2NDQ2hh?=
+ =?utf-8?B?R3pGeGh3RmkrOTFFRThiV05nSVFkOVRSZzBiUjJ3Vmk4SHVRcDRKVVkyWVlQ?=
+ =?utf-8?B?cU9VM1pMalJsVldXM3UxNXpwNG00MkNreTZncjM5NDY0dzlJdFE3M1FObzhZ?=
+ =?utf-8?B?cnhtRlB3dzFsa2hxbkt5OTh6Y0NveEljT2FYKzRzT3VIRmFKSzdRS3FTcXkw?=
+ =?utf-8?B?elFGM0FseUduamZ4VEZDc0kvelo1dHB2V2hLQ0Jrdkg3T243YVFHZGM1VnR6?=
+ =?utf-8?B?eU1qSDg4TEFUbVpiRFA4Z3l5bXdoRTFjdHE2bVYwSjNPVElQa0NZQlpnMy9l?=
+ =?utf-8?B?R3lYV0swd1RKQVRHaW15WHA3dTZTd1lGd3hhNHRmZ3l4UG1qWllQVkprMEtw?=
+ =?utf-8?B?eEtTdDVPQTkzaHJXblRjSU1UanpTeTRRR2hPUlJ5Ui9GbjFscFZYdFI5R0wx?=
+ =?utf-8?B?YXg4ZEhQMXk5d3VDTmNKYTJGQUpxNVhZVUJEWmR4dVBudWkrSTBnVWU5UWND?=
+ =?utf-8?B?L3RRWDRnMDZhU3RENExEUXN4dUgvTTZwd2c0MW9JQlZOMGdsTXlOR3AwRDVp?=
+ =?utf-8?B?NG12dDZaM0U3MW9zcUFxQWxRaXFtK0NjN1N6MFJEV3BLUkVDd0ZXWTdVMEcr?=
+ =?utf-8?B?SVJVaWxUNnl2dHB3N0twTUtNWmJzQVRDeDB3YlV6YVZDcTlYSmpGTHNuQ0g4?=
+ =?utf-8?B?cGFQSmpCVzB4Vkx2ZWxDdzJtTkVCSTNXZVdjRXF5Y0kybWVMOFpPSzh0SzBZ?=
+ =?utf-8?B?ZUxuUnlFOHpYTGtvRFRYZWt1K1BmbC9PVWhXaHFSRlBwbDM3d2U0WmRNSlJk?=
+ =?utf-8?B?bythVmZiZmQ2VXIrZ3R6aWZMWXFSTTFITndlUzFQSmp2V2ZsMlQ4RDlNbTVV?=
+ =?utf-8?B?bkl2S2FNTWdtMWd2QkZPMExwWW56U2xSaHdiUCsvdUJzWkpWYkF3eHIxYTAw?=
+ =?utf-8?B?NW9Nb0tic1M4Zm5pU2srQ0dRMWRVQlFzL2lUQUpIRW1hSEljdy94a3NxckNU?=
+ =?utf-8?B?cWUvV08zMGdBMThlOThHS29NUUh2d1V3eHZwYUphaDBsQjVqc0hXMWgybW0r?=
+ =?utf-8?B?T2phY1E3VHRBaGVqV09JakpQbFY0R2FRa1JmbmJqVjJMZ29ZdzJNbmhtWld2?=
+ =?utf-8?B?b0hHN3V1WGpXUGtoNFVVbG1pTnliR3JXMHdqcEcveTNaYm0vbU9MazA0VGhO?=
+ =?utf-8?B?RDhhdUJNNWdERkhOaFJXWVZqQlV5T21ka2MxV1pLT01mSHQwdnQwN1lXUFBB?=
+ =?utf-8?B?cFlpRzNMcHdZSEtaZnRQblA5TndqQkhpS0h5ZjBGWTlXVTJuTWRERHVZYWRJ?=
+ =?utf-8?B?T3VMMWhQQncvb0lQOWdNK1BQUDF3aTFtQm1lbFg4UktzejNUS2Y1TkZaM0hq?=
+ =?utf-8?B?dVpVcVlNUEk0WTJMbHpQN3JMSWlXZGR5TUlmajZPa3J6TWc1c2ZKSlRoM1Yy?=
+ =?utf-8?B?VnB2enplN2FyYXNOUkxkUVlTdEZrcm0rdUNXMUVVRDROOUxPbVgyNlhRNkg2?=
+ =?utf-8?B?ajZQNEtJK2FrNzBoZ2RvT2JFVDhoSWNRYmpBNkZQNUZmSmxHYnJDMkZ3VURm?=
+ =?utf-8?B?dUwwcXpoNGxEaFRYZ0FQekc3VHJSVFlHUzVDTy9QcE56NFlEc0xhaytMcmhP?=
+ =?utf-8?B?eFRuL3pPVjM2bGgvaEh4WVZCRGhmMEFyRU1MNzgwWnNuZlZ2bEJwbXhrL0Jm?=
+ =?utf-8?B?aGRjWUVkTUx6Mm5LQjR4Ulo3cENaM0ZXTDhFd1dJQXBKTVBZanZNMEhwSVBw?=
+ =?utf-8?Q?+o1lKlmF+QWs1dOVH4pz0RAfzc6fIXXl?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(19092799006)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OFlTcE5VcER4QjJYbWR1OFZmUEVHU05NS05SZTVSWjZEOE5UWkZ0eGNZaW9r?=
+ =?utf-8?B?SFN4V1I3S1d0T2Vwd0dKTUNLNkI5cE5SM3ZJVzJXa2tER2dDZW9EaTl1cE0v?=
+ =?utf-8?B?c1A3T042aGZoMXEwcE1DOUFKUGRWcm9DeDQ2dEc2bjMyZ2FVbHF5SFgzL2h3?=
+ =?utf-8?B?M082QnRhb0ZPbWtrdDR6OWp3M0hDRDZuVjUrTksxMHpWUW9aMS81MDMyTERo?=
+ =?utf-8?B?NUorbWNnZzc0WTczU3JQc1VISGlWZHVSTlJKNHMxOUs3cERYcTV3S2RzMHJv?=
+ =?utf-8?B?LzB2RmlwSDFHaC9IdnB4cTVCdnFpSThhNllDMWRqeFVRVUxVb3Z4SW1UMkg4?=
+ =?utf-8?B?QU9pc2tiVUxLRG1HT2h5aW1DQzh4TlphUGJtRFR6alF5aHQ4UEpKTytUVjhj?=
+ =?utf-8?B?UjJvVEcvY0VvV2NLOTNGWCticWJCMnliM3UvdWloK1BJMU5sNElyMHhUek9C?=
+ =?utf-8?B?NXJ1dVNaT1pFNkNaVlQ1a25jSnUwUFRId2xNVlF6d2JnNWFhQUdOTC9DMGFw?=
+ =?utf-8?B?YnN5bklkOUlUZVN3LzE1akJ3bWppTGluVk5pU1AxQWVHUkRwNGRrTnBqTHJt?=
+ =?utf-8?B?OENXK2k4bnptZ0NYQnJWMlJENGF3dHJsV09zU3ZzcU9mSm05OFFTT2xMNlNk?=
+ =?utf-8?B?djhtM2ZHcnBkakZUOHZkbTI3bDFjTWtwTVc4clJQWC8vVFJZaVNXMHBpMTBQ?=
+ =?utf-8?B?SWw0YlNvK3pmSFdnNm1TUUlzc0FOcFZFcGtxTGV2OVFGSGMzUjhCYVE3NEdm?=
+ =?utf-8?B?eG9Hb1U1dFlncG5sUEpWcEI1dEtlekd0YUk5bXUwUWp6NTNUTzZsSHkrUGV0?=
+ =?utf-8?B?dnc4V0FMSDFuSnVITFRydVBrRmVOdm5sYWtBbTRuZVdCV01DUFVDMDFxK0xw?=
+ =?utf-8?B?RmorWHhvOHZxU25zcWllSGN0YkJYdjIvTkpGTmU4TmVMU21NMWh4SFQxUm1x?=
+ =?utf-8?B?UWZNNVNKR0t0Rm0rd2tNbmpibjRtU2NPWDBxbE83RndQdytPU1Z0TlF1UzRt?=
+ =?utf-8?B?OU1tYkprSkJoR05JRFBuT0JwU25IVnF1QllFYVN3dWpOclFMYk9Bc0FZZis2?=
+ =?utf-8?B?YXNtdVZoTGtSYmZMeUNHYmlrZWFtNG5RZTlXUkc2aFBUdHhQS2xTUjQxYjl1?=
+ =?utf-8?B?SVhUanJ0emNoWWVzZldhQ09tclByVEYveXRjN3JMN2lxcG04bEdLZWlNYnJU?=
+ =?utf-8?B?TmNwM3p3UUQ4Z3RzM2VKd2crRWgwcXpveHFkdXFiNTJINWJ4UUtCZWw0L2s2?=
+ =?utf-8?B?ZmFhdk0rMHdPS2M2Q3hvNTl6TEVMSlgxbWdSbWJOSFFQWUZWZUpObnZDY3Zy?=
+ =?utf-8?B?OUl4d3AwWml5a1IvcVcvaU9FVm05V3NsWTRYZHozcEk2OHg4WXlkSDhYR3pQ?=
+ =?utf-8?B?YU1wWHRhWFNwdTlCWXZJMnpDRkhpWjJydmlnQ2J4Q25JUnNjNms2bGlrN1dk?=
+ =?utf-8?B?ei9zeEtFeEJCZmdpTTdQOVhHQ2NzYTZGNlgyM0ZpWCtsb1pwcWNtQjRtUWc2?=
+ =?utf-8?B?eXFWY24wZmJNWWVLNTM2cWJqaW9vWUFQc2Fid1JDOGliUG52UWdjdGE3MGIz?=
+ =?utf-8?B?VjhpU2NYcmtrWXB6R0ZTdnZjZmFpVTZYMER3QU1LZzJ6U2xxaTZMUk0rdk0w?=
+ =?utf-8?B?WTFRR3k2cHJPU2M5d2hFOVhyaFlTbTkwTDgyTE5KL3FuT05FSHZGOFRiY3B2?=
+ =?utf-8?B?ZGtiVlJPVDdTQTVGdjNnRDYvZ3NKNGNETjloQXZLK1RCZnRVQTJtaFAxc3hw?=
+ =?utf-8?B?NVIxbWE4OGhjUWpHQ0s0bk1oWkJLcjUxeVJiN0tlTFUvZzNENnFYQWJGaUw4?=
+ =?utf-8?B?MzFGZjBVbkZFS0pVamVZVy9vUWRNVlNuQUZCblJrbGplYnBoT1lJZDNuamxp?=
+ =?utf-8?B?bHdUYU9RTjhpb1UzMC9mbkwxWHdLODBzSEtjR1c2dWRLM2RaeFVpeWFLcENI?=
+ =?utf-8?B?Y2k5STNybmhzQkpRY1Y3SnFxOHZlWUlyRzF6MEVIYkpjWk44SVJ1dno0aEE5?=
+ =?utf-8?B?anpYSllWTk9ZY3IvLzRESFFSN2piUVdiSVVVN1FnQ0ppZWRObE9ONGRtVFdw?=
+ =?utf-8?B?ZkpQVC9ta1laNnVxRTNhamtVMWlKblR0aTFYVEc2UUpmdWVaSWhpd0hSZFdu?=
+ =?utf-8?Q?QbH83aKnhkGGq6NuAqwefvw6P?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a4ba44e8-0f47-4486-10af-08de362caa6f
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Dec 2025 07:37:40.2250
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 8PlA3Eizo+qrlseUGbGUED1fANVB1NLA6LhbunQTG7lSIDjYeuCAlQPsz8apsafX6biitigvdgtMArqpoaN+mw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AMDPR04MB11702
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251207_233329_182270_2CED7609 
-X-CRM114-Status: GOOD (  19.82  )
+X-CRM114-CacheID: sfid-20251207_233744_874117_A4AC0FC6 
+X-CRM114-Status: GOOD (  16.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,291 +180,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The final SKU-specific overlays only set the top level board compatible
-and model, but add nothing else. The specifics are not super important
-to the kernel, and could be removed so we don't have to have so many
-source files.
+On 10/31/2025, Liu Ying wrote:
+> Hi,
+> 
+> As drm_atomic_helper_commit_planes() calls atomic_flush for CRTCs
+> sequentially and a driver's atomic_flush callback could be blocking,
+> the performance for flushing multiple CRTCs in a single atomic commit
+> could be low, like page flip for multiple CRTCs.  A real case is imx8-dc,
+> which supports two CRTCs and does atomic_flush in a blocking way, i.e.,
+> waits for a done event for loading shadow registers.
+> 
+> To resolve that, introduce an optional kthread worker to conduct
+> flush in drm_atomic_helper_commit_planes(), so that flush can run in
+> parallel for multiple CRTCs.
+> 
+> Drivers should call drmm_crtc_flush_worker_init() to initialize the
+> kthread worker if they want to use it.
+> 
+> Patch 1 adds the optional kthread worker support.
+> Patch 2 makes imx8-dc use the kthread worker.
+> 
+> Let me know your thoughts.  Thanks.
 
-However, the ChromeOS bootloader (coreboot / depthcharge) selects the
-device tree blob to load basd on the compatible string, so the mapping
-from a SKU-specific compatible to a DTB (or a series of DTB/DTBOs) needs
-to be maintained somewhere to build the FIT image.
+Gentle ping for review.
 
-Move the SKU-specific top level compatible strings to a separate file
-stored with the device tree sources, and drop the SKU specific files.
+> 
+> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> ---
+> Liu Ying (2):
+>       drm/atomic-helper: Support atomic flush with an optional kthread worker
+>       drm/imx: dc-crtc: Use flush worker
+> 
+>  drivers/gpu/drm/drm_atomic_helper.c | 27 ++++++++++++++++-
+>  drivers/gpu/drm/drm_crtc.c          | 59 +++++++++++++++++++++++++++++++++++++
+>  drivers/gpu/drm/imx/dc/dc-crtc.c    |  9 +++++-
+>  include/drm/drm_crtc.h              | 45 ++++++++++++++++++++++++++++
+>  4 files changed, 138 insertions(+), 2 deletions(-)
+> ---
+> base-commit: dcb6fa37fd7bc9c3d2b066329b0d27dedf8becaa
+> change-id: 20251031-drm-crtc-flush-worker-0aac27acf40f
+> 
+> Best regards,
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-
----
-This is meant to serve as an example for dropping SKU-specific files
-that just have specific identifiers that the kernel doesn't care about,
-i.e. doesn't need to be present in the DTB itself, but need to be
-preserved for other purposes.
----
- arch/arm64/boot/dts/mediatek/Makefile         | 24 +++------
- .../dts/mediatek/mt8188-geralt-ciri-sku0.dtso | 11 ----
- .../dts/mediatek/mt8188-geralt-ciri-sku1.dtso | 11 ----
- .../dts/mediatek/mt8188-geralt-ciri-sku2.dtso | 11 ----
- .../dts/mediatek/mt8188-geralt-ciri-sku3.dtso | 11 ----
- .../dts/mediatek/mt8188-geralt-ciri-sku4.dtso | 11 ----
- .../dts/mediatek/mt8188-geralt-ciri-sku5.dtso | 11 ----
- .../dts/mediatek/mt8188-geralt-ciri-sku6.dtso | 11 ----
- .../dts/mediatek/mt8188-geralt-ciri-sku7.dtso | 11 ----
- arch/arm64/boot/dts/mediatek/mt8188.yaml      | 51 +++++++++++++++++++
- 10 files changed, 59 insertions(+), 104 deletions(-)
- delete mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dtso
- delete mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dtso
- delete mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dtso
- delete mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dtso
- delete mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dtso
- delete mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dtso
- delete mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtso
- delete mode 100644 arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dtso
- create mode 100644 arch/arm64/boot/dts/mediatek/mt8188.yaml
-
-diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
-index 39a844386366..5123d15c62c1 100644
---- a/arch/arm64/boot/dts/mediatek/Makefile
-+++ b/arch/arm64/boot/dts/mediatek/Makefile
-@@ -89,36 +89,28 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8188-evb.dtb
- 
- mt8188-geralt-ciri-sku0-dtbs := mt8188-geralt-ciri.dtb \
- 				mt8188-geralt-ciri-panel-boe.dtbo \
--				mt8188-geralt-ciri-audio-max98390-rt5682s.dtbo \
--				mt8188-geralt-ciri-sku0.dtbo
-+				mt8188-geralt-ciri-audio-max98390-rt5682s.dtbo
- mt8188-geralt-ciri-sku1-dtbs := mt8188-geralt-ciri.dtb \
- 				mt8188-geralt-ciri-panel-ivo.dtbo \
--				mt8188-geralt-ciri-audio-max98390-es8326.dtbo \
--				mt8188-geralt-ciri-sku1.dtbo
-+				mt8188-geralt-ciri-audio-max98390-es8326.dtbo
- mt8188-geralt-ciri-sku2-dtbs := mt8188-geralt-ciri.dtb \
- 				mt8188-geralt-ciri-panel-boe.dtbo \
--				mt8188-geralt-ciri-audio-max98390-es8326.dtbo \
--				mt8188-geralt-ciri-sku2.dtbo
-+				mt8188-geralt-ciri-audio-max98390-es8326.dtbo
- mt8188-geralt-ciri-sku3-dtbs := mt8188-geralt-ciri.dtb \
- 				mt8188-geralt-ciri-panel-ivo.dtbo \
--				mt8188-geralt-ciri-audio-max98390-rt5682s.dtbo \
--				mt8188-geralt-ciri-sku3.dtbo
-+				mt8188-geralt-ciri-audio-max98390-rt5682s.dtbo
- mt8188-geralt-ciri-sku4-dtbs := mt8188-geralt-ciri.dtb \
- 				mt8188-geralt-ciri-panel-boe.dtbo \
--				mt8188-geralt-ciri-audio-tas2563-rt5682s.dtbo \
--				mt8188-geralt-ciri-sku4.dtbo
-+				mt8188-geralt-ciri-audio-tas2563-rt5682s.dtbo
- mt8188-geralt-ciri-sku5-dtbs := mt8188-geralt-ciri.dtb \
- 				mt8188-geralt-ciri-panel-ivo.dtbo \
--				mt8188-geralt-ciri-audio-tas2563-es8326.dtbo \
--				mt8188-geralt-ciri-sku5.dtbo
-+				mt8188-geralt-ciri-audio-tas2563-es8326.dtbo
- mt8188-geralt-ciri-sku6-dtbs := mt8188-geralt-ciri.dtb \
- 				mt8188-geralt-ciri-panel-boe.dtbo \
--				mt8188-geralt-ciri-audio-tas2563-es8326.dtbo \
--				mt8188-geralt-ciri-sku6.dtbo
-+				mt8188-geralt-ciri-audio-tas2563-es8326.dtbo
- mt8188-geralt-ciri-sku7-dtbs := mt8188-geralt-ciri.dtb \
- 				mt8188-geralt-ciri-panel-ivo.dtbo \
--				mt8188-geralt-ciri-audio-tas2563-rt5682s.dtbo \
--				mt8188-geralt-ciri-sku7.dtbo
-+				mt8188-geralt-ciri-audio-tas2563-rt5682s.dtbo
- 
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8188-geralt-ciri-sku0.dtb
- dtb-$(CONFIG_ARCH_MEDIATEK) += mt8188-geralt-ciri-sku1.dtb
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dtso b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dtso
-deleted file mode 100644
-index 884a7b2d943c..000000000000
---- a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dtso
-+++ /dev/null
-@@ -1,11 +0,0 @@
--// SPDX-License-Identifier: (GPL-2.0 OR MIT)
--/*
-- * Copyright 2023 Google LLC
-- */
--/dts-v1/;
--/plugin/;
--
--&{/} {
--	model = "Google Ciri sku0 board";
--	compatible = "google,ciri-sku0", "google,ciri", "mediatek,mt8188";
--};
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dtso b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dtso
-deleted file mode 100644
-index d3ed6ea535d7..000000000000
---- a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dtso
-+++ /dev/null
-@@ -1,11 +0,0 @@
--// SPDX-License-Identifier: (GPL-2.0 OR MIT)
--/*
-- * Copyright 2023 Google LLC
-- */
--/dts-v1/;
--/plugin/;
--
--&{/} {
--	model = "Google Ciri sku1 board";
--	compatible = "google,ciri-sku1", "google,ciri", "mediatek,mt8188";
--};
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dtso b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dtso
-deleted file mode 100644
-index 3f9d38bc2ad2..000000000000
---- a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dtso
-+++ /dev/null
-@@ -1,11 +0,0 @@
--// SPDX-License-Identifier: (GPL-2.0 OR MIT)
--/*
-- * Copyright 2024 Google LLC
-- */
--/dts-v1/;
--/plugin/;
--
--&{/} {
--	model = "Google Ciri sku2 board";
--	compatible = "google,ciri-sku2", "google,ciri", "mediatek,mt8188";
--};
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dtso b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dtso
-deleted file mode 100644
-index e6a6f8f06141..000000000000
---- a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dtso
-+++ /dev/null
-@@ -1,11 +0,0 @@
--// SPDX-License-Identifier: (GPL-2.0 OR MIT)
--/*
-- * Copyright 2024 Google LLC
-- */
--/dts-v1/;
--/plugin/;
--
--&{/} {
--	model = "Google Ciri sku3 board";
--	compatible = "google,ciri-sku3", "google,ciri", "mediatek,mt8188";
--};
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dtso b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dtso
-deleted file mode 100644
-index ee5b28c4ef00..000000000000
---- a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dtso
-+++ /dev/null
-@@ -1,11 +0,0 @@
--// SPDX-License-Identifier: (GPL-2.0 OR MIT)
--/*
-- * Copyright 2024 Google LLC
-- */
--/dts-v1/;
--/plugin/;
--
--&{/} {
--	model = "Google Ciri sku4 board (rev4)";
--	compatible = "google,ciri-sku4", "google,ciri", "mediatek,mt8188";
--};
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dtso b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dtso
-deleted file mode 100644
-index ccf8d2f0eb70..000000000000
---- a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dtso
-+++ /dev/null
-@@ -1,11 +0,0 @@
--// SPDX-License-Identifier: (GPL-2.0 OR MIT)
--/*
-- * Copyright 2024 Google LLC
-- */
--/dts-v1/;
--/plugin/;
--
--&{/} {
--	model = "Google Ciri sku5 board (rev4)";
--	compatible = "google,ciri-sku5", "google,ciri", "mediatek,mt8188";
--};
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtso b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtso
-deleted file mode 100644
-index 773c702b59d8..000000000000
---- a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dtso
-+++ /dev/null
-@@ -1,11 +0,0 @@
--// SPDX-License-Identifier: (GPL-2.0 OR MIT)
--/*
-- * Copyright 2024 Google LLC
-- */
--/dts-v1/;
--/plugin/;
--
--&{/} {
--	model = "Google Ciri sku6 board (rev4)";
--	compatible = "google,ciri-sku6", "google,ciri", "mediatek,mt8188";
--};
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dtso b/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dtso
-deleted file mode 100644
-index c22860eab9f8..000000000000
---- a/arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dtso
-+++ /dev/null
-@@ -1,11 +0,0 @@
--// SPDX-License-Identifier: (GPL-2.0 OR MIT)
--/*
-- * Copyright 2024 Google LLC
-- */
--/dts-v1/;
--/plugin/;
--
--&{/} {
--	model = "Google Ciri sku7 board (rev4)";
--	compatible = "google,ciri-sku7", "google,ciri", "mediatek,mt8188";
--};
-diff --git a/arch/arm64/boot/dts/mediatek/mt8188.yaml b/arch/arm64/boot/dts/mediatek/mt8188.yaml
-new file mode 100644
-index 000000000000..7808ae20060f
---- /dev/null
-+++ b/arch/arm64/boot/dts/mediatek/mt8188.yaml
-@@ -0,0 +1,51 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+%YAML 1.2
-+---
-+- dtb: mt8188-geralt-ciri-sku0.dtb
-+  description: Google Ciri board SKU0
-+  compatibles:
-+    - google,ciri-sku0
-+    - google,ciri
-+    - mediatek,mt8188
-+- dtb: mt8188-geralt-ciri-sku1.dtb
-+  description: Google Ciri board SKU1
-+  compatibles:
-+    - google,ciri-sku1
-+    - google,ciri
-+    - mediatek,mt8188
-+- dtb: mt8188-geralt-ciri-sku2.dtb
-+  description: Google Ciri board SKU2
-+  compatibles:
-+    - google,ciri-sku2
-+    - google,ciri
-+    - mediatek,mt8188
-+- dtb: mt8188-geralt-ciri-sku3.dtb
-+  description: Google Ciri board SKU3
-+  compatibles:
-+    - google,ciri-sku3
-+    - google,ciri
-+    - mediatek,mt8188
-+- dtb: mt8188-geralt-ciri-sku4.dtb
-+  description: Google Ciri board SKU4
-+  compatibles:
-+    - google,ciri-sku4
-+    - google,ciri
-+    - mediatek,mt8188
-+- dtb: mt8188-geralt-ciri-sku5.dtb
-+  description: Google Ciri board SKU5
-+  compatibles:
-+    - google,ciri-sku5
-+    - google,ciri
-+    - mediatek,mt8188
-+- dtb: mt8188-geralt-ciri-sku6.dtb
-+  description: Google Ciri board SKU6
-+  compatibles:
-+    - google,ciri-sku6
-+    - google,ciri
-+    - mediatek,mt8188
-+- dtb: mt8188-geralt-ciri-sku7.dtb
-+  description: Google Ciri board SKU7
-+  compatibles:
-+    - google,ciri-sku7
-+    - google,ciri
-+    - mediatek,mt8188
 -- 
-2.52.0.223.gf5cc29aaa4-goog
-
+Regards,
+Liu Ying
 
