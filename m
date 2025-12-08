@@ -4,101 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70631D3B7E2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 10:36:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D732BD3B7E2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 10:42:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+E3SOYkqsEc+5aDXpHHAZRqmKpJ7LXworventsdWgtI=; b=lljBpRxJ0enkx9kDr2HxxUAACe
-	em0XV4cu6NBOmyRTgIY6zBmCgxJV3aU0Ml7XPz34W+uvoZ/ak3uDscfxVJIK3glP/6jhsZGBADxQE
-	fByz2kS3GDc6qhvFNikH0sKU9VsqrDCQeC2GKoeiz+65jwPBWkYKKf278QkGJMegkGM62BM59Exwi
-	WRi5gtVnUw7zPakYqb2JfN84E5ErwF93Kd0/Q2bQxa3HUcnCF1v7FsYwcLtgAI0pu81Go3L53gH8z
-	ct+/+/jZ/8IIYc+BQjy0xhTw0VFsW0GhxCnJ47zB2k7zgBj9VOLho8HLNSVKwAH84Rq6Vmtf9CJjL
-	Mcj5YiLA==;
+	bh=QOY7QJ/Kpjmn+Z2zyJvs6X2kdbwgPk7DZjcU8zJNuWI=; b=ynJNf37qR6FHR9D9LQEXDUaTm+
+	yjEljeBRMp1Arn/T4FQKZ1Q5z1+oHby0hu/jFAiw23VVrXlbEYXlZYw9B+Mqk64H8oSpuPMCDcAVR
+	Mp8UomZorDcbTg4u6ztQ6iHJdSNtyQfy+CgCMphy1VgZmQ0C2MQyYTg2XWH8dpFb6NY/mlPiAhVh7
+	ityONZ76gNG3Z6WlsG9vtBYMXCPU0tYoxNj+fpp0NPR0xzh35Hw6qgob87Ehi7TORoxbi9/bvCm1h
+	agy79LSNmXEtKfq44HukbPfZ3ENG1FI+QDDWIYoo0NJthT+SrGBmJUTuAeoyhjPXlyE8P3Wz4fje1
+	bXLHRdBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSYb6-0000000CxoP-0Xcz;
-	Mon, 08 Dec 2025 10:36:04 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1vSYhB-0000000Cy3m-2otF;
+	Mon, 08 Dec 2025 10:42:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSYb3-0000000Cxo2-3PQn
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 10:36:03 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-4779ce2a624so54842065e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Dec 2025 02:36:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1765190159; x=1765794959; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+E3SOYkqsEc+5aDXpHHAZRqmKpJ7LXworventsdWgtI=;
-        b=xafl2qZjg0+vkMIh4nCeICCbdz0Gfdke33QiyMb1c63u3L5F9qJCM/NaGpLy1wR9ix
-         nI9e9GTn6b8mSTwoSDzCc8mSQuAmaJd2MoQ+PpkkX5LTVi5PFJaqVfd31+D/2i5j9tFX
-         6SVhgpGjCMOHL0HW3Ruwn+jJY9by75XlhPZZep6+/9oVlFwcGr8rMEprr1wWOfscDo1Z
-         U0ColLcfr8Ey/dmaDPtH72x3Z3ipnjzOfe1eFYKIFaaIdpIhn3aBy4Z8mnKKRGWb9eeT
-         q6d6lbatllKFzCd7ZND4wM6kjtrHIPIz40aq6re7cduJjg5aahBq5GolucEq+PoJr7YE
-         MquA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765190159; x=1765794959;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+E3SOYkqsEc+5aDXpHHAZRqmKpJ7LXworventsdWgtI=;
-        b=xMklCALnRoGPK4zzxfM3Viuwf73DxmrbG7oPr2BPF4nZ7pEj7NOg8wSI7x53p4CGxm
-         BTDDPfs1LUp5qkpt0+OC8XHM/BNNXC7o8BqRoSfk9fpRmn4XJtMGUB12UPvHusrSXcqm
-         BOMu0Rcr+2A0hXad0G3P8hS8cCHMGliJK0mT3gEYGL8N5G6dns6aRV4MNVPe4+GTztwp
-         F0nt6mHDbQjCbjJiWflKi17cNsvkADZ7H/FpgIgHGUweOAeALuRLuLtZulVBDoX7wxEX
-         18gm1ZKdxl9W4KyFSDOj76RzJhu7jrqXbRR5hVlxw7OB6VluWw5ZABG8kZx8g6dhwMgD
-         uoQg==
-X-Forwarded-Encrypted: i=1; AJvYcCW74dMokEmfhmDgPedkuOTAzQt/qA2Ed49Mr5fTvVu9wIKeJesxOXgbSoYl4dJ4umIIIKpCY2ejZdjZ8u2NNHAm@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhAIdEgeK04h8mH7pdhyvrFgreH7a60nDsw8LfCQ3eOAYO5j2x
-	djvHJy4v1f2jYK9NzTSycjudLCJDiSrKwSBckxzCxqe5wclAQ2tItBM6esTAxTRudb0=
-X-Gm-Gg: ASbGncs2ys/VxvaOKOC9JgQmRzLkdEpD1we/R3L2DDyCss6QMaOxWOy+v//T4SI9Idn
-	3XwZw6csydh3Jta1s41JXTOQ9Ou02MYlXjqtfv9gC+VEiIWpfCTO2xlZzZPw7yZCCSjMrK5OcJB
-	8UK6jlp6PwhrjNvyGMnb11yVL26jEscDSBKZZDSQgsC6s/+dEOjH+Ozf4ztkK2Vbk5VmrYD1AQa
-	L1imNNIF41/B13XNiwzNxwfJDUuMISS6jFwStUgS4KMUjo2ZVNQRfHEO/0t0cC4vROpdpY9DNl0
-	RspZ82ui3FBncSZroEE2NLXglWjEgC5ZYP9AUe44v1QUVIC2aTKAAEQLk0MW1m9hOpSY+Fi3n0L
-	e2nJa0AvurtfOgZZMNJmEPy1fhZQU5zH6Qju6hQgOSLRuPeKUeyYvD3YXk9XpRKAXleegwyu38w
-	psKGkxD+wo4ny9X33MB+pms3cvn6CVSx+0cYL4cvTIn3y941pC+C3eoYcZ4RCnCm/D/QmUHw==
-X-Google-Smtp-Source: AGHT+IGge21HXj48TLUzsA7ggUbHSFC0xO5HgqxGNKT4MTX7Oe0oV8kQd6FtV8OIYLtnHQGrRwLESw==
-X-Received: by 2002:a05:600c:818e:b0:477:9fcf:3fe3 with SMTP id 5b1f17b1804b1-47939c87088mr76977635e9.0.1765190159388;
-        Mon, 08 Dec 2025 02:35:59 -0800 (PST)
-Received: from aspen.lan (aztw-34-b2-v4wan-166919-cust780.vm26.cable.virginm.net. [82.37.195.13])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-479311e712fsm240407865e9.9.2025.12.08.02.35.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Dec 2025 02:35:58 -0800 (PST)
-Date: Mon, 8 Dec 2025 10:35:55 +0000
-From: Daniel Thompson <daniel@riscstar.com>
-To: Maud Spierings <maudspierings@gocontroll.com>
-Cc: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>,
-	Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, dri-devel@lists.freedesktop.org,
-	linux-leds@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v6 2/4] backlight: add max25014atg backlight
-Message-ID: <aTaqCxsGj_waN92Y@aspen.lan>
-References: <20251201-max25014-v6-0-88e3ac8112ff@gocontroll.com>
- <20251201-max25014-v6-2-88e3ac8112ff@gocontroll.com>
- <aTG0EK_zuSB-U_bb@aspen.lan>
- <8a9a59b8-d5c0-46b3-8f86-a4cd910b7af3@gocontroll.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <8a9a59b8-d5c0-46b3-8f86-a4cd910b7af3@gocontroll.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_023602_128046_7AC2F0DD 
-X-CRM114-Status: GOOD (  20.43  )
+	id 1vSYhA-0000000Cy3O-0fk0;
+	Mon, 08 Dec 2025 10:42:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3D39D6014D;
+	Mon,  8 Dec 2025 10:42:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDA12C4CEF1;
+	Mon,  8 Dec 2025 10:42:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765190538;
+	bh=TAnDl6sPhcy+IUlbX2x8cziKUCBVlmn2sw/09aCCSsI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=X39h8sTJnWGPt8aAvzjUIiETMHFCA3RazvKyqIgwrxEc58CgplJjrACjAAoXNDu9v
+	 Mf4FaQLF71Mpzddiqh8kUrRua4Tc83Ql8bVBgkYb1NwV/s948y0TBK6H1F/bs9Ola/
+	 sZu+jSyI5iZIZdEKwdjRFL1iArddlpoE9LJVlY5w70w1lpY2RFr5VT3HWhCLjjqgO/
+	 7UHZkgAfe6RkxZmmdW+6fR624bPxRz7mmacB9JWaHHKj3qGDASLOxRB1uz0L/yo7E6
+	 bJOkeoaduri8FaD9L2jy/l1FCprmQ0KANGIOHDqKa2svuZK9Ni4EKDeVCuLiDQBGK1
+	 trQavZzLM6zlg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vSYh6-0000000BGKA-1nWA;
+	Mon, 08 Dec 2025 10:42:16 +0000
+Date: Mon, 08 Dec 2025 10:42:15 +0000
+Message-ID: <865xahp854.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Tianrui Zhao <zhaotianrui@loongson.cn>,
+	Bibo Mao <maobibo@loongson.cn>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Christian Borntraeger <borntraeger@linux.ibm.com>,
+	Janosch Frank <frankja@linux.ibm.com>,
+	Claudio Imbrenda <imbrenda@linux.ibm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	kvm@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	"Gustavo A . R . Silva" <gustavoars@kernel.org>
+Subject: Re: [PATCH] KVM: Remove subtle "struct kvm_stats_desc" pseudo-overlay
+In-Reply-To: <20251205232655.445294-1-seanjc@google.com>
+References: <20251205232655.445294-1-seanjc@google.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: seanjc@google.com, oupton@kernel.org, zhaotianrui@loongson.cn, maobibo@loongson.cn, chenhuacai@kernel.org, maddy@linux.ibm.com, anup@brainfault.org, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, borntraeger@linux.ibm.com, frankja@linux.ibm.com, imbrenda@linux.ibm.com, pbonzini@redhat.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, gustavoars@kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,45 +100,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 05, 2025 at 04:20:55PM +0100, Maud Spierings wrote:
-> Thanks for the review.
->
-> On 12/4/25 17:17, Daniel Thompson wrote:
-> > On Mon, Dec 01, 2025 at 12:53:21PM +0100, Maud Spierings via B4 Relay wrote:
-> > > The Maxim MAX25014 is a 4-channel automotive grade backlight driver IC
-> > > with integrated boost controller.
-> > >
-> > > Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
->
-> <snip>
->
-> > > +static int max25014_update_status(struct backlight_device *bl_dev)
-> > > +{
-> > > +	struct max25014 *maxim = bl_get_data(bl_dev);
-> > > +	uint32_t reg;
-> > > +	int ret;
-> > > +
-> > > +	if (backlight_is_blank(maxim->bl))
-> > > +		bl_dev->props.brightness = 0;
-> >
-> > This isn't right. Why would you change the backlight level just because
-> > it is currently blanked (and sorry I missed this one last time).
->
-> so just remove this bit then jeah?
+On Fri, 05 Dec 2025 23:26:55 +0000,
+Sean Christopherson <seanjc@google.com> wrote:
+> 
+> Remove KVM's internal pseudo-overlay of kvm_stats_desc, which subtly
+> aliases the flexible name[] in the uAPI definition with a fixed-size array
+> of the same name.  The unusual embedded structure results in compiler
+> warnings due to -Wflex-array-member-not-at-end, and also necessitates an
+> extra level of dereferencing in KVM.  To avoid the "overlay", define the
+> uAPI structure to have a fixed-size name when building for the kernel.
+> 
+> Opportunistically clean up the indentation for the stats macros, and
+> replace spaces with tabs.
+> 
+> No functional change intended.
+> 
+> Reported-by: Gustavo A. R. Silva <gustavoars@kernel.org>
+> Closes: https://lore.kernel.org/all/aPfNKRpLfhmhYqfP@kspp
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 
-Yes. backlight_get_brightness() is all you should need.
+Acked-by: Marc Zyngier <maz@kernel.org>
 
+	M.
 
-> > > +
-> > > +	reg  = TON_STEP * bl_dev->props.brightness;
-> >
-> > The correct way to honour blanking is just go call
-> > backlight_get_brightness() instead of reading the property directly.
->
-> will do.
-
-Thanks.
-
-
-Daniel.
+-- 
+Without deviation from the norm, progress is not possible.
 
