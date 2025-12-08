@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1629D3B7EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 16:30:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9987FD3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 16:47:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xMnOLLzzt5iNEQJpfnXIIxwAINMiiDkNRmNEFHWNNIY=; b=SoJj1ENxUzTmOl4LJ6xd2m79cN
-	MSvpGIKvzdr5VFrInN7ojnCRG7nKAOqrtX1XJO0lGGpitsVUcC9bOxHNPN2Va4EB6831jqr+SQL0u
-	503XmcQcM4BwFZmCXWFbCmcSEWUMHuzM+OjdRoprKmuAZnWUkjbJuunatN7IOdP03RFpvcqb/zCWc
-	Q+TwfjK8TCKjrojJuU8IyJpw4kh+c/0ASt9elY81zrTuWgRJWDA4ZkM4sWgk8LFWs2sQj+h5kR85N
-	pX3Gg3SghLVf0Kj+izW0vwwXzt3SLWtdC/yPEdY9EDa5kOO0qEkQTJmvnPacEpMIuXjw1KSOv7nwe
-	/h1XkuGA==;
+	bh=NHYKLJf5Ydgc00OY0GYJfIRrC+yABsa0iV0edOQ3TlE=; b=sSqxa3pLgsbt8CuAVDktv62V3F
+	1V/eyh5p6aKc6hmcrpQ47GfiDDfiPP8b7DydGf4rhZ5PbD/wjdiu63x8M6U+51ZYu9pDSAxGxt/gI
+	6W7oRd78ZnopJkODhCWdziumP5R9qd8Iw55e74k8ssuws2eUmyuuDA+83s9NtMQP75UKUzbIfGD84
+	o6k2nu/uOPJ8ZGdIhBo0qyTpoYTZ+RBkwV4oBe+IQNwAhyF6xvQTI/AfmQnRqZK2GkznVbEO5mapr
+	DbAwaK1ptJA7is520sQ3F44AFbNVReGCZWKToQRVulSuGU2ZhOw2ZHxXSQdjBAScJp7nH+GCGNrxY
+	C0Fyr8xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSe7o-0000000DJ5I-37Sd;
-	Mon, 08 Dec 2025 16:30:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSe7m-0000000DJ4V-12uy
+	id 1vSeOa-0000000DKEQ-2ZnQ;
+	Mon, 08 Dec 2025 16:47:32 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vSeOX-0000000DKDc-1Nd9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 16:30:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 308D51691;
-	Mon,  8 Dec 2025 08:29:58 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 87ECF3F740;
-	Mon,  8 Dec 2025 08:30:03 -0800 (PST)
-Date: Mon, 8 Dec 2025 16:30:00 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: Cristian Marussi <cristian.marussi@arm.com>, arm-scmi@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: firmware: arm,scmi: Document
- arm,poll-transport property
-Message-ID: <20251208-quixotic-cocky-emu-9a3916@sudeepholla>
-References: <20251202-evasive-neon-rhino-d2745e@sudeepholla>
- <66257fcf-9024-454f-b776-4ba584963ebe@mailbox.org>
- <aS82GSN8c2SnRn4S@bogus>
- <8d773671-5e2e-4e21-ade6-2bf9a3b75066@mailbox.org>
- <20251203-thick-didactic-cockatoo-deaa1d@sudeepholla>
- <4ccbcffd-bcc7-478b-a525-a4a11e3092ee@mailbox.org>
- <20251204-calm-peacock-of-fantasy-6b8cbe@sudeepholla>
- <e25c690c-e74d-4641-a97e-8eae81a59168@mailbox.org>
- <20251205-winged-quizzical-pigeon-ed692d@sudeepholla>
- <06fc0557-6b7c-4092-aeec-e3e16bab2d72@mailbox.org>
+	Mon, 08 Dec 2025 16:47:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=NHYKLJf5Ydgc00OY0GYJfIRrC+yABsa0iV0edOQ3TlE=; b=Y+b+tNDiUihO5IAIDug+Vcm1Xk
+	6U52YpK5KhiQmhWWMkRB3TyP1U8+4xWe5QBkZJBMB8irzhRYPeDOHED96+OXDWiDyT7iTUPKzRPgp
+	lMSqtiF7HxR/7bSoCQ/+y+hLsL2tgibbMjP9Dj69xv9TeU3tUgNyJMnw4N0Q8Tx2kBhgwj2u25UIw
+	cOuHGB6J0FoxIs9r6CieWJcu4Gp0Pe3I2nMeuS1A+/SLB71CQODijwP/SwOP+7Zx37fkQsuyxmWKI
+	QjbcpPW7H1M9VpPYT1jniIBpoxVZyL+5D/6TbBLfieyeJuVek3mPA/WPP9LR9gZULowlTPOxZaGzH
+	XNmQ8/Tw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:41288)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vSeOT-000000007y3-42kG;
+	Mon, 08 Dec 2025 16:47:26 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vSeOS-000000005Bd-1NRZ;
+	Mon, 08 Dec 2025 16:47:24 +0000
+Date: Mon, 8 Dec 2025 16:47:24 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Xie Yuanbin <xieyuanbin1@huawei.com>
+Cc: linux-arm-kernel@lists.infradead.org, torvalds@linux-foundation.org,
+	viro@zeniv.linux.org.uk, will@kernel.org
+Subject: Re: [PATCH 0/3] ARM: fix hash_name() and branch predictor issues
+Message-ID: <aTcBHKFDBkSEp5mi@shell.armlinux.org.uk>
+References: <aTbF009476Iufory@shell.armlinux.org.uk>
+ <20251208150840.92209-1-xieyuanbin1@huawei.com>
+ <aTb19aN_8PNduyDY@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <06fc0557-6b7c-4092-aeec-e3e16bab2d72@mailbox.org>
+In-Reply-To: <aTb19aN_8PNduyDY@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_083010_371876_284E6737 
-X-CRM114-Status: GOOD (  52.86  )
+X-CRM114-CacheID: sfid-20251208_084729_372605_68C83282 
+X-CRM114-Status: GOOD (  33.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,126 +80,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 07, 2025 at 10:16:36AM +0100, Marek Vasut wrote:
-> On 12/5/25 10:54 AM, Sudeep Holla wrote:
-> 
-> Hello Sudeep,
-> 
-> > > > > > Also IIUC, the irq request happens
-> > > > > > as part of channel startup and there are no explicit APIs for the mbox client
-> > > > > > driver to control that. SCMI is mbox client in this case.
-> > > > > 
-> > > > > Sure, but the mailbox driver has to make sure it is correctly demuxing the
-> > > > > IRQs it handles and correctly sends received_data notifications to the right
-> > > > > channel(s) .
-> > > > > 
-> > > > 
-> > > > Agreed, but the concern is that if SCMI is forced to use polling when the
-> > > > channel is opened, and IRQs are enabled by default with no way for SCMI to
-> > > > disable them in polling mode, we could run into issues.
-> > > 
-> > > This constellation seems odd -- if the channel can do IRQs, then this
-> > > property should not be present in DT.
-> > > 
+On Mon, Dec 08, 2025 at 03:59:49PM +0000, Russell King (Oracle) wrote:
+> On Mon, Dec 08, 2025 at 11:08:40PM +0800, Xie Yuanbin wrote:
+> > On Mon, 8 Dec 2025 12:34:27 +0000, Russell King wrote:
+> > > The first patch adds an additional check in __do_kernel_fault() to
+> > > detect this condition. This patch is a non-obvious dependency for the
+> > > next patch.
+> > >
+> > > The second patch handles faults above the top of userspace entirely
+> > > separately, meaning we have a simpler and more obvious fault path,
+> > > which avoids any possibility of taking any MM mutexes, which is the
+> > > cause of the hash_name() problem.
+> > >
+> > > The third patch moves harden_branch_predictor() out of
+> > > __do_user_fault() and to appropriate places in the parent functions.
+> > > The reason this has been avoided thus far is because do_page_fault()
+> > > can be a hot path (since it's used for page aging as well) but with
+> > > kernel address faults being handled by an entirely separate path,
+> > > this avoids adding to that overhead.
 > > 
-> > Yes, but there is no way to validate or check this and that is the root
-> > cause for all my worries.
-> 
-> Should a configuration like that even be considered valid and relevant ?
-> 
-
-Yes, as I have mentioned, there is no way to validate the same in the kernel.
-
-> > > > I realise it’s a very
-> > > > specific corner case, but every time I’ve assumed such scenarios wouldn’t
-> > > > occur, we eventually ended up encountering them. So sorry if I am very
-> > > > pedantic, but I prefer to start smaller and restrictive and expand if and
-> > > > when necessary or required only.
-> > > 
-> > > I don't think this case, where mailbox channel does IRQs and polling is
-> > > enabled, can/should even be considered valid. Either the channel does not do
-> > > IRQs and then it should do polling, or it does IRQs and then it should use
-> > > IRQs, but not both.
-> > > 
+> > I don't have any objections to the first and second patches. However,
+> > for the third patch, I feel it complicates some things. It removes
+> > harden_branch_predictor() from __do_user_fault() and adds it to various
+> > previous calling points.
 > > 
-> > Yes ideally, but having loose ends like this binding which allows someone
-> > to add it to their DT complicates though it is invalid. We have no way to
-> > detect and I don't want to work around such configs in the future.
+> > This seems to be solely for adapting to the scenario of do_alignment() &&
+> > user_mode(regs) && addr >= TASK_SIZE. Does this scenario really exist?
 > 
-> If the DT is invalid, bad things happen, but I would argue that is then a DT
-> bug and the DT should be fixed.
+> As explained in the other thread, alignment faults are the first thing
+> that are checked when enabled, before permission fauls, so we can end
+> up entering do_alignment() from userspace with an address in the
+> kernel address space.
 > 
-
-Well, ideally I would like that, but not always the reality.
-
-> [...]
+> However, there is a user accessible page above TASK_SIZE, that is the
+> vectors page which can have userspace helpers in. Userspace can read
+> from this page, and thus can perform unaligned loads to this page.
 > 
-> > > > Yes, that’s essential, because polling in an SMC context is meaningless in my
-> > > > opinion.
-> > > 
-> > > Maybe the "a2p" IRQ is also used for notifications from longer running
-> > > operations ?
-> > > 
-> > 
-> > Yes, it is some sort of work around some platforms implemented as by design
-> > when the SMC returns, the synchronous commands must complete and it is had
-> > to support async SCMI commands without platform specific interrupt(p2a). This
-> > a2p is sort of completion interrupt for synchronous command. I assume the
-> > platform may offload the task from secure f/w to something else otherwise
-> > secure side needs to be given CPU cycles to complete which complicates this.
-> > In short SMC is synchronous and if the execution returns from it in NS world,
-> > the command is complete.
-> 
-> Wouldn't polling still be useful for the async case , even in SMC setup?
-> Note that the SMC setup does use shmem, and therefore can do polling on the
-> shmem.
-> 
+> The system behaviour of unaligned loads has been configurable, ARMv4,
+> for example, had the ability to check for alignment faults and raise
+> this exception. If that was disabled, then unaligned loads would
+> load the equivalent 32-bit aligned address and rotate the data in
+> the register. Compilers knew about this, and would code for it,
+> which made it ABI. Later compilers stopped using that which cut down
+> on the unaligned loads that userspace issued. Modern CPUs (ARMv7)
+> tend to behave "sanely" in that unaligned loads are generally
+> supported in hardware.
 
-No, it makes no sense for SMC as I have already mentioned few times.
+Also, would you mind giving ASAP some tested-by/reviewed-by for these
+patches so they can be pushed out to linux-next for a bit of testing
+there pelase? I'm on vacation from Thursday, so time is very short
+to get these out - if we're not ready by Wednesday, then it'll be the
+new year, possibly after the 11th January, before I can do anything
+further (medical stuff.)
 
-> > > [...]
-> > > 
-> > > > > > Yes it can be minimalistic but not restrictive. As I already clearly mentioned
-> > > > > > I don't see it makes any sense to enable this for SMC/OPTEE. Lets start with
-> > > > > > just mailbox to start with and extend to other transports if and when needed.
-> > > > > > It would be good to impose that restriction in the binding as well but that
-> > > > > > is not a must IMO. I am fine if the bindings for whatever reasons(though I
-> > > > > > don't see the need) to apply for any transport.
-> > > > > So I should simply drop the smc.c changes , keep the rest, and send V2 ?
-> > > > 
-> > > > Not just that. Unless DT maintainers oppose, I just want to keep this
-> > > > new property valid only for mailbox transport(i.e. "arm,scmi" compatible
-> > > > not otherwise) so that we can catch any other use in binding checks and
-> > > > interested parties must discuss on the list and expand that if they require.
-> > > > 
-> > > > Also we can explore if we can parse and scan this in mailbox transport for
-> > > > now.
-> > > I feel that this only adds more implementation complexity and makes the
-> > > solution less generic, while it does win us very little in the end ? The
-> > > generic solution implementation is actually easier to implement.
-> > 
-> > Yes I want it less generic to start with. Why you want to start making
-> > this workaround on your platform a generic implementation just because
-> > the specification has provision for it ?
-> 
-> Because this is generic kernel code, it seems counterintuitive to introduce
-> less generic solution which requires more complex implementation.
-> 
-
-I would argue. Lot of code gets added as specific and gets generalised
-eventually if there are more users and in different configurations.
-
-> Since the DEN0056 specification states this mode of operation is supported,
-> I also wouldn't call it a workaround.
-
-Sure, I take back if I called it workaround. But why would we want to make
-it generic when we can test only mailbox based platform with it. I don't see
-how it can be useful with SMC/Optee. I am not sure if it is useful with
-virtio and if there is a way to test this. All I am saying is I don't want to
-enable something and advertise it as generic when we have no platform or way
-to test it and keep it functionally correct.
+Thanks.
 
 -- 
-Regards,
-Sudeep
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
