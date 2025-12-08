@@ -4,85 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B81B1D3B7EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 15:53:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E72FD3B7E2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 16:00:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WoJWld5v3fNpXGQcl119QByMGIZQO8OSFUnbHO62zQo=; b=oPQXAIYbygFFvqpnDXnP4Ji3ek
-	Sv/8Z8yUm7gj9mMe/hRy8/thEoYy5gbifhZvMlvYQHVpNENBRHloYHn1nKjpPjCzZ73OJND1SSaRj
-	J0OW8F/02SxO8LMvoMLaieiTkdr9g2pvApDZa9R7OXzXqOXP9Or7RuzPL2A8XlXbw9P+33RTHokn3
-	SLDMJK/Qa2dPT7Oh69FxUFLvs6OR7cH1bkVTwJNAfir4mPnuTP0oeRLG3+3biBPRzH3UB9+W0kXa9
-	bs1plcKjAYCQe4WVHkqs4Ajj2AgVWTFlw0DhdP5eGW+AF3LIyQmBh/pnkP8PLIqyiZPHv9XZ5pdQ/
-	5vFmnxAQ==;
+	bh=JDp0nnRlXbjtf9+Tzimu2sf+62NgTQmfSvfCeGVNddw=; b=atfR9LZFXBYRGpAjfVxAS0KypU
+	YoFvpG1j3cVTmU7AQwAVk/QLCt5HlDl0S7G9WqPKMmavQgbKEgmdD0MIk9ICnv224Iq12nec9FB2G
+	IfTwVzS5JiRdMf+9HAZkXxjfXijjWd26PoEi/O1U50ivqaL3LWN7G9kP62j+IngvATtOMlyFT1Q8F
+	6aIlbe3VKF2erhwRwRK1UQP/6A2Gb1pX0opx4Ho4oECv0f6X8WSe90jpc15vttAd7wRfWH+ZB3QmY
+	sk9p+1UJZPl1sRkTv1VXcWTHnpSLlbcR3RXH7rZ7lRhKVUdv8qxh66SVcePDGEn1Lpz9mL8gfNgTA
+	aAX419+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSdYZ-0000000DGt1-287G;
-	Mon, 08 Dec 2025 15:53:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vSdeX-0000000DH7J-1K0J;
+	Mon, 08 Dec 2025 15:59:57 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSdYX-0000000DGsZ-1E0p
+	id 1vSdeV-0000000DH6t-1NJ7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 15:53:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4FE8F43DF3;
-	Mon,  8 Dec 2025 15:53:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 249EAC4CEF1;
-	Mon,  8 Dec 2025 15:53:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765209224;
-	bh=PeN2WcDmHftDTMUpG2Ud91xaY7ZkgIzrihs/0CEqsGQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Gui9wHS61ATIYFX8UqryuTy+ofUhdvEbUyS68iMpYr1LpqJbs7DehwC63TVjVTLlK
-	 rjE5q7Fe0kpNzAcRw3vwac/WP+VWw+kD8M+9IC8tjvYcdMJTyEj3QA5jDlsrXjPhdD
-	 fHayVAfkyotuPPwgj5rmquhvqUjCpP2KrUa2Iev548nysLHbDX1BV0WRlM0ncWGhyb
-	 f8zWA0kXxBXmdMcPYQlbWD7WrvpW61aXIpqgUU6rXPcuhqpSJHzmh/Nx8PxnQ5HLJr
-	 QxBD/PfeQBoTpC3TQ9KBUDYFnTV6GaEeN0JyDiVplRbNDgYhJKxXyMha/Giy8jyY49
-	 vb+ZpSqeFbtbg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	Mon, 08 Dec 2025 15:59:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=JDp0nnRlXbjtf9+Tzimu2sf+62NgTQmfSvfCeGVNddw=; b=p9tNmu+dXkXPPLGeajNp1ZObuk
+	i7nqvchAVu6f8aeq/kECsgbKmZYpBJwZ64bdaw8o4OgNEjQGO91pD2fy/+Yd2e7jcpKKcWuZcj78U
+	NmWZV2ZEdGQO5CRbUfzmlA+KXlQ0VjVK6MKhFdtvZLZgldooIcMU1L2Hf0jgcqeakwoWL+xXDiwLJ
+	l/ZjRi0YF0Md9z0vXV8E3mmAK9trUXoMJVAGZ+Eyc6kYDAlVqXGYL1HcoTzveEU1Dqi6q4NSUSY2q
+	tubV+zMZAbyq1VFE6ikahERcniJ5ye9P/MzB4E6lJlHy9x/KC2lq8fn/UliiIVJs1RcC9XWilodNZ
+	JVeDTF5Q==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:33664)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vSdYT-0000000BJjQ-49Qa;
-	Mon, 08 Dec 2025 15:53:42 +0000
-Date: Mon, 08 Dec 2025 15:53:41 +0000
-Message-ID: <864iq1otq2.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "sascha.bischoff@googlemail.com" <sascha.bischoff@googlemail.com>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	nd <nd@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly
-	<Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"will@kernel.org"
-	<will@kernel.org>
-Subject: Re: [PATCH 0/2] Enable GICv5 Legacy CPUIF trapping & fix TDIR cap test
-In-Reply-To: <20251208152724.3637157-1-sascha.bischoff@arm.com>
-References: <20251208152724.3637157-1-sascha.bischoff@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, sascha.bischoff@googlemail.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, will@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vSdeR-000000007wA-1rHX;
+	Mon, 08 Dec 2025 15:59:51 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vSdeP-0000000059N-3XC8;
+	Mon, 08 Dec 2025 15:59:49 +0000
+Date: Mon, 8 Dec 2025 15:59:49 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Xie Yuanbin <xieyuanbin1@huawei.com>
+Cc: linux-arm-kernel@lists.infradead.org, torvalds@linux-foundation.org,
+	viro@zeniv.linux.org.uk, will@kernel.org
+Subject: Re: [PATCH 0/3] ARM: fix hash_name() and branch predictor issues
+Message-ID: <aTb19aN_8PNduyDY@shell.armlinux.org.uk>
+References: <aTbF009476Iufory@shell.armlinux.org.uk>
+ <20251208150840.92209-1-xieyuanbin1@huawei.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251208150840.92209-1-xieyuanbin1@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_075345_392261_2B4CE94B 
-X-CRM114-Status: GOOD (  20.96  )
+X-CRM114-CacheID: sfid-20251208_075955_391215_B15FC891 
+X-CRM114-Status: GOOD (  25.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,49 +79,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 08 Dec 2025 15:28:22 +0000,
-Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+On Mon, Dec 08, 2025 at 11:08:40PM +0800, Xie Yuanbin wrote:
+> On Mon, 8 Dec 2025 12:34:27 +0000, Russell King wrote:
+> > The first patch adds an additional check in __do_kernel_fault() to
+> > detect this condition. This patch is a non-obvious dependency for the
+> > next patch.
+> >
+> > The second patch handles faults above the top of userspace entirely
+> > separately, meaning we have a simpler and more obvious fault path,
+> > which avoids any possibility of taking any MM mutexes, which is the
+> > cause of the hash_name() problem.
+> >
+> > The third patch moves harden_branch_predictor() out of
+> > __do_user_fault() and to appropriate places in the parent functions.
+> > The reason this has been avoided thus far is because do_page_fault()
+> > can be a hot path (since it's used for page aging as well) but with
+> > kernel address faults being handled by an entirely separate path,
+> > this avoids adding to that overhead.
 > 
-> These changes address two trapping-related issues when running legacy
-> (i.e. GICv3) guests on GICv5 hosts.
+> I don't have any objections to the first and second patches. However,
+> for the third patch, I feel it complicates some things. It removes
+> harden_branch_predictor() from __do_user_fault() and adds it to various
+> previous calling points.
 > 
-> The first change enables the vgic_v3_cpuif_trap static branch on GICv5
-> hosts with legacy support, if trapping is required. The missing enable
-> was caught as part of debugging why UNDEFs were being injected into
-> guests when the ICH_HCR_EL2.TC bit was set - the expected bahaviour
-> was that KVM should handle the trapped accesses, with the guest
-> remaining blissfully unaware.
-> 
-> The second change fixes the specific cause of the TC bit being set in
-> the first place. The test for the ICH_HCR_EL2_TDIR cap was checking
-> for GICv3 CPUIF support and returning false prior to checking for
-> GICv5 Legacy support. The result was that on GICv5 hosts, the test
-> always returned false, and therefore the TC bit was being set. The
-> issue is fixed by reordering the checks to check for GICv5 Legacy
-> support first.
-> 
-> These changes are based against kvmarm/next.
-> 
-> Thanks,
-> Sascha
-> 
-> Sascha Bischoff (2):
->   KVM: arm64: gic: Enable GICv3 CPUIF trapping on GICv5 hosts if
->     required
->   KVM: arm64: Correct test for ICH_HCR_EL2_TDIR cap for GICv5 hosts
-> 
->  arch/arm64/kernel/cpufeature.c |  8 ++++----
->  arch/arm64/kvm/vgic/vgic-v3.c  | 25 +++++++++++++++----------
->  arch/arm64/kvm/vgic/vgic-v5.c  |  2 ++
->  arch/arm64/kvm/vgic/vgic.h     |  1 +
->  4 files changed, 22 insertions(+), 14 deletions(-)
+> This seems to be solely for adapting to the scenario of do_alignment() &&
+> user_mode(regs) && addr >= TASK_SIZE. Does this scenario really exist?
 
-Thanks for the debugging, and putting this together!
+As explained in the other thread, alignment faults are the first thing
+that are checked when enabled, before permission fauls, so we can end
+up entering do_alignment() from userspace with an address in the
+kernel address space.
 
-Reviewed-by: Marc Zyngier <maz@kernel.org>
+However, there is a user accessible page above TASK_SIZE, that is the
+vectors page which can have userspace helpers in. Userspace can read
+from this page, and thus can perform unaligned loads to this page.
 
-	M.
+The system behaviour of unaligned loads has been configurable, ARMv4,
+for example, had the ability to check for alignment faults and raise
+this exception. If that was disabled, then unaligned loads would
+load the equivalent 32-bit aligned address and rotate the data in
+the register. Compilers knew about this, and would code for it,
+which made it ABI. Later compilers stopped using that which cut down
+on the unaligned loads that userspace issued. Modern CPUs (ARMv7)
+tend to behave "sanely" in that unaligned loads are generally
+supported in hardware.
 
 -- 
-Without deviation from the norm, progress is not possible.
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
