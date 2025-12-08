@@ -4,158 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EE43D1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 03:13:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60E85CEBF88
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 03:44:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p+gI+CNj0ct7amTcfpmYsEe67RYoepPXmaoBnMx/XpU=; b=KVQXOfBJWn9xHElDqQkFomjdn2
-	rUhvstcQueIane10p2Z85gA9I5q+FS7WDu1QYTSWYCJ8uGX2aOnjDU1Fpgrq43J5jmPWoI6WzrakO
-	xDM4bmZmX+MS4IvnRJ6+/Ka+O+WS9/wN4d6D5RVQt6XPTxjmrY5BXpTSKdI5Yg4ZJSlhgPbUDHc0e
-	wal5ya1G0Uicx0msv17uLGmZu3pX5j96kOB8urvo4aR3DN0+NYjlKClkEq5Mp5buv8IlesHTYWE2n
-	urL3fAujt2y+YHNg+4FPe4l+pdtR0bE0mPCWUHt8U/q+U5Xj3/cj42oGi6acZmHrdfppHH26KKuQO
-	KBv4dC1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=om5dsQvWzxASHszoSFGJ5FtUBquX+4l8f6iGkR80jFU=; b=DLx2qhIGNPSdZf+9ApRb9rH0Ag
+	hCWfsAtfTvN/WpWv5dX3VqlkvewAsXN2d4g5xZr/ASfsb41fTATkZzfKuixtclnCmMZ6N+9is0tok
+	jmhA0wvRzINfjKjVGKZVAeN8N+EHE12sNufc2+/jvVD1TwnnyVumMbK2YQtk4sdg5t4A4GB/TwoM6
+	bz8wqphwd/qQyYGUFR14aMkNFRIJ+Y4VAUgYQzjmAD2iGwTOUvorRbNROYXR2RjvdJFPnY3HplfXk
+	2S487/m+/pObP85U/Nxxd7qHRYT9LwCkfD8uSkF0dswN9VE9FtCEoeMRF1Fd5BzFbdApzO1YT2jp/
+	iNs+4F+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSRgs-0000000CWMR-44nj;
-	Mon, 08 Dec 2025 03:13:34 +0000
-Received: from mail-japaneastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c405::7] helo=TYDPR03CU002.outbound.protection.outlook.com)
+	id 1vSSAE-0000000CXVy-3bRt;
+	Mon, 08 Dec 2025 03:43:54 +0000
+Received: from out30-100.freemail.mail.aliyun.com ([115.124.30.100])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSRgq-0000000CWM3-3HI7
+	id 1vSSAB-0000000CXVY-1ESV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 03:13:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ifBBkS9vpVOhc54T0qf57V7IGJIiujcK4vr5r5ynJfiNylt4IwoBOic7y5T3ah+J/XGgUo+4SGBxVbId4RyfJmdKEc9X8ISYx0rHjIZtuQFT/uOmj1oAnCDhkuQwaEBoHpLck052RA7d0nsf6bAbuHJMKnw0xvmAW+ZUqA5sXUYBKyeit1EudQbhBRZsYvDK4Q++wgw8zHVTP9Y5a71zz0qbKzCGR6dzne3hpT2l6RzBMfLVLixnkRf+p9uocr6vZ4wW6g4DT2+SA00OBdgoNSth1Rw6H/s8wAV+lgyCSy9qdPsf7poHwkJDtW/er/WnoG88eK9Mbr1FJlg/fzl8xg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=p+gI+CNj0ct7amTcfpmYsEe67RYoepPXmaoBnMx/XpU=;
- b=pgJHzZ1ihR5GbiY2pA5GyzU3nQEt268NcBfGYpV5Pb16BndaHhAia+CRj83XqupVJKEybj5DR83v6dkJ5JwbiecLH8TPyNz/TveuZ92eumlX4O19LZ+yRtjZm8P1Op/C02n+t6UBNHM6PovgfcPsalFZx7n9Q1EwfSSNfj1ZL/E/IZjA8KTgdIpEttglGRm8RXeZ0dh6NxAdYT6d5aBMnGVUSR0dr9Dt/o+F0pfLGpow9qNajGcMRB0PKtxqaSX8b8SzXq2Qm65l+VimMLX7Gym2Wom05PzCIi+MY5MYCz7TtER08x4bci4f6i1wYAZc9c/4WQ8a/fHV1mZgK7bVfQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=p+gI+CNj0ct7amTcfpmYsEe67RYoepPXmaoBnMx/XpU=;
- b=ptfsg8RLO7DDmTRCZs4qpbB9c2Oh2y21lTN8C2zzp5DtP6MySOAU0024JCK/jsz8V16q5qWe+h8mZGfcXzXFviODpLKi1lyEaqjT95air++FYrlK/OIQnySvLnOllDEXUePWY89DpmdJNRlnZR/ln07Vp5FatbzmDVg/OO7gAv2VOOLdGr6xiU29rR0ROqLHWdu1sQ4Y3Lz5JzxkFEqSMa9zPnovqnz2g39bwYszM0e+SzKrznx4LVmEpXFse9dbT5j4HQ24cIv/eX+FAkYpKAAgTe/DNpjIdDg19LNqjuHtQE2faiUKMwsYtG4xt7iVXKC8+1HShN+d3Yn9RaoaPw==
-Received: from SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12)
- by PUZPR06MB5721.apcprd06.prod.outlook.com (2603:1096:301:f7::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.14; Mon, 8 Dec
- 2025 03:13:24 +0000
-Received: from SEYPR06MB5134.apcprd06.prod.outlook.com
- ([fe80::6b58:6014:be6e:2f28]) by SEYPR06MB5134.apcprd06.prod.outlook.com
- ([fe80::6b58:6014:be6e:2f28%6]) with mapi id 15.20.9388.009; Mon, 8 Dec 2025
- 03:13:24 +0000
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Heiner Kallweit <hkallweit1@gmail.com>, Russell King
-	<linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
-	<andrew@codeconstruct.com.au>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH net-next] net: mdio: aspeed: add dummy read to avoid
- read-after-write issue
-Thread-Topic: [PATCH net-next] net: mdio: aspeed: add dummy read to avoid
- read-after-write issue
-Thread-Index: AQHcZYe49RFyTPixR0iTb6WbCAs6pLUTEaWAgAQD4IA=
-Date: Mon, 8 Dec 2025 03:13:24 +0000
-Message-ID: <SEYPR06MB5134571388AC51EEAC45AF739DA2A@SEYPR06MB5134.apcprd06.prod.outlook.com>
-References: <20251205-aspeed_mdio_add_dummy_read-v1-1-60145ae20ea7@aspeedtech.com>
- <230147e8-e27b-48e1-9a62-7aa8abc3f492@lunn.ch>
-In-Reply-To: <230147e8-e27b-48e1-9a62-7aa8abc3f492@lunn.ch>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SEYPR06MB5134:EE_|PUZPR06MB5721:EE_
-x-ms-office365-filtering-correlation-id: 37ce0aca-f056-42a0-23a4-08de3607bfe9
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|7416014|366016|376014|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?0xC/708BXOKZomL4R4BNsMZdRuOLi2nhQ+mvg1CNczGg7J3QJV4y9Hn7zOwB?=
- =?us-ascii?Q?TNyMBdVs2xnXm1ZG2K1pwYqymhgt1B2nWjcvPw+QkUbenDxxlhxpavRIH8Wz?=
- =?us-ascii?Q?T7R8fnYhVz+nY1XaruxRv1RE9Vk7Dhcl/CxsM0oUbN3BhfdSYpN799HRxseB?=
- =?us-ascii?Q?V0SApyQrm19Jdb+JkuW3b6qjObTIEhJYpcFJ8vnPLP9BHVHXEF1s5bZFnbl2?=
- =?us-ascii?Q?34DHza5XIfxr2lnmg8KNd+34LNihQD1MK1i5bDMd/BHv4ta2QYazEfvZ7nU0?=
- =?us-ascii?Q?3l+fjmSVUGfnziGjfw6d/onppmLEXZJF4JUFIpB0hYqOXbhr0ofdscboMSWd?=
- =?us-ascii?Q?J4gMgLnil3KylswqFJAoEct8gqeWyPXRBVv2Zz1KC6i1y7OS4YojOXdBBO7V?=
- =?us-ascii?Q?bYUREymPOWk1EWncgmBvLByhOZLlB8mIgQvF9g1824wrKXpWO7dd8a8QmLlj?=
- =?us-ascii?Q?fgEHRSFD3LCkDOykBL58jZMsyn4ZJPoOIo2L4RVQC8xYdfvy3T9sZF4gwerf?=
- =?us-ascii?Q?kmsArohaQpTsRtrVkHVevlRN+F8FgoDdlIkpCZzF1ceClO8z76ZLJyjDWgda?=
- =?us-ascii?Q?fRi+R4PbVFaS9SKBk6c6PWPMvArTusePBYucecgIIgGih9aaEMJR+RCNQvQU?=
- =?us-ascii?Q?b7UYXz6CXXFKegB+A+90IRlkOG3CT4HOvcfQKrNewFLc7kLE+4z7bHOpIz+3?=
- =?us-ascii?Q?uYfpF4STx0IRl8idTM84prclEsDriDc0/ly4QQJaneq+YQFkKSoUxwtTwJjR?=
- =?us-ascii?Q?4G1uu2BL80ZsPiX6A1vEDqdk8U+jUaHlDO2akLDcEsARN6RAFiOVcwaJVRrX?=
- =?us-ascii?Q?SBQt7s6hL/cXJP3hsH9gdRf3ThdP/UPrgUcrotPG52HoIpTZ8lylUA+Cpueb?=
- =?us-ascii?Q?O7XLxhCEWeDuAlstBVZLQKDMH+7+MMyrCELDLdqqsgUROivlMrYdceSyxxRd?=
- =?us-ascii?Q?hzV4n4cL5GGOQAc4Vb7IW/z5eovtUqQnKUAn87v5AT6ulqa/i/knCJuYiPJS?=
- =?us-ascii?Q?WNqXG2Ilk69m4uSaOv0Xp2eb+X44l+ZieBk26UpU+xmxnhDeQZufqmDOBBlj?=
- =?us-ascii?Q?Qnk1dqpKzJjCDQXblqr4syGZ95oVA3PqQxXlWH0Bk9D5T2tqF/K7O+wyAkiU?=
- =?us-ascii?Q?JpivvdjxqCExqev0ZlaAl/aa8feuIcIlNmt0jWgq0+j9/UdkIFAIVewnn9kl?=
- =?us-ascii?Q?K0vumnjoajO2Jn04yl79B84Pq7xuibAd+4FjbDByuH6QYeitQFb5DvoWnHel?=
- =?us-ascii?Q?2dGuZvc0ZY+QTlJJ9d1/XPkfOT2yEzd1rfJL4xsynffgpM9XZr4/z3z5IWop?=
- =?us-ascii?Q?FPblIBFXqcmDj4bGv+n9bnRMYjZZi6Jk9bMdd2MU+WdvgdES6C21ZaWuqfgu?=
- =?us-ascii?Q?L5Zizp/Zs/7A7Y2Qusv1BWSxjagSEfnZHezMatGNqPGBNsAKq4IwRdD06bHc?=
- =?us-ascii?Q?JSJaKotHZ0F6djxHjsdqMy4HKVOzG0IQbMHx9HUOX9eKpwAAbKCN9WsP1/7a?=
- =?us-ascii?Q?DB8dyXCFPwdYSitv/QyLVQJJLr0C6x9UNhfE?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB5134.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(366016)(376014)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?uIOfIXrFqgK3WKAoVv37/ibqVQKsQ5xNta+rvoKQfNV65rTEPfsdT7oMU3k8?=
- =?us-ascii?Q?K4rYhBtTKFBLMZe+5Icix8R1kc0rq3AwfHENJOhxsw7vDUdKmtRhiwJcPcw7?=
- =?us-ascii?Q?iGv1jOVrpFLMLEJ+Hc/xeKx9tsZhC6dVcTKPprFT23yuo5fCqbufRBjXHKmU?=
- =?us-ascii?Q?333/QgU1/oJJvVcvR5nmpbVJGLz/EMpiDDMMSoKrEeRv8YlwdMlF4uEa/cpA?=
- =?us-ascii?Q?WnsLh07pHKo2HTdof1wEdDZvh8YZszCM9Coo0IQDJn5jKUJ5fmXX424HPp5v?=
- =?us-ascii?Q?d+AwO3YJwfjB9IR+WNY82BAshanklKQsYNx3kVWdjOPFHrYyxIpx+M/2B45A?=
- =?us-ascii?Q?68Hz+eGLO+alkpVGqSONMgEvLLpO7VDyAy2vYaq8VRxKv3309MzvP6uSnMZA?=
- =?us-ascii?Q?5Tej/1kH154XN1dKedLyYtCNt89fjP1UOJmR+t1hxbOnQe4YIK0aoy/MYQw2?=
- =?us-ascii?Q?xfg8eaczs5V5SITKepznigZliF52tCgCVps5VqjJ17HlCbgsUzTrSHkNGoHQ?=
- =?us-ascii?Q?Tnt/6wnYLYTa3uXLjh3QHoAiEVYNH6oLJsy9KK6CV5N6fTneCxkjtC3yG4z5?=
- =?us-ascii?Q?WYbOt/++yzw93H46ll5o15BOS64kmDNh4XcXtNb/TvWAbarH9emA3r8mIZaM?=
- =?us-ascii?Q?l7rNsN3/dO72a7Sg8U0QPPnXeSY9DQ3Hi2ZTGOunWeBqaGOahrZ4tC2VO3da?=
- =?us-ascii?Q?mNeTCgspG0xjls1ZhLDQ+cAMbPEhjpvygikpDKgHt3btYadGNAW6UWDbZ+Xt?=
- =?us-ascii?Q?8RdrbwGbpBZO9a2cUYGKwe0dzrVvLn/+5HQ1khPMfibqtz/9bnxVul1gimBz?=
- =?us-ascii?Q?f5mKs9rmxlSf5uNYB4iWKnPyA36PTEtlKVcjjzZhpD52G+l48nUPh8ZDlakV?=
- =?us-ascii?Q?8ki58LPjUx/CM8BiZ8xVcEI7p5uYMfJ/0SQnGipyDDfsGW5pZ/niwShIOd+d?=
- =?us-ascii?Q?O+2nH3pBKTaPgSvEgHik/z/JN4CETzTKH2NwoyB+RegZRP1ZXXtnlbczkdic?=
- =?us-ascii?Q?6IiHCONo3ti+jkHjX2mwk+DZqxqBw9qaU5XHaMDJG2/WbPXzqBm/mIwW5hPI?=
- =?us-ascii?Q?QAicF2ZAMI9eGzdc0i30eltMJmkpYc+P4qR1xKTayRz66re479lhfENHAXRa?=
- =?us-ascii?Q?qMAfHcGwF3sGe3uyyoGfFhoqNDPX1T7VMJ4Y/EuNCRbEGc+4ZF/DJikbU19b?=
- =?us-ascii?Q?u0RlkKN/UOQwYElGyvpT0eIifY7M6CkoN2yLBLA+bk1DKTyZPdKIJ33oYn0s?=
- =?us-ascii?Q?FRsgl5RCX10EeM3Z0MZgO+3Sa1BcVbMX1Zvhc7YmSYKMqJuphHSGg1EYlJn+?=
- =?us-ascii?Q?KZRCpBeBLMVo+d0WVVnzsP/nNkXzqhjs6PFyQVI288qf5Q+QV1Y62mgWB1w4?=
- =?us-ascii?Q?Reb6/2RMzrrmvT3WqVVQp36w14JcPBsVojAexW9FVbv+5rS3vl7dJ7KDlTlv?=
- =?us-ascii?Q?Csop7BsAy9Eq4B2PJeocPHbrINcEXxCCuuyjZeP9ogBpIAf4oBBp2Q+jmXYL?=
- =?us-ascii?Q?27WdIqP5o55/o9mMgLJnCGRVCWX8bm4NxZtJ+EX4M8Er7nkPKJmyU5srPh9f?=
- =?us-ascii?Q?yRvSP5UB5ATLP7CODsHOptaugyrRFKgoET5z5iul?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 08 Dec 2025 03:43:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1765165426; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=om5dsQvWzxASHszoSFGJ5FtUBquX+4l8f6iGkR80jFU=;
+	b=v5/0mtdK1a8XeNn6rnfobtE+F8cb+H/tQAtN1yUpk1F+/aHotArRN99bxR1nRMPrSYtrkuVHq15nHurvXQ1mizDLGeYA/3yUtMNox1noc/ocX7W6OXvDaRIls8ENUuK55lmEdHgifqLqHFUK4B9W6d1cqlEEiDgcZ0wcPYvUnQk=
+Received: from 30.246.178.18(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WuFEAl9_1765165423 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 08 Dec 2025 11:43:43 +0800
+Message-ID: <f52c705d-6032-4d85-b902-dd6d0a40b9ec@linux.alibaba.com>
+Date: Mon, 8 Dec 2025 11:43:41 +0800
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB5134.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 37ce0aca-f056-42a0-23a4-08de3607bfe9
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Dec 2025 03:13:24.5181
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: UFMJn4UFijqFZC+0nl4ncrhYoM4/8ZVhltIjc+UvqgCVO0FKV1CMrxiRnqVszeP/h+7/9Sr5QvOT78lPM1OWl3w8GuOqJ30NzkRHGeA+DwU=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PUZPR06MB5721
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH rc v2 4/4] iommu/arm-smmu-v3-test: Add nested
+ s1bypass/s1dssbypass coverage
+To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, will@kernel.org,
+ robin.murphy@arm.com
+Cc: joro@8bytes.org, linux-arm-kernel@lists.infradead.org,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ skolothumtho@nvidia.com, praan@google.com
+References: <cover.1765140287.git.nicolinc@nvidia.com>
+ <b6d87901f89c05dd9e1d0c1e819040d205f569a7.1765140287.git.nicolinc@nvidia.com>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <b6d87901f89c05dd9e1d0c1e819040d205f569a7.1765140287.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251207_191332_874122_1E380DAA 
-X-CRM114-Status: GOOD (  20.54  )
+X-CRM114-CacheID: sfid-20251207_194352_301725_5BB0DA0A 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,54 +69,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
 
-Thank you for your reply
 
-> > The Aspeed MDIO controller may return incorrect data when a read
-> > operation follows immediately after a write. Due to a controller bug,
-> > the subsequent read can latch stale data, causing the polling logic to
-> > terminate earlier than expected.
-> >
-> > To work around this hardware issue, insert a dummy read after each
-> > write operation. This ensures that the next actual read returns the
-> > correct data and prevents premature polling exit.
-> >
-> > This workaround has been verified to stabilize MDIO transactions on
-> > affected Aspeed platforms.
-> >
-> > Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
->=20
-> This seems like a bug fix. Please add a Fixes: tag, for base it on net, n=
-ot
-> net-next.
->=20
+在 2025/12/8 04:49, Nicolin Chen 写道:
+> STE in a nested case requires both S1 and S2 fields. And this makes the use
+> case different from the existing one.
+> 
+> Add coverage for previously failed cases shifting between S2-only and S1+S2
+> STEs.
+> 
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>   .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  | 61 +++++++++++++++++++
+>   1 file changed, 61 insertions(+)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
+> index 3556e65cf9ac..1672e75ebffc 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
+> @@ -555,6 +555,65 @@ static void arm_smmu_v3_write_ste_test_s2_to_s1_stall(struct kunit *test)
+>   						       NUM_EXPECTED_SYNCS(3));
+>   }
+>   
+> +static void arm_smmu_test_make_nested_cdtable_ste(
+> +	struct arm_smmu_ste *ste, unsigned int s1dss, const dma_addr_t dma_addr,
+> +	enum arm_smmu_test_master_feat feat)
+> +{
+> +	bool stall_enabled = feat & ARM_SMMU_MASTER_TEST_STALL;
+> +	bool ats_enabled = feat & ARM_SMMU_MASTER_TEST_ATS;
+> +	struct arm_smmu_ste s1ste;
+> +
+> +	struct arm_smmu_master master = {
+> +		.ats_enabled = ats_enabled,
+> +		.cd_table.cdtab_dma = dma_addr,
+> +		.cd_table.s1cdmax = 0xFF,
+> +		.cd_table.s1fmt = STRTAB_STE_0_S1FMT_64K_L2,
+> +		.smmu = &smmu,
+> +		.stall_enabled = stall_enabled,
+> +	};
+> +
+> +	arm_smmu_test_make_s2_ste(ste, ARM_SMMU_MASTER_TEST_ATS);
+> +	arm_smmu_make_cdtable_ste(&s1ste, &master, ats_enabled, s1dss);
 
-Yes, it is a bug fix on HW design.
-I will send it to net again and add Fixes tag.
+Hi, Nicolin,
 
-> > ---
-> >  drivers/net/mdio/mdio-aspeed.c | 6 ++++++
-> >  1 file changed, 6 insertions(+)
-> >
-> > diff --git a/drivers/net/mdio/mdio-aspeed.c
-> > b/drivers/net/mdio/mdio-aspeed.c index e55be6dc9ae7..00e61b922876
-> > 100644
-> > --- a/drivers/net/mdio/mdio-aspeed.c
-> > +++ b/drivers/net/mdio/mdio-aspeed.c
-> > @@ -62,6 +62,12 @@ static int aspeed_mdio_op(struct mii_bus *bus, u8 st=
-,
-> u8 op, u8 phyad, u8 regad,
-> >  		| FIELD_PREP(ASPEED_MDIO_DATA_MIIRDATA, data);
-> >
-> >  	iowrite32(ctrl, ctx->base + ASPEED_MDIO_CTRL);
-> > +	/* Workaround for read-after-write issue.
->=20
-> Blank line before the comment please.
->=20
+Nit. Instead of duplicating this code, we can leverage the existing
+arm_smmu_test_make_cdtable_ste() helper here.
 
-Agreed.
+> +
+> +	ste->data[0] = cpu_to_le64(
+> +		STRTAB_STE_0_V |
+> +		FIELD_PREP(STRTAB_STE_0_CFG, STRTAB_STE_0_CFG_NESTED));
+> +	ste->data[0] |= s1ste.data[0] & ~cpu_to_le64(STRTAB_STE_0_CFG);
+> +	ste->data[1] |= s1ste.data[1];
+> +	/* Merge events for DoS mitigations on eventq */
+> +	ste->data[1] |= cpu_to_le64(STRTAB_STE_1_MEV);
+> +}
+> +
+> +static void
+> +arm_smmu_v3_write_ste_test_nested_s1dssbypass_to_s1bypass(struct kunit *test)
+> +{
+> +	struct arm_smmu_ste s1_ste;
+> +	struct arm_smmu_ste s2_ste;
+> +
+> +	arm_smmu_test_make_nested_cdtable_ste(&s1_ste,
+> +					      STRTAB_STE_1_S1DSS_BYPASS,
+> +					      fake_cdtab_dma_addr,
+> +					      ARM_SMMU_MASTER_TEST_ATS);
+> +	arm_smmu_test_make_s2_ste(&s2_ste, 0);
+> +	arm_smmu_v3_test_ste_expect_hitless_transition(test, &s1_ste, &s2_ste,
+> +						       NUM_EXPECTED_SYNCS(3));
+> +}
+> +
+> +static void
+> +arm_smmu_v3_write_ste_test_nested_s1bypass_to_s1dssbypass(struct kunit *test)
+> +{
+> +	struct arm_smmu_ste s1_ste;
+> +	struct arm_smmu_ste s2_ste;
+> +
+> +	arm_smmu_test_make_nested_cdtable_ste(&s1_ste,
+> +					      STRTAB_STE_1_S1DSS_BYPASS,
+> +					      fake_cdtab_dma_addr,
+> +					      ARM_SMMU_MASTER_TEST_ATS);
+> +	arm_smmu_test_make_s2_ste(&s2_ste, 0);
+> +	arm_smmu_v3_test_ste_expect_hitless_transition(test, &s2_ste, &s1_ste,
+> +						       NUM_EXPECTED_SYNCS(2));
 
-Thanks,
-Jacky
+It would be better to add comments explaining why the number of syncs differs
+between the reverse transitions.
+
+> +}
+> +
+>   static void arm_smmu_v3_write_cd_test_sva_clear(struct kunit *test)
+>   {
+>   	struct arm_smmu_cd cd = {};
+> @@ -601,6 +660,8 @@ static struct kunit_case arm_smmu_v3_test_cases[] = {
+>   	KUNIT_CASE(arm_smmu_v3_write_cd_test_s1_change_asid),
+>   	KUNIT_CASE(arm_smmu_v3_write_ste_test_s1_to_s2_stall),
+>   	KUNIT_CASE(arm_smmu_v3_write_ste_test_s2_to_s1_stall),
+> +	KUNIT_CASE(arm_smmu_v3_write_ste_test_nested_s1dssbypass_to_s1bypass),
+> +	KUNIT_CASE(arm_smmu_v3_write_ste_test_nested_s1bypass_to_s1dssbypass),
+>   	KUNIT_CASE(arm_smmu_v3_write_cd_test_sva_clear),
+>   	KUNIT_CASE(arm_smmu_v3_write_cd_test_sva_release),
+>   	{},
+
+Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
+
+Thanks.
+Shuai
 
