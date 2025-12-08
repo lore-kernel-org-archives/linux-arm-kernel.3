@@ -4,90 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4B56D3B7DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 10:30:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C689D3B7E2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 10:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wNvqYgBG7iSIMiizE0aJ/ECmeySIS6td2ZjzM3JB2Vg=; b=xdTLmtF7XGc/gGizo6PLacjqyb
-	GSXGOvuZpeJTDWhh5d36vTPHUHp/1iWixpFZHYILvQOH8GYT/gNw/SRHoMC9aGIgULIipBDFA2XSD
-	AF9ALRbyfM2YxargJfPQW8V34+4rG1kxDFMyuQM0RFQtcGqAKj3daBdr0Fa/r4VrtQNVhOS/O7i57
-	p9IpDNKmU3oDjdoEl08OhmL8ZL8VsoalnZ2cmPr+cE6mpLxDwIni0AX3DVIXD4cHCHy7B4jGMA1tv
-	t7wA0tiByAILrf7O9HSIc5m1zj9W5fhLGXlysNAko5+XWxuuPuEG/muXaT7779BQsZjyEz9Tn2xhG
-	3lRETk2A==;
+	bh=Je9IIyqf3ckx1tk8Ni7hFzNEfi8CPmuUhAWbgT06pH4=; b=OzbwgMxca3leXytpFE6ePM5M7g
+	Xoj8/sUGLBHW7BKXy8pHZD7Hsi9ysp3KQn9ZS204T3Q7SKS4GjAyi8atC9sow5GgS/7Vk7kTa5bAq
+	9IARbYmpaj35SfEpm5tQcUr4iL1HgdrD4I9H0963PRMW3dsO+bTGBWVNaLd+4UW/8PwwUI7GRlfwN
+	kmGhvIdpVVvEntuSVxw+jD7eoR/2UMPm6mKjTyhneKlyfVJcG/bCizS2VZ2NV65sashCI0oEHX7E8
+	FIgvX1/9r123oRV3JPEzb/r7zGxP+75BkftXw+MKoyoSh7LRp9Bb2Sxdrpzq1dLiaQpUqhWw/s2MY
+	XY3iKFrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSYVw-0000000Cx7j-1h8b;
-	Mon, 08 Dec 2025 10:30:44 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1vSYXs-0000000CxPk-1mDG;
+	Mon, 08 Dec 2025 10:32:44 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSYVu-0000000Cx7A-1i10
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 10:30:43 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-b79b9113651so687195066b.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Dec 2025 02:30:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sartura.hr; s=sartura; t=1765189840; x=1765794640; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wNvqYgBG7iSIMiizE0aJ/ECmeySIS6td2ZjzM3JB2Vg=;
-        b=tXLb+QvcGNdgGPBm1vDOpKv/63tAm/l7OikYv8b1RLC3RiW6P1TXemq84LIDUrfGEH
-         KCtIvhFCT9gSu3yLvLAzjPR2/pPSXtQW2AxFKiHn9nzgW5ffJ91xQml2jrOZBQJPrna7
-         onY0AfKpbYfNzJ0xWUqdtFv1GnPCUlS2V36AnZUfr1C0LwPhZ8SdCMhMKUT7PDIjIK35
-         7IZ1PXGgay7sPUH0AmwoOb4iEe5DjrFapiqGQrWt6IkM9uy9Uc1VC37SODYIDz0++GuI
-         Sul3JYflN2AAtzEF+2NuF7ZTPkJC4oqYnp9E1LD43DMzSXXP6mvivBeiFAk2ZORebAY5
-         zV4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765189840; x=1765794640;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=wNvqYgBG7iSIMiizE0aJ/ECmeySIS6td2ZjzM3JB2Vg=;
-        b=f3PJyKhj/2pJU+lhiVhMvQG3W3yeqctxCxp7uJTxDesRMSThEIa3SCe9N8gZ5J12cr
-         Q6TxDS19rb62FqCrn9DVEWJoQiS0HvGA31NdM4o751NEPuTM6/iyj76t7zYOvOQFj3/P
-         N3tYHwMHeAldMIas6G7XZz+Ib4QeL2stqq2fC274GJXl1pe6/T0HmsiabjbNjFe6/BIy
-         z/11I4yCYKjwiGh0eo5VJrYfFGAylkJUnwjz9DkGOYWzH9hXMMdspNJ08eBo5SYZyulg
-         js5AHpjzf+WxaCnZg6LSMe/wjiQcvSDhq7reMWBWFTqhvngG78vE1LvhXsJ0ZU7rfy7m
-         fOOw==
-X-Forwarded-Encrypted: i=1; AJvYcCX5bGK7GC+xFRhoalkg2gu/Ew90jI57yuh2ihx/H3lmiybGdqVbIQa4H+v7Y6AUrnubYgxyCK2/+z27EriVzuf+@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxa+8Sw8yda96Z83C084ouoVwQLXCCDsiYmPuIQkL/nMqiUz6mW
-	spzVDZ/GpsHrIRpBZxjeAaZPpxuA3dii4DLZMJkz0heZ/4IOu86v+i8d7cICwTmCX58yGIRoPd5
-	yZYYSXoyTnqzLLy/ZMdYuALW6eoffkVXAsGGXtvmGFQ==
-X-Gm-Gg: ASbGncs73uAG/52RtnfWXPA7W7jUZJB2gGWTyYRC+EeDEbZeRug2j8T2rQd45sbarhS
-	lWGGgd0CXfoIgznYhGAiTUkArFaaeu3HW60tZC5P5b6B8GZxX8Shq5ekgfMCj8rJ55mlzPBu7Lu
-	frzLwazsdoIKh/lzUKctD4CQV0zqerHhxQmXHHfPjvMEzZnkt1/ZerYedIZnc8GE+rx49xaf4S/
-	0mMMueNAY61j5sdxUOocBm2eIrU72b66INT5XcWesKslkDqAhgV3P2ESfGiSvu5rnDTn8k=
-X-Google-Smtp-Source: AGHT+IGTGfVyoL064tKoONxhclX3UfjDWBItbzH79CNnYw055wrJS+DIVrLMSFgzEDdDe4VqLWZokTX1m+LMd5COg2g=
-X-Received: by 2002:a17:907:2d9f:b0:b6f:9db1:f831 with SMTP id
- a640c23a62f3a-b7a2432665emr675738166b.23.1765189839808; Mon, 08 Dec 2025
- 02:30:39 -0800 (PST)
+	id 1vSYXp-0000000CxML-0x8y;
+	Mon, 08 Dec 2025 10:32:42 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5B86b963010256;
+	Mon, 8 Dec 2025 10:32:35 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=Je9IIy
+	qf3ckx1tk8Ni7hFzNEfi8CPmuUhAWbgT06pH4=; b=BfzC3HxrPobuhS53ACWdZB
+	PA9iEG/1aL4jT1TRuchKotrzCF9xodygooM1550WBnCL65pVF3xXiljw12UBVbLl
+	lT+rak8kiOOioJ9cqZfrJ/ccy+UBPtvzp/8HFNZqWKthsUB1XFwvk4QBgX+oR4l2
+	iEBYiqVoRUgRtZMs2uBsno0TintxSEi5vcwDUtb+JotU+Kwm1A/ocXKUSZWbktMh
+	g4tOQ0bTghEU6cY1PLDtxzsPSxo1B5+CtrYCtPidOz0X79/QvKd91QLKbspeRwQw
+	V9xQ4P1lQPcSB1CjW4dA4pcTwPESBW5+P72Bw0gAK7/ETwLMsX/bE32v4LqRlX8A
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4avc536st5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 08 Dec 2025 10:32:35 +0000 (GMT)
+Received: from m0360072.ppops.net (m0360072.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.1.12/8.18.0.8) with ESMTP id 5B8ASQSK009105;
+	Mon, 8 Dec 2025 10:32:34 GMT
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4avc536ssv-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 08 Dec 2025 10:32:34 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5B885xZo002034;
+	Mon, 8 Dec 2025 10:32:33 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 4aw11j4wwg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 08 Dec 2025 10:32:33 +0000
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5B8AWU3o38535608
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 8 Dec 2025 10:32:30 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 0F3E72004B;
+	Mon,  8 Dec 2025 10:32:30 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 73E4420040;
+	Mon,  8 Dec 2025 10:32:28 +0000 (GMT)
+Received: from [9.111.22.193] (unknown [9.111.22.193])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Mon,  8 Dec 2025 10:32:28 +0000 (GMT)
+Message-ID: <8f1c1b9e-2743-4326-9a6f-754885ae90f4@linux.ibm.com>
+Date: Mon, 8 Dec 2025 11:32:27 +0100
 MIME-Version: 1.0
-References: <20251203122313.1287950-1-robert.marko@sartura.hr>
- <20251203122313.1287950-2-robert.marko@sartura.hr> <20251203-duly-leotard-86b83bd840c6@spud>
-In-Reply-To: <20251203-duly-leotard-86b83bd840c6@spud>
-From: Robert Marko <robert.marko@sartura.hr>
-Date: Mon, 8 Dec 2025 11:30:28 +0100
-X-Gm-Features: AQt7F2rM1STFm1xLFXO9y7ZB3gww-XKs-PW-e-F3Xq1nOQlYXGXTztJZMADERPo
-Message-ID: <CA+HBbNH6wO2VWOp1Dn52ArrYg6z89FgYnT3x-jsHsTVJ5xSBSA@mail.gmail.com>
-Subject: Re: [PATCH 2/4] dt-bindings: arm: Document Microchip LAN969x
-To: Conor Dooley <conor@kernel.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	gregkh@linuxfoundation.org, nicolas.ferre@microchip.com, 
-	claudiu.beznea@tuxon.dev, mturquette@baylibre.com, sboyd@kernel.org, 
-	richardcochran@gmail.com, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
-	daniel.machon@microchip.com, UNGLinuxDriver@microchip.com, 
-	luka.perkov@sartura.hr
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: Remove subtle "struct kvm_stats_desc" pseudo-overlay
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
+        Oliver Upton <oupton@kernel.org>,
+        Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+        Huacai Chen <chenhuacai@kernel.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
+        Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+        Janosch Frank <frankja@linux.ibm.com>,
+        Claudio Imbrenda <imbrenda@linux.ibm.com>,
+        Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        kvm@vger.kernel.org, loongarch@lists.linux.dev,
+        linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+        kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+        linux-kernel@vger.kernel.org,
+        "Gustavo A . R . Silva" <gustavoars@kernel.org>
+References: <20251205232655.445294-1-seanjc@google.com>
+Content-Language: en-US
+From: Christian Borntraeger <borntraeger@linux.ibm.com>
+In-Reply-To: <20251205232655.445294-1-seanjc@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjA2MDAyMCBTYWx0ZWRfX/ZkvryR9rikx
+ RRIhLIzEwTDFULt3caOu8S6wy6ncgQsyLzn5JBuqe/16x7rRK7DPdjVge5xAJA2z7rL/tT1lyFd
+ YMh3EQIfgG8q57vyiiYdkyOyNbLFDPTLaENaDyuoNnPQpGHKZMal2jpHafVG+bQkdZsWG8NW7UX
+ AlT3nARl8qerz3haG9zUXE0cGXVKSMt5DkrhWZpn/VgzlCYydbpaoEhPc+m7bnrKQcjwj0amtRB
+ p7RTydIUxj8YhOmJYvTpU5HYiUaYpnHgR9Ox+9r7ValcFQxCBW7NuzkHf4WykCwt+6kvFjjjGAe
+ 9Yp1mHPJC81eNRrbuDPcX0SwdooPdv90XQw8GuaCLPA48Ihvfn3NN+/xRxSX0h0xvHQNlMFWFsC
+ kUNylzqzl1bbNR0XFFbgeDqefkUM1w==
+X-Authority-Analysis: v=2.4 cv=S/DUAYsP c=1 sm=1 tr=0 ts=6936a943 cx=c_pps
+ a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17
+ a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=VwQbUJbxAAAA:8 a=1XWaLZrsAAAA:8 a=VnNF1IyMAAAA:8 a=W9euR_DFE7q28BTGJBMA:9
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: QQLrcpyWW-8FcouxCOIdxqAKliO-gZxO
+X-Proofpoint-GUID: ADFjf-VsY2dJHYbJ59fyg02c4PSLuneX
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-06_02,2025-12-04_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 phishscore=0 clxscore=1011 impostorscore=0 suspectscore=0
+ lowpriorityscore=0 adultscore=0 spamscore=0 bulkscore=0 priorityscore=1501
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2510240000 definitions=main-2512060020
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_023042_468111_5A356E85 
-X-CRM114-Status: GOOD (  20.49  )
+X-CRM114-CacheID: sfid-20251208_023241_405237_809D33D2 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,94 +137,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 3, 2025 at 8:19=E2=80=AFPM Conor Dooley <conor@kernel.org> wrot=
-e:
->
-> On Wed, Dec 03, 2025 at 01:21:30PM +0100, Robert Marko wrote:
-> > Microchip LAN969x is a series of multi-port, multi-gigabit switches bas=
-ed
-> > on ARMv8 Cortex-A53 CPU.
-> >
-> > Signed-off-by: Robert Marko <robert.marko@sartura.hr>
-> > ---
-> >  .../bindings/arm/microchip,lan969x.yaml       | 32 +++++++++++++++++++
->
-> This should not be in a unique file, put it in with the other microchip
-> arm devices please. Also, the wildcard in the compatible is not
-> permitted, only way it'd make sense is if these are different binnings
-> of the same silicon. If that's the case, you need to explain why,
-> because compatibles are meant to be soc-specific.
+Am 06.12.25 um 00:26 schrieb Sean Christopherson:
+> Remove KVM's internal pseudo-overlay of kvm_stats_desc, which subtly
+> aliases the flexible name[] in the uAPI definition with a fixed-size array
+> of the same name.  The unusual embedded structure results in compiler
+> warnings due to -Wflex-array-member-not-at-end, and also necessitates an
+> extra level of dereferencing in KVM.  To avoid the "overlay", define the
+> uAPI structure to have a fixed-size name when building for the kernel.
+> 
+> Opportunistically clean up the indentation for the stats macros, and
+> replace spaces with tabs.
+> 
+> No functional change intended.
+> 
+> Reported-by: Gustavo A. R. Silva <gustavoars@kernel.org>
+> Closes: https://lore.kernel.org/all/aPfNKRpLfhmhYqfP@kspp
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 
-Hi Conor,
-The issue is that there is no unique place for Microchip SoC-s,
-LAN966x series is in the AT91 bindings
-while SparX-5 has its own bindings file.
+Acked-by: Christian Borntraeger <borntraeger@linux.ibm.com>
+[..]
 
-What would you suggest in this case?
+> --- a/include/uapi/linux/kvm.h
+> +++ b/include/uapi/linux/kvm.h
+> @@ -14,6 +14,10 @@
+>   #include <linux/ioctl.h>
+>   #include <asm/kvm.h>
+>   
+> +#ifdef __KERNEL__
+> +#include <linux/kvm_types.h>
+> +#endif
+> +
+>   #define KVM_API_VERSION 12
+>   
+>   /*
+> @@ -1579,7 +1583,11 @@ struct kvm_stats_desc {
+>   	__u16 size;
+>   	__u32 offset;
+>   	__u32 bucket_size;
+> +#ifdef __KERNEL__
+> +	char name[KVM_STATS_NAME_SIZE];
+> +#else
+>   	char name[];
+> +#endif
+>   };
 
-As for the wildcard, I understand, will get rid of it in v2.
-
-Regards,
-Robert
-
->
-> pw-bot: changes-requested
->
-> >  1 file changed, 32 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/arm/microchip,lan=
-969x.yaml
-> >
-> > diff --git a/Documentation/devicetree/bindings/arm/microchip,lan969x.ya=
-ml b/Documentation/devicetree/bindings/arm/microchip,lan969x.yaml
-> > new file mode 100644
-> > index 000000000000..3fa1d4ed40d1
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/arm/microchip,lan969x.yaml
-> > @@ -0,0 +1,32 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/arm/microchip,lan969x.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Microchip LAN969x Boards
-> > +
-> > +maintainers:
-> > +  - Robert Marko <robert.marko@sartura.hr>
-> > +
-> > +description: |+
-> > +   The Microchip LAN969x SoC is a ARMv8-based used in a family of
-> > +   multi-port, multi-gigabit switches.
-> > +
-> > +properties:
-> > +  $nodename:
-> > +    const: '/'
-> > +  compatible:
-> > +    oneOf:
-> > +      - description: The LAN969x EVB (EV23X71A) is a 24x 1G + 4x 10G
-> > +          Ethernet development system board.
-> > +        items:
-> > +          - const: microchip,ev23x71a
-> > +          - const: microchip,lan969x
-> > +
-> > +required:
-> > +  - compatible
-> > +
-> > +additionalProperties: true
-> > +
-> > +...
-> > --
-> > 2.52.0
-> >
-
-
-
---=20
-Robert Marko
-Staff Embedded Linux Engineer
-Sartura d.d.
-Lendavska ulica 16a
-10000 Zagreb, Croatia
-Email: robert.marko@sartura.hr
-Web: www.sartura.hr
+Not sure if we need a comment here or not. Maybe git blame is good enough.
 
