@@ -4,88 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF7B5D3ABEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 09:39:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5FC9CD3B7E8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 09:43:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FKtLeUQeqh1WdsCkQd9i/y11+jIg4qidMnoEvLUSV+4=; b=WyjO1qoE18Vo0/wRVoopKAA7bY
-	0YTKMuMSVKzSfnPsSCjoaYm2CuP4IvpQxhuQsQGErHn47nKiQShnhfLdelhoQp5ZPlT52cXkRVkrU
-	j1ZakOHORw3CTE8D4LbdqAwbykE7HYRyO4EgC0gA9BnqTFMXykxwju/smkLzvNDXvONujVdR3RjQI
-	ud9wL0SCifdWiBLSzQ+ljmQyBPGJTJlVdOmp3a0CtX5brhL9H0C9zNA+q09m48W27drYK2fo85MBd
-	wZZmYjvrThW0JETFu5NS7Gf+Wl4jjZ9PTp5HMZIfmHJAtqSlKnj39UPZmoG5uOPMLUzj2fJJz1fjQ
-	ZinAjq6Q==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=S2w8/u2rr3mg4lvmPyZlWOPCilqIT6k6d9NxtmsU/fo=; b=VYIeCE0OFV5XJUrzId6Kkk2YG6
+	aWmj57BXwO2iiyxoSXVFJ2Zc+SocyFqGw+5HU/7aoyl0mfZeNZX0gjSRKMDbMByyKDnE9ZjhP3wMv
+	p/wzt/f3G6hi7bPnBp9BJlTTbyoZg0dCQ/7l2TmNKnfyj9u9EZlBwctZKHo4oupcCkboHcGoydW9P
+	pjgrLUaqEHZ1tZm1lC0lW5L5HhaXHTvZLZSAfUN74VvGV6JUImjtPu+bElQ+s0xYoHzS58ijlLG9O
+	vZZE8SxUsz1ffB/huNvALUtx8K8I2TRztk0HtKU5Ts3n3ZPki94ilJSp06l0HFD9x93dNWDa9wINb
+	kaPhJr1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSXiO-0000000Ctx9-04Ob;
-	Mon, 08 Dec 2025 09:39:32 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1vSXlj-0000000CuGB-0D6G;
+	Mon, 08 Dec 2025 09:42:59 +0000
+Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSXiL-0000000CtwL-23Mp;
-	Mon, 08 Dec 2025 09:39:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1765186770; x=1796722770;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=p82IBGZ4j1jkt4NBfcu7z7d/63zqeo9G4reT2I4uWDo=;
-  b=bG6XJnnX+Nxb7n0oaV51zT1rfX+SYGcj9o2feEPxMCrKVgwOkuR/8cPU
-   NfHabVf6goXRAMKk6MB2uTA4wxWIdbifAomscOO50ZJhYEINweqd9q9YX
-   9TN+OsQQSsNp02Zbh3EOqnLp/liKYNljyVf3HmXeGN7zEzuPVtIq4Buok
-   N5x54PejBfAbkwU7FyyfQ2lCqm5Th+NgKXj5OvHWW7BR2nB0U0QhmRSoY
-   wAzLVtaU1HmmFTWbKa7qE/N+GfG3oVrnPcsmpypaLFjwMvCH4Jjtc/Y4g
-   4NCSjwoqMele5Cjb3Shexi6CQQuLQUsyiDfoj3qeRgw0ej3Y1DYptHm+C
-   g==;
-X-CSE-ConnectionGUID: MwR2GeTNRx+gu3ByZ2txVg==
-X-CSE-MsgGUID: 5YAtaV2MSFC56+BhDdLIxw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11635"; a="84532304"
-X-IronPort-AV: E=Sophos;i="6.20,258,1758610800"; 
-   d="scan'208";a="84532304"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Dec 2025 01:39:29 -0800
-X-CSE-ConnectionGUID: RUNkPscvTKK1RrxIzPPi5w==
-X-CSE-MsgGUID: ZP9ZxvGjQRmDCWEnSrL+eg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,258,1758610800"; 
-   d="scan'208";a="200807599"
-Received: from dapengmi-mobl1.ccr.corp.intel.com (HELO [10.124.240.12]) ([10.124.240.12])
-  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Dec 2025 01:39:21 -0800
-Message-ID: <ee30ed9c-6377-4d14-b930-f0e2c809df7c@linux.intel.com>
-Date: Mon, 8 Dec 2025 17:39:18 +0800
+	id 1vSXlf-0000000CuFW-29py
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Dec 2025 09:42:58 +0000
+Received: from dfae2b116770.home.arpa (unknown [124.16.138.129])
+	by APP-03 (Coremail) with SMTP id rQCowAB3muGVnTZpnbsAAA--.961S2;
+	Mon, 08 Dec 2025 17:42:45 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: ulf.hansson@linaro.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pm@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH] pmdomain: imx: Fix reference count leak in imx_gpc_probe()
+Date: Mon,  8 Dec 2025 09:42:42 +0000
+Message-Id: <20251208094242.17821-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 44/44] KVM: VMX: Add mediated PMU support for CPUs
- without "save perf global ctrl"
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>,
- Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
- Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- Mingwei Zhang <mizhang@google.com>, Xudong Hao <xudong.hao@intel.com>,
- Sandipan Das <sandipan.das@amd.com>,
- Xiong Zhang <xiong.y.zhang@linux.intel.com>,
- Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
-References: <20251206001720.468579-1-seanjc@google.com>
- <20251206001720.468579-45-seanjc@google.com>
-Content-Language: en-US
-From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
-In-Reply-To: <20251206001720.468579-45-seanjc@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: rQCowAB3muGVnTZpnbsAAA--.961S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxCF4fWF4ftF47WFyftr4DXFb_yoW5Xw15pF
+	ZrGFWakrWxGF47Ga4xtr1DZas0k3y2yw4jgw47G3WxZFn8tr9rur1Sva4UKr4SkFWkW3W5
+	AF43JFy09F1UZaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9C14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v26rxl6s
+	0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xII
+	jxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr
+	1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E8cxa
+	n2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVW8uwCF04k20xvY0x0EwIxGrw
+	CFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE
+	14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2
+	IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxK
+	x2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI
+	0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUhmiiUUUUU=
+X-Originating-IP: [124.16.138.129]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAYKA2k2dlSkkAAAsK
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_013929_653671_9C2D4883 
-X-CRM114-Status: GOOD (  28.03  )
+X-CRM114-CacheID: sfid-20251208_014256_001573_D7F3C5AA 
+X-CRM114-Status: GOOD (  12.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,169 +84,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+of_get_child_by_name() returns a node pointer with refcount incremented,
+we should use of_node_put() on it when not needed anymore. Add missing
+of_node_put() calls in imx_gpc_probe() to avoid reference count leak.
 
-On 12/6/2025 8:17 AM, Sean Christopherson wrote:
-> Extend mediated PMU support for Intel CPUs without support for saving
-> PERF_GLOBAL_CONTROL into the guest VMCS field on VM-Exit, e.g. for Skylake
-> and its derivatives, as well as Icelake.  While supporting CPUs without
-> VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL isn't completely trivial, it's not that
-> complex either.  And not supporting such CPUs would mean not supporting 7+
-> years of Intel CPUs released in the past 10 years.
->
-> On VM-Exit, immediately propagate the saved PERF_GLOBAL_CTRL to the VMCS
-> as well as KVM's software cache so that KVM doesn't need to add full EXREG
-> tracking of PERF_GLOBAL_CTRL.  In practice, the vast majority of VM-Exits
-> won't trigger software writes to guest PERF_GLOBAL_CTRL, so deferring the
-> VMWRITE to the next VM-Enter would only delay the inevitable without
-> batching/avoiding VMWRITEs.
->
-> Note!  Take care to refresh VM_EXIT_MSR_STORE_COUNT on nested VM-Exit, as
-> it's unfortunately possible that KVM could recalculate MSR intercepts
-> while L2 is active, e.g. if userspace loads nested state and _then_ sets
-> PERF_CAPABILITIES.  Eating the VMWRITE on every nested VM-Exit is
-> unfortunate, but that's a pre-existing problem and can/should be solved
-> separately, e.g. modifying the number of auto-load entries while L2 is
-> active is also uncommon on modern CPUs.
->
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  arch/x86/kvm/vmx/nested.c    |  6 ++++-
->  arch/x86/kvm/vmx/pmu_intel.c |  7 -----
->  arch/x86/kvm/vmx/vmx.c       | 52 ++++++++++++++++++++++++++++++++----
->  3 files changed, 52 insertions(+), 13 deletions(-)
->
-> diff --git a/arch/x86/kvm/vmx/nested.c b/arch/x86/kvm/vmx/nested.c
-> index 614b789ecf16..1ee1edc8419d 100644
-> --- a/arch/x86/kvm/vmx/nested.c
-> +++ b/arch/x86/kvm/vmx/nested.c
-> @@ -5142,7 +5142,11 @@ void __nested_vmx_vmexit(struct kvm_vcpu *vcpu, u32 vm_exit_reason,
->  
->  	kvm_nested_vmexit_handle_ibrs(vcpu);
->  
-> -	/* Update any VMCS fields that might have changed while L2 ran */
-> +	/*
-> +	 * Update any VMCS fields that might have changed while vmcs02 was the
-> +	 * active VMCS.  The tracking is per-vCPU, not per-VMCS.
-> +	 */
-> +	vmcs_write32(VM_EXIT_MSR_STORE_COUNT, vmx->msr_autostore.nr);
->  	vmcs_write32(VM_EXIT_MSR_LOAD_COUNT, vmx->msr_autoload.host.nr);
->  	vmcs_write32(VM_ENTRY_MSR_LOAD_COUNT, vmx->msr_autoload.guest.nr);
->  	vmcs_write64(TSC_OFFSET, vcpu->arch.tsc_offset);
-> diff --git a/arch/x86/kvm/vmx/pmu_intel.c b/arch/x86/kvm/vmx/pmu_intel.c
-> index 55249fa4db95..27eb76e6b6a0 100644
-> --- a/arch/x86/kvm/vmx/pmu_intel.c
-> +++ b/arch/x86/kvm/vmx/pmu_intel.c
-> @@ -777,13 +777,6 @@ static bool intel_pmu_is_mediated_pmu_supported(struct x86_pmu_capability *host_
->  	if (WARN_ON_ONCE(!cpu_has_load_perf_global_ctrl()))
->  		return false;
->  
-> -	/*
-> -	 * KVM doesn't yet support mediated PMU on CPUs without support for
-> -	 * saving PERF_GLOBAL_CTRL via a dedicated VMCS field.
-> -	 */
-> -	if (!cpu_has_save_perf_global_ctrl())
-> -		return false;
-> -
->  	return true;
->  }
->  
-> diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-> index 6a17cb90eaf4..ba1262c3e3ff 100644
-> --- a/arch/x86/kvm/vmx/vmx.c
-> +++ b/arch/x86/kvm/vmx/vmx.c
-> @@ -1204,6 +1204,17 @@ static bool update_transition_efer(struct vcpu_vmx *vmx)
->  	return true;
->  }
->  
-> +static void vmx_add_autostore_msr(struct vcpu_vmx *vmx, u32 msr)
-> +{
-> +	vmx_add_auto_msr(&vmx->msr_autostore, msr, 0, VM_EXIT_MSR_STORE_COUNT,
-> +			 vmx->vcpu.kvm);
-> +}
-> +
-> +static void vmx_remove_autostore_msr(struct vcpu_vmx *vmx, u32 msr)
-> +{
-> +	vmx_remove_auto_msr(&vmx->msr_autostore, msr, VM_EXIT_MSR_STORE_COUNT);
-> +}
-> +
->  #ifdef CONFIG_X86_32
->  /*
->   * On 32-bit kernels, VM exits still load the FS and GS bases from the
-> @@ -4225,6 +4236,8 @@ void pt_update_intercept_for_msr(struct kvm_vcpu *vcpu)
->  
->  static void vmx_recalc_pmu_msr_intercepts(struct kvm_vcpu *vcpu)
->  {
-> +	u64 vm_exit_controls_bits = VM_EXIT_LOAD_IA32_PERF_GLOBAL_CTRL |
-> +				    VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL;
->  	bool has_mediated_pmu = kvm_vcpu_has_mediated_pmu(vcpu);
->  	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
->  	struct vcpu_vmx *vmx = to_vmx(vcpu);
-> @@ -4234,12 +4247,19 @@ static void vmx_recalc_pmu_msr_intercepts(struct kvm_vcpu *vcpu)
->  	if (!enable_mediated_pmu)
->  		return;
->  
-> +	if (!cpu_has_save_perf_global_ctrl()) {
-> +		vm_exit_controls_bits &= ~VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL;
-> +
-> +		if (has_mediated_pmu)
-> +			vmx_add_autostore_msr(vmx, MSR_CORE_PERF_GLOBAL_CTRL);
-> +		else
-> +			vmx_remove_autostore_msr(vmx, MSR_CORE_PERF_GLOBAL_CTRL);
-> +	}
-> +
->  	vm_entry_controls_changebit(vmx, VM_ENTRY_LOAD_IA32_PERF_GLOBAL_CTRL,
->  				    has_mediated_pmu);
->  
-> -	vm_exit_controls_changebit(vmx, VM_EXIT_LOAD_IA32_PERF_GLOBAL_CTRL |
-> -					VM_EXIT_SAVE_IA32_PERF_GLOBAL_CTRL,
-> -				   has_mediated_pmu);
-> +	vm_exit_controls_changebit(vmx, vm_exit_controls_bits, has_mediated_pmu);
->  
->  	for (i = 0; i < pmu->nr_arch_gp_counters; i++) {
->  		vmx_set_intercept_for_msr(vcpu, MSR_IA32_PERFCTR0 + i,
-> @@ -7346,6 +7366,29 @@ static void atomic_switch_perf_msrs(struct vcpu_vmx *vmx)
->  					      msrs[i].host);
->  }
->  
-> +static void vmx_refresh_guest_perf_global_control(struct kvm_vcpu *vcpu)
-> +{
-> +	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
-> +	struct vcpu_vmx *vmx = to_vmx(vcpu);
-> +
-> +	if (msr_write_intercepted(vmx, MSR_CORE_PERF_GLOBAL_CTRL))
-> +		return;
-> +
-> +	if (!cpu_has_save_perf_global_ctrl()) {
-> +		int slot = vmx_find_loadstore_msr_slot(&vmx->msr_autostore,
-> +						       MSR_CORE_PERF_GLOBAL_CTRL);
-> +
-> +		if (WARN_ON_ONCE(slot < 0))
-> +			return;
-> +
-> +		pmu->global_ctrl = vmx->msr_autostore.val[slot].value;
-> +		vmcs_write64(GUEST_IA32_PERF_GLOBAL_CTRL, pmu->global_ctrl);
-> +		return;
-> +	}
-> +
-> +	pmu->global_ctrl = vmcs_read64(GUEST_IA32_PERF_GLOBAL_CTRL);
-> +}
-> +
->  static void vmx_update_hv_timer(struct kvm_vcpu *vcpu, bool force_immediate_exit)
->  {
->  	struct vcpu_vmx *vmx = to_vmx(vcpu);
-> @@ -7631,8 +7674,7 @@ fastpath_t vmx_vcpu_run(struct kvm_vcpu *vcpu, u64 run_flags)
->  
->  	vmx->loaded_vmcs->launched = 1;
->  
-> -	if (!msr_write_intercepted(vmx, MSR_CORE_PERF_GLOBAL_CTRL))
-> -		vcpu_to_pmu(vcpu)->global_ctrl = vmcs_read64(GUEST_IA32_PERF_GLOBAL_CTRL);
-> +	vmx_refresh_guest_perf_global_control(vcpu);
->  
->  	vmx_recover_nmi_blocking(vmx);
->  	vmx_complete_interrupts(vmx);
+This commit fixes the following issues:
+1. Add of_node_put(pgc_node) before returning from imx_gpc_probe()
+2. Use goto pattern to consolidate error handling
 
-The change looks good to me, but I still have no bandwidth to test the code
-on Ice lake, I would go back after I finish the tests. Thanks.
+Fixes: 721cabf6c660 ("soc: imx: move PGC handling to a new GPC driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+---
+ drivers/pmdomain/imx/gpc.c | 31 +++++++++++++++++++++----------
+ 1 file changed, 21 insertions(+), 10 deletions(-)
 
+diff --git a/drivers/pmdomain/imx/gpc.c b/drivers/pmdomain/imx/gpc.c
+index f18c7e6e75dd..754c60effc8a 100644
+--- a/drivers/pmdomain/imx/gpc.c
++++ b/drivers/pmdomain/imx/gpc.c
+@@ -416,8 +416,10 @@ static int imx_gpc_probe(struct platform_device *pdev)
+ 		return 0;
+ 
+ 	base = devm_platform_ioremap_resource(pdev, 0);
+-	if (IS_ERR(base))
+-		return PTR_ERR(base);
++	if (IS_ERR(base)) {
++		ret = PTR_ERR(base);
++		goto err_free;
++	}
+ 
+ 	regmap = devm_regmap_init_mmio_clk(&pdev->dev, NULL, base,
+ 					   &imx_gpc_regmap_config);
+@@ -425,7 +427,7 @@ static int imx_gpc_probe(struct platform_device *pdev)
+ 		ret = PTR_ERR(regmap);
+ 		dev_err(&pdev->dev, "failed to init regmap: %d\n",
+ 			ret);
+-		return ret;
++		goto err_free;
+ 	}
+ 
+ 	/*
+@@ -460,29 +462,33 @@ static int imx_gpc_probe(struct platform_device *pdev)
+ 		int domain_index;
+ 
+ 		ipg_clk = devm_clk_get(&pdev->dev, "ipg");
+-		if (IS_ERR(ipg_clk))
+-			return PTR_ERR(ipg_clk);
++		if (IS_ERR(ipg_clk)) {
++			ret = PTR_ERR(ipg_clk);
++			goto err_free;
++		}
+ 		ipg_rate_mhz = clk_get_rate(ipg_clk) / 1000000;
+ 
+ 		for_each_child_of_node_scoped(pgc_node, np) {
+ 			ret = of_property_read_u32(np, "reg", &domain_index);
+ 			if (ret)
+-				return ret;
++				goto err_free;
+ 
+ 			if (domain_index >= of_id_data->num_domains)
+ 				continue;
+ 
+ 			pd_pdev = platform_device_alloc("imx-pgc-power-domain",
+ 							domain_index);
+-			if (!pd_pdev)
+-				return -ENOMEM;
++			if (!pd_pdev) {
++				ret = -ENOMEM;
++				goto err_free;
++			}
+ 
+ 			ret = platform_device_add_data(pd_pdev,
+ 						       &imx_gpc_domains[domain_index],
+ 						       sizeof(imx_gpc_domains[domain_index]));
+ 			if (ret) {
+ 				platform_device_put(pd_pdev);
+-				return ret;
++				goto err_free;
+ 			}
+ 			domain = pd_pdev->dev.platform_data;
+ 			domain->regmap = regmap;
+@@ -495,12 +501,17 @@ static int imx_gpc_probe(struct platform_device *pdev)
+ 			ret = platform_device_add(pd_pdev);
+ 			if (ret) {
+ 				platform_device_put(pd_pdev);
+-				return ret;
++				goto err_free;
+ 			}
+ 		}
+ 	}
+ 
++	of_node_put(pgc_node);
+ 	return 0;
++
++err_free:
++	of_node_put(pgc_node);
++	return ret;
+ }
+ 
+ static void imx_gpc_remove(struct platform_device *pdev)
+-- 
+2.34.1
 
 
