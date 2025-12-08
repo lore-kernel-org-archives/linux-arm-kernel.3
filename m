@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 714B1CEBF88
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 06:26:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1855ED3ABEF
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 06:27:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V08DSyGGdYWStmmKp1XUezUVAVqbPDwxGNykpnRxFWI=; b=E1gefyMjrqg8BbeNJT9zHjH103
-	C6UcyuGaPlDJYhfaMBp9fVnkkvScO9g+HNWyIGMuFRL1sMKY79SZRxGq3/MnDcvj6+M+6FAASeaQg
-	FDl3Fk2ZwzgH1XDrVdec4VYoShQww0eaBL0Xok/hLj7vUaM+zATy1wIXNRGdHnOHspEItBkYzWJ+O
-	a5EKdlJtchtmPWf0YHIWlvUXnmjFbfSExcbLqZhcmNzfltdTFbrujBS8oVJJ0bA35aU2KiZctV5eY
-	e45oD4bqwR4Oasonn3VMdcRAI6yvPOQb1CEEuqXePPeRX7TZGVQxsCjbmSeWc9TvIYOP8f49n0bMq
-	deCFz3bw==;
+	bh=VXMIMhWQm7/AFMv/ROdjjeHtYOD9FWda3ex5OP48TzE=; b=eLbamhVeOw0oaXIDonbaeUE/f0
+	t6XH0YhfKZiGpx/9PAySb+Cp+NpKNOIYFsrCtSKFjcEmaZW86HEUBvKmX6ZYQ7JTgTysFyl3+L2LS
+	UbumkdjwujVjxAeCp/WTJnqWGvqfhPJF1730dyM/SUheNXeq/AN7o1mR8BXON5zpYOY4mJHnRat29
+	EocBX2Ju5uqWorRVFZQNeG4Zg+za/+I/3v9pPf/DYtdfJifoTA4Y2TOfU8oYvNKw8kb56m8xttgYf
+	YakIfJRUGrDUdz8ULJUnIXR6CK4fWRz0IQzI6/NmfOWG2TC73evlhHPfKJE+CAIyqravFGWoJZ7uQ
+	bbzOCGSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSUhj-0000000CgUU-3NCv;
-	Mon, 08 Dec 2025 06:26:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vSUig-0000000Cgdh-1ulR;
+	Mon, 08 Dec 2025 06:27:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSUhi-0000000CgTw-0tcm;
-	Mon, 08 Dec 2025 06:26:39 +0000
+	id 1vSUie-0000000Cgd3-1N0T;
+	Mon, 08 Dec 2025 06:27:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 26CE4438D0;
-	Mon,  8 Dec 2025 06:26:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE569C4CEF1;
-	Mon,  8 Dec 2025 06:26:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F150C42D93;
+	Mon,  8 Dec 2025 06:27:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8AD61C4CEF1;
+	Mon,  8 Dec 2025 06:27:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765175197;
-	bh=VfRCSRSZyuEZiyiiHqC5815wiOeaBDWsPYTCQKLJ/0E=;
+	s=k20201202; t=1765175255;
+	bh=Hp23V7WQ4hdq4eaq36/CtuzG1kKtK540egqenungytg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AfKJHMPFDsmEQcxLnriPrRfkvRcWTsG1BczsVXM8ICvi4aGxiaNpw4tN3WL7+yFQu
-	 K5V5IOtf+QDgWJqOeTLCWCo3MgYXjjtQ3PSGH1qUDcjNIl2O+OQPMXICB79yhnmCyU
-	 SzPSH63XGRbUBsTi/OXAgQ2VAdMbaNkTSrVhWcSR4lTeGPrlfq8RO+dDafpqBJgEvj
-	 B4tfzH7Hl4tIyLRibD2M9bKgKQT8rPwoV9SAKiHxYNW3BWisSqIQX680lUM+lj3Axy
-	 0nNnixe4CdOaI3hzqEnSrYH0aXCOYsh+gNK34b1426vXrIgH2XoAj5D6YEIXj/LWro
-	 vr/8HBDasNohQ==
-Date: Mon, 8 Dec 2025 07:26:35 +0100
+	b=nykfMKXWENpqvv3ZSD1vtRCbv8AL8AqALnHbNHdY9QXmGE0xzTAY+O4s9Q6wcposC
+	 RlBcBTLn8ATXQb/7TS+VUk9SamoHGAWpfsFI+Bcav6pFB7mWorClk0Mb4nNO+QDZnt
+	 0dM4qEtYluoep4VYN0ZMsQhCIJnsviW7KIVFzuNlZp4evDzXVo1c8Yq0Ue9S5tUnmW
+	 MJDsMOWgL5hN1qlDVywn6QSCJjVeLo9lIDg33i/geih5laKv3SvgyZWRngipq13LVi
+	 cuHaVnB8Z2ApTWb+pzaZIcQxaBdt2o04Yge8u/barMZXqOMCc5nqssQNScNftnGYMT
+	 CAO2dLntaI09A==
+Date: Mon, 8 Dec 2025 07:27:34 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Ye Zhang <ye.zhang@rock-chips.com>
 Cc: Linus Walleij <linus.walleij@linaro.org>, 
@@ -49,19 +49,19 @@ Cc: Linus Walleij <linus.walleij@linaro.org>,
 	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
 	Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	tao.huang@rock-chips.com, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v2 1/8] dt-bindings: pinctrl: Add rk3506 pinctrl support
-Message-ID: <20251208-invisible-ingenious-lori-b8aeb2@quoll>
+	tao.huang@rock-chips.com
+Subject: Re: [PATCH v2 6/8] dt-bindings: pinctrl: Add header for Rockchip
+ RK3506 RMIO
+Message-ID: <20251208-tidy-kiwi-of-calibration-c9a8e4@quoll>
 References: <20251206050844.402958-1-ye.zhang@rock-chips.com>
- <20251206050844.402958-2-ye.zhang@rock-chips.com>
+ <20251206050844.402958-7-ye.zhang@rock-chips.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251206050844.402958-2-ye.zhang@rock-chips.com>
+In-Reply-To: <20251206050844.402958-7-ye.zhang@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251207_222638_300348_A2716DF9 
-X-CRM114-Status: UNSURE (   7.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251207_222736_381676_F5BEE2BE 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,16 +76,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 06, 2025 at 01:08:37PM +0800, Ye Zhang wrote:
-> Add the compatible string for the rk3506 SoC.
+On Sat, Dec 06, 2025 at 01:08:42PM +0800, Ye Zhang wrote:
+> Add header file with constants for RMIO pin and function IDs for the
+> Rockchip RK3506 SoC.
 > 
 > Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
-> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+>  .../pinctrl/rockchip,rk3506-rmio.h            | 143 ++++++++++++++++++
 
-Squash it, it is really  just churn to deal with one patch per
-compatible. Especially without any explanation in commit msg justyfing
-it.
+That's not a separate commit. Don't inflate the patchset you just make
+it more work to deal with it, this belongs to the binding.
+
+
+>  1 file changed, 143 insertions(+)
+>  create mode 100644 include/dt-bindings/pinctrl/rockchip,rk3506-rmio.h
+> 
+> diff --git a/include/dt-bindings/pinctrl/rockchip,rk3506-rmio.h b/include/dt-bindings/pinctrl/rockchip,rk3506-rmio.h
+> new file mode 100644
+> index 000000000000..5d39690a0b28
+> --- /dev/null
+> +++ b/include/dt-bindings/pinctrl/rockchip,rk3506-rmio.h
+
+What is the compatible?
 
 Best regards,
 Krzysztof
