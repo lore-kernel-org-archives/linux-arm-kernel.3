@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3BADD3B7E2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 13:42:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FAA2D3B7E7
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 13:42:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nLfRbwTC+bp2j5hryZQgAnOdfY0AnY0aGYk7WBDuOlY=; b=taw6FkH9S/2hoMnxepl5CaC0Iv
-	Rf4/ryvGaB30ruKoPBfl2tA/dvviZnA/V/BGRtHnxlFfPLouHs+u+IgcWQ7KyrO7JjIMObU89pVHj
-	NhnGgKsJCeTTzCTUWQvaKBxUlHe1ki5KBVsKF1b1u4FkM+o6KEHz+206QCqTejBn5448Zc/yP2Mqw
-	kR7aQD/FWHETvYU7p6UKyj4ATKBhiWFo3J75nmvTSTv9G4/dXnryyE4psmYkNj27NJVHBR3PldVgU
-	pDXRroXqYYMQHbpX9XgMHI93CvP0wMu7zRrRY6CbvBcdsOzdLeB9J3HphZqrbuYZNQK1LaMO9BJhp
-	BW/P2SDg==;
+	bh=UvDIVZTz1yHabYq1YxXCS6nzMtfOGKcVZixdzMM4KvY=; b=vTQyOzkD57egd5AKrbpn27EJJm
+	WZxl/xlbnzxOjT5VbJzfXDfLQy6YiLg8kYuSiy2zZXtBxEPnn0h6at/5wp3IlsJ/sVAQ2tBF9pHVa
+	tMiXYv01vkSszl+7/ifwNah44+wSI7X3/kXLuh68D9DZpMCYGKSg2Y6tpNqYE2H+Sq+dwlSmovPxQ
+	uFwfJRvkeyINj9r5w/aqIXcEj6V7JZWnl2QXn0DHhdLbeSPva+M5g6w2KtPI/3lTbBtYqlVh96pKc
+	GEi9MaEHuIMavv7cbPJQSir3mQBpbH4yh6ALZVQxezBDnGMY7z5i62uysJ/y7WNjH9jtb7SBfZoah
+	jiGD8Dog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSbUx-0000000D8MF-3IXc;
+	id 1vSbUx-0000000D8M6-1qpW;
 	Mon, 08 Dec 2025 13:41:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSbUw-0000000D8LE-143l
+	id 1vSbUw-0000000D8LD-0cJ6
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 08 Dec 2025 13:41:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6AD3760177;
+	by tor.source.kernel.org (Postfix) with ESMTP id 1F06B60153;
 	Mon,  8 Dec 2025 13:41:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id E0C16C2BC86;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id BDBB3C16AAE;
 	Mon,  8 Dec 2025 13:41:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1765201312;
-	bh=Xi23dNBeLnbyP+MfAVL3IQS68z/4ZfOXaIm5R1+0ooA=;
+	bh=4JySDSRns+FI1+eltWpawhgaaKVZkXRwnv3jRLFGXek=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=nE19+gsPqXNRzQMB40dD/IYjbZ0CXRC3bAE6i1VxdXZgo1lFPBnb5wABu+sb0V9Gq
-	 mObCJ3LHg8A1HV086OSBbazAvTDDGIDsRGkGBV39u7kAdQJNUjRWMCb5XWpcXM1IHa
-	 K7g0L3yqrL+MpPUE7vddFUgmVUTQZeiXtkyznmXXmjAFtV9tWo6IUqmsFtnbPHVeAJ
-	 FKaYD1yopiA9bO2n03jz4kXg3XhyuKQfSrH/wVMJqCQ5M4ht11h8YffqnwW+YhkkU7
-	 zgwUZIwMnVMJ+UKeY+/j90v4P1ghoajqPPEHr0xZ3Es6AC2K9/c3XT7kvjj3mogPHt
-	 XJU1TgM336rSw==
+	b=Qo5hciAyPhElD0nNaTs4j2nvsKGkS0DwX7qHootxAgnZpPXdBeSLkhMLbdoCg+JlL
+	 jyOhvfIhw0v0uAGsCX2cyJhdoabB8YrRJB3Sw0bJMFOq5xlu+4v6Io8scAN+Ei5asG
+	 o5lz9yaVm5w7ekVZv1jnDPx0EE++b1+eUwiazkq54hJnj8XWjiymzxFqQhWyo3pJvy
+	 T9lMaXyY+tymQsqv/8eylOOBxgp8u5YR0eOEu3EfXU88n7Xf+GpjejB17UybWc8UwL
+	 ZGfEttfg50/J1e6Ef5/m5kUSf4zEmg9XCZV8rJjjy5B5e0IKtTcjbvf/rq89godKo/
+	 FeGTzNf0OekAA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id D2B54D3B7E2;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id ADA35D3B7E1;
 	Mon,  8 Dec 2025 13:41:52 +0000 (UTC)
 From: Yassine Ouaissa via B4 Relay <devnull+yassine.ouaissa.allegrodvt.com@kernel.org>
-Date: Mon, 08 Dec 2025 14:41:23 +0100
-Subject: [PATCH v6 3/4] dt-bindings: vendor-prefixes: Update the
- description of allegro prefix
+Date: Mon, 08 Dec 2025 14:41:21 +0100
+Subject: [PATCH v6 1/4] media: allegro-dvt: Move the current driver to a
+ subdirectory
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20251208-allegro_dvt_al300_dec_driver-v6-3-2e51ab2e4ce9@allegrodvt.com>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251208-allegro_dvt_al300_dec_driver-v6-1-2e51ab2e4ce9@allegrodvt.com>
 References: <20251208-allegro_dvt_al300_dec_driver-v6-0-2e51ab2e4ce9@allegrodvt.com>
 In-Reply-To: <20251208-allegro_dvt_al300_dec_driver-v6-0-2e51ab2e4ce9@allegrodvt.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>, 
@@ -64,16 +64,15 @@ To: Mauro Carvalho Chehab <mchehab@kernel.org>,
  Yassine OUAISSA <yassine.ouaissa@allegrodvt.com>, 
  Nicolas Dufresne <nicolas@ndufresne.ca>
 Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- Conor Dooley <conor.dooley@microchip.com>
+ linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=984;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=6950;
  i=yassine.ouaissa@allegrodvt.com; h=from:subject:message-id;
- bh=dwi2brNNC57NCpVLbkKs5CwBSDc3o/+yQYET7H88jNk=;
- b=owGbwMvMwCV2oHftXqU9jLMZT6slMWSaXZ3HyhP9aeV7sQX71I4ZXhH/GLYp/rBSPEfXhQ9fG
- uITzDl/d5SyMIhxMciKKbJ8MFj67Atbjc+MFrb5MHNYmUCGMHBxCsBEtu5hZHi7c9riY/OXGKVx
- HIh5oH47/LvBDXMzubUGXLNtF7tGabUx/GZtLWG6euRtKd97zr92DuFiRiu1HVU4jDS2Spbtz/F
- 6xA8A
+ bh=i35LsoUyWu9MvZHQcR7mGZ0LriJbKp9yLbXoBnDjSgI=;
+ b=owGbwMvMwCV2oHftXqU9jLMZT6slMWSaXZ07SSz0teHuY4fW7VJhD9L+aOr0t8xg8/+b3l0Xj
+ lw68kZ7dUcpC4MYF4OsmCLLB4Olz76w1fjMaGGbDzOHlQlkCAMXpwBMROA6I8NUngvz4oJzu36p
+ 1HDZ/3gsenzjhYU8ccHeB8UkNPrcJlgxMiy+PuOuuFvFi2W8MVF9Z8KNZ/x498M51FyjQeT1uh2
+ iS7gA
 X-Developer-Key: i=yassine.ouaissa@allegrodvt.com; a=openpgp;
  fpr=B0CE218FC8E89064DAED6179042F935CFB3AD0CC
 X-Endpoint-Received: by B4 Relay for yassine.ouaissa@allegrodvt.com/default
@@ -96,29 +95,151 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
 
-Add SAS (Société par actions simplifiée) to the allegro of vendor
-prefixe description to include French simplified joint-stock company
-legal structure.
+In preparation for the upcoming driver update, we need to relocate the
+current driver.
+This will help ensure a clean transition and avoid any potential
+conflicts with the new driver.
+This patch is crucial for keeping our directory organized and
+facilitating a smooth integration of the new driver.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 Signed-off-by: Yassine Ouaissa <yassine.ouaissa@allegrodvt.com>
 ---
- Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ MAINTAINERS                                             |  2 +-
+ drivers/media/platform/allegro-dvt/Kconfig              | 16 +---------------
+ drivers/media/platform/allegro-dvt/Makefile             |  5 +----
+ drivers/media/platform/allegro-dvt/zynqmp/Kconfig       | 17 +++++++++++++++++
+ drivers/media/platform/allegro-dvt/zynqmp/Makefile      |  6 ++++++
+ .../platform/allegro-dvt/{ => zynqmp}/allegro-core.c    |  0
+ .../platform/allegro-dvt/{ => zynqmp}/allegro-mail.c    |  0
+ .../platform/allegro-dvt/{ => zynqmp}/allegro-mail.h    |  0
+ .../media/platform/allegro-dvt/{ => zynqmp}/nal-h264.c  |  0
+ .../media/platform/allegro-dvt/{ => zynqmp}/nal-h264.h  |  0
+ .../media/platform/allegro-dvt/{ => zynqmp}/nal-hevc.c  |  0
+ .../media/platform/allegro-dvt/{ => zynqmp}/nal-hevc.h  |  0
+ .../media/platform/allegro-dvt/{ => zynqmp}/nal-rbsp.c  |  0
+ .../media/platform/allegro-dvt/{ => zynqmp}/nal-rbsp.h  |  0
+ 14 files changed, 26 insertions(+), 20 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-index c7591b2aec2a..8376312dd9e4 100644
---- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
-+++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
-@@ -87,7 +87,7 @@ patternProperties:
-   "^alfa-network,.*":
-     description: ALFA Network Inc.
-   "^allegro,.*":
--    description: Allegro DVT
-+    description: Allegro DVT, SAS.
-   "^allegromicro,.*":
-     description: Allegro MicroSystems, Inc.
-   "^alliedtelesis,.*":
+diff --git a/MAINTAINERS b/MAINTAINERS
+index d701a4d5b00e..dc56841fa5e5 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -838,7 +838,7 @@ R:	Pengutronix Kernel Team <kernel@pengutronix.de>
+ L:	linux-media@vger.kernel.org
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/media/allegro,al5e.yaml
+-F:	drivers/media/platform/allegro-dvt/
++F:	drivers/media/platform/allegro-dvt/zynqmp
+ 
+ ALLIED VISION ALVIUM CAMERA DRIVER
+ M:	Tommaso Merciai <tomm.merciai@gmail.com>
+diff --git a/drivers/media/platform/allegro-dvt/Kconfig b/drivers/media/platform/allegro-dvt/Kconfig
+index 2182e1277568..e9008614c27b 100644
+--- a/drivers/media/platform/allegro-dvt/Kconfig
++++ b/drivers/media/platform/allegro-dvt/Kconfig
+@@ -2,18 +2,4 @@
+ 
+ comment "Allegro DVT media platform drivers"
+ 
+-config VIDEO_ALLEGRO_DVT
+-	tristate "Allegro DVT Video IP Core"
+-	depends on V4L_MEM2MEM_DRIVERS
+-	depends on VIDEO_DEV
+-	depends on ARCH_ZYNQMP || COMPILE_TEST
+-	select V4L2_MEM2MEM_DEV
+-	select VIDEOBUF2_DMA_CONTIG
+-	select REGMAP_MMIO
+-	help
+-	  Support for the encoder video IP core by Allegro DVT. This core is
+-	  found for example on the Xilinx ZynqMP SoC in the EV family and is
+-	  called VCU in the reference manual.
+-
+-	  To compile this driver as a module, choose M here: the module
+-	  will be called allegro.
++source "drivers/media/platform/allegro-dvt/zynqmp/Kconfig"
+diff --git a/drivers/media/platform/allegro-dvt/Makefile b/drivers/media/platform/allegro-dvt/Makefile
+index 66108a303774..d2aa6875edcf 100644
+--- a/drivers/media/platform/allegro-dvt/Makefile
++++ b/drivers/media/platform/allegro-dvt/Makefile
+@@ -1,6 +1,3 @@
+ # SPDX-License-Identifier: GPL-2.0
+ 
+-allegro-objs := allegro-core.o allegro-mail.o
+-allegro-objs += nal-rbsp.o nal-h264.o nal-hevc.o
+-
+-obj-$(CONFIG_VIDEO_ALLEGRO_DVT) += allegro.o
++obj-y += zynqmp/
+diff --git a/drivers/media/platform/allegro-dvt/zynqmp/Kconfig b/drivers/media/platform/allegro-dvt/zynqmp/Kconfig
+new file mode 100644
+index 000000000000..0a0a697c420d
+--- /dev/null
++++ b/drivers/media/platform/allegro-dvt/zynqmp/Kconfig
+@@ -0,0 +1,17 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++config VIDEO_ALLEGRO_DVT
++	tristate "Allegro DVT Video IP Core for ZynqMP"
++	depends on V4L_MEM2MEM_DRIVERS
++	depends on VIDEO_DEV
++	depends on ARCH_ZYNQMP || COMPILE_TEST
++	select V4L2_MEM2MEM_DEV
++	select VIDEOBUF2_DMA_CONTIG
++	select REGMAP_MMIO
++	help
++	  Support for the encoder video IP core by Allegro DVT. This core is
++	  found for example on the Xilinx ZynqMP SoC in the EV family and is
++	  called VCU in the reference manual.
++
++	  To compile this driver as a module, choose M here: the module
++	  will be called allegro.
+diff --git a/drivers/media/platform/allegro-dvt/zynqmp/Makefile b/drivers/media/platform/allegro-dvt/zynqmp/Makefile
+new file mode 100644
+index 000000000000..66108a303774
+--- /dev/null
++++ b/drivers/media/platform/allegro-dvt/zynqmp/Makefile
+@@ -0,0 +1,6 @@
++# SPDX-License-Identifier: GPL-2.0
++
++allegro-objs := allegro-core.o allegro-mail.o
++allegro-objs += nal-rbsp.o nal-h264.o nal-hevc.o
++
++obj-$(CONFIG_VIDEO_ALLEGRO_DVT) += allegro.o
+diff --git a/drivers/media/platform/allegro-dvt/allegro-core.c b/drivers/media/platform/allegro-dvt/zynqmp/allegro-core.c
+similarity index 100%
+rename from drivers/media/platform/allegro-dvt/allegro-core.c
+rename to drivers/media/platform/allegro-dvt/zynqmp/allegro-core.c
+diff --git a/drivers/media/platform/allegro-dvt/allegro-mail.c b/drivers/media/platform/allegro-dvt/zynqmp/allegro-mail.c
+similarity index 100%
+rename from drivers/media/platform/allegro-dvt/allegro-mail.c
+rename to drivers/media/platform/allegro-dvt/zynqmp/allegro-mail.c
+diff --git a/drivers/media/platform/allegro-dvt/allegro-mail.h b/drivers/media/platform/allegro-dvt/zynqmp/allegro-mail.h
+similarity index 100%
+rename from drivers/media/platform/allegro-dvt/allegro-mail.h
+rename to drivers/media/platform/allegro-dvt/zynqmp/allegro-mail.h
+diff --git a/drivers/media/platform/allegro-dvt/nal-h264.c b/drivers/media/platform/allegro-dvt/zynqmp/nal-h264.c
+similarity index 100%
+rename from drivers/media/platform/allegro-dvt/nal-h264.c
+rename to drivers/media/platform/allegro-dvt/zynqmp/nal-h264.c
+diff --git a/drivers/media/platform/allegro-dvt/nal-h264.h b/drivers/media/platform/allegro-dvt/zynqmp/nal-h264.h
+similarity index 100%
+rename from drivers/media/platform/allegro-dvt/nal-h264.h
+rename to drivers/media/platform/allegro-dvt/zynqmp/nal-h264.h
+diff --git a/drivers/media/platform/allegro-dvt/nal-hevc.c b/drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.c
+similarity index 100%
+rename from drivers/media/platform/allegro-dvt/nal-hevc.c
+rename to drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.c
+diff --git a/drivers/media/platform/allegro-dvt/nal-hevc.h b/drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.h
+similarity index 100%
+rename from drivers/media/platform/allegro-dvt/nal-hevc.h
+rename to drivers/media/platform/allegro-dvt/zynqmp/nal-hevc.h
+diff --git a/drivers/media/platform/allegro-dvt/nal-rbsp.c b/drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.c
+similarity index 100%
+rename from drivers/media/platform/allegro-dvt/nal-rbsp.c
+rename to drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.c
+diff --git a/drivers/media/platform/allegro-dvt/nal-rbsp.h b/drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.h
+similarity index 100%
+rename from drivers/media/platform/allegro-dvt/nal-rbsp.h
+rename to drivers/media/platform/allegro-dvt/zynqmp/nal-rbsp.h
 
 -- 
 2.50.1
