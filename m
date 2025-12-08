@@ -4,66 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6129ED3B7E2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 23:24:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6215BD3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 23:33:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TY9nkVa89OOZQwOmpnFC/38XuP13fwqB6+4JsiPdqRg=; b=Q4o8zJ2EHBrFHKG4U1GK3OmveY
-	PMk4JpAcPGCvdNDCWr5/5Gu/AnUH3g0qQkYLv4inDzwYeV51qDOuT9NL4pIRuSbsg95iD/fP9B9AM
-	Lbg8TGsF+wI35sd/ZEKd00O0jrhAi43nXPGvskoVFeq8GxfzgeonGRBHixHaNAu16AUw02Cg72Rss
-	y2stqwK+IiX7+GT2kdBzPJSVreIXZlbQRTzt1zmHLUJmMnmRO4IEhY5BaHwj8VPz5VcDvLRVnfU58
-	D4GEPZWZMRz34PxdlZobGu8j+N88y61y8z7W7+CozjWh+RJvj9oW5i27KnOOZPnjuPdnJjpZH1GAm
-	16lIl/og==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HK749NKSXa7BEB0gHUvmTmpoik9cNE+JdOwbQju/zVQ=; b=eeyhgLPCu+gmmHky02+kEvUxIG
+	UUNU36mjNbO0aCaLSuofZ8hwa0KXEPOl3k7BZfH7sIviOoTjdEz/PMcslvh8OS7qibdWu7j3AjlXC
+	NFgF4EVDLy/1I0svRJTl9P6+Nv4RDN+e5tge1eOfUSCpMmwKCSxxLKE2ItIfpt5z5iJV/55foqUOD
+	7QYzMtllvFXArTMhxIhEwlmSpn60Rmjl/9q+stj6lSmXoncV5ghSDoT0esZYVnzmkuXUZBH75VVKc
+	AB70vzjd/ehkY5ZrNjSuVRbo3JJnMpqGjf6o3D1yTCqqYhQVKgDFeLn90EHskVPMNe+c7g0tPRlNU
+	Kg+uJFgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSkai-0000000DcfM-0QRg;
-	Mon, 08 Dec 2025 23:24:28 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vSkjd-0000000Dd5G-0JEc;
+	Mon, 08 Dec 2025 23:33:41 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSkaf-0000000Dcev-1x6V
+	id 1vSkja-0000000Dd4q-42Hv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 23:24:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 27BC542DDE;
-	Mon,  8 Dec 2025 23:24:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2066C4CEF1;
-	Mon,  8 Dec 2025 23:24:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765236264;
-	bh=daj4a+uPh2c3Xc1peJSyoolEr/C456XKe1rbcDZ5X1M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qXVkIrQDnUiIaSTr2epUv+ZU7vnvWAdFM2RqZEJBw/22zwN+jZrKlW0fFRPxXpJra
-	 RiDd5jxWnpd+3M3yIegWiH1x++iYyzhIpLb9ZYyzIMp00ppL9+RsJX/8WLncIBkNmp
-	 eJxlvyaH1MFTqnrgFy1L4jXlWdTG97zRN5vAZPzHMIA5ZDalB8EG3FtzCL4lv/bqeV
-	 fG+3fUC4hnptJDxbrKj5rmcUiAm7mHazHoyoYhTK3wTsNTXa8FIf4UopZzX0YltFYA
-	 IDUxdUuS9w8CgxPf/rh/CpwaTyxdaOa843UlrF54U70PPAqACa/1Eg/pyuasA1Q/eo
-	 kh6xgeuY2zi9A==
-Date: Mon, 8 Dec 2025 15:24:22 -0800
-From: Eric Biggers <ebiggers@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Kees Cook <keescook@chromium.org>,
-	Justin Stitt <justinstitt@google.com>
-Subject: Re: [PATCH] arm64/simd: Avoid pointless clearing of FP/SIMD buffer
-Message-ID: <20251208232422.GD1853@quark>
-References: <20251204162815.522879-2-ardb@kernel.org>
- <20251205064809.GA26371@sol>
- <CAMj1kXE8qn7MSY1A31CrHRSxw+NXqNGLo=FLo4D-COMhxPAMiw@mail.gmail.com>
- <20251207013004.GA143349@sol>
- <CAMj1kXEWYQYW92=yRG6sJmmrjc8MBz-fdauxX2pq+P2rKhcxmg@mail.gmail.com>
+	Mon, 08 Dec 2025 23:33:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=A+hBie1se99nV8Tvg6zf63jEqY2TjihdL5MYbP4qEGxgAr0GHn/U3tVnsQqyejY46UeML1AnfhdA7WF7Ed1R4DanBzozS/uNPVYXFC4koh+cwFSkRwyIOq6Yokmhnw7ygrgcDFH6s4zGLiAwFM+glYRTT/XuCby824MLsAPaRMPohL2PFlEUzkKPDZEY0NRwa0N/p2AVy0AEShd57g3sc9MUEXtO71qOA+SzHKF2quG9LF4il1HGluGbvJ14UhvPFwAX7ZIWdWA3DKorWi1FyZPA2JyzzrD7jv5F649u//fwNJbD/Y7fFzFU7BT+wgO/M0Djyxx7AzknR4158mpOrA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HK749NKSXa7BEB0gHUvmTmpoik9cNE+JdOwbQju/zVQ=;
+ b=fyBOvKq8fqUHlpIQBIJc1giREAMvvUQdidlDqTSqWoxayoFX5qBFqEolmpKGNw46BWepM6LVG+Lkps/zpT+q69cGTP8HyboeA1bFGo0qIB07Qatz2iNoyXWfMHlrzYLJdt3Q6pVm1U5PdgkTRMOyUP5PkkdnTEfnNBQGlKBU3Dt9HrWW+W7oUP3EVRbbJxVEIujNM+g2ouFk58rpcC7yD2sw5emG/Neyq2ie1g7SeUVF/iGzgTYF8sXLfQhti7mq7JaH4lE8R70+7/qrXdXeGnuHsNE5U+rbhwM9CqZThiAMA2ud5ryxdIkph8cmex9ShNtagDmE4W815axOFoUdIw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HK749NKSXa7BEB0gHUvmTmpoik9cNE+JdOwbQju/zVQ=;
+ b=Eq6qaTYg1L50BX8QKkUJ73cKvM0u3C2ujMaZjtKx5G8geX7UYGppO8772gkHO9bfWahfmxrYsYZlDu437VZCp/8guI0ZzRa95wSNGdmk+9TQLJ98fZ6lIpfOXLmju78iJmOxV9ghCzFqwkj09DXqkg2aLvqkvVf0UV0m3oUXz0SHrLzk4zdvRhi5ij/yZp30mmsNzR16FNdxDVP1jG6vK1EurkbyKUqzf9DlyIO+o6r54eYo3skwAobCtcB0Fv+bgerioCHfU+KINdBCcupR8CQnFOc/29h5iKifC+MfVsRoz4Roa7jZRv6qblFeXj3+vrd3fhA6gFCRdbrtx1kU0g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
+ by AS8PR04MB7733.eurprd04.prod.outlook.com (2603:10a6:20b:288::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.14; Mon, 8 Dec
+ 2025 23:33:33 +0000
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::21bf:975e:f24d:1612]) by PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::21bf:975e:f24d:1612%5]) with mapi id 15.20.9388.013; Mon, 8 Dec 2025
+ 23:33:32 +0000
+From: Shenwei Wang <shenwei.wang@nxp.com>
+To: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-imx@nxp.com,
+	Shenwei Wang <shenwei.wang@nxp.com>
+Subject: [PATCH] remoteproc: imx_rproc: Use strstarts for "rsc-table" check
+Date: Mon,  8 Dec 2025 17:33:02 -0600
+Message-ID: <20251208233302.684139-1-shenwei.wang@nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SJ0PR03CA0250.namprd03.prod.outlook.com
+ (2603:10b6:a03:3a0::15) To PAXPR04MB9185.eurprd04.prod.outlook.com
+ (2603:10a6:102:231::11)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXEWYQYW92=yRG6sJmmrjc8MBz-fdauxX2pq+P2rKhcxmg@mail.gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9185:EE_|AS8PR04MB7733:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7c3f62b4-4393-47a7-e0f1-08de36b23327
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|7416014|19092799006|376014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bxd1HSg9fPXlyrdCXO8hzmiXd17rQEj4JgPvXA17iPHmBgxCsIN3fPA+a8gQ?=
+ =?us-ascii?Q?MuJ8SluZ5e40wsGMRE1XD8NfLTswP4USj7Xxy99dUiy3bMcJbqyg0LGDcDhc?=
+ =?us-ascii?Q?NNthXToYl/sDd/P3061sbVYLZoPqeRbsiEOvN8RgdcxWefYBs/0nO9e45n4W?=
+ =?us-ascii?Q?KkYnpYB2+JdNHdr4xoPxjjoVdLzh0GnWw/7kuz43m3nk5CWYZ0ZRTmjJQz5o?=
+ =?us-ascii?Q?m/DNQNUo5OI5XBKjFOK4Yk9kQRYJtO+L56L9Hh16Ezmy6TWJj9LQKLdz9z6d?=
+ =?us-ascii?Q?FzsqkVmQFmZGahf9IV4ZDCWalRGTSx5r6sDLfB99gLdw8K9BxyoRagVAyN60?=
+ =?us-ascii?Q?CMdX7+D4imv01gWDjvEW4LbmGiLlZouJvxmWAy1LtdxiJkiYyjVuMLRhdm74?=
+ =?us-ascii?Q?frlVxhnHhW9ySh7D7kL/VaTbdof4Ew/R0WyByZKEM7zCUonDdJsFmUmkDCpQ?=
+ =?us-ascii?Q?CZ1MZYBvxdsznK0ZDmIXg7pEAXqIbU8Mg7x0ZxskzTOkDqtSSq2Nvqjueq4U?=
+ =?us-ascii?Q?GrWQ1B9TrtxEV4wjVGhDCcsyCFe2BLvlh3n9d5bBK7vwt6tmJp0ShOON95Co?=
+ =?us-ascii?Q?S9WQeLGQsINmAMz2DRsSZlbaBpnDHJykC2iqCGnFIv3ThdAP66r633ImCRDr?=
+ =?us-ascii?Q?tMDwghQjdYfBV3uBAKmSmBv2IXJI1GyuQdvidcZYdmPA4aP6OiG36mU3pdbZ?=
+ =?us-ascii?Q?EnutpDvwFVSKq1xrVq9LJgbzOJOaDSA0kJdW8ZkZMUKDMBTcBLDm0CsNVnIv?=
+ =?us-ascii?Q?FiAhR3D40K3GjbN4jQne3t3D5dS6A3VSqoFOB3R19HBm9gR0I+geXrbzcuFN?=
+ =?us-ascii?Q?2QGx37tIg72fI93XrIK9Wr6z0zN7abkn7jBvldZFJFchOkFZuAO8+La46/TD?=
+ =?us-ascii?Q?3B32vomqPR5152T37URlp4tXatU4xoGyHX8ag318WEz+CReHk7be/KTYAkRX?=
+ =?us-ascii?Q?5vY9vKV/iUEu/pY7XUjLjg+Ncj4ANdQdaipMKr3Y3pcy2ejcS7je3dhE7Xkd?=
+ =?us-ascii?Q?P0etUPQiCDEbv0uScYl2233X5gtNiqAfWwyFvZg+pvgvehltqzrKciATxETN?=
+ =?us-ascii?Q?EBjnRfeFyG9rH2SpNWgG3RM+e98DgXtmKz9w0t1fcOciKjobGESADKO/i3kr?=
+ =?us-ascii?Q?k2to9BcT7jtGC/mKpTJ7h3e+79UenSG5aA5VqEQGXs+YZA24MfaFQBjIuNYy?=
+ =?us-ascii?Q?as0lkngtlbjTRGfO2NcCA8FicE6/fOiI+LtWWLBRqELGBW+6LZfiisoO3r1r?=
+ =?us-ascii?Q?L7TuEnrqkicZrQTI8zMl9eOM1AQaAifiBER2tlI1fbH0L5OI3ertEAtGu3QR?=
+ =?us-ascii?Q?qSF9i3Mo8OHxgCjl7ffZkCxtRB2518IP5CMPXD39wCdRDoUdUReXeYz27Q8h?=
+ =?us-ascii?Q?XSXjjedS6caehlJhbX1JQn3I6klG0ZD8R1xvsCfxr8Fm3PojU86u3LTY1GYm?=
+ =?us-ascii?Q?p8z9Of9itQqx/Mx5MvmzjpxW0/yptvNvDWg054TRTZmih45K2rq9heVm9gr2?=
+ =?us-ascii?Q?EuBF72kWuj3qN629k+Tuf9OIDadLw+POrbu6?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(7416014)(19092799006)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DmfwV9El+KUJSHzkp66zJn6FSLl5jar8HLktfrBXBFSgLhNzCy8BW1e3ykqZ?=
+ =?us-ascii?Q?Bdt4UK1juZmBWIBhH5e4Ae5yH2s/ovEGVfjVP8lppLj6w6FdBKcGRyhXrIgW?=
+ =?us-ascii?Q?IbeYL0L3duBrZep23vD77ARdv2kbtQaN6NmghGb9uFKriOaDnkOFMkj4IltI?=
+ =?us-ascii?Q?Zv0RqCQm1g7kNxVe83wZIB6F9VEMAL3QZFSE3SCgyrHqg9QbTUGdRVj0LZL1?=
+ =?us-ascii?Q?2TR2COYM7HWwbnvZ7TE9csVCaax3Klv5QKDeiHA1BVtFgcN4EDfztBUWgtB3?=
+ =?us-ascii?Q?5Wsraa0I8qHTAsgFLRjmYXDHK/PU+5rdN/eV2q6fyIxl7v73dJQ3uPlB/Xxn?=
+ =?us-ascii?Q?ZQKK729pMOgrYJOGupWmfs65m4M8rIezhpAf6Fb+e6ZBZ1I6GF1ZhnOIK1Yf?=
+ =?us-ascii?Q?w+ScJ1HPyJeSQnkTqi7gqc0Sr3YxXPNQVFEjqKSaraouthVv2sOAoljsCP71?=
+ =?us-ascii?Q?ZlVtDWezLElZOl8xCLvba++b4tzl7xVAMNQJ8aLNDE9qRSxoKBtaNElzn1dA?=
+ =?us-ascii?Q?E+xByEg1XRYpuJ6kyi0RaFA3WCPHuJEf0/YkbVrtc21vIqys+BVpU0i7VrBS?=
+ =?us-ascii?Q?C3Dxy6x20GlXaYMGCzk6s1EUorYOeYv+TLjylmvfK9ItQfQK3GtcOpKaIDsD?=
+ =?us-ascii?Q?7WT6h8+4/Y0tzcaHKJBrTrZcVjbzfLFKh2UAqaKPqJStYxRZSAiONPDyNYew?=
+ =?us-ascii?Q?6odyp+CTyRHp8xWOFjpCA0QU4dQO7IYWcyrZrRwDk1Ay5shkrNgJb1bS8zqX?=
+ =?us-ascii?Q?QigaOmoyuG1+Ht9Vnayd4dZpmEMu8CVXpNxO6dOsoIVpHDFyNNwxCNW3E4/5?=
+ =?us-ascii?Q?MI/2d2CV8Qz0G/0ErA8hOwFv+fCBBG878XwFKp7sFsa+j/NncKFIsbL2b7KT?=
+ =?us-ascii?Q?sHRsJrpnGmv5cdQVWxw8yzyArHVpUoWVXQVyCyqasUJxlFlwg2nPb6w2Yokh?=
+ =?us-ascii?Q?6ywsl4lwyt66wxp0FcPYwI+tutY7WrnQExhKHmqykRPf3EUG7DtkqmMf1cvi?=
+ =?us-ascii?Q?rIPMMMa5g0pJRHfjz24cBbgY4bfhBEj4WI5sN8+xHAM+JSNgPgF/+mTNI74N?=
+ =?us-ascii?Q?lcUoFqFJcWL8fcUbI7OikrDT9hS7gwk4OK9TLm80FCwmyde4untb3V3rxY2F?=
+ =?us-ascii?Q?3upu7/4Gx/rD1iDTUSJVHHHHwxBFVYELvaUnYWYSOJAb0zHecdQR16GbCE99?=
+ =?us-ascii?Q?Mi4mmTzUPGt0CMq2NwiuObcwxkxRZnoHW0Y78DvqxCmWivvEQKPz9U7lBv6D?=
+ =?us-ascii?Q?j1gM9NaCCaxcB3VyOS+1j0Hhbx0Imo44Mva198SXEVyT/ghDDYoiOp9kNvwS?=
+ =?us-ascii?Q?FCtw/t3xi+bU+FqPri2eAj4L/RCqQMpiJ0MWzM4ReOMJ/6xypAaZJaFMFYnE?=
+ =?us-ascii?Q?5t5l+0vf+gE5D7ZZGhUFqPElccT1Tb+xY3oFRQ8BtMCb9odeRQpIVMOfJqFM?=
+ =?us-ascii?Q?bm8+PHYioyBv2rj4v6r9ntsw5tst+dn2jmkI0A1S+KuXyN8DBMgEr4DTcHbh?=
+ =?us-ascii?Q?tUZTUjxc0+seOgndMrGxGVXE3DhkFYvKPOLc5O37tDgI3IYklCg2ufbQ7Grq?=
+ =?us-ascii?Q?uWV4KcFCUPRhYAYyF/VEclN84rHEZWauVdi9o/zK?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7c3f62b4-4393-47a7-e0f1-08de36b23327
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Dec 2025 23:33:32.7110
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: QuYeCgwwyfn57WseQ7yrBboKyANf/7OmFVltNGq6x9D7ht6K7k2ji6XVblyCZeqwkUOzXTU0DY9VbajTUDpjiw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7733
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_152425_551381_5B2AD805 
-X-CRM114-Status: GOOD (  44.97  )
+X-CRM114-CacheID: sfid-20251208_153339_080787_09F842AB 
+X-CRM114-Status: GOOD (  11.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,105 +164,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 07, 2025 at 10:59:29AM +0100, Ard Biesheuvel wrote:
-> On Sun, 7 Dec 2025 at 02:30, Eric Biggers <ebiggers@kernel.org> wrote:
-> >
-> > On Fri, Dec 05, 2025 at 09:13:46AM +0100, Ard Biesheuvel wrote:
-> > > On Fri, 5 Dec 2025 at 07:50, Eric Biggers <ebiggers@kernel.org> wrote:
-> > > >
-> > > > On Thu, Dec 04, 2025 at 05:28:15PM +0100, Ard Biesheuvel wrote:
-> > > > > The buffer provided to kernel_neon_begin() is only used if the task is
-> > > > > scheduled out while the FP/SIMD is in use by the kernel, or when such a
-> > > > > section is interrupted by a softirq that also uses the FP/SIMD.
-> > > > >
-> > > > > IOW, this happens rarely, and even if it happened often, there is still
-> > > > > no reason for this buffer to be cleared beforehand, which happens by
-> > > > > default when using a compiler that supports -ftrivial-auto-var-init.
-> > > > >
-> > > > > So mark the buffer as __uninitialized. Given that this is a variable
-> > > > > attribute not a type attribute, this requires that the expression is
-> > > > > tweaked a bit.
-> > > > >
-> > > > > Cc: Will Deacon <will@kernel.org>,
-> > > > > Cc: Catalin Marinas <catalin.marinas@arm.com>,
-> > > > > Cc: Kees Cook <keescook@chromium.org>
-> > > > > Cc: Eric Biggers <ebiggers@kernel.org>
-> > > > > Cc: Justin Stitt <justinstitt@google.com>
-> > > > > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> > > > > ---
-> > > > >  arch/arm64/include/asm/simd.h | 3 ++-
-> > > > >  1 file changed, 2 insertions(+), 1 deletion(-)
-> > > > >
-> > > > > The issue here is that returning a pointer to an automatic variable as
-> > > > > it goes out of scope is slightly dodgy, especially in the context of
-> > > > > __attribute__((cleanup())), on which the scoped guard API relies
-> > > > > heavily. However, in this case it should be safe, given that this
-> > > > > expression is the input to the guarded variable type's constructor.
-> > > > >
-> > > > > It is definitely not pretty, though, so hopefully here is a better way
-> > > > > to attach this.
-> > > > >
-> > > > > diff --git a/arch/arm64/include/asm/simd.h b/arch/arm64/include/asm/simd.h
-> > > > > index 0941f6f58a14..825b7fe94003 100644
-> > > > > --- a/arch/arm64/include/asm/simd.h
-> > > > > +++ b/arch/arm64/include/asm/simd.h
-> > > > > @@ -48,6 +48,7 @@ DEFINE_LOCK_GUARD_1(ksimd,
-> > > > >                   kernel_neon_begin(_T->lock),
-> > > > >                   kernel_neon_end(_T->lock))
-> > > > >
-> > > > > -#define scoped_ksimd()       scoped_guard(ksimd, &(struct user_fpsimd_state){})
-> > > > > +#define scoped_ksimd()       \
-> > > > > +     scoped_guard(ksimd, ({ struct user_fpsimd_state __uninitialized s; &s; }))
-> > > >
-> > > > Ick.  I should have looked at the generated code more closely.
-> > > >
-> > > > It's actually worse than you describe, because the zeroing is there even
-> > > > without CONFIG_INIT_STACK_ALL_ZERO=y, simply because the
-> > > > user_fpsimd_state struct is declared using a compound literal.
-> > > >
-> > > > I'm afraid that this patch probably isn't a good idea, as it relies on
-> > > > undefined behavior.  Before this patch, the user_fpsimd_state is
-> > > > declared using a compound literal, which takes on its enclosing scope,
-> > > > i.e. the 'for' statement generated by scoped_guard().  After this patch,
-> > > > it's in a new inner scope, and the pointer to it escapes from it.
-> > > >
-> > > > Unfortunately I don't think there's any way to solve this while keeping
-> > > > the scoped_ksimd() API as-is.
-> > > >
-> > >
-> > > How about
-> > >
-> > > --- a/arch/arm64/include/asm/simd.h
-> > > +++ b/arch/arm64/include/asm/simd.h
-> > > @@ -48,6 +48,8 @@ DEFINE_LOCK_GUARD_1(ksimd,
-> > >                     kernel_neon_begin(_T->lock),
-> > >                     kernel_neon_end(_T->lock))
-> > >
-> > > -#define scoped_ksimd() scoped_guard(ksimd, &(struct user_fpsimd_state){})
-> > > +#define scoped_ksimd()         __scoped_ksimd(__UNIQUE_ID(fpsimd_state))
-> > > +#define __scoped_ksimd(id)     struct user_fpsimd_state __uninitialized id; \
-> > > +                               scoped_guard(ksimd, &id)
-> >
-> > I guess that will work.  It's not great that it will make scoped_ksimd()
-> > expand into more than one statement, which is error-prone and not
-> > normally allowed in macros.  But it looks okay for all the current users
-> > of it.
-> >
-> 
-> We could always repeat the 'for()' trick that the cleanup helpers use, e.g.,
-> 
-> for (struct user_fpsimd_state __uninitialized __st; true; ({ goto label; }))
->     if (0) {
-> label:    break;
->     } else scoped_guard(ksimd, &__st)
-> 
-> Would you prefer that?
+The resource name may include an address suffix, for example:
+rsc-table@1fff8000.
 
-Hmm, I didn't consider using nested 'for' statements.  It looks like
-that should solve the problem.  It makes the implementation a bit harder
-to understand, but at least the 'for' statement trick isn't new...
-Could you send a patch?  Preferably with a clear comment that documents
-why it's done this way.
+To handle such cases, use strstarts() instead of strcmp() when checking
+for "rsc-table".
 
-- Eric
+Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
+---
+ drivers/remoteproc/imx_rproc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+index 3be8790c14a2..33f21ab24c92 100644
+--- a/drivers/remoteproc/imx_rproc.c
++++ b/drivers/remoteproc/imx_rproc.c
+@@ -694,7 +694,7 @@ static int imx_rproc_addr_init(struct imx_rproc *priv,
+ 		}
+ 		priv->mem[b].sys_addr = res.start;
+ 		priv->mem[b].size = resource_size(&res);
+-		if (!strcmp(res.name, "rsc-table"))
++		if (strstarts(res.name, "rsc-table"))
+ 			priv->rsc_table = priv->mem[b].cpu_addr;
+ 		b++;
+ 	}
+-- 
+2.43.0
+
 
