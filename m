@@ -4,88 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D732BD3B7E2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 10:42:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3497ED3B7DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 11:06:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QOY7QJ/Kpjmn+Z2zyJvs6X2kdbwgPk7DZjcU8zJNuWI=; b=ynJNf37qR6FHR9D9LQEXDUaTm+
-	yjEljeBRMp1Arn/T4FQKZ1Q5z1+oHby0hu/jFAiw23VVrXlbEYXlZYw9B+Mqk64H8oSpuPMCDcAVR
-	Mp8UomZorDcbTg4u6ztQ6iHJdSNtyQfy+CgCMphy1VgZmQ0C2MQyYTg2XWH8dpFb6NY/mlPiAhVh7
-	ityONZ76gNG3Z6WlsG9vtBYMXCPU0tYoxNj+fpp0NPR0xzh35Hw6qgob87Ehi7TORoxbi9/bvCm1h
-	agy79LSNmXEtKfq44HukbPfZ3ENG1FI+QDDWIYoo0NJthT+SrGBmJUTuAeoyhjPXlyE8P3Wz4fje1
-	bXLHRdBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:Cc
+	:References:In-Reply-To:Subject:To:From:Date:Message-ID:Reply-To:MIME-Version
+	:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SghhlTO30+SL04MDr1vTqeGFa/2+rxDdJut1zd2NBKA=; b=x2lTMIv6fjLrC5FanEWsbzGcNX
+	aW6Ixry+T748vkjfxBkeocG03+HHK0LHAHT9ieJGdJrrM7R0W2dayO/TYu3SbeqK8hE3TAglED5lK
+	AC4UOgHMsoPjX8dAtcpRnQOvlS3ZH1ayk2/DUaE2bq5FypL5UKBryc6iaiz/ZKDaeQKCZCKYMt8jW
+	6lDcf+S3fFrwZUhzrrT1cl1XboAcu8tUb96Zf9kMQJEgPSyzTSFqsN4iGaUQ+3MfR0E3pnyUcWbM6
+	elKqX//IdjL6vCWf6JRfhpG9WS+5XEjxyTQ0NhJnrnmdgGzV+myP/U04GmBDRxxzOE5azxLV/Iakv
+	MKaiwZ1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSYhB-0000000Cy3m-2otF;
-	Mon, 08 Dec 2025 10:42:21 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vSZ4N-0000000Czdr-2cBt;
+	Mon, 08 Dec 2025 11:06:19 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSYhA-0000000Cy3O-0fk0;
-	Mon, 08 Dec 2025 10:42:20 +0000
+	id 1vSZ4L-0000000Czd2-0lKS;
+	Mon, 08 Dec 2025 11:06:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3D39D6014D;
-	Mon,  8 Dec 2025 10:42:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDA12C4CEF1;
-	Mon,  8 Dec 2025 10:42:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 608BA44418;
+	Mon,  8 Dec 2025 11:06:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4F8BC4CEF1;
+	Mon,  8 Dec 2025 11:06:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765190538;
-	bh=TAnDl6sPhcy+IUlbX2x8cziKUCBVlmn2sw/09aCCSsI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=X39h8sTJnWGPt8aAvzjUIiETMHFCA3RazvKyqIgwrxEc58CgplJjrACjAAoXNDu9v
-	 Mf4FaQLF71Mpzddiqh8kUrRua4Tc83Ql8bVBgkYb1NwV/s948y0TBK6H1F/bs9Ola/
-	 sZu+jSyI5iZIZdEKwdjRFL1iArddlpoE9LJVlY5w70w1lpY2RFr5VT3HWhCLjjqgO/
-	 7UHZkgAfe6RkxZmmdW+6fR624bPxRz7mmacB9JWaHHKj3qGDASLOxRB1uz0L/yo7E6
-	 bJOkeoaduri8FaD9L2jy/l1FCprmQ0KANGIOHDqKa2svuZK9Ni4EKDeVCuLiDQBGK1
-	 trQavZzLM6zlg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vSYh6-0000000BGKA-1nWA;
-	Mon, 08 Dec 2025 10:42:16 +0000
-Date: Mon, 08 Dec 2025 10:42:15 +0000
-Message-ID: <865xahp854.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Oliver Upton <oupton@kernel.org>,
-	Tianrui Zhao <zhaotianrui@loongson.cn>,
-	Bibo Mao <maobibo@loongson.cn>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	Janosch Frank <frankja@linux.ibm.com>,
-	Claudio Imbrenda <imbrenda@linux.ibm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	kvm-riscv@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	"Gustavo A . R . Silva" <gustavoars@kernel.org>
-Subject: Re: [PATCH] KVM: Remove subtle "struct kvm_stats_desc" pseudo-overlay
-In-Reply-To: <20251205232655.445294-1-seanjc@google.com>
-References: <20251205232655.445294-1-seanjc@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: seanjc@google.com, oupton@kernel.org, zhaotianrui@loongson.cn, maobibo@loongson.cn, chenhuacai@kernel.org, maddy@linux.ibm.com, anup@brainfault.org, pjw@kernel.org, palmer@dabbelt.com, aou@eecs.berkeley.edu, borntraeger@linux.ibm.com, frankja@linux.ibm.com, imbrenda@linux.ibm.com, pbonzini@redhat.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, gustavoars@kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1765191973;
+	bh=+Sg4+xUyee1JdQ9aNzal0X1KGSxSHxdpxDRWre8j8BY=;
+	h=Date:From:To:Subject:In-Reply-To:References:Cc:From;
+	b=IOm4weY7TQGzaGOq9hS9L4Rw5s5O2X4t18f++QMBkFetLbd9WX4JEk2F+x+p39to0
+	 wki37JFXH/Zr+f+T5z7MmQA6fpjGF6GUrATz9sWrHV2JAaUU395O7VU43JpztG1mpq
+	 KgVegQPaV2r4vuEohxqhODX7VQvhZALfdSCINStSM393Ks9noAyLTs32hY6a1GuXn7
+	 yiV3kozVHZ+bi5cIxv/qX678bSnWrNEWTjOBlveCzJ6mqgF1vJT+bPm8xt11xBhCq4
+	 lh9I8oBTDygDeM06pa8UJiO8dMlR5jz+yOYrFtOtsnlt6OT2+1dOiOrV6/fPDZHdCc
+	 6YWWBMQ7lv40A==
+Message-ID: <b2cd921b3682355b0c64d107f1dae998@kernel.org>
+Date: Mon, 08 Dec 2025 11:06:10 +0000
+From: "Maxime Ripard" <mripard@kernel.org>
+To: "Tomi Valkeinen" <tomi.valkeinen@ideasonboard.com>
+Subject: Re: [PATCH 0/4] drm: Revert and fix enable/disable sequence
+In-Reply-To: <20251205-drm-seq-fix-v1-0-fda68fa1b3de@ideasonboard.com>
+References: <20251205-drm-seq-fix-v1-0-fda68fa1b3de@ideasonboard.com>
+Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, stable@vger.kernel.org, "Andrzej
+ Hajda" <andrzej.hajda@intel.com>, "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>, "Aradhya
+ Bhatia" <aradhya.bhatia@linux.dev>, "Chaoyi Chen" <chaoyi.chen@rock-chips.com>, "Chun-Kuang
+ Hu" <chunkuang.hu@kernel.org>, "David Airlie" <airlied@gmail.com>, "Dmitry
+ Baryshkov" <lumag@kernel.org>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Jonas
+ Karlman" <jonas@kwiboo.se>, "Jyri Sarha" <jyri.sarha@iki.fi>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Linus Walleij" <linusw@kernel.org>, "Louis-Alexis
+ Eyraud" <louisalexis.eyraud@collabora.com>, "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Marek
+ Szyprowski" <m.szyprowski@samsung.com>, "Marek Vasut" <marek.vasut+renesas@mailbox.org>, "Matthias
+ Brugger" <matthias.bgg@gmail.com>, "Maxime Ripard" <mripard@kernel.org>, "Neil
+ Armstrong" <neil.armstrong@linaro.org>, "Philipp Zabel" <p.zabel@pengutronix.de>, "Robert
+ Foss" <rfoss@kernel.org>, "Simona Vetter" <simona@ffwll.ch>, "Thomas
+ Zimmermann" <tzimmermann@suse.de>, "Vicente Bergas" <vicencb@gmail.com>
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251208_030617_246056_F8FFF2B6 
+X-CRM114-Status: UNSURE (   6.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,29 +80,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 05 Dec 2025 23:26:55 +0000,
-Sean Christopherson <seanjc@google.com> wrote:
+On Fri, 5 Dec 2025 11:51:47 +0200, Tomi Valkeinen wrote:
+> Changing the enable/disable sequence in commit c9b1150a68d9
+> ("drm/atomic-helper: Re-order bridge chain pre-enable and post-disable")
+> has caused regressions on multiple platforms: R-Car, MCDE, Rockchip.
 > 
-> Remove KVM's internal pseudo-overlay of kvm_stats_desc, which subtly
-> aliases the flexible name[] in the uAPI definition with a fixed-size array
-> of the same name.  The unusual embedded structure results in compiler
-> warnings due to -Wflex-array-member-not-at-end, and also necessitates an
-> extra level of dereferencing in KVM.  To avoid the "overlay", define the
-> uAPI structure to have a fixed-size name when building for the kernel.
+> This is an alternate series to Linus' series:
 > 
-> Opportunistically clean up the indentation for the stats macros, and
-> replace spaces with tabs.
-> 
-> No functional change intended.
-> 
-> Reported-by: Gustavo A. R. Silva <gustavoars@kernel.org>
-> Closes: https://lore.kernel.org/all/aPfNKRpLfhmhYqfP@kspp
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
+> [ ... ]
 
-Acked-by: Marc Zyngier <maz@kernel.org>
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
 
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Thanks!
+Maxime
 
