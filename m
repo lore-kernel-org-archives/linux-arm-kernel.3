@@ -4,60 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1DB7CEBF88
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 05:48:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27EDDCEBF88
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 06:09:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O2i+MyU8KulYrn0SBrDZATzTG2jScvEDFhOry1s0Kuc=; b=tcgwP/zvHleEAHq4avS3uZdnNB
-	dqv3ID7Q9k8kJog3JqIDROH7XZZQQRf0ShrgPgwynHiP4WYE5FTp+uYA0SbwvVXPZHic/KC8XrRSl
-	FvuljSVh80KLQiJ8qqdoZsmKNB1SG20BKYwMcoOQ4cDNSnvbX3v58u/2l55LM0G/9pCBSlnvwX9bY
-	lNgOo8rCPgnnVvpzjG4gsbL6zPoIpSoVntUW7fGTsORnXO+/IZNrH6uaajAe0DYGOesxXmoBmKNq+
-	XRBXkTjnZ8yCeiR5RAXFbf/23dEoqUopyBWb0y0yEYXaR9utWkUNf/kUkbSEh3iA/qY3H0XjsAx59
-	O/oQ4Fgg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/6S+hhebdpib+pUD+uxuNbIy1k4DyqIUJMsnb2NqH7o=; b=wAUk/wmhd1/8rvOsYEN5BuAVHu
+	Rujg2+rQaYZRQOsNXU5k8IpBwJ4ha4b1UzBj4aTfOuXjRWZHqv05ljJqIlWeteV9185vozn1dKA8m
+	P1cNwTt/NKxMwLQypqasXezWGKvY8+H5gRZz9SNxWHGTQ+r5oqNhliH8JvNq7xohkEDlBEiXfaOQU
+	jenhE7QcMzz3IvWJO8hjArybWI3rZQGteRd6fdt1Hm+bD1wsScHstg0ziv5VQRDGm4BYdi7MwC0eB
+	cAtWUQX7ygGz50AHqnqEhkZrTR5LGnxNj7zJRmEybx7q9V5XBNgTxhBDiijf8sAV8l8TP/Q3Jv8na
+	9blw5Y9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSU6l-0000000Cdoz-3Oqf;
-	Mon, 08 Dec 2025 05:48:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSU6j-0000000CdoV-1f3f
+	id 1vSUR1-0000000Cf2Z-0v1w;
+	Mon, 08 Dec 2025 06:09:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vSUQz-0000000Cf2P-2fTd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 05:48:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6770B1692;
-	Sun,  7 Dec 2025 21:48:16 -0800 (PST)
-Received: from [10.164.18.52] (unknown [10.164.18.52])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 304C33F762;
-	Sun,  7 Dec 2025 21:48:16 -0800 (PST)
-Message-ID: <dd3a1421-dfb0-445e-b2f7-7c273fa4a020@arm.com>
-Date: Mon, 8 Dec 2025 11:18:14 +0530
+	Mon, 08 Dec 2025 06:09:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C1DA7600AC;
+	Mon,  8 Dec 2025 06:09:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36BA4C4CEF1;
+	Mon,  8 Dec 2025 06:09:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765174160;
+	bh=h3PcJlKbGRviaTgnIx1PhOAjnZm0y28gwbkABoOO4Cw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=o6aQgkoT0CQhOSKhfkLosHB5iOFDZzprzVERJKEy12jqgk88j4UkftIUAVu6r2ObP
+	 izvCQKbi7mAKg2S1CtVs+sKFbjw+D3eQvLanjNXCaOF2UCrKzbpQi6Qkngz1g/ChkQ
+	 fm+Y52za/khgzTTyiQdO06umjb1IS1GXKthnYHfH72oxZW32BxttXRtcWYcxjv/wqE
+	 29MO+xhIu3bPGZChfXoh0wNLu7MnecJvdDYrvdQEj2uloYmRJQGoqdVvcYIuvK8SWC
+	 E2IWtoa4zx9PZZC1Kz6guXUfe221u5ZZ5rOKsfX1IH1t0Zk8ku2q4fjNQBA50cSMw4
+	 gsVGEak/gCpmQ==
+Message-ID: <b5731ee5-8a16-40f1-8418-07c45a97c609@kernel.org>
+Date: Mon, 8 Dec 2025 07:09:16 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 04/16] arm64/ptrace: Refactor
- syscall_trace_enter/exit()
-To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
- will@kernel.org, oleg@redhat.com, tglx@linutronix.de, peterz@infradead.org,
- luto@kernel.org, shuah@kernel.org, kees@kernel.org, wad@chromium.org,
- deller@gmx.de, macro@orcam.me.uk, charlie@rivosinc.com,
- kevin.brodsky@arm.com, ldv@strace.io, mark.rutland@arm.com, song@kernel.org,
- ryan.roberts@arm.com, ada.coupriediaz@arm.com, broonie@kernel.org,
- pengcan@kylinos.cn, dvyukov@google.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-References: <20251204082123.2792067-1-ruanjinjie@huawei.com>
- <20251204082123.2792067-5-ruanjinjie@huawei.com>
+Subject: Re: [PATCH 2/4] pwm: sun50i: Add H616 PWM support
+To: Richard Genoud <richard.genoud@bootlin.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20251205100239.1563353-1-richard.genoud@bootlin.com>
+ <20251205100239.1563353-3-richard.genoud@bootlin.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20251204082123.2792067-5-ruanjinjie@huawei.com>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251205100239.1563353-3-richard.genoud@bootlin.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251207_214825_527310_55495308 
-X-CRM114-Status: GOOD (  18.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,118 +121,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/12/25 1:51 PM, Jinjie Ruan wrote:
-> The generic syscall entry code has the following form, which use
-> the input syscall work flag and syscall number:
-> 
-> | syscall_trace_enter(struct pt_regs *regs, long syscall,
-> |		      unsigned long work)
-> |
-> | syscall_exit_work(struct pt_regs *regs, unsigned long work)
-> 
-> In preparation for moving arm64 over to the generic entry code,
-> refactor syscall_trace_enter/exit() to also pass thread flags, and
-> get syscall number by syscall_get_nr() helper.
-> 
-> No functional changes.
-> 
-> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
-> ---
->  arch/arm64/include/asm/syscall.h |  4 ++--
->  arch/arm64/kernel/ptrace.c       | 25 ++++++++++++++++---------
->  arch/arm64/kernel/syscall.c      |  5 +++--
->  3 files changed, 21 insertions(+), 13 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/syscall.h b/arch/arm64/include/asm/syscall.h
-> index 5e4c7fc44f73..cef1d9ce6e1b 100644
-> --- a/arch/arm64/include/asm/syscall.h
-> +++ b/arch/arm64/include/asm/syscall.h
-> @@ -120,7 +120,7 @@ static inline int syscall_get_arch(struct task_struct *task)
->  	return AUDIT_ARCH_AARCH64;
->  }
->  
-> -int syscall_trace_enter(struct pt_regs *regs);
-> -void syscall_trace_exit(struct pt_regs *regs);
-> +int syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long flags);
-> +void syscall_trace_exit(struct pt_regs *regs, unsigned long flags);
->  
->  #endif	/* __ASM_SYSCALL_H */
-> diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
-> index 3926ce6aa268..b962cbcca11d 100644
-> --- a/arch/arm64/kernel/ptrace.c
-> +++ b/arch/arm64/kernel/ptrace.c
-> @@ -2381,9 +2381,8 @@ static void report_syscall_exit(struct pt_regs *regs)
->  	}
->  }
->  
-> -int syscall_trace_enter(struct pt_regs *regs)
-> +int syscall_trace_enter(struct pt_regs *regs, long syscall, unsigned long flags)
->  {
-> -	unsigned long flags = read_thread_flags();
->  	int ret;
->  
->  	if (flags & (_TIF_SYSCALL_EMU | _TIF_SYSCALL_TRACE)) {
-> @@ -2396,19 +2395,27 @@ int syscall_trace_enter(struct pt_regs *regs)
->  	if (secure_computing() == -1)
->  		return NO_SYSCALL;
->  
-> -	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT))
-> -		trace_sys_enter(regs, regs->syscallno);
-> +	/* Either of the above might have changed the syscall number */
-> +	syscall = syscall_get_nr(current, regs);
->  
-> -	audit_syscall_entry(regs->syscallno, regs->orig_x0, regs->regs[1],
-> +	if (test_thread_flag(TIF_SYSCALL_TRACEPOINT)) {
-> +		trace_sys_enter(regs, syscall);
+On 05/12/2025 11:02, Richard Genoud wrote:
+> +static struct platform_driver h616_pwm_driver = {
+> +	.driver = {
+> +		.name = "h616-pwm",
+> +		.of_match_table = h616_pwm_dt_ids,
+> +	},
+> +	.probe = h616_pwm_probe,
+> +};
+> +module_platform_driver(h616_pwm_driver);
 > +
-> +		/*
-> +		 * Probes or BPF hooks in the tracepoint may have changed the
-> +		 * system call number as well.
-> +		 */
-> +		 syscall = syscall_get_nr(current, regs);
-> +	}
-> +
-> +	audit_syscall_entry(syscall, regs->orig_x0, regs->regs[1],
->  			    regs->regs[2], regs->regs[3]);
->  
-> -	return regs->syscallno;
-> +	return syscall;
+> +MODULE_ALIAS("platform:h616-pwm");
 
-regs->syscallno still remains unchanged even if syscall is evaluated to be different ?
+You should not need MODULE_ALIAS() in normal cases. If you need it,
+usually it means your device ID table is wrong (e.g. misses either
+entries or MODULE_DEVICE_TABLE()). MODULE_ALIAS() is not a substitute
+for incomplete ID table.
 
->  }
->  
-> -void syscall_trace_exit(struct pt_regs *regs)
-> +void syscall_trace_exit(struct pt_regs *regs, unsigned long flags)
->  {
-> -	unsigned long flags = read_thread_flags();
-> -
->  	audit_syscall_exit(regs);
->  
->  	if (flags & _TIF_SYSCALL_TRACEPOINT)
-> diff --git a/arch/arm64/kernel/syscall.c b/arch/arm64/kernel/syscall.c
-> index aba7ca6bca2d..ec31f82d2e9f 100644
-> --- a/arch/arm64/kernel/syscall.c
-> +++ b/arch/arm64/kernel/syscall.c
-> @@ -124,7 +124,7 @@ static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
->  		 */
->  		if (scno == NO_SYSCALL)
->  			syscall_set_return_value(current, regs, -ENOSYS, 0);
-> -		scno = syscall_trace_enter(regs);
-> +		scno = syscall_trace_enter(regs, scno, flags);
->  		if (scno == NO_SYSCALL)
->  			goto trace_exit;
->  	}
-> @@ -143,7 +143,8 @@ static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
->  	}
->  
->  trace_exit:
-> -	syscall_trace_exit(regs);
-> +	flags = read_thread_flags();
-> +	syscall_trace_exit(regs, flags);
->  }
->  
->  void do_el0_svc(struct pt_regs *regs)
 
+> +MODULE_AUTHOR("Richard Genoud <richard.genoud@bootlin.com>");
+> +MODULE_DESCRIPTION("Allwinner H616 PWM driver");
+> +MODULE_LICENSE("GPL");
+
+
+Best regards,
+Krzysztof
 
