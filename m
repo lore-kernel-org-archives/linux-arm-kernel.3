@@ -4,69 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78DF5D3ABEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 06:50:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DF83D3B7DD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 06:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=XCJR9swgHzHfYMJ+M8ZgfcfJUdNeaqkdgbzM1Ymi5Vc=; b=XrGOAiMXMaMXRS9Wo5toRmW6FK
-	IdU2ftYHG7f7o8JT5Bz7AGCO+nJ2v35qt6e/KvxknDdApBKXZP1of27nX3we34x03BZpN8OBZo58y
-	URlDX4o+LBQ3n/bmCHVv5TyVA4Kh9XIABu5+CDcJHbft2M/TbE3rZPff3VxqkQG1HMwTvf6abi2sf
-	L4ktoYP5BYKfDeq1tl9EyLzVQHuIoz0On/3Xpu4kj84IbgRW/4FjR7o6Jpz8TWQRu3RV+WPR41bnh
-	z0WpqJ/C4ii1KtoTMVyUQMn8nDy48d3q0XEup4BKPn6HRhF5wVFxaQjjHLCBes9pobR1dJLqaqKK8
-	yxDjS4Zw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fHyZejooRFFO1zbdDEjiJGV7nsUfnGPrgCNyqVbjP0k=; b=DWYZdrGn0CwsiDAhJwRQ3ntF/P
+	f1PX6+0LAkhQCI13+ngx2oQCkxPuu2yBItcLOMtXkkk13tVZEu1BNM5nw/eLWCDusR7piWFBTq9tm
+	zq7rCJc2j9myXjIZacQj8ty4gc4cUU0SGMYt25RmnJdt1XUFVVLrgxCf7UvXzutDStItqMphxmDjZ
+	bzXL493/gnLYA9UsyVBxtr5MQ4ns3whX1Gv5DU8rB/kc3hbTjkMSZ+7z/0njBZqsAmZ+t625jnFLa
+	6GoHC7JP0xhTaAH1tvNchQmOArZBJHAaiDY0maxwemEh/tPamjdThSI2qTN/aaAjfvmDnA5olQ8HG
+	BryjH+Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSV4a-0000000CiQf-0lAg;
-	Mon, 08 Dec 2025 06:50:16 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1vSV6O-0000000CiY4-2cOM;
+	Mon, 08 Dec 2025 06:52:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSV4X-0000000CiQD-0tUD
+	id 1vSV6N-0000000CiXy-0T16
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 06:50:14 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Mon, 8 Dec
- 2025 14:50:07 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Mon, 8 Dec 2025 14:50:07 +0800
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-Date: Mon, 8 Dec 2025 14:49:56 +0800
-Subject: [PATCH net] net: mdio: aspeed: add dummy read to avoid
- read-after-write issue
+	Mon, 08 Dec 2025 06:52:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 30738600AC;
+	Mon,  8 Dec 2025 06:52:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51A24C4CEF1;
+	Mon,  8 Dec 2025 06:52:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765176725;
+	bh=WiykqAdfvwtZNBYSkcwFcQxsD9zJPgq+W1gZ+z+0c6I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oYt9raRaVMXk/82ZXZgg+KIzuJk6kaFcjjmbzJhOFhDI4UnNS+t4mnbSZwobxIJuB
+	 tJXwyNrkghr8pHCPLrP89DrEInA37Jitk0fANArNCa8X/jqAbj/eAGJtXJzkLByKWc
+	 UOaCxuiNQ5zb5jvYZEKv0KudwMt1PNFYxmKLYmIcCaQDJXL3Vh3+yyKvAXlKsK0GFP
+	 PEQJTRl5p5ab2eiCcUSUB+9j5g2UqqK3hdQrOIyxh5whymTbjEjMMKe3MrupjG811S
+	 bR4v8cjcX/0Yzus/XLxqbj9vpuhQKwRscDEN0t8VFRzh5NskIT1bVe4tT3FAYEy264
+	 r+2j6HhfUXusw==
+Date: Mon, 8 Dec 2025 07:52:03 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Richard Genoud <richard.genoud@bootlin.com>
+Cc: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/4] dt-bindings: pwm: sunxi: add PWM controller for
+ Allwinner H616
+Message-ID: <20251208-gorgeous-capuchin-of-protection-4ad0c2@quoll>
+References: <20251205100239.1563353-1-richard.genoud@bootlin.com>
+ <20251205100239.1563353-2-richard.genoud@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20251208-aspeed_mdio_add_dummy_read-v1-1-0a1861ad2161@aspeedtech.com>
-X-B4-Tracking: v=1; b=H4sIABN1NmkC/x3MQQrCMBAF0KuUWRtIAqWDVxEJo/Ors0haEhWl9
- O6GLt/mbdRQDY3Ow0YVH2u2lI5wGuj+lPKAM+2m6OMYomcnbQU0ZbUliWrSd86/VCHqRp7kxuy
- Zw0Q9WCtm+x75hQpedN33Px2NPj5xAAAA
-X-Change-ID: 20251208-aspeed_mdio_add_dummy_read-587ab8808817
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Joel Stanley
-	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Potin Lai
-	<potin.lai@quantatw.com>
-CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>, Jacky Chou
-	<jacky_chou@aspeedtech.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1765176607; l=1761;
- i=jacky_chou@aspeedtech.com; s=20251031; h=from:subject:message-id;
- bh=Fifsoq6L0rsVImG8RoDFYXbWdp8xBrChzw1XsvErTOs=;
- b=9ew34t6mAacKgfcW7cQqS3ktVoIHh8IJ1JL7IPVqkV6mjia6haubldqw8OoYpIrooiBORT2ax
- eOZ9BTZwTU/AZMQO7Vjv++X9wYuBk7+ILuD+kvzOdFTEkl1jhqJMi5D
-X-Developer-Key: i=jacky_chou@aspeedtech.com; a=ed25519;
- pk=8XBx7KFM1drEsfCXTH9QC2lbMlGU4XwJTA6Jt9Mabdo=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251207_225013_258711_AE5CDEA0 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20251205100239.1563353-2-richard.genoud@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,49 +75,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Aspeed MDIO controller may return incorrect data when a read operation
-follows immediately after a write. Due to a controller bug, the subsequent
-read can latch stale data, causing the polling logic to terminate earlier
-than expected.
+On Fri, Dec 05, 2025 at 11:02:36AM +0100, Richard Genoud wrote:
+> Allwinner H616 SoC contains a PWM controller quite different from the A10.
+> It has 6 channels than can generate PWM waveforms or clocks if bypass is
+> enabled.
+> 
+> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
+> ---
+>  .../pwm/allwinner,sun50i-h616-pwm.yaml        | 67 +++++++++++++++++++
+>  1 file changed, 67 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun50i-h616-pwm.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/pwm/allwinner,sun50i-h616-pwm.yaml b/Documentation/devicetree/bindings/pwm/allwinner,sun50i-h616-pwm.yaml
+> new file mode 100644
+> index 000000000000..b89735ad3a43
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pwm/allwinner,sun50i-h616-pwm.yaml
+> @@ -0,0 +1,67 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pwm/allwinner,sun50i-h616-pwm.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Allwinner H616 PWM
+> +
+> +maintainers:
+> +  - Richard Genoud <richard.genoud@bootlin.com>
+> +
+> +description: |
 
-To work around this hardware issue, insert a dummy read after each write
-operation. This ensures that the next actual read returns the correct
-data and prevents premature polling exit.
+Do not need '|' unless you need to preserve formatting.
 
-This workaround has been verified to stabilize MDIO transactions on
-affected Aspeed platforms.
+> +  Allwinner H616 PWM can generate standard PWM signals with variable pulse width
+> +  and period.
+> +  Also, instead of a PWM signal, a channel can be used to provide a clock.
+> +
+> +properties:
+> +  compatible:
+> +    const: allwinner,sun50i-h616-pwm
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    items:
+> +      - description: Bus Clock
+> +
 
-Fixes: 737ca352569e ("net: mdio: aspeed: move reg accessing part into separate functions")
-Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
----
- drivers/net/mdio/mdio-aspeed.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+Are you sure there is no first clock? Really, really sure? If you add it
+later, I would be pretty sad, because that's unnecessary duplication of
+binidngs....
 
-diff --git a/drivers/net/mdio/mdio-aspeed.c b/drivers/net/mdio/mdio-aspeed.c
-index e55be6dc9ae7..7d11add3c05e 100644
---- a/drivers/net/mdio/mdio-aspeed.c
-+++ b/drivers/net/mdio/mdio-aspeed.c
-@@ -63,6 +63,13 @@ static int aspeed_mdio_op(struct mii_bus *bus, u8 st, u8 op, u8 phyad, u8 regad,
- 
- 	iowrite32(ctrl, ctx->base + ASPEED_MDIO_CTRL);
- 
-+	/* Workaround for read-after-write issue.
-+	 * The controller may return stale data if a read follows immediately
-+	 * after a write. A dummy read forces the hardware to update its
-+	 * internal state, ensuring that the next real read returns correct data.
-+	 */
-+	(void)ioread32(ctx->base + ASPEED_MDIO_CTRL);
-+
- 	return readl_poll_timeout(ctx->base + ASPEED_MDIO_CTRL, ctrl,
- 				!(ctrl & ASPEED_MDIO_CTRL_FIRE),
- 				ASPEED_MDIO_INTERVAL_US,
-
----
-base-commit: 0373d5c387f24de749cc22e694a14b3a7c7eb515
-change-id: 20251208-aspeed_mdio_add_dummy_read-587ab8808817
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
 Best regards,
--- 
-Jacky Chou <jacky_chou@aspeedtech.com>
+Krzysztof
 
 
