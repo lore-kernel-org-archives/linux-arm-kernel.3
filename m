@@ -4,98 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 367FBD3B7F4
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 14:23:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99DE3D3B7F2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 14:25:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2GmRPB0jBQgoThlmGWejjg28u4BOouUoY2C6pZo+51c=; b=ONBCg29VNiPYW2VSD/lI/M5NiI
-	JyfCigO9DcXemMflmExlD0FwCD2WtpFN6ajgUaBqh+UtQa6NRqHwId7i/smmE7OhnqdBvfIfCASEB
-	a7OR0KgHBsS8Qjjgf46OfCJZdC+6eJlMhIpzs1D0PBUd+QQXh6CUJZ2dQegZel8TjQCnxcYuUhXED
-	x2R325qKuzhwP4akCauPLQKzRI/5OlNPxORrfAllTFGwFInyUK2tRWQgBATRW5KQK4i0i5+PoZlMI
-	vkIti8NGZV40OOXgWIRNEl0zFr3/pQ+BlRF1m/sT3Lan5mpN9EjncpOQPY5hkqzBDNgB2BG5Xoioa
-	nXENkC8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FM3AQ1FlOuXJ/e1AGMCOoW838tRWe4uRS3PXygGI180=; b=1sHiCCX4vkTQK3SJhRNU0rv02Y
+	2/u4Q+/YvLBKXXzjrkFBIbAtGOwMrqKH8qLfENpByeuWlDImHzSuVirnxgGGiJ3Qj6QNi+lRGo8t5
+	fyJowY3e3LX2vafbnNOHIRZn/WdGCokkpZeghgU3unuhgTzym3Vs5dx90kuYRiUUN3nBBClbaKTjD
+	L1gqEKZt/7odPMp3qrfTRzpoSj0y24DiZAvq8pwqTS+Qp1JT4meQaMapClqHEjN1PrVBuyLDhelR8
+	SHQ56En3/oXE0i0PAXOPA1UzyInRqIXJ1uwq6MHXirwOR4QMU0zxP5GJan7Wv7QQrKuAk3WO3IhMe
+	mjias+Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSc9M-0000000DBIh-4Anw;
-	Mon, 08 Dec 2025 14:23:40 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1vScB2-0000000DCHU-1EFd;
+	Mon, 08 Dec 2025 14:25:24 +0000
+Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSc9J-0000000DBDg-1PO4
+	id 1vScAw-0000000DCGx-0K6A
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 14:23:38 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-47755de027eso32302585e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Dec 2025 06:23:36 -0800 (PST)
+	Mon, 08 Dec 2025 14:25:21 +0000
+Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-8b22624bcdaso566331485a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Dec 2025 06:25:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765203816; x=1765808616; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=2GmRPB0jBQgoThlmGWejjg28u4BOouUoY2C6pZo+51c=;
-        b=S5WVJdcyAfXmTg9Li6DYZXR55LvmGUyApVWxCNMMPcNJpPEv8ODWlosAjZEdwdbxa4
-         RwB7g4m/MRP5Lv+PMy/VRyNHYm0nOYwH9NYonkEgt6vxfg/7LGwDWn5sVEq458eSyh0u
-         Sf+z2GD2khcfBzGoeq+p/qdNpoGrVEVLxUVgxkeFZbW3Z7LXqVmBmsvI2fUP9HMwct2t
-         MBec8LNujAUhjkh1W6iE9xww51lN71g3y9gUQoF5qA68RPaFXBg+P30AcrNMnwrDA7Y2
-         L8882k9dd1uE7nXnfXYB0Q4nPaai3u19cvZ2deTyTtd7lzibJBbe9frASYdM/j+BGBNa
-         m5Dw==
+        d=linaro.org; s=google; t=1765203916; x=1765808716; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=FM3AQ1FlOuXJ/e1AGMCOoW838tRWe4uRS3PXygGI180=;
+        b=ooY318OGWG7Xa+KsMTVr3zCtO3aH8ObJKGsheVX6PObdLD54VqKN9XLMcpWsE7e+0J
+         Q4eBQgFIDNynEDCo+KM/Ijs4sZsHBcTwFDsDqTS757nIX4jN7LOig5SjS1ZvQMI2WzoY
+         C3GTCGfjFq7AAIrfrJxDaVrUGgmermFccF0N0FbiOr8eAaH8p+quqHsa5kIhSQCoglR6
+         YH1pBL/50XayRfTCznR9ecWaF8CyXz0TyE5623VUOpzCqec0M32pqPUbiiSYM6ciJxYG
+         /lqkMlkr7gbcFLZEwLxIrNFsyI1Hfig8c2rMNWHrnZJQrCbuIoctnxIyo2R1Ho5b7O5G
+         Nm+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765203816; x=1765808616;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=2GmRPB0jBQgoThlmGWejjg28u4BOouUoY2C6pZo+51c=;
-        b=ZQOrntf7j47evsO1PQ8e3mQxqd3BgnB1CZM8idCiUaGBedslTrc6GCpsRKSt57XG/q
-         4ssErh39IS0kjNmNQNuqLhlGfaJkQaif+HOmGylqkfJMS1cHFP9QaYo8D3WwkHHaZWw/
-         Y89ZT7uYZ711SXjHSaKste5SEsV2D1qgFglF9mTitb68cJTkRT1rwZTC5kQV9YR4/X84
-         MXgKwK1s/Kt2tlH9oEdWHhc8qs6M4tUDIKp0S4lLHsl/TlQL2WvE0bG+X0hBRfFciEka
-         oEJR8Qn0w+uQElK8yEJdV83D5WEIZTciFHfviO+wrFpGQfWqAsxroipVoPRS5lU3+aUm
-         5Gow==
-X-Forwarded-Encrypted: i=1; AJvYcCWD2X4GF2cKylSPx17B9lSWDGXrcK0WSw8iVSDTL0VomR5sqHcjxkfSQMfILcxGzza1hfCsrmfHIR3UVJLrIocc@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCXUMdnWil25IQwoM4NI7MwsICHpJWJVKEe0k+6r3rYedjwpcG
-	truilpF1EQa5dvgxlyAscv813aVVM3XBDVVWNlr4e50KyB8cPwlICvfgkd3ayRYZjLDvN4aHxbZ
-	hJpeY
-X-Gm-Gg: ASbGncvvWGPXj/PYEaRsHxzPFoClSbLm74cl37gwFal+vEqFEF+YpgPRUmxmDzPsQoy
-	qrkIht70YWlj5Zt6okwDSAFCUNSzIpiKzFZPDJdi+7BQCyhy8ggsO9wMQvwtYxzDqVk6cSdw4T8
-	R5GJPuIZcOKKoJCEGp3sicI5ZEEwi4pG08pdXXRCFKdcmX3V6PwOi2lXFKp+gJIZYIR44fV6TFs
-	yMzPvmAsBEg9wIkKcrw7yYSsGbhDVrD9pFVzj/F9L+FA2LSEBuqUFrvKv0Loo1m7aHDhbnsw0mE
-	0NWuWdextZlJbgQk69gH2grPlDJLfHQeKFxCyNJzxu7VsSr40lIuG77gK+bkZjrYsI7AKFWQHp8
-	GHTzG0cZdxoFVMpDb4KVBUQpuCCVRozwQboAOzttN9vEeT6TdncB2y94XCvw/6szQiZwt0AJHnj
-	27XfPpq7RGjPbaRggJaq4t
-X-Google-Smtp-Source: AGHT+IFoZPHDAM2lHyoM1YfjpO1gRYPlnwmwM67jG630YI+YhFcyltm9tk5Ti0SdAOyhTdmrTISiWQ==
-X-Received: by 2002:a05:600c:1715:b0:479:3a87:2093 with SMTP id 5b1f17b1804b1-4793a8720eamr49221135e9.37.1765203815511;
-        Mon, 08 Dec 2025 06:23:35 -0800 (PST)
-Received: from ho-tower-lan.lan ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47930920e0dsm248561065e9.2.2025.12.08.06.23.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Dec 2025 06:23:35 -0800 (PST)
-From: James Clark <james.clark@linaro.org>
-Date: Mon, 08 Dec 2025 14:22:15 +0000
-Subject: [PATCH v2 12/12] perf arm-spe: Don't hard code config attribute
+        d=1e100.net; s=20230601; t=1765203916; x=1765808716;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FM3AQ1FlOuXJ/e1AGMCOoW838tRWe4uRS3PXygGI180=;
+        b=uvRaNpLMUj4SHxga6hlBQq41y8hJDIQHvK91mNIAHuNf25aXfQEhcwCi38v7qE3HbC
+         qBTaNpzDRmxwDbP5W6sOh0QP61l9lJq9mkLrvH/pLh9UA1BewL65///KEzvtGieWHmR2
+         qrXTtSx1AqIPXpfiNPgLUiQI/Q2Fx5A75IUmYb8e59uFnOjD9LAh3SQXoVNksjppEZnX
+         xKzaAdF+UHP23CJkRppbyZ5H+NKALnA7bmQelIbVEyNRSkjK7lkfpCZAIkZbxjkii/uh
+         R5MFpuVyMBpNz0c35Tc/wRr1nuiWGeRObkPBR21Of+SJQog/JqriFsPEVkZY05eWFhs4
+         bFxA==
+X-Forwarded-Encrypted: i=1; AJvYcCVhDI078HfExJbdRN7Jp0oUGhzu5Sf2HXcdaDptEjbMidnOr8VwSysKfTEMdI1wnxJG3jzO7ClhvM1NpXndk6X5@lists.infradead.org
+X-Gm-Message-State: AOJu0YyExT1R7lfGtXghrEpGBM455Htpng48rVW5B5Rz2IlYTewLl4gI
+	1AMtNOvoBUibYP3VnkgJqXUyqnxGwiVUIpwNGhSjvuvBQDfdW4ZSndHjSuAqb9Z8uHmhqCla2U6
+	9luILlOqIQEB+izNTnusSjxHGC54/ifdPC1eD1sueUFjPCtcOieAtLTg=
+X-Gm-Gg: ASbGncsDpPuqiPE0ZeHsZBhY0tL2QKV3nd5DCBwbBF9sCQHTzj2/+ZlCdRz3Gcc1swa
+	P/yIMxVhqssHMoWXyv/Qc9FRJ8+PQRGl8EVlWEreEDMln/S3wi7WFykgFlZ3VGtHVpr6F30+21g
+	Dz3gUdlUAF/kz++IiR5UsOmRteA+TfsZpPWk38jo3h58yIM6A4d4izgqm+7JLz84cOEVr8K2v5/
+	Ciz7LszqjfnQ6kGz6L2qxz4kPvsuUnW797D0fKJhRWiHu/sMp2ezZsZ9B/xG2vOGx2cMONWvh/h
+	3QFRnB1+9MSMiX8ow3TotRAkSsMrgpHdT+ZkSqP6RaedNJfnZXx6TWbVTr4=
+X-Google-Smtp-Source: AGHT+IG3nXGqXUvqpQinMeRU4VZSYr+qfgKJd+Lp5hSD72PxIPIMTaz7Kdxvcqdhf3pLsgJBW1+LG7bFtTruCD7BKWw=
+X-Received: by 2002:a05:622a:2b44:b0:4ec:f156:883d with SMTP id
+ d75a77b69052e-4f03fea37a5mr115385351cf.43.1765203916316; Mon, 08 Dec 2025
+ 06:25:16 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251208-james-perf-config-bits-v2-12-4ac0281993b0@linaro.org>
-References: <20251208-james-perf-config-bits-v2-0-4ac0281993b0@linaro.org>
-In-Reply-To: <20251208-james-perf-config-bits-v2-0-4ac0281993b0@linaro.org>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
- Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
- Adrian Hunter <adrian.hunter@intel.com>, 
- Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>, 
- Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, leo.yan@arm.com
-Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
- coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
- James Clark <james.clark@linaro.org>
-X-Mailer: b4 0.14.0
+References: <20251202-extended_cti-v6-0-ab68bb15c4f5@oss.qualcomm.com>
+ <20251202-extended_cti-v6-2-ab68bb15c4f5@oss.qualcomm.com>
+ <20251203182944.GG724103@e132581.arm.com> <CAJ9a7VhcSxTTaxMR4SS+GbHoPHXm0honykjXy92fbv0HG=1o4Q@mail.gmail.com>
+ <20251204104713.GL724103@e132581.arm.com> <CAJ9a7VgV6chvWmeG2xta11YqyNpdRZqx4=EF7vC7k=J2utpRYQ@mail.gmail.com>
+ <20251205102720.GP724103@e132581.arm.com>
+In-Reply-To: <20251205102720.GP724103@e132581.arm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Mon, 8 Dec 2025 14:25:05 +0000
+X-Gm-Features: AQt7F2okEBtfEyCOzornKkjPhmVhUUfg6M88kQWuVbbYdz34lne69R-Qv_-OWhY
+Message-ID: <CAJ9a7VgYoSZPsm1jPniVZWZk7MHRAsRJwQGBxyNmndCcfnso2g@mail.gmail.com>
+Subject: Re: [PATCH v6 2/2] coresight: cti: Add Qualcomm extended CTI support
+To: Leo Yan <leo.yan@arm.com>
+Cc: Yingchao Deng <yingchao.deng@oss.qualcomm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, quic_yingdeng@quicinc.com, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
+	Jinlong Mao <jinlong.mao@oss.qualcomm.com>, Mao Jinlong <quic_jinlmao@quicinc.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_062337_398621_32FBE899 
-X-CRM114-Status: GOOD (  12.27  )
+X-CRM114-CacheID: sfid-20251208_062518_132737_E6EFD1D4 
+X-CRM114-Status: GOOD (  41.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,63 +103,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the config attribute that's published by the driver instead of
-hard coding "attr.config".
+Hi Leo,
 
-Signed-off-by: James Clark <james.clark@linaro.org>
----
- tools/perf/arch/arm64/util/arm-spe.c | 15 ++++++++-------
- 1 file changed, 8 insertions(+), 7 deletions(-)
+On Fri, 5 Dec 2025 at 10:27, Leo Yan <leo.yan@arm.com> wrote:
+>
+> On Thu, Dec 04, 2025 at 03:07:10PM +0000, Mike Leach wrote:
+>
+> [...]
+>
+> > > > > > +             /*
+> > > > > > +              * QCOM CTI does not implement Claimtag functionality as
+> > > > > > +              * per CoreSight specification, but its CLAIMSET register
+> > > > > > +              * is incorrectly initialized to 0xF. This can mislead
+> > > > > > +              * tools or drivers into thinking the component is claimed.
+> > > > > > +              *
+> > > > > > +              * Reset CLAIMSET to 0 to reflect that no claims are active.
+> > > > > > +              */
+> > > > > > +             writel_relaxed(0, drvdata->base + CORESIGHT_CLAIMSET);
+> > > > >
+> > > > > I am confused for this.  If QCOM CTI does not implement claim tag,
+> > > > > then what is the designed register at the offset CORESIGHT_CLAIMSET?
+> > > > >
+> > > > > Should you bypass all claim tag related operations for QCOM CTI case?
+> > > > > (I don't see you touch anything for claim and declaim tags).
+> > > > >
+> > > >
+> > > > The patch I have created to handle systems without correct claim tag
+> > > > operation is a dependency for this patch set. Thus no need for
+> > > > override here as the core code will handle this correctly.
+> > > >
+> > > > The only issue is ensuring the non-CTI spec implementation will result
+> > > > in the correct detection of no claim tags present.
+> > >
+> > > Your patch works only when a module has implemented claim registers.
+> > >
+> >
+> > Per the Coresight spec - unimplemented registers must be RAZ/WI- so
+> > this still works for non implemented claim registers.
+>
+> QCOM CTI does not follow the spec in two aspects:
+>
+> - Given the patch's comment: "QCOM CTI does not implement Claim tag
+>   functionality as per CoreSight specification", I am suspect the CLAIM
+>   registers are not implemented at all in QCOM CTI.
+>
+> - It neither follows up the "unimplemented registers must be RAZ/WI" -
+>   the patch says its reset value is 0xF and then even can write 0 to it.
+>
 
-diff --git a/tools/perf/arch/arm64/util/arm-spe.c b/tools/perf/arch/arm64/util/arm-spe.c
-index d5ec1408d0ae..6c3dc97fde30 100644
---- a/tools/perf/arch/arm64/util/arm-spe.c
-+++ b/tools/perf/arch/arm64/util/arm-spe.c
-@@ -256,7 +256,7 @@ static __u64 arm_spe_pmu__sample_period(const struct perf_pmu *arm_spe_pmu)
- 
- static void arm_spe_setup_evsel(struct evsel *evsel, struct perf_cpu_map *cpus)
- {
--	u64 bit;
-+	u64 pa_enable_bit;
- 
- 	evsel->core.attr.freq = 0;
- 	evsel->core.attr.sample_period = arm_spe_pmu__sample_period(evsel->pmu);
-@@ -288,9 +288,10 @@ static void arm_spe_setup_evsel(struct evsel *evsel, struct perf_cpu_map *cpus)
- 	 * inform that the resulting output's SPE samples contain physical addresses
- 	 * where applicable.
- 	 */
--	bit = perf_pmu__format_bits(evsel->pmu, "pa_enable");
--	if (evsel->core.attr.config & bit)
--		evsel__set_sample_bit(evsel, PHYS_ADDR);
-+
-+	if (!evsel__get_config_val(evsel->pmu, evsel, "pa_enable", &pa_enable_bit))
-+		if (pa_enable_bit)
-+			evsel__set_sample_bit(evsel, PHYS_ADDR);
- }
- 
- static int arm_spe_setup_aux_buffer(struct record_opts *opts)
-@@ -397,6 +398,7 @@ static int arm_spe_recording_options(struct auxtrace_record *itr,
- 	struct perf_cpu_map *cpus = evlist->core.user_requested_cpus;
- 	bool discard = false;
- 	int err;
-+	u64 discard_bit;
- 
- 	sper->evlist = evlist;
- 
-@@ -425,9 +427,8 @@ static int arm_spe_recording_options(struct auxtrace_record *itr,
- 	evlist__for_each_entry_safe(evlist, tmp, evsel) {
- 		if (evsel__is_aux_event(evsel)) {
- 			arm_spe_setup_evsel(evsel, cpus);
--			if (evsel->core.attr.config &
--			    perf_pmu__format_bits(evsel->pmu, "discard"))
--				discard = true;
-+			if (!evsel__get_config_val(evsel->pmu, evsel, "discard", &discard_bit))
-+				discard = !!discard_bit;
- 		}
- 	}
- 
+Correct - but my point is that the patch to handle lack of claim tags
+does work for both existent claim tags and unimplemented ones, where
+the spec is followed.
+
+> > > This leads to two issues: we end up clearing an unknown register in the
+> > > CTI driver, and then the coresight core layer assumes it is reading a
+> > > claim register even though it is not.
+> >
+> > Again RAZ will simply read 0x0 - which is an indication that there are
+> > no claim bits implemented.
+> >
+> > >
+> > > For QCOM CTI, combined with your patch, I would suggest directly
+> > > setting csdev->access.claim_tag_impl to false (perhaps using a helper).
+> >
+> > That would be a better solution, though as Qcom appear to have
+> > implemented a pair of standard RW registers rather than the claim tag
+> > functionality, the write solution works for this particular
+> > implementation.
+>
+> If an IP violates both the rules for implemented claim registers and
+> the rules for non-implemented claim registers, how can we rely on
+> these registers to detect the claim feature?
+>
+> My feeling is we are building a house on sand - these registers are not
+> used for claim tags purpose at all.
+>
+
+No they are not, but by either writing the claim tag register with 0,
+or by setting the csdev->access.claim_tag_impl to false, this
+particular incorrect implementation instance can be made to work with
+the existing claim tag code.
+
+There are effectively two issues here:-
+
+1) The existing core code does not correctly handle insufficient claim
+tags or none existent claim tag register - per the coresight spec.
+This needs fixing for all potential components - not just this one. My
+claim tag patch does that.
+
+2) This particular QCom CTI does not implement claim tags correctly.
+This particular instance can be made to operate correctly as detailed
+above as long as the core code can handle none-existent claim tags.
+The alternative is to bracket every claim tag access call with an "if
+!qcom_cti" statement. (which is what was happening in earlier
+patches).
+
+We need to fix the core code anyway, and the specific QCom CTI can
+then be fixed in a single location without changes elsewhere in the
+code. This is the cleanest and least disruptive solution.
+
+Regards
+
+Mike
+
+
+> Thanks,
+> Leo
+
+
 
 -- 
-2.34.1
-
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
