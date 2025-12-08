@@ -4,57 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 420C8D2CE17
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 02:33:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D00BFD2CE17
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 02:48:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C6pv5CBH40UymlBR/yM1CaDwUY0ELjdp+6nVUu/1p40=; b=wrkbqdKWke+VcXdGK2vI97+wen
-	vjLHNBJdg1Ge3n5aZwXO9F23rnB+w3E1maJHSCXpHrUuvz/ODo7iZuI43C4sjaWuBDoXOQm9DdFO7
-	IrYOcNof7FytZU1KHps547wMjlZi49aIMDvTM5z9ExgUAcwq65urFOM1OeF5GQSu4ybzmU5ZleUzo
-	6BhLSO6ewdSt3tAwbzJ7ldiWOTShlnk3ZdqZf/iKKoE/0HH3Mr8Stb05uqH2IqMlBNdgB0cjN5zhm
-	nXFDEAqbFX0Jwqgm1NmRr5Vxl+P+/TfU8DClPJgekhM0nbtFJliheh8Roe+xykzxbBIj3GFZjM4q3
-	wAk/NlcQ==;
+	bh=++V9Ih2XOWHzt8kN5tDYhc2K8I+ECObECwQKC4d5xqk=; b=GZgf43ILaUOho22E6ylu1XiBN/
+	zc4BPJpwpSs49h20tnJbLI8Vklsq/3/m0sFwp/P0Az525eLhTP5ahwRz/tZuyc0N8m0C5caA2VpyM
+	BRNFs0W38c8e3cy411qe9SVc04FOwn3Ou4+G5qE37TfstzfBHmw1sJ/F9tY68FYrA+xsmPsOK44N5
+	UdKjN5vqbFMknAFJmYrcoj/HpDLeCVM0cHoJpnDheIvbyvtwySfijCMm6zH/5BJxlsrjsa5tdjKPr
+	gluhPJxdlZwn7BRg17o/HgdiTKSuVIcE16nXRXZbHqiODHub6ke8PMklOzQubPF7tcyOriWCO39PA
+	m9dIAGRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSR4P-0000000CUQa-23Ji;
-	Mon, 08 Dec 2025 02:33:49 +0000
-Received: from out30-110.freemail.mail.aliyun.com ([115.124.30.110])
+	id 1vSRIq-0000000CVEY-08A3;
+	Mon, 08 Dec 2025 02:48:44 +0000
+Received: from mail-m21469.qiye.163.com ([117.135.214.69])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSR4M-0000000CUP7-264G
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 02:33:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1765161223; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
-	bh=C6pv5CBH40UymlBR/yM1CaDwUY0ELjdp+6nVUu/1p40=;
-	b=bAEZfcVBZ0H32DK6QJazCKJ9xN8R+TfXBny1eC9wFqnZVIUb7aSfnsNgKvmZu4MHYn6XavU5R/KqcdgliAfo/5JB89pkLz+QQ/EW7MpL1IaDOxF7KbNMsPdgXTSAIC7oNhf0eXsz5eI8nDj0nQJF3JMyzlVXIMEPrGV+DBI993o=
-Received: from 30.246.178.18(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WuF2a0v_1765161220 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Mon, 08 Dec 2025 10:33:41 +0800
-Message-ID: <0b277ac2-e454-47b8-a592-d9f57936c3fb@linux.alibaba.com>
-Date: Mon, 8 Dec 2025 10:33:40 +0800
+	id 1vSRIm-0000000CVCz-2CBa;
+	Mon, 08 Dec 2025 02:48:42 +0000
+Received: from [172.16.12.51] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2c54a2597;
+	Mon, 8 Dec 2025 10:48:27 +0800 (GMT+08:00)
+Message-ID: <f9f7b446-8575-4f16-aa96-5197b22846e3@rock-chips.com>
+Date: Mon, 8 Dec 2025 10:48:24 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH rc v2 3/4] iommu/arm-smmu-v3: Ignore STE EATS when
- computing the update sequence
-To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, will@kernel.org,
- robin.murphy@arm.com
-Cc: joro@8bytes.org, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
- skolothumtho@nvidia.com, praan@google.com
-References: <cover.1765140287.git.nicolinc@nvidia.com>
- <b3586cb03317fb2362e936e4d303566851b506d4.1765140287.git.nicolinc@nvidia.com>
-From: Shuai Xue <xueshuai@linux.alibaba.com>
-In-Reply-To: <b3586cb03317fb2362e936e4d303566851b506d4.1765140287.git.nicolinc@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v2 5/8] drm/rockchip: vop2: Enforce AFBC source alignment
+ in plane_check
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>
+References: <20251206-vop2-atomic-fixups-v2-0-7fb45bbfbebd@collabora.com>
+ <20251206-vop2-atomic-fixups-v2-5-7fb45bbfbebd@collabora.com>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <20251206-vop2-atomic-fixups-v2-5-7fb45bbfbebd@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9afbdc40e803abkunme8c07999276ba1c
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQhhISlZJS01CH0xNSUhIQkNWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=cecY6BMMm/6gQ/2K1RDh5tRiWZKU8O38FISd7rFWq0WnaAzGqbnG74DYW/5OX76YyJibVgxlKUeGLqykw3YxcmsttDzLWEiHTXe6IUFJgUa6FeaW3BIXEZgQvOpXS5Ur6s/5zek/X261ZJ0Ct245V+GgUw3u/kOSfOEZF7DJc+Q=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=++V9Ih2XOWHzt8kN5tDYhc2K8I+ECObECwQKC4d5xqk=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251207_183346_849954_B78BE6FE 
-X-CRM114-Status: GOOD (  20.21  )
+X-CRM114-CacheID: sfid-20251207_184841_203927_B40412A7 
+X-CRM114-Status: GOOD (  16.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,56 +78,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hello Nicolas, Daniel,
 
-
-在 2025/12/8 04:49, Nicolin Chen 写道:
-> From: Jason Gunthorpe <jgg@nvidia.com>
+On 12/7/2025 4:45 AM, Nicolas Frattaroli wrote:
+> From: Daniel Stone <daniels@collabora.com>
 > 
-> If a VM wants to toggle EATS off at the same time as changing the CFG, the
-> hypervisor will see EATS change to 0 and insert a V=0 breaking update into
-> the STE even though the VM did not ask for that.
+> Planes can only source AFBC framebuffers at multiples of 4px wide on
+> RK3566/RK3568. Instead of clipping on all SoCs when the user asks for an
+> unaligned source rectangle, reject the configuration in the plane's
+> atomic check on RK3566/RK3568 only.
 > 
-> In bare metal, EATS is ignored by CFG=ABORT/BYPASS, which is why this does
-> not cause a problem until we have nested where CFG is always a variation of
-> S2 trans that does use EATS.
-> 
-> Relax the rules for EATS sequencing, we don't need it to be exact because
-> the enclosing code will always disable ATS at the PCI device if we are
-> changing EATS. This ensures there are no ATS transactions that can race
-> with an EATS change so we don't need to carefully sequence these bits.
-> 
-> Fixes: 1e8be08d1c91 ("iommu/arm-smmu-v3: Support IOMMU_DOMAIN_NESTED")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> Signed-off-by: Daniel Stone <daniels@collabora.com>
+> [Make RK3566/RK3568 specific, reword message]
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 > ---
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 9 +++++++++
->   1 file changed, 9 insertions(+)
+>  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 14 +++++++++-----
+>  1 file changed, 9 insertions(+), 5 deletions(-)
 > 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 3e161d8298d9..72ba41591fdb 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -1095,6 +1095,15 @@ void arm_smmu_get_ste_ignored(__le64 *ignored_bits)
->   	 *  fault records even when MEV == 0.
->   	 */
->   	ignored_bits[1] |= cpu_to_le64(STRTAB_STE_1_MEV);
+> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> index bc1ed0ffede0..e23213337104 100644
+> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> @@ -1076,6 +1076,13 @@ static int vop2_plane_atomic_check(struct drm_plane *plane,
+>  		return -EINVAL;
+>  	}
+>  
+> +	if (vop2->version == VOP_VERSION_RK3568 && drm_is_afbc(fb->modifier) && src_w % 4) {
+> +		drm_dbg_kms(vop2->drm,
+> +			    "AFBC source rectangles must be 4-byte aligned; is %d\n",
+> +			    src_w);
+> +		return -EINVAL;
+> +	}
 > +
-> +	/*
-> +	 * EATS is used to reject and control the ATS behavior of the device. If
-> +	 * we are changing it away from 0 then we already trust the device to
-> +	 * use ATS properly and we have sequenced the device's ATS enable in PCI
-> +	 * config space to prevent it from issuing ATS while we are changing
-> +	 * EATS.
-> +	 */
-> +	ignored_bits[1] |= cpu_to_le64(STRTAB_STE_1_EATS);
->   }
->   EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_ignored);
->   
+>  	return 0;
+>  }
+>  
+> @@ -1237,11 +1244,8 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
+>  	WARN_ON(src_w < 4);
+>  	WARN_ON(src_h < 4);
+>  
+> -	if (afbc_en && src_w % 4) {
+> -		drm_dbg_kms(vop2->drm, "vp%d %s src_w[%d] not 4 pixel aligned\n",
+> -			    vp->id, win->data->name, src_w);
+> -		src_w = ALIGN_DOWN(src_w, 4);
+> -	}
+> +	if (vop2->version == VOP_VERSION_RK3568 && drm_is_afbc(fb->modifier))
+> +		WARN_ON(src_w % 4);
+>  
+>  	act_info = (src_h - 1) << 16 | ((src_w - 1) & 0xffff);
+>  	dsp_info = (dsp_h - 1) << 16 | ((dsp_w - 1) & 0xffff);
+> 
 
+You haven't replied to Andy's comment yet [0].
 
-Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
+[0] https://lore.kernel.org/dri-devel/7b4e26ec.75f3.19a77276b53.Coremail.andyshrk@163.com/
 
-Thanks.
-Shuai
+-- 
+Best, 
+Chaoyi
 
