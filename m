@@ -4,88 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA5A9D3ABEF
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 09:15:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C388D3B7DD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 09:15:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=02kU/M56s/fZwRTNuaIPuMNYirMvPbhW/oszEMt9ZhE=; b=d9l0wqEOZZ9mz1fopztjyXgZgS
-	TVJMtIIuneQ4AtMt69hzRBPh+VN4BcryKe2MfHp1u0pp6m/Avulqg4t0VYmUPZCC6TwH3x2MfoGwK
-	xbzG9k6Cz35EV4qR7e2Wp+bh3s1O73rfTsYfOduYt3bA43Kn6Kx71qPILSVwohOwLAvIQbgM1VDur
-	PK4W4VczZQ5Ut4EvNrCkYMz4AG6jJRHo+wx1woKjn3F6k19uioXe3shFRl7tw2Lc9Kl6RAauVXBeU
-	kD07LsOH7pHTrohvmwa+I5Zt3bduA9aGAH8K9oWP6gkGaHGZQpeAcjJkYdijoRxY/Zgin+/I6jv38
-	jbXdJRfQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GcgYtYBjE4aOTpOdi0EKCUM3t4rcSIyZhWzT5/PDJxA=; b=On4lMCUshJMKihDSXZuOUyE2sN
+	xgnF202yTauw8fA205Qq4MhgPKhdkiClEgvwO0vgIlJbyGH2j1cg17x71K4CY2QnVB8RpLjQJLg7p
+	/AuzcNla/AkCVrYJynNEMJIAAs7431aewKCHZyp8lv5vNROocUBOGN2UihVcVwf9D82PQ8YEOI8xb
+	HFjiFRhIhItoMsI0gFZ+awIKQ3uXm8X5b2PRNPK/Nhj+HJGkJMf0uEjGseID59Lym/5qEfdn0HlQd
+	g8+90cUTWP8snZprN74g9pXAx10SERzBZRFi2KZYkRxUJnGQlaR00cH3BMzmybIVLdK6wsbmgJHwi
+	hko6bf+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSXKu-0000000Cr6d-0Fx6;
-	Mon, 08 Dec 2025 09:15:16 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1vSXLF-0000000CrDN-1Dme;
+	Mon, 08 Dec 2025 09:15:37 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSXKq-0000000Cr5J-2S2M;
-	Mon, 08 Dec 2025 09:15:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1765185312; x=1796721312;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=Op2nVfSeshtd/97y1F620bAyJ5slemNLwyBYIxH82c8=;
-  b=LiMOua18mHIfmgSJn5GX5PkFB4awoYxWrbNgdcPaL9SfEba9vCSbECvn
-   tKUDZXvaSvcV8zEzfzPiOO5pZjLvfZBOmqba5Fb8NlI2Yqq1+NHAZBVBG
-   b2+WeixORZwAbbPOcoKIgbGSkaTpo3ybHjtmlcYH+kcbz5JPcssVzeCN2
-   kWimUDtmsjb42e1yw44TAgt0N3961GKHmxge6xbmBqro89/pb3+Vud27W
-   7D6C8hFvl6X/qYnn78gK3Y0UhfpkvT/sjTMLo+sbUygMKmUuqIiHsCAL+
-   7fkgm4gU4SJhT4DLBuieLVHAl6HMfAcsY0kE9lWgU2U5mjqFR2/XQ/pOx
-   g==;
-X-CSE-ConnectionGUID: kgxTm+sgSFiK9VOq1d8xZQ==
-X-CSE-MsgGUID: PWb1sxmpSSqvR3IwqYTdbw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11635"; a="66124380"
-X-IronPort-AV: E=Sophos;i="6.20,258,1758610800"; 
-   d="scan'208";a="66124380"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Dec 2025 01:15:10 -0800
-X-CSE-ConnectionGUID: 4H/pcwrXQVSjY8FUXqPV6w==
-X-CSE-MsgGUID: j7p+D3AjRFu5Wm3XzOa1YQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,258,1758610800"; 
-   d="scan'208";a="195945489"
-Received: from dapengmi-mobl1.ccr.corp.intel.com (HELO [10.124.240.12]) ([10.124.240.12])
-  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Dec 2025 01:14:59 -0800
-Message-ID: <0237b3eb-87f5-4758-b704-9f8d525f1f15@linux.intel.com>
-Date: Mon, 8 Dec 2025 17:14:56 +0800
+	id 1vSXLB-0000000CrBr-3K9Q
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 08 Dec 2025 09:15:35 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1vSXL4-00036i-NZ; Mon, 08 Dec 2025 10:15:26 +0100
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1vSXL4-004aS3-1A;
+	Mon, 08 Dec 2025 10:15:26 +0100
+Received: from pengutronix.de (p54b152ce.dip0.t-ipconnect.de [84.177.82.206])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 9C4D24B0F69;
+	Mon, 08 Dec 2025 09:15:24 +0000 (UTC)
+Date: Mon, 8 Dec 2025 10:15:20 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: Lei Xu <lei.xu@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org, qijian.guo@nxp.com, 
+	justin.jiang@nxp.com, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/2] arm64: dts: freescale: imx95: Add support for i.MX95
+ 15x15 FRDM board
+Message-ID: <20251208-watchful-fluorescent-piculet-4b55a8-mkl@pengutronix.de>
+References: <20251207-127-v1-0-5a2eeb69f150@nxp.com>
+ <20251207-127-v1-2-5a2eeb69f150@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 35/44] KVM: VMX: Drop intermediate "guest" field from
- msr_autostore
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oupton@kernel.org>, Tianrui Zhao <zhaotianrui@loongson.cn>,
- Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
- Anup Patel <anup@brainfault.org>, Paul Walmsley <pjw@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, loongarch@lists.linux.dev,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- Mingwei Zhang <mizhang@google.com>, Xudong Hao <xudong.hao@intel.com>,
- Sandipan Das <sandipan.das@amd.com>,
- Xiong Zhang <xiong.y.zhang@linux.intel.com>,
- Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
-References: <20251206001720.468579-1-seanjc@google.com>
- <20251206001720.468579-36-seanjc@google.com>
-Content-Language: en-US
-From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
-In-Reply-To: <20251206001720.468579-36-seanjc@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="bmknb3mg3ri2dueq"
+Content-Disposition: inline
+In-Reply-To: <20251207-127-v1-2-5a2eeb69f150@nxp.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mkl@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_011512_679664_6E3FF101 
-X-CRM114-Status: GOOD (  20.92  )
+X-CRM114-CacheID: sfid-20251208_011533_881301_32550696 
+X-CRM114-Status: GOOD (  13.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,104 +86,62 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 12/6/2025 8:17 AM, Sean Christopherson wrote:
-> Drop the intermediate "guest" field from vcpu_vmx.msr_autostore as the
-> value saved on VM-Exit isn't guaranteed to be the guest's value, it's
-> purely whatever is in hardware at the time of VM-Exit.  E.g. KVM's only
-> use of the store list at the momemnt is to snapshot TSC at VM-Exit, and
-> the value saved is always the raw TSC even if TSC-offseting and/or
-> TSC-scaling is enabled for the guest.
->
-> And unlike msr_autoload, there is no need differentiate between "on-entry"
-> and "on-exit".
->
-> No functional change intended.
->
-> Cc: Jim Mattson <jmattson@google.com>
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  arch/x86/kvm/vmx/nested.c | 10 +++++-----
->  arch/x86/kvm/vmx/vmx.c    |  2 +-
->  arch/x86/kvm/vmx/vmx.h    |  4 +---
->  3 files changed, 7 insertions(+), 9 deletions(-)
->
-> diff --git a/arch/x86/kvm/vmx/nested.c b/arch/x86/kvm/vmx/nested.c
-> index 729cc1f05ac8..486789dac515 100644
-> --- a/arch/x86/kvm/vmx/nested.c
-> +++ b/arch/x86/kvm/vmx/nested.c
-> @@ -1076,11 +1076,11 @@ static bool nested_vmx_get_vmexit_msr_value(struct kvm_vcpu *vcpu,
->  	 * VM-exit in L0, use the more accurate value.
->  	 */
->  	if (msr_index == MSR_IA32_TSC) {
-> -		int i = vmx_find_loadstore_msr_slot(&vmx->msr_autostore.guest,
-> +		int i = vmx_find_loadstore_msr_slot(&vmx->msr_autostore,
->  						    MSR_IA32_TSC);
->  
->  		if (i >= 0) {
-> -			u64 val = vmx->msr_autostore.guest.val[i].value;
-> +			u64 val = vmx->msr_autostore.val[i].value;
->  
->  			*data = kvm_read_l1_tsc(vcpu, val);
->  			return true;
-> @@ -1167,7 +1167,7 @@ static void prepare_vmx_msr_autostore_list(struct kvm_vcpu *vcpu,
->  					   u32 msr_index)
->  {
->  	struct vcpu_vmx *vmx = to_vmx(vcpu);
-> -	struct vmx_msrs *autostore = &vmx->msr_autostore.guest;
-> +	struct vmx_msrs *autostore = &vmx->msr_autostore;
->  	bool in_vmcs12_store_list;
->  	int msr_autostore_slot;
->  	bool in_autostore_list;
-> @@ -2366,7 +2366,7 @@ static void prepare_vmcs02_constant_state(struct vcpu_vmx *vmx)
->  	 * addresses are constant (for vmcs02), the counts can change based
->  	 * on L2's behavior, e.g. switching to/from long mode.
->  	 */
-> -	vmcs_write64(VM_EXIT_MSR_STORE_ADDR, __pa(vmx->msr_autostore.guest.val));
-> +	vmcs_write64(VM_EXIT_MSR_STORE_ADDR, __pa(vmx->msr_autostore.val));
->  	vmcs_write64(VM_EXIT_MSR_LOAD_ADDR, __pa(vmx->msr_autoload.host.val));
->  	vmcs_write64(VM_ENTRY_MSR_LOAD_ADDR, __pa(vmx->msr_autoload.guest.val));
->  
-> @@ -2704,7 +2704,7 @@ static void prepare_vmcs02_rare(struct vcpu_vmx *vmx, struct vmcs12 *vmcs12)
->  	 */
->  	prepare_vmx_msr_autostore_list(&vmx->vcpu, MSR_IA32_TSC);
->  
-> -	vmcs_write32(VM_EXIT_MSR_STORE_COUNT, vmx->msr_autostore.guest.nr);
-> +	vmcs_write32(VM_EXIT_MSR_STORE_COUNT, vmx->msr_autostore.nr);
->  	vmcs_write32(VM_EXIT_MSR_LOAD_COUNT, vmx->msr_autoload.host.nr);
->  	vmcs_write32(VM_ENTRY_MSR_LOAD_COUNT, vmx->msr_autoload.guest.nr);
->  
-> diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-> index 62ba2a2b9e98..23c92c41fd83 100644
-> --- a/arch/x86/kvm/vmx/vmx.c
-> +++ b/arch/x86/kvm/vmx/vmx.c
-> @@ -6567,7 +6567,7 @@ void dump_vmcs(struct kvm_vcpu *vcpu)
->  	if (vmcs_read32(VM_ENTRY_MSR_LOAD_COUNT) > 0)
->  		vmx_dump_msrs("guest autoload", &vmx->msr_autoload.guest);
->  	if (vmcs_read32(VM_EXIT_MSR_STORE_COUNT) > 0)
-> -		vmx_dump_msrs("guest autostore", &vmx->msr_autostore.guest);
-> +		vmx_dump_msrs("autostore", &vmx->msr_autostore);
->  
->  	if (vmentry_ctl & VM_ENTRY_LOAD_CET_STATE)
->  		pr_err("S_CET = 0x%016lx, SSP = 0x%016lx, SSP TABLE = 0x%016lx\n",
-> diff --git a/arch/x86/kvm/vmx/vmx.h b/arch/x86/kvm/vmx/vmx.h
-> index d7a96c84371f..4ce653d729ca 100644
-> --- a/arch/x86/kvm/vmx/vmx.h
-> +++ b/arch/x86/kvm/vmx/vmx.h
-> @@ -245,9 +245,7 @@ struct vcpu_vmx {
->  		struct vmx_msrs host;
->  	} msr_autoload;
->  
-> -	struct msr_autostore {
-> -		struct vmx_msrs guest;
-> -	} msr_autostore;
-> +	struct vmx_msrs msr_autostore;
->  
->  	struct {
->  		int vm86_active;
+--bmknb3mg3ri2dueq
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 2/2] arm64: dts: freescale: imx95: Add support for i.MX95
+ 15x15 FRDM board
+MIME-Version: 1.0
 
-LGTM.
+On 07.12.2025 05:26:06, Lei Xu wrote:
+> The i.MX95 15x15 FRDM board is a compact and cost-effective development
+> platform based on the i.MX95 applications processor.
+>
+> Add device tree support for this board, including:
+[...]
+>  - FlexCAN2 and FlexCAN5
 
-Reviewed-by: Dapeng Mi <dapeng1.mi@linux.intel.com>
+[...]
 
+> +&flexcan2 {
+> +	pinctrl-0 =3D <&pinctrl_flexcan2>;
+> +	pinctrl-names =3D "default";
+> +	xceiver-supply =3D <&reg_can_stby>;
+> +	status =3D "okay";
+> +};
+> +
+> +&flexcan5 {
+> +	pinctrl-0 =3D <&pinctrl_flexcan5>;
+> +	pinctrl-names =3D "default";
+> +	xceiver-supply =3D <&reg_can_stby>;
+> +	status =3D "okay";
+> +};
 
+please use the "can-transceiver" instead of the "xceiver-supply" property.
+
+regards,
+Marc
+--
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--bmknb3mg3ri2dueq
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEn/sM2K9nqF/8FWzzDHRl3/mQkZwFAmk2lyUACgkQDHRl3/mQ
+kZxqPQf6AyTsvZQb2ibfwoTfAHibR2yJxjK5zCkTgzu80GArfYo7C58EXHsFffwJ
+DOX+Ftf0YxKCIm1UqAry6guRPFPFSJLLldS5fKtaNBcED/szvLZ8NKAbatuZ+7uy
+SgDbtwJc+5j7bBssZ7JfXLeVJrYj8tpEOqYeHRLNgYlHu6/TnOrUSCTWLGvqZN/G
+On9Xltc8IDMrdpaBNp/BzV2GPl15PjODjhEFQQipca+si3chUPyv64iDAEkQou7e
+hrOSVJ4S+1E62o1f094o5YKFUTK79cdhmqzjsxTbGpTb8Fca53jgLaBnUKNn4cnO
+GMVG5cYL0ixktrTobrNgiipgf00Wwg==
+=TGy7
+-----END PGP SIGNATURE-----
+
+--bmknb3mg3ri2dueq--
 
