@@ -4,71 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 393EED1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 02:33:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A803FD1CDC6
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 02:33:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=InKH1/gynvVQk7glFamhjKgZ5wYewPEcLp8Bz6n3g0E=; b=EUjS+khgnwIia7aFf5gkpotWVj
-	NJA9FwNpI1xzdm/zKoThFrB4/zw1096NP5cQyYnETxKSiF1h4Q6QNHH72aqDsGjiMHCQzNhL31IZn
-	YoMUeawDSnbVAn9V/J7X6ECbGewAR3Jj/ZkYrPblKoi1fbxp4NirYNha2X60pj/GnyRSTKis7bl/u
-	wXv1fQBGaNp2CManD1p9VNfi0DfXEMF8hROYDdPOSf98Wg6hH8xO4CCbmohE3NLhSdAza5Wa6P57X
-	BrDJrw8ITiWrS98kMWwX3o7lTCVKdGp7Io/8BGxRCEjzqartQmccaxNVxI0yD2NkBjkiqJeWSZ+s3
-	UJrz7KyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/EX3r36Y3+GGh6sPJvDukpPQhyrwazsMSdsilDqqLyY=; b=vZ1Aw5vErYilKUpbwmSfAwG7ND
+	w9DuSq3OzMiL9Kn9JhgtEvMfRC0rq8hfIHGu1x0MwvsWZeFXUp+Qmv6YQxlT3HyosBnGvydsluaFc
+	4EJDQmOpNKD5lahx/ppppS/YN97q7IjIygRoqCf5+laM3mdiqRhcwvTTH0c1fj6KXQWqTsMHrXdma
+	87CLs26ftwjQXGfObYngibbQ009XP5PSkhuPKwxokKZdtC/9I6CeijTlereMQ88DDC7zDsd1R3Y0X
+	+/gFUEAIteSqns7xnkBTPKsv0eGFLLBNHqmL+m7heqEGnAJN2ZvZEUC7WOEl3W9tnap6rVLnCmzjp
+	cecSRk7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSR3t-0000000CUIV-3J3p;
-	Mon, 08 Dec 2025 02:33:17 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1vSR4A-0000000CUMA-0LMr;
+	Mon, 08 Dec 2025 02:33:34 +0000
+Received: from out30-101.freemail.mail.aliyun.com ([115.124.30.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSR3q-0000000CUGs-0yyS
+	id 1vSR45-0000000CUKV-3GfD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 02:33:16 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=InKH1/gynvVQk7glFamhjKgZ5wYewPEcLp8Bz6n3g0E=;
-	b=op1FV9mhWKOiJNfy0ymBe3cwCenJiplbd147oSBh5IvbJX0GynPf0KApsHSnlDjDq8hX/Jco6
-	4r+TSLkKlwoZIAPybGNW6uIFwPJ4p07fGbN+wyjzLkBqqn+StRvmZ2zc4cH9EaPNq5XZx0VhhlS
-	P3UREAHZNBweKmeyLGGkNFM=
-Received: from mail.maildlp.com (unknown [172.19.163.17])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4dPmF14b2jz1cyPb;
-	Mon,  8 Dec 2025 10:31:01 +0800 (CST)
-Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
-	by mail.maildlp.com (Postfix) with ESMTPS id 072BD1A0188;
-	Mon,  8 Dec 2025 10:32:57 +0800 (CST)
-Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
- kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 8 Dec 2025 10:32:56 +0800
-From: Xie Yuanbin <xieyuanbin1@huawei.com>
-To: <linux@armlinux.org.uk>
-CC: <viro@zeniv.linux.org.uk>, <akpm@linux-foundation.org>,
-	<brauner@kernel.org>, <catalin.marinas@arm.com>, <hch@lst.de>,
-	<jack@suse.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-fsdevel@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-mm@kvack.org>, <pangliyuan1@huawei.com>,
-	<torvalds@linux-foundation.org>, <wangkefeng.wang@huawei.com>,
-	<will@kernel.org>, <wozizhi@huaweicloud.com>, <xieyuanbin1@huawei.com>,
-	<yangerkun@huawei.com>
-Subject: Re: [Bug report] hash_name() may cross page boundary and trigger sleep in RCU context
-Date: Mon, 8 Dec 2025 10:32:06 +0800
-Message-ID: <20251208023206.44238-1-xieyuanbin1@huawei.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <aTLLLuup7TeAqFVL@shell.armlinux.org.uk>
-References: <aTLLLuup7TeAqFVL@shell.armlinux.org.uk>
+	Mon, 08 Dec 2025 02:33:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1765161207; h=Message-ID:Date:MIME-Version:Subject:To:From:Content-Type;
+	bh=/EX3r36Y3+GGh6sPJvDukpPQhyrwazsMSdsilDqqLyY=;
+	b=BEvaFLOhn/zzifZ/2BcpNSgT/OI2iZMe6EHmS23kL33ImQvBHmdUzoJ9TTfD39rIJjLOeaQ3vLj1tOfvuVB6WTr5PDHI1+beGM/BDomgY7cJBVLGmRzbMEA583yz9SOHHkRTe0MMUaY+feAx/XWwR+pRmMeJfAaLsDtr99W9FoI=
+Received: from 30.246.178.18(mailfrom:xueshuai@linux.alibaba.com fp:SMTPD_---0WuF439A_1765161203 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Mon, 08 Dec 2025 10:33:24 +0800
+Message-ID: <b4d96532-09b5-4162-8d9e-c41ca2baba0b@linux.alibaba.com>
+Date: Mon, 8 Dec 2025 10:33:23 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH rc v2 2/4] iommu/arm-smmu-v3: Ignore STE MEV when
+ computing the update sequence
+To: Nicolin Chen <nicolinc@nvidia.com>, jgg@nvidia.com, will@kernel.org,
+ robin.murphy@arm.com
+Cc: joro@8bytes.org, linux-arm-kernel@lists.infradead.org,
+ iommu@lists.linux.dev, linux-kernel@vger.kernel.org,
+ skolothumtho@nvidia.com, praan@google.com
+References: <cover.1765140287.git.nicolinc@nvidia.com>
+ <08fd4d48e684732ad58064f690195f31a64979c4.1765140287.git.nicolinc@nvidia.com>
+From: Shuai Xue <xueshuai@linux.alibaba.com>
+In-Reply-To: <08fd4d48e684732ad58064f690195f31a64979c4.1765140287.git.nicolinc@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.109.17]
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- kwepemj100009.china.huawei.com (7.202.194.3)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251207_183314_648916_C8CFA5FD 
-X-CRM114-Status: GOOD (  18.92  )
+X-CRM114-CacheID: sfid-20251207_183330_116912_19DD826B 
+X-CRM114-Status: GOOD (  17.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,61 +69,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 5 Dec 2025 12:08:14 +0000, Russell King wrote:
-> On Wed, Dec 03, 2025 at 09:48:00AM +0800, Xie Yuanbin wrote:
->> On Tue, 2 Dec 2025 14:07:25 -0800, Linus Torvalds wrote:
->> > On Tue, 2 Dec 2025 at 04:43, Russell King (Oracle)
->> > <linux@armlinux.org.uk> wrote:
->> >>
->> >> What I'm thinking is to address both of these by handling kernel space
->> >> page faults (which will be permission or PTE-not-present) separately
->> >> (not even build tested):
->> >
->> > That patch looks sane to me.
->> >
->> > But I also didn't build test it, just scanned it visually ;)
->>
->> That patch removes harden_branch_predictor() from __do_user_fault(), and
->> moves it to do_page_fault()->do_kernel_address_page_fault().
->> This resolves previously mentioned kernel warning issue. However,
->> __do_user_fault() is not only called by do_page_fault(), it is
->> alse called by do_bad_area(), do_sect_fault() and do_translation_fault().
->>
->> So I think that some harden_branch_predictor() is missing on other paths.
->> According to my tests, when CONFIG_ARM_LPAE=n, harden_branch_predictor()
->> will never be called anymore, even if a user program trys to access the
->> kernel address.
->>
->> Or perhaps I've misunderstood something, could you please point it out?
->> Thank you very much.
->
-> Right, let's split these issues into separate patches. Please test this
-> patch, which should address only the hash_name() fault issue, and
-> provides the basis for fixing the branch predictor issue.
 
-I conducted a simple test, and it seems that both the hash_name()
-might sleep issue and the branch predictor issue have been fixed.
 
-BTW, even with this patch, test cases may still fail. There is another
-bug in hash_name() will also be triggered by the testcase, which will be
-fixed in this patch:
-Link: https://lore.kernel.org/20251127025848.363992-1-pangliyuan1@huawei.com
+在 2025/12/8 04:49, Nicolin Chen 写道:
+> From: Jason Gunthorpe <jgg@nvidia.com>
+> 
+> Nested CD tables set the MEV bit to try to reduce multi-fault spamming on
+> the hypervisor. Since MEV is in STE word 1 this causes a breaking update
+> sequence that is not required and impacts real workloads.
+> 
+> For the purposes of STE updates the value of MEV doesn't matter, if it is
+> set/cleared early or late it just results in a change to the fault reports
+> that must be supported by the kernel anyhow. The spec says:
+> 
+>   Note: Software must expect, and be able to deal with, coalesced fault
+>   records even when MEV == 0.
+> 
+> So ignore MEV when computing the update sequence to avoid creating a
+> breaking update.
+> 
+> Fixes: da0c56520e88 ("iommu/arm-smmu-v3: Set MEV bit in nested STE for DoS mitigations")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+> ---
+>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 10 ++++++++++
+>   1 file changed, 10 insertions(+)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index e22c0890041b..3e161d8298d9 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -1085,6 +1085,16 @@ EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_used);
+>   VISIBLE_IF_KUNIT
+>   void arm_smmu_get_ste_ignored(__le64 *ignored_bits)
+>   {
+> +	/*
+> +	 * MEV does not meaningfully impact the operation of the HW, it only
+> +	 * changes how many fault events are generated, thus we can ignore it
+> +	 * when computing the ordering. The spec notes the device can act like
+> +	 * MEV=1 anyhow:
+> +	 *
+> +	 *  Note: Software must expect, and be able to deal with, coalesced
+> +	 *  fault records even when MEV == 0.
+> +	 */
+> +	ignored_bits[1] |= cpu_to_le64(STRTAB_STE_1_MEV);
+>   }
+>   EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_ignored);
+>   
 
-Test case is from:
-Link: https://lore.kernel.org/20251127140109.191657-1-xieyuanbin1@huawei.com
 
-Test in commit 6987d58a9cbc5bd57c98 ("Add linux-next specific files for
-20251205") from linux-next branch.
+Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
 
-I still have a question about this patch: Is 
-```patch
-+		if (interrupts_enabled(regs))
-+			local_irq_enable();
-```
-necessary? Although this implementation is closer to the original code,
-which can reduce side effects, do_bad_area(), do_sect_fault(),
-and do_translation_fault() all call __do_kernel_fault() with interrupts
-disabled.
-
-Thanks very much!
+Thanks.
+Shuai
 
