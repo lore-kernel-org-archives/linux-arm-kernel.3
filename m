@@ -4,80 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40195D3B981
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 16:35:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 082C8D3B981
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 16:36:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s/WVDIAKmr+NSH65p84a1hhZrM9EjkKg+B/gxnk7sYE=; b=sChcV5hKljzQNhLQzBTKmqPL1I
-	lOctP1U7EFbvBBEQdxFDnQKWaTytWGkq8jx40eoJ5jqYI1kA4uDB+StK3wvsIX1iswz6JbF79gLoQ
-	sygPfga3n+bgd70CCb9cCboKWvJpOJeUG9gNqxth9Z/0juSwDiWTwPRNlaf1k9Jr4Jagz6rtK265Y
-	/Bwgc8Bd0S3wHZ4DKxN4agIGy1h14OgHgDC5lWqWjDZIy1V/dNDrOnYC4pnQikhYOR6JndvM4NRdF
-	VcHOlsZKxaNRLh3J4B0M5to8ygdyRQYm3bhahvX53xLE2gfikINc2jOnMFfCtzER3rQYOTiqzoe5f
-	phxdz1xg==;
+	bh=dxaFxXAfLjCdhHNr+p7oFJVXaqRDw/7hp7ZPcMfNGaA=; b=j0EzBr+hL00LpY9KMvr+G2hQ1n
+	KElc8eEb45rpUILuuWLhHkVw6av5iv7Bz8Mab3abnJqKZLvdL3ofgV4JqrQfNQ3ckABazUpuoE0vF
+	iZufYM8qoDOCbk/xsGIZ6CXNvQfmYjvYhd2wT8wIDMSdckGvF0wrbapMR9nRbGOzSDDazpvvNygEX
+	RmBM3gYUk696i3L0JQio9j+mV0q4tT/3Sou1Gj54T2hlqdAPdtvQ8ZdB4MJq0skj0zz0PM42VQZRk
+	4SkgdVVZ7hxvMHDa5Wr+UOV/FXKj58u3trm0nt7rGwZrmp7bpY9hWsUXQbSgV9KEHoAZLcVgxRgqV
+	mX17on0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT0gF-0000000EX9N-2Gdl;
-	Tue, 09 Dec 2025 16:35:15 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT0fx-0000000EWfY-3840;
-	Tue, 09 Dec 2025 16:34:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1765298095;
-	bh=KcsnWznaCJU8MOVAN1wmTGeLu//ZGdwoIZ+6tcgUhIE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=Y5jvpwnGObyceyDShDTX7w66eOP8zN97wJsEr60gjKcgeyTB0/gAW1RfFxzvEtAXQ
-	 jOh0Affa3ZBBamJKOvASGwD8VmWVnECKUBa29lX9gr+1LepbPAuvpLvQ1Si0i0TYSZ
-	 MOV7CcrtyJWGSd2vT5D60D3cpG56jgvZkegFOfdIcScPTpQXdGH9tzOFQHZXN1yllu
-	 sVgQs6wXYSi2HdGO9Tu+PzQSDVTE1qxH1PGCtTbEuE/S6qa5agejIPkATvp6xy8y6R
-	 ShzKndAMD7ZttSN94Ay9Q7iGtcf3pD7UjM0NuqjH1jngLfcWF9FSlpBRNOidizlhwj
-	 lp4AA05EgzcUw==
-Received: from yukiji.home (amontpellier-657-1-116-247.w83-113.abo.wanadoo.fr [83.113.51.247])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8ABCC17E1541;
-	Tue,  9 Dec 2025 17:34:54 +0100 (CET)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Tue, 09 Dec 2025 17:34:42 +0100
-Subject: [PATCH 12/12] arm64: defconfig: Enable Mediatek HDMIv2 driver
+	id 1vT0hK-0000000EY06-3fXG;
+	Tue, 09 Dec 2025 16:36:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vT0hH-0000000EXys-2iZF
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Dec 2025 16:36:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 117C4175D;
+	Tue,  9 Dec 2025 08:36:11 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DD1D93F73B;
+	Tue,  9 Dec 2025 08:36:14 -0800 (PST)
+Message-ID: <dc5355c6-e7a6-466e-9183-9753281961a8@arm.com>
+Date: Tue, 9 Dec 2025 16:36:13 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251209-mtk-genio-evk-hdmi-support-v1-12-9a6106effba6@collabora.com>
-References: <20251209-mtk-genio-evk-hdmi-support-v1-0-9a6106effba6@collabora.com>
-In-Reply-To: <20251209-mtk-genio-evk-hdmi-support-v1-0-9a6106effba6@collabora.com>
-To: Chunfeng Yun <chunfeng.yun@mediatek.com>, Vinod Koul <vkoul@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Guillaume Ranquet <granquet@baylibre.com>
-Cc: kernel@collabora.com, Krzysztof Kozlowski <krzk@kernel.org>, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1765298083; l=792;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=KcsnWznaCJU8MOVAN1wmTGeLu//ZGdwoIZ+6tcgUhIE=;
- b=oIVEXIknM/gDRvQKglYE1HyEGdUXUQRTBpy8aFDzYu1FlRQMCNRqtRtxbE9YHNCd3Ymc1Zzlv
- ssH9z75vXp6A8Uyh+ccCpIk/d3bMbAiFpgyordgKieCT3sakZxys0xo
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 31/38] arm_mpam: resctrl: Update the rmid reallocation
+ limit
+To: Fenghua Yu <fenghuay@nvidia.com>, James Morse <james.morse@arm.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@kernel.org>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Gavin Shan <gshan@redhat.com>, rohit.mathew@arm.com,
+ reinette.chatre@intel.com, Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+References: <20251205215901.17772-1-james.morse@arm.com>
+ <20251205215901.17772-32-james.morse@arm.com>
+ <1cc804d5-9d14-4d71-9da1-a660a2569e4e@nvidia.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <1cc804d5-9d14-4d71-9da1-a660a2569e4e@nvidia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_083458_019682_20FDC4EC 
-X-CRM114-Status: UNSURE (   7.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251209_083619_775524_372EC981 
+X-CRM114-Status: GOOD (  22.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,29 +77,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In order to enable the HDMI output support on Mediatek Genio 510-EVK,
-700-EVK, and 1200-EVK boards, enable the driver for it in the default
-configuration.
+Hi Fenghua,
 
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+On 12/6/25 00:06, Fenghua Yu wrote:
+> Hi, James,
+> 
+> On 12/5/25 13:58, James Morse wrote:
+>> resctrl's limbo code needs to be told when the data left in a cache is
+>> small enough for the partid+pmg value to be re-allocated.
+>>
+>> x86 uses the cache size divided by the number of rmid users the cache
+>> may have. Do the same, but for the smallest cache, and with the
+>> number of partid-and-pmg users.
+>>
+>> Querying the cache size can't happen until after cacheinfo_sysfs_init()
+>> has run, so mpam_resctrl_setup() must wait until then.
+>>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> ---
+>>   drivers/resctrl/mpam_resctrl.c | 54 ++++++++++++++++++++++++++++++++++
+>>   1 file changed, 54 insertions(+)
+>>
+>> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/
+>> mpam_resctrl.c
+>> index 506063bd3348..ccdf8db742c9 100644
+>> --- a/drivers/resctrl/mpam_resctrl.c
+>> +++ b/drivers/resctrl/mpam_resctrl.c
+>> @@ -16,6 +16,7 @@
+>>   #include <linux/resctrl.h>
+>>   #include <linux/slab.h>
+>>   #include <linux/types.h>
+>> +#include <linux/wait.h>
+>>     #include <asm/mpam.h>
+>>   @@ -58,6 +59,13 @@ static bool cdp_enabled;
+>>    */
+>>   static bool resctrl_enabled;
+>>   +/*
+>> + * mpam_resctrl_pick_caches() needs to know the size of the caches.
+>> cacheinfo
+>> + * populates this from a device_initcall(). mpam_resctrl_setup() must
+>> wait.
+>> + */
+>> +static bool cacheinfo_ready;
+>> +static DECLARE_WAIT_QUEUE_HEAD(wait_cacheinfo_ready);
+>> +
+>>   /*
+>>    * L3 local/total may come from different classes - what is the
+>> number of MBWU
+>>    * 'on L3'?
+>> @@ -584,6 +592,38 @@ void resctrl_arch_reset_cntr(struct rdt_resource
+>> *r, struct rdt_mon_domain *d,
+>>       reset_mon_cdp_safe(mon, mon_comp, USE_PRE_ALLOCATED, closid, rmid);
+>>   }
+>>   +/*
+>> + * The rmid realloc threshold should be for the smallest cache
+>> exposed to
+>> + * resctrl.
+>> + */
+>> +static int update_rmid_limits(struct mpam_class *class)
+>> +{
+>> +    u32 num_unique_pmg = resctrl_arch_system_num_rmid_idx();
+>> +    struct mpam_props *cprops = &class->props;
+>> +    struct cacheinfo *ci;
+>> +
+>> +    lockdep_assert_cpus_held();
+>> +
+>> +    /* Assume cache levels are the same size for all CPUs... */
+>> +    ci = get_cpu_cacheinfo_level(smp_processor_id(), class->level);
+>> +    if (!ci || ci->size == 0) {
+>> +        pr_debug("Could not read cache size for class %u\n",
+>> +             class->level);
+>> +        return -EINVAL;
+>> +    }
+>> +
+>> +    if (!mpam_has_feature(mpam_feat_msmon_csu, cprops))
+>> +        return 0;
+>> +
+>> +    if (!resctrl_rmid_realloc_limit ||
+>> +        ci->size < resctrl_rmid_realloc_limit) {
+>> +        resctrl_rmid_realloc_limit = ci->size;
+>> +        resctrl_rmid_realloc_threshold = ci->size / num_unique_pmg;
+>> +    }
+>> +
+>> +    return 0;
+>> +}
+>> +
+>>   static bool cache_has_usable_cpor(struct mpam_class *class)
+>>   {
+>>       struct mpam_props *cprops = &class->props;
+>> @@ -1025,6 +1065,9 @@ static void mpam_resctrl_pick_counters(void)
+>>               /* CSU counters only make sense on a cache. */
+>>               switch (class->type) {
+>>               case MPAM_CLASS_CACHE:
+>> +                if (update_rmid_limits(class))
+>> +                    continue;
+>> +
+>>                   counter_update_class(QOS_L3_OCCUP_EVENT_ID, class);
+>>                   return;
+>>               default:
+>> @@ -1731,6 +1774,8 @@ int mpam_resctrl_setup(void)
+>>       struct mpam_resctrl_res *res;
+>>       struct mpam_resctrl_mon *mon;
+>>   +    wait_event(wait_cacheinfo_ready, cacheinfo_ready);
+> 
+> This may cause system hang for any hw/fw issue that causes cacheinfo
+> failure. Instead of hang, is it better to have a timeout wait here? Like
+>     errowait_event_timeout(wait_cache_info_read, cacheinfo_ready, 5 * HZ);
+> and report failure when cacheinfo is not ready.
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index cdb7d69e3b248975557e141481a88fd86115cf40..24c1670e5bfd4ed0902d5440d43fdb4e5dd676f1 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1015,6 +1015,7 @@ CONFIG_DRM_HISI_KIRIN=m
- CONFIG_DRM_MEDIATEK=m
- CONFIG_DRM_MEDIATEK_DP=m
- CONFIG_DRM_MEDIATEK_HDMI=m
-+CONFIG_DRM_MEDIATEK_HDMI_V2=m
- CONFIG_DRM_MXSFB=m
- CONFIG_DRM_IMX_LCDIF=m
- CONFIG_DRM_MESON=m
+This is just waiting on everything in device_initcall(). I think we've
+got bigger problems if that doesn't finish.
 
--- 
-2.52.0
+> 
+> Thanks.
+> 
+> -Fenghua
+
+
+Thanks,
+
+Ben
 
 
