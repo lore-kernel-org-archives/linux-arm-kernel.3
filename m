@@ -4,191 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D2FD3B7EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 08:53:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B35ED1CDC6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 08:57:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SRweUJCc/tyk5f6nAL8sfLdj/YQWUpKr12enXXa9wIA=; b=HR5ut1twlQuJHqGqBulePMuOiB
-	7FShYhazyz/Tqn4FR1cnwgWTH1QBKBEhEH+y9SRwmIIheqrRgLThbO6UMxYT/fzAEbxvXW5pAE0zi
-	/B7pIkicaEo53lEfpCYJjp9lmKTc7XcLyZg4+hmOTNWf0Lw8mhQvTshCVhBaq9Tq2C5ekpPBAtDRL
-	to+OK1DPViaM7cEU3e/NuHvDZDbWp+ZpCxf7oOMIz641v3MdbC49h8HzgdeoPV3DfV3Yn+FfQdhpU
-	prs0hL3DFsRA/zygPAFVAv9pqobTJ9akT18M7cFJc4ZHYYj6tLewxgnsYLTOvePAgH5g91gESc7fO
-	oP4fkQBg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tcMF3cRpzEEtF2/VObJ0uvDxmFVvQ5pPLVgCyu1MVSg=; b=hElmG4RAm/sEJbk8TefKydX+Cn
+	ElUrTdvcOnp1XTE+psahGt86WxTovpnyOTiXwRMevvS7tNf9AQLk+eQSO407b9Y4h5c4ZxBJTRHYN
+	B7Oht8JvTciyJ251bLSL4AvE8xoRpjWz/SYX//JdmgwtyyfPH0yiCAygSl7AxVRqjesPv6DQsivf/
+	++AY4QHI3La2T0sVz5I3qSKUqT0nCTCkZjPXwpoOOcrYFK0S3k737dfhFYpw7BWs9uiQdSgGYl63H
+	DngzwbtP5/94SC3YhdgVYiakxks51lLrCsqhMC9Nhw8SXHrX3fnyGXg8P/qnWP9L/R2vk9m9QHlPn
+	7h/z7RoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vStTQ-0000000E0qO-1DHd;
-	Tue, 09 Dec 2025 08:53:32 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1vStWj-0000000E17b-2U8q;
+	Tue, 09 Dec 2025 08:56:57 +0000
+Received: from canpmsgout08.his.huawei.com ([113.46.200.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vStTN-0000000E0pl-1Av7;
-	Tue, 09 Dec 2025 08:53:31 +0000
-Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B98kj3p3429234;
-	Tue, 9 Dec 2025 09:53:03 +0100
-Received: from pa4pr04cu001.outbound.protection.outlook.com (mail-francecentralazon11013031.outbound.protection.outlook.com [40.107.162.31])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4avcq31rwj-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 09 Dec 2025 09:53:03 +0100 (CET)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rMXXNL9q4Ja7fDw2PdNlwyWGQvI+NfU2GjxwVuebmslcShTnOmlAcS8emMTJf8fZyW43mQ7MJ8z/ky5Lb5+qiUji+M2pttUssAJDnpQa0LAJ3V7U2WOfqTF0S2xvF9WloTOsZf6mocgg/12KHHlKnxQ0XcIeIh0BHEGWBhqlzWJifoYNIr0jxNTxOTS4y1XGOBg8gX43jL1aqyVPraNNo3GOw6RAjUW5eVRKDUCbdT7+ZuzdvQmTHsn7LM/fXrvlVJ/OKY5TPJl0owi+PPVBeERydz1l9zGkpIIrD7TCARsLqbCFppUsQHOR88rOcjSAItJELJL07UvUlm6AsX8Gpw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SRweUJCc/tyk5f6nAL8sfLdj/YQWUpKr12enXXa9wIA=;
- b=rwe4ZnGKqQT5aIW2Ov2fihdw78Av9r/Qpv0U0+jIqNYNn9CTZksHC0mJuHCytbfbWSc4Y8k7GqS9Br1/HF/fcqfU9C1QXBntRgPMWnFwvghziy6gCaRWTYVp/nHBAscik+Nb4Ia3golCrFYZvNKGU9HKBfABVnYCFJce3wlybc10cRAjwLiDGi/ET+9yPQ18TmPuhho65taGmtqcr89e2VM/Xx/ILNHLwnHCIO+u2rkuF7ooTn14SdR3gwAhtj9NLlBGOuj3emGJqnclOAMkjeDrArGjBZBqYDg9pup9hq899gkjMc/E35ic8Kykx34oTkahQLllbV4I48UkmGIATQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.59) smtp.rcpttodomain=linaro.org smtp.mailfrom=foss.st.com;
- dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SRweUJCc/tyk5f6nAL8sfLdj/YQWUpKr12enXXa9wIA=;
- b=IElGHFzKnuqIp/wu6EuHoe6clAwcmipNdj9fHtWDu70dIUAZMcpsRFT2TZFM5WYD0EwFRXbvod6xS6SNblks/RYFwjWdEtzgAd55oM8aqtb5gmqlPZaEqJIKym8eIAoCg0pTerW3AieTwU1iDuONb1zEuQfQRsKJyuvH01SWGQx0MAU/fnLzxbDt1wQPI56uMricREuSdTCRGXjjWK1rB1uyhWvX3IDWQAom3gTTgJDgfb1yaSxTAJUaVo2QQpwkr5iTy+vHCKs6L40J1dau92scAdHyqy+EgzjZxhm3UfAqVXOd5gW86K2zdGny+WQg753UkKEe70ftQGkOjRBk2Q==
-Received: from DB9PR06CA0014.eurprd06.prod.outlook.com (2603:10a6:10:1db::19)
- by DB8PR10MB3499.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:137::23) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.14; Tue, 9 Dec
- 2025 08:53:01 +0000
-Received: from DU6PEPF0000952A.eurprd02.prod.outlook.com
- (2603:10a6:10:1db:cafe::e3) by DB9PR06CA0014.outlook.office365.com
- (2603:10a6:10:1db::19) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9388.14 via Frontend Transport; Tue,
- 9 Dec 2025 08:53:01 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.59)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.59 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.59; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.59) by
- DU6PEPF0000952A.mail.protection.outlook.com (10.167.8.11) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9388.8 via Frontend Transport; Tue, 9 Dec 2025 08:53:00 +0000
-Received: from STKDAG1NODE2.st.com (10.75.128.133) by smtpo365.st.com
- (10.250.44.71) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 9 Dec
- 2025 09:53:41 +0100
-Received: from [10.48.86.127] (10.48.86.127) by STKDAG1NODE2.st.com
- (10.75.128.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 9 Dec
- 2025 09:52:58 +0100
-Message-ID: <274037fa-b881-49bb-9e93-c83fefb80438@foss.st.com>
-Date: Tue, 9 Dec 2025 09:52:41 +0100
+	id 1vStWe-0000000E15q-3ngW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Dec 2025 08:56:56 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=tcMF3cRpzEEtF2/VObJ0uvDxmFVvQ5pPLVgCyu1MVSg=;
+	b=5Jli9XAOtKMhf4UrEnIIvVb5w79AyEExd8n1YP6Ws55z3BuiuZfBRnKxVzdLyjbjODHK8Ac52
+	uyOPzMpZPvkpbPw3mGZcV5TupuUjdgeDYJREEMfwlER3O12cWaBmZPS5y/GI/5SlrPEzzuPmG2S
+	uuNkEYdSlRnB0RAYvjuk0TA=
+Received: from mail.maildlp.com (unknown [172.19.88.214])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4dQXjN6fjGzmV69;
+	Tue,  9 Dec 2025 16:54:48 +0800 (CST)
+Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
+	by mail.maildlp.com (Postfix) with ESMTPS id D92261A016C;
+	Tue,  9 Dec 2025 16:56:44 +0800 (CST)
+Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
+ kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 9 Dec 2025 16:56:44 +0800
+From: Xie Yuanbin <xieyuanbin1@huawei.com>
+To: <linux@armlinux.org.uk>
+CC: <linux-arm-kernel@lists.infradead.org>, <torvalds@linux-foundation.org>,
+	<viro@zeniv.linux.org.uk>, <will@kernel.org>, <xieyuanbin1@huawei.com>
+Subject: Re: [PATCH 0/3] ARM: fix hash_name() and branch predictor issues
+Date: Tue, 9 Dec 2025 16:56:27 +0800
+Message-ID: <20251209085627.64057-1-xieyuanbin1@huawei.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <aTcBHKFDBkSEp5mi@shell.armlinux.org.uk>
+References: <aTcBHKFDBkSEp5mi@shell.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [Linux-stm32] [PATCH] phy: stm32-usphyc: Fix off by one in
- probe()
-To: Dan Carpenter <dan.carpenter@linaro.org>,
-        Amelie Delaunay
-	<amelie.delaunay@st.com>
-CC: Kishon Vijay Abraham I <kishon@kernel.org>,
-        Neil Armstrong
-	<neil.armstrong@linaro.org>,
-        <kernel-janitors@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        Vinod Koul <vkoul@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        <linux-phy@lists.infradead.org>,
-        Fengguang Wu
-	<fengguang.wu@intel.com>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        "Johan
- Hovold" <johan+linaro@kernel.org>
-References: <aTfHcMJK1wFVnvEe@stanley.mountain>
-Content-Language: en-US
-From: Amelie Delaunay <amelie.delaunay@foss.st.com>
-In-Reply-To: <aTfHcMJK1wFVnvEe@stanley.mountain>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.127]
-X-ClientProxiedBy: ENXCAS1NODE2.st.com (10.75.128.138) To STKDAG1NODE2.st.com
- (10.75.128.133)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU6PEPF0000952A:EE_|DB8PR10MB3499:EE_
-X-MS-Office365-Filtering-Correlation-Id: ffa57d9c-6cad-430d-3fb1-08de37005b3e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|36860700013|376014|7416014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?WnJXWnhOdVhxMnpCRk1KY3FrM016RDlKcGwvTFlxenF2aUFrSWwydWxNNVho?=
- =?utf-8?B?QkgrRDIveWZnTVZKNVl3VDFKcGVJRldtVVl3Y1IxTnladloxSmxzS3JDbWc4?=
- =?utf-8?B?VDNjVWxhaGRMNXBsQ0E2NEkzMU5NeFRJMlc4S2lOOXIwV1g0Z05ZN3QzYU1L?=
- =?utf-8?B?cXJ4OTZWa0c3c2R4QmF0SnJnbkNjN3R5bkY4QXJiamJzTWVjNlQvdGRWaUs5?=
- =?utf-8?B?MkZlUFdFdFIzUnRvdkx5clB2T1pFQTJrZ05iQTloYW96NU4ybTlSRzRPY3l3?=
- =?utf-8?B?WWU3UXlwRkRyeVJaelNyVjYwWHExOUtqUUhYYlozUE9VSnlqcEsveSt2cFAx?=
- =?utf-8?B?VVRndVpYVGQwVm1XSWE1NWVOQkxKN000VkhNaVdSNEV1bUlSbnZLOHdLZlBX?=
- =?utf-8?B?VDhabVhjdmRPaHFmR3dMMFAzS3FvU2M3bnZUUHFhZUlQcW1VVTJzUmYzUTlN?=
- =?utf-8?B?dGNHT0hTK2lnZTJJMGd2elE1a0ZnZDRhajRrMUVlaVdudWZoWG90NGhkZjFD?=
- =?utf-8?B?aEhMTjRzMHFicVpMTGoya1FicEszQmdoMk8wMkVtTkxWVktJWTZTbXI3K2pP?=
- =?utf-8?B?SXFUSEM5bGdCMWFzT0w2VHFGYyttWEZOcDBEV1BGbWhEZHJhQWtJMzhkZGlV?=
- =?utf-8?B?NDl0VGdzY3ByYkczdVJMTmlFTkRIbno0TlFSTTVEV1BibXQ0anB0N0Voak0z?=
- =?utf-8?B?YmxjSWwwYlBPTWZlZlBid29iakpkZUFDcjZYa3ZCak40cThZN2kwRmxxOWYv?=
- =?utf-8?B?N2FiVVB6KzAyTjFqeWlwcHcrcGNyT1VraWJSNXV4eGZBUW5qY3JVdUFpVnVh?=
- =?utf-8?B?RitWYTJxUk14ZDhnTEdZUktCeWFKV0JZUGpxMXl0SmY3L0RqaE84QmVlb0lO?=
- =?utf-8?B?R05Yb0hCMEIzR0p0OEpHU3o1eWhCUnUyZUFiZ05UWU1ad2JUbUNicW9DaU8z?=
- =?utf-8?B?VW9PcE5oZ09KZFp1NVh2cGluR2dQVWgycy8xQmFIRUZJMHBjSGlNMVM2dkFv?=
- =?utf-8?B?Z0RYYmsrMjNtdVo2VWc4WVYrM3dYdmpicXYrSnZTcVVhV3dVRWtKeWVvSkZk?=
- =?utf-8?B?MDBzRGNUY0JjeTNTaEhVS295dm1PYmw0aVZpZXNCNjZlSzU5YzFBelZOeEJU?=
- =?utf-8?B?SGJwaDlSN2w2RUN3RXR1RWNJYldzVHN3eFRFQjVEQ3hkemM4L2c3SGFVdUcr?=
- =?utf-8?B?bXFLY3BFelRlSG00K3lER0pxMVV2RWNuNGdzRDk0d2gvR0JjQWxiYzRoVE5B?=
- =?utf-8?B?OGlkK2krR1hlVzNlMDllNmNwT3dDTlBqZkFHdkFVK0dDWmFCZ0VpeS9hYzlM?=
- =?utf-8?B?WFZnajJpVjYyZmI5KzkyZ3o1bjBrd0RrQ0pYOGY4YkpsQmZ6TUpmN3d3bzVD?=
- =?utf-8?B?NWkycHRNWjVONG9LbXplYWxmd1daWEpxVVR1TDEyYnV3UThZS1UzbHVFOW9I?=
- =?utf-8?B?WC9Cc2RyV3FqcWdqdkxidkNlczJVOXZyQnhrY2hTMHZ1OVg0OVFmdE91SXB3?=
- =?utf-8?B?YXQ3YzlrL2tiY1RlTlpFSE91bFRqQzR4c3NoaVdXT1M5ek1GaTJIVXBoaWRQ?=
- =?utf-8?B?azdHWW9vZnRwTXp6cHM0OS9NWDZZME0wQTMzVG41cmdzWWtRUVo3aGJtRlJx?=
- =?utf-8?B?UnRHb1lwN2JxdjcvWjhiWjJYS1dJTmptc1M1ZWljcXlVN292Y3h2cDYrVlJ1?=
- =?utf-8?B?VDBka2Y4RWRuZVVSalZ1T3M5RnZnMDhrUElQNDNUZXl5bnFyRHVVRGhTeSsw?=
- =?utf-8?B?QVNGU1ZoKzNEb2ZUN3pyQTFTc1lIV2t1eVVsSkdoZFBlaitac1pIWEdzbDZW?=
- =?utf-8?B?MmVIVnFQYlUzbnRuL1grb044a2srSDVpMHdxR1hIVjNXblRXa2xuL0F1UG9X?=
- =?utf-8?B?Z1VIMDB0RTFYZkdxb1BEUC9Gc0czTnNPS214MnpkZ2t5TUxWbkRCUjNMbkg2?=
- =?utf-8?B?S3VlaW10Vy9ETmgrcStnRWN4a2F1bmxZZmIyU1hLYlY1bk5LR1RkY2xsNkEx?=
- =?utf-8?B?QkNhNWphUDF1b3BXSW52bmhqcTRzOUVXcnJQUXkvZFNPekFUMnRGeXJhZWJy?=
- =?utf-8?B?RGE1VTNnaG9LMkhHWmxLZWRaVGtrL2xPb0hEdWIwUFJuMzRhdDVON3MwV2pq?=
- =?utf-8?Q?hL4I=3D?=
-X-Forefront-Antispam-Report: CIP:164.130.1.59;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700013)(376014)(7416014)(7053199007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Dec 2025 08:53:00.2436
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: ffa57d9c-6cad-430d-3fb1-08de37005b3e
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.59];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000952A.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR10MB3499
-X-Authority-Analysis: v=2.4 cv=fc6gCkQF c=1 sm=1 tr=0 ts=6937e36f cx=c_pps
- a=CDwPQmgHc+Eu1NRyjOF98Q==:117 a=d6reE3nDawwanmLcZTMRXA==:17
- a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=iPq3YwKX0LwA:10 a=IkcTkHD0fZMA:10
- a=wP3pNCr1ah4A:10 a=s63m1ICgrNkA:10 a=KrXZwBdWH7kA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=KKAkSRfTAAAA:8 a=8b9GpE9nAAAA:8
- a=lpf6x-w11vL6lYj2AGYA:9 a=QEXdDO2ut3YA:10 a=cvBusfyB2V15izCimMoJ:22
- a=T3LWEMljR5ZiDmsYVIUa:22
-X-Proofpoint-GUID: x6U6D92zNA0HQ3Ojla-s9V7z7v-AG0I9
-X-Proofpoint-ORIG-GUID: x6U6D92zNA0HQ3Ojla-s9V7z7v-AG0I9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjA5MDA2MiBTYWx0ZWRfXyythGDvVGGSd
- WnUK+Pd3JFnl60r70ynr24Dg7wTQncA0u2kMlCKtp2vQklVp2Ge14Jvin7/T1g7y+wh8xnD78RD
- ckjrwGUYucsSbR4u3Pe7Fj+3hgtm8TfKAYNtyuC1lye+bgtUgV2vkTnwCJ22Qvr0Z70gjgq4zp0
- pAT5Y25Lz69Oj23y9gZQy4OZ5TBSnVP28pcxeSYhv3fs0FQtuFzUB1XnROzmiacIvrt6eBtXpaI
- spt0j35e0+fKV7WmBmA9Jz3S4n4QJ47eoz1KO8Y5MEz1zptQZxFU9c+NokVARjVo6bXvPfoALJ2
- C3yTtqXMJx+yqZ5cD6l8AIceq0OJdgv5Jg/PngVxE2LXVHrlDbJLWSaK9ZvJhPtGijJt0Cjv0ga
- xzp+E6XpZF4V1AMCA5q+FTG6xUgB6g==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-09_02,2025-12-04_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 spamscore=0
- bulkscore=0 impostorscore=0 lowpriorityscore=0 phishscore=0 malwarescore=0
- adultscore=0 priorityscore=1501 clxscore=1011 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512090062
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.67.109.17]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemj100009.china.huawei.com (7.202.194.3)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_005329_992125_B731717D 
-X-CRM114-Status: GOOD (  16.44  )
+X-CRM114-CacheID: sfid-20251209_005653_560097_EC4864CC 
+X-CRM114-Status: GOOD (  22.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -203,37 +77,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi, Russell!
 
-On 12/9/25 07:53, Dan Carpenter wrote:
-> The "index" variable is used as an index into the usbphyc->phys[] array
-> which has usbphyc->nphys elements.  So if it is equal to usbphyc->nphys
-> then it is one element out of bounds.  The "index" comes from the
-> device tree so it's data that we trust and it's unlikely to be wrong,
-> however it's obviously still worth fixing the bug.  Change the > to >=.
-> 
-> Fixes: 94c358da3a05 ("phy: stm32: add support for STM32 USB PHY Controller (USBPHYC)")
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+TL; DR:
+patch1 and patch2 with compilation error fixed:
 
-Hi Dan, thanks for your patch.
+Tested-by: Xie Yuanbin <xieyuanbin1@huawei.com>
 
-Reviewed-by: Amelie Delaunay <amelie.delaunay@foss.st.com>
+patch3:
+The simple test case passed, but the syzkaller test (the original
+scenario that triggered the branch predictor issue) is still running.
+The syzkaller test is better to run for a day.
 
-> ---
->   drivers/phy/st/phy-stm32-usbphyc.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/phy/st/phy-stm32-usbphyc.c b/drivers/phy/st/phy-stm32-usbphyc.c
-> index 27fe92f73f33..b44afbff8616 100644
-> --- a/drivers/phy/st/phy-stm32-usbphyc.c
-> +++ b/drivers/phy/st/phy-stm32-usbphyc.c
-> @@ -712,7 +712,7 @@ static int stm32_usbphyc_probe(struct platform_device *pdev)
->   		}
->   
->   		ret = of_property_read_u32(child, "reg", &index);
-> -		if (ret || index > usbphyc->nphys) {
-> +		if (ret || index >= usbphyc->nphys) {
->   			dev_err(&phy->dev, "invalid reg property: %d\n", ret);
->   			if (!ret)
->   				ret = -EINVAL;
+All patches with compilation error fixed:
 
+Reviewed-by: Xie Yuanbin <xieyuanbin1@huawei.com>
+
+
+Detailed Description:
+
+On Tue, 9 Dec 2025 10:52:16 +0800, Xie Yuanbin wrote:
+> On Mon, 8 Dec 2025 16:47:24 +0000, Russell King wrote:
+>> Also, would you mind giving ASAP some tested-by/reviewed-by for these
+>> patches so they can be pushed out to linux-next for a bit of testing
+>> there pelase? I'm on vacation from Thursday, so time is very short
+>> to get these out - if we're not ready by Wednesday, then it'll be the
+>> new year, possibly after the 11th January, before I can do anything
+>> further (medical stuff.)
+>>
+>> Thanks.
+>
+> As mentioned in the previous email, this(these patches) should be the
+> best solution, I think. And I have carefully read the three patches, so:
+>
+> Reviewed-by: Xie Yuanbin <xieyuanbin1@huawei.com>
+>
+> As for testing, I can perform some simple tests myself, and I am trying
+> to let the testing team to help with some further testing, like
+> syzkaller.
+
+Your first patch caused a compilation error: is_permission_fault() is not
+defined. I fixed it with this patch:
+```patch
+diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
+index 2bc828a1940c..7082ba87e886 100644
+--- a/arch/arm/mm/fault.c
++++ b/arch/arm/mm/fault.c
+@@ -143,6 +143,21 @@ static void die_kernel_fault(const char *msg, struct mm_struct *mm,
+ 	make_task_dead(SIGKILL);
+ }
+
++static inline bool is_permission_fault(unsigned int fsr)
++{
++#ifdef CONFIG_MMU
++	int fs = fsr_fs(fsr);
++#ifdef CONFIG_ARM_LPAE
++	if ((fs & FS_MMU_NOLL_MASK) == FS_PERM_NOLL)
++		return true;
++#else
++	if (fs == FS_L1_PERM || fs == FS_L2_PERM)
++		return true;
++#endif
++#endif
++	return false;
++}
++
+ /*
+  * Oops.  The kernel tried to access some page that wasn't present.
+  */
+@@ -225,19 +240,6 @@ void do_bad_area(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
+ }
+
+ #ifdef CONFIG_MMU
+-static inline bool is_permission_fault(unsigned int fsr)
+-{
+-	int fs = fsr_fs(fsr);
+-#ifdef CONFIG_ARM_LPAE
+-	if ((fs & FS_MMU_NOLL_MASK) == FS_PERM_NOLL)
+-		return true;
+-#else
+-	if (fs == FS_L1_PERM || fs == FS_L2_PERM)
+-		return true;
+-#endif
+-	return false;
+-}
+-
+ #ifdef CONFIG_CPU_TTBR0_PAN
+ static inline bool ttbr0_usermode_access_allowed(struct pt_regs *regs)
+ {
+```
+With the compilation error fixing patch first, and then your three
+patches, and then Liyuan's patch:
+Link: https://lore.kernel.org/20251127025848.363992-1-pangliyuan1@huawei.com
+The current testing situation is as follows:
+
+1. About the hash_name() fault issue:
+Simple test case:
+Link: https://lore.kernel.org/20251127140109.191657-1-xieyuanbin1@huawei.com
+that can trigger this issue, as well as the original scenario which
+trigger this issue, have passed the tests.
+
+So patch1 and patch2:
+
+Tested-by: Xie Yuanbin <xieyuanbin1@huawei.com>
+
+2. About the branch predictor issue:
+Simple test cases (Link same as above) that can trigger this issue, has
+passed the tests. However, the original scenario which trigger the issue
+is the syzkaller test, which might take some time, possibly around a day.
 
