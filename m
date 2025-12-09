@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6190D3B9AA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 22:58:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D796CD3B9A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 23:01:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RCd4xq18Gmlh0p19aMpmc6vePHr11nwSMGxOFkp7KUo=; b=TrgI8G3m8MkAhNtYvLPX4o95av
-	RqxSwzfsGMHgq7DQW2tfEraYx+MP1NizmR3rEvwAytoI8vejCLBMB3FppxTL56lngWVl5+fzw3YqZ
-	RGusigYiO3AT0c/5UXeWRZb9AThwVKvcOjkpcTupuB9T5ZaNetAM37OdDbh8foJwJMhwsRFD5bB7T
-	QkC5tifs/frdqSVSYr068ZECzlxSIS51NDVyFOyRfVt3t2cSLJewKQV2NF3sqqRMst/3CsNfka3dM
-	hXUuTXeWvYKiVJTMJ/cgae8C98oiYWPT9HdSkH+HGCB5aDITobkq4Q53f/yp0BBCcZqivVEZzL05G
-	hhGiSAjA==;
+	bh=Z3jCcH3Xgezm79mxgx029VSUYm6yGyEUJIAZ/PVp5as=; b=avv4ze+ZCf/6d3AF3XdFXHr7sw
+	fb7vJKYMv8f8dWhliTzVRUsqJiAJZ8PoZGLqXNvHbFTdEm8VCmVIwNwodfQOGiid16CH+tPTIqg3a
+	hKtWakR0aF907bfOs5IaE9aDP4AA3aFHrqWbD918ZkDcgKgQaf9jvokXshqDslj06R2vGFSswLR8y
+	UW5g2xgTUxhQHOxB9cT9QD1ymxioS57Sryjrs9s1FmlGMT1BSB4LHoEOlZuiRt+OCAlhZEXxDqDkC
+	zIkSTl5NfMphahNPj15B+sv2QjR9ttpWcO8zq6Y49LYXgGlhhaMOzwSp63mWHkhHUYGchKmpUVLYA
+	ne2HCkZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT6el-0000000Esxe-41ME;
-	Tue, 09 Dec 2025 22:58:07 +0000
+	id 1vT6hb-0000000EtB3-05bj;
+	Tue, 09 Dec 2025 23:01:03 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT6ei-0000000EsxT-1QKf
+	id 1vT6ha-0000000EtAw-266p
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 22:58:06 +0000
+	Tue, 09 Dec 2025 23:01:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8B0AC6015A;
-	Tue,  9 Dec 2025 22:58:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7A0AC4CEF5;
-	Tue,  9 Dec 2025 22:58:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D1C166015A;
+	Tue,  9 Dec 2025 23:01:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 360C2C4CEF5;
+	Tue,  9 Dec 2025 23:01:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765321083;
-	bh=V4BtB+Q9IqNyD2A3rjl7JlZezM4qtcAUXtmGwddZn08=;
+	s=k20201202; t=1765321261;
+	bh=/ah7Zqz2nEXNAxPK4fIH6Lzc/09WmhDQtHjd6n9mOeg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KyF0x2RrVkq9JUm5RQ7+FgEqlpUBzgXk7WBFB9jUst56wTkI1MRZtn+CHNRoXPYnk
-	 /g5wPbLYlIovoKCmAM4ATtx4QCwNMY0w7cvorFWDfhIZGFKpFe6yLuN1ntRxcolIq8
-	 ZiaXTb/XO/dwb6urwzSpVyUFwR9GNBGiksrkPrUXNeyhGAZCkGBo8Y8LzKzyhe+sw9
-	 SHbWmvGm5PAfcCq5SGmLuw4kbFfnqBS9cOzMGnwEiLJZcjou7ALLdTPJ/nVCXn5yKy
-	 pPAICOaiqI8UXhE5gWMUwA8BWIHzT+u5IY6ynMztH4IFMnDtqF2Av5i2eXZF6tu3Ie
-	 CJ0+TajSD2CXA==
-Date: Tue, 9 Dec 2025 14:58:01 -0800
+	b=e1Z2s9JWfojscSVTnJwydD7UV4xdGcvwgbFKC8mdeuCUIQGwCGyf+uTghHKUBkIbu
+	 ZPRz8fO0uNalxMF/ozlxNYLd+Apyru/mijc2WT70RTagFeAOyjPcLQAU4zLBxFcMCl
+	 PcjmeDS2LWJ2KAibw5ZtxQdXj/FP62jnY69/yJ8KzjFOsqNxk3bj/WbI9aAMzQrnwo
+	 p3B3CkuN3cfv46RHfhNytOPrt5Qn9eFQrZr+py3CzHyMWVIX/dQb3/n5njtU3b0Ip0
+	 udpcHzXK1FdWrvrirQyGdPNfrzcAy3d5nEfHa6ssb2rKx+7J54erVlG5dJEepmb+EN
+	 HPka7oYuHd9og==
+Date: Tue, 9 Dec 2025 15:00:59 -0800
 From: Oliver Upton <oupton@kernel.org>
 To: Colton Lewis <coltonlewis@google.com>
 Cc: kvm@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
@@ -59,14 +59,13 @@ Cc: kvm@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
 	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v5 22/24] KVM: arm64: Add KVM_CAP to partition the PMU
-Message-ID: <aTipeb2fAmUtSzzX@kernel.org>
+Subject: Re: [PATCH v5 00/24] ARM64 PMU Partitioning
+Message-ID: <aTiqK7gKKKzGGwgW@kernel.org>
 References: <20251209205121.1871534-1-coltonlewis@google.com>
- <20251209205121.1871534-23-coltonlewis@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251209205121.1871534-23-coltonlewis@google.com>
+In-Reply-To: <20251209205121.1871534-1-coltonlewis@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,46 +80,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 09, 2025 at 08:51:19PM +0000, Colton Lewis wrote:
-> +
-> +7.245 KVM_CAP_ARM_PARTITION_PMU
-> +-------------------------------------
-> +
+On Tue, Dec 09, 2025 at 08:50:57PM +0000, Colton Lewis wrote:
+> This series creates a new PMU scheme on ARM, a partitioned PMU that
+> allows reserving a subset of counters for more direct guest access,
+> significantly reducing overhead. More details, including performance
+> benchmarks, can be read in the v1 cover letter linked below.
+> 
+> An overview of what this series accomplishes was presented at KVM
+> Forum 2025. Slides [1] and video [2] are linked below.
+> 
+> The long duration between v4 and v5 is due to time spent on this
+> project being monopolized preparing this feature for internal
+> production. As a result, there are too many improvements to fully list
+> here, but I will cover the notable ones.
 
-Why can't this be a vCPU attribute similar to the other vPMU controls?
-Making the UAPI consistent will make it easier for userspace to reason
-about it.
+Thanks for reposting. I think there's still quite a bit of ground to
+cover on the KVM side of this, but I would definitely appreciate it if
+someone with more context on the perf side of things could chime in.
 
-Better yet, we could make the UAPI such that userspace selects a PMU
-implementation and the partitioned-ness of the PMU at the same time.
+Will, IIRC you had some thoughts around counter allocation, right?
 
-> @@ -132,6 +134,16 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
->  		}
->  		mutex_unlock(&kvm->lock);
->  		break;
-> +	case KVM_CAP_ARM_PARTITION_PMU:
-> +		if (kvm->created_vcpus) {
-> +			r = -EBUSY;
-> +		} else if (!kvm_pmu_partition_ready()) {
-> +			r = -EPERM;
-> +		} else {
-> +			r = 0;
-> +			kvm_pmu_partition_enable(kvm, cap->args[0]);
-> +		}
-> +		break;
->  	default:
->  		break;
->  	}
-> @@ -388,6 +400,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->  	case KVM_CAP_ARM_PMU_V3:
->  		r = kvm_supports_guest_pmuv3();
->  		break;
-> +	case KVM_CAP_ARM_PARTITION_PMU:
-> +		r = kvm_pmu_partition_ready();
-
-"ready" is very confusing in this context, as KVM will never be ready to
-support the feature on a system w/o the prerequisites.
-
-Thanks,
+Best,
 Oliver
 
