@@ -4,38 +4,38 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01F9CD3B7EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 12:32:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D073D1CDC6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 12:32:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=mPFZD4pa0qe8EUtPfRTXmK3rQTpd7YvTU5TQV57xMAQ=; b=rGZAU+w8R5OXIdRE/4HgAgNGgU
-	QXknyGvzrq84uAvjhSMTg2y02oMMiNXFxJBoOMHb6cQyT/6txtOFg2ezEMh0SfZ12fGBgPjEH4dMe
-	Wb6IKrod2PolZIifxZneBJl6PQcXE9DUsSaxRhpGCdk2rlmY7argg1ojjqm7UySO8pu9UhteyJgHy
-	vu0u904lSojRESD7Vp5m5NfOooeHHQDcvKWb9PaPIKfcIbqY8uihvzDCOGW6meg0Q7bw9ukatfD/1
-	jcWWMqWpAP1Cp5X/SbXrW/AV6Dqvhmd8grTrBHpkKA+5yZtRMpfTWC2iLSLfidx1fCu1K6HIoGwDH
-	hj/YBD5Q==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6ueCO3OPjwSJikPNTYVOesL+vCkYXPKcBKrWInaAO5E=; b=qNA9DUVUH3N3wbl0l6IWYqjr9Q
+	m5+9M/OHH3oDty3PS0/yeaxueYJIrBeKagueXfYUj+px6DQbtSwRUmOmOh3I9o7TiIjHAeJqtvm+9
+	GlHYICfvOav+VMAj5vxDvdYhYMTcUA+dniGcveeXV2XLjGkVhXRu+pQMVufYed40t5gIsrkzZ0vXp
+	YtOFQk43gcQxjjL7T3My3Vinn6/m7pYyQ2a9iZllrfWeu3X5nVnoESKhmEHbmAL4XqQqmm39wqzCk
+	7I17OrjaqgkL/Q9NG/DXaRcbyhdXBPx/O8ni/MG+HjGObcwwiE3jrmfkiuNBp64Wcr3E96k+8VjZY
+	aqmixDKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSwsl-0000000EFI9-3RTf;
-	Tue, 09 Dec 2025 12:31:55 +0000
+	id 1vSwso-0000000EFLH-47aZ;
+	Tue, 09 Dec 2025 12:31:58 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSwsj-0000000EFGx-3Njp;
-	Tue, 09 Dec 2025 12:31:55 +0000
+	id 1vSwsl-0000000EFHj-4AlA;
+	Tue, 09 Dec 2025 12:31:57 +0000
 Received: from isaac-ThinkPad-T16-Gen-2.infra.iob (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id BC3FB667;
-	Tue,  9 Dec 2025 13:31:46 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 65D4D7E6;
+	Tue,  9 Dec 2025 13:31:52 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1765283507;
-	bh=6nkPAaFnJtZWqHjfWRExA7w5rIBqcrVJKOcMVmoZAco=;
-	h=From:To:Cc:Subject:Date:From;
-	b=JUxqUeoWHQEzltin3ct5hFJ7jAkR+R1h1zg5u1N2eDxMa1RczSFmwUF0cXsIMH943
-	 JFOAq/BZaybEL8nD1+a4+KOrWNRV7kiisVCfeNmU2ELWVdptbPA3tpbFDtgj9D935K
-	 05ovnCbcFDSpLpmOn36lAY3HFI3vM15EWef5LMeA=
+	s=mail; t=1765283512;
+	bh=ug/J00ml0noX1QaBJY7xGdOLjc/+Nt6LtyzhtftDOg4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=f0Vs0DS6nae9owtOW6VdF8WiVnVEs02qu663ORQS8Xgcf1Myj/zs8vHshUjISmkMw
+	 12TlLsuHy659AwoR23hrV3ay7W8QGWEMbhSXPE0IWsSgQEm3lFuUsHhf4aMRFfWXb2
+	 4Ir4WNgu0J+SpINBGa6QnC0twBCexnTws0ZGm+OE=
 From: Isaac Scott <isaac.scott@ideasonboard.com>
 To: dafna@fastmail.com
 Cc: laurent.pinchart@ideasonboard.com,
@@ -46,15 +46,17 @@ Cc: laurent.pinchart@ideasonboard.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Isaac Scott <isaac.scott@ideasonboard.com>
-Subject: [RFC PATCH 0/6] media: rkisp1: Add YUV bypass support for rkisp1 
-Date: Tue,  9 Dec 2025 12:31:30 +0000
-Message-ID: <20251209123136.273938-1-isaac.scott@ideasonboard.com>
+Subject: [RFC PATCH 2/6] media: rkisp1-isp: Add in_bypass flag for YUV bypass
+Date: Tue,  9 Dec 2025 12:31:32 +0000
+Message-ID: <20251209123136.273938-3-isaac.scott@ideasonboard.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251209123136.273938-1-isaac.scott@ideasonboard.com>
+References: <20251209123136.273938-1-isaac.scott@ideasonboard.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_043153_985145_FAEAE047 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20251209_043156_177501_E30DDFCD 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,46 +71,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+The rkisp1 features a 'bypass' mode for RAW and YUV formats. This
+disables all ISP blocks, and makes the rkisp1 display input data from
+the mipi csi receiver at the output, unmodified.
 
-The rkisp1 features the capability to use YUV bypass, which lets input
-YUV streams to bypass all ISP blocks, and be presented at the output of
-the ISP without being modified. This functionality is uimplemented
-currently.
+To determine whether we can activate bypass, we can detect whether both
+the source and sink formats are YUV. If they are, we can set a new
+in_bypass flag.
 
-At the moment, it is possible to get YUV streams at the output of the
-rkisp1, but only if the input is a bayer format. This series allows
-YUV to be accepted as both an input and output format, when the YUV data
-contains embedded H/VSYNC signals, which are interpreted as the data
-start/stop signals for frame data.
+Signed-off-by: Isaac Scott <isaac.scott@ideasonboard.com>
+---
+ drivers/media/platform/rockchip/rkisp1/rkisp1-common.h | 1 +
+ drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c    | 6 +++++-
+ 2 files changed, 6 insertions(+), 1 deletion(-)
 
-This series is tested and works on the Debix Model A iMX8 MPlus with a
-GC2145 camera sensor outputting UYVY8_1X16, compiled on top of
-media/next.
-
-I am marking this series as RFC because I am keen to know if any other
-developers have any ideas on how to improve the series, or if there are
-other considerations / edge cases that I need to address.
-
-Thank you very much!
-
-Best wishes,
-Isaac
-
-Isaac Scott (6):
-  media: rkisp1-resizer: Add YUV source formats to resizer
-  media: rkisp1-isp: Add in_bypass flag for YUV bypass
-  media: rkisp1-isp: Add target_format
-  media: rkisp1: Set input configuration to data mode in bypass
-  media: Propagate sink -> source format in YUV passthough
-  media: rkisp1: Give buffers back instead of dropping in bypass mode
-
- .../platform/rockchip/rkisp1/rkisp1-capture.c |  5 ++++
- .../platform/rockchip/rkisp1/rkisp1-common.h  |  1 +
- .../platform/rockchip/rkisp1/rkisp1-isp.c     | 25 +++++++++++++------
- .../platform/rockchip/rkisp1/rkisp1-resizer.c | 16 ++++++++++++
- 4 files changed, 40 insertions(+), 7 deletions(-)
-
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+index 5e6a4d5f6fd1..d90233e31ad3 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
+@@ -532,6 +532,7 @@ struct rkisp1_device {
+ 	struct rkisp1_debug debug;
+ 	const struct rkisp1_info *info;
+ 	int irqs[RKISP1_NUM_IRQS];
++	bool in_bypass;
+ 	bool irqs_enabled;
+ };
+ 
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+index 2311672cedb1..7f0802ae3dcc 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
+@@ -212,6 +212,8 @@ static int rkisp1_config_isp(struct rkisp1_isp *isp,
+ 	const struct v4l2_mbus_framefmt *sink_frm;
+ 	const struct v4l2_rect *sink_crop;
+ 
++	rkisp1->in_bypass = false;
++
+ 	sink_frm = v4l2_subdev_state_get_format(sd_state,
+ 						RKISP1_ISP_PAD_SINK_VIDEO);
+ 	sink_crop = v4l2_subdev_state_get_crop(sd_state,
+@@ -240,7 +242,9 @@ static int rkisp1_config_isp(struct rkisp1_isp *isp,
+ 		}
+ 	} else if (sink_fmt->pixel_enc == V4L2_PIXEL_ENC_YUV) {
+ 		acq_mult = 2;
+-		if (mbus_type == V4L2_MBUS_CSI2_DPHY) {
++		if (src_fmt->pixel_enc == V4L2_PIXEL_ENC_YUV) {
++			rkisp1->in_bypass = true;
++		} else if (mbus_type == V4L2_MBUS_CSI2_DPHY) {
+ 			isp_ctrl = RKISP1_CIF_ISP_CTRL_ISP_MODE_ITU601;
+ 		} else {
+ 			if (mbus_type == V4L2_MBUS_BT656)
 -- 
 2.43.0
 
