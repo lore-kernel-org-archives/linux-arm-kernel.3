@@ -4,147 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3282DD3B980
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 16:14:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F53BD3B981
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 16:31:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AypGCGsmD2lV7ELFX0/5nOMQZHSv6FDU+K9J7m0D95s=; b=CNUurufpuvhtga1h0RRF49lpXa
-	p7QjP4Vu63747smbCHO/L/X55TrOf81lRfdcQrGBfKOJiA7ktiv5vLPs7PQthl/jnx9T3biMT+L3n
-	l0cLiXm5BWrtM6Gm45rRQ+FvDdSpWOheDpjGW98PUyj8vh3o44fNnddBXnMZhg0Qv2JPFG3aQ2QEZ
-	QuqFGhQnsndSJCCYryTJWCBH8nVxJBZjRV8YpE8OzmAZqGQf30cyr0V7/yzbddcFC8BHF+1jQ5p6u
-	ozUvmcAiX/DdLAmi1ziJcqcwQ3QGppQAl2gdLhIdvxS5ZpL+447jLkir+n/yOU1ii5kZbkSQRmqIT
-	d/xVY0BA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=42Gg2n9nNsJP4lMqmU4zY6NqNwLJWPB73yW4+PLCWb0=; b=T3ef9LfKbYPan8OCtXnyhjQs/P
+	ypYZweYJLYtRi3a9+mTzZCQw1NBoycHocNvqVPAs7cBtiE8BBAczfJxK1TpV/w7JPlGF1T9Q4InXx
+	X+litQvFiNEhEG69qz4ji7/NdyEcm7GUxMkxeAsWXBYDkgK6tJpcIeuTFAYbu9BU6n52HUJRqDCRl
+	82FhZ17yHPdju1Nuwia1oCdMOOZrps+/Q4pK4cNwxRGXLadY/JBBxaraEn5whj9wMsQttPSmYxUr5
+	oqM7NOje4ppcUgGsGXff6OMth7jeKSNj+9P7G23nDb9+774EVZjXtxvMlcLllSqpbNYWhOm7evD8R
+	iaWYFNaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT0MF-0000000EVRa-2oaS;
-	Tue, 09 Dec 2025 16:14:35 +0000
-Received: from mail-westeuropeazon11013040.outbound.protection.outlook.com ([52.101.72.40] helo=AM0PR02CU008.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT0MD-0000000EVQk-1amW
+	id 1vT0cI-0000000EWET-06Oj;
+	Tue, 09 Dec 2025 16:31:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vT0cF-0000000EWE4-0FGW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 16:14:34 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ljqvSw29deZbTCH3wrm4rZ/BVOpjCcGYD5H8xATR0XUG6e54Q7v8IIZx/zp4rFN+iuDDvx7cmMqSL4aW2+AKyRRJnCjYZQ+Px3tz57CH53tvu844ABCCIIAVnQXnXQxt7qF4wCmY6/Y6a7E//PM58UNwjAevvY6dSq4Q2pNM5aS/qLrFA5U2+IlZiQaVSD44cuDUxYOwIQMf4yy/kSCv2PUnNfxcC/Iq64cvj8+BQ0f/w7bXi5slSqKQiMe2zb9T2rSpipF4RrIRRXj0kxZEjQ19OeBQ9ElZLsI1wHcsLTdhjZdIYeYdbL6D0FxLXOUedmJljd+r9ETFIYoBkLBrFg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=AypGCGsmD2lV7ELFX0/5nOMQZHSv6FDU+K9J7m0D95s=;
- b=A7JTeUqZ2IIAg/hSIOcFhIsOF1kVH9rsRh2XwEosOXMEHvw7jjYotWQvhNwotgSgh/7DCTeEGKzlLX+oBuC0biK3YIzW5mSxXptl4ammnfVNMegdNbQBIEpYTgYAysQt6lKw2r3mjcvN1dm+/2/o09IaCJrWeEUxbhCCZkTOIy4Ej7AOW74IKF9i3UKyCCVGLtbLJQ7hC0cs4Ipn9+YeTb5bt5eqWqtl2dj7wqMSHjW+ZmO/SvdfKNv1dsHqhbK+4TPUmgG1yn2blC/0ARP4atSN0hGgJTD0pnA5/QmZ31pRVZ2lpRA0GRzuFYCT4heQKzfEg6Q7cjuXrKNHmqEkgQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=AypGCGsmD2lV7ELFX0/5nOMQZHSv6FDU+K9J7m0D95s=;
- b=knEDgeQuvdC0V6VubAbKwcMdyg9RFp5cnW10+mLnx0UxZI8Cp0+NYAIbknRXSHlGr9lzLu25930RiwhvLk0nEKt6fqpQUJR4ZXpY4DBj3aXSvjAm/ck4qL5OGlh3WqLilyCYDRs+RmHBI3ULGxT9XhmJZGTt7JPtroY0L4pH6UmSd45LGqN/V6rWPobidYC3OzEyNqPmNgZeLwu6XRtkYJRx4cZSk0j5YpJO+Cdkiqn/tepe9lvtGVHdbsbpQoHuGRyhqr5WfFQnKGJzItkbUplIeAkT2Cc2npArTZqq2OcWaNuy6cwgvjakDediF/VKqkMapGxgfrwmR/BcIJeqYA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by DB8PR04MB6827.eurprd04.prod.outlook.com (2603:10a6:10:f8::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.6; Tue, 9 Dec
- 2025 16:14:29 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9388.013; Tue, 9 Dec 2025
- 16:14:29 +0000
-Date: Tue, 9 Dec 2025 11:14:20 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Wentao Liang <vulab@iscas.ac.cn>
-Cc: ulf.hansson@linaro.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, linux-pm@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v2] pmdomain: imx: Fix reference count leak in
- imx_gpc_probe()
-Message-ID: <aThK3DwGFY1xhvyN@lizhi-Precision-Tower-5810>
-References: <20251209081909.24982-1-vulab@iscas.ac.cn>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251209081909.24982-1-vulab@iscas.ac.cn>
-X-ClientProxiedBy: BYAPR08CA0032.namprd08.prod.outlook.com
- (2603:10b6:a03:100::45) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+	Tue, 09 Dec 2025 16:31:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6D620175D;
+	Tue,  9 Dec 2025 08:30:57 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5E8D33F73B;
+	Tue,  9 Dec 2025 08:31:01 -0800 (PST)
+Message-ID: <9b452304-27ea-4c38-8bf1-820cf4d2f0a7@arm.com>
+Date: Tue, 9 Dec 2025 16:31:00 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|DB8PR04MB6827:EE_
-X-MS-Office365-Filtering-Correlation-Id: a1e20252-6323-4fa7-0245-08de373e07a5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|52116014|376014|7416014|366016|19092799006|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?gtuCywk7LbpbCBWrP9jY6Fw3qSiUFc6uNs2EeEw7K/qlqwp1Th7sESXEhK+d?=
- =?us-ascii?Q?ZRtrGwRFFPJSISLd+EIHjwrEKuLdEEgLxgUM9ghIZl7hhEENF+EkPYESk2q4?=
- =?us-ascii?Q?3SARPjyFjpJf7ui8W0jkjcqCp3RIXdcMfC9Zh88g6ay1ZSzORYFt9BbVesKs?=
- =?us-ascii?Q?PI9kbOSaHW/aSV2Nw7U0BuIn3AblViWT0dFm81scFn/VvgeG2nN869w34C/b?=
- =?us-ascii?Q?sI+hl7JupxI9V7m9zSiLbqf+0GuYX9ZCF5gtUk7laUyrEXJoqezfD/81jdME?=
- =?us-ascii?Q?cn/cXd7MktKJo8I8Rq3ed3qggV1mEiF+r0mDbtbopl7qYiHG9+anpx4oZrOL?=
- =?us-ascii?Q?iPReyYnfqdnTcaP1IO5jAOskOcwWEqrjTF8PGULte4Ex2qWSebfv6s02Wh1h?=
- =?us-ascii?Q?vwfXbSl7Aig7c8BVDewqBg8maWEw87AU4XwqFi+PQsixW4PbvaqaGY/G468n?=
- =?us-ascii?Q?Y5tkYmUnd5RuhK7NHv7nLgOSszO9KhFn4bnqGDAKhCe9cNXSdJ38u70D2vkB?=
- =?us-ascii?Q?AuWFGWQBgN1qIPxUb4d6sJCvydtQMaUxJLDg137c5WkeKw1kQ/1Ctvc6ptFf?=
- =?us-ascii?Q?+nRZYpqUMaMH89DfxlEHaau1/WCbyatnnVPecwoqM5V3TymL52DNx2z4n+Qr?=
- =?us-ascii?Q?/zkYegAKdcrHUdvJ5ZSHymUbGF2w8ksyOrIN9m2qClKR50okeg47uOw9ONTV?=
- =?us-ascii?Q?IZzfUEmBCQ+9eat5iLgx0EaP8HGq3Oqtc1TTBbnCNU+5OrFPMr154KeFurH/?=
- =?us-ascii?Q?GROixPLsOoGcTVko6BKxpI6x5jbqDxRXU+xutp7TX8zbhYBHq0m51vPRuHrl?=
- =?us-ascii?Q?Tbe5FRq7IrktcbJw4RzLlB6xc6ifs1WUnoIyWeewaE2ayc6EDj3SDYduC8Dm?=
- =?us-ascii?Q?l4SPKnjybkPlPnlsquK3vVVpKBFMyviyHFYK9eL7i9LWL7wWHd1k4ERidWOv?=
- =?us-ascii?Q?Xqp1wL9Jq7/rQccQacbba3rk0k8qfjy2bCqG4bsZ5WxeaakO9RKb4AnlgwbS?=
- =?us-ascii?Q?YnKmRYbrOB/13tNZ52/TafDIjpRXylm4YXtPoLbYPiFqbAFB7599qmId1HXV?=
- =?us-ascii?Q?GqrN1Eb60Fe0aJuCiR98Cbw1Uk4GLrYbrdUF6T8MI5ygQ9ynGiupy53zPe0W?=
- =?us-ascii?Q?vSNbBW9DbQtbO/VqGfLN2AbYOnC7bnV90TqbrrCux53cVdXC5UBvkDnc5BU8?=
- =?us-ascii?Q?n3r4js5C0HlBly6uuvSo03eV8ywOVijMUTaCoCm/GjFRnpKi85CMN1/vYaDL?=
- =?us-ascii?Q?y6WARz4yTsx2mJxueKxXiuOwjNwOpzORft8QG9yK0CXShop8fa7DiRJXcJoo?=
- =?us-ascii?Q?GTs1Up3rULTEo+/ZjtC3xvY7sE42Y9SWrGcwouPLqTE9m3Baf2qK/EWTjUZK?=
- =?us-ascii?Q?qjoX91tdN/mjvJ/gQjswkxoS1YV0m+33HyyYga3IiyjhBDNmfcVmToWphACX?=
- =?us-ascii?Q?Y969iPyqdST/ZMZR7x1FJW5MZxsI1VkpYVKf1Vyt8+w8MJcQrTV96ZNUgSu+?=
- =?us-ascii?Q?tlGhz7KqPlIMBSHeNdsZ3KbidIeS/BbCDFh/?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(52116014)(376014)(7416014)(366016)(19092799006)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Y9BsU2tY8kjFven1yhltsRrODbU3dYN3Yo+xx5itpy/tpYXYSMHPjHGFRM0t?=
- =?us-ascii?Q?mPZYmnNInJ77n6dug+aQeIr9ix6DM7si+hOWr8oORFLakbgM5o69cgoEbQW7?=
- =?us-ascii?Q?6/+uy6Oq4emhxMWjO/A1IlkGZdXf0xgMH2yZxZwYVVNk3BSNiABXwrYZT7Nm?=
- =?us-ascii?Q?/aaisM//lDVmntFSw3HgTj3ags0lPMi5YKZB28qj2Pr+zG3m0QUvEn9qIoz4?=
- =?us-ascii?Q?QUlwjuBSdYu3ww4pm0/olcPBtXWZtihrmnPkxkv1jvCYlyB13wly0qr/Pyu/?=
- =?us-ascii?Q?4qSPqX8d0+lkmpWLY9XYpWld34Olw3t68A/U09fyoGoebGqW3ybqEcTn17x/?=
- =?us-ascii?Q?TcMP/mrr6J5W4LHod33PdqTr6oJzSo4Ncs9SXEVPltvbUGBGELlWhiB9HzAR?=
- =?us-ascii?Q?YdgEygXAHuFgeCDAQsL4oVYaTudWA0fkdmSwRNBBJh1qLvyJ9b4t47qbhJVV?=
- =?us-ascii?Q?K5u9VTJ8fIEETQRuulkojSI/74cGWvaBzr79LcvmEIlSTyn1KoTLZlYgjPEv?=
- =?us-ascii?Q?IxjKmciOunBBxfV/bGZcUQJmPtDz51IjzY2korS0kBKxzA9x4ko/hItCa3ai?=
- =?us-ascii?Q?UhAiCM1rgoNUKu1ZqdbL5mBH0LCyhTijQzNo6OF58MeAwAD00326eh3lciFA?=
- =?us-ascii?Q?NjzvTcKDGPi5UYMplA1H8L5CH5w+jpUumF3wXtGUhWYUN47mwCtZ8N+ytqEZ?=
- =?us-ascii?Q?YhG0SRZm1M3UMCuTIrWAqwrKryGu03Tkvo8XhUXE20kRFd8DWNLYKTYSXSv4?=
- =?us-ascii?Q?RXfbe3hETBlMaPIEgLRlFCCYpjKdjLo0aXOTCEds/DpjOZhYD59MPe0aStXQ?=
- =?us-ascii?Q?QiGWIaGcyBzguO+2tq+4FW3URjJYdZvuKco7KXzY5dEh95hIATfVhwFIcPup?=
- =?us-ascii?Q?SODm3b+xHKdzI/iFLnVixSfDMOqZZKmYgT/kF1kRE+IPxMlsJ4IpmCEiooCD?=
- =?us-ascii?Q?Z0LzyGAAJnZgeHaGbSkyvKtAWbrsta+72+JVq0HRmjKBSZSlsY+H4dR8ybP/?=
- =?us-ascii?Q?bUamM6Dt/wAt3HjBF8lgdcETagJU5DcM69aG+03QU34zMtJJTpl8dS231zmV?=
- =?us-ascii?Q?5OKcQzOBgCFk8lhvL8Wn0zQYLu7jDyNG5NUh4Gvzonw9mHioPy0mIiV/n4fp?=
- =?us-ascii?Q?eqjRzzQUaCdNTvpin+QJp6MmoOrCFCFRLlBkjgMW3Y+OLkSKaGkTaEKilwoh?=
- =?us-ascii?Q?yZYqT3ByyKrnTgIq77Yr3b5TSob/DeIt5lrSMhxQ/c7BAm3ToS3EWt/jvjmD?=
- =?us-ascii?Q?n4EBdCkF2Ge4F+KhYzUt9OMUu13LBILKlOw0GPPXykQTHVyln8y1HgHGqUbb?=
- =?us-ascii?Q?/3vWoeEyhdzXZTdxdOsUf0S500Rtof/9DAtbqLKhxuMgz46+/ErM+saHr7Qh?=
- =?us-ascii?Q?P9dgNj7hOCmDDc+elIHexeHEbFa+r0xudtUhtath6uJUWJv9G5EihB4Q+KgY?=
- =?us-ascii?Q?wVwwFAVfeIJfKIblNal0BfYW/lqweHpmS9HxyCvEyvcBT9l79khKB6+dOgzl?=
- =?us-ascii?Q?Id6ttLegas2JGuqzQOrjlt0UxQHnX4GW5XmGEvsbG8wO6GSClx/I3aMjbIEK?=
- =?us-ascii?Q?9SA3cuRupnD1sFZCcHgJZeMu7lEYqvHLIcBuyjRn?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: a1e20252-6323-4fa7-0245-08de373e07a5
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Dec 2025 16:14:29.0208
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: OkEYyAx/FvdVKJLkulzBEJ+x5NTlVGSVPoSA7PiW6E8hRswX2moIfHuJ8I+5hK0DRqM0tq2wFJDco0F/yNCkpA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6827
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 27/38] arm_mpam: resctrl: Add empty definitions for
+ assorted resctrl functions
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@kernel.org>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Gavin Shan
+ <gshan@redhat.com>, rohit.mathew@arm.com, reinette.chatre@intel.com,
+ Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+References: <20251205215901.17772-1-james.morse@arm.com>
+ <20251205215901.17772-28-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20251205215901.17772-28-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_081433_422840_0053E9A4 
-X-CRM114-Status: GOOD (  19.37  )
+X-CRM114-CacheID: sfid-20251209_083107_169028_DA282E9F 
+X-CRM114-Status: GOOD (  11.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,45 +77,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 09, 2025 at 08:19:09AM +0000, Wentao Liang wrote:
-> of_get_child_by_name() returns a node pointer with refcount incremented,
-> we should use the __free() attribute to manage the pgc_node reference.
-> This ensures automatic of_node_put() cleanup when pgc_node goes out of
-> scope, eliminating the need for explicit error handling paths and
-> avoiding reference count leaks.
->
-> Fixes: 721cabf6c660 ("soc: imx: move PGC handling to a new GPC driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
->
-> ---
-> Change in V2:
-> - Use __free() attribute instead of explicit of_node_put() calls
-> ---
->  drivers/pmdomain/imx/gpc.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/pmdomain/imx/gpc.c b/drivers/pmdomain/imx/gpc.c
-> index f18c7e6e75dd..89d5d68c055d 100644
-> --- a/drivers/pmdomain/imx/gpc.c
-> +++ b/drivers/pmdomain/imx/gpc.c
-> @@ -403,7 +403,7 @@ static int imx_gpc_old_dt_init(struct device *dev, struct regmap *regmap,
->  static int imx_gpc_probe(struct platform_device *pdev)
->  {
->  	const struct imx_gpc_dt_data *of_id_data = device_get_match_data(&pdev->dev);
-> -	struct device_node *pgc_node;
-> +	struct device_node *pgc_node __free(pgc_node);
+Hi James,
 
-struct device_node *pgc_node __free(pgc_node)
-	= of_get_child_by_name(pdev->dev.of_node, "pgc");
+On 12/5/25 21:58, James Morse wrote:
+> A few resctrl features and hooks need to be provided, but aren't needed
+> or supported on MPAM platforms.
+> 
+> resctrl has individual hooks to separately enable and disable the
+> closid/partid and rmid/pmg context switching code. For MPAM this is all
+> the same thing, as the value in struct task_struct is used to cache the
+> value that should be written to hardware. arm64's context switching code
+> is enabled once MPAM is usable, but doesn't touch the hardware unless
+> the value has changed.
+> 
+> For now event configuration is not supported, and can be turned off
+> by returning 'false' from resctrl_arch_is_evt_configurable().
+> 
+> Add this, and empty definitions for the other hooks.
+> 
+> Signed-off-by: James Morse <james.morse@arm.com>
 
-Make sure pgc_node value assigned when use cleanup. Please see cleanup.h
+The newly added io_alloc support means we need a couple more dummy
+resctrl arch functions in here, resctrl_arch_io_alloc_enable() and
+resctrl_arch_io_alloc_enabled().
 
-Frank
->  	struct regmap *regmap;
->  	void __iomem *base;
->  	int ret;
-> --
-> 2.34.1
->
+Thanks,
+
+Ben
+
 
