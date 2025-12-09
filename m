@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAE2BD3B994
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 20:50:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B573D3B994
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 20:52:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r1Q2uDduf66UtYmH0gKmUDjODIcqlhFNLGyTzwxqXLw=; b=waClZY1kEgtDxVEMmPVm5mApUu
-	Ep0K24lJppgHMr1cUdfQK1Nss/A40gfausWJZuhuIgMIOovH/PbF1Hwdl5k2aw5/nLRmNt6Mo3Iy/
-	FLhD/dQmt8nokAQJQamFcK5JB0pvDe6YPGPs89WFiEq25gC/ov4br5/cOP4NGcozUysUkQWRwElt4
-	tLl04K+iJnquDMjM3IIkMqo6aXW9AedAytfuQbMN3nmvUSLXe/QGUlA7Gf56gtrtIdIvMoQ1qwLSP
-	qeMfRVobS5GCwFjh5D0a4kHI71lw7HMKbEaeTL2i+ftdV8guzX6QVyNRlb69rqUloZvc64NsG3DUT
-	KSLsNJbg==;
+	bh=nU4SZZiqzmEBDGaqnOKa3zbJ+UV1JK/WP+4z3ISxHr0=; b=MH5ahIBiWE8peYEKXlR7zjW7TT
+	LgS3Puz9zkzml2BOKL4NEsX1+yXgs3PpGwIVzHWT1WJf+L1nJDCF9i71uYlCLu4Lr3i7fIDKJryuk
+	Wqfp9J0xnVAwBaWKRcfXuQfGdCFpKrLTnpal5BDNyTBwtRqHckZGzotCpDNrQst0nFHcw3ML33EI0
+	4VBca16qKnh4VnZTVwfGNy+bEd7G4JO7xYKiuqN0LDJn90NqfDlmpTDeblWlBPqGUowh7HT5GgMMd
+	+LL16ibVvX+bMXHHiprkcPUlRJ96819yUWhrmiE8UxEk7qnetnVg+DH3mg+BaXpUITL/JJ8AIebbx
+	UsR0ZbRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT4fO-0000000EkOw-3NCP;
-	Tue, 09 Dec 2025 20:50:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vT4hC-0000000EkZ5-2Wzx;
+	Tue, 09 Dec 2025 20:52:30 +0000
+Received: from mail-oa1-x4a.google.com ([2001:4860:4864:20::4a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT4fO-0000000EkOo-0fUa
+	id 1vT4hA-0000000EkXT-2c8O
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 20:50:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3973D60051;
-	Tue,  9 Dec 2025 20:50:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBA14C4CEF5;
-	Tue,  9 Dec 2025 20:50:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765313436;
-	bh=+NrxrvZMgkcpBUKcfznjEv3pgGvqP8bd/L6BGqUssYk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=k2FHVx10lU9ymJ024KMK22dlyRk155qhGloao/pSRz4jhhFpXovieBQvErMqIjWb0
-	 AdZYlCm48RH3jrzdGsS/A55Wdu3GDDkl+qUTLvPs0cg1bd27lhDg6VjF4eyQtc9Pv7
-	 ucRGmTR5z070mWSQ0GBmGg/MF17WszEWWkJA8b7e+bvOBrI8mFv8yg92qsOdtvQv0M
-	 fsUjo5De94mBVOfFI1b3L7nVyZbOFGz60p5XuV1v/cjaI8zRQnF7Z6a4UX1Q8q98YJ
-	 RO6IGfa/XlMnaLYkxPSQ1XFordW8jMm90tsWcYYLbYfoot2Y8PoiZ3n0nYeQ3yOJ0Z
-	 buLKTnh/ZOkGA==
-Date: Tue, 9 Dec 2025 14:50:34 -0600
-From: Rob Herring <robh@kernel.org>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Jacky Chou <jacky_chou@aspeedtech.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Po-Yu Chuang <ratbert@faraday-tech.com>,
-	Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, taoren@meta.com
-Subject: Re: [PATCH net-next v5 3/4] net: ftgmac100: Add RGMII delay support
- for AST2600
-Message-ID: <20251209205034.GB1056291-robh@kernel.org>
-References: <20251205-rgmii_delay_2600-v5-0-bd2820ad3da7@aspeedtech.com>
- <20251205-rgmii_delay_2600-v5-3-bd2820ad3da7@aspeedtech.com>
- <8a991b33-f653-4f0c-bbea-b5b3404cdfe6@lunn.ch>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <8a991b33-f653-4f0c-bbea-b5b3404cdfe6@lunn.ch>
+	Tue, 09 Dec 2025 20:52:29 +0000
+Received: by mail-oa1-x4a.google.com with SMTP id 586e51a60fabf-3ed1781e961so2985682fac.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Dec 2025 12:52:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1765313546; x=1765918346; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=nU4SZZiqzmEBDGaqnOKa3zbJ+UV1JK/WP+4z3ISxHr0=;
+        b=Ey59PXMOrVvaVc5QEGNXliPiCJYiHOVGUlC1sB8N3ahYyBjM4vOzr4V29EiA1fKF+9
+         1Fy8rLt18eC3yiI1KZgVFZxlS9TOWlbN0veOwH0q1UrvpTrqAiTSDwJpvxZQoJcmXTV6
+         zPqdvLaydqg9KU3y+PnmRE8skR9X2ErnPuSNbe6MQ/OQsLpOPgMat/FfcGQlYvyUO8/J
+         XYOyvEcX7bhm3xi1uE2QgDZGl/426zqgDjw5/3CPKQD9sl1ZeQiQGja82HbQSkDMVXtN
+         CS0XyOtSgdLswoY2wELd55dlvuviFWuIdgSfapiLgdqFqdSZs4XROIkVU1lGU2l/gKfs
+         zBzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765313546; x=1765918346;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=nU4SZZiqzmEBDGaqnOKa3zbJ+UV1JK/WP+4z3ISxHr0=;
+        b=GWk2DtpYhpSQDcZHW34CAYWvUiA4mwOzpJk44I8GqM9y0xyFrjT45V2knQZeC92J+h
+         6CTAxHNRTWjEaoW210Q+24VnpxrKik7T41GXguBu70OA64EvTTrDwTBsSGwsLKfKwrPM
+         mYENExy/LiQiRvwYbKNsYKpA94bz4Nm/UIHZIXVBYykE9vBnYCQ9m6j6eNi8qluB24gI
+         DCtmq2nuHeADrpkOR91+yyG2uTrf+mcC80q8lzzZ55ORkrHNcxt8I7BqsfPK0c+w1liY
+         d2tvICm+aJ5Yq2jPiwEv8dGePpg/K3iU3ZGe4V72Gi/ci+HJlBX2OHVqcNr8skHAxPdb
+         6hsQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV//fXB6FMV1WoldI5HViuXv8xeBa0FPgrMT9NucOF/365eCBRNFWq0DjECcblUON3z6rwnK1H1kTr6F0Q6ubQM@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQnIYcFZIwoK0yxNUHTdPMq4i8pVNtJkOd06D3RelsDObe05Ng
+	JpDZJUyrTPqIwMuCUhyqHAq0/vTlGk0L4LwylKfk79aESuiliLhDVribhXVF2/oyTNymgusf0yB
+	Ui11Q3lfaN4DoFj4gxdgxXo5d9Q==
+X-Google-Smtp-Source: AGHT+IFTAojYGX7mwXtTP/8YDMBz+eRxv1aZJcv87i7iIEe8Y4VXsg/VmkpZtN9aG2jKXs0+7TmzxHPwou8ROcGDdw==
+X-Received: from oaqy6-n2.prod.google.com ([2002:a05:6871:2c6:20b0:3f5:4f00:dfbf])
+ (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6870:568e:b0:3e8:3176:a342 with SMTP id 586e51a60fabf-3f5bd88ead1mr170402fac.22.1765313546407;
+ Tue, 09 Dec 2025 12:52:26 -0800 (PST)
+Date: Tue,  9 Dec 2025 20:50:58 +0000
+In-Reply-To: <20251209205121.1871534-1-coltonlewis@google.com>
+Mime-Version: 1.0
+References: <20251209205121.1871534-1-coltonlewis@google.com>
+X-Mailer: git-send-email 2.52.0.239.gd5f0c6e74e-goog
+Message-ID: <20251209205121.1871534-2-coltonlewis@google.com>
+Subject: [PATCH v5 01/24] arm64: cpufeature: Add cpucap for HPMN0
+From: Colton Lewis <coltonlewis@google.com>
+To: kvm@vger.kernel.org
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Russell King <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Mingwei Zhang <mizhang@google.com>, Joey Gouly <joey.gouly@arm.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu <yuzenghui@huawei.com>, 
+	Mark Rutland <mark.rutland@arm.com>, Shuah Khan <shuah@kernel.org>, 
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, Colton Lewis <coltonlewis@google.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251209_125228_664472_834136C3 
+X-CRM114-Status: GOOD (  12.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,35 +97,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 06, 2025 at 07:30:30PM +0100, Andrew Lunn wrote:
-> > @@ -1907,6 +2179,10 @@ static int ftgmac100_probe(struct platform_device *pdev)
-> >  		priv->rxdes0_edorr_mask = BIT(30);
-> >  		priv->txdes0_edotr_mask = BIT(30);
-> >  		priv->is_aspeed = true;
-> > +		/* Configure RGMII delay if there are the corresponding compatibles */
-> > +		err = ftgmac100_set_internal_delay(priv, &phy_intf);
-> > +		if (err)
-> > +			goto err_phy_connect;
-> 
-> Thinking forward to when you add 2700 support, i really think you need
-> to break the probe up into helpers for 2500 and before, 2600 and in
-> the future 2700. You currently have a couple of tests on the
-> compatible which you can reduce to one.
-> 
-> In fact, this driver has 10 calls to of_device_is_compatible(). I
-> think you should first refactor the code to list each compatible in
-> ftgmac100_of_match[], and add a data structure which contains an enum
-> of the MAC type. You can then transfer this to priv, and replace all
-> the of_device_is_compatible() tests to just look at the enum value.
+Add a capability for FEAT_HPMN0, whether MDCR_EL2.HPMN can specify 0
+counters reserved for the guest.
 
-Better yet, define a structure which defines the different settings 
-directly. Such as:
+This required changing HPMN0 to an UnsignedEnum in tools/sysreg
+because otherwise not all the appropriate macros are generated to add
+it to arm64_cpu_capabilities_arm64_features.
 
-priv->rxdes0_edorr_mask
-priv->txdes0_edotr_mask
-priv->is_aspeed
+Acked-by: Mark Rutland <mark.rutland@arm.com>
+Signed-off-by: Colton Lewis <coltonlewis@google.com>
+---
+ arch/arm64/kernel/cpufeature.c | 8 ++++++++
+ arch/arm64/kvm/sys_regs.c      | 3 ++-
+ arch/arm64/tools/cpucaps       | 1 +
+ arch/arm64/tools/sysreg        | 6 +++---
+ 4 files changed, 14 insertions(+), 4 deletions(-)
 
-And anything else needed...
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index e25b0f84a22da..ceddc55eb30a0 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -555,6 +555,7 @@ static const struct arm64_ftr_bits ftr_id_mmfr0[] = {
+ };
+ 
+ static const struct arm64_ftr_bits ftr_id_aa64dfr0[] = {
++	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_HPMN0_SHIFT, 4, 0),
+ 	S_ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_DoubleLock_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_NONSTRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_PMSVer_SHIFT, 4, 0),
+ 	ARM64_FTR_BITS(FTR_HIDDEN, FTR_STRICT, FTR_LOWER_SAFE, ID_AA64DFR0_EL1_CTX_CMPs_SHIFT, 4, 0),
+@@ -2898,6 +2899,13 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.matches = has_cpuid_feature,
+ 		ARM64_CPUID_FIELDS(ID_AA64MMFR0_EL1, FGT, FGT2)
+ 	},
++	{
++		.desc = "HPMN0",
++		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
++		.capability = ARM64_HAS_HPMN0,
++		.matches = has_cpuid_feature,
++		ARM64_CPUID_FIELDS(ID_AA64DFR0_EL1, HPMN0, IMP)
++	},
+ #ifdef CONFIG_ARM64_SME
+ 	{
+ 		.desc = "Scalable Matrix Extension",
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index ec3fbe0b8d525..c636840b1f6f9 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -3214,7 +3214,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 		    ID_AA64DFR0_EL1_DoubleLock_MASK |
+ 		    ID_AA64DFR0_EL1_WRPs_MASK |
+ 		    ID_AA64DFR0_EL1_PMUVer_MASK |
+-		    ID_AA64DFR0_EL1_DebugVer_MASK),
++		    ID_AA64DFR0_EL1_DebugVer_MASK |
++		    ID_AA64DFR0_EL1_HPMN0_MASK),
+ 	ID_SANITISED(ID_AA64DFR1_EL1),
+ 	ID_UNALLOCATED(5,2),
+ 	ID_UNALLOCATED(5,3),
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index 1b32c1232d28d..8efa6a437515d 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -41,6 +41,7 @@ HAS_GICV5_LEGACY
+ HAS_GIC_PRIO_MASKING
+ HAS_GIC_PRIO_RELAXED_SYNC
+ HAS_HCR_NV1
++HAS_HPMN0
+ HAS_HCX
+ HAS_LDAPR
+ HAS_LPA2
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 1c6cdf9d54bba..24d20138ea664 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -1666,9 +1666,9 @@ EndEnum
+ EndSysreg
+ 
+ Sysreg	ID_AA64DFR0_EL1	3	0	0	5	0
+-Enum	63:60	HPMN0
+-	0b0000	UNPREDICTABLE
+-	0b0001	DEF
++UnsignedEnum	63:60	HPMN0
++	0b0000	NI
++	0b0001	IMP
+ EndEnum
+ UnsignedEnum	59:56	ExtTrcBuff
+ 	0b0000	NI
+-- 
+2.52.0.239.gd5f0c6e74e-goog
 
-Rob
 
