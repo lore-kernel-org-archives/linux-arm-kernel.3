@@ -4,93 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0403D3B98A
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 17:37:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE4E9D3B98C
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 17:56:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:References:Mime-Version:
-	In-Reply-To:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RSI8Pxf1Wt9ews+8G0JZ3VLNAwMte4kHmIud1VFkk60=; b=DmULCeOohAtjosHH+rp8o04AE3
-	bFfUHPKKjd63qLVl6llemperSpAN+krlefw6isi26tnqZFVPVlhgnamwbD1h9mWzN+5UbAvIh7Kxe
-	a8R7jYBG0WzGYOzg/GNTSFsNaNBiRuUvYMvsyW9mtUKD2AFPyyo7VWGGN22qpV0DtlIdrgDn0QJce
-	F4qAFEX53RvcwJwAiECr2k6NgXPajpODjqXSLLTOj1puKHjktnxBUpMUKndeFBkhWMNgad+db3i4l
-	AmeZna+r48gNKdcZt0zqecgjsiFCMoJUCaLJHjzYMJv2k9TcO3j+lhidj3eOhIDceGPCSIgtucH4V
-	z7LWIpUg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZUOgxr+7cSYt/btR8gXlm/+anfYygWBdHJEIEgIls30=; b=JXM82hhCeM6WEgv2y8JdoNecMw
+	KY3fv+sZOt2wh0WM6PGow0xp9MEzK2ZMVjMyIpiSz/GSzJvlwUrRcTRnIseoX44LTH+7m/6A3y79r
+	OuvJy5DFhQGjeC7NXZUx0sPURtiz8jKH9Bc2M+XlhE88OQg9Hyz+2Amy6fcuf7YRe2o7c8k4IyNtw
+	Og86ECsqivNWg3f3Likvhbt9qnaHpQwGu/ug/iwx/gBJ5//+sevFiMJwT8zcEOGfPcqzMQNCYsQ2J
+	T5PK84kXR/5kcYq1js+rJ/BxV/Cds7ADxupN4g87U2BC2bfzt9Bx921ThGpUeMBeQTOa0aSh5uRvs
+	GSnb9SPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT1eI-0000000EbfF-1Bxs;
-	Tue, 09 Dec 2025 17:37:19 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1vT1wL-0000000EcZr-0YF4;
+	Tue, 09 Dec 2025 17:55:57 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT1eG-0000000EbeA-0Zxi
+	id 1vT1wI-0000000EcZT-0H1I
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 17:37:17 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-343bf6ded5cso10806431a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Dec 2025 09:37:15 -0800 (PST)
+	Tue, 09 Dec 2025 17:55:55 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-42e2e628f8aso2828165f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Dec 2025 09:55:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1765301835; x=1765906635; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=RSI8Pxf1Wt9ews+8G0JZ3VLNAwMte4kHmIud1VFkk60=;
-        b=278FBzCE+y5fA/HJuBFb4hdiwv6h+b2a8XBth8Q/sY88L5i9jbds7jCuT5UQTac0vb
-         3KBXY6nwt03AW48xLzeB/83jUDeuAUhUj85cxqt8S37VnHT+Qzihc1agbS84WgKFkf1C
-         KC5wguOhRzq2c/rZflmyKyij8kCMM1TbQ4VnNISTW4+l1CdS9cWc2TomeUtOJqiCH6HD
-         c8x+vUj+0eZbMSgTTMtQpsV0EbznYjiszpP5PVkJVlGbknTYr9zERsatDQEuiks0JXCX
-         dGlhR3u1mZsfz20iU5Tx8Ob5CQY/SmbbIXgpZApKOs8WeJES6n9RqyhTY9L7K8wdO0Of
-         hHSg==
+        d=linaro.org; s=google; t=1765302952; x=1765907752; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=ZUOgxr+7cSYt/btR8gXlm/+anfYygWBdHJEIEgIls30=;
+        b=mZYuX36C/2eStSHPXmIeZfxPpfS6wY3LXGelHnC/JdqtdvJlRkyeJXsWle8jW/2kqV
+         0YLJCg4QTwnYsxmloW1j2hJ9KdWfEmBmuN/K0peYRHRjO3DSP/gmsrmzXGEI+WbJX2AJ
+         zet6tPjVn9blTCj+exhkHZEf/YykVjCn407q7XzeAyTytjkWPwrUXZcUKQgYHy1+Pm+r
+         uxt3h8gnuabTT+NvHbXDXIm7Zp+g5M16XYd4mYSMPbIxrPKQwmc6Egjufcz7dcvWHcrg
+         Hxa12IgdnaFmGv1G1IjxrV8thhTTNAPxCIG+hHBZkB8Ph9E+6Tgc8aotivT2ruSqjOSy
+         UMOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765301835; x=1765906635;
-        h=content-transfer-encoding:cc:to:from:subject:message-id:references
-         :mime-version:in-reply-to:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=RSI8Pxf1Wt9ews+8G0JZ3VLNAwMte4kHmIud1VFkk60=;
-        b=IP0c63fyA8osmRU1NVKFeV5LAIgilV7syNVwa97PDCLsbeQkNrPZQntQ77V2psePhV
-         cYDX0gqqAnMEmrHVrX0DKXGGLEPcgBdvJa+GVeOB3zenjNJsW7IRkwVlA7yXI288RqSY
-         ffZbS2hVjhbSQE/xW6NghPSzBxRNumckYC0KYZieMDpPsD+hWmlNutJxRItiItCIuwew
-         FlY7GACtErrnVS4g4vlrjq0mepgJmnNNlX2pKwK3a8QYODOO3fVCBT04OT0Y1fnVjvqa
-         A5Eo/FurQm+WbPD9f/7vBxNxL9bmgGyLZRnAU73heDLIuZje4znf5FFX9NhF5TIbNpIJ
-         XQ6w==
-X-Forwarded-Encrypted: i=1; AJvYcCWSWE4ZHxxAjhRKuh/qTF31627YUrEbuED/W8//y3cHG8J4P/UvyeBmhRK9o8ophff0gfbKLfADYSt9kBXsnXBT@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzwAvaRxVCCXF5xaQC3wkDELMyuh3zAo99lt1LS7rUJZojHUbt
-	C/Khff4PevJgKCNu+9t3UEAIbcqtvsBDRnV/jpJvuRkEJ2+pCDcVRQIIQCC0E/HBqWw9U7+E3Os
-	h24QOIQ==
-X-Google-Smtp-Source: AGHT+IFtEkvOBWBmPhAZp6fiQBmIeByIj1WwkTuM0S6f9ba1kbmIBgBTopqxljhwYNgNIix+N66SAv3Sd14=
-X-Received: from pjbnh9.prod.google.com ([2002:a17:90b:3649:b0:343:6cb7:a68e])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1a8b:b0:343:f509:aa4a
- with SMTP id 98e67ed59e1d1-349a260a9d0mr9559247a91.36.1765301834531; Tue, 09
- Dec 2025 09:37:14 -0800 (PST)
-Date: Tue, 9 Dec 2025 09:37:13 -0800
-In-Reply-To: <2440b9bf-a2a1-4f66-94b2-71f47d62f3db@linux.intel.com>
-Mime-Version: 1.0
-References: <20251206001720.468579-1-seanjc@google.com> <20251206001720.468579-38-seanjc@google.com>
- <2440b9bf-a2a1-4f66-94b2-71f47d62f3db@linux.intel.com>
-Message-ID: <aTheSQb9fhXmZKw6@google.com>
-Subject: Re: [PATCH v6 37/44] KVM: VMX: Dedup code for removing MSR from
- VMCS's auto-load list
-From: Sean Christopherson <seanjc@google.com>
-To: Dapeng Mi <dapeng1.mi@linux.intel.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oupton@kernel.org>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
-	Paul Walmsley <pjw@kernel.org>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Paolo Bonzini <pbonzini@redhat.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	Mingwei Zhang <mizhang@google.com>, Xudong Hao <xudong.hao@intel.com>, 
-	Sandipan Das <sandipan.das@amd.com>, Xiong Zhang <xiong.y.zhang@linux.intel.com>, 
-	Manali Shukla <manali.shukla@amd.com>, Jim Mattson <jmattson@google.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+        d=1e100.net; s=20230601; t=1765302952; x=1765907752;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZUOgxr+7cSYt/btR8gXlm/+anfYygWBdHJEIEgIls30=;
+        b=M/wg4aBwR3NcDR6WMZrqrjZSP25MtzBcDG8Vl1R7S1ktG2iNOnGZzaGESiIUWga0id
+         TEZXJ72D7/aCC46pFs/AvkHwSKcG8/9xAOOncxP0cdMfG3ytj5+imusbu8FxNAOW4ymv
+         /79Ucz6V04bWh2xmjxCJR/Uj6yoG2kgtDqZC1qbn5qhjZOino6JnhJfGY6DwdaBBqVsY
+         mBp+0OZIEUqausdtk4GSYwP2/Jqf+RLxPhoY1rGc4AoDkpjDyXeihtKmgLsGRPa1l3Ql
+         aYs87Hl2n6UbtduEIlSbqIHNjSKJRZnWVDi06dEO/nbZXFL3bOVXRxVfF9isQ1U83SJy
+         CZvA==
+X-Forwarded-Encrypted: i=1; AJvYcCV7ssgijUu7k4Gh3rQLrPiVjpnZDeTjqiY7U209CDl/ITJwirhj7AuK9XMJkxZ4AgI2UhhwRiXHt4LIxGHbpDtn@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywuel2e36dyc+kPOcPmLrRjJIzleI52lMlOCyiUe+H0f02SQHrE
+	nC2I6PbJQ4CzwdLTwKSDPnEznp2C/DlrATnt09ItMqL8B7+H4Qe/IOdfgpcr3UcJK48=
+X-Gm-Gg: AY/fxX6PqJru/iOA9mxUC+HX44YkWs7T4R2yQxppKNSVVEfV65pp0qa2i1xt8inSdlW
+	o78xMwM5kgH7nxFUF/eanReTLcboId9aiBH5XZximkOxe0NaqRChYpM822Mh9DE4uEWSriAc1Uv
+	Wzmex72+ee5ccingfpkRVyn06LTHKSdQPf+EddKLnvGPZq8eWbNiH90VjY0cALrVmQwu37HuW1l
+	IA9slTCnvHIpK26+XkdhU638oE2x+KRyOpNN9jMiBa5nEveKn+jpA/ljLoei+dHujgqPPnZcxS3
+	WmGFIfpIYDie2tnbiQeOIflrCSCPSJbXbPycIsip1SRTt2jCFF6GTHdhMAWUW5FCRzwW1uzI6Uf
+	eU+bpSyj40MMJGL2XWFnlwEVL6ZNgewD/8uczYPgh1vbEHYFUBke5981dxeoMdCiX/LjwdTcGs3
+	YpmcSrU46AnPQl14xvug==
+X-Google-Smtp-Source: AGHT+IGc4OjZMP1xzbym2F8zYcMdwysP1sgVkT7Ss3kIptxke0S8T0dAWuWUBtezxhVnNmhyFD50nQ==
+X-Received: by 2002:a05:6000:2884:b0:429:f14a:9807 with SMTP id ffacd0b85a97d-42f89f6348amr11888073f8f.40.1765302951729;
+        Tue, 09 Dec 2025 09:55:51 -0800 (PST)
+Received: from [192.168.1.183] ([185.48.77.170])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42f7d331af5sm31559379f8f.31.2025.12.09.09.55.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 09 Dec 2025 09:55:51 -0800 (PST)
+Message-ID: <d275d2fb-8670-4832-b9c4-de98376e58ad@linaro.org>
+Date: Tue, 9 Dec 2025 17:55:51 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 01/12] perf parse-events: Refactor get_config_terms()
+ to remove macros
+To: Ian Rogers <irogers@google.com>
+Cc: Linux perf Profiling <linux-perf-users@vger.kernel.org>,
+ linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>,
+ Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, leo.yan@arm.com
+References: <20251208-james-perf-config-bits-v2-0-4ac0281993b0@linaro.org>
+ <20251208-james-perf-config-bits-v2-1-4ac0281993b0@linaro.org>
+ <6ba6bde3-f56b-4354-b336-4739cb1edb71@linaro.org>
+ <CAP-5=fV_Y5W2RyJhBgnk49JuTf8EsyisY-LfL3sVhC4TVRC_gg@mail.gmail.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <CAP-5=fV_Y5W2RyJhBgnk49JuTf8EsyisY-LfL3sVhC4TVRC_gg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_093716_174657_0E270A04 
-X-CRM114-Status: GOOD (  29.30  )
+X-CRM114-CacheID: sfid-20251209_095554_268264_1CE0299E 
+X-CRM114-Status: GOOD (  19.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,99 +114,289 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 08, 2025, Dapeng Mi wrote:
->=20
-> On 12/6/2025 8:17 AM, Sean Christopherson wrote:
-> > Add a helper to remove an MSR from an auto-{load,store} list to dedup t=
-he
-> > msr_autoload code, and in anticipation of adding similar functionality =
-for
-> > msr_autostore.
-> >
-> > No functional change intended.
-> >
-> > Signed-off-by: Sean Christopherson <seanjc@google.com>
-> > ---
-> >  arch/x86/kvm/vmx/vmx.c | 31 ++++++++++++++++---------------
-> >  1 file changed, 16 insertions(+), 15 deletions(-)
-> >
-> > diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
-> > index 52bcb817cc15..a51f66d1b201 100644
-> > --- a/arch/x86/kvm/vmx/vmx.c
-> > +++ b/arch/x86/kvm/vmx/vmx.c
-> > @@ -1040,9 +1040,22 @@ static int vmx_find_loadstore_msr_slot(struct vm=
-x_msrs *m, u32 msr)
-> >  	return -ENOENT;
-> >  }
-> > =20
-> > +static void vmx_remove_auto_msr(struct vmx_msrs *m, u32 msr,
-> > +				unsigned long vmcs_count_field)
-> > +{
-> > +	int i;
-> > +
-> > +	i =3D vmx_find_loadstore_msr_slot(m, msr);
-> > +	if (i < 0)
-> > +		return;
-> > +
-> > +	--m->nr;
-> > +	m->val[i] =3D m->val[m->nr];
->=20
-> Sometimes the order of MSR writing does matter, e.g., PERF_GLOBAL_CTRL MS=
-R
-> should be written at last after all PMU MSR writing.
 
-Hmm, no.  _If_ KVM were writing event selectors using the auto-load lists, =
-then
-KVM would need to bookend the event selector MSRs with PERF_GLOBAL_CTRL=3D0=
- and
-PERF_GLOBAL_CTRL=3D<new context (guest vs. host)>.  E.g. so that guest PMC =
-counts
-aren't polluted with host events, and vice versa.
 
-As things stand today, the only other MSRs are PEBS and the DS area configu=
-ration
-stuff, and kinda to my earlier point, KVM pre-zeroes MSR_IA32_PEBS_ENABLE a=
-s part
-of add_atomic_switch_msr() to ensure a quiescent period before VM-Enter.
+On 09/12/2025 15:58, Ian Rogers wrote:
+> On Tue, Dec 9, 2025 at 4:48 AM James Clark <james.clark@linaro.org> wrote:
+>>
+>> On 08/12/2025 2:22 pm, James Clark wrote:
+>>> The ADD_CONFIG_TERM() macros build the __type argument out of a partial
+>>> EVSEL__CONFIG_TERM_x enum name. This means that they can't be called
+>>> from a function where __type is a variable and it's also impossible to
+>>> grep the codebase to find usages of these enums as they're never typed
+>>> in full.
+>>>
+>>> Fix this by removing the macros and replacing them with an
+>>> add_config_term() function. It seems the main reason these existed in
+>>> the first place was to avoid type punning and to write to a specific
+>>> field in the union, but the same thing can be achieved with a single
+>>> write to a u64 'val' field.
+>>>
+>>> Signed-off-by: James Clark <james.clark@linaro.org>
+>>> ---
+>>>    tools/perf/util/evsel_config.h |   1 +
+>>>    tools/perf/util/parse-events.c | 146 ++++++++++++++++++++++++-----------------
+>>>    2 files changed, 86 insertions(+), 61 deletions(-)
+>>>
+>>> diff --git a/tools/perf/util/evsel_config.h b/tools/perf/util/evsel_config.h
+>>> index bcd3a978f0c4..685fd8d5c4a8 100644
+>>> --- a/tools/perf/util/evsel_config.h
+>>> +++ b/tools/perf/util/evsel_config.h
+>>> @@ -50,6 +50,7 @@ struct evsel_config_term {
+>>>                u64           cfg_chg;
+>>>                char          *str;
+>>>                int           cpu;
+>>> +             u64           val;
+>>>        } val;
+>>>        bool weak;
+>>>    };
+>>> diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
+>>> index 17c1c36a7bf9..d5b009b4ebab 100644
+>>> --- a/tools/perf/util/parse-events.c
+>>> +++ b/tools/perf/util/parse-events.c
+>>> @@ -1116,105 +1116,107 @@ static int config_attr(struct perf_event_attr *attr,
+>>>        return 0;
+>>>    }
+>>>
+>>> -static int get_config_terms(const struct parse_events_terms *head_config,
+>>> -                         struct list_head *head_terms)
+>>> +static struct evsel_config_term *add_config_term(enum evsel_term_type type,
+>>> +                                              struct list_head *head_terms,
+>>> +                                              bool weak)
+>>>    {
+>>> -#define ADD_CONFIG_TERM(__type, __weak)                              \
+>>> -     struct evsel_config_term *__t;                  \
+>>> -                                                             \
+>>> -     __t = zalloc(sizeof(*__t));                             \
+>>> -     if (!__t)                                               \
+>>> -             return -ENOMEM;                                 \
+>>> -                                                             \
+>>> -     INIT_LIST_HEAD(&__t->list);                             \
+>>> -     __t->type       = EVSEL__CONFIG_TERM_ ## __type;        \
+>>> -     __t->weak       = __weak;                               \
+>>> -     list_add_tail(&__t->list, head_terms)
+>>> -
+>>> -#define ADD_CONFIG_TERM_VAL(__type, __name, __val, __weak)   \
+>>> -do {                                                         \
+>>> -     ADD_CONFIG_TERM(__type, __weak);                        \
+>>> -     __t->val.__name = __val;                                \
+>>> -} while (0)
+>>> +     struct evsel_config_term *t;
+>>>
+>>> -#define ADD_CONFIG_TERM_STR(__type, __val, __weak)           \
+>>> -do {                                                         \
+>>> -     ADD_CONFIG_TERM(__type, __weak);                        \
+>>> -     __t->val.str = strdup(__val);                           \
+>>> -     if (!__t->val.str) {                                    \
+>>> -             zfree(&__t);                                    \
+>>> -             return -ENOMEM;                                 \
+>>> -     }                                                       \
+>>> -     __t->free_str = true;                                   \
+>>> -} while (0)
+>>> +     t = zalloc(sizeof(*t));
+>>> +     if (!t)
+>>> +             return NULL;
+>>> +
+>>> +     INIT_LIST_HEAD(&t->list);
+>>> +     t->type = type;
+>>> +     t->weak = weak;
+>>> +     list_add_tail(&t->list, head_terms);
+>>>
+>>> +     return t;
+>>> +}
+>>> +
+>>> +static int get_config_terms(const struct parse_events_terms *head_config,
+>>> +                         struct list_head *head_terms)
+>>> +{
+>>>        struct parse_events_term *term;
+>>>
+>>>        list_for_each_entry(term, &head_config->terms, list) {
+>>> +             struct evsel_config_term *new_term;
+>>> +             enum evsel_term_type new_type;
+>>> +             char *str = NULL;
+>>> +             u64 val;
+>>> +
+>>>                switch (term->type_term) {
+>>>                case PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD:
+>>> -                     ADD_CONFIG_TERM_VAL(PERIOD, period, term->val.num, term->weak);
+>>> +                     new_type = EVSEL__CONFIG_TERM_PERIOD;
+>>> +                     val = term->val.num;
+>>>                        break;
+>>>                case PARSE_EVENTS__TERM_TYPE_SAMPLE_FREQ:
+>>> -                     ADD_CONFIG_TERM_VAL(FREQ, freq, term->val.num, term->weak);
+>>> +                     new_type = EVSEL__CONFIG_TERM_FREQ;
+>>> +                     val = term->val.num;
+>>>                        break;
+>>>                case PARSE_EVENTS__TERM_TYPE_TIME:
+>>> -                     ADD_CONFIG_TERM_VAL(TIME, time, term->val.num, term->weak);
+>>> +                     new_type = EVSEL__CONFIG_TERM_TIME;
+>>> +                     val = term->val.num;
+>>>                        break;
+>>>                case PARSE_EVENTS__TERM_TYPE_CALLGRAPH:
+>>> -                     ADD_CONFIG_TERM_STR(CALLGRAPH, term->val.str, term->weak);
+>>> +                     new_type = EVSEL__CONFIG_TERM_CALLGRAPH;
+>>> +                     str = term->val.str;
+>>>                        break;
+>>>                case PARSE_EVENTS__TERM_TYPE_BRANCH_SAMPLE_TYPE:
+>>> -                     ADD_CONFIG_TERM_STR(BRANCH, term->val.str, term->weak);
+>>> +                     new_type = EVSEL__CONFIG_TERM_BRANCH;
+>>> +                     str = term->val.str;
+>>>                        break;
+>>>                case PARSE_EVENTS__TERM_TYPE_STACKSIZE:
+>>> -                     ADD_CONFIG_TERM_VAL(STACK_USER, stack_user,
+>>> -                                         term->val.num, term->weak);
+>>> +                     new_type = EVSEL__CONFIG_TERM_STACK_USER;
+>>> +                     val = term->val.num;
+>>>                        break;
+>>>                case PARSE_EVENTS__TERM_TYPE_INHERIT:
+>>> -                     ADD_CONFIG_TERM_VAL(INHERIT, inherit,
+>>> -                                         term->val.num ? 1 : 0, term->weak);
+>>> +                     new_type = EVSEL__CONFIG_TERM_INHERIT;
+>>> +                     val = term->val.num ? 1 : 0;
+>>>                        break;
+>>>                case PARSE_EVENTS__TERM_TYPE_NOINHERIT:
+>>> -                     ADD_CONFIG_TERM_VAL(INHERIT, inherit,
+>>> -                                         term->val.num ? 0 : 1, term->weak);
+>>> +                     new_type = EVSEL__CONFIG_TERM_INHERIT;
+>>> +                     val = term->val.num ? 0 : 1;
+>>>                        break;
+>>>                case PARSE_EVENTS__TERM_TYPE_MAX_STACK:
+>>> -                     ADD_CONFIG_TERM_VAL(MAX_STACK, max_stack,
+>>> -                                         term->val.num, term->weak);
+>>> +                     new_type = EVSEL__CONFIG_TERM_MAX_STACK;
+>>> +                     val = term->val.num;
+>>>                        break;
+>>>                case PARSE_EVENTS__TERM_TYPE_MAX_EVENTS:
+>>> -                     ADD_CONFIG_TERM_VAL(MAX_EVENTS, max_events,
+>>> -                                         term->val.num, term->weak);
+>>> +                     new_type = EVSEL__CONFIG_TERM_MAX_EVENTS;
+>>> +                     val = term->val.num;
+>>>                        break;
+>>>                case PARSE_EVENTS__TERM_TYPE_OVERWRITE:
+>>> -                     ADD_CONFIG_TERM_VAL(OVERWRITE, overwrite,
+>>> -                                         term->val.num ? 1 : 0, term->weak);
+>>> +                     new_type = EVSEL__CONFIG_TERM_OVERWRITE;
+>>> +                     val = term->val.num ? 1 : 0;
+>>>                        break;
+>>>                case PARSE_EVENTS__TERM_TYPE_NOOVERWRITE:
+>>> -                     ADD_CONFIG_TERM_VAL(OVERWRITE, overwrite,
+>>> -                                         term->val.num ? 0 : 1, term->weak);
+>>> +                     new_type = EVSEL__CONFIG_TERM_OVERWRITE;
+>>> +                     val = term->val.num ? 0 : 1;
+>>>                        break;
+>>>                case PARSE_EVENTS__TERM_TYPE_DRV_CFG:
+>>> -                     ADD_CONFIG_TERM_STR(DRV_CFG, term->val.str, term->weak);
+>>> +                     new_type = EVSEL__CONFIG_TERM_DRV_CFG;
+>>> +                     str = term->val.str;
+>>>                        break;
+>>>                case PARSE_EVENTS__TERM_TYPE_PERCORE:
+>>> -                     ADD_CONFIG_TERM_VAL(PERCORE, percore,
+>>> -                                         term->val.num ? true : false, term->weak);
+>>> +                     new_type = EVSEL__CONFIG_TERM_PERCORE;
+>>> +                     val = term->val.num ? true : false;
+>>>                        break;
+>>>                case PARSE_EVENTS__TERM_TYPE_AUX_OUTPUT:
+>>> -                     ADD_CONFIG_TERM_VAL(AUX_OUTPUT, aux_output,
+>>> -                                         term->val.num ? 1 : 0, term->weak);
+>>> +                     new_type = EVSEL__CONFIG_TERM_AUX_OUTPUT;
+>>> +                     val = term->val.num ? 1 : 0;
+>>>                        break;
+>>>                case PARSE_EVENTS__TERM_TYPE_AUX_ACTION:
+>>> -                     ADD_CONFIG_TERM_STR(AUX_ACTION, term->val.str, term->weak);
+>>> +                     new_type = EVSEL__CONFIG_TERM_AUX_ACTION;
+>>> +                     str = term->val.str;
+>>>                        break;
+>>>                case PARSE_EVENTS__TERM_TYPE_AUX_SAMPLE_SIZE:
+>>> -                     ADD_CONFIG_TERM_VAL(AUX_SAMPLE_SIZE, aux_sample_size,
+>>> -                                         term->val.num, term->weak);
+>>> +                     new_type = EVSEL__CONFIG_TERM_AUX_SAMPLE_SIZE;
+>>> +                     val = term->val.num;
+>>>                        break;
+>>>                case PARSE_EVENTS__TERM_TYPE_RATIO_TO_PREV:
+>>> -                     ADD_CONFIG_TERM_STR(RATIO_TO_PREV, term->val.str, term->weak);
+>>> +                     new_type = EVSEL__CONFIG_TERM_RATIO_TO_PREV;
+>>> +                     str = term->val.str;
+>>>                        break;
+>>>                case PARSE_EVENTS__TERM_TYPE_USER:
+>>>                case PARSE_EVENTS__TERM_TYPE_CONFIG:
+>>> @@ -1229,7 +1231,23 @@ do {                                                           \
+>>>                case PARSE_EVENTS__TERM_TYPE_RAW:
+>>>                case PARSE_EVENTS__TERM_TYPE_CPU:
+>>>                default:
+>>> -                     break;
+>>> +                     /* Don't add a new term for these ones */
+>>> +                     continue;
+>>> +             }
+>>> +
+>>> +             new_term = add_config_term(new_type, head_terms, term->weak);
+>>> +             if (!new_term)
+>>> +                     return -ENOMEM;
+>>> +
+>>> +             if (str) {
+>>> +                     new_term->val.str = strdup(str);
+>>> +                     if (!new_term->val.str) {
+>>> +                             zfree(&new_term);
+>>> +                             return -ENOMEM;
+>>> +                     }
+>>> +                     new_term->free_str = true;
+>>> +             } else {
+>>
+>> This will incorrectly hit the else if term->val.str is NULL. Not sure if
+>> that can happen but will fix anyway.
+>>
+>>> +                     new_term->val.val = val;
+>>
+>> There's an uninitialized variable warning for val here on release
+>> builds. Will fix too
+> 
+> I'm not sure how I feel about the change, but did you check that it is
+> ubsan clean? I worry it is introducing writes to "val" and then reads
+> from say "period" in the evsel_config_term val union. I believe ubsan
+> will flag this as:
+> https://en.cppreference.com/w/cpp/language/union.html
+> "It is undefined behavior to read from the member of the union that
+> wasn't most recently written."
+> 
+> Thanks,
+> Ian
+> 
 
-Heh, and writing PERF_GLOBAL_CTRL last for that sequence might actually be
-problematic.  E.g. load host PEBS with guest PERF_GLOBAL_CTRL active.
+Maybe for C++, but not for C [1]:
 
-Anyways, I agree that this might be brittle, but this is all pre-existing b=
-ehavior
-so I don't want to tackle that here unless it's absolutely necessary.
+   Accessing my_union.i after most recently writing to the other member,
+   my_union.d, is an allowed form of type-punning in C, provided that the
+   member read is not larger than the one whose value was set
 
-Or wait, by "writing" do you mean "writing MSRs to memory", as opposed to "=
-writing
-values to MSRs"?  Regardless, I think my answer is the same: this isn't a p=
-roblem
-today, so I'd prefer to not shuffle the ordering unless it's absolutely nec=
-essary.
+Type punning with unions is widely used in the kernel and there are a 
+couple of instances in Perf. There are tons of discussions about it on 
+the mailing lists too. I can check it with ubsan though.
 
-> So directly moving the last MSR entry into cleared one could break the MS=
-R
-> writing sequence and may cause issue in theory.
->=20
-> I know this won't really cause issue since currently vPMU won't use the M=
-SR
-> auto-load feature to save any PMU MSR, but it's still unsafe for future u=
-ses.=C2=A0
->=20
-> I'm not sure if it's worthy to do the strict MSR entry shift right now.
->
-> Perhaps we could add a message to warn users at least.
+[1]: https://en.wikipedia.org/wiki/Type_punning#C_and_C++
 
-Hmm, yeah, but I'm not entirely sure where/how best to document this.  Beca=
-use
-it's not just that vmx_remove_auto_msr() arbitrarily maniuplates the order,=
- e.g.
-multiple calls to vmx_add_auto_msr() aren't guaranteed to provide ordering =
-because
-one or more MSRs may already be in the list.  And the "special" MSRs that c=
-an be
-switched via dedicated VMCS fields further muddy the waters.
+>>>                }
+>>>        }
+>>>        return 0;
+>>> @@ -1290,10 +1308,16 @@ static int get_config_chgs(struct perf_pmu *pmu, struct parse_events_terms *head
+>>>                }
+>>>        }
+>>>
+>>> -     if (bits)
+>>> -             ADD_CONFIG_TERM_VAL(CFG_CHG, cfg_chg, bits, false);
+>>> +     if (bits) {
+>>> +             struct evsel_config_term *new_term;
+>>> +
+>>> +             new_term = add_config_term(EVSEL__CONFIG_TERM_CFG_CHG,
+>>> +                                        head_terms, false);
+>>> +             if (!new_term)
+>>> +                     return -ENOMEM;
+>>> +             new_term->val.cfg_chg = bits;
+>>> +     }
+>>>
+>>> -#undef ADD_CONFIG_TERM
+>>>        return 0;
+>>>    }
+>>>
+>>>
+>>
 
-So I'm tempted to not add a comment to the helpers, or even the struct fiel=
-ds,
-because unfortunately it's largely a "Here be dragons!" type warning. :-/
 
