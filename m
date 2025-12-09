@@ -4,62 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BC5DD1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 08:41:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77CA1D3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 08:43:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1VHTUXl3gc+91mo15pIRbZ3NIRKVtsGczrD/Bl81o6k=; b=QLvh9XJqMoOxJtVK7cJK46mgJE
-	iByDzZHtqAyLZB3U1p5Mh/8N0whMTmb/acaGiWaIFuIyeu/wC9aeuZTS1uJ3jPwlvlhzJaMsYGX6J
-	Z7oxwyCMW2Q9FYXboCX0f3OlRrR0JG4byQQ4hpZxhxhnsceql685DyFOXGaKpX5GG5e8u5O9ZV6cL
-	8jSs3R7qtnIfXUeh5K+1JilKG+xGYU+6rM/B5+0voLq6Cax4qxkTGThA2XI+tQO3S/DL6ViR9bBBU
-	nChbHaGG8r00Z5MAjg6FyLxuiZKpX6ZuoH+HXsbukuXoZPcW2CK7/aELRRKEaNViTqrA8vjqvjsms
-	ybIAYyqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h/1xM64eNmtfDB9IWS+P0GPHbGqJKCBbdMnZ2WoCg8E=; b=zvsD8booGE87U2yTIwHreJwAGQ
+	Z1/4r2YRWqr2IUfHduDccIAuBVlOYRvmskBWYXDiP0Ras1nx0ZrF4f+/mZGqzcyDwut07+zlD43E+
+	eDJr9keFAwsnJAbTVYoHt+5bzv2PlrpLTdnXiIWgb+wZZtStMPDGrJbPz1eHIUlskJ9YNHTf6bBxM
+	Fv71PJ+XrCJ7sBk6xOcfMIqiOA4G4ya0o8Rk8npcaPajRGHpbJWr6ZIursOb0FCT/KpHqUWy56hPi
+	+BGSaRLB+uiXpLlg48tvpDHy93lzC8UVzUmZ7WQFHblngB8/MAPizLXcn1/NmE2lV0/5vxqcQuHlR
+	VqZMql5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vStI0-0000000E0Kh-2AbA;
-	Tue, 09 Dec 2025 08:41:44 +0000
-Received: from mail11.truemail.it ([2001:4b7e:0:8::81])
+	id 1vStJe-0000000E0Sm-47uv;
+	Tue, 09 Dec 2025 08:43:26 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vStHw-0000000E0KG-113j
+	id 1vStJc-0000000E0SP-1LQw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 08:41:43 +0000
-Received: from localhost.localdomain (xcpe-178-82-120-96.dyn.res.sunrise.net [178.82.120.96])
-	by mail11.truemail.it (Postfix) with ESMTPA id 8C1191FD35;
-	Tue,  9 Dec 2025 09:41:33 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1765269694;
-	bh=1VHTUXl3gc+91mo15pIRbZ3NIRKVtsGczrD/Bl81o6k=; h=From:To:Subject;
-	b=tsOl2uc9wCitwZsMNcL9p38pZW303QuaAHYLlQ8kCvOi7+sDaKM5czd9qH1GoqGeX
-	 nr0QqhB4E6lCrxxzV767GRSL6iUnGPedZOzoipX+Qt/5xzSz1fcFQP6nBHHbWJjDho
-	 iFMoPA6taDB4O9ye1dON//V7eaXDUJuzzJWiA3H3A1uMVLhUSAIWeRmkkFId5WUoHA
-	 wNrr5QZ14e4CT8wDCKOg25rqt97EyO5LT2l2TuMfsDlEYwxy7GxYRJXFaLDUz02rPp
-	 A8NGeI/xj7MRI99pF2m70kXvvMe/oPIDvGXiP/Y2KAUMek8JLvX0JFMJd4m0YAiMC7
-	 rKuZJh5lqTg5g==
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Francesco Dolcini <francesco.dolcini@toradex.com>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v1] arm64: dts: ti: am62p-verdin: Fix SD regulator startup delay
-Date: Tue,  9 Dec 2025 09:41:25 +0100
-Message-ID: <20251209084126.33282-1-francesco@dolcini.it>
-X-Mailer: git-send-email 2.47.3
+	Tue, 09 Dec 2025 08:43:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=h/1xM64eNmtfDB9IWS+P0GPHbGqJKCBbdMnZ2WoCg8E=; b=dgTsz7KXimi/pT5lvt4tqwHCzg
+	WOn59npkXYnX82twzxBTjEsmVgk2+Cv0CQwS9nopPCyVxfNo7xdSHP+sM9tgHyV+TG8oC83aRx+7Q
+	fBeVr28rx+6hwUN3BfW4bw7rH4VtTyRf5Y1aaGNt7K501iWgKW1fY2JzBCsxEAl9eB5U9//6SvFBu
+	7Bzdt2ROq/REctAViWjbPm4SFVS4ZwSaEf+UpMpMogQIOXX5kD2HLHKQxJTh+933acsrKZUvk2XGp
+	GV1vfuQgTZs5dMabF9xo15TFnE633g9PkW+ZKvUait4UOeU14W3fUIfskjhLTVLjVvWUsm3n+K57a
+	2/bCdKHQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:49852)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vStJY-000000000Br-42Cp;
+	Tue, 09 Dec 2025 08:43:21 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vStJX-000000005sR-1Cq1;
+	Tue, 09 Dec 2025 08:43:19 +0000
+Date: Tue, 9 Dec 2025 08:43:19 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Xie Yuanbin <xieyuanbin1@huawei.com>
+Cc: linux-arm-kernel@lists.infradead.org, torvalds@linux-foundation.org,
+	viro@zeniv.linux.org.uk, will@kernel.org
+Subject: Re: [PATCH 1/3] ARM: allow __do_kernel_fault() to report execution
+ of memory faults
+Message-ID: <aTfhJ1yN5fB3T-De@shell.armlinux.org.uk>
+References: <E1vSaS6-00000000Ni7-1FDb@rmk-PC.armlinux.org.uk>
+ <20251209040223.25069-1-xieyuanbin1@huawei.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251209040223.25069-1-xieyuanbin1@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_004141_183981_91014653 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20251209_004324_379736_AFB959BB 
+X-CRM114-Status: GOOD (  19.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,33 +80,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Francesco Dolcini <francesco.dolcini@toradex.com>
+On Tue, Dec 09, 2025 at 12:02:23PM +0800, Xie Yuanbin wrote:
+> On Mon, 08 Dec 2025 12:34:54 +0000, Russell King wrote:
+> > diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
+> > index 2bc828a1940c..f0884bf91dfa 100644
+> > --- a/arch/arm/mm/fault.c
+> > +++ b/arch/arm/mm/fault.c
+> > @@ -162,6 +162,8 @@ __do_kernel_fault(struct mm_struct *mm, unsigned long addr, unsigned int fsr,
+> >  	 */
+> >  	if (addr < PAGE_SIZE) {
+> >  		msg = "NULL pointer dereference";
+> > +	} else if (is_permission_fault(fsr) && fsr & FSR_LNX_PF) {
+> > +		msg = "execution of memory";
+> >  	} else {
+> >  		if (is_translation_fault(fsr) &&
+> >  		    kfence_handle_page_fault(addr, is_write_fault(fsr), regs))
+> 
+> This patch caused a compilation error, is_permission_fault() is not
+> defined. Fixed with:
 
-The power switch used to power the SD card interface might have
-more than 2ms turn-on time, increase the startup delay to 20ms to
-prevent failures.
+Thanks - as you've guessed I have some other patches on top of this
+which move the is_xxx_fault() into fault.h.
 
-Fixes: 87f95ea316ac ("arm64: dts: ti: Add Toradex Verdin AM62P")
-Cc: stable@vger.kernel.org
-Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
+However, for the sake of this series, my preferred fix is to group
+all the is_xxx_fault() inline functions together as the first patch
+of this series:
+
+8<===
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Subject: [PATCH] ARM: group is_permission_fault() with is_translation_fault()
+
+Group is_permission_fault() with is_translation_fault(), which is
+needed to use is_permission_fault() in __do_kernel_fault(). As
+this is static inline, there is no need for this to be under
+CONFIG_MMU.
+
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm/mm/fault.c | 26 +++++++++++++-------------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-index 5e050cbb9eaf..ec9dd931fe92 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-verdin.dtsi
-@@ -112,7 +112,7 @@ reg_sd1_vmmc: regulator-sdhci1-vmmc {
- 		regulator-max-microvolt = <3300000>;
- 		regulator-min-microvolt = <3300000>;
- 		regulator-name = "+V3.3_SD";
--		startup-delay-us = <2000>;
-+		startup-delay-us = <20000>;
- 	};
+diff --git a/arch/arm/mm/fault.c b/arch/arm/mm/fault.c
+index 2bc828a1940c..f87f353e5a8b 100644
+--- a/arch/arm/mm/fault.c
++++ b/arch/arm/mm/fault.c
+@@ -128,6 +128,19 @@ static inline bool is_translation_fault(unsigned int fsr)
+ 	return false;
+ }
  
- 	reg_sd1_vqmmc: regulator-sdhci1-vqmmc {
++static inline bool is_permission_fault(unsigned int fsr)
++{
++	int fs = fsr_fs(fsr);
++#ifdef CONFIG_ARM_LPAE
++	if ((fs & FS_MMU_NOLL_MASK) == FS_PERM_NOLL)
++		return true;
++#else
++	if (fs == FS_L1_PERM || fs == FS_L2_PERM)
++		return true;
++#endif
++	return false;
++}
++
+ static void die_kernel_fault(const char *msg, struct mm_struct *mm,
+ 			     unsigned long addr, unsigned int fsr,
+ 			     struct pt_regs *regs)
+@@ -225,19 +238,6 @@ void do_bad_area(unsigned long addr, unsigned int fsr, struct pt_regs *regs)
+ }
+ 
+ #ifdef CONFIG_MMU
+-static inline bool is_permission_fault(unsigned int fsr)
+-{
+-	int fs = fsr_fs(fsr);
+-#ifdef CONFIG_ARM_LPAE
+-	if ((fs & FS_MMU_NOLL_MASK) == FS_PERM_NOLL)
+-		return true;
+-#else
+-	if (fs == FS_L1_PERM || fs == FS_L2_PERM)
+-		return true;
+-#endif
+-	return false;
+-}
+-
+ #ifdef CONFIG_CPU_TTBR0_PAN
+ static inline bool ttbr0_usermode_access_allowed(struct pt_regs *regs)
+ {
 -- 
 2.47.3
 
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
