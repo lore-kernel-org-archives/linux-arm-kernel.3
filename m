@@ -4,104 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ED62D1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 12:52:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D2DED3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 13:01:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vcopow1qSFwvd9fNyuwAU04J2biGOz8GFQZ+auPheQ0=; b=EGBhPqi++e8aACaHesmp54OkC2
-	5WG2MKnk8159e+8h9sfpLTcJpcOCN3wo0m3nslsOHBQrdMmN/RQw6lXZNNqkcSDW2ymlDMHv3R76a
-	3kx5X8TfVRqQ+nVaXOmun35YAwrvkduP0SgpYeLL8FA+EvFfK0ShD/kE/a+VNJ1LZfzHJZqPHrLXn
-	Av5TQrw5E5Qyvx3XjD8Fvq8yTnhPSyUhp/Eq0YhsdG9KB3B0NLEfLbvJkeoI0yn73Su/3XTk9yNLq
-	AsjQkY3G9P6m+sMXJ4nTtqJyre1UjVkMDBVAwVnjZ6spqIENm52A3X84p0zcbGPtseNQXzHgzr8Z7
-	Gz7sDYjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sNF4oF6tZY/gCkRoXoRliKrYOLDoPNsc6ELPW7Fexlw=; b=WmH0hL4CAFXIDsRx1nPkNkj5pk
+	sgyHMt4HL4nXXvs8eoEdU9ANWH85i7VeouZfmexkLsXoiao0925TgwyX4UVr066ny8r2W003DoGic
+	HptJEpy37xvUQ56CekxAh4sBm3gpLGPJCPkw2UXxIRF4WsczBRLXMb43MuHIoMkQimfgoGUuTfaWs
+	2hBG5HiiGa6pzF9wtXbnwTpNmYKviMgqWWPXoxizmCCBM9q5FCo/Ix6AmW6Orl9LbM8Bix+FFuqM2
+	AgwhNf331CVOfhnWqOYtYg3qykBL+SadiM7z29Onf/z9ACd6kW1vHcm7nnE0SIB5nZVQSC9UwqkEW
+	1cYEuQEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSxC8-0000000EHf9-2jpr;
-	Tue, 09 Dec 2025 12:51:56 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vSxLT-0000000EIJV-0BqD;
+	Tue, 09 Dec 2025 13:01:35 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSxC5-0000000EHd4-3R0u
+	id 1vSxLQ-0000000EIIc-1Zcg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 12:51:55 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B99N77X3474206;
-	Tue, 9 Dec 2025 12:51:48 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	vcopow1qSFwvd9fNyuwAU04J2biGOz8GFQZ+auPheQ0=; b=l2iqCT2CTcn3Zh8X
-	BDZ9mYVHruwPFB7UPFktDAJNElQFs5R+vw63qC4y14mdLOBTL5DKei4wA4KhrRZW
-	0fcusZj1N7gKdHIzemiThzgsjXLKlax+vR1MemnQQrqlWy/3eB9Itvojk6DFZgCe
-	ySe5RGa5y4ty9+nuGMIXh4dWa7X78nZW1pVn4R+Kup0OlnL2PKJFvYeaAiyruJbj
-	UywPs1kjEZZbNQFi3Ki01Ir1QF0lObhUibEmAkyVq3F9O4DECJLoGI+6VdW/X6dV
-	si0/H1L2zc7RZ0zzqiN/3Kuwclj7h71XDdqwz9uhWZtkZQo981/AYA6NZo0csk/J
-	hGB3zw==
-Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4axa0bsvgc-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 09 Dec 2025 12:51:47 +0000 (GMT)
-Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
-	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5B9CpkNZ014161
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 9 Dec 2025 12:51:46 GMT
-Received: from [10.233.71.148] (10.80.80.8) by nasanex01a.na.qualcomm.com
- (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 9 Dec
- 2025 04:51:42 -0800
-Message-ID: <1fbe140c-b960-4f13-83e2-b0a0733a67bc@quicinc.com>
-Date: Tue, 9 Dec 2025 20:51:38 +0800
+	Tue, 09 Dec 2025 13:01:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=sNF4oF6tZY/gCkRoXoRliKrYOLDoPNsc6ELPW7Fexlw=; b=dg8D7Ezl56lz7o0YcwxLF/Bmeg
+	CcIFUL2XuKHcnirSqdiMQfi1VEwVG2fcRFuuqkmrYMPEWXKozdGNJEyuqGfym/Pd/wazbbPyv10eF
+	y2yfSQoSrwLvqXfFmq9RtdW0SEXpqVvIhbPLY4Z4CZ8qfobhMqlqmPvS0qNUv0nJH2ffDb7P08fdp
+	koL5meuoOnDJDT5KsosqJJAfDWZL/8erH347C8mGM5dQGFs/O0cdKDEme9Ymkh0PF1nnRGtK8kNww
+	O2R5UXMy7B2vPWp6tqgYOtVs8j6LsMz/S99GkiPF9B+1nlwdBEZC4UOXW0fHIoiOUTXXFzyGTcVl7
+	q+JeZ6yg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:49898)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vSxLA-000000000UH-3V0J;
+	Tue, 09 Dec 2025 13:01:17 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vSxL5-0000000061g-329i;
+	Tue, 09 Dec 2025 13:01:11 +0000
+Date: Tue, 9 Dec 2025 13:01:11 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
+Cc: Paolo Abeni <pabeni@redhat.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Jose Abreu <Jose.Abreu@synopsys.com>,
+	Fugang Duan <fugang.duan@nxp.com>,
+	Kurt Kanzenbach <kurt@linutronix.de>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2] net: stmmac: Fix E2E delay mechanism
+Message-ID: <aTgdlykiar3SlNox@shell.armlinux.org.uk>
+References: <20251129-ext-ptp-2v-v2-1-d23aca3e694f@altera.com>
+ <26656845-d9d6-4fd2-bfff-99996cf03741@redhat.com>
+ <aTFuJUiLMnHrnpW5@shell.armlinux.org.uk>
+ <9f0da5db-e92a-42e2-b788-2b07b8d28cfa@altera.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/2] coresight: cti: Add Qualcomm extended CTI support
-To: Leo Yan <leo.yan@arm.com>, Yingchao Deng <quic_yingdeng@quicinc.com>
-CC: <mike.leach@linaro.org>, <alexander.shishkin@linux.intel.com>,
-        <coresight@lists.linaro.org>, <james.clark@linaro.org>,
-        <jinlong.mao@oss.qualcomm.com>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-arm-msm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <quic_jinlmao@quicinc.com>, <suzuki.poulose@arm.com>,
-        <tingwei.zhang@oss.qualcomm.com>
-References: <CAJ9a7Vg9Efi-5eecfiUF82_Qq8Jg9imN5q1-VKYZoPVUxNpjhA@mail.gmail.com>
- <20251209081649.105623-1-yingchao.deng@oss.qualcomm.com>
- <20251209121916.GT724103@e132581.arm.com>
-Content-Language: en-US
-From: "Yingchao Deng (Consultant)" <quic_yingdeng@quicinc.com>
-In-Reply-To: <20251209121916.GT724103@e132581.arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01a.na.qualcomm.com (10.52.223.231)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjA5MDA5MyBTYWx0ZWRfX2X19jiaI8qzD
- gzqAC7hTx3GgLYSTltpLcD/NdPWx+1LJAYPu2oDw5iJO3HSzCPAZZH/ZcaNgYg+7ZgEN3HliPdA
- 43kUp4AO4+DrgBnWupsCq0RMxmNO2NIWHhq7rznF0EXOie7RMup+V5q2SfX//DjOiyJpuBtVQ1T
- LQzkMcu0DaVOI6fxtThkkbhW9yQE3Gs/CcVna4H8lz60DJOtfIMwo18akRcNbBGpxV3fUMng4ze
- 7JdQoPTQ+oTuP0e9+Maut6hsPvM1d+47EwWnL2wYODvUUBp54WW3Eps0zyPceDsjc6IOv4StBn2
- L0LxySKmgjPJkutTXA2Jcb1LmUVewKaeiE8ANKtpolQOTPDXCQ3i+SR1OT6Z+R0GAMIn0apsxYG
- h1zTeuI0hyTPkNtqSJ39icJBUdYZVA==
-X-Authority-Analysis: v=2.4 cv=JqL8bc4C c=1 sm=1 tr=0 ts=69381b63 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10
- a=VkNPw1HP01LnGYTKEx00:22 a=uuXvdfZ7YpPWpv2YKKMA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10
-X-Proofpoint-GUID: a_YW54CdoEYm6JHiOuscNg71q_wUEHUl
-X-Proofpoint-ORIG-GUID: a_YW54CdoEYm6JHiOuscNg71q_wUEHUl
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-09_03,2025-12-04_04,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 malwarescore=0 impostorscore=0 bulkscore=0 priorityscore=1501
- lowpriorityscore=0 suspectscore=0 adultscore=0 clxscore=1015 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512090093
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <9f0da5db-e92a-42e2-b788-2b07b8d28cfa@altera.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_045153_975437_B968D5A2 
-X-CRM114-Status: GOOD (  19.53  )
+X-CRM114-CacheID: sfid-20251209_050132_437357_ACD0014D 
+X-CRM114-Status: GOOD (  34.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,67 +91,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo,
+On Tue, Dec 09, 2025 at 06:01:05PM +0530, G Thomas, Rohan wrote:
+> Hi Russell,
+> 
+> Thanks for reviewing the patch.
+> 
+> On 12/4/2025 4:49 PM, Russell King (Oracle) wrote:
+> > On Thu, Dec 04, 2025 at 10:58:40AM +0100, Paolo Abeni wrote:
+> > > On 11/29/25 4:07 AM, Rohan G Thomas wrote:
+> > > > For E2E delay mechanism, "received DELAY_REQ without timestamp" error
+> > > > messages show up for dwmac v3.70+ and dwxgmac IPs.
+> > > > 
+> > > > This issue affects socfpga platforms, Agilex7 (dwmac 3.70) and
+> > > > Agilex5 (dwxgmac). According to the databook, to enable timestamping
+> > > > for all events, the SNAPTYPSEL bits in the MAC_Timestamp_Control
+> > > > register must be set to 2'b01, and the TSEVNTENA bit must be cleared
+> > > > to 0'b0.
+> > > > 
+> > > > Commit 3cb958027cb8 ("net: stmmac: Fix E2E delay mechanism") already
+> > > > addresses this problem for all dwmacs above version v4.10. However,
+> > > > same holds true for v3.70 and above, as well as for dwxgmac. Updates
+> > > > the check accordingly.
+> > > > 
+> > > > Fixes: 14f347334bf2 ("net: stmmac: Correctly take timestamp for PTPv2")
+> > > > Fixes: f2fb6b6275eb ("net: stmmac: enable timestamp snapshot for required PTP packets in dwmac v5.10a")
+> > > > Fixes: 3cb958027cb8 ("net: stmmac: Fix E2E delay mechanism")
+> > > > Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
+> > > > ---
+> > > > v1 -> v2:
+> > > >     - Rebased patch to net tree
+> > > >     - Replace core_type with has_xgmac
+> > > >     - Nit changes in the commit message
+> > > >     - Link: https://lore.kernel.org/all/20251125-ext-ptp-fix-v1-1-83f9f069cb36@altera.com/
+> > > 
+> > > Given there is some uncertain WRT the exact oldest version to be used,
+> > > it would be great to have some 3rd party testing/feedback on this. Let's
+> > > wait a little more.
+> > 
+> > As I said, in the v3.74 documentation, it is stated that the SNAPTYPSEL
+> > functions changed between v3.50 and v3.60, so I think it would be better
+> > to propose a patch to test for < v3.6.
+> > 
+> 
+> I tested this on socfpga platforms like Agilex7 which are using
+> 3.7x, but don't have any platforms with dwmac <= v3.6.
+> 
+> > Alternatively, if someone has the pre-v3.6 databook to check what the
+> > SNAPTYPSEL definition is and compare it with the v3.6+ definition, that
+> > would also be a good thing to do.
+> > 
+> >  From the 3.74:
+> > 
+> > SNAPTYPSEL
+> > 00		?
+> > 01		?
+> > 10		Sync, Delay_Req
+> > 11		Sync, PDelay_Req, PDelay_Resp
+> > 
+> > TSEVNTENA
+> > 0		All messages except Announce, Management and Signalling
+> > 1		Sync, Delay_Req, PDelay_Req, PDelay_Resp
+> > 
+> > No table is provided, so it's difficult to know what all the bit
+> > combinations do for v3.74.
+> 
+> In 3.73a databook, Table 6-70 has the following information and this is
+> similar to v5.1 and v5.3. But don't have 3.74 databook.
+> 
+> SNAPTYPSEL	TSMSTRENA	TSEVNTENA	PTP Messages
+> 00		X 		0 		SYNC, Follow_Up,
+> 						Delay_Req, Delay_Resp
+> 00 		0 		1 		SYNC
+> 00 		1 		1 		Delay_Req
+> 01 		X 		0 		SYNC, Follow_Up,
+> 						Delay_Req, Delay_Resp,
+> 						Pdelay_Req, Pdelay_Resp,
+> 						Pdelay_Resp_Follow_Up
+> 01 		0 		1 		SYNC, Pdelay_Req,
+> 						Pdelay_Resp
+> 01 		1 		1 		Delay_Req, Pdelay_Req,
+> 						Pdelay_Resp
+> 10 		X 		X 		SYNC, Delay_Req
+> 11 		X 		X 		Pdelay_Req, Pdelay_Resp
 
-On 12/9/2025 8:19 PM, Leo Yan wrote:
-> Hi Yingchao,
->
-> On Tue, Dec 09, 2025 at 04:16:28PM +0800, Yingchao Deng wrote:
->> Hi Leo & Mike
->>
->> Based on Leo’s suggestions, I created a new patch, but there are three points that do not fully align with his recommendations:
->>
->>      1. The helper function for returning the register address now returns only the offset, because returning the full address would conflict with cti_write_single_reg.
-> No need to change each callsite for cti_write_single_reg().  You could
-> update cti_write_single_reg() instead:
->
->    void cti_write_single_reg(struct cti_drvdata *drvdata,
->                              int offset, u32 value)
->    {
->            CS_UNLOCK(drvdata->base);
->            writel_relaxed(value, cti_reg_addr(drvdata, offset));
->            CS_LOCK(drvdata->base);
->    }
+I can't fathom why they would use this table in v3.73a, then put
+something different in v4.2, and then go back to this table in
+v5.1, so I'm wondering whether any of these tables can be relied
+upon. This seems to be a complete mess.
 
-However, since we also need to handle cti_reg_addr_with_nr, it will be 
-necessary to add an additional parameter "nr" to cti_write_single_reg?
+I think the only way out of this is to test this - and I wonder
+whether stmmac_selftests.c could have tests added to check which
+PTP messages and in which direction get timestamped in each of
+these modes.
 
-Thanks
-Yingchao
->>      2. For registers such as triginstatus1...3, I defined additional macros CTITRIGINSTATUS1...3. This is because CTITRIGINSTATUS + 0x4 equals CTITRIGOUTSTATUS, and to avoid conflicts with existing macros, I chose numbers starting from 0x1000 for the new definitions.
-> To avoid the register naming pollution, please don't define the common
-> names but only used for Qcom registers.
->
-> AFAIK, you even don't need to define these registers.  These registers
-> are only used for sysfs knobs, we can define an extra "nr" field (e.g.,
-> bits[31..28] for indexing these registers, something like:
->
->    #define CIT_REG_NR_SHIFT          28
->    #define CIT_REG_NR_MASK           GENMASK(31, 28)
->    #define CTI_REG_GET_NR(reg)       FIELD_GET(CIT_REG_NR_MASK, (reg))
->    #define CTI_REG_SET_NR(reg, nr)   ((reg) | FIELD_PREP(CIT_REG_NR_MASK, (nr))
->
->    static struct attribute *coresight_cti_regs_attrs[] = {
->    ...
->      coresight_cti_reg(triginstatus, CTITRIGINSTATUS),
->      coresight_cti_reg(triginstatus1, CTI_REG_SET_NR(CTITRIGINSTATUS, 1)),
->      coresight_cti_reg(triginstatus2, CTI_REG_SET_NR(CTITRIGINSTATUS, 2)),
->      coresight_cti_reg(triginstatus3, CTI_REG_SET_NR(CTITRIGINSTATUS, 3)),
->    ...
->
-> Then, you just need to decode "nr" fields in cti_qcom_reg_off().
->
->>      3. Regarding the visibility of attributes for triginstatus1...3, since coresight_cti_reg produces an anonymous variable that cannot be directly referenced, I used coresight_cti_regs_attrs[i] to obtain the attribute corresponding to triginstatus1.
-> Okay, I get the meaning for "an anonymous variable" - there have no
-> field naming when define attr with the macro coresight_cti_reg().
->
-> but you could comparing the attr string?
->
->    if (!strcmp(attr->name, "triginstatus1") ||
->        !strcmp(attr->name, "triginstatus2") ||
->        !strcmp(attr->name, "triginstatus3"))
->        ...
->
-> Thanks,
-> Leo
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
