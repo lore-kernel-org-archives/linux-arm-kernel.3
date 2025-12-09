@@ -4,102 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE4E9D3B98C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 17:56:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FEBCD3B98D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 17:56:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZUOgxr+7cSYt/btR8gXlm/+anfYygWBdHJEIEgIls30=; b=JXM82hhCeM6WEgv2y8JdoNecMw
-	KY3fv+sZOt2wh0WM6PGow0xp9MEzK2ZMVjMyIpiSz/GSzJvlwUrRcTRnIseoX44LTH+7m/6A3y79r
-	OuvJy5DFhQGjeC7NXZUx0sPURtiz8jKH9Bc2M+XlhE88OQg9Hyz+2Amy6fcuf7YRe2o7c8k4IyNtw
-	Og86ECsqivNWg3f3Likvhbt9qnaHpQwGu/ug/iwx/gBJ5//+sevFiMJwT8zcEOGfPcqzMQNCYsQ2J
-	T5PK84kXR/5kcYq1js+rJ/BxV/Cds7ADxupN4g87U2BC2bfzt9Bx921ThGpUeMBeQTOa0aSh5uRvs
-	GSnb9SPQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VS+RzLACBnaDYUv6qVFgvyvNQaXuhOHqAm0J3pZTOy4=; b=MVRerfZHIdwUeGdPNd4QI2nEfY
+	SEaxDIKRwwqqBhsyyuKeYEQtkOOYPYuTLI/xubjVwjDeyXt+NW3wJyBpDrdnjxyK/34EkQZCFvGAK
+	mUVE49odnJcbIjiAQD7zPmTOyziko1Zpm1XdyRZj4EzUMGaDVDkl25NlxlBN2bAVXiyHq0B+FbAXR
+	c7fNGhd2lTRjmiMchzwBOfANglKmX0s3mjVAXxNAjYAHW1Na3lMhzQ0Zr7tyVdeOQF0SbyJF5PzCr
+	S3CxF+oW1dqJ8JRMMeMHoV+5yOujF3HfECR63b7/57+2JIHIrrUTRf8xmuDN/o3QQ/m7WCi5qbzvV
+	RQH1LCVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT1wL-0000000EcZr-0YF4;
-	Tue, 09 Dec 2025 17:55:57 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1vT1wv-0000000Ecfa-48hq;
+	Tue, 09 Dec 2025 17:56:33 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT1wI-0000000EcZT-0H1I
+	id 1vT1ws-0000000EceV-3mB4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 17:55:55 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-42e2e628f8aso2828165f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Dec 2025 09:55:53 -0800 (PST)
+	Tue, 09 Dec 2025 17:56:32 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-b736ffc531fso230658966b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Dec 2025 09:56:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765302952; x=1765907752; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ZUOgxr+7cSYt/btR8gXlm/+anfYygWBdHJEIEgIls30=;
-        b=mZYuX36C/2eStSHPXmIeZfxPpfS6wY3LXGelHnC/JdqtdvJlRkyeJXsWle8jW/2kqV
-         0YLJCg4QTwnYsxmloW1j2hJ9KdWfEmBmuN/K0peYRHRjO3DSP/gmsrmzXGEI+WbJX2AJ
-         zet6tPjVn9blTCj+exhkHZEf/YykVjCn407q7XzeAyTytjkWPwrUXZcUKQgYHy1+Pm+r
-         uxt3h8gnuabTT+NvHbXDXIm7Zp+g5M16XYd4mYSMPbIxrPKQwmc6Egjufcz7dcvWHcrg
-         Hxa12IgdnaFmGv1G1IjxrV8thhTTNAPxCIG+hHBZkB8Ph9E+6Tgc8aotivT2ruSqjOSy
-         UMOA==
+        d=suse.com; s=google; t=1765302989; x=1765907789; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=VS+RzLACBnaDYUv6qVFgvyvNQaXuhOHqAm0J3pZTOy4=;
+        b=URujgwlbhFqsA+D6mTIyoO7kRpu/MVqOgxlp+TyBQZ3Fqzyr3aPGJYj2dgcuA6IoD5
+         d4xf2+Hy92Eshm3s9woVKORJz/nm++5Z/j9ADKPt3V1jU5x3CDLLCa/GAiwUey6qW7g0
+         fdB8C9QgBwEXm0qqknObSB0MEBVRtRkHVD6gl/oPfPz3IlgFZnAwDCUT0XhY4kweekME
+         ubXPZrF+SdhNYmItECDRMvbbkKIkj0epiwlGm8i5QuMt8lY1cKIFWADOyTqxviISCbrl
+         DkybR5DNdh9IlwOjeprKu4aGL98UdYGGhvm0kCgKNkfoLAtU5lHpscFfe4BAbnbrK3Pn
+         RnZw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765302952; x=1765907752;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZUOgxr+7cSYt/btR8gXlm/+anfYygWBdHJEIEgIls30=;
-        b=M/wg4aBwR3NcDR6WMZrqrjZSP25MtzBcDG8Vl1R7S1ktG2iNOnGZzaGESiIUWga0id
-         TEZXJ72D7/aCC46pFs/AvkHwSKcG8/9xAOOncxP0cdMfG3ytj5+imusbu8FxNAOW4ymv
-         /79Ucz6V04bWh2xmjxCJR/Uj6yoG2kgtDqZC1qbn5qhjZOino6JnhJfGY6DwdaBBqVsY
-         mBp+0OZIEUqausdtk4GSYwP2/Jqf+RLxPhoY1rGc4AoDkpjDyXeihtKmgLsGRPa1l3Ql
-         aYs87Hl2n6UbtduEIlSbqIHNjSKJRZnWVDi06dEO/nbZXFL3bOVXRxVfF9isQ1U83SJy
-         CZvA==
-X-Forwarded-Encrypted: i=1; AJvYcCV7ssgijUu7k4Gh3rQLrPiVjpnZDeTjqiY7U209CDl/ITJwirhj7AuK9XMJkxZ4AgI2UhhwRiXHt4LIxGHbpDtn@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywuel2e36dyc+kPOcPmLrRjJIzleI52lMlOCyiUe+H0f02SQHrE
-	nC2I6PbJQ4CzwdLTwKSDPnEznp2C/DlrATnt09ItMqL8B7+H4Qe/IOdfgpcr3UcJK48=
-X-Gm-Gg: AY/fxX6PqJru/iOA9mxUC+HX44YkWs7T4R2yQxppKNSVVEfV65pp0qa2i1xt8inSdlW
-	o78xMwM5kgH7nxFUF/eanReTLcboId9aiBH5XZximkOxe0NaqRChYpM822Mh9DE4uEWSriAc1Uv
-	Wzmex72+ee5ccingfpkRVyn06LTHKSdQPf+EddKLnvGPZq8eWbNiH90VjY0cALrVmQwu37HuW1l
-	IA9slTCnvHIpK26+XkdhU638oE2x+KRyOpNN9jMiBa5nEveKn+jpA/ljLoei+dHujgqPPnZcxS3
-	WmGFIfpIYDie2tnbiQeOIflrCSCPSJbXbPycIsip1SRTt2jCFF6GTHdhMAWUW5FCRzwW1uzI6Uf
-	eU+bpSyj40MMJGL2XWFnlwEVL6ZNgewD/8uczYPgh1vbEHYFUBke5981dxeoMdCiX/LjwdTcGs3
-	YpmcSrU46AnPQl14xvug==
-X-Google-Smtp-Source: AGHT+IGc4OjZMP1xzbym2F8zYcMdwysP1sgVkT7Ss3kIptxke0S8T0dAWuWUBtezxhVnNmhyFD50nQ==
-X-Received: by 2002:a05:6000:2884:b0:429:f14a:9807 with SMTP id ffacd0b85a97d-42f89f6348amr11888073f8f.40.1765302951729;
-        Tue, 09 Dec 2025 09:55:51 -0800 (PST)
-Received: from [192.168.1.183] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42f7d331af5sm31559379f8f.31.2025.12.09.09.55.50
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 09 Dec 2025 09:55:51 -0800 (PST)
-Message-ID: <d275d2fb-8670-4832-b9c4-de98376e58ad@linaro.org>
-Date: Tue, 9 Dec 2025 17:55:51 +0000
+        d=1e100.net; s=20230601; t=1765302989; x=1765907789;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=VS+RzLACBnaDYUv6qVFgvyvNQaXuhOHqAm0J3pZTOy4=;
+        b=kz/mInqoe5HXpVfsV07eSxp0c7oNLDaoxw0DkNz6Zy2qnzn97f6Q2S+ZPj1OAsxz3E
+         s+UlmxoOADMqWsixNRHvz+poTqY0OJOqlBURjoFxQyTx88fXp2/bDjpg/ZiakT5BsTmJ
+         HDl4Qac+smjaActUkwCbXnGGBCLBkRfAQnntqGoerwHCkOHMx08a/DBv+ggmfj+gri04
+         JPi7ig9XScyOMXOwWcd2CTSTcxdv+i3I9WrsG7H89+cRNlrNmH+xV7mK6v7AppZnNytB
+         /IxOROSfE4HlUsnD6HX1PedZVcPWPyiiiZEXvJHbJNIMYcXTBIEZcNUkuSydE1O44Kr4
+         klqA==
+X-Forwarded-Encrypted: i=1; AJvYcCVRm4mzBWfvY74dSvCoV8zvrldNd/I7EceIB37nv4+CQ5+sgBRLgjISQ4KnL38Lwjs5H+KQWNmvQLGq744oBnFY@lists.infradead.org
+X-Gm-Message-State: AOJu0YyB9rrKSSn2TwzoRX+CtTcKPkJnJ6Wq0MmdDFqGkK4nc5a67z0s
+	a+L44oaL/pgs2z9V5Z9xiMNbwj+UTefxzL3w5zknU4SO+1dDpfjTh8lWz3m5E5fJDLk=
+X-Gm-Gg: ASbGncvwm6OwgfTMFb9Vo9d9s0JIGlDUZN2JDqcXyvt5tlo/PXDakeUhQhTHjZZVm+a
+	b2FgAyiLyARXvQcL0okg9I72zqOUa9FyPMCuiAdMciTi2AyKC8MIDKvlFkaLk3IMbt+hEldUvi0
+	NJcaMulv82/+tzAeli2ObHdbICEuBjj8OJQB/+JmyoExA1+Tl+pdr5HJa00k+8JbU3GocA6MuGw
+	9WOX3WI8vrUiZtVkHhb+XpuvMF3QFjPwA2Y/gZhO2Eo9shzz1C7YaJkP9gsw5MpoGfHJIg1aB2Q
+	GRUrb+yBdb9qnGuGDI1ic1zFXwYqoMqe8jTTuCs31UdjO3DMCMtLz0WWa5ckQPxtxeeQnTDS//8
+	QIg3dK+SlB2mM7IfAugeYbEYMhMnHE2ES4rcttgjHlPttCTEB9psh/p8Z/jDWZpMlpUGy0Ka8TZ
+	C7CpCjy6obnI9ZrIL/rZSTrSGyj5tsPhm+yiGHyegSIjYo8IBr/nx6wEslns/KM+VK
+X-Google-Smtp-Source: AGHT+IGvw1bEvqj04ezow2gxdTDu27du8/6Xud1clcGv0XhFoxUHy3g9uZN+OOy+YeCHeDUPqPTLnA==
+X-Received: by 2002:a17:907:3c90:b0:b76:e89f:98a9 with SMTP id a640c23a62f3a-b7a2484b7c2mr1285132866b.61.1765302988299;
+        Tue, 09 Dec 2025 09:56:28 -0800 (PST)
+Received: from localhost (host-87-6-211-245.retail.telecomitalia.it. [87.6.211.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b79f49c94fbsm1430165766b.53.2025.12.09.09.56.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Dec 2025 09:56:27 -0800 (PST)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Tue, 9 Dec 2025 18:58:58 +0100
+To: Rob Herring <robh@kernel.org>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Jim Quinlan <jim2101024@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>, kwilczynski@kernel.org,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rpi-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, iivanov@suse.de, svarbanov@suse.de,
+	mbrugger@suse.com, Jonathan Bell <jonathan@raspberrypi.com>,
+	Phil Elwell <phil@raspberrypi.com>,
+	kernel test robot <lkp@intel.com>
+Subject: Re: [PATCH] dt-bindings: pci: brcmstb: Add rp1-nexus node to fix DTC
+ warning
+Message-ID: <aThjYt3ux0U-9-3A@apocalypse>
+References: <20250812085037.13517-1-andrea.porta@suse.com>
+ <4fee3870-f9d5-48e3-a5be-6df581d3e296@kernel.org>
+ <aKc5nMT1xXpY03ip@apocalypse>
+ <e7875f70-2b79-48e0-a63b-caf6f1fd287b@kernel.org>
+ <aLVePQRfU4IB1zK8@apocalypse>
+ <CAL_JsqJUzB71QdMcxJtNZ7raoPcK+SfTh7EVzGmk=syo8xLKQw@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/12] perf parse-events: Refactor get_config_terms()
- to remove macros
-To: Ian Rogers <irogers@google.com>
-Cc: Linux perf Profiling <linux-perf-users@vger.kernel.org>,
- linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>,
- Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, leo.yan@arm.com
-References: <20251208-james-perf-config-bits-v2-0-4ac0281993b0@linaro.org>
- <20251208-james-perf-config-bits-v2-1-4ac0281993b0@linaro.org>
- <6ba6bde3-f56b-4354-b336-4739cb1edb71@linaro.org>
- <CAP-5=fV_Y5W2RyJhBgnk49JuTf8EsyisY-LfL3sVhC4TVRC_gg@mail.gmail.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <CAP-5=fV_Y5W2RyJhBgnk49JuTf8EsyisY-LfL3sVhC4TVRC_gg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAL_JsqJUzB71QdMcxJtNZ7raoPcK+SfTh7EVzGmk=syo8xLKQw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_095554_268264_1CE0299E 
-X-CRM114-Status: GOOD (  19.46  )
+X-CRM114-CacheID: sfid-20251209_095630_987682_6D78FD2B 
+X-CRM114-Status: GOOD (  65.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,289 +121,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Rob,
 
-
-On 09/12/2025 15:58, Ian Rogers wrote:
-> On Tue, Dec 9, 2025 at 4:48 AM James Clark <james.clark@linaro.org> wrote:
->>
->> On 08/12/2025 2:22 pm, James Clark wrote:
->>> The ADD_CONFIG_TERM() macros build the __type argument out of a partial
->>> EVSEL__CONFIG_TERM_x enum name. This means that they can't be called
->>> from a function where __type is a variable and it's also impossible to
->>> grep the codebase to find usages of these enums as they're never typed
->>> in full.
->>>
->>> Fix this by removing the macros and replacing them with an
->>> add_config_term() function. It seems the main reason these existed in
->>> the first place was to avoid type punning and to write to a specific
->>> field in the union, but the same thing can be achieved with a single
->>> write to a u64 'val' field.
->>>
->>> Signed-off-by: James Clark <james.clark@linaro.org>
->>> ---
->>>    tools/perf/util/evsel_config.h |   1 +
->>>    tools/perf/util/parse-events.c | 146 ++++++++++++++++++++++++-----------------
->>>    2 files changed, 86 insertions(+), 61 deletions(-)
->>>
->>> diff --git a/tools/perf/util/evsel_config.h b/tools/perf/util/evsel_config.h
->>> index bcd3a978f0c4..685fd8d5c4a8 100644
->>> --- a/tools/perf/util/evsel_config.h
->>> +++ b/tools/perf/util/evsel_config.h
->>> @@ -50,6 +50,7 @@ struct evsel_config_term {
->>>                u64           cfg_chg;
->>>                char          *str;
->>>                int           cpu;
->>> +             u64           val;
->>>        } val;
->>>        bool weak;
->>>    };
->>> diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
->>> index 17c1c36a7bf9..d5b009b4ebab 100644
->>> --- a/tools/perf/util/parse-events.c
->>> +++ b/tools/perf/util/parse-events.c
->>> @@ -1116,105 +1116,107 @@ static int config_attr(struct perf_event_attr *attr,
->>>        return 0;
->>>    }
->>>
->>> -static int get_config_terms(const struct parse_events_terms *head_config,
->>> -                         struct list_head *head_terms)
->>> +static struct evsel_config_term *add_config_term(enum evsel_term_type type,
->>> +                                              struct list_head *head_terms,
->>> +                                              bool weak)
->>>    {
->>> -#define ADD_CONFIG_TERM(__type, __weak)                              \
->>> -     struct evsel_config_term *__t;                  \
->>> -                                                             \
->>> -     __t = zalloc(sizeof(*__t));                             \
->>> -     if (!__t)                                               \
->>> -             return -ENOMEM;                                 \
->>> -                                                             \
->>> -     INIT_LIST_HEAD(&__t->list);                             \
->>> -     __t->type       = EVSEL__CONFIG_TERM_ ## __type;        \
->>> -     __t->weak       = __weak;                               \
->>> -     list_add_tail(&__t->list, head_terms)
->>> -
->>> -#define ADD_CONFIG_TERM_VAL(__type, __name, __val, __weak)   \
->>> -do {                                                         \
->>> -     ADD_CONFIG_TERM(__type, __weak);                        \
->>> -     __t->val.__name = __val;                                \
->>> -} while (0)
->>> +     struct evsel_config_term *t;
->>>
->>> -#define ADD_CONFIG_TERM_STR(__type, __val, __weak)           \
->>> -do {                                                         \
->>> -     ADD_CONFIG_TERM(__type, __weak);                        \
->>> -     __t->val.str = strdup(__val);                           \
->>> -     if (!__t->val.str) {                                    \
->>> -             zfree(&__t);                                    \
->>> -             return -ENOMEM;                                 \
->>> -     }                                                       \
->>> -     __t->free_str = true;                                   \
->>> -} while (0)
->>> +     t = zalloc(sizeof(*t));
->>> +     if (!t)
->>> +             return NULL;
->>> +
->>> +     INIT_LIST_HEAD(&t->list);
->>> +     t->type = type;
->>> +     t->weak = weak;
->>> +     list_add_tail(&t->list, head_terms);
->>>
->>> +     return t;
->>> +}
->>> +
->>> +static int get_config_terms(const struct parse_events_terms *head_config,
->>> +                         struct list_head *head_terms)
->>> +{
->>>        struct parse_events_term *term;
->>>
->>>        list_for_each_entry(term, &head_config->terms, list) {
->>> +             struct evsel_config_term *new_term;
->>> +             enum evsel_term_type new_type;
->>> +             char *str = NULL;
->>> +             u64 val;
->>> +
->>>                switch (term->type_term) {
->>>                case PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD:
->>> -                     ADD_CONFIG_TERM_VAL(PERIOD, period, term->val.num, term->weak);
->>> +                     new_type = EVSEL__CONFIG_TERM_PERIOD;
->>> +                     val = term->val.num;
->>>                        break;
->>>                case PARSE_EVENTS__TERM_TYPE_SAMPLE_FREQ:
->>> -                     ADD_CONFIG_TERM_VAL(FREQ, freq, term->val.num, term->weak);
->>> +                     new_type = EVSEL__CONFIG_TERM_FREQ;
->>> +                     val = term->val.num;
->>>                        break;
->>>                case PARSE_EVENTS__TERM_TYPE_TIME:
->>> -                     ADD_CONFIG_TERM_VAL(TIME, time, term->val.num, term->weak);
->>> +                     new_type = EVSEL__CONFIG_TERM_TIME;
->>> +                     val = term->val.num;
->>>                        break;
->>>                case PARSE_EVENTS__TERM_TYPE_CALLGRAPH:
->>> -                     ADD_CONFIG_TERM_STR(CALLGRAPH, term->val.str, term->weak);
->>> +                     new_type = EVSEL__CONFIG_TERM_CALLGRAPH;
->>> +                     str = term->val.str;
->>>                        break;
->>>                case PARSE_EVENTS__TERM_TYPE_BRANCH_SAMPLE_TYPE:
->>> -                     ADD_CONFIG_TERM_STR(BRANCH, term->val.str, term->weak);
->>> +                     new_type = EVSEL__CONFIG_TERM_BRANCH;
->>> +                     str = term->val.str;
->>>                        break;
->>>                case PARSE_EVENTS__TERM_TYPE_STACKSIZE:
->>> -                     ADD_CONFIG_TERM_VAL(STACK_USER, stack_user,
->>> -                                         term->val.num, term->weak);
->>> +                     new_type = EVSEL__CONFIG_TERM_STACK_USER;
->>> +                     val = term->val.num;
->>>                        break;
->>>                case PARSE_EVENTS__TERM_TYPE_INHERIT:
->>> -                     ADD_CONFIG_TERM_VAL(INHERIT, inherit,
->>> -                                         term->val.num ? 1 : 0, term->weak);
->>> +                     new_type = EVSEL__CONFIG_TERM_INHERIT;
->>> +                     val = term->val.num ? 1 : 0;
->>>                        break;
->>>                case PARSE_EVENTS__TERM_TYPE_NOINHERIT:
->>> -                     ADD_CONFIG_TERM_VAL(INHERIT, inherit,
->>> -                                         term->val.num ? 0 : 1, term->weak);
->>> +                     new_type = EVSEL__CONFIG_TERM_INHERIT;
->>> +                     val = term->val.num ? 0 : 1;
->>>                        break;
->>>                case PARSE_EVENTS__TERM_TYPE_MAX_STACK:
->>> -                     ADD_CONFIG_TERM_VAL(MAX_STACK, max_stack,
->>> -                                         term->val.num, term->weak);
->>> +                     new_type = EVSEL__CONFIG_TERM_MAX_STACK;
->>> +                     val = term->val.num;
->>>                        break;
->>>                case PARSE_EVENTS__TERM_TYPE_MAX_EVENTS:
->>> -                     ADD_CONFIG_TERM_VAL(MAX_EVENTS, max_events,
->>> -                                         term->val.num, term->weak);
->>> +                     new_type = EVSEL__CONFIG_TERM_MAX_EVENTS;
->>> +                     val = term->val.num;
->>>                        break;
->>>                case PARSE_EVENTS__TERM_TYPE_OVERWRITE:
->>> -                     ADD_CONFIG_TERM_VAL(OVERWRITE, overwrite,
->>> -                                         term->val.num ? 1 : 0, term->weak);
->>> +                     new_type = EVSEL__CONFIG_TERM_OVERWRITE;
->>> +                     val = term->val.num ? 1 : 0;
->>>                        break;
->>>                case PARSE_EVENTS__TERM_TYPE_NOOVERWRITE:
->>> -                     ADD_CONFIG_TERM_VAL(OVERWRITE, overwrite,
->>> -                                         term->val.num ? 0 : 1, term->weak);
->>> +                     new_type = EVSEL__CONFIG_TERM_OVERWRITE;
->>> +                     val = term->val.num ? 0 : 1;
->>>                        break;
->>>                case PARSE_EVENTS__TERM_TYPE_DRV_CFG:
->>> -                     ADD_CONFIG_TERM_STR(DRV_CFG, term->val.str, term->weak);
->>> +                     new_type = EVSEL__CONFIG_TERM_DRV_CFG;
->>> +                     str = term->val.str;
->>>                        break;
->>>                case PARSE_EVENTS__TERM_TYPE_PERCORE:
->>> -                     ADD_CONFIG_TERM_VAL(PERCORE, percore,
->>> -                                         term->val.num ? true : false, term->weak);
->>> +                     new_type = EVSEL__CONFIG_TERM_PERCORE;
->>> +                     val = term->val.num ? true : false;
->>>                        break;
->>>                case PARSE_EVENTS__TERM_TYPE_AUX_OUTPUT:
->>> -                     ADD_CONFIG_TERM_VAL(AUX_OUTPUT, aux_output,
->>> -                                         term->val.num ? 1 : 0, term->weak);
->>> +                     new_type = EVSEL__CONFIG_TERM_AUX_OUTPUT;
->>> +                     val = term->val.num ? 1 : 0;
->>>                        break;
->>>                case PARSE_EVENTS__TERM_TYPE_AUX_ACTION:
->>> -                     ADD_CONFIG_TERM_STR(AUX_ACTION, term->val.str, term->weak);
->>> +                     new_type = EVSEL__CONFIG_TERM_AUX_ACTION;
->>> +                     str = term->val.str;
->>>                        break;
->>>                case PARSE_EVENTS__TERM_TYPE_AUX_SAMPLE_SIZE:
->>> -                     ADD_CONFIG_TERM_VAL(AUX_SAMPLE_SIZE, aux_sample_size,
->>> -                                         term->val.num, term->weak);
->>> +                     new_type = EVSEL__CONFIG_TERM_AUX_SAMPLE_SIZE;
->>> +                     val = term->val.num;
->>>                        break;
->>>                case PARSE_EVENTS__TERM_TYPE_RATIO_TO_PREV:
->>> -                     ADD_CONFIG_TERM_STR(RATIO_TO_PREV, term->val.str, term->weak);
->>> +                     new_type = EVSEL__CONFIG_TERM_RATIO_TO_PREV;
->>> +                     str = term->val.str;
->>>                        break;
->>>                case PARSE_EVENTS__TERM_TYPE_USER:
->>>                case PARSE_EVENTS__TERM_TYPE_CONFIG:
->>> @@ -1229,7 +1231,23 @@ do {                                                           \
->>>                case PARSE_EVENTS__TERM_TYPE_RAW:
->>>                case PARSE_EVENTS__TERM_TYPE_CPU:
->>>                default:
->>> -                     break;
->>> +                     /* Don't add a new term for these ones */
->>> +                     continue;
->>> +             }
->>> +
->>> +             new_term = add_config_term(new_type, head_terms, term->weak);
->>> +             if (!new_term)
->>> +                     return -ENOMEM;
->>> +
->>> +             if (str) {
->>> +                     new_term->val.str = strdup(str);
->>> +                     if (!new_term->val.str) {
->>> +                             zfree(&new_term);
->>> +                             return -ENOMEM;
->>> +                     }
->>> +                     new_term->free_str = true;
->>> +             } else {
->>
->> This will incorrectly hit the else if term->val.str is NULL. Not sure if
->> that can happen but will fix anyway.
->>
->>> +                     new_term->val.val = val;
->>
->> There's an uninitialized variable warning for val here on release
->> builds. Will fix too
+On 11:09 Thu 04 Dec     , Rob Herring wrote:
+> On Mon, Sep 1, 2025 at 3:48 AM Andrea della Porta <andrea.porta@suse.com> wrote:
+> >
+> > Hi Krzysztof,
+> >
+> > On 08:50 Fri 22 Aug     , Krzysztof Kozlowski wrote:
+> > > On 21/08/2025 17:22, Andrea della Porta wrote:
+> > > > Hi Krzysztof,
+> > > >
+> > > > On 10:55 Tue 12 Aug     , Krzysztof Kozlowski wrote:
+> > > >> On 12/08/2025 10:50, Andrea della Porta wrote:
+> > > >>> The devicetree compiler is complaining as follows:
+> > > >>>
+> > > >>> arch/arm64/boot/dts/broadcom/rp1-nexus.dtsi:3.11-14.3: Warning (unit_address_vs_reg): /axi/pcie@1000120000/rp1_nexus: node has a reg or ranges property, but no unit name
+> > > >>> /home/andrea/linux-torvalds/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: pcie@1000120000: Unevaluated properties are not allowed ('rp1_nexus' was unexpected)
+> > > >>
+> > > >> Please trim the paths.
+> > > >
+> > > > Ack.
+> > > >
+> > > >>
+> > > >>>
+> > > >>> Add the optional node that fix this to the DT binding.
+> > > >>>
+> > > >>> Reported-by: kernel test robot <lkp@intel.com>
+> > > >>> Closes: https://lore.kernel.org/oe-kbuild-all/202506041952.baJDYBT4-lkp@intel.com/
+> > > >>> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
+> > > >>> ---
+> > > >>>  Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml | 9 +++++++++
+> > > >>>  1 file changed, 9 insertions(+)
+> > > >>>
+> > > >>> diff --git a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> > > >>> index 812ef5957cfc..7d8ba920b652 100644
+> > > >>> --- a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> > > >>> +++ b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
+> > > >>> @@ -126,6 +126,15 @@ required:
+> > > >>>  allOf:
+> > > >>>    - $ref: /schemas/pci/pci-host-bridge.yaml#
+> > > >>>    - $ref: /schemas/interrupt-controller/msi-controller.yaml#
+> > > >>> +  - if:
+> > > >>> +      properties:
+> > > >>> +        compatible:
+> > > >>> +          contains:
+> > > >>> +            const: brcm,bcm2712-pcie
+> > > >>> +    then:
+> > > >>> +      properties:
+> > > >>> +        rp1_nexus:
+> > > >>
+> > > >> No, you cannot document post-factum... This does not follow DTS coding
+> > > >> style.
+> > > >
+> > > > I think I didn't catch what you mean here: would that mean that
+> > > > we cannot resolve that warning since we cannot add anything to the
+> > > > binding?
+> > >
+> > > I meant, you cannot use a warning from the code you recently introduced
+> > > as a reason to use incorrect style.
+> > >
+> > > Fixing warning is of course fine and correct, but for the code recently
+> > > introduced and which bypassed ABI review it is basically like new review
+> > > of new ABI.
+> > >
+> > > This needs standard review practice, so you need to document WHY you
+> > > need such node. Warning is not the reason here why you are doing. If
+> > > this was part of original patchset, like it should have been, you would
+> > > not use some imaginary warning as reason, right?
+> > >
+> > > So provide reason why you need here this dedicated child, what is that
+> > > child representing.
+> >
+> > Ack.
+> >
+> > >
+> > > Otherwise I can suggest: drop the child and DTSO, this also solves the
+> > > warning...
+> >
+> > This would not fix the issue: it's the non overlay that needs the specific
+> > node. But I got the point, and we have a solution for that (see below).
+> >
+> > >
+> > > >
+> > > > Regarding rp1_nexus, you're right I guess it should be
+> > > > rp1-nexus as per DTS coding style.
+> > > >
+> > > >>
+> > > >> Also:
+> > > >>
+> > > >> Node names should be generic. See also an explanation and list of
+> > > >> examples (not exhaustive) in DT specification:
+> > > >> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+> > > >
+> > > > In this case it could be difficult: we need to search for a DT node
+> > >
+> > > Search like in driver? That's wrong, you should be searching by compatible.
+> >
+> > Thanks for the hint. Searching by compatble is the solution.
 > 
-> I'm not sure how I feel about the change, but did you check that it is
-> ubsan clean? I worry it is introducing writes to "val" and then reads
-> from say "period" in the evsel_config_term val union. I believe ubsan
-> will flag this as:
-> https://en.cppreference.com/w/cpp/language/union.html
-> "It is undefined behavior to read from the member of the union that
-> wasn't most recently written."
+> No, it is not.
+
+This is partly true, indeed. On one side there's the need to avoid a
+specific node name ('rp1_nexus'), so the only other unique identifier would
+be the compatible string ('pci1de4,1' in this case, which identifies that specific
+device). Unfortunately, the same compatible string is also assigned to the pci
+endpoint node filled automatically by enabling CONFIG_PCI_DYNAMIC_OF_NODES.
+We would end up with two nodes with the same compatible, which is not unique
+anymore. 
+This applies only when using 'full' dtb (bcm2712-rpi-5-b.dtb) *and* you enable
+CONFIG_PCI_DYNAMIC_OF_NODES, the latter being not necessary since the overlay dtb
+(...-ovl-rp1.dtb) is not in use here. To overcome this problem, the solutions
+I can think of are the following:
+
+1- Just disable CONFIG_PCI_DYNAMIC_OF_NODES should work, but only when using the
+   full dtb version. However, if the user enable that option for debug or to use
+   the overlay dtb version, he better be sure not to use teh full dtb or it won't
+   work.
+   This solution seems really weak.
+
+2- Add another compatible string other than 'pci1de4,1', so it will be really
+   unique.
+
 > 
-> Thanks,
-> Ian
+> > >
+> > > > starting from the DT root and using generic names like pci@0,0 or
+> > > > dev@0,0 could possibly led to conflicts with other peripherals.
+> > > > That's why I chose a specific name.
+> > >
+> > > Dunno, depends what can be there, but you do not get a specific
+> > > (non-generic) device node name for a generic PCI device or endpoint.
+> >
+> > I would use 'port' instead of rp1-nexus. Would it work for you?
 > 
+> Do you still plan to fix this? This is broken far worse than just the node name.
 
-Maybe for C++, but not for C [1]:
+Yes, if we want to get rid of that nasty warning and comply with DT guidelines,
+I think I really need to fix that.
 
-   Accessing my_union.i after most recently writing to the other member,
-   my_union.d, is an allowed form of type-punning in C, provided that the
-   member read is not larger than the one whose value was set
+> 
+> The 'rp1_nexus' node is applied to the PCI host bridge. That's wrong
+> unless this is PCI rather than PCIe. There's the root port device in
+> between.
+> 
+> The clue that things are wrong are start in the driver here:
+> 
+> rp1_node = of_find_node_by_name(NULL, "rp1_nexus");
+> if (!rp1_node) {
+>   rp1_node = dev_of_node(dev);
+>   skip_ovl = false;
+> }
+> 
+> You should not need to do this nor care what the node name is. The PCI
+> core should have populated pdev->dev.of_node for you. If not, your DT
+> is wrong. Turn on CONFIG_PCI_DYNAMIC_OF_NODES and look at the
+> resulting PCI nodes. They should also match what the hierarchy looks
+> like with lspci. I don't recommend you rely on
+> CONFIG_PCI_DYNAMIC_OF_NODES, but statically populate the nodes in the
+> DT. First, CONFIG_PCI_DYNAMIC_OF_NODES is an under development thing
+> and I hope to get rid of the config option. Second, your case is
+> static (i.e. not a PCIe card in a slot) so there is no issue
+> hardcoding the DT.
 
-Type punning with unions is widely used in the kernel and there are a 
-couple of instances in Perf. There are tons of discussions about it on 
-the mailing lists too. I can check it with ubsan though.
+The 'full' dtb (bcm2712-rpi-5-b.dtb) is indeed statically populated.
+CONFIG_PCI_DYNAMIC_OF_NODES is needed only if you use the overlay approach
+(bcm2712-rpi-5-b-ovl-rp1.dtb) and in that case the node will be
+added to the correct device node at runtime, and there won't be any node
+labeled as rp1_nexus.
+That conditional just check for teh presence of the rp1_nexus node to
+choose if the overlay should be loaded at runtime (if rp1_nexus is present,
+then we are in the static case so no overlay need to be loaded).
 
-[1]: https://en.wikipedia.org/wiki/Type_punning#C_and_C++
+> 
+> As far as the node name, I don't care so much as long as the driver
+> doesn't care and you don't use '_' or 'pcie?' (that's for PCI
+> bridges).
+> 
+> And why do we have drivers/misc/rp1/rp1-pci.dtso and a .dtso in
+> arch/arm64? There should not be both.
 
->>>                }
->>>        }
->>>        return 0;
->>> @@ -1290,10 +1308,16 @@ static int get_config_chgs(struct perf_pmu *pmu, struct parse_events_terms *head
->>>                }
->>>        }
->>>
->>> -     if (bits)
->>> -             ADD_CONFIG_TERM_VAL(CFG_CHG, cfg_chg, bits, false);
->>> +     if (bits) {
->>> +             struct evsel_config_term *new_term;
->>> +
->>> +             new_term = add_config_term(EVSEL__CONFIG_TERM_CFG_CHG,
->>> +                                        head_terms, false);
->>> +             if (!new_term)
->>> +                     return -ENOMEM;
->>> +             new_term->val.cfg_chg = bits;
->>> +     }
->>>
->>> -#undef ADD_CONFIG_TERM
->>>        return 0;
->>>    }
->>>
->>>
->>
+drivers/misc/rp1/rp1-pci.dtso is just a wrapper over rp1-common.dtsi,
+which is to be compiled in as binary blob in the driver and loaded at
+runtime.
+rp1.dtbo is optional, it's there just for completeness in case anyone want
+to load teh overlay from the fw, as explained here:
+https://lore.kernel.org/all/ab9ab3536baf5fdf6016f2a01044f00034189291.1742418429.git.andrea.porta@suse.com/
+If it causes confusion, we can probably get rid of it with no penalty.
 
+Many thanks,
+Andrea
+
+> 
+> Rob
 
