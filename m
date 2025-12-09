@@ -4,152 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6215BD3B7EA
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  8 Dec 2025 23:33:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82CD3D3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 00:11:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HK749NKSXa7BEB0gHUvmTmpoik9cNE+JdOwbQju/zVQ=; b=eeyhgLPCu+gmmHky02+kEvUxIG
-	UUNU36mjNbO0aCaLSuofZ8hwa0KXEPOl3k7BZfH7sIviOoTjdEz/PMcslvh8OS7qibdWu7j3AjlXC
-	NFgF4EVDLy/1I0svRJTl9P6+Nv4RDN+e5tge1eOfUSCpMmwKCSxxLKE2ItIfpt5z5iJV/55foqUOD
-	7QYzMtllvFXArTMhxIhEwlmSpn60Rmjl/9q+stj6lSmXoncV5ghSDoT0esZYVnzmkuXUZBH75VVKc
-	AB70vzjd/ehkY5ZrNjSuVRbo3JJnMpqGjf6o3D1yTCqqYhQVKgDFeLn90EHskVPMNe+c7g0tPRlNU
-	Kg+uJFgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=2ZscvsbGvY30JuXEtwJ/NklAkr1juTvT+P51+rUN4M8=; b=ar+sLEJcgaBiGU
+	Crvia5QK7MUbNneV9CY0yrdfgC45ulYehEQOMHf4Fr7edJOI6bsaqQbFEEwmzGnVJG6nG4t7ucIUi
+	ckMqq569N979qK6+z2dlzm4IqKr+ET1431HIRna9okIN3FhuJKfvcbVRWP5uaqabWn1q4ybYrR85L
+	j+T4/49O3dMSMfT5K7cSZVYv0Txk0j6mVQV6EkJHTVVZHz/TuOClFr6thjAHYEAoBDiZoQ2tB1Tjf
+	yXxiCmf6r8m5jAkH7Qq3KK8mcsCypZQCzRcImciNPaQkasMhqjF8A1ce+1I2EyUHuJRsqS3qfSNYQ
+	1/c1Yi/WhTg3NtjXoc2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSkjd-0000000Dd5G-0JEc;
-	Mon, 08 Dec 2025 23:33:41 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1vSlJv-0000000DeCq-2oZO;
+	Tue, 09 Dec 2025 00:11:11 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSkja-0000000Dd4q-42Hv
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 08 Dec 2025 23:33:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=A+hBie1se99nV8Tvg6zf63jEqY2TjihdL5MYbP4qEGxgAr0GHn/U3tVnsQqyejY46UeML1AnfhdA7WF7Ed1R4DanBzozS/uNPVYXFC4koh+cwFSkRwyIOq6Yokmhnw7ygrgcDFH6s4zGLiAwFM+glYRTT/XuCby824MLsAPaRMPohL2PFlEUzkKPDZEY0NRwa0N/p2AVy0AEShd57g3sc9MUEXtO71qOA+SzHKF2quG9LF4il1HGluGbvJ14UhvPFwAX7ZIWdWA3DKorWi1FyZPA2JyzzrD7jv5F649u//fwNJbD/Y7fFzFU7BT+wgO/M0Djyxx7AzknR4158mpOrA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HK749NKSXa7BEB0gHUvmTmpoik9cNE+JdOwbQju/zVQ=;
- b=fyBOvKq8fqUHlpIQBIJc1giREAMvvUQdidlDqTSqWoxayoFX5qBFqEolmpKGNw46BWepM6LVG+Lkps/zpT+q69cGTP8HyboeA1bFGo0qIB07Qatz2iNoyXWfMHlrzYLJdt3Q6pVm1U5PdgkTRMOyUP5PkkdnTEfnNBQGlKBU3Dt9HrWW+W7oUP3EVRbbJxVEIujNM+g2ouFk58rpcC7yD2sw5emG/Neyq2ie1g7SeUVF/iGzgTYF8sXLfQhti7mq7JaH4lE8R70+7/qrXdXeGnuHsNE5U+rbhwM9CqZThiAMA2ud5ryxdIkph8cmex9ShNtagDmE4W815axOFoUdIw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HK749NKSXa7BEB0gHUvmTmpoik9cNE+JdOwbQju/zVQ=;
- b=Eq6qaTYg1L50BX8QKkUJ73cKvM0u3C2ujMaZjtKx5G8geX7UYGppO8772gkHO9bfWahfmxrYsYZlDu437VZCp/8guI0ZzRa95wSNGdmk+9TQLJ98fZ6lIpfOXLmju78iJmOxV9ghCzFqwkj09DXqkg2aLvqkvVf0UV0m3oUXz0SHrLzk4zdvRhi5ij/yZp30mmsNzR16FNdxDVP1jG6vK1EurkbyKUqzf9DlyIO+o6r54eYo3skwAobCtcB0Fv+bgerioCHfU+KINdBCcupR8CQnFOc/29h5iKifC+MfVsRoz4Roa7jZRv6qblFeXj3+vrd3fhA6gFCRdbrtx1kU0g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
- by AS8PR04MB7733.eurprd04.prod.outlook.com (2603:10a6:20b:288::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.14; Mon, 8 Dec
- 2025 23:33:33 +0000
-Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::21bf:975e:f24d:1612]) by PAXPR04MB9185.eurprd04.prod.outlook.com
- ([fe80::21bf:975e:f24d:1612%5]) with mapi id 15.20.9388.013; Mon, 8 Dec 2025
- 23:33:32 +0000
-From: Shenwei Wang <shenwei.wang@nxp.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-imx@nxp.com,
-	Shenwei Wang <shenwei.wang@nxp.com>
-Subject: [PATCH] remoteproc: imx_rproc: Use strstarts for "rsc-table" check
-Date: Mon,  8 Dec 2025 17:33:02 -0600
-Message-ID: <20251208233302.684139-1-shenwei.wang@nxp.com>
-X-Mailer: git-send-email 2.43.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SJ0PR03CA0250.namprd03.prod.outlook.com
- (2603:10b6:a03:3a0::15) To PAXPR04MB9185.eurprd04.prod.outlook.com
- (2603:10a6:102:231::11)
+	id 1vSlJu-0000000DeCf-0p7P;
+	Tue, 09 Dec 2025 00:11:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 31F6060125;
+	Tue,  9 Dec 2025 00:11:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF78BC4CEF1;
+	Tue,  9 Dec 2025 00:11:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765239068;
+	bh=7ptARhGnIW0rweJs/X7vTtC/SQB8ulRmWeebM2Urvl0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=Nzqe2YsLmvHdUUpvvSUvm6rLElIkqyZsP8E7UC7VgLN1jMvslaQaB65EuuR2M3tQD
+	 ++rs5KQFBsdOe7SSQ8hVf+DJAugUoPM5Mqrfs69Wm5NDb1BwhrWGYUAduiY2Yokwcw
+	 UnX/Dznj2igM6Bvu9sfjXeM7bTJaA4vS7oKDjiqP6a78W6GKZiw//u+Q7WQb61e+KS
+	 HRkk6gQ/8ovRTrwFr5gibfZmzjuyR5eHFLZzYqvj1cKSwTFL0LbWpbU7omxzWiVhGp
+	 mAEOHH5Lmz7F8T0wk0TahZiroHww1QftElDdmGAe4Dk+Qfg0wy4JVD6zQ794GMZXJu
+	 /flhU9gTQ0Z9A==
+Date: Mon, 8 Dec 2025 18:11:07 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-aspeed@lists.ozlabs.org, linux-pci@vger.kernel.org,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Andrew Jeffery <andrew@aj.id.au>, openbmc@lists.ozlabs.org,
+	linux-gpio@vger.kernel.org
+Subject: Re: [PATCH v6 6/7] PCI: aspeed: Add ASPEED PCIe RC driver
+Message-ID: <20251209001107.GA3430423@bhelgaas>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9185:EE_|AS8PR04MB7733:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7c3f62b4-4393-47a7-e0f1-08de36b23327
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|7416014|19092799006|376014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bxd1HSg9fPXlyrdCXO8hzmiXd17rQEj4JgPvXA17iPHmBgxCsIN3fPA+a8gQ?=
- =?us-ascii?Q?MuJ8SluZ5e40wsGMRE1XD8NfLTswP4USj7Xxy99dUiy3bMcJbqyg0LGDcDhc?=
- =?us-ascii?Q?NNthXToYl/sDd/P3061sbVYLZoPqeRbsiEOvN8RgdcxWefYBs/0nO9e45n4W?=
- =?us-ascii?Q?KkYnpYB2+JdNHdr4xoPxjjoVdLzh0GnWw/7kuz43m3nk5CWYZ0ZRTmjJQz5o?=
- =?us-ascii?Q?m/DNQNUo5OI5XBKjFOK4Yk9kQRYJtO+L56L9Hh16Ezmy6TWJj9LQKLdz9z6d?=
- =?us-ascii?Q?FzsqkVmQFmZGahf9IV4ZDCWalRGTSx5r6sDLfB99gLdw8K9BxyoRagVAyN60?=
- =?us-ascii?Q?CMdX7+D4imv01gWDjvEW4LbmGiLlZouJvxmWAy1LtdxiJkiYyjVuMLRhdm74?=
- =?us-ascii?Q?frlVxhnHhW9ySh7D7kL/VaTbdof4Ew/R0WyByZKEM7zCUonDdJsFmUmkDCpQ?=
- =?us-ascii?Q?CZ1MZYBvxdsznK0ZDmIXg7pEAXqIbU8Mg7x0ZxskzTOkDqtSSq2Nvqjueq4U?=
- =?us-ascii?Q?GrWQ1B9TrtxEV4wjVGhDCcsyCFe2BLvlh3n9d5bBK7vwt6tmJp0ShOON95Co?=
- =?us-ascii?Q?S9WQeLGQsINmAMz2DRsSZlbaBpnDHJykC2iqCGnFIv3ThdAP66r633ImCRDr?=
- =?us-ascii?Q?tMDwghQjdYfBV3uBAKmSmBv2IXJI1GyuQdvidcZYdmPA4aP6OiG36mU3pdbZ?=
- =?us-ascii?Q?EnutpDvwFVSKq1xrVq9LJgbzOJOaDSA0kJdW8ZkZMUKDMBTcBLDm0CsNVnIv?=
- =?us-ascii?Q?FiAhR3D40K3GjbN4jQne3t3D5dS6A3VSqoFOB3R19HBm9gR0I+geXrbzcuFN?=
- =?us-ascii?Q?2QGx37tIg72fI93XrIK9Wr6z0zN7abkn7jBvldZFJFchOkFZuAO8+La46/TD?=
- =?us-ascii?Q?3B32vomqPR5152T37URlp4tXatU4xoGyHX8ag318WEz+CReHk7be/KTYAkRX?=
- =?us-ascii?Q?5vY9vKV/iUEu/pY7XUjLjg+Ncj4ANdQdaipMKr3Y3pcy2ejcS7je3dhE7Xkd?=
- =?us-ascii?Q?P0etUPQiCDEbv0uScYl2233X5gtNiqAfWwyFvZg+pvgvehltqzrKciATxETN?=
- =?us-ascii?Q?EBjnRfeFyG9rH2SpNWgG3RM+e98DgXtmKz9w0t1fcOciKjobGESADKO/i3kr?=
- =?us-ascii?Q?k2to9BcT7jtGC/mKpTJ7h3e+79UenSG5aA5VqEQGXs+YZA24MfaFQBjIuNYy?=
- =?us-ascii?Q?as0lkngtlbjTRGfO2NcCA8FicE6/fOiI+LtWWLBRqELGBW+6LZfiisoO3r1r?=
- =?us-ascii?Q?L7TuEnrqkicZrQTI8zMl9eOM1AQaAifiBER2tlI1fbH0L5OI3ertEAtGu3QR?=
- =?us-ascii?Q?qSF9i3Mo8OHxgCjl7ffZkCxtRB2518IP5CMPXD39wCdRDoUdUReXeYz27Q8h?=
- =?us-ascii?Q?XSXjjedS6caehlJhbX1JQn3I6klG0ZD8R1xvsCfxr8Fm3PojU86u3LTY1GYm?=
- =?us-ascii?Q?p8z9Of9itQqx/Mx5MvmzjpxW0/yptvNvDWg054TRTZmih45K2rq9heVm9gr2?=
- =?us-ascii?Q?EuBF72kWuj3qN629k+Tuf9OIDadLw+POrbu6?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(7416014)(19092799006)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DmfwV9El+KUJSHzkp66zJn6FSLl5jar8HLktfrBXBFSgLhNzCy8BW1e3ykqZ?=
- =?us-ascii?Q?Bdt4UK1juZmBWIBhH5e4Ae5yH2s/ovEGVfjVP8lppLj6w6FdBKcGRyhXrIgW?=
- =?us-ascii?Q?IbeYL0L3duBrZep23vD77ARdv2kbtQaN6NmghGb9uFKriOaDnkOFMkj4IltI?=
- =?us-ascii?Q?Zv0RqCQm1g7kNxVe83wZIB6F9VEMAL3QZFSE3SCgyrHqg9QbTUGdRVj0LZL1?=
- =?us-ascii?Q?2TR2COYM7HWwbnvZ7TE9csVCaax3Klv5QKDeiHA1BVtFgcN4EDfztBUWgtB3?=
- =?us-ascii?Q?5Wsraa0I8qHTAsgFLRjmYXDHK/PU+5rdN/eV2q6fyIxl7v73dJQ3uPlB/Xxn?=
- =?us-ascii?Q?ZQKK729pMOgrYJOGupWmfs65m4M8rIezhpAf6Fb+e6ZBZ1I6GF1ZhnOIK1Yf?=
- =?us-ascii?Q?w+ScJ1HPyJeSQnkTqi7gqc0Sr3YxXPNQVFEjqKSaraouthVv2sOAoljsCP71?=
- =?us-ascii?Q?ZlVtDWezLElZOl8xCLvba++b4tzl7xVAMNQJ8aLNDE9qRSxoKBtaNElzn1dA?=
- =?us-ascii?Q?E+xByEg1XRYpuJ6kyi0RaFA3WCPHuJEf0/YkbVrtc21vIqys+BVpU0i7VrBS?=
- =?us-ascii?Q?C3Dxy6x20GlXaYMGCzk6s1EUorYOeYv+TLjylmvfK9ItQfQK3GtcOpKaIDsD?=
- =?us-ascii?Q?7WT6h8+4/Y0tzcaHKJBrTrZcVjbzfLFKh2UAqaKPqJStYxRZSAiONPDyNYew?=
- =?us-ascii?Q?6odyp+CTyRHp8xWOFjpCA0QU4dQO7IYWcyrZrRwDk1Ay5shkrNgJb1bS8zqX?=
- =?us-ascii?Q?QigaOmoyuG1+Ht9Vnayd4dZpmEMu8CVXpNxO6dOsoIVpHDFyNNwxCNW3E4/5?=
- =?us-ascii?Q?MI/2d2CV8Qz0G/0ErA8hOwFv+fCBBG878XwFKp7sFsa+j/NncKFIsbL2b7KT?=
- =?us-ascii?Q?sHRsJrpnGmv5cdQVWxw8yzyArHVpUoWVXQVyCyqasUJxlFlwg2nPb6w2Yokh?=
- =?us-ascii?Q?6ywsl4lwyt66wxp0FcPYwI+tutY7WrnQExhKHmqykRPf3EUG7DtkqmMf1cvi?=
- =?us-ascii?Q?rIPMMMa5g0pJRHfjz24cBbgY4bfhBEj4WI5sN8+xHAM+JSNgPgF/+mTNI74N?=
- =?us-ascii?Q?lcUoFqFJcWL8fcUbI7OikrDT9hS7gwk4OK9TLm80FCwmyde4untb3V3rxY2F?=
- =?us-ascii?Q?3upu7/4Gx/rD1iDTUSJVHHHHwxBFVYELvaUnYWYSOJAb0zHecdQR16GbCE99?=
- =?us-ascii?Q?Mi4mmTzUPGt0CMq2NwiuObcwxkxRZnoHW0Y78DvqxCmWivvEQKPz9U7lBv6D?=
- =?us-ascii?Q?j1gM9NaCCaxcB3VyOS+1j0Hhbx0Imo44Mva198SXEVyT/ghDDYoiOp9kNvwS?=
- =?us-ascii?Q?FCtw/t3xi+bU+FqPri2eAj4L/RCqQMpiJ0MWzM4ReOMJ/6xypAaZJaFMFYnE?=
- =?us-ascii?Q?5t5l+0vf+gE5D7ZZGhUFqPElccT1Tb+xY3oFRQ8BtMCb9odeRQpIVMOfJqFM?=
- =?us-ascii?Q?bm8+PHYioyBv2rj4v6r9ntsw5tst+dn2jmkI0A1S+KuXyN8DBMgEr4DTcHbh?=
- =?us-ascii?Q?tUZTUjxc0+seOgndMrGxGVXE3DhkFYvKPOLc5O37tDgI3IYklCg2ufbQ7Grq?=
- =?us-ascii?Q?uWV4KcFCUPRhYAYyF/VEclN84rHEZWauVdi9o/zK?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7c3f62b4-4393-47a7-e0f1-08de36b23327
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Dec 2025 23:33:32.7110
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: QuYeCgwwyfn57WseQ7yrBboKyANf/7OmFVltNGq6x9D7ht6K7k2ji6XVblyCZeqwkUOzXTU0DY9VbajTUDpjiw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7733
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_153339_080787_09F842AB 
-X-CRM114-Status: GOOD (  11.66  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251201-upstream_pcie_rc-v6-6-8c8800c56b16@aspeedtech.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,31 +81,215 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The resource name may include an address suffix, for example:
-rsc-table@1fff8000.
+On Mon, Dec 01, 2025 at 02:29:16PM +0800, Jacky Chou wrote:
+> Introduce PCIe Root Complex driver for ASPEED SoCs. Support RC
+> initialization, reset, clock, IRQ domain, and MSI domain setup.
+> Implement platform-specific setup and register configuration for
+> ASPEED. And provide PCI config space read/write and INTx/MSI
+> interrupt handling.
+> ...
 
-To handle such cases, use strstarts() instead of strcmp() when checking
-for "rsc-table".
+> +struct aspeed_pcie {
+> +	struct pci_host_bridge *host;
+> +	struct device *dev;
+> +	void __iomem *reg;
+> +	struct regmap *ahbc;
+> +	struct regmap *cfg;
+> +	const struct aspeed_pcie_rc_platform *platform;
+> +	struct list_head ports;
+> +
+> +	u8 tx_tag;
+> +	int host_bus_num;
 
-Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
----
- drivers/remoteproc/imx_rproc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Only needs a u8.
 
-diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
-index 3be8790c14a2..33f21ab24c92 100644
---- a/drivers/remoteproc/imx_rproc.c
-+++ b/drivers/remoteproc/imx_rproc.c
-@@ -694,7 +694,7 @@ static int imx_rproc_addr_init(struct imx_rproc *priv,
- 		}
- 		priv->mem[b].sys_addr = res.start;
- 		priv->mem[b].size = resource_size(&res);
--		if (!strcmp(res.name, "rsc-table"))
-+		if (strstarts(res.name, "rsc-table"))
- 			priv->rsc_table = priv->mem[b].cpu_addr;
- 		b++;
- 	}
--- 
-2.43.0
+> +static int aspeed_pcie_port_init(struct aspeed_pcie_port *port)
+> +{
+> +	struct aspeed_pcie *pcie = port->pcie;
+> +	struct device *dev = pcie->dev;
+> +	int ret;
+> +
+> +	ret = clk_prepare_enable(port->clk);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "failed to set clock for slot (%d)\n",
+> +				     port->slot);
+> +
+> +	ret = phy_init(port->phy);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "failed to init phy pcie for slot (%d)\n",
+> +				     port->slot);
+> +
+> +	ret = phy_set_mode_ext(port->phy, PHY_MODE_PCIE, PHY_MODE_PCIE_RC);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "failed to set phy mode for slot (%d)\n",
+> +				     port->slot);
+> +
+> +	reset_control_deassert(port->perst);
+> +	mdelay(PCIE_RESET_CONFIG_WAIT_MS);
 
+I think this should use msleep().
+
+> +static int aspeed_ast2600_setup(struct platform_device *pdev)
+> +{
+> +	struct aspeed_pcie *pcie = platform_get_drvdata(pdev);
+> +	struct device *dev = pcie->dev;
+> +
+> +	pcie->ahbc = syscon_regmap_lookup_by_phandle(dev->of_node,
+> +						     "aspeed,ahbc");
+> +	if (IS_ERR(pcie->ahbc))
+> +		return dev_err_probe(dev, PTR_ERR(pcie->ahbc),
+> +				     "failed to map ahbc base\n");
+> +
+> +	aspeed_host_reset(pcie);
+> +
+> +	regmap_write(pcie->ahbc, ASPEED_AHBC_KEY, ASPEED_AHBC_UNLOCK_KEY);
+> +	regmap_update_bits(pcie->ahbc, ASPEED_AHBC_ADDR_MAPPING,
+> +			   ASPEED_PCIE_RC_MEMORY_EN, ASPEED_PCIE_RC_MEMORY_EN);
+> +	regmap_write(pcie->ahbc, ASPEED_AHBC_KEY, ASPEED_AHBC_UNLOCK);
+> +
+> +	/* Due to the BAR assignment is fixed mapping on 0x6000_0000.*/
+> +	writel(ASPEED_AHB_REMAP_LO_ADDR(0x600) | ASPEED_AHB_MASK_LO_ADDR(0xe00),
+> +	       pcie->reg + ASPEED_H2X_AHB_ADDR_CONFIG0);
+> +	writel(ASPEED_AHB_REMAP_HI_ADDR(0),
+> +	       pcie->reg + ASPEED_H2X_AHB_ADDR_CONFIG1);
+
+I assume this ASPEED_H2X_AHB_ADDR_CONFIG is doing basically the same
+thing as aspeed_ast2700_remap_pci_addr() below, so see the comments
+there.
+
+> +	writel(ASPEED_AHB_MASK_HI_ADDR(~0),
+> +	       pcie->reg + ASPEED_H2X_AHB_ADDR_CONFIG2);
+> +	writel(ASPEED_H2X_BRIDGE_EN, pcie->reg + ASPEED_H2X_CTRL);
+> +
+> +	writel(ASPEED_PCIE_RX_DMA_EN | ASPEED_PCIE_RX_LINEAR |
+> +	       ASPEED_PCIE_RX_MSI_SEL | ASPEED_PCIE_RX_MSI_EN |
+> +	       ASPEED_PCIE_WAIT_RX_TLP_CLR | ASPEED_PCIE_RC_RX_ENABLE |
+> +	       ASPEED_PCIE_RC_ENABLE,
+> +	       pcie->reg + ASPEED_H2X_DEV_CTRL);
+> +
+> +	writel(ASPEED_RC_TLP_TX_TAG_NUM, pcie->reg + ASPEED_H2X_DEV_TX_TAG);
+> +
+> +	pcie->host->ops = &aspeed_ast2600_pcie_ops;
+> +	pcie->host->child_ops = &aspeed_ast2600_pcie_child_ops;
+> +
+> +	return 0;
+> +}
+> +
+> +static int aspeed_ast2700_remap_pci_addr(struct aspeed_pcie *pcie)
+> +{
+> +	struct device_node *dev_node = pcie->dev->of_node;
+> +	struct of_pci_range range;
+> +	struct of_pci_range_parser parser;
+> +	int ret;
+> +
+> +	ret = of_pci_range_parser_init(&parser, dev_node);
+> +	if (ret)
+> +		return ret;
+> +
+> +	for_each_of_pci_range(&parser, &range) {
+> +		if ((range.flags & IORESOURCE_TYPE_BITS) == IORESOURCE_MEM) {
+> +			writel(ASPEED_REMAP_PCI_ADDR_31_12(range.pci_addr),
+> +			       pcie->reg + ASPEED_H2X_REMAP_PCI_ADDR_LO);
+> +			writel(ASPEED_REMAP_PCI_ADDR_63_32(range.pci_addr),
+> +			       pcie->reg + ASPEED_H2X_REMAP_PCI_ADDR_HI);
+> +			return 0;
+
+It looks like this is essentially hardcoding the offset between the
+parent-bus-address and the child-bus-address in the DT 'ranges'
+property.  Since ASPEED_REMAP_PCI_ADDR_31_12() and
+ASPEED_REMAP_PCI_ADDR_63_32() do nothing except mask out the low 12
+bits, I assume that offset is zero.
+
+But this should not be hard-coded at all; it should be extracted from
+'ranges'.  I don't think we really have a consistent way of doing
+this, but you can take a look at how these other drivers program
+"outbound" mappings like this using bridge->windows:
+
+  cdns_pcie_hpa_host_init_address_translation()
+  dw_pcie_iatu_setup()
+  mobiveil_host_init()
+  xgene_pcie_map_ranges()
+  iproc_pcie_map_ranges()
+  rzg3s_pcie_parse_map_ranges()
+
+> +static int aspeed_pcie_parse_dt(struct aspeed_pcie *pcie)
+> +{
+> +	struct device *dev = pcie->dev;
+> +	struct device_node *node = dev->of_node;
+> +	int ret;
+> +
+> +	for_each_available_child_of_node_scoped(node, child) {
+> +		int slot;
+> +		const char *type;
+> +
+> +		ret = of_property_read_string(child, "device_type", &type);
+> +		if (ret || strcmp(type, "pci"))
+> +			continue;
+> +
+> +		ret = of_pci_get_devfn(child);
+> +		if (ret < 0)
+> +			return dev_err_probe(dev, ret,
+> +					     "failed to parse devfn\n");
+> +
+> +		slot = PCI_SLOT(ret);
+> +
+> +		ret = aspeed_pcie_parse_port(pcie, child, slot);
+> +		if (ret)
+> +			return ret;
+
+It looks unnecessarily complicated to put each port on a list in
+aspeed_pcie_parse_port() and then iterate over that list in
+aspeed_pcie_init_ports().
+
+I think you could just do something like:
+
+  aspeed_pcie_parse_port();
+  aspeed_pcie_port_init();
+
+and get rid of the list completely.
+
+> +	}
+> +
+> +	if (list_empty(&pcie->ports))
+> +		return dev_err_probe(dev, -ENODEV,
+> +				     "No PCIe port found in DT\n");
+> +
+> +	return 0;
+> +}
+> +
+> +static int aspeed_pcie_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct pci_host_bridge *host;
+> +	struct aspeed_pcie *pcie;
+> +	struct resource_entry *entry;
+> +	const struct aspeed_pcie_rc_platform *md;
+> +	int irq, ret;
+> +
+> +	md = of_device_get_match_data(dev);
+> +	if (!md)
+> +		return -ENODEV;
+> +
+> +	host = devm_pci_alloc_host_bridge(dev, sizeof(*pcie));
+> +	if (!host)
+> +		return -ENOMEM;
+> +
+> +	pcie = pci_host_bridge_priv(host);
+> +	pcie->dev = dev;
+> +	pcie->tx_tag = 0;
+> +	platform_set_drvdata(pdev, pcie);
+> +
+> +	pcie->platform = md;
+> +	pcie->host = host;
+> +	INIT_LIST_HEAD(&pcie->ports);
+> +
+> +	/* Get root bus num for cfg command to decide tlp type 0 or type 1 */
+> +	entry = resource_list_first_type(&host->windows, IORESOURCE_BUS);
+> +	if (entry)
+> +		pcie->host_bus_num = entry->res->start;
+
+s/host_bus_num/root_bus_nr/   to match struct altera_pcie
 
