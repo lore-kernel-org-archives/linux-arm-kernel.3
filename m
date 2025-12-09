@@ -4,159 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EF2FD1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 11:08:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EF4BD3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 11:15:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LZ+IGRWyAdRuTaIjpYHFCfxesn8D4v8H6Y8ssSqF6i8=; b=YwcwvsQ0NYsao2lNGNqA2vkOXl
-	O+A+SeLDuThNxrEXD3MY/HlczePTDqrHkiYOUG4i3QgXxAqvvf9qSrmaJ6m5GBpChXGSo2vsPEi1w
-	9w5fBx8MAN8NvM3LRZmW61wwUBYNyztokC+usBDoPtSjyVD0nTdUV557AoygkXL7uhtNvkVZsahQI
-	0lHKyotbEVtO3QfZQa/JmEcvmfKStBjcjmFBEXlFYwwSTbjD3KxgEIIiK9yroBUMF72OuaLgbGb9D
-	t8m25JP/fYAFSxCk6ytwc6qk0AxVwIRAznythYwM3+eaSvm0K7n+BV76cZCY5F88nj+K/SfKyrPq+
-	3kedmrGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6/8dkdH3MgNUPOg0FM5uypg5HfcPpMsGkm1+bpgmHdQ=; b=XMUdd9N2ThAEkH
+	J1P4NGNefGPj0TWzzc+FC8bqIUjsi26EcC3K7xiXRFq0cblp2FEfPXvmsu6smWcNr4IeZgi76z6m+
+	pJ78FB3DXmzdz0XVxvG1ZE/GGyDOao8IiqE6a+K77cdyKFdolGtP25IgpEWwiGlqcHzb9m0GVl1aX
+	ktziMe5eVCfoL6672TyTM2EFTZfefFRt6CfrQFaf0WC5/OLjQeV2SJlMGXt0110K1dSbYe/sOLAS+
+	yr11HPjMuR3KLPzZEJYCGpvXOt9McDpEPtUzh91BHFkUcdLMkWZzYsMK278UiA8X106e06Y+rO1P1
+	70GnxlC9R9Caopgj+2vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSvaM-0000000E9bb-007g;
-	Tue, 09 Dec 2025 11:08:50 +0000
-Received: from mail-koreacentralazon11023095.outbound.protection.outlook.com ([40.107.44.95] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1vSvgS-0000000E9tH-0K23;
+	Tue, 09 Dec 2025 11:15:08 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSvaI-0000000E9b9-3kap
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 11:08:48 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=A/FkmfEXiPrrjgPiMgGz+e9HNzYmv/GJQefCFmG/UVfVXF4HJ7Cs64339iifDJWTYelEz62+03/c0uWFaY0jm3zcEsww1yoXs0lQ9cgterxCp8jfK0TwbxtLOya+bEqecaD+7+a8jATMMOJStd3eHwI2v4IXB7cx/TxxTvz15aWqjcEHFdgipBqmfnA7j8xUoLfm71jQiW+tWhyxT0kJzQs3cM28XyLZW56GKzBzaG93+UdTJsHDxPv5HL5CTEqmJFUGGIjPq+SW6VWdW/92PA5cPWSQYkyuT1hyfv11FTH808y8toXgeB8K4AygMtcYTgVGc0YpePk26DkfQuFjtg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LZ+IGRWyAdRuTaIjpYHFCfxesn8D4v8H6Y8ssSqF6i8=;
- b=SCiZWkxqVwTqAf92s/WxtVWADlr9++ZAUucxsZk8cCOJDl5iNHjAjQ9wm5Wnhv2C0th19q/RoPJFmQP5x6Db8qWM4vEFpftK6iq8Z06zdRydz9JcX37Gc2KawtoXX0/b31QC7kcDQ70Nxy9rPBBiaR8QLvTKTU++YD/GH6htXZVO2HPKZkmTA6N6J7jG3j36ISMLTfHQdhxDoOrYrW4lyDV3WnT5vSGArT6sLWWPBXCvrC0FPm8Vl4Vwp85l0dCN5Qw0wLE87BYo8terXF4tpsyxtTFIQ2tIpvCPjx4QzesCrc00WzqOZxOSQmGD1Fjh93dfTIhRtu495BuJ10Wydw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
- header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LZ+IGRWyAdRuTaIjpYHFCfxesn8D4v8H6Y8ssSqF6i8=;
- b=QycToBexTdX4+8yoxRVOVYW6omo6jSALfBNTBaiBzbjkX1wshbFPBWII60zph8Sf7tPqRa26WCWE8auj+RGreTx7A0C5fu60u0p/Dnn3lnOPht49GZoUO6Y7Vj1OcS7ocB9dluorzTpYfEwtPfjQPzoWJgMAFjfP3k/F2gr6Yu4AgIU0EDEGAeBOFagdCHFsiBWOZz2OtORIhkxyag17V+XfbLmaRA+9c4u9xNtYqG+RU1H8ScGReR9x6/Pvel+wF8NXTBnjIneYKObq+vuf4FjvtRvSk1E+4p9Mpp6UhxwBmsQ4T7evmzoVwqB0PTu5Dp1O88OUzuBamBqV9J7xiQ==
-Received: from SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12)
- by TYUPR06MB5946.apcprd06.prod.outlook.com (2603:1096:400:347::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.14; Tue, 9 Dec
- 2025 11:08:35 +0000
-Received: from SEYPR06MB5134.apcprd06.prod.outlook.com
- ([fe80::6b58:6014:be6e:2f28]) by SEYPR06MB5134.apcprd06.prod.outlook.com
- ([fe80::6b58:6014:be6e:2f28%6]) with mapi id 15.20.9388.009; Tue, 9 Dec 2025
- 11:08:35 +0000
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-To: Andrew Lunn <andrew@lunn.ch>
-CC: Heiner Kallweit <hkallweit1@gmail.com>, Russell King
-	<linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Joel Stanley <joel@jms.id.au>, Andrew Jeffery
-	<andrew@codeconstruct.com.au>, Potin Lai <potin.lai@quantatw.com>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
-	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH net] net: mdio: aspeed: add dummy read to avoid
- read-after-write issue
-Thread-Topic: [PATCH net] net: mdio: aspeed: add dummy read to avoid
- read-after-write issue
-Thread-Index: AQHcaA7lTxZsy/tRUEm5VDmwiqmugrUXwhOAgAFlSMA=
-Date: Tue, 9 Dec 2025 11:08:34 +0000
-Message-ID: <SEYPR06MB5134A0B82901A8BAC9AAF4AB9DA3A@SEYPR06MB5134.apcprd06.prod.outlook.com>
-References: <20251208-aspeed_mdio_add_dummy_read-v1-1-0a1861ad2161@aspeedtech.com>
- <57860c7c-2294-4ea6-a998-8bc92dda2ed2@lunn.ch>
-In-Reply-To: <57860c7c-2294-4ea6-a998-8bc92dda2ed2@lunn.ch>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=aspeedtech.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SEYPR06MB5134:EE_|TYUPR06MB5946:EE_
-x-ms-office365-filtering-correlation-id: dd992227-6096-479e-1698-08de37134be9
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?IgJ2KZrspcnffY914ezFwwH++Mqc84S0CnMu58j1neNFIyzPtnxnJrtp3wSK?=
- =?us-ascii?Q?6tHLTR/po4/xpHaXGtDYLXuo9MSszr0vgPIiE34im+KpGEJKcHGcYDldJS40?=
- =?us-ascii?Q?n3tDQG0fzJ6vZZxXEPc2QMudz49k5o9k3djv5u5WR9kmloDDve+B8aLZJhWU?=
- =?us-ascii?Q?1k1W85kKlpw8Uw+dGtUiQuEt/DK90wfYeyyueHnR5Lez5MdI2hh+7SelAkCJ?=
- =?us-ascii?Q?CwihxMZoPqyAAT/UgewS8JJawngoBN5V4aLYrZhwcWCZo4uRmlKL8hz3qW/e?=
- =?us-ascii?Q?feT/J1y/u5Fh1nBNknuM3fy+CSEAmaA42jsGc1gtkr959PBihA894iCYYgIm?=
- =?us-ascii?Q?+7vwC1LFzU54R4VE/IbxgYUs/nj2MtzmIGDrLEHH3csN251mFWuXhwkt9Ds5?=
- =?us-ascii?Q?n8gjPkXVElv9uY73OYPm+PkHarhw7+D0KXkoF/BqyyeXnl5aqUmOstYEiNRY?=
- =?us-ascii?Q?a9uxmgk1HRXWjiasAKbyIlk0uQPU8tCyr59FLC785Jj+yeuC24uCLUR/lZC5?=
- =?us-ascii?Q?xlE5HwtlE/Kp7KBITpk8ozH1/5umMiEn8YOL4keAS5+YeKEee0PDrZW9cg+x?=
- =?us-ascii?Q?bR7QG3RA3qRHywc2yHrFQYgK9ynPgkoTuNIOHJFCpVHipm2GLE5aHfm7fTmB?=
- =?us-ascii?Q?TSX8jge6iv5GYS+N7XKesOH28/DLiPIaSQwPUGgno0yPgDS/EwPWD2KAWSeR?=
- =?us-ascii?Q?JOPyhNjiQldIXhxKOCyN2ZwZc0iYBC8STKQgXEdTfFdAg5Cd3IddzHMn0Un8?=
- =?us-ascii?Q?xs4WXAD86t9pLOQ0e7TYXk5w+Nw9gzpvGF8FI/9uHX2aWdhZTcoserjXS+Ke?=
- =?us-ascii?Q?upHGKSVggzALPEzX6z1K26q7UUe9nuSVj4HoPI4a4hjMuKyTquzrE+HDAMpG?=
- =?us-ascii?Q?oHSh3iuKgPLoAYu+fJZynGfzoGT9qBGTy+4Z2pS+iRbez4kLz3VUaKu1yPe3?=
- =?us-ascii?Q?q0k1+64sZlXUd1h2vBQG7wHWYy8alC9/FpRDk13jLEEjtsVY/mAUwBmKbXff?=
- =?us-ascii?Q?lmUXfonN29Aqeaz+Ez4c7yxqrPk1ZRP+n8vUwVpmALyjqXMPun20WXcv1mnj?=
- =?us-ascii?Q?U1L7CYZi4SyhI1kpzQ3UVux99beOV3j4dki38jTCh7i5Hzar0BCnMkdPbQVg?=
- =?us-ascii?Q?lEohvXcATVrHbYRsdMDpqV83GKtAz3ByKvCUUnCWKply5k5XHjXNuiGgjx6F?=
- =?us-ascii?Q?+fLLD3wJRZrtWMEaLY8cws6bgPaJB8pY6Ox+4dJXmq0cPtLiBNbMhda7eEoo?=
- =?us-ascii?Q?IRPsQxdTgD1+eePMA74PET65/uyeLQHKpeMKP2oeKzs877ME8rXFtCzcWJHd?=
- =?us-ascii?Q?CenA3L6dKo9Xxka0Ke9uQa9UR7nzyib0c5fFGC463Mj+5FM9mle4BNZtccTL?=
- =?us-ascii?Q?kH4QqwEr1zLBg9wC89WMCBRxbaWjL4i8WzD23TYegep4PLmhF5U5jjo6dQ6e?=
- =?us-ascii?Q?g33KxJAFyPzy5o1NBMZt9yb9xjGE6bR1C8WlJAxCQDO7Kxa8aFaReq/KqfhO?=
- =?us-ascii?Q?EBQpPyY6xqD/zklsg8rCsZjzPXq6k+cQ88v+?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB5134.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?AZErqpYvoh0eb2Ky+UmFqZKRvcfNUjN3uz2g+hL528f5M7z8WVJTjwfAc8uh?=
- =?us-ascii?Q?JAbt6jaWVPy3ef/c3sUL4SSrKPaXLIRaLFovBRlfL3E6iOPj5Wb54cbD2kr5?=
- =?us-ascii?Q?LQYKb6f8QjUuoyLN3DhyK9HbGErgt9Hxz4MXnD2er7UtmB75KiAtJFc4QHXX?=
- =?us-ascii?Q?WHEPaTkxZlf9vWBbbMH7D+yhlNXkcJAaCl7moZk1dY79JdfHE9ZCSCXhNW1m?=
- =?us-ascii?Q?kvTWIKUi2hVe0i99Nlv7FIeLAasmAVYa/vCVmN0y2fWSjRO04RSXRxcImlcL?=
- =?us-ascii?Q?i1j0F2ISovU2kroEAKBx/vWZgCOpSH2f6vq5IXtm6IPMLoApPPyWdtQ+VBYg?=
- =?us-ascii?Q?/Jxnkuo9XfFmq6cDSdkpiphJolxFTEJACZQvuzHxRRmjt/xFrfKCZbACdqcx?=
- =?us-ascii?Q?9KKDmvc+n82GaaXVDGTVcZ4UUXp/Iu/ks47cwk+BIX6NA1A7DNwiaw3Hnjmk?=
- =?us-ascii?Q?JWxYOBC7jndjTHxRbCu9qf7JgGJ7jfRpH4/hurV0KOSvYVh6f6+8Au//qnbZ?=
- =?us-ascii?Q?bVQLifh2wQMJSdHNGHoJu1j7kNALbfV1JMkUR4lGbg4uKwKmwCWzOIlW4Zzz?=
- =?us-ascii?Q?eOHCunMJHYjwr7nf4j2l83y+FBdDx2UjBbW3nck3vyDe7S/3X0lH++tOBQxx?=
- =?us-ascii?Q?ronazZ9z2T0B7r7KgoronBKbsWYGNx3njauE2fpsVYSY+iS6fuDDTdCH3sH/?=
- =?us-ascii?Q?i9JrbdzdmadjAS+2PvgbkcqeFmgImLQWi43QvM8jgO/KuDtUHjSO3h4tuI2w?=
- =?us-ascii?Q?aEnB3BOi8t+zKG5jcgUj2mtCrJCJrd9GRP7+7vBl/XW09y4Oj02y38dhZY7f?=
- =?us-ascii?Q?1h/j19MNTk2Vhpwz/StxpvkRHWi4+4B0MmrJpFAkr1IAlbimIzxTpc7fkHEA?=
- =?us-ascii?Q?kTJhiD+8rLz2xZVoBuG9x+T03Ib05klp+07zt41vpdcomqwyXlCe/sZHasvM?=
- =?us-ascii?Q?TVOBwjfCPsLnLLMZygx2zMRq0no0/wIbfV7o62PB48/+NjS44AfM4gLfDMTe?=
- =?us-ascii?Q?twIp+8oxuMDhDH35Mm+hpJbbMpA+EokAIPRWJxJPB8oI7g2K2ggEcFyMVC+C?=
- =?us-ascii?Q?3VPrC1grRQxJWbQJsyuYAiwVUyTvshh7w6fFPnplaO2N+zV8rP/a0atWiBlS?=
- =?us-ascii?Q?IvH9RlpjCT9tfirRX8pbMO6J6ddYgBM8rHFn/+rkvpjlKx/o8an+dUsh7e0M?=
- =?us-ascii?Q?IxpmOins16myX2bs8RWZ33WE/jij65aEbmkaixDmkK85vO5mVn3G+1edbg77?=
- =?us-ascii?Q?SGqtY0I3b7W7t5wwhIbX+B69/iLP9BvN59xmATIPAKI6JBr/GGaoQ4Tnurjq?=
- =?us-ascii?Q?Y0HJvws3wujnINvL4PENvXVcWI/0Xlzv1XRJlwJnoStRP1BK9tJTLBC+VlVA?=
- =?us-ascii?Q?L1Es5fWsG1VmqrMLm0mEaKcOS2HEyQN/5+u3muBmJK9cInR/mf28SB7bcdcO?=
- =?us-ascii?Q?EhCM3N/qftqPEqj0Qc6q69FQLXvnzeFwHn+FgxUpHOtFNbfIlITrKPgTbrN+?=
- =?us-ascii?Q?2iLWWqa8ZJVqgFmKCmxG9QZPx04Xsn97YdTSCMgLYPxivTzkNZu9XWIkSjQC?=
- =?us-ascii?Q?x2Nb4ro5tQQikO2P0alBEeibuzTs6vygFp1BbDTD?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1vSvgP-0000000E9sd-0N4A;
+	Tue, 09 Dec 2025 11:15:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1765278889; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=VhnsPR1rvAoVGWxtOAyZq1HIJCg2B1KjEIpPcmDWwu9iiHNEFksb0RIHkEFzII/DVDkXLLSlKwyw56/r2sEbHvG3EnOcY1gdsM3W6p14tYlkLY/EiBMy+3jZ7LVih8ol2JisVmboNHSzMe+pMy3UE+TYbI8O6MdO691+u69QfJU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1765278889; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=6/8dkdH3MgNUPOg0FM5uypg5HfcPpMsGkm1+bpgmHdQ=; 
+	b=N4QuVvGYAtYVCh4EPxfd94UptzBXUW62ffbRe5ZZtPPEMnrXh/hxRF+4g2/BlxNtBbepnxMnsVMUazY8l+1SJYU1DbtFxBQIVuAtplJ4iQvIP8I3nOFEYxxOxFJsUiTGnUV3ZtcGa+/y6SFb3/lpErhjVX65KolNMTHCTmQkHWY=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765278889;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=6/8dkdH3MgNUPOg0FM5uypg5HfcPpMsGkm1+bpgmHdQ=;
+	b=YdIEMjnYpE3y5Sfui5dALLct/hVlm/SKgagA0xTfOCT66mhSV9PME6EMa5zT+jVF
+	WM1e9uay5ppaJyZ99LDlVhnNWaFyGPOeJUltlTCxSRgPnnvKCrPCAJeeVlTaRjzNk76
+	XKIKcgT8ZzLcQzEkW7aT5UzJzueF5c7LWYKMgC4g=
+Received: by mx.zohomail.com with SMTPS id 1765278888611450.7794900965429;
+	Tue, 9 Dec 2025 03:14:48 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Subject: [PATCH v3 0/8] drm/rockchip: No more post-atomic_check fixups
+Date: Tue, 09 Dec 2025 12:14:13 +0100
+Message-Id: <20251209-vop2-atomic-fixups-v3-0-07c48f0f1f0d@collabora.com>
 MIME-Version: 1.0
-X-OriginatorOrg: aspeedtech.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB5134.apcprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dd992227-6096-479e-1698-08de37134be9
-X-MS-Exchange-CrossTenant-originalarrivaltime: 09 Dec 2025 11:08:35.0323
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: GAFcmk5CsCskRSk5aDNzsHv1lQ4UskRzgWBgQHzKRv/BAR53Zm7u8I8H7te6a7MZxo5J+8dP3hETj9Zbcfh6ukELwU1nD96No07qcMVAFyo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYUPR06MB5946
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIYEOGkC/32OQQ6CMBBFr0Jm7ZharCIr72FYtGWQJkCxLQ2Gc
+ HcruHb5/+S9Pwt4coY8lNkCjqLxxg4p5IcMdCuHJ6GpUwbOuDhxdsFoR44y2N5obMw8jR6Zzhm
+ xW8GaQkACR0fpskkf1Z4dvabkDnsJSnpCbfvehDIbaA748wv4Aq3xwbr39lTkG/FvP3JkeG3UW
+ SjVKFL1Xduuk8o6eUwjUK3r+gHUl+3O6QAAAA==
+X-Change-ID: 20251206-vop2-atomic-fixups-0c30e0980f85
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: Daniel Stone <daniels@collabora.com>, dri-devel@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel@collabora.com, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_030847_386183_AD3C0B9F 
-X-CRM114-Status: GOOD (  17.14  )
+X-CRM114-CacheID: sfid-20251209_031505_175383_6DA9E0F7 
+X-CRM114-Status: GOOD (  20.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,51 +87,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+I'm taking over this series to get it across the finish line. Original
+cover letter from Daniel Stone on v1:
 
-Thank you for your reply.
+> Hi,
+> This series is a pretty small and consistent one for VOP2. The atomic
+> uAPI very clearly specifies that drivers should either do what userspace
+> requested (on a successful commit), or fail atomic_check if it is not
+> for any reason possible to do what userspace requested.
+> 
+> VOP2 is unfortunately littered with a bunch of cases where it will apply
+> fixups after atomic_check - doing something different to what userspace
+> requested, e.g. clipping or aligning regions - or throw error messages
+> into the log when userspace does request a condition which can't be met.
+> 
+> Doing something different to what was requested is bad because it
+> results in unexpected visual output which can look like artifacts.
+> Throwing errors into the log is bad because generic userspace will
+> reasonably attempt to try any configuration it can. For example,
+> throwing an error message on a plane not being aligned to a 16 pixel
+> boundary can result in 15 frames' worth of error output in the log when
+> a window is being animated across a screen.
+> 
+> This series removes all post-check fixups - failing the check if the
+> configuration cannot be applied - and also demotes all messages about
+> unsupported configurations to DEBUG_KMS.
+> 
+> Cheers,
+> Daniel
 
-> >
-> > Fixes: 737ca352569e ("net: mdio: aspeed: move reg accessing part into
-> > separate functions")
->=20
-> That seems like an odd Fixes: tag. That is just moving code around, but t=
-he
-> write followed by a read existed before that. Why not:
->=20
+Changes in v3:
+- Change the AFBC source rectangle debug message to talk about 4-pixel
+  alignment instead of 4-byte alignment.
+- Fix another eSmart->Esmart casing case in a debug message
+- Link to v2: https://lore.kernel.org/r/20251206-vop2-atomic-fixups-v2-0-7fb45bbfbebd@collabora.com
 
-Agreed.
-I mistakenly thought I should reference the most recent integrated changes=
-=20
-for the Fixes: tag.
-I'll correct the Fixes: tag in the next revision.
+Changes in v2:
+- Dropped patches [1, 5] as they were already applied.
+- Changed the patch subject to use prefix "drm/rockchip: vop2:" for the
+  remaining ones.
+- Fixed a checkpatch nag about commenting style in "Switch impossible
+  pos conditional to WARN_ON".
+- Reworded "eSmart" to "Esmart" for consistency, and to avoid drawing
+  Tim Apple's ire.
+- Make the hopefully impossible WARN_ON format conditional in
+  vop2_plane_atomic_check still bubble the error up to userspace,
+  instead of continuing on.
+- Use dest_w instead of dsp_w in patch "Enforce scaling workaround
+  in plane_check", to avoid a compiler error.
+- Only reject non-multiple-of-4-pixel-wide framebuffers on
+  RK3566/RK3568, as the other SoCs have no such limitation. (Thank you
+  to Andy Yan for doing the research to confirm this!)
+- Consequently also only WARN_ON if this condition is violated in
+  atomic_update on those SoCs.
+- Link to v1: https://lore.kernel.org/dri-devel/20251015110042.41273-1-daniels@collabora.com/
 
-> commit f160e99462c68ab5b9e2b9097a4867459730b49a
-> Author: Andrew Jeffery <andrew@aj.id.au>
-> Date:   Wed Jul 31 15:09:57 2019 +0930
->=20
->     net: phy: Add mdio-aspeed
->=20
->     The AST2600 design separates the MDIO controllers from the MAC, which
-> is
->     where they were placed in the AST2400 and AST2500. Further, the regis=
-ter
->     interface is reworked again, so now we have three possible different
->     interface implementations, however this driver only supports the
->     interface provided by the AST2600. The AST2400 and AST2500 will
-> continue
->     to be supported by the MDIO support embedded in the FTGMAC100
-> driver.
->=20
->     The hardware supports both C22 and C45 mode, but for the moment only
-> C22
->     support is implemented.
->=20
->     Signed-off-by: Andrew Jeffery <andrew@aj.id.au>
->     Reviewed-by: Andrew Lunn <andrew@lunn.ch>
->     Signed-off-by: David S. Miller <davem@davemloft.net>
+Signed-off-by: Daniel Stone <daniels@collabora.com>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+Daniel Stone (8):
+      drm/rockchip: vop2: Switch impossible format conditional to WARN_ON
+      drm/rockchip: vop2: Switch impossible pos conditional to WARN_ON
+      drm/rockchip: vop2: Fix Esmart test condition
+      drm/rockchip: vop2: Enforce scaling workaround in plane_check
+      drm/rockchip: vop2: Enforce AFBC source alignment in plane_check
+      drm/rockchip: vop2: Enforce AFBC transform stride align in plane_check
+      drm/rockchip: vop2: Use drm_is_afbc helper function
+      drm/rockchip: vop2: Simplify format_mod_supported
 
-Thanks,
-Jacky
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 137 ++++++++++++---------------
+ 1 file changed, 62 insertions(+), 75 deletions(-)
+---
+base-commit: 4e5a9b630580faea139e9837b4fba666db6bd728
+change-id: 20251206-vop2-atomic-fixups-0c30e0980f85
+
+Best regards,
+-- 
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
 
