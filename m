@@ -4,99 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 858EBD1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 14:54:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AF75D1CDC6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 15:08:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I77rqlgPE4VEYTyOhE8C9IAUeqfQbxcz2xaE/KeMMmY=; b=yPwjiAPyZDK5O8pmVeEbzL9cgU
-	b6CP+NjSr2YEagCRKHMYClwlTlbKSg+H84fKTuh6zBPvbSx5odicBBdNkZbQuWrxkb+0xY63JzOUQ
-	Yuy/Z4AH4804RCcQHaV/9OQIsk1PjQzA1YvRcR1vNLkZAYUe1mgpVjMVNf16kZyqrhLQlSaFcNh47
-	BzwGhovvHWoPQ4kK9ZAIFk8G1t04pXKK0uh6tjkEPztEVHIj6m/Y1pKxU35gmhMSHEmOnBJY73gEN
-	+UxL/GXmNzXrgmJF0V7tSJKq4Plw/RfATJ+KJXN7kQexgIysYRMG5dxeWxCdYAY3aOe/FlGsFgpxd
-	hQ8z8OtQ==;
+	bh=b1j4qiRIjaYkaIgl8KBQd391HFndUa0vrlTQ5lUlIj4=; b=TJ0RlHH2D78Zujo6KMMXosWqmF
+	g21Jkh1N8GTfJE+NM7aAIBWn+aIYelr7B3Qpw/X7VgHaXoPAzTUNDXl4BNgHybWvmwGoy0bmLmWzZ
+	/PUItBeFp5HdzRzAdQ7XbYnPse2GxiCepBrGoDMDF6WTfpXfUzsDjOl7Fwj8qCm2ztMVtzljXQI/3
+	v2lFW5RWbKiioaaN6cVcIT4uRxxLboOpwQr26xOUnwS4hEYc4UZX0BlKZVwCyEh5gYsn7xFva6t+A
+	GD8QxQuYvo8ViPJvmWq4jTb+EsF8dTGi0vsFJWwJyjfAYWJYbr4Gr4qeOZ90QA4to2g2Xvp1nVEVN
+	FMlhvAyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSz6f-0000000EQTS-1ikU;
-	Tue, 09 Dec 2025 14:54:25 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSz6d-0000000EQSx-0eOG
+	id 1vSzKd-0000000ERIe-0ekn;
+	Tue, 09 Dec 2025 15:08:51 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vSzKb-0000000ERI5-2mBx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 14:54:24 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-47798ded6fcso43577325e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Dec 2025 06:54:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765292061; x=1765896861; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=I77rqlgPE4VEYTyOhE8C9IAUeqfQbxcz2xaE/KeMMmY=;
-        b=qoVz0/LyW2RiY7b7eGB979EyRuGq5s9iHi0UYDYS0QviAnBuSVLtPSAmCcj3BaAXxD
-         2vMtIS4MmYiblRh9n6zYkTGEzghZMGy6zXfrvcLTLCTiBW1RFYJYade4SBe7ebBFeyf7
-         6/0hzUjnqhGW9Np5hYYbsqfYEgBYzWYtAapj3CIsS00OCgJghg9dHLL8s0Tg1qoe9BAy
-         MzNx3AwtmwyREsw0rAA4oVRs4bgGKna6DH5CN6nRK4jl8E/cvuuTeJXv+z4LkVdliOk2
-         ruatQ7AhRldv3Mr8jgutXaiD9tu3O+BhLhOHipqWF1HWNoVg7O+aXjNInnMTRNqb6ell
-         YusA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765292061; x=1765896861;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=I77rqlgPE4VEYTyOhE8C9IAUeqfQbxcz2xaE/KeMMmY=;
-        b=NZxHBPw2o6IW8zcuLcsXnZ0EByLojWnj9BBAKkCDSJXdbvvM6vwlMleKHxE3JkZQas
-         x7xUubRUR986TBXNMOM0CQ/CYi/q6BSSO23PxKpO051yvwQAREhc0M1jP7CV/+IrfiTF
-         0mBEnOEeZ4sgIFElStscMVeUkwXscgU+V0JAMgKD3rr9iacpRDJge5IbJb+7TikyZXwH
-         GkO7ffkYtnAzNGvPBYKWY/Q3APPtawTyQ7cuBKbZbNFJCexebgI+uZirjB2DeQ93mt6j
-         yrUTw0trrkk2gy4oqwl2qjiCFlFtI0BnSXn38/xDTrxZgRti2QjFkN9WGsEt4UUSEdXP
-         /gNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU+SzH7SE8+f0L69Q9o9l+MAAEGATA7qhInstQNUJJKpBQXuaRklS0hV2v/emnnLB0uD9EO/rNPY9lWIjAGbszB@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+n7yDbv3TbSPuWVfcdpmQYQkwft1GR1Fl8DSHgcm4+4E4LaP0
-	zZbBWijKu7cowUVzglQ07o/6oKRJHXcoZpnwCqkIW175kw/2FTLjadc1ncTU4ihyujA=
-X-Gm-Gg: AY/fxX4O0yfnLo3fh0EQTx0y9QCKfnT/4DCIenmjom6WGhFAvGS73j4M4RpRUDcTaZy
-	Ps1uBTocbMH5do3ntwNBqTwNRKvivlRbOqpyZuqNWPRJLyFwngUxd8zrf3Y1HAJEfc5F0cw/YVR
-	OwDlGrAQwOKetPk8GswhLKNgQ74dKYaRGqaqpPNb1sOR91Ct6sqCxlRzKUYKgGloy9GoRQY7/NV
-	O6j3fdtLRdJ8NeIZkpo+IT0TTptjFRPmBB7NyiYZh2bAfATgb8aOfV12YK/inUXK2Z1mNlguG4/
-	vdRPNeUiJJI3mUQXdo/vXUKHj2DIrvrBWcxd3LUcY9SSb3e8TI82EGBzjbS8GVRQaLGKhcJk0KQ
-	KFwtaom0uZ8/KO7LT0/WferO2lu6x6w2fTUX6aW4LJJERiCXKQeRDKvutI1h18NRbK/a19WnWav
-	niFggb8ePdmsNqZnmA
-X-Google-Smtp-Source: AGHT+IG4v9UP6u54PQph65mR9oenZhjMF6WsEAAW8pYbnWdPqIyPTf06tVvcbxXr0zMULbQ5hddMqg==
-X-Received: by 2002:a05:6000:2284:b0:42b:2e1c:6341 with SMTP id ffacd0b85a97d-42f89f0ab32mr12255937f8f.9.1765292060866;
-        Tue, 09 Dec 2025 06:54:20 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42f7cbff352sm32569419f8f.17.2025.12.09.06.54.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 09 Dec 2025 06:54:20 -0800 (PST)
-Message-ID: <5ebf1743-b01c-4664-961c-9e1e2aa7ffce@linaro.org>
-Date: Tue, 9 Dec 2025 14:54:19 +0000
+	Tue, 09 Dec 2025 15:08:50 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 98589175D;
+	Tue,  9 Dec 2025 07:08:40 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8CB683F762;
+	Tue,  9 Dec 2025 07:08:44 -0800 (PST)
+Message-ID: <47b3b953-1ab9-4b85-9cb4-e1ad8eb4a0f6@arm.com>
+Date: Tue, 9 Dec 2025 15:08:43 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 19/19] perf: cs-etm: Set watermark for AUX trace
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
- Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Mike Leach <mike.leach@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Tamas Petz <tamas.petz@arm.com>, Tamas Zsoldos <tamas.zsoldos@arm.com>,
- Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
- Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>
-References: <20251201-trbe_buffer_refactor_v1-1-v1-0-7da32b076b28@arm.com>
- <20251201-trbe_buffer_refactor_v1-1-v1-19-7da32b076b28@arm.com>
- <c22b084b-3853-405d-8b43-397786af7be9@arm.com>
+Subject: Re: [RFC PATCH 01/38] arm64: mpam: Context switch the MPAM registers
+To: Fenghua Yu <fenghuay@nvidia.com>, James Morse <james.morse@arm.com>,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@kernel.org>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Gavin Shan <gshan@redhat.com>, rohit.mathew@arm.com,
+ reinette.chatre@intel.com, Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+References: <20251205215901.17772-1-james.morse@arm.com>
+ <20251205215901.17772-2-james.morse@arm.com>
+ <a3305659-929d-45f6-823d-a886f197d652@nvidia.com>
+From: Ben Horgan <ben.horgan@arm.com>
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <c22b084b-3853-405d-8b43-397786af7be9@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+In-Reply-To: <a3305659-929d-45f6-823d-a886f197d652@nvidia.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_065423_221239_1F4B7454 
-X-CRM114-Status: GOOD (  21.94  )
+X-CRM114-CacheID: sfid-20251209_070849_787918_97654184 
+X-CRM114-Status: GOOD (  24.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,65 +76,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Fenghua,
 
-
-On 05/12/2025 4:48 am, Anshuman Khandual wrote:
-> On 01/12/25 4:52 PM, Leo Yan wrote:
->> The default watermark is half of the total buffer size. In many cases,
->> the tool can not be notified with sufficient free space, especially when
->> profiling with small AUX buffer (e.g., 64KiB).
+On 12/5/25 23:53, Fenghua Yu wrote:
+> Hi, James,
 > 
-> Could not smaller AUX buffer be prevented for TRBE instead ?
-> 
-
-It's not really about the size of the buffer but where the wakeup points 
-are. With only two wakeup points (middle and end) once you pass the 
-first one you are immediately into the last chance end section.
-
-Now the driver is writing into the end section, but Perf is still 
-reading from the first one. Once the end one fills up, you end up with 
-no space left without Perf having a chance to say it's finished reading.
-
-To guarantee free space, there needs to be at least one additional 
-section as a buffer zone. Ideally we'd set the wakeup point at thirds so 
-there were fewer wakeups and still have one free section, but it might 
-not always divide by 3, so 4 is also fine.
-
-The commit message could probably explain it a bit better though.
-
-The reason this is different now is because we want to be able to enable 
-wrap mode as much as possible. If you imagine the scenario where a half 
-way watermark is hit, you can't enable wrap mode without wrapping into 
-Perf's part of the buffer (the beginning) as it's all that's left after 
-the second half.
-
->>> Setting watermark to quarter of the buffer to notifies the tool to read
->> data earlier and prevents the data loss.
+> On 12/5/25 13:58, James Morse wrote:
+[...]
 >>
->> Signed-off-by: Leo Yan <leo.yan@arm.com>
->> ---
->>   tools/perf/arch/arm/util/cs-etm.c | 7 +++++++
->>   1 file changed, 7 insertions(+)
+>> Resctrl allows a per-cpu 'default' value to be set, this overrides the
+>> values when scheduling a task in the default control-group, which has
+>> PARTID 0. The way 'code data prioritisation' gets emulated means the
+>> register value for the default group needs to be a variable.
 >>
->> diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/util/cs-etm.c
->> index ea891d12f8f40beebf8dee1d3db71cad701f5666..649b8b0d0f92b4af45fb97db9da3c5ccf24a978b 100644
->> --- a/tools/perf/arch/arm/util/cs-etm.c
->> +++ b/tools/perf/arch/arm/util/cs-etm.c
->> @@ -424,6 +424,13 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
->>   		pr_debug2("%s snapshot size: %zu\n", CORESIGHT_ETM_PMU_NAME,
->>   			  opts->auxtrace_snapshot_size);
->>   
->> +	if (!opts->auxtrace_snapshot_mode && !opts->auxtrace_sample_mode) {
->> +		size_t aw = opts->auxtrace_mmap_pages * (size_t)page_size / 4;
->> +		u32 aux_watermark = aw > UINT_MAX ? UINT_MAX : aw;
+[...]
+>> diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/
+>> mpam.h
+>> new file mode 100644
+>> index 000000000000..86a55176f884
+>> --- /dev/null
+>> +++ b/arch/arm64/include/asm/mpam.h
+[...]
+>> +/*
+>> + * The value of the MPAM0_EL1 sysreg when a task is in resctrl's
+>> default group.
+>> + * This is used by the context switch code to use the resctrl CPU
+>> property
+>> + * instead. The value is modified when CDP is enabled/disabled by
+>> mounting
+>> + * the resctrl filesystem.
+>> + */
+>> +extern u64 arm64_mpam_global_default;
 >> +
->> +		cs_etm_evsel->core.attr.aux_watermark = aux_watermark;
->> +	}
+>> +/*
+>> + * The resctrl filesystem writes to the partid/pmg values for threads
+>> and CPUs,
+>> + * which may race with reads in __mpam_sched_in(). Ensure only one of
+>> the old
+>> + * or new values are used. Particular care should be taken with the
+>> pmg field
+>> + * as __mpam_sched_in() may read a partid and pmg that don't match,
+>> causing
+>> + * this value to be stored with cache allocations, despite being
+>> considered
+>> + * 'free' by resctrl.
+>> + *
+>> + * A value in struct thread_info is used instead of struct
+>> task_struct as the
+>> + * cpu's u64 register format is used, but struct task_struct has two
+>> u32'.
+>> + */
+>> +static inline u64 mpam_get_regval(struct task_struct *tsk)
+>> +{
+>> +#ifdef CONFIG_ARM64_MPAM
+>> +    return READ_ONCE(task_thread_info(tsk)->mpam_partid_pmg);
+>> +#else
+>> +    return 0;
+>> +#endif
+>> +}
 >> +
->>   	/*
->>   	 * To obtain the auxtrace buffer file descriptor, the auxtrace
->>   	 * event must come first.
->>
+>> +static inline void mpam_thread_switch(struct task_struct *tsk)
+>> +{
+>> +    u64 oldregval;
+>> +    int cpu = smp_processor_id();
+>> +    u64 regval = mpam_get_regval(tsk);
+>> +
+>> +    if (!IS_ENABLED(CONFIG_ARM64_MPAM) ||
+>> +        !static_branch_likely(&mpam_enabled))
+>> +        return;
+>> +
+>> +    if (regval == READ_ONCE(arm64_mpam_global_default))
+> Why is this check needed? We need to read arm64_mpam_default in any
+> case, right?
+
+If a task is in the default resctrl group then the per-cpu resctrl
+configuration determines the mpam configuration. The way this is dealt
+with here is that for a task in the default group mpam_partid_pmg is set
+to arm64_mpam_global_default. When mpam_partid_pmg is
+arm64_mpam_global_default we know the task is in the default group,
+otherwise it would have a different partid, and so we consider the
+per-cpu configuration, arm64_mpam_default. When the task is not in the
+default resctrl group then we can just consider the per-task configuration.
+
+As mentioned in the commit message, this is complicated by code data
+prioritisation (cdp) and the value of arm64_mpam_global_default, depends
+on whether this is enabled or not. See resctrl_arch_set_cdp_enabled()
+added in a later patch. I'm not sure of a way to make this clearer in
+the code while keeping the arch and drivers/resctrl patches separate.
+
+> +        regval = READ_ONCE(per_cpu(arm64_mpam_default,
+> cpu));
+>> +
+>> +    oldregval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
+>> +    if (oldregval == regval)
+>> +        return;
+>> +
+>> +    write_sysreg_s(regval, SYS_MPAM1_EL1);
+>> +    isb();
+>> +
+>> +    /* Synchronising the EL0 write is left until the ERET to EL0 */
+>> +    write_sysreg_s(regval, SYS_MPAM0_EL1);
+>> +
+>> +    WRITE_ONCE(per_cpu(arm64_mpam_current, cpu), regval);
+>> +}
+>> +#endif /* __ASM__MPAM_H */
 > 
+> [SNIP]
+> Thanks.
+> 
+> -Fenghua
+> 
+Thanks,
+
+Ben
 
 
