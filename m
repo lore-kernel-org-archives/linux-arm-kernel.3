@@ -4,103 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19EC1D1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 10:54:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDE90D3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 10:59:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6EdOKfzZ01O67SP5Ml+fXS/xdGTFEoMvJNRoq1JoWc4=; b=VGRRyVwY5akvoj8JFQTLuPR2eR
-	sKowYOrwHXbpWYTLl1bvDj8QgwXUd4IMAC5Wgb5Sq6GqQTpFQwIph8ImSL4wUhXJ9zvcWNQ2xFseL
-	FF10DciuFvyd3UNAwhEY8oR9obKBw6pTnnOY0QtX88JhA6QIdzRDQ9HntiJR0hFdlucGw+bV9xdgO
-	LOUgIOaLe65UB2Hsu6b7IFPaPJ7nDnMcT3qezYOwNWCc/iV3HaqBB6c5o9b6okHMedDE63VpBfTPC
-	+KheFiaqTdSmSjz0d5X3+kvxgYZww8Jj52a0wNaQxpDzNczy/q29WjfhByZf2F+4w9c3PbKKcJNNT
-	/UOtfcwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZhZ+DMaVFnsaAoNn1u9s946/IX2aY4shp0I0o4Xsl6E=; b=M9FAZZYDej4jmZQIx/6NApmZoN
+	mjK+DRrhcTDjw1Kxncupy7lVz+tNPRX6sB71onq8Qw8WZPPLMxHb3Cmqfd11yP/JheIgob/I+4ieu
+	QVhg+V4M1Aaukt3otH/vB5VLcKVRVD0LVPa2mvFF43mhT09aj+MakPp6lfHyAjaImzj6gfM0pr2VT
+	24GzSSNjUt0vi+otxZqIMzXCdW7VGsXxUE/EdVP48rLJU0NJQOoOXvAtS7rf32/JfjbP5+VeEj+Yf
+	SalcOWSPQqJn7uCfPcOEIDOrcvGD6SWS3hXheQ6Z3o4/9y3CsSBp8wnO7qVR6f6pk8Xj1HuRYtJ6/
+	gMETdeoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSvM4-0000000E8Ag-0eyO;
-	Tue, 09 Dec 2025 10:54:04 +0000
-Received: from mx-relay93-hz2.antispameurope.com ([94.100.136.193])
+	id 1vSvQs-0000000E8ze-1ISV;
+	Tue, 09 Dec 2025 10:59:02 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSvLv-0000000E860-1NlN
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 10:53:57 +0000
-ARC-Authentication-Results: i=1; mx-gate93-hz2.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com
- smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
- header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=6EdOKfzZ01O67SP5Ml+fXS/xdGTFEoMvJNRoq1JoWc4=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1765277624;
- b=ULXjXSQOSBwzYf/9XyI15/OD8JERgS5WKL60+NF7ohCmyGmGIbSwUbnvtIeAnw4Jw41TggI4
- JaRR5FF9wrT35W8xTnoCO8ancJSxxG4Ns63vlnOBbJRB5O8xv5nJ01Z5RyeEWJWyWs0Sg1ERPnD
- ZZ6TXlUm5Rgsd/P98lM3p454B32cYcg4LSP7UeJGiNSaX5jLKKES4FRKEDT83fDbsXdPQUkZlnr
- 6Q7tvqhEvdVQlfSxwCArpV4V9fMcRICDjBDR11mIvPLlTSzKG1flMwDk/+0A0n8xzE0xqsllPvm
- wiAZwk24VwzjJQvftSYSBQeAOBKrUeGq4oqTRoWOwh4VA==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1765277624;
- b=A+CljQHRzwo85YpJL4HyvdXtTJ8TtV8ilnEMF3/UqUt1/ckw51QrR9a7Kajje1ZHc5BFOtZO
- zV4Hjue34SMLJ4pHNoIX2vnrnobxzjjGypySUblKemYx+Yys/dqsdR55Hd/ygTZYbp284ej9iWS
- Hxx67ANe7fIbc8wkZxdmbUFev8xgLlQCyF2QHfDGbE1U3KthC3qC/rJHXquqUxKZKpT/wq3gR9P
- Qio73o3heqmVUYuAXOc+cOZ/G5ATLWRI+K5lJQgaHQstysjnPSxe387/gd/ItZdv5h9csn1QTsl
- H8FjR4CN6zggk6yjnZVj83gLE0SWhExGtSFKkKClOjDfw==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay93-hz2.antispameurope.com;
- Tue, 09 Dec 2025 11:53:43 +0100
-Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id D3D6DCC0E95;
-	Tue,  9 Dec 2025 11:53:28 +0100 (CET)
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Martin Schmiedel <Martin.Schmiedel@tq-group.com>
-Cc: linux@ew.tq-group.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 7/8] arm64: dts: tqma8mpql-mba8mp-ras314: Fix HDMI CEC pad control settings
-Date: Tue,  9 Dec 2025 11:53:13 +0100
-Message-ID: <20251209105318.977102-8-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251209105318.977102-1-alexander.stein@ew.tq-group.com>
-References: <20251209105318.977102-1-alexander.stein@ew.tq-group.com>
+	id 1vSvQp-0000000E8z1-1Zyi;
+	Tue, 09 Dec 2025 10:59:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1765277916; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=lTcSUhwM9bSPYwqWhozKXBINV++FZt2VyJhf8bJt42ZsifrbktMSA5v72qJyGZ5G3SzuJVQT+1bWJtPfOblAZI4TE2OwlUtofvpPVSDpSjAHUd7fcpgzY+Ez8jvDRcbjNOY7N15uvIw0hH7Yiq5kR73oFCHlzexEXYjoh9bjazs=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1765277916; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ZhZ+DMaVFnsaAoNn1u9s946/IX2aY4shp0I0o4Xsl6E=; 
+	b=l92y3mYpv8+dkteFWAOUIWyKoht7QpiuX78ujH21kW14/26WaeOoZBW/Zwl9DEdvJ1g+oR3FFakCVFh6n1xO/jpZdmAo9viaAb7jC1r8Tvvj9ig9Gcth1kSKY8xGYNPHpTCzPRsokUDzbRrAU/e804m6LzSiGhRO5LkHohR+VYo=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765277916;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=ZhZ+DMaVFnsaAoNn1u9s946/IX2aY4shp0I0o4Xsl6E=;
+	b=j/29xTmzKJ6tZOl1wo+QnYi+H7Jj84UVpnU2yzjUyxclrWqmOYVp+9H46pB5SSMV
+	0x9DFomx5pT8tBKxJAAGZLH6+S76vMXNJnYU2J5rlKlJvCpIA+gxQulGA0X+ou+cXTQ
+	Oj15G7YM1EDPURUUmsiN8Rso56fanRTYKGm6XOhY=
+Received: by mx.zohomail.com with SMTPS id 1765277913550726.3974170059719;
+	Tue, 9 Dec 2025 02:58:33 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>,
+ Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>
+Subject: Re: [PATCH v2 5/8] drm/rockchip: vop2: Enforce AFBC source alignment in
+ plane_check
+Date: Tue, 09 Dec 2025 11:58:26 +0100
+Message-ID: <8655687.NyiUUSuA9g@workhorse>
+In-Reply-To: <4696988.LvFx2qVVIh@workhorse>
+References: <20251206-vop2-atomic-fixups-v2-0-7fb45bbfbebd@collabora.com>
+ <f9f7b446-8575-4f16-aa96-5197b22846e3@rock-chips.com>
+ <4696988.LvFx2qVVIh@workhorse>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: alexander.stein@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-body-digest: e54c6801c37c73ffbc98dcd4d28a370f
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay93-hz2.antispameurope.com with 4dQbLK45Kmz4QZMg
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: 357d07ff5100462428c8535adff74f8f
-X-cloud-security: scantime:1.955
-DKIM-Signature: a=rsa-sha256;
- bh=6EdOKfzZ01O67SP5Ml+fXS/xdGTFEoMvJNRoq1JoWc4=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1765277623; v=1;
- b=YvGlvbDEOYJi7+LsME/oTTXXR0XAN0fOgBhFnwUUwMdZFKDretE3WdvkoH0Ka/zfNncRMR0w
- +Y3m+/+ciSABTz4DmS01a2x+3x6BhfxfjDYsd5xcwfPa5vKgdv82u1avTdX/M5L+WPTF3c4UrGW
- epcn1l0KnHh67ZTSKjF2eNpL0bBtPkOBx64xMTcxMMwnluUKIFN8x/UO2G8qaAVhEseiAmsWqaX
- DbFMoBlDqeHLeHpRu/zlgAWVM3YbsHIdKA5kkUyHW7OtALqyZXfmcf5DzlGV4blSMWC2rcyzArC
- hleWfMOIn3WiRyWjb86pwSbNRFdnBf7aYWREpyXz0PAaw==
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_025355_534945_4BFFE6DA 
-X-CRM114-Status: GOOD (  12.38  )
+X-CRM114-CacheID: sfid-20251209_025859_455038_1B072584 
+X-CRM114-Status: GOOD (  33.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,29 +85,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As per datasheet of the HDMI protection IC the CEC_IC pin has been
-configured as open-drain.
+Hi Chaoyi Chen, Andy Yan,
 
-Fixes: ddabb3ce3f90 ("arm64: dts: freescale: add TQMa8MPQL on MBa8MP-RAS314")
-Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
----
- .../arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On Monday, 8 December 2025 08:24:52 Central European Standard Time Nicolas Frattaroli wrote:
+> On Monday, 8 December 2025 03:48:24 Central European Standard Time Chaoyi Chen wrote:
+> > Hello Nicolas, Daniel,
+> > 
+> > On 12/7/2025 4:45 AM, Nicolas Frattaroli wrote:
+> > > From: Daniel Stone <daniels@collabora.com>
+> > > 
+> > > Planes can only source AFBC framebuffers at multiples of 4px wide on
+> > > RK3566/RK3568. Instead of clipping on all SoCs when the user asks for an
+> > > unaligned source rectangle, reject the configuration in the plane's
+> > > atomic check on RK3566/RK3568 only.
+> > > 
+> > > Signed-off-by: Daniel Stone <daniels@collabora.com>
+> > > [Make RK3566/RK3568 specific, reword message]
+> > > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > > ---
+> > >  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 14 +++++++++-----
+> > >  1 file changed, 9 insertions(+), 5 deletions(-)
+> > > 
+> > > diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> > > index bc1ed0ffede0..e23213337104 100644
+> > > --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> > > +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> > > @@ -1076,6 +1076,13 @@ static int vop2_plane_atomic_check(struct drm_plane *plane,
+> > >  		return -EINVAL;
+> > >  	}
+> > >  
+> > > +	if (vop2->version == VOP_VERSION_RK3568 && drm_is_afbc(fb->modifier) && src_w % 4) {
+> > > +		drm_dbg_kms(vop2->drm,
+> > > +			    "AFBC source rectangles must be 4-byte aligned; is %d\n",
+> > > +			    src_w);
+> > > +		return -EINVAL;
+> > > +	}
+> > > +
+> > >  	return 0;
+> > >  }
+> > >  
+> > > @@ -1237,11 +1244,8 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
+> > >  	WARN_ON(src_w < 4);
+> > >  	WARN_ON(src_h < 4);
+> > >  
+> > > -	if (afbc_en && src_w % 4) {
+> > > -		drm_dbg_kms(vop2->drm, "vp%d %s src_w[%d] not 4 pixel aligned\n",
+> > > -			    vp->id, win->data->name, src_w);
+> > > -		src_w = ALIGN_DOWN(src_w, 4);
+> > > -	}
+> > > +	if (vop2->version == VOP_VERSION_RK3568 && drm_is_afbc(fb->modifier))
+> > > +		WARN_ON(src_w % 4);
+> > >  
+> > >  	act_info = (src_h - 1) << 16 | ((src_w - 1) & 0xffff);
+> > >  	dsp_info = (dsp_h - 1) << 16 | ((dsp_w - 1) & 0xffff);
+> > > 
+> > 
+> > You haven't replied to Andy's comment yet [0].
+> > 
+> > [0] https://lore.kernel.org/dri-devel/7b4e26ec.75f3.19a77276b53.Coremail.andyshrk@163.com/
+> > 
+> 
+> Hello,
+> 
+> I addressed the follow-ups where it was clarified that the 4 pixel
+> limitation was RK3566/RK3568-only. I'm not going to bring back the
+> post-atomic_check modification for a fast path, but I'm open to
+> suggestions on how to do this differently.
+> 
+> One solution might be to modify the state with the ALIGN_DOWN stuff
+> in atomic_check instead, where userspace is then aware of the change
+> being done to its requested parameters. I'll need to double-check
+> whether this is in line with atomic modesetting's design.
+> 
+> Kind regards,
+> Nicolas Frattaroli
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-index 67fe1f63fd93c..30f0e81c4be00 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mp-ras314.dts
-@@ -704,7 +704,7 @@ pinctrl_hdmi: hdmigrp {
- 		fsl,pins = <MX8MP_IOMUXC_HDMI_DDC_SCL__HDMIMIX_HDMI_SCL	0x400001c2>,
- 			   <MX8MP_IOMUXC_HDMI_DDC_SDA__HDMIMIX_HDMI_SDA	0x400001c2>,
- 			   <MX8MP_IOMUXC_HDMI_HPD__HDMIMIX_HDMI_HPD	0x40000010>,
--			   <MX8MP_IOMUXC_HDMI_CEC__HDMIMIX_HDMI_CEC	0x40000154>;
-+			   <MX8MP_IOMUXC_HDMI_CEC__HDMIMIX_HDMI_CEC	0x40000030>;
- 	};
- 
- 	pinctrl_gpt1: gpt1grp {
--- 
-2.43.0
+Okay, so I've asked internally, and atomic_check isn't allowed to
+modify any of the parameters either. There's efforts [0] underway
+to allow error codes to be more specific, so that userspace knows
+which constraint is being violated. That would allow userspace
+applications to react by either adjusting their size or turning
+off AFBC in this case. Turning off AFBC seems more generally
+applicable here, since it means it won't need to resize the plane
+and it'll save more than enough memory bandwidth by not going
+through the GPU.
+
+On that note: Andy, I didn't find a weston-simple-egl test in the
+Weston 14.0.2 or git test suite, and weston-simple-egl itself does
+not tell me whether GPU compositing is being used or not. Do you
+have more information on how to test for this? I'd like to know
+for when we have the necessary functionality in place to make
+userspace smart enough to pick the fast path again.
+
+In either case, I think adhering to the atomic API to ensure
+artifact-free presentation is more important here than enabling
+a fast-path on RK3568. I do think in most real-world use case
+scenarios, the fallback won't degrade user experience, because
+almost everything performance intensive I can think of (video
+playback, games) will likely already use a plane geometry
+where the width is divisible by 4. 800, 1024, 1280, 1600, 1920,
+2560, 3840 are all divisible by 4, so a window or full-screen
+playback of common content won't need to fall back to GPU
+compositing.
+
+I'll send a v2 to fix another instance of "eSmart" left in a
+message, but beyond that I think we should be good.
+
+Kind regards,
+Nicolas Frattaroli
+
+https://lore.kernel.org/dri-devel/20251009-atomic-v6-0-d209709cc3ba@intel.com/ [0]
+
 
 
