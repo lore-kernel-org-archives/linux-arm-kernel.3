@@ -4,61 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77747D3B7EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 00:17:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2FA8D3B7E2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 00:18:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eT2/1tl0mE426mXS5CLXWKzTqbLcfvx+akMBqGqZmrE=; b=c+J/cmvwl2I6/s+j/2PltgI5K3
-	Ps4Kq+CBy7fpIqhLhZVVglbqJMLzBZY2PAF/WJB4SQsynJVkYCDo0TkeLlhtZnjo0vYKbQhelJCb3
-	4AS8Jqm9+fNowxOK0r3T5j/Ia902Q9YaPCBRSfA1sROihOaNQ56U9TGewGMJI7NkmSNHa9UAyMpHY
-	QjthBjDqG5cpcgT88w6BTYuda8HkIlLr+L+PBkLJa5o5NrvTWeho84sLAI0mY74sq9UVcxAAtnX08
-	Y3duiEcuxoNrUvR2MShP+LC6xg7m5GC5DJ5XDmL6Q7hPLEVy/CdRJxkeGup3Ev5t71XVDPHCaBtlB
-	//FM5Ktg==;
+	bh=GKSnWg6NWwEkIcNKXNbfvm4L817slsSWPnT89fyPR1g=; b=YjSwwc4oMcjE804iuP21X52uLu
+	Ge9+PCBqQMk4KWjeFNBEtaaDn0fOGfEuiO33OfwMJsqdiFOGV2ANUmtwhBBdfVw6vzo43L9sn6UVJ
+	0wesGZRIZPBovnCzaNnP9lB4278W2vDox0JFDU+uRqzztyXlQrk+V1En+soovhQlUcnydHVHOGP+i
+	HpVgDd9eiX1HZQ/bzjsWO3LnxzvoZFO6kA0qIrzpL2S9PlCG9c9mozu90PPzwTxNDj0rcllKpPmIQ
+	t9FQB6YIZSuhJbR52/bBoXrX471MXjuD9gfAkgcj3HL/bXdeJrC6+qjvm8tSJEpGOdNF4fYLkiPUG
+	VXd9nb9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSlPk-0000000Deha-0VY7;
-	Tue, 09 Dec 2025 00:17:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vSlQs-0000000Df19-2BQk;
+	Tue, 09 Dec 2025 00:18:22 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSlPi-0000000Degq-42wz;
-	Tue, 09 Dec 2025 00:17:11 +0000
+	id 1vSlQp-0000000Df0C-1JNn;
+	Tue, 09 Dec 2025 00:18:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6643D60172;
-	Tue,  9 Dec 2025 00:17:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAFB7C4CEF1;
-	Tue,  9 Dec 2025 00:17:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EE21A432D2;
+	Tue,  9 Dec 2025 00:18:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BE73C4CEF1;
+	Tue,  9 Dec 2025 00:18:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765239430;
-	bh=mA14ruNO3szL9g1X8tOTLj3a3VtsH9RLuJW+L+/RCmk=;
+	s=k20201202; t=1765239498;
+	bh=hNnKmiMyeRgIeXCMtSCwGavX0YkqanFzBfdi7Gpu9+4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=olM3tFxnaoxotIvmzvIRirMGeZeIY+hJVnE9K0Xs6Wu8iHYYF5ix8icaFtiG9t8pr
-	 tCOC9kX/9iq/bvc5XYPr0YWoXmcIOLMPoLy5p1lnaxYYFKeAZINZC+OAv9ZhOBilWO
-	 VljPMTaNRXDZ6i4EEHbt14FFqobofcgnc6ycsR0bV7qZtgCJTkEhICDgk23VaNh3nZ
-	 by69/lUBQ68/Umz2lfVgjpUSG1UDXfdWzik1Zb8ND2KiNd/51sC9LsUV1aFcYhex72
-	 Aa0ajiFrmM/5SjCB6zNUMJ1HyfXExkGK1R6Kmtl0YQRzbIkC4mdjaTY8KS9qJQkR3P
-	 1gAFf3glEGn0A==
+	b=Aggyf4YW4I4VV3n38Yk7avY/XjUPyierBDvndM3RDP7O0Dqsd2dFluMJ5lAtk65rf
+	 Y0KcMcPQB2pHGczxf4WNWpi8nA5+kV1Fal17uawpO3p3Bwz0tb1hDJ7DJa7HzJ7CXJ
+	 NkvGujn/RetNVvxrsX/RQ2C8jk/BmSXFg5qbw6KwI8xeyL3KyrN7cSmWWa0YXk+bz1
+	 k0my11YByUPf3YuCTon1qCMb6qJyrpGOhuIAQxsBHZ+xrU7qw79haUh9bqibuUpsh8
+	 hp5cH1Yf9RLBD/ey/b20LZ357dvpv5djaaRRNVmhZrELNR4vr14PGrCR0Il1849oi2
+	 lxJY3X4vRBhgw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Chris Lu <chris.lu@mediatek.com>,
-	Paul Menzel <pmenzel@molgen.mpg.de>,
-	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>,
+Cc: Quan Zhou <quan.zhou@mediatek.com>,
+	druth@chromium.org,
+	Felix Fietkau <nbd@nbd.name>,
 	Sasha Levin <sashal@kernel.org>,
-	marcel@holtmann.org,
-	luiz.dentz@gmail.com,
 	matthias.bgg@gmail.com,
 	angelogioacchino.delregno@collabora.com,
-	linux-bluetooth@vger.kernel.org,
+	leon.yen@mediatek.com,
+	mingyen.hsieh@mediatek.com,
+	allan.wang@mediatek.com,
+	sean.wang@mediatek.com,
+	michael.lo@mediatek.com,
+	jack.kao@mediatek.com,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18-6.12] Bluetooth: btusb: MT7922: Add VID/PID 0489/e170
-Date: Mon,  8 Dec 2025 19:15:09 -0500
-Message-ID: <20251209001610.611575-17-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18-6.12] wifi: mt76: mt792x: fix wifi init fail by setting MCU_RUNNING after CLC load
+Date: Mon,  8 Dec 2025 19:15:33 -0500
+Message-ID: <20251209001610.611575-41-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251209001610.611575-1-sashal@kernel.org>
 References: <20251209001610.611575-1-sashal@kernel.org>
@@ -66,7 +69,11 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.18
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251208_161819_381547_52C9C27C 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,179 +88,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chris Lu <chris.lu@mediatek.com>
+From: Quan Zhou <quan.zhou@mediatek.com>
 
-[ Upstream commit 5a6700a31c953af9a17a7e2681335f31d922614d ]
+[ Upstream commit 066f417be5fd8c7fe581c5550206364735dad7a3 ]
 
-Add VID 0489 & PID e170 for MediaTek MT7922 USB Bluetooth chip.
+Set the MT76_STATE_MCU_RUNNING bit only after mt7921_load_clc()
+has successfully completed. Previously, the MCU_RUNNING state
+was set before loading CLC, which could cause conflict between
+chip mcu_init retry and mac_reset flow, result in chip init fail
+and chip abnormal status. By moving the state set after CLC load,
+firmware initialization becomes robust and resolves init fail issue.
 
-The information in /sys/kernel/debug/usb/devices about the Bluetooth
-device is listed as the below.
-
-T:  Bus=06 Lev=01 Prnt=01 Port=00 Cnt=01 Dev#=  2 Spd=480  MxCh= 0
-D:  Ver= 2.10 Cls=ef(misc ) Sub=02 Prot=01 MxPS=64 #Cfgs=  1
-P:  Vendor=0489 ProdID=e170 Rev= 1.00
-S:  Manufacturer=MediaTek Inc.
-S:  Product=Wireless_Device
-S:  SerialNumber=000000000
-C:* #Ifs= 3 Cfg#= 1 Atr=e0 MxPwr=100mA
-A:  FirstIf#= 0 IfCount= 3 Cls=e0(wlcon) Sub=01 Prot=01
-I:* If#= 0 Alt= 0 #EPs= 3 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=81(I) Atr=03(Int.) MxPS=  16 Ivl=125us
-E:  Ad=82(I) Atr=02(Bulk) MxPS= 512 Ivl=0ms
-E:  Ad=02(O) Atr=02(Bulk) MxPS= 512 Ivl=0ms
-I:* If#= 1 Alt= 0 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=83(I) Atr=01(Isoc) MxPS=   0 Ivl=1ms
-E:  Ad=03(O) Atr=01(Isoc) MxPS=   0 Ivl=1ms
-I:  If#= 1 Alt= 1 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=83(I) Atr=01(Isoc) MxPS=   9 Ivl=1ms
-E:  Ad=03(O) Atr=01(Isoc) MxPS=   9 Ivl=1ms
-I:  If#= 1 Alt= 2 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=83(I) Atr=01(Isoc) MxPS=  17 Ivl=1ms
-E:  Ad=03(O) Atr=01(Isoc) MxPS=  17 Ivl=1ms
-I:  If#= 1 Alt= 3 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=83(I) Atr=01(Isoc) MxPS=  25 Ivl=1ms
-E:  Ad=03(O) Atr=01(Isoc) MxPS=  25 Ivl=1ms
-I:  If#= 1 Alt= 4 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=83(I) Atr=01(Isoc) MxPS=  33 Ivl=1ms
-E:  Ad=03(O) Atr=01(Isoc) MxPS=  33 Ivl=1ms
-I:  If#= 1 Alt= 5 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=83(I) Atr=01(Isoc) MxPS=  49 Ivl=1ms
-E:  Ad=03(O) Atr=01(Isoc) MxPS=  49 Ivl=1ms
-I:  If#= 1 Alt= 6 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=btusb
-E:  Ad=83(I) Atr=01(Isoc) MxPS=  63 Ivl=1ms
-E:  Ad=03(O) Atr=01(Isoc) MxPS=  63 Ivl=1ms
-I:* If#= 2 Alt= 0 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=(none)
-E:  Ad=8a(I) Atr=03(Int.) MxPS=  64 Ivl=125us
-E:  Ad=0a(O) Atr=03(Int.) MxPS=  64 Ivl=125us
-I:  If#= 2 Alt= 1 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=(none)
-E:  Ad=8a(I) Atr=03(Int.) MxPS= 512 Ivl=125us
-E:  Ad=0a(O) Atr=03(Int.) MxPS= 512 Ivl=125us
-
-Signed-off-by: Chris Lu <chris.lu@mediatek.com>
-Reviewed-by: Paul Menzel <pmenzel@molgen.mpg.de>
-Signed-off-by: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
+Signed-off-by: Quan Zhou <quan.zhou@mediatek.com>
+Reviewed-by: druth@chromium.org
+Link: https://patch.msgid.link/19ec8e4465142e774f17801025accd0ae2214092.1763465933.git.quan.zhou@mediatek.com
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## Analysis: Bluetooth: btusb: MT7922: Add VID/PID 0489/e170
+# Commit Analysis: wifi: mt76: mt792x: fix wifi init fail by setting
+MCU_RUNNING after CLC load
 
-### 1. COMMIT MESSAGE ANALYSIS
+## 1. COMMIT MESSAGE ANALYSIS
 
-**Subject**: Adding a new USB Vendor ID (VID) 0x0489 and Product ID
-(PID) 0xe170 for a MediaTek MT7922 Bluetooth chip.
+**Subject:** Clearly indicates a bug fix ("fix wifi init fail")
 
-**Key Tags**:
-- Signed-off-by: Chris Lu from MediaTek (the chip vendor)
-- Reviewed-by: Paul Menzel
-- Signed-off-by: Luiz Augusto von Dentz (Bluetooth maintainer)
+**Problem described:** Setting `MT76_STATE_MCU_RUNNING` bit before CLC
+(Country/Legal Configuration) load completion could cause conflicts
+between MCU init retry and mac_reset flows, resulting in chip
+initialization failure and abnormal chip status.
 
-No explicit `Cc: stable@vger.kernel.org` tag, but this is common for
-device ID additions which are often handled implicitly.
+**Tags present:**
+- `Signed-off-by:` Quan Zhou (MediaTek - chip vendor) and Felix Fietkau
+  (mt76 maintainer)
+- `Reviewed-by:` druth@chromium.org (Chrome OS kernel team - indicates
+  real-world Chromebook impact)
+- No explicit `Cc: stable@vger.kernel.org` tag
+- No explicit `Fixes:` tag
 
-### 2. CODE CHANGE ANALYSIS
+## 2. CODE CHANGE ANALYSIS
 
-The change is a 2-line addition to the `quirks_table[]` array:
+The change is extremely simple and surgical:
+
+**Before the fix:**
 ```c
-{ USB_DEVICE(0x0489, 0xe170), .driver_info = BTUSB_MEDIATEK |
-                                             BTUSB_WIDEBAND_SPEECH },
+set_bit(MT76_STATE_MCU_RUNNING, &dev->mphy.state);  // State set here
+err = mt7921_load_clc(dev, mt792x_ram_name(dev));   // CLC load after
 ```
 
-This simply registers a new USB device ID with existing driver flags
-(`BTUSB_MEDIATEK` and `BTUSB_WIDEBAND_SPEECH`) that are already fully
-supported. The btusb driver already contains full MT7922 support - this
-just adds another VID/PID variant to the recognition table.
+**After the fix:**
+```c
+err = mt7921_load_clc(dev, mt792x_ram_name(dev));   // CLC load first
+set_bit(MT76_STATE_MCU_RUNNING, &dev->mphy.state);  // State set after
+success
+```
 
-### 3. CLASSIFICATION
+**Technical mechanism:**
+- `MT76_STATE_MCU_RUNNING` indicates the MCU is fully operational
+- Setting this flag prematurely (before CLC load) could allow other code
+  paths to think the MCU is ready when it's not
+- If something triggers MCU init retry or mac_reset during CLC load,
+  there's a race condition
+- The conflict causes complete initialization failure and abnormal chip
+  state
 
-This is a **NEW DEVICE ID** addition - one of the explicitly allowed
-exception categories for stable backports:
-- Adding a USB VID/PID to an existing, well-tested driver
-- Trivial one-entry addition to a device table
-- The driver code for MT7922 already exists; only recognition is missing
+**Why fix is correct:**
+- The state bit should only be set when initialization is truly complete
+- This ensures no code sees MCU_RUNNING during the vulnerable CLC
+  loading phase
+- Error handling remains intact (if CLC load fails, function returns
+  error)
 
-### 4. SCOPE AND RISK ASSESSMENT
+## 3. CLASSIFICATION
 
-| Metric | Assessment |
+- **Type:** Bug fix - initialization failure fix
+- **NOT** a feature addition
+- Fixes a real runtime bug affecting device usability
+
+## 4. SCOPE AND RISK ASSESSMENT
+
+| Factor | Assessment |
 |--------|------------|
-| Lines changed | 2 |
-| Files touched | 1 |
-| Complexity | Minimal - static table entry |
-| Risk | **Extremely low** |
+| Lines changed | ~6 lines (just moving 1 line in 2 files) |
+| Files touched | 2 (mt7921/mcu.c, mt7925/mcu.c) |
+| Complexity | Very low - simple reordering |
+| Regression risk | LOW - no logic changes, just timing |
+| Subsystem | Wireless driver (contained) |
 
-The change can only affect USB devices with VID=0x0489 and PID=0xe170.
-Users without this specific hardware are completely unaffected. This is
-about as low-risk as a kernel patch can be.
+The change is almost purely a reordering operation within the same
+function. If CLC load succeeds, the state gets set (same as before, just
+later). If it fails, function returns error anyway.
 
-### 5. USER IMPACT
+## 5. USER IMPACT
 
-- **Affected users**: Those with this specific MediaTek MT7922 Bluetooth
-  variant
-- **Severity without fix**: Bluetooth hardware is completely non-
-  functional (driver doesn't recognize the device)
-- **Impact**: HIGH for affected users - their Bluetooth doesn't work at
-  all
+**Affected hardware:** MediaTek mt7921 and mt7925 WiFi chips
 
-The commit includes detailed `/sys/kernel/debug/usb/devices` output
-showing real hardware, indicating this comes from actual user/vendor
-testing.
+These are **extremely common** chips found in:
+- Many Chromebooks (Chrome OS review indicates this)
+- Consumer laptops (Dell, Lenovo, HP, etc.)
+- USB WiFi adapters
+- Various PC builds
 
-### 6. STABILITY INDICATORS
+**Severity:** HIGH
+- WiFi initialization failure = device doesn't work at all
+- "chip abnormal status" suggests chip may be left in broken state
+- Users cannot use their WiFi until reboot or driver reload
 
-- Authored by MediaTek (chip vendor) with direct hardware knowledge
-- Reviewed by community member
-- Signed off by the Bluetooth subsystem maintainer
-- Follows established pattern of many similar MT7922 device ID entries
-  visible in the diff context
+## 6. STABILITY INDICATORS
 
-### 7. DEPENDENCY CHECK
+- Reviewed by Chromium kernel team (indicates real-world testing on
+  Chromebooks)
+- From MediaTek engineer (hardware vendor knows their chip)
+- Accepted by mt76 maintainer Felix Fietkau
+- Clean, minimal change with clear rationale
 
-- **No dependencies**: This is a self-contained table entry addition
-- **Existing support**: The BTUSB_MEDIATEK and BTUSB_WIDEBAND_SPEECH
-  flags and MT7922 support code exist in all recent stable trees
-- **Clean application**: Should apply cleanly to any stable tree that
-  has MT7922 support
+## 7. DEPENDENCY CHECK
 
-### CONCLUSION
+The change is self-contained. It only reorders existing function calls
+within `mt7921_run_firmware()` and `mt7925_run_firmware()`. No new
+dependencies are introduced.
 
-This commit is a textbook example of what SHOULD be backported to
-stable:
+The mt7921 driver has been in stable kernels for some time. The mt7925
+is newer and may not exist in older stable trees, but the mt7921 portion
+would still be valuable.
 
-1. **Falls under Device ID Exception**: Explicitly allowed category for
-   stable
-2. **Fixes Real User Problem**: Enables Bluetooth hardware that would
-   otherwise be completely non-functional
-3. **Minimal Risk**: 2-line table entry addition, cannot break anything
-   else
-4. **No New Features**: Just enables existing driver for new hardware
-   variant
-5. **Well-Reviewed**: Proper sign-offs from vendor and maintainer
-6. **Clear Benefit**: Users with this hardware get working Bluetooth
+## STABLE KERNEL CRITERIA CHECK
 
-The lack of explicit stable tag is typical for device ID additions -
-stable maintainers routinely accept these. The benefit (enabling
-hardware) far outweighs the near-zero risk.
+| Criterion | Met? | Notes |
+|-----------|------|-------|
+| Obviously correct | ✅ | Simple reordering, logic is clear |
+| Fixes real bug | ✅ | WiFi init failure - real user impact |
+| Small and contained | ✅ | 6 lines, 2 files, same subsystem |
+| No new features | ✅ | No new APIs or functionality |
+| No architectural changes | ✅ | Minimal change |
+
+## RISK vs BENEFIT
+
+**Benefit:** High - Fixes WiFi initialization failure on widely-deployed
+hardware. Without this fix, affected users may have non-functional WiFi.
+
+**Risk:** Very low - The change is a trivial reordering of two
+operations. The logic remains identical; only the timing of when the
+state bit is set changes. The fix has been reviewed by the chip vendor
+and Chrome OS team.
+
+## CONCLUSION
+
+This commit is an ideal candidate for stable backporting:
+
+1. **Fixes a real, user-visible bug** - WiFi doesn't work
+2. **Minimal change** - Just reordering one line in each of two files
+3. **Well-reviewed** - MediaTek and Chrome OS review
+4. **Low regression risk** - No logic changes, simple timing fix
+5. **High user impact** - mt7921/mt7925 are very common chips
+6. **Contained scope** - Only affects initialization path of specific
+   driver
+
+The lack of `Cc: stable` tag doesn't disqualify it - many legitimate
+fixes don't include this tag. The important factors are all positive: it
+fixes a real bug, is small, safe, and affects real users.
 
 **YES**
 
- drivers/bluetooth/btusb.c | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/net/wireless/mediatek/mt76/mt7921/mcu.c | 2 +-
+ drivers/net/wireless/mediatek/mt76/mt7925/mcu.c | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
-index 595afeff4afb5..9b199da1c0d67 100644
---- a/drivers/bluetooth/btusb.c
-+++ b/drivers/bluetooth/btusb.c
-@@ -687,6 +687,8 @@ static const struct usb_device_id quirks_table[] = {
- 						     BTUSB_WIDEBAND_SPEECH },
- 	{ USB_DEVICE(0x0489, 0xe153), .driver_info = BTUSB_MEDIATEK |
- 						     BTUSB_WIDEBAND_SPEECH },
-+	{ USB_DEVICE(0x0489, 0xe170), .driver_info = BTUSB_MEDIATEK |
-+						     BTUSB_WIDEBAND_SPEECH },
- 	{ USB_DEVICE(0x04ca, 0x3804), .driver_info = BTUSB_MEDIATEK |
- 						     BTUSB_WIDEBAND_SPEECH },
- 	{ USB_DEVICE(0x04ca, 0x38e4), .driver_info = BTUSB_MEDIATEK |
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7921/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7921/mcu.c
+index 86bd33b916a9d..edc1df3c071e5 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7921/mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7921/mcu.c
+@@ -646,10 +646,10 @@ int mt7921_run_firmware(struct mt792x_dev *dev)
+ 	if (err)
+ 		return err;
+ 
+-	set_bit(MT76_STATE_MCU_RUNNING, &dev->mphy.state);
+ 	err = mt7921_load_clc(dev, mt792x_ram_name(dev));
+ 	if (err)
+ 		return err;
++	set_bit(MT76_STATE_MCU_RUNNING, &dev->mphy.state);
+ 
+ 	return mt7921_mcu_fw_log_2_host(dev, 1);
+ }
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
+index 8eda407e4135e..c12b71b71cfc7 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7925/mcu.c
+@@ -1003,10 +1003,10 @@ int mt7925_run_firmware(struct mt792x_dev *dev)
+ 	if (err)
+ 		return err;
+ 
+-	set_bit(MT76_STATE_MCU_RUNNING, &dev->mphy.state);
+ 	err = mt7925_load_clc(dev, mt792x_ram_name(dev));
+ 	if (err)
+ 		return err;
++	set_bit(MT76_STATE_MCU_RUNNING, &dev->mphy.state);
+ 
+ 	return mt7925_mcu_fw_log_2_host(dev, 1);
+ }
 -- 
 2.51.0
 
