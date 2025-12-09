@@ -4,65 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54AB9D3B7EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 15:43:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D47E1D3B7ED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 15:45:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SngIfUchuhCOgyFhy9jpPTxNholJPy7bYAm9+28jnyU=; b=Ii39VTh4xl9A51WYq7N6g4RW+e
-	f7k6nA2h9rErqxqc3RWYcZz43GKC19WujY5Zx1sY07tuMo1GDG7AvCy/P/vvj0lgH7Evemn+NsoH6
-	r2Qiz1/Ef92FxNZQR+vt2oudSVNnLVhLD9bCyyRje3BB2gH+B3/C6meEPDYn/imj01/YcAbrR7j7G
-	rqi8Qosky3p9jlUdUZa6QRy3y31v/qqlZdPOIkzzBOEHCkkb5SIIg879y+z3POH704H/pYTaqBc3G
-	1Zm2UEj+ozjDa0V5JoKsOxFzkS40on/ah6844TWzaulI9TWw0QXuilp5Zs1yJ3l2LTwojEOvl1rza
-	1RtI9Frg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WTWbp5lDhtY/WgZEegvKxuVSit34jSF5hjKlvg/Chpw=; b=I8n8e+tPoY9Q5EhGE5BZ5KFvDd
+	R4Kfd3SgJFdQ3ZqJnoNT8TTJ2vR59wuZ70+GgHAnscoCZL2cdFy64oWWqKiaYBklxFq/KSbREmDVm
+	NYlZPTIWqsu8v1a8G+X5Uqw4QPV+c+M+GH2bqDSnSOy6TDZon4/MbKIbWKZiBtrTXN874uKOOtp8j
+	JzZFxR/I/1fHESlZk6U4TpKL/rkuN/erkhnMYD/MGxg0wLr0gJLsitLB8cRBXar6ssKY8/3XWusRF
+	nU5kQ6Ury9hKiI8f6yTcEVPz1gpK5yhpDohXKblK8k6wm9xpN4eSYWATIQEy4Io6JEUCInVBJa2KN
+	3iE03IgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSzs1-0000000ESuG-3KwE;
-	Tue, 09 Dec 2025 15:43:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSzrz-0000000EStr-1pQk
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 15:43:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C2900175D;
-	Tue,  9 Dec 2025 07:43:10 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 975B33F762;
-	Tue,  9 Dec 2025 07:43:14 -0800 (PST)
-Message-ID: <357f747b-055c-4dcf-bd63-32600dab7fe7@arm.com>
-Date: Tue, 9 Dec 2025 15:43:12 +0000
+	id 1vSztu-0000000ET3V-2DNj;
+	Tue, 09 Dec 2025 15:45:18 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vSztr-0000000ET2u-2UCp;
+	Tue, 09 Dec 2025 15:45:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MqyjVghvnFW/Joc2NZn/b6fqE+jm87BiB4KAXKRBBmcdHAsPAeuMNpeqgMWBcjrOLbzI+KKVNaSG9fqX5fkoFrrcTHUhwn/61Dc0aSgSglns1sji+fkDfK+BVkJkaoVPnhEcgMaZKduMJnfgqBFd0CMBbMVo9wAyHgTDNfmV2JC5mVNAUcpMRXsWoYwi/gRF1aglSMrym0rbJsOcWpQhrmz5nkUugGiFjtH+GHmhx5cfYIi7S6WXKvkil2NPLnw0QsDtWrGrxEwabOiKisjtDdyu3xSyebG2n13852EWlE0U/PhRNLXAJR6mxi8b+6iK+zUg4u25XuAELNgJycc3Hw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=WTWbp5lDhtY/WgZEegvKxuVSit34jSF5hjKlvg/Chpw=;
+ b=UnPHxqquG7hEugBnk2kjVH419t2bJlQ5KnnEDJSr750egXULq7/z2uQ58HJ5goJ9PmAcJsaI31YLOxJT1rGbS1LMQtWvMYuCAItMx4v2VZAptqNO3ITjdCrXeUOdsQteKhyclXLTdqXZPwGqGgZ6f3WWzUJ9oFckdRr8M7rzRMF3z4g5ehkXI/waYwPciazHRCh2/z0In82AISgAdsXv7p1MABTlEujNO0dK4Brqi1fJdYNEbu254p/r/i7wGviyZiyrbXzLq5M6+Ix2PuccMzVT6Qxfb96f2FZk+HFo27WbXGygbBRvL3SE2b+fJQ0ZQPdobxp+EheqzYy0j4PR3A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=WTWbp5lDhtY/WgZEegvKxuVSit34jSF5hjKlvg/Chpw=;
+ b=kDxcdiAkehnVQUvTdHCtP03AAswObeCYU5RGKgQ0RD/gSx5pg2isTcX+obs2OLj/54QRgyQVYEykuuknUdNOgBjEM2jfwRDp0D//IiDc24t1HuXK/aPzkAjZKQBqkGNYsS8E5HmS1LNomS81fKFC2wNXF+806UMUuitHlWUKfwEA/222zLiqQdq5PqzMwJQnqgDfIQGXHbup2Tqufw6036ufxsYYHFfkPlDLpv9VfOSGWrHVRSeL4eqiADh0uVrpeZwuloLYrdxJ8+X9Z184rCpXY5JlANoXuI03jdN6+NS6rWlCdSjjLSeFlBCsxnCX9tV82DEOyFxF2L60uwGqAA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by GV1PR04MB11015.eurprd04.prod.outlook.com (2603:10a6:150:212::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.14; Tue, 9 Dec
+ 2025 15:45:08 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9388.013; Tue, 9 Dec 2025
+ 15:45:08 +0000
+Date: Tue, 9 Dec 2025 10:44:55 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Damien Le Moal <dlemoal@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>,
+	Sagi Grimberg <sagi@grimberg.me>,
+	Chaitanya Kulkarni <kch@nvidia.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Koichiro Den <den@valinux.co.jp>, Niklas Cassel <cassel@kernel.org>,
+	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org,
+	mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev
+Subject: Re: [PATCH 5/8] nvmet: pci-epf: Remove unnecessary
+ dmaengine_terminate_sync() on each DMA transfer
+Message-ID: <aThD92lA2aiOKZCr@lizhi-Precision-Tower-5810>
+References: <20251208-dma_prep_config-v1-0-53490c5e1e2a@nxp.com>
+ <20251208-dma_prep_config-v1-5-53490c5e1e2a@nxp.com>
+ <f9107db3-491e-4224-a337-821a89f99132@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <f9107db3-491e-4224-a337-821a89f99132@kernel.org>
+X-ClientProxiedBy: SJ0PR05CA0092.namprd05.prod.outlook.com
+ (2603:10b6:a03:334::7) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 07/38] arm_mpam: resctrl: Add boilerplate cpuhp and
- domain allocation
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@kernel.org>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Gavin Shan
- <gshan@redhat.com>, rohit.mathew@arm.com, reinette.chatre@intel.com,
- Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-References: <20251205215901.17772-1-james.morse@arm.com>
- <20251205215901.17772-8-james.morse@arm.com>
-From: Ben Horgan <ben.horgan@arm.com>
-Content-Language: en-US
-In-Reply-To: <20251205215901.17772-8-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|GV1PR04MB11015:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3f0388b6-d2f9-4ec2-a40b-08de3739ee31
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|7416014|52116014|376014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?zu+YGp/9N39/ZsODms2afY+OIRidFQUHytTa1uS7CiJjba4jtJx5VUKhrDVK?=
+ =?us-ascii?Q?VUna4EdaVQE66QeSWgA5kcal3ajKvEgr8XDeJrx8BOkxxoA2OB2QZgcA1CLN?=
+ =?us-ascii?Q?fAR5Hab50h5bpsGg+j4EZkUDJpNsduB7CLC5NndvQuh3YCCjmyyiwjfMXxrc?=
+ =?us-ascii?Q?YXu1QMPgqVAUlf3d3Yhh1reKQFDF8+iyjPN2M1MxWFCDLjCKMUasuMg4pHXV?=
+ =?us-ascii?Q?dTa2T4Pig7pxYC/pJiBibD7oKYL24i7H4BuuIUkCUWwJHadwFgAoA4Jp9dyW?=
+ =?us-ascii?Q?mwQ0+TGichNr101N0Y2sQ9C4nkr1yCxKb/lhMlP9j4l8odwIvWOmWJb7Cple?=
+ =?us-ascii?Q?Vgv1KQLqC3I7s34PLALjjz2XOKtTRkXNUOdy/kEiE+z9pNgAlqIRI3PJximq?=
+ =?us-ascii?Q?j0SCr0/Tf5WYXdMhXL+Ant+BTKk4SLfx7GIGdnMjwrH4Yfp2b3lW91Ro0qqR?=
+ =?us-ascii?Q?melihFjog1q/7HXYD1pNyrDS7m7sUN4yN6i6WqttQlMPWp9zT3ufZQNPKqtf?=
+ =?us-ascii?Q?tZC/Ctv//W3dWGBJtI64PuoRIfFOu/ew5qRauoDkon9D/p9xozAc4zsgCtB6?=
+ =?us-ascii?Q?C4ATBA2GYs4HWHE86wP0h8kaOlGx32OlGxxPnOHeFcbM9OBFiV46DjvtyqtF?=
+ =?us-ascii?Q?wWc1g06LhnLv0EzXfQQ9mj5Tg5gbQOinjNZjI7y8aIcEShxWD4lc3DzlH3lM?=
+ =?us-ascii?Q?aQj+wlzjJibnP8ymhi+KvFtKeCo/yUQYQLK9L4kAGdN4640kFEd4yhf4Qao/?=
+ =?us-ascii?Q?uXxo8J6o/mRyaKfPoAtaMWbFpo3RtYXUuxlnEE8/0C0eY771P0vkmeNpJeny?=
+ =?us-ascii?Q?Tq/TJtHAyOH0TyXLD4yCpuIPUiCfQHjXxAs5qfPxtNlBtE9YirbQHL0NwgXB?=
+ =?us-ascii?Q?G0ck9fVKwZM8nCHba71T+Ui2t6rZKA71McHMKTMVpZSWaBLwGFwkoR3t4ase?=
+ =?us-ascii?Q?VPH9dxTdqVakmbeL/Uba2J3G2LY2pQ7ptwVBzEzbaCGF+rN9mz4/qk8ckdEc?=
+ =?us-ascii?Q?ragzTQFSZAjAqI9CtrOyH+yvrzeTpulZ0YfktLBC5LlOVrozpo8ENBWSqtta?=
+ =?us-ascii?Q?CX5l27kSINN8FlgNyXIeupxW+L2Ymw5Zk321iUv+WjWPWoyXMZlpnznDpMX5?=
+ =?us-ascii?Q?JZCALmtZ8Lgs/NJ99WqQFhrlQxMuPEexZxKxUHJrSbUsS/hetsK4Gj0d5e4R?=
+ =?us-ascii?Q?vQHHVFrAl+TFEso5eHj3irMSzNcn/MZiB9iWrfuz55GBXcvpKtqg2+zs3Cxy?=
+ =?us-ascii?Q?/gOfCPRjWD/WLw+7CUXQQGD6UegHvwIJKlyRuXOfP6xUso2tVVLFrXF5YGu4?=
+ =?us-ascii?Q?rCFXGRn0mwzoLixAMt3qS5Mc2+yyBvfQx4DQ0KqD9BDzOw12z8NCJErv306U?=
+ =?us-ascii?Q?40uvixZNYH7YwcrcTljvk/JBzaNZZJcJDiffMH1Fh3WTrsAN9wkfLaYmwcn+?=
+ =?us-ascii?Q?w7y/ZrYhnFLRsSXNKzcfNOGvn+EirI2gqDm0c6IKgSZ/twvKerUPurT9HfFh?=
+ =?us-ascii?Q?UwNtOsq/ZCD4X1KG0pB7qovlKCbzijuVOUvU?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(7416014)(52116014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?j9FkdCl7c68IISD7o9B0nEUpWH7tmofF/w4hitKTN3d7GoJx30dC+1LvDJBV?=
+ =?us-ascii?Q?MMZHtLynOo+rYtsBoJs/syH2+S4PLqZ/5nSxOBn8ShtSuLUxJx0iqgmBMjZu?=
+ =?us-ascii?Q?wDtpEvFCp8D+ENEvSChknXZy1wVEGKX/lw6+ZfhyaXrp5JgiL4JR8c0A2maJ?=
+ =?us-ascii?Q?EFhDkG0Bnk6f0SNpaohGdjeTGy5TRXLOHVi7vg7emZ2ZiE8GKW+8IS6EqY1l?=
+ =?us-ascii?Q?V7EF6u7T5jMMY5Is0r3O2gpszi3MHWpEw/i/3l5ESctp/DI/4FfmMMwn+bcc?=
+ =?us-ascii?Q?Oxq3N0Gw6UQ6gez4mk2KMwYTVKveozaRkxB3AQyINkGxYqkBzpD6jkgpAoE3?=
+ =?us-ascii?Q?W2kYtAps5bWbDLA1q2l389xXRBzXS+Uw3qPPs4RlR+uBn9t4k1W68OD+qmOJ?=
+ =?us-ascii?Q?tMG5QrDkYqVeBa8vUIgdttPcCaGekGshB4SjaSMwQainxC61HP7j9aER4Rqb?=
+ =?us-ascii?Q?ASnkfAtrQ2Vxl8hNuK4RxuxkfRL5VcbKpiX6F/oE9AxuzD8q8yYTg+hTLLpF?=
+ =?us-ascii?Q?FnFilv6q7RVisy8glcWLTqH9/qILpGUqMj9X2TyzjwKnPxgNgGZlKzPt85JF?=
+ =?us-ascii?Q?UBvqvigrgcFkQSjpi7BTwNUjMquB8SanTz17rY24yfPZVj5J0uuczTW7SgJ7?=
+ =?us-ascii?Q?Isz3tSKyz6aeu8JNf3AnPrqr96lpcgIt8MYOB7vGgJHbZrnGoXwOs/mXKBzS?=
+ =?us-ascii?Q?R2Z5dN3/9oa48at+I2rP9DVz4Su8Tdi2W1Lwj3+aPhJibqrfDmlUUyIzQ+ya?=
+ =?us-ascii?Q?kMBLP7ibLr1w84IQ0IImSyYvLy7K/Qqi548LV0nn47OwYi1jDbfZc7JMGWl0?=
+ =?us-ascii?Q?wrD2yGS2kpR4bKVm/ujhuuqXpbt7/cklnDAXUMJxp830N59X872tXBq07z3v?=
+ =?us-ascii?Q?Dk/JR01zvFofMeyeiYi0/vjSnDuZD0KUS+NsB8hi2SUNYOJxILYCSdr+LDtI?=
+ =?us-ascii?Q?/QVhDn+/rRfTkL8WvqdnK+fAdPJoOjvi5jK+mGNVGXUaKQaj/ZW5m1ToW4tc?=
+ =?us-ascii?Q?uFlQg9irxX2h1QTpGKE9MqCsWEjcBt+rkKPF0KMgIo/HpLIgsr00pW7g20ji?=
+ =?us-ascii?Q?6rQfdCUoSHndGqeMCskT9h6rp7PGnCwa2txcI31/VBTAzWH8pJvWTa+NZbK3?=
+ =?us-ascii?Q?BjHpF/9xPjMLTWnlvf8qdFSAm6ieLGMrVY01Hx1tP0zUKtUgvUs+UBUjHWxs?=
+ =?us-ascii?Q?+rROrp138HALbUbBGCBQ0vmEtlOL0ENT7+8+17a0Pk/jlW1oh2rUjFH2O0qe?=
+ =?us-ascii?Q?eGuX0hMF6iUdAjmnS6c/AFlKWDDVTNjR6JZ+RA5I5XvLRoz4heW1TbuweJN5?=
+ =?us-ascii?Q?4mQxf+G/ztXGjSXWN6OumAVpZSBlaFK4z1Yg+jvrdGfxzVUxB01ZkKB5ea60?=
+ =?us-ascii?Q?ob9nzuYTl3Wb4Z540CZbNjwyU8A/VZwm4dlbVZyNeEo5Rt1q6+r2oDY1XIg1?=
+ =?us-ascii?Q?bmnPoHXUpRdj8ubdpJf87WYcc5Trmfss6u3mfeF92OW9Ee2T1x/caMsIxKCa?=
+ =?us-ascii?Q?XAVczSQugUK3eSKMyuw0e1x/mWX1ItwY2TRp/QWpfY0vKm8BPkBeNHsjEnbh?=
+ =?us-ascii?Q?0LERq2MDbqr5s57csH3OsqBkfV39jzRayb7G2Mpc?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3f0388b6-d2f9-4ec2-a40b-08de3739ee31
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Dec 2025 15:45:08.3938
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: b/uGsoxGfDpqByRenV7I88oT1EMhBLZvk8Ad7DedjZalLTspzXc+Ctu0ncMyEPVjp9ykFhGQyGo71vAjFxGkmw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB11015
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_074319_574107_04067FD6 
-X-CRM114-Status: GOOD (  38.03  )
+X-CRM114-CacheID: sfid-20251209_074515_672040_3739B53C 
+X-CRM114-Status: GOOD (  21.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,390 +173,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+On Tue, Dec 09, 2025 at 03:52:15PM +0900, Damien Le Moal wrote:
+> On 12/9/25 2:09 AM, Frank Li wrote:
+> > dmaengine_terminate_sync() cancels all pending requests. Calling it for
+> > every DMA transfer is unnecessary and counterproductive. This function is
+> > generally intended for cleanup paths such as module removal, device close,
+> > or unbind operations.
+> >
+> > Remove the redundant calls.
+> >
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> > This one also fix stress test failure after remove mutex and use new API
+> > dmaengine_prep_slave_sg_config().
+> > ---
+> >  drivers/nvme/target/pci-epf.c | 2 --
+> >  1 file changed, 2 deletions(-)
+> >
+> > diff --git a/drivers/nvme/target/pci-epf.c b/drivers/nvme/target/pci-epf.c
+> > index 2e78397a7373a7d8ba67150f301f392123db88d1..85225a4f75b5bd7abb6897d064123766af021542 100644
+> > --- a/drivers/nvme/target/pci-epf.c
+> > +++ b/drivers/nvme/target/pci-epf.c
+> > @@ -420,8 +420,6 @@ static int nvmet_pci_epf_dma_transfer(struct nvmet_pci_epf *nvme_epf,
+> >  		ret = -EIO;
+> >  	}
+> >
+> > -	dmaengine_terminate_sync(chan);
+>
+> If the above dma_sync_wait failed, we better call this here as we have no idea
+> why we got the failure, no ?
 
-On 12/5/25 21:58, James Morse wrote:
-> resctrl has its own data structures to describe its resources. We
-> can't use these directly as we play tricks with the 'MBA' resource,
-> picking the MPAM controls or monitors that best apply. We may export
-> the same component as both L3 and MBA.
-> 
-> Add mpam_resctrl_exports[] as the array of class->resctrl mappings we
-> are exporting, and add the cpuhp hooks that allocated and free the
-> resctrl domain structures.
-> 
-> While we're here, plumb in a few other obvious things.
-> 
-> CONFIG_ARM_CPU_RESCTRL is used to allow this code to be built
-> even though it can't yet be linked against resctrl.
-> 
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
->  drivers/resctrl/Makefile        |   1 +
->  drivers/resctrl/mpam_devices.c  |  12 ++
->  drivers/resctrl/mpam_internal.h |  22 +++
->  drivers/resctrl/mpam_resctrl.c  | 329 ++++++++++++++++++++++++++++++++
->  include/linux/arm_mpam.h        |   3 +
->  5 files changed, 367 insertions(+)
->  create mode 100644 drivers/resctrl/mpam_resctrl.c
-> 
-[...]
-> diff --git a/drivers/resctrl/mpam_resctrl.c b/drivers/resctrl/mpam_resctrl.c
-> new file mode 100644
-> index 000000000000..320cebbd37ce
-> --- /dev/null
-> +++ b/drivers/resctrl/mpam_resctrl.c
-> @@ -0,0 +1,329 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +// Copyright (C) 2025 Arm Ltd.
-> +
-> +#define pr_fmt(fmt) "%s:%s: " fmt, KBUILD_MODNAME, __func__
-> +
-> +#include <linux/arm_mpam.h>
-> +#include <linux/cacheinfo.h>
-> +#include <linux/cpu.h>
-> +#include <linux/cpumask.h>
-> +#include <linux/errno.h>
-> +#include <linux/list.h>
-> +#include <linux/printk.h>
-> +#include <linux/rculist.h>
-> +#include <linux/resctrl.h>
-> +#include <linux/slab.h>
-> +#include <linux/types.h>
-> +
-> +#include <asm/mpam.h>
-> +
-> +#include "mpam_internal.h"
-> +
-> +/*
-> + * The classes we've picked to map to resctrl resources, wrapped
-> + * in with their resctrl structure.
-> + * Class pointer may be NULL.
-> + */
-> +static struct mpam_resctrl_res mpam_resctrl_controls[RDT_NUM_RESOURCES];
-> +
-> +/* The lock for modifying resctrl's domain lists from cpuhp callbacks. */
-> +static DEFINE_MUTEX(domain_list_lock);
-> +
-> +static bool exposed_alloc_capable;
-> +static bool exposed_mon_capable;
-> +
-> +bool resctrl_arch_alloc_capable(void)
-> +{
-> +	return exposed_alloc_capable;
-> +}
-> +
-> +bool resctrl_arch_mon_capable(void)
-> +{
-> +	return exposed_mon_capable;
-> +}
-> +
-> +/*
-> + * MSC may raise an error interrupt if it sees an out or range partid/pmg,
-> + * and go on to truncate the value. Regardless of what the hardware supports,
-> + * only the system wide safe value is safe to use.
-> + */
-> +u32 resctrl_arch_get_num_closid(struct rdt_resource *ignored)
-> +{
-> +	return mpam_partid_max + 1;
-> +}
-> +
-> +struct rdt_resource *resctrl_arch_get_resource(enum resctrl_res_level l)
-> +{
-> +	if (l >= RDT_NUM_RESOURCES)
-> +		return NULL;
-> +
-> +	return &mpam_resctrl_controls[l].resctrl_res;
-> +}
-> +
-> +static int mpam_resctrl_control_init(struct mpam_resctrl_res *res,
-> +				     enum resctrl_res_level type)
-> +{
-> +	/* TODO: initialise the resctrl resources */
-> +
-> +	return 0;
-> +}
-> +
-> +static int mpam_resctrl_pick_domain_id(int cpu, struct mpam_component *comp)
-> +{
-> +	struct mpam_class *class = comp->class;
-> +
-> +	if (class->type == MPAM_CLASS_CACHE)
-> +		return comp->comp_id;
-> +
-> +	/* TODO: repaint domain ids to match the L3 domain ids */
-> +	/*
-> +	 * Otherwise, expose the ID used by the firmware table code.
-> +	 */
-> +	return comp->comp_id;
-> +}
-> +
-> +static void mpam_resctrl_domain_hdr_init(int cpu, struct mpam_component *comp,
-> +					 struct rdt_domain_hdr *hdr)
-> +{
-> +	lockdep_assert_cpus_held();
-> +
-> +	INIT_LIST_HEAD(&hdr->list);
-> +	hdr->id = mpam_resctrl_pick_domain_id(cpu, comp);
-> +	cpumask_set_cpu(cpu, &hdr->cpu_mask);
-> +}
-> +
-> +/**
-> + * mpam_resctrl_offline_domain_hdr() - Update the domain header to remove a CPU.
-> + * @cpu:	The CPU to remove from the domain.
-> + * @hdr:	The domain's header.
-> + *
-> + * Removes @cpu from the header mask. If this was the last CPU in the domain,
-> + * the domain header is removed from its parent list and true is returned,
-> + * indicating the parent structure can be freed.
-> + * If there are other CPUs in the domain, returns false.
-> + */
-> +static bool mpam_resctrl_offline_domain_hdr(unsigned int cpu,
-> +					    struct rdt_domain_hdr *hdr)
-> +{
-> +	cpumask_clear_cpu(cpu, &hdr->cpu_mask);
-> +	if (cpumask_empty(&hdr->cpu_mask)) {
-> +		list_del(&hdr->list);
+Yes, it should be call at only failure case.
 
-list_del_rcu(). I'll check some more as I'm not yet convinced we need
-rcu for these lists.
-
-> +		return true;
-> +	}
-> +
-> +	return false;
-> +}
-> +
-> +static struct mpam_resctrl_dom *
-> +mpam_resctrl_alloc_domain(unsigned int cpu, struct mpam_resctrl_res *res)
-> +{
-> +	int err;
-> +	struct mpam_resctrl_dom *dom;
-> +	struct rdt_mon_domain *mon_d;
-> +	struct rdt_ctrl_domain *ctrl_d;
-> +	struct mpam_class *class = res->class;
-> +	struct mpam_component *comp_iter, *ctrl_comp;
-> +	struct rdt_resource *r = &res->resctrl_res;
-> +
-> +	lockdep_assert_held(&domain_list_lock);
-> +
-> +	ctrl_comp = NULL;
-> +	guard(srcu)(&mpam_srcu);
-> +	list_for_each_entry_srcu(comp_iter, &class->components, class_list,
-> +				 srcu_read_lock_held(&mpam_srcu)) {
-> +		if (cpumask_test_cpu(cpu, &comp_iter->affinity)) {
-> +			ctrl_comp = comp_iter;
-> +			break;
-> +		}
-> +	}
-> +
-> +	/* class has no component for this CPU */
-> +	if (WARN_ON_ONCE(!ctrl_comp))
-> +		return ERR_PTR(-EINVAL);
-> +
-> +	dom = kzalloc_node(sizeof(*dom), GFP_KERNEL, cpu_to_node(cpu));
-> +	if (!dom)
-> +		return ERR_PTR(-ENOMEM);
-> +
-> +	if (exposed_alloc_capable) {
-> +		dom->ctrl_comp = ctrl_comp;
-> +
-> +		ctrl_d = &dom->resctrl_ctrl_dom;
-> +		mpam_resctrl_domain_hdr_init(cpu, ctrl_comp, &ctrl_d->hdr);
-> +		ctrl_d->hdr.type = RESCTRL_CTRL_DOMAIN;
-> +		/* TODO: this list should be sorted */
-> +		list_add_tail_rcu(&ctrl_d->hdr.list, &r->ctrl_domains);
-> +		err = resctrl_online_ctrl_domain(r, ctrl_d);
-> +		if (err) {
-> +			dom = ERR_PTR(err);
-> +			goto offline_ctrl_domain;
-> +		}
-> +	} else {
-> +		pr_debug("Skipped control domain online - no controls\n");
-> +	}
-> +
-> +	if (exposed_mon_capable) {
-> +		mon_d = &dom->resctrl_mon_dom;
-> +		mpam_resctrl_domain_hdr_init(cpu, ctrl_comp, &mon_d->hdr);
-> +		mon_d->hdr.type = RESCTRL_MON_DOMAIN;
-> +		/* TODO: this list should be sorted */
-> +		list_add_tail_rcu(&mon_d->hdr.list, &r->mon_domains);
-> +		err = resctrl_online_mon_domain(r, mon_d);
-> +		if (err) {
-> +			dom = ERR_PTR(err);
-> +			goto offline_mon_hdr;
-> +		}
-> +	} else {
-> +		pr_debug("Skipped monitor domain online - no monitors\n");
-> +	}
-> +	goto out;
-> +
-> +offline_mon_hdr:
-> +	mpam_resctrl_offline_domain_hdr(cpu, &mon_d->hdr);
-> +offline_ctrl_domain:
-> +	resctrl_offline_ctrl_domain(r, ctrl_d);
-> +out:
-> +	return dom;
-> +}
-> +
-> +static struct mpam_resctrl_dom *
-> +mpam_resctrl_get_domain_from_cpu(int cpu, struct mpam_resctrl_res *res)
-> +{
-> +	struct mpam_resctrl_dom *dom;
-> +	struct rdt_ctrl_domain *ctrl_d;
-> +
-> +	lockdep_assert_cpus_held();
-> +
-> +	list_for_each_entry_rcu(ctrl_d, &res->resctrl_res.ctrl_domains,
-> +				hdr.list) {
-> +		dom = container_of(ctrl_d, struct mpam_resctrl_dom,
-> +				   resctrl_ctrl_dom);
-> +
-> +		if (cpumask_test_cpu(cpu, &dom->ctrl_comp->affinity))
-> +			return dom;
-> +	}
-> +
-> +	return NULL;
-> +}
-> +
-> +int mpam_resctrl_online_cpu(unsigned int cpu)
-> +{
-> +	int i;
-> +	struct mpam_resctrl_dom *dom;
-> +	struct mpam_resctrl_res *res;
-> +
-> +	guard(mutex)(&domain_list_lock);
-> +	for (i = 0; i < RDT_NUM_RESOURCES; i++) {
-> +		res = &mpam_resctrl_controls[i];
-> +		if (!res->class)
-> +			continue;	// dummy_resource;
-> +
-> +		dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
-> +		if (!dom)
-> +			dom = mpam_resctrl_alloc_domain(cpu, res);
-> +		if (IS_ERR(dom))
-> +			return PTR_ERR(dom);
-> +	}
-> +
-> +	resctrl_online_cpu(cpu);
-> +
-> +	return 0;
-> +}
-> +
-> +void mpam_resctrl_offline_cpu(unsigned int cpu)
-> +{
-> +	int i;
-> +	struct mpam_resctrl_res *res;
-> +	struct mpam_resctrl_dom *dom;
-> +	struct rdt_mon_domain *mon_d;
-> +	struct rdt_ctrl_domain *ctrl_d;
-> +	bool ctrl_dom_empty, mon_dom_empty;
-> +
-> +	resctrl_offline_cpu(cpu);
-> +
-> +	guard(mutex)(&domain_list_lock);
-> +	for (i = 0; i < RDT_NUM_RESOURCES; i++) {
-> +		res = &mpam_resctrl_controls[i];
-> +		if (!res->class)
-> +			continue;	// dummy resource
-> +
-> +		dom = mpam_resctrl_get_domain_from_cpu(cpu, res);
-> +		if (WARN_ON_ONCE(!dom))
-> +			continue;
-> +
-> +		ctrl_dom_empty = true;
-> +		if (exposed_alloc_capable) {
-> +			ctrl_d = &dom->resctrl_ctrl_dom;
-> +			ctrl_dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &ctrl_d->hdr);
-> +			if (ctrl_dom_empty)
-> +				resctrl_offline_ctrl_domain(&res->resctrl_res, ctrl_d);
-> +		}
-> +
-> +		mon_dom_empty = true;
-> +		if (exposed_mon_capable) {
-> +			mon_d = &dom->resctrl_mon_dom;
-> +			mon_dom_empty = mpam_resctrl_offline_domain_hdr(cpu, &mon_d->hdr);
-> +			if (mon_dom_empty)
-> +				resctrl_offline_mon_domain(&res->resctrl_res, mon_d);
-> +		}
-> +
-> +		if (ctrl_dom_empty && mon_dom_empty)
-> +			kfree(dom);
-> +	}
-> +}
-> +
-> +int mpam_resctrl_setup(void)
-> +{
-> +	int err = 0;
-> +	enum resctrl_res_level i;
-> +	struct mpam_resctrl_res *res;
-> +
-> +	cpus_read_lock();
-> +	for (i = 0; i < RDT_NUM_RESOURCES; i++) {
-> +		res = &mpam_resctrl_controls[i];
-> +		INIT_LIST_HEAD_RCU(&res->resctrl_res.ctrl_domains);
-> +		INIT_LIST_HEAD_RCU(&res->resctrl_res.mon_domains);
-> +		res->resctrl_res.rid = i;
-> +	}
-> +
-> +	/* TODO: pick MPAM classes to map to resctrl resources */
-> +
-> +	/* Initialise the resctrl structures from the classes */
-> +	for (i = 0; i < RDT_NUM_RESOURCES; i++) {
-> +		res = &mpam_resctrl_controls[i];
-> +		if (!res->class)
-> +			continue;	// dummy resource
-> +
-> +		err = mpam_resctrl_control_init(res, i);
-> +		if (err) {
-> +			pr_debug("Failed to initialise rid %u\n", i);
-> +			break;
-> +		}
-> +	}
-> +	cpus_read_unlock();
-> +
-> +	if (err || (!exposed_alloc_capable && !exposed_mon_capable)) {
-> +		if (err)
-> +			pr_debug("Internal error %d - resctrl not supported\n",
-> +				 err);
-> +		else
-> +			pr_debug("No alloc(%u) or monitor(%u) found - resctrl not supported\n",
-> +				 exposed_alloc_capable, exposed_mon_capable);
-> +		err = -EOPNOTSUPP;
-> +	}
-> +
-> +	if (!err) {
-> +		if (!is_power_of_2(mpam_pmg_max + 1)) {
-> +			/*
-> +			 * If not all the partid*pmg values are valid indexes,
-> +			 * resctrl may allocate pmg that don't exist. This
-> +			 * should cause an error interrupt.
-> +			 */
-> +			pr_warn("Number of PMG is not a power of 2! resctrl may misbehave");
-> +		}
-> +
-> +		/* TODO: call resctrl_init() */
-> +	}
-> +
-> +	return err;
-> +}
-> diff --git a/include/linux/arm_mpam.h b/include/linux/arm_mpam.h
-> index 7f00c5285a32..2c7d1413a401 100644
-> --- a/include/linux/arm_mpam.h
-> +++ b/include/linux/arm_mpam.h
-> @@ -49,6 +49,9 @@ static inline int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
->  }
->  #endif
->  
-> +bool resctrl_arch_alloc_capable(void);
-> +bool resctrl_arch_mon_capable(void);
-> +
->  /**
->   * mpam_register_requestor() - Register a requestor with the MPAM driver
->   * @partid_max:		The maximum PARTID value the requestor can generate.
-
-Thanks,
-
-Ben
-
+Frank
+> For success case, we indeed may want to remove it.
+>
+> > -
+> >  unmap:
+> >  	dma_unmap_single(dma_dev, dma_addr, seg->length, dir);
+> >
+> >
+>
+>
+> --
+> Damien Le Moal
+> Western Digital Research
 
