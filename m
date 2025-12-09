@@ -4,81 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BDEAD1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 09:32:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0925CD1CDC6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 09:32:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X/homEcZK52uy44aasdrENOooGOE5sAlOYEfUkV5W7I=; b=MRyNxW5pqWd/+5xBPRrPrQBgbv
-	PRgeJ7+/QdqF7y9drF9T8Krij/ULUoGyL0xx608DKMEgoncl8UfoVxeHfu2pxVFNfdC6yGjQWaFkj
-	ydUf7bpcLqysLzX6ZrQsQ53vQgCCJoSq0Jsi3KhT5euNJ4zpCmsWWEOhdlIWiXdbv7mvGRhnh0JM4
-	rm81ocV0M10JWX70ODHCmhmTCgLjH3KD0utTcJS4QrVp7wsHgNP7N4Pa7PiCp6FuerDRo2xV5p9Os
-	EaAOY8r8XVDNpq3cmrLzD0JXJrcD5/zKnpoO2T7IweKdjPnvGa1/kBC/8woHDAzdITpgkfCOtqu7F
-	/QcWG7hQ==;
+	bh=wT5Tpa0cRknM+Vnr1JQ25hhT3yDeTWdGEabrHv7VB7g=; b=PRHduf6EjWWqaOEJZKxLOR+J5x
+	Z6jTO3SSDA3D/tDQ3WWT0d8wnLIxMH0HAJIia+0s4WJL+ISvUv1R1nwPqJCRVPrIem3q5zCTlpWr9
+	95TvXKPnlALw4BzCSPqQXenDMYBMsGOvohaU4Hb/TfecEKork3mGJg+6oASYSWiXC7LaXveNTd67k
+	TdUNmULhiaBtbFJnZXQYWXxm1T1DMOMrV9D0d5hT5uko8s8OCwb5zKq1dz9lTztuBvkgOPQx8IfUo
+	kWJyDmRSpc0alCu7de1pjhEfzw7W4v9p5anKF44Gk+cjE9t+Y0dAc9vEYLWwQ7N3mlVv+270xY8cr
+	ShJbkr6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSu4j-0000000E34L-0jEq;
-	Tue, 09 Dec 2025 09:32:05 +0000
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
+	id 1vSu4q-0000000E38i-28uw;
+	Tue, 09 Dec 2025 09:32:12 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSu4g-0000000E32c-2aRW
+	id 1vSu4o-0000000E378-0qSV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 09:32:04 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-343dfb673a8so5492193a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Dec 2025 01:32:02 -0800 (PST)
+	Tue, 09 Dec 2025 09:32:11 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-3434700be69so7655036a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Dec 2025 01:32:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765272722; x=1765877522; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1765272729; x=1765877529; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=X/homEcZK52uy44aasdrENOooGOE5sAlOYEfUkV5W7I=;
-        b=ijhYiLiHuq1ntFoc0nza3JGaNYO8NQHzfsH3B4ClQexn02F9x7ntiZowRZtGlllgtT
-         wNuqaxoBpBSTZZps7RRKdbRSG/kpevgP9R0mOVRyw/oeTfoyGeHURnaqXkTk8T2lRDuT
-         1HZRTORMl88WKPk0zUsyDIMR55MZ40JyO3zfU4VicWWelQ8y+Xgu9AB+nFC4AmxuEDIR
-         1QLUWC+CrDMz3Ei640xd9jD4IGGcwkRZNZCAOWPMjgSzkSweA8eSIvXf4a6l5AcqWrEH
-         /Y5OReTydiYQiGN5NnqVogQqaAOG7J+aMAYanmnapvKdHRaFmnxccSG5YFTMhuelfIgy
-         O3Wg==
+        bh=wT5Tpa0cRknM+Vnr1JQ25hhT3yDeTWdGEabrHv7VB7g=;
+        b=ccBnH72BkWflw/BvAPPaON3ytlfcE0odW5ZxJaqG4XFnFVYDY8ua3F3X3JtCkebpqi
+         Pit5tdk9ii97tnX2bWeOKvh/rlAucgNkcD3Q3bkLNeErZ5MeAZKzDf2AchCXjbxdeJ4W
+         cJFaF0GhXJywIcb//1/Kd3oXNd2SXjFqbqu/lHq9Q0fJSnUU/xLLORwhwAatsUT/cUT6
+         mT/e3l2nMUF8BPCrFnQPaxk4Ple1uynk/bm60q/v6pBBmBLEV4E83GF7tvfXJqlXsMJ+
+         egc9OdkqYClYipGa6urwrbsVJBQtoyhk4DeGE0HIHhcw0q0Tb5H78EPlfbOjCKuXzDIp
+         H1yQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765272722; x=1765877522;
+        d=1e100.net; s=20230601; t=1765272729; x=1765877529;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=X/homEcZK52uy44aasdrENOooGOE5sAlOYEfUkV5W7I=;
-        b=qsl6VEVr9mnsib7hetPxuMkfaEd2yChP592GJbV4Sass/AD6QgTCPek8D/Mpey5qgE
-         LYzgx45I1FbRRno3MT36NNpg4F8mR700E8b38epTwOgZDXUbLxm+MUSjyofOuzDN4gEu
-         P7StyOaa8Jf7CmuQmMj3MgfLsMkqg5j0YTyUVECyqRlHmjZklqQvyl6i7eN/3TkVPIts
-         pTaU9+Joi4pbKQpO0ak2mIUhh+IGyVGz621XtgqbCKAOp3KZgUotGUS195ixMX1SW/al
-         DOTQ0W482FrOkMtXn8fBJ/BnURhCx+4yCbQdrdIyenOZrVf4tTT7wSK5fJG+JavjA999
-         6sLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWEEGMAhSOFVBShljjpnBMhCLbqbMgaAg3VXUfyCKtsWH/EjvVBGZAieq2uMdt6faUq2A/vMjEIxGYeaSII5xnc@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhCC3HlLKRfYcWWbJ663ID+zYwbv5xRfcRR0pSmipHYllSaPqq
-	h7zTzzca6FyqAwF6fImpIog8PELMawV62YOdmt9JLzNV05tN4Vb1Zo+u
-X-Gm-Gg: ASbGncuV3PxE3ENr+yKBoa+PTab/ngysg9M4TwvWdp611BYrTbb8jENJpnWQ3MFGkxJ
-	vqfEBhrC1I64MR60KEp1DlThAQUnug/WlS24TMGDvbt64GpqooNUDDRXqTkV1/vESzz5hJmeUfe
-	a+h50o9mp/dT5s4SYkYdb+OhYE54JLessLvisB7fRrw5CcXHbB09i4uxB57yjYoaxJMuMl4UTCE
-	6ktyq8tAjiaXXh/ktquiklXO5a9Qs31+ZXZvkmLLhFFmd9gqQKu+12rG34s+hSMAiBUhN2903NU
-	1AJXjZ2bYMQJtVhEOIu00RwQGM4Tp8FZPKYsaphSksy8QidOtdWuRGXxG5RwVXucGQ8GydGJest
-	BRJhhEqpbuIAC2llLR3faHtJu6wVNPypjj2wrHEqXbJq2iV7HkYggxpm7ZsLq8THTdSD5BpLahA
-	VRMods14crQVC18hYpO5HLjcWINfAWqvrgaczg/S/K4xtOIXncO1a0fEg8HbmXXRTAwy+vQy2+w
-	QRIVEzSHK4LPlmEXAFuTLXkeXkPSAeVU2njcDovFRzFyog0PxhBa8fVRbiy9DL0sWZaFbvN4tV6
-	Zm/xUryT9zYev6F9ejmwkEpx7ZkoUCq8QAIJ81XxUohzgee8UeQ=
-X-Google-Smtp-Source: AGHT+IEwaeD0b9uHojQWY3Zj92Hr/X5acaNl0q97VcOUGKTdKrWTewUu7dv7EFYi+rSt77tp7bmfqQ==
-X-Received: by 2002:a17:90b:3e4c:b0:349:3fe6:ab97 with SMTP id 98e67ed59e1d1-349a25c00dfmr7898399a91.22.1765272721737;
-        Tue, 09 Dec 2025 01:32:01 -0800 (PST)
+        bh=wT5Tpa0cRknM+Vnr1JQ25hhT3yDeTWdGEabrHv7VB7g=;
+        b=GN0MCztuoTh/C81czQVIUe9LNAWdQUDablXWNfqSl3SCBVjdToxAJ9PXYOBFllIRlz
+         VKYE0T9rBP4LCnhfLWR0HR8MumfmCGY2fPHRQ3/k6Ox2U7+mBc3a/H4Z5wRTleQczIFz
+         xY4ToJJTbvdhDdz9M5ObGbr+3CCjOSsYMLmc4SchZRgNjRXrhWKXvlFiibr3uGy0+j16
+         XYySaSALrdCqgUJo67iPThqxKKr9jpod0Jq0Pc3Lo14+nHgr2s8GnpzB+tRNGhwZGZGE
+         cvh57mmfcaEdV8YlU8kYByzFKm0Oqcc/UeriiBfaqDiSECz125kos4OdU45ASSGrG4yk
+         nnkg==
+X-Forwarded-Encrypted: i=1; AJvYcCUkkMr2LXK3qfGGZ7+gTIaL6CHKqbyvZEo03ySzrd44wMtBhMJHLfgLdlbeo2GfulCF+YHUwn4gCJFTgkcAbqNb@lists.infradead.org
+X-Gm-Message-State: AOJu0YyJwCWYHM1l0OZYxFUuuCv6DCc7smz+e3u7QDoYGjZ7/b2ns6Tx
+	TqGcoyjUOPL6eEqzjDX35IKwYi+zrpDqxqzaX2lICD/4HhZo1brpZImX
+X-Gm-Gg: ASbGnct2YrGu7M/iMIY8DtJKr7i2EIW4nMln7Yp1Dr7hyPslQbHP/NJO55C921mxqTt
+	GQGiENpkIXXcBDhH2FUSe/O8+XfBvjMPPO2nzUvKn+bjuAk3yK5FE5+Qp/1N4+qccKURYEKS0kW
+	ksrDGT1PapOZJNnYuTArwR8zL0H2EENHiuXt149+S6iOBpHhcJNvC0ihzWEyJzXnh522UnIpflw
+	1DdL4B3T3cBSenPzurrRCdJsI3yjHfli+DLZmnkR+zDkxGpFQAfTsZlFNu8O6IqqSBAeVycG2Vl
+	2VqKz0jkYTFLjeiNP8ZipOcKdIhsVkvCTE+jR8FfqlpIEkd09ww55ufdaSErdffCU4J7mmuP7AO
+	bQszS4Ramo4AVptUH/pcdbKs6JX+d/qnx3CW/TgWmwjj9Qu8U/wa9th2IM+1mW42ue2B+jkBekR
+	PKEQEMyVVLwjbjT89EcQDEKQHrBtwpMuA7Z60FG9GoIz/PKadperLspFz1bg1HfoJFRbyUABIDr
+	IqecjYcBek3IIyCuQz5e22Jlz+qybOuFIHKNnj3R1DNSosn2Ieaaj1XsxAOCjBk8j1vhdwDzcUq
+	Uomsbx00BXrH0hztteR2Uybk2gnyAA9Cwp6Q2nJaDsDItjbsqfA=
+X-Google-Smtp-Source: AGHT+IEf8k2cGwcYziNVTfhJRUNWm4Blk7mY9yN2+i0tDJn66zOZx4itoz7PdkJwqZ4b134kt4zn5Q==
+X-Received: by 2002:a17:90b:3506:b0:340:bde5:c9e8 with SMTP id 98e67ed59e1d1-349a2613605mr9150879a91.22.1765272729310;
+        Tue, 09 Dec 2025 01:32:09 -0800 (PST)
 Received: from [192.168.2.3] (2403-580a-80ed-0-4835-5a07-49e7-f115.ip6.aussiebb.net. [2403:580a:80ed:0:4835:5a07:49e7:f115])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34a49658704sm1800408a91.6.2025.12.09.01.31.54
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34a49658704sm1800408a91.6.2025.12.09.01.32.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Dec 2025 01:32:01 -0800 (PST)
+        Tue, 09 Dec 2025 01:32:09 -0800 (PST)
 From: James Calligeros <jcalligeros99@gmail.com>
-Date: Tue, 09 Dec 2025 19:31:17 +1000
-Subject: [PATCH 4/7] ASoC: soc-dai: define TDM idle behaviour modes
+Date: Tue, 09 Dec 2025 19:31:18 +1000
+Subject: [PATCH 5/7] ASoC: soc-dai: add common operation to set TDM idle
+ mode
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251209-tdm-idle-slots-v1-4-38dabf6bc01e@gmail.com>
+Message-Id: <20251209-tdm-idle-slots-v1-5-38dabf6bc01e@gmail.com>
 References: <20251209-tdm-idle-slots-v1-0-38dabf6bc01e@gmail.com>
 In-Reply-To: <20251209-tdm-idle-slots-v1-0-38dabf6bc01e@gmail.com>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
@@ -96,18 +97,18 @@ Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
  James Calligeros <jcalligeros99@gmail.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1797;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3549;
  i=jcalligeros99@gmail.com; h=from:subject:message-id;
- bh=9BrUquyvgfOE5tXuWI9JhhGZxPBE1kg0z2Vo1M4aQHc=;
- b=owGbwMvMwCV2xczoYuD3ygTG02pJDJnmb7Llv+1kaVUxfcu0Lyr9iOuUFcssFQvk35ZxHPLV9
- 3RbufdWx0QWBjEuBksxRZYNTUIes43YbvaLVO6FmcPKBDJEWqSBAQhYGPhyE/NKjXSM9Ey1DfUM
- DXWMdYwYuDgFYKon2zD8L7p27p9KpcGMFdc2Tp/u92VGWJiRQcaf/Nf1cy5fVDnAEMHw32uK5pn
- yTx4z157KdWEontG08r7oaZNUBtm2Xccmfp7+gwcA
+ bh=9X7Ik0ab5d6Iz/18MVVGvVc22VgP6m21NK5Flfc6r74=;
+ b=owGbwMvMwCV2xczoYuD3ygTG02pJDJnmb7I1nvHsL9CcfHRpJM/b7PymxSXtYfH8PI94VRjWN
+ Nop1LR1TGRhEONisBRTZNnQJOQx24jtZr9I5V6YOaxMIEOkRRoYgICFgS83Ma/USMdIz1TbUM/Q
+ UMdYx4iBi1MApvpKJcP/hCPlHm6PuVo3nGwJWLYz+8wxVlu1PgahH335M3Z3v1DmYWR4cPhcbHe
+ w4rJdj2QFo7h+m50xEP60+dIS0Qn7l+jL39VkAQA=
 X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
  fpr=B08212489B3206D98F1479BDD43632D151F77960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_013202_666097_9E9D298A 
-X-CRM114-Status: GOOD (  11.78  )
+X-CRM114-CacheID: sfid-20251209_013210_248717_C1638364 
+X-CRM114-Status: GOOD (  14.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,54 +123,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some audio devices, such as certain Texas Instruments codecs,
-include configurable bus keepers.
-
-Imagine for example two codecs sharing a bus. When one codec is
-transmitting, the other must ensure that it is holding its side
-to 0, or data from the transmitting codec will be corrupted. We
-can trust the "idle" codec to simply do this itself, however
-this is undefined behaviour. Some devices may leave the line
-floating, others still may pull the line high. We need a way to
-control this behaviour.
-
-Thus, we define five possible bus-keeping modes that a device can
-be in: NONE (UB/as initialised), OFF (explicitly disabled), ZERO
-(actively transmit a 0), PULLDOWN, and HIZ (floating).
-
-These will be consumed by CODEC/CPU drivers via a common DAI
-op, enabling the explicit configuration of bus keepers where
-required.
+Some audio devices, like certain Texas Instruments codecs, can be
+configured to alter their behaviour when idle on the bus. Now that we
+have definitions for various idle modes, add a snd_soc_dai_set_tdm_idle()
+operation to control this in a standardised way.
 
 Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
 ---
- include/sound/soc-dai.h | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+ include/sound/soc-dai.h |  7 +++++
+ sound/soc/soc-dai.c     | 40 +++++++++++++++++++++++++
+ 2 files changed, 47 insertions(+)
 
 diff --git a/include/sound/soc-dai.h b/include/sound/soc-dai.h
-index 224396927aef..a5784ef8e3f7 100644
+index a5784ef8e3f7..1f411237dde5 100644
 --- a/include/sound/soc-dai.h
 +++ b/include/sound/soc-dai.h
-@@ -52,6 +52,19 @@ struct snd_compr_stream;
- #define SND_SOC_POSSIBLE_DAIFMT_AC97		(1 << SND_SOC_DAI_FORMAT_AC97)
- #define SND_SOC_POSSIBLE_DAIFMT_PDM		(1 << SND_SOC_DAI_FORMAT_PDM)
+@@ -194,6 +194,10 @@ int snd_soc_dai_set_fmt(struct snd_soc_dai *dai, unsigned int fmt);
+ int snd_soc_dai_set_tdm_slot(struct snd_soc_dai *dai,
+ 	unsigned int tx_mask, unsigned int rx_mask, int slots, int slot_width);
  
-+/*
-+ * DAI TDM slot idle modes
-+ *
-+ * Describes a CODEC/CPU's behaviour when not actively receiving or
-+ * transmitting on a given TDM slot. NONE is undefined behaviour.
-+ * Add new modes to the end.
-+ */
-+#define SND_SOC_DAI_TDM_IDLE_NONE	0
-+#define SND_SOC_DAI_TDM_IDLE_OFF	1
-+#define SND_SOC_DAI_TDM_IDLE_ZERO	2
-+#define SND_SOC_DAI_TDM_IDLE_PULLDOWN	3
-+#define SND_SOC_DAI_TDM_IDLE_HIZ	4
++int snd_soc_dai_set_tdm_idle(struct snd_soc_dai *dai,
++			     unsigned int tx_mask, unsigned int rx_mask,
++			     int tx_mode, int rx_mode);
 +
- /*
-  * DAI Clock gating.
-  *
+ int snd_soc_dai_set_channel_map(struct snd_soc_dai *dai,
+ 	unsigned int tx_num, const unsigned int *tx_slot,
+ 	unsigned int rx_num, const unsigned int *rx_slot);
+@@ -310,6 +314,9 @@ struct snd_soc_dai_ops {
+ 	int (*set_tdm_slot)(struct snd_soc_dai *dai,
+ 		unsigned int tx_mask, unsigned int rx_mask,
+ 		int slots, int slot_width);
++	int (*set_tdm_idle)(struct snd_soc_dai *dai,
++			    unsigned int tx_mask, unsigned int rx_mask,
++			    int tx_mode, int rx_mode);
+ 	int (*set_channel_map)(struct snd_soc_dai *dai,
+ 		unsigned int tx_num, const unsigned int *tx_slot,
+ 		unsigned int rx_num, const unsigned int *rx_slot);
+diff --git a/sound/soc/soc-dai.c b/sound/soc/soc-dai.c
+index a1e05307067d..2f370fda1266 100644
+--- a/sound/soc/soc-dai.c
++++ b/sound/soc/soc-dai.c
+@@ -282,6 +282,46 @@ int snd_soc_dai_set_tdm_slot(struct snd_soc_dai *dai,
+ }
+ EXPORT_SYMBOL_GPL(snd_soc_dai_set_tdm_slot);
+ 
++/**
++ * snd_soc_dai_set_tdm_idle() - Configure a DAI's TDM idle mode
++ * @dai: The DAI to configure
++ * @tx_mask: bitmask representing idle TX slots.
++ * @rx_mask: bitmask representing idle RX slots.
++ * @tx_mode: idle mode to set for TX slots.
++ * @rx_mode: idle mode to set for RX slots.
++ *
++ * This function configures the DAI to handle idle TDM slots in the
++ * specified manner. @tx_mode and @rx_mode can be one of
++ * SND_SOC_DAI_TDM_IDLE_NONE, SND_SOC_DAI_TDM_IDLE_ZERO,
++ * SND_SOC_DAI_TDM_IDLE_PULLDOWN, or SND_SOC_DAI_TDM_IDLE_HIZ.
++ * SND_SOC_TDM_IDLE_NONE represents the DAI's default/unset idle slot
++ * handling state and could be any of the other modes depending on the
++ * hardware behind the DAI. It is therefore undefined behaviour when set
++ * explicitly.
++ *
++ * Mode and mask can be set independently for both the TX and RX direction.
++ * Some hardware may ignore both TX and RX masks depending on its
++ * capabilities.
++ */
++int snd_soc_dai_set_tdm_idle(struct snd_soc_dai *dai,
++			     unsigned int tx_mask, unsigned int rx_mask,
++			     int tx_mode, int rx_mode)
++{
++	int ret = -EOPNOTSUPP;
++
++	/* You can't write to the RX line */
++	if (rx_mode == SND_SOC_DAI_TDM_IDLE_ZERO)
++		return soc_dai_ret(dai, -EINVAL);
++
++	if (dai->driver->ops &&
++	    dai->driver->ops->set_tdm_idle)
++		ret = dai->driver->ops->set_tdm_idle(dai, tx_mask, rx_mask,
++						     tx_mode, rx_mode);
++
++	return soc_dai_ret(dai, ret);
++}
++EXPORT_SYMBOL_GPL(snd_soc_dai_set_tdm_idle);
++
+ /**
+  * snd_soc_dai_set_channel_map - configure DAI audio channel map
+  * @dai: DAI
 
 -- 
 2.52.0
