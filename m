@@ -4,72 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78EEDD3B7EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 14:17:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82464D3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 14:17:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dNLp1iWZuV3Webuup6gM6OatzrzTEO6SyksDid6LwOo=; b=aLjCn6QDuQnGC+t14Qd/FH7TJA
-	wGwevxXge5Gjz4pmV8ai/7M5mVj0UeWaC2biQwr4CAf54j9oTSijsKalhXom/oKZ3KGwOvNkUcXKB
-	z9VVzezMs3I/YJcuVM2MO8ob9SZXTChzS0SuBy6RCwpnA4OZEHfn5PhJN/chk1Gc4lYnLGlE6IsI8
-	PQ72IiJjSqGIyW3Ohuq0sT6wW9ol9OcgW6MJP8nq+nE3BaRUwiW51sRkCCLe9VTyw5Me7QIfhAVP2
-	YNhyoCxqqv6SI4ARhBjUDZ9nJDKlyAOaoDVoUy58NgcRSQT6w1S5voNSw0IJ5KxVv0AlzZGmRgrmy
-	Is6s0vMg==;
+	bh=GqGl05z99jHp2ShgOvgQgByFBkkP2VElXGK/JMHVdj4=; b=ru/rMat6jb80QC5UW42AWHJNia
+	WxX4yLGLbjRL9iI6+uuDaUBlj7fi+scR3yvhMBIg4+dR4bZ4tjp3RUGkBgcBqL9sOJod4tMy2SB1Q
+	vSLqfYwkBV0g6wVPlN2FE5bDuAGG9rsIRudQe2efQiG6Z/10CLaFZ7phJT4J5CTC79edyIebZRbYz
+	VL6CdtCKjPKFop5j2uaqY3qpZMTr4hMw/vMueHdJT5ndktmrWh1IDRNr+UEsHQAzBDD0I8OscS5FB
+	CIp3WntpHBSsj0jK+V5e5zPh98M2or2C2g5nNIK6+f7ENBQ0SEW44GsEbpCPdYN8lON+agejRaLKL
+	VZ124xRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSyWW-0000000EOBZ-1Yb7;
-	Tue, 09 Dec 2025 14:17:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vSyX5-0000000EOHc-48KQ;
+	Tue, 09 Dec 2025 14:17:39 +0000
+Received: from mail-dy1-x1333.google.com ([2607:f8b0:4864:20::1333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSyWU-0000000EOBO-1IZK;
-	Tue, 09 Dec 2025 14:17:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 60275600B0;
-	Tue,  9 Dec 2025 14:17:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8B91FC4CEF5;
-	Tue,  9 Dec 2025 14:17:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765289821;
-	bh=re7ktCouPs6agxyacY1S9Dr4ldvps2d8xXP04n6KHZk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lULy/rf85/iEt1JTXX9f4FuZ+PdypwhtX8K1Dmg/yFbRtzEZSFigk4p5Sci4VJogg
-	 XFtyt1jVPPJE1yPOro6odzd3mJWEKpAbJIS2tJt7zSfDSfE0XtQTabYq5NBLahMbub
-	 YgtJWvGyqsEJqwo1Ip0+Ow12KAEjCMixLh5MMaKlvCEvh8iVTzkRSzCdjuzZVrj3eI
-	 MmIOUN/y++lshSZeTYjNS47j3l0ycf1YohGgUVg8GKhYQZqaqyXf0E68ohAfsadqU2
-	 foc2HYUGmY78txauG2xcHhHDg4wzf5kimGxgygf6m/6WsYgvGFmZvUKIynQv30Odpq
-	 UIrPoG1MiVnhA==
-Date: Tue, 9 Dec 2025 15:16:58 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
-	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Rob Herring <robh@kernel.org>, kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org
-Subject: Re: [PATCH v5 05/17] drm/display: hdmi-state-helper: Act on color
- format DRM property
-Message-ID: <20251209-uptight-radical-chupacabra-ac3d6d@houat>
-References: <20251128-color-format-v5-0-63e82f1db1e1@collabora.com>
- <20251128-color-format-v5-5-63e82f1db1e1@collabora.com>
+	id 1vSyX3-0000000EOGy-0b2m
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Dec 2025 14:17:38 +0000
+Received: by mail-dy1-x1333.google.com with SMTP id 5a478bee46e88-2a45877bd5eso8182708eec.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Dec 2025 06:17:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1765289856; x=1765894656; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=GqGl05z99jHp2ShgOvgQgByFBkkP2VElXGK/JMHVdj4=;
+        b=MaMbKX/btV3jXBOt7MQ5/ZyQRLYZJFeqrXdF6z8OXtRuRP4GfqSWZGlMN0oHc1aBTo
+         /29cA2/iWP++0p5R4pgjcJzIqVNSDmATKVbgzY44aAspjutjWQbecIh3WMvjcMiKOx7f
+         BF1Mxo1CxkaG6eqbOFU/LaSq+5+wkyaEpZVrCLQ+XTePpwcyhC+b0hr9eSOosdMXyZnl
+         C+CQ3UkTZ5CayAvCtpdLBDu57wJ/KPF5VwKvEkEonjUexnQgAWkOxcBUaEeK4twSeF3F
+         DTJ/aISbIeFJmAN2uxKkPSKoQ4pd8s/EGTWiKuG5RIH7kZx/2HRPbzZOypR1ypyQbfT3
+         eAvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765289856; x=1765894656;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GqGl05z99jHp2ShgOvgQgByFBkkP2VElXGK/JMHVdj4=;
+        b=e9LPTPwZ58uKhILr6iYPbV32dOQX5XEC22t8HgoSFWw6Y25Jzvch/H/Ifjd/eWgGd1
+         ggzNj7UcwshAQjc/fzCFMxdPT11GwilRzXtVZTtquceiXPRsqlvjOAHX+YGuiSjjV0Fs
+         F1guVNAadXFjdzSjAFhonKDvoNp5MaZ5KAn26Cp7+qZk/STg0VNQkpSm57c6ivi78exj
+         sF9NS1OU/cxTQVKUnpq4q6OIqgxmWULOsSOs8IGYSRWVgeyKJ+mGO1jThNXZ/UwNBUOk
+         OwRzvknQerHOSJTIHA6pJ/y6Jjyrc/zXzUZB5V0fod0swevPqfX67BJmYR4PUxi3k67Z
+         9aEg==
+X-Forwarded-Encrypted: i=1; AJvYcCUOY7zCaNhNf05uX7riTs5xTJibN4NPlq2XkzRN45xMcVugi27kSvvHgwmBRLuuRb9r1gTPgCILunAyMsXG+Koi@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmV/D60VTB3HTXFfwXqGuU9ZKD1Tg64swGgJgz5I3KvpiVP83e
+	jHC3FpNCPCxK2lhxRuIROwdcCKq3cNj+204Dpr2i+L/8Yxv5k+R+iKAYIjQNBMeK6HByjlm4X3R
+	jVUlbR9XOAQo/R8me09NQNbxR/r6HmHw=
+X-Gm-Gg: AY/fxX6WqvOfka30pnJS0upBTkV33USj1nD5ySvh4TxP6OGqUW8NeQyCKBmd0JkKZID
+	YVcR8JzMbIwcicVK3MgKZ4FBQYi90bnWaS3hlwYOWic8zpC3KQByPAqwxSFazV3qrd4mrxs1SYg
+	8VjPFdsPv2juwydxnxXB2qS/Q/fgzPNWvjJ15cPeADribmOFD89fQz6ELOYFW2Dic/D2pHubWYS
+	L7e4kD9WiM/Fkk/Fh84tp5G+FZyS4SH1vIlNdMhNPysMS00CwwB9yteTrdovYQuTF6XCcCoBooB
+	OiMk8aTjPijaLLxT+PTUsdGDd6cVRmSJtIXmV4RaA85N9dihpT02kTX352Ev9nwPydv/kel7zVe
+	jpHBZ34Cm1g==
+X-Google-Smtp-Source: AGHT+IHJSK7Qp1zb5om02W592OqiY5udTEsk9nBSftpZyGmqI0e9P/OjwE7rDiAyfrBX382yq5jBhBWzuWKkJmGaXh4=
+X-Received: by 2002:a05:7301:f25:b0:2a4:50c2:a74c with SMTP id
+ 5a478bee46e88-2abf8dee655mr691583eec.8.1765289856143; Tue, 09 Dec 2025
+ 06:17:36 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="7dtovcletdpwfi6p"
-Content-Disposition: inline
-In-Reply-To: <20251128-color-format-v5-5-63e82f1db1e1@collabora.com>
+References: <20251124182751.507624-1-robh@kernel.org> <CGME20251127142839eucas1p186846c6c1ea1d9e43369fbba9bb5d17c@eucas1p1.samsung.com>
+ <20251124182751.507624-2-robh@kernel.org> <674efe8d-c299-4ce9-bf6b-c1920a5393eb@samsung.com>
+ <CAL_JsqJTrGAJx-fv8OQGDhsLVKavQzzQotssEq_E5f_aJe8bOg@mail.gmail.com>
+In-Reply-To: <CAL_JsqJTrGAJx-fv8OQGDhsLVKavQzzQotssEq_E5f_aJe8bOg@mail.gmail.com>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Tue, 9 Dec 2025 16:20:03 +0200
+X-Gm-Features: AQt7F2rjwQKc_bRBeYsxUFhD_YJR9U-Y3qN6s4VMgPax1Na8ykfHoapTIdM-w18
+Message-ID: <CAEnQRZDBZ52FoNRBJa1qScbkcEYKwbyP_ephutdkYFaY5b1yLw@mail.gmail.com>
+Subject: Re: [PATCH v7 2/2] remoteproc: qcom: Use of_reserved_mem_region_*
+ functions for "memory-region"
+To: Rob Herring <robh@kernel.org>
+Cc: Marek Szyprowski <m.szyprowski@samsung.com>, Bjorn Andersson <andersson@kernel.org>, 
+	Mathieu Poirier <mathieu.poirier@linaro.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, Patrice Chotard <patrice.chotard@foss.st.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>, Peng Fan <peng.fan@nxp.com>, 
+	Beleswar Padhi <b-padhi@ti.com>, linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-msm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251209_061737_182036_C6077815 
+X-CRM114-Status: UNSURE (   9.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,87 +108,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> Other platforms (non-QCom) were tested also use
+> devm_ioremap_resource_wc(). So something else is claiming the same
+> region? Can you dump out /proc/iomem?
+>
+> The region is dynamically allocated, so maybe that has something to do with it.
 
---7dtovcletdpwfi6p
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v5 05/17] drm/display: hdmi-state-helper: Act on color
- format DRM property
-MIME-Version: 1.0
+We noticed a related issue with imx_dsp_rproc.
 
-On Fri, Nov 28, 2025 at 10:05:41PM +0100, Nicolas Frattaroli wrote:
-> With the introduction of the "color format" DRM property, which allows
-> userspace to request a specific color format, the HDMI state helper
-> should implement this.
->=20
-> Implement it by checking whether the property is set and set to
-> something other than auto. If so, pass the requested color format, and
-> otherwise set RGB.
->=20
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
->  drivers/gpu/drm/display/drm_hdmi_state_helper.c | 12 +++++++++++-
->  1 file changed, 11 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gp=
-u/drm/display/drm_hdmi_state_helper.c
-> index a561f124be99..5da956bdd68c 100644
-> --- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-> +++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
-> @@ -649,11 +649,21 @@ hdmi_compute_config(const struct drm_connector *con=
-nector,
->  	unsigned int max_bpc =3D clamp_t(unsigned int,
->  				       conn_state->max_bpc,
->  				       8, connector->max_bpc);
-> +	enum hdmi_colorspace hdmi_colorspace =3D
-> +		drm_color_format_to_hdmi_colorspace(conn_state->color_format);
->  	int ret;
-> =20
->  	ret =3D hdmi_compute_format_bpc(connector, conn_state, mode, max_bpc,
-> -				      HDMI_COLORSPACE_RGB);
-> +				      hdmi_colorspace);
->  	if (ret) {
-> +		/* If a color format was explicitly requested, don't fall back */
-> +		if (conn_state->color_format) {
-> +			drm_dbg_kms(connector->dev,
-> +				    "Explicitly set color format '%s' doesn't work.\n",
-> +				    drm_get_color_format_name(conn_state->color_format));
-> +			return ret;
-> +		}
-> +
+Because:
+imx_dsp_rproc_prepare:
+ -> imx_dsp_rproc_add_carveout
+     -> /*... */ and this calls devm_ioremap_resource_wc
+-> pm_runtime_get_sync
 
-I think the following would be more readable:
+imx_dsp_rproc_unprepare:
+ ->pm_runtime_put_sync
 
+There is no easy way to manually undo devm_ioremap_resource_wc so I have
+sent a patch to use devm_ioremap_wc.
 
-if (conn_state->color_format && conn_state->color_format !=3D DRM_COLOR_FOR=
-MAT_AUTO) {
-    enum hdmi_colorspace hdmi_colorspace =3D
-        drm_color_format_to_hdmi_colorspace(conn_state->color_format);
+https://lore.kernel.org/imx/20251209140425.766742-1-daniel.baluta@nxp.com/T/#u
 
-    return hdmi_compute_format_bpc(connector, conn_state, mode, max_bpc, hd=
-mi_colorspace)
-}
+In your case Marek at least you need to understand which driver
+reserves    8dc00000-8e7fffff : reserved and why.
 
-ret =3D ret =3D hdmi_compute_format_bpc(connector, conn_state, mode, max_bp=
-c,
-                                    HDMI_COLORSPACE_RGB);
-
-=2E..
-
-Maxime
-
---7dtovcletdpwfi6p
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaTgvWQAKCRAnX84Zoj2+
-dsTYAYCnsq4IINrpmEbQVfvZqzEXkFALMdooT+3vTv5FYb6D28/FDX4dwiypkgVc
-Zd6A6m4Bf3JYjaDiWfKCks0opK33MCwdhIj7KM2EqsBB4p86nA4zPE0+JmVqVbyI
-pjLOkixd2A==
-=Wym1
------END PGP SIGNATURE-----
-
---7dtovcletdpwfi6p--
+thanks,
+Daniel.
 
