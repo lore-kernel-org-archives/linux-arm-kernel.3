@@ -4,93 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90268D3B7F8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 15:58:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7B15D3B980
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 16:05:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lDgse4smKZRxWXFHykbYNCZxcA+/jW1sukp85CRj1yk=; b=1aSe6dxl/6Cmol9kJ+rTjhv5fd
-	xTzgBVrX1IRZ3TfKZ2rjp1iV1wBO+/rUrB3oF1U7/c4+k4jDHvkASxFGJcACbjgM9pv+RNcx1NwxK
-	3n3qtMRJD31HsqOtnSCoy7uCqU/dRel8r5e4h0N80gx9k21UYb0Je0S93rZA+M1JXqsDGcWuTevOO
-	UwZqxZEYq+XR+jFnm3/53mrSjTi3kOwnKGM//NwLhDwdX88RYeBPAl4mNKoSKR6HcBdvdPrmiv447
-	m0jhN2hQIjIz64IdcoVIC6EVOWP9g0LLOgVHoULwIko/UzF13bm1wI1A/9uiEbqX1rit0CuWM+Vpp
-	2T9OPh/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yNFd4nZVbIqggj/W+9I8JmTu5WCBdg1Fkxh2JFcg7Ag=; b=h3jtEgJ/aEHGuyIz8KRh2N2EuG
+	FeC4FKZAJEasLDxa1ewg7Tw2mrMYq+aYWdg4ZTPToBfellj1lbS44zmtDHA6TBFue8jaQVGfSuZqs
+	uX2PstD0CWbul7tjgCjAkKQ48nkEp+KOVJj+tv2rcsR7fsoOC5wIeBVJZFNyAqyeFEyNrGgGGTfRJ
+	RHfOn4KEr6pcovZ8/fnXyiCKWC3zdAuk+0x2NioAKw1fGSQDmHashpukMHZ0zwBhh1uhn4o5A0WDC
+	Ge89g4Hiv5B3Axn1Pe6iUx6Qi9pLivyIYg0bg5BmnlEiYUWo4yq7vJB7xsNnyuCHwlP35lQ/a9Ovu
+	ch8FC01Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT06x-0000000EU9y-0zpb;
-	Tue, 09 Dec 2025 15:58:47 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1vT0DH-0000000EUsc-1Gb9;
+	Tue, 09 Dec 2025 16:05:19 +0000
+Received: from mail-norwayeastazon11013040.outbound.protection.outlook.com ([40.107.159.40] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT06u-0000000EU9d-13X3
+	id 1vT0DE-0000000EUsC-3GSX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 15:58:45 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-29e0753e5d8so174125ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Dec 2025 07:58:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1765295923; x=1765900723; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lDgse4smKZRxWXFHykbYNCZxcA+/jW1sukp85CRj1yk=;
-        b=I3ZC6X8B/Sn4GzjT3aEQNCO2hEvlvmMRzLYgkIhxgyBVhlOlWojNmHf8w+biXIVrxY
-         TYa3acAdaKMriO5OvniYD36UuKjPYXIh86qNWaQxuBUh1nUmehW1fBDQZ7VpUImXicMW
-         zXHtgQ+XQyGLy2ebnBFhjvr7TBrj+CnTGGpWOEmmmYERzFwyct9xHobtA+8EpmEPaFwt
-         e+07JMGoSA4ZM2GFZ0rp91YaXYRHgecoPrCc4plN29k87e27Jm3twJnLrIXJ+ODaVAFp
-         tVfsL6q1Mm4xXjBwI4xV9seqbyR6FVF7jzbdbBHfmfUyL0sJHSgnItKC96wYCquUAg+q
-         FOUw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765295923; x=1765900723;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=lDgse4smKZRxWXFHykbYNCZxcA+/jW1sukp85CRj1yk=;
-        b=uwTprdp4wIEb6QRC1OVOx1KP2uSZfv4DJobqVdiePk5iD4h7q4PhqraoYA4qH6Yf69
-         hI4QP7McAzXW6NhJwO7m/uXJOp0Sp/logNcG/kh151FDqXARTbgecJVNy30dNspzsNkJ
-         iNSqirJ0RyCrQlgPGpwBrTiiq+6DnETxChoov95auCGuVh9QtPUgucJh9B9lZZIFwl9n
-         QHC4BKS3B2uCGY+r/bq5tmeHGgEQblFoiwRx14QZkdaJNbtxScWIC7CBD8rez0Lt1MOi
-         Vq09ysXJUPW1qpn1fCFPcI9f4HYUEeLkbzHR4k6Os3Y8gQnassNxeOaVT2XtV/Y8R/YD
-         j9qg==
-X-Forwarded-Encrypted: i=1; AJvYcCXH7KrI5/lLBEZOtOa/yJbVN2SIcrw9B9z8dpf2hSytF+xluf6PETD4MmSuN4luaCpXPQbFx3exrSJHJSKlKANX@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwG5XNdWQv4ifc0VAptsthSSCnDiCcwL474XhIUCYwbpruUgP+
-	qbeNW1sYksLqIDXiXcmVDwt8S3wPbkvl4jHP88Y0DHHzTz8jPZFkA0QZN4heEvtml2hM5GW5oVf
-	dMc/ihDd06XSTc4zS35vkX3zkcU7Z6rGKXApvEUmn
-X-Gm-Gg: AY/fxX4BCbdLfkr8VaMcqWjoSNow7ZrS+LOOVJbDlPA+w521JmuBp7nhuLbI5ooAepf
-	xyu2kgqLqH9vFGlKw02/F8h3P4lDDdhCc2WeSdQZneGZi75hFaJgHtZMATFeMufIXLXPbrPm5BQ
-	/4/qJ5zRYbOKs+1zarlqwBuWB67kWNQQOgRtA4lrGRR9ntXni1Q//9bnBa2tlYZCIwhtYTztSzI
-	hH4dLFO3P5K+KYqTuNQ//SlpJ/SUXbE8DJKFJvvVCzywWsG38uIU51bzb20d4CazadVHqEubf89
-	zI+AKqi8W0kYazlH32KjvEtj
-X-Google-Smtp-Source: AGHT+IEZGJ2IBQ2j1MbdGq5XaIfuVItXVgOQ0Dn63+iXclg+rEg/7JRhz9Q9g5d8crMx5xPTS07qDWbS+y/SSIFNDuE=
-X-Received: by 2002:a17:903:1c8:b0:265:e66:6c10 with SMTP id
- d9443c01a7336-29e9417f3c2mr3300855ad.4.1765295922533; Tue, 09 Dec 2025
- 07:58:42 -0800 (PST)
+	Tue, 09 Dec 2025 16:05:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=l39BSQBMMLJrW0w7Is6/jvjH8hLF+4ljVx0YJ31FWI85hHIzsuamJdT/FcRGHa1EpATzU7WpAIEE83OONhsnVusaV+DkM4CIoVkL0WQo5DLMY4OtJeDybL4Sb2jnNUU1t0cxp5O9qMB3bxeRyVxSycfBRJcBcUHTVkVMvsZ7vJGSIFGxZhXFAZvXiQpvN4R8N/v4BSsZukKuY9amZkxS91uiiTBGNW+utiVU7jT0knlwHtEepWAW69uL+7KrqkfPs7D8ti5J0lOpXtYfleL5o45gBwualWUR5jR+HrJEweSyG2sE/Hv2B/1NXVi2nRHVaxheR8goXX9uzK0eb5C9DA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yNFd4nZVbIqggj/W+9I8JmTu5WCBdg1Fkxh2JFcg7Ag=;
+ b=PAy4bIt1YcC1zvWIv1y91rYL+XJo+XDiIAp5C0dF1Q96msybTlrjuA01c/riNuwvKAd7/DHD9qk7HSggD98rM8GNj/HHwAulR95fpzbOAc/6owgCeD7PYXadD2QMxeacnJimuKlW3xBO9ApHGHgaKBu07Pj9XNiHm8Auqi0guts+cFyq5Mef25/lkZTElKrXJIUmB14aQxQx57cjfqEHRVo0oFOiY9VwwHeY9fu+4xF7MFxPS2Vli2CpmYI25gs0u5MA3GzcuI/fKYzoPuINUz3SZrrxFmyJY+CvLA7tkHo/nwfhHWVvqBa+pcs3RstjDT6Oik+jaWnoLuemosHXAA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yNFd4nZVbIqggj/W+9I8JmTu5WCBdg1Fkxh2JFcg7Ag=;
+ b=UINQKG9E+SGL6EbaXeE+SujJwnoIh8bycZQVAMn9+tSTNuCSIC6ERK8VPPAibvtNVV7sEZwy8nYTi3EvFWwDnstt9aa0DdLmfBO7Fn9fzUKm2x/qGV4eoNiD4DkqkTGMygHOR8w9TTuRsoMThttZzGrJOOQAcNFVeyih+k+fjug4Vc/mSVl1EVmFuHj/eD9Fg2L0N8A3knzpOIqDurZoZFRcgCYTnlDmdm7x/HHlIKobFnSb0hXCKIEatwQHGTO+49RKzKYyUjOz4MTErnXTo59a3dWj5nNnHyQjHmAJJVlt+GZkTWSzaUq5bISha9AtdNLf4jcxMfloHNTfmN/iVg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by AM7PR04MB7160.eurprd04.prod.outlook.com (2603:10a6:20b:119::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.14; Tue, 9 Dec
+ 2025 16:05:12 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9388.013; Tue, 9 Dec 2025
+ 16:05:12 +0000
+Date: Tue, 9 Dec 2025 11:05:05 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Shenwei Wang <shenwei.wang@nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-imx@nxp.com
+Subject: Re: [PATCH] remoteproc: imx_rproc: Use strstarts for "rsc-table"
+ check
+Message-ID: <aThIsUU22pdulMrJ@lizhi-Precision-Tower-5810>
+References: <20251208233302.684139-1-shenwei.wang@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251208233302.684139-1-shenwei.wang@nxp.com>
+X-ClientProxiedBy: PH7P220CA0007.NAMP220.PROD.OUTLOOK.COM
+ (2603:10b6:510:326::13) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
 MIME-Version: 1.0
-References: <20251208-james-perf-config-bits-v2-0-4ac0281993b0@linaro.org>
- <20251208-james-perf-config-bits-v2-1-4ac0281993b0@linaro.org> <6ba6bde3-f56b-4354-b336-4739cb1edb71@linaro.org>
-In-Reply-To: <6ba6bde3-f56b-4354-b336-4739cb1edb71@linaro.org>
-From: Ian Rogers <irogers@google.com>
-Date: Tue, 9 Dec 2025 07:58:31 -0800
-X-Gm-Features: AQt7F2py_yb8y5sEdWL_sj5dKYcliEu1dCmZ7RHB13qbHpYjiU2r9ka3GKUHG9w
-Message-ID: <CAP-5=fV_Y5W2RyJhBgnk49JuTf8EsyisY-LfL3sVhC4TVRC_gg@mail.gmail.com>
-Subject: Re: [PATCH v2 01/12] perf parse-events: Refactor get_config_terms()
- to remove macros
-To: James Clark <james.clark@linaro.org>
-Cc: Linux perf Profiling <linux-perf-users@vger.kernel.org>, linux-kernel@vger.kernel.org, 
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Mike Leach <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>, 
-	Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, leo.yan@arm.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|AM7PR04MB7160:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2a94ba25-424f-4f71-de3c-08de373cbbea
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|19092799006|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5rqY+rMu8Xa08XNx11nnHSR1ONKXH80ArtlfNjRwZ9xJjHD+Hv+CpTNEZE9c?=
+ =?us-ascii?Q?jxtf/Vq3rk6LIajx1Kw3qmvpe2zMGTdZeC28NdiwQTePEy2CK4ZAJQHF33dJ?=
+ =?us-ascii?Q?gYUlb5Mm6Cmr468FgNXpCfIthQYFL+yMucJDiT0PW+VRfKnrCxmTjNJuewdk?=
+ =?us-ascii?Q?ZjLdsiyLnhwo9+n+Vude44IJBNMfvbHnGX9jrMPQU9XgFMD6GzCQ2j1gdJh5?=
+ =?us-ascii?Q?89j1Xf4uJcUUiT2uf46X1pEaH6u9AIIGR8FVlkNCh3Fzsj/QWgJkb5o6XU4u?=
+ =?us-ascii?Q?MIp0pSuFBGLCRsBXmKj7eLKjEzzHsHUYphEzFhe1900bq4xdXgHVaG/ETFC9?=
+ =?us-ascii?Q?Z/elfwQ3sBGyLSAEnbGFPaad1tQYNBRkCkKPFkrQggg0Z5ik5u9WLYyG20WA?=
+ =?us-ascii?Q?ElI+IoZd2AZ5GIIh79HUidTl4e8OHfwMHr1JpW6gm0qmCEHquaj25rt103hf?=
+ =?us-ascii?Q?v2UbXe8ZZSNCtXz6cCCJ8Fz/5NIetRz/NFq9fn2Of5qGcBa5fDyvLlJy9394?=
+ =?us-ascii?Q?KUaAeZmg73BhV4pFY+Znd84fCdrbEYPJt1F72VrYG5xE7z60ufjxI9kkaQiA?=
+ =?us-ascii?Q?QsCEuTNfIqCLuEAPoARJrt1QgJVh1aWK8R8X2jsujVk7B4ytu3g3I8cF5uhB?=
+ =?us-ascii?Q?+9/yZQJj1WV7S7FM/Hy/bgfPaqW7qV3qgOIHez0UYBCL+sP26Pur/GUxQBrp?=
+ =?us-ascii?Q?+2I/rdikpk2cJMldtn1okFS4rmrMsfqTXeax2Lk8K6WOajxwxM9fKLI0rvPk?=
+ =?us-ascii?Q?FOaahjO/oYrd+3tqgODhoGVICKNlu9rGm2UU91BX/sY72QxYNe1dQY67WrwS?=
+ =?us-ascii?Q?qqB93xD6bSjtIAXv38yp/3f/bm+CDeu5JbzVLEZP8rjRFFSENNLmxbIrldoh?=
+ =?us-ascii?Q?tTfnjCdsOaRCPURR1uoPQQXo1m4Hh5REDaVfhvudmQU2vWWxPsz+gr5rxDhY?=
+ =?us-ascii?Q?Kk4gRBFn9DdpN2f/xPNVhdE2jTIdZCam6Lc5I78P3DDDGiZlE221haWzQqjJ?=
+ =?us-ascii?Q?WYi+GwvMrVNJMfN15raAojjoEU2431g+KXdROeEiP0t1cZQy//cdlkBQ4rLY?=
+ =?us-ascii?Q?nZ8CML1kFp8WnmNVt+WYhJYodDil1UrNKRjZd4v4dp9RZphLCDl05GMy1Y73?=
+ =?us-ascii?Q?gQy3Tt7VgAeTp2YngWFtfXFyBbNrkNF5AAAtl7ZDpSGIGLweV22yvBZIXInP?=
+ =?us-ascii?Q?Rj1rxdDbFgx3ctkJInxotDmjADsDD7BzVtbbGJHE7Ha+HTxolmSb4v3dPGN4?=
+ =?us-ascii?Q?7osTJhOFjk/eY7XQ2YgjH41su7qFOHDh7lmXAUI2+1ijRbbGyybBrzXiTtxW?=
+ =?us-ascii?Q?McjJwnxddFFwNFdFuHzzJmsg3m8cPGCUWweOglabk5h62OjIIrUlwKxrJbv4?=
+ =?us-ascii?Q?D/ni+FzoE7y48JUC4NH3DVLTYWu+CB+K9SA1wdq3QdEGl8LdNw6exLS9TrVZ?=
+ =?us-ascii?Q?ad/g3rdeNWE3NRFNmwS1xUEUuBO4dPiDYprhw45JYwYoHaeYI58uVxAp/kh5?=
+ =?us-ascii?Q?k//xlhvYbfFNg/VRGyptpJiYB123hiJe0LWt?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(19092799006)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?y2sip6V86up1W81m/ZmJ/iB0rb19A6ocGbdX4QVou6mTpELx/ULaGWw/cWZN?=
+ =?us-ascii?Q?R2Fs0Xaoo7b6cbn1BaKSmhl4BTveEhYslaAscV3AXsVIUcRice6bXDZ/cije?=
+ =?us-ascii?Q?B41HMAXWeT9CyWEUTEb7jY977VEpHc9NpRU3Tt4ce6mRLzzkf3PF/JeXybTy?=
+ =?us-ascii?Q?SVmXyN6vDUythXlcOPsb+gmJiPN4JuKLXBlXJ2j+rUay37yyg2NM5N3qXIFR?=
+ =?us-ascii?Q?3Oof07mMhHmbciPrPGJgCz9atsMapuephJ9OgO4h6A1DWFV54gDK6WnI0OYV?=
+ =?us-ascii?Q?k7JzlrD61VTMjQAct2PEXuxzy3D98KbcskkbiQYgc0Zzc9VazolCEKWc6FoI?=
+ =?us-ascii?Q?mKoRGyjtIuWy7TG0Ery9EdsvMEbRUVqbtpm9sQk9GrAIc1HgiXa/duHGMPNY?=
+ =?us-ascii?Q?DSTr4yyoSbM+njy7Wwq8XvX+x6sT6Dlc1VtwnJD5lk646U3aJxML1cpiDlk8?=
+ =?us-ascii?Q?ihgo47A249Ws319fAalHJ347eWhRt8j3pKqB3IZDWpKPRCPq7lJWbOzLeMHR?=
+ =?us-ascii?Q?nHIY/S3v/lzq8d9yxt5DAkfEIw3g5NwZ9orFNWa5NkTZq6oaz6SsQ8kSoiGh?=
+ =?us-ascii?Q?xsyzdIo91uxZq4NV/eSNWa3uiaTNBL+BkzT0zwKainJnSAjjsN/ubUpsgXIG?=
+ =?us-ascii?Q?MrI46qDnICxbWs/Job9hA8vVRQKOx4/ZLCJSr7KXMLUhTCifGrMOPoJHpUW8?=
+ =?us-ascii?Q?rxW/EmIbjySpWyG54L5JmflCBriET+VRncCxwO/hgJZsF8nTbei5YxsvYj1g?=
+ =?us-ascii?Q?T7BBGThmmILaMutldrBCXRwTlREUEqfNr3UU04BWp3DroKk2o4Dx2ukLVpNk?=
+ =?us-ascii?Q?HdXqHiAOXb1Jt0UnQuSIvmT+4iyspcAfGaWlaNwY7sZe/DS2dx9X1SH/fmu9?=
+ =?us-ascii?Q?xmVRW7TAhGXySJ+FDpSd5+6+pNwuQjKePafOuT5vOT+UZzlYex9pHm/oDiTW?=
+ =?us-ascii?Q?hUAQRWf0gGqFKxkXDXRlmP1S/bOLki4D7ZmnVfBn7nJp6mBPdhJTVeIvR/kz?=
+ =?us-ascii?Q?sover11cTU3glLu9GoyFAl4XBHj4s01hjtgYP8drNlPwvzqGyNNScER+Ysyd?=
+ =?us-ascii?Q?2/96VECjbTnLRIIDElv3BeWmJHM6ijxeFox4ZawhLyVDtF+hZix3leqjXGAY?=
+ =?us-ascii?Q?mPR0Q68Xuff7ZEFruXn0mQhcctpfWEBSPT8cSHKnL/ikOyvO6yyAot18k/+G?=
+ =?us-ascii?Q?orOhBiYT7QEsTYgXJ+JvEOHYmqBbOqYFlwGM5kJnw3bHjEo95h9h/qjjILwG?=
+ =?us-ascii?Q?cxYcSCpvevpNY/ruFVHPNiyF7LE8TehGm+QkQMyVDN+Hh0qcrwh9xQuom1Yo?=
+ =?us-ascii?Q?oX2q+cmOc1VHk6yxdfttXguYhNDa2r8fe+7F+h7AHdtCSCoebqeZNFYe4p27?=
+ =?us-ascii?Q?nHtVpN/Z6bRTk1Pn0QBkqxLHdy2G9Je2wdxUY7rfkKBCnDoAtibcIP/ZgQzR?=
+ =?us-ascii?Q?SuFG/MlLzW2sNtm7JMCHJXYQnXC+duUIAa9Rvbl5+5g1jfcl11oX3RyCzN29?=
+ =?us-ascii?Q?l4HIE/uBcrx5Z4FeDKvziyrcr4I36q8GupoRAYmjOuLw/AxItNWuzuv2HljP?=
+ =?us-ascii?Q?FTHMetQnY2HPL8+SgCyf4YbWNB3XUm2ct3fIhksT?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2a94ba25-424f-4f71-de3c-08de373cbbea
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Dec 2025 16:05:12.5349
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: GURlXKhSuJ0ffsZAxutA2cY9J56h1F0uUDeiK6A1cC/Cscr7KsIvvqPyx99oj6bkRWjvo81sBywUbmVOYSus7g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7160
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_075844_323893_111580E5 
-X-CRM114-Status: GOOD (  29.52  )
+X-CRM114-CacheID: sfid-20251209_080516_844453_D766E95D 
+X-CRM114-Status: GOOD (  15.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,299 +164,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 9, 2025 at 4:48=E2=80=AFAM James Clark <james.clark@linaro.org>=
- wrote:
+On Mon, Dec 08, 2025 at 05:33:02PM -0600, Shenwei Wang wrote:
+> The resource name may include an address suffix, for example:
+> rsc-table@1fff8000.
 >
-> On 08/12/2025 2:22 pm, James Clark wrote:
-> > The ADD_CONFIG_TERM() macros build the __type argument out of a partial
-> > EVSEL__CONFIG_TERM_x enum name. This means that they can't be called
-> > from a function where __type is a variable and it's also impossible to
-> > grep the codebase to find usages of these enums as they're never typed
-> > in full.
-> >
-> > Fix this by removing the macros and replacing them with an
-> > add_config_term() function. It seems the main reason these existed in
-> > the first place was to avoid type punning and to write to a specific
-> > field in the union, but the same thing can be achieved with a single
-> > write to a u64 'val' field.
-> >
-> > Signed-off-by: James Clark <james.clark@linaro.org>
-> > ---
-> >   tools/perf/util/evsel_config.h |   1 +
-> >   tools/perf/util/parse-events.c | 146 ++++++++++++++++++++++++--------=
----------
-> >   2 files changed, 86 insertions(+), 61 deletions(-)
-> >
-> > diff --git a/tools/perf/util/evsel_config.h b/tools/perf/util/evsel_con=
-fig.h
-> > index bcd3a978f0c4..685fd8d5c4a8 100644
-> > --- a/tools/perf/util/evsel_config.h
-> > +++ b/tools/perf/util/evsel_config.h
-> > @@ -50,6 +50,7 @@ struct evsel_config_term {
-> >               u64           cfg_chg;
-> >               char          *str;
-> >               int           cpu;
-> > +             u64           val;
-> >       } val;
-> >       bool weak;
-> >   };
-> > diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-eve=
-nts.c
-> > index 17c1c36a7bf9..d5b009b4ebab 100644
-> > --- a/tools/perf/util/parse-events.c
-> > +++ b/tools/perf/util/parse-events.c
-> > @@ -1116,105 +1116,107 @@ static int config_attr(struct perf_event_attr=
- *attr,
-> >       return 0;
-> >   }
-> >
-> > -static int get_config_terms(const struct parse_events_terms *head_conf=
-ig,
-> > -                         struct list_head *head_terms)
-> > +static struct evsel_config_term *add_config_term(enum evsel_term_type =
-type,
-> > +                                              struct list_head *head_t=
-erms,
-> > +                                              bool weak)
-> >   {
-> > -#define ADD_CONFIG_TERM(__type, __weak)                              \
-> > -     struct evsel_config_term *__t;                  \
-> > -                                                             \
-> > -     __t =3D zalloc(sizeof(*__t));                             \
-> > -     if (!__t)                                               \
-> > -             return -ENOMEM;                                 \
-> > -                                                             \
-> > -     INIT_LIST_HEAD(&__t->list);                             \
-> > -     __t->type       =3D EVSEL__CONFIG_TERM_ ## __type;        \
-> > -     __t->weak       =3D __weak;                               \
-> > -     list_add_tail(&__t->list, head_terms)
-> > -
-> > -#define ADD_CONFIG_TERM_VAL(__type, __name, __val, __weak)   \
-> > -do {                                                         \
-> > -     ADD_CONFIG_TERM(__type, __weak);                        \
-> > -     __t->val.__name =3D __val;                                \
-> > -} while (0)
-> > +     struct evsel_config_term *t;
-> >
-> > -#define ADD_CONFIG_TERM_STR(__type, __val, __weak)           \
-> > -do {                                                         \
-> > -     ADD_CONFIG_TERM(__type, __weak);                        \
-> > -     __t->val.str =3D strdup(__val);                           \
-> > -     if (!__t->val.str) {                                    \
-> > -             zfree(&__t);                                    \
-> > -             return -ENOMEM;                                 \
-> > -     }                                                       \
-> > -     __t->free_str =3D true;                                   \
-> > -} while (0)
-> > +     t =3D zalloc(sizeof(*t));
-> > +     if (!t)
-> > +             return NULL;
-> > +
-> > +     INIT_LIST_HEAD(&t->list);
-> > +     t->type =3D type;
-> > +     t->weak =3D weak;
-> > +     list_add_tail(&t->list, head_terms);
-> >
-> > +     return t;
-> > +}
-> > +
-> > +static int get_config_terms(const struct parse_events_terms *head_conf=
-ig,
-> > +                         struct list_head *head_terms)
-> > +{
-> >       struct parse_events_term *term;
-> >
-> >       list_for_each_entry(term, &head_config->terms, list) {
-> > +             struct evsel_config_term *new_term;
-> > +             enum evsel_term_type new_type;
-> > +             char *str =3D NULL;
-> > +             u64 val;
-> > +
-> >               switch (term->type_term) {
-> >               case PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD:
-> > -                     ADD_CONFIG_TERM_VAL(PERIOD, period, term->val.num=
-, term->weak);
-> > +                     new_type =3D EVSEL__CONFIG_TERM_PERIOD;
-> > +                     val =3D term->val.num;
-> >                       break;
-> >               case PARSE_EVENTS__TERM_TYPE_SAMPLE_FREQ:
-> > -                     ADD_CONFIG_TERM_VAL(FREQ, freq, term->val.num, te=
-rm->weak);
-> > +                     new_type =3D EVSEL__CONFIG_TERM_FREQ;
-> > +                     val =3D term->val.num;
-> >                       break;
-> >               case PARSE_EVENTS__TERM_TYPE_TIME:
-> > -                     ADD_CONFIG_TERM_VAL(TIME, time, term->val.num, te=
-rm->weak);
-> > +                     new_type =3D EVSEL__CONFIG_TERM_TIME;
-> > +                     val =3D term->val.num;
-> >                       break;
-> >               case PARSE_EVENTS__TERM_TYPE_CALLGRAPH:
-> > -                     ADD_CONFIG_TERM_STR(CALLGRAPH, term->val.str, ter=
-m->weak);
-> > +                     new_type =3D EVSEL__CONFIG_TERM_CALLGRAPH;
-> > +                     str =3D term->val.str;
-> >                       break;
-> >               case PARSE_EVENTS__TERM_TYPE_BRANCH_SAMPLE_TYPE:
-> > -                     ADD_CONFIG_TERM_STR(BRANCH, term->val.str, term->=
-weak);
-> > +                     new_type =3D EVSEL__CONFIG_TERM_BRANCH;
-> > +                     str =3D term->val.str;
-> >                       break;
-> >               case PARSE_EVENTS__TERM_TYPE_STACKSIZE:
-> > -                     ADD_CONFIG_TERM_VAL(STACK_USER, stack_user,
-> > -                                         term->val.num, term->weak);
-> > +                     new_type =3D EVSEL__CONFIG_TERM_STACK_USER;
-> > +                     val =3D term->val.num;
-> >                       break;
-> >               case PARSE_EVENTS__TERM_TYPE_INHERIT:
-> > -                     ADD_CONFIG_TERM_VAL(INHERIT, inherit,
-> > -                                         term->val.num ? 1 : 0, term->=
-weak);
-> > +                     new_type =3D EVSEL__CONFIG_TERM_INHERIT;
-> > +                     val =3D term->val.num ? 1 : 0;
-> >                       break;
-> >               case PARSE_EVENTS__TERM_TYPE_NOINHERIT:
-> > -                     ADD_CONFIG_TERM_VAL(INHERIT, inherit,
-> > -                                         term->val.num ? 0 : 1, term->=
-weak);
-> > +                     new_type =3D EVSEL__CONFIG_TERM_INHERIT;
-> > +                     val =3D term->val.num ? 0 : 1;
-> >                       break;
-> >               case PARSE_EVENTS__TERM_TYPE_MAX_STACK:
-> > -                     ADD_CONFIG_TERM_VAL(MAX_STACK, max_stack,
-> > -                                         term->val.num, term->weak);
-> > +                     new_type =3D EVSEL__CONFIG_TERM_MAX_STACK;
-> > +                     val =3D term->val.num;
-> >                       break;
-> >               case PARSE_EVENTS__TERM_TYPE_MAX_EVENTS:
-> > -                     ADD_CONFIG_TERM_VAL(MAX_EVENTS, max_events,
-> > -                                         term->val.num, term->weak);
-> > +                     new_type =3D EVSEL__CONFIG_TERM_MAX_EVENTS;
-> > +                     val =3D term->val.num;
-> >                       break;
-> >               case PARSE_EVENTS__TERM_TYPE_OVERWRITE:
-> > -                     ADD_CONFIG_TERM_VAL(OVERWRITE, overwrite,
-> > -                                         term->val.num ? 1 : 0, term->=
-weak);
-> > +                     new_type =3D EVSEL__CONFIG_TERM_OVERWRITE;
-> > +                     val =3D term->val.num ? 1 : 0;
-> >                       break;
-> >               case PARSE_EVENTS__TERM_TYPE_NOOVERWRITE:
-> > -                     ADD_CONFIG_TERM_VAL(OVERWRITE, overwrite,
-> > -                                         term->val.num ? 0 : 1, term->=
-weak);
-> > +                     new_type =3D EVSEL__CONFIG_TERM_OVERWRITE;
-> > +                     val =3D term->val.num ? 0 : 1;
-> >                       break;
-> >               case PARSE_EVENTS__TERM_TYPE_DRV_CFG:
-> > -                     ADD_CONFIG_TERM_STR(DRV_CFG, term->val.str, term-=
->weak);
-> > +                     new_type =3D EVSEL__CONFIG_TERM_DRV_CFG;
-> > +                     str =3D term->val.str;
-> >                       break;
-> >               case PARSE_EVENTS__TERM_TYPE_PERCORE:
-> > -                     ADD_CONFIG_TERM_VAL(PERCORE, percore,
-> > -                                         term->val.num ? true : false,=
- term->weak);
-> > +                     new_type =3D EVSEL__CONFIG_TERM_PERCORE;
-> > +                     val =3D term->val.num ? true : false;
-> >                       break;
-> >               case PARSE_EVENTS__TERM_TYPE_AUX_OUTPUT:
-> > -                     ADD_CONFIG_TERM_VAL(AUX_OUTPUT, aux_output,
-> > -                                         term->val.num ? 1 : 0, term->=
-weak);
-> > +                     new_type =3D EVSEL__CONFIG_TERM_AUX_OUTPUT;
-> > +                     val =3D term->val.num ? 1 : 0;
-> >                       break;
-> >               case PARSE_EVENTS__TERM_TYPE_AUX_ACTION:
-> > -                     ADD_CONFIG_TERM_STR(AUX_ACTION, term->val.str, te=
-rm->weak);
-> > +                     new_type =3D EVSEL__CONFIG_TERM_AUX_ACTION;
-> > +                     str =3D term->val.str;
-> >                       break;
-> >               case PARSE_EVENTS__TERM_TYPE_AUX_SAMPLE_SIZE:
-> > -                     ADD_CONFIG_TERM_VAL(AUX_SAMPLE_SIZE, aux_sample_s=
-ize,
-> > -                                         term->val.num, term->weak);
-> > +                     new_type =3D EVSEL__CONFIG_TERM_AUX_SAMPLE_SIZE;
-> > +                     val =3D term->val.num;
-> >                       break;
-> >               case PARSE_EVENTS__TERM_TYPE_RATIO_TO_PREV:
-> > -                     ADD_CONFIG_TERM_STR(RATIO_TO_PREV, term->val.str,=
- term->weak);
-> > +                     new_type =3D EVSEL__CONFIG_TERM_RATIO_TO_PREV;
-> > +                     str =3D term->val.str;
-> >                       break;
-> >               case PARSE_EVENTS__TERM_TYPE_USER:
-> >               case PARSE_EVENTS__TERM_TYPE_CONFIG:
-> > @@ -1229,7 +1231,23 @@ do {                                            =
-               \
-> >               case PARSE_EVENTS__TERM_TYPE_RAW:
-> >               case PARSE_EVENTS__TERM_TYPE_CPU:
-> >               default:
-> > -                     break;
-> > +                     /* Don't add a new term for these ones */
-> > +                     continue;
-> > +             }
-> > +
-> > +             new_term =3D add_config_term(new_type, head_terms, term->=
-weak);
-> > +             if (!new_term)
-> > +                     return -ENOMEM;
-> > +
-> > +             if (str) {
-> > +                     new_term->val.str =3D strdup(str);
-> > +                     if (!new_term->val.str) {
-> > +                             zfree(&new_term);
-> > +                             return -ENOMEM;
-> > +                     }
-> > +                     new_term->free_str =3D true;
-> > +             } else {
+> To handle such cases, use strstarts() instead of strcmp() when checking
+> for "rsc-table".
 >
-> This will incorrectly hit the else if term->val.str is NULL. Not sure if
-> that can happen but will fix anyway.
->
-> > +                     new_term->val.val =3D val;
->
-> There's an uninitialized variable warning for val here on release
-> builds. Will fix too
+> Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
+> ---
 
-I'm not sure how I feel about the change, but did you check that it is
-ubsan clean? I worry it is introducing writes to "val" and then reads
-from say "period" in the evsel_config_term val union. I believe ubsan
-will flag this as:
-https://en.cppreference.com/w/cpp/language/union.html
-"It is undefined behavior to read from the member of the union that
-wasn't most recently written."
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Thanks,
-Ian
-
-> >               }
-> >       }
-> >       return 0;
-> > @@ -1290,10 +1308,16 @@ static int get_config_chgs(struct perf_pmu *pmu=
-, struct parse_events_terms *head
-> >               }
-> >       }
-> >
-> > -     if (bits)
-> > -             ADD_CONFIG_TERM_VAL(CFG_CHG, cfg_chg, bits, false);
-> > +     if (bits) {
-> > +             struct evsel_config_term *new_term;
-> > +
-> > +             new_term =3D add_config_term(EVSEL__CONFIG_TERM_CFG_CHG,
-> > +                                        head_terms, false);
-> > +             if (!new_term)
-> > +                     return -ENOMEM;
-> > +             new_term->val.cfg_chg =3D bits;
-> > +     }
-> >
-> > -#undef ADD_CONFIG_TERM
-> >       return 0;
-> >   }
-> >
-> >
+>  drivers/remoteproc/imx_rproc.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+> index 3be8790c14a2..33f21ab24c92 100644
+> --- a/drivers/remoteproc/imx_rproc.c
+> +++ b/drivers/remoteproc/imx_rproc.c
+> @@ -694,7 +694,7 @@ static int imx_rproc_addr_init(struct imx_rproc *priv,
+>  		}
+>  		priv->mem[b].sys_addr = res.start;
+>  		priv->mem[b].size = resource_size(&res);
+> -		if (!strcmp(res.name, "rsc-table"))
+> +		if (strstarts(res.name, "rsc-table"))
+>  			priv->rsc_table = priv->mem[b].cpu_addr;
+>  		b++;
+>  	}
+> --
+> 2.43.0
 >
 
