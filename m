@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8673FD3B7FC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 11:15:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1D00D1CDC6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 11:28:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yix2VtVAthNOkhvZWCl2bJyUJbLX6oYb/22YOA7QIzE=; b=WoT0OdgVGM6jlbjU5oQnNWe1GF
-	vOpLgCLGV3s6ho9TZDoZGg95iPhoYUKey/GqIXWrjolBwZd0wUibMjzny5h6ga0oGgSBvfW4aNHAI
-	LAXXmMrEFCVTCNXFD5pi6QDfgJV0RovH+ZcsOWGgMwWDjjvUY4Cl/9o+o/VoBnruivArVSupGbQaR
-	CqT5WT0orc08YeeeoQqZ47IAZ68on7X/9aa3z3YlAythW1S8SN4VTOnJasJ4elL6XOT5p8vE90C84
-	qXWIiBEvAKrp3+nL4Ov1HEyqrhUb48FfJosPW7LqEofziJxTdwWEtl1W3H+IMFbxm/2Qo2G8mSb9W
-	TV99/TBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DwKdmCUbXETjxy9fokPP+UnDSthHBd6FAyICBa61gQE=; b=FbYAV5pQn2OhuUAsRBZ/KY85iY
+	09B6xTIPfnl7NohEIH7e9b9EKG3o1k33/tWjXUGeYEccxYNVtlmhDJ60ulgR+Pw4sKWivW6RXe7oP
+	Su5ggqftXGgVJM0ygI028tB8gn5qzXRXWv4zeqyBpRQ/ZXZEcB8Fn7yChwvcrYampTGK7EIbihup9
+	EPgaqAxs+I+XHjJQkblTXPv4+SJYVZ0Xe4v8zwkoq8EAn50lSSM+xmll6SF5JBiK860IK/secyyAl
+	rhnoABSMd2/4Km4H4mtKHgADDHfFRSUlUJ8+kmBq1qxsR2ux3QVjxyfID+Isg2ifZGEueFpp53pim
+	0IaBGujQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSvh9-0000000EAIL-3F5X;
-	Tue, 09 Dec 2025 11:15:51 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vSvtM-0000000EBVE-3CPG;
+	Tue, 09 Dec 2025 11:28:28 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSvh1-0000000EA6e-0HVQ;
-	Tue, 09 Dec 2025 11:15:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1765278902; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=XC4SC3KkKQ7GO3dIKZW6VrkIe5LB95jLxGpeMIq18SM3ZtChpHATaju+CTP+QRZ4mHgQqaIOX6lSOO+EBhKmR+hFdrgIozll6wtPMzj+gfUwLqf9gPYunNtJlPBor2RA2lomDipvREAgb1hIdi0Oz6BygQAT1euBfIUNsA/qD5A=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1765278902; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Yix2VtVAthNOkhvZWCl2bJyUJbLX6oYb/22YOA7QIzE=; 
-	b=OTs1CxtkcufyquRlMA3AhY4I/ehCeO8a77ex6dECwBRISDWtDwMTUTKevCghOje3b6F7GsxEA82+HmIxIYFVov8Ts7oa5IT0oINklAD4YrReKq99NQxkGMrcgxoggqECn3JLvk1QcXAWv6nPhEGOx9Uj/86BqCsRaA5ZbNH4WNQ=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765278902;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=Yix2VtVAthNOkhvZWCl2bJyUJbLX6oYb/22YOA7QIzE=;
-	b=hgfjnUwKg4ZYtlC9LS6jxO/Qe9EYMeD+GLooSCAcVT65Ywz65E6T6IM/gmlj6pnj
-	XZAw1w58abuhIGuIxy3Hl+2vj/UdDTdk/oyqX9kypzHB5jT7OensadB3VBFj3ITu8K6
-	iZiayudZcqRaQlCM4Fbl5cpEIgDwzWghtWidITKw=
-Received: by mx.zohomail.com with SMTPS id 1765278900902951.2741005817111;
-	Tue, 9 Dec 2025 03:15:00 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Tue, 09 Dec 2025 12:14:16 +0100
-Subject: [PATCH v3 3/8] drm/rockchip: vop2: Fix Esmart test condition
+	id 1vSvtJ-0000000EBUl-3mEX
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Dec 2025 11:28:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=DwKdmCUbXETjxy9fokPP+UnDSthHBd6FAyICBa61gQE=; b=D9rFHetJk7ay/DXTWcogtOMRUt
+	jy1aVrj+NO6xKIk/M8evsvfydfIZJbYw5Ui+Ujn56/7VBa305YJ9I7tF7Rtd+9Yr1dniHavtI1T+J
+	sWcFLnp2VymQ0Ze+CS0nFMDv67CRoP0GIL2q0izyU6yk6GwFYSXMqyF4PZKzrdEhZKKIL+fM1Tcmf
+	uajhTlqMaBxi6tMsohBHsXEkWI+D7+HWVpXqc9TaX4mZpY71tyG6ualnvhbg9oEo2Vfl8NS4fcZdk
+	4zdhlgTxaqpZXtjYRbmfefhLWrvcEjUh+WsNaxL2SLa5xXbs3D7yZYrmRUqclUH7fNT8haY2vupJ6
+	GFS6nqQw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:34968)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1vSvsw-000000000Nz-0ADF;
+	Tue, 09 Dec 2025 11:28:02 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1vSvsr-000000005xz-34kQ;
+	Tue, 09 Dec 2025 11:27:57 +0000
+Date: Tue, 9 Dec 2025 11:27:57 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Potin Lai <potin.lai@quantatw.com>, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2] net: mdio: aspeed: add dummy read to avoid
+ read-after-write issue
+Message-ID: <aTgHva-UVEPl9EAR@shell.armlinux.org.uk>
+References: <20251209-aspeed_mdio_add_dummy_read-v2-1-5f6061641989@aspeedtech.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251209-vop2-atomic-fixups-v3-3-07c48f0f1f0d@collabora.com>
-References: <20251209-vop2-atomic-fixups-v3-0-07c48f0f1f0d@collabora.com>
-In-Reply-To: <20251209-vop2-atomic-fixups-v3-0-07c48f0f1f0d@collabora.com>
-To: Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
- Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
-Cc: Daniel Stone <daniels@collabora.com>, dri-devel@lists.freedesktop.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, kernel@collabora.com, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251209-aspeed_mdio_add_dummy_read-v2-1-5f6061641989@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_031543_264632_A7B32EC9 
-X-CRM114-Status: GOOD (  10.43  )
+X-CRM114-CacheID: sfid-20251209_032826_211122_C6C65032 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,42 +86,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Daniel Stone <daniels@collabora.com>
+On Tue, Dec 09, 2025 at 07:15:31PM +0800, Jacky Chou wrote:
+> +	/* Workaround for read-after-write issue.
+> +	 * The controller may return stale data if a read follows immediately
+> +	 * after a write. A dummy read forces the hardware to update its
+> +	 * internal state, ensuring that the next real read returns correct data.
+> +	 */
+> +	(void)ioread32(ctx->base + ASPEED_MDIO_CTRL);
 
-If we want to find out if a window is Esmart or not, test for not being
-a cluster window, rather than AFBDC presence.
+What purpose does this cast to void achieve in an already void context?
 
-No functional effect as only cluster windows support AFBC decode.
-
-Signed-off-by: Daniel Stone <daniels@collabora.com>
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 10 ++++------
- 1 file changed, 4 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 81b3eba07095..9d715d7659af 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -1230,12 +1230,10 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
- 	 * This is workaround solution for IC design:
- 	 * esmart can't support scale down when src_w % 16 == 1.
- 	 */
--	if (!(win->data->feature & WIN_FEATURE_AFBDC)) {
--		if (src_w > dsp_w && (src_w & 0xf) == 1) {
--			drm_dbg_kms(vop2->drm, "vp%d %s act_w[%d] MODE 16 == 1\n",
--				    vp->id, win->data->name, src_w);
--			src_w -= 1;
--		}
-+	if (!vop2_cluster_window(win) && src_w > dsp_w && (src_w & 1)) {
-+		drm_dbg_kms(vop2->drm, "vp%d %s act_w[%d] MODE 16 == 1\n",
-+			    vp->id, win->data->name, src_w);
-+		src_w -= 1;
- 	}
- 
- 	if (afbc_en && src_w % 4) {
+We have plenty of functions that get called in the kernel that return a
+value which the caller ignores, never assigning to a variable, none of
+these warn.
 
 -- 
-2.52.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
