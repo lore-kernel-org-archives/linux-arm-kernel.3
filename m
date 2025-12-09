@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C36E2D3B7EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 14:40:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91CB3D1CDC6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 14:49:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aTiH5HAxrxt4Q/8HiYZa4AwIODsYXQjnh1VIP3qiNv0=; b=Hj+wIpxLWN9ZkaFxF6kWKp4NRO
-	ziapUufjwQKuebCjIRXhCURjsi13Jhub/zDbKYS8nO9hOLi7VaCq/Y3QuL+r/GvfdGx1Mt13DaSKZ
-	cvbBIBKA4B6bBN8U+AaDqQI+y/z/2vGOP0vQVT2UQJPtlaeMJQ1A6YatAeR5O3iOG219vIe2hbMwE
-	A01hmMgXggyoGbnnUpB+FLYJ5G4RsUVV7iqMCfmI3GbiA13Au+26edIMNIP0TGZFZbKuwaQSMz5Cn
-	2LIhb6TxX5B+fuGNzymTRmocX6He8ZLFHnLIJ/nPbLsQjrh2vr/6VkFGUctnDNY+xzI7RcJKD5nbs
-	XbyLGjbg==;
+	bh=VuaEDZeFd52d4h0ZzErwMFCXix5XFpMjCOHMPcvnu4I=; b=i6veGEy9gwx2VjDGz8S+Xtx+GR
+	wK0Z2/6eYf/+eqj6OW4LPRPYvRXcte02Z/8Q0gOuaMcWHbKARR2a/wjFqvxHf5WjSWGw/hL8qveR+
+	PsTEMOE4rOZ6L1liKRdB5WeN79CcWoMVWl+aS4HIT94F6UfsuBJhGIfCilxY2Ws5o7TfVrGzUvC6D
+	bfomiDVoj2aTyG91jL3sHYubxPOgzwTHEOq2LD0uYq49EPHMEtq6x9QcZJrlwUClTxL6MCfY7jhOS
+	RgJeyt4BUnmkulQBpkWK82uKD/J3J8gqh/xqJMMbn7AQMSdeLyBBRgLPtCxl0tsbL6NVOPenhmRGk
+	7jycusQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSytL-0000000EPkG-1Rbr;
-	Tue, 09 Dec 2025 14:40:39 +0000
+	id 1vSz1a-0000000EQFA-2kIz;
+	Tue, 09 Dec 2025 14:49:10 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSytI-0000000EPjd-2S9W
+	id 1vSz1Y-0000000EQEo-00d0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 14:40:38 +0000
+	Tue, 09 Dec 2025 14:49:09 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EDF7E175D;
-	Tue,  9 Dec 2025 06:40:25 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AB73B175D;
+	Tue,  9 Dec 2025 06:48:58 -0800 (PST)
 Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DF16A3F73B;
-	Tue,  9 Dec 2025 06:40:29 -0800 (PST)
-Message-ID: <41bcd0d2-d5b8-4f3d-b0b3-132387f547ed@arm.com>
-Date: Tue, 9 Dec 2025 14:40:28 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A2B163F73B;
+	Tue,  9 Dec 2025 06:49:02 -0800 (PST)
+Message-ID: <b1cb5da6-3e08-44b7-9d4d-cef34be15df4@arm.com>
+Date: Tue, 9 Dec 2025 14:49:01 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 00/38] arm_mpam: Add KVM/arm64 and resctrl glue code
+Subject: Re: [RFC PATCH 01/38] arm64: mpam: Context switch the MPAM registers
 To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org
 Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
@@ -53,14 +53,15 @@ Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
  <gshan@redhat.com>, rohit.mathew@arm.com, reinette.chatre@intel.com,
  Punit Agrawal <punit.agrawal@oss.qualcomm.com>
 References: <20251205215901.17772-1-james.morse@arm.com>
+ <20251205215901.17772-2-james.morse@arm.com>
 From: Ben Horgan <ben.horgan@arm.com>
 Content-Language: en-US
-In-Reply-To: <20251205215901.17772-1-james.morse@arm.com>
+In-Reply-To: <20251205215901.17772-2-james.morse@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_064036_669893_2CDD0658 
-X-CRM114-Status: GOOD (  13.42  )
+X-CRM114-CacheID: sfid-20251209_064908_130087_314808FC 
+X-CRM114-Status: GOOD (  32.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,35 +76,235 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James and all,
-
-As James is otherwise occupied, I am planning to post a follow up
-version of this series once it's had time to be reviewed. I will be
-posting my own review comments; please give them extra scrutiny.
+Hi James,
 
 On 12/5/25 21:58, James Morse wrote:
-> This is the missing piece to make MPAM usable resctrl in user-space. This has
-> shed its debugfs code and the read/write 'event configuration' for the monitors
-> to make the series smaller.
+> MPAM allows traffic in the SoC to be labeled by the OS, these labels
+> are used to apply policy in caches and bandwidth regulators, and to
+> monitor traffic in the SoC. The label is made up of a PARTID and PMG
+> value. The x86 equivalent calls these CLOSID and RMID, but they don't
+> map precisely.
 > 
 [...]
 > 
-> This series is based on arm64/for-next/core, and can be retrieved from:
-> https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/glue/rfc
-> 
-> There is no snapshot branch - this is it!
-> I'll push the extras branch once I've gotten a handle on the DT shaped mess in
-> there.
+> All this should depend on whether there is an MPAM driver, hide
+> it behind CONFIG_MPAM.
 
-One major departure from the previous snapshot branches referenced in
-the base driver series is that the same MPAM setting are used for
-kernel-space and user-space. That is, MPAM1_EL1 is set to the same value
-as MPAM0_EL1 rather than keeping the default value. The advantages of
-this are that it is closer to the x86 model where the closid is globally
-applicable, all partids are usable from user-space and user-space can't
-bypass MPAM controls by doing the work in the kernel. However, this
-causes some priority inversion where a high priority task waits to take
-a mutex held by another whose resources are restricted by MPAM.
+CONFIG_MPAM -> CONFIG_ARM64_MPAM
+
+> 
+> CC: Amit Singh Tomar <amitsinght@marvell.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+>  arch/arm64/Kconfig                   |  2 +
+>  arch/arm64/include/asm/mpam.h        | 74 ++++++++++++++++++++++++++++
+>  arch/arm64/include/asm/thread_info.h |  3 ++
+>  arch/arm64/kernel/Makefile           |  1 +
+>  arch/arm64/kernel/mpam.c             | 13 +++++
+>  arch/arm64/kernel/process.c          |  7 +++
+>  drivers/resctrl/mpam_devices.c       |  2 -
+>  drivers/resctrl/mpam_internal.h      |  2 +
+>  8 files changed, 102 insertions(+), 2 deletions(-)
+>  create mode 100644 arch/arm64/include/asm/mpam.h
+>  create mode 100644 arch/arm64/kernel/mpam.c
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 004d58cfbff8..558baa9e7c08 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -2048,6 +2048,8 @@ config ARM64_MPAM
+>  
+>  	  MPAM is exposed to user-space via the resctrl pseudo filesystem.
+>  
+> +	  This option enables the extra context switch code.
+> +
+>  endmenu # "ARMv8.4 architectural features"
+>  
+>  menu "ARMv8.5 architectural features"
+> diff --git a/arch/arm64/include/asm/mpam.h b/arch/arm64/include/asm/mpam.h
+> new file mode 100644
+> index 000000000000..86a55176f884
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/mpam.h
+> @@ -0,0 +1,74 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/* Copyright (C) 2025 Arm Ltd. */
+> +
+> +#ifndef __ASM__MPAM_H
+> +#define __ASM__MPAM_H
+> +
+> +#include <linux/bitops.h>
+> +#include <linux/init.h>
+> +#include <linux/jump_label.h>
+> +#include <linux/percpu.h>
+> +#include <linux/sched.h>
+> +
+> +#include <asm/cpucaps.h>
+> +#include <asm/cpufeature.h>
+> +#include <asm/sysreg.h>
+> +
+> +DECLARE_STATIC_KEY_FALSE(mpam_enabled);
+> +DECLARE_PER_CPU(u64, arm64_mpam_default);
+> +DECLARE_PER_CPU(u64, arm64_mpam_current);
+> +
+> +/*
+> + * The value of the MPAM0_EL1 sysreg when a task is in resctrl's default group.
+> + * This is used by the context switch code to use the resctrl CPU property
+> + * instead. The value is modified when CDP is enabled/disabled by mounting
+> + * the resctrl filesystem.
+> + */
+> +extern u64 arm64_mpam_global_default;
+> +
+> +/*
+> + * The resctrl filesystem writes to the partid/pmg values for threads and CPUs,
+> + * which may race with reads in __mpam_sched_in(). Ensure only one of the old
+> + * or new values are used. Particular care should be taken with the pmg field
+> + * as __mpam_sched_in() may read a partid and pmg that don't match, causing
+> + * this value to be stored with cache allocations, despite being considered
+> + * 'free' by resctrl.
+
+__mpam_sched_in() -> mpam_thread_switch()
+This is called from resctrl_arch_sched_in().
+
+> + *
+> + * A value in struct thread_info is used instead of struct task_struct as the
+> + * cpu's u64 register format is used, but struct task_struct has two u32'.
+> + */
+> +static inline u64 mpam_get_regval(struct task_struct *tsk)
+> +{
+> +#ifdef CONFIG_ARM64_MPAM
+> +	return READ_ONCE(task_thread_info(tsk)->mpam_partid_pmg);
+> +#else
+> +	return 0;
+> +#endif
+> +}
+> +
+> +static inline void mpam_thread_switch(struct task_struct *tsk)
+> +{
+> +	u64 oldregval;
+> +	int cpu = smp_processor_id();
+> +	u64 regval = mpam_get_regval(tsk);
+> +
+> +	if (!IS_ENABLED(CONFIG_ARM64_MPAM) ||
+> +	    !static_branch_likely(&mpam_enabled))
+> +		return;
+> +
+> +	if (regval == READ_ONCE(arm64_mpam_global_default))
+> +		regval = READ_ONCE(per_cpu(arm64_mpam_default, cpu));
+> +
+> +	oldregval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
+> +	if (oldregval == regval)
+> +		return;
+> +
+> +	write_sysreg_s(regval, SYS_MPAM1_EL1);
+> +	isb();
+> +
+> +	/* Synchronising the EL0 write is left until the ERET to EL0 */
+> +	write_sysreg_s(regval, SYS_MPAM0_EL1);
+> +
+> +	WRITE_ONCE(per_cpu(arm64_mpam_current, cpu), regval);
+> +}
+> +#endif /* __ASM__MPAM_H */
+> diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
+> index f241b8601ebd..c226dabd5019 100644
+> --- a/arch/arm64/include/asm/thread_info.h
+> +++ b/arch/arm64/include/asm/thread_info.h
+> @@ -41,6 +41,9 @@ struct thread_info {
+>  #ifdef CONFIG_SHADOW_CALL_STACK
+>  	void			*scs_base;
+>  	void			*scs_sp;
+> +#endif
+> +#ifdef CONFIG_ARM64_MPAM
+> +	u64			mpam_partid_pmg;
+>  #end if
+>  	u32			cpu;
+>  };
+> diff --git a/arch/arm64/kernel/Makefile b/arch/arm64/kernel/Makefile
+> index 76f32e424065..15979f366519 100644
+> --- a/arch/arm64/kernel/Makefile
+> +++ b/arch/arm64/kernel/Makefile
+> @@ -67,6 +67,7 @@ obj-$(CONFIG_CRASH_DUMP)		+= crash_dump.o
+>  obj-$(CONFIG_VMCORE_INFO)		+= vmcore_info.o
+>  obj-$(CONFIG_ARM_SDE_INTERFACE)		+= sdei.o
+>  obj-$(CONFIG_ARM64_PTR_AUTH)		+= pointer_auth.o
+> +obj-$(CONFIG_ARM64_MPAM)		+= mpam.o
+>  obj-$(CONFIG_ARM64_MTE)			+= mte.o
+>  obj-y					+= vdso-wrap.o
+>  obj-$(CONFIG_COMPAT_VDSO)		+= vdso32-wrap.o
+> diff --git a/arch/arm64/kernel/mpam.c b/arch/arm64/kernel/mpam.c
+> new file mode 100644
+> index 000000000000..9866d2ca0faa
+> --- /dev/null
+> +++ b/arch/arm64/kernel/mpam.c
+> @@ -0,0 +1,13 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/* Copyright (C) 2025 Arm Ltd. */
+> +
+> +#include <asm/mpam.h>
+> +
+> +#include <linux/jump_label.h>
+> +#include <linux/percpu.h>
+> +
+> +DEFINE_STATIC_KEY_FALSE(mpam_enabled);
+> +DEFINE_PER_CPU(u64, arm64_mpam_default);
+> +DEFINE_PER_CPU(u64, arm64_mpam_current);
+> +
+> +u64 arm64_mpam_global_default;
+> diff --git a/arch/arm64/kernel/process.c b/arch/arm64/kernel/process.c
+> index fba7ca102a8c..b510c0699313 100644
+> --- a/arch/arm64/kernel/process.c
+> +++ b/arch/arm64/kernel/process.c
+> @@ -51,6 +51,7 @@
+>  #include <asm/fpsimd.h>
+>  #include <asm/gcs.h>
+>  #include <asm/mmu_context.h>
+> +#include <asm/mpam.h>
+>  #include <asm/mte.h>
+>  #include <asm/processor.h>
+>  #include <asm/pointer_auth.h>
+> @@ -737,6 +738,12 @@ struct task_struct *__switch_to(struct task_struct *prev,
+>  	if (prev->thread.sctlr_user != next->thread.sctlr_user)
+>  		update_sctlr_el1(next->thread.sctlr_user);
+>  
+> +	/*
+> +	 * MPAM thread switch happens after the DSB to ensure prev's accesses
+> +	 * use prev's MPAM settings.
+> +	 */
+> +	mpam_thread_switch(next);
+> +
+>  	/* the actual thread switch */
+>  	last = cpu_switch_to(prev, next);
+>  
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index 0b5b158e1aaf..2996ad93fc3e 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -29,8 +29,6 @@
+>  
+>  #include "mpam_internal.h"
+>  
+> -DEFINE_STATIC_KEY_FALSE(mpam_enabled); /* This moves to arch code */
+> -
+>  /*
+>   * mpam_list_lock protects the SRCU lists when writing. Once the
+>   * mpam_enabled key is enabled these lists are read-only,
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index e79c3c47259c..4508a6654fe0 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -17,6 +17,8 @@
+>  #include <linux/srcu.h>
+>  #include <linux/types.h>
+>  
+> +#include <asm/mpam.h>
+> +
+>  #define MPAM_MSC_MAX_NUM_RIS	16
+>  
+>  struct platform_device;
+
+The DECLARE_STATIC_KEY_FALSE(mpam_enabled) on the next line can now be
+removed.
+
 Thanks,
 
 Ben
