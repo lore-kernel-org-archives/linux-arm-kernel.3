@@ -4,90 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0052DD1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 14:08:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EED4D3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 14:11:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VyyBZwlKUZ2rmYSXMRbs5oz8IUqh5cHk9HMqteoGQSQ=; b=nvbWJPzJy0UQsfbBzqFr0RvICK
-	N1M6AQwL3LBqcIrnQjiAbBsL3rz5RVCPagUff8EnRpZvl991cMPWTFWwOnC2V8BTCxvUc0XpDMU3+
-	wC0t4EpKyY3PrnSkbpVZwDHGQ1p1CWFyggI1X/DpcdSFXP3Lcmfxhl14SLQUCwkVX20crOwEYPmE4
-	MdQ36Pua9srm+NStj99GJHJD+xrQZljjsf6P3wSkaAzbSkvX4U35ahHwELYYmoTXXRcpOYvxfupFn
-	ZeqMQIUp+MCVfIw2SJE3a/G97zaXo9FtSjeJroGoKu9cGCJhDM+svxZWe5Pj25fiLVkS7zKSFPqr/
-	FPg5vHZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BP2+Qr9UCX/ya10Zz25rhJNunRKGtU8ir6XCihiJVvs=; b=oe+hR6MFd11UrtKaaA1OQ6k/zt
+	tClL/GNHzNNXv1hHduj4geEIED00FS3cnoPy2Wd5Q1oos6Sy3nTFl/XG9kuSUDuUlSUxT7vcQ2J15
+	CcthrIbB6wzDst4J5W8uwMPnXf3z6HyJfRYjS+x9/WmfVXXgdjKGz5ZkNlIhRe52P/VT/r7PuSdad
+	xarNcXda5H1qjTOx7euNFIqvIMt95I7YtWMWtn1RFa8nBpovRfNA8soTDkDnIsBS0mKQuz9NCbGas
+	StPFObY5c1xc1/MwTr63S/rHN96pjkzA0Fn8mIBfN9AgK8WhIDWmfsiC29DSMfHZCSYKZ/RZ1rTqv
+	XS8xQ+0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSyOc-0000000ENVX-1dFd;
-	Tue, 09 Dec 2025 14:08:54 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1vSyR4-0000000ENkx-04O3;
+	Tue, 09 Dec 2025 14:11:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSyOZ-0000000ENUc-3jqQ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 14:08:52 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2953ad5517dso54247675ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Dec 2025 06:08:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765289331; x=1765894131; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VyyBZwlKUZ2rmYSXMRbs5oz8IUqh5cHk9HMqteoGQSQ=;
-        b=RDgthuy+/CVRxWTOYzlDH4XWdOnjtkFsbcIXfXDy43vS1H4iDNedWZNHVvlN1YMOzK
-         qSAP0+k/AfKfOyTIQwMCEwH+EyH+aa+ojBD8/2DdJ/KLPAyVVs2G1WzwsHsQlQDY4ZWh
-         hCGH1wOhut8e06lljMuIbr5ImZOniKFjrTF4I5zyLxOjxZaBksmrXwFltK7EGUS1sxGt
-         g3rXPaG+y4GlUIF0iPtaX+Vcs2oyU1O6s/MGogiKs92W7poMB76AYShNKDuav1mgDLyJ
-         OHr14QC60jWTnTdVYWIDEDsW+OkVIkKaHB1AooW6fWsDNTEK1OPvPcVE8sE3Xhh4jf/V
-         cA+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765289331; x=1765894131;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=VyyBZwlKUZ2rmYSXMRbs5oz8IUqh5cHk9HMqteoGQSQ=;
-        b=HaBgGtGzdesLpgLaD8BeCBSejs4i9K2/W/QT0jLmkPL8ZhWW7J+XN51EQPwSfyJlTc
-         wgqaqWwfoSYky8a4BUzkAVFxX2dbZRPnBfR3wn0Hr2W5EF2MiokQq7NbXpxAbuI3JRkJ
-         QWkOQrxFZqejdjxYoW1ErxpDtmzMzKw5HXABeyCUO2XDMmAFKWPqsoKq+WD6IPJG36fg
-         HFadeTPCVe/q/s5aSp3Irwy53io9I7Y373AH1viLzwKd8urM0YlMfebu8VuPbRnXDKIr
-         jfNot80qP5ZDBsWBOMwtZYUUw/++FHGx9uf944wFeFEgXXV09/YMnPjCuBRBl2nHiwut
-         kHrw==
-X-Forwarded-Encrypted: i=1; AJvYcCX5UkeBv5JqshzZNKXZZ72QM5NTSS4mYK6SdvTAMRPDdif+1t+fJ4k9NOSKaubhaeYDYI7gUkovGrllwL1+MUjo@lists.infradead.org
-X-Gm-Message-State: AOJu0YwF+WT0DfT0ke4Dih+z8JFiNLE4L60wHgWGLVX80uMO7ChmYO+b
-	WJz1KIrN0Z6uKUsLT6Xb1D3pod3V2MjrF45P4Q2fvBllkKb9gi9NPkLeI38Ern8L0C+k0B4iEQ1
-	yppe1CGy2CGnVEtHrOtNrgjk8JuG0hg0=
-X-Gm-Gg: ASbGncveFqpc0B7PogEiJeAnerPiNElex1YZPyz1SoRIRQA4DW3txjqWTiZHAfaxHZx
-	sg6E6ua23zSJgQOAS/G/m33evdKA59R2FWcoqF5MPL7nfu5fEcKnEqDQYRnRqrkgtlNMt8Q5sok
-	UNQbwS0xEsh7TKxmoYpaYhu1O+LSU626cDNWPAozC/jRdBhn4K1CqoxLxr2z6PSoZUEe0420wRY
-	y2glPZ0tJ8GfcLJX5PARTjeM7ex7SJPTt4ri+uSm9KyHYe5d20FxQoDdWjxz0MiSRYoTH5Pu2/0
-	PYIu562Wp8drMqieTn/uND6LIM90tom5Z7sT7cMW2FzfHlYb0/GlKX02QH00D1Tm5KNGe0Z8u8+
-	a/eqF9nrOKw==
-X-Google-Smtp-Source: AGHT+IGlAhSuqCl2kRyMGsShmSil97vNdY0PHNYfllyi4vyK36zscoZ6DMWDYGU3rPKH1rKNgSPRieolC8FcfVHxjzk=
-X-Received: by 2002:a05:7022:423:b0:11b:8b4b:bff7 with SMTP id
- a92af1059eb24-11e032ac942mr8661512c88.39.1765289330793; Tue, 09 Dec 2025
- 06:08:50 -0800 (PST)
+	id 1vSyR1-0000000ENkm-4AlM;
+	Tue, 09 Dec 2025 14:11:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 93A8B600B0;
+	Tue,  9 Dec 2025 14:11:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C04F8C4CEF5;
+	Tue,  9 Dec 2025 14:11:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765289482;
+	bh=wKR6M3heNWDWgben29U6U09LDt6ie/nrp3hxYzAUbek=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=npz5d4O0CrdapJo0o6NJdOiCHFzhMkLMMVdLRp/dcDZKrV/FhAuf5fMKy52dgkDN/
+	 /bnA/l5fbnBdKLBohLzES2idJj/UNpdncLONYwRy4nsJszm+f+VutpArhc5gQnzYf6
+	 EHsAMKk8GVDoyusqLZ+T9yM4mGFDsNTTzFM57rPeelHww1nUffQxXB9QrTdb9Wm93d
+	 ncIwthjTHH2GP8w1jojEZ3YrMC2rYFDy17DLf4QB+rfovrHlhmOvwDUzfWo4gKgFmG
+	 pmJTnqh0lLVVHdOx1g3HEZpzm76QC9q8Y5Hyz3sVxWHIhn5EVnkvHK1UKv0tGPySq4
+	 lEz9zwyjLvNjg==
+Date: Tue, 9 Dec 2025 15:11:19 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Rob Herring <robh@kernel.org>, kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org, 
+	Andri Yngvason <andri@yngvason.is>, Werner Sembach <wse@tuxedocomputers.com>, 
+	Marius Vlad <marius.vlad@collabora.com>
+Subject: Re: [PATCH v5 02/17] drm: Add new general DRM property "color format"
+Message-ID: <20251209-gifted-coyote-of-endurance-b81bf5@houat>
+References: <20251128-color-format-v5-0-63e82f1db1e1@collabora.com>
+ <20251128-color-format-v5-2-63e82f1db1e1@collabora.com>
 MIME-Version: 1.0
-References: <20251204122825.756106-1-iuliana.prodan@oss.nxp.com> <20251204122825.756106-3-iuliana.prodan@oss.nxp.com>
-In-Reply-To: <20251204122825.756106-3-iuliana.prodan@oss.nxp.com>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Tue, 9 Dec 2025 16:11:19 +0200
-X-Gm-Features: AQt7F2rz9EfsJBbiHeX3xN1JnTkS5oOdOlbJa4JQf39jSVqAGLuMb5NMx16wl5A
-Message-ID: <CAEnQRZDw-jwpXdb3oi+-DZ+YD4aQfyON0gPNrGpox1v7m4Voig@mail.gmail.com>
-Subject: Re: [PATCH v2 3/3] remoteproc: imx_dsp_rproc: Wait for suspend ACK
- only if WAIT_FW_CONFIRMATION is set
-To: "Iuliana Prodan (OSS)" <iuliana.prodan@oss.nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	"S.J. Wang" <shengjiu.wang@nxp.com>, Fabio Estevam <festevam@gmail.com>, 
-	Daniel Baluta <daniel.baluta@nxp.com>, Iuliana Prodan <iuliana.prodan@nxp.com>, imx@lists.linux.dev, 
-	linux-remoteproc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Pengutronix Kernel Team <kernel@pengutronix.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_060851_930895_AFA67BB7 
-X-CRM114-Status: GOOD (  12.10  )
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="xmgtsad7bfjv2vcw"
+Content-Disposition: inline
+In-Reply-To: <20251128-color-format-v5-2-63e82f1db1e1@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,22 +85,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 4, 2025 at 2:29=E2=80=AFPM Iuliana Prodan (OSS)
-<iuliana.prodan@oss.nxp.com> wrote:
->
-> From: Iuliana Prodan <iuliana.prodan@nxp.com>
->
-> The DSP suspend path currently waits unconditionally for a suspend ack
-> from the firmware. This breaks firmwares that do not implement the
-> mailbox-based CONFIRMATION handshake, as the DSP never responds and
-> system suspend fails with -EBUSY.
->
-> The driver already uses the WAIT_FW_CONFIRMATION flag to indicate that
-> the firmware supports the CONFIRMATION handshake at boot. Apply the same
-> logic during suspend: only send the suspend message and wait for the
-> suspend ack when the firmware is expected to support it.
->
-> Signed-off-by: Iuliana Prodan <iuliana.prodan@nxp.com>
 
-Reviewed-by: Daniel Baluta <daniel.baluta@nxp.com>
+--xmgtsad7bfjv2vcw
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v5 02/17] drm: Add new general DRM property "color format"
+MIME-Version: 1.0
+
+Hi,
+
+On Fri, Nov 28, 2025 at 10:05:38PM +0100, Nicolas Frattaroli wrote:
+> From: Andri Yngvason <andri@yngvason.is>
+>=20
+> Add a new general DRM property named "color format" which can be used by
+> userspace to request the display driver to output a particular color
+> format.
+>=20
+> Possible options are:
+>     - auto (setup by default, driver internally picks the color format)
+
+I'm not entirely sure that's how we should document it. i915, amdgpu,
+and every driver using the hdmi helpers uses the same algorithm: first
+try with RGB, then fallback to YUV420 if it doesn't work.
+
+I think we should document that, and every driver exposing this property
+should behave that way. It's going to be a mess otherwise.
+
+Maxime
+
+--xmgtsad7bfjv2vcw
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaTguAQAKCRAnX84Zoj2+
+duXEAX4/CZjEf/Vz9OyLVH222nBTa0uS2T+fskhBgao890YpCT1nvetsMg1D+aIo
+gc27WY8Bf1WyDvIujAc3Iyfya9WQrPgrl28osjHsEQzd3REVZ5vzuOsRVp8IxnF2
+E9P+eFkHmg==
+=aoBp
+-----END PGP SIGNATURE-----
+
+--xmgtsad7bfjv2vcw--
 
