@@ -4,52 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0FE9D1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 11:34:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76BBAD1CDC6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 11:39:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d+aJx470lPhjqscv3Q9t5wWat3nCUTMJCuucsJzEtm0=; b=wz9XE2/SiokNYTu1r3TRBv+mRf
-	wQ6on4N7EHZjQHbVeE2X4n/LbxL8xWgD/HJ5WCukdGKE5JilGiidcRJ+Nrs0OcKN3irj6ul6Bwoqe
-	MWOh4SSQS+zmvj7nr9vbgPwNiaFxdqzWaAQqSe+ypFPMgK+cgH+JL9Cy6belHU3ZNvT3pXLBOtrD7
-	2Q2c9Y65m5HJnpEWAbXNrKlnMrwLxFkSv+tQirEw5+CAj2mMzFXA6j+i0tZPs0z/dtps/ExtQ392g
-	Lizyi5vkLzBg+eqNi7C2YinCg8bihI4sp7E9hy4/E3BvsgDxx/Qvb2ue1KoKNxrvwAAeLlfd9b4bL
-	cpd2Aqng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2kzNtR2Ff6I+qBMI0/qc18G4oGHltcgqC+b0+KGxgNY=; b=pGB0GcBBPwnXGRvHtvu365TQdV
+	s0ABH+hZPDq3Po4XxaP0YTecKht8nJzo1ADgzV8KztlqIYSO+e8Z3RexiF0oF4Umt46VAE+atNf0J
+	2HshFNzQwDcGcZA/MxAHic7CD3GpXbXXosc8tHqF9M8tPh+isERCIVGkSS+gXVMtTsQzDpcBpYOZf
+	hS+RasVLf7aqgvmGQQx1l/lM6RMjMgHo+RaJpRp2X0KmCNv+WP2Zk0hl3pMe6EICoezysEhGP9zDz
+	ftcwptTYLFH3mGdzqW95cq5slcEifWdH1uAutc8V0l63tl1qO5lITrHh4IqNXqA+SHz4DH4xFM6QN
+	Y5vsEASw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSvzW-0000000EC1D-3xJ1;
-	Tue, 09 Dec 2025 11:34:50 +0000
+	id 1vSw4M-0000000ECIX-3zeW;
+	Tue, 09 Dec 2025 11:39:50 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSvzU-0000000EC0e-0deR
+	id 1vSw4K-0000000ECI6-1kPl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 11:34:49 +0000
+	Tue, 09 Dec 2025 11:39:49 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9218A1691;
-	Tue,  9 Dec 2025 03:34:37 -0800 (PST)
-Received: from [10.57.46.210] (unknown [10.57.46.210])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9C2FD3F762;
-	Tue,  9 Dec 2025 03:34:43 -0800 (PST)
-Message-ID: <18a39079-2285-47fb-b306-040f2bc1bbaa@arm.com>
-Date: Tue, 9 Dec 2025 11:34:34 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BBAEB1691;
+	Tue,  9 Dec 2025 03:39:38 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A37723F762;
+	Tue,  9 Dec 2025 03:39:43 -0800 (PST)
+Date: Tue, 9 Dec 2025 11:39:40 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Vedashree Vidwans <vvidwans@nvidia.com>
+Cc: <salman.nabi@arm.com>, <andre.przywara@arm.com>,
+	<lpieralisi@kernel.org>, <mark.rutland@arm.com>, <ardb@kernel.org>,
+	<chao.gao@intel.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-coco@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<sdonthineni@nvidia.com>, <vsethi@nvidia.com>,
+	Sudeep Holla <sudeep.holla@arm.com>, <vwadekar@nvidia.com>
+Subject: Re: [RFC PATCH 0/5] Arm LFA: Improvements and interrupt support
+Message-ID: <20251209-miniature-curassow-of-energy-b6a303@sudeepholla>
+References: <20251208221319.1524888-1-vvidwans@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/io-pgtable-arm: Add misisng concatenated PGD cases
-To: Mostafa Saleh <smostafa@google.com>, iommu@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: will@kernel.org, joro@8bytes.org, Tomasz Nowicki <tnowicki@google.com>
-References: <20251130194506.593700-1-smostafa@google.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20251130194506.593700-1-smostafa@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251208221319.1524888-1-vvidwans@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_033448_312666_9E1B7470 
-X-CRM114-Status: GOOD (  19.94  )
+X-CRM114-CacheID: sfid-20251209_033948_498423_2D84FC00 
+X-CRM114-Status: GOOD (  20.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,77 +67,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-11-30 7:45 pm, Mostafa Saleh wrote:
-> arm_lpae_concat_mandatory() assumes that OAS >= IAS which is not
-> correct for SMMUs supporting AArch32, and have OAS = 32/36 bits,
-> as IAS would be 40 bits.
-
-But that is only when *using* AArch32 format. The bit in chapter 3.4 of 
-the SMMU architecture is talking about the maximum IAS that an SMMU 
-implementation needs to be able to accommodate based on its 
-configuration, but it does then attempt to clarify that the actual IPA 
-size in use by any given context should depend on the VMSA format in use:
-
-"VMSAv8-32 LPAE always supports an IPA size of 40 bits, whereas 
-VMSAv8-64 and VMSAv9-128 limits the maximum IPA size to the maximum PA 
-size."
-
-Rule R_SRKBC in the Arm ARM lays out the exact T0SZ constraints with 
-this AArch32/AArch64 detail.
-
-> In that case, concatenation is mandatory in some cases.
-> Document those and add the checks, this can be simplified; instead
-> of adding extra checks we can say that concatenation is mandatory for:
-> - 4K, start level = 0 and OAS <= 42 bits.
-> - 16K, start level = 1 and OAS <= 40 bits.
-> Which cover all the missing cases.
-
-AArch32 uses a fixed 4K granule, so this cannot impact 16K. Note that we 
-don't support AArch32 for SMMUv3 anyway, and while this does technically 
-apply to SMMUv1/2, Arm's MMU-400/401/500 implementations all have OAS 
-fixed at 40/40/48 bits respectively, so I'd imagine it's quite a rare 
-case to encounter in practice.
-
-Thanks,
-Robin.
-
-> Reported-by: Tomasz Nowicki <tnowicki@google.com>
-> Fixes: 4dcac8407fe1 ("iommu/io-pgtable-arm: Fix stage-2 concatenation with 16K")
-> Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> ---
->   drivers/iommu/io-pgtable-arm.c | 10 ++++++----
->   1 file changed, 6 insertions(+), 4 deletions(-)
+On Mon, Dec 08, 2025 at 10:13:10PM +0000, Vedashree Vidwans wrote:
+> Hello,
 > 
-> diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-> index e6626004b323..ecf27e86b429 100644
-> --- a/drivers/iommu/io-pgtable-arm.c
-> +++ b/drivers/iommu/io-pgtable-arm.c
-> @@ -223,6 +223,8 @@ static inline int arm_lpae_max_entries(int i, struct arm_lpae_io_pgtable *data)
->    *   b) 40 bits PA size with 16K: use level 2 instead of level 1 (16 tables for ias = oas)
->    *   c) 42 bits PA size with 4K: use level 1 instead of level 0 (8 tables for ias = oas)
->    *   d) 48 bits PA size with 16K: use level 1 instead of level 0 (2 tables for ias = oas)
-> + *   f) 32/36 bits PA size with 4K and 40 bits IAS: use level 1 instead of level 0
-> + *   g) 32/36 bits PA size with 16K and 40 bits IAS: use level 2 instead of level 1
->    */
->   static inline bool arm_lpae_concat_mandatory(struct io_pgtable_cfg *cfg,
->   					     struct arm_lpae_io_pgtable *data)
-> @@ -234,13 +236,13 @@ static inline bool arm_lpae_concat_mandatory(struct io_pgtable_cfg *cfg,
->   	if ((ARM_LPAE_GRANULE(data) == SZ_16K) && (data->start_level == 0))
->   		return (oas == 48) || (ias == 48);
->   
-> -	/* Covers 2.a and 2.c */
-> +	/* Covers 2.a, 2.c and 2.f */
->   	if ((ARM_LPAE_GRANULE(data) == SZ_4K) && (data->start_level == 0))
-> -		return (oas == 40) || (oas == 42);
-> +		return (oas <= 42);
->   
-> -	/* Case 2.b */
-> +	/* Case 2.b and 2.g */
->   	return (ARM_LPAE_GRANULE(data) == SZ_16K) &&
-> -	       (data->start_level == 1) && (oas == 40);
-> +	       (data->start_level == 1) && (oas <= 40);
->   }
->   
->   static dma_addr_t __arm_lpae_dma_addr(void *pages)
+> The patches update the proposed Arm Live Firmware Activation (LFA)
+> kernel driver [1] to incorporate review feedback [2] and refine the
+> activation flow while remaining aligned with the LFA specification
+> DEN0147 [3] and the SMCCC 1.2 calling convention. The series keeps
+> the existing functionality but restructures and extends it to improve
+> robustness, reviewability, and future extensibility.​
+> 
+> The SMCCC usage in the driver is updated to consistently use the
+> SMCCC 1.2 register-based calling convention, consolidating arguments
+> and results into a single struct to reduce stack usage and simplify
+> the SMC interface. The patches also split the original changes into
+> focused pieces and document the device node bindings in the commit
+> messages, making it easier to follow and validate the implementation
+> against the specification.​
+> 
+> The kernel driver is registered as a platform driver in accordence to
+> the LFA device defined by the specification [3]. The driver now extends
+> interface for interrupt-based enablement of LFA. During LFA, the
+> interrupt
+> thread refreshes firmware component details after each activation step
+> and iterates over all activable components until no further activation
+> is pending, matching the spec’s allowance for component detail changes
+> after activation. This ensures that sysfs exposure of LFA components
+> remains consistent with the authoritative information provided by the
+> secure firmware.​
+> 
+> The handling of CPU rendezvous is adjusted so that the kernel now
+> honors the rendezvous policy chosen by the firmware, instead of
+> unconditionally forcing a rendezvous. This reflects experience with
+> existing firmware deployments where mandatory rendezvous is not
+> required, while still allowing the firmware to request it when
+> needed.​
+> 
+> Thank you,
+> Veda
+> 
+> [1] https://lore.kernel.org/lkml/20250926123145.268728-1-salman.nabi@arm.com/
+> [2] https://lkml.org/lkml/2025/10/8/980
+> [3] https://developer.arm.com/documentation/den0147/latest/
+> 
+> Vedashree Vidwans (5):
+>   firmware: smccc: LFA: use smcc 1.2
+>   firmware: smccc: LFA: refactor
+>   firmware: smccc: add timeout, touch wdt
+>   firmware: smccc: register as platform driver
+>   firmware: smccc: lfa: refresh fw details
+> 
+>  drivers/firmware/smccc/Kconfig  |   3 +-
+>  drivers/firmware/smccc/lfa_fw.c | 478 +++++++++++++++++++++++++-------
 
+Same comment as before[1], looks like the feedback got ignored or missed.
+
+-- 
+Regards,
+Sudeep
+
+[1] https://lore.kernel.org/all/20251009-calculating-glorious-oriole-ceccf6@sudeepholla
 
