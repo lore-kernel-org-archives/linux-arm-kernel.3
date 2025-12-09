@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D55CDD3B982
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 22:39:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81930D3B9A4
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 22:46:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/iTM1jJlu2UuL9uPyqPKM3hRmqrljCMk5Kax+Fk3Csc=; b=uEqqjSfjle75pCYnLhRL6LkG74
-	DGEeMMBE9oXPd80HkTtIwpjnfo3SJDhzcwRRPX7PEG0Za3695qzR4D5E1vrPabfaErm9fL6DLDV+S
-	5s9+6+6yzMqbOwET71cpDF9lb9BtZu/GNWuD5wg0B7MI/y8z+ed3LaMhjUZJgWw5b/a6+op45e0Xa
-	IgHpQpL8bpmsqa4Fn+Pn+yV0tQK4bX4e7VmJJIolazqbhTZSP36/iEgVgAKd2Ed+CiG2ggLfCENFN
-	r5kVlKAVBnM2TsUDU53YtOQgWlshBwiZxEv/cZoZ1j4Klyp6puCL3X01EHOz5vNrbLiAubjw6Jmc8
-	EZwScT8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=i1hUywAhak/Ve5FzDDiUVRt4+lKOsUDcoxRvzzlRcsA=; b=bQ7sPPPrs0Kf7K6OBDH3r2q5Oj
+	GlLYtgQ/opmKP1IClj1RpCndmwZ75dE6PnprTHCcPLq+O9o0IDUpUPpwR18PyXS4Pfol5MbWKEIuK
+	07fewE4Pp64Arz55egZicJqMoSPI687rh9gxq855wHAflGfCWP4fp/1vL1cwWgp268Sn5ll0qJbzF
+	0YkRGi4FbOg3/tTSAAEF8vFDPTinpdOYxvpq2mLe1r5ayonPGxTeLSzOFQx/ZnNtMlwsqkQOrvZen
+	vgJ2c4CqJMG9xlG1u2WQjhbvpU2uaEowp6zGwIlJWePHYPiIXW/3O4A1RcVCQUuXmwFZRl/Eg7opI
+	1DYplA5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT6Mi-0000000EsA7-2MBS;
-	Tue, 09 Dec 2025 22:39:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vT6T3-0000000EsSL-1aPh;
+	Tue, 09 Dec 2025 22:46:01 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT6Mf-0000000Es9h-3hEt
+	id 1vT6T1-0000000EsRy-1OS9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 22:39:25 +0000
+	Tue, 09 Dec 2025 22:46:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0762F6017F
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  9 Dec 2025 22:39:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2C06C19421
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  9 Dec 2025 22:39:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AF9BD44120;
+	Tue,  9 Dec 2025 22:45:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FE76C4CEF5;
+	Tue,  9 Dec 2025 22:45:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765319964;
-	bh=/iTM1jJlu2UuL9uPyqPKM3hRmqrljCMk5Kax+Fk3Csc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=P1XSvevLH+LAGfJ+NNt8jsWuhl7jCNbwHUN6ZrOiNNS02BX2fz0OdYFqAnJsUF+Kq
-	 6LECNtVta3R1EG1eGCx3G8H29PnFFarfb3LIUdn8q9911wtbs1xsW6GTdi6DfyutdU
-	 6ImzBIwLlYPSpSG4m66+dxS/01+DEY0/FmfyeyEiuRFgCchOv4QtEPVOaYUoku3vHS
-	 5pQPhIEmdExF+iR5O9KS0G/Kf9iYQPjw7iR7KNssbwEIIYU7s9CHOAdk/K5SF0wyyB
-	 qp6maRIJ2IpI2IZzqOAj/1IntdF5RPQeA9TlJUBokJXtSoGpQLCq6qyP2mCNhKJ/86
-	 V8uY+y+srVeyg==
-Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-b7277324054so918360866b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Dec 2025 14:39:24 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXbbGlLOp6Mhcm7r2tFP83VtQgS9G7jMG+THM87vOK2wtWfojC03nb5BoX9ESQf2Kc5TgNTSpfvmzJAcQXWR/Va@lists.infradead.org
-X-Gm-Message-State: AOJu0YyaS1tyC2Hoyj8j1Bw8/zg/IZpJRaxPcvB5qzp1oG6YPdkjTcgk
-	g72whn8pB9hcdGxKqXqN0RWQOTZVf3NbRSl5S0UZJfJ5j3UMZrrSr7Kd+WqwS4W0eKfiM3yYk8/
-	/cguQJt4g6+s35QnUJdm8hyaRwJoVBg==
-X-Google-Smtp-Source: AGHT+IGLCH2P+FlmKcufeRRw22NRHRGtlBZRFMM6bDtNw17e/djrmNK9KZ5LhnrWo2I5IjTlQrfxsgzx1701NlakcLI=
-X-Received: by 2002:a17:907:2dac:b0:b73:78f3:15b3 with SMTP id
- a640c23a62f3a-b7ce8404f0dmr26213566b.47.1765319963285; Tue, 09 Dec 2025
- 14:39:23 -0800 (PST)
+	s=k20201202; t=1765320358;
+	bh=iHHcKj6J+hLbVPepNR0eVCr57chERxeAokcMcG6B2iM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZuTSPZNDN+0w+NDKNfvTF3iYbREiPDKKWuY6awdIf/3WojH3IKSQhYqT4IC8BHzx0
+	 Y2+khZrBnXpw+v7qoCHmJg/vcGwkgol6jFF/GUmqTsir6XJ74sCfHx957taQd7HBi7
+	 o6GKm0aGPNMOloQaQo1ERi+QvkEngEBFNYf4qfhKTuIFTsqnw+yj2ykHaN5dXgxNYm
+	 gmeqZdx4GBBlzNjdGFe58TT+mGvzKPYalbu38R+EYnWp/Um5GYGOqk0uOI2sstY0qH
+	 zBK44d+p2faai+9JS550B/UjAAxNkZ67Yd10z3SbotFhtt8/Ln3TLLtne00gRjuioJ
+	 1w4mA/R4bRs6w==
+Date: Tue, 9 Dec 2025 14:45:57 -0800
+From: Oliver Upton <oupton@kernel.org>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: kvm@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Mingwei Zhang <mizhang@google.com>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>, Shuah Khan <shuah@kernel.org>,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v5 20/24] perf: arm_pmuv3: Handle IRQs for Partitioned
+ PMU guest counters
+Message-ID: <aTimpRFfr9wI9Hw5@kernel.org>
+References: <20251209205121.1871534-1-coltonlewis@google.com>
+ <20251209205121.1871534-21-coltonlewis@google.com>
 MIME-Version: 1.0
-References: <20251120-at91-probe-v2-0-8c8592f02e8e@kernel.org>
- <20251120-at91-probe-v2-2-8c8592f02e8e@kernel.org> <ece2d53c-3e16-4e5e-9bb9-3ed7bb362b7b@tuxon.dev>
-In-Reply-To: <ece2d53c-3e16-4e5e-9bb9-3ed7bb362b7b@tuxon.dev>
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 9 Dec 2025 16:39:12 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqJ2ghfNKQPhs19F1oxJxyTsrQ47hgPwsa3hUmgbGjpi-A@mail.gmail.com>
-X-Gm-Features: AQt7F2pTpyBlT1NDJToDU8xphT7m7aRHUZpyAo2rSEBV3njKup08Munn-uLDhbE
-Message-ID: <CAL_JsqJ2ghfNKQPhs19F1oxJxyTsrQ47hgPwsa3hUmgbGjpi-A@mail.gmail.com>
-Subject: Re: [PATCH v2 2/3] ARM: at91: Move PM init functions to .init_late hook
-To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: Miquel Raynal <miquel.raynal@bootlin.com>, Richard Weinberger <richard@nod.at>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, Nicolas Ferre <nicolas.ferre@microchip.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Russell King <linux@armlinux.org.uk>, 
-	linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251209205121.1871534-21-coltonlewis@google.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251209_144559_412564_D46D1DE8 
+X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,25 +85,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Nov 22, 2025 at 9:37=E2=80=AFAM Claudiu Beznea <claudiu.beznea@tuxo=
-n.dev> wrote:
->
-> Hi, Rob,
->
-> On 11/20/25 23:37, Rob Herring wrote:
-> > Move the AT91 PM init functions to .init_late hook to ensure driver
-> > dependencies have probed.
-> >
-> > Cc: Nicolas Ferre <nicolas.ferre@microchip.com>
-> > Cc: Alexandre Belloni <alexandre.belloni@bootlin.com>
-> > Cc: linux-arm-kernel@lists.infradead.org
-> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
->
-> 'From: Rob Herring <robh@kernel.org>' !=3D 'Signed-off-by: Rob Herring (A=
-rm)
-> <robh@kernel.org>
+On Tue, Dec 09, 2025 at 08:51:17PM +0000, Colton Lewis wrote:
+> Because ARM hardware is not yet capable of direct interrupt injection
 
-Before I respin, any feedback on whether this series actually works or not?
+PPI injection, it can do LPIs just fine.
 
-Rob
+> @@ -961,6 +964,12 @@ static irqreturn_t armv8pmu_handle_irq(struct arm_pmu *cpu_pmu)
+>  		 */
+>  		perf_event_overflow(event, &data, regs);
+>  	}
+> +
+> +	govf = pmovsr & kvm_pmu_guest_counter_mask(cpu_pmu);
+> +
+> +	if (kvm_pmu_is_partitioned(cpu_pmu) && govf)
+> +		kvm_pmu_handle_guest_irq(govf);
+> +
+
+The state ownership of this whole interaction is very odd. I would much
+rather that KVM have full ownership of the range of counters while the
+guest is loaded. By that I mean the PMUv3 driver only clears overflows
+on PMCs that it owns and KVM will do the same on the back of the IRQ.
+
+Similarly, KVM should be leaving the "guest" range of counters in a
+non-overflow condition at vcpu_put().
+
+Thanks,
+Oliver
 
