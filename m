@@ -4,59 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28170D3B7EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 13:49:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C859CD3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 13:56:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Pl1Fk928zYnrRLZ4APVssyo/qm2shtlz4lkrpJfIW8=; b=YWm6kx93qu1lnWDP1hOTWRHbwJ
-	hx0hSLR9GYupHAmCo3hfhpOoXtENXXwzPWdWVL8em7wKUrd9sa0yfy0dGebaKOfoaOfqCfzpXOWIv
-	OkALcvcxoDduAa3fNEZ6DusMrf7KuPusTiSTTx2pEtC42lE6Fjlg58C8itywLo2PlGHX/pCNuyJbC
-	6J7CwObKs0sW237haC88wvyldwH4tG8EwXEDM1NDEPjXc/nXIkcDuvCc5fJFQJh1ziYkejbtHvFq/
-	Nuf4eOV9ZhalZWLosiefG097axT+e8z1aPjUlVR25C7HSM7K58w4TEgI94MsVvnB/U1R8l9LcmRmj
-	iEUx96hA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZHNjTLLxaiUYX9lnsCkT/PipZxZCO7Z4aDIJ/ePIGAo=; b=NSWwF53RNe33TE7wPLKNDExi6p
+	p86TMH+us3c+qsDDsnQJkr3K9R0/4rLAdwGSaMSZoSMqat14glnFjbrZ0bMGE7j3iUUtnlwM4YJSE
+	Jd2vsr75sR8Ivqlpjy6vgzkJNom/hzsP4IwYLE6iJFVzLGGn70aDPzZI3tLax+FDtzcSUbk718fUT
+	lmY0VN0jA86gTfGGL26jmbu70r3v0H53WcigXEYzW6Q8Mi3/eAX3j1ytVSlh3ySdstpcZ3bgfQ3Fe
+	W6Ws+JqoxMPcs709/YGsKjAthEG2DmD3OQAuotwTxDuLqm8HlXzNWNqv4I9tYUD6vJ7yN0ACyBStX
+	MqBzngnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSy5P-0000000ELGc-0BFX;
-	Tue, 09 Dec 2025 13:49:03 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSy5M-0000000ELF7-1YMZ
+	id 1vSyCc-0000000EM9k-1FGC;
+	Tue, 09 Dec 2025 13:56:30 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vSyCY-0000000EM8x-1RBx
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 13:49:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 99A52175A;
-	Tue,  9 Dec 2025 05:48:51 -0800 (PST)
-Received: from [10.57.45.100] (unknown [10.57.45.100])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5B3343F762;
-	Tue,  9 Dec 2025 05:48:54 -0800 (PST)
-Message-ID: <b382cc8a-3ce9-4fb1-bc0a-a3d9796251d1@arm.com>
-Date: Tue, 9 Dec 2025 14:48:51 +0100
+	Tue, 09 Dec 2025 13:56:29 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-640b06fa959so9138689a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Dec 2025 05:56:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1765288584; x=1765893384; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZHNjTLLxaiUYX9lnsCkT/PipZxZCO7Z4aDIJ/ePIGAo=;
+        b=AIwvQ6gVQdEn/YIFqHZrso5lFJ9gxtdp5idyBi/AfaFi93CDYQqs0Fn2jrpjVdC2oN
+         Q/4r2IV3CmSX3ZKrsjvO/5lv4YFm3e56xFIGz4FBWPCgmD1lHPfxFLSeFv58YFTJFGeJ
+         DTww9jYKVoXhTGdtUi0wvcwHP45uDSKRSdJiMXvXPBX0lJyY9ygd9qUSOHkSzZ2Gkrph
+         D3Y9A2ChWAmzLs/nDELXpzCVNqJJaLcQgQEIUYwTu0hNmpxPYUo/9FEPiS8D0M9eaw0n
+         Gsykh5iwDTnVoxg1/4sP+KsUrrHGvFOMaCbPJEMtx6JZvo+hyB99TfkSZqJRdvqeddab
+         U5fg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765288584; x=1765893384;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:date:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ZHNjTLLxaiUYX9lnsCkT/PipZxZCO7Z4aDIJ/ePIGAo=;
+        b=qeru+7sWljDk2k6bP+vOWN6L0DiugIepeMh6VkRdHWeXDBUXY3xy4hMI2fFrFYgmiI
+         UCPAvivHtTXP7EwzuKriJg1F24F2RJdGyHLYCu+OpmSY+sr6LgJXx/hgSTh98yyoJl9W
+         Fk44gBtnFqasJNdX2fcR5Qiy9LJIeXP942nYilfSwm2uq74EwsrRYRPD2J1QWBSJm0rX
+         pb0am9358R5RGdcP8XjZs8SCSovchiD271iRqxv+OhNRTLBuroZXO7VIDlj7tgmKlJdZ
+         ddH5Y1pTsxwerOT907OZFEmh2wZrJRrmaVR/91P6iK+0gTyXgu7ZS6YMq2blyVyn2y/V
+         mXkg==
+X-Forwarded-Encrypted: i=1; AJvYcCWXMmVpB+6zwYG5rq1Y5f0bpC/RQyVq3PL91CWQNUFFzjCwOVgTKTFP7QE8sL3pAJ65vv4/wYGmw6Oy7ZJfPINL@lists.infradead.org
+X-Gm-Message-State: AOJu0YzpJK7drx06ummm+fvnvm0umiRduEuDJwwB/4b7l4CYnnLYD093
+	wuazvo31HOyQxb/tAh7fcmsVEmtGkNB+RI1vWEjsOu1kN34rMRQFy5dHRrlG6PVmwCc=
+X-Gm-Gg: ASbGncvGxYiinNH/ZcNwuRKi4SEDTAXbmx8O2MuCyt/LEFnIGp9+5UT957xyKT+7tXq
+	bz+KYWgksEt3okU1PnpQceWck2tUHjpfOULKFKTsKYyzhl+g4R/Ofh+TyFQN4INCPsmGTCPOkRc
+	ev0iiSzvNlNTfzg0OudUqAvOZJyeg3FDWpM+ZnV9QM/E6XjfKCg+KCjr+3l9CnjFwZMXam7Qk75
+	jRGBzt/Dspak5AK+WIBCtNii2R6YB9RqEg9TUv5st0tBpA9s5p1buV1ilWbLnKFVnfeldA5LSWz
+	Tye6AGQJcsP8asx7hn1bfAKrEp7gGDDZsRq8CA6Nn839XRJS+hzgHuNmzhfCGOzxNsY/u7TtihF
+	F+heoRuLxI54Yxkn5tNg0UA72vGQB8dGFKI80uPANtLXvXmdDfgdzo6mh1vurbkXiDXFgdotyy7
+	DBjTQh6wgZZVSKlBrdocNpzUuI6GWbzKJ8j9zJ/BwnsJPFomhGj6fucQ==
+X-Google-Smtp-Source: AGHT+IEVtNxShWKdJLARvgeokUGdhCwxfGrQUplQ/ttNSMiqiRZXHBzJAE2rqsYOnWcYgx+CnvNcUA==
+X-Received: by 2002:a05:6402:4314:b0:640:976f:13b0 with SMTP id 4fb4d7f45d1cf-6491a3e1fe8mr9388418a12.12.1765288583801;
+        Tue, 09 Dec 2025 05:56:23 -0800 (PST)
+Received: from localhost (host-87-6-211-245.retail.telecomitalia.it. [87.6.211.245])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-647b368dcf8sm14243157a12.19.2025.12.09.05.56.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Dec 2025 05:56:22 -0800 (PST)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Tue, 9 Dec 2025 14:58:52 +0100
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Andrea della Porta <andrea.porta@suse.com>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [RFC PATCH] arm64: broadcom: bcm2712: Rework rp1 overlay handling
+Message-ID: <aTgrHEoxl7J8_BuU@apocalypse>
+References: <20251117211503.728354-2-robh@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 15/16] entry: Inline syscall_exit_work()
-To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
- will@kernel.org, oleg@redhat.com, tglx@linutronix.de, peterz@infradead.org,
- luto@kernel.org, shuah@kernel.org, kees@kernel.org, wad@chromium.org,
- deller@gmx.de, macro@orcam.me.uk, charlie@rivosinc.com, ldv@strace.io,
- mark.rutland@arm.com, song@kernel.org, ryan.roberts@arm.com,
- ada.coupriediaz@arm.com, anshuman.khandual@arm.com, broonie@kernel.org,
- pengcan@kylinos.cn, dvyukov@google.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-References: <20251204082123.2792067-1-ruanjinjie@huawei.com>
- <20251204082123.2792067-16-ruanjinjie@huawei.com>
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20251204082123.2792067-16-ruanjinjie@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251117211503.728354-2-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_054900_541324_8DF4F375 
-X-CRM114-Status: GOOD (  18.97  )
+X-CRM114-CacheID: sfid-20251209_055626_419418_0BC53984 
+X-CRM114-Status: GOOD (  23.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,94 +106,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/12/2025 09:21, Jinjie Ruan wrote:
-> After switch arm64 to Generic Entry, a new hotspot syscall_exit_work()
-> appeared because syscall_exit_work() is no longer inlined. so inline
+Hi Rob,
+sorry for the delay...
 
-Before this series the call to syscall_trace_exit() in el0_svc_common()
-could not be inlined, so "no longer inlined" doesn't seem to be accurate.
-
-> syscall_exit_work(), and it has 2.6% performance uplift on perf bench
-> basic syscall on kunpeng920 as below.
-
-That seems strange. syscall_exit_work() is only called if some flag in
-SYSCALL_WORK_EXIT is set, which means that we're doing something special
-like tracing. That shouldn't be the case when running a simple perf
-bench syscall.
-
-Also worth nothing that its counterpart (syscall_trace_enter())) is not
-currently inlined, the asymmetry would have to be justified.
-
->     | Metric     | W/O this patch | With this patch | Change    |
->     | ---------- | -------------- | --------------- | --------- |
->     | Total time | 2.171 [sec]    | 2.114 [sec]     |  ↓2.6%    |
->     | usecs/op   | 0.217192       | 0.211453        |  ↓2.6%    |
->     | ops/sec    | 4,604,225      | 4,729,178       |  ↑2.7%    |
->
-> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+On 15:15 Mon 17 Nov     , Rob Herring (Arm) wrote:
+> It's a requirement that DT overlays be applied at build time in order to
+> validate them as overlays are not validated on their own.
+> 
+> Simply adding a build time target is possible, but it's also not desirable
+> to have targets which include the overlay contents and apply the same
+> overlay.
+> 
+> Rework the targets such that there are 2 overlays: the existing RP1 overlay
+> and the board specific configuration of the RP1 (bcm2712-rpi-5-b.dtso).
+> 
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 > ---
->  include/linux/entry-common.h  | 63 ++++++++++++++++++++++++++++++++++-
->  kernel/entry/syscall-common.c | 59 ++------------------------------
-
-These changes are purely generic, surely all architectures using
-GENERIC_ENTRY should get similar benefits (assuming LTO isn't used)?
-
->  2 files changed, 64 insertions(+), 58 deletions(-)
->
-> diff --git a/include/linux/entry-common.h b/include/linux/entry-common.h
-> index cd6dacb2d8bf..2f84377fb016 100644
-> --- a/include/linux/entry-common.h
-> +++ b/include/linux/entry-common.h
-> @@ -2,6 +2,7 @@
->  #ifndef __LINUX_ENTRYCOMMON_H
->  #define __LINUX_ENTRYCOMMON_H
+> The missing applying of rp1.dtbo will soon be a warning[1].
+> 
+> The comment in bcm2712-rpi-5-b.dts(o) needs updating or removing. The RP1
+> driver or userspace handling of the overlay probably needs updating to
+> handle the 2 overlays. IIRC, I think we can apply overlays to overlays
+> which may be useful here. If not, adding that to the tools should be
+> possible.
+> 
+> [1] https://lore.kernel.org/all/20251114222759.4181152-1-robh@kernel.org/
+> ---
+>  arch/arm64/boot/dts/broadcom/Makefile                 | 10 ++++++++--
+>  ...m2712-d-rpi-5-b.dts => bcm2712-d-rpi-5-b-base.dts} |  2 +-
+>  .../{bcm2712-rpi-5-b.dts => bcm2712-rpi-5-b.dtso}     | 11 +++++------
+>  3 files changed, 14 insertions(+), 9 deletions(-)
+>  rename arch/arm64/boot/dts/broadcom/{bcm2712-d-rpi-5-b.dts => bcm2712-d-rpi-5-b-base.dts} (95%)
+>  rename arch/arm64/boot/dts/broadcom/{bcm2712-rpi-5-b.dts => bcm2712-rpi-5-b.dtso} (92%)
+> 
+> diff --git a/arch/arm64/boot/dts/broadcom/Makefile b/arch/arm64/boot/dts/broadcom/Makefile
+> index 83d45afc6588..4957edec9d9f 100644
+> --- a/arch/arm64/boot/dts/broadcom/Makefile
+> +++ b/arch/arm64/boot/dts/broadcom/Makefile
+> @@ -6,9 +6,9 @@ DTC_FLAGS := -@
+>  dtb-$(CONFIG_ARCH_BCM2835) += bcm2711-rpi-400.dtb \
+>  			      bcm2711-rpi-4-b.dtb \
+>  			      bcm2711-rpi-cm4-io.dtb \
+> -			      bcm2712-rpi-5-b.dtb \
+> +			      bcm2712-rpi-5-b.dtbo \
+>  			      bcm2712-rpi-5-b-ovl-rp1.dtb \
+> -			      bcm2712-d-rpi-5-b.dtb \
+> +			      bcm2712-d-rpi-5-b-base.dtb \
+>  			      bcm2837-rpi-2-b.dtb \
+>  			      bcm2837-rpi-3-a-plus.dtb \
+>  			      bcm2837-rpi-3-b.dtb \
+> @@ -17,6 +17,12 @@ dtb-$(CONFIG_ARCH_BCM2835) += bcm2711-rpi-400.dtb \
+>  			      bcm2837-rpi-zero-2-w.dtb \
+>  			      rp1.dtbo
 >  
-> +#include <linux/audit.h>
->  #include <linux/irq-entry-common.h>
->  #include <linux/ptrace.h>
->  #include <linux/seccomp.h>
-> @@ -128,6 +129,41 @@ static __always_inline long syscall_enter_from_user_mode(struct pt_regs *regs, l
->  	return ret;
->  }
+> +bcm2712-rpi-5-b-dtbs := bcm2712-rpi-5-b-ovl-rp1.dtb rp1.dtbo bcm2712-rpi-5-b.dtbo
+> +dtb-$(CONFIG_ARCH_BCM2835) += bcm2712-rpi-5-b.dtb
+> +
+> +bcm2712-d-rpi-5-b-dtbs := bcm2712-d-rpi-5-b-base.dtb rp1.dtbo bcm2712-rpi-5-b.dtbo
+> +dtb-$(CONFIG_ARCH_BCM2835) += bcm2712-d-rpi-5-b.dtb
+> +
+>  subdir-y	+= bcmbca
+>  subdir-y	+= northstar2
+>  subdir-y	+= stingray
+> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b-base.dts
+> similarity index 95%
+> rename from arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
+> rename to arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b-base.dts
+> index 7de24d60bcd1..48a0ae118839 100644
+> --- a/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b.dts
+> +++ b/arch/arm64/boot/dts/broadcom/bcm2712-d-rpi-5-b-base.dts
+> @@ -1,7 +1,7 @@
+>  // SPDX-License-Identifier: (GPL-2.0 OR MIT)
+>  /dts-v1/;
 >  
-> +/*
-> + * If SYSCALL_EMU is set, then the only reason to report is when
-> + * SINGLESTEP is set (i.e. PTRACE_SYSEMU_SINGLESTEP).  This syscall
-> + * instruction has been already reported in syscall_enter_from_user_mode().
-> + */
-> +static __always_inline bool report_single_step(unsigned long work)
-> +{
-> +	if (work & SYSCALL_WORK_SYSCALL_EMU)
-> +		return false;
-> +
-> +	return work & SYSCALL_WORK_SYSCALL_EXIT_TRAP;
-> +}
-> +
-> +/**
-> + * arch_ptrace_report_syscall_exit - Architecture specific
-> + *				     ptrace_report_syscall_exit.
-> + *
-> + * Invoked from syscall_exit_work() to wrap ptrace_report_syscall_exit().
-> + *
-> + * The main purpose is to support arch-specific ptrace_report_syscall_exit
-> + * implementation.
-> + */
-> +static __always_inline void arch_ptrace_report_syscall_exit(struct pt_regs *regs,
-> +							    int step);
-> +
-> +#ifndef arch_ptrace_report_syscall_exit
-> +static __always_inline void arch_ptrace_report_syscall_exit(struct pt_regs *regs,
-> +							    int step)
-> +{
-> +	ptrace_report_syscall_exit(regs, step);
-> +}
-> +#endif
+> -#include "bcm2712-rpi-5-b.dts"
+> +#include "bcm2712-rpi-5-b-ovl-rp1.dts"
+>  
+>  &gio_aon {
+>  	brcm,gpio-bank-widths = <15 6>;
+> diff --git a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtso
+> similarity index 92%
+> rename from arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> rename to arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtso
+> index b8f256545022..89d099c00035 100644
+> --- a/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dts
+> +++ b/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtso
+> @@ -15,19 +15,18 @@
+>   */
+>  
+>  /dts-v1/;
+> +/plugin/;
+>  
+> -#include "bcm2712-rpi-5-b-ovl-rp1.dts"
+> -
+> -&pcie2 {
+> -	#include "rp1-nexus.dtsi"
+> -};
+> +#include <dt-bindings/gpio/gpio.h>
 
-If we want syscall_exit_work() to be inline, then why would we define
-this hook in syscall-common.c in patch 12? Might as well define both
-hooks in entry-common.h right away and avoid some noise here.
+Sounds reasonable to me, please let me have a full round of tests to check for
+any issue with the driver and I'll come back with feedback.
 
-- Kevin
+>  
+>  &rp1_eth {
+>  	status = "okay";
+>  	phy-mode = "rgmii-id";
+>  	phy-handle = <&phy1>;
+> +        #address-cells = <1>;
+> +        #size-cells = <0>;
 
-> [...]
+I think this should go in a separate patch.
+
+>  
+> -	mdio {
+> +	mdio@1 {
+
+Ditto.
+
+Many thanks,
+Andrea
+
+>  		reg = <0x1>;
+>  		reset-gpios = <&rp1_gpio 32 GPIO_ACTIVE_LOW>;
+>  		reset-delay-us = <5000>;
+> -- 
+> 2.51.0
+> 
 
