@@ -4,73 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E8E2D3B7EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 07:20:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50142D3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 07:45:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mwWBWfZp1i8yd4XQtPH2gxDceGUJc2weFjC9EQRRPCA=; b=enXdUU0SfZCuBZbM261vyP2+Gf
-	x2CATpJadqBRu6faD4XtWosRPaLr9FX7a/D62lLAL3ufU4sOkgenSEdHGhGvQ+e1HoIfVUxQ5/cBv
-	Jy4QToE9NhSnSBV4getejH3QljFPak8hbEWf1/PM3o0dAsJUR0IgdPoJNcPk1KOWcvg78D3P9HpnJ
-	MpVlEgtbx+5e/taXe12Qzv8YK8drZ9W8LTwaZI0ahgaWj+6+4MLgsFqz3eYQ2/0hkXuajaE7Gaoei
-	UYMpe2tb1mWzeEcc5ucm+erN/iTmgYYFTBiSk+1Cy4DuTr/E735xsxdq4hvOSS+IDsvzOIFK679Tx
-	hcy9UG/g==;
+	bh=d6dkCRgMUzPsvV6D96ULPzNpmJjBVF4blXdXebng13Q=; b=mnQeFF5rixdntfsQX+vUF2+s6u
+	Xs132CjFkwfMKUh5nE9622tGmF9aV8QPzmY4n8Kek7EI4RHop68HtvEWtRatW3KKO17KlGiY9U2NZ
+	ktXu8Yb4Q2cue0ivTHrrRIOFq8z3UVXpvd2WI44dJovwH4/oNjPJsE4yopFAeAJSbbh0IXAEClDFC
+	ByWDT8LxRZExMPxK/mfPY3zTdxF5FuCsfXDvp6Zvfm9bLrG/qAxqCr8J2dhlvr2kap5v1S4R5ASnA
+	j+bUB2zP6EDn4dl4rmCMLNw7Yr+lJC3TRjb4cHVU+3YCoOaBtUzjAtjMlCp13JHQbGewKssHhjRGP
+	ceFAsq+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSs17-0000000DwQk-2C9S;
-	Tue, 09 Dec 2025 07:20:13 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vSsPl-0000000Dxbb-3Bpk;
+	Tue, 09 Dec 2025 07:45:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSs14-0000000DwQF-3nzs;
-	Tue, 09 Dec 2025 07:20:12 +0000
+	id 1vSsPk-0000000DxbN-1X5Q;
+	Tue, 09 Dec 2025 07:45:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 518B5419E0;
-	Tue,  9 Dec 2025 07:20:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 137C4C4CEFB;
-	Tue,  9 Dec 2025 07:20:03 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 37350600AD;
+	Tue,  9 Dec 2025 07:45:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12366C4CEF5;
+	Tue,  9 Dec 2025 07:45:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765264809;
-	bh=2+RBfirrXuFnkMRxDw7t0EtfDZroa6uDXyUspwpTeIU=;
+	s=k20201202; t=1765266338;
+	bh=Yo7QujsU1IxW5dtrMTM5USn8VYa+1A0rsI10H/kNWL8=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=n/jVDiia6Xt689ozubWpINb6zPps2GAGN4ovKR+yZJbb1pZ3FqoiGlaESeOnFGwnC
-	 oFohj1jB3EQDwexnuAimLRCSTAIkMcqqUUp/Ppk00eblJIMiI/hUSM5ZqNuoxKDqZy
-	 qgunAerivYkbJNWMeG6MbaGPRLrk4rTDm8kPpdrvVO6pUGQ3o1l5c+0pYQxttsTsb0
-	 s+gzBg72oPYzw/GIwTiMssFxRpmpM6CU76gMyTDS9l6ARdgm0Y7ac8cxoaqmsswcKH
-	 AwmLtUYjLUKVPw9RIwCOxo2ni4xc0MAgPG9bSbJcD8Qiv+TID/luQz8wBjVO8pFKff
-	 fxdkxqKFXombQ==
-Date: Tue, 9 Dec 2025 08:20:01 +0100
+	b=C+3TeinBB99sw9kcl6aOOCwj9AXTkaD3uxYmB2X125JZh+9UxFJ+0iKHgqosYTK0q
+	 2SwmPPPGEgLhYdAJeMgT+RNmmvDG7uZipns26XEpYjh73lZY0kIl2Pj13x0U0GkL3o
+	 IVcaQfsJx617QOL/Ev0hrJh2TbZWWNG9sMMpod9LXa30kg9sK/aOFIBWdngrCEdiBr
+	 Dpvb2QahO4Q8PhsuL398NuRLSj6+MtcLr3cnukgX4MsaGvgpy+UKLHzzUgQIM4i2at
+	 Ok52vwDD9ny7DQcU6DF+DpYcqRssMu+dcIZW5U2R2+bywkHYMfoUQOwt3Cx8NXNBoZ
+	 yJPy3MA57uWHQ==
+Date: Tue, 9 Dec 2025 08:45:33 +0100
 From: Niklas Cassel <cassel@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
+To: Ilpo =?utf-8?B?SsOkcnZpbmVu?= <ilpo.jarvinen@linux.intel.com>,
+	Val Packett <val@packett.cool>
+Cc: Jingoo Han <jingoohan1@gmail.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>,
-	Sagi Grimberg <sagi@grimberg.me>,
-	Chaitanya Kulkarni <kch@nvidia.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Koichiro Den <den@valinux.co.jp>, dmaengine@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-nvme@lists.infradead.org, mhi@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev
-Subject: Re: [PATCH 0/8] dmaengine: Add new API to combine onfiguration and
- descriptor preparation
-Message-ID: <aTfNoU6fKBOcjL5j@ryzen>
-References: <20251208-dma_prep_config-v1-0-53490c5e1e2a@nxp.com>
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, FUKAUMI Naoki <naoki@radxa.com>,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH v2] PCI: dwc: Make Link Up IRQ logic handle already
+ powered on PCIe switches
+Message-ID: <aTfTnZfLDlt24ZKw@ryzen>
+References: <20251201063634.4115762-2-cassel@kernel.org>
+ <5cdf685c-5a37-1b65-3e87-9262f3ed7bd4@linux.intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251208-dma_prep_config-v1-0-53490c5e1e2a@nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_232010_988801_2AFD3B9D 
-X-CRM114-Status: GOOD (  11.34  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <5cdf685c-5a37-1b65-3e87-9262f3ed7bd4@linux.intel.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,95 +77,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 08, 2025 at 12:09:39PM -0500, Frank Li wrote:
-> Frank Li (8):
->       dmaengine: Add API to combine configuration and preparation (sg and single)
->       PCI: endpoint: pci-epf-test: use new DMA API to simple code
->       dmaengine: dw-edma: Use new .device_prep_slave_sg_config() callback
->       dmaengine: dw-edma: Pass dma_slave_config to dw_edma_device_transfer()
->       nvmet: pci-epf: Remove unnecessary dmaengine_terminate_sync() on each DMA transfer
->       nvmet: pci-epf: Use dmaengine_prep_slave_single_config() API
->       PCI: epf-mhi:Using new API dmaengine_prep_slave_single_config() to simple code.
->       crypto: atmel: Use dmaengine_prep_slave_single_config() API
+Hello Ilpo,
+
+On Tue, Dec 09, 2025 at 09:11:37AM +0200, Ilpo Järvinen wrote:
 > 
->  drivers/crypto/atmel-aes.c                    | 10 ++---
->  drivers/dma/dw-edma/dw-edma-core.c            | 38 +++++++++++-----
->  drivers/nvme/target/pci-epf.c                 | 21 +++------
->  drivers/pci/endpoint/functions/pci-epf-mhi.c  | 52 +++++++---------------
->  drivers/pci/endpoint/functions/pci-epf-test.c |  8 +---
->  include/linux/dmaengine.h                     | 64 ++++++++++++++++++++++++---
->  6 files changed, 111 insertions(+), 82 deletions(-)
-> ---
-> base-commit: bc04acf4aeca588496124a6cf54bfce3db327039
-> change-id: 20251204-dma_prep_config-654170d245a2
+> Now this patch looks interesting (and managed to catch my attention 
+> despite being a controllers/ patch).
+> 
+> You're only talking about bus number allocations here but we did hit a 
+> similar problem with bridge window allocations where not enough 
+> information is available at the time of the initial scan + resource 
+> allocation (currently it is one of the issues that prevents fixing one 
+> resource overlap bug):
+> 
+> https://lore.kernel.org/linux-pci/8f9c9950-1612-6e2d-388a-ce69cf3aae1a@linux.intel.com/
 
-For the series (tested using drivers/nvme/target/pci-epf.c):
-Tested-by: Niklas Cassel <cassel@kernel.org>
+I'm quite sure that Val's problem will be solved by applying:
+https://lore.kernel.org/linux-pci/20251124-pci-pwrctrl-rework-v1-0-78a72627683d@oss.qualcomm.com/
 
-Mainline:
-  Rnd read,    4KB,  QD=1, 1 job :  IOPS=5721, BW=22.3MiB/s (23.4MB/s)
-  Rnd read,    4KB, QD=32, 1 job :  IOPS=51.8k, BW=202MiB/s (212MB/s)
-  Rnd read,    4KB, QD=32, 4 jobs:  IOPS=109k, BW=426MiB/s (447MB/s)
-  Rnd read,  128KB,  QD=1, 1 job :  IOPS=2678, BW=335MiB/s (351MB/s)
-  Rnd read,  128KB, QD=32, 1 job :  IOPS=19.1k, BW=2388MiB/s (2504MB/s)
-  Rnd read,  128KB, QD=32, 4 jobs:  IOPS=18.1k, BW=2258MiB/s (2368MB/s)
-  Rnd read,  512KB,  QD=1, 1 job :  IOPS=1388, BW=694MiB/s (728MB/s)
-  Rnd read,  512KB, QD=32, 1 job :  IOPS=4554, BW=2277MiB/s (2388MB/s)
-  Rnd read,  512KB, QD=32, 4 jobs:  IOPS=4516, BW=2258MiB/s (2368MB/s)
-  Rnd write,   4KB,  QD=1, 1 job :  IOPS=4679, BW=18.3MiB/s (19.2MB/s)
-  Rnd write,   4KB, QD=32, 1 job :  IOPS=35.1k, BW=137MiB/s (144MB/s)
-  Rnd write,   4KB, QD=32, 4 jobs:  IOPS=33.7k, BW=132MiB/s (138MB/s)
-  Rnd write, 128KB,  QD=1, 1 job :  IOPS=2490, BW=311MiB/s (326MB/s)
-  Rnd write, 128KB, QD=32, 1 job :  IOPS=4964, BW=621MiB/s (651MB/s)
-  Rnd write, 128KB, QD=32, 4 jobs:  IOPS=4966, BW=621MiB/s (651MB/s)
-  Seq read,  128KB,  QD=1, 1 job :  IOPS=2586, BW=323MiB/s (339MB/s)
-  Seq read,  128KB, QD=32, 1 job :  IOPS=17.5k, BW=2190MiB/s (2296MB/s)
-  Seq read,  512KB,  QD=1, 1 job :  IOPS=1614, BW=807MiB/s (847MB/s)
-  Seq read,  512KB, QD=32, 1 job :  IOPS=4540, BW=2270MiB/s (2381MB/s)
-  Seq read,    1MB, QD=32, 1 job :  IOPS=2283, BW=2284MiB/s (2395MB/s)
-  Seq write, 128KB,  QD=1, 1 job :  IOPS=2313, BW=289MiB/s (303MB/s)
-  Seq write, 128KB, QD=32, 1 job :  IOPS=4948, BW=619MiB/s (649MB/s)
-  Seq write, 512KB,  QD=1, 1 job :  IOPS=901, BW=451MiB/s (473MB/s)
-  Seq write, 512KB, QD=32, 1 job :  IOPS=1289, BW=645MiB/s (676MB/s)
-  Seq write,   1MB, QD=32, 1 job :  IOPS=632, BW=633MiB/s (663MB/s)
-  Rnd rdwr, 4K..1MB, QD=8, 4 jobs:  IOPS=1756, BW=880MiB/s (923MB/s)
- IOPS=1767, BW=886MiB/s (929MB/s)
-
-
-Mainline + this series applied:
-  Rnd read,    4KB,  QD=1, 1 job :  IOPS=3681, BW=14.4MiB/s (15.1MB/s)
-  Rnd read,    4KB, QD=32, 1 job :  IOPS=54.8k, BW=214MiB/s (224MB/s)
-  Rnd read,    4KB, QD=32, 4 jobs:  IOPS=123k, BW=479MiB/s (502MB/s)
-  Rnd read,  128KB,  QD=1, 1 job :  IOPS=2132, BW=267MiB/s (280MB/s)
-  Rnd read,  128KB, QD=32, 1 job :  IOPS=19.0k, BW=2369MiB/s (2485MB/s)
-  Rnd read,  128KB, QD=32, 4 jobs:  IOPS=18.7k, BW=2341MiB/s (2454MB/s)
-  Rnd read,  512KB,  QD=1, 1 job :  IOPS=1135, BW=568MiB/s (595MB/s)
-  Rnd read,  512KB, QD=32, 1 job :  IOPS=4546, BW=2273MiB/s (2384MB/s)
-  Rnd read,  512KB, QD=32, 4 jobs:  IOPS=4708, BW=2354MiB/s (2469MB/s)
-  Rnd write,   4KB,  QD=1, 1 job :  IOPS=3369, BW=13.2MiB/s (13.8MB/s)
-  Rnd write,   4KB, QD=32, 1 job :  IOPS=31.7k, BW=124MiB/s (130MB/s)
-  Rnd write,   4KB, QD=32, 4 jobs:  IOPS=31.1k, BW=122MiB/s (127MB/s)
-  Rnd write, 128KB,  QD=1, 1 job :  IOPS=1820, BW=228MiB/s (239MB/s)
-  Rnd write, 128KB, QD=32, 1 job :  IOPS=5703, BW=713MiB/s (748MB/s)
-  Rnd write, 128KB, QD=32, 4 jobs:  IOPS=5813, BW=727MiB/s (762MB/s)
-  Seq read,  128KB,  QD=1, 1 job :  IOPS=1958, BW=245MiB/s (257MB/s)
-  Seq read,  128KB, QD=32, 1 job :  IOPS=18.8k, BW=2345MiB/s (2459MB/s)
-  Seq read,  512KB,  QD=1, 1 job :  IOPS=1319, BW=660MiB/s (692MB/s)
-  Seq read,  512KB, QD=32, 1 job :  IOPS=4542, BW=2271MiB/s (2382MB/s)
-  Seq read,    1MB, QD=32, 1 job :  IOPS=2325, BW=2325MiB/s (2438MB/s)
-  Seq write, 128KB,  QD=1, 1 job :  IOPS=2174, BW=272MiB/s (285MB/s)
-  Seq write, 128KB, QD=32, 1 job :  IOPS=5697, BW=712MiB/s (747MB/s)
-  Seq write, 512KB,  QD=1, 1 job :  IOPS=1035, BW=518MiB/s (543MB/s)
-  Seq write, 512KB, QD=32, 1 job :  IOPS=1462, BW=731MiB/s (767MB/s)
-  Seq write,   1MB, QD=32, 1 job :  IOPS=720, BW=721MiB/s (756MB/s)
-  Rnd rdwr, 4K..1MB, QD=8, 4 jobs:  IOPS=2029, BW=1018MiB/s (1067MB/s)
- IOPS=2037, BW=1023MiB/s (1072MB/s)
-
-
-Small performance boost, but I think the nicest thing with this series is
-to be able to remove the ugly mutex in pci-epf.c.
+If not, he could try applying the above series, and then this patch on top.
 
 
 Kind regards,
 Niklas
+
 
