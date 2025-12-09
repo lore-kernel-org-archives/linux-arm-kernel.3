@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76DFDD3B7F8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E22F2D1CDC6
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 12:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,30 +12,30 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mCFkHXb48dZkdc/v45A4uN4EkIJ8D2X0BOP4M20YBf4=; b=bSWxtrYkAt6B68QyfCMwwlXkHL
-	IKNQUEReFJXJXmMrE1mTcSJ8tGNSmlWa5ZCOKSdhtiTtagxcBwsiqm6nQzFM6kzMT85HZR8gqb2iV
-	MVziWDn+tvNwYqCCl8z/EvavsTU/Rbp0roAbHK9DTyFHkxzEmVpkl7EJyiT0yiDKp/oIRkoWsyV7Y
-	WtnEKvFufZmJsFMyZS8etVw6+rbWc3j9De4QjID0BC0JSswdcMOeytV7x7kqcqPpJ6hxaWY6ZOFQ+
-	EmHsCMx/VTkYBiM5yua0/vuql4zYD1SWh54t2qgriR96I6s/CkbJasAsBBkeTQUWrNluTcfGmuSDG
-	psn9d6Qw==;
+	bh=3vc0KdQKgNZDHuGXWBuNPLT4Elf9b/jVqB6VSvsEiHQ=; b=EYNRQ3hyjz4GB9rGyvHffm9r5z
+	GDZtYvltHU8ehOaW8X55UsnHWzRGxwwx1s3ZPTqIrIuaDYg1aUXu8mG3ZKH5+WO5Kv70He4tuCcWd
+	4qkqLfw17JDXBYGwyhmKLM73B0SGkrd6odedR1o5PHA8619FzKPC1fTgSkeKDQsOVceK3bPMWMMmT
+	lk+Y6h2MGONKUnvKAeanAuKuJAxZwF9k+WgrR39sWjcTl+DOAcPWZRxsVX5uoYKbsiXt6RY94JshC
+	0RKiRDOnSD9MmNjP0yOgSJiV9f4aHNY6eXCaxCv9M5Lxq1r01vgPEcQevNNistvj2VoOYeP+kMESM
+	CiiAzXvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSwss-0000000EFPA-2Pg1;
-	Tue, 09 Dec 2025 12:32:02 +0000
+	id 1vSwsv-0000000EFUb-28B9;
+	Tue, 09 Dec 2025 12:32:05 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSwsm-0000000EFI0-3DVY;
-	Tue, 09 Dec 2025 12:31:57 +0000
+	id 1vSwsr-0000000EFNB-2uH7;
+	Tue, 09 Dec 2025 12:32:02 +0000
 Received: from isaac-ThinkPad-T16-Gen-2.infra.iob (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 25841833;
-	Tue,  9 Dec 2025 13:31:54 +0100 (CET)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 66E84BE1;
+	Tue,  9 Dec 2025 13:31:59 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1765283514;
-	bh=NyyRdDX2WZbA0znUhmAwrClOIgKwPmzzc+lI7uMT9ME=;
+	s=mail; t=1765283519;
+	bh=HZQyMjT87Z1PejUxmVw81uhUIpqcMrEpz5q4yzf0/Yc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LbGvufnGVH2wQu9qgZByAVecRcIA5mdtZAPfjoOssxgDH+TdY+/N1Le8aNXN5TUoW
-	 bcOO4u0kBROqsaO+C9mHd5MU+m/zy+B/FCDLUTv6uV9HwA5P+yaxhmHeVf5UnGuszA
-	 F+9UQlZvYiWKPXZuoT+OeKML/OD1VjJCP4CUUcyM=
+	b=ExoYpECA4ZPC8E5wHdP7Fp7YT3Eox6+ZgfAUZbjEZCzaREBQIAugY4O33p21RUnmP
+	 wzxinv3+L3Xu0W4kdSNnAmjzAzgwFvjNyAmXxiGorXjwi546ZXi2GJuLD4IJx78HwO
+	 Fv5joDDbfDTk9VBi+Gl5YEykwDK//JRQiNsa6qpM=
 From: Isaac Scott <isaac.scott@ideasonboard.com>
 To: dafna@fastmail.com
 Cc: laurent.pinchart@ideasonboard.com,
@@ -46,17 +46,17 @@ Cc: laurent.pinchart@ideasonboard.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Isaac Scott <isaac.scott@ideasonboard.com>
-Subject: [RFC PATCH 3/6] media: rkisp1-isp: Add target_format
-Date: Tue,  9 Dec 2025 12:31:33 +0000
-Message-ID: <20251209123136.273938-4-isaac.scott@ideasonboard.com>
+Subject: [RFC PATCH 6/6] media: rkisp1: Give buffers back instead of dropping in bypass mode
+Date: Tue,  9 Dec 2025 12:31:36 +0000
+Message-ID: <20251209123136.273938-7-isaac.scott@ideasonboard.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251209123136.273938-1-isaac.scott@ideasonboard.com>
 References: <20251209123136.273938-1-isaac.scott@ideasonboard.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_043156_960656_BF324BBD 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20251209_043201_897124_3537EA06 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,48 +71,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In passthough mode, we want to make sure the output format of the ISP is
-identical to the input format. Add logic to ensure the format we
-configure the output of the ISP with is the sink format when we are in
-bypass, and the source format if we are not.
+In the data mode used for YUV passthrough, falling VSYNC events are used
+to determine when a buffer is complete. This means there is no 'Frame
+End' signal.
+
+Previously, all buffers would be dropped when bypass mode was active.
+Instead of dropping every frame, we should return the buffer to user
+space if it is marked as complete by a falling VSYNC signal.
 
 Signed-off-by: Isaac Scott <isaac.scott@ideasonboard.com>
 ---
- drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c | 13 +++++++------
- 1 file changed, 7 insertions(+), 6 deletions(-)
+ drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-index 7f0802ae3dcc..7c844e00808a 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-@@ -175,9 +175,10 @@ static void rkisp1_gasket_disable(struct rkisp1_device *rkisp1)
- static void rkisp1_config_ism(struct rkisp1_isp *isp,
- 			      const struct v4l2_subdev_state *sd_state)
- {
--	const struct v4l2_rect *src_crop =
-+	const struct v4l2_rect *target_crop =
- 		v4l2_subdev_state_get_crop(sd_state,
--					   RKISP1_ISP_PAD_SOURCE_VIDEO);
-+			(isp->rkisp1->in_bypass ?
-+				RKISP1_ISP_PAD_SINK_VIDEO : RKISP1_ISP_PAD_SOURCE_VIDEO));
- 	struct rkisp1_device *rkisp1 = isp->rkisp1;
- 	u32 val;
+diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
+index 6dcefd144d5a..ffce08e45200 100644
+--- a/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
++++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-capture.c
+@@ -832,6 +832,11 @@ irqreturn_t rkisp1_capture_isr(int irq, void *ctx)
+ 	for (i = 0; i < dev_count; ++i) {
+ 		struct rkisp1_capture *cap = &rkisp1->capture_devs[i];
  
-@@ -185,10 +186,10 @@ static void rkisp1_config_ism(struct rkisp1_isp *isp,
- 	rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_MAX_DX, 0);
- 	rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_MAX_DY, 0);
- 	rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_DISPLACE, 0);
--	rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_H_OFFS, src_crop->left);
--	rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_V_OFFS, src_crop->top);
--	rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_H_SIZE, src_crop->width);
--	rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_V_SIZE, src_crop->height);
-+	rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_H_OFFS, target_crop->left);
-+	rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_V_OFFS, target_crop->top);
-+	rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_H_SIZE, target_crop->width);
-+	rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_V_SIZE, target_crop->height);
- 
- 	/* IS(Image Stabilization) is always on, working as output crop */
- 	rkisp1_write(rkisp1, RKISP1_CIF_ISP_IS_CTRL, 1);
++		if (rkisp1->in_bypass) {
++			rkisp1_handle_buffer(cap);
++			continue;
++		}
++
+ 		if (!(status & RKISP1_CIF_MI_FRAME(cap)))
+ 			continue;
+ 		if (!cap->is_stopping) {
 -- 
 2.43.0
 
