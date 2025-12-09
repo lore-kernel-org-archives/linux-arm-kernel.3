@@ -4,63 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F668D1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 12:35:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE4C2D3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 12:37:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xxEyI/m4jP3NK+9omDGjHNBVqFAKxQf4F7O6U4IQKoo=; b=sOUMJDQedM2DvT8+HfgOdNkq83
-	HQO4D46XY7PLAaX9R0zj6ADLDjZdVWffhOhLQtBOo7ccIq7PStfMOKnAbgmyKoo3FhldldP3a1OvC
-	/g+N+FIyxLPTaEnUVn6oxQoqu1KAviVbMF3AM1gfxg66nPVZrGC39+pAyB7zJwKCwZkGk6ZnwDegV
-	dqOyv5BzEHKFe7AW1X4heY7ogVNEKs0YaNUOGvB3JD0nqCQY8qq40kww8kJ0qpwWbyhwzcFMruewl
-	27zSjsNltje3ICgioHT26ytisLpvTQrVZa5CJMaNBCLxoqy7DtnAoDGYUQ1SHYNmY9W2ZjKEe4Eaf
-	vcD+JpSg==;
+	bh=vlFI2bCRqxpqLkg/AiIg8IcS+TSdYsio6x9QrT+ERVQ=; b=UKjtoLZfugVX5TchQ+v7GPDGak
+	+xHbjwkXFgchilmev0a4Mzxg9KmotUQTQ64lS5mzl7ITpePjusBfxw/WzRTH9PMcr2C02CWTgb3DN
+	qK7DT4Caf0usLpn4j5KZnwCirPyqaaNHqic2shz8Swtmyskt1VP08QP5gMo41gholpLbE6Uxdw4gd
+	7gQrUKuJLHn0Z2Dc5uz1a/kDQ5OVc6iXtidQeJVkZeBw8uE3MiV5u3EL17b/OccRBbKGzyPzHTHZB
+	zsqVMbsbPl1pb381bc49en2yQUDS4/uyrrVNmT4r5djHZ2DcwL9LbgtOw6Rus9G4lmwriuVgQRjGn
+	p0VxVL+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSwwJ-0000000EGJ6-3ILn;
-	Tue, 09 Dec 2025 12:35:35 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1vSwy0-0000000EGSc-27kl;
+	Tue, 09 Dec 2025 12:37:20 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSwwH-0000000EGIC-10Ze;
-	Tue, 09 Dec 2025 12:35:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=xxEyI/m4jP3NK+9omDGjHNBVqFAKxQf4F7O6U4IQKoo=; b=ugvX8vPqK2eKIzZ7gi70O05f+8
-	ZDyNYpVEFR7VcjhO3cf27DGj4LVp9Sb+i5t7rfRjlJfndIIx//YDPv2LHAbqo6/8D64Lvi0/iEOht
-	qsTiHsfUSKrsJXrBgLPI4zEXXnVWRrP3pkTJWIbaFoarY7Hlf/c6/pwX9Mg3qdqXzFn6uvv+WvRsK
-	+ii4FiSIyVlI3vrgu8+d2GkUth8y0jKb2UFVN31dw0o0BNWIUNQhst/zyoCL51fLhfFqdrIt30S8x
-	Fi2o3yV1YlhB/JYqIR+B7bkIP3WNPbWha1qKWa/Ne/HIimVe6ibInJKXlUE1OWbEIHEJpEazRV85k
-	RM0LMB0g==;
-Received: from i53875a42.versanet.de ([83.135.90.66] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1vSwwA-0007hg-Fr; Tue, 09 Dec 2025 13:35:26 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Ye Zhang <ye.zhang@rock-chips.com>,
- Linus Walleij <linus.walleij@linaro.org>, Ye Zhang <ye.zhang@rock-chips.com>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, tao.huang@rock-chips.com,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH v2 1/8] dt-bindings: pinctrl: Add rk3506 pinctrl support
-Date: Tue, 09 Dec 2025 13:35:25 +0100
-Message-ID: <2043731.usQuhbGJ8B@diego>
-In-Reply-To: <20251206050844.402958-2-ye.zhang@rock-chips.com>
-References: <20251206050844.402958-1-ye.zhang@rock-chips.com>
- <20251206050844.402958-2-ye.zhang@rock-chips.com>
+	id 1vSwxx-0000000EGSA-3chi
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Dec 2025 12:37:19 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-477a1c8cc47so62765e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Dec 2025 04:37:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1765283835; x=1765888635; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=vlFI2bCRqxpqLkg/AiIg8IcS+TSdYsio6x9QrT+ERVQ=;
+        b=go/tVijzTZyeFBBcQAIbPI+WDarVzd5f8Rv5LFw+4ySYjsDvkYP4Q7r15sC4+4Mdiv
+         oRogE5fMziIDr4t1meRRZQ+ApcKFK1bnJUd/sFQhWUbDXFY2D+Nu+haTgDPdbdvEz0xY
+         KcVAra3gP4xBTT5RKEchzRqE6lUnI3OWAsfjedktaFDVX4LpmPiLC0pXNUMBuoThAoXc
+         kVbOV3KjikdpjfTFxpoKETOTagOHZPB8ugd7jcPh2lmlDsRmy2ta9eF8UTlFdTcnageE
+         VGTvf+J1UXdPnXMrKeGDwRto+LY0qpW1QoysuyBEIdN2TqJ7Vyb0yz2TVvdwl7M+EYlf
+         Ds/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765283835; x=1765888635;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=vlFI2bCRqxpqLkg/AiIg8IcS+TSdYsio6x9QrT+ERVQ=;
+        b=cXNt7CuNU4PdQFOGQnISPeF/tZljZzyj2+9AEEhSKwWdTz3Hhuu93YmqL2Qsl/RXax
+         MTXjXc2akvnBsewkiBfXVRbBhQDhRxKY1BYPKBEM+nrSY0CGqz40ceugxuJIaloIInTT
+         cJvJvz3/Q5suoclmNtdmDztWQvFk+n3lKp4xg5/V9Hd5og8iTcosfL26410Rebz0HRtN
+         WGkVbcw0DJczo9XrrSR3jp0AyVCxDsRUy9nTKJBTSjwSvLu/jYwo8QyfwGVXoF07hBJR
+         JBM16EoAmxIncVE5xXLIohLDK5CYRGRoEwA1i/WKEIQ81dlf8uOVvEr+DbJqHciZz0na
+         nN8A==
+X-Forwarded-Encrypted: i=1; AJvYcCX0VcYEuaNfLCHaYs4OikDRw0HJ0MLvxCD6414Q5XU7arV4hUHhtg+DujyIuEYvHogLFwf1dMk0l3nymh4MRESu@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy75WxE0jjkFSS8rY4wZsKQd7I91meKnNLAFYWICnmEoO5VFXmg
+	i4F79ErGFCTh10aCvHBfAe4s4unusV0Zl/gRrTsd1of7X/8omSywWkKE6QaId1psDA==
+X-Gm-Gg: ASbGncuM1D+LgEBqyDbWG8pH+Np4S5wOsc5jNWbLM5QFus6ZfhQQJDz5khyNnQgjX1R
+	T7Yal+JMqRu15wzP5jdxjbhySyBm0tGnMkc27WjnQZMjJunXkjlFLj26VGzok2aFmmBn72fou6E
+	bb3aLkCNe0KK7X0Q2s3w29OVVAFFBVz/VJSf3rrvap3ye9FES6go4ZpEL3Xn8AEFQ3lMhQp5q59
+	3KVtt8gCnIHOuEPJPQ02ZrLvXZ8m/I1N5hrT6W59FdQh6kxIgKN8xImt8kj5ciiHkSB+lN+Ixcz
+	pDfegEU32NjOngVYQLRPMaFTj419Xt7L8YopUDl0FCyVmZ3TNxNSWEY2kUf8LXNMDxSjhxNbrAB
+	qNpWZW2GKa0556nVbIpSr10I/k4kdWcDHLtdUeDEuzW5xQGcclYMHSxK8v13i0glipWaq9veI2I
+	0S24MVJbiYxTt8mguM1tYzkTTPhG4cbyLsjWZtsqc7VDTM2K/7H2gN8Bu11cQM
+X-Google-Smtp-Source: AGHT+IFBVi6Any6314XmuF0VtSnmCugjUmteW57ZeCuI2t3TMv2bo5E7PrvrZtUvcE0omaa0J1rj/w==
+X-Received: by 2002:a05:600c:c092:b0:477:255c:bea8 with SMTP id 5b1f17b1804b1-47a7dafc8a8mr643695e9.7.1765283835141;
+        Tue, 09 Dec 2025 04:37:15 -0800 (PST)
+Received: from google.com (54.140.140.34.bc.googleusercontent.com. [34.140.140.54])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42f7cbfee71sm31524754f8f.15.2025.12.09.04.37.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Dec 2025 04:37:14 -0800 (PST)
+Date: Tue, 9 Dec 2025 12:37:10 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, will@kernel.org, joro@8bytes.org,
+	Tomasz Nowicki <tnowicki@google.com>
+Subject: Re: [PATCH] iommu/io-pgtable-arm: Add misisng concatenated PGD cases
+Message-ID: <aTgX9qhaLyrQ5iye@google.com>
+References: <20251130194506.593700-1-smostafa@google.com>
+ <18a39079-2285-47fb-b306-040f2bc1bbaa@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <18a39079-2285-47fb-b306-040f2bc1bbaa@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_043533_304855_9334DBE9 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20251209_043717_969676_C9836CC7 
+X-CRM114-Status: GOOD (  35.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,49 +100,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ye Zhang,
+On Tue, Dec 09, 2025 at 11:34:34AM +0000, Robin Murphy wrote:
+> On 2025-11-30 7:45 pm, Mostafa Saleh wrote:
+> > arm_lpae_concat_mandatory() assumes that OAS >= IAS which is not
+> > correct for SMMUs supporting AArch32, and have OAS = 32/36 bits,
+> > as IAS would be 40 bits.
+> 
+> But that is only when *using* AArch32 format. The bit in chapter 3.4 of the
+> SMMU architecture is talking about the maximum IAS that an SMMU
+> implementation needs to be able to accommodate based on its configuration,
+> but it does then attempt to clarify that the actual IPA size in use by any
+> given context should depend on the VMSA format in use:
+> 
+> "VMSAv8-32 LPAE always supports an IPA size of 40 bits, whereas VMSAv8-64
+> and VMSAv9-128 limits the maximum IPA size to the maximum PA size."
+> 
+> Rule R_SRKBC in the Arm ARM lays out the exact T0SZ constraints with this
+> AArch32/AArch64 detail.
 
-Am Samstag, 6. Dezember 2025, 06:08:37 Mitteleurop=C3=A4ische Normalzeit sc=
-hrieb Ye Zhang:
-> Add the compatible string for the rk3506 SoC.
->=20
-> Signed-off-by: Ye Zhang <ye.zhang@rock-chips.com>
-> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+I see, thanks a lot for the explanation, I got confused by the this
+statement:
+Note: If AArch32 is implemented, IAS == MAX(40, OAS), otherwise IAS == OAS.
 
-This patch was already merged into the pinctrl tree in v1 and entered
-the mainline kernel during the 6.19 merge-window [0]
+However, I think this is still a bug but somewere else, as at the moment
+the SMMUv3 dirver will use the SMMU IAS (40-bits) as input for AArch64
+stage-2 page tables, so we need either to limit the IAS as:
 
-Same for the actual rk3506 driver change. So please base future versions
-of your work on top of that.
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index d16d35c78c06..d21153156daa 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -2561,7 +2561,7 @@ static int arm_smmu_domain_finalise(struct arm_smmu_domain *smmu_domain,
+        case ARM_SMMU_DOMAIN_S2:
+                if (enable_dirty)
+                        return -EOPNOTSUPP;
+-               pgtbl_cfg.ias = smmu->ias;
++               pgtbl_cfg.ias = min(smmu->ias, smmu->oas);
+                pgtbl_cfg.oas = smmu->oas;
+                fmt = ARM_64_LPAE_S2;
+                finalise_stage_fn = arm_smmu_domain_finalise_s2;
 
-Thanks a lot
-Heiko
+Or, don't populate IAS depending on AArch32 support as the driver
+doesn't support it, effectively reverting:
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=f0c453dbcce7767cd868deb809ba68083c93954e
 
+> 
+> > In that case, concatenation is mandatory in some cases.
+> > Document those and add the checks, this can be simplified; instead
+> > of adding extra checks we can say that concatenation is mandatory for:
+> > - 4K, start level = 0 and OAS <= 42 bits.
+> > - 16K, start level = 1 and OAS <= 40 bits.
+> > Which cover all the missing cases.
+> 
+> AArch32 uses a fixed 4K granule, so this cannot impact 16K. Note that we
+> don't support AArch32 for SMMUv3 anyway, and while this does technically
+> apply to SMMUv1/2, Arm's MMU-400/401/500 implementations all have OAS fixed
+> at 40/40/48 bits respectively, so I'd imagine it's quite a rare case to
+> encounter in practice.
 
-[0] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/comm=
-it/?id=3D13064950339ffc73a0e55e9b4898df861b04848e
+Yes, I don't have access to such HW.
 
-> ---
->  Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.y=
-aml b/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml
-> index 125af766b992..76e607281716 100644
-> --- a/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml
-> +++ b/Documentation/devicetree/bindings/pinctrl/rockchip,pinctrl.yaml
-> @@ -44,6 +44,7 @@ properties:
->        - rockchip,rk3328-pinctrl
->        - rockchip,rk3368-pinctrl
->        - rockchip,rk3399-pinctrl
-> +      - rockchip,rk3506-pinctrl
->        - rockchip,rk3528-pinctrl
->        - rockchip,rk3562-pinctrl
->        - rockchip,rk3568-pinctrl
->=20
-
-
-
-
+Thanks,
+Mostafa
+> 
+> Thanks,
+> Robin.
+> 
+> > Reported-by: Tomasz Nowicki <tnowicki@google.com>
+> > Fixes: 4dcac8407fe1 ("iommu/io-pgtable-arm: Fix stage-2 concatenation with 16K")
+> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> > ---
+> >   drivers/iommu/io-pgtable-arm.c | 10 ++++++----
+> >   1 file changed, 6 insertions(+), 4 deletions(-)
+> > 
+> > diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
+> > index e6626004b323..ecf27e86b429 100644
+> > --- a/drivers/iommu/io-pgtable-arm.c
+> > +++ b/drivers/iommu/io-pgtable-arm.c
+> > @@ -223,6 +223,8 @@ static inline int arm_lpae_max_entries(int i, struct arm_lpae_io_pgtable *data)
+> >    *   b) 40 bits PA size with 16K: use level 2 instead of level 1 (16 tables for ias = oas)
+> >    *   c) 42 bits PA size with 4K: use level 1 instead of level 0 (8 tables for ias = oas)
+> >    *   d) 48 bits PA size with 16K: use level 1 instead of level 0 (2 tables for ias = oas)
+> > + *   f) 32/36 bits PA size with 4K and 40 bits IAS: use level 1 instead of level 0
+> > + *   g) 32/36 bits PA size with 16K and 40 bits IAS: use level 2 instead of level 1
+> >    */
+> >   static inline bool arm_lpae_concat_mandatory(struct io_pgtable_cfg *cfg,
+> >   					     struct arm_lpae_io_pgtable *data)
+> > @@ -234,13 +236,13 @@ static inline bool arm_lpae_concat_mandatory(struct io_pgtable_cfg *cfg,
+> >   	if ((ARM_LPAE_GRANULE(data) == SZ_16K) && (data->start_level == 0))
+> >   		return (oas == 48) || (ias == 48);
+> > -	/* Covers 2.a and 2.c */
+> > +	/* Covers 2.a, 2.c and 2.f */
+> >   	if ((ARM_LPAE_GRANULE(data) == SZ_4K) && (data->start_level == 0))
+> > -		return (oas == 40) || (oas == 42);
+> > +		return (oas <= 42);
+> > -	/* Case 2.b */
+> > +	/* Case 2.b and 2.g */
+> >   	return (ARM_LPAE_GRANULE(data) == SZ_16K) &&
+> > -	       (data->start_level == 1) && (oas == 40);
+> > +	       (data->start_level == 1) && (oas <= 40);
+> >   }
+> >   static dma_addr_t __arm_lpae_dma_addr(void *pages)
+> 
 
