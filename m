@@ -4,159 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B7B6D3B7FF
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 16:11:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F47ED3B7FF
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 16:14:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B4KFW08r+yqfgwdEN88Xa51dKEKC/Yo/BohaJZVBnjI=; b=pg+nKv+SG82/hA9OtJmV6mMTNM
-	FB2UWUosAlVkPDJvr6936EyN73hRyUJjkSvx9f7FiDaI+X6WHntPKWn75e92XaLp/4cwRgr4AArZb
-	MBbR6vuuokKdrfiRIMNL2rTOU0/bdwGpwucSvkrYThby5Aq2LW67CZWMhk1mLkZNxirYUttIHGUpW
-	DZ5NY3ADoumtzroYH68mv8ddiB0J+do0QoF9j71iApalARWCSOb2q/MvLlteSCMa+mk+Q3u1wpNny
-	t8ny2xPvK9p7zxJkiESB+0SzVfJaozFYdPYEhKIxZpJgxWSY84ZHfNUyG/QX3OdGPMNdihRRGJjON
-	z3U4iKXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eLOIaqC3hEJkyYvuUjnvuaQvOjdgxxlRkOKE6yNtpUI=; b=SBsHE62ylHifa2ES8yX7e+Ps+v
+	6AZF9iULU4IPbnHkOqqon21bZ2v9BLuCjLdLOzv4KYyShq2mI+aSYx20L3y2bnZSgnpMM65BXHJGF
+	98YBhw3qVTVykdx82o1iH/PTkBiRx3nZBAqurbdO5CilXXK+rCJaGXXNk/91opOm/1/l2cKx3ekIh
+	geMIv8ASeJLofH6GM5dQP6QwO8bguAQGVTu1tqrhebgMTFpzF7citvEZ0L+j/utPXF6x26m0Haf2w
+	HfN30DCgC1aWmX+eKe+vCoONu1O2dcYKa1NCBZqy1XB7bEctpgXH/yDyt/sdH4112VMiel4l2A72/
+	poKg3Wlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT0JX-0000000EVDB-1b4r;
-	Tue, 09 Dec 2025 16:11:47 +0000
-Received: from mail-francecentralazon11013022.outbound.protection.outlook.com ([40.107.162.22] helo=PA4PR04CU001.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT0JU-0000000EVCk-3Scp
+	id 1vT0M1-0000000EVPD-1UJE;
+	Tue, 09 Dec 2025 16:14:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vT0Ly-0000000EVOm-32cl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 16:11:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=f6DR2vYX2DTU9FdaNPJnBIW12TKQVp71TF5MwdS2LSTRoBQkn5xnpa334rS7HmvYmTBk4LjndqOc7qilKIQaMnaTu0I/PoHaC2KHh9HcIzNexOlxzVRuG7xDv1DkkmW7Da7oo9F4TvSi/W6vGQy225XLJGUVJY/xts6DvOBsC6lEP5WCetnCvAMwzLwTq73jkG8V/HQ3vqne7J0hwW/xRkQ6GZRIuUWzIo6kFB2AjJJrpU7vBNw+x7av4lC+j6bUWqouD8fHqPfOjR6ZEnDB1RKBHEvqjmc7+8+xiIrnT6/Keq4Jd2mfRe5pWlp3FXRXtdFLrjbqWB3Q2MeEvv1AkA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=B4KFW08r+yqfgwdEN88Xa51dKEKC/Yo/BohaJZVBnjI=;
- b=sC/hflHgyntk7cv3D1xNIBeDAPafcMpfg9yncaC8UXnCkviniWt2a1YykcGGJ4EwPqLD5lzT0B+5eDTft4f/LW8GeP4lxTM8jOTLCoEhYGqjReU6hjFUdBGv67YJ6vk+lJGLRuqSn5uLLy3WxmPNyaPi8fmt4ifZRe8vLb/CAQXOaY1p2Lu43XQD23VflPzj0CVK1dMQevtgQWTIG0UrHC8A8ytbCZIfKdLG2niex4jF99L+XIrFxNSaeQz5epwcnKmBtkW63LiiDRcrMRdkA0DWr2g1nsG4tgB85XiNFvvEyR31iAA7DG9eLdoj56NUclYtdYC9mQ9dTzcekzOdlQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=B4KFW08r+yqfgwdEN88Xa51dKEKC/Yo/BohaJZVBnjI=;
- b=hL1/Z9nEzjmPk4ig7COMktk/tdk1lA+cUppH+uAbsGV0omLKQXA0X5kOSOTFVo3b0KQz3f7y+Oi3kBTjDpTil+P+a48MMygmCL69cALtLmDIXVk3Op29PADXjciOTSq1IaqwzoSIMw5Dt3BRg6FaTD1N6y4Hh+GLsjQuvLmatv2ZjO//9hIcWank5Zke6LjOMrNn/pc7RDWELR6wdIpWdyqVTY9HyRX9kAmxWsu3GfysZWOmm/IrKNnyXWwnD7kxtDpqXsvRm0z25yOG2EyJGGzroOcv+VSMEeJMjw+tMv8O/IN6IaBDd6RovXQSNRQoWw/22Tcf+8cITfRiHbz+KA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by PA4PR04MB9416.eurprd04.prod.outlook.com (2603:10a6:102:2ab::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.14; Tue, 9 Dec
- 2025 16:11:40 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9388.013; Tue, 9 Dec 2025
- 16:11:40 +0000
-Date: Tue, 9 Dec 2025 11:11:31 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: James Calligeros <jcalligeros99@gmail.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
-	Baojun Xu <baojun.xu@ti.com>, linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev
-Subject: Re: [PATCH 2/7] ASoC: dt-bindings: update tdm-slot.txt references to
- tdm-slot.yaml
-Message-ID: <aThKMzyrr1oY35Vj@lizhi-Precision-Tower-5810>
-References: <20251209-tdm-idle-slots-v1-0-38dabf6bc01e@gmail.com>
- <20251209-tdm-idle-slots-v1-2-38dabf6bc01e@gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251209-tdm-idle-slots-v1-2-38dabf6bc01e@gmail.com>
-X-ClientProxiedBy: PH0P220CA0016.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:d3::19) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+	Tue, 09 Dec 2025 16:14:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2461A175D;
+	Tue,  9 Dec 2025 08:14:10 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1930E3F73B;
+	Tue,  9 Dec 2025 08:14:13 -0800 (PST)
+Message-ID: <95c9947f-574a-486f-953c-fbac6ead0853@arm.com>
+Date: Tue, 9 Dec 2025 16:14:12 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|PA4PR04MB9416:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0a10bb59-fe3b-4791-6987-08de373da330
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|7416014|52116014|1800799024|366016|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?9lHxxUWovktyynhWHm9W18mzQc5qOY0YYm9NTiJKJ6ZucQ41ttLb2d+T4O0z?=
- =?us-ascii?Q?6NwXsei9f4y8RvolxT8Eua/vzAelmT35gqGQq4ef4lKEZybQdyf5uN4MdRvj?=
- =?us-ascii?Q?D7yzAlVibTnXou82jXNPhI/en6gaDyqpChEMdBKAn+8yk1ZmxmlADgsziLPK?=
- =?us-ascii?Q?pA58MB78E+bhtKjDv2xuiHW/IZy23QBQrQKhVkAmrKfcqkkR8TTMciqch/xr?=
- =?us-ascii?Q?+LhHm6SuIVxmh+88lObS5qU7TSF0TsP+0ybkbUx2stE4wx2VpSdYQehy9DZ2?=
- =?us-ascii?Q?qDdoZIax7YpTct3Z+ne2q8l6PulIEGkQgeGtDzMZE2LQ0cyqam4Y8qaj2Z91?=
- =?us-ascii?Q?1vtBWBFJ1nffl5oxGe8YvMuD7SfGzyap018psCSDbg5Aog+E4vh+FMjvGvfG?=
- =?us-ascii?Q?LVlR9k+AX4VtSf7c4RB2C3HNpbfQjGkgOC3EohV8NHvSuREJo4OKUbBpbjYh?=
- =?us-ascii?Q?9xN0GqKVm4YRFZl2RniyjlNo36AMfmhr9jn4KJ2aIjc1zU2F0D3yRjfYUt19?=
- =?us-ascii?Q?4K34mOGdu1X2rcsG/UmEXp43LcKfJprmEJZfx6klnDbnPfmTd3bViU3T9TY3?=
- =?us-ascii?Q?4ItHy26lzZGHXnC0D9SVNY68e1WoKZPVI68ZIzsOpDDk1YsoOJmZLHmooawe?=
- =?us-ascii?Q?PXlxQZzfgJV5U4803Pp6EKxULHcbe7qg8wgB7gTbaVUlu+cDEN0GdMhKyVXJ?=
- =?us-ascii?Q?Qa2BI3oHZQvpxcEnhI/cFn5nffCp2KADlE70bkOVXRJ2TtVLQUmoprFpeDIi?=
- =?us-ascii?Q?ZcEeL26K4FTTViik6x5hlE8/l+gM8305q/dV+espR7F0QTQGTA836d3a0szK?=
- =?us-ascii?Q?2DgzPUIYBQp+TAyiIbwpPqPJ4CwKKdErUDewiL0tWdcJLxlJifgRNwvAsyxv?=
- =?us-ascii?Q?S/QzUhT6FC4XL9MPWLEcR2OS4wRsRmxkB8xXBW5CCKPPOvvGcmyvS0iMkU6N?=
- =?us-ascii?Q?JAUDMPQx074Q7Jh6lH/9jxNOyHIIvDstWtLACUYd3XQj+1so/uNsdoZ37a9T?=
- =?us-ascii?Q?Nb/1/HRDmDDXv09UenZvYq+ArIuEYrqOMWZI2dl9yo7CUGQqlGwV12zknuuy?=
- =?us-ascii?Q?IlpMLIsT+HPl5EAS34fN5hi7+HiJWMWpJmeOskcGZymeyL3VZggn1qDxwdLH?=
- =?us-ascii?Q?KuvYmG5Duf0L8LMDcmr2SjbFho8NNcXb2ouF5n6rnSfs0zAxHGGG+EnJQsXa?=
- =?us-ascii?Q?ot2CjfMZW3M9zM1GtgliF+F3h0xuDq3WfoIgTeKOCoSLPCtxn1BJIRae2qfP?=
- =?us-ascii?Q?vS2kvpR3mGEh3gKo3PDfGX9KlEOZ52mI45g9m0IcqJObRpJFw2HI/5cTo+63?=
- =?us-ascii?Q?YXISsz92h5c9dUN7RG2QvDsVYZXXQIW0qCahOK0pPGeHO5+vsYCN/CFF/ejJ?=
- =?us-ascii?Q?B3fCmMqaQIM5R7eCv/IUoL/SMBjaozyZmI6XTuScrHsVM1zvQ/7CjtIcJem0?=
- =?us-ascii?Q?BPAsjW5JD57N3M/YFZL7DmG4MKE+WDj33HVODCqUXSEj9pvM0z+p65nNlQRP?=
- =?us-ascii?Q?BodKzdIhWJKPMyKAG6DuNkr93rmVXisy2fxo?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(7416014)(52116014)(1800799024)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BiwRFCPYTqMjLNGo0OaUyu7xb+p/kTBZRKXTeOmpBFg5QvN/au8cWzSfp2RO?=
- =?us-ascii?Q?fy58rvPcQ2ZBL9PMiwZBfiL57c/1LLVcjF2Eu+t/P/iQVuNw1+Fn0tTIh5wO?=
- =?us-ascii?Q?Pat+DOhnFEOo288H3DnT+Y9sMIKsv6yrXhjsfPLtRimwXhR5KH/EkKCYzQ46?=
- =?us-ascii?Q?AZXXqmVpECA7vQaKUr7FNUO41VwWzKkqCOzkuOEP3WOoBXoi59arY4G7t2g+?=
- =?us-ascii?Q?MLLVxa+HNS5GYGh7NMD4e/x3XNeVwZmZnK+x5KjvoCD/EKuuP37NzSJms51e?=
- =?us-ascii?Q?KD0dZFryJc/pa5IroCGBFpiQO8M3FzJh0mPQsEImbSXgy5qwql/PIUnq67HP?=
- =?us-ascii?Q?o61gWskbCwcdUDKQW2nDLbptBuUCNf2kYzlPEP0zyZ11pwcrShVxivXOZtbm?=
- =?us-ascii?Q?Zkke0ydGrIUCDRTWY/LPWXFQ0nGuAyXbvVXoonlse4DMTbwdq4YJgC1q1Wkv?=
- =?us-ascii?Q?sEZyjGVlVewaCfX0UKcZIEw1YXrbFraH1KLXPl94+fsvqB+6rg4t0glt1Tfi?=
- =?us-ascii?Q?Q84a0UJgJCEdkJpYKOur4m1+B1ORneu5KiUb7TdkSEDZqmWRkeTNA4aa8X9G?=
- =?us-ascii?Q?wqT+5ihn12V3vqxCEw0qfaa2M3WXtq4gjmNav8WLgZEqhepyuwJYJK0acyMf?=
- =?us-ascii?Q?ARjDdBKXCnLhJH06slrnfvdPz5wlQWW+Tl4J0qJOEeOrrDcPFDQJ7y4sPH8X?=
- =?us-ascii?Q?UIuSQ2KV4fphqfFhQZfzZ8jm5HqvDKb1O/i2MAAM82pWpXlHS+8RHkx29IyO?=
- =?us-ascii?Q?Ohttkwr1vHJiGke26izNbFGpImwwh1Ma/wdP+jAHljsK5JHlePukJu7ys4sY?=
- =?us-ascii?Q?O+x7WNF4clUhp20HV5tUt4Xn6xqeuHvqGcTwOGGHvV52fSjrS3c9Z+u6M0MS?=
- =?us-ascii?Q?Za5zQt621k5zjiLzyqQoIbp1pZpaf9UKr/yCCYM6QzBcuMrvifsmonE60Uez?=
- =?us-ascii?Q?D3YlrwAJ+HXni5cIiKGbToRAs/DZj/olWFDopxtLFxAgS+WHaL2idGaSgMm5?=
- =?us-ascii?Q?JYHEB/X1JMZWJAXnVvo+8bJpiVkgeQABuEC263zVPDnUXlVHxQePJghIvf3t?=
- =?us-ascii?Q?arZ0OAIxG0oLTENgldqjsfvme0NaN1dxuCmUXIez8NAtNMSZuEyXHRB2pKTc?=
- =?us-ascii?Q?05EXXRFBkeaGgso0SqPsP21R72nflrzEDfl0OU231R1ashACrwpyHkjA9bPN?=
- =?us-ascii?Q?Cm7zR/smXSxeOnEo74aty7oAy7ZZamsWR6iEtDU6bz8npRaKsRLWKs9Rgsq+?=
- =?us-ascii?Q?AumbMe0bj0nMxY8bvZ56Icplp8pcK3l2E03wZYUN5+SjViBxUNzqp49xa0iF?=
- =?us-ascii?Q?AnZYqPdV5AvV7TkOWAkFiknV0fQGjAxMOXdhQaenakoxeZWNbGiCpb5RL+qd?=
- =?us-ascii?Q?x5qSqSmCAEHe6TNHtHNHXBlU2kusakjPomdXLuM5+hoIeXbVHdhPKc7Vlq+L?=
- =?us-ascii?Q?PRCMLDULkbOBBzCkwBFyYHIsHTkDLvglVGXmRHl6eySB6OqXzDWBd+Ny0y3C?=
- =?us-ascii?Q?p2AahmFOE5YO11UCewOwf2adfIlxV/fBp4A3nN4pzsjpgKtLTrvx4r7RBRap?=
- =?us-ascii?Q?oDG85T0Uyp//rWEWXHwWw4hdyX6L4i8JniIcaiP4?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0a10bb59-fe3b-4791-6987-08de373da330
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Dec 2025 16:11:40.5181
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jUSmJsUttC7O+/Ki+aWNHLtAzl7itOER28/92IOwLfZevvK3tTPnuuf/wnjY2/kM5iDzzFoa6ITwQlOf7NlrjQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9416
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 00/38] arm_mpam: Add KVM/arm64 and resctrl glue code
+To: Peter Newman <peternewman@google.com>
+Cc: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, dfustini@baylibre.com,
+ amitsinght@marvell.com, David Hildenbrand <david@kernel.org>,
+ Dave Martin <dave.martin@arm.com>, Koba Ko <kobak@nvidia.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Gavin Shan <gshan@redhat.com>, rohit.mathew@arm.com,
+ reinette.chatre@intel.com, Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+References: <20251205215901.17772-1-james.morse@arm.com>
+ <41bcd0d2-d5b8-4f3d-b0b3-132387f547ed@arm.com>
+ <CALPaoCgDuA1D+ubUv3UJ0+LyUfjCFKOcrEhg6Q80rNK5idjEmA@mail.gmail.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <CALPaoCgDuA1D+ubUv3UJ0+LyUfjCFKOcrEhg6Q80rNK5idjEmA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_081144_870920_ADA6F754 
-X-CRM114-Status: GOOD (  17.55  )
+X-CRM114-CacheID: sfid-20251209_081418_821575_68A97CAB 
+X-CRM114-Status: GOOD (  14.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,65 +77,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 09, 2025 at 07:31:15PM +1000, James Calligeros wrote:
-> Ensure that all references to tdm-slot.txt have been updated to
-> tdm-slot.yaml.
->
-> Achieved by running "sed -i 's/tdm-slot.txt/tdm-slot.yaml/g' *"
-> against the bindings/sound. No other references to the file
-> were found in the tree.
->
-> Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
-> ---
->  .../bindings/sound/imx-audio-card.yaml   | 4 ++--
->  .../bindings/sound/simple-card.yaml      | 4 ++--
->  2 files changed, 4 insertions(+), 4 deletions(-)
->
-> diff --git a/Documentation/devicetree/bindings/sound/imx-audio-card.yaml b/Documentation/devicetree/bindings/sound/imx-audio-card.yaml
-> index 3c75c8c78987..1df29a556120 100644
-> --- a/Documentation/devicetree/bindings/sound/imx-audio-card.yaml
-> +++ b/Documentation/devicetree/bindings/sound/imx-audio-card.yaml
-> @@ -39,11 +39,11 @@ patternProperties:
->              - dsp_b
->
->        dai-tdm-slot-num:
-> -        description: see tdm-slot.txt.
-> +        description: see tdm-slot.yaml.
->          $ref: /schemas/types.yaml#/definitions/uint32
->
->        dai-tdm-slot-width:
-> -        description: see tdm-slot.txt.
-> +        description: see tdm-slot.yaml.
->          $ref: /schemas/types.yaml#/definitions/uint32
+Hi Peter,
 
-remove dai-tdm-slot-num and dai-tdm-slot-width and add
+On 12/9/25 15:53, Peter Newman wrote:
+> Hi Ben,
+> 
+> On Tue, Dec 9, 2025 at 3:40 PM Ben Horgan <ben.horgan@arm.com> wrote:
+>>
+>> Hi James and all,
+[...]
+>>
+>> One major departure from the previous snapshot branches referenced in
+>> the base driver series is that the same MPAM setting are used for
+>> kernel-space and user-space. That is, MPAM1_EL1 is set to the same value
+>> as MPAM0_EL1 rather than keeping the default value. The advantages of
+>> this are that it is closer to the x86 model where the closid is globally
+>> applicable, all partids are usable from user-space and user-space can't
+>> bypass MPAM controls by doing the work in the kernel. However, this
+>> causes some priority inversion where a high priority task waits to take
+>> a mutex held by another whose resources are restricted by MPAM.
+>> Thanks,
+> 
+> In our experience, the disadvantages of the x86 model were worse
+> because they triggered on hosts unintentionally, while making the
+> kernel do work unrestricted on behalf of the user at least requires
+> intentional abuse.
+> 
+> -Peter
 
-$ref: tdm-slot.yaml
+Thanks for the quick feedback. Do you have any more data/information on
+this that you can share?
 
-Frank
+Thanks,
 
->
->        playback-only:
-> diff --git a/Documentation/devicetree/bindings/sound/simple-card.yaml b/Documentation/devicetree/bindings/sound/simple-card.yaml
-> index 533d0a1da56e..2e1a5b3216c5 100644
-> --- a/Documentation/devicetree/bindings/sound/simple-card.yaml
-> +++ b/Documentation/devicetree/bindings/sound/simple-card.yaml
-> @@ -28,11 +28,11 @@ definitions:
->      $ref: /schemas/types.yaml#/definitions/flag
->
->    dai-tdm-slot-num:
-> -    description: see tdm-slot.txt.
-> +    description: see tdm-slot.yaml.
->      $ref: /schemas/types.yaml#/definitions/uint32
->
->    dai-tdm-slot-width:
-> -    description: see tdm-slot.txt.
-> +    description: see tdm-slot.yaml.
->      $ref: /schemas/types.yaml#/definitions/uint32
->
->    system-clock-frequency:
->
-> --
-> 2.52.0
->
+Ben
+
 
