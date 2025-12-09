@@ -4,55 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76BBAD1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 11:39:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A22D3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 11:42:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2kzNtR2Ff6I+qBMI0/qc18G4oGHltcgqC+b0+KGxgNY=; b=pGB0GcBBPwnXGRvHtvu365TQdV
-	s0ABH+hZPDq3Po4XxaP0YTecKht8nJzo1ADgzV8KztlqIYSO+e8Z3RexiF0oF4Umt46VAE+atNf0J
-	2HshFNzQwDcGcZA/MxAHic7CD3GpXbXXosc8tHqF9M8tPh+isERCIVGkSS+gXVMtTsQzDpcBpYOZf
-	hS+RasVLf7aqgvmGQQx1l/lM6RMjMgHo+RaJpRp2X0KmCNv+WP2Zk0hl3pMe6EICoezysEhGP9zDz
-	ftcwptTYLFH3mGdzqW95cq5slcEifWdH1uAutc8V0l63tl1qO5lITrHh4IqNXqA+SHz4DH4xFM6QN
-	Y5vsEASw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zyYqc6EVLqMdQdA4NqMFP5gkkbcjZzok7bdWE+/PYSs=; b=IGUqcDWqf1/2frIIb71FipIH5T
+	NEMVPKEDisqpkeMne64hJG5j8jdHjqeXS8L7fG2Eb0xCe/qvuSQRNWZb7nK7msaqKutwb13X12qFH
+	ee7sdXnrUgO3Tc7sSKhcwCfMhHQBtJkH0r/asIBQ1nh9pj4t7Pr/DcyWdnxJoMuW2XTpZaM9nVeMd
+	Vg2KNuVufUJCmPuHkt2jDdzMcuyji/BWdJ+JN3Nni+FN18lKigNZePGrao9y5znchS4/Ts4JxMdRv
+	y57Un9e2e8g9Oco0Cw3RAkRV2GcGf91pEL9tbWNL+kZnsAq+MB6eM8NUIEEoFu1ToKP11vrmnz8Oi
+	LhkOGxWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSw4M-0000000ECIX-3zeW;
-	Tue, 09 Dec 2025 11:39:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSw4K-0000000ECI6-1kPl
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 11:39:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BBAEB1691;
-	Tue,  9 Dec 2025 03:39:38 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A37723F762;
-	Tue,  9 Dec 2025 03:39:43 -0800 (PST)
-Date: Tue, 9 Dec 2025 11:39:40 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Vedashree Vidwans <vvidwans@nvidia.com>
-Cc: <salman.nabi@arm.com>, <andre.przywara@arm.com>,
-	<lpieralisi@kernel.org>, <mark.rutland@arm.com>, <ardb@kernel.org>,
-	<chao.gao@intel.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-coco@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<sdonthineni@nvidia.com>, <vsethi@nvidia.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, <vwadekar@nvidia.com>
-Subject: Re: [RFC PATCH 0/5] Arm LFA: Improvements and interrupt support
-Message-ID: <20251209-miniature-curassow-of-energy-b6a303@sudeepholla>
-References: <20251208221319.1524888-1-vvidwans@nvidia.com>
+	id 1vSw6Y-0000000ECSu-2ATI;
+	Tue, 09 Dec 2025 11:42:06 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vSw6V-0000000ECSR-36gH;
+	Tue, 09 Dec 2025 11:42:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1765280520;
+	bh=ep5IfAaQVSnxSjOjbmiAB1Wa6uj/sQhIhJIlgN8V8lI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=EH+4I56C5F+j5hNVNyetkQm8BeAOytmZozTHsF7ne2YFXLr0uJNmiD4+jEHHw1qFG
+	 qHqj2ArpfQX/+nWqYqE+shroqNBtWk3Bq/8uX9uijOurEEcrpjypqE3V09tv+EcxWM
+	 2B69DqrSP2c+xSJ75sr3EFpDrw+4JeYjjMdEoH+7Zeq10msGfue+KR/hb27saQsBOe
+	 ngqvWD0qyJIUKSPapoQzqbzMJCRMqRXQznWVRcpaoWfhWIgOvM5G7hREAMAHHBJ3XH
+	 QdwibqamzqFeCOvk+s/dqMkmwcfFTDijNn/rmUClHTJ+Yd3H6L+e7JsqwCUfpWNKMr
+	 YE3fFQw3i6mqQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A7DC217E06C3;
+	Tue,  9 Dec 2025 12:41:59 +0100 (CET)
+Message-ID: <0d03ed27-418b-4564-bf8d-739b253b2213@collabora.com>
+Date: Tue, 9 Dec 2025 12:41:58 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251208221319.1524888-1-vvidwans@nvidia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: dts: mediatek: Apply mt8395-radxa DT overlay at
+ build time
+To: Frank Wunderlich <linux@fw-web.de>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+ Frank Wunderlich <frank-w@public-files.de>
+References: <20251205215940.19287-1-linux@fw-web.de>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20251205215940.19287-1-linux@fw-web.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_033948_498423_2D84FC00 
-X-CRM114-Status: GOOD (  20.27  )
+X-CRM114-CacheID: sfid-20251209_034203_949876_93DCFBA0 
+X-CRM114-Status: GOOD (  16.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,64 +78,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 08, 2025 at 10:13:10PM +0000, Vedashree Vidwans wrote:
-> Hello,
+Il 05/12/25 22:59, Frank Wunderlich ha scritto:
+> From: "Rob Herring (Arm)" <robh@kernel.org>
 > 
-> The patches update the proposed Arm Live Firmware Activation (LFA)
-> kernel driver [1] to incorporate review feedback [2] and refine the
-> activation flow while remaining aligned with the LFA specification
-> DEN0147 [3] and the SMCCC 1.2 calling convention. The series keeps
-> the existing functionality but restructures and extends it to improve
-> robustness, reviewability, and future extensibility.​
+> It's a requirement that DT overlays be applied at build time in order to
+> validate them as overlays are not validated on their own.
 > 
-> The SMCCC usage in the driver is updated to consistently use the
-> SMCCC 1.2 register-based calling convention, consolidating arguments
-> and results into a single struct to reduce stack usage and simplify
-> the SMC interface. The patches also split the original changes into
-> focused pieces and document the device node bindings in the commit
-> messages, making it easier to follow and validate the implementation
-> against the specification.​
+> Add missing target for mt8395-radxa hd panel overlay.
 > 
-> The kernel driver is registered as a platform driver in accordence to
-> the LFA device defined by the specification [3]. The driver now extends
-> interface for interrupt-based enablement of LFA. During LFA, the
-> interrupt
-> thread refreshes firmware component details after each activation step
-> and iterates over all activable components until no further activation
-> is pending, matching the spec’s allowance for component detail changes
-> after activation. This ensures that sysfs exposure of LFA components
-> remains consistent with the authoritative information provided by the
-> secure firmware.​
-> 
-> The handling of CPU rendezvous is adjusted so that the kernel now
-> honors the rendezvous policy chosen by the firmware, instead of
-> unconditionally forcing a rendezvous. This reflects experience with
-> existing firmware deployments where mandatory rendezvous is not
-> required, while still allowing the firmware to request it when
-> needed.​
-> 
-> Thank you,
-> Veda
-> 
-> [1] https://lore.kernel.org/lkml/20250926123145.268728-1-salman.nabi@arm.com/
-> [2] https://lkml.org/lkml/2025/10/8/980
-> [3] https://developer.arm.com/documentation/den0147/latest/
-> 
-> Vedashree Vidwans (5):
->   firmware: smccc: LFA: use smcc 1.2
->   firmware: smccc: LFA: refactor
->   firmware: smccc: add timeout, touch wdt
->   firmware: smccc: register as platform driver
->   firmware: smccc: lfa: refresh fw details
-> 
->  drivers/firmware/smccc/Kconfig  |   3 +-
->  drivers/firmware/smccc/lfa_fw.c | 478 +++++++++++++++++++++++++-------
+> Fixes: 4c8ff61199a7 ("arm64: dts: mediatek: mt8395-radxa-nio-12l: Add Radxa 8 HD panel")
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Frank Wunderlich <frank-w@public-files.de>
 
-Same comment as before[1], looks like the feedback got ignored or missed.
+Acked-by: AngeloGioacchino Del Regno <angelogiaocchino.delregno@collabora.com>
 
--- 
-Regards,
-Sudeep
+> ---
+> This will show a warning [1] in upcoming 6.19.
+> 
+> Note that if it is desired that the combined .dtb is not installed, then
+> the combined .dtb should be added to 'dtb-' variable instead.
+> ---
+> extracted missing part from [2] with updated commit title/description
+> after my bananapi series [3] to solve all warnings. Added Fixes-tag to
+> make sure it lands in 6.19.
+> 
+> [1] https://lore.kernel.org/all/20251114222759.4181152-1-robh@kernel.org/
+> [2] https://patchwork.kernel.org/project/linux-mediatek/patch/20251117211306.725678-1-robh@kernel.org/
+> [3] https://patchwork.kernel.org/project/linux-mediatek/cover/20251119175124.48947-1-linux@fw-web.de/
+> ---
+>   arch/arm64/boot/dts/mediatek/Makefile | 2 ++
+>   1 file changed, 2 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/mediatek/Makefile b/arch/arm64/boot/dts/mediatek/Makefile
+> index cac8f4c6d76f..3f76d9ce9879 100644
+> --- a/arch/arm64/boot/dts/mediatek/Makefile
+> +++ b/arch/arm64/boot/dts/mediatek/Makefile
+> @@ -166,6 +166,8 @@ dtb-$(CONFIG_ARCH_MEDIATEK) += mt8390-grinn-genio-700-sbc.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-kontron-3-5-sbc-i1200.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l-8-hd-panel.dtbo
+> +mt8395-radxa-nio-12l-8-hd-panel-dtbs := mt8395-radxa-nio-12l.dtb mt8395-radxa-nio-12l-8-hd-panel.dtbo
+> +dtb-$(CONFIG_ARCH_MEDIATEK) += mt8395-radxa-nio-12l-8-hd-panel.dtb
+>   dtb-$(CONFIG_ARCH_MEDIATEK) += mt8516-pumpkin.dtb
+>   
+>   # Device tree overlays support
 
-[1] https://lore.kernel.org/all/20251009-calculating-glorious-oriole-ceccf6@sudeepholla
 
