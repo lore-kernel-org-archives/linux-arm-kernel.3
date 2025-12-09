@@ -4,63 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4F0AD3B7EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 06:39:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6CD8D3B7ED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 06:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fqC5eagO0a/ErvLUj0Z+O4RNeXdiJk16/3f/TtABkxA=; b=A54SUOwJs4bH/t0aeQXefh84Zk
-	Sm0dAExGoKP8qJ2arP4fES6ocz09n7QjEw9VgBBmWBqHS2oSNap7U6SJFSNCjBfE0VJlptOw/qs/F
-	tAEzyQNy4VWfDEFH2UvRsIvZh51YZNSNgUXHW3QflivRIZ0Z4bHkE6vAIvwH5SIvMKjeG4vFX76T2
-	7sJerr7eWwzqBf9RBcMoxyjPe2aPHTDZOi1NUiQ31YSrBPGqLBtET61WzexQF/uEvo4agwhhybZGi
-	66kRp1o1vaiBTeRizTwAQV8wnKykjzDztKsTHuAUS3gbsoh0LXc44Q1f1W1NmrN+qc6cJ2GnOwZgL
-	nj4hFnGg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qpimlZdEDtuP7WR2mZA0+z1H7nFjtx/bFty3v8hsXUU=; b=Qcps85oEqaW8HykWVQmN9CFnlH
+	t1FiRIGZ9tj4lYx4SeelbYmeu8puCKe/0ihLC11iAWXshdjXjJuxVrHo0FczqMAozj1IruD+OJlrX
+	Azgt3+3T2fBkwULgI1+AOALvuCDebqIkSxWueB0OWVC6LlyGNvxvzp9EW5GDm6tq59hrJkx9pclfZ
+	Nc6mFlb4Zf27HfpJdyD0Omezo1CPFfWk7ObbBB43x+pasR5baxYiZPq06ftBSkwp4BRP+Tuaj9cMh
+	q7dd5hlSStZ3VtMTK8sJjhdcgQ8SXoVQ6ouC1/bFraQh3reDJVC7/4jf66uHVP/C/fC9L+/s0bMF+
+	a75/KImw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSrNG-0000000DtjH-2foU;
-	Tue, 09 Dec 2025 06:39:02 +0000
-Received: from verein.lst.de ([213.95.11.211])
+	id 1vSrbW-0000000DueU-0u5E;
+	Tue, 09 Dec 2025 06:53:46 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSrND-0000000DtiM-2NEk;
-	Tue, 09 Dec 2025 06:39:00 +0000
-Received: by verein.lst.de (Postfix, from userid 2407)
-	id 54A7C68AFE; Tue,  9 Dec 2025 07:38:56 +0100 (CET)
-Date: Tue, 9 Dec 2025 07:38:55 +0100
-From: Christoph Hellwig <hch@lst.de>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	id 1vSrbT-0000000Dudf-1wYc
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Dec 2025 06:53:44 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-47796a837c7so46104305e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Dec 2025 22:53:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1765263221; x=1765868021; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=qpimlZdEDtuP7WR2mZA0+z1H7nFjtx/bFty3v8hsXUU=;
+        b=A3t8X2xwWFG2Ah40rYlB4M8GTk5Tt1DDi+RZVuPAPWEb44RRVVXbiNQqpBnNmH0Rz4
+         osAYU31xSHI6NhHzv9aUT4osLkYnZ0Hhn1GeWx0wynQTOxl9QhKV4gzjHcZusr4FscM3
+         tk+nclOz+prIOq6+qUWZXRzl/RNltexVJeuTb9lGFoHYr9xKTzJnelXQBoYYTmx7INO4
+         Z0h/osUaQMlG8DAgCocngBmdODf46rflSxpMMo4SQQhpmnFZichV/lmZr414sjjGGoSX
+         Uxy1lCOazWS5Qfv/NDv7XHGE6TRVp1LKRSrcG3F1L4kTf0/0AJTvy0gVv/gjqxMZSk4m
+         tYuw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765263221; x=1765868021;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qpimlZdEDtuP7WR2mZA0+z1H7nFjtx/bFty3v8hsXUU=;
+        b=LJy0DT9Gj3H85GOB5M8jqTioEkI+n/WXjjzkjrK9+SD5i1iDLEwX7+aDvZRkhaIpAu
+         cBjVnmYoSP/wZP9tFNaPr6744ZC4KCFCp14bSlzKok3eZXq+gw2sFDNStkDtsVvWHS9h
+         61c3Sp4/+wcsN7zbDxQSVPSe4szwehCzoXbfBXMfuHVNO4E095V8baZleZ4lRZQUZBnP
+         T2C7ChYoutz+sBV0LLZd/oATBiNfqU9fD4bIQKh632PKMFTv0gPHh+6cpwaJE6X6mqMt
+         /+WKx1LILYiuo9L85EcMCEQxtRwHkw6qR/Vzb+S6b1VzNuiibMiTYpYP6JkpG1Vxr4Kq
+         WMbw==
+X-Forwarded-Encrypted: i=1; AJvYcCXEq8XHRFqgYYyjeIp3T3hj6qcB08HisW8RY0bvk7mEoaFOurSJu0ndCtpHhX+rSB9YEDJdHRtykxUWI70njFsG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3VXhL72kjJHFm6Ixz1W0QmoUVRI+0DyaDuOcXGYv79LYY2bB3
+	9zfyyLMAno+DT6wc985XyQIoOVRkHAuoqGztDXMYTzkCN12uRZUCJEqYv/BnR2RFSsA=
+X-Gm-Gg: ASbGncuZHeb6sw0FyQK7e2DDKauDYALhBL0p1GanPe5xom9vZMaWL/eK1E35DLqJXOI
+	JJsMpY0xGnDUeCSr4T0dUqAq+he4jaR3zWClUdGWKr/Qe5VORehkACd1QsGXJ3Y32NZlh2eGj9d
+	3zRsER/kzD7MZx/bxfuETz/VNWtzQGtu89f4fFsUWXYMRU6XIc+kEmH00gBBYrilqrrNQUyI/8V
+	EFZBeMUU7isfs28bf8cQMPNtzhPf5gdhAacx5ZZh7ta53AembXEdbBESjJHNrPc63cKmiDUBOUD
+	cAWuFVPfriOvO1CGWkLyJAWWcjX8RUqlOrecRoOa86X3IiBTCOcWWs9dEfXXwogZeeLiWpIq5ZR
+	rio9wIEAqE/H/8TzYO73hkBiIKnfHr1B6g7MhfAwckOE8Ja7nYM0Ds/HrD90amYbes1aGNn3qK7
+	Dsmj3yD2ASQynX7f/N
+X-Google-Smtp-Source: AGHT+IGaTnV6DUM6NZ8B996sUpARBrir70sGaGW5NyYdRK9/TvpgGM9K+ozidhKmYpB4+XkFZ3zK7g==
+X-Received: by 2002:a05:600c:1990:b0:477:73e9:dbe7 with SMTP id 5b1f17b1804b1-47939e4d013mr112666895e9.35.1765263220857;
+        Mon, 08 Dec 2025 22:53:40 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47a7d35713asm11916255e9.1.2025.12.08.22.53.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 08 Dec 2025 22:53:40 -0800 (PST)
+Date: Tue, 9 Dec 2025 09:53:36 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Amelie Delaunay <amelie.delaunay@st.com>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Johan Hovold <johan+linaro@kernel.org>,
+	Fengguang Wu <fengguang.wu@intel.com>,
 	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>, Christoph Hellwig <hch@lst.de>,
-	Sagi Grimberg <sagi@grimberg.me>,
-	Chaitanya Kulkarni <kch@nvidia.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Koichiro Den <den@valinux.co.jp>, Niklas Cassel <cassel@kernel.org>,
-	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org,
-	mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev
-Subject: Re: [PATCH 6/8] nvmet: pci-epf: Use
- dmaengine_prep_slave_single_config() API
-Message-ID: <20251209063855.GB27728@lst.de>
-References: <20251208-dma_prep_config-v1-0-53490c5e1e2a@nxp.com> <20251208-dma_prep_config-v1-6-53490c5e1e2a@nxp.com>
+	linux-phy@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org
+Subject: [PATCH] phy: stm32-usphyc: Fix off by one in probe()
+Message-ID: <aTfHcMJK1wFVnvEe@stanley.mountain>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251208-dma_prep_config-v1-6-53490c5e1e2a@nxp.com>
-User-Agent: Mutt/1.5.17 (2007-11-01)
+X-Mailer: git-send-email haha only kidding
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_223859_782280_95727F17 
-X-CRM114-Status: UNSURE (   8.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251208_225343_526859_640F7C40 
+X-CRM114-Status: GOOD (  15.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,14 +106,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +	desc = dmaengine_prep_slave_single_config(chan, dma_addr, seg->length,
-> +						  sconf.direction,
-> +						  DMA_CTRL_ACK,
-> +						  &sconf);
+The "index" variable is used as an index into the usbphyc->phys[] array
+which has usbphyc->nphys elements.  So if it is equal to usbphyc->nphys
+then it is one element out of bounds.  The "index" comes from the
+device tree so it's data that we trust and it's unlikely to be wrong,
+however it's obviously still worth fixing the bug.  Change the > to >=.
 
+Fixes: 94c358da3a05 ("phy: stm32: add support for STM32 USB PHY Controller (USBPHYC)")
+Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+---
+ drivers/phy/st/phy-stm32-usbphyc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-If you stick to tab-indents this becomes a lot more readable:
+diff --git a/drivers/phy/st/phy-stm32-usbphyc.c b/drivers/phy/st/phy-stm32-usbphyc.c
+index 27fe92f73f33..b44afbff8616 100644
+--- a/drivers/phy/st/phy-stm32-usbphyc.c
++++ b/drivers/phy/st/phy-stm32-usbphyc.c
+@@ -712,7 +712,7 @@ static int stm32_usbphyc_probe(struct platform_device *pdev)
+ 		}
+ 
+ 		ret = of_property_read_u32(child, "reg", &index);
+-		if (ret || index > usbphyc->nphys) {
++		if (ret || index >= usbphyc->nphys) {
+ 			dev_err(&phy->dev, "invalid reg property: %d\n", ret);
+ 			if (!ret)
+ 				ret = -EINVAL;
+-- 
+2.51.0
 
-	desc = dmaengine_prep_slave_single_config(chan, dma_addr, seg->length,
-			sconf.direction, DMA_CTRL_ACK, &sconf);
 
