@@ -4,69 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99341D3B7EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 11:15:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80EE9D3B7F3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 11:15:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:Message-ID:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jvBQmXdDaTJ4bqlV98BV9Mp3YssdzJrV1kGBuaoOX1g=; b=tnUamazzq1/RENY5pfLUbNc/Gk
-	ijw0WWsNRtJCcgKPOEz0R4/bdrzMS9aNvZhPL0qyVNXZS+UCrYaS7Q2/+ihKBDNp4z8BL8LEdy0iz
-	qzw7AG8iNxQQeFSsT/hD/OLtpGST8J2j21uMTynvGs8Xw5P1/A8lwhm9YxUDLWYr3LZBfI0/NP+p9
-	pbq8S+dmRVW/xDUthMV7jQkqyrHzgIp7Qic5zvsfkzTuRwXO3oIsYIE6SadsnYCopPj8jLBhw4Stl
-	tZcaTxaxIVLb2MmYiCSQ/JJVHLj/uF0g6a6Z4ls1i13a+qmXptX+dsyJ8gveLZvKAw/EJpFNYVCz2
-	haYsWncg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Dc/9047WZIfthGrC5w9XvBmK2nntzK36OcINQIL7+aQ=; b=JbiLq1lyMuFaCNlpxBIgwiwD3K
+	0ZCTbFGn5lhQiMQP1ffskhw//+FJ8S2y6oqvvd2IkBlvUVuv+cvVscAVi/rGsip/SGfZdSQhvcWau
+	MoKPbHt7bnW2630w3p2YSN2dtPjHa0boGv0kJgnTeXafv9bh/y5IQg/Zxa8p3+GRj/hXUcOcrOtXa
+	2iSK7aZdcSCDvpzP5pNq7z+sg/H+jVJvvJevE4qsPYmAu6DFEhZiUufI1rC97kcA4UQ9+kQEjcoWR
+	zzuom5SUr0sHute7unul38oX1FiRBTCQTNbwD7BVNBh6IQFX6pp/4CgvEIroJrbdB8t/FhrZlU/PF
+	1tVQtFhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSvh5-0000000EACb-3kJK;
-	Tue, 09 Dec 2025 11:15:47 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1vSvh7-0000000EAF0-0qXu;
+	Tue, 09 Dec 2025 11:15:50 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSvgy-0000000EA1G-1xzN
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 11:15:42 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Tue, 9 Dec
- 2025 19:15:32 +0800
-Received: from [127.0.1.1] (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Tue, 9 Dec 2025 19:15:32 +0800
-From: Jacky Chou <jacky_chou@aspeedtech.com>
-Date: Tue, 9 Dec 2025 19:15:31 +0800
-Subject: [PATCH net v2] net: mdio: aspeed: add dummy read to avoid
- read-after-write issue
+	id 1vSvh0-0000000EA6D-2ySY;
+	Tue, 09 Dec 2025 11:15:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1765278914; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=VRwlubZnlCsEB3gByVYJMAVc9MPJeR8jF9uHx+qhzrzu6qaSAwt3APM+nFxJ9Cc27WssQwl0aDTiVPySbNdJRbLDzqrRMIr8LtolyFwYlZrNsKY9Igmoq5gMRe0gIsIca3oemHFsUj6YeDrFTGyvNkisJBXRe0j4SWPpcYzuIOw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1765278914; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Dc/9047WZIfthGrC5w9XvBmK2nntzK36OcINQIL7+aQ=; 
+	b=OEnnukIzUPUdcrateJRpJN1F87/btsJ8w65xaf/ig2hgK7nIgDh80IZ4+ffuxzGwLWoqu1prSXqm6Nqxamwe4lTMnUBRmLpfVPCd9TZhVvwoR3AWN66FIt0THx+pjj8lRJJZ0/hm1zqnEWGzYScr6nB9BTftwWOwlpvQ+Hi5s3o=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765278914;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=Dc/9047WZIfthGrC5w9XvBmK2nntzK36OcINQIL7+aQ=;
+	b=BepV4pyNErFKMl+Bpo87+6PAVX5DCwibNKEiHV02sHM6Vm0+MFZ5B60AeCwzMbjN
+	imFPUAK/f1ByOltqyPUyBcA6VKlBLqore8T2bjo2/vspKBwpGDAg6A82Ydp4rpHgKQt
+	SAwpRtspcFvWaFGGNcKtY9UQvav+Y9D1F/15ehxQ=
+Received: by mx.zohomail.com with SMTPS id 1765278913254748.0512620367256;
+	Tue, 9 Dec 2025 03:15:13 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Tue, 09 Dec 2025 12:14:19 +0100
+Subject: [PATCH v3 6/8] drm/rockchip: vop2: Enforce AFBC transform stride
+ align in plane_check
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20251209-aspeed_mdio_add_dummy_read-v2-1-5f6061641989@aspeedtech.com>
-X-B4-Tracking: v=1; b=H4sIANIEOGkC/42NQQqDMBBFryKzbkomoIaueo8iYepMaxYxkqhUx
- Ls32At0+f7/vL9DluQlw63aIcnqs49jAXOpoB9ofIvyXBiMNjUabRXlSYRdYB8dMTteQthcEmJ
- V25ae1mprsYUimJK8/OeUP2CUGboSDj7PMW3n4Ypn9Y97RYVKE9oGiQ02eP+NZ+mHax8DdMdxf
- AG3JDDXzgAAAA==
-X-Change-ID: 20251208-aspeed_mdio_add_dummy_read-587ab8808817
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Joel Stanley
-	<joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Potin Lai
-	<potin.lai@quantatw.com>
-CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>, Jacky Chou
-	<jacky_chou@aspeedtech.com>
+Message-Id: <20251209-vop2-atomic-fixups-v3-6-07c48f0f1f0d@collabora.com>
+References: <20251209-vop2-atomic-fixups-v3-0-07c48f0f1f0d@collabora.com>
+In-Reply-To: <20251209-vop2-atomic-fixups-v3-0-07c48f0f1f0d@collabora.com>
+To: Chaoyi Chen <chaoyi.chen@rock-chips.com>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: Daniel Stone <daniels@collabora.com>, dri-devel@lists.freedesktop.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, kernel@collabora.com, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1765278932; l=1877;
- i=jacky_chou@aspeedtech.com; s=20251031; h=from:subject:message-id;
- bh=Mg8PdAkgzIWHVGruAAz0jujfLeSjM7YjkzAbXqHp61U=;
- b=cIXKNFH4KlPuUxu8VYrzWB6g8Jw7ZigbsZTBDriQL/xeLWFu/8lzf993F8cPv+2+thMgn7WFZ
- 5ipiglIvxodDFOOpgnU/meEZJqwxMa6GpKHdo8UkSyqAU4WdN8iAItD
-X-Developer-Key: i=jacky_chou@aspeedtech.com; a=ed25519;
- pk=8XBx7KFM1drEsfCXTH9QC2lbMlGU4XwJTA6Jt9Mabdo=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_031540_516560_FDB70FAD 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20251209_031542_838147_4A0A3A45 
+X-CRM114-Status: GOOD (  10.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,53 +85,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Aspeed MDIO controller may return incorrect data when a read operation
-follows immediately after a write. Due to a controller bug, the subsequent
-read can latch stale data, causing the polling logic to terminate earlier
-than expected.
+From: Daniel Stone <daniels@collabora.com>
 
-To work around this hardware issue, insert a dummy read after each write
-operation. This ensures that the next actual read returns the correct
-data and prevents premature polling exit.
+Make sure we can't break the hardware by requesting an unsupported
+configuration.
 
-This workaround has been verified to stabilize MDIO transactions on
-affected Aspeed platforms.
-
-Fixes: f160e99462c6 ("net: phy: Add mdio-aspeed")
-Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
+Signed-off-by: Daniel Stone <daniels@collabora.com>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
-Changes in v2:
-- Updated the Fixes: tag
-- Link to v1: https://lore.kernel.org/r/20251208-aspeed_mdio_add_dummy_read-v1-1-0a1861ad2161@aspeedtech.com
----
- drivers/net/mdio/mdio-aspeed.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/net/mdio/mdio-aspeed.c b/drivers/net/mdio/mdio-aspeed.c
-index e55be6dc9ae7..7d11add3c05e 100644
---- a/drivers/net/mdio/mdio-aspeed.c
-+++ b/drivers/net/mdio/mdio-aspeed.c
-@@ -63,6 +63,13 @@ static int aspeed_mdio_op(struct mii_bus *bus, u8 st, u8 op, u8 phyad, u8 regad,
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index a029ed73dda7..337b01ed29a6 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -1083,6 +1083,15 @@ static int vop2_plane_atomic_check(struct drm_plane *plane,
+ 		return -EINVAL;
+ 	}
  
- 	iowrite32(ctrl, ctx->base + ASPEED_MDIO_CTRL);
- 
-+	/* Workaround for read-after-write issue.
-+	 * The controller may return stale data if a read follows immediately
-+	 * after a write. A dummy read forces the hardware to update its
-+	 * internal state, ensuring that the next real read returns correct data.
-+	 */
-+	(void)ioread32(ctx->base + ASPEED_MDIO_CTRL);
++	if (drm_is_afbc(fb->modifier) &&
++	    pstate->rotation &
++		(DRM_MODE_REFLECT_X | DRM_MODE_ROTATE_90 | DRM_MODE_ROTATE_270) &&
++	    (fb->pitches[0] << 3) / vop2_get_bpp(fb->format) % 64) {
++		drm_dbg_kms(vop2->drm,
++			    "AFBC buffers must be 64-byte aligned for horizontal rotation or mirroring\n");
++		return -EINVAL;
++	}
 +
- 	return readl_poll_timeout(ctx->base + ASPEED_MDIO_CTRL, ctrl,
- 				!(ctrl & ASPEED_MDIO_CTRL_FIRE),
- 				ASPEED_MDIO_INTERVAL_US,
+ 	return 0;
+ }
+ 
+@@ -1290,9 +1299,6 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
+ 		 * with WIN_VIR_STRIDE.
+ 		 */
+ 		stride = (fb->pitches[0] << 3) / bpp;
+-		if ((stride & 0x3f) && (xmirror || rotate_90 || rotate_270))
+-			drm_dbg_kms(vop2->drm, "vp%d %s stride[%d] not 64 pixel aligned\n",
+-				    vp->id, win->data->name, stride);
+ 
+ 		 /* It's for head stride, each head size is 16 byte */
+ 		stride = ALIGN(stride, block_w) / block_w * 16;
 
----
-base-commit: 0373d5c387f24de749cc22e694a14b3a7c7eb515
-change-id: 20251208-aspeed_mdio_add_dummy_read-587ab8808817
-
-Best regards,
 -- 
-Jacky Chou <jacky_chou@aspeedtech.com>
+2.52.0
 
 
