@@ -4,100 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EE3AD1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 12:48:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ED62D1CDC6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 12:52:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KHHLz1RLwGhRDW3I6vWs3gc+AOBl/KmAdildvKxDrHU=; b=YekYSQFe8X8uUg+AvPKHdtstAA
-	+ybMYlmwzrMcqcO5cVcPNsmxVqc9yVa2A0UBNVOHYie/Cw/4DVXOOOWic/V7VWd8gGYAc23uOxehR
-	HxFYNOwaB/6SBN0dkeJD/Ad1zfWOzVADeX4Hu0ocn6qFRvCY+V8sb7qBIwaohJsTM1FNsUVbbsRnP
-	oN+YCLiG8DHj2IgQDQ74YvqgrUon0IM+uEWftTjgo8YToOQNVFBu0PrVa3w0ztdLjEKKd11XzzWwS
-	BCUdQHEBuKFKCoWlmmuVjlpj0o4Dk2U8OK1KVwiJ7RL83VIGm9FbS2p+7WZozoAypXLhgbyV+KAc1
-	tOr5Lvpg==;
+	bh=vcopow1qSFwvd9fNyuwAU04J2biGOz8GFQZ+auPheQ0=; b=EGBhPqi++e8aACaHesmp54OkC2
+	5WG2MKnk8159e+8h9sfpLTcJpcOCN3wo0m3nslsOHBQrdMmN/RQw6lXZNNqkcSDW2ymlDMHv3R76a
+	3kx5X8TfVRqQ+nVaXOmun35YAwrvkduP0SgpYeLL8FA+EvFfK0ShD/kE/a+VNJ1LZfzHJZqPHrLXn
+	Av5TQrw5E5Qyvx3XjD8Fvq8yTnhPSyUhp/Eq0YhsdG9KB3B0NLEfLbvJkeoI0yn73Su/3XTk9yNLq
+	AsjQkY3G9P6m+sMXJ4nTtqJyre1UjVkMDBVAwVnjZ6spqIENm52A3X84p0zcbGPtseNQXzHgzr8Z7
+	Gz7sDYjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSx8t-0000000EH5H-2dnj;
-	Tue, 09 Dec 2025 12:48:35 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1vSxC8-0000000EHf9-2jpr;
+	Tue, 09 Dec 2025 12:51:56 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSx8q-0000000EH4s-3eSg
+	id 1vSxC5-0000000EHd4-3R0u
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 12:48:34 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-47775fb6c56so48096765e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Dec 2025 04:48:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765284511; x=1765889311; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=KHHLz1RLwGhRDW3I6vWs3gc+AOBl/KmAdildvKxDrHU=;
-        b=PyAKX+DoPQlCEQ3ByU618VKbA7EtaRXroMn+sG7XAdxkkmA3tg09mnxihJCp3yxvIy
-         3dLBrxN3XqCND1eZrmxjhadagCu8QfOvjfgCHFgpqmd21vtl5JLQCkojXiM84f/DG5Gr
-         aO/qAM7rROY4hargHhVIIcZxyHyNuVLe1JTrjG8C7bgJHp8Rdku5AYKMqcia+rhOfxrE
-         DOhEyrWtaTnLT2EPbwHA5oiD2RdZeYH9ViPwhGpjkaKum9ORQv94MbQ8WVnMjo36FqHI
-         bh6aN4o9nmNQrZE5cM4WLoWHfk+H8DD5YDZr/LTnQgTuUTzg/jwDT7lI7ffbF4IRi4Hl
-         rwVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765284511; x=1765889311;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=KHHLz1RLwGhRDW3I6vWs3gc+AOBl/KmAdildvKxDrHU=;
-        b=Ia9hKhdL2c9csYs8LP3kfZbxTrTGHnQc20qIjvc0CaK9CPYM7LY2DKszLJnbA9Hh6+
-         zZfSlm2DMjSyRrbc5s+gY/hDiHphdJXP7XFEuO9l8/5P9WNtpMlWUlqMygEN66YhrEJA
-         CZ6UjlEoyfbTxZOiRtolp92eYSI2XwttbQVs6XJkAGNmgY25rpPhPEeQDRxDC70V+cK2
-         7Erj3G+HTLqHkizmEOhAfl3z0fwhOG8/9XRO03DKecF/qYxb5UVM131mEpsTAPMdPH/b
-         z7hbMKuWSXdSNvIZCW8DLr4kV/yjemAG8+upD1Azv6T7A0KIe6ZVhJPM2IJMgRe3FzXU
-         po3w==
-X-Forwarded-Encrypted: i=1; AJvYcCWwr9IWUrfox2P/E0JyWQRJ8bqtY0eDP3c7ZivNmZx3kMo4Cd4FJdVaPph3NeS4jSqvAcXd6qiJwpanHHpgRQ7p@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8/uUVXuSKb6U1Xbt+If2Uc1+qYq5aDkUICaJWEnNn2zk5zMhH
-	uekS0TcGo2zo0SIzqXZ56Go2x4q/1SQOAzseMx6kTkWTFAx7/NXx3QNq8NYqAFWXJeE=
-X-Gm-Gg: ASbGncs47VnNaMK+WHnaCawV0wwOSaKc1wo04BPQDkLu8N+pPkyGMhQXIRSQXqrt8OQ
-	Agt3YxBSv6WZT4cK5I13dQItTYxs7NDxpUNglE+rCQ4wx9lSpnYqV669PusXcj+Hbizle9OUbiI
-	b5jzF32KuXawveBlByYiH0NwnygzJZ5Td15YlMAdbW/dVEC1Nl904C+6l5fyDXf40n0H11OsE2m
-	CnUeWmJ0t59QTjTGsTzlZrz3QKRpw+19H5Ve5rgKwmX6XlHc/khdwNQi9A2iZD6jSCW7wih+qQV
-	0ECwumopVE8VgBHQqxqAiajgI8WmCPlHy8qoneGxXbZ5zvYBfb+vTMOrgppR3w4BiDNsLcvTMJi
-	eYHYCgH86vo8chdEFxWPIhcdzlWv2nx5PxySmIpVG5kMRMCGoPs9MHE5FCXSJQx/MQQzmouIzIp
-	m/ymFWA0UgBBBQ5me8
-X-Google-Smtp-Source: AGHT+IH/tQGmS6GHJ3t67HVfHiCgCGjoF1ojSeipg6AskG+8k553iiIIAwskXFnSZzNHJohzxVNrTA==
-X-Received: by 2002:a05:600c:4e14:b0:475:e067:f23d with SMTP id 5b1f17b1804b1-47939e2b900mr105471285e9.25.1765284510892;
-        Tue, 09 Dec 2025 04:48:30 -0800 (PST)
-Received: from [192.168.1.3] ([185.48.77.170])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42f7d352a52sm31770665f8f.38.2025.12.09.04.48.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 09 Dec 2025 04:48:30 -0800 (PST)
-Message-ID: <6ba6bde3-f56b-4354-b336-4739cb1edb71@linaro.org>
-Date: Tue, 9 Dec 2025 12:48:29 +0000
+	Tue, 09 Dec 2025 12:51:55 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B99N77X3474206;
+	Tue, 9 Dec 2025 12:51:48 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	vcopow1qSFwvd9fNyuwAU04J2biGOz8GFQZ+auPheQ0=; b=l2iqCT2CTcn3Zh8X
+	BDZ9mYVHruwPFB7UPFktDAJNElQFs5R+vw63qC4y14mdLOBTL5DKei4wA4KhrRZW
+	0fcusZj1N7gKdHIzemiThzgsjXLKlax+vR1MemnQQrqlWy/3eB9Itvojk6DFZgCe
+	ySe5RGa5y4ty9+nuGMIXh4dWa7X78nZW1pVn4R+Kup0OlnL2PKJFvYeaAiyruJbj
+	UywPs1kjEZZbNQFi3Ki01Ir1QF0lObhUibEmAkyVq3F9O4DECJLoGI+6VdW/X6dV
+	si0/H1L2zc7RZ0zzqiN/3Kuwclj7h71XDdqwz9uhWZtkZQo981/AYA6NZo0csk/J
+	hGB3zw==
+Received: from nasanppmta02.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4axa0bsvgc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 09 Dec 2025 12:51:47 +0000 (GMT)
+Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
+	by NASANPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5B9CpkNZ014161
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 9 Dec 2025 12:51:46 GMT
+Received: from [10.233.71.148] (10.80.80.8) by nasanex01a.na.qualcomm.com
+ (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 9 Dec
+ 2025 04:51:42 -0800
+Message-ID: <1fbe140c-b960-4f13-83e2-b0a0733a67bc@quicinc.com>
+Date: Tue, 9 Dec 2025 20:51:38 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/12] perf parse-events: Refactor get_config_terms()
- to remove macros
-To: Linux perf Profiling <linux-perf-users@vger.kernel.org>
-Cc: linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
- Adrian Hunter <adrian.hunter@intel.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>,
- Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, leo.yan@arm.com
-References: <20251208-james-perf-config-bits-v2-0-4ac0281993b0@linaro.org>
- <20251208-james-perf-config-bits-v2-1-4ac0281993b0@linaro.org>
+Subject: Re: [PATCH v6 2/2] coresight: cti: Add Qualcomm extended CTI support
+To: Leo Yan <leo.yan@arm.com>, Yingchao Deng <quic_yingdeng@quicinc.com>
+CC: <mike.leach@linaro.org>, <alexander.shishkin@linux.intel.com>,
+        <coresight@lists.linaro.org>, <james.clark@linaro.org>,
+        <jinlong.mao@oss.qualcomm.com>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-arm-msm@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <quic_jinlmao@quicinc.com>, <suzuki.poulose@arm.com>,
+        <tingwei.zhang@oss.qualcomm.com>
+References: <CAJ9a7Vg9Efi-5eecfiUF82_Qq8Jg9imN5q1-VKYZoPVUxNpjhA@mail.gmail.com>
+ <20251209081649.105623-1-yingchao.deng@oss.qualcomm.com>
+ <20251209121916.GT724103@e132581.arm.com>
 Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <20251208-james-perf-config-bits-v2-1-4ac0281993b0@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+From: "Yingchao Deng (Consultant)" <quic_yingdeng@quicinc.com>
+In-Reply-To: <20251209121916.GT724103@e132581.arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01a.na.qualcomm.com (10.52.223.231)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjA5MDA5MyBTYWx0ZWRfX2X19jiaI8qzD
+ gzqAC7hTx3GgLYSTltpLcD/NdPWx+1LJAYPu2oDw5iJO3HSzCPAZZH/ZcaNgYg+7ZgEN3HliPdA
+ 43kUp4AO4+DrgBnWupsCq0RMxmNO2NIWHhq7rznF0EXOie7RMup+V5q2SfX//DjOiyJpuBtVQ1T
+ LQzkMcu0DaVOI6fxtThkkbhW9yQE3Gs/CcVna4H8lz60DJOtfIMwo18akRcNbBGpxV3fUMng4ze
+ 7JdQoPTQ+oTuP0e9+Maut6hsPvM1d+47EwWnL2wYODvUUBp54WW3Eps0zyPceDsjc6IOv4StBn2
+ L0LxySKmgjPJkutTXA2Jcb1LmUVewKaeiE8ANKtpolQOTPDXCQ3i+SR1OT6Z+R0GAMIn0apsxYG
+ h1zTeuI0hyTPkNtqSJ39icJBUdYZVA==
+X-Authority-Analysis: v=2.4 cv=JqL8bc4C c=1 sm=1 tr=0 ts=69381b63 cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=uuXvdfZ7YpPWpv2YKKMA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: a_YW54CdoEYm6JHiOuscNg71q_wUEHUl
+X-Proofpoint-ORIG-GUID: a_YW54CdoEYm6JHiOuscNg71q_wUEHUl
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-09_03,2025-12-04_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 malwarescore=0 impostorscore=0 bulkscore=0 priorityscore=1501
+ lowpriorityscore=0 suspectscore=0 adultscore=0 clxscore=1015 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512090093
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_044832_983346_B43A6B74 
-X-CRM114-Status: GOOD (  29.81  )
+X-CRM114-CacheID: sfid-20251209_045153_975437_B968D5A2 
+X-CRM114-Status: GOOD (  19.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,261 +116,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Leo,
 
+On 12/9/2025 8:19 PM, Leo Yan wrote:
+> Hi Yingchao,
+>
+> On Tue, Dec 09, 2025 at 04:16:28PM +0800, Yingchao Deng wrote:
+>> Hi Leo & Mike
+>>
+>> Based on Leo’s suggestions, I created a new patch, but there are three points that do not fully align with his recommendations:
+>>
+>>      1. The helper function for returning the register address now returns only the offset, because returning the full address would conflict with cti_write_single_reg.
+> No need to change each callsite for cti_write_single_reg().  You could
+> update cti_write_single_reg() instead:
+>
+>    void cti_write_single_reg(struct cti_drvdata *drvdata,
+>                              int offset, u32 value)
+>    {
+>            CS_UNLOCK(drvdata->base);
+>            writel_relaxed(value, cti_reg_addr(drvdata, offset));
+>            CS_LOCK(drvdata->base);
+>    }
 
-On 08/12/2025 2:22 pm, James Clark wrote:
-> The ADD_CONFIG_TERM() macros build the __type argument out of a partial
-> EVSEL__CONFIG_TERM_x enum name. This means that they can't be called
-> from a function where __type is a variable and it's also impossible to
-> grep the codebase to find usages of these enums as they're never typed
-> in full.
-> 
-> Fix this by removing the macros and replacing them with an
-> add_config_term() function. It seems the main reason these existed in
-> the first place was to avoid type punning and to write to a specific
-> field in the union, but the same thing can be achieved with a single
-> write to a u64 'val' field.
-> 
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->   tools/perf/util/evsel_config.h |   1 +
->   tools/perf/util/parse-events.c | 146 ++++++++++++++++++++++++-----------------
->   2 files changed, 86 insertions(+), 61 deletions(-)
-> 
-> diff --git a/tools/perf/util/evsel_config.h b/tools/perf/util/evsel_config.h
-> index bcd3a978f0c4..685fd8d5c4a8 100644
-> --- a/tools/perf/util/evsel_config.h
-> +++ b/tools/perf/util/evsel_config.h
-> @@ -50,6 +50,7 @@ struct evsel_config_term {
->   		u64	      cfg_chg;
->   		char	      *str;
->   		int	      cpu;
-> +		u64	      val;
->   	} val;
->   	bool weak;
->   };
-> diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
-> index 17c1c36a7bf9..d5b009b4ebab 100644
-> --- a/tools/perf/util/parse-events.c
-> +++ b/tools/perf/util/parse-events.c
-> @@ -1116,105 +1116,107 @@ static int config_attr(struct perf_event_attr *attr,
->   	return 0;
->   }
->   
-> -static int get_config_terms(const struct parse_events_terms *head_config,
-> -			    struct list_head *head_terms)
-> +static struct evsel_config_term *add_config_term(enum evsel_term_type type,
-> +						 struct list_head *head_terms,
-> +						 bool weak)
->   {
-> -#define ADD_CONFIG_TERM(__type, __weak)				\
-> -	struct evsel_config_term *__t;			\
-> -								\
-> -	__t = zalloc(sizeof(*__t));				\
-> -	if (!__t)						\
-> -		return -ENOMEM;					\
-> -								\
-> -	INIT_LIST_HEAD(&__t->list);				\
-> -	__t->type       = EVSEL__CONFIG_TERM_ ## __type;	\
-> -	__t->weak	= __weak;				\
-> -	list_add_tail(&__t->list, head_terms)
-> -
-> -#define ADD_CONFIG_TERM_VAL(__type, __name, __val, __weak)	\
-> -do {								\
-> -	ADD_CONFIG_TERM(__type, __weak);			\
-> -	__t->val.__name = __val;				\
-> -} while (0)
-> +	struct evsel_config_term *t;
->   
-> -#define ADD_CONFIG_TERM_STR(__type, __val, __weak)		\
-> -do {								\
-> -	ADD_CONFIG_TERM(__type, __weak);			\
-> -	__t->val.str = strdup(__val);				\
-> -	if (!__t->val.str) {					\
-> -		zfree(&__t);					\
-> -		return -ENOMEM;					\
-> -	}							\
-> -	__t->free_str = true;					\
-> -} while (0)
-> +	t = zalloc(sizeof(*t));
-> +	if (!t)
-> +		return NULL;
-> +
-> +	INIT_LIST_HEAD(&t->list);
-> +	t->type = type;
-> +	t->weak	= weak;
-> +	list_add_tail(&t->list, head_terms);
->   
-> +	return t;
-> +}
-> +
-> +static int get_config_terms(const struct parse_events_terms *head_config,
-> +			    struct list_head *head_terms)
-> +{
->   	struct parse_events_term *term;
->   
->   	list_for_each_entry(term, &head_config->terms, list) {
-> +		struct evsel_config_term *new_term;
-> +		enum evsel_term_type new_type;
-> +		char *str = NULL;
-> +		u64 val;
-> +
->   		switch (term->type_term) {
->   		case PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD:
-> -			ADD_CONFIG_TERM_VAL(PERIOD, period, term->val.num, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_PERIOD;
-> +			val = term->val.num;
->   			break;
->   		case PARSE_EVENTS__TERM_TYPE_SAMPLE_FREQ:
-> -			ADD_CONFIG_TERM_VAL(FREQ, freq, term->val.num, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_FREQ;
-> +			val = term->val.num;
->   			break;
->   		case PARSE_EVENTS__TERM_TYPE_TIME:
-> -			ADD_CONFIG_TERM_VAL(TIME, time, term->val.num, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_TIME;
-> +			val = term->val.num;
->   			break;
->   		case PARSE_EVENTS__TERM_TYPE_CALLGRAPH:
-> -			ADD_CONFIG_TERM_STR(CALLGRAPH, term->val.str, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_CALLGRAPH;
-> +			str = term->val.str;
->   			break;
->   		case PARSE_EVENTS__TERM_TYPE_BRANCH_SAMPLE_TYPE:
-> -			ADD_CONFIG_TERM_STR(BRANCH, term->val.str, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_BRANCH;
-> +			str = term->val.str;
->   			break;
->   		case PARSE_EVENTS__TERM_TYPE_STACKSIZE:
-> -			ADD_CONFIG_TERM_VAL(STACK_USER, stack_user,
-> -					    term->val.num, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_STACK_USER;
-> +			val = term->val.num;
->   			break;
->   		case PARSE_EVENTS__TERM_TYPE_INHERIT:
-> -			ADD_CONFIG_TERM_VAL(INHERIT, inherit,
-> -					    term->val.num ? 1 : 0, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_INHERIT;
-> +			val = term->val.num ? 1 : 0;
->   			break;
->   		case PARSE_EVENTS__TERM_TYPE_NOINHERIT:
-> -			ADD_CONFIG_TERM_VAL(INHERIT, inherit,
-> -					    term->val.num ? 0 : 1, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_INHERIT;
-> +			val = term->val.num ? 0 : 1;
->   			break;
->   		case PARSE_EVENTS__TERM_TYPE_MAX_STACK:
-> -			ADD_CONFIG_TERM_VAL(MAX_STACK, max_stack,
-> -					    term->val.num, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_MAX_STACK;
-> +			val = term->val.num;
->   			break;
->   		case PARSE_EVENTS__TERM_TYPE_MAX_EVENTS:
-> -			ADD_CONFIG_TERM_VAL(MAX_EVENTS, max_events,
-> -					    term->val.num, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_MAX_EVENTS;
-> +			val = term->val.num;
->   			break;
->   		case PARSE_EVENTS__TERM_TYPE_OVERWRITE:
-> -			ADD_CONFIG_TERM_VAL(OVERWRITE, overwrite,
-> -					    term->val.num ? 1 : 0, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_OVERWRITE;
-> +			val = term->val.num ? 1 : 0;
->   			break;
->   		case PARSE_EVENTS__TERM_TYPE_NOOVERWRITE:
-> -			ADD_CONFIG_TERM_VAL(OVERWRITE, overwrite,
-> -					    term->val.num ? 0 : 1, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_OVERWRITE;
-> +			val = term->val.num ? 0 : 1;
->   			break;
->   		case PARSE_EVENTS__TERM_TYPE_DRV_CFG:
-> -			ADD_CONFIG_TERM_STR(DRV_CFG, term->val.str, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_DRV_CFG;
-> +			str = term->val.str;
->   			break;
->   		case PARSE_EVENTS__TERM_TYPE_PERCORE:
-> -			ADD_CONFIG_TERM_VAL(PERCORE, percore,
-> -					    term->val.num ? true : false, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_PERCORE;
-> +			val = term->val.num ? true : false;
->   			break;
->   		case PARSE_EVENTS__TERM_TYPE_AUX_OUTPUT:
-> -			ADD_CONFIG_TERM_VAL(AUX_OUTPUT, aux_output,
-> -					    term->val.num ? 1 : 0, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_AUX_OUTPUT;
-> +			val = term->val.num ? 1 : 0;
->   			break;
->   		case PARSE_EVENTS__TERM_TYPE_AUX_ACTION:
-> -			ADD_CONFIG_TERM_STR(AUX_ACTION, term->val.str, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_AUX_ACTION;
-> +			str = term->val.str;
->   			break;
->   		case PARSE_EVENTS__TERM_TYPE_AUX_SAMPLE_SIZE:
-> -			ADD_CONFIG_TERM_VAL(AUX_SAMPLE_SIZE, aux_sample_size,
-> -					    term->val.num, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_AUX_SAMPLE_SIZE;
-> +			val = term->val.num;
->   			break;
->   		case PARSE_EVENTS__TERM_TYPE_RATIO_TO_PREV:
-> -			ADD_CONFIG_TERM_STR(RATIO_TO_PREV, term->val.str, term->weak);
-> +			new_type = EVSEL__CONFIG_TERM_RATIO_TO_PREV;
-> +			str = term->val.str;
->   			break;
->   		case PARSE_EVENTS__TERM_TYPE_USER:
->   		case PARSE_EVENTS__TERM_TYPE_CONFIG:
-> @@ -1229,7 +1231,23 @@ do {								\
->   		case PARSE_EVENTS__TERM_TYPE_RAW:
->   		case PARSE_EVENTS__TERM_TYPE_CPU:
->   		default:
-> -			break;
-> +			/* Don't add a new term for these ones */
-> +			continue;
-> +		}
-> +
-> +		new_term = add_config_term(new_type, head_terms, term->weak);
-> +		if (!new_term)
-> +			return -ENOMEM;
-> +
-> +		if (str) {
-> +			new_term->val.str = strdup(str);
-> +			if (!new_term->val.str) {
-> +				zfree(&new_term);
-> +				return -ENOMEM;
-> +			}
-> +			new_term->free_str = true;
-> +		} else {
+However, since we also need to handle cti_reg_addr_with_nr, it will be 
+necessary to add an additional parameter "nr" to cti_write_single_reg?
 
-This will incorrectly hit the else if term->val.str is NULL. Not sure if 
-that can happen but will fix anyway.
-
-> +			new_term->val.val = val;
-
-There's an uninitialized variable warning for val here on release 
-builds. Will fix too
-
->   		}
->   	}
->   	return 0;
-> @@ -1290,10 +1308,16 @@ static int get_config_chgs(struct perf_pmu *pmu, struct parse_events_terms *head
->   		}
->   	}
->   
-> -	if (bits)
-> -		ADD_CONFIG_TERM_VAL(CFG_CHG, cfg_chg, bits, false);
-> +	if (bits) {
-> +		struct evsel_config_term *new_term;
-> +
-> +		new_term = add_config_term(EVSEL__CONFIG_TERM_CFG_CHG,
-> +					   head_terms, false);
-> +		if (!new_term)
-> +			return -ENOMEM;
-> +		new_term->val.cfg_chg = bits;
-> +	}
->   
-> -#undef ADD_CONFIG_TERM
->   	return 0;
->   }
->   
-> 
-
+Thanks
+Yingchao
+>>      2. For registers such as triginstatus1...3, I defined additional macros CTITRIGINSTATUS1...3. This is because CTITRIGINSTATUS + 0x4 equals CTITRIGOUTSTATUS, and to avoid conflicts with existing macros, I chose numbers starting from 0x1000 for the new definitions.
+> To avoid the register naming pollution, please don't define the common
+> names but only used for Qcom registers.
+>
+> AFAIK, you even don't need to define these registers.  These registers
+> are only used for sysfs knobs, we can define an extra "nr" field (e.g.,
+> bits[31..28] for indexing these registers, something like:
+>
+>    #define CIT_REG_NR_SHIFT          28
+>    #define CIT_REG_NR_MASK           GENMASK(31, 28)
+>    #define CTI_REG_GET_NR(reg)       FIELD_GET(CIT_REG_NR_MASK, (reg))
+>    #define CTI_REG_SET_NR(reg, nr)   ((reg) | FIELD_PREP(CIT_REG_NR_MASK, (nr))
+>
+>    static struct attribute *coresight_cti_regs_attrs[] = {
+>    ...
+>      coresight_cti_reg(triginstatus, CTITRIGINSTATUS),
+>      coresight_cti_reg(triginstatus1, CTI_REG_SET_NR(CTITRIGINSTATUS, 1)),
+>      coresight_cti_reg(triginstatus2, CTI_REG_SET_NR(CTITRIGINSTATUS, 2)),
+>      coresight_cti_reg(triginstatus3, CTI_REG_SET_NR(CTITRIGINSTATUS, 3)),
+>    ...
+>
+> Then, you just need to decode "nr" fields in cti_qcom_reg_off().
+>
+>>      3. Regarding the visibility of attributes for triginstatus1...3, since coresight_cti_reg produces an anonymous variable that cannot be directly referenced, I used coresight_cti_regs_attrs[i] to obtain the attribute corresponding to triginstatus1.
+> Okay, I get the meaning for "an anonymous variable" - there have no
+> field naming when define attr with the macro coresight_cti_reg().
+>
+> but you could comparing the attr string?
+>
+>    if (!strcmp(attr->name, "triginstatus1") ||
+>        !strcmp(attr->name, "triginstatus2") ||
+>        !strcmp(attr->name, "triginstatus3"))
+>        ...
+>
+> Thanks,
+> Leo
 
