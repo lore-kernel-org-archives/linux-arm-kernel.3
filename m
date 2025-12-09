@@ -4,63 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74CCBD3B7EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 05:49:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9906D3B7ED
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 06:02:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vxhzWYhMZ2zDvldAPYU2wxWc1QPEP6Epr1IjS+1v4Wk=; b=JqanLPj/OOIZAoNMU4XIgAf/kr
-	mHYgYuM2SWf94uY17j45ec5BQZeTl3fXDpNu5reNJkHqiuEwa5maeS4j4g4+okrhyH94ZZMMfi/K8
-	V51AsUHDL5f6GTvC0XXsCBW6Wd98PICAXd4574rv/9MfaSAFRw1ZEtvxqcX5kXoX/9k7WYYhz3iGu
-	w1f8q9LrdYdnsuhDGTSgpw7ysMFe7tvCp5pOealeHxP3iqoOwGTicV8az33LjQHs9D1hwExE2ZmQ2
-	QJFFKvwT21wN7nfwYnUKm+8ph8pPZv7lIlO/E6f7RBNNSMaQzBXfHuJfHK9G6HbNOZzQyIUpeSIGr
-	ZMDhHpqQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JcXZ0I12Q8BgpacPgvhfokR/RGhaSMFytbjmST/lJFs=; b=HxYVDV3ek/8FObj+k3EJ3zVRMB
+	en435CHtLgUbxpWd2ETy2OWuwutktr2TsPoVHBwVOmXQyy6g6VK7gp1EVwNTNPPSdIBimwfsbDeVH
+	rbPNuTHyokQsKG1q5S8EwWl2MBZpDYvVF4itFByIq0RDW8qXkl/KUSs6D9qIPqQGCFIjrZ1nW4v9Y
+	N0ypoEc8fRCy5az4QneCebtnm9rmMLBHt9FtErxa5f/ZxDl3haUFXCwxnLKDquoygkupR4fvI850/
+	b4pgvScHkV7gJoDE0CjhYsOL5q5vdZY3WW2P7jezRL0jg1WMMgv2RJ4HlzeXNTTrDq4fQm36du3B3
+	TtuAA80Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSqat-0000000DrKV-48ef;
-	Tue, 09 Dec 2025 05:49:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vSqnL-0000000DroJ-2A0D;
+	Tue, 09 Dec 2025 06:01:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSqaq-0000000DrK2-2HrJ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 05:49:02 +0000
+	id 1vSqnI-0000000Drnn-2kaR;
+	Tue, 09 Dec 2025 06:01:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E253B40DDC;
-	Tue,  9 Dec 2025 05:48:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82864C4CEF5;
-	Tue,  9 Dec 2025 05:48:57 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D2F884348B;
+	Tue,  9 Dec 2025 06:01:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AE53C4CEF5;
+	Tue,  9 Dec 2025 06:01:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765259338;
-	bh=EnPxXewT0JYL81DgO6QFNp08Dq76MYHJMEyIx30LmfE=;
-	h=From:To:Cc:Subject:Date:From;
-	b=rG0hfk57E0nf/ER61dqgCBdyU695Bufz0ivIecyIZBckFwTioW3qw49jFWUI47YFZ
-	 mKH1l2Vu4NElb/D5JVzEjPAERMQdX2WVAZDOw0HKfvlxtBHe0zfcDIFKAtqizWNNh4
-	 fpQqiJR+bDS9iDrDdk7N5jDYPSt+Uqcj2eyMpkJ40R9U+GLlt0G0XrrHw8S3pMyPFb
-	 ZyvQI3aku2KeutoMHFe414NTI3yC7CsBOAz1KU8Ioa9LhNKfatjNm69InLJbEXINVW
-	 g2+ya2mv1RTLcqsDnZW6j6H84Ki/o2nyMkMCCxXuKUlM7IDKR7iV24dv0xpD1x+fco
-	 +tXwNOjSA7/4Q==
-From: Ard Biesheuvel <ardb@kernel.org>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-crypto@vger.kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Kees Cook <keescook@chromium.org>,
-	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH v2] arm64/simd: Avoid pointless clearing of FP/SIMD buffer
-Date: Tue,  9 Dec 2025 06:48:49 +0100
-Message-ID: <20251209054848.998878-2-ardb@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	s=k20201202; t=1765260109;
+	bh=HdtPK6iYrRFuq2CVhFJGFpGIYHyWnTZQI8p7EvGykcM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TFcNpqQNRaA8+CIpFtE+dr0meXUL9MCdFSLzg0h04s0hMzM8JajU2tZNXPFbJIjwB
+	 fVBXHLz5VlcYeKC5KKPR4Td/Kv9g5AZ4TH66E2/04tLwPBrvn0Tu6Un3lcDDt3eHyv
+	 98O1wp/XkN41OdQGapaofNzcFC9Do/zIrMNO2o0JAPmyCTLlGAM+TbXSMyZbFXcHjA
+	 miw9GLscxpWPhcRz99KMSwagdy3J1etxKwYgszAbGl3Aj3JXs/h/5LKOcUIfXi072h
+	 l3/7ZRsPvc6dxb2e4rx9uBVVNkts+9qGWQomumkjLcfs/3xQnYq0dvp3yC7jUTQTYA
+	 m6apX/krIJhEQ==
+Message-ID: <4f5ec838-f8d6-4c3b-94f2-b2a60cfe64ec@kernel.org>
+Date: Tue, 9 Dec 2025 07:01:44 +0100
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2051; i=ardb@kernel.org; h=from:subject; bh=EnPxXewT0JYL81DgO6QFNp08Dq76MYHJMEyIx30LmfE=; b=owGbwMvMwCVmkMcZplerG8N4Wi2JIdN8h/M0vcfvp115H//M+f+5X+Y77E+aX1joe8n29LWOh /kCd9P/d5SyMIhxMciKKbIIzP77bufpiVK1zrNkYeawMoEMYeDiFICb3MDwv6bhTLPa++1ZMm/5 ri2eyH5yw9e2e4Y+FetL69Uj7PwE1zL8M94cZPI4zEl1g/ZpjtO2X+u9/6658+rL5dIlNou3PVg QxgIA
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/5] dt-bindings: clock: add Amlogic T7 SCMI clock
+ controller
+To: Jian Hu <jian.hu@amlogic.com>
+Cc: Jerome Brunet <jbrunet@baylibre.com>,
+ Xianwei Zhao <xianwei.zhao@amlogic.com>, Chuan Liu <chuan.liu@amlogic.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, robh+dt <robh+dt@kernel.org>,
+ Rob Herring <robh@kernel.org>, devicetree <devicetree@vger.kernel.org>,
+ linux-clk <linux-clk@vger.kernel.org>,
+ linux-amlogic <linux-amlogic@lists.infradead.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+References: <20251204053635.1234150-1-jian.hu@amlogic.com>
+ <20251204053635.1234150-3-jian.hu@amlogic.com>
+ <20251208-independent-warping-macaw-74a169@quoll>
+ <dd90b445-bafb-46d4-8cec-e0877cf425b3@amlogic.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <dd90b445-bafb-46d4-8cec-e0877cf425b3@amlogic.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_214900_607247_E9E686F1 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20251208_220152_761208_9252AE92 
+X-CRM114-Status: GOOD (  18.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,59 +127,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The buffer provided to kernel_neon_begin() is only used if the task is
-scheduled out while the FP/SIMD is in use by the kernel, or when such a
-section is interrupted by a softirq that also uses the FP/SIMD.
+On 08/12/2025 09:40, Jian Hu wrote:
+> Hi, Krzysztof
+> 
+> 
+> Thans for your review.
+> 
+> On 12/8/2025 2:17 PM, Krzysztof Kozlowski wrote:
+>> [ EXTERNAL EMAIL ]
+>>
+>> On Thu, Dec 04, 2025 at 01:36:31PM +0800, Jian Hu wrote:
+>>> Add DT bindings for the SCMI clock controller of the Amlogic T7 SoC family.
+>>>
+>>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+>>> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+>>> ---
+>>>   include/dt-bindings/clock/amlogic,t7-scmi.h | 47 +++++++++++++++++++++
+>>>   1 file changed, 47 insertions(+)
+>>>   create mode 100644 include/dt-bindings/clock/amlogic,t7-scmi.h
+>>>
+>> Where is any binding doc for this? Why is this a separate patch?
+> 
+> 
+> The ARM SCMI device tree binding specification is located at 
+> ./Documentation/devicetree/bindings/firmware/arm,scmi.yaml.
 
-IOW, this happens rarely, and even if it happened often, there is still
-no reason for this buffer to be cleared beforehand, which happens
-unconditionally, due to the use of a compound literal expression.
+Then git grep for the file name - there is no such compatible. Are you
+sure you follow writing bindings doc?
 
-So define that buffer variable explicitly, and mark it as
-__uninitialized so that it will not get cleared, even when
--ftrivial-auto-var-init is in effect.
+Think how are you going to use these values. You will have phandle, yes?
+To some controller, yes? Which one?
 
-This requires some preprocessor gymnastics, due to the fact that the
-variable must be defined throughout the entire guarded scope, and the
-expression
+> 
+> Certain secure clocks on the T7 rely on the ARM SCMI driver stack, which 
+> is officially supported by ARM.
+> 
+> The kernel-side SCMI client implementation resides in 
+> ./drivers/firmware/arm_scmi/.
+> 
+> To enable ARM SCMI on T7, three components are needed:
+> 
+> - Kernel-side definition of ARM SCMI clock indices (this patch addresses 
+> this component);
+> - SCMI server implementation in the ARM Trusted Firmware (ATF) running 
+> at Exception Level 3 (EL3), which has been integrated into the bootloader;
+> - Device Tree Source (DTS) configuration for ARM SCMI clock nodes (the 
+> DTS changes will be submitted after the T7 clock driver patches are 
+> merged upstream).
 
-  ({ struct user_fpsimd_state __uninitialized st; &st; })
+So silently you keep the users hidden? No, I want to see the users.
 
-is problematic in that regard, even though the compilers seem to
-permit it. So instead, repeat for 'for ()' trick that is also used in
-the implementation of the guarded scope helpers.
 
-Cc: Will Deacon <will@kernel.org>,
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-Cc: Kees Cook <keescook@chromium.org>
-Cc: Eric Biggers <ebiggers@kernel.org>
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
- arch/arm64/include/asm/simd.h | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/include/asm/simd.h b/arch/arm64/include/asm/simd.h
-index 0941f6f58a14..69ecbd69ca8c 100644
---- a/arch/arm64/include/asm/simd.h
-+++ b/arch/arm64/include/asm/simd.h
-@@ -48,6 +48,13 @@ DEFINE_LOCK_GUARD_1(ksimd,
- 		    kernel_neon_begin(_T->lock),
- 		    kernel_neon_end(_T->lock))
- 
--#define scoped_ksimd()	scoped_guard(ksimd, &(struct user_fpsimd_state){})
-+#define __scoped_ksimd(_label)					\
-+	for (struct user_fpsimd_state __uninitialized __st;	\
-+	     true; ({ goto _label; }))				\
-+		if (0) {					\
-+_label:			break;					\
-+		} else scoped_guard(ksimd, &__st)
-+
-+#define scoped_ksimd()	__scoped_ksimd(__UNIQUE_ID(label))
- 
- #endif
-
-base-commit: 3f9f0252130e7dd60d41be0802bf58f6471c691d
--- 
-2.47.3
-
+Best regards,
+Krzysztof
 
