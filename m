@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9A8AD3B998
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 22:52:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6190D3B9AA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 22:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g2pual4xoEIYNjwFlQQNe2gKnnOo74I425F37AXX3IE=; b=FK311smifUAUE8u0TDoCn0ymtA
-	wqn8QYYzbgeALWHOJDY/ZlPqkU4GuaARNcpSeNMR07zUvYWIVsbFimQQseOdEDhFkfIP3hpmQRSib
-	cgYarp8twGFanAJJ65dNgcm4Jz9WZEiSgxgImq5X6kM1AIF6gczBfVKRrcBMtyyQ0gdvSz6Y4BHnL
-	gibRh9FO+ZtPga3A4Pn882kmJA5doQautX+8I/MIkV21CMo0KjnkivcKWPrgrNCzUYAM9LD/iPFH+
-	8kAnpvNKqeiSs4GToEh/sb4xP843E0aEheqX1Ikwitff/ORpgVkrpXNEPaXbkv7NIB1lDsWKJUaHJ
-	1uaduPYg==;
+	bh=RCd4xq18Gmlh0p19aMpmc6vePHr11nwSMGxOFkp7KUo=; b=TrgI8G3m8MkAhNtYvLPX4o95av
+	RqxSwzfsGMHgq7DQW2tfEraYx+MP1NizmR3rEvwAytoI8vejCLBMB3FppxTL56lngWVl5+fzw3YqZ
+	RGusigYiO3AT0c/5UXeWRZb9AThwVKvcOjkpcTupuB9T5ZaNetAM37OdDbh8foJwJMhwsRFD5bB7T
+	QkC5tifs/frdqSVSYr068ZECzlxSIS51NDVyFOyRfVt3t2cSLJewKQV2NF3sqqRMst/3CsNfka3dM
+	hXUuTXeWvYKiVJTMJ/cgae8C98oiYWPT9HdSkH+HGCB5aDITobkq4Q53f/yp0BBCcZqivVEZzL05G
+	hhGiSAjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT6Yw-0000000Eshv-0bpj;
-	Tue, 09 Dec 2025 22:52:06 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vT6el-0000000Esxe-41ME;
+	Tue, 09 Dec 2025 22:58:07 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT6Yt-0000000EshY-2B17
+	id 1vT6ei-0000000EsxT-1QKf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 22:52:04 +0000
+	Tue, 09 Dec 2025 22:58:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E17BA43B4D;
-	Tue,  9 Dec 2025 22:52:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7621FC4CEF5;
-	Tue,  9 Dec 2025 22:52:02 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8B0AC6015A;
+	Tue,  9 Dec 2025 22:58:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7A0AC4CEF5;
+	Tue,  9 Dec 2025 22:58:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765320722;
-	bh=rH4jIugTLj/MmCntl4IsivPRYzz2+X9BI1dkt+tZUAU=;
+	s=k20201202; t=1765321083;
+	bh=V4BtB+Q9IqNyD2A3rjl7JlZezM4qtcAUXtmGwddZn08=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gK65ZiVLcISjQpaWlozvWZ/pB9Rf8c/OBAmSq5WFPeLuhkNPfGcZ49r6ridSEvAdE
-	 rsprjey86yb+rAP/iGqpUfqxIw+yB/WdgcEZDIc+EOh2tyi2vgZMrIct++Bkn3zCi+
-	 3KaaCqCRS+H6v7E3PZEbkdfjMmzut0GL9P4cYsiyOB3xYSKA908I32jqPur/CMLGEP
-	 WAHCW48J+RNnzQAHbv6QmFw+wzfPco2ATYN69Ip3r+Fu9wjPmRodlDjYIN2+vH3qX4
-	 2sfYtr+rtP2yniLQJhVtUe3bf8VDM1rFkByxdFzEgGMRF3fJAMjL2Zqq/sX+vC+ltX
-	 h55APJ6d8k38A==
-Date: Tue, 9 Dec 2025 14:52:01 -0800
+	b=KyF0x2RrVkq9JUm5RQ7+FgEqlpUBzgXk7WBFB9jUst56wTkI1MRZtn+CHNRoXPYnk
+	 /g5wPbLYlIovoKCmAM4ATtx4QCwNMY0w7cvorFWDfhIZGFKpFe6yLuN1ntRxcolIq8
+	 ZiaXTb/XO/dwb6urwzSpVyUFwR9GNBGiksrkPrUXNeyhGAZCkGBo8Y8LzKzyhe+sw9
+	 SHbWmvGm5PAfcCq5SGmLuw4kbFfnqBS9cOzMGnwEiLJZcjou7ALLdTPJ/nVCXn5yKy
+	 pPAICOaiqI8UXhE5gWMUwA8BWIHzT+u5IY6ynMztH4IFMnDtqF2Av5i2eXZF6tu3Ie
+	 CJ0+TajSD2CXA==
+Date: Tue, 9 Dec 2025 14:58:01 -0800
 From: Oliver Upton <oupton@kernel.org>
 To: Colton Lewis <coltonlewis@google.com>
 Cc: kvm@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
@@ -59,17 +59,14 @@ Cc: kvm@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
 	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v5 21/24] KVM: arm64: Inject recorded guest interrupts
-Message-ID: <aTioEWHu0ZbFCjR6@kernel.org>
+Subject: Re: [PATCH v5 22/24] KVM: arm64: Add KVM_CAP to partition the PMU
+Message-ID: <aTipeb2fAmUtSzzX@kernel.org>
 References: <20251209205121.1871534-1-coltonlewis@google.com>
- <20251209205121.1871534-22-coltonlewis@google.com>
+ <20251209205121.1871534-23-coltonlewis@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251209205121.1871534-22-coltonlewis@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_145203_577788_E6F82746 
-X-CRM114-Status: GOOD (  13.97  )
+In-Reply-To: <20251209205121.1871534-23-coltonlewis@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,36 +81,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In no situation should KVM be injecting a "recorded" IRQ. The overflow
-condition of the PMU is well defined in the architecture and we should
-implement *exactly* that.
-
-On Tue, Dec 09, 2025 at 08:51:18PM +0000, Colton Lewis wrote:
-> +/**
-> + * kvm_pmu_part_overflow_status() - Determine if any guest counters have overflowed
-> + * @vcpu: Ponter to struct kvm_vcpu
-> + *
-> + * Determine if any guest counters have overflowed and therefore an
-> + * IRQ needs to be injected into the guest.
-> + *
-> + * Return: True if there was an overflow, false otherwise
-> + */
-> +bool kvm_pmu_part_overflow_status(struct kvm_vcpu *vcpu)
-> +{
-> +	struct arm_pmu *pmu = vcpu->kvm->arch.arm_pmu;
-> +	u64 mask = kvm_pmu_guest_counter_mask(pmu);
-> +	u64 pmovs = __vcpu_sys_reg(vcpu, PMOVSSET_EL0);
-> +	u64 pmint = read_pmintenset();
-> +	u64 pmcr = read_pmcr();
-
-How do we know that the vPMU has been loaded on the CPU at this point?
-
+On Tue, Dec 09, 2025 at 08:51:19PM +0000, Colton Lewis wrote:
 > +
-> +	return (pmcr & ARMV8_PMU_PMCR_E) && (mask & pmovs & pmint);
-> +}
+> +7.245 KVM_CAP_ARM_PARTITION_PMU
+> +-------------------------------------
+> +
 
-I'd rather reuse kvm_pmu_overflow_status(), relying on the accessors to
-abstract away the implementation / location of the guest PMU context.
+Why can't this be a vCPU attribute similar to the other vPMU controls?
+Making the UAPI consistent will make it easier for userspace to reason
+about it.
+
+Better yet, we could make the UAPI such that userspace selects a PMU
+implementation and the partitioned-ness of the PMU at the same time.
+
+> @@ -132,6 +134,16 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
+>  		}
+>  		mutex_unlock(&kvm->lock);
+>  		break;
+> +	case KVM_CAP_ARM_PARTITION_PMU:
+> +		if (kvm->created_vcpus) {
+> +			r = -EBUSY;
+> +		} else if (!kvm_pmu_partition_ready()) {
+> +			r = -EPERM;
+> +		} else {
+> +			r = 0;
+> +			kvm_pmu_partition_enable(kvm, cap->args[0]);
+> +		}
+> +		break;
+>  	default:
+>  		break;
+>  	}
+> @@ -388,6 +400,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+>  	case KVM_CAP_ARM_PMU_V3:
+>  		r = kvm_supports_guest_pmuv3();
+>  		break;
+> +	case KVM_CAP_ARM_PARTITION_PMU:
+> +		r = kvm_pmu_partition_ready();
+
+"ready" is very confusing in this context, as KVM will never be ready to
+support the feature on a system w/o the prerequisites.
 
 Thanks,
 Oliver
