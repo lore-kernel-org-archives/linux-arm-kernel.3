@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF4E2D1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 10:54:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96763D3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 10:54:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6npgSCSljI1jrpntYRig2rdWG53oGjgIHhHgeY2CZ1Y=; b=xNAwT/MqApjX8nzNniXlLgpR+G
-	+hlCTGxHJLp2y4XEmLL6+dzybZYRCWdZhIQUqYtyXxWSwQBdZEgCvSjeTxtmvGdXCsS5+36alM1Ni
-	VpVeeN1QoM5TVlizaEeQ28ig+IELdP11jLyS7UblfiJuREIhnmZh9vgz6tVsU62pxMCW2WptHpopt
-	Ym/VxOxvIMmHTr7uYbxcLZCLNftrucdV37v6bgCaoLLZOq/jAjV3rHl8bUPGcP3RKAPxG499uBmTg
-	gz/Cktff7mdT1Jt0XUZEaePiIaCe3eT5aUXv1f7bNHbTL1CXs5kq3w8Ryno5Ph0Kbjng34szHBiWZ
-	BpI2zHOQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8IED3rJ3zsfdXQmpcDwAq+hG+sXvjgA7/waaA9T5c3Y=; b=oRduqLoXVNb3kS33RbvaPTFoOR
+	33Jut5hLIbhmKPXptzWVjKi7OUmyb43wRIbhl/JAgEL7EOv4pM4Wa6LL7/NbHpbsxm0Btot61Dv9X
+	5S5df3ENUQDlSpWYUcMAniWtYu73rj63zMsImnVps1NgTGasyIXa4e6C1zv5W8/7PTxra0PxPfAQH
+	Zo1P3LdZQS0v3/ptRSmqhNRN4npGkXRS5WKuFSuFUFetXblXU07QBydIuSrI+p2JznT6W1oEOYrpx
+	FwxETphlccdUkvMuBmIMlbCA4AH9UgmaXOzESnKscOh5fB+yg210c6HrBqrvJkb1R0A0VWmxrVras
+	6oFNgQYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSvLx-0000000E87B-0LPP;
-	Tue, 09 Dec 2025 10:53:57 +0000
-Received: from mx-relay90-hz2.antispameurope.com ([94.100.136.190])
+	id 1vSvM2-0000000E88c-1hDd;
+	Tue, 09 Dec 2025 10:54:02 +0000
+Received: from mx-relay139-hz1.antispameurope.com ([94.100.133.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSvLr-0000000E84I-1fMo
+	id 1vSvLs-0000000E84K-0O2R
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 10:53:55 +0000
-ARC-Authentication-Results: i=1; mx-gate90-hz2.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+	Tue, 09 Dec 2025 10:53:56 +0000
+ARC-Authentication-Results: i=1; mx-gate139-hz1.hornetsecurity.com 1;
+ spf=pass reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
  smtp.mailfrom=ew.tq-group.com
  smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
  header.from=ew.tq-group.com orig.disposition=pass
 ARC-Message-Signature: a=rsa-sha256;
- bh=6npgSCSljI1jrpntYRig2rdWG53oGjgIHhHgeY2CZ1Y=; c=relaxed/relaxed;
+ bh=8IED3rJ3zsfdXQmpcDwAq+hG+sXvjgA7/waaA9T5c3Y=; c=relaxed/relaxed;
  d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1765277614;
- b=FsQxAzsxPXCN1SqeSIgELaAqnTRQvMSzggQOaXlJoy1roZOEGPUIEAltsjdCQVmv2GGd9dUH
- uuiofa+OFm3FtVbDUWwW66wv9SmlAgpElJWsZbrwwshM5h9jwDGtIr0KPMz4XjR18UCUfalejUK
- kXQcqgVLJfy4uxf7lkZdRkBUBDMZAdpKPgF5D3wIwkv0HokQjclfiqrezC/AwBFQhOUv0srkZ6S
- krPg5toip58w5hLizQUwxxJ4R0wbe2lwtAURnU+P7RFXrH+nl1lxWwszutTtFzyslvZwVUQBTu/
- WERZbLKCNfNOtQ6ShzJ13ze1phc4g3k+HikNF9j0a35Vg==
+ t=1765277619;
+ b=f0+aZwblU9vX9WiGSovspwSKbyFEylDw2ZItXW9SrXc0nLI0gGCXuhUlj1f6G86BBxgiRnnj
+ CNtaBZCIlWEbWi0nbKsfoT1IN60Pk9lXtTz12LixYSmL3CX59Oo5joNpvN8Z9KzN9AJnHCV6cKO
+ p25FKa1abo4eqrV7EMrk8ZYFe3o0kZMKAMuEtNAthu8uPc4MqZ9jYz51w8g6Zpo3V/JcdP1J6/q
+ lhFS7fBnX/v6a94gE8NTI3ALHcppD281WckfV5cIJJz38GndCXgSd5laBRevD4PuqwlrLk0DWjX
+ B9Tdq4d1hTTtPz5mcuLSfs9LneNfLoc1JhnT/rejS4DFA==
 ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1765277614;
- b=tPUwhI3CUIZvE1zCV/5d7NE2DclX+wg1YDAJ2OAXsjW7hdW6o7tJsUs0vTPBth3mt7bMQlsk
- Fof/YYxlnzFUPsn1olCLnq13uu6vMbyH5QxviCrEv9P9i4805tW7PmGsFKs4FXbtGbl2bkjwTs4
- dvLXOkkwD49TrhAu8r8aPkOrTy/67amjUV/cJeJEahMyVdZyuP19FCKEZ8JEIQhJYTGjdXnbzyt
- jJnHUU3JBfhP2MdUtXPlV/OzNvmhzYVODCY6t+zByWQLFin+PGEKEeRECQUyoQXIS8IlsGbso0h
- l/lcfumU/6MT4bhbfxvW8gWjaaDaEId5HUeQGaa9Q+7/Q==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay90-hz2.antispameurope.com;
- Tue, 09 Dec 2025 11:53:34 +0100
+ t=1765277619;
+ b=Yi81OdY9DFMJeWh454MIEsSzXNt8AKh+rXodru5/jTbWqUlxLfHThiDCTY+Y8xKD5+uovb8S
+ /3+4S0hwcTCC0RCwdBfrZe8+6QCZvCxCBx5ZbtzZHV40lPHv3T9SFke7xEXjiMG3e/298FBZvkp
+ vGV1mBDftxP4lzY9aCzBUjOrF/JzgnWIR0o5iczyJpZQ9oQTd99k/cPWo64hlMIjXPyNBH+lV5X
+ yflZsjP0HJd4IKLcDdElkUucqnK7pbIu0ukOAZoSPaXukcQ8v0/V7GDQhOLwRc+x3CnHKHAuUY2
+ Mwo5uD3yMmLiaNLUgZQ47bvn6WCMkv5BMtCbT5FvR3K8g==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay139-hz1.antispameurope.com;
+ Tue, 09 Dec 2025 11:53:39 +0100
 Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
 	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id A89F5CC0E8A;
-	Tue,  9 Dec 2025 11:53:20 +0100 (CET)
+	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 12EF5CC0CB7;
+	Tue,  9 Dec 2025 11:53:23 +0100 (CET)
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -63,18 +63,19 @@ To: Rob Herring <robh@kernel.org>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>,
 	Alexander Stein <alexander.stein@ew.tq-group.com>,
-	Martin Schmiedel <Martin.Schmiedel@tq-group.com>,
-	Richard Cochran <richardcochran@gmail.com>
+	Martin Schmiedel <Martin.Schmiedel@tq-group.com>
 Cc: linux@ew.tq-group.com,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: [PATCH v2 0/8] TQMa8MPxL DT fixes
-Date: Tue,  9 Dec 2025 11:53:06 +0100
-Message-ID: <20251209105318.977102-1-alexander.stein@ew.tq-group.com>
+	Andrew Lunn <andrew@lunn.ch>
+Subject: [PATCH v2 2/8] arm64: dts: tqma8mpql-mba8mpxl: Fix Ethernet PHY IRQ support
+Date: Tue,  9 Dec 2025 11:53:08 +0100
+Message-ID: <20251209105318.977102-3-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251209105318.977102-1-alexander.stein@ew.tq-group.com>
+References: <20251209105318.977102-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-cloud-security-sender: alexander.stein@ew.tq-group.com
@@ -83,24 +84,23 @@ X-cloud-security-crypt: load encryption module
 X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
 X-cloud-security-Mailarchivtype: outbound
 X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay90-hz2.antispameurope.com with 4dQbL93XFFzWw50
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay139-hz1.antispameurope.com with 4dQbLC5gtczNwGg
 X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: f63f4ee375f07f63483e39071c52d6f9
-X-cloud-security: scantime:1.678
+X-cloud-security-Digest: a09f991505044410bd11d1a9cce7d8b4
+X-cloud-security: scantime:2.263
 DKIM-Signature: a=rsa-sha256;
- bh=6npgSCSljI1jrpntYRig2rdWG53oGjgIHhHgeY2CZ1Y=; c=relaxed/relaxed;
+ bh=8IED3rJ3zsfdXQmpcDwAq+hG+sXvjgA7/waaA9T5c3Y=; c=relaxed/relaxed;
  d=ew.tq-group.com;
  h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1765277614; v=1;
- b=WlkJs758amSlZSf+r8Hk44LaKxnITvZOYIR0LGAlFWlhQ9q+/dahq7fGAyEGDs0Wjm2Vkt/I
- su/fuBGcVEDXAKhzym3jGndQcjabzbR/3yQgKgFnXVG2bwi3I2m9jtbiN9iJlm0IrQNXzHyvftG
- b36BHGXNQNW/zGvqTTzDHDOkO5SpiXxeIEkQB3KRhMEb2kTQHCnX/4mhgjy0JU3sQYktMFKWmV0
- u0ekSUDgWno16qnqJeAAptEgMSRC4/JE2DsylFWyyCzIgNJPVWKcB360ls7fC4oWIAe1be2A3oM
- h1pFUki8a9axMKRlA0OHVPKByQ7F8PKzbmabZfALUILjw==
+ t=1765277618; v=1;
+ b=Hz7CEW7JOAPq4VXBnm1io1mw2Wjt4w66DUk18sF/IfYUf3+lvRZmgdRXYSt3DhVOEeEXEnvD
+ y1QvtKWb7Npz5/TgwdY5ozS7tM6c9TCEnGl+GRY+2eEnvEWykoyWIkPqoPjjRNSN/KJvJRDRuHp
+ aA7P2bXm0sWMnA8hZJwKNC9jVOzqRhJu4G6K5cJHI70pczLDkX9J6aF4/vtU7FNOYw9LB+ootGi
+ +iNBlt8Z4/cY/rR+T5VBgn/1ck92yLp+V/ZTnbRUZoQ5yCI34awaPlF3kJkGyXFcv8RBxfTYKpe
+ sHzt5fPoGUVATSESzm3k/JiJyOzd233/n/9vWMEhXn5TA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_025351_919239_F5D03864 
-X-CRM114-Status: UNSURE (   9.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251209_025352_266244_56C44830 
+X-CRM114-Status: GOOD (  11.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,36 +115,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Ethernet PHY interrupt mode is level triggered. Adjust the mode
+accordingly.
 
-this seris includes small fixes for TQMa8MPxL both on MBa8MPxL and
-MBa8MP-RAS314. The ethernet IRQ type has been changed to level-low and CEC
-pad configuration has been fixed to use open-drain output.
-For both boards the HDMI audio output support has been added as well as
-the ENET event2 signal on MBa8MPxL, which can be enabled using
-/sys/class/ptp/ptp1/period.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+---
+ arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Best regards,
-Alexander
-
-Changes in v2:
-* Collected R-b
-* Fixed typos
-
-Alexander Stein (8):
-  arm64: dts: tqma8mpql-mba8mpxl: Adjust copyright text format
-  arm64: dts: tqma8mpql-mba8mpxl: Fix Ethernet PHY IRQ support
-  arm64: dts: tqma8mpql-mba8mpxl: Fix HDMI CEC pad control settings
-  arm64: dts: tqma8mpql-mba8mpxl: Add HDMI audio output support
-  arm64: dts: tqma8mpql-mba8mpxl: Configure IEEE 1588 event out signal
-  arm64: dts: tqma8mpql-mba8mp-ras314: Fix Ethernet PHY IRQ support
-  arm64: dts: tqma8mpql-mba8mp-ras314: Fix HDMI CEC pad control settings
-  arm64: dts: tqma8mpql-mba8mp-ras314: Add HDMI audio output support
-
- .../imx8mp-tqma8mpql-mba8mp-ras314.dts        | 21 ++++++++++++--
- .../freescale/imx8mp-tqma8mpql-mba8mpxl.dts   | 29 +++++++++++++++----
- 2 files changed, 41 insertions(+), 9 deletions(-)
-
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
+index 0605cf2faf83b..ff2bacf24bfd2 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-tqma8mpql-mba8mpxl.dts
+@@ -345,7 +345,7 @@ ethphy3: ethernet-phy@3 {
+ 			reset-deassert-us = <50000>;
+ 			enet-phy-lane-no-swap;
+ 			interrupt-parent = <&gpio4>;
+-			interrupts = <3 IRQ_TYPE_EDGE_FALLING>;
++			interrupts = <3 IRQ_TYPE_LEVEL_LOW>;
+ 		};
+ 	};
+ };
+@@ -375,7 +375,7 @@ ethphy0: ethernet-phy@0 {
+ 			reset-deassert-us = <50000>;
+ 			enet-phy-lane-no-swap;
+ 			interrupt-parent = <&gpio4>;
+-			interrupts = <1 IRQ_TYPE_EDGE_FALLING>;
++			interrupts = <1 IRQ_TYPE_LEVEL_LOW>;
+ 		};
+ 	};
+ };
 -- 
 2.43.0
 
