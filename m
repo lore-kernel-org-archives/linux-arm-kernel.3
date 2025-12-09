@@ -4,56 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6111AD1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 12:19:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7062DD3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 12:27:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wrBr8QZtuxEZqbfOe78DsBh0lqZS8vtfsBSCHCqOztw=; b=acS6h0d/8hmuEsRKPA8HaQq2hG
-	G///ORGuuR9d/VVHpkZdyYa6/pGjZ5mM9VjDG3Y0mFOK6b/WAMYUdR2REdYOfX0VvLh28ohmcf2OI
-	6FFGyyR9Tai3MrsdD+Ap7b9O5XAaBvCbfMhcYDt4nP1KcCSd5nUspEx7n9ZdWqoQuIqHzAnzVPayA
-	0S3pvk6u/Ycle4Z4krmLyU3+XP7pwXzrPcPHjIL71L7Xc6vjL7fSz3wqjaRWHUaGTIdLPj4pwv0jh
-	NdN0JqHop4zDOWDowW1TjM2EvfqajdACTBAbAVaYXhapFGnQ07mGbK6V/aacD7aEC3G7wcW7XrZgT
-	wiqMTJIw==;
+	bh=TJ/jJLbIKy4X5bl+oBRhTqLaLIf13zlUSxQngiqzjSE=; b=Vdsv/upsKGP186oz4i/as6rDGc
+	SoQKNQGMp7W1nmKOftY0yYzPfdHulAeQH1n2ji0AXGbTLtVefzRliT60s1h/sUNuiM8cf+GO3uND0
+	wmDmq3wKQjAsgDVRVMo4aKykLj33MAIjRwGJWKEB8O8HxzeTbZa4QXj5PeSODc0a0yuPaqcnUfJp6
+	B1ON8A2S3r6m3fJDYhiaffjS1OT6Ox/+8EK7BJOnBqXqFzTpXfj+idtTpczerWDx/KpjmWL/7s9xX
+	Y6omn3Ms7vjV7MdDyHQ8vK6IznCtjioxG8FJB3sR8o5Lp9NBeeDg0aywNDdfSBjUEbi7fCM5E5vJ/
+	sRAiiTpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSwge-0000000EEaJ-0XX6;
-	Tue, 09 Dec 2025 12:19:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSwgb-0000000EEZr-1I6Y
+	id 1vSwoR-0000000EEvJ-1NYE;
+	Tue, 09 Dec 2025 12:27:27 +0000
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vSwoO-0000000EEui-0BmP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 12:19:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3D4AD1691;
-	Tue,  9 Dec 2025 04:19:11 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1565C3F740;
-	Tue,  9 Dec 2025 04:19:17 -0800 (PST)
-Date: Tue, 9 Dec 2025 12:19:16 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Yingchao Deng <yingchao.deng@oss.qualcomm.com>
-Cc: mike.leach@linaro.org, alexander.shishkin@linux.intel.com,
-	coresight@lists.linaro.org, james.clark@linaro.org,
-	jinlong.mao@oss.qualcomm.com, linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	quic_jinlmao@quicinc.com, quic_yingdeng@quicinc.com,
-	suzuki.poulose@arm.com, tingwei.zhang@oss.qualcomm.com
-Subject: Re: [PATCH v6 2/2] coresight: cti: Add Qualcomm extended CTI support
-Message-ID: <20251209121916.GT724103@e132581.arm.com>
-References: <CAJ9a7Vg9Efi-5eecfiUF82_Qq8Jg9imN5q1-VKYZoPVUxNpjhA@mail.gmail.com>
- <20251209081649.105623-1-yingchao.deng@oss.qualcomm.com>
+	Tue, 09 Dec 2025 12:27:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=powPSyK7bQUhL2PvpQEOsUHNLR9PZLgmm8V0CxjeNsMYA8d2VmUpZOteqnrNjN+4cUP03PJLi41o1uGepAM94smIL0ZiMbE1h7DsMLCmZtHkjt2c684Hsf7ZWk37srBwaWCAVbVxuL2cbIl5F4Wsx2lf5y1iM7wwZ6cwUDlJna4XNUsetel5KNC66QAGTwE7aMovrSM38I4ptY0DEThPwt3dyvM4K/1Gk6ho9ju8mpPLZp0dF653RLRyJB3alTtjGlTQhENoo/t02eYnSr0GN62U+u9P9mOU4VP1reTyavYNFXQp+70DFcLhBI3tYJgwxq4OvUk4d3UqL91Lh0GfxQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=TJ/jJLbIKy4X5bl+oBRhTqLaLIf13zlUSxQngiqzjSE=;
+ b=PiqMUBxlFiYx19UV+4KhWBn0DLaFWmcsxcxpd5fsdBVEDqppI0YrZOlbMFS7aJe/IuKNnmBBBLuYSjojodV4L3L1B5HeeGuT4Y4DozpwmRvcZPaWsuE3SzDRQO3f104QK9Gq2yczDtNt2f21m6wXQnsbAUf62ohxBcNdo15BNMm2cx7CDZfmxNeFUeEqdJR5gsLtkIG+Dgp5Vy4Cjw13NN56R+DMUtJXzCWyEGO3RQjHFzioTFQ3xgFCnst8n7rtjhYCDYla1AjxEO/6I0WQOtvFD8XpSuhMSUoX6PMMzI6EfGvMyvcZADLiWAEBLHa2ezvTgqGIp+orn/1p179XkA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=TJ/jJLbIKy4X5bl+oBRhTqLaLIf13zlUSxQngiqzjSE=;
+ b=E/qtCTKU9cfNFKWJGPeGCDjL5FSjqiRB8W+J1gk+fjDoX5gTH1F1lcr/C2S3VyS5hnNFHiTn2LlU1Jmh8fSZ1RNWGZ4c+jMA5rhg2V8XlFz0VJx/zPFLpaIx7xBIOM5IfDoRNKFJZAvMJEhD5qlxtoMsN+RKQuYPMQ+2TZsjxiYSmR0ElZi8aA/ETzv9EjRoXZhiL1qb4legyJ58JC4v4KToya4xNyahpF/MyrTuPymYfZ14IRwb3M9toFWgnNKf8tb9joBIiR8roJywHc6Yx2Tqnh1qH7c04OG5DwYAu1+brZB26Kunfi6k2b74EBsNkJDj65FMtLXd3wbo9DYoLA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+Received: from DM6PR03MB5371.namprd03.prod.outlook.com (2603:10b6:5:24c::21)
+ by SJ0PR03MB7152.namprd03.prod.outlook.com (2603:10b6:a03:4d5::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.14; Tue, 9 Dec
+ 2025 12:27:17 +0000
+Received: from DM6PR03MB5371.namprd03.prod.outlook.com
+ ([fe80::8d3c:c90d:40c:7076]) by DM6PR03MB5371.namprd03.prod.outlook.com
+ ([fe80::8d3c:c90d:40c:7076%4]) with mapi id 15.20.9388.013; Tue, 9 Dec 2025
+ 12:27:17 +0000
+Message-ID: <29e1a620-1747-4a48-9ead-867c1e5734d0@altera.com>
+Date: Tue, 9 Dec 2025 17:57:07 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2] net: stmmac: Fix E2E delay mechanism
+To: Paolo Abeni <pabeni@redhat.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Richard Cochran <richardcochran@gmail.com>,
+ Jose Abreu <Jose.Abreu@synopsys.com>, Fugang Duan <fugang.duan@nxp.com>,
+ Kurt Kanzenbach <kurt@linutronix.de>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251129-ext-ptp-2v-v2-1-d23aca3e694f@altera.com>
+ <26656845-d9d6-4fd2-bfff-99996cf03741@redhat.com>
+Content-Language: en-US
+From: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
+In-Reply-To: <26656845-d9d6-4fd2-bfff-99996cf03741@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MAXP287CA0019.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a00:49::28) To DM6PR03MB5371.namprd03.prod.outlook.com
+ (2603:10b6:5:24c::21)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251209081649.105623-1-yingchao.deng@oss.qualcomm.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR03MB5371:EE_|SJ0PR03MB7152:EE_
+X-MS-Office365-Filtering-Correlation-Id: 83ab31b0-375a-4a6a-db99-08de371e4a7c
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UWZJcU9SR0ZMOXVlci9jdDB3K1E0ZGRRM1hwcHQrd1pRRUd3Zks3N2RZT2hW?=
+ =?utf-8?B?djVOUUlQQWtvOE92K1Z1ZzlsdGNSaXl4dXl3amI5Y1Y3a3BNTmUreVNvQURQ?=
+ =?utf-8?B?NC9XN2lXZm41aVd5UDYzRUVxaStzcVMwYVFXcDh2UmFNNnMxTURkMk0xaldx?=
+ =?utf-8?B?cFdMalZkTXplMmNUby9VdDZ0d1F6ekdtdGplUUhtaWF4ZllPQzFCODAza1Z1?=
+ =?utf-8?B?NVZUUlFrRDJOWlREWE1tbCs3OTZNcEJBOWZQazN6Ym1NT05CTEo5aGNiSG9H?=
+ =?utf-8?B?SnJUbjl2S0hmUDJHS1I3OWhVcGhUVThBcU1kOWdxRU1oSlJRUS81d2QwQVI5?=
+ =?utf-8?B?Z0xJcEVxNkFPNlJQeGJadHlITjRORzEwM0tWLytsdzRPOXNjRjZiTU8rVllZ?=
+ =?utf-8?B?b1NpaDJDdWdEWjdvVVllK2JKUzBPT211d3RMOG5yNEVSaTU4czJQNCtVdm5W?=
+ =?utf-8?B?TzhvS0N3bThhbTJ1WVhkZHVQRzU5cWJpSi9XcDhZTld3MmJIekF2RjlMcm1R?=
+ =?utf-8?B?YWZoZDEwd01xc0pNMEs0UFhEWG9uaFZKTVFNOU9uVjdVSzBXTk5CTXB1N3JR?=
+ =?utf-8?B?MnRJQjJlaGd3Z3MyUUJqMG14OVppdFlvYk5vci9pNkhBYU5CSDVRMU00SHZY?=
+ =?utf-8?B?K29UOU1LMXVMOHAzTVIwZG1UZGNobFhZT20zNEtVNFZRVVJCSXZsYzAyR0lt?=
+ =?utf-8?B?Q01zWU5JcVplWUdBNWlYQUFEcWdiUkoxZ0dHNUFBVG9tVW1tOXJhWmZ4RW82?=
+ =?utf-8?B?RW5qbVFTZHd3S2ZZUmxEY1JDSENlTXRQY1pEc2kwSm9HWk13TStMZktYaWxa?=
+ =?utf-8?B?dFRWN2ZnNW5nVzNKd2xzV0dwZUxmdzNRenZiM3ZNVjY5ajFSUExvRGRqdURI?=
+ =?utf-8?B?VU1oVlRIMDk1TUdFZU5TWUk2NVFHQ2JodVhvVEVUUE5jVnJZKytGVlgvSE4v?=
+ =?utf-8?B?cll1Q0VGaWJzWHh6dGwwY3BKQWptM1hxMEp3bkxFYXIxRm9CZE1YMG1BNFFV?=
+ =?utf-8?B?ajNQSk9EVVQvcTlWWktGWlgrdTRhbzJaMmVwZ0dNZFVFVEZzSnVTdjB1UGRt?=
+ =?utf-8?B?SjFha2ZlMEdaZG4yZkxmb0RwV1FRdEtwbVprVkRrOExGeEhmanptWlVpZGlW?=
+ =?utf-8?B?ZFp4K3lHbWFiVG52S0E4OXh4ejlUbGxDWFMzYXpGWTFMdjRUZ29FMTh0N2c5?=
+ =?utf-8?B?Zk15U3NlQll3RjJlVDZnbndYVkNrYUVTdUhjRHczR3hURm9ZekFhR25Fa000?=
+ =?utf-8?B?VnF2Zk5YQnRBRFVJVUR4V2J0SUtBemtoT0lhQlpzM2N6R0QzQ0FrWUF5Rks0?=
+ =?utf-8?B?b1dGNy9welJlVTJzaHFxVHRLZng1ZWxnQnViY0VhMUhUL1EvcXN5ekdabGNr?=
+ =?utf-8?B?Tlcyb2p6MGJycnJyWmFKcWVVWFlPTXg2RldHcTNxRlBkd09WU3QzbHE3YXll?=
+ =?utf-8?B?dGx6ekRJS3N3RktNT3lHeTM5QWRxak5rdE93MzMxK2h3RjJhb0RFeWhiT0lN?=
+ =?utf-8?B?ZnF5L21CbnIzSzhQS2xuZE1rRWh3ckYydThKbmpDd3EzR25acVJwaTlyeXZ0?=
+ =?utf-8?B?alVOYVB1QkZhUjlCajZaQ1haZUZFTG00cXhUVURlekRDYUdGN2hwMXM0dVlr?=
+ =?utf-8?B?NDB4ay9wZE5kSE1zbTFFc2QrRS9BdCtoYWlGZENDdTNvYmlDVzFUMUZtOTJh?=
+ =?utf-8?B?OUh0cTYzTlhOQ3M4V3ZjWGdsNy9wL2o2Nk1xK0IyUEorT05jL09ZVHdoaG1m?=
+ =?utf-8?B?M0gvUnRVKzVGc3JZcnZQTGpCekhyWGdFQUgrSno4U3FLMm5yWDNKMGRIM3RX?=
+ =?utf-8?B?Mkkzd1dxZW93a296aHFIV1E0Q0pHa0d2a0h3M2dLTGhVd1d6cGdwMHBmd000?=
+ =?utf-8?B?c0x1TmU1MU1QSFVkYW9PQTA5TjVlTmJTaC90ZGFzUGF4YWJKTEpoWVBYL1I1?=
+ =?utf-8?B?azk1bys4cEtaenlKUWhuMWMwaG44VVE4cDNSeUNaQnVzRDZxaTB4eU9RYWJk?=
+ =?utf-8?Q?hkuFf5yzS52O7PNUZgdKESBOCpCvhw=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR03MB5371.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QXIyUHNrbk1SbEUvTE5ETHdJN1NRdEliYlowcWRDSGttd3gveFlGc2JTNHBi?=
+ =?utf-8?B?VWVkYnBDczFIQnJlZFNQYld5b282UkdPdlJsdmNvRnFYYkFDcmhXMnJMeDlQ?=
+ =?utf-8?B?NTZnVnBBcmRGOGVpaTJYUXlYLy9OVXBVeXhzUkE5Q2pwUU5tVkNNVDJ1elVD?=
+ =?utf-8?B?QnU1ZWoyMWQxUnpXRlByU3RyaENQZmYvRUlPbi9JUjRaazZvN1FidFVIb3pw?=
+ =?utf-8?B?bVJTTkNHSUozZmFXMGphazZMTGNXZldZUGhnT2V2dEJTQ2w0ZnladVZUb1lE?=
+ =?utf-8?B?N3NCNnRCZ00zYzBkWmd3VjZwaXMrejdUSGYwWU1yYVFjcFdsaTh5TnNVY2F3?=
+ =?utf-8?B?aE5Tb2xMRHFQdFd2ZjZtdDZIYVVZc29JV0lHaGNEN2U3Z1VWWUlXT3JrdGNo?=
+ =?utf-8?B?VXYrTjNzc3JLaEllVTRTQ0lLTmZvdm9nc1AwU0VHNlBXbmFNRU5BeUgvV1Jy?=
+ =?utf-8?B?QU9LdnNhcWFyOStNdUlHQVdtTllIdlFrNE9YdVRjQUk1TE8zejY5TmFTWmxK?=
+ =?utf-8?B?NXZwQWx4UWdNVkpwYmZEaGV0ZnR0K1NhYm83aVJXbHJuQmowRVh3eEh2YU1y?=
+ =?utf-8?B?WFhWbGg0a1kxTzhNeXZISFdvVENhNzhVNjA1N2FCcTlENUdMakNSSW0yNHRS?=
+ =?utf-8?B?UnJGLzhEcTBRdG9xQ0VMQlRMUVd1bVgrUUhwWnp5cmltenUyeC9hUERHb0hy?=
+ =?utf-8?B?bDZYQS9TK1ZMdEZncnFJeWhkYlczNkpqa1Nta0RjenZISkxuMW4vZXNwVTd4?=
+ =?utf-8?B?cSt5UTc1KzZyVDVPbW81bGU1eU5UV21yYnBqMFRQUWlkdUxXblZZcHdKaDZM?=
+ =?utf-8?B?K0c2Uk55UklVVThvRFpJTi9ZdThXUzdVRE1FanFta3RrTksvbVdXZ3h5SG5p?=
+ =?utf-8?B?NmRNck9JRUdOcXByV1d1V0dQWDNVaElrSXRrVHFoc0xKTGE3VnZmdFg4anhG?=
+ =?utf-8?B?SDJDRHNvL0RyN3lqUHh0YnZaV2hUUlErV2M2Z25tMElCMHNlc0gvY1ZQQ1hh?=
+ =?utf-8?B?WUhGRHpOZG53NTd6Qys4bVhhdzFUSlp5SGN4RnNJWk80ekVVZVBiS0J6Zk9T?=
+ =?utf-8?B?bnloZjRQY0pDOVJ6aldRd0xJQlhZM1paS1JLbiswSUttMUltMU5ZWjJwNlI5?=
+ =?utf-8?B?bGNmbjZOb1IrU0phRmhzd0pHWmd6b244QTRtMEZKNTNtSUFrTVppdjVVVHBs?=
+ =?utf-8?B?K05vRCs1bnpORUhadWJvdjhuOXo3Unl2VFJCaldSQThvNFdjL3RhZ3ZSeXdX?=
+ =?utf-8?B?UHJNRlh0cldmcHRqSDNDdEJkVm8wODFBRVBEVVRNTUpWVmtURUZiUUJiUjB5?=
+ =?utf-8?B?SmhnUkNnZnJTdW8wT05DNndQcDBqRGMvTVNOV2FWWnVKRTYwYkVRMzIvUWJK?=
+ =?utf-8?B?YURhd2xXTndMTlZPWTZudkV0MmRKNUdyaTFUNnh6blU0SzdMQy9zcFFYSC9y?=
+ =?utf-8?B?b2twWm1JN05teW1QL2ZQcWVFc2NSaHVuY2paaE1jaXVCbTViMnlmKzlSSmhY?=
+ =?utf-8?B?WTJXK2c4NXYyclRPY3ZSdVpmVFJHT1A0Z3E5ckJCMytZbmRZb0V5Q2RJZzNu?=
+ =?utf-8?B?aUtJMFB3a0JxVEdmd20rdjRVWFYrMnpTMkUyZmxWckJjTWtMWmtXK0hrL0s4?=
+ =?utf-8?B?dy9lcVhycjBjSkdrZHJra2E1UEFHVE9sS1ZXTjY4L1JFSm5TWUJNSWtoZTFv?=
+ =?utf-8?B?RUZKRUs2R1lYMTlIUlgrVDVxRkNqdlBzZGZuck41VlBnbkswcWtEeXg3cGdz?=
+ =?utf-8?B?Q1Z1eEtmK0wyUmJYbmdEVGR2djhYQkdQUUlLNkREYUdyTTNQWjJNYVBaVXNR?=
+ =?utf-8?B?MDBITVRydkRHTHBUTkVlRU50dzI1b0xXc2NNNFNFb20zWnp2VHFPbzdPSVV0?=
+ =?utf-8?B?bHBpSTk2djFCSjUrVlI2WmpmMFhTZ3ZFbzJQNi9VcjJqbTdoZE9TaFNMWDYx?=
+ =?utf-8?B?Z2RLckNxZitMcWVaTlJvWVA3OEx1M0QzZ0hkQ1haV2dmM2NQeGp5WVFXUFo1?=
+ =?utf-8?B?b290TURCNktnZ0VvcEhjQWRFdzFjNXNJc2pzNTMxeU5kNDZmdnY2eVIzTGxP?=
+ =?utf-8?B?TnRVb2Ntb0lVUlpIR2o2U1FpcVJ3Vm0vNHNHVFcrbncrd2tNeStUZDJQNk12?=
+ =?utf-8?B?MERrbG9hcyt5a1RHR1dGeGE0TkJCMHBYM1pqbkVGbmZXZk1hU3hDLzdXM0hW?=
+ =?utf-8?B?K1E9PQ==?=
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 83ab31b0-375a-4a6a-db99-08de371e4a7c
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR03MB5371.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Dec 2025 12:27:17.5156
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ZMKZuXUJAynGqnc5pSxnj9VbyxVMGNfOdVbfqBf3xuN+xLT6rsnO7cDxLHzl3F/UbVJk3BUU/UCapWTpTJ8Evb02LNx8Vl/DlAu4uQP6KKo=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR03MB7152
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_041921_394945_38731CAE 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20251209_042724_099192_8A0E422F 
+X-CRM114-Status: GOOD (  14.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,62 +185,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yingchao,
+Hi Paolo,
 
-On Tue, Dec 09, 2025 at 04:16:28PM +0800, Yingchao Deng wrote:
-> Hi Leo & Mike
+On 12/4/2025 3:28 PM, Paolo Abeni wrote:
+> On 11/29/25 4:07 AM, Rohan G Thomas wrote:
+>> For E2E delay mechanism, "received DELAY_REQ without timestamp" error
+>> messages show up for dwmac v3.70+ and dwxgmac IPs.
+>>
+>> This issue affects socfpga platforms, Agilex7 (dwmac 3.70) and
+>> Agilex5 (dwxgmac). According to the databook, to enable timestamping
+>> for all events, the SNAPTYPSEL bits in the MAC_Timestamp_Control
+>> register must be set to 2'b01, and the TSEVNTENA bit must be cleared
+>> to 0'b0.
+>>
+>> Commit 3cb958027cb8 ("net: stmmac: Fix E2E delay mechanism") already
+>> addresses this problem for all dwmacs above version v4.10. However,
+>> same holds true for v3.70 and above, as well as for dwxgmac. Updates
+>> the check accordingly.
+>>
+>> Fixes: 14f347334bf2 ("net: stmmac: Correctly take timestamp for PTPv2")
+>> Fixes: f2fb6b6275eb ("net: stmmac: enable timestamp snapshot for required PTP packets in dwmac v5.10a")
+>> Fixes: 3cb958027cb8 ("net: stmmac: Fix E2E delay mechanism")
+>> Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
+>> ---
+>> v1 -> v2:
+>>     - Rebased patch to net tree
+>>     - Replace core_type with has_xgmac
+>>     - Nit changes in the commit message
+>>     - Link: https://lore.kernel.org/all/20251125-ext-ptp-fix-v1-1-83f9f069cb36@altera.com/
 > 
-> Based on Leo’s suggestions, I created a new patch, but there are three points that do not fully align with his recommendations:
+> Given there is some uncertain WRT the exact oldest version to be used,
+> it would be great to have some 3rd party testing/feedback on this. Let's
+> wait a little more.
+
+Thanks for reviewing the patch. Sure, will wait for additional feedback.
+
 > 
->     1. The helper function for returning the register address now returns only the offset, because returning the full address would conflict with cti_write_single_reg.
+> Thanks,
+> 
+> Paolo
+> 
 
-No need to change each callsite for cti_write_single_reg().  You could
-update cti_write_single_reg() instead:
+Best Regards,
+Rohan
 
-  void cti_write_single_reg(struct cti_drvdata *drvdata,
-                            int offset, u32 value)
-  {
-          CS_UNLOCK(drvdata->base);
-          writel_relaxed(value, cti_reg_addr(drvdata, offset));
-          CS_LOCK(drvdata->base);
-  }
-
->     2. For registers such as triginstatus1...3, I defined additional macros CTITRIGINSTATUS1...3. This is because CTITRIGINSTATUS + 0x4 equals CTITRIGOUTSTATUS, and to avoid conflicts with existing macros, I chose numbers starting from 0x1000 for the new definitions.
-
-To avoid the register naming pollution, please don't define the common
-names but only used for Qcom registers.
-
-AFAIK, you even don't need to define these registers.  These registers
-are only used for sysfs knobs, we can define an extra "nr" field (e.g.,
-bits[31..28] for indexing these registers, something like:
-
-  #define CIT_REG_NR_SHIFT          28
-  #define CIT_REG_NR_MASK           GENMASK(31, 28)
-  #define CTI_REG_GET_NR(reg)       FIELD_GET(CIT_REG_NR_MASK, (reg))
-  #define CTI_REG_SET_NR(reg, nr)   ((reg) | FIELD_PREP(CIT_REG_NR_MASK, (nr))
-
-  static struct attribute *coresight_cti_regs_attrs[] = {
-  ...
-    coresight_cti_reg(triginstatus, CTITRIGINSTATUS),
-    coresight_cti_reg(triginstatus1, CTI_REG_SET_NR(CTITRIGINSTATUS, 1)),
-    coresight_cti_reg(triginstatus2, CTI_REG_SET_NR(CTITRIGINSTATUS, 2)),
-    coresight_cti_reg(triginstatus3, CTI_REG_SET_NR(CTITRIGINSTATUS, 3)),
-  ...
-
-Then, you just need to decode "nr" fields in cti_qcom_reg_off().
-
->     3. Regarding the visibility of attributes for triginstatus1...3, since coresight_cti_reg produces an anonymous variable that cannot be directly referenced, I used coresight_cti_regs_attrs[i] to obtain the attribute corresponding to triginstatus1.
-
-Okay, I get the meaning for "an anonymous variable" - there have no
-field naming when define attr with the macro coresight_cti_reg().
-
-but you could comparing the attr string?
-
-  if (!strcmp(attr->name, "triginstatus1") ||
-      !strcmp(attr->name, "triginstatus2") ||
-      !strcmp(attr->name, "triginstatus3"))
-      ...
-
-Thanks,
-Leo
 
