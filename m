@@ -4,72 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F339DD1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 08:20:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C95ECD1CDC6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 08:27:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jzw/CYnXtymY3qF9LV43v4nFKG6ZH5G3XPbG3ndbY/s=; b=GLd5SNaVJFWRbfiDgDuYmEP+P/
-	D1Q0zMqy1JSqJ+OaviV0mUxO8xiR5mWQrnBCNu8DiiR51tsa4qKMG//zGuThw9vrNvRtgpYjvXq87
-	tCjbHre3kpovg/ntZR63z0UB/9QCiUD0XzskaGoneZoxRdAvQj9Bn4PP2d7VSmw2UuyvEHVRi7MwB
-	biJGS35q+fHTL7rq76hDb4Ntbc45xCr7BY+MvSRmuQ//6QlYTO3AtisIaALpuqM66JaDfjTK4TLxk
-	fX6CcDuBAeHNlOBx6B4oWEb0qarBjkA0eKHJlxCG7fEcQLXzSKb2bWw+HSTNsaoZb4jGSUdIwHoGj
-	+O4Rjpig==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LAa1zHygYImSg3g7bPVdhgj3LXGjsfll+Hb4Jpkf0+w=; b=HWQuE3X1GVVejqVaQypCCIMrGk
+	L8uhr/As6dHzahRRz2oTDhACAzhxbzwcY5DiOQ4mMlv6eJ6QgURbs6FKMeCVWCfIFV7TWLsTY3dGM
+	c7CtwwkYXRgje7TUugiX6yIfzXoxuPcSdmUUoP+RPsEnmUC03YPpRgYU4T0oaeIRp0dDdbNQZiFb+
+	mHaYLHzUxLoNgScpCVDQolRkI+PDCp0EZrBewi2ZL0+sVTOjdClyR3eP2KK0LIdRJlOuAIuOOW3r2
+	IRqDVPE2fEL2+LDlKu507w8ubYMoIzI+nyQNIdJd4xf6cHvlGMNB5vW9dBoo2MNx8fEb+sgsPSrYO
+	94dc/vVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSswv-0000000DzIN-2wiC;
-	Tue, 09 Dec 2025 08:19:57 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1vSt4Y-0000000DznX-3rqN;
+	Tue, 09 Dec 2025 08:27:50 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSswr-0000000DzHy-1k8d
+	id 1vSt4W-0000000Dzn7-1QHY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 08:19:55 +0000
-Received: from dfae2b116770.home.arpa (unknown [124.16.138.129])
-	by APP-03 (Coremail) with SMTP id rQCowAC309qk2zdpTRcXAA--.1979S2;
-	Tue, 09 Dec 2025 16:19:48 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: ulf.hansson@linaro.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-pm@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>,
-	stable@vger.kernel.org
-Subject: [PATCH v2] pmdomain: imx: Fix reference count leak in imx_gpc_probe()
-Date: Tue,  9 Dec 2025 08:19:09 +0000
-Message-Id: <20251209081909.24982-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.34.1
+	Tue, 09 Dec 2025 08:27:49 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5B8NXuYW1501040;
+	Tue, 9 Dec 2025 08:27:41 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	LAa1zHygYImSg3g7bPVdhgj3LXGjsfll+Hb4Jpkf0+w=; b=P5glqkAIed2gs8CT
+	ZWgMSO5/9EVLqLGxIKtVEUoEW2jzTp8+q8lPBCdos8bWQ1r4Uh11sT2ulwuqJQqt
+	G8vlYEqAwa0hSpBYdRU795KS/qFZGDEFJlqtrU1imTOgOGjw3vlEHAW7qVzVt90O
+	6em3YG3HIKPBqe1YOAqX4YaIoJyRsJa0oBUZ7dlBOokDKd/8mlgTQJlCsMgzPW8q
+	opB1GjDFsRVHo6dwDlvpRZDGZJu+Pi6XmEWLM88ahTcCsHpls/MBtokHSYEu9yif
+	64nN/DHfu1iBNHjkLa8uv9PPCYC1qqzmd/XRp0A1f+21Ah8Q0m2T4gWQcnd80/Kq
+	rqsAqA==
+Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4ax57r9tqt-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 09 Dec 2025 08:27:40 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5B98ReRv011604
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 9 Dec 2025 08:27:40 GMT
+Received: from [10.206.103.106] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 9 Dec
+ 2025 00:27:33 -0800
+Message-ID: <66d4d882-7cb3-4c8b-ba5d-42d6d83b0b59@quicinc.com>
+Date: Tue, 9 Dec 2025 13:57:25 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowAC309qk2zdpTRcXAA--.1979S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Xr45Zr4xtr47XF48XrWUurg_yoW8JrW7pF
-	W7GFWYkrWxGF47Kayktr18ZFy5K347A3yakr4UKayIvrn5tFyxXry5Z34jkwsIyFy8Ga15
-	tr17KryrC3W29FJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBj14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
-	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Gr1j6F4UJwAm72CE4IkC6x0Yz7v_Jr
-	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
-	8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVW8ZwCF04k20xvY0x0EwI
-	xGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480
-	Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7
-	IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k2
-	6cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxV
-	AFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUyE__UUUUU=
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBwoLA2k3qEfCLAAAsa
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/3] arm64: dts: qcom: qcs8300: Add CCI definitions
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+        Vikram Sharma
+	<quic_vikramsa@quicinc.com>
+CC: <bryan.odonoghue@linaro.org>, <mchehab@kernel.org>, <robh@kernel.org>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <andersson@kernel.org>,
+        <konradybcio@kernel.org>, <hverkuil-cisco@xs4all.nl>,
+        <cros-qcom-dts-watchers@chromium.org>, <catalin.marinas@arm.com>,
+        <will@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <quic_svankada@quicinc.com>, <linux-media@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>,
+        Ravi Shankar <quic_rshankar@quicinc.com>,
+        Vishal Verma <quic_vishverm@quicinc.com>
+References: <DS0PR02MB11311CE33DFFE0739BE747590E3D8A@DS0PR02MB11311.namprd02.prod.outlook.com>
+ <d49920eb-0b4e-4042-b0c6-28d1ba348ddc@quicinc.com>
+ <3f1dbf91-f967-44dc-bb21-25fdcbbc8db2@quicinc.com>
+ <6e6ecdbf-f3cb-4d7e-a679-4640d6603ac8@oss.qualcomm.com>
+Content-Language: en-US
+From: Nihal Kumar Gupta <quic_nihalkum@quicinc.com>
+In-Reply-To: <6e6ecdbf-f3cb-4d7e-a679-4640d6603ac8@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Authority-Analysis: v=2.4 cv=OPQqHCaB c=1 sm=1 tr=0 ts=6937dd7d cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=w19UCUruwjfvYCW3GzQA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjA5MDA2MCBTYWx0ZWRfX9KCODUt/4GKK
+ ArkOCbL3iw1H/OVe3d+R8sapAenYPPVccb4RughYaJwwJtRm0aU4cwfwg4dAkQDbLx3oOkAFOeM
+ biWFOMdchFXZKOWy9s8o3cFkSur+Uqy4hGhHHlwMfkRIyz0OtKpnBrZnDbJRLznP8IUtRLf5UZl
+ wpuPN1JYogpRWbY+gQvbjGPan6FCUyQj0aZfyj8D3L+E4g8xiy4CrYdKbtdX8eg6eLRTVxWZEDE
+ s7aFEk1Cv/lJk/Bi2e2EX1yAriDlTEj0VODgqweh0BLbgAY4gWo3QEjM3wT2J0R/po5EavGfpE7
+ NjoM7Riw44iVb29xSPVXAXiTlXaHIUYAsl9P7X4AbH/9KX7G8FVeAR7t8jZHgw/wZ8lwwV806xr
+ VV1VZ9FxFWJk48gOenit3cpY0wKHmQ==
+X-Proofpoint-ORIG-GUID: bNqfKTiMPgtJiVUPlyScdNVr9cG8K71i
+X-Proofpoint-GUID: bNqfKTiMPgtJiVUPlyScdNVr9cG8K71i
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-09_01,2025-12-04_04,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 clxscore=1015 priorityscore=1501 adultscore=0 bulkscore=0
+ lowpriorityscore=0 spamscore=0 malwarescore=0 impostorscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512090060
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_001953_816670_C67BF546 
-X-CRM114-Status: GOOD (  11.39  )
+X-CRM114-CacheID: sfid-20251209_002748_385293_3F12A64A 
+X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,37 +123,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-of_get_child_by_name() returns a node pointer with refcount incremented,
-we should use the __free() attribute to manage the pgc_node reference.
-This ensures automatic of_node_put() cleanup when pgc_node goes out of
-scope, eliminating the need for explicit error handling paths and
-avoiding reference count leaks.
 
-Fixes: 721cabf6c660 ("soc: imx: move PGC handling to a new GPC driver")
-Cc: stable@vger.kernel.org
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 
----
-Change in V2:
-- Use __free() attribute instead of explicit of_node_put() calls
----
- drivers/pmdomain/imx/gpc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On 05-12-2025 17:28, Konrad Dybcio wrote:
+>> In monaco-evk.dts (Board level):
+>> &tlmm {
+>>     cam0_avdd_2v8_en_default: cam0-avdd-2v8-en-state {
+>>         pins = "gpio73";
+>>         function = "gpio";
+>>         drive-strength = <2>;
+>>         bias-disable;
+>>     };
+> That was my entire points, thanks
 
-diff --git a/drivers/pmdomain/imx/gpc.c b/drivers/pmdomain/imx/gpc.c
-index f18c7e6e75dd..89d5d68c055d 100644
---- a/drivers/pmdomain/imx/gpc.c
-+++ b/drivers/pmdomain/imx/gpc.c
-@@ -403,7 +403,7 @@ static int imx_gpc_old_dt_init(struct device *dev, struct regmap *regmap,
- static int imx_gpc_probe(struct platform_device *pdev)
- {
- 	const struct imx_gpc_dt_data *of_id_data = device_get_match_data(&pdev->dev);
--	struct device_node *pgc_node;
-+	struct device_node *pgc_node __free(pgc_node);
- 	struct regmap *regmap;
- 	void __iomem *base;
- 	int ret;
+ACK. I will proceed with the example snippet.
+
+As Vladimir suggested, the MCLK pad functions in this commit are unrelated to CCI, so I will split them into a separate commit.
+GPIOs for enabling regulators are board-specific and will be moved to the EVK .dts in another commit.
+Let me know if you see any ambiguity.
+
 -- 
-2.34.1
+Regards,
+Nihal Kumar Gupta
 
 
