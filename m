@@ -4,94 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6CD8D3B7ED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 06:53:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECA61D1CDC6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 06:54:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qpimlZdEDtuP7WR2mZA0+z1H7nFjtx/bFty3v8hsXUU=; b=Qcps85oEqaW8HykWVQmN9CFnlH
-	t1FiRIGZ9tj4lYx4SeelbYmeu8puCKe/0ihLC11iAWXshdjXjJuxVrHo0FczqMAozj1IruD+OJlrX
-	Azgt3+3T2fBkwULgI1+AOALvuCDebqIkSxWueB0OWVC6LlyGNvxvzp9EW5GDm6tq59hrJkx9pclfZ
-	Nc6mFlb4Zf27HfpJdyD0Omezo1CPFfWk7ObbBB43x+pasR5baxYiZPq06ftBSkwp4BRP+Tuaj9cMh
-	q7dd5hlSStZ3VtMTK8sJjhdcgQ8SXoVQ6ouC1/bFraQh3reDJVC7/4jf66uHVP/C/fC9L+/s0bMF+
-	a75/KImw==;
+	bh=LrpXhu7xOFIDAiCO1bWkupxvjMEzxIC/867vkdzs4XE=; b=XYZPlLDHg7NvAj8pEJcrphGSKs
+	X+5sTeTryRsLbjVCl2Z6OtGnp+HOUdB5OXFh+QfpNI4WC+R0VZa6yBxAOnFhI4ykmeIu4f5laJteG
+	2WPooHEaW4yz8/ezNfz/dmosNeDtCwGAXdO2vhWOopuPcmJuqJ9WWrgbprBt3M98HLqHeKibZBi7h
+	Th/wglE0vKbhZtTZXox8kByIO26aldwG90/tD25G9KrODX5C93r/npRdt0yPoRSq4fyxluaw3hNzQ
+	BZ7NfBTUeeQBOijcOG0uyEzt6G+tykEbS6LdHhsVb6CXZXf2CSZLEDzNMf2Ainmlh/RS0O8pLL1Xa
+	DdDonBAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSrbW-0000000DueU-0u5E;
-	Tue, 09 Dec 2025 06:53:46 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1vSrc9-0000000DukP-0yU0;
+	Tue, 09 Dec 2025 06:54:25 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSrbT-0000000Dudf-1wYc
+	id 1vSrc6-0000000Dujr-2pW5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 06:53:44 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-47796a837c7so46104305e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Dec 2025 22:53:42 -0800 (PST)
+	Tue, 09 Dec 2025 06:54:23 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-477a1c28778so66876835e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 08 Dec 2025 22:54:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765263221; x=1765868021; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1765263261; x=1765868061; darn=lists.infradead.org;
         h=content-disposition:mime-version:message-id:subject:cc:to:from:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=qpimlZdEDtuP7WR2mZA0+z1H7nFjtx/bFty3v8hsXUU=;
-        b=A3t8X2xwWFG2Ah40rYlB4M8GTk5Tt1DDi+RZVuPAPWEb44RRVVXbiNQqpBnNmH0Rz4
-         osAYU31xSHI6NhHzv9aUT4osLkYnZ0Hhn1GeWx0wynQTOxl9QhKV4gzjHcZusr4FscM3
-         tk+nclOz+prIOq6+qUWZXRzl/RNltexVJeuTb9lGFoHYr9xKTzJnelXQBoYYTmx7INO4
-         Z0h/osUaQMlG8DAgCocngBmdODf46rflSxpMMo4SQQhpmnFZichV/lmZr414sjjGGoSX
-         Uxy1lCOazWS5Qfv/NDv7XHGE6TRVp1LKRSrcG3F1L4kTf0/0AJTvy0gVv/gjqxMZSk4m
-         tYuw==
+        bh=LrpXhu7xOFIDAiCO1bWkupxvjMEzxIC/867vkdzs4XE=;
+        b=VQwF8m4E5c1pSryXYJR8wjSs20p1sh9/wtuAGHe8QkaxbiUpFlOC0EBvKNW4daZgqK
+         +vfqTRlGImcSL5ixXsKV+F1Zu2YRjYqk+hd2Q8BNHBGJbZ6yPf/NMr+mdyB56PCc4Plf
+         fGbbGxmECQBBjh3gFos/mlZB2UwYrJUYTJHtVsGis+t/a3DnKQXECj/cmt1pdVglGh8H
+         nn8GUOwtaTYSdOk5J9BOjVioYZ4i5hgVrpRf0c9TbsJEtX6zxVnNIOy8gXaUAzGsl4sE
+         5CaFTPnYBvvaEglKsw+7QP9w0mVlVSUhVPcFBXnFCupYh+kU0PBs2yKpKlq5bIhvMAoH
+         2sOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765263221; x=1765868021;
+        d=1e100.net; s=20230601; t=1765263261; x=1765868061;
         h=content-disposition:mime-version:message-id:subject:cc:to:from:date
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=qpimlZdEDtuP7WR2mZA0+z1H7nFjtx/bFty3v8hsXUU=;
-        b=LJy0DT9Gj3H85GOB5M8jqTioEkI+n/WXjjzkjrK9+SD5i1iDLEwX7+aDvZRkhaIpAu
-         cBjVnmYoSP/wZP9tFNaPr6744ZC4KCFCp14bSlzKok3eZXq+gw2sFDNStkDtsVvWHS9h
-         61c3Sp4/+wcsN7zbDxQSVPSe4szwehCzoXbfBXMfuHVNO4E095V8baZleZ4lRZQUZBnP
-         T2C7ChYoutz+sBV0LLZd/oATBiNfqU9fD4bIQKh632PKMFTv0gPHh+6cpwaJE6X6mqMt
-         /+WKx1LILYiuo9L85EcMCEQxtRwHkw6qR/Vzb+S6b1VzNuiibMiTYpYP6JkpG1Vxr4Kq
-         WMbw==
-X-Forwarded-Encrypted: i=1; AJvYcCXEq8XHRFqgYYyjeIp3T3hj6qcB08HisW8RY0bvk7mEoaFOurSJu0ndCtpHhX+rSB9YEDJdHRtykxUWI70njFsG@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3VXhL72kjJHFm6Ixz1W0QmoUVRI+0DyaDuOcXGYv79LYY2bB3
-	9zfyyLMAno+DT6wc985XyQIoOVRkHAuoqGztDXMYTzkCN12uRZUCJEqYv/BnR2RFSsA=
-X-Gm-Gg: ASbGncuZHeb6sw0FyQK7e2DDKauDYALhBL0p1GanPe5xom9vZMaWL/eK1E35DLqJXOI
-	JJsMpY0xGnDUeCSr4T0dUqAq+he4jaR3zWClUdGWKr/Qe5VORehkACd1QsGXJ3Y32NZlh2eGj9d
-	3zRsER/kzD7MZx/bxfuETz/VNWtzQGtu89f4fFsUWXYMRU6XIc+kEmH00gBBYrilqrrNQUyI/8V
-	EFZBeMUU7isfs28bf8cQMPNtzhPf5gdhAacx5ZZh7ta53AembXEdbBESjJHNrPc63cKmiDUBOUD
-	cAWuFVPfriOvO1CGWkLyJAWWcjX8RUqlOrecRoOa86X3IiBTCOcWWs9dEfXXwogZeeLiWpIq5ZR
-	rio9wIEAqE/H/8TzYO73hkBiIKnfHr1B6g7MhfAwckOE8Ja7nYM0Ds/HrD90amYbes1aGNn3qK7
-	Dsmj3yD2ASQynX7f/N
-X-Google-Smtp-Source: AGHT+IGaTnV6DUM6NZ8B996sUpARBrir70sGaGW5NyYdRK9/TvpgGM9K+ozidhKmYpB4+XkFZ3zK7g==
-X-Received: by 2002:a05:600c:1990:b0:477:73e9:dbe7 with SMTP id 5b1f17b1804b1-47939e4d013mr112666895e9.35.1765263220857;
-        Mon, 08 Dec 2025 22:53:40 -0800 (PST)
+        bh=LrpXhu7xOFIDAiCO1bWkupxvjMEzxIC/867vkdzs4XE=;
+        b=TsvAEVAuWeqiXsaqMaimmHr2C+XYBo/kD5DmtBxZYuwSLtPS110xqlUJ/x+h504eQu
+         fyvj7f1tuul9NRhOXddLT0/ddTppwelJzYPoNR6wj+IDizpCRkV+NDkWIyDcgZAMLKZ7
+         d9xzQF4LwE48cq0go2xlWoPxGAiqMjh7jT1Uw0/qNbo4wItcqD5pygBJnrFzyqNAr5gL
+         CRxfrMkEbyEHJEO7oHehCcSOTqa2Y/Wb2LQEE0aN1Y+YgnbrIWm2vIZaTe1l1XGgQmSa
+         WTPLoKtPIQEDL33dxj9dm0+oyeRNL1J05AoVIrzih6YsDPFzQevlc7eIIGs79RbiTiwV
+         xZRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUw0ezR5HAA25H3AiqO+HYn2m3bQHv8w0ZbkzZRem8P+oGTAGJ+ycH1vq/5n4lauvpjBoLVjWC9J+Wp5DkzNUxZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzum/kPwj/skmkwFw1g57lrDz9sYkmR7fqpu0nqeRwZOc1j9TpM
+	cluv4Ax74t/cCVnIoRT4ku7BG42+BkmnhxFpuz2MNc6zzLIRje5Qs1QKT9X3umbj94Y=
+X-Gm-Gg: ASbGncvzrw7hG04fLGS0MkCLzCvf+yGHwXkLild7/urUw9Zm7EcbmW+L/Wr2FUyR8vQ
+	2BSoigwCSJPMXAhg+zuwejpfapDJNiiHito6yzWT6WKDvdtKjjpj3kdG1MB++4v2Kq7g44vYdWc
+	vlWdJigNC12PHHVnggUnY+Lk2LEcp3J5cWyk4vqWD01gbf8APcAy6orL+EDfktEeWu4K3OgZBrr
+	wKridWybqVz756Pl26YAvG7eyd7Q2a8yp84zEjk8j5+epsjfcGDxFD1U49j3pSGwDcZvITh+MPV
+	tX7/eYCJhNbtMM8KCMdS82yZp3BBSRpklMtxSt0a3k5uJeKfDH5/+Sd+E17uz5uaGknkvPn8y4n
+	wDvwHlg1gO5G9fqYMN2R/ItdDdNfJpshDXakCjBmIE+yifZMtT3vDTYzENqO+1NWd+cobS9whKd
+	PD9xAT0YtYksrEvxCUYTocr3x7v4w=
+X-Google-Smtp-Source: AGHT+IFBOp5hL9jg9TvJQOI4BfDjItpdTFn6DjQubuLwhWGI1xvay3ngK24RTkv5+aMtVyoGM7FLpw==
+X-Received: by 2002:a05:600c:a00f:b0:471:14b1:da13 with SMTP id 5b1f17b1804b1-47939dfdfe8mr111271245e9.14.1765263260606;
+        Mon, 08 Dec 2025 22:54:20 -0800 (PST)
 Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47a7d35713asm11916255e9.1.2025.12.08.22.53.39
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47a7d6969d3sm23265865e9.12.2025.12.08.22.54.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 08 Dec 2025 22:53:40 -0800 (PST)
-Date: Tue, 9 Dec 2025 09:53:36 +0300
+        Mon, 08 Dec 2025 22:54:20 -0800 (PST)
+Date: Tue, 9 Dec 2025 09:54:16 +0300
 From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Amelie Delaunay <amelie.delaunay@st.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Johan Hovold <johan+linaro@kernel.org>,
-	Fengguang Wu <fengguang.wu@intel.com>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	linux-phy@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	kernel-janitors@vger.kernel.org
-Subject: [PATCH] phy: stm32-usphyc: Fix off by one in probe()
-Message-ID: <aTfHcMJK1wFVnvEe@stanley.mountain>
+Subject: [PATCH] irqchip/mchp-eic: Fix error code in mchp_eic_domain_alloc()
+Message-ID: <aTfHmOz6IBpTIPU5@stanley.mountain>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 X-Mailer: git-send-email haha only kidding
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_225343_526859_640F7C40 
-X-CRM114-Status: GOOD (  15.20  )
+X-CRM114-CacheID: sfid-20251208_225422_715523_D280A049 
+X-CRM114-Status: GOOD (  14.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,31 +98,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "index" variable is used as an index into the usbphyc->phys[] array
-which has usbphyc->nphys elements.  So if it is equal to usbphyc->nphys
-then it is one element out of bounds.  The "index" comes from the
-device tree so it's data that we trust and it's unlikely to be wrong,
-however it's obviously still worth fixing the bug.  Change the > to >=.
+If the irq_domain_translate_twocell() function sets "hwirq" to >=
+MCHP_EIC_NIRQ (2) then it would result in an out of bounds access.
+The code here checks for invalid values, but doesn't set the error
+code.  Return -EINVAL in that case, instead of returning success.
 
-Fixes: 94c358da3a05 ("phy: stm32: add support for STM32 USB PHY Controller (USBPHYC)")
+Fixes: 00fa3461c86d ("irqchip/mchp-eic: Add support for the Microchip EIC")
 Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 ---
- drivers/phy/st/phy-stm32-usbphyc.c | 2 +-
+ drivers/irqchip/irq-mchp-eic.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/phy/st/phy-stm32-usbphyc.c b/drivers/phy/st/phy-stm32-usbphyc.c
-index 27fe92f73f33..b44afbff8616 100644
---- a/drivers/phy/st/phy-stm32-usbphyc.c
-+++ b/drivers/phy/st/phy-stm32-usbphyc.c
-@@ -712,7 +712,7 @@ static int stm32_usbphyc_probe(struct platform_device *pdev)
- 		}
+diff --git a/drivers/irqchip/irq-mchp-eic.c b/drivers/irqchip/irq-mchp-eic.c
+index 2474fa467a05..31093a8ab67c 100644
+--- a/drivers/irqchip/irq-mchp-eic.c
++++ b/drivers/irqchip/irq-mchp-eic.c
+@@ -170,7 +170,7 @@ static int mchp_eic_domain_alloc(struct irq_domain *domain, unsigned int virq,
  
- 		ret = of_property_read_u32(child, "reg", &index);
--		if (ret || index > usbphyc->nphys) {
-+		if (ret || index >= usbphyc->nphys) {
- 			dev_err(&phy->dev, "invalid reg property: %d\n", ret);
- 			if (!ret)
- 				ret = -EINVAL;
+ 	ret = irq_domain_translate_twocell(domain, fwspec, &hwirq, &type);
+ 	if (ret || hwirq >= MCHP_EIC_NIRQ)
+-		return ret;
++		return ret ?: -EINVAL;
+ 
+ 	switch (type) {
+ 	case IRQ_TYPE_EDGE_RISING:
 -- 
 2.51.0
 
