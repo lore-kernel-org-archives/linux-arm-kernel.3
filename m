@@ -4,68 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 317D5D3B7ED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 05:37:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74CCBD3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 05:49:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LHR5uFaet0kiKDYegc7WV/wN51VwfGAIsXdSkMQiUJU=; b=UQw+CM/mep2dGAdacsuTOxqHOd
-	nQcqpfQ+vZIvq31zCXLLxAMt0rTTnviA+Ab4zX7dYCh6KM8S8co36A/iBTZR+lvO6JRRyUDpIE9RK
-	WyFsqQocmsK7bvzp/gE02tgSKiEHQ1vgu83Avh/Lwl+pM9VKupKUHEAJ2u3uPLOSPaYMCD8jvGXVS
-	q3xhZbHxdgri2oJosY7ZqpgQq8eq0czbBtUB5x3UDpL4GUekUOVdsvEepc1VPZElAMrneIilsDroj
-	Fj2ozi3N6ZhrDSUKFf8li1XG/K7XCKLRbZ+B4RHII2aoxWWZkCUAAt53A444ZMgaEg4SCw0bxXRE5
-	RB0hUjBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vxhzWYhMZ2zDvldAPYU2wxWc1QPEP6Epr1IjS+1v4Wk=; b=JqanLPj/OOIZAoNMU4XIgAf/kr
+	mHYgYuM2SWf94uY17j45ec5BQZeTl3fXDpNu5reNJkHqiuEwa5maeS4j4g4+okrhyH94ZZMMfi/K8
+	V51AsUHDL5f6GTvC0XXsCBW6Wd98PICAXd4574rv/9MfaSAFRw1ZEtvxqcX5kXoX/9k7WYYhz3iGu
+	w1f8q9LrdYdnsuhDGTSgpw7ysMFe7tvCp5pOealeHxP3iqoOwGTicV8az33LjQHs9D1hwExE2ZmQ2
+	QJFFKvwT21wN7nfwYnUKm+8ph8pPZv7lIlO/E6f7RBNNSMaQzBXfHuJfHK9G6HbNOZzQyIUpeSIGr
+	ZMDhHpqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSqPF-0000000Dqsk-1mXk;
-	Tue, 09 Dec 2025 05:37:01 +0000
+	id 1vSqat-0000000DrKV-48ef;
+	Tue, 09 Dec 2025 05:49:04 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSqP4-0000000DqrB-3OI0;
-	Tue, 09 Dec 2025 05:37:00 +0000
+	id 1vSqaq-0000000DrK2-2HrJ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Dec 2025 05:49:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3529C41708;
-	Tue,  9 Dec 2025 05:36:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57C90C4CEF5;
-	Tue,  9 Dec 2025 05:36:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E253B40DDC;
+	Tue,  9 Dec 2025 05:48:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82864C4CEF5;
+	Tue,  9 Dec 2025 05:48:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765258608;
-	bh=2RDv4DcIrTBucTjjuk5VLFq9dvjMqEKn4KbLFw9RQ3g=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZMXVtuAFLOJ+SsbKDzzcbohGJRut2sSqU8ai3zrpchO1F1eqwyfiGhM4gT3woR3pF
-	 pY/JWYmW2Lp3nwtWVfRRWEHwmWdgigBYR5Qf2JlboV0XoYYGhhND6Jh5VcVmxd9l64
-	 GwT/zblmSesZFEuW/hJnJp5lcq4bPlCkrxYnfESxh79OKibdZAC5vhtkH2bvu58Ld9
-	 /SCiT6/MIV82mKEecnhrFdjGymKKcqyebul7ZTgauQivImDCLEH+SltzFhEctzUaLy
-	 21/TzgPVsX9H6i9+vq8AQ3PrcV7jskjZ+nsVRprhD/mYCoQKZ/YEVKfj0BNdVmMwFB
-	 CejkKw80MROSg==
-Date: Tue, 9 Dec 2025 14:36:44 +0900
-From: Niklas Cassel <cassel@kernel.org>
-To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Cc: Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>, FUKAUMI Naoki <naoki@radxa.com>,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v2] PCI: dwc: Make Link Up IRQ logic handle already
- powered on PCIe switches
-Message-ID: <aTe1bA7lcVzFD5L7@dhcp-10-89-81-223>
-References: <20251201063634.4115762-2-cassel@kernel.org>
- <f1059d5d-3fa5-423a-8093-0e99b65d5f4c@oss.qualcomm.com>
- <aTev28wihes6iJqs@dhcp-10-89-81-223>
- <dad4957c-ca13-4742-b46d-03f0478911d5@oss.qualcomm.com>
+	s=k20201202; t=1765259338;
+	bh=EnPxXewT0JYL81DgO6QFNp08Dq76MYHJMEyIx30LmfE=;
+	h=From:To:Cc:Subject:Date:From;
+	b=rG0hfk57E0nf/ER61dqgCBdyU695Bufz0ivIecyIZBckFwTioW3qw49jFWUI47YFZ
+	 mKH1l2Vu4NElb/D5JVzEjPAERMQdX2WVAZDOw0HKfvlxtBHe0zfcDIFKAtqizWNNh4
+	 fpQqiJR+bDS9iDrDdk7N5jDYPSt+Uqcj2eyMpkJ40R9U+GLlt0G0XrrHw8S3pMyPFb
+	 ZyvQI3aku2KeutoMHFe414NTI3yC7CsBOAz1KU8Ioa9LhNKfatjNm69InLJbEXINVW
+	 g2+ya2mv1RTLcqsDnZW6j6H84Ki/o2nyMkMCCxXuKUlM7IDKR7iV24dv0xpD1x+fco
+	 +tXwNOjSA7/4Q==
+From: Ard Biesheuvel <ardb@kernel.org>
+To: linux-arm-kernel@lists.infradead.org
+Cc: linux-crypto@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Kees Cook <keescook@chromium.org>,
+	Eric Biggers <ebiggers@kernel.org>
+Subject: [PATCH v2] arm64/simd: Avoid pointless clearing of FP/SIMD buffer
+Date: Tue,  9 Dec 2025 06:48:49 +0100
+Message-ID: <20251209054848.998878-2-ardb@kernel.org>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <dad4957c-ca13-4742-b46d-03f0478911d5@oss.qualcomm.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2051; i=ardb@kernel.org; h=from:subject; bh=EnPxXewT0JYL81DgO6QFNp08Dq76MYHJMEyIx30LmfE=; b=owGbwMvMwCVmkMcZplerG8N4Wi2JIdN8h/M0vcfvp115H//M+f+5X+Y77E+aX1joe8n29LWOh /kCd9P/d5SyMIhxMciKKbIIzP77bufpiVK1zrNkYeawMoEMYeDiFICb3MDwv6bhTLPa++1ZMm/5 ri2eyH5yw9e2e4Y+FetL69Uj7PwE1zL8M94cZPI4zEl1g/ZpjtO2X+u9/6658+rL5dIlNou3PVg QxgIA
+X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_213650_881700_0E30F299 
-X-CRM114-Status: GOOD (  13.92  )
+X-CRM114-CacheID: sfid-20251208_214900_607247_E9E686F1 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,25 +75,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 09, 2025 at 10:57:18AM +0530, Krishna Chaitanya Chundru wrote:
-> On 12/9/2025 10:42 AM, Niklas Cassel wrote:
-> > 
-> > So I don't really understand your concern with this series, at least not if
-> > it goes on top of your series:
-> > https://lore.kernel.org/linux-pci/20251124-pci-pwrctrl-rework-v1-0-78a72627683d@oss.qualcomm.com/
-> Hi Niklas,
-> 
-> If this series goes on top of the our series i.e pwrctrl rework series, I
-> don't have any concerns.
-> My only concern is link up IRQ never fires if this patch goes before series.
-> 
-> - Krishna Chaitanya.
+The buffer provided to kernel_neon_begin() is only used if the task is
+scheduled out while the FP/SIMD is in use by the kernel, or when such a
+section is interrupted by a softirq that also uses the FP/SIMD.
 
-This patch missed the v6.19 merge window (and so did the pwrctrl rework
-series), so as long as Mani queues up both for v6.20 (with the pwrctrl
-rework series getting applied first), I think we are good.
+IOW, this happens rarely, and even if it happened often, there is still
+no reason for this buffer to be cleared beforehand, which happens
+unconditionally, due to the use of a compound literal expression.
 
+So define that buffer variable explicitly, and mark it as
+__uninitialized so that it will not get cleared, even when
+-ftrivial-auto-var-init is in effect.
 
-Kind regards,
-Niklas
+This requires some preprocessor gymnastics, due to the fact that the
+variable must be defined throughout the entire guarded scope, and the
+expression
+
+  ({ struct user_fpsimd_state __uninitialized st; &st; })
+
+is problematic in that regard, even though the compilers seem to
+permit it. So instead, repeat for 'for ()' trick that is also used in
+the implementation of the guarded scope helpers.
+
+Cc: Will Deacon <will@kernel.org>,
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+Cc: Kees Cook <keescook@chromium.org>
+Cc: Eric Biggers <ebiggers@kernel.org>
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+---
+ arch/arm64/include/asm/simd.h | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/include/asm/simd.h b/arch/arm64/include/asm/simd.h
+index 0941f6f58a14..69ecbd69ca8c 100644
+--- a/arch/arm64/include/asm/simd.h
++++ b/arch/arm64/include/asm/simd.h
+@@ -48,6 +48,13 @@ DEFINE_LOCK_GUARD_1(ksimd,
+ 		    kernel_neon_begin(_T->lock),
+ 		    kernel_neon_end(_T->lock))
+ 
+-#define scoped_ksimd()	scoped_guard(ksimd, &(struct user_fpsimd_state){})
++#define __scoped_ksimd(_label)					\
++	for (struct user_fpsimd_state __uninitialized __st;	\
++	     true; ({ goto _label; }))				\
++		if (0) {					\
++_label:			break;					\
++		} else scoped_guard(ksimd, &__st)
++
++#define scoped_ksimd()	__scoped_ksimd(__UNIQUE_ID(label))
+ 
+ #endif
+
+base-commit: 3f9f0252130e7dd60d41be0802bf58f6471c691d
+-- 
+2.47.3
+
 
