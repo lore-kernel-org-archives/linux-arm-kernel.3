@@ -4,65 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D052AD1CDC6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 13:59:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9806ED3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 14:02:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LQmpsyV7MwYPwrR4/jVrvmxUvMdM80/ekJyUWAZ5Vvk=; b=Ye2SfAOS064UZcPH/1zja/Dfmn
-	wt45VBjiwfcUAJO12Bhx49ROH+smDYZhYl/6Zuica7v2ki+tGfJ69fMvgvVvKvBqR2FnfZ668S9WK
-	crMTs5HDCWAFiHSPxB94hMmw+1uIACCjq/4/vz/y+kUXIKpk+gvU3aHqSPkuqXaNbHKvbDg4Rv4EO
-	wkL317KefgwnkB0Ip5Ejrl/wr/90PYydR2bt8eSUhRXJMWyLlZTpDQypFJ5bWElqKd/0xikS9GEjV
-	+tA+VcMSe0WSOCPlZ2xfK4dVdYn+iNTN56H6gB/jORBIg+YEGai/0QjMiK5fGMY8VpEtBZje+A1k9
-	LTAqJz4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=L+beOob4ganCiHyxhbAtVtcHPd3DfFZn82OPDxW7YBU=; b=0SsAiAS1ZbVEgVaKRJT2oJmtHJ
+	S8c4tsE61EsNEnLsY0cxU/vq0kTAgi7RHMtnCfHD87KDslpOghM/JrMecWnI3PR+syeYiTAY6a7NU
+	kXa3S5TJC0zA4hoKm0BC01NP6JDIPfEWDNihMW/u9O0Z6S9peckB3UnrIa6opgEEcZPTqPBepP2nx
+	3sBsDjuPjqyaDPGeiwQSJLR1CqVT8pW7gacz5jNoy+9KGR5RQzG8fv0Ljt1J4NKsTjvexSsMdYkfo
+	Qv5Jid0cJ/DPbyCR1TP/hqpVLE5NKHUfl0c0ceuIQcBW68wBsSjhx6kH1AFdRsR0jJ8So2TsYZWcn
+	+s7+0tBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSyFG-0000000EMRx-3Apd;
-	Tue, 09 Dec 2025 13:59:14 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSyFD-0000000EMRJ-3RIa
+	id 1vSyIJ-0000000EMj6-1Pby;
+	Tue, 09 Dec 2025 14:02:23 +0000
+Received: from mail-northeuropeazon11012016.outbound.protection.outlook.com ([52.101.66.16] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vSyIH-0000000EMiX-48Nf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 13:59:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C0DF2175D;
-	Tue,  9 Dec 2025 05:59:02 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9B1623F740;
-	Tue,  9 Dec 2025 05:59:09 -0800 (PST)
-Date: Tue, 9 Dec 2025 13:59:07 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Mike Leach <mike.leach@linaro.org>
-Cc: Yingchao Deng <yingchao.deng@oss.qualcomm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	quic_yingdeng@quicinc.com, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org,
-	Jinlong Mao <jinlong.mao@oss.qualcomm.com>,
-	Mao Jinlong <quic_jinlmao@quicinc.com>
-Subject: Re: [PATCH v6 2/2] coresight: cti: Add Qualcomm extended CTI support
-Message-ID: <20251209135907.GU724103@e132581.arm.com>
-References: <20251202-extended_cti-v6-0-ab68bb15c4f5@oss.qualcomm.com>
- <20251202-extended_cti-v6-2-ab68bb15c4f5@oss.qualcomm.com>
- <20251203182944.GG724103@e132581.arm.com>
- <CAJ9a7VjWDBEwdmMf53geACBWGusC8BC3pJuOLETeecw24+N35Q@mail.gmail.com>
- <20251204103151.GK724103@e132581.arm.com>
- <CAJ9a7VjHHkkTz9XJqjdQ+11_XX9zXuY0ZcQzPtq=Zvi4CN__0A@mail.gmail.com>
- <20251205100432.GO724103@e132581.arm.com>
- <CAJ9a7Vg9Efi-5eecfiUF82_Qq8Jg9imN5q1-VKYZoPVUxNpjhA@mail.gmail.com>
+	Tue, 09 Dec 2025 14:02:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yUBhdigYT3yWkfIte2ziR0f0D1AnqOaf8OUSAz3nG0xU2/pZcH5QRPPzJCgg4oDOJqRmsECWPKDdDTvGsdqMhjbb41WyUAqD3/blPlNWoLbCejMoyr/dEQWJDPzRTTe0SBzByJ8SdaBTcbK2dMd+SayOOrcU68VAGwBcGYckRX8FQpIM4uVdHrxqC2swLBGXd6pY3LHBiQnww8oggpkiy2R3rlh7DsFWMaD9AQx4tbkbNRSEgiHuqOR1kOpVCr8vQmN03xt7t2hsGMD0CI9yzQp6KYtdmR0G5GJGCYOIllasm5kaOYNF71xA/o4nSc5SPLlEyywsUEJmUSXqNl7g4w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=L+beOob4ganCiHyxhbAtVtcHPd3DfFZn82OPDxW7YBU=;
+ b=XduBGHrZS3hqe4Ew64bBW11s3+EGUwkY0SqOMwac/dY5IRH8U6AhEmX9bcutD53PeVUq5GgPitAKajVELmT/Py9jAoYqP5eEvOxj7uVkKih6SeWsECM/u+EksyP5/ksPwikn6+WRMwzCnI+kDnLC9VrOWcYRfj8+oh9VIodNoUX6iDGU/+kf+3r2k3o1wJSHjv1IMI+SA9nwFDynk8HdwvmCsL1EjsbsV+KRebCwomGZt2NqMAY5vDQKCYL4a9n9NtZgVDF1WSaTLg4a8jeombF5sg7K4VlQCXRTMPVXlOgzlDGM9efhwSe9Hnss01NqwnjdIAfDZ4ku30kEfX7/cA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=L+beOob4ganCiHyxhbAtVtcHPd3DfFZn82OPDxW7YBU=;
+ b=KW23XrEW8dTc0rWAXSJepKRBIfCvVcc9g/vgI7OjKwk9KGiWIsyjz40PDopMnQYoHIxZhrBAmXEzK096/UNXxh3j+wnuVWWKvDTGtBly9lyii85d1nGmPAezZlC+CfvdH1kmkJpfXHfO8E7uP6muZoQUvuJLzD3u1B2c6Sm7X76iey7aH1l8Q9T582hWlTEoOQnCXkWi69Os/FJAlotPbqaHaMa0/FfB4/mKtThyzowyTpHX1qnhidU+1ZTdcwnFDwbvNfR7dOXLaA4VHM2GTNMO/IAjGH9mqSlq8XNCtBIkMfyz6IOVZXuY9S7esiaHhaJASgzU38XLfj73EjQbAA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8247.eurprd04.prod.outlook.com (2603:10a6:20b:3f2::13)
+ by GV2PR04MB11093.eurprd04.prod.outlook.com (2603:10a6:150:278::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.14; Tue, 9 Dec
+ 2025 14:02:13 +0000
+Received: from AS8PR04MB8247.eurprd04.prod.outlook.com
+ ([fe80::e99:f504:ce75:9bed]) by AS8PR04MB8247.eurprd04.prod.outlook.com
+ ([fe80::e99:f504:ce75:9bed%6]) with mapi id 15.20.9388.013; Tue, 9 Dec 2025
+ 14:02:13 +0000
+From: Daniel Baluta <daniel.baluta@nxp.com>
+To: andersson@kernel.org,
+	mathieu.poirier@linaro.org
+Cc: m.szyprowski@samsung.com,
+	shawnguo@kernel.org,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	arnaud.pouliquen@foss.st.com,
+	robh@kernel.org,
+	geert+renesas@glider.be,
+	linux-remoteproc@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Daniel Baluta <daniel.baluta@nxp.com>
+Subject: [RFC PATCH] remoteproc: imx_dsp_rproc: Fix multiple start/stop commands
+Date: Tue,  9 Dec 2025 16:04:25 +0200
+Message-ID: <20251209140425.766742-1-daniel.baluta@nxp.com>
+X-Mailer: git-send-email 2.45.2
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: AS4P192CA0032.EURP192.PROD.OUTLOOK.COM
+ (2603:10a6:20b:658::15) To AS8PR04MB8247.eurprd04.prod.outlook.com
+ (2603:10a6:20b:3f2::13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAJ9a7Vg9Efi-5eecfiUF82_Qq8Jg9imN5q1-VKYZoPVUxNpjhA@mail.gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8247:EE_|GV2PR04MB11093:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7c625939-fb33-4fcb-5ad4-08de372b8d80
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|376014|52116014|7416014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?F2Dqvo/8KiIFzpNPveNK6NZlma/c6J2gjsmeeRJ6dXHlvNVXYDlYSZXKptfS?=
+ =?us-ascii?Q?cJfj6TQTP4UmpWXUSXspWHjxzqMPLeekLUf6DbOUk+CdepJJ5QmWuppcKyu2?=
+ =?us-ascii?Q?KhUIMlIeykvFxC/IN/Q6RBEaei2f6LSyH2zf4xSnVv+onaQgvu36Zgv5yJ7e?=
+ =?us-ascii?Q?tQecx9F51WZsEzIdDSqdPC4RlJKEXYePWD9uuXWFBU0M+k+B+c5v5MXnHK2l?=
+ =?us-ascii?Q?M0rkMGUX7fhYi6SK+7ldOOQkZkextYPpsHJWzUWN7/DbJV117dyYu2KPuGWb?=
+ =?us-ascii?Q?5EtXg/M3kl47R9ZTxQRY/KpBb80HGm0WDpIggDAGUsC4ZIwb3G+SoEIPRZFY?=
+ =?us-ascii?Q?2dt//XIM+SgBiKn2TlcHT/s9cI7e2T7egb2nKhNE7UUPYldCY2J5b5GY6M6t?=
+ =?us-ascii?Q?9NPK8D1OX1D7X+6eSSmRgrBT3W4H6vI/JCtfNe97F7+caJVhTPtOL3Nognye?=
+ =?us-ascii?Q?Hxz8fAVLVTPNMxKU77Pn0i4vnmAsrYG3eEVklwKV5/z9KjxJYcohpLCc8xjk?=
+ =?us-ascii?Q?RXOZAHVUJIsBy9F/umO9JAOoykGnKNDNfi+z+/SSvLM3iTXrCfinXIUVcU1o?=
+ =?us-ascii?Q?dLm0rWlGnXqgr7sck4U328lLClf2RY3vn2rX9ODwNi7LfUFEHvFpTslp1Xji?=
+ =?us-ascii?Q?hBSDiEK53TXk1Oe+VB4buIqgqlNO0MjJWxNbbr5NaJZzDrlHcfPUZDxA+TTN?=
+ =?us-ascii?Q?w6tTPW2/zISDiJ5v4pxpQAweF6JgVObcLQYYGFAECKSCEqlEINDrTU8eWZk/?=
+ =?us-ascii?Q?xcYIBtNmszGm0uxROLymADKo/fy767WeznUdH1PpbQSpxIpzUzGJ0YJY2jBj?=
+ =?us-ascii?Q?aoTHhDSonsmaTC1f9GZm/ULfrjxnk8DT2DoaVfgmtfwJIb19wLiTfnHlemay?=
+ =?us-ascii?Q?qeoEn6LWgE9fJ9DorCnlofU17vCZKeuXyDz3O3yr9fB0Az323FBPNUROQ6kX?=
+ =?us-ascii?Q?FZUGziwtw1/RiaVthevLgvYiH0rFn/yseGfx1kaf5R2o2Gt8bhASNURjdu7U?=
+ =?us-ascii?Q?XWPxBXRz/dZtYII+1HESPOg3UBKXJ6mTVtZ+iifLzm6jWfbPQ9BkJnvonvl8?=
+ =?us-ascii?Q?vQOkQi3SIV3ptmXS9Cb2cOxE2bBVuBlmIB1Mn3yTUVWILK6daREzBLUfkHEO?=
+ =?us-ascii?Q?b/dCq4ukFV6MFtIxdlWuZEWhYZiHRjS6/PokZTHIx6Wm9yAUUSoQ1lAFKa46?=
+ =?us-ascii?Q?H1g3J2iC0z8SxhH8DIhrII6bjc5nv3pKEWePkqWviBmRTACzutQzM9Oks4v4?=
+ =?us-ascii?Q?dc1ANp/A0OrcoWpeKjVjD93L5iJn84dfiU9n6uVu7mBSEUme0sGFGK8tHKlR?=
+ =?us-ascii?Q?Fkpj8B9Uh+enI6s4xa5uJjDYxKsb5gcKFY6oCMs2TMAJIy2HR+mlv6lu8Pi7?=
+ =?us-ascii?Q?xkh8IvxzwJCRsl3BkUn6MP6eJtpjjcdL3HZKcrE2UUu15F737kYUuC9YNGmL?=
+ =?us-ascii?Q?cDuDVI4mgqle7iPQlKX329AN2KhMW2Txj4mEHLZH4kA1ws/U/Hcxg2eNm7UA?=
+ =?us-ascii?Q?3CchglvPRSLbS6BcThMB+rs8sfIDROzRlTLG?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8247.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(376014)(52116014)(7416014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?B1S3If/P/lLQuJa6Iz0tJvbYkJa3xt1XtJQvKq2MpbohKVmKhE0H4BZXXKTg?=
+ =?us-ascii?Q?VZP9Xkz8Nc5RVMH+4Ewwb8HIPjkFalsveWiwdlyYK4ZkDdqhtufptnO8dlJX?=
+ =?us-ascii?Q?ga54lHiBrGtEng/GyiFJZLtNU4CBXug60MDq4IuIl8uAZv6ennzy681qH2+k?=
+ =?us-ascii?Q?9+G6RnMm57T+Nl1uan+v0rjfTyqyb2lZtOoXllc3vHE8+PcrYDy0xnMK20Vj?=
+ =?us-ascii?Q?liZt7JeeoyaWiJvaTApJQKkCaW8/5niEZWu1WwEQqkel3u+p1GYtqdCgnOkR?=
+ =?us-ascii?Q?pG63ROqtKEJA+AZv2AjIGCvT52IiDA9F1hrGu10fzW6SxB+gEKx7tQcOTF5N?=
+ =?us-ascii?Q?gEuFAI2zRgENx3YU+6XiAS/O6f/PtMVtliMIglkOW1URWHTISctTrA8tXYr9?=
+ =?us-ascii?Q?+t5IaPzONnRsVPdd5xAU/tMGcHX2pGAvT2Pq52cIvEmJ4VU6SVCYhRsHFHaV?=
+ =?us-ascii?Q?S86e8H9nzEiF6k8DRC140XGemYmzZSoFMRSF3rf/sRygibuYkhvt8Er5YFk0?=
+ =?us-ascii?Q?46fVG4NIoOL/lh8JrbuaVVOP0M2kivN1YFg8hVSBZMsN/sEN5IFYctP241Mx?=
+ =?us-ascii?Q?zuREFsSFdi/eiGUKVeAYd58xbcibEhCLumvJxh01f+5UMSNYpZHukA3qmLGS?=
+ =?us-ascii?Q?4Od4qdRC8LkiAXEpOhov+1StoTXrfSv8l50qUcrVMdD8WmX0JG8TZwBoG3KS?=
+ =?us-ascii?Q?BzovNayMUTK9soz9Z3HMiv+N86jVvaIrl3uRhXwwL73qLKZ+EnIri+iMPqpS?=
+ =?us-ascii?Q?QK16x2caN2g9GMLAwdCMPW9Fv6B7dAcK/6ngIYjf5fxlWynvoqbl5Byy11fH?=
+ =?us-ascii?Q?G2chbYlnT/cgrQaQ290yIshIBg8aU931tKz8MoB+fyR0rkCAa7bozE+oiTBk?=
+ =?us-ascii?Q?vXz3x37MplSYsliN9dV4/k3ZbnDt9BwWrX8qAOpTUvEm1ZA1AR52SKvrdt3g?=
+ =?us-ascii?Q?jhj/YDyZ4SRehjoFzCNJtnKsnXVOjmOR6HUXcyOK5/CO7kvNscGlJNsBfeUi?=
+ =?us-ascii?Q?4Joe84NOIcB4v8zoWyA6/PtqnhFJc6qyxankkL6y6QoFhjReNr/D450GpK81?=
+ =?us-ascii?Q?GTkHTSypEjOVLJCWDNaM6KOat10dp1WUh7AhY943BqPWg/diBwm1WEzxKn5E?=
+ =?us-ascii?Q?vwRk4fPxi3MfoQaBNwCf/4wOd9zS6H6YxEGtQ5+Grq4U+IfkJBFcJj9h6hNS?=
+ =?us-ascii?Q?PVNl4pvLawT5qNORG9BASIMZLwDYNfG+zUi8s6FVd2ny2iYg2vZ3DMSbdaXs?=
+ =?us-ascii?Q?VgYo+UY9vc8sY/kA00aF4vy+T2mv3HMwk5uyKGhjIOTVhbOP6qQ7amGKglAi?=
+ =?us-ascii?Q?u6/w3LcGPbO2vUM8Yxm7VmkGwJhshDGNczApsiv3NP4TQIzcICw1EGwfaZ5j?=
+ =?us-ascii?Q?1xQOi/8+p14yuLRrXfPspwE3h1A93T0Z0myzb6sT+h+aHzy5RBJe3ZV9i2Z7?=
+ =?us-ascii?Q?yE5N4PF7ysyJgK8JvBbwbSK11ELopPVQGLUrsX49qzBzVJB2FWPidHHNL9HD?=
+ =?us-ascii?Q?jTUbp8Tlz4wuOLqOimlbzQJix93jxk1nkY+1cSIROteZtpKS2t6NYiGF+Mm2?=
+ =?us-ascii?Q?qBt8xQfxlI9HNldpT4j/rmNXcRVgZAMWbtSZZ6Uf?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7c625939-fb33-4fcb-5ad4-08de372b8d80
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8247.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Dec 2025 14:02:13.2890
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: x4Wcv7K7JompWah23rksSJmkixmCk/VjVysUUVj6jlEmd288ydts6q4JMQ0K9otBvuPF97wNZAkGGfBJAige6A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB11093
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_055911_892844_69831AD0 
-X-CRM114-Status: GOOD (  18.92  )
+X-CRM114-CacheID: sfid-20251209_060222_027958_DB8E54CD 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,57 +166,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mike,
+After commit 67a7bc7f0358 ("remoteproc: Use of reserved_mem_region_*
+functions for "memory-region"") following commands with
+imx-dsp-rproc started to fail:
 
-On Mon, Dec 08, 2025 at 02:47:21PM +0000, Mike Leach wrote:
+$ echo zephyr.elf > /sys/class/remoteproc/remoteproc0/firmware
+$ echo start > /sys/class/remoteproc/remoteproc0/state
+$ echo stop > /sys/class/remoteproc/remoteproc0/state
+$ echo start > /sys/class/remoteproc/remoteproc0/state #! This fails
+-sh: echo: write error: Device or resource busy
 
-[...]
+This happens because aforementioned commit replaced devm_ioremap_wc with
+devm_ioremap_resource_wc which will "reserve" the memory region with the
+first start and then will fail at the second start if the memory
+region is already reserved.
 
-> > I tested locally and did not see the GCC complaint for this approach.
-> > And this is a global structure with about 16KiB (~4K items x
-> 
-> Which is precisely the issue - why use 16k bytes of space when a pair
-> of indexed tables will use 21 x 32bit locations per table -> 168 bytes
-> - 100x smaller!
-> 
-> This space matters little to high end server systems but is much more
-> important in smaller embedded systems.
+So prefer using devm_ioremap_wc as there is no easy way to undo
+devm_iormep_resource_wc manually.
 
-For the concern of performance and footprint, my approach can
-avoid any conversion for standard registers, we end up need to
-convert registers for non-standard registers anyway.
+Fixes: 67a7bc7f0358 ("remoteproc: Use of_reserved_mem_region_* functions for "memory-region"")
+Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
+---
+ drivers/remoteproc/imx_dsp_rproc.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-I understand your concern for using an array for conversion, this is
-cost 16KiB memory but this can benefit a bit performance.  It is a
-trade-off between memory and speed.  As said, we can use a static
-function for register conversion, the side effect is this might cause
-more time.
+diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
+index 5130a35214c9..79d5c15319f3 100644
+--- a/drivers/remoteproc/imx_dsp_rproc.c
++++ b/drivers/remoteproc/imx_dsp_rproc.c
+@@ -709,10 +709,10 @@ static int imx_dsp_rproc_add_carveout(struct imx_dsp_rproc *priv)
+ 		if (imx_dsp_rproc_sys_to_da(priv, res.start, resource_size(&res), &da))
+ 			return -EINVAL;
+ 
+-		cpu_addr = devm_ioremap_resource_wc(dev, &res);
+-		if (IS_ERR(cpu_addr)) {
++		cpu_addr = devm_ioremap_wc(dev, res.start, resource_size(&res));
++		if (!cpu_addr) {
+ 			dev_err(dev, "failed to map memory %pR\n", &res);
+-			return PTR_ERR(cpu_addr);
++			return -ENOMEM;
+ 		}
+ 
+ 		/* Register memory region */
+-- 
+2.45.2
 
-Given the CTI MMIO register access, I don't think an extra branch
-instruction (checking the flag) would cause significant panelty,
-given the flag is set once at init and never changed afterwards.
-
-> Moreover the table + inline helper is more efficient at extracting the
-> correct offset value. The helper is a simple de-reference - whereas
-> the helper functions you suggest require the code to make the
-> comparison at every register access.
-> The "if qcom ..." may be contained in one place in the source code,
-> but is called and executed for every access.
-> 
-> Why add inefficiencies, either in footprint or execution?
-
-This is about how we design a driver that supports both a standard IP
-and non-standard implementations.
-
-Because the standard IP is well defined, its register layout should be
-the default; it keeps the code simple and makes future CTI extensions
-easier.  For non-standard IPs, we only apply the register translations
-needed.
-
-TBH, the optimization topic is a bit over design for me now.  The CTI
-module is configured once and remains untouched until it is disabled,
-so it is not a hot path.
-
-Thanks,
-Leo
 
