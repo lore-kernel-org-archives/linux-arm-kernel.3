@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47E24D3B9A1
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 22:00:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52A30D3B99E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 22:07:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HtSM3qOVQ2E2kl6/BnRehBv24IpY5ZfwPWoP4cP/Uh0=; b=pJGYsKHSmlRyTZb2bEVLgs3INf
-	VkCW+YUVXantHO2pbCxrjDl662WAyQY5iAebTkryJrr0qpSca0k8m7ISucjXVCkBL0HdFfA7qk2VZ
-	/Y4ORkjRIGxvxFoxtVsELLVq6G2PTlC5oToQEZS3jtBg1XZMii8+R8sg2ZCDp3+WBvP3Modj/qDMW
-	dGPTAjUdG1k4avVngnMmhJquoPaft5ggsp95d30sarANjafCL2VwD1hDsL77W23TCYjrVdVuMIOP9
-	NwaXMBLi19NKgdJt+kFj6fVcN/88DDaaQzIidEZIEZqs8j+ln9e/bJnHPw6v224AUE5a8Ge0NxqoF
-	SZeLGf2g==;
+	bh=1RGs/QJR7c2TF54hcUD4pm2RyZcfoi4x+ys7DhcmLK4=; b=dfNCin+4qyBddkBH0oj+rrFTZp
+	wE4XyyWn3vEygxU/vC6oAqnAJg2p/v+vnitXaqHgKIXS5vdhlSe4ra6d2PhYASHu1fXV1ybBVAK/p
+	dzQ25Oxh+tJqVoebXg4J+II1oahV6akQqM68kJzwzkcANLyYtSk9IPlnYUxl7yM+evg6/PZt714Mo
+	6kuDYip4+Uhjd+JoQKs90rorQq0gK65dbYBzmAtigNzE+B2ocFnLESXv/ByW3T7lA9J92DdMx+nYH
+	ckXOUvQByXf2iLodn655N9DES236Kj6JZ/ZXLJM70ErXdEKfcREcW6tKZe2BlR7YAlONRr7DduFWJ
+	qmuazRpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT5lM-0000000EqR3-2832;
-	Tue, 09 Dec 2025 22:00:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vT5rG-0000000Equ7-0LR3;
+	Tue, 09 Dec 2025 22:06:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT5lJ-0000000EqQE-2nIO
+	id 1vT5rE-0000000Eqtv-0kP5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 22:00:50 +0000
+	Tue, 09 Dec 2025 22:06:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EF94543695;
-	Tue,  9 Dec 2025 22:00:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C2D3C4CEF5;
-	Tue,  9 Dec 2025 22:00:48 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 4D7D56017B;
+	Tue,  9 Dec 2025 22:06:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AEC2BC4CEF5;
+	Tue,  9 Dec 2025 22:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765317648;
-	bh=najPzs8LYqpcbLVewNTZ9DCSClDe9lHdNLzwaQhA54E=;
+	s=k20201202; t=1765318015;
+	bh=hJlyVUcqwe/6I5rw8HcTwWNqs3JR5pxz8OctmF8nuHc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CE/ZjdtPRs9rqbGD+S9DbYpCi/RdsPfmWXx3GEwbjcr3jPddlTbo5HemszHqS9FMB
-	 /URO/MU+8Q5yPEF5fjERYGyEw9CZD2IGY9hTC/5h+M4BEa7g6nfj8xbwgpMci9tHAF
-	 a9VI/96XXwggpqtURd08bniSHXarcxoOJYhEm7a8zmM1XcGG73UcC/tlHDNsJARxgx
-	 rsISbY/jH4SU6DcLCv0UgeCIFL3rcoTcv7Y1/BfxguWNtGlfktTUA/EDJ/EUdL+X+x
-	 2Gu/M9cvBDnsZTq2zj4jKn7+/w0hi4Uh+BxrtbJ1kAh3vGdtBe7ENgC28Ph4+2ZYRe
-	 KRcOy74UxjoUg==
-Date: Tue, 9 Dec 2025 14:00:47 -0800
+	b=Em8ivC6cdTSKDYgeEVhdAvnJtZvxHovwnqqy4edM8a1JYCcXWTSmWGTRxGNjRUa9H
+	 S3k7L+RcEKd7ztjWq17ETvXgbZCmP+XH8GsI1z1s6OPWlXMi1QShYGw7WGZdnkLUAu
+	 U2ChGGJzz9FUb9m4VqcIrYo+2jsJ3ZsQz84un5mp1WZMxYjTa6IBkNqPoSSs+9zi5e
+	 /HROCoKUbOBd85CXFw+uvxQ7eHNLM40dAF5ZdUc7S665pdG8Q0tzMk0AlMMtFH5gyH
+	 ZWjYFDEQmeZZOimoUOWtNnOwElSn/sP09OAnaDJc/twYOZOr+NJpser5835S75zblY
+	 6fkwt+14oY2VA==
+Date: Tue, 9 Dec 2025 14:06:53 -0800
 From: Oliver Upton <oupton@kernel.org>
 To: Colton Lewis <coltonlewis@google.com>
 Cc: kvm@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
@@ -59,18 +59,14 @@ Cc: kvm@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
 	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH v5 18/24] KVM: arm64: Enforce PMU event filter at
- vcpu_load()
-Message-ID: <aTicD5hlKhZ3rkIn@kernel.org>
+Subject: Re: [PATCH v5 19/24] KVM: arm64: Implement lazy PMU context swaps
+Message-ID: <aTidfRwYLYwTfmK_@kernel.org>
 References: <20251209205121.1871534-1-coltonlewis@google.com>
- <20251209205121.1871534-19-coltonlewis@google.com>
+ <20251209205121.1871534-20-coltonlewis@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251209205121.1871534-19-coltonlewis@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_140049_746489_804573DA 
-X-CRM114-Status: GOOD (  24.61  )
+In-Reply-To: <20251209205121.1871534-20-coltonlewis@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,73 +81,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 09, 2025 at 08:51:15PM +0000, Colton Lewis wrote:
-> The KVM API for event filtering says that counters do not count when
-> blocked by the event filter. To enforce that, the event filter must be
-> rechecked on every load since it might have changed since the last
-> time the guest wrote a value. If the event is filtered, exclude
-> counting at all exception levels before writing the hardware.
-> 
-> Signed-off-by: Colton Lewis <coltonlewis@google.com>
-> ---
->  arch/arm64/kvm/pmu-direct.c | 44 +++++++++++++++++++++++++++++++++++++
->  1 file changed, 44 insertions(+)
-> 
+On Tue, Dec 09, 2025 at 08:51:16PM +0000, Colton Lewis wrote:
+> +enum vcpu_pmu_register_access {
+> +	VCPU_PMU_ACCESS_UNSET,
+> +	VCPU_PMU_ACCESS_VIRTUAL,
+> +	VCPU_PMU_ACCESS_PHYSICAL,
+> +};
+
+This is confusing. Even when the guest is accessing registers directly
+on the CPU I'd still call that "hardware assisted virtualization" and
+not "physical".
+
+> +#endif /* _ASM_ARM64_KVM_TYPES_H */
+> diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
+> index 0ab89c91e19cb..c2cf6b308ec60 100644
+> --- a/arch/arm64/kvm/debug.c
+> +++ b/arch/arm64/kvm/debug.c
+> @@ -34,7 +34,7 @@ static int cpu_has_spe(u64 dfr0)
+>   *  - Self-hosted Trace Filter controls (MDCR_EL2_TTRF)
+>   *  - Self-hosted Trace (MDCR_EL2_TTRF/MDCR_EL2_E2TB)
+>   */
+> -static void kvm_arm_setup_mdcr_el2(struct kvm_vcpu *vcpu)
+> +void kvm_arm_setup_mdcr_el2(struct kvm_vcpu *vcpu)
+>  {
+>  	int hpmn = kvm_pmu_hpmn(vcpu);
+>  
+> diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> index bde79ec1a1836..ea288a712bb5d 100644
+> --- a/arch/arm64/kvm/hyp/include/hyp/switch.h
+> +++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+> @@ -963,6 +963,8 @@ static bool kvm_hyp_handle_pmu_regs(struct kvm_vcpu *vcpu)
+>  	if (ret)
+>  		__kvm_skip_instr(vcpu);
+>  
+> +	kvm_pmu_set_physical_access(vcpu);
+> +
+>  	return ret;
+>  }
+>  
 > diff --git a/arch/arm64/kvm/pmu-direct.c b/arch/arm64/kvm/pmu-direct.c
-> index 71977d24f489a..8d0d6d1a0d851 100644
+> index 8d0d6d1a0d851..c5767e2ebc651 100644
 > --- a/arch/arm64/kvm/pmu-direct.c
 > +++ b/arch/arm64/kvm/pmu-direct.c
-> @@ -221,6 +221,49 @@ u8 kvm_pmu_hpmn(struct kvm_vcpu *vcpu)
->  	return nr_host_cnt_max;
+> @@ -73,6 +73,7 @@ bool kvm_vcpu_pmu_use_fgt(struct kvm_vcpu *vcpu)
+>  	u8 hpmn = vcpu->kvm->arch.nr_pmu_counters;
+>  
+>  	return kvm_vcpu_pmu_is_partitioned(vcpu) &&
+> +		vcpu->arch.pmu.access == VCPU_PMU_ACCESS_PHYSICAL &&
+>  		cpus_have_final_cap(ARM64_HAS_FGT) &&
+>  		(hpmn != 0 || cpus_have_final_cap(ARM64_HAS_HPMN0));
+>  }
+> @@ -92,6 +93,26 @@ u64 kvm_pmu_fgt2_bits(void)
+>  		| HDFGRTR2_EL2_nPMICNTR_EL0;
 >  }
 >  
 > +/**
-> + * kvm_pmu_apply_event_filter()
+> + * kvm_pmu_set_physical_access()
 > + * @vcpu: Pointer to vcpu struct
 > + *
-> + * To uphold the guarantee of the KVM PMU event filter, we must ensure
-> + * no counter counts if the event is filtered. Accomplish this by
-> + * filtering all exception levels if the event is filtered.
+> + * Reconfigure the guest for physical access of PMU hardware if
+> + * allowed. This means reconfiguring mdcr_el2 and loading the vCPU
+> + * state onto hardware.
+> + *
 > + */
-> +static void kvm_pmu_apply_event_filter(struct kvm_vcpu *vcpu)
+> +
+> +void kvm_pmu_set_physical_access(struct kvm_vcpu *vcpu)
 > +{
-> +	struct arm_pmu *pmu = vcpu->kvm->arch.arm_pmu;
-> +	u64 evtyper_set = ARMV8_PMU_EXCLUDE_EL0 |
-> +		ARMV8_PMU_EXCLUDE_EL1;
-> +	u64 evtyper_clr = ARMV8_PMU_INCLUDE_EL2;
-> +	u8 i;
-> +	u64 val;
-> +	u64 evsel;
-> +
-> +	if (!pmu)
-> +		return;
-> +
-> +	for (i = 0; i < pmu->hpmn_max; i++) {
-> +		val = __vcpu_sys_reg(vcpu, PMEVTYPER0_EL0 + i);
-> +		evsel = val & kvm_pmu_event_mask(vcpu->kvm);
-> +
-> +		if (vcpu->kvm->arch.pmu_filter &&
-> +		    !test_bit(evsel, vcpu->kvm->arch.pmu_filter))
-> +			val |= evtyper_set;
-> +
-> +		val &= ~evtyper_clr;
-> +		write_pmevtypern(i, val);
+> +	if (kvm_vcpu_pmu_is_partitioned(vcpu)
+> +	    && vcpu->arch.pmu.access == VCPU_PMU_ACCESS_VIRTUAL) {
+> +		vcpu->arch.pmu.access = VCPU_PMU_ACCESS_PHYSICAL;
+> +		kvm_arm_setup_mdcr_el2(vcpu);
+> +		kvm_pmu_load(vcpu);
 > +	}
-> +
-> +	val = __vcpu_sys_reg(vcpu, PMCCFILTR_EL0);
-> +
-> +	if (vcpu->kvm->arch.pmu_filter &&
-> +	    !test_bit(ARMV8_PMUV3_PERFCTR_CPU_CYCLES, vcpu->kvm->arch.pmu_filter))
-> +		val |= evtyper_set;
-> +
-> +	val &= ~evtyper_clr;
-> +	write_pmccfiltr(val);
-> +}
 
-This doesn't work for nested. I agree that the hardware value of
-PMEVTYPERn_EL0 needs to be under KVM control, but depending on whether
-or not we're in a hyp context the meaning of the EL1 filtering bit
-changes. Have a look at kvm_pmu_create_perf_event().
+It isn't immediately obvious how this guards against preemption.
+
+Also, the general approach for these context-loading situations is to do
+a full load/put on the vCPU rather than a directed load.
+
+> +static void kvm_pmu_register_init(struct kvm_vcpu *vcpu)
+> +{
+> +	if (vcpu->arch.pmu.access == VCPU_PMU_ACCESS_UNSET)
+> +		vcpu->arch.pmu.access = VCPU_PMU_ACCESS_VIRTUAL;
+
+This is confusing. The zero value of the enum should be consistent with
+the "unloaded" state.
+
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index f2ae761625a66..d73218706b834 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -1197,6 +1197,8 @@ static bool access_pmu_evtyper(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+>  		p->regval = __vcpu_sys_reg(vcpu, reg);
+>  	}
+>  
+> +	kvm_pmu_set_physical_access(vcpu);
+> +
+>  	return true;
+>  }
+>  
+> @@ -1302,6 +1304,8 @@ static bool access_pmovs(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
+>  		p->regval = __vcpu_sys_reg(vcpu, PMOVSSET_EL0);
+>  	}
+>  
+> +	kvm_pmu_set_physical_access(vcpu);
+> +
+>  	return true;
+>  }
+
+Aren't there a ton of other registers the guest may access before
+these two? Having generic PMU register accessors would allow you to
+manage residence of PMU registers from a single spot.
 
 Thanks,
 Oliver
