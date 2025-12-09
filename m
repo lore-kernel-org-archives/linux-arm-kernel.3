@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89537D3B7E2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 00:17:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77747D3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 00:17:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+BGgE3BUrwfN9GbU+a1o6ZtZ64bDmd712+qqtjkoFvw=; b=0cGhJUGGZUQUu9EUUzqhfv4Kn8
-	+hmt4COxVGWz6h70gNVNpsHcX32I6NJm2xK3uYgZm7SKq8cCeH5IB/sPHIpp/br4eHSwWX3Nn0kSz
-	Nsr+EIrXe8xd740XQyXXFIJZTmpilJofPUlWIyaVCr0/+/9ZYIRaqm685kxWI/AmcnC6YY5rT6ujd
-	s26KY6rnsC06338wwDBGl1eRdGxrTYsYbUtF3MjPO3aI/n5htZsFP5kdk7MEJdBrDVuC1yLwM9WhD
-	JwELz2hwuh/4UW1h3MSBZoHMFFSARSJvbbahPQcQ2n8QFih/73lli3555vwavisOO71UwUzwX6uEY
-	Dx1jSaeg==;
+	bh=eT2/1tl0mE426mXS5CLXWKzTqbLcfvx+akMBqGqZmrE=; b=c+J/cmvwl2I6/s+j/2PltgI5K3
+	Ps4Kq+CBy7fpIqhLhZVVglbqJMLzBZY2PAF/WJB4SQsynJVkYCDo0TkeLlhtZnjo0vYKbQhelJCb3
+	4AS8Jqm9+fNowxOK0r3T5j/Ia902Q9YaPCBRSfA1sROihOaNQ56U9TGewGMJI7NkmSNHa9UAyMpHY
+	QjthBjDqG5cpcgT88w6BTYuda8HkIlLr+L+PBkLJa5o5NrvTWeho84sLAI0mY74sq9UVcxAAtnX08
+	Y3duiEcuxoNrUvR2MShP+LC6xg7m5GC5DJ5XDmL6Q7hPLEVy/CdRJxkeGup3Ev5t71XVDPHCaBtlB
+	//FM5Ktg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSlPh-0000000Defy-2GSO;
-	Tue, 09 Dec 2025 00:17:09 +0000
+	id 1vSlPk-0000000Deha-0VY7;
+	Tue, 09 Dec 2025 00:17:12 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSlPg-0000000DefV-0fO5;
-	Tue, 09 Dec 2025 00:17:08 +0000
+	id 1vSlPi-0000000Degq-42wz;
+	Tue, 09 Dec 2025 00:17:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8835F6015F;
+	by tor.source.kernel.org (Postfix) with ESMTP id 6643D60172;
+	Tue,  9 Dec 2025 00:17:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAFB7C4CEF1;
 	Tue,  9 Dec 2025 00:17:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F049C113D0;
-	Tue,  9 Dec 2025 00:17:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765239427;
-	bh=8rFURERxvZ4xQnlalZg2HWTgFJMfPc2HkJeCYPf7A+I=;
+	s=k20201202; t=1765239430;
+	bh=mA14ruNO3szL9g1X8tOTLj3a3VtsH9RLuJW+L+/RCmk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=MkAKv8KWxZUPkphtweZ3/vCEWKDLTvwQWGnwR49kJ024w+A1JT91G8c+pj9farzgf
-	 OG9E5DAFEFI7P03GcPoq3tInqyV0fSnsnqWQkC2jEMJwY+bVV7l5EpX6vSpQnPUnBT
-	 Ovjua/8tw4PofVy2tMGh31zNJCOUZOOwnVvzfWcC8ZmqPZuKvfblpeHbIsEEy1GC2Y
-	 djHqOny2z0x01C8qsfu15rb21ohNX1iwFlwauomc0azsG54z5/tVaXmg3fW5wQ3UR7
-	 sNjla4chrUFGIg5JRK4aI3641SoAHZka/IRoFEEfP4cfkXeYrd9XMV2+BlAvVpDBh1
-	 oAKyzHeuTWV/A==
+	b=olM3tFxnaoxotIvmzvIRirMGeZeIY+hJVnE9K0Xs6Wu8iHYYF5ix8icaFtiG9t8pr
+	 tCOC9kX/9iq/bvc5XYPr0YWoXmcIOLMPoLy5p1lnaxYYFKeAZINZC+OAv9ZhOBilWO
+	 VljPMTaNRXDZ6i4EEHbt14FFqobofcgnc6ycsR0bV7qZtgCJTkEhICDgk23VaNh3nZ
+	 by69/lUBQ68/Umz2lfVgjpUSG1UDXfdWzik1Zb8ND2KiNd/51sC9LsUV1aFcYhex72
+	 Aa0ajiFrmM/5SjCB6zNUMJ1HyfXExkGK1R6Kmtl0YQRzbIkC4mdjaTY8KS9qJQkR3P
+	 1gAFf3glEGn0A==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
@@ -56,9 +56,9 @@ Cc: Chris Lu <chris.lu@mediatek.com>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18-6.12] Bluetooth: btusb: MT7920: Add VID/PID 0489/e135
-Date: Mon,  8 Dec 2025 19:15:08 -0500
-Message-ID: <20251209001610.611575-16-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18-6.12] Bluetooth: btusb: MT7922: Add VID/PID 0489/e170
+Date: Mon,  8 Dec 2025 19:15:09 -0500
+Message-ID: <20251209001610.611575-17-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251209001610.611575-1-sashal@kernel.org>
 References: <20251209001610.611575-1-sashal@kernel.org>
@@ -66,7 +66,6 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.18
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,16 +83,16 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chris Lu <chris.lu@mediatek.com>
 
-[ Upstream commit c126f98c011f5796ba118ef2093122d02809d30d ]
+[ Upstream commit 5a6700a31c953af9a17a7e2681335f31d922614d ]
 
-Add VID 0489 & PID e135 for MediaTek MT7920 USB Bluetooth chip.
+Add VID 0489 & PID e170 for MediaTek MT7922 USB Bluetooth chip.
 
 The information in /sys/kernel/debug/usb/devices about the Bluetooth
 device is listed as the below.
 
 T:  Bus=06 Lev=01 Prnt=01 Port=00 Cnt=01 Dev#=  2 Spd=480  MxCh= 0
 D:  Ver= 2.10 Cls=ef(misc ) Sub=02 Prot=01 MxPS=64 #Cfgs=  1
-P:  Vendor=0489 ProdID=e135 Rev= 1.00
+P:  Vendor=0489 ProdID=e170 Rev= 1.00
 S:  Manufacturer=MediaTek Inc.
 S:  Product=Wireless_Device
 S:  SerialNumber=000000000
@@ -128,8 +127,8 @@ I:* If#= 2 Alt= 0 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=(none)
 E:  Ad=8a(I) Atr=03(Int.) MxPS=  64 Ivl=125us
 E:  Ad=0a(O) Atr=03(Int.) MxPS=  64 Ivl=125us
 I:  If#= 2 Alt= 1 #EPs= 2 Cls=e0(wlcon) Sub=01 Prot=01 Driver=(none)
-E:  Ad=8a(I) Atr=03(Int.) MxPS=  64 Ivl=125us
-E:  Ad=0a(O) Atr=03(Int.) MxPS=  64 Ivl=125us
+E:  Ad=8a(I) Atr=03(Int.) MxPS= 512 Ivl=125us
+E:  Ad=0a(O) Atr=03(Int.) MxPS= 512 Ivl=125us
 
 Signed-off-by: Chris Lu <chris.lu@mediatek.com>
 Reviewed-by: Paul Menzel <pmenzel@molgen.mpg.de>
@@ -139,105 +138,103 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
 
 LLM Generated explanations, may be completely bogus:
 
-## Commit Analysis: Bluetooth btusb MT7920 VID/PID Addition
+## Analysis: Bluetooth: btusb: MT7922: Add VID/PID 0489/e170
 
 ### 1. COMMIT MESSAGE ANALYSIS
 
-**Subject:** Adding a new USB VID/PID (0489/e135) for MediaTek MT7920
-Bluetooth chip
+**Subject**: Adding a new USB Vendor ID (VID) 0x0489 and Product ID
+(PID) 0xe170 for a MediaTek MT7922 Bluetooth chip.
 
-**Key observations:**
-- No `Cc: stable@vger.kernel.org` tag (not unusual for device ID
-  additions)
-- No `Fixes:` tag (not applicable - this enables new hardware, doesn't
-  fix a bug)
-- Author is from MediaTek (hardware vendor)
-- Has `Reviewed-by` from Paul Menzel
-- Signed off by Bluetooth maintainer Luiz Augusto von Dentz
+**Key Tags**:
+- Signed-off-by: Chris Lu from MediaTek (the chip vendor)
+- Reviewed-by: Paul Menzel
+- Signed-off-by: Luiz Augusto von Dentz (Bluetooth maintainer)
+
+No explicit `Cc: stable@vger.kernel.org` tag, but this is common for
+device ID additions which are often handled implicitly.
 
 ### 2. CODE CHANGE ANALYSIS
 
-The change is minimal:
+The change is a 2-line addition to the `quirks_table[]` array:
 ```c
-+       { USB_DEVICE(0x0489, 0xe135), .driver_info = BTUSB_MEDIATEK |
-+
-BTUSB_WIDEBAND_SPEECH },
+{ USB_DEVICE(0x0489, 0xe170), .driver_info = BTUSB_MEDIATEK |
+                                             BTUSB_WIDEBAND_SPEECH },
 ```
 
-This adds a single USB device ID entry to the `quirks_table[]` in
-`drivers/bluetooth/btusb.c`. The entry:
-- Uses VID 0x0489, PID 0xe135
-- Uses identical flags to the adjacent MT7920 entry (0x0489, 0xe134)
-- Follows the exact pattern of all other MediaTek device entries
+This simply registers a new USB device ID with existing driver flags
+(`BTUSB_MEDIATEK` and `BTUSB_WIDEBAND_SPEECH`) that are already fully
+supported. The btusb driver already contains full MT7922 support - this
+just adds another VID/PID variant to the recognition table.
 
 ### 3. CLASSIFICATION
 
-This falls squarely into the **"NEW DEVICE IDs"** exception category for
-stable backports. Per the stable kernel rules:
-
-> Adding PCI IDs, USB IDs, ACPI IDs, etc. to existing drivers - These
-are trivial one-line additions that enable hardware support
-
-The btusb driver already fully supports MediaTek MT7920 devices; this
-just adds recognition for a new variant.
+This is a **NEW DEVICE ID** addition - one of the explicitly allowed
+exception categories for stable backports:
+- Adding a USB VID/PID to an existing, well-tested driver
+- Trivial one-entry addition to a device table
+- The driver code for MT7922 already exists; only recognition is missing
 
 ### 4. SCOPE AND RISK ASSESSMENT
 
-| Factor | Assessment |
+| Metric | Assessment |
 |--------|------------|
-| Lines changed | 2 (effectively 1 entry) |
+| Lines changed | 2 |
 | Files touched | 1 |
-| Complexity | Trivial |
-| Risk | Essentially zero |
+| Complexity | Minimal - static table entry |
+| Risk | **Extremely low** |
 
-**Risk justification:** This only affects devices with exactly
-VID=0x0489 and PID=0xe135. It cannot cause regressions for any other
-hardware. The change is purely additive with no modification to existing
-functionality.
+The change can only affect USB devices with VID=0x0489 and PID=0xe170.
+Users without this specific hardware are completely unaffected. This is
+about as low-risk as a kernel patch can be.
 
 ### 5. USER IMPACT
 
-**Without this patch:** Users with MT7920 Bluetooth USB adapters using
-this VID/PID combination have no Bluetooth functionality - the kernel
-doesn't recognize their device.
+- **Affected users**: Those with this specific MediaTek MT7922 Bluetooth
+  variant
+- **Severity without fix**: Bluetooth hardware is completely non-
+  functional (driver doesn't recognize the device)
+- **Impact**: HIGH for affected users - their Bluetooth doesn't work at
+  all
 
-**With this patch:** Bluetooth works normally using the mature, existing
-MediaTek btusb support.
-
-The USB device information in the commit message confirms this is real
-hardware that users possess.
+The commit includes detailed `/sys/kernel/debug/usb/devices` output
+showing real hardware, indicating this comes from actual user/vendor
+testing.
 
 ### 6. STABILITY INDICATORS
 
-- ✅ Reviewed by Paul Menzel
-- ✅ Signed off by Bluetooth subsystem maintainer
-- ✅ Author from hardware vendor (MediaTek)
-- ✅ Identical pattern to many existing entries
-- ✅ Same flags used as sister device (e134)
+- Authored by MediaTek (chip vendor) with direct hardware knowledge
+- Reviewed by community member
+- Signed off by the Bluetooth subsystem maintainer
+- Follows established pattern of many similar MT7922 device ID entries
+  visible in the diff context
 
 ### 7. DEPENDENCY CHECK
 
-- **No dependencies** on other commits
-- Uses existing macros (`USB_DEVICE`) and flags (`BTUSB_MEDIATEK`,
-  `BTUSB_WIDEBAND_SPEECH`)
-- The btusb driver with MediaTek MT7920 support exists in stable kernels
+- **No dependencies**: This is a self-contained table entry addition
+- **Existing support**: The BTUSB_MEDIATEK and BTUSB_WIDEBAND_SPEECH
+  flags and MT7922 support code exist in all recent stable trees
+- **Clean application**: Should apply cleanly to any stable tree that
+  has MT7922 support
 
 ### CONCLUSION
 
-This is a textbook stable-appropriate device ID addition:
+This commit is a textbook example of what SHOULD be backported to
+stable:
 
-1. **Trivial 2-line change** - lowest possible complexity
-2. **Zero regression risk** - only affects one specific hardware variant
-3. **Real user impact** - enables Bluetooth for users with this hardware
-4. **Well-reviewed** - proper sign-offs from maintainer and vendor
-5. **No new code** - leverages existing, mature MediaTek btusb support
-6. **No dependencies** - applies cleanly to any kernel with MT7920
-   support
+1. **Falls under Device ID Exception**: Explicitly allowed category for
+   stable
+2. **Fixes Real User Problem**: Enables Bluetooth hardware that would
+   otherwise be completely non-functional
+3. **Minimal Risk**: 2-line table entry addition, cannot break anything
+   else
+4. **No New Features**: Just enables existing driver for new hardware
+   variant
+5. **Well-Reviewed**: Proper sign-offs from vendor and maintainer
+6. **Clear Benefit**: Users with this hardware get working Bluetooth
 
-Device ID additions like this are routinely backported to stable trees
-because they provide clear value (enabling hardware) with essentially no
-risk. The pattern is identical to dozens of similar entries in the same
-file.
+The lack of explicit stable tag is typical for device ID additions -
+stable maintainers routinely accept these. The benefit (enabling
+hardware) far outweighs the near-zero risk.
 
 **YES**
 
@@ -245,18 +242,18 @@ file.
  1 file changed, 2 insertions(+)
 
 diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
-index fa683bb7f0b49..595afeff4afb5 100644
+index 595afeff4afb5..9b199da1c0d67 100644
 --- a/drivers/bluetooth/btusb.c
 +++ b/drivers/bluetooth/btusb.c
-@@ -621,6 +621,8 @@ static const struct usb_device_id quirks_table[] = {
- 	/* Additional MediaTek MT7920 Bluetooth devices */
- 	{ USB_DEVICE(0x0489, 0xe134), .driver_info = BTUSB_MEDIATEK |
+@@ -687,6 +687,8 @@ static const struct usb_device_id quirks_table[] = {
  						     BTUSB_WIDEBAND_SPEECH },
-+	{ USB_DEVICE(0x0489, 0xe135), .driver_info = BTUSB_MEDIATEK |
+ 	{ USB_DEVICE(0x0489, 0xe153), .driver_info = BTUSB_MEDIATEK |
+ 						     BTUSB_WIDEBAND_SPEECH },
++	{ USB_DEVICE(0x0489, 0xe170), .driver_info = BTUSB_MEDIATEK |
 +						     BTUSB_WIDEBAND_SPEECH },
- 	{ USB_DEVICE(0x13d3, 0x3620), .driver_info = BTUSB_MEDIATEK |
+ 	{ USB_DEVICE(0x04ca, 0x3804), .driver_info = BTUSB_MEDIATEK |
  						     BTUSB_WIDEBAND_SPEECH },
- 	{ USB_DEVICE(0x13d3, 0x3621), .driver_info = BTUSB_MEDIATEK |
+ 	{ USB_DEVICE(0x04ca, 0x38e4), .driver_info = BTUSB_MEDIATEK |
 -- 
 2.51.0
 
