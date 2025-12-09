@@ -4,88 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5BEDD3B7EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 13:48:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9B71D3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 13:48:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PLZGxZfGPH+m9Hz1QW1ANR0vUG8mNwWWC1iVjfNrwBw=; b=oe7SGg+divi6mN466CEFRQdCLo
-	lnryYMkaIvOSz+V8oZWcpx24PT+xkiIGD/YE2G/P80WqaDHZ8LG8twePhB6wxN8EeEhvpMrf06kvc
-	J++P/wrvIyadwVygEKOJYX97/Arg5HO0a2E7vyFQP45AYpERcOMO7LQpIN7WS/cV2JXNyqViAZL6u
-	2Ic4HAyHyPTPy4gdalmIw1wPvHNiJSWLQPwLj6EPnNiYfEkX1WOr4rHDEoSnHGC+mzMh5LlSZdqTg
-	ZfW/CwqrwrIv7DdTRFwxqBenV0yvBhBOtZAIxL5/eESa72IToQ59dZ50GHlz1un1+JcWfpBTWycD8
-	mKaU6pcg==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GI/oyW1P+yX/6vsPM19HzFOt5K5VwUfn1ZbJAW6eycE=; b=gMLiISOZkfNzENV00vb+kPp7EQ
+	XSyTcPtt773pydOljvrM17bz3KR6k3YIq9Wef1pS9zFEHOsfXdGwCfIlU5cFVjHXMhHK+kZzdbtjT
+	kf+xktfWnWPf1UeqK1bWAthPoLNOpufcXBc1DWTL3/ysBLTCH2B5K9v4qrgXp8dbcopabi2aktoLZ
+	QV9LZHITMbcuQkAkeJCNV6+Em0c5Hy5toYAQadFtVfd2ULaZZjsId+q5KrsWxIHNav9oivK2XivSB
+	Vo+HQNq82RaKq5ixQ6sFxb1S/eZ8q7jdM/UHKdgjWtyraKNbVz80HlQkHpZfgVoxNx3huPnf0aDrP
+	LsO0MAmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSy4a-0000000EL46-1erR;
-	Tue, 09 Dec 2025 13:48:12 +0000
-Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSy4X-0000000EL37-0Ywi
+	id 1vSy4j-0000000EL6g-3176;
+	Tue, 09 Dec 2025 13:48:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vSy4h-0000000EL5v-2BFk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 13:48:11 +0000
-Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-78a6c7ac3caso53911947b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Dec 2025 05:48:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765288087; x=1765892887; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PLZGxZfGPH+m9Hz1QW1ANR0vUG8mNwWWC1iVjfNrwBw=;
-        b=bDPB/Qmghsk5o8Ft2dHw0Nj6AqBUDH0sfYuCEJPWRNPOmWTATeXewWqsJG646HD1+N
-         rp1h7vv5/QynuNypWVYUsArcMfW1EXcJ6KqPD/noUYTeIRxXlAaVb0ITgeUzEgniAqJv
-         V6rAkFWEHDlBQF52MFfcAzXLbCdszHseD5z7JQk0GwV6QLyz5O0bR1tl3b+9RWONYrRA
-         gfu13AaXi/lgIGhOBhuDtLXLwHmPRCedta0pYgFPmFILbZBStK55zhLyIfcdqezRDF5W
-         9xAfiuuuQmlfb35flP5RYTgADip7NuHUhuAT44yiTkfN2W5EjwZSTaHKZlr9KAbyiIqb
-         y7Tg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765288087; x=1765892887;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=PLZGxZfGPH+m9Hz1QW1ANR0vUG8mNwWWC1iVjfNrwBw=;
-        b=OUruzPvip2bqbLt0f7DXV796S4f5+MCjD2HUEj8YqYXzNDDUkKiB3NvG4senrIFv8Q
-         MH3GOo7/Z4Vb89CPf3EZxZbOqlZ5b+DLZXpGnwSDKHxnAAw+kb+yH0S2wC3wpOMkPv4m
-         dL5MPRjJ/tJFlGqZXZMQ8nX6IJXNiIf8lHVbMtbL0AkcxZDTFi/3D59J/8ms+v5qsr6h
-         Z8ZaHyn97ND3UcHd6YpFMn0Yev6cyTIIeBjL1f9WnJhFDNYA0t0BfWesqJBUu6+2CrVa
-         FNDSLboVnSmvGjXBUIVyVK1MFNuPkdSgO82IRwXRymN23qxykDRZc2tbBIbopYK5VP6Y
-         eUjA==
-X-Forwarded-Encrypted: i=1; AJvYcCV9Wurzim98HIah3KQVitRQP3qa1MLRXBQwei8JNTwSQeHl60hGAYR9lAMm3uFQJliyDzM9I2bSfzwdXRIcoRXp@lists.infradead.org
-X-Gm-Message-State: AOJu0YzJkQQ6G0XUQ1QLpLJCVYbKI4PH7k+FtIDJV8tY5Eshi7+b3Jay
-	kSel8tgewfwQXFUll1F9dfl+NDRhUBZSOxJriCBxQZCalgdJMo5d0vGsO2qWNUOBSGKkvrfTGQ4
-	lnnZvtWPViMK6qKbAXKogW8kjrID39jRgTdOXWeBpKJxUGQVCyMGI
-X-Gm-Gg: AY/fxX57FjGgeIK9468LhLVXzP3RZsYxPeQz9NTNfSr9tMc4xTQKE7SbBKXLbg7nbMg
-	DarSKvZLLls2JP8htNmQfS3LMHFscsAfuxjer+hAYd7Z2tArW/aKEZKqfHx8ohqFPZrLgB48Y/W
-	b7Xq+ZPj0VCohA+cAD/eHrzUc4Mi2qMTTcyB44nHeibvqe9cO7g9ERMmN9GtQpxDqBisr8eUPA0
-	HfwCIwMFG5aAE6LdU7Muoid/PBUQgVxRpaZoF6wvMPUlWnHOJfCupImUoJOWNRvIHR43BVZ
-X-Google-Smtp-Source: AGHT+IEhUYw77OAuRxBe3uwIoYgLrjRR2ua77WK+8dBaIDSS/4dMnfDxmkWH5Vf8ObUVvDYmN/ivRcBPoD/iRYvRkdY=
-X-Received: by 2002:a05:690c:6307:b0:786:4fd5:e5cb with SMTP id
- 00721157ae682-78c33c019bbmr104464077b3.35.1765288087582; Tue, 09 Dec 2025
- 05:48:07 -0800 (PST)
+	Tue, 09 Dec 2025 13:48:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 774D21758;
+	Tue,  9 Dec 2025 05:48:10 -0800 (PST)
+Received: from [10.57.45.100] (unknown [10.57.45.100])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5C94C3F762;
+	Tue,  9 Dec 2025 05:48:12 -0800 (PST)
+Message-ID: <746211f0-74b7-4935-a036-48a00bb5701b@arm.com>
+Date: Tue, 9 Dec 2025 14:48:09 +0100
 MIME-Version: 1.0
-References: <20251205071729.83857-1-ziniu.wang_1@nxp.com> <DU0PR04MB94962D103B1A92354CDD1FE690A7A@DU0PR04MB9496.eurprd04.prod.outlook.com>
-In-Reply-To: <DU0PR04MB94962D103B1A92354CDD1FE690A7A@DU0PR04MB9496.eurprd04.prod.outlook.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 9 Dec 2025 14:47:30 +0100
-X-Gm-Features: AQt7F2oaS3uBiOmr3kjDFYVzcu04ROd5j3j8IYFRAzYsQq--q0dUbLCTRNsuSTc
-Message-ID: <CAPDyKFpYU3PZs-dSREyGyyyoptY0zCQmHP+mxMMgvYQL-xXQZA@mail.gmail.com>
-Subject: Re: [PATCH v2] mmc: sdhci-esdhc-imx: wait for data transfer
- completion before reset
-To: Bough Chen <haibo.chen@nxp.com>, Luke Wang <ziniu.wang_1@nxp.com>
-Cc: "adrian.hunter@intel.com" <adrian.hunter@intel.com>, "shawnguo@kernel.org" <shawnguo@kernel.org>, 
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>, "kernel@pengutronix.de" <kernel@pengutronix.de>, 
-	"festevam@gmail.com" <festevam@gmail.com>, 
-	"linux-mmc@vger.kernel.org" <linux-mmc@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>, dl-S32 <S32@nxp.com>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 14/16] arm64: Inline el0_svc_common()
+To: Jinjie Ruan <ruanjinjie@huawei.com>, catalin.marinas@arm.com,
+ will@kernel.org, oleg@redhat.com, tglx@linutronix.de, peterz@infradead.org,
+ luto@kernel.org, shuah@kernel.org, kees@kernel.org, wad@chromium.org,
+ deller@gmx.de, macro@orcam.me.uk, charlie@rivosinc.com, ldv@strace.io,
+ mark.rutland@arm.com, song@kernel.org, ryan.roberts@arm.com,
+ ada.coupriediaz@arm.com, anshuman.khandual@arm.com, broonie@kernel.org,
+ pengcan@kylinos.cn, dvyukov@google.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org
+References: <20251204082123.2792067-1-ruanjinjie@huawei.com>
+ <20251204082123.2792067-15-ruanjinjie@huawei.com>
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20251204082123.2792067-15-ruanjinjie@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_054809_186072_3073EEE2 
-X-CRM114-Status: GOOD (  29.70  )
+X-CRM114-CacheID: sfid-20251209_054819_592989_2E1890B3 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,113 +71,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 5 Dec 2025 at 09:12, Bough Chen <haibo.chen@nxp.com> wrote:
->
-> > -----Original Message-----
-> > From: Luke Wang <ziniu.wang_1@nxp.com>
-> > Sent: 2025=E5=B9=B412=E6=9C=885=E6=97=A5 15:17
-> > To: adrian.hunter@intel.com; Bough Chen <haibo.chen@nxp.com>;
-> > ulf.hansson@linaro.org
-> > Cc: shawnguo@kernel.org; s.hauer@pengutronix.de; kernel@pengutronix.de;
-> > festevam@gmail.com; linux-mmc@vger.kernel.org; imx@lists.linux.dev; dl-=
-S32
-> > <S32@nxp.com>; linux-arm-kernel@lists.infradead.org;
-> > linux-kernel@vger.kernel.org
-> > Subject: [PATCH v2] mmc: sdhci-esdhc-imx: wait for data transfer comple=
-tion
-> > before reset
-> >
-> > From: Luke Wang <ziniu.wang_1@nxp.com>
-> >
-> > On IMX7ULP platforms, certain SD cards (e.g. Kingston Canvas Go! Plus) =
-cause
-> > system hangs and reboots during manual tuning. These cards exhibit larg=
-e gaps
-> > (~16us) between tuning command response and data transmission.
-> > When cmd CRC errors occur during tuning, the code assumes data errors e=
-ven
-> > tuning data hasn't been fully received and then reset host data circuit=
-.
-> >
-> > Per IMX7ULP reference manual, reset operations (RESET_DATA/ALL) need to
-> > make sure no active data transfers. Previously, resetting while data wa=
-s in-flight
-> > would clear data circuit, including ADMA/SDMA address, causing data to =
-be
-> > transmitted to incorrect memory address. This patch adds polling for da=
-ta
-> > transfer completion before executing resets.
-> >
-> > Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
-> > ---
-> > v2: amend commit message
-> > ---
-> >  drivers/mmc/host/sdhci-esdhc-imx.c | 15 +++++++++++++++
-> >  1 file changed, 15 insertions(+)
-> >
-> > diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c
-> > b/drivers/mmc/host/sdhci-esdhc-imx.c
-> > index a7a5df673b0f..affde1936510 100644
-> > --- a/drivers/mmc/host/sdhci-esdhc-imx.c
-> > +++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-> > @@ -1453,6 +1453,21 @@ static void esdhc_set_uhs_signaling(struct
-> > sdhci_host *host, unsigned timing)
-> >
-> >  static void esdhc_reset(struct sdhci_host *host, u8 mask)  {
-> > +     u32 present_state;
-> > +     int ret;
-> > +
-> > +     /*
-> > +      * For data or full reset, ensure any active data transfer comple=
-tes
-> > +      * before resetting to avoid system hang.
-> > +      */
-> > +     if (mask & (SDHCI_RESET_DATA | SDHCI_RESET_ALL)) {
-> > +             ret =3D readl_poll_timeout_atomic(host->ioaddr + ESDHC_PR=
-SSTAT,
-> > present_state,
->
-> I'm okay with the patch, but I find one thing here:
->
-> I notice you use _atomic here, I guess you want to cover the case when th=
-e reset function is called in hardware irq handler sdhci_irq().
-> I'm not sure whether it is suitable to add delay in hardware iqr handler,=
- I find there is also udelay in sdhci_reset(), sdhci_reset can also be call=
-ed in hardware irq handler when there is cmd_crc/data_crc error.
-> Adrian/Ulf, do you notice this issue before? Any comments?
+On 04/12/2025 09:21, Jinjie Ruan wrote:
+> After switch arm64 to Generic Entry, the compiler no longer inlines
 
-You are right. In general it's certainly not preferred to poll/delay
-in an atomic context. But if I understand correctly here, polling in
-atomic context should not happen that frequently, right?
+Did it inline it before this series?
 
-Moreover, I wonder if we really need to have a polling-timeout of
-100ms? Where did that value come from?
+> el0_svc_common() into do_el0_svc(). So inline el0_svc_common() and it
+> has 1% performance uplift on perf bench basic syscall on kunpeng920
+> as below.
+>
+> | Metric     | W/O this patch | With this patch | Change    |
+> | ---------- | -------------- | --------------- | --------- |
+> | Total time | 2.195 [sec]    | 2.171 [sec]     |  ↓1.1%   |
+> | usecs/op   | 0.219575       | 0.217192        |  ↓1.1%   |
+> | ops/sec    | 4,554,260      | 4,604,225       |  ↑1.1%    |
+>
+> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 
-In any case, please add a define to specify the timeout and make sure
-the define-name has the suffix corresponding to the unit (_US,
-_MS,...)
+I think this is sensible - do_el0_svc() is clearly hot and the small
+increase in code size is completely justified. It also removes a
+performance regression when enabling CONFIG_COMPAT (without it
+el0_svc_common() has only one caller so it should be inlined regardless).
 
->
-> Regards
-> Haibo Chen
->
->
-> > +                                             !(present_state & SDHCI_D=
-ATA_INHIBIT), 2,
-> > 100000);
-> > +             if (ret =3D=3D -ETIMEDOUT)
-> > +                     dev_warn(mmc_dev(host->mmc),
-> > +                              "timeout waiting for data transfer compl=
-etion\n");
-> > +     }
-> > +
-> >       sdhci_and_cqhci_reset(host, mask);
-> >
-> >       sdhci_writel(host, host->ier, SDHCI_INT_ENABLE);
-> > --
-> > 2.34.1
->
+Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
 
-Kind regards
-Uffe
+> ---
+>  arch/arm64/kernel/syscall.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/kernel/syscall.c b/arch/arm64/kernel/syscall.c
+> index 47e193a1cfff..5aa51da9ec25 100644
+> --- a/arch/arm64/kernel/syscall.c
+> +++ b/arch/arm64/kernel/syscall.c
+> @@ -66,8 +66,8 @@ static void invoke_syscall(struct pt_regs *regs, unsigned int scno,
+>  	choose_random_kstack_offset(get_random_u16());
+>  }
+>  
+> -static void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
+> -			   const syscall_fn_t syscall_table[])
+> +static __always_inline void el0_svc_common(struct pt_regs *regs, int scno, int sc_nr,
+> +					   const syscall_fn_t syscall_table[])
+>  {
+>  	unsigned long work = READ_ONCE(current_thread_info()->syscall_work);
+>  	unsigned long flags = read_thread_flags();
 
