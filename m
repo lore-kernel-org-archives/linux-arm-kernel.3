@@ -4,66 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4CB8D3B7EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 10:34:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33325D3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 10:38:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=BhQ4pxqP3Xxf54Rh+3CnFgQuPJ1wMkoVL2fC+qbPf0U=; b=HknQvbP21N21AhrWPDrKa9VuAp
-	9C203MgOzazKYHWjGVWYmOxQhMi2z/zPodgrOX4+GLAczsX90f5ezn/N+FkxMezfSGD6oByrGhg4/
-	cHjLN6mJgCV8BNAgess3adyDhjS1W1ImsqUDJyGeCzOByrTLIGxmvVNvVZ3pa3gNpRoXfbcXX3PXD
-	KjM00MKpHsQtSaMsW2gZlZRa9nU99UgztwFgr1/gIhZF9rmdhjH+8jHSSllB7WQMTwBizs6PVsHYY
-	+PJ6kECJZ804Gfsrflvz/6xDmjm86MuPrGn3GS+sfcW9jblGgRAa8a8LWcg+YACGW7YhhxDXuzd2g
-	L9yahMpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DcPUChBEcR98M0Rw8DjEjybPgz+H56fev0ZYQvvQpCY=; b=f25C+4wmhBYDoKnAH1QP0oSy+d
+	+L2OkSXc0HHprrMKKD08OqR0j8SUvRatR+3X9d+NbaSmbihJrgWJj8+xzNmBv6AFX4T4Z1s9oudjH
+	+ZP2zFC61TvyF+IDPiO7kjXTr4O6BNUJiFWwOsg26/AMD035IRumku8LNl9AR+ylJNMKIY19OOjkJ
+	0RgiKIkDRpHfxtagTQdcjuRSJtdknbAFyHrvd+m4fW01KhXBEUSnEuuRSxeyAZaaZK/NLzy4cKSS9
+	nfByYwaIHi2fZU5KZFDzJ1oIEHVPqleTRfSPyOtMMHxrfX/pbGCHLeuZQRZzJkq4bzDL8Y/v5hKa6
+	9d4V94AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSv36-0000000E7D0-19jr;
-	Tue, 09 Dec 2025 10:34:28 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1vSv6w-0000000E7WW-3ePV;
+	Tue, 09 Dec 2025 10:38:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSv34-0000000E7C5-0tZ5;
-	Tue, 09 Dec 2025 10:34:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1765276462;
-	bh=SGzx6Y6h73rZhJ/XlDZgJtNuHxNiFSCSI+vKYl0sD4c=;
-	h=From:To:Cc:Subject:Date:From;
-	b=VbL+huk3oLxZ6uOD2TRLlO3udMAYmoCxWhlq7ahucLf5waifua2yf2JyQRKWWh+/7
-	 YekQlmJ4btcliQpdEI7gEDFjTGeoNK0Nlwo20iqoaweHtxIdLuUPydp0FeeQmHS3iQ
-	 fNc+EijSN+OK9OJOWu9VSKsT6ZCpkXKyEw5EStIK7vReKmNnp+XKHD0zRCd3biWfyC
-	 18GpXkbYe1WNt24Kk86fzMOPjUZDnEcUtTZyxd+PB4cu3Cwk79ZOIi1iisAE8YLa7L
-	 MStTvp8am+UNNNR9o+kIZNUZ98kgLzbqjWhhJMhgJroi/5xMrubA7V41ZwVCwIMyra
-	 nN/J25MIqBalw==
-Received: from benjamin-XPS-13-9310.. (unknown [IPv6:2a01:e0a:120:3210:2285:5e2d:9392:bcdf])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: benjamin.gaignard)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 363F017E0330;
-	Tue,  9 Dec 2025 11:34:22 +0100 (CET)
-From: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-To: nicolas.dufresne@collabora.com,
-	p.zabel@pengutronix.de,
-	mchehab@kernel.org,
-	heiko@sntech.de,
-	hverkuil@kernel.org
-Cc: linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kernel@collabora.com,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Subject: [PATCH v2] media: verisilicon: AV1: Fix tx mode bit setting
-Date: Tue,  9 Dec 2025 11:34:17 +0100
-Message-ID: <20251209103417.21966-1-benjamin.gaignard@collabora.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
+	id 1vSv6u-0000000E7WA-325e
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Dec 2025 10:38:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A6FB543EA7;
+	Tue,  9 Dec 2025 10:38:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DD4BC4CEF5;
+	Tue,  9 Dec 2025 10:38:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765276703;
+	bh=0AldE0zmudZtS5j9/Fi6Xn2S6A7u+R+fpHODYTSagE4=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=iSI6KJZZAboYannqD6vuGwtPFM0oKZPDhhlkryiYdEhGklsjcQDUochxfw8+5tqbS
+	 LACATB/psLez/OLRkawr/gzZfD27H1usH9FUnNuwctQmWET/wodg+Kw5+eMxQ6NLBd
+	 N1Y2DIx1HZel+8Y75RnLYxLpIrh+UloI7NiwheYoRfjnTFyVDgN/va2Z/7yQx1Z184
+	 ZELoSCq42AuJa7YlseYxeXjYpaI0O8YB5mT2+rs2WZIek4v0GvoSeUEAiqzhFA7Q6K
+	 di0gpkOCvc82gdBO2IKarZ/rbDDQjUn41cNDSIBzse3VKN1l746pxlZkYX/1164jr1
+	 Qx3nWthR7kPQQ==
+Date: Tue, 09 Dec 2025 04:38:20 -0600
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+ linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, devicetree@vger.kernel.org, 
+ Shengjiu Wang <shengjiu.wang@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Mark Brown <broonie@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-sound@vger.kernel.org, 
+ Takashi Iwai <tiwai@suse.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Baojun Xu <baojun.xu@ti.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Kevin Lu <kevin-lu@ti.com>, Fabio Estevam <festevam@gmail.com>, 
+ Shenghao Ding <shenghao-ding@ti.com>, asahi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org
+To: James Calligeros <jcalligeros99@gmail.com>
+In-Reply-To: <20251209-tdm-idle-slots-v1-1-38dabf6bc01e@gmail.com>
+References: <20251209-tdm-idle-slots-v1-0-38dabf6bc01e@gmail.com>
+ <20251209-tdm-idle-slots-v1-1-38dabf6bc01e@gmail.com>
+Message-Id: <176527670059.4068182.12113080556311230046.robh@kernel.org>
+Subject: Re: [PATCH 1/7] ASoC: dt-bindings: convert tdm-slot to YAML
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_023426_425718_643D0CB1 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20251209_023824_805530_43368A58 
+X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,77 +83,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AV1 specification describes 3 possibles tx modes: 4x4 only,
-largest and select.
-Hardware allows 5 possibles tx modes: 4x4 only, 8x8, 16x16,
-32x32 and select.
-Since the both aren't exactly matching we need to add a mapping
-function to set the correct mode on hardware.
 
-Signed-off-by: Benjamin Gaignard <benjamin.gaignard@collabora.com>
-Fixes: 727a400686a2c ("media: verisilicon: Add Rockchip AV1 decoder")
----
- .../verisilicon/rockchip_vpu981_hw_av1_dec.c  | 27 ++++++++++++++++++-
- 1 file changed, 26 insertions(+), 1 deletion(-)
+On Tue, 09 Dec 2025 19:31:14 +1000, James Calligeros wrote:
+> This schema was still in plaintext form. Convert to YAML format.
+> 
+> Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
+> ---
+>  .../bindings/sound/tdm-slot.txt          | 29 ---------------------
+>  .../bindings/sound/tdm-slot.yaml         | 34 +++++++++++++++++++++++++
+>  2 files changed, 34 insertions(+), 29 deletions(-)
+> 
 
-diff --git a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-index f4f7cb45b1f1..f52b8208e6b9 100644
---- a/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-+++ b/drivers/media/platform/verisilicon/rockchip_vpu981_hw_av1_dec.c
-@@ -72,6 +72,14 @@
- 		: AV1_DIV_ROUND_UP_POW2((_value_), (_n_)));		\
- })
- 
-+enum rockchip_av1_tx_mode {
-+	ROCKCHIP_AV1_TX_MODE_ONLY_4X4	= 0,
-+	ROCKCHIP_AV1_TX_MODE_8X8	= 1,
-+	ROCKCHIP_AV1_TX_MODE_16x16	= 2,
-+	ROCKCHIP_AV1_TX_MODE_32x32	= 3,
-+	ROCKCHIP_AV1_TX_MODE_SELECT	= 4,
-+};
-+
- struct rockchip_av1_film_grain {
- 	u8 scaling_lut_y[256];
- 	u8 scaling_lut_cb[256];
-@@ -1935,11 +1943,26 @@ static void rockchip_vpu981_av1_dec_set_reference_frames(struct hantro_ctx *ctx)
- 	rockchip_vpu981_av1_dec_set_other_frames(ctx);
- }
- 
-+static int rockchip_vpu981_av1_get_hardware_tx_mode(enum v4l2_av1_tx_mode tx_mode)
-+{
-+	switch (tx_mode) {
-+	case V4L2_AV1_TX_MODE_ONLY_4X4:
-+		return ROCKCHIP_AV1_TX_MODE_ONLY_4X4;
-+	case V4L2_AV1_TX_MODE_LARGEST:
-+		return ROCKCHIP_AV1_TX_MODE_32x32;
-+	case V4L2_AV1_TX_MODE_SELECT:
-+		return ROCKCHIP_AV1_TX_MODE_SELECT;
-+	}
-+
-+	return ROCKCHIP_AV1_TX_MODE_32x32;
-+}
-+
- static void rockchip_vpu981_av1_dec_set_parameters(struct hantro_ctx *ctx)
- {
- 	struct hantro_dev *vpu = ctx->dev;
- 	struct hantro_av1_dec_hw_ctx *av1_dec = &ctx->av1_dec;
- 	struct hantro_av1_dec_ctrls *ctrls = &av1_dec->ctrls;
-+	int tx_mode;
- 
- 	hantro_reg_write(vpu, &av1_skip_mode,
- 			 !!(ctrls->frame->flags & V4L2_AV1_FRAME_FLAG_SKIP_MODE_PRESENT));
-@@ -2005,7 +2028,9 @@ static void rockchip_vpu981_av1_dec_set_parameters(struct hantro_ctx *ctx)
- 			 !!(ctrls->frame->flags & V4L2_AV1_FRAME_FLAG_ALLOW_HIGH_PRECISION_MV));
- 	hantro_reg_write(vpu, &av1_comp_pred_mode,
- 			 (ctrls->frame->flags & V4L2_AV1_FRAME_FLAG_REFERENCE_SELECT) ? 2 : 0);
--	hantro_reg_write(vpu, &av1_transform_mode, (ctrls->frame->tx_mode == 1) ? 3 : 4);
-+
-+	tx_mode = rockchip_vpu981_av1_get_hardware_tx_mode(ctrls->frame->tx_mode);
-+	hantro_reg_write(vpu, &av1_transform_mode, tx_mode);
- 	hantro_reg_write(vpu, &av1_max_cb_size,
- 			 (ctrls->sequence->flags
- 			  & V4L2_AV1_SEQUENCE_FLAG_USE_128X128_SUPERBLOCK) ? 7 : 6);
--- 
-2.43.0
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/sound/tdm-slot.yaml: 'oneOf' conditional failed, one must be fixed:
+	'unevaluatedProperties' is a required property
+	'additionalProperties' is a required property
+	hint: Either unevaluatedProperties or additionalProperties must be present
+	from schema $id: http://devicetree.org/meta-schemas/core.yaml
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/sound/tdm-slot.yaml: 'anyOf' conditional failed, one must be fixed:
+	'properties' is a required property
+	'patternProperties' is a required property
+	hint: Metaschema for devicetree binding documentation
+	from schema $id: http://devicetree.org/meta-schemas/core.yaml
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.kernel.org/project/devicetree/patch/20251209-tdm-idle-slots-v1-1-38dabf6bc01e@gmail.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
