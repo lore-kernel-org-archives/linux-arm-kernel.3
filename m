@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9906D3B7ED
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 06:02:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB57ED3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 06:04:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JcXZ0I12Q8BgpacPgvhfokR/RGhaSMFytbjmST/lJFs=; b=HxYVDV3ek/8FObj+k3EJ3zVRMB
-	en435CHtLgUbxpWd2ETy2OWuwutktr2TsPoVHBwVOmXQyy6g6VK7gp1EVwNTNPPSdIBimwfsbDeVH
-	rbPNuTHyokQsKG1q5S8EwWl2MBZpDYvVF4itFByIq0RDW8qXkl/KUSs6D9qIPqQGCFIjrZ1nW4v9Y
-	N0ypoEc8fRCy5az4QneCebtnm9rmMLBHt9FtErxa5f/ZxDl3haUFXCwxnLKDquoygkupR4fvI850/
-	b4pgvScHkV7gJoDE0CjhYsOL5q5vdZY3WW2P7jezRL0jg1WMMgv2RJ4HlzeXNTTrDq4fQm36du3B3
-	TtuAA80Q==;
+	bh=1WPlY+bHeVdHg6SfRJqxvFsz113LdxEePeuPzdEcekY=; b=F0HjF7oA4NJdpQSYNiaq0zQVg1
+	WBQ+kRcsZtONeVqzYZfPAjm2IxHz19l+oi8G9onvLsE556omkVazpD8a6ZCbA96VrMbAqXUZz5ayP
+	ikqecTk8GYs/VqD0QOPLJh/yTq6fMXE4jp4f7DbtcaToSTUiLzaLqggJ48dgvr1ABBXFzDcmXXzwT
+	8W6jC9v5Xznx6/haeYj7iYuKXtn9q0cvp2yyAzS3mShjTWzDXp6gd38IuIRrXAq/kY3I7bpLE2j5s
+	OoIwjCGEcL8phdZ6TQDEXpJ8bwe8vqPUHDjlvv4DFtlfu+kpYG+z/MgwwIk3LgeyWc6+BrI+fmzPC
+	+l8srzYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSqnL-0000000DroJ-2A0D;
-	Tue, 09 Dec 2025 06:01:55 +0000
+	id 1vSqph-0000000Ds6p-1Z6W;
+	Tue, 09 Dec 2025 06:04:21 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSqnI-0000000Drnn-2kaR;
-	Tue, 09 Dec 2025 06:01:53 +0000
+	id 1vSqpe-0000000Ds5j-3R22;
+	Tue, 09 Dec 2025 06:04:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D2F884348B;
-	Tue,  9 Dec 2025 06:01:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AE53C4CEF5;
-	Tue,  9 Dec 2025 06:01:46 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7426D4412A;
+	Tue,  9 Dec 2025 06:04:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98D62C4CEF5;
+	Tue,  9 Dec 2025 06:04:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765260109;
-	bh=HdtPK6iYrRFuq2CVhFJGFpGIYHyWnTZQI8p7EvGykcM=;
+	s=k20201202; t=1765260258;
+	bh=MjnbSyMNPetmf8dhZp1BRfKmvSUQOH6uohFisTU3vyM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TFcNpqQNRaA8+CIpFtE+dr0meXUL9MCdFSLzg0h04s0hMzM8JajU2tZNXPFbJIjwB
-	 fVBXHLz5VlcYeKC5KKPR4Td/Kv9g5AZ4TH66E2/04tLwPBrvn0Tu6Un3lcDDt3eHyv
-	 98O1wp/XkN41OdQGapaofNzcFC9Do/zIrMNO2o0JAPmyCTLlGAM+TbXSMyZbFXcHjA
-	 miw9GLscxpWPhcRz99KMSwagdy3J1etxKwYgszAbGl3Aj3JXs/h/5LKOcUIfXi072h
-	 l3/7ZRsPvc6dxb2e4rx9uBVVNkts+9qGWQomumkjLcfs/3xQnYq0dvp3yC7jUTQTYA
-	 m6apX/krIJhEQ==
-Message-ID: <4f5ec838-f8d6-4c3b-94f2-b2a60cfe64ec@kernel.org>
-Date: Tue, 9 Dec 2025 07:01:44 +0100
+	b=hL/iWr2lLKqWNzlADBMw71roNdr3NUPHkoQ+pD35BAdT88f6tT/roOl53xzZ2eNuC
+	 /fy2IP7RVjpg+oJZNP7DL+wcqB8Hb9xaVL8PM0oaN07FFcQK2ZPeSjnqKfnAnxcgw5
+	 oxuD/rvsERrzXKgCv4kohxs/nwZjxlEzr4vu4C/M07+4Fi0eLiLgPRgW1caHESVZdR
+	 A0sXNdTryUvRnPnLfEiaDB2Z1iBAZUWKESvx7IDnJWxFagWaNKiU3QpBcB7Txeb9q6
+	 Z82DTY2S/tlVJ3FUwCXgYyV/QqdNk5O9FqER7tp5rlOjhOnTB0Y0+wXHSqMOsaZA10
+	 GTA00WN1lfdVA==
+Message-ID: <f48de0f4-4ebb-4634-8c3d-1d2b753eb232@kernel.org>
+Date: Tue, 9 Dec 2025 07:04:13 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/5] dt-bindings: clock: add Amlogic T7 SCMI clock
- controller
-To: Jian Hu <jian.hu@amlogic.com>
-Cc: Jerome Brunet <jbrunet@baylibre.com>,
- Xianwei Zhao <xianwei.zhao@amlogic.com>, Chuan Liu <chuan.liu@amlogic.com>,
- Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, robh+dt <robh+dt@kernel.org>,
- Rob Herring <robh@kernel.org>, devicetree <devicetree@vger.kernel.org>,
- linux-clk <linux-clk@vger.kernel.org>,
- linux-amlogic <linux-amlogic@lists.infradead.org>,
+Subject: Re: [PATCH v2 7/8] dt-bindings: pinctrl: rockchip: Add RMIO
+ controller binding
+To: =?UTF-8?B?5byg54Oo?= <ye.zhang@rock-chips.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Heiko Stuebner
+ <heiko@sntech.de>, Bartosz Golaszewski <brgl@bgdev.pl>,
+ Rob Herring <robh@kernel.org>, krzk+dt <krzk+dt@kernel.org>,
+ conor+dt <conor+dt@kernel.org>, linux-gpio <linux-gpio@vger.kernel.org>,
+ devicetree <devicetree@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+ linux-rockchip <linux-rockchip@lists.infradead.org>,
  linux-kernel <linux-kernel@vger.kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
-References: <20251204053635.1234150-1-jian.hu@amlogic.com>
- <20251204053635.1234150-3-jian.hu@amlogic.com>
- <20251208-independent-warping-macaw-74a169@quoll>
- <dd90b445-bafb-46d4-8cec-e0877cf425b3@amlogic.com>
+ "tao.huang" <tao.huang@rock-chips.com>
+References: <20251206050844.402958-1-ye.zhang@rock-chips.com>
+ <20251206050844.402958-8-ye.zhang@rock-chips.com>
+ <20251208-invisible-crazy-squirrel-bb3af0@quoll>
+ <AGkAlwDSJz*Fj0POUP7xe4pV.3.1765201861250.Hmail.ye.zhang@rock-chips.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -107,12 +106,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <dd90b445-bafb-46d4-8cec-e0877cf425b3@amlogic.com>
+In-Reply-To: <AGkAlwDSJz*Fj0POUP7xe4pV.3.1765201861250.Hmail.ye.zhang@rock-chips.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251208_220152_761208_9252AE92 
-X-CRM114-Status: GOOD (  18.03  )
+X-CRM114-CacheID: sfid-20251208_220418_895261_702EDB3F 
+X-CRM114-Status: UNSURE (   9.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,56 +127,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/12/2025 09:40, Jian Hu wrote:
-> Hi, Krzysztof
+On 08/12/2025 14:51, 张烨 wrote:
+> Hi Krzysztof,
+> First of all, I sincerely apologize for the low quality of this patchset and the extra workload it caused. I appreciate your detailed review and strict checks, which help improve the code.
 > 
 > 
-> Thans for your review.
+> Regarding your comments, I have the following questions and a proposal for v3. Could you please check if this aligns with your expectations?
 > 
-> On 12/8/2025 2:17 PM, Krzysztof Kozlowski wrote:
->> [ EXTERNAL EMAIL ]
->>
->> On Thu, Dec 04, 2025 at 01:36:31PM +0800, Jian Hu wrote:
->>> Add DT bindings for the SCMI clock controller of the Amlogic T7 SoC family.
->>>
->>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
->>> Acked-by: Rob Herring (Arm) <robh@kernel.org>
->>> ---
->>>   include/dt-bindings/clock/amlogic,t7-scmi.h | 47 +++++++++++++++++++++
->>>   1 file changed, 47 insertions(+)
->>>   create mode 100644 include/dt-bindings/clock/amlogic,t7-scmi.h
->>>
->> Where is any binding doc for this? Why is this a separate patch?
-> 
-> 
-> The ARM SCMI device tree binding specification is located at 
-> ./Documentation/devicetree/bindings/firmware/arm,scmi.yaml.
 
-Then git grep for the file name - there is no such compatible. Are you
-sure you follow writing bindings doc?
 
-Think how are you going to use these values. You will have phandle, yes?
-To some controller, yes? Which one?
-
-> 
-> Certain secure clocks on the T7 rely on the ARM SCMI driver stack, which 
-> is officially supported by ARM.
-> 
-> The kernel-side SCMI client implementation resides in 
-> ./drivers/firmware/arm_scmi/.
-> 
-> To enable ARM SCMI on T7, three components are needed:
-> 
-> - Kernel-side definition of ARM SCMI clock indices (this patch addresses 
-> this component);
-> - SCMI server implementation in the ARM Trusted Firmware (ATF) running 
-> at Exception Level 3 (EL3), which has been integrated into the bootloader;
-> - Device Tree Source (DTS) configuration for ARM SCMI clock nodes (the 
-> DTS changes will be submitted after the T7 clock driver patches are 
-> merged upstream).
-
-So silently you keep the users hidden? No, I want to see the users.
-
+I have no clue what you are referring to. Please follow standard mailing
+list discussion style. I am not reading the rest of whatever this is.
 
 Best regards,
 Krzysztof
