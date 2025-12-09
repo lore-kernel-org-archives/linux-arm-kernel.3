@@ -4,143 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 157ECD3B996
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 21:05:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 319A9D3B7F6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 21:08:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uOhAdbCHNA6go2R2Hf8tRX0cf2WW3G0Fljw7STNK5Hk=; b=nyLbpRs7xqpLibka0LdSZp87R0
-	wNajjE434bacXtkA2cr7wkuu8JVdnhNxb58Ri7OgohbDfjJ3w5EQJu8TaFRChL4roog3F+jOUvaqP
-	G2oj6qqIuS/F9V/HsLmvkurwfXKzlznMU8rgl92CL7IGy9ndI/m+HaS0c1PWxHM8PP/k99ajpGtV4
-	A0Hah861dzof236MsccQ7KE4tUp7YgDULdnUYuxMSCxQ3Tm0xRThzzulkxNcMhQ9rxJOjjJeExaix
-	wkp93/NwGlRK4IT7OAJMaQpRHwKht4cZ6TDhEUADRRaWNqeFLxnDMARfBJaEeKpvYJqS6G/TqsUly
-	EjOz+nAQ==;
+	bh=uX+H894nYTB0x938G90GSxqvruR3fBiHLpMtElO/XTA=; b=exwF7pMVX0VqVzzbzQr84Az3r0
+	K+JucgeuB5sBtfs8JJB6bmzfThTThRqcyO9aU9fu2UZyk3v8kEUk9+efFfeB9bplhG5AmcBzp8WVt
+	mzAGNUXSYpzJuZS5hgpsypQ6YpKGieP1mkb4WQhVR/vZVoMDWbMFaNa8PzQStuhL6jhkBVBBCRGhT
+	kjWMtri0la8Yrc5Kv6l3oXijPnLN9PPmHgrERJFs0CxW+XHO46H3jJK3LBqDWRQJU7u4kYrRg7AFS
+	5T8rClRQvYAusLrahv/HDBXRzSY2kMLY/rGZi3zkQDHq7a92c0Vr1k8WGPLUhsgUiRvBZf8lZQbwt
+	Nq9wVmsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT4tg-0000000EnjS-2wXn;
-	Tue, 09 Dec 2025 21:05:24 +0000
-Received: from mail-southcentralusazon11012014.outbound.protection.outlook.com ([40.93.195.14] helo=SN4PR2101CU001.outbound.protection.outlook.com)
+	id 1vT4wT-0000000Eo2y-1CnS;
+	Tue, 09 Dec 2025 21:08:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT4td-0000000Enj3-1zf7
+	id 1vT4wS-0000000Eo2r-2wAX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 09 Dec 2025 21:05:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=n/Y7/RPDdvWd9jxcVKm18oRayxZiydeyQrj5jkATp2u+mpIpxLGnAQM7d9zcaesOAOBuCMQSVTkZ6iBHYUboFs7qLbEFv/5zmuff9KEo5fKyTCNYrMCBkxwboWwg8HpCVfZNjZ6HFRa6++nvK0opq9zOVOPrVVz2+6nGUU+eYcSchefYt4o4852VJb4uaaGxr6iHdgSCJGL/Vtl2TFm+Rslthxas3DMJIDefPD1tShEwza2ljHoltJIiVQvfK6q20Gby+DhSmC2hSQyYBsSZAQB9xmE7PwsJeKcAugBTwUjdI1H470/5pjspGv00D+nPODAq7YwPSZgqdbtBE3PkSg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uOhAdbCHNA6go2R2Hf8tRX0cf2WW3G0Fljw7STNK5Hk=;
- b=uY/UqQ5785Wgeod7gcKS8J+hHWk77PJ2gkMfzxXrIsb96iSQMk+PPG6lGDvPC6M+vYY7ofxqoH7ao2KDnZzPXsJx8TGRMoDd5Atf42wcfsJaDCRgLuUGkwzeT9iN6TzwkeDq3mGpgisS8Q7Mr2dpwFeyccx6Wucfo9VrVAiVdpbPSzzlbl2YYE/+ePHSffuUIh4zX2LAha3mOBeuByY4dqm719gsa39xNzqpdfBrXPXaD4qUpg3ybE2WUzLBkd6Paa06Pv6Uau6DRYKtDT1t0McRfdcitaNXSZgkAyDFSuqr72bkbXtIaTXZ6TNRXbqH6jdhDJSNpqCIfb7nIWguhA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=linux.alibaba.com
- smtp.mailfrom=nvidia.com; dmarc=pass (p=reject sp=reject pct=100) action=none
- header.from=nvidia.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uOhAdbCHNA6go2R2Hf8tRX0cf2WW3G0Fljw7STNK5Hk=;
- b=Na332ux2X6yZhwzbWqinBmHjcZUxLVMYkZ6PzXgATvUg/iqqlsmKjBwS21dC0juzGWCZXuuXrgvy4KUpFIPBENRf1wqvznl0gJRHjKscJ8J/y64SLUiKtD/s5bzizCyYdCl5CfRFQzJXj+xHu/I2mKFRSb3NNae9t7IQbq4NvxSQLYxSsfCPvK9s5/7pvXt5WMKzKgyzUikrCIKu12QtO/ejl1LVEq8pTzPbXGpuz82qbdq3Malde2Fj0foG4PFHOnYTC3oyncpp3jTWl+8rJjLRkqVweZFJfsAiBBib2pCHj7EHbqZLkLgoY8rKer1qc1sVyAXFvuOXDFWhWhUv3Q==
-Received: from BN9PR03CA0694.namprd03.prod.outlook.com (2603:10b6:408:ef::9)
- by CY5PR12MB6382.namprd12.prod.outlook.com (2603:10b6:930:3e::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.14; Tue, 9 Dec
- 2025 21:05:12 +0000
-Received: from BL6PEPF0002256E.namprd02.prod.outlook.com
- (2603:10b6:408:ef:cafe::b1) by BN9PR03CA0694.outlook.office365.com
- (2603:10b6:408:ef::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9388.14 via Frontend Transport; Tue,
- 9 Dec 2025 21:04:43 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BL6PEPF0002256E.mail.protection.outlook.com (10.167.249.36) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9412.4 via Frontend Transport; Tue, 9 Dec 2025 21:05:11 +0000
-Received: from rnnvmail204.nvidia.com (10.129.68.6) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 9 Dec
- 2025 13:04:48 -0800
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail204.nvidia.com
- (10.129.68.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 9 Dec
- 2025 13:04:47 -0800
-Received: from nvidia.com (10.127.8.13) by mail.nvidia.com (10.129.68.10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 9 Dec 2025 13:04:45 -0800
-Date: Tue, 9 Dec 2025 13:04:43 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Shuai Xue <xueshuai@linux.alibaba.com>
-CC: <jgg@nvidia.com>, <will@kernel.org>, <robin.murphy@arm.com>,
-	<joro@8bytes.org>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<skolothumtho@nvidia.com>, <praan@google.com>
-Subject: Re: [PATCH rc v2 4/4] iommu/arm-smmu-v3-test: Add nested
- s1bypass/s1dssbypass coverage
-Message-ID: <aTiO69YZ9WA8dFe0@nvidia.com>
-References: <cover.1765140287.git.nicolinc@nvidia.com>
- <b6d87901f89c05dd9e1d0c1e819040d205f569a7.1765140287.git.nicolinc@nvidia.com>
- <f52c705d-6032-4d85-b902-dd6d0a40b9ec@linux.alibaba.com>
+	Tue, 09 Dec 2025 21:08:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 335D16015A;
+	Tue,  9 Dec 2025 21:08:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C4EFC4CEF5;
+	Tue,  9 Dec 2025 21:08:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765314494;
+	bh=DqNP2ZCx6Exn3ynjV4hjZkY7WNN/Z9M7pZg9j1AEmV4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jcJKGa4grfV5rmRdbJ+05xu9XobUVOs1q4rjQGrhAuF8dsjIA8V9sGSMWRvhme6G9
+	 OW7OVrhB2fcwSa0S9f0BuIls+G6fdtmpHcKWKfZa0UGWnfKEmsEHy0GK65Oj14m9sC
+	 2E06h09rOq/PcVLYyqKW2HfrbrmcPb3RGIiQYMuaSu3QGCZeqptcs17Gz4HHB9l2aF
+	 DVLsN05fDKG82bKLjUcHB80RL9LrbqtHv57rwD+z5m/b1Vttnipx3edbA/lCJvYgwR
+	 RD5RUzbB5cNbXsCQItAe5ghU7v+Lgw7tWY62G/ppYqffIy/ddaXpeWpC0YAT90VrIo
+	 jSMG9q7P1DnzQ==
+Date: Tue, 9 Dec 2025 13:08:13 -0800
+From: Oliver Upton <oupton@kernel.org>
+To: Colton Lewis <coltonlewis@google.com>
+Cc: kvm@vger.kernel.org, Paolo Bonzini <pbonzini@redhat.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Mingwei Zhang <mizhang@google.com>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mark Rutland <mark.rutland@arm.com>, Shuah Khan <shuah@kernel.org>,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v5 10/24] KVM: arm64: Set up FGT for Partitioned PMU
+Message-ID: <aTiPvS49uMOJEBrf@kernel.org>
+References: <20251209205121.1871534-1-coltonlewis@google.com>
+ <20251209205121.1871534-11-coltonlewis@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <f52c705d-6032-4d85-b902-dd6d0a40b9ec@linux.alibaba.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL6PEPF0002256E:EE_|CY5PR12MB6382:EE_
-X-MS-Office365-Filtering-Correlation-Id: 055b3011-f4df-4ecd-f50d-08de3766a471
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?TZzv5ehPaMf/I8Cqhc7Ndvr9ljxMWvNcbax1Nsfs1vmnsfWvITiWSYjZbimj?=
- =?us-ascii?Q?kZoYb4L1U3Cr8/QOl0a49Oas9deiW1whHBIw7zPSW5NkNPO+fYLkPLZQjPzo?=
- =?us-ascii?Q?tohsfvK1oVjzm0CG5YMIvvQEn3utXKXcR4SAVg303x+tzPwgtXvNL1/VMWUA?=
- =?us-ascii?Q?E8BLSQZt5kiW2ZF49g1FOPiXorwJfKUAjwm+uPGsnIRzo+z/iocVUCtV+cI7?=
- =?us-ascii?Q?jkq0AHKBmeaKM56w2cmbqqH8QfgD0x/J8NvWz5uyhfXReaMbLxnK5cU/42JH?=
- =?us-ascii?Q?H+WMCm4q5XGT5eSmYh3ulmGpMvTko+oBwEUlfGR1FDr0ZXB22Jz5tVkad+YK?=
- =?us-ascii?Q?DRhm0i+Yni2TRailIwwKi5C3eZZxG9vKFJJLGsjIJ5DRQXvO+s3ZzOVmEUIX?=
- =?us-ascii?Q?7LD08V6izX9aUXdyJMAcJqGgu7l9nb4/FHcEeaTEdfVbD6/F7Y07bUAsMZAk?=
- =?us-ascii?Q?iQiV7khRHW27uNOgQmhiChgmru/pRGBwU+4fI1lBw9/jpFR9VamX0uWuizXr?=
- =?us-ascii?Q?y7PHfQd1g2sZhuBztB/zHOqxrICtdL7jsfpy3k23e2d9Y8iDO+rRx0e2HUpp?=
- =?us-ascii?Q?NZ2MvujXQVEHvEQhgyTIVXZ3zhz7jnjob4Io/TLTMSoDXJvl0TRyiHd7MzrO?=
- =?us-ascii?Q?GfLO8wMgt9jt7q+XNxbPaBuvpfERhZdVjgpVwwSP05LLjllMM+RQnkvUjt0j?=
- =?us-ascii?Q?CTlQcPbJ88uhC242ip5bzsVvd/CN5b+jNfyBwRNf2fvpjPpyAMWr2Vbqfx5S?=
- =?us-ascii?Q?3icjNehM8LZPBki932oDo1a/rVRnjxtDwEbtof8LaDfwWb9Wycch8b9mmLmG?=
- =?us-ascii?Q?VL3ylOQmJL1Vsv4f9pqluHsGorWJwHLdFSWZqpwFKlZgHqYK75FL6hVq5pt3?=
- =?us-ascii?Q?gyUkeXVIh1+HSRjBxQvl/MAfMVb2t7hhfBCzeZTpKI0AEmLuhVbtZa4o9Stm?=
- =?us-ascii?Q?rhnse6+39bMfDBJtmlpQDA9pw4k9KEymypNNhJcHrP+YAWMqky8gE6LBGnUL?=
- =?us-ascii?Q?JT4VmMfKWBZKeD1ZpMJnPB0rgor/mnWKkz7s9rQSqFYfVKsi6eFanDhheAGk?=
- =?us-ascii?Q?Y9O/AsPnJn+nAM6xTIndWWhBOfiO5IzPYAbRKqNF3DufrdfJulGA2NghhW7m?=
- =?us-ascii?Q?O8km/PSrAqdhiaBm3AAFefHS5zX+z5jrRuD0oN0lyNOoec4BXof5U96C76SA?=
- =?us-ascii?Q?SyzcYWCdLiIOkiO9ZdplyIIEzdPskZ15f2LIPT89xYOMA2u8kGGkGbM1bIkf?=
- =?us-ascii?Q?QxpxiDreD1y+3ObACm9i7GkC1PkgKDY4clqDF4GQXlgLXlIrQagDP8GAmJJK?=
- =?us-ascii?Q?C5nGBggKud2pWQdCbZqZCkPNjbjkwykjIfO2zegf/9gCvAJmrkyEs1QGl286?=
- =?us-ascii?Q?uR4dRCqgHFGn931e+8wlTeWNFPCBLNazlwHYkTmDGk0RswC3KjeywBcak2s5?=
- =?us-ascii?Q?0mjvAQo6pYq5LhyKhK8jnm773F269IDdM87AkxiyWJ1CXOrOP/HK0sCCz/9m?=
- =?us-ascii?Q?0jXMlsOvta6e0Y1f0AxlMHBeRPI9D24G3nOSHFJz76Ec7AsKR5JUB0cSIicD?=
- =?us-ascii?Q?tWBOg45CmR6qmV7cnBY=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Dec 2025 21:05:11.6531
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 055b3011-f4df-4ecd-f50d-08de3766a471
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF0002256E.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6382
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_130521_553733_3D4950DE 
-X-CRM114-Status: GOOD (  13.91  )
+In-Reply-To: <20251209205121.1871534-11-coltonlewis@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,112 +81,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 08, 2025 at 11:43:41AM +0800, Shuai Xue wrote:
-> Hi, Nicolin,
+Hi Colton,
+
+On Tue, Dec 09, 2025 at 08:51:07PM +0000, Colton Lewis wrote:
+> In order to gain the best performance benefit from partitioning the
+> PMU, utilize fine grain traps (FEAT_FGT and FEAT_FGT2) to avoid
+> trapping common PMU register accesses by the guest to remove that
+> overhead.
 > 
-> Nit. Instead of duplicating this code, we can leverage the existing
-> arm_smmu_test_make_cdtable_ste() helper here.
+> Untrapped:
+> * PMCR_EL0
+> * PMUSERENR_EL0
+> * PMSELR_EL0
+> * PMCCNTR_EL0
+> * PMCNTEN_EL0
+> * PMINTEN_EL1
+> * PMEVCNTRn_EL0
+> 
+> These are safe to untrap because writing MDCR_EL2.HPMN as this series
+> will do limits the effect of writes to any of these registers to the
+> partition of counters 0..HPMN-1. Reads from these registers will not
+> leak information from between guests as all these registers are
+> context swapped by a later patch in this series. Reads from these
+> registers also do not leak any information about the host's hardware
+> beyond what is promised by PMUv3.
+> 
+> Trapped:
+> * PMOVS_EL0
+> * PMEVTYPERn_EL0
+> * PMCCFILTR_EL0
+> * PMICNTR_EL0
+> * PMICFILTR_EL0
+> * PMCEIDn_EL0
+> * PMMIR_EL1
+> 
+> PMOVS remains trapped so KVM can track overflow IRQs that will need to
+> be injected into the guest.
+> 
+> PMICNTR and PMIFILTR remain trapped because KVM is not handling them
+> yet.
+> 
+> PMEVTYPERn remains trapped so KVM can limit which events guests can
+> count, such as disallowing counting at EL2. PMCCFILTR and PMCIFILTR
+> are special cases of the same.
+> 
+> PMCEIDn and PMMIR remain trapped because they can leak information
+> specific to the host hardware implementation.
+> 
+> NOTE: This patch temporarily forces kvm_vcpu_pmu_is_partitioned() to
+> be false to prevent partial feature activation for easier debugging.
+> 
+> Signed-off-by: Colton Lewis <coltonlewis@google.com>
+> ---
+>  arch/arm64/include/asm/kvm_pmu.h | 33 ++++++++++++++++++++++
+>  arch/arm64/kvm/config.c          | 34 ++++++++++++++++++++--
+>  arch/arm64/kvm/pmu-direct.c      | 48 ++++++++++++++++++++++++++++++++
+>  3 files changed, 112 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_pmu.h b/arch/arm64/include/asm/kvm_pmu.h
+> index 8887f39c25e60..7297a697a4a62 100644
+> --- a/arch/arm64/include/asm/kvm_pmu.h
+> +++ b/arch/arm64/include/asm/kvm_pmu.h
+> @@ -96,6 +96,23 @@ u64 kvm_pmu_guest_counter_mask(struct arm_pmu *pmu);
+>  void kvm_pmu_host_counters_enable(void);
+>  void kvm_pmu_host_counters_disable(void);
+>  
+> +#if !defined(__KVM_NVHE_HYPERVISOR__)
+> +bool kvm_vcpu_pmu_is_partitioned(struct kvm_vcpu *vcpu);
+> +bool kvm_vcpu_pmu_use_fgt(struct kvm_vcpu *vcpu);
+> +#else
+> +static inline bool kvm_vcpu_pmu_is_partitioned(struct kvm_vcpu *vcpu)
+> +{
+> +	return false;
+> +}
+> +
+> +static inline bool kvm_vcpu_pmu_use_fgt(struct kvm_vcpu *vcpu)
+> +{
+> +	return false;
+> +}
+> +#endif
+> +u64 kvm_pmu_fgt_bits(void);
+> +u64 kvm_pmu_fgt2_bits(void);
+> +
+>  /*
+>   * Updates the vcpu's view of the pmu events for this cpu.
+>   * Must be called before every vcpu run after disabling interrupts, to ensure
+> @@ -135,6 +152,22 @@ static inline u64 kvm_pmu_get_counter_value(struct kvm_vcpu *vcpu,
+>  {
+>  	return 0;
+>  }
+> +static inline bool kvm_vcpu_pmu_is_partitioned(struct kvm_vcpu *vcpu)
+> +{
+> +	return false;
+> +}
+> +static inline bool kvm_vcpu_pmu_use_fgt(struct kvm_vcpu *vcpu)
+> +{
+> +	return false;
+> +}
+> +static inline u64 kvm_pmu_fgt_bits(void)
+> +{
+> +	return 0;
+> +}
+> +static inline u64 kvm_pmu_fgt2_bits(void)
+> +{
+> +	return 0;
+> +}
+>  static inline void kvm_pmu_set_counter_value(struct kvm_vcpu *vcpu,
+>  					     u64 select_idx, u64 val) {}
+>  static inline void kvm_pmu_set_counter_value_user(struct kvm_vcpu *vcpu,
+> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+> index 24bb3f36e9d59..064dc6aa06f76 100644
+> --- a/arch/arm64/kvm/config.c
+> +++ b/arch/arm64/kvm/config.c
+> @@ -6,6 +6,7 @@
+>  
+>  #include <linux/kvm_host.h>
+>  #include <asm/kvm_emulate.h>
+> +#include <asm/kvm_pmu.h>
+>  #include <asm/kvm_nested.h>
+>  #include <asm/sysreg.h>
+>  
+> @@ -1489,12 +1490,39 @@ static void __compute_hfgwtr(struct kvm_vcpu *vcpu)
+>  		*vcpu_fgt(vcpu, HFGWTR_EL2) |= HFGWTR_EL2_TCR_EL1;
+>  }
+>  
+> +static void __compute_hdfgrtr(struct kvm_vcpu *vcpu)
+> +{
+> +	__compute_fgt(vcpu, HDFGRTR_EL2);
+> +
+> +	if (kvm_vcpu_pmu_use_fgt(vcpu))
+> +		*vcpu_fgt(vcpu, HDFGRTR_EL2) |= kvm_pmu_fgt_bits();
 
-Thanks for the review. I squashed the following changes:
+Couple of suggestions. I'd rather see this conditioned on
+kvm_vcpu_pmu_is_partitioned() and get rid of the FGT predicate. After
+all, kvm_vcpu_load_fgt() already checks for the presence of FEAT_FGT
+first.
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-index 1672e75ebffc2..197b8b55fe7a2 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-@@ -33,8 +33,12 @@ static struct mm_struct sva_mm = {
- enum arm_smmu_test_master_feat {
- 	ARM_SMMU_MASTER_TEST_ATS = BIT(0),
- 	ARM_SMMU_MASTER_TEST_STALL = BIT(1),
-+	ARM_SMMU_MASTER_TEST_NESTED = BIT(2),
- };
- 
-+static void arm_smmu_test_make_s2_ste(struct arm_smmu_ste *ste,
-+				      enum arm_smmu_test_master_feat feat);
-+
- static bool arm_smmu_entry_differs_in_used_bits(const __le64 *entry,
- 						const __le64 *used_bits,
- 						const __le64 *target,
-@@ -198,6 +202,17 @@ static void arm_smmu_test_make_cdtable_ste(struct arm_smmu_ste *ste,
- 	};
- 
- 	arm_smmu_make_cdtable_ste(ste, &master, ats_enabled, s1dss);
-+	if (feat & ARM_SMMU_MASTER_TEST_NESTED) {
-+		struct arm_smmu_ste s2ste;
-+		int i;
-+
-+		arm_smmu_test_make_s2_ste(&s2ste, ARM_SMMU_MASTER_TEST_ATS);
-+		ste->data[0] |= cpu_to_le64(
-+			FIELD_PREP(STRTAB_STE_0_CFG, STRTAB_STE_0_CFG_NESTED));
-+		ste->data[1] |= cpu_to_le64(STRTAB_STE_1_MEV);
-+		for (i = 2; i < NUM_ENTRY_QWORDS; i++)
-+			ste->data[i] = s2ste.data[i];
-+	}
- }
- 
- static void arm_smmu_v3_write_ste_test_bypass_to_abort(struct kunit *test)
-@@ -555,46 +570,17 @@ static void arm_smmu_v3_write_ste_test_s2_to_s1_stall(struct kunit *test)
- 						       NUM_EXPECTED_SYNCS(3));
- }
- 
--static void arm_smmu_test_make_nested_cdtable_ste(
--	struct arm_smmu_ste *ste, unsigned int s1dss, const dma_addr_t dma_addr,
--	enum arm_smmu_test_master_feat feat)
--{
--	bool stall_enabled = feat & ARM_SMMU_MASTER_TEST_STALL;
--	bool ats_enabled = feat & ARM_SMMU_MASTER_TEST_ATS;
--	struct arm_smmu_ste s1ste;
--
--	struct arm_smmu_master master = {
--		.ats_enabled = ats_enabled,
--		.cd_table.cdtab_dma = dma_addr,
--		.cd_table.s1cdmax = 0xFF,
--		.cd_table.s1fmt = STRTAB_STE_0_S1FMT_64K_L2,
--		.smmu = &smmu,
--		.stall_enabled = stall_enabled,
--	};
--
--	arm_smmu_test_make_s2_ste(ste, ARM_SMMU_MASTER_TEST_ATS);
--	arm_smmu_make_cdtable_ste(&s1ste, &master, ats_enabled, s1dss);
--
--	ste->data[0] = cpu_to_le64(
--		STRTAB_STE_0_V |
--		FIELD_PREP(STRTAB_STE_0_CFG, STRTAB_STE_0_CFG_NESTED));
--	ste->data[0] |= s1ste.data[0] & ~cpu_to_le64(STRTAB_STE_0_CFG);
--	ste->data[1] |= s1ste.data[1];
--	/* Merge events for DoS mitigations on eventq */
--	ste->data[1] |= cpu_to_le64(STRTAB_STE_1_MEV);
--}
--
- static void
- arm_smmu_v3_write_ste_test_nested_s1dssbypass_to_s1bypass(struct kunit *test)
- {
- 	struct arm_smmu_ste s1_ste;
- 	struct arm_smmu_ste s2_ste;
- 
--	arm_smmu_test_make_nested_cdtable_ste(&s1_ste,
--					      STRTAB_STE_1_S1DSS_BYPASS,
--					      fake_cdtab_dma_addr,
--					      ARM_SMMU_MASTER_TEST_ATS);
-+	arm_smmu_test_make_cdtable_ste(
-+		&s1_ste, STRTAB_STE_1_S1DSS_BYPASS, fake_cdtab_dma_addr,
-+		ARM_SMMU_MASTER_TEST_ATS | ARM_SMMU_MASTER_TEST_NESTED);
- 	arm_smmu_test_make_s2_ste(&s2_ste, 0);
-+	/* Expect an additional sync to unset ignored bits: EATS and MEV */
- 	arm_smmu_v3_test_ste_expect_hitless_transition(test, &s1_ste, &s2_ste,
- 						       NUM_EXPECTED_SYNCS(3));
- }
-@@ -605,10 +591,9 @@ arm_smmu_v3_write_ste_test_nested_s1bypass_to_s1dssbypass(struct kunit *test)
- 	struct arm_smmu_ste s1_ste;
- 	struct arm_smmu_ste s2_ste;
- 
--	arm_smmu_test_make_nested_cdtable_ste(&s1_ste,
--					      STRTAB_STE_1_S1DSS_BYPASS,
--					      fake_cdtab_dma_addr,
--					      ARM_SMMU_MASTER_TEST_ATS);
-+	arm_smmu_test_make_cdtable_ste(
-+		&s1_ste, STRTAB_STE_1_S1DSS_BYPASS, fake_cdtab_dma_addr,
-+		ARM_SMMU_MASTER_TEST_ATS | ARM_SMMU_MASTER_TEST_NESTED);
- 	arm_smmu_test_make_s2_ste(&s2_ste, 0);
- 	arm_smmu_v3_test_ste_expect_hitless_transition(test, &s2_ste, &s1_ste,
- 						       NUM_EXPECTED_SYNCS(2));
+Additionally, I'd prefer that the trap configuration is inline instead
+of done in a helper in some other file. Centralizing the FGT
+configuration here was very much intentional.
+
+The other reason for doing this is kvm_pmu_fgt_bits() assumes a
+'positive' trap polarity, even though there are several cases where FGTs
+have a 'negative' priority (i.e. 0 => trap).
+
+Thanks,
+Oliver
 
