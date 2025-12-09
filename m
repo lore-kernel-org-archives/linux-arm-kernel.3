@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A769D3B7EA
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 14:27:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C36E2D3B7EA
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  9 Dec 2025 14:40:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6JoYkHKkBVptzyMrFOI4jLFCkTe+D/kqhjhWd63pMIo=; b=3DVrlzpInzEL3WfO9BaqG5XVH3
-	GpksDuzPWzl3HBW9AjKmTPiFzupjIAtOEpjNFlvxh7KwjZyF1k+etwfmyAe8hh+Rtqu535PqO5DLT
-	H8AXeBI3O6u2CmE08qB1K/VlB3m/BPnLdMwqa2QAsRvdjQiNdz+rXa4e+gc5fkHsgrlTq8lBzFPqf
-	YRaVgwak6M3wKWIpVmitJ/Q9595JBaGfKkmFJLHieU1uYx1Dxz7Jvc4A714l11Ct8og+lYt9s6Fm1
-	5vE1BpLpatdGlt/WLdsvzbm4lcXIiW0aTYDCGW+nLtjRK8D+pcaaGqehXw/iDa72ubU9YNoH+kKXS
-	9IsOePhw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aTiH5HAxrxt4Q/8HiYZa4AwIODsYXQjnh1VIP3qiNv0=; b=Hj+wIpxLWN9ZkaFxF6kWKp4NRO
+	ziapUufjwQKuebCjIRXhCURjsi13Jhub/zDbKYS8nO9hOLi7VaCq/Y3QuL+r/GvfdGx1Mt13DaSKZ
+	cvbBIBKA4B6bBN8U+AaDqQI+y/z/2vGOP0vQVT2UQJPtlaeMJQ1A6YatAeR5O3iOG219vIe2hbMwE
+	A01hmMgXggyoGbnnUpB+FLYJ5G4RsUVV7iqMCfmI3GbiA13Au+26edIMNIP0TGZFZbKuwaQSMz5Cn
+	2LIhb6TxX5B+fuGNzymTRmocX6He8ZLFHnLIJ/nPbLsQjrh2vr/6VkFGUctnDNY+xzI7RcJKD5nbs
+	XbyLGjbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSygg-0000000EP7O-2COi;
-	Tue, 09 Dec 2025 14:27:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vSygd-0000000EP6s-46dv;
-	Tue, 09 Dec 2025 14:27:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 7476843A63;
-	Tue,  9 Dec 2025 14:27:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0555C4CEF5;
-	Tue,  9 Dec 2025 14:27:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765290451;
-	bh=+lPRgnywG6DZojNgtg/w1EUgAWRizPCecjzEhDomM3s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SRtov+UnCMmffLoCrIS4i3rDRT4jcz+QLcw3NrHCLRnXPGNf1byxWeiSl2eogVxma
-	 r+raXHakZJMJsgoqW9kr6R9waCWB6qY/4XMqZcOj4R6RjgNeuWG+f2Lm9aEZlBfUCw
-	 KLHcoeYAyfv8VBvC9vYuxQvaoIWXIALfwKGFIp9wbP+aZFbbiHk/6IPUm6K/i5QmoX
-	 kKf3umBTwAhvT4a0ULSXFhXNQgEkVkbKlGKh2mWA+megTCQe8ul02RMn63lBaCpYrr
-	 He+mCx0tE1uAYY/8j8ydJaUSmAqRiF+FASTPOsNDzACALIBR0q/Gpm7h9RqDKk1dFh
-	 ZKfL+LRCT6e9A==
-Date: Tue, 9 Dec 2025 15:27:28 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
-	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
-	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
-	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Rob Herring <robh@kernel.org>, kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org
-Subject: Re: [PATCH v5 04/17] drm/bridge: Act on the DRM color format property
-Message-ID: <20251209-smart-oarfish-of-wind-0c1c8b@houat>
-References: <20251128-color-format-v5-0-63e82f1db1e1@collabora.com>
- <20251128-color-format-v5-4-63e82f1db1e1@collabora.com>
+	id 1vSytL-0000000EPkG-1Rbr;
+	Tue, 09 Dec 2025 14:40:39 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vSytI-0000000EPjd-2S9W
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 09 Dec 2025 14:40:38 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EDF7E175D;
+	Tue,  9 Dec 2025 06:40:25 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DF16A3F73B;
+	Tue,  9 Dec 2025 06:40:29 -0800 (PST)
+Message-ID: <41bcd0d2-d5b8-4f3d-b0b3-132387f547ed@arm.com>
+Date: Tue, 9 Dec 2025 14:40:28 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="6swa32l4wvcewsqj"
-Content-Disposition: inline
-In-Reply-To: <20251128-color-format-v5-4-63e82f1db1e1@collabora.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 00/38] arm_mpam: Add KVM/arm64 and resctrl glue code
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@kernel.org>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Gavin Shan
+ <gshan@redhat.com>, rohit.mathew@arm.com, reinette.chatre@intel.com,
+ Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+References: <20251205215901.17772-1-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20251205215901.17772-1-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_062732_077855_55EF1E5B 
-X-CRM114-Status: GOOD (  22.81  )
+X-CRM114-CacheID: sfid-20251209_064036_669893_2CDD0658 
+X-CRM114-Status: GOOD (  13.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,114 +75,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi James and all,
 
---6swa32l4wvcewsqj
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v5 04/17] drm/bridge: Act on the DRM color format property
-MIME-Version: 1.0
+As James is otherwise occupied, I am planning to post a follow up
+version of this series once it's had time to be reviewed. I will be
+posting my own review comments; please give them extra scrutiny.
 
-Hi,
+On 12/5/25 21:58, James Morse wrote:
+> This is the missing piece to make MPAM usable resctrl in user-space. This has
+> shed its debugfs code and the read/write 'event configuration' for the monitors
+> to make the series smaller.
+> 
+[...]
+> 
+> This series is based on arm64/for-next/core, and can be retrieved from:
+> https://git.kernel.org/pub/scm/linux/kernel/git/morse/linux.git mpam/glue/rfc
+> 
+> There is no snapshot branch - this is it!
+> I'll push the extras branch once I've gotten a handle on the DT shaped mess in
+> there.
 
-On Fri, Nov 28, 2025 at 10:05:40PM +0100, Nicolas Frattaroli wrote:
-> The new DRM color format property allows userspace to request a specific
-> color format on a connector. In turn, this fills the connector state's
-> color_format member to switch color formats.
->=20
-> Make drm_bridges consider the color_format set in the connector state
-> during the atomic bridge check. Specifically, reject any output bus
-> formats that do not correspond to the requested color format.
->=20
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
->  drivers/gpu/drm/drm_bridge.c | 45 ++++++++++++++++++++++++++++++++++++++=
-++++++
->  1 file changed, 45 insertions(+)
->=20
-> diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-> index 8f355df883d8..8aac9747f35e 100644
-> --- a/drivers/gpu/drm/drm_bridge.c
-> +++ b/drivers/gpu/drm/drm_bridge.c
-> @@ -1052,6 +1052,47 @@ static int select_bus_fmt_recursive(struct drm_bri=
-dge *first_bridge,
->  	return ret;
->  }
-> =20
-> +static bool __pure bus_format_is_color_fmt(u32 bus_fmt, enum drm_color_f=
-ormat fmt)
-> +{
-> +	if (fmt =3D=3D DRM_COLOR_FORMAT_AUTO)
-> +		return true;
-> +
-> +	switch (bus_fmt) {
-> +	case MEDIA_BUS_FMT_FIXED:
-> +		return true;
-> +	case MEDIA_BUS_FMT_RGB888_1X24:
-> +	case MEDIA_BUS_FMT_RGB101010_1X30:
-> +	case MEDIA_BUS_FMT_RGB121212_1X36:
-> +	case MEDIA_BUS_FMT_RGB161616_1X48:
-> +		return fmt =3D=3D DRM_COLOR_FORMAT_RGB444;
-> +	case MEDIA_BUS_FMT_YUV8_1X24:
-> +	case MEDIA_BUS_FMT_YUV10_1X30:
-> +	case MEDIA_BUS_FMT_YUV12_1X36:
-> +	case MEDIA_BUS_FMT_YUV16_1X48:
-> +		return fmt =3D=3D DRM_COLOR_FORMAT_YCBCR444;
-> +	case MEDIA_BUS_FMT_UYVY8_1X16:
-> +	case MEDIA_BUS_FMT_VYUY8_1X16:
-> +	case MEDIA_BUS_FMT_YUYV8_1X16:
-> +	case MEDIA_BUS_FMT_YVYU8_1X16:
-> +	case MEDIA_BUS_FMT_UYVY10_1X20:
-> +	case MEDIA_BUS_FMT_YUYV10_1X20:
-> +	case MEDIA_BUS_FMT_VYUY10_1X20:
-> +	case MEDIA_BUS_FMT_YVYU10_1X20:
-> +	case MEDIA_BUS_FMT_UYVY12_1X24:
-> +	case MEDIA_BUS_FMT_VYUY12_1X24:
-> +	case MEDIA_BUS_FMT_YUYV12_1X24:
-> +	case MEDIA_BUS_FMT_YVYU12_1X24:
-> +		return fmt =3D=3D DRM_COLOR_FORMAT_YCBCR422;
-> +	case MEDIA_BUS_FMT_UYYVYY8_0_5X24:
-> +	case MEDIA_BUS_FMT_UYYVYY10_0_5X30:
-> +	case MEDIA_BUS_FMT_UYYVYY12_0_5X36:
-> +	case MEDIA_BUS_FMT_UYYVYY16_0_5X48:
-> +		return fmt =3D=3D DRM_COLOR_FORMAT_YCBCR420;
-> +	default:
-> +		return false;
-> +	}
-> +}
-> +
->  /*
->   * This function is called by &drm_atomic_bridge_chain_check() just befo=
-re
->   * calling &drm_bridge_funcs.atomic_check() on all elements of the chain.
-> @@ -1137,6 +1178,10 @@ drm_atomic_bridge_chain_select_bus_fmts(struct drm=
-_bridge *bridge,
->  	}
-> =20
->  	for (i =3D 0; i < num_out_bus_fmts; i++) {
-> +		if (!bus_format_is_color_fmt(out_bus_fmts[i], conn_state->color_format=
-)) {
-> +			ret =3D -ENOTSUPP;
-> +			continue;
-> +		}
+One major departure from the previous snapshot branches referenced in
+the base driver series is that the same MPAM setting are used for
+kernel-space and user-space. That is, MPAM1_EL1 is set to the same value
+as MPAM0_EL1 rather than keeping the default value. The advantages of
+this are that it is closer to the x86 model where the closid is globally
+applicable, all partids are usable from user-space and user-space can't
+bypass MPAM controls by doing the work in the kernel. However, this
+causes some priority inversion where a high priority task waits to take
+a mutex held by another whose resources are restricted by MPAM.
+Thanks,
 
-Sorry, I'm struggling a bit to understand how this would work if a bridge b=
-oth supports the bus
-format selection and HDMI state helpers? Can you expand on it?
+Ben
 
-Maxime
-
---6swa32l4wvcewsqj
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaTgx0AAKCRAnX84Zoj2+
-dn+pAXoCEBIzb4PrpgMd2asQag4DZBJm2omA/DY2ArLCM7xiNnTD+fG+t5BxdhGx
-GQRfoUIBfAgis2VsEMDW4zY+ZyEGiWuYG8gnFhPFvpM4lZ57Re+WJ6smQKDAUbwk
-gtuqKr0cjA==
-=HGyp
------END PGP SIGNATURE-----
-
---6swa32l4wvcewsqj--
 
