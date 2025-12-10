@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00452D2CE17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 09:10:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD7A9D3B9A9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 09:22:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=grLYRYOUvvGwNKuz+SNyuD5NyJIcYntpEnrnsLGTOa0=; b=VcfeKXj6XLnrM/KzAdBidPzgRI
-	Tz7mgMWWMS4hrrRADJ/OjXOEiDJ3GL+y1KFnLeo5DlZ18qsVuRjL2rgc4JEeR8HnV5T3p2ykRKI+K
-	BeOv8GCdgIsZbcBRsJEgi51FzqPQyS50lDzfiWA95t7XKDh/X29CY2Ht82p+OoG6IzpZ559+N+Qk5
-	5UbEs4MtuAh8NnqVc/6xQwpFPc6+jiaNlfCrzlIr4sCDWfqKqRTliD6tT8UW9XtCOnnZ7v01pkzZx
-	JsVi0kwYGNt4bkAzKRuVQy00wG6aMNxCQYBZFo3luWgpXwNK7GFBYNafLN8dhRVLQtMZQDSwcj1Li
-	uIwK6Mgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To
+	:From:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PklN9qjVdwXRT0hpbQhT8EuFAzT1yIiMNZYzqBnPsj4=; b=q8W/sRzKONnJlniEKUrqZjhYYk
+	1Q9uAL0WF0pQ4qQX0JUK5mSioYIENGeCjDj33YJ1aEnnYFz7xyskbHzb/efA83EK+yOjVR/a9FCcT
+	eTi5br5mCCm13Q/ZiR0dM1TUV86TJ1UfUUfbYi4hBbkHJ8FZlIpeUx9w+2FrR6fa9nT5IC1TEi6gt
+	rVanFGwk/IJN5QbR/bARu6b3X7VnnlNmx27sMI8w6FPRbZYsn95Ayx+XnYowNAI72c9M1tav/ogUC
+	4PXvwz1w/gHuhVJEiLNiG3WL36Nzvtmm8nqqJnJveSMSOZ0zMOERKjJ69Y7Tp9Q0S/cGVl1f29aZZ
+	Qkj2yEIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTGCo-0000000FGt3-1VuP;
-	Wed, 10 Dec 2025 09:09:54 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1vTGP0-0000000FHOP-2ryd;
+	Wed, 10 Dec 2025 09:22:30 +0000
+Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTGCk-0000000FGsL-3FIC
+	id 1vTGOx-0000000FHNY-0AB4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Dec 2025 09:09:52 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=grLYRYOUvvGwNKuz+SNyuD5NyJIcYntpEnrnsLGTOa0=;
-	b=bgAzAfyVOkK5o+u2HoswdtLxVll9Gi05htWfmBdH/utFL+7iu4FKiMV1hP8rbr6nm6rT2Lvev
-	jUWI0V/nZ3xzvHRjrUrfVTAD5ldL7VkXf2PBhufg2YtXc/vNlWl+IML2H8NT3L72TLIDwO8oZYA
-	Ctu0EuJoJA58dAHciXVIEFo=
-Received: from mail.maildlp.com (unknown [172.19.162.254])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4dR8xL3ch8z12LCr;
-	Wed, 10 Dec 2025 17:07:18 +0800 (CST)
-Received: from kwepemj100009.china.huawei.com (unknown [7.202.194.3])
-	by mail.maildlp.com (Postfix) with ESMTPS id 40B8418047B;
-	Wed, 10 Dec 2025 17:09:36 +0800 (CST)
-Received: from DESKTOP-A37P9LK.huawei.com (10.67.109.17) by
- kwepemj100009.china.huawei.com (7.202.194.3) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 10 Dec 2025 17:09:35 +0800
-From: Xie Yuanbin <xieyuanbin1@huawei.com>
-To: <linux@armlinux.org.uk>
-CC: <xieyuanbin1@huawei.com>, <linux-arm-kernel@lists.infradead.org>,
-	<torvalds@linux-foundation.org>, <viro@zeniv.linux.org.uk>, <will@kernel.org>
-Subject: Re: [PATCH 0/3] ARM: fix hash_name() and branch predictor issues
-Date: Wed, 10 Dec 2025 17:08:36 +0800
-Message-ID: <20251210090836.60465-1-xieyuanbin1@huawei.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251209085627.64057-1-xieyuanbin1@huawei.com>
-References: <20251209085627.64057-1-xieyuanbin1@huawei.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.67.109.17]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemj100009.china.huawei.com (7.202.194.3)
+	Wed, 10 Dec 2025 09:22:29 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow-tech.com;
+	s=key1; t=1765358541;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=PklN9qjVdwXRT0hpbQhT8EuFAzT1yIiMNZYzqBnPsj4=;
+	b=WRWSPyLejzpcnsjbUS08zjmJcLC7hMYcMhs/SL9T6pBBLDpre9306yWY4ZjEpr9h/NvvSR
+	R8lfjIeYm5jwRb+9NMQqme1ADcMJ14BBnEXRTSCA8WUD3g20jXDNuS8TYQW8+WMYrl0XSN
+	rGw6LAcn0QbZQPjeW9wUmrBDEX9gBEDCx2diLWpqH12+PuKUYQmrWNdRUeD1L5x4LG3WZS
+	xIVvfOicoUi7UXQn1EW2NL58PN9XRSthDATP82JQtOodLZjootXhCdaHr7GAvNuZ9A8d4w
+	TysBhi/Rk4lS6OlUG2WCKMTD2hU6Nn37kW5aYYHLqE8XnxKYM05y8lYrvS9hOQ==
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 10 Dec 2025 10:22:19 +0100
+Message-Id: <DEUFDH7FJURL.3J0FN5I19VV8F@cknow-tech.com>
+Subject: Re: [PATCH] crypto: arm64/ghash - Fix incorrect output from
+ ghash-neon
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <diederik@cknow-tech.com>
+To: "Eric Biggers" <ebiggers@kernel.org>, <linux-crypto@vger.kernel.org>
+Cc: <linux-kernel@vger.kernel.org>, "Ard Biesheuvel" <ardb@kernel.org>,
+ "Jason A . Donenfeld" <Jason@zx2c4.com>, "Herbert Xu"
+ <herbert@gondor.apana.org.au>, <linux-arm-kernel@lists.infradead.org>,
+ <stable@vger.kernel.org>, "Diederik de Haas" <diederik@cknow-tech.com>
+References: <DETXT7QI62KE.F3CGH2VWX1SC@cknow-tech.com>
+ <20251209223417.112294-1-ebiggers@kernel.org>
+In-Reply-To: <20251209223417.112294-1-ebiggers@kernel.org>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_010951_362765_01B9F12D 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20251210_012227_700916_5E8C34C0 
+X-CRM114-Status: GOOD (  19.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,30 +74,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, Russell!
+On Tue Dec 9, 2025 at 11:34 PM CET, Eric Biggers wrote:
+> Commit 9a7c987fb92b ("crypto: arm64/ghash - Use API partial block
+> handling") made ghash_finup() pass the wrong buffer to
+> ghash_do_simd_update().  As a result, ghash-neon now produces incorrect
+> outputs when the message length isn't divisible by 16 bytes.  Fix this.
 
-The syzkaller test has been running for 19+ hours now, and no issues
-have been found so far. So to patch3:
+I was hoping to not have to do a 'git bisect', but this is much better
+:-D I can confirm that this patch fixes the error I was seeing, so
 
-Tested-by: Xie Yuanbin <xieyuanbin1@huawei.com>
+Tested-by: Diederik de Haas <diederik@cknow-tech.com>
 
-This test will continue to run. If any issues are found, I will email
-you. If I don't send any emails, then there are no issues. :)
+> (I didn't notice this earlier because this code is reached only on CPUs
+> that support NEON but not PMULL.  I haven't yet found a way to get
+> qemu-system-aarch64 to emulate that configuration.)
 
-On Tue, 9 Dec 2025 16:56:27 +0800, Xie Yuanbin wrote:
-> patch1 and patch2 with compilation error fixed:
+https://www.qemu.org/docs/master/system/arm/raspi.html indicates it can
+emulate various Raspberry Pi models. I've only tested it with RPi 3B+
+(bc of its wifi+bt chip), but I wouldn't be surprised if all RPi models
+would have this problem? Dunno if QEMU emulates that though.
+
+Thanks for the quick fix!
+
+Cheers,
+  Diederik
+
+> Fixes: 9a7c987fb92b ("crypto: arm64/ghash - Use API partial block handlin=
+g")
+> Cc: stable@vger.kernel.org
+> Reported-by: Diederik de Haas <diederik@cknow-tech.com>
+> Closes: https://lore.kernel.org/linux-crypto/DETXT7QI62KE.F3CGH2VWX1SC@ck=
+now-tech.com/
+> Signed-off-by: Eric Biggers <ebiggers@kernel.org>
+> ---
 >
-> Tested-by: Xie Yuanbin <xieyuanbin1@huawei.com>
+> If it's okay, I'd like to just take this via libcrypto-fixes.
 >
-> patch3:
-> The simple test case passed, but the syzkaller test (the original
-> scenario that triggered the branch predictor issue) is still running.
-> The syzkaller test is better to run for a day.
+>  arch/arm64/crypto/ghash-ce-glue.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> ...
+> diff --git a/arch/arm64/crypto/ghash-ce-glue.c b/arch/arm64/crypto/ghash-=
+ce-glue.c
+> index 7951557a285a..ef249d06c92c 100644
+> --- a/arch/arm64/crypto/ghash-ce-glue.c
+> +++ b/arch/arm64/crypto/ghash-ce-glue.c
+> @@ -131,11 +131,11 @@ static int ghash_finup(struct shash_desc *desc, con=
+st u8 *src,
+> =20
+>  	if (len) {
+>  		u8 buf[GHASH_BLOCK_SIZE] =3D {};
+> =20
+>  		memcpy(buf, src, len);
+> -		ghash_do_simd_update(1, ctx->digest, src, key, NULL,
+> +		ghash_do_simd_update(1, ctx->digest, buf, key, NULL,
+>  				     pmull_ghash_update_p8);
+>  		memzero_explicit(buf, sizeof(buf));
+>  	}
+>  	return ghash_export(desc, dst);
+>  }
 >
-> 2. About the branch predictor issue:
-> Simple test cases (Link same as above) that can trigger this issue, has
-> passed the tests. However, the original scenario which trigger the issue
-> is the syzkaller test, which might take some time, possibly around a day.
+> base-commit: 7a3984bbd69055898add0fe22445f99435f33450
+
 
