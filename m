@@ -4,80 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E24FD3C545
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 13:07:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4F1DD3C545
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 13:21:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cDRFy6vcE6IK0n780GaRWgRqUqt6rq2uXI/t4/Gr+Mo=; b=CoJCjAqwY95yu6JKynkgNp7N/k
-	Pv03hetdW849tZCZChfMj4c8ObP7go5fNKB/zMjSo4OU782aGt5Kf9VuBM8tyGXN0QyJ+jP+xHy/Z
-	Us65/MjgLeWjNfw583iZEjs9ER7oCuO3bPD2ReULGJCbsTsBFn21N/QhIuXCRrmLeazY1oHqk6DIE
-	/nifpzUcmyiWRDY4e/vOtkcayOwqXI5KuVuX1lRbON6ViWr6oByUeTlizaaCbM4NdpIoaFgNl9GrN
-	mlcX6UJtyTaEBhFMWnehdF5p39PMdeq2dFxIeBAc8QuconHNMaJO/dINjaC44f3xb/BCOvtx3j42R
-	Rgrq9jEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7wai2Vp+oRinZ8W1D2qVlrTBCIs3ioHdxgDpODlKCDM=; b=E8APYVwjd6SzT9gcHhTjzIIx2d
+	HBAyarWNJxVzgwonyFCRzISSHIO9A8PRXxvg8t+AX6MsRGo4SiCExeSFPZ6ima1iwT/XzKZa4/MqV
+	h4bcSDlLIi7UQahejI4RerT3OgzQ7Ztuw3Fp3Vfj27nNd0LENGFMD7jNFz72wI4BmfgaV5v+6E4Os
+	ZesvMWBt5W7KbcqwWGDuQldMOL/bk5/JblI9ZWggp4A/LHm2xSGVhPGs1EhlhibSUlE54g+v9Xn+X
+	Vy/JJz7xgFkm6yQX63cYu34NM7BYwXFUIaGH8ETWpDYFu1tb1RqJ788I4fhLcZ220OFYgwIV03zqY
+	tN9WztZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTJuE-0000000FSwF-465F;
-	Wed, 10 Dec 2025 13:06:59 +0000
-Received: from aposti.net ([185.119.170.32])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTJuC-0000000FSvp-2pwb
+	id 1vTK89-0000000FTgt-2E3U;
+	Wed, 10 Dec 2025 13:21:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vTK85-0000000FTfj-2GaU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Dec 2025 13:06:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=crapouillou.net;
-	s=mail; t=1765372011;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=cDRFy6vcE6IK0n780GaRWgRqUqt6rq2uXI/t4/Gr+Mo=;
-	b=RnCMPHJ8+5bLooq6YXu3nxjc4rHzf3q6p7Xq5Db7RIOUc6t+Xd3ujkkPR0UB3ezQtrVOcb
-	eEW6BLRdJMR0FiH+oIzNU8lDYzI29mfeAEpWk0l8VPS1wWY4/shf0rvBVsaV0G+NMHf00k
-	+Cudz+YjfUoQ/V5j0AoCmAvEmoGw5dk=
-Message-ID: <4b6db1eb455fff8e3c7372943faa5ef179c1d19f.camel@crapouillou.net>
-Subject: Re: Kconfig dangling references (BZ 216748)
-From: Paul Cercueil <paul@crapouillou.net>
-To: Randy Dunlap <rdunlap@infradead.org>, Linux Kernel Mailing List
-	 <linux-kernel@vger.kernel.org>
-Cc: Andy Shevchenko <andy.shevchenko@gmail.com>, Arnd Bergmann
- <arnd@arndb.de>, 	andrew.jones@linux.dev, linux-omap@vger.kernel.org,
- openbmc@lists.ozlabs.org, 	linux-sound@vger.kernel.org, Alexander Shishkin	
- <alexander.shishkin@linux.intel.com>, linux-mips@vger.kernel.org, 
-	asahi@lists.linux.dev, "dri-devel@lists.freedesktop.org"	
- <dri-devel@lists.freedesktop.org>, Paul Kocialkowski <paulk@sys-base.io>, 
-	chrome-platform@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com, 
- Linux ARM <linux-arm-kernel@lists.infradead.org>,
- linux-gpio@vger.kernel.org, Srinivas Kandagatla	 <srini@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Matti Vaittinen	
- <mazziesaccount@gmail.com>, Jonathan Cameron <jic23@kernel.org>, Vaibhav
- Hiremath <hvaibhav.linux@gmail.com>, linux-sh@vger.kernel.org,
- x86@kernel.org, Max Filippov	 <jcmvbkbc@gmail.com>
-Date: Wed, 10 Dec 2025 14:06:41 +0100
-In-Reply-To: <22b92ddf-6321-41b5-8073-f9c7064d3432@infradead.org>
-References: <22b92ddf-6321-41b5-8073-f9c7064d3432@infradead.org>
-Autocrypt: addr=paul@crapouillou.net; prefer-encrypt=mutual;
- keydata=mQENBF0KhcEBCADkfmrzdTOp/gFOMQX0QwKE2WgeCJiHPWkpEuPH81/HB2dpjPZNW03ZM
- LQfECbbaEkdbN4YnPfXgcc1uBe5mwOAPV1MBlaZcEt4M67iYQwSNrP7maPS3IaQJ18ES8JJ5Uf5Uz
- FZaUawgH+oipYGW+v31cX6L3k+dGsPRM0Pyo0sQt52fsopNPZ9iag0iY7dGNuKenaEqkYNjwEgTtN
- z8dt6s3hMpHIKZFL3OhAGi88wF/21isv0zkF4J0wlf9gYUTEEY3Eulx80PTVqGIcHZzfavlWIdzhe
- +rxHTDGVwseR2Y1WjgFGQ2F+vXetAB8NEeygXee+i9nY5qt9c07m8mzjABEBAAG0JFBhdWwgQ2VyY
- 3VlaWwgPHBhdWxAY3JhcG91aWxsb3UubmV0PokBTgQTAQoAOBYhBNdHYd8OeCBwpMuVxnPua9InSr
- 1BBQJdCoXBAhsDBQsJCAcCBhUKCQgLAgQWAgMBAh4BAheAAAoJEHPua9InSr1BgvIH/0kLyrI3V0f
- 33a6D3BJwc1grbygPVYGuC5l5eMnAI+rDmLR19E2yvibRpgUc87NmPEQPpbbtAZt8On/2WZoE5OIP
- dlId/AHNpdgAtGXo0ZX4LGeVPjxjdkbrKVHxbcdcnY+zzaFglpbVSvp76pxqgVg8PgxkAAeeJV+ET
- 4t0823Gz2HzCL/6JZhvKAEtHVulOWoBh368SYdolp1TSfORWmHzvQiCCCA+j0cMkYVGzIQzEQhX7U
- rf9N/nhU5/SGLFEi9DcBfXoGzhyQyLXflhJtKm3XGB1K/pPulbKaPcKAl6rIDWPuFpHkSbmZ9r4KF
- lBwgAhlGy6nqP7O3u7q23hRU=
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	Wed, 10 Dec 2025 13:21:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2FAEC175D;
+	Wed, 10 Dec 2025 05:21:08 -0800 (PST)
+Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B94273F762;
+	Wed, 10 Dec 2025 05:21:13 -0800 (PST)
+From: Alexandru Elisei <alexandru.elisei@arm.com>
+To: maz@kernel.org,
+	oupton@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	qperret@google.com,
+	will@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Subject: [PATCH 1/2] KVM: arm64: Copy FGT traps to unprotected pKVM VCPU on VCPU load
+Date: Wed, 10 Dec 2025 13:21:01 +0000
+Message-ID: <20251210132102.137631-2-alexandru.elisei@arm.com>
+X-Mailer: git-send-email 2.52.0
+In-Reply-To: <20251210132102.137631-1-alexandru.elisei@arm.com>
+References: <20251210132102.137631-1-alexandru.elisei@arm.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_050657_251195_CD4BC4DD 
-X-CRM114-Status: UNSURE (   9.53  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251210_052117_613474_5580DCA5 
+X-CRM114-Status: GOOD (  13.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,148 +68,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Randy,
+Commit fb10ddf35c1c ("KVM: arm64: Compute per-vCPU FGTs at vcpu_load()")
+introduced per-VCPU FGT traps. For an unprotected pKVM VCPU, the untrusted
+host FGT configuration is copied in pkvm_vcpu_init_traps(), which is called
+from __pkvm_init_vcpu(). __pkvm_init_vcpu() is called once per VCPU (when
+the VCPU is first run) which means that the uninitialized, zero, values for
+the FGT registers end up being used for the entire lifetime of the VCPU.
+This causes both unwanted traps (for the inverse polarity trap bits) and
+the guest being allowed to access registers it shouldn't.
 
-Le dimanche 07 d=C3=A9cembre 2025 =C3=A0 18:04 -0800, Randy Dunlap a =C3=A9=
-crit=C2=A0:
-> from=C2=A0 https://bugzilla.kernel.org/show_bug.cgi?id=3D216748
->=20
-> The bugzilla entry includes a Perl script and a shell script.
-> This is the edited result of running them (I removed some entries
-> that were noise).
->=20
-> I'll try to Cc: all of the relevant mailing lists or individuals.
->=20
->=20
-> ARCH_HAS_HOLES_MEMORYMODEL ---
-> arch/arm/mach-omap1/Kconfig:7:	select ARCH_HAS_HOLES_MEMORYMODEL
->=20
-> ARM_ERRATA_794072 ---
-> arch/arm/mach-npcm/Kconfig:33:	select ARM_ERRATA_794072
->=20
-> ARM_SMC_MBOX ---
-> arch/arm64/Kconfig.platforms:375:	select ARM_SMC_MBOX
->=20
-> CLK_FIXED_FCH ---
-> sound/soc/amd/Kconfig:11:	select CLK_FIXED_FCH
-> sound/soc/amd/Kconfig:48:	select CLK_FIXED_FCH
-> sound/soc/amd/acp/Kconfig:107:	select CLK_FIXED_FCH
->=20
-> CONFIG_STM ---
-> drivers/hwtracing/stm/Kconfig:16:	default CONFIG_STM=C2=A0 # should
-> be STM
-> drivers/hwtracing/stm/Kconfig:31:	default CONFIG_STM
->=20
-> CPU_HAS_LOAD_STORE_LR ---
-> arch/mips/Kconfig:1411:	select CPU_HAS_LOAD_STORE_LR
->=20
-> DRM_KMS_DMA_HELPER ---
-> drivers/gpu/drm/adp/Kconfig:9:	select DRM_KMS_DMA_HELPER
-> drivers/gpu/drm/logicvc/Kconfig:7:	select DRM_KMS_DMA_HELPER
->=20
-> EXTCON_TCSS_CROS_EC ---
-> drivers/usb/typec/ucsi/Kconfig:76:	depends on
-> !EXTCON_TCSS_CROS_EC
->=20
-> MACH_JZ4755 ---
-> drivers/clk/ingenic/Kconfig:20:	default MACH_JZ4755
-> drivers/pinctrl/pinctrl-
-> ingenic.c:158:	IS_ENABLED(CONFIG_MACH_JZ4755) << ID_JZ4755 |
-> drivers/pinctrl/pinctrl-ingenic.c:4616:		.data =3D
-> IF_ENABLED(CONFIG_MACH_JZ4755, &jz4755_chip_info)
->=20
-> MACH_JZ4760 ---
-> drivers/clk/ingenic/Kconfig:40:	default MACH_JZ4760
-> drivers/pinctrl/pinctrl-
-> ingenic.c:159:	IS_ENABLED(CONFIG_MACH_JZ4760) << ID_JZ4760 |
-> drivers/pinctrl/pinctrl-ingenic.c:4620:		.data =3D
-> IF_ENABLED(CONFIG_MACH_JZ4760, &jz4760_chip_info)
-> drivers/pinctrl/pinctrl-ingenic.c:4624:		.data =3D
-> IF_ENABLED(CONFIG_MACH_JZ4760, &jz4760_chip_info)
+Fix it by copying the FGT traps for unprotected pKVM VCPUs when the
+untrusted host loads the VCPU.
 
-Those were added when upstreaming support for the JZ4755/JZ4760, but
-the DTS files and actual support in arch/mips/ was never sent.
+Fixes: fb10ddf35c1c ("KVM: arm64: Compute per-vCPU FGTs at vcpu_load()")
+Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+---
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 12 ++++++++++--
+ arch/arm64/kvm/hyp/nvhe/pkvm.c     |  1 -
+ 2 files changed, 10 insertions(+), 3 deletions(-)
 
-Instead of dropping those, I'll try to upstream the basic support for
-those SoCs in the coming days.
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 29430c031095..ee0f1343100c 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -167,6 +167,7 @@ static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
+ 	DECLARE_REG(unsigned int, vcpu_idx, host_ctxt, 2);
+ 	DECLARE_REG(u64, hcr_el2, host_ctxt, 3);
+ 	struct pkvm_hyp_vcpu *hyp_vcpu;
++	struct kvm_vcpu *hyp_kvm_vcpu;
+ 
+ 	if (!is_protected_kvm_enabled())
+ 		return;
+@@ -175,10 +176,17 @@ static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
+ 	if (!hyp_vcpu)
+ 		return;
+ 
++	hyp_kvm_vcpu = &hyp_vcpu->vcpu;
++
+ 	if (pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
+ 		/* Propagate WFx trapping flags */
+-		hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWE | HCR_TWI);
+-		hyp_vcpu->vcpu.arch.hcr_el2 |= hcr_el2 & (HCR_TWE | HCR_TWI);
++		hyp_kvm_vcpu->arch.hcr_el2 &= ~(HCR_TWE | HCR_TWI);
++		hyp_kvm_vcpu->arch.hcr_el2 |= hcr_el2 & (HCR_TWE | HCR_TWI);
++	} else {
++		struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
++
++		memcpy(&hyp_kvm_vcpu->arch.fgt, host_vcpu->arch.fgt,
++		       sizeof(hyp_kvm_vcpu->arch.fgt));
+ 	}
+ }
+ 
+diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+index 43bde061b65d..05774aed09cb 100644
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -172,7 +172,6 @@ static int pkvm_vcpu_init_traps(struct pkvm_hyp_vcpu *hyp_vcpu)
+ 
+ 		/* Trust the host for non-protected vcpu features. */
+ 		vcpu->arch.hcrx_el2 = host_vcpu->arch.hcrx_el2;
+-		memcpy(vcpu->arch.fgt, host_vcpu->arch.fgt, sizeof(vcpu->arch.fgt));
+ 		return 0;
+ 	}
+ 
+-- 
+2.52.0
 
-Cheers,
--Paul
-
->=20
-> MACH_STM32MP25 ---
-> drivers/pinctrl/stm32/Kconfig:58:	default MACH_STM32MP25 ||
-> (ARCH_STM32 && ARM64)
->=20
-> MFD_AIROHA_AN8855 ---
-> drivers/nvmem/Kconfig:33:	depends on MFD_AIROHA_AN8855 ||
-> COMPILE_TEST
->=20
-> MFD_TN48M_CPLD ---
-> drivers/gpio/Kconfig:1624:	depends on MFD_TN48M_CPLD ||
-> COMPILE_TEST
-> drivers/reset/Kconfig:365:	depends on MFD_TN48M_CPLD ||
-> COMPILE_TEST
-> drivers/reset/Kconfig:366:	default MFD_TN48M_CPLD
->=20
-> MIPS_BAIKAL_T1 ---
-> drivers/ata/Kconfig:197:	select MFD_SYSCON if (MIPS_BAIKAL_T1
-> || COMPILE_TEST)
-> drivers/bus/Kconfig:43:	depends on MIPS_BAIKAL_T1 || COMPILE_TEST
-> drivers/bus/Kconfig:58:	depends on MIPS_BAIKAL_T1 || COMPILE_TEST
-> drivers/clk/baikal-t1/Kconfig:4:	depends on (MIPS_BAIKAL_T1
-> && OF) || COMPILE_TEST
-> drivers/clk/baikal-t1/Kconfig:5:	default MIPS_BAIKAL_T1
-> drivers/clk/baikal-t1/Kconfig:20:	default MIPS_BAIKAL_T1
-> drivers/clk/baikal-t1/Kconfig:33:	default MIPS_BAIKAL_T1
-> drivers/clk/baikal-t1/Kconfig:45:	default MIPS_BAIKAL_T1
-> drivers/hwmon/Kconfig:462:	depends on MIPS_BAIKAL_T1 ||
-> COMPILE_TEST
-> drivers/i2c/busses/Kconfig:589:	select MFD_SYSCON if MIPS_BAIKAL_T1
-> drivers/memory/Kconfig:69:	depends on MIPS_BAIKAL_T1 ||
-> COMPILE_TEST
-> drivers/mtd/maps/Kconfig:81:	depends on MIPS_BAIKAL_T1 ||
-> COMPILE_TEST
-> drivers/pci/controller/dwc/Kconfig:89:	depends on MIPS_BAIKAL_T1 ||
-> COMPILE_TEST
-> drivers/spi/Kconfig:370:	depends on MIPS_BAIKAL_T1 ||
-> COMPILE_TEST
->=20
-> PINCTRL_MILBEAUT ---
-> arch/arm/mach-milbeaut/Kconfig:16:	select PINCTRL_MILBEAUT
->=20
-> SND_SOC_AC97_BUS_NEW ---
-> sound/soc/pxa/Kconfig:21:	select SND_SOC_AC97_BUS_NEW
->=20
-> SND_SOC_CS35L56_CAL_SYSFS_COMMON ---
-> sound/soc/codecs/Kconfig:920:	select
-> SND_SOC_CS35L56_CAL_SYSFS_COMMON
->=20
-> TEST_KUNIT_DEVICE_HELPERS ---
-> drivers/iio/test/Kconfig:11:	select TEST_KUNIT_DEVICE_HELPERS
->=20
-> USB_HSIC_USB3613 ---
-> drivers/staging/greybus/Kconfig:209:	depends on USB_HSIC_USB3613
-> || COMPILE_TEST
-> drivers/staging/greybus/arche-platform.c:26:#if
-> IS_ENABLED(CONFIG_USB_HSIC_USB3613)
->=20
-> USB_OHCI_SH ---
-> arch/sh/Kconfig:334:	select USB_OHCI_SH if USB_OHCI_HCD
-> arch/sh/Kconfig:344:	select USB_OHCI_SH if USB_OHCI_HCD
-> arch/sh/Kconfig:429:	select USB_OHCI_SH if USB_OHCI_HCD
-> arch/sh/Kconfig:455:	select USB_OHCI_SH if USB_OHCI_HCD
-> arch/sh/configs/sh7757lcr_defconfig:61:CONFIG_USB_OHCI_SH=3Dy
->=20
-> X86_P6_NOP ---
-> arch/x86/Kconfig.cpufeatures:41:	depends on X86_64 ||
-> X86_P6_NOP
-> arch/x86/Makefile_32.cpu:48:ifneq ($(CONFIG_X86_P6_NOP),y)
->=20
-> XTENSA_PLATFORM_ESP32 ---
-> drivers/tty/serial/Kconfig:1598:	depends on
-> XTENSA_PLATFORM_ESP32 || (COMPILE_TEST && OF)
-> drivers/tty/serial/Kconfig:1611:	depends on
-> XTENSA_PLATFORM_ESP32 || (COMPILE_TEST && OF)
->=20
 
