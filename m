@@ -4,94 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68EEBD3C526
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 03:58:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5E82D3B9A9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 04:48:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xLoOmL2OINkQVzeV8Rqv6NYJGZqFQ0WjVAMg3gQeW1M=; b=1ekjVstABtdZlsDdEeTU/bpMb+
-	oG6Hk59eBzcxFsKX9NI3Z4D+z8daGMJV9y0LQ21M7ONdbje3imO4zcmN0mOm/eBpEzcPlmIFyhuR+
-	m7rl9HQ/3TgTR37l1Ga/f7w2XaRXGSlk7jzr+d5KpEB1k1xnFPCexDdgeaJ1QnFipKdHFbLwnBwOI
-	KVPfxDQKZWEM9sP5TnIo1lloLaONGziPBuZKBmJlXOxPpFhl9Hi9gz4tLHfB4ATgHDWaU8A2G3w8I
-	lFE39mPQqyoRR20S0TdAFUTH5eD2KmLq03255UOrIrde5vJ4Na/SuM4IBBdjQPxMI/6jrdavFkJJg
-	GGnvQA1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zMIVlrIRMHzT8RfJZ0XmrU2xGjPLrLeQG/AGz65dD1I=; b=vsv/NINe5uRcye1AmGt76TtrRt
+	F3HUHyje92S2PY7mEQqqElCvWWemc4gGravhz5liSQRfAh3EMBNb8vtfscpxjR2Tqk17n3L41YzII
+	2p0CjMUQ59njGoOc7HNP/+a5lvYz5LMCZF3KvIIJRaLboM0FHoD3j1iJKqQIvO8p+MDttuVL7xFRC
+	K0xCQXUfmnVkwJAg3+WX9jw4pb7MhJlOVWg+uhHXavHOrD3BRISyORgLXryYDx3DzVt9tNu+7CTlg
+	88OHzN5PAv3Fw2hCBwnlNQ5GixmnX+cmcxqsKHz6znZh9tGgh435NHnzM/PHV/dVtsdIJKVVu9iXH
+	tZZgA9oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTBLB-0000000F4ma-3oZo;
-	Wed, 10 Dec 2025 03:58:13 +0000
-Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
+	id 1vTC7j-0000000F6UC-19ja;
+	Wed, 10 Dec 2025 04:48:23 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTBL8-0000000F4mD-4AMj
+	id 1vTC7f-0000000F6TP-2FtV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Dec 2025 03:58:13 +0000
-Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-4f1b1948ffaso2176731cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Dec 2025 19:58:10 -0800 (PST)
+	Wed, 10 Dec 2025 04:48:21 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-bc8ceb76c04so4458767a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Dec 2025 20:48:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765339090; x=1765943890; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xLoOmL2OINkQVzeV8Rqv6NYJGZqFQ0WjVAMg3gQeW1M=;
-        b=RbgdNKtfuD6auypu1gD2nfid3HsKcwXkB6BW7Ergj8wRM1LYW2HAwZ8kHvK1T59EzO
-         42e5Qex3f+S999f/awq38M7g1dXxLWilkpeOdMfJAl0NWK9QOfmuQGaeSmMpqH50wZqr
-         N76nWnrDAhSst1N9dz6j+8AiQqnUAdE/HRk9KPFMTkeBlCyODCfaMibWveopHbw1tloj
-         e9q3Wbk7q+lRphFVIzGGdzzC1r0TSubmb51mWSLc2lStLZLXQG0c94y/Az9C51vvt1ck
-         dQ4Ez0thfDqzGz7jHRCJ0DzhmFOqpCMUIbzZxe5dcQu3eMFdyxrTQcD/Kf4N1ISeTxWX
-         OkXA==
+        d=gmail.com; s=20230601; t=1765342096; x=1765946896; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=zMIVlrIRMHzT8RfJZ0XmrU2xGjPLrLeQG/AGz65dD1I=;
+        b=gnqPxxWGZMK1haoPkpLT11uZ6opQEoBuvugQNtLgJ/zllV9FIVrDcaGLhJD/Y3etPx
+         OhPxEsaBKfdCi6Kzrtujrdk1erDM4UZ0idh3vwi/B9md28FJPKY1h1gNnGhR+5Ojnntd
+         ewXM1rLdUauCjDpVlNMEfFWH8wcxNMim0K77X0iEwCLee+vAHrmgCtvbH6t5k8ApYYTd
+         b6tGJ/VIRSIaPdZ4xGiJo395tj8zxZsp1qWIq4qryoPaJodvfopGGFhJhi/7QTqoJfHo
+         8iuave2w0Ogh4cEAoqjFwvvuyWeaDrGj1BVE5nt5k7PODH5vg5FWOsTlAeQbQGq5tfvA
+         az9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765339090; x=1765943890;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=xLoOmL2OINkQVzeV8Rqv6NYJGZqFQ0WjVAMg3gQeW1M=;
-        b=dTaWCV+u8aIm1sPb2YptsFNG/ogYDkE6hxUon9iCM3SUsIEOmK0biLO/b0EZPB1IYQ
-         SHZseDVJ2bgiNo6DZw4DiU7H4q9e56yqDjkzUE5z14bCJRF8vobZgOTlmvGazbnyYT8o
-         Jf5yfzNzZ+v3AJxVlXbtaRsj1aChY2xwgMJS1gBXmFSnJaKMXQvSrEBHWxL1e2h2lK7D
-         2cycuBp8ulktTkGRj87kSqyEODPiqZ0LsEcdzMi3LhGllicPgA1olIuItfdX0bKuXe0q
-         k7+XmlSaNsHO5iN0ieqsOQyPFXY/gaFGQWusiJ8x5aYG+AYiVLm3XVcXi8rKXQSxmJF1
-         3Nmg==
-X-Forwarded-Encrypted: i=1; AJvYcCWFW8P5Q9zUCCPdtiHiSKryTmUJSZm4o8nE3wq3q2vflz3m9Vq+MrDOPjytx9OueW/O/MVdUJMZXXKMeoN8nH5r@lists.infradead.org
-X-Gm-Message-State: AOJu0YwcSq4SF4pZ7/HE+F+gw5mUIy4Ze0+UiOc2NCaL/WX8+kSNjcsI
-	UdhzBJdGRwMytJNI353QXUWQVnYDJ9tAQk79FtXQ8/kOnm9NmEAuBLX30bB64UR+ueXrQ+aY9lF
-	pH82B5LBtSbBhWmEhybd7o9sVSsq7K/I=
-X-Gm-Gg: ASbGnctJQY2lWuX1/rxh+427dpt6D1ixFn+e+hCwz0JHl7wOIVaKtYPDugcSh4Zhy8p
-	ZTMEZy18W/WN5O+zWVkpMit47PL6dngHFMA4LJV9uBEU57Zaq1Ou5YAk3bQRgOdl6Wp7W7uo14j
-	f7gcshvWwC62yyNZ5OftJbLE5lU4BLosc1kwk3MnUdE5TvnB4gccQ/vt/xkMUBWMPpfEsWln95D
-	TjLnl4yKXRzZoe5Z6y5ml4b91lAdwrbKJBLT7wmfEDpVJBZBg/IwTUllXp+1gTUz881pR43G+dZ
-	07CLJLOOoGaF248N4+cphvZQJdBkr/ohR6jm8s/735Cg/LeSYv3gSyDwFLjBzH9Ei7bMQ6DKtpL
-	VJ3G4J5vqFjmrcfGDdB63XZEBAeVYbMBpwmE=
-X-Google-Smtp-Source: AGHT+IFGSPpDaGsF7GV6bSeqZjzx0wih4VR146dqGL5dRtKu2H9I9xlLneXMcdOPKYcfgnDqQlmhKeVlt3Ia1lJlppw=
-X-Received: by 2002:a05:622a:5d3:b0:4ee:1dd0:5a40 with SMTP id
- d75a77b69052e-4f1b1aae5b4mr12728361cf.59.1765339089481; Tue, 09 Dec 2025
- 19:58:09 -0800 (PST)
+        d=1e100.net; s=20230601; t=1765342096; x=1765946896;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zMIVlrIRMHzT8RfJZ0XmrU2xGjPLrLeQG/AGz65dD1I=;
+        b=VMDRmWu49C+dfPy4IKLJFFJD41VOqzxquMKOVoPIsxQNWty6StQHtJpYBi/Mw00JF5
+         OaPYyjRlxpXVt+lBBn2wAOXcPeEczweSK05DVcZ192EqPkAInWCD84moS1km2pTMc6oe
+         6zJau4BpRHtuKhBijKFWnMzw2MRBcz4s7QSHEMgq7DjKndXLq8O0XS1Y2u4tvP028RRp
+         2KlKW1bDDd4+v4q0VSU7ix4HsWOG9yCjdhd2iGj2ZaJcNB5kqfmP5S7RkO7TDvgAxnaB
+         u5cEJac0C+6YtjVJtymBEHr58MhLsiWh6uFrF1B6bJhez/xFPopELuSY6V9GGaMoey8U
+         wuoA==
+X-Forwarded-Encrypted: i=1; AJvYcCVgeoUNFTVDhfKeJQDwesT+Zh5SNSueg6uZRnZImtD4BhN6hXRceJxCVDv6ug1JQPsM4ukoDgJFBY3+e7YnhVHx@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzmolec4BjSp52VcP59/x/jLUrZVKTdQdfRXTQMMhZsYpV/HXxK
+	Gne5uyBrRAeTp9OJsSIY84C7gvkZGQnQSey4XfndsVzdoXIYKqs87eKl
+X-Gm-Gg: ASbGncsqawrf7B9u72J4nrGgBbFk4yZg3VVghiVwA7UCNxEikqY7htb7WD9bo8CrPxq
+	KZcDMTJgRtSmwHP1xEFuqHhFvBNX3Zoy0dLMu4QtLXfRujseDIlgOsGh+LmpqKnnbo3sjipwCIP
+	ioMxYvJfMDZVHkEGHrW8foTfEq804I5enzCH1zum3WvO/9VgGflEz1V2fAiPPtoU9+l/d40oijn
+	nRyMD6OOOctm8aRIrcEMdpi6hbR99s7q6S8fRKsCytWmk2nEC8UY8DsvWkew3iXMEOZ1kWQnPgp
+	5y933tWtxvl/prTbLdNoDnrEugXWz4RBl7QXZh0Md3wyNotQqrjZI/leTcTKhCMtLdP+0ZwVdEB
+	lL65W6hMsxp2ybAhFP2VyNEOox1w87UqNRtCc5dQfuzq2F0R4+jVdcZKImtNbuacDzjUz+5N6kx
+	a9oeK0kClpPiTOGVVMuwZJUUDE/6jn6a4qX5L2Zb3BGDkdzJ8MdZYfMFCgpGK15MM=
+X-Google-Smtp-Source: AGHT+IGwhF10o8oXBvj6kF3XVHLwewCx7u/bdxSK0ksb+PGLHRX/iWeDMbigiy2qXuWF8UnfAfUzMw==
+X-Received: by 2002:a05:7022:4299:b0:119:e569:f626 with SMTP id a92af1059eb24-11f29689922mr965432c88.31.1765342096391;
+        Tue, 09 Dec 2025 20:48:16 -0800 (PST)
+Received: from google.com ([2a00:79e0:2ebe:8:205a:5a0a:c468:f44f])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-11df76e2f3csm72522829c88.5.2025.12.09.20.48.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 09 Dec 2025 20:48:16 -0800 (PST)
+Date: Tue, 9 Dec 2025 20:48:13 -0800
+From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
+To: Haotian Zhang <vulab@iscas.ac.cn>
+Cc: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
+	louisalexis.eyraud@collabora.com, bisson.gary@gmail.com, julien.massot@collabora.com, 
+	linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH] input: mtk-pmic-keys: Fix potential NULL pointer
+ dereference in probe()
+Message-ID: <inmlorhcpi5g7kfs45rhtpwq7aatmzxemgnulamvjqxmmmtl2j@vfcd5kndbhep>
+References: <20251210030013.913-1-vulab@iscas.ac.cn>
 MIME-Version: 1.0
-References: <20251209-tdm-idle-slots-v1-0-38dabf6bc01e@gmail.com>
- <20251209-tdm-idle-slots-v1-4-38dabf6bc01e@gmail.com> <aTjZc3mgu7CQOkDU@sirena.co.uk>
-In-Reply-To: <aTjZc3mgu7CQOkDU@sirena.co.uk>
-From: James Calligeros <jcalligeros99@gmail.com>
-Date: Wed, 10 Dec 2025 13:57:50 +1000
-X-Gm-Features: AQt7F2peQnceaEJraJhL4gaHZEV1D4IiSKkpSo2-8pS48v4HYxCHrY9kKA6UQpE
-Message-ID: <CAHgNfTxmYxNaYOdGK4Eb4ouCqmUCjVuhzGdgTAL=+ybObqrCmw@mail.gmail.com>
-Subject: Re: [PATCH 4/7] ASoC: soc-dai: define TDM idle behaviour modes
-To: Mark Brown <broonie@kernel.org>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, Shengjiu Wang <shengjiu.wang@nxp.com>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Shenghao Ding <shenghao-ding@ti.com>, 
-	Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>, linux-sound@vger.kernel.org, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	asahi@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251210030013.913-1-vulab@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_195811_044932_720506D7 
-X-CRM114-Status: GOOD (  23.71  )
+X-CRM114-CacheID: sfid-20251209_204819_602469_A47F98C9 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,61 +101,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mark,
+Hi Haotian,
 
-On Wed, Dec 10, 2025 at 12:22=E2=80=AFPM Mark Brown <broonie@kernel.org> wr=
-ote:
->
-> On Tue, Dec 09, 2025 at 07:31:17PM +1000, James Calligeros wrote:
->
-> > Imagine for example two codecs sharing a bus. When one codec is
-> > transmitting, the other must ensure that it is holding its side
-> > to 0, or data from the transmitting codec will be corrupted. We
-> > can trust the "idle" codec to simply do this itself, however
-> > this is undefined behaviour. Some devices may leave the line
-> > floating, others still may pull the line high. We need a way to
-> > control this behaviour.
->
-> I'm finding this explanation quite confusing - you appear to be
-> describing the situation where two devices simultaneously drive the same
-> signal which would be extremely unusual and I can't see how it would
-> work electrically.
+On Wed, Dec 10, 2025 at 11:00:13AM +0800, Haotian Zhang wrote:
+> of_match_device() may return NULL when the device node
+> does not match any entry in the driver's match table.
+> The current code dereferences of_id->data unconditionally,
+> which can lead to a NULL pointer dereference.
 
-We are trying to solve a few of problems here, and one of them is
-a bit odd. I've probably jumbled up a bunch of different things here.
+How are we getting into probe() without matching compatible?
 
-We have the use case where a codec enjoys exclusive use of a bus. For
-these, the codec can transmit 0 on any unused slots to hold the bus.
+We already had a discussion about this in [1] and patched the MFD
+portion to not use generic driver name when instantiating the keypad
+sub-device.
 
-We also have the case where multiple codecs share a single bus. One
-codec can weakly pull the bus low when it's not being actively driven by
-any of the attached codecs.
+[1] http://lore.kernel.org/r/20250630-mtk-pmic-keys-fix-crash-v1-1-e47351fa9d1f@collabora.com
 
-However, a number of machines split six codecs into groups of three
-across two electrical lines and then OR them at the receiving
-port such that they appear on a single bus at the SoC. Because the two
-data lines are ORed at the receiver, we have to guarantee that line B is
-zero while line A is active, and vice versa. To do this, we set a single co=
-dec
-from each group to zero-fill during the active slots of the other group.
+Thanks.
 
-> > Thus, we define five possible bus-keeping modes that a device can
-> > be in: NONE (UB/as initialised), OFF (explicitly disabled), ZERO
-> > (actively transmit a 0), PULLDOWN, and HIZ (floating).
->
-> What is "explicitly disabled" in ths context?  Why aren't pull up or
-> drive high options?
-
-The OFF state was added so that consumers can explicitly disable
-any and all bus keeping if necessary and supported by the component.
-TAS2764 and 2770 both initialise with some bus keeping features enabled,
-hence for this hardware NONE !=3D OFF. I suspect this is the case for other
-hardware too.
-
-I neglected to add pull up and drive high simply because none of the
-initially implemented hardware uses either. I can them for completeness's
-sake, however.
-
-Regards,
-James
+-- 
+Dmitry
 
