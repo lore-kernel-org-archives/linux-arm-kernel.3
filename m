@@ -4,90 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89F28D3C920
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 15:30:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6B4FD3C922
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 15:43:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3oM7C5JKk0bBzWgIUK1EKF/80L5/WNgj6mhCv2v/NwU=; b=a9g4qs4wt1tiYiNB3oIZTA+HJh
-	ptGMcOBm4SA31cMWn+F2Ak3G6xED9quu1eABzysjaIzTYa0WAVajoQt0uAjI8xcEvNS+sCWiq9++Y
-	3xTJ19rKI5v2llf08h5XodKUXTh+o6Xrvx+c9B0fpIy76S4Ic8QYG5rreR//0N9xhDDtmjv+V5hq7
-	T3BrFBzpxl2daEEDa4sY8RAGJ4YlZEISSpe+W7XMPa6vKRodWRf5as675LQvnfYnJtJMT5TBdzrdF
-	2+wC4p0XT7vlam2dsGylqeQ/DalI3XtPpflduW4ZVrZjCZSgrhP3qVuStLQIOrBqCCY93Cv0Ok6/b
-	EXqHa7vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oIuhEOI6LDKpNlQ7odVdM+9q2td2eqhccAeqRZYtyvg=; b=1bVwTuSIIozPqEzdLFDqvQ4EVv
+	fMzi1M8B8J0YF9l+VuX4yCUqgIpRrJlX+Ob1H9pHRXuQTcLS9V781zcq7pMzZTnqmBHs/g1G49SRO
+	WXSqmd19GdMYNKbHsEIQrPin30BKJT4wtrAPDX79T2xTM041PjM6jKhz4SdeTvYOFjaAUsNlXfz79
+	bFpnCAwvbyrFgHZnFnCPvR5gG9sV7ZsWKUYmML95tW/V/N9WjQPE7JS1qhLAIWqwydwZ3dwKHbWFx
+	x0rDKaI10wMCBQr/EQhoa2OgaMyFLMuUkOv1S6t3n/y24IQklXc25bLbheBoWoeffnaFHY0zVEyXq
+	dlASp1VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTM99-0000000FZPH-2OJh;
-	Wed, 10 Dec 2025 15:30:31 +0000
-Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTM97-0000000FZOR-10UE
+	id 1vTMLW-0000000FZwM-3FXI;
+	Wed, 10 Dec 2025 15:43:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vTMLU-0000000FZvr-1H8a
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Dec 2025 15:30:31 +0000
-Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5957ac0efc2so7856954e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Dec 2025 07:30:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1765380626; x=1765985426; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3oM7C5JKk0bBzWgIUK1EKF/80L5/WNgj6mhCv2v/NwU=;
-        b=GZ4nrx37N3jwQrhIj19LtyinoqblsVOcFdjDuS5vm9i4mYvhGFJ7WTYKiPOL4LKT92
-         xhuAKskxkFcnZmX8Y/UhX0t259sDoiwJiu9DPNcGRWsoHWBoubhfpj9gggA0ylsmuoQY
-         3dYdL3TUXSPYabSJVdvuLYxSvhdy66/Nmiy6NIJv+0lcgHsKwbBYU55c59fJ6CEROSVx
-         QIPGNp4FCJlECPZdotY/9VYpu4uGGg8bl1aIeZMYEvMVgj5R87rTs2V0i8v+PlPjEri2
-         E9ga4h0p575EP307pKYRQ5o31hAM1wQKtyiFWQ6In9QzUDmqsoEjjVzV8s8SG2wQyKou
-         ZJCA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765380626; x=1765985426;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=3oM7C5JKk0bBzWgIUK1EKF/80L5/WNgj6mhCv2v/NwU=;
-        b=VtXsEbydpcISxgcR+OqbsjJEB1MsPfuAg2xXiKwPHI6ockRNfWNjxcjGOt0i77QL8P
-         7V3KDdQKjlzDmmDGCmuMOeUHHPn1RcHKQKgIwyNrEgzT31pcxeD37mYp1oxaFVYZ+5NO
-         ER5nfCo3//KV7LKWxtDvcjFIQq8kjlFU3g+EF473913YkhbW4Ok+YcU7TTF9KFRvaEYm
-         FCrqMUkOy4taORAe2mBUugGAJPhUWtMIFSD0cywxMsYM73ibO00R/KzgLI93LfB2ddI4
-         q7ATiki2W2mHBbIWB2g+6/bSKqjsjdOjOw6s0fy+EFTeVixPqMsB74ZOc1wHS+lH0LoB
-         cQHQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWhLjBMMnyWlIpWmWHCmucniuQkbKbVGdsd8Vw2NzopyJ0IhULX2Hu6s0nFKbtnY4VkaB9vRIITJfr7xtQG9FI3@lists.infradead.org
-X-Gm-Message-State: AOJu0YzS9P75rqgKUOy/l81wNYXppwDC134xDpH8ldNUHBqw5HI3yKJl
-	Ory3VkhLLbiReBzPHtvT9HDWud/jezOhupRbiMI0Y7/m/7nNgZxl1/N/KJLS1OCeTqk11GYoM5h
-	S9Rr7dbY1LlUfclt0kFbSPKGJEK2sf1WFZkBNNspJuA==
-X-Gm-Gg: AY/fxX6OGnpjllPCSUz+Ms3LPQRxj7yvKEdE7eU3TzvJ9Z1RHamKaNZTMhx0dpaIWzx
-	trroUf9mrE1gsw6KevqlGFxgPsR2mtvqXfJtLeclViQ+6sH8KdehgHq+QHhP7Dli4XGYtNayxtG
-	OLMtebbi0UxIuSjPWTPDomyaOBCjd0T3biqIJ/BLIvaSeWmYTJzC9kY/sD60S8aBwNlpXX2RCWb
-	RCYxz7xFNppBzJH6FBbJktPZQ9VQ8LQryJ8ojKgiJlkQY450oeRiFDz4veqVnXFQT7PoiUHEyrK
-	MLMu6a5K3cX1w1OCwUxsMGmKXfhD
-X-Google-Smtp-Source: AGHT+IEYPLumSLiqv9vm35UuD54sgjwSHWM6ebmAu9tuA8+ywHCPfhWkSszStzlqK4kPNAby2b3RcjziCDgwx+M2Kvw=
-X-Received: by 2002:a05:6512:15a8:b0:595:81c2:9920 with SMTP id
- 2adb3069b0e04-598ee4dbebdmr1141791e87.27.1765380626523; Wed, 10 Dec 2025
- 07:30:26 -0800 (PST)
+	Wed, 10 Dec 2025 15:43:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 848B8153B;
+	Wed, 10 Dec 2025 07:43:03 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2FE623F740;
+	Wed, 10 Dec 2025 07:43:10 -0800 (PST)
+Date: Wed, 10 Dec 2025 15:43:08 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Tamas Petz <tamas.petz@arm.com>,
+	Tamas Zsoldos <tamas.zsoldos@arm.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>
+Subject: Re: [PATCH 07/19] coresight: trbe: Refactor AUX flag setting
+Message-ID: <20251210154308.GZ724103@e132581.arm.com>
+References: <20251201-trbe_buffer_refactor_v1-1-v1-0-7da32b076b28@arm.com>
+ <20251201-trbe_buffer_refactor_v1-1-v1-7-7da32b076b28@arm.com>
+ <a638f74f-94bc-4052-b8e1-e940aca2d4ce@linaro.org>
 MIME-Version: 1.0
-References: <20251107141303.223254-1-marco.crivellari@suse.com> <7e24110636db36e8c0a877d90d2ed9570c4aecf5.camel@ndufresne.ca>
-In-Reply-To: <7e24110636db36e8c0a877d90d2ed9570c4aecf5.camel@ndufresne.ca>
-From: Marco Crivellari <marco.crivellari@suse.com>
-Date: Wed, 10 Dec 2025 16:30:15 +0100
-X-Gm-Features: AQt7F2pXItH5geVIbULqaw0IgXchV7ZnVe5Ou6Cc5C27xz9gAGtwoAoMzdHRMko
-Message-ID: <CAAofZF44pUoyDPnnv9UUuMkYvqiSWP4gELg4rutgo=3tNpBZsw@mail.gmail.com>
-Subject: Re: [PATCH] media: platform: mtk-mdp3: add WQ_PERCPU to
- alloc_workqueue users
-To: Nicolas Dufresne <nicolas@ndufresne.ca>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	Tejun Heo <tj@kernel.org>, Lai Jiangshan <jiangshanlai@gmail.com>, 
-	Frederic Weisbecker <frederic@kernel.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
-	Michal Hocko <mhocko@suse.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <a638f74f-94bc-4052-b8e1-e940aca2d4ce@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_073029_312631_AB1C3292 
-X-CRM114-Status: GOOD (  14.94  )
+X-CRM114-CacheID: sfid-20251210_074316_389661_2AC14CF2 
+X-CRM114-Status: GOOD (  23.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,40 +75,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 9, 2025 at 9:57=E2=80=AFPM Nicolas Dufresne <nicolas@ndufresne.=
-ca> wrote:
->
-> Hi,
-> I have to admit, there is likely no review here due to the lack of knowle=
-dge, so
-> in order to help educate myself (hopefully its not just me), can you expl=
-ain why
-> the new default of WQ_UNBOUND would not be a fit for this driver ? After =
-all,
-> the author didn't care and didn't make a choice, so I feel like its worth
-> asking.
+On Tue, Dec 09, 2025 at 01:37:39PM +0000, James Clark wrote:
 
-Hi Nicolas,
+[...]
 
-The fact is that "alloc_workqueue()" without WQ_UNBOUND it means per-cpu.
-So what we are doing here is just make explicit that the workqueue is per-c=
-pu.
+> > +	if (!is_trbe_running(trbsr))
+> > +		perf_aux_output_flag(handle, PERF_AUX_FLAG_COLLISION);
+> > +
+> 
+> Do we need the complexity of COLLISION (changed to PARTIAL in a later
+> commit) and TRUNCATED at the same time?
 
-Currently there are no behavioral changes in alloc_workqueue(); in a
-future release
-WQ_UNBOUND will be removed and unbound will be the default. But as for now,
-it is still per-cpu.
+> From my understanding, TRUNCATED would be when Perf is too slow and we want
+> to disable the event for it to catch up, and PARTIAL is when there was some
+> buffer error so technically we don't need the event to be disabled, but Perf
+> still needs to be notified if we want to start only resetting the decoder
+> when a flag is set rather than on all aux records?
 
-We can of course change the current behavior and I can send the v2 with
-WQ_UNBOUND instead. Looking at the code there are not per-cpu variable and
-the workqueue does not have the WQ_BH flag, so we can convert it if it
-is better.
+The main difference between the TRUNCATED flag and the COLLISION/PARTIAL
+flags is that the TRUNCATED flag implicitly asks the event core layer to
+disable the PMU event.  In contrast, the COLLISION and PARTIAL flags are
+only stored in AUX record and no additional action in the event core
+layer.
 
-Thanks!
+Setting the TRUNCATED flag would be a over-killer if the buffer has
+free space, as it would run the expensive sequence of disabling both ETE
+and TRBE and then requiring userspace to re-enable them.
 
---
+> There is no happy path where there is a buffer error, so I'm not sure why we
+> need the complexity of an extra case? There's no harm in disabling the event
+> on a buffer error. Also it's hard to see what the exact scenario for PARTIAL
+> is, because we set truncated anyway for fatal statuses. The comment in the
+> later commit for the PARTIAL change just says "trace was stopped", but not
+> why.
 
-Marco Crivellari
+The trace can be stopped on Fill mode (stop on wrap) or Stop on trigger, so
+it is not (only) about buffer error.  In these cases, even though the trace
+unit is stopped, the buffer may still have space available, tracing can be
+directly re-enabled in interrupt handler, thus the COLLISION/PARTIAL flags
+are better choices.
 
-L3 Support Engineer
+Only when the buffer is actually used out (i.e., handle->size == 0), it is
+appropriate to set TRUNCATED flag, since at that point we must wait for
+userspace to read out the data.
+
+Thanks,
+Leo
 
