@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59A49D3B9B6
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 00:30:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97F4DD3B9B5
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 00:43:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bazfhuUcPUoOMFs2ohWb9g/bFLyka0Y+g/3ow8qU7FQ=; b=dZEPc4NqvTswSurTXQX33B0F+G
-	joNLcVYzOIonSjyq6Y+4Il7/ocw3U+yYENfmkd4N44o5hx0SueefIgQjimr4M4ryohPy1kaWFxXRx
-	47N89Cm/o9kXUVZl0C6rTB+17Ty+xy1zozoWmw9FSz2PscW1Nf42rsdaet004TVGJhv9cJbYdsGGD
-	2QM+3ylbXmkK5dgwi7C/WKdH+UtIQsxI8qw5XiKWKhj6MXJXxPhNYLiUTh8bP1oDpbAq8ENLG/Y3W
-	hqFGUT+2ar94sx65v/EFLjm5UDoyV4Zw/lFe0nveLGBknh+2WfV/Wh4quFapglWNux8wDnrK5SjbE
-	s/vr2h5g==;
+	bh=ilMDGW8UNTt8uBA1iI/ZrRFGv0N23URqU+KauXizwwY=; b=TVwitAZtwD23USYjmdAYmrJv7D
+	gcemEtMFGqjFDEoDLJovZCOynDIe9lTba8KaZzak9Nv7zxINo1MTnpKGE7q6HYL41PZZq/xh8CZ5K
+	YICSkpfmGIMGmmn3bxgA3cOkKRNWi27l54l2eVFQrwgLYZoJreOAiMT3zj1PEB7w3ApdGSvsBHlDG
+	CGl3/Nb+oS0XKqWPEgQrro8TtNjfm0cVCYyr5L6Po72n8+BB9UiXZvCr/rexNUlUYrJF5hrd9aesS
+	lsr21aBazFgyAzCMTF8aIzTdas4kzR9hBXQ+gvs0kdRlVStJgaAU7WgTJz6ump3ZK3EjDvlRaT1MC
+	Z5v0jvYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT86D-0000000EwL5-39jm;
-	Wed, 10 Dec 2025 00:30:33 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vT8IJ-0000000Ewor-1vQX;
+	Wed, 10 Dec 2025 00:43:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT86B-0000000EwKc-2nko
+	id 1vT8IG-0000000EwoU-1gqc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Dec 2025 00:30:32 +0000
+	Wed, 10 Dec 2025 00:43:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 83B80418B9;
-	Wed, 10 Dec 2025 00:30:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F205C4CEF5;
-	Wed, 10 Dec 2025 00:30:30 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id EC21441723;
+	Wed, 10 Dec 2025 00:42:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E16E4C4CEF5;
+	Wed, 10 Dec 2025 00:42:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765326630;
-	bh=TmJNhm+njmALNP3L4ljbZmBzGPihgoVSO4K2zy5v3ig=;
+	s=k20201202; t=1765327378;
+	bh=xOgCRFP+4w6YG6S/mNVatZH0mEsx/CiZR0vSHkmK4ow=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=R8XbRskDJulZRK8C6nooZbSqEgU+UpEp+g+eU99P+IUAB2IiXMmk4J3wDPvTZJtcx
-	 uvhwRvzwaz/x5qzVLm+yMR3BrozWVHrya/vFtP/+0+Z/9agSRJJk17n2m72cvG6BZO
-	 XVAkeXyf5XNLxTzi0FM91j1V9/+eFG9wqF7XOpG3e4rj3ill/PQi8tMHUIEkNqFMy0
-	 rEh2nW6TDLoZKVckOm+kneWHOUDKIf43rXZQjL/39xaTmQpSuMYiOnJvmBjc14eSGc
-	 C6kNZcdeyeasQIqWwEKas8/xbx7iLCJX9o8rQ6sNum+qqSOZzCoxAEi1Ct3w6HQ2P3
-	 cgDSi9tEXL3kw==
-Date: Wed, 10 Dec 2025 00:30:28 +0000
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org,
-	Diederik de Haas <diederik@cknow-tech.com>
-Subject: Re: [PATCH] crypto: arm64/ghash - Fix incorrect output from
- ghash-neon
-Message-ID: <20251210003028.GA1783653@google.com>
-References: <DETXT7QI62KE.F3CGH2VWX1SC@cknow-tech.com>
- <20251209223417.112294-1-ebiggers@kernel.org>
+	b=ObvfvVfymT8TZ9aiwyV18VidBzybvNOlNWfWZdtQlEQcb4ETc7caTqzSRPzoojxtK
+	 QL0VJCC3ncA8FwUOSsiyod3oPakTuWSyvc9Tbsk6nKEbKPntCO0HydfEWy4wYxU093
+	 2ap/GM2bfMfaY+/1lWnOzEjo/i+lHfB4tEmxEYJpPDOutWHrzO3/6yIEXDYeQdYjjZ
+	 n2G2LbkdQDCintGnBakeBn5e9av7i6d/jaDIxU4AgbUikSpB3myNVzPNIlCR1wNUxM
+	 yEwSQ2G0pIGAeFY6xe870byBEkHwAIZBphL8+1uMmUWHRlu3FOxcuEOMlpwBSKvDS+
+	 jox2BIMND2HPQ==
+Date: Wed, 10 Dec 2025 09:42:54 +0900
+From: Will Deacon <will@kernel.org>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Mostafa Saleh <smostafa@google.com>, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	joro@8bytes.org, Tomasz Nowicki <tnowicki@google.com>
+Subject: Re: [PATCH] iommu/io-pgtable-arm: Add misisng concatenated PGD cases
+Message-ID: <aTjCDvtANr2WIv3L@google.com>
+References: <20251130194506.593700-1-smostafa@google.com>
+ <18a39079-2285-47fb-b306-040f2bc1bbaa@arm.com>
+ <aTgX9qhaLyrQ5iye@google.com>
+ <498bbad4-ea64-4a24-a63f-e131d271990a@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251209223417.112294-1-ebiggers@kernel.org>
+In-Reply-To: <498bbad4-ea64-4a24-a63f-e131d271990a@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_163031_735947_AF1DA043 
-X-CRM114-Status: GOOD (  14.59  )
+X-CRM114-CacheID: sfid-20251209_164300_465465_18DE6A42 
+X-CRM114-Status: GOOD (  21.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,31 +75,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 09, 2025 at 02:34:17PM -0800, Eric Biggers wrote:
-> Commit 9a7c987fb92b ("crypto: arm64/ghash - Use API partial block
-> handling") made ghash_finup() pass the wrong buffer to
-> ghash_do_simd_update().  As a result, ghash-neon now produces incorrect
-> outputs when the message length isn't divisible by 16 bytes.  Fix this.
+On Tue, Dec 09, 2025 at 01:33:36PM +0000, Robin Murphy wrote:
+> On 2025-12-09 12:37 pm, Mostafa Saleh wrote:
+> > On Tue, Dec 09, 2025 at 11:34:34AM +0000, Robin Murphy wrote:
+> > > On 2025-11-30 7:45 pm, Mostafa Saleh wrote:
+> > > > arm_lpae_concat_mandatory() assumes that OAS >= IAS which is not
+> > > > correct for SMMUs supporting AArch32, and have OAS = 32/36 bits,
+> > > > as IAS would be 40 bits.
+> > > 
+> > > But that is only when *using* AArch32 format. The bit in chapter 3.4 of the
+> > > SMMU architecture is talking about the maximum IAS that an SMMU
+> > > implementation needs to be able to accommodate based on its configuration,
+> > > but it does then attempt to clarify that the actual IPA size in use by any
+> > > given context should depend on the VMSA format in use:
+> > > 
+> > > "VMSAv8-32 LPAE always supports an IPA size of 40 bits, whereas VMSAv8-64
+> > > and VMSAv9-128 limits the maximum IPA size to the maximum PA size."
+> > > 
+> > > Rule R_SRKBC in the Arm ARM lays out the exact T0SZ constraints with this
+> > > AArch32/AArch64 detail.
+> > 
+> > I see, thanks a lot for the explanation, I got confused by the this
+> > statement:
+> > Note: If AArch32 is implemented, IAS == MAX(40, OAS), otherwise IAS == OAS.
 > 
-> (I didn't notice this earlier because this code is reached only on CPUs
-> that support NEON but not PMULL.  I haven't yet found a way to get
-> qemu-system-aarch64 to emulate that configuration.)
-> 
-> Fixes: 9a7c987fb92b ("crypto: arm64/ghash - Use API partial block handling")
-> Cc: stable@vger.kernel.org
-> Reported-by: Diederik de Haas <diederik@cknow-tech.com>
-> Closes: https://lore.kernel.org/linux-crypto/DETXT7QI62KE.F3CGH2VWX1SC@cknow-tech.com/
-> Signed-off-by: Eric Biggers <ebiggers@kernel.org>
-> ---
-> 
-> If it's okay, I'd like to just take this via libcrypto-fixes.
-> 
->  arch/arm64/crypto/ghash-ce-glue.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> Indeed, that appears confusingly contradictory; I've filed a bug.
 
-Applied to https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=libcrypto-fixes
+I think the spec has always been worded like this. My reading is that, in
+isolation:
 
-(As always, additional reviews/acks still appreciated!)
+  - VMSAv8-32 LPAE always uses a 40-bit IAS
+  - VMSAv8-64 has IAS == OAS and this can be smaller than 40 bits
 
-- Eric
+so if AArch32 is implemented, we know that the hardware supports at
+least a 40-bit IAS and in that case the VMSAv8-64 IAS can be bigger
+than the OAS.
+
+That seems consistent to me; where is the contradiction?
+
+Will (jet-lagged so may well be talking rubbish!)
 
