@@ -4,65 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62254D3C526
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 03:50:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68EEBD3C526
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 03:58:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5ln2/pCX6r8O6XsN0n9rOqT603HSVNbFwlBdEhlfoNg=; b=DUh6HyOYnsFawIGrWuUakmLVK8
-	8CO8U2bis2+CWDftWO7GJ1Frw1VmuMeDvKo4GgI/HVcvnEaLZtqr7tYfJg/FeVB0C6hCA/RQGaf4m
-	oXA27PeQcXHof6vZPfdGLjcHf2XQJP6NcT54Vh/80zR5twesVE5tIcMBBIW4C/6Z6W/obKHl1MC9+
-	rALuFsDm4s0EbXYb0o+EqglOxgAK2fAMSmcm5+Z1t2Mr18Iyl1s5Alr95mrw/wsItJASi5pRNsnzf
-	NOtMzOac+Kiqm4JQSjIV1XJjyxwzH7tzwlv8LAIKlmef3Y9LpazPdgRZ8pO78b41lJtqFAgIbTw2v
-	XPrSv1KQ==;
+	bh=xLoOmL2OINkQVzeV8Rqv6NYJGZqFQ0WjVAMg3gQeW1M=; b=1ekjVstABtdZlsDdEeTU/bpMb+
+	oG6Hk59eBzcxFsKX9NI3Z4D+z8daGMJV9y0LQ21M7ONdbje3imO4zcmN0mOm/eBpEzcPlmIFyhuR+
+	m7rl9HQ/3TgTR37l1Ga/f7w2XaRXGSlk7jzr+d5KpEB1k1xnFPCexDdgeaJ1QnFipKdHFbLwnBwOI
+	KVPfxDQKZWEM9sP5TnIo1lloLaONGziPBuZKBmJlXOxPpFhl9Hi9gz4tLHfB4ATgHDWaU8A2G3w8I
+	lFE39mPQqyoRR20S0TdAFUTH5eD2KmLq03255UOrIrde5vJ4Na/SuM4IBBdjQPxMI/6jrdavFkJJg
+	GGnvQA1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTBDF-0000000F4IB-2jTF;
-	Wed, 10 Dec 2025 03:50:01 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vTBLB-0000000F4ma-3oZo;
+	Wed, 10 Dec 2025 03:58:13 +0000
+Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTBDB-0000000F4GR-3Db0
+	id 1vTBL8-0000000F4mD-4AMj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Dec 2025 03:49:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3711A60142;
-	Wed, 10 Dec 2025 03:49:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9775BC4CEF1;
-	Wed, 10 Dec 2025 03:49:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765338596;
-	bh=B9c4Di13C7XVEZK62c7zzFp+JvpgWm0lvIYVqsSa+uM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=twnX1+cRG3p51CZ2Ti0MOWo2o8kqtDgjDEfMzcTSypaWQhvqWXHCL4nk/K8URk4m7
-	 qBogbAxr3BUucQJKqnsU+tUXCQuEVZ7waMCBK44t8cHnpUhL1noGlLoI4o+MWSq8In
-	 wClZQGshImpiKj6phjw3rJREHKJVXQI8knd13ulguTcIHgLpNf5YUGit/pks9rQvCi
-	 j4R4GAMdt4A79Fc0/O0DAxlymzldjRuThgWE5GupVMveC8/lQoxR+i15RAy0MO15kV
-	 0sTmctwrikZEL9i6HssBA+2zxhsHk9SCWl0cTi9FJ2brtSYocwdPZaxdAwe361iUJ2
-	 fBqa4j3bjbVyg==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Peng Fan <peng.fan@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sasha Levin <sashal@kernel.org>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18-5.10] firmware: imx: scu-irq: Init workqueue before request mbox channel
-Date: Tue,  9 Dec 2025 22:48:58 -0500
-Message-ID: <20251210034915.2268617-17-sashal@kernel.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251210034915.2268617-1-sashal@kernel.org>
-References: <20251210034915.2268617-1-sashal@kernel.org>
+	Wed, 10 Dec 2025 03:58:13 +0000
+Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-4f1b1948ffaso2176731cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Dec 2025 19:58:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1765339090; x=1765943890; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=xLoOmL2OINkQVzeV8Rqv6NYJGZqFQ0WjVAMg3gQeW1M=;
+        b=RbgdNKtfuD6auypu1gD2nfid3HsKcwXkB6BW7Ergj8wRM1LYW2HAwZ8kHvK1T59EzO
+         42e5Qex3f+S999f/awq38M7g1dXxLWilkpeOdMfJAl0NWK9QOfmuQGaeSmMpqH50wZqr
+         N76nWnrDAhSst1N9dz6j+8AiQqnUAdE/HRk9KPFMTkeBlCyODCfaMibWveopHbw1tloj
+         e9q3Wbk7q+lRphFVIzGGdzzC1r0TSubmb51mWSLc2lStLZLXQG0c94y/Az9C51vvt1ck
+         dQ4Ez0thfDqzGz7jHRCJ0DzhmFOqpCMUIbzZxe5dcQu3eMFdyxrTQcD/Kf4N1ISeTxWX
+         OkXA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765339090; x=1765943890;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=xLoOmL2OINkQVzeV8Rqv6NYJGZqFQ0WjVAMg3gQeW1M=;
+        b=dTaWCV+u8aIm1sPb2YptsFNG/ogYDkE6hxUon9iCM3SUsIEOmK0biLO/b0EZPB1IYQ
+         SHZseDVJ2bgiNo6DZw4DiU7H4q9e56yqDjkzUE5z14bCJRF8vobZgOTlmvGazbnyYT8o
+         Jf5yfzNzZ+v3AJxVlXbtaRsj1aChY2xwgMJS1gBXmFSnJaKMXQvSrEBHWxL1e2h2lK7D
+         2cycuBp8ulktTkGRj87kSqyEODPiqZ0LsEcdzMi3LhGllicPgA1olIuItfdX0bKuXe0q
+         k7+XmlSaNsHO5iN0ieqsOQyPFXY/gaFGQWusiJ8x5aYG+AYiVLm3XVcXi8rKXQSxmJF1
+         3Nmg==
+X-Forwarded-Encrypted: i=1; AJvYcCWFW8P5Q9zUCCPdtiHiSKryTmUJSZm4o8nE3wq3q2vflz3m9Vq+MrDOPjytx9OueW/O/MVdUJMZXXKMeoN8nH5r@lists.infradead.org
+X-Gm-Message-State: AOJu0YwcSq4SF4pZ7/HE+F+gw5mUIy4Ze0+UiOc2NCaL/WX8+kSNjcsI
+	UdhzBJdGRwMytJNI353QXUWQVnYDJ9tAQk79FtXQ8/kOnm9NmEAuBLX30bB64UR+ueXrQ+aY9lF
+	pH82B5LBtSbBhWmEhybd7o9sVSsq7K/I=
+X-Gm-Gg: ASbGnctJQY2lWuX1/rxh+427dpt6D1ixFn+e+hCwz0JHl7wOIVaKtYPDugcSh4Zhy8p
+	ZTMEZy18W/WN5O+zWVkpMit47PL6dngHFMA4LJV9uBEU57Zaq1Ou5YAk3bQRgOdl6Wp7W7uo14j
+	f7gcshvWwC62yyNZ5OftJbLE5lU4BLosc1kwk3MnUdE5TvnB4gccQ/vt/xkMUBWMPpfEsWln95D
+	TjLnl4yKXRzZoe5Z6y5ml4b91lAdwrbKJBLT7wmfEDpVJBZBg/IwTUllXp+1gTUz881pR43G+dZ
+	07CLJLOOoGaF248N4+cphvZQJdBkr/ohR6jm8s/735Cg/LeSYv3gSyDwFLjBzH9Ei7bMQ6DKtpL
+	VJ3G4J5vqFjmrcfGDdB63XZEBAeVYbMBpwmE=
+X-Google-Smtp-Source: AGHT+IFGSPpDaGsF7GV6bSeqZjzx0wih4VR146dqGL5dRtKu2H9I9xlLneXMcdOPKYcfgnDqQlmhKeVlt3Ia1lJlppw=
+X-Received: by 2002:a05:622a:5d3:b0:4ee:1dd0:5a40 with SMTP id
+ d75a77b69052e-4f1b1aae5b4mr12728361cf.59.1765339089481; Tue, 09 Dec 2025
+ 19:58:09 -0800 (PST)
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.18
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20251209-tdm-idle-slots-v1-0-38dabf6bc01e@gmail.com>
+ <20251209-tdm-idle-slots-v1-4-38dabf6bc01e@gmail.com> <aTjZc3mgu7CQOkDU@sirena.co.uk>
+In-Reply-To: <aTjZc3mgu7CQOkDU@sirena.co.uk>
+From: James Calligeros <jcalligeros99@gmail.com>
+Date: Wed, 10 Dec 2025 13:57:50 +1000
+X-Gm-Features: AQt7F2peQnceaEJraJhL4gaHZEV1D4IiSKkpSo2-8pS48v4HYxCHrY9kKA6UQpE
+Message-ID: <CAHgNfTxmYxNaYOdGK4Eb4ouCqmUCjVuhzGdgTAL=+ybObqrCmw@mail.gmail.com>
+Subject: Re: [PATCH 4/7] ASoC: soc-dai: define TDM idle behaviour modes
+To: Mark Brown <broonie@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, Shengjiu Wang <shengjiu.wang@nxp.com>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Shenghao Ding <shenghao-ding@ti.com>, 
+	Kevin Lu <kevin-lu@ti.com>, Baojun Xu <baojun.xu@ti.com>, linux-sound@vger.kernel.org, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	asahi@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251209_195811_044932_720506D7 
+X-CRM114-Status: GOOD (  23.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,119 +106,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peng Fan <peng.fan@nxp.com>
+Hi Mark,
 
-[ Upstream commit 81fb53feb66a3aefbf6fcab73bb8d06f5b0c54ad ]
+On Wed, Dec 10, 2025 at 12:22=E2=80=AFPM Mark Brown <broonie@kernel.org> wr=
+ote:
+>
+> On Tue, Dec 09, 2025 at 07:31:17PM +1000, James Calligeros wrote:
+>
+> > Imagine for example two codecs sharing a bus. When one codec is
+> > transmitting, the other must ensure that it is holding its side
+> > to 0, or data from the transmitting codec will be corrupted. We
+> > can trust the "idle" codec to simply do this itself, however
+> > this is undefined behaviour. Some devices may leave the line
+> > floating, others still may pull the line high. We need a way to
+> > control this behaviour.
+>
+> I'm finding this explanation quite confusing - you appear to be
+> describing the situation where two devices simultaneously drive the same
+> signal which would be extremely unusual and I can't see how it would
+> work electrically.
 
-With mailbox channel requested, there is possibility that interrupts may
-come in, so need to make sure the workqueue is initialized before
-the queue is scheduled by mailbox rx callback.
+We are trying to solve a few of problems here, and one of them is
+a bit odd. I've probably jumbled up a bunch of different things here.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Peng Fan <peng.fan@nxp.com>
-Signed-off-by: Shawn Guo <shawnguo@kernel.org>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
+We have the use case where a codec enjoys exclusive use of a bus. For
+these, the codec can transmit 0 on any unused slots to hold the bus.
 
-LLM Generated explanations, may be completely bogus:
+We also have the case where multiple codecs share a single bus. One
+codec can weakly pull the bus low when it's not being actively driven by
+any of the attached codecs.
 
-## Analysis Summary
+However, a number of machines split six codecs into groups of three
+across two electrical lines and then OR them at the receiving
+port such that they appear on a single bus at the SoC. Because the two
+data lines are ORed at the receiver, we have to guarantee that line B is
+zero while line A is active, and vice versa. To do this, we set a single co=
+dec
+from each group to zero-fill during the active slots of the other group.
 
-### What the Bug Is
+> > Thus, we define five possible bus-keeping modes that a device can
+> > be in: NONE (UB/as initialised), OFF (explicitly disabled), ZERO
+> > (actively transmit a 0), PULLDOWN, and HIZ (floating).
+>
+> What is "explicitly disabled" in ths context?  Why aren't pull up or
+> drive high options?
 
-This commit fixes a classic **initialization race condition** in the
-i.MX SCU IRQ driver. The problem is:
+The OFF state was added so that consumers can explicitly disable
+any and all bus keeping if necessary and supported by the component.
+TAS2764 and 2770 both initialise with some bus keeping features enabled,
+hence for this hardware NONE !=3D OFF. I suspect this is the case for other
+hardware too.
 
-1. `mbox_request_channel_byname(cl, "gip3")` is called, which sets up a
-   mailbox channel with `imx_scu_irq_callback` as the receive callback
-2. Once the channel is established, interrupts from the System
-   Controller Unit (SCU) can trigger the callback **at any time**
-3. The callback (`imx_scu_irq_callback` at line 175-178) calls
-   `schedule_work(&imx_sc_irq_work)`
-4. **But** `INIT_WORK(&imx_sc_irq_work, ...)` was being called **after**
-   the mailbox channel was requested
+I neglected to add pull up and drive high simply because none of the
+initially implemented hardware uses either. I can them for completeness's
+sake, however.
 
-If an interrupt arrives in the window between
-`mbox_request_channel_byname()` and `INIT_WORK()`, it would schedule an
-uninitialized work struct, leading to undefined behavior, crashes, or
-memory corruption in the workqueue subsystem.
-
-### The Fix
-
-The fix is trivially correct: move `INIT_WORK()` to **before**
-`mbox_request_channel_byname()`. This ensures the work struct is
-properly initialized before any callback can possibly use it.
-
-### Bug Origin
-
-The bug was introduced in commit `851826c7566e9` ("firmware: imx: enable
-imx scu general irq function") in kernel v5.2-rc1 when this driver was
-first created. The initialization order was wrong from the very
-beginning.
-
-### Stable Kernel Criteria Assessment
-
-| Criterion | Assessment |
-|-----------|------------|
-| Obviously correct | ✅ Yes - classic "initialize before use" pattern |
-| Fixes real bug | ✅ Yes - race condition causing potential crashes |
-| Small and contained | ✅ Yes - moves one line of code |
-| No new features | ✅ Correct - purely a fix |
-| Tested | ✅ Has Reviewed-by from NXP engineer |
-| Low risk | ✅ Cannot introduce regressions |
-
-### Risk vs. Benefit
-
-- **Risk**: Extremely low - the work struct must be initialized before
-  use regardless of when the first interrupt arrives; moving
-  initialization earlier cannot break anything
-- **Benefit**: Prevents crashes on i.MX SoC platforms (used in embedded
-  systems, automotive, IoT devices) where early interrupts could trigger
-  the race
-
-### Dependencies
-
-None - this is a self-contained single-line reordering fix that should
-apply cleanly to any kernel with this driver (5.2+).
-
-### Conclusion
-
-This is an ideal stable backport candidate. It fixes a real
-initialization race condition that can cause crashes, the fix is
-obviously correct (a single line moved earlier in the initialization
-sequence), it's minimal and surgical, and it affects real users of i.MX
-SoC platforms. The only missing element is an explicit `Cc:
-stable@vger.kernel.org` tag, but the fix clearly meets all stable kernel
-rules.
-
-**YES**
-
- drivers/firmware/imx/imx-scu-irq.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/firmware/imx/imx-scu-irq.c b/drivers/firmware/imx/imx-scu-irq.c
-index 6125cccc9ba79..53bde775a1bf6 100644
---- a/drivers/firmware/imx/imx-scu-irq.c
-+++ b/drivers/firmware/imx/imx-scu-irq.c
-@@ -214,6 +214,8 @@ int imx_scu_enable_general_irq_channel(struct device *dev)
- 	cl->dev = dev;
- 	cl->rx_callback = imx_scu_irq_callback;
- 
-+	INIT_WORK(&imx_sc_irq_work, imx_scu_irq_work_handler);
-+
- 	/* SCU general IRQ uses general interrupt channel 3 */
- 	ch = mbox_request_channel_byname(cl, "gip3");
- 	if (IS_ERR(ch)) {
-@@ -223,8 +225,6 @@ int imx_scu_enable_general_irq_channel(struct device *dev)
- 		return ret;
- 	}
- 
--	INIT_WORK(&imx_sc_irq_work, imx_scu_irq_work_handler);
--
- 	if (!of_parse_phandle_with_args(dev->of_node, "mboxes",
- 				       "#mbox-cells", 0, &spec))
- 		i = of_alias_get_id(spec.np, "mu");
--- 
-2.51.0
-
+Regards,
+James
 
