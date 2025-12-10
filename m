@@ -4,89 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5E82D3B9A9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 04:48:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C727AD2CE17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 05:19:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zMIVlrIRMHzT8RfJZ0XmrU2xGjPLrLeQG/AGz65dD1I=; b=vsv/NINe5uRcye1AmGt76TtrRt
-	F3HUHyje92S2PY7mEQqqElCvWWemc4gGravhz5liSQRfAh3EMBNb8vtfscpxjR2Tqk17n3L41YzII
-	2p0CjMUQ59njGoOc7HNP/+a5lvYz5LMCZF3KvIIJRaLboM0FHoD3j1iJKqQIvO8p+MDttuVL7xFRC
-	K0xCQXUfmnVkwJAg3+WX9jw4pb7MhJlOVWg+uhHXavHOrD3BRISyORgLXryYDx3DzVt9tNu+7CTlg
-	88OHzN5PAv3Fw2hCBwnlNQ5GixmnX+cmcxqsKHz6znZh9tGgh435NHnzM/PHV/dVtsdIJKVVu9iXH
-	tZZgA9oA==;
+	bh=z+b10X6Er4div30ysnZd4JuCWXNc3CC8naMD83NeP8M=; b=TC5+5MCY8YUa5u7JTEg/LIXGNE
+	MRDFeDBPnqcXgHzrJpjvMaj+M6rr1unAHbXD7iOewycTGGC1l/xQAoDK9z1wwSrye6oF2tP+EcTNx
+	NG2UAj3CSHlVmeSJyLYGfjzi6UpmGdRuqBmD/jxxbTI64IWuDjMqpWnlEcfK6QXpOhrwUEmI1PHco
+	bg1mV9oUzbhYtoY6Hytn9D82Ufb8QxW5a9TfVRemQZNKdPbBcf1cAuUe/CUR65k0FUcpnt6Uzok2k
+	XRuBBr8Er9vHMzftAEv27j3vArkj+XydO/K41oylJD+CxBzfwZc+u+2A5aaUgPmx/4JhbaaokYbcE
+	Qt4sXhkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTC7j-0000000F6UC-19ja;
-	Wed, 10 Dec 2025 04:48:23 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1vTCbt-0000000F7pv-2r8G;
+	Wed, 10 Dec 2025 05:19:33 +0000
+Received: from mail-southcentralusazon11012036.outbound.protection.outlook.com ([40.93.195.36] helo=SN4PR2101CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTC7f-0000000F6TP-2FtV
+	id 1vTCbq-0000000F7pW-28QT
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Dec 2025 04:48:21 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-bc8ceb76c04so4458767a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 09 Dec 2025 20:48:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765342096; x=1765946896; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zMIVlrIRMHzT8RfJZ0XmrU2xGjPLrLeQG/AGz65dD1I=;
-        b=gnqPxxWGZMK1haoPkpLT11uZ6opQEoBuvugQNtLgJ/zllV9FIVrDcaGLhJD/Y3etPx
-         OhPxEsaBKfdCi6Kzrtujrdk1erDM4UZ0idh3vwi/B9md28FJPKY1h1gNnGhR+5Ojnntd
-         ewXM1rLdUauCjDpVlNMEfFWH8wcxNMim0K77X0iEwCLee+vAHrmgCtvbH6t5k8ApYYTd
-         b6tGJ/VIRSIaPdZ4xGiJo395tj8zxZsp1qWIq4qryoPaJodvfopGGFhJhi/7QTqoJfHo
-         8iuave2w0Ogh4cEAoqjFwvvuyWeaDrGj1BVE5nt5k7PODH5vg5FWOsTlAeQbQGq5tfvA
-         az9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765342096; x=1765946896;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zMIVlrIRMHzT8RfJZ0XmrU2xGjPLrLeQG/AGz65dD1I=;
-        b=VMDRmWu49C+dfPy4IKLJFFJD41VOqzxquMKOVoPIsxQNWty6StQHtJpYBi/Mw00JF5
-         OaPYyjRlxpXVt+lBBn2wAOXcPeEczweSK05DVcZ192EqPkAInWCD84moS1km2pTMc6oe
-         6zJau4BpRHtuKhBijKFWnMzw2MRBcz4s7QSHEMgq7DjKndXLq8O0XS1Y2u4tvP028RRp
-         2KlKW1bDDd4+v4q0VSU7ix4HsWOG9yCjdhd2iGj2ZaJcNB5kqfmP5S7RkO7TDvgAxnaB
-         u5cEJac0C+6YtjVJtymBEHr58MhLsiWh6uFrF1B6bJhez/xFPopELuSY6V9GGaMoey8U
-         wuoA==
-X-Forwarded-Encrypted: i=1; AJvYcCVgeoUNFTVDhfKeJQDwesT+Zh5SNSueg6uZRnZImtD4BhN6hXRceJxCVDv6ug1JQPsM4ukoDgJFBY3+e7YnhVHx@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzmolec4BjSp52VcP59/x/jLUrZVKTdQdfRXTQMMhZsYpV/HXxK
-	Gne5uyBrRAeTp9OJsSIY84C7gvkZGQnQSey4XfndsVzdoXIYKqs87eKl
-X-Gm-Gg: ASbGncsqawrf7B9u72J4nrGgBbFk4yZg3VVghiVwA7UCNxEikqY7htb7WD9bo8CrPxq
-	KZcDMTJgRtSmwHP1xEFuqHhFvBNX3Zoy0dLMu4QtLXfRujseDIlgOsGh+LmpqKnnbo3sjipwCIP
-	ioMxYvJfMDZVHkEGHrW8foTfEq804I5enzCH1zum3WvO/9VgGflEz1V2fAiPPtoU9+l/d40oijn
-	nRyMD6OOOctm8aRIrcEMdpi6hbR99s7q6S8fRKsCytWmk2nEC8UY8DsvWkew3iXMEOZ1kWQnPgp
-	5y933tWtxvl/prTbLdNoDnrEugXWz4RBl7QXZh0Md3wyNotQqrjZI/leTcTKhCMtLdP+0ZwVdEB
-	lL65W6hMsxp2ybAhFP2VyNEOox1w87UqNRtCc5dQfuzq2F0R4+jVdcZKImtNbuacDzjUz+5N6kx
-	a9oeK0kClpPiTOGVVMuwZJUUDE/6jn6a4qX5L2Zb3BGDkdzJ8MdZYfMFCgpGK15MM=
-X-Google-Smtp-Source: AGHT+IGwhF10o8oXBvj6kF3XVHLwewCx7u/bdxSK0ksb+PGLHRX/iWeDMbigiy2qXuWF8UnfAfUzMw==
-X-Received: by 2002:a05:7022:4299:b0:119:e569:f626 with SMTP id a92af1059eb24-11f29689922mr965432c88.31.1765342096391;
-        Tue, 09 Dec 2025 20:48:16 -0800 (PST)
-Received: from google.com ([2a00:79e0:2ebe:8:205a:5a0a:c468:f44f])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-11df76e2f3csm72522829c88.5.2025.12.09.20.48.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 09 Dec 2025 20:48:16 -0800 (PST)
-Date: Tue, 9 Dec 2025 20:48:13 -0800
-From: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-To: Haotian Zhang <vulab@iscas.ac.cn>
-Cc: matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, 
-	louisalexis.eyraud@collabora.com, bisson.gary@gmail.com, julien.massot@collabora.com, 
-	linux-input@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH] input: mtk-pmic-keys: Fix potential NULL pointer
- dereference in probe()
-Message-ID: <inmlorhcpi5g7kfs45rhtpwq7aatmzxemgnulamvjqxmmmtl2j@vfcd5kndbhep>
-References: <20251210030013.913-1-vulab@iscas.ac.cn>
+	Wed, 10 Dec 2025 05:19:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SMEhSvfcDSmszFTBD6o62Tm77dYUoqJzWwEgVL7tnKYBwHiQT8t7IV8Q2W1ODMWz/M37pOYkhWBPFfg7C+KrX1FHSqAeskX5k+1UnGMV6PgBWZUa26xzxlauS/LOGdUcElWvjHegCk0O08tPaasSp+BEJDBXQYoLDvtCLYG+iBYDgkMhiD9bw+9f6G8pI/PHIgAe/lsNKrUw5YPlMRzTj1C/P5HTj3dn+lXsvYFDPnKayfQeWY3bohBHb7A8p8rwzoPsbAHfHEPzd7Wujxl2lHtvn9U/jw0BVC61I2DXDu8VAsEgnf6w6Cv1F5oaHi7H90kyVTN8Br2V3fyWewpANw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=z+b10X6Er4div30ysnZd4JuCWXNc3CC8naMD83NeP8M=;
+ b=hvQ/hFMb1w/h5p9tWwAe8+3eyq+gk+SC0rhQ4pX1XqaIl8CppHt/+4fGzxX8sffT748sqyb1UzXoZKNltWI6b4Ikt7/cKiNmC39OXV5ydiVzsrLAgoOHYdVHOvyEZnHKeFwIPB2xlV5MKYNqII0Y7hw3xiq8SqIKLrI4oWAWkMBKy2HHUZhp3pRol2FyA/Sv4HQN6XWApkSZ5Ypu9iSWQrWKyqGd6gkCoLiLdR52k2YsXRaylnAu367x6hipjbqatyB/GFcDOVwu2ZxWSdxImESwh9qM9wymztuNy9kGL+Xyhv5Um35yBfpDg5JKP8Ntu3uVq4MDJK23bTizHcv9Xw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=z+b10X6Er4div30ysnZd4JuCWXNc3CC8naMD83NeP8M=;
+ b=WsNewyF4yxKYC1QU5bpUha8D2A7UFgGt4I8Ng2UnWQgs9Ho+wAv6l5256pHPdVlHqfii7FRH6fed2z0JzWhE0KXmE/aLMNPOhjAyN7889HqLN9kodWipd/4PzvcIBLkV3hOQrBmMmV/AwcDvHho0c+uEk9Opd0KeeGXabpRXE/kHDro0c2utWMW33HOQWGr3ouME5bd8uREAyy3FN9WGfVDO/ja2Gwl77Nz9sA70rvuEVfLV+BtFpiZJ+A2g2hG/+GJzcEPVH9nMEwtJzzN3iQa/SuJSNrwHo2PJ98QALXSuFsqXFmpyhgh1Yzbg5Pu0uPlhhR97BsqvtD6S9vgDnQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from BN5PR12MB9511.namprd12.prod.outlook.com (2603:10b6:408:2a9::14)
+ by MN0PR12MB6102.namprd12.prod.outlook.com (2603:10b6:208:3ca::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9388.14; Wed, 10 Dec
+ 2025 05:19:24 +0000
+Received: from BN5PR12MB9511.namprd12.prod.outlook.com
+ ([fe80::4d8d:5f91:6c3c:dc8c]) by BN5PR12MB9511.namprd12.prod.outlook.com
+ ([fe80::4d8d:5f91:6c3c:dc8c%4]) with mapi id 15.20.9412.005; Wed, 10 Dec 2025
+ 05:19:22 +0000
+Message-ID: <2bf7bb25-9a6b-42d5-b095-978f7bb81f35@nvidia.com>
+Date: Wed, 10 Dec 2025 10:49:12 +0530
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V4 1/3] iommu/arm-smmu-v3: Add device-tree support for
+ CMDQV driver
+To: robin.murphy@arm.com, Nicolin Chen <nicolinc@nvidia.com>
+Cc: oe-kbuild-all@lists.linux.dev, thierry.reding@gmail.com,
+ jonathanh@nvidia.com, vdumpa@nvidia.com, jgg@ziepe.ca,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-tegra@vger.kernel.org, joro@8bytes.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, kernel test robot <lkp@intel.com>,
+ will@kernel.org
+References: <20251205065850.3841834-2-amhetre@nvidia.com>
+ <202512090331.QAFgb6vQ-lkp@intel.com>
+Content-Language: en-US
+From: Ashish Mhetre <amhetre@nvidia.com>
+In-Reply-To: <202512090331.QAFgb6vQ-lkp@intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: PN4P287CA0003.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:c01:26a::13) To BN5PR12MB9511.namprd12.prod.outlook.com
+ (2603:10b6:408:2a9::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251210030013.913-1-vulab@iscas.ac.cn>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN5PR12MB9511:EE_|MN0PR12MB6102:EE_
+X-MS-Office365-Filtering-Correlation-Id: 475bcb4f-ef14-4758-8c01-08de37abad27
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?cnNXa3BmaWF3WGNpUllFYTZkcXRWMDFqVjR3cys5MjVhVFAvYU5VL3VreFVG?=
+ =?utf-8?B?ZmpwM01lK1ZNY2NzVVlIWW14ZENGbFk4Q3dUajhqR0ZKQVRaZTJHR2ZHcHY3?=
+ =?utf-8?B?N01rRVpudVdrRGhRRmp4UEIwQnoybmlPaFhFc3hhSUJSR080aDZDQ0hwdld1?=
+ =?utf-8?B?TkJRSkN5Tm5LN0o1N2RNY3JSTkVqZ1lMdkdiQ0gwTGxYVDFYRnBLWmc2ejc4?=
+ =?utf-8?B?bEd2RysraVp0OEN3dTV0YXZYdm9QM3JVTFFTM09LN1dKTk52dnlmUXVsaHFM?=
+ =?utf-8?B?ZkFzR2lucEJlWmNVYWoxNHdCYkVPOXNtc1lUYzNEa2pIaU5QS1F1YTlmRkhO?=
+ =?utf-8?B?bFpkVjBIanJwN2E0Yi9NQ0JFbXEyaW1oek90QTJDMEZMT1VlVkRPcEk1MCs3?=
+ =?utf-8?B?SFAwQUhXQXNXV2tVVUNHOXl4dXh4RTFQdWJpRW5iMG5hOFJvd04rSExLOXNZ?=
+ =?utf-8?B?bmRZVTlaTnFRYTVyR3ZLeHNiRnZzclIzanU0dXl2dFRMRWIxU0hyZ3Q3LzY5?=
+ =?utf-8?B?ajN0cXkyVlBvTi9HckFNTDZ0N0dCUFBydE5LSWtTNENDem95ODRQS2YxNGdK?=
+ =?utf-8?B?Nm9wM1ZTODIxVG1VUExVWWVPcE0vTktpaFdRREpDQ3dtcGxkckp2R2NYMWhH?=
+ =?utf-8?B?MkN1eGNXTG5sN1BNZFk1aUYzc1ZBYklxQ2FxMlVJNCtzMmdKNWYyQmhpUUFi?=
+ =?utf-8?B?U0k3QnRCMkg5VjVBMDVEUSsxYkQ1ODJoZlMxaDRjbGg0cTdxbkJrd3lYeU5l?=
+ =?utf-8?B?Y0tqL2JxVHBKMmVpUURYQldjdmJxeW15b0hLSmFYbUVjekViQ3I0L3JQei9M?=
+ =?utf-8?B?OFJRT3N4VXBRaThtUElaSzErcXFRY2dOS3ZXSWhHZ05peWJEckQxRmVDZ2RL?=
+ =?utf-8?B?VjN6WUhjM2tuVWUweGhxMVdmK0lYMUY2blMzYW5UVzJSMVZMeVRqMGlTSThW?=
+ =?utf-8?B?N0tNb0JjU0VtZTFlMk11MEdBMmtwT0h6ditEQzVsNTNxNDB2bjVRTTRsSFVX?=
+ =?utf-8?B?OWRyd1BlcGdzdEh2LzZVWUNCUG5kajRlTGFTSXBSMHdzN3NRY3g2amFtajk4?=
+ =?utf-8?B?SEQwb2hNS2dRS21pZklNN1FTaVFHbGcxc2liRmVUbm9QeWR1aUJoUmNGTXRv?=
+ =?utf-8?B?RXUzdnd2WVFvdk9OV0tzZENTRDFSOTUvWmNLTWZ5b25OdE5zdzhXS2NnNUN6?=
+ =?utf-8?B?K3l0bEZMYTg1UkFiZEc3RVpIeU1wbnpFT0VZc0xoSGRPbVUxcnFPZWJyRUQv?=
+ =?utf-8?B?WUU3QXl2WnNkWVNTSUlYV2NFek0yTTBuTW1LbmlnRTN0K2d4M0lCY1MzeXM0?=
+ =?utf-8?B?UUhpYUtiMFZTT2d2bWI4L2RRbThjVXdWam1HZDVMTEo3ejFNMGgvUjhabUwy?=
+ =?utf-8?B?N0lJdVRmYzFYSEk4RVlBVys4ZmpXN1FpMTNtRDFhQXc0a3JSMHNvRURvVWRH?=
+ =?utf-8?B?ems4NmdoSng4YkdRTDdTRndiV3BhVUNIekExVENWN1Z5a0VEMnN0QTMyYmdU?=
+ =?utf-8?B?bVpVY0hvcXZodm5nb3ZaWjVIQThLelFWS24weHJYVGpsMTFVZk5TYUlGSHhX?=
+ =?utf-8?B?VS9wcittMS9xa2U2ZDBHRW1DSUZ4WDR0N3B0b1poRm1PM1JrdDNRM1BOd3Bp?=
+ =?utf-8?B?K1dsZ2ozelVHNjl0MnRUTE9OU2dodGRNaXNnSlpqWURZaUkwZTI4SFZPN2tW?=
+ =?utf-8?B?MHQ1bnE4WjRXRW50eHFyczROQzdmcFFaaGpNOXpzaFNBYjlvZWdQdlZ1b014?=
+ =?utf-8?B?N1VwdDNReXBhK2RFYWlqTUc4MG5Sb0s4dndOU1Y4eUZzU1RLclRxTWcyRzls?=
+ =?utf-8?B?UzBycjFxZTc4aFByUDU1ckgyTm9SendVRUxjdVVJUFdmSGNnYk40RW1kTkFO?=
+ =?utf-8?B?OWZmWGR3RFRDbTRyaEw0UnZiaEMySy9VamRpdDdBYTlxKzdyR1dqeENackdk?=
+ =?utf-8?B?c0FnR3JCakRGQ21EUXJiYVJSSDdHdDBvRlFyc0hOZ000TmIxNHJUYkYzd3hE?=
+ =?utf-8?B?VmE0RjNvcW5BPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN5PR12MB9511.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UG1xVWdyYzBad1Z3Y3k4bGdoN1pRMUNJQ2lLcGNFZ0JyRnZ2Z1JhRkVER21s?=
+ =?utf-8?B?K3NiblozUjZ2YTEvbURtS1g0ekdnMHNBbmxVNGYzbU4wakdOa3VLRjNLdHNq?=
+ =?utf-8?B?VXhETW1hdm9DbS9yUWNWRlhTd0w2NzdvemVoQUZXUW9qYllSRUlPL0NOTFhT?=
+ =?utf-8?B?R0pzb2pLODNubmcyeGhyOWJ6UkNhM212NGV6SWJVdUxWY0pOaENENDVrNEJD?=
+ =?utf-8?B?ZWlIT0NXU2lCTHdOMlYrV3hzTURHemRWY01pRE5EQVA5SitzaUQ1bCtDeFlz?=
+ =?utf-8?B?YWtVbjZnMVJMQ1lzaXJMazQ1V1c3T3lPVEFIOVk0MGxiTTdSSWlSZHZROTdv?=
+ =?utf-8?B?NC90VnlpN05mSTJYVWVwcHVPeVBCUGdJUVNTZEJCSE9IMFpyTHlvVDFhc1NZ?=
+ =?utf-8?B?UTlWeVZOaHRQblpYNENMRVQveVpsbVg5R1VvaWxvcXA1YldEL09xajlML0NO?=
+ =?utf-8?B?Mlo0THVSa3U5a01sUHFvbjVBSkFDQ01UTitVUnNFbWcyZWgxT3Q5ME1WZEpw?=
+ =?utf-8?B?ZXcrVTN0UFFZajU4R0NuQ2g0SGxKYklRVGF6Q3NCSkRmcXBGYnpnUGNnYXNu?=
+ =?utf-8?B?dTNNbG1rRXE2VjJrb1pBSkc2RTNVRk1MYlgvT0JNNmJPRi9iYTRpdXpsQ3ZB?=
+ =?utf-8?B?Rmh1MzEwZnNESllKNitTc2dXMFp1Z0oxL242eVlLaE1DemJiclNjZE9PT2xJ?=
+ =?utf-8?B?OG5YUlMrVFhzbE5qOFZMVGZLb01zdlRJWTFTM2tXRVRFOVd4Rnh4YnR0Q2ZE?=
+ =?utf-8?B?VHVnUytqZmlUSlkvL1lvT2JoemV5ZlhSd3E1RElTMVJOS1hnZ0Z5bVR0MElN?=
+ =?utf-8?B?bWQzeitjcnZobDl5U1FUb2xWRVkvb3YvQTdNejdxVzdaVmtPcUhqQTA5SStR?=
+ =?utf-8?B?a0NiSGRYaEN3TytzbGtUcWpDQVpzYUcyWGpTMUM3b09iZXFENVhBVW44MEli?=
+ =?utf-8?B?WG1FZjZVdk5CYmxMYTR6TEFWRTgvQ2djRy9DenNIYlVqdks5cEtpSVcyWVB0?=
+ =?utf-8?B?RnZybkI4ZjNEUzNvWURpUGJYaEdNOGVwN1lxeERYVjhtR1BVdXFQMFo1VDZ5?=
+ =?utf-8?B?bUpYdmdvbUMyeHlOV3R1SmJPOU9GZkNJQ25IeUtmblFDOTNjZ0NvK3UySzZn?=
+ =?utf-8?B?dlZiSDdFU3BBSE1OUGZ6enlTM0tTdnhLTFhwckhqNktVampyUFRodlMwVEta?=
+ =?utf-8?B?VnljZW52bUNNWThuWmxRTFpmVU92b24rUHZDNVhLUGxick9RclB2THR5REVC?=
+ =?utf-8?B?RGZtdStQUStyNjlaQzdOSHJua1M3U1dRR1ZEUjVnaTdzZmVMRDhhNnZ3K0s0?=
+ =?utf-8?B?d3BYYUl6cjdCWW81SzJsVDJFb04vQ0c0WmpkZGNjRzJwcFVuVFA4bE9VVGFs?=
+ =?utf-8?B?M3NOZFlrbjdRRTllQkxMSFlxWVVrZ3NkS1RiSW9hZjdRUzN0NDJBM3RjYmh6?=
+ =?utf-8?B?cmRMMHFHN01tVEs3MGMvL0tzYmRZYWxpNTB1bTJNWXd6eGdrM2pZTy9qSlRn?=
+ =?utf-8?B?VWNlaHlra3ExbXdWeCtRajJHYWl0Vm1JSDZKSVJLeXFtOGFLbU9jQll5ZUtO?=
+ =?utf-8?B?Mm95bXVscjQzdU9jN0RTM242dnEwRWZWYUc0UHJGUmpvWjY4WDE5am1EOTd1?=
+ =?utf-8?B?ZTM3b3o4Wnd5K1NyN1ZJb3dBQVdDaHI1ZHJZZXBrM3pFRTJSTnQ0R3Uybk42?=
+ =?utf-8?B?aXB2WGx2ZW91b1M4cHZISitybWpoa0xaaVZaRjNVbE4wTGpJem5yREdqdE5w?=
+ =?utf-8?B?QVZOV2hXcFNnVUpnVytIN0JtN3R3Qnk2bEhaNEtrMTY0WHp0Z3NkcjdjbUNR?=
+ =?utf-8?B?UkxPUCtKNHpLRzVoVXdGU2t3MVNjOWRlSjdRTDNKRmVkOHZoYWM5R2trUGkz?=
+ =?utf-8?B?QXZwbUU0a00zZ3JtNHVvS3krTU5ta3hvYlB3Y05rY3hLSzYwRnFHVEsrT3RI?=
+ =?utf-8?B?aktFWDlGcWlmVDFFelhDRjEwSHdmVmM3SUx0aFlNdlB6UHB0RGYvSzNJOGZs?=
+ =?utf-8?B?L0xOM00zendIS0ZCQVZYWWxweXdNQ0czeGo0QzFYQ0d2ODhJbTdKYWVwQWh2?=
+ =?utf-8?B?Z1MvU2J1VEc0d1lkQ0ZkWGtTOTEzZk5KWG54U3UzeHhINXhKSmRhdUVudlFY?=
+ =?utf-8?Q?iy4wjQek6slwCJ/W5Nhymoj9/?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 475bcb4f-ef14-4758-8c01-08de37abad27
+X-MS-Exchange-CrossTenant-AuthSource: BN5PR12MB9511.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2025 05:19:22.0300
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kcutXMCjSiHNmZOR2J0ENdwR8divXUscz/ljCy/p7/yfGi+LhDMz7aEAk+KKlXebD0YF4eqBrLeB3G++OHkPCQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6102
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_204819_602469_A47F98C9 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20251209_211930_642891_703AE548 
+X-CRM114-Status: GOOD (  20.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,24 +183,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Haotian,
 
-On Wed, Dec 10, 2025 at 11:00:13AM +0800, Haotian Zhang wrote:
-> of_match_device() may return NULL when the device node
-> does not match any entry in the driver's match table.
-> The current code dereferences of_id->data unconditionally,
-> which can lead to a NULL pointer dereference.
+On 12/9/2025 1:13 AM, kernel test robot wrote:
+> External email: Use caution opening links or attachments
+>
+>
+> Hi Ashish,
+>
+> kernel test robot noticed the following build warnings:
+>
+> [auto build test WARNING on next-20251204]
+> [also build test WARNING on v6.18]
+> [cannot apply to robh/for-next linus/master v6.18 v6.18-rc7 v6.18-rc6]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+>
+> url:    https://github.com/intel-lab-lkp/linux/commits/Ashish-Mhetre/iommu-arm-smmu-v3-Add-device-tree-support-for-CMDQV-driver/20251205-151258
+> base:   next-20251204
+> patch link:    https://lore.kernel.org/r/20251205065850.3841834-2-amhetre%40nvidia.com
+> patch subject: [PATCH V4 1/3] iommu/arm-smmu-v3: Add device-tree support for CMDQV driver
+> config: arm64-randconfig-004-20251209 (https://download.01.org/0day-ci/archive/20251209/202512090331.QAFgb6vQ-lkp@intel.com/config)
+> compiler: aarch64-linux-gcc (GCC) 11.5.0
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251209/202512090331.QAFgb6vQ-lkp@intel.com/reproduce)
+>
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202512090331.QAFgb6vQ-lkp@intel.com/
+>
+> All warnings (new ones prefixed by >>):
+>
+>     drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c: In function 'tegra241_cmdqv_acpi_is_memory':
+>     drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c:863:17: error: implicit declaration of function 'acpi_dev_resource_address_space' [-Werror=implicit-function-declaration]
+>       863 |         return !acpi_dev_resource_address_space(res, &win);
+>           |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>     drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c: In function 'tegra241_cmdqv_acpi_get_irqs':
+>     drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c:871:26: error: implicit declaration of function 'acpi_dev_resource_interrupt' [-Werror=implicit-function-declaration]
+>       871 |         if (*irq <= 0 && acpi_dev_resource_interrupt(ares, 0, &r))
+>           |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+>     drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c: In function 'tegra241_cmdqv_find_acpi_resource':
+>     drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c:879:36: error: implicit declaration of function 'to_acpi_device'; did you mean 'to_acpi_device_node'? [-Werror=implicit-function-declaration]
+>       879 |         struct acpi_device *adev = to_acpi_device(dev);
+>           |                                    ^~~~~~~~~~~~~~
+>           |                                    to_acpi_device_node
+>>> drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c:879:36: warning: initialization of 'struct acpi_device *' from 'int' makes pointer from integer without a cast [-Wint-conversion]
+>     drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c:886:15: error: implicit declaration of function 'acpi_dev_get_resources'; did you mean 'acpi_get_event_resources'? [-Werror=implicit-function-declaration]
+>       886 |         ret = acpi_dev_get_resources(adev, &resource_list,
+>           |               ^~~~~~~~~~~~~~~~~~~~~~
+>           |               acpi_get_event_resources
+>     drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c:907:9: error: implicit declaration of function 'acpi_dev_free_resource_list' [-Werror=implicit-function-declaration]
+>       907 |         acpi_dev_free_resource_list(&resource_list);
+>           |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+>     cc1: some warnings being treated as errors
 
-How are we getting into probe() without matching compatible?
+Hi Robin, Nic,
+We removed ACPI dependency in Kconfig but driver still depends
+on ACPI for these functions. I will be protecting ACPIspecific
+tegra241-cmdqv code under CONFIG_ACPI similar to what is done
+in arm-smmu-v3 driver. Is this the correct thing to do or do you
+have any other suggestions?
 
-We already had a discussion about this in [1] and patched the MFD
-portion to not use generic driver name when instantiating the keypad
-sub-device.
-
-[1] http://lore.kernel.org/r/20250630-mtk-pmic-keys-fix-crash-v1-1-e47351fa9d1f@collabora.com
-
-Thanks.
-
--- 
-Dmitry
+> vim +879 drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+>
+> 918eb5c856f6ce Nate Watterson 2024-08-29  875
+> 918eb5c856f6ce Nate Watterson 2024-08-29  876  static struct resource *
+> 918eb5c856f6ce Nate Watterson 2024-08-29  877  tegra241_cmdqv_find_acpi_resource(struct device *dev, int *irq)
+> 918eb5c856f6ce Nate Watterson 2024-08-29  878  {
+> 918eb5c856f6ce Nate Watterson 2024-08-29 @879   struct acpi_device *adev = to_acpi_device(dev);
+> 918eb5c856f6ce Nate Watterson 2024-08-29  880   struct list_head resource_list;
+> 918eb5c856f6ce Nate Watterson 2024-08-29  881   struct resource_entry *rentry;
+> 918eb5c856f6ce Nate Watterson 2024-08-29  882   struct resource *res = NULL;
+> 918eb5c856f6ce Nate Watterson 2024-08-29  883   int ret;
+> 918eb5c856f6ce Nate Watterson 2024-08-29  884
+> 918eb5c856f6ce Nate Watterson 2024-08-29  885   INIT_LIST_HEAD(&resource_list);
+> 918eb5c856f6ce Nate Watterson 2024-08-29  886   ret = acpi_dev_get_resources(adev, &resource_list,
+> 918eb5c856f6ce Nate Watterson 2024-08-29  887                                tegra241_cmdqv_acpi_is_memory, NULL);
+> 918eb5c856f6ce Nate Watterson 2024-08-29  888   if (ret < 0) {
+> 918eb5c856f6ce Nate Watterson 2024-08-29  889           dev_err(dev, "failed to get memory resource: %d\n", ret);
+> 918eb5c856f6ce Nate Watterson 2024-08-29  890           return NULL;
+> 918eb5c856f6ce Nate Watterson 2024-08-29  891   }
+> 918eb5c856f6ce Nate Watterson 2024-08-29  892
+> 918eb5c856f6ce Nate Watterson 2024-08-29  893   rentry = list_first_entry_or_null(&resource_list,
+> 918eb5c856f6ce Nate Watterson 2024-08-29  894                                     struct resource_entry, node);
+> 918eb5c856f6ce Nate Watterson 2024-08-29  895   if (!rentry) {
+> 918eb5c856f6ce Nate Watterson 2024-08-29  896           dev_err(dev, "failed to get memory resource entry\n");
+> 918eb5c856f6ce Nate Watterson 2024-08-29  897           goto free_list;
+> 918eb5c856f6ce Nate Watterson 2024-08-29  898   }
+> 918eb5c856f6ce Nate Watterson 2024-08-29  899
+> 918eb5c856f6ce Nate Watterson 2024-08-29  900   /* Caller must free the res */
+> 918eb5c856f6ce Nate Watterson 2024-08-29  901   res = kzalloc(sizeof(*res), GFP_KERNEL);
+> 918eb5c856f6ce Nate Watterson 2024-08-29  902   if (!res)
+> 918eb5c856f6ce Nate Watterson 2024-08-29  903           goto free_list;
+> 918eb5c856f6ce Nate Watterson 2024-08-29  904
+> 918eb5c856f6ce Nate Watterson 2024-08-29  905   *res = *rentry->res;
+> 918eb5c856f6ce Nate Watterson 2024-08-29  906
+> 918eb5c856f6ce Nate Watterson 2024-08-29  907   acpi_dev_free_resource_list(&resource_list);
+> 918eb5c856f6ce Nate Watterson 2024-08-29  908
+> 918eb5c856f6ce Nate Watterson 2024-08-29  909   INIT_LIST_HEAD(&resource_list);
+> 918eb5c856f6ce Nate Watterson 2024-08-29  910
+> 918eb5c856f6ce Nate Watterson 2024-08-29  911   if (irq)
+> 918eb5c856f6ce Nate Watterson 2024-08-29  912           ret = acpi_dev_get_resources(adev, &resource_list,
+> 918eb5c856f6ce Nate Watterson 2024-08-29  913                                        tegra241_cmdqv_acpi_get_irqs, irq);
+> 918eb5c856f6ce Nate Watterson 2024-08-29  914   if (ret < 0 || !irq || *irq <= 0)
+> 918eb5c856f6ce Nate Watterson 2024-08-29  915           dev_warn(dev, "no interrupt. errors will not be reported\n");
+> 918eb5c856f6ce Nate Watterson 2024-08-29  916
+> 918eb5c856f6ce Nate Watterson 2024-08-29  917  free_list:
+> 918eb5c856f6ce Nate Watterson 2024-08-29  918   acpi_dev_free_resource_list(&resource_list);
+> 918eb5c856f6ce Nate Watterson 2024-08-29  919   return res;
+> 918eb5c856f6ce Nate Watterson 2024-08-29  920  }
+> 918eb5c856f6ce Nate Watterson 2024-08-29  921
+>
+> --
+> 0-DAY CI Kernel Test Service
+> https://github.com/intel/lkp-tests/wiki
 
