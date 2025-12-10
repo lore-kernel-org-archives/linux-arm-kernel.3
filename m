@@ -4,78 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D47ED3E785
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 23:31:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F50FD3E783
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 23:39:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:To:Subject:
-	Message-ID:Date:From:MIME-Version:Reply-To:Cc:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=swsMAmHq/VlFXVeTSw4EL9yHfJFR122Bl7TuSE+/U18=; b=WcahPk026WSm4gkXMJLzsZnmp5
-	Ak9PJwIMzK4GMak4sir5IqgM/miieNRV2Eh/SQFst+0lMms1Dz5JdZh7CKy69ljhejqD010WBR1u5
-	xFcUguJUhyeEBP+eDEFy1dVMoMIZJIq3Aql5LNdPiGLs7Bm1UfUk4cUqumtiYlYbYwytHRhnYmFOc
-	5daaYdWp/eOva7k2UYj69FZVFGHvkDrYt75CShdYgf0hRvyafTOwJ7RttJqZk4oWLZYQfuNMo1Yqd
-	So2Fzn1Ps7+ALg8X091izCZ8FRi+n074wXOkV4DfZQYQF/eIxTWfsfanp8uI4OtcU8NcqioyVZeS2
-	FFoNAJWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y7NY5F74myVmno/JpsbmuG3c55wLr8uglfag8JskG50=; b=QjNAJ1amXUu2ZsxNHI98Jw4oTS
+	/P/Aac2DD092VBoAZEpw9+Fwt0eUFggLGxM0gOUGhTkaOl6Rst+CaDF8z6ulDj8/p9OVD2v8Gfl7e
+	dEBPhfbaEVSUP9qqr3DA+5EJg2Vqgr9JcCXmdNl8/V/MfRjkLdzFGQNUadY1Ri90Yndm5xsXGaPfi
+	0HPE6weSuVHLZck1hIUWDe5HT3KwRlaCDXefbtZygdkJpC24KwDD5eMZ01XgHRtAzOn668js8ULBQ
+	f8bXR9gW2rAbHxM5cx3PnqyKUj7bbZKc7Ux0crOhLUIR9vo5nZfN/EvjpAEFensbdwaps2tDIMg0b
+	gNT+iWeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTTeV-0000000Fyq0-0T9b;
-	Wed, 10 Dec 2025 23:31:23 +0000
-Received: from mail-oa1-x2d.google.com ([2001:4860:4864:20::2d])
+	id 1vTTm8-0000000FzC7-1H9B;
+	Wed, 10 Dec 2025 23:39:16 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTTeP-0000000FypU-26oa
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Dec 2025 23:31:18 +0000
-Received: by mail-oa1-x2d.google.com with SMTP id 586e51a60fabf-3e8819eda8bso129631fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Dec 2025 15:31:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765409475; x=1766014275; darn=lists.infradead.org;
-        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=swsMAmHq/VlFXVeTSw4EL9yHfJFR122Bl7TuSE+/U18=;
-        b=ZhjEqeodpp21S5R+NYFTWkilkGLgNlNnL6D7+hZg15GJxFji1zu/G3t3s3OnyA7cWO
-         6UL/S8Mg6bSATmukNICacd+dqsxFPfbJPdTzCiePlUs+hRdpEVC4yJim1Lx3i7ZmXNvz
-         4nhX6G7jVtiT/4Y48Ig3hgtD6a6juIwd5LZYdNlRJVVCzw6Xal0nvVDY+JpEt26xeZk7
-         +CfQOTupApVKV/xw7aVKmjGky0GQ9qmUAQ+56t9/a+heYg3VmeKytFc+rnjJbdbg7jL+
-         1ko91Xusl3E2QnNLSRgHnYlq7i/VjniY3sU/cBfaWRBqxuvMRuhOs180XHqFit1f28B9
-         fueg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765409475; x=1766014275;
-        h=to:subject:message-id:date:from:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=swsMAmHq/VlFXVeTSw4EL9yHfJFR122Bl7TuSE+/U18=;
-        b=Wlb8M/+Hqtr7vhe6SRO2XOXkfI1h8BgEt3kEuBUREtkl2KTQ0NwS+sYaIW1ggHnv2Y
-         95vV2otFtgHYFrU2uKQOAowwPyAReevTMtOnOOj2inqXgXrQNNonpk59EDrhSmckvPJp
-         PgyQGVVMxLbquSsUIjGZps3gVADfIeqQq3TwOcW5HYWKZQSBFeJrDPh7DawSh4AzWBZ7
-         JL8KXYBsozGJVz4KMtl3kIR6oB+IS39ZZtAhrrlmo/P6VkMtU/+f6KURf0yWpXSFjS/f
-         vDBcSKbVImdpLr0gD2P7BBzhA7Q6k+j+3FMuENABwdre9qEYtWJsT77QsD4NkJJegdCa
-         RR2w==
-X-Forwarded-Encrypted: i=1; AJvYcCX5RO26SlXVVE2GYOpmN6sFvim+DvsFCVIganfcU2uFuajqiHQG7q5yaardUq25Wgh+mejwKz0ay8pWJpmOrqVL@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywo65zVEEg8HLY5LKiD8eald1Tqcdhh/k1JfDh4TPN7Kh122W/i
-	S781NmR3r+iPukRaLdK0FFIRCrycfrXrz7G8p4q2QYuDBoJPWJO5DB47F3XVPyh2+EsobTHdBb4
-	FIupUTculDjNDVXTuK7pk28rl0K7drUI=
-X-Gm-Gg: AY/fxX6Lpv72g+99cfNjyR9aaQzOKGtWLp/gkY0/ryWrSEU8OqfthRaEhC2IKDcW2cg
-	f3JfxP4U0wzFj+sj6DYk2KeJAxd1QlNg5WAn+BOuP40Z4Ox88Pcj+vox267SEBnQteTcOOYs7bg
-	pTPqOqYa6kj8L2AbUBhVKqMOszyIDpFkh0IWbX0ilLLEo9xubutkr+Tb3rwjy/lcNajHgznxHRt
-	uN+4H3gmZCsnftFbNMOvrcrX586TegvKcmJmg4OZxELK68i9q8VzGl4qb8pE37nMDxfRQqR
-X-Google-Smtp-Source: AGHT+IFkNoYRV7SrsMIM1uycdogV7gRtyz7BmmOpQ2r7VNjxu9DVX4ARJAhOk6ogXk291j0y/A5EUZg9/EwN2V/Towo=
-X-Received: by 2002:a05:6871:290:b0:3e8:21e4:2752 with SMTP id
- 586e51a60fabf-3f5bdda0e42mr2602364fac.36.1765409475584; Wed, 10 Dec 2025
- 15:31:15 -0800 (PST)
+	id 1vTTm5-0000000FzBa-03iS;
+	Wed, 10 Dec 2025 23:39:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1765409953; x=1796945953;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=CqZoGTVWzCk+WErLN8DYaHT4p5f2ean/CXKGL2NXVM4=;
+  b=Vpv1J9FTliuGShpAxr/f+V9+8uadTH9waTr2jsLmLQ9gkjBkW42SsqRU
+   VdXecfWV+uXg5uNbgl8JrubcHqlgoLRvZG3erj0VMREXMXZkeP4RgMhB9
+   CS1J6OoxiWaB/VWgeyTlRk9CUuKdwyX8v4wXtDsu6zbg0xwrYaT6lsYAv
+   7dpbI1DPshSB3HQElstygA+zMEiZMg7J9XOdfQMRZiesB8RwvPzVFwcUN
+   B3HFQ7rYc5ZX2nxUxxRVW8U5u7MWqpianEsFVvuzLJ3kI9iuSnT49F0BM
+   38VOYfE7D+xf8xix6phaVVWlrSpgTuzuiezNb+KTuM7wuSpgA13IHefzM
+   Q==;
+X-CSE-ConnectionGUID: kYSeaELRSPG9UWgSG3/dtg==
+X-CSE-MsgGUID: AsZ2/FzcSkipTqz/EvD70Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11638"; a="78501429"
+X-IronPort-AV: E=Sophos;i="6.20,265,1758610800"; 
+   d="scan'208";a="78501429"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Dec 2025 15:39:12 -0800
+X-CSE-ConnectionGUID: KpQ53LaCR92a/lE3dY93+A==
+X-CSE-MsgGUID: yM9OGlZbRkmqVgjyMNGu0g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.20,265,1758610800"; 
+   d="scan'208";a="227300278"
+Received: from lkp-server01.sh.intel.com (HELO d335e3c6db51) ([10.239.97.150])
+  by orviesa002.jf.intel.com with ESMTP; 10 Dec 2025 15:39:04 -0800
+Received: from kbuild by d335e3c6db51 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vTTlu-000000003sH-0itl;
+	Wed, 10 Dec 2025 23:39:02 +0000
+Date: Thu, 11 Dec 2025 07:38:13 +0800
+From: kernel test robot <lkp@intel.com>
+To: Frank Li <Frank.Li@nxp.com>, Vinod Koul <vkoul@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Bjorn Helgaas <helgaas@kernel.org>, Christoph Hellwig <hch@lst.de>,
+	Sagi Grimberg <sagi@grimberg.me>,
+	Chaitanya Kulkarni <kch@nvidia.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Koichiro Den <den@valinux.co.jp>, Niklas Cassel <cassel@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org,
+	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org,
+	mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH 8/8] crypto: atmel: Use
+ dmaengine_prep_slave_single_config() API
+Message-ID: <202512110702.EhO0gmFG-lkp@intel.com>
+References: <20251208-dma_prep_config-v1-8-53490c5e1e2a@nxp.com>
 MIME-Version: 1.0
-From: Jassi Brar <jassisinghbrar@gmail.com>
-Date: Wed, 10 Dec 2025 17:31:04 -0600
-X-Gm-Features: AQt7F2oUxtlAptnQSG1MLXV29934JavR8-Vyx8y2ncf4bWsKTIbj2KjBxYAU0u0
-Message-ID: <CABb+yY0Uvkc4g0=gi79j+CCJzKkeuHGD9u_6P5ScAFkNS0F+2w@mail.gmail.com>
-Subject: [GIT PULL] Mailbox changes for v6.19
-To: Linus Torvalds <torvalds@linux-foundation.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251208-dma_prep_config-v1-8-53490c5e1e2a@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_153117_552208_66628280 
-X-CRM114-Status: GOOD (  10.02  )
+X-CRM114-CacheID: sfid-20251210_153913_120046_E92E8928 
+X-CRM114-Status: UNSURE (   9.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,95 +104,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Linus,
-The following changes since commit 7d0a66e4bb9081d75c82ec4957c50034cb0ea449:
+Hi Frank,
 
-  Linux 6.18 (2025-11-30 14:42:10 -0800)
+kernel test robot noticed the following build warnings:
 
-are available in the Git repository at:
+[auto build test WARNING on bc04acf4aeca588496124a6cf54bfce3db327039]
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/jassibrar/mailbox.git
-tags/mailbox-v6.19
+url:    https://github.com/intel-lab-lkp/linux/commits/Frank-Li/dmaengine-Add-API-to-combine-configuration-and-preparation-sg-and-single/20251209-011820
+base:   bc04acf4aeca588496124a6cf54bfce3db327039
+patch link:    https://lore.kernel.org/r/20251208-dma_prep_config-v1-8-53490c5e1e2a%40nxp.com
+patch subject: [PATCH 8/8] crypto: atmel: Use dmaengine_prep_slave_single_config() API
+config: i386-allmodconfig (https://download.01.org/0day-ci/archive/20251211/202512110702.EhO0gmFG-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251211/202512110702.EhO0gmFG-lkp@intel.com/reproduce)
 
-for you to fetch changes up to 175956b6672f93491da9c78d686f310311f0855e:
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512110702.EhO0gmFG-lkp@intel.com/
 
-  mailbox: mtk-cmdq: Remove unsued cmdq_get_shift_pa() (2025-12-10
-17:17:01 -0600)
+All warnings (new ones prefixed by >>):
 
-----------------------------------------------------------------
-pcc:      refactor and improve initialisation and interrupt handling
-qcom:     enable Kaanapali and Glymur platforms
-renesas:  add MFIS mailbox driver
-mediatek: add mtk-vcp-mailbox driver and bindings
-          add support for MT8196 into mtk-cmdq
-misc:     mtk-cmdq: Remove unsued cmdq_get_shift_pa
-          remove unneeded double quotation in Kconfig
-          drop POLARFIRE from ARCH_MICROCHIP_POLARFIRE
-          fix out-of-bounds access in mchp_ipc_get_cluster_aggr_irq
+   drivers/crypto/atmel-aes.c: In function 'atmel_aes_dma_transfer_start':
+>> drivers/crypto/atmel-aes.c:798:13: warning: unused variable 'err' [-Wunused-variable]
+     798 |         int err;
+         |             ^~~
 
-----------------------------------------------------------------
-Conor Dooley (1):
-      mailbox: mpfs: drop POLARFIRE from ARCH_MICROCHIP_POLARFIRE
 
-Jason-JH Lin (5):
-      mailbox: mtk-cmdq: Add cmdq private data to cmdq_pkt for
-generating instruction
-      mailbox: mtk-cmdq: Add GCE hardware virtualization configuration
-      mailbox: mtk-cmdq: Add mminfra_offset configuration for DRAM transaction
-      mailbox: mtk-cmdq: Add driver data to support for MT8196
-      mailbox: mtk-cmdq: Remove unsued cmdq_get_shift_pa()
+vim +/err +798 drivers/crypto/atmel-aes.c
 
-Jingyi Wang (2):
-      dt-bindings: mailbox: qcom: Add IPCC support for Kaanapali and
-Glymur Platforms
-      dt-bindings: mailbox: qcom: Add CPUCP mailbox controller
-bindings for Kaanapali
+cadc4ab8f6f737 Nicolas Royer   2013-02-20  788  
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  789  static int atmel_aes_dma_transfer_start(struct atmel_aes_dev *dd,
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  790  					enum dma_slave_buswidth addr_width,
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  791  					enum dma_transfer_direction dir,
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  792  					u32 maxburst)
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  793  {
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  794  	struct dma_async_tx_descriptor *desc;
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  795  	struct dma_slave_config config;
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  796  	dma_async_tx_callback callback;
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  797  	struct atmel_aes_dma *dma;
+bbe628ed897d72 Cyrille Pitchen 2015-12-17 @798  	int err;
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  799  
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  800  	memset(&config, 0, sizeof(config));
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  801  	config.src_addr_width = addr_width;
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  802  	config.dst_addr_width = addr_width;
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  803  	config.src_maxburst = maxburst;
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  804  	config.dst_maxburst = maxburst;
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  805  
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  806  	switch (dir) {
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  807  	case DMA_MEM_TO_DEV:
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  808  		dma = &dd->src;
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  809  		callback = NULL;
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  810  		config.dst_addr = dd->phys_base + AES_IDATAR(0);
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  811  		break;
+cadc4ab8f6f737 Nicolas Royer   2013-02-20  812  
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  813  	case DMA_DEV_TO_MEM:
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  814  		dma = &dd->dst;
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  815  		callback = atmel_aes_dma_callback;
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  816  		config.src_addr = dd->phys_base + AES_ODATAR(0);
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  817  		break;
+cadc4ab8f6f737 Nicolas Royer   2013-02-20  818  
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  819  	default:
+cadc4ab8f6f737 Nicolas Royer   2013-02-20  820  		return -EINVAL;
+cadc4ab8f6f737 Nicolas Royer   2013-02-20  821  	}
+cadc4ab8f6f737 Nicolas Royer   2013-02-20  822  
+c8695132080931 Frank Li        2025-12-08  823  	desc = dmaengine_prep_slave_sg_config(dma->chan, dma->sg, dma->sg_len,
+c8695132080931 Frank Li        2025-12-08  824  					      dir,
+c8695132080931 Frank Li        2025-12-08  825  					      DMA_PREP_INTERRUPT | DMA_CTRL_ACK,
+c8695132080931 Frank Li        2025-12-08  826  					      &config);
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  827  	if (!desc)
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  828  		return -ENOMEM;
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  829  
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  830  	desc->callback = callback;
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  831  	desc->callback_param = dd;
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  832  	dmaengine_submit(desc);
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  833  	dma_async_issue_pending(dma->chan);
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  834  
+bbe628ed897d72 Cyrille Pitchen 2015-12-17  835  	return 0;
+cadc4ab8f6f737 Nicolas Royer   2013-02-20  836  }
+cadc4ab8f6f737 Nicolas Royer   2013-02-20  837  
 
-Jjian Zhou (2):
-      dt-bindings: mailbox: mediatek,mt8196-vcp-mbox: add mtk vcp-mbox document
-      mailbox: mediatek: Add mtk-vcp-mailbox driver
-
-Joonwon Kang (1):
-      mailbox: Prevent out-of-bounds access in fw_mbox_index_xlate()
-
-Kuninori Morimoto (2):
-      mailbox: remove unneeded double quotation
-      mailbox: renesas: Support MFIS mailbox driver
-
-Pierre-Henry Moussay (1):
-      dt-bindings: mbox: add pic64gx mailbox compatibility to mpfs mailbox
-
-Sudeep Holla (6):
-      Revert "mailbox/pcc: support mailbox management of the shared buffer"
-      mailbox: pcc: Wire up ->last_tx_done() for PCC channels
-      mailbox: pcc: Set txdone_irq/txdone_poll based on PCCT flags
-      mailbox: pcc: Mark Tx as complete in PCC IRQ handler
-      mailbox: pcc: Initialize SHMEM before binding the channel with the client
-      mailbox: pcc: Clear any pending responder interrupts before enabling it
-
-Valentina Fernandez (1):
-      mailbox: mchp-ipc-sbi: fix out-of-bounds access in
-mchp_ipc_get_cluster_aggr_irq()
-
- .../bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml |  49 ++++++
- .../bindings/mailbox/microchip,mpfs-mailbox.yaml   |   6 +-
- .../bindings/mailbox/qcom,cpucp-mbox.yaml          |   1 +
- .../devicetree/bindings/mailbox/qcom-ipcc.yaml     |   2 +
- drivers/mailbox/Kconfig                            |  22 ++-
- drivers/mailbox/Makefile                           |   4 +
- drivers/mailbox/mailbox-mchp-ipc-sbi.c             |  22 +--
- drivers/mailbox/mailbox.c                          |   6 +-
- drivers/mailbox/mtk-cmdq-mailbox.c                 |  72 ++++++++-
- drivers/mailbox/mtk-vcp-mailbox.c                  | 170 +++++++++++++++++++++
- drivers/mailbox/pcc.c                              | 118 +++-----------
- drivers/mailbox/rcar-mfis-mailbox.c                | 168 ++++++++++++++++++++
- include/acpi/pcc.h                                 |  29 ----
- include/linux/mailbox/mtk-cmdq-mailbox.h           |  19 ++-
- include/linux/mailbox/mtk-vcp-mailbox.h            |  32 ++++
- 15 files changed, 567 insertions(+), 153 deletions(-)
- create mode 100644
-Documentation/devicetree/bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml
- create mode 100644 drivers/mailbox/mtk-vcp-mailbox.c
- create mode 100644 drivers/mailbox/rcar-mfis-mailbox.c
- create mode 100644 include/linux/mailbox/mtk-vcp-mailbox.h
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
