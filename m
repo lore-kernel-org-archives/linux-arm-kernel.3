@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20FA5D3C937
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 17:30:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17C58D3C934
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 17:30:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iPzTI+T0UetyG/5J3mWfUSOAuj0bf67slVO4u0Lvhlc=; b=eacqXepNvID3RzUHh6oNOw1KFQ
-	3MLo/7btbb4vdDb380ey20DbJhaYz+BSFfaokTgkolL55F6cNdMWQdd3vW6M4zfpiuHO06faMGLpI
-	imsQ004DZDx+4lDkdX6cMJEKSy9VnHc12WxjWg/iTH6nW2nOb7JzCRSv6Zm92q2gifx9SD/OFlDgk
-	Wq5COY8XEDi4lutOUaR9cdTr8KLunJuH8RLGb1Nsrpvc8TrwFSSUVtVHvakhdeGe/x2iN50rBRtHh
-	1Irq1qrkEdUZpb9rl4V3+T2FE50/YpYPlbtCXEd2JE243Vukp8pVrwazRv6tzZ3hD17M/8gOnR5zE
-	k59bd8eg==;
+	bh=y7q4Jv9dhmOS2+xYH8KtOkukIFnhvQjb4+68SU1R2Mc=; b=177nK6F1zzvpLosHs1NtVSVyyC
+	txGU4CI1xfZCdPneRM0zKf/LY28+Geq3bJX1laxJw2Uytpuco9MNo//7tHXY1PQOIXjsOn6TALo6+
+	U45Hj9Xj5dKcyTlg6rOADVudGTxu/bgCIQI2IzUUXIESmJIguaFv9TYdcLv27lHqF6LxSzO31OKv7
+	ow4xGaCQD9S1GULlxxKQzjBHPAuwaUk0YYElv7Tqir1/CthoVA8K5psLnyDS3IMpi+xdHNeicQely
+	MYEh6h295ojyI8YT6io0Q9naEnraG9kruaM7cVTyGabVY0mE2MJFyeObBLqGmHHHMKwEK2aB+7eFK
+	Th0ubv+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTO1Q-0000000FhIT-0adN;
+	id 1vTO1Q-0000000FhIy-27EO;
 	Wed, 10 Dec 2025 17:30:40 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTO1K-0000000FhDy-0DHy
+	id 1vTO1K-0000000FhDz-0DAV
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 10 Dec 2025 17:30:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6CDA0443AA;
+	by sea.source.kernel.org (Postfix) with ESMTP id 6F923443E8;
 	Wed, 10 Dec 2025 17:30:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2290BC116B1;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 288BCC16AAE;
 	Wed, 10 Dec 2025 17:30:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1765387833;
-	bh=YNeiEYXXnONH3KX01TXKGJOYIDSF+XnrqU33OA0zSVk=;
+	bh=G3J2G3wxKkIqvADwA1RtLbPrFpEAZeirYbF504eE/aY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=To5SnuUMUQtwOWocBW2EVT2DWpNVIDnjs5d4U0Aj9ppV/rcyBNgPn3+X41fynBwul
-	 rZw99+FEXm/lTFmb7RgTYaUjj++5uFM6YnyoYnAkKgnv2rvKruYmcHTlg1LcIeQXXk
-	 ifKkfW8YCCRxEIKvp4Eb56WWnW6xm+UHJIZAPv27QThahX98jJpsigQFUR3Bxn4RMq
-	 Q6Ft6uZRMO9rVHYtkLgnVsvPaKw8PGrRX09pYuD8IOMaNSa6BHfRZhSnOGaiGg28KF
-	 ZFeI9OBk3C1k3FkRPL7F54MFmCTvJhR5s30tiF5MS0Kc414rWzhSwSxjKQBH1rvVW/
-	 s9A1Zip24I24g==
+	b=ZeswWQyXdDUIf7YUIeSaDWD3BGPn4U0xKlhrwdrzqnhoX8EwLummz3HIivQ86aGMa
+	 aPLoiCC72sbqJonuADZQwEdL6eJObAit0l/JCv0uFxgZTYnkDEsfb5Pfeow9QARpNz
+	 URvqyR5NdQWNxZurlvlVD2CKDlAOZM1YvxeWJ55+NzAqlNpVnllg+2g/OAISjgrFTj
+	 Eyde4RJQhDfD7S+0zeXvhLxbjqVcTmlICqdUOG6shgd6G+OGSlGaf6YY/SQfRoQpO4
+	 8rR4hA3xF+S1RzP9dxA6pihwIXj3QHaDL/zN/m6v+akaEcvsNcsVJZUWvBfRCDFqPk
+	 tkE9NYcQaKpUA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vTO1H-0000000BnnB-190W;
+	id 1vTO1H-0000000BnnB-00ff;
 	Wed, 10 Dec 2025 17:30:31 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -61,9 +61,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Quentin Perret <qperret@google.com>,
 	Fuad Tabba <tabba@google.com>,
 	Sebastian Ene <sebastianene@google.com>
-Subject: [PATCH v2 4/6] KVM: arm64: Account for RES1 bits in DECLARE_FEAT_MAP() and co
-Date: Wed, 10 Dec 2025 17:30:22 +0000
-Message-ID: <20251210173024.561160-5-maz@kernel.org>
+Subject: [PATCH v2 3/6] arm64: Convert VTCR_EL2 to sysreg infratructure
+Date: Wed, 10 Dec 2025 17:30:21 +0000
+Message-ID: <20251210173024.561160-4-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251210173024.561160-1-maz@kernel.org>
 References: <20251210173024.561160-1-maz@kernel.org>
@@ -74,8 +74,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_093034_149104_44A5CE47 
-X-CRM114-Status: GOOD (  20.70  )
+X-CRM114-CacheID: sfid-20251210_093034_131900_70627B62 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,222 +90,269 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-None of the registers we manage in the feature dependency infrastructure
-so far has any RES1 bit. This is about to change, as VTCR_EL2 has
-its bit 31 being RES1.
+Our definition of VTCR_EL2 is both partial (tons of fields are
+missing) and totally inconsistent (some constants are shifted,
+some are not). They are also expressed in terms of TCR, which is
+rather inconvenient.
 
-In order to not fail the consistency checks by not describing a bit,
-add RES1 bits to the set of immutable bits. This requires some extra
-surgery for the FGT handling, as we now need to track RES1 bits there
-as well.
+Replace the ad-hoc definitions with the the generated version.
+This results in a bunch of additional changes to make the code
+with the unshifted nature of generated enumerations.
 
-There are no RES1 FGT bits *yet*. Watch this space.
+The register data was extracted from the BSD licenced AARCHMRS
+(AARCHMRS_OPENSOURCE_A_profile_FAT-2025-09_ASL0).
 
+Reviewed-by: Alexandru Elisei <alexandru.elisei@arm.com>
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/kvm_host.h |  1 +
- arch/arm64/kvm/config.c           | 25 +++++++-------
- arch/arm64/kvm/emulate-nested.c   | 55 +++++++++++++++++--------------
- 3 files changed, 45 insertions(+), 36 deletions(-)
+ arch/arm64/include/asm/kvm_arm.h | 52 +++++++----------------------
+ arch/arm64/include/asm/sysreg.h  |  1 -
+ arch/arm64/kvm/hyp/pgtable.c     |  8 ++---
+ arch/arm64/kvm/nested.c          |  8 ++---
+ arch/arm64/tools/sysreg          | 57 ++++++++++++++++++++++++++++++++
+ 5 files changed, 76 insertions(+), 50 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index ac7f970c78830..b552a1e03848c 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -638,6 +638,7 @@ struct fgt_masks {
- 	u64		mask;
- 	u64		nmask;
- 	u64		res0;
-+	u64		res1;
- };
+diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+index e500600e4b9b8..dfdbd2b65db9e 100644
+--- a/arch/arm64/include/asm/kvm_arm.h
++++ b/arch/arm64/include/asm/kvm_arm.h
+@@ -124,37 +124,7 @@
+ #define TCR_EL2_MASK	(TCR_EL2_TG0_MASK | TCR_EL2_SH0_MASK | \
+ 			 TCR_EL2_ORGN0_MASK | TCR_EL2_IRGN0_MASK)
  
- extern struct fgt_masks hfgrtr_masks;
-diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-index 24bb3f36e9d59..3845b188551b6 100644
---- a/arch/arm64/kvm/config.c
-+++ b/arch/arm64/kvm/config.c
-@@ -16,14 +16,14 @@
-  */
- struct reg_bits_to_feat_map {
- 	union {
--		u64	bits;
--		u64	*res0p;
-+		u64		 bits;
-+		struct fgt_masks *masks;
- 	};
- 
- #define	NEVER_FGU	BIT(0)	/* Can trap, but never UNDEF */
- #define	CALL_FUNC	BIT(1)	/* Needs to evaluate tons of crap */
- #define	FIXED_VALUE	BIT(2)	/* RAZ/WI or RAO/WI in KVM */
--#define	RES0_POINTER	BIT(3)	/* Pointer to RES0 value instead of bits */
-+#define	MASKS_POINTER	BIT(3)	/* Pointer to fgt_masks struct instead of bits */
- 
- 	unsigned long	flags;
- 
-@@ -92,8 +92,8 @@ struct reg_feat_map_desc {
- #define NEEDS_FEAT_FIXED(m, ...)			\
- 	__NEEDS_FEAT_FLAG(m, FIXED_VALUE, bits, __VA_ARGS__, 0)
- 
--#define NEEDS_FEAT_RES0(p, ...)				\
--	__NEEDS_FEAT_FLAG(p, RES0_POINTER, res0p, __VA_ARGS__)
-+#define NEEDS_FEAT_MASKS(p, ...)				\
-+	__NEEDS_FEAT_FLAG(p, MASKS_POINTER, masks, __VA_ARGS__)
- 
- /*
-  * Declare the dependency between a set of bits and a set of features,
-@@ -109,19 +109,20 @@ struct reg_feat_map_desc {
- #define DECLARE_FEAT_MAP(n, r, m, f)					\
- 	struct reg_feat_map_desc n = {					\
- 		.name			= #r,				\
--		.feat_map		= NEEDS_FEAT(~r##_RES0, f), 	\
-+		.feat_map		= NEEDS_FEAT(~(r##_RES0 |	\
-+						       r##_RES1), f),	\
- 		.bit_feat_map		= m,				\
- 		.bit_feat_map_sz	= ARRAY_SIZE(m),		\
- 	}
- 
- /*
-  * Specialised version of the above for FGT registers that have their
-- * RES0 masks described as struct fgt_masks.
-+ * RESx masks described as struct fgt_masks.
-  */
- #define DECLARE_FEAT_MAP_FGT(n, msk, m, f)				\
- 	struct reg_feat_map_desc n = {					\
- 		.name			= #msk,				\
--		.feat_map		= NEEDS_FEAT_RES0(&msk.res0, f),\
-+		.feat_map		= NEEDS_FEAT_MASKS(&msk, f),	\
- 		.bit_feat_map		= m,				\
- 		.bit_feat_map_sz	= ARRAY_SIZE(m),		\
- 	}
-@@ -1168,21 +1169,21 @@ static const DECLARE_FEAT_MAP(mdcr_el2_desc, MDCR_EL2,
- 			      mdcr_el2_feat_map, FEAT_AA64EL2);
- 
- static void __init check_feat_map(const struct reg_bits_to_feat_map *map,
--				  int map_size, u64 res0, const char *str)
-+				  int map_size, u64 resx, const char *str)
- {
- 	u64 mask = 0;
- 
- 	for (int i = 0; i < map_size; i++)
- 		mask |= map[i].bits;
- 
--	if (mask != ~res0)
-+	if (mask != ~resx)
- 		kvm_err("Undefined %s behaviour, bits %016llx\n",
--			str, mask ^ ~res0);
-+			str, mask ^ ~resx);
- }
- 
- static u64 reg_feat_map_bits(const struct reg_bits_to_feat_map *map)
- {
--	return map->flags & RES0_POINTER ? ~(*map->res0p) : map->bits;
-+	return map->flags & MASKS_POINTER ? (map->masks->mask | map->masks->nmask) : map->bits;
- }
- 
- static void __init check_reg_desc(const struct reg_feat_map_desc *r)
-diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-index 834f13fb1fb7d..75d49f83342a5 100644
---- a/arch/arm64/kvm/emulate-nested.c
-+++ b/arch/arm64/kvm/emulate-nested.c
-@@ -2105,23 +2105,24 @@ static u32 encoding_next(u32 encoding)
- }
- 
- #define FGT_MASKS(__n, __m)						\
--	struct fgt_masks __n = { .str = #__m, .res0 = __m, }
+-/* VTCR_EL2 Registers bits */
+-#define VTCR_EL2_DS		TCR_EL2_DS
+-#define VTCR_EL2_RES1		(1U << 31)
+-#define VTCR_EL2_HD		(1 << 22)
+-#define VTCR_EL2_HA		(1 << 21)
+-#define VTCR_EL2_PS_SHIFT	TCR_EL2_PS_SHIFT
+-#define VTCR_EL2_PS_MASK	TCR_EL2_PS_MASK
+-#define VTCR_EL2_TG0_MASK	TCR_TG0_MASK
+-#define VTCR_EL2_TG0_4K		TCR_TG0_4K
+-#define VTCR_EL2_TG0_16K	TCR_TG0_16K
+-#define VTCR_EL2_TG0_64K	TCR_TG0_64K
+-#define VTCR_EL2_SH0_MASK	TCR_SH0_MASK
+-#define VTCR_EL2_SH0_INNER	TCR_SH0_INNER
+-#define VTCR_EL2_ORGN0_MASK	TCR_ORGN0_MASK
+-#define VTCR_EL2_ORGN0_WBWA	TCR_ORGN0_WBWA
+-#define VTCR_EL2_IRGN0_MASK	TCR_IRGN0_MASK
+-#define VTCR_EL2_IRGN0_WBWA	TCR_IRGN0_WBWA
+-#define VTCR_EL2_SL0_SHIFT	6
+-#define VTCR_EL2_SL0_MASK	(3 << VTCR_EL2_SL0_SHIFT)
+-#define VTCR_EL2_T0SZ_MASK	0x3f
+-#define VTCR_EL2_VS_SHIFT	19
+-#define VTCR_EL2_VS_8BIT	(0 << VTCR_EL2_VS_SHIFT)
+-#define VTCR_EL2_VS_16BIT	(1 << VTCR_EL2_VS_SHIFT)
 -
--FGT_MASKS(hfgrtr_masks, HFGRTR_EL2_RES0);
--FGT_MASKS(hfgwtr_masks, HFGWTR_EL2_RES0);
--FGT_MASKS(hfgitr_masks, HFGITR_EL2_RES0);
--FGT_MASKS(hdfgrtr_masks, HDFGRTR_EL2_RES0);
--FGT_MASKS(hdfgwtr_masks, HDFGWTR_EL2_RES0);
--FGT_MASKS(hafgrtr_masks, HAFGRTR_EL2_RES0);
--FGT_MASKS(hfgrtr2_masks, HFGRTR2_EL2_RES0);
--FGT_MASKS(hfgwtr2_masks, HFGWTR2_EL2_RES0);
--FGT_MASKS(hfgitr2_masks, HFGITR2_EL2_RES0);
--FGT_MASKS(hdfgrtr2_masks, HDFGRTR2_EL2_RES0);
--FGT_MASKS(hdfgwtr2_masks, HDFGWTR2_EL2_RES0);
-+	struct fgt_masks __n = { .str = #__m, .res0 = __m ## _RES0, .res1 = __m ## _RES1 }
+-#define VTCR_EL2_T0SZ(x)	TCR_T0SZ(x)
+-
+ /*
+- * We configure the Stage-2 page tables to always restrict the IPA space to be
+- * 40 bits wide (T0SZ = 24).  Systems with a PARange smaller than 40 bits are
+- * not known to exist and will break with this configuration.
+- *
+  * The VTCR_EL2 is configured per VM and is initialised in kvm_init_stage2_mmu.
+  *
+  * Note that when using 4K pages, we concatenate two first level page tables
+@@ -162,9 +132,6 @@
+  *
+  */
+ 
+-#define VTCR_EL2_COMMON_BITS	(VTCR_EL2_SH0_INNER | VTCR_EL2_ORGN0_WBWA | \
+-				 VTCR_EL2_IRGN0_WBWA | VTCR_EL2_RES1)
+-
+ /*
+  * VTCR_EL2:SL0 indicates the entry level for Stage2 translation.
+  * Interestingly, it depends on the page size.
+@@ -196,30 +163,35 @@
+  */
+ #ifdef CONFIG_ARM64_64K_PAGES
+ 
+-#define VTCR_EL2_TGRAN			VTCR_EL2_TG0_64K
++#define VTCR_EL2_TGRAN			64K
+ #define VTCR_EL2_TGRAN_SL0_BASE		3UL
+ 
+ #elif defined(CONFIG_ARM64_16K_PAGES)
+ 
+-#define VTCR_EL2_TGRAN			VTCR_EL2_TG0_16K
++#define VTCR_EL2_TGRAN			16K
+ #define VTCR_EL2_TGRAN_SL0_BASE		3UL
+ 
+ #else	/* 4K */
+ 
+-#define VTCR_EL2_TGRAN			VTCR_EL2_TG0_4K
++#define VTCR_EL2_TGRAN			4K
+ #define VTCR_EL2_TGRAN_SL0_BASE		2UL
+ 
+ #endif
+ 
+ #define VTCR_EL2_LVLS_TO_SL0(levels)	\
+-	((VTCR_EL2_TGRAN_SL0_BASE - (4 - (levels))) << VTCR_EL2_SL0_SHIFT)
++	FIELD_PREP(VTCR_EL2_SL0, (VTCR_EL2_TGRAN_SL0_BASE - (4 - (levels))))
+ #define VTCR_EL2_SL0_TO_LVLS(sl0)	\
+ 	((sl0) + 4 - VTCR_EL2_TGRAN_SL0_BASE)
+ #define VTCR_EL2_LVLS(vtcr)		\
+-	VTCR_EL2_SL0_TO_LVLS(((vtcr) & VTCR_EL2_SL0_MASK) >> VTCR_EL2_SL0_SHIFT)
++	VTCR_EL2_SL0_TO_LVLS(FIELD_GET(VTCR_EL2_SL0, (vtcr)))
 +
-+FGT_MASKS(hfgrtr_masks, HFGRTR_EL2);
-+FGT_MASKS(hfgwtr_masks, HFGWTR_EL2);
-+FGT_MASKS(hfgitr_masks, HFGITR_EL2);
-+FGT_MASKS(hdfgrtr_masks, HDFGRTR_EL2);
-+FGT_MASKS(hdfgwtr_masks, HDFGWTR_EL2);
-+FGT_MASKS(hafgrtr_masks, HAFGRTR_EL2);
-+FGT_MASKS(hfgrtr2_masks, HFGRTR2_EL2);
-+FGT_MASKS(hfgwtr2_masks, HFGWTR2_EL2);
-+FGT_MASKS(hfgitr2_masks, HFGITR2_EL2);
-+FGT_MASKS(hdfgrtr2_masks, HDFGRTR2_EL2);
-+FGT_MASKS(hdfgwtr2_masks, HDFGWTR2_EL2);
++#define VTCR_EL2_FLAGS	(SYS_FIELD_PREP_ENUM(VTCR_EL2, SH0, INNER)	    | \
++			 SYS_FIELD_PREP_ENUM(VTCR_EL2, ORGN0, WBWA)	    | \
++			 SYS_FIELD_PREP_ENUM(VTCR_EL2, IRGN0, WBWA)	    | \
++			 SYS_FIELD_PREP_ENUM(VTCR_EL2, TG0, VTCR_EL2_TGRAN) | \
++			 VTCR_EL2_RES1)
  
- static __init bool aggregate_fgt(union trap_config tc)
- {
- 	struct fgt_masks *rmasks, *wmasks;
-+	u64 rresx, wresx;
+-#define VTCR_EL2_FLAGS			(VTCR_EL2_COMMON_BITS | VTCR_EL2_TGRAN)
+-#define VTCR_EL2_IPA(vtcr)		(64 - ((vtcr) & VTCR_EL2_T0SZ_MASK))
++#define VTCR_EL2_IPA(vtcr)		(64 - FIELD_GET(VTCR_EL2_T0SZ, (vtcr)))
  
- 	switch (tc.fgt) {
- 	case HFGRTR_GROUP:
-@@ -2154,24 +2155,27 @@ static __init bool aggregate_fgt(union trap_config tc)
- 		break;
- 	}
+ /*
+  * ARM VMSAv8-64 defines an algorithm for finding the translation table
+diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+index c231d2a3e5159..acad7a7621b9e 100644
+--- a/arch/arm64/include/asm/sysreg.h
++++ b/arch/arm64/include/asm/sysreg.h
+@@ -516,7 +516,6 @@
+ #define SYS_TTBR1_EL2			sys_reg(3, 4, 2, 0, 1)
+ #define SYS_TCR_EL2			sys_reg(3, 4, 2, 0, 2)
+ #define SYS_VTTBR_EL2			sys_reg(3, 4, 2, 1, 0)
+-#define SYS_VTCR_EL2			sys_reg(3, 4, 2, 1, 2)
  
-+	rresx = rmasks->res0 | rmasks->res1;
-+	if (wmasks)
-+		wresx = wmasks->res0 | wmasks->res1;
-+
+ #define SYS_HAFGRTR_EL2			sys_reg(3, 4, 3, 1, 6)
+ #define SYS_SPSR_EL2			sys_reg(3, 4, 4, 0, 0)
+diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+index 947ac1a951a5b..e0bd6a0172729 100644
+--- a/arch/arm64/kvm/hyp/pgtable.c
++++ b/arch/arm64/kvm/hyp/pgtable.c
+@@ -583,8 +583,8 @@ u64 kvm_get_vtcr(u64 mmfr0, u64 mmfr1, u32 phys_shift)
+ 	u64 vtcr = VTCR_EL2_FLAGS;
+ 	s8 lvls;
+ 
+-	vtcr |= kvm_get_parange(mmfr0) << VTCR_EL2_PS_SHIFT;
+-	vtcr |= VTCR_EL2_T0SZ(phys_shift);
++	vtcr |= FIELD_PREP(VTCR_EL2_PS, kvm_get_parange(mmfr0));
++	vtcr |= FIELD_PREP(VTCR_EL2_T0SZ, (UL(64) - phys_shift));
  	/*
- 	 * A bit can be reserved in either the R or W register, but
- 	 * not both.
- 	 */
--	if ((BIT(tc.bit) & rmasks->res0) &&
--	    (!wmasks || (BIT(tc.bit) & wmasks->res0)))
-+	if ((BIT(tc.bit) & rresx) && (!wmasks || (BIT(tc.bit) & wresx)))
- 		return false;
+ 	 * Use a minimum 2 level page table to prevent splitting
+ 	 * host PMD huge pages at stage2.
+@@ -624,9 +624,7 @@ u64 kvm_get_vtcr(u64 mmfr0, u64 mmfr1, u32 phys_shift)
+ 		vtcr |= VTCR_EL2_DS;
  
- 	if (tc.pol)
--		rmasks->mask |= BIT(tc.bit) & ~rmasks->res0;
-+		rmasks->mask |= BIT(tc.bit) & ~rresx;
- 	else
--		rmasks->nmask |= BIT(tc.bit) & ~rmasks->res0;
-+		rmasks->nmask |= BIT(tc.bit) & ~rresx;
+ 	/* Set the vmid bits */
+-	vtcr |= (get_vmid_bits(mmfr1) == 16) ?
+-		VTCR_EL2_VS_16BIT :
+-		VTCR_EL2_VS_8BIT;
++	vtcr |= (get_vmid_bits(mmfr1) == 16) ? VTCR_EL2_VS : 0;
  
- 	if (wmasks) {
- 		if (tc.pol)
--			wmasks->mask |= BIT(tc.bit) & ~wmasks->res0;
-+			wmasks->mask |= BIT(tc.bit) & ~wresx;
- 		else
--			wmasks->nmask |= BIT(tc.bit) & ~wmasks->res0;
-+			wmasks->nmask |= BIT(tc.bit) & ~wresx;
- 	}
- 
- 	return true;
-@@ -2180,7 +2184,6 @@ static __init bool aggregate_fgt(union trap_config tc)
- static __init int check_fgt_masks(struct fgt_masks *masks)
- {
- 	unsigned long duplicate = masks->mask & masks->nmask;
--	u64 res0 = masks->res0;
- 	int ret = 0;
- 
- 	if (duplicate) {
-@@ -2194,10 +2197,14 @@ static __init int check_fgt_masks(struct fgt_masks *masks)
- 		ret = -EINVAL;
- 	}
- 
--	masks->res0 = ~(masks->mask | masks->nmask);
--	if (masks->res0 != res0)
--		kvm_info("Implicit %s = %016llx, expecting %016llx\n",
--			 masks->str, masks->res0, res0);
-+	if ((masks->res0 | masks->res1 | masks->mask | masks->nmask) != GENMASK(63, 0) ||
-+	    (masks->res0 & masks->res1)  || (masks->res0 & masks->mask) ||
-+	    (masks->res0 & masks->nmask) || (masks->res1 & masks->mask)  ||
-+	    (masks->res1 & masks->nmask) || (masks->mask & masks->nmask)) {
-+		kvm_info("Inconsistent masks for %s (%016llx, %016llx, %016llx, %016llx)\n",
-+			 masks->str, masks->res0, masks->res1, masks->mask, masks->nmask);
-+		masks->res0 = ~(masks->res1 | masks->mask | masks->nmask);
-+	}
- 
- 	return ret;
+ 	return vtcr;
  }
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 911fc99ed99d9..e1ef8930c97b3 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -377,7 +377,7 @@ static void vtcr_to_walk_info(u64 vtcr, struct s2_walk_info *wi)
+ {
+ 	wi->t0sz = vtcr & TCR_EL2_T0SZ_MASK;
+ 
+-	switch (vtcr & VTCR_EL2_TG0_MASK) {
++	switch (FIELD_GET(VTCR_EL2_TG0_MASK, vtcr)) {
+ 	case VTCR_EL2_TG0_4K:
+ 		wi->pgshift = 12;	 break;
+ 	case VTCR_EL2_TG0_16K:
+@@ -513,7 +513,7 @@ static u8 get_guest_mapping_ttl(struct kvm_s2_mmu *mmu, u64 addr)
+ 
+ 	lockdep_assert_held_write(&kvm_s2_mmu_to_kvm(mmu)->mmu_lock);
+ 
+-	switch (vtcr & VTCR_EL2_TG0_MASK) {
++	switch (FIELD_GET(VTCR_EL2_TG0_MASK, vtcr)) {
+ 	case VTCR_EL2_TG0_4K:
+ 		ttl = (TLBI_TTL_TG_4K << 2);
+ 		break;
+@@ -530,7 +530,7 @@ static u8 get_guest_mapping_ttl(struct kvm_s2_mmu *mmu, u64 addr)
+ 
+ again:
+ 	/* Iteratively compute the block sizes for a particular granule size */
+-	switch (vtcr & VTCR_EL2_TG0_MASK) {
++	switch (FIELD_GET(VTCR_EL2_TG0_MASK, vtcr)) {
+ 	case VTCR_EL2_TG0_4K:
+ 		if	(sz < SZ_4K)	sz = SZ_4K;
+ 		else if (sz < SZ_2M)	sz = SZ_2M;
+@@ -593,7 +593,7 @@ unsigned long compute_tlb_inval_range(struct kvm_s2_mmu *mmu, u64 val)
+ 
+ 	if (!max_size) {
+ 		/* Compute the maximum extent of the invalidation */
+-		switch (mmu->tlb_vtcr & VTCR_EL2_TG0_MASK) {
++		switch (FIELD_GET(VTCR_EL2_TG0_MASK, mmu->tlb_vtcr)) {
+ 		case VTCR_EL2_TG0_4K:
+ 			max_size = SZ_1G;
+ 			break;
+diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
+index 9d388f87d9a13..6f43b2ae5993b 100644
+--- a/arch/arm64/tools/sysreg
++++ b/arch/arm64/tools/sysreg
+@@ -4400,6 +4400,63 @@ Field	56:12	BADDR
+ Res0	11:0
+ EndSysreg
+ 
++Sysreg	VTCR_EL2	3	4	2	1	2
++Res0	63:46	
++Field	45	HDBSS
++Field	44	HAFT
++Res0	43:42	
++Field	41	TL0
++Field	40	GCSH
++Res0	39
++Field	38	D128
++Field	37	S2POE
++Field	36	S2PIE
++Field	35	TL1
++Field	34	AssuredOnly
++Field	33	SL2
++Field	32	DS
++Res1	31
++Field	30	NSA
++Field	29	NSW
++Field	28	HWU62
++Field	27	HWU61
++Field	26	HWU60
++Field	25	HWU59
++Res0	24:23
++Field	22	HD
++Field	21	HA
++Res0	20
++Enum	19	VS
++	0b0	8BIT
++	0b1	16BIT
++EndEnum
++Field	18:16	PS
++Enum	15:14	TG0
++	0b00	4K
++	0b01	64K
++	0b10	16K
++EndEnum
++Enum	13:12	SH0
++	0b00	NONE
++	0b01	OUTER
++	0b11	INNER
++EndEnum
++Enum	11:10	ORGN0
++	0b00	NC
++	0b01	WBWA
++	0b10	WT
++	0b11	WBnWA
++EndEnum
++Enum	9:8	IRGN0
++	0b00	NC
++	0b01	WBWA
++	0b10	WT
++	0b11	WBnWA
++EndEnum
++Field	7:6	SL0
++Field	5:0	T0SZ
++EndSysreg
++
+ Sysreg	GCSCR_EL2	3	4	2	5	0
+ Fields	GCSCR_ELx
+ EndSysreg
 -- 
 2.47.3
 
