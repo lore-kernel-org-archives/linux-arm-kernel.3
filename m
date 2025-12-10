@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 184AFD3E76A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 18:14:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02748D3E768
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 18:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
 	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
 	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l98qOu+0/tY6Orese0IPL2xdfoJODXFr8iaKgobrYT0=; b=kYFWbSgBVYHZJge5zeVxw44U9m
-	xNiczwQ6RPxAXIR9JDj+aKTjhQA2XRJglntpj2pN8LHZF9uKdkYza8XphBcarP7Pt5CzcL1xzqioz
-	UFGQHuf+PXtcdSyfXPraHaIYbILt0QIDWJPqG9cxmTHAUw1j+EyvPUPhlvcfhy9rsPX1bjr4pr7x/
-	3uk//F3xsUmC+ljzOStbRbdjZp4CzJbB/893O/buvAV4RDHcUExBwJS4HxAR9FcIPoz5TlLZ+Bapp
-	XweukTl9apeSXx5ABaydGfGGQRaBIJuaJ3dEO8Ebxzg1ORuLMFOGtjA471J7d/EA0iCvtNRaIB80i
-	nUnEkMog==;
+	bh=PUXR57mTieP5CBzCja98cqoyFj4aV18gefXhTgd/6qY=; b=PkTucxqqlY/h7sc9AXeOqwLz58
+	NEvxxVgwpJsf8gDor4FUVfHRVU6jx1bGVEuIoHec7ihZkhGiSmnDdiR8GgSlMaOPxPlkyy7LHU3CT
+	KdvmeTCGCAv8pJ7LV9X970j4zbtrhBM8/PB14D+DkWScr1oeCfzsUY/0woYzVcWrs3SPuY6d0VKXs
+	nsdYP0VoTQ05V/XXm1he5QUdWyf039lv7/m5s3xtx38nmjYmaJXjpd05Cg3OivwTcY5cl2hGAEXf2
+	FMPP/wCaIgeE3EPEyi9IltObgjIaGJJ12cgBtwgD1Q2/8bJ/rMSSA8zGNjhDxSCgIo4MNZzUAmYLT
+	+ri309Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTOhQ-0000000Fjck-0Hya;
-	Wed, 10 Dec 2025 18:14:04 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vTOpP-0000000Fk3e-2wHm;
+	Wed, 10 Dec 2025 18:22:19 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTOhN-0000000FjcG-0R5x
+	id 1vTOpM-0000000Fk34-2q6q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Dec 2025 18:14:02 +0000
+	Wed, 10 Dec 2025 18:22:18 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id CB48B1A20B2;
-	Wed, 10 Dec 2025 18:13:58 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 1F532C180F6;
+	Wed, 10 Dec 2025 18:21:49 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 9D6E760714;
-	Wed, 10 Dec 2025 18:13:58 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C3317103C8CB3;
-	Wed, 10 Dec 2025 19:13:53 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id DAD2660714;
+	Wed, 10 Dec 2025 18:22:12 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 155F4103C8CB3;
+	Wed, 10 Dec 2025 19:22:05 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1765390437; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1765390931; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=l98qOu+0/tY6Orese0IPL2xdfoJODXFr8iaKgobrYT0=;
-	b=fJ+jfCzl8+4tV/5a2fjeAI0hqo1ETpxNTPbTLeRkcWl+3hg9ddajcJlzgT3RjWWIkjbsTa
-	T4tqLnnKAatCmuruKQGjuXAVE9e0LrCIxjrm8mXAd1/SuYg832ffC6HxVGAtXPRDd/1+Dq
-	VQTVso6cfbjeA/+6fsZnkkjz3tkYOQmzYjF5t3T3fh8hmXnv7MjXuyAIsTFOWOQMQIB5ku
-	H2CsRwiLKpWqq3oESdJoguxhOAmEondgANQOWNl573uWipCPUJSaPR3+WO/WniA9KT9Npo
-	Kns/EKpwKZTEk9u5sMtXBkRNXC2t7+mtM73poDyR4SIxWIc8b1XHx0jiYdExuA==
+	bh=PUXR57mTieP5CBzCja98cqoyFj4aV18gefXhTgd/6qY=;
+	b=F9GR1MB4SM2KDodDE/TOQoAX42RWMhfc+j0VOF24Yt8l74MiY4JY+hGeX75GJOfYV52cxn
+	vM6FWccI8aSSc3Mh1EoYSBAFojiJYIh1ZhicDXPhOpIisEg+MD3SQAZ1PlrsluQvmWWqGH
+	49gPgtyAuTtMd6Cfk4h+Gxj6hSWhkxN3I4KWQ5oxVSJbq/72GZKg9fCT2EIbWaGMnqGk8W
+	vOm4iKkiiB5G1jxQASH2opdWgJT3KT5+mxoooRHpJWsVEzB8wDoo9TCX2Cpo29caQ3E+lF
+	Fnb7KWKuFMfx6GKNewg8DVJD/5i0vemI+FlKyrP/9Dg5/aIeLMIHVcY5mcvvIw==
 Mime-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Date: Wed, 10 Dec 2025 19:13:53 +0100
-Message-Id: <DEUQOGYVBYFL.39NLEZ2GBI2WT@bootlin.com>
-Subject: Re: [PATCH 04/21] drm/tilcdc: Add support for DRM bus flags and
- simplify panel config
+Date: Wed, 10 Dec 2025 19:22:04 +0100
+Message-Id: <DEUQUQS51C7K.FJD7W3YFJJU5@bootlin.com>
+Subject: Re: [PATCH 10/21] drm/tilcdc: Remove redundant #endif/#ifdef in
+ debugfs code
 Cc: "Markus Schneider-Pargmann" <msp@baylibre.com>, "Louis Chauvet"
  <louis.chauvet@bootlin.com>, "Thomas Petazzoni"
  <thomas.petazzoni@bootlin.com>, "Miguel Gazquez"
@@ -73,12 +73,13 @@ To: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>, "Jyri Sarha"
 From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
 X-Mailer: aerc 0.20.1
 References: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
- <20251126-feature_tilcdc-v1-4-49b9ef2e3aa0@bootlin.com>
-In-Reply-To: <20251126-feature_tilcdc-v1-4-49b9ef2e3aa0@bootlin.com>
+ <20251126-feature_tilcdc-v1-10-49b9ef2e3aa0@bootlin.com>
+In-Reply-To: <20251126-feature_tilcdc-v1-10-49b9ef2e3aa0@bootlin.com>
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_101401_282015_2E0924BE 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20251210_102216_897964_BDC709B1 
+X-CRM114-Status: UNSURE (   5.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,36 +95,13 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Wed Nov 26, 2025 at 6:35 PM CET, Kory Maincent (TI.com) wrote:
-> Migrate CRTC mode configuration to use standard DRM bus flags in
-> preparation for removing the tilcdc_panel driver and its custom
-> tilcdc_panel_info structure.
->
-> Add support for DRM_BUS_FLAG_PIXDATA_DRIVE_NEGEDGE and
-> DRM_BUS_FLAG_SYNC_DRIVE_NEGEDGE flags to control pixel clock and sync
-> signal edge polarity, while maintaining backward compatibility with the
-> existing tilcdc panel info structure.
->
-> Simplify several hardware parameters by setting them to fixed defaults
-> based on common usage across existing device trees:
-> - DMA burst size: 16 (previously configurable via switch statement)
-> - AC bias frequency: 255 (previously panel-specific)
-> - FIFO DMA request delay: 128 (previously panel-specific)
->
-> These parameters show no variation in real-world usage, so hardcoding
-> them simplifies the driver without losing functionality.
->
-> Preserve FIFO threshold configurability by adding a new "fifo-threshold"
-> device tree property at the display controller level, as this parameter
-> varies across different display configurations in existing device trees.
+> Remove the unnecessary #endif/#ifdef CONFIG_DEBUG_FS pair that splits
+> the debugfs code section. This keeps all debugfs-related code within a
+> single preprocessor conditional block, improving code readability.
 >
 > Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
 
-Apart from the "fifo-threshold" property, which as discussed should instead
-be inferred from the compatible, the patch looks good. I checked the values
-which are being removed and they have all the same value in the code
-defaults and all in-tree dts files.
-
-Luca
+Reviewed-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 --
 Luca Ceresoli, Bootlin
