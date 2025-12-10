@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17C58D3C934
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 17:30:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E16D3C935
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 17:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y7q4Jv9dhmOS2+xYH8KtOkukIFnhvQjb4+68SU1R2Mc=; b=177nK6F1zzvpLosHs1NtVSVyyC
-	txGU4CI1xfZCdPneRM0zKf/LY28+Geq3bJX1laxJw2Uytpuco9MNo//7tHXY1PQOIXjsOn6TALo6+
-	U45Hj9Xj5dKcyTlg6rOADVudGTxu/bgCIQI2IzUUXIESmJIguaFv9TYdcLv27lHqF6LxSzO31OKv7
-	ow4xGaCQD9S1GULlxxKQzjBHPAuwaUk0YYElv7Tqir1/CthoVA8K5psLnyDS3IMpi+xdHNeicQely
-	MYEh6h295ojyI8YT6io0Q9naEnraG9kruaM7cVTyGabVY0mE2MJFyeObBLqGmHHHMKwEK2aB+7eFK
-	Th0ubv+A==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SN8WAVIJ9+JZq91+7NrodIO2GSGcVK6uRVgvRA21kdI=; b=3L87+nJZBcBo0lMXlkzfBo2/88
+	RL2MOzdimpg+3q8Q4M4SQ93wbAQUCzYJtQZKTzXpVfC6F5BQhWlySu1AghVxCSkfThBYBbCELszPe
+	EmfIxKamys5FMYbPKfYOziypWIRxxxuc7kS6U2gUB0BjD0N0Ucbpomy3UW9PdeWL/SQn96QIbItUv
+	zRzwOF6EkmCVgBjq5yIhUbcJnJANvJgJNVSA8JCgx/SwAKf0U8asRlYcWWGx2Hq1pLhzCxIM6yWe9
+	nmXR6Cr7H5NqdI1QwaSNh2Im+5sCZcmtdHq/SL+2RXufk7kuO1+8/RnoviKIiVD24XUKn2dA65MRW
+	o41F8DmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTO1Q-0000000FhIy-27EO;
-	Wed, 10 Dec 2025 17:30:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vTO1P-0000000FhHX-23rn;
+	Wed, 10 Dec 2025 17:30:39 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTO1K-0000000FhDz-0DAV
+	id 1vTO1J-0000000FhDt-2ajw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Dec 2025 17:30:36 +0000
+	Wed, 10 Dec 2025 17:30:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6F923443E8;
-	Wed, 10 Dec 2025 17:30:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 288BCC16AAE;
-	Wed, 10 Dec 2025 17:30:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B52C644160;
+	Wed, 10 Dec 2025 17:30:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A7ACC116B1;
+	Wed, 10 Dec 2025 17:30:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765387833;
-	bh=G3J2G3wxKkIqvADwA1RtLbPrFpEAZeirYbF504eE/aY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ZeswWQyXdDUIf7YUIeSaDWD3BGPn4U0xKlhrwdrzqnhoX8EwLummz3HIivQ86aGMa
-	 aPLoiCC72sbqJonuADZQwEdL6eJObAit0l/JCv0uFxgZTYnkDEsfb5Pfeow9QARpNz
-	 URvqyR5NdQWNxZurlvlVD2CKDlAOZM1YvxeWJ55+NzAqlNpVnllg+2g/OAISjgrFTj
-	 Eyde4RJQhDfD7S+0zeXvhLxbjqVcTmlICqdUOG6shgd6G+OGSlGaf6YY/SQfRoQpO4
-	 8rR4hA3xF+S1RzP9dxA6pihwIXj3QHaDL/zN/m6v+akaEcvsNcsVJZUWvBfRCDFqPk
-	 tkE9NYcQaKpUA==
+	s=k20201202; t=1765387832;
+	bh=UGleA0Eh9dB/KG2M5WoVKVgU7WdtqKRJeeAMH4jDpRQ=;
+	h=From:To:Cc:Subject:Date:From;
+	b=bDsnPyx9MXq/CMaCUHJYcIVElnM0cJf+0nKcKPQmA5bUBHAVq46sOiH4JvLi5ky1r
+	 LOkM+n+M9f6dIgWAt0MPYAiZbuAc2ZUDogaSlhKzlJSrZFy3LxBM+Wc80Lhy+k/pMY
+	 K/j+fDn8YtqianGX8Fmk0N/zeGkdcfLpLoqmNn4+hyEULex7ipZe4npMK2g3PBvq2X
+	 pFwlFbktX1w9jQQRKUWj6TiPbe/V+/4l4ZHzRIiMwTNerBaPTZfCG8qSxBrlDzugwP
+	 0QQVwmQaOzHHrb4tFetffghi6IsxI874YqI0nBHoYR1QjLJVdMnoVslNLLs4S0+pU9
+	 htReOUHt36N7g==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1vTO1H-0000000BnnB-00ff;
-	Wed, 10 Dec 2025 17:30:31 +0000
+	id 1vTO1G-0000000BnnB-0uzE;
+	Wed, 10 Dec 2025 17:30:30 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
@@ -61,12 +61,10 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Quentin Perret <qperret@google.com>,
 	Fuad Tabba <tabba@google.com>,
 	Sebastian Ene <sebastianene@google.com>
-Subject: [PATCH v2 3/6] arm64: Convert VTCR_EL2 to sysreg infratructure
-Date: Wed, 10 Dec 2025 17:30:21 +0000
-Message-ID: <20251210173024.561160-4-maz@kernel.org>
+Subject: [PATCH v2 0/6] KVM: arm64: VTCR_EL2 conversion to feature dependency framework
+Date: Wed, 10 Dec 2025 17:30:18 +0000
+Message-ID: <20251210173024.561160-1-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251210173024.561160-1-maz@kernel.org>
-References: <20251210173024.561160-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -74,8 +72,9 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_093034_131900_70627B62 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20251210_093033_685006_EA33EACF 
+X-CRM114-Status: UNSURE (   8.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,269 +89,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Our definition of VTCR_EL2 is both partial (tons of fields are
-missing) and totally inconsistent (some constants are shifted,
-some are not). They are also expressed in terms of TCR, which is
-rather inconvenient.
+This is a follow-up on my VTCR_EL2 sanitisation series, with extra
+goodies, mostly as a consequence of Alexandru's patches and review.
 
-Replace the ad-hoc definitions with the the generated version.
-This results in a bunch of additional changes to make the code
-with the unshifted nature of generated enumerations.
+* From [1]:
 
-The register data was extracted from the BSD licenced AARCHMRS
-(AARCHMRS_OPENSOURCE_A_profile_FAT-2025-09_ASL0).
+  - Added two patches fixing some FEAT_XNX issues: one dating back
+    from the hVHE introduction, and the other related to the newer
+    stuff in 6.19.
 
-Reviewed-by: Alexandru Elisei <alexandru.elisei@arm.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/include/asm/kvm_arm.h | 52 +++++++----------------------
- arch/arm64/include/asm/sysreg.h  |  1 -
- arch/arm64/kvm/hyp/pgtable.c     |  8 ++---
- arch/arm64/kvm/nested.c          |  8 ++---
- arch/arm64/tools/sysreg          | 57 ++++++++++++++++++++++++++++++++
- 5 files changed, 76 insertions(+), 50 deletions(-)
+  - Expanded the scope of the RES1 handling in DECLARE_FEAT_MAP() to
+    deal with FGTs, as we're about to get quality stuff thanks to
+    GICv5.
 
-diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-index e500600e4b9b8..dfdbd2b65db9e 100644
---- a/arch/arm64/include/asm/kvm_arm.h
-+++ b/arch/arm64/include/asm/kvm_arm.h
-@@ -124,37 +124,7 @@
- #define TCR_EL2_MASK	(TCR_EL2_TG0_MASK | TCR_EL2_SH0_MASK | \
- 			 TCR_EL2_ORGN0_MASK | TCR_EL2_IRGN0_MASK)
- 
--/* VTCR_EL2 Registers bits */
--#define VTCR_EL2_DS		TCR_EL2_DS
--#define VTCR_EL2_RES1		(1U << 31)
--#define VTCR_EL2_HD		(1 << 22)
--#define VTCR_EL2_HA		(1 << 21)
--#define VTCR_EL2_PS_SHIFT	TCR_EL2_PS_SHIFT
--#define VTCR_EL2_PS_MASK	TCR_EL2_PS_MASK
--#define VTCR_EL2_TG0_MASK	TCR_TG0_MASK
--#define VTCR_EL2_TG0_4K		TCR_TG0_4K
--#define VTCR_EL2_TG0_16K	TCR_TG0_16K
--#define VTCR_EL2_TG0_64K	TCR_TG0_64K
--#define VTCR_EL2_SH0_MASK	TCR_SH0_MASK
--#define VTCR_EL2_SH0_INNER	TCR_SH0_INNER
--#define VTCR_EL2_ORGN0_MASK	TCR_ORGN0_MASK
--#define VTCR_EL2_ORGN0_WBWA	TCR_ORGN0_WBWA
--#define VTCR_EL2_IRGN0_MASK	TCR_IRGN0_MASK
--#define VTCR_EL2_IRGN0_WBWA	TCR_IRGN0_WBWA
--#define VTCR_EL2_SL0_SHIFT	6
--#define VTCR_EL2_SL0_MASK	(3 << VTCR_EL2_SL0_SHIFT)
--#define VTCR_EL2_T0SZ_MASK	0x3f
--#define VTCR_EL2_VS_SHIFT	19
--#define VTCR_EL2_VS_8BIT	(0 << VTCR_EL2_VS_SHIFT)
--#define VTCR_EL2_VS_16BIT	(1 << VTCR_EL2_VS_SHIFT)
--
--#define VTCR_EL2_T0SZ(x)	TCR_T0SZ(x)
--
- /*
-- * We configure the Stage-2 page tables to always restrict the IPA space to be
-- * 40 bits wide (T0SZ = 24).  Systems with a PARange smaller than 40 bits are
-- * not known to exist and will break with this configuration.
-- *
-  * The VTCR_EL2 is configured per VM and is initialised in kvm_init_stage2_mmu.
-  *
-  * Note that when using 4K pages, we concatenate two first level page tables
-@@ -162,9 +132,6 @@
-  *
-  */
- 
--#define VTCR_EL2_COMMON_BITS	(VTCR_EL2_SH0_INNER | VTCR_EL2_ORGN0_WBWA | \
--				 VTCR_EL2_IRGN0_WBWA | VTCR_EL2_RES1)
--
- /*
-  * VTCR_EL2:SL0 indicates the entry level for Stage2 translation.
-  * Interestingly, it depends on the page size.
-@@ -196,30 +163,35 @@
-  */
- #ifdef CONFIG_ARM64_64K_PAGES
- 
--#define VTCR_EL2_TGRAN			VTCR_EL2_TG0_64K
-+#define VTCR_EL2_TGRAN			64K
- #define VTCR_EL2_TGRAN_SL0_BASE		3UL
- 
- #elif defined(CONFIG_ARM64_16K_PAGES)
- 
--#define VTCR_EL2_TGRAN			VTCR_EL2_TG0_16K
-+#define VTCR_EL2_TGRAN			16K
- #define VTCR_EL2_TGRAN_SL0_BASE		3UL
- 
- #else	/* 4K */
- 
--#define VTCR_EL2_TGRAN			VTCR_EL2_TG0_4K
-+#define VTCR_EL2_TGRAN			4K
- #define VTCR_EL2_TGRAN_SL0_BASE		2UL
- 
- #endif
- 
- #define VTCR_EL2_LVLS_TO_SL0(levels)	\
--	((VTCR_EL2_TGRAN_SL0_BASE - (4 - (levels))) << VTCR_EL2_SL0_SHIFT)
-+	FIELD_PREP(VTCR_EL2_SL0, (VTCR_EL2_TGRAN_SL0_BASE - (4 - (levels))))
- #define VTCR_EL2_SL0_TO_LVLS(sl0)	\
- 	((sl0) + 4 - VTCR_EL2_TGRAN_SL0_BASE)
- #define VTCR_EL2_LVLS(vtcr)		\
--	VTCR_EL2_SL0_TO_LVLS(((vtcr) & VTCR_EL2_SL0_MASK) >> VTCR_EL2_SL0_SHIFT)
-+	VTCR_EL2_SL0_TO_LVLS(FIELD_GET(VTCR_EL2_SL0, (vtcr)))
-+
-+#define VTCR_EL2_FLAGS	(SYS_FIELD_PREP_ENUM(VTCR_EL2, SH0, INNER)	    | \
-+			 SYS_FIELD_PREP_ENUM(VTCR_EL2, ORGN0, WBWA)	    | \
-+			 SYS_FIELD_PREP_ENUM(VTCR_EL2, IRGN0, WBWA)	    | \
-+			 SYS_FIELD_PREP_ENUM(VTCR_EL2, TG0, VTCR_EL2_TGRAN) | \
-+			 VTCR_EL2_RES1)
- 
--#define VTCR_EL2_FLAGS			(VTCR_EL2_COMMON_BITS | VTCR_EL2_TGRAN)
--#define VTCR_EL2_IPA(vtcr)		(64 - ((vtcr) & VTCR_EL2_T0SZ_MASK))
-+#define VTCR_EL2_IPA(vtcr)		(64 - FIELD_GET(VTCR_EL2_T0SZ, (vtcr)))
- 
- /*
-  * ARM VMSAv8-64 defines an algorithm for finding the translation table
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index c231d2a3e5159..acad7a7621b9e 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -516,7 +516,6 @@
- #define SYS_TTBR1_EL2			sys_reg(3, 4, 2, 0, 1)
- #define SYS_TCR_EL2			sys_reg(3, 4, 2, 0, 2)
- #define SYS_VTTBR_EL2			sys_reg(3, 4, 2, 1, 0)
--#define SYS_VTCR_EL2			sys_reg(3, 4, 2, 1, 2)
- 
- #define SYS_HAFGRTR_EL2			sys_reg(3, 4, 3, 1, 6)
- #define SYS_SPSR_EL2			sys_reg(3, 4, 4, 0, 0)
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index 947ac1a951a5b..e0bd6a0172729 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -583,8 +583,8 @@ u64 kvm_get_vtcr(u64 mmfr0, u64 mmfr1, u32 phys_shift)
- 	u64 vtcr = VTCR_EL2_FLAGS;
- 	s8 lvls;
- 
--	vtcr |= kvm_get_parange(mmfr0) << VTCR_EL2_PS_SHIFT;
--	vtcr |= VTCR_EL2_T0SZ(phys_shift);
-+	vtcr |= FIELD_PREP(VTCR_EL2_PS, kvm_get_parange(mmfr0));
-+	vtcr |= FIELD_PREP(VTCR_EL2_T0SZ, (UL(64) - phys_shift));
- 	/*
- 	 * Use a minimum 2 level page table to prevent splitting
- 	 * host PMD huge pages at stage2.
-@@ -624,9 +624,7 @@ u64 kvm_get_vtcr(u64 mmfr0, u64 mmfr1, u32 phys_shift)
- 		vtcr |= VTCR_EL2_DS;
- 
- 	/* Set the vmid bits */
--	vtcr |= (get_vmid_bits(mmfr1) == 16) ?
--		VTCR_EL2_VS_16BIT :
--		VTCR_EL2_VS_8BIT;
-+	vtcr |= (get_vmid_bits(mmfr1) == 16) ? VTCR_EL2_VS : 0;
- 
- 	return vtcr;
- }
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 911fc99ed99d9..e1ef8930c97b3 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -377,7 +377,7 @@ static void vtcr_to_walk_info(u64 vtcr, struct s2_walk_info *wi)
- {
- 	wi->t0sz = vtcr & TCR_EL2_T0SZ_MASK;
- 
--	switch (vtcr & VTCR_EL2_TG0_MASK) {
-+	switch (FIELD_GET(VTCR_EL2_TG0_MASK, vtcr)) {
- 	case VTCR_EL2_TG0_4K:
- 		wi->pgshift = 12;	 break;
- 	case VTCR_EL2_TG0_16K:
-@@ -513,7 +513,7 @@ static u8 get_guest_mapping_ttl(struct kvm_s2_mmu *mmu, u64 addr)
- 
- 	lockdep_assert_held_write(&kvm_s2_mmu_to_kvm(mmu)->mmu_lock);
- 
--	switch (vtcr & VTCR_EL2_TG0_MASK) {
-+	switch (FIELD_GET(VTCR_EL2_TG0_MASK, vtcr)) {
- 	case VTCR_EL2_TG0_4K:
- 		ttl = (TLBI_TTL_TG_4K << 2);
- 		break;
-@@ -530,7 +530,7 @@ static u8 get_guest_mapping_ttl(struct kvm_s2_mmu *mmu, u64 addr)
- 
- again:
- 	/* Iteratively compute the block sizes for a particular granule size */
--	switch (vtcr & VTCR_EL2_TG0_MASK) {
-+	switch (FIELD_GET(VTCR_EL2_TG0_MASK, vtcr)) {
- 	case VTCR_EL2_TG0_4K:
- 		if	(sz < SZ_4K)	sz = SZ_4K;
- 		else if (sz < SZ_2M)	sz = SZ_2M;
-@@ -593,7 +593,7 @@ unsigned long compute_tlb_inval_range(struct kvm_s2_mmu *mmu, u64 val)
- 
- 	if (!max_size) {
- 		/* Compute the maximum extent of the invalidation */
--		switch (mmu->tlb_vtcr & VTCR_EL2_TG0_MASK) {
-+		switch (FIELD_GET(VTCR_EL2_TG0_MASK, mmu->tlb_vtcr)) {
- 		case VTCR_EL2_TG0_4K:
- 			max_size = SZ_1G;
- 			break;
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 9d388f87d9a13..6f43b2ae5993b 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -4400,6 +4400,63 @@ Field	56:12	BADDR
- Res0	11:0
- EndSysreg
- 
-+Sysreg	VTCR_EL2	3	4	2	1	2
-+Res0	63:46	
-+Field	45	HDBSS
-+Field	44	HAFT
-+Res0	43:42	
-+Field	41	TL0
-+Field	40	GCSH
-+Res0	39
-+Field	38	D128
-+Field	37	S2POE
-+Field	36	S2PIE
-+Field	35	TL1
-+Field	34	AssuredOnly
-+Field	33	SL2
-+Field	32	DS
-+Res1	31
-+Field	30	NSA
-+Field	29	NSW
-+Field	28	HWU62
-+Field	27	HWU61
-+Field	26	HWU60
-+Field	25	HWU59
-+Res0	24:23
-+Field	22	HD
-+Field	21	HA
-+Res0	20
-+Enum	19	VS
-+	0b0	8BIT
-+	0b1	16BIT
-+EndEnum
-+Field	18:16	PS
-+Enum	15:14	TG0
-+	0b00	4K
-+	0b01	64K
-+	0b10	16K
-+EndEnum
-+Enum	13:12	SH0
-+	0b00	NONE
-+	0b01	OUTER
-+	0b11	INNER
-+EndEnum
-+Enum	11:10	ORGN0
-+	0b00	NC
-+	0b01	WBWA
-+	0b10	WT
-+	0b11	WBnWA
-+EndEnum
-+Enum	9:8	IRGN0
-+	0b00	NC
-+	0b01	WBWA
-+	0b10	WT
-+	0b11	WBnWA
-+EndEnum
-+Field	7:6	SL0
-+Field	5:0	T0SZ
-+EndSysreg
-+
- Sysreg	GCSCR_EL2	3	4	2	5	0
- Fields	GCSCR_ELx
- EndSysreg
+  - Simplified the S2TGRANx detection slightly.
+
+  - Collected RBs, with thanks
+
+[1] https://lore.kernel.org/r/20251129144525.2609207-1-maz@kernel.org
+
+Marc Zyngier (6):
+  KVM: arm64: Fix EL2 S1 XN handling for hVHE setups
+  arm64: Convert ID_AA64MMFR0_EL1.TGRAN{4,16,64}_2 to UnsignedEnum
+  arm64: Convert VTCR_EL2 to sysreg infratructure
+  KVM: arm64: Account for RES1 bits in DECLARE_FEAT_MAP() and co
+  KVM: arm64: Convert VTCR_EL2 to config-driven sanitisation
+  KVM: arm64: Honor UX/PX attributes for EL2 S1 mappings
+
+ arch/arm64/include/asm/kvm_arm.h     | 52 ++++-----------
+ arch/arm64/include/asm/kvm_host.h    |  1 +
+ arch/arm64/include/asm/kvm_pgtable.h |  2 +
+ arch/arm64/include/asm/sysreg.h      |  1 -
+ arch/arm64/kvm/config.c              | 94 ++++++++++++++++++++++++----
+ arch/arm64/kvm/emulate-nested.c      | 55 +++++++++-------
+ arch/arm64/kvm/hyp/pgtable.c         | 32 +++++++---
+ arch/arm64/kvm/nested.c              | 11 ++--
+ arch/arm64/tools/sysreg              | 63 ++++++++++++++++++-
+ 9 files changed, 217 insertions(+), 94 deletions(-)
+
 -- 
 2.47.3
 
