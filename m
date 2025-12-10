@@ -4,140 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39D28D3C52C
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 11:40:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A43F1D3C537
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 12:06:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9jVk1rGI20AlFbcwnNIfZtdQteQ1YPu8ZTyqk/PmGDE=; b=OnM/cL+tDTnGEtUZOm+uzAQ3nC
-	/5rd/adKhIgIrNqBUsNgJQfDdHqwBlO95FZIxDNIjQPfemIAyPcJmd1+zTgwisngGiilhC03oLL/h
-	qPJe0sWyhv0eGl+vAtgAWaqhCmOvFNOP/RnF5pz9qrJXXj882eD9As1wp8kYTFAqo2EBHZVoNnXRY
-	Iv7h0C2aa0ASf87m/kDL8Myf4CrwXrnezR+QhLJOFN3cjk3EmCLvRCw5L9OhK/A1CV+hg7j5Egd74
-	OkZCPZ/fi1OP+qUoqxLhBH69gEEY4E685F1qV8Ev/JFoBC9ESXmWzoZvBg9akARcpl/2K3rl2H08l
-	Dh8Tu+BQ==;
+	bh=b7/whmJZf8g4FJf5ZKwQXyiXySJ9BuKBAq7s9qC0qOc=; b=3ot/TM1tIrmOeICGWTC5d1rkSU
+	T2nQJJRLcAZMp3tdVoUL3BnLnCI2yPMpJvxzOqc8R6xFXlKhXQg99jshq703C/PGZDqhjWCc6bHEs
+	lgF0O8wu2EeYdx/FcLNy+pUXBOojQZJhZHr35W2YWUlIEwio4zv37cVl1w26bT/zk8gg0+Y/h1rdw
+	srRObDiaCXB4s3vRs8aVt3pmxdNr7EoQYEvQba025Nv1KJ+BZkhPTC5agW77rmfG+gBvLnjLNbjcS
+	MDGlYKNbBIzX9gXNyZfc0XJKdImNIfgXiaGg4XJJKlGEhl2POzgNwxjSliGIv1u04ZVgVQi+6qc4D
+	mPBxw2Lw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTIYB-0000000FOGn-1ItO;
-	Wed, 10 Dec 2025 11:40:08 +0000
-Received: from smtp-out2.suse.de ([2a07:de40:b251:101:10:150:64:2])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTIY8-0000000FOGB-1MIO
+	id 1vTIxe-0000000FPGb-2k1N;
+	Wed, 10 Dec 2025 12:06:26 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vTIxc-0000000FPFs-1l7m
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Dec 2025 11:40:05 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out2.suse.de (Postfix) with ESMTPS id 518045BE06;
-	Wed, 10 Dec 2025 11:39:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1765366799; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9jVk1rGI20AlFbcwnNIfZtdQteQ1YPu8ZTyqk/PmGDE=;
-	b=kYKl/p6V2NKnInv1y/na+IlUvpMEK0sX4T1zVqEThCO7yLCYdt6IVoNKTovte+m/473xEh
-	JrVvLgM1FbDRVhry1YB/5WlNWDRIRQ62JhvOFbZlrzE+SzOuK5cE9FaI/1/qRjZeidDbay
-	pgTMe1RkZgxgeTLRsfuSuhkOeOvf01k=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1765366799;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9jVk1rGI20AlFbcwnNIfZtdQteQ1YPu8ZTyqk/PmGDE=;
-	b=2FhMQmr5oo8RrgSnMH/AuHuQ17+aG8G2nPv2QLIK4Aae0LeAXROvAXII+bJr8ByNiN5kId
-	hOqxGM2Ba6lcSDDA==
-Authentication-Results: smtp-out2.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=Xm6kJqx1;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=7lSjDUJO
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1765366798; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9jVk1rGI20AlFbcwnNIfZtdQteQ1YPu8ZTyqk/PmGDE=;
-	b=Xm6kJqx1/c5gD91yCHK/zjkkubpQxqTMBbXFDFAwDjsoQLlgnG7zDgA0D3iqyJE8rFW6VT
-	0j3YeYwz/78DfQaBpndkfDxmfsR8fRfc+TW+9qpIut9iSQRQUEmAxFKhJi6BrILyYxKiMv
-	dn2WqYivaz1SYplGq0jTlMj5GimgEjA=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1765366798;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9jVk1rGI20AlFbcwnNIfZtdQteQ1YPu8ZTyqk/PmGDE=;
-	b=7lSjDUJOjG4SblqKIgKWvwmK0LGioLjvSy3cz9JegNBKgDsqf76hnZ99VZovtpTpv7T1hM
-	2PFpPN6nvDxC8ADA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id CB2EC3EA63;
-	Wed, 10 Dec 2025 11:39:57 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id Wm4mLw1cOWlTSgAAD6G6ig
-	(envelope-from <iivanov@suse.de>); Wed, 10 Dec 2025 11:39:57 +0000
-Content-Type: text/plain;
-	charset=us-ascii
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81.1.3\))
-Subject: Re: [PATCH v2] arm64: errata: Add NXP iMX8QM workaround for A53 Cache
- coherency issue
-From: "Ivan T. Ivanov" <iivanov@suse.de>
-In-Reply-To: <20251210074550.GA10733@francesco-nb>
-Date: Wed, 10 Dec 2025 13:39:43 +0200
-Cc: Frank Li <frank.li@nxp.com>,
- Jason Liu <jason.hui.liu@nxp.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>,
- Mark Brown <broonie@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Shawn Guo <shawnguo@kernel.org>,
- Dong Aisheng <aisheng.dong@nxp.com>,
- linux-arm-kernel@lists.infradead.org,
- linux-imx@nxp.com
+	Wed, 10 Dec 2025 12:06:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 08616153B;
+	Wed, 10 Dec 2025 04:06:14 -0800 (PST)
+Received: from [10.57.45.247] (unknown [10.57.45.247])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D648B3F73B;
+	Wed, 10 Dec 2025 04:06:19 -0800 (PST)
+Message-ID: <8e058f60-60da-47c2-9947-2ea26cca1639@arm.com>
+Date: Wed, 10 Dec 2025 12:06:10 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iommu/io-pgtable-arm: Add misisng concatenated PGD cases
+To: Will Deacon <will@kernel.org>
+Cc: Mostafa Saleh <smostafa@google.com>, iommu@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ joro@8bytes.org, Tomasz Nowicki <tnowicki@google.com>
+References: <20251130194506.593700-1-smostafa@google.com>
+ <18a39079-2285-47fb-b306-040f2bc1bbaa@arm.com> <aTgX9qhaLyrQ5iye@google.com>
+ <498bbad4-ea64-4a24-a63f-e131d271990a@arm.com> <aTjCDvtANr2WIv3L@google.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <aTjCDvtANr2WIv3L@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <3EB1BF9A-9D76-48BD-B134-D1D7DF8AD2CB@suse.de>
-References: <20230420112952.28340-1-iivanov@suse.de>
- <20251210074550.GA10733@francesco-nb>
-To: Francesco Dolcini <francesco@dolcini.it>
-X-Mailer: Apple Mail (2.3826.700.81.1.3)
-X-Spamd-Result: default: False [-4.01 / 50.00];
-	BAYES_HAM(-3.00)[99.99%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MV_CASE(0.50)[];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-0.999];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	DWL_DNSWL_BLOCKED(0.00)[suse.de:dkim];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCVD_TLS_ALL(0.00)[];
-	ARC_NA(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	TO_DN_SOME(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	MID_RHS_MATCH_FROM(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[11];
-	RCVD_COUNT_TWO(0.00)[2];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,suse.de:dkim,suse.de:mid,dolcini.it:email];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	DKIM_TRACE(0.00)[suse.de:+]
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Queue-Id: 518045BE06
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_034004_546921_0632C6AA 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20251210_040624_511933_449F5F6A 
+X-CRM114-Status: GOOD (  16.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,26 +67,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-> On 10 Dec 2025, at 9:45, Francesco Dolcini <francesco@dolcini.it> wrote:
+On 2025-12-10 12:42 am, Will Deacon wrote:
+> On Tue, Dec 09, 2025 at 01:33:36PM +0000, Robin Murphy wrote:
+>> On 2025-12-09 12:37 pm, Mostafa Saleh wrote:
+>>> On Tue, Dec 09, 2025 at 11:34:34AM +0000, Robin Murphy wrote:
+>>>> On 2025-11-30 7:45 pm, Mostafa Saleh wrote:
+>>>>> arm_lpae_concat_mandatory() assumes that OAS >= IAS which is not
+>>>>> correct for SMMUs supporting AArch32, and have OAS = 32/36 bits,
+>>>>> as IAS would be 40 bits.
+>>>>
+>>>> But that is only when *using* AArch32 format. The bit in chapter 3.4 of the
+>>>> SMMU architecture is talking about the maximum IAS that an SMMU
+>>>> implementation needs to be able to accommodate based on its configuration,
+>>>> but it does then attempt to clarify that the actual IPA size in use by any
+>>>> given context should depend on the VMSA format in use:
+>>>>
+>>>> "VMSAv8-32 LPAE always supports an IPA size of 40 bits, whereas VMSAv8-64
+>>>> and VMSAv9-128 limits the maximum IPA size to the maximum PA size."
+>>>>
+>>>> Rule R_SRKBC in the Arm ARM lays out the exact T0SZ constraints with this
+>>>> AArch32/AArch64 detail.
+>>>
+>>> I see, thanks a lot for the explanation, I got confused by the this
+>>> statement:
+>>> Note: If AArch32 is implemented, IAS == MAX(40, OAS), otherwise IAS == OAS.
+>>
+>> Indeed, that appears confusingly contradictory; I've filed a bug.
 > 
-> Hello Ivan,
+> I think the spec has always been worded like this. My reading is that, in
+> isolation:
 > 
-> On Thu, Apr 20, 2023 at 02:29:52PM +0300, Ivan T. Ivanov wrote:
->> According to NXP errata document[1] i.MX8QuadMax SoC suffers from
->> serious cache coherence issue. It was also mentioned in initial
->> support[2] for imx8qm mek machine.
+>    - VMSAv8-32 LPAE always uses a 40-bit IAS
+>    - VMSAv8-64 has IAS == OAS and this can be smaller than 40 bits
 > 
-> Ivan, from what I can see this patch was never merged and there was not any
-> follow-up on this. What's the status? Are you planning to work on it?
+> so if AArch32 is implemented, we know that the hardware supports at
+> least a 40-bit IAS and in that case the VMSAv8-64 IAS can be bigger
+> than the OAS.
 
-Yep, it was put in low priority list and it was forgotten successfully.
+No, the VMSAv8-64 IAS can never be bigger than OAS, as that would 
+violate VMSA (see rules R_DTLMN and R_SRKBC). The SMMU spec seems mostly 
+fixated on the notional maximum IAS that an SMMU must accommodate in 
+general across all supported formats; the limitations of using any 
+particular format must still apply though (similarly, the fact that 
+AArch32 has a fixed 40-bit output doesn't mean that OAS and S2PS don't 
+still matter for AArch64 format.)
 
-I don't have plans to work on this in foreseeable future.
+Note that AArch32 is still free to use less than 40 bits of IAS if it 
+wants to, by setting S2T0SZ appropriately, it's just guaranteed to 
+support a *minimum* S2T0SZ of 24 regardless of OAS, unlike AArch64.
 
-Regards,
-Ivan
+Cheers,
+Robin.
 
+> That seems consistent to me; where is the contradiction?
+> 
+> Will (jet-lagged so may well be talking rubbish!)
 
 
