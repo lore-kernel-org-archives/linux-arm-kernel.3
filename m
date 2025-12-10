@@ -4,101 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07B1ED3C912
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 14:22:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06573D3C91A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 14:55:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
-	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CCXWI9NMLIGKdShYILtPTYF4vSjxO5JfoEVGJGIlybo=; b=ZCnI2E74DTmtYzvNy5BS3DqwjV
-	Cu+wFhdSpIwxvsEZl52sHNRTUL7raGGF+2k1bABZkHGa5ZUlT6nn79P5a8UiX2Ty/VwF6MZ5OpPJj
-	VXdludBVMtCwaITHc6CrzNpxF1nXlAoLQ6kZaxeR7WwDZb6dFXsIaijyLyTFc/btPgZorI4vt/5+C
-	HmHcHRF21TWHJMYFr7TME3EYTK6657YQDZo0+/OzMw84SZ8NvkOYDj2JAfVklbR/TSfmeEBbHv34A
-	bqwBJnbE8IpV/rMa2zczt3kVSS7KZie1Ol+drU1VMh6gwT/tz+Hrk9FeUfIae2nGPjElpuqIxbfs8
-	uPSxJEsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=48MwxEH5ckqOtizUHfaCilwb1RlQqGac1rOOMbozkjw=; b=fHPhQ1WhOz/bLj+UtYUGqFCSN/
+	cZ9MvzfNqobb6CMSvJzGQe8Ye7+fqhGnYkrzg4AQ/C0bJm2afm6nKuWUeiceLbfcv5d9SjUuSD4Qg
+	qRA1Po4n8c5kiGFxOCFlpX4pnYTysow8UFRmokGXbQu7sEdtpfbRdNgWFVz4E3IyOT0MT7YzNtYb6
+	zUTw6DKDr7nZ+Vf1Q9BvoqXGvcq3kej/uiXyauzZAYuEXOgWZw4XbpQYX8ovxtX8r+QZPD9Ac8pme
+	M0tT8OAYagGdhnHunn8EDaKDircfCDypoeN5X7pYlrul+JzKM4KMDHhzG+vMjsOxBTQmaUesS4xbo
+	C5ZBMfIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTL5T-0000000FW47-0q2j;
-	Wed, 10 Dec 2025 14:22:39 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1vTLb8-0000000FXCW-3Ewt;
+	Wed, 10 Dec 2025 14:55:22 +0000
+Received: from mail-westeuropeazon11010005.outbound.protection.outlook.com ([52.101.69.5] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTL5O-0000000FW2R-2Adb
+	id 1vTLb3-0000000FXC6-1y7O
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Dec 2025 14:22:35 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-349e7fe50c3so337615a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Dec 2025 06:22:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1765376553; x=1765981353; darn=lists.infradead.org;
-        h=in-reply-to:references:from:to:cc:subject:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CCXWI9NMLIGKdShYILtPTYF4vSjxO5JfoEVGJGIlybo=;
-        b=SD5ZkwEiteTpqzhrgMadE/8LW/0yV40ONUvx9hMjXOQR9WzQURAqXedjWVsOKOB2Sb
-         wDzeO444t+hPN/3jiLjhZXPKoC8JdwPGbd/EL+TZRDE+kEYdT/6ShEx5Sokrk18gC+DP
-         bZrMSsFD+VXsgO4kahi/k5FqTTJgTzsYNdVFNtmJ3v0uBKHT1LQQccB4qmieVwGh2IcD
-         RnlUGC+V7hwtbUxiBgMeXYpS+koJtAOHK40gjKsGmLBy6RxnaSO0QlWwE01iG4RYX8Rg
-         4i4ibLVrppBPbUuJxfH5Fd9m40TLBKuVPjK7/QNKltPeNQo4sybm9Z5OdSo8lBQoLYhf
-         57hg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765376553; x=1765981353;
-        h=in-reply-to:references:from:to:cc:subject:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=CCXWI9NMLIGKdShYILtPTYF4vSjxO5JfoEVGJGIlybo=;
-        b=ccD/8SDi5I3AvFjbeE2OlO3ekBJY0Y8EfPN62RUxrK3uw8QBftTjVNufDTjO2gFGf4
-         +Z6si4INB99Zt+9/NTA2xuHuuoT5ocRbK1zYUIrSKWY+rkxJE0nkN5tFBJ4PGO3DX+EO
-         I/xOdTTNXyxuNOtJ3kKbKAzaVD34KEBZTuYXqYu5WIcANLUr/HV7PsxuJezfNewzEC94
-         5fN6EeAwK5nY/myYtfJH//ExOgZIF6asDhOQYp9sH9C6xSPqzFSo4smfZQl+YVsVDMzY
-         OYkMXxMNj9SSrjsuzMNPET6/2XOxYG6k5elSdJzD/OPjnO/Da4ygLCWG4YJqfY0t+Qp2
-         GBWw==
-X-Forwarded-Encrypted: i=1; AJvYcCUtCqhCVCZWICBR5Oe2w8Ji/qDl5FUIUFQC1Ox+etu6ZqTdzlZAQBVAsBOX9BCKTkhIcZ7do+r30/EdUX/uJXtY@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNIJKdHUx7mGOWKUEPNjz9BBT3/gSRhkz0s1OMZpNUpxNWQPXZ
-	avxvqafX0YPAfmk9pT8GTJXVlK8MOlPdMv4InN4EQKawe9PC7xtvoRwQxnrVvYCCLRA=
-X-Gm-Gg: AY/fxX4glYQyzxj6bfh3pJvq+MB1WlsK7D5D8N4771jtYFYLmfDjYvRgfQiUf7zBHdw
-	RtgV4gKL6UR4irVce9jbx25W1d8KREI3MVLMFYSuSCyOXYuj1YN18Pw/aIs7Y/dLCcYUCh1DEaB
-	Pe3LKGcn0i7Q4NSVkiqTw9vY4EcSL3SqE8csJlofeDgTHUx4N3+GRWxWeeY0t1B8Jeqva+EY36y
-	FkLwdFYrVmzKXK3HwsYO+XhYEcyI5lPnQqACRPKuj9lF5XcPkdV8YuwNlWt6BxNW0tGZkNmydr8
-	HxEEViFRyy1YXsQBxHi4HUDOuYLkYdVZtFZcRdq84uctyAiiCj9Mcpkzdk382M9lpsqB031XV/S
-	F1eIZbYaV7smAUoTQ2mk8O5w7D3QLz9rQK9KsVpjkoZsjr8kTKeSN7jpAKdGDiJIh7PmlkMUM1J
-	aQ0xAJMjadRDyhiTo=
-X-Google-Smtp-Source: AGHT+IH+3VoOPNGdth2Gvi9WRF0RQbU1oEXZJauN9cdeoWV6+Oc4w9B7Ps/1EmONqCkTRg9MS367vA==
-X-Received: by 2002:a17:90b:1643:b0:343:6a63:85d1 with SMTP id 98e67ed59e1d1-34a728c81damr1938262a91.6.1765376552581;
-        Wed, 10 Dec 2025 06:22:32 -0800 (PST)
-Received: from localhost ([2400:4050:300:5200:def6:5e63:b5ff:c77])
-        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-34a6ff012f1sm2743460a91.4.2025.12.10.06.22.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Dec 2025 06:22:31 -0800 (PST)
-Mime-Version: 1.0
+	Wed, 10 Dec 2025 14:55:20 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=q4+bHjHx60IxjASkoZej3n868j7QWe0gGpxYPcYbuHuUUQwmjGyi2ESYnTUlKHv+WL9z69Gw7fYw15lSM3iRXwP/WQ5QdI4qozbvwBWybHr9kl2JzugJz4kPuNd2bNqO67pWxMa4YXqMLshhW0q9aMs4Fla+HicDXTUFVnGK23FeGONWpaPq4gG3Z8QFWSidIFixW7oJtJjcz02PSq+4KfDRW+g0+bGtzrQwdSTiPW0TxOxX11Jo7vyX7IB58XJ1625sgghKDwQ5mU3ySwhC5e2tgL6ssiT/cvHgmOFc3WanFZKFCwp2RFVqcyxY7DuJIlpOApVrrHyeJEZJYAt+yQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=48MwxEH5ckqOtizUHfaCilwb1RlQqGac1rOOMbozkjw=;
+ b=CZrRNuM7bWQBjndbZDEJo+W12jrK6Uk6q5BWpH/M5Zg/ORgunRHzJ+L6Xaa0vlEAManQrZg/dj5q/cmMRMfxGrjMnNDfQIdtVTCw3GqqiJeZZqg6ALEUcdSvWR26bwODoMwKYtPMJFi3G753sDi36Fgn1igR5JAgaF7uSHbecIADfOJClRqy1lNJk+Mux5tFUYmtB4VKQpUgNXHdYUk6KKdlWPnSCP7AqBA7Mw+MfAeBWEhR8OrfYKI584t2EBiZ5GrgSH5N7gFZuB3R6fBlPh2XObC6CYPzSIhyzW6s/ZGFSTs25csMt6wytCv2tF4B4qZGaJEO62YV5Rl9BYq9pg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=48MwxEH5ckqOtizUHfaCilwb1RlQqGac1rOOMbozkjw=;
+ b=GzHWvq+aXb/Rb749cOVrkK2Dpk/BVwMUlCPC/LRu0v2DYYCMd8NG694+mTWebquhyzby0cHm1hHCaVrsWDhbK5a2U/cubXGW9/bTDwaIoLsXcaVC8wtb3SRrudwZ7R3RHZxwuDodszEpY1W/Cexha6W3v5TceI/25OsbCmBTXxwuLIA0DGkjEZYdyJODovN8JjORoAVk0savO3gi5w3j6wrGNdmrZUAHx4QuakiQi33dsYzIdkKIRRGFVrlIuIvLY4MHvB2mVHU9jQajjao+BWQGqvphfOPpUuF00dxLs+ln+rIbn5QpjZdPcIeVdUGvQqS2jUiJ4JRf//8wYHRY0A==
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by DB9PR04MB9475.eurprd04.prod.outlook.com (2603:10a6:10:367::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.7; Wed, 10 Dec
+ 2025 14:55:12 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9412.005; Wed, 10 Dec 2025
+ 14:55:12 +0000
+From: Frank Li <frank.li@nxp.com>
+To: Francesco Dolcini <francesco@dolcini.it>, "Ivan T. Ivanov"
+	<iivanov@suse.de>, Jason Liu <jason.hui.liu@nxp.com>
+CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	Mark Brown <broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Shawn
+ Guo <shawnguo@kernel.org>, Aisheng Dong <aisheng.dong@nxp.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, dl-linux-imx <linux-imx@nxp.com>
+Subject: RE: [EXT] Re: [PATCH v2] arm64: errata: Add NXP iMX8QM workaround for
+ A53 Cache coherency issue
+Thread-Topic: [EXT] Re: [PATCH v2] arm64: errata: Add NXP iMX8QM workaround
+ for A53 Cache coherency issue
+Thread-Index: AQHcaakGWttSyfkCh0SyEePD7QgEq7Ua9loQ
+Date: Wed, 10 Dec 2025 14:55:12 +0000
+Message-ID: <DU2PR04MB8951DEE7CB2D29D7E83CE03388A0A@DU2PR04MB8951.eurprd04.prod.outlook.com>
+References: <20230420112952.28340-1-iivanov@suse.de>
+ <20251210074550.GA10733@francesco-nb>
+In-Reply-To: <20251210074550.GA10733@francesco-nb>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DU2PR04MB8951:EE_|DB9PR04MB9475:EE_
+x-ms-office365-filtering-correlation-id: dbe04c51-2f96-487d-ed79-08de37fc1f04
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|1800799024|366016|19092799006|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?cTqF1/knCMdl/JTRvt1RKCpEW3igOV0Vn8W3MFrj2z2h2pUCL29Gi1UAr2+I?=
+ =?us-ascii?Q?LbnQnxSnJXzHbLtVaElsr1ElCMQV3SNaUq/QKlbLqvGw+3ezvcWcDA73sUGk?=
+ =?us-ascii?Q?NoZt0dqQ0VsU7sqEQSr+28hOmtPgtSsWvdRV5L0Me4JHOiClOD41T+G39n1c?=
+ =?us-ascii?Q?I5SsKkT78snqIPnpaOUv/kNo29uj+Ks7V6wJORp+EhiynJysbXGJ4btvHmR6?=
+ =?us-ascii?Q?ejkq+05qg5C3Mzta0xFaIYk9ic5E8kMfSE17Cn1kYljTQjEKvduBJ5K3uxbC?=
+ =?us-ascii?Q?Bf6hgscq4iSrw/f4iA1OvtOqZR3PQo/HQadRN8yoIzT/YrxVCJdZBVqQPyKn?=
+ =?us-ascii?Q?4wKuwvqa0ptaEWtABgBEdnon0kUC4vVkI44XyuRGQ4raX5DE6clRUTCg89lY?=
+ =?us-ascii?Q?JTp6YmRrO7WP/3ScqginvbFy85/y3gd6lTE+H5cL9N7THa5Oq7zx4DBCWbRI?=
+ =?us-ascii?Q?HNrxJKo1i4n0U+JN26JQTBfuuDzNQavgTJLzDzqj7Ouo54/cnJt5dpxzTHkR?=
+ =?us-ascii?Q?+/q7hcL6wqJuDyQvlRnEvcBPJsWF/yUw8XLxS/1DFo9wJqUV+4hyuwf5HPSk?=
+ =?us-ascii?Q?LIprUxiea28LuqyoyKFLG6iRnM0FUmcy4Hic9tx5T518qmv6oDLsLBzEJsRS?=
+ =?us-ascii?Q?opqe1CUZOfrcuJgrHRCv8hcCViP+rpzyDbL+j4X7K+sS1Mt1H7GR0tbW8VNh?=
+ =?us-ascii?Q?aGNSEtHHalK11kJhmjgj8qBqCdO/bwi18LVavMVxCkiFxuKZr2M9ZHOl9pJE?=
+ =?us-ascii?Q?sLy0lQDErnTrRPmoqYO7q5wGQWMSOd5K02lwzSWZ0cNqc/PXOp4qb3MM/X+R?=
+ =?us-ascii?Q?ESqxYAPvBnr5E+RqoPkE8rddlB5xAegccg7sXCwjgu+EI5YndL2F2+n2Fl3s?=
+ =?us-ascii?Q?eh1xpnf3BEktcUSQBzUIjU7+mWaDLy8EXiB+zX96sEudfE3ELHTn/bB7UKg5?=
+ =?us-ascii?Q?b1eZif3BLBRmfCQ/LE3Mu8ypTv2N7YC5yVWVOjZ0b8ekiEuQU8lFELWb162y?=
+ =?us-ascii?Q?+xprgvkl0oFfSNqyyL6C9zO5sxBM1gTiEKeg39oG9Pzmej1o7nihAN3pWhD7?=
+ =?us-ascii?Q?eb5ShFWkHoQ5sZkVhAqFVPX6hkKEVQExHI9Wm1zU4LDFUG6eHIh8OmhYJIj5?=
+ =?us-ascii?Q?mxhLJc8qV33K6lMo3cbBjfSNUfv3ptvxG8UDMXY5kM9w2zTZ0SpG8ZKsLY3V?=
+ =?us-ascii?Q?YUsB8P+s2tULfv95w0jGz+tJKkEq3J0Z7vkP3ZazUqRqGvkY2ebIeGrQILaY?=
+ =?us-ascii?Q?5wayOEYGoJmBr+I5LzV3TDyjoMMKtP2HCCwOWACZOFYYc0LskvnFhoObRLRN?=
+ =?us-ascii?Q?3WESlXvOr+XV8OcPcoG77+tK9+W3LMVGwT91NYxxPkzydlJCOEq3HfO1vHas?=
+ =?us-ascii?Q?FmRxECd6UYlKfWG3sE/XZJ/OkTh7EsqPHQjMuBELbfuzyEUzdEsn0C1xYvce?=
+ =?us-ascii?Q?NyJ+u11RLP9ytWnX31tk7n/ew1joN4EViUowpDIOdZracQJcG18l3Psnmya4?=
+ =?us-ascii?Q?uy/AkxJlazwGU9wkxa+seX3mnYXX+8WIslnS?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(19092799006)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ivlOtobU0j70T24IH8UKRQxR7tA/Mv5jvTPII6EWL9YYVWBon0pymzdZk1kQ?=
+ =?us-ascii?Q?HfQhXqMJi3+OGD2kG90gTWfJ5bcPBKaNzSu7LnmYIbk7kbv6dVWPj0Y2F3fv?=
+ =?us-ascii?Q?dWNq3lxEFEVQ6lxYPuzZJu9HO8N3OIiLcdjywGPDtoka5R4uH/XRggSds1De?=
+ =?us-ascii?Q?lO3CIC6oK+FYeZtzlLASquncg0/6H5tbafg1tadXxXBIhWTw+eza18JKYwJd?=
+ =?us-ascii?Q?jehOdkoPNcDaI1Mh6/wdgQPf9Akl5JtN9UGEGSPJ1MD8j7SKTLKvmqtkKOyC?=
+ =?us-ascii?Q?VAzuQFCRYxUL6ETpCnkB5rGzmXVBmjKfLSbBZrjaN0vQvmG7U+jBBe2YDR2L?=
+ =?us-ascii?Q?/uq031R4gfBgSi2J+69UbGt0chajfw+1QyVF9TnrwGUEVONe3T0EtySkZXyt?=
+ =?us-ascii?Q?sR3r2MLD2XQRe0nLXAqYbJ9Ew/Iw6x24qvWE975NdZcLSoRogPLDpKbWoxmP?=
+ =?us-ascii?Q?WzSrkHUiZ0l7tAwngJAJ0IuvOAbzSvR003Ax+3Hgx6adlYx/3FxYn2Q5yE5W?=
+ =?us-ascii?Q?mI90j47L3uxoJjNyg2/skL18sfwdQ73sfdVFO2HEsqnWq5XQVdZHQWsZS4UF?=
+ =?us-ascii?Q?esFfToVo54PbY+ZoL15ud5RBzxsiNPDaSFBnE1obA4aTJQ/U69sw/jM9iM31?=
+ =?us-ascii?Q?UUCYiEwdt071Jgm1bg3xBGWI4FHlJuJrpVcR2XYYDgOZrlkQkMgmqVjozZni?=
+ =?us-ascii?Q?3KnClNOC7Wy5bGTveRCxzWxv8jsCNCFFSY6RbkZBxcGhq6II/LI3rWi1hxMW?=
+ =?us-ascii?Q?oy/k5Y0PgEitT/QdBMwtnUk0sO/RWGndKZLrzvItXHPiIPPWQiqkOfYg8cTX?=
+ =?us-ascii?Q?Nvy2E70PhSgvwQfuOOFHWUf2IrNUk5hMYXBsKQ3O+nP5gcn2EMT/R6Kh1NXu?=
+ =?us-ascii?Q?jyofYMdEwbQrWuK0dWp/5f70Ga7J5JKuw5I5HeSTaR8VHPOqmG4jbVZ++6H5?=
+ =?us-ascii?Q?S2xmYDL7u+PqghJ+7RqnzbK2Hx6inScyu6JlO6fkY6SUQUAxgG2/uHCf+JJp?=
+ =?us-ascii?Q?ifJ+/dy6S7vq98oreIQ9ndZAfAg8BWOYXfhaP7axYMMhlG2zctnw8E+Fm1GR?=
+ =?us-ascii?Q?akpKZ1hUgLRo7aW0wnK7UdHoGaQbuiYlrhgdEid1MximjnOpoGQrjQgd+Llq?=
+ =?us-ascii?Q?FKILAYygLsW8XXy6xSE9TUmBgXxrRrfKHtPAmUzJ763pJ8ympCEKDDluEcHa?=
+ =?us-ascii?Q?o31gtaD3IrDyK1t2qU4vFCqyY+K6xGCrwnRWtWb2/dHU4lcsGqw9K23qqh2O?=
+ =?us-ascii?Q?HM5vyjjsqSocV62VL04HF0E2s+E3kFvoS+NWiptqQESO6nR6sNkDN0RUkOoA?=
+ =?us-ascii?Q?BLzm0OCF0tSHD6QFEhdMcVkiWkrqFTsGcCIn/48A028V0E2qR0gizafLuKJl?=
+ =?us-ascii?Q?AyuweMYaSfzxTuo/GmVxAKLhEbnLxsUQJyHjL4aS0BW9gYc29MXPyyrExahk?=
+ =?us-ascii?Q?qeKMbSRZ8aYxqZgwY5om8qNAhxiMII8tv7eIkIdEUCMQwvIh0j7pnrfeIcr/?=
+ =?us-ascii?Q?Um8rX5bENQgzrVxkOSteTLon54EDoe+1mMecPhL5ISi2Phpe1m4kPFLSz7mi?=
+ =?us-ascii?Q?zrY6O0/tdKpWhzdWMnE=3D?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 10 Dec 2025 23:22:29 +0900
-Message-Id: <DEULRAM55E2G.1464D4JSWL3SZ@ventanamicro.com>
-Subject: Re: [External] Re: [PATCH v3 5/8] riscv: smp: use NMI for CPU stop
-Cc: <conor@kernel.org>, <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
- <aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <luxu.kernel@bytedance.com>,
- <linux-kernel@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <jassisinghbrar@gmail.com>, <conor.dooley@microchip.com>,
- <valentina.fernandezalanis@microchip.com>, <catalin.marinas@arm.com>,
- <will@kernel.org>, <maz@kernel.org>, <timothy.hayes@arm.com>,
- <lpieralisi@kernel.org>, <arnd@arndb.de>, <kees@kernel.org>,
- <tglx@linutronix.de>, <viresh.kumar@linaro.org>, <boqun.feng@gmail.com>,
- <linux-arm-kernel@lists.infradead.org>, <cleger@rivosinc.com>,
- <atishp@rivosinc.com>, <ajones@ventanamicro.com>, "linux-riscv"
- <linux-riscv-bounces@lists.infradead.org>
-To: "yunhui cui" <cuiyunhui@bytedance.com>
-From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
-References: <20251127125305.89961-1-cuiyunhui@bytedance.com>
- <20251127125305.89961-6-cuiyunhui@bytedance.com>
- <DEP4X1DAIOU5.2WLIV4BMWLMRR@ventanamicro.com>
- <CAEEQ3wmAn=9w=fR=OMTMF17_tAcEnsdJWL_w8fw-3wA-Bfi6xw@mail.gmail.com>
- <DEPGLFUVHA0O.XSZVD2T1ENLD@ventanamicro.com>
- <CAEEQ3wngwxjiytt7g6XY0bC1PL4A1NEmirML7FiqXMA4_K0irw@mail.gmail.com>
-In-Reply-To: <CAEEQ3wngwxjiytt7g6XY0bC1PL4A1NEmirML7FiqXMA4_K0irw@mail.gmail.com>
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: dbe04c51-2f96-487d-ed79-08de37fc1f04
+X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Dec 2025 14:55:12.4317
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: q9ghEw4syJc/WaFJzL+wsEAFYvWSDfqaBfyd9CZrPprNtUmEAHFgWzoAfjxWlnGCVTYXnll8Q2lyQR/xloIAIw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9475
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_062234_756416_375AE0F5 
-X-CRM114-Status: GOOD (  23.29  )
+X-CRM114-CacheID: sfid-20251210_065519_625497_1C9864F6 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,90 +166,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-2025-12-08T19:40:39+08:00, yunhui cui <cuiyunhui@bytedance.com>:
-> Hi Radim,
->
-> On Thu, Dec 4, 2025 at 9:16=E2=80=AFPM Radim Kr=C4=8Dm=C3=A1=C5=99 <rkrcm=
-ar@ventanamicro.com> wrote:
->>
->> 2025-12-04T13:28:45+08:00, yunhui cui <cuiyunhui@bytedance.com>:
->> > Hi Radim,
->> >
->> > On Thu, Dec 4, 2025 at 12:07=E2=80=AFPM Radim Kr=C4=8Dm=C3=A1=C5=99 <r=
-krcmar@ventanamicro.com> wrote:
->> >>
->> >> 2025-11-27T20:53:02+08:00, Yunhui Cui <cuiyunhui@bytedance.com>:
->> >> > Use NMI instead of IPI for CPU stop if RISC-V SSE NMI is supported.
->> >> >
->> >> > Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
->> >> > ---
->> >> > diff --git a/drivers/firmware/riscv/riscv_sse_nmi.c b/drivers/firmw=
-are/riscv/riscv_sse_nmi.c
->> >> > @@ -58,6 +58,7 @@ static int local_nmi_handler(u32 evt, void *arg, =
-struct pt_regs *regs)
->> >> >       type =3D atomic_read(this_cpu_ptr(&local_nmi));
->> >> >
->> >> >       NMI_HANDLE(LOCAL_NMI_CRASH, cpu_crash_stop, cpu, regs);
->> >> > +     NMI_HANDLE(LOCAL_NMI_STOP, cpu_stop);
->> >>
->> >> Please document the intended preemption design for all SSE events,
->> >> because it will be a nightmare if we forget some assumptions in the
->> >> coming years.  (That includes the relative priorities of RAS/PMU/...)
->> >
->> > Actually, LOCAL_NMI_CRASH, LOCAL_NMI_STOP, LOCAL_NMI_BACKTRACE,
->> > LOCAL_NMI_KGDB, ... are all implemented via the single SSE event
->> > SBI_SSE_EVENT_LOCAL_SOFTWARE_INJECTED. Per the SSE design, no
->> > preemption will occur among CRASH, STOP, BACKTRACE, and KGDB events.
->>
->> That is how it is.  I don't understand why it must be like that.
->>
->> For example: PMU_OVERFLOW has lower event_id than SOFTWARE_INJECTED, so
->> it will currently interrupt NMI_CRASH as they both have priority 0,
->> although NMI_CRASH probably shouldn't be masked by anything, and should
->> preempt everything.
->> NMI_BACKTRACE, on the other hand, probably shouldn't have that high
->> priority as there seem more important events (e.g. RAS and NMI_CRASH).
->>
->> The issues can be avoided by event priorities, masking, or deemed as
->> non-issue, but I think it would be beneficial to provide some reasoning
->> behind the design, as the choices don't seem obvious to me.
->
-> Indeed, it is necessary to consider the priority among different
-> events. Should different priorities also be assigned to NMI_CRASH,
-> NMI_BACKTRACE, NMI_STOP, and NMI_KGDB?
 
-I think it would be beneficial to document the desired behavior even if
-we can't (currently?) implement it, because like you said, SSE can't
-directly express the priority when multiplexing SOFTWARE_INJECTED.
 
->                                        Do these operations need to be
-> visible to the BIOS?
+> -----Original Message-----
+> From: Francesco Dolcini <francesco@dolcini.it>
+> Sent: Wednesday, December 10, 2025 1:46 AM
+> To: Ivan T. Ivanov <iivanov@suse.de>; Frank Li <frank.li@nxp.com>; Jason =
+Liu
+> <jason.hui.liu@nxp.com>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>; Will Deacon
+> <will@kernel.org>; Mark Brown <broonie@kernel.org>; Mark Rutland
+> <mark.rutland@arm.com>; Shawn Guo <shawnguo@kernel.org>; Aisheng
+> Dong <aisheng.dong@nxp.com>; linux-arm-kernel@lists.infradead.org; dl-
+> linux-imx <linux-imx@nxp.com>
+> Subject: [EXT] Re: [PATCH v2] arm64: errata: Add NXP iMX8QM workaround
+> for A53 Cache coherency issue
+>=20
+> Caution: This is an external email. Please take care when clicking links =
+or
+> opening attachments. When in doubt, report the message using the 'Report
+> this email' button
+>=20
+>=20
+> Hello Ivan,
+>=20
+> On Thu, Apr 20, 2023 at 02:29:52PM +0300, Ivan T. Ivanov wrote:
+> > According to NXP errata document[1] i.MX8QuadMax SoC suffers from
+> > serious cache coherence issue. It was also mentioned in initial
+> > support[2] for imx8qm mek machine.
+>=20
+> Ivan, from what I can see this patch was never merged and there was not a=
+ny
+> follow-up on this. What's the status? Are you planning to work on it?
+>=20
+> Frank, it would be nice to have this issue sorted out in mainline, any
+> chance that NXP can help move this forward?
 
-BIOS shouldn't care what lower privilege wants to do.
-SBI could define more events for software use, though.
+Jason worked the original solution, what's difficult of upstream accept the
+Solution?
 
->                      Could you kindly provide some good suggestions?
+Frank=20
 
-I think it would be good practice to explicitly set a unique priority
-when registering SSE events.  Maybe through a global priority enum, and
-make sure that all event registrations are passing a value from that
-enum.
+>=20
+> Francesco
 
-That would make sure that different events interact like we expect them
-to, but it doesn't solve the multiplexing issue of SOFTWARE_INJECTED.
-
-If we're fine with all SOFTWARE_INJECTED sub-handlers having the maximal
-priority (higher than RAS/PMU/UNKNOWN_NMI/...), then we could hope that
-lower imporance handlers (e.g. BACKTRACE) won't hang, so the higher
-importance handlers (e.g. CRASH) would eventually run.
-We're dealing with low-occurrence scenarios, so this might be "good
-enough for now"...
-
-Situation would get simpler if we could avoid some sub-handlers;
-alternatively, it would get more complicated if SOFTWARE_INJECTED had
-lower priority than some other event -- we'd make CRASH partially
-recover its high priority image by masking other SSE events during its
-execution (and we'd need warding amulets against hangs and starvation).
-
-Thanks.
 
