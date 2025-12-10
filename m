@@ -4,147 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38914D3C91D
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 15:24:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89F28D3C920
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 15:30:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5UQvzWk765SAQZvXHAtTHMHgTYskLRLxG2/Nb8QoU9g=; b=AiWfKfHxj3nsnRv5vqhMs8YIVK
-	ks6e/xozIZ4hajzNS7H+ghLjNEARrq3MsWSQrr3VLVyEmju0gYYmxT7smu5zE23xVHkOAqkdkCCEO
-	GkePcUF2t1SI5PoUCEZ3QEI+7rPMFZToDpcgXyjVZJqx6NG0ygfRNZA+UT0QvnjW5ZVXJ95vwSMKv
-	W+0rEGmTDz+gQZXBGdX+4CRuhsHRd0gNMgNWGZDDpd9EoSYPUINiQe5Fa5nyywKc4qbG2zuU7IwzT
-	2KD6wp32PZqdzMwpoynqYxQF3GyrWJrh/S9c/0SW+1+IvrxKM0KSDkJrrnrjSTXePNnkcyaNiXlJL
-	1LSF7YAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3oM7C5JKk0bBzWgIUK1EKF/80L5/WNgj6mhCv2v/NwU=; b=a9g4qs4wt1tiYiNB3oIZTA+HJh
+	ptGMcOBm4SA31cMWn+F2Ak3G6xED9quu1eABzysjaIzTYa0WAVajoQt0uAjI8xcEvNS+sCWiq9++Y
+	3xTJ19rKI5v2llf08h5XodKUXTh+o6Xrvx+c9B0fpIy76S4Ic8QYG5rreR//0N9xhDDtmjv+V5hq7
+	T3BrFBzpxl2daEEDa4sY8RAGJ4YlZEISSpe+W7XMPa6vKRodWRf5as675LQvnfYnJtJMT5TBdzrdF
+	2+wC4p0XT7vlam2dsGylqeQ/DalI3XtPpflduW4ZVrZjCZSgrhP3qVuStLQIOrBqCCY93Cv0Ok6/b
+	EXqHa7vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTM3N-0000000FZ57-0SEk;
-	Wed, 10 Dec 2025 15:24:33 +0000
-Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vTM99-0000000FZPH-2OJh;
+	Wed, 10 Dec 2025 15:30:31 +0000
+Received: from mail-lf1-x135.google.com ([2a00:1450:4864:20::135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTM3K-0000000FZ4g-3n98
+	id 1vTM97-0000000FZOR-10UE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Dec 2025 15:24:31 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=XGmUP27h8KgBh5BmC9lrE+yGJuU6n/4Hc9TmjIP1QbqKaOvDvW7XyY+j4cf2xMcpd8XZ9lOjcmvR/4Nscs/5P9j0CoXe0kYMk6q6YsBC7IXldzAA5JQX0q/ArYThH1mNjASYnzQ8dtQddQmLxCp7qP8/jdpiXGNreRxf/hjRzxNtTBRWPMZKK/G4dSGY19QdYX2jO7alYLKqC4Y0EdNrVEKez81pAzdgIdPXq8Hq/FkwD/9MkrH9a2DpkT9W204h/Hisyv+ZPsBSLIYknNojWp67+Bn0lM8rvWxxlzJmXwo3fbAS57mO24S8TQItPT7ri22e9ME8pCEqgDiBCHZ3FA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=5UQvzWk765SAQZvXHAtTHMHgTYskLRLxG2/Nb8QoU9g=;
- b=cNVVF3CpU3CuUXcpNs76NBAXeCjHqyHu0GioD9RVAs+ZVMHMgllOIn1PPP7we+lG6K3qN8EOSjI0bxTObptkarS/DDtrC1YghVs9Rh4uM7gkddqsjywxtK4qfyLxUPEZ6ClYBJBxwHZ9JSw3RgiJpIuifeB/ydXuoAs2+krjhW+HDk19qpITUGSixLK2ey/VPO4K6clAufAT0amzY5yJ7qG82ttTQ2JTUB7Ks1tYFBa01m91EcubfZt2GHKUAHaVOYODunp7SZuOaQXhibka1LcqIdUlu890cz9lYIAY6LTEtAN7KL48awBX1yfwIktHY30pUvjV1wssZbEUt2l4ng==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=5UQvzWk765SAQZvXHAtTHMHgTYskLRLxG2/Nb8QoU9g=;
- b=chyatg21IakaCe9fyOrB1EhEwEOosbW2mQYI0QC2mvvw0/ytvwVexgwWnCOqyE93gK1F/56UMGmwc/zyV7MgfYgN36O9IN4h1O0n2g7V5TjoLBj2taZTHjU/DhNDzt8SPTjKhPGjwEUe8bDNB3ZyAsRYhYqgdvWvuPGI0ahiEHbqrkKrgVOuwIMR2HYEpCKx1hEjc8rIJUW+9rION2o4tZWVAYzmDIZCX1KbtzhpQTEtvxFKF2zns6SVrESMevWcl6QwmpMZfnpmOVgA4tn6JVA3NXcF0EjllyRxFYh0nRRt4OOtxeBLNEZDCioJ+Lll3yCLp46J8JmXysMWugcVxA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
- by AM0PR04MB11931.eurprd04.prod.outlook.com (2603:10a6:20b:6fd::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.7; Wed, 10 Dec
- 2025 15:24:26 +0000
-Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
- ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9412.005; Wed, 10 Dec 2025
- 15:24:26 +0000
-Date: Wed, 10 Dec 2025 10:24:19 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Wentao Liang <vulab@iscas.ac.cn>
-Cc: ulf.hansson@linaro.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, linux-pm@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH v3] pmdomain: imx: Fix reference count leak in
- imx_gpc_probe()
-Message-ID: <aTmQo6L96/PcpVq0@lizhi-Precision-Tower-5810>
-References: <20251210033524.34600-1-vulab@iscas.ac.cn>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251210033524.34600-1-vulab@iscas.ac.cn>
-X-ClientProxiedBy: PH8PR20CA0011.namprd20.prod.outlook.com
- (2603:10b6:510:23c::14) To DU2PR04MB8951.eurprd04.prod.outlook.com
- (2603:10a6:10:2e2::22)
+	Wed, 10 Dec 2025 15:30:31 +0000
+Received: by mail-lf1-x135.google.com with SMTP id 2adb3069b0e04-5957ac0efc2so7856954e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Dec 2025 07:30:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1765380626; x=1765985426; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3oM7C5JKk0bBzWgIUK1EKF/80L5/WNgj6mhCv2v/NwU=;
+        b=GZ4nrx37N3jwQrhIj19LtyinoqblsVOcFdjDuS5vm9i4mYvhGFJ7WTYKiPOL4LKT92
+         xhuAKskxkFcnZmX8Y/UhX0t259sDoiwJiu9DPNcGRWsoHWBoubhfpj9gggA0ylsmuoQY
+         3dYdL3TUXSPYabSJVdvuLYxSvhdy66/Nmiy6NIJv+0lcgHsKwbBYU55c59fJ6CEROSVx
+         QIPGNp4FCJlECPZdotY/9VYpu4uGGg8bl1aIeZMYEvMVgj5R87rTs2V0i8v+PlPjEri2
+         E9ga4h0p575EP307pKYRQ5o31hAM1wQKtyiFWQ6In9QzUDmqsoEjjVzV8s8SG2wQyKou
+         ZJCA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765380626; x=1765985426;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=3oM7C5JKk0bBzWgIUK1EKF/80L5/WNgj6mhCv2v/NwU=;
+        b=VtXsEbydpcISxgcR+OqbsjJEB1MsPfuAg2xXiKwPHI6ockRNfWNjxcjGOt0i77QL8P
+         7V3KDdQKjlzDmmDGCmuMOeUHHPn1RcHKQKgIwyNrEgzT31pcxeD37mYp1oxaFVYZ+5NO
+         ER5nfCo3//KV7LKWxtDvcjFIQq8kjlFU3g+EF473913YkhbW4Ok+YcU7TTF9KFRvaEYm
+         FCrqMUkOy4taORAe2mBUugGAJPhUWtMIFSD0cywxMsYM73ibO00R/KzgLI93LfB2ddI4
+         q7ATiki2W2mHBbIWB2g+6/bSKqjsjdOjOw6s0fy+EFTeVixPqMsB74ZOc1wHS+lH0LoB
+         cQHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWhLjBMMnyWlIpWmWHCmucniuQkbKbVGdsd8Vw2NzopyJ0IhULX2Hu6s0nFKbtnY4VkaB9vRIITJfr7xtQG9FI3@lists.infradead.org
+X-Gm-Message-State: AOJu0YzS9P75rqgKUOy/l81wNYXppwDC134xDpH8ldNUHBqw5HI3yKJl
+	Ory3VkhLLbiReBzPHtvT9HDWud/jezOhupRbiMI0Y7/m/7nNgZxl1/N/KJLS1OCeTqk11GYoM5h
+	S9Rr7dbY1LlUfclt0kFbSPKGJEK2sf1WFZkBNNspJuA==
+X-Gm-Gg: AY/fxX6OGnpjllPCSUz+Ms3LPQRxj7yvKEdE7eU3TzvJ9Z1RHamKaNZTMhx0dpaIWzx
+	trroUf9mrE1gsw6KevqlGFxgPsR2mtvqXfJtLeclViQ+6sH8KdehgHq+QHhP7Dli4XGYtNayxtG
+	OLMtebbi0UxIuSjPWTPDomyaOBCjd0T3biqIJ/BLIvaSeWmYTJzC9kY/sD60S8aBwNlpXX2RCWb
+	RCYxz7xFNppBzJH6FBbJktPZQ9VQ8LQryJ8ojKgiJlkQY450oeRiFDz4veqVnXFQT7PoiUHEyrK
+	MLMu6a5K3cX1w1OCwUxsMGmKXfhD
+X-Google-Smtp-Source: AGHT+IEYPLumSLiqv9vm35UuD54sgjwSHWM6ebmAu9tuA8+ywHCPfhWkSszStzlqK4kPNAby2b3RcjziCDgwx+M2Kvw=
+X-Received: by 2002:a05:6512:15a8:b0:595:81c2:9920 with SMTP id
+ 2adb3069b0e04-598ee4dbebdmr1141791e87.27.1765380626523; Wed, 10 Dec 2025
+ 07:30:26 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|AM0PR04MB11931:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5413c80e-e5f0-4fdb-f055-08de3800341f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|19092799006|1800799024|52116014|376014|7416014|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?LxYdAwoGlXYr1vPPDaOc7q3CNHLY9GtlUgneYJ0h1FQqerRFtcKzIPzD8qBV?=
- =?us-ascii?Q?VXnXheh9VMCIETBaFzB5ugB/i/+0LHGXTuvxVbwaKtL+8s9unqH4ZTBKu24s?=
- =?us-ascii?Q?fF9E/fKhmMUNhSHvqSph/KvlhtJfxBf24iQ/xcJwS6jxTKW0njjxEedvyiyY?=
- =?us-ascii?Q?syq9CkcvA1yGWqYZabjGpoLKCqoOQtbWBGRQs9xSb2yTKUICoyTnsQ9pZcL0?=
- =?us-ascii?Q?5gPoA05l4lCTtEQuVbnUWylUkwVmkfogMBFa8yedhwQrG5NERSMpBVAtjqGf?=
- =?us-ascii?Q?AmZ3bbDnsNVkFRG7WsPCwHrsGhR3ZBEFEQRY4NIt2G39L7WsDcB2612Fwaum?=
- =?us-ascii?Q?Ae7M6+QKlzTIX2JVnKMb3lsGKdwQoED/ERD2Omo5A0SrAgU4dlBRGrFZgl2M?=
- =?us-ascii?Q?RC8BWngxsvXV1wZHqq5Y77DNne6a8RpzSLXKaUt8Rr9obyKmqSM5lJ0z/2CP?=
- =?us-ascii?Q?hEXgwRqr3gVrQ3BwhyGgKS9/3jAiiqJgZS5hWZJwghVIntv5g0JMYYoC8lq3?=
- =?us-ascii?Q?5r7yIC04arets76rTiE1T9gy1eNtdiJawmSQ68utktrSq/01y3DHQlls9TTT?=
- =?us-ascii?Q?YiGvWpDB37Owwtm6F4HPqPs1mAo3lfxZD4cHL+HIaiyLhkxQzEM6IAcaslBK?=
- =?us-ascii?Q?GvF3QnW5yb53fR9QlNg/F2MoanG/5V7UD3UvIdsO3drgZ+/rsZ16L2JG9I06?=
- =?us-ascii?Q?tpPX2C0V6HOZtMRY/9dvKvXS+Z+qNIrLCWWjSxjVrptyBzwskxGV65ngiQ6z?=
- =?us-ascii?Q?PgVWK8IkEK2v9SQpzq7clevgOXlJvjqH+L8uG7ReBlPN4cdiC3ioM9Vm5oO9?=
- =?us-ascii?Q?v+xyKam3Lr0PmztCBNIcRPFQpgLuUVTxbwASydQaA2azIJRcnGwlXCkfXEKp?=
- =?us-ascii?Q?JV9pxF7eS0dLJGUltoCPaiSyhVFiVgaHjwxAuvfNZoaVerYFgXwEBEW8Fg5X?=
- =?us-ascii?Q?eo5drxebrHDeCijVDxJi4Z4okZHu/QOvpOp6S4K4MI3nekEPc3ONE5nlJN3Q?=
- =?us-ascii?Q?qHyFNqyg5VvpGtl9ILEGyrxoAjMoAbr99G0jy6WgCQxOtI6SOLx18j7vkqk7?=
- =?us-ascii?Q?oHrIRdlEnipGVI5MbP55r5I9eljf8NqD/LdhuWAxex+ljuU+K5E1Y90TDLMa?=
- =?us-ascii?Q?KFZIkSn97PcYXQ6QWSfmjP1h5aznZkwWgMFwVuvsiNb2GQtrs3T+vIsFEr+G?=
- =?us-ascii?Q?PqBTIxEiS/LGP7TO8ohOtO6hzeXgnbrzcLo5IfuzUMiwOMu4vxYefQhquVVB?=
- =?us-ascii?Q?Vj/Xpi7XVhLmV+SeCCFfIHTOwk5uFL4+yIcItUXM0/xbTtKorvbXCz4HNWjF?=
- =?us-ascii?Q?zfw+DC5swZ9nsS4dV8IUFYZBcrF3gLbqc5ALbn3ExOa/xTZH6+Gndyq8JWgy?=
- =?us-ascii?Q?4tH3IN2HvIdTlUzUEY6Dvt8g9eD1AWOcH8ur4n7KfT7SMlOkE5xFO2a9z3jt?=
- =?us-ascii?Q?mVOF3WpyUmT7YnM80SeE71z4t4RfDo+3CTvWWTB/yf0/leuOblQGnvYHvTo6?=
- =?us-ascii?Q?W51WrvtkfOR6yptacEeqCHtRIvHdlOFflaki?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(19092799006)(1800799024)(52116014)(376014)(7416014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?6fK1yasb0Ys8Seom0nJIO9Ar5UrfOpDvfpo9W7w/TrBTuHib7GJUKsRklUzg?=
- =?us-ascii?Q?jMFnWJJUT7ltXLOzAxr/zXtKHxqlrPElerOH3rZXF901NSQBdXSMEM6q2tJc?=
- =?us-ascii?Q?447MNubseWyLmuxaEADjxvlpyvoTa9ZUWFsQR90q1tIn5q4p4uTlxebxfhTn?=
- =?us-ascii?Q?BIP7CO8SMDcOa5B5MOnZBPjFWyydWsOENnVNWANrEYEu6LRIf86A034Atq+z?=
- =?us-ascii?Q?wCAvU37q9jjLXHSmpe/1C4xHJ4yzXhJuLvom45l8gSwQSXxdWB2SAazRg5ku?=
- =?us-ascii?Q?2VpPa2E3G4KpXo2+s8E93JQqggXNBCjPnfKBw/ZQmAZ/w6JClObGSzc7jgsF?=
- =?us-ascii?Q?B3wfh2kMYPEdgYpfYE7PzeWd0HUtL81c5lMZ7x8si8c84q/2is3pM5IlCA59?=
- =?us-ascii?Q?StgqjyjfamnZ9K/KIFJMi8t4DSeRg6ZXXmnkwberLnBoKbF0rrmKwvjvITXD?=
- =?us-ascii?Q?QNK8SyQY1yXWIo14UxBQL5yxOTJcw25Pg8TmvYu6AKpmXWREjMW63KALsNFg?=
- =?us-ascii?Q?pgLNTy8Dxcr9vyyO71l11Ikw47OVqHF2pg31c+Xvi/YmkMzggg2YizjxONk1?=
- =?us-ascii?Q?EDXGMBjGcc0rvVWHvNPMsFbJkclWbzfbgUTu9vQ+cEQquNxiUlUDzekWIrmx?=
- =?us-ascii?Q?O7mgJpk/Ib7dVugv11KGSDiJ+PpUsjwmDcH7/rDot/iyFOXsutWFlJLuX6bj?=
- =?us-ascii?Q?A7yIO//5fKrMeZAtvrdyqDQ/QLHkGnI8X9aDWMiHYYSoOhR6+wMu/BHCXmK4?=
- =?us-ascii?Q?Rl8T0ZJB7YW8BCVQq/9U6XlMSjskSDk6L7jkiJFWVXcXrpBL/gos0r8/nowU?=
- =?us-ascii?Q?zGSqKYw5bKmNhyU2mkbBQ7wdGOjquRZ4unJBCWSnEDQcUl49fG4Qphl/T3oq?=
- =?us-ascii?Q?+JZyWDiMNh3przVKVRDilAa30SeQakl5hPMbzGQE5o3SGrkO9UJ0U+gSqaEA?=
- =?us-ascii?Q?pDGkKlk9VsdINJGX4N5VfiRdjIIvWjS4C7hXEiaaMzRKjTSm9y0t64Ega1aG?=
- =?us-ascii?Q?r25x4fsqxh+hzgIbi7fzozIufZHdoJQnBzuWgwcMKk0DAnVUhpWj1llBYtx6?=
- =?us-ascii?Q?Sgkvjn4yPEDHWsjFBraVIBNrcQT+OygCEYbLCPuXlC0AM3lQU7KghEMgkiMn?=
- =?us-ascii?Q?Db273CdMG51FccpcuM3Q5KWCUOYnjaeeR8i7UrGaIbxXiper6jEpZysU++eT?=
- =?us-ascii?Q?EEJMkDTNf1q2X2S85s/meWcEknsOQu9DJ1ojrlS8XDQCqCRpcafLHE7rbtjI?=
- =?us-ascii?Q?sgEkaupngIPdC8/8dVnwDil3rCbHgTg0X13VhWLOrtUEIMphO6Mt246q5LHQ?=
- =?us-ascii?Q?LQVR+X++GAYHGj6YhxOL7rgT0SO/Nc1tqEZn+J0Jd41OfWyRRfPo7ccIUXpL?=
- =?us-ascii?Q?M9j+OhtBs99gwhdVDTmoUY+at/Z3cq3jhfYLQTOJWxc0n7/fSsNCGOJrgsIC?=
- =?us-ascii?Q?JSExrg4F0POYCJMC7Z2/W0Tq0+SPWdeHt+N9kCAWs6k6dPkAfNl7bSrLwLq8?=
- =?us-ascii?Q?NHt+zdye5WW4UvpB436YXuMBhCS+YfTQ0uafYdIaDg5xFppLJz6TKzcIsyZJ?=
- =?us-ascii?Q?wcPLr87Azb0F64wXrQl5l5tbQLtQkwMbhYxFKSTj?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5413c80e-e5f0-4fdb-f055-08de3800341f
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2025 15:24:26.0089
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: j/fA8wVz+Jjw1R2y8bYlqb8Z2FmiA7OC74Kg/GUR/Tip0ePVyCDYVdwiqLGcfdnZ7PeI1e2H0H1OfBlHvGtUaQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB11931
+References: <20251107141303.223254-1-marco.crivellari@suse.com> <7e24110636db36e8c0a877d90d2ed9570c4aecf5.camel@ndufresne.ca>
+In-Reply-To: <7e24110636db36e8c0a877d90d2ed9570c4aecf5.camel@ndufresne.ca>
+From: Marco Crivellari <marco.crivellari@suse.com>
+Date: Wed, 10 Dec 2025 16:30:15 +0100
+X-Gm-Features: AQt7F2pXItH5geVIbULqaw0IgXchV7ZnVe5Ou6Cc5C27xz9gAGtwoAoMzdHRMko
+Message-ID: <CAAofZF44pUoyDPnnv9UUuMkYvqiSWP4gELg4rutgo=3tNpBZsw@mail.gmail.com>
+Subject: Re: [PATCH] media: platform: mtk-mdp3: add WQ_PERCPU to
+ alloc_workqueue users
+To: Nicolas Dufresne <nicolas@ndufresne.ca>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	Tejun Heo <tj@kernel.org>, Lai Jiangshan <jiangshanlai@gmail.com>, 
+	Frederic Weisbecker <frederic@kernel.org>, Sebastian Andrzej Siewior <bigeasy@linutronix.de>, 
+	Michal Hocko <mhocko@suse.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_072430_961031_94231912 
-X-CRM114-Status: GOOD (  19.67  )
+X-CRM114-CacheID: sfid-20251210_073029_312631_AB1C3292 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,58 +102,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 10, 2025 at 03:35:24AM +0000, Wentao Liang wrote:
-> of_get_child_by_name() returns a node pointer with refcount incremented.
-> Use the __free() attribute to manage the pgc_node reference, ensuring
-> automatic of_node_put() cleanup when pgc_node goes out of scope.
+On Tue, Dec 9, 2025 at 9:57=E2=80=AFPM Nicolas Dufresne <nicolas@ndufresne.=
+ca> wrote:
 >
-> This eliminates the need for explicit error handling paths and avoids
-> reference count leaks.
->
-> Fixes: 721cabf6c660 ("soc: imx: move PGC handling to a new GPC driver")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
->
-> ---
-> Change in V3:
-> - Ensure variable is assigned when using cleanup attribute
->
-> Change in V2:
-> - Use __free() attribute instead of explicit of_node_put() calls
-> ---
->  drivers/pmdomain/imx/gpc.c | 5 ++---
->  1 file changed, 2 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/pmdomain/imx/gpc.c b/drivers/pmdomain/imx/gpc.c
-> index f18c7e6e75dd..0fb3250dbf5f 100644
-> --- a/drivers/pmdomain/imx/gpc.c
-> +++ b/drivers/pmdomain/imx/gpc.c
-> @@ -403,13 +403,12 @@ static int imx_gpc_old_dt_init(struct device *dev, struct regmap *regmap,
->  static int imx_gpc_probe(struct platform_device *pdev)
->  {
->  	const struct imx_gpc_dt_data *of_id_data = device_get_match_data(&pdev->dev);
-> -	struct device_node *pgc_node;
-> +	struct device_node *pgc_node __free(pgc_node)
-> +		= of_get_child_by_name(pdev->dev.of_node, "pgc");
+> Hi,
+> I have to admit, there is likely no review here due to the lack of knowle=
+dge, so
+> in order to help educate myself (hopefully its not just me), can you expl=
+ain why
+> the new default of WQ_UNBOUND would not be a fit for this driver ? After =
+all,
+> the author didn't care and didn't make a choice, so I feel like its worth
+> asking.
 
-Does it pass build? Sorry I have typo at previous comments.
+Hi Nicolas,
 
-struct device_node *pgc_node __free(device_node) = of_get_child_by_name(pdev->dev.of_node, "pgc");
-                                    ^^^^^^^^^^^
+The fact is that "alloc_workqueue()" without WQ_UNBOUND it means per-cpu.
+So what we are doing here is just make explicit that the workqueue is per-c=
+pu.
 
-Frank
+Currently there are no behavioral changes in alloc_workqueue(); in a
+future release
+WQ_UNBOUND will be removed and unbound will be the default. But as for now,
+it is still per-cpu.
 
+We can of course change the current behavior and I can send the v2 with
+WQ_UNBOUND instead. Looking at the code there are not per-cpu variable and
+the workqueue does not have the WQ_BH flag, so we can convert it if it
+is better.
 
->  	struct regmap *regmap;
->  	void __iomem *base;
->  	int ret;
->
-> -	pgc_node = of_get_child_by_name(pdev->dev.of_node, "pgc");
-> -
->  	/* bail out if DT too old and doesn't provide the necessary info */
->  	if (!of_property_present(pdev->dev.of_node, "#power-domain-cells") &&
->  	    !pgc_node)
-> --
-> 2.34.1
->
+Thanks!
+
+--
+
+Marco Crivellari
+
+L3 Support Engineer
 
