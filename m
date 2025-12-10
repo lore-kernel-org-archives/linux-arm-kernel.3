@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0B3AD2CE17
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 03:50:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62254D3C526
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 03:50:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2u9tsd98lGmo0QOJXaJPZuwZVBgxx2lKl/D63YfmpiM=; b=WXbsUZZ6hRcpsfDdSgx02ClfRb
-	v+RHLBywiqxfavfuehlaomKkXCmEoMnnMdWTyFwzg1NjheD7YjUVVER46gKmYPVBCvvx6IzNBlX4C
-	axqcRsFq/il0G62y6hYuuXBTWCB3Qq552jQ4PW1NlTraePZ7x6nMzlgETDrF4CQvoeZ03rLhDO+0Z
-	xDulziXEOguIBdcH2RyECf//Q7dDlvxxHxIbg1BsovTa9R2P7QXUiOKgAMODOr61mVqtgul4cJ8dF
-	dzOFEHkV2B9s/CAngi2KvE8u1K650RfDtuabtOWaq8J12t/3OaCT++l7suHGeiOGMIGDK4U6kHPE9
-	aLIJXl5w==;
+	bh=5ln2/pCX6r8O6XsN0n9rOqT603HSVNbFwlBdEhlfoNg=; b=DUh6HyOYnsFawIGrWuUakmLVK8
+	8CO8U2bis2+CWDftWO7GJ1Frw1VmuMeDvKo4GgI/HVcvnEaLZtqr7tYfJg/FeVB0C6hCA/RQGaf4m
+	oXA27PeQcXHof6vZPfdGLjcHf2XQJP6NcT54Vh/80zR5twesVE5tIcMBBIW4C/6Z6W/obKHl1MC9+
+	rALuFsDm4s0EbXYb0o+EqglOxgAK2fAMSmcm5+Z1t2Mr18Iyl1s5Alr95mrw/wsItJASi5pRNsnzf
+	NOtMzOac+Kiqm4JQSjIV1XJjyxwzH7tzwlv8LAIKlmef3Y9LpazPdgRZ8pO78b41lJtqFAgIbTw2v
+	XPrSv1KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTBDA-0000000F4G1-3XYH;
-	Wed, 10 Dec 2025 03:49:56 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vTBDF-0000000F4IB-2jTF;
+	Wed, 10 Dec 2025 03:50:01 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTBD8-0000000F4FL-2BUo
+	id 1vTBDB-0000000F4GR-3Db0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Dec 2025 03:49:55 +0000
+	Wed, 10 Dec 2025 03:49:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 94A7443C18;
-	Wed, 10 Dec 2025 03:49:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27FC8C4CEF1;
-	Wed, 10 Dec 2025 03:49:50 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3711A60142;
+	Wed, 10 Dec 2025 03:49:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9775BC4CEF1;
+	Wed, 10 Dec 2025 03:49:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765338591;
-	bh=qzSaSybZ/hCE2mmgCX5xvO5G6qJNLs6zE80wvIuZKG4=;
+	s=k20201202; t=1765338596;
+	bh=B9c4Di13C7XVEZK62c7zzFp+JvpgWm0lvIYVqsSa+uM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gzYhrOaTHjSAr0nVJmBhyccXDwVKOO5q1ARM9tePM4dO2VuGT99sFzap2iLhSHqfS
-	 9Veccu/kHomVVTCJrzwmTF6rbAVimUSDAjdLNVrTzq1IMbGtPaT/xxj6iyphvf1gLi
-	 xusERv92a5s36aegmM4t5lmvhFmpYuDv157OQRfSUjMCbfugwaduLA4QJlShtQ2pww
-	 wk9URdU4T1PeRQ92Sf8KqMwyI31Ee2jSfbSzXUgyMZMhU2nACyf0CQmGLD51eRSRHw
-	 8zIDvawhQVSew6yAtGEbZeBLmrUBIgPItzDE8FlfD40SmuGduanDuO44pwsyReE/Wn
-	 8XC5T0c19nY7w==
+	b=twnX1+cRG3p51CZ2Ti0MOWo2o8kqtDgjDEfMzcTSypaWQhvqWXHCL4nk/K8URk4m7
+	 qBogbAxr3BUucQJKqnsU+tUXCQuEVZ7waMCBK44t8cHnpUhL1noGlLoI4o+MWSq8In
+	 wClZQGshImpiKj6phjw3rJREHKJVXQI8knd13ulguTcIHgLpNf5YUGit/pks9rQvCi
+	 j4R4GAMdt4A79Fc0/O0DAxlymzldjRuThgWE5GupVMveC8/lQoxR+i15RAy0MO15kV
+	 0sTmctwrikZEL9i6HssBA+2zxhsHk9SCWl0cTi9FJ2brtSYocwdPZaxdAwe361iUJ2
+	 fBqa4j3bjbVyg==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Josua Mayer <josua@solid-run.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>,
+Cc: Peng Fan <peng.fan@nxp.com>,
+	Frank Li <Frank.Li@nxp.com>,
+	Shawn Guo <shawnguo@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
-	sebastian.hesselbarth@gmail.com,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.18-5.10] clk: mvebu: cp110 add CLK_IGNORE_UNUSED to pcie_x10, pcie_x11 & pcie_x4
-Date: Tue,  9 Dec 2025 22:48:56 -0500
-Message-ID: <20251210034915.2268617-15-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.18-5.10] firmware: imx: scu-irq: Init workqueue before request mbox channel
+Date: Tue,  9 Dec 2025 22:48:58 -0500
+Message-ID: <20251210034915.2268617-17-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251210034915.2268617-1-sashal@kernel.org>
 References: <20251210034915.2268617-1-sashal@kernel.org>
@@ -61,10 +61,8 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.18
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_194954_606220_6001638A 
-X-CRM114-Status: GOOD (  23.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,220 +77,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Josua Mayer <josua@solid-run.com>
+From: Peng Fan <peng.fan@nxp.com>
 
-[ Upstream commit f0e6bc0c3ef4b4afb299bd6912586cafd5d864e9 ]
+[ Upstream commit 81fb53feb66a3aefbf6fcab73bb8d06f5b0c54ad ]
 
-CP110 based platforms rely on the bootloader for pci port
-initialization.
-TF-A actively prevents non-uboot re-configuration of pci lanes, and many
-boards do not have software control over the pci card reset.
+With mailbox channel requested, there is possibility that interrupts may
+come in, so need to make sure the workqueue is initialized before
+the queue is scheduled by mailbox rx callback.
 
-If a pci port had link at boot-time and the clock is stopped at a later
-point, the link fails and can not be recovered.
-
-PCI controller driver probe - and by extension ownership of a driver for
-the pci clocks - may be delayed especially on large modular kernels,
-causing the clock core to start disabling unused clocks.
-
-Add the CLK_IGNORE_UNUSED flag to the three pci port's clocks to ensure
-they are not stopped before the pci controller driver has taken
-ownership and tested for an existing link.
-
-This fixes failed pci link detection when controller driver probes late,
-e.g. with arm64 defconfig and CONFIG_PHY_MVEBU_CP110_COMPHY=m.
-
-Closes: https://lore.kernel.org/r/b71596c7-461b-44b6-89ab-3cfbd492639f@solid-run.com
-Signed-off-by: Josua Mayer <josua@solid-run.com>
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Signed-off-by: Gregory CLEMENT <gregory.clement@bootlin.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+Signed-off-by: Shawn Guo <shawnguo@kernel.org>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## Commit Analysis: clk: mvebu: cp110 add CLK_IGNORE_UNUSED to pcie_x10,
-pcie_x11 & pcie_x4
+## Analysis Summary
 
-### 1. COMMIT MESSAGE ANALYSIS
+### What the Bug Is
 
-**Subject:** Adding CLK_IGNORE_UNUSED flag to three PCIe clock gates on
-Marvell CP110 platforms.
+This commit fixes a classic **initialization race condition** in the
+i.MX SCU IRQ driver. The problem is:
 
-**Key problem described:**
-- CP110 platforms rely on bootloader for PCIe port initialization
-- TF-A (Trusted Firmware-A) prevents non-U-Boot reconfiguration of PCIe
-  lanes
-- Many boards lack software control over PCIe card reset
-- If a PCIe port had an active link at boot and the clock is stopped
-  later, the link fails permanently and cannot be recovered
-- PCIe controller driver probe may be delayed on large modular kernels,
-  causing the clock framework to disable "unused" clocks before the
-  driver takes ownership
+1. `mbox_request_channel_byname(cl, "gip3")` is called, which sets up a
+   mailbox channel with `imx_scu_irq_callback` as the receive callback
+2. Once the channel is established, interrupts from the System
+   Controller Unit (SCU) can trigger the callback **at any time**
+3. The callback (`imx_scu_irq_callback` at line 175-178) calls
+   `schedule_work(&imx_sc_irq_work)`
+4. **But** `INIT_WORK(&imx_sc_irq_work, ...)` was being called **after**
+   the mailbox channel was requested
 
-**Important tags:**
-- **No "Cc: stable@vger.kernel.org"** - maintainer didn't explicitly
-  request backport
-- **No "Fixes:" tag** - unclear when the issue was introduced
-- **Reviewed-by: Andrew Lunn** - reputable ARM/networking kernel
-  developer
-- **Closes:** link to lore.kernel.org bug report - confirms real users
-  hit this
+If an interrupt arrives in the window between
+`mbox_request_channel_byname()` and `INIT_WORK()`, it would schedule an
+uninitialized work struct, leading to undefined behavior, crashes, or
+memory corruption in the workqueue subsystem.
 
-### 2. CODE CHANGE ANALYSIS
+### The Fix
 
-The change adds a new `gate_flags()` helper function that returns
-`CLK_IGNORE_UNUSED` for three specific clock gates:
-- `CP110_GATE_PCIE_X1_0` (pcie_x10)
-- `CP110_GATE_PCIE_X1_1` (pcie_x11)
-- `CP110_GATE_PCIE_X4` (pcie_x4)
+The fix is trivially correct: move `INIT_WORK()` to **before**
+`mbox_request_channel_byname()`. This ensures the work struct is
+properly initialized before any callback can possibly use it.
 
-This flag is then passed to `init.flags` when registering gate clocks.
+### Bug Origin
 
-**Technical mechanism of the bug:**
-1. Boot proceeds with PCIe link established by bootloader
-2. Clock framework marks these PCIe clocks as "unused" (no driver
-   claimed them yet)
-3. Late in boot, clock framework garbage-collects unused clocks
-4. PCIe clocks are disabled, breaking the active link
-5. When PCIe driver finally probes (especially in modular configs), link
-   is irrecoverably failed
+The bug was introduced in commit `851826c7566e9` ("firmware: imx: enable
+imx scu general irq function") in kernel v5.2-rc1 when this driver was
+first created. The initialization order was wrong from the very
+beginning.
 
-**What CLK_IGNORE_UNUSED does:**
-Tells the clock framework to never disable these clocks just because
-they appear unclaimed. This is the standard mechanism for clocks that
-must remain active until a driver explicitly takes ownership.
+### Stable Kernel Criteria Assessment
 
-### 3. CLASSIFICATION
+| Criterion | Assessment |
+|-----------|------------|
+| Obviously correct | ✅ Yes - classic "initialize before use" pattern |
+| Fixes real bug | ✅ Yes - race condition causing potential crashes |
+| Small and contained | ✅ Yes - moves one line of code |
+| No new features | ✅ Correct - purely a fix |
+| Tested | ✅ Has Reviewed-by from NXP engineer |
+| Low risk | ✅ Cannot introduce regressions |
 
-**Type:** Hardware workaround / quirk for platform-specific behavior
+### Risk vs. Benefit
 
-This falls into the "quirks and workarounds" exception category for
-stable kernels. It's a workaround for the specific constraints of the
-Marvell CP110 platform where:
-- TF-A manages PCIe lane configuration
-- Clock disable breaks PCIe links irreversibly
-- Driver load timing varies across kernel configurations
+- **Risk**: Extremely low - the work struct must be initialized before
+  use regardless of when the first interrupt arrives; moving
+  initialization earlier cannot break anything
+- **Benefit**: Prevents crashes on i.MX SoC platforms (used in embedded
+  systems, automotive, IoT devices) where early interrupts could trigger
+  the race
 
-### 4. SCOPE AND RISK ASSESSMENT
+### Dependencies
 
-**Size:** ~21 lines added, 1 file changed, self-contained
-
-**Risk level:** LOW
-- Only affects Marvell CP110 platforms
-- No changes to core clock framework
-- Worst case: slightly higher power consumption (clocks stay on when
-  could be off)
-- No chance of breaking other subsystems
-
-**Subsystem:** mvebu clock driver - mature platform-specific driver
-
-### 5. USER IMPACT
-
-**Affected users:** Marvell CP110-based platforms (Armada 7K/8K,
-SolidRun products, etc.)
-
-**Severity:** HIGH for affected users - PCIe devices completely fail to
-be detected
-
-**Real-world evidence:**
-- Bug report on lore.kernel.org linked in commit
-- Reproducible with "arm64 defconfig and
-  CONFIG_PHY_MVEBU_CP110_COMPHY=m"
-
-### 6. STABILITY INDICATORS
-
-- **Reviewed-by:** Andrew Lunn (highly respected maintainer for this
-  subsystem)
-- The CP110 clock driver has existed for years - this isn't new code
-- Change is isolated and uses standard clock framework mechanisms
-
-### 7. DEPENDENCY CHECK
-
-- Self-contained change, no dependencies on other commits
-- The CP110 clock driver exists in stable trees
-- No required prerequisite patches
-
-### CONCERNS
-
-1. **No explicit stable tag** - maintainer didn't mark for backport
-2. **No Fixes: tag** - we don't know how far back this issue goes
-3. **Workaround approach** - CLK_IGNORE_UNUSED is somewhat heavy-handed
-   but appropriate here
-
-### DECISION ANALYSIS
-
-**For backporting:**
-- Fixes real hardware failure (PCIe not working) on production hardware
-- Small, surgical, self-contained fix
-- Very low regression risk (only affects specific ARM platform)
-- Follows the "hardware quirk" exception pattern for stable
-- Uses standard clock framework mechanisms
-- Has review from reputable subsystem maintainer
-
-**Against backporting:**
-- No Cc: stable from maintainer
-- Affects relatively niche ARM SoC platform
-- No indication of when bug was introduced
+None - this is a self-contained single-line reordering fix that should
+apply cleanly to any kernel with this driver (5.2+).
 
 ### Conclusion
 
-This commit fixes a real, user-impacting bug where PCIe devices fail to
-be detected on Marvell CP110-based platforms. The fix is a standard
-hardware quirk/workaround pattern - adding CLK_IGNORE_UNUSED to prevent
-premature clock disabling that breaks active PCIe links. The change is
-small (~21 lines), isolated to a single platform-specific driver,
-carries minimal regression risk, and has been reviewed by a reputable
-kernel maintainer.
-
-While there's no explicit stable tag, this fits the stable criteria for
-hardware workarounds that fix real user-facing bugs. The worst case
-(clocks stay on unnecessarily) is far preferable to the current bug
-(PCIe completely broken).
+This is an ideal stable backport candidate. It fixes a real
+initialization race condition that can cause crashes, the fix is
+obviously correct (a single line moved earlier in the initialization
+sequence), it's minimal and surgical, and it affects real users of i.MX
+SoC platforms. The only missing element is an explicit `Cc:
+stable@vger.kernel.org` tag, but the fix clearly meets all stable kernel
+rules.
 
 **YES**
 
- drivers/clk/mvebu/cp110-system-controller.c | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+ drivers/firmware/imx/imx-scu-irq.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/clk/mvebu/cp110-system-controller.c b/drivers/clk/mvebu/cp110-system-controller.c
-index 03c59bf221060..b47c869060466 100644
---- a/drivers/clk/mvebu/cp110-system-controller.c
-+++ b/drivers/clk/mvebu/cp110-system-controller.c
-@@ -110,6 +110,25 @@ static const char * const gate_base_names[] = {
- 	[CP110_GATE_EIP197]	= "eip197"
- };
+diff --git a/drivers/firmware/imx/imx-scu-irq.c b/drivers/firmware/imx/imx-scu-irq.c
+index 6125cccc9ba79..53bde775a1bf6 100644
+--- a/drivers/firmware/imx/imx-scu-irq.c
++++ b/drivers/firmware/imx/imx-scu-irq.c
+@@ -214,6 +214,8 @@ int imx_scu_enable_general_irq_channel(struct device *dev)
+ 	cl->dev = dev;
+ 	cl->rx_callback = imx_scu_irq_callback;
  
-+static unsigned long gate_flags(const u8 bit_idx)
-+{
-+	switch (bit_idx) {
-+	case CP110_GATE_PCIE_X1_0:
-+	case CP110_GATE_PCIE_X1_1:
-+	case CP110_GATE_PCIE_X4:
-+		/*
-+		 * If a port had an active link at boot time, stopping
-+		 * the clock creates a failed state from which controller
-+		 * driver can not recover.
-+		 * Prevent stopping this clock till after a driver has taken
-+		 * ownership.
-+		 */
-+		return CLK_IGNORE_UNUSED;
-+	default:
-+		return 0;
-+	}
-+};
++	INIT_WORK(&imx_sc_irq_work, imx_scu_irq_work_handler);
 +
- struct cp110_gate_clk {
- 	struct clk_hw hw;
- 	struct regmap *regmap;
-@@ -171,6 +190,7 @@ static struct clk_hw *cp110_register_gate(const char *name,
- 	init.ops = &cp110_gate_ops;
- 	init.parent_names = &parent_name;
- 	init.num_parents = 1;
-+	init.flags = gate_flags(bit_idx);
+ 	/* SCU general IRQ uses general interrupt channel 3 */
+ 	ch = mbox_request_channel_byname(cl, "gip3");
+ 	if (IS_ERR(ch)) {
+@@ -223,8 +225,6 @@ int imx_scu_enable_general_irq_channel(struct device *dev)
+ 		return ret;
+ 	}
  
- 	gate->regmap = regmap;
- 	gate->bit_idx = bit_idx;
+-	INIT_WORK(&imx_sc_irq_work, imx_scu_irq_work_handler);
+-
+ 	if (!of_parse_phandle_with_args(dev->of_node, "mboxes",
+ 				       "#mbox-cells", 0, &spec))
+ 		i = of_alias_get_id(spec.np, "mu");
 -- 
 2.51.0
 
