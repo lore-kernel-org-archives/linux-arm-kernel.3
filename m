@@ -4,88 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D380D3C545
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 12:53:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E24FD3C545
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 13:07:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=scrOpFn0/axIiesDGJZiwLE74MSB9QKs3AqoskJ9LGs=; b=h3jHqfSqB02OaHCNzXVsdeH1N5
-	w7nMYanxr/ONnLvRkXLGoNfkXu7PNGBiuKzysKzUTM9ifMsYFZ3zkKjOrNNVr3H5qpnNyWtVFdjW9
-	mI5pxCSscrLra5xPsusmjhCk8z6g4MVhLfHMCsHgmmJtl+Q60Yg3VK46ZirmIVkeGzKjYWuwmvhWQ
-	XCWKJAMvjcTI/l9WhiBnurSDmC3sEmcRXtiYuoxq80rUaNxJK91utgbvKbPGE2vsDld7QxH+yNs7w
-	xq7fc+GV00McHID+kHWSuUTiJvhdCY2JX/G4o39GjYEKLbl4L8kadSj8L2hYL0xlYK4PoB33LMpDY
-	LvU+96eQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cDRFy6vcE6IK0n780GaRWgRqUqt6rq2uXI/t4/Gr+Mo=; b=CoJCjAqwY95yu6JKynkgNp7N/k
+	Pv03hetdW849tZCZChfMj4c8ObP7go5fNKB/zMjSo4OU782aGt5Kf9VuBM8tyGXN0QyJ+jP+xHy/Z
+	Us65/MjgLeWjNfw583iZEjs9ER7oCuO3bPD2ReULGJCbsTsBFn21N/QhIuXCRrmLeazY1oHqk6DIE
+	/nifpzUcmyiWRDY4e/vOtkcayOwqXI5KuVuX1lRbON6ViWr6oByUeTlizaaCbM4NdpIoaFgNl9GrN
+	mlcX6UJtyTaEBhFMWnehdF5p39PMdeq2dFxIeBAc8QuconHNMaJO/dINjaC44f3xb/BCOvtx3j42R
+	Rgrq9jEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTJhO-0000000FSNY-0w0L;
-	Wed, 10 Dec 2025 12:53:42 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1vTJuE-0000000FSwF-465F;
+	Wed, 10 Dec 2025 13:06:59 +0000
+Received: from aposti.net ([185.119.170.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTJhL-0000000FSN4-3f6z
+	id 1vTJuC-0000000FSvp-2pwb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Dec 2025 12:53:41 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-29555415c5fso78319515ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Dec 2025 04:53:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765371219; x=1765976019; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=scrOpFn0/axIiesDGJZiwLE74MSB9QKs3AqoskJ9LGs=;
-        b=J5NgNcZefAJUWbzgQ0m7ZfkuMLPNAWwxsdA8l42XeqW0c/aEsudbBwTenQEvm17N3p
-         o1EEWJplPTO93qMXLVXaraEMySafLOjwIqxKTRKtFp//VtR1gy1eSXYYOH2GaCBlZVXe
-         jEE5NQ/E4lcaetBAKf/cz4WlsbTToQCUO6N5axh5hCyNhTWRNmZhik7OYdSmQBseCYVD
-         lqA8fWZahsXzsXT1XYdEziq2agc3/sYVVFKmh9tqDSPGIdKDkBd18eTQmxK3a/EtvXCy
-         kE4gMTiEoX5vPglV4l2hoY7mEgx4zILgrmKFHmvF3OFvX1ioK4MfIuoHBxqGXUdP40NO
-         j4xg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765371219; x=1765976019;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=scrOpFn0/axIiesDGJZiwLE74MSB9QKs3AqoskJ9LGs=;
-        b=Zhee9jFkgtwRHWOuAd50TCqcqYnjkiyfcTlQWZ7GQsuoZuzn/mE2abKt0Mb4MWGz4U
-         rLpwghlo5XVWDuLlUXO/Gow1HfrmEqdcesUH7ZIMuK7hZSoCOraoOsXRawDf3r0EYp68
-         sRuWGkRRI8F4fEzRyPLJVJufvObU9+STIjpHgrdc/tHENq6e2D9lODuEyPPKm/GCxHdZ
-         iBxN1/dRIxViwKXJxbYgYDUTI5zKobDsKT+U9HIggKbqKoHcpD+FR3wU8qoUSnEPNBAT
-         0rWhrSjh9dK4xTdlQSYX5TuvqyYAwG5xJ7nUSrwucDqCQpYZnLHa7NNjBChMbB+CYWVu
-         V0gw==
-X-Forwarded-Encrypted: i=1; AJvYcCXPpVjrdx3aruw5qOO8LBYfWYDrLOwCC1A7jkz4CdXLJ7UI5lBb9kaKCttbnQw12G1SsyYWI3xkeMeHjR+bTT4S@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLwRSxLD/hLdhRAn+7tkyOK1QewvBGmnhZwOMiZ+C1z6uIVx1/
-	NqiBf99YY5bqdd/4bAzYwg1QXPj4fygtFZcaGDaAD7CpGQpZCyutDM0O7n94fG5xO4JuC+L6rVT
-	d6b0nASsf31Sz3sybnilQmbERix3WnSo=
-X-Gm-Gg: ASbGnctnNuQnaeT/n8g/9Udcf8kNZrEDMCv47dyls1eZZ+sy8H6+xrElCb4I9yUAK35
-	SvzNB7rJxecnZ1QkRN4tcW2RJfmYJa7m7pmiSU9432f3vTeSdzxxi7+J8qRK5hvb0mBh6iE0ys5
-	u/VeT5TRaZlreW9sC3eLt9fZjF7bAWZDsvqfhLW8Yb5nGe4Bq8dlP/FYrs/MLGb+VsxSQtbYzuJ
-	uX95dBY8JfSjIUBuiHsVxVdLVABUJWHcSmhLpWznOXJfoY3G3UqSiYXEMNfjLR+M+aQxJMTkQ/P
-	6a726SgbI/5Pw2Q0sU9lbEoVsECRxXsXaSQndTDyJZZzGTfavK3zKVy8L8xDrTSrK6neY/lRAEw
-	i6XLtuy1hdg==
-X-Google-Smtp-Source: AGHT+IHA0/O6Wzz5bHmU/nrt457oLGG6ttX7cTEPQvhKpMwwd+6y16V/yTRgGiSk5FyZ9tp/nr1ta5W4YzVSuYnLH8Y=
-X-Received: by 2002:a05:7022:30a:b0:119:e569:f622 with SMTP id
- a92af1059eb24-11f296898ffmr1599113c88.27.1765371218722; Wed, 10 Dec 2025
- 04:53:38 -0800 (PST)
-MIME-Version: 1.0
-References: <20251209140425.766742-1-daniel.baluta@nxp.com> <20251209152720.GA189083-robh@kernel.org>
-In-Reply-To: <20251209152720.GA189083-robh@kernel.org>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Wed, 10 Dec 2025 14:56:13 +0200
-X-Gm-Features: AQt7F2pjwUAPAG7KNebgVirJuHxCoxM-g3DuFH_8a1gb0qP0UWiUfxOVxedsKqI
-Message-ID: <CAEnQRZBV5ECT+P0FYPuS0Yt3C0xdpSmBpxjknhX0wa-c-LBXMg@mail.gmail.com>
-Subject: Re: [RFC PATCH] remoteproc: imx_dsp_rproc: Fix multiple start/stop commands
-To: Rob Herring <robh@kernel.org>
-Cc: Daniel Baluta <daniel.baluta@nxp.com>, andersson@kernel.org, mathieu.poirier@linaro.org, 
-	m.szyprowski@samsung.com, shawnguo@kernel.org, kernel@pengutronix.de, 
-	festevam@gmail.com, arnaud.pouliquen@foss.st.com, geert+renesas@glider.be, 
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+	Wed, 10 Dec 2025 13:06:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=crapouillou.net;
+	s=mail; t=1765372011;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=cDRFy6vcE6IK0n780GaRWgRqUqt6rq2uXI/t4/Gr+Mo=;
+	b=RnCMPHJ8+5bLooq6YXu3nxjc4rHzf3q6p7Xq5Db7RIOUc6t+Xd3ujkkPR0UB3ezQtrVOcb
+	eEW6BLRdJMR0FiH+oIzNU8lDYzI29mfeAEpWk0l8VPS1wWY4/shf0rvBVsaV0G+NMHf00k
+	+Cudz+YjfUoQ/V5j0AoCmAvEmoGw5dk=
+Message-ID: <4b6db1eb455fff8e3c7372943faa5ef179c1d19f.camel@crapouillou.net>
+Subject: Re: Kconfig dangling references (BZ 216748)
+From: Paul Cercueil <paul@crapouillou.net>
+To: Randy Dunlap <rdunlap@infradead.org>, Linux Kernel Mailing List
+	 <linux-kernel@vger.kernel.org>
+Cc: Andy Shevchenko <andy.shevchenko@gmail.com>, Arnd Bergmann
+ <arnd@arndb.de>, 	andrew.jones@linux.dev, linux-omap@vger.kernel.org,
+ openbmc@lists.ozlabs.org, 	linux-sound@vger.kernel.org, Alexander Shishkin	
+ <alexander.shishkin@linux.intel.com>, linux-mips@vger.kernel.org, 
+	asahi@lists.linux.dev, "dri-devel@lists.freedesktop.org"	
+ <dri-devel@lists.freedesktop.org>, Paul Kocialkowski <paulk@sys-base.io>, 
+	chrome-platform@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com, 
+ Linux ARM <linux-arm-kernel@lists.infradead.org>,
+ linux-gpio@vger.kernel.org, Srinivas Kandagatla	 <srini@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Matti Vaittinen	
+ <mazziesaccount@gmail.com>, Jonathan Cameron <jic23@kernel.org>, Vaibhav
+ Hiremath <hvaibhav.linux@gmail.com>, linux-sh@vger.kernel.org,
+ x86@kernel.org, Max Filippov	 <jcmvbkbc@gmail.com>
+Date: Wed, 10 Dec 2025 14:06:41 +0100
+In-Reply-To: <22b92ddf-6321-41b5-8073-f9c7064d3432@infradead.org>
+References: <22b92ddf-6321-41b5-8073-f9c7064d3432@infradead.org>
+Autocrypt: addr=paul@crapouillou.net; prefer-encrypt=mutual;
+ keydata=mQENBF0KhcEBCADkfmrzdTOp/gFOMQX0QwKE2WgeCJiHPWkpEuPH81/HB2dpjPZNW03ZM
+ LQfECbbaEkdbN4YnPfXgcc1uBe5mwOAPV1MBlaZcEt4M67iYQwSNrP7maPS3IaQJ18ES8JJ5Uf5Uz
+ FZaUawgH+oipYGW+v31cX6L3k+dGsPRM0Pyo0sQt52fsopNPZ9iag0iY7dGNuKenaEqkYNjwEgTtN
+ z8dt6s3hMpHIKZFL3OhAGi88wF/21isv0zkF4J0wlf9gYUTEEY3Eulx80PTVqGIcHZzfavlWIdzhe
+ +rxHTDGVwseR2Y1WjgFGQ2F+vXetAB8NEeygXee+i9nY5qt9c07m8mzjABEBAAG0JFBhdWwgQ2VyY
+ 3VlaWwgPHBhdWxAY3JhcG91aWxsb3UubmV0PokBTgQTAQoAOBYhBNdHYd8OeCBwpMuVxnPua9InSr
+ 1BBQJdCoXBAhsDBQsJCAcCBhUKCQgLAgQWAgMBAh4BAheAAAoJEHPua9InSr1BgvIH/0kLyrI3V0f
+ 33a6D3BJwc1grbygPVYGuC5l5eMnAI+rDmLR19E2yvibRpgUc87NmPEQPpbbtAZt8On/2WZoE5OIP
+ dlId/AHNpdgAtGXo0ZX4LGeVPjxjdkbrKVHxbcdcnY+zzaFglpbVSvp76pxqgVg8PgxkAAeeJV+ET
+ 4t0823Gz2HzCL/6JZhvKAEtHVulOWoBh368SYdolp1TSfORWmHzvQiCCCA+j0cMkYVGzIQzEQhX7U
+ rf9N/nhU5/SGLFEi9DcBfXoGzhyQyLXflhJtKm3XGB1K/pPulbKaPcKAl6rIDWPuFpHkSbmZ9r4KF
+ lBwgAhlGy6nqP7O3u7q23hRU=
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_045339_917819_C9CADC4A 
-X-CRM114-Status: GOOD (  16.18  )
+X-CRM114-CacheID: sfid-20251210_050657_251195_CD4BC4DD 
+X-CRM114-Status: UNSURE (   9.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,38 +92,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 9, 2025 at 5:27=E2=80=AFPM Rob Herring <robh@kernel.org> wrote:
->
-> On Tue, Dec 09, 2025 at 04:04:25PM +0200, Daniel Baluta wrote:
-> > After commit 67a7bc7f0358 ("remoteproc: Use of reserved_mem_region_*
-> > functions for "memory-region"") following commands with
-> > imx-dsp-rproc started to fail:
-> >
-> > $ echo zephyr.elf > /sys/class/remoteproc/remoteproc0/firmware
-> > $ echo start > /sys/class/remoteproc/remoteproc0/state
-> > $ echo stop > /sys/class/remoteproc/remoteproc0/state
-> > $ echo start > /sys/class/remoteproc/remoteproc0/state #! This fails
-> > -sh: echo: write error: Device or resource busy
->
-> So unlike Marek's case, the first time works. Can you confirm your
-> region is fixed address?
+Hi Randy,
 
-Yes, all regions are fixed addresses.
+Le dimanche 07 d=C3=A9cembre 2025 =C3=A0 18:04 -0800, Randy Dunlap a =C3=A9=
+crit=C2=A0:
+> from=C2=A0 https://bugzilla.kernel.org/show_bug.cgi?id=3D216748
+>=20
+> The bugzilla entry includes a Perl script and a shell script.
+> This is the edited result of running them (I removed some entries
+> that were noise).
+>=20
+> I'll try to Cc: all of the relevant mailing lists or individuals.
+>=20
+>=20
+> ARCH_HAS_HOLES_MEMORYMODEL ---
+> arch/arm/mach-omap1/Kconfig:7:	select ARCH_HAS_HOLES_MEMORYMODEL
+>=20
+> ARM_ERRATA_794072 ---
+> arch/arm/mach-npcm/Kconfig:33:	select ARM_ERRATA_794072
+>=20
+> ARM_SMC_MBOX ---
+> arch/arm64/Kconfig.platforms:375:	select ARM_SMC_MBOX
+>=20
+> CLK_FIXED_FCH ---
+> sound/soc/amd/Kconfig:11:	select CLK_FIXED_FCH
+> sound/soc/amd/Kconfig:48:	select CLK_FIXED_FCH
+> sound/soc/amd/acp/Kconfig:107:	select CLK_FIXED_FCH
+>=20
+> CONFIG_STM ---
+> drivers/hwtracing/stm/Kconfig:16:	default CONFIG_STM=C2=A0 # should
+> be STM
+> drivers/hwtracing/stm/Kconfig:31:	default CONFIG_STM
+>=20
+> CPU_HAS_LOAD_STORE_LR ---
+> arch/mips/Kconfig:1411:	select CPU_HAS_LOAD_STORE_LR
+>=20
+> DRM_KMS_DMA_HELPER ---
+> drivers/gpu/drm/adp/Kconfig:9:	select DRM_KMS_DMA_HELPER
+> drivers/gpu/drm/logicvc/Kconfig:7:	select DRM_KMS_DMA_HELPER
+>=20
+> EXTCON_TCSS_CROS_EC ---
+> drivers/usb/typec/ucsi/Kconfig:76:	depends on
+> !EXTCON_TCSS_CROS_EC
+>=20
+> MACH_JZ4755 ---
+> drivers/clk/ingenic/Kconfig:20:	default MACH_JZ4755
+> drivers/pinctrl/pinctrl-
+> ingenic.c:158:	IS_ENABLED(CONFIG_MACH_JZ4755) << ID_JZ4755 |
+> drivers/pinctrl/pinctrl-ingenic.c:4616:		.data =3D
+> IF_ENABLED(CONFIG_MACH_JZ4755, &jz4755_chip_info)
+>=20
+> MACH_JZ4760 ---
+> drivers/clk/ingenic/Kconfig:40:	default MACH_JZ4760
+> drivers/pinctrl/pinctrl-
+> ingenic.c:159:	IS_ENABLED(CONFIG_MACH_JZ4760) << ID_JZ4760 |
+> drivers/pinctrl/pinctrl-ingenic.c:4620:		.data =3D
+> IF_ENABLED(CONFIG_MACH_JZ4760, &jz4760_chip_info)
+> drivers/pinctrl/pinctrl-ingenic.c:4624:		.data =3D
+> IF_ENABLED(CONFIG_MACH_JZ4760, &jz4760_chip_info)
 
-> > +             cpu_addr =3D devm_ioremap_wc(dev, res.start, resource_siz=
-e(&res));
->
-> Best case this is reusing the same mapping and we just have unnecessary
-> ioremap and iounmap calls and devm entries. Worst case, we get a new
-> virtual mapping every time. IIRC, arm32 will reuse existing mapping, but
-> arm64 does not. But that's 10+ years ago I looked into it.
->
-> Seems like devres is not the right lifetime. This should be just
-> ioremap_wc() instead.
+Those were added when upstreaming support for the JZ4755/JZ4760, but
+the DTS files and actual support in arch/mips/ was never sent.
 
-Yes, looks like for arm64 (imx8mp-evk) will not reuse existing mapping
-but creates a new one.
+Instead of dropping those, I'll try to upstream the basic support for
+those SoCs in the coming days.
 
-Best course of action would be as Iulia suggested to move the operation
-at probe instead of prepare.
+Cheers,
+-Paul
+
+>=20
+> MACH_STM32MP25 ---
+> drivers/pinctrl/stm32/Kconfig:58:	default MACH_STM32MP25 ||
+> (ARCH_STM32 && ARM64)
+>=20
+> MFD_AIROHA_AN8855 ---
+> drivers/nvmem/Kconfig:33:	depends on MFD_AIROHA_AN8855 ||
+> COMPILE_TEST
+>=20
+> MFD_TN48M_CPLD ---
+> drivers/gpio/Kconfig:1624:	depends on MFD_TN48M_CPLD ||
+> COMPILE_TEST
+> drivers/reset/Kconfig:365:	depends on MFD_TN48M_CPLD ||
+> COMPILE_TEST
+> drivers/reset/Kconfig:366:	default MFD_TN48M_CPLD
+>=20
+> MIPS_BAIKAL_T1 ---
+> drivers/ata/Kconfig:197:	select MFD_SYSCON if (MIPS_BAIKAL_T1
+> || COMPILE_TEST)
+> drivers/bus/Kconfig:43:	depends on MIPS_BAIKAL_T1 || COMPILE_TEST
+> drivers/bus/Kconfig:58:	depends on MIPS_BAIKAL_T1 || COMPILE_TEST
+> drivers/clk/baikal-t1/Kconfig:4:	depends on (MIPS_BAIKAL_T1
+> && OF) || COMPILE_TEST
+> drivers/clk/baikal-t1/Kconfig:5:	default MIPS_BAIKAL_T1
+> drivers/clk/baikal-t1/Kconfig:20:	default MIPS_BAIKAL_T1
+> drivers/clk/baikal-t1/Kconfig:33:	default MIPS_BAIKAL_T1
+> drivers/clk/baikal-t1/Kconfig:45:	default MIPS_BAIKAL_T1
+> drivers/hwmon/Kconfig:462:	depends on MIPS_BAIKAL_T1 ||
+> COMPILE_TEST
+> drivers/i2c/busses/Kconfig:589:	select MFD_SYSCON if MIPS_BAIKAL_T1
+> drivers/memory/Kconfig:69:	depends on MIPS_BAIKAL_T1 ||
+> COMPILE_TEST
+> drivers/mtd/maps/Kconfig:81:	depends on MIPS_BAIKAL_T1 ||
+> COMPILE_TEST
+> drivers/pci/controller/dwc/Kconfig:89:	depends on MIPS_BAIKAL_T1 ||
+> COMPILE_TEST
+> drivers/spi/Kconfig:370:	depends on MIPS_BAIKAL_T1 ||
+> COMPILE_TEST
+>=20
+> PINCTRL_MILBEAUT ---
+> arch/arm/mach-milbeaut/Kconfig:16:	select PINCTRL_MILBEAUT
+>=20
+> SND_SOC_AC97_BUS_NEW ---
+> sound/soc/pxa/Kconfig:21:	select SND_SOC_AC97_BUS_NEW
+>=20
+> SND_SOC_CS35L56_CAL_SYSFS_COMMON ---
+> sound/soc/codecs/Kconfig:920:	select
+> SND_SOC_CS35L56_CAL_SYSFS_COMMON
+>=20
+> TEST_KUNIT_DEVICE_HELPERS ---
+> drivers/iio/test/Kconfig:11:	select TEST_KUNIT_DEVICE_HELPERS
+>=20
+> USB_HSIC_USB3613 ---
+> drivers/staging/greybus/Kconfig:209:	depends on USB_HSIC_USB3613
+> || COMPILE_TEST
+> drivers/staging/greybus/arche-platform.c:26:#if
+> IS_ENABLED(CONFIG_USB_HSIC_USB3613)
+>=20
+> USB_OHCI_SH ---
+> arch/sh/Kconfig:334:	select USB_OHCI_SH if USB_OHCI_HCD
+> arch/sh/Kconfig:344:	select USB_OHCI_SH if USB_OHCI_HCD
+> arch/sh/Kconfig:429:	select USB_OHCI_SH if USB_OHCI_HCD
+> arch/sh/Kconfig:455:	select USB_OHCI_SH if USB_OHCI_HCD
+> arch/sh/configs/sh7757lcr_defconfig:61:CONFIG_USB_OHCI_SH=3Dy
+>=20
+> X86_P6_NOP ---
+> arch/x86/Kconfig.cpufeatures:41:	depends on X86_64 ||
+> X86_P6_NOP
+> arch/x86/Makefile_32.cpu:48:ifneq ($(CONFIG_X86_P6_NOP),y)
+>=20
+> XTENSA_PLATFORM_ESP32 ---
+> drivers/tty/serial/Kconfig:1598:	depends on
+> XTENSA_PLATFORM_ESP32 || (COMPILE_TEST && OF)
+> drivers/tty/serial/Kconfig:1611:	depends on
+> XTENSA_PLATFORM_ESP32 || (COMPILE_TEST && OF)
+>=20
 
