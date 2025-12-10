@@ -4,154 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A5D7D3C924
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 15:47:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEFD7D3C927
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 16:04:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pvtx6yiQ18FpnDIYsbsMyEPgC5JNzIDONm/Wpow0B3A=; b=1wWChLfuI4muiKyZvmcB6QT/9q
-	8ZAY6BGMe5lF1DAvIoek/f5Gt0bZN9/YIvKWj7aQO+k6IMW3lENgl+Q57+Db8cpO0rxKFZupU3ABu
-	Cdwm/XFvvuw5EVhORI+nJfDj6bsJMr0wGEt/CtuYDdFUrYxOjRcD3MTBgTDvF+WP3bRlzqykEaZUq
-	pzoq1nP2y5E4IZvQHnbMZCxJp17I/0V6DDsj3HtdCatFKPKOXUR8u+ICJHl/w+yUNxc4kqG/mnM80
-	S8ATmV/4pBzE2rqvkpzWpC2d7r9FtEV6d07W04JiHs2UHkAY9ONj1/IyL1xWyDFPMG6Ju0Wo8pFH0
-	0d1vWO0g==;
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=22GFvVwg6CTXyoOy4IhLZub/bJLrt9ksV7TaLrUKxsA=; b=TJNmchg8Kj4KVL7DP/Xu3hsqb9
+	JIVZPfQy7wlgrgA3dTp+9hy2DRqMJnjmToLM9HyPedKnJnvWzyiYCIFxfjkEfqC3wrbgO5FdhSPB6
+	zuJpmMFPVBxa4FnjY00DOnMyZ7BP/G/bZVPix/tU6p2IreAB0O//bIODkT7JloCA+mGJx3zyk9YR0
+	Yy/6l3mU030H5gJulPpVpmTNBk844IsKblSy85hoKk/FXn1yqsvxXxSp31Z/ysXWKY9VMJqoZExf6
+	OuY3Mb7dFL4Brf1RuRGEPXajLwDbfrrxGFiBhANmWtoXX9PfKoRe/s8U58OLWrgRQJopPtt78GO0w
+	yOlYjm3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTMP1-0000000Fa9a-1Tx8;
-	Wed, 10 Dec 2025 15:46:55 +0000
-Received: from mail-westeuropeazon11013001.outbound.protection.outlook.com ([52.101.72.1] helo=AM0PR02CU008.outbound.protection.outlook.com)
+	id 1vTMgA-0000000FbUh-0QTa;
+	Wed, 10 Dec 2025 16:04:38 +0000
+Received: from mail-qk1-x72d.google.com ([2607:f8b0:4864:20::72d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTMOy-0000000Fa95-1PdY
+	id 1vTMg7-0000000FbTy-33H5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Dec 2025 15:46:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qGIxir/km9EtsM+Ewz2CH6Xd+VGXKmI7jugSmdqbziKTCxr7n7r+eUBwIx7EYzy73kEBv5eJM3Rqk96r8wzi9aSVNL0VE2ZU53VC/NdUdQ5oNSA5TLwmzqFoGkpXTAQUCSFk+dttIimxHpVzAjco2xaYjA3d8rbhMUN+icctbGsnzVwzeMZYDxTEvTEOSyzPCvkanDONVxsDgBpYMN9xamZUyVc/ns/qwYtMQID6y3vtW7/bmrywviu7LLN/Ao2BC6Cd5E4Jg41a1KWu8czfN9YhT6saSCZOqoSb1i61iqRgM427ShY05VI08XvPTJIHh58FsSAsoHHS27KZwblfEw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pvtx6yiQ18FpnDIYsbsMyEPgC5JNzIDONm/Wpow0B3A=;
- b=PNKmaeEPiDM8QpI4FJegK+dM/w5TbvtbtzinGcJ8Vnh+bSRszxcMrxJDI06qmAYRIjG0Ftrj8yYw0aMv06uTfWB7EVT5UPvcSrg22StIYmKvvgJkk+oja5zU6FUrY0g55gQkPKnaFDv6rpa48lxdB3BWOcjfJqGqgI8VytKDXxSE0w5+LreRr8GT2hnOBAT6VQdDX/v6Qqpnij/CU2HBz1sdH4vEEajSHxN0JfNRH4O0+G5qfzbwisym2/VM/LAZiHL6MtP36PTUjSr8ISe5u9+9H+sBf0NOJJWo2mnYDG3GWFsEAp1jrCkeElSKGs/ZZpgRZErXvFej86U72KpDEQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pvtx6yiQ18FpnDIYsbsMyEPgC5JNzIDONm/Wpow0B3A=;
- b=YacH6BEXJl3wAHESM650dNogb6a3VfvgwVDq7rbzJh5d5FAFv3q1QXez71gXNUlaec3oWOabO4DC0jUvNPggXDTHFN2FN8GhKIe2i0UGiAPRNFKTb2xo5X00w6pNTJDVAS6JSjWn2jqgxuqsgPc5ld6ImcbfbMHLyYFp5sZe5U+0qcrSCr5DCFAUaKjsBIpJMBEkQ45VJ/wZaiS9jSEmPp7aJGrZYCPOOzbKeT/AM4uWfOqKwhpCTnsU5JB+7Rgqr7q55WEVQMFkHY1XR6xNQnGh68MmSC3/bgg2ARMcznkslLtf3S1M3ZuQW8c/ClIZApB27zK3mc/iwU4RSV4V8g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8247.eurprd04.prod.outlook.com (2603:10a6:20b:3f2::13)
- by PAXPR04MB8141.eurprd04.prod.outlook.com (2603:10a6:102:1bf::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.8; Wed, 10 Dec
- 2025 15:46:45 +0000
-Received: from AS8PR04MB8247.eurprd04.prod.outlook.com
- ([fe80::e99:f504:ce75:9bed]) by AS8PR04MB8247.eurprd04.prod.outlook.com
- ([fe80::e99:f504:ce75:9bed%6]) with mapi id 15.20.9412.005; Wed, 10 Dec 2025
- 15:46:45 +0000
-From: Daniel Baluta <daniel.baluta@nxp.com>
-To: andersson@kernel.org,
-	mathieu.poirier@linaro.org
-Cc: m.szyprowski@samsung.com,
-	shawnguo@kernel.org,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	arnaud.pouliquen@foss.st.com,
-	robh@kernel.org,
-	geert+renesas@glider.be,
-	linux-remoteproc@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Daniel Baluta <daniel.baluta@nxp.com>
-Subject: [PATCH v2] remoteproc: imx_dsp_rproc: Fix multiple start/stop operations
-Date: Wed, 10 Dec 2025 17:49:06 +0200
-Message-ID: <20251210154906.99210-1-daniel.baluta@nxp.com>
-X-Mailer: git-send-email 2.45.2
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AS4PR09CA0017.eurprd09.prod.outlook.com
- (2603:10a6:20b:5d4::11) To AS8PR04MB8247.eurprd04.prod.outlook.com
- (2603:10a6:20b:3f2::13)
+	Wed, 10 Dec 2025 16:04:36 +0000
+Received: by mail-qk1-x72d.google.com with SMTP id af79cd13be357-8b5ccceb382so1713885a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Dec 2025 08:04:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1765382674; x=1765987474; darn=lists.infradead.org;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=22GFvVwg6CTXyoOy4IhLZub/bJLrt9ksV7TaLrUKxsA=;
+        b=ejAHL0SednYgX0gEMBrW5gAMOXPe6qA4ckMV+12VXArzCOPNaLAz95C0NTVzwIeoQB
+         QjHfZOYmpsxLQ4NLnSN/pNp5ZJ6w9f7uOFBLAHHn1Jdo7UXXSULfRHN8x1L8lciYDKAn
+         9I7K2gPQk5gWoWUAAUtqU0dsA6ockfsKwuKhCiKUzErDa1asv7+wa8wh2A7Oq0YG2kot
+         RdFjGFAckIAXL7yHu7yG2tEi66q5gCNWGFCKSluul/ZXK5DA+2l9o3/Ub3YQcORASimu
+         GSkyVyTTnBw6nq0mwrfMpACGLJjQeR8Dw+78t3KLydxL694OZAmT4itAr18c5mS4n9tS
+         DL6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765382674; x=1765987474;
+        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
+         :from:subject:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=22GFvVwg6CTXyoOy4IhLZub/bJLrt9ksV7TaLrUKxsA=;
+        b=tfEwU49L7BQJCLs5QmitrJkPDR/JDDwacnGgMgllyV4QMShwz8sqKCJdkLkxisiXy3
+         6bU2M1btL0/IxpGHDJW+y0TWA52q2R5WTpEYzw7c6KtMo91oR1vmN/wwvVbP+Rx19cwn
+         3gitHh9/3PIaYfYr9e1dnbHaCiitCEx4CLTJZ5+6+URoOzVQJiUGeS7VhSmChaAZdW6n
+         XYOwFfZlpyMP2pTSYXhzcTdyAEDsmja47RFEHbpin/QU2AXSaPwws5gfLwB+irJa2/b1
+         WRIKb2jtKYPt5T0rZIS43JuWpCdrmQR5de1rb5X8T6zYpaoKoZyy8flGM6Wr16DfnLzH
+         fP7w==
+X-Forwarded-Encrypted: i=1; AJvYcCUSI63jdOlG7UITe+mOj0gh5wtfTi3EuGwlB3Xix3tcjGEzPQUxCkoqpw3dqbx6T4I7UVm3NiTEK+8+ugCTLLB6@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfCGnIlTee8DfRcAGXKrPaizEDOZzSPTkTLtFSkdu6ck2nDwjd
+	7tB1bOxnONWgflkPiABgM8/6cGvag61tr4Kfac17dq1R/ngBj5vw2bDtfo5NYiKFIYM=
+X-Gm-Gg: ASbGncvrPN/qxLC7Sy06GKNZJNO/FD8J3N+TZ+l7WR25uMAGUaYmW7OF0EoS5rWje3B
+	nuZG2xq2kMOLH9NKX2IuI2PHXEdTBXMYNck0DUkALxOfmcOfYB54tDbcjBGHIkYXzh4191RvqGR
+	7r37ufqSpLsbnWnLtV54/Q1pzNxHlXnyOM0n6qBP/RxEB4I+RY6+Jvs1xHFS0Gu72jKfedkuGRr
+	jofSDtzPIUPkknOzYUstNUAFcNNFyTsFDSilgqznKCblKvP4ZgM0UmPfo6rSg9GNhY2Ji4v+s2y
+	pt8z7VdFiIgE+L5X1YA5/AbP0Yian4jQFS4MxlHUPWIfz+S7ovzXhOxyLbuetu9TNIJ/rWgRonw
+	j3dAioZHFsXd7wVn7gqxDg5Z6fIxmqHTxLPJN0/OpKGXDj04XcDVJHFygSbElTiX0qX15ywEwLW
+	XYAYLQVhwV3bVRknEU
+X-Google-Smtp-Source: AGHT+IEfTxQ47WU6csn7D7l8n715tzML3PIXrdRc13mLvEzqqwlnsoWOBOkiL4m2DTG8vCqweijuJQ==
+X-Received: by 2002:a05:620a:404f:b0:8b2:6b9e:5383 with SMTP id af79cd13be357-8ba3b01fd56mr444216185a.85.1765382674256;
+        Wed, 10 Dec 2025 08:04:34 -0800 (PST)
+Received: from ?IPv6:2606:6d00:17:7b4b::c41? ([2606:6d00:17:7b4b::c41])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8b62529f08asm1574658685a.11.2025.12.10.08.04.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 10 Dec 2025 08:04:33 -0800 (PST)
+Message-ID: <fd401d1b4f1e7b7178699227d31976453de5891e.camel@ndufresne.ca>
+Subject: Re: [PATCH] media: platform: mtk-mdp3: add WQ_PERCPU to
+ alloc_workqueue users
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Marco Crivellari <marco.crivellari@suse.com>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ Tejun Heo <tj@kernel.org>, Lai Jiangshan <jiangshanlai@gmail.com>, Frederic
+ Weisbecker	 <frederic@kernel.org>, Sebastian Andrzej Siewior
+ <bigeasy@linutronix.de>,  Michal Hocko <mhocko@suse.com>, Mauro Carvalho
+ Chehab <mchehab@kernel.org>, Matthias Brugger	 <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno	 <angelogioacchino.delregno@collabora.com>
+Date: Wed, 10 Dec 2025 11:04:32 -0500
+In-Reply-To: <CAAofZF44pUoyDPnnv9UUuMkYvqiSWP4gELg4rutgo=3tNpBZsw@mail.gmail.com>
+References: <20251107141303.223254-1-marco.crivellari@suse.com>
+	 <7e24110636db36e8c0a877d90d2ed9570c4aecf5.camel@ndufresne.ca>
+	 <CAAofZF44pUoyDPnnv9UUuMkYvqiSWP4gELg4rutgo=3tNpBZsw@mail.gmail.com>
+Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-elCTUJq05jQZ+s6e+80U"
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8247:EE_|PAXPR04MB8141:EE_
-X-MS-Office365-Filtering-Correlation-Id: 167d3c08-d767-40d7-0452-08de380351f3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|19092799006|52116014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?7RsV4W5ble/lIlQNTv6YvJsRhgh0icNeVEIBXSYF+48VRU628LMJN0WR9Lz+?=
- =?us-ascii?Q?kSAdA2vKr/XDEsnsnFrcmZLo9TShGeGlVALNrEYAgkBZ1/On0tBnh9/m4AIY?=
- =?us-ascii?Q?ghMsw8MngudTRHO762+xYb8lmijkh/73AYFHzaIhI9t0/Zr5/oUqzOSlkQ3d?=
- =?us-ascii?Q?PPlbvCWEjcAuacHCrajpPZdroUZlnSeHRnzsPo7yORdfbauJKqMspcCAy77H?=
- =?us-ascii?Q?kLUMHOR5ivjIF/sjIaery3pTV22Uz/PCUfyyIh05QZ3DLNg1EwI+l+EGR5AE?=
- =?us-ascii?Q?Sp8TTkl53sVkAKAKlphDDd8mzAFKqw4oJdFxXZw3RbHdf8+O86xpYJ4tYs9T?=
- =?us-ascii?Q?M1OdSVWA1tRXNtA/bKrws8/D1c2ouT6k8PJQa1sQmqXsCooMOxw9Cshs+PkO?=
- =?us-ascii?Q?ZR0Sp1I+eyP0HHPk0D4Lk4nX5kCtXBCu4xima6dZgnP8NRpTiMHSwDC2O4lu?=
- =?us-ascii?Q?eq4ddb4k/JCYOIT15Sk8VfIKCtcv+562KAJf7hYxcw0YIbAuKvPkHptPN1VC?=
- =?us-ascii?Q?y9l+rtFqnr7GLZrhabdonUrISSpK/vk97ghPghIjnxo0DTzMlf+0BYT6asRX?=
- =?us-ascii?Q?HJP+5SUbMwuH2Ssi046qK0VexmCZItEjonMJyEK1iZZuwq4xpSlPEcBfQihs?=
- =?us-ascii?Q?IDMC4e52tYE3PLpBI7c1g4CCqwGSQgmwH2/eXJfTzK85uKDEMEDBkDTpk1Cs?=
- =?us-ascii?Q?CbVWDqwniuaS1DryoGvkl6i3in8M0W8elt6YhPrMoBEEPEjsVLrE6y461uYw?=
- =?us-ascii?Q?VuoFUmvX4lU9wn0Zi8dL1fa7ibR7AH2/iFZYeF4zzSry1dtRVMCJLXt3jEJh?=
- =?us-ascii?Q?JKyXqMWCpDtUEd6h8l14Y2ENgVfPz8mk0jMAYLoLrVVPCpd+rG+QRCOmn8lZ?=
- =?us-ascii?Q?BN3Tgy4fJaWWIjk9hIC+XYKJ93Ojt2eVnxadmvqcCmawSiZKv6PuTdSZOSUh?=
- =?us-ascii?Q?lX4qyMrFUS0k3BMPJI5fcjMk9jjG3otiCGABvkIY3v50JZ3K9EM+2CCaHHnD?=
- =?us-ascii?Q?0dFnrpt2JgKIz58wW1KhqaBwd+fu3laEE9Je5GIGOlQ/oomZt2rPWI5B7uQZ?=
- =?us-ascii?Q?gvGxe1fgtV3xVX3CJdChcDgR2EPFn8g8pw64MBeiRVrxnbHSYZN6/XMThV7z?=
- =?us-ascii?Q?Sl6uEQhnV7XdxF4UM8cMgp3xl4AUG/MloYHJP3FiNE8uCUmg1JWJXks/RyxB?=
- =?us-ascii?Q?EbmguQHcJGrJpW+fr0iNI+r0DCh8+V+meH6qHUgQ4SVT8i9Dl8cKNEz6VwZS?=
- =?us-ascii?Q?NSKO5on7k3gwNRsPRvTTJu+M+RpZzcvdpF1B4c80S+QTBKXNTdfqqVd/uQiq?=
- =?us-ascii?Q?yQP/6UmqzAbhwrolDYeoh1twwXmuUHU3vuoc2KMAAnY/LGkcQUDSUcS3RiPt?=
- =?us-ascii?Q?jnvzEsWiFJMCpB5bBZfx+sGgLw2K/YhAGH3vO/TTnZ6/DCcjdfvcexvPu5vI?=
- =?us-ascii?Q?Rkcl3qNHDou26zfI4CBA5uoVi0i7VPsT6u4dQVzezDKtmrVpux7Riu+mH1pb?=
- =?us-ascii?Q?N5tnoqbtGMH/SMH0hYw+0reWetO9GSlnf0kx?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8247.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(19092799006)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YnuwfExERYtAdVrsMnQLfACRIlL4UJL1XN9wSGf5i8C4zoF8yDw1yIFELm4Y?=
- =?us-ascii?Q?PQ0QSv2os3zuj9NTPOLPoTuDOeVjfhebjDExbpoNsLb1CFxUvQp4TQU4ifIg?=
- =?us-ascii?Q?PK4dALe6vNTbR7UvWiHktQbAQ+QOG2eX5LJtPp37c+i+773vRyw4NHB2I0/3?=
- =?us-ascii?Q?ounQCuwvWtA4BdCzV7cLxiPV3O7CLWvcJw0vJwUEJ3E8H06vJ/bJaW1q5Mc4?=
- =?us-ascii?Q?2O0BV237dU1rep6ULNmo6Vu8cuc4TUH9FSnSA7HmeJuBASUAw8/YlDtudnxO?=
- =?us-ascii?Q?75vSLJmF6qSCtpkynmPDcvOVPZ5tjN83MnozPlDCP6UDG9wsdFHoQwjaZM6w?=
- =?us-ascii?Q?SYtRi7TMCwQAJasNT0efXf79gGDS/SjkSlODmR1qJa2Z7cYJv9BNJ2/KVK7B?=
- =?us-ascii?Q?bhvQxiVeDYROTtG2i5TDhm6tJ68b9kNy0afbstDM5e+qDp6c/SwxlHwxlTxn?=
- =?us-ascii?Q?ZC6ZwET6xneZgSvW+oLJuQ9R2ExwWcgrvjWilYF+No5FH323+tvmiM7hnr8G?=
- =?us-ascii?Q?sopN7pqcbwxEO/Yy4qXZhQEDH/ID8bkbhLdQhBfYbU3t9w7VzYMCI6J/Z+MX?=
- =?us-ascii?Q?E/P5mCOmC3FUKR8J7ODbYUb91C7E4NZUa3gdW6Db/w65UDQOa1awnwq7Wbew?=
- =?us-ascii?Q?8eYHGfQvjmaMuoD+2x3/qK20dQMoRCQwapwlqc1Flm/N+W+BK+5LDUQzYnbG?=
- =?us-ascii?Q?1roiv6i3+VKTsq5NtGRJaTmdVMrDGNEKOTSBOupHBuF6BG6k2XZO8wSDw5gj?=
- =?us-ascii?Q?EIFEqOMtQcJCENUQUDkHCtxx0p4/wc6tPXHOtuVupZphy/MoU2qQg+votQf6?=
- =?us-ascii?Q?MbjiFZycIMXWj3K9ea5r7YMJrscuTrmTYzpvyI+kGPY0FpfqzsB8Cn1ZOXOX?=
- =?us-ascii?Q?m64/lO7cVJ2vPHFb1LbxG1HbSlUg3F+EubiSkxjcx8yz0uAomdh6FhHHQPQ9?=
- =?us-ascii?Q?bkNuoEUXa+JmLNEeKjCAlDvGLuUFB2z7aMB0wGhYprQN6LHptxKwT2O0j1eJ?=
- =?us-ascii?Q?qn1QYvv+k8WsN8ar8J7CI2XiZ1Se1IfvJBsnQvbL7d7T5xfQWx3/tvIGmOu/?=
- =?us-ascii?Q?aSDhBEV5PR79NQpk5xBt7Y5LKYQUIL69CE3nOBQBBJTsrB5ekTq8n3e29+15?=
- =?us-ascii?Q?ygFelvM/wHCpuB3+aZwSJPxrq02C4oGqQuL80fu48yLealAClYFFElse/Plo?=
- =?us-ascii?Q?DurZr11JNKJXC06Bcq+51dTgTW4H8v1ywUP4wbakPTu0M2CmrSf4uU/qUFVp?=
- =?us-ascii?Q?sQlpXgc/RJG+ND2IvD2FhJzPEhqZsPrlbHb2PRDjF2T+fUaOHckg96nZcupj?=
- =?us-ascii?Q?phktBWBgjXbhveo81juUoqupSaBQmrVICyZ/V9WTbva1+l/DzMQuPCWWCser?=
- =?us-ascii?Q?a0fCqJUqgce0eMxwYVegDx1KaeNKQiwJb1TEfooApHQdMpQ4ZNdWz4cR4M0L?=
- =?us-ascii?Q?p+vHHmgSpLJzkfAYQn8yYim/oUhk39z1AOR3CoMs4ffjshin+gVd1MfPX5QX?=
- =?us-ascii?Q?TqxJMNKo/n3MlhHphn40px6Ixftuz0Oab9VNQaGxa0z/hr0dFT5S28eD412i?=
- =?us-ascii?Q?d0whQGkxCyljiEiafGj+oW6kGAfiZI5u36uFQ33X?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 167d3c08-d767-40d7-0452-08de380351f3
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8247.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2025 15:46:45.6589
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vCeovie7RwoMA8NpgPLRY0re8ZWK7YUjIYUdBK/TmTJicAsSLZwBjC90cQ8JpEK+0jdM8WUFRCZZN+YP4t5AjA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8141
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_074652_382408_4D706EC9 
-X-CRM114-Status: GOOD (  15.91  )
+X-CRM114-CacheID: sfid-20251210_080435_782055_896B76C9 
+X-CRM114-Status: GOOD (  22.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,125 +120,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After commit 67a7bc7f0358 ("remoteproc: Use of reserved_mem_region_*
-functions for "memory-region"") following commands with
-imx-dsp-rproc started to fail:
 
-$ echo zephyr.elf > /sys/class/remoteproc/remoteproc0/firmware
-$ echo start > /sys/class/remoteproc/remoteproc0/state
-$ echo stop > /sys/class/remoteproc/remoteproc0/state
-$ echo start > /sys/class/remoteproc/remoteproc0/state #! This fails
--sh: echo: write error: Device or resource busy
+--=-elCTUJq05jQZ+s6e+80U
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-This happens because aforementioned commit replaced devm_ioremap_wc with
-devm_ioremap_resource_wc which will "reserve" the memory region with the
-first start and then will fail at the second start if the memory
-region is already reserved.
+Hi,
 
-Even partially reverting the faulty commit won't fix the
-underlying issue because we map the address in prepare() but we never
-unmap it at unprepare(), so we will keep leaking memory regions.
+Le mercredi 10 d=C3=A9cembre 2025 =C3=A0 16:30 +0100, Marco Crivellari a =
+=C3=A9crit=C2=A0:
+> On Tue, Dec 9, 2025 at 9:57=E2=80=AFPM Nicolas Dufresne <nicolas@ndufresn=
+e.ca> wrote:
+> >=20
+> > Hi,
+> > I have to admit, there is likely no review here due to the lack of know=
+ledge, so
+> > in order to help educate myself (hopefully its not just me), can you ex=
+plain why
+> > the new default of WQ_UNBOUND would not be a fit for this driver ? Afte=
+r all,
+> > the author didn't care and didn't make a choice, so I feel like its wor=
+th
+> > asking.
+>=20
+> Hi Nicolas,
+>=20
+> The fact is that "alloc_workqueue()" without WQ_UNBOUND it means per-cpu.
+> So what we are doing here is just make explicit that the workqueue is per=
+-cpu.
+>=20
+> Currently there are no behavioral changes in alloc_workqueue(); in a
+> future release
+> WQ_UNBOUND will be removed and unbound will be the default. But as for no=
+w,
+> it is still per-cpu.
+>=20
+> We can of course change the current behavior and I can send the v2 with
+> WQ_UNBOUND instead. Looking at the code there are not per-cpu variable an=
+d
+> the workqueue does not have the WQ_BH flag, so we can convert it if it
+> is better.
 
-So, lets use alloc() and release() callbacks for memory carveout
-handling. This will nicely map() the memory region at prepare() time
-and unmap() it at unprepare().
+thanks for clarifying. This driver having no clear maintainer, it is hard t=
+o
+delegate the checks needed, but from the description, it pretty much sounde=
+d as
+if most driver are picking up the wrong thing, because that is what the def=
+ault
+do.
 
-Fixes: 67a7bc7f0358 ("remoteproc: Use of_reserved_mem_region_* functions for "memory-region"")
-Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
----
-Changes since v1:
- * https://lore.kernel.org/imx/091a4f29-5435-428a-9a1c-ef82465211cb@nxp.com/T/#t 
- * took a different approach and instead of partially reverting the
-  faulty patch, used alloc() and release() callbacks to handle memory
-  region mapping.
- drivers/remoteproc/imx_dsp_rproc.c | 50 ++++++++++++++++++++----------
- 1 file changed, 33 insertions(+), 17 deletions(-)
+I don't have strong opinion, if you think this driver can be ported in one =
+step,
+that is always my preference, and making things explicit is also nice. But =
+I'm
+also fine picking this as-is for now. Let me know, your preference, availab=
+le
+time and safety of not breaking anything is valid argument to me.
 
-diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
-index 5130a35214c9..83468558e634 100644
---- a/drivers/remoteproc/imx_dsp_rproc.c
-+++ b/drivers/remoteproc/imx_dsp_rproc.c
-@@ -644,6 +644,32 @@ static void imx_dsp_rproc_free_mbox(struct imx_dsp_rproc *priv)
- 	mbox_free_channel(priv->rxdb_ch);
- }
- 
-+static int imx_dsp_rproc_mem_alloc(struct rproc *rproc,
-+				   struct rproc_mem_entry *mem)
-+{
-+	struct device *dev = rproc->dev.parent;
-+	void *va;
-+
-+	va = ioremap_wc(mem->dma, mem->len);
-+	if (!va) {
-+		dev_err(dev, "Unable to map memory region: %pa+%zx\n",
-+			&mem->dma, mem->len);
-+		return -ENOMEM;
-+	}
-+
-+	mem->va = va;
-+
-+	return 0;
-+}
-+
-+static int imx_dsp_rproc_mem_release(struct rproc *rproc,
-+				     struct rproc_mem_entry *mem)
-+{
-+	iounmap(mem->va);
-+
-+	return 0;
-+}
-+
- /**
-  * imx_dsp_rproc_add_carveout() - request mailbox channels
-  * @priv: private data pointer
-@@ -659,7 +685,6 @@ static int imx_dsp_rproc_add_carveout(struct imx_dsp_rproc *priv)
- 	struct device *dev = rproc->dev.parent;
- 	struct device_node *np = dev->of_node;
- 	struct rproc_mem_entry *mem;
--	void __iomem *cpu_addr;
- 	int a, i = 0;
- 	u64 da;
- 
-@@ -673,15 +698,10 @@ static int imx_dsp_rproc_add_carveout(struct imx_dsp_rproc *priv)
- 		if (imx_dsp_rproc_sys_to_da(priv, att->sa, att->size, &da))
- 			return -EINVAL;
- 
--		cpu_addr = devm_ioremap_wc(dev, att->sa, att->size);
--		if (!cpu_addr) {
--			dev_err(dev, "failed to map memory %p\n", &att->sa);
--			return -ENOMEM;
--		}
--
- 		/* Register memory region */
--		mem = rproc_mem_entry_init(dev, (void __force *)cpu_addr, (dma_addr_t)att->sa,
--					   att->size, da, NULL, NULL, "dsp_mem");
-+		mem = rproc_mem_entry_init(dev, NULL, (dma_addr_t)att->sa,
-+					   att->size, da, imx_dsp_rproc_mem_alloc,
-+					   imx_dsp_rproc_mem_release, "dsp_mem");
- 
- 		if (mem)
- 			rproc_coredump_add_segment(rproc, da, att->size);
-@@ -709,15 +729,11 @@ static int imx_dsp_rproc_add_carveout(struct imx_dsp_rproc *priv)
- 		if (imx_dsp_rproc_sys_to_da(priv, res.start, resource_size(&res), &da))
- 			return -EINVAL;
- 
--		cpu_addr = devm_ioremap_resource_wc(dev, &res);
--		if (IS_ERR(cpu_addr)) {
--			dev_err(dev, "failed to map memory %pR\n", &res);
--			return PTR_ERR(cpu_addr);
--		}
--
- 		/* Register memory region */
--		mem = rproc_mem_entry_init(dev, (void __force *)cpu_addr, (dma_addr_t)res.start,
--					   resource_size(&res), da, NULL, NULL,
-+		mem = rproc_mem_entry_init(dev, NULL, (dma_addr_t)res.start,
-+					   resource_size(&res), da,
-+					    imx_dsp_rproc_mem_alloc,
-+					    imx_dsp_rproc_mem_release,
- 					   "%.*s", strchrnul(res.name, '@') - res.name, res.name);
- 		if (!mem)
- 			return -ENOMEM;
--- 
-2.45.2
+Nicolas
 
+--=-elCTUJq05jQZ+s6e+80U
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaTmaEAAKCRDZQZRRKWBy
+9EEeAQDs5xXNgxKj7E/WbnvR6sLKkzG6X122iEPvuj0dXihl0QEAhJoLXfaqlrU4
+VxDFkGzm8D46bB6KVfJaGO3ukVUNUwQ=
+=bgHX
+-----END PGP SIGNATURE-----
+
+--=-elCTUJq05jQZ+s6e+80U--
 
