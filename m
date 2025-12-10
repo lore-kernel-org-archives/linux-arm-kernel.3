@@ -4,78 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88FA6D3C934
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 17:30:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DCFCD3E76A
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 18:11:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:
+	To:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0fehwEc32/zmqPmtbByhMO0KGWsfO8qDLHRQ/0g865Y=; b=uNlrni9Er5CmAeA8cc4Te+z/z2
-	1GDjspOPW8RgSdK7Xblck0IuszoKJL8Dn3koq3CWd6KpTmZHF/tVOLEHwMJO3/3UYnyrLsJXVzOCm
-	RRYwg+ywhBN+J86tVwDKLD8Ua++jqFq40EcxiKPOHE+xBUTrGTgJK5YlBmt6FsgJZT6tByEmC6g6u
-	skHgkODlMytUpe3Y+PuTG3+wUKgKT6w4nRJr/VnYCm7NmDTv6mtXZ8bRaZF/4/tFoyVRc5cr89+/Q
-	TUDsGWQPYJAx1qaPpoc8KLX1iT1BlpYIVMbk+GmfVU+fcnHsWb8sbb8Lj6tIeQ9xUuKPOXwerIOj8
-	xycURIQQ==;
+	bh=zHScQ9epIs7tSkBpcNfLT2ySqJpIcU3hl0yiRWEMSxU=; b=yds5cs7f14F/QzCDunk6KMHWpD
+	zszgMncjm1u+JWZt1umwOW7JR/vYz8jKvC2KceZPiIywhPi7++YKu7xbMEzvoWrJLgNB/b5rfQfvr
+	q5Xi6yimmKSeIHoIRpqte2eEGO3msz+VujQD9JFXiugXpdP6a64z/a8DoMReHLIR582y9ZLJi8zwi
+	vc7VqXA4KCBHBKvqGMfm5p1um2QBWIl5vHwJSFYsyzUg/h3Pd/oWHvb+Wg6iJjONBI4v+7hU4Wr5x
+	VDOkghF7LPcD1VfSeJ2h6fRWlY75u3RdVUsH7S3cxLfiuYoPoHFhUlofYoMhYNtMk3eIYfjoyCDmZ
+	JOwnCMGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTO1Q-0000000FhJS-3TAb;
-	Wed, 10 Dec 2025 17:30:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vTOeU-0000000FjSE-1rG7;
+	Wed, 10 Dec 2025 18:11:04 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTO1L-0000000FhFI-0o7t
+	id 1vTOeR-0000000FjRf-2DfH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Dec 2025 17:30:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B77C844422;
-	Wed, 10 Dec 2025 17:30:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 96928C4AF09;
-	Wed, 10 Dec 2025 17:30:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765387833;
-	bh=2NiH2ZW8Mz5g+N04+8fT1dv90YzRDycSHgqkWxoUYQY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=DOhBaf3ROkUswKlLrHZTBu8tFXMfvyboZc/Z/7cgi/Q/Z/O40Jc0B2NCeqBMaiOjD
-	 ajaV9bhe+kVAl5JJTdGxJdANaZPAOvAbxoeABF8LWWH9F8v8wpktoBWKUq0DkoPrWp
-	 NcLjNMLsKgiWNc/u/5+NGaV7x1muDpJV7JSo7pA4k416aNC2QRDMP5C9PWuArdAxRU
-	 iGrDeu5SWNCXkWQKvQJRFo4LJujvnksQHIFSHiLZ17fu5jfVQwDRHOaqtHCj8BnZWI
-	 tWkPat0M23McLs2f6y9xkZFzGy5fbjNwgPr646Y2JF3JrjGPMS0K7cCnGmu6WzyocO
-	 R890j+HETcauQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vTO1H-0000000BnnB-2Drd;
-	Wed, 10 Dec 2025 17:30:31 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Quentin Perret <qperret@google.com>,
-	Fuad Tabba <tabba@google.com>,
-	Sebastian Ene <sebastianene@google.com>
-Subject: [PATCH v2 5/6] KVM: arm64: Convert VTCR_EL2 to config-driven sanitisation
-Date: Wed, 10 Dec 2025 17:30:23 +0000
-Message-ID: <20251210173024.561160-6-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251210173024.561160-1-maz@kernel.org>
-References: <20251210173024.561160-1-maz@kernel.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, alexandru.elisei@arm.com, Sascha.Bischoff@arm.com, qperret@google.com, tabba@google.com, sebastianene@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 10 Dec 2025 18:11:01 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 4A4FD4E41B4E;
+	Wed, 10 Dec 2025 18:10:56 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D59F760714;
+	Wed, 10 Dec 2025 18:10:55 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 63FF8103C8CB3;
+	Wed, 10 Dec 2025 19:10:46 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1765390254; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=zHScQ9epIs7tSkBpcNfLT2ySqJpIcU3hl0yiRWEMSxU=;
+	b=O6jczRAHlyE369TuBgKbSoI5sr+D8r2p/p/jJJNzLR9kXxPqm7i8xrI7fQB90odCyPIXe1
+	4YZEYdjGPIrzpd27WpJ88/6qed4b09CpY+O8jxnssomse8LoTt8CSvaA6wr3dlSpRtijCJ
+	vAHmY6R0ZD1eQUyUZarC66Ne+Ux/2RcQd5t77tAyFL1OfRlXrUkmm1ZMn+BPB5r7RdTl7h
+	Qk+hr7+AYIIFJwhZj0Tgwd+BKfz6bdCRIMotppabJdlVf4Bs8C4uOdOKVnpS/5nLW/u5hk
+	/fANJbwQ2wd/+NdKjXBdlPyCrER7pQDgNesMJqkCFPh9spNiUJ1olbTsiUR65A==
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 10 Dec 2025 19:10:45 +0100
+Message-Id: <DEUQM2HNEOQU.3K4ZPL44GVZAJ@bootlin.com>
+Subject: Re: [PATCH 03/21] drm/tilcdc: Remove simulate_vesa_sync flag
+Cc: "Markus Schneider-Pargmann" <msp@baylibre.com>, "Louis Chauvet"
+ <louis.chauvet@bootlin.com>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, "Miguel Gazquez"
+ <miguel.gazquez@bootlin.com>, <dri-devel@lists.freedesktop.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>
+To: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>, "Jyri Sarha"
+ <jyri.sarha@iki.fi>, "Tomi Valkeinen" <tomi.valkeinen@ideasonboard.com>,
+ "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Maxime Ripard"
+ <mripard@kernel.org>, "Thomas Zimmermann" <tzimmermann@suse.de>, "David
+ Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Russell King"
+ <linux@armlinux.org.uk>, "Bartosz Golaszewski" <brgl@bgdev.pl>, "Tony
+ Lindgren" <tony@atomide.com>, "Andrzej Hajda" <andrzej.hajda@intel.com>,
+ "Neil Armstrong" <neil.armstrong@linaro.org>, "Robert Foss"
+ <rfoss@kernel.org>, "Laurent Pinchart" <Laurent.pinchart@ideasonboard.com>,
+ "Jonas Karlman" <jonas@kwiboo.se>, "Jernej Skrabec"
+ <jernej.skrabec@gmail.com>
+From: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+X-Mailer: aerc 0.20.1
+References: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
+ <20251126-feature_tilcdc-v1-3-49b9ef2e3aa0@bootlin.com>
+In-Reply-To: <20251126-feature_tilcdc-v1-3-49b9ef2e3aa0@bootlin.com>
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_093035_315464_3EEB5C71 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20251210_101059_704499_8ABD2484 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,154 +92,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Describe all the VTCR_EL2 fields and their respective configurations,
-making sure that we correctly ignore the bits that are not defined
-for a given guest configuration.
+Hi K=C3=B6ry,
 
-Reviewed-by: Alexandru Elisei <alexandru.elisei@arm.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/kvm/config.c | 69 +++++++++++++++++++++++++++++++++++++++++
- arch/arm64/kvm/nested.c |  3 +-
- 2 files changed, 70 insertions(+), 2 deletions(-)
+On Wed Nov 26, 2025 at 6:35 PM CET, Kory Maincent (TI.com) wrote:
+> The tilcdc hardware does not generate VESA-compliant sync signals. It
+> aligns the vertical sync (VS) on the second edge of the horizontal sync
+> (HS) instead of the first edge. To compensate for this hardware
+> behavior, the driver applies a timing adjustment in mode_fixup().
+>
+> Previously, this adjustment was conditional based on the simulate_vesa_sy=
+nc
+> flag, which was only set when using external encoders. This appears
+> problematic because:
+>
+> 1. The timing adjustment seems needed for the hardware behavior regardles=
+s
+>    of whether an external encoder is used
+> 2. The external encoder infrastructure is driver-specific and being
+>    removed due to design issues
+> 3. Boards using tilcdc without bridges (e.g., am335x-evm, am335x-evmsk)
+>    may not be getting the necessary timing adjustments
+>
+> Remove the simulate_vesa_sync flag and apply the VESA sync timing
+> adjustment unconditionally, ensuring consistent behavior across all
+> configurations. While it's unclear if the previous conditional behavior
+> was causing actual issues, the unconditional adjustment better reflects
+> the hardware's characteristics.
+>
+> Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
+> ---
+>
+> Only few board currently use tilcdc not associated to a bridge like the
+> am335x_evm or the am335x-evmsk.
 
-diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
-index 3845b188551b6..9c04f895d3769 100644
---- a/arch/arm64/kvm/config.c
-+++ b/arch/arm64/kvm/config.c
-@@ -141,6 +141,7 @@ struct reg_feat_map_desc {
- #define FEAT_AA64EL1		ID_AA64PFR0_EL1, EL1, IMP
- #define FEAT_AA64EL2		ID_AA64PFR0_EL1, EL2, IMP
- #define FEAT_AA64EL3		ID_AA64PFR0_EL1, EL3, IMP
-+#define FEAT_SEL2		ID_AA64PFR0_EL1, SEL2, IMP
- #define FEAT_AIE		ID_AA64MMFR3_EL1, AIE, IMP
- #define FEAT_S2POE		ID_AA64MMFR3_EL1, S2POE, IMP
- #define FEAT_S1POE		ID_AA64MMFR3_EL1, S1POE, IMP
-@@ -202,6 +203,8 @@ struct reg_feat_map_desc {
- #define FEAT_ASID2		ID_AA64MMFR4_EL1, ASID2, IMP
- #define FEAT_MEC		ID_AA64MMFR3_EL1, MEC, IMP
- #define FEAT_HAFT		ID_AA64MMFR1_EL1, HAFDBS, HAFT
-+#define FEAT_HDBSS		ID_AA64MMFR1_EL1, HAFDBS, HDBSS
-+#define FEAT_HPDS2		ID_AA64MMFR1_EL1, HPDS, HPDS2
- #define FEAT_BTI		ID_AA64PFR1_EL1, BT, IMP
- #define FEAT_ExS		ID_AA64MMFR0_EL1, EXS, IMP
- #define FEAT_IESB		ID_AA64MMFR2_EL1, IESB, IMP
-@@ -219,6 +222,7 @@ struct reg_feat_map_desc {
- #define FEAT_FGT2		ID_AA64MMFR0_EL1, FGT, FGT2
- #define FEAT_MTPMU		ID_AA64DFR0_EL1, MTPMU, IMP
- #define FEAT_HCX		ID_AA64MMFR1_EL1, HCX, IMP
-+#define FEAT_S2PIE		ID_AA64MMFR3_EL1, S2PIE, IMP
- 
- static bool not_feat_aa64el3(struct kvm *kvm)
- {
-@@ -362,6 +366,28 @@ static bool feat_pmuv3p9(struct kvm *kvm)
- 	return check_pmu_revision(kvm, V3P9);
- }
- 
-+#define has_feat_s2tgran(k, s)						\
-+  ((kvm_has_feat_enum(kvm, ID_AA64MMFR0_EL1, TGRAN##s##_2, TGRAN##s) && \
-+    kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN##s, IMP))		     ||	\
-+   kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN##s##_2, IMP))
-+
-+static bool feat_lpa2(struct kvm *kvm)
-+{
-+	return ((kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN4, 52_BIT)    ||
-+		 !kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN4, IMP))	&&
-+		(kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN16, 52_BIT)   ||
-+		 !kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN16, IMP))	&&
-+		(kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN4_2, 52_BIT)  ||
-+		 !has_feat_s2tgran(kvm, 4))				&&
-+		(kvm_has_feat(kvm, ID_AA64MMFR0_EL1, TGRAN16_2, 52_BIT) ||
-+		 !has_feat_s2tgran(kvm, 16)));
-+}
-+
-+static bool feat_vmid16(struct kvm *kvm)
-+{
-+	return kvm_has_feat_enum(kvm, ID_AA64MMFR1_EL1, VMIDBits, 16);
-+}
-+
- static bool compute_hcr_rw(struct kvm *kvm, u64 *bits)
- {
- 	/* This is purely academic: AArch32 and NV are mutually exclusive */
-@@ -1168,6 +1194,44 @@ static const struct reg_bits_to_feat_map mdcr_el2_feat_map[] = {
- static const DECLARE_FEAT_MAP(mdcr_el2_desc, MDCR_EL2,
- 			      mdcr_el2_feat_map, FEAT_AA64EL2);
- 
-+static const struct reg_bits_to_feat_map vtcr_el2_feat_map[] = {
-+	NEEDS_FEAT(VTCR_EL2_HDBSS, FEAT_HDBSS),
-+	NEEDS_FEAT(VTCR_EL2_HAFT, FEAT_HAFT),
-+	NEEDS_FEAT(VTCR_EL2_TL0		|
-+		   VTCR_EL2_TL1		|
-+		   VTCR_EL2_AssuredOnly	|
-+		   VTCR_EL2_GCSH,
-+		   FEAT_THE),
-+	NEEDS_FEAT(VTCR_EL2_D128, FEAT_D128),
-+	NEEDS_FEAT(VTCR_EL2_S2POE, FEAT_S2POE),
-+	NEEDS_FEAT(VTCR_EL2_S2PIE, FEAT_S2PIE),
-+	NEEDS_FEAT(VTCR_EL2_SL2		|
-+		   VTCR_EL2_DS,
-+		   feat_lpa2),
-+	NEEDS_FEAT(VTCR_EL2_NSA		|
-+		   VTCR_EL2_NSW,
-+		   FEAT_SEL2),
-+	NEEDS_FEAT(VTCR_EL2_HWU62	|
-+		   VTCR_EL2_HWU61	|
-+		   VTCR_EL2_HWU60	|
-+		   VTCR_EL2_HWU59,
-+		   FEAT_HPDS2),
-+	NEEDS_FEAT(VTCR_EL2_HD, ID_AA64MMFR1_EL1, HAFDBS, DBM),
-+	NEEDS_FEAT(VTCR_EL2_HA, ID_AA64MMFR1_EL1, HAFDBS, AF),
-+	NEEDS_FEAT(VTCR_EL2_VS, feat_vmid16),
-+	NEEDS_FEAT(VTCR_EL2_PS		|
-+		   VTCR_EL2_TG0		|
-+		   VTCR_EL2_SH0		|
-+		   VTCR_EL2_ORGN0	|
-+		   VTCR_EL2_IRGN0	|
-+		   VTCR_EL2_SL0		|
-+		   VTCR_EL2_T0SZ,
-+		   FEAT_AA64EL1),
-+};
-+
-+static const DECLARE_FEAT_MAP(vtcr_el2_desc, VTCR_EL2,
-+			      vtcr_el2_feat_map, FEAT_AA64EL2);
-+
- static void __init check_feat_map(const struct reg_bits_to_feat_map *map,
- 				  int map_size, u64 resx, const char *str)
- {
-@@ -1211,6 +1275,7 @@ void __init check_feature_map(void)
- 	check_reg_desc(&tcr2_el2_desc);
- 	check_reg_desc(&sctlr_el1_desc);
- 	check_reg_desc(&mdcr_el2_desc);
-+	check_reg_desc(&vtcr_el2_desc);
- }
- 
- static bool idreg_feat_match(struct kvm *kvm, const struct reg_bits_to_feat_map *map)
-@@ -1425,6 +1490,10 @@ void get_reg_fixed_bits(struct kvm *kvm, enum vcpu_sysreg reg, u64 *res0, u64 *r
- 		*res0 = compute_reg_res0_bits(kvm, &mdcr_el2_desc, 0, 0);
- 		*res1 = MDCR_EL2_RES1;
- 		break;
-+	case VTCR_EL2:
-+		*res0 = compute_reg_res0_bits(kvm, &vtcr_el2_desc, 0, 0);
-+		*res1 = VTCR_EL2_RES1;
-+		break;
- 	default:
- 		WARN_ON_ONCE(1);
- 		*res0 = *res1 = 0;
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index e1ef8930c97b3..606cebcaa7c09 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -1719,8 +1719,7 @@ int kvm_init_nv_sysregs(struct kvm_vcpu *vcpu)
- 	set_sysreg_masks(kvm, VTTBR_EL2, res0, res1);
- 
- 	/* VTCR_EL2 */
--	res0 = GENMASK(63, 32) | GENMASK(30, 20);
--	res1 = BIT(31);
-+	get_reg_fixed_bits(kvm, VTCR_EL2, &res0, &res1);
- 	set_sysreg_masks(kvm, VTCR_EL2, res0, res1);
- 
- 	/* VMPIDR_EL2 */
--- 
-2.47.3
+Have you tested this change on any affected board?
 
+The change looks good to me but without some testing it would be risky.
+
+Luca
+
+--
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
