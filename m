@@ -4,73 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A2D2D3C520
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 02:22:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB354D3C523
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 02:23:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FVPsyHqROSnFExErxT9oq3DOybIszjm4nHBwKs5gkLA=; b=obZ2X7XH6Pp5B92enHxZ64dTXM
-	aK5UHRZs6g8Mu2SF/Bv9yhT+rVRkkpEgRT9+eujclwWREM29zrRaE1tjhFrjWe+As6UchtlWv9Sbg
-	pgjzJDr9Olaph1I0HLTTv27tKPUNTOM5wtbbVBZ+KTKgNvHQVlcjEVo1IATo9mVFCi6wWw2crRv2S
-	PoRXqzzhDjC3Sxc7mfwlZo0DmiWih4rL2+8KstcWLfoYp/hQZ81u8KFjPlO0YcmnGZ7P7xUScvcCI
-	AkeiYeIpsaOXl0M0QSkU7vt2PBOpSvl0ntt/xBmafY2RvjH0zdn2IbFm+2HDkad7voLbRSay3Ze5p
-	rVBOdrYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uDmj9JJmBP0rG5uJ/PHMrWcB3q12qg0xSbzj/K5K/vo=; b=MkLTd7tQwnNqYwduuUHzYcRzIX
+	IA23dmAO2NofTexKNVSIRvpCOxkzHD5ruWj4GSNKbAiphybEMzFIybmqsRiZwd/tTK1zvAMRA+8O3
+	WYIjDeqAuSPFG4v4c++yb4VzIyr+J90NWU3sd/mx6Ku/UZ6a0G9ETP0QMNJo/zdXFUX0sAploajce
+	0SnnKZUbgqq3p82kWbDZNa75ucR2aoqJXtZVW91JjWoH9+Rssg8CMFiAGMaR3eJ1j0PtD5jl1jLIj
+	ZMXwwLJXWh2wdyl/w8S6h18rvaf8/HnXeXeKtrzI1gjwPLyh/jfba2af+SMtA42ELz2r8CWENJgmW
+	1AwVBiuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT9qs-0000000F0Co-2Bmz;
-	Wed, 10 Dec 2025 02:22:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vT9qp-0000000F0Cf-2C9v
+	id 1vT9rA-0000000F0FE-3WL7;
+	Wed, 10 Dec 2025 02:23:08 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vT9r6-0000000F0EK-3NfR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Dec 2025 02:22:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5EFA460135;
-	Wed, 10 Dec 2025 02:22:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3A46C4CEF5;
-	Wed, 10 Dec 2025 02:22:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765333366;
-	bh=BdZF2pNd4UIWn0TZnS2/oExdzTkeLzEDfnMcg2OQOR4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Gs06zghpqLzTxOlMoiGA6jMiwlvq+UADOE1DnQMhmYIAiH9dfmhXppHkd7jTOIOvM
-	 o60UV+4uvP/ZZU9H1EnCRMXukPh7rtYrlp9VxoHq9ahIcHuDm4qbQs/JZAFnSS6Li4
-	 A0rzwvJIrSnAqhpuA6mJHcxE1ffLvU4d2z9o/WtL4fuS8jIfrH0bIE/vqTrJJ4TMnM
-	 mpVEtHuOHcV8SRZ/ZIvCF5UWiOhzSdGcLrvk/AVgCzT/pupFCYa9uQOnwPvf5amC2S
-	 Tz3Biw7vN4skwOcLOr0daKLTs1n5L4cEcH1JvAtjIMzKQgBwluE1d8mj6zo5JIgPnK
-	 ZKB1oPLrt9zEw==
-Received: by finisterre.sirena.org.uk (Postfix, from userid 1000)
-	id 4E38E1ACB974; Wed, 10 Dec 2025 02:22:43 +0000 (GMT)
-Date: Wed, 10 Dec 2025 11:22:43 +0900
-From: Mark Brown <broonie@kernel.org>
-To: James Calligeros <jcalligeros99@gmail.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Shenghao Ding <shenghao-ding@ti.com>, Kevin Lu <kevin-lu@ti.com>,
-	Baojun Xu <baojun.xu@ti.com>, linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	asahi@lists.linux.dev
-Subject: Re: [PATCH 4/7] ASoC: soc-dai: define TDM idle behaviour modes
-Message-ID: <aTjZc3mgu7CQOkDU@sirena.co.uk>
-References: <20251209-tdm-idle-slots-v1-0-38dabf6bc01e@gmail.com>
- <20251209-tdm-idle-slots-v1-4-38dabf6bc01e@gmail.com>
+	Wed, 10 Dec 2025 02:23:07 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BDD36175D;
+	Tue,  9 Dec 2025 18:22:52 -0800 (PST)
+Received: from [10.164.18.52] (unknown [10.164.18.52])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A7E383F7A6;
+	Tue,  9 Dec 2025 18:22:54 -0800 (PST)
+Message-ID: <d39d633c-a009-41ba-8546-1137509cf678@arm.com>
+Date: Wed, 10 Dec 2025 07:52:51 +0530
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="er/1OtNA51My+cwA"
-Content-Disposition: inline
-In-Reply-To: <20251209-tdm-idle-slots-v1-4-38dabf6bc01e@gmail.com>
-X-Cookie: It's clever, but is it art?
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 19/19] perf: cs-etm: Set watermark for AUX trace
+To: James Clark <james.clark@linaro.org>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ Leo Yan <leo.yan@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Tamas Petz <tamas.petz@arm.com>, Tamas Zsoldos <tamas.zsoldos@arm.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+ Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>
+References: <20251201-trbe_buffer_refactor_v1-1-v1-0-7da32b076b28@arm.com>
+ <20251201-trbe_buffer_refactor_v1-1-v1-19-7da32b076b28@arm.com>
+ <c22b084b-3853-405d-8b43-397786af7be9@arm.com>
+ <5ebf1743-b01c-4664-961c-9e1e2aa7ffce@linaro.org>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <5ebf1743-b01c-4664-961c-9e1e2aa7ffce@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251209_182305_390544_34F3F107 
+X-CRM114-Status: GOOD (  20.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,46 +75,66 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---er/1OtNA51My+cwA
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
 
-On Tue, Dec 09, 2025 at 07:31:17PM +1000, James Calligeros wrote:
+On 09/12/25 8:24 PM, James Clark wrote:
+> 
+> 
+> On 05/12/2025 4:48 am, Anshuman Khandual wrote:
+>> On 01/12/25 4:52 PM, Leo Yan wrote:
+>>> The default watermark is half of the total buffer size. In many cases,
+>>> the tool can not be notified with sufficient free space, especially when
+>>> profiling with small AUX buffer (e.g., 64KiB).
+>>
+>> Could not smaller AUX buffer be prevented for TRBE instead ?
+>>
+> 
+> It's not really about the size of the buffer but where the wakeup points are. With only two wakeup points (middle and end) once you pass the first one you are immediately into the last chance end section.
+> 
+> Now the driver is writing into the end section, but Perf is still reading from the first one. Once the end one fills up, you end up with no space left without Perf having a chance to say it's finished reading.
 
-> Imagine for example two codecs sharing a bus. When one codec is
-> transmitting, the other must ensure that it is holding its side
-> to 0, or data from the transmitting codec will be corrupted. We
-> can trust the "idle" codec to simply do this itself, however
-> this is undefined behaviour. Some devices may leave the line
-> floating, others still may pull the line high. We need a way to
-> control this behaviour.
+Understood.
 
-I'm finding this explanation quite confusing - you appear to be
-describing the situation where two devices simultaneously drive the same
-signal which would be extremely unusual and I can't see how it would
-work electrically.
+> 
+> To guarantee free space, there needs to be at least one additional section as a buffer zone. Ideally we'd set the wakeup point at thirds so there were fewer wakeups and still have one free section, but it might not always divide by 3, so 4 is also fine.
+> 
+> The commit message could probably explain it a bit better though.
 
-> Thus, we define five possible bus-keeping modes that a device can
-> be in: NONE (UB/as initialised), OFF (explicitly disabled), ZERO
-> (actively transmit a 0), PULLDOWN, and HIZ (floating).
+Agreed, the commit message should explain this problem in detail. Otherwise it appeared
+as if the buffer sizing alone is impacting the perf records collection.
 
-What is "explicitly disabled" in ths context?  Why aren't pull up or
-drive high options?
+> 
+> The reason this is different now is because we want to be able to enable wrap mode as much as possible. If you imagine the scenario where a half way watermark is hit, you can't enable wrap mode without wrapping into Perf's part of the buffer (the beginning) as it's all that's left after the second half.
 
---er/1OtNA51My+cwA
-Content-Type: application/pgp-signature; name="signature.asc"
+Got it.
 
------BEGIN PGP SIGNATURE-----
+> 
+>>>> Setting watermark to quarter of the buffer to notifies the tool to read
+>>> data earlier and prevents the data loss.
+>>>
+>>> Signed-off-by: Leo Yan <leo.yan@arm.com>
+>>> ---
+>>>   tools/perf/arch/arm/util/cs-etm.c | 7 +++++++
+>>>   1 file changed, 7 insertions(+)
+>>>
+>>> diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/util/cs-etm.c
+>>> index ea891d12f8f40beebf8dee1d3db71cad701f5666..649b8b0d0f92b4af45fb97db9da3c5ccf24a978b 100644
+>>> --- a/tools/perf/arch/arm/util/cs-etm.c
+>>> +++ b/tools/perf/arch/arm/util/cs-etm.c
+>>> @@ -424,6 +424,13 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
+>>>           pr_debug2("%s snapshot size: %zu\n", CORESIGHT_ETM_PMU_NAME,
+>>>                 opts->auxtrace_snapshot_size);
+>>>   +    if (!opts->auxtrace_snapshot_mode && !opts->auxtrace_sample_mode) {
+>>> +        size_t aw = opts->auxtrace_mmap_pages * (size_t)page_size / 4;
+>>> +        u32 aux_watermark = aw > UINT_MAX ? UINT_MAX : aw;
+>>> +
+>>> +        cs_etm_evsel->core.attr.aux_watermark = aux_watermark;
+>>> +    }
+>>> +
+>>>       /*
+>>>        * To obtain the auxtrace buffer file descriptor, the auxtrace
+>>>        * event must come first.
+>>>
+>>
+> 
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmk42XIACgkQJNaLcl1U
-h9Dvngf/Q8hLsUPgUG/WCbl9wKOoJ0KFzFLX0pXGLPoa5P1aal4uK1pP4erJN/7L
-qegwM8H6BSQ3wD6l2JBGYmZJKH/UKEr3b+n7pFh4ek40r8h+Y/g9QOZknIHaTtrs
-07areWAyrXXVr20+YcHlsKGmyV1xqBMNoMiA9r6cs8d3LRfNprkXzN9YQN2fcKcQ
-AUJYg01zlsOkdjcoSeJFmnIhgv9klROT7xGj1gNmUKMp+lVUkRV3mHRr56g0enE8
-Q5nWUQ4G2UqxNMBJmMVij7Oz3QHfuK8zwk/x3t+M/wXWkK5zSUo3a0ceJIH09u3/
-0IX7nNttZTCXalNXZzVMtPnxRwCIbw==
-=RadW
------END PGP SIGNATURE-----
-
---er/1OtNA51My+cwA--
 
