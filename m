@@ -4,91 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E90D3E768
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 19:06:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09872D3E77B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 20:03:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AMHWfs8vkj+6UQ9dcyX/h3srKGVBDZlwtktqtkh9tjo=; b=tOeIcFmUmlKL0QMfN5EL/M4prO
-	SWGDsQqGOF8n47KPGqbIGo75K5eCWEEqGmfRGG4MVsUJtS04yjPZfcOI2+jh2t9dGdTgKbRTk0IrL
-	KtEg03wz+GPTE4bPBz6shaL7oAsTba7Q2cb6aa8n8QKPPumx7EanJAPG/CM0pd8V1Q71p73saPexQ
-	7RCkbkjnJbZflOfIO6E1foxdT/fPZmlWCv9lvOI5ax1vEEvvCkn3jWytINtumR0g0OMGH9avOhrio
-	cWdrI2I5NfGxRb2hPFC/InKTsb6CAz3fsVIwDSx48nc7yr+D2FMnMN9ZVN3EREe6ckMtsskNofFX5
-	LnWWenMw==;
+	bh=mpQDL1Ts1WK3OfGaiGD3aIWHZQhhqGT3EelI7H0RfGk=; b=GhIgB7D2lCiqkP+WeWpjXBRd8c
+	wIjH2NzempQCmX7lU6Rrx8HHcFy329fhBY+VjypY2yhkS3RLojR9a7YC/2I0XzNf3WqMV/aeAN1vs
+	qqL6b9cHQGDNy0wGsDS5cqMSCUvqYiTkMNPDCiSPuoLxtGB7QiPlkuZ7sm2nzHA7MS5fstjkoiDwS
+	of3PQGQ5YArWw+xOBA/z6/1Zn39io9S57v8fFR+cd88NxZABFkMR0UIM5XGYKVu6oZnP4OQ4gjsMK
+	AEtNCMvBa6PgM0g8adYd3ZzPws8qPAVfQ9zivnnrWxbzHbYHb65/dMPW91u0Sli4+VzWTINeZt/lu
+	Q69PpzkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTPVe-0000000FleY-42hu;
-	Wed, 10 Dec 2025 19:05:58 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1vTQP8-0000000Fo2g-01y6;
+	Wed, 10 Dec 2025 20:03:18 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTPVb-0000000Flds-0OtF;
-	Wed, 10 Dec 2025 19:05:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1765393555; x=1796929555;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=boHYArrLfilo5Sv64y0CaCmooWdnIhESwdLtZzAruxg=;
-  b=a9PcpBPyDfbPl8XBiPYbX9ATxhCNFMWX/m3PtzW39DGliL3aDrGVqv2b
-   MnfxqmLaufS+jty4Us+dkMfe8lCpBRR2QkV+23nCG7DSR8L9nZ1Ro2w7d
-   Aejsbowtoyff1W0PifDs5G6NYARfqsD1/drukQy7Boq9YiLW+0eYRaglP
-   +6HczP/WyInQvm3JXW2hRRhQbsk8ImJsFJbNP7TwV7e2h10pFBY1CW1jy
-   4+6w/ifXThsOOI3VzKSkKsSF6Tv6UfV+nMSNQCdmzdRI3TAu8ZJV7ZMNR
-   Rv6bYR6fP6D9LfmX9qziTPFT2Kw0efw0Vqm7XOe/jle4F/VkIqxmw6x8/
-   Q==;
-X-CSE-ConnectionGUID: FNCBd6biScSyCXkCZ7IZ6w==
-X-CSE-MsgGUID: vSE2ouEkTUGyqJnGTIOG8g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11638"; a="54917271"
-X-IronPort-AV: E=Sophos;i="6.20,264,1758610800"; 
-   d="scan'208";a="54917271"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Dec 2025 11:05:53 -0800
-X-CSE-ConnectionGUID: Etk4k57vSziwm/yZiYAtjg==
-X-CSE-MsgGUID: h4VcFQvCTOSLNUrttT2hvw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.20,264,1758610800"; 
-   d="scan'208";a="201029660"
-Received: from lkp-server01.sh.intel.com (HELO d335e3c6db51) ([10.239.97.150])
-  by fmviesa005.fm.intel.com with ESMTP; 10 Dec 2025 11:05:48 -0800
-Received: from kbuild by d335e3c6db51 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vTPVR-000000003fJ-2YeN;
-	Wed, 10 Dec 2025 19:05:45 +0000
-Date: Thu, 11 Dec 2025 03:05:08 +0800
-From: kernel test robot <lkp@intel.com>
-To: Frank Li <Frank.Li@nxp.com>, Vinod Koul <vkoul@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Bjorn Helgaas <helgaas@kernel.org>, Christoph Hellwig <hch@lst.de>,
-	Sagi Grimberg <sagi@grimberg.me>,
-	Chaitanya Kulkarni <kch@nvidia.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Koichiro Den <den@valinux.co.jp>, Niklas Cassel <cassel@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org,
-	dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-nvme@lists.infradead.org,
-	mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
-Subject: Re: [PATCH 6/8] nvmet: pci-epf: Use
- dmaengine_prep_slave_single_config() API
-Message-ID: <202512110249.kCiMC4sb-lkp@intel.com>
-References: <20251208-dma_prep_config-v1-6-53490c5e1e2a@nxp.com>
+	id 1vTQP4-0000000Fo25-201m;
+	Wed, 10 Dec 2025 20:03:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1765396990;
+	bh=oxZ9Rf9flEWYLWdPSQDs1J/cfKmNzjhS77vvCV4E1+c=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=jYpju2vjibB7Y+J4wBRFXFXQjRJHfnPAg+0H2Y1aS2FPdxasNxt/LPYeQB+bOJiz0
+	 uGZfJ9qHTZ81D4Q0B57pvgT/yaAza176aibaGj01v1zQ2OerdzWNmWzvcgYXOBY6j6
+	 OdyG9GB4oAa5eMjIm6lzpqid667O3w8zZBgqAA62uhZvP/u0z4J/RzQyFRkLbwGzYg
+	 k3WXxxo9sBpyya2+3VsmtG3Q4OMtaIKdRAaR2me9JoEWeAJqLwsuh/Raz1gqkDKeFh
+	 xws7neezvh7m664WQlLyu067IqG7ABn3FwFppfzchXmodsDWxHvahvbQoSV+y5bznY
+	 LP/uBR6Q8z8RQ==
+Received: from [IPv6:2606:6d00:17:7b4b::c41] (unknown [IPv6:2606:6d00:17:7b4b::c41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id EDCFB17E12FB;
+	Wed, 10 Dec 2025 21:03:08 +0100 (CET)
+Message-ID: <a46d28aab764afcf3feab29df0fd1793bfe27c52.camel@collabora.com>
+Subject: Re: [PATCH v3 01/15] media: uapi: HEVC: Add
+ v4l2_ctrl_hevc_ext_sps_[ls]t_rps controls
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Detlev Casanova <detlev.casanova@collabora.com>, 
+	linux-kernel@vger.kernel.org
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Ezequiel Garcia	
+ <ezequiel@vanguardiasur.com.ar>, Heiko Stuebner <heiko@sntech.de>, Ricardo
+ Ribalda <ribalda@chromium.org>, Hans Verkuil <hverkuil@kernel.org>, Hans de
+ Goede <hansg@kernel.org>,  Yunke Cao <yunkec@google.com>, Jonathan Corbet
+ <corbet@lwn.net>, Laurent Pinchart	 <laurent.pinchart@ideasonboard.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,  James Cowgill
+ <james.cowgill@blaize.com>, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, 	linux-arm-kernel@lists.infradead.org,
+ kernel@collabora.com
+Date: Wed, 10 Dec 2025 15:03:06 -0500
+In-Reply-To: <20251022162459.271603-2-detlev.casanova@collabora.com>
+References: <20251022162459.271603-1-detlev.casanova@collabora.com>
+	 <20251022162459.271603-2-detlev.casanova@collabora.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-cvP9oCkd8q02a41q9i/L"
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251208-dma_prep_config-v1-6-53490c5e1e2a@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_110555_219125_BFA4BCA8 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20251210_120314_864075_BEB5FC8E 
+X-CRM114-Status: GOOD (  22.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,103 +97,279 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
 
-kernel test robot noticed the following build warnings:
+--=-cvP9oCkd8q02a41q9i/L
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-[auto build test WARNING on bc04acf4aeca588496124a6cf54bfce3db327039]
+Hi,
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Frank-Li/dmaengine-Add-API-to-combine-configuration-and-preparation-sg-and-single/20251209-011820
-base:   bc04acf4aeca588496124a6cf54bfce3db327039
-patch link:    https://lore.kernel.org/r/20251208-dma_prep_config-v1-6-53490c5e1e2a%40nxp.com
-patch subject: [PATCH 6/8] nvmet: pci-epf: Use dmaengine_prep_slave_single_config() API
-config: i386-allmodconfig (https://download.01.org/0day-ci/archive/20251211/202512110249.kCiMC4sb-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251211/202512110249.kCiMC4sb-lkp@intel.com/reproduce)
+Le mercredi 22 octobre 2025 =C3=A0 12:22 -0400, Detlev Casanova a =C3=A9cri=
+t=C2=A0:
+> Some hardware (e.g.: Rockchip's rk3588 hevc decoder) need the
+> long and short term reference information for HEVC decoding.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512110249.kCiMC4sb-lkp@intel.com/
+That's seems a bit short and incomplete. My understanding is that the decod=
+er on
+this hardware needs to full parse the slice headers, and cannot be passed w=
+ith
+the slice information. It also does not implement a a skip method similar t=
+o
+Hantro.
 
-All warnings (new ones prefixed by >>):
+So in short, I think the justification for this API is that these parameter=
+s are
+needed to fully parse HEVC slice headers. You should perhaps say that simil=
+ar
+paramters ares passed in Vulkan Video API ?
 
-   drivers/nvme/target/pci-epf.c: In function 'nvmet_pci_epf_dma_transfer':
->> drivers/nvme/target/pci-epf.c:369:23: warning: variable 'lock' set but not used [-Wunused-but-set-variable]
-     369 |         struct mutex *lock;
-         |                       ^~~~
+>=20
+> Add controls to provide it as the raw data form the stream.
+>=20
+> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+> ---
+> =C2=A0.../media/v4l/ext-ctrls-codec-stateless.rst=C2=A0=C2=A0 | 114 +++++=
++++++++++++++
+> =C2=A0.../media/v4l/videodev2.h.rst.exceptions=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0 |=C2=A0=C2=A0 2 +
+> =C2=A0.../media/v4l/vidioc-queryctrl.rst=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 12 ++
+> =C2=A03 files changed, 128 insertions(+)
+>=20
+> diff --git a/Documentation/userspace-api/media/v4l/ext-ctrls-codec-statel=
+ess.rst b/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.r=
+st
+> index 0da635691fdc..bb6772cf3cee 100644
+> --- a/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst
+> +++ b/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst
+> @@ -2958,6 +2958,120 @@ This structure contains all loop filter related p=
+arameters. See sections
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - 0x00000004
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 -
+> =C2=A0
+> +``V4L2_CID_STATELESS_HEVC_EXT_SPS_LT_RPS (struct)``
+> +=C2=A0=C2=A0=C2=A0 Specifies the list of Long-Term reference sets parame=
+ters from the SPS.
+> +=C2=A0=C2=A0=C2=A0 These parameters are defined according to :ref:`hevc`=
+.
+> +=C2=A0=C2=A0=C2=A0 They are described in section 7.4.3.2.1 "General sequ=
+ence parameter set
+> +=C2=A0=C2=A0=C2=A0 RBSP semantics" of the specification.
+> +=C2=A0=C2=A0=C2=A0 This control is a dynamically sized 1-dimensional arr=
+ay,
+> +=C2=A0=C2=A0=C2=A0 V4L2_CTRL_FLAG_DYNAMIC_ARRAY flag must be set when us=
+ing it.
 
+Can we making a bit clearer that this is a subset of the SPS (perhaps use t=
+he
+term subset). And this is user to extend another control (mention this othe=
+r
+control) ?
 
-vim +/lock +369 drivers/nvme/target/pci-epf.c
+> +
+> +.. c:type:: v4l2_ctrl_hevc_ext_sps_lt_rps
+> +
+> +.. cssclass:: longtable
+> +
+> +.. flat-table:: struct v4l2_ctrl_hevc_ext_sps_lt_rps
+> +=C2=A0=C2=A0=C2=A0 :header-rows:=C2=A0 0
+> +=C2=A0=C2=A0=C2=A0 :stub-columns: 0
+> +=C2=A0=C2=A0=C2=A0 :widths:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 1 1 2
+> +
+> +=C2=A0=C2=A0=C2=A0 * - __u16
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``lt_ref_pic_poc_lsb_sps``
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Long term reference picture order count=
+ as described in section 7.4.3.2.1
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 "General sequence parameter s=
+et RBSP semantics" of the specification.
+> +=C2=A0=C2=A0=C2=A0 * - __u8
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``flags``
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - See :ref:`Extended Long-Term RPS Flags =
+<hevc_ext_sps_lt_rps_flags>`
+> +
+> +.. _hevc_ext_sps_lt_rps_flags:
+> +
+> +``Extended SPS Long-Term RPS Flags``
+> +
+> +.. cssclass:: longtable
+> +
+> +.. flat-table::
+> +=C2=A0=C2=A0=C2=A0 :header-rows:=C2=A0 0
+> +=C2=A0=C2=A0=C2=A0 :stub-columns: 0
+> +=C2=A0=C2=A0=C2=A0 :widths:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 1 1 2
+> +
+> +=C2=A0=C2=A0=C2=A0 * - ``V4L2_HEVC_EXT_SPS_LT_RPS_FLAG_USED_LT``
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - 0x00000001
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Specifies if the long-term reference pi=
+cture is used 7.4.3.2.1 "General sequence parameter
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 set RBSP semantics" of the sp=
+ecification.
+> +
+> +``V4L2_CID_STATELESS_HEVC_EXT_SPS_ST_RPS (struct)``
+> +=C2=A0=C2=A0=C2=A0 Specifies the list of Short-Term reference sets param=
+eters from the SPS.
+> +=C2=A0=C2=A0=C2=A0 These parameters are defined according to :ref:`hevc`=
+.
+> +=C2=A0=C2=A0=C2=A0 They are described in section 7.4.8 "Short-term refer=
+ence picture set
+> +=C2=A0=C2=A0=C2=A0 semantics" of the specification.
+> +=C2=A0=C2=A0=C2=A0 This control is a dynamically sized 1-dimensional arr=
+ay,
+> +=C2=A0=C2=A0=C2=A0 V4L2_CTRL_FLAG_DYNAMIC_ARRAY flag must be set when us=
+ing it.
 
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  357  
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  358  static int nvmet_pci_epf_dma_transfer(struct nvmet_pci_epf *nvme_epf,
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  359  		struct nvmet_pci_epf_segment *seg, enum dma_data_direction dir)
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  360  {
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  361  	struct pci_epf *epf = nvme_epf->epf;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  362  	struct dma_async_tx_descriptor *desc;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  363  	struct dma_slave_config sconf = {};
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  364  	struct device *dev = &epf->dev;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  365  	struct device *dma_dev;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  366  	struct dma_chan *chan;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  367  	dma_cookie_t cookie;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  368  	dma_addr_t dma_addr;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04 @369  	struct mutex *lock;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  370  	int ret;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  371  
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  372  	switch (dir) {
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  373  	case DMA_FROM_DEVICE:
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  374  		lock = &nvme_epf->dma_rx_lock;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  375  		chan = nvme_epf->dma_rx_chan;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  376  		sconf.direction = DMA_DEV_TO_MEM;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  377  		sconf.src_addr = seg->pci_addr;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  378  		break;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  379  	case DMA_TO_DEVICE:
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  380  		lock = &nvme_epf->dma_tx_lock;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  381  		chan = nvme_epf->dma_tx_chan;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  382  		sconf.direction = DMA_MEM_TO_DEV;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  383  		sconf.dst_addr = seg->pci_addr;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  384  		break;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  385  	default:
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  386  		return -EINVAL;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  387  	}
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  388  
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  389  	dma_dev = dmaengine_get_dma_device(chan);
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  390  	dma_addr = dma_map_single(dma_dev, seg->buf, seg->length, dir);
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  391  	ret = dma_mapping_error(dma_dev, dma_addr);
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  392  	if (ret)
-f9f42a84df49d9 Frank Li       2025-12-08  393  		return ret;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  394  
-f9f42a84df49d9 Frank Li       2025-12-08  395  	desc = dmaengine_prep_slave_single_config(chan, dma_addr, seg->length,
-f9f42a84df49d9 Frank Li       2025-12-08  396  						  sconf.direction,
-f9f42a84df49d9 Frank Li       2025-12-08  397  						  DMA_CTRL_ACK,
-f9f42a84df49d9 Frank Li       2025-12-08  398  						  &sconf);
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  399  	if (!desc) {
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  400  		dev_err(dev, "Failed to prepare DMA\n");
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  401  		ret = -EIO;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  402  		goto unmap;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  403  	}
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  404  
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  405  	cookie = dmaengine_submit(desc);
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  406  	ret = dma_submit_error(cookie);
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  407  	if (ret) {
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  408  		dev_err(dev, "Failed to do DMA submit (err=%d)\n", ret);
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  409  		goto unmap;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  410  	}
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  411  
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  412  	if (dma_sync_wait(chan, cookie) != DMA_COMPLETE) {
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  413  		dev_err(dev, "DMA transfer failed\n");
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  414  		ret = -EIO;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  415  	}
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  416  
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  417  unmap:
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  418  	dma_unmap_single(dma_dev, dma_addr, seg->length, dir);
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  419  
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  420  	return ret;
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  421  }
-0faa0fe6f90ea5 Damien Le Moal 2025-01-04  422  
+D=C3=A9j=C3=A0 vue, this is a duplicate right ?
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+> +
+> +.. c:type:: v4l2_ctrl_hevc_ext_sps_st_rps
+> +
+> +.. cssclass:: longtable
+> +
+> +.. flat-table:: struct v4l2_ctrl_hevc_ext_sps_st_rps
+> +=C2=A0=C2=A0=C2=A0 :header-rows:=C2=A0 0
+> +=C2=A0=C2=A0=C2=A0 :stub-columns: 0
+> +=C2=A0=C2=A0=C2=A0 :widths:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 1 1 2
+> +
+> +=C2=A0=C2=A0=C2=A0 * - __u8
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``delta_idx_minus1``
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Specifies the delta compare to the inde=
+x. See details in section 7.4.8 "Short-term
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 reference picture set semanti=
+cs" of the specification.
+> +=C2=A0=C2=A0=C2=A0 * - __u8
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``delta_rps_sign``
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Sign of the delta as specified in secti=
+on 7.4.8 "Short-term reference picture set
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 semantics" of the specificati=
+on.
+> +=C2=A0=C2=A0=C2=A0 * - __u16
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``abs_delta_rps_minus1``
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Absolute delta RPS as specified in sect=
+ion 7.4.8 "Short-term reference picture set
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 semantics" of the specificati=
+on.
+> +=C2=A0=C2=A0=C2=A0 * - __u8
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``num_negative_pics``
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Number of short-term RPS entries that h=
+ave picture order count values less than the
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 picture order count value of =
+the current picture.
+> +=C2=A0=C2=A0=C2=A0 * - __u8
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``num_positive_pics``
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Number of short-term RPS entries that h=
+ave picture order count values greater than the
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 picture order count value of =
+the current picture.
+> +=C2=A0=C2=A0=C2=A0 * - __u32
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``used_by_curr_pic``
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Bit i specifies if short-term RPS i is =
+used by the current picture.
+> +=C2=A0=C2=A0=C2=A0 * - __u32
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``use_delta_flag``
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Bit i specifies if short-term RPS i is =
+included in the short-term RPS entries.
+> +=C2=A0=C2=A0=C2=A0 * - __u16
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``delta_poc_s0_minus1[16]``
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Specifies the negative picture order co=
+unt delta for the i-th entry in the short-term RPS.
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 See details in section 7.4.8 =
+"Short-term reference picture set semantics" of the
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 specification.
+> +=C2=A0=C2=A0=C2=A0 * - __u16
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``delta_poc_s1_minus1[16]``
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Specifies the positive picture order co=
+unt delta for the i-th entry in the short-term RPS.
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 See details in section 7.4.8 =
+"Short-term reference picture set semantics" of the
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 specification.
+> +=C2=A0=C2=A0=C2=A0 * - __u8
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ``flags``
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - See :ref:`Extended Short-Term RPS Flags=
+ <hevc_ext_sps_st_rps_flags>`
+> +
+> +.. _hevc_ext_sps_st_rps_flags:
+> +
+> +``Extended SPS Short-Term RPS Flags``
+> +
+> +.. cssclass:: longtable
+> +
+> +.. flat-table::
+> +=C2=A0=C2=A0=C2=A0 :header-rows:=C2=A0 0
+> +=C2=A0=C2=A0=C2=A0 :stub-columns: 0
+> +=C2=A0=C2=A0=C2=A0 :widths:=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 1 1 2
+> +
+> +=C2=A0=C2=A0=C2=A0 * - ``V4L2_HEVC_EXT_SPS_ST_RPS_FLAG_INTER_REF_PIC_SET=
+_PRED``
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - 0x00000001
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - Specifies if the short-term RPS is pred=
+icted from another short term RPS. See details in
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 section 7.4.8 "Short-term ref=
+erence picture set semantics" of the specification.
+> +
+> =C2=A0.. _v4l2-codec-stateless-av1:
+> =C2=A0
+> =C2=A0``V4L2_CID_STATELESS_AV1_SEQUENCE (struct)``
+> diff --git a/Documentation/userspace-api/media/v4l/videodev2.h.rst.except=
+ions b/Documentation/userspace-api/media/v4l/videodev2.h.rst.exceptions
+> index 35d3456cc812..1663fdf8444c 100644
+> --- a/Documentation/userspace-api/media/v4l/videodev2.h.rst.exceptions
+> +++ b/Documentation/userspace-api/media/v4l/videodev2.h.rst.exceptions
+> @@ -149,6 +149,8 @@ replace symbol V4L2_CTRL_TYPE_H264_DECODE_PARAMS :c:t=
+ype:`v4l2_ctrl_type`
+> =C2=A0replace symbol V4L2_CTRL_TYPE_HEVC_SPS :c:type:`v4l2_ctrl_type`
+> =C2=A0replace symbol V4L2_CTRL_TYPE_HEVC_PPS :c:type:`v4l2_ctrl_type`
+> =C2=A0replace symbol V4L2_CTRL_TYPE_HEVC_SLICE_PARAMS :c:type:`v4l2_ctrl_=
+type`
+> +replace symbol V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS :c:type:`v4l2_ctrl_typ=
+e`
+> +replace symbol V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS :c:type:`v4l2_ctrl_typ=
+e`
+> =C2=A0replace symbol V4L2_CTRL_TYPE_AREA :c:type:`v4l2_ctrl_type`
+> =C2=A0replace symbol V4L2_CTRL_TYPE_RECT :c:type:`v4l2_ctrl_type`
+> =C2=A0replace symbol V4L2_CTRL_TYPE_FWHT_PARAMS :c:type:`v4l2_ctrl_type`
+> diff --git a/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst b=
+/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst
+> index 3549417c7feb..128c044d2e3c 100644
+> --- a/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst
+> +++ b/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst
+> @@ -523,6 +523,18 @@ See also the examples in :ref:`control`.
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - A struct :c:type:`v4l2_ctrl_hevc_d=
+ecode_params`, containing HEVC
+> =C2=A0	decoding parameters for stateless video decoders.
+> +=C2=A0=C2=A0=C2=A0 * - ``V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS``
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - A struct :c:type:`v4l2_ctrl_hevc_ext_sp=
+s_lt_rps`, containing HEVC
+> +	extended Long-Term RPS for stateless video decoders.
+> +=C2=A0=C2=A0=C2=A0 * - ``V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS``
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - A struct :c:type:`v4l2_ctrl_hevc_ext_sp=
+s_st_rps`, containing HEVC
+> +	extended Short-Term RPS for stateless video decoders.
+> =C2=A0=C2=A0=C2=A0=C2=A0 * - ``V4L2_CTRL_TYPE_VP9_COMPRESSED_HDR``
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - n/a
+
+cheers,
+Nicolas
+
+--=-cvP9oCkd8q02a41q9i/L
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaTnR+wAKCRDZQZRRKWBy
+9MPMAQDcoTk+P34Xm73BGD2Tl6f1iAuB3ncqmUe/ONuRpq1FbQEAnhvBvQOHImBE
+rsry5un3vkTSItKdyeKggIDZTROlews=
+=IT7M
+-----END PGP SIGNATURE-----
+
+--=-cvP9oCkd8q02a41q9i/L--
 
