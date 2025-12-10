@@ -4,139 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47A92D3C523
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 02:46:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E582ED3C523
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 02:51:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XlTzKqplEbIA9MI3FvZ8jQqByTKrf6WHy/n9UZPM2Pw=; b=nChTQ+1NmdgGDLgvqpoktoVgl+
-	QKSldW/sIIYz3/jIpEQdX6dS+gbr02DUzPHNoWE2fPx764J3GVZyey9rWv++ytEG0PRPgM7DVSMsy
-	XVKcHxiIIoCOHroUfKe3+jTPl+NzCBkSa+nI5HU5q0Fs1d8/SXxcSELZEyZ64fK0nVxAz4nM76yJG
-	n6BMBi8dZM9iU3+mM2e3fo1hc0aRAs+DvicsfITdM0C1z1Hf09Gp69voidOeSOdyP2HNB2tHuYicb
-	p6mFo6Q9L4cPjIy0oLnQP4qgtkp+/Ephy3VK4LTOa6c722wz66izJUble/0Vt1EMTXph4E4WOo0P4
-	X6qj7PKw==;
+	bh=8xH3drQAYYtji0Fzx5XrFrFtMAZ09XIO82H9YDmLYd0=; b=LznMl1eJNZ5QqP2jCYfL9dui6E
+	D84+7PdtY+7PmlpUPUsPNm2p9eh1QkDThhM0hX4m4u+eMF48ahaKGMjFHFkhXCEJ3kzZpvdWHzCT7
+	2OdY6zFhDTqHly9+8KAbuvnD+ARzjxfmUy8XhKK0aO5BvoHv+eTNy89ga0/FJzhL02zQVlSJltYnk
+	p5nhUZqacwQ+t9dGwgAJOB4TdvQHZagyUOCh+m/1UHMFUMAN3sgr5Yx9Xhuj2PBG4Q5NfkSSHFXN9
+	GZdZ34fbJmGoJYiooPmPkmmNgy1iUDMT2tc3AVRbhgLmEBVfghWMNOT/7dSMn6U3n/BuTi7T33YU2
+	ijIu4i3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTADT-0000000F1Qb-0G32;
-	Wed, 10 Dec 2025 02:46:11 +0000
-Received: from mail-eastusazon11011042.outbound.protection.outlook.com ([52.101.52.42] helo=BL2PR02CU003.outbound.protection.outlook.com)
+	id 1vTAIb-0000000F1xw-1ONg;
+	Wed, 10 Dec 2025 02:51:29 +0000
+Received: from mail-japaneastazon11023073.outbound.protection.outlook.com ([52.101.127.73] helo=TYDPR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTADP-0000000F1NT-1Mqj
+	id 1vTAIQ-0000000F1x7-2UEz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Dec 2025 02:46:08 +0000
+	Wed, 10 Dec 2025 02:51:28 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xlEk9CHc9or8P1/+ms/OGqDIQGiGAeLphx3Qo17gbV1zYa6HrYTwQOSu7RGE1tYSBDAgEicQJKcv2aBgbG9Qzsvh1svotu3jEqwqHAfu5n7jt4NCrjbzEwO+xfl9xcHlid6ptWdlIsOmINxkgi5M1Aa26S+V4nA5uNps/PHfIIKNSset3oKFEwW6ESTKnm+TqPS65AcAWgpX4RvQ90jbOn2C/Tl+S+wXOeS2JAbe3epeep3EKh5X2ghSkQon0gqTYOMN6IMi2oFkAuxFAre0QFxMHya9UHA5YybeNp8Q0ZFTmuCS6gkftR+HhVJ8tRQYHtiuPn44Ss4NYpktVBbLwQ==
+ b=s3MvzjeydETtLWzFL1Soc+eb4ZeTMjzOhbu9XHS70WToh2TBUz8Kzu6OzWJ51dBu2KPPLMgYrza2/DZglM6UgaCq7hIBFSE3lpedgXsxoCKmdtprDecgzeDZ+PWi2PZFRSxjrQbxI2RV1KPB+gVevmYQStLih5cA7x+c4qxpycJxVZUdiiAjRcaYYZjEPalWx5pyuR1UoDLRMZHvOGcy5I6+nWVuE7oZqGiwkCQfSuIE7EO7TdBzG1v/AaPpD5Toh5vqJdG0H0NMlQFX5WFGA85UxjR1NQlKUrIo2kDJbKObpQkPe4W/6gRymXOM6iMHnZX/ELh6raIMpRsbigi1AA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XlTzKqplEbIA9MI3FvZ8jQqByTKrf6WHy/n9UZPM2Pw=;
- b=b8rgECgqXTdW5Jg50WD7huLZ0ObbvO201H6rXci1tqU9/1/eUGqzvayClUKHWmheSnKkZ+ceB78Y3MONha1xdMrQG64fNzlnLQuTKvIJimJ24TX6mfcdw4EXQo60Qtn3N64Ts4oWPDRtwQBFlIHenqRJ3bFUkIdPcCdIMwSeIF0gQ+2mxM0wkqS+v00smx/i3r/Z31imVGc2tOS3gdG1dO+/ad1fREJSRP9iCCPHhOYDpHneNCqDoPV/2Kxoaw4J7qN4pD49/IbNYPlvslgIkBb13NESjG5OlYH70XsbQfpSuga/NSZ7WSmF6AZcc4Uo1Ei3iHqbbr7+GRlUuaRs0w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ bh=8xH3drQAYYtji0Fzx5XrFrFtMAZ09XIO82H9YDmLYd0=;
+ b=mKtdYPNJA1o8zYRhzxH51MFhE+wrU/GBT/Wnj/1u09nfJI4norCVw74ES0ELhjMqKhMLdyqpWA0Iha1lowiF48QuysSuWO4or50MidNdau3zvIn+Pe4wI49FaK3l4Fal3dm8n4GV+3h0Cywvv41PVbQ1Mym6Z8QYSsRaV3RNN0qvjh1ube1qabB2xcKNRDZ0yUxtvzIfU7JF/a/T4yXteP0wJLOQsbXsXEP9GX4FbvutEC+gI5u0hp+vbWcM6vQ75b1kmVMpqolEd8XoUEAWXzif28j9Tlct+VH4yQXKNhbsBsChZizLo6WLixm6jAf6KkYpyVb8DHQ5U43wnFRq5A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=aspeedtech.com; dmarc=pass action=none
+ header.from=aspeedtech.com; dkim=pass header.d=aspeedtech.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aspeedtech.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XlTzKqplEbIA9MI3FvZ8jQqByTKrf6WHy/n9UZPM2Pw=;
- b=ak0GHy3HBXJW2YCw/NHrhoCKt2gC3pyEkHrdRnZQBunmmYnmwd8MWYYLDIQMlkXPD9ey5LgmaUQqcj0DgQrkCa1dpT4a2tt/zPCpUat5HP/0sHpN08oDIP7jsm6EqhEznMWwVjzcd7HSN90zE3jmw+kNeecacqfXGZKM/YbZLlopdkn8oLtRXZDlhHD5qRCjCAmBJiFCf1ai9DbA+nlHt/jTZim/S/MJOsbNtyj6mq8U/fyu0BhcEoKmALmx5YSjaRKBcXkSBbAgMkjeMkKnEm/E1WQ5+GrChSw7DPIQqFuHQiVJ9/cU8DkNhs2u9yCxhaghCSaQFK+tXEz8tGq4RQ==
-Received: from BN9PR03CA0809.namprd03.prod.outlook.com (2603:10b6:408:13f::34)
- by PH8PR12MB7350.namprd12.prod.outlook.com (2603:10b6:510:216::12) with
+ bh=8xH3drQAYYtji0Fzx5XrFrFtMAZ09XIO82H9YDmLYd0=;
+ b=OFl/K0J2HxmpkFo0YfPuVc91dGCII/mivXPm/5OSzNEPnSYNYDCMe/hwiL+vRfsP8h+7GWEsQFhE6n8QyAAB1LLZAovXSAmq+SEwY+6gwGaALygy8jJGn9BhYimlZDE1IEYuGeG3mC07NbEreK+cHQeunH79rEaim5NlVbD6qltemsZMf0Mib34R9/+4WqA/hvVKjFgDw2EdElFjQkzGfRiBRE2CpPiEXoTbyEQpwg+1uw4Xf3PmDR/wIO+7yqHHOOH3l13SIw4aa/qt1YruK0p3hC/WJlppoQOdOmyaz4kLYCZ6weTwWq5XHexPIkSZFpcvhPVz6S/hNIEjiaFskQ==
+Received: from SEYPR06MB5134.apcprd06.prod.outlook.com (2603:1096:101:5a::12)
+ by SI2PR06MB5138.apcprd06.prod.outlook.com (2603:1096:4:1ad::6) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.6; Wed, 10 Dec
- 2025 02:45:59 +0000
-Received: from BN3PEPF0000B372.namprd21.prod.outlook.com
- (2603:10b6:408:13f:cafe::e8) by BN9PR03CA0809.outlook.office365.com
- (2603:10b6:408:13f::34) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9388.14 via Frontend Transport; Wed,
- 10 Dec 2025 02:45:30 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- BN3PEPF0000B372.mail.protection.outlook.com (10.167.243.169) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.0 via Frontend Transport; Wed, 10 Dec 2025 02:45:58 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 9 Dec
- 2025 18:45:50 -0800
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Tue, 9 Dec 2025 18:45:50 -0800
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.11) by mail.nvidia.com
- (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Tue, 9 Dec 2025 18:45:49 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <jgg@nvidia.com>, <will@kernel.org>, <robin.murphy@arm.com>
-CC: <joro@8bytes.org>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<skolothumtho@nvidia.com>, <praan@google.com>, <xueshuai@linux.alibaba.com>
-Subject: [PATCH rc v3 1/4] iommu/arm-smmu-v3: Add ignored bits to fix STE update sequence
-Date: Tue, 9 Dec 2025 18:45:16 -0800
-Message-ID: <cc0d4ab571e2e789ee1cddfa035379dc54f0601b.1765334526.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1765334526.git.nicolinc@nvidia.com>
-References: <cover.1765334526.git.nicolinc@nvidia.com>
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.7; Wed, 10 Dec
+ 2025 02:51:12 +0000
+Received: from SEYPR06MB5134.apcprd06.prod.outlook.com
+ ([fe80::6b58:6014:be6e:2f28]) by SEYPR06MB5134.apcprd06.prod.outlook.com
+ ([fe80::6b58:6014:be6e:2f28%6]) with mapi id 15.20.9388.009; Wed, 10 Dec 2025
+ 02:51:12 +0000
+From: Jacky Chou <jacky_chou@aspeedtech.com>
+To: Russell King <linux@armlinux.org.uk>
+CC: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Joel
+ Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, Potin
+ Lai <potin.lai@quantatw.com>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-aspeed@lists.ozlabs.org"
+	<linux-aspeed@lists.ozlabs.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH net v2] net: mdio: aspeed: add dummy read to avoid
+ read-after-write issue
+Thread-Topic: [PATCH net v2] net: mdio: aspeed: add dummy read to avoid
+ read-after-write issue
+Thread-Index: AQHcaP0lz9UNiPjziEO/AE8/Qcm1NLUZK8GAgAEBmrA=
+Date: Wed, 10 Dec 2025 02:51:11 +0000
+Message-ID: <SEYPR06MB5134FEDC81B12477031E2C179DA0A@SEYPR06MB5134.apcprd06.prod.outlook.com>
+References: <20251209-aspeed_mdio_add_dummy_read-v2-1-5f6061641989@aspeedtech.com>
+ <aTgHva-UVEPl9EAR@shell.armlinux.org.uk>
+In-Reply-To: <aTgHva-UVEPl9EAR@shell.armlinux.org.uk>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=aspeedtech.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SEYPR06MB5134:EE_|SI2PR06MB5138:EE_
+x-ms-office365-filtering-correlation-id: 919b57a0-ba26-421f-d0ee-08de3796fa82
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?AVtHLZg5PJFF7yo9DOYQ46XYFpRk62mJK/Q8Bzchp/RAcFSUxTBM/oUI0ugJ?=
+ =?us-ascii?Q?7YiD8kyy9p3D9QfN1BgMW9uCzc8KdMv14TRnc1z8OyITHoGG/9ScmYB3cr54?=
+ =?us-ascii?Q?dL+qu6BxdapxetQ1m+1mgqGdkY6blmdBWDpH8QQtgm5TatlLNzDXGAom0tZg?=
+ =?us-ascii?Q?XxkfhGK+SX/0REozp+RBeJd8lEvuTbSQPYK9yLbFgn0PGlDqeBh9qeC6sCLL?=
+ =?us-ascii?Q?+j+m+4CFBPDqSgV0ZyqiKSJAJTaUdc0QrkscIVd1867alEmyte0KOoL9MtFb?=
+ =?us-ascii?Q?jQLB0iVw2KOw1SqvJyBAMO3ViHh4061vRp3QMDang4L1n5VduUuMyjgcuVjT?=
+ =?us-ascii?Q?9gTH6dmea9akVvWOFW6An9NhhAUs1CwbCNe8lAbn6REX8Dstl/uOFYNgTW3t?=
+ =?us-ascii?Q?suZlZhXm8O4fbos5Z2SsdSsdrwIAlqIkTKrMdX7r9UPlN20AkPQ3tdIuQhpS?=
+ =?us-ascii?Q?UI8vTgw1IzOV2YzI+r8FBKfCcDJ5o3d1NcvTWBwCx3uevyelY4VpGIFtcDpX?=
+ =?us-ascii?Q?9ubwsZJj8P0VlW+7KYp/RLarBPcTbkfwwjZ99fgmRDwwBhGB6SUy6deeeUXM?=
+ =?us-ascii?Q?HJDAvFRfMBB4ZTsqJcgWNuodBDaDZp20nkMnw5VsuC5RpU50Jop6fGMKq/jl?=
+ =?us-ascii?Q?R+K3F7xKCY6QjlpL1E9P3sztLQUhSbYWQyA2GuW57DRC9d0t2fNpvYwCa6RW?=
+ =?us-ascii?Q?RH7xCmXlu+AjUmuhCKH0+54LHNWMZNQILeFCGIs7wknHmC+8UIz4751/tdZZ?=
+ =?us-ascii?Q?iYbiw+/mSJFocy0upzUVc4B8Ld/Q+d7fLFNIW3UuqWR6bOORKkEkAS1CJ+IA?=
+ =?us-ascii?Q?m4tZS8xefscY0+9PPMNtkMZ6d3QtT67XqdkPLObi3HmrhQhuDTCA27Wn8nCa?=
+ =?us-ascii?Q?VC+qlUGloYRyHTSKbgCAPh6K59ydcemisbK3fBhzPVkCp8FmkppLad0sjW4T?=
+ =?us-ascii?Q?c7mOVd4BLaHOIqUrph79358eX24WttlsruTyFkNqjBKq8iNQygqlbtjUG3LX?=
+ =?us-ascii?Q?hWkcBBziptppDVJB75ulyh+CdPkxukiP4fAFAFbDn+zJg8IimrNMWIu9x3lQ?=
+ =?us-ascii?Q?OBOmagHqRH4BCkI8MG0UahKogiGGgN4KpmwW4SAf3yAubQO0qxZkmIrcL9Xa?=
+ =?us-ascii?Q?Ea719y/OOXE9yS4hHdUsbLxe9H4hibzE6+wZdWonp4gGtAoVyC2ZJvdLKuiG?=
+ =?us-ascii?Q?uP2MvTjgog+h8E43PNUrEhKIQnVyp/JClWj0dzk/xXsEzyU4chN6aRHH9t7f?=
+ =?us-ascii?Q?6EL4C0fz53GE1ivP0LnaIOWZj3iy//s6dh6UYMOKSoL/g0IljWbsUo1gWSqm?=
+ =?us-ascii?Q?9Ga6AKBUbxoBpjIkO5puecz50tfTljoeAVsRk9PQcLZu7gAxu6eDNrQtwtWl?=
+ =?us-ascii?Q?8yKUCr6eZFVcDDtJ6/dtdg3ZoJgsk18rjDcFS6bd2VlFHQwjCEuLNT8iD8wr?=
+ =?us-ascii?Q?gFDcQE5dJXERBX97neQrD6mtUuhInP6ZYpFjSKgRJKwGkfI9MPT6W32EBH1J?=
+ =?us-ascii?Q?czsTHDyGWkxXkgKsSyPENk9EAShWLR7DGuAh?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR06MB5134.apcprd06.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?XICwqIZQaUTu4yBb4jsAYJwbwrv5LyEsDm786otJpL1cKwsK/2qNSaWFKwrm?=
+ =?us-ascii?Q?Awc0R387+2tcABzus/mNt9YUCm6AtLxo1EM4GX9o7rQhjV8IkrzQJt4rT57F?=
+ =?us-ascii?Q?O3PhCgSutSuDDgSgGl+xWClFZGRPtYdRq8mnxhQf5PKFhoZWrD7kN4fwNUFm?=
+ =?us-ascii?Q?/dd3cFl2+KQKi2Mne88npuGIVzYh5+pM3F67itpiNjSkrItvVFQHk4QO99P1?=
+ =?us-ascii?Q?y0Prj9jNsSVw60/HK1AwYAkgqmxcTuZ0NLCvTYECVYYOy60X3tlezBUyFpI9?=
+ =?us-ascii?Q?e54gff80W9rfc8zgQ5WeOrL+7Ll4qGNFFet0jhWhFKHRfmLY9OHSsgiihbeX?=
+ =?us-ascii?Q?l+kvRUBpZCD8XIaYmfFBUzeSsdsjwO72crj/YG2UtSPQKiRAf5h+9sT+lLUc?=
+ =?us-ascii?Q?ZKJGwYRnU9AiNSRJz0rjjw3Wqo4ks5/UGuWb3GnTAgoFb8WeF0KwbqhUzspb?=
+ =?us-ascii?Q?H+7p7qP4zFqYakHfx5QMBiUEaLVlC+iKopJHCWFgjGG9JSOseuHrcFbgqH3K?=
+ =?us-ascii?Q?mPdGfdpfZT4kFpdXMghO7oWXfPX+h/Mea3nuAXq58Qb3C6hLL44lDt0IpRjz?=
+ =?us-ascii?Q?hKShLiBf4BW05iyfCVyDuIo7kNk2z57FFb5Tv3p7YvKB0jwxcd7wznrPsWMc?=
+ =?us-ascii?Q?/uDLhlJneJC4+qVt9u8wuMpuWbCK97TEb3keYr4M6xo2iEe1/Llw9QaPtB+C?=
+ =?us-ascii?Q?2KIL3zS8JVv8mqz7lTbQ7pw671Qw38bBvIBJyVNGdIQmSxFJpbzAUTga3+06?=
+ =?us-ascii?Q?xOB0GoHrwhAg1vnNOE9uljt7BBG1R0XnwDez0H2EVtcjdJhGrqgS0VmlLOCi?=
+ =?us-ascii?Q?QNxfIDuoMOckGfE3tHhJVXP9AuwkqCI8iy0fxLWDnzYHP5sS61UOR13zmDyt?=
+ =?us-ascii?Q?waRyQTJ+PHfwNQdOdlVeKyLjj29m+c29hwzexQxEv74rnODdwFIfEOzbKr84?=
+ =?us-ascii?Q?4SKhhR1Ljh3XV0SERibRRYFHvFESQ/x3tweY1+jd5Shk3DY+If92SfzhsgB2?=
+ =?us-ascii?Q?2/rqgmMd/y4aHLTFBiagBkC7kgL/xfz5ffH+HcAok4Cn28HSnsp70BQaa2fF?=
+ =?us-ascii?Q?pElHAHRe2c7QQwFRBIqxIGTeUBxQ0gyagiNo9chJmTz9rnUZCm766x/TeQkX?=
+ =?us-ascii?Q?MZ3AY4OHcLNtyz9h9UUFeUZ0NnGuKKM2ji011y0EKOBpYTX92/T5Xc96yvXA?=
+ =?us-ascii?Q?q1fNH36WqQsaJVwMvyH1l1NASAWW/XuW5wW+UTl2stX0IwXYedrrAOyp4ksf?=
+ =?us-ascii?Q?GfkeKYLSr4SN5HsXQf5Y1zerFOsnyKgWL/o2lexVl/VMQAgLqn4r0p23ND4A?=
+ =?us-ascii?Q?K5S70d/yVy/BWW6rkxLbXYaqcHZrQUsuHNaY2aazzg7OwtmKTiCGLgv0U7JF?=
+ =?us-ascii?Q?I442cZ3mjPfwAXqlpchyfdKc4v+mAOQMoJPYgvJk2sjJNptyuyHtdV53Z2m/?=
+ =?us-ascii?Q?Js/b1PEpSlxlrkc1MkyV1Rat05zgZIoJ+2yI0rZaPPeDYvEEiqsVokyz4dZA?=
+ =?us-ascii?Q?5L9MtXrEbUCgBQrj9+Bo8hCKwwmm5KYUCj8PC+PxQsG/1+zcs35Uu0Q/08cH?=
+ =?us-ascii?Q?yAl8v4+qDbcBxAPRsa/DEQJLcGsJew6RbLuvWJ+M?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF0000B372:EE_|PH8PR12MB7350:EE_
-X-MS-Office365-Filtering-Correlation-Id: 41280fd2-e22d-4eeb-f701-08de37963fad
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?G8JFk6n9RZTuWe9kI9N18LwPL5/UhCR0lqnqfXRzZ56GbHfXmIZKtT6rvKG5?=
- =?us-ascii?Q?QQFuYaZ9VRyl1KkOEloFHz3urODPRu9HVOk5Q8yEwayglvIsFG1kG69Rm8ih?=
- =?us-ascii?Q?188wFcRu+dnOLcdtiRWsMy60slflEtHHpUkFEKGOMzPPAsQsjC3rDpLVWwXL?=
- =?us-ascii?Q?rMFu74D04SUJWXvzSXWPGZBttHmT9JyzvCAaEpR3wPQWFjvUfy9poQn71EhE?=
- =?us-ascii?Q?6xKFWkMUE1K2z+GsBQNK8wlJKDf4syhJhk3Duv7GmqcUfcet151PXgXn7Ej1?=
- =?us-ascii?Q?8ZhPRtmhgMg/mg8pUSt6cm6n+Co7TQL28fw4vmwKTFhfhY1aZ7bM6Q02ymdH?=
- =?us-ascii?Q?mJDw+bxgaoPdf3nonfZS1RBIrlBnEUomBScDCN73Ox3Sw2E7d72ysF2kh58y?=
- =?us-ascii?Q?cuZ9utdJPFqXHT7XPPRVSx0NvSZhvjc3N6LSCsfbk25566v/UfCv/hFOMb6T?=
- =?us-ascii?Q?LVrf8gTQCZ+AnaugVNfEm5i042jCXyxfBLWbNjOjlFg0xqO1qo9gOgZbGkWs?=
- =?us-ascii?Q?JaRzwbDkUQnVsWhinp+yiQs12CfW4K+fC9uwWfnk0i1OJNxuFtl+6K7/T6Zy?=
- =?us-ascii?Q?6i61Ze2UzNGgFB7nnpefz5CBJlpu3HJ71aq9OyIXOv8yUFiU2XYC1b4rPbCN?=
- =?us-ascii?Q?5j7b/0QJIFYYari0A4IOMii1bL5IKFaY1Z9GK29uvby2uKko8yFNxn8XELRI?=
- =?us-ascii?Q?Qzh5KPErAGHhOyi3RmBOgXp5WNR+HLJhklt6IVXfje+8GWHTv12IDctO5oV+?=
- =?us-ascii?Q?Jmd/LPcjQDRDttFqszsl5fw6044MGwh70pnn8CxBLfnNsgJYbfTOvV5/lrZK?=
- =?us-ascii?Q?K1HgFZYI95QJLAaFFCkCPCFOWmI7G4fxx3wCJJAtslATjlVgQwU0uAEqq62I?=
- =?us-ascii?Q?cDlzrtTOKVgzvS7Dc1UeNQXW+RO98q+DWIU59KTsih7M7qY9BqvpjFPkOBPV?=
- =?us-ascii?Q?XdV068iya3SZHJN7khWV25z2ky5Wv4fgvmIz5jt3dOIf/flVv7P2mqhyGCQf?=
- =?us-ascii?Q?CXcDVdCm1RNPAiBHNCLehFtc9+wCTSJOv9epiFAH3GbwevgF8nTuGMkqvgIl?=
- =?us-ascii?Q?1zyOmC3Hpxel+r2FF7THyKeHV4ji2HUbt0Cs5u/3I0g4amP7hSoGfAu6wmBc?=
- =?us-ascii?Q?ISokFH2yuc0VU3DH9UsiCPbtc3ek+ZoSG48Fi6zYGI4/g40zql9THlGw+DL/?=
- =?us-ascii?Q?dUMSpBTGsMwN5FTuP/W37MeDLvp3ilZwpyHX5rj9JWdTqdaFNQNvF1WUUEC7?=
- =?us-ascii?Q?xh6sQJS5WFj01ZNuxVvMbnfpt46ZT6vziowNKWiQUBxLEJI/nTJwOboH9tKP?=
- =?us-ascii?Q?s6rlmlLHLuLRrUCho2Zbc+E62jq+PCegn6dgHE8Wa7OYP73Njw5Lt2iWI8Ms?=
- =?us-ascii?Q?opMuivoyrt/ZUY7CgKHoxJ5Y9hCpkVrHiMm1iczhb7rvFoZdyHscWfNRfZE7?=
- =?us-ascii?Q?5KKAR/jhTNmuvugvCKdWY4t9pfRRK3gaWLi6z3EEc9WQnf/3L/e5abZ9Amiz?=
- =?us-ascii?Q?S17xUyRVK5BYT+DdApAPCOruHSSqvUVV7RUX3G4QxDX5EVoNE3hzej7RSiJ8?=
- =?us-ascii?Q?26aGDXM2bw+hL2doH1w=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2025 02:45:58.4413
+X-OriginatorOrg: aspeedtech.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SEYPR06MB5134.apcprd06.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 919b57a0-ba26-421f-d0ee-08de3796fa82
+X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Dec 2025 02:51:12.0253
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 41280fd2-e22d-4eeb-f701-08de37963fad
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN3PEPF0000B372.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB7350
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43d4aa98-e35b-4575-8939-080e90d5a249
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 1an7oemPZHrjay7QumF1B5KBbfkPBc8z4TZQWvnYJzoxuoTMSCvwxLa0uuAnE6kvKEQLP1OlEhILLyU7nE6/tmQz0Rh+JnvEOjSr0XxO4xA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI2PR06MB5138
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251209_184607_441295_667C0205 
-X-CRM114-Status: GOOD (  21.81  )
+X-CRM114-CacheID: sfid-20251209_185121_697724_9EAA84F2 
+X-CRM114-Status: GOOD (  10.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,197 +170,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jason Gunthorpe <jgg@nvidia.com>
+Hi Russell King,
 
-C_BAD_STE was observed when updating nested STE from an S1-bypass mode to
-an S1DSS-bypass mode. As both modes enabled S2, the used bit is slightly
-different than the normal S1-bypass and S1DSS-bypass modes. As a result,
-fields like MEV and EATS in S2's used list marked the word1 as a critical
-word that requested a STE.V=0. This breaks a hitless update.
+> > +	(void)ioread32(ctx->base + ASPEED_MDIO_CTRL);
+>=20
+> What purpose does this cast to void achieve in an already void context?
+>=20
+> We have plenty of functions that get called in the kernel that return a v=
+alue
+> which the caller ignores, never assigning to a variable, none of these wa=
+rn.
+>=20
 
-However, both MEV and EATS aren't critical in terms of STE update. One
-controls the merge of the events and the other controls the ATS that is
-managed by the driver at the same time via pci_enable_ats().
+Thanks for pointing this out.
 
-Add an arm_smmu_get_ste_ignored() to allow STE update algorithm to ignore
-those fields, avoiding the STE update breakages.
+On some older compilers I used to encounter warnings when ignoring a=20
+function's return value, so adding (void) became a habitual practice.
+You're right that it is unnecessary in the kernel context today.
+I'll remove it in the next revision.
 
-Note that this change is required by both MEV and EATS fields, which were
-introduced in different kernel versions. So add this get_ignored() first.
-The MEV and EATS will be added in arm_smmu_get_ste_ignored() separately.
-
-Fixes: 1e8be08d1c91 ("iommu/arm-smmu-v3: Support IOMMU_DOMAIN_NESTED")
-Cc: stable@vger.kernel.org
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-Reviewed-by: Shuai Xue <xueshuai@linux.alibaba.com>
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  2 ++
- .../iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c  | 19 ++++++++++++---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 24 +++++++++++++++----
- 3 files changed, 37 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index ae23aacc3840..d5f0e5407b9f 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -900,6 +900,7 @@ struct arm_smmu_entry_writer {
- 
- struct arm_smmu_entry_writer_ops {
- 	void (*get_used)(const __le64 *entry, __le64 *used);
-+	void (*get_ignored)(__le64 *ignored_bits);
- 	void (*sync)(struct arm_smmu_entry_writer *writer);
- };
- 
-@@ -911,6 +912,7 @@ void arm_smmu_make_s2_domain_ste(struct arm_smmu_ste *target,
- 
- #if IS_ENABLED(CONFIG_KUNIT)
- void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits);
-+void arm_smmu_get_ste_ignored(__le64 *ignored_bits);
- void arm_smmu_write_entry(struct arm_smmu_entry_writer *writer, __le64 *cur,
- 			  const __le64 *target);
- void arm_smmu_get_cd_used(const __le64 *ent, __le64 *used_bits);
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-index d2671bfd3798..3556e65cf9ac 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-test.c
-@@ -38,13 +38,16 @@ enum arm_smmu_test_master_feat {
- static bool arm_smmu_entry_differs_in_used_bits(const __le64 *entry,
- 						const __le64 *used_bits,
- 						const __le64 *target,
-+						const __le64 *ignored,
- 						unsigned int length)
- {
- 	bool differs = false;
- 	unsigned int i;
- 
- 	for (i = 0; i < length; i++) {
--		if ((entry[i] & used_bits[i]) != target[i])
-+		__le64 used = used_bits[i] & ~ignored[i];
-+
-+		if ((entry[i] & used) != (target[i] & used))
- 			differs = true;
- 	}
- 	return differs;
-@@ -56,12 +59,18 @@ arm_smmu_test_writer_record_syncs(struct arm_smmu_entry_writer *writer)
- 	struct arm_smmu_test_writer *test_writer =
- 		container_of(writer, struct arm_smmu_test_writer, writer);
- 	__le64 *entry_used_bits;
-+	__le64 *ignored;
- 
- 	entry_used_bits = kunit_kzalloc(
- 		test_writer->test, sizeof(*entry_used_bits) * NUM_ENTRY_QWORDS,
- 		GFP_KERNEL);
- 	KUNIT_ASSERT_NOT_NULL(test_writer->test, entry_used_bits);
- 
-+	ignored = kunit_kzalloc(test_writer->test,
-+				sizeof(*ignored) * NUM_ENTRY_QWORDS,
-+				GFP_KERNEL);
-+	KUNIT_ASSERT_NOT_NULL(test_writer->test, ignored);
-+
- 	pr_debug("STE value is now set to: ");
- 	print_hex_dump_debug("    ", DUMP_PREFIX_NONE, 16, 8,
- 			     test_writer->entry,
-@@ -79,14 +88,17 @@ arm_smmu_test_writer_record_syncs(struct arm_smmu_entry_writer *writer)
- 		 * configuration.
- 		 */
- 		writer->ops->get_used(test_writer->entry, entry_used_bits);
-+		if (writer->ops->get_ignored)
-+			writer->ops->get_ignored(ignored);
- 		KUNIT_EXPECT_FALSE(
- 			test_writer->test,
- 			arm_smmu_entry_differs_in_used_bits(
- 				test_writer->entry, entry_used_bits,
--				test_writer->init_entry, NUM_ENTRY_QWORDS) &&
-+				test_writer->init_entry, ignored,
-+				NUM_ENTRY_QWORDS) &&
- 				arm_smmu_entry_differs_in_used_bits(
- 					test_writer->entry, entry_used_bits,
--					test_writer->target_entry,
-+					test_writer->target_entry, ignored,
- 					NUM_ENTRY_QWORDS));
- 	}
- }
-@@ -106,6 +118,7 @@ arm_smmu_v3_test_debug_print_used_bits(struct arm_smmu_entry_writer *writer,
- static const struct arm_smmu_entry_writer_ops test_ste_ops = {
- 	.sync = arm_smmu_test_writer_record_syncs,
- 	.get_used = arm_smmu_get_ste_used,
-+	.get_ignored = arm_smmu_get_ste_ignored,
- };
- 
- static const struct arm_smmu_entry_writer_ops test_cd_ops = {
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index d16d35c78c06..e22c0890041b 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -1082,6 +1082,12 @@ void arm_smmu_get_ste_used(const __le64 *ent, __le64 *used_bits)
- }
- EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_used);
- 
-+VISIBLE_IF_KUNIT
-+void arm_smmu_get_ste_ignored(__le64 *ignored_bits)
-+{
-+}
-+EXPORT_SYMBOL_IF_KUNIT(arm_smmu_get_ste_ignored);
-+
- /*
-  * Figure out if we can do a hitless update of entry to become target. Returns a
-  * bit mask where 1 indicates that qword needs to be set disruptively.
-@@ -1094,13 +1100,22 @@ static u8 arm_smmu_entry_qword_diff(struct arm_smmu_entry_writer *writer,
- {
- 	__le64 target_used[NUM_ENTRY_QWORDS] = {};
- 	__le64 cur_used[NUM_ENTRY_QWORDS] = {};
-+	__le64 ignored[NUM_ENTRY_QWORDS] = {};
- 	u8 used_qword_diff = 0;
- 	unsigned int i;
- 
- 	writer->ops->get_used(entry, cur_used);
- 	writer->ops->get_used(target, target_used);
-+	if (writer->ops->get_ignored)
-+		writer->ops->get_ignored(ignored);
- 
- 	for (i = 0; i != NUM_ENTRY_QWORDS; i++) {
-+		/*
-+		 * Ignored is only used for bits that are used by both entries,
-+		 * otherwise it is sequenced according to the unused entry.
-+		 */
-+		ignored[i] &= target_used[i] & cur_used[i];
-+
- 		/*
- 		 * Check that masks are up to date, the make functions are not
- 		 * allowed to set a bit to 1 if the used function doesn't say it
-@@ -1109,6 +1124,7 @@ static u8 arm_smmu_entry_qword_diff(struct arm_smmu_entry_writer *writer,
- 		WARN_ON_ONCE(target[i] & ~target_used[i]);
- 
- 		/* Bits can change because they are not currently being used */
-+		cur_used[i] &= ~ignored[i];
- 		unused_update[i] = (entry[i] & cur_used[i]) |
- 				   (target[i] & ~cur_used[i]);
- 		/*
-@@ -1207,12 +1223,9 @@ void arm_smmu_write_entry(struct arm_smmu_entry_writer *writer, __le64 *entry,
- 		entry_set(writer, entry, target, 0, 1);
- 	} else {
- 		/*
--		 * No inuse bit changed. Sanity check that all unused bits are 0
--		 * in the entry. The target was already sanity checked by
--		 * compute_qword_diff().
-+		 * No inuse bit changed, though ignored bits may have changed.
- 		 */
--		WARN_ON_ONCE(
--			entry_set(writer, entry, target, 0, NUM_ENTRY_QWORDS));
-+		entry_set(writer, entry, target, 0, NUM_ENTRY_QWORDS);
- 	}
- }
- EXPORT_SYMBOL_IF_KUNIT(arm_smmu_write_entry);
-@@ -1543,6 +1556,7 @@ static void arm_smmu_ste_writer_sync_entry(struct arm_smmu_entry_writer *writer)
- static const struct arm_smmu_entry_writer_ops arm_smmu_ste_writer_ops = {
- 	.sync = arm_smmu_ste_writer_sync_entry,
- 	.get_used = arm_smmu_get_ste_used,
-+	.get_ignored = arm_smmu_get_ste_ignored,
- };
- 
- static void arm_smmu_write_ste(struct arm_smmu_master *master, u32 sid,
--- 
-2.43.0
+Thanks,
+Jacky
 
 
