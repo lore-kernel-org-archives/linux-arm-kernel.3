@@ -4,81 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B8CBD3C90B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 14:00:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7796DD3C90D
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 14:11:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RfiDYueCPJeKqE/+ArtzyxcHtu3CTiq8m2cHHeiLofI=; b=ZRfjLVpHJuChgK6MML+k1ZwhUE
-	8L2nKEL/cMMAaNcqVSbOocL//Yw82XOG7E/jHkmD0NM37R13eFvSE6sxXhXbRcEaN+V4aX81WFh2c
-	eKX3//Q/j3a0Pcd8ZaQxQS6+Ka2wpDSsLLJSCtxAFHRzW6i8l/FQkRKt6ufdsPmVjCFX3/n7/QOKj
-	NaKqXrhJelBwj1QAlR8LCDMcDW33ZBuxipsTLJw51eToc3XA7QegdUkpzy90QyDyHHksbW72T+711
-	jrGmC6ICKapv91blURLM1Rx2+vt2azoUpx2DThOMz/0xqQNmBa687v5/kF8FN2JaiE4KR7qoJcvhD
-	ZBCUML3w==;
+	bh=WxYrgRVlLCNDY0uhvZ8ftFvD1WI4oAIoacSsM7/kt/o=; b=Xhf4aM5Mmumm27woqslzMnaz3g
+	e3+Ua681bkBqc6bXmoGcKHm/ybk3wLcXWjv4KDUYHC4Hl+1s4ilRmKvE1uL70K+zOksMQnQlNEMv2
+	nx0fYwDDfhhIx7N6ePJ4deF5KklHN6aU2czkebxcXgaQ7u1GxyLnA6ItejDVPJNPCtSXV4r8Fx4C/
+	GadXfRXIZ8Jf0jXCea5TzZq5QJ4HdLvBHtlovMMn0nxdzslm2gWMMW+F9BwebxtKVYF2rXYkKjIoK
+	pojy9sFe78nqkAHyFSsGrJcmho5DNdB1ZtuX5pG7L5hTpWFsj2W7IuFjqKCt3b4MC2jj0OJd09Pb7
+	WguZcnEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTKk0-0000000FV7b-32n3;
-	Wed, 10 Dec 2025 14:00:28 +0000
-Received: from smtpout-04.galae.net ([185.171.202.116])
+	id 1vTKuc-0000000FVeG-13LH;
+	Wed, 10 Dec 2025 14:11:26 +0000
+Received: from mout.web.de ([212.227.15.3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTKjw-0000000FV6r-3SIR;
-	Wed, 10 Dec 2025 14:00:27 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id DC56CC180F6;
-	Wed, 10 Dec 2025 13:59:56 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id A53B660714;
-	Wed, 10 Dec 2025 14:00:20 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CD06B119316E1;
-	Wed, 10 Dec 2025 15:00:10 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1765375219; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=RfiDYueCPJeKqE/+ArtzyxcHtu3CTiq8m2cHHeiLofI=;
-	b=xlD3jQxIwSSnAI17fK2hN5n2KBOFn/BJq/7XxQvD9qlWNaTp7F/o0c4kyi4Ts6kVRWvUoD
-	/FAFOFrLVmHGk3u38OUd4MX+O89OGSlDHslNeQgYN7OjO68VplvSayMARB+LwCGoXeZoZ8
-	84rQIdDOCm5kuuh4NkLqVlnzV0pfFoGSXfpzKIQIeqPnS5D9CKjiqL42Q/JMqs8gsNhOGu
-	8sQ6VYnncde1/BlGfmr/S6W+wuR077E3aRHYMFZtQCxR1nje9B8NR3Wu7vfV/88pBIDoie
-	yWHILcLeMoMGc5NS2jMKtwDXdVHPEVFmOrvgb7HUq5ptn3zLxcudNgXCgb02pA==
-Date: Wed, 10 Dec 2025 15:00:08 +0100
-From: Herve Codina <herve.codina@bootlin.com>
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
- Jim Quinlan <jim2101024@gmail.com>, Florian Fainelli
- <florian.fainelli@broadcom.com>, Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Bjorn Helgaas
- <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- kwilczynski@kernel.org, Manivannan Sadhasivam <mani@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, iivanov@suse.de, svarbanov@suse.de,
- mbrugger@suse.com, Jonathan Bell <jonathan@raspberrypi.com>, Phil Elwell
- <phil@raspberrypi.com>, kernel test robot <lkp@intel.com>
-Subject: Re: [PATCH] dt-bindings: pci: brcmstb: Add rp1-nexus node to fix
- DTC warning
-Message-ID: <20251210150008.2ef2f8c4@bootlin.com>
-In-Reply-To: <aThp99OfgAfNFUX-@apocalypse>
-References: <20250812085037.13517-1-andrea.porta@suse.com>
-	<4fee3870-f9d5-48e3-a5be-6df581d3e296@kernel.org>
-	<aKc5nMT1xXpY03ip@apocalypse>
-	<e7875f70-2b79-48e0-a63b-caf6f1fd287b@kernel.org>
-	<aLVePQRfU4IB1zK8@apocalypse>
-	<CAL_JsqJUzB71QdMcxJtNZ7raoPcK+SfTh7EVzGmk=syo8xLKQw@mail.gmail.com>
-	<aThjYt3ux0U-9-3A@apocalypse>
-	<aThp99OfgAfNFUX-@apocalypse>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1vTKuZ-0000000FVdf-1I6i;
+	Wed, 10 Dec 2025 14:11:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1765375866; x=1765980666; i=markus.elfring@web.de;
+	bh=WxYrgRVlLCNDY0uhvZ8ftFvD1WI4oAIoacSsM7/kt/o=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=MrCwcTk83baAgmK2abkOoUBZ6VtFKrtQKhypYmEYVRArHCd9dNItWHR34Em88y+n
+	 Pz06tzqhwiTU3v5Jh0k2rAcNTXhAnnC+4yCPRDMpIZnnnHDL55/cKxlbIHHq0nsCV
+	 Si7VE4+1N1obDlptq+kuvqsVoRvtwNni1nsCCUTJIOOfRc0z9yE3kOW8Lnfz3Ny7V
+	 aRB8jKQrCc660Kf+y5KVen1TrF8hOcsjlrJ+lIk3LTYpcn/PiNk5jwajLzlG7Whm1
+	 mV7wnJWp+ExvGqhoYUsJMpyEsP/i1aRr7GPrL9inncxk9GXzGRa4+GT28BYoaZfuf
+	 CdT1jSaHKqSzow4C7g==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.204]) by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1M604t-1vMyyg454l-00De3k; Wed, 10
+ Dec 2025 15:11:06 +0100
+Message-ID: <316d6242-fbfa-4c9e-addd-e9f76facf9d7@web.de>
+Date: Wed, 10 Dec 2025 15:11:03 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+To: vulab@iscas.ac.cn, linux-input@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ Angelo Gioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Gary Bisson <bisson.gary@gmail.com>,
+ Julien Massot <julien.massot@collabora.com>,
+ Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+References: <20251210030013.913-1-vulab@iscas.ac.cn>
+Subject: Re: [PATCH] input: mtk-pmic-keys: Fix potential NULL pointer
+ dereference in probe()
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20251210030013.913-1-vulab@iscas.ac.cn>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:3NLIcH6EOiMkLulEs8N2HjgtCPpZ5VO8qqh+IBN9Gn8kpA2SV9n
+ COgI7SFk4IrzcHRIixTvZy3jyol8RmDRKZ4fXJgSr5G7vIjAOvnUOavVORxnv7xD3WWQTzJ
+ CGqez5MTufx7DEocfHnwoSdChEoyi6lKngqcTx8u1t9R365z84uKTCswY/2mkF7xKTQlhQK
+ 63H3+u5O+NOdkr67ovgaQ==
+UI-OutboundReport: notjunk:1;M01:P0:pHlVGJTePEU=;mdcylC0h0yfJ/m9bNMUj8DT7CPU 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 JGGSDq7Zbn9zqoohvpPgGIIQ+0RFJ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_060025_186976_5A51BA83 
-X-CRM114-Status: GOOD (  65.01  )
+X-CRM114-CacheID: sfid-20251210_061123_725124_CD29A3DD 
+X-CRM114-Status: UNSURE (   5.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,253 +88,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrea,
+> of_match_device() may return NULL when the device node
+> does not match any entry in the driver's match table.
+> The current code dereferences of_id->data unconditionally,
+> which can lead to a NULL pointer dereference.
+=E2=80=A6
 
-On Tue, 9 Dec 2025 19:27:03 +0100
-Andrea della Porta <andrea.porta@suse.com> wrote:
+Under which circumstances would you get into the mood to take more desirab=
+le
+word wrap preferences better into account?
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
+cumentation/process/submitting-patches.rst?h=3Dv6.18#n658
 
-> [+cc Herve]
-> 
-> On 18:58 Tue 09 Dec     , Andrea della Porta wrote:
-> > Hi Rob,
-> > 
-> > On 11:09 Thu 04 Dec     , Rob Herring wrote:  
-> > > On Mon, Sep 1, 2025 at 3:48 AM Andrea della Porta <andrea.porta@suse.com> wrote:  
-> > > >
-> > > > Hi Krzysztof,
-> > > >
-> > > > On 08:50 Fri 22 Aug     , Krzysztof Kozlowski wrote:  
-> > > > > On 21/08/2025 17:22, Andrea della Porta wrote:  
-> > > > > > Hi Krzysztof,
-> > > > > >
-> > > > > > On 10:55 Tue 12 Aug     , Krzysztof Kozlowski wrote:  
-> > > > > >> On 12/08/2025 10:50, Andrea della Porta wrote:  
-> > > > > >>> The devicetree compiler is complaining as follows:
-> > > > > >>>
-> > > > > >>> arch/arm64/boot/dts/broadcom/rp1-nexus.dtsi:3.11-14.3: Warning (unit_address_vs_reg): /axi/pcie@1000120000/rp1_nexus: node has a reg or ranges property, but no unit name
-> > > > > >>> /home/andrea/linux-torvalds/arch/arm64/boot/dts/broadcom/bcm2712-rpi-5-b.dtb: pcie@1000120000: Unevaluated properties are not allowed ('rp1_nexus' was unexpected)  
-> > > > > >>
-> > > > > >> Please trim the paths.  
-> > > > > >
-> > > > > > Ack.
-> > > > > >  
-> > > > > >>  
-> > > > > >>>
-> > > > > >>> Add the optional node that fix this to the DT binding.
-> > > > > >>>
-> > > > > >>> Reported-by: kernel test robot <lkp@intel.com>
-> > > > > >>> Closes: https://lore.kernel.org/oe-kbuild-all/202506041952.baJDYBT4-lkp@intel.com/
-> > > > > >>> Signed-off-by: Andrea della Porta <andrea.porta@suse.com>
-> > > > > >>> ---
-> > > > > >>>  Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml | 9 +++++++++
-> > > > > >>>  1 file changed, 9 insertions(+)
-> > > > > >>>
-> > > > > >>> diff --git a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-> > > > > >>> index 812ef5957cfc..7d8ba920b652 100644
-> > > > > >>> --- a/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-> > > > > >>> +++ b/Documentation/devicetree/bindings/pci/brcm,stb-pcie.yaml
-> > > > > >>> @@ -126,6 +126,15 @@ required:
-> > > > > >>>  allOf:
-> > > > > >>>    - $ref: /schemas/pci/pci-host-bridge.yaml#
-> > > > > >>>    - $ref: /schemas/interrupt-controller/msi-controller.yaml#
-> > > > > >>> +  - if:
-> > > > > >>> +      properties:
-> > > > > >>> +        compatible:
-> > > > > >>> +          contains:
-> > > > > >>> +            const: brcm,bcm2712-pcie
-> > > > > >>> +    then:
-> > > > > >>> +      properties:
-> > > > > >>> +        rp1_nexus:  
-> > > > > >>
-> > > > > >> No, you cannot document post-factum... This does not follow DTS coding
-> > > > > >> style.  
-> > > > > >
-> > > > > > I think I didn't catch what you mean here: would that mean that
-> > > > > > we cannot resolve that warning since we cannot add anything to the
-> > > > > > binding?  
-> > > > >
-> > > > > I meant, you cannot use a warning from the code you recently introduced
-> > > > > as a reason to use incorrect style.
-> > > > >
-> > > > > Fixing warning is of course fine and correct, but for the code recently
-> > > > > introduced and which bypassed ABI review it is basically like new review
-> > > > > of new ABI.
-> > > > >
-> > > > > This needs standard review practice, so you need to document WHY you
-> > > > > need such node. Warning is not the reason here why you are doing. If
-> > > > > this was part of original patchset, like it should have been, you would
-> > > > > not use some imaginary warning as reason, right?
-> > > > >
-> > > > > So provide reason why you need here this dedicated child, what is that
-> > > > > child representing.  
-> > > >
-> > > > Ack.
-> > > >  
-> > > > >
-> > > > > Otherwise I can suggest: drop the child and DTSO, this also solves the
-> > > > > warning...  
-> > > >
-> > > > This would not fix the issue: it's the non overlay that needs the specific
-> > > > node. But I got the point, and we have a solution for that (see below).
-> > > >  
-> > > > >  
-> > > > > >
-> > > > > > Regarding rp1_nexus, you're right I guess it should be
-> > > > > > rp1-nexus as per DTS coding style.
-> > > > > >  
-> > > > > >>
-> > > > > >> Also:
-> > > > > >>
-> > > > > >> Node names should be generic. See also an explanation and list of
-> > > > > >> examples (not exhaustive) in DT specification:
-> > > > > >> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation  
-> > > > > >
-> > > > > > In this case it could be difficult: we need to search for a DT node  
-> > > > >
-> > > > > Search like in driver? That's wrong, you should be searching by compatible.  
-> > > >
-> > > > Thanks for the hint. Searching by compatble is the solution.  
-> > > 
-> > > No, it is not.  
-> > 
-> > This is partly true, indeed. On one side there's the need to avoid a
-> > specific node name ('rp1_nexus'), so the only other unique identifier would
-> > be the compatible string ('pci1de4,1' in this case, which identifies that specific
-> > device). Unfortunately, the same compatible string is also assigned to the pci
-> > endpoint node filled automatically by enabling CONFIG_PCI_DYNAMIC_OF_NODES.
-> > We would end up with two nodes with the same compatible, which is not unique
-> > anymore. 
-> > This applies only when using 'full' dtb (bcm2712-rpi-5-b.dtb) *and* you enable
-> > CONFIG_PCI_DYNAMIC_OF_NODES, the latter being not necessary since the overlay dtb
-> > (...-ovl-rp1.dtb) is not in use here. To overcome this problem, the solutions
-> > I can think of are the following:
-> > 
-> > 1- Just disable CONFIG_PCI_DYNAMIC_OF_NODES should work, but only when using the
-> >    full dtb version. However, if the user enable that option for debug or to use
-> >    the overlay dtb version, he better be sure not to use teh full dtb or it won't
-> >    work.
-> >    This solution seems really weak.
-> > 
-> > 2- Add another compatible string other than 'pci1de4,1', so it will be really
-> >    unique.
-> >   
-> > >   
-> > > > >  
-> > > > > > starting from the DT root and using generic names like pci@0,0 or
-> > > > > > dev@0,0 could possibly led to conflicts with other peripherals.
-> > > > > > That's why I chose a specific name.  
-> > > > >
-> > > > > Dunno, depends what can be there, but you do not get a specific
-> > > > > (non-generic) device node name for a generic PCI device or endpoint.  
-> > > >
-> > > > I would use 'port' instead of rp1-nexus. Would it work for you?  
-> > > 
-> > > Do you still plan to fix this? This is broken far worse than just the node name.  
-> > 
-> > Yes, if we want to get rid of that nasty warning and comply with DT guidelines,
-> > I think I really need to fix that.
-> >   
-> > > 
-> > > The 'rp1_nexus' node is applied to the PCI host bridge. That's wrong
-> > > unless this is PCI rather than PCIe. There's the root port device in
-> > > between.
-> > > 
-> > > The clue that things are wrong are start in the driver here:
-> > > 
-> > > rp1_node = of_find_node_by_name(NULL, "rp1_nexus");
-> > > if (!rp1_node) {
-> > >   rp1_node = dev_of_node(dev);
-> > >   skip_ovl = false;
-> > > }
-
-I don't fully understand what you want to do.
-
-This piece of code is present in the drivers/misc/rp1/rp1_pci.c driver.
-This driver is used when a specific PCI device is available on the system.
-This device is PCI_DEVICE(PCI_VENDOR_ID_RPI, PCI_DEVICE_ID_RPI_RP1_C0)
-
-In order to work, the driver needs either CONFIG_PCI_DYNAMIC_OF_NODES or
-having the full PCI hierarchy described in the DT leading to this device.
-Indeed, it needs a DT node related to the PCI device.
-
-I don't understand why rp1_nexus should be described at the PCI controller
-root level.
-
-Only PCI devices (or bridges as they are particular devices) at this level
-as decribed in the pci-bus-common.yaml binding [1].
-
-If the purpose of this 'rp1_nexus' node is to only avoid the application of
-the overlay, even if I don't understand why, you should search for something
-added by the overlay and not for the 'rp1_nexus' node in the whole DT.
-
-Instead of:
-  rp1_node = of_find_node_by_name(NULL, "rp1_nexus");
-
-You should search for a sub-node added by the overlay. Something like the
-following for instance:
---- 8< ---
-int rp1_probe(struct pci_dev *pdev, const struct pci_device_id *id)
-{
-	struct device_node *np;
-
-	np = dev_of_node(&pdev->dev);
-
-	...
-	if ( np && of_find_node_by_name(np, "pci-ep-bus@1");
-        ...
-}
---- 8< ---
-
-If you really want to be sure that the "pci-ep-bus@1" comes from an overlay
-you can check for the OF_OVERLAY flag.
---- 8< ---
-  node = of_find_node_by_name(np, "pci-ep-bus@1");
-  if (node && of_node_check_flag(node, OF_OVERLAY))
---- 8< ---
-
-Also your overlay has to be applied on the DT node related to your PCI
-device and not the rp1_nexus you search for in the whole DT. In other
-word, in your driver, the following is not correct:
-
-   err = of_overlay_fdt_apply(dtbo_start, dtbo_size, &rp1->ovcs_id,
-                                           rp1_node);
-
-It should be:
-
-   err = of_overlay_fdt_apply(dtbo_start, dtbo_size, &rp1->ovcs_id,
-                                           dev_of_node(&pdev->dev));
- 
-In your overlay, your have
-	__overlay__ {
-		compatible = "pci1de4,1";
-		#address-cells = <3>;
-		#size-cells = <2>;
-		interrupt-controller;
-		#interrupt-cells = <2>;
-
-		#include "arm64/broadcom/rp1-common.dtsi"
-       };
-
-Only sub-nodes should be present (#address-cells = <3> and #size-cells = <2>)
-can be there just to make DTC happy.
-
-It is worth noting that any properties other than #address-cells and
-#size-cells lead to memleaks. And so avoid them.
-
-Memleaks are reported at runtime when the overlay is applied with this
-kind of logs:
- OF: overlay: WARNING: memory leak will occur if overlay removed, property: ...
-
-I am pretty sure that you have those kind of traces when you apply your
-overlay.
-
-compatible, interrupt-controller and #interrupt-cells should not be added by
-the overlay. Either they are added by when PCI nodes are created by 
-CONFIG_PCI_DYNAMIC_OF_NODES either they are already available in the base
-DT if the PCI device is described in the base DT.
-
-[1] https://github.com/devicetree-org/dt-schema/blob/aa859412ce8e38c63bb13fa55c5e1c6ba66a8e3b/dtschema/schemas/pci/pci-bus-common.yaml#L226
-
-Best regards,
-Hervé
+Regards,
+Markus
 
