@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6E4BD3E781
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 22:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4D7BD3E781
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 22:55:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=vAvXe+aXpogECVyG/I4dnFC6vaGW2sYa5VVcma1Gfsk=; b=KsIMMOiiBkxM7x
-	QLMA5BiF4tJw1np7NqoHTVgT/h+9mk4efjEtvYARLH6dSJBwsMEsjPq13NvYWBD/jLjUf4CHYA0mH
-	6z265kx5B1k+PP4op+g1bTiXHalw7IsqSbdGrL7mj0cOkRD04oCcGtPoOc28WXQ0OuSPZ4GEAvXtz
-	u7nWtTyQf/GX2imkeGTGVS0eQf72UqWx01REM3llP3q/EkW763NFsRNfYm2gVv470XcUDbmtZzh0O
-	kgJ3+IRm/MnV2Gf39/KuHuBgz8uaRCbpouUqRBfTGq2hsIlaz7f8+v2GKvJ2KvyUACTEMvvQ57dMJ
-	QsrA1D41jbDIL4xHu9mw==;
+	List-Owner; bh=5yMsgRQi6UiaSbA4vIty8SPZBWLU7FgAy5T/+tZKTOI=; b=y2i0h6ErqEPzy+
+	zqcZti+emsjKWfp9fqfFsNyVS/8v/51YSpC8NeukzJovzEZ7m/8wPpJga1xQX82SuZoKHtm4K32zx
+	X2hEJI+d6eCw+Gwz1hB3EcJGma8hQ3Zoz2CmYD80pFUBoynkjCnIUG/JbyNo8sMgamAQdXUAAbJTb
+	h1TOEhYJ75HG5A7ojRSrhR2zLbbaXRaILPKIdeO+Tk06WBBt+O9unXKk5r/2gwJme8rvMx9YeI9Jd
+	3VCoPKwnpQl2rzlEMJpCVnkwEUqbpaYqrJlKnHFzC6XJ+slbgzPTGG7L3Z4qwQ3FEkKmHsm6JABfz
+	IbAY3XiZPfjdlhwzlyPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTT3s-0000000FwmW-0aY1;
-	Wed, 10 Dec 2025 22:53:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vTT5G-0000000FwzI-0bEn;
+	Wed, 10 Dec 2025 22:54:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTT3o-0000000Fwm6-0Vt0;
-	Wed, 10 Dec 2025 22:53:31 +0000
+	id 1vTT5F-0000000Fwz7-2597;
+	Wed, 10 Dec 2025 22:54:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2244D4443E;
-	Wed, 10 Dec 2025 22:53:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5540C4CEF1;
-	Wed, 10 Dec 2025 22:53:26 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AF63A6011E;
+	Wed, 10 Dec 2025 22:54:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48847C4CEF1;
+	Wed, 10 Dec 2025 22:54:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765407207;
-	bh=2uTNjBtdgRM2/ASK6piQyYjDXg3OsyxobRphNNNCmm8=;
+	s=k20201202; t=1765407296;
+	bh=8JOdnH8KktNBpZMvUsGFkBLybLSALb0U05AElB0cFO4=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=hnLYbnHSg+o17LZIPAr9wi4HEVVi+KKQ3Z5BmUn8PH/y7Y3UHYbT7DzEN2DYEsQPF
-	 tzlBZICrTOgdp2JO79cHYdonJi4+dC+yv9PPX4NTzH6eu9JqOKKtBAy5R3h9tgunpB
-	 8PuH/Gc2TdPBzMLzBQCGv4iFsGYBqJ7M7ixbvPXJYIhgB008rosCj2KnuGe3qP2zeQ
-	 hEyu9flYvHM7fFk9/wFHsUYsnT+8lbPqmc+6gLni1Zogeb/+GZ+qGRRRrseEQWcW+K
-	 vviGe5IsC21Q4Vg/nVx067S3a/QDZ6q/4wDG9XrC0+YvxVMZnePuHgY39J80WxWwIx
-	 5yv715g1nM33w==
-Date: Wed, 10 Dec 2025 16:53:25 -0600
+	b=BslJAJRjXviWwZqQk04+V3QQDrmDTUkC45Jv3BiKvpuSlqZ/PhPXfINN6TNP1FBgm
+	 /O8W07PM1aA6dZ2tX/6MvQXI/QBbWxqhNWgL4PBWD+DEeKoZg2UlCQMAzGBqzRZsLc
+	 6nktTVq8q2rOs+0zYDkmjN1NGbit7v1Ctr91smzqnKXl+30sGnTbooG+BRUK2cxrJv
+	 Z2oxKn9y4kj1teNsPoUAIUq4GrQmvyGQ7rkWAZTZEorZTUi4MKzP4I11qOceqBXOwY
+	 KG3c613LwXnUwUAQa2vxWvCSHJRR54w1+jqJnIRhD3GUy/iWVwj9WZi/MQtdjXBNrT
+	 +q85oSr3ibLdA==
+Date: Wed, 10 Dec 2025 16:54:55 -0600
 From: Bjorn Helgaas <helgaas@kernel.org>
 To: Frank Li <Frank.Li@nxp.com>
 Cc: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
@@ -61,17 +61,13 @@ Cc: Vinod Koul <vkoul@kernel.org>, Manivannan Sadhasivam <mani@kernel.org>,
 	mhi@lists.linux.dev, linux-arm-msm@vger.kernel.org,
 	linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	imx@lists.linux.dev
-Subject: Re: [PATCH 7/8] PCI: epf-mhi:Using new API
- dmaengine_prep_slave_single_config() to simple code.
-Message-ID: <20251210225325.GA3545039@bhelgaas>
+Subject: Re: [PATCH 6/8] nvmet: pci-epf: Use
+ dmaengine_prep_slave_single_config() API
+Message-ID: <20251210225455.GA3544539@bhelgaas>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251208-dma_prep_config-v1-7-53490c5e1e2a@nxp.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_145330_368306_D92D2FCA 
-X-CRM114-Status: UNSURE (   6.12  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <20251208-dma_prep_config-v1-6-53490c5e1e2a@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,12 +82,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Dec 08, 2025 at 12:09:46PM -0500, Frank Li wrote:
+On Mon, Dec 08, 2025 at 12:09:45PM -0500, Frank Li wrote:
+> Use the new dmaengine_prep_slave_single_config() API to combine the
+> configuration and descriptor preparation into a single call.
+> 
+> Since dmaengine_prep_slave_single_config() performs the configuration
+> and preparation atomically, the mutex can be removed.
 
-Add space, include actual interface, add commit log:
+> @@ -386,22 +386,16 @@ static int nvmet_pci_epf_dma_transfer(struct nvmet_pci_epf *nvme_epf,
+>  		return -EINVAL;
+>  	}
+>  
+> -	mutex_lock(lock);
+> -
+>  	dma_dev = dmaengine_get_dma_device(chan);
+>  	dma_addr = dma_map_single(dma_dev, seg->buf, seg->length, dir);
+>  	ret = dma_mapping_error(dma_dev, dma_addr);
+>  	if (ret)
+> -		goto unlock;
+> -
+> -	ret = dmaengine_slave_config(chan, &sconf);
+> -	if (ret) {
+> -		dev_err(dev, "Failed to configure DMA channel\n");
+> -		goto unmap;
+> -	}
+> +		return ret;
+>  
+> -	desc = dmaengine_prep_slave_single(chan, dma_addr, seg->length,
+> -					   sconf.direction, DMA_CTRL_ACK);
+> +	desc = dmaengine_prep_slave_single_config(chan, dma_addr, seg->length,
+> +						  sconf.direction,
+> +						  DMA_CTRL_ACK,
+> +						  &sconf);
+>  	if (!desc) {
+>  		dev_err(dev, "Failed to prepare DMA\n");
+>  		ret = -EIO;
+> @@ -423,9 +417,6 @@ static int nvmet_pci_epf_dma_transfer(struct nvmet_pci_epf *nvme_epf,
+>  unmap:
+>  	dma_unmap_single(dma_dev, dma_addr, seg->length, dir);
+>  
+> -unlock:
+> -	mutex_unlock(lock);
+> -
 
-  PCI: epf-mhi: Use dmaengine_prep_slave_single_config() to simplify code
+I don't know the dmaengine code, but it's not obvious to me what makes
+dmaengine_prep_slave_single_config() itself atomic, since it doesn't
+contain any locking.
 
-  Use dmaengine_prep_slave_single_config() to simplify
-  pci_epf_mhi_edma_read(), pci_epf_mhi_edma_write(), etc.
+Bjorn
 
