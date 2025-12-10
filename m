@@ -4,146 +4,219 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8E60D3C52A
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 10:16:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC77D2CE17
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 10 Dec 2025 10:30:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MYFZcgedsHbKEWgnA4wyqEy83wP02Zn/Bu9CLJkHjjw=; b=FDZIS8G5AAtN1E66y7X01ajWf/
-	iQQcUaLyFdjCU9x1wIxTjdRC3Wh9ftBwtxL5ILk881ZLfFLr4sGW71PKv7YBBUFRh8dnWnjV6mK2V
-	PM5RjGjAXLs9bw6qJ2eGtg4hs2lYLrt7gp8cnhxBFGYQOTtBidW2z0K+z23JLcwm7MxocYFHH0+jP
-	kiDkoa4+04DJ3T9Ajs9aURMM4zfbWWAprKKT88TR16ckgnRYQVjBhtUkOh7wfFiigP5Rf0TzLI+pI
-	A9wx5Z3gk9dHLAR96P6hnHcvXtNYvQgLj2YYW8gZ2+X4+rvikROzeb3PgGcex2xI4ZI6P1GKtcd7h
-	nU1d3Flw==;
+	bh=vj7zT45RDxhuyFfkAg1Wh55UeIFK6NkGr68XdrxhC6M=; b=Ae/oZw/8rmkYLtOldxb17ViPPI
+	YmkfGKinVmQJrOjB8xGXl5h7twutTMSKkFndZmVDkt2eRmZGt0DotaEmHcm6qZ8Y/3rZnZvPxmg9A
+	GUxj3S53ZKLQA8yQ9jxPHZbJwwmjZtd2KCa1h1uWz6KM7l+PVm96mfe81+eEWxAQTE6wExrXhdq6O
+	7jEWqxnM+2gOSGgj1kd+REsvE0mOPNsQ0puXorouZgLqadw76w2gBqTpMhBXeiULHipahKUCyjshO
+	s32WLP9vT8sp3/Y8ln+y0zo5XpnmTgqeRFCZ5rg/oCPJkjK3V3lz6sYiEPKpSptpvNq163bu+Ne/u
+	pXoLSJ4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTHFL-0000000FJc2-28T3;
-	Wed, 10 Dec 2025 10:16:35 +0000
-Received: from mail-francesouthazon11021077.outbound.protection.outlook.com ([40.107.130.77] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1vTHSv-0000000FKxw-2B59;
+	Wed, 10 Dec 2025 10:30:37 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTHFB-0000000FJPr-0zt6
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 10 Dec 2025 10:16:26 +0000
+	id 1vTHSs-0000000FKxM-3Jk7;
+	Wed, 10 Dec 2025 10:30:36 +0000
+X-UUID: 3fcdf7b6d5b311f09f706fa2197c6ceb-20251210
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=vj7zT45RDxhuyFfkAg1Wh55UeIFK6NkGr68XdrxhC6M=;
+	b=tqdc2U9iR+XYPRXEeRHZtJC8nJ0niA3Ykn5oSiRBg4b/YWI6DIXYqu1Y2UGeV/tTP8Lt/y6F4lroMDET6nHyhJIM+Y2YQVFXxHpPm/L+OPMCxXRZMNAQ0QrRosv+/B2AihYrnv/DylhyPBEmfVbWnfALSX+pwPj1LepQILD/4xo=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:4d73d7d5-21c8-4b06-bbbf-f7e901be5ad0,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:a9d874c,CLOUDID:503249c6-8a73-4871-aac2-7b886d064f36,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
+	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BE
+	C:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 3fcdf7b6d5b311f09f706fa2197c6ceb-20251210
+Received: from mtkmbs11n2.mediatek.inc [(172.21.101.187)] by mailgw01.mediatek.com
+	(envelope-from <irving-ch.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1427309590; Wed, 10 Dec 2025 03:30:29 -0700
+Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.26; Wed, 10 Dec 2025 18:30:26 +0800
+Received: from SI4PR04CU001.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
+ 15.2.1748.26 via Frontend Transport; Wed, 10 Dec 2025 18:30:26 +0800
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tDymRnZ7053PcgG5lOKqbobXjjubQaMsT016erkqZ+OIN9LCkbVXn3wUlkfYXmSDfZjzW0m8QTo3Yl7WifpViueQo76fuRuRqT+pg2/a8ddKxgaRZYhDXBYauMnHLtGUiw+ZdNsuBGa9XyTQTPwczpbYfr2teyLlEwZuikggAnlRB2oGNg5u6JtbwtcqQ1lC49qcEZruJlAu/US3F3E4cOH6zwJF7Fu3ymhNMhpFEnSUX0QPjPyUbrkDtm1n/bf6v13o1M/SmN7PqCz68kkbt0KrEg9zDD32ZqX0BSvztD4nZtTrSZj0qr0dzT9s47iGjTNI2157eKymK9dPI/2GNA==
+ b=fzkFzbwBiodqbdeXG1i6F6IucZebJUrAsW6vnTw7lUlL5fXOm7LyjPIcvW6K3nIoxe2RSNooAHkQ1c334BjakKNd51UJ07BtgGcptn1o5sigWsLYG1KWGx7cWHsqajy/pmWD4rdX5Q20JlIUhx2zwf9I2Qs2uGa66/8oLnTjPumC/mOerh7K71o0RGqrWf1lE70mp5o5/ad6XiqEf+Ea/vrac8unxqFyFi/PFlQ49mP1oe1MCZjQUe1mPpTK/xY+F855xacfJowRNFRjHGDE3rhFZYLEVILik+/KZ0I67+dNGCGEtR8WBGqJZmVBPf/pcjtwTsfJq82q7gI6oAKtow==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MYFZcgedsHbKEWgnA4wyqEy83wP02Zn/Bu9CLJkHjjw=;
- b=qyzlKjRUE+Jkb1tFa5AiNqqWyhA3VSBjq2QussvykKXrMx1JGsbsvihZP4v6hPBc36wpz74WVhzfFTidSVT8e4q49InkP8wvG2OrECB2YFjy/xhCTkqdeOY3wFjVRAmlrbfRY1nT220EqoCLCGfefMUSEqIwr9XV7YNZpmZqoKuMuTwO9k0tqRmC0lyLrJ29UTacx9TdNubkmGhpafMM6YCTl9U9V2ThrJDsl6ItQZIZNIKQ91qq26MvBLPYcRusDWf/v3RucBPOp4iMoVVjtNrM8EflJYu1+fmWXSXIT51aCPYQVDNthxL2FaIOS+z7zKu9jloTQ1WWRKWf2/lcgg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 91.26.50.189) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=phytec.fr;
- dmarc=fail (p=quarantine sp=quarantine pct=100) action=quarantine
- header.from=phytec.fr; dkim=none (message not signed); arc=none (0)
+ bh=vj7zT45RDxhuyFfkAg1Wh55UeIFK6NkGr68XdrxhC6M=;
+ b=JudeNPDOrn9HRxHEpJOSYdjAKCj66rHNt91yQ6tWw23oMxm/S4WSxr8+ROGnh43PfbFN5ArbPafpFwmvPHhWW6axtuL7I/dqBC0wbKKBXHK4DythSBWN/n5cFQWvqp8uZEYc5e93WSNu8OfeazuRQApFfQxCdACaTvsLJL4DCaUR3kkQgDD2vVrR9d1TWjsGkR8Nb2a6ddA+nufxAnzJJ8hPq0w4SbzZvu2OjdMn4yjroP+KpzxVN5e+TzAL0eL0W/1AB8nNSzItAA1afIwvQkcY5iiI8t9t8BA8Wm0fOMFTFqGM2dMH7RlJh1djK2agq481yhmF+Otdv13LF2cYRQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=phytecmesstechnikgmbh.onmicrosoft.com;
- s=selector1-phytecmesstechnikgmbh-onmicrosoft-com;
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MYFZcgedsHbKEWgnA4wyqEy83wP02Zn/Bu9CLJkHjjw=;
- b=IOBKlzD/KZuIp7HzuCZEQpw8W726P82Ip9MtWwVdpv0LkWSdrIBhSEXN72ac2HakbiTDyUtQBTjX5SOcgMhI0m96lvZ1dNyAP/ZOZ7u0fv4TgWL4LpAkp2RCe8+rjEHL3gXsYd4rFzGjR7QF6DRTx8sX/gGU2x2T015jBwm+s/s=
-Received: from DB9PR01CA0010.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:1d8::15) by GVX0PFEB50821B4.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:158:401::7e7) with Microsoft SMTP Server (version=TLS1_2,
+ bh=vj7zT45RDxhuyFfkAg1Wh55UeIFK6NkGr68XdrxhC6M=;
+ b=cR836lmboDcDJRgfedWz8cU33a6RYJd7M495cHt8cnrP/rM3yqEzc2hQKhyKd4jEpF8cU4e8Js5DOwv38eTX/4v4D4UmUQsvRwZ1QQy/ynncpb8D/95GfG1xLyg0+MFuN+4JhfqI7UJV4Myw8M276jsa5JMNeCm7jk/A4MZ9AqM=
+Received: from SI2PR03MB5708.apcprd03.prod.outlook.com (2603:1096:4:138::14)
+ by SEZPR03MB7775.apcprd03.prod.outlook.com (2603:1096:101:126::6) with
+ Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.7; Wed, 10 Dec
- 2025 10:16:14 +0000
-Received: from DU2PEPF00028D09.eurprd03.prod.outlook.com
- (2603:10a6:10:1d8:cafe::6b) by DB9PR01CA0010.outlook.office365.com
- (2603:10a6:10:1d8::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9388.14 via Frontend Transport; Wed,
- 10 Dec 2025 10:16:19 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 91.26.50.189)
- smtp.mailfrom=phytec.fr; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=phytec.fr;
-Received-SPF: Fail (protection.outlook.com: domain of phytec.fr does not
- designate 91.26.50.189 as permitted sender) receiver=protection.outlook.com;
- client-ip=91.26.50.189; helo=Postix.phytec.de;
-Received: from Postix.phytec.de (91.26.50.189) by
- DU2PEPF00028D09.mail.protection.outlook.com (10.167.242.169) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9412.4 via Frontend Transport; Wed, 10 Dec 2025 10:16:13 +0000
-Received: from Postix.phytec.de (172.25.0.11) by Postix.phytec.de
- (172.25.0.11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.29; Wed, 10 Dec
- 2025 11:16:12 +0100
-Received: from idefix.phytec.de (172.25.0.20) by mailrelayint.phytec.de
- (172.25.0.11) with Microsoft SMTP Server id 15.2.2562.29 via Frontend
- Transport; Wed, 10 Dec 2025 11:16:12 +0100
-Received: from pc.home ([172.25.39.2])
-          by idefix.phytec.de (IBM Domino Release 9.0.1FP7)
-          with ESMTP id 2025121011161264-311 ;
-          Wed, 10 Dec 2025 11:16:12 +0100 
-From: Christophe Parant <c.parant@phytec.fr>
-To: <devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-CC: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	<upstream@lists.phytec.de>
-Subject: [PATCH RESEND v2 02/11] ARM: dts: stm32: phyboard-sargas: Introduce SoM device tree
-Date: Wed, 10 Dec 2025 11:16:02 +0100
-Message-ID: <20251210101611.27008-3-c.parant@phytec.fr>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251210101611.27008-1-c.parant@phytec.fr>
-References: <20251210101611.27008-1-c.parant@phytec.fr>
+ 2025 10:30:23 +0000
+Received: from SI2PR03MB5708.apcprd03.prod.outlook.com
+ ([fe80::e92e:bf09:eb56:b0b8]) by SI2PR03MB5708.apcprd03.prod.outlook.com
+ ([fe80::e92e:bf09:eb56:b0b8%5]) with mapi id 15.20.9412.005; Wed, 10 Dec 2025
+ 10:30:23 +0000
+From: =?utf-8?B?SXJ2aW5nLUNIIExpbiAo5p6X5bu65byYKQ==?=
+	<Irving-CH.Lin@mediatek.com>
+To: "sboyd@kernel.org" <sboyd@kernel.org>, "robh@kernel.org"
+	<robh@kernel.org>, "ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "richardcochran@gmail.com"
+	<richardcochran@gmail.com>, "mturquette@baylibre.com"
+	<mturquette@baylibre.com>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>
+CC: =?utf-8?B?UWlxaSBXYW5nICjnjovnkKbnkKYp?= <Qiqi.Wang@mediatek.com>,
+	=?utf-8?B?SmggSHN1ICjoqLHluIzlrZwp?= <Jh.Hsu@mediatek.com>,
+	Project_Global_Chrome_Upstream_Group
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	=?utf-8?B?VmluY2UtV0wgTGl1ICjlionmlofpvo0p?= <Vince-WL.Liu@mediatek.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	=?utf-8?B?U2lyaXVzIFdhbmcgKOeOi+eak+aYsSk=?= <Sirius.Wang@mediatek.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "linux-pm@vger.kernel.org"
+	<linux-pm@vger.kernel.org>, "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>, =?utf-8?B?SGFuY2hpZW4gTGluICjmnpfnv7DorJkp?=
+	<Hanchien.Lin@mediatek.com>
+Subject: Re: [PATCH v3 20/21] pmdomain: mediatek: Add bus protect control flow
+ for MT8189
+Thread-Topic: [PATCH v3 20/21] pmdomain: mediatek: Add bus protect control
+ flow for MT8189
+Thread-Index: AQHcTxsaVEziJZ+xFUyZNxnOIf6J8rTnBp2AgDPbJgA=
+Date: Wed, 10 Dec 2025 10:30:23 +0000
+Message-ID: <174a8f4ec6e04ec06f4ec77345615bd3e0f7671c.camel@mediatek.com>
+References: <20251106124330.1145600-1-irving-ch.lin@mediatek.com>
+	 <20251106124330.1145600-21-irving-ch.lin@mediatek.com>
+	 <6f1bbbc7-ca54-43f9-953d-725902af7b10@collabora.com>
+In-Reply-To: <6f1bbbc7-ca54-43f9-953d-725902af7b10@collabora.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SI2PR03MB5708:EE_|SEZPR03MB7775:EE_
+x-ms-office365-filtering-correlation-id: 86e57e84-443e-4bc2-0864-08de37d72031
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|38070700021;
+x-microsoft-antispam-message-info: =?utf-8?B?NjVsQVNWNGNVczZoVzZKRHhSMGlwbEFFUC9sTmd5MXBiZzJpQ3NKZS9Kc21B?=
+ =?utf-8?B?MWRYN1Y2NWtibjNweUlNb090RUpIWHBKRnFqVWZIMy93Y09NOUlnTURTaGJ4?=
+ =?utf-8?B?N2NScXRuVTdZM2txaWpIMUwyUnRBQk9EV242Y0FaZHZaQkFXaTZWNW5iOFR1?=
+ =?utf-8?B?bXIyVUtQOGhkYno1a2lwZHpSZERRaDBBOUJtN1Y4eDVYdVArYjMvWXR4YWRw?=
+ =?utf-8?B?dkw0UGRiUE1mZFNDR2luZ2tRTGEwUHh6clNHNUpSeVI1Nmt4T2x3S01wVzRR?=
+ =?utf-8?B?a1JDMC9hemk4N0tIRVgwWnV4OWpEM1A0dHNoY3Z2a2p3VzF0RlhHWE5hQ0Y2?=
+ =?utf-8?B?S3F6RlJURVRKU3NOa1RVZHFnKzJHL1BuZ3lOSjR1YzN3ejA4Rjd2U2EzOG1P?=
+ =?utf-8?B?RE1NWlRralU0RzFhS2xSNlFSRlI1ZlpWNGtBTitUSEhIRkRuRUVXbWxHRWNQ?=
+ =?utf-8?B?U2ZTWUtrU1JsMzF4b1Z6MCtCNExXMU11Tzk5U2tBSFFwZlFnNHFHcTI2b0JC?=
+ =?utf-8?B?NHRaR09oQUlYMnZEK21lL25BczBCM2QxS0QwNE1rbzlRNHR4RnNCcU9NWTJy?=
+ =?utf-8?B?Q1U4aW1qbUx5eGZnYVZHOG1yODdpRWw3Sjk1aFRYVms5dHRYYjJXWDB1SUxk?=
+ =?utf-8?B?NHVUWTNXVk5ocEsvbHVPRis1NGc2RFpnR3BEQURSbXJEVWVBY0ZxdnJXT0Z6?=
+ =?utf-8?B?SmZFRngzcVhaZUZHZjNwTzJiSnduZ2tHcXlNT0J2NEFKK3VtOUsvRVFNbFR6?=
+ =?utf-8?B?SU9vV1NxQ0ZJb1ZQUUFGNmNFcnNWK00xdXF6RHRQbHFVa1JiTktZRi9UOFJC?=
+ =?utf-8?B?UFNnM3NvQk9XNmdXcmYwSCtOSk43cFgwSUZkMkhXMjdVQ3RtbTRsYjVlWGNr?=
+ =?utf-8?B?Qnpscjg4M0x1Z0JxbGdYd2M2dlZORmF4dkNsZVVBbE54M3lyZE9pU3h3bDVq?=
+ =?utf-8?B?R3dmandselErM3NpQUI2Wit0MFdKbUpOMkcxTmN4NmJ4UDJPcjRJb0g1SU4y?=
+ =?utf-8?B?Z1UvSlNHUklJRFQvWWFjTTdDb2s4d3ptTFFSV0FzdEtjUUxKcm9CNFc4N3Yr?=
+ =?utf-8?B?dVhCS2kyUVBqSjNaMk1DTGNtQmhsaUMvZ3FQNk51ajhlZHJsdEtFYk9LL1Mw?=
+ =?utf-8?B?K25SSDl2eHRBWG5RSnpLa2liaFVnMHlpU3prcFRYNHBnczRYRXMrSlllZkdC?=
+ =?utf-8?B?aTdtUkdacFVqY2ZXYXVUSWxFUjNZaHVwVzc0Q0VGMm9lYWpvY3RLS1BsTDZM?=
+ =?utf-8?B?K1FGY2VrVUlCcVN5NTB4Z2REY1Zpbm1mWFJWUExwTkVXUTlPejNWOVYyL2Y4?=
+ =?utf-8?B?M25BOEcwVEhBZU96ZmFTZXNLazl1QXQwa1RhYkFSTFRrK2pJazhxQ3o5T1Vw?=
+ =?utf-8?B?M291QmxtRTlTU0h4WlpRWWtZNEhoTWwyb20rdC9jY3FsMVMyblhDSGk5Nmdr?=
+ =?utf-8?B?Rmtzam9nYlQ5ZWRMSHRBcmx2b1pUcHZQRHdaQVRQR0VaYnFySDBKMnJGT1dy?=
+ =?utf-8?B?NVN2L1lHNDJEaENJRHBjYzNtbnJhSEhtUHBsU1Ntekp4b2NaZW1uMk80OUR5?=
+ =?utf-8?B?c1FNMEpIaktVVkZrOW90dzd0N3RDZkNETUVBeGZjZkdVZHhiYzVud0dRelhK?=
+ =?utf-8?B?VWtYQ2ZPMkkwK0x1S1RhbE5RL3IwUkhSdTdqNXAvZ0FoOXRLdEc1Zm85NHZu?=
+ =?utf-8?B?RFBTMFg0S2NqOUN4NFVKZFB0NkhBMExnZ3pkZ2hIQlV5NUtIZmJQeis3aGN5?=
+ =?utf-8?B?UDhUZmlOS0tnU0x1WXpDdkZadGUyQkRFc1h1UDJpNVJwdDJDZWxNa3poUmRU?=
+ =?utf-8?B?dG91UFdjMTc1QTBIWTNvTWtweVhieHdiYWIvdmh4dnBoOHJVYjFzc2hPN25L?=
+ =?utf-8?B?eUc5YUE2bEluR0ZmOTB1V1VKbTRCN2VLQStSdUwxclNKSlh1TEtoaW1WM3Iv?=
+ =?utf-8?B?aVhub0FlUC9uMVMyVzlMR2hCd2UvUDNaZnFXYXpwNTFEclBkT29BZURobm1k?=
+ =?utf-8?B?UFBhQ1pRV0ZLWHlncjlUVlFWc1F5WkxlRS9oQnFERkYwMHpZOWZWV1h5czhE?=
+ =?utf-8?Q?VfPEhw?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SI2PR03MB5708.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?OUs0VzRxd3RmYnhIS3kxWEJSbkV5MHJnN2ZpTThYWXlWK0hxM0c4ZTY3YjVN?=
+ =?utf-8?B?OEl6Y1NoM05hRVdGWjBjQzhubGVUUWFVOG1jZEhEdWRGbEpZK1pnWC9HMEtl?=
+ =?utf-8?B?bXhGYXNZUTZZS0hMNzYxL1RnZWtNei80QjlzRFdCc2xjYlZIQk1VWDFybzlZ?=
+ =?utf-8?B?aVNCcnBHRFdwSi9pMWJVdjlJNEppWFNiaUNHemluaFdSS25Yc2NSQnduV1lz?=
+ =?utf-8?B?ODdJOXpRWU1vbThPMjVSR3BuVFNFcGdQNHRHS2NKQ0g5NjR0OCtmU3g2WTBl?=
+ =?utf-8?B?Z1ovaXVZT1pSNTZnUnlZaTdXQUpqUnNQYjVzRXNEODNxZE50M1hkSkYrRHpU?=
+ =?utf-8?B?Unp1OEgxb1MxU2N5TXZlUWM2T1BQeVZKV1YwUWxtUWEyc24rTyt0ek1OcVpv?=
+ =?utf-8?B?RFpzTTFwVGhZUzNiRnRoU1BqU1BGYSsvQ1RZYkNURkdsVG9ob1BwS0h4QzQ3?=
+ =?utf-8?B?Y3hXaExMcThJbGNnaWpKTCtubHI1TkxsOFJ4bzh6aFNLcGZhbHFyS1p0UnVV?=
+ =?utf-8?B?K25xdVg1QkE3cWF2MjdCdUY3MDRZdHBzdUNXbXhRZkJRSG82cU1xS1JzOEJS?=
+ =?utf-8?B?NGdtTWVURERaSGdKK3p1NnNVWnVXaG51Mmw4bzhWZ1Fob21aaDY0SzloM1B6?=
+ =?utf-8?B?VzNhdDYwV2R5NFFIaUNZeC9XdjNUZTdRbXhHeElVZkV4dWxyTGs2bVlxd0ZM?=
+ =?utf-8?B?RmtZL0ZSTlN1d1hrdGVIa3pvYzRlYmhFNmtmS2NaT1p1dXN1NmMvOURMYUY4?=
+ =?utf-8?B?SFRjVzdESXV2Z3lIVHNkenM5ZTc1NlpSN2c2RlBYSElYOXFVSWNSMUtZSnNv?=
+ =?utf-8?B?Skk1VElxS213MTFCcC9sUkR1am9mWDBuNSszR2ovSEEvc1RJOFppaGdBNFlD?=
+ =?utf-8?B?a0JuMGhwdWxxUFNjcXcvaW42blBGd0ZTUk1MZi93amFlQklzbEFrSFhRNlhz?=
+ =?utf-8?B?RWlTN3NqT2graExGMHhOWmwwQkF1ZDNlQUI0b0NWUDRlcURycnF1SzRmcjZN?=
+ =?utf-8?B?c04vMUFWVFRyV3MrNFVIYUtqRW9odW4yWFJ0UkdGNkxpeElpS1IyUFdKL1B6?=
+ =?utf-8?B?NUNXOXMyVUh6NXRXdHFEak43Wk5NMTFGUTllbWhrejRSSnNGUVZ0K0lmNUFk?=
+ =?utf-8?B?NlJiSXhvMVo1YlJ2RlY5Nm0yZWRqRVlReDVCVXgveWhKUjh1dHhqbXh6UG1u?=
+ =?utf-8?B?TTk3OENZa0pyWW03NytRRHJMcXhCYUdYbXV3ZjFBdG1PNlJsdHNLS0hpME9N?=
+ =?utf-8?B?TjA4eWpVajExWnFHelpMZnJxdkFtcXY0dkRaL2c5QWQ4cHAyR25GZ05qK2NV?=
+ =?utf-8?B?cW9sbUdVakJUMDB2NVZMOU5RWWRER3hwdExjeXM3SE9qck95cWZwenFjMllz?=
+ =?utf-8?B?NW5obnpGTndoL1FUdnRFc2RGTExrZnFtN1E4U2tPRytOWkw2RFZZamdRMWR4?=
+ =?utf-8?B?ZkxKUnNQcXo3TlpJT3pld3E3THRJQlcwVVBnYmxjaGN1VTZ1LzRKK3JSRHY5?=
+ =?utf-8?B?ZFBmOXI4L25sTDFydEppSHVpdm9GbHIwcWtmZ2ZRMEgxTTk1dFJoMlY2b2R0?=
+ =?utf-8?B?YUtBMEJ4czA1TTZ0Y1NMN0w3WE4vdFk4ZmgvOUxwalQ4RWVTM1A0ekloOUMy?=
+ =?utf-8?B?b25TUlFPd1JHVVF6OEFXeUpXUzM4b0tyVHdlTTFicEx0ckRCdDFzVWg2U2x2?=
+ =?utf-8?B?NHlBb2x6eTR4bDVxaUVnMEJJT0loRTVFd3BjQXlaYzM3L0dlT3U1eEp4azND?=
+ =?utf-8?B?RmMrOFFtMzE5UFRJVW9YZFFOOXRhTEM1SE1TQVdiY0I0ZXZGNlREYUF2L0VX?=
+ =?utf-8?B?Z1hWRmUzenVjeEVGODVsaE9uWTJIZ2FGbDBORlFCbUFMTjVlUFRFMzNINThR?=
+ =?utf-8?B?R084L0tkbmlUWlREZlR0UXJrK3B4dnRXMHQrUEM2T2pDV1k0SnhTeHlJZHVX?=
+ =?utf-8?B?b2xibW5yeDBXSUNCQ3htVmMzL1FWdUh5dENhTUZsWmlsdVcvMkZuNGtrelo0?=
+ =?utf-8?B?T0dhME8xemN3dDFtRXdxZ0FPNmE1cEorbG81bWFiUGJCcjBxSklnRTN5a3FG?=
+ =?utf-8?B?a0JpSUd6dzltN1g1cjhTbmV0cGh2VjVERklEcG5rR0k5OXJ4TXdlMkhMT2Ry?=
+ =?utf-8?B?cWVyWWk4VnpjSkN6cW5ENWRFY3NBaVBCU084MW1USExMc3JwRGs2WVFOTk93?=
+ =?utf-8?B?c3c9PQ==?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <6D8A7CE493C63B448210E39EAF339E0D@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-X-MIMETrack: Itemize by SMTP Server on Idefix/Phytec(Release 9.0.1FP7|August  17, 2016) at
- 10.12.2025 11:16:12,
-	Serialize by Router on Idefix/Phytec(Release 9.0.1FP7|August  17, 2016) at
- 10.12.2025 11:16:12
-X-TNEFEvaluated: 1
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PEPF00028D09:EE_|GVX0PFEB50821B4:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5f6d9afd-5b87-4be3-97c9-08de37d52614
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|376014|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?U5/QVLlkC3Yn9w/ZNoRDTFPGhK0R92jPCQ7ORI16kwMcuEZTIpmFOoTYCQeB?=
- =?us-ascii?Q?jjcoYbBwzv55yzAIbMJoxBWeU8COrRZ+EYyKCFNFLf0TGP78RVXMw8408mQN?=
- =?us-ascii?Q?bn/P3w3aGSeqV0bcQV3oUIwjfSPn84BdvY//VgrBa0RQG1fTgNe+jJf5V2Ex?=
- =?us-ascii?Q?2rMpn0x4gLlYl3ymN7nU0o0PETLcgUuxE++OAOY2xVl9ztWCe+0hKm5pCJZJ?=
- =?us-ascii?Q?4dyhCKfCsxpcrIrCsE5kvlBLZUAno97ni/Dzdfj1vc0DlP1vl79MIE5nE6dQ?=
- =?us-ascii?Q?q6PnMyDAcwDug+TKDmJA5najNnvD2F9ZnNbDBKF82oAH4ZY/BsX9/soexZVk?=
- =?us-ascii?Q?gdv+ZX5WRncuas83SZEi0faRnv1NYyf1ocedvx8KAnQ0ClCv7K9ay9CMIqHp?=
- =?us-ascii?Q?cPnBkGgD585wd6JIYRtKQzkXYwA+QHqmK+7aFHWXDhDubLiAK+XVNMTrqfhE?=
- =?us-ascii?Q?KQ6/RtQ/QbppO1mr7VrDbuVQ7vU+ad1EBDHj98Y2o/oXFb1rL7VujU29Kxz5?=
- =?us-ascii?Q?4NqoWc3Z6PxKp9h4ezmAOmYTDl4FshRcuw5CtFK1KZq/lZycLObnhpAI6gAb?=
- =?us-ascii?Q?UKiL6l6KvNAQq8eekrtsHc/b9sU7jZbdH9If8SxevRMMnf8xEAKG2sQ4Dcvx?=
- =?us-ascii?Q?xDOTB9g9E06qobTj+AyUKvG7kJCEuVt0k0WruTgD2mKDqhXs2iEG0sqdWPb5?=
- =?us-ascii?Q?+/5uqksN5XaNhAz5iSXG0FHRB2WSKwFG4wCf/W5BkoJryDwbCsqJNgbDq3He?=
- =?us-ascii?Q?D6uoeoTcddCMWX89vX/eFRNFV07XyzdrR1Lkt/MD37ZnLD41KV2hMFZAu2Vv?=
- =?us-ascii?Q?k84+FpSEbwy7ux1gVG/JNIoyW4SLrHamHZey+82I5spYvRNaEt7MYFfB9oPh?=
- =?us-ascii?Q?xNVpik33FaxjZW/68fkddjAIVSsejDT7mDse/KEoqyRsXtZEDvX0OEggf+Kz?=
- =?us-ascii?Q?Q5nGE+ft4aWZWRslq6nk7B9NaW7kElr3CNg7eiTKwP6Cw9SXvC4m5DXp9/gi?=
- =?us-ascii?Q?TiUH2HhX1HMfdRAz7dhhUC1n4FQg9tezG9yeQOaaiwo2G6/4KcA93G2KC7UU?=
- =?us-ascii?Q?vSQgzyKhvl7qyFBLw9Aixx7gis4cWJvcI0Pap3nDnoRm9XoRIfjvwKdj4TEK?=
- =?us-ascii?Q?5S3wAEifgIbvcs000GDgQcREWd4/js93MP65gLtR7e1VupVQylYbiTeYljF/?=
- =?us-ascii?Q?W6MEj77YfDRrKETX44vX571d9k0jIXW4jyKE82QymWTjw57ALIaWmfvMrqm8?=
- =?us-ascii?Q?mjn+WKyN6Op6KZNm3sG6VaK23zzjuqd7t9qC0QBGnsSzlzHD1bbHG2kNmpBj?=
- =?us-ascii?Q?sTD21vdBX3Wso2naJ7mpZPK42i9H6n/xaPE+e7qepjMqzGMJkgE35jxvAu5l?=
- =?us-ascii?Q?ykqQ9PLwlJkiM5JpKiBsQjQdyj59VWT0075tjbHdpMK2OQFInRiOEkw1g6xC?=
- =?us-ascii?Q?HVr05xcKQ/+GnYuB6PslYAkfFAhSBH7KsT6h+7f94xhPu9CVcySVp2dSawFt?=
- =?us-ascii?Q?/BeLSxdKFV2IkrWZg2LxXjzuJpl7rQ4RC6FIhtwcxo8mC2jr+IwgK8LNSHZt?=
- =?us-ascii?Q?GfRdriiRY4denTMl1s4=3D?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Postix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(376014)(36860700013)(1800799024);DIR:OUT;SFP:1102;
-X-OriginatorOrg: phytec.fr
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Dec 2025 10:16:13.8900
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SI2PR03MB5708.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 86e57e84-443e-4bc2-0864-08de37d72031
+X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Dec 2025 10:30:23.0368
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5f6d9afd-5b87-4be3-97c9-08de37d52614
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Postix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: DU2PEPF00028D09.eurprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVX0PFEB50821B4
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Djcrvyyzlg9PII9acDEFpluZZ7B/3zjlaljbmjGCEzcyNtwD7eG4VGcJwLeM+1coGEpArpBTOSDFR9vL4OJI+gkqqOMDSLKF4euNDmOsMuA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB7775
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_021625_452196_B613617B 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20251210_023034_862034_6C6E13B1 
+X-CRM114-Status: GOOD (  16.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -158,742 +231,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add stm32mp15xx-phycore-som.dtsi device tree file to split hardware
-features between the phyBOARD (baseboard) and the phyCORE (SoM).
-
-Signed-off-by: Christophe Parant <c.parant@phytec.fr>
----
- .../st/stm32mp157c-phyboard-sargas-rdk.dts    |   2 +-
- .../dts/st/stm32mp15xx-phyboard-sargas.dtsi   | 317 +----------------
- .../boot/dts/st/stm32mp15xx-phycore-som.dtsi  | 329 ++++++++++++++++++
- 3 files changed, 331 insertions(+), 317 deletions(-)
- create mode 100644 arch/arm/boot/dts/st/stm32mp15xx-phycore-som.dtsi
-
-diff --git a/arch/arm/boot/dts/st/stm32mp157c-phyboard-sargas-rdk.dts b/arc=
-h/arm/boot/dts/st/stm32mp157c-phyboard-sargas-rdk.dts
-index 26995eb2a619..48adc3462958 100644
---- a/arch/arm/boot/dts/st/stm32mp157c-phyboard-sargas-rdk.dts
-+++ b/arch/arm/boot/dts/st/stm32mp157c-phyboard-sargas-rdk.dts
-@@ -9,7 +9,7 @@
- #include <dt-bindings/pinctrl/stm32-pinfunc.h>
- #include "stm32mp157.dtsi"
- #include "stm32mp15xc.dtsi"
--#include "stm32mp15xxac-pinctrl.dtsi"
-+#include "stm32mp15xx-phycore-som.dtsi"
- #include "stm32mp15xx-phyboard-sargas.dtsi"
-=20
- / {
-diff --git a/arch/arm/boot/dts/st/stm32mp15xx-phyboard-sargas.dtsi b/arch/a=
-rm/boot/dts/st/stm32mp15xx-phyboard-sargas.dtsi
-index ebbb82c09a1e..2fdab99fc562 100644
---- a/arch/arm/boot/dts/st/stm32mp15xx-phyboard-sargas.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp15xx-phyboard-sargas.dtsi
-@@ -5,23 +5,13 @@
-  * Author: Dom VOVARD <dom.vovard@linrt.com>.
-  */
-=20
--#include <dt-bindings/gpio/gpio.h>
--#include <dt-bindings/input/input.h>
-+
- #include <dt-bindings/interrupt-controller/arm-gic.h>
- #include <dt-bindings/interrupt-controller/irq.h>
- #include <dt-bindings/leds/common.h>
- #include <dt-bindings/leds/leds-pca9532.h>
--#include <dt-bindings/mfd/st,stpmic1.h>
--#include <dt-bindings/net/ti-dp83867.h>
--#include "stm32mp15-pinctrl.dtsi"
-=20
- / {
--	aliases {
--		ethernet0 =3D &ethernet0;
--		rtc0 =3D &i2c4=5Frtc;
--		rtc1 =3D &rtc;
--	};
--
- 	chosen {
- 		stdout-path =3D "serial0:115200n8";
- 	};
-@@ -42,48 +32,6 @@ key-enter {
- 		};
- 	};
-=20
--	reserved-memory {
--		#address-cells =3D <1>;
--		#size-cells =3D <1>;
--		ranges;
--
--		retram: retram@38000000 {
--			compatible =3D "shared-dma-pool";
--			reg =3D <0x38000000 0x10000>;
--			no-map;
--		};
--
--		mcuram: mcuram@30000000 {
--			compatible =3D "shared-dma-pool";
--			reg =3D <0x30000000 0x40000>;
--			no-map;
--		};
--
--		mcuram2: mcuram2@10000000 {
--			compatible =3D "shared-dma-pool";
--			reg =3D <0x10000000 0x40000>;
--			no-map;
--		};
--
--		vdev0vring0: vdev0vring0@10040000 {
--			compatible =3D "shared-dma-pool";
--			reg =3D <0x10040000 0x1000>;
--			no-map;
--		};
--
--		vdev0vring1: vdev0vring1@10041000 {
--			compatible =3D "shared-dma-pool";
--			reg =3D <0x10041000 0x1000>;
--			no-map;
--		};
--
--		vdev0buffer: vdev0buffer@10042000 {
--			compatible =3D "shared-dma-pool";
--			reg =3D <0x10042000 0x4000>;
--			no-map;
--		};
--	};
--
- 	sound {
- 		compatible =3D "audio-graph-card";
- 		label =3D "STM32MP1-PHYCORE";
-@@ -93,44 +41,6 @@ sound {
- 		dais =3D <&sai2b=5Fport>,
- 		       <&sai2a=5Fport>;
- 	};
--
--	regulator=5Fvin: regulator {
--		compatible =3D "regulator-fixed";
--		regulator-name =3D "vin";
--		regulator-min-microvolt =3D <5000000>;
--		regulator-max-microvolt =3D <5000000>;
--		regulator-always-on;
--	};
--};
--
--&ethernet0 {
--	pinctrl-0 =3D <&ethernet0=5Frgmii=5Fpins=5Fd>;
--	pinctrl-1 =3D <&ethernet0=5Frgmii=5Fsleep=5Fpins=5Fd>;
--	pinctrl-names =3D "default", "sleep";
--	phy-mode =3D "rgmii-id";
--	max-speed =3D <1000>;
--	phy-handle =3D <&phy0>;
--	st,eth-clk-sel;
--	status =3D "okay";
--
--	mdio {
--		#address-cells =3D <1>;
--		#size-cells =3D <0>;
--		compatible =3D "snps,dwmac-mdio";
--
--		phy0: ethernet-phy@1 {
--			compatible =3D "ethernet-phy-ieee802.3-c22";
--			reg =3D <1>;
--			interrupt-parent =3D <&gpiog>;
--			interrupts =3D <12 IRQ=5FTYPE=5FEDGE=5FFALLING>;
--			ti,rx-internal-delay =3D <DP83867=5FRGMIIDCTL=5F2=5F00=5FNS>;
--			ti,tx-internal-delay =3D <DP83867=5FRGMIIDCTL=5F2=5F00=5FNS>;
--			ti,fifo-depth =3D <DP83867=5FPHYCR=5FFIFO=5FDEPTH=5F4=5FB=5FNIB>;
--			ti,min-output-impedance;
--			enet-phy-lane-no-swap;
--			ti,clk-output-sel =3D <DP83867=5FCLK=5FO=5FSEL=5FOFF>;
--		};
--	};
- };
-=20
- &i2c1 {
-@@ -222,176 +132,6 @@ led-2 {
- 	};
- };
-=20
--&i2c4 {
--	pinctrl-names =3D "default", "sleep";
--	pinctrl-0 =3D <&i2c4=5Fpins=5Fa>;
--	pinctrl-1 =3D <&i2c4=5Fsleep=5Fpins=5Fa>;
--	i2c-scl-rising-time-ns =3D <185>;
--	i2c-scl-falling-time-ns =3D <20>;
--	status =3D "okay";
--
--	pmic@33 {
--		compatible =3D "st,stpmic1";
--		reg =3D <0x33>;
--		interrupts-extended =3D <&gpioa 0 IRQ=5FTYPE=5FEDGE=5FFALLING>;
--		interrupt-controller;
--		#interrupt-cells =3D <2>;
--
--		regulators {
--			compatible =3D "st,stpmic1-regulators";
--			buck1-supply =3D <&regulator=5Fvin>;
--			buck2-supply =3D <&regulator=5Fvin>;
--			buck3-supply =3D <&regulator=5Fvin>;
--			buck4-supply =3D <&regulator=5Fvin>;
--			ldo1-supply =3D <&v3v3>;
--			ldo2-supply =3D <&v3v3>;
--			ldo3-supply =3D <&vdd=5Fddr>;
--			ldo4-supply =3D <&regulator=5Fvin>;
--			ldo5-supply =3D <&v3v3>;
--			ldo6-supply =3D <&v3v3>;
--			boost-supply =3D <&regulator=5Fvin>;
--			pwr=5Fsw1-supply =3D <&bst=5Fout>;
--			pwr=5Fsw2-supply =3D <&bst=5Fout>;
--
--			vddcore: buck1 {
--				regulator-name =3D "vddcore";
--				regulator-min-microvolt =3D <1200000>;
--				regulator-max-microvolt =3D <1350000>;
--				regulator-always-on;
--				regulator-initial-mode =3D <0>;
--			};
--
--			vdd=5Fddr: buck2 {
--				regulator-name =3D "vdd=5Fddr";
--				regulator-min-microvolt =3D <1350000>;
--				regulator-max-microvolt =3D <1350000>;
--				regulator-always-on;
--				regulator-initial-mode =3D <0>;
--			};
--
--			vdd: buck3 {
--				regulator-name =3D "vdd";
--				regulator-min-microvolt =3D <3300000>;
--				regulator-max-microvolt =3D <3300000>;
--				regulator-always-on;
--				st,mask-reset;
--				regulator-initial-mode =3D <0>;
--			};
--
--			v3v3: buck4 {
--				regulator-name =3D "v3v3";
--				regulator-min-microvolt =3D <3300000>;
--				regulator-max-microvolt =3D <3300000>;
--				regulator-always-on;
--				regulator-initial-mode =3D <0>;
--			};
--
--			v1v8=5Faudio: ldo1 {
--				regulator-name =3D "v1v8=5Faudio";
--				regulator-min-microvolt =3D <1800000>;
--				regulator-max-microvolt =3D <1800000>;
--				regulator-always-on;
--				interrupts =3D <IT=5FCURLIM=5FLDO1 0>;
--
--			};
--
--			vdd=5Feth=5F2v5: ldo2 {
--				regulator-name =3D "dd=5Feth=5F2v5";
--				regulator-min-microvolt =3D <2500000>;
--				regulator-max-microvolt =3D <2500000>;
--				regulator-always-on;
--				interrupts =3D <IT=5FCURLIM=5FLDO2 0>;
--
--			};
--
--			vtt=5Fddr: ldo3 {
--				regulator-name =3D "vtt=5Fddr";
--				regulator-min-microvolt =3D <500000>;
--				regulator-max-microvolt =3D <750000>;
--				regulator-always-on;
--				regulator-over-current-protection;
--			};
--
--			vdd=5Fusb: ldo4 {
--				regulator-name =3D "vdd=5Fusb";
--				interrupts =3D <IT=5FCURLIM=5FLDO4 0>;
--			};
--
--			vdda: ldo5 {
--				regulator-name =3D "vdda";
--				regulator-min-microvolt =3D <2900000>;
--				regulator-max-microvolt =3D <2900000>;
--				interrupts =3D <IT=5FCURLIM=5FLDO5 0>;
--				regulator-boot-on;
--			};
--
--			vdd=5Feth=5F1v0: ldo6 {
--				regulator-name =3D "vdd=5Feth=5F1v0";
--				regulator-min-microvolt =3D <1000000>;
--				regulator-max-microvolt =3D <1000000>;
--				regulator-always-on;
--				interrupts =3D <IT=5FCURLIM=5FLDO6 0>;
--
--			};
--
--			vref=5Fddr: vref=5Fddr {
--				regulator-name =3D "vref=5Fddr";
--				regulator-always-on;
--			};
--
--			bst=5Fout: boost {
--				regulator-name =3D "bst=5Fout";
--				interrupts =3D <IT=5FOCP=5FBOOST 0>;
--			};
--
--			vbus=5Fotg: pwr=5Fsw1 {
--				regulator-name =3D "vbus=5Fotg";
--				interrupts =3D <IT=5FOCP=5FOTG 0>;
--				regulator-active-discharge =3D <1>;
--			};
--
--			vbus=5Fsw: pwr=5Fsw2 {
--				regulator-name =3D "vbus=5Fsw";
--				interrupts =3D <IT=5FOCP=5FSWOUT 0>;
--				regulator-active-discharge =3D <1>;
--			};
--		};
--
--		onkey {
--			compatible =3D "st,stpmic1-onkey";
--			interrupts =3D <IT=5FPONKEY=5FF 0>,
--				     <IT=5FPONKEY=5FR 0>;
--			interrupt-names =3D "onkey-falling",
--					  "onkey-rising";
--			power-off-time-sec =3D <10>;
--		};
--
--		watchdog {
--			compatible =3D "st,stpmic1-wdt";
--		};
--	};
--
--	i2c4=5Feeprom: eeprom@50 {
--		compatible =3D "microchip,24c32",
--			     "atmel,24c32";
--		reg =3D <0x50>;
--	};
--
--	i2c4=5Frtc: rtc@52 {
--		compatible =3D "microcrystal,rv3028";
--		reg =3D <0x52>;
--	};
--};
--
--&ipcc {
--	status =3D "okay";
--};
--
--&iwdg2 {
--	timeout-sec =3D <32>;
--	status =3D "okay";
--};
--
- &m=5Fcan2 {
- 	pinctrl-names =3D "default", "sleep";
- 	pinctrl-0 =3D <&m=5Fcan2=5Fpins=5Fa>;
-@@ -399,46 +139,6 @@ &m=5Fcan2 {
- 	status =3D "okay";
- };
-=20
--&m4=5Frproc {
--	memory-region =3D <&retram>, <&mcuram>, <&mcuram2>, <&vdev0vring0>,
--			<&vdev0vring1>, <&vdev0buffer>;
--	mboxes =3D <&ipcc 0>, <&ipcc 1>, <&ipcc 2>, <&ipcc 3>;
--	mbox-names =3D "vq0", "vq1", "shutdown", "detach";
--	interrupt-parent =3D <&exti>;
--	interrupts =3D <68 1>;
--	status =3D "okay";
--};
--
--&pwr=5Fregulators {
--	vdd-supply =3D <&vdd>;
--	vdd=5F3v3=5Fusbfs-supply =3D <&vdd=5Fusb>;
--};
--
--&qspi {
--	pinctrl-names =3D "default", "sleep";
--	pinctrl-0 =3D <&qspi=5Fclk=5Fpins=5Fa &qspi=5Fbk1=5Fpins=5Fa>;
--	pinctrl-1 =3D <&qspi=5Fclk=5Fsleep=5Fpins=5Fa &qspi=5Fbk1=5Fsleep=5Fpins=
-=5Fa>;
--	status =3D "okay";
--
--	flash0: flash@0 {
--		compatible =3D "winbond,w25q128", "jedec,spi-nor";
--		reg =3D <0>;
--		spi-rx-bus-width =3D <4>;
--		spi-max-frequency =3D <50000000>;
--		m25p,fast-read;
--		#address-cells =3D <1>;
--		#size-cells =3D <1>;
--	};
--};
--
--&rng1 {
--	status =3D "okay";
--};
--
--&rtc {
--	status =3D "okay";
--};
--
- &sai2 {
- 	clocks =3D <&rcc SAI2>, <&rcc PLL3=5FQ>, <&rcc PLL3=5FR>;
- 	clock-names =3D "pclk", "x8k", "x11k";
-@@ -492,21 +192,6 @@ &sdmmc1 {
- 	status =3D "okay";
- };
-=20
--&sdmmc2 {
--	pinctrl-names =3D "default", "opendrain", "sleep";
--	pinctrl-0 =3D <&sdmmc2=5Fb4=5Fpins=5Fa &sdmmc2=5Fd47=5Fpins=5Fe>;
--	pinctrl-1 =3D <&sdmmc2=5Fb4=5Fod=5Fpins=5Fa &sdmmc2=5Fd47=5Fpins=5Fe>;
--	pinctrl-2 =3D <&sdmmc2=5Fb4=5Fsleep=5Fpins=5Fa &sdmmc2=5Fd47=5Fsleep=5Fpi=
-ns=5Fe>;
--	non-removable;
--	no-sd;
--	no-sdio;
--	st,neg-edge;
--	bus-width =3D <8>;
--	vmmc-supply =3D <&v3v3>;
--	vqmmc-supply =3D <&v3v3>;
--	mmc-ddr-3=5F3v;
--};
--
- &spi1 {
- 	pinctrl-names =3D "default", "sleep";
- 	pinctrl-0 =3D <&spi1=5Fpins=5Fa>;
-diff --git a/arch/arm/boot/dts/st/stm32mp15xx-phycore-som.dtsi b/arch/arm/b=
-oot/dts/st/stm32mp15xx-phycore-som.dtsi
-new file mode 100644
-index 000000000000..660cdc260963
---- /dev/null
-+++ b/arch/arm/boot/dts/st/stm32mp15xx-phycore-som.dtsi
-@@ -0,0 +1,329 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
-+/*
-+ * Copyright (C) Phytec GmbH 2019-2020 - All Rights Reserved
-+ * Author: Dom VOVARD <dom.vovard@linrt.com>
-+ * Copyright (C) 2022-2023 Steffen Trumtrar <kernel@pengutronix.de>
-+ * Copyright (C) 2024 PHYTEC Messtechnik GmbH
-+ * Author: Christophe Parant <c.parant@phytec.fr>
-+ */
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/mfd/st,stpmic1.h>
-+#include <dt-bindings/net/ti-dp83867.h>
-+#include "stm32mp15-pinctrl.dtsi"
-+#include "stm32mp15xxac-pinctrl.dtsi"
-+
-+/ {
-+
-+	aliases {
-+		ethernet0 =3D &ethernet0;
-+		rtc0 =3D &i2c4=5Frtc;
-+		rtc1 =3D &rtc;
-+	};
-+
-+	reserved-memory {
-+		#address-cells =3D <1>;
-+		#size-cells =3D <1>;
-+		ranges;
-+
-+		retram: retram@38000000 {
-+			compatible =3D "shared-dma-pool";
-+			reg =3D <0x38000000 0x10000>;
-+			no-map;
-+		};
-+
-+		mcuram: mcuram@30000000 {
-+			compatible =3D "shared-dma-pool";
-+			reg =3D <0x30000000 0x40000>;
-+			no-map;
-+		};
-+
-+		mcuram2: mcuram2@10000000 {
-+			compatible =3D "shared-dma-pool";
-+			reg =3D <0x10000000 0x40000>;
-+			no-map;
-+		};
-+
-+		vdev0vring0: vdev0vring0@10040000 {
-+			compatible =3D "shared-dma-pool";
-+			reg =3D <0x10040000 0x1000>;
-+			no-map;
-+		};
-+
-+		vdev0vring1: vdev0vring1@10041000 {
-+			compatible =3D "shared-dma-pool";
-+			reg =3D <0x10041000 0x1000>;
-+			no-map;
-+		};
-+
-+		vdev0buffer: vdev0buffer@10042000 {
-+			compatible =3D "shared-dma-pool";
-+			reg =3D <0x10042000 0x4000>;
-+			no-map;
-+		};
-+	};
-+
-+	regulator=5Fvin: regulator {
-+		compatible =3D "regulator-fixed";
-+		regulator-name =3D "vin";
-+		regulator-min-microvolt =3D <5000000>;
-+		regulator-max-microvolt =3D <5000000>;
-+		regulator-always-on;
-+	};
-+};
-+
-+&ethernet0 {
-+	pinctrl-0 =3D <&ethernet0=5Frgmii=5Fpins=5Fd>;
-+	pinctrl-1 =3D <&ethernet0=5Frgmii=5Fsleep=5Fpins=5Fd>;
-+	pinctrl-names =3D "default", "sleep";
-+	phy-mode =3D "rgmii-id";
-+	max-speed =3D <1000>;
-+	phy-handle =3D <&phy0>;
-+	st,eth-clk-sel;
-+	status =3D "okay";
-+
-+	mdio {
-+		#address-cells =3D <1>;
-+		#size-cells =3D <0>;
-+		compatible =3D "snps,dwmac-mdio";
-+
-+		phy0: ethernet-phy@1 {
-+			compatible =3D "ethernet-phy-ieee802.3-c22";
-+			reg =3D <1>;
-+			interrupt-parent =3D <&gpiog>;
-+			interrupts =3D <12 IRQ=5FTYPE=5FEDGE=5FFALLING>;
-+			ti,rx-internal-delay =3D <DP83867=5FRGMIIDCTL=5F2=5F00=5FNS>;
-+			ti,tx-internal-delay =3D <DP83867=5FRGMIIDCTL=5F2=5F00=5FNS>;
-+			ti,fifo-depth =3D <DP83867=5FPHYCR=5FFIFO=5FDEPTH=5F4=5FB=5FNIB>;
-+			ti,min-output-impedance;
-+			enet-phy-lane-no-swap;
-+			ti,clk-output-sel =3D <DP83867=5FCLK=5FO=5FSEL=5FOFF>;
-+		};
-+	};
-+};
-+
-+&i2c4 {
-+	pinctrl-names =3D "default", "sleep";
-+	pinctrl-0 =3D <&i2c4=5Fpins=5Fa>;
-+	pinctrl-1 =3D <&i2c4=5Fsleep=5Fpins=5Fa>;
-+	i2c-scl-rising-time-ns =3D <185>;
-+	i2c-scl-falling-time-ns =3D <20>;
-+	status =3D "okay";
-+
-+	pmic@33 {
-+		compatible =3D "st,stpmic1";
-+		reg =3D <0x33>;
-+		interrupts-extended =3D <&gpioa 0 IRQ=5FTYPE=5FEDGE=5FFALLING>;
-+		interrupt-controller;
-+		#interrupt-cells =3D <2>;
-+
-+		regulators {
-+			compatible =3D "st,stpmic1-regulators";
-+			buck1-supply =3D <&regulator=5Fvin>;
-+			buck2-supply =3D <&regulator=5Fvin>;
-+			buck3-supply =3D <&regulator=5Fvin>;
-+			buck4-supply =3D <&regulator=5Fvin>;
-+			ldo1-supply =3D <&v3v3>;
-+			ldo2-supply =3D <&v3v3>;
-+			ldo3-supply =3D <&vdd=5Fddr>;
-+			ldo4-supply =3D <&regulator=5Fvin>;
-+			ldo5-supply =3D <&v3v3>;
-+			ldo6-supply =3D <&v3v3>;
-+			boost-supply =3D <&regulator=5Fvin>;
-+			pwr=5Fsw1-supply =3D <&bst=5Fout>;
-+			pwr=5Fsw2-supply =3D <&bst=5Fout>;
-+
-+			vddcore: buck1 {
-+				regulator-name =3D "vddcore";
-+				regulator-min-microvolt =3D <1200000>;
-+				regulator-max-microvolt =3D <1350000>;
-+				regulator-always-on;
-+				regulator-initial-mode =3D <0>;
-+			};
-+
-+			vdd=5Fddr: buck2 {
-+				regulator-name =3D "vdd=5Fddr";
-+				regulator-min-microvolt =3D <1350000>;
-+				regulator-max-microvolt =3D <1350000>;
-+				regulator-always-on;
-+				regulator-initial-mode =3D <0>;
-+			};
-+
-+			vdd: buck3 {
-+				regulator-name =3D "vdd";
-+				regulator-min-microvolt =3D <3300000>;
-+				regulator-max-microvolt =3D <3300000>;
-+				regulator-always-on;
-+				st,mask-reset;
-+				regulator-initial-mode =3D <0>;
-+			};
-+
-+			v3v3: buck4 {
-+				regulator-name =3D "v3v3";
-+				regulator-min-microvolt =3D <3300000>;
-+				regulator-max-microvolt =3D <3300000>;
-+				regulator-always-on;
-+				regulator-initial-mode =3D <0>;
-+			};
-+
-+			v1v8=5Faudio: ldo1 {
-+				regulator-name =3D "v1v8=5Faudio";
-+				regulator-min-microvolt =3D <1800000>;
-+				regulator-max-microvolt =3D <1800000>;
-+				regulator-always-on;
-+				interrupts =3D <IT=5FCURLIM=5FLDO1 0>;
-+
-+			};
-+
-+			vdd=5Feth=5F2v5: ldo2 {
-+				regulator-name =3D "dd=5Feth=5F2v5";
-+				regulator-min-microvolt =3D <2500000>;
-+				regulator-max-microvolt =3D <2500000>;
-+				regulator-always-on;
-+				interrupts =3D <IT=5FCURLIM=5FLDO2 0>;
-+
-+			};
-+
-+			vtt=5Fddr: ldo3 {
-+				regulator-name =3D "vtt=5Fddr";
-+				regulator-min-microvolt =3D <500000>;
-+				regulator-max-microvolt =3D <750000>;
-+				regulator-always-on;
-+				regulator-over-current-protection;
-+			};
-+
-+			vdd=5Fusb: ldo4 {
-+				regulator-name =3D "vdd=5Fusb";
-+				interrupts =3D <IT=5FCURLIM=5FLDO4 0>;
-+			};
-+
-+			vdda: ldo5 {
-+				regulator-name =3D "vdda";
-+				regulator-min-microvolt =3D <2900000>;
-+				regulator-max-microvolt =3D <2900000>;
-+				interrupts =3D <IT=5FCURLIM=5FLDO5 0>;
-+				regulator-boot-on;
-+			};
-+
-+			vdd=5Feth=5F1v0: ldo6 {
-+				regulator-name =3D "vdd=5Feth=5F1v0";
-+				regulator-min-microvolt =3D <1000000>;
-+				regulator-max-microvolt =3D <1000000>;
-+				regulator-always-on;
-+				interrupts =3D <IT=5FCURLIM=5FLDO6 0>;
-+
-+			};
-+
-+			vref=5Fddr: vref=5Fddr {
-+				regulator-name =3D "vref=5Fddr";
-+				regulator-always-on;
-+			};
-+
-+			bst=5Fout: boost {
-+				regulator-name =3D "bst=5Fout";
-+				interrupts =3D <IT=5FOCP=5FBOOST 0>;
-+			};
-+
-+			vbus=5Fotg: pwr=5Fsw1 {
-+				regulator-name =3D "vbus=5Fotg";
-+				interrupts =3D <IT=5FOCP=5FOTG 0>;
-+				regulator-active-discharge =3D <1>;
-+			};
-+
-+			vbus=5Fsw: pwr=5Fsw2 {
-+				regulator-name =3D "vbus=5Fsw";
-+				interrupts =3D <IT=5FOCP=5FSWOUT 0>;
-+				regulator-active-discharge =3D <1>;
-+			};
-+		};
-+
-+		onkey {
-+			compatible =3D "st,stpmic1-onkey";
-+			interrupts =3D <IT=5FPONKEY=5FF 0>,
-+				     <IT=5FPONKEY=5FR 0>;
-+			interrupt-names =3D "onkey-falling",
-+					  "onkey-rising";
-+			power-off-time-sec =3D <10>;
-+		};
-+
-+		watchdog {
-+			compatible =3D "st,stpmic1-wdt";
-+		};
-+	};
-+
-+	i2c4=5Feeprom: eeprom@50 {
-+		compatible =3D "microchip,24c32",
-+			     "atmel,24c32";
-+		reg =3D <0x50>;
-+	};
-+
-+	i2c4=5Frtc: rtc@52 {
-+		compatible =3D "microcrystal,rv3028";
-+		reg =3D <0x52>;
-+	};
-+};
-+
-+&ipcc {
-+	status =3D "okay";
-+};
-+
-+&iwdg2 {
-+	timeout-sec =3D <32>;
-+	status =3D "okay";
-+};
-+
-+&m4=5Frproc {
-+	memory-region =3D <&retram>, <&mcuram>, <&mcuram2>, <&vdev0vring0>,
-+			<&vdev0vring1>, <&vdev0buffer>;
-+	mboxes =3D <&ipcc 0>, <&ipcc 1>, <&ipcc 2>, <&ipcc 3>;
-+	mbox-names =3D "vq0", "vq1", "shutdown", "detach";
-+	interrupt-parent =3D <&exti>;
-+	interrupts =3D <68 1>;
-+	status =3D "okay";
-+};
-+
-+&pwr=5Fregulators {
-+	vdd-supply =3D <&vdd>;
-+	vdd=5F3v3=5Fusbfs-supply =3D <&vdd=5Fusb>;
-+};
-+
-+&qspi {
-+	pinctrl-names =3D "default", "sleep";
-+	pinctrl-0 =3D <&qspi=5Fclk=5Fpins=5Fa &qspi=5Fbk1=5Fpins=5Fa>;
-+	pinctrl-1 =3D <&qspi=5Fclk=5Fsleep=5Fpins=5Fa &qspi=5Fbk1=5Fsleep=5Fpins=
-=5Fa>;
-+	status =3D "okay";
-+
-+	flash0: flash@0 {
-+		compatible =3D "winbond,w25q128", "jedec,spi-nor";
-+		reg =3D <0>;
-+		spi-rx-bus-width =3D <4>;
-+		spi-max-frequency =3D <50000000>;
-+		m25p,fast-read;
-+		#address-cells =3D <1>;
-+		#size-cells =3D <1>;
-+	};
-+};
-+
-+&rng1 {
-+	status =3D "okay";
-+};
-+
-+&rtc {
-+	status =3D "okay";
-+};
-+
-+&sdmmc2 {
-+	pinctrl-names =3D "default", "opendrain", "sleep";
-+	pinctrl-0 =3D <&sdmmc2=5Fb4=5Fpins=5Fa &sdmmc2=5Fd47=5Fpins=5Fe>;
-+	pinctrl-1 =3D <&sdmmc2=5Fb4=5Fod=5Fpins=5Fa &sdmmc2=5Fd47=5Fpins=5Fe>;
-+	pinctrl-2 =3D <&sdmmc2=5Fb4=5Fsleep=5Fpins=5Fa &sdmmc2=5Fd47=5Fsleep=5Fpi=
-ns=5Fe>;
-+	non-removable;
-+	no-sd;
-+	no-sdio;
-+	st,neg-edge;
-+	bus-width =3D <8>;
-+	vmmc-supply =3D <&v3v3>;
-+	vqmmc-supply =3D <&v3v3>;
-+	mmc-ddr-3=5F3v;
-+};
---=20
-2.34.1
-
+SGkgQW5nZWxvLAoKT24gRnJpLCAyMDI1LTExLTA3IGF0IDExOjM2ICswMTAwLCBBbmdlbG9HaW9h
+Y2NoaW5vIERlbCBSZWdubyB3cm90ZToKPiAKPiBFeHRlcm5hbCBlbWFpbCA6IFBsZWFzZSBkbyBu
+b3QgY2xpY2sgbGlua3Mgb3Igb3BlbiBhdHRhY2htZW50cyB1bnRpbAo+IHlvdSBoYXZlIHZlcmlm
+aWVkIHRoZSBzZW5kZXIgb3IgdGhlIGNvbnRlbnQuCj4gCj4gCj4gSWwgMDYvMTEvMjUgMTM6NDIs
+IGlydmluZy5jaC5saW4gaGEgc2NyaXR0bzoKPiA+IEZyb206IElydmluZy1DSCBMaW4gPGlydmlu
+Zy1jaC5saW5AbWVkaWF0ZWsuY29tPgo+ID4gCj4gPiBJbiBNVDgxODkgbW1pbmZyYSBwb3dlciBk
+b21haW4sIHRoZSBidXMgcHJvdGVjdCBwb2xpY3kgc2VwYXJhdGVzCj4gPiBpbnRvIHR3byBwYXJ0
+cywgb25lIGlzIHNldCBiZWZvcmUgc3Vic3lzIGNsb2NrcyBlbmFibGVkLCBhbmQKPiA+IGFub3Ro
+ZXIKPiA+IG5lZWQgdG8gZW5hYmxlIGFmdGVyIHN1YnN5cyBjbG9ja3MgZW5hYmxlLgo+ID4gCj4g
+PiBTaWduZWQtb2ZmLWJ5OiBJcnZpbmctQ0ggTGluIDxpcnZpbmctY2gubGluQG1lZGlhdGVrLmNv
+bT4KPiA+IC0tLQo+ID4gwqAgZHJpdmVycy9wbWRvbWFpbi9tZWRpYXRlay9tdGstcG0tZG9tYWlu
+cy5jIHwgMzEKPiA+ICsrKysrKysrKysrKysrKysrKy0tLS0KPiA+IMKgIGRyaXZlcnMvcG1kb21h
+aW4vbWVkaWF0ZWsvbXRrLXBtLWRvbWFpbnMuaCB8wqAgNSArKysrCj4gPiDCoCAyIGZpbGVzIGNo
+YW5nZWQsIDMxIGluc2VydGlvbnMoKyksIDUgZGVsZXRpb25zKC0pCj4gPiAKPiA+IGRpZmYgLS1n
+aXQgYS9kcml2ZXJzL3BtZG9tYWluL21lZGlhdGVrL210ay1wbS1kb21haW5zLmMKPiA+IGIvZHJp
+dmVycy9wbWRvbWFpbi9tZWRpYXRlay9tdGstcG0tZG9tYWlucy5jCj4gPiBpbmRleCAxNjRjNmI1
+MTlhZjMuLjIyMjg0NmU1MmRhZiAxMDA2NDQKPiA+IC0tLSBhL2RyaXZlcnMvcG1kb21haW4vbWVk
+aWF0ZWsvbXRrLXBtLWRvbWFpbnMuYwo+ID4gKysrIGIvZHJpdmVycy9wbWRvbWFpbi9tZWRpYXRl
+ay9tdGstcG0tZG9tYWlucy5jCj4gPiBAQCAtMjUwLDcgKzI1MCw3IEBAIHN0YXRpYyBpbnQgc2Nw
+c3lzX2J1c19wcm90ZWN0X3NldChzdHJ1Y3QKPiA+IHNjcHN5c19kb21haW4gKnBkLAo+ID4gwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqAgTVRLX1BPTExfREVMQVlfVVMsCj4gPiBNVEtfUE9MTF9USU1FT1VUKTsK
+PiA+IMKgIH0KPiA+IAo+ID4gLXN0YXRpYyBpbnQgc2Nwc3lzX2J1c19wcm90ZWN0X2VuYWJsZShz
+dHJ1Y3Qgc2Nwc3lzX2RvbWFpbiAqcGQpCj4gPiArc3RhdGljIGludCBzY3BzeXNfYnVzX3Byb3Rl
+Y3RfZW5hYmxlKHN0cnVjdCBzY3BzeXNfZG9tYWluICpwZCwgdTgKPiA+IGZsYWdzKQo+ID4gwqAg
+ewo+ID4gwqDCoMKgwqDCoCBmb3IgKGludCBpID0gMDsgaSA8IFNQTV9NQVhfQlVTX1BST1RfREFU
+QTsgaSsrKSB7Cj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBjb25zdCBzdHJ1Y3Qgc2Nw
+c3lzX2J1c19wcm90X2RhdGEgKmJwZCA9ICZwZC0+ZGF0YS0KPiA+ID5icF9jZmdbaV07Cj4gPiBA
+QCAtMjU5LDYgKzI1OSwxMCBAQCBzdGF0aWMgaW50IHNjcHN5c19idXNfcHJvdGVjdF9lbmFibGUo
+c3RydWN0Cj4gPiBzY3BzeXNfZG9tYWluICpwZCkKPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgIGlmICghYnBkLT5idXNfcHJvdF9zZXRfY2xyX21hc2spCj4gPiDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgYnJlYWs7Cj4gPiAKPiA+ICvCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqAgaWYgKChicGQtPmZsYWdzICYgQlVTX1BST1RfSUdOT1JFX1NVQkNMSykgIT0K
+PiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCAoZmxhZ3MgJiBCVVNfUFJPVF9J
+R05PUkVfU1VCQ0xLKSkKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgIGNvbnRpbnVlOwo+ID4gKwo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgaWYgKGJw
+ZC0+ZmxhZ3MgJiBCVVNfUFJPVF9JTlZFUlRFRCkKPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoCByZXQgPSBzY3BzeXNfYnVzX3Byb3RlY3RfY2xlYXIocGQsIGJw
+ZCk7Cj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBlbHNlCj4gPiBAQCAtMjcwLDcgKzI3
+NCw3IEBAIHN0YXRpYyBpbnQgc2Nwc3lzX2J1c19wcm90ZWN0X2VuYWJsZShzdHJ1Y3QKPiA+IHNj
+cHN5c19kb21haW4gKnBkKQo+ID4gwqDCoMKgwqDCoCByZXR1cm4gMDsKPiA+IMKgIH0KPiA+IAo+
+ID4gLXN0YXRpYyBpbnQgc2Nwc3lzX2J1c19wcm90ZWN0X2Rpc2FibGUoc3RydWN0IHNjcHN5c19k
+b21haW4gKnBkKQo+ID4gK3N0YXRpYyBpbnQgc2Nwc3lzX2J1c19wcm90ZWN0X2Rpc2FibGUoc3Ry
+dWN0IHNjcHN5c19kb21haW4gKnBkLCB1OAo+ID4gZmxhZ3MpCj4gPiDCoCB7Cj4gPiDCoMKgwqDC
+oMKgIGZvciAoaW50IGkgPSBTUE1fTUFYX0JVU19QUk9UX0RBVEEgLSAxOyBpID49IDA7IGktLSkg
+ewo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgY29uc3Qgc3RydWN0IHNjcHN5c19idXNf
+cHJvdF9kYXRhICpicGQgPSAmcGQtPmRhdGEtCj4gPiA+YnBfY2ZnW2ldOwo+ID4gQEAgLTI3OSw2
+ICsyODMsMTAgQEAgc3RhdGljIGludCBzY3BzeXNfYnVzX3Byb3RlY3RfZGlzYWJsZShzdHJ1Y3QK
+PiA+IHNjcHN5c19kb21haW4gKnBkKQo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgaWYg
+KCFicGQtPmJ1c19wcm90X3NldF9jbHJfbWFzaykKPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoCBjb250aW51ZTsKPiA+IAo+ID4gK8KgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoCBpZiAoKGJwZC0+ZmxhZ3MgJiBCVVNfUFJPVF9JR05PUkVfU1VCQ0xLKSAhPQo+IAo+
+IElzIHRoYXQgdGhlIHJpZ2h0IG5hbWUgZm9yIHRoaXMgZmxhZz8KPiAKPiBBcyBmYXIgYXMgSSB1
+bmRlcnN0YW5kLCB5b3UgaGF2ZSB0byBzZXQgYnVzIHByb3RlY3Rpb24gaW4gdHdvIHN0ZXBzLAo+
+IHJpZ2h0Pwo+IFNvIGluIHRoZSBmaXJzdCBzdGVwIHlvdSdyZSBzZXR0aW5nIGJ1cyBwcm90ZWN0
+aW9uIGZvciB0aGUgTU1fSU5GUkEKPiBhbmQgZm9yCj4gTU1fSU5GUkFfMk5EIC0gYW5kIGluIHRo
+ZSBzZWNvbmQgc3RlcCB5b3UncmUgc2V0dGluZyBNTV9JTkZSQV9JR04gYW5kCj4gMl9JR04uCj4g
+Cj4gU28gdGhlIGZpcnN0IHN0ZXAgKHRoZSBwcm90cyB3aXRoIEJVU19QUk9UX0lHTk9SRV9TVUJD
+TEspIHVubG9ja3MKPiBTVUJTWVMgY2xrcwo+IGFuZCBTUkFNIElTTyBhY2Nlc3MsIHRoZSBzZWNv
+bmQgb25lIGRvZXMgdGhlIHJlc3QuCj4gCj4gSSB0aGluayB0aGF0IGEgYmV0dGVyIG5hbWUgZm9y
+IHRoaXMsIGF0IHRoaXMgcG9pbnQgd291bGQgYmUuLi4KPiAKPiBpZiAoKGJwZC0+ZmxhZ3MgJiBs
+b2NhbF9mbGFncykgJiBCVVNfUFJPVF9TUkFNX1BST1RFQ1RJT04pCj4gwqDCoMKgwqDCoMKgwqAg
+Y29udGludWU7Cj4gCj4gV2hhdCBkbyB5b3UgdGhpbms/Cj4gCj4gUmVnYXJkcywKPiBBbmdlbG8K
+PiAKWWVzLCB0aGUgcHVycG9zZSBpcyB0byBzZXQgYnVzIHdpdGggdHdvIHN0ZXBzOgpJbiBnZW5l
+cmFsIGNhc2UsIGJ1cyBwcm90ZWN0aW9uIG5lZWRzIHRvIGNvbnRyb2wgYWZ0ZXIgc3Vic3lzIGNs
+b2NrCmVuYWJsZWQuIEJ1dCBvbiBNVDgxODkgTU1fSU5GUkEgc3Vic3lzLCBzb21lIGJ1cyBwcm90
+ZWN0aW9uIHNldCBiZWZvcmUKc3Vic3lzIGNsb2NrIGVuYWJsZWQuCgpTbyBoZXJlIGkgbmFtZSBi
+dXMgcHJvdGVjdGlvbiBzZXR0aW5nIHcvbyBzdWJzeXMgY2xvY2sgYXMKSUdOT1JFX1NVQkNMSy4K
+CnRoYW5rcwoKQlIsCmlydmluZwoKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oCAoZmxhZ3MgJiBCVVNfUFJPVF9JR05PUkVfU1VCQ0xLKSkKPiA+ICvCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGNvbnRpbnVlOwo+ID4gKwo+ID4gwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqAgaWYgKGJwZC0+ZmxhZ3MgJiBCVVNfUFJPVF9JTlZFUlRFRCkKPiA+IMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCByZXQgPSBzY3BzeXNfYnVz
+X3Byb3RlY3Rfc2V0KHBkLCBicGQpOwo+ID4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgZWxz
+ZQo+ID4gQEAgLTYzMiw2ICs2NDAsMTUgQEAgc3RhdGljIGludCBzY3BzeXNfcG93ZXJfb24oc3Ry
+dWN0Cj4gPiBnZW5lcmljX3BtX2RvbWFpbiAqZ2VucGQpCj4gPiDCoMKgwqDCoMKgIGlmIChyZXQp
+Cj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBnb3RvIGVycl9wd3JfYWNrOwo+ID4gCj4g
+PiArwqDCoMKgwqAgLyoKPiA+ICvCoMKgwqDCoMKgICogSW4gTVQ4MTg5IG1taW5mcmEgcG93ZXIg
+ZG9tYWluLCB0aGUgYnVzIHByb3RlY3QgcG9saWN5Cj4gPiBzZXBhcmF0ZXMKPiA+ICvCoMKgwqDC
+oMKgICogaW50byB0d28gcGFydHMsIG9uZSBpcyBzZXQgYmVmb3JlIHN1YnN5cyBjbG9ja3MgZW5h
+YmxlZCwKPiA+IGFuZCBhbm90aGVyCj4gPiArwqDCoMKgwqDCoCAqIG5lZWQgdG8gZW5hYmxlIGFm
+dGVyIHN1YnN5cyBjbG9ja3MgZW5hYmxlLgo+ID4gK8KgwqDCoMKgwqAgKi8KPiA+ICvCoMKgwqDC
+oCByZXQgPSBzY3BzeXNfYnVzX3Byb3RlY3RfZGlzYWJsZShwZCwgQlVTX1BST1RfSUdOT1JFX1NV
+QkNMSyk7Cj4gPiArwqDCoMKgwqAgaWYgKHJldCA8IDApCj4gPiArwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgIGdvdG8gZXJyX3B3cl9hY2s7Cj4gPiArCj4gPiDCoMKgwqDCoMKgIC8qCj4gPiDCoMKg
+wqDCoMKgwqAgKiBJbiBmZXcgTWVkaWF0ZWsgcGxhdGZvcm1zKGUuZy4gTVQ2Nzc5KSwgdGhlIGJ1
+cyBwcm90ZWN0Cj4gPiBwb2xpY3kgaXMKPiA+IMKgwqDCoMKgwqDCoCAqIHN0cmljdGVyLCB3aGlj
+aCBsZWFkcyB0byBidXMgcHJvdGVjdCByZWxlYXNlIG11c3QgYmUgcHJpb3IKPiA+IHRvIGJ1cwo+
+ID4gQEAgLTY0OCw3ICs2NjUsNyBAQCBzdGF0aWMgaW50IHNjcHN5c19wb3dlcl9vbihzdHJ1Y3QK
+PiA+IGdlbmVyaWNfcG1fZG9tYWluICpnZW5wZCkKPiA+IMKgwqDCoMKgwqAgaWYgKHJldCA8IDAp
+Cj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBnb3RvIGVycl9kaXNhYmxlX3N1YnN5c19j
+bGtzOwo+ID4gCj4gPiAtwqDCoMKgwqAgcmV0ID0gc2Nwc3lzX2J1c19wcm90ZWN0X2Rpc2FibGUo
+cGQpOwo+ID4gK8KgwqDCoMKgIHJldCA9IHNjcHN5c19idXNfcHJvdGVjdF9kaXNhYmxlKHBkLCAw
+KTsKPiA+IMKgwqDCoMKgwqAgaWYgKHJldCA8IDApCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoCBnb3RvIGVycl9kaXNhYmxlX3NyYW07Cj4gPiAKPiA+IEBAIC02NjIsNyArNjc5LDcgQEAg
+c3RhdGljIGludCBzY3BzeXNfcG93ZXJfb24oc3RydWN0Cj4gPiBnZW5lcmljX3BtX2RvbWFpbiAq
+Z2VucGQpCj4gPiDCoMKgwqDCoMKgIHJldHVybiAwOwo+ID4gCj4gPiDCoCBlcnJfZW5hYmxlX2J1
+c19wcm90ZWN0Ogo+ID4gLcKgwqDCoMKgIHNjcHN5c19idXNfcHJvdGVjdF9lbmFibGUocGQpOwo+
+ID4gK8KgwqDCoMKgIHNjcHN5c19idXNfcHJvdGVjdF9lbmFibGUocGQsIDApOwo+ID4gwqAgZXJy
+X2Rpc2FibGVfc3JhbToKPiA+IMKgwqDCoMKgwqAgc2Nwc3lzX3NyYW1fZGlzYWJsZShwZCk7Cj4g
+PiDCoCBlcnJfZGlzYWJsZV9zdWJzeXNfY2xrczoKPiA+IEBAIC02ODMsNyArNzAwLDcgQEAgc3Rh
+dGljIGludCBzY3BzeXNfcG93ZXJfb2ZmKHN0cnVjdAo+ID4gZ2VuZXJpY19wbV9kb21haW4gKmdl
+bnBkKQo+ID4gwqDCoMKgwqDCoCBib29sIHRtcDsKPiA+IMKgwqDCoMKgwqAgaW50IHJldDsKPiA+
+IAo+ID4gLcKgwqDCoMKgIHJldCA9IHNjcHN5c19idXNfcHJvdGVjdF9lbmFibGUocGQpOwo+ID4g
+K8KgwqDCoMKgIHJldCA9IHNjcHN5c19idXNfcHJvdGVjdF9lbmFibGUocGQsIDApOwo+ID4gwqDC
+oMKgwqDCoCBpZiAocmV0IDwgMCkKPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHJldHVy
+biByZXQ7Cj4gPiAKPiA+IEBAIC02OTcsNiArNzE0LDEwIEBAIHN0YXRpYyBpbnQgc2Nwc3lzX3Bv
+d2VyX29mZihzdHJ1Y3QKPiA+IGdlbmVyaWNfcG1fZG9tYWluICpnZW5wZCkKPiA+IAo+ID4gwqDC
+oMKgwqDCoCBjbGtfYnVsa19kaXNhYmxlX3VucHJlcGFyZShwZC0+bnVtX3N1YnN5c19jbGtzLCBw
+ZC0KPiA+ID5zdWJzeXNfY2xrcyk7Cj4gPiAKPiA+ICvCoMKgwqDCoCByZXQgPSBzY3BzeXNfYnVz
+X3Byb3RlY3RfZW5hYmxlKHBkLCBCVVNfUFJPVF9JR05PUkVfU1VCQ0xLKTsKPiA+ICvCoMKgwqDC
+oCBpZiAocmV0IDwgMCkKPiA+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgcmV0dXJuIHJldDsK
+PiA+ICsKPiA+IMKgwqDCoMKgwqAgaWYgKE1US19TQ1BEX0NBUFMocGQsIE1US19TQ1BEX01PREVN
+X1BXUlNFUSkpCj4gPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBzY3BzeXNfbW9kZW1fcHdy
+c2VxX29mZihwZCk7Cj4gPiDCoMKgwqDCoMKgIGVsc2UKPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJz
+L3BtZG9tYWluL21lZGlhdGVrL210ay1wbS1kb21haW5zLmgKPiA+IGIvZHJpdmVycy9wbWRvbWFp
+bi9tZWRpYXRlay9tdGstcG0tZG9tYWlucy5oCj4gPiBpbmRleCBmNjA4ZTZlYzQ3NDQuLmE1ZGNh
+MjRjYmMyZiAxMDA2NDQKPiA+IC0tLSBhL2RyaXZlcnMvcG1kb21haW4vbWVkaWF0ZWsvbXRrLXBt
+LWRvbWFpbnMuaAo+ID4gKysrIGIvZHJpdmVycy9wbWRvbWFpbi9tZWRpYXRlay9tdGstcG0tZG9t
+YWlucy5oCj4gPiBAQCAtNTYsNiArNTYsNyBAQCBlbnVtIHNjcHN5c19idXNfcHJvdF9mbGFncyB7
+Cj4gPiDCoMKgwqDCoMKgIEJVU19QUk9UX1JFR19VUERBVEUgPSBCSVQoMSksCj4gPiDCoMKgwqDC
+oMKgIEJVU19QUk9UX0lHTk9SRV9DTFJfQUNLID0gQklUKDIpLAo+ID4gwqDCoMKgwqDCoCBCVVNf
+UFJPVF9JTlZFUlRFRCA9IEJJVCgzKSwKPiA+ICvCoMKgwqDCoCBCVVNfUFJPVF9JR05PUkVfU1VC
+Q0xLID0gQklUKDQpLAo+ID4gwqAgfTsKPiA+IAo+ID4gwqAgZW51bSBzY3BzeXNfYnVzX3Byb3Rf
+YmxvY2sgewo+ID4gQEAgLTk1LDYgKzk2LDEwIEBAIGVudW0gc2Nwc3lzX2J1c19wcm90X2Jsb2Nr
+IHsKPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIF9CVVNfUFJPVChfaHdpcCwgX21hc2ss
+IF9zZXQsIF9jbHIsIF9tYXNrLAo+ID4gX3N0YSzCoMKgwqDCoMKgwqDCoCBcCj4gPiDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIEJVU19QUk9UX1JFR19VUERB
+VEUpCj4gPiAKPiA+ICsjZGVmaW5lIEJVU19QUk9UX1dSX0lHTl9TVUJDTEsoX2h3aXAsIF9tYXNr
+LCBfc2V0LCBfY2xyLAo+ID4gX3N0YSnCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIFwKPiA+
+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgX0JVU19QUk9UKF9od2lwLCBfbWFzaywgX3NldCwg
+X2NsciwgX21hc2ssCj4gPiBfc3RhLMKgwqDCoMKgwqDCoMKgIFwKPiA+ICvCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBCVVNfUFJPVF9JR05PUkVfQ0xSX0FDSyB8
+Cj4gPiBCVVNfUFJPVF9JR05PUkVfU1VCQ0xLKQo+ID4gKwo+ID4gwqAgI2RlZmluZSBCVVNfUFJP
+VF9JTkZSQV9VUERBVEVfVE9QQVhJKF9tYXNrKcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgIFwKPiA+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIEJVU19QUk9UX1VQREFURShJTkZS
+QSwgX21hc2sswqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIFwKPiA+IMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgSU5G
+UkFfVE9QQVhJX1BST1RFQ1RFTizCoMKgwqDCoMKgwqDCoMKgIFwKPiAKPiAKCg==
 
