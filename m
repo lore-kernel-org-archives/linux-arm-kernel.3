@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF0A0D41C02
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 08:47:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03654D41C02
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 08:47:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QA5RNQcEfirms9HgWj8AssmGCc/5FNo1GGf/ysp2RSE=; b=Hp7t3WXRfuTY4cMaT0nKzD2XrA
-	5xvPP9lje3YlCTe0CHA7ZyDD05OWq3z/Hv3mdbuvZK6zZ8viqD2WDazM8xqkXtyDpnPA7p+AeJumg
-	SkdyxF4FSChgQw0JGhpIgzgEu2N4vquvIfOgBICM/XboHNh3HUm5HuN8rJPRwTQWsbVVWjhB1DPTG
-	Yg+X0S8AIXUR4OzomQBG5DUxUEulPvCKTb7ZDJSoBaJEHLTk9jB1La9bNbLNIrYTZn4vWjhrEHxL+
-	wj5MrOWB1Gz62OrxRJmIr5Eucud5L23/Ie6cmWtqwK8BjRn5lqAUXQeg5JNhY9WqnEs1ALpQq8UAW
-	bkh0qzbA==;
+	bh=Iu4TPpF+5DGJ5DsE0F1CuqneX0MF156KpXyPhzX8E5g=; b=mclGnClRwHC6g+6ev4dRjCMLJy
+	lUJDAMijfsNzPow9zsBcPlcn1n7Z+lEJngyS1WZf7SP+wQ1XBREXcRKHVUz6hazvuKu8LSLFZFCQ2
+	4vyco1z6KVYQ8wrRvbYQvXtEqGkvsaV62GK5jrOo146l6DaQ0wO973XvsZuiU0MTP6CpAUeUgWnKR
+	nHMe8OWB0nex3Kj5h1AuqwLuPQtjxkFnyhiWxgmoO5eOEUcGsLknc1kV6oai4MV0tKJ5nVBKEnSjW
+	iJQBgNcpTI6fKYkIHwkWQJIc7od88wEz4bv9/b4j5Ko5NebfIbcjx/hyKwu2Ly8WsaMc17wtPil5Y
+	KnmNXtCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTcKx-0000000GPLs-0K26;
-	Thu, 11 Dec 2025 08:47:47 +0000
+	id 1vTcL2-0000000GPQd-1dKg;
+	Thu, 11 Dec 2025 08:47:52 +0000
 Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTcKu-0000000GPIS-2j5n
+	id 1vTcL0-0000000GPNN-1JLr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 08:47:45 +0000
+	Thu, 11 Dec 2025 08:47:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1765442862;
-	bh=QA5RNQcEfirms9HgWj8AssmGCc/5FNo1GGf/ysp2RSE=;
+	d=codeconstruct.com.au; s=2022a; t=1765442868;
+	bh=Iu4TPpF+5DGJ5DsE0F1CuqneX0MF156KpXyPhzX8E5g=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=N0E4UmYMR2ijnu8okYEs3ej0qTmDYPSsnolgBDBHQXQUyBeklOSMTxvmwqiB1XfUU
-	 kN3ZpVQfS67dqTf19F28O4LUE8MSV38xyX7ibzXktLyUNi69uS23ZIJyY28lE5N+df
-	 VBeUUNrZlX9i0MzdEEuxqoysSM/GgXD6esgTzWtH5H6Tcyoev2EhySg4EOCEDJk8XJ
-	 GIa23Q/YY58ZvlrfHve5yA73oxn2+tA8rBnZhDPbz5bfvIEBVDYSuHX8w25wP0uPqw
-	 /wg5SoDm2WGhjTpspHP7NTxW6ekroF7I+DLH+mP2eSdQELxc/1fLg0vNh+4Qd/zpZ5
-	 kJ/XRzBv/LSKw==
+	b=N1eYzek21eihrgNsj8tfP6CntNClLcV40Yb1a51mjY7eg0yL/BrWQNrdx9pLiWhkv
+	 +KxqQcpc4uO2vTRr/CDKxIwJwUjVZbciI+mbbY+fuaKUhBEiQunPivRGTgFDjHYjoz
+	 bDogU7VIRPjZxrkyzdG5rS5D5rZxxK2TGpgixjqSB/a/Ku8N5+ldco7oaUunkhI54r
+	 KRVQAhnFYyF7m451J7ZK4fYDvovtQiUXGyyJN74EYUbVUfaZqHFh0C0dgJUoL66Xih
+	 kRsciCepHt/QvVh7vnqTDAq9u4nXM1s3XLB3cGb1OQaKIbnQA63Tez0mwQsFWmRO2I
+	 Xd39AR6ftlHPg==
 Received: from [127.0.1.1] (fs98a57d9c.tkyc007.ap.nuro.jp [152.165.125.156])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 29A0C7D6BB;
-	Thu, 11 Dec 2025 16:47:37 +0800 (AWST)
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 60BD77D6B0;
+	Thu, 11 Dec 2025 16:47:43 +0800 (AWST)
 From: Andrew Jeffery <andrew@codeconstruct.com.au>
-Date: Thu, 11 Dec 2025 17:45:56 +0900
-Subject: [PATCH RFC 14/16] dt-bindings: iio: adc: Allow interrupts property
- for AST2600
+Date: Thu, 11 Dec 2025 17:45:57 +0900
+Subject: [PATCH RFC 15/16] ARM: dts: aspeed: g6: Drop clocks property from
+ arm,armv7-timer
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251211-dev-dt-warnings-all-v1-14-21b18b9ada77@codeconstruct.com.au>
+Message-Id: <20251211-dev-dt-warnings-all-v1-15-21b18b9ada77@codeconstruct.com.au>
 References: <20251211-dev-dt-warnings-all-v1-0-21b18b9ada77@codeconstruct.com.au>
 In-Reply-To: <20251211-dev-dt-warnings-all-v1-0-21b18b9ada77@codeconstruct.com.au>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -60,8 +60,8 @@ Cc: Joel Stanley <joel@jms.id.au>, linux-hwmon@vger.kernel.org,
  linux-iio@vger.kernel.org, Andrew Jeffery <andrew@codeconstruct.com.au>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_004744_882017_D9D77065 
-X-CRM114-Status: UNSURE (   7.77  )
+X-CRM114-CacheID: sfid-20251211_004750_546388_8E97EC6D 
+X-CRM114-Status: UNSURE (   8.42  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,29 +77,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The device has interrupts allocated according to the datasheet, and
-the devicetree already defines the interrupt property. Address existing
-warnings by allowing the property.
+The property is not specified by the binding, nor used by the driver.
 
 Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
 ---
- Documentation/devicetree/bindings/iio/adc/aspeed,ast2600-adc.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/iio/adc/aspeed,ast2600-adc.yaml b/Documentation/devicetree/bindings/iio/adc/aspeed,ast2600-adc.yaml
-index 509bfb1007c4..249101b55cf4 100644
---- a/Documentation/devicetree/bindings/iio/adc/aspeed,ast2600-adc.yaml
-+++ b/Documentation/devicetree/bindings/iio/adc/aspeed,ast2600-adc.yaml
-@@ -44,6 +44,9 @@ properties:
-       Input clock used to derive the sample clock. Expected to be the
-       SoC's APB clock.
- 
-+  interrupts:
-+    maxItems: 1
-+
-   resets:
-     maxItems: 1
- 
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+index 4583c68748c2..567f8040eb8f 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
++++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+@@ -68,7 +68,6 @@ timer {
+ 			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
+ 			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>,
+ 			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(2) | IRQ_TYPE_LEVEL_LOW)>;
+-		clocks = <&syscon ASPEED_CLK_HPLL>;
+ 		arm,cpu-registers-not-fw-configured;
+ 		always-on;
+ 	};
 
 -- 
 2.47.3
