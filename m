@@ -4,89 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 468B6D41C2E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 12:37:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 154E6D41C35
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 13:03:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qb7w4dEkS/WJYKdR+lnZ5LKlEUSJP7zUGNH1/GVMobE=; b=FBh4QJu5UA/2qmoCf8aPWsJXzi
-	ta9Z1A8fa2UiBCfnjhK94oNGrqK3pC5Fe+ivrdtsDmQ0ECryfdE8TlyCKl6O8bW+QgGR+4HQGTEm2
-	8d5LBcasluP0y3tQsdq1Z4i3ye1C7zi3GQYoUyZjhhWcQZYyzQWGm83YEmWtNhO16AwKc0BBRZSOc
-	JuvEw60Exs5jpoFGLZ5PzXIBSgLOTMWd8snaGZ5f1Xvq/Bm2jlZV3oSOcMNWaxz49rusl6aPHcWRW
-	8SXE3u3kezpI6BxiZxj6bf9Z3/DLkf1/pgR+nbUtzCgVTf+9p//OHpeVCTY1kQbFvoc/I7IPud4T/
-	Ah/bljTA==;
+	bh=yXjDj2LopgEdejBPveRLTL1bCofz4US84PT1q1wUrQg=; b=vyD5UrYj4b/EG0UrhZF0gZ0/Bb
+	bfKbxaHqWWaRsMVyyyfQMlVvT4yOTES7xeYn+NohSIvxaR2Ycub1vnO7MrXn+w99m2CZJ2GVKTBkX
+	lyVdR4miFzVWzxl4QijREjQQOIv1ySuuPFwpP8VfFriYWBl//ZHRsSa429JZkdSRjYx5fn0TuL3KZ
+	JmsskXhLzTTFXavJA5fUyqCDuseA4A4DUg96ggbcmPjtTZx/DpFvaFfYAl0SfeOFT+jXc12y7KzCt
+	YKU6Bpw2MK4N7illis2bC3rsatajRnXI04jAymH5C4/GUUh8RyYBpXGMV4IO9CWBaRYxhLefNoErJ
+	0ZwDsODg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTfuv-0000000Gb5s-3kDf;
-	Thu, 11 Dec 2025 12:37:09 +0000
-Received: from mail-ua1-x92a.google.com ([2607:f8b0:4864:20::92a])
+	id 1vTgJs-0000000Gc1F-3IaO;
+	Thu, 11 Dec 2025 13:02:56 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTfut-0000000Gb5T-2JZX
+	id 1vTgJp-0000000Gc0f-1usi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 12:37:08 +0000
-Received: by mail-ua1-x92a.google.com with SMTP id a1e0cc1a2514c-93f5b804d4aso9214241.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 04:37:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765456625; x=1766061425; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qb7w4dEkS/WJYKdR+lnZ5LKlEUSJP7zUGNH1/GVMobE=;
-        b=jt9Y4qrLfKh1xwtIlCUs6/80TY2IxftALg1T/HKxfxlm9FBBLGGJx2mzhVagyaLouj
-         Clj3IBC+g4trq9NwLLo+i5xt4nV7ALYVpiw2YagS5WUcI1byHbuEmGUVTOtlTDncCsZw
-         BcCDwYo1kWpseCeyJEAU9LWaxxzjjb1ctLcUCm0xrdiV2hPD6ZPdiur8oNtwRby/uN8A
-         Mr6Y/PrU8ZQeKnuVHFhZnBDXfWPwlQDr2B79F0NuppU5WaFSTqdNRKsY6vv5B7bj+y83
-         1s5KHRBtaZ5PEoTaXW52JNqAJWcg6IaWtiJjmXIoL6xns7FjoThAzmz0w6ndwJpu2FVL
-         caaA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765456625; x=1766061425;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=qb7w4dEkS/WJYKdR+lnZ5LKlEUSJP7zUGNH1/GVMobE=;
-        b=c0wORzPmdEo32FCROmSl8U4/XeLgQt9zrcDdC0cXJe1cD6vKi0IWvRI/be8MATGBuw
-         AbhaMRgWXhO2ay7+foIS/kiz0F4kr2npzzGvG6RXGgTzDKBqvrekwkwoWhgd+mvviPeC
-         KH5TxK0EErHvvorLv4+1Sr8cWxV+fXOhiI+KrebC54zuUSswhZ+egWd6MHtBZH6wVCIe
-         i/E03EBhLcwWE5H+RzdyQUYLMnQnkZsQ2qgy9XzeB5D/M9CtWvXv0fn2LoZTjUKqoXRq
-         JyyUCDFgH0mLHgzqiP3+QY1TqahIYYuO/BIiS/n4BuEPxh4LOjxkffMqOcHFjsXXkuMo
-         tU3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVzQkNbRmcbqkz+nN8b/9N5PZJBV9EUzdfBvShOGT6uMddLWccMGEB5JlepJB4U8WZEHVeoKOttYRhbFIhamE1E@lists.infradead.org
-X-Gm-Message-State: AOJu0YxgHG1CjOc0JpsG5vnGd1wRjoNCYZv/LVgQIlQND9nwIdfhBCvg
-	N4GxIYGe62Lt3wDDxvhxdqqM7kyKtylo3kWFRLLMJbeiysIIPcP9bzO89oEcrZGvNzZ86a1WI93
-	SAm+mkrVR0ag2Qy8OzfslSwmkbdbQlXk=
-X-Gm-Gg: AY/fxX7ALCnh/tPotX/vG/im2AH0FbYYswXzwTsKheCRMesYj25SM4yChwe8SLmK3kx
-	fr9el+3xDi2x94D6b+E9iwvCygNRP4w0Qu0QVsxtrEnH6e1ltkK0Wf9zuABg1w1Xd5yYzAlGGv5
-	uXcgrz78FQDuErcLwDblcI20twrYKQqL1LvXiVs6YlfsAXMiFN8Y1GCaR6VOy1GW2NQdwOqNCty
-	cxbll01e1WoB+RU9MJYTG4fb+eeDsOG4z15emeV1Rk5yI3/+NtoNJWHN83U4prbpa6P5COdYsDc
-	VsZBU8Dk
-X-Google-Smtp-Source: AGHT+IH6QD73T3CQ2JBAUzE15s0jML3qHw16C343Rh4nwXrF61qHiGoVQrgUOlxSDKVLaFHRU4/Fj1pnToTM924tNUc=
-X-Received: by 2002:a05:6102:50a6:b0:5db:f031:84ce with SMTP id
- ada2fe7eead31-5e571eed9b4mr1779282137.29.1765456625268; Thu, 11 Dec 2025
- 04:37:05 -0800 (PST)
+	Thu, 11 Dec 2025 13:02:55 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=yXjDj2LopgEdejBPveRLTL1bCofz4US84PT1q1wUrQg=;
+	b=xHbr3R2WIFp5oR9Nco7g8uQM7yu4h8Y+nnBWfQSXyrUxZxY18Qw54d2p1AsZz3jxGzQ4smao0
+	Zufh6YL+19aoxIC2d0F0j8hIcQYrDe0NKCEwe1hsGqQ+OwBnstutzZsIFz65/ezT/vDsDImfl1I
+	7irz7iJCvnjq1YPX3iwjrnI=
+Received: from mail.maildlp.com (unknown [172.19.162.254])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4dRt3k0kTVz12LCr;
+	Thu, 11 Dec 2025 21:00:18 +0800 (CST)
+Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
+	by mail.maildlp.com (Postfix) with ESMTPS id 2E13418047B;
+	Thu, 11 Dec 2025 21:02:35 +0800 (CST)
+Received: from [10.174.178.219] (10.174.178.219) by
+ kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Thu, 11 Dec 2025 21:02:33 +0800
+Subject: Re: [PATCH v4 2/3] KVM: selftests: Test for KVM_EXIT_ARM_SEA
+To: Jiaqi Yan <jiaqiyan@google.com>
+CC: <maz@kernel.org>, <oliver.upton@linux.dev>, <duenwen@google.com>,
+	<rananta@google.com>, <jthoughton@google.com>, <vsethi@nvidia.com>,
+	<jgg@nvidia.com>, <joey.gouly@arm.com>, <suzuki.poulose@arm.com>,
+	<catalin.marinas@arm.com>, <will@kernel.org>, <pbonzini@redhat.com>,
+	<corbet@lwn.net>, <shuah@kernel.org>, <kvm@vger.kernel.org>,
+	<kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+	<linux-kselftest@vger.kernel.org>
+References: <20251013185903.1372553-1-jiaqiyan@google.com>
+ <20251013185903.1372553-3-jiaqiyan@google.com>
+From: Zenghui Yu <yuzenghui@huawei.com>
+Message-ID: <3061f5f8-cef0-b7b1-c4de-f2ceea29af9a@huawei.com>
+Date: Thu, 11 Dec 2025 21:02:27 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.1
 MIME-Version: 1.0
-References: <cover.1765439380.git.baolin.wang@linux.alibaba.com> <af330c9ea188bd0f28189b1e6e5803f6de9d2abe.1765439381.git.baolin.wang@linux.alibaba.com>
-In-Reply-To: <af330c9ea188bd0f28189b1e6e5803f6de9d2abe.1765439381.git.baolin.wang@linux.alibaba.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Thu, 11 Dec 2025 20:36:51 +0800
-X-Gm-Features: AQt7F2o2oQ9UqEmkEwhl5rOFyhajnuLd2K2hl-pbOyh5rDa7buD-_5Vc_9Xr_KQ
-Message-ID: <CAGsJ_4yVCbP9EJ2KZu-83PL-LViB+zn3NPC5E61LKf+nWWNsWw@mail.gmail.com>
-Subject: Re: [PATCH v2 3/3] mm: rmap: support batched unmapping for file large folios
-To: Baolin Wang <baolin.wang@linux.alibaba.com>
-Cc: akpm@linux-foundation.org, david@kernel.org, catalin.marinas@arm.com, 
-	will@kernel.org, lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, 
-	Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org, surenb@google.com, 
-	mhocko@suse.com, riel@surriel.com, harry.yoo@oracle.com, jannh@google.com, 
-	willy@infradead.org, linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20251013185903.1372553-3-jiaqiyan@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.178.219]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemk200017.china.huawei.com (7.202.194.83)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_043707_612714_AF701475 
-X-CRM114-Status: UNSURE (   9.09  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251211_050254_214980_3C9C3538 
+X-CRM114-Status: GOOD (  26.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,35 +86,235 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 11, 2025 at 4:17=E2=80=AFPM Baolin Wang
-<baolin.wang@linux.alibaba.com> wrote:
->
-> Similar to folio_referenced_one(), we can apply batched unmapping for fil=
-e
-> large folios to optimize the performance of file folios reclamation.
->
-> Performance testing:
-> Allocate 10G clean file-backed folios by mmap() in a memory cgroup, and t=
-ry to
-> reclaim 8G file-backed folios via the memory.reclaim interface. I can obs=
-erve
-> 75% performance improvement on my Arm64 32-core server.
->
-> W/o patch:
-> real    0m1.018s
-> user    0m0.000s
-> sys     0m1.018s
->
-> W/ patch:
-> real    0m0.249s
-> user    0m0.000s
-> sys     0m0.249s
->
-> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+Hi Jiaqi,
 
-It appears quite straightforward to introduce file folios support based on =
-the
-current lazyfree implementation.
+I had run into several problems when testing it on different servers. I
+haven't figured them out yet but post it early for discussion.
 
-Acked-by: Barry Song <baohua@kernel.org>
+On 2025/10/14 2:59, Jiaqi Yan wrote:
+> Test how KVM handles guest SEA when APEI is unable to claim it, and
+> KVM_CAP_ARM_SEA_TO_USER is enabled.
+> 
+> The behavior is triggered by consuming recoverable memory error (UER)
+> injected via EINJ. The test asserts two major things:
+> 1. KVM returns to userspace with KVM_EXIT_ARM_SEA exit reason, and
+>    has provided expected fault information, e.g. esr, flags, gva, gpa.
+> 2. Userspace is able to handle KVM_EXIT_ARM_SEA by injecting SEA to
+>    guest and KVM injects expected SEA into the VCPU.
+> 
+> Tested on a data center server running Siryn AmpereOne processor
+> that has RAS support.
+> 
+> Several things to notice before attempting to run this selftest:
+> - The test relies on EINJ support in both firmware and kernel to
+>   inject UER. Otherwise the test will be skipped.
+> - The under-test platform's APEI should be unable to claim the SEA.
+>   Otherwise the test will be skipped.
+> - Some platform doesn't support notrigger in EINJ, which may cause
+>   APEI and GHES to offline the memory before guest can consume
+>   injected UER, and making test unable to trigger SEA.
+> 
+> Signed-off-by: Jiaqi Yan <jiaqiyan@google.com>
+
+[...]
+
+> +static void inject_uer(uint64_t paddr)
+> +{
+> +	if (access("/sys/firmware/acpi/tables/EINJ", R_OK) == -1)
+> +		ksft_test_result_skip("EINJ table no available in firmware");
+
+Missing '\n'.
+
+We should return early (to actually skip the test) if the file can not
+be accessed, right?
+
+> +
+> +	if (access(EINJ_ETYPE, R_OK | W_OK) == -1)
+> +		ksft_test_result_skip("EINJ module probably not loaded?");
+> +
+> +	write_einj_entry(EINJ_ETYPE, ERROR_TYPE_MEMORY_UER);
+> +	write_einj_entry(EINJ_FLAGS, MASK_MEMORY_UER);
+> +	write_einj_entry(EINJ_ADDR, paddr);
+> +	write_einj_entry(EINJ_MASK, ~0x0UL);
+> +	write_einj_entry(EINJ_NOTRIGGER, 1);
+> +	write_einj_entry(EINJ_DOIT, 1);
+> +}
+> +
+> +/*
+> + * When host APEI successfully claims the SEA caused by guest_code, kernel
+> + * will send SIGBUS signal with BUS_MCEERR_AR to test thread.
+> + *
+> + * We set up this SIGBUS handler to skip the test for that case.
+> + */
+> +static void sigbus_signal_handler(int sig, siginfo_t *si, void *v)
+> +{
+> +	ksft_print_msg("SIGBUS (%d) received, dumping siginfo...\n", sig);
+> +	ksft_print_msg("si_signo=%d, si_errno=%d, si_code=%d, si_addr=%p\n",
+> +		       si->si_signo, si->si_errno, si->si_code, si->si_addr);
+> +	if (si->si_code == BUS_MCEERR_AR)
+> +		ksft_test_result_skip("SEA is claimed by host APEI\n");
+> +	else
+> +		ksft_test_result_fail("Exit with signal unhandled\n");
+> +
+> +	exit(0);
+> +}
+> +
+> +static void setup_sigbus_handler(void)
+> +{
+> +	struct sigaction act;
+> +
+> +	memset(&act, 0, sizeof(act));
+> +	sigemptyset(&act.sa_mask);
+> +	act.sa_sigaction = sigbus_signal_handler;
+> +	act.sa_flags = SA_SIGINFO;
+> +	TEST_ASSERT(sigaction(SIGBUS, &act, NULL) == 0,
+> +		    "Failed to setup SIGBUS handler");
+> +}
+> +
+> +static void guest_code(void)
+> +{
+> +	uint64_t guest_data;
+> +
+> +	/* Consumes error will cause a SEA. */
+> +	guest_data = *(uint64_t *)EINJ_GVA;
+> +
+> +	GUEST_FAIL("Poison not protected by SEA: gva=%#lx, guest_data=%#lx\n",
+> +		   EINJ_GVA, guest_data);
+> +}
+> +
+> +static void expect_sea_handler(struct ex_regs *regs)
+> +{
+> +	u64 esr = read_sysreg(esr_el1);
+> +	u64 far = read_sysreg(far_el1);
+> +	bool expect_far_invalid = far_invalid;
+> +
+> +	GUEST_PRINTF("Handling Guest SEA\n");
+> +	GUEST_PRINTF("ESR_EL1=%#lx, FAR_EL1=%#lx\n", esr, far);
+> +
+> +	GUEST_ASSERT_EQ(ESR_ELx_EC(esr), ESR_ELx_EC_DABT_CUR);
+> +	GUEST_ASSERT_EQ(esr & ESR_ELx_FSC_TYPE, ESR_ELx_FSC_EXTABT);
+> +
+> +	if (expect_far_invalid) {
+> +		GUEST_ASSERT_EQ(esr & ESR_ELx_FnV, ESR_ELx_FnV);
+
+I hit this ASSERT with:
+
+# Mapped 0x40000 pages: gva=0x80000000 to gpa=0xff80000000
+# Before EINJect: data=0xbaadcafe
+# EINJ_GVA=0x81234bad, einj_gpa=0xff81234bad, einj_hva=0xffff41234bad,
+einj_hpa=0x202841234bad
+# echo 0x10 > /sys/kernel/debug/apei/einj/error_type - done
+# echo 0x2 > /sys/kernel/debug/apei/einj/flags - done
+# echo 0x202841234bad > /sys/kernel/debug/apei/einj/param1 - done
+# echo 0xffffffffffffffff > /sys/kernel/debug/apei/einj/param2 - done
+# echo 0x1 > /sys/kernel/debug/apei/einj/notrigger - done
+# echo 0x1 > /sys/kernel/debug/apei/einj/error_inject - done
+# Memory UER EINJected
+# Dump kvm_run info about KVM_EXIT_ARM_SEA
+# kvm_run.arm_sea: esr=0x92000610, flags=0
+# kvm_run.arm_sea: gva=0, gpa=0
+# From guest: Handling Guest SEA
+# From guest: ESR_EL1=0x96000010, FAR_EL1=0xaaaadf254828
+# Guest aborted!
+==== Test Assertion Failure ====
+  arm64/sea_to_user.c:172: esr & ESR_ELx_FnV == ESR_ELx_FnV
+  pid=38112 tid=38112 errno=4 - Interrupted system call
+     1	0x0000000000402f9b: run_vm at sea_to_user.c:246
+     2	0x0000000000402467: main at sea_to_user.c:330
+     3	0x0000ffff8e22b03f: ?? ??:0
+     4	0x0000ffff8e22b117: ?? ??:0
+     5	0x00000000004026ef: _start at ??:?
+  0x0 != 0x400 (esr & ESR_ELx_FnV != ESR_ELx_FnV)
+
+It seems that KVM doesn't emulate FnV when injecting an abort.
+
+> +		GUEST_PRINTF("Guest observed garbage value in FAR\n");
+> +	} else {
+> +		GUEST_ASSERT_EQ(esr & ESR_ELx_FnV, 0);
+> +		GUEST_ASSERT_EQ(far, EINJ_GVA);
+> +	}
+> +
+> +	GUEST_DONE();
+> +}
+> +
+> +static void vcpu_inject_sea(struct kvm_vcpu *vcpu)
+> +{
+> +	struct kvm_vcpu_events events = {};
+> +
+> +	events.exception.ext_dabt_pending = true;
+> +	vcpu_events_set(vcpu, &events);
+> +}
+> +
+> +static void run_vm(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
+> +{
+> +	struct ucall uc;
+> +	bool guest_done = false;
+> +	struct kvm_run *run = vcpu->run;
+> +	u64 esr;
+> +
+> +	/* Resume the vCPU after error injection to consume the error. */
+> +	vcpu_run(vcpu);
+> +
+> +	ksft_print_msg("Dump kvm_run info about KVM_EXIT_%s\n",
+> +		       exit_reason_str(run->exit_reason));
+> +	ksft_print_msg("kvm_run.arm_sea: esr=%#llx, flags=%#llx\n",
+> +		       run->arm_sea.esr, run->arm_sea.flags);
+> +	ksft_print_msg("kvm_run.arm_sea: gva=%#llx, gpa=%#llx\n",
+> +		       run->arm_sea.gva, run->arm_sea.gpa);
+> +
+> +	TEST_ASSERT_KVM_EXIT_REASON(vcpu, KVM_EXIT_ARM_SEA);
+
+I can also hit this ASSERT with:
+
+Random seed: 0x6b8b4567
+# Mapped 0x40000 pages: gva=0x80000000 to gpa=0xff80000000
+# Before EINJect: data=0xbaadcafe
+# EINJ_GVA=0x81234bad, einj_gpa=0xff81234bad, einj_hva=0xffff41234bad,
+einj_hpa=0x2841234bad
+# echo 0x10 > /sys/kernel/debug/apei/einj/error_type - done
+# echo 0x2 > /sys/kernel/debug/apei/einj/flags - done
+# echo 0x2841234bad > /sys/kernel/debug/apei/einj/param1 - done
+# echo 0xffffffffffffffff > /sys/kernel/debug/apei/einj/param2 - done
+# echo 0x1 > /sys/kernel/debug/apei/einj/notrigger - done
+# echo 0x1 > /sys/kernel/debug/apei/einj/error_inject - done
+# Memory UER EINJected
+# Dump kvm_run info about KVM_EXIT_MMIO
+# kvm_run.arm_sea: esr=0xffff90ba0040, flags=0x691000
+# kvm_run.arm_sea: gva=0x100000008, gpa=0
+==== Test Assertion Failure ====
+  arm64/sea_to_user.c:207: exit_reason == (41)
+  pid=38023 tid=38023 errno=4 - Interrupted system call
+     1	0x0000000000402d1b: run_vm at sea_to_user.c:207
+     2	0x0000000000402467: main at sea_to_user.c:330
+     3	0x0000ffff9122b03f: ?? ??:0
+     4	0x0000ffff9122b117: ?? ??:0
+     5	0x00000000004026ef: _start at ??:?
+  Wanted KVM exit reason: 41 (ARM_SEA), got: 6 (MMIO)
+
+Not sure what's wrong it..
+
+> +
+> +	esr = run->arm_sea.esr;
+> +	TEST_ASSERT_EQ(ESR_ELx_EC(esr), ESR_ELx_EC_DABT_LOW);
+> +	TEST_ASSERT_EQ(esr & ESR_ELx_FSC_TYPE, ESR_ELx_FSC_EXTABT);
+> +	TEST_ASSERT_EQ(ESR_ELx_ISS2(esr), 0);
+> +	TEST_ASSERT_EQ((esr & ESR_ELx_INST_SYNDROME), 0);
+> +	TEST_ASSERT_EQ(esr & ESR_ELx_VNCR, 0);
+> +
+> +	if (!(esr & ESR_ELx_FnV)) {
+> +		ksft_print_msg("Expect gva to match given FnV bit is 0\n");
+> +		TEST_ASSERT_EQ(run->arm_sea.gva, EINJ_GVA);
+> +	}
+> +
+> +	if (run->arm_sea.flags & KVM_EXIT_ARM_SEA_FLAG_GPA_VALID) {
+> +		ksft_print_msg("Expect gpa to match given KVM_EXIT_ARM_SEA_FLAG_GPA_VALID is set\n");
+> +		TEST_ASSERT_EQ(run->arm_sea.gpa, einj_gpa & PAGE_ADDR_MASK);
+> +	}
+> +
+> +	far_invalid = esr & ESR_ELx_FnV;
+
+Missing sync_global_to_guest()?
+
+Thanks,
+Zenghui
 
