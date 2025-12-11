@@ -4,56 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40E02D41C20
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 11:05:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D85BD41C17
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 11:06:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s6DLzEYBrf1CuE2AoYiu5rXtg5UNMlmAQWLmj+GeWoA=; b=pCttvzNnubeSl1upIH1rdiTGHN
-	XZuIx/vRcJpmBEWGk5iZ0DHZ8mPunfq+3uyAd4aYE7sog2IFbAGST5vM1tTmqPPzmTlIwBXJ+h01P
-	QKHTUxWe6giROezjhswbXssHAeuYfCCadSH71HkXyGWb8S2z4Jvo+e4EfCLE4AKqcf/QiOh1I4hQ6
-	m5Wu5jHLVw4PitAPgKz8ermUnYAioVfBc7fU7j5WIFwaYi2q2uM+c0U16qQmlxp9/IRGYvAbPDONd
-	bLfYty3qdZTkejdY3G69lMpG6Aj/7nbBTDZgb6+ItR08edmfv/guhgiUKs59Ex89SpCdLb/ed1DI5
-	cgo1PQbQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=76+TDbdKDRMp4PRu6fUW/cf9BtrBo0WZ3r1olbWyBY8=; b=EorcjCS2KoE0yoUxT4f/6EF46N
+	ja9jB6OzvSQ4+ZjuIL6EDbdRicRH8eAQ6QhHzrlB9xC2trZPhwBwlYndMf1g9JH3hZKEDkOpshjIP
+	MGkcy55mNKy2cx97rgEGXr01x/dQOf+daAy1tW9uh8uRHyQTH3NLvL1KffoznACg91SWSnv0pdsui
+	gPOpA7f5NrBYfBCs5PgkO5w8Sdo4OGm+SsrEXgKqWpXrmtvOjClVLlMeqc68xy8N1KA9QtgK9VgK+
+	CnB5DFAleBTWh8/wJAzypiFWTR2lqYDCVUdDefZrKfbeHG4Tt/haWsyL12+bjCWjfzQtgu+8pD+aW
+	u+F5tfjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTeTt-0000000GWIS-3leQ;
-	Thu, 11 Dec 2025 11:05:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTeTr-0000000GWI0-1tbB
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 11:05:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5E32C175D;
-	Thu, 11 Dec 2025 03:04:58 -0800 (PST)
-Received: from [10.57.46.197] (unknown [10.57.46.197])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7028F3F740;
-	Thu, 11 Dec 2025 03:05:04 -0800 (PST)
-Message-ID: <47689561-ed13-4525-825d-60eb8c36ae4c@arm.com>
-Date: Thu, 11 Dec 2025 11:04:29 +0000
+	id 1vTeUl-0000000GWO7-149K;
+	Thu, 11 Dec 2025 11:06:03 +0000
+Received: from pidgin.makrotopia.org ([2a07:2ec0:3002::65])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vTeUi-0000000GWNE-20FN;
+	Thu, 11 Dec 2025 11:06:01 +0000
+Received: from local
+	by pidgin.makrotopia.org with esmtpsa (TLS1.3:TLS_AES_256_GCM_SHA384:256)
+	 (Exim 4.99)
+	(envelope-from <daniel@makrotopia.org>)
+	id 1vTeUQ-0000000019P-14kL;
+	Thu, 11 Dec 2025 11:05:42 +0000
+Date: Thu, 11 Dec 2025 11:05:35 +0000
+From: Daniel Golle <daniel@makrotopia.org>
+To: Miaoqian Lin <linmq006@gmail.com>
+Cc: Qingfang Deng <dqfext@gmail.com>,
+	SkyLake Huang <SkyLake.Huang@mediatek.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: [PATCH] net: phy: mediatek: fix nvmem cell reference leak in
+ mt798x_phy_calibration
+Message-ID: <aTqlf6pUC6uMp3bk@makrotopia.org>
+References: <20251211081313.2368460-1-linmq006@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] iommu/io-pgtable-arm: Add misisng concatenated PGD cases
-To: Will Deacon <will@kernel.org>
-Cc: Mostafa Saleh <smostafa@google.com>, iommu@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- joro@8bytes.org, Tomasz Nowicki <tnowicki@google.com>
-References: <20251130194506.593700-1-smostafa@google.com>
- <18a39079-2285-47fb-b306-040f2bc1bbaa@arm.com> <aTgX9qhaLyrQ5iye@google.com>
- <498bbad4-ea64-4a24-a63f-e131d271990a@arm.com> <aTjCDvtANr2WIv3L@google.com>
- <8e058f60-60da-47c2-9947-2ea26cca1639@arm.com> <aTonvd9_4hY4-CpS@google.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <aTonvd9_4hY4-CpS@google.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251211081313.2368460-1-linmq006@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_030507_612489_71093AD5 
-X-CRM114-Status: GOOD (  17.71  )
+X-CRM114-CacheID: sfid-20251211_030600_511672_C45BBAE3 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,62 +74,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-12-11 2:09 am, Will Deacon wrote:
-> On Wed, Dec 10, 2025 at 12:06:10PM +0000, Robin Murphy wrote:
->> On 2025-12-10 12:42 am, Will Deacon wrote:
->>> On Tue, Dec 09, 2025 at 01:33:36PM +0000, Robin Murphy wrote:
->>>> On 2025-12-09 12:37 pm, Mostafa Saleh wrote:
->>>>> On Tue, Dec 09, 2025 at 11:34:34AM +0000, Robin Murphy wrote:
->>>>>> On 2025-11-30 7:45 pm, Mostafa Saleh wrote:
->>>>>>> arm_lpae_concat_mandatory() assumes that OAS >= IAS which is not
->>>>>>> correct for SMMUs supporting AArch32, and have OAS = 32/36 bits,
->>>>>>> as IAS would be 40 bits.
->>>>>>
->>>>>> But that is only when *using* AArch32 format. The bit in chapter 3.4 of the
->>>>>> SMMU architecture is talking about the maximum IAS that an SMMU
->>>>>> implementation needs to be able to accommodate based on its configuration,
->>>>>> but it does then attempt to clarify that the actual IPA size in use by any
->>>>>> given context should depend on the VMSA format in use:
->>>>>>
->>>>>> "VMSAv8-32 LPAE always supports an IPA size of 40 bits, whereas VMSAv8-64
->>>>>> and VMSAv9-128 limits the maximum IPA size to the maximum PA size."
->>>>>>
->>>>>> Rule R_SRKBC in the Arm ARM lays out the exact T0SZ constraints with this
->>>>>> AArch32/AArch64 detail.
->>>>>
->>>>> I see, thanks a lot for the explanation, I got confused by the this
->>>>> statement:
->>>>> Note: If AArch32 is implemented, IAS == MAX(40, OAS), otherwise IAS == OAS.
->>>>
->>>> Indeed, that appears confusingly contradictory; I've filed a bug.
->>>
->>> I think the spec has always been worded like this. My reading is that, in
->>> isolation:
->>>
->>>     - VMSAv8-32 LPAE always uses a 40-bit IAS
->>>     - VMSAv8-64 has IAS == OAS and this can be smaller than 40 bits
->>>
->>> so if AArch32 is implemented, we know that the hardware supports at
->>> least a 40-bit IAS and in that case the VMSAv8-64 IAS can be bigger
->>> than the OAS.
->>
->> No, the VMSAv8-64 IAS can never be bigger than OAS, as that would violate
->> VMSA (see rules R_DTLMN and R_SRKBC). The SMMU spec seems mostly fixated on
->> the notional maximum IAS that an SMMU must accommodate in general across all
->> supported formats; the limitations of using any particular format must still
->> apply though (similarly, the fact that AArch32 has a fixed 40-bit output
->> doesn't mean that OAS and S2PS don't still matter for AArch64 format.)
+On Thu, Dec 11, 2025 at 12:13:13PM +0400, Miaoqian Lin wrote:
+> When nvmem_cell_read() fails in mt798x_phy_calibration(), the function
+> returns without calling nvmem_cell_put(), leaking the cell reference.
 > 
-> A VMSAv8-32 stage-1 could still input a 40-bit IAS into a VMSAv8-64
-> stage-2 when the OAS < 40-bit though, right? If that's the only case
-> where this happens, then I agree we should ditch the complexity from the
-> driver on the grounds that we don't ever use the 32-bit formats.
+> Move nvmem_cell_put() right after nvmem_cell_read() to ensure the cell
+> reference is always released regardless of the read result.
+> 
+> Found via static analysis and code review.
+> 
+> Fixes: 98c485eaf509 ("net: phy: add driver for MediaTek SoC built-in GE PHYs")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Miaoqian Lin <linmq006@gmail.com>
 
-Yes, it is perfectly possible with either format to configure the S1 
-*output* size (CD.IPS, or 40 when CD.AA64==0) to be larger than the S2 
-input size (STE.S2T0SZ), and if S1 tries to use an IPA beyond the actual 
-S2 range then it gets a S2 translation fault, per VMSA rule R_BZHGM.
-
-Cheers,
-Robin.
+Reviewed-by: Daniel Golle <daniel@makrotopia.org>
 
