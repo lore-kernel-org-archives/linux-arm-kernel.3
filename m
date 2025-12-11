@@ -4,114 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0A97D3E796
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 06:16:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39429D3E796
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 06:21:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DJnjClzRSpC0fzjVNZcw2XM5f+2M1Gw/PdHBHL3QS8U=; b=P7F4m13PyBA1lsN/hC1yzAZnus
-	fMvsbXUN391qfLzsDMJ9LTRXW3daKHAUZcTxArLJ7XVIz12jkz56XQscAz84riJiak4zQN3GV56Xi
-	EW7BwhRaDUjXwkcGaM2mD6SaXR5zr0MjOzilpGIF6IKezkNkKlbrJpdVmYwHA+O2vqGMpY7aAWFDN
-	WOjpsxzj1+jSujXjvpZzLju86au2/vvzH5viQPaj2m8EUJZhvJ5N3agIBj2RBjKIchkzzBRgHsB2U
-	Clft4KhAT2WV3OTwfOPTTxA+QADPurX2C3YHkxhQn8brXy08xvWfNVH+jvLOAvYRhSLWdg2JnqQhZ
-	R9hJnpTw==;
+	bh=TLW8nRjZcblQM+p+/5/nc7lgZe6nsGTj+I19/7BCO5M=; b=ecl21pdAktop0MGPztDTxBJOgI
+	fbD6xQXTcskSLtvNWSxQe+Q9SxkkOMDp1Lchn+IndKGuigqgMSaIuFYjeWl0mrqMN7Vqyzm715n75
+	6AUjSWLSDKDb5I3agUb4Yaild5q0r1jjEhlnclN+Qc8a83V5H2lXAOxM0thXMQnsX+sy/LEYeVJNY
+	+QZL0Y0PY8hr5XoM2V3r/YPt0GFKMT5mI4nCRqpYTw16tFweF8HmSYwzsNj5IpRpU+FLx4fa8SwA9
+	XtzxWAZNYX7OCb4Em5JwOhchbuRtH7UgE85wR1stDcbolbQnitAhSSJj5baBNKJ6O8h8btw2EBTyw
+	9B9aY74g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTZyb-0000000GHPP-3q6w;
-	Thu, 11 Dec 2025 06:16:33 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vTa2v-0000000GHeH-08Z7;
+	Thu, 11 Dec 2025 06:21:01 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTZya-0000000GHP6-1Xcg;
-	Thu, 11 Dec 2025 06:16:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6511F60141;
-	Thu, 11 Dec 2025 06:16:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65EBAC4CEFB;
-	Thu, 11 Dec 2025 06:16:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765433791;
-	bh=bvT1VlwRH7XGC2MP4ovfWsz0gA8jdt47wxOpuOfG/XM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mUGpwECA6gZn5jHX2eYEMqFzVIFUVnMAR9FSdFdAOxjVkFmZgf+0xS0gNDd4KvaJ5
-	 4cCJG4naR/JkLFnqIlIe43x9XvZajRMCMn1jbROQXq2Zkjd0Et2D5DnSlTuTyAt9SA
-	 l9cJnAwZAARSDNv4YHSpg4C7vFxR0pNvnN9MLzBt4TfE8jUw7op/Vjm/uba1oJmwRj
-	 A+h4tdZFPKmMjQqyYQvNCV7ruRqJAgn5SM9Yo5HHpRwx2YQ6K0J3FHOLHVAo9tMcyK
-	 alKLOAPhAfNKba8GJKYa+StfQ34YRtM3NA3O/0yPVtZzfuHAUQk0nJ5txbVQdufr6T
-	 tHhONQ/igKaGQ==
-Message-ID: <38ef7ee0-1879-42d5-a7fd-d32b96d01367@kernel.org>
-Date: Thu, 11 Dec 2025 07:16:25 +0100
+	id 1vTa2t-0000000GHdv-0rUn
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 11 Dec 2025 06:21:00 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BALROAL3701206
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 06:20:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	TLW8nRjZcblQM+p+/5/nc7lgZe6nsGTj+I19/7BCO5M=; b=DNueAxJBjjaXcSGM
+	JO+03Bj20iK1DEm77+O1eRsdpUsm9+BR+6mB6ygFdj0DzLv1LQbqCGBf2lqYXWHs
+	bLlY33N5PZdwIChhSLngOPpnTmIxs5d1pWxhIOZM0Wk/JaKLFFhApRg2Bx78XPPC
+	WYJT3xCfVQHyjlU5SajnahfStUyznFQ5BNegpHVoUeRpDLAG4VWs8n8mp0KggyK3
+	73d5VNxRHZNATCFTm68xvQB3ovJMXwY2VxyDh3Upgpt38TE+XhglEmx3JyboHkxA
+	qhKoMN35MKdilEqIp9FBVG+2dqfdJkDc1Um6Vo98ljeK2gu+LG93nikiR0oBmjq+
+	NYkYGA==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4aygsx18m7-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 06:20:56 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-34a8a7f90b6so1003113a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Dec 2025 22:20:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1765434056; x=1766038856; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=TLW8nRjZcblQM+p+/5/nc7lgZe6nsGTj+I19/7BCO5M=;
+        b=HhpvrPEy4qTOln98z88LxHgXhob++KaTa40VPfgSvQxOQkwf14YTcgnpSUe9XZzOun
+         DfUIGOYw1j+AxdiWrtJE7Qh3X+dQFPFbWuOpsoxcZ4R+TL2RNDwkFnSF+NZZb9RFx8Ic
+         8YALMfWg9YJIWjMV9XVBzePa1ewWsFFbtQnFatNOSUfyV4ABsUpy+wHhQrW0Iy0Sx7/+
+         qkog++h1fypoyhJxvrOd3gQOFd+I/vby3tmiZPJPdXZAm8ERkyjQqrdYKmf1DWgUhZPH
+         3I17/wEBUB2meOT6srpQGxPFenATkAc80oSIHCyA5/suUop4Y41tmQG+RWZaUJ1b9l6L
+         y2uw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765434056; x=1766038856;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=TLW8nRjZcblQM+p+/5/nc7lgZe6nsGTj+I19/7BCO5M=;
+        b=s/H/LvcYw9kyZk46aaeqOSL0rf/rSHATOGu9xB3WDLI9CyqMJHT5lV7k6e7aoA/EuB
+         l9sK6HNEGHcgl3EIP2D9pTPQZLSr5mbUXRrAyUBQ89dPa/zhigHrrMXmByFyr2uBvhOJ
+         37CKLPU+my4fRJ2Lz+zt3EH4jevlFG7JeeBRBFrbx+ZBsAv1Cu0TIiQBc4S1sh1edC2P
+         ZbBwGQcZUMl/DBvJMp3pcT/g3/gmiAveG4GCieoLyeaWcL4W9A8ZJ6wpilLEgIcD61li
+         SDJMjDzENLAof9hPecIX7r0OB3CMSwkv1EaQ7XfSmKnxT+4ydpST9t9Z9N1MwiqpNYeK
+         yH6g==
+X-Forwarded-Encrypted: i=1; AJvYcCUwd/78ENGutEj8pXsGFze3q44CU1ua94yz3fjUVf9NPiI7c4x5VsknbN08AZ5J5bVTp4sxHZyCi68whhVwthMw@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVdg5jiDYKdLG+gZSOldnS6v7wpyb2R4ntw35X4ojrH8QNwP/+
+	wGNCSOSfPnhFUzwE3r939ICSUaiQ+JnBg0PJVlIgFWSEuV5UbimPV7yaxIt+sPfYVa0v4cD2Go+
+	UIV3aNArAbde/Q9OcstETC5bpl+fg3i+dORcYKs3ppuDJ6vRghNqqf68PHDwOTeWdVyp/FKrwb5
+	/edQ==
+X-Gm-Gg: AY/fxX4UTSGkHU4K9mJtUr00a5K+8QxXGNg/gRGtRYL/xiPvz+1X4kI31bxP6hbzh0y
+	7tHJ++L0j9JUEeXluhdjha9AvoAJLBpn7xzdtlM7IHmbLW/3WXG0g+F6yQVKzuQUHswajHNPJby
+	u732DbrG5u0gDzKf9w3cjZQ6ZP32QKGesYu+V2v9Oa4XvglTRn6du/38Gi2JqjNKlzE/INHTc7o
+	kxN1pDa8v/FQQzyiIT2xE1HBfZTWjFxYMInmUrWpo1jcGoj7zHerBl/y+BjPz7Pq9/uR/LOA/eD
+	UpYlW5zK4m28YYHVGHzaMi0rrv6VFcTrscsIdUSzRTKue5iGxhUCfoM7s0KUARJjqa/VG0FrDg9
+	oATskeSLhPQqODsG0s/+WdZki2srd5qV6La7Eqg==
+X-Received: by 2002:a17:90b:3808:b0:33e:2d0f:479b with SMTP id 98e67ed59e1d1-34a72808e70mr5353606a91.6.1765434056161;
+        Wed, 10 Dec 2025 22:20:56 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IH6+rtMSx1jj4c1CLS4mg+VkC/MYsYdnUQDFMI59fT7NRENzX5kAbQlIUO3MPVG5cnDe3Y+Bw==
+X-Received: by 2002:a17:90b:3808:b0:33e:2d0f:479b with SMTP id 98e67ed59e1d1-34a72808e70mr5353568a91.6.1765434055674;
+        Wed, 10 Dec 2025 22:20:55 -0800 (PST)
+Received: from [10.239.133.66] ([114.94.8.21])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-34a926b1a88sm342683a91.2.2025.12.10.22.20.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 10 Dec 2025 22:20:55 -0800 (PST)
+Message-ID: <12888de0-1475-46a7-a594-bf7166227eee@oss.qualcomm.com>
+Date: Thu, 11 Dec 2025 14:20:48 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/5] dt-bindings: clock: add Amlogic T7 SCMI clock
- controller
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Jian Hu <jian.hu@amlogic.com>, Xianwei Zhao <xianwei.zhao@amlogic.com>,
- Chuan Liu <chuan.liu@amlogic.com>, Neil Armstrong
- <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Michael Turquette
- <mturquette@baylibre.com>, robh+dt <robh+dt@kernel.org>,
- Rob Herring <robh@kernel.org>, devicetree <devicetree@vger.kernel.org>,
- linux-clk <linux-clk@vger.kernel.org>,
- linux-amlogic <linux-amlogic@lists.infradead.org>,
- linux-kernel <linux-kernel@vger.kernel.org>,
- linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
-References: <20251204053635.1234150-1-jian.hu@amlogic.com>
- <20251204053635.1234150-3-jian.hu@amlogic.com>
- <20251208-independent-warping-macaw-74a169@quoll>
- <dd90b445-bafb-46d4-8cec-e0877cf425b3@amlogic.com>
- <4f5ec838-f8d6-4c3b-94f2-b2a60cfe64ec@kernel.org>
- <1jy0ncvu23.fsf@starbuckisacylon.baylibre.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH] remoteproc: imx_rproc: Use strstarts for "rsc-table"
+ check
+To: Shenwei Wang <shenwei.wang@nxp.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Mathieu Poirier <mathieu.poirier@linaro.org>,
+        Shawn Guo
+ <shawnguo@kernel.org>,
+        Sascha Hauer <s.hauer@pengutronix.de>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, linux-remoteproc@vger.kernel.org,
+        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-imx@nxp.com,
+        zhongqiu.han@oss.qualcomm.com
+References: <20251208233302.684139-1-shenwei.wang@nxp.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <1jy0ncvu23.fsf@starbuckisacylon.baylibre.com>
-Content-Type: text/plain; charset=UTF-8
+From: Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
+In-Reply-To: <20251208233302.684139-1-shenwei.wang@nxp.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: 7Gg8pkp21RQAtEl6-gGaft6nY8NJNvcE
+X-Authority-Analysis: v=2.4 cv=d974CBjE c=1 sm=1 tr=0 ts=693a62c9 cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=Uz3yg00KUFJ2y2WijEJ4bw==:17
+ a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=8AirrxEcAAAA:8 a=EUspDBNiAAAA:8
+ a=2dfgorC2ZuphLwAT5hIA:9 a=QEXdDO2ut3YA:10 a=zgiPjhLxNE0A:10
+ a=mQ_c8vxmzFEMiUWkPHU9:22 a=ST-jHhOKWsTCqRlWije3:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjExMDA0NCBTYWx0ZWRfXw842ZhWn/M7w
+ bmHmsWyQhUc5QQ2huHiufDjv/23Xmbcsb0aR1OehZ+QEIzNHj+cUN8AiTtjWvbURjtavd36IUMM
+ /xMiTiSqFS9ZzOYzKtixNXLb+2dXGMSolb4fg919+huWLIgerE2gbNdVD3B5onBxZS1I2N7JNVg
+ H0h3VNEu7uAtpk5PvFk7uQRRfzzMFSMSYwtbuwpA4BuBhhUMrZcHspt++iUgZD1kvIca3KHvhYo
+ JJHPlSHRDjUgD6nFmm5C8guQC3GYMlZOGSDubksSmIbgC++eQTwOdFOY4ZntCYsfk1LKmv6l2Zh
+ LOGxADCc/1XGOdY3S67PE/AWwcib1wIeVTXRV2assONq3AHf4ttV8BiNoCpcqMF5nqfRBKJ1ywb
+ 9PSn0Vh0edT5nHF894thPeJTSgnb8w==
+X-Proofpoint-ORIG-GUID: 7Gg8pkp21RQAtEl6-gGaft6nY8NJNvcE
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
+ definitions=2025-12-10_03,2025-12-09_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 bulkscore=0 impostorscore=0 spamscore=0 priorityscore=1501
+ adultscore=0 lowpriorityscore=0 malwarescore=0 clxscore=1015 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2510240001 definitions=main-2512110044
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251210_222059_271714_D46C0E21 
+X-CRM114-Status: GOOD (  17.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,101 +154,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/12/2025 11:16, Jerome Brunet wrote:
-> On Tue 09 Dec 2025 at 07:01, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+On 12/9/2025 7:33 AM, Shenwei Wang wrote:
+> The resource name may include an address suffix, for example:
+> rsc-table@1fff8000.
 > 
->> On 08/12/2025 09:40, Jian Hu wrote:
->>> Hi, Krzysztof
->>>
->>>
->>> Thans for your review.
->>>
->>> On 12/8/2025 2:17 PM, Krzysztof Kozlowski wrote:
->>>> [ EXTERNAL EMAIL ]
->>>>
->>>> On Thu, Dec 04, 2025 at 01:36:31PM +0800, Jian Hu wrote:
->>>>> Add DT bindings for the SCMI clock controller of the Amlogic T7 SoC family.
->>>>>
->>>>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
->>>>> Acked-by: Rob Herring (Arm) <robh@kernel.org>
->>>>> ---
->>>>>   include/dt-bindings/clock/amlogic,t7-scmi.h | 47 +++++++++++++++++++++
->>>>>   1 file changed, 47 insertions(+)
->>>>>   create mode 100644 include/dt-bindings/clock/amlogic,t7-scmi.h
->>>>>
->>>> Where is any binding doc for this? Why is this a separate patch?
->>>
->>>
->>> The ARM SCMI device tree binding specification is located at 
->>> ./Documentation/devicetree/bindings/firmware/arm,scmi.yaml.
->>
->> Then git grep for the file name - there is no such compatible. Are you
->> sure you follow writing bindings doc?
->>
->> Think how are you going to use these values. You will have phandle, yes?
->> To some controller, yes? Which one?
+> To handle such cases, use strstarts() instead of strcmp() when checking
+> for "rsc-table".
 > 
-> For the C3 (I believe the T7 is the same), the compatible being used is
-> "arm,scmi-smc". It is a generic one documented here:
-> 
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/firmware/arm,scmi.yaml?h=v6.18#n202
-> 
-> The phandle used is a subnode of that, to clock protocol:
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi?h=v6.18#n116
-> 
-> Same things is done on imx, stm and rockchip platforms from what I can
-> see.
+> Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
 
-I see, thanks for explanation, it's fine.
+Reviewed-by: Zhongqiu Han <zhongqiu.han@oss.qualcomm.com>
 
+> ---
+>   drivers/remoteproc/imx_rproc.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
 > 
-> Jian is just adding the arbitrary IDs used to identify the clocks in the
-> FW. I don't think there is anything out of the ordirnary here.
-> 
-> Is there something else Rob and I missed reviewing this ?
-> 
->>
->>>
->>> Certain secure clocks on the T7 rely on the ARM SCMI driver stack, which 
->>> is officially supported by ARM.
->>>
->>> The kernel-side SCMI client implementation resides in 
->>> ./drivers/firmware/arm_scmi/.
->>>
->>> To enable ARM SCMI on T7, three components are needed:
->>>
->>> - Kernel-side definition of ARM SCMI clock indices (this patch addresses 
->>> this component);
->>> - SCMI server implementation in the ARM Trusted Firmware (ATF) running 
->>> at Exception Level 3 (EL3), which has been integrated into the bootloader;
->>> - Device Tree Source (DTS) configuration for ARM SCMI clock nodes (the 
->>> DTS changes will be submitted after the T7 clock driver patches are 
->>> merged upstream).
->>
->> So silently you keep the users hidden? No, I want to see the users.
->>
-> 
-> Is there a new requirement to submit the DTS file changes along with the
-> driver changes now ?
-> 
-> This has never been case before, especially since the changes are merged
-> through different trees.
-
-There is no such requirement, but "has never been case before" is
-clearly not accurate, because I raised this question multiple times last
-two-three years.
-
-There is no reasonable way to hold publishing of DTS, therefore if
-someone uses arguments like above with waiting for driver, I usually got
-suspicious.
-
-Also note, that many contributions from various people (not saying that
-this one here is) were bad quality and badly designed but without seeing
-DTS it takes me significantly more time to understand that design. So
-yes, publish your DTS solving all of the questions and making reviewing
-easier. Or don't and receive questions...
+> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+> index 3be8790c14a2..33f21ab24c92 100644
+> --- a/drivers/remoteproc/imx_rproc.c
+> +++ b/drivers/remoteproc/imx_rproc.c
+> @@ -694,7 +694,7 @@ static int imx_rproc_addr_init(struct imx_rproc *priv,
+>   		}
+>   		priv->mem[b].sys_addr = res.start;
+>   		priv->mem[b].size = resource_size(&res);
+> -		if (!strcmp(res.name, "rsc-table"))
+> +		if (strstarts(res.name, "rsc-table"))
+>   			priv->rsc_table = priv->mem[b].cpu_addr;
+>   		b++;
+>   	}
 
 
-Best regards,
-Krzysztof
+-- 
+Thx and BRs,
+Zhongqiu Han
 
