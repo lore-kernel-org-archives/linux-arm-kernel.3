@@ -4,99 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61806D41C02
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 08:13:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EEF4D3E79C
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 08:15:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=trUfnuuHzLWg0hqtTbFZbrBapbqubE16vGf51eAqUyI=; b=BxLImc9hQFHxYVdd3BxB/kSICX
-	BlX9ldN0I7Fc4k+0v3agLvG0617CrlBZZBBZmo7OmWcWplTHeBehLdnEYih1ccd+1QzxEXR4GdK0z
-	xCADCL5XW+KBLPhos4kXJKeQnCgAkMu6eXYVnL8gZe/iwV6bZzxrA7RoRNir1Edc7f+6/4rgEerlL
-	wu31R+gYyMpad/F/smEFtSyEv+hDNR6bh26dhtyLa5shERTbsbhGL4zTIaFaKfbYQwOm0DclxVEYE
-	f3exubGROizzTJVlfgG0HIJ7wd42n08mLKWRhlRd9pZ5MhJL+5RyHlIuU3w7YZtanfF3toBzJ0mQ/
-	85NY3OVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vAL0V5mYm1ZkEzwp1qaDOGJQnYkDuSdOg3YyZgyK10w=; b=3Q/aU8sPSO3PQ1bwW9xX1v/0iO
+	55y/TQmTp5Ok/uUeRUJZl8opYcV77ZNbQjy5PQkdqtaVW9YuI6j285rM58od2i8tVA4EWUqaBOD9e
+	W65K4MEK+ii2RgtVQ+fMNknWtkyMjEOVrQ6HAzmaQMEDU7M8G7SOoOh5fahwX8qTMkACTbiomwij7
+	gk55o/H5pTevNJRvTgVTSsL3U2u0WTuVtP8zcaj69jzyswutn0hwXQlN1DK2mjFVvlCVW8gNZsKYH
+	GONGdJtx9P9NRa7b3r985R0HjP3lX2fIw1E90SoCuX2vhROPa6Bx7T3Ekx6PS0xaEVxc9569hKFCt
+	JmznY00Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTbnq-0000000GMeM-2P6D;
-	Thu, 11 Dec 2025 08:13:34 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1vTbpn-0000000GMpT-08TB;
+	Thu, 11 Dec 2025 08:15:35 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTbnn-0000000GMcz-1H7G
+	id 1vTbpk-0000000GMp2-1Paz
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 08:13:33 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-297dc3e299bso6962915ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 00:13:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765440810; x=1766045610; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=trUfnuuHzLWg0hqtTbFZbrBapbqubE16vGf51eAqUyI=;
-        b=GFCpNrCxcj1KZq8Rr4gRIP7+xjuNQ9pHrft9UCdLY1aY2pPuqZ18tYdzk5mF0BxVCF
-         2KRdm/D6Fx/JT72htAHUUGLlQuBj7jDXHqVp7kkAx7/wZF14ZUB+lTPr/PjpMk4rJhtM
-         fMj3zORJUA2NHX4sgrM/B87oeT9vOutI7N/8ehTB1FaDIrhOh5XRuw/31XNEFMBanNR3
-         S+kvEI7OtbUQUvcuWn24Ys8Dfg2Qt4VOJVcFeoM22E18F9XTmzegbbGsGYea8o53WGSb
-         vDhq7pCKrXN3kGnjaSA49BRPSYke+1XiNuCNFk3tQX6VQKr7j26phzT+KCXmVrbKlj2c
-         ZYDA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765440810; x=1766045610;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=trUfnuuHzLWg0hqtTbFZbrBapbqubE16vGf51eAqUyI=;
-        b=wfKHbxH9RSwfMlcruyGqY3F755tJumiW+c6PUOAhr6z1egiNOQNTnGh8rrewVw5MXW
-         lv2Umg221/K9o084sTSa8JVQrRYj6qOuNtjGh2q4R30q+t62gdveKR7hc17oOQgPAyYf
-         KH2CGicPdSXKlOj3d/J2aqcYTZAWKdZJctlqeiD31TEVET328ogQ5x81u4M5hUuG9/c2
-         HQ6oK7cJiF3J2rF55uF/HbKn8uAmh7Yi9KObXm7Yp0oKUn5Bu5z7njoJiy/aHnmAzW39
-         uejN+yENaMRYEngt0cMjAJEAqS98ZcByCb8FYLVhCTvCK353KkDIawJZXkx/fBuvqfuE
-         skbA==
-X-Forwarded-Encrypted: i=1; AJvYcCVkvquE/hJSGGkjf6BWTJOAyJFP7K2HlPr+9rTPa5klgzefhzj8ROTg6v+X7jdtYfnSTUzKA4Aw/loewl9h9OtR@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmDAE35BxcGLRGYwcHaydbrKUHneymeUAm8fQxj4kTXvaKVTY4
-	fXSajzpPX5lZ5hw54bSQqdeWKUf/0iIOQ6eOXJwliTn+/XDWSMJHXu7w
-X-Gm-Gg: AY/fxX4gAGXJcsnJhs3qos2mPGdcKg3OdibIiDY2BZYaEuZSfs7w8BQF34mfUYG04FX
-	+iF8gzEREofjeVfUrSttf3vgLuVgSKnTyWn7tUPXwdTZUgYJR7FW3DTbTjxhzbqCISVd/lkp3Ml
-	rBu6TC0kV9s/HQWvaNfvuWqbUjgpz4sRDwUTXkjvMlnllza2pHZgUInJnAbac6WxieU30O6hmI4
-	4aoYju1BDjC0qZk17xs1B2GK2dbfwUVFIjmoz04ayMIaZsaSDOcBBUCAO4uAlO2rwHEYSM2g0L4
-	7U+PdhIfTnh9ZLoEUDpNAMuhO5+SUVOv8uIPbPCuE6y0NeJ6p0sF6Q59tR++sA8csMfSRr0/yUG
-	6kpYWRCetB1sa3WZhliyr4BJUgTPukqnqTVpodZaiB2162xSJ38+qWRr1/nKHYK44OF1JVSwsw9
-	KJXq+uSnfR
-X-Google-Smtp-Source: AGHT+IGpU0Pf7s9UlmMW8EGY8yYMuomHFnlX0/Df9bPI6JMt8uShHZ+gMWWhZpAR4wob/58V/qG9Zw==
-X-Received: by 2002:a17:903:2c7:b0:295:6a69:4ad5 with SMTP id d9443c01a7336-29ec2803d18mr60221255ad.56.1765440810038;
-        Thu, 11 Dec 2025 00:13:30 -0800 (PST)
-Received: from c45b92c47440.. ([202.120.234.58])
-        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-29eea04036bsm16048855ad.78.2025.12.11.00.13.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Dec 2025 00:13:29 -0800 (PST)
-From: Miaoqian Lin <linmq006@gmail.com>
-To: Daniel Golle <daniel@makrotopia.org>,
-	Qingfang Deng <dqfext@gmail.com>,
-	SkyLake Huang <SkyLake.Huang@mediatek.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Thu, 11 Dec 2025 08:15:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3BA8743A5F;
+	Thu, 11 Dec 2025 08:15:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 149AFC4CEFB;
+	Thu, 11 Dec 2025 08:15:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765440931;
+	bh=uisW3lsr1R5kreh20aN9ry1a7WqtATsZX41vyRxxghQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=FXTY+io2OtXnTyuHOadUOc7ReXqmtOFWxhlLQU4dltyAQ0v1yIvk+mcyJt6kEGvux
+	 QkWzpnG5piXbgTht5YNFuG0mQrRHYbiCDXTVMtzamKBrZGfGvWcZOJhdypvKOti9mT
+	 Cqt/8V8R0I55DBVXHsTS8q68AL2WgdwDZ9mv8aOae9mcl86JUyej+pAfDDYoonJBdY
+	 vKG2t0wMg32jjlWozq6wcVmNdMexE6m/D+/TfyzuTdR+3o1jFTzUnhKPSd6lRUpziQ
+	 atYinPEGfmVf5QmglpSqURT8KGQYLdfMPCMHy9f5EVTA2haL3n8aEDVVL41f5UUB4E
+	 liSp/aYWsD/yA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vTbpg-0000000BwTn-2jnn;
+	Thu, 11 Dec 2025 08:15:28 +0000
+Date: Thu, 11 Dec 2025 08:15:28 +0000
+Message-ID: <86zf7po2n3.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: oupton@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	qperret@google.com,
+	will@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: linmq006@gmail.com,
-	stable@vger.kernel.org
-Subject: [PATCH] net: phy: mediatek: fix nvmem cell reference leak in mt798x_phy_calibration
-Date: Thu, 11 Dec 2025 12:13:13 +0400
-Message-Id: <20251211081313.2368460-1-linmq006@gmail.com>
-X-Mailer: git-send-email 2.25.1
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH 2/2] KVM: arm64: Remove extra argument for __pvkm_host_{share,unshare}_hyp()
+In-Reply-To: <20251210132102.137631-3-alexandru.elisei@arm.com>
+References: <20251210132102.137631-1-alexandru.elisei@arm.com>
+	<20251210132102.137631-3-alexandru.elisei@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: alexandru.elisei@arm.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_001331_346485_DE64F91E 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20251211_001532_419261_9FBC7AD5 
+X-CRM114-Status: GOOD (  18.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,37 +90,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When nvmem_cell_read() fails in mt798x_phy_calibration(), the function
-returns without calling nvmem_cell_put(), leaking the cell reference.
+On Wed, 10 Dec 2025 13:21:02 +0000,
+Alexandru Elisei <alexandru.elisei@arm.com> wrote:
+> 
+> __pvkm_host_share_hyp() and __pkvm_host_unshare_hyp() both have one
+> parameter, the pfn, not two. Even though correctness isn't impacted because
+> the SMCCC handlers pass the first argument and ignore the second one, let's
+> call the functions with the proper number of arguments.
+> 
+> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+> ---
+>  arch/arm64/kvm/mmu.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 7cc964af8d30..6c6abcd8e89e 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -497,7 +497,7 @@ static int share_pfn_hyp(u64 pfn)
+>  	this->count = 1;
+>  	rb_link_node(&this->node, parent, node);
+>  	rb_insert_color(&this->node, &hyp_shared_pfns);
+> -	ret = kvm_call_hyp_nvhe(__pkvm_host_share_hyp, pfn, 1);
+> +	ret = kvm_call_hyp_nvhe(__pkvm_host_share_hyp, pfn);
+>  unlock:
+>  	mutex_unlock(&hyp_shared_pfns_lock);
+>  
 
-Move nvmem_cell_put() right after nvmem_cell_read() to ensure the cell
-reference is always released regardless of the read result.
+Yeah, we lost all form of type-checking when everything was hastily
+converted to SMCCC to avoid function pointers. Somehow, I feel that
+the cure was worse than the disease.
 
-Found via static analysis and code review.
+I wish we'd reintroduce some form of compile-time checks, maybe by
+having generated stubs?
 
-Fixes: 98c485eaf509 ("net: phy: add driver for MediaTek SoC built-in GE PHYs")
-Cc: stable@vger.kernel.org
-Signed-off-by: Miaoqian Lin <linmq006@gmail.com>
----
- drivers/net/phy/mediatek/mtk-ge-soc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Thanks,
 
-diff --git a/drivers/net/phy/mediatek/mtk-ge-soc.c b/drivers/net/phy/mediatek/mtk-ge-soc.c
-index cd09fbf92ef2..2c4bbc236202 100644
---- a/drivers/net/phy/mediatek/mtk-ge-soc.c
-+++ b/drivers/net/phy/mediatek/mtk-ge-soc.c
-@@ -1167,9 +1167,9 @@ static int mt798x_phy_calibration(struct phy_device *phydev)
- 	}
- 
- 	buf = (u32 *)nvmem_cell_read(cell, &len);
-+	nvmem_cell_put(cell);
- 	if (IS_ERR(buf))
- 		return PTR_ERR(buf);
--	nvmem_cell_put(cell);
- 
- 	if (!buf[0] || !buf[1] || !buf[2] || !buf[3] || len < 4 * sizeof(u32)) {
- 		phydev_err(phydev, "invalid efuse data\n");
+	M.
+
 -- 
-2.25.1
-
+Without deviation from the norm, progress is not possible.
 
