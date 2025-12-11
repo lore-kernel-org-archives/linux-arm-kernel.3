@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B85F7D3E786
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 08:47:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E619AD41C05
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 08:47:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QgrHDw2+1vxkomBSkN6qpychebIEg4g+gGr8/vvCI1Y=; b=TOPwfCvnLtzUkB0gLdQuFSYdmP
-	1zXXiTIF57KGWZpQPEcFu8EOqJt3iFGW/rnKxdG7KWF7g6s1q0m2ZW5WGxtHJKrs9MVBMxVO+02a5
-	1v/9u7vZZMNIavjonVDQFMlBOUxoQC910KXrFHKNoDk+n5mCfanO+R4fVi7WARk2k/Ljt6tw9fjkE
-	NSslod7/U6mVKtf4UYFKsC1YywbLdNuumulFuqaBu6KzVq/9caBvdm3B53O76FMKTFAIYTyySb6+U
-	Q1hCnLXcMMez0V2T2Wf5xsK6EFT1fUsJaqluWUbKhoR8PI6Vb96p97dVyctzjXjCT+FnUTvPa95vt
-	wXJBhB/A==;
+	bh=rj6Ys4VgfF3wMgOB5TKYV5h47MurR6kyE683c2NwUxE=; b=Jdr0kjGOm2c6CiMzBScAE8X/zd
+	sOQYu/iLraiAuR7hYK47POtDUCxFefldcd9QsQ+SGpf7DpGkLePXpH+oSyWeV7lAiRC2KdaMZJInG
+	Qg/PnJYf39XHNaA4F91KivNRZoiVWeQSO141pIV+nc60FzoNWR/qpBz0a3/Fdy3Dg2tzOAPJjO0/P
+	WJ7bTMQZ/18DS5jPIbWxuYi2WKwnvUp3aGUWiD8m3Bu3Wa+AberSH3A/f4s6MAoI1fRH7OHYu8e9G
+	r3SNWOPRwrqpb4y371XGVfdxDS9BR31piX8nPAmI+GSNBogYT7TWNPQYcNeu4JtAosiHxGq8YIHbB
+	ineMbFGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTcKQ-0000000GOtU-23R0;
-	Thu, 11 Dec 2025 08:47:14 +0000
+	id 1vTcKV-0000000GOxq-49nx;
+	Thu, 11 Dec 2025 08:47:19 +0000
 Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTcKN-0000000GOqA-3ggI
+	id 1vTcKT-0000000GOuv-1thU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 08:47:13 +0000
+	Thu, 11 Dec 2025 08:47:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1765442830;
-	bh=QgrHDw2+1vxkomBSkN6qpychebIEg4g+gGr8/vvCI1Y=;
+	d=codeconstruct.com.au; s=2022a; t=1765442835;
+	bh=rj6Ys4VgfF3wMgOB5TKYV5h47MurR6kyE683c2NwUxE=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=ORolPD+lNijN6SbxVyOiH5cJlcepdpMKA94aBXhai5xR8KzOe/a5aWs+SSlO+UGt5
-	 JQnbglvjce0z3jI770cy0oO4Q+YU2ze1O9MBqJW8+6g8FPAec1Jx8Akd0feqREU0xj
-	 8Yu3HJSBSh+mDPELPzwBjO2xEZrngqzCpDmiETlkVxZxAHRW+X3VFPXxicFf0GnBYX
-	 zfc5NMRh7pxU+wfdrDymAVGM4OVnd6GVcJee+tqmxAW8Qlmlv/qB2YKdfH8NRpNVP4
-	 1rkMu4ZfsFzZZPNl4eQvexVUNemUemdoJrIxCrBXF2f0NT7wqzf3HC/FUuZEpXMVbu
-	 iyiDKfemDBe1g==
+	b=R43nVcAKmIKmxxY1afGyp9269WBa1/8ZZKA+sg0CL2QCovXOLQQNNbE9YrcjlFRI8
+	 B9pl3odOOTH1Uj0p5s9Xl8amMl4qDAiIdyw29hJ3y7b+G9guO5eBvwcgnhL1Xnufku
+	 AYVFDK/A1c/U/b183kKSt7OiPuAs40vEX31hd+s2J5U6kIpKBnJEd0pvNL1FwGwxt0
+	 Z52kjXnDZ/iYjw9OXeIDtR2It23x0ZpOxg5eXo6rUbkhybScMIxffFvF27TsmkUTEz
+	 xNceCv2Q66+QhHI4Wt30EEKTQ2ly8bvqJeCtdeWZ2QXophArnQLbSX2+v0li5m/+PW
+	 ujK2cRoGriX/A==
 Received: from [127.0.1.1] (fs98a57d9c.tkyc007.ap.nuro.jp [152.165.125.156])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 1669D7D6BB;
-	Thu, 11 Dec 2025 16:47:04 +0800 (AWST)
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 839517D6B0;
+	Thu, 11 Dec 2025 16:47:10 +0800 (AWST)
 From: Andrew Jeffery <andrew@codeconstruct.com.au>
-Date: Thu, 11 Dec 2025 17:45:50 +0900
-Subject: [PATCH RFC 08/16] ARM: dts: aspeed: Use specified wp-inverted
- property for AST2600 EVB
+Date: Thu, 11 Dec 2025 17:45:51 +0900
+Subject: [PATCH RFC 09/16] dt-bindings: bus: aspeed: Require syscon for
+ AST2600 AHB controller
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251211-dev-dt-warnings-all-v1-8-21b18b9ada77@codeconstruct.com.au>
+Message-Id: <20251211-dev-dt-warnings-all-v1-9-21b18b9ada77@codeconstruct.com.au>
 References: <20251211-dev-dt-warnings-all-v1-0-21b18b9ada77@codeconstruct.com.au>
 In-Reply-To: <20251211-dev-dt-warnings-all-v1-0-21b18b9ada77@codeconstruct.com.au>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -60,8 +60,8 @@ Cc: Joel Stanley <joel@jms.id.au>, linux-hwmon@vger.kernel.org,
  linux-iio@vger.kernel.org, Andrew Jeffery <andrew@codeconstruct.com.au>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_004712_122899_401166D4 
-X-CRM114-Status: UNSURE (   9.61  )
+X-CRM114-CacheID: sfid-20251211_004717_689954_083AC7E3 
+X-CRM114-Status: UNSURE (   8.17  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,38 +77,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-While sdhci-pltfm supports sdhci,wp-inverted, it also supports
-the un-prefixed and specified wp-inverted property. Switch the EVB
-devicetree to use the specified property to remove warnings when
-checking the DTB.
+The AST2600's ACRY (eliptic curve and RSA crypto engine) requires access
+to configuration exposed by the AHB controller. The devicetree already
+describes the AHB controller node as a syscon, so require this in the
+binding to satisfy the ACRY relationship.
 
 Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
 ---
- arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ Documentation/devicetree/bindings/bus/aspeed,ast2600-ahbc.yaml | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
-index 3eba676e57f1..c51977dcb56b 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
-@@ -315,7 +315,7 @@ &sdhci0 {
- 	bus-width = <4>;
- 	max-frequency = <100000000>;
- 	sdhci-caps-mask = <0x7 0x0>;
--	sdhci,wp-inverted;
-+	wp-inverted;
- 	vmmc-supply = <&vcc_sdhci0>;
- 	vqmmc-supply = <&vccq_sdhci0>;
- 	clk-phase-sd-hs = <7>, <200>;
-@@ -326,7 +326,7 @@ &sdhci1 {
- 	bus-width = <4>;
- 	max-frequency = <100000000>;
- 	sdhci-caps-mask = <0x7 0x0>;
--	sdhci,wp-inverted;
-+	wp-inverted;
- 	vmmc-supply = <&vcc_sdhci1>;
- 	vqmmc-supply = <&vccq_sdhci1>;
- 	clk-phase-sd-hs = <7>, <200>;
+diff --git a/Documentation/devicetree/bindings/bus/aspeed,ast2600-ahbc.yaml b/Documentation/devicetree/bindings/bus/aspeed,ast2600-ahbc.yaml
+index 2894256c976d..77e60b32d52e 100644
+--- a/Documentation/devicetree/bindings/bus/aspeed,ast2600-ahbc.yaml
++++ b/Documentation/devicetree/bindings/bus/aspeed,ast2600-ahbc.yaml
+@@ -17,8 +17,10 @@ description: |
+ 
+ properties:
+   compatible:
+-    enum:
+-      - aspeed,ast2600-ahbc
++    items:
++      - enum:
++          - aspeed,ast2600-ahbc
++      - const: syscon
+ 
+   reg:
+     maxItems: 1
+@@ -32,6 +34,6 @@ additionalProperties: false
+ examples:
+   - |
+     ahbc@1e600000 {
+-        compatible = "aspeed,ast2600-ahbc";
++        compatible = "aspeed,ast2600-ahbc", "syscon";
+         reg = <0x1e600000 0x100>;
+     };
 
 -- 
 2.47.3
