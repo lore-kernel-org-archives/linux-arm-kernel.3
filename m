@@ -4,65 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B2D3D3E78B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 04:10:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A1BD3E797
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 06:09:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gLOWZ7I0vBeV1803aPDy+jE73pbAM5ZY3LDaAZOD0L8=; b=Bj7vq0P2KLIxdTtQeYJ+0XyWPM
-	7bdUAIO/b6izaRZfLBCQPLRWRALzo2+sg4QxDylannTkk484lnzgengqKm34H+Q2HX/2clUtVDmRS
-	hvMy4nim7HOsM3jNAjB3zFaMZ8q6o9863uiu0VS/NYRReVcOXJsA/pOB40QQ23KCq6XsgRylGC/cR
-	jOABwEj+VXovD4hXYpcmlheQwQVcVI39uWhnJC0P07xvFqJ4wj4smvRG0k50Rlkzk62zcmVMhagAq
-	CzV+VDLwhKTQgL4B0jJAOWZFvfG11ZHY0St67sqARnMnZbDZ2B/lAFgAuPQ5FODUf1BYOsztrFvrd
-	7we+AkJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oZuV8+EjHAsb9UfjPhO1rkXiZbx2xlxeI8ewygNbw7o=; b=E5NQqCS4N8FiJwKgpEnkvJqXQM
+	gNup7VIo8hk3na7UGuwpBFrua71AGFs4y/2GVnoioYMJEaogjgol3FhVY6wu/iqT9ynA2MVe5SL3P
+	aOwChP2l8EAsoOtP8HSuTxoYEK/YxXHmhmqnLjVz8P+WHH0aJvEXFuBk4hZex2r7AzHCpYHM+wKMA
+	0Ze03i0n3w0UA4vUSTy1qKWuhrQZlkSI6M6/PvJE20SdimKP0LczYGHEEIPG9Sins5H3FsenZ1AB+
+	5kpv0pi2DnWVOM0hnjHv8jCjObSGR2a+ZvMARYGEuBdiAar0hkLtiqjBJfTOyjEPuqTgdMeS7mNnm
+	9GsWsZJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTY0H-0000000GCIG-0Qoa;
-	Thu, 11 Dec 2025 04:10:09 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vTZrx-0000000GGKb-03MN;
+	Thu, 11 Dec 2025 06:09:41 +0000
+Received: from mail-eastus2azon11010040.outbound.protection.outlook.com ([52.101.56.40] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTY0C-0000000GCHr-32cx
+	id 1vTZru-0000000GGKB-0ZIc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 04:10:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id E051F43AC4;
-	Thu, 11 Dec 2025 04:10:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23FB7C4CEFB;
-	Thu, 11 Dec 2025 04:10:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765426203;
-	bh=oxGZLAoYraEnTaqd4KcbBYAZ3MpFudos0PelzD7Ngyg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=N8I+GWKbRrm4CHAdNG6zcb9eUvUBiSY9fEsUbqbHAUcD9cR2jVM4aO9UFOK957kVe
-	 5WtBLOx8lsq2kj2bZJvFkPPmDaMxKDch++Skzh4+hCqGJJHBGSbMMQqGgr0mUaTNHr
-	 4SLXGCgVYCh8aWpIcBEBCuYOpLLsvgO9xUhZCHtRBqjgVjiSURVaoxPbvi8smIilCX
-	 Ec4Ue8IRmrrApbyQRZuJg7IkOegeYF9FO9cQXOHhHkwxK1zlSU+JiU8ApOznHBgYQ8
-	 34lRFpKnWHfVcuuzNYOAAIctkE5dcwpVI60KlwXywUn+v2Vv3TJhHS2eiRCBuzrDex
-	 du3jjMNx3dgtQ==
-From: Ard Biesheuvel <ardb@kernel.org>
-To: linux-arm-kernel@lists.infradead.org
-Cc: linux-hardening@vger.kernel.org,
-	mark.rutland@arm.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	kees@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Liz Prucka <lizprucka@google.com>,
-	Seth Jenkins <sethjenkins@google.com>
-Subject: [RFC PATCH] arm64: Bring back linear map randomization using PArange override
-Date: Thu, 11 Dec 2025 05:09:36 +0100
-Message-ID: <20251211040935.1288349-2-ardb@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	Thu, 11 Dec 2025 06:09:39 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oqcsSAzfgPve6CetbKpVxg1+gQioUJLOj6T6qgrOb2fn43UfnT6G4R6gH4jgVDe1HIXdgitNIMvnOQKhw8xltPiCycWqw22yJpdBLWdy5OAHuGDgrTFPXS6XIub3AxULD5obtb6ow2kRK1VBko2XjPRPMpFZMOPqUw7N/aEs90L2p12ZWv5tW3dFI5cUSKx9yy+/eDW31TDvu77dk9bahfjPW1yjQ2VuozpXORy6gFb3hCvrzoN6HFmyrgtEL/YUKALfOaRIQQScvQkHs9T0/LacvwM6pvTWclwaitfh4TsfenMzAyhXZ+Dtt6MuEIevAOEBBQhxaX8kuLRjIriGng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=oZuV8+EjHAsb9UfjPhO1rkXiZbx2xlxeI8ewygNbw7o=;
+ b=MUD/XEolpbPuFEKDQAQia1A9DEsJdu5OvwIGYbLMLFK+cPNwCsGFBCgShZPXPVE1Sz+Uy960d9d6u6JNjPkqtF1rvN4D21K+fFIm+KW4bOySo3u1Zcm4jBz0cnpbE1NFzUreV01YgrZ+2TJgJdbXskagV63RwgOc819alYLN/3nR3w4+amnSyaPCibb/ZgVYkGFnSPHZWQ8WCoEpR9xfMa0av0RWWB1/qePLe/Z/Zn7VxAMgB/XDCJZOzkGXbEcV0wMiQm64q5nItV8O19KRBLYUb6Wjdyfqk1jauTWuuEDepVAlWos6nkuGahNyr3RokJAe0ovcp8hvXHCkGaudkg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=arm.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=oZuV8+EjHAsb9UfjPhO1rkXiZbx2xlxeI8ewygNbw7o=;
+ b=fyTHI1V3aqa3shi9EeqP2jC1Q2PYsM6F3ndYXsou24mBaCx8wp66tv+xoerC0BlTrHvP6q6hlmIePK/62IBu4cn8O2UPy86k9U/Z9t2qSUeFklo8UEtvmx7lpClPx24/c/eQPP+s7o1flCxUIGlMvTo3TvkVsvshYGcWx8iycEn2cXrcjpco28trKS69g44o7dW1KrH7cIYOUOBeLxL8zEDhxv0cltxjpN4PuoHuZV6Q6jrxER6KFXrIIn/ChWsCk5gbmtj59O1DQnWVZ4rH+S8mw7c53vAR1rxEH89ZQkGrzsKe21lZ8WrJ+MI+sWYzK5ILg3cdtcwjUYp2lhBA8g==
+Received: from DM6PR17CA0023.namprd17.prod.outlook.com (2603:10b6:5:1b3::36)
+ by CH3PR12MB9194.namprd12.prod.outlook.com (2603:10b6:610:19f::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.9; Thu, 11 Dec
+ 2025 06:09:28 +0000
+Received: from DS2PEPF0000343B.namprd02.prod.outlook.com
+ (2603:10b6:5:1b3:cafe::76) by DM6PR17CA0023.outlook.office365.com
+ (2603:10b6:5:1b3::36) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9412.6 via Frontend Transport; Thu,
+ 11 Dec 2025 06:09:27 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ DS2PEPF0000343B.mail.protection.outlook.com (10.167.18.38) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9412.4 via Frontend Transport; Thu, 11 Dec 2025 06:09:27 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 10 Dec
+ 2025 22:09:12 -0800
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 10 Dec
+ 2025 22:09:11 -0800
+Received: from nvidia.com (10.127.8.10) by mail.nvidia.com (10.129.68.10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Wed, 10 Dec 2025 22:09:08 -0800
+Date: Wed, 10 Dec 2025 22:09:05 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Robin Murphy <robin.murphy@arm.com>, Ashish Mhetre <amhetre@nvidia.com>
+CC: <oe-kbuild-all@lists.linux.dev>, <thierry.reding@gmail.com>,
+	<jonathanh@nvidia.com>, <vdumpa@nvidia.com>, <jgg@ziepe.ca>,
+	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-tegra@vger.kernel.org>, <joro@8bytes.org>, <robh@kernel.org>,
+	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, kernel test robot
+	<lkp@intel.com>, <will@kernel.org>
+Subject: Re: [PATCH V4 1/3] iommu/arm-smmu-v3: Add device-tree support for
+ CMDQV driver
+Message-ID: <aTpgAU6FjinhclQH@nvidia.com>
+References: <20251205065850.3841834-2-amhetre@nvidia.com>
+ <202512090331.QAFgb6vQ-lkp@intel.com>
+ <2bf7bb25-9a6b-42d5-b095-978f7bb81f35@nvidia.com>
+ <e7c69e9c-6af4-468a-88ed-fb8829afb92e@arm.com>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5568; i=ardb@kernel.org; h=from:subject; bh=oxGZLAoYraEnTaqd4KcbBYAZ3MpFudos0PelzD7Ngyg=; b=owGbwMvMwCVmkMcZplerG8N4Wi2JIdPKhSlUtKtiadtSpqCtBzk/+3E+ups/a9bjue1z6l/OP 7796LukjlIWBjEuBlkxRRaB2X/f7Tw9UarWeZYszBxWJpAhDFycAjCRokqGf+Y3T/3IYdsYdyD7 ZN0an+Jyl6ZPO/Q3Pj/w1fervvWSsr8M/0MjuqLsznk8u3H28IZ1zXERj9eG8W2VOnBH3PfbjxU RzzkA
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <e7c69e9c-6af4-468a-88ed-fb8829afb92e@arm.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS2PEPF0000343B:EE_|CH3PR12MB9194:EE_
+X-MS-Office365-Filtering-Correlation-Id: f0fcf275-8698-4646-ec6e-08de387bd785
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|82310400026|36860700013|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?xyNu8To4a3Ytma2S2DQIDJtKp2TQrzydPsMjPt6ZhUbVDhN0i3dFzlqHYiIs?=
+ =?us-ascii?Q?wUIUVzA/2V+ztB/483RMMflqdpYWI7RJsJkSGP00nGGgV3qxFerViqfb/og3?=
+ =?us-ascii?Q?ODdMjxlADUGwYiWGJj+Fx+KrvhePMXqEIQsZC1PCK2UszrNIas1s1VBi4eMz?=
+ =?us-ascii?Q?KvaZV6CyjEYpxu/jA/0GjVmDU4wF9sbzTayfnBjvJ/xyk7iCNQ3F9Wwd8jpT?=
+ =?us-ascii?Q?5Na30+MfdtjjsbDx91TfI1mHF3zBMoveBuilTJe/SL8dNueIeSxMo8c4Ojdr?=
+ =?us-ascii?Q?I4wXBr+05tzSVD5pbyk57iZK3/fNG5OxMApDiBhPwKu2fJBjHqHW5C76SqBa?=
+ =?us-ascii?Q?ZiyRRaKLvoQmUY/iXVZeL0bogMB4wkG4tApIUwLlCLNi+FavKawWKLn/pAyd?=
+ =?us-ascii?Q?TFK9uYCphGhi0XMpVS+74FSNyCV+yFT2AIuEBow+JcxIb4B8mWaDFzHKhdJg?=
+ =?us-ascii?Q?jkSnSc3ZBGJeWJEfwJlV80FA5x1GPPBSvZ6xeJFhoSX6JBNjAyK+nkDdBx26?=
+ =?us-ascii?Q?2ZS5ne8OK7d8Thij0KeUDGoj4IeuzSqvH6UB3TeWPFGk9p0QFMYzbpQQ23fq?=
+ =?us-ascii?Q?MgnEyQcAXsi6ipAbiPqW8x+7lqhGwncdGUAuOKmnHbc04q2ldQpF0j8kFmQP?=
+ =?us-ascii?Q?3BUlNuUH7/DcnG80YmJ9ervNi6eqQ3mp11r0R1MsFXIlghOF5AmMYRlHfCcY?=
+ =?us-ascii?Q?gCz/IwuAXm6KnVnNK/OtM4EGmxWwxHMr/ifpa1Ztywnu3onjG0WuzQCS2B/8?=
+ =?us-ascii?Q?wB6eXCYr46oa47PiSjUwtbT+1dCMfFK0VHAH2lY9cYA7I0FGAmOjeRBca3/w?=
+ =?us-ascii?Q?DJ1flJAxiD8AV+/4EQ9ZjZRtpmSQnNnciAWzBvgRyUQIZgBFVTPsBHoA/p2X?=
+ =?us-ascii?Q?KiUejN2hHExqqaZ7+LrB2lzRfio6TBuRIivvdhqcB1WsgUv74RzJayTpJD87?=
+ =?us-ascii?Q?cQo8oaf9yiaHPe0HB1rVQJa+Rwf0coVxA2NiXeZfwsi4M73gkjzjbvC1DpoX?=
+ =?us-ascii?Q?8SYE5APMpYp0FvhrybSH3W9zxejqfovhR1pe5yZvjwExx7U6AnscU32nWO8H?=
+ =?us-ascii?Q?zDi+O0gNW6uv1xaEOsnTrPYpFENRwTuyuyR/2O6SUedzUC6I9DoqaiRiF63t?=
+ =?us-ascii?Q?VD/LQZDFox6qJlJGC9Tzp8XH3VImFvbOdwfk3HG8w29CuDOCGv5Xmb0ajUcs?=
+ =?us-ascii?Q?KSO9HybCLs/h4tSMVPxmqrMYQALLvW7PNK5J1m/DpRIVMCBn3z4Jf9i175SV?=
+ =?us-ascii?Q?/nuFtHwI+0Ke8i2dD9jFTWPWB2prWw6iR5AATt3AbcDu/uOQBytEnSpTtj0y?=
+ =?us-ascii?Q?N3hzVbT3KC7QhDXXI6vK1YqFT0IRZ0tCysGIeYtT1J3pkYGzpdC55nl1D+JA?=
+ =?us-ascii?Q?s0uhICnlEXwauyKGUVnYzGroBqBOC3YVAi5uY1dDcUXUbl7PmPwYhBYgTcah?=
+ =?us-ascii?Q?myRSuq3cmHkfyfMkLk1D+lbAc49DpbwESxlCvDPV93VIQ9XJAuwJaV0FN4Uk?=
+ =?us-ascii?Q?cJrk+GE+rzAlsKIADj0fNSMD7o+mlGvk7HazJuGVx/sDie7K9B3E4yXNjhjZ?=
+ =?us-ascii?Q?gNeD9EPNHtZdPj8VGgE=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(82310400026)(36860700013)(7053199007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Dec 2025 06:09:27.9764
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f0fcf275-8698-4646-ec6e-08de387bd785
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS2PEPF0000343B.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9194
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_201004_806411_A318D3C0 
-X-CRM114-Status: GOOD (  20.79  )
+X-CRM114-CacheID: sfid-20251210_220938_283990_A454DC79 
+X-CRM114-Status: GOOD (  36.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,164 +159,201 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit
+On Wed, Dec 10, 2025 at 12:39:49PM +0000, Robin Murphy wrote:
+> On 2025-12-10 5:19 am, Ashish Mhetre wrote:
+> [...]
+> > Hi Robin, Nic,
+> > We removed ACPI dependency in Kconfig but driver still depends
+> > on ACPI for these functions. I will be protecting ACPIspecific
+> > tegra241-cmdqv code under CONFIG_ACPI similar to what is done
+> > in arm-smmu-v3 driver. Is this the correct thing to do or do you
+> > have any other suggestions?
+> 
+> Yes, when I commented that "depends on ACPI || OF" was functionally the same
+> as just removing "depends on ACPI", I didn't mean to suggest that wasn't
+> necessarily a genuine dependency still.
+> 
+> I guess if you can wrap the ACPI-specific functions in a single #ifdef block
+> that's reasonable, however I do now wonder whether things couldn't be
+> factored out a bit more - if it's a standard DSDT/SSDT namespace device,
+> shouldn't there also be a corresponding platform device created for it,
+> which we could look up instead of delving directly into the _CRS of the ACPI
+> node itself? (not sure off-hand if there's a straightforward inverse of
+> ACPI_COMPANION()...)
 
-  1db780bafa4ce ("arm64/mm: Remove randomization of the linear map")
+Ah, I did a quick tracer at acpi_create_platform_device(). And I
+do see platform devices being created. So, we could have made it
+ACPI-independent from the beginning, as you expected :)
 
-removed linear map randomization from the arm64 port, on the basis that
-a prior change to the logic rendered it non-functional on the majority
-of relevant CPU implementations.
+Ashish, let's attach the following patch in your series:
 
-As has been reported numerous times now, the upshot of this is that the
-virtual addresses of statically allocated kernel data structures are
-highly predictable if the kernel is loaded at a known physical address.
-Any bootloader that still adheres to the original arm64 boot protocol,
-which stipulated that the kernel should be loaded at the lowest
-available physical address, is affected by this.
+From 7b69a638276e66b16b923b0ce1743d3efc85a04c Mon Sep 17 00:00:00 2001
+From: Nicolin Chen <nicolinc@nvidia.com>
+Date: Thu, 11 Dec 2025 05:47:05 +0000
+Subject: [PATCH] iommu/tegra241-cmdqv: Decouple driver from ACPI
 
-So bring back the most recent version of linear map randomization, which
-is based on the CPU's physical address range, but this time, allow this
-PA range to be overridden on the kernel command line.
+A platform device is created by acpi_create_platform_device() per CMDQV's
+adev. That means there is no point in going through _CRS of ACPI.
 
-E.g., by passing
+Replace all the ACPI functions with standard platform functions. And drop
+all ACPI dependencies. This will make the driver compatible with DT also.
 
-  id_aa64mmfr0.parange=1 # 36 bits
-  id_aa64mmfr0.parange=2 # 40 bits
-
-the CPU's supported physical range can be reduced to the point where
-linear map randomization becomes feasible again. It also means that
-nothing else is permitted to appear in that physical window, i.e.,
-hotplug memory but also non-memory peripherals, or stage-2 mappings on
-behalf of KVM guests.
-
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+Suggested-by: Robin Murphy <robin.murphy@arm.com>
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
-Cc: Liz Prucka <lizprucka@google.com>
-Cc: Seth Jenkins <sethjenkins@google.com>
+ drivers/iommu/arm/Kconfig                     |  1 -
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  2 +-
+ .../iommu/arm/arm-smmu-v3/tegra241-cmdqv.c    | 84 +++----------------
+ 3 files changed, 13 insertions(+), 74 deletions(-)
 
-This is posted as an RFC because there are obvious shortcomings to this
-approach. However, before I spend more time on this, I'd like to gauge
-if there is any consensus that bringing this back is a good idea.
-
- arch/arm64/include/asm/cpufeature.h   | 13 +++++++++++++
- arch/arm64/kernel/image-vars.h        |  1 +
- arch/arm64/kernel/kaslr.c             |  2 ++
- arch/arm64/kernel/pi/idreg-override.c |  1 +
- arch/arm64/kernel/pi/kaslr_early.c    |  4 ++++
- arch/arm64/mm/init.c                  | 16 ++++++++++++++++
- 6 files changed, 37 insertions(+)
-
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index 4de51f8d92cb..fdb1331c406d 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -1078,6 +1078,19 @@ static inline bool cpu_has_lpa2(void)
- #endif
- }
+diff --git a/drivers/iommu/arm/Kconfig b/drivers/iommu/arm/Kconfig
+index ef42bbe07dbef..5fac08b89deea 100644
+--- a/drivers/iommu/arm/Kconfig
++++ b/drivers/iommu/arm/Kconfig
+@@ -121,7 +121,6 @@ config ARM_SMMU_V3_KUNIT_TEST
  
-+static inline u64 cpu_get_phys_range(void)
-+{
-+	u64 mmfr0 = read_sysreg(id_aa64mmfr0_el1);
-+
-+	mmfr0 &= ~id_aa64mmfr0_override.mask;
-+	mmfr0 |= id_aa64mmfr0_override.val;
-+
-+	int parange = cpuid_feature_extract_unsigned_field(mmfr0,
-+						ID_AA64MMFR0_EL1_PARANGE_SHIFT);
-+
-+	return BIT(id_aa64mmfr0_parange_to_phys_shift(parange));
-+}
-+
- #endif /* __ASSEMBLER__ */
+ config TEGRA241_CMDQV
+ 	bool "NVIDIA Tegra241 CMDQ-V extension support for ARM SMMUv3"
+-	depends on ACPI
+ 	help
+ 	  Support for NVIDIA CMDQ-Virtualization extension for ARM SMMUv3. The
+ 	  CMDQ-V extension is similar to v3.3 ECMDQ for multi command queues
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 38028e4a52f7f..0c98be3135c63 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -5280,7 +5280,7 @@ static void acpi_smmu_dsdt_probe_tegra241_cmdqv(struct acpi_iort_node *node,
+ 	adev = acpi_dev_get_first_match_dev("NVDA200C", uid, -1);
+ 	if (adev) {
+ 		/* Tegra241 CMDQV driver is responsible for put_device() */
+-		smmu->impl_dev = &adev->dev;
++		smmu->impl_dev = acpi_get_first_physical_node(adev);
+ 		smmu->options |= ARM_SMMU_OPT_TEGRA241_CMDQV;
+ 		dev_info(smmu->dev, "found companion CMDQV device: %s\n",
+ 			 dev_name(smmu->impl_dev));
+diff --git a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+index 378104cd395e5..1fc03b72beb88 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
++++ b/drivers/iommu/arm/arm-smmu-v3/tegra241-cmdqv.c
+@@ -3,17 +3,15 @@
  
- #endif
-diff --git a/arch/arm64/kernel/image-vars.h b/arch/arm64/kernel/image-vars.h
-index 85bc629270bd..263543ad6155 100644
---- a/arch/arm64/kernel/image-vars.h
-+++ b/arch/arm64/kernel/image-vars.h
-@@ -58,6 +58,7 @@ PI_EXPORT_SYM(id_aa64zfr0_override);
- PI_EXPORT_SYM(arm64_sw_feature_override);
- PI_EXPORT_SYM(arm64_use_ng_mappings);
- PI_EXPORT_SYM(_ctype);
-+PI_EXPORT_SYM(memstart_offset_seed);
+ #define dev_fmt(fmt) "tegra241_cmdqv: " fmt
  
- PI_EXPORT_SYM(swapper_pg_dir);
+-#include <linux/acpi.h>
+ #include <linux/debugfs.h>
+ #include <linux/dma-mapping.h>
+ #include <linux/interrupt.h>
+ #include <linux/iommu.h>
+ #include <linux/iommufd.h>
+ #include <linux/iopoll.h>
++#include <linux/platform_device.h>
+ #include <uapi/linux/iommufd.h>
  
-diff --git a/arch/arm64/kernel/kaslr.c b/arch/arm64/kernel/kaslr.c
-index c9503ed45a6c..1da3e25f9d9e 100644
---- a/arch/arm64/kernel/kaslr.c
-+++ b/arch/arm64/kernel/kaslr.c
-@@ -10,6 +10,8 @@
- #include <asm/cpufeature.h>
- #include <asm/memory.h>
+-#include <acpi/acpixf.h>
+-
+ #include "arm-smmu-v3.h"
  
-+u16 __initdata memstart_offset_seed;
-+
- bool __ro_after_init __kaslr_is_enabled = false;
+ /* CMDQV register page base and size defines */
+@@ -854,69 +852,6 @@ static struct arm_smmu_impl_ops tegra241_cmdqv_impl_ops = {
  
- void __init kaslr_init(void)
-diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
-index bc57b290e5e7..a8351ba70300 100644
---- a/arch/arm64/kernel/pi/idreg-override.c
-+++ b/arch/arm64/kernel/pi/idreg-override.c
-@@ -43,6 +43,7 @@ static const struct ftr_set_desc mmfr0 __prel64_initconst = {
- 	.override	= &id_aa64mmfr0_override,
- 	.fields		= {
- 		FIELD("ecv", ID_AA64MMFR0_EL1_ECV_SHIFT, NULL),
-+		FIELD("parange", ID_AA64MMFR0_EL1_PARANGE_SHIFT, NULL),
- 		{}
- 	},
- };
-diff --git a/arch/arm64/kernel/pi/kaslr_early.c b/arch/arm64/kernel/pi/kaslr_early.c
-index e0e018046a46..0257b43819db 100644
---- a/arch/arm64/kernel/pi/kaslr_early.c
-+++ b/arch/arm64/kernel/pi/kaslr_early.c
-@@ -18,6 +18,8 @@
+ /* Probe Functions */
  
- #include "pi.h"
- 
-+extern u16 memstart_offset_seed;
-+
- static u64 __init get_kaslr_seed(void *fdt, int node)
+-static int tegra241_cmdqv_acpi_is_memory(struct acpi_resource *res, void *data)
+-{
+-	struct resource_win win;
+-
+-	return !acpi_dev_resource_address_space(res, &win);
+-}
+-
+-static int tegra241_cmdqv_acpi_get_irqs(struct acpi_resource *ares, void *data)
+-{
+-	struct resource r;
+-	int *irq = data;
+-
+-	if (*irq <= 0 && acpi_dev_resource_interrupt(ares, 0, &r))
+-		*irq = r.start;
+-	return 1; /* No need to add resource to the list */
+-}
+-
+-static struct resource *
+-tegra241_cmdqv_find_acpi_resource(struct device *dev, int *irq)
+-{
+-	struct acpi_device *adev = to_acpi_device(dev);
+-	struct list_head resource_list;
+-	struct resource_entry *rentry;
+-	struct resource *res = NULL;
+-	int ret;
+-
+-	INIT_LIST_HEAD(&resource_list);
+-	ret = acpi_dev_get_resources(adev, &resource_list,
+-				     tegra241_cmdqv_acpi_is_memory, NULL);
+-	if (ret < 0) {
+-		dev_err(dev, "failed to get memory resource: %d\n", ret);
+-		return NULL;
+-	}
+-
+-	rentry = list_first_entry_or_null(&resource_list,
+-					  struct resource_entry, node);
+-	if (!rentry) {
+-		dev_err(dev, "failed to get memory resource entry\n");
+-		goto free_list;
+-	}
+-
+-	/* Caller must free the res */
+-	res = kzalloc(sizeof(*res), GFP_KERNEL);
+-	if (!res)
+-		goto free_list;
+-
+-	*res = *rentry->res;
+-
+-	acpi_dev_free_resource_list(&resource_list);
+-
+-	INIT_LIST_HEAD(&resource_list);
+-
+-	if (irq)
+-		ret = acpi_dev_get_resources(adev, &resource_list,
+-					     tegra241_cmdqv_acpi_get_irqs, irq);
+-	if (ret < 0 || !irq || *irq <= 0)
+-		dev_warn(dev, "no interrupt. errors will not be reported\n");
+-
+-free_list:
+-	acpi_dev_free_resource_list(&resource_list);
+-	return res;
+-}
+-
+ static int tegra241_cmdqv_init_structures(struct arm_smmu_device *smmu)
  {
- 	static char const seed_str[] __initconst = "kaslr-seed";
-@@ -51,6 +53,8 @@ u64 __init kaslr_early_init(void *fdt, int chosen)
- 			return 0;
- 	}
+ 	struct tegra241_cmdqv *cmdqv =
+@@ -1042,18 +977,23 @@ __tegra241_cmdqv_probe(struct arm_smmu_device *smmu, struct resource *res,
  
-+	memstart_offset_seed = seed & U16_MAX;
-+
- 	/*
- 	 * OK, so we are proceeding with KASLR enabled. Calculate a suitable
- 	 * kernel image offset from the seed. Let's place the kernel in the
-diff --git a/arch/arm64/mm/init.c b/arch/arm64/mm/init.c
-index 524d34a0e921..6c55eca6ccad 100644
---- a/arch/arm64/mm/init.c
-+++ b/arch/arm64/mm/init.c
-@@ -275,6 +275,22 @@ void __init arm64_memblock_init(void)
- 		}
- 	}
+ struct arm_smmu_device *tegra241_cmdqv_probe(struct arm_smmu_device *smmu)
+ {
++	struct platform_device *pdev = to_platform_device(smmu->impl_dev);
+ 	struct arm_smmu_device *new_smmu;
+-	struct resource *res = NULL;
++	struct resource *res;
+ 	int irq;
  
-+	if (IS_ENABLED(CONFIG_RANDOMIZE_BASE)) {
-+		extern u16 memstart_offset_seed;
-+		s64 range = linear_region_size - cpu_get_phys_range();
-+
-+		/*
-+		 * If the size of the linear region exceeds, by a sufficient
-+		 * margin, the size of the region that the physical memory can
-+		 * span, randomize the linear region as well.
-+		 */
-+		if (memstart_offset_seed > 0 && range >= (s64)ARM64_MEMSTART_ALIGN) {
-+			range /= ARM64_MEMSTART_ALIGN;
-+			memstart_addr -= ARM64_MEMSTART_ALIGN *
-+					 ((range * memstart_offset_seed) >> 16);
-+		}
+-	if (!smmu->dev->of_node)
+-		res = tegra241_cmdqv_find_acpi_resource(smmu->impl_dev, &irq);
+-	if (!res)
++	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
++	if (!res) {
++		dev_err(&pdev->dev, "no memory resource found for CMDQV\n");
+ 		goto out_fallback;
 +	}
-+
- 	/*
- 	 * Register the kernel text, kernel data, initrd, and initial
- 	 * pagetables with memblock.
+ 
+-	new_smmu = __tegra241_cmdqv_probe(smmu, res, irq);
+-	kfree(res);
++	irq = platform_get_irq_optional(pdev, 0);
++	if (irq <= 0)
++		dev_warn(&pdev->dev,
++			 "no interrupt. errors will not be reported\n");
+ 
++	new_smmu = __tegra241_cmdqv_probe(smmu, res, irq);
+ 	if (new_smmu)
+ 		return new_smmu;
+ 
 -- 
-2.47.3
-
+2.43.0
 
