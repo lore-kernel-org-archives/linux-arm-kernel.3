@@ -4,84 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ADBAD41C36
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 13:29:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77261D41C37
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 13:29:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gIJgw/8vF2HaiakXVV/uyJUOCxs1zd6fI8bBZPHAmGM=; b=vXsAroEuJIRtIruefjSsjowV6O
-	zlGjMVzH04uMCPxK8eo6ba/r6b34Gku2Kd6Jnm/0/UWvBbu+nTlwkG2Bh+WJEVSBsvoRad7LRsiMQ
-	3RqH+ym+wJq0qUt4aXMjBn/kmlBFI3X9Uyv/EOBm2Pw03HMNg684jsWchYqlRAjUzGKhlKznvDbqG
-	rlfDuXqn8EIIk4Hs28xs5bFS0mmEB1OGEr6W++dQxOglQNFI4N+0uj0a1F/6RW7lTVnk6duyyTnKM
-	cmdj1MqGMSfx61h81v2QVSOxpjLec1iqa54q65AiurJno3LVNkFyVfdfHQc/N+Xa8uppyA56rMVeN
-	tZG0pHqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PfFxejg/br2zDaiaEBdU9ZBdpu/3APgsmRYKWbR2RV4=; b=rjz1yR9c5B2gYIdg4CApqL7F0H
+	jJ/B0umlR14ICc1nhIVW7If7vF8TlRT4egKT4YZvijp7exI2pAMDnRmjgKwaNX21Tr/jFlhLVH966
+	6WgVMGLRoV1ck4/vi4noq69JGIyhGvDgVI1xDgNPcsNMKhEuo9IVvzANfJQAvBCS66tjsnmmu89y1
+	MTKqK8KKSNP3yEHjKON043+FgWP21CgxNa9xgVMyfvAniy+PsZx5oIN1RLNcGi+52mU1QjDJYR1Su
+	ETq7Ka1NKb2Ag/WTMeFuVUvA02JGqe9ynXY7ofTsoci9Tfo1eupxY80f40e3izFzy0F2MMVe1eXAC
+	36DTB5EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTgjp-0000000GdlQ-2Qc9;
-	Thu, 11 Dec 2025 13:29:45 +0000
-Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
+	id 1vTgjy-0000000GdnS-3lej;
+	Thu, 11 Dec 2025 13:29:54 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTgjn-0000000Gdl0-2AlP
+	id 1vTgjx-0000000Gdmb-2RNR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 13:29:44 +0000
-Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-b734fcbf1e3so17967366b.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 05:29:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1765459781; x=1766064581; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gIJgw/8vF2HaiakXVV/uyJUOCxs1zd6fI8bBZPHAmGM=;
-        b=JLffjKoLwDMVzE0PpYJkkLysh7gH2PD7RfsFe3ZnRZfeNHpX35XQM4nn8HK5ATNVyl
-         jzsfd9GBbXIZ1kRK14gukP4UJ3dU2Dmb7Yl+7xCwNBA+rhuIbMmOze64S/vg0llngxN7
-         quOXVBQUQVOnKHqwnuN+mQox5IVT/wXEhbxlo=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765459781; x=1766064581;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=gIJgw/8vF2HaiakXVV/uyJUOCxs1zd6fI8bBZPHAmGM=;
-        b=CjX3kY+yy3AE5Wik/nChra7lWgwJ18F/BzjMk8rSp6yBLWO8V/to/XGij1HPwA0GGT
-         ADTxnbhZQHXPsikS8ZhLVBuP8SjF2E4/32p66YNMQF4gPikyN86qiP63BuZKMARD2SBN
-         heBp9WnJBwAhWOmsmD6qmD6ORqaBS1OBh+oizdnCqhfFgk8g8vIRf5aQq7yobz+TdB+e
-         nHunl1Ot3ue84oGDTYt1ECFoj+7j/sbSegcZiP4mV4NZhDqyw7sLzPY8aN3EWVel6lzj
-         XrtRuxdSFSXPMdeOFMIbfFg29EYtG4l8kC/jZZRrv5X22tD67nwGpXj0afIcGBAyKUM0
-         gpjA==
-X-Gm-Message-State: AOJu0YzNFcB8FhwOlsuMNd0dtC/UGKzRYE8DbQ/BkEUZ9m8RDy65NCRR
-	dGHbLLHanHpozlu4gTRsYFOHXSv0motQCR1OaxYu2DlnYna/QgYN+IIIsv6cB/Y0uiO3ZGqoOpS
-	v52NeJIiEpXB44PpFaZ6PUiyo0sETlzrO8cP9UmEA
-X-Gm-Gg: AY/fxX5awVjYQN6Oz+SADOSYd/YpFFtMrzZSPLLFKUogCIVxSjWuWz23FM95BTbMOFn
-	osnb2+4/DaTbekXns/zsrMZBl8LmCIJKJz+X2R6dGiXn05l9WOLPqQbxdCkcbtMtAMjMcWc6lqP
-	c29dm/h6haBjLGiDVJmTBAJ24/q6sqHSEjeF9FuTIK9I10WvpEQzo+0GPlPOB+9F0pdECFQK7/D
-	TDgyqMZ0JSItJbFjYmqbt5eJSa0MRafBPaODiUPOITT9JWzOntnK2mTYSh3qBgs8kFo8Q==
-X-Google-Smtp-Source: AGHT+IEYcw6OiATv5FbWQJs4K6iBeG999HnzFpyvR0QZQcvBt2OWiiXGTspPRf55g1j+eSSYJczHOrxF1ALqr8s1iCM=
-X-Received: by 2002:a17:907:7f29:b0:b73:8639:cd8e with SMTP id
- a640c23a62f3a-b7ce8232014mr630110266b.4.1765459781462; Thu, 11 Dec 2025
- 05:29:41 -0800 (PST)
+	Thu, 11 Dec 2025 13:29:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=PfFxejg/br2zDaiaEBdU9ZBdpu/3APgsmRYKWbR2RV4=; b=P04z5f9QZhAjh49Y13gbduOzqp
+	vV0qjgaGNF2sYUMqiw8k9BpvW1l0DPcwMmbvMmXV31PKHlCovv5/Jms0qP4AD55otX18xsVdDdYeG
+	jLjA5stL9swHDLi/q94ykBcZAtxj0s/q/UgX5pPCDfEP3rJvRHJgEmfh4htwQZCklaCc=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vTgjQ-00Ge9n-Si; Thu, 11 Dec 2025 14:29:20 +0100
+Date: Thu, 11 Dec 2025 14:29:20 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Jacky Chou <jacky_chou@aspeedtech.com>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	Potin Lai <potin.lai@quantatw.com>, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org, Andrew Jeffery <andrew@aj.id.au>
+Subject: Re: [PATCH net v3] net: mdio: aspeed: add dummy read to avoid
+ read-after-write issue
+Message-ID: <f53fcaf3-0154-4cc7-87be-ab815fa8b6f5@lunn.ch>
+References: <20251211-aspeed_mdio_add_dummy_read-v3-1-382868869004@aspeedtech.com>
 MIME-Version: 1.0
-References: <20251119181333.991099-1-sjg@chromium.org> <20251119181333.991099-8-sjg@chromium.org>
- <CAGXv+5HiV7EE9CNPRT5EbL8AM8n68Ac1r-=esQL5dgaPDKPTWQ@mail.gmail.com>
-In-Reply-To: <CAGXv+5HiV7EE9CNPRT5EbL8AM8n68Ac1r-=esQL5dgaPDKPTWQ@mail.gmail.com>
-From: Simon Glass <sjg@chromium.org>
-Date: Thu, 11 Dec 2025 06:29:28 -0700
-X-Gm-Features: AQt7F2pJsKr81oAthJu4CoZYzFwwTEy6KYID3K-eoU88WFHYqfH0S3tC0a2u9Tw
-Message-ID: <CAFLszThEu4j+Fcxm4VYYVTtqf-9Yp_OnEKes0sD+TACkoHuhbQ@mail.gmail.com>
-Subject: Re: [PATCH v6 7/8] scripts/make_fit: Support a few more parallel compressors
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	=?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Tom Rini <trini@konsulko.com>, 
-	Ahmad Fatoum <a.fatoum@pengutronix.de>, =?UTF-8?B?SiAuIE5ldXNjaMOkZmVy?= <j.ne@posteo.net>, 
-	Nicolas Schier <nicolas@fjasle.eu>, David Sterba <dsterba@suse.com>, Nick Terrell <terrelln@fb.com>, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251211-aspeed_mdio_add_dummy_read-v3-1-382868869004@aspeedtech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_052943_599791_03D06AFA 
-X-CRM114-Status: GOOD (  21.85  )
+X-CRM114-CacheID: sfid-20251211_052953_621688_B393AC7C 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,84 +76,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chen-Yu,
+On Thu, Dec 11, 2025 at 02:24:58PM +0800, Jacky Chou wrote:
+> The Aspeed MDIO controller may return incorrect data when a read operation
+> follows immediately after a write. Due to a controller bug, the subsequent
+> read can latch stale data, causing the polling logic to terminate earlier
+> than expected.
+> 
+> To work around this hardware issue, insert a dummy read after each write
+> operation. This ensures that the next actual read returns the correct
+> data and prevents premature polling exit.
+> 
+> This workaround has been verified to stabilize MDIO transactions on
+> affected Aspeed platforms.
+> 
+> Fixes: f160e99462c6 ("net: phy: Add mdio-aspeed")
+> Signed-off-by: Jacky Chou <jacky_chou@aspeedtech.com>
 
-On Tue, 2 Dec 2025 at 03:18, Chen-Yu Tsai <wenst@chromium.org> wrote:
->
-> On Thu, Nov 20, 2025 at 2:14=E2=80=AFAM Simon Glass <sjg@chromium.org> wr=
-ote:
-> >
-> > Add support for pbzip2 and plzip which can compress in parallel. This
-> > speeds up the ramdisk compression.
-> >
-> > Signed-off-by: Simon Glass <sjg@chromium.org>
-> > ---
-> >
-> > (no changes since v1)
-> >
-> >  scripts/make_fit.py | 11 ++++++++---
-> >  1 file changed, 8 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/scripts/make_fit.py b/scripts/make_fit.py
-> > index 9dfef11fc4b3..64038f17a51e 100755
-> > --- a/scripts/make_fit.py
-> > +++ b/scripts/make_fit.py
-> > @@ -57,10 +57,10 @@ import libfdt
-> >  CompTool =3D collections.namedtuple('CompTool', 'ext,tools')
-> >
-> >  COMP_TOOLS =3D {
-> > -    'bzip2': CompTool('.bz2', 'bzip2'),
-> > +    'bzip2': CompTool('.bz2', 'pbzip2,bzip2'),
-> >      'gzip': CompTool('.gz', 'pigz,gzip'),
-> >      'lz4': CompTool('.lz4', 'lz4'),
-> > -    'lzma': CompTool('.lzma', 'lzma'),
-> > +    'lzma': CompTool('.lzma', 'plzip,lzma'),
-> >      'lzo': CompTool('.lzo', 'lzop'),
-> >      'zstd': CompTool('.zstd', 'zstd'),
-> >  }
-> > @@ -220,7 +220,12 @@ def compress_data(inf, compress):
-> >              done =3D False
-> >              for tool in comp.tools.split(','):
-> >                  try:
-> > -                    subprocess.call([tool, '-c'], stdin=3Dinf, stdout=
-=3Doutf)
-> > +                    # Add parallel flags for tools that support them
-> > +                    cmd =3D [tool]
-> > +                    if tool in ('zstd', 'xz'):
->
-> There's no 'xz' tool in the list though.
->
-> And this hunk isn't mentioned or explained in the commit message.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-OK I will update it.
-
->
-> > +                        cmd.extend(['-T0'])  # Use all available cores
->
-> Zero is already the default for 'xz' in 5.8.1.
-
-My system is fairly up-to-date (Noble) and I have:
-
-xz -V
-xz (XZ Utils) 5.4.5
-liblzma 5.4.5
-
-Does the new version reject -T0 ? If not, then I think it is best to
-provide it in this script.
-
->
->
-> ChenYu
->
-> > +                    cmd.append('-c')
-> > +                    subprocess.call(cmd, stdin=3Dinf, stdout=3Doutf)
-> >                      done =3D True
-> >                      break
-> >                  except FileNotFoundError:
-> > --
-> > 2.43.0
-> >
-
-Regards,
-Simon
+    Andrew
 
