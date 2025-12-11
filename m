@@ -4,91 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A8E6D41D50
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 15:17:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99ED1D41D57
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 15:19:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N/SEPPS3LkYORhwqK+Trj2yot7q9tIQx0jdFwhoKT5g=; b=xBM0Bdon+QuztgjHpxplx2xgx2
-	XNPo6F5wE72TY6niw1tqU1D3nYt6CtJGL9TMnRtpRZmCegcMEKcUAULwZWKkK9XcUoN7iM4dQWlCF
-	wBTkQJtT6Dj+chegorirRnZPHIWMU+ctN2DnScFz7xawe14m22jIE29/sJsFqA7OGuF1vDIlkCgor
-	fm/5FbcdpGjRI6q0dSOuCq10/y2vIrWXQvOrSM91UtZeHvBNMvRoz70HCdW69m+1Mwhrb+mRsnLi4
-	tSaB83yK4YA8Csi/g067s2D1xiFGVrmvejrAnVmD4ZK7mGanyhllU2UYUjyyqJ1ezgylHBCZiReXW
-	C32erTyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OgU9YWRzmdSyKlVfuXelZdV8geLfnxP2mG9KV0K02Q4=; b=mEJ9VJDMCvSnV0THwCnrSrZRuP
+	DZ1b84rDa0qKWHIaOaIcZhwm0P+W7t+DHglsnnO7UvmbcrOzMj4ek78Gus0RLcoOL/JhFo4XvH1pU
+	LaQZZ9yJLaCPrHgcMSFvC+ovQ5NYU5vXRk1jlxRw3BHG2fzHO9gcmzdG1zW8mJeYY2G1GopeEtenI
+	IPPdSuOXD/fcqKCJrD3xeeuAUBij7BWzkU8JTGhN3dm38pBtnGzUe7hJqIqSF+UD8Bar/k7/y/X+c
+	j5K2h7b7wlo3CXe8fy238xCdwuYGuGrYLq9dvvxPeHwlmiZDtn0kxZ+MqY8xI5ksAe0YP179exRTS
+	WT7BceBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTiQ3-0000000GlDX-0A3V;
-	Thu, 11 Dec 2025 15:17:27 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTiQ0-0000000GlD0-0POc;
-	Thu, 11 Dec 2025 15:17:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1765466188; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=L9VYmwF1ZV8mBvucp3svl+n1MZEnWQ04BL2BhNVuEMK6dCSfOeQuAT97cDSJwI2UtS5eS+maNpMT36+E1J9CzLenf0SwAHPud6VltN4mVmuujvF+jwhF8COSljdNWrlZT/Y/wOvAOC01CvvYY5bjjmtQaHkZdf/a+uLsc16RwWE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1765466188; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=N/SEPPS3LkYORhwqK+Trj2yot7q9tIQx0jdFwhoKT5g=; 
-	b=Yv5af2b0YtOIVbVBwQckS9812m+mnbuhUpQ4QpChqPvKJwPrZkAnyBH0ciyo6jBkiGQTMPUGEoez+4bySY1CUTrunn3Earx6ny21zE6HODfZe6SesicfMLmZQu8RGOHO0UvdGh0TcLON91nyH2W4xLfWl4K95ch6Wn3HUu69A6U=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
-	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765466188;
-	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=N/SEPPS3LkYORhwqK+Trj2yot7q9tIQx0jdFwhoKT5g=;
-	b=L/jXXvCBWUVNoYDSVpKQzIj0UZfcnyE8Lh8Z2YHt8KxEHygIUMmoLAroU/yz9igs
-	IHcH9pFbI6OQw8HIoZSj+W+05VcMrgEAQmqiNCbwAlVPkFT3iJ1IBBc9QiyKK5pMI0M
-	h8uNTJ5v12VQvdswTB6xWbFG8lMowpjEs86OuFbU=
-Received: by mx.zohomail.com with SMTPS id 1765466186652613.9579128013164;
-	Thu, 11 Dec 2025 07:16:26 -0800 (PST)
-Message-ID: <68c83842-16e9-429b-96c8-50c8a15c659c@collabora.com>
-Date: Thu, 11 Dec 2025 12:16:08 -0300
+	id 1vTiRh-0000000GlUS-2awm;
+	Thu, 11 Dec 2025 15:19:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vTiRf-0000000GlTL-0SL4
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 11 Dec 2025 15:19:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EA8A11688;
+	Thu, 11 Dec 2025 07:18:55 -0800 (PST)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 25BE33F740;
+	Thu, 11 Dec 2025 07:19:01 -0800 (PST)
+Date: Thu, 11 Dec 2025 15:18:51 +0000
+From: Joey Gouly <joey.gouly@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
+	Sebastian Ene <sebastianene@google.com>
+Subject: Re: [PATCH v2 6/6] KVM: arm64: Honor UX/PX attributes for EL2 S1
+ mappings
+Message-ID: <20251211151810.GA867614@e124191.cambridge.arm.com>
+References: <20251210173024.561160-1-maz@kernel.org>
+ <20251210173024.561160-7-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC v2 07/20] drm/atomic: Pass post_blend_color_pipeline
- client cap to atomic check
-To: Harry Wentland <harry.wentland@amd.com>,
- =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Haneen Mohammed <hamohammed.sa@gmail.com>,
- Melissa Wen <melissa.srw@gmail.com>
-Cc: Alex Hung <alex.hung@amd.com>, wayland-devel@lists.freedesktop.org,
- leo.liu@amd.com, ville.syrjala@linux.intel.com,
- pekka.paalanen@collabora.com, contact@emersion.fr, mwen@igalia.com,
- jadahl@redhat.com, sebastian.wick@redhat.com, shashank.sharma@amd.com,
- agoins@nvidia.com, joshua@froggi.es, mdaenzer@redhat.com, aleixpol@kde.org,
- xaver.hugl@gmail.com, victoria@system76.com, uma.shankar@intel.com,
- quic_naseer@quicinc.com, quic_cbraga@quicinc.com, quic_abhinavk@quicinc.com,
- marcan@marcan.st, Liviu.Dudau@arm.com, sashamcintosh@google.com,
- chaitanya.kumar.borah@intel.com, louis.chauvet@bootlin.com,
- mcanal@igalia.com, kernel@collabora.com, daniels@collabora.com,
- leandro.ribeiro@collabora.com, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, Simona Vetter <simona.vetter@ffwll.ch>
-References: <20250917-mtk-post-blend-color-pipeline-v2-0-ac4471b44758@collabora.com>
- <20250917-mtk-post-blend-color-pipeline-v2-7-ac4471b44758@collabora.com>
- <93edf489-c4f6-4f0d-a0d5-673da051983d@amd.com>
-Content-Language: en-US
-From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-In-Reply-To: <93edf489-c4f6-4f0d-a0d5-673da051983d@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
-X-ZohoMail-Owner: <68c83842-16e9-429b-96c8-50c8a15c659c@collabora.com>+zmo_0_ariel.dalessandro@collabora.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251210173024.561160-7-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_071724_246956_8EAC8E52 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20251211_071907_262912_C3A132EA 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,83 +69,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Harry,
+Question,
 
-On 9/29/25 6:50 AM, Harry Wentland wrote:
+On Wed, Dec 10, 2025 at 05:30:24PM +0000, Marc Zyngier wrote:
+> Now that we potentially have two bits to deal with when setting
+> execution permissions, make sure we correctly handle them when both
+> when building the page tables and when reading back from them.
 > 
+> Reported-by: Alexandru Elisei <alexandru.elisei@arm.com>
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/include/asm/kvm_pgtable.h | 12 +++---------
+>  arch/arm64/kvm/hyp/pgtable.c         | 24 +++++++++++++++++++++---
+>  2 files changed, 24 insertions(+), 12 deletions(-)
 > 
-> On 2025-09-17 20:43, Nícolas F. R. A. Prado wrote:
->> Pass the state of the post-blend color pipeline client cap to the atomic
->> state so that drivers can rely on it to enable color pipeline
->> functionality and ignore the deprecated color management CRTC
->> properties.
->>
->> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
->> ---
->>   drivers/gpu/drm/drm_atomic_uapi.c |  1 +
->>   include/drm/drm_atomic.h          | 20 ++++++++++++++++++++
->>   2 files changed, 21 insertions(+)
->>
->> diff --git a/drivers/gpu/drm/drm_atomic_uapi.c b/drivers/gpu/drm/ 
->> drm_atomic_uapi.c
->> index 
->> f5125fa3fa28ff2a6ff07fd7cf07d4bdf77ab738..56a440a9390c7730c4c41b491f29b933a2bbb889 100644
->> --- a/drivers/gpu/drm/drm_atomic_uapi.c
->> +++ b/drivers/gpu/drm/drm_atomic_uapi.c
->> @@ -1660,6 +1660,7 @@ int drm_mode_atomic_ioctl(struct drm_device *dev,
->>       state->acquire_ctx = &ctx;
->>       state->allow_modeset = !!(arg->flags & 
->> DRM_MODE_ATOMIC_ALLOW_MODESET);
->>       state->plane_color_pipeline = file_priv->plane_color_pipeline;
->> +    state->post_blend_color_pipeline = file_priv- 
->> >post_blend_color_pipeline;
->>   retry:
->>       copied_objs = 0;
->> diff --git a/include/drm/drm_atomic.h b/include/drm/drm_atomic.h
->> index 
->> 678708df9cdb90b4266127193a92183069f18688..8c42c584aefbf0034b2163d90538e80099b0dadb 100644
->> --- a/include/drm/drm_atomic.h
->> +++ b/include/drm/drm_atomic.h
->> @@ -482,6 +482,26 @@ struct drm_atomic_state {
->>        */
->>       bool plane_color_pipeline : 1;
->> +    /**
->> +     * @post_blend_color_pipeline:
->> +     *
->> +     * Indicates whether this atomic state originated with a client that
->> +     * set the DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE.
->> +     *
->> +     * Drivers and helper functions should use this to ignore legacy
->> +     * properties that are incompatible with the drm_crtc COLOR_PIPELINE
->> +     * behavior, such as:
->> +     *
->> +     *  - GAMMA_LUT
->> +     *  - DEGAMMA_LUT
->> +     *  - GAMMA_LUT_SIZE
->> +     *  - CTM
->> +     *
->> +     * or any other driver-specific properties that might affect pixel
->> +     * values.
->> +     */
->> +    bool post_blend_color_pipeline : 1;
+> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+> index be68b89692065..095e6b73740a6 100644
+> --- a/arch/arm64/include/asm/kvm_pgtable.h
+> +++ b/arch/arm64/include/asm/kvm_pgtable.h
+> @@ -87,15 +87,9 @@ typedef u64 kvm_pte_t;
+>  
+>  #define KVM_PTE_LEAF_ATTR_HI_SW		GENMASK(58, 55)
+>  
+> -#define __KVM_PTE_LEAF_ATTR_HI_S1_XN	BIT(54)
+> -#define __KVM_PTE_LEAF_ATTR_HI_S1_UXN	BIT(54)
+> -#define __KVM_PTE_LEAF_ATTR_HI_S1_PXN	BIT(53)
+> -
+> -#define KVM_PTE_LEAF_ATTR_HI_S1_XN					\
+> -	({ cpus_have_final_cap(ARM64_KVM_HVHE) ?			\
+> -			(__KVM_PTE_LEAF_ATTR_HI_S1_UXN |		\
+> -			 __KVM_PTE_LEAF_ATTR_HI_S1_PXN) :		\
+> -			__KVM_PTE_LEAF_ATTR_HI_S1_XN; })
+> +#define KVM_PTE_LEAF_ATTR_HI_S1_XN	BIT(54)
+> +#define KVM_PTE_LEAF_ATTR_HI_S1_UXN	BIT(54)
+> +#define KVM_PTE_LEAF_ATTR_HI_S1_PXN	BIT(53)
+>  
+>  #define KVM_PTE_LEAF_ATTR_HI_S2_XN	GENMASK(54, 53)
+>  
+> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> index e0bd6a0172729..97c0835d25590 100644
+> --- a/arch/arm64/kvm/hyp/pgtable.c
+> +++ b/arch/arm64/kvm/hyp/pgtable.c
+> @@ -342,6 +342,9 @@ static int hyp_set_prot_attr(enum kvm_pgtable_prot prot, kvm_pte_t *ptep)
+>  	if (!(prot & KVM_PGTABLE_PROT_R))
+>  		return -EINVAL;
+>  
+> +	if (!cpus_have_final_cap(ARM64_KVM_HVHE))
+> +		prot &= ~KVM_PGTABLE_PROT_UX;
+
+Trying to understand this part. We don't consider KVM_PGTABLE_PROT_UX below
+when !HVHE, and we don't set it in kvm_pgtable_hyp_pte_prot() when !HVHE
+either, so can it ever actually be set?
+
+Otherwise LGTM!
+
+Thanks,
+Joey
+
+> +
+>  	if (prot & KVM_PGTABLE_PROT_X) {
+>  		if (prot & KVM_PGTABLE_PROT_W)
+>  			return -EINVAL;
+> @@ -351,8 +354,16 @@ static int hyp_set_prot_attr(enum kvm_pgtable_prot prot, kvm_pte_t *ptep)
+>  
+>  		if (system_supports_bti_kernel())
+>  			attr |= KVM_PTE_LEAF_ATTR_HI_S1_GP;
+> +	}
+> +
+> +	if (cpus_have_final_cap(ARM64_KVM_HVHE)) {
+> +		if (!(prot & KVM_PGTABLE_PROT_PX))
+> +			attr |= KVM_PTE_LEAF_ATTR_HI_S1_PXN;
+> +		if (!(prot & KVM_PGTABLE_PROT_UX))
+> +			attr |= KVM_PTE_LEAF_ATTR_HI_S1_UXN;
+>  	} else {
+> -		attr |= KVM_PTE_LEAF_ATTR_HI_S1_XN;
+> +		if (!(prot & KVM_PGTABLE_PROT_PX))
+> +			attr |= KVM_PTE_LEAF_ATTR_HI_S1_XN;
+>  	}
+>  
+>  	attr |= FIELD_PREP(KVM_PTE_LEAF_ATTR_LO_S1_AP, ap);
+> @@ -373,8 +384,15 @@ enum kvm_pgtable_prot kvm_pgtable_hyp_pte_prot(kvm_pte_t pte)
+>  	if (!kvm_pte_valid(pte))
+>  		return prot;
+>  
+> -	if (!(pte & KVM_PTE_LEAF_ATTR_HI_S1_XN))
+> -		prot |= KVM_PGTABLE_PROT_X;
+> +	if (cpus_have_final_cap(ARM64_KVM_HVHE)) {
+> +		if (!(pte & KVM_PTE_LEAF_ATTR_HI_S1_PXN))
+> +			prot |= KVM_PGTABLE_PROT_PX;
+> +		if (!(pte & KVM_PTE_LEAF_ATTR_HI_S1_UXN))
+> +			prot |= KVM_PGTABLE_PROT_UX;
+> +	} else {
+> +		if (!(pte & KVM_PTE_LEAF_ATTR_HI_S1_XN))
+> +			prot |= KVM_PGTABLE_PROT_PX;
+> +	}
+>  
+>  	ap = FIELD_GET(KVM_PTE_LEAF_ATTR_LO_S1_AP, pte);
+>  	if (ap == KVM_PTE_LEAF_ATTR_LO_S1_AP_RO)
+> -- 
+> 2.47.3
 > 
-> As with the client cap name, I recommend calling this
-> crtc_color_pipeline.
-
-Agreed. As per the rest of the comments, I think it's worth moving all 
-naming in this series from post_blend to crtc, matching the criteria 
-used in plane (a.k.a. pre-blend) color pipelines.
-
-Will submit the related changes in v3.
-
-Regards,
-
--- 
-Ariel D'Alessandro
-Software Engineer
-
-Collabora Ltd.
-Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK 
-Registered in England & Wales, no. 5513718
-
 
