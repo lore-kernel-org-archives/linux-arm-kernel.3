@@ -4,88 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D011D43343
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 20:33:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86850D43352
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 20:36:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7qw2IhZlfosDTtQhR76WxRRqVpcH8s+9QhHY7zmTxpk=; b=AXDN4bVZzIcFQ5AHph434g1yKh
-	rx6vJ4pgIr8BdS58PWkO/yXucfYeuumNKQYk+PzFNoV3GWKDLXwTLnxj161vApdQztKe3ayGfWgcg
-	TXJq2+TgkGItIKgHS9nuimLisVGlcFw+Bv8rCOGCYf5F8SQv/Pjj5uRe0Zvg0LJrSsRC20/9rYUhi
-	cLm6UlDTBS5LA4l8vq6Y4bbKgyqW6OLEmTi7cbqFwcqlu7+/yRs/n+UsRRqdDLU0m0cGlMFrSULfm
-	5LrnUZWI5hN3GkFxj+NM/dtB1mXv1VtfW1AdilRNs30fGyegjRLPP/+Ok9fAPwDaAZQgqJiWy8J3o
-	fxKA1H1w==;
+	bh=Is75louboRAiVLTIaxtyzhVXvnAQwHNigcyt2snOBGQ=; b=gZHtpffllUnzWZ/ZiD2Pw7Zlka
+	Nj3On1BiJhpzY2g91cpAgQdBbm19wRZWX3c9pJNmmj1PlNoBHb3aNWpBE2RKb7OEeCjaBvxfbDDjG
+	XoNxO7XciHYR7GPeVWKL3kvXaBcowjmlpmA+IAaXg2TY7PoFdKUtxIHeY0bC7EIiGZxSAg6J1nj5j
+	8Zn25px9RQt664jkN6znFqGaEos1ope5eQ0Y75AdIgvhhuhzGYi+Yj1nogoRxuomCwXVpRFrm3jm8
+	/n2+RZTdh4H4FbTuGbETAZM6eWi96V3RZHFnW1FU4SZlnyc2KnbfK1/yTL5OKNIHG1HgiHF6xmLr3
+	nXSIeiLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTnLn-0000000HEpz-20f8;
-	Thu, 11 Dec 2025 20:33:23 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1vTnOU-0000000HFFZ-2zwi;
+	Thu, 11 Dec 2025 20:36:12 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTnLk-0000000HEpJ-0X5X;
-	Thu, 11 Dec 2025 20:33:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1765485198;
-	bh=EvpYuyMSWW3rPM+EGfSJa8//Qidk0b3Vfk2GRGHLY/8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=qSgy7wK8Med80K3RHWdGGbsNc01bbVk8oyulgtDCqZ18UKke5cVBpfamdj+eL/px9
-	 232jaEUiSodL5/lityZjQPvTCUAyfASW+rB9OwCYExIaptoH8hSK1RFeZ1PGBdU4Nf
-	 QK+oMPWdEy1WiEsL3fph3YGPg6yngR1878YyBcyiv/eVf6RaImytPZwbTtifC7iMdJ
-	 xUN86NF67aCktfxkAwa3xiHwuYSS9eHRbrEd3t3gMZNjzLVPSVXhHb/ntdthXMUlx8
-	 AHnzFppiC+WsZQ35X0gwQ+eYrG7IP1QTJv3L/CKhEQC79Gakr35s2xEkL+FMHDD1mJ
-	 EIto9JjnR+Dtg==
-Received: from [IPv6:2606:6d00:17:7b4b::c41] (unknown [IPv6:2606:6d00:17:7b4b::c41])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: nicolas)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 81F9217E00A8;
-	Thu, 11 Dec 2025 21:33:15 +0100 (CET)
-Message-ID: <66cb982fd78c85a33006647e0d2f1fe4b0c10a86.camel@collabora.com>
-Subject: Re: [PATCH v6 08/10] media: mediatek: vcodec: Fix media device node
- number
-From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-To: Kyrie Wu <kyrie.wu@mediatek.com>, Tiffany Lin
- <tiffany.lin@mediatek.com>,  Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
- Yunfei Dong <yunfei.dong@mediatek.com>, Mauro Carvalho Chehab	
- <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger	
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
- <angelogioacchino.delregno@collabora.com>, Hans Verkuil
- <hverkuil@xs4all.nl>,  Nathan Hebert <nhebert@chromium.org>, Arnd Bergmann
- <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>,  George Sun
- <george.sun@mediatek.com>, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, 	linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, 	linux-mediatek@lists.infradead.org
-Cc: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
-	 <andrzejtp2010@gmail.com>, Yilong Zhou <yilong.zhou@mediatek.com>
-Date: Thu, 11 Dec 2025 15:33:14 -0500
-In-Reply-To: <20251202074038.3173-9-kyrie.wu@mediatek.com>
-References: <20251202074038.3173-1-kyrie.wu@mediatek.com>
-	 <20251202074038.3173-9-kyrie.wu@mediatek.com>
-Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Organization: Collabora Canada
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-aFzqfli/yHis0bwpWqQX"
-User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
+	id 1vTnOT-0000000HFFO-0Rze
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 11 Dec 2025 20:36:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 1256960097;
+	Thu, 11 Dec 2025 20:36:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BDFBC4CEF7;
+	Thu, 11 Dec 2025 20:36:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765485367;
+	bh=TO+xTEZtUGaXTld4LG2GnHGUoSmoCf2h0b5koSopinM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=oBGZst/ilIfa32pv/f1maIimQrN4KhqcdqAsyg5OHp7Gotp+q4b33pXmqjBpWblaK
+	 J7qDcPr46lXT9xjl9FJMZUNDUHPVOT3ynebl/qwt0X13wO0b2ZSJBJccJpF5JU6r71
+	 pgLN2dgmHQXFnJ11Ir6YNSoFNVkJ9xng5VLSE4wUOPyvaLTK+0gchN9bjd5eNpkdCw
+	 ab3r5oZvbmaAfQbwOejWse6375/iRhLjazFkf3yoOujZ3AUOmGUMWvFmMYfA0XAcBM
+	 1WkbvVBZktv+wEer+ESo3GHvS2nJsV8sWaRx5K+p8EU2MKMYTAExvYlKwYhdTtTOno
+	 4VDvrxAb5DyFg==
+Date: Fri, 12 Dec 2025 05:36:01 +0900
+From: Will Deacon <will@kernel.org>
+To: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	tabba@google.com
+Subject: Re: [PATCH 1/2] KVM: arm64: Copy FGT traps to unprotected pKVM VCPU
+ on VCPU load
+Message-ID: <aTsrMUGan1AH5suO@google.com>
+References: <20251210132102.137631-1-alexandru.elisei@arm.com>
+ <20251210132102.137631-2-alexandru.elisei@arm.com>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_123320_325423_E75ADD8D 
-X-CRM114-Status: GOOD (  14.81  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251210132102.137631-2-alexandru.elisei@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,61 +72,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hey Alexandru,
 
---=-aFzqfli/yHis0bwpWqQX
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+[+Fuad as we ran into this last week]
 
-Le mardi 02 d=C3=A9cembre 2025 =C3=A0 15:40 +0800, Kyrie Wu a =C3=A9crit=C2=
-=A0:
-> change media register device node number to a correct value.
-> The vfd minor is used to record the number of registered
-> video device nodes. The mdev_dec.devnode minor counter is
-> used to record the number of registered media device nodes.
->=20
-> Fixes: 41f03c673cb7b ("media: mediatek: vcodec: replace pr_* with dev_* f=
-or v4l2 debug message")
->=20
-> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
-
-Reviewed-by: Nicolas Dufresne <nicolas.dufresne@collabora.com>
-
+On Wed, Dec 10, 2025 at 01:21:01PM +0000, Alexandru Elisei wrote:
+> Commit fb10ddf35c1c ("KVM: arm64: Compute per-vCPU FGTs at vcpu_load()")
+> introduced per-VCPU FGT traps. For an unprotected pKVM VCPU, the untrusted
+> host FGT configuration is copied in pkvm_vcpu_init_traps(), which is called
+> from __pkvm_init_vcpu(). __pkvm_init_vcpu() is called once per VCPU (when
+> the VCPU is first run) which means that the uninitialized, zero, values for
+> the FGT registers end up being used for the entire lifetime of the VCPU.
+> This causes both unwanted traps (for the inverse polarity trap bits) and
+> the guest being allowed to access registers it shouldn't.
+> 
+> Fix it by copying the FGT traps for unprotected pKVM VCPUs when the
+> untrusted host loads the VCPU.
+> 
+> Fixes: fb10ddf35c1c ("KVM: arm64: Compute per-vCPU FGTs at vcpu_load()")
+> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
 > ---
-> =C2=A0.../platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 | 3 ++-
-> =C2=A01 file changed, 2 insertions(+), 1 deletion(-)
->=20
-> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_de=
-c_drv.c b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv=
-.c
-> index 2d1a545e727c..bf6e792283a1 100644
-> --- a/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
-> +++ b/drivers/media/platform/mediatek/vcodec/decoder/mtk_vcodec_dec_drv.c
-> @@ -493,7 +493,8 @@ static int mtk_vcodec_probe(struct platform_device *p=
-dev)
-> =C2=A0			goto err_media_reg;
-> =C2=A0		}
-> =C2=A0
-> -		dev_dbg(&pdev->dev, "media registered as /dev/media%d", vfd_dec->minor=
-);
-> +		dev_dbg(&pdev->dev, "media registered as /dev/media%d",
-> +			dev->mdev_dec.devnode->minor);
-> =C2=A0	}
-> =C2=A0
-> =C2=A0	mtk_vcodec_dbgfs_init(dev, false);
+>  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 12 ++++++++++--
+>  arch/arm64/kvm/hyp/nvhe/pkvm.c     |  1 -
+>  2 files changed, 10 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> index 29430c031095..ee0f1343100c 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+> @@ -167,6 +167,7 @@ static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
+>  	DECLARE_REG(unsigned int, vcpu_idx, host_ctxt, 2);
+>  	DECLARE_REG(u64, hcr_el2, host_ctxt, 3);
+>  	struct pkvm_hyp_vcpu *hyp_vcpu;
+> +	struct kvm_vcpu *hyp_kvm_vcpu;
+>  
+>  	if (!is_protected_kvm_enabled())
+>  		return;
+> @@ -175,10 +176,17 @@ static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
+>  	if (!hyp_vcpu)
+>  		return;
+>  
+> +	hyp_kvm_vcpu = &hyp_vcpu->vcpu;
+> +
+>  	if (pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
+>  		/* Propagate WFx trapping flags */
+> -		hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWE | HCR_TWI);
+> -		hyp_vcpu->vcpu.arch.hcr_el2 |= hcr_el2 & (HCR_TWE | HCR_TWI);
+> +		hyp_kvm_vcpu->arch.hcr_el2 &= ~(HCR_TWE | HCR_TWI);
+> +		hyp_kvm_vcpu->arch.hcr_el2 |= hcr_el2 & (HCR_TWE | HCR_TWI);
 
---=-aFzqfli/yHis0bwpWqQX
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-Content-Transfer-Encoding: 7bit
+I don't think the 'hyp_kvm_vcpu' really makes this much clearer and it's
+the line only ends up being a single character shorter. Just continue to
+use 'hyp_vcpu->vcpu.'?
 
------BEGIN PGP SIGNATURE-----
+> +	} else {
+> +		struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
+> +
+> +		memcpy(&hyp_kvm_vcpu->arch.fgt, host_vcpu->arch.fgt,
+> +		       sizeof(hyp_kvm_vcpu->arch.fgt));
+>  	}
+>  }
+>  
+> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> index 43bde061b65d..05774aed09cb 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+> @@ -172,7 +172,6 @@ static int pkvm_vcpu_init_traps(struct pkvm_hyp_vcpu *hyp_vcpu)
+>  
+>  		/* Trust the host for non-protected vcpu features. */
+>  		vcpu->arch.hcrx_el2 = host_vcpu->arch.hcrx_el2;
+> -		memcpy(vcpu->arch.fgt, host_vcpu->arch.fgt, sizeof(vcpu->arch.fgt));
+>  		return 0;
+>  	}
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaTsqigAKCRDZQZRRKWBy
-9BiiAQChjhkDmde9orwBZUQR53EQisAKugo3JziXe89mHCSXogEA3BhPJG3ZcoKW
-icu7bE/fmHm9hzaHSWtMw21RcYsPtQY=
-=cn28
------END PGP SIGNATURE-----
+Otherwise, looks good to me:
 
---=-aFzqfli/yHis0bwpWqQX--
+Acked-by: Will Deacon <will@kernel.org>
+
+Will
 
