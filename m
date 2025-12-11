@@ -4,54 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D29C1D41C12
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 09:33:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0597FD41C14
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 09:40:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S7gidm0ryluBUc0VY8+K5m6BHlxflamJxOTgpc4wE9c=; b=GXm7Fi6VMnhxnlOkqzeoNzy7OA
-	HnAQTnIsoUJHzoAmGxC8aJ5KjJ+/7mk0WsmiMXV16Yi8SKB/wpQgx6u9pmdWazCaUl2DlEtKQvKxj
-	CbNKiMeoxiXt9+qW2k29iYhuHey8mTdTeQBotwZCerLgN1zSf5byojmHtxM5NaIifGRZ8wNJ1+ft9
-	/MR8sEkz6/+YM/gU36WEcJsq97LlSyNsay465NsNVz1YZ6uIqbSSMAkI14YWc6tbWLH1u3h5l5uhl
-	VgcsTYBpV7qw1EwWqfmrv7grvwbdmLjDt61GM/waXPRjfEXAt9lI3Y5rpx5JPSDO+XZpkn6iEIs5a
-	Pp1s9UIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WZVCcNfKSTt2Hd14gUawnCXPs39wl8U5m2GxT9YHICY=; b=F3R2EeJKF3XiC6TuXND462FTNH
+	jcoU8QEnF+hqZJyIXuQQkhowSoYZAz+6ebbXevIZJU6JzXVGIb6nyc42+7sLPxIouLhRt0ibkhC+Z
+	rc/IzPmwTfBTmdgqn7SNvXXLFf2Qi304I+CrMOd6yPfjqGJbDZeBRus5yTBI6+g230Qn50vImbm/D
+	FsjPVeXtT7Yz9hNdx+j+mYlrWo/2+qJRJCyQXifLn7NZZ7tyP8oAIBy9x2Ycnt3qdXITfgDEyOy8J
+	ZpIlq7o3Y3p6X29S9gybpIUB4wvvoyhelTuNzttgT838hy1FtY4RaGDr4YeGWrq8fC2AHg4RwZyGY
+	uGBVooDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTd3V-0000000GRaD-2cMW;
-	Thu, 11 Dec 2025 09:33:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTd3T-0000000GRZr-0bm5
+	id 1vTdAA-0000000GRuV-3lFE;
+	Thu, 11 Dec 2025 09:40:42 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vTdA6-0000000GRtg-3gXE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 09:33:48 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0974F153B;
-	Thu, 11 Dec 2025 01:33:38 -0800 (PST)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C2B033F740;
-	Thu, 11 Dec 2025 01:33:43 -0800 (PST)
-Date: Thu, 11 Dec 2025 09:33:40 +0000
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, qperret@google.com, will@kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Subject: Re: [PATCH 2/2] KVM: arm64: Remove extra argument for
- __pvkm_host_{share,unshare}_hyp()
-Message-ID: <aTqP9M_E7ROGpfbB@raptor>
-References: <20251210132102.137631-1-alexandru.elisei@arm.com>
- <20251210132102.137631-3-alexandru.elisei@arm.com>
- <86zf7po2n3.wl-maz@kernel.org>
+	Thu, 11 Dec 2025 09:40:41 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 17EB01A20DF;
+	Thu, 11 Dec 2025 09:40:34 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id DF0096068C;
+	Thu, 11 Dec 2025 09:40:33 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 14F2B103C8D53;
+	Thu, 11 Dec 2025 10:40:25 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1765446032; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=WZVCcNfKSTt2Hd14gUawnCXPs39wl8U5m2GxT9YHICY=;
+	b=N8BY+0RW1/KCWSmz1ejzT8wkU32hMHoROWuSW1FXKVX56lJPTLnrOG87aYRBJX3eLmwdQz
+	ElonbiZKTB2yohpJE+9k8TDVw2t9dMGuu4ov3c9BVvflGTXLZViwe/G9lROCs1KMjA5Cg1
+	HqAOW3glYucmbg2jWQCfC+vmSqV0f3bRAfIGwFYLKzsrZIZn5PifwpK4SdhZWFCK8zSDep
+	NJinbhnm5mFm/zI9m2xrgrfv6TFXNgAyWJZmSCZG+MROAk2te2haBPin+EoimEwAAmRl4c
+	665fBJnGyGTn7KpP/dBIwnBN6Ey1VxFEPONWoRQP8/KCoFPe22GeYDOR7es8FA==
+Date: Thu, 11 Dec 2025 10:40:24 +0100
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: "Luca Ceresoli" <luca.ceresoli@bootlin.com>
+Cc: "Jyri Sarha" <jyri.sarha@iki.fi>, "Tomi Valkeinen"
+ <tomi.valkeinen@ideasonboard.com>, "Maarten Lankhorst"
+ <maarten.lankhorst@linux.intel.com>, "Maxime Ripard" <mripard@kernel.org>,
+ "Thomas Zimmermann" <tzimmermann@suse.de>, "David Airlie"
+ <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Russell King" <linux@armlinux.org.uk>,
+ "Bartosz Golaszewski" <brgl@bgdev.pl>, "Tony Lindgren" <tony@atomide.com>,
+ "Andrzej Hajda" <andrzej.hajda@intel.com>, "Neil Armstrong"
+ <neil.armstrong@linaro.org>, "Robert Foss" <rfoss@kernel.org>, "Laurent
+ Pinchart" <Laurent.pinchart@ideasonboard.com>, "Jonas Karlman"
+ <jonas@kwiboo.se>, "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Markus
+ Schneider-Pargmann" <msp@baylibre.com>, "Louis Chauvet"
+ <louis.chauvet@bootlin.com>, "Thomas Petazzoni"
+ <thomas.petazzoni@bootlin.com>, "Miguel Gazquez"
+ <miguel.gazquez@bootlin.com>, <dri-devel@lists.freedesktop.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-omap@vger.kernel.org>
+Subject: Re: [PATCH 03/21] drm/tilcdc: Remove simulate_vesa_sync flag
+Message-ID: <20251211104024.1e7d5c42@kmaincent-XPS-13-7390>
+In-Reply-To: <DEUQM2HNEOQU.3K4ZPL44GVZAJ@bootlin.com>
+References: <20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com>
+	<20251126-feature_tilcdc-v1-3-49b9ef2e3aa0@bootlin.com>
+	<DEUQM2HNEOQU.3K4ZPL44GVZAJ@bootlin.com>
+Organization: bootlin
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.41; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86zf7po2n3.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_013347_247703_FC1F2EDB 
-X-CRM114-Status: GOOD (  19.35  )
+X-CRM114-CacheID: sfid-20251211_014039_074590_F146CF48 
+X-CRM114-Status: GOOD (  21.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,49 +94,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+On Wed, 10 Dec 2025 19:10:45 +0100
+"Luca Ceresoli" <luca.ceresoli@bootlin.com> wrote:
 
-On Thu, Dec 11, 2025 at 08:15:28AM +0000, Marc Zyngier wrote:
-> On Wed, 10 Dec 2025 13:21:02 +0000,
-> Alexandru Elisei <alexandru.elisei@arm.com> wrote:
-> > 
-> > __pvkm_host_share_hyp() and __pkvm_host_unshare_hyp() both have one
-> > parameter, the pfn, not two. Even though correctness isn't impacted because
-> > the SMCCC handlers pass the first argument and ignore the second one, let's
-> > call the functions with the proper number of arguments.
-> > 
-> > Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+> Hi K=C3=B6ry,
+>=20
+> On Wed Nov 26, 2025 at 6:35 PM CET, Kory Maincent (TI.com) wrote:
+> > The tilcdc hardware does not generate VESA-compliant sync signals. It
+> > aligns the vertical sync (VS) on the second edge of the horizontal sync
+> > (HS) instead of the first edge. To compensate for this hardware
+> > behavior, the driver applies a timing adjustment in mode_fixup().
+> >
+> > Previously, this adjustment was conditional based on the simulate_vesa_=
+sync
+> > flag, which was only set when using external encoders. This appears
+> > problematic because:
+> >
+> > 1. The timing adjustment seems needed for the hardware behavior regardl=
+ess
+> >    of whether an external encoder is used
+> > 2. The external encoder infrastructure is driver-specific and being
+> >    removed due to design issues
+> > 3. Boards using tilcdc without bridges (e.g., am335x-evm, am335x-evmsk)
+> >    may not be getting the necessary timing adjustments
+> >
+> > Remove the simulate_vesa_sync flag and apply the VESA sync timing
+> > adjustment unconditionally, ensuring consistent behavior across all
+> > configurations. While it's unclear if the previous conditional behavior
+> > was causing actual issues, the unconditional adjustment better reflects
+> > the hardware's characteristics.
+> >
+> > Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
 > > ---
-> >  arch/arm64/kvm/mmu.c | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> > index 7cc964af8d30..6c6abcd8e89e 100644
-> > --- a/arch/arm64/kvm/mmu.c
-> > +++ b/arch/arm64/kvm/mmu.c
-> > @@ -497,7 +497,7 @@ static int share_pfn_hyp(u64 pfn)
-> >  	this->count = 1;
-> >  	rb_link_node(&this->node, parent, node);
-> >  	rb_insert_color(&this->node, &hyp_shared_pfns);
-> > -	ret = kvm_call_hyp_nvhe(__pkvm_host_share_hyp, pfn, 1);
-> > +	ret = kvm_call_hyp_nvhe(__pkvm_host_share_hyp, pfn);
-> >  unlock:
-> >  	mutex_unlock(&hyp_shared_pfns_lock);
-> >  
-> 
-> Yeah, we lost all form of type-checking when everything was hastily
-> converted to SMCCC to avoid function pointers. Somehow, I feel that
-> the cure was worse than the disease.
-> 
-> I wish we'd reintroduce some form of compile-time checks, maybe by
-> having generated stubs?
+> >
+> > Only few board currently use tilcdc not associated to a bridge like the
+> > am335x_evm or the am335x-evmsk. =20
+>=20
+> Have you tested this change on any affected board?
+>=20
+> The change looks good to me but without some testing it would be risky.
 
-I also think compile-time checks would be useful, do you have something
-particular in mind?
+I have tested it on few boards but not these mainline devicetree as I don't
+have them.
 
-If not, right now I can't think of a way to generate the stubs automagically,
-but I can give it a (probably bad) try and take it from there.
+I have tested a tilcdc with tda998x bridge (BeagleBone Black), a tilcdc with
+ti,tilcdc,panel panel (BeagleBone with LCD cape), a tilcdc with it66121 bri=
+dge
+(new Beagle Bone Green Eco board with HDMI cape).
+That's all the boards I have.
 
-Thanks,
-Alex
+Regards,
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
