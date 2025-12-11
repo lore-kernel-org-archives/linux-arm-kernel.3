@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8FA1D41C26
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 11:38:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B7B4D41C26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 11:38:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gs+Q4zsHPmfn9d2bK4NrhKT3oLA9uDx+1JwH1OB2RUs=; b=Ic4Zo62F38zvfZkv/EStOSyldX
-	BSxXieXSOkwjXQCPDGVWNfVi3ROvAuYnsT40I8kh2/UTk7dQpmqViJocO46QPxa4aUfX8abbN4svq
-	mXsgBxT4T7fEyGmPdu/amh130Z20vDpcF5iGormsLNT7vjANhTJOFIOu1HU8WAneHygnEB81JL/v7
-	O5Sdx2ag7PnkVqkWWrVF95Zkg4PZm5eZQptFGtYafZp0yhBI25moUAx9n1s8qrpIHlLF/0qvTK/8s
-	l4oil/ekR8H/iiRlDEtWMAMnbxOoaNOvc3EzymvtstUQLqZ6cvsoZYC/14GjzoeHY9V8gAq82DBMM
-	htOziF9A==;
+	bh=FAKrVBNxWNzf5AFlwNKs8nwrXjTjocawMvN6/+Bemv4=; b=GMHnbkdlT9gbg65bWZz/sz8XI0
+	hrVW10N8UXr2aw3n5MNjkaj8LwMDi/E9bqomUqdXMo8dgFuQWzEqyL7LSoMNWs3qSxzV7Gsa06Lmp
+	VXjnmX1sHzqA2FSD4EnHQyqdY23HUY9EdXL0+UApM17CzxIcxvUU/dSOXDqpw0/0JM5zHHCbqhAcq
+	l+bj5KZBb1D3PsELo9UpBu3CQU5V1xLFohM3vfmFnTr8+eZ1mBngG9TyjOhQs36cmMG3uTzO52JJ+
+	y8ZgeeCv7uvKm6D8PLuyn0LHvf3l0o5WpkizC5cT3gLCvnTssm2j69TbxzsW06p0hLHReuY2YrV87
+	M3qsMyfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTf0H-0000000GYBH-2AaO;
-	Thu, 11 Dec 2025 11:38:38 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1vTf0M-0000000GYDF-2FEc;
+	Thu, 11 Dec 2025 11:38:43 +0000
+Received: from mail-wr1-x449.google.com ([2a00:1450:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTf0C-0000000GY8G-2ZGl
+	id 1vTf0E-0000000GY98-3zSI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 11:38:34 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-477b8a667bcso10578795e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 03:38:32 -0800 (PST)
+	Thu, 11 Dec 2025 11:38:36 +0000
+Received: by mail-wr1-x449.google.com with SMTP id ffacd0b85a97d-42e2d6d13d1so414229f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 03:38:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1765453111; x=1766057911; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1765453112; x=1766057912; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Gs+Q4zsHPmfn9d2bK4NrhKT3oLA9uDx+1JwH1OB2RUs=;
-        b=IDdYQPEb4hQeGV0/UUiXH8Ty8mC52cr9mAOXrXhB/yL8ZWPXox9V0JQEG9NPtRi1Cl
-         0Os0yqvjhv+10C0DKEGW30ZjdxcC4JLdv0WduFmXDzF+TfDNggaReUP759iFU+DgyXMV
-         unXqd66oG670YC5CU9UQB19eJDKssSRaryssxC5f5MwAcx5MD81n+5XSYcf3qt6susrJ
-         aAW8DYE5IpLzLDCbA3vmA8TGThxHiwgWt52GUuQJnW+44XdGMDzTZLkxD0vFicgUrPee
-         ji6uADZcQxKnurEjOUvl61It4ikzCjYXiH2eILu2bvafnvRrcHCxfcPWaZAjk1+2NvQ2
-         cR8w==
+        bh=FAKrVBNxWNzf5AFlwNKs8nwrXjTjocawMvN6/+Bemv4=;
+        b=Woc8MPTvdyXkVS8WaY/Ov0pe9E9n/QJ6/TKTUoMvCrNbPtyTAb3STDqVC0dzqMLbmF
+         eLkjZkvR6spkZC4jc0CPXb8hVVwTT8LoK6ldVm0BJ2BKo4CmkCYbJC/L4B0F7aM/M6kP
+         tWfyhNIFsYzATSb+iqvheQgVyuoPO+SlkevgZVWDFkxy5CDhmLh90m+4c5wwqtY1VDGy
+         DK4W7WAVHvnIk25oXOQhyU2ozBzmPuWSUpcxsQAE3v3HTzloiI6yhP+FD8tGpBDL7eAJ
+         EjVRbnFHfY6J4MwiND7NOZ5AiXt0L/8OXoBkwbYrtkHNfqA96fOvu1fuekxH7KPZjs0W
+         TyqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765453111; x=1766057911;
+        d=1e100.net; s=20230601; t=1765453112; x=1766057912;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Gs+Q4zsHPmfn9d2bK4NrhKT3oLA9uDx+1JwH1OB2RUs=;
-        b=PHhOvlociYKLeRuHmf09gOqv7/iDm2sDtpEy58wdkjL5lB3cReBju1vNs90OOALBsf
-         UUVgYaba/N3ePKsEZ0CNVW43jNsNEIHYK+HD99pQ/5DJQYiQYTH1xHLfRYRPu9HTrBdG
-         go2v0fdTEpPsSqujMWUclDXgNigoV19XBOMDn3inEpnQ3zAnJ2aNwpIjsKELDSZI75Lg
-         FQTjZtYv7Z9Qukk0G7p29m07JoS/aBZn58zd3xSelVqtysBRc8Xycm6vtjtvXmBe9JPH
-         kF0p9B9AAkcO0NmNeUeF/D3+2EhTdbITYMR8Vgpg8VDIv7taBFS+2WmyQoDiBTtKW+GB
-         2AMA==
-X-Forwarded-Encrypted: i=1; AJvYcCUKS71H9HLdmISyjeyIIJiFJIj70OXpT1s9SuIlj/JlxlFWzBAfZgoO3HATllLBtoZW9LeyFldyp6oeh66eHyau@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzaqs6cIy4r24YfE57lfRih2nio3QmJyx8Y8qidaVDVrTEBx5PQ
-	8nH57FncSGvx1n6m/RjGpmATVBzFwHwxECj8WfeV0VoTFyLhKKixyzgFwStrpAXTDJabaTxFx1F
-	lBQ==
-X-Google-Smtp-Source: AGHT+IGPJRiGq3R7mZWn5CrzLP8vm1wupxaeI5H/gIQqF11dMv1/zMHsAynG4PMZbWmvXJ3VunNPyr+QDQ==
-X-Received: from wmcn8.prod.google.com ([2002:a05:600c:c0c8:b0:479:36b0:ff54])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:1e88:b0:477:54cd:200e
- with SMTP id 5b1f17b1804b1-47a837449f7mr53974875e9.1.1765453110985; Thu, 11
- Dec 2025 03:38:30 -0800 (PST)
-Date: Thu, 11 Dec 2025 11:38:25 +0000
+        bh=FAKrVBNxWNzf5AFlwNKs8nwrXjTjocawMvN6/+Bemv4=;
+        b=WRJKmZK5Bc2/sPkPh+6j93avXvczG3yZFNnnZhVezgDekN/FH4wC9YvQdn/ic7AtpB
+         n3sSwxlpaiic/O9i00yAju4yKWMe4ls78rHb4Uil0kDFmhYkB0kfZbaz+iGUGJnDgGFB
+         iCfTuk3als32kA6aO81oL71ODNM8p5exETnwleMuekPGjo297qyVucHnZiG5Zd1q8vKm
+         gMCCrIalumdrU4F3rURlrSPNXJ8knK6xBiCBnmrM7EF/3kbcySiNXQQzTTxycUPTl09O
+         8uz+cuRwwtWEkO4DZ7HOtw5IauWV6bD1JIff9Lt7vXE3k/E6QZVD1JGv5LbOJL8CMRWM
+         eX7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCX/9GifZHUuno8vBnsjYnm6xaRjm2WPuzHoo/5Xc7PSlzljRtUcXfsLAvQcIjuKryiCjREEIgLosKVwpyvv+Ifv@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoD3RON1b/5yIU8XV86+mJVR3mJKzrJKZ6crz3fqBBztfZBx6V
+	/zAUs7fYYwBHuP0wu23kHkVeC2yzMrdbUiyHhyS4/sufqHBZKqLap9WHey2PxqFlvu/gSjPv0jE
+	tew==
+X-Google-Smtp-Source: AGHT+IFc7lvmfn5LPPjevpwMTfbx6/iGjar8gi/uBjkrJessLIYye4pzMI3sHwpXEb9c803ajpwdpY0YiA==
+X-Received: from wrqr13.prod.google.com ([2002:a5d:498d:0:b0:42f:9f40:a5d9])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:40da:b0:426:d5a0:bac8
+ with SMTP id ffacd0b85a97d-42fa3b1eb9emr6657835f8f.56.1765453112715; Thu, 11
+ Dec 2025 03:38:32 -0800 (PST)
+Date: Thu, 11 Dec 2025 11:38:27 +0000
 In-Reply-To: <20251211113828.370370-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20251211113828.370370-1-tabba@google.com>
 X-Mailer: git-send-email 2.52.0.223.gf5cc29aaa4-goog
-Message-ID: <20251211113828.370370-3-tabba@google.com>
-Subject: [PATCH v2 2/5] arm64: Clear HCR_EL2.ATA when MTE is not supported or disabled
+Message-ID: <20251211113828.370370-5-tabba@google.com>
+Subject: [PATCH v2 4/5] arm64: Inject UNDEF when accessing MTE sysregs with
+ MTE disabled
 From: Fuad Tabba <tabba@google.com>
 To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
@@ -74,8 +75,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
 	will@kernel.org, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_033832_666789_61FFE492 
-X-CRM114-Status: GOOD (  15.98  )
+X-CRM114-CacheID: sfid-20251211_033835_024774_883331CA 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,75 +91,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If MTE is not supported by the hardware, or is disabled in the kernel
-configuration (CONFIG_ARM64_MTE=n) or command line (arm64.nomte), the
-kernel stops advertising MTE to userspace and avoids using MTE
-instructions. However, this is a software-level disable only.
+When MTE hardware is present but disabled via software (arm64.nomte or
+CONFIG_ARM64_MTE=n), HCR_EL2.ATA is cleared to prevent use of MTE
+instructions. However, this alone doesn't fully emulate hardware that
+lacks MTE support.
 
-When MTE hardware is present and enabled by EL3 firmware, leaving
-HCR_EL2.ATA set allows the host to execute MTE instructions (STG, LDG,
-etc.) and access allocation tags in physical memory. This creates a
-security risk where a malicious or buggy host could lead to system
-crashes, undefined behavior, or compromise guests.
+With HCR_EL2.ATA cleared, accesses to certain MTE system registers trap
+to EL2 with exception class ESR_ELx_EC_SYS64. To faithfully emulate
+hardware without MTE (where such accesses would cause an Undefined
+Instruction exception), inject UNDEF into the host.
 
-Prevent this by clearing HCR_EL2.ATA when MTE is disabled. Remove it
-from the HCR_HOST_NVHE_FLAGS default, and conditionally set it in
-cpu_prepare_hyp_mode() only when system_supports_mte() returns true.
-This causes MTE instructions to trap to EL2 when HCR_EL2.ATA is cleared.
-
-Early boot code in head.S temporarily keeps HCR_ATA set to avoid
-special-casing initialization paths. This is safe because this code
-executes before untrusted code runs and will clear HCR_ATA if MTE is
-disabled.
+The ability to disable MTE in the host kernel is used by some systems,
+such as Android, so that the physical memory otherwise used as tag
+storage can be used for other things (i.e. treated just like the rest of
+memory).
 
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/include/asm/kvm_arm.h | 2 +-
- arch/arm64/kernel/head.S         | 2 +-
- arch/arm64/kvm/arm.c             | 4 ++++
- 3 files changed, 6 insertions(+), 2 deletions(-)
+ arch/arm64/kvm/hyp/nvhe/hyp-main.c | 44 ++++++++++++++++++++++++++++++
+ 1 file changed, 44 insertions(+)
 
-diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-index 1da290aeedce..a41e3087e00a 100644
---- a/arch/arm64/include/asm/kvm_arm.h
-+++ b/arch/arm64/include/asm/kvm_arm.h
-@@ -101,7 +101,7 @@
- 			 HCR_BSU_IS | HCR_FB | HCR_TACR | \
- 			 HCR_AMO | HCR_SWIO | HCR_TIDCP | HCR_RW | HCR_TLOR | \
- 			 HCR_FMO | HCR_IMO | HCR_PTW | HCR_TID3 | HCR_TID1)
--#define HCR_HOST_NVHE_FLAGS (HCR_RW | HCR_API | HCR_APK | HCR_ATA)
-+#define HCR_HOST_NVHE_FLAGS (HCR_RW | HCR_API | HCR_APK)
- #define HCR_HOST_NVHE_PROTECTED_FLAGS (HCR_HOST_NVHE_FLAGS | HCR_TSC)
- #define HCR_HOST_VHE_FLAGS (HCR_RW | HCR_TGE | HCR_E2H | HCR_AMO | HCR_IMO | HCR_FMO)
+diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+index 29430c031095..f542e4c17156 100644
+--- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
++++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
+@@ -686,6 +686,46 @@ static void handle_host_smc(struct kvm_cpu_context *host_ctxt)
+ 	kvm_skip_host_instr();
+ }
  
-diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
-index ca04b338cb0d..87a822e5c4ca 100644
---- a/arch/arm64/kernel/head.S
-+++ b/arch/arm64/kernel/head.S
-@@ -299,7 +299,7 @@ SYM_INNER_LABEL(init_el2, SYM_L_LOCAL)
- 	isb
- 0:
- 
--	init_el2_hcr	HCR_HOST_NVHE_FLAGS
-+	init_el2_hcr	HCR_HOST_NVHE_FLAGS | HCR_ATA
- 	init_el2_state
- 
- 	/* Hypervisor stub */
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index 052bf0d4d0b0..c03006b1c5bc 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -2030,6 +2030,10 @@ static void __init cpu_prepare_hyp_mode(int cpu, u32 hyp_va_bits)
- 		params->hcr_el2 = HCR_HOST_NVHE_PROTECTED_FLAGS;
- 	else
- 		params->hcr_el2 = HCR_HOST_NVHE_FLAGS;
++static void inject_undef64(void)
++{
++	unsigned long sctlr, vbar, old, new;
++	u64 offset, esr;
 +
-+	if (system_supports_mte())
-+		params->hcr_el2 |= HCR_ATA;
++	vbar = read_sysreg_el1(SYS_VBAR);
++	sctlr = read_sysreg_el1(SYS_SCTLR);
++	old = read_sysreg_el2(SYS_SPSR);
++	new = get_except64_cpsr(old, system_supports_mte(), sctlr, PSR_MODE_EL1h);
++	offset = get_except64_offset(old, PSR_MODE_EL1h, except_type_sync);
++	esr = (ESR_ELx_EC_UNKNOWN << ESR_ELx_EC_SHIFT) | ESR_ELx_IL;
 +
- 	if (cpus_have_final_cap(ARM64_KVM_HVHE))
- 		params->hcr_el2 |= HCR_E2H;
- 	params->vttbr = params->vtcr = 0;
++	write_sysreg_el1(esr, SYS_ESR);
++	write_sysreg_el1(read_sysreg_el2(SYS_ELR), SYS_ELR);
++	write_sysreg_el1(old, SYS_SPSR);
++	write_sysreg_el2(vbar + offset, SYS_ELR);
++	write_sysreg_el2(new, SYS_SPSR);
++}
++
++static bool handle_host_mte(u64 esr)
++{
++	/* If we're here for any reason other than MTE, then it's a bug. */
++
++	if (read_sysreg(HCR_EL2) & HCR_ATA)
++		return false;
++
++	switch (esr_sys64_to_sysreg(esr)) {
++	case SYS_RGSR_EL1:
++	case SYS_GCR_EL1:
++	case SYS_TFSR_EL1:
++	case SYS_TFSRE0_EL1:
++		break;
++	default:
++		return false;
++	}
++
++	inject_undef64();
++	return true;
++}
++
+ void handle_trap(struct kvm_cpu_context *host_ctxt)
+ {
+ 	u64 esr = read_sysreg_el2(SYS_ESR);
+@@ -701,6 +741,10 @@ void handle_trap(struct kvm_cpu_context *host_ctxt)
+ 	case ESR_ELx_EC_DABT_LOW:
+ 		handle_host_mem_abort(host_ctxt);
+ 		break;
++	case ESR_ELx_EC_SYS64:
++		if (handle_host_mte(esr))
++			break;
++		fallthrough;
+ 	default:
+ 		BUG();
+ 	}
 -- 
 2.52.0.223.gf5cc29aaa4-goog
 
