@@ -4,58 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0744D41D69
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 16:39:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2A24D41D6D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 16:39:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ANru55hW6VGmAl3nSsG6XTVN/Mh95jyNGuL5wdp0OOQ=; b=ryRU8cmS1wHJsC
-	ZB838tV1PXc412LXE+VLuxxvYa6k6tfgK4up2Eel+N+vW6EDn7Vj63WQiqzzzSkAdo5XFOeFXQKGA
-	gcwc7wZZSRCUbJAZ5i8OaBAnp0eTWYwofqQy84R0qfGmzfJ7fOK+Q58S0794VwROzIofWYoAxWPA9
-	LEdl0mvaivz6/kiEeJ83kqu693xTxJENV7QGXFigY0rQveL5qFWwpCritZQ/2k2nKHkXiowXIRrj0
-	R0phnDoQvYEjJASMzGA4fcZBsZ7jepBflbZxzQDwyt+lKHqR4jTrL31p8YMnWFOkKLy7bV2Ph6rlA
-	15viILYf0ip/kSh+AJhA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sVcTUwOCRH5tnQZK1SD7eSjVIvUKNCHhAOFhXPDQ2uA=; b=ul7MmTmbPffOIxxHvSR2CT/RQn
+	u7r0php0MDFi+C+trGp41aHpCaOqgEFWw7enmyA2sUWXp0tyQ/JkO+bKTOu8FCrDdcwU7X+k6/UmQ
+	Vw4jaTyn83z7ejWwnc9NPLdWtRagbHX7JAaRhmpZw3t+DcMs2/B6I0bPwnF85tW40iMVprU9PceCD
+	UmmgURmWo5H3JpJL0gNnoBVMdi3SDznlwybgG2FC7aTU4hepNOu7mLmr3bTurEshvxe8I5JXtiC4W
+	3qQhkNZf8C5fg1I4du1UWya2T7q2GdHcQAONCV84Ut+yx0a/QMkZCilOwxWeE+yVczV2k7XpcX1HR
+	NnJADBtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTjhk-0000000Gx6y-1HPu;
-	Thu, 11 Dec 2025 16:39:48 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vTjhp-0000000Gx98-3tdM;
+	Thu, 11 Dec 2025 16:39:53 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTjhh-0000000Gx5v-0NTr
+	id 1vTjhk-0000000Gx6v-2uBs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 16:39:47 +0000
+	Thu, 11 Dec 2025 16:39:50 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id A53411A20EE;
-	Thu, 11 Dec 2025 16:39:41 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 464C34E41B7E;
+	Thu, 11 Dec 2025 16:39:47 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 6770E6072F;
-	Thu, 11 Dec 2025 16:39:41 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 825B8103C8C1B;
-	Thu, 11 Dec 2025 17:39:30 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 1A9966072F;
+	Thu, 11 Dec 2025 16:39:47 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 52560103C8C7B;
+	Thu, 11 Dec 2025 17:39:43 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1765471179; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=ANru55hW6VGmAl3nSsG6XTVN/Mh95jyNGuL5wdp0OOQ=;
-	b=GovHg0aqtPp92DsA1+k1LAaM84842wXpN3KS6jQtpPatmME4Xdt4EeGSnXMBI6lr3Sv9X2
-	q2enLRGWpPmkQp9/N74x8FP9F+zb7PdQx2lj7vsq55pawMeKJ+grMlqwz0n2Phw+zjNJTu
-	oxMOu3j2Oc8TcqDC8C25GyZ8xpAZrOjUICySCGdo94ESvKp4al36AM7ZaOrMG2ZKbyzQ5I
-	0HZv69pUk5ZxPIgz+zTzWusEFtZUKwYQRK13hF/sdVqh1sw2Fzf0A91lCMMksD1VrRiFGW
-	gnO7PALZglh9GkSs7Qot1raM64tX7TJXKAZDPjq/MuTbLFWUUHW3KjvTsVW42A==
+	t=1765471185; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=sVcTUwOCRH5tnQZK1SD7eSjVIvUKNCHhAOFhXPDQ2uA=;
+	b=cHNvQEJxuvuPsT39IuUKHb36IrNHyBSryBir25sEu70JFNA18i6VTtebbBVbtwIOLy6Tn9
+	2lFVUZzZ7Z5cUy6m9qMX2TDwaMdWW/+VUiKA2RKbG/pnBaG8A0yxzqtSIH5C16NRZTusYh
+	kssZoSJVT5KZwolD9I1MMu1mwNf5kej8nmnVHfraI+MfKq38Ct50lRjm7z/elItW4RUzMX
+	iZMsMjgBniz1bIcr3RnPC3YbaSPLX2PUyX0XM65851mTSh0VdM9CZvEmLi89XoKuqrPyjw
+	hqwQmSS7uDqDazxhL0AASbrClk2Hj+KGz4b7sXG7Z8CJXtmwKTdEalymfzJ7kg==
 From: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
-Subject: [PATCH v2 00/20] Clean and update tilcdc driver to support
- DRM_BRIDGE_ATTACH_NO_CONNECTOR
-Date: Thu, 11 Dec 2025 17:38:44 +0100
-Message-Id: <20251211-feature_tilcdc-v2-0-f48bac3cd33e@bootlin.com>
+Date: Thu, 11 Dec 2025 17:38:46 +0100
+Subject: [PATCH v2 02/20] dt-bindings: display: tilcdc: Mark panel binding
+ as deprecated
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAJTzOmkC/13MQQ7CIBCF4as0sxYDiG1w5T1MY4AOdpJaDGCja
- bi7WHcu/5e8b4WEkTDBqVkh4kKJwlxD7hpwo5lvyGioDZLLo+BCMY8mPyNeM01ucKzTblAa285
- 6DfX0iOjptYGXvvZIKYf43vxFfNcfJWT7Ty2Ccaa01eglHozhZxtCnmjeu3CHvpTyAT60FEquA
- AAA
-X-Change-ID: 20251014-feature_tilcdc-79cd49e67bf9
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251211-feature_tilcdc-v2-2-f48bac3cd33e@bootlin.com>
+References: <20251211-feature_tilcdc-v2-0-f48bac3cd33e@bootlin.com>
+In-Reply-To: <20251211-feature_tilcdc-v2-0-f48bac3cd33e@bootlin.com>
 To: Jyri Sarha <jyri.sarha@iki.fi>, 
  Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
  Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
@@ -81,8 +79,9 @@ Cc: Markus Schneider-Pargmann <msp@baylibre.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_083945_261874_81CEF6E8 
-X-CRM114-Status: GOOD (  18.43  )
+X-CRM114-CacheID: sfid-20251211_083948_893763_F615B558 
+X-CRM114-Status: UNSURE (   9.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,113 +96,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The starting point for this work was adding support for the HDMI cape:
-https://www.seeedstudio.com/Seeed-Studio-BeagleBone-Green-HDMI-Cape.html
-This will be sent in a later series.
-
-Initially, Miguel proposed modifying the ite-it66121 bridge to support
-the legacy behavior without the DRM_BRIDGE_ATTACH_NO_CONNECTOR flag:
-https://lore.kernel.org/lkml/20250909-it66121-fix-v1-1-bc79ca83df17@bootlin.com/
-This patch was NAK'd as we don't want to add more legacy code. Maxime
-requested that the tilcdc driver be updated to use
-DRM_BRIDGE_ATTACH_NO_CONNECTOR instead.
-
-While working on this update, I discovered that the tilcdc driver
-contained significant amounts of legacy code that needed cleaning.
-Since this driver was developed alongside the tda998x driver for
-several AM335x boards, the tda998x driver also required cleanup and
-support for the DRM_BRIDGE_ATTACH_NO_CONNECTOR flag.
-
-A new tilcdc_panel_legacy driver replaces the old tilcdc_panel driver.
-It modifies the devicetree at boot time to properly bind the tilcdc driver
-with the standard panel-simple driver.
-
-This series is based on the tilcdc fix sent to mainline:
-https://lore.kernel.org/lkml/20251125090546.137193-1-kory.maincent@bootlin.com/
-
-This series has been tested on:
-- BeagleBone Black (tilcdc + tda998x bridge)
-- BeagleBone Black with LCD cape (tilcdc + ti,tilcdc,panel binding)
-- BeagleBone Green Eco with HDMI cape (tilcdc + it66121 bridge)
-
-The following mainline devicetrees still use ti,tilcdc,panel binding.
-I believe this series maintains compatibility, but I cannot test without
-hardware:
-- da850-evm.dts
-- am335x-guardian.dts
-- am335x-pdu001.dts
-- am335x-pepper.dts
-- am335x-sbc-t335.dts
-- am335x-sl50.dts
-
-Patches 1-2: Convert tilcdc binding to YAML and set the ti,tilcdc,panel
-	     sub-binding as legacy.
-Patches 3-6: Replace tilcdc_panel driver to the new tilcdc_panel_legacy
-	     driver which is tweaking the devicetree at boot time.
-Patches 7-15: Clean up tilcdc driver.
-Patches 16-18: Clean up tda998x driver.
-Patch 19: Add DRM_BRIDGE_ATTACH_NO_CONNECTOR support for tda998x driver.
-Patch 20: Add DRM_BRIDGE_ATTACH_NO_CONNECTOR support for tilcdc driver.
-
-Changes in v2:
-- Remove patch 2 that add fifo-threshold property. Use FIFO threshold
-  value from SoC id instead.
-- Remove the part that breaks DTB compatibility.
-- Add tilcdc_panel_legacy to modify the devicetree at boot time to properly
-  bind the tilcdc driver with the standard panel-simple driver.
-- Link to v1: https://lore.kernel.org/r/20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com
+Mark the ti,tilcdc,panel binding as deprecated in the documentation.
+This legacy binding should no longer be used for new designs. Users
+should migrate to the standard DRM panel bindings instead.
 
 Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
 ---
-Kory Maincent (TI.com) (20):
-      dt-bindings: display: tilcdc: Convert to DT schema
-      dt-bindings: display: tilcdc: Mark panel binding as deprecated
-      drm/tilcdc: Remove simulate_vesa_sync flag
-      drm/tilcdc: Add support for DRM bus flags and simplify panel config
-      drm/tilcdc: Convert legacy panel binding via DT overlay at boot time
-      drm/tilcdc: Remove tilcdc panel driver
-      drm/tilcdc: Remove component framework support
-      drm/tilcdc: Remove tilcdc_panel_info structure
-      drm/tilcdc: Remove redundant #endif/#ifdef in debugfs code
-      drm/tilcdc: Remove unused encoder and connector tracking arrays
-      drm/tilcdc: Rename external_encoder and external_connector to encoder and connector
-      drm/tilcdc: Rename tilcdc_external to tilcdc_encoder
-      drm/tilcdc: Remove the useless module list support
-      drm/tilcdc: Modernize driver initialization and cleanup paths
-      drm/tilcdc: Remove the use of drm_device private_data
-      drm/bridge: tda998x: Remove component support
-      drm/bridge: tda998x: Move tda998x_create/destroy into probe and remove
-      drm/bridge: tda998x: Remove useless tda998x_connector_destroy wrapper
-      drm/bridge: tda998x: Add support for DRM_BRIDGE_ATTACH_NO_CONNECTOR
-      drm/tilcdc: Add support for DRM_BRIDGE_ATTACH_NO_CONNECTOR
 
- .../devicetree/bindings/display/tilcdc/panel.txt   |   1 +
- .../devicetree/bindings/display/tilcdc/tilcdc.txt  |  82 ----
- .../devicetree/bindings/display/tilcdc/tilcdc.yaml |  96 +++++
- drivers/gpu/drm/bridge/tda998x_drv.c               | 251 +++++------
- drivers/gpu/drm/tilcdc/Kconfig                     |  14 +
- drivers/gpu/drm/tilcdc/Makefile                    |   5 +-
- drivers/gpu/drm/tilcdc/tilcdc_crtc.c               | 117 ++---
- drivers/gpu/drm/tilcdc/tilcdc_drv.c                | 479 ++++++++-------------
- drivers/gpu/drm/tilcdc/tilcdc_drv.h                |  88 +---
- drivers/gpu/drm/tilcdc/tilcdc_encoder.c            |  93 ++++
- .../tilcdc/{tilcdc_external.h => tilcdc_encoder.h} |   5 +-
- drivers/gpu/drm/tilcdc/tilcdc_external.c           | 179 --------
- drivers/gpu/drm/tilcdc/tilcdc_panel.c              | 408 ------------------
- drivers/gpu/drm/tilcdc/tilcdc_panel.h              |  15 -
- drivers/gpu/drm/tilcdc/tilcdc_panel_legacy.c       | 159 +++++++
- drivers/gpu/drm/tilcdc/tilcdc_panel_legacy.dtso    |  44 ++
- drivers/gpu/drm/tilcdc/tilcdc_plane.c              |   2 +-
- drivers/gpu/drm/tilcdc/tilcdc_regs.h               |   8 +-
- 18 files changed, 752 insertions(+), 1294 deletions(-)
+Change in v2:
+- New patch
 ---
-base-commit: f1c12d4576a46c82d3fdace1343e040daa0561f2
-change-id: 20251014-feature_tilcdc-79cd49e67bf9
+ Documentation/devicetree/bindings/display/tilcdc/panel.txt | 1 +
+ 1 file changed, 1 insertion(+)
 
-Best regards,
+diff --git a/Documentation/devicetree/bindings/display/tilcdc/panel.txt b/Documentation/devicetree/bindings/display/tilcdc/panel.txt
+index 808216310ea27..b973174d704ed 100644
+--- a/Documentation/devicetree/bindings/display/tilcdc/panel.txt
++++ b/Documentation/devicetree/bindings/display/tilcdc/panel.txt
+@@ -1,4 +1,5 @@
+ Device-Tree bindings for tilcdc DRM generic panel output driver
++This binding is deprecated and should not be used.
+ 
+ Required properties:
+  - compatible: value should be "ti,tilcdc,panel".
+
 -- 
-Köry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+2.43.0
 
 
