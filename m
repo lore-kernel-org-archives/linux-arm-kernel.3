@@ -4,152 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D462D41C01
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 07:55:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8D05D41C01
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 08:05:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Jiku9WzPU7rK3XOvHSLOOuKvy/lFgCYL6dToqZRT+D8=; b=UI7YG+HZ7z3fmGVDdcz+NMpx3N
-	rutXkEgLiczPHrWuMXmmNrGFAyquEoMUCGfB2XSR47QEDVQ6VdlreIVRdNIW0nP1ctzuNKR3N/Hww
-	6ve+9aBpi6esxR4zMW73pYrt6+OiISwaur3mD+uTWee6jfP2v4GKiW986nNU1j31YHxiIutM3zdd4
-	k5vpV+dvafSnJBj7MqHINTitqh3RmwFwqVIJbJsIP7ING7tya7B+4HY2b2iLnVg3y12Lbt1NsOkfM
-	tKDn6L/l4GHNrca0w384+aYZPFPQhRpc491ovTxBR7mVPRISNaUsVoSgflCC0ATUtx45kzHhfD8C8
-	purspikA==;
+	bh=g3rLCxy8arP6w59VperOyYrrxNsr7wHMVWS7dXHm70Y=; b=LEVj2/2ThAx2jGPdcpkQYo3Mwo
+	OlkgAwHxN3yJF/pfxjmUQIqAoHOO/EhlPLdr2F86Lq2jL4yBpbGELlFlU0M9i4KSigP6/quMJJbEl
+	/P5fi00ZyQhgn0T7vNYK3d/ChP/2FIEq0wqi/mVAn6LhmVgu6SdQVy7TIiY+/StCeYbd98bdfi8nT
+	LAHKIOS7Mgmh1aPIMvteu2GuVXofBB0W6hOmGTx5upsNrYfj7QeeKu9Raoj8CrK/bFj0/aQjXmBKn
+	w1EKi1FwqMjog7DU5HfwOU4Ac08eZgGCSivO891h74QCMcguXIcg3iXtSmtDVbyTDOr4ya8pWVGqd
+	/CQWeDEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTbVq-0000000GLZ1-27XO;
-	Thu, 11 Dec 2025 07:54:58 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1vTbfv-0000000GLy4-0NEd;
+	Thu, 11 Dec 2025 08:05:23 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTbVn-0000000GLYV-1WDo
+	id 1vTbfr-0000000GLxd-3E8o
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 07:54:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=mkw8Nij0SLEq8MOpvxDu5jry8merJalxhRaRamfkeUNxKLZ0qUDzFr3J0N/2wqVQ6Z6URAOiTnRSi7wk37pfJmqxyuaPCDbfDfhnDUcYKvKCQR0z2X8eCtSwsrNOJUOEkHABvfwccD0kkzcfolJ+QXSPQIzn+5+o10upCRC2RfB//p85bi/NiY8FBBDPJVsr3RC1uOsFd7CM9vEU0hcWbpCvLF2rqy9ouUHo7uQqVzRQN4bEab2U3HQr/bsA0JSHc/jSUYpbVR5WWj8ARtLTyda1NSy8UZvn5cX2rVasuuWc5nBOPRamsmaH+8iiYZiHgwPEY4ryLJ2T8pwGKceG9w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Jiku9WzPU7rK3XOvHSLOOuKvy/lFgCYL6dToqZRT+D8=;
- b=iDXETbDEPgcPtQX8YcF2xn+A6hcPNApwn/OT98JhuxvF5TZZeYsWueC8XKfaHLOu8aTkLUR1D0d4NK/X8EFsuD/g25DgHKlZ2MF7isA1agbps/BTHkiFtOjYyWvnRh4rkYmBYbbIFX8uG+qogGoDaB3U0BsiPNvRUOe2X57cQmUA2AH+k3Wy6G6zS+7lwDke1jeeSLJat3UMmap2cIRlGpdjb8eWegjdbFycNuFajXlee8C7T9KcX/xU0kPlY1FJW2H+HLrXnhkEcmph7scSzOQ623P1gLUJZ8Kw6FDkFGmnVVCzYpSzq/HcLb/OBjHTpHbxipAgeVff7ovyXa8hwg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Jiku9WzPU7rK3XOvHSLOOuKvy/lFgCYL6dToqZRT+D8=;
- b=O59iniXWRz5PdUspCdh28bTlIY8gbdFGREuCD3YqeCFSbEJ1I6jenXhH1+xLj9E/Y6Z0opujgj8TLksYUUSTh8tFLi8rCDhbtl8VefG5hJA04EMqpW+t2Q35NVfdiMl0zcWUwzoJaI4gPFTfnyNDQ0vurmNIAtMXVeKUZquNL01QTTVYpJeNo61YM9bKW6NAy9zPe7UIVel8PbWvZ/oLhD494nTFd2y5q+NIgRm1Z5xqvpzVUqXPDeCtaw6WeD4URLzRB6MW0tWdixTKnUg/q7Cht2NUK8p4I3OydGfS7Mp/sUlS03jO3t/r+qltyp6JikdR/GoN2f2c9IdMPtmuAg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8567.eurprd04.prod.outlook.com (2603:10a6:10:2d6::21)
- by AM0PR04MB7091.eurprd04.prod.outlook.com (2603:10a6:208:197::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.7; Thu, 11 Dec
- 2025 07:54:50 +0000
-Received: from DU2PR04MB8567.eurprd04.prod.outlook.com
- ([fe80::32c4:a8a7:1724:b754]) by DU2PR04MB8567.eurprd04.prod.outlook.com
- ([fe80::32c4:a8a7:1724:b754%2]) with mapi id 15.20.9412.005; Thu, 11 Dec 2025
- 07:54:49 +0000
-From: ziniu.wang_1@nxp.com
-To: adrian.hunter@intel.com,
-	haibo.chen@nxp.com,
-	ulf.hansson@linaro.org
-Cc: shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	linux-mmc@vger.kernel.org,
-	imx@lists.linux.dev,
-	s32@nxp.com,
+	Thu, 11 Dec 2025 08:05:21 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-29d7b019e0eso9469695ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 00:05:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1765440318; x=1766045118; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=g3rLCxy8arP6w59VperOyYrrxNsr7wHMVWS7dXHm70Y=;
+        b=fJE9BjjS3LtsafGbYpOn9qPI5Cn0UOTOnfNSZFT0a85VjmEZxAyxdtfwVQDb0MamYh
+         X7dB1QoRJkX6Ugt7KzCjxFQKuYztKhBmTz7FF+CXM7DaJTQNee4OG3RV0E2wLL1cLsJG
+         xhercE9unX7KSVFIwm0PvoHzVUzAMp9CqhTcehyDwaXckulKBdx9OON2krAzAvtm7CyU
+         8w5V7bP5xLcLx0Tle2cChgwewdlbCOfty+FXA037jL3N4lIdDVWm+w9teqlM9unNAemJ
+         oSv3FnaKlj0zQJsWkTGOIgWRmcOmtmanz067v0IcMmNa+BlHxcJ3oAa9ViHjwH6S8m2y
+         MBAA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765440318; x=1766045118;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=g3rLCxy8arP6w59VperOyYrrxNsr7wHMVWS7dXHm70Y=;
+        b=J+KYs2Ama1A8027S928bq1vJ2Sr9aKH3BsomVsTMTJoSwoc/I81+0pBHJojkrhcxTB
+         b8dlbvwInzh8mjT6rNXtFkACOzYKiepeh5x7TxwN5T5Oe1/VIN16+jO8ivsoNlPZMUGE
+         y2Ns/dcRJ6UhkU3qKRsyE4AV8ekvQRtaM8eJsaKuB5VvvZPHsXmrjbV7uiUCmu1xliW1
+         GkDbjnpJS9UZzWok8GjqKO+L3HfHMsxaAgQLf3QncQZ1EQlyimzvGc2FwmFTrkQx3AkG
+         4rtbAA4hvzoD6K2AbAYN/dsPz5e94IO5kKbxiOgXRBSX6MC42PvoszxTVb8gXeuWsAOD
+         L7fQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWTbzlpFRLrqVN9WIkn/so1Q3GGUfU8Xw0CNFjc9olRhvAHr5fW+fRVLXDH/KFz9UeJE2GAXD90IN1OTcp+m/O3@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzk3a+zv394GjTs2Yx6HVhx+yQDk3ZsmveNsbBrs6S9TUERZ+Kk
+	tP+PDtKT89EYSDY8w5kGzoiVFW1v11nZl/inzp1xlMRKACDQTpCkjHkt1jvyRg==
+X-Gm-Gg: AY/fxX7Y8T8pwZ5b5ye1f0pFeV4Lronrl8Yfo8PqkuuxliDyYKc0aLgzX1kHIgxhTit
+	BFRAad5bbU4K/cGsUcNleGiyW1Uk0ucB1Uuz8Omfec2EWMglvtEEMoKGpshJ58YGvaIDsU4BwqC
+	LPdtH2fJINA/RQEx5zHLvA9f5RtA24Xne2AbcYqTWOU/xnvOdgvzmhWtvqkb3BsgB8Ohve41Fha
+	1W6b5N+yrZZZvYIeaMtDXg8UNDJTwF7X7VMSC7p+2QtZgPaM1L1c3Tptr/Qo71fcApPgd7hdv8Z
+	9xBtyjL1XKQCV9vf9EYRAjVhCx14svSuWyY/De5qrbBQ07JOl0DhX0/tD39UihF+erZciG0NLMl
+	OB+8v1eD+oV2Kt395RKMJU5ZQn5tYq3+fcwH9k+93vGUnJfX4DX+nPhvxPSnrdfVvAEFWMbgCwN
+	+2ULTxjUUe6XW2srVTdX1YF3nMNpLQYpRL5mDJlkWrt4ypF5zK6cKMn9s4h8niZ9VSWVrPBfNj9
+	zP41vbZ25hY5e0=
+X-Google-Smtp-Source: AGHT+IFSb6qHiNb7jgJvSvyN5nw2vItlbOK8l/VjqDL3ZuhE2uUid0Tlm0CFY+T/pBTkwDJQrCPzZw==
+X-Received: by 2002:a17:903:1666:b0:29e:9c82:a925 with SMTP id d9443c01a7336-29ec22ca944mr62447985ad.6.1765440318499;
+        Thu, 11 Dec 2025 00:05:18 -0800 (PST)
+Received: from cosmo-ubuntu-2404.dhcpserver.bu9bmc.local (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29ee9b373d6sm16118945ad.13.2025.12.11.00.05.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 11 Dec 2025 00:05:18 -0800 (PST)
+From: Cosmo Chou <chou.cosmo@gmail.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	joel@jms.id.au,
+	andrew@codeconstruct.com.au
+Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] mmc: sdhci-esdhc-imx: wait for data transfer completion before reset
-Date: Thu, 11 Dec 2025 15:56:03 +0800
-Message-Id: <20251211075603.533033-1-ziniu.wang_1@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AS4P191CA0008.EURP191.PROD.OUTLOOK.COM
- (2603:10a6:20b:5d5::19) To DU2PR04MB8567.eurprd04.prod.outlook.com
- (2603:10a6:10:2d6::21)
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	cosmo.chou@quantatw.com,
+	Cosmo Chou <chou.cosmo@gmail.com>
+Subject: [PATCH] ARM: dts: aspeed: bletchley: Fix dt-schema warnings
+Date: Thu, 11 Dec 2025 16:03:11 +0800
+Message-ID: <20251211080311.242771-1-chou.cosmo@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8567:EE_|AM0PR04MB7091:EE_
-X-MS-Office365-Filtering-Correlation-Id: 94c2dbaa-4996-4c13-37f4-08de388a8f39
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|19092799006|52116014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bsPI6LGYU+d/g2mC2mAScj/vCFVdgrKRHvAPyb1uBnENtIwLfPIe8W0AaIDh?=
- =?us-ascii?Q?DZiTX+KlG05p4XXxKn0yeL+pVeS2oN1AL2hUTzHbSHPIf4nQX8bw0puZRtgF?=
- =?us-ascii?Q?ZxzH/DgUmHr9y2PVe7yBLaBOl2YEbynzdody6XavI8C+ZS/KleZ2CJ1vwNhS?=
- =?us-ascii?Q?dpiSe/30sK+uFAbcIkhuDGHM2Fo+PXc2fPjHuScVqsxn3DKjgo3NlC9r4fZg?=
- =?us-ascii?Q?n4KWrJ8LrLez2ukxvSlrU2HnRfdFkuJCWlhPxjXpoG7gDC2N6k/MMAhRxM9/?=
- =?us-ascii?Q?FuMkgPQMw0zvRS/h13a/KH/Ydx9FvgEaM2z6NoYzH66HXYQ9BEBGf9fiaza0?=
- =?us-ascii?Q?vbWXs5LlwRyIyXZ0WWUSb8iJ8MHFvs7gG4Sknyj0sqRm+c+gzmQ6AGAJ0CRP?=
- =?us-ascii?Q?T3QvMXckg4w43qLsOKtMtVw3IsXFjMDNc/wt5IJNIAIMDxyHfo+S2slilUZ0?=
- =?us-ascii?Q?cnnuDzpETn+DeEorTtnhjSkIy8HYLwOvERmL1lnGwojGmKtu56q94h4RLHY+?=
- =?us-ascii?Q?E7TBVeEqQjOlRBbewSkh9Sa3S0QWPlcEwPfVgjLL875RyG+wOZH/vG+L7vpe?=
- =?us-ascii?Q?NtQd08Y8OwcWajjqsD66e1oHiQZjzdH3h07qrDx7kUdaC7EQpZJq29+Mys9H?=
- =?us-ascii?Q?nshsqjAUoanL/ey6BgFjWqBHFEBYRRSo4eFJib5k8oOMpMJW4WU/7/7hmLZx?=
- =?us-ascii?Q?a0p4Ifg/2VBq4TOk+oWl922YamoMd8PWfuzyXtmG/nsQEZLc0K2zzROMaZiw?=
- =?us-ascii?Q?YJXA98G6/lrBBBwX/W/lRSDe85L748anq6OdFZ1AUspSt/qQJnwy5rfbQ+xh?=
- =?us-ascii?Q?L7VluPbXmUh6MOl1YCw7dbGTYqD7CjkxhfxSP5OMctF6lGkp7JweKEgpM57o?=
- =?us-ascii?Q?5eO0CEkOy2Vwgu683XPnP77rD8Y64vaJ1DWBxTN5iHs1n2nHjIa9PhTv7qPN?=
- =?us-ascii?Q?y49U/7oeshUXbDsLGy6y3MXMRIuSI7szOQe+rjwz+V4SQUUYMyUoX8zU7FpO?=
- =?us-ascii?Q?nZYm0diLmXy1fBg6tfH+LNne9amunZjNCLvd5EmXPSU6VJ7/S1s7UyzO5QnD?=
- =?us-ascii?Q?TRCdkjGb4JPMKWWvRlguvTHRi6ThF4EqA6KACAqKZ//7fe9FkErEW+SN+AGM?=
- =?us-ascii?Q?jNzrAYvTsvsJ0dtJBx1iK/dQ8tBH+7JVfXrQKk247PtgUEGyfPwz0NLrGquI?=
- =?us-ascii?Q?xTEZXuyqyAKfawrALOBi2GGyDGhMTqddnUnaPPbcSTMYq1Ntdo8Rqv1lBtqz?=
- =?us-ascii?Q?M8eTkvqWXV4CH5vRDp6AD5v8HSOzdJGqVHj2Cag0UPFSQsSIORt9au+Uzvbk?=
- =?us-ascii?Q?3kIAcH7SVPZ2yYeZ0ivDFNpNlkJdsuXC+9zOVXB1eNIedbUDfyJEPtY9d3hG?=
- =?us-ascii?Q?I9MhL68fQXghNIDeED+6e4wHAl86nI4dClJH0Lbk+x2355D+sfyeg7nESC9x?=
- =?us-ascii?Q?KkrSqXIWvVthZbjSRGPe/3lOrRvvROgr7TGR+Skry6CWYmfHnRPF73spmwaN?=
- =?us-ascii?Q?TQnIIbFRjFPcfiGw42nzQv3q4pnCMr68sxkl?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8567.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(19092799006)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NOyo7FiFL75y/hBfjWRiud5YnqenjCq4xcaqOmV4Mb3lOSjAtZqec3rdWjNG?=
- =?us-ascii?Q?qbW/N+5U+SXvcUA8HGp0ZFPhypzPQ7Lydl99Ay9gK2Z5ItbOVVkguokNU4xQ?=
- =?us-ascii?Q?D6qTHIIsIT9gu9BnLyTKwzsjVGzCTg0DG0hnPp9lrAltgPFFi8QsejTIaSw0?=
- =?us-ascii?Q?izwaUcUawubzHBbFZLx40JXNgKPfRBxN7q6Q6fRvZkZ9Sime9KQOkYQUwkOG?=
- =?us-ascii?Q?X0p881q/MG5s6v/boRbdDWKNQRaJBwi/B6W6XrN4dQ8ixeBqtlJDI177l6nG?=
- =?us-ascii?Q?l+Dw2MMzeWF76HMR1MMWUFSre2waFH2jTPcZKnQZld9valGnUDTgSyvbzhqW?=
- =?us-ascii?Q?xQ+ePF9+6vqe6uLZuzQCs1+SdhDJ2t4adn9KeR5f52i20WY1WlEk7eiJujMA?=
- =?us-ascii?Q?KLkVC22Quywi+CLdH8OlYPdaUhFGf6pFgqgqWlZCeRXOihBTdayjf30/hS4P?=
- =?us-ascii?Q?NZnsBieS//p5M/7YifyiPV1XQze01OrxeWe/mTHlP0XX2vaT2RHExeuamm12?=
- =?us-ascii?Q?3xCxY13obzh8rEljqG1d5FMrswgfut877uk/Rop/mxnvWEbhKhPihXdv8odr?=
- =?us-ascii?Q?bBtFcb5pp6eelRRb1qgBRTy1N0Zvd2KTnD6kmdFlYfZKbRutXeXOPzoLTyT8?=
- =?us-ascii?Q?WwPolaDO2fHs3+cgxpAJgClz7mUmqnJvgC13J1iChRod5G03aGAG0RIMvOH0?=
- =?us-ascii?Q?D7D+qHtLx7vsyRItMnl5NT0LN2u3IT0nTA8R+lEQVSmuQD0RuSPTcSznCTyr?=
- =?us-ascii?Q?AYhA2t0fViJT5ZAGINfRoOns9q8fKRRxQyWbC2SrxyWP6wvcPsX2MVcHnqr8?=
- =?us-ascii?Q?crIOFV5f7su2sswJy+k5sRzOihvMgHcfAcCUODiVEnXa+ZhV1Dwlrz4/Enpo?=
- =?us-ascii?Q?1z6RnLYU3x/h93Feq1qYzk3/rhs1Bo8xuBKFmQ9wQcoTkLCmpF71UeoKfi1w?=
- =?us-ascii?Q?2h5PVtj2PZeKoBVlOVK8AKHDhwyIqX3uYpyqMolxFM6Tnf1hy6UJoWFONO1K?=
- =?us-ascii?Q?UrJU2iyqRHV6kFKtwnFYixVeHse1hG4cGXSn8ktD4SB/qMTxDTQEy7GIuDNq?=
- =?us-ascii?Q?+b6e3L5NEAh4G4MzM4Cv6u5qSXJt503+nHutxEejE8vlA7S8UfLCQ4MEw9ae?=
- =?us-ascii?Q?StPhAfd5TW7tCHSZE5YCQU2MSFXxu1jz10rWX6GH+Tsj4Okq6Vyqs5kWHcQZ?=
- =?us-ascii?Q?qBlM8a4lfEbUUnoXe54eseTS8rEJjSuXwXZRpWgJHmjnYr0jnJ2OQzSETLzr?=
- =?us-ascii?Q?h/1ZyXzcMz9sSYf+YWpvD1TveUy17RTUTsVsnxQKOaCWKA/CEDCdvi1e0NtF?=
- =?us-ascii?Q?fBILPmuOIvJLR+YXyaSNpH9cUVlbgpgxUTDdAdiDTXKlkjk/91jgExYc8Cui?=
- =?us-ascii?Q?7qbAzz7pYLODj5gjxOeLDNheIUyVGXeEJ4ImLs3p8Ng+FudUAPgqz4CRPndy?=
- =?us-ascii?Q?PVQ3iCNiUomFnWkeZiLaZ1zhXPHRK/MzOfh5Rot22HfPECkFGqgrkYOmNioZ?=
- =?us-ascii?Q?H447YMB903eBP6x1pRBBdVT8Dip8D35g/TQFaRbWzejeI2VAHW2wpr5lFJOZ?=
- =?us-ascii?Q?VXTuR1mXtZdwFRemPdtYEZ/mvDC1cXJN/6dDxaID?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 94c2dbaa-4996-4c13-37f4-08de388a8f39
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8567.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Dec 2025 07:54:49.7914
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: eTpwL++JwlBna6834ihAMWhyvBP8q1G9i1TFOG1w782NrL1O95zDKX3CeWHUFWVwcWlXxI/Pajkj2+8AnoUXSQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB7091
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_235455_447304_0B18DEEA 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20251211_000519_834556_AF0E1E05 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,66 +105,332 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Luke Wang <ziniu.wang_1@nxp.com>
+Update the device tree to fix dt-schema warnings:
+- Use generic node names for SPI, LEDs, and GPIO keys.
+- Update SPI GPIO properties to use the "-gpios" suffix.
+- Remove unused address/size cells from pca9539 nodes.
+- Use 'aspeed,int-vref-microvolt' in ADC nodes.
+- Remove unused 'aspeed,hw-timeout-ms' from i2c13.
 
-On IMX7ULP platforms, certain SD cards (e.g. Kingston Canvas Go! Plus)
-cause system hangs and reboots during manual tuning. These cards exhibit
-large gaps (~16us) between tuning command response and data transmission.
-When cmd CRC errors occur during tuning, the code assumes data errors even
-tuning data hasn't been fully received and then reset host data circuit.
-
-Per IMX7ULP reference manual, reset operations (RESET_DATA/ALL) need to
-make sure no active data transfers. Previously, resetting while data was
-in-flight would clear data circuit, including ADMA/SDMA address, causing
-data to be transmitted to incorrect memory address. This patch adds
-polling for data transfer completion before executing resets.
-
-Signed-off-by: Luke Wang <ziniu.wang_1@nxp.com>
-Reviewed-by: Bough Chen <haibo.chen@nxp.com>
+Signed-off-by: Cosmo Chou <chou.cosmo@gmail.com>
 ---
-v3: add define for timeout value
-v2: amend commit message
----
- drivers/mmc/host/sdhci-esdhc-imx.c | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+ .../aspeed/aspeed-bmc-facebook-bletchley.dts  | 100 ++++++++++--------
+ 1 file changed, 54 insertions(+), 46 deletions(-)
 
-diff --git a/drivers/mmc/host/sdhci-esdhc-imx.c b/drivers/mmc/host/sdhci-esdhc-imx.c
-index a7a5df673b0f..97461e20425d 100644
---- a/drivers/mmc/host/sdhci-esdhc-imx.c
-+++ b/drivers/mmc/host/sdhci-esdhc-imx.c
-@@ -216,6 +216,8 @@
- #define ESDHC_FLAG_DUMMY_PAD		BIT(19)
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts
+index abdb1562115a..7c27bf6bb51d 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-bletchley.dts
+@@ -34,14 +34,14 @@ iio-hwmon {
+ 			<&adc1 4>, <&adc1 5>, <&adc1 6>, <&adc1 7>;
+ 	};
  
- #define ESDHC_AUTO_TUNING_WINDOW	3
-+/* 100ms timeout for data inhibit */
-+#define ESDHC_DATA_INHIBIT_WAIT_US	100000
+-	spi1_gpio: spi1-gpio {
++	spi1_gpio: spi {
+ 		compatible = "spi-gpio";
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
  
- enum wp_types {
- 	ESDHC_WP_NONE,		/* no WP, neither controller nor gpio */
-@@ -1453,6 +1455,22 @@ static void esdhc_set_uhs_signaling(struct sdhci_host *host, unsigned timing)
+-		gpio-sck = <&gpio0 ASPEED_GPIO(Z, 3) GPIO_ACTIVE_HIGH>;
+-		gpio-mosi = <&gpio0 ASPEED_GPIO(Z, 4) GPIO_ACTIVE_HIGH>;
+-		gpio-miso = <&gpio0 ASPEED_GPIO(Z, 5) GPIO_ACTIVE_HIGH>;
++		sck-gpios = <&gpio0 ASPEED_GPIO(Z, 3) GPIO_ACTIVE_HIGH>;
++		mosi-gpios = <&gpio0 ASPEED_GPIO(Z, 4) GPIO_ACTIVE_HIGH>;
++		miso-gpios = <&gpio0 ASPEED_GPIO(Z, 5) GPIO_ACTIVE_HIGH>;
+ 		num-chipselects = <1>;
+ 		cs-gpios = <&gpio0 ASPEED_GPIO(Z, 0) GPIO_ACTIVE_LOW>;
  
- static void esdhc_reset(struct sdhci_host *host, u8 mask)
- {
-+	u32 present_state;
-+	int ret;
-+
-+	/*
-+	 * For data or full reset, ensure any active data transfer completes
-+	 * before resetting to avoid system hang.
-+	 */
-+	if (mask & (SDHCI_RESET_DATA | SDHCI_RESET_ALL)) {
-+		ret = readl_poll_timeout_atomic(host->ioaddr + ESDHC_PRSSTAT, present_state,
-+						!(present_state & SDHCI_DATA_INHIBIT), 2,
-+						ESDHC_DATA_INHIBIT_WAIT_US);
-+		if (ret == -ETIMEDOUT)
-+			dev_warn(mmc_dev(host->mmc),
-+				 "timeout waiting for data transfer completion\n");
-+	}
-+
- 	sdhci_and_cqhci_reset(host, mask);
+@@ -54,7 +54,8 @@ tpm@0 {
  
- 	sdhci_writel(host, host->ier, SDHCI_INT_ENABLE);
+ 	front_gpio_leds {
+ 		compatible = "gpio-leds";
+-		sys_log_id {
++		led-0 {
++			label = "sys_log_id";
+ 			default-state = "off";
+ 			gpios = <&front_leds 0 GPIO_ACTIVE_LOW>;
+ 		};
+@@ -62,42 +63,50 @@ sys_log_id {
+ 
+ 	fan_gpio_leds {
+ 		compatible = "gpio-leds";
+-		fan0_blue {
++		led-0 {
++			label = "fan0_blue";
+ 			retain-state-shutdown;
+ 			default-state = "on";
+ 			gpios = <&fan_leds 8 GPIO_ACTIVE_HIGH>;
+ 		};
+-		fan1_blue {
++		led-1 {
++			label = "fan1_blue";
+ 			retain-state-shutdown;
+ 			default-state = "on";
+ 			gpios = <&fan_leds 9 GPIO_ACTIVE_HIGH>;
+ 		};
+-		fan2_blue {
++		led-2 {
++			label = "fan2_blue";
+ 			retain-state-shutdown;
+ 			default-state = "on";
+ 			gpios = <&fan_leds 10 GPIO_ACTIVE_HIGH>;
+ 		};
+-		fan3_blue {
++		led-3 {
++			label = "fan3_blue";
+ 			retain-state-shutdown;
+ 			default-state = "on";
+ 			gpios = <&fan_leds 11 GPIO_ACTIVE_HIGH>;
+ 		};
+-		fan0_amber {
++		led-4 {
++			label = "fan0_amber";
+ 			retain-state-shutdown;
+ 			default-state = "off";
+ 			gpios = <&fan_leds 12 GPIO_ACTIVE_HIGH>;
+ 		};
+-		fan1_amber {
++		led-5 {
++			label = "fan1_amber";
+ 			retain-state-shutdown;
+ 			default-state = "off";
+ 			gpios = <&fan_leds 13 GPIO_ACTIVE_HIGH>;
+ 		};
+-		fan2_amber {
++		led-6 {
++			label = "fan2_amber";
+ 			retain-state-shutdown;
+ 			default-state = "off";
+ 			gpios = <&fan_leds 14 GPIO_ACTIVE_HIGH>;
+ 		};
+-		fan3_amber {
++		led-7 {
++			label = "fan3_amber";
+ 			retain-state-shutdown;
+ 			default-state = "off";
+ 			gpios = <&fan_leds 15 GPIO_ACTIVE_HIGH>;
+@@ -106,12 +115,14 @@ fan3_amber {
+ 
+ 	sled1_gpio_leds {
+ 		compatible = "gpio-leds";
+-		sled1_amber {
++		led-0 {
++			label = "sled1_amber";
+ 			retain-state-shutdown;
+ 			default-state = "keep";
+ 			gpios = <&sled1_leds 0 GPIO_ACTIVE_LOW>;
+ 		};
+-		sled1_blue {
++		led-1 {
++			label = "sled1_blue";
+ 			retain-state-shutdown;
+ 			default-state = "keep";
+ 			gpios = <&sled1_leds 1 GPIO_ACTIVE_LOW>;
+@@ -120,12 +131,14 @@ sled1_blue {
+ 
+ 	sled2_gpio_leds {
+ 		compatible = "gpio-leds";
+-		sled2_amber {
++		led-0 {
++			label = "sled2_amber";
+ 			retain-state-shutdown;
+ 			default-state = "keep";
+ 			gpios = <&sled2_leds 0 GPIO_ACTIVE_LOW>;
+ 		};
+-		sled2_blue {
++		led-1 {
++			label = "sled2_blue";
+ 			retain-state-shutdown;
+ 			default-state = "keep";
+ 			gpios = <&sled2_leds 1 GPIO_ACTIVE_LOW>;
+@@ -134,12 +147,14 @@ sled2_blue {
+ 
+ 	sled3_gpio_leds {
+ 		compatible = "gpio-leds";
+-		sled3_amber {
++		led-0 {
++			label = "sled3_amber";
+ 			retain-state-shutdown;
+ 			default-state = "keep";
+ 			gpios = <&sled3_leds 0 GPIO_ACTIVE_LOW>;
+ 		};
+-		sled3_blue {
++		led-1 {
++			label = "sled3_blue";
+ 			retain-state-shutdown;
+ 			default-state = "keep";
+ 			gpios = <&sled3_leds 1 GPIO_ACTIVE_LOW>;
+@@ -148,12 +163,14 @@ sled3_blue {
+ 
+ 	sled4_gpio_leds {
+ 		compatible = "gpio-leds";
+-		sled4_amber {
++		led-0 {
++			label = "sled4_amber";
+ 			retain-state-shutdown;
+ 			default-state = "keep";
+ 			gpios = <&sled4_leds 0 GPIO_ACTIVE_LOW>;
+ 		};
+-		sled4_blue {
++		led-1 {
++			label = "sled4_blue";
+ 			retain-state-shutdown;
+ 			default-state = "keep";
+ 			gpios = <&sled4_leds 1 GPIO_ACTIVE_LOW>;
+@@ -162,12 +179,14 @@ sled4_blue {
+ 
+ 	sled5_gpio_leds {
+ 		compatible = "gpio-leds";
+-		sled5_amber {
++		led-0 {
++			label = "sled5_amber";
+ 			retain-state-shutdown;
+ 			default-state = "keep";
+ 			gpios = <&sled5_leds 0 GPIO_ACTIVE_LOW>;
+ 		};
+-		sled5_blue {
++		led-1 {
++			label = "sled5_blue";
+ 			retain-state-shutdown;
+ 			default-state = "keep";
+ 			gpios = <&sled5_leds 1 GPIO_ACTIVE_LOW>;
+@@ -176,12 +195,14 @@ sled5_blue {
+ 
+ 	sled6_gpio_leds {
+ 		compatible = "gpio-leds";
+-		sled6_amber {
++		led-0 {
++			label = "sled6_amber";
+ 			retain-state-shutdown;
+ 			default-state = "keep";
+ 			gpios = <&sled6_leds 0 GPIO_ACTIVE_LOW>;
+ 		};
+-		sled6_blue {
++		led-1 {
++			label = "sled6_blue";
+ 			retain-state-shutdown;
+ 			default-state = "keep";
+ 			gpios = <&sled6_leds 1 GPIO_ACTIVE_LOW>;
+@@ -191,32 +212,32 @@ sled6_blue {
+ 	gpio-keys {
+ 		compatible = "gpio-keys";
+ 
+-		presence-sled1 {
++		presence-sled1-switch {
+ 			label = "presence-sled1";
+ 			gpios = <&gpio0 ASPEED_GPIO(H, 2) GPIO_ACTIVE_LOW>;
+ 			linux,code = <ASPEED_GPIO(H, 2)>;
+ 		};
+-		presence-sled2 {
++		presence-sled2-switch {
+ 			label = "presence-sled2";
+ 			gpios = <&gpio0 ASPEED_GPIO(H, 3) GPIO_ACTIVE_LOW>;
+ 			linux,code = <ASPEED_GPIO(H, 3)>;
+ 		};
+-		presence-sled3 {
++		presence-sled3-switch {
+ 			label = "presence-sled3";
+ 			gpios = <&gpio0 ASPEED_GPIO(H, 4) GPIO_ACTIVE_LOW>;
+ 			linux,code = <ASPEED_GPIO(H, 4)>;
+ 		};
+-		presence-sled4 {
++		presence-sled4-switch {
+ 			label = "presence-sled4";
+ 			gpios = <&gpio0 ASPEED_GPIO(H, 5) GPIO_ACTIVE_LOW>;
+ 			linux,code = <ASPEED_GPIO(H, 5)>;
+ 		};
+-		presence-sled5 {
++		presence-sled5-switch {
+ 			label = "presence-sled5";
+ 			gpios = <&gpio0 ASPEED_GPIO(H, 6) GPIO_ACTIVE_LOW>;
+ 			linux,code = <ASPEED_GPIO(H, 6)>;
+ 		};
+-		presence-sled6 {
++		presence-sled6-switch {
+ 			label = "presence-sled6";
+ 			gpios = <&gpio0 ASPEED_GPIO(H, 7) GPIO_ACTIVE_LOW>;
+ 			linux,code = <ASPEED_GPIO(H, 7)>;
+@@ -352,8 +373,6 @@ sled1_ioexp41: pca9536@41 {
+ 	sled1_ioexp: pca9539@76 {
+ 		compatible = "nxp,pca9539";
+ 		reg = <0x76>;
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
+ 
+@@ -441,8 +460,6 @@ sled2_ioexp41: pca9536@41 {
+ 	sled2_ioexp: pca9539@76 {
+ 		compatible = "nxp,pca9539";
+ 		reg = <0x76>;
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
+ 
+@@ -530,8 +547,6 @@ sled3_ioexp41: pca9536@41 {
+ 	sled3_ioexp: pca9539@76 {
+ 		compatible = "nxp,pca9539";
+ 		reg = <0x76>;
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
+ 
+@@ -619,8 +634,6 @@ sled4_ioexp41: pca9536@41 {
+ 	sled4_ioexp: pca9539@76 {
+ 		compatible = "nxp,pca9539";
+ 		reg = <0x76>;
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
+ 
+@@ -708,8 +721,6 @@ sled5_ioexp41: pca9536@41 {
+ 	sled5_ioexp: pca9539@76 {
+ 		compatible = "nxp,pca9539";
+ 		reg = <0x76>;
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
+ 
+@@ -797,8 +808,6 @@ sled6_ioexp41: pca9536@41 {
+ 	sled6_ioexp: pca9539@76 {
+ 		compatible = "nxp,pca9539";
+ 		reg = <0x76>;
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+ 		gpio-controller;
+ 		#gpio-cells = <2>;
+ 
+@@ -953,7 +962,6 @@ fan_leds: pca9552@67 {
+ 
+ &i2c13 {
+ 	multi-master;
+-	aspeed,hw-timeout-ms = <1000>;
+ 	status = "okay";
+ 
+ 	//USB Debug Connector
+@@ -1024,7 +1032,7 @@ &gpio0 {
+ };
+ 
+ &adc0 {
+-	vref = <1800>;
++	aspeed,int-vref-microvolt = <2500000>;
+ 	status = "okay";
+ 
+ 	pinctrl-names = "default";
+@@ -1035,7 +1043,7 @@ &pinctrl_adc4_default &pinctrl_adc5_default
+ };
+ 
+ &adc1 {
+-	vref = <2500>;
++	aspeed,int-vref-microvolt = <2500000>;
+ 	status = "okay";
+ 
+ 	pinctrl-names = "default";
 -- 
-2.34.1
+2.43.0
 
 
