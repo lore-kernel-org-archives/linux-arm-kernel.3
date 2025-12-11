@@ -4,54 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A824D41D69
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 16:34:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0744D41D69
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 16:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aIYWaGLu1FRX/DWFIXQz89mKFSNDocTq/a4NLYPuKzY=; b=gxNQ7vUgd3lfknbGuAkKgVtwEE
-	ld1OGiU36AWHRzFjGdrh9v640GQqZ8jQu6/Al38ZsokNy+EQJ146fu4yN4/N3v34+cjfiMHLjDQRZ
-	OeOwjl4YyaLXIHMGqqdtv9mk380jzPGRkNk9MCbsRsejkmMRiA7QsUDsqogOdycsrzAl1D/RIaEWG
-	tqrg16+/VpxDsa8b6IT1+qk10rEggTKE40jvdnrIWL7Fp8au28fzYMqQve9HANPFuITeoBnxo32RF
-	yS4eUzN1gdCj51pigWNlJvLGI3aTMKKW4lzXtNZ1VO0E6WAUVdPoRm0vS75GAHyOiOiqV4tss5Ip/
-	16TBcrYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ANru55hW6VGmAl3nSsG6XTVN/Mh95jyNGuL5wdp0OOQ=; b=ryRU8cmS1wHJsC
+	ZB838tV1PXc412LXE+VLuxxvYa6k6tfgK4up2Eel+N+vW6EDn7Vj63WQiqzzzSkAdo5XFOeFXQKGA
+	gcwc7wZZSRCUbJAZ5i8OaBAnp0eTWYwofqQy84R0qfGmzfJ7fOK+Q58S0794VwROzIofWYoAxWPA9
+	LEdl0mvaivz6/kiEeJ83kqu693xTxJENV7QGXFigY0rQveL5qFWwpCritZQ/2k2nKHkXiowXIRrj0
+	R0phnDoQvYEjJASMzGA4fcZBsZ7jepBflbZxzQDwyt+lKHqR4jTrL31p8YMnWFOkKLy7bV2Ph6rlA
+	15viILYf0ip/kSh+AJhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTjcf-0000000GwoK-45N6;
-	Thu, 11 Dec 2025 16:34:33 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTjcc-0000000Gwnd-3s8K
+	id 1vTjhk-0000000Gx6y-1HPu;
+	Thu, 11 Dec 2025 16:39:48 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vTjhh-0000000Gx5v-0NTr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 16:34:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9E2D31063;
-	Thu, 11 Dec 2025 08:34:20 -0800 (PST)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 72A213F73B;
-	Thu, 11 Dec 2025 08:34:27 -0800 (PST)
-Date: Thu, 11 Dec 2025 16:34:25 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, will@kernel.org,
-	catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, james.clark@linaro.org,
-	mark.rutland@arm.com, james.morse@arm.com
-Subject: Re: [RFC PATCH v6 00/35] KVM: arm64: Add Statistical Profiling
- Extension (SPE) support
-Message-ID: <20251211163425.GA4113166@e132581.arm.com>
-References: <20251114160717.163230-1-alexandru.elisei@arm.com>
+	Thu, 11 Dec 2025 16:39:47 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id A53411A20EE;
+	Thu, 11 Dec 2025 16:39:41 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6770E6072F;
+	Thu, 11 Dec 2025 16:39:41 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 825B8103C8C1B;
+	Thu, 11 Dec 2025 17:39:30 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1765471179; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=ANru55hW6VGmAl3nSsG6XTVN/Mh95jyNGuL5wdp0OOQ=;
+	b=GovHg0aqtPp92DsA1+k1LAaM84842wXpN3KS6jQtpPatmME4Xdt4EeGSnXMBI6lr3Sv9X2
+	q2enLRGWpPmkQp9/N74x8FP9F+zb7PdQx2lj7vsq55pawMeKJ+grMlqwz0n2Phw+zjNJTu
+	oxMOu3j2Oc8TcqDC8C25GyZ8xpAZrOjUICySCGdo94ESvKp4al36AM7ZaOrMG2ZKbyzQ5I
+	0HZv69pUk5ZxPIgz+zTzWusEFtZUKwYQRK13hF/sdVqh1sw2Fzf0A91lCMMksD1VrRiFGW
+	gnO7PALZglh9GkSs7Qot1raM64tX7TJXKAZDPjq/MuTbLFWUUHW3KjvTsVW42A==
+From: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
+Subject: [PATCH v2 00/20] Clean and update tilcdc driver to support
+ DRM_BRIDGE_ATTACH_NO_CONNECTOR
+Date: Thu, 11 Dec 2025 17:38:44 +0100
+Message-Id: <20251211-feature_tilcdc-v2-0-f48bac3cd33e@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251114160717.163230-1-alexandru.elisei@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAJTzOmkC/13MQQ7CIBCF4as0sxYDiG1w5T1MY4AOdpJaDGCja
+ bi7WHcu/5e8b4WEkTDBqVkh4kKJwlxD7hpwo5lvyGioDZLLo+BCMY8mPyNeM01ucKzTblAa285
+ 6DfX0iOjptYGXvvZIKYf43vxFfNcfJWT7Ty2Ccaa01eglHozhZxtCnmjeu3CHvpTyAT60FEquA
+ AAA
+X-Change-ID: 20251014-feature_tilcdc-79cd49e67bf9
+To: Jyri Sarha <jyri.sarha@iki.fi>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Russell King <linux@armlinux.org.uk>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Tony Lindgren <tony@atomide.com>, 
+ Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>
+Cc: Markus Schneider-Pargmann <msp@baylibre.com>, 
+ Bajjuri Praneeth <praneeth@ti.com>, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>, 
+ Louis Chauvet <louis.chauvet@bootlin.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Miguel Gazquez <miguel.gazquez@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-omap@vger.kernel.org, 
+ "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
+X-Mailer: b4 0.14.3
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_083430_997258_1888C82D 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20251211_083945_261874_81CEF6E8 
+X-CRM114-Status: GOOD (  18.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,65 +97,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexandru,
+The starting point for this work was adding support for the HDMI cape:
+https://www.seeedstudio.com/Seeed-Studio-BeagleBone-Green-HDMI-Cape.html
+This will be sent in a later series.
 
-Just couples general questions for myself to easier understand the series
-(sorry if I asked duplicated questions).
+Initially, Miguel proposed modifying the ite-it66121 bridge to support
+the legacy behavior without the DRM_BRIDGE_ATTACH_NO_CONNECTOR flag:
+https://lore.kernel.org/lkml/20250909-it66121-fix-v1-1-bc79ca83df17@bootlin.com/
+This patch was NAK'd as we don't want to add more legacy code. Maxime
+requested that the tilcdc driver be updated to use
+DRM_BRIDGE_ATTACH_NO_CONNECTOR instead.
 
-> I wanted the focus to be on pinning memory at stage 2 (that's patches #29, 'KVM:
-> arm64: Pin the SPE buffer in the host and map it at stage 2', to #3, 'KVM:
-> arm64: Add hugetlb support for SPE') and I would very much like to start a
-> discussion around that.
+While working on this update, I discovered that the tilcdc driver
+contained significant amounts of legacy code that needed cleaning.
+Since this driver was developed alongside the tda998x driver for
+several AM335x boards, the tda998x driver also required cleanup and
+support for the DRM_BRIDGE_ATTACH_NO_CONNECTOR flag.
 
-I am confused for "pinning memory at stage 2" and then I read "Pin the
-SPE buffer in the host".  I read Chapter 2 Specification, ARM DEN 0154,
-my conclusion is:
+A new tilcdc_panel_legacy driver replaces the old tilcdc_panel driver.
+It modifies the devicetree at boot time to properly bind the tilcdc driver
+with the standard panel-simple driver.
 
-1) You set PMBLIMITR_EL1.nVM == 0 (virtual address mode) so that the
-   driver uses the same mode whether it is running in a host or in a
-   guest.
+This series is based on the tilcdc fix sent to mainline:
+https://lore.kernel.org/lkml/20251125090546.137193-1-kory.maincent@bootlin.com/
 
-2) The KVM hypervisor needs to parse the VA -> IPA -> PA with:
+This series has been tested on:
+- BeagleBone Black (tilcdc + tda998x bridge)
+- BeagleBone Black with LCD cape (tilcdc + ti,tilcdc,panel binding)
+- BeagleBone Green Eco with HDMI cape (tilcdc + it66121 bridge)
 
-   Guest stage-1 table (managed in guest OS);
-   Guest stage-2 table (managed in KVM hypervisor);
+The following mainline devicetrees still use ti,tilcdc,panel binding.
+I believe this series maintains compatibility, but I cannot test without
+hardware:
+- da850-evm.dts
+- am335x-guardian.dts
+- am335x-pdu001.dts
+- am335x-pepper.dts
+- am335x-sbc-t335.dts
+- am335x-sl50.dts
 
-3) In the end, the KVM hypervisor pins physical pages on the host
-   stage-1 page table for:
+Patches 1-2: Convert tilcdc binding to YAML and set the ti,tilcdc,panel
+	     sub-binding as legacy.
+Patches 3-6: Replace tilcdc_panel driver to the new tilcdc_panel_legacy
+	     driver which is tweaking the devicetree at boot time.
+Patches 7-15: Clean up tilcdc driver.
+Patches 16-18: Clean up tda998x driver.
+Patch 19: Add DRM_BRIDGE_ATTACH_NO_CONNECTOR support for tda998x driver.
+Patch 20: Add DRM_BRIDGE_ATTACH_NO_CONNECTOR support for tilcdc driver.
 
-   The physical pages are pinned for Guest stage-1 table;
-   The physical pages are pinned for Guest stage-2 table;
-   The physical pages are pinned for used for TRBE buffer in guest.
+Changes in v2:
+- Remove patch 2 that add fifo-threshold property. Use FIFO threshold
+  value from SoC id instead.
+- Remove the part that breaks DTB compatibility.
+- Add tilcdc_panel_legacy to modify the devicetree at boot time to properly
+  bind the tilcdc driver with the standard panel-simple driver.
+- Link to v1: https://lore.kernel.org/r/20251126-feature_tilcdc-v1-0-49b9ef2e3aa0@bootlin.com
 
-Due the host might migrate or swap pages, so all the pin operations
-happen on the host's page table.  The pin operations never to be set up
-in guest's stage-2 table, right?
+Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
+---
+Kory Maincent (TI.com) (20):
+      dt-bindings: display: tilcdc: Convert to DT schema
+      dt-bindings: display: tilcdc: Mark panel binding as deprecated
+      drm/tilcdc: Remove simulate_vesa_sync flag
+      drm/tilcdc: Add support for DRM bus flags and simplify panel config
+      drm/tilcdc: Convert legacy panel binding via DT overlay at boot time
+      drm/tilcdc: Remove tilcdc panel driver
+      drm/tilcdc: Remove component framework support
+      drm/tilcdc: Remove tilcdc_panel_info structure
+      drm/tilcdc: Remove redundant #endif/#ifdef in debugfs code
+      drm/tilcdc: Remove unused encoder and connector tracking arrays
+      drm/tilcdc: Rename external_encoder and external_connector to encoder and connector
+      drm/tilcdc: Rename tilcdc_external to tilcdc_encoder
+      drm/tilcdc: Remove the useless module list support
+      drm/tilcdc: Modernize driver initialization and cleanup paths
+      drm/tilcdc: Remove the use of drm_device private_data
+      drm/bridge: tda998x: Remove component support
+      drm/bridge: tda998x: Move tda998x_create/destroy into probe and remove
+      drm/bridge: tda998x: Remove useless tda998x_connector_destroy wrapper
+      drm/bridge: tda998x: Add support for DRM_BRIDGE_ATTACH_NO_CONNECTOR
+      drm/tilcdc: Add support for DRM_BRIDGE_ATTACH_NO_CONNECTOR
 
-> The problem
-> ===========
-> 
-> When the Statistical Profiling Unit (SPU from now on) encounter a fault when
-> it attempts to write a record to memory, two things happen: profiling is
-> stopped, and the fault is reported to the CPU via an interrupt, not an
-> exception. This creates a blackout window during which the CPU executes
-> instructions which aren't profiled. The SPE driver avoid this by keeping the
-> buffer mapped while ProfilingBufferEnabled() = true. But when running as a
-> guest under KVM, the SPU will trigger stage 2 faults, with the associated
-> blackout windows.
+ .../devicetree/bindings/display/tilcdc/panel.txt   |   1 +
+ .../devicetree/bindings/display/tilcdc/tilcdc.txt  |  82 ----
+ .../devicetree/bindings/display/tilcdc/tilcdc.yaml |  96 +++++
+ drivers/gpu/drm/bridge/tda998x_drv.c               | 251 +++++------
+ drivers/gpu/drm/tilcdc/Kconfig                     |  14 +
+ drivers/gpu/drm/tilcdc/Makefile                    |   5 +-
+ drivers/gpu/drm/tilcdc/tilcdc_crtc.c               | 117 ++---
+ drivers/gpu/drm/tilcdc/tilcdc_drv.c                | 479 ++++++++-------------
+ drivers/gpu/drm/tilcdc/tilcdc_drv.h                |  88 +---
+ drivers/gpu/drm/tilcdc/tilcdc_encoder.c            |  93 ++++
+ .../tilcdc/{tilcdc_external.h => tilcdc_encoder.h} |   5 +-
+ drivers/gpu/drm/tilcdc/tilcdc_external.c           | 179 --------
+ drivers/gpu/drm/tilcdc/tilcdc_panel.c              | 408 ------------------
+ drivers/gpu/drm/tilcdc/tilcdc_panel.h              |  15 -
+ drivers/gpu/drm/tilcdc/tilcdc_panel_legacy.c       | 159 +++++++
+ drivers/gpu/drm/tilcdc/tilcdc_panel_legacy.dtso    |  44 ++
+ drivers/gpu/drm/tilcdc/tilcdc_plane.c              |   2 +-
+ drivers/gpu/drm/tilcdc/tilcdc_regs.h               |   8 +-
+ 18 files changed, 752 insertions(+), 1294 deletions(-)
+---
+base-commit: f1c12d4576a46c82d3fdace1343e040daa0561f2
+change-id: 20251014-feature_tilcdc-79cd49e67bf9
 
-My understanding is that there are two prominent challenges for SPE
-virtualization:
+Best regards,
+-- 
+Köry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
-1) Allocation: we need to allocate trace buffer with mapping both
-   guest's stage-1 and stage-2 before enabling SPU.  (For me, the free
-   buffer is never an issue as we always disable the SPU before
-   releasing the resource).
-
-2) Pin: the physical pages used by trace buffer and the relevant stage-1
-   and stage-2 tables must be pinned during the session.
-
-I will read (and learn) the patches in next days.
-
-Thanks,
-Leo
 
