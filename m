@@ -4,53 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9B2DD3E792
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 11:45:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C7A7D3E792
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 11:57:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZE5gMQxi5ialv0YcfS3/n3aNDuHEfuy9b3GVhqdNeyA=; b=1SMTmxSsGJLVQnwDlrfqlCRfIX
-	2BYcSjA0PqJ4hka0NRUOmQuukOb3xC03KCEwXFysXmbQ2pqLY16ux4p/GdiGxwDM3o6pS9rcGRlcp
-	fMQymNea7x2tZS7QKqE3GJcvfWcigVHRW7WQhFk3/Y6hzPRos/TLAUnFpguzQ6cRm51Uv67hJelxv
-	etyVMSJntd4lW27JKXt5dqROrSDco9EHKY41b9K791Q22N7SIx09kT6DMpL5aMSCXPRpafv4ehX4z
-	CUL3/Rdrp17Q7E1MN3+7mV89M7z9B1rh7LvN8rgvTSNkTQtFptiqzh5KwwK9b2+SK3b97y1aNurht
-	uGfm7n2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ge6luaR+xAHkcCG9NUunSCfnyO+n7OMnNihz0jio8P8=; b=KKI48A3Uqe/RSj/onKmHg/5sMc
+	YxuU1bYElh+1V/ZwMCyRZkYO3Q4DDpx+5/x25C+fsT48E9f2yhZcNPwfd22rlBu6C2WsIQ8CvyQ6a
+	8IOE5e9c2lni7zuIrq+laLcblMCNWd86NjIh6YNOsGGAeN6W/ygaUPH+Snmd/Hpa4mvykh+5Wen0w
+	o66B+frocppf41NyDMUddxrcLSNTxeMRKa+IlG2YV/vJGIic6bDtY3nh0xxPtgxE5g+kg76TRpx04
+	cZKDoJlR9wWoQlJgaDAn5bFa76+8cG7cgY1Vrjasugo/ao9YXq3MP2ezCDdv72XIyg4tlpO+duFiL
+	I4+mtSYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTf7C-0000000GYyP-06Zg;
-	Thu, 11 Dec 2025 11:45:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTf79-0000000GYxp-0axd
+	id 1vTfIX-0000000GZX1-2nKo;
+	Thu, 11 Dec 2025 11:57:29 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vTfIV-0000000GZWr-3pd1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 11:45:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2FEEAFEC;
-	Thu, 11 Dec 2025 03:45:33 -0800 (PST)
-Received: from [10.163.80.88] (unknown [10.163.80.88])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A13493F740;
-	Thu, 11 Dec 2025 03:45:38 -0800 (PST)
-Message-ID: <e702e529-efe3-41a4-953c-cdf838b4e7c5@arm.com>
-Date: Thu, 11 Dec 2025 17:15:35 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] arm64: ptdump: use seq_puts() in pt_dump_seq_puts()
- macro
-To: Josephine Pfeiffer <hi@josie.lol>, catalin.marinas@arm.com,
- will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251018170416.3355249-1-hi@josie.lol>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20251018170416.3355249-1-hi@josie.lol>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_034543_247429_1D901CF3 
-X-CRM114-Status: GOOD (  16.23  )
+	Thu, 11 Dec 2025 11:57:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id E0CDE6014C;
+	Thu, 11 Dec 2025 11:57:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91C07C4CEF7;
+	Thu, 11 Dec 2025 11:57:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765454246;
+	bh=myZp/nYUBwEbOWDlmVdLDQKg2988Fam3/cDwGtQWm6A=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=makmDseR2miy4/QKrR4GEVg/d9ppNRK+aLfj6C9uZivXzZbEfEaTKwFTUH9vIZKET
+	 9ggjUc9x1hfrNtsssbQeKdHFu5i678EDSrZdtzmi19hrmDZU3Ql2ncSgbfkQ57AeRD
+	 GE70KsRtRBj3+PfAgc9JzJGF/WlFQ5s+BJcIiz1cQmXvTvRJImfDAZogA6tUI38CaK
+	 V7dJ9fWwIzIbTO5vafrRpo5i3jWJ4248/B4mQ5EIpruAlN5METpkpOBCJVBkH9xOGJ
+	 Sefc+9hz/dDxrjxbNXjBjBy2DMrKZ5xDaY5O4XqRDyGTo2dUXrvOsFuEtIYaybn22H
+	 ImF7Ek3b4pXuA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vTfIR-0000000BzRt-4BII;
+	Thu, 11 Dec 2025 11:57:24 +0000
+Date: Thu, 11 Dec 2025 11:57:23 +0000
+Message-ID: <86wm2tnsd8.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Alexandru Elisei <alexandru.elisei@arm.com>
+Cc: oupton@kernel.org,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	qperret@google.com,
+	will@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH 2/2] KVM: arm64: Remove extra argument for __pvkm_host_{share,unshare}_hyp()
+In-Reply-To: <aTqP9M_E7ROGpfbB@raptor>
+References: <20251210132102.137631-1-alexandru.elisei@arm.com>
+	<20251210132102.137631-3-alexandru.elisei@arm.com>
+	<86zf7po2n3.wl-maz@kernel.org>
+	<aTqP9M_E7ROGpfbB@raptor>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: alexandru.elisei@arm.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,42 +89,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/10/25 10:34 PM, Josephine Pfeiffer wrote:
-> The pt_dump_seq_puts() macro incorrectly uses seq_printf() instead of
-> seq_puts(). This is both a performance issue and conceptually wrong,
-> as the macro name suggests plain string output (puts) but the
-> implementation uses formatted output (printf).
+On Thu, 11 Dec 2025 09:33:40 +0000,
+Alexandru Elisei <alexandru.elisei@arm.com> wrote:
 > 
-> All call sites pass constant strings without format specifiers, so
-> using seq_printf() adds unnecessary overhead for format string parsing.
+> Hi Marc,
 > 
-> This bug was introduced in commit ae5d1cf358a5 ("arm64: dump: Make the
-> page table dumping seq_file optional") in 2016, where seq_puts() was
-> replaced with a new pt_dump_seq_puts() macro that mistakenly used
-> seq_printf().
+> On Thu, Dec 11, 2025 at 08:15:28AM +0000, Marc Zyngier wrote:
+> > On Wed, 10 Dec 2025 13:21:02 +0000,
+> > Alexandru Elisei <alexandru.elisei@arm.com> wrote:
+> > > 
+> > > __pvkm_host_share_hyp() and __pkvm_host_unshare_hyp() both have one
+> > > parameter, the pfn, not two. Even though correctness isn't impacted because
+> > > the SMCCC handlers pass the first argument and ignore the second one, let's
+> > > call the functions with the proper number of arguments.
+> > > 
+> > > Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+> > > ---
+> > >  arch/arm64/kvm/mmu.c | 2 +-
+> > >  1 file changed, 1 insertion(+), 1 deletion(-)
+> > > 
+> > > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> > > index 7cc964af8d30..6c6abcd8e89e 100644
+> > > --- a/arch/arm64/kvm/mmu.c
+> > > +++ b/arch/arm64/kvm/mmu.c
+> > > @@ -497,7 +497,7 @@ static int share_pfn_hyp(u64 pfn)
+> > >  	this->count = 1;
+> > >  	rb_link_node(&this->node, parent, node);
+> > >  	rb_insert_color(&this->node, &hyp_shared_pfns);
+> > > -	ret = kvm_call_hyp_nvhe(__pkvm_host_share_hyp, pfn, 1);
+> > > +	ret = kvm_call_hyp_nvhe(__pkvm_host_share_hyp, pfn);
+> > >  unlock:
+> > >  	mutex_unlock(&hyp_shared_pfns_lock);
+> > >  
+> > 
+> > Yeah, we lost all form of type-checking when everything was hastily
+> > converted to SMCCC to avoid function pointers. Somehow, I feel that
+> > the cure was worse than the disease.
+> > 
+> > I wish we'd reintroduce some form of compile-time checks, maybe by
+> > having generated stubs?
 > 
-> Fixes: ae5d1cf358a5 ("arm64: dump: Make the page table dumping seq_file optional")
-> Signed-off-by: Josephine Pfeiffer <hi@josie.lol>
-> ---
->  arch/arm64/mm/ptdump.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> I also think compile-time checks would be useful, do you have something
+> particular in mind?
 > 
-> diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
-> index ab9899ca1e5f..a35fcd62bf75 100644
-> --- a/arch/arm64/mm/ptdump.c
-> +++ b/arch/arm64/mm/ptdump.c
-> @@ -35,7 +35,7 @@
->  #define pt_dump_seq_puts(m, fmt)	\
->  ({					\
->  	if (m)				\
-> -		seq_printf(m, fmt);	\
-> +		seq_puts(m, fmt);	\
->  })
->  
->  static const struct ptdump_prot_bits pte_bits[] = {
+> If not, right now I can't think of a way to generate the stubs automagically,
+> but I can give it a (probably bad) try and take it from there.
 
-LGTM and also did no see any problem while dumping via the
-sysfs file /sys/kernel/debug/kernel_page_tables
+On first approximation, all the hypercalls are implemented like this
+(taking __pkvm_init() as an example):
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+
+We have the body of the function, with its forward declaration:
+
+int __pkvm_init(phys_addr_t phys, unsigned long size, unsigned long nr_cpus,
+		unsigned long *per_cpu_base, u32 hyp_va_bits);
+
+int __pkvm_init(phys_addr_t phys, unsigned long size, unsigned long nr_cpus,
+		unsigned long *per_cpu_base, u32 hyp_va_bits)
+{
+	[...]
+}
+
+We also have the callee stub that does the argument un-marshalling:
+
+static void handle___pkvm_init(struct kvm_cpu_context *host_ctxt)
+{
+	DECLARE_REG(phys_addr_t, phys, host_ctxt, 1);
+	DECLARE_REG(unsigned long, size, host_ctxt, 2);
+	DECLARE_REG(unsigned long, nr_cpus, host_ctxt, 3);
+	DECLARE_REG(unsigned long *, per_cpu_base, host_ctxt, 4);
+	DECLARE_REG(u32, hyp_va_bits, host_ctxt, 5);
+
+	/*
+	 * __pkvm_init() will return only if an error occurred, otherwise it
+	 * will tail-call in __pkvm_init_finalise() which will have to deal
+	 * with the host context directly.
+	 */
+	cpu_reg(host_ctxt, 1) = __pkvm_init(phys, size, nr_cpus, per_cpu_base,
+					    hyp_va_bits);
+}
+
+and then the call site:
+
+	ret = kvm_call_hyp_nvhe(__pkvm_init, hyp_mem_base, hyp_mem_size,
+				num_possible_cpus(), kern_hyp_va(per_cpu_base),
+				hyp_va_bits);
+
+The problem is that kvm_call_hyp_nvhe() ignores the type conveyed by
+"__pkvm_init", as it is immediately tokenized as an SMCCC function
+number.
+
+One idea would be to add something like this:
+
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index b552a1e03848c..fdf09beeae380 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1208,10 +1208,11 @@ void kvm_arm_resume_guest(struct kvm *kvm);
+ #define vcpu_has_run_once(vcpu)	(!!READ_ONCE((vcpu)->pid))
+ 
+ #ifndef __KVM_NVHE_HYPERVISOR__
+-#define kvm_call_hyp_nvhe(f, ...)						\
++#define kvm_call_hyp_nvhe(f, ...)					\
+ 	({								\
+ 		struct arm_smccc_res res;				\
+ 									\
++		(void)f(##__VA_ARGS__);					\
+ 		arm_smccc_1_1_hvc(KVM_HOST_SMCCC_FUNC(f),		\
+ 				  ##__VA_ARGS__, &res);			\
+ 		WARN_ON(res.a0 != SMCCC_RET_SUCCESS);			\
+
+and generate stub functions that don't do anything, can be eliminated
+by the compiler, but not before type-checking.
+
+Another possible idea would be:
+
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index b552a1e03848c..4f53a3240a511 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1208,12 +1208,11 @@ void kvm_arm_resume_guest(struct kvm *kvm);
+ #define vcpu_has_run_once(vcpu)	(!!READ_ONCE((vcpu)->pid))
+ 
+ #ifndef __KVM_NVHE_HYPERVISOR__
+-#define kvm_call_hyp_nvhe(f, ...)						\
++#define kvm_call_hyp_nvhe(f, ...)					\
+ 	({								\
+ 		struct arm_smccc_res res;				\
+ 									\
+-		arm_smccc_1_1_hvc(KVM_HOST_SMCCC_FUNC(f),		\
+-				  ##__VA_ARGS__, &res);			\
++		nvhe_hvc_ ## f(##__VA_ARGS__, &res);			\
+ 		WARN_ON(res.a0 != SMCCC_RET_SUCCESS);			\
+ 									\
+ 		res.a1;							\
+
+where the stub function would actually do the type checking. I tend to
+prefer this.
+
+In any case, you would need have some form of declarative IDL, and get
+both the caller and callee stubs to be totally generated. It shouldn't
+be too complicated to do it in awk or some other stuff.
+
+Thoughts?
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
