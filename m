@@ -4,107 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D21CD41D50
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 14:56:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A8E6D41D50
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 15:17:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LSd8N+GnU3kOnAVY+f16uUov3Vq7sUiHBSfthzax8S4=; b=Q7S48tu2eZsv+MajRc47gNF3gx
-	s9KG3aHCqvuaWsb2oKgwk2W9rPnRRsrfHdF6PqmRH0IOVZtX4G7j3gSI6G/k0hIJkLMgyXyxHnFOk
-	1DSHh54d8++qlBH4l76DLvoNyP3Mp/KxLxuDBI8D5xt7vo9Npsw4Hr5Sa/PdlhN2TELA2EZgfdp4N
-	JS5ajjm0uyIva8V5rMU+E4FZZOpYnSFw34ymrcOLRf+jk5bGsXj6JQUI0c/nHBnoMrQ7sAeRpl01q
-	YybY7WCgDUTkQdvW7QdpDqbw3gH/DPcf0BuPnpimDE6w0qSKetoVHLmTSa3/idFr++JlaaCKXkINi
-	acNW9TKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=N/SEPPS3LkYORhwqK+Trj2yot7q9tIQx0jdFwhoKT5g=; b=xBM0Bdon+QuztgjHpxplx2xgx2
+	XNPo6F5wE72TY6niw1tqU1D3nYt6CtJGL9TMnRtpRZmCegcMEKcUAULwZWKkK9XcUoN7iM4dQWlCF
+	wBTkQJtT6Dj+chegorirRnZPHIWMU+ctN2DnScFz7xawe14m22jIE29/sJsFqA7OGuF1vDIlkCgor
+	fm/5FbcdpGjRI6q0dSOuCq10/y2vIrWXQvOrSM91UtZeHvBNMvRoz70HCdW69m+1Mwhrb+mRsnLi4
+	tSaB83yK4YA8Csi/g067s2D1xiFGVrmvejrAnVmD4ZK7mGanyhllU2UYUjyyqJ1ezgylHBCZiReXW
+	C32erTyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTi5c-0000000GkJn-30E4;
-	Thu, 11 Dec 2025 14:56:20 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	id 1vTiQ3-0000000GlDX-0A3V;
+	Thu, 11 Dec 2025 15:17:27 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTi5Z-0000000GkJL-2OeJ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 14:56:18 +0000
-Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-4ed67a143c5so559971cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 06:56:17 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1765464976; cv=none;
-        d=google.com; s=arc-20240605;
-        b=OyCLYGNVFySFyyGnd2tPqGogL5UYTqPjb764J3VM+1P9ku8Y0XpcMV/yA94sPIAQRI
-         yVNrXuMwyMgk86/t+WWR4kngoOtLKNactPdhXYnv05EUepsyDzx4Z057kCeWXFKbjVfR
-         Qjz22cC0vcLg6agqU9uRHFzgcMxrJhCNlcBkVFWJXjtDnd875Ar6tSPgy0dHj7u29PST
-         ojoB6GI9Vusa1hCqRkFg345+q3hHzGN7zBzYfv/xevOWURufYFmnPP1ieKUlDU46Z+qd
-         CBC4uRJfrYqxdqwgD5A3+JYbNEtaBEIk8l9FnADgFa0UVsUdhfXVO9cAxnGOg+hYBjH9
-         s7Xw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=LSd8N+GnU3kOnAVY+f16uUov3Vq7sUiHBSfthzax8S4=;
-        fh=obmzFLdr3KAMCI7XrhadC7uNe+bg8CDXij6GNFSNnDg=;
-        b=TTaJx2T5pJhgmLOkya+KIXf/6ZfHMdsCRb23Hpk9QnXGF0aMvYlRzgFNcV5S7ays/v
-         s/aClVXoC57COdJlodmbwL/iLsT5UruuYwF85JLQE5GfSDc2J8+NU9NBTdcjIuL9a1Zu
-         0svOGmqGSy8/VJ5lDQnlln6rMdc+XePDSf5fZqLEphEtVCHWbrVFFdq0jEK0a7NMYCgL
-         k0ytMi83DJtQfaHaxnRilLh/ek/63VSAABJfgRQZpnX8Xqnkjopvd1cIagY2JbZXvz9R
-         5mzMUyVj8pKj864b/VEZ5zFbMRk+5uzGKoCT+UGzsQr09kjV4iqn2TJ5q/YnO4jrds74
-         foSQ==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1765464976; x=1766069776; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=LSd8N+GnU3kOnAVY+f16uUov3Vq7sUiHBSfthzax8S4=;
-        b=SF06n+nG41HiGxduipANDaR1su/SOkMD5fOYnBD0pIguMJUJfrGZGAwFRG4QBhLzI0
-         UEtxZonkdLhS59Ur50Zg0OZ2UisCMFvy1eeWJukf23B4wHdWPmagafnJGeFJL4a6PGsy
-         GgwGUon4Vwn+jtNbh4fM/Pe3nE+We7cwd1ABDpwvt3Awo0I8uAAYApAo7ycXDoH3/fhi
-         o/c+73StewxwpEbh+crgNla5xDQDA/ybRMaMDKuvoed43fS/zxbADL5kS18mD65KEsbA
-         2/VDFfDvEzyZBgFGJnKY7g0N9KInpE5juiJV0LOoQOyZKJCTz4G2Rmii38y40+RCByoL
-         bvSA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765464976; x=1766069776;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LSd8N+GnU3kOnAVY+f16uUov3Vq7sUiHBSfthzax8S4=;
-        b=rz2OBh2f0X3NI56ouAsLFaYMqmcRnCWhUkuIXeR643UpOiwIjBOcrXsJXD1U6j5I/+
-         dqaUcP1PP0lfa0oGYsuo0N/DrqSYDohOcp8oogQ5Cgnkl3ZBDSEWK0F2yG+jYoNzv9j4
-         UUhc7nhez8UcfM5vAKGtaOP5Scxq8RqR0hAj2cPtYTwO4mLo+x7K+c5Bky5g/MF7mrRk
-         At16c5ViFwLDxkJoELKFqJZ5BqMKOdFmxPZBa/Kg1RTlz5vmyzQ+Mt2vqNowRoF4wO7S
-         d0Cf87REZMrE1gyTmlgMaPVFcVe0nANbI39n+Swzo5dpscJx1OqaHXO1XgptSnRWCKoN
-         CJsg==
-X-Forwarded-Encrypted: i=1; AJvYcCVmgGeLGY9VC/+aZWxfT4KnRbiorNsucHcmb/uHGFXYcmzNnzOiym0NIxS+DK4qtLIXVd+qpib/+rLoST+yMMGk@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEOoKmG/FyTiIVkUvswFUZjg6CsWsR265OKtqK2JffncLqHQ+o
-	lsOxV+jIPHwZeogPS4595ayXwN+8JRnq227NN+WUMH7GG6QvigRUDhVROU9YCPPfuUrImQDmiHX
-	AyZOutMLYnWYlgEZdRBfCEH73euGGPwsDC6n9Qmy1HLUpkCtNaszy3mzE
-X-Gm-Gg: AY/fxX4JG9Pd49kmJtJY68o9R9z+Utc9g5kLh8E+rOElYo/jKlApkdCx1SPizCZ01Ej
-	M0O0F8GaLIzIQ+5gRz82orPABWiW3uqFnp53WF1ve4D5Wudk/qrcJGR6kyos/e1Qax1Yt4Omahm
-	M0xQzynxOcDoC8GudkiZSSt+Y7UWoMq3+wBBL5vQNoNArkh8QO2Thf4M/CemoNgLBX7wz3odLch
-	zIJOCqHgBEfF/OSVWzfVXfhZ9ajDnkIo+9dJmikaZZgp3T/EjX0TLvQHMr6y3w5pnvTdCSF
-X-Google-Smtp-Source: AGHT+IFgjwqJGgZa7LZD4L5r7a6kWYEP7wTy3klGGOECrWDWiCBkWZLd3nH8UUUtuYTcOmHg8w6evp1g6WqoN0gf/WI=
-X-Received: by 2002:a05:622a:106:b0:4f1:b41a:a38a with SMTP id
- d75a77b69052e-4f1bed269bdmr10288581cf.3.1765464976027; Thu, 11 Dec 2025
- 06:56:16 -0800 (PST)
+	id 1vTiQ0-0000000GlD0-0POc;
+	Thu, 11 Dec 2025 15:17:25 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1765466188; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=L9VYmwF1ZV8mBvucp3svl+n1MZEnWQ04BL2BhNVuEMK6dCSfOeQuAT97cDSJwI2UtS5eS+maNpMT36+E1J9CzLenf0SwAHPud6VltN4mVmuujvF+jwhF8COSljdNWrlZT/Y/wOvAOC01CvvYY5bjjmtQaHkZdf/a+uLsc16RwWE=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1765466188; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=N/SEPPS3LkYORhwqK+Trj2yot7q9tIQx0jdFwhoKT5g=; 
+	b=Yv5af2b0YtOIVbVBwQckS9812m+mnbuhUpQ4QpChqPvKJwPrZkAnyBH0ciyo6jBkiGQTMPUGEoez+4bySY1CUTrunn3Earx6ny21zE6HODfZe6SesicfMLmZQu8RGOHO0UvdGh0TcLON91nyH2W4xLfWl4K95ch6Wn3HUu69A6U=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
+	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765466188;
+	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=N/SEPPS3LkYORhwqK+Trj2yot7q9tIQx0jdFwhoKT5g=;
+	b=L/jXXvCBWUVNoYDSVpKQzIj0UZfcnyE8Lh8Z2YHt8KxEHygIUMmoLAroU/yz9igs
+	IHcH9pFbI6OQw8HIoZSj+W+05VcMrgEAQmqiNCbwAlVPkFT3iJ1IBBc9QiyKK5pMI0M
+	h8uNTJ5v12VQvdswTB6xWbFG8lMowpjEs86OuFbU=
+Received: by mx.zohomail.com with SMTPS id 1765466186652613.9579128013164;
+	Thu, 11 Dec 2025 07:16:26 -0800 (PST)
+Message-ID: <68c83842-16e9-429b-96c8-50c8a15c659c@collabora.com>
+Date: Thu, 11 Dec 2025 12:16:08 -0300
 MIME-Version: 1.0
-References: <20251210173024.561160-1-maz@kernel.org>
-In-Reply-To: <20251210173024.561160-1-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Thu, 11 Dec 2025 14:55:39 +0000
-X-Gm-Features: AQt7F2r2xUgOLmLbDl7ihpbE251_7xooz1URlan3WSuQuzZ8uzvAyHS3-gcFwgs
-Message-ID: <CA+EHjTx8LYCCY=W+ifaQ4Ny3mJ_+u0GL5T2FaKWvaX-oqVPT6A@mail.gmail.com>
-Subject: Re: [PATCH v2 0/6] KVM: arm64: VTCR_EL2 conversion to feature
- dependency framework
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	kvm@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oupton@kernel.org>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Alexandru Elisei <alexandru.elisei@arm.com>, 
-	Sascha Bischoff <Sascha.Bischoff@arm.com>, Quentin Perret <qperret@google.com>, 
-	Sebastian Ene <sebastianene@google.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v2 07/20] drm/atomic: Pass post_blend_color_pipeline
+ client cap to atomic check
+To: Harry Wentland <harry.wentland@amd.com>,
+ =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Haneen Mohammed <hamohammed.sa@gmail.com>,
+ Melissa Wen <melissa.srw@gmail.com>
+Cc: Alex Hung <alex.hung@amd.com>, wayland-devel@lists.freedesktop.org,
+ leo.liu@amd.com, ville.syrjala@linux.intel.com,
+ pekka.paalanen@collabora.com, contact@emersion.fr, mwen@igalia.com,
+ jadahl@redhat.com, sebastian.wick@redhat.com, shashank.sharma@amd.com,
+ agoins@nvidia.com, joshua@froggi.es, mdaenzer@redhat.com, aleixpol@kde.org,
+ xaver.hugl@gmail.com, victoria@system76.com, uma.shankar@intel.com,
+ quic_naseer@quicinc.com, quic_cbraga@quicinc.com, quic_abhinavk@quicinc.com,
+ marcan@marcan.st, Liviu.Dudau@arm.com, sashamcintosh@google.com,
+ chaitanya.kumar.borah@intel.com, louis.chauvet@bootlin.com,
+ mcanal@igalia.com, kernel@collabora.com, daniels@collabora.com,
+ leandro.ribeiro@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, Simona Vetter <simona.vetter@ffwll.ch>
+References: <20250917-mtk-post-blend-color-pipeline-v2-0-ac4471b44758@collabora.com>
+ <20250917-mtk-post-blend-color-pipeline-v2-7-ac4471b44758@collabora.com>
+ <93edf489-c4f6-4f0d-a0d5-673da051983d@amd.com>
+Content-Language: en-US
+From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+In-Reply-To: <93edf489-c4f6-4f0d-a0d5-673da051983d@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ZohoMailClient: External
+X-ZohoMail-Owner: <68c83842-16e9-429b-96c8-50c8a15c659c@collabora.com>+zmo_0_ariel.dalessandro@collabora.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_065617_621277_4592F777 
-X-CRM114-Status: GOOD (  14.76  )
+X-CRM114-CacheID: sfid-20251211_071724_246956_8EAC8E52 
+X-CRM114-Status: GOOD (  13.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,58 +103,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+Harry,
 
-On Wed, 10 Dec 2025 at 17:30, Marc Zyngier <maz@kernel.org> wrote:
->
-> This is a follow-up on my VTCR_EL2 sanitisation series, with extra
-> goodies, mostly as a consequence of Alexandru's patches and review.
->
-> * From [1]:
->
->   - Added two patches fixing some FEAT_XNX issues: one dating back
->     from the hVHE introduction, and the other related to the newer
->     stuff in 6.19.
->
->   - Expanded the scope of the RES1 handling in DECLARE_FEAT_MAP() to
->     deal with FGTs, as we're about to get quality stuff thanks to
->     GICv5.
->
->   - Simplified the S2TGRANx detection slightly.
->
->   - Collected RBs, with thanks
->
-> [1] https://lore.kernel.org/r/20251129144525.2609207-1-maz@kernel.org
->
-> Marc Zyngier (6):
->   KVM: arm64: Fix EL2 S1 XN handling for hVHE setups
->   arm64: Convert ID_AA64MMFR0_EL1.TGRAN{4,16,64}_2 to UnsignedEnum
->   arm64: Convert VTCR_EL2 to sysreg infratructure
->   KVM: arm64: Account for RES1 bits in DECLARE_FEAT_MAP() and co
->   KVM: arm64: Convert VTCR_EL2 to config-driven sanitisation
->   KVM: arm64: Honor UX/PX attributes for EL2 S1 mappings
+On 9/29/25 6:50 AM, Harry Wentland wrote:
+> 
+> 
+> On 2025-09-17 20:43, Nícolas F. R. A. Prado wrote:
+>> Pass the state of the post-blend color pipeline client cap to the atomic
+>> state so that drivers can rely on it to enable color pipeline
+>> functionality and ignore the deprecated color management CRTC
+>> properties.
+>>
+>> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+>> ---
+>>   drivers/gpu/drm/drm_atomic_uapi.c |  1 +
+>>   include/drm/drm_atomic.h          | 20 ++++++++++++++++++++
+>>   2 files changed, 21 insertions(+)
+>>
+>> diff --git a/drivers/gpu/drm/drm_atomic_uapi.c b/drivers/gpu/drm/ 
+>> drm_atomic_uapi.c
+>> index 
+>> f5125fa3fa28ff2a6ff07fd7cf07d4bdf77ab738..56a440a9390c7730c4c41b491f29b933a2bbb889 100644
+>> --- a/drivers/gpu/drm/drm_atomic_uapi.c
+>> +++ b/drivers/gpu/drm/drm_atomic_uapi.c
+>> @@ -1660,6 +1660,7 @@ int drm_mode_atomic_ioctl(struct drm_device *dev,
+>>       state->acquire_ctx = &ctx;
+>>       state->allow_modeset = !!(arg->flags & 
+>> DRM_MODE_ATOMIC_ALLOW_MODESET);
+>>       state->plane_color_pipeline = file_priv->plane_color_pipeline;
+>> +    state->post_blend_color_pipeline = file_priv- 
+>> >post_blend_color_pipeline;
+>>   retry:
+>>       copied_objs = 0;
+>> diff --git a/include/drm/drm_atomic.h b/include/drm/drm_atomic.h
+>> index 
+>> 678708df9cdb90b4266127193a92183069f18688..8c42c584aefbf0034b2163d90538e80099b0dadb 100644
+>> --- a/include/drm/drm_atomic.h
+>> +++ b/include/drm/drm_atomic.h
+>> @@ -482,6 +482,26 @@ struct drm_atomic_state {
+>>        */
+>>       bool plane_color_pipeline : 1;
+>> +    /**
+>> +     * @post_blend_color_pipeline:
+>> +     *
+>> +     * Indicates whether this atomic state originated with a client that
+>> +     * set the DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE.
+>> +     *
+>> +     * Drivers and helper functions should use this to ignore legacy
+>> +     * properties that are incompatible with the drm_crtc COLOR_PIPELINE
+>> +     * behavior, such as:
+>> +     *
+>> +     *  - GAMMA_LUT
+>> +     *  - DEGAMMA_LUT
+>> +     *  - GAMMA_LUT_SIZE
+>> +     *  - CTM
+>> +     *
+>> +     * or any other driver-specific properties that might affect pixel
+>> +     * values.
+>> +     */
+>> +    bool post_blend_color_pipeline : 1;
+> 
+> As with the client cap name, I recommend calling this
+> crtc_color_pipeline.
 
-For the series, on qemu, hVHE and protected hVHE:
-Tested-by: Fuad Tabba <tabba@google.com>
+Agreed. As per the rest of the comments, I think it's worth moving all 
+naming in this series from post_blend to crtc, matching the criteria 
+used in plane (a.k.a. pre-blend) color pipelines.
 
+Will submit the related changes in v3.
 
-Cheers,
-/fuad
+Regards,
 
+-- 
+Ariel D'Alessandro
+Software Engineer
 
+Collabora Ltd.
+Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK 
+Registered in England & Wales, no. 5513718
 
->  arch/arm64/include/asm/kvm_arm.h     | 52 ++++-----------
->  arch/arm64/include/asm/kvm_host.h    |  1 +
->  arch/arm64/include/asm/kvm_pgtable.h |  2 +
->  arch/arm64/include/asm/sysreg.h      |  1 -
->  arch/arm64/kvm/config.c              | 94 ++++++++++++++++++++++++----
->  arch/arm64/kvm/emulate-nested.c      | 55 +++++++++-------
->  arch/arm64/kvm/hyp/pgtable.c         | 32 +++++++---
->  arch/arm64/kvm/nested.c              | 11 ++--
->  arch/arm64/tools/sysreg              | 63 ++++++++++++++++++-
->  9 files changed, 217 insertions(+), 94 deletions(-)
->
-> --
-> 2.47.3
->
 
