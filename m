@@ -4,63 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E5D4D41D61
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 16:00:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96682D41D66
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 16:21:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=or12i41DwtBHyiDj4tY+0moZH5Q/ZIYY4xunL9n9ldY=; b=5EkjzF2RKRhuFFbvIRtxg/tmX8
-	LhB50Qz842IuMVhmTpa7vdeQbeJet8II7SHf4uTiYYBSzKpxb8zLVm3kkacwIlJB6CKJz7rW3FcWO
-	BVKAvUSvVRCVjaH50bUUUXYOFo/4nfg/TXBYMAJncGaBKBoNSEO3jcykLyNaTtcFI3XAV1C/qzjDN
-	Y/yRpZ/as3BMsAn6pO5rme54cuavhX5gIjaG/bEM7IKhUjyHqLxgH8mhsyjCANk36IK4eJYELceNP
-	d6pTr47ovEsoIjhCZSUfMPtCWACIgsDcmF0mr/nsEV0MeUfz24c6f3y0ZBu4qMU7CFAHltHXO3PnN
-	ZeXkX+vg==;
+	bh=5wrCJdHRx4vuPPbLcV3XbPW98buCPJLnVZJoYBo7MvI=; b=fOtmvOPqitptIIwhD1s7DGOGlv
+	rEWSGrq6a1ivJfj0ZCrKwAfB4NyguFYNHvoj/w5uOqxIkolODHyY9Sz+roOoEJs5Ka73g4XLFIIBh
+	Fbfua2eKO7Tm4lp2ntgR0MlJluAOKxBwbBFMAr+T1qr0gzCGkC6rZ69FJlROPrNc4sB/yvclc+swY
+	X/M2//n9vWdxR+SMXFlpvjPM7nlCM8I/8MIb8MpMzNVm9t6bPWfyxdBkFAiqFkUo6ndwVo9y5A3Jk
+	jsrpd2dHkZgsrkKES6VVLRDsN74F9d1oZxpii6U1yy6OfjIgf0VCrzlZse6NcMFHgkMiY4FBA0ske
+	verZc52w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTj5e-0000000GnwU-46t7;
-	Thu, 11 Dec 2025 16:00:26 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vTjPy-0000000GpRt-2H76;
+	Thu, 11 Dec 2025 16:21:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTj5V-0000000Gnqp-08oL
+	id 1vTjPw-0000000GpRR-05cS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 16:00:17 +0000
+	Thu, 11 Dec 2025 16:21:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1569660137;
-	Thu, 11 Dec 2025 16:00:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C9F7C4CEF7;
-	Thu, 11 Dec 2025 16:00:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 38698443CF;
+	Thu, 11 Dec 2025 16:21:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10CCEC4CEF7;
+	Thu, 11 Dec 2025 16:21:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765468815;
-	bh=tWm4pp9IdFxUH810SQiXnaXzZK3H8gSPlK4Uk4k3lX0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jcO3NBxtMdynpjom17YQeJxXaBc2oKdYd/bYhNZikoyCc0oYEQ/0u+Url0SIuyYua
-	 vm/Am4GobA6FaiuZGd+z5h+mpLJNRnxSHpy/7Xu+ZMFejygTi3HU3X8ftpaXo+KVb1
-	 xKODMRpc7wkPinmLVWpugfg+fF8nSIfQ0WnoL5+eCp0BfGg1QQVWZPJW8Cs9E4n57P
-	 j1BdoqLPY220li3kcu2jar4uOjjaAvxj7Jf+MU2voHRT4PDFjjmLt5FKOwoK2Ut32y
-	 L11wicXjpu9zTpWJ3XpXVgz2Z6RCGEfFKe9JaQ680IX9Dvpa1NK2AdBTekEv/q4Dx4
-	 MRpW1c0UNba6A==
-Date: Thu, 11 Dec 2025 10:00:13 -0600
-From: Rob Herring <robh@kernel.org>
-To: Christophe Parant <c.parant@phytec.fr>
-Cc: devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	upstream@lists.phytec.de
-Subject: Re: [PATCH RESEND v2 03/11] dt-bindings: arm: stm32: Modify
- STM32MP15x Phytec board items types
-Message-ID: <20251211160013.GA1485420-robh@kernel.org>
-References: <20251210101611.27008-1-c.parant@phytec.fr>
- <20251210101611.27008-4-c.parant@phytec.fr>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251210101611.27008-4-c.parant@phytec.fr>
+	s=k20201202; t=1765470083;
+	bh=y8xi0690kj7eN8efJPQZwJp2vdnwY7JF6oRnrBCl3Ok=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=AOsdhLFfM0i6K1tw759EzzvDKigMReMknnQ51pDwJTgL8vBmFHWja9Q1+Uk9RIOPE
+	 5xl1eB1PtkjWQS2i0ypbyQBvnyN5ZPy8CnJzODJAbPji1lPskRWzs0PSHrTRyvTTle
+	 y+JFqp7GHHfJs4KigManI3RpjfVZfTkqpyf0DAW108oU+K9cVeItCMV8SkPJl0dTjl
+	 XEoHWVFE+9ShjGwm1Zj4TkFRsiBk/7Pew6oTh2objlQh20mf7G7c7BmnZH3gSMA4t/
+	 dfsBzcAbwoo58r94H3b8XDTfBBXg9/ouIFkoTEyt6oFc6ZYz6sEu2RpJfXovIrnUfl
+	 Ge32hZzbSNCxQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vTjPs-0000000C2ld-3FmR;
+	Thu, 11 Dec 2025 16:21:20 +0000
+Date: Thu, 11 Dec 2025 16:21:20 +0000
+Message-ID: <86tsxxng5b.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Joey Gouly <joey.gouly@arm.com>
+Cc: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oupton@kernel.org>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Sascha Bischoff <Sascha.Bischoff@arm.com>,
+	Quentin Perret <qperret@google.com>,
+	Fuad Tabba <tabba@google.com>,
+	Sebastian Ene <sebastianene@google.com>
+Subject: Re: [PATCH v2 6/6] KVM: arm64: Honor UX/PX attributes for EL2 S1 mappings
+In-Reply-To: <20251211151810.GA867614@e124191.cambridge.arm.com>
+References: <20251210173024.561160-1-maz@kernel.org>
+	<20251210173024.561160-7-maz@kernel.org>
+	<20251211151810.GA867614@e124191.cambridge.arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: joey.gouly@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, suzuki.poulose@arm.com, oupton@kernel.org, yuzenghui@huawei.com, alexandru.elisei@arm.com, Sascha.Bischoff@arm.com, qperret@google.com, tabba@google.com, sebastianene@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251211_082124_158924_2A3F4C2E 
+X-CRM114-Status: GOOD (  26.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,45 +94,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Dec 10, 2025 at 11:16:03AM +0100, Christophe Parant wrote:
-> As Phytec manages different SoM configurations with different STM32MP15
-> SoC versions, modify the phyBOARD and SoM compatible items to "enum"
-> instead of "const".
+On Thu, 11 Dec 2025 15:18:51 +0000,
+Joey Gouly <joey.gouly@arm.com> wrote:
+> 
+> Question,
+> 
+> On Wed, Dec 10, 2025 at 05:30:24PM +0000, Marc Zyngier wrote:
+> > Now that we potentially have two bits to deal with when setting
+> > execution permissions, make sure we correctly handle them when both
+> > when building the page tables and when reading back from them.
+> > 
+> > Reported-by: Alexandru Elisei <alexandru.elisei@arm.com>
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  arch/arm64/include/asm/kvm_pgtable.h | 12 +++---------
+> >  arch/arm64/kvm/hyp/pgtable.c         | 24 +++++++++++++++++++++---
+> >  2 files changed, 24 insertions(+), 12 deletions(-)
+> > 
+> > diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+> > index be68b89692065..095e6b73740a6 100644
+> > --- a/arch/arm64/include/asm/kvm_pgtable.h
+> > +++ b/arch/arm64/include/asm/kvm_pgtable.h
+> > @@ -87,15 +87,9 @@ typedef u64 kvm_pte_t;
+> >  
+> >  #define KVM_PTE_LEAF_ATTR_HI_SW		GENMASK(58, 55)
+> >  
+> > -#define __KVM_PTE_LEAF_ATTR_HI_S1_XN	BIT(54)
+> > -#define __KVM_PTE_LEAF_ATTR_HI_S1_UXN	BIT(54)
+> > -#define __KVM_PTE_LEAF_ATTR_HI_S1_PXN	BIT(53)
+> > -
+> > -#define KVM_PTE_LEAF_ATTR_HI_S1_XN					\
+> > -	({ cpus_have_final_cap(ARM64_KVM_HVHE) ?			\
+> > -			(__KVM_PTE_LEAF_ATTR_HI_S1_UXN |		\
+> > -			 __KVM_PTE_LEAF_ATTR_HI_S1_PXN) :		\
+> > -			__KVM_PTE_LEAF_ATTR_HI_S1_XN; })
+> > +#define KVM_PTE_LEAF_ATTR_HI_S1_XN	BIT(54)
+> > +#define KVM_PTE_LEAF_ATTR_HI_S1_UXN	BIT(54)
+> > +#define KVM_PTE_LEAF_ATTR_HI_S1_PXN	BIT(53)
+> >  
+> >  #define KVM_PTE_LEAF_ATTR_HI_S2_XN	GENMASK(54, 53)
+> >  
+> > diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> > index e0bd6a0172729..97c0835d25590 100644
+> > --- a/arch/arm64/kvm/hyp/pgtable.c
+> > +++ b/arch/arm64/kvm/hyp/pgtable.c
+> > @@ -342,6 +342,9 @@ static int hyp_set_prot_attr(enum kvm_pgtable_prot prot, kvm_pte_t *ptep)
+> >  	if (!(prot & KVM_PGTABLE_PROT_R))
+> >  		return -EINVAL;
+> >  
+> > +	if (!cpus_have_final_cap(ARM64_KVM_HVHE))
+> > +		prot &= ~KVM_PGTABLE_PROT_UX;
+> 
+> Trying to understand this part. We don't consider KVM_PGTABLE_PROT_UX below
+> when !HVHE, and we don't set it in kvm_pgtable_hyp_pte_prot() when !HVHE
+> either, so can it ever actually be set?
 
-Change to enum when you add a 2nd string. I don't follow why you would 
-do that either. You have more than 1 SoM for stm32mp157?
+Because KVM_PGTABLE_PROT_X, which is directly passed by the high-level
+code, is defined as such:
 
-> The description concerns PHYTEC SoM equipped with STM32MP157
-> ("st,stm32mp157" is "const").
-> Also add comments in front of the enum items to be able to identify the
-> compatible string with the phyBOARD/phyCORE names.
+	KVM_PGTABLE_PROT_X			= KVM_PGTABLE_PROT_PX	|
+						  KVM_PGTABLE_PROT_UX,
+
+We *could* make that value dependent on HVHE, but since that's in an
+enum, it is pretty ugly to do (not impossible though).
+
+But it is in the following code that this becomes useful...
+
+>
+> Otherwise LGTM!
 > 
-> Signed-off-by: Christophe Parant <c.parant@phytec.fr>
-> ---
->  Documentation/devicetree/bindings/arm/stm32/stm32.yaml | 8 +++++---
->  1 file changed, 5 insertions(+), 3 deletions(-)
+> Thanks,
+> Joey
 > 
-> diff --git a/Documentation/devicetree/bindings/arm/stm32/stm32.yaml b/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
-> index 408532504a24..fbd3d364c1f7 100644
-> --- a/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
-> +++ b/Documentation/devicetree/bindings/arm/stm32/stm32.yaml
-> @@ -182,10 +182,12 @@ properties:
->            - const: seeed,stm32mp157c-odyssey-som
->            - const: st,stm32mp157
->  
-> -      - description: Phytec STM32MP1 SoM based Boards
-> +      - description: Phytec STM32MP157 SoM based Boards
->          items:
-> -          - const: phytec,phycore-stm32mp1-3
-> -          - const: phytec,phycore-stm32mp157c-som
-> +          - enum:
-> +              - phytec,phycore-stm32mp1-3 # phyBOARD-Sargas with phyCORE-STM32MP157C SoM
-> +          - enum:
-> +              - phytec,phycore-stm32mp157c-som # phyCORE-STM32MP157C SoM
->            - const: st,stm32mp157
->  
->        - description: Ultratronik STM32MP1 SBC based Boards
-> -- 
-> 2.34.1
-> 
+> > +
+> >  	if (prot & KVM_PGTABLE_PROT_X) {
+> >  		if (prot & KVM_PGTABLE_PROT_W)
+> >  			return -EINVAL;
+
+... here. If you were passed UX (and only that), and that you're
+!HVHE, you won't have execution at all, and can allow writes.
+
+Does that make sense?
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
