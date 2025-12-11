@@ -4,151 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 351F5D3E797
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 06:12:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0A97D3E796
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 06:16:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A4JiDGHmMEDPcD2wgDRhLge5WYsd8FkCL+2ifcxAdQk=; b=pH2rbIUgSaECF/L7xpbRvN6fRS
-	HE3WJXc9e3TfMmHsHqE3z6KYIqcOXx5wImcJZS/81cng4b/Xls46+MGTP18xn+mDRU+Lqq4zMAhQ9
-	m1vd+XYNd6I6knTFYitsAqe7js6vhamNvQyDo/zWhGx1AewGIRG9okICZr5MKP0PKqbLWAWKtHBLD
-	c0s/zPb+iHyKXm5fEyZZlbxyBijntE1YNvP3vei5BHQdMB7xs3VAV/8Af7zHgbX6I4E5Ex8bS3ZGu
-	k6ihQEMYQ39Y9r7LLFkOijVjsbzgTJyi+uybYogl/lqdRmf9QFFXnfHmeRJh7X5quJgoIjQhI1QJ7
-	PuPFn0fg==;
+	bh=DJnjClzRSpC0fzjVNZcw2XM5f+2M1Gw/PdHBHL3QS8U=; b=P7F4m13PyBA1lsN/hC1yzAZnus
+	fMvsbXUN391qfLzsDMJ9LTRXW3daKHAUZcTxArLJ7XVIz12jkz56XQscAz84riJiak4zQN3GV56Xi
+	EW7BwhRaDUjXwkcGaM2mD6SaXR5zr0MjOzilpGIF6IKezkNkKlbrJpdVmYwHA+O2vqGMpY7aAWFDN
+	WOjpsxzj1+jSujXjvpZzLju86au2/vvzH5viQPaj2m8EUJZhvJ5N3agIBj2RBjKIchkzzBRgHsB2U
+	Clft4KhAT2WV3OTwfOPTTxA+QADPurX2C3YHkxhQn8brXy08xvWfNVH+jvLOAvYRhSLWdg2JnqQhZ
+	R9hJnpTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTZuR-0000000GGrT-3cnO;
-	Thu, 11 Dec 2025 06:12:15 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1vTZyb-0000000GHPP-3q6w;
+	Thu, 11 Dec 2025 06:16:33 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTZuP-0000000GGop-0pzD
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 06:12:14 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 5BB33t1v388276
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 06:12:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	A4JiDGHmMEDPcD2wgDRhLge5WYsd8FkCL+2ifcxAdQk=; b=cqPBoDkPQS276QEC
-	8w7jNdNzsYxlAy/ps/9Qh0U2H+cQWG31QZ+LUBvrw+bbkSJPMOAiEzngYmg4YTwY
-	IdE+WJHSoD9pFYQMiAmH4HkJQWElLsNyWwM9y7bEk1HS8yLC7tbuFZMWNdU9PzJh
-	30KoNTi6cINKQWaivw9/R9Mv6suGIR2ieOi0OT2zNO/dvdaqFYPwBzmSQN8qbSXa
-	nTvV1YsFsuqWiHCCiG2QQhwcLP59NwubxH9DF8Fo+aUN+IUoFc2IlIzEwOenHy+z
-	unLdg1n0NmgiNItAaowcDBOpKvcuF3uclZN96mjQyjoUXg19NYWBD3hruQsDAwA7
-	CSBYkA==
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4aynqp0f6d-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 06:12:12 +0000 (GMT)
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2954d676f9dso5854855ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Dec 2025 22:12:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1765433531; x=1766038331; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=A4JiDGHmMEDPcD2wgDRhLge5WYsd8FkCL+2ifcxAdQk=;
-        b=FWPhewvZknzFzW5mt4RrE32pKCQdGbfQ+5h7CeW+6nKh9ac9r+djogHSUp1I7KTpVx
-         GIlD6AtfTbhZy1w4Tm1dc/Ddu8bETSe9NMFpfkj2RqFytZOSPhA79hc3hSMe+2LI+CZy
-         /UslludhIAPtW36crAGi1zEtk49qVn0LPuoE4wiuAgr2pd047NzVG/KFYZBYld92ilgY
-         X1TEFknE3lUYAXE7NUFb/b4iSHROBabR+xZ9T3OPsfb8SwInrVdoqcQTdjJcDw0RFuf3
-         VY9UpaQ1UjJx0cI95dU0vW+Pldn1jy5F85B39udCtlgAJWwO/+VUcwMAItlxi/955uFs
-         rrlA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765433531; x=1766038331;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=A4JiDGHmMEDPcD2wgDRhLge5WYsd8FkCL+2ifcxAdQk=;
-        b=Ufrx5w849xW7z+xRZDv6Y65OrZUPZUsfe0DeEu6sDdrz77IlvPoLtO0CBDYpCexneg
-         eFWsNiw03xdEsIz0fvJWBQFJ0k37zguutzzyqlPbasKXom+GTR0trWC4uCm9fYYcOiRu
-         tgi6U14Yws9N+jbZHKpU19uzhHlucSw6eBA4gILQi/XRvqLN6dH2kzjdteuHAc4aVC1k
-         t4IRXDl6lInK+EcrJIBoKHHbKKtwX9aP138KFWNuTKT6BCgQE0ikwrA4Pu5k6T6cAJV2
-         yfhgsVy0/FZg3b+eLmJMYQWf/QLlpqgfeV7VePIycotTOwS/RWemA9aGMLGrozyudHNy
-         mMSg==
-X-Forwarded-Encrypted: i=1; AJvYcCWMZ71co1qpbLY7UIlgN47oroT3jbDIoSdRO7rga+YPaqOST1JbU8456UGesvm16eO0J38ICiZKJeETGTonQM6r@lists.infradead.org
-X-Gm-Message-State: AOJu0YzR93AoK+CE/7zKav+bFFccCWIMbd9i0vmb07R+qIXo2ewAMAUP
-	mLcdYKTwmDSRDeWADUSiE20RbbOF3np9IZxs06FLFBWuhbag/0gSJHzNNhcCD3ioLloXAG3STFh
-	Mr/JKWWIaBf+2kQQ4NbEpAO7YwP1iz5K6Zvo+ftW4tJ5Mj82yqlzncyXtFzVoKA1zZaeBfAreXH
-	zp7Q==
-X-Gm-Gg: AY/fxX5ITA6KrF72iA1C4sOD3hbNFjQBtvbbns1DrEcOYytRT0Sfk3gK4gsRanS5qCB
-	kIKW1zG5bL9rCfhHybee35elk+sg35J2CHtmKgP77t4wHSJY/pazAXBVGulzNX9Sklt0JuQEaM5
-	jVrZLZ8YClmJgGdOic7pRqen0rvloVptdfPKouIuSDRwUdTjt7eNwJ1/vJTqDTowTO7Bn2u2fiT
-	/AC1EL854SQH6qMlJ6VS986UszzTWbQ7wgZ9EuMXETgVWHry/AIdAT0JGaHQV1AwULKjhQlm5rF
-	JCVddakAGxpRnFmhk34O/m9gAUX3tq7SStEv7owHcv1CKR6O6nl1hw+twrtthBg89jfNRQg/kEX
-	EfVCeyIoBHZ+DzULqOATAQa9onOksHXK+3S8ZCnl47tV+1jI66yV8gfJSCuWtg9T2IwVrkqXY
-X-Received: by 2002:a17:902:da8c:b0:295:3ad7:948a with SMTP id d9443c01a7336-29ec22caca3mr46292585ad.16.1765433531087;
-        Wed, 10 Dec 2025 22:12:11 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHwpyeBJog8A/y6aFNZOvOQS7CL5HjLOWRtqjKGI3ThqTrSkk6w7Ru+P//VRVWCIf7gX5e7pQ==
-X-Received: by 2002:a17:902:da8c:b0:295:3ad7:948a with SMTP id d9443c01a7336-29ec22caca3mr46292275ad.16.1765433530616;
-        Wed, 10 Dec 2025 22:12:10 -0800 (PST)
-Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29eea065186sm11725945ad.89.2025.12.10.22.12.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 10 Dec 2025 22:12:10 -0800 (PST)
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-Date: Thu, 11 Dec 2025 14:10:47 +0800
-Subject: [PATCH v8 8/8] arm64: dts: qcom: lemans: Add interrupts to CTCU
- device
+	id 1vTZya-0000000GHP6-1Xcg;
+	Thu, 11 Dec 2025 06:16:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6511F60141;
+	Thu, 11 Dec 2025 06:16:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65EBAC4CEFB;
+	Thu, 11 Dec 2025 06:16:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765433791;
+	bh=bvT1VlwRH7XGC2MP4ovfWsz0gA8jdt47wxOpuOfG/XM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=mUGpwECA6gZn5jHX2eYEMqFzVIFUVnMAR9FSdFdAOxjVkFmZgf+0xS0gNDd4KvaJ5
+	 4cCJG4naR/JkLFnqIlIe43x9XvZajRMCMn1jbROQXq2Zkjd0Et2D5DnSlTuTyAt9SA
+	 l9cJnAwZAARSDNv4YHSpg4C7vFxR0pNvnN9MLzBt4TfE8jUw7op/Vjm/uba1oJmwRj
+	 A+h4tdZFPKmMjQqyYQvNCV7ruRqJAgn5SM9Yo5HHpRwx2YQ6K0J3FHOLHVAo9tMcyK
+	 alKLOAPhAfNKba8GJKYa+StfQ34YRtM3NA3O/0yPVtZzfuHAUQk0nJ5txbVQdufr6T
+	 tHhONQ/igKaGQ==
+Message-ID: <38ef7ee0-1879-42d5-a7fd-d32b96d01367@kernel.org>
+Date: Thu, 11 Dec 2025 07:16:25 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/5] dt-bindings: clock: add Amlogic T7 SCMI clock
+ controller
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Jian Hu <jian.hu@amlogic.com>, Xianwei Zhao <xianwei.zhao@amlogic.com>,
+ Chuan Liu <chuan.liu@amlogic.com>, Neil Armstrong
+ <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Michael Turquette
+ <mturquette@baylibre.com>, robh+dt <robh+dt@kernel.org>,
+ Rob Herring <robh@kernel.org>, devicetree <devicetree@vger.kernel.org>,
+ linux-clk <linux-clk@vger.kernel.org>,
+ linux-amlogic <linux-amlogic@lists.infradead.org>,
+ linux-kernel <linux-kernel@vger.kernel.org>,
+ linux-arm-kernel <linux-arm-kernel@lists.infradead.org>
+References: <20251204053635.1234150-1-jian.hu@amlogic.com>
+ <20251204053635.1234150-3-jian.hu@amlogic.com>
+ <20251208-independent-warping-macaw-74a169@quoll>
+ <dd90b445-bafb-46d4-8cec-e0877cf425b3@amlogic.com>
+ <4f5ec838-f8d6-4c3b-94f2-b2a60cfe64ec@kernel.org>
+ <1jy0ncvu23.fsf@starbuckisacylon.baylibre.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <1jy0ncvu23.fsf@starbuckisacylon.baylibre.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251211-enable-byte-cntr-for-ctcu-v8-8-3e12ff313191@oss.qualcomm.com>
-References: <20251211-enable-byte-cntr-for-ctcu-v8-0-3e12ff313191@oss.qualcomm.com>
-In-Reply-To: <20251211-enable-byte-cntr-for-ctcu-v8-0-3e12ff313191@oss.qualcomm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1765433485; l=826;
- i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
- bh=TYSRWgmxRNSLt2fH+36XKupwzsybh26yro/HGps6z3Q=;
- b=Ux3XflkTrrUJHp+u7FIF254VmIX3iOfhW+NkBHok+c3zuJeA5LieWfVOFHPokKhPaZCUr783/
- 7nAw//SIn3rCaw1MyLtijaWEIOLpdIrDfw9bpgsjr955vjm58gSoAvp
-X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
- pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjExMDA0MiBTYWx0ZWRfX23PsxPOse0et
- CT+k0bEJn2tKh7hbXulctB9Wt606xatNj+J3QUC1hgzYVZEgyaVufv3nPFp09NCur5htbGX43Xc
- YNfWb2fwstfN2EqghY5riQa84IisFuYyRzUEQyE+VYl1vzX31e0smfcSoIV6SOznSqhWQ6Y4oYj
- pqLahk/egW+TmTNJEm0NsX0jzlX0wS3dwu6AoJ0ps7r+WsQ3ZmcY188CL5NNGCX5VBTEsZGAOD2
- fxb9ZIRavQQ7r0GvHag0JR7xAE0t7SOoqMSlra8I4I5P12afTE+HazZQC4yYn+mH3YdTssVY3MH
- qtJX2qmKjq2wogovMh3aFzPJYK2A/+NAIv9+y2yxx4I+o+t78/vuRkTouSCqTEGiUJmlxvuK74x
- BA54EV0vFdNQllOXXT8eXeLDnzwuzw==
-X-Authority-Analysis: v=2.4 cv=dZeNHHXe c=1 sm=1 tr=0 ts=693a60bc cx=c_pps
- a=cmESyDAEBpBGqyK7t0alAg==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=EUspDBNiAAAA:8 a=gBkj9RZkAcI1HbXH1KoA:9
- a=QEXdDO2ut3YA:10 a=1OuFwYUASf3TG4hYMiVC:22
-X-Proofpoint-GUID: AHQk9mkYZxkikG6S8LiA_zHDECN277xI
-X-Proofpoint-ORIG-GUID: AHQk9mkYZxkikG6S8LiA_zHDECN277xI
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-10_03,2025-12-09_03,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- bulkscore=0 priorityscore=1501 clxscore=1015 lowpriorityscore=0
- impostorscore=0 adultscore=0 malwarescore=0 suspectscore=0 spamscore=0
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2510240001
- definitions=main-2512110042
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_221213_361853_00896BD5 
-X-CRM114-Status: GOOD (  12.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,32 +126,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add interrupts to enable byte-cntr function for TMC ETR devices.
+On 09/12/2025 11:16, Jerome Brunet wrote:
+> On Tue 09 Dec 2025 at 07:01, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> 
+>> On 08/12/2025 09:40, Jian Hu wrote:
+>>> Hi, Krzysztof
+>>>
+>>>
+>>> Thans for your review.
+>>>
+>>> On 12/8/2025 2:17 PM, Krzysztof Kozlowski wrote:
+>>>> [ EXTERNAL EMAIL ]
+>>>>
+>>>> On Thu, Dec 04, 2025 at 01:36:31PM +0800, Jian Hu wrote:
+>>>>> Add DT bindings for the SCMI clock controller of the Amlogic T7 SoC family.
+>>>>>
+>>>>> Signed-off-by: Jian Hu <jian.hu@amlogic.com>
+>>>>> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+>>>>> ---
+>>>>>   include/dt-bindings/clock/amlogic,t7-scmi.h | 47 +++++++++++++++++++++
+>>>>>   1 file changed, 47 insertions(+)
+>>>>>   create mode 100644 include/dt-bindings/clock/amlogic,t7-scmi.h
+>>>>>
+>>>> Where is any binding doc for this? Why is this a separate patch?
+>>>
+>>>
+>>> The ARM SCMI device tree binding specification is located at 
+>>> ./Documentation/devicetree/bindings/firmware/arm,scmi.yaml.
+>>
+>> Then git grep for the file name - there is no such compatible. Are you
+>> sure you follow writing bindings doc?
+>>
+>> Think how are you going to use these values. You will have phandle, yes?
+>> To some controller, yes? Which one?
+> 
+> For the C3 (I believe the T7 is the same), the compatible being used is
+> "arm,scmi-smc". It is a generic one documented here:
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/devicetree/bindings/firmware/arm,scmi.yaml?h=v6.18#n202
+> 
+> The phandle used is a subnode of that, to clock protocol:
+> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/arch/arm64/boot/dts/amlogic/amlogic-c3.dtsi?h=v6.18#n116
+> 
+> Same things is done on imx, stm and rockchip platforms from what I can
+> see.
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/lemans.dtsi | 5 +++++
- 1 file changed, 5 insertions(+)
+I see, thanks for explanation, it's fine.
 
-diff --git a/arch/arm64/boot/dts/qcom/lemans.dtsi b/arch/arm64/boot/dts/qcom/lemans.dtsi
-index 0b154d57ba24..3c4633e044d9 100644
---- a/arch/arm64/boot/dts/qcom/lemans.dtsi
-+++ b/arch/arm64/boot/dts/qcom/lemans.dtsi
-@@ -2776,6 +2776,11 @@ ctcu@4001000 {
- 			clocks = <&aoss_qmp>;
- 			clock-names = "apb";
- 
-+			interrupts = <GIC_SPI 270 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 262 IRQ_TYPE_EDGE_RISING>;
-+			interrupt-names = "etrirq0",
-+					  "etrirq1";
-+
- 			in-ports {
- 				#address-cells = <1>;
- 				#size-cells = <0>;
+> 
+> Jian is just adding the arbitrary IDs used to identify the clocks in the
+> FW. I don't think there is anything out of the ordirnary here.
+> 
+> Is there something else Rob and I missed reviewing this ?
+> 
+>>
+>>>
+>>> Certain secure clocks on the T7 rely on the ARM SCMI driver stack, which 
+>>> is officially supported by ARM.
+>>>
+>>> The kernel-side SCMI client implementation resides in 
+>>> ./drivers/firmware/arm_scmi/.
+>>>
+>>> To enable ARM SCMI on T7, three components are needed:
+>>>
+>>> - Kernel-side definition of ARM SCMI clock indices (this patch addresses 
+>>> this component);
+>>> - SCMI server implementation in the ARM Trusted Firmware (ATF) running 
+>>> at Exception Level 3 (EL3), which has been integrated into the bootloader;
+>>> - Device Tree Source (DTS) configuration for ARM SCMI clock nodes (the 
+>>> DTS changes will be submitted after the T7 clock driver patches are 
+>>> merged upstream).
+>>
+>> So silently you keep the users hidden? No, I want to see the users.
+>>
+> 
+> Is there a new requirement to submit the DTS file changes along with the
+> driver changes now ?
+> 
+> This has never been case before, especially since the changes are merged
+> through different trees.
 
--- 
-2.34.1
+There is no such requirement, but "has never been case before" is
+clearly not accurate, because I raised this question multiple times last
+two-three years.
 
+There is no reasonable way to hold publishing of DTS, therefore if
+someone uses arguments like above with waiting for driver, I usually got
+suspicious.
+
+Also note, that many contributions from various people (not saying that
+this one here is) were bad quality and badly designed but without seeing
+DTS it takes me significantly more time to understand that design. So
+yes, publish your DTS solving all of the questions and making reviewing
+easier. Or don't and receive questions...
+
+
+Best regards,
+Krzysztof
 
