@@ -4,78 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68E85D3E78C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 03:46:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBA7FD3E78B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 04:03:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZSCsNDXRTbhutBX9NCXK3CKOOwqTbSlygnCMk74EA64=; b=p8gyK5dKm9xFG31xg01nhrEwpo
-	cEdsTa6fVzKX4e9aoPaPc57qCNRGYn7CqoLSrcZ0Bt23RBccjiBlwIw2ChAhOwdJbxvfbwFmVXpCY
-	7o2AZFWXgNdC2O8eeMYuuuijx2qOaEITxPIod09pf8LZo/kdIOX2seiQb/UuX5/eLcpYfVvizWSXF
-	yBouGNuvBNSI4Ho8i5evPHYUZuyOb2PjPkLp9XgSexzWcmvLqELsvxRBpB27UkcOKLLUHcgl2IHK0
-	f68hTXTgOCfQuqtMhRyGgKmk77SMD5Cx52a6ifdSbZuW7B+wVLw5i3mnqv0Vki9TtNYXP0Hc3/pD5
-	R9qSbmlQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5UjyhyHUEtQCuhcWlIDy7kcx7pX3yK38gaTsr31o0Jc=; b=2Yoil/Twbit/Tew13IJ3Fvq1q1
+	4mKQ7s5UcqDnA7GeCADP8AS+y7j+K7cb0cHcBL8Iu7HdJPYfpj/+IFUdnw28TplpSkhaX1bl1FBAi
+	G3vJitSCZ/iY29Ky7JOzb/CzlOIT8b3w6jFaNOITc+pW+9EMVNHr/6LqAFbdAKIK/IlZzQBCGq0Tr
+	EwHUdRVx+RovFOyNx3d5JpIeXCnJXMHxcmGB4D3PzqZEUak6IE0KEj+4D1oXynJKwneOoYz576uW0
+	o5zhOwwV1A37DzIYVTGHWMeNtOKicRrV8rjMzS+Un1DkxEbgyU/rCJ/XjKMUn1mrywwCL317NRjFU
+	gW0p5Gdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTXdP-0000000GBBp-22VT;
-	Thu, 11 Dec 2025 03:46:31 +0000
-Received: from m16.mail.163.com ([220.197.31.4])
+	id 1vTXtU-0000000GBqW-4011;
+	Thu, 11 Dec 2025 04:03:08 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTXdM-0000000GB9x-1P9D;
-	Thu, 11 Dec 2025 03:46:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=ZSCsNDXRTbhutBX9NCXK3CKOOwqTbSlygnCMk74EA64=; b=W
-	S3mN0nH12O/E1MsYSOL05QamwOXwXdowXkXmwtDDyQwCY6mzLo+1hPTA47QTWh9K
-	RVm9hGQ1j2P30bwwA0Lfv7Dq26SfisS4ocJgI2DDqOsVzgdf3TnM6+T1zL7zTN0s
-	CQyAEnsEEN9Hr3NYM+L3z6EE+ytraUlhWbScKP6vgA=
-Received: from andyshrk$163.com ( [58.22.7.114] ) by
- ajax-webmail-wmsvr-40-144 (Coremail) ; Thu, 11 Dec 2025 11:45:31 +0800
- (CST)
-X-Originating-IP: [58.22.7.114]
-Date: Thu, 11 Dec 2025 11:45:31 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Nicolas Frattaroli" <nicolas.frattaroli@collabora.com>
-Cc: "Chaoyi Chen" <chaoyi.chen@rock-chips.com>,
-	"Sandy Huang" <hjc@rock-chips.com>,
-	=?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
-	"Andy Yan" <andy.yan@rock-chips.com>,
-	"Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
-	"Maxime Ripard" <mripard@kernel.org>,
-	"Thomas Zimmermann" <tzimmermann@suse.de>,
-	"David Airlie" <airlied@gmail.com>,
-	"Simona Vetter" <simona@ffwll.ch>,
-	"Daniel Stone" <daniels@collabora.com>,
-	dri-devel@lists.freedesktop.org,
+	id 1vTXtP-0000000GBq3-0BfO
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 11 Dec 2025 04:03:07 +0000
+Received: from dfae2b116770.home.arpa (unknown [124.16.138.129])
+	by APP-05 (Coremail) with SMTP id zQCowACnOQ1uQjpprjhGAA--.25317S2;
+	Thu, 11 Dec 2025 12:02:55 +0800 (CST)
+From: Wentao Liang <vulab@iscas.ac.cn>
+To: ulf.hansson@linaro.org,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com
+Cc: linux-pm@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel@collabora.com, "Diederik de Haas" <diederik@cknow-tech.com>
-Subject: Re:[PATCH v3 6/8] drm/rockchip: vop2: Enforce AFBC transform stride
- align in plane_check
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20250723(a044bf12) Copyright (c) 2002-2025 www.mailtech.cn 163com
-In-Reply-To: <20251209-vop2-atomic-fixups-v3-6-07c48f0f1f0d@collabora.com>
-References: <20251209-vop2-atomic-fixups-v3-0-07c48f0f1f0d@collabora.com>
- <20251209-vop2-atomic-fixups-v3-6-07c48f0f1f0d@collabora.com>
-X-CM-CTRLMSGS: s1eSsnBsdXM9MTc2NTQyNDczMDczMl83M2ZiZjMzMmY4Y2E0MmRmM2ZhNWMwN
- zFmM2NmMDlmMQ==
-X-NTES-SC: AL_Qu2dB/iZu08o5yaebOkfmUgWjuw/WsG1v/Ul1YBSP556jC3r8wYiVlR5P2XTzf6vNiCitTmzciJJ8dxKdqZYY4Q6oqQFipl1U2BrZmZoBYWT4Q==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	linux-kernel@vger.kernel.org,
+	Wentao Liang <vulab@iscas.ac.cn>,
+	stable@vger.kernel.org
+Subject: [PATCH v4] pmdomain: imx: Fix reference count leak in imx_gpc_probe()
+Date: Thu, 11 Dec 2025 04:02:52 +0000
+Message-Id: <20251211040252.497759-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Message-ID: <6aed0bff.3ccf.19b0b839621.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: kCgvCgD3vwtbPjpp_oU2AA--.1214W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbCxRuO7Gk6PlvzeQAA3A
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowACnOQ1uQjpprjhGAA--.25317S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7Ww13Kw4fAw45ZFyDZryxKrg_yoW8WF4kpF
+	WxGayakrW7CF47KaykKr4UZFy5K3y5A3y7tF40kay3Zr15tF97JFy5Z34jkrnakry8Ja15
+	trWUKryrXas7CaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUU9014x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26ryj6F1UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVW0oV
+	Cq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
+	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
+	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
+	n2kIc2xKxwCY1x0262kKe7AKxVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7x
+	kEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E
+	67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCw
+	CI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1x
+	MIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIda
+	VFxhVjvjDU0xZFpf9x0JUd-B_UUUUU=
+X-Originating-IP: [124.16.138.129]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAYNA2k6CZbaQgAAsQ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_194628_747557_FF976EC7 
-X-CRM114-Status: UNSURE (   6.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251210_200303_450481_A1E91037 
+X-CRM114-Status: GOOD (  10.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,35 +84,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CkhlbGxvIE5pY29sYXPvvIwKCkF0IDIwMjUtMTItMDkgMTk6MTQ6MTksICJOaWNvbGFzIEZyYXR0
-YXJvbGkiIDxuaWNvbGFzLmZyYXR0YXJvbGlAY29sbGFib3JhLmNvbT4gd3JvdGU6Cj5Gcm9tOiBE
-YW5pZWwgU3RvbmUgPGRhbmllbHNAY29sbGFib3JhLmNvbT4KPgo+TWFrZSBzdXJlIHdlIGNhbid0
-IGJyZWFrIHRoZSBoYXJkd2FyZSBieSByZXF1ZXN0aW5nIGFuIHVuc3VwcG9ydGVkCj5jb25maWd1
-cmF0aW9uLgo+Cj5TaWduZWQtb2ZmLWJ5OiBEYW5pZWwgU3RvbmUgPGRhbmllbHNAY29sbGFib3Jh
-LmNvbT4KPlNpZ25lZC1vZmYtYnk6IE5pY29sYXMgRnJhdHRhcm9saSA8bmljb2xhcy5mcmF0dGFy
-b2xpQGNvbGxhYm9yYS5jb20+Cj4tLS0KPiBkcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2No
-aXBfZHJtX3ZvcDIuYyB8IDEyICsrKysrKysrKy0tLQo+IDEgZmlsZSBjaGFuZ2VkLCA5IGluc2Vy
-dGlvbnMoKyksIDMgZGVsZXRpb25zKC0pCj4KPmRpZmYgLS1naXQgYS9kcml2ZXJzL2dwdS9kcm0v
-cm9ja2NoaXAvcm9ja2NoaXBfZHJtX3ZvcDIuYyBiL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9y
-b2NrY2hpcF9kcm1fdm9wMi5jCj5pbmRleCBhMDI5ZWQ3M2RkYTcuLjMzN2IwMWVkMjlhNiAxMDA2
-NDQKPi0tLSBhL2RyaXZlcnMvZ3B1L2RybS9yb2NrY2hpcC9yb2NrY2hpcF9kcm1fdm9wMi5jCj4r
-KysgYi9kcml2ZXJzL2dwdS9kcm0vcm9ja2NoaXAvcm9ja2NoaXBfZHJtX3ZvcDIuYwo+QEAgLTEw
-ODMsNiArMTA4MywxNSBAQCBzdGF0aWMgaW50IHZvcDJfcGxhbmVfYXRvbWljX2NoZWNrKHN0cnVj
-dCBkcm1fcGxhbmUgKnBsYW5lLAo+IAkJcmV0dXJuIC1FSU5WQUw7Cj4gCX0KPiAKPisJaWYgKGRy
-bV9pc19hZmJjKGZiLT5tb2RpZmllcikgJiYKPisJICAgIHBzdGF0ZS0+cm90YXRpb24gJgo+KwkJ
-KERSTV9NT0RFX1JFRkxFQ1RfWCB8IERSTV9NT0RFX1JPVEFURV85MCB8IERSTV9NT0RFX1JPVEFU
-RV8yNzApICYmCj4rCSAgICAoZmItPnBpdGNoZXNbMF0gPDwgMykgLyB2b3AyX2dldF9icHAoZmIt
-PmZvcm1hdCkgJSA2NCkgewo+KwkJZHJtX2RiZ19rbXModm9wMi0+ZHJtLAo+KwkJCSAgICAiQUZC
-QyBidWZmZXJzIG11c3QgYmUgNjQtYnl0ZSBhbGlnbmVkIGZvciBob3Jpem9udGFsIHJvdGF0aW9u
-IG9yIG1pcnJvcmluZ1xuIik7Cj4rCQlyZXR1cm4gLUVJTlZBTDsKPisJfQoKQXMgRGllZGVyaWsg
-cHJldmlvdXNseSBwb2ludGVkIG91dO+8jHMvNjQtYnl0ZS82NCBwaXhlbC8gCgo+Kwo+IAlyZXR1
-cm4gMDsKPiB9Cj4gCj5AQCAtMTI5MCw5ICsxMjk5LDYgQEAgc3RhdGljIHZvaWQgdm9wMl9wbGFu
-ZV9hdG9taWNfdXBkYXRlKHN0cnVjdCBkcm1fcGxhbmUgKnBsYW5lLAo+IAkJICogd2l0aCBXSU5f
-VklSX1NUUklERS4KPiAJCSAqLwo+IAkJc3RyaWRlID0gKGZiLT5waXRjaGVzWzBdIDw8IDMpIC8g
-YnBwOwo+LQkJaWYgKChzdHJpZGUgJiAweDNmKSAmJiAoeG1pcnJvciB8fCByb3RhdGVfOTAgfHwg
-cm90YXRlXzI3MCkpCj4tCQkJZHJtX2RiZ19rbXModm9wMi0+ZHJtLCAidnAlZCAlcyBzdHJpZGVb
-JWRdIG5vdCA2NCBwaXhlbCBhbGlnbmVkXG4iLAo+LQkJCQkgICAgdnAtPmlkLCB3aW4tPmRhdGEt
-Pm5hbWUsIHN0cmlkZSk7Cj4gCj4gCQkgLyogSXQncyBmb3IgaGVhZCBzdHJpZGUsIGVhY2ggaGVh
-ZCBzaXplIGlzIDE2IGJ5dGUgKi8KPiAJCXN0cmlkZSA9IEFMSUdOKHN0cmlkZSwgYmxvY2tfdykg
-LyBibG9ja193ICogMTY7Cj4KPi0tIAo+Mi41Mi4wCg==
+of_get_child_by_name() returns a node pointer with refcount incremented.
+Use the __free() attribute to manage the pgc_node reference, ensuring
+automatic of_node_put() cleanup when pgc_node goes out of scope.
+
+This eliminates the need for explicit error handling paths and avoids
+reference count leaks.
+
+Fixes: 721cabf6c660 ("soc: imx: move PGC handling to a new GPC driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
+
+---
+Change in V4:
+- Fix typo error in code
+
+Change in V3:
+- Ensure variable is assigned when using cleanup attribute
+
+Change in V2:
+- Use __free() attribute instead of explicit of_node_put() calls
+---
+ drivers/pmdomain/imx/gpc.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/pmdomain/imx/gpc.c b/drivers/pmdomain/imx/gpc.c
+index f18c7e6e75dd..56a78cc86584 100644
+--- a/drivers/pmdomain/imx/gpc.c
++++ b/drivers/pmdomain/imx/gpc.c
+@@ -403,13 +403,12 @@ static int imx_gpc_old_dt_init(struct device *dev, struct regmap *regmap,
+ static int imx_gpc_probe(struct platform_device *pdev)
+ {
+ 	const struct imx_gpc_dt_data *of_id_data = device_get_match_data(&pdev->dev);
+-	struct device_node *pgc_node;
++	struct device_node *pgc_node __free(device_node)
++		= of_get_child_by_name(pdev->dev.of_node, "pgc");
+ 	struct regmap *regmap;
+ 	void __iomem *base;
+ 	int ret;
+ 
+-	pgc_node = of_get_child_by_name(pdev->dev.of_node, "pgc");
+-
+ 	/* bail out if DT too old and doesn't provide the necessary info */
+ 	if (!of_property_present(pdev->dev.of_node, "#power-domain-cells") &&
+ 	    !pgc_node)
+-- 
+2.34.1
+
 
