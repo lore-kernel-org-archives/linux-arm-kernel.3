@@ -4,89 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6183CD4335E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 23:16:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBC8DD43360
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 23:17:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:MIME-Version:Message-Id:Date:Subject:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=NbD172mHC2Ryq1GOWpDAGfx/N1dB3vFXjgBCreduXmM=; b=gV+UnjBx/w6ednpOxQJg2znJkj
-	zL+pxcZKwwEgqMB/4TeuksYsNk2cek//nhtMlO9hoZACSsAsfr7XaQxJI9qj7+qT0TtR3DFx1mSFw
-	8ZOhl/4WFKtfxxzv1dWE0KEaqej/Pj/DDE9DmeHaQhy/xpAgTmt0Q22Yhh9A5jPQpTc5dZe5+79Rk
-	aFwS547rkGNCA+plK+o5fko5xJXRc3vQHk7sUmr7Vt9E7U/5g/8iBni/mJLOJIpF0+UDU1yRFC9MA
-	3ZdGNAOlDP6WJrVFJBCDljLGMOdZDlR8j7J+OImkC26CGY/ni3AEhq+OWGBEUuTqPZgKUjbd0b+7y
-	1amJ3/SA==;
+	Content-Type:Cc:To:In-Reply-To:References:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=62m5HbFq/JRK/3hjm7asDbCu50y2AIWfiQ9w6RslKs4=; b=B6w9Mta9CyhFV2Dmtm3fShzF87
+	GZKmEbuwqiVBrxq0fQ7Dk70ZJPyHgk/Z0IJPwdYhchlxzrYWi54TPjYRdi1zLrvAkeZqbJxZWfHNz
+	2aJO6fZmxgvtNlb9nFZ/aW57q7CZ61yoAQBImlWcfstAUfVUh+wCE/J3700sZcoAmme0SElThWgRQ
+	6UnRYRo/QbUBZU57AS3QfXR3unFtfC0vMHMJkpsJcnPci5LuWwA0oPDAf72zV5pS2H9dl+QYVdvfX
+	8OutKku4FfHxtNdGWj7vjqWrMMzAlAOKcFRbvtdmfhzwtHZqtKH1wb4YQqkzsGFRuuwm9cEKfi78M
+	7YdKBGtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTptx-0000000HOKR-1wl1;
-	Thu, 11 Dec 2025 23:16:49 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1vTpu3-0000000HOQX-2GhT;
+	Thu, 11 Dec 2025 23:16:55 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTptu-0000000HOIk-1AET
+	id 1vTptz-0000000HOMJ-3C5F
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 23:16:48 +0000
+	Thu, 11 Dec 2025 23:16:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1765495005;
+	s=mimecast20190719; t=1765495011;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=NbD172mHC2Ryq1GOWpDAGfx/N1dB3vFXjgBCreduXmM=;
-	b=iOPTr7aAzjXA5ovzETnQZVWPZtx90pu55Em4PbzUdqoJ4El064dVOFGfytEz9C10pcECc7
-	ZMRCWKB75Dxge9n17sX8GQfnvPG9aCNUrsUgM6KKGBQ1Zmix9oISbC5Drqz1sKecqbz0PR
-	g6dTtn6XJaj393/dpq2qLoSJI0LPFPs=
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=62m5HbFq/JRK/3hjm7asDbCu50y2AIWfiQ9w6RslKs4=;
+	b=EBdADGQVuZNw5Rv7jRxKktxqGSaTLh/Y8nR0vNicc8xgarY3vfYxgs2r9UDsBuWWZDx1+q
+	5h+45LwnWBViIvY0y79d4gRCv35jy+cddMkKTPdaRRhki4w0+ZRqNjN6C3yBl8KmNIs7rA
+	vlcIGjgbw2+zfDFH8HEg5tCnl4rwOX4=
 Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com
  [209.85.222.200]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-44-SuQWhUVHPjm3JL188Dlpkg-1; Thu, 11 Dec 2025 18:16:43 -0500
-X-MC-Unique: SuQWhUVHPjm3JL188Dlpkg-1
-X-Mimecast-MFC-AGG-ID: SuQWhUVHPjm3JL188Dlpkg_1765495003
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8ba026720eeso127353285a.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 15:16:43 -0800 (PST)
+ us-mta-651-nDnxfO2vOGmaELVm6yhcDQ-1; Thu, 11 Dec 2025 18:16:49 -0500
+X-MC-Unique: nDnxfO2vOGmaELVm6yhcDQ-1
+X-Mimecast-MFC-AGG-ID: nDnxfO2vOGmaELVm6yhcDQ_1765495009
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-8b9ff555d2dso162709685a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 15:16:49 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765495003; x=1766099803;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NbD172mHC2Ryq1GOWpDAGfx/N1dB3vFXjgBCreduXmM=;
-        b=wBgszbxRCLkDTRk6+avATHRFIvPk2zxOZJSNgQQZj/SMzwlpP/OVT6Ac/1uPmVlIh5
-         EScrCMoTYAp5zGfSULdmEGSsgEJ3I/z2BSE8jHebMP5vJs9Eye6MQlvvkqDfRwgx3OmB
-         Pd0ZfUp7mRM9xJlHo4HJOrnvOSEwd4/Y2s0z/KZC8jgHO3l+iMW+9K7QcpcM8rKUYqUt
-         09DXy3TyPRjTi6znemoCCW+WbgzQA8JDNbU78am+j0gIKWdpI/oUIbAh1DLVqrZE3jAE
-         m5pgh1jQSZKepw6yVEhkAFOtM6PBgc8WYX9Y7/DVEaPViay7erPafkjYEmccjvtqBgw9
-         XCnA==
-X-Forwarded-Encrypted: i=1; AJvYcCUPfeFrtAZRctqfaOAHOM1RaNAui+t4nLQYxrb6obnW+ePipSGZwnMNGbQNWKGvIeR1Ks582/2thqUkIYLjgeti@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8Q3bY1T7VRO7bPVjU7CdvSW8RrZwnm0z1AUk0bK0NAQP+NdVa
-	isgh8VI3Uo8uGEYOHbT5Qb79MiMv6LOrq/idlprY12ROzW2YKbg46oXKYHKmoPduHAiMUpj9uLf
-	eIZfzrBo6J4Nu8Gbli60DaNuaOp5Fe7jC4Yvmf2BAufKgymJU2evKBzis851y/WqCuMUeeSf5XH
-	KZ
-X-Gm-Gg: AY/fxX409Qwy3UofpCG1jIBJ5/VYMbyW4epvB0rZXQCldtC7YJuVk2EA8hhrC7ie0hg
-	W/tri+TeUYUJxIsBPAclEyZuDht8O9dpYBBJ68abeGq2XmnNmGkibngDg3PBseWz9ctJHp+2EZ+
-	yEybA/KSSgQzpgYcaztbe/1SkyOHI3/3TkOj4M3l/O28AoAYpKy1EHy7ShG6OtO1T0YvOZZpmTW
-	Mub52y6DvlNk4/XBv69VcsrNRhtRqOwUb9wiTkVeaIRvgaZ3XStNf7KWkBSvirM/8jP8bfc9LKG
-	Bmja/VBOBvDX24MR8KXb7wdKvUkEuCz8xO2CjeJVQ+PbuaPhyT639OIKVKBDS2rO1p/oZuQaVfc
-	ea/uXbTFMFY54N5ayhXRaZmtBh5M9G+4xXa+7xBA/SRavogKYsK8djw==
-X-Received: by 2002:a05:620a:45a6:b0:89e:f83c:ee0c with SMTP id af79cd13be357-8bb3a3935d8mr36458485a.74.1765495002881;
-        Thu, 11 Dec 2025 15:16:42 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHTgdmowmpGEJXfkwF3JzqsLep6RU6ll2UwJli3c/rdVkRG78nuaQFcWNbYooZO1mfConbh8A==
-X-Received: by 2002:a05:620a:45a6:b0:89e:f83c:ee0c with SMTP id af79cd13be357-8bb3a3935d8mr36454285a.74.1765495002438;
-        Thu, 11 Dec 2025 15:16:42 -0800 (PST)
+        d=1e100.net; s=20230601; t=1765495009; x=1766099809;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=62m5HbFq/JRK/3hjm7asDbCu50y2AIWfiQ9w6RslKs4=;
+        b=Z/5dW5RqDgD9zZgnlDm05soG2moBw4adSjjDR5k8llqcEp7UGax+Kcj9XIoX/3ty9d
+         ztM/hPpQRzubV20zY4QdJjC7J6K7rvIf/oD28mmLMpAGaPaBGe4wMUsoyfMXlCbF7xBu
+         lynzvT/JzawVx0cuAFgsNJiBAiZyPZWmKJ1ZOdLPhjzaNxNocQzHrwiRlho+LHk8hTJo
+         UAeZRfE71IvsbNY+ViH5vl1yJeY1S19S/Nqa84YBHgjHBqKCBECskkGVPn56CohiZqyF
+         39CXjQl/z6NTtmPNdQ1n+c8PKTk48YX5xGtnbHpoLNj4Ix1v0b1uw8okkpVujo8I6jyS
+         pfoA==
+X-Forwarded-Encrypted: i=1; AJvYcCVU5uxz3meyMIC6X/es5RMJtN6+yifNG1/voF4GogTOxFfIhr6QgtIWZjOHiRwStPMg4dE1j8wXj7oeTBKTpN8h@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+jrQbgsEz/mH0M6bpaMTnbVVvDesDZNVTIxiNZDqDYSeBbEvK
+	asCYb6uuXpspSsS0x5c4YqlsUNfpgmSgzgTcDvxbMpcja0+7rab68QiUUekFUqe0e5/lxPQ+hfv
+	Kny0TUHLlKWpoDi2R47tj9mj1KMrfjn3/QzJS0xsLzsOsZZiQtICJge3WmK7NSpbmgh2oQOXi8+
+	cO
+X-Gm-Gg: AY/fxX4GcUrzmjavV5kMSs4XmJXWp2veasdDiGzUz8YSLXxwUOrBcCTsdHkvwQag18Y
+	plxiUP07UkA7kH1LnDLKmDtVjc/OP2FWry0fOQfiw5lJB01e51bR0RZ8gTu9krFzXclcXD/RL2P
+	ZizKN3408ERd1vb80Vab8Ebv8VKkYGBO6i+C7CtI5RkxTzSVCZ+bnbi4HEwwfIfa2QK8H18gkYi
+	qnz6YAg6RwKMC+UXAPs0K+1uuhXzWJjNpgRE4YbOju/eiOv8ktbdSwfSwnwsxiPD1Si3wB53eGV
+	yK+k7IGRWnstYpmkzhB6Tiz4RiwDN2CYrqeyLn92W7wrOWQxsTVcGZmFchdm1k3600Zy+sbhJQz
+	/L2dq7n+PvvNPeoXRX6rwlVbF+wPm03Zo1JYJjpScY3YapTWWQaz+/Q==
+X-Received: by 2002:a05:620a:31a8:b0:8a9:be12:75cf with SMTP id af79cd13be357-8bb3a3888famr34767485a.61.1765495009130;
+        Thu, 11 Dec 2025 15:16:49 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFzGfyg51QMkMX0nb0URo4omcvNBrodsNtcYzQ6shcsy/VZXilk5dO3Eb+B70Ty3ot1LOtMJA==
+X-Received: by 2002:a05:620a:31a8:b0:8a9:be12:75cf with SMTP id af79cd13be357-8bb3a3888famr34762785a.61.1765495008710;
+        Thu, 11 Dec 2025 15:16:48 -0800 (PST)
 Received: from [192.168.101.129] (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8bab5d4edbasm317873585a.51.2025.12.11.15.16.34
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8bab5d4edbasm317873585a.51.2025.12.11.15.16.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Dec 2025 15:16:41 -0800 (PST)
+        Thu, 11 Dec 2025 15:16:48 -0800 (PST)
 From: Brian Masney <bmasney@redhat.com>
-Subject: [PATCH v3 0/9] phy: convert from clk round_rate() to
- determine_rate()
-Date: Fri, 12 Dec 2025 08:16:18 +0900
-Message-Id: <20251212-phy-clk-round-rate-v3-0-beae3962f767@redhat.com>
+Date: Fri, 12 Dec 2025 08:16:19 +0900
+Subject: [PATCH v3 1/9] phy: freescale: phy-fsl-samsung-hdmi: convert from
+ round_rate() to determine_rate()
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/22NQQ6CMBBFr0Jm7ZhSEcSV9zAsSpnaRm3JFBsJ4
- e5W3Lp8L/nvLxCJHUU4FwswJRdd8BkOuwK0Vf5G6IbMIIU8iqYUONoZ9eOOHF5+QFYTYaVUQ6a
- shaEW8nBkMu69Ra9dZuviFHjePpL82l/u9D+XJApsy1pWjej71sgL02DVtNfhCd26rh9mQSQJt
- QAAAA==
-X-Change-ID: 20250710-phy-clk-round-rate-4aa7ef160fe9
+Message-Id: <20251212-phy-clk-round-rate-v3-1-beae3962f767@redhat.com>
+References: <20251212-phy-clk-round-rate-v3-0-beae3962f767@redhat.com>
+In-Reply-To: <20251212-phy-clk-round-rate-v3-0-beae3962f767@redhat.com>
 To: Vinod Koul <vkoul@kernel.org>, 
  Kishon Vijay Abraham I <kishon@kernel.org>, 
  Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
@@ -100,27 +98,25 @@ To: Vinod Koul <vkoul@kernel.org>,
 Cc: linux-clk@vger.kernel.org, linux-phy@lists.infradead.org, 
  linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
  linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, Brian Masney <bmasney@redhat.com>, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>, 
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+ linux-rockchip@lists.infradead.org, Brian Masney <bmasney@redhat.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6172; i=bmasney@redhat.com;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1978; i=bmasney@redhat.com;
  s=20250903; h=from:subject:message-id;
- bh=ZY0h85yve8h09n3VMoGeby1rYSEr9a4xEaJTa8s51lM=;
- b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGDKtAy5+Y5i0/XBSw5mcryf95CfUSLo+Naq9ozK7s1HrW
- 7Omgj9XRykLgxgXg6yYIsuSXKOCiNRVtvfuaLLAzGFlAhnCwMUpABOJd2VkmPPLinP7Iq1VoTP3
- 9Fmcfl0v/MP2VI3J6eO5oTW5Ty8+qGdkWPvn/zz548dCZAM+uE9uzc3rkPFRMjjw9Gj7psmZsmf
- W8gAA
+ bh=uyarQyJgmaEeLScoBV74B9PZPRT2iTzM/dIYFjpbgc0=;
+ b=owGbwMvMwCW2/dJd9di6A+2Mp9WSGDKtAy5OubvRVPFUzMfglqvZrm7+AqavlWs+rWrUvSgqu
+ cN+ieikjlIWBjEuBlkxRZYluUYFEamrbO/d0WSBmcPKBDKEgYtTACYyTYKR4YrlqZuHA698WfRY
+ zW9m18O8n8eYZ8/9E/SH62Giq+E3XgFGhj3SJ5lOVnSoTmeLZfR5ljSpR+/PukrH6l/eIWKHHy3
+ JZAAA
 X-Developer-Key: i=bmasney@redhat.com; a=openpgp;
  fpr=A46D32705865AA3DDEDC2904B7D2DD275D7EC087
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: mLMg8Z3UH7MZWvLCN1Ubnca0hmSvVcCAy0E3ZMsaRCE_1765495003
+X-Mimecast-MFC-PROC-ID: MgJruq6YHPczRcmKW__Qsw9hAlJ3gjEaGuha9njuBzs_1765495009
 X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_151646_382188_7BAC55D0 
-X-CRM114-Status: GOOD (  16.66  )
+X-CRM114-CacheID: sfid-20251211_151651_863187_8A91828D 
+X-CRM114-Status: GOOD (  14.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,180 +131,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The round_rate() clk ops is deprecated in the clk framework in favor
-of the determine_rate() clk ops, so let's go ahead and convert the
-drivers in the phy subsystem using the Coccinelle semantic patch
-posted below. I did a few minor cosmetic cleanups of the code in a
-few cases.
-
-Changes since v2:
-- Patch 8 (phy-rockchip-samsung-hdptx): fixed merge conflict so this now
-  applies against next-20251211. Cristian / Heiko: I kept your
-  Reviewed-by since structurally the code is still the same as before.
-- Link to v2: https://lore.kernel.org/r/20250810-phy-clk-round-rate-v2-0-9162470bb9f2@redhat.com
-
-Changes since v1:
-- Patch 8 (phy-rockchip-samsung-hdptx): fix returning error code
-  (Cristian)
-
-Coccinelle semantic patch:
-
-    virtual patch
-
-    // Look up the current name of the round_rate function
-    @ has_round_rate @
-    identifier round_rate_name =~ ".*_round_rate";
-    identifier hw_param, rate_param, parent_rate_param;
-    @@
-
-    long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
-                  unsigned long *parent_rate_param)
-    {
-    	...
-    }
-
-    // Rename the route_rate function name to determine_rate()
-    @ script:python generate_name depends on has_round_rate @
-    round_rate_name << has_round_rate.round_rate_name;
-    new_name;
-    @@
-
-    coccinelle.new_name = round_rate_name.replace("_round_rate", "_determine_rate")
-
-    // Change rate to req->rate; also change occurrences of 'return XXX'.
-    @ chg_rate depends on generate_name @
-    identifier has_round_rate.round_rate_name;
-    identifier has_round_rate.hw_param;
-    identifier has_round_rate.rate_param;
-    identifier has_round_rate.parent_rate_param;
-    identifier ERR =~ "E.*";
-    expression E;
-    @@
-
-    long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
-                  unsigned long *parent_rate_param)
-    {
-    <...
-    (
-    -return -ERR;
-    +return -ERR;
-    |
-    - return rate_param;
-    + return 0;
-    |
-    - return E;
-    + req->rate = E;
-    +
-    + return 0;
-    |
-    - rate_param
-    + req->rate
-    )
-    ...>
-    }
-
-    // Coccinelle only transforms the first occurrence of the rate parameter
-    // Run a second time. FIXME: Is there a better way to do this?
-    @ chg_rate2 depends on generate_name @
-    identifier has_round_rate.round_rate_name;
-    identifier has_round_rate.hw_param;
-    identifier has_round_rate.rate_param;
-    identifier has_round_rate.parent_rate_param;
-    @@
-
-    long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
-                  unsigned long *parent_rate_param)
-    {
-    <...
-    - rate_param
-    + req->rate
-    ...>
-    }
-
-    // Change parent_rate to req->best_parent_rate
-    @ chg_parent_rate depends on generate_name @
-    identifier has_round_rate.round_rate_name;
-    identifier has_round_rate.hw_param;
-    identifier has_round_rate.rate_param;
-    identifier has_round_rate.parent_rate_param;
-    @@
-
-    long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
-                  unsigned long *parent_rate_param)
-    {
-    <...
-    (
-    - *parent_rate_param
-    + req->best_parent_rate
-    |
-    - parent_rate_param
-    + &req->best_parent_rate
-    )
-    ...>
-    }
-
-    // Convert the function definition from round_rate() to determine_rate()
-    @ func_definition depends on chg_rate @
-    identifier has_round_rate.round_rate_name;
-    identifier has_round_rate.hw_param;
-    identifier has_round_rate.rate_param;
-    identifier has_round_rate.parent_rate_param;
-    identifier generate_name.new_name;
-    @@
-
-    - long round_rate_name(struct clk_hw *hw_param, unsigned long rate_param,
-    -               unsigned long *parent_rate_param)
-    + int new_name(struct clk_hw *hw, struct clk_rate_request *req)
-    {
-        ...
-    }
-
-    // Update the ops from round_rate() to determine_rate()
-    @ ops depends on func_definition @
-    identifier has_round_rate.round_rate_name;
-    identifier generate_name.new_name;
-    @@
-
-    {
-        ...,
-    -   .round_rate = round_rate_name,
-    +   .determine_rate = new_name,
-        ...,
-    }
-
-Note that I used coccinelle 1.2 instead of 1.3 since the newer version
-adds unnecessary braces as described in this post.
-https://lore.kernel.org/cocci/67642477-5f3e-4b2a-914d-579a54f48cbd@intel.com/
+The round_rate() clk ops is deprecated, so migrate this driver from
+round_rate() to determine_rate() using the Coccinelle semantic patch
+on the cover letter of this series.
 
 Signed-off-by: Brian Masney <bmasney@redhat.com>
 ---
-Brian Masney (9):
-      phy: freescale: phy-fsl-samsung-hdmi: convert from round_rate() to determine_rate()
-      phy: mediatek: phy-mtk-hdmi-mt2701: convert from round_rate() to determine_rate()
-      phy: mediatek: phy-mtk-hdmi-mt8173: convert from round_rate() to determine_rate()
-      phy: mediatek: phy-mtk-hdmi-mt8195: convert from round_rate() to determine_rate()
-      phy: mediatek: phy-mtk-mipi-dsi-mt8173: convert from round_rate() to determine_rate()
-      phy: mediatek: phy-mtk-mipi-dsi-mt8183: convert from round_rate() to determine_rate()
-      phy: rockchip: phy-rockchip-inno-hdmi: convert from round_rate() to determine_rate()
-      phy: rockchip: phy-rockchip-samsung-hdptx: convert from round_rate() to determine_rate()
-      phy: ti: phy-j721e-wiz: convert from round_rate() to determine_rate()
+ drivers/phy/freescale/phy-fsl-samsung-hdmi.c | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
 
- drivers/phy/freescale/phy-fsl-samsung-hdmi.c      | 13 ++++++----
- drivers/phy/mediatek/phy-mtk-hdmi-mt2701.c        |  8 +++---
- drivers/phy/mediatek/phy-mtk-hdmi-mt8173.c        | 16 ++++++------
- drivers/phy/mediatek/phy-mtk-hdmi-mt8195.c        | 10 ++++----
- drivers/phy/mediatek/phy-mtk-mipi-dsi-mt8173.c    | 10 +++++---
- drivers/phy/mediatek/phy-mtk-mipi-dsi-mt8183.c    | 10 +++++---
- drivers/phy/rockchip/phy-rockchip-inno-hdmi.c     | 30 ++++++++++++-----------
- drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 15 +++++++-----
- drivers/phy/ti/phy-j721e-wiz.c                    | 11 ++++++---
- 9 files changed, 69 insertions(+), 54 deletions(-)
----
-base-commit: 5ce74bc1b7cb2732b22f9c93082545bc655d6547
-change-id: 20250710-phy-clk-round-rate-4aa7ef160fe9
+diff --git a/drivers/phy/freescale/phy-fsl-samsung-hdmi.c b/drivers/phy/freescale/phy-fsl-samsung-hdmi.c
+index 191c282246d96e3f6c5a8d17abe078892882bf44..d010fec15671d33cc363af79e9f1c3f26ecb3464 100644
+--- a/drivers/phy/freescale/phy-fsl-samsung-hdmi.c
++++ b/drivers/phy/freescale/phy-fsl-samsung-hdmi.c
+@@ -570,17 +570,20 @@ const struct phy_config *fsl_samsung_hdmi_phy_find_settings(struct fsl_samsung_h
+ 	return fract_div_phy;
+ }
+ 
+-static long fsl_samsung_hdmi_phy_clk_round_rate(struct clk_hw *hw,
+-						unsigned long rate, unsigned long *parent_rate)
++static int fsl_samsung_hdmi_phy_clk_determine_rate(struct clk_hw *hw,
++						   struct clk_rate_request *req)
+ {
+ 	struct fsl_samsung_hdmi_phy *phy = to_fsl_samsung_hdmi_phy(hw);
+-	const struct phy_config *target_settings = fsl_samsung_hdmi_phy_find_settings(phy, rate);
++	const struct phy_config *target_settings = fsl_samsung_hdmi_phy_find_settings(phy,
++										      req->rate);
+ 
+ 	if (target_settings == NULL)
+ 		return -EINVAL;
+ 
+ 	dev_dbg(phy->dev, "round_rate, closest rate = %u\n", target_settings->pixclk);
+-	return target_settings->pixclk;
++	req->rate = target_settings->pixclk;
++
++	return 0;
+ }
+ 
+ static int fsl_samsung_hdmi_phy_clk_set_rate(struct clk_hw *hw,
+@@ -599,7 +602,7 @@ static int fsl_samsung_hdmi_phy_clk_set_rate(struct clk_hw *hw,
+ 
+ static const struct clk_ops phy_clk_ops = {
+ 	.recalc_rate = phy_clk_recalc_rate,
+-	.round_rate = fsl_samsung_hdmi_phy_clk_round_rate,
++	.determine_rate = fsl_samsung_hdmi_phy_clk_determine_rate,
+ 	.set_rate = fsl_samsung_hdmi_phy_clk_set_rate,
+ };
+ 
 
-Best regards,
 -- 
-Brian Masney <bmasney@redhat.com>
+2.52.0
 
 
