@@ -4,90 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CA87D41C36
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 13:14:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3408CD41C33
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 13:18:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Subject:Cc:To:From:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
-	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cF0nCy3K8ZLd3O9dxWEhMzL6K3i/vuZmXtZs4+t9Dxw=; b=28f4WIUU5HneW3kTgi4jNz70+H
-	hSzMygrWYvYxjbIbBm3w64FSt/dBseIxRzk4a6zcRZKTXnk9WUUQG5kkQphWxUPx/5T/Hi4wmPRrR
-	KT2B1ViI0SGQzvws7JpuCcSFTbHfS4slWaB4mP1QnmidkbiKxurwb1z6oy7EPEDapzgCGkqAHlewM
-	+cj/XtWyCzKhCJVmNSeY6P3dcHnQaA2rgV60wq94MuC79eJfSBq1RbgtpAaR3zpP2r84JnjbA590d
-	iQaCfs/wZ2j11mkJJXMX4TyD1q/ibJh/Mtrd5kDPxkfbN91FkmQXhngCCNZFdWUwaScLRb0hjBCqr
-	a+XahUlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fCP4+P1Uat64E8FLxH7dgYB4wgA5K2BDbEnRT5pBDjU=; b=V6L9P5OgruQVcY/TizEy2Hu0Tm
+	iFoswkHT7IDs8hne5jolD07oqiKaMx97C99T4FHRMv7GsNANRw3sewyiB9kyIzhIW68y3L+eR6Cxe
+	YSeA2eOg8x1pvR4Ku0KTAl08eQJ6u3rluzVsykugf/1o/3DgJ5jVm82RxfmOdnDX/oid0YeaI56fu
+	iq5zaGeK+ZdQec9bJKR81IUFrn08d10yyohAdge+pazdKmM3u8shmSF5+0DSK+DbXQH79MH6RnfL9
+	Ss8M4BIWGE1EqER8b3vMfXZkidV9YgO9hfK3Ang6o9Dg58CNZ9AyitCgOYH3RPbN6+G8gQVba0QuX
+	WoWm/lug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTgUn-0000000Gcbu-3t5v;
-	Thu, 11 Dec 2025 13:14:13 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1vTgZG-0000000GdAX-0MW1;
+	Thu, 11 Dec 2025 13:18:50 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTgUk-0000000GcbL-2Lgx
+	id 1vTgZE-0000000Gd9c-22Gt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 13:14:12 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-477619f8ae5so506115e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 05:14:08 -0800 (PST)
+	Thu, 11 Dec 2025 13:18:49 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-47799717212so669585e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 05:18:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765458847; x=1766063647; darn=lists.infradead.org;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cF0nCy3K8ZLd3O9dxWEhMzL6K3i/vuZmXtZs4+t9Dxw=;
-        b=E7G/OCXqvDVEhCr9GyP0yFkUBVYX5upjDwYUaOYvmqYeUBNLOdvMW0kMMoK8qkC+bu
-         y+dk0fcrP1n/KJqPS+V3itK/7VVthKGBHriYG7P6CXphYTJrXuLZRgn5DRU5+p19jC8k
-         9itBdmswnCwMnuHjd5Z1+igAS3elosrNW7duIWUFmnsbQARP0i8opNxsXiFjZtVI0lur
-         TjSYHfGINSDjlOXd0oOE2cpjnkxE/91aBxbeIY3besdyEDC8XKrvay75jK/Mc6KDr9Qu
-         lNkF8/Nom4eUo1NyaayrT+MgG9YBELhoXAskx9ATfwQZ92E3R3D1S8ifsd/+E3ygLN7v
-         DXeQ==
+        d=google.com; s=20230601; t=1765459126; x=1766063926; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=fCP4+P1Uat64E8FLxH7dgYB4wgA5K2BDbEnRT5pBDjU=;
+        b=4uWV/E3oydI6JlMiEMmR60xW7phNDMf0PjuissNAwY9DIPCZuMBdg/OgWjNjdjQD7P
+         5j/xy6OnL5PuWGPkYXl3EqxKpZGktV8tyVkT4wU/HfzoA3cY+Jqm8fSzGi2RittDOASY
+         5g1EF8mXl64c5+hHbygonMTEQCRUq0c82ZMVgf2EjVPgh0LYCqFTALRpt6FbFVltwJUv
+         ifDEV5z7WGg5e+7syXaOVJxjxhShE9mtRDX2MF7yJiKBTmZlB49l4iEH7Hd8lEB0fz1Y
+         WgWgRWNQHYgTqkxBkkUD3CXadUSSSuTEWH3LvRx+PF01FoUdeLXOElnRomBQEZG0x1ez
+         kPsg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765458847; x=1766063647;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
+        d=1e100.net; s=20230601; t=1765459126; x=1766063926;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=cF0nCy3K8ZLd3O9dxWEhMzL6K3i/vuZmXtZs4+t9Dxw=;
-        b=cidILO2FE345F8GVLi9Vn3wtmpkLlQ8BBIY/xci/974xYfNoddi4ehW2CgC62q/jUB
-         xnfAkS6yjqJD9GHL51ej7QffGDsvucZMjo/9uUbOYoh1e00of9hTM7Dr2aA6OJje6f/x
-         z7mTZCAHp5BXCN/Pn/klsgI0Cs/2rW/+NGXy6iuqnJ4mFqMj0mcmOCwFmK9lVmicfqPY
-         Dw7Myf2swrnauZ6sTJxJ8/HbGi2OMuUz64EMMXF6D2dsMXDL/Vul9e6ie9G4WAWwMl0B
-         kqbDShZS3zY10yWuT3FcH/1A7sBaklLj1ElIfZTcE7DBRAOCEdcO0S+XP39EbLWx28oK
-         btNw==
-X-Forwarded-Encrypted: i=1; AJvYcCUyOvjgyKp2h5j8zAL0HOmi1LQBR7sh0bqF9i0ShPG6p6C6vNMqbmJwXkSncDrSLZq8S+55Cw0Ev7a2lefusNtn@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyv8HjqvKJ2rlTX+GTckUcRm9FGlQclCl0G4qvSAxcbdVJ1R1an
-	6TTS8vWT7fKVGGiEY+zGJuI2qcWkn5QgXU6Pkk2CpdSdms+ijG8k1cVFOeuQkvGUVKo=
-X-Gm-Gg: AY/fxX5Aw8ng1FZvZ3qwC8FYzGCOFYBawoUe3rF95AHNcBFKBKjUBLc400cBAGErPth
-	i9z5JsmzFDjmbNKXzD7FLhrpIEWxjhJqGyy9Yc9UutAUTB/UDo2Fy+tEPOR3U7N69/fs3ZuekQf
-	oaoV3P/e+yE6Vwo9jf7DwB4UJqMt94F5A8D0TocM1IJObEs7Leq3y01bpVFQPvEChEM0r/CGAmO
-	7o6+qdHLi0rtqatO2VDIF/cd526+/9KB1I0mLEwZyM5PbanqI/Ky9IS7CDyBmfuPpzAOQJGSlSw
-	lGJsCoFInArMB8RFoH0/8fXSOiqx9Bz0RLeeUIrwJml4KJ6MAiqtVzTVu+/Yplc0NoOAu4ChLeX
-	lNQwZ2oiPlwNn9efmW3ZWa29+RZK+H93BtWFSMdLQ78Rz1fBDbgZdidJlTjVKLgGeurB9ocRYza
-	4kBQ/mDyYjsLX547ly
-X-Google-Smtp-Source: AGHT+IFuFpTFsvxTJRwslx5ZMVgnCZWiNXSiHVXO7iLSyGUOA6ovHk2vIf/10hdCpVsmTmaoDOpjWQ==
-X-Received: by 2002:a05:6000:25c5:b0:42b:43cc:9827 with SMTP id ffacd0b85a97d-42fa3af896dmr7158361f8f.38.1765458847497;
-        Thu, 11 Dec 2025 05:14:07 -0800 (PST)
-Received: from localhost ([2a02:c7c:5e34:8000:c186:ec41:4ac0:f434])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42fa8a702a1sm6260871f8f.13.2025.12.11.05.14.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 11 Dec 2025 05:14:07 -0800 (PST)
+        bh=fCP4+P1Uat64E8FLxH7dgYB4wgA5K2BDbEnRT5pBDjU=;
+        b=Xu+l0Ltp6pUnTGSOO0fRELBeshNocKQ3g3jbLUsqqRjJr0opktPYRUCjZYo2aUBhBk
+         8IHaTfx6xoBOuPfZSu9d+uh4Gc+tpn5veK1KoEYjtAN8Po7mmBI8NPHeelMGJj5142Dd
+         Qkucgzk1OjiG/9CRaIPclhQjvR5coqUDnF1o0sO12J+UmPUXIGHH1jeUP5o/o8wqojh+
+         kb1xMABIb7A5G0vKquKrC7lUK+0n1qhpsN1yF0wX07XkBsm5ZDTxjpsEtzjw0gn4fclo
+         Buau2o1iwQIbPN5gaL0sLvUG4Cj72gHa/+jntvJfxk1Qk4QZqFi3AQRznfih46ytYWFg
+         f7fw==
+X-Forwarded-Encrypted: i=1; AJvYcCXi3x+M6QC0kZFweHOAd2kFBNBQ0yNfmYtLwkt5/0Z2/9jJogw1nACYlYW/S7cckCtRD4mPD80o6SaigWExsom2@lists.infradead.org
+X-Gm-Message-State: AOJu0YyM4ifJlMu0dp9Ulbj/4Qs5IpJ3wCBCEaJjsZ2BnHPYLVaFwzg+
+	vPtEYWfpaokOLxHlHYr9IZVnK1H5tR2OsFeL9A4m8aol2oeobHWfeYveHQv/9ZBjdAvHPIM+Pfn
+	GRXp0jbMpUndHJg==
+X-Google-Smtp-Source: AGHT+IHxQzCKoPeh6QNrsoFvProfgVB+npSZJAPrg1Gr3F0q1Y23acQghLVWzGrQIXSd6SL6PIvTg2IKVEi2Kg==
+X-Received: from wmgp17.prod.google.com ([2002:a05:600c:2051:b0:477:9b36:954d])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:1389:b0:471:1765:839c with SMTP id 5b1f17b1804b1-47a8383c89amr54081315e9.20.1765459126513;
+ Thu, 11 Dec 2025 05:18:46 -0800 (PST)
+Date: Thu, 11 Dec 2025 13:18:35 +0000
 Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 11 Dec 2025 13:14:06 +0000
-Message-Id: <DEVEXHI9CEFA.19RL3BXTV8E38@linaro.org>
-From: "Alexey Klimov" <alexey.klimov@linaro.org>
-To: "Vivek Aknurwar" <vivek.aknurwar@oss.qualcomm.com>,
- <sudeep.holla@arm.com>, <cristian.marussi@arm.com>
-Cc: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-arm-msm@vger.kernel.org>, <mike.tipton@oss.qualcomm.com>
-Subject: Re: [PATCH 1/1] firmware: arm_scmi: Increase MAX_OPPS to 64
-X-Mailer: aerc 0.20.0
-References: <20251014073454.461999-1-vivek.aknurwar@oss.qualcomm.com>
- <6af5945e-7d5c-4596-ac42-c5898b4c49b7@oss.qualcomm.com>
-In-Reply-To: <6af5945e-7d5c-4596-ac42-c5898b4c49b7@oss.qualcomm.com>
+X-Mailer: git-send-email 2.52.0.223.gf5cc29aaa4-goog
+Message-ID: <20251211131835.3267022-1-smostafa@google.com>
+Subject: [PATCH] iommu/arm-smmu-v3: Remove IAS
+From: Mostafa Saleh <smostafa@google.com>
+To: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Cc: robin.murphy@arm.com, will@kernel.org, joro@8bytes.org, 
+	Mostafa Saleh <smostafa@google.com>, Tomasz Nowicki <tnowicki@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_051410_621448_77AE3FF1 
-X-CRM114-Status: GOOD (  13.53  )
+X-CRM114-CacheID: sfid-20251211_051848_539409_A8D61618 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,50 +88,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed Dec 10, 2025 at 11:28 PM GMT, Vivek Aknurwar wrote:
-> Hello Sudeep/Cristian,
->
-> Just following up on this patch. If there=E2=80=99s anything missing or
-> needs adjustment, please let me know.
+The driver only supports AArch64 page tables where OAS == IAS.
 
-Vivek, please avoid top-posting.
+Remove the extra IAS tracking for AArch32 as this feature was
+never implemented and that was creating BAD_STEs for SMMUv3
+with stage-2 and OAS < 40.
 
-> On 10/14/2025 12:34 AM, Vivek Aknurwar wrote:
->> Some upcoming SoCs define more than 32 operating performance points (OPP=
-s),
->> exceeding the current SCMI protocol limit. Increase MAX_OPPS to 64
->> (next power of 2) to support these configurations.
+Further discussion on this in:
+https://lore.kernel.org/linux-iommu/20251130194506.593700-1-smostafa@google.com/
 
-Didn't touch for a while. The way it is stated confuses me a bit.
-Should the value defined by protocol be updated out of the blue?
-Should the protocol (defined by spec) be changed first?
+Reported-by: Tomasz Nowicki <tnowicki@google.com>
+Fixes: f0c453dbcce7 ("iommu/arm-smmu: Ensure IAS is set correctly for AArch32-capable SMMUs")
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 18 +++++-------------
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  2 --
+ 2 files changed, 5 insertions(+), 15 deletions(-)
 
-If protocol changes, then should the version/minor version be
-updated/added?
-
-Thanks,
-Alexey
-
-
->> Signed-off-by: Vivek Aknurwar <vivek.aknurwar@oss.qualcomm.com>
->> ---
->>  drivers/firmware/arm_scmi/perf.c | 2 +-
->>  1 file changed, 1 insertion(+), 1 deletion(-)
->>=20
->> diff --git a/drivers/firmware/arm_scmi/perf.c b/drivers/firmware/arm_scm=
-i/perf.c
->> index 683fd9b85c5c..2249ef7fe790 100644
->> --- a/drivers/firmware/arm_scmi/perf.c
->> +++ b/drivers/firmware/arm_scmi/perf.c
->> @@ -27,7 +27,7 @@
->>  /* Updated only after ALL the mandatory features for that version are m=
-erged */
->>  #define SCMI_PROTOCOL_SUPPORTED_VERSION		0x40000
->> =20
->> -#define MAX_OPPS		32
->> +#define MAX_OPPS		64
->> =20
->>  enum scmi_performance_protocol_cmd {
->>  	PERF_DOMAIN_ATTRIBUTES =3D 0x3,
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index d16d35c78c06..019211db621d 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -2551,7 +2551,7 @@ static int arm_smmu_domain_finalise(struct arm_smmu_domain *smmu_domain,
+ 				     ARM_SMMU_FEAT_VAX) ? 52 : 48;
+ 
+ 		pgtbl_cfg.ias = min_t(unsigned long, ias, VA_BITS);
+-		pgtbl_cfg.oas = smmu->ias;
++		pgtbl_cfg.oas = smmu->oas;
+ 		if (enable_dirty)
+ 			pgtbl_cfg.quirks |= IO_PGTABLE_QUIRK_ARM_HD;
+ 		fmt = ARM_64_LPAE_S1;
+@@ -2561,7 +2561,7 @@ static int arm_smmu_domain_finalise(struct arm_smmu_domain *smmu_domain,
+ 	case ARM_SMMU_DOMAIN_S2:
+ 		if (enable_dirty)
+ 			return -EOPNOTSUPP;
+-		pgtbl_cfg.ias = smmu->ias;
++		pgtbl_cfg.ias = smmu->oas;
+ 		pgtbl_cfg.oas = smmu->oas;
+ 		fmt = ARM_64_LPAE_S2;
+ 		finalise_stage_fn = arm_smmu_domain_finalise_s2;
+@@ -4395,13 +4395,7 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
+ 	}
+ 
+ 	/* We only support the AArch64 table format at present */
+-	switch (FIELD_GET(IDR0_TTF, reg)) {
+-	case IDR0_TTF_AARCH32_64:
+-		smmu->ias = 40;
+-		fallthrough;
+-	case IDR0_TTF_AARCH64:
+-		break;
+-	default:
++	if (!(FIELD_GET(IDR0_TTF, reg) & IDR0_TTF_AARCH64)) {
+ 		dev_err(smmu->dev, "AArch64 table format not supported!\n");
+ 		return -ENXIO;
+ 	}
+@@ -4514,8 +4508,6 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
+ 		dev_warn(smmu->dev,
+ 			 "failed to set DMA mask for table walker\n");
+ 
+-	smmu->ias = max(smmu->ias, smmu->oas);
+-
+ 	if ((smmu->features & ARM_SMMU_FEAT_TRANS_S1) &&
+ 	    (smmu->features & ARM_SMMU_FEAT_TRANS_S2))
+ 		smmu->features |= ARM_SMMU_FEAT_NESTING;
+@@ -4525,8 +4517,8 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
+ 	if (arm_smmu_sva_supported(smmu))
+ 		smmu->features |= ARM_SMMU_FEAT_SVA;
+ 
+-	dev_info(smmu->dev, "ias %lu-bit, oas %lu-bit (features 0x%08x)\n",
+-		 smmu->ias, smmu->oas, smmu->features);
++	dev_info(smmu->dev, "oas %lu-bit (features 0x%08x)\n",
++		 smmu->oas, smmu->features);
+ 	return 0;
+ }
+ 
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index ae23aacc3840..0a5bb57dbdfe 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -43,7 +43,6 @@ struct arm_vsmmu;
+ #define IDR0_COHACC			(1 << 4)
+ #define IDR0_TTF			GENMASK(3, 2)
+ #define IDR0_TTF_AARCH64		2
+-#define IDR0_TTF_AARCH32_64		3
+ #define IDR0_S1P			(1 << 1)
+ #define IDR0_S2P			(1 << 0)
+ 
+@@ -784,7 +783,6 @@ struct arm_smmu_device {
+ 	int				gerr_irq;
+ 	int				combined_irq;
+ 
+-	unsigned long			ias; /* IPA */
+ 	unsigned long			oas; /* PA */
+ 	unsigned long			pgsize_bitmap;
+ 
+-- 
+2.52.0.223.gf5cc29aaa4-goog
 
 
