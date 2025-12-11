@@ -4,74 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 154E6D41C35
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 13:03:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C327D41C32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 13:05:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yXjDj2LopgEdejBPveRLTL1bCofz4US84PT1q1wUrQg=; b=vyD5UrYj4b/EG0UrhZF0gZ0/Bb
-	bfKbxaHqWWaRsMVyyyfQMlVvT4yOTES7xeYn+NohSIvxaR2Ycub1vnO7MrXn+w99m2CZJ2GVKTBkX
-	lyVdR4miFzVWzxl4QijREjQQOIv1ySuuPFwpP8VfFriYWBl//ZHRsSa429JZkdSRjYx5fn0TuL3KZ
-	JmsskXhLzTTFXavJA5fUyqCDuseA4A4DUg96ggbcmPjtTZx/DpFvaFfYAl0SfeOFT+jXc12y7KzCt
-	YKU6Bpw2MK4N7illis2bC3rsatajRnXI04jAymH5C4/GUUh8RyYBpXGMV4IO9CWBaRYxhLefNoErJ
-	0ZwDsODg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ZrkcUveyvPZFWYdc6fR2Z64ePNQfEWC03ElPftQEvus=; b=b/72RjmXYr/Y1KQg8l2L5TJaPC
+	T44FACulP/NE2BSSePN0h5jUP3ObVXOFhq0tdww2b/y8HWmhPK8fmHADCKE9wnOAafCX+R3AHB1Ej
+	kThyMOq5qVacoFpgm8HiOuxmC16jazL7D0yhdLpdKIHEuW+7RrMGc4LQiqRlqcVQHhm5Pa/886A+S
+	abMyOz3l5g70PWou1wEvW9vg1gpK519TDnxgWWw9qylRJRosA7nJmIZuAiERqT+TQ6DrHj4fmj/R3
+	W5Bdo7cH+Trqju1WGlrOUOsyegpekIzB9YBZLgg+hulelt0Y96X3TrLXbJFyAY/mGMph4nX4OcJe1
+	GmX5vMMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTgJs-0000000Gc1F-3IaO;
-	Thu, 11 Dec 2025 13:02:56 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1vTgLz-0000000GcIC-41RM;
+	Thu, 11 Dec 2025 13:05:07 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTgJp-0000000Gc0f-1usi
+	id 1vTgLy-0000000GcHl-0Qne
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 13:02:55 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=yXjDj2LopgEdejBPveRLTL1bCofz4US84PT1q1wUrQg=;
-	b=xHbr3R2WIFp5oR9Nco7g8uQM7yu4h8Y+nnBWfQSXyrUxZxY18Qw54d2p1AsZz3jxGzQ4smao0
-	Zufh6YL+19aoxIC2d0F0j8hIcQYrDe0NKCEwe1hsGqQ+OwBnstutzZsIFz65/ezT/vDsDImfl1I
-	7irz7iJCvnjq1YPX3iwjrnI=
-Received: from mail.maildlp.com (unknown [172.19.162.254])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4dRt3k0kTVz12LCr;
-	Thu, 11 Dec 2025 21:00:18 +0800 (CST)
-Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2E13418047B;
-	Thu, 11 Dec 2025 21:02:35 +0800 (CST)
-Received: from [10.174.178.219] (10.174.178.219) by
- kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Thu, 11 Dec 2025 21:02:33 +0800
-Subject: Re: [PATCH v4 2/3] KVM: selftests: Test for KVM_EXIT_ARM_SEA
-To: Jiaqi Yan <jiaqiyan@google.com>
-CC: <maz@kernel.org>, <oliver.upton@linux.dev>, <duenwen@google.com>,
-	<rananta@google.com>, <jthoughton@google.com>, <vsethi@nvidia.com>,
-	<jgg@nvidia.com>, <joey.gouly@arm.com>, <suzuki.poulose@arm.com>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <pbonzini@redhat.com>,
-	<corbet@lwn.net>, <shuah@kernel.org>, <kvm@vger.kernel.org>,
-	<kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>
-References: <20251013185903.1372553-1-jiaqiyan@google.com>
- <20251013185903.1372553-3-jiaqiyan@google.com>
-From: Zenghui Yu <yuzenghui@huawei.com>
-Message-ID: <3061f5f8-cef0-b7b1-c4de-f2ceea29af9a@huawei.com>
-Date: Thu, 11 Dec 2025 21:02:27 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.1
+	Thu, 11 Dec 2025 13:05:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2699243A5C
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 13:05:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D325C4CEF7;
+	Thu, 11 Dec 2025 13:05:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765458304;
+	bh=TM4pB4B99UeY51FOmKqHe9qaAswn9fi2oFJ4ttsgNko=;
+	h=From:Date:Subject:To:Cc:From;
+	b=esPDVsMyszqmorGhvl0xDE3fZGdI2t1u3n41KhR+1sh6UO53kygqKyPY/sEd/7szU
+	 dja9fSKZXVxU/PtU5yMRel4WN2bnWjHHC3uaEMqYacppbUNtY9keb9uqR1RtiNCpIA
+	 zaorg6abqsIfztldpWpyaodqiXxsiFBmqwgVh/k94nOeb0BDGrnUqOrM3gU0PeI1sI
+	 ojp10zb+ocJOfSQ0NSOfJWWTDZlMB5UAXes+iPWsMAoYHeVlSAjzzMi6ckO6JkZ2i1
+	 TWSM4pMVkPWJhA2og9y1qD9r4WlxPFptr0nDxxOc/lLT/6rpKw8wvnHHQQPHwtyHA+
+	 iFZDoXaMXaTuA==
+From: Linus Walleij <linusw@kernel.org>
+Date: Thu, 11 Dec 2025 14:05:01 +0100
+Subject: [PATCH] ARM: dts: ixp4xx: Fix up Actiontec MI424WR DTS files
 MIME-Version: 1.0
-In-Reply-To: <20251013185903.1372553-3-jiaqiyan@google.com>
 Content-Type: text/plain; charset="utf-8"
-Content-Language: en-US
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.219]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemk200017.china.huawei.com (7.202.194.83)
+Message-Id: <20251211-ixp4xx-actiontec-dts-fix-v1-1-97af8e79d474@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x2MQQqAIBBFryKzbiDNiLpKtBCdajYlKiGEd29o+
+ T7vvxcyJaYMi3oh0cOZ70tAdwr86a6DkIMwmN6M2miNXKOtFZ0vYhbyGErGnSuSt24ydt7tMIL
+ cYyKZ//S6tfYB8jrkRmoAAAA=
+X-Change-ID: 20251211-ixp4xx-actiontec-dts-fix-ec4a7249f435
+To: soc@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, Linus Walleij <linusw@kernel.org>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_050254_214980_3C9C3538 
-X-CRM114-Status: GOOD (  26.67  )
+X-CRM114-CacheID: sfid-20251211_050506_192252_4F57167C 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,235 +73,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jiaqi,
+The KS8995 switch was unconditionally wired to EthC (eth1)
+on both MI424WR variants, this is wrong: the D revision has
+the switch connected to EthB (eth0) so pull this assingment
+out of the generic MI424WR DTSI file and make it a property
+of the respective variants instead.
 
-I had run into several problems when testing it on different servers. I
-haven't figured them out yet but post it early for discussion.
+Signed-off-by: Linus Walleij <linusw@kernel.org>
+---
+SoC maintainers: please apply this patch directly for fixes.
+---
+ .../boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-ac.dts  | 11 +++++++++++
+ .../boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-d.dts   | 11 +++++++++++
+ .../boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr.dtsi    |  1 -
+ 3 files changed, 22 insertions(+), 1 deletion(-)
 
-On 2025/10/14 2:59, Jiaqi Yan wrote:
-> Test how KVM handles guest SEA when APEI is unable to claim it, and
-> KVM_CAP_ARM_SEA_TO_USER is enabled.
-> 
-> The behavior is triggered by consuming recoverable memory error (UER)
-> injected via EINJ. The test asserts two major things:
-> 1. KVM returns to userspace with KVM_EXIT_ARM_SEA exit reason, and
->    has provided expected fault information, e.g. esr, flags, gva, gpa.
-> 2. Userspace is able to handle KVM_EXIT_ARM_SEA by injecting SEA to
->    guest and KVM injects expected SEA into the VCPU.
-> 
-> Tested on a data center server running Siryn AmpereOne processor
-> that has RAS support.
-> 
-> Several things to notice before attempting to run this selftest:
-> - The test relies on EINJ support in both firmware and kernel to
->   inject UER. Otherwise the test will be skipped.
-> - The under-test platform's APEI should be unable to claim the SEA.
->   Otherwise the test will be skipped.
-> - Some platform doesn't support notrigger in EINJ, which may cause
->   APEI and GHES to offline the memory before guest can consume
->   injected UER, and making test unable to trigger SEA.
-> 
-> Signed-off-by: Jiaqi Yan <jiaqiyan@google.com>
+diff --git a/arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-ac.dts b/arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-ac.dts
+index 413b9255f9e3..19a8d7b07758 100644
+--- a/arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-ac.dts
++++ b/arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-ac.dts
+@@ -12,6 +12,17 @@ / {
+ 	model = "Actiontec MI424WR rev A/C";
+ 	compatible = "actiontec,mi424wr-ac", "intel,ixp42x";
+ 
++	/* Connect the switch to EthC */
++	spi {
++		ethernet-switch@0 {
++			ethernet-ports {
++				ethernet-port@4 {
++					ethernet = <&ethc>;
++				};
++			};
++		};
++	};
++
+ 	soc {
+ 		/* EthB used for WAN */
+ 		ethernet@c8009000 {
+diff --git a/arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-d.dts b/arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-d.dts
+index 3619c6411a5c..244c6ea0973f 100644
+--- a/arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-d.dts
++++ b/arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr-d.dts
+@@ -12,6 +12,17 @@ / {
+ 	model = "Actiontec MI424WR rev D";
+ 	compatible = "actiontec,mi424wr-d", "intel,ixp42x";
+ 
++	/* Connect the switch to EthB */
++	spi {
++		ethernet-switch@0 {
++			ethernet-ports {
++				ethernet-port@4 {
++					ethernet = <&ethb>;
++				};
++			};
++		};
++	};
++
+ 	soc {
+ 		/* EthB used for LAN */
+ 		ethernet@c8009000 {
+diff --git a/arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr.dtsi b/arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr.dtsi
+index 76fd97c5beb6..9b54e3c01a34 100644
+--- a/arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr.dtsi
++++ b/arch/arm/boot/dts/intel/ixp/intel-ixp42x-actiontec-mi424wr.dtsi
+@@ -152,7 +152,6 @@ ethernet-port@3 {
+ 				};
+ 				ethernet-port@4 {
+ 					reg = <4>;
+-					ethernet = <&ethc>;
+ 					phy-mode = "mii";
+ 					fixed-link {
+ 						speed = <100>;
 
-[...]
+---
+base-commit: 7d0a66e4bb9081d75c82ec4957c50034cb0ea449
+change-id: 20251211-ixp4xx-actiontec-dts-fix-ec4a7249f435
 
-> +static void inject_uer(uint64_t paddr)
-> +{
-> +	if (access("/sys/firmware/acpi/tables/EINJ", R_OK) == -1)
-> +		ksft_test_result_skip("EINJ table no available in firmware");
+Best regards,
+-- 
+Linus Walleij <linusw@kernel.org>
 
-Missing '\n'.
-
-We should return early (to actually skip the test) if the file can not
-be accessed, right?
-
-> +
-> +	if (access(EINJ_ETYPE, R_OK | W_OK) == -1)
-> +		ksft_test_result_skip("EINJ module probably not loaded?");
-> +
-> +	write_einj_entry(EINJ_ETYPE, ERROR_TYPE_MEMORY_UER);
-> +	write_einj_entry(EINJ_FLAGS, MASK_MEMORY_UER);
-> +	write_einj_entry(EINJ_ADDR, paddr);
-> +	write_einj_entry(EINJ_MASK, ~0x0UL);
-> +	write_einj_entry(EINJ_NOTRIGGER, 1);
-> +	write_einj_entry(EINJ_DOIT, 1);
-> +}
-> +
-> +/*
-> + * When host APEI successfully claims the SEA caused by guest_code, kernel
-> + * will send SIGBUS signal with BUS_MCEERR_AR to test thread.
-> + *
-> + * We set up this SIGBUS handler to skip the test for that case.
-> + */
-> +static void sigbus_signal_handler(int sig, siginfo_t *si, void *v)
-> +{
-> +	ksft_print_msg("SIGBUS (%d) received, dumping siginfo...\n", sig);
-> +	ksft_print_msg("si_signo=%d, si_errno=%d, si_code=%d, si_addr=%p\n",
-> +		       si->si_signo, si->si_errno, si->si_code, si->si_addr);
-> +	if (si->si_code == BUS_MCEERR_AR)
-> +		ksft_test_result_skip("SEA is claimed by host APEI\n");
-> +	else
-> +		ksft_test_result_fail("Exit with signal unhandled\n");
-> +
-> +	exit(0);
-> +}
-> +
-> +static void setup_sigbus_handler(void)
-> +{
-> +	struct sigaction act;
-> +
-> +	memset(&act, 0, sizeof(act));
-> +	sigemptyset(&act.sa_mask);
-> +	act.sa_sigaction = sigbus_signal_handler;
-> +	act.sa_flags = SA_SIGINFO;
-> +	TEST_ASSERT(sigaction(SIGBUS, &act, NULL) == 0,
-> +		    "Failed to setup SIGBUS handler");
-> +}
-> +
-> +static void guest_code(void)
-> +{
-> +	uint64_t guest_data;
-> +
-> +	/* Consumes error will cause a SEA. */
-> +	guest_data = *(uint64_t *)EINJ_GVA;
-> +
-> +	GUEST_FAIL("Poison not protected by SEA: gva=%#lx, guest_data=%#lx\n",
-> +		   EINJ_GVA, guest_data);
-> +}
-> +
-> +static void expect_sea_handler(struct ex_regs *regs)
-> +{
-> +	u64 esr = read_sysreg(esr_el1);
-> +	u64 far = read_sysreg(far_el1);
-> +	bool expect_far_invalid = far_invalid;
-> +
-> +	GUEST_PRINTF("Handling Guest SEA\n");
-> +	GUEST_PRINTF("ESR_EL1=%#lx, FAR_EL1=%#lx\n", esr, far);
-> +
-> +	GUEST_ASSERT_EQ(ESR_ELx_EC(esr), ESR_ELx_EC_DABT_CUR);
-> +	GUEST_ASSERT_EQ(esr & ESR_ELx_FSC_TYPE, ESR_ELx_FSC_EXTABT);
-> +
-> +	if (expect_far_invalid) {
-> +		GUEST_ASSERT_EQ(esr & ESR_ELx_FnV, ESR_ELx_FnV);
-
-I hit this ASSERT with:
-
-# Mapped 0x40000 pages: gva=0x80000000 to gpa=0xff80000000
-# Before EINJect: data=0xbaadcafe
-# EINJ_GVA=0x81234bad, einj_gpa=0xff81234bad, einj_hva=0xffff41234bad,
-einj_hpa=0x202841234bad
-# echo 0x10 > /sys/kernel/debug/apei/einj/error_type - done
-# echo 0x2 > /sys/kernel/debug/apei/einj/flags - done
-# echo 0x202841234bad > /sys/kernel/debug/apei/einj/param1 - done
-# echo 0xffffffffffffffff > /sys/kernel/debug/apei/einj/param2 - done
-# echo 0x1 > /sys/kernel/debug/apei/einj/notrigger - done
-# echo 0x1 > /sys/kernel/debug/apei/einj/error_inject - done
-# Memory UER EINJected
-# Dump kvm_run info about KVM_EXIT_ARM_SEA
-# kvm_run.arm_sea: esr=0x92000610, flags=0
-# kvm_run.arm_sea: gva=0, gpa=0
-# From guest: Handling Guest SEA
-# From guest: ESR_EL1=0x96000010, FAR_EL1=0xaaaadf254828
-# Guest aborted!
-==== Test Assertion Failure ====
-  arm64/sea_to_user.c:172: esr & ESR_ELx_FnV == ESR_ELx_FnV
-  pid=38112 tid=38112 errno=4 - Interrupted system call
-     1	0x0000000000402f9b: run_vm at sea_to_user.c:246
-     2	0x0000000000402467: main at sea_to_user.c:330
-     3	0x0000ffff8e22b03f: ?? ??:0
-     4	0x0000ffff8e22b117: ?? ??:0
-     5	0x00000000004026ef: _start at ??:?
-  0x0 != 0x400 (esr & ESR_ELx_FnV != ESR_ELx_FnV)
-
-It seems that KVM doesn't emulate FnV when injecting an abort.
-
-> +		GUEST_PRINTF("Guest observed garbage value in FAR\n");
-> +	} else {
-> +		GUEST_ASSERT_EQ(esr & ESR_ELx_FnV, 0);
-> +		GUEST_ASSERT_EQ(far, EINJ_GVA);
-> +	}
-> +
-> +	GUEST_DONE();
-> +}
-> +
-> +static void vcpu_inject_sea(struct kvm_vcpu *vcpu)
-> +{
-> +	struct kvm_vcpu_events events = {};
-> +
-> +	events.exception.ext_dabt_pending = true;
-> +	vcpu_events_set(vcpu, &events);
-> +}
-> +
-> +static void run_vm(struct kvm_vm *vm, struct kvm_vcpu *vcpu)
-> +{
-> +	struct ucall uc;
-> +	bool guest_done = false;
-> +	struct kvm_run *run = vcpu->run;
-> +	u64 esr;
-> +
-> +	/* Resume the vCPU after error injection to consume the error. */
-> +	vcpu_run(vcpu);
-> +
-> +	ksft_print_msg("Dump kvm_run info about KVM_EXIT_%s\n",
-> +		       exit_reason_str(run->exit_reason));
-> +	ksft_print_msg("kvm_run.arm_sea: esr=%#llx, flags=%#llx\n",
-> +		       run->arm_sea.esr, run->arm_sea.flags);
-> +	ksft_print_msg("kvm_run.arm_sea: gva=%#llx, gpa=%#llx\n",
-> +		       run->arm_sea.gva, run->arm_sea.gpa);
-> +
-> +	TEST_ASSERT_KVM_EXIT_REASON(vcpu, KVM_EXIT_ARM_SEA);
-
-I can also hit this ASSERT with:
-
-Random seed: 0x6b8b4567
-# Mapped 0x40000 pages: gva=0x80000000 to gpa=0xff80000000
-# Before EINJect: data=0xbaadcafe
-# EINJ_GVA=0x81234bad, einj_gpa=0xff81234bad, einj_hva=0xffff41234bad,
-einj_hpa=0x2841234bad
-# echo 0x10 > /sys/kernel/debug/apei/einj/error_type - done
-# echo 0x2 > /sys/kernel/debug/apei/einj/flags - done
-# echo 0x2841234bad > /sys/kernel/debug/apei/einj/param1 - done
-# echo 0xffffffffffffffff > /sys/kernel/debug/apei/einj/param2 - done
-# echo 0x1 > /sys/kernel/debug/apei/einj/notrigger - done
-# echo 0x1 > /sys/kernel/debug/apei/einj/error_inject - done
-# Memory UER EINJected
-# Dump kvm_run info about KVM_EXIT_MMIO
-# kvm_run.arm_sea: esr=0xffff90ba0040, flags=0x691000
-# kvm_run.arm_sea: gva=0x100000008, gpa=0
-==== Test Assertion Failure ====
-  arm64/sea_to_user.c:207: exit_reason == (41)
-  pid=38023 tid=38023 errno=4 - Interrupted system call
-     1	0x0000000000402d1b: run_vm at sea_to_user.c:207
-     2	0x0000000000402467: main at sea_to_user.c:330
-     3	0x0000ffff9122b03f: ?? ??:0
-     4	0x0000ffff9122b117: ?? ??:0
-     5	0x00000000004026ef: _start at ??:?
-  Wanted KVM exit reason: 41 (ARM_SEA), got: 6 (MMIO)
-
-Not sure what's wrong it..
-
-> +
-> +	esr = run->arm_sea.esr;
-> +	TEST_ASSERT_EQ(ESR_ELx_EC(esr), ESR_ELx_EC_DABT_LOW);
-> +	TEST_ASSERT_EQ(esr & ESR_ELx_FSC_TYPE, ESR_ELx_FSC_EXTABT);
-> +	TEST_ASSERT_EQ(ESR_ELx_ISS2(esr), 0);
-> +	TEST_ASSERT_EQ((esr & ESR_ELx_INST_SYNDROME), 0);
-> +	TEST_ASSERT_EQ(esr & ESR_ELx_VNCR, 0);
-> +
-> +	if (!(esr & ESR_ELx_FnV)) {
-> +		ksft_print_msg("Expect gva to match given FnV bit is 0\n");
-> +		TEST_ASSERT_EQ(run->arm_sea.gva, EINJ_GVA);
-> +	}
-> +
-> +	if (run->arm_sea.flags & KVM_EXIT_ARM_SEA_FLAG_GPA_VALID) {
-> +		ksft_print_msg("Expect gpa to match given KVM_EXIT_ARM_SEA_FLAG_GPA_VALID is set\n");
-> +		TEST_ASSERT_EQ(run->arm_sea.gpa, einj_gpa & PAGE_ADDR_MASK);
-> +	}
-> +
-> +	far_invalid = esr & ESR_ELx_FnV;
-
-Missing sync_global_to_guest()?
-
-Thanks,
-Zenghui
 
