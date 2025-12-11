@@ -4,72 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ABCED41C35
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 13:37:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23F1CD41C35
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 13:37:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UoksV2+x2K7a67/g5oomzkcDGXEz2z+L+nGj/+ubSqc=; b=XWKHS4GqcqwAEhaSwwannsp1v+
-	A4adkGs+DxZ1+dksqbCSVJ6y+SHNtkKJWFSbL1ynh25QHeXFNNun+Fg8XdcarbL/1LiEglT0DntgA
-	XGOn3EeElZR2RDePfb0l+Mmpr9yii05/prqV9cVMlXfsHcI+ctfav9vG8HMZGIJPY0JgZsds5xCq7
-	MVepCHMoOfQ4xL9Aknpkgtnr+zhhOzBea4SZI0IWuwwq7FxMUJom8g5t6ihV29FIK72sisB99SbUf
-	WPiiwHkPOSDtmdvt7GqHXH8YIA4RxVuFCbIaZHPWr4JhYiX9Xj/Ch0cN1zFE9+hk1LJGWP86FFeGy
-	SpjRclCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=n1dFL102IvyRuI2M5K3t2JBa4JSeYgA6HETfVWFDo10=; b=Tv2/fFcZFwaaKTp1Olc3xr/QWv
+	ke7uKs5CxkrQKRqwAiJzzZvIXMY5wEPwebIdV3A8c9T4of9tIruBXa+GPccBpTS3bV+6tB/22Qccd
+	3NmyOUbDGwlFLUtuyttoUVadLpd2VOqmRjIxTXzmJcOii2xFYvwJq13i/Bwn6DyJ9SqKDBeuu2BRC
+	rOpMQM772GqvbnZ75YL/rVgqWAr6STYSyjNrkbm3AKm9shDBdjbsP1lTRIxb2KeIFyAwKEzh1LtvV
+	cD7m2sd6zKByC03ua5y+pzAI6Cxnn7bxJ5Ghegym2jXhBVmqhXtmnckjLcNJ4yh9Z7skgdmip6Wag
+	5cUd7hyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTgrK-0000000GeTR-3QGe;
-	Thu, 11 Dec 2025 13:37:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vTgrb-0000000GeWT-0YlX;
+	Thu, 11 Dec 2025 13:37:47 +0000
+Received: from fhigh-b5-smtp.messagingengine.com ([202.12.124.156])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTgrI-0000000GeT2-2DzA
+	id 1vTgrX-0000000GeUz-3tZj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 13:37:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ECD7344248;
-	Thu, 11 Dec 2025 13:37:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0FABC4CEF7;
-	Thu, 11 Dec 2025 13:37:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765460247;
-	bh=WicvLgJ3zuOHsq7pRChjkMd+4DZttyIDawUvyHdiB+Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=icLVHvhveGjgL/AF+ZDXAvLRE8E0BweFDHOpx+aXZn3K27vq4fV+8tPoC8/YcEhyi
-	 3XWVoVhdLFKmWJpdhTsOKi836DnzyPFTBINrt5ymDKRVNVwylFhnYHiY1b0jm2w7NE
-	 etFJIoZSFKWhByJVWnj9c/4qrHjTm6K3t3caEeoKPtjMyhNZO9M81cB2Bw4BR0fnvj
-	 FtfshZjXS23Kop5lZOBRKUcYMNu6B2NhWJC3YVijclZ3JvtXlx3OLk4enmSaxBJl3i
-	 lKcsAPNK8M0ML8vdCI2KgITYKTUsLCCMBAHzfnP2j8zbkcE06yIaX+3AFXqvJM4ZyC
-	 H8zZZZIkACCcw==
-Date: Thu, 11 Dec 2025 07:37:23 -0600
-From: Rob Herring <robh@kernel.org>
-To: Jie Gan <jie.gan@oss.qualcomm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Thu, 11 Dec 2025 13:37:45 +0000
+Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 2F37D7A012A;
+	Thu, 11 Dec 2025 08:37:40 -0500 (EST)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-03.internal (MEProxy); Thu, 11 Dec 2025 08:37:40 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bsdio.com; h=cc
+	:cc:content-transfer-encoding:content-type:date:date:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to; s=fm2; t=1765460260; x=1765546660; bh=n1dFL102IvyRuI2M5K3t2
+	JBa4JSeYgA6HETfVWFDo10=; b=rrJ0G2rS1KQBOSfjqstumfJ+ZM8ja8OJQjntI
+	FK+AxEua5wOk02TohphvL1XRi4aJ16xPnf2MfsMjb6vvXHG/HupDdH0vFaUBDxV4
+	kS7qj8gspnoQkQq2IPbRIZeIvoogkABEDjZsXWMlvyKgBBAioBOAP1Ooxgh2fbAQ
+	TbTPNl71P5qdhSmZMserLeJNsNj1X/iqgiWBw3bOrhB8ezSbTYUV5+ZePTuNY7ub
+	ecsflxjbmLMd0m+cBxzuxYWDfgSjItQw/l6wQSfexkH1ryrgMhuEN8CaaNV3gqf1
+	PZsL+YZCB6ofKi4bzIcHXXnBLCGvf2sW2iZ1THMHUShkxrbYw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
+	1765460260; x=1765546660; bh=n1dFL102IvyRuI2M5K3t2JBa4JSeYgA6HET
+	fVWFDo10=; b=Cl5ftS57JbFLpAKWOskXemnucZI2X/0Mx44Xh+H4Z76nq8Jv889
+	0BpBHGNhAiivHKhuVF7oBfiYqkLaK211EGnn70oLqHEwxP6EgN/IBH4cRgkrBE9x
+	ZBpjaAekP6/Otuc4bFzxRJ29xbs85zkvtvzEtlZwl9Frb6Z57N//iG8hcuIHerIN
+	Pz0fI31XOP17ZokAxqnNc0TvBiGpqLDoAYjgSs5ceooktkx6+3/y4jwhY7sSILaL
+	8K5rGoLTW8Bbje7RI7iPyzIXgb3Y8t+ORpeZAiE6NFw/Fh+Z3PR0lb9a5qPmkmCJ
+	7mhU3xuOE7+V7MjI6mAk+O4KRWdb0+CyNZQ==
+X-ME-Sender: <xms:Isk6aTvxBFoJGOW7WCHFt3Uutkf_i7Qa3OeaoqgeDhy-_KFUSBcx4Q>
+    <xme:Isk6acmJOHxII5sBwL4yvCKHrPYQNRNbWdAw1LipcqSSA4LWIIDRu5HO2RvcU1N3Q
+    680w_HN5EGGQZGIx6tsvycPKi1AheMumYo3n9aLMvlQ0D5q3zAJ3Q>
+X-ME-Received: <xmr:Isk6aWROwsxR11-LT_YMghAyK26oM_VR3KsW1sN1I3JkUXYwHcmQANTlG1ltEzAwtneVT3qi6yVgiR1N>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvheeghecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpeftvggsvggttggrucev
+    rhgrnhcuoehrvggsvggttggrsegsshguihhordgtohhmqeenucggtffrrghtthgvrhhnpe
+    euvdektdelkeeukefgjeejteetffdtudeiffefheevfefgveeulefghfellefgvdenucev
+    lhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehrvggsvggttg
+    grsegsshguihhordgtohhmpdhnsggprhgtphhtthhopeduuddpmhhouggvpehsmhhtphho
+    uhhtpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrh
+    iikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgv
+    rhhnvghlrdhorhhgpdhrtghpthhtohepjhhovghlsehjmhhsrdhiugdrrghupdhrtghpth
+    htoheprghnughrvgifsegtohguvggtohhnshhtrhhutghtrdgtohhmrdgruhdprhgtphht
+    thhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtth
+    hopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdr
+    ohhrghdprhgtphhtthhopehlihhnuhigqdgrshhpvggvugeslhhishhtshdrohiilhgrsg
+    hsrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhn
+    vghlrdhorhhg
+X-ME-Proxy: <xmx:Isk6aSK3ww_qWNePEaEYZ2dWGaNjvuqPU5BVxy33_7oofLEBPmj2fw>
+    <xmx:Isk6aQGnJVlsE478CXeT8V7b85APUovhu7lkF8r7v7mVoUkeS2pIUg>
+    <xmx:Isk6af2gbAFc4i3pyDmnqlRG4Ta8cMYnw7A5QPitzuK952iHhvx2iw>
+    <xmx:Isk6aYLkCZxjtr4hQnzHFijWy9aj89azZV0b4V9vIi4OmdJVAeorvA>
+    <xmx:JMk6ad8Nm_TvHlDsujl3b0NbjgaaudIKNKmSp3sySbmeoA555NxM43sy>
+Feedback-ID: i5b994698:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
+ 11 Dec 2025 08:37:38 -0500 (EST)
+From: Rebecca Cran <rebecca@bsdio.com>
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: Re: [PATCH v8 5/8] dt-bindings: arm: add an interrupt property for
- Coresight CTCU
-Message-ID: <20251211133723.GA859302-robh@kernel.org>
-References: <20251211-enable-byte-cntr-for-ctcu-v8-0-3e12ff313191@oss.qualcomm.com>
- <20251211-enable-byte-cntr-for-ctcu-v8-5-3e12ff313191@oss.qualcomm.com>
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org
+Cc: Rebecca Cran <rebecca@bsdio.com>,
+	Billy Tsai <billy_tsai@aspeedtech.com>
+Subject: [PATCH v4 0/2] Add device tree for ASRock Rack ALTRAD8 BMC
+Date: Thu, 11 Dec 2025 06:37:17 -0700
+Message-ID: <20251211133721.18269-1-rebecca@bsdio.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251211-enable-byte-cntr-for-ctcu-v8-5-3e12ff313191@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_053728_633923_CA154725 
-X-CRM114-Status: GOOD (  16.98  )
+X-CRM114-CacheID: sfid-20251211_053744_268169_14DAA161 
+X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,66 +119,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 11, 2025 at 02:10:44PM +0800, Jie Gan wrote:
-> Add an interrupt property to CTCU device. The interrupt will be triggered
-> when the data size in the ETR buffer exceeds the threshold of the
-> BYTECNTRVAL register. Programming a threshold in the BYTECNTRVAL register
-> of CTCU device will enable the interrupt.
-> 
-> Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Reviewed-by: Mike Leach <mike.leach@linaro.org>
-> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
-> ---
->  .../devicetree/bindings/arm/qcom,coresight-ctcu.yaml    | 17 +++++++++++++++++
->  1 file changed, 17 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
-> index c969c16c21ef..90f88cc6cd3e 100644
-> --- a/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
-> +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-ctcu.yaml
-> @@ -39,6 +39,16 @@ properties:
->      items:
->        - const: apb
->  
-> +  interrupts:
-> +    items:
-> +      - description: Byte cntr interrupt for the first etr device
-> +      - description: Byte cntr interrupt for the second etr device
-> +
-> +  interrupt-names:
-> +    items:
-> +      - const: etrirq0
-> +      - const: etrirq1
+The ASRock Rack ALTRAD8 BMC is an Aspeed AST2500-based BMC for the
+ALTRAD8UD-1L2T and ALTRAD8UD2-1L2Q boards with an Ampere Altra
+processor. The BMC runs OpenBMC.
 
-Names are kind of pointless when it is just foo<index>.
+These patches add a device tree and binding for the BMC.
 
-> +
->    label:
->      description:
->        Description of a coresight device.
-> @@ -60,6 +70,8 @@ additionalProperties: false
->  
->  examples:
->    - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +
->      ctcu@1001000 {
->          compatible = "qcom,sa8775p-ctcu";
->          reg = <0x1001000 0x1000>;
-> @@ -67,6 +79,11 @@ examples:
->          clocks = <&aoss_qmp>;
->          clock-names = "apb";
->  
-> +        interrupts = <GIC_SPI 270 IRQ_TYPE_EDGE_RISING>,
-> +                     <GIC_SPI 262 IRQ_TYPE_EDGE_RISING>;
-> +        interrupt-names = "etrirq0",
-> +                          "etrirq1;
-> +
->          in-ports {
->              #address-cells = <1>;
->              #size-cells = <0>;
-> 
-> -- 
-> 2.34.1
-> 
+**Changes between v3 and v4**
+
+- Re-added system fault LED after verifying it works with an
+  LED connected to the AUX header.
+- Fixed GPIOs based on Tan's feedback.
+- Dropped DT schema commit in favour of Rob's changes.
+
+**Testing**
+
+Ran `make ARCH=arm CHECK_DTBS=y aspeed/aspeed-bmc-asrock-altrad8.dtb`.
+
+Rebecca Cran (2):
+  dt-bindings: arm: aspeed: add ASRock Rack ALTRAD8 board
+  ARM: dts: aspeed: add device tree for ASRock Rack ALTRAD8 BMC
+
+ Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml |   1 +
+ arch/arm/boot/dts/aspeed/Makefile                        |   1 +
+ arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts   | 625 ++++++++++++++++++++
+ 3 files changed, 627 insertions(+)
+ create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts
+
+-- 
+2.47.3
+
 
