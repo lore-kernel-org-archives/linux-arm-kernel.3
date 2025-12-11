@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB91CD41D6F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 16:40:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D257D41D69
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 16:40:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pGjKnoSqli+tJUneVj0LkznAqK/JYPAldT/bJKshrNM=; b=n3AAkuoztuTlKJqgJP1EDyxYs/
-	8Fj6I58cS0WBPRDbT2d9cG6w9w+YzJrnBGsE2dwFqb6xnVqUTh1NV2mhLTFxND85pJ8G8x/pNy7q8
-	P8QoX+GSUw0NAQfI/cMpJKrqLi4tJ++H0VBv5lQbasHZvOuu+tYmtvR5SxHjPg73HrLwflT+FN/lw
-	0BwsDS4i8IjpHLDUdL0Osv37b7CPgAyTgTbKk2HE0wUSKFmOLQwT9C9hGO7xfBEACDTxVuL3ugoC8
-	f/2HZW3moN1raZGO7d5PvWqobB36WJB1Y3g0vws1TTgi+5/Vd5uim8FrKjJt3kPdopuqYCroC9/0o
-	65Ir2Wyg==;
+	bh=gtwGPUSYrT3C7fb4DdUoNkStAAhzJrloynTtI6PT9qQ=; b=qCba2N1kIBdAnYPQJeyuJ0A49I
+	YTYEVtiRV0GL6VkIm4mdT2eZ95dj9aqfj+sqGbFOpN+IFZSnRQVXHZyybYURwb+KG8Eqnv7oEhC7y
+	jf4tX6z/7w0zbhktN7C0+udt0Q9gD0DJ64+ILCeMGcSp1/lY9fDqLJz9uZBD0NU4Nj+NnG8FQkPTi
+	GDy+KPw+DEPkQ5oqMN3yJsac1bmVhqYQf3tAJPhevQDq5Xm9t6YYuBL+y/qeHO7DO42LPrCh07wTQ
+	Mj3Ane776SsZqc3NvqOtDdw34Ln9vlZrVBCOWun/Uqx1uqJi8KEwtaH1zNRhVWuGIR2DEkavkFOTX
+	bwtLlOYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTjiR-0000000Gxoq-0gbj;
-	Thu, 11 Dec 2025 16:40:31 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1vTjiU-0000000Gxty-20Sk;
+	Thu, 11 Dec 2025 16:40:34 +0000
+Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTjiN-0000000Gxin-3gWe
+	id 1vTjiQ-0000000Gxmt-46lk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 16:40:29 +0000
+	Thu, 11 Dec 2025 16:40:32 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 4EC681A20EE;
-	Thu, 11 Dec 2025 16:40:26 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 65D154E41B7B;
+	Thu, 11 Dec 2025 16:40:29 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 1E8416072F;
-	Thu, 11 Dec 2025 16:40:26 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E2FD6103C8E12;
-	Thu, 11 Dec 2025 17:40:21 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 38D006072F;
+	Thu, 11 Dec 2025 16:40:29 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 04A56103C8E14;
+	Thu, 11 Dec 2025 17:40:24 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1765471224; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1765471227; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=pGjKnoSqli+tJUneVj0LkznAqK/JYPAldT/bJKshrNM=;
-	b=GtozBaIPZKnfx+NJHvmZjO29+/8tGSfRzRTVG1mA3ZgbaOZGLNUj4yunynqaaDJzOmGGv9
-	/PWOcDnzdtCK5PdvhQwkWhW8OA+QZxp5mPsOPrLgaN3BrIiKKMptfam8+18pxNHP7taagl
-	sqkFSPOxQ4y0eW6mY1GBUZwcVnyNv/wvNLt26+tOI3RMjSqV2WfmOBcQeMEoEnLI4blW6b
-	9w37O8VkYoZSiAIzUlB9FZ2AGvXbXz+ce62REfGs3Ze6YC9wle6d6ZT3kvwBfw0K/0fUJR
-	VHJIxTOIuFuQtyGLCh+mcxe9iU6d6B6P7c7Ez+jPVRxtUSQ3jzBXUTarIkBSFA==
+	bh=gtwGPUSYrT3C7fb4DdUoNkStAAhzJrloynTtI6PT9qQ=;
+	b=RvDBtD+Aa9StCcfpq20CyzcJ/RPBbnnYZ0P9ZL+FCBS+xCJLMpsQYzqdWVPWstOvGS6Jvw
+	e7cTQCqLXVNlHomGAHJfTwtABDLkd1Lk82zE0l+NxCU8t4rw2+7mEPO+6gtzyjqhzyj1zm
+	dSTWKNXiqHvcyqAQRM4+4u3ZQwogbiG2vPjs835ehvGyp5KnI/15ohDlIPEkpDE3GeOpvE
+	JDVHRhpRTbhrmQU8Mb1ez8h7eT8b/2jkCaCnYUnX6rGFXkEuAYSu2l5hIr1I0dSwtTMrWX
+	u54B/7cNW98q80kORfdm95SvZvqg+5692CjfZhwplk8WGSyHNhgmAIOXa8D1HA==
 From: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
-Date: Thu, 11 Dec 2025 17:38:59 +0100
-Subject: [PATCH v2 15/20] drm/tilcdc: Remove the use of drm_device
- private_data
+Date: Thu, 11 Dec 2025 17:39:00 +0100
+Subject: [PATCH v2 16/20] drm/bridge: tda998x: Remove component support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251211-feature_tilcdc-v2-15-f48bac3cd33e@bootlin.com>
+Message-Id: <20251211-feature_tilcdc-v2-16-f48bac3cd33e@bootlin.com>
 References: <20251211-feature_tilcdc-v2-0-f48bac3cd33e@bootlin.com>
 In-Reply-To: <20251211-feature_tilcdc-v2-0-f48bac3cd33e@bootlin.com>
 To: Jyri Sarha <jyri.sarha@iki.fi>, 
@@ -79,8 +78,8 @@ Cc: Markus Schneider-Pargmann <msp@baylibre.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_084028_194717_35C6FA3D 
-X-CRM114-Status: GOOD (  20.17  )
+X-CRM114-CacheID: sfid-20251211_084031_199108_B5B9FF12 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,297 +94,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The DRM core documentation recommends against using dev_private:
-"Instead of using this pointer it is recommended that drivers use
-embed the struct &drm_device in their larger per-device structure."
-
-This patch refactors the tilcdc driver to follow this recommendation
-by embedding struct drm_device within struct tilcdc_drm_private and
-replacing all dev->dev_private accesses with the ddev_to_tilcdc_priv()
-helper macro that uses container_of().
-
-This change aligns the driver with modern DRM best practices.
+The tilcdc driver no longer uses the component framework to bind the
+tda998x bridge driver. The component bind/unbind operations and the
+encoder initialization code are now dead code and can be safely removed.
 
 Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
 ---
- drivers/gpu/drm/tilcdc/tilcdc_crtc.c    | 28 ++++++++++++++--------------
- drivers/gpu/drm/tilcdc/tilcdc_drv.c     | 11 +++++------
- drivers/gpu/drm/tilcdc/tilcdc_drv.h     |  2 ++
- drivers/gpu/drm/tilcdc/tilcdc_encoder.c |  4 ++--
- drivers/gpu/drm/tilcdc/tilcdc_plane.c   |  2 +-
- drivers/gpu/drm/tilcdc/tilcdc_regs.h    |  8 ++++----
- 6 files changed, 28 insertions(+), 27 deletions(-)
+ drivers/gpu/drm/bridge/tda998x_drv.c | 69 +-----------------------------------
+ 1 file changed, 1 insertion(+), 68 deletions(-)
 
-diff --git a/drivers/gpu/drm/tilcdc/tilcdc_crtc.c b/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
-index 5b8aba0765f9b..0bd99a2efeeb4 100644
---- a/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
-+++ b/drivers/gpu/drm/tilcdc/tilcdc_crtc.c
-@@ -59,7 +59,7 @@ struct tilcdc_crtc {
- static void set_scanout(struct drm_crtc *crtc, struct drm_framebuffer *fb)
- {
- 	struct drm_device *dev = crtc->dev;
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 	struct drm_gem_dma_object *gem;
- 	dma_addr_t start, end;
- 	u64 dma_base_and_ceiling;
-@@ -94,7 +94,7 @@ static void tilcdc_crtc_load_palette(struct drm_crtc *crtc)
- {
- 	struct tilcdc_crtc *tilcdc_crtc = to_tilcdc_crtc(crtc);
- 	struct drm_device *dev = crtc->dev;
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 	int ret;
+diff --git a/drivers/gpu/drm/bridge/tda998x_drv.c b/drivers/gpu/drm/bridge/tda998x_drv.c
+index e636459d91857..865285ba2bd8c 100644
+--- a/drivers/gpu/drm/bridge/tda998x_drv.c
++++ b/drivers/gpu/drm/bridge/tda998x_drv.c
+@@ -4,7 +4,6 @@
+  * Author: Rob Clark <robdclark@gmail.com>
+  */
  
- 	reinit_completion(&tilcdc_crtc->palette_loaded);
-@@ -136,7 +136,7 @@ static void tilcdc_crtc_load_palette(struct drm_crtc *crtc)
- 
- static void tilcdc_crtc_enable_irqs(struct drm_device *dev)
- {
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 
- 	tilcdc_clear_irqstatus(dev, 0xffffffff);
- 
-@@ -153,7 +153,7 @@ static void tilcdc_crtc_enable_irqs(struct drm_device *dev)
- 
- static void tilcdc_crtc_disable_irqs(struct drm_device *dev)
- {
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 
- 	/* disable irqs that we might have enabled: */
- 	if (priv->rev == 1) {
-@@ -173,7 +173,7 @@ static void tilcdc_crtc_disable_irqs(struct drm_device *dev)
- static void reset(struct drm_crtc *crtc)
- {
- 	struct drm_device *dev = crtc->dev;
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 
- 	if (priv->rev != 2)
- 		return;
-@@ -198,7 +198,7 @@ static unsigned int tilcdc_pclk_diff(unsigned long rate,
- static void tilcdc_crtc_set_clk(struct drm_crtc *crtc)
- {
- 	struct drm_device *dev = crtc->dev;
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 	struct tilcdc_crtc *tilcdc_crtc = to_tilcdc_crtc(crtc);
- 	unsigned long clk_rate, real_pclk_rate, pclk_rate;
- 	unsigned int clkdiv;
-@@ -270,7 +270,7 @@ static void tilcdc_crtc_set_mode(struct drm_crtc *crtc)
- {
- 	struct tilcdc_crtc *tilcdc_crtc = to_tilcdc_crtc(crtc);
- 	struct drm_device *dev = crtc->dev;
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 	uint32_t reg, hbp, hfp, hsw, vbp, vfp, vsw;
- 	struct drm_display_mode *mode = &crtc->state->adjusted_mode;
- 	struct drm_framebuffer *fb = crtc->primary->state->fb;
-@@ -557,7 +557,7 @@ static void tilcdc_crtc_recover_work(struct work_struct *work)
- 
- void tilcdc_crtc_destroy(struct drm_crtc *crtc)
- {
--	struct tilcdc_drm_private *priv = crtc->dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(crtc->dev);
- 
- 	tilcdc_crtc_shutdown(crtc);
- 
-@@ -647,7 +647,7 @@ static int tilcdc_crtc_enable_vblank(struct drm_crtc *crtc)
- {
- 	struct tilcdc_crtc *tilcdc_crtc = to_tilcdc_crtc(crtc);
- 	struct drm_device *dev = crtc->dev;
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 	unsigned long flags;
- 
- 	spin_lock_irqsave(&tilcdc_crtc->irq_lock, flags);
-@@ -670,7 +670,7 @@ static void tilcdc_crtc_disable_vblank(struct drm_crtc *crtc)
- {
- 	struct tilcdc_crtc *tilcdc_crtc = to_tilcdc_crtc(crtc);
- 	struct drm_device *dev = crtc->dev;
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 	unsigned long flags;
- 
- 	spin_lock_irqsave(&tilcdc_crtc->irq_lock, flags);
-@@ -728,7 +728,7 @@ static enum drm_mode_status
- tilcdc_crtc_mode_valid(struct drm_crtc *crtc,
- 		       const struct drm_display_mode *mode)
- {
--	struct tilcdc_drm_private *priv = crtc->dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(crtc->dev);
- 	unsigned int bandwidth;
- 	uint32_t hbp, hfp, hsw, vbp, vfp, vsw;
- 
-@@ -826,7 +826,7 @@ static const struct drm_crtc_helper_funcs tilcdc_crtc_helper_funcs = {
- void tilcdc_crtc_update_clk(struct drm_crtc *crtc)
- {
- 	struct drm_device *dev = crtc->dev;
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 	struct tilcdc_crtc *tilcdc_crtc = to_tilcdc_crtc(crtc);
- 
- 	drm_modeset_lock(&crtc->mutex, NULL);
-@@ -850,7 +850,7 @@ irqreturn_t tilcdc_crtc_irq(struct drm_crtc *crtc)
- {
- 	struct tilcdc_crtc *tilcdc_crtc = to_tilcdc_crtc(crtc);
- 	struct drm_device *dev = crtc->dev;
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 	uint32_t stat, reg;
- 
- 	stat = tilcdc_read_irqstatus(dev);
-@@ -958,7 +958,7 @@ irqreturn_t tilcdc_crtc_irq(struct drm_crtc *crtc)
- 
- int tilcdc_crtc_create(struct drm_device *dev)
- {
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 	struct tilcdc_crtc *tilcdc_crtc;
- 	struct drm_crtc *crtc;
- 	int ret;
-diff --git a/drivers/gpu/drm/tilcdc/tilcdc_drv.c b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-index 2cbe390a1ee54..89afd32b52baf 100644
---- a/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-+++ b/drivers/gpu/drm/tilcdc/tilcdc_drv.c
-@@ -79,7 +79,7 @@ static const struct drm_mode_config_funcs mode_config_funcs = {
- 
- static void modeset_init(struct drm_device *dev)
- {
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 
- 	dev->mode_config.min_width = 0;
- 	dev->mode_config.min_height = 0;
-@@ -105,14 +105,14 @@ static int cpufreq_transition(struct notifier_block *nb,
- static irqreturn_t tilcdc_irq(int irq, void *arg)
- {
- 	struct drm_device *dev = arg;
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 
- 	return tilcdc_crtc_irq(priv->crtc);
+-#include <linux/component.h>
+ #include <linux/gpio/consumer.h>
+ #include <linux/hdmi.h>
+ #include <linux/i2c.h>
+@@ -1963,85 +1962,19 @@ static int tda998x_create(struct device *dev)
+ 	return ret;
  }
  
- static int tilcdc_irq_install(struct drm_device *dev, unsigned int irq)
+-/* DRM encoder functions */
+-
+-static int tda998x_encoder_init(struct device *dev, struct drm_device *drm)
+-{
+-	struct tda998x_priv *priv = dev_get_drvdata(dev);
+-	u32 crtcs = 0;
+-	int ret;
+-
+-	if (dev->of_node)
+-		crtcs = drm_of_find_possible_crtcs(drm, dev->of_node);
+-
+-	/* If no CRTCs were found, fall back to our old behaviour */
+-	if (crtcs == 0) {
+-		dev_warn(dev, "Falling back to first CRTC\n");
+-		crtcs = 1 << 0;
+-	}
+-
+-	priv->encoder.possible_crtcs = crtcs;
+-
+-	ret = drm_simple_encoder_init(drm, &priv->encoder,
+-				      DRM_MODE_ENCODER_TMDS);
+-	if (ret)
+-		goto err_encoder;
+-
+-	ret = drm_bridge_attach(&priv->encoder, &priv->bridge, NULL, 0);
+-	if (ret)
+-		goto err_bridge;
+-
+-	return 0;
+-
+-err_bridge:
+-	drm_encoder_cleanup(&priv->encoder);
+-err_encoder:
+-	return ret;
+-}
+-
+-static int tda998x_bind(struct device *dev, struct device *master, void *data)
+-{
+-	struct drm_device *drm = data;
+-
+-	return tda998x_encoder_init(dev, drm);
+-}
+-
+-static void tda998x_unbind(struct device *dev, struct device *master,
+-			   void *data)
+-{
+-	struct tda998x_priv *priv = dev_get_drvdata(dev);
+-
+-	drm_encoder_cleanup(&priv->encoder);
+-}
+-
+-static const struct component_ops tda998x_ops = {
+-	.bind = tda998x_bind,
+-	.unbind = tda998x_unbind,
+-};
+-
+ static int
+ tda998x_probe(struct i2c_client *client)
  {
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 	int ret;
+-	int ret;
+-
+ 	if (!i2c_check_functionality(client->adapter, I2C_FUNC_I2C)) {
+ 		dev_warn(&client->dev, "adapter does not support I2C\n");
+ 		return -EIO;
+ 	}
  
- 	ret = request_irq(irq, tilcdc_irq, 0, dev->driver->name, dev);
-@@ -126,7 +126,7 @@ static int tilcdc_irq_install(struct drm_device *dev, unsigned int irq)
- 
- static void tilcdc_irq_uninstall(struct drm_device *dev)
- {
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 
- 	if (!priv->irq_enabled)
- 		return;
-@@ -174,7 +174,7 @@ static int tilcdc_regs_show(struct seq_file *m, void *arg)
- {
- 	struct drm_info_node *node = (struct drm_info_node *) m->private;
- 	struct drm_device *dev = node->minor->dev;
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 	unsigned i;
- 
- 	pm_runtime_get_sync(dev->dev);
-@@ -286,7 +286,6 @@ static int tilcdc_pdev_probe(struct platform_device *pdev)
- 
- 	platform_set_drvdata(pdev, priv);
- 	ddev = &priv->ddev;
--	ddev->dev_private = priv;
- 	ret = drmm_mode_config_init(ddev);
- 	if (ret)
- 		return ret;
-diff --git a/drivers/gpu/drm/tilcdc/tilcdc_drv.h b/drivers/gpu/drm/tilcdc/tilcdc_drv.h
-index e3d04a3eb25b4..c69e279a2539d 100644
---- a/drivers/gpu/drm/tilcdc/tilcdc_drv.h
-+++ b/drivers/gpu/drm/tilcdc/tilcdc_drv.h
-@@ -85,6 +85,8 @@ struct tilcdc_drm_private {
- 
- #define DBG(fmt, ...) DRM_DEBUG(fmt"\n", ##__VA_ARGS__)
- 
-+#define ddev_to_tilcdc_priv(x) container_of(x, struct tilcdc_drm_private, ddev)
-+
- int tilcdc_crtc_create(struct drm_device *dev);
- irqreturn_t tilcdc_crtc_irq(struct drm_crtc *crtc);
- void tilcdc_crtc_update_clk(struct drm_crtc *crtc);
-diff --git a/drivers/gpu/drm/tilcdc/tilcdc_encoder.c b/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
-index bca91226351dd..d01e7a31a286c 100644
---- a/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
-+++ b/drivers/gpu/drm/tilcdc/tilcdc_encoder.c
-@@ -34,7 +34,7 @@ struct drm_connector *tilcdc_encoder_find_connector(struct drm_device *ddev,
- static
- int tilcdc_attach_bridge(struct drm_device *ddev, struct drm_bridge *bridge)
- {
--	struct tilcdc_drm_private *priv = ddev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(ddev);
- 	int ret;
- 
- 	priv->encoder->possible_crtcs = BIT(0);
-@@ -53,7 +53,7 @@ int tilcdc_attach_bridge(struct drm_device *ddev, struct drm_bridge *bridge)
- 
- int tilcdc_encoder_create(struct drm_device *ddev)
- {
--	struct tilcdc_drm_private *priv = ddev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(ddev);
- 	struct drm_bridge *bridge;
- 	struct drm_panel *panel;
- 	int ret;
-diff --git a/drivers/gpu/drm/tilcdc/tilcdc_plane.c b/drivers/gpu/drm/tilcdc/tilcdc_plane.c
-index aa72ca679598b..a77a5b22ebd96 100644
---- a/drivers/gpu/drm/tilcdc/tilcdc_plane.c
-+++ b/drivers/gpu/drm/tilcdc/tilcdc_plane.c
-@@ -101,7 +101,7 @@ static const struct drm_plane_helper_funcs plane_helper_funcs = {
- int tilcdc_plane_init(struct drm_device *dev,
- 		      struct drm_plane *plane)
- {
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 	int ret;
- 
- 	ret = drm_universal_plane_init(dev, plane, 1, &tilcdc_plane_funcs,
-diff --git a/drivers/gpu/drm/tilcdc/tilcdc_regs.h b/drivers/gpu/drm/tilcdc/tilcdc_regs.h
-index f90e2dc3457cd..26ebaf1e0f70f 100644
---- a/drivers/gpu/drm/tilcdc/tilcdc_regs.h
-+++ b/drivers/gpu/drm/tilcdc/tilcdc_regs.h
-@@ -113,13 +113,13 @@
- 
- static inline void tilcdc_write(struct drm_device *dev, u32 reg, u32 data)
- {
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 	iowrite32(data, priv->mmio + reg);
+-	ret = tda998x_create(&client->dev);
+-	if (ret)
+-		return ret;
+-
+-	ret = component_add(&client->dev, &tda998x_ops);
+-	if (ret)
+-		tda998x_destroy(&client->dev);
+-	return ret;
++	return tda998x_create(&client->dev);
  }
  
- static inline void tilcdc_write64(struct drm_device *dev, u32 reg, u64 data)
+ static void tda998x_remove(struct i2c_client *client)
  {
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 	volatile void __iomem *addr = priv->mmio + reg;
- 
- #if defined(iowrite64) && !defined(iowrite64_is_nonatomic)
-@@ -133,7 +133,7 @@ static inline void tilcdc_write64(struct drm_device *dev, u32 reg, u64 data)
- 
- static inline u32 tilcdc_read(struct drm_device *dev, u32 reg)
- {
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 	return ioread32(priv->mmio + reg);
- }
- 
-@@ -156,7 +156,7 @@ static inline void tilcdc_clear(struct drm_device *dev, u32 reg, u32 mask)
- /* the register to read/clear irqstatus differs between v1 and v2 of the IP */
- static inline u32 tilcdc_irqstatus_reg(struct drm_device *dev)
- {
--	struct tilcdc_drm_private *priv = dev->dev_private;
-+	struct tilcdc_drm_private *priv = ddev_to_tilcdc_priv(dev);
- 	return (priv->rev == 2) ? LCDC_MASKED_STAT_REG : LCDC_STAT_REG;
+-	component_del(&client->dev, &tda998x_ops);
+ 	tda998x_destroy(&client->dev);
  }
  
 
