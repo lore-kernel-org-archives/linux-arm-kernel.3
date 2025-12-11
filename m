@@ -4,72 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9616D43356
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 20:41:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D259D43358
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 21:36:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cyimSXgzghEkD7AK9n4RAXt1HxLuNqEsyDrb+we5XHA=; b=TMJnaSQ5gnvUVq8cA6NGmUML3x
-	JXZ1Tb5zC0LfUGp20NxEFIRaj4qSFoIEpBFv4Xc8d01TksIfSezh4f4/F7q4tgHtHDtOOgDdZn3I1
-	o0LAqwDa27Ly1lEefGGJxBHz9p5b5E//50zOwrboNC+RXSmbDvTiBt8tBl0wSWSekfKIkoYqKFWo/
-	mdcAK0xoeNMx6y5mldLaja3UtPzMzIL5U3pUQtyKLcNBTI+MIrbWt5cK6+em1AmOMaZe1MKn/ry2b
-	OZe0xpflTQeT1suxN+eAcshoVXVk2qLuU2neU+YIt0kRuWnqMpewvnm1JM/kfi3+lryiHGl4dsqL0
-	yHRr4MuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Message-Id:Content-Transfer-Encoding:Content-Type:Subject:Date:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cCCFtMxtJyScWsoe49DXupHxGnhnwYxVztWb8hL0UEc=; b=wRAPdV2L6XbvKMRSjlsZLobFVG
+	bBM+eXjJHQEdNdMO8hq1SSyLQJrDEVXET4ohzogWu0dgFXsOLDH3iOokAKdfMYZt5c7RQwdlanGsy
+	YFFu4vvRSz5wjWbnyTaI/pOp2jCN14QEV+HSvmRl4sdrjRycx0VTUbiu8QkIRCWNPQpHsYL0kg2ky
+	k0vrQb6XwMKeNXiWuJXDsEzUoPb1vXJtN7sncJKnVu/0fMv+os8gr5TDxOWhNCVuwBroPgrA+d+Y6
+	5NZNP73bsTm76ilEa85ym1DILMM1LGlyiaQ2BaNCTG3F4VA1vQPFoGfsPhpjfJ2JRNmglhGBVrDL1
+	oqYKpvkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTnTm-0000000HGRX-49yi;
-	Thu, 11 Dec 2025 20:41:39 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vToKn-0000000HKST-3OwT;
+	Thu, 11 Dec 2025 21:36:25 +0000
+Received: from mail-westus2azon11010064.outbound.protection.outlook.com ([52.101.46.64] helo=CO1PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTnTk-0000000HGNt-42UD;
-	Thu, 11 Dec 2025 20:41:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1765485683; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=nTuUEHfElXWe7b51kcRNMXT70DSsCsLlGHBw26ZyyyvsR1ObeACCtE5SzRvOO8UwIygLEyByVUATVMuXAe8yAec8nK9PSCyFkp+bKOzwaZ6biuMy80KK0mWrDJJLM5BqXDBxWDSaFCK2ArsdYHHLbsZiZTQ/MMSvoFHYADcgIRw=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1765485683; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=cyimSXgzghEkD7AK9n4RAXt1HxLuNqEsyDrb+we5XHA=; 
-	b=AALCR3RnwD1vyuFrbw0d5H+hG5taj7OBnYOwwoS9aqPM/kuRtOTXCa+YBiw1qWCC6QoACgk0qaoG/dssVedX5Z8f56/Dy2+J6rfXFIrLibkkazX4BfOZjwyx3bUbwrNAroQU6XjaIzP4NKX9muh21htWytynt3reZ9GwQGEzY3E=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765485683;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=cyimSXgzghEkD7AK9n4RAXt1HxLuNqEsyDrb+we5XHA=;
-	b=NrZSNBB6NCcgPT6BrU3ZzXgjY/Ri+qQBEJsj8P/whLHxAxGw9aRQEzkKrcTszOy8
-	/zoHlYjhXNxURqTtfHxsHVqWnoW9RB8NyQlrwkQ4aGGN8UkhUsqS2K5xAxidBXTmq1b
-	Fxtps/LQiW0RxAzV/TqJcr9TYuIff4XEP+qBzt2w=
-Received: by mx.zohomail.com with SMTPS id 1765485682758910.2079946657038;
-	Thu, 11 Dec 2025 12:41:22 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Thu, 11 Dec 2025 21:40:38 +0100
-Subject: [PATCH v4 8/8] drm/rockchip: vop2: Simplify format_mod_supported
-MIME-Version: 1.0
+	id 1vToKl-0000000HKS0-2JrV
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 11 Dec 2025 21:36:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GdjJ+LMbxlJFxYT7N56nJdzFbBzrZN/QxD7eIyNIKDBXQml5wj5BDnz3JX2Ew9S73oWnk4H7n9xWHFpjs6Rl3f9edxN6Ra1+DgjUYli2cH80EcyVRs7QBueCxyjz4gi5aRfuC+Rmr1/kwpljwA2AjTxrOmw9eQsJIL4n/ZTMjhEBSQ9Olg86vpNEcOb8xq1Bqj8wbPd0Rc/AbRuUAV48wAMyNEUtuuw1Ywb8iXKyX1CN0KOR6SlgKcyM/DbX2PV/bIA7ZSCu4pl/JDoh9xSuoFQTsoATp24T7u7aw2InsTdjv4PvBT+lWcAFHf6r2B5y4ZwRYLljg9mOoT1k3eVz0Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=cCCFtMxtJyScWsoe49DXupHxGnhnwYxVztWb8hL0UEc=;
+ b=kTftvOlYN8/xs8AJkCV2h81+LsTqHOQWBg6eg0hjQeqyyZ+4QTXzCeFezjIeIlOqRTEUgCcQCw7kNNEqDrzK3pIawGHG5XQRDTLTEkrsN980WEWLVc4MGDBwXkC1cnMqsNa0XH5IwjbSyYWYQ6t8xHS+X4+IkmAlh5cy40aH2w7Dy8ipkCusrXQf9az6buEVZFnnBD7iDj+XxpcKEH739K7s4z10Q3J8Z8ByAn7E6ZbZ88xdNUdPR8Jwz0GptoKmGgMsjsnnWiijUK0ayE2AK21yp1nMpa7v2sqADq4JacacYom9eKf+7WFhbTpggbcYHxeb3Jbs3pL+gCUditjhSg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=cCCFtMxtJyScWsoe49DXupHxGnhnwYxVztWb8hL0UEc=;
+ b=bbg9WJffWRkpoNyJpekQnh7hPgioj8n9JhwfkkugA3SKpYykyTh5RmrDzL8dLgKnLmQ9i4WMywt9GI2nllb3R4nzvLB6KXHsbpTSxeMOPZu0/mM+zSWCoS9D9lTjUbKPtVXYNrgZUQ0ua6CpavP1ABFTNUbqVIgdUMgaukkWn7LjgYByMg2DrUkfI19rrlyQYBxFx1a6yfYie/K8JQ9gVCXbjloF9kdj9RJjdHN9WZjFEf8hZJf9rGLEHJWw8OJPYz8kMSmzK45yYDNsko5SohH4xhtYAdIb7N1NASktW55uwalZViNRT1p4xgfyoDznpCvXKCSuwHOE9VNoYOehDw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH1PPFDAD84AB72.namprd12.prod.outlook.com
+ (2603:10b6:61f:fc00::627) by SJ2PR12MB9116.namprd12.prod.outlook.com
+ (2603:10b6:a03:557::18) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.6; Thu, 11 Dec
+ 2025 21:36:15 +0000
+Received: from CH1PPFDAD84AB72.namprd12.prod.outlook.com
+ ([fe80::7816:ec9f:a1fe:e5c9]) by CH1PPFDAD84AB72.namprd12.prod.outlook.com
+ ([fe80::7816:ec9f:a1fe:e5c9%6]) with mapi id 15.20.9388.009; Thu, 11 Dec 2025
+ 21:36:14 +0000
+From: Marc Olberding <molberding@nvidia.com>
+Date: Thu, 11 Dec 2025 13:35:29 -0800
+Subject: [PATCH] arm: dts: aspeed: add an alt 128M flash layout
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251211-vop2-atomic-fixups-v4-8-5d50eda26bf8@collabora.com>
-References: <20251211-vop2-atomic-fixups-v4-0-5d50eda26bf8@collabora.com>
-In-Reply-To: <20251211-vop2-atomic-fixups-v4-0-5d50eda26bf8@collabora.com>
-To: Sandy Huang <hjc@rock-chips.com>, 
- =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
- Andy Yan <andy.yan@rock-chips.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Chaoyi Chen <chaoyi.chen@rock-chips.com>
-Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Daniel Stone <daniels@collabora.com>, kernel@collabora.com, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.3
+Message-Id: <20251211-alt-128-layout-v1-1-100f57d2bc4a@nvidia.com>
+X-B4-Tracking: v=1; b=H4sIACA5O2kC/x3MMQqAMAxA0atIZgNNUBGvIg5FowbESltFKd7d4
+ viG/xME8SoBuiKBl0uDuj2DygLG1e6LoE7ZwIZrYiK0W0TiFjf7uDMiM9nKNE09mxZydHiZ9f6
+ H/fC+HxJL/5VgAAAA
+X-Change-ID: 20251211-alt-128-layout-221a40665f08
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, openbmc@lists.ozlabs.org
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ Marc Olberding <molberding@nvidia.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1765488973; l=3198;
+ i=molberding@nvidia.com; s=20250815; h=from:subject:message-id;
+ bh=bw6+xrCgTfTLMq6RDMw2CaI2MOdKf1ohDcl97niGlQ0=;
+ b=X9Hhr0BFhOTgELynI85Ni/AWFVJggnIo6vJ2TGnAQAKYULxFngc2i4BMEAsSR7Jb+jYCxBDIj
+ R7Rl2EUssZHAZXZ21liQRpK+Pr3pQsQ0Ewcv12HLNEOQG+4aakg5upp
+X-Developer-Key: i=molberding@nvidia.com; a=ed25519;
+ pk=qCpZ1WFEf5YiaL88PDdYhG+A/bKk7rHp7KF2K3GmkH0=
+X-ClientProxiedBy: MW4PR03CA0338.namprd03.prod.outlook.com
+ (2603:10b6:303:dc::13) To CH1PPFDAD84AB72.namprd12.prod.outlook.com
+ (2603:10b6:61f:fc00::627)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH1PPFDAD84AB72:EE_|SJ2PR12MB9116:EE_
+X-MS-Office365-Filtering-Correlation-Id: 648de8da-79a3-4efd-9fa9-08de38fd4f74
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?c1MwZ0owUjgweEVad3NLbkZnaU1reU8yRitvSUg0d2pTV2hlQ2N5b2pvajFM?=
+ =?utf-8?B?b2F5YXJHcFdQUW52bjVxMnpyM2FXR2Fjb2FZVHhralRHMlFESzZZNXEwU3Vt?=
+ =?utf-8?B?T0dIaWJ4TGhvRi9hTzdwZjRpOVNEL1lIaTdXQXU1SnhzUlhlRE1rVU5jK3Vy?=
+ =?utf-8?B?dmJuM2RCaGVnV0ZqSFJZRS8yZHU1ZDNDRUdDbUw3UVRvZnhjRy93bDdMczZR?=
+ =?utf-8?B?TC9NbXliMHRZQi9SdVVaSlV5ODJRT2k4bENtNlJLUy94SG9DYUhZZFdwdENw?=
+ =?utf-8?B?eEVGdHZOMmZ3dDhJQy9qUlBvcFd3dEN4WCt6dzBIeCtBRzAwMkZHd0E3Rytk?=
+ =?utf-8?B?MXl4NWVaYTlkekR2SSsyQzJqcnEzYUdWN0FBT2RMcjRQeXJReWNDVXNFOTIz?=
+ =?utf-8?B?VGVuVnY3emNVNlJicmhpdTJsYTFTdjdNQVRCNkpEYjdlWDcxQjM0RUF6QzN2?=
+ =?utf-8?B?K2dGQXRBVGJteGRvWXFkMS9ZU2IvTVZaZGhzcmZuN3hReEpLNGRUeXBwSUNs?=
+ =?utf-8?B?NUhFc1ltM3M5WVNvM3BIanJvd1hka2JNVjRyODJRUEV6YzV2QjM4akZWQXpz?=
+ =?utf-8?B?YXBVUVg3cWxZTFV2U0FYZU5ZVmY4RFZRZ1p2TVdvUnBaMTNGWFlOQ0FDaklS?=
+ =?utf-8?B?QmRJR2hpMzdDZTNLR0FMODEvWXpURi9rd2c5aXUva21CcFBqQ1RvUjFuM0g5?=
+ =?utf-8?B?aDM5amlDUDF4L2xudGpnb0M4WlVScmdoSHVXaDBVYWFXSkJLcHRnelVNUGNW?=
+ =?utf-8?B?cGRZTFVZZ1o3ZG5yYmVZZGJNUmNiQzkySFJ0N0wxTTNTYWNTd3lCZDMwK2ts?=
+ =?utf-8?B?eVM0VU5kdmVSaFlwNmZRSU9VVFkzSVU0RjBmak5IRTdoaS93eFhVTkdDd2xT?=
+ =?utf-8?B?ZDR1dnBpMmlBVHdGQ0JzY0Vvb1Jrd0RJeGNOMVBnenBWbXoxRG1TUWxPYk1Z?=
+ =?utf-8?B?KzRNeDVCQllOVWcwd0FDeUpkYUYyK3JTZnZVc1hIQUNoQUxCQW1RZmFLSmJL?=
+ =?utf-8?B?cGdnYUpqU3JvdDEyZ29FSGF2UmRPWXN0emJ2c01XSjVyeW9jOWtEV1djaHI5?=
+ =?utf-8?B?dyt3eFJLOGRqRFRFZG9PZ3B1RHFzWGNKOXRKNllGUTJUd1BpUjRmb3FvRWRZ?=
+ =?utf-8?B?dGZKbmx5ZHJKeGg3MEFRbXZaUGRCenRTK1RKUDF3ZllCTURaM2YzQ2lZUUI3?=
+ =?utf-8?B?eGFYQlRwTGhzYmcxenBheUdBYW1FUGM1K1ZwYmZvbnFmS2Vkbk1Gc2hkaUFh?=
+ =?utf-8?B?RGNJUFFLYXE0QlBPM01zNW1qdWdtUERpQzh1MUQ3N3Z6aE5tdFkycDVUdHRO?=
+ =?utf-8?B?M3RILzJ1S0xuYmNNZTkzRDF3MWlWQm9rUTRJd1FvSHdWbG9heFB4M0ZjSktw?=
+ =?utf-8?B?eVpIdU9IQVpNSThhOTUvWU5BNisxRXArRHJ3eFp5RnV4eDgrNHQrVThIOVhQ?=
+ =?utf-8?B?d1pEU1Z2M2pSbm1WcnlmVnp6MWdqN1RrR29PQ2YzSzVDK25vTkUwTFNzaWZo?=
+ =?utf-8?B?YldGUUxBaDI4alVGVVZqZmFSODB5Tm14bEI3UWsyN3lHR2RrNVNPMU5pK1N4?=
+ =?utf-8?B?MEdXWHFFdkliN0g1eVJIK3A2aEJrZURFTFMrWTVVQ280amRvQ29XdEZ6UVZI?=
+ =?utf-8?B?cHdtaWtubmIyZXZlNXhHZHFtZHJ3dGp6WGJtdFFYMExnVWUzMzNMSnlpclIw?=
+ =?utf-8?B?K2dVWEVVL1VFK0RhejhtQXNycDZxWVl5NjhUSkZmM0ZMamZEV0JPU2lhMmdt?=
+ =?utf-8?B?ZktwSWNSZjFnWE0ydzBKOWd2L0tJNkFNSWNJc2ptbGJvOXg1K081VHZHUDQ2?=
+ =?utf-8?B?NkhQU3B6cm8wMFc0cHFKWmFZVDNmUGswNU81Vm5PWG84dG45N045MStVNkdG?=
+ =?utf-8?B?OHhOT0c1eEpUMDZNaitOZkNiMDZjQ0hNR2xqL2o5R3gvaUFsZ09ybnhRS3gw?=
+ =?utf-8?Q?Vzz1S6kK2b1AC7f6EQEkqGb7hEds8u2+?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH1PPFDAD84AB72.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bmc1WXc0b3JkNEtZbHdkOEVWekNuUW01VE9SMkNnT1BqN1E1TmlXQXhyVlNC?=
+ =?utf-8?B?SW91THZHeStEQStlUTlXSHV5Q2IxSngxMWZwUFJYeFdyUk02N1lyajF2Y0Ry?=
+ =?utf-8?B?UjF6aCtEMlBRMHBZeEpJb1QvREhTVDRNUENBL0NMSXVyYWpqRUJrc3MyamFy?=
+ =?utf-8?B?dCtNZy9sb0dtbTZwV3FrVEI4ZklMMVNQNXV3T21scWNINFR3N1E3bkk3S1Jr?=
+ =?utf-8?B?RlU0dndmaTBsOVozVkRFa0xUVlpCdVREQlE3OU5GZzlxVGk2bld0QVBtNUZ1?=
+ =?utf-8?B?dkJXNk5hd2FmSHhLSjhYOFpCUTZaK1p1NnJlT1RqQ2tvbG5PckREazFHZG9p?=
+ =?utf-8?B?S0VMajdvTWN2VWh5UGRyLzB4ZGxXS25ONmNDR2VOcnVQbVFIWlJoTmE4b25k?=
+ =?utf-8?B?N0pZOW9tY25LdGFFeWI3ZXAvRzhoYTg2QmMwZDBmcEVBelNlU21Zenk0MEhn?=
+ =?utf-8?B?VS9NcjMxOHVXbUZnWlFpRlhLL0pKYy8wUmlpc2pHbG9yajloVVAzandZSldO?=
+ =?utf-8?B?bE8wR05pMHVYZXY1OWlwU2lwMkdyUGNsSVllWWJXWkNmdGU1SkhSRnlLN1Vq?=
+ =?utf-8?B?VVZSRzIyM20vTFozbm1QNG5Sb1hjeFFaUTkrS0FGUDlWN2N5Z0lLWEd3MlBT?=
+ =?utf-8?B?OXUyK1ljWjN6SnozSmpROEcxYndvZWVhZUtGbXUzUG1OdGFCVzBuYSsvWlUw?=
+ =?utf-8?B?VGJGVGdhTDFMNlhwOW5sNWZYQW53WmVEMGtPRlVFVEtQdnlVcGpvZjVPcWdv?=
+ =?utf-8?B?RWdqS2huRmJ3RFhXcUNQRHFXbXc2RzJhVitYOGlCVmpINStwYWxyTXpmVTNU?=
+ =?utf-8?B?RGJhcXRkdEk1NkRpQ3R2eWRvaGlMTmFrSnBtMTg1Y2J5MUxxSWxkaTVpcFZn?=
+ =?utf-8?B?VjNxVU55SW5HNlcvbVpraDQ3dDZCUkI0anByOUtXb3JmMEtIdWxzL1RGVXRz?=
+ =?utf-8?B?NWl0VHdvaEVibnBxWk0xU3crUXUxZ1Jvazk1Z2ZIeHJ4SXBla0NOUlp6WG9B?=
+ =?utf-8?B?RjZpNEk1SnRTbWd6RE9vcE4vWXBDdUZDdk05SEtVbGZ1Wm4xRjBhakFXODdF?=
+ =?utf-8?B?SG5yZUlUS1gyYzVXUU11TjBDb0dzaHpvSWxZVGhMUnZSWVNZNEN5eGoycGVt?=
+ =?utf-8?B?Q1A5OUlTMDlxN2lTd1gva0lxMGU4WmkzcEVITVF0N2RTcGdXSlJYYW1JRGxP?=
+ =?utf-8?B?eEpOYkhuQ2xCQ3VQamZaS2hOQlpUakI2OHJIY3hpTHRmV2JuZ1d0RndlMStY?=
+ =?utf-8?B?UDdrOWllTFRKdTVPWUptMlNOS3FQNlNxT2NxRzZlWGozQjRJZVpTbGowRzRO?=
+ =?utf-8?B?ampscDFkY2VsSjZoYW1EQVptK3ZXbDRZTURuRlZUdjlscmJsL29yN0NrM1lE?=
+ =?utf-8?B?UTI4K3l2YXdzZjhQRmhEc2gxbjNYUHdESUJNcFVuV283eTVsNWdTK1k4ODA2?=
+ =?utf-8?B?aW85clluTUFucUJROFFkOFBBT1dKRVIySCtxMjFPOXFqZVJScmdTb1JtR05B?=
+ =?utf-8?B?eVlpa3RyaXhDNm1FRk56WUFrL1NURm9WT1oxUW1ZaEhoL2pSSjFtb0RKUEFC?=
+ =?utf-8?B?RnIvWlc0dlZ1T29TTURJN0NMOEY2bTJPTWQ1WjFORlEzc2p6Tnh4OGR2VnR2?=
+ =?utf-8?B?cVd1ZDU3dkJORjhMOHZvbG0yK3paUER6cHZqMEx3aWxITzQ3Q1pNalhCZkhR?=
+ =?utf-8?B?TXNNNDRuRFZNNmYyMDJUV0JWc0tEc00ydjhSckVwMzZGUisvdmFHcmx5VUJs?=
+ =?utf-8?B?T0hOdmdEdVYrMWFYU2w4RXltQ1pGWkRvRGFLSnh1aklFNTNnVHduNENWYzRX?=
+ =?utf-8?B?WlhZS3hoa3djV0JXNThwWnBXQ3NzY015MUdqZlhHRU1VSkpmMU1EL0IyNXIw?=
+ =?utf-8?B?Y0dFMGlMMms5SnhKRUtXUUNZWkhpb08rbmN3dm92bGJMOFNkU0E1Z0dTWmxz?=
+ =?utf-8?B?ZXlIUFJJQ3psOCsxTWZ3NEluckduUnJ3OVpseW40MDUxQkNmWjMzRE1iY294?=
+ =?utf-8?B?Zy9HV1RGeEZrZ0pTQmVBa2ZuMzVpem90ejU0dEZ0L1RabEYrRkJPRVkyU29S?=
+ =?utf-8?B?blhKT25GOGNDUFR6UXBIR2p6SHJuSGMwc1oweVNhSGhMUGFUeEVhb25xNFBU?=
+ =?utf-8?Q?mTfIufaOn8v5Z+EOQiSLegh5R?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 648de8da-79a3-4efd-9fa9-08de38fd4f74
+X-MS-Exchange-CrossTenant-AuthSource: CH1PPFDAD84AB72.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Dec 2025 21:36:14.6697
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: WoF2vBG04iInOnvHZVGfHnk/G5E4u/SuWiMTIABrs/wXOCLe8yfCB444btsxMZoGa+TSxFp0HGNEzhNRo6WTGQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB9116
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_124137_099668_77B30D7C 
-X-CRM114-Status: GOOD (  15.18  )
+X-CRM114-CacheID: sfid-20251211_133623_613408_A1B88D7A 
+X-CRM114-Status: GOOD (  14.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,105 +186,102 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Daniel Stone <daniels@collabora.com>
+Add a 128M layout for the BMC flash chip we didn't boot from. Including
+this allows the user to write to each partition on the alternate spi
+chip. This dtsi follows the existing standard of using the same layout
+as non alt version and prepending `alt` to each partition's name.
 
-Make it a little less convoluted, and just directly check if the
-combination of plane + format + modifier is supported.
+Testing: Include this in msx4 and cat size, offsets and name
+```
+for devdir in /sys/class/mtd/mtd*; do
+>     [[ -d $devdir && -r $devdir/name ]] || continue
+>     name=$(<"$devdir/name")
+>     [[ $name == alt* ]] || continue
+>
+>     size=$(<"$devdir/size")
+>     offset=0
+>     [[ -r $devdir/offset ]] && offset=$(<"$devdir/offset")
+>
+>     dev=$(basename "$devdir")
+>     printf "%s name=%s offset=0x%X size=0x%X\n" "$dev" "$name" \
+>        "$offset" "$size"
+> done
+mtd10 name=alt-rofs offset=0xA00000 size=0x5600000
+mtd11 name=alt-rwfs offset=0x6000000 size=0x2000000
+mtd7 name=alt-u-boot offset=0x0 size=0xE0000
+mtd8 name=alt-u-boot-env offset=0xE0000 size=0x20000
+mtd9 name=alt-kernel offset=0x100000 size=0x900000
+```
 
-Signed-off-by: Daniel Stone <daniels@collabora.com>
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Also ran dtbs_check on an existing dts with this included.
+
+Signed-off-by: Marc Olberding <molberding@nvidia.com>
 ---
- drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 56 +++++++++++-----------------
- 1 file changed, 22 insertions(+), 34 deletions(-)
+Add a layout for an alternate 128M flash layout. This is
+useful for the aspeed ast2500[2] and ast2600[1] SoCs,
+where it has the ability to boot from one of two spi chips,
+nominally the primary and backup SPIs. Adding a layout allows userspace
+to flash the alternate spi by partition and switch over to it, allowing
+lower downtime for firmware flash, or for updating the primary
+flash from the golden backup flash. This is already an established
+scheme for the 32M and 64M layouts, where the layout is the same
+but each partition has `alt` prepended to its name. This allows
+userspace to just prepend alt to the images in the update process
+to specify which flash chip to update.
 
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-index 494f4d48f9fe..4659c55d0da4 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-@@ -367,59 +367,47 @@ static bool is_yuv_output(u32 bus_format)
- 	}
- }
- 
--static bool rockchip_afbc(struct drm_plane *plane, u64 modifier)
--{
--	int i;
--
--	if (modifier == DRM_FORMAT_MOD_LINEAR)
--		return false;
--
--	for (i = 0 ; i < plane->modifier_count; i++)
--		if (plane->modifiers[i] == modifier)
--			return true;
--
--	return false;
--}
--
- static bool rockchip_vop2_mod_supported(struct drm_plane *plane, u32 format,
- 					u64 modifier)
- {
- 	struct vop2_win *win = to_vop2_win(plane);
- 	struct vop2 *vop2 = win->vop2;
-+	int i;
- 
-+	/* No support for implicit modifiers */
- 	if (modifier == DRM_FORMAT_MOD_INVALID)
- 		return false;
- 
--	if (vop2->version == VOP_VERSION_RK3568) {
--		if (vop2_cluster_window(win)) {
--			if (modifier == DRM_FORMAT_MOD_LINEAR) {
--				drm_dbg_kms(vop2->drm,
--					    "Cluster window only supports format with afbc\n");
--				return false;
--			}
--		}
-+	/* The cluster window on 3568 is AFBC-only */
-+	if (vop2->version == VOP_VERSION_RK3568 && vop2_cluster_window(win) &&
-+	    !drm_is_afbc(modifier)) {
-+		drm_dbg_kms(vop2->drm,
-+			    "Cluster window only supports format with afbc\n");
-+		return false;
- 	}
- 
--	if (format == DRM_FORMAT_XRGB2101010 || format == DRM_FORMAT_XBGR2101010) {
--		if (vop2->version == VOP_VERSION_RK3588) {
--			if (!rockchip_afbc(plane, modifier)) {
--				drm_dbg_kms(vop2->drm, "Only support 32 bpp format with afbc\n");
--				return false;
--			}
--		}
-+	/* 10bpc formats on 3588 are AFBC-only */
-+	if (vop2->version == VOP_VERSION_RK3588 && !drm_is_afbc(modifier) &&
-+	    (format == DRM_FORMAT_XRGB2101010 || format == DRM_FORMAT_XBGR2101010)) {
-+		drm_dbg_kms(vop2->drm, "Only support 10bpc format with afbc\n");
-+		return false;
- 	}
- 
-+	/* Linear is otherwise supported everywhere */
- 	if (modifier == DRM_FORMAT_MOD_LINEAR)
- 		return true;
- 
--	if (!rockchip_afbc(plane, modifier)) {
--		drm_dbg_kms(vop2->drm, "Unsupported format modifier 0x%llx\n",
--			    modifier);
--
-+	/* Not all format+modifier combinations are allowable */
-+	if (vop2_convert_afbc_format(format) == VOP2_AFBC_FMT_INVALID)
- 		return false;
+References:
+
+[1] https://www.aspeedtech.com/server_ast2600/
+[2] https://www.aspeedtech.com/server_ast2500/
+---
+ .../dts/aspeed/openbmc-flash-layout-128-alt.dtsi   | 32 ++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
+
+diff --git a/arch/arm/boot/dts/aspeed/openbmc-flash-layout-128-alt.dtsi b/arch/arm/boot/dts/aspeed/openbmc-flash-layout-128-alt.dtsi
+new file mode 100644
+index 0000000000000000000000000000000000000000..08ce2eab472c3da4aa3d841adb0eb1c971e6a25a
+--- /dev/null
++++ b/arch/arm/boot/dts/aspeed/openbmc-flash-layout-128-alt.dtsi
+@@ -0,0 +1,32 @@
++// SPDX-License-Identifier: GPL-2.0+
 +
-+	/* Different windows have different format/modifier support */
-+	for (i = 0; i < plane->modifier_count; i++) {
-+		if (plane->modifiers[i] == modifier)
-+			return true;
- 	}
- 
--	return vop2_convert_afbc_format(format) >= 0;
-+	return false;
- }
- 
- /*
++partitions {
++	compatible = "fixed-partitions";
++	#address-cells = <1>;
++	#size-cells = <1>;
++
++	u-boot@0 {
++		reg = <0x0 0xe0000>; // 896KB
++		label = "alt-u-boot";
++	};
++
++	u-boot-env@e0000 {
++		reg = <0xe0000 0x20000>; // 128KB
++		label = "alt-u-boot-env";
++	};
++
++	kernel@100000 {
++		reg = <0x100000 0x900000>; // 9MB
++		label = "alt-kernel";
++	};
++
++	rofs@a00000 {
++		reg = <0xa00000 0x5600000>; // 86MB
++		label = "alt-rofs";
++	};
++
++	rwfs@6000000 {
++		reg = <0x6000000 0x2000000>; // 32MB
++		label = "alt-rwfs";
++	};
++};
 
+---
+base-commit: d358e5254674b70f34c847715ca509e46eb81e6f
+change-id: 20251211-alt-128-layout-221a40665f08
+
+Best regards,
 -- 
-2.52.0
+Marc Olberding <molberding@nvidia.com>
 
 
