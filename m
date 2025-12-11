@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACA1FD41D69
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 16:40:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F5E7D41D64
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 16:40:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yJWYp6AsVLcGemEIqR08M/BCUergUVk1I61hynu/u98=; b=zIoFx669VVgxAVizgjCild2wV9
-	cAuNz/0D11eu0J80wjK3remDD73eKdjKXIpiAdHGFbU9DvIYJNbG8kNiptk+P6gdd5pTF//2iU93G
-	Is64zq8LQhNecyo4EFQa56Yev+ygM0QXHIIapHPWdWl0sGPejZhBwSWut9L60jnnVELevKngn4T3C
-	kbud3mReyLth/ivICNRovnHv/W4NbuIrEaRebGaVW2Xi7W/X6aLx60yK/vI5zY9nNOYBciHnR8RwG
-	o9QgDeiHPu4rU/p1VIPWv/0c4wNS+99wKNwVcIrXMclmcPNK6VraGyC/NOxNX7BE09bIA1Iywtfgj
-	fHriX5vA==;
+	bh=Oveio8G+2g9nvCOYGYGyqpnqI1CGgVJ0FLMFM8BnlO0=; b=fxz15bAT/WHUsGbpIp4kOs3FaN
+	nD9Ywe+PIJJQfaPZHygReYMaDfu0wnXkMtRyQ2E498g1e7l8gRPJszFsL5BH8MV1dc+OPMQ5T9zIO
+	TRtSVeOrWiRykvMYkUtNdB3Ed/gL8Ev95WQDEoCRztjf7l69pgO1yRT7/LjfzI9il8g3xyB7Km0Xv
+	fpQUZCa1JN5VQyoV/pwKYkz0nnBHFxxc//Jn3WV96ygrJHblsvQ3uxL4T2xuemFzV9SWOiniEZf7W
+	Al3+U2jGADbNo1FUyb6iT9NPrMcYZGPlOcGpdQKtGVADLEDJPDkpVqzN8OUm1CAOKznF0azNH+okN
+	FKfq3ZjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTjiX-0000000Gxxp-1HjM;
-	Thu, 11 Dec 2025 16:40:37 +0000
+	id 1vTjiZ-0000000Gy20-3x1W;
+	Thu, 11 Dec 2025 16:40:39 +0000
 Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTjiT-0000000Gxqm-1S6R
+	id 1vTjiW-0000000GxvJ-3Tj0
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 16:40:35 +0000
+	Thu, 11 Dec 2025 16:40:38 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id B95DC4E41B7D;
-	Thu, 11 Dec 2025 16:40:31 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 392074E41B7B;
+	Thu, 11 Dec 2025 16:40:35 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 89E586072F;
-	Thu, 11 Dec 2025 16:40:31 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4D9BE103C8C7B;
-	Thu, 11 Dec 2025 17:40:28 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 0DD886072F;
+	Thu, 11 Dec 2025 16:40:35 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A056D103C8C1B;
+	Thu, 11 Dec 2025 17:40:30 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1765471230; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1765471233; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=yJWYp6AsVLcGemEIqR08M/BCUergUVk1I61hynu/u98=;
-	b=rnbb7euHAhCXkHvCseCZXAlCV8ZBacjbFYPh2cHX4Tsw1MjZvIwFR0/ZFRNA3pEhPm/MJ7
-	zcFfeD594Y+vKiGQLsuFFt1/+hGFDpqoOalG9SkhG4vxa8g9tpHtETZwZD5LWsKOd1L92T
-	xjXaDe19TAUon4Ivn4gZ8+1dd0CKEIm1LXlVLXN8/1GiS2lLBWvQibuYyRSaxsAe7fZGOn
-	U7mRZGrgHHMhkcjE9G/9Nf+0o6Bhmb6036i4zDktw362Beh9NDMPY1rB5TMb6R8ktUtnfs
-	e/hNzCw7UKyd9fFcBq68F5ReflM2kq+4iTRpdav/T4s7YxHb3eavvbxQ0FI49w==
+	bh=Oveio8G+2g9nvCOYGYGyqpnqI1CGgVJ0FLMFM8BnlO0=;
+	b=Ii3j+Ley/9lguXq/RuKxk1N30/759Vo4AoIofjxaLri3D9abugGTUozjsLhV1M/pNDMI6N
+	Bvx0SEC3WG8rnLBWp6Q6F39bLxLmnz4moGoV1TPuYc0KdkLPFRjMVZuW3mYvnx/SoY/4MD
+	jDPNASRMf1QIyL2fHRBYbM7Tkzqr7jcuDznQC+gPrZCKIDCvQy1SU0O6ysQNBWLy0vB7Y/
+	h5FqUVecOIh0WZwfusyC9Df2qIroEhDOc/57IblIHpcL3e46zOi1HPPiHk2MwviT/Rzp3o
+	DVAjFaovtdZqUE/j6ZdbbapIqxCc+jVmaIsTSnHvC2HKT23Dza7LPToBA+ROqA==
 From: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
-Date: Thu, 11 Dec 2025 17:39:01 +0100
-Subject: [PATCH v2 17/20] drm/bridge: tda998x: Move tda998x_create/destroy
- into probe and remove
+Date: Thu, 11 Dec 2025 17:39:02 +0100
+Subject: [PATCH v2 18/20] drm/bridge: tda998x: Remove useless
+ tda998x_connector_destroy wrapper
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251211-feature_tilcdc-v2-17-f48bac3cd33e@bootlin.com>
+Message-Id: <20251211-feature_tilcdc-v2-18-f48bac3cd33e@bootlin.com>
 References: <20251211-feature_tilcdc-v2-0-f48bac3cd33e@bootlin.com>
 In-Reply-To: <20251211-feature_tilcdc-v2-0-f48bac3cd33e@bootlin.com>
 To: Jyri Sarha <jyri.sarha@iki.fi>, 
@@ -79,8 +79,9 @@ Cc: Markus Schneider-Pargmann <msp@baylibre.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_084033_700929_FB025C76 
-X-CRM114-Status: GOOD (  16.47  )
+X-CRM114-CacheID: sfid-20251211_084037_020299_67CD46DB 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,192 +96,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Now that tda998x_create and tda998x_destroy are called only in the probe
-function, there is no need for separate functions.
-Move the code into the tda998x_probe and tda998x_remove functions.
-Rewrite the cleanup path using goto calls in probe and reorder it in the
-remove function.
+Use directly drm_connector_cleanup in the destroy ops instead of having
+a custom function that does nothing more.
 
 Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
 ---
- drivers/gpu/drm/bridge/tda998x_drv.c | 99 +++++++++++++++++++-----------------
- 1 file changed, 51 insertions(+), 48 deletions(-)
+ drivers/gpu/drm/bridge/tda998x_drv.c | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/tda998x_drv.c b/drivers/gpu/drm/bridge/tda998x_drv.c
-index 865285ba2bd8c..4be49dd5bfc01 100644
+index 4be49dd5bfc01..43ace6ee2ca35 100644
 --- a/drivers/gpu/drm/bridge/tda998x_drv.c
 +++ b/drivers/gpu/drm/bridge/tda998x_drv.c
-@@ -1748,38 +1748,20 @@ static int tda998x_get_audio_ports(struct tda998x_priv *priv,
- 	return 0;
+@@ -1203,16 +1203,11 @@ tda998x_connector_detect(struct drm_connector *connector, bool force)
+ 			connector_status_disconnected;
  }
  
--static void tda998x_destroy(struct device *dev)
+-static void tda998x_connector_destroy(struct drm_connector *connector)
 -{
--	struct tda998x_priv *priv = dev_get_drvdata(dev);
--
--	drm_bridge_remove(&priv->bridge);
--
--	/* disable all IRQs and free the IRQ handler */
--	cec_write(priv, REG_CEC_RXSHPDINTENA, 0);
--	reg_clear(priv, REG_INT_FLAGS_2, INT_FLAGS_2_EDID_BLK_RD);
--
--	if (priv->audio_pdev)
--		platform_device_unregister(priv->audio_pdev);
--
--	if (priv->hdmi->irq)
--		free_irq(priv->hdmi->irq, priv);
--
--	timer_delete_sync(&priv->edid_delay_timer);
--	cancel_work_sync(&priv->detect_work);
--
--	i2c_unregister_device(priv->cec);
--
--	cec_notifier_conn_unregister(priv->cec_notify);
+-	drm_connector_cleanup(connector);
 -}
 -
--static int tda998x_create(struct device *dev)
-+static int
-+tda998x_probe(struct i2c_client *client)
- {
--	struct i2c_client *client = to_i2c_client(dev);
- 	struct device_node *np = client->dev.of_node;
-+	struct device *dev = &client->dev;
- 	struct i2c_board_info cec_info;
- 	struct tda998x_priv *priv;
--	u32 video;
- 	int rev_lo, rev_hi, ret;
-+	u32 video;
-+
-+	if (!i2c_check_functionality(client->adapter, I2C_FUNC_I2C)) {
-+		dev_warn(&client->dev, "adapter does not support I2C\n");
-+		return -EIO;
-+	}
- 
- 	priv = devm_drm_bridge_alloc(dev, struct tda998x_priv, bridge, &tda998x_bridge_funcs);
- 	if (IS_ERR(priv))
-@@ -1814,13 +1796,15 @@ static int tda998x_create(struct device *dev)
- 	rev_lo = reg_read(priv, REG_VERSION_LSB);
- 	if (rev_lo < 0) {
- 		dev_err(dev, "failed to read version: %d\n", rev_lo);
--		return rev_lo;
-+		ret = rev_lo;
-+		goto cancel_work;
- 	}
- 
- 	rev_hi = reg_read(priv, REG_VERSION_MSB);
- 	if (rev_hi < 0) {
- 		dev_err(dev, "failed to read version: %d\n", rev_hi);
--		return rev_hi;
-+		ret = rev_hi;
-+		goto cancel_work;
- 	}
- 
- 	priv->rev = rev_lo | rev_hi << 8;
-@@ -1843,7 +1827,8 @@ static int tda998x_create(struct device *dev)
- 		break;
- 	default:
- 		dev_err(dev, "found unsupported device: %04x\n", priv->rev);
--		return -ENXIO;
-+		ret = -ENXIO;
-+		goto cancel_work;
- 	}
- 
- 	/* after reset, enable DDC: */
-@@ -1887,7 +1872,7 @@ static int tda998x_create(struct device *dev)
- 		if (ret) {
- 			dev_err(dev, "failed to request IRQ#%u: %d\n",
- 				client->irq, ret);
--			goto err_irq;
-+			goto cancel_work;
- 		}
- 
- 		/* enable HPD irq */
-@@ -1897,7 +1882,7 @@ static int tda998x_create(struct device *dev)
- 	priv->cec_notify = cec_notifier_conn_register(dev, NULL, NULL);
- 	if (!priv->cec_notify) {
- 		ret = -ENOMEM;
--		goto fail;
-+		goto free_irq;
- 	}
- 
- 	priv->cec_glue.parent = dev;
-@@ -1924,7 +1909,7 @@ static int tda998x_create(struct device *dev)
- 	priv->cec = i2c_new_client_device(client->adapter, &cec_info);
- 	if (IS_ERR(priv->cec)) {
- 		ret = PTR_ERR(priv->cec);
--		goto fail;
-+		goto notifier_conn_unregister;
- 	}
- 
- 	/* enable EDID read irq: */
-@@ -1941,7 +1926,7 @@ static int tda998x_create(struct device *dev)
- 
- 		ret = tda998x_get_audio_ports(priv, np);
- 		if (ret)
--			goto fail;
-+			goto unregister_dev;
- 
- 		if (priv->audio_port_enable[AUDIO_ROUTE_I2S] ||
- 		    priv->audio_port_enable[AUDIO_ROUTE_SPDIF])
-@@ -1956,26 +1941,44 @@ static int tda998x_create(struct device *dev)
- 
- 	return 0;
- 
--fail:
--	tda998x_destroy(dev);
--err_irq:
-+unregister_dev:
-+	i2c_unregister_device(priv->cec);
-+notifier_conn_unregister:
-+	cec_notifier_conn_unregister(priv->cec_notify);
-+free_irq:
-+	if (client->irq) {
-+		free_irq(client->irq, priv);
-+		cec_write(priv, REG_CEC_RXSHPDINTENA, 0);
-+		reg_clear(priv, REG_INT_FLAGS_2, INT_FLAGS_2_EDID_BLK_RD);
-+	}
-+cancel_work:
-+	timer_delete_sync(&priv->edid_delay_timer);
-+	cancel_work_sync(&priv->detect_work);
- 	return ret;
- }
- 
--static int
--tda998x_probe(struct i2c_client *client)
-+static void tda998x_remove(struct i2c_client *client)
- {
--	if (!i2c_check_functionality(client->adapter, I2C_FUNC_I2C)) {
--		dev_warn(&client->dev, "adapter does not support I2C\n");
--		return -EIO;
--	}
-+	struct tda998x_priv *priv = dev_get_drvdata(&client->dev);
- 
--	return tda998x_create(&client->dev);
--}
-+	drm_bridge_remove(&priv->bridge);
- 
--static void tda998x_remove(struct i2c_client *client)
--{
--	tda998x_destroy(&client->dev);
-+	if (priv->audio_pdev)
-+		platform_device_unregister(priv->audio_pdev);
-+
-+	i2c_unregister_device(priv->cec);
-+
-+	cec_notifier_conn_unregister(priv->cec_notify);
-+
-+	/* disable all IRQs and free the IRQ handler */
-+	if (client->irq) {
-+		cec_write(priv, REG_CEC_RXSHPDINTENA, 0);
-+		reg_clear(priv, REG_INT_FLAGS_2, INT_FLAGS_2_EDID_BLK_RD);
-+		free_irq(priv->hdmi->irq, priv);
-+	}
-+
-+	timer_delete_sync(&priv->edid_delay_timer);
-+	cancel_work_sync(&priv->detect_work);
- }
- 
- #ifdef CONFIG_OF
+ static const struct drm_connector_funcs tda998x_connector_funcs = {
+ 	.reset = drm_atomic_helper_connector_reset,
+ 	.fill_modes = drm_helper_probe_single_connector_modes,
+ 	.detect = tda998x_connector_detect,
+-	.destroy = tda998x_connector_destroy,
++	.destroy = drm_connector_cleanup,
+ 	.atomic_duplicate_state = drm_atomic_helper_connector_duplicate_state,
+ 	.atomic_destroy_state = drm_atomic_helper_connector_destroy_state,
+ };
 
 -- 
 2.43.0
