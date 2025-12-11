@@ -4,78 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E83AD41C1B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 10:47:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40E02D41C20
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 11:05:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a+mal7HTHfWe8plwjg0zx4lZB8mal6cIfV5WaXbVuko=; b=QbqWa72rcxcoqas++zte3RAPlr
-	1xC6meqyWZU4LJ/7e9WilcWuXS/GtZoJskUl5/GoinI7TN5d5x8t56V0rhMdeYGAi3nPmi5hY6s3L
-	tG0o4c6LYqNxZXBrWh4YmXul0pn0iaqu9a+J/46KFgBzI8MI8kuHNF7w5EWgsMMZmoDoVt+fp1M+T
-	1yBCT8nWb+KYqGeybROUh+tKHPF3AwXGLJv83mUati0tYuvslk0jNvEq/I3F0DOKMR56NXFXOcbHG
-	6xqsivRo/byJumvVpi3PD3EkpTNzmGhVSUPV3ay0Pr2SgAixgaHoaLlAlHpsUccxhfFJhgaBOm7Gx
-	GkJlFvVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s6DLzEYBrf1CuE2AoYiu5rXtg5UNMlmAQWLmj+GeWoA=; b=pCttvzNnubeSl1upIH1rdiTGHN
+	XZuIx/vRcJpmBEWGk5iZ0DHZ8mPunfq+3uyAd4aYE7sog2IFbAGST5vM1tTmqPPzmTlIwBXJ+h01P
+	QKHTUxWe6giROezjhswbXssHAeuYfCCadSH71HkXyGWb8S2z4Jvo+e4EfCLE4AKqcf/QiOh1I4hQ6
+	m5Wu5jHLVw4PitAPgKz8ermUnYAioVfBc7fU7j5WIFwaYi2q2uM+c0U16qQmlxp9/IRGYvAbPDONd
+	bLfYty3qdZTkejdY3G69lMpG6Aj/7nbBTDZgb6+ItR08edmfv/guhgiUKs59Ex89SpCdLb/ed1DI5
+	cgo1PQbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTeCk-0000000GUyi-0od2;
-	Thu, 11 Dec 2025 10:47:26 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTeCd-0000000GUq8-0Jn7
+	id 1vTeTt-0000000GWIS-3leQ;
+	Thu, 11 Dec 2025 11:05:09 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vTeTr-0000000GWI0-1tbB
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 10:47:20 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-47777158a85so9004645e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 02:47:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1765450036; x=1766054836; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=a+mal7HTHfWe8plwjg0zx4lZB8mal6cIfV5WaXbVuko=;
-        b=bmuLSVdHKiuBG63q6n7NoG13opltObgckIEwUgftm2ckRMP8OEgpA/rVB5Dw+4bkhl
-         FotKn1wmC+nxhN23DjTiyBsPcXybiNXpxCtGK4rfnqqmH+D61zIgaxcWq9C4xySv+M0M
-         vLcrqcwUwPEIT9m8/YTWL3ur4InLJE2lmX//uNEKY/wTP1IJ32lxY/S4Mbe0AuXxnYMB
-         la995gMBKtStB+7y4aOcqNP/K1Vak2gRn2w7AJwOmGHIdxWj/EoKMgJOw//qOlC+jzkY
-         Y5qYc5ngYfXkk/tlodu5CMdSOTpCTa9w0DPYnHOErNDtJK9bYsmy4VxBYP6BaAFLSGzt
-         xhxw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765450036; x=1766054836;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=a+mal7HTHfWe8plwjg0zx4lZB8mal6cIfV5WaXbVuko=;
-        b=lD03zuR/2UpzFJ6+Tr6sIlVbCP1tJHufMyJqUBNCJRWyzxM+/BdHgbz7mDjzIBCXb1
-         If9OOrLn2JGdNwSgxX7/GFj/FVpcsf6VtlKat5KiYvb56ICWOxp2WdiRZjhBU6Mieij/
-         l3hgE2VCnKvV09WZR3EGeP4LAab0ZRRh73koRDIWa7bhFMJ+mnMN/lCz0Zzy0CyR5NRQ
-         L56K5X7s0yHc9uQN3kQMcVSCm2JIg3a6Z7F5NiYwDQX++HTaEwcThqsDmjnDRsXe7QBm
-         00WrrJqeXKuSYadIM/3BRuz3O4B5SQGUMavR/CZ3+2NQLnfykrPAeKn1Gqd1vg7IJUkm
-         XbOg==
-X-Forwarded-Encrypted: i=1; AJvYcCVsCddApaAPzlNv9IEq6JFOVLyqAbPFZ6qidOEAMaa1Bx8P4MrUh4AlhoCYLQYrAgmb6w/T8dkei/QsIiPAZHeR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPl+1qsIMkkaRQxSKd8cDJogzWlIgqKQ8+0yFhlG+f+apAkXNC
-	3dvFNjX1NHxSDppWw1KEj0yVuEnu/4FUiIkZBZ3MkbS00IbB3DnT7Keisy7bpx8Tg0mhlKECxE4
-	ZNA==
-X-Google-Smtp-Source: AGHT+IFxAJYh0RoX2PIWUW9yyln89JmGUy0/gLNAYgixKLIv4qxLnqP1L3/Y/kl9MfOpk7khjJD8Njv25w==
-X-Received: from wmbb8.prod.google.com ([2002:a05:600c:5888:b0:477:5a0f:1860])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:8b37:b0:477:b734:8c53
- with SMTP id 5b1f17b1804b1-47a8375a595mr56402235e9.12.1765450036730; Thu, 11
- Dec 2025 02:47:16 -0800 (PST)
-Date: Thu, 11 Dec 2025 10:47:07 +0000
-In-Reply-To: <20251211104710.151771-1-tabba@google.com>
-Mime-Version: 1.0
-References: <20251211104710.151771-1-tabba@google.com>
-X-Mailer: git-send-email 2.52.0.223.gf5cc29aaa4-goog
-Message-ID: <20251211104710.151771-8-tabba@google.com>
-Subject: [PATCH v6 7/9] KVM: arm64: Track KVM IOCTLs and their associated KVM caps
-From: Fuad Tabba <tabba@google.com>
-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, vladimir.murzin@arm.com, tabba@google.com
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 11 Dec 2025 11:05:08 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5E32C175D;
+	Thu, 11 Dec 2025 03:04:58 -0800 (PST)
+Received: from [10.57.46.197] (unknown [10.57.46.197])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7028F3F740;
+	Thu, 11 Dec 2025 03:05:04 -0800 (PST)
+Message-ID: <47689561-ed13-4525-825d-60eb8c36ae4c@arm.com>
+Date: Thu, 11 Dec 2025 11:04:29 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] iommu/io-pgtable-arm: Add misisng concatenated PGD cases
+To: Will Deacon <will@kernel.org>
+Cc: Mostafa Saleh <smostafa@google.com>, iommu@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ joro@8bytes.org, Tomasz Nowicki <tnowicki@google.com>
+References: <20251130194506.593700-1-smostafa@google.com>
+ <18a39079-2285-47fb-b306-040f2bc1bbaa@arm.com> <aTgX9qhaLyrQ5iye@google.com>
+ <498bbad4-ea64-4a24-a63f-e131d271990a@arm.com> <aTjCDvtANr2WIv3L@google.com>
+ <8e058f60-60da-47c2-9947-2ea26cca1639@arm.com> <aTonvd9_4hY4-CpS@google.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <aTonvd9_4hY4-CpS@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_024719_133943_F32D16D7 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20251211_030507_612489_71093AD5 
+X-CRM114-Status: GOOD (  17.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,97 +68,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Track KVM IOCTLs (VM IOCTLs for now), and the associated KVM capability
-that enables that IOCTL. Add a function that performs the lookup.
+On 2025-12-11 2:09 am, Will Deacon wrote:
+> On Wed, Dec 10, 2025 at 12:06:10PM +0000, Robin Murphy wrote:
+>> On 2025-12-10 12:42 am, Will Deacon wrote:
+>>> On Tue, Dec 09, 2025 at 01:33:36PM +0000, Robin Murphy wrote:
+>>>> On 2025-12-09 12:37 pm, Mostafa Saleh wrote:
+>>>>> On Tue, Dec 09, 2025 at 11:34:34AM +0000, Robin Murphy wrote:
+>>>>>> On 2025-11-30 7:45 pm, Mostafa Saleh wrote:
+>>>>>>> arm_lpae_concat_mandatory() assumes that OAS >= IAS which is not
+>>>>>>> correct for SMMUs supporting AArch32, and have OAS = 32/36 bits,
+>>>>>>> as IAS would be 40 bits.
+>>>>>>
+>>>>>> But that is only when *using* AArch32 format. The bit in chapter 3.4 of the
+>>>>>> SMMU architecture is talking about the maximum IAS that an SMMU
+>>>>>> implementation needs to be able to accommodate based on its configuration,
+>>>>>> but it does then attempt to clarify that the actual IPA size in use by any
+>>>>>> given context should depend on the VMSA format in use:
+>>>>>>
+>>>>>> "VMSAv8-32 LPAE always supports an IPA size of 40 bits, whereas VMSAv8-64
+>>>>>> and VMSAv9-128 limits the maximum IPA size to the maximum PA size."
+>>>>>>
+>>>>>> Rule R_SRKBC in the Arm ARM lays out the exact T0SZ constraints with this
+>>>>>> AArch32/AArch64 detail.
+>>>>>
+>>>>> I see, thanks a lot for the explanation, I got confused by the this
+>>>>> statement:
+>>>>> Note: If AArch32 is implemented, IAS == MAX(40, OAS), otherwise IAS == OAS.
+>>>>
+>>>> Indeed, that appears confusingly contradictory; I've filed a bug.
+>>>
+>>> I think the spec has always been worded like this. My reading is that, in
+>>> isolation:
+>>>
+>>>     - VMSAv8-32 LPAE always uses a 40-bit IAS
+>>>     - VMSAv8-64 has IAS == OAS and this can be smaller than 40 bits
+>>>
+>>> so if AArch32 is implemented, we know that the hardware supports at
+>>> least a 40-bit IAS and in that case the VMSAv8-64 IAS can be bigger
+>>> than the OAS.
+>>
+>> No, the VMSAv8-64 IAS can never be bigger than OAS, as that would violate
+>> VMSA (see rules R_DTLMN and R_SRKBC). The SMMU spec seems mostly fixated on
+>> the notional maximum IAS that an SMMU must accommodate in general across all
+>> supported formats; the limitations of using any particular format must still
+>> apply though (similarly, the fact that AArch32 has a fixed 40-bit output
+>> doesn't mean that OAS and S2PS don't still matter for AArch64 format.)
+> 
+> A VMSAv8-32 stage-1 could still input a 40-bit IAS into a VMSAv8-64
+> stage-2 when the OAS < 40-bit though, right? If that's the only case
+> where this happens, then I agree we should ditch the complexity from the
+> driver on the grounds that we don't ever use the 32-bit formats.
 
-This will be used by CoCo VM Hypervisors (e.g., pKVM) to determine
-whether a particular KVM IOCTL is allowed for its VMs.
+Yes, it is perfectly possible with either format to configure the S1 
+*output* size (CD.IPS, or 40 when CD.AA64==0) to be larger than the S2 
+input size (STE.S2T0SZ), and if S1 tries to use an IPA beyond the actual 
+S2 range then it gets a S2 translation fault, per VMSA rule R_BZHGM.
 
-Suggested-by: Oliver Upton <oupton@kernel.org>
-Signed-off-by: Fuad Tabba <tabba@google.com>
----
- arch/arm64/include/asm/kvm_host.h |  2 ++
- arch/arm64/kvm/arm.c              | 42 +++++++++++++++++++++++++++++++
- include/uapi/linux/kvm.h          |  1 +
- 3 files changed, 45 insertions(+)
-
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index 64302c438355..9def5e1f536c 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -1652,4 +1652,6 @@ static __always_inline enum fgt_group_id __fgt_reg_to_group_id(enum vcpu_sysreg
- 		p;							\
- 	})
- 
-+long kvm_get_cap_for_kvm_ioctl(unsigned int ioctl, long *ext);
-+
- #endif /* __ARM64_KVM_HOST_H__ */
-diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-index e4936cb9c8c3..1bbba79e2686 100644
---- a/arch/arm64/kvm/arm.c
-+++ b/arch/arm64/kvm/arm.c
-@@ -58,6 +58,48 @@ enum kvm_wfx_trap_policy {
- static enum kvm_wfx_trap_policy kvm_wfi_trap_policy __read_mostly = KVM_WFX_NOTRAP_SINGLE_TASK;
- static enum kvm_wfx_trap_policy kvm_wfe_trap_policy __read_mostly = KVM_WFX_NOTRAP_SINGLE_TASK;
- 
-+/*
-+ * Tracks KVM IOCTLs and their associated KVM capabilities.
-+ */
-+struct kvm_ioctl_cap_map {
-+	unsigned int ioctl;
-+	long ext;
-+};
-+
-+/*
-+ * Sorted by ioctl to allow for potential binary search,
-+ * though linear scan is sufficient for this size.
-+ */
-+static const struct kvm_ioctl_cap_map vm_ioctl_caps[] = {
-+	{ KVM_CREATE_IRQCHIP, KVM_CAP_IRQCHIP },
-+	{ KVM_ARM_SET_DEVICE_ADDR, KVM_CAP_ARM_SET_DEVICE_ADDR },
-+	{ KVM_ARM_MTE_COPY_TAGS, KVM_CAP_ARM_MTE },
-+	{ KVM_SET_DEVICE_ATTR, KVM_CAP_DEVICE_CTRL },
-+	{ KVM_GET_DEVICE_ATTR, KVM_CAP_DEVICE_CTRL },
-+	{ KVM_HAS_DEVICE_ATTR, KVM_CAP_DEVICE_CTRL },
-+	{ KVM_ARM_SET_COUNTER_OFFSET, KVM_CAP_COUNTER_OFFSET },
-+	{ KVM_ARM_GET_REG_WRITABLE_MASKS, KVM_CAP_ARM_SUPPORTED_REG_MASK_RANGES },
-+	{ KVM_ARM_PREFERRED_TARGET, KVM_CAP_ARM_BASIC },
-+};
-+
-+/*
-+ * Set *ext to the capability.
-+ * Return 0 if found, or -EINVAL if no IOCTL matches.
-+ */
-+long kvm_get_cap_for_kvm_ioctl(unsigned int ioctl, long *ext)
-+{
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(vm_ioctl_caps); i++) {
-+		if (vm_ioctl_caps[i].ioctl == ioctl) {
-+			*ext = vm_ioctl_caps[i].ext;
-+			return 0;
-+		}
-+	}
-+
-+	return -EINVAL;
-+}
-+
- DECLARE_KVM_HYP_PER_CPU(unsigned long, kvm_hyp_vector);
- 
- DEFINE_PER_CPU(unsigned long, kvm_arm_hyp_stack_base);
-diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-index 52f6000ab020..861733b8f159 100644
---- a/include/uapi/linux/kvm.h
-+++ b/include/uapi/linux/kvm.h
-@@ -963,6 +963,7 @@ struct kvm_enable_cap {
- #define KVM_CAP_RISCV_MP_STATE_RESET 242
- #define KVM_CAP_ARM_CACHEABLE_PFNMAP_SUPPORTED 243
- #define KVM_CAP_GUEST_MEMFD_FLAGS 244
-+#define KVM_CAP_ARM_BASIC 245
- 
- struct kvm_irq_routing_irqchip {
- 	__u32 irqchip;
--- 
-2.52.0.223.gf5cc29aaa4-goog
-
+Cheers,
+Robin.
 
