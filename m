@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCA16D41C1D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 10:43:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5637AD41C1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 10:47:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+ldeNS+K34xk+eAQDuDkOR1GFZlD8zB31Exc6VT8WK0=; b=xW9Y9JDiccCKQ4xM74UaCgfjlk
-	4Kddnq6eFlLNpYYukTB3ImpwOzPSejAWWhkvtQDaXZnH4gEHiJ38+YA7PXCCmScTPv/ujenX8z5y9
-	O/olqHb44hGJDLk02P+6kxgBhUYib6BhjXjtQT0JbX5hAkpSk6xV+uLlJfUzdW1RDCRNdsLmRHiNe
-	hTi/Z6lXHhKI9LKSEilugM2cuVMfhA8LhWETuTDB5xw0H5HYKnmPhQsd7yyr9UM1Zv9DP7Y7I37PL
-	xg/DHUjp9rTml7rakpvG3UBL+fSSbBe+goZEyG4KOxWQCgyygUMo7M8Kno1L3qBkaXjdEDjkwzWEQ
-	N7ih2NQw==;
+	bh=HqqmxcdVkzTCOajtcgiZXftpHXD5dGukksoxeGfTga0=; b=LKES0/lT+TRLZlSziZj2p3Elrd
+	r/zWmNP2y0GB3lckIpo51xbf834xYdvnouAsFNdSrpKoDDooUSnlPb+tkfQ33UgYnQIhpZceHc2S4
+	1ABBt2L7YRBeC8Tu0aIgCxoDxe9esTVm5RmlbfiViU7HGkRsQiWAb2w2B7rCNLHLHl251PYPgx9f9
+	Hl6Y1mWgIXxe8pYKI2EHQbzKBpFPRxpAZzhtvc1vnc+uOH4JMNO9hpXAt5zOHKpMRzEZsiY+atMpD
+	bH5nONFqvY9gMcFw8GsQJB9h4gxxweK0SMnfkPH9dE/1jucoTMotW3N01iZ07bsWEmjJI0ZeBPlkf
+	Nce7ezAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTe9F-0000000GUZQ-3ga7;
-	Thu, 11 Dec 2025 10:43:49 +0000
-Received: from mail11.truemail.it ([217.194.8.81])
+	id 1vTeCZ-0000000GUox-2S0X;
+	Thu, 11 Dec 2025 10:47:15 +0000
+Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTe9B-0000000GUYy-2tpF
+	id 1vTeCX-0000000GUnE-3ZFm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 10:43:47 +0000
-Received: from francesco-nb (93-49-2-63.ip317.fastwebnet.it [93.49.2.63])
-	by mail11.truemail.it (Postfix) with ESMTPA id 83B5F1FBCE;
-	Thu, 11 Dec 2025 11:43:36 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dolcini.it;
-	s=default; t=1765449817;
-	bh=+ldeNS+K34xk+eAQDuDkOR1GFZlD8zB31Exc6VT8WK0=; h=From:To:Subject;
-	b=S+DYN9/xavbmaxZgeiBZsV8CZh7ugeYRqPekJ6sbSaPxcT/GfPxOrAl0BLwoiKwmh
-	 L4FBA06QDAybzFSZzQar7oUBjJCxg6e+OzVVu4WU6j7p32Ph9DBV0cBr6+PZOKkwUk
-	 xjxaP/rDM08135OYwExO/GHKNlP8NWJow6XmPCsrEHeyCXjXtwiqcOWs+Yk8V+gja1
-	 sY1kv0VyfDcN0rMN+1a8RxdY0JNitEZptzbEAJGzWVxt0QXAeBH08s0JUKP8VXzKuZ
-	 4yjz3mq0Xpf+x9uu7nAUKQxIdu+qZ8vXXtMpYdmI/R89UXxEPyuw2crqa5E7Fel41d
-	 gNsQ6zL+7ofrQ==
-Date: Thu, 11 Dec 2025 11:43:32 +0100
-From: Francesco Dolcini <francesco@dolcini.it>
-To: Frank Li <frank.li@nxp.com>
-Cc: Francesco Dolcini <francesco@dolcini.it>,
-	"Ivan T. Ivanov" <iivanov@suse.de>,
-	Jason Liu <jason.hui.liu@nxp.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Mark Brown <broonie@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Aisheng Dong <aisheng.dong@nxp.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	dl-linux-imx <linux-imx@nxp.com>
-Subject: Re: [EXT] Re: [PATCH v2] arm64: errata: Add NXP iMX8QM workaround
- for A53 Cache coherency issue
-Message-ID: <20251211104332.GA9632@francesco-nb>
-References: <20230420112952.28340-1-iivanov@suse.de>
- <20251210074550.GA10733@francesco-nb>
- <DU2PR04MB8951DEE7CB2D29D7E83CE03388A0A@DU2PR04MB8951.eurprd04.prod.outlook.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <DU2PR04MB8951DEE7CB2D29D7E83CE03388A0A@DU2PR04MB8951.eurprd04.prod.outlook.com>
+	Thu, 11 Dec 2025 10:47:14 +0000
+Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-b767784598dso64085766b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 02:47:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1765450031; x=1766054831; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=HqqmxcdVkzTCOajtcgiZXftpHXD5dGukksoxeGfTga0=;
+        b=kEILJZC0UzfMLi8cWQ+1sZkJTsg00vJJWmJt+QdN7RnUY2bUNRv4DGZ+G0CS0qdCFp
+         bbFVqINZNtgGyOdJN3kVx8kMpf37Q+4830l+N60xk270cqtIbqwlJVlDZ3Ghh6ArZY7O
+         yFXlw7sys7J6/xQPRn/G+YqjeKqXs2fxoakFlTiVm1b2t6kTCQzDGwzvFJie2mBWlB9U
+         FjtsD4pDGkT3b68xhunnlAW8Qcl2jM71L8+PPK3DaxEZ3RSSm/dn9SH7szidFIe2+cxo
+         GCzHoNSSB9gpdcXNexrliQYrsCPv0C5IQqEb8+FGG2qbM3ytzxLqdh5wqKDzlawUqOOM
+         E1Aw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765450031; x=1766054831;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=HqqmxcdVkzTCOajtcgiZXftpHXD5dGukksoxeGfTga0=;
+        b=AF4oPiRHhH5fdrOPRz4xpq/MynxxBddOicFC3fHeZqCL5nC3UVcUci5SzImyx/C/MB
+         e5y9vru/m81GuG1Vv3apxQTkzNwurMJGSws9JqOmbw3I+kaEl5k8ksChZ+oJEkYJPg5q
+         2xZhVp5qEpaxVnIclgsHzAYnYlt6+eRskuHdGVCaVF5kNu8Ivp5X45H53DX6qf/Up4k3
+         dBQiu+65Q1z8ajezOCTLdATNYbWgvNy2loBbK/bjAwpRTzl2l3vcT6B40TwlRqX2o0Az
+         EqyoWwajs9trBSZbVBJOjSezP/G7xpqgqDSpSKjMFeZtflKcG8tf17qd1nAtfMyc7Xs0
+         WgVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXogvjn+oaikx5Hzx7inEAabQW8+nEIDuwkZ+NTXOosWKbR9FmXtPawfZFzbuRa7o0gQ/CZ1OxZwxLLqXP2itS4@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywd2JeKDpZuQFPRZQ5HAqLRQL4Xavlj/vfA7U/ezCSJz8AnRtM+
+	SiRakAfnOfhUEXUY2wpRHKb/19NdzljbqxqktTCKrGymFG/kF7kc7c40LyHA8Ji5yOwiRtUlJYT
+	Ikg==
+X-Google-Smtp-Source: AGHT+IF+0VU7+ANp0QfeE8zIM8Vmgpcs4f/A+ibyHzS59B8VrSVBA5mSFGH+wSJ/LBwQMJHzgebSqsDiDA==
+X-Received: from ejdcx5.prod.google.com ([2002:a17:907:1685:b0:b73:7b15:46])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a17:907:1c0a:b0:b73:758c:c96f
+ with SMTP id a640c23a62f3a-b7ce84853bamr566099966b.52.1765450031334; Thu, 11
+ Dec 2025 02:47:11 -0800 (PST)
+Date: Thu, 11 Dec 2025 10:47:01 +0000
+In-Reply-To: <20251211104710.151771-1-tabba@google.com>
+Mime-Version: 1.0
+References: <20251211104710.151771-1-tabba@google.com>
+X-Mailer: git-send-email 2.52.0.223.gf5cc29aaa4-goog
+Message-ID: <20251211104710.151771-2-tabba@google.com>
+Subject: [PATCH v6 1/9] KVM: arm64: Fix Trace Buffer trapping for protected VMs
+From: Fuad Tabba <tabba@google.com>
+To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Cc: maz@kernel.org, oliver.upton@linux.dev, will@kernel.org, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, vladimir.murzin@arm.com, tabba@google.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_024346_644617_A718396F 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20251211_024713_893110_E3F07ABF 
+X-CRM114-Status: GOOD (  11.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,28 +90,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Frank,
+For protected VMs in pKVM, the hypervisor should trap accesses to trace
+buffer system registers if Trace Buffer isn't supported by the VM.
+However, the current code only traps if Trace Buffer External Mode isn't
+supported.
 
-On Wed, Dec 10, 2025 at 02:55:12PM +0000, Frank Li wrote:
-> > On Thu, Apr 20, 2023 at 02:29:52PM +0300, Ivan T. Ivanov wrote:
-> > > According to NXP errata document[1] i.MX8QuadMax SoC suffers from
-> > > serious cache coherence issue. It was also mentioned in initial
-> > > support[2] for imx8qm mek machine.
-> > 
-> > Ivan, from what I can see this patch was never merged and there was not any
-> > follow-up on this. What's the status? Are you planning to work on it?
-> > 
-> > Frank, it would be nice to have this issue sorted out in mainline, any
-> > chance that NXP can help move this forward?
-> 
-> Jason worked the original solution, what's difficult of upstream accept the
-> Solution?
+Fix this by checking for FEAT_TRBE (Trace Buffer) rather than
+FEAT_TRBE_EXT.
 
-Was it ever sent to mainline for inclusion?
+Fixes: 9d5261269098 ("KVM: arm64: Trap external trace for protected VMs")
+Reported-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+Signed-off-by: Fuad Tabba <tabba@google.com>
+---
+ arch/arm64/kvm/hyp/nvhe/pkvm.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Can NXP help on having a workaround for this errata implemented in
-mainline Linux, whatever is the actual final technical solution?
-
-Francesco
+diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+index 43bde061b65d..8d06a246dfd1 100644
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -117,7 +117,7 @@ static void pvm_init_traps_mdcr(struct kvm_vcpu *vcpu)
+ 	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, TraceFilt, IMP))
+ 		val |= MDCR_EL2_TTRF;
+ 
+-	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, ExtTrcBuff, IMP))
++	if (!kvm_has_feat(kvm, ID_AA64DFR0_EL1, TraceBuffer, IMP))
+ 		val |= MDCR_EL2_E2TB_MASK;
+ 
+ 	/* Trap Debug Communications Channel registers */
+-- 
+2.52.0.223.gf5cc29aaa4-goog
 
 
