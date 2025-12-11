@@ -4,57 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99ED1D41D57
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 15:19:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FCEFD41D50
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 15:20:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OgU9YWRzmdSyKlVfuXelZdV8geLfnxP2mG9KV0K02Q4=; b=mEJ9VJDMCvSnV0THwCnrSrZRuP
-	DZ1b84rDa0qKWHIaOaIcZhwm0P+W7t+DHglsnnO7UvmbcrOzMj4ek78Gus0RLcoOL/JhFo4XvH1pU
-	LaQZZ9yJLaCPrHgcMSFvC+ovQ5NYU5vXRk1jlxRw3BHG2fzHO9gcmzdG1zW8mJeYY2G1GopeEtenI
-	IPPdSuOXD/fcqKCJrD3xeeuAUBij7BWzkU8JTGhN3dm38pBtnGzUe7hJqIqSF+UD8Bar/k7/y/X+c
-	j5K2h7b7wlo3CXe8fy238xCdwuYGuGrYLq9dvvxPeHwlmiZDtn0kxZ+MqY8xI5ksAe0YP179exRTS
-	WT7BceBw==;
+	bh=hsusnX7QLBsXwdKMdD+T6+nO34YnnbqpO4C1gMWOCKk=; b=qGP02bnk8dmlCtxLxoBb2AZYHh
+	DuDO8AR5FjRa9Y9aeIS91nhKpMg7AZluTktptUBepRBPBMS+SdWARim6oJ0aepJ1lYxVg0Qa5Ps7U
+	0K8MLLTO5HCuK1Dnf3UX0BHjWTmBB8GEb8nFQJxDRGjelXSX68v4JAIAg2LL4BkYaG1j1FvqpTRk9
+	ghIpGxKJdaOA03dsUcPzyW9DSrBV7uYkQOG40UGgsGTUKbJcKIODlAH80y4rjDl3NGKQd/AWUc+0a
+	4/cCfit9XoJ/216b9teXrdLSJI/ciBR6Gw/ut6WHNli5PO9KQ+BDDdJgWU1qCmhlAlXHGI7QREg/L
+	S2ZTGVcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTiRh-0000000GlUS-2awm;
-	Thu, 11 Dec 2025 15:19:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTiRf-0000000GlTL-0SL4
+	id 1vTiSi-0000000Glf6-1Bdl;
+	Thu, 11 Dec 2025 15:20:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vTiSh-0000000Gleq-1DLs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 15:19:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EA8A11688;
-	Thu, 11 Dec 2025 07:18:55 -0800 (PST)
-Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 25BE33F740;
-	Thu, 11 Dec 2025 07:19:01 -0800 (PST)
-Date: Thu, 11 Dec 2025 15:18:51 +0000
-From: Joey Gouly <joey.gouly@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oupton@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	Quentin Perret <qperret@google.com>, Fuad Tabba <tabba@google.com>,
-	Sebastian Ene <sebastianene@google.com>
-Subject: Re: [PATCH v2 6/6] KVM: arm64: Honor UX/PX attributes for EL2 S1
- mappings
-Message-ID: <20251211151810.GA867614@e124191.cambridge.arm.com>
-References: <20251210173024.561160-1-maz@kernel.org>
- <20251210173024.561160-7-maz@kernel.org>
+	Thu, 11 Dec 2025 15:20:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 6A6D16014C;
+	Thu, 11 Dec 2025 15:20:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5AD0C4CEF7;
+	Thu, 11 Dec 2025 15:20:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765466410;
+	bh=VaM+9vzK2D/v6EV/xnarx6FEHiWTCoSFGNq5qtloDG8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FApSG2NpKCwR8i3dANFkJay5kdFyHDOx0bZcNKtnul6EnjIXqODIVOXS0qtO0ab7C
+	 /s9nSEuIfqZ6YDmhwjUw0HXGIzkrjB1rHG6Yc5ubkg/qPbfFA52L8h/VWjmnVZupX/
+	 fiWh3Kdxpw0FX71lSuMS+f2+4i0mopi/gU1narc4pdzdmMj/im4HBA2OwZTBvB+bGO
+	 nwuuLd0aT+R4sQyrLKE5WPJyGIEeKfQUuCrdbmUdfUi05IaHFZzMCZShnO4K+emFWg
+	 jsa79mPcBGgPA1fWKE3kvgIX3o0ULx6bv/IEDXLR7WHEfea3l754xTVaMQXMxFflkz
+	 xNRAUGylziFGQ==
+Date: Thu, 11 Dec 2025 09:20:07 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Richard Zhu <hongxing.zhu@nxp.com>
+Cc: bhelgaas@google.com, s.hauer@pengutronix.de,
+	Frank Li <Frank.Li@nxp.com>, linux-pci@vger.kernel.org,
+	mani@kernel.org, imx@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, lpieralisi@kernel.org,
+	frank.li@nxp.com, kwilczynski@kernel.org, kernel@pengutronix.de,
+	festevam@gmail.com, l.stach@pengutronix.de,
+	linux-arm-kernel@lists.infradead.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, shawnguo@kernel.org
+Subject: Re: [PATCH v10 2/4] dt-bindings: PCI: pci-imx6: Add external
+ reference clock input
+Message-ID: <176546640668.1250530.16683675929770601103.robh@kernel.org>
+References: <20251211064821.2707001-1-hongxing.zhu@nxp.com>
+ <20251211064821.2707001-3-hongxing.zhu@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251210173024.561160-7-maz@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_071907_262912_C3A132EA 
-X-CRM114-Status: GOOD (  18.46  )
+In-Reply-To: <20251211064821.2707001-3-hongxing.zhu@nxp.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,104 +76,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Question,
 
-On Wed, Dec 10, 2025 at 05:30:24PM +0000, Marc Zyngier wrote:
-> Now that we potentially have two bits to deal with when setting
-> execution permissions, make sure we correctly handle them when both
-> when building the page tables and when reading back from them.
+On Thu, 11 Dec 2025 14:48:19 +0800, Richard Zhu wrote:
+> i.MX95 PCIes have two reference clock inputs: one from internal PLL.
+> It's wired inside chip and present as "ref" clock. It's not an optional
+> clock. The other from off chip crystal oscillator. The "extref" clock
+> refers to a reference clock from an external crystal oscillator through
+> the CLKIN_N/P pair PADs. It is an optional clock, relied on the board
+> design.
 > 
-> Reported-by: Alexandru Elisei <alexandru.elisei@arm.com>
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> Add additional optional external reference clock input for i.MX95 PCIes.
+> 
+> Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
 > ---
->  arch/arm64/include/asm/kvm_pgtable.h | 12 +++---------
->  arch/arm64/kvm/hyp/pgtable.c         | 24 +++++++++++++++++++++---
->  2 files changed, 24 insertions(+), 12 deletions(-)
+>  Documentation/devicetree/bindings/pci/fsl,imx6q-pcie.yaml | 7 +++++--
+>  1 file changed, 5 insertions(+), 2 deletions(-)
 > 
-> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-> index be68b89692065..095e6b73740a6 100644
-> --- a/arch/arm64/include/asm/kvm_pgtable.h
-> +++ b/arch/arm64/include/asm/kvm_pgtable.h
-> @@ -87,15 +87,9 @@ typedef u64 kvm_pte_t;
->  
->  #define KVM_PTE_LEAF_ATTR_HI_SW		GENMASK(58, 55)
->  
-> -#define __KVM_PTE_LEAF_ATTR_HI_S1_XN	BIT(54)
-> -#define __KVM_PTE_LEAF_ATTR_HI_S1_UXN	BIT(54)
-> -#define __KVM_PTE_LEAF_ATTR_HI_S1_PXN	BIT(53)
-> -
-> -#define KVM_PTE_LEAF_ATTR_HI_S1_XN					\
-> -	({ cpus_have_final_cap(ARM64_KVM_HVHE) ?			\
-> -			(__KVM_PTE_LEAF_ATTR_HI_S1_UXN |		\
-> -			 __KVM_PTE_LEAF_ATTR_HI_S1_PXN) :		\
-> -			__KVM_PTE_LEAF_ATTR_HI_S1_XN; })
-> +#define KVM_PTE_LEAF_ATTR_HI_S1_XN	BIT(54)
-> +#define KVM_PTE_LEAF_ATTR_HI_S1_UXN	BIT(54)
-> +#define KVM_PTE_LEAF_ATTR_HI_S1_PXN	BIT(53)
->  
->  #define KVM_PTE_LEAF_ATTR_HI_S2_XN	GENMASK(54, 53)
->  
-> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> index e0bd6a0172729..97c0835d25590 100644
-> --- a/arch/arm64/kvm/hyp/pgtable.c
-> +++ b/arch/arm64/kvm/hyp/pgtable.c
-> @@ -342,6 +342,9 @@ static int hyp_set_prot_attr(enum kvm_pgtable_prot prot, kvm_pte_t *ptep)
->  	if (!(prot & KVM_PGTABLE_PROT_R))
->  		return -EINVAL;
->  
-> +	if (!cpus_have_final_cap(ARM64_KVM_HVHE))
-> +		prot &= ~KVM_PGTABLE_PROT_UX;
 
-Trying to understand this part. We don't consider KVM_PGTABLE_PROT_UX below
-when !HVHE, and we don't set it in kvm_pgtable_hyp_pte_prot() when !HVHE
-either, so can it ever actually be set?
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-Otherwise LGTM!
-
-Thanks,
-Joey
-
-> +
->  	if (prot & KVM_PGTABLE_PROT_X) {
->  		if (prot & KVM_PGTABLE_PROT_W)
->  			return -EINVAL;
-> @@ -351,8 +354,16 @@ static int hyp_set_prot_attr(enum kvm_pgtable_prot prot, kvm_pte_t *ptep)
->  
->  		if (system_supports_bti_kernel())
->  			attr |= KVM_PTE_LEAF_ATTR_HI_S1_GP;
-> +	}
-> +
-> +	if (cpus_have_final_cap(ARM64_KVM_HVHE)) {
-> +		if (!(prot & KVM_PGTABLE_PROT_PX))
-> +			attr |= KVM_PTE_LEAF_ATTR_HI_S1_PXN;
-> +		if (!(prot & KVM_PGTABLE_PROT_UX))
-> +			attr |= KVM_PTE_LEAF_ATTR_HI_S1_UXN;
->  	} else {
-> -		attr |= KVM_PTE_LEAF_ATTR_HI_S1_XN;
-> +		if (!(prot & KVM_PGTABLE_PROT_PX))
-> +			attr |= KVM_PTE_LEAF_ATTR_HI_S1_XN;
->  	}
->  
->  	attr |= FIELD_PREP(KVM_PTE_LEAF_ATTR_LO_S1_AP, ap);
-> @@ -373,8 +384,15 @@ enum kvm_pgtable_prot kvm_pgtable_hyp_pte_prot(kvm_pte_t pte)
->  	if (!kvm_pte_valid(pte))
->  		return prot;
->  
-> -	if (!(pte & KVM_PTE_LEAF_ATTR_HI_S1_XN))
-> -		prot |= KVM_PGTABLE_PROT_X;
-> +	if (cpus_have_final_cap(ARM64_KVM_HVHE)) {
-> +		if (!(pte & KVM_PTE_LEAF_ATTR_HI_S1_PXN))
-> +			prot |= KVM_PGTABLE_PROT_PX;
-> +		if (!(pte & KVM_PTE_LEAF_ATTR_HI_S1_UXN))
-> +			prot |= KVM_PGTABLE_PROT_UX;
-> +	} else {
-> +		if (!(pte & KVM_PTE_LEAF_ATTR_HI_S1_XN))
-> +			prot |= KVM_PGTABLE_PROT_PX;
-> +	}
->  
->  	ap = FIELD_GET(KVM_PTE_LEAF_ATTR_LO_S1_AP, pte);
->  	if (ap == KVM_PTE_LEAF_ATTR_LO_S1_AP_RO)
-> -- 
-> 2.47.3
-> 
 
