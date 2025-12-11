@@ -4,78 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EEF4D3E79C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 08:15:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB27CD41C02
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 08:17:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vAL0V5mYm1ZkEzwp1qaDOGJQnYkDuSdOg3YyZgyK10w=; b=3Q/aU8sPSO3PQ1bwW9xX1v/0iO
-	55y/TQmTp5Ok/uUeRUJZl8opYcV77ZNbQjy5PQkdqtaVW9YuI6j285rM58od2i8tVA4EWUqaBOD9e
-	W65K4MEK+ii2RgtVQ+fMNknWtkyMjEOVrQ6HAzmaQMEDU7M8G7SOoOh5fahwX8qTMkACTbiomwij7
-	gk55o/H5pTevNJRvTgVTSsL3U2u0WTuVtP8zcaj69jzyswutn0hwXQlN1DK2mjFVvlCVW8gNZsKYH
-	GONGdJtx9P9NRa7b3r985R0HjP3lX2fIw1E90SoCuX2vhROPa6Bx7T3Ekx6PS0xaEVxc9569hKFCt
-	JmznY00Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GTUtfG6uYByUGiREez0T2P/sllJfoIOg91OqMSv2QCo=; b=OYvwgfF+saJPzOzvipaV8Dgb67
+	7C/aDDFsQgs/D0wV6ZYfcj1dZmSJOEYKjCKbDblmKYlLiBZ9ukGByNdmzOWq43F8YHmrlcdafaNwn
+	Gd5ieINqHgSm1Nzax9vl7CZ7XDhCzY3bgTg5zYORuo1oRFX1hJTC7F4W5XG7eu6x4basnBdYOb576
+	xgxuIPhRvvApM1WiDL7HGIABpNMClU70vELhHYRKhCSYlPCmoE+b68KQTgyYMDbkV/0bE7YuCVe+b
+	+Xs6Nq/wC1V27JrrzZm5pIx+qQS4U168dGouqJcDYApbqTXbtP4nnAzFJ1YBhEuPKVFVJaGeFL4Uk
+	k4K7SDlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTbpn-0000000GMpT-08TB;
-	Thu, 11 Dec 2025 08:15:35 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vTbrW-0000000GMzP-3SOT;
+	Thu, 11 Dec 2025 08:17:22 +0000
+Received: from out30-124.freemail.mail.aliyun.com ([115.124.30.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTbpk-0000000GMp2-1Paz
+	id 1vTbrT-0000000GMxl-0JsM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 08:15:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3BA8743A5F;
-	Thu, 11 Dec 2025 08:15:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 149AFC4CEFB;
-	Thu, 11 Dec 2025 08:15:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765440931;
-	bh=uisW3lsr1R5kreh20aN9ry1a7WqtATsZX41vyRxxghQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=FXTY+io2OtXnTyuHOadUOc7ReXqmtOFWxhlLQU4dltyAQ0v1yIvk+mcyJt6kEGvux
-	 QkWzpnG5piXbgTht5YNFuG0mQrRHYbiCDXTVMtzamKBrZGfGvWcZOJhdypvKOti9mT
-	 Cqt/8V8R0I55DBVXHsTS8q68AL2WgdwDZ9mv8aOae9mcl86JUyej+pAfDDYoonJBdY
-	 vKG2t0wMg32jjlWozq6wcVmNdMexE6m/D+/TfyzuTdR+3o1jFTzUnhKPSd6lRUpziQ
-	 atYinPEGfmVf5QmglpSqURT8KGQYLdfMPCMHy9f5EVTA2haL3n8aEDVVL41f5UUB4E
-	 liSp/aYWsD/yA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1vTbpg-0000000BwTn-2jnn;
-	Thu, 11 Dec 2025 08:15:28 +0000
-Date: Thu, 11 Dec 2025 08:15:28 +0000
-Message-ID: <86zf7po2n3.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: oupton@kernel.org,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	qperret@google.com,
-	will@kernel.org,
+	Thu, 11 Dec 2025 08:17:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=linux.alibaba.com; s=default;
+	t=1765441035; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=GTUtfG6uYByUGiREez0T2P/sllJfoIOg91OqMSv2QCo=;
+	b=gJo4993SZkNx01mWQ6MeC3Fw+IYxByVyhZDRR9vJ6k1L9JJzXVA5emuoqZiUBlPCSn3gJfEj+C2dWyT+gJ8tpjboG+vt9A3XfbnMjOdShZYU891+Ib5M9FMIJkqwO4Gs7mupJBRGkPRy/xacdXNsuS4Ul8WvftrsBFKoUEN/w18=
+Received: from localhost(mailfrom:baolin.wang@linux.alibaba.com fp:SMTPD_---0WuZjI5S_1765441033 cluster:ay36)
+          by smtp.aliyun-inc.com;
+          Thu, 11 Dec 2025 16:17:14 +0800
+From: Baolin Wang <baolin.wang@linux.alibaba.com>
+To: akpm@linux-foundation.org,
+	david@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org
+Cc: lorenzo.stoakes@oracle.com,
+	ryan.roberts@arm.com,
+	Liam.Howlett@oracle.com,
+	vbabka@suse.cz,
+	rppt@kernel.org,
+	surenb@google.com,
+	mhocko@suse.com,
+	riel@surriel.com,
+	harry.yoo@oracle.com,
+	jannh@google.com,
+	willy@infradead.org,
+	baohua@kernel.org,
+	baolin.wang@linux.alibaba.com,
+	linux-mm@kvack.org,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Subject: Re: [PATCH 2/2] KVM: arm64: Remove extra argument for __pvkm_host_{share,unshare}_hyp()
-In-Reply-To: <20251210132102.137631-3-alexandru.elisei@arm.com>
-References: <20251210132102.137631-1-alexandru.elisei@arm.com>
-	<20251210132102.137631-3-alexandru.elisei@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: alexandru.elisei@arm.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 3/3] mm: rmap: support batched unmapping for file large folios
+Date: Thu, 11 Dec 2025 16:16:56 +0800
+Message-ID: <af330c9ea188bd0f28189b1e6e5803f6de9d2abe.1765439381.git.baolin.wang@linux.alibaba.com>
+X-Mailer: git-send-email 2.43.7
+In-Reply-To: <cover.1765439380.git.baolin.wang@linux.alibaba.com>
+References: <cover.1765439380.git.baolin.wang@linux.alibaba.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_001532_419261_9FBC7AD5 
-X-CRM114-Status: GOOD (  18.77  )
+X-CRM114-CacheID: sfid-20251211_001719_708771_3CC4D202 
+X-CRM114-Status: GOOD (  11.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,44 +81,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 10 Dec 2025 13:21:02 +0000,
-Alexandru Elisei <alexandru.elisei@arm.com> wrote:
-> 
-> __pvkm_host_share_hyp() and __pkvm_host_unshare_hyp() both have one
-> parameter, the pfn, not two. Even though correctness isn't impacted because
-> the SMCCC handlers pass the first argument and ignore the second one, let's
-> call the functions with the proper number of arguments.
-> 
-> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
-> ---
->  arch/arm64/kvm/mmu.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 7cc964af8d30..6c6abcd8e89e 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -497,7 +497,7 @@ static int share_pfn_hyp(u64 pfn)
->  	this->count = 1;
->  	rb_link_node(&this->node, parent, node);
->  	rb_insert_color(&this->node, &hyp_shared_pfns);
-> -	ret = kvm_call_hyp_nvhe(__pkvm_host_share_hyp, pfn, 1);
-> +	ret = kvm_call_hyp_nvhe(__pkvm_host_share_hyp, pfn);
->  unlock:
->  	mutex_unlock(&hyp_shared_pfns_lock);
->  
+Similar to folio_referenced_one(), we can apply batched unmapping for file
+large folios to optimize the performance of file folios reclamation.
 
-Yeah, we lost all form of type-checking when everything was hastily
-converted to SMCCC to avoid function pointers. Somehow, I feel that
-the cure was worse than the disease.
+Performance testing:
+Allocate 10G clean file-backed folios by mmap() in a memory cgroup, and try to
+reclaim 8G file-backed folios via the memory.reclaim interface. I can observe
+75% performance improvement on my Arm64 32-core server.
 
-I wish we'd reintroduce some form of compile-time checks, maybe by
-having generated stubs?
+W/o patch:
+real    0m1.018s
+user    0m0.000s
+sys     0m1.018s
 
-Thanks,
+W/ patch:
+real	0m0.249s
+user	0m0.000s
+sys	0m0.249s
 
-	M.
+Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
+---
+ mm/rmap.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
 
+diff --git a/mm/rmap.c b/mm/rmap.c
+index ec232165c47d..4c9d5777c8da 100644
+--- a/mm/rmap.c
++++ b/mm/rmap.c
+@@ -1855,9 +1855,10 @@ static inline unsigned int folio_unmap_pte_batch(struct folio *folio,
+ 	end_addr = pmd_addr_end(addr, vma->vm_end);
+ 	max_nr = (end_addr - addr) >> PAGE_SHIFT;
+ 
+-	/* We only support lazyfree batching for now ... */
+-	if (!folio_test_anon(folio) || folio_test_swapbacked(folio))
++	/* We only support lazyfree or file folios batching for now ... */
++	if (folio_test_anon(folio) && folio_test_swapbacked(folio))
+ 		return 1;
++
+ 	if (pte_unused(pte))
+ 		return 1;
+ 
+@@ -2223,7 +2224,7 @@ static bool try_to_unmap_one(struct folio *folio, struct vm_area_struct *vma,
+ 			 *
+ 			 * See Documentation/mm/mmu_notifier.rst
+ 			 */
+-			dec_mm_counter(mm, mm_counter_file(folio));
++			add_mm_counter(mm, mm_counter_file(folio), -nr_pages);
+ 		}
+ discard:
+ 		if (unlikely(folio_test_hugetlb(folio))) {
 -- 
-Without deviation from the norm, progress is not possible.
+2.47.3
+
 
