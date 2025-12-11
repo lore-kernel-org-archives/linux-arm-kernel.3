@@ -4,74 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 419A8D3E783
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 01:50:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7A11D3B9AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 01:55:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YlCeKF7m/lwAJRTZaR/mfGsRLwDUvk0/AFGWP5S8AvA=; b=aTTrh54BgHCEKUS+FxMUN5hEsa
-	qmcNI1bBhR2fahBeIgzkYugMyH7Y0dGgmg35+tEcr1Z78R5asoR1JnBxkcdATRde4aDLkst1Jv5RC
-	jqpQINoshMWFVOvYy5xA5UmksyEzDDjfqviUL/Tqf6ujufKQRQoFGbHDSTWis11LCEF458SHxxOCN
-	fnCp9AiAbRdm/kBU/FPKFgS6oDBeWzNYvkRNWENv+M/T1KEPBjlIg+I1fnrpm+zScTuSDeWuyYhga
-	VDtB/Zl+R5PhgsySkdH3EkVHahasDNs2OHgdkyXVv12iC9051UhBLmd7oMKwLseLMH9qMuJxwRC+g
-	w+oqE52g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fABSzcnglTHotNKaHjlUWN2RkhHRVV5qDMiqAzzVTmo=; b=pf/YEg9sMskmSm2KXPRcDPaS+4
+	02MBfO1f8KvnB3NNKZcGg8SXquvpx8SFmhBZd2+sxlcQtwjo47GX/mCbhGOgTiOMbRaWqfWjddUIO
+	8Ma4WLahYXfZGh7n0d8aFBssGL31NIaXB3dv46Xd/PMkwx5460NJOwYmPCtedlN8Jco7i2/jqyeSf
+	+tlCeaXGCDTaIgS9oPgWGSeymo4U7WeXTkiJAIvphePHrB17fy5GmfSwgKAUhrSw/7eLgEImt27tD
+	L/V32UjioxoEVnyB3+E/vtHUOOfKwdyhv27pYGIXSkPiEqKP6Y4emQtRiL4CS2y2ctRiz3FR55DGe
+	ul8UaUEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTVow-0000000G6Ce-3Ene;
-	Thu, 11 Dec 2025 01:50:18 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vTVuK-0000000G6Pz-29xY;
+	Thu, 11 Dec 2025 01:55:52 +0000
+Received: from inva020.nxp.com ([92.121.34.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTVou-0000000G6CE-2rYz
+	id 1vTVuG-0000000G6Pa-3zCV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 01:50:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5A2A2400FF;
-	Thu, 11 Dec 2025 01:50:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91DBEC4CEF1;
-	Thu, 11 Dec 2025 01:50:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765417815;
-	bh=BAeAs0vH8yw53s7FDDOWArkU2yzYGCyVBMFBh96Yr5g=;
-	h=From:Date:Subject:To:Cc:From;
-	b=vKVulaD2lSHKwkJ88o46nAKeRhng4fZPIcB9XOaHVRWh/9/+I/UeRW9FNyQQQH33+
-	 zZcAO15XhFqux0rAqvkvxEIkheu5dqsmbwN8L+xbHuBuZ6hNBeYsrFgnq8QQflizD6
-	 amLOWv80dxHqQI1TiKTffZvXDrxC6RD4rsPs59H1rxYC9yrRSSKSfzFLhVeGvdErlB
-	 EeNhY1D2oJ5jKZbrPIzaRwp+j+MHrYk/j7OhiepN9SJTx+52gsBTIRwG/div+RknL6
-	 XsEVgQk7dqxqKBmwiR3I/EcammlFgw5tNAe3uK01pdhfgjw9SULOTretSc7Z16cz0p
-	 fIPCCXz7GMP0Q==
-From: Nathan Chancellor <nathan@kernel.org>
-Date: Thu, 11 Dec 2025 10:50:03 +0900
-Subject: [PATCH] ALSA: hda: cix-ipbloq: Use modern PM ops
+	Thu, 11 Dec 2025 01:55:50 +0000
+Received: from inva020.nxp.com (localhost [127.0.0.1])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id C089A1A0372;
+	Thu, 11 Dec 2025 02:55:46 +0100 (CET)
+Received: from aprdc01srsp001v.ap-rdc01.nxp.com (aprdc01srsp001v.ap-rdc01.nxp.com [165.114.16.16])
+	by inva020.eu-rdc02.nxp.com (Postfix) with ESMTP id 940691A0271;
+	Thu, 11 Dec 2025 02:55:46 +0100 (CET)
+Received: from lsvm11u0000554.swis.ap-northeast-2.aws.nxp.com (lsvm11u0000554.swis.ap-northeast-2.aws.nxp.com [10.52.9.11])
+	by aprdc01srsp001v.ap-rdc01.nxp.com (Postfix) with ESMTP id 8E1761802213;
+	Thu, 11 Dec 2025 09:55:44 +0800 (+08)
+Date: Thu, 11 Dec 2025 10:55:44 +0900
+From: Yanan Yang <yanan.yang@nxp.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, qijian.guo@nxp.com,
+	justin.jiang@nxp.com
+Subject: Re: [PATCH 1/2] dt-bindings: arm: fsl: Add FRDM-IMX91S board
+Message-ID: <aTokoPlN-II2qA9V@lsvm11u0000554.swis.ap-northeast-2.aws.nxp.com>
+References: <20251205-imx91s-frdm-v1-0-afd6cd01c299@nxp.com>
+ <20251205-imx91s-frdm-v1-1-afd6cd01c299@nxp.com>
+ <4b29cc46-28a1-45f1-b24e-548513178884@kernel.org>
+ <aTkTz-5QoB8BuLs7@lsvm11u0000554.swis.ap-northeast-2.aws.nxp.com>
+ <a252e741-aab3-4fec-ae8f-38634d071d77@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251211-hda-cix-ipbloq-modern-pm-ops-v1-1-c7a5580af021@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAEojOmkC/yXMSw6CMBAA0KuQWTsJ0wgkXsW46GeQMdLWjhoSw
- t0punybt4JyEVa4NCsU/opKihV0asBPNt4ZJVSDaU1HhginYNHLgpLdM71wToFLxDxjyoq2d/3
- Qnd1IQwu1yIVHWX799fa3ftyD/fs4Ydt2fbQVwoAAAAA=
-X-Change-ID: 20251211-hda-cix-ipbloq-modern-pm-ops-a6b6754bf170
-To: Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Joakim Zhang <joakim.zhang@cixtech.com>
-Cc: Peter Chen <peter.chen@cixtech.com>, 
- Fugang Duan <fugang.duan@cixtech.com>, 
- CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>, 
- linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- Nathan Chancellor <nathan@kernel.org>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3108; i=nathan@kernel.org;
- h=from:subject:message-id; bh=BAeAs0vH8yw53s7FDDOWArkU2yzYGCyVBMFBh96Yr5g=;
- b=owGbwMvMwCUmm602sfCA1DTG02pJDJlWyqH+77ddE7gzu7fAm0us99cCvRXWS327V+616fbvm
- LN/ZeHrjlIWBjEuBlkxRZbqx6rHDQ3nnGW8cWoSzBxWJpAhDFycAjCRRfmMDFt/cCg3y7jZPt+2
- nc0mbJ9+4ZQ45fdXZm7vz3is9engQW2Gv5L37XfZ+EkyKvj3fJovqvJnDtdu3mMdXScVWqbtmnr
- emQEA
-X-Developer-Key: i=nathan@kernel.org; a=openpgp;
- fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <a252e741-aab3-4fec-ae8f-38634d071d77@kernel.org>
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_175016_768590_243DBA6A 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20251210_175549_257923_70372CAE 
+X-CRM114-Status: GOOD (  28.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,72 +77,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When building without CONFIG_PM_SLEEP, there are several warnings (or
-errors with CONFIG_WERROR=y / W=e) from the cix-ipbloq driver:
+On Thu, Dec 11, 2025 at 02:16:55AM +0100, Krzysztof Kozlowski wrote:
+> On 10/12/2025 07:31, Yanan Yang wrote:
+> > On Fri, Dec 05, 2025 at 09:21:55AM +0100, Krzysztof Kozlowski wrote:
+> >> On 05/12/2025 09:03, Yanan.Yang wrote:
+> >>> Add DT compatible string for NXP FRDM-IMX91S board
+> >>>
+> >>> The FRDM i.MX 91S development board is an low-cost and compact
+> >>> development board featuring the i.MX 91 applications processor.
+> >>>
+> >>> Signed-off-by: Yanan.Yang <yanan.yang@nxp.com>
+> >>
+> >> Are you sure your Latin name contains '.' character? Or you just copied
+> >> login?
+> >>
+> >>> ---
+> >>>  Documentation/devicetree/bindings/arm/fsl.yaml | 1 +
+> >>>  1 file changed, 1 insertion(+)
+> >>>
+> >>> diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
+> >>> index 68a2d5fecc43..82f28be401b8 100644
+> >>> --- a/Documentation/devicetree/bindings/arm/fsl.yaml
+> >>> +++ b/Documentation/devicetree/bindings/arm/fsl.yaml
+> >>> @@ -1412,6 +1412,7 @@ properties:
+> >>>          items:
+> >>>            - enum:
+> >>>                - fsl,imx91-11x11-evk       # i.MX91 11x11 EVK Board
+> >>> +              - fsl,imx91-11x11-frdm-s    # FRDM-IMX91S Board
+> >>
+> >> Anyway, this was sent, or something almost the same.
+> >>
+> >> Align internally before posting duplicates or at least explain why this
+> >> is not a duplicate It is not the job of the community to coordinate how
+> >> NXP employees should work. Srsly, it's NXP's job.
+> >>
+> > Hi Krzysztof,
+> > Thank you for your review and for pointing this out.
+> > 
+> > This patch set is not a duplicate of the FRDM-IMX91 series. It introduces
+> > support for a new board: FRDM-IMX91S. While FRDM-IMX91S is similar to
+> > FRDM-IMX91, there are hardware differences that require a separate DTS:
+> > 
+> > - 512MB LPDDR4 (FRDM-IMX91 uses 1GB)
+> > - 256MB FlexSPI-NAND (FRDM-IMX91 uses 8GB eMMC)
+> > - Single GbE port (FRDM-IMX91 has dual GbE)
+> > - PMIC PF9453 (FRDM-IMX91 uses PCA9451A)
+> > 
+> > These differences were described in the cover letter and commit message,
+> > but I can make them more explicit if needed.
+> 
+> I cannot find anything about it in commit msg. Look, you wrote:
+> 
+> "Add DT compatible string for NXP FRDM-IMX91S board
+> 
+> The FRDM i.MX 91S development board is an low-cost and compact
+> development board featuring the i.MX 91 applications processor."
+> 
+> so where is it? About cover letter, I usually do not read them, some
+> maintainers skip entirely.
+>
 
-  sound/hda/controllers/cix-ipbloq.c:378:12: error: 'cix_ipbloq_hda_runtime_resume' defined but not used [-Werror=unused-function]
-    378 | static int cix_ipbloq_hda_runtime_resume(struct device *dev)
-        |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  sound/hda/controllers/cix-ipbloq.c:362:12: error: 'cix_ipbloq_hda_runtime_suspend' defined but not used [-Werror=unused-function]
-    362 | static int cix_ipbloq_hda_runtime_suspend(struct device *dev)
-        |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  sound/hda/controllers/cix-ipbloq.c:349:12: error: 'cix_ipbloq_hda_resume' defined but not used [-Werror=unused-function]
-    349 | static int cix_ipbloq_hda_resume(struct device *dev)
-        |            ^~~~~~~~~~~~~~~~~~~~~
-  sound/hda/controllers/cix-ipbloq.c:336:12: error: 'cix_ipbloq_hda_suspend' defined but not used [-Werror=unused-function]
-    336 | static int cix_ipbloq_hda_suspend(struct device *dev)
-        |            ^~~~~~~~~~~~~~~~~~~~~~
+Hi Krzysztof,
 
-When CONFIG_PM and CONFIG_PM_SLEEP are unset, SET_SYSTEM_SLEEP_PM_OPS()
-and SET_RUNTIME_PM_OPS() evaluate to nothing, so these functions appear
-unused to the compiler in this configuration.
+Thank you for the feedback. I’ve added the detailed description in the DTS
+patch. For the DT binding commit message, I’m planning to update it as below.
+Please let me know if this looks acceptable or if you have further suggestions:
 
-Use the modern SYSTEM_SLEEP_PM_OPS and RUNTIME_PM_OPS macros to resolve
-these warnings, which is what they are intended to do. Additionally,
-wrap &cix_ipbloq_hda_pm in pm_ptr() to ensure the compiler can drop the
-entire structure when CONFIG_PM is unset.
+The FRDM-IMX91S is a low-cost, compact development board based on the
+i.MX91 applications processor. It is a cost-optimized variant of the
+FRDM-IMX91 board, with notable hardware differences that require a
+separate DTS:
+- 512MB LPDDR4 (FRDM-IMX91 uses 1GB)
+- 256MB FlexSPI-NAND (FRDM-IMX91 uses 8GB eMMC)
+- Single GbE port (FRDM-IMX91 has dual GbE)
+- PMIC PF9453 (FRDM-IMX91 uses PCA9451A)
 
-Fixes: d91e9bd10125 ("ALSA: hda: add CIX IPBLOQ HDA controller support")
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
----
- sound/hda/controllers/cix-ipbloq.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+Regards,
+Yanan
 
-diff --git a/sound/hda/controllers/cix-ipbloq.c b/sound/hda/controllers/cix-ipbloq.c
-index cc9153692ef5..99f9f48e91d4 100644
---- a/sound/hda/controllers/cix-ipbloq.c
-+++ b/sound/hda/controllers/cix-ipbloq.c
-@@ -407,10 +407,10 @@ static int cix_ipbloq_hda_runtime_resume(struct device *dev)
- }
- 
- static const struct dev_pm_ops cix_ipbloq_hda_pm = {
--	SET_SYSTEM_SLEEP_PM_OPS(cix_ipbloq_hda_suspend,
--				cix_ipbloq_hda_resume)
--	SET_RUNTIME_PM_OPS(cix_ipbloq_hda_runtime_suspend,
--			   cix_ipbloq_hda_runtime_resume, NULL)
-+	SYSTEM_SLEEP_PM_OPS(cix_ipbloq_hda_suspend,
-+			    cix_ipbloq_hda_resume)
-+	RUNTIME_PM_OPS(cix_ipbloq_hda_runtime_suspend,
-+		       cix_ipbloq_hda_runtime_resume, NULL)
- };
- 
- static const struct of_device_id cix_ipbloq_hda_match[] = {
-@@ -422,7 +422,7 @@ MODULE_DEVICE_TABLE(of, cix_ipbloq_hda_match);
- static struct platform_driver cix_ipbloq_hda_driver = {
- 	.driver = {
- 		.name = "cix-ipbloq-hda",
--		.pm = &cix_ipbloq_hda_pm,
-+		.pm = pm_ptr(&cix_ipbloq_hda_pm),
- 		.of_match_table = cix_ipbloq_hda_match,
- 	},
- 	.probe = cix_ipbloq_hda_probe,
-
----
-base-commit: 161a0c617ab172bbcda7ce61803addeb2124dbff
-change-id: 20251211-hda-cix-ipbloq-modern-pm-ops-a6b6754bf170
-
-Best regards,
---  
-Nathan Chancellor <nathan@kernel.org>
-
+> Best regards,
+> Krzysztof
 
