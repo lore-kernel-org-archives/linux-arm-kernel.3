@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D075D41C1F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 11:38:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8FA1D41C26
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 11:38:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gHedRetF8JCExxbKNzQuXO4B6ElqC9WxHZJNQma7Zow=; b=iDrI+8LT7ngdergfVktAOx77UW
-	nYPVy+sSs9rGVdxxtwYXVj1PTpgNFaAbFT+9HUTdAFDdvR/Qz2IWpMshaevjUAVe146wzvmDb1a7n
-	BGxJyDbZKJQlDcRvzVnDepxHdgdc0nL4hgj6KcMHwZouN+urIK0GzGd40Uz+kIxiYu/hdw05TMDyo
-	HUfIfKAuX6bVzvfGxdogFc7WBFx6NHN1dfCX+jxP+u8cawHqwrC089jvCmCQtxkFNiVPl4UGwsGaK
-	RSqkLJlwdJ10mK7D6lbGvXF0616NwevD2kTwc+jU3hg6jy5LqykWBQNACN9WxxowbNllAAVEomUTD
-	vrRtwZng==;
+	bh=Gs+Q4zsHPmfn9d2bK4NrhKT3oLA9uDx+1JwH1OB2RUs=; b=Ic4Zo62F38zvfZkv/EStOSyldX
+	BSxXieXSOkwjXQCPDGVWNfVi3ROvAuYnsT40I8kh2/UTk7dQpmqViJocO46QPxa4aUfX8abbN4svq
+	mXsgBxT4T7fEyGmPdu/amh130Z20vDpcF5iGormsLNT7vjANhTJOFIOu1HU8WAneHygnEB81JL/v7
+	O5Sdx2ag7PnkVqkWWrVF95Zkg4PZm5eZQptFGtYafZp0yhBI25moUAx9n1s8qrpIHlLF/0qvTK/8s
+	l4oil/ekR8H/iiRlDEtWMAMnbxOoaNOvc3EzymvtstUQLqZ6cvsoZYC/14GjzoeHY9V8gAq82DBMM
+	htOziF9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTf0J-0000000GYBl-0RLS;
-	Thu, 11 Dec 2025 11:38:39 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1vTf0H-0000000GYBH-2AaO;
+	Thu, 11 Dec 2025 11:38:38 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTf0E-0000000GY8Y-0hlD
+	id 1vTf0C-0000000GY8G-2ZGl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 11:38:35 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-42b2c8fb84fso391788f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 03:38:33 -0800 (PST)
+	Thu, 11 Dec 2025 11:38:34 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-477b8a667bcso10578795e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 03:38:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1765453112; x=1766057912; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1765453111; x=1766057911; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gHedRetF8JCExxbKNzQuXO4B6ElqC9WxHZJNQma7Zow=;
-        b=BoglqvmpGLgtsswWLaW1YlFRfh5bgjVzpHkbIVMtRjd1PzF6CQOW62ax4DyKnAwxE1
-         U6ElpK1hD/9bYGgKg+yFeDJaCDdzBq0r2E2ju1hYSiIMpdUeED3RIXGgAcWSMmdv44Ey
-         PYhQUASd/pkXGSs0CO0AqXSfaD8QOTFMK24JMWh8z+y9RhIcty/rM9KGwoBM7jWWXMgU
-         xKETfbARvxCnWh3O2Q+UBsqP57O6xzDcYZH0xT+XamjBFtcS/AK2bKFgg/RMYGc48igr
-         JRUg2HqLwvIF08369aXVM1mF3/QGTAwfqC8UWmLmh6094yNyenJ16dPq2hfZqmDBUQ6a
-         Knxg==
+        bh=Gs+Q4zsHPmfn9d2bK4NrhKT3oLA9uDx+1JwH1OB2RUs=;
+        b=IDdYQPEb4hQeGV0/UUiXH8Ty8mC52cr9mAOXrXhB/yL8ZWPXox9V0JQEG9NPtRi1Cl
+         0Os0yqvjhv+10C0DKEGW30ZjdxcC4JLdv0WduFmXDzF+TfDNggaReUP759iFU+DgyXMV
+         unXqd66oG670YC5CU9UQB19eJDKssSRaryssxC5f5MwAcx5MD81n+5XSYcf3qt6susrJ
+         aAW8DYE5IpLzLDCbA3vmA8TGThxHiwgWt52GUuQJnW+44XdGMDzTZLkxD0vFicgUrPee
+         ji6uADZcQxKnurEjOUvl61It4ikzCjYXiH2eILu2bvafnvRrcHCxfcPWaZAjk1+2NvQ2
+         cR8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765453112; x=1766057912;
+        d=1e100.net; s=20230601; t=1765453111; x=1766057911;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=gHedRetF8JCExxbKNzQuXO4B6ElqC9WxHZJNQma7Zow=;
-        b=QGTFgL3Z/02Gqa/VCVy1kQ0eZ7yWB/czX2PfULnT+VkH+N2FJ8j1lB8DO3D4+l6Fpi
-         xGJNAer5AC3HjztRpuwVYebDSs9c4KTAkN1Ee79d8TYimfKfMfAmE6XavhSFZ2NyylgR
-         LpxKM+4Fwl3S6l18P6ZumLUHRx8Op2sdCYk+nxUfT2MDM7WvXFtrSBtzuH0Y75Kvo1NG
-         dQcajEXVou5MUAMIS697/3pcAS2xsEM950lP/eM4l19HYaXsWdx6MIul5J31n/iLxECs
-         +bRmoyXKH9NIA6De8b5J0EcVu/n2shqv5DijRBdjB+QvthWNBrdZvvsGmYDMA/kiFiIr
-         nzxA==
-X-Forwarded-Encrypted: i=1; AJvYcCVIg8iT1kfmELMPbCRfdil4lSsd+jXKOIidRf6t9tcd88ryNDHYoS9DsGFM0/Bkxfv1AYWsy3lRthxQRuBOObyO@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvhfjMwrBrMI28kPcptRYgP14EISs+djNFszJxdkgALc4yJSl5
-	jl++ungPrH23ScIlto9q9yOPR5U+UIquV4vUl4VeDFEmTQgs7mdrvW6W0BRy9tps1rhTgLPcUNU
-	oaQ==
-X-Google-Smtp-Source: AGHT+IHj8V7lfV5TT/EjlEumn+FTn7VW7DKux9btH2yvaecHOgsfDCdIPFZnSMgs4R5O36N6Zxfpsp7oew==
-X-Received: from wrmq7.prod.google.com ([2002:adf:ea07:0:b0:42c:c2d6:2a1])
- (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:adf:f243:0:b0:42f:a990:96a6
- with SMTP id ffacd0b85a97d-42fa9909750mr2267954f8f.40.1765453111808; Thu, 11
- Dec 2025 03:38:31 -0800 (PST)
-Date: Thu, 11 Dec 2025 11:38:26 +0000
+        bh=Gs+Q4zsHPmfn9d2bK4NrhKT3oLA9uDx+1JwH1OB2RUs=;
+        b=PHhOvlociYKLeRuHmf09gOqv7/iDm2sDtpEy58wdkjL5lB3cReBju1vNs90OOALBsf
+         UUVgYaba/N3ePKsEZ0CNVW43jNsNEIHYK+HD99pQ/5DJQYiQYTH1xHLfRYRPu9HTrBdG
+         go2v0fdTEpPsSqujMWUclDXgNigoV19XBOMDn3inEpnQ3zAnJ2aNwpIjsKELDSZI75Lg
+         FQTjZtYv7Z9Qukk0G7p29m07JoS/aBZn58zd3xSelVqtysBRc8Xycm6vtjtvXmBe9JPH
+         kF0p9B9AAkcO0NmNeUeF/D3+2EhTdbITYMR8Vgpg8VDIv7taBFS+2WmyQoDiBTtKW+GB
+         2AMA==
+X-Forwarded-Encrypted: i=1; AJvYcCUKS71H9HLdmISyjeyIIJiFJIj70OXpT1s9SuIlj/JlxlFWzBAfZgoO3HATllLBtoZW9LeyFldyp6oeh66eHyau@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzaqs6cIy4r24YfE57lfRih2nio3QmJyx8Y8qidaVDVrTEBx5PQ
+	8nH57FncSGvx1n6m/RjGpmATVBzFwHwxECj8WfeV0VoTFyLhKKixyzgFwStrpAXTDJabaTxFx1F
+	lBQ==
+X-Google-Smtp-Source: AGHT+IGPJRiGq3R7mZWn5CrzLP8vm1wupxaeI5H/gIQqF11dMv1/zMHsAynG4PMZbWmvXJ3VunNPyr+QDQ==
+X-Received: from wmcn8.prod.google.com ([2002:a05:600c:c0c8:b0:479:36b0:ff54])
+ (user=tabba job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:1e88:b0:477:54cd:200e
+ with SMTP id 5b1f17b1804b1-47a837449f7mr53974875e9.1.1765453110985; Thu, 11
+ Dec 2025 03:38:30 -0800 (PST)
+Date: Thu, 11 Dec 2025 11:38:25 +0000
 In-Reply-To: <20251211113828.370370-1-tabba@google.com>
 Mime-Version: 1.0
 References: <20251211113828.370370-1-tabba@google.com>
 X-Mailer: git-send-email 2.52.0.223.gf5cc29aaa4-goog
-Message-ID: <20251211113828.370370-4-tabba@google.com>
-Subject: [PATCH v2 3/5] KVM: arm64: Refactor enter_exception64()
+Message-ID: <20251211113828.370370-3-tabba@google.com>
+Subject: [PATCH v2 2/5] arm64: Clear HCR_EL2.ATA when MTE is not supported or disabled
 From: Fuad Tabba <tabba@google.com>
 To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org
 Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
@@ -74,8 +74,8 @@ Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
 	will@kernel.org, tabba@google.com
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_033834_234204_45D50F6D 
-X-CRM114-Status: GOOD (  17.75  )
+X-CRM114-CacheID: sfid-20251211_033832_666789_61FFE492 
+X-CRM114-Status: GOOD (  15.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,181 +90,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Quentin Perret <qperret@google.com>
+If MTE is not supported by the hardware, or is disabled in the kernel
+configuration (CONFIG_ARM64_MTE=n) or command line (arm64.nomte), the
+kernel stops advertising MTE to userspace and avoids using MTE
+instructions. However, this is a software-level disable only.
 
-To simplify the injection of exceptions into the host in pKVM context,
-refactor enter_exception64() to split out the logic for calculating the
-exception vector offset and the target CPSR.
+When MTE hardware is present and enabled by EL3 firmware, leaving
+HCR_EL2.ATA set allows the host to execute MTE instructions (STG, LDG,
+etc.) and access allocation tags in physical memory. This creates a
+security risk where a malicious or buggy host could lead to system
+crashes, undefined behavior, or compromise guests.
 
-Extract two new helper functions:
- - get_except64_offset(): Calculates exception vector offset based on
-   current/target exception levels and exception type
- - get_except64_cpsr(): Computes the new CPSR/PSTATE when taking an
-   exception
+Prevent this by clearing HCR_EL2.ATA when MTE is disabled. Remove it
+from the HCR_HOST_NVHE_FLAGS default, and conditionally set it in
+cpu_prepare_hyp_mode() only when system_supports_mte() returns true.
+This causes MTE instructions to trap to EL2 when HCR_EL2.ATA is cleared.
 
-A subsequent patch will use these helpers to inject UNDEF exceptions
-into the host when MTE system registers are accessed with MTE disabled.
-Extracting the helpers allows that code to reuse the exception entry
-logic without duplicating the CPSR and vector offset calculations.
+Early boot code in head.S temporarily keeps HCR_ATA set to avoid
+special-casing initialization paths. This is safe because this code
+executes before untrusted code runs and will clear HCR_ATA if MTE is
+disabled.
 
-No functional change intended.
-
-Signed-off-by: Quentin Perret <qperret@google.com>
 Signed-off-by: Fuad Tabba <tabba@google.com>
 ---
- arch/arm64/include/asm/kvm_emulate.h |   5 ++
- arch/arm64/kvm/hyp/exception.c       | 100 ++++++++++++++++-----------
- 2 files changed, 63 insertions(+), 42 deletions(-)
+ arch/arm64/include/asm/kvm_arm.h | 2 +-
+ arch/arm64/kernel/head.S         | 2 +-
+ arch/arm64/kvm/arm.c             | 4 ++++
+ 3 files changed, 6 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-index c9eab316398e..c3f04bd5b2a5 100644
---- a/arch/arm64/include/asm/kvm_emulate.h
-+++ b/arch/arm64/include/asm/kvm_emulate.h
-@@ -71,6 +71,11 @@ static inline int kvm_inject_serror(struct kvm_vcpu *vcpu)
- 	return kvm_inject_serror_esr(vcpu, ESR_ELx_ISV);
- }
+diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
+index 1da290aeedce..a41e3087e00a 100644
+--- a/arch/arm64/include/asm/kvm_arm.h
++++ b/arch/arm64/include/asm/kvm_arm.h
+@@ -101,7 +101,7 @@
+ 			 HCR_BSU_IS | HCR_FB | HCR_TACR | \
+ 			 HCR_AMO | HCR_SWIO | HCR_TIDCP | HCR_RW | HCR_TLOR | \
+ 			 HCR_FMO | HCR_IMO | HCR_PTW | HCR_TID3 | HCR_TID1)
+-#define HCR_HOST_NVHE_FLAGS (HCR_RW | HCR_API | HCR_APK | HCR_ATA)
++#define HCR_HOST_NVHE_FLAGS (HCR_RW | HCR_API | HCR_APK)
+ #define HCR_HOST_NVHE_PROTECTED_FLAGS (HCR_HOST_NVHE_FLAGS | HCR_TSC)
+ #define HCR_HOST_VHE_FLAGS (HCR_RW | HCR_TGE | HCR_E2H | HCR_AMO | HCR_IMO | HCR_FMO)
  
-+unsigned long get_except64_offset(unsigned long psr, unsigned long target_mode,
-+				  enum exception_type type);
-+unsigned long get_except64_cpsr(unsigned long old, bool has_mte,
-+				unsigned long sctlr, unsigned long mode);
-+
- void kvm_vcpu_wfi(struct kvm_vcpu *vcpu);
+diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
+index ca04b338cb0d..87a822e5c4ca 100644
+--- a/arch/arm64/kernel/head.S
++++ b/arch/arm64/kernel/head.S
+@@ -299,7 +299,7 @@ SYM_INNER_LABEL(init_el2, SYM_L_LOCAL)
+ 	isb
+ 0:
  
- void kvm_emulate_nested_eret(struct kvm_vcpu *vcpu);
-diff --git a/arch/arm64/kvm/hyp/exception.c b/arch/arm64/kvm/hyp/exception.c
-index bef40ddb16db..d3bcda665612 100644
---- a/arch/arm64/kvm/hyp/exception.c
-+++ b/arch/arm64/kvm/hyp/exception.c
-@@ -65,12 +65,25 @@ static void __vcpu_write_spsr_und(struct kvm_vcpu *vcpu, u64 val)
- 		vcpu->arch.ctxt.spsr_und = val;
- }
+-	init_el2_hcr	HCR_HOST_NVHE_FLAGS
++	init_el2_hcr	HCR_HOST_NVHE_FLAGS | HCR_ATA
+ 	init_el2_state
  
-+unsigned long get_except64_offset(unsigned long psr, unsigned long target_mode,
-+				  enum exception_type type)
-+{
-+	u64 mode = psr & (PSR_MODE_MASK | PSR_MODE32_BIT);
-+	u64 exc_offset;
+ 	/* Hypervisor stub */
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 052bf0d4d0b0..c03006b1c5bc 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -2030,6 +2030,10 @@ static void __init cpu_prepare_hyp_mode(int cpu, u32 hyp_va_bits)
+ 		params->hcr_el2 = HCR_HOST_NVHE_PROTECTED_FLAGS;
+ 	else
+ 		params->hcr_el2 = HCR_HOST_NVHE_FLAGS;
 +
-+	if      (mode == target_mode)
-+		exc_offset = CURRENT_EL_SP_ELx_VECTOR;
-+	else if ((mode | PSR_MODE_THREAD_BIT) == target_mode)
-+		exc_offset = CURRENT_EL_SP_EL0_VECTOR;
-+	else if (!(mode & PSR_MODE32_BIT))
-+		exc_offset = LOWER_EL_AArch64_VECTOR;
-+	else
-+		exc_offset = LOWER_EL_AArch32_VECTOR;
++	if (system_supports_mte())
++		params->hcr_el2 |= HCR_ATA;
 +
-+	return exc_offset + type;
-+}
-+
- /*
-- * This performs the exception entry at a given EL (@target_mode), stashing PC
-- * and PSTATE into ELR and SPSR respectively, and compute the new PC/PSTATE.
-- * The EL passed to this function *must* be a non-secure, privileged mode with
-- * bit 0 being set (PSTATE.SP == 1).
-- *
-  * When an exception is taken, most PSTATE fields are left unchanged in the
-  * handler. However, some are explicitly overridden (e.g. M[4:0]). Luckily all
-  * of the inherited bits have the same position in the AArch64/AArch32 SPSR_ELx
-@@ -82,50 +95,17 @@ static void __vcpu_write_spsr_und(struct kvm_vcpu *vcpu, u64 val)
-  * Here we manipulate the fields in order of the AArch64 SPSR_ELx layout, from
-  * MSB to LSB.
-  */
--static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
--			      enum exception_type type)
-+unsigned long get_except64_cpsr(unsigned long old, bool has_mte,
-+				unsigned long sctlr, unsigned long target_mode)
- {
--	unsigned long sctlr, vbar, old, new, mode;
--	u64 exc_offset;
--
--	mode = *vcpu_cpsr(vcpu) & (PSR_MODE_MASK | PSR_MODE32_BIT);
--
--	if      (mode == target_mode)
--		exc_offset = CURRENT_EL_SP_ELx_VECTOR;
--	else if ((mode | PSR_MODE_THREAD_BIT) == target_mode)
--		exc_offset = CURRENT_EL_SP_EL0_VECTOR;
--	else if (!(mode & PSR_MODE32_BIT))
--		exc_offset = LOWER_EL_AArch64_VECTOR;
--	else
--		exc_offset = LOWER_EL_AArch32_VECTOR;
--
--	switch (target_mode) {
--	case PSR_MODE_EL1h:
--		vbar = __vcpu_read_sys_reg(vcpu, VBAR_EL1);
--		sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
--		__vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL1);
--		break;
--	case PSR_MODE_EL2h:
--		vbar = __vcpu_read_sys_reg(vcpu, VBAR_EL2);
--		sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL2);
--		__vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL2);
--		break;
--	default:
--		/* Don't do that */
--		BUG();
--	}
--
--	*vcpu_pc(vcpu) = vbar + exc_offset + type;
--
--	old = *vcpu_cpsr(vcpu);
--	new = 0;
-+	u64 new = 0;
- 
- 	new |= (old & PSR_N_BIT);
- 	new |= (old & PSR_Z_BIT);
- 	new |= (old & PSR_C_BIT);
- 	new |= (old & PSR_V_BIT);
- 
--	if (kvm_has_mte(kern_hyp_va(vcpu->kvm)))
-+	if (has_mte)
- 		new |= PSR_TCO_BIT;
- 
- 	new |= (old & PSR_DIT_BIT);
-@@ -161,6 +141,42 @@ static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
- 
- 	new |= target_mode;
- 
-+	return new;
-+}
-+
-+/*
-+ * This performs the exception entry at a given EL (@target_mode), stashing PC
-+ * and PSTATE into ELR and SPSR respectively, and compute the new PC/PSTATE.
-+ * The EL passed to this function *must* be a non-secure, privileged mode with
-+ * bit 0 being set (PSTATE.SP == 1).
-+ */
-+static void enter_exception64(struct kvm_vcpu *vcpu, unsigned long target_mode,
-+			      enum exception_type type)
-+{
-+	u64 offset = get_except64_offset(*vcpu_cpsr(vcpu), target_mode, type);
-+	unsigned long sctlr, vbar, old, new;
-+
-+	switch (target_mode) {
-+	case PSR_MODE_EL1h:
-+		vbar = __vcpu_read_sys_reg(vcpu, VBAR_EL1);
-+		sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL1);
-+		__vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL1);
-+		break;
-+	case PSR_MODE_EL2h:
-+		vbar = __vcpu_read_sys_reg(vcpu, VBAR_EL2);
-+		sctlr = __vcpu_read_sys_reg(vcpu, SCTLR_EL2);
-+		__vcpu_write_sys_reg(vcpu, *vcpu_pc(vcpu), ELR_EL2);
-+		break;
-+	default:
-+		/* Don't do that */
-+		BUG();
-+	}
-+
-+	*vcpu_pc(vcpu) = vbar + offset;
-+
-+	old = *vcpu_cpsr(vcpu);
-+	new = get_except64_cpsr(old, kvm_has_mte(kern_hyp_va(vcpu->kvm)), sctlr,
-+				target_mode);
- 	*vcpu_cpsr(vcpu) = new;
- 	__vcpu_write_spsr(vcpu, target_mode, old);
- }
+ 	if (cpus_have_final_cap(ARM64_KVM_HVHE))
+ 		params->hcr_el2 |= HCR_E2H;
+ 	params->vttbr = params->vtcr = 0;
 -- 
 2.52.0.223.gf5cc29aaa4-goog
 
