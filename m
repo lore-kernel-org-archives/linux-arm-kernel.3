@@ -4,89 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F28CD41C1F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 11:32:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 703F6D41C20
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 11:32:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tsAQFyywzgQt8hTuOma0wGcWOIPVIjI9LIgrRTCikK4=; b=Th4peW2exhhwDZjsBT+wvGjohr
-	dyVAv+hERqkdBSi3a4SUA4E3ctrOgXWvAe5N150+PcInMBdIPstri6DhpA0w+1lU5SGTxQAeyQ5TU
-	IRMBTR4lGeQtQ3su5RTorGMLuwHeXM8/oPnabGrsJxncl407etg4CdhaXqWbtIVHEWsPktSRFb1XN
-	Lnw1ABOf83S7VngoQcIEWo23APbBjVI4YqIYMG7yYdXA5FJKVYbYBdgrHsnGrikIiyOkU0DVyExt/
-	kaoj5BWLYA4gtobwxLBNUXRSfW3wUWN8pXWArKMI2b1VDKTr2d9EiBaEZIWnpVuG0Qz2uYrYyrVxN
-	v1bCHyVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vu5B6Ed3VbarfX0oicGBCAsIq8zRMFvt4RWXRT3eFpY=; b=etVNOKuuvXTR3U5dxm1+UFn277
+	N7lglKPwbdwrngBMcO+6L+31ZeR3nr3G3rMyshlYneXBdLk85P+epOrPVVXE9BFsh837+s9uJT3po
+	yyqFSw1Cw8i/FgsHsWvFPtF8PhVhp4/OGXIL6QUrA32zNoabuSwaelSdo56tuBMl3focYEz2ZGBJd
+	gqfxfH7XayBmqBa03mt5L7klygiobCCdUnEQxHShTrqGRPImdSIoE/DCg1YrAs/3PJOsBK9OgvVFm
+	XYc/sPLEDFjrCQIe8Xldq6sOW8bl7xF5ZqcIYG0YX9UVtmE+LsD0Xhk8LCkVBmUqmnyLmrAWe7D8f
+	wy+FNjlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTeuM-0000000GXWc-1nJv;
-	Thu, 11 Dec 2025 11:32:30 +0000
-Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTeuK-0000000GXVd-1dac
+	id 1vTeum-0000000GXfs-16qL;
+	Thu, 11 Dec 2025 11:32:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vTeuj-0000000GXed-0ThC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 11:32:29 +0000
-Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-78e2fe1f568so2289437b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 03:32:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765452747; x=1766057547; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=tsAQFyywzgQt8hTuOma0wGcWOIPVIjI9LIgrRTCikK4=;
-        b=YtOmGhWVqBFQu6mQZfHyRoMQhHepW21Xf6r1SxmuSOn2xACsfsBA3+TRtjv24+VEJR
-         mXIgHp8iXk/Cntx4rBmeMLe/a/GylyYRSuFZF2kvlZfFGU/GSysSV5lUYYWRumVTtmeD
-         G11RaVKa3QoWK8eDD3+VIrYOS9VlJdk358y20ZGIME0/MUzaqKCnbXWRRlPCA08UUKEW
-         +16dGoMep0RJEpr/WMTd+D1Baa7njmVCu5Xv2tKMfXkS4otUL8+dWkhHSuTzUIZMSacS
-         toDdIJd8ZQZM0LSwN95d6joZvvCC3PpEFmDh2n/QtpxBt5o2jrAF/kix7kJgkHu3b2FU
-         JX0g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765452747; x=1766057547;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tsAQFyywzgQt8hTuOma0wGcWOIPVIjI9LIgrRTCikK4=;
-        b=usDZ7BnUFYDBZlQYRXPZNb9G30nJvf4X6RMF2N9chj0biO1Tcz9O0lm0NF8Q+tBNfC
-         6ujj08uyl6OfV4qedOgs7bBXgkCNOwrlC5gAbd75Fr5aPj3k+SBfEuTBIiXlCePl3IRB
-         gxM7Jz/0FJJqGLP5MnYrkFJDcCYn7vvM7aMGjlv5qXMEhLIKYylw7w1uhU7MlgUH9/Or
-         0ICYV3Q02hIsnTCWeILYXR6wg7BaseGrYqUQ6XNiguq6qrudTgDAlCXALjFOOHWiqKUt
-         URVuvg4Ymk0ErQRm0nv4rMq61dkdHnDkR9BTHVHDEE+IGiupnb7dcRLQuA2imXC9XTDM
-         mKsw==
-X-Forwarded-Encrypted: i=1; AJvYcCXERogZQ+p2owXX5JpxMMtM9yiV3bmCvR4kTeDWfRnNJnWBm0a1LISXzypE60hDkVR+zPVGx5zfhD9hdje3p2Aj@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWvRMPwvlOH+/tNHoj6j7cAH7O4oHL6IExgNAGoH6cTS0B+wyF
-	4YJnJOimNB8d/dQMbEhVd4Q3ad5Ro+kfFBl9oJjd+gZ6zN679Gh7Bop6LT3AIk+lRshqtycpW+1
-	50XOZC8tCO0th1RMbA5AkaryBlfSSZEjkhAU3lqOzdhKoX+otve6W
-X-Gm-Gg: AY/fxX6EWUYN7rkzDzVDBAQOJj1sSFPnPhcMmQIXgHDakfYyUlnNYhco0LaTehp/z5D
-	EaZnfPkahbJqXUgEsI2M4rqF0U/CuVIH5taDNVcwsvdLuJuQXGJzMfuzVM6i5rcTUlDcYpUPkw4
-	qWperVcMGAjwO7IyDblq8nxeaMfuVgxT3x/UbCjxqbJqH/oU4LKi25yYoYo/8JG9ZV2i9DYml2b
-	5JlTYmi3Ieet5Tq573DO7pjvaMuourmPxWt7hrAVoPkghOiSjH73fAV3Buvl6EHYmL4t3G6f8sp
-	esegAJg=
-X-Google-Smtp-Source: AGHT+IGi8FI7tue2F1muYiYdXCcwa1VCSq2fLFaLgh7A0p4DE+EvhP5UsxEj9lkt3uuk+LvjC2KVDNW0gmzNrvJK74w=
-X-Received: by 2002:a05:690c:45c5:b0:787:bf16:d489 with SMTP id
- 00721157ae682-78ca64495eamr51688117b3.62.1765452747098; Thu, 11 Dec 2025
- 03:32:27 -0800 (PST)
+	Thu, 11 Dec 2025 11:32:54 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 01B97FEC;
+	Thu, 11 Dec 2025 03:32:45 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DC4583F740;
+	Thu, 11 Dec 2025 03:32:48 -0800 (PST)
+Message-ID: <b798402a-1bc4-4765-aff6-6e3c3a398987@arm.com>
+Date: Thu, 11 Dec 2025 11:32:47 +0000
 MIME-Version: 1.0
-References: <20251211-dev-dt-warnings-all-v1-0-21b18b9ada77@codeconstruct.com.au>
- <20251211-dev-dt-warnings-all-v1-8-21b18b9ada77@codeconstruct.com.au>
-In-Reply-To: <20251211-dev-dt-warnings-all-v1-8-21b18b9ada77@codeconstruct.com.au>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 11 Dec 2025 12:31:50 +0100
-X-Gm-Features: AQt7F2pk6E2fyrBRST0HoIuBOhvmNQUfLJiP182o7R-P0Ig55Fk3IUyQwfYuHbU
-Message-ID: <CAPDyKFpQXYFFrZ-unVxa9m2+tKLEyFZyo7Tv7JD_7vTbqqfmDQ@mail.gmail.com>
-Subject: Re: [PATCH RFC 08/16] ARM: dts: aspeed: Use specified wp-inverted
- property for AST2600 EVB
-To: Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, Joel Stanley <joel@jms.id.au>, 
-	linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
-	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org, 
-	linux-gpio@vger.kernel.org, linux-mmc@vger.kernel.org, 
-	linux-crypto@vger.kernel.org, linux-iio@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 02/38] arm64: mpam: Re-initialise MPAM regs when CPU
+ comes online
+From: Ben Horgan <ben.horgan@arm.com>
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@kernel.org>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Gavin Shan
+ <gshan@redhat.com>, rohit.mathew@arm.com, reinette.chatre@intel.com,
+ Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+References: <20251205215901.17772-1-james.morse@arm.com>
+ <20251205215901.17772-3-james.morse@arm.com>
+ <0ea282be-c44f-4562-9104-1efe57348a3e@arm.com>
+ <b922ff73-c583-482e-8925-ad7758280705@arm.com>
+Content-Language: en-US
+In-Reply-To: <b922ff73-c583-482e-8925-ad7758280705@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_033228_447150_CDB933BF 
-X-CRM114-Status: GOOD (  14.64  )
+X-CRM114-CacheID: sfid-20251211_033253_193035_DF9F60B8 
+X-CRM114-Status: GOOD (  13.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,50 +79,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 11 Dec 2025 at 09:47, Andrew Jeffery
-<andrew@codeconstruct.com.au> wrote:
->
-> While sdhci-pltfm supports sdhci,wp-inverted, it also supports
-> the un-prefixed and specified wp-inverted property. Switch the EVB
-> devicetree to use the specified property to remove warnings when
-> checking the DTB.
->
-> Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
+Retraction... sorry
 
-FWIW:
+On 12/11/25 11:23, Ben Horgan wrote:
+> Hi James,
+> 
+> On 12/9/25 15:13, Ben Horgan wrote:
+>> Hi James,
+>>
+>> On 12/5/25 21:58, James Morse wrote:
 
-Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+> 
+> Actually, this code is only run before the mpam enablement is finished,
+> importantly before the mpam_enabled static key is set, and so
+> arm64_mpam_current is still 0 for every cpu. For cpus that are brought
+> up after boot time this is never run.
 
+Actually, actually, this is run whenever a cpu comes online, even if by
+hotplug later, and so arm64_mpam_current will be 0 as need on the first
+switch on and the previous value for the cpu when it has previously been
+off.
 
-> ---
->  arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
-> index 3eba676e57f1..c51977dcb56b 100644
-> --- a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
-> +++ b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
-> @@ -315,7 +315,7 @@ &sdhci0 {
->         bus-width = <4>;
->         max-frequency = <100000000>;
->         sdhci-caps-mask = <0x7 0x0>;
-> -       sdhci,wp-inverted;
-> +       wp-inverted;
->         vmmc-supply = <&vcc_sdhci0>;
->         vqmmc-supply = <&vccq_sdhci0>;
->         clk-phase-sd-hs = <7>, <200>;
-> @@ -326,7 +326,7 @@ &sdhci1 {
->         bus-width = <4>;
->         max-frequency = <100000000>;
->         sdhci-caps-mask = <0x7 0x0>;
-> -       sdhci,wp-inverted;
-> +       wp-inverted;
->         vmmc-supply = <&vcc_sdhci1>;
->         vqmmc-supply = <&vccq_sdhci1>;
->         clk-phase-sd-hs = <7>, <200>;
->
-> --
-> 2.47.3
->
->
+> 
+> As SYS_MPAM0_EL1 and SYS_MPAM1_EL1 are unknown out of reset we should
+> set them to 0 whenever a cpu comes online to make sure they initially
+> use PARTID 0 as that is the only one guaranteed to have sensible
+> defaults in the MSC. Once the mpam driver has configured the MSC we can
+> start setting other values.
+> 
+>>
+>>> +
+>>> +	write_sysreg_s(regval, SYS_MPAM1_EL1);
+>>> +	isb();
+>>> +
+>>> +	write_sysreg_s(regval, SYS_MPAM0_EL1);
+>>>  }
+>>>  
+>>>  static bool
+>>
+>> Thanks,
+>>
+>> Ben
+>>
+>>
+> 
+> Thanks,
+> 
+> Ben
+> 
+> 
+
+-- 
+Thanks,
+
+Ben
+
 
