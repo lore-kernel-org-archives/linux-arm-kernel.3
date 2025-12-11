@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 559AAD41C1F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 11:32:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3A6ED41C20
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 11:32:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vAvAduq0/fXRtJhO0coRhdPgTbJSI1bNLnmdQnPpfuY=; b=xtdQoIpm9B29myPcGMhMMVq8sN
-	nqT5djuyeZy+kSz++0cP5n9ENTAK2HLJ3s6P4OKMnn/AJxwdmsIrKfOcx3UeiDbre4HL+lm/luNNJ
-	AzatoDtiytXCpMq8+YHXkJK93A6o5Jn6wnEFnBBdqGMVg70185P9cfhWeN2pEbi7NbtY6n3yM4bPa
-	YmoOZzuPBDLOTHOW5og+Pl6psh1o2PlvzMfwbcLN/309tmWrlqbzPSeMBNKIdDNuXjH7TnlEEuyXw
-	L7u3Z4kjv+jDbjMeXiuotoRnb2QaTt5yCUuQ+SrYzRuSJqBTbFioXRcKcAA/QmVJTbGlQAiBfLbr5
-	2Kay6uGw==;
+	bh=phiy9ied8gdfxveKkebHqanag2hE7Otb50tt4bxl1+s=; b=EQIm0/NEa9gcGv/s6cipWvfcjS
+	2hcpkiCQFpVLMX0C9xaq5XvmgKWkTM+js9qrYjccXkpU3Du5grerthyz07+XZsD92rv7j6PEnmXif
+	30YcoVcNj+Vl9xiLZ/w6akf+wfPkYvDktU+/4+ETcxbfFUenCVZMPaQiFzSq03myNO559KM9inicy
+	llO/krsUpkMGpTUCTFGySVQISsgNkB9nfg4ErpK4eiFwDz6Iwy66gjrUV+mKtoQayqFUKVrV8veAz
+	znl8RSIFL15SUW7luceCqJdiLg0kYVv0yyzvYFICsAbrWdFDRV9RGp5tw9ugEHDLfsW2xs0pSqvgP
+	i//yhhBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTeuC-0000000GXTi-3VhY;
-	Thu, 11 Dec 2025 11:32:20 +0000
-Received: from mail-yx1-xb132.google.com ([2607:f8b0:4864:20::b132])
+	id 1vTeuI-0000000GXV5-0YJN;
+	Thu, 11 Dec 2025 11:32:26 +0000
+Received: from mail-yx1-xb12f.google.com ([2607:f8b0:4864:20::b12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTeu9-0000000GXTI-12vi
+	id 1vTeuF-0000000GXUO-2h5S
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 11:32:18 +0000
-Received: by mail-yx1-xb132.google.com with SMTP id 956f58d0204a3-64472ea7d18so760734d50.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 03:32:16 -0800 (PST)
+	Thu, 11 Dec 2025 11:32:24 +0000
+Received: by mail-yx1-xb12f.google.com with SMTP id 956f58d0204a3-6432842cafdso735388d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 03:32:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765452735; x=1766057535; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1765452742; x=1766057542; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=vAvAduq0/fXRtJhO0coRhdPgTbJSI1bNLnmdQnPpfuY=;
-        b=Z9s6yr+ETkQbZiFb/kCYVeis1GFjLnuXvd9GcDA05snG12zZyp8lz1F/ycQjr1biZ1
-         j8Mys5Ngurg3mWtMmYn7NSB/5WJ7oK7US/vXDGkHI829TmwDaklN/1+THNBD7Ou/XMTV
-         lyjvnjAYZGxT0ceoRJXgMxaxzJ2KIy3p4F2MUoyRpKDaOdR3ICMYbJXFQzFGJSPs3ePw
-         mHf/opxLjnCn15/UibuHiHUrcc5gVPKbCOiYy438LENAXvvuzMhDjNQG9p0nEtJMfa3u
-         TOO134qxEAZ5k+W7Lk2mPoysY3bZyWcfqgNrTec227soLSu/hfyp8z/LahNuBUu2NFtP
-         hvwg==
+        bh=phiy9ied8gdfxveKkebHqanag2hE7Otb50tt4bxl1+s=;
+        b=eN8eMs06F5zoM5cU9mowATS5OEUgnnzOjhPxGmJgIbAmnJwSurP7ZJLRSaqhm/1RE3
+         a/qAz+5kFLZznPfHdifPFZOlcK1stWkbEi+Irg190nJqK24374hx1afoCJp1NlIMyp8W
+         w7Mvy/R8pC6e6EbmluMNq072wDgXxksK/BHFJXPfItfrvRXN6UCWiZy0qVT0K8c2DwEP
+         tBY9QfUrNmYgnGkqttTJcrAOHqpfoszRlkUGvkntgpU/4ERW6C7HE3q52GV73/gwbyQ5
+         IjbXJ1C+M3flC1sPSSr8g3jZm21I5pVGcYejFcIBXR89et9+Z2doXTqk32RGt+WV/gsP
+         M+VA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765452735; x=1766057535;
+        d=1e100.net; s=20230601; t=1765452742; x=1766057542;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=vAvAduq0/fXRtJhO0coRhdPgTbJSI1bNLnmdQnPpfuY=;
-        b=Z5jPsM571R0tq60aYc8rsMR+4Ck39Ad3xNUrl9v+hc0F4G5KiSYIUKROYF0oMHZFoA
-         Z8MSyqG+oZuXEARg9oX3B4fob73ykq8NxSCBCo2LrQpCysT6WgqjkZMuR3OMKvwHtHom
-         Oync3c3xO/yF7YbIXiFOfU7pVKDeGvHA8XBvxGiIqnDr4ZpCyJgTarB+AOLDtQeMtrpR
-         XQNBY2eqMcOysz/iJRx0K4DIMyC5WJEY7yAm/RvSm611zo07xIxipXIc/YAGPjpnsbrO
-         5KuoMeDen5G50ZUtpytgtWWM2ymTD0AbY6v7pCF63BqeXnYainIgr+zLwCyMK9WO2tbf
-         cf4A==
-X-Forwarded-Encrypted: i=1; AJvYcCVfPv8ewiZRUFWYimatM7gN8SBJdrPUXRiUp3KmpyCmg8Eh7nfVTkhFu6BM1qsTomixjGaqoQcLNTITCiDw7/eI@lists.infradead.org
-X-Gm-Message-State: AOJu0Yza90XxcEM8MBk3iTZl3PDqcDYh4ce75sviDhb+3AjanQrLvzlX
-	DvC88TtggubbJlOxPKRWstRthpVb7YTFr28Wmk+zVsuVLEumUG322IPmzkAjDxEGW/3jjaFrr8m
-	ojf1axL8Nq78pdx37tsUPbpbhispTxsnLZG8Uw3/lQ4WCS3OZLPpj
-X-Gm-Gg: AY/fxX7+VT/aUMeTtwW5gJuSmGJPDTE6ngSGDeLfcNil0Ux7aCeTDdJhAeiMG58c+eG
-	DKfCUpCyHhRo3McLE9SMl6c86fDk8WhGHPzeTY2tMP5NZxQgnsHElIUoE8rSXYgDLtWAOPipkkO
-	jz1qeIctlsVvqlRYk2kzS0fp1eLd55oHx23V4EILWMqtixZjxvH1ib6ZE3axkBVcqrS/PFYOmyW
-	x4p50XjPUw4OV000yhXVMUwyLX/Dsa/uuJNiFVsSUeXAwpo0F/5160JO/mf+yR7NmvFfCsqLHbb
-	Y95U6Ss=
-X-Google-Smtp-Source: AGHT+IG8bNJ7GVmxCtKmkFoNf2sieoYkv2mgOPVq2xJndKf37hgXCewb4eZsd1D0ffqnRQUAE3M4kyCHgtlEMcMmN4I=
-X-Received: by 2002:a05:690e:191b:b0:640:db57:8d95 with SMTP id
- 956f58d0204a3-6446eb3aa4emr5006636d50.63.1765452735377; Thu, 11 Dec 2025
- 03:32:15 -0800 (PST)
+        bh=phiy9ied8gdfxveKkebHqanag2hE7Otb50tt4bxl1+s=;
+        b=bc6AyHgGBPor6t+StQBIOXmClgjWiwJK4mnMpqHACf7d58GTNL2rjal+7qAeL7vtGK
+         gKlGXoaa32Sd7YUtvHvdZ7Hu/YUcIA/oooDNxXXCAnHWJBzhKNYb3OQ6OLb2BSQ9tsmN
+         w7akMlggzYmb8PKdTBUw0I8Y1VKjF5cjvE/Z5iLUPfOm2HCniulnXIo6Mpzx6kI/gI5r
+         7xhOPd5dObXuVwQ6+ceybIKrqIu0JlRpvita03zytghWzDSm03B3rgwa1g0uoADwyEqz
+         /PQB/ANKxI2/+dEXVNsVSvd/1FDrNgQQOdLCxGMDbE/TPG46TWr4oTLBi78UK6PFGgTw
+         r45g==
+X-Forwarded-Encrypted: i=1; AJvYcCXSBMbTBQMjWyaObBb1OWbTVzxTyI8zlU8D2rx8IpvY6FVbNpJoINpMSdgtSx9O91CkqBh5HS1TeR6N6d3F5Em9@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCYQoc689098YNAzj8gw3lUt/H/YvNh8nPGol3RGUUssA7gNZ7
+	gMAgs26sgUMYR64jq8ymnM6rKip7yiFzuWTeTOICLDZ1J5vhtLA5+BgRL6H1aUal1z2TRRK8iI3
+	1yShimO2OOlauhNbA7IzDyBsXbpy/Ne5oO3uadADq2w==
+X-Gm-Gg: AY/fxX4QgTE3q9FW4veCDMuZ2y4nqDsQwmGE53jkR6x6JFFStZzaHyUxi8KWp+yQcDm
+	HOcLLxgJyp7mhBq7KXdSWSpyAa3XsnLrtBe6J08zbgGydMdPwoVcEe3LQ0rTxiFMMumMZh4TZLE
+	To829dU98mxhfwps5S5zPAl72npZKwVh8Re7PY793O6HLWuU+q5O7GetW2eZ5BqylyDUSOjrX/S
+	SgQ3I5UzMj7oeuMlTTexa7fhLPJW5cljeTvuQ1sDwPZCAJ0j/6/FKs93mRgZcqd07Loc/Ak
+X-Google-Smtp-Source: AGHT+IGcqwaxtfJMJnD56RcASi/uVKO/lK/0JnQ8qMBQTGtHR3OnnoyAdnC7R6PIycF4XsJLibnnvktvbwIlYjUAVZY=
+X-Received: by 2002:a05:690e:120e:b0:63f:96d7:a350 with SMTP id
+ 956f58d0204a3-6446eb4a92cmr4347837d50.66.1765452742333; Thu, 11 Dec 2025
+ 03:32:22 -0800 (PST)
 MIME-Version: 1.0
 References: <20251211-dev-dt-warnings-all-v1-0-21b18b9ada77@codeconstruct.com.au>
- <20251211-dev-dt-warnings-all-v1-6-21b18b9ada77@codeconstruct.com.au>
-In-Reply-To: <20251211-dev-dt-warnings-all-v1-6-21b18b9ada77@codeconstruct.com.au>
+ <20251211-dev-dt-warnings-all-v1-7-21b18b9ada77@codeconstruct.com.au>
+In-Reply-To: <20251211-dev-dt-warnings-all-v1-7-21b18b9ada77@codeconstruct.com.au>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 11 Dec 2025 12:31:38 +0100
-X-Gm-Features: AQt7F2pSIRmWc3gz3aUnvZCl6QhFMFW_pPE_bkwFhLy-FhbClf3aqE2_J1pJY4M
-Message-ID: <CAPDyKFrbS_3XRTSuexFxTpP1ydgvfFvXNv_tninnTqum7+92ZA@mail.gmail.com>
-Subject: Re: [PATCH RFC 06/16] dt-bindings: mmc: Switch ref to sdhci-common.yaml
+Date: Thu, 11 Dec 2025 12:31:45 +0100
+X-Gm-Features: AQt7F2oiHWORIK5IUrdndTpX-opjO6A0dESgetC9ddqm2QKKAaLxTanuvA5lEio
+Message-ID: <CAPDyKFqZQUurBNSNUBKE7rgBf+UHxKiYBWt+xxSY+dh7PgdPPQ@mail.gmail.com>
+Subject: Re: [PATCH RFC 07/16] ARM: dts: aspeed: Remove sdhci-drive-type
+ property from AST2600 EVB
 To: Andrew Jeffery <andrew@codeconstruct.com.au>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
 	Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, Joel Stanley <joel@jms.id.au>, 
@@ -84,8 +84,8 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-crypto@vger.kernel.org, linux-iio@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_033217_302982_23D5CFCE 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20251211_033223_684763_2E5CFDFF 
+X-CRM114-Status: GOOD (  14.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,34 +103,40 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On Thu, 11 Dec 2025 at 09:47, Andrew Jeffery
 <andrew@codeconstruct.com.au> wrote:
 >
-> Enable use of common SDHCI-related properties such as sdhci-caps-mask as
-> found in the AST2600 EVB DTS.
+> The property isn't specified in the bindings and is not used by the
+> corresponding driver, so drop it.
 >
 > Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
 
-Applied for fixes and by adding a stable-tag, thanks!
+FWIW:
 
-Kind regards
-Uffe
+Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
 
 
 > ---
->  Documentation/devicetree/bindings/mmc/aspeed,sdhci.yaml | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts | 2 --
+>  1 file changed, 2 deletions(-)
 >
-> diff --git a/Documentation/devicetree/bindings/mmc/aspeed,sdhci.yaml b/Documentation/devicetree/bindings/mmc/aspeed,sdhci.yaml
-> index 9fce8cd7b0b6..d24950ccea95 100644
-> --- a/Documentation/devicetree/bindings/mmc/aspeed,sdhci.yaml
-> +++ b/Documentation/devicetree/bindings/mmc/aspeed,sdhci.yaml
-> @@ -41,7 +41,7 @@ properties:
->  patternProperties:
->    "^sdhci@[0-9a-f]+$":
->      type: object
-> -    $ref: mmc-controller.yaml
-> +    $ref: sdhci-common.yaml
->      unevaluatedProperties: false
->
->      properties:
+> diff --git a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
+> index de83c0eb1d6e..3eba676e57f1 100644
+> --- a/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
+> +++ b/arch/arm/boot/dts/aspeed/aspeed-ast2600-evb.dts
+> @@ -314,7 +314,6 @@ &sdhci0 {
+>         status = "okay";
+>         bus-width = <4>;
+>         max-frequency = <100000000>;
+> -       sdhci-drive-type = /bits/ 8 <3>;
+>         sdhci-caps-mask = <0x7 0x0>;
+>         sdhci,wp-inverted;
+>         vmmc-supply = <&vcc_sdhci0>;
+> @@ -326,7 +325,6 @@ &sdhci1 {
+>         status = "okay";
+>         bus-width = <4>;
+>         max-frequency = <100000000>;
+> -       sdhci-drive-type = /bits/ 8 <3>;
+>         sdhci-caps-mask = <0x7 0x0>;
+>         sdhci,wp-inverted;
+>         vmmc-supply = <&vcc_sdhci1>;
 >
 > --
 > 2.47.3
