@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EDC8D3E78A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 01:21:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91B17D3E787
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 01:21:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ByKJBLbmCqNNMMVmN3HtbO+jgEjco70c87Wq9YzShm0=; b=Z0FOl8C6pkMkiH/CaRZaY3GNtX
-	t5XzlIK1+LXbdAEvxhu3X6GHesemar04GAgi12XaMFpd/dMcrHB8znDIfuvqPO4UU5N9X+OLXKODQ
-	ksq1OXZqTCZXIJDCN6D3fEWqrYmwIw/pysq9rR4Pw77KbrLhR/R+3aRJxReEwWIiolVAX+5QrD6Ar
-	TRltyMRjaWf1OElhKBUnCtxLq0RLmRMpzcFZ+TBFdFU6+um9f6j7HB65ypwv1O7g8zBEXDMrFM3DR
-	Hf+/14rodex9QLkZ+RdxIubA83ERVZ8lejQ/JGPKDm/ZTTXLEsw1QmYsJ7qTlrqOH4+zhZSNPqaOs
-	VH5c+goQ==;
+	bh=pbVkEm73bTNK3Pl9dOTRS5S5wkGa27hejhbL3BsLUEQ=; b=3XLeWIQKKjkma3uUXAGLd0ogfC
+	BgErkb2k76LpTOCLcnxhww1n1tB6pSwC98pdvVfjCcJNHoIzdMb6/bAQd1nQV/nCK+9UdITzXOPwb
+	6wd3UasN0BTzh8nGRg+s5kLqmp65hllge5nLekWDefxNmXEuwYCM+FR82h85rQ5+rD/GlxozwEpeP
+	/VstVMkIrxDHB+WkOJovmHNpAiSS/ryaWu5YD3GhCmgBjJq+rxkGnC6e65hwnLq34sWFgrArks5MV
+	pvUXeaHfJxvgNcq2HdmgJZSeBn1yZXTeVCKycHpiQZih8E7KAIsIgeuj2e3mbrvwuB2M14xMdEsMo
+	QtgA4Dhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTVMc-0000000G3lt-3XHV;
-	Thu, 11 Dec 2025 01:21:02 +0000
+	id 1vTVMd-0000000G3mM-0jFt;
+	Thu, 11 Dec 2025 01:21:03 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTVMT-0000000G3bp-3jIA
+	id 1vTVMV-0000000G3cr-0FGH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 01:20:58 +0000
+	Thu, 11 Dec 2025 01:20:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9662544451;
-	Thu, 11 Dec 2025 01:20:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19A5FC4CEF7;
-	Thu, 11 Dec 2025 01:20:53 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id BEEB544457;
+	Thu, 11 Dec 2025 01:20:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C601C113D0;
+	Thu, 11 Dec 2025 01:20:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765416053;
-	bh=QEHq2etmS9RjJGySP14SepK+6u8TcOGeThrTyyMUghY=;
+	s=k20201202; t=1765416054;
+	bh=A+CNVdsT6Wqi2GfioKWoooWo4EvER4pGygMuQqFuzCk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Z7Or81+sGQOl7njUSzB1NJP8F+n0mw8cPNvUhuYhBRAMptPLW60SZBqzUpSZo1oob
-	 zuccGi9gEQ8/9/8qik0R94TRftm5alM5xrec8osyJzlM/0qTLtfisNUUZL7IJHapmS
-	 dWlwdE03JGTTvQp/OjG+vjUcGaNXqwhB/j6SQnBL63boqrxiq24zP3SPkGiKsXxW0Y
-	 b/MsWTR8RQg4oHNBZembxV1Z8vCVL2XVaZ4UO+rf5Fi/UkasxLSsq1WpZHltU+IK2n
-	 gucQ6sTnObUhamATNukQtO/De/uofkralSRSE6XBk5eG0W+PEuKv+9keBcV1CpIpR7
-	 NXXunKNCGYWyA==
+	b=Q//ynOO2OG4v0l/vtfkV7RfFzju1UYIyQeRtdPR63jqrPihCL2iw5XB5ffrynaVKX
+	 DUgyZyjB7Rk8/y0jcmuVZ97kQbs90DlIhBwm0bf4FedU5/sw/9xyIC7G7wgjqGGtnu
+	 al+JJNVNRCYduDYNdBXXn+uY9rhkkwudW9wakDuipTNoFYMDjSMx/R87wFZiCw5ML0
+	 RH8oQk8Yfb8nOPxp2SPALuMhPUjaXwOGLnN7rbzlnOhPtDMpN5lpkvwJ7ZkLNGEkIf
+	 BV7tpRxlTpIx8XomvM+DKXaSR30EwE1ejFyHkelykUMSKe0Hre/IiswI5IQGdyNdg6
+	 daNvB2z+rgKow==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -51,9 +51,9 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	x86@kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
-Subject: [PATCH 04/12] lib/crypto: arm64/nh: Migrate optimized code into library
-Date: Wed, 10 Dec 2025 17:18:36 -0800
-Message-ID: <20251211011846.8179-5-ebiggers@kernel.org>
+Subject: [PATCH 06/12] crypto: adiantum - Convert to use NH library
+Date: Wed, 10 Dec 2025 17:18:38 -0800
+Message-ID: <20251211011846.8179-7-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20251211011846.8179-1-ebiggers@kernel.org>
 References: <20251211011846.8179-1-ebiggers@kernel.org>
@@ -61,8 +61,8 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_172053_967084_C81AD291 
-X-CRM114-Status: GOOD (  17.80  )
+X-CRM114-CacheID: sfid-20251210_172055_189824_BF35A4C8 
+X-CRM114-Status: GOOD (  36.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,259 +77,656 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Migrate the arm64 NEON implementation of NH into lib/crypto/.  This
-makes the nh() function be optimized on arm64 kernels.
+Reimplement the Adiantum message hashing using the nh() library
+function, combined with some code which directly handles the Poly1305
+stage.  The latter code is derived from crypto/nhpoly1305.c.
 
-Note: this temporarily makes the adiantum template not utilize the arm64
-optimized NH code.  This is resolved in a later commit that converts the
-adiantum template to use nh() instead of "nhpoly1305".
+This eliminates the dependency on the "nhpoly1305" crypto_shash
+algorithm, which existed only to fit Adiantum message hashing into the
+traditional Linux crypto API paradigm.  Now that simple,
+architecture-optimized library functions are a well-established option
+too, we can switch to this simpler implementation.
+
+Note: I've dropped the support for the optional third parameter of the
+adiantum template, which specified the nhpoly1305 implementation.  We
+could keep accepting some strings in this parameter for backwards
+compatibility, but I don't think it's being used.  I believe only
+"adiantum(xchacha12,aes)" and "adiantum(xchacha20,aes)" are used.
 
 Signed-off-by: Eric Biggers <ebiggers@kernel.org>
 ---
- arch/arm64/crypto/Kconfig                     | 10 ---
- arch/arm64/crypto/Makefile                    |  3 -
- arch/arm64/crypto/nhpoly1305-neon-glue.c      | 79 -------------------
- lib/crypto/Kconfig                            |  1 +
- lib/crypto/Makefile                           |  1 +
- .../crypto/arm64}/nh-neon-core.S              |  3 +-
- lib/crypto/arm64/nh.h                         | 34 ++++++++
- 7 files changed, 37 insertions(+), 94 deletions(-)
- delete mode 100644 arch/arm64/crypto/nhpoly1305-neon-glue.c
- rename {arch/arm64/crypto => lib/crypto/arm64}/nh-neon-core.S (97%)
- create mode 100644 lib/crypto/arm64/nh.h
+ crypto/Kconfig    |   2 +-
+ crypto/adiantum.c | 295 +++++++++++++++++++++++++++++-----------------
+ crypto/testmgr.c  |   4 +-
+ 3 files changed, 191 insertions(+), 110 deletions(-)
 
-diff --git a/arch/arm64/crypto/Kconfig b/arch/arm64/crypto/Kconfig
-index bdd276a6e540..da1c9ea8ea83 100644
---- a/arch/arm64/crypto/Kconfig
-+++ b/arch/arm64/crypto/Kconfig
-@@ -13,20 +13,10 @@ config CRYPTO_GHASH_ARM64_CE
- 	  GCM GHASH function (NIST SP800-38D)
+diff --git a/crypto/Kconfig b/crypto/Kconfig
+index 2e5b195b1b06..89d1ccaa1fa0 100644
+--- a/crypto/Kconfig
++++ b/crypto/Kconfig
+@@ -599,13 +599,13 @@ endmenu
+ menu "Length-preserving ciphers and modes"
  
- 	  Architecture: arm64 using:
- 	  - ARMv8 Crypto Extensions
- 
--config CRYPTO_NHPOLY1305_NEON
--	tristate "Hash functions: NHPoly1305 (NEON)"
--	depends on KERNEL_MODE_NEON
+ config CRYPTO_ADIANTUM
+ 	tristate "Adiantum"
+ 	select CRYPTO_CHACHA20
++	select CRYPTO_LIB_NH
+ 	select CRYPTO_LIB_POLY1305
+ 	select CRYPTO_LIB_POLY1305_GENERIC
 -	select CRYPTO_NHPOLY1305
--	help
--	  NHPoly1305 hash function (Adiantum)
--
--	  Architecture: arm64 using:
--	  - NEON (Advanced SIMD) extensions
--
- config CRYPTO_SM3_NEON
- 	tristate "Hash functions: SM3 (NEON)"
- 	depends on KERNEL_MODE_NEON
- 	select CRYPTO_HASH
- 	select CRYPTO_LIB_SM3
-diff --git a/arch/arm64/crypto/Makefile b/arch/arm64/crypto/Makefile
-index 1e330aa08d3f..3ab4b58e5c4c 100644
---- a/arch/arm64/crypto/Makefile
-+++ b/arch/arm64/crypto/Makefile
-@@ -39,13 +39,10 @@ obj-$(CONFIG_CRYPTO_AES_ARM64_CE_BLK) += aes-ce-blk.o
- aes-ce-blk-y := aes-glue-ce.o aes-ce.o
- 
- obj-$(CONFIG_CRYPTO_AES_ARM64_NEON_BLK) += aes-neon-blk.o
- aes-neon-blk-y := aes-glue-neon.o aes-neon.o
- 
--obj-$(CONFIG_CRYPTO_NHPOLY1305_NEON) += nhpoly1305-neon.o
--nhpoly1305-neon-y := nh-neon-core.o nhpoly1305-neon-glue.o
--
- obj-$(CONFIG_CRYPTO_AES_ARM64) += aes-arm64.o
- aes-arm64-y := aes-cipher-core.o aes-cipher-glue.o
- 
- obj-$(CONFIG_CRYPTO_AES_ARM64_BS) += aes-neon-bs.o
- aes-neon-bs-y := aes-neonbs-core.o aes-neonbs-glue.o
-diff --git a/arch/arm64/crypto/nhpoly1305-neon-glue.c b/arch/arm64/crypto/nhpoly1305-neon-glue.c
-deleted file mode 100644
-index 013de6ac569a..000000000000
---- a/arch/arm64/crypto/nhpoly1305-neon-glue.c
-+++ /dev/null
-@@ -1,79 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0
--/*
-- * NHPoly1305 - ε-almost-∆-universal hash function for Adiantum
-- * (ARM64 NEON accelerated version)
-- *
-- * Copyright 2018 Google LLC
-- */
--
--#include <asm/neon.h>
--#include <asm/simd.h>
--#include <crypto/internal/hash.h>
--#include <crypto/internal/simd.h>
--#include <crypto/nhpoly1305.h>
--#include <linux/module.h>
--
--asmlinkage void nh_neon(const u32 *key, const u8 *message, size_t message_len,
--			__le64 hash[NH_NUM_PASSES]);
--
--static int nhpoly1305_neon_update(struct shash_desc *desc,
--				  const u8 *src, unsigned int srclen)
--{
--	if (srclen < 64 || !crypto_simd_usable())
--		return crypto_nhpoly1305_update(desc, src, srclen);
--
--	do {
--		unsigned int n = min_t(unsigned int, srclen, SZ_4K);
--
--		scoped_ksimd()
--			crypto_nhpoly1305_update_helper(desc, src, n, nh_neon);
--		src += n;
--		srclen -= n;
--	} while (srclen);
--	return 0;
--}
--
--static int nhpoly1305_neon_digest(struct shash_desc *desc,
--				  const u8 *src, unsigned int srclen, u8 *out)
--{
--	return crypto_nhpoly1305_init(desc) ?:
--	       nhpoly1305_neon_update(desc, src, srclen) ?:
--	       crypto_nhpoly1305_final(desc, out);
--}
--
--static struct shash_alg nhpoly1305_alg = {
--	.base.cra_name		= "nhpoly1305",
--	.base.cra_driver_name	= "nhpoly1305-neon",
--	.base.cra_priority	= 200,
--	.base.cra_ctxsize	= sizeof(struct nhpoly1305_key),
--	.base.cra_module	= THIS_MODULE,
--	.digestsize		= POLY1305_DIGEST_SIZE,
--	.init			= crypto_nhpoly1305_init,
--	.update			= nhpoly1305_neon_update,
--	.final			= crypto_nhpoly1305_final,
--	.digest			= nhpoly1305_neon_digest,
--	.setkey			= crypto_nhpoly1305_setkey,
--	.descsize		= sizeof(struct nhpoly1305_state),
--};
--
--static int __init nhpoly1305_mod_init(void)
--{
--	if (!cpu_have_named_feature(ASIMD))
--		return -ENODEV;
--
--	return crypto_register_shash(&nhpoly1305_alg);
--}
--
--static void __exit nhpoly1305_mod_exit(void)
--{
--	crypto_unregister_shash(&nhpoly1305_alg);
--}
--
--module_init(nhpoly1305_mod_init);
--module_exit(nhpoly1305_mod_exit);
--
--MODULE_DESCRIPTION("NHPoly1305 ε-almost-∆-universal hash function (NEON-accelerated)");
--MODULE_LICENSE("GPL v2");
--MODULE_AUTHOR("Eric Biggers <ebiggers@google.com>");
--MODULE_ALIAS_CRYPTO("nhpoly1305");
--MODULE_ALIAS_CRYPTO("nhpoly1305-neon");
-diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index c6ee7ca77632..aa3f850ece24 100644
---- a/lib/crypto/Kconfig
-+++ b/lib/crypto/Kconfig
-@@ -116,10 +116,11 @@ config CRYPTO_LIB_NH
- 
- config CRYPTO_LIB_NH_ARCH
- 	bool
- 	depends on CRYPTO_LIB_NH && !UML
- 	default y if ARM && KERNEL_MODE_NEON
-+	default y if ARM64 && KERNEL_MODE_NEON
- 
- config CRYPTO_LIB_POLY1305
- 	tristate
+ 	select CRYPTO_MANAGER
  	help
- 	  The Poly1305 library functions.  Select this if your module uses any
-diff --git a/lib/crypto/Makefile b/lib/crypto/Makefile
-index 6dae7e182847..e3a13952bc2a 100644
---- a/lib/crypto/Makefile
-+++ b/lib/crypto/Makefile
-@@ -134,10 +134,11 @@ libmldsa-y := mldsa.o
- obj-$(CONFIG_CRYPTO_LIB_NH) += libnh.o
- libnh-y := nh.o
- ifeq ($(CONFIG_CRYPTO_LIB_NH_ARCH),y)
- CFLAGS_nh.o += -I$(src)/$(SRCARCH)
- libnh-$(CONFIG_ARM) += arm/nh-neon-core.o
-+libnh-$(CONFIG_ARM64) += arm64/nh-neon-core.o
- endif
+ 	  Adiantum tweakable, length-preserving encryption mode
  
- ################################################################################
- 
- obj-$(CONFIG_CRYPTO_LIB_POLY1305) += libpoly1305.o
-diff --git a/arch/arm64/crypto/nh-neon-core.S b/lib/crypto/arm64/nh-neon-core.S
-similarity index 97%
-rename from arch/arm64/crypto/nh-neon-core.S
-rename to lib/crypto/arm64/nh-neon-core.S
-index 13eda08fda1e..6fa57fce8085 100644
---- a/arch/arm64/crypto/nh-neon-core.S
-+++ b/lib/crypto/arm64/nh-neon-core.S
-@@ -6,11 +6,10 @@
+ 	  Designed for fast and secure disk encryption, especially on
+diff --git a/crypto/adiantum.c b/crypto/adiantum.c
+index a6bca877c3c7..bbe519fbd739 100644
+--- a/crypto/adiantum.c
++++ b/crypto/adiantum.c
+@@ -18,27 +18,18 @@
   *
-  * Author: Eric Biggers <ebiggers@google.com>
+  * For flexibility, this implementation also allows other ciphers:
+  *
+  *	- Stream cipher: XChaCha12 or XChaCha20
+  *	- Block cipher: any with a 128-bit block size and 256-bit key
+- *
+- * This implementation doesn't currently allow other ε-∆U hash functions, i.e.
+- * HPolyC is not supported.  This is because Adiantum is ~20% faster than HPolyC
+- * but still provably as secure, and also the ε-∆U hash function of HBSH is
+- * formally defined to take two inputs (tweak, message) which makes it difficult
+- * to wrap with the crypto_shash API.  Rather, some details need to be handled
+- * here.  Nevertheless, if needed in the future, support for other ε-∆U hash
+- * functions could be added here.
   */
  
- #include <linux/linkage.h>
--#include <linux/cfi_types.h>
+ #include <crypto/b128ops.h>
+ #include <crypto/chacha.h>
+ #include <crypto/internal/cipher.h>
+-#include <crypto/internal/hash.h>
+ #include <crypto/internal/poly1305.h>
+ #include <crypto/internal/skcipher.h>
+-#include <crypto/nhpoly1305.h>
++#include <crypto/nh.h>
+ #include <crypto/scatterwalk.h>
+ #include <linux/module.h>
  
- 	KEY		.req	x0
- 	MESSAGE		.req	x1
- 	MESSAGE_LEN	.req	x2
- 	HASH		.req	x3
-@@ -61,11 +60,11 @@
-  * void nh_neon(const u32 *key, const u8 *message, size_t message_len,
-  *		__le64 hash[NH_NUM_PASSES])
-  *
-  * It's guaranteed that message_len % 16 == 0.
-  */
--SYM_TYPED_FUNC_START(nh_neon)
-+SYM_FUNC_START(nh_neon)
+ /*
+  * Size of right-hand part of input data, in bytes; also the size of the block
+@@ -48,11 +39,11 @@
  
- 	ld1		{K0.4s,K1.4s}, [KEY], #32
- 	  movi		PASS0_SUMS.2d, #0
- 	  movi		PASS1_SUMS.2d, #0
- 	ld1		{K2.4s}, [KEY], #16
-diff --git a/lib/crypto/arm64/nh.h b/lib/crypto/arm64/nh.h
-new file mode 100644
-index 000000000000..08902630bdd1
---- /dev/null
-+++ b/lib/crypto/arm64/nh.h
-@@ -0,0 +1,34 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
+ /* Size of the block cipher key (K_E) in bytes */
+ #define BLOCKCIPHER_KEY_SIZE		32
+ 
+ /* Size of the hash key (K_H) in bytes */
+-#define HASH_KEY_SIZE		(POLY1305_BLOCK_SIZE + NHPOLY1305_KEY_SIZE)
++#define HASH_KEY_SIZE		(2 * POLY1305_BLOCK_SIZE + NH_KEY_BYTES)
+ 
+ /*
+  * The specification allows variable-length tweaks, but Linux's crypto API
+  * currently only allows algorithms to support a single length.  The "natural"
+  * tweak length for Adiantum is 16, since that fits into one Poly1305 block for
+@@ -62,18 +53,35 @@
+ #define TWEAK_SIZE		32
+ 
+ struct adiantum_instance_ctx {
+ 	struct crypto_skcipher_spawn streamcipher_spawn;
+ 	struct crypto_cipher_spawn blockcipher_spawn;
+-	struct crypto_shash_spawn hash_spawn;
+ };
+ 
+ struct adiantum_tfm_ctx {
+ 	struct crypto_skcipher *streamcipher;
+ 	struct crypto_cipher *blockcipher;
+-	struct crypto_shash *hash;
+ 	struct poly1305_core_key header_hash_key;
++	struct poly1305_core_key msg_poly_key;
++	u32 nh_key[NH_KEY_WORDS];
++};
++
++struct nhpoly1305_ctx {
++	/* Running total of polynomial evaluation */
++	struct poly1305_state poly_state;
++
++	/* Partial block buffer */
++	u8 buffer[NH_MESSAGE_UNIT];
++	unsigned int buflen;
++
++	/*
++	 * Number of bytes remaining until the current NH message reaches
++	 * NH_MESSAGE_BYTES.  When nonzero, 'nh_hash' holds the partial NH hash.
++	 */
++	unsigned int nh_remaining;
++
++	__le64 nh_hash[NH_NUM_PASSES];
+ };
+ 
+ struct adiantum_request_ctx {
+ 
+ 	/*
+@@ -96,13 +104,16 @@ struct adiantum_request_ctx {
+ 	 * The result of the Poly1305 ε-∆U hash function applied to
+ 	 * (bulk length, tweak)
+ 	 */
+ 	le128 header_hash;
+ 
+-	/* Sub-requests, must be last */
++	/*
++	 * skcipher sub-request size is unknown at compile-time, so it needs to
++	 * go after the members with known sizes.
++	 */
+ 	union {
+-		struct shash_desc hash_desc;
++		struct nhpoly1305_ctx hash_ctx;
+ 		struct skcipher_request streamcipher_req;
+ 	} u;
+ };
+ 
+ /*
+@@ -168,16 +179,15 @@ static int adiantum_setkey(struct crypto_skcipher *tfm, const u8 *key,
+ 	keyp += BLOCKCIPHER_KEY_SIZE;
+ 
+ 	/* Set the hash key (K_H) */
+ 	poly1305_core_setkey(&tctx->header_hash_key, keyp);
+ 	keyp += POLY1305_BLOCK_SIZE;
+-
+-	crypto_shash_clear_flags(tctx->hash, CRYPTO_TFM_REQ_MASK);
+-	crypto_shash_set_flags(tctx->hash, crypto_skcipher_get_flags(tfm) &
+-					   CRYPTO_TFM_REQ_MASK);
+-	err = crypto_shash_setkey(tctx->hash, keyp, NHPOLY1305_KEY_SIZE);
+-	keyp += NHPOLY1305_KEY_SIZE;
++	poly1305_core_setkey(&tctx->msg_poly_key, keyp);
++	keyp += POLY1305_BLOCK_SIZE;
++	for (int i = 0; i < NH_KEY_WORDS; i++)
++		tctx->nh_key[i] = get_unaligned_le32(&keyp[i * 4]);
++	keyp += NH_KEY_BYTES;
+ 	WARN_ON(keyp != &data->derived_keys[ARRAY_SIZE(data->derived_keys)]);
+ out:
+ 	kfree_sensitive(data);
+ 	return err;
+ }
+@@ -241,39 +251,147 @@ static void adiantum_hash_header(struct skcipher_request *req)
+ 			     TWEAK_SIZE / POLY1305_BLOCK_SIZE, 1);
+ 
+ 	poly1305_core_emit(&state, NULL, &rctx->header_hash);
+ }
+ 
+-/* Hash the left-hand part (the "bulk") of the message using NHPoly1305 */
+-static int adiantum_hash_message(struct skcipher_request *req,
+-				 struct scatterlist *sgl, unsigned int nents,
+-				 le128 *digest)
++/* Pass the next NH hash value through Poly1305 */
++static void process_nh_hash_value(struct nhpoly1305_ctx *ctx,
++				  const struct adiantum_tfm_ctx *key)
++{
++	static_assert(NH_HASH_BYTES % POLY1305_BLOCK_SIZE == 0);
++
++	poly1305_core_blocks(&ctx->poly_state, &key->msg_poly_key, ctx->nh_hash,
++			     NH_HASH_BYTES / POLY1305_BLOCK_SIZE, 1);
++}
++
 +/*
-+ * ARM64 accelerated implementation of NH
-+ *
-+ * Copyright 2018 Google LLC
++ * Feed the next portion of the message data, as a whole number of 16-byte
++ * "NH message units", through NH and Poly1305.  Each NH hash is taken over
++ * 1024 bytes, except possibly the final one which is taken over a multiple of
++ * 16 bytes up to 1024.  Also, in the case where data is passed in misaligned
++ * chunks, we combine partial hashes; the end result is the same either way.
 + */
-+
-+#include <asm/hwcap.h>
-+#include <asm/simd.h>
-+#include <linux/cpufeature.h>
-+
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_neon);
-+
-+asmlinkage void nh_neon(const u32 *key, const u8 *message, size_t message_len,
-+			__le64 hash[NH_NUM_PASSES]);
-+
-+static bool nh_arch(const u32 *key, const u8 *message, size_t message_len,
-+		    __le64 hash[NH_NUM_PASSES])
++static void nhpoly1305_units(struct nhpoly1305_ctx *ctx,
++			     const struct adiantum_tfm_ctx *key,
++			     const u8 *data, size_t len)
 +{
-+	if (static_branch_likely(&have_neon) && message_len >= 64 &&
-+	    may_use_simd()) {
-+		scoped_ksimd()
-+			nh_neon(key, message, message_len, hash);
-+		return true;
++	do {
++		unsigned int bytes;
++
++		if (ctx->nh_remaining == 0) {
++			/* Starting a new NH message */
++			bytes = min(len, NH_MESSAGE_BYTES);
++			nh(key->nh_key, data, bytes, ctx->nh_hash);
++			ctx->nh_remaining = NH_MESSAGE_BYTES - bytes;
++		} else {
++			/* Continuing a previous NH message */
++			__le64 tmp_hash[NH_NUM_PASSES];
++			unsigned int pos;
++
++			pos = NH_MESSAGE_BYTES - ctx->nh_remaining;
++			bytes = min(len, ctx->nh_remaining);
++			nh(&key->nh_key[pos / 4], data, bytes, tmp_hash);
++			for (int i = 0; i < NH_NUM_PASSES; i++)
++				le64_add_cpu(&ctx->nh_hash[i],
++					     le64_to_cpu(tmp_hash[i]));
++			ctx->nh_remaining -= bytes;
++		}
++		if (ctx->nh_remaining == 0)
++			process_nh_hash_value(ctx, key);
++		data += bytes;
++		len -= bytes;
++	} while (len);
++}
++
++static void nhpoly1305_init(struct nhpoly1305_ctx *ctx)
++{
++	poly1305_core_init(&ctx->poly_state);
++	ctx->buflen = 0;
++	ctx->nh_remaining = 0;
++}
++
++static void nhpoly1305_update(struct nhpoly1305_ctx *ctx,
++			      const struct adiantum_tfm_ctx *key,
++			      const u8 *data, size_t len)
+ {
++	unsigned int bytes;
++
++	if (ctx->buflen) {
++		bytes = min(len, (int)NH_MESSAGE_UNIT - ctx->buflen);
++		memcpy(&ctx->buffer[ctx->buflen], data, bytes);
++		ctx->buflen += bytes;
++		if (ctx->buflen < NH_MESSAGE_UNIT)
++			return;
++		nhpoly1305_units(ctx, key, ctx->buffer, NH_MESSAGE_UNIT);
++		ctx->buflen = 0;
++		data += bytes;
++		len -= bytes;
 +	}
-+	return false;
++
++	if (len >= NH_MESSAGE_UNIT) {
++		bytes = round_down(len, NH_MESSAGE_UNIT);
++		nhpoly1305_units(ctx, key, data, bytes);
++		data += bytes;
++		len -= bytes;
++	}
++
++	if (len) {
++		memcpy(ctx->buffer, data, len);
++		ctx->buflen = len;
++	}
 +}
 +
-+#define nh_mod_init_arch nh_mod_init_arch
-+static void nh_mod_init_arch(void)
++static void nhpoly1305_final(struct nhpoly1305_ctx *ctx,
++			     const struct adiantum_tfm_ctx *key, le128 *out)
 +{
-+	if (cpu_have_named_feature(ASIMD))
-+		static_branch_enable(&have_neon);
++	if (ctx->buflen) {
++		memset(&ctx->buffer[ctx->buflen], 0,
++		       NH_MESSAGE_UNIT - ctx->buflen);
++		nhpoly1305_units(ctx, key, ctx->buffer, NH_MESSAGE_UNIT);
++	}
++
++	if (ctx->nh_remaining)
++		process_nh_hash_value(ctx, key);
++
++	poly1305_core_emit(&ctx->poly_state, NULL, out);
 +}
++
++/*
++ * Hash the left-hand part (the "bulk") of the message as follows:
++ *
++ *	H_L ← Poly1305_{K_L}(NH_{K_N}(pad_{128}(L)))
++ *
++ * See section 6.4 of the Adiantum paper.  This is an ε-almost-∆-universal
++ * (ε-∆U) hash function for equal-length inputs over Z/(2^{128}Z), where the "∆"
++ * operation is addition.  It hashes 1024-byte chunks of the input with the NH
++ * hash function, reducing the input length by 32x.  The resulting NH hashes are
++ * evaluated as a polynomial in GF(2^{130}-5), like in the Poly1305 MAC.  Note
++ * that the polynomial evaluation by itself would suffice to achieve the ε-∆U
++ * property; NH is used for performance since it's much faster than Poly1305.
++ */
++static void adiantum_hash_message(struct skcipher_request *req,
++				  struct scatterlist *sgl, unsigned int nents,
++				  le128 *out)
++{
++	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
++	const struct adiantum_tfm_ctx *tctx = crypto_skcipher_ctx(tfm);
+ 	struct adiantum_request_ctx *rctx = skcipher_request_ctx(req);
+ 	const unsigned int bulk_len = req->cryptlen - BLOCKCIPHER_BLOCK_SIZE;
+-	struct shash_desc *hash_desc = &rctx->u.hash_desc;
+ 	struct sg_mapping_iter miter;
+ 	unsigned int i, n;
+-	int err;
+ 
+-	err = crypto_shash_init(hash_desc);
+-	if (err)
+-		return err;
++	nhpoly1305_init(&rctx->u.hash_ctx);
+ 
+ 	sg_miter_start(&miter, sgl, nents, SG_MITER_FROM_SG | SG_MITER_ATOMIC);
+ 	for (i = 0; i < bulk_len; i += n) {
+ 		sg_miter_next(&miter);
+ 		n = min_t(unsigned int, miter.length, bulk_len - i);
+-		err = crypto_shash_update(hash_desc, miter.addr, n);
+-		if (err)
+-			break;
++		nhpoly1305_update(&rctx->u.hash_ctx, tctx, miter.addr, n);
+ 	}
+ 	sg_miter_stop(&miter);
+-	if (err)
+-		return err;
+ 
+-	return crypto_shash_final(hash_desc, (u8 *)digest);
++	nhpoly1305_final(&rctx->u.hash_ctx, tctx, out);
+ }
+ 
+ /* Continue Adiantum encryption/decryption after the stream cipher step */
+ static int adiantum_finish(struct skcipher_request *req)
+ {
+@@ -282,11 +400,10 @@ static int adiantum_finish(struct skcipher_request *req)
+ 	struct adiantum_request_ctx *rctx = skcipher_request_ctx(req);
+ 	const unsigned int bulk_len = req->cryptlen - BLOCKCIPHER_BLOCK_SIZE;
+ 	struct scatterlist *dst = req->dst;
+ 	const unsigned int dst_nents = sg_nents(dst);
+ 	le128 digest;
+-	int err;
+ 
+ 	/* If decrypting, decrypt C_M with the block cipher to get P_M */
+ 	if (!rctx->enc)
+ 		crypto_cipher_decrypt_one(tctx->blockcipher, rctx->rbuf.bytes,
+ 					  rctx->rbuf.bytes);
+@@ -294,32 +411,26 @@ static int adiantum_finish(struct skcipher_request *req)
+ 	/*
+ 	 * Second hash step
+ 	 *	enc: C_R = C_M - H_{K_H}(T, C_L)
+ 	 *	dec: P_R = P_M - H_{K_H}(T, P_L)
+ 	 */
+-	rctx->u.hash_desc.tfm = tctx->hash;
+ 	le128_sub(&rctx->rbuf.bignum, &rctx->rbuf.bignum, &rctx->header_hash);
+ 	if (dst_nents == 1 && dst->offset + req->cryptlen <= PAGE_SIZE) {
+ 		/* Fast path for single-page destination */
+ 		struct page *page = sg_page(dst);
+ 		void *virt = kmap_local_page(page) + dst->offset;
+ 
+-		err = crypto_shash_digest(&rctx->u.hash_desc, virt, bulk_len,
+-					  (u8 *)&digest);
+-		if (err) {
+-			kunmap_local(virt);
+-			return err;
+-		}
++		nhpoly1305_init(&rctx->u.hash_ctx);
++		nhpoly1305_update(&rctx->u.hash_ctx, tctx, virt, bulk_len);
++		nhpoly1305_final(&rctx->u.hash_ctx, tctx, &digest);
+ 		le128_sub(&rctx->rbuf.bignum, &rctx->rbuf.bignum, &digest);
+ 		memcpy(virt + bulk_len, &rctx->rbuf.bignum, sizeof(le128));
+ 		flush_dcache_page(page);
+ 		kunmap_local(virt);
+ 	} else {
+ 		/* Slow path that works for any destination scatterlist */
+-		err = adiantum_hash_message(req, dst, dst_nents, &digest);
+-		if (err)
+-			return err;
++		adiantum_hash_message(req, dst, dst_nents, &digest);
+ 		le128_sub(&rctx->rbuf.bignum, &rctx->rbuf.bignum, &digest);
+ 		scatterwalk_map_and_copy(&rctx->rbuf.bignum, dst,
+ 					 bulk_len, sizeof(le128), 1);
+ 	}
+ 	return 0;
+@@ -343,11 +454,10 @@ static int adiantum_crypt(struct skcipher_request *req, bool enc)
+ 	const unsigned int bulk_len = req->cryptlen - BLOCKCIPHER_BLOCK_SIZE;
+ 	struct scatterlist *src = req->src;
+ 	const unsigned int src_nents = sg_nents(src);
+ 	unsigned int stream_len;
+ 	le128 digest;
+-	int err;
+ 
+ 	if (req->cryptlen < BLOCKCIPHER_BLOCK_SIZE)
+ 		return -EINVAL;
+ 
+ 	rctx->enc = enc;
+@@ -356,27 +466,25 @@ static int adiantum_crypt(struct skcipher_request *req, bool enc)
+ 	 * First hash step
+ 	 *	enc: P_M = P_R + H_{K_H}(T, P_L)
+ 	 *	dec: C_M = C_R + H_{K_H}(T, C_L)
+ 	 */
+ 	adiantum_hash_header(req);
+-	rctx->u.hash_desc.tfm = tctx->hash;
+ 	if (src_nents == 1 && src->offset + req->cryptlen <= PAGE_SIZE) {
+ 		/* Fast path for single-page source */
+ 		void *virt = kmap_local_page(sg_page(src)) + src->offset;
+ 
+-		err = crypto_shash_digest(&rctx->u.hash_desc, virt, bulk_len,
+-					  (u8 *)&digest);
++		nhpoly1305_init(&rctx->u.hash_ctx);
++		nhpoly1305_update(&rctx->u.hash_ctx, tctx, virt, bulk_len);
++		nhpoly1305_final(&rctx->u.hash_ctx, tctx, &digest);
+ 		memcpy(&rctx->rbuf.bignum, virt + bulk_len, sizeof(le128));
+ 		kunmap_local(virt);
+ 	} else {
+ 		/* Slow path that works for any source scatterlist */
+-		err = adiantum_hash_message(req, src, src_nents, &digest);
++		adiantum_hash_message(req, src, src_nents, &digest);
+ 		scatterwalk_map_and_copy(&rctx->rbuf.bignum, src,
+ 					 bulk_len, sizeof(le128), 0);
+ 	}
+-	if (err)
+-		return err;
+ 	le128_add(&rctx->rbuf.bignum, &rctx->rbuf.bignum, &rctx->header_hash);
+ 	le128_add(&rctx->rbuf.bignum, &rctx->rbuf.bignum, &digest);
+ 
+ 	/* If encrypting, encrypt P_M with the block cipher to get C_M */
+ 	if (enc)
+@@ -429,12 +537,10 @@ static int adiantum_init_tfm(struct crypto_skcipher *tfm)
+ 	struct skcipher_instance *inst = skcipher_alg_instance(tfm);
+ 	struct adiantum_instance_ctx *ictx = skcipher_instance_ctx(inst);
+ 	struct adiantum_tfm_ctx *tctx = crypto_skcipher_ctx(tfm);
+ 	struct crypto_skcipher *streamcipher;
+ 	struct crypto_cipher *blockcipher;
+-	struct crypto_shash *hash;
+-	unsigned int subreq_size;
+ 	int err;
+ 
+ 	streamcipher = crypto_spawn_skcipher(&ictx->streamcipher_spawn);
+ 	if (IS_ERR(streamcipher))
+ 		return PTR_ERR(streamcipher);
+@@ -443,36 +549,22 @@ static int adiantum_init_tfm(struct crypto_skcipher *tfm)
+ 	if (IS_ERR(blockcipher)) {
+ 		err = PTR_ERR(blockcipher);
+ 		goto err_free_streamcipher;
+ 	}
+ 
+-	hash = crypto_spawn_shash(&ictx->hash_spawn);
+-	if (IS_ERR(hash)) {
+-		err = PTR_ERR(hash);
+-		goto err_free_blockcipher;
+-	}
+-
+ 	tctx->streamcipher = streamcipher;
+ 	tctx->blockcipher = blockcipher;
+-	tctx->hash = hash;
+ 
+ 	BUILD_BUG_ON(offsetofend(struct adiantum_request_ctx, u) !=
+ 		     sizeof(struct adiantum_request_ctx));
+-	subreq_size = max(sizeof_field(struct adiantum_request_ctx,
+-				       u.hash_desc) +
+-			  crypto_shash_descsize(hash),
+-			  sizeof_field(struct adiantum_request_ctx,
+-				       u.streamcipher_req) +
+-			  crypto_skcipher_reqsize(streamcipher));
+-
+-	crypto_skcipher_set_reqsize(tfm,
+-				    offsetof(struct adiantum_request_ctx, u) +
+-				    subreq_size);
++	crypto_skcipher_set_reqsize(
++		tfm, max(sizeof(struct adiantum_request_ctx),
++			 offsetofend(struct adiantum_request_ctx,
++				     u.streamcipher_req) +
++				 crypto_skcipher_reqsize(streamcipher)));
+ 	return 0;
+ 
+-err_free_blockcipher:
+-	crypto_free_cipher(blockcipher);
+ err_free_streamcipher:
+ 	crypto_free_skcipher(streamcipher);
+ 	return err;
+ }
+ 
+@@ -480,30 +572,28 @@ static void adiantum_exit_tfm(struct crypto_skcipher *tfm)
+ {
+ 	struct adiantum_tfm_ctx *tctx = crypto_skcipher_ctx(tfm);
+ 
+ 	crypto_free_skcipher(tctx->streamcipher);
+ 	crypto_free_cipher(tctx->blockcipher);
+-	crypto_free_shash(tctx->hash);
+ }
+ 
+ static void adiantum_free_instance(struct skcipher_instance *inst)
+ {
+ 	struct adiantum_instance_ctx *ictx = skcipher_instance_ctx(inst);
+ 
+ 	crypto_drop_skcipher(&ictx->streamcipher_spawn);
+ 	crypto_drop_cipher(&ictx->blockcipher_spawn);
+-	crypto_drop_shash(&ictx->hash_spawn);
+ 	kfree(inst);
+ }
+ 
+ /*
+  * Check for a supported set of inner algorithms.
+  * See the comment at the beginning of this file.
+  */
+-static bool adiantum_supported_algorithms(struct skcipher_alg_common *streamcipher_alg,
+-					  struct crypto_alg *blockcipher_alg,
+-					  struct shash_alg *hash_alg)
++static bool
++adiantum_supported_algorithms(struct skcipher_alg_common *streamcipher_alg,
++			      struct crypto_alg *blockcipher_alg)
+ {
+ 	if (strcmp(streamcipher_alg->base.cra_name, "xchacha12") != 0 &&
+ 	    strcmp(streamcipher_alg->base.cra_name, "xchacha20") != 0)
+ 		return false;
+ 
+@@ -511,25 +601,20 @@ static bool adiantum_supported_algorithms(struct skcipher_alg_common *streamciph
+ 	    blockcipher_alg->cra_cipher.cia_max_keysize < BLOCKCIPHER_KEY_SIZE)
+ 		return false;
+ 	if (blockcipher_alg->cra_blocksize != BLOCKCIPHER_BLOCK_SIZE)
+ 		return false;
+ 
+-	if (strcmp(hash_alg->base.cra_name, "nhpoly1305") != 0)
+-		return false;
+-
+ 	return true;
+ }
+ 
+ static int adiantum_create(struct crypto_template *tmpl, struct rtattr **tb)
+ {
+ 	u32 mask;
+-	const char *nhpoly1305_name;
+ 	struct skcipher_instance *inst;
+ 	struct adiantum_instance_ctx *ictx;
+ 	struct skcipher_alg_common *streamcipher_alg;
+ 	struct crypto_alg *blockcipher_alg;
+-	struct shash_alg *hash_alg;
+ 	int err;
+ 
+ 	err = crypto_check_attr_type(tb, CRYPTO_ALG_TYPE_SKCIPHER, &mask);
+ 	if (err)
+ 		return err;
+@@ -553,27 +638,25 @@ static int adiantum_create(struct crypto_template *tmpl, struct rtattr **tb)
+ 				 crypto_attr_alg_name(tb[2]), 0, mask);
+ 	if (err)
+ 		goto err_free_inst;
+ 	blockcipher_alg = crypto_spawn_cipher_alg(&ictx->blockcipher_spawn);
+ 
+-	/* NHPoly1305 ε-∆U hash function */
+-	nhpoly1305_name = crypto_attr_alg_name(tb[3]);
+-	if (nhpoly1305_name == ERR_PTR(-ENOENT))
+-		nhpoly1305_name = "nhpoly1305";
+-	err = crypto_grab_shash(&ictx->hash_spawn,
+-				skcipher_crypto_instance(inst),
+-				nhpoly1305_name, 0, mask);
+-	if (err)
++	/*
++	 * Originally there was an optional third parameter, for requesting a
++	 * specific implementation of "nhpoly1305" for message hashing.  This is
++	 * no longer supported.  The best implementation is just always used.
++	 */
++	if (crypto_attr_alg_name(tb[3]) != ERR_PTR(-ENOENT)) {
++		err = -ENOENT;
+ 		goto err_free_inst;
+-	hash_alg = crypto_spawn_shash_alg(&ictx->hash_spawn);
++	}
+ 
+ 	/* Check the set of algorithms */
+-	if (!adiantum_supported_algorithms(streamcipher_alg, blockcipher_alg,
+-					   hash_alg)) {
+-		pr_warn("Unsupported Adiantum instantiation: (%s,%s,%s)\n",
++	if (!adiantum_supported_algorithms(streamcipher_alg, blockcipher_alg)) {
++		pr_warn("Unsupported Adiantum instantiation: (%s,%s)\n",
+ 			streamcipher_alg->base.cra_name,
+-			blockcipher_alg->cra_name, hash_alg->base.cra_name);
++			blockcipher_alg->cra_name);
+ 		err = -EINVAL;
+ 		goto err_free_inst;
+ 	}
+ 
+ 	/* Instance fields */
+@@ -582,28 +665,26 @@ static int adiantum_create(struct crypto_template *tmpl, struct rtattr **tb)
+ 	if (snprintf(inst->alg.base.cra_name, CRYPTO_MAX_ALG_NAME,
+ 		     "adiantum(%s,%s)", streamcipher_alg->base.cra_name,
+ 		     blockcipher_alg->cra_name) >= CRYPTO_MAX_ALG_NAME)
+ 		goto err_free_inst;
+ 	if (snprintf(inst->alg.base.cra_driver_name, CRYPTO_MAX_ALG_NAME,
+-		     "adiantum(%s,%s,%s)",
+-		     streamcipher_alg->base.cra_driver_name,
+-		     blockcipher_alg->cra_driver_name,
+-		     hash_alg->base.cra_driver_name) >= CRYPTO_MAX_ALG_NAME)
++		     "adiantum(%s,%s)", streamcipher_alg->base.cra_driver_name,
++		     blockcipher_alg->cra_driver_name) >= CRYPTO_MAX_ALG_NAME)
+ 		goto err_free_inst;
+ 
+ 	inst->alg.base.cra_blocksize = BLOCKCIPHER_BLOCK_SIZE;
+ 	inst->alg.base.cra_ctxsize = sizeof(struct adiantum_tfm_ctx);
+ 	inst->alg.base.cra_alignmask = streamcipher_alg->base.cra_alignmask;
+ 	/*
+ 	 * The block cipher is only invoked once per message, so for long
+ 	 * messages (e.g. sectors for disk encryption) its performance doesn't
+-	 * matter as much as that of the stream cipher and hash function.  Thus,
+-	 * weigh the block cipher's ->cra_priority less.
++	 * matter as much as that of the stream cipher.  Thus, weigh the block
++	 * cipher's ->cra_priority less.
+ 	 */
+ 	inst->alg.base.cra_priority = (4 * streamcipher_alg->base.cra_priority +
+-				       2 * hash_alg->base.cra_priority +
+-				       blockcipher_alg->cra_priority) / 7;
++				       blockcipher_alg->cra_priority) /
++				      5;
+ 
+ 	inst->alg.setkey = adiantum_setkey;
+ 	inst->alg.encrypt = adiantum_encrypt;
+ 	inst->alg.decrypt = adiantum_decrypt;
+ 	inst->alg.init = adiantum_init_tfm;
+@@ -620,11 +701,11 @@ static int adiantum_create(struct crypto_template *tmpl, struct rtattr **tb)
+ 		adiantum_free_instance(inst);
+ 	}
+ 	return err;
+ }
+ 
+-/* adiantum(streamcipher_name, blockcipher_name [, nhpoly1305_name]) */
++/* adiantum(streamcipher_name, blockcipher_name) */
+ static struct crypto_template adiantum_tmpl = {
+ 	.name = "adiantum",
+ 	.create = adiantum_create,
+ 	.module = THIS_MODULE,
+ };
+diff --git a/crypto/testmgr.c b/crypto/testmgr.c
+index a302be53896d..d9fc671d5941 100644
+--- a/crypto/testmgr.c
++++ b/crypto/testmgr.c
+@@ -4059,18 +4059,18 @@ static int alg_test_null(const struct alg_test_desc *desc,
+ 
+ /* Please keep this list sorted by algorithm name. */
+ static const struct alg_test_desc alg_test_descs[] = {
+ 	{
+ 		.alg = "adiantum(xchacha12,aes)",
+-		.generic_driver = "adiantum(xchacha12-lib,aes-generic,nhpoly1305-generic)",
++		.generic_driver = "adiantum(xchacha12-lib,aes-generic)",
+ 		.test = alg_test_skcipher,
+ 		.suite = {
+ 			.cipher = __VECS(adiantum_xchacha12_aes_tv_template)
+ 		},
+ 	}, {
+ 		.alg = "adiantum(xchacha20,aes)",
+-		.generic_driver = "adiantum(xchacha20-lib,aes-generic,nhpoly1305-generic)",
++		.generic_driver = "adiantum(xchacha20-lib,aes-generic)",
+ 		.test = alg_test_skcipher,
+ 		.suite = {
+ 			.cipher = __VECS(adiantum_xchacha20_aes_tv_template)
+ 		},
+ 	}, {
 -- 
 2.52.0
 
