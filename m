@@ -4,60 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86850D43352
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 20:36:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89078D43356
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 20:41:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Is75louboRAiVLTIaxtyzhVXvnAQwHNigcyt2snOBGQ=; b=gZHtpffllUnzWZ/ZiD2Pw7Zlka
-	Nj3On1BiJhpzY2g91cpAgQdBbm19wRZWX3c9pJNmmj1PlNoBHb3aNWpBE2RKb7OEeCjaBvxfbDDjG
-	XoNxO7XciHYR7GPeVWKL3kvXaBcowjmlpmA+IAaXg2TY7PoFdKUtxIHeY0bC7EIiGZxSAg6J1nj5j
-	8Zn25px9RQt664jkN6znFqGaEos1ope5eQ0Y75AdIgvhhuhzGYi+Yj1nogoRxuomCwXVpRFrm3jm8
-	/n2+RZTdh4H4FbTuGbETAZM6eWi96V3RZHFnW1FU4SZlnyc2KnbfK1/yTL5OKNIHG1HgiHF6xmLr3
-	nXSIeiLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cg4WUfMDQUwvwvbTJsa9XBH4T44qYNwtUMAw30CfLvQ=; b=0CbW0/UxSN2YibbrVGt3VDMR10
+	Cxm3Fm7uHIobLLH1DbE92iZjHmJbp3CfSt8R0E+ycRzPgGKho5aGWnDlrzzKLEV5oeOoZl8oztV0n
+	ReEIb4Zm6tK3H7aDTGYL1Q/mKEp6xBCSoAQpK8LP3FUgk/gANUGaPt7HQVvKsWA7R0CTmbKrNScQ+
+	+3Xld4Yan2ZFaSS1HlF2YnHJKSjTrIB6Fs5Evfehrub/8K8lCsFw22tfGOH2UudD2voNUq3WL/ljz
+	K8GMMSeBjBK3abbTEq+A5ZodvuXA+7n4T+CC5U3f5h0U1XmS2MUWUvbS7A+nFrMg/17wxLj7VPhUT
+	pOVcCnPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTnOU-0000000HFFZ-2zwi;
-	Thu, 11 Dec 2025 20:36:12 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vTnTP-0000000HG1L-3Ayi;
+	Thu, 11 Dec 2025 20:41:15 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTnOT-0000000HFFO-0Rze
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 20:36:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1256960097;
-	Thu, 11 Dec 2025 20:36:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BDFBC4CEF7;
-	Thu, 11 Dec 2025 20:36:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765485367;
-	bh=TO+xTEZtUGaXTld4LG2GnHGUoSmoCf2h0b5koSopinM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oBGZst/ilIfa32pv/f1maIimQrN4KhqcdqAsyg5OHp7Gotp+q4b33pXmqjBpWblaK
-	 J7qDcPr46lXT9xjl9FJMZUNDUHPVOT3ynebl/qwt0X13wO0b2ZSJBJccJpF5JU6r71
-	 pgLN2dgmHQXFnJ11Ir6YNSoFNVkJ9xng5VLSE4wUOPyvaLTK+0gchN9bjd5eNpkdCw
-	 ab3r5oZvbmaAfQbwOejWse6375/iRhLjazFkf3yoOujZ3AUOmGUMWvFmMYfA0XAcBM
-	 1WkbvVBZktv+wEer+ESo3GHvS2nJsV8sWaRx5K+p8EU2MKMYTAExvYlKwYhdTtTOno
-	 4VDvrxAb5DyFg==
-Date: Fri, 12 Dec 2025 05:36:01 +0900
-From: Will Deacon <will@kernel.org>
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	tabba@google.com
-Subject: Re: [PATCH 1/2] KVM: arm64: Copy FGT traps to unprotected pKVM VCPU
- on VCPU load
-Message-ID: <aTsrMUGan1AH5suO@google.com>
-References: <20251210132102.137631-1-alexandru.elisei@arm.com>
- <20251210132102.137631-2-alexandru.elisei@arm.com>
+	id 1vTnTL-0000000HFzq-3oZm;
+	Thu, 11 Dec 2025 20:41:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1765485657; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=WBkitdwJz9dfAeHGANV0qWkGie5Q52vUHt2nYnvJ5NzD5JtU/j3I+x1F57yCc5clt97Q/eOTynuGHIhIKA5+gxyxMYwbqYRHdNKaywy1PNnh/RHZHWdBbICjUxHF0430pC4WDEoKjnMFFOhCoAmOnPwvYVDvCPWGsofEsFrmOQ0=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1765485657; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Cg4WUfMDQUwvwvbTJsa9XBH4T44qYNwtUMAw30CfLvQ=; 
+	b=Qeh1WLcmAkJBifekdvlq3k0MXXut5K3NiKTb4EhtSQHlR/GkH6arYl5rPgPd0NSkWEehpQn1kUF0cMgMi7bKu4auKM5FjwfdVDXfzluJX8GTxAbbYfDF+FsMA5em3g+FgLhETxrdHvQvFcxLUQx/ZsT49R5e99bKwkv9tqG4kQs=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765485657;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=Cg4WUfMDQUwvwvbTJsa9XBH4T44qYNwtUMAw30CfLvQ=;
+	b=i5H8CIpHjYGxo7s5vL60QrceF/q6gP8ijx93fnfxAOiuJYj0wd3ylce+eEfl4fkn
+	x5kGwXr017YJnJL7RqyxCBigVkDjOffWHhpTzb6UqFLFfOvFmS7hXo534rT8YF0/2jm
+	a8o0/3wvhxRiRUVdFQRFLPZHkZq+EPdXwTPN8eHo=
+Received: by mx.zohomail.com with SMTPS id 1765485655793219.61784133741503;
+	Thu, 11 Dec 2025 12:40:55 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Thu, 11 Dec 2025 21:40:31 +0100
+Subject: [PATCH v4 1/8] drm/rockchip: vop2: Switch impossible format
+ conditional to WARN_ON
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251210132102.137631-2-alexandru.elisei@arm.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251211-vop2-atomic-fixups-v4-1-5d50eda26bf8@collabora.com>
+References: <20251211-vop2-atomic-fixups-v4-0-5d50eda26bf8@collabora.com>
+In-Reply-To: <20251211-vop2-atomic-fixups-v4-0-5d50eda26bf8@collabora.com>
+To: Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>
+Cc: dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Daniel Stone <daniels@collabora.com>, kernel@collabora.com, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.3
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251211_124111_987619_184132E9 
+X-CRM114-Status: GOOD (  11.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,82 +85,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey Alexandru,
+From: Daniel Stone <daniels@collabora.com>
 
-[+Fuad as we ran into this last week]
+We should never be able to create a framebuffer with an unsupported
+format, so throw a warning if this ever happens, instead of attempting
+to stagger on.
 
-On Wed, Dec 10, 2025 at 01:21:01PM +0000, Alexandru Elisei wrote:
-> Commit fb10ddf35c1c ("KVM: arm64: Compute per-vCPU FGTs at vcpu_load()")
-> introduced per-VCPU FGT traps. For an unprotected pKVM VCPU, the untrusted
-> host FGT configuration is copied in pkvm_vcpu_init_traps(), which is called
-> from __pkvm_init_vcpu(). __pkvm_init_vcpu() is called once per VCPU (when
-> the VCPU is first run) which means that the uninitialized, zero, values for
-> the FGT registers end up being used for the entire lifetime of the VCPU.
-> This causes both unwanted traps (for the inverse polarity trap bits) and
-> the guest being allowed to access registers it shouldn't.
-> 
-> Fix it by copying the FGT traps for unprotected pKVM VCPUs when the
-> untrusted host loads the VCPU.
-> 
-> Fixes: fb10ddf35c1c ("KVM: arm64: Compute per-vCPU FGTs at vcpu_load()")
-> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
-> ---
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 12 ++++++++++--
->  arch/arm64/kvm/hyp/nvhe/pkvm.c     |  1 -
->  2 files changed, 10 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> index 29430c031095..ee0f1343100c 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> @@ -167,6 +167,7 @@ static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
->  	DECLARE_REG(unsigned int, vcpu_idx, host_ctxt, 2);
->  	DECLARE_REG(u64, hcr_el2, host_ctxt, 3);
->  	struct pkvm_hyp_vcpu *hyp_vcpu;
-> +	struct kvm_vcpu *hyp_kvm_vcpu;
->  
->  	if (!is_protected_kvm_enabled())
->  		return;
-> @@ -175,10 +176,17 @@ static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
->  	if (!hyp_vcpu)
->  		return;
->  
-> +	hyp_kvm_vcpu = &hyp_vcpu->vcpu;
-> +
->  	if (pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
->  		/* Propagate WFx trapping flags */
-> -		hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWE | HCR_TWI);
-> -		hyp_vcpu->vcpu.arch.hcr_el2 |= hcr_el2 & (HCR_TWE | HCR_TWI);
-> +		hyp_kvm_vcpu->arch.hcr_el2 &= ~(HCR_TWE | HCR_TWI);
-> +		hyp_kvm_vcpu->arch.hcr_el2 |= hcr_el2 & (HCR_TWE | HCR_TWI);
+Signed-off-by: Daniel Stone <daniels@collabora.com>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-I don't think the 'hyp_kvm_vcpu' really makes this much clearer and it's
-the line only ends up being a single character shorter. Just continue to
-use 'hyp_vcpu->vcpu.'?
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index 498df0ce4680..20b49209ddcd 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -1030,7 +1030,8 @@ static int vop2_plane_atomic_check(struct drm_plane *plane,
+ 		return 0;
+ 
+ 	format = vop2_convert_format(fb->format->format);
+-	if (format < 0)
++	/* We shouldn't be able to create a fb for an unsupported format */
++	if (WARN_ON(format < 0))
+ 		return format;
+ 
+ 	/* Co-ordinates have now been clipped */
 
-> +	} else {
-> +		struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
-> +
-> +		memcpy(&hyp_kvm_vcpu->arch.fgt, host_vcpu->arch.fgt,
-> +		       sizeof(hyp_kvm_vcpu->arch.fgt));
->  	}
->  }
->  
-> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> index 43bde061b65d..05774aed09cb 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> @@ -172,7 +172,6 @@ static int pkvm_vcpu_init_traps(struct pkvm_hyp_vcpu *hyp_vcpu)
->  
->  		/* Trust the host for non-protected vcpu features. */
->  		vcpu->arch.hcrx_el2 = host_vcpu->arch.hcrx_el2;
-> -		memcpy(vcpu->arch.fgt, host_vcpu->arch.fgt, sizeof(vcpu->arch.fgt));
->  		return 0;
->  	}
+-- 
+2.52.0
 
-Otherwise, looks good to me:
-
-Acked-by: Will Deacon <will@kernel.org>
-
-Will
 
