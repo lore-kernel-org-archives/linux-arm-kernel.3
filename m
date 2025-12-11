@@ -4,71 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FB2AD41C37
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 13:49:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E381BD41C38
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 13:54:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LGhZAatjsADab9Ta49FZUV4L505KUKj4ZKDt6W+HLLo=; b=0GeZFuFMrRsTFgnL72IdaaEHf8
-	EVZqhkIknG8F0Csa5R3BeiZ8eIRDOU2TEShj+Dd1ozavCm7Ok0xvYNZcwrLCJpbFq2lUQstZj7S4B
-	MJxDi/fnj+Z0rpYC/uq/QSQvFdGIsE+itXGKUAYQWH+/IbFI9csks5m2Je5CWq6Y7n91aV+s07vOB
-	P6Cm9Bqr6SMW6MEKUumoE+5CePuCApgNyQTaaF4N4IpvXSGfI/QUQJvEz8wZopDD8vRUTeYqNiHhK
-	rqHSeOveWYUVmtMvyd87aXrFUx59HvkXxMWj7EiPPWpCids/4HupZtQj9pABR2cKbVulqreegAePl
-	JWMVJLVw==;
+	bh=CIXIt+IFeFpXZPRj0PX+jv/KP6j4AjZrxFu7fBe+lEU=; b=p9nM1ZR3qx+Z74lC/+7bzo63Gb
+	zamVAjeLdGEV8LmFBZ9nYAH46qMCZ+BNB7RLiZB9cIEWiFpA6yZnEcqyvmyXeADA6Wi/95TM/8FLb
+	QEKuQyukzcJIL6PBJi198CfYu1BA29uRlsOwZQBDeDOZ0+NFYpPP7cQHB170u2G+9JEgZpT2G0sbB
+	HWlxEx/3UI2RwhYRwZW43E68gET3KXDqJuIKgu45gy8mtv1wn+7iFHH5R/HpkTB3p2reOvjhz8MyR
+	DxSOANdKg8IO7mFClrcEJe72d4OC6CI7APdUGv1ezVFjN2GOMJS12h49ACWKQDAe2nLV7rFM6GBxX
+	4+hj8n1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTh3G-0000000GfxZ-1P4z;
-	Thu, 11 Dec 2025 13:49:50 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vTh7O-0000000GgCT-37qV;
+	Thu, 11 Dec 2025 13:54:06 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTh3D-0000000Gfx4-0oJi
+	id 1vTh7M-0000000GgC7-1AYC
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 13:49:48 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1vTh3A-00006a-B7; Thu, 11 Dec 2025 14:49:44 +0100
-Message-ID: <a7c0306e-4799-4c5c-a72c-367298e3fe3e@pengutronix.de>
-Date: Thu, 11 Dec 2025 14:49:42 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 6/8] kbuild: Allow adding modules into the FIT ramdisk
-To: Simon Glass <sjg@chromium.org>,
- =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-Cc: linux-arm-kernel@lists.infradead.org,
- Masahiro Yamada <masahiroy@kernel.org>, Tom Rini <trini@konsulko.com>,
- =?UTF-8?Q?J=2E_Neusch=C3=A4fer?= <j.ne@posteo.net>,
- Chen-Yu Tsai <wenst@chromium.org>, Nicolas Schier <nsc@kernel.org>,
- Nathan Chancellor <nathan@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Josh Poimboeuf <jpoimboe@kernel.org>, Kees Cook <kees@kernel.org>,
- Miguel Ojeda <ojeda@kernel.org>, Nicolas Schier <nicolas.schier@linux.dev>,
- Rong Xu <xur@google.com>, Tamir Duberstein <tamird@gmail.com>,
- Will Deacon <will@kernel.org>, linux-kbuild@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20251119181333.991099-1-sjg@chromium.org>
- <20251119181333.991099-7-sjg@chromium.org>
- <20251120084201-53a3c98f-6a3c-4116-8635-be67d58fd57b@linutronix.de>
- <CAFLszTjsgkPV_-Si79RY5T_Fxd5+f-b1VbpG11uS3E9Lk4Ofmg@mail.gmail.com>
- <20251126080620-921e6880-cacf-44c5-bd8b-f380fbb8090a@linutronix.de>
- <28e18785-1336-4fbc-9f2b-69aa6bb06375@pengutronix.de>
- <20251202112039-b03af7ec-ae06-41ab-914b-703940cc98a2@linutronix.de>
- <CAFLszTh3sM3AEW2MVvR-3szkEtvgnNMsWUcwH6AgBa+KThNF7w@mail.gmail.com>
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Content-Language: en-US, de-DE, de-BE
-In-Reply-To: <CAFLszTh3sM3AEW2MVvR-3szkEtvgnNMsWUcwH6AgBa+KThNF7w@mail.gmail.com>
+	Thu, 11 Dec 2025 13:54:05 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b77030ffad9so19573566b.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 05:54:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1765461242; x=1766066042; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CIXIt+IFeFpXZPRj0PX+jv/KP6j4AjZrxFu7fBe+lEU=;
+        b=Wi0C0+GZL9nZdgyEeT0JpIuo5fw8viM0Ver5wC5+4VwQ6If423jXHPhvbu5uDy6iSG
+         8w07D3HfYvZvKgE90Tk1ndnI/4Bw6RtzJruzGxVify0Vh+8et1lmBZ63r4RyybzkXVfd
+         zx/FFzjBlgRKXqU2KRDHdTg90I03BrfY0j50f9U+wFvBA1a2LPxGzW/IXEa+SKosHRIl
+         KYZJ1LhsZooSWnKeclbrd9oVzRHwEisElRhSnfDa8lZewuY4q0bWc+frZAVa4AA3LkgN
+         AiY6fD5qYu9fD5uOml7XyRQgfuZssdzFGxbtW2FfPa/QD6Bgd2n6fL85sw+dU16T2hRd
+         AMxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765461242; x=1766066042;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-gg:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=CIXIt+IFeFpXZPRj0PX+jv/KP6j4AjZrxFu7fBe+lEU=;
+        b=eMr2qeXTvRTZds0sfyfWTp/GEzzuNGjfcuaaAb131P3U75BwOkqos1ZQJ2jB1go7G0
+         dgjiRbnarkoFZBpL1zW2kAxDp30m1umABhYoJuSjsHFDQg73AUpzRskp/IheveOooXOs
+         l+MCt33RJ20Q1Pjh5UHv30gPjsggyITBo2rKqQGetZkr6WqPeoSkXUKyTQHvE5O84iiI
+         nAMVV+0g5EQV8fWPNyCDsxQKxoi8YUJPuNr9NcenfT0yUqaVOPOeMOU8fnW34e3Ab4lz
+         WbfJSmARezKybGWaT8JFznHxAkDqT+Ui6+rBAwQu/6+7JozgDmwpYKq8em/1MmMKdh5i
+         tiSg==
+X-Forwarded-Encrypted: i=1; AJvYcCXuUl2R9gWGs4Ud4KSjaSY/JKqZPtEbo9KGg2MfTxruip/iNH2DGuBnrBfPYI/0DlNU7Fy+BxneYrGVZ538Gync@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9IU+ZWHRHPo6haohBGqb/6I1HR7YfAqH+G4Je0jGpplMiAT88
+	G9vSCxYDoOkURjffmHJJG1ZKaWtcTyd8sMXPk1iboDXM3nWdptWgIdVyS0q/ChwZHS4=
+X-Gm-Gg: ASbGncvoPtkcnbhFaji9OI68Ntn13TnAloAFnB1rK+NLmlV0aWrS3U+w0gq6zKSSukV
+	O/L6vtBVVm1r3FU75avbMAKER1asUgnCGlTgD4pZcnW7EDa9MAgmoDM0sNE2Uxme+/XR3eDiTnN
+	QFqy3e90HOoHyYvmWAoGSFmF5KftlTa7l0g0F82FH3byRs3bpC+YiMt3UekhLmGCX5aJPNARH+q
+	aotimY3m8XH/m8+0yGiO09BV4OR0biPwYgERD30wnlgE6ykzAVH0KfRRWrL5tAffX4WdWK1lwPP
+	XfQ9FsxZURRtt/8vhUaXUglJrR6hpCFFBcfssKpU8VdSqolk/6FzdMhxLL4/Z7g4YwTg+wvJ6VI
+	4aX8jBjdMSbTclME0BunBY/ybzaED4wjIq7rMTMhXIGDNR8lL5U3RVntgoqlMPFBPllLVkcag7O
+	GsKrG7xsHm6x7v/OTf
+X-Google-Smtp-Source: AGHT+IGpApL3VVGRNVrShbz2gpArNfF9x0CWWaOzqj6DXl7ZGwWDs4SYfO44oU/8DNb+tdYYpYB3Jg==
+X-Received: by 2002:a17:907:3f18:b0:b76:277b:9a5b with SMTP id a640c23a62f3a-b7ce82d3515mr657352366b.6.1765461242068;
+        Thu, 11 Dec 2025 05:54:02 -0800 (PST)
+Received: from localhost ([2a02:c7c:5e34:8000:c186:ec41:4ac0:f434])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b7cfa5c8e59sm278436266b.62.2025.12.11.05.54.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 11 Dec 2025 05:54:01 -0800 (PST)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Date: Thu, 11 Dec 2025 13:54:01 +0000
+Message-Id: <DEVFS1MAP8J6.2263USIPE4Y74@linaro.org>
+Cc: "Vivek Aknurwar" <vivek.aknurwar@oss.qualcomm.com>,
+ <cristian.marussi@arm.com>, <linux-kernel@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-arm-msm@vger.kernel.org>,
+ <mike.tipton@oss.qualcomm.com>
+Subject: Re: [PATCH 1/1] firmware: arm_scmi: Increase MAX_OPPS to 64
+From: "Alexey Klimov" <alexey.klimov@linaro.org>
+To: "Sudeep Holla" <sudeep.holla@arm.com>
+X-Mailer: aerc 0.20.0
+References: <20251014073454.461999-1-vivek.aknurwar@oss.qualcomm.com>
+ <6af5945e-7d5c-4596-ac42-c5898b4c49b7@oss.qualcomm.com>
+ <DEVEXHI9CEFA.19RL3BXTV8E38@linaro.org>
+ <20251211-masterful-caterpillar-of-love-bc2d4c@sudeepholla>
+In-Reply-To: <20251211-masterful-caterpillar-of-love-bc2d4c@sudeepholla>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_054947_231479_35982BCD 
-X-CRM114-Status: GOOD (  32.92  )
+X-CRM114-CacheID: sfid-20251211_055404_336611_56421FC8 
+X-CRM114-Status: GOOD (  19.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,116 +105,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Simon,
+On Thu Dec 11, 2025 at 1:48 PM GMT, Sudeep Holla wrote:
+> On Thu, Dec 11, 2025 at 01:14:06PM +0000, Alexey Klimov wrote:
+>> > On 10/14/2025 12:34 AM, Vivek Aknurwar wrote:
+>> >> Some upcoming SoCs define more than 32 operating performance points (=
+OPPs),
+>> >> exceeding the current SCMI protocol limit. Increase MAX_OPPS to 64
+>> >> (next power of 2) to support these configurations.
+>>=20
+>> Didn't touch for a while. The way it is stated confuses me a bit.
+>> Should the value defined by protocol be updated out of the blue?
+>> Should the protocol (defined by spec) be changed first?
+>>=20
+>
+> Ah good point on confusing commit message. I just assumed it is limitatio=
+n
+> of the implementation. I can update the log when applying. It is not spec
+> or protocol limitation for sure.
+>
+> How about this ?
+>
+>   | firmware: arm_scmi: Increase performance MAX_OPPS limit to 64
+>   |
+>   | Some platforms expose more than 32 operating performance points (OPPs=
+)
+>   | per performance domain via the SCMI performance protocol, but the
+>   | driver currently limits the number of OPPs it can handle to 32 via
+>   | MAX_OPPS.
+>   |
+>   | Bump MAX_OPPS to 64 so that these platforms can register all their
+>   | performance levels. This is an internal limit in the driver only and
+>   | does not affect the SCMI protocol ABI.
+>   |
+>   | 64 is chosen as the next power of two above the existing limit.
 
-On 12/11/25 2:31 PM, Simon Glass wrote:
-> Hi Thomas,
-> 
-> On Tue, 2 Dec 2025 at 03:31, Thomas Weißschuh
-> <thomas.weissschuh@linutronix.de> wrote:
->>
->> On Wed, Nov 26, 2025 at 12:26:49PM +0100, Ahmad Fatoum wrote:
->>> On 11/26/25 8:16 AM, Thomas Weißschuh wrote:
->>>> On Tue, Nov 25, 2025 at 02:58:12PM -0700, Simon Glass wrote:
->>>>> On Thu, 20 Nov 2025 at 00:49, Thomas Weißschuh
->>>>> <thomas.weissschuh@linutronix.de> wrote:
->>>>>>
->>>>>> On Wed, Nov 19, 2025 at 11:13:27AM -0700, Simon Glass wrote:
->>>>
->>>> (...)
->>>>
->>>>>>>  quiet_cmd_fit = FIT     $@
->>>>>>>        cmd_fit = $(MAKE_FIT) -o $@ --arch $(UIMAGE_ARCH) --os linux \
->>>>>>> -             --name '$(UIMAGE_NAME)' \
->>>>>>> +             --name '$(UIMAGE_NAME)' $(MAKE_FIT_FLAGS) \
->>>>>>
->>>>>> Remnant of a previous revision?
->>>>>
->>>>> The flags are there to allow extra options to be passed if needed.
->>>>
->>>> Are they necessary for the module functionality added here?
->>>> If not I'd put them into a dedicated commit.
->>>>
->>>>>>
->>>>>>>               $(if $(findstring 1,$(KBUILD_VERBOSE)),-v) \
->>>>>>>               $(if $(FIT_DECOMPOSE_DTBS),--decompose-dtbs) \
->>>>>>> +             $(if $(FIT_MODULES),--modules @$(objtree)/modules.order) \
->>>>>>
->>>>>> I am wondering how module dependencies work without the depmod invocation
->>>>>> and modules.dep file.
->>>>>
->>>>> We have a mechanism to place a pre-build initrd with the filesystem,
->>>>> etc. into the FIT. But for this particular feature (suggested by Ahmad
->>>>> Fatoum) we are just providing the raw modules. Presumably another
->>>>> initrd would be needed to provide the startup files?
->>>>
->>>> modules.dep is more than optional and generic startup files but an integral
->>>> part of a module tree. Without it, any module depending on another module's
->>>> symbols will fail to load. Also the modules will be unsigned, potentially
->>>> making them unloadable.
->>>
->>> I'll use the occasion to elaborate a bit on why I thought adding modules
->>> is a good idea.
->>>
->>> - You have a system boot from FIT and maybe even a r/o rootfs
->>> - You want to boot a different kernel without any userspace changes,
->>> e.g. to bisect
->>> - Fortunately, you have a build target that generates you a FIT with
->>> kernel, enabled device trees and all modules (including deps and such)
->>> - In the bootloader[1], you specify that a CPIO with a minimal init[2]
->>> that bindmounts /lib/modules in the initramfs over the rootfs modules
->>> before pivot_root
->>>
->>> and that's it, you are running your new kernel with the old rootfs
->>> unchanged. I believe this would be really handy, which is why I
->>> suggested it.
->>
->> The idea sounds good.
->>
->>>> Ahmad's patch does produce a complete and fully
->>>> functional module tree by means of 'make headers_install'.
->>>
->>> I originally thought that we could generate the CPIO normally as part of
->>> the kernel build and then we can readily depend on it in the rule that
->>> invokes make_fit.py.
->>
->> That works, but it is not what the patch under discussion does, or did.
->>
->>> If this proves to be too cumbersome, I think it's already an improvement
->>> if the user can manually run make modules-cpio-pkg and then make
->>> image.fit with the initrd specified. A single target would be neater of
->>> course, but I didn't intend for this to stall the series.
->>
->> The single target idea would require 'modules-cpio-pkg' to not be a PHONY
->> target anymore but to properly track dependencies. Otherwise the CPIO and FIT
->> image will be rebuilt even if no sources change. Proper dependencies are always
->> better than PHONY targets, but it will be a bit of additional work.
->>
->>> It can always follow later.
->>
->> Yep. But for the patch as it is proposed I am still wondering how it will work
->> without modules.dep and friends.
->>
->> (...)
-> 
-> I'm going to send a v7 and perhaps Ahmad can help to refine this.
-> Unfortunately the modules generation has turned into a significant
-> detour. We can either drop it, or continue to try to resolve this.
+Yeah, that sounds better :)
 
-I'd suggest to drop it and tackle that separately.
+I also thought that this was a driver limitation, not the protocol/spec one
+as stated in the original patch.
 
-Sorry for the inconvenience,
-Ahmad
+I don't mind updating the commit message like this (but I am not the author
+of the original patch).
 
-> 
-> Regards,
-> SImon
-> 
-
--- 
-Pengutronix e.K.                  |                             |
-Steuerwalder Str. 21              | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany         | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686  | Fax:   +49-5121-206917-5555 |
+Best regards,
+Alexey
 
 
