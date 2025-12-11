@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2A24D41D6D
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 16:39:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF8B2D41D6B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 16:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sVcTUwOCRH5tnQZK1SD7eSjVIvUKNCHhAOFhXPDQ2uA=; b=ul7MmTmbPffOIxxHvSR2CT/RQn
-	u7r0php0MDFi+C+trGp41aHpCaOqgEFWw7enmyA2sUWXp0tyQ/JkO+bKTOu8FCrDdcwU7X+k6/UmQ
-	Vw4jaTyn83z7ejWwnc9NPLdWtRagbHX7JAaRhmpZw3t+DcMs2/B6I0bPwnF85tW40iMVprU9PceCD
-	UmmgURmWo5H3JpJL0gNnoBVMdi3SDznlwybgG2FC7aTU4hepNOu7mLmr3bTurEshvxe8I5JXtiC4W
-	3qQhkNZf8C5fg1I4du1UWya2T7q2GdHcQAONCV84Ut+yx0a/QMkZCilOwxWeE+yVczV2k7XpcX1HR
-	NnJADBtg==;
+	bh=0CUr9ddV3oZ41q3/D/0z/oo3oYkxXbRVdv8SyL1wMI0=; b=HVsCFgrDjktnXlY6DDRwnqxJ+n
+	gMAlhrINZZYWR2h5jHNdmkb7G8FSvmywW8v+yghlj+jn76F3jPKa9sPRSemSrYdt7K84VC1wiENqC
+	YVsP2UcGto0Odx2ds8lU8KxGWKEgaYKxFY5FZQUYHlEJxEF24c8L3PARlXEapAdMjRnJvgvcwDgbo
+	YxeKyf3dvY4ZTMfN1Z46fhtdL17WANJ0ARhj6uRsDCyACYj5MyCr65MDuP0pLCB1hyoroqNaJEfK/
+	YO0OQu6iIXRfWLIivFL9oPLchEKFFgXwCXrTEJKvhpOtuJqeHfbeXWYqczU37J27T/Xe6BqaJKVcs
+	dzjxTI3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTjhp-0000000Gx98-3tdM;
-	Thu, 11 Dec 2025 16:39:53 +0000
+	id 1vTjhm-0000000Gx7j-2XdB;
+	Thu, 11 Dec 2025 16:39:50 +0000
 Received: from smtpout-03.galae.net ([185.246.85.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTjhk-0000000Gx6v-2uBs
+	id 1vTjhi-0000000Gx67-3wPP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 16:39:50 +0000
+	Thu, 11 Dec 2025 16:39:48 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 464C34E41B7E;
-	Thu, 11 Dec 2025 16:39:47 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 6DD744E41B7D;
+	Thu, 11 Dec 2025 16:39:44 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 1A9966072F;
-	Thu, 11 Dec 2025 16:39:47 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 52560103C8C7B;
-	Thu, 11 Dec 2025 17:39:43 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 448316072F;
+	Thu, 11 Dec 2025 16:39:44 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4E439103C8C1E;
+	Thu, 11 Dec 2025 17:39:40 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1765471185; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1765471182; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=sVcTUwOCRH5tnQZK1SD7eSjVIvUKNCHhAOFhXPDQ2uA=;
-	b=cHNvQEJxuvuPsT39IuUKHb36IrNHyBSryBir25sEu70JFNA18i6VTtebbBVbtwIOLy6Tn9
-	2lFVUZzZ7Z5cUy6m9qMX2TDwaMdWW/+VUiKA2RKbG/pnBaG8A0yxzqtSIH5C16NRZTusYh
-	kssZoSJVT5KZwolD9I1MMu1mwNf5kej8nmnVHfraI+MfKq38Ct50lRjm7z/elItW4RUzMX
-	iZMsMjgBniz1bIcr3RnPC3YbaSPLX2PUyX0XM65851mTSh0VdM9CZvEmLi89XoKuqrPyjw
-	hqwQmSS7uDqDazxhL0AASbrClk2Hj+KGz4b7sXG7Z8CJXtmwKTdEalymfzJ7kg==
+	bh=0CUr9ddV3oZ41q3/D/0z/oo3oYkxXbRVdv8SyL1wMI0=;
+	b=v8JdI36i5NiGCTtV7pRC+dYkLOEumCiVmBUeSYFeog5xJ/9R6Tkxe5XREjXa9xRQ9nn6rJ
+	DdJmMx4cOiMlm30Qast1XOcjPV4ccsDWdo7a6TiSk9LURCvPnfnrX67AHMP7U4QcxzfH4v
+	Z+rNTxD+HEC1vmcL+aVPquApmzw3JpdaClouOXpWA6dvE3AAs/MhIGBIp1zR2KUEsIvHr5
+	+YYevkWQW7czReLQL3FGL4+5BnsV44wQhmAlm4ZAPxt8SLj2RPjhqcjO/iFJT8e3B/76fF
+	Jq3PkwjTT5st0o+DKeM05jmifu9PJMWEIFO9zFq/pxUAKzjcak6P2KLnJQeEhA==
 From: "Kory Maincent (TI.com)" <kory.maincent@bootlin.com>
-Date: Thu, 11 Dec 2025 17:38:46 +0100
-Subject: [PATCH v2 02/20] dt-bindings: display: tilcdc: Mark panel binding
- as deprecated
+Date: Thu, 11 Dec 2025 17:38:45 +0100
+Subject: [PATCH v2 01/20] dt-bindings: display: tilcdc: Convert to DT
+ schema
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251211-feature_tilcdc-v2-2-f48bac3cd33e@bootlin.com>
+Message-Id: <20251211-feature_tilcdc-v2-1-f48bac3cd33e@bootlin.com>
 References: <20251211-feature_tilcdc-v2-0-f48bac3cd33e@bootlin.com>
 In-Reply-To: <20251211-feature_tilcdc-v2-0-f48bac3cd33e@bootlin.com>
 To: Jyri Sarha <jyri.sarha@iki.fi>, 
@@ -79,9 +79,8 @@ Cc: Markus Schneider-Pargmann <msp@baylibre.com>,
 X-Mailer: b4 0.14.3
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_083948_893763_F615B558 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251211_083947_117937_C538C3C2 
+X-CRM114-Status: GOOD (  21.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,29 +95,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mark the ti,tilcdc,panel binding as deprecated in the documentation.
-This legacy binding should no longer be used for new designs. Users
-should migrate to the standard DRM panel bindings instead.
+Convert the device tree binding documentation for tilcdc
+from plain text to DT binding schema.
 
 Signed-off-by: Kory Maincent (TI.com) <kory.maincent@bootlin.com>
 ---
+ .../devicetree/bindings/display/tilcdc/tilcdc.txt  | 82 ------------------
+ .../devicetree/bindings/display/tilcdc/tilcdc.yaml | 96 ++++++++++++++++++++++
+ 2 files changed, 96 insertions(+), 82 deletions(-)
 
-Change in v2:
-- New patch
----
- Documentation/devicetree/bindings/display/tilcdc/panel.txt | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/Documentation/devicetree/bindings/display/tilcdc/panel.txt b/Documentation/devicetree/bindings/display/tilcdc/panel.txt
-index 808216310ea27..b973174d704ed 100644
---- a/Documentation/devicetree/bindings/display/tilcdc/panel.txt
-+++ b/Documentation/devicetree/bindings/display/tilcdc/panel.txt
-@@ -1,4 +1,5 @@
- Device-Tree bindings for tilcdc DRM generic panel output driver
-+This binding is deprecated and should not be used.
- 
- Required properties:
-  - compatible: value should be "ti,tilcdc,panel".
+diff --git a/Documentation/devicetree/bindings/display/tilcdc/tilcdc.txt b/Documentation/devicetree/bindings/display/tilcdc/tilcdc.txt
+deleted file mode 100644
+index 3b3d0bbfcfff4..0000000000000
+--- a/Documentation/devicetree/bindings/display/tilcdc/tilcdc.txt
++++ /dev/null
+@@ -1,82 +0,0 @@
+-Device-Tree bindings for tilcdc DRM driver
+-
+-Required properties:
+- - compatible: value should be one of the following:
+-    - "ti,am33xx-tilcdc" for AM335x based boards
+-    - "ti,da850-tilcdc" for DA850/AM18x/OMAP-L138 based boards
+- - interrupts: the interrupt number
+- - reg: base address and size of the LCDC device
+-
+-Recommended properties:
+- - ti,hwmods: Name of the hwmod associated to the LCDC
+-
+-Optional properties:
+- - max-bandwidth: The maximum pixels per second that the memory
+-   interface / lcd controller combination can sustain
+- - max-width: The maximum horizontal pixel width supported by
+-   the lcd controller.
+- - max-pixelclock: The maximum pixel clock that can be supported
+-   by the lcd controller in KHz.
+- - blue-and-red-wiring: Recognized values "straight" or "crossed".
+-   This property deals with the LCDC revision 2 (found on AM335x)
+-   color errata [1].
+-    - "straight" indicates normal wiring that supports RGB565,
+-      BGR888, and XBGR8888 color formats.
+-    - "crossed" indicates wiring that has blue and red wires
+-      crossed. This setup supports BGR565, RGB888 and XRGB8888
+-      formats.
+-    - If the property is not present or its value is not recognized
+-      the legacy mode is assumed. This configuration supports RGB565,
+-      RGB888 and XRGB8888 formats. However, depending on wiring, the red
+-      and blue colors are swapped in either 16 or 24-bit color modes.
+-
+-Optional nodes:
+-
+- - port/ports: to describe a connection to an external encoder. The
+-   binding follows Documentation/devicetree/bindings/graph.txt and
+-   supports a single port with a single endpoint.
+-
+- - See also Documentation/devicetree/bindings/display/tilcdc/panel.txt and
+-   Documentation/devicetree/bindings/display/bridge/ti,tfp410.yaml for connecting
+-   tfp410 DVI encoder or lcd panel to lcdc
+-
+-[1] There is an errata about AM335x color wiring. For 16-bit color mode
+-    the wires work as they should (LCD_DATA[0:4] is for Blue[3:7]),
+-    but for 24 bit color modes the wiring of blue and red components is
+-    crossed and LCD_DATA[0:4] is for Red[3:7] and LCD_DATA[11:15] is
+-    for Blue[3-7]. For more details see section 3.1.1 in AM335x
+-    Silicon Errata:
+-    https://www.ti.com/general/docs/lit/getliterature.tsp?baseLiteratureNumber=sprz360
+-
+-Example:
+-
+-	fb: fb@4830e000 {
+-		compatible = "ti,am33xx-tilcdc", "ti,da850-tilcdc";
+-		reg = <0x4830e000 0x1000>;
+-		interrupt-parent = <&intc>;
+-		interrupts = <36>;
+-		ti,hwmods = "lcdc";
+-
+-		blue-and-red-wiring = "crossed";
+-
+-		port {
+-			lcdc_0: endpoint {
+-				remote-endpoint = <&hdmi_0>;
+-			};
+-		};
+-	};
+-
+-	tda19988: tda19988 {
+-		compatible = "nxp,tda998x";
+-		reg = <0x70>;
+-
+-		pinctrl-names = "default", "off";
+-		pinctrl-0 = <&nxp_hdmi_bonelt_pins>;
+-		pinctrl-1 = <&nxp_hdmi_bonelt_off_pins>;
+-
+-		port {
+-			hdmi_0: endpoint {
+-				remote-endpoint = <&lcdc_0>;
+-			};
+-		};
+-	};
+diff --git a/Documentation/devicetree/bindings/display/tilcdc/tilcdc.yaml b/Documentation/devicetree/bindings/display/tilcdc/tilcdc.yaml
+new file mode 100644
+index 0000000000000..34ac1fd04d5c6
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/tilcdc/tilcdc.yaml
+@@ -0,0 +1,96 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/tilcdc/tilcdc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: TI LCD Controller, found on AM335x, DA850, AM18x and OMAP-L138
++
++maintainers:
++  - Kory Maincent <kory.maincent@bootlin.com>
++
++properties:
++  compatible:
++    enum:
++      - ti,am33xx-tilcdc
++      - ti,da850-tilcdc
++
++  reg:
++    maxItems: 1
++
++  interrupts:
++    maxItems: 1
++
++  port:
++    $ref: /schemas/graph.yaml#/properties/port
++
++  ti,hwmods:
++    $ref: /schemas/types.yaml#/definitions/string
++    description:
++      Name of the hwmod associated to the LCDC
++
++  max-bandwidth:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      The maximum pixels per second that the memory interface / lcd
++      controller combination can sustain
++
++  max-width:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      The maximum horizontal pixel width supported by the lcd controller.
++
++  max-pixelclock:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      The maximum pixel clock that can be supported by the lcd controller
++      in KHz.
++
++  blue-and-red-wiring:
++    enum: [straight, crossed]
++    description:
++      This property deals with the LCDC revision 2 (found on AM335x)
++      color errata [1].
++       - "straight" indicates normal wiring that supports RGB565,
++         BGR888, and XBGR8888 color formats.
++       - "crossed" indicates wiring that has blue and red wires
++         crossed. This setup supports BGR565, RGB888 and XRGB8888
++         formats.
++       - If the property is not present or its value is not recognized
++         the legacy mode is assumed. This configuration supports RGB565,
++         RGB888 and XRGB8888 formats. However, depending on wiring, the red
++         and blue colors are swapped in either 16 or 24-bit color modes.
++
++       [1] There is an errata about AM335x color wiring. For 16-bit color
++       mode the wires work as they should (LCD_DATA[0:4] is for Blue[3:7]),
++       but for 24 bit color modes the wiring of blue and red components is
++       crossed and LCD_DATA[0:4] is for Red[3:7] and LCD_DATA[11:15] is
++       for Blue[3-7]. For more details see section 3.1.1 in AM335x
++       Silicon Errata
++       https://www.ti.com/general/docs/lit/getliterature.tsp?baseLiteratureNumber=sprz360
++
++required:
++  - compatible
++  - interrupts
++  - reg
++  - port
++
++additionalProperties: false
++
++examples:
++  - |
++    tilcdc: tilcdc@4830e000 {
++        compatible = "ti,am33xx-tilcdc";
++        reg = <0x4830e000 0x1000>;
++        interrupt-parent = <&intc>;
++        interrupts = <36>;
++        ti,hwmods = "lcdc";
++
++        blue-and-red-wiring = "crossed";
++
++        port {
++            lcdc_0: endpoint {
++                remote-endpoint = <&hdmi_0>;
++            };
++        };
++    };
 
 -- 
 2.43.0
