@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD8C1D41C3A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 14:03:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1088FD41C36
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 14:04:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ocxfd2riU5l6RNdagWaPymuHyCDM3y1Y0L0w/bDOMGU=; b=wv+2xe/CxO5/PAb5ARO3U6CyhQ
-	tvnu7Sx/3RrhaRK/6hLmyzbm5iWb9aoHZg8sswGGqG8exU2nhW+xRAEV0mXaKDlBFW3nvFQjMIe/D
-	qbKh1p8H4i2q8MBl3iRWu8ddp9GZzg8MZz40hEZoq3hjyVMoqgOYn6WDoXTF9zJ7BefOXFIT64EYP
-	3/rv3Yk3c7+rNJcMsUqFxjTgLGcuEdLiIP89R/0j76e1JYTtudNQruQ7quzINuqfgK/X+LevP9VMs
-	yilGkuOKlYW0gXlAGtk0bDOBQ7EU8c2WlbOcEWagkEsX/yPpJ3ewrxhSaW2kxR1LI1JGsGi4iQ3ZH
-	rtUDax0A==;
+	bh=aipOaJuScwfExD6+bFm/ZBqxUEz6heXJaJqy4EsM7Tg=; b=VgvlLgJGsXSFj/C1Dtxn1zc/Ii
+	6gWyB1eR1xnl0OUCrXmyqKS8HTAWf5VRGeTAAfZS/6C0q30PxohINPg8kS8H/09EgaZqUO+3o7DR9
+	CYrybMlVO9VDgWwy68Tkb9iC10qkxQRLtW9bYb8MeW8hH6Ff9sphReCfsVud3CanSkygHfKJ24Kb6
+	/7/ewRPMA+NiKPs8nR1mZWTTgB4MdTD8ZjY+X/u8d+SmT1H0ou5JsYdN7CnRmQbnwhfTXTIhVoXZn
+	96hvJdRdHSl4zq5fn4TjBF+Pvx5Ta+UICdWuqz+tswpUXs+JR0QnZCsmN0WGdE+Kup5Oh8FToJQyC
+	Rr3CayJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vThGr-0000000Ggoh-07gy;
-	Thu, 11 Dec 2025 14:03:53 +0000
-Received: from mail-oi1-x235.google.com ([2607:f8b0:4864:20::235])
+	id 1vThGs-0000000Ggpe-1MBc;
+	Thu, 11 Dec 2025 14:03:54 +0000
+Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vThGn-0000000Ggmg-3S09
+	id 1vThGq-0000000Ggnt-2hgn
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 14:03:50 +0000
-Received: by mail-oi1-x235.google.com with SMTP id 5614622812f47-450c9057988so59668b6e.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 06:03:49 -0800 (PST)
+	Thu, 11 Dec 2025 14:03:53 +0000
+Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-4510974a6bbso34821b6e.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 06:03:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1765461828; x=1766066628; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1765461831; x=1766066631; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ocxfd2riU5l6RNdagWaPymuHyCDM3y1Y0L0w/bDOMGU=;
-        b=XJ5VJ3KU7UJzgvbv9ouKAu81a5qSfMZDXxSuzVZUx8v9AXRdxJfMvixm6dKFQ6p0Tc
-         HqiXpoR5C7s7Pl49h5QIhFxFp1xYeg3SPk8QmlMOX4apSY8tm94HSPx0ndcAh4qjb8/B
-         sgNApgBDzqO07wC8MiNxfRMKgiJCaH6HkAeLU=
+        bh=aipOaJuScwfExD6+bFm/ZBqxUEz6heXJaJqy4EsM7Tg=;
+        b=HTGpLopTbyTqysPEAqVMnN5XyTbuvvGUfRb6LksiuSODt5xKJAcSJk0+USJlydj/wf
+         tqXmNl27JV/85yrR5l9hJAjS+630/ximDpvrvc4sECSMGoMwu2lH4H3HLOLBJIVPSSGL
+         HpjMKQV+CxQemuTC+/3GPWDzxV28oJb+CGhrA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765461828; x=1766066628;
+        d=1e100.net; s=20230601; t=1765461831; x=1766066631;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=ocxfd2riU5l6RNdagWaPymuHyCDM3y1Y0L0w/bDOMGU=;
-        b=vxSH7zwme5btSYNh6Hzl8tgP+o6cnojVVgqTFVk6iG4C9Ro8MIax/ZLhv3oUD3FV2u
-         C0HXLOJ3wS9jumVAAcGAmbHJ01gORRF5puck40bztSmKVKeGYFkyay1pToW3kCk76C95
-         IFdxwcg377C7d+o3xC6q03SMcIU+SFrVhTmKpecxsVibiqHrjONZ+VQbyIrw9htG8EhC
-         mShRQ972z9JqLQtbHd1WvqrwpjSryptUuz2P7ofILPYSABFzKHHY37PwvMt0eKSINMNf
-         VV5Rhx4wniQerRrTpC0uEtIa1TWxh1AP45C7dsY5HiqhgDPs0QY/TZBCfwl59VNVTSk/
-         tltg==
-X-Gm-Message-State: AOJu0Yy9fcw2qC3ZiTAY2LBbHFYdisEugNrS0e3jk6lb3fO7eLLhwdys
-	z1dNgem8dJM39K86aFdJNugSJFYqhCB32wXfl7ivktQ++LsUjyBNz0Zvyg8/zg+s1H9PjwJ5o+9
-	EMpw=
-X-Gm-Gg: AY/fxX5gnvdq3vY1GGyTfkSkvRoBfbM5ysKpFnm8PsGS0/LhSC1g3OvKQC4JrOUUAxC
-	M87FOfQoRBgs9ay/cM0hagzzqw2+fiwIcvnvhJ0fglyfOG7DloxjswPQQM58VYp//wDLIP+Igaf
-	m6rdBoqZOOBHEQpMAx8yhNRNnchGmMftCrrrberUmoyNFATHk643uNZGtYPrvy+cGswHNfa8pfx
-	00SqLDPbAn3DyNZNntwkAHpkV+KirsxSYb/IHB4iooCQgWi9O78aj/i1fLQioHwqPiulBu71WLE
-	Up+3v2ZC3oEgJ+XQ0eEZXT0/CIR16LqL8lH+ixE/OTbpwiLnvoRLmIsL8bNBLElJ1kJc/3LclQA
-	H4odPxgly3Jr7mamyOqMp7R/Ck0OXJROcAtD6O7wKTA3bqwTdpQ7pnY43IZ8ojhwQEWr5fC/f7T
-	DZksNr
-X-Google-Smtp-Source: AGHT+IHtuzi/39tczpLCYlwV1m0CpQpVxWVqkNMlvivSc8jFvfBYvWlon4SeWF8dguVxgleSft/DYA==
-X-Received: by 2002:a05:6808:bc2:b0:44d:b8d3:3214 with SMTP id 5614622812f47-45586581c02mr2763469b6e.3.1765461828234;
-        Thu, 11 Dec 2025 06:03:48 -0800 (PST)
+        bh=aipOaJuScwfExD6+bFm/ZBqxUEz6heXJaJqy4EsM7Tg=;
+        b=kryqLaT0fT+7nIU/uQ2SSVfjBEF83YhpHpdxGyelF64DiUiY2X6vslltxyAcG6+gB0
+         lJMLqhAoLcjNxKAOH8p2sN//JUm1AQYNeCMwPxrJG7FHe19bk8UTX8Pm99zxb0Ar9qhK
+         0cYtMowc4ieNR8Lrwczv1H593ZCiIBQRZpXCrWLV4VLJ13ptKFA7r59aW2XbYTw0f6Jq
+         BHRvLt7fn8RMbAW129TG2/DKoz8ve5AJyhRYzmQnEetcIs254zW1y6h6v6NBx1N7GGOw
+         vzOc0zhlSCObtEPPY/AGlXQG+6JKk1FMwESj+vUiEGUHlVcErHb7LcDSuWvjjbLLt1uw
+         LjFA==
+X-Gm-Message-State: AOJu0YxNyGnzSMSmNAT/7xZipe0ZOI9VhUqrczjDhgaQN7scGR0GVClo
+	WX6LN0mkiyNAHDzaC1z5ZgD61JF7lnNdFQld81WJtuJqy1cQNRicvelsMgPnpfP8ZfMeH6wnbzL
+	wxd0=
+X-Gm-Gg: AY/fxX4AEioGtunTjudFtRJ5F14C+/HKQwE9jM3ZBevnOJ1WjbKyItNUvC1xnXcEFTJ
+	ljPr+lubu2WwexOglsB/g00500txmHsjZ4Q97JankU8ZAHb+HV4L27fJTnoWrX9FXDpPLOs6FkK
+	vgAZQ1J5aeAVI2vrhrz2poehlN7Oeem8ubjnk07sJO0x18s37FivRJkdClsE/JQmyG0YcqB34B3
+	1yjsD6IrKm6UD1e+/LOsUyqTnuCR6EAGl3iyJTvncyLKyIN6J1ZDraEEp971+gcZJXl1S3qvXTD
+	KysiMNNiYcOk1PNApU7CkHo7a9XEh+Xk+72jycmm33aobquM+rjdeoAAg0INU67GI7k0tARr7Lg
+	BJ9bwx7wE6ASsbRgZiXUc/5ifPvalIIRPu7nTKY8LVpO210mvcR0flZ5wHMK7eOIV2tSkGu+/7N
+	7jiArKYOlSnLrIey4=
+X-Google-Smtp-Source: AGHT+IHC3573QohLmv8SOACLNjH9ajppgT1cVKZJbAnApK3+sKvHBpgpk8c0AWII7l6JWhGkYhKPCQ==
+X-Received: by 2002:a05:6808:894c:b0:453:10f0:a345 with SMTP id 5614622812f47-455863e1496mr2740090b6e.30.1765461830659;
+        Thu, 11 Dec 2025 06:03:50 -0800 (PST)
 Received: from chromium.org ([73.34.74.121])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-45598d6e789sm1130030b6e.22.2025.12.11.06.03.46
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-45598d6e789sm1130030b6e.22.2025.12.11.06.03.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Dec 2025 06:03:47 -0800 (PST)
+        Thu, 11 Dec 2025 06:03:50 -0800 (PST)
 From: Simon Glass <sjg@chromium.org>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Nicolas Schier <nicolas@fjasle.eu>,
@@ -77,27 +77,20 @@ Cc: Nicolas Schier <nicolas@fjasle.eu>,
 	Ahmad Fatoum <a.fatoum@pengutronix.de>,
 	Chen-Yu Tsai <wenst@chromium.org>,
 	Simon Glass <sjg@chromium.org>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Kees Cook <kees@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nsc@kernel.org>,
-	Oleh Zadorozhnyi <lesorubshayan@gmail.com>,
-	Petr Mladek <pmladek@suse.com>,
-	linux-kbuild@vger.kernel.org,
+	David Sterba <dsterba@suse.com>,
+	Nick Terrell <terrelln@fb.com>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v7 4/6] kbuild: Support a MAKE_FIT_FLAGS environment variable
-Date: Thu, 11 Dec 2025 07:03:01 -0700
-Message-ID: <20251211140309.1910613-5-sjg@chromium.org>
+Subject: [PATCH v7 5/6] scripts/make_fit: Support a few more parallel compressors
+Date: Thu, 11 Dec 2025 07:03:02 -0700
+Message-ID: <20251211140309.1910613-6-sjg@chromium.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20251211140309.1910613-1-sjg@chromium.org>
 References: <20251211140309.1910613-1-sjg@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_060349_862017_6D804C41 
-X-CRM114-Status: GOOD (  13.61  )
+X-CRM114-CacheID: sfid-20251211_060352_689674_050E31AD 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,34 +105,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In some cases it is useful to be able to pass additional flags to the
-make_fit.py script. For example, since ramdisks are typically large,
-passing -E to use external data can be helpful.
-
-Add a new MAKE_FIT_FLAGS variable for this.
+Add support for pbzip2, xz and plzip which can compress in parallel.
+This speeds up the ramdisk compression.
 
 Signed-off-by: Simon Glass <sjg@chromium.org>
 ---
 
 Changes in v7:
-- Add a new patch with the MAKE_FIT_FLAGS change
+- Mention xz as well, in the commit message
 
- scripts/Makefile.lib | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ scripts/make_fit.py | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
 
-diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
-index 28a1c08e3b22..a5641a6538b1 100644
---- a/scripts/Makefile.lib
-+++ b/scripts/Makefile.lib
-@@ -400,7 +400,7 @@ FIT_COMPRESSION ?= gzip
+diff --git a/scripts/make_fit.py b/scripts/make_fit.py
+index 7ddaf3c0d783..defb87f223d7 100755
+--- a/scripts/make_fit.py
++++ b/scripts/make_fit.py
+@@ -50,11 +50,12 @@ import libfdt
+ CompTool = collections.namedtuple('CompTool', 'ext,tools')
  
- quiet_cmd_fit = FIT     $@
-       cmd_fit = $(MAKE_FIT) -o $@ --arch $(UIMAGE_ARCH) --os linux \
--		--name '$(UIMAGE_NAME)' \
-+		--name '$(UIMAGE_NAME)' $(MAKE_FIT_FLAGS) \
- 		$(if $(findstring 1,$(KBUILD_VERBOSE)),-v) \
- 		$(if $(FIT_DECOMPOSE_DTBS),--decompose-dtbs) \
- 		--compress $(FIT_COMPRESSION) -k $< @$(word 2,$^)
+ COMP_TOOLS = {
+-    'bzip2': CompTool('.bz2', 'bzip2'),
++    'bzip2': CompTool('.bz2', 'pbzip2,bzip2'),
+     'gzip': CompTool('.gz', 'pigz,gzip'),
+     'lz4': CompTool('.lz4', 'lz4'),
+-    'lzma': CompTool('.lzma', 'lzma'),
++    'lzma': CompTool('.lzma', 'plzip,lzma'),
+     'lzo': CompTool('.lzo', 'lzop'),
++    'xz': CompTool('.xz', 'xz'),
+     'zstd': CompTool('.zstd', 'zstd'),
+ }
+ 
+@@ -207,7 +208,12 @@ def compress_data(inf, compress):
+             done = False
+             for tool in comp.tools.split(','):
+                 try:
+-                    subprocess.call([tool, '-c'], stdin=inf, stdout=outf)
++                    # Add parallel flags for tools that support them
++                    cmd = [tool]
++                    if tool in ('zstd', 'xz'):
++                        cmd.extend(['-T0'])  # Use all available cores
++                    cmd.append('-c')
++                    subprocess.call(cmd, stdin=inf, stdout=outf)
+                     done = True
+                     break
+                 except FileNotFoundError:
 -- 
 2.43.0
 
