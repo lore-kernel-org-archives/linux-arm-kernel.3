@@ -4,66 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97979D41C21
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 11:23:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 559AAD41C1F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 11:32:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bcGprBaLKCSBZW08+GHjdVQn+0jdpvKT5jPnJ0YXUSg=; b=PDx89eVtk2cE1+p7oINSsxOlzu
-	YwJwuh8QWMfVCV7s40ZZalSRJYWmYSq9UylrTZp1NyE+3LOdv9zx86IWs8IEuovqtFua80WqILxvq
-	iJKTUy8+b0HKwuWE+mCwVsS+1xqHkb2/ijYhEpDWrek9FRSq2z275bN1gl96cRKZLD1PUtRyUQcuL
-	W7yg/6Q1w93VzzLxxphcvVrrL4QA8LOHHcFlvOusN9p4nnr0LAS9zHLTlktUPWtX9bguEYmfmhov3
-	APvii9jeFiQUddq5lYD34KAwhJhIvDWNiK8HlLtAXKf/ykOXWtTCTR28Fo+Ze5JwYtRecaGeDO2WE
-	cXs2XKCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vAvAduq0/fXRtJhO0coRhdPgTbJSI1bNLnmdQnPpfuY=; b=xtdQoIpm9B29myPcGMhMMVq8sN
+	nqT5djuyeZy+kSz++0cP5n9ENTAK2HLJ3s6P4OKMnn/AJxwdmsIrKfOcx3UeiDbre4HL+lm/luNNJ
+	AzatoDtiytXCpMq8+YHXkJK93A6o5Jn6wnEFnBBdqGMVg70185P9cfhWeN2pEbi7NbtY6n3yM4bPa
+	YmoOZzuPBDLOTHOW5og+Pl6psh1o2PlvzMfwbcLN/309tmWrlqbzPSeMBNKIdDNuXjH7TnlEEuyXw
+	L7u3Z4kjv+jDbjMeXiuotoRnb2QaTt5yCUuQ+SrYzRuSJqBTbFioXRcKcAA/QmVJTbGlQAiBfLbr5
+	2Kay6uGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTelo-0000000GX80-0GRQ;
-	Thu, 11 Dec 2025 11:23:40 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTell-0000000GX76-3DHI
+	id 1vTeuC-0000000GXTi-3VhY;
+	Thu, 11 Dec 2025 11:32:20 +0000
+Received: from mail-yx1-xb132.google.com ([2607:f8b0:4864:20::b132])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vTeu9-0000000GXTI-12vi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 11:23:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5903B175D;
-	Thu, 11 Dec 2025 03:23:27 -0800 (PST)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 41F893F740;
-	Thu, 11 Dec 2025 03:23:31 -0800 (PST)
-Message-ID: <b922ff73-c583-482e-8925-ad7758280705@arm.com>
-Date: Thu, 11 Dec 2025 11:23:29 +0000
+	Thu, 11 Dec 2025 11:32:18 +0000
+Received: by mail-yx1-xb132.google.com with SMTP id 956f58d0204a3-64472ea7d18so760734d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 03:32:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1765452735; x=1766057535; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=vAvAduq0/fXRtJhO0coRhdPgTbJSI1bNLnmdQnPpfuY=;
+        b=Z9s6yr+ETkQbZiFb/kCYVeis1GFjLnuXvd9GcDA05snG12zZyp8lz1F/ycQjr1biZ1
+         j8Mys5Ngurg3mWtMmYn7NSB/5WJ7oK7US/vXDGkHI829TmwDaklN/1+THNBD7Ou/XMTV
+         lyjvnjAYZGxT0ceoRJXgMxaxzJ2KIy3p4F2MUoyRpKDaOdR3ICMYbJXFQzFGJSPs3ePw
+         mHf/opxLjnCn15/UibuHiHUrcc5gVPKbCOiYy438LENAXvvuzMhDjNQG9p0nEtJMfa3u
+         TOO134qxEAZ5k+W7Lk2mPoysY3bZyWcfqgNrTec227soLSu/hfyp8z/LahNuBUu2NFtP
+         hvwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765452735; x=1766057535;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=vAvAduq0/fXRtJhO0coRhdPgTbJSI1bNLnmdQnPpfuY=;
+        b=Z5jPsM571R0tq60aYc8rsMR+4Ck39Ad3xNUrl9v+hc0F4G5KiSYIUKROYF0oMHZFoA
+         Z8MSyqG+oZuXEARg9oX3B4fob73ykq8NxSCBCo2LrQpCysT6WgqjkZMuR3OMKvwHtHom
+         Oync3c3xO/yF7YbIXiFOfU7pVKDeGvHA8XBvxGiIqnDr4ZpCyJgTarB+AOLDtQeMtrpR
+         XQNBY2eqMcOysz/iJRx0K4DIMyC5WJEY7yAm/RvSm611zo07xIxipXIc/YAGPjpnsbrO
+         5KuoMeDen5G50ZUtpytgtWWM2ymTD0AbY6v7pCF63BqeXnYainIgr+zLwCyMK9WO2tbf
+         cf4A==
+X-Forwarded-Encrypted: i=1; AJvYcCVfPv8ewiZRUFWYimatM7gN8SBJdrPUXRiUp3KmpyCmg8Eh7nfVTkhFu6BM1qsTomixjGaqoQcLNTITCiDw7/eI@lists.infradead.org
+X-Gm-Message-State: AOJu0Yza90XxcEM8MBk3iTZl3PDqcDYh4ce75sviDhb+3AjanQrLvzlX
+	DvC88TtggubbJlOxPKRWstRthpVb7YTFr28Wmk+zVsuVLEumUG322IPmzkAjDxEGW/3jjaFrr8m
+	ojf1axL8Nq78pdx37tsUPbpbhispTxsnLZG8Uw3/lQ4WCS3OZLPpj
+X-Gm-Gg: AY/fxX7+VT/aUMeTtwW5gJuSmGJPDTE6ngSGDeLfcNil0Ux7aCeTDdJhAeiMG58c+eG
+	DKfCUpCyHhRo3McLE9SMl6c86fDk8WhGHPzeTY2tMP5NZxQgnsHElIUoE8rSXYgDLtWAOPipkkO
+	jz1qeIctlsVvqlRYk2kzS0fp1eLd55oHx23V4EILWMqtixZjxvH1ib6ZE3axkBVcqrS/PFYOmyW
+	x4p50XjPUw4OV000yhXVMUwyLX/Dsa/uuJNiFVsSUeXAwpo0F/5160JO/mf+yR7NmvFfCsqLHbb
+	Y95U6Ss=
+X-Google-Smtp-Source: AGHT+IG8bNJ7GVmxCtKmkFoNf2sieoYkv2mgOPVq2xJndKf37hgXCewb4eZsd1D0ffqnRQUAE3M4kyCHgtlEMcMmN4I=
+X-Received: by 2002:a05:690e:191b:b0:640:db57:8d95 with SMTP id
+ 956f58d0204a3-6446eb3aa4emr5006636d50.63.1765452735377; Thu, 11 Dec 2025
+ 03:32:15 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 02/38] arm64: mpam: Re-initialise MPAM regs when CPU
- comes online
-From: Ben Horgan <ben.horgan@arm.com>
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@kernel.org>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Gavin Shan
- <gshan@redhat.com>, rohit.mathew@arm.com, reinette.chatre@intel.com,
- Punit Agrawal <punit.agrawal@oss.qualcomm.com>
-References: <20251205215901.17772-1-james.morse@arm.com>
- <20251205215901.17772-3-james.morse@arm.com>
- <0ea282be-c44f-4562-9104-1efe57348a3e@arm.com>
-Content-Language: en-US
-In-Reply-To: <0ea282be-c44f-4562-9104-1efe57348a3e@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20251211-dev-dt-warnings-all-v1-0-21b18b9ada77@codeconstruct.com.au>
+ <20251211-dev-dt-warnings-all-v1-6-21b18b9ada77@codeconstruct.com.au>
+In-Reply-To: <20251211-dev-dt-warnings-all-v1-6-21b18b9ada77@codeconstruct.com.au>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Thu, 11 Dec 2025 12:31:38 +0100
+X-Gm-Features: AQt7F2pSIRmWc3gz3aUnvZCl6QhFMFW_pPE_bkwFhLy-FhbClf3aqE2_J1pJY4M
+Message-ID: <CAPDyKFrbS_3XRTSuexFxTpP1ydgvfFvXNv_tninnTqum7+92ZA@mail.gmail.com>
+Subject: Re: [PATCH RFC 06/16] dt-bindings: mmc: Switch ref to sdhci-common.yaml
+To: Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+	linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org, 
+	linux-kernel@vger.kernel.org, openbmc@lists.ozlabs.org, 
+	linux-gpio@vger.kernel.org, linux-mmc@vger.kernel.org, 
+	linux-crypto@vger.kernel.org, linux-iio@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_032337_962859_E38482F4 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20251211_033217_302982_23D5CFCE 
+X-CRM114-Status: GOOD (  13.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,87 +100,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+On Thu, 11 Dec 2025 at 09:47, Andrew Jeffery
+<andrew@codeconstruct.com.au> wrote:
+>
+> Enable use of common SDHCI-related properties such as sdhci-caps-mask as
+> found in the AST2600 EVB DTS.
+>
+> Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
 
-On 12/9/25 15:13, Ben Horgan wrote:
-> Hi James,
-> 
-> On 12/5/25 21:58, James Morse wrote:
->> Now that the MPAM system registers are expected to have values that change,
->> reprogram them based on struct task_struct when a CPU is brought online.
->>
->> Previously MPAM's 'default PARTID' of 0 was used this is the PARTID that
->> hardware guarantees to reset. Because there are a limited number of
->> PARTID, this value is exposed to user space, meaning resctrl changes
->> to the resctrl default group would also affect kernel threads.
->> Instead, use the task's PARTID value for kernel work on behalf of
->> user-space too.
->>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> ---
->>  arch/arm64/kernel/cpufeature.c | 18 +++++++++++-------
->>  1 file changed, 11 insertions(+), 7 deletions(-)
->>
->> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->> index 5ed401ff79e3..429128a181ac 100644
->> --- a/arch/arm64/kernel/cpufeature.c
->> +++ b/arch/arm64/kernel/cpufeature.c
->> @@ -86,6 +86,7 @@
->>  #include <asm/kvm_host.h>
->>  #include <asm/mmu.h>
->>  #include <asm/mmu_context.h>
->> +#include <asm/mpam.h>
->>  #include <asm/mte.h>
->>  #include <asm/hypervisor.h>
->>  #include <asm/processor.h>
->> @@ -2439,13 +2440,16 @@ test_has_mpam(const struct arm64_cpu_capabilities *entry, int scope)
->>  static void
->>  cpu_enable_mpam(const struct arm64_cpu_capabilities *entry)
->>  {
->> -	/*
->> -	 * Access by the kernel (at EL1) should use the reserved PARTID
->> -	 * which is configured unrestricted. This avoids priority-inversion
->> -	 * where latency sensitive tasks have to wait for a task that has
->> -	 * been throttled to release the lock.
->> -	 */
->> -	write_sysreg_s(0, SYS_MPAM1_EL1);
->> +	int cpu = smp_processor_id();
->> +	u64 regval = 0;
->> +
->> +	if (IS_ENABLED(CONFIG_MPAM))
->> +		regval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
-> 
-> CONFIG_MPAM -> CONFIG_ARM64_MPAM
+Applied for fixes and by adding a stable-tag, thanks!
 
-Actually, this code is only run before the mpam enablement is finished,
-importantly before the mpam_enabled static key is set, and so
-arm64_mpam_current is still 0 for every cpu. For cpus that are brought
-up after boot time this is never run.
+Kind regards
+Uffe
 
-As SYS_MPAM0_EL1 and SYS_MPAM1_EL1 are unknown out of reset we should
-set them to 0 whenever a cpu comes online to make sure they initially
-use PARTID 0 as that is the only one guaranteed to have sensible
-defaults in the MSC. Once the mpam driver has configured the MSC we can
-start setting other values.
 
-> 
->> +
->> +	write_sysreg_s(regval, SYS_MPAM1_EL1);
->> +	isb();
->> +
->> +	write_sysreg_s(regval, SYS_MPAM0_EL1);
->>  }
->>  
->>  static bool
-> 
-> Thanks,
-> 
-> Ben
-> 
-> 
-
-Thanks,
-
-Ben
-
+> ---
+>  Documentation/devicetree/bindings/mmc/aspeed,sdhci.yaml | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/Documentation/devicetree/bindings/mmc/aspeed,sdhci.yaml b/Documentation/devicetree/bindings/mmc/aspeed,sdhci.yaml
+> index 9fce8cd7b0b6..d24950ccea95 100644
+> --- a/Documentation/devicetree/bindings/mmc/aspeed,sdhci.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/aspeed,sdhci.yaml
+> @@ -41,7 +41,7 @@ properties:
+>  patternProperties:
+>    "^sdhci@[0-9a-f]+$":
+>      type: object
+> -    $ref: mmc-controller.yaml
+> +    $ref: sdhci-common.yaml
+>      unevaluatedProperties: false
+>
+>      properties:
+>
+> --
+> 2.47.3
+>
+>
 
