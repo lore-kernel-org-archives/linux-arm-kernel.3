@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84A59D41C02
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 08:47:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B420CD3E786
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 08:47:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=scUXHBA8U36RhFOiHgBOHOnbtB8kt5qA5NvPIcX39Ts=; b=tMhjlLY3kdr+IRosPeRZTIL2o6
-	KNJncuCXclWMrF4Kb6XseOJ2mIkG1+InW/u4MLxKKL+somWl8pKd4hFCEUDJoC3an2jzFwIrNHi8v
-	SDr+K+MWP3C2Ic9eAVGpdKQzn7DiK+3IogQhjXkzxIdkiqHuvuDpN7PxGAYHyQjM5btv0I3bKzf0/
-	tyCGXhsSMJMNTfM4GxdDermEWsruIbtSEIZxPm0Lfd0S94qUD7XRvY5Smf6G7GLb3wLzKO6TSReye
-	hb9dtAtC3+b5iCa5V8E//2TUrLmy+/yzB7DOCWikhzjb0+bzwRK71+RXHtpZWwVh8TwHs8LTOOY/b
-	2NgaNP2A==;
+	bh=DfE7RBxeKysNsLYVJ2cwyFMHF548EzarJueuQZE4RQY=; b=qZu4KlLn52OfYAAzklPaR8Fsgb
+	i2D09kxGuzevEHxa8LfAOtUguRuk18W5/jPTmlB//A+3AWxjj+xpTA7L0xm0TDkDj6qf7xJNKOaYA
+	I7Tpf1Mzn0VwPLQEVhZz0BnqZX+1w8i07MbPR7bl3nbyi2VQMpX3gxSc5qjhyD16VBXAfjjsCEWOw
+	z0trNozkig5gSlGMYNrS/N6FRkxaS5NvwREo3mh2RGeUZh7yLUy3Z0dN9lrp4/NnhzBbC0TDIE/3M
+	f5mDirOveTUhabBX3RQoEcbB6a4p52JrCp2tNRp72eGxC2hTrSVpcnIjPU4TjB6SBkJ4Igeyt0Dd6
+	7J3tIiaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTcKc-0000000GP3P-1QdS;
-	Thu, 11 Dec 2025 08:47:26 +0000
+	id 1vTcKg-0000000GP6s-2ifU;
+	Thu, 11 Dec 2025 08:47:30 +0000
 Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTcKY-0000000GOz7-3kYL
+	id 1vTcKe-0000000GP3w-1fmH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 08:47:25 +0000
+	Thu, 11 Dec 2025 08:47:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1765442840;
-	bh=scUXHBA8U36RhFOiHgBOHOnbtB8kt5qA5NvPIcX39Ts=;
+	d=codeconstruct.com.au; s=2022a; t=1765442846;
+	bh=DfE7RBxeKysNsLYVJ2cwyFMHF548EzarJueuQZE4RQY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=Kbl6jMARUYr9p3EhuRIx7DFr993blzu2iTSvxCBzC3fcoeeUKB+9dEEGIjvFgrC0o
-	 699wvbd4O/UbmujPS7oflU1iFRhNWEToKfk+Vp1mY6yY6s5tL5XTf61LjTW49Imt0d
-	 /e7f2n+Si4v0YguWCG1wYgpyRyFqcsGg5Dn/1LI1qMteB5gDQn5X9mZUpno7EACIu2
-	 gd5EueGuo8iBbwcEkaEjWHim/XQb9BiSKFABt992wnwtnry/uL81BXUNwibzSeVP9s
-	 jGZvAtr7yYywK4Yy+6GvHqtljVdtsLA/M/Xcd+M1mKP2OtgSBYKPCGP25M89RjZotV
-	 Zz+JFpjGUR8kg==
+	b=RJemCfSdq0JXdxkb7HL2R50Lv5PpvyLoZ8fHKRLKyk8aD/UfEDsVm0BfbxMYHJ1Q7
+	 UiZAw1YI0JCxH8fMqCfxXFJhqnt0SwO/YNM6bnuH2g+hHRaT86bD9nd4TuhBK5dSBA
+	 uYn9mX0CnuoMj7+jtMKJl8Q10shUS6xqmz/1+ULToRO8+7GJtOIupkMCMfoU7hgrVW
+	 ZjFPKIIeWlwdMtbMP7D0u6w/zWKS/AgRfVXwuAXJp6w9xF+ugiHBgm1l7at3LMNqG7
+	 2o9gNHEPDJO0vII0adr4LWdlc1kI/Xwqru00aTS1k2TZfCxUizynayTdIX3YLJaJ/0
+	 6pqGngsMgpuVg==
 Received: from [127.0.1.1] (fs98a57d9c.tkyc007.ap.nuro.jp [152.165.125.156])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 24FF57D6BB;
-	Thu, 11 Dec 2025 16:47:15 +0800 (AWST)
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id 8D6A87D6B0;
+	Thu, 11 Dec 2025 16:47:21 +0800 (AWST)
 From: Andrew Jeffery <andrew@codeconstruct.com.au>
-Date: Thu, 11 Dec 2025 17:45:52 +0900
-Subject: [PATCH RFC 10/16] dt-bindings: crypto: Document aspeed,ahbc
- property for Aspeed ACRY
+Date: Thu, 11 Dec 2025 17:45:53 +0900
+Subject: [PATCH RFC 11/16] ARM: dts: aspeed: Drop syscon compatible from
+ EDAC in g6 dtsi
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251211-dev-dt-warnings-all-v1-10-21b18b9ada77@codeconstruct.com.au>
+Message-Id: <20251211-dev-dt-warnings-all-v1-11-21b18b9ada77@codeconstruct.com.au>
 References: <20251211-dev-dt-warnings-all-v1-0-21b18b9ada77@codeconstruct.com.au>
 In-Reply-To: <20251211-dev-dt-warnings-all-v1-0-21b18b9ada77@codeconstruct.com.au>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -60,8 +60,8 @@ Cc: Joel Stanley <joel@jms.id.au>, linux-hwmon@vger.kernel.org,
  linux-iio@vger.kernel.org, Andrew Jeffery <andrew@codeconstruct.com.au>
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_004723_154990_27420B74 
-X-CRM114-Status: UNSURE (   7.91  )
+X-CRM114-CacheID: sfid-20251211_004728_637181_391E5340 
+X-CRM114-Status: UNSURE (   9.83  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -77,43 +77,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The g6 DTSI already provides the property and the driver errors out if
-the AHB controller's syscon can't be located, so define the property and
-mark it as required.
+Its presence is not required by the binding, its addition was not
+discussed in commit aac82707fa45 ("ARM: dts: aspeed: Add AST2600 EDAC
+into common devicetree"), and its inconsistent with the g4 and g5
+dtsis.
+
+Further, the corresponding driver instantiates its own regmap rather
+than fetching the syscon regmap, in theory breaking any users of the
+syscon, but of which there appear to be none in-tree.
+
+Drop it for now, and we can add it back with the necessary rework if
+it's ever required.
 
 Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
 ---
- Documentation/devicetree/bindings/crypto/aspeed,ast2600-acry.yaml | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/arm/boot/dts/aspeed/aspeed-g6.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/crypto/aspeed,ast2600-acry.yaml b/Documentation/devicetree/bindings/crypto/aspeed,ast2600-acry.yaml
-index b18f178aac06..0dac6ee5043e 100644
---- a/Documentation/devicetree/bindings/crypto/aspeed,ast2600-acry.yaml
-+++ b/Documentation/devicetree/bindings/crypto/aspeed,ast2600-acry.yaml
-@@ -30,11 +30,17 @@ properties:
-   interrupts:
-     maxItems: 1
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+index 1ae816087f6b..86b30e38fa25 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
++++ b/arch/arm/boot/dts/aspeed/aspeed-g6.dtsi
+@@ -74,7 +74,7 @@ timer {
+ 	};
  
-+  aspeed,ahbc:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      A phandle to the AHB controller node, which must be a syscon
-+
- required:
-   - compatible
-   - reg
-   - clocks
-   - interrupts
-+  - aspeed,ahbc
- 
- additionalProperties: false
- 
-@@ -46,4 +52,5 @@ examples:
-         reg = <0x1e6fa000 0x400>, <0x1e710000 0x1800>;
-         interrupts = <160>;
-         clocks = <&syscon ASPEED_CLK_GATE_RSACLK>;
-+        aspeed,ahbc = <&ahbc>;
-     };
+ 	edac: sdram@1e6e0000 {
+-		compatible = "aspeed,ast2600-sdram-edac", "syscon";
++		compatible = "aspeed,ast2600-sdram-edac";
+ 		reg = <0x1e6e0000 0x174>;
+ 		interrupts = <GIC_SPI 0 IRQ_TYPE_LEVEL_HIGH>;
+ 	};
 
 -- 
 2.47.3
