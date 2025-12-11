@@ -4,163 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAC28D3E799
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 06:49:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8259D3E797
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 06:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RwyqAi5orMcWa2fd6mFLtkLAyUJQ05Uk8bE67Y0+6jU=; b=C30fZxFEseWLtZVBUP+tkd0C2F
-	KWlAHaLMqA+vUvheqf9DlqV0L4wQfp5sA79swnJcN3L9mRTueXBuZtED0Tj7rm5PhezmbASS6GMoN
-	hOCjTugtHzRqgsglxAoj06h+NSR+BOmT9A0xADWpnzVXufgjltBV/mGkJi1t3cATcQZ/YuaE085Zt
-	02fGSthBnnZPj6DjtRGmKTl44c2hQD7NUmhBYS9df9D59m5OrDGrt71jvkkDktU3kUSF9QAJ5F0Od
-	lDH4/3ovSg1MWtanCGj1pfFlwUniBxlDtr38ZsrN44DXxEqReX7GWU/8QXr3WEj54upUnX2/s3EhC
-	mS98CWaQ==;
+	bh=t9h1OWF96CLddow2coOp3QyLXBxCw3plI/1ZkVxSj6E=; b=s+QImye3AvZrrP66PJg/a6tWPs
+	Rv4db8vwjixiaVV9Xqq7wuM2oKjQApl7H9R51mZA+47nx+4JU7jU1AzhCXfolmzzWkZ9lR8ofs4C6
+	RDR/BdpYw5iTgbfK0RqYkZO+xkp9rV/Ue0EfP+ePyJ1coZ5PDTW6fBzvo+sKyfizcnuc2qC8Df9yP
+	1Z6T7byCefxqV3VDv180huvLLW1tV2ellI/aU1EDJDCe8L4u+qjfzDXp9J3vk2hxel9yuhd9s2eNB
+	Un1oHNxuaI28khbdVDHt2bF5K74geEAEdQe9PBv/gzlxUH9CtWsVIUQrprMNvC2loKN8v/dg+TWmR
+	L/GuVwSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTaUc-0000000GIvD-1Sgy;
-	Thu, 11 Dec 2025 06:49:38 +0000
-Received: from mail-swedencentralazon11013065.outbound.protection.outlook.com ([52.101.83.65] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1vTaaF-0000000GJOm-1JJW;
+	Thu, 11 Dec 2025 06:55:29 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTaUY-0000000GIu4-2m2i
+	id 1vTaaA-0000000GJOM-41JS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 06:49:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=D3qd/nzsg9vScmBPbL+ANDhdMaVa8jv50in95DISINnlySwTteEmAkOePS43iiR9QmR2/MocBXREE+A1iW8H2xkbOrr/I41+Y0aiw0ao6pye6PWNvFxsd8ee8PRcnPbZLEBjYpyMyLT74Rj8BNYyiAcsGw12ImC9EVZ1EWHzKJvtElQ2sKx5tDpk24ToWLG+lSk4oAanFVN1w3CwKuAuyjwJl8BLgme/PpwcPkrJtu5CRpwIfU6f5FbhaTYJMJZzZ/tQEfz8Zmdjj56J6aKdTYQx18YUbE0rOjrAzuNXxzbFuRNlphCW6FX4af1tzg9OY6RvRtTTXvQdSm65ZWw3FA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RwyqAi5orMcWa2fd6mFLtkLAyUJQ05Uk8bE67Y0+6jU=;
- b=SRkN2yEdrBNMvNxygDclJl85KrNzVWK/v99Vjkak65sctzFnZ3h7AihAXMc5Lm9w1sF5Fy/+yKZu9rQJz5T2/Q8dI84bf+A0cf9mdieSlTLyM36NsoM2hX8GsSYjX/vt4pgfRk75jsNMOLLNN+NFgdWAshCYQtfgrK6p734eXGiS8KswBCgGSqLK3vF/dcf8HJUMD67f8AM8vtJRVxqShfyeqLiUhaPWbGw6IvgePOull9ikX3G27XYLEcywoD7DQFqk8U66YIMHlT7A2ztnlfpr2XHQrKJZzR+hrVV/Hiq3D2uFNnnHX/OpviRMpWWRlPzMH43uSoBMI7vh7PpCMg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RwyqAi5orMcWa2fd6mFLtkLAyUJQ05Uk8bE67Y0+6jU=;
- b=NwJ0HOcFyXlKUWCXlaw5FKx03+c2zgqP0hdnLUE17nMdOziYnGr+Xy3wHFN+rbIAk/JpGx2cnvGmtQt4ey0mrcRi5+p1eNtxSXrv1L0b0z3bAisFU3hggrilk42+dxDq7t/HhWJybRA4Gzr74LRAel+X98rhsdtT3JN4jWlOulKLsD8ibZCf0sharGLOZ9m6Ljf8BpBhVr4bNQI5pkg73tvHziKfa6XsA/2Y3sFPxvPMtWPMC4J8Qc/IjvvpR0LVvKLSqKjeHP++R8pZW6mRu1oaGMYZJO7WZH8xhSrByRKlFpba9JTKpGUwneKxK8GJPUwPLBWs/7ljahHP5QG7uQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com (2603:10a6:20b:42c::19)
- by GV4PR04MB11944.eurprd04.prod.outlook.com (2603:10a6:150:2ec::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.9; Thu, 11 Dec
- 2025 06:49:18 +0000
-Received: from AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86]) by AS8PR04MB8833.eurprd04.prod.outlook.com
- ([fe80::209c:44e4:a205:8e86%7]) with mapi id 15.20.9412.005; Thu, 11 Dec 2025
- 06:49:18 +0000
-From: Richard Zhu <hongxing.zhu@nxp.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	bhelgaas@google.com,
-	frank.li@nxp.com,
-	l.stach@pengutronix.de,
-	lpieralisi@kernel.org,
-	kwilczynski@kernel.org,
-	mani@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com
-Cc: linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Richard Zhu <hongxing.zhu@nxp.com>
-Subject: [PATCH v10 4/4] arm64: dt: imx95: Add the missed ref clock for PCIe[0,1]
-Date: Thu, 11 Dec 2025 14:48:21 +0800
-Message-Id: <20251211064821.2707001-5-hongxing.zhu@nxp.com>
-X-Mailer: git-send-email 2.37.1
-In-Reply-To: <20251211064821.2707001-1-hongxing.zhu@nxp.com>
-References: <20251211064821.2707001-1-hongxing.zhu@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI2PR01CA0009.apcprd01.prod.exchangelabs.com
- (2603:1096:4:191::18) To AS8PR04MB8833.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::19)
+	Thu, 11 Dec 2025 06:55:26 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1765436118;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=t9h1OWF96CLddow2coOp3QyLXBxCw3plI/1ZkVxSj6E=;
+	b=EZvPVcBGLN+2H2qD7HiWivEen45LTqFjFqGAgTWy009qCWAR5nf7GSpxgRB8ZheeE34aq1
+	DOk9BF5i3LrVdKKl/UwCXiYYU6seMhqR6rC/Juo/jw15ZPEb90dMor5oeSYNuVVwTbR+A0
+	fudl7h0XWTH2H0Uvu9XfbrZ2rBusoyeMdo6t/a0Wbsa8v1mlUF9FTfXqjFcf1WIm2hNM6K
+	H+3Nsdks7b+RTu1R/1Enm005+od8SBb/eeu1mUXe9N4hqby/eDOLsw8D2mUfXZ0VlSCFEv
+	fU9f85XefDM7YVMmxM3gsNKQrtJnIze0flVKSA6HughLKxCT7RxZOsDV5cYzKA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1765436118;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=t9h1OWF96CLddow2coOp3QyLXBxCw3plI/1ZkVxSj6E=;
+	b=zX3A905+owe9rwEyNBGgJtGLbXhfLVD5ZzymJxWEp6aqMvQMFz0wzXZlyGNK6ycc28YDgZ
+	0/GVr7NDNMqi/iCw==
+To: Kevin Brodsky <kevin.brodsky@arm.com>, Jinjie Ruan
+ <ruanjinjie@huawei.com>, catalin.marinas@arm.com, will@kernel.org,
+ oleg@redhat.com, peterz@infradead.org, luto@kernel.org, shuah@kernel.org,
+ kees@kernel.org, wad@chromium.org, deller@gmx.de, macro@orcam.me.uk,
+ charlie@rivosinc.com, ldv@strace.io, mark.rutland@arm.com,
+ song@kernel.org, ryan.roberts@arm.com, ada.coupriediaz@arm.com,
+ anshuman.khandual@arm.com, broonie@kernel.org, pengcan@kylinos.cn,
+ dvyukov@google.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v9 15/16] entry: Inline syscall_exit_work()
+In-Reply-To: <b382cc8a-3ce9-4fb1-bc0a-a3d9796251d1@arm.com>
+References: <20251204082123.2792067-1-ruanjinjie@huawei.com>
+ <20251204082123.2792067-16-ruanjinjie@huawei.com>
+ <b382cc8a-3ce9-4fb1-bc0a-a3d9796251d1@arm.com>
+Date: Thu, 11 Dec 2025 15:55:02 +0900
+Message-ID: <87345hfqyh.ffs@tglx>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8833:EE_|GV4PR04MB11944:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6e93a50e-ff74-4396-b642-08de388167fd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|19092799006|7416014|52116014|366016|1800799024|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?UQv4sqhlWWvs9/RiW3T3L/wjnX/WMbvCn03B/L83Yj65QUlaObZj5MPbuYlp?=
- =?us-ascii?Q?i3ck/zJDageaFZFHy5hsRsm0LfHT3xKXwC2Uq8ziL+CUEU/L+OazQoX2z4IM?=
- =?us-ascii?Q?0/bwwyshyWJwLR0MuE11kEBYdrwe9iTctKfWrRDhLZyTuiYDjZSv1zC07mT8?=
- =?us-ascii?Q?obuIl0riIf/e2IE4NUBYKDiYFmx6veG6i6DZSYME+EikAAvghjJBixbrc/zO?=
- =?us-ascii?Q?mMbwCLlWrLWARE6hhOGzaITZyRnWWqd1zyOuArqrdHlmqy4r5FIszi/pKQse?=
- =?us-ascii?Q?ScF56csEuomhi4hmaqdPoWCmAKGs455WtTA1Iqy3R0qCT9puEX2vwpWsj7gs?=
- =?us-ascii?Q?tx7czLQH5lPJvxyQn2VX6jK315/FIcPhnYkqWh5UcJUg0AQAf2MmAephW9ij?=
- =?us-ascii?Q?9DDDK7cvU1FRBOyp8J3nfdv64/A9FHdE/RvY0x3Y6EjWOzE3X6BQfVGqVdNK?=
- =?us-ascii?Q?TCiL7HLdDCprW7+t4KcfrwDSsjbw2ytaxux11jmqJVpp/qE0aI8y5h9v0JeQ?=
- =?us-ascii?Q?/6RaYqxV/z8VAEIq87JwSis3T//cf7yf+yasKHf7RSQTGz1g0pVmG6L6UTV7?=
- =?us-ascii?Q?O/mi259f1B1OuRQ8sgkkoe+Epp7O1UhVMU7xq1jwSMPsVpHfgro48j1TyJGf?=
- =?us-ascii?Q?ZEqJIOF43r7Xcn6QPvh3bW5MaSAn3CkJONUfXAxvKIElwmW/7IKGHxEvE2sh?=
- =?us-ascii?Q?TKOrZj+SVEhYXKNBpR5cq4uCLVTF2bZMkGI90yc16M76wysw6v1GBpJEDfUL?=
- =?us-ascii?Q?0GjQsVeLqlv6idYrY7JkJCSx73W6qqgS/9YiqAbI2DUkOoSKxrsLdKVhxXBa?=
- =?us-ascii?Q?vDKAEuv78AHotgeXZnH9knff1y0r33c3WXMVdNoy7SZfdTkaNX5ZCtj+jWHC?=
- =?us-ascii?Q?svTMDlavD50BukXsF44oYjiL8TMsWHPSVSJ1BOGk7hZyez6fLkAVbKsPLsCH?=
- =?us-ascii?Q?+hKP9RewVnWF/a/mAUteW3i61Z9/AS/66f9o35Izb8s9bsWA7+7nVgtQbY11?=
- =?us-ascii?Q?mfYTU6EtwwDKJtTkhzpWxb5xnutm94JVvuK9cO/eGNBn5y2NkPfvsT/bu5jx?=
- =?us-ascii?Q?JEZ40Ngd0dXMv39YAUq/r1uvRXVyyG/Y+FmaN1dBgHwhiG3hNbFeKv9HK8XV?=
- =?us-ascii?Q?HaPKkobdKXhkUbSSUFFFpK5Ei8HM0TxGZrvdsj+kzYfxivKsjuS3Gb/p19Nu?=
- =?us-ascii?Q?VZZLzRfzvSpMBgalXqOwAkRVjpxBf5XFYHKvuYLTHw0JDODDbOlj01eyseOg?=
- =?us-ascii?Q?o4wYgFNmSTJoOFBFaBoZZ5OP3NLU/HrDTUHChQdRZCxYOnjXEvGKD9p7212/?=
- =?us-ascii?Q?TWvggsTlZqVP+g0BxEvT/Z6LNoqm0sFAMdqOtFwB2orAqrYK0guxhARS5aZu?=
- =?us-ascii?Q?QEGj5ftgPiQbgu/AJ3HLlF1AquVspdOPDngUQHUCd5fkOacPdgSDZ8HEPwdC?=
- =?us-ascii?Q?LnQDoSABcsFgCn8mRNUWweeKJQTLgFJnfzYTA4jewKs9zKak214Yw+9WKyYM?=
- =?us-ascii?Q?79bETDe+eNHahsBWuC6LF/JyehLF4Mhg9NNZQXhxh8ur2OVlrkMib2LymA?=
- =?us-ascii?Q?=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8833.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(19092799006)(7416014)(52116014)(366016)(1800799024)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?X4WMtM52ym+7/THcyjvD71uboCeUYmPyk25TRTkNCy9HmzZgdgKFcZOgZe66?=
- =?us-ascii?Q?W0kxGAvRAfxskdrQFScOHR2+8OJNkZ7kR4kijQagGWiFw8mT8RShlUhJt528?=
- =?us-ascii?Q?+St423iLwnzuciFCdBQ/5vmGt8svXFTyJIM7lkzxD09kPMNzbIKBf27MQhXu?=
- =?us-ascii?Q?H3BTMT4FbZy1seTPuoBdD2DmAIcr+f6d5NyHiBTBDeumY5exr02uK3Yvoiak?=
- =?us-ascii?Q?UjETjuikpCq5H6XSGxfJr2ZfTsNZib6/r8zI/DWoLpKojgkRLbWOfkci1Zo9?=
- =?us-ascii?Q?vCvXtMeRKBlmSzEsiueet6HbkU7LVbjRvEQKzrXtOVvljyYcPRi8UrWR34tz?=
- =?us-ascii?Q?3iVy5PcX31dfXmQ0wjNGxP/xssGPwOLWd+SydmZo4H4w2HoY1Ms/bY48Ws5+?=
- =?us-ascii?Q?EZwp4wvFLw4Nov5BsFaAWg1FmDJW3WNnWyHPtIJJnGywoPFc0XEUbKbgIxk+?=
- =?us-ascii?Q?1fNxRawXWNXKpgWxFPHOqrJWCdnWP7HGR2lUwDJflMufcHN+O8njAXdaJVd7?=
- =?us-ascii?Q?z/rmoeC2VkCr4hT8SfKFCXTB10+5jd9H7HH4mcQqbORi2lLgxaBPAsThoc+e?=
- =?us-ascii?Q?ooV9aTPlLUB4EMHcyvmXFNK1xCbWQAzBhXC8M4LPfUNYU+8i5gDUHTOWwyM7?=
- =?us-ascii?Q?XkE67OuT1jIlug7BaFo+luf6OXj396CxLbTHOTdGweO6MGTNZWFM3Z4zNhdk?=
- =?us-ascii?Q?fOLR69ZRVXFjNEaJxWgIOIpK+bXE8oHamIwr/FXq6wodXzillU9RRm4Dp/R9?=
- =?us-ascii?Q?gJ8RrsB1tomatFwjNjklvqvptkXYU/wnQWcq/UydEJQs0bWmbVlObnTVkd6S?=
- =?us-ascii?Q?OpAFHaI7eqMSHiAkGcBVT11TR94kb8XmP6jBiOXD7Wh82gEnFDP2LlKh36Dr?=
- =?us-ascii?Q?j73ssoSFwCwEkLUULZbeyjXq3oC/Oy8FYujGxIiLiPUq85zq1yS7dx0cILoO?=
- =?us-ascii?Q?Guowlr0hp4LncRCz0q6dFKEuTnqrmbGI7J0O6kluB8R4X7FwcbiK4hASEz7T?=
- =?us-ascii?Q?F1UDLGo2EsmuIS+drH33Tb1OarLDx5zQjcTBkWmCIXAElQp0Hyi5fFqtu3+6?=
- =?us-ascii?Q?6DtYIQdS9BSxaDrUug/3LuBk1yg4NfKrdwFleTRDu5xkW1dj3l5UDkEDJwXV?=
- =?us-ascii?Q?RobEhsZOZmRqxfbxAUvdkQqY+uAKR3zx7SuKBSoNAwf0f85Rj+jdJO3YKRcj?=
- =?us-ascii?Q?dJim8c52BlJliLU5aYuF4QdQ3lTGy2sCJ2H3dZv/5INJ78x4U4GxbNW9NTEg?=
- =?us-ascii?Q?KfG36Wr1swjCiPS6OucQsvzfihQpb2n0ifLFHAdMUdeV51/DIMKLGCua5ZJD?=
- =?us-ascii?Q?H4io6MDsuWxjD34kGZCoCc0EYTh7m6V5kWDFpLes2tqaJ5zlrs42HE7wtNBw?=
- =?us-ascii?Q?IUiRAnn/zxtJ0rvfZPhaPbOoXrXcHeYuX2rmdh3G8h84J7dgV27nj8eQAogG?=
- =?us-ascii?Q?x28M875NtsVz1LXjDrhZBi0ch0t79l41Jy8p62YxnnfSfYXftK0Zc5doYf9M?=
- =?us-ascii?Q?vMmbOVzk5nb6uYn6ZsbiTKLmMAUr3VUJ/ndDLJyatXos4YgziDg9jWxzXTTG?=
- =?us-ascii?Q?7NeI6RJxtPSh99kcsC9yzG6JGlquNRbygzf8lS8+?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6e93a50e-ff74-4396-b642-08de388167fd
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8833.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Dec 2025 06:49:18.2764
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: +SFtoJZRvmFGhEBY/M0uvIIHOLBTkGw9AoMKOKQeQd47pLDCHq0FphHzZrPMQMb+2R0uxnrYX8N3OZ40GI0fMg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11944
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_224934_923757_C40F1938 
-X-CRM114-Status: UNSURE (   9.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251210_225523_160761_395630C5 
+X-CRM114-Status: GOOD (  16.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,46 +85,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-i.MX95 PCIes have two reference clock inputs, one of them is from
-internal PLL. It's wired inside chip and present as "ref" clock. It's
-not an optional clock.
+On Tue, Dec 09 2025 at 14:48, Kevin Brodsky wrote:
+> On 04/12/2025 09:21, Jinjie Ruan wrote:
+>> After switch arm64 to Generic Entry, a new hotspot syscall_exit_work()
+>> appeared because syscall_exit_work() is no longer inlined. so inline
+>
+> Before this series the call to syscall_trace_exit() in el0_svc_common()
+> could not be inlined, so "no longer inlined" doesn't seem to be accurate.
+>
+>> syscall_exit_work(), and it has 2.6% performance uplift on perf bench
+>> basic syscall on kunpeng920 as below.
+>
+> That seems strange. syscall_exit_work() is only called if some flag in
+> SYSCALL_WORK_EXIT is set, which means that we're doing something special
+> like tracing. That shouldn't be the case when running a simple perf
+> bench syscall.
+>
+> Also worth nothing that its counterpart (syscall_trace_enter())) is not
+> currently inlined, the asymmetry would have to be justified.
+>
+>>     | Metric     | W/O this patch | With this patch | Change    |
+>>     | ---------- | -------------- | --------------- | --------- |
+>>     | Total time | 2.171 [sec]    | 2.114 [sec]     |  =E2=86=932.6%    |
+>>     | usecs/op   | 0.217192       | 0.211453        |  =E2=86=932.6%    |
+>>     | ops/sec    | 4,604,225      | 4,729,178       |  =E2=86=912.7%    |
+>>
+>> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+>> ---
+>>  include/linux/entry-common.h  | 63 ++++++++++++++++++++++++++++++++++-
+>>  kernel/entry/syscall-common.c | 59 ++------------------------------
+>
+> These changes are purely generic, surely all architectures using
+> GENERIC_ENTRY should get similar benefits (assuming LTO isn't used)?
 
-Add the missed ref clock for PCIe[0,1].
+Correct, but as you said this does not make sense as the syscall exit
+work should be rare.
 
-Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
----
- .../boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dts | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+Jinjie, can you please figure out which TIF bit is causing this to be
+invoked?
 
-diff --git a/arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dts b/arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dts
-index 5b6b2bb80b288..1258fcb54681e 100644
---- a/arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dts
-+++ b/arch/arm64/boot/dts/freescale/imx95-tqma9596sa-mb-smarc-2.dts
-@@ -237,8 +237,9 @@ &pcie0 {
- 	clocks = <&scmi_clk IMX95_CLK_HSIO>,
- 		 <&pcieclk 1>,
- 		 <&scmi_clk IMX95_CLK_HSIOPLL_VCO>,
--		 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>;
--	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux";
-+		 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>,
-+		 <&hsio_blk_ctl 0>;
-+	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "ref";
- 	reset-gpio = <&expander2 9 GPIO_ACTIVE_LOW>;
- 	status = "okay";
- };
-@@ -250,8 +251,9 @@ &pcie1 {
- 	clocks = <&scmi_clk IMX95_CLK_HSIO>,
- 		 <&pcieclk 0>,
- 		 <&scmi_clk IMX95_CLK_HSIOPLL_VCO>,
--		 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>;
--	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux";
-+		 <&scmi_clk IMX95_CLK_HSIOPCIEAUX>,
-+		 <&hsio_blk_ctl 0>;
-+	clock-names = "pcie", "pcie_bus", "pcie_phy", "pcie_aux", "ref";
- 	reset-gpio = <&expander2 10 GPIO_ACTIVE_LOW>;
- 	status = "okay";
- };
--- 
-2.37.1
+I have a suspicion that it is TIF_NOTIFY_RESUME. If that's the case
+you're seing the RSEQ overhead, which should be completely gone with the
+rewrite that got just merged into Linus tree.
+
+Thanks,
+
+        tglx
+
 
 
