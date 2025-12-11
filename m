@@ -4,90 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD0ABD41C2A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 12:31:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 468B6D41C2E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 12:37:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GzOUkXuuoBWn+/0sImYm2b1vQ4lGKBCGEV5jyRpMqTg=; b=g9UnAeJE9k/IKl4nv5gZysGUz+
-	ij+RxVQ6g8qIMfqQbvJphqx5cYF5cpz7DC3ZuWPsVkzRxbTpqUX0mOK6shH8bPJXLLR8rb1gMwZjF
-	WW3vJP9XBcR953G2q5r4Q/0O1n+Kr9JLDJBOGb0U084XSE7WDKLvRAENSujdSwTTjG3rZyyj1BCEf
-	Rkd/Zlq5KzKv8qhL3fDIyKDaSPi/OCZ2g2vPMyirwPImt8hKRy5E7EVfGK9JFSVc44344+vnSyBA/
-	RjDniDg/h4OukpiJxkXVFDekM/+zsPya8IqsGUQXpcxICthUYvF6CTughJ+EqLL5no6sO1Gix3P44
-	pbjcSHbg==;
+	bh=qb7w4dEkS/WJYKdR+lnZ5LKlEUSJP7zUGNH1/GVMobE=; b=FBh4QJu5UA/2qmoCf8aPWsJXzi
+	ta9Z1A8fa2UiBCfnjhK94oNGrqK3pC5Fe+ivrdtsDmQ0ECryfdE8TlyCKl6O8bW+QgGR+4HQGTEm2
+	8d5LBcasluP0y3tQsdq1Z4i3ye1C7zi3GQYoUyZjhhWcQZYyzQWGm83YEmWtNhO16AwKc0BBRZSOc
+	JuvEw60Exs5jpoFGLZ5PzXIBSgLOTMWd8snaGZ5f1Xvq/Bm2jlZV3oSOcMNWaxz49rusl6aPHcWRW
+	8SXE3u3kezpI6BxiZxj6bf9Z3/DLkf1/pgR+nbUtzCgVTf+9p//OHpeVCTY1kQbFvoc/I7IPud4T/
+	Ah/bljTA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTfpf-0000000GarN-0Quz;
-	Thu, 11 Dec 2025 12:31:43 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1vTfuv-0000000Gb5s-3kDf;
+	Thu, 11 Dec 2025 12:37:09 +0000
+Received: from mail-ua1-x92a.google.com ([2607:f8b0:4864:20::92a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTfpc-0000000GaqX-0fcn
+	id 1vTfut-0000000Gb5T-2JZX
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 12:31:41 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-59578e38613so32144e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 04:31:39 -0800 (PST)
+	Thu, 11 Dec 2025 12:37:08 +0000
+Received: by mail-ua1-x92a.google.com with SMTP id a1e0cc1a2514c-93f5b804d4aso9214241.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 04:37:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765456298; x=1766061098; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1765456625; x=1766061425; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=GzOUkXuuoBWn+/0sImYm2b1vQ4lGKBCGEV5jyRpMqTg=;
-        b=Fw9M8PsZyuaxPTCt8SVJQmtO/ZEKbhmttjceoMbC6nIffTRNG23F6ebQxcPn29JMBO
-         kGvzJOqZrupzHXAk4Qgo5k0s82XyEF7rwN/6b56ll4nuedM3w3K9uCuG+4NJjxgc42UP
-         BzdXEtWi0b0f9gqvsmW4TKvFqs5V23JVDHRleT4FDtpeg4DD++OhMn56RJPv9Sq92g9i
-         6P03r6h/VXT+cVPchfE8gIZMh7eySESjl78B3FaCZ6sTwr2uLBG8nx1D4bT3iAj5m4wX
-         qhBQN7/Puzebtq0EBcnZae6hE0EPSjj1vTDjt2+dSg4p7RRnqu+bwXgRUzpLdtVAVloF
-         Cwgg==
+        bh=qb7w4dEkS/WJYKdR+lnZ5LKlEUSJP7zUGNH1/GVMobE=;
+        b=jt9Y4qrLfKh1xwtIlCUs6/80TY2IxftALg1T/HKxfxlm9FBBLGGJx2mzhVagyaLouj
+         Clj3IBC+g4trq9NwLLo+i5xt4nV7ALYVpiw2YagS5WUcI1byHbuEmGUVTOtlTDncCsZw
+         BcCDwYo1kWpseCeyJEAU9LWaxxzjjb1ctLcUCm0xrdiV2hPD6ZPdiur8oNtwRby/uN8A
+         Mr6Y/PrU8ZQeKnuVHFhZnBDXfWPwlQDr2B79F0NuppU5WaFSTqdNRKsY6vv5B7bj+y83
+         1s5KHRBtaZ5PEoTaXW52JNqAJWcg6IaWtiJjmXIoL6xns7FjoThAzmz0w6ndwJpu2FVL
+         caaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765456298; x=1766061098;
+        d=1e100.net; s=20230601; t=1765456625; x=1766061425;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to;
-        bh=GzOUkXuuoBWn+/0sImYm2b1vQ4lGKBCGEV5jyRpMqTg=;
-        b=kfSr1QjdB0TJn3cvHWbM7FTLnTP8xE7vjIdmw02nnxUnfe05SyV6f+c6JYUmgHfwZY
-         eZ3XWlnYwcIgb29am2lkb55azthDZbdfg5ZvBQXdA+Njm0a7pidJNowVcUZIq/eoffZ+
-         33Nmaw3oNzKzTAmC3JoIKzD3ezFDjlAvxsjZlkPp3ZoijomwYUnWj3+mM+usp1YqyEtJ
-         UUlbiqLZG7XxmTl0mAfV9pubdAthnGDlV8ukYNhOEl59RoVg+UYKM2moGFZcBhaUX83x
-         C67SXVW+czDo1MTpoi9ms7CrCj2QEutjmh8ssMCWbKnLqAHH0LnySiqmlwDU6wd6NX/4
-         zN0A==
-X-Forwarded-Encrypted: i=1; AJvYcCULOUM98ykNf91v4IFMCmVPaVQrqEyzH5nJH0+4nK47pFVMlgeAzgJglWSr0GColS7xjHiRv39gSOSNBYJkzBaG@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJaGDjgUTY79Ow9sXXgudfJM/Z1S/qA9w5Q0jGpJ4BNCqDqIKt
-	yo/Upj5OgumWABpjDgLzAlawCsjL59cT80r8A2z7mY36BUkJ9PKH17g+hmfDlh+5VnRAgj6EuBx
-	kjFh1hvjlAuWekh/+JsIUiKF9an7EFz8=
-X-Gm-Gg: AY/fxX6JXnodcKVGaR5c6+PhH4t07iu7RqlJVZmBPBN5MoTF2JtZnPW7gm+zr1BEV6K
-	zfuwoyLs1UESmiRECtZrSO0XVXbTGai+wYU0/WQCa2AEH+P0jBTZLhzso+rghAhqu9FSdY6J8O8
-	iuo/btXCVw7s8qJ/xUDDi+YX4wT2Nl6oC8KXA6lGpXmHMXrQTywSOsxMbrQ5CjBJLYEzuqY6/3H
-	UsEEznKj08mw4ORk3G8/q6V9wKzaYsVpyAPdi/9L/7Ib/KgqDwhWqOGfN+9c9KMKJnHRjQtksc2
-	AsIrDAzpZjzv7ZQ/AV3aFTcB95M=
-X-Google-Smtp-Source: AGHT+IFx8jB4DP/C6ch3hkvwp/hBlfDTrjHCBEs1ezVD9RnwEVMofSDStV8tSr28ue048X+oTa16zOvCrjQLAgrohPA=
-X-Received: by 2002:a05:6512:3e02:b0:595:7fa2:acd with SMTP id
- 2adb3069b0e04-598ee4f3f6cmr2412583e87.21.1765456297571; Thu, 11 Dec 2025
- 04:31:37 -0800 (PST)
+        bh=qb7w4dEkS/WJYKdR+lnZ5LKlEUSJP7zUGNH1/GVMobE=;
+        b=c0wORzPmdEo32FCROmSl8U4/XeLgQt9zrcDdC0cXJe1cD6vKi0IWvRI/be8MATGBuw
+         AbhaMRgWXhO2ay7+foIS/kiz0F4kr2npzzGvG6RXGgTzDKBqvrekwkwoWhgd+mvviPeC
+         KH5TxK0EErHvvorLv4+1Sr8cWxV+fXOhiI+KrebC54zuUSswhZ+egWd6MHtBZH6wVCIe
+         i/E03EBhLcwWE5H+RzdyQUYLMnQnkZsQ2qgy9XzeB5D/M9CtWvXv0fn2LoZTjUKqoXRq
+         JyyUCDFgH0mLHgzqiP3+QY1TqahIYYuO/BIiS/n4BuEPxh4LOjxkffMqOcHFjsXXkuMo
+         tU3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVzQkNbRmcbqkz+nN8b/9N5PZJBV9EUzdfBvShOGT6uMddLWccMGEB5JlepJB4U8WZEHVeoKOttYRhbFIhamE1E@lists.infradead.org
+X-Gm-Message-State: AOJu0YxgHG1CjOc0JpsG5vnGd1wRjoNCYZv/LVgQIlQND9nwIdfhBCvg
+	N4GxIYGe62Lt3wDDxvhxdqqM7kyKtylo3kWFRLLMJbeiysIIPcP9bzO89oEcrZGvNzZ86a1WI93
+	SAm+mkrVR0ag2Qy8OzfslSwmkbdbQlXk=
+X-Gm-Gg: AY/fxX7ALCnh/tPotX/vG/im2AH0FbYYswXzwTsKheCRMesYj25SM4yChwe8SLmK3kx
+	fr9el+3xDi2x94D6b+E9iwvCygNRP4w0Qu0QVsxtrEnH6e1ltkK0Wf9zuABg1w1Xd5yYzAlGGv5
+	uXcgrz78FQDuErcLwDblcI20twrYKQqL1LvXiVs6YlfsAXMiFN8Y1GCaR6VOy1GW2NQdwOqNCty
+	cxbll01e1WoB+RU9MJYTG4fb+eeDsOG4z15emeV1Rk5yI3/+NtoNJWHN83U4prbpa6P5COdYsDc
+	VsZBU8Dk
+X-Google-Smtp-Source: AGHT+IH6QD73T3CQ2JBAUzE15s0jML3qHw16C343Rh4nwXrF61qHiGoVQrgUOlxSDKVLaFHRU4/Fj1pnToTM924tNUc=
+X-Received: by 2002:a05:6102:50a6:b0:5db:f031:84ce with SMTP id
+ ada2fe7eead31-5e571eed9b4mr1779282137.29.1765456625268; Thu, 11 Dec 2025
+ 04:37:05 -0800 (PST)
 MIME-Version: 1.0
-References: <20251210152000.42265-1-stefano.r@variscite.com>
- <20251210152000.42265-4-stefano.r@variscite.com> <CAOMZO5B2__4qgJRni=DPxd1QoPQLwO+r9ZbdbsOWXZemVU86aw@mail.gmail.com>
- <DB4PR08MB103414303516B7FAFF29DB571E9A1A@DB4PR08MB10341.eurprd08.prod.outlook.com>
-In-Reply-To: <DB4PR08MB103414303516B7FAFF29DB571E9A1A@DB4PR08MB10341.eurprd08.prod.outlook.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Thu, 11 Dec 2025 09:31:25 -0300
-X-Gm-Features: AQt7F2ogc3apjlXRADhBz8DDOhM7cjdSocB2OVTGdMTU2QG1NnJjeFWnNeR_tbs
-Message-ID: <CAOMZO5Aq8iO2w7MsQz+BCNBsCUEewApoU=keGjSpFMZzSwhgyA@mail.gmail.com>
-Subject: Re: [PATCH v1 3/6] arm64: dts: imx8mp-var-som: Remove UART2 console
-To: Stefano Radaelli <stefano.r@variscite.com>
-Cc: "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, "imx@lists.linux.dev" <imx@lists.linux.dev>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+References: <cover.1765439380.git.baolin.wang@linux.alibaba.com> <af330c9ea188bd0f28189b1e6e5803f6de9d2abe.1765439381.git.baolin.wang@linux.alibaba.com>
+In-Reply-To: <af330c9ea188bd0f28189b1e6e5803f6de9d2abe.1765439381.git.baolin.wang@linux.alibaba.com>
+From: Barry Song <21cnbao@gmail.com>
+Date: Thu, 11 Dec 2025 20:36:51 +0800
+X-Gm-Features: AQt7F2o2oQ9UqEmkEwhl5rOFyhajnuLd2K2hl-pbOyh5rDa7buD-_5Vc_9Xr_KQ
+Message-ID: <CAGsJ_4yVCbP9EJ2KZu-83PL-LViB+zn3NPC5E61LKf+nWWNsWw@mail.gmail.com>
+Subject: Re: [PATCH v2 3/3] mm: rmap: support batched unmapping for file large folios
+To: Baolin Wang <baolin.wang@linux.alibaba.com>
+Cc: akpm@linux-foundation.org, david@kernel.org, catalin.marinas@arm.com, 
+	will@kernel.org, lorenzo.stoakes@oracle.com, ryan.roberts@arm.com, 
+	Liam.Howlett@oracle.com, vbabka@suse.cz, rppt@kernel.org, surenb@google.com, 
+	mhocko@suse.com, riel@surriel.com, harry.yoo@oracle.com, jannh@google.com, 
+	willy@infradead.org, linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_043140_226938_1CA662C1 
-X-CRM114-Status: GOOD (  11.33  )
+X-CRM114-CacheID: sfid-20251211_043707_612714_AF701475 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,22 +101,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 11, 2025 at 5:08=E2=80=AFAM Stefano Radaelli
-<stefano.r@variscite.com> wrote:
-
-> you are absolutely right, the Symphony DTS needs to provide UART2 (and th=
+On Thu, Dec 11, 2025 at 4:17=E2=80=AFPM Baolin Wang
+<baolin.wang@linux.alibaba.com> wrote:
+>
+> Similar to folio_referenced_one(), we can apply batched unmapping for fil=
 e
-> other interfaces moved out of the SOM) so that users relying on
-> imx8mp-var-som-symphony.dts do not lose functionality.
-> For this series, my intention was strictly to clean up the SOM and ensure
-> it only describes what is physically present on the module.
-> As soon as our new V2 symphony carrier is ready, I will submit the corres=
-ponding
-> patches for the Symphony DTS as well.
+> large folios to optimize the performance of file folios reclamation.
+>
+> Performance testing:
+> Allocate 10G clean file-backed folios by mmap() in a memory cgroup, and t=
+ry to
+> reclaim 8G file-backed folios via the memory.reclaim interface. I can obs=
+erve
+> 75% performance improvement on my Arm64 32-core server.
+>
+> W/o patch:
+> real    0m1.018s
+> user    0m0.000s
+> sys     0m1.018s
+>
+> W/ patch:
+> real    0m0.249s
+> user    0m0.000s
+> sys     0m0.249s
+>
+> Signed-off-by: Baolin Wang <baolin.wang@linux.alibaba.com>
 
-This means the series cannot be applied as-is; otherwise, it will
-cause regressions.
+It appears quite straightforward to introduce file folios support based on =
+the
+current lazyfree implementation.
 
-The move of UART from SoM dtsi to Symphony dts should be part of the same p=
-atch.
+Acked-by: Barry Song <baohua@kernel.org>
 
