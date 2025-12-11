@@ -4,62 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 226FBD3E783
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 00:24:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E9DFD3B9AB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 00:46:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0RJ6qVI5VAcez5/6cSc942OSgXZKn3lKc46QWUKT7+0=; b=arBl7311/Od3HmV7Ct8blDa2M9
-	5J8Fea8XUQLMl5CtK308AlR7VPO96anW6mmP0F9b1DuNoao+cGgXMctZlW74XX7gltdNHspWhnX8d
-	oKiABH67+j64kMlOLvC9Unrm/bdJR8ajLyfx6p4u/axkdJRPVNDKySaTpStzVVuCfPcNFYOgw2fzK
-	ECQqLV5XitYRNgHPOEPB7dXrISCt9Co7ikfwm9eoWzYOnHjh4X6Jn1NtvZ3igBeKh+lzxHhcijoh2
-	MwsP8XgAj7EhMX4s/L2ho6tHHp+ircWe6DpN2lyvnoDpvcSKAioPWKxfveAnR+lMnKkz38XiTaBca
-	LFxhkTnQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7JYkoyZtX+AYaSCjaxLjeTfpVBahhj7hlnNxgfUao1E=; b=VPKP1Aus/0oiU9i7GA6QdbosIM
+	mhLoM/DuwMMMm+9BG78jROUIHfg2VLFQAGjZmsKO1oWEmXERre8m32FO74hBO7mME2gJMTUUNEji0
+	F7RiKPqledqnyj6b7uNDCXAufgbjkkDerLDwD6jZfp59we9hHg54SbgN7JHDBF1Liel5YF6hPWH5m
+	3bcsnFXjkkTk2c0tjNA5NpBdHYGnGGa0WrJVc7b95LCSIBs09zHodncgVJq9glZx+Pob6Bj2rfllR
+	InMUgPNBiGQrRhhbBUcE4Up4oET8Ih04eEPLArhq8IHAycdBM4N7Yft3oz5wCfc8qPlAfRSetCbcL
+	TlSR7IWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTUTQ-0000000G0yM-2YrE;
-	Thu, 11 Dec 2025 00:24:00 +0000
-Received: from mail.ozlabs.org ([2404:9400:2221:ea00::3])
+	id 1vTUpF-0000000G25L-0jgg;
+	Thu, 11 Dec 2025 00:46:33 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTUTN-0000000G0xy-2vFy
+	id 1vTUpD-0000000G24w-0N1a
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 00:23:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canb.auug.org.au;
-	s=202503; t=1765412625;
-	bh=0RJ6qVI5VAcez5/6cSc942OSgXZKn3lKc46QWUKT7+0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Z5SVQYD9D15bFPjzf+60475MkQQdNXmA/h3jdzMRVBFBs4m46BHjmA8zs/kELxHo7
-	 ix8xQMrdUb6Ps7rEyfz7/E8k9emIvyWXNotVdgAIlSWrpyJlb3NkmdXe2tstwkCtYv
-	 BXyRNKT4525+PqsiYzG37m3x0oQoqnNABYibkrXmtSXnlgervB1pbk0ex5Wr3hS/oS
-	 4gF0JK5t35NTx7v0v32iBXOAGKUF24GPoGyzJbucQcja1evj2R6XupI23x7H/ddInb
-	 gTuBTMrzb1Y1jMJhn8MpsH18HKxSxvNNBF5e1jPWwOCJ/m5ByCYzvG3Fc+DL3H7+Xh
-	 lQOFGUllEqvsQ==
-Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by mail.ozlabs.org (Postfix) with ESMTPSA id 4dRYGl4dY4z4wBJ;
-	Thu, 11 Dec 2025 11:23:43 +1100 (AEDT)
-Date: Thu, 11 Dec 2025 11:23:43 +1100
-From: Stephen Rothwell <sfr@canb.auug.org.au>
-To: Jassi Brar <jassisinghbrar@gmail.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel
- <linux-arm-kernel@lists.infradead.org>, Linux Kernel Mailing List
- <linux-kernel@vger.kernel.org>
-Subject: Re: [GIT PULL] Mailbox changes for v6.19
-Message-ID: <20251211112343.51f4ff1c@canb.auug.org.au>
-In-Reply-To: <CABb+yY0Uvkc4g0=gi79j+CCJzKkeuHGD9u_6P5ScAFkNS0F+2w@mail.gmail.com>
-References: <CABb+yY0Uvkc4g0=gi79j+CCJzKkeuHGD9u_6P5ScAFkNS0F+2w@mail.gmail.com>
+	Thu, 11 Dec 2025 00:46:32 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-5959b2f3fc9so370668e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 10 Dec 2025 16:46:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1765413988; x=1766018788; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=7JYkoyZtX+AYaSCjaxLjeTfpVBahhj7hlnNxgfUao1E=;
+        b=lH10VGF2Rvdmm6XeUy/GcthGSNdsDSMpiYH72LtpkweiyipHcDgzKqd6vUAuqubHyO
+         sDeXi08nfFkkHn8pBPrdOyi0vjiRuJEFQp1xv0ux3IixEeYuAXSd6nAA2RPK4tQvCtPJ
+         VenRClUMCkKGENQ9y95zVdce6ubD4FMjXHTv3yUcvh71Jz9y00xH+LRcSJOJFnULJqoM
+         jW2QY2j/St+P5uoXZtgX6ZWbApc8EGiT03B1s57owco2qXU1Zezyh6oqLNZP6XiFP8hp
+         8WCqsIg8DnLxIUCX/GfPVufRrQPcQNizsCjJ9pKyqsO9PmH+5oxBOCIsMhjBeiwzNelJ
+         SkwQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765413988; x=1766018788;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=7JYkoyZtX+AYaSCjaxLjeTfpVBahhj7hlnNxgfUao1E=;
+        b=AvICnTbt5t+BZO1rL/bBIfhdZTdIawQ6X7SgvCCoqt4lgnd0xsQgG6mfWAwlUiyKFR
+         YG0vBjJjhjgShGVQVNnVoL2TnnIw7Uqh1FL3JnY89wmSgBN7N7Ewz/kNtVfSxsInBuhs
+         TYZM2pBMfGyNfNv/0k+yfQc5NTZ1GmPEUemFuJ1/vai8M6VUORN6gTNjOHvPUxEVI4gO
+         nXBQXdXPfpQdQCRRYcQX9yZHhOhrdt1T5UufV9ylxuiezC2Fnznh1JnhAPbtxXQp2UCx
+         Eb46Nda6t5lzXpWg1Et+MdHKRps2fFraHJMw2153ENixTuFqkUlu1Shce9o1nWPzYb4P
+         JQig==
+X-Forwarded-Encrypted: i=1; AJvYcCXOHWhFfx0ViVFKDpEbh3vGh8e9I3CxAx/rzPbFHm8z6IJ8/5czXV/eowOy4sO9H08kCcdQiCdTDDir5caWUM5n@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyoqki2ghal/+CE1saTq4VUWmcd06uyxAtpmoxf7bCe0uT5JMk+
+	8egakNCJ9rSLXc+L8g328i3xminzjzKXuuWgpqczDxWMA3n4nmQU+vqjf8pc6j3IKuavfzMOUv3
+	8SQsT86BA/FbZOf4yRSBwwrqEc3kL49o=
+X-Gm-Gg: AY/fxX6c920sX7PpHA9lbls8ILFrjmyslU+ToAGwOymDGzDk3p64dNIF9xneMTQwfFy
+	XrwZqnzxtnk0e9yIOT3a4cHVHbLhslR5eIdpYpv8Q1voiOctE88uyFOvOHynefxoIh+tUKN3T7C
+	w5Xta3dJSjL6J1HrRu9qBNrLh8WnI0FOtrZ2BwXgXzEYfNnO5CkmQovFU5zoua+Zk1zPPfzwd+t
+	SFCzzF/NO+998zvTSILouPw2m/BwwGLtkdDVLQYMEUu+D9iKWuCV/Edp+0eSmyWs0/2fk9D1kk2
+	Q0cD5oFGZbppciztbu07h4rMmQRM2RlsKqkxQw==
+X-Google-Smtp-Source: AGHT+IH6NbxkTUZSljGL5UXTIkr6tHBMYOHOGf6OgfMEP2fzi2rZqXy88k3bhBA+yI5GG+va9k8Djc20ctoHh43XOXI=
+X-Received: by 2002:a05:6512:3c91:b0:594:546c:431f with SMTP id
+ 2adb3069b0e04-598ee4bfcc2mr1798313e87.49.1765413988056; Wed, 10 Dec 2025
+ 16:46:28 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="Sig_/Qkzqvcpv1MD9zPP7zdqT+Ls";
- protocol="application/pgp-signature"; micalg=pgp-sha256
+References: <20251210152000.42265-1-stefano.r@variscite.com> <20251210152000.42265-4-stefano.r@variscite.com>
+In-Reply-To: <20251210152000.42265-4-stefano.r@variscite.com>
+From: Fabio Estevam <festevam@gmail.com>
+Date: Wed, 10 Dec 2025 21:46:16 -0300
+X-Gm-Features: AQt7F2oJTNhQYHQm4Mp3X_RNji2ahbbkHznpjmov3J1DROZAGzAUDzZ2iEMc9-U
+Message-ID: <CAOMZO5B2__4qgJRni=DPxd1QoPQLwO+r9ZbdbsOWXZemVU86aw@mail.gmail.com>
+Subject: Re: [PATCH v1 3/6] arm64: dts: imx8mp-var-som: Remove UART2 console
+To: Stefano Radaelli <stefano.r@variscite.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251210_162358_008355_8128DB77 
-X-CRM114-Status: UNSURE (   7.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251210_164631_176381_2D27D92A 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,41 +99,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---Sig_/Qkzqvcpv1MD9zPP7zdqT+Ls
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: quoted-printable
+Hi Stefano,
 
-Hi Jassi,
-
-On Wed, 10 Dec 2025 17:31:04 -0600 Jassi Brar <jassisinghbrar@gmail.com> wr=
-ote:
+On Wed, Dec 10, 2025 at 12:20=E2=80=AFPM Stefano Radaelli
+<stefano.r@variscite.com> wrote:
 >
->       mailbox: mtk-cmdq: Remove unsued cmdq_get_shift_pa()
+> The VAR-SOM-MX8MP does not include an onboard console connector. The
+> debug UART is provided on the Symphony carrier board, and customers may
+> choose to expose any UART controller on their own carrier designs.
+>
+> Since UART2 is not populated on the SOM, drop the UART2 node from the
+> SOM device tree.
 
-This commit causes a build failure.
+This change is OK, but you need a patch for
+imx8mp-var-som-symphony.dts to describe UART2, right?
 
-I am disappointed that none of these commits have been in linux-next
-until today.
+Otherwise, people using imx8mp-var-som-symphony.dts will lose the console.
 
---=20
-Cheers,
-Stephen Rothwell
-
---Sig_/Qkzqvcpv1MD9zPP7zdqT+Ls
-Content-Type: application/pgp-signature
-Content-Description: OpenPGP digital signature
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmk6Dw8ACgkQAVBC80lX
-0Gy+ugf7BRfJ3/ftQsIxFNvhjdZT7qquP8jQesvxTRjljbMRsUr8EW54db2YCQrw
-+Jw0jsL8hBb07zI3ELd0dcwENJmzRKIYRuvQRCQ45ztCMXKIwczQQvEOQ9wc1+Kr
-OKM2dmXX5qfrKnFK5zil4v2oj1xm3GO59/45ph0vwt/BQrpyl7FgNQoj4Toa49lD
-SW2c7W9nOWnYMdhd4T7t01EKOaO6q5FJnIwbakEoanPZuVQz5YZSpMHxLLP8nPbs
-wxgl1QVH6tmNYL9bUIupqm0Q1nMVEwBO5+MeQ4DIbF7h/tSrhMv4Q7jmOtZHVbq5
-Wp8BfsOjkI5GaNFyLb+LsfKR1a2rYg==
-=7Y2u
------END PGP SIGNATURE-----
-
---Sig_/Qkzqvcpv1MD9zPP7zdqT+Ls--
+The same applies to other patches of this series.
 
