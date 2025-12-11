@@ -4,141 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0754D4334A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 20:28:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DD93D43350
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 20:29:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RFNvjy025P4j3juJp/7mMNUGy36biZNwQLRzE8g0SZM=; b=lYdordH2bpKFGTvOqrZhqkOUge
-	544tVN9YoaVCwiKoXZYS44i9G9UsUNw3Kem6n6Qe7ekSCQH8abe4JhhVKyGQMvO6Fg6VbpLQax0A6
-	RD9ZNMyRE7okDThNwvxkgnHrBllb36UKDrFyEBq7s4WAitB9qEVUJKsLw0cWlx0CMQaTz5bThMBjz
-	bervgNnX/Ie9qkE21lOHJ9NPcwVt8X6PBxFi4tDpWQ+kLa+kA14+oADwdxiCrn3pKmT8c+kkHMZUh
-	G+nEAx0y5mSWbFzZX0DjPvgqJCdNwH2ADUMjWvogSieqOGUATPzlShdd75iBlKJD9TEh33w8h7ads
-	mMdvy1NQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2BHWiooGjHlzCPhceREi8FmP8BPRdmAWAB9cARyM9cI=; b=ZIDBfx6KFx5L3dnLRHBmBlrEJs
+	8Q1MqfZUZcnknqpSGR60+XkxkruqtQNJCr1Jn1REGAhIWQgFC6wJmUSH/5Yju1VOOf84FZRy0U/tL
+	Y1wKARPYkM5nUGODARKpitZPR5EoiJiauK6fmnbCAI12HpgV2k/3oZ6+lDNMWCqmujTWbKlux5oRr
+	zj6T5bnpEkFu34q3965yS4GJutE9gsEhKkh7iP8rjPkhMCdUQ+l2tmQbr6McT1ETjqsUEbdc16aQ3
+	ugActRTmW/UCp49VHpr6VFJ2ba8EmcvUI8mmJhIEBvdD2VxHtMYF0gKamWCwsitvrydnL08BtYeMb
+	3swEMHuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTnGV-0000000HDlt-2ktD;
-	Thu, 11 Dec 2025 20:27:55 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1vTnI6-0000000HDtZ-0FFZ;
+	Thu, 11 Dec 2025 20:29:34 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTnGS-0000000HDlV-2wY7
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 20:27:54 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-7b80fed1505so517114b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 12:27:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765484871; x=1766089671; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=RFNvjy025P4j3juJp/7mMNUGy36biZNwQLRzE8g0SZM=;
-        b=d0FGVHavuiLLJCgBXpVI/ZvYG4qYUkl8XOATY1g3EV+GT8qMd60GmvptnkCCRIWOGi
-         Ei6MMqSMQWwJLbMPBQcvmdx8rHHf+jC+kOWM1Vjc9IbwVrOXsutGeTBchv+bYIbho+fW
-         EWUawPzbCYgEIfHr47eDHP0ix/EbEuh+c47FrhGZY/VcCEXDBJYDP9cYCX2qYRlVL7Ae
-         UbJnxQW+jnApbG21C91ND/fnNN00mPy+6cCiqFCE6HdhZBMXNf4pPqO69IbNFpK0b5dO
-         U8j/R/SV1Mc2uEYCOBst0dt1jDOtXDgNNjOXNW4ykfKPm03mT7julPQxYBx6bqbC7Ogw
-         mKDw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765484871; x=1766089671;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=RFNvjy025P4j3juJp/7mMNUGy36biZNwQLRzE8g0SZM=;
-        b=Lj8UbOjhYEj/b/owr0xjJT8ZD0ULswbj6wT8na2PG+t4Be359bFvrqEutNwhSlFoel
-         k+Tf2jsHkjTGTb1BwFXCBPY/604wwCmfxKFGed8jvx5eqM78ypysXefXJGLjvFqAUhDB
-         rxWOm4uBfSXPvdu9RCLv/jls8KrCCy6fPKdySeZ3VKnzpc3b8JUoCR19WxGBx42DruZ0
-         H3S6yrnRo/f54vLVCeSUehIpQ94+Kdvy+ZDeLdUnuyD7qdCZDw6oNCDTVSCtKO/Nmmh4
-         0w3wRgDtgbmGyropRwB4rtFwbQLBb3wAfhIBzIfvbhNjmJWwOb+BeOBgVs2rdoQXOBFD
-         MlMg==
-X-Forwarded-Encrypted: i=1; AJvYcCVohMi3pBjJddJNfMDouuqS+JBNOykxTEKVEszUBoNNxXbavA9djnSjESSBx0mqXU+LK5IrPMi7ULiQekDpv/YR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yywl4ZFXZNDpGrE6XxyB6+u4/mPTPgiNU831xVW/weze+m4l6PB
-	L3H8/rrOOr5VdVCR7AJAuD3lNqYKYzXCnwtWRaXvLiZDFzQD697gb8o/
-X-Gm-Gg: AY/fxX5XySfPEM4Pof2RGll6Pv8iC+Q/5H244cqTHsvR2W+EvpoA19qzeUS0HUKfOmB
-	d6NM+LHpxDDj+KBZm1Ac/u+QkluuKRVHP7KaL1a/35HREqj0B57nOOjKueu60m/5l88L4ITsx3J
-	uatsH6Rh4rGFF7ScYRbft17NOzj2F4JIb1gPLfhfyIk/Pp1ucT8d2TcTeeOOh9ilNinE8ZbIfd7
-	ClY5ZxYrFHWCYInDN/qWjKlz59bH26XSZ/wojjSonkqfsQihRlJIEAq92i1gAFjgX40alJo2oiH
-	pZzxNrZxlnpreiVS/P+EAF/KGg1zyJtgKpRLvPRKGtDCJfKFOS0I0DKc7l+udOI6mOKfoYnFNiu
-	mKU/wcVeIlZSPn5bZWicH4/bcwlTaPd6jA7SGFQP2nxkJOA3jvS0zqUiYN2A6FxyCy4KBR7fpTW
-	kzGZT+cWzLwZp3CsvbFkaaChtjBpINVo9TJ7Hc1QWsPJ5dKzOtVB8dw+Yg738=
-X-Google-Smtp-Source: AGHT+IHV4Iszd+K6pE+L70YOIdvHkZVJ03UYXalyKOYspoVp8AFbIBx4gAlLx501zb5azUo1ikN80g==
-X-Received: by 2002:a05:6a21:6d89:b0:244:d3d0:962a with SMTP id adf61e73a8af0-366e0de878dmr8196886637.22.1765484871216;
-        Thu, 11 Dec 2025 12:27:51 -0800 (PST)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-c0c2ae4e3casm3142680a12.21.2025.12.11.12.27.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 11 Dec 2025 12:27:50 -0800 (PST)
-Message-ID: <f17d93db-f96b-469d-88f0-0878a0fc9fe7@roeck-us.net>
-Date: Thu, 11 Dec 2025 12:27:48 -0800
+	id 1vTnI4-0000000HDtB-0UTt;
+	Thu, 11 Dec 2025 20:29:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1765484968;
+	bh=aorE+XGhS7LAYqgTc6esMCwmzPq1BKGq+EW0ds9kfxA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=orSc8y5DvHwd5U64GaRcrlBH1D0Wi9fmU5WpWzqhi8dvI/wh1C9A20P6yzMt3PtVe
+	 c7QhAZ2DC+yqdk92ctW8wo5PkNs4JMdkTRVcaTJy4cog/4OkJ5Fao4zNnzga8rJ74J
+	 oGL0ApOTZYCYWsIggFFajo+1bUsbz+/S6NQ9a+1wHmSgqhZso1jHRarc8wQ5giTQ9F
+	 Hpe2TEvzbQxW93O1METPRZqc9sp+c10hnwFOI/jQnym5pV/6mGcbOlbJT2OPSduXaR
+	 AzYZjjOxastiJTVhd54txlYa/bgvL31ZpMDIJTvaZFG932AA3sWDdeRoxr/AXMwjsx
+	 AvazI9KoopE7A==
+Received: from [IPv6:2606:6d00:17:7b4b::c41] (unknown [IPv6:2606:6d00:17:7b4b::c41])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0141617E110C;
+	Thu, 11 Dec 2025 21:29:25 +0100 (CET)
+Message-ID: <d9a58ddf9b90d8320562ec54f2bd74fa77f0bc67.camel@collabora.com>
+Subject: Re: [PATCH v6 05/10] media: mediatek: vcodec: refactor setup dst
+ buffer metadata interface for VP9 decoder
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Kyrie Wu <kyrie.wu@mediatek.com>, Tiffany Lin
+ <tiffany.lin@mediatek.com>,  Andrew-CT Chen <andrew-ct.chen@mediatek.com>,
+ Yunfei Dong <yunfei.dong@mediatek.com>, Mauro Carvalho Chehab	
+ <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski	
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger	
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
+ <angelogioacchino.delregno@collabora.com>, Hans Verkuil
+ <hverkuil@xs4all.nl>,  Nathan Hebert <nhebert@chromium.org>, Arnd Bergmann
+ <arnd@arndb.de>, Irui Wang <irui.wang@mediatek.com>,  George Sun
+ <george.sun@mediatek.com>, linux-media@vger.kernel.org,
+ devicetree@vger.kernel.org, 	linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-mediatek@lists.infradead.org
+Cc: Neil Armstrong <neil.armstrong@linaro.org>, Andrzej Pietrasiewicz
+	 <andrzejtp2010@gmail.com>, Yilong Zhou <yilong.zhou@mediatek.com>
+Date: Thu, 11 Dec 2025 15:29:24 -0500
+In-Reply-To: <20251202074038.3173-6-kyrie.wu@mediatek.com>
+References: <20251202074038.3173-1-kyrie.wu@mediatek.com>
+	 <20251202074038.3173-6-kyrie.wu@mediatek.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-cnFYe8mYcyleE2PY2F67"
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 01/16] dt-bindings: hwmon: Convert
- aspeed,ast2400-pwm-tacho to DT schema
-To: Andrew Jeffery <andrew@codeconstruct.com.au>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>
-Cc: Joel Stanley <joel@jms.id.au>, linux-hwmon@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org,
- linux-mmc@vger.kernel.org, linux-crypto@vger.kernel.org,
- linux-iio@vger.kernel.org
-References: <20251211-dev-dt-warnings-all-v1-0-21b18b9ada77@codeconstruct.com.au>
- <20251211-dev-dt-warnings-all-v1-1-21b18b9ada77@codeconstruct.com.au>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <20251211-dev-dt-warnings-all-v1-1-21b18b9ada77@codeconstruct.com.au>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_122752_752236_37ADE23D 
-X-CRM114-Status: GOOD (  10.85  )
+X-CRM114-CacheID: sfid-20251211_122932_339222_2B281950 
+X-CRM114-Status: GOOD (  18.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,25 +100,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/11/25 00:45, Andrew Jeffery wrote:
-> From: "Rob Herring (Arm)" <robh@kernel.org>
-> 
-> Convert the ASpeed fan controller binding to DT schema format.
-> 
-> The '#cooling-cells' value used is 1 rather than 2. '#size-cells' is 0
-> rather 1.
-> 
-> Some users define more that 8 fan nodes where 2 fans share a PWM. The
-> driver seems to let the 2nd fan just overwrite the 1st one. That also
-> creates some addressing errors in the DT (duplicate addresses and wrong
-> unit-addresses).
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
 
-I am not sure I understand what the plan is here. I am assuming it will be
-applied through a non-hwmon branch.
+--=-cnFYe8mYcyleE2PY2F67
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Acked-by: Guenter Roeck <linux@roeck-us.net>
+Hi,
 
+Le mardi 02 d=C3=A9cembre 2025 =C3=A0 15:40 +0800, Kyrie Wu a =C3=A9crit=C2=
+=A0:
+> Previously, calling vdec_vp9_slice_setup_single_from_src_to_dst
+> with v4l2_m2m_next_src_buf to obtain both buffers resulted in -EINVAL,
+> interrupting the decoding process. To resolve this,
+> the interface should be updated to set both src and dst buffers
+> for metadata configuration.
+
+I'm haven't figure-out why this happens, perhaps you can add more details ?
+
+>=20
+> Signed-off-by: Kyrie Wu <kyrie.wu@mediatek.com>
+> ---
+> =C2=A0.../vcodec/decoder/vdec/vdec_vp9_req_lat_if.c | 21 ++++++++++------=
+---
+> =C2=A01 file changed, 11 insertions(+), 10 deletions(-)
+>=20
+> diff --git a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9=
+_req_lat_if.c b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp=
+9_req_lat_if.c
+> index fa0f406f7726..9513ddde7c7c 100644
+> --- a/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_la=
+t_if.c
+> +++ b/drivers/media/platform/mediatek/vcodec/decoder/vdec/vdec_vp9_req_la=
+t_if.c
+> @@ -696,21 +696,22 @@ static int vdec_vp9_slice_tile_offset(int idx, int =
+mi_num, int tile_log2)
+> =C2=A0	return min(offset, mi_num);
+> =C2=A0}
+> =C2=A0
+> -static
+> -int vdec_vp9_slice_setup_single_from_src_to_dst(struct vdec_vp9_slice_in=
+stance *instance)
+> +static int vdec_vp9_slice_setup_single_from_src_to_dst(struct vdec_vp9_s=
+lice_instance *instance,
+> +						=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct mtk_vcodec_mem *bs,
+> +						=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 struct vdec_fb *fb)
+> =C2=A0{
+> -	struct vb2_v4l2_buffer *src;
+> -	struct vb2_v4l2_buffer *dst;
+> +	struct mtk_video_dec_buf *src_buf_info;
+> +	struct mtk_video_dec_buf *dst_buf_info;
+> =C2=A0
+> -	src =3D v4l2_m2m_next_src_buf(instance->ctx->m2m_ctx);
+
+My concern is that vdec_vp9_slice_setup_lat_from_src_buf() also depends on =
+the
+tip of the OUTPUT queue, why it this problem with limited to single core ?
+
+Can you apply the manual completion fixes, and check if the problem still
+appear? Is that something you reproduce every time ? Perhaps it should be k=
+ept
+out of this serie ?
+
+
+> -	if (!src)
+> +	src_buf_info =3D container_of(bs, struct mtk_video_dec_buf, bs_buffer);
+> +	if (!src_buf_info)
+> =C2=A0		return -EINVAL;
+
+Its a bit of a concern in term of memory lifetime / possible use after free=
+.
+Who's holding on the buffer if its not in the queue ?
+
+Nicolas
+
+> =C2=A0
+> -	dst =3D v4l2_m2m_next_dst_buf(instance->ctx->m2m_ctx);
+> -	if (!dst)
+> +	dst_buf_info =3D container_of(fb, struct mtk_video_dec_buf, frame_buffe=
+r);
+> +	if (!dst_buf_info)
+> =C2=A0		return -EINVAL;
+> =C2=A0
+> -	v4l2_m2m_buf_copy_metadata(src, dst, true);
+> +	v4l2_m2m_buf_copy_metadata(&src_buf_info->m2m_buf.vb, &dst_buf_info->m2=
+m_buf.vb, true);
+> =C2=A0
+> =C2=A0	return 0;
+> =C2=A0}
+> @@ -1800,7 +1801,7 @@ static int vdec_vp9_slice_setup_single(struct vdec_=
+vp9_slice_instance *instance,
+> =C2=A0	struct vdec_vp9_slice_vsi *vsi =3D &pfc->vsi;
+> =C2=A0	int ret;
+> =C2=A0
+> -	ret =3D vdec_vp9_slice_setup_single_from_src_to_dst(instance);
+> +	ret =3D vdec_vp9_slice_setup_single_from_src_to_dst(instance, bs, fb);
+> =C2=A0	if (ret)
+> =C2=A0		goto err;
+> =C2=A0
+
+--=-cnFYe8mYcyleE2PY2F67
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaTsppAAKCRDZQZRRKWBy
+9CXrAP9alOmG1EIcOp/r0v4e3t44wyRrJES2KQ9RbQQML4UAAgEA28h4QzuqkSxR
+pWAsLr/SYdJQup7lL5McJSFqipmIAg8=
+=YXEp
+-----END PGP SIGNATURE-----
+
+--=-cnFYe8mYcyleE2PY2F67--
 
