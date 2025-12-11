@@ -4,85 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23F1CD41C35
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 13:37:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D966D41C38
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 11 Dec 2025 13:37:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=n1dFL102IvyRuI2M5K3t2JBa4JSeYgA6HETfVWFDo10=; b=Tv2/fFcZFwaaKTp1Olc3xr/QWv
-	ke7uKs5CxkrQKRqwAiJzzZvIXMY5wEPwebIdV3A8c9T4of9tIruBXa+GPccBpTS3bV+6tB/22Qccd
-	3NmyOUbDGwlFLUtuyttoUVadLpd2VOqmRjIxTXzmJcOii2xFYvwJq13i/Bwn6DyJ9SqKDBeuu2BRC
-	rOpMQM772GqvbnZ75YL/rVgqWAr6STYSyjNrkbm3AKm9shDBdjbsP1lTRIxb2KeIFyAwKEzh1LtvV
-	cD7m2sd6zKByC03ua5y+pzAI6Cxnn7bxJ5Ghegym2jXhBVmqhXtmnckjLcNJ4yh9Z7skgdmip6Wag
-	5cUd7hyw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zA5C5PNW0/uFa37xkLqcgZ6/TZ5xC7fDMBu4P7YKTz4=; b=zaxtBFKBfFdO6MQWMTlzFIteCU
+	y7iq1fl5xcAtxmDIko6zH8KDwHes6nKuDxwAxDLU/ijsy7c5jBfkfpLIlkoQiRThCwC0C+p4hG7E4
+	r2eJosSmxsLxMTAy+xlr4oTDAthwYWUDpY8T6XFWzDAifK+975OXB7q7M7F3z/S1igm7GQAyi73DC
+	mUBxKztHEbJliAC8C8MsOT75invJ0lUTUNsZb9pePZax0R1xN/tO0Mfb7MY+e53f9QuZO+oFWkea3
+	i2yYSNsE9eMuzfp64RTHG7IuYFi4F2b49fDdDiiDDZ81+nucxQ0kus/zS5DhV0QeIuSOwso8Ch20z
+	fRB+SFnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTgrb-0000000GeWT-0YlX;
+	id 1vTgrb-0000000GeWl-1mJL;
 	Thu, 11 Dec 2025 13:37:47 +0000
 Received: from fhigh-b5-smtp.messagingengine.com ([202.12.124.156])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTgrX-0000000GeUz-3tZj
+	id 1vTgrY-0000000GeV7-3j1C
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 11 Dec 2025 13:37:45 +0000
-Received: from phl-compute-03.internal (phl-compute-03.internal [10.202.2.43])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 2F37D7A012A;
-	Thu, 11 Dec 2025 08:37:40 -0500 (EST)
+	Thu, 11 Dec 2025 13:37:46 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 40E477A0140;
+	Thu, 11 Dec 2025 08:37:42 -0500 (EST)
 Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-03.internal (MEProxy); Thu, 11 Dec 2025 08:37:40 -0500
+  by phl-compute-05.internal (MEProxy); Thu, 11 Dec 2025 08:37:42 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bsdio.com; h=cc
 	:cc:content-transfer-encoding:content-type:date:date:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=fm2; t=1765460260; x=1765546660; bh=n1dFL102IvyRuI2M5K3t2
-	JBa4JSeYgA6HETfVWFDo10=; b=rrJ0G2rS1KQBOSfjqstumfJ+ZM8ja8OJQjntI
-	FK+AxEua5wOk02TohphvL1XRi4aJ16xPnf2MfsMjb6vvXHG/HupDdH0vFaUBDxV4
-	kS7qj8gspnoQkQq2IPbRIZeIvoogkABEDjZsXWMlvyKgBBAioBOAP1Ooxgh2fbAQ
-	TbTPNl71P5qdhSmZMserLeJNsNj1X/iqgiWBw3bOrhB8ezSbTYUV5+ZePTuNY7ub
-	ecsflxjbmLMd0m+cBxzuxYWDfgSjItQw/l6wQSfexkH1ryrgMhuEN8CaaNV3gqf1
-	PZsL+YZCB6ofKi4bzIcHXXnBLCGvf2sW2iZ1THMHUShkxrbYw==
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm2; t=1765460262; x=
+	1765546662; bh=zA5C5PNW0/uFa37xkLqcgZ6/TZ5xC7fDMBu4P7YKTz4=; b=o
+	82a1GFuLupdi2f3DTNtDSHpDK/z4t0s0WgGt/7mZI7mld2Jsm5n+VPZS15R6/CpI
+	habdwW7aZtZHS4z8uWuHoqpMEsbA3lgXKFiV/soZ8FE9Caq8vcX77TPvTh2w+5Wm
+	1Qdx5OIJtrKXtVOQC7XDtFfErtcI97N4sqccZwSE4WWCQJ2uRstNvO1t3FcubTXC
+	NLEjEjyuZkQE2IgP28TEmVLFwrEesg7y5xUTb2F5Nb54oRi5GBcQfGUcP8oDi8zH
+	/ZcGDiQuoVNub+W1aQQITBQ0FPqOlp8pntCIUOZsOPM6sbfUHtOlxxL9PZS+rM5y
+	Ql2A/2p+fAu2jK+mIZsMQ==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
-	1765460260; x=1765546660; bh=n1dFL102IvyRuI2M5K3t2JBa4JSeYgA6HET
-	fVWFDo10=; b=Cl5ftS57JbFLpAKWOskXemnucZI2X/0Mx44Xh+H4Z76nq8Jv889
-	0BpBHGNhAiivHKhuVF7oBfiYqkLaK211EGnn70oLqHEwxP6EgN/IBH4cRgkrBE9x
-	ZBpjaAekP6/Otuc4bFzxRJ29xbs85zkvtvzEtlZwl9Frb6Z57N//iG8hcuIHerIN
-	Pz0fI31XOP17ZokAxqnNc0TvBiGpqLDoAYjgSs5ceooktkx6+3/y4jwhY7sSILaL
-	8K5rGoLTW8Bbje7RI7iPyzIXgb3Y8t+ORpeZAiE6NFw/Fh+Z3PR0lb9a5qPmkmCJ
-	7mhU3xuOE7+V7MjI6mAk+O4KRWdb0+CyNZQ==
-X-ME-Sender: <xms:Isk6aTvxBFoJGOW7WCHFt3Uutkf_i7Qa3OeaoqgeDhy-_KFUSBcx4Q>
-    <xme:Isk6acmJOHxII5sBwL4yvCKHrPYQNRNbWdAw1LipcqSSA4LWIIDRu5HO2RvcU1N3Q
-    680w_HN5EGGQZGIx6tsvycPKi1AheMumYo3n9aLMvlQ0D5q3zAJ3Q>
-X-ME-Received: <xmr:Isk6aWROwsxR11-LT_YMghAyK26oM_VR3KsW1sN1I3JkUXYwHcmQANTlG1ltEzAwtneVT3qi6yVgiR1N>
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm1; t=1765460262; x=1765546662; bh=z
+	A5C5PNW0/uFa37xkLqcgZ6/TZ5xC7fDMBu4P7YKTz4=; b=ikPmmeRBuksPJ7t73
+	0XKq3myvQGmH9nND3o5Lwsq5d7q2jkBulKx/MA+aOLxWKdBudG1iHYnFqibJ9PA5
+	AD7bs5G5oQrZmRccokvhfEXPYaCd2NMnKGtPc+awUA5Q99qCd/mRcrRL24kaG41H
+	7ZcWjZHe3GtwXA+U5LuTXvsKo/PLUQXZGMhkSSB0ugColy78sahnydFJTMfBYIZR
+	OyRbNmVNwnjIiJuXcqkI9Tq3KuPu/yFzGPDFllBn9VhD/S7+OWnyYdLZrxhV5DiH
+	wJOFRsqdgUn7KoBlpVZjDwvFYRPNuslSim4FE0HTDuLwNBgNzjHDSfg9riRjgzXc
+	r1fyQ==
+X-ME-Sender: <xms:Jck6aaOV1zUdDk9toNH5FSHOE6yMYucLcOXh58jv2A-Zw4mjc5WKLQ>
+    <xme:Jck6aVp0KfdAWZQJg9DHxc_c-BQqiwkSCmnG0sKHy_UQXe7Q-C_9kYZ3xOfj0-Z4M
+    qPx10pij1eGLOKKQGuK59SsGAKJhifFshup3U0nhynrFpF7TCUeMug>
+X-ME-Received: <xmr:Jck6aVJJFUSBf91RyGj5n8dviIr911ioqYLwa2MIZxw86CFzVOrk3egR43wZlZXwnh3NgOKvjZw0kcST>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgddvheeghecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
     ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpeftvggsvggttggrucev
-    rhgrnhcuoehrvggsvggttggrsegsshguihhordgtohhmqeenucggtffrrghtthgvrhhnpe
-    euvdektdelkeeukefgjeejteetffdtudeiffefheevfefgveeulefghfellefgvdenucev
-    lhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehrvggsvggttg
-    grsegsshguihhordgtohhmpdhnsggprhgtphhtthhopeduuddpmhhouggvpehsmhhtphho
-    uhhtpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrh
-    iikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgv
-    rhhnvghlrdhorhhgpdhrtghpthhtohepjhhovghlsehjmhhsrdhiugdrrghupdhrtghpth
-    htoheprghnughrvgifsegtohguvggtohhnshhtrhhutghtrdgtohhmrdgruhdprhgtphht
-    thhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtth
-    hopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggrugdr
-    ohhrghdprhgtphhtthhopehlihhnuhigqdgrshhpvggvugeslhhishhtshdrohiilhgrsg
-    hsrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhn
-    vghlrdhorhhg
-X-ME-Proxy: <xmx:Isk6aSK3ww_qWNePEaEYZ2dWGaNjvuqPU5BVxy33_7oofLEBPmj2fw>
-    <xmx:Isk6aQGnJVlsE478CXeT8V7b85APUovhu7lkF8r7v7mVoUkeS2pIUg>
-    <xmx:Isk6af2gbAFc4i3pyDmnqlRG4Ta8cMYnw7A5QPitzuK952iHhvx2iw>
-    <xmx:Isk6aYLkCZxjtr4hQnzHFijWy9aj89azZV0b4V9vIi4OmdJVAeorvA>
-    <xmx:JMk6ad8Nm_TvHlDsujl3b0NbjgaaudIKNKmSp3sySbmeoA555NxM43sy>
+    hrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeftvggsvggttggr
+    ucevrhgrnhcuoehrvggsvggttggrsegsshguihhordgtohhmqeenucggtffrrghtthgvrh
+    hnpeegffeuueelvdeggfdvvdfgtedvudfhfeekudekieektddukeefteetieefvdelfeen
+    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehrvggsvg
+    gttggrsegsshguihhordgtohhmpdhnsggprhgtphhtthhopeduvddpmhhouggvpehsmhht
+    phhouhhtpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhope
+    hkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegtohhnohhrodguthes
+    khgvrhhnvghlrdhorhhgpdhrtghpthhtohepjhhovghlsehjmhhsrdhiugdrrghupdhrtg
+    hpthhtoheprghnughrvgifsegtohguvggtohhnshhtrhhutghtrdgtohhmrdgruhdprhgt
+    phhtthhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtph
+    htthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhnfhhrrgguvggr
+    ugdrohhrghdprhgtphhtthhopehlihhnuhigqdgrshhpvggvugeslhhishhtshdrohiilh
+    grsghsrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgv
+    rhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:Jck6aU3XTW4kd0xBwyxkgQxf2XLJ2Wzancykkprx9A1iVmAflHxKRw>
+    <xmx:Jck6aWUnB-94On1jEB9N69xDrSruwolT75zLXxzPuu7MHceJdd8o4w>
+    <xmx:Jck6aXzLDEvG24AZR6vdTmWnRyZnlbkLMtlFvm8NiOEXG93LDfdYyQ>
+    <xmx:Jck6adyT_rD1hemS8dLt_9j3vLGNEss8qWF39WYCP6_LLxZcc2pY4w>
+    <xmx:Jsk6aYz5kqByYQ3y2L47BPq8lloE7ZLdj1tY10pamoqm2JDMXF7nrxIH>
 Feedback-ID: i5b994698:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 11 Dec 2025 08:37:38 -0500 (EST)
+ 11 Dec 2025 08:37:40 -0500 (EST)
 From: Rebecca Cran <rebecca@bsdio.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -94,16 +96,19 @@ To: Rob Herring <robh@kernel.org>,
 	linux-aspeed@lists.ozlabs.org,
 	linux-kernel@vger.kernel.org
 Cc: Rebecca Cran <rebecca@bsdio.com>,
-	Billy Tsai <billy_tsai@aspeedtech.com>
-Subject: [PATCH v4 0/2] Add device tree for ASRock Rack ALTRAD8 BMC
-Date: Thu, 11 Dec 2025 06:37:17 -0700
-Message-ID: <20251211133721.18269-1-rebecca@bsdio.com>
+	Billy Tsai <billy_tsai@aspeedtech.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v4 1/2] dt-bindings: arm: aspeed: add ASRock Rack ALTRAD8 board
+Date: Thu, 11 Dec 2025 06:37:18 -0700
+Message-ID: <20251211133721.18269-2-rebecca@bsdio.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251211133721.18269-1-rebecca@bsdio.com>
+References: <20251211133721.18269-1-rebecca@bsdio.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_053744_268169_14DAA161 
-X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-CacheID: sfid-20251211_053744_963952_B6EEC386 
+X-CRM114-Status: UNSURE (   6.79  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -119,33 +124,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ASRock Rack ALTRAD8 BMC is an Aspeed AST2500-based BMC for the
-ALTRAD8UD-1L2T and ALTRAD8UD2-1L2Q boards with an Ampere Altra
-processor. The BMC runs OpenBMC.
+Document ASRock Rack ALTRAD8 (ALTRAD8UD-1L2T and ALTRAD8UD2-1L2Q)
+compatibles.
 
-These patches add a device tree and binding for the BMC.
+Signed-off-by: Rebecca Cran <rebecca@bsdio.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+---
+ Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-**Changes between v3 and v4**
-
-- Re-added system fault LED after verifying it works with an
-  LED connected to the AUX header.
-- Fixed GPIOs based on Tan's feedback.
-- Dropped DT schema commit in favour of Rob's changes.
-
-**Testing**
-
-Ran `make ARCH=arm CHECK_DTBS=y aspeed/aspeed-bmc-asrock-altrad8.dtb`.
-
-Rebecca Cran (2):
-  dt-bindings: arm: aspeed: add ASRock Rack ALTRAD8 board
-  ARM: dts: aspeed: add device tree for ASRock Rack ALTRAD8 BMC
-
- Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml |   1 +
- arch/arm/boot/dts/aspeed/Makefile                        |   1 +
- arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts   | 625 ++++++++++++++++++++
- 3 files changed, 627 insertions(+)
- create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-asrock-altrad8.dts
-
+diff --git a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+index 9298c1a75dd1..aefad2d02993 100644
+--- a/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
++++ b/Documentation/devicetree/bindings/arm/aspeed/aspeed.yaml
+@@ -34,6 +34,7 @@ properties:
+               - amd,ethanolx-bmc
+               - ampere,mtjade-bmc
+               - aspeed,ast2500-evb
++              - asrock,altrad8-bmc
+               - asrock,e3c246d4i-bmc
+               - asrock,e3c256d4i-bmc
+               - asrock,romed8hm3-bmc
 -- 
 2.47.3
 
