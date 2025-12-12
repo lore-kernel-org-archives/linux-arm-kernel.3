@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEC82D59D66
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 15:33:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D783BD59D67
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 15:33:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e7fahmTBI9kipCQMheuyeZUpREbzXH29kA76YEVRHtk=; b=WcKXY00QXvHcWQ4NSDq2OHuTh4
-	up2p62kd83DLRk++HehYJTQjynNxbQSJBV8kWlQqFjJD+LsoRIJbOdgZmpEcmlCeWVB1hhfOs/zNX
-	7ErAuLpDLn9/iTDPTD/zv7ag6zVuF4B1xETvCpXqW/tVmpX80Eg00jbrya183ATcNJGkIQf1KhQHk
-	xXmuPUGhRpgICMm47pfaQgr3GCRPjSRbk7yUNspjlK+B1XIfhS95I9dHltdZTbmnEDczTUeG1rkLQ
-	+Ga0vOEUKfEhKD03FPnPCErWj9xRPxfxq3M/+jUZ1NNcnuemVhQbeuLJnkekAMBTsrNENzpIpS5Xk
-	bKoQHn+w==;
+	bh=Pzt6Jr/+wkfmociJhlECu3e99FFKHyiFhWTKLOnLQI0=; b=Qkif6+5CMJsJzqTHCfNiH3rdGo
+	KiYri4IZ51e7lwjp0doOYvpQktfFD55GuFjIKPZeFT3YAeknzolb2FKG3WtbV6t4rMrA7pFvvcYBn
+	nmEdu1Kg4I7SHtCl2xP2gPeWjTopBLy7Vc2JutLKih/4rquNu77Y0aY1qpR8TZLbC/1SjgOuj9SXZ
+	4eqlrYlAwidvHmnNI0WGuT6dkDKIEwPz0Y5PW5Q8SqwXZZKmXh2dJ/4zjA/ZPUI9qjUaR7UhatYNN
+	5Mbdb/5GITh03MGzdh/ODdH66SgpDzKXtxpkA/PKA/YwrHWzTDbaiHXVZYN3XtTsW8v5wJPMWff9w
+	sXDsa4XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU58l-00000000jI5-3iD5;
-	Fri, 12 Dec 2025 15:33:07 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1vU58n-00000000jJv-1ScH;
+	Fri, 12 Dec 2025 15:33:09 +0000
+Received: from mail-ed1-x541.google.com ([2a00:1450:4864:20::541])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU58d-00000000j95-0YgY
+	id 1vU58g-00000000jAu-310T
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 15:33:01 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-b75c7cb722aso271454366b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Dec 2025 07:32:58 -0800 (PST)
+	Fri, 12 Dec 2025 15:33:06 +0000
+Received: by mail-ed1-x541.google.com with SMTP id 4fb4d7f45d1cf-649820b4b3aso2043862a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Dec 2025 07:33:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765553577; x=1766158377; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1765553580; x=1766158380; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=e7fahmTBI9kipCQMheuyeZUpREbzXH29kA76YEVRHtk=;
-        b=Oxuzwy3ikq0LfFwlG4Evpte8WZaDIUt3so2XEsIc9DlOPJluLTjHknBe8pj6HcWgjF
-         JrmZI4hS8rvTqUgfBAjJnv7eN61u//1UE1lOHT1buhh2KTHPNcUq3wp3ezl7kOxsdOnF
-         deaEkGA+F6sf1bK0rlncOuix8sh3SqA5e8jCZPGAAxia3YZLzTTd+LQBVKzI0ONT+A19
-         s1xrBbutjl9a9JNc7W3oKCm7c9/bNjnw5ukvJwx37WiYUvD70WIcqxJCfUKY11pQ9AOg
-         XDeGi9L8KFyp1q71dqnh6/TC4e/gnQLeFa1YkzpCX7QDFdMNSbMQ0yazO+0wwbkgZgio
-         tvoA==
+        bh=Pzt6Jr/+wkfmociJhlECu3e99FFKHyiFhWTKLOnLQI0=;
+        b=f76ulbYrdY1HS2VdeI6XrXxdxxI6jGCIOMoJcHGzm2PnmdzRiGKQmSME4MROL4nqSi
+         K/DJeF2p/JBeEMtt77zh5nQ9qzJ7ibPQ3pkk3xRl/XqgoWgB0ATo4Y+wvZD9GzEeP18T
+         c5VsQ1xkav+LGnzD4nZdtOV9G+1UZ1PmyWL8VJP6pd8V2VqpXqErwDcYl4W2B0vwVYkZ
+         DuWeRIxA7emOpQmRMNAzUUgXlPSqi5Xl2AxxNhag0IiZCm8hJ8C6047ObnjcUI0iWuha
+         jDvm+czaf/xfX1chfWA6XBW50s25XqQlOC023oPNTIcLESF5ReCkwCaDInAbXhZq6W0S
+         eW3w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765553577; x=1766158377;
+        d=1e100.net; s=20230601; t=1765553580; x=1766158380;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=e7fahmTBI9kipCQMheuyeZUpREbzXH29kA76YEVRHtk=;
-        b=t6dais8yl50ZzXIB0c0a5RvivOX84KW1Dj/cK6IdM+ZEm6oUtuJjSumy32w8Ih2lQM
-         eulRCXng+oG3k6XyyxBuvDF3L07TqUCoh7dZoBLQSjnXZ2M4Ez/t0d0YcmUk0Y0qNd/x
-         xoJH/RNKXyWH7srxbVNSdRv634aPArnc+KmzBXDW//ZT61Q6MMf1Oml92chvZpRHj56w
-         XZr5s0+VPIRA0qEAKFTiXDsitxrUO6t3tQJk7BcC4rbbAAeci1b2PhL95hNpbxfi29hX
-         VKQp725KenJRmube2eFosxVVhoDgVE+snyBiAjk0r8Nd2TMptmC35jhaZIcaIySuhf+G
-         HKxw==
-X-Forwarded-Encrypted: i=1; AJvYcCWW2E3vf5PLaIbMCrIrFWSUEllRRQ+s/Y65MhsJ5ZkrOSOcGiVniE84cACTK2EW6WdZkyM3tiYFBhznvpeVXJmK@lists.infradead.org
-X-Gm-Message-State: AOJu0YxmRhQXz5BqwIXvoSehqTQw0TXHCHaZNCqIve0jb4k2fUq4wnXt
-	cnUiw12Nhus0xqIq8B/sTFxaabDMn464Vupw4KJ325XPHJGFs/IeTS2/nYlT+D6/ZWc=
-X-Gm-Gg: AY/fxX6vxrKAcTC0rl68wc8AhSzdxwkTc7hNRzQgSmibBakdy11WuoMjP/yDFfAGmIN
-	b7FK4BONsEygU4x2rUZimvJFPgFvE8IfjckS7kAopxTH7JeoQBUAewKfp76cwFbocIlXSxM3IMx
-	TFzysbq8K3Dad+0t70D4Kw4aDiUY5erUvy96MDVNgMkLlrVAokeOOHMCaY0p289AOsYhQjH1vjy
-	7zEnxxiF41DAfYI7nGHy8aRJPBschNHlNX2LyLUZlarV6qTsR0mL3mKJWKPaiNb/hs2D3poIxsa
-	DPLL8R0nkdQtmoFIblK9Y54nagoe1Tp7N6IHvpPeT658L+E8owbzxfvFFeWc8g0LxUuy2lV/R3r
-	w7YhjCOztu3mH5xFACmgEP5UoOw5pvpDxHjla6xDnEzfyxoGvQ0VuQUUQvJ+Q8l5fOlZYIYS0Fj
-	edoziE4MrfraibG85LUarI
-X-Google-Smtp-Source: AGHT+IEQFiVpXtjTbT1nEBymPVvwKhgGbHnTLlvzOpyqaM6FBur+TFlEfnGCvotgjkxj0qijhEHzow==
-X-Received: by 2002:a17:907:6095:b0:b72:3765:eda9 with SMTP id a640c23a62f3a-b7d23a7988cmr220274966b.60.1765553577012;
-        Fri, 12 Dec 2025 07:32:57 -0800 (PST)
+        bh=Pzt6Jr/+wkfmociJhlECu3e99FFKHyiFhWTKLOnLQI0=;
+        b=JvWcjaPgcvXTIzzLn3vxZt/Iy8zj7b9W9EfAUaLbyTAVik7K/g56TLp2kwvKjWyjAf
+         c4ZTAiM4+Y7msaCFwgLqAVfm88e5G7a1kKBXToYXmvPqeDP1+8ESurAZgrfjLIHAjbkf
+         Gu2YIYP+iHg5x0ugVQGS7i2VoldKv2YCR4oFW4NNEU6YVM7HCGizsGPR931YUhdXw8EF
+         CXnUMPiRJj4eWXu85Ztgzs58RGBK3LNuXu4qhx56XxHhtB+gufwzUJmgDheWMFKEGkpD
+         NDk0B9WAZ9W/ppe6i3Mx5TFKHk7bEZIbHHUh/WLOXeAsXns51+NXmc+aEqTfK+MGnn5a
+         EkZg==
+X-Forwarded-Encrypted: i=1; AJvYcCWl976fvCoEHFFI41xW2D+JqDm4TqvmeY8OxACfn/2uTjnjTUz9udU54GSHRSk5XWLjmWJcWBviaHg3XvEmJBK9@lists.infradead.org
+X-Gm-Message-State: AOJu0YwEf0tZdEVz/hoTSMZndfqVtEeub+QPme2D2qaF1qxnvcRhds2w
+	3sXOhNnpsy0f1P4CWqsTuY55njyrJppkkxCBzVLM57WHF7qJBDPBKe70XE1daptQLOo=
+X-Gm-Gg: AY/fxX7Up6vBXxCRNcmAp9Zx8oJ95bHCADOWejpn5R8AWIQl6yduhGdfqSSr/i7UqcY
+	6QNmvSxjav8x47CHt8I0XN/u2bHkv20+0UAsrjP83fsVG5rz4Bjp/qhCqhnH/eoEUnm+pS3ecfR
+	MN2W+YYnxC2HfvKR5miUembYDHD5ISw3TjJLlFJgnz/SIf/bk0vYj/Ukk/fCo8Ojpkw89L2zPEv
+	PpcWSq3tpTvadjz3gvd3pshLobTvTcC6PsJS7FGSCRzNHyIefBNJmo15g6egw+q7G6+niVLfy4V
+	5Zlelp8qFDTxVRmvSEb77YOtXQbegg7WQucz6DL/wFSN68lyZnx3bVw5/9sgnrIh1O7+68MNqhw
+	yqJ0XzoPqbOpL12OYgapeI94ZVZ0RkUsec0kbuO2mgLkg4k7gQdLAxPBPlb+LHveTNikgKaO7aX
+	eLrY2PXeVeNKcsDFmsTqjo
+X-Google-Smtp-Source: AGHT+IHuJrYzbGSy3G76dO6PcCNRHA+ZNmNldDx24ULUjiT5Wo9EMki68zi3Oygn9G+PH2eBroytyA==
+X-Received: by 2002:a05:6402:35ca:b0:640:9993:3cb8 with SMTP id 4fb4d7f45d1cf-6499b16e779mr2529095a12.5.1765553580465;
+        Fri, 12 Dec 2025 07:33:00 -0800 (PST)
 Received: from e133063.arm.com ([130.185.218.160])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6498210ed32sm5433234a12.29.2025.12.12.07.32.54
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6498210ed32sm5433234a12.29.2025.12.12.07.32.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Dec 2025 07:32:56 -0800 (PST)
+        Fri, 12 Dec 2025 07:33:00 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
-Date: Fri, 12 Dec 2025 17:32:24 +0200
-Subject: [PATCH v3 07/12] perf tests: Test evsel__set_config_if_unset() and
- config change tracking
+Date: Fri, 12 Dec 2025 17:32:26 +0200
+Subject: [PATCH v3 09/12] perf cs-etm: Don't use hard coded config bits
+ when setting up ETMCR
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251212-james-perf-config-bits-v3-7-aa36a4846776@linaro.org>
+Message-Id: <20251212-james-perf-config-bits-v3-9-aa36a4846776@linaro.org>
 References: <20251212-james-perf-config-bits-v3-0-aa36a4846776@linaro.org>
 In-Reply-To: <20251212-james-perf-config-bits-v3-0-aa36a4846776@linaro.org>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -94,8 +94,8 @@ Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
  James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_073259_205839_199E919D 
-X-CRM114-Status: GOOD (  15.59  )
+X-CRM114-CacheID: sfid-20251212_073305_437636_EB2737BE 
+X-CRM114-Status: GOOD (  19.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,129 +110,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Test that evsel__set_config_if_unset() behaves as expected. This also
-tests the user config change tracking mechanism as it depends on it.
+Perf only looks at attr.config when determining what was programmed into
+ETMCR. These bits could theoretically be in any of the config fields.
+Add a generic helper to find the value of any named format field in any
+config field and then use it to get the attributes relevant to ETMCR.
 
+The kernel will also stop publishing the ETMCR register bits in a header
+[1] so preempt that by defining them here.
+
+Move field_prep() to util.h so we can define it along side field_get().
+Unfortunately FIELD_PREP() and FIELD_GET() from the kernel can't be used
+as they require the mask to be a compile time constant.
+
+[1]: https://lore.kernel.org/linux-arm-kernel/20251128-james-cs-syncfreq-v8-10-4d319764cc58@linaro.org/
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- tools/perf/tests/pmu.c | 91 ++++++++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 91 insertions(+)
+ tools/perf/arch/arm/util/cs-etm.c | 35 ++++++++++++++++++++++++++++++++++-
+ 1 file changed, 34 insertions(+), 1 deletion(-)
 
-diff --git a/tools/perf/tests/pmu.c b/tools/perf/tests/pmu.c
-index cbded2c6faa4d5b422936e81bde83bc328fcdfe7..9e313a9a44fdebd0d417c7558b15e5db89241867 100644
---- a/tools/perf/tests/pmu.c
-+++ b/tools/perf/tests/pmu.c
-@@ -192,12 +192,102 @@ static int test__pmu_format(struct test_suite *test __maybe_unused, int subtest
- 	}
- 	if (attr.config2 != 0x0400000020041d07) {
- 		pr_err("Unexpected config2 value %llx\n", attr.config2);
-+	}
+diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/util/cs-etm.c
+index 22c6272e8c367e5671809771b841c5babe2d5282..a5135b743e6f18789026323ea75b2a78d6495d73 100644
+--- a/tools/perf/arch/arm/util/cs-etm.c
++++ b/tools/perf/arch/arm/util/cs-etm.c
+@@ -68,6 +68,12 @@ static const char * const metadata_ete_ro[] = {
+ 
+ enum cs_etm_version { CS_NOT_PRESENT, CS_ETMV3, CS_ETMV4, CS_ETE };
+ 
 +
-+	ret = TEST_OK;
-+err_out:
-+	parse_events_terms__exit(&terms);
-+	test_pmu_put(dir, pmu);
-+	return ret;
-+}
++/* ETMv3 ETMCR register bits */
++#define ETMCR_CYC_ACC		BIT(12)
++#define ETMCR_TIMESTAMP_EN	BIT(28)
++#define ETMCR_RETURN_STACK	BIT(29)
 +
-+static int test__pmu_usr_chgs(struct test_suite *test __maybe_unused, int subtest __maybe_unused)
+ static bool cs_etm_is_ete(struct perf_pmu *cs_etm_pmu, struct perf_cpu cpu);
+ static int cs_etm_get_ro(struct perf_pmu *pmu, struct perf_cpu cpu, const char *path, __u64 *val);
+ static bool cs_etm_pmu_path_exists(struct perf_pmu *pmu, struct perf_cpu cpu, const char *path);
+@@ -487,6 +493,33 @@ static int cs_etm_recording_options(struct auxtrace_record *itr,
+ 	return err;
+ }
+ 
++static u64 cs_etm_synth_etmcr(struct auxtrace_record *itr)
 +{
-+	const char *event = "perf-pmu-test/config=15,config1=4,krava02=170,"
-+			    "krava03=1,krava11=27,krava12=1/";
-+	struct parse_events_terms terms;
-+	struct parse_events_error err;
-+	LIST_HEAD(config_terms);
-+	struct evlist *evlist;
-+	struct perf_pmu *pmu;
-+	struct evsel *evsel;
-+	int ret = TEST_FAIL;
-+	char dir[PATH_MAX];
++	struct cs_etm_recording *ptr =
++		container_of(itr, struct cs_etm_recording, itr);
++	struct perf_pmu *cs_etm_pmu = ptr->cs_etm_pmu;
++	struct evsel *evsel = cs_etm_get_evsel(ptr->evlist, cs_etm_pmu);
++	u64 etmcr = 0;
 +	u64 val;
 +
-+	pmu = test_pmu_get(dir, sizeof(dir));
-+	if (!pmu)
-+		return TEST_FAIL;
-+
-+	evlist = evlist__new();
-+	if (evlist == NULL) {
-+		pr_err("Failed allocation");
-+		goto err_out;
-+	}
-+
-+	parse_events_terms__init(&terms);
-+	ret = parse_events(evlist, event, &err);
-+	if (ret) {
-+		pr_debug("failed to parse event '%s', err %d\n", event, ret);
-+		parse_events_error__print(&err, event);
-+		if (parse_events_error__contains(&err, "can't access trace events"))
-+			ret = TEST_SKIP;
- 		goto err_out;
- 	}
-+	evsel = evlist__first(evlist);
++	if (!evsel)
++		return 0;
 +
 +	/*
-+	 * Set via config=15, krava01 bits 0-1
-+	 * Set via config1=4, krava11 bit 1
-+	 * Set values: krava02=170, krava03=1, krava11=27, krava12=1
-+	 *
-+	 * Test that already set values aren't overwritten.
++	 * Synthesize what the kernel programmed into ETMCR based on
++	 * what options the event was opened with. This doesn't have to be
++	 * complete or 100% accurate, not all bits used by OpenCSD anyway.
 +	 */
-+	evsel__set_config_if_unset(pmu, evsel, "krava01", 16);
-+	evsel__get_config_val(pmu, evsel, "krava01", &val);
-+	TEST_ASSERT_EQUAL("krava01 overwritten", (int) val, (15 & 0b11));
++	if (!evsel__get_config_val(cs_etm_pmu, evsel, "cycacc", &val) && val)
++		etmcr |= ETMCR_CYC_ACC;
++	if (!evsel__get_config_val(cs_etm_pmu, evsel, "timestamp", &val) && val)
++		etmcr |= ETMCR_TIMESTAMP_EN;
++	if (!evsel__get_config_val(cs_etm_pmu, evsel, "retstack", &val) && val)
++		etmcr |= ETMCR_RETURN_STACK;
 +
-+	evsel__set_config_if_unset(pmu, evsel, "krava11", 45);
-+	evsel__get_config_val(pmu, evsel, "krava11", &val);
-+	TEST_ASSERT_EQUAL("krava11 overwritten", (int) val, (27 | (4 << 1)));
++	return etmcr;
++}
 +
-+	evsel__set_config_if_unset(pmu, evsel, "krava02", 32);
-+	evsel__get_config_val(pmu, evsel, "krava02", &val);
-+	TEST_ASSERT_EQUAL("krava02 overwritten", (int) val, 170);
-+
-+	evsel__set_config_if_unset(pmu, evsel, "krava03", 0);
-+	evsel__get_config_val(pmu, evsel, "krava03", &val);
-+	TEST_ASSERT_EQUAL("krava03 overwritten", (int) val, 1);
-+
-+	/*
-+	 * krava13 doesn't have any bits set by either krava13= or config1=
-+	 * but setting _any_ raw value for config1 implies that krava13
-+	 * shouldn't be overwritten. So it's value should remain as 0.
-+	 */
-+	evsel__set_config_if_unset(pmu, evsel, "krava13", 5);
-+	evsel__get_config_val(pmu, evsel, "krava13", &val);
-+	TEST_ASSERT_EQUAL("krava13 overwritten", (int) val, 0);
-+
-+	/*
-+	 * Unset values: krava21, krava22, krava23
-+	 *
-+	 * Test that unset values are overwritten.
-+	 */
-+	evsel__set_config_if_unset(pmu, evsel, "krava21", 13905);
-+	evsel__get_config_val(pmu, evsel, "krava21", &val);
-+	TEST_ASSERT_EQUAL("krava21 not overwritten", (int) val, 13905);
-+
-+	evsel__set_config_if_unset(pmu, evsel, "krava22", 11);
-+	evsel__get_config_val(pmu, evsel, "krava22", &val);
-+	TEST_ASSERT_EQUAL("krava22 not overwritten", (int) val, 11);
- 
-+	evsel__set_config_if_unset(pmu, evsel, "krava23", 0);
-+	evsel__get_config_val(pmu, evsel, "krava23", &val);
-+	TEST_ASSERT_EQUAL("krava23 not overwritten", (int) val, 0);
- 	ret = TEST_OK;
- err_out:
- 	parse_events_terms__exit(&terms);
-+	evlist__delete(evlist);
- 	test_pmu_put(dir, pmu);
- 	return ret;
- }
-@@ -539,6 +629,7 @@ static struct test_case tests__pmu[] = {
- 	TEST_CASE("PMU name combining", name_len),
- 	TEST_CASE("PMU name comparison", name_cmp),
- 	TEST_CASE("PMU cmdline match", pmu_match),
-+	TEST_CASE("PMU user config changes", pmu_usr_chgs),
- 	{	.name = NULL, }
- };
- 
+ static u64 cs_etm_get_config(struct auxtrace_record *itr)
+ {
+ 	struct cs_etm_recording *ptr =
+@@ -746,7 +779,7 @@ static void cs_etm_get_metadata(struct perf_cpu cpu, u32 *offset,
+ 	case CS_ETMV3:
+ 		magic = __perf_cs_etmv3_magic;
+ 		/* Get configuration register */
+-		info->priv[*offset + CS_ETM_ETMCR] = cs_etm_get_config(itr);
++		info->priv[*offset + CS_ETM_ETMCR] = cs_etm_synth_etmcr(itr);
+ 		/* traceID set to legacy value in case new perf running on old system */
+ 		info->priv[*offset + CS_ETM_ETMTRACEIDR] = cs_etm_get_legacy_trace_id(cpu);
+ 		/* Get read-only information from sysFS */
 
 -- 
 2.34.1
