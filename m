@@ -4,64 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBCB4D59D6F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 17:25:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F218BD59D6F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 17:26:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yMV5UvltQwKiCAncZOMo8D3sYorSnzeE9iQeYGODl6U=; b=UwKJBB8jQIZzHcPXuq2gEGJZpN
-	ixU+izbNCnT+uoFDaWyLZOL2t1es9Iud1WLCQKe9q/xOToh6ahKETcueykUaK+QfNMvOC9vFwKdAP
-	stAg991iXyBn2zXH6AOzbbvsnLdaJ8Zlgx1MzVlmd6Eu5+PqhW3ZP7PKaIWasSMQW4/SLvRvoPVv+
-	fjKbfu1hZhBK79x9K4rcyIZrTzO0BEMznd7xFNqlShGyawO2+Ie1nr1ZPDdWdWhGOGaeyWjSMNT0S
-	sUDyVv9VKqv8zi5Larefmu4ZE7IzNzo0/m6dolySea+/WEXmruKNwK8iXL6QGf5kcJYamCcaVK2fR
-	TJJbIDTw==;
+	bh=8NO9gQtdiAvc+NO+MaF2UzEmDvvH+HXUXRtY+bFRiT0=; b=nRQjJpGtOZTWV5Ie1ZylgaRULR
+	CXCtzlp+AaQrbHXhXFG+uV24WquzlCkP55iifu5bo92LhCZgFTKquTzi+c2a9N79kEaDC9FUBKrwO
+	lqKkejl6xAfpgThdqcEGWiNK8nl64KD4+FXPAMrAF9j/mw7BCjGEHjQCWv6rv1jmrcQ4tz4yWWtZ5
+	rhATeItsabKQt4VbBQuwnklRxEOKivvpP3WziaOUvatGqsxkW5vMq8Vm1gpNkGEDKFrKQLuPVhlCw
+	f1Fk5NLojDCu9dTz+uC1P6OSppqHD5ylKrIbUBXzqtXJQm0L6n6agfmnQbw/542HJS8zqyQ2xFGq7
+	4wCPFXOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU6tH-00000000tCj-3wU4;
-	Fri, 12 Dec 2025 17:25:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU6tD-00000000tBJ-3xSQ
+	id 1vU6uC-00000000tOS-3MCZ;
+	Fri, 12 Dec 2025 17:26:12 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vU6tz-00000000tLg-3IlJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 17:25:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2E55C165C;
-	Fri, 12 Dec 2025 09:25:04 -0800 (PST)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7FDB13F762;
-	Fri, 12 Dec 2025 09:25:09 -0800 (PST)
-From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 12 Dec 2025 17:25:00 +0000
-Subject: [PATCH v2 2/2] perf c2c: Update documentation for adding memory
- event table
+	Fri, 12 Dec 2025 17:26:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SNhoWyz/30oyAqTuwnxwGvpXRBaQ52AIxDiU4a0M4mxSCkp9WO5V5sGMCv9vLdYS96VHP6rIJD1VUvjI++cYbUocbJlDdAt17+O63U4oAf5KJgz7aHNskPvPdqt3Ap/2D3zMuWH7QB05868alvnRmV04jZn4e4SxbL/ItGYRgbiPFmOVR5zaEs0PVi0N9hql8wZMy80GNZ9wqTxfUHPO3MeeqnGr0+0g9aXd1OVatXjmyGLnWNZGQpHuej8wAdrpx5IvIPfrocLeFcCjS5uADg7z9G9QDvC/cme7WC2ttyC9uLNxHH0bcU5AZx68J9Q2KHzipqS0oG4I63yUcDjUCg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Bi3B9yO5cutuyW2w7waP2jmRddtvqTJG5jysU0LsSpw=;
+ b=tOVJ7yDWRWlB57NYkwhVf5IUEWZxtlfo45K6m7+o9XxFi14B4LlK33jj+2up3nJcQYqC7FUzY50VcuIVdVmwumIZPCJdhit/XcgsjGryCeT0jS5uVWtPAkh7Pza8AvVmBEs2R6VPXVz1uuqER+Se0mUE/nt0xEQUAOO5GuL8SoSNVvq64JQhSoCeY4lV6ptghtWxEOuQK8vUfH+UTEPSlWllCCHO2FoxBRmtZjcygS9GJoRk/oRaR2E2OHNgk5vyPVYheAKtjHUPIETx35Z90XGWYQvuFyGKK10sAoddRRrQE9ljAxVD+ZTHhUZySR+ph37Tajw7kqPHgM1Rdgsrng==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Bi3B9yO5cutuyW2w7waP2jmRddtvqTJG5jysU0LsSpw=;
+ b=atSzvDens7a0j2jtbhGnP6VS0JXwFTazyMTUDqt6FlHhsRYP2Hsj+e8iMTW0VKTHaPvmXI8XICz1WLLDg16UM/XUoS4umRtLcg7eLxhlXdE0N3ttxSMLqyMDg6ASp8YowO7IpXdR9ePG6lJ34DJaa25b4h2P8fXvZSCcIZTxJpwlPaxQaHLvvk6ZxYBQc7G4SLAi6iY71mk5Gd23KRfuXfMJGyTMR59BXUnLm7tXXcrPSf5NkduYQR+QwdxpPjhXdmbY6gZR32bJYjQkW+sVpDPgAVt8ceVr+9fsWIuLrV5kBLRLciWcjhkM2gvgDXqjg1j1iibWjnFrfPJD0lyHgw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by DB8PR04MB6955.eurprd04.prod.outlook.com (2603:10a6:10:11d::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.6; Fri, 12 Dec
+ 2025 17:25:55 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9412.005; Fri, 12 Dec 2025
+ 17:25:55 +0000
+Date: Fri, 12 Dec 2025 12:25:48 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-pm@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 1/3] thermal/drivers/imx91: Check status before reading
+ data
+Message-ID: <aTxQHLh0OD89oc/g@lizhi-Precision-Tower-5810>
+References: <20251212-imx91-thermal-v1-0-c208545b44cb@nxp.com>
+ <20251212-imx91-thermal-v1-1-c208545b44cb@nxp.com>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251212-imx91-thermal-v1-1-c208545b44cb@nxp.com>
+X-ClientProxiedBy: PH7P221CA0007.NAMP221.PROD.OUTLOOK.COM
+ (2603:10b6:510:32a::10) To DU2PR04MB8951.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e2::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251212-perf_c2c_update_event-v2-2-27df9a6cb1d4@arm.com>
-References: <20251212-perf_c2c_update_event-v2-0-27df9a6cb1d4@arm.com>
-In-Reply-To: <20251212-perf_c2c_update_event-v2-0-27df9a6cb1d4@arm.com>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>, 
- James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
- Al Grant <al.grant@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1765560305; l=5821;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=4sENnGgYOHx/gUayinw+QoHCGnkzWEnPWvka3BMCrtU=;
- b=jxujxi9t2BzTy6A7hBC9TsDumro1k4Km+1WDkJS5SoA0uaZ+GSte//QNRQepJDkvlZC8wrXM6
- AMaIIiB27eJDFScd1aPp7JVMoPmfMwIWs5Yq91SihUsH36dCaNdxuA1
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|DB8PR04MB6955:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2a95bf96-9362-4c11-3c2a-08de39a381f0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|7416014|376014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?k4zDcj5cZuowTn1r6e7feqADSRo3/59Wx+d3e/SUS6/cWoyhJShjy2ylfI?=
+ =?iso-8859-1?Q?VjlIVNmdzqfnzaSHdJ1fMzrkkffCsRn84OUaYZhEK6qDqtHqLlzmyabQeL?=
+ =?iso-8859-1?Q?UqM5UnvCEhbQOmfo61h/LgQejPvrxGbDaELI/R+h5G/UN/FyxGEJkRA3yA?=
+ =?iso-8859-1?Q?wA1m5TcTBMZCqrZTuO2/BzZMWd8TXsfhCPAfASv/1FTh925sk5tAxb3v0M?=
+ =?iso-8859-1?Q?zUOHCG0oLDrEm2wuUVXj7ij/V5vqty0PxowWVuK/jJBWeXatoU6/8VLPxQ?=
+ =?iso-8859-1?Q?Zb23s0tBKKog+pdeRv+ULYzEXzm7x0/lye3+l5MO6RhO7kihcKMJuGSMm/?=
+ =?iso-8859-1?Q?nHzpxO97YUU1wFWZYBuwJruFDh3cvzdezwgGWBTHg0RoTYGx6BWgIgBCBG?=
+ =?iso-8859-1?Q?6xlpIDJx9nduBh8Mhy7f46Nbe7x07QF7nLNGBsd7TXyGRHFPVJiU1CJsrx?=
+ =?iso-8859-1?Q?847aPVwuVA7jvpXVgDaKIEFV17wTp3yjkNtJnyESYKYXv38rYaCrHpFojZ?=
+ =?iso-8859-1?Q?XeQmQZVzmW5PS9mRiezBTdZ37GTCdv0oOLyHEbqI/rG3CMNC8z8gQMOIkQ?=
+ =?iso-8859-1?Q?27EXQx4/UkDUoyjHwYPnT8K9hHgmRqizyPruq5HVbf8xl9ankgBgyQBhJF?=
+ =?iso-8859-1?Q?PFofQuKuQGSFt+nHJFK2n8KfpTeRntjjUr+kK1Xq1s/CjBivC0EHxPbg0y?=
+ =?iso-8859-1?Q?RlwevqDGz+m+wBmToKodM+vfpAVj7P/thwgdWKVTtoSOis/WYHQ9WmHXYd?=
+ =?iso-8859-1?Q?qJNZ17cFLpKH2VGATpPjdDSES5BA4mAxPfjzd9LDurwPC0gkFCuQeD1C/W?=
+ =?iso-8859-1?Q?JGsYdAs1xc4M2vIchboFxpy31TabY8v4EM7JsCIkweYCThD/7gBD6Wb0yn?=
+ =?iso-8859-1?Q?Lx1HHTPR+BAi66Jzq0krMgmo/f0O6iolZHRiKPHbUKpt1IeuGzSbomjIqW?=
+ =?iso-8859-1?Q?RB+u0V/78lS2kBnRotHc0EpVC5BVBTlrXej7UZBRVEY9F+fzIMaonqA6n2?=
+ =?iso-8859-1?Q?QiWivK6OUyJfV51GM5U2BhKRfzgM+xjw05JcSkQBbVbhyFDMulTRI62dlx?=
+ =?iso-8859-1?Q?Q2jwnLM+hZcg1OOPZsWd/9sykbNuR1i1YFRuapgHVDH7kRfg3D/aA36ajB?=
+ =?iso-8859-1?Q?UO5cLOQdI9OTtUIiimKbtEcwdBhXen/WZXIThYTGSXeLZVrlk99xiNwELu?=
+ =?iso-8859-1?Q?gbQYN/vKXhHo3udjGKSO957MzhWQW8hAKjNgm4T5GgFL0Xsn+J4ylUxv5S?=
+ =?iso-8859-1?Q?ieFBWtResiVjxpv54zDf9JhNIoPsh/gDtmXx+0RGojSHfpB8DSedRThKiO?=
+ =?iso-8859-1?Q?+nWQxTDkEpImktdmdnNLAEmPy2WjfLqk1qIXzR9qMJ3pDOHqD3eQv5FNON?=
+ =?iso-8859-1?Q?abiA5xyAqB7et/KUX9exBFjeLAaRsaee1F7vLJ6vqCKO2/scO9Csq6Nqh8?=
+ =?iso-8859-1?Q?EpJMJWE5nG65O8uae9DQSoxPu4KRbPEG7W5cQSZm6ElaHK8EE4wC2p4Q2x?=
+ =?iso-8859-1?Q?r16DaLdCM10QF73H4eGyB2bvLE28HsS/Rxq/R4QXtSw4VW/wZSr5PqUuy5?=
+ =?iso-8859-1?Q?he3xjDR4ORJnEvcsqczg3/Yx7ua4?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(7416014)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?oh9jP3ZHMMwYDX6wUM9OnrynInSSODmfM3gJIZJ1DNkSzDoXIRgZ9Sl5WD?=
+ =?iso-8859-1?Q?tShwal+CUP9JKSKWx9MJlc5TclyMhHYYQ9wAH4NBJMeFPzWQP4GQvRyHQ2?=
+ =?iso-8859-1?Q?nGS18tE8jw29Uk+5Cdps5F5ES9Flz52Wt7we4sqfioJVAyV8u+T8JUVwcG?=
+ =?iso-8859-1?Q?O9ygS/+BlVWdRFX5fyjYnrIBKf2BDXXLf44UAD9sino/B8fVglcknBbrm3?=
+ =?iso-8859-1?Q?VDBTcNgjckA68lsY1sMt/QUJnwhE04k/zSXk9yYYs135LnYvoDZvxks8mF?=
+ =?iso-8859-1?Q?XO3F0FAcC0CI83xRitz6IQgypZ+5vSLi3j6kxrNriCmt0elM5GkJfzSJxm?=
+ =?iso-8859-1?Q?SgVL6IQc5IaB46sHCnOtCWzeD9zlcB8A4yUmvzIq6IdwirtfV1tmv5WgKE?=
+ =?iso-8859-1?Q?ITQB44F2b/9Z072IWwzXmcUgcQs0mj3PQ7hljXFIt5s3s6/ca69ryKCZjK?=
+ =?iso-8859-1?Q?X/Jjm+w092v84fmX1uxXTArDgxeJDVryVHWDoR2AeF31G71Uh1DjFt0EL5?=
+ =?iso-8859-1?Q?cBrTeSUipPDq6FS2Y6AC3wDpxWlqo+xhidOFCCcV8pyOg2VeeoDKeOa/mO?=
+ =?iso-8859-1?Q?fU+AxyXCRU9Xb4eTH8Adqq66k8caWpuXQiw2u/PkHzDfVfoqhSc4FhOoWy?=
+ =?iso-8859-1?Q?5J6PoZMOIRRajC3DlKyPn68iTOn84Bu4OoKOJMNhZ+n1zzFplDwmM1LjFs?=
+ =?iso-8859-1?Q?E9eaN3rHd8BHfgk9n9yD2yU0tl25mmItQUcFN2y+ujU+c6ZJbdCuV7N+hL?=
+ =?iso-8859-1?Q?33StwaZzBYkiqOcQa0gItoAjFw8C+DpXcHkFFpG4HatxOi4k8AkDIB7d99?=
+ =?iso-8859-1?Q?svu8f63REixtonzhHi91VFBU7vAOyVXB41qB7NppEqP4z6Tvv0DeqkMUI6?=
+ =?iso-8859-1?Q?GlmXNRs+Dn5yLZX+6udmi+DNi6pDpeWPhtflBV0y3cvkWYltIA94MJQ/fd?=
+ =?iso-8859-1?Q?KO0FIA+E/LsuIYgQWImeVU0TQd7AaKf92odVmtW5ADbd5GkMsMTr6wlVid?=
+ =?iso-8859-1?Q?eCkUhDA+IFChx6B1M8RIh6OCFw7RSyx55pcoA+DBYaflrrTrhcgkxRSw/Y?=
+ =?iso-8859-1?Q?LK4rP1iEJVX7BXCOJb1wnOHndSuQam885ftAN5lQ/h6IrAMklD87t///5Q?=
+ =?iso-8859-1?Q?0p4eD4WJwUGKKa2mPaVVrO6fdaR0imVrrKNbAG1aw1kaqy48Dl1N0QK0eO?=
+ =?iso-8859-1?Q?LMdPM14YsHf1y/5xHa94an5bx2NpxMLk071Joc4zKhqC8nHEauJiG2p+6C?=
+ =?iso-8859-1?Q?0jOb2WNXzSiP+GcaPqwKtQA5TFOPdyIklPjgOrRFVmVAx72o1SWZTrnT9B?=
+ =?iso-8859-1?Q?gkJpyD8KQWoXFQreUD4OHS5vJNV0JxSXe/Gu04qCf6ek/q4YPryDqsPraE?=
+ =?iso-8859-1?Q?UZN0waF8Yg/liUNOwpLP0CvhCWkPq6tTZq9AR7dCh1a/2za75lMD4g5vfn?=
+ =?iso-8859-1?Q?27SJ6Qa1bz5iv5dnnlVPO19TpoNeUWvkj+DnJk5WJNR/flu8bDnFkkIyTy?=
+ =?iso-8859-1?Q?ULgZeKeJgXD5Wz31vDGIf5k0BV6Hdyndwt6bwLrZkE6KiZkDiXzBw2kVDm?=
+ =?iso-8859-1?Q?t9IcUhVOmD5urJsKdeP/nTGpyKyn1wgccNadUs7PpYe7h3z7is+4JnPkuU?=
+ =?iso-8859-1?Q?KZA/t5hmZhoOfBonTnVJ2KnRw2b/+EOJzu?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2a95bf96-9362-4c11-3c2a-08de39a381f0
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8951.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Dec 2025 17:25:55.7097
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6ph6FGrsdP+x1M8RUmcgXgcnTagAZMzTvvMzusk9uQ5xFLXDKzk8tXVFyt1nXPETwuWTmcC/SLCWafFpoHwcDA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB6955
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_092512_063458_1BF8BEE6 
-X-CRM114-Status: GOOD (  10.80  )
+X-CRM114-CacheID: sfid-20251212_092602_974294_4EC807DB 
+X-CRM114-Status: GOOD (  20.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,84 +168,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Users may occasionally need to see which options are applied to memory
-events.  This helps to understand the behavior of "perf c2c" and
-"perf mem", and provides guidance for configuring memory event options
-directly.
+On Fri, Dec 12, 2025 at 03:51:14PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+>
+> Per periodic mode from reference mannual:
+> Write 1b to CTRL1[START]. Wait until STATm[DRDYn] becomes 1.
+> Read DATAn[DATA_VAL]. It clears the corresponding STATm[DRDYn].
+> DATAn[DATA_VAL] and STATm[DRDYn_IF] keep refreshing at a periodic interval
+> of time, corresponding to PERIOD_CTRL[MEAS_FREQ].
 
-Add a table to track memory events and their corresponding options, and
-include the Arm SPE events in it.
+It should get last time sample value without check DRDYn_IF bit. it should
+only be a PERIOD_CTRL[MEAS_FREQ] delay.
 
-Suggested-by: Al Grant <al.grant@arm.com>
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- tools/perf/Documentation/perf-c2c.txt | 51 +++++++++++++++++++++++++----------
- 1 file changed, 37 insertions(+), 14 deletions(-)
+worst case get value at previous's PERIOD_CTRL[MEAS_FREQ] sample.
 
-diff --git a/tools/perf/Documentation/perf-c2c.txt b/tools/perf/Documentation/perf-c2c.txt
-index 40b0f71a2c44eb642ff3bb234631a614b7c4fc9d..e57a122b8719f1b2e20dd509959fc1563a6c20fd 100644
---- a/tools/perf/Documentation/perf-c2c.txt
-+++ b/tools/perf/Documentation/perf-c2c.txt
-@@ -160,20 +160,43 @@ Following perf record options are configured by default:
- 
-   -W,-d,--phys-data,--sample-cpu
- 
--Unless specified otherwise with '-e' option, following events are monitored by
--default on Intel:
--
--  cpu/mem-loads,ldlat=30/P
--  cpu/mem-stores/P
--
--following on AMD:
--
--  ibs_op//
--
--and following on PowerPC:
--
--  cpu/mem-loads/
--  cpu/mem-stores/
-+The following table lists the events monitored on different architectures.
-+Unless specified otherwise with the -e option, the tool will select the
-+default events.
-+
-+  +--------+---------------+-----------------+--------------------------------------------------------------------------------+
-+  | Arch   | Configuration | Options         | Events                                                                         |
-+  +--------+---------------+-----------------+--------------------------------------------------------------------------------+
-+  | Intel  | Default       | -e ldlat-loads  | cpu/mem-loads,ldlat=30/P                                                       |
-+  |        |               | -e ldlat-stores | cpu/mem-stores/P                                                               |
-+  |        |---------------+-----------------+--------------------------------------------------------------------------------+
-+  |        | Load only     | -e ldlat-loads  | cpu/mem-loads,ldlat=30/P                                                       |
-+  |        |---------------+-----------------+--------------------------------------------------------------------------------+
-+  |        | Store only    | -e ldlat-stores | cpu/mem-stores/P                                                               |
-+  +--------+---------------+-----------------+--------------------------------------------------------------------------------+
-+  | Intel  | Default       | -e ldlat-loads  | {cpu/mem-loads-aux/,cpu/mem-loads,ldlat=30/}:P                                 |
-+  | with   |               | -e ldlat-stores | cpu/mem-stores/P                                                               |
-+  | AUX    |--------------+------------------+--------------------------------------------------------------------------------+
-+  |        | Load only     | -e ldlat-loads  | {cpu/mem-loads-aux/,cpu/mem-loads,ldlat=30/}:P                                 |
-+  |        |---------------+-----------------+--------------------------------------------------------------------------------+
-+  |        | Store only    | -e ldlat-stores | cpu/mem-stores/P                                                               |
-+  +--------+---------------+-----------------+--------------------------------------------------------------------------------+
-+  | AMD    | Default       | -e mem-ldst     | ibs_op// (without latency support)                                             |
-+  |        |               |                 | ibs_op/ldlat=30/ (with latency support)                                        |
-+  +--------+---------------+-----------------+--------------------------------------------------------------------------------+
-+  | PowerPC| Default       | -e ldlat-loads  | cpu/mem-loads/                                                                 |
-+  |        |               | -e ldlat-stores | cpu/mem-stores/                                                                |
-+  |        |---------------+-----------------+--------------------------------------------------------------------------------+
-+  |        | Load only     | -e ldlat-loads  | cpu/mem-loads/                                                                 |
-+  |        |---------------+-----------------+--------------------------------------------------------------------------------+
-+  |        | Store only    | -e ldlat-stores | cpu/mem-stores/                                                                |
-+  +--------+---------------+-----------------+--------------------------------------------------------------------------------+
-+  | Arm    | Default       | -e spe-ldst     | arm_spe_0/ts_enable=1,pa_enable=1,load_filter=1,store_filter=1,min_latency=30/ |
-+  | SPE    |---------------+-----------------+--------------------------------------------------------------------------------+
-+  |        | Load only     | -e spe-load     | arm_spe_0/ts_enable=1,pa_enable=1,load_filter=1,min_latency=30/                |
-+  |        |---------------+-----------------+--------------------------------------------------------------------------------+
-+  |        | Store only    | -e spe-store    | arm_spe_0/ts_enable=1,pa_enable=1,store_filter=1/                              |
-+  +--------+---------------+-----------------+--------------------------------------------------------------------------------+
- 
- User can pass any 'perf record' option behind '--' mark, like (to enable
- callchains and system wide monitoring):
+PERIOD_CTRL[MEAS_FREQ] is quite short compare to call get_temp frequency.
 
--- 
-2.34.1
+Do you get invalidate data?
 
+>
+> Need to check STAT[DRDY] before reading the DATA register.
+>
+> And check the returned temperature to make sure it fits into the supported
+> range (-40°C to +125°C).
+
+https://lore.kernel.org/imx/aAIkAF_AHta8_vuS@mai.linaro.org/
+
+Do you answer Daniel Lezcano's question
+  ""When the measured temperature can be out of limits ?"  at v6 resend
+patch.
+
+Frank
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  drivers/thermal/imx91_thermal.c | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+>
+> diff --git a/drivers/thermal/imx91_thermal.c b/drivers/thermal/imx91_thermal.c
+> index 9b20be03d6dec18553967548d0ca31d1c1fb387c..77e8e6a921c6af308b830c36721293c007256ca6 100644
+> --- a/drivers/thermal/imx91_thermal.c
+> +++ b/drivers/thermal/imx91_thermal.c
+> @@ -108,10 +108,20 @@ static int imx91_tmu_get_temp(struct thermal_zone_device *tz, int *temp)
+>  {
+>  	struct imx91_tmu *tmu = thermal_zone_device_priv(tz);
+>  	s16 data;
+> +	int ret;
+> +	u32 val;
+> +
+> +	ret = readl_relaxed_poll_timeout(tmu->base + IMX91_TMU_STAT0, val,
+> +					 val & IMX91_TMU_STAT0_DRDY0_IF_MASK, 1000,
+> +					 40000);
+> +	if (ret)
+> +		return -EAGAIN;
+>
+>  	/* DATA0 is 16bit signed number */
+>  	data = readw_relaxed(tmu->base + IMX91_TMU_DATA0);
+>  	*temp = imx91_tmu_to_mcelsius(data);
+> +	if (*temp < IMX91_TMU_TEMP_LOW_LIMIT || *temp > IMX91_TMU_TEMP_HIGH_LIMIT)
+> +		return -EAGAIN;
+>
+>  	return 0;
+>  }
+>
+> --
+> 2.37.1
+>
 
