@@ -4,70 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFE37D49232
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 14:57:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA2F9D49232
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 15:00:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4ws6w/h+ocGHgXoKslH3aTkpzb0iw8aDky8/QSNIKFA=; b=iTeCL5jR/8nNKrzR/pZMXeFZbn
-	epfleUu2DWGRSo/4q9I+iMUZK6PWTmIqpP6AtAwOmz3zu94thFqROieJwQS5cXdGpvSc7I7wq/Zbd
-	q2W2Q5K3yMxFkOE3LrzK/CoNUoSTd8IkDGvjDbPo3xhAXqQtfUEXNbyxNEAlqKA5B37hebpGrTpBV
-	afHcfOWdHIsfjkUKc/Ge4Znm/AOKYAN3jhwXcscUMqtmWDvATIL16F3i/ewJYtU43f6n3fYYL4UDW
-	kDdLEcxs7oQaYEOrZJSuOHTAnEIus1bwjhRPpbJpYFkuo5XMbDyh63qM42zTwolp2dd3BrajZMdw8
-	xD31j2OA==;
+	bh=tdtwwIJNAU9UljeByxBUVUW2Rebc/JHtWDPV4PBUMDU=; b=U60cYkCff0UNee1SbmDudi0TBu
+	WYfN0YfuS7WefQIK0OS0u2PGiEJEtvYuPFOCngqDKjW7jm+JwXe8M4HExKXlTHF4Zxx185m/jkqiP
+	niMVUSlhDuOojClzwNuOBc++/+FjrDwvE/VG4QCUlCpScExdq5t/ZMslnGOxJhE07/ho1KkgkInZ1
+	FIKsu8TkMLAmPKMf+m2dH0rtMniUZd0HdpyPWGwZZUqG1XADGz7I7JifctMsanJ35Kuev2uj+XEJR
+	Jdy+84GBvJT+HM+NEsCo4mftDLP7R5Guf7BuMBtKKmBEsxNwIYPKCmTLVKiFMKB0ydpMzewtnJ9e+
+	eVLECsXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU4aT-00000000drh-05Wr;
-	Fri, 12 Dec 2025 14:57:41 +0000
-Received: from mx.olsak.net ([37.205.8.231])
+	id 1vU4dM-00000000e1c-2QjM;
+	Fri, 12 Dec 2025 15:00:40 +0000
+Received: from mail-ed1-x543.google.com ([2a00:1450:4864:20::543])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU4aP-00000000doM-0iow
+	id 1vU4dC-00000000e0v-3cKD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 14:57:39 +0000
-DKIM-Signature: a=rsa-sha256; bh=4ws6w/h+ocGHgXoKslH3aTkpzb0iw8aDky8/QSNIKFA=;
- c=relaxed/relaxed; d=dujemihanovic.xyz;
- h=Subject:Subject:Sender:To:To:Cc:Cc:From:From:Date:Date:MIME-Version:MIME-Version:Content-Type:Content-Type:Content-Transfer-Encoding:Content-Transfer-Encoding:Reply-To:In-Reply-To:In-Reply-To:Message-Id:Message-Id:References:References:Autocrypt:Openpgp;
- i=@dujemihanovic.xyz; s=default; t=1765551350; v=1; x=1765983350;
- b=lKqb0Ewwk2P9x7xWmAco6D6Vb4U9a1BhGCwrhdQoau5rmSp1f9sM8gPW/vc/YBZPrrfS275F
- 1PD8w92z8zLgtq6cN30ya1uSfWBPLl7CGMJSQQgm0DJ06i/pOtDzo+uAcihfukJZi4o01bpOFi7
- 5RzQhGIDEaS/cUlWYnE6tDrFnptw1HL1mJbnEgqPX4WIyqVPwxf0TnF/SxSojUFbIS2ZAlQ3AlB
- CeWMlwkgKY/Ayrd3Nu36IaC+73iA6NKkxCIAJWwD+hvqgrqv5p7QAy48y+tFk3zxLrv8J+RiwOY
- ZzOXpaf34kuaxdLkfUBuVBMDLk10Z28DFPTWFenpUc9PA==
-Received: by mx.olsak.net (envelope-sender <duje@dujemihanovic.xyz>) with
- ESMTPS id 97b39aec; Fri, 12 Dec 2025 15:55:50 +0100
-Message-ID: <b92172f3-10f4-470f-b90a-121ff7fea988@dujemihanovic.xyz>
-Date: Fri, 12 Dec 2025 15:55:48 +0100
+	Fri, 12 Dec 2025 15:00:33 +0000
+Received: by mail-ed1-x543.google.com with SMTP id 4fb4d7f45d1cf-6418738efa0so2572078a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Dec 2025 07:00:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1765551629; x=1766156429; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=tdtwwIJNAU9UljeByxBUVUW2Rebc/JHtWDPV4PBUMDU=;
+        b=XCRbkkGszJBIwXAGNcyXrPDmTvOwdIeBibGKIJoO/Yn4+NVZ30Wbc68y6fGvSuRtFR
+         rGxHrEQPGKb3U5KM5MQWTWGjmhAZNko7JrsZoAvUL7x1MJsUX1lwkKWGxTRcXq7cWTKR
+         iWqCrl9rNtEI90SZSyCBZRkV3GC1BYBwxVqeXAb2q5lkcO9j2h8Rtjr1eKoxvV05ZeJ/
+         dj2L4bDROM0a6/XSQHxnzOGHhSfk2Dd8APrjo4DfC7zePCTVHySZlk2YlBXQPtCZpIjO
+         KH9OwWkNWP5iDCZ+dawXY7RNF91wUikgLbjQ6NdmOqZIfvv7hx+rybwEjy8MLVg2DQ99
+         5O4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765551629; x=1766156429;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=tdtwwIJNAU9UljeByxBUVUW2Rebc/JHtWDPV4PBUMDU=;
+        b=ZQ85VPplPui9rMY5EwYj3jTR55E3ZBoVg4iyAkDM7W8velvG8E2UonNFnzzNITJmoy
+         eXdrghR1YWx2G4jgEi7embJZjXdyVMzKs85HS5g/t5iu7QoETxRTsuxFnxYrtmHcMW4I
+         P81YrqGM4yfMoQVC/j9SonnF0kRf2wo0ty8cewscxIXQV5jSgVSbEfdEhOGcwcZxObrV
+         h9d49MIx8IH7gCX9KGYkBK1VD++CN5xzmzfRhlPnquYzfZJo3cvFzMTW4pxxuX4KNP9z
+         3Wio+If6zFdzeW5DeWS7pDfvLsrIgxjnMJ+2Qk+yLXcxqMyTdp4KAKz57fv3aOvTbPZd
+         UhVA==
+X-Gm-Message-State: AOJu0YxpwGt4HlLdQ+M5zzVbMiLe952QFZ2FP8bLZY72YUNamQPA1ANx
+	rtBa7D67YgrmlJKxxQg85IR6EOZayk75rxApmzjZSqFoDL42GF7Jrq1WO/ZgOZbqISE=
+X-Gm-Gg: AY/fxX5b1eJPb+142ccqhsxXQL4Ia1VZXRImDq6MppvVbMwGYopc8T4w1dhWxWqemjb
+	ZgR71UHHVT+Oi/nS9fgDJDssBPN4AOBqe8RqO9uxLstTPIB/WD/91TRsAXnH91f+ocQ/LmJTOkS
+	tkBiRmA3WW0+vtysZ3kPdbaNCcLHwDZrVb923b3towvk7JfRAviaTCrrow+4QtWq0cMf2DbI0X2
+	RFv0BOZ4ZTtiopafxBp2crJcJFo6GG3JiKVIpNzOcjymh0oDjTwoGnFMiNRlh1hhQ0P3vT8kOPu
+	wRu+GB3ZpTBgIS3xYfdUc8TkGdY8/TOKUplDyDkzvZga7DOQSLqgFxsAghhHVNrAvP4L5Y1+q0i
+	K2sEC1Br1Adk2s1RVtldPpOmwhFdN7DtPpG/nAPuPkE3eEsspFbzU2TrXXAPTD+O+Zj3pz4lSaJ
+	qZgzuNX+w02FgUnJPZ78LM
+X-Google-Smtp-Source: AGHT+IElfvfWwMZz1cNmYrEtoT0T6NC0VQveo08Mp01q2n8OVYW3xlLRaecHrQm7FbKCC25OI7vsMg==
+X-Received: by 2002:a05:6402:5209:b0:649:9251:1115 with SMTP id 4fb4d7f45d1cf-6499b1f369bmr2115809a12.29.1765551628638;
+        Fri, 12 Dec 2025 07:00:28 -0800 (PST)
+Received: from [192.168.0.108] ([130.185.218.160])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-649820517d6sm5453544a12.13.2025.12.12.07.00.27
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 12 Dec 2025 07:00:28 -0800 (PST)
+Message-ID: <c3fa97dc-3377-4a62-9fc1-561fc904cf5c@linaro.org>
+Date: Fri, 12 Dec 2025 17:00:26 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [DONOTAPPLY RFC PATCH v2 4/4] arm64: dts: samsung,coreprimevelte:
- add wifi node
-To: Karel Balej <balejk@matfyz.cz>, Brian Norris <briannorris@chromium.org>
-Cc: Johannes Berg <johannes@sipsolutions.net>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
- Gregory Clement <gregory.clement@bootlin.com>,
- Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
- Francesco Dolcini <francesco@dolcini.it>,
- Ulf Hansson <ulf.hansson@linaro.org>, Frank Li <Frank.Li@nxp.com>,
- linux-wireless@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mmc@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht,
- phone-devel@vger.kernel.org, Jeff Chen <jeff.chen_1@nxp.com>,
- Peng Fan <peng.fan@nxp.com>
-References: <20251026182602.26464-1-balejk@matfyz.cz>
- <20251026182602.26464-5-balejk@matfyz.cz> <aTCv75hjdX5XvgCh@google.com>
- <DEW3NQVZ84JU.22G38WMULFZJG@matfyz.cz>
+Subject: Re: [PATCH 2/2] perf c2c: Update documentation for Arm SPE events
+To: Leo Yan <leo.yan@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>,
+ Mike Leach <mike.leach@linaro.org>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Jiri Olsa <jolsa@kernel.org>,
+ Adrian Hunter <adrian.hunter@intel.com>, Al Grant <al.grant@arm.com>
+References: <20251212-perf_c2c_update_event-v1-0-29a26c7a949b@arm.com>
+ <20251212-perf_c2c_update_event-v1-2-29a26c7a949b@arm.com>
 Content-Language: en-US
-From: =?UTF-8?Q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
-In-Reply-To: <DEW3NQVZ84JU.22G38WMULFZJG@matfyz.cz>
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20251212-perf_c2c_update_event-v1-2-29a26c7a949b@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_065738_229448_76041D9A 
-X-CRM114-Status: GOOD (  22.72  )
+X-CRM114-CacheID: sfid-20251212_070032_405192_26791CA2 
+X-CRM114-Status: GOOD (  15.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,64 +106,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/12/25 09:36, Karel Balej wrote:
-> Brian Norris, 2025-12-03T13:47:27-08:00:
->>
->> Do we have a min/max voltage for this regulator?
+
+
+On 12/12/2025 14:44, Leo Yan wrote:
+> Document the default Arm SPE events used by the perf c2c tool.  Make a
+> minor adjustment to the PowerPC entry for formatting consistency.
 > 
-> The downstream node is defined with the same values as the above ldo14,
-> they however are however only defined in the PMIC dtsi and correspond to
-> the actual physical limits of the regulator specified also in the
-> driver, so this doesn't really give any specific constraints for the
-> board itself.
+> Suggested-by: Al Grant <al.grant@arm.com>
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>   tools/perf/Documentation/perf-c2c.txt | 7 ++++++-
+>   1 file changed, 6 insertions(+), 1 deletion(-)
 > 
-> The downstream code enabling WiFi seems to force it to 3300000 (which
-> also seems to be the startup value) unconditionally, so I suppose I will
-> just set the both limits to this value?
+> diff --git a/tools/perf/Documentation/perf-c2c.txt b/tools/perf/Documentation/perf-c2c.txt
+> index 40b0f71a2c44eb642ff3bb234631a614b7c4fc9d..b765ae2511d2418a63092fb8a90a61faa335ac91 100644
+> --- a/tools/perf/Documentation/perf-c2c.txt
+> +++ b/tools/perf/Documentation/perf-c2c.txt
+> @@ -170,11 +170,16 @@ following on AMD:
+>   
+>     ibs_op//
+>   
+> -and following on PowerPC:
+> +following on PowerPC:
+>   
+>     cpu/mem-loads/
+>     cpu/mem-stores/
+>   
+> +following on Arm:
+> +
+> +  arm_spe_0/ts_enable=1,pa_enable=1,load_filter=1,min_latency=30/
+> +  arm_spe_0/ts_enable=1,pa_enable=1,store_filter=1/
+> +
 
-This sounds reasonable to me.
+Technically there's 3 different ones on Arm because 
+PERF_MEM_EVENTS__LOAD_STORE is also supported. Although I question the 
+usefulness of these without labels or any text to say what the 
+difference is, but that's an existing problem.
 
->>
->>> +			};
->>>   		};
->>>   	};
->>>   };
->>> @@ -523,6 +531,13 @@ &sdh1 {
->>>   	pinctrl-1 = <&sdh1_fast_pins_0 &sdh1_fast_pins_1 &sdh1_pins_2>;
->>>   	bus-width = <4>;
->>>   	non-removable;
->>> +	#address-cells = <1>;
->>> +	#size-cells = <0>;
->>
->> I wonder if this should have:
->>
->> 	vmmc-supply = <&ldo16>;
->>
->> rather than regulator-always-on above.
+>   User can pass any 'perf record' option behind '--' mark, like (to enable
+>   callchains and system wide monitoring):
+>   
 > 
-> You mean ldo15 right?
-> 
-> Not having any board schematics, I don't really know what exactly the
-> regulator's purpose is. As I mentioned in the commit message, the
-> communication with the chipset seems to work even if this is disabled
-> (e. g. FW loads, networks can be scanned for,...) which doesn't seem
-> like it should be the case if this was a main power supply for the bus,
-> only actual connecting to networks doesn't work (gives
-> CONNECT_ERR_ASSOC_ERR_TIMEOUT errors).
 
-To me, this strongly suggests that the regulator powers the WiFi 
-transmitter or at least a part of it (such as the RF amp).
-
-> So this didn't seem too fitting for either vmmc nor vqmmc as far as I
-> understand their semantics, so I went with the regulator-always-on
-> approach to be safe.
-
-Considering the above, I'd reckon it'd be good to have the option to 
-toggle it for rfkill if anything. I'm however not sure what would be the 
-right way to do so, nor how rfkill even works, if at all, with mwifiex 
-(from what I see, the driver does not use the API).
-
-Regards,
---
-Duje
 
