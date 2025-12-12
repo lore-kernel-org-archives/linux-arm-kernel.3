@@ -4,78 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5276D59D8E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 20:49:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94BA3D59D94
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 20:51:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j4zd/bLmNxIBdmGgMoI59Kau0qXWli1hhYAv9EFxc64=; b=GqEc0i7anvm7gvAdGLElEitePv
-	YsVkb9wlLLnOMqu9fFTnDqNGeqI/b9XOX522DmhmN4ZIG544btAVFPo91/omrQPTmaCIDjuwZDUdy
-	4Yp5Th//boW8oxeRrTlvc6HL2h+Zf6X2IBrb0Dn7TvrKIDI63QhisH8yDtU03mJ3o4IC35M2jLO7a
-	BEoTMBt9A45UpZtpuWTEMjBWEdkuo0hcIUNuGalkgD0EnlE43KEnRfojLa/BK/YpYjtj8Rv2Gt/mj
-	/+//lO/XFh/6QlsPcDq4RAUhgQ9PshOivq467f5bD1O4kZYAsc3roK53q07ATB+V2p5TdEWU6rd5g
-	/WjNE8iQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rjtjqxP7XdUENHCexmCRFp1dqpJh3fEH6pKkpxM/TLo=; b=sbrHgmoESmXL1DAPNtFWWjOLPv
+	JBp34s1RMUkFDx1EOssUHK3spACZe+KxPIoVFlftAMfwJlcoIWv5kYHGhi0dWoaJxFlR2gcYoiaAc
+	6g4D7KtYKeMYu88I6TAm3CZhuy63ccWUvSm2A4b+Pp+DlsKTTckLjJH/1hJtdRiVyJ7CbCApTLI5S
+	gn59PG58MtBCbLJPL20b+uSOuB7v/mCfdqA3H6V9VadvqI9mNIZZYE9k8axnUNkSQbO+Hkzv9FWfn
+	+5tCi/P3AG5o66KoSqdtmv9UHHnzwlggKyuoUPGBGdHL4tBCJKFT6GhCEYQBBLBYMjZbO6X+rl2Eg
+	pnsoaCQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUA55-000000014rA-3VDD;
-	Fri, 12 Dec 2025 20:49:39 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vUA6f-00000001549-0Gey;
+	Fri, 12 Dec 2025 20:51:17 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUA52-000000014qi-1UOy;
-	Fri, 12 Dec 2025 20:49:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1765572559; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Z9GVlmPifcW+xfLbaBGX3/NpeQxpmRfFzofsR+wOCxTG6T3zurWG8iX2qu2syPgD3RAuPtf88a8mq+xOYIl2omJz/A4Z5SPH24D4cf4eM/gcixl9p+eLHcFki86Fje3dAHoMnps9wVLpHlZuTK3Is84IaHolP67/rmIlh8MTB1c=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1765572559; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=j4zd/bLmNxIBdmGgMoI59Kau0qXWli1hhYAv9EFxc64=; 
-	b=jbWUgjfCHKDeqDsE3WmWZRshoiedZuFzpHDtfMYs3DcJAhmlrGqzkc6DjDxeTGliCoNIzAsS/iylwhQNWVyvptmC4j4IvctyKRp7fOQhxRgFEmNEq/qpHjA+KRhIFHjDox7bN8R5Dc360U23RJA9UfYzbkGSXN8XmwAODMAOvBA=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
-	dmarc=pass header.from=<detlev.casanova@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765572559;
-	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=j4zd/bLmNxIBdmGgMoI59Kau0qXWli1hhYAv9EFxc64=;
-	b=RInLigh70AuLm66EsJBAjWyASCPLh5UBdAqqQYxFP7Bxj4Wc5gDeytSFFy/Cfk/R
-	1Fg8K5p8OOojzBwgrKXzFTU9BQRLMvudVFlquQ73n9CdslCSXuKHlpGvDYEcYKrebK/
-	SqHMaoJpPShYmAps5BOl8tifrEgolDK9ob0KYdJU=
-Received: by mx.zohomail.com with SMTPS id 176557255681035.1287439437358;
-	Fri, 12 Dec 2025 12:49:16 -0800 (PST)
-Message-ID: <34a5dade-cef1-4c2b-a031-c1bccdf5c134@collabora.com>
-Date: Fri, 12 Dec 2025 15:49:14 -0500
+	id 1vUA6c-0000000153p-2QIn
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 12 Dec 2025 20:51:15 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b7636c96b9aso268894866b.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Dec 2025 12:51:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1765572673; x=1766177473; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=rjtjqxP7XdUENHCexmCRFp1dqpJh3fEH6pKkpxM/TLo=;
+        b=CgPIekOZCY+4P4W1sTbzhEJJOpCo3QCcKMuWkMHp+PXNvnk8dIJ9OSDuwF6qKQqkJO
+         m4EQ+eovQIGfXzlNuT2FA60og6v/0rNER54OVGT5eRL79Fgc4VMjjqYVUyymh4eHn9Hp
+         6a83TI1jY2xiWsULscPqCGpiJe/Zs18F96P/3Rh3SOVAcla06vVQI+LAv0qkADvvzsWr
+         5m8xln22Nlgv96rPzI2tbSQmnm22j0OZn48jxKPytZP3NITxIHbNKclaq0n/vG83qJ58
+         ScGXgGI2v6YOk+LxlxYPYDY+fcvLpwdXbmAJccZzyIppzTX7FC4J4DfiEatTtdji4PGa
+         2tbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765572673; x=1766177473;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rjtjqxP7XdUENHCexmCRFp1dqpJh3fEH6pKkpxM/TLo=;
+        b=mcsJzjcaSK9S4poS2XobD1bRzFL27l2zqIqS7DFPiocgD3bu9kTepxMW8COUT3ebzM
+         A5o/mnEEP06rhDXn59ylj6DM4HCGJYedF2z4DoOmo2ijdYVWQYSiaIksWCaq6WU/w8Je
+         pWCjXUXDPP62Hnv53daWe0V6QOG0aiLLUidqiOFWrUlaRNGedEiDxd4sJmDndQwCCIFv
+         N9OovdMipzJIdtmrPcCLIVibaNZv97p9jeCRM5uwAj0GZvGILz2f5JMbbcPYLD+6TsQ8
+         JmipXgUuTX28lSSQgAYFVPOMLKKUl/t7qGZaIokly34gzan5yBqzVf8K0IydO+HyETkS
+         UJAA==
+X-Forwarded-Encrypted: i=1; AJvYcCVpISZwAExAfSwZz5JS4fY6EKFaa9YSYAIj578PGnGjfzHTYVTs5WrCtUh0UxecJK2c2zcglMK8RdPgh3DaoXjp@lists.infradead.org
+X-Gm-Message-State: AOJu0YyehaUCjwJUL9I1OJH3d8JaPX8g661Q7A/c0jIwDtT9hwZt2p8O
+	F+binQggsR/Gu5f8Es0G9NyjeTey20wp36CgSJ6u0eMp8r9jScb8zv2x
+X-Gm-Gg: AY/fxX6N7APBRWTO+rYore3C+8nldOV4+4OpO+Yns7WF+vvvR6DQCh59hFC+tsvPd+L
+	VMTEoUjvrpKuoExMX2RTSoZaYYvfpzUA//Ep7WG4kaSY4yVAgLGl7jshNFJRB2uXkmABGZYuDWe
+	PpuIXw+N6YJL1AjKLWkbyji4zVCe8SUMWmPq+u/sa/Cc/1oWBIp90nNNDBB4YgHdo5f42tqOBHb
+	GzV29ZlykrepuCJq73qMLHpzd+b4t2+wwevLIZzL+WAIzNwcwu+CunZXjgs3gTjBumawXR8DSqC
+	qYGdsnQkeNbADT3ed3x3d7JU0PoVKtHgFjAOTZ3EGl+8m8JDwMNbKqVkgoIBZnEyBmPiPqJz0ii
+	+YoYwFfhDzQx1lBNK5R+52Gi/GUSQgIlI1kcbOG7iqIT8fxuj4VyX2ef0NCKLLu3dHIKat0U/pM
+	PaW1bRma6Vx2fjw/c=
+X-Google-Smtp-Source: AGHT+IH0G8rGAjvaE42wch55hSIA5VimrXWt5TN/hh537MIqh383tSvfDzdlGbn8S/gXANm16as6JQ==
+X-Received: by 2002:a17:907:2d93:b0:b73:7158:d9cd with SMTP id a640c23a62f3a-b7d23a22af7mr366919966b.52.1765572672256;
+        Fri, 12 Dec 2025 12:51:12 -0800 (PST)
+Received: from osama.. ([2a02:908:1b4:dac0:1401:37b6:6a29:b0c5])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b7cfa570167sm656400366b.57.2025.12.12.12.51.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 12 Dec 2025 12:51:11 -0800 (PST)
+From: Osama Abdelkader <osama.abdelkader@gmail.com>
+To: Vinod Koul <vkoul@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	dmaengine@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Cc: Osama Abdelkader <osama.abdelkader@gmail.com>
+Subject: [PATCH] dmaengine: sun4i: fix resource leak on promise allocation failure
+Date: Fri, 12 Dec 2025 21:50:22 +0100
+Message-ID: <20251212205022.83482-1-osama.abdelkader@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 01/15] media: uapi: HEVC: Add
- v4l2_ctrl_hevc_ext_sps_[ls]t_rps controls
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- linux-kernel@vger.kernel.org
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Heiko Stuebner <heiko@sntech.de>, Ricardo Ribalda <ribalda@chromium.org>,
- Hans Verkuil <hverkuil@kernel.org>, Hans de Goede <hansg@kernel.org>,
- Yunke Cao <yunkec@google.com>, Jonathan Corbet <corbet@lwn.net>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- James Cowgill <james.cowgill@blaize.com>, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- kernel@collabora.com
-References: <20251022162459.271603-1-detlev.casanova@collabora.com>
- <20251022162459.271603-2-detlev.casanova@collabora.com>
- <a46d28aab764afcf3feab29df0fd1793bfe27c52.camel@collabora.com>
-Content-Language: en-US
-From: Detlev Casanova <detlev.casanova@collabora.com>
-In-Reply-To: <a46d28aab764afcf3feab29df0fd1793bfe27c52.camel@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_124936_452075_A6209DDE 
-X-CRM114-Status: GOOD (  22.33  )
+X-CRM114-CacheID: sfid-20251212_125114_657793_E950A423 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,204 +102,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
+When promise allocation fails in sun4i_dma_prep_dma_cyclic() or
+sun4i_dma_prep_slave_sg(), the contract and already-allocated promises
+are not freed, causing a resource leak.
 
-On 12/10/25 15:03, Nicolas Dufresne wrote:
-> Hi,
->
-> Le mercredi 22 octobre 2025 à 12:22 -0400, Detlev Casanova a écrit :
->> Some hardware (e.g.: Rockchip's rk3588 hevc decoder) need the
->> long and short term reference information for HEVC decoding.
-> That's seems a bit short and incomplete. My understanding is that the decoder on
-> this hardware needs to full parse the slice headers, and cannot be passed with
-> the slice information. It also does not implement a a skip method similar to
-> Hantro.
->
-> So in short, I think the justification for this API is that these parameters are
-> needed to fully parse HEVC slice headers. You should perhaps say that similar
-> paramters ares passed in Vulkan Video API ?
-Yes, I will clarify
->> Add controls to provide it as the raw data form the stream.
->>
->> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
->> ---
->>   .../media/v4l/ext-ctrls-codec-stateless.rst   | 114 ++++++++++++++++++
->>   .../media/v4l/videodev2.h.rst.exceptions      |   2 +
->>   .../media/v4l/vidioc-queryctrl.rst            |  12 ++
->>   3 files changed, 128 insertions(+)
->>
->> diff --git a/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst b/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst
->> index 0da635691fdc..bb6772cf3cee 100644
->> --- a/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst
->> +++ b/Documentation/userspace-api/media/v4l/ext-ctrls-codec-stateless.rst
->> @@ -2958,6 +2958,120 @@ This structure contains all loop filter related parameters. See sections
->>         - 0x00000004
->>         -
->>   
->> +``V4L2_CID_STATELESS_HEVC_EXT_SPS_LT_RPS (struct)``
->> +    Specifies the list of Long-Term reference sets parameters from the SPS.
->> +    These parameters are defined according to :ref:`hevc`.
->> +    They are described in section 7.4.3.2.1 "General sequence parameter set
->> +    RBSP semantics" of the specification.
->> +    This control is a dynamically sized 1-dimensional array,
->> +    V4L2_CTRL_FLAG_DYNAMIC_ARRAY flag must be set when using it.
-> Can we making a bit clearer that this is a subset of the SPS (perhaps use the
-> term subset). And this is user to extend another control (mention this other
-> control) ?
->
->> +
->> +.. c:type:: v4l2_ctrl_hevc_ext_sps_lt_rps
->> +
->> +.. cssclass:: longtable
->> +
->> +.. flat-table:: struct v4l2_ctrl_hevc_ext_sps_lt_rps
->> +    :header-rows:  0
->> +    :stub-columns: 0
->> +    :widths:       1 1 2
->> +
->> +    * - __u16
->> +      - ``lt_ref_pic_poc_lsb_sps``
->> +      - Long term reference picture order count as described in section 7.4.3.2.1
->> +        "General sequence parameter set RBSP semantics" of the specification.
->> +    * - __u8
->> +      - ``flags``
->> +      - See :ref:`Extended Long-Term RPS Flags <hevc_ext_sps_lt_rps_flags>`
->> +
->> +.. _hevc_ext_sps_lt_rps_flags:
->> +
->> +``Extended SPS Long-Term RPS Flags``
->> +
->> +.. cssclass:: longtable
->> +
->> +.. flat-table::
->> +    :header-rows:  0
->> +    :stub-columns: 0
->> +    :widths:       1 1 2
->> +
->> +    * - ``V4L2_HEVC_EXT_SPS_LT_RPS_FLAG_USED_LT``
->> +      - 0x00000001
->> +      - Specifies if the long-term reference picture is used 7.4.3.2.1 "General sequence parameter
->> +        set RBSP semantics" of the specification.
->> +
->> +``V4L2_CID_STATELESS_HEVC_EXT_SPS_ST_RPS (struct)``
->> +    Specifies the list of Short-Term reference sets parameters from the SPS.
->> +    These parameters are defined according to :ref:`hevc`.
->> +    They are described in section 7.4.8 "Short-term reference picture set
->> +    semantics" of the specification.
->> +    This control is a dynamically sized 1-dimensional array,
->> +    V4L2_CTRL_FLAG_DYNAMIC_ARRAY flag must be set when using it.
-> Déjà vue, this is a duplicate right ?
+Fix this by calling sun4i_dma_free_contract() to properly clean up
+all resources before returning NULL on allocation failure.
 
-Almost, you saw the description of the Long term sets before, this is 
-for the Short term.
+This addresses the TODO comments that asked whether we should free
+everything on error.
 
-Only the name and specification section have changed in the description.
+Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
+---
+ drivers/dma/sun4i-dma.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
 
->> +
->> +.. c:type:: v4l2_ctrl_hevc_ext_sps_st_rps
->> +
->> +.. cssclass:: longtable
->> +
->> +.. flat-table:: struct v4l2_ctrl_hevc_ext_sps_st_rps
->> +    :header-rows:  0
->> +    :stub-columns: 0
->> +    :widths:       1 1 2
->> +
->> +    * - __u8
->> +      - ``delta_idx_minus1``
->> +      - Specifies the delta compare to the index. See details in section 7.4.8 "Short-term
->> +        reference picture set semantics" of the specification.
->> +    * - __u8
->> +      - ``delta_rps_sign``
->> +      - Sign of the delta as specified in section 7.4.8 "Short-term reference picture set
->> +        semantics" of the specification.
->> +    * - __u16
->> +      - ``abs_delta_rps_minus1``
->> +      - Absolute delta RPS as specified in section 7.4.8 "Short-term reference picture set
->> +        semantics" of the specification.
->> +    * - __u8
->> +      - ``num_negative_pics``
->> +      - Number of short-term RPS entries that have picture order count values less than the
->> +        picture order count value of the current picture.
->> +    * - __u8
->> +      - ``num_positive_pics``
->> +      - Number of short-term RPS entries that have picture order count values greater than the
->> +        picture order count value of the current picture.
->> +    * - __u32
->> +      - ``used_by_curr_pic``
->> +      - Bit i specifies if short-term RPS i is used by the current picture.
->> +    * - __u32
->> +      - ``use_delta_flag``
->> +      - Bit i specifies if short-term RPS i is included in the short-term RPS entries.
->> +    * - __u16
->> +      - ``delta_poc_s0_minus1[16]``
->> +      - Specifies the negative picture order count delta for the i-th entry in the short-term RPS.
->> +        See details in section 7.4.8 "Short-term reference picture set semantics" of the
->> +        specification.
->> +    * - __u16
->> +      - ``delta_poc_s1_minus1[16]``
->> +      - Specifies the positive picture order count delta for the i-th entry in the short-term RPS.
->> +        See details in section 7.4.8 "Short-term reference picture set semantics" of the
->> +        specification.
->> +    * - __u8
->> +      - ``flags``
->> +      - See :ref:`Extended Short-Term RPS Flags <hevc_ext_sps_st_rps_flags>`
->> +
->> +.. _hevc_ext_sps_st_rps_flags:
->> +
->> +``Extended SPS Short-Term RPS Flags``
->> +
->> +.. cssclass:: longtable
->> +
->> +.. flat-table::
->> +    :header-rows:  0
->> +    :stub-columns: 0
->> +    :widths:       1 1 2
->> +
->> +    * - ``V4L2_HEVC_EXT_SPS_ST_RPS_FLAG_INTER_REF_PIC_SET_PRED``
->> +      - 0x00000001
->> +      - Specifies if the short-term RPS is predicted from another short term RPS. See details in
->> +        section 7.4.8 "Short-term reference picture set semantics" of the specification.
->> +
->>   .. _v4l2-codec-stateless-av1:
->>   
->>   ``V4L2_CID_STATELESS_AV1_SEQUENCE (struct)``
->> diff --git a/Documentation/userspace-api/media/v4l/videodev2.h.rst.exceptions b/Documentation/userspace-api/media/v4l/videodev2.h.rst.exceptions
->> index 35d3456cc812..1663fdf8444c 100644
->> --- a/Documentation/userspace-api/media/v4l/videodev2.h.rst.exceptions
->> +++ b/Documentation/userspace-api/media/v4l/videodev2.h.rst.exceptions
->> @@ -149,6 +149,8 @@ replace symbol V4L2_CTRL_TYPE_H264_DECODE_PARAMS :c:type:`v4l2_ctrl_type`
->>   replace symbol V4L2_CTRL_TYPE_HEVC_SPS :c:type:`v4l2_ctrl_type`
->>   replace symbol V4L2_CTRL_TYPE_HEVC_PPS :c:type:`v4l2_ctrl_type`
->>   replace symbol V4L2_CTRL_TYPE_HEVC_SLICE_PARAMS :c:type:`v4l2_ctrl_type`
->> +replace symbol V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS :c:type:`v4l2_ctrl_type`
->> +replace symbol V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS :c:type:`v4l2_ctrl_type`
->>   replace symbol V4L2_CTRL_TYPE_AREA :c:type:`v4l2_ctrl_type`
->>   replace symbol V4L2_CTRL_TYPE_RECT :c:type:`v4l2_ctrl_type`
->>   replace symbol V4L2_CTRL_TYPE_FWHT_PARAMS :c:type:`v4l2_ctrl_type`
->> diff --git a/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst b/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst
->> index 3549417c7feb..128c044d2e3c 100644
->> --- a/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst
->> +++ b/Documentation/userspace-api/media/v4l/vidioc-queryctrl.rst
->> @@ -523,6 +523,18 @@ See also the examples in :ref:`control`.
->>         - n/a
->>         - A struct :c:type:`v4l2_ctrl_hevc_decode_params`, containing HEVC
->>   	decoding parameters for stateless video decoders.
->> +    * - ``V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS``
->> +      - n/a
->> +      - n/a
->> +      - n/a
->> +      - A struct :c:type:`v4l2_ctrl_hevc_ext_sps_lt_rps`, containing HEVC
->> +	extended Long-Term RPS for stateless video decoders.
->> +    * - ``V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS``
->> +      - n/a
->> +      - n/a
->> +      - n/a
->> +      - A struct :c:type:`v4l2_ctrl_hevc_ext_sps_st_rps`, containing HEVC
->> +	extended Short-Term RPS for stateless video decoders.
->>       * - ``V4L2_CTRL_TYPE_VP9_COMPRESSED_HDR``
->>         - n/a
->>         - n/a
-> cheers,
-> Nicolas
+diff --git a/drivers/dma/sun4i-dma.c b/drivers/dma/sun4i-dma.c
+index 00d2fd38d17f..d81e705ae91f 100644
+--- a/drivers/dma/sun4i-dma.c
++++ b/drivers/dma/sun4i-dma.c
+@@ -861,7 +861,7 @@ sun4i_dma_prep_dma_cyclic(struct dma_chan *chan, dma_addr_t buf, size_t len,
+ 							plength, sconfig, dir);
+ 
+ 		if (!promise) {
+-			/* TODO: should we free everything? */
++			sun4i_dma_free_contract(&contract->vd);
+ 			return NULL;
+ 		}
+ 		promise->cfg |= endpoints;
+@@ -954,8 +954,10 @@ sun4i_dma_prep_slave_sg(struct dma_chan *chan, struct scatterlist *sgl,
+ 							sg_dma_len(sg),
+ 							sconfig, dir);
+ 
+-		if (!promise)
+-			return NULL; /* TODO: should we free everything? */
++		if (!promise) {
++			sun4i_dma_free_contract(&contract->vd);
++			return NULL;
++		}
+ 
+ 		promise->cfg |= endpoints;
+ 		promise->para = para;
+-- 
+2.43.0
+
 
