@@ -4,85 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C76EBD4415D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 09:59:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DC01D4415B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 09:59:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UDF4h3Jh9GgHGMLVFPx83dqWDttLVLJuGGw2qG0PEFE=; b=gjBLw4Y3NrGoQC1Mhg5Yi04DRk
-	Yf3O8dywpujwuMbTQ9q6PbX7O7+7e0SolxMK1DZRIVWlrLwB0mxDArd4Ik/0ddvBvNhujRyGZVeYr
-	S3+/g78Uci93A6EyeYJBOyygIN8BEj9Xz8ncjGbENWrgn17vKXD9X+aad9mHaImIjJ6JbAKJic0eT
-	iLCZ72cvfP+ascNTJnBWZMBC6DQq+E4gv+Awkz92pnWHHm5HgrQWFdWy0r9dwjtlm+NvTwy8bNo+e
-	r73YvhjU2HBo4boZ8gk2k9nBSczq/0WaCSxAYXXZlp/9tQBfx02MsWNPtYr2IziUmFyoLBO1zZOKv
-	9WuGs1Cg==;
+	bh=H+Gezl1CPLlvzUhhdf55qTX8HyGsiw0g/7H6h/twsWg=; b=mpzCba24v27UcAIlj1tbhNWTD4
+	ZeQkB2zcFpKvkdVwppVpbsC9H9GkeDI45HC/BAW3N2BOfafLw0dWS4rVx3KwGjA7yQOR+O4p+GHxy
+	gNpwh3lARHDMKZZ9wFYpGcXe/z6umTQ/mShEbuZv1Ivheh/3ISRn+mlxVFvZTFNaYN8xpwDu1HpCQ
+	CwgR3EeBzgdksYUX7qSYeWUr4wRN9JxtNWFNBl78+zjz4pd0CQ69BYBbSiFKVPhpqlRMCgOYDqG64
+	aDX9jNUNXCREpS7r1ENzgbE57yVDM3POvwLky01FSZsOmeajlgfW/xm51xkeV/XgXxd42hk3Rl6b2
+	7pm53jng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTzvi-00000000OL6-3x30;
-	Fri, 12 Dec 2025 09:59:18 +0000
-Received: from smtpbg154.qq.com ([15.184.224.54])
+	id 1vTzwD-00000000OZl-2MoA;
+	Fri, 12 Dec 2025 09:59:49 +0000
+Received: from mail-m1973174.qiye.163.com ([220.197.31.74])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTzvd-00000000O7d-2mSl;
-	Fri, 12 Dec 2025 09:59:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1765533499;
-	bh=UDF4h3Jh9GgHGMLVFPx83dqWDttLVLJuGGw2qG0PEFE=;
-	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=pocyk6rt90wWecLApJceu7Z3U291nCt35GOb5zlr4sjwqxr3MHs9LW0wd/8WtkSJk
-	 qUcs6Ir5gwXECt05OY8+Uy/eQKvQulKmljGf0RHCdoXcSmX9mv4CYOxbxDztgn7h9L
-	 6/EKZtvpEByQUYcD9WewJgZ61v3BCDLkA/0C9sJE=
-X-QQ-mid: esmtpsz10t1765533481td99b2432
-X-QQ-Originating-IP: oMxRptJH/jlDFbSL2STyXsuYHe+8T3FtiJgH19bPqXw=
-Received: from localhost.localdomain ( [123.114.60.34])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Fri, 12 Dec 2025 17:57:58 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 1331570126672029609
-EX-QQ-RecipientCnt: 8
-From: Qiang Ma <maqianga@uniontech.com>
-To: akpm@linux-foundation.org,
-	bhe@redhat.com,
-	catalin.marinas@arm.com,
-	will@kernel.org
-Cc: kexec@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Qiang Ma <maqianga@uniontech.com>
-Subject: [PATCH v1 3/3] arm64: kexec: Adjust the debug print of kexec_image_info
-Date: Fri, 12 Dec 2025 17:56:49 +0800
-Message-Id: <20251212095649.857796-4-maqianga@uniontech.com>
-X-Mailer: git-send-email 2.20.1
-In-Reply-To: <20251212095649.857796-1-maqianga@uniontech.com>
-References: <20251212095649.857796-1-maqianga@uniontech.com>
+	id 1vTzw8-00000000OWx-1c7q;
+	Fri, 12 Dec 2025 09:59:48 +0000
+Received: from [172.16.12.51] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2d014e111;
+	Fri, 12 Dec 2025 17:59:35 +0800 (GMT+08:00)
+Message-ID: <72e06301-5f3e-4ea8-a9af-f3b1f0b329aa@rock-chips.com>
+Date: Fri, 12 Dec 2025 17:59:34 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:uniontech.com:qybglogicsvrsz:qybglogicsvrsz3b-0
-X-QQ-XMAILINFO: M7nxhb6mzyWmhLP0LYDlObFZflKY+utZ4ScscwXUbeQtE28KFijNut8b
-	Z/8CI7efEcyuqV8BZZqOOjcx4omkDinWSr51VJe7iGUoTPg/bwZTGt5by+Kl+YPMm94Tgv7
-	s/eXKXi+4Ek4Eaccy7c6ECNjrhd8/53qvqeM8WRjPiDSqDqufFKUGV5A5aMaPqBCUhST13D
-	vgq/X9uRy4JHXqjRC4KvcdOZqRArS5P82oCaM3EJpv1nb4N2FI3cZa9lhWgkqM5tlbSi+YC
-	/kOjMsy1caPSijxxFIUh03b7fYi63NfMnVhQcKtInLOdDTUsnlYMYd4N4JP8tVrytm0QOPD
-	A4IaHc8NBYHoVIpc34uOmc6yZvY/3iuM1GkvRPzA1vkhDtEffQG44HfkuR+fhY56LUkIfDR
-	4GzJsDpLIvm9XZS9HPIQ/8TjO01a0RMsh4/v/JTamhpmCmeZWt/a0ajGw3KjKaOXmKJlyvb
-	COUaMLEnScw+2NZNa2ubwn1WNPYPWbQh3F8+XeEvH1gZRB04kKsB6S5buinucjEBRAICqg3
-	udfUcfc2QdonyZDptxRAEaRqTC6RGBv/3lZT50ttRmYYp7z2oIQ942wAwo108TGWvDs+bGP
-	7uI72J5mQ9xKd4IMo3ettTmEubQLkPu3ylpRT1t6fXesWtlW7FewhBpJy42IjweRt4Oko1j
-	fM7e2YYE+JhNbNNGuyorh5SXF/m/so5dWtgM9Xhp+0fWMrLCXe02VBGzpS9wcF3rRh7r/A5
-	2TWAXoc7rt3MNpqyhzJWtGVYt5PzKzVBhkiS3GFoiFQxJxrYkpAFGM7IWJoqwjLJm7f8oaT
-	6kOKU9UU9rWTUIDhzstdfTPM4e8ELr3AQRDuOgzHviZK08vOYOKsF0sWeqgd+5WE4+Tzj+H
-	qVU38NLNSCNHLdT4P2ULZQT5DwD6kXpdsx37hZ1274pkVp/glGAjP4njW8aQE+IpkLRLCPP
-	4tR66xoPsBJtiGSyEPWmarIHJXYEftcHhbE88J8u+PbLTl1NTeCPwMpKB1ZOJF9awb413tx
-	YB7pwJTA8H17pPAQ9rv91UZnVE4bRe0T82tVoA+A==
-X-QQ-XMRINFO: MPJ6Tf5t3I/ycC2BItcBVIA=
-X-QQ-RECHKSPAM: 0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/8] drm/rockchip: vop2: Enforce AFBC source alignment
+ in plane_check
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>
+References: <20251206-vop2-atomic-fixups-v2-0-7fb45bbfbebd@collabora.com>
+ <8655687.NyiUUSuA9g@workhorse>
+ <fdd333ac-0542-4312-8ec0-22fded3b1ce0@rock-chips.com>
+ <3520923.e9J7NaK4W3@workhorse>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <3520923.e9J7NaK4W3@workhorse>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a9b120067a703abkunm2ec5dd2c240e97
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGU4aSFYaThpIGUMeGUhITR9WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE
+	9VSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=BKk3fA9Q32JxLs2aqr2gPKhNMrysYabNjwTIQ1sIruxP0tJFfBHMurTxG7S3cse5kiOO8s2ETV04+LPJhlRwqZ07h/Q5eyv+vk2rN7CT3KCBatwm25FoD5nxqLVO/FWaEmOi1CaTV20NxZKpy0s3Gl7jIQUZG9tu8qXWYhg5mtg=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=H+Gezl1CPLlvzUhhdf55qTX8HyGsiw0g/7H6h/twsWg=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_015914_288279_86D22A3F 
-X-CRM114-Status: UNSURE (   8.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251212_015944_911701_424423B0 
+X-CRM114-Status: GOOD (  37.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,28 +80,234 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the previous patch, we move start/head of kimage to the
-generic code, so, we remove them to avoid duplicate printing.
+Hi Nicolas,
 
-Signed-off-by: Qiang Ma <maqianga@uniontech.com>
----
- arch/arm64/kernel/machine_kexec.c | 2 --
- 1 file changed, 2 deletions(-)
+On 12/11/2025 10:16 PM, Nicolas Frattaroli wrote:
+> On Thursday, 11 December 2025 12:06:38 Central European Standard Time Chaoyi Chen wrote:
+>> Hello Nicolas,
+>>
+>> On 12/9/2025 6:58 PM, Nicolas Frattaroli wrote:
+>>> Hi Chaoyi Chen, Andy Yan,
+>>>
+>>> On Monday, 8 December 2025 08:24:52 Central European Standard Time Nicolas Frattaroli wrote:
+>>>> On Monday, 8 December 2025 03:48:24 Central European Standard Time Chaoyi Chen wrote:
+>>>>> Hello Nicolas, Daniel,
+>>>>>
+>>>>> On 12/7/2025 4:45 AM, Nicolas Frattaroli wrote:
+>>>>>> From: Daniel Stone <daniels@collabora.com>
+>>>>>>
+>>>>>> Planes can only source AFBC framebuffers at multiples of 4px wide on
+>>>>>> RK3566/RK3568. Instead of clipping on all SoCs when the user asks for an
+>>>>>> unaligned source rectangle, reject the configuration in the plane's
+>>>>>> atomic check on RK3566/RK3568 only.
+>>>>>>
+>>>>>> Signed-off-by: Daniel Stone <daniels@collabora.com>
+>>>>>> [Make RK3566/RK3568 specific, reword message]
+>>>>>> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+>>>>>> ---
+>>>>>>  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 14 +++++++++-----
+>>>>>>  1 file changed, 9 insertions(+), 5 deletions(-)
+>>>>>>
+>>>>>> diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+>>>>>> index bc1ed0ffede0..e23213337104 100644
+>>>>>> --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+>>>>>> +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+>>>>>> @@ -1076,6 +1076,13 @@ static int vop2_plane_atomic_check(struct drm_plane *plane,
+>>>>>>  		return -EINVAL;
+>>>>>>  	}
+>>>>>>  
+>>>>>> +	if (vop2->version == VOP_VERSION_RK3568 && drm_is_afbc(fb->modifier) && src_w % 4) {
+>>>>>> +		drm_dbg_kms(vop2->drm,
+>>>>>> +			    "AFBC source rectangles must be 4-byte aligned; is %d\n",
+>>>>>> +			    src_w);
+>>>>>> +		return -EINVAL;
+>>>>>> +	}
+>>>>>> +
+>>>>>>  	return 0;
+>>>>>>  }
+>>>>>>  
+>>>>>> @@ -1237,11 +1244,8 @@ static void vop2_plane_atomic_update(struct drm_plane *plane,
+>>>>>>  	WARN_ON(src_w < 4);
+>>>>>>  	WARN_ON(src_h < 4);
+>>>>>>  
+>>>>>> -	if (afbc_en && src_w % 4) {
+>>>>>> -		drm_dbg_kms(vop2->drm, "vp%d %s src_w[%d] not 4 pixel aligned\n",
+>>>>>> -			    vp->id, win->data->name, src_w);
+>>>>>> -		src_w = ALIGN_DOWN(src_w, 4);
+>>>>>> -	}
+>>>>>> +	if (vop2->version == VOP_VERSION_RK3568 && drm_is_afbc(fb->modifier))
+>>>>>> +		WARN_ON(src_w % 4);
+>>>>>>  
+>>>>>>  	act_info = (src_h - 1) << 16 | ((src_w - 1) & 0xffff);
+>>>>>>  	dsp_info = (dsp_h - 1) << 16 | ((dsp_w - 1) & 0xffff);
+>>>>>>
+>>>>>
+>>>>> You haven't replied to Andy's comment yet [0].
+>>>>>
+>>>>> [0] https://lore.kernel.org/dri-devel/7b4e26ec.75f3.19a77276b53.Coremail.andyshrk@163.com/
+>>>>>
+>>>>
+>>>> Hello,
+>>>>
+>>>> I addressed the follow-ups where it was clarified that the 4 pixel
+>>>> limitation was RK3566/RK3568-only. I'm not going to bring back the
+>>>> post-atomic_check modification for a fast path, but I'm open to
+>>>> suggestions on how to do this differently.
+>>>>
+>>>> One solution might be to modify the state with the ALIGN_DOWN stuff
+>>>> in atomic_check instead, where userspace is then aware of the change
+>>>> being done to its requested parameters. I'll need to double-check
+>>>> whether this is in line with atomic modesetting's design.
+>>>>
+>>>> Kind regards,
+>>>> Nicolas Frattaroli
+>>>
+>>> Okay, so I've asked internally, and atomic_check isn't allowed to
+>>> modify any of the parameters either. There's efforts [0] underway
+>>> to allow error codes to be more specific, so that userspace knows
+>>> which constraint is being violated. That would allow userspace
+>>> applications to react by either adjusting their size or turning
+>>> off AFBC in this case. Turning off AFBC seems more generally
+>>> applicable here, since it means it won't need to resize the plane
+>>> and it'll save more than enough memory bandwidth by not going
+>>> through the GPU.
+>>>
+>>> On that note: Andy, I didn't find a weston-simple-egl test in the
+>>> Weston 14.0.2 or git test suite, and weston-simple-egl itself does
+>>> not tell me whether GPU compositing is being used or not. Do you
+>>> have more information on how to test for this? I'd like to know
+>>> for when we have the necessary functionality in place to make
+>>> userspace smart enough to pick the fast path again.
+>>>
+>>
+>> I think weston-simple-egl is part of the weston client. When you build
+>> weston from source, you should obtain it. Just run `weston-simple-egl` 
+>> after compile and install weston.
+>>
+>> And I guess you're using Debian... The weston package there also ships
+>> with a weston-simple-egl binary [2].
+> 
+> Yeah, I know there's a tool called that, but I'm specifically curious
+> about how to determine whether it's using GPU compositing or what I
+> presume is fixed-function compositing.
+> 
+> When I enable some more logging with
+> 
+>   weston -l log,drm-backend,gl-renderer
+> 
+> and also some kms debug messages with
+> 
+>   echo 4 > /sys/module/drm/parameters/debug
+> 
+> then I see weston outputting
+> 
+> [atomic] drmModeAtomicCommit
+>         [repaint] Using mixed state composition
+>         [repaint] view 0xaaab18c00c10 using renderer composition
+>         [repaint] view 0xaaab18b68f00 using renderer composition
+>         [repaint] view 0xaaab18c00ec0 using renderer composition
+> 
+> regardless of whether the size is 250x250 or fullscreen. With
+> 250x250, I know we're failing the plane check, because I see
+> 
+>   [  776.160101] rockchip-drm display-subsystem: [drm:vop2_plane_atomic_check
+>                  [rockchipdrm]] AFBC source rectangles must be 4-pixel
+>                  aligned; is 250
+> 
+> on the console, but with fullscreen I don't see any errors from plane-check
+> as the src_w is now divisible by 4, yet it's also "using renderer composition"
+> for all views.
+> 
+> Same goes for using `weston-simple-dmabuf-egl` (which is 256x256) instead of
+> the fullscreen simple-egl.
+> 
+> So basically, I need to know where a change in behaviour is actually
+> observed.
+> 
 
-diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
-index 239c16e3d02f..0896e3e6a811 100644
---- a/arch/arm64/kernel/machine_kexec.c
-+++ b/arch/arm64/kernel/machine_kexec.c
-@@ -34,8 +34,6 @@ static void _kexec_image_info(const char *func, int line,
- {
- 	kexec_dprintk("%s:%d:\n", func, line);
- 	kexec_dprintk("  kexec kimage info:\n");
--	kexec_dprintk("    type:        %d\n", kimage->type);
--	kexec_dprintk("    head:        %lx\n", kimage->head);
- 	kexec_dprintk("    kern_reloc: %pa\n", &kimage->arch.kern_reloc);
- 	kexec_dprintk("    el2_vectors: %pa\n", &kimage->arch.el2_vectors);
- }
+Hmm, I don't think weston logs make this obvious. We also need the drm kms logs.
+
+Test results may vary across different platforms. But it's certain that 
+fullscreen and non-fullscreen modes are identical in the following respects:
+
+- fullscreen: Try to use only one plane (may be AFBC) .
+- non fullscreen: Try to use 2 plane (may be AFBC) .
+
+- On the RK3588, we won't get two planes without modifying the code, because
+the primary plane is already assign to AFBC background plane.
+- On the RK356x, we'll get a primary plane in linear format, while
+weston-simple-egl will use an overlay plane with AFBC format.
+- On the RK3576, we should be able to obtain an AFBC primary plane and an AFBC
+overlay plane.
+
+Try to set env `export WESTON_LIBINPUT_LOG_PRIORITY=debug` and you will see
+these log in non fullscreen mode:
+
+```
+Layer 5 (pos 0x50000000):
+        View 0 (role xdg_toplevel, PID 686, surface ID 14, top-level window 'simple-egl' of org.freedesktop.weston.simple-egl, 0xaaaae61a62d0):
+
+...
+
+                        [view] evaluating view 0xaaaae61a62d0 for plane assignment on output HDMI-A-1 (0)
+                        [plane] started with zpos 18446744073709551615
+                                [primary] not assigning view 0xaaaae61a62d0 on primary, plane 33 (format ARGB8888 (0x34325241) with modifier 0x800000000000051) not supported
+                                [primary] not assigning view 0xaaaae61a62d0 on primary, plane 39 (format ARGB8888 (0x34325241) with modifier 0x800000000000051) not supported
+                                [overlay] not assigning view 0xaaaae61a62d0 on overlay, plane 63 (format ARGB8888 (0x34325241) with modifier 0x800000000000051) not supported
+                                [overlay] not assigning view 0xaaaae61a62d0 on overlay, plane 69 (format ARGB8888 (0x34325241) with modifier 0x800000000000051) not supported
+                                [overlay] not assigning view 0xaaaae61a62d0 on overlay, plane 75 (format ARGB8888 (0x34325241) with modifier 0x800000000000051) not supported
+                        [view] view 0xaaaae61a62d0 format: ARGB8888
+                                [plane] plane 51 picked from candidate list, type: overlay
+```
+
+When vop2_plane_atomic_check() fails, in addition to the above logs, you will
+also get the following log:
+
+```
+[view] not placing view 0xaaaad9ec8e40 on plane 51: atomic test failed
+```
+
+I don't think there's any more log information that can indicate the error here.
+The relevant code is here [3].
+
+[3]: https://gitlab.freedesktop.org/wayland/weston/-/blob/main/libweston/backend-drm/state-propose.c?ref_type=heads#L181
+
+>>
+>> [1]: https://gitlab.freedesktop.org/wayland/weston/-/blob/main/clients/simple-egl.c
+>> [2]: https://packages.debian.org/sid/arm64/weston/filelist
+>>
+>>> In either case, I think adhering to the atomic API to ensure
+>>> artifact-free presentation is more important here than enabling
+>>> a fast-path on RK3568. I do think in most real-world use case
+>>> scenarios, the fallback won't degrade user experience, because
+>>> almost everything performance intensive I can think of (video
+>>> playback, games) will likely already use a plane geometry
+>>> where the width is divisible by 4. 800, 1024, 1280, 1600, 1920,
+>>> 2560, 3840 are all divisible by 4, so a window or full-screen
+>>> playback of common content won't need to fall back to GPU
+>>> compositing.
+>>>
+>>> I'll send a v2 to fix another instance of "eSmart" left in a
+>>> message, but beyond that I think we should be good.
+>>>
+>>> Kind regards,
+>>> Nicolas Frattaroli
+>>>
+>>> https://lore.kernel.org/dri-devel/20251009-atomic-v6-0-d209709cc3ba@intel.com/ [0]
+>>>
+>>>
+>>>
+>>>
+>>
+>>
+> 
+> 
+> 
+> 
+> 
+> 
+
 -- 
-2.20.1
-
+Best, 
+Chaoyi
 
