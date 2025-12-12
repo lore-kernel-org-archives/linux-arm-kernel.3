@@ -4,93 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 473E3D59D6F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 15:42:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5607BD59D71
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 15:52:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gfg2SmLr3HbDKANFq8sDAahr7BVj1MWtGDCHWff86x0=; b=m1hnrKHuiEgZ2XYRtTaaSn6Q20
-	pyWBEHZo2QFNOGM9cMTU08JJJrKCF/WnZT/D/BzVGOqPboYF1wv7Af9l38QfrPcO+iaUBiaIPxVZA
-	2CdwikRg4QZkv1kVRbIjGeQB7lvmzk98/1YGaIcjoKwZVmR4p/8MiUbUVLRH9WswSQLA31Ufx99SX
-	Amx6Vq09aAXEVPhgo2wf4AdUTA9jkGaqPPZeEItOlovmsLAIE1eLF7z2yFfJ/vCmTRznDjAsPWuzg
-	1/3oZ2fz/CMDGiVwDLr9PnY5TFD/YkVy0bArO3neHeh46x/Gx5r1HDJyRq/fVLhO2hud+ctgEQVjO
-	Z+qt+dcw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BF5gJ/otAEoZ4clGqcYn+D/DhcYdPlTejIl8apYKJjg=; b=nwYOLyxFvtEudWbZCLwlfahzi8
+	bOg5FxTDNCnveqNWCstQ++OHyGWu7Wl4vm/38W3yeVjH/+wwK56PIIjkM7h4DZOBS7jsK26dNuvwc
+	EG2QeA/MDvvXIXg88z6Wbg6v0UHS7nKVlm1IHikWVneQmKtJWFNTP5nJodGvkT88V4OnFWV5eYkix
+	x4G7NWF+1Z10mXQAyQtJNyfaLQkdGifVz3/9ruTURVwCifyfTGmlr8panFNVl5SYU8l9LfFPVjqXf
+	FGThTbcLrBzvWg87IQgttX7WdkZMynZBZlTeyaT2p0J70uPmfEsncZfn25pAIbjXRHOvz9EeAyfFM
+	uYRXU4Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU5Hj-00000000lHP-3JUe;
-	Fri, 12 Dec 2025 15:42:23 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1vU5RH-00000000m2n-3J42;
+	Fri, 12 Dec 2025 15:52:15 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU5Hh-00000000lGH-2Gy7
+	id 1vU5RD-00000000m26-1Uxv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 15:42:22 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-47a815c43baso132345e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Dec 2025 07:42:20 -0800 (PST)
+	Fri, 12 Dec 2025 15:52:12 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-4779cc419b2so15438815e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Dec 2025 07:52:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1765554139; x=1766158939; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gfg2SmLr3HbDKANFq8sDAahr7BVj1MWtGDCHWff86x0=;
-        b=nH274UlsHKdNOT88tUFDkxGykm5/ULDKQgg5/3vRUsK5rOt/K2Q+fdJmX/8ht2/xoJ
-         5DTP0a/SjGhp4mc8wGlGzInkRXgzyGjwKneUVxdl5d+i6aLoYLp8O1LwgeaoVC5lvtAE
-         wkp1MAyW4OrrGqIAE3mxbux4yrK1YV9mjap6Q/KnCf2jjwv4JtF9Le3Ds5CpjJkEfXCp
-         6Qpp6I1H4KAM4b9g6fuIYPIJR1YDixrhfZMuKWAMiNiFrHFnnb1auiV4q6BJl4Q5UwxN
-         B24mifop1vSuuVO8x7BlA/fWS+E0UhUNQ2/8399hpfmuGp2gPOJxvnnKwcS3veENOxf5
-         MzKw==
+        d=linaro.org; s=google; t=1765554729; x=1766159529; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=BF5gJ/otAEoZ4clGqcYn+D/DhcYdPlTejIl8apYKJjg=;
+        b=BaibxVWq6KN/w8FrVUN7LH9mcmz6SIei4e/bsFI0kcBpmPZJrN/A/jbYAUE3r8TeLF
+         oDfL2/DEJG+H9WiX/zUkUzVCkCWRfrHKpNwnxxIqUOxQXajo8Lyja9S0FnHhbzIf7jv1
+         GPJAyWjLgr+YSSQRvYt80i9wkLF+R54s9vxEwViiSqTC5oyGTI1jcqcsIdc6MuI4ZZY4
+         kcHWI5tyK/g2z3J9OH9WI9M24Z5CYGjbp772lRtHits5rH81aGcnXM9lWP5zaWLYYhXO
+         BEqb2f40a5SUR/u/fOv8AS0PR7ZYmHeehkhqVwRcD29Tr2GG9l1IsrMND4WfMFzwUqru
+         pSQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765554139; x=1766158939;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gfg2SmLr3HbDKANFq8sDAahr7BVj1MWtGDCHWff86x0=;
-        b=XJn0qsMaqQ/y699k2Ki3JaJXqNaao9MuuSmd2WZuJ7recE4MW3y/Gfc/6n62j7L6AS
-         dFMTYjKQpZH4Vyge5lqYDbUHAWYtSZjnA7quw2qZEtYuDqw1PyHOmUBd4IajuZa3cfma
-         1kttZWFjx4Dw+o7DkoxyNkRkRQq7ADWBYI58MH4cjSIYTrkZTsBlCVoOqDLOHTg/fxiG
-         L/oUtd2VYvcBV/qhPdWL4G43j7SiQkgdDA5gtC+eYFk8j875Bu3K++UPGy0YQ4baAEeY
-         g6YaZVJ6pGaJq4YOnsE2FVfmNt26BgVx3YRDwtPtzK6oDOXAfcVNxLmiOElNPQ2xuCvL
-         BXKg==
-X-Gm-Message-State: AOJu0Yzh+Vvh1lzBLC+ApO+wvEKTQoHjg/dXsxExC9aw/XB2KMfctsPu
-	CyUm9m2C918Bq1++HfhiincRH7WrUqpBGsLAzHwP50N64FfyyKGknCGJr01VFfJYdw==
-X-Gm-Gg: AY/fxX6IY8RNw882I0JFIajdC2txYt4D7jE7HPRh5PUEMww0Cxau9lhmC1yDx/+i+KP
-	cCfhQ/KJvnGTEjxif84lKm07FcX6y1gNlI65LyFK9AS3QVUpLapP14exQMLME0pLme1mqIxTSR2
-	ac6folCbi/4U6dLw6vDtki/WKLQmVCZMIDldszRxU80x4gPbWOwQLWxoDZjUqd2xm6UHMbh68qX
-	xWuLFTIWa8LYFBAhqxrDxU+vr8ZAse+eTXm63bZb9IwiSrmIPQf1hlXuAYF3bjXY7g5sySG0gJX
-	/0opq4C6d6cLSHVyN3neqiieDmAXyhxeti7UyHVPXaAlW70i5NJ8szTYGwAd8Nx66/y9XAHk1Ji
-	UXBZj5tT3rkzAt30bZODVC9PsFwQea4k69WgZTgaRppqZBHtPiAS8dftIUpLSIPkNIP5q5bYCGr
-	RtgXyMBUEBuu6yPt0kDEgdu6EPRb75SOAs6iJAyYc7+v5JfEoI0Q==
-X-Google-Smtp-Source: AGHT+IGt3F8L3ODVzdoshKJbidZOroW1R1wmPFQ9WkER5xE0kT1roC/MUuXOsH8BQJj1YtvxKpKD7A==
-X-Received: by 2002:a05:600c:a103:b0:477:563a:135c with SMTP id 5b1f17b1804b1-47a88b7b11bmr1671425e9.0.1765554139413;
-        Fri, 12 Dec 2025 07:42:19 -0800 (PST)
-Received: from google.com (54.140.140.34.bc.googleusercontent.com. [34.140.140.54])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42fa8b8a97esm15331584f8f.31.2025.12.12.07.42.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Dec 2025 07:42:18 -0800 (PST)
-Date: Fri, 12 Dec 2025 15:42:15 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
-	praan@google.com, danielmentz@google.com, mark.rutland@arm.com,
-	qperret@google.com, tabba@google.com
-Subject: Re: [PATCH v5 07/27] iommu/arm-smmu-v3: Move IDR parsing to common
- functions
-Message-ID: <aTw31-mh8z81yi4Y@google.com>
-References: <20251117184815.1027271-1-smostafa@google.com>
- <20251117184815.1027271-8-smostafa@google.com>
- <20251128164816.GC812105@ziepe.ca>
+        d=1e100.net; s=20230601; t=1765554729; x=1766159529;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=BF5gJ/otAEoZ4clGqcYn+D/DhcYdPlTejIl8apYKJjg=;
+        b=cp+HOYNmt05Lvky2C4pNkkiXdIOuY4CMYpOTSYU6nqqEutTtReSMLkm1AonPMQvzSV
+         wPeg0K6MUoHbVo4egMCmvX6rhA9PDZ9IGxmXY8GFlDYTR0PgucdLeAWnwN60cjzp6ke9
+         O9O9yuMdW0L0ByQn/Qt71XDOYQG6SpRd5vjn/dcdrm/CArWCar3WZJd87B8U6FWmmSJA
+         ayptwpPUtA7u7qEVhDaBY4l+seSZIxFQ7FFSYZTOUMFSym1HpAb1Le2/g+1erBuY3hvS
+         ph7cN2pfb1g8PGoJDURqiQ14tXXhRnp0LFpQmCbrxUraLOJPZqYYBZjWa7Q9/AlfcVZd
+         l/4w==
+X-Forwarded-Encrypted: i=1; AJvYcCX2fLxNrG6SCUfMqmSRYCeA3jujvoWwCxqugi+PNcwO9kmSH/teWgzOBXInlQdO+UtrxIIa6FGyA+ldicCV4aXG@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTvUS6NcLT9/xmZqr2HlJOnjK1AXYe8bsUChtH58WsUvf3n1qu
+	KHPVr2sj1vSA7vVMDf5mqok3w3hAn7HN9H6742ZtpJAcfDtn3L9yDth2IEYuOmDdOlA=
+X-Gm-Gg: AY/fxX5E6VMkfodKLpWg4ZL8yrCdbGf2b7A7hxeLCQSy5+zL9M3fu3bIUGTVCDV7jy/
+	cZmuXZyA2vfPQgNkvgQOvm4zuuqBfUgoXJ++X2f76sUzmi22oUGz8xB72E5ahpEjU/xsYVcy7ix
+	c05YCcRvy1yN5I/3mgEUIRsK1CtWp9RcMI8jrbPlXn4UIeuNkvpvbzc725RT4Njtyxr08WMC0c4
+	fRjvoBQFqnert4gHaRJEfpctnu/U9WG1dt69Q/sfUiwNV1Bdpvsim/8uK7jLhRIazzoDsaGMNqv
+	qD6+BLoCi9yEuBjtLSDYramcK7fB42aIwac5waplSf2K02F2nxjGyu04Ak+BKjt3G/UwN2f9MuJ
+	0/tEt3h5KovFCwuzcJu7oMKVEwpKrqgQbRoyd2SNdZnitk1Hk8MXzleHTo4DM1JbQmj13ioHQWv
+	riVuXZaLtEn/qmvmz9Xmo2
+X-Google-Smtp-Source: AGHT+IFyYqsJru0EerGFYFTMp90A+LMaDZcZ5Gsc9tDkxrzqI6XWJZKohcECOZHdf9TafH96HnDZ4g==
+X-Received: by 2002:a05:600c:450b:b0:459:db7b:988e with SMTP id 5b1f17b1804b1-47a8f8c0608mr25573425e9.13.1765554729284;
+        Fri, 12 Dec 2025 07:52:09 -0800 (PST)
+Received: from [192.168.0.108] ([130.185.218.160])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42fa8b85f38sm12766586f8f.28.2025.12.12.07.52.07
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 12 Dec 2025 07:52:08 -0800 (PST)
+Message-ID: <26b61e11-1dfa-4be1-8d58-06e35fb04d64@linaro.org>
+Date: Fri, 12 Dec 2025 17:52:07 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251128164816.GC812105@ziepe.ca>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 07/19] coresight: trbe: Refactor AUX flag setting
+To: Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>, Anshuman Khandual <anshuman.khandual@arm.com>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Tamas Petz <tamas.petz@arm.com>,
+ Tamas Zsoldos <tamas.zsoldos@arm.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+ Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>
+References: <20251201-trbe_buffer_refactor_v1-1-v1-0-7da32b076b28@arm.com>
+ <20251201-trbe_buffer_refactor_v1-1-v1-7-7da32b076b28@arm.com>
+ <a638f74f-94bc-4052-b8e1-e940aca2d4ce@linaro.org>
+ <20251210154308.GZ724103@e132581.arm.com>
+ <27417fd5-902e-4474-8d60-356a94ac9590@linaro.org>
+ <20251212152738.GA181228@e132581.arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20251212152738.GA181228@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_074221_584251_1C85EDED 
-X-CRM114-Status: GOOD (  15.07  )
+X-CRM114-CacheID: sfid-20251212_075211_440795_0E6D1725 
+X-CRM114-Status: GOOD (  20.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,30 +115,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 28, 2025 at 12:48:16PM -0400, Jason Gunthorpe wrote:
-> On Mon, Nov 17, 2025 at 06:47:54PM +0000, Mostafa Saleh wrote:
-> > Move parsing of IDRs to functions so that it can be re-used
-> > from the hypervisor.
-> > 
-> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> > ---
-> >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 112 +++-----------------
-> >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h | 111 +++++++++++++++++++
-> >  2 files changed, 126 insertions(+), 97 deletions(-)
+
+
+On 12/12/2025 17:27, Leo Yan wrote:
+> On Fri, Dec 12, 2025 at 04:50:52PM +0200, James Clark wrote:
 > 
-> I don't see that this slow path stuff needs to be inlined?
+> [...]
 > 
-> +10 to my prior remark to not dump all the huge inlines in the main
-> header.
-
-They are inline as they are defined in the header file, otherwise they
-get defined multiple times.
-
-I am ok with adding a new common file.
-
-Thanks,
-Mostafa
-
+>>> The trace can be stopped on Fill mode (stop on wrap) or Stop on trigger, so
+>>> it is not (only) about buffer error.  In these cases, even though the trace
+>>> unit is stopped, the buffer may still have space available, tracing can be
+>>> directly re-enabled in interrupt handler, thus the COLLISION/PARTIAL flags
+>>> are better choices.
+>>
+>> I suppose this is the bit that I don't understand. If there is space left
+>> then why is the stop hit at all?
 > 
-> Jason
+> For instance, the buffer becomes empty in the middle:
+> 
+>     +----------------------------+
+>     |$$$$$$$|            |$$$$$$$|
+>     +----------------------------+
+>     ` base  `wptr        `limit
+> 
+> In this case, the trace unit stops when it reaches the limit.
+> Meanwhile, the tool might have already read out the old trace data so
+> we will get some free space, thus no need to set TRUNCATED flag.
+
+Hmmm I see, I still think that means that Perf is being too slow and 
+disabling the event wouldn't be that bad.
+
+Also isn't there a very small chance to hit this? I'm wondering if you 
+ever saw PARTIAL flags in practice?
+
+I think the following all have to be true:
+
+  * 3 out of 4 sections were full on the last interrupt
+  * Perf hadn't managed to finish reading even 1 section in that time
+  * The last section fills up
+  * Perf had managed to finish reading 1 section between the time of
+    the previous interrupt and the hard stop
+
+There would have to be quite a high variability in read speed to make 
+that possible. Maybe it happens and it's worthwhile optimizing for. The 
+comments could explain it better if we do decide to keep it.
+
 
