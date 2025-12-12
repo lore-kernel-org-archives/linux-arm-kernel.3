@@ -4,76 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC77AD4336B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 04:01:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9F44D43369
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 04:27:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tPLwoUwGjEHAvimSj8cQdy88azT+F1V9CLbQw5PbX84=; b=0N0oSOWyadnKtUFiKAkB/Adtqj
-	DCClsIYQbT/KMHRGOXHe2SV+uYfAUsLfcL8x1bo+JmUpd4mP1Dbyp33JjcvjSeO19MMS1IlCSiNgR
-	nPKGaLs8QagtrSnufDzAXHqKGCDR5R75WarQPf//unuWY6jOvgyHJGGdF1Ml/SBk7ubiCqct97KDC
-	7x0iOrnCrnphg4QdOpIFXxpGSLqJD/8xS8URV5aZJE5Ko1Q/aFrJLzF555nuk+sFpwnNmYiVv+4jC
-	fPZgyCs2hntZfJ7ItewSVzLgPihMjWvgTVUrcvq4vI6297KdlN1VBT8/HoLc8ssiwzHEJtETRv3KU
-	Vs2BYrew==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=n8na/ke9IE9q1bAVsI7+ErdZjhBbX1mnOYIQbX9UWUE=; b=oW3L2sL8px0WwfnQXt2p43jwmr
+	HTIUOritfqSl54EJ+tV4WYy3v22sLqsRxXvbavXw5Yfq4XozAPTL3XZHKKC/KpYkRpX3TJp4sWYf6
+	VQD+qaCPkpPDfxVuNdIjQY9+71gq2o+13Bv292qjSDtK2dbjLU58ZqKFjB6ZDiYebDENtr1P8NTzZ
+	i9Twj3fX9Gpj42QVt9TN4brZFfK6xCXHYk15RnnfaGdPz+lJt6LESEdVEO6uXwcaiQsMoGvmVfQb6
+	CXQ9Gj66PrOirhsp2f86GjECFAi3gMX8N/Anfl/cmN+/IzyNrq2jUSqHFqibhw4wrQAhi3BzZouao
+	Yf2OlWUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTuKv-000000002zJ-1lgw;
-	Fri, 12 Dec 2025 04:00:57 +0000
-Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTuKs-000000002yh-2hs4
+	id 1vTukV-0000000049d-15fS;
+	Fri, 12 Dec 2025 04:27:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vTukS-0000000049D-0qGw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 04:00:56 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=tPLwoUwGjEHAvimSj8cQdy88azT+F1V9CLbQw5PbX84=;
-	b=c8LsiV1sC3ls4lji4WJcHUdAykhOZiXd4EVUNzayikuB2KRAtHW+AbS0eaSOrru3Pu5zAFwIF
-	9nK6mAjcNnJfWV7Cs69SRWPCHX4yIDwcyIYljpfL47dcwwmYhHk10+yPsDSYecPUhFcBYgm8+gS
-	u22GXj8SSPleEg4RF5NTFbw=
-Received: from mail.maildlp.com (unknown [172.19.163.174])
-	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4dSFzk2MrkzpStQ;
-	Fri, 12 Dec 2025 11:58:10 +0800 (CST)
-Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3A948140121;
-	Fri, 12 Dec 2025 12:00:45 +0800 (CST)
-Received: from [10.67.109.254] (10.67.109.254) by
- dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 12 Dec 2025 12:00:43 +0800
-Message-ID: <051fe45b-f158-85be-3f8e-60c830fb47a2@huawei.com>
-Date: Fri, 12 Dec 2025 12:00:42 +0800
+	Fri, 12 Dec 2025 04:27:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 516231063;
+	Thu, 11 Dec 2025 20:27:08 -0800 (PST)
+Received: from MacBook-Pro.blr.arm.com (MacBook-Pro.blr.arm.com [10.164.18.59])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AD4853F762;
+	Thu, 11 Dec 2025 20:27:09 -0800 (PST)
+From: Dev Jain <dev.jain@arm.com>
+To: catalin.marinas@arm.com,
+	will@kernel.org,
+	urezki@gmail.com,
+	akpm@linux-foundation.org,
+	tytso@mit.edu,
+	adilger.kernel@dilger.ca,
+	cem@kernel.org
+Cc: ryan.roberts@arm.com,
+	anshuman.khandual@arm.com,
+	shijie@os.amperecomputing.com,
+	yang@os.amperecomputing.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mm@kvack.org,
+	npiggin@gmail.com,
+	willy@infradead.org,
+	david@kernel.org,
+	ziy@nvidia.com,
+	Dev Jain <dev.jain@arm.com>
+Subject: [RESEND RFC PATCH 0/2] Enable vmalloc huge mappings by default on arm64
+Date: Fri, 12 Dec 2025 09:56:59 +0530
+Message-Id: <20251212042701.71993-1-dev.jain@arm.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.2.0
-Subject: Re: [PATCH v9 03/16] arm64/ptrace: Return early for
- ptrace_report_syscall_entry() error
-Content-Language: en-US
-To: Kevin Brodsky <kevin.brodsky@arm.com>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <oleg@redhat.com>, <tglx@linutronix.de>,
-	<peterz@infradead.org>, <luto@kernel.org>, <shuah@kernel.org>,
-	<kees@kernel.org>, <wad@chromium.org>, <deller@gmx.de>, <macro@orcam.me.uk>,
-	<charlie@rivosinc.com>, <ldv@strace.io>, <mark.rutland@arm.com>,
-	<song@kernel.org>, <ryan.roberts@arm.com>, <ada.coupriediaz@arm.com>,
-	<anshuman.khandual@arm.com>, <broonie@kernel.org>, <pengcan@kylinos.cn>,
-	<dvyukov@google.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
-References: <20251204082123.2792067-1-ruanjinjie@huawei.com>
- <20251204082123.2792067-4-ruanjinjie@huawei.com>
- <52f63e40-541f-4ed8-9d05-626eab4b39cb@arm.com>
-From: Jinjie Ruan <ruanjinjie@huawei.com>
-In-Reply-To: <52f63e40-541f-4ed8-9d05-626eab4b39cb@arm.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.67.109.254]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- dggpemf500011.china.huawei.com (7.185.36.131)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_200055_297363_F95336A5 
-X-CRM114-Status: GOOD (  15.96  )
+X-CRM114-CacheID: sfid-20251211_202720_279073_2D838656 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,79 +77,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+In the quest for reducing TLB pressure via block mappings, enable huge
+vmalloc by default on arm64 for BBML2-noabort systems which support kernel
+live mapping split.
 
+This series is an RFC, because I cannot get a performance improvement for
+the usual benchmarks which we have. Currently, vmalloc follows an opt-in
+approach for block mappings - the users calling vmalloc_huge() are the ones
+which expect the most advantage from block mappings. Most users of
+vmalloc(), kvmalloc() and kvzalloc() map a single page. After applying this
+series, it is expected that a considerable number of users will produce
+cont mappings, and probably none will produce PMD mappings.
 
-On 2025/12/9 21:46, Kevin Brodsky wrote:
-> On 04/12/2025 09:21, Jinjie Ruan wrote:
->> The generic entry abort the syscall_trace_enter() sequence if
->> ptrace_report_syscall_entry() errors out, but arm64 not.
->>
->> As the ptrace_report_syscall_entry() comment said, the calling arch code
->> should abort the system call and must prevent normal entry so no system
->> call is made if ptrace_report_syscall_entry() return nonzero.
-> 
-> This patch is now in the right position, which means that arm64 does
-> abort the syscall already without this patch. What we're changing here
-> is that the tracing sequence is interrupted. The comment you're
-> referring to says nothing about tracing so I'm not sure it helps to
-> refer to it.
+I am asking for help from the community in testing - I believe that one of
+the testing methods is xfstests: a lot of code uses the APIs mentioned
+above. I am hoping that someone can jump in and run at least xfstests, and
+probably some other tests which can take advantage of the reduced TLB
+pressure from vmalloc cont mappings.
 
-I think “must prevent normal entry ”means When ptrace requests
-interception, all subsequent processing, including audit and seccomp,
-should completely bypassed.
+---
+Patchset applies on Linus' master (d358e5254674).
 
-> 
-> Otherwise:
-> 
-> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
-> 
->> In preparation for moving arm64 over to the generic entry code,
->> return early if ptrace_report_syscall_entry() encounters an error.
->>
->> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
->> ---
->>  arch/arm64/kernel/ptrace.c | 14 +++++++++-----
->>  1 file changed, 9 insertions(+), 5 deletions(-)
->>
->> diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
->> index 4532e9831856..3926ce6aa268 100644
->> --- a/arch/arm64/kernel/ptrace.c
->> +++ b/arch/arm64/kernel/ptrace.c
->> @@ -2346,15 +2346,18 @@ static __always_inline unsigned long ptrace_save_reg(struct pt_regs *regs,
->>  	return saved_reg;
->>  }
->>  
->> -static void report_syscall_entry(struct pt_regs *regs)
->> +static int report_syscall_entry(struct pt_regs *regs)
->>  {
->>  	unsigned long saved_reg;
->> -	int regno;
->> +	int regno, ret;
->>  
->>  	saved_reg = ptrace_save_reg(regs, PTRACE_SYSCALL_ENTER, &regno);
->> -	if (ptrace_report_syscall_entry(regs))
->> +	ret = ptrace_report_syscall_entry(regs);
->> +	if (ret)
->>  		forget_syscall(regs);
->>  	regs->regs[regno] = saved_reg;
->> +
->> +	return ret;
->>  }
->>  
->>  static void report_syscall_exit(struct pt_regs *regs)
->> @@ -2381,10 +2384,11 @@ static void report_syscall_exit(struct pt_regs *regs)
->>  int syscall_trace_enter(struct pt_regs *regs)
->>  {
->>  	unsigned long flags = read_thread_flags();
->> +	int ret;
->>  
->>  	if (flags & (_TIF_SYSCALL_EMU | _TIF_SYSCALL_TRACE)) {
->> -		report_syscall_entry(regs);
->> -		if (flags & _TIF_SYSCALL_EMU)
->> +		ret = report_syscall_entry(regs);
->> +		if (ret || (flags & _TIF_SYSCALL_EMU))
->>  			return NO_SYSCALL;
->>  	}
->>  
-> 
+Dev Jain (2):
+  mm/vmalloc: Do not align size to huge size
+  arm64/mm: Enable huge-vmalloc by default
+
+ arch/arm64/include/asm/vmalloc.h |  6 +++++
+ arch/arm64/mm/pageattr.c         |  4 +--
+ include/linux/vmalloc.h          |  7 ++++++
+ mm/vmalloc.c                     | 43 +++++++++++++++++++++++++-------
+ 4 files changed, 48 insertions(+), 12 deletions(-)
+
+-- 
+2.30.2
+
 
