@@ -4,61 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB3D4D4922D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 14:39:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B870D4922D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 14:44:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OeVBbp54/yQufAmgq4CABT3iQM4EUXg3PSOhqZdZ4yE=; b=wA7GSjJkShWTeRJrOJKp57dJOW
-	jB7OGsNciJzvyaRwsS7UxRKu3LAD9Ty02fT6BSevQ6O2KyZ5nj0Y0ih7IlABaZ9HYtBp/XqXPDLbO
-	b9aoenZMJH1VZok/I1bb/VtMTTht6OrmDJorb/fFVJha+qbG1tnR2kktS/dnjP0mpzI2GHYxOn9Sj
-	GtyYCTxjPeDTQMNbbaxVS5CtjZZ4m5+c6CdOTyaG3+MPraK6x0+XPG6iPvtIr6alykKUAikNBE3LH
-	HAR9j1xAxJLn8f41C1BGtd/Jxo4juZ1p9R3GMVkzJNI9yXxto/Pm33RKhJS71FGIM70+T9g1MIV3Q
-	L57Tx1gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UHks+Tz5Tz1S6b0QtdZfqGNmwtHIR1PhIe2ld/ROsMY=; b=axdNl2mv/D4dBQrPLBn+4nwffj
+	/g0kTHO6+kzvsEH21UeWUnnqnMTlirPTPUntpu/gxzQ/gvR8OIGt8L3CGuigBxjLwyFqJQ26vaOWU
+	dSo4j0esvcTIDABDIbLhLBE4jxMPnS+rNFenlw2U30TZAfh08+aLS5gGXkaJ5XTCuND36W31xT1wM
+	VsaoxdHzTGG1TzChY1voIQKYBXlHgKl2TCKutCqXiEYWlSDd7cf7gonvbfJ3ZTq0/hxM40OekRChk
+	ZDxHvRtODmfQRfpNXPehr9KuyeiaeJnBRVE9ODsEzQ5WxuKN7A2/LRLyhHSYYUjXdsiFQDTIP1g16
+	N2eMTLyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU4J5-00000000cdA-1kxV;
-	Fri, 12 Dec 2025 14:39:43 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vU4NI-00000000cws-3sVD;
+	Fri, 12 Dec 2025 14:44:04 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU4J4-00000000cck-0gz7
+	id 1vU4NG-00000000cwN-23jo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 14:39:42 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E1DC160008;
-	Fri, 12 Dec 2025 14:39:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FA1EC4CEF1;
-	Fri, 12 Dec 2025 14:39:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765550380;
-	bh=3EmwO7Bq0UqpSDbd6eBgd6cz4gcTCrfg7hJidyqNd0Y=;
-	h=From:Date:Cc:To:In-Reply-To:References:Subject:From;
-	b=XW2up1rkD3d5pXFY2oGfvCh6DRlQ+VsUMwayTygrIsC6QmTKgGBwsNLM7oq4PGou8
-	 VIXlmvHQcuHFfQHS36e0p04gC7hOVxli+kyNbwdFgzIQOzy4Zasi2aPK/u5tMjBiii
-	 7k5nwqet4wLa2Fzn0u34YmTf4K72g7k8YUvYznldK90RwS8jRxovKJ9U045t4+TivT
-	 VK5woIL3ClboBJrmkm3enQfP+CnasRUC0peP3JD4u2KHm7JNZL1q/2naWkuhSKqAwH
-	 nQdTqNVv4CVSP+TceAJN5IVvcDFICltUcLhcBOqbhCB5TvFAzUdJeSZASK4FuQfx4Z
-	 GRK/hMMR8TLow==
-From: Rob Herring <robh@kernel.org>
-Date: Fri, 12 Dec 2025 08:39:36 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Fri, 12 Dec 2025 14:44:04 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-b770f4accc0so226415666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Dec 2025 06:44:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1765550640; x=1766155440; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=UHks+Tz5Tz1S6b0QtdZfqGNmwtHIR1PhIe2ld/ROsMY=;
+        b=FLB+S68CLgOLifafwSfqK8aWeEjJuYpzn6Yp8HMmH8O4QqbGpTw6dRzMziWIh84/Ox
+         RZY+y87cpbF38pTIkfuqFcwTKrzYXT1IeUEx93U9gaXs2a+fMwmhjYr9uVOZv0iIbZtp
+         j/aPz7txAgAuXc6YTjv36B3AawYw3CDtadNs8Jc/EiruHqN/qC1n6HHNnV/r5ktod3e8
+         1kiXkxkKrec4QI6sc18Dz6BmYf0lB6tIA2mjKV7Y5SDKRYtLQojfuDufYXAGPz4o4LVw
+         lcq9+zhCcV2mvOLgx4XYBG+BSvXGXV94NuQ0nsNHLrTgSmWIEmHIWKBxMj7OksBRhZ7B
+         fa5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765550640; x=1766155440;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UHks+Tz5Tz1S6b0QtdZfqGNmwtHIR1PhIe2ld/ROsMY=;
+        b=BQ1WVfBbvGEVuKNdTfOv9gy8qQcuUPAItroSp8Uv0NKK2SsCsHtFY/Ha2EvlAL9Yq8
+         /EQEEiGlAQnkkL5775mVgbtK8zFD/C9PijYHL7ZauvnBysiAqjwwjhUnyPB3+Fvbnx4I
+         SAYNkvqrtvYJALRESby5EStpJVUJKVhqbEbjypKdYZbIeplfq+9Hk9YJlhttghjaqylJ
+         Gd9RZvxfdbyOLNz3tpaEZNyhZN6pbcB7q5nYSWw1t+uWUIO0vPWiI3iIxxWa+ODOqvkw
+         bOUwZXrzThg4Su9vzaPc1/pN2YbFYU6t6P03zfUwRXkcwTVKAAt1rC5bLoFwWkhVqWGP
+         pzfQ==
+X-Forwarded-Encrypted: i=1; AJvYcCULvhZW9d5t6+3gIt6+rqT5XJSJyDysuc259P/bYV7Js6G59/Res8UWftpzsIVmBggauhyR56sjgDJZ9jXq1Kt/@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjcS6v6MyOhQrVEsIN+q7DC3gQJQPjkeVxLQo76nsEULAzBpfi
+	2V5dQE/Zc2B0Ky54E3lFFwuhH0gJjIi9Mm3siWOBdBQNFbrqPbib5LOE7gwokKSvJJI=
+X-Gm-Gg: AY/fxX6/x0D4hM6ic2KBWOdRuqq33JBkqMFJaw3+cgtvFaARcdyLPxdUMqbZdSkWR8q
+	Bzt8K6i9VzdcclHYCoTzROK8ymOuGs8xGt/G8Dm8XgehoaSlAVWfFczDgvjteDS/XJiPThMIQQO
+	kTctirDaCNiGl76ADWKYRAe/oYEX7s50azWQFFUBL90SqXrvu2sEG4Jr+GtyffWeiR0svpv29Kp
+	f6c2Tc8UdQ+R2FBFu0D8LaY9IfbWSJabHY94t1sAwDaCU8NfWodyH1IRIeISf8gTT6xVM7VZgOD
+	n0Svh5oLo1+lv5+8Wk7uSGSD9ZLMbK612b5/ivvRgDsXLjSN1eadnd/LH3C6LIv8w1tsLMzim5P
+	yql7LNNWA4yljWdVTg6VDidl1hcpL2RJbzzUQeYv55qho8ToCd3rPNARba4PBT+6lmlBZvy6s9l
+	zgUWRNkD+z16KLeAGplBhr
+X-Google-Smtp-Source: AGHT+IE3svTtW70pxSeY9K0szvV0szRg7UnbT0HaZetFEyEZG4iGhZlbXeVU+9M6CTK3kAp5gnBY8g==
+X-Received: by 2002:a17:907:8694:b0:b73:1e09:7377 with SMTP id a640c23a62f3a-b7d23aa5631mr230371666b.58.1765550639940;
+        Fri, 12 Dec 2025 06:43:59 -0800 (PST)
+Received: from [192.168.0.108] ([130.185.218.160])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b7cfa29be92sm574681666b.10.2025.12.12.06.43.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 12 Dec 2025 06:43:59 -0800 (PST)
+Message-ID: <99e9614d-a956-40dc-a86b-a4c5aea0fe8a@linaro.org>
+Date: Fri, 12 Dec 2025 16:43:57 +0200
 MIME-Version: 1.0
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Peng Fan <peng.fan@nxp.com>, Frank Li <frank.li@nxp.com>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
- Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-In-Reply-To: <20251212-imx91-dts-v1-0-2bb3c13762dd@nxp.com>
-References: <20251212-imx91-dts-v1-0-2bb3c13762dd@nxp.com>
-Message-Id: <176555030606.3954208.10492221378451090067.robh@kernel.org>
-Subject: Re: [PATCH 0/4] arm64: dts: imx91: misc updates
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 01/12] perf parse-events: Refactor get_config_terms()
+ to remove macros
+To: Ian Rogers <irogers@google.com>
+Cc: Linux perf Profiling <linux-perf-users@vger.kernel.org>,
+ linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>,
+ Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, leo.yan@arm.com
+References: <20251208-james-perf-config-bits-v2-0-4ac0281993b0@linaro.org>
+ <20251208-james-perf-config-bits-v2-1-4ac0281993b0@linaro.org>
+ <6ba6bde3-f56b-4354-b336-4739cb1edb71@linaro.org>
+ <CAP-5=fV_Y5W2RyJhBgnk49JuTf8EsyisY-LfL3sVhC4TVRC_gg@mail.gmail.com>
+ <d275d2fb-8670-4832-b9c4-de98376e58ad@linaro.org>
+ <CAP-5=fW6_MVrezxT6ssjhWnYtF_51nvuFCCSPaHzqwYw9EK4Wg@mail.gmail.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <CAP-5=fW6_MVrezxT6ssjhWnYtF_51nvuFCCSPaHzqwYw9EK4Wg@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251212_064402_709407_C802327A 
+X-CRM114-Status: GOOD (  17.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,404 +117,304 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Fri, 12 Dec 2025 17:16:06 +0800, Peng Fan (OSS) wrote:
-> Patch 1,2: add temp sensor and thermal zone
-> Patch 3: Update file name
-> Patch 4: Add gpio4 alias
+
+On 09/12/2025 20:09, Ian Rogers wrote:
+> On Tue, Dec 9, 2025 at 9:55 AM James Clark <james.clark@linaro.org> wrote:
+>>
+>> On 09/12/2025 15:58, Ian Rogers wrote:
+>>> On Tue, Dec 9, 2025 at 4:48 AM James Clark <james.clark@linaro.org> wrote:
+>>>>
+>>>> On 08/12/2025 2:22 pm, James Clark wrote:
+>>>>> The ADD_CONFIG_TERM() macros build the __type argument out of a partial
+>>>>> EVSEL__CONFIG_TERM_x enum name. This means that they can't be called
+>>>>> from a function where __type is a variable and it's also impossible to
+>>>>> grep the codebase to find usages of these enums as they're never typed
+>>>>> in full.
+>>>>>
+>>>>> Fix this by removing the macros and replacing them with an
+>>>>> add_config_term() function. It seems the main reason these existed in
+>>>>> the first place was to avoid type punning and to write to a specific
+>>>>> field in the union, but the same thing can be achieved with a single
+>>>>> write to a u64 'val' field.
+>>>>>
+>>>>> Signed-off-by: James Clark <james.clark@linaro.org>
+>>>>> ---
+>>>>>     tools/perf/util/evsel_config.h |   1 +
+>>>>>     tools/perf/util/parse-events.c | 146 ++++++++++++++++++++++++-----------------
+>>>>>     2 files changed, 86 insertions(+), 61 deletions(-)
+>>>>>
+>>>>> diff --git a/tools/perf/util/evsel_config.h b/tools/perf/util/evsel_config.h
+>>>>> index bcd3a978f0c4..685fd8d5c4a8 100644
+>>>>> --- a/tools/perf/util/evsel_config.h
+>>>>> +++ b/tools/perf/util/evsel_config.h
+>>>>> @@ -50,6 +50,7 @@ struct evsel_config_term {
+>>>>>                 u64           cfg_chg;
+>>>>>                 char          *str;
+>>>>>                 int           cpu;
+>>>>> +             u64           val;
+>>>>>         } val;
+>>>>>         bool weak;
+>>>>>     };
+>>>>> diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
+>>>>> index 17c1c36a7bf9..d5b009b4ebab 100644
+>>>>> --- a/tools/perf/util/parse-events.c
+>>>>> +++ b/tools/perf/util/parse-events.c
+>>>>> @@ -1116,105 +1116,107 @@ static int config_attr(struct perf_event_attr *attr,
+>>>>>         return 0;
+>>>>>     }
+>>>>>
+>>>>> -static int get_config_terms(const struct parse_events_terms *head_config,
+>>>>> -                         struct list_head *head_terms)
+>>>>> +static struct evsel_config_term *add_config_term(enum evsel_term_type type,
+>>>>> +                                              struct list_head *head_terms,
+>>>>> +                                              bool weak)
+>>>>>     {
+>>>>> -#define ADD_CONFIG_TERM(__type, __weak)                              \
+>>>>> -     struct evsel_config_term *__t;                  \
+>>>>> -                                                             \
+>>>>> -     __t = zalloc(sizeof(*__t));                             \
+>>>>> -     if (!__t)                                               \
+>>>>> -             return -ENOMEM;                                 \
+>>>>> -                                                             \
+>>>>> -     INIT_LIST_HEAD(&__t->list);                             \
+>>>>> -     __t->type       = EVSEL__CONFIG_TERM_ ## __type;        \
+>>>>> -     __t->weak       = __weak;                               \
+>>>>> -     list_add_tail(&__t->list, head_terms)
+>>>>> -
+>>>>> -#define ADD_CONFIG_TERM_VAL(__type, __name, __val, __weak)   \
+>>>>> -do {                                                         \
+>>>>> -     ADD_CONFIG_TERM(__type, __weak);                        \
+>>>>> -     __t->val.__name = __val;                                \
+>>>>> -} while (0)
+>>>>> +     struct evsel_config_term *t;
+>>>>>
+>>>>> -#define ADD_CONFIG_TERM_STR(__type, __val, __weak)           \
+>>>>> -do {                                                         \
+>>>>> -     ADD_CONFIG_TERM(__type, __weak);                        \
+>>>>> -     __t->val.str = strdup(__val);                           \
+>>>>> -     if (!__t->val.str) {                                    \
+>>>>> -             zfree(&__t);                                    \
+>>>>> -             return -ENOMEM;                                 \
+>>>>> -     }                                                       \
+>>>>> -     __t->free_str = true;                                   \
+>>>>> -} while (0)
+>>>>> +     t = zalloc(sizeof(*t));
+>>>>> +     if (!t)
+>>>>> +             return NULL;
+>>>>> +
+>>>>> +     INIT_LIST_HEAD(&t->list);
+>>>>> +     t->type = type;
+>>>>> +     t->weak = weak;
+>>>>> +     list_add_tail(&t->list, head_terms);
+>>>>>
+>>>>> +     return t;
+>>>>> +}
+>>>>> +
+>>>>> +static int get_config_terms(const struct parse_events_terms *head_config,
+>>>>> +                         struct list_head *head_terms)
+>>>>> +{
+>>>>>         struct parse_events_term *term;
+>>>>>
+>>>>>         list_for_each_entry(term, &head_config->terms, list) {
+>>>>> +             struct evsel_config_term *new_term;
+>>>>> +             enum evsel_term_type new_type;
+>>>>> +             char *str = NULL;
+>>>>> +             u64 val;
+>>>>> +
+>>>>>                 switch (term->type_term) {
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD:
+>>>>> -                     ADD_CONFIG_TERM_VAL(PERIOD, period, term->val.num, term->weak);
+>>>>> +                     new_type = EVSEL__CONFIG_TERM_PERIOD;
+>>>>> +                     val = term->val.num;
+>>>>>                         break;
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_SAMPLE_FREQ:
+>>>>> -                     ADD_CONFIG_TERM_VAL(FREQ, freq, term->val.num, term->weak);
+>>>>> +                     new_type = EVSEL__CONFIG_TERM_FREQ;
+>>>>> +                     val = term->val.num;
+>>>>>                         break;
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_TIME:
+>>>>> -                     ADD_CONFIG_TERM_VAL(TIME, time, term->val.num, term->weak);
+>>>>> +                     new_type = EVSEL__CONFIG_TERM_TIME;
+>>>>> +                     val = term->val.num;
+>>>>>                         break;
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_CALLGRAPH:
+>>>>> -                     ADD_CONFIG_TERM_STR(CALLGRAPH, term->val.str, term->weak);
+>>>>> +                     new_type = EVSEL__CONFIG_TERM_CALLGRAPH;
+>>>>> +                     str = term->val.str;
+>>>>>                         break;
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_BRANCH_SAMPLE_TYPE:
+>>>>> -                     ADD_CONFIG_TERM_STR(BRANCH, term->val.str, term->weak);
+>>>>> +                     new_type = EVSEL__CONFIG_TERM_BRANCH;
+>>>>> +                     str = term->val.str;
+>>>>>                         break;
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_STACKSIZE:
+>>>>> -                     ADD_CONFIG_TERM_VAL(STACK_USER, stack_user,
+>>>>> -                                         term->val.num, term->weak);
+>>>>> +                     new_type = EVSEL__CONFIG_TERM_STACK_USER;
+>>>>> +                     val = term->val.num;
+>>>>>                         break;
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_INHERIT:
+>>>>> -                     ADD_CONFIG_TERM_VAL(INHERIT, inherit,
+>>>>> -                                         term->val.num ? 1 : 0, term->weak);
+>>>>> +                     new_type = EVSEL__CONFIG_TERM_INHERIT;
+>>>>> +                     val = term->val.num ? 1 : 0;
+>>>>>                         break;
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_NOINHERIT:
+>>>>> -                     ADD_CONFIG_TERM_VAL(INHERIT, inherit,
+>>>>> -                                         term->val.num ? 0 : 1, term->weak);
+>>>>> +                     new_type = EVSEL__CONFIG_TERM_INHERIT;
+>>>>> +                     val = term->val.num ? 0 : 1;
+>>>>>                         break;
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_MAX_STACK:
+>>>>> -                     ADD_CONFIG_TERM_VAL(MAX_STACK, max_stack,
+>>>>> -                                         term->val.num, term->weak);
+>>>>> +                     new_type = EVSEL__CONFIG_TERM_MAX_STACK;
+>>>>> +                     val = term->val.num;
+>>>>>                         break;
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_MAX_EVENTS:
+>>>>> -                     ADD_CONFIG_TERM_VAL(MAX_EVENTS, max_events,
+>>>>> -                                         term->val.num, term->weak);
+>>>>> +                     new_type = EVSEL__CONFIG_TERM_MAX_EVENTS;
+>>>>> +                     val = term->val.num;
+>>>>>                         break;
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_OVERWRITE:
+>>>>> -                     ADD_CONFIG_TERM_VAL(OVERWRITE, overwrite,
+>>>>> -                                         term->val.num ? 1 : 0, term->weak);
+>>>>> +                     new_type = EVSEL__CONFIG_TERM_OVERWRITE;
+>>>>> +                     val = term->val.num ? 1 : 0;
+>>>>>                         break;
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_NOOVERWRITE:
+>>>>> -                     ADD_CONFIG_TERM_VAL(OVERWRITE, overwrite,
+>>>>> -                                         term->val.num ? 0 : 1, term->weak);
+>>>>> +                     new_type = EVSEL__CONFIG_TERM_OVERWRITE;
+>>>>> +                     val = term->val.num ? 0 : 1;
+>>>>>                         break;
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_DRV_CFG:
+>>>>> -                     ADD_CONFIG_TERM_STR(DRV_CFG, term->val.str, term->weak);
+>>>>> +                     new_type = EVSEL__CONFIG_TERM_DRV_CFG;
+>>>>> +                     str = term->val.str;
+>>>>>                         break;
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_PERCORE:
+>>>>> -                     ADD_CONFIG_TERM_VAL(PERCORE, percore,
+>>>>> -                                         term->val.num ? true : false, term->weak);
+>>>>> +                     new_type = EVSEL__CONFIG_TERM_PERCORE;
+>>>>> +                     val = term->val.num ? true : false;
+>>>>>                         break;
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_AUX_OUTPUT:
+>>>>> -                     ADD_CONFIG_TERM_VAL(AUX_OUTPUT, aux_output,
+>>>>> -                                         term->val.num ? 1 : 0, term->weak);
+>>>>> +                     new_type = EVSEL__CONFIG_TERM_AUX_OUTPUT;
+>>>>> +                     val = term->val.num ? 1 : 0;
+>>>>>                         break;
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_AUX_ACTION:
+>>>>> -                     ADD_CONFIG_TERM_STR(AUX_ACTION, term->val.str, term->weak);
+>>>>> +                     new_type = EVSEL__CONFIG_TERM_AUX_ACTION;
+>>>>> +                     str = term->val.str;
+>>>>>                         break;
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_AUX_SAMPLE_SIZE:
+>>>>> -                     ADD_CONFIG_TERM_VAL(AUX_SAMPLE_SIZE, aux_sample_size,
+>>>>> -                                         term->val.num, term->weak);
+>>>>> +                     new_type = EVSEL__CONFIG_TERM_AUX_SAMPLE_SIZE;
+>>>>> +                     val = term->val.num;
+>>>>>                         break;
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_RATIO_TO_PREV:
+>>>>> -                     ADD_CONFIG_TERM_STR(RATIO_TO_PREV, term->val.str, term->weak);
+>>>>> +                     new_type = EVSEL__CONFIG_TERM_RATIO_TO_PREV;
+>>>>> +                     str = term->val.str;
+>>>>>                         break;
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_USER:
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_CONFIG:
+>>>>> @@ -1229,7 +1231,23 @@ do {                                                           \
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_RAW:
+>>>>>                 case PARSE_EVENTS__TERM_TYPE_CPU:
+>>>>>                 default:
+>>>>> -                     break;
+>>>>> +                     /* Don't add a new term for these ones */
+>>>>> +                     continue;
+>>>>> +             }
+>>>>> +
+>>>>> +             new_term = add_config_term(new_type, head_terms, term->weak);
+>>>>> +             if (!new_term)
+>>>>> +                     return -ENOMEM;
+>>>>> +
+>>>>> +             if (str) {
+>>>>> +                     new_term->val.str = strdup(str);
+>>>>> +                     if (!new_term->val.str) {
+>>>>> +                             zfree(&new_term);
+>>>>> +                             return -ENOMEM;
+>>>>> +                     }
+>>>>> +                     new_term->free_str = true;
+>>>>> +             } else {
+>>>>
+>>>> This will incorrectly hit the else if term->val.str is NULL. Not sure if
+>>>> that can happen but will fix anyway.
+>>>>
+>>>>> +                     new_term->val.val = val;
+>>>>
+>>>> There's an uninitialized variable warning for val here on release
+>>>> builds. Will fix too
+>>>
+>>> I'm not sure how I feel about the change, but did you check that it is
+>>> ubsan clean? I worry it is introducing writes to "val" and then reads
+>>> from say "period" in the evsel_config_term val union. I believe ubsan
+>>> will flag this as:
+>>> https://en.cppreference.com/w/cpp/language/union.html
+>>> "It is undefined behavior to read from the member of the union that
+>>> wasn't most recently written."
+>>>
+>>> Thanks,
+>>> Ian
+>>>
+>>
+>> Maybe for C++, but not for C [1]:
+>>
+>>     Accessing my_union.i after most recently writing to the other member,
+>>     my_union.d, is an allowed form of type-punning in C, provided that the
+>>     member read is not larger than the one whose value was set
+>>
+>> Type punning with unions is widely used in the kernel and there are a
+>> couple of instances in Perf. There are tons of discussions about it on
+>> the mailing lists too. I can check it with ubsan though.
 > 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
-> Peng Fan (4):
->       arm64: dts: imx91: Add tempsensor node
->       arm64: dts: imx91: Add thermal zone node
->       arm64: dts: imx91: Update file name with dash
->       arm64: dts: imx91-11x11-evk: Add gpio4 alias
+> Thanks. I'm mostly worried about ubsan being clean. One of those
+> mailing list discussions, or sadly outside the usual trolls lack of
+> discussion, is my trying to remove a prevalent source of type punning:
+> https://lore.kernel.org/lkml/20251016205126.2882625-1-irogers@google.com/
 > 
->  arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts  |    1 +
->  arch/arm64/boot/dts/freescale/imx91.dtsi           |   58 +-
->  arch/arm64/boot/dts/freescale/imx91_93_common.dtsi | 1187 --------------------
->  arch/arm64/boot/dts/freescale/imx93.dtsi           |    2 +-
->  4 files changed, 59 insertions(+), 1189 deletions(-)
-> ---
-> base-commit: 008d3547aae5bc86fac3eda317489169c3fda112
-> change-id: 20251212-imx91-dts-8d2e483191f7
-> 
-> Best regards,
-> --
-> Peng Fan <peng.fan@nxp.com>
-> 
-> 
+> Ian
 > 
 
-
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
+No ubsan issues on any Perf tests from this, but I did forget a free in 
+the new test that I saw with asan so I'll send a new version.
 
 
-This patch series was applied (using b4) to base:
- Base: 008d3547aae5bc86fac3eda317489169c3fda112 (use --merge-base to override)
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20251212-imx91-dts-v1-0-2bb3c13762dd@nxp.com:
-
-In file included from arch/arm64/boot/dts/freescale/imx93-14x14-evk.dts:9:
-arch/arm64/boot/dts/freescale/imx93.dtsi:6:10: fatal error: imx91-93-common.dtsi: No such file or directory
-    6 | #include "imx91-93-common.dtsi"
-      |          ^~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[3]: *** [scripts/Makefile.dtbs:141: arch/arm64/boot/dts/freescale/imx93-14x14-evk.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/freescale] Error 2
-make[2]: Target 'arch/arm64/boot/dts/freescale/imx93-14x14-evk.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1512: freescale/imx93-14x14-evk.dtb] Error 2
-In file included from arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi:8,
-                 from arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxca.dts:15:
-arch/arm64/boot/dts/freescale/imx93.dtsi:6:10: fatal error: imx91-93-common.dtsi: No such file or directory
-    6 | #include "imx91-93-common.dtsi"
-      |          ^~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-In file included from arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dts:9:
-arch/arm64/boot/dts/freescale/imx93.dtsi:6:10: fatal error: imx91-93-common.dtsi: No such file or directory
-    6 | #include "imx91-93-common.dtsi"
-      |          ^~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[3]: *** [scripts/Makefile.dtbs:141: arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxca.dtb] Error 1
-make[3]: *** [scripts/Makefile.dtbs:141: arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/freescale] Error 2
-make[2]: Target 'arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxca.dtb' not remade because of errors.
-make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/freescale] Error 2
-make[2]: Target 'arch/arm64/boot/dts/freescale/imx93-9x9-qsb.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1512: freescale/imx93-tqma9352-mba93xxca.dtb] Error 2
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1512: freescale/imx93-9x9-qsb.dtb] Error 2
-In file included from arch/arm64/boot/dts/freescale/imx93-var-som.dtsi:9,
-                 from arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dts:10:
-arch/arm64/boot/dts/freescale/imx93.dtsi:6:10: fatal error: imx91-93-common.dtsi: No such file or directory
-    6 | #include "imx91-93-common.dtsi"
-      |          ^~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[3]: *** [scripts/Makefile.dtbs:141: arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/freescale] Error 2
-make[2]: Target 'arch/arm64/boot/dts/freescale/imx93-var-som-symphony.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1512: freescale/imx93-var-som-symphony.dtb] Error 2
-In file included from arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi:8,
-                 from arch/arm64/boot/dts/freescale/imx93-tqma9352-mba91xxca.dts:15:
-arch/arm64/boot/dts/freescale/imx93.dtsi:6:10: fatal error: imx91-93-common.dtsi: No such file or directory
-    6 | #include "imx91-93-common.dtsi"
-      |          ^~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[3]: *** [scripts/Makefile.dtbs:141: arch/arm64/boot/dts/freescale/imx93-tqma9352-mba91xxca.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/freescale] Error 2
-make[2]: Target 'arch/arm64/boot/dts/freescale/imx93-tqma9352-mba91xxca.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1512: freescale/imx93-tqma9352-mba91xxca.dtb] Error 2
-In file included from arch/arm64/boot/dts/freescale/imx91-tqma9131.dtsi:9,
-                 from arch/arm64/boot/dts/freescale/imx91-tqma9131-mba91xxca.dts:15:
-arch/arm64/boot/dts/freescale/imx91.dtsi:7:10: fatal error: imx91-93-common.dtsi: No such file or directory
-    7 | #include "imx91-93-common.dtsi"
-      |          ^~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[3]: *** [scripts/Makefile.dtbs:141: arch/arm64/boot/dts/freescale/imx91-tqma9131-mba91xxca.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/freescale] Error 2
-make[2]: Target 'arch/arm64/boot/dts/freescale/imx91-tqma9131-mba91xxca.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1512: freescale/imx91-tqma9131-mba91xxca.dtb] Error 2
-In file included from arch/arm64/boot/dts/freescale/imx91-phycore-som.dtsi:12,
-                 from arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dts:12:
-arch/arm64/boot/dts/freescale/imx91.dtsi:7:10: fatal error: imx91-93-common.dtsi: No such file or directory
-    7 | #include "imx91-93-common.dtsi"
-      |          ^~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[3]: *** [scripts/Makefile.dtbs:141: arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/freescale] Error 2
-make[2]: Target 'arch/arm64/boot/dts/freescale/imx91-phyboard-segin.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1512: freescale/imx91-phyboard-segin.dtb] Error 2
-In file included from arch/arm64/boot/dts/freescale/imx91-11x11-evk.dts:9:
-arch/arm64/boot/dts/freescale/imx91.dtsi:7:10: fatal error: imx91-93-common.dtsi: No such file or directory
-    7 | #include "imx91-93-common.dtsi"
-      |          ^~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[3]: *** [scripts/Makefile.dtbs:141: arch/arm64/boot/dts/freescale/imx91-11x11-evk.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/freescale] Error 2
-make[2]: Target 'arch/arm64/boot/dts/freescale/imx91-11x11-evk.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1512: freescale/imx91-11x11-evk.dtb] Error 2
-In file included from arch/arm64/boot/dts/freescale/imx93-tqma9352.dtsi:8,
-                 from arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla.dts:15:
-arch/arm64/boot/dts/freescale/imx93.dtsi:6:10: fatal error: imx91-93-common.dtsi: No such file or directory
-    6 | #include "imx91-93-common.dtsi"
-      |          ^~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[3]: *** [scripts/Makefile.dtbs:141: arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/freescale] Error 2
-make[2]: Target 'arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1512: freescale/imx93-tqma9352-mba93xxla.dtb] Error 2
-In file included from arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts:9:
-arch/arm64/boot/dts/freescale/imx93.dtsi:6:10: fatal error: imx91-93-common.dtsi: No such file or directory
-    6 | #include "imx91-93-common.dtsi"
-      |          ^~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[3]: *** [scripts/Makefile.dtbs:141: arch/arm64/boot/dts/freescale/imx93-11x11-evk.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/freescale] Error 2
-make[2]: Target 'arch/arm64/boot/dts/freescale/imx93-11x11-evk.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1512: freescale/imx93-11x11-evk.dtb] Error 2
-In file included from arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi:13,
-                 from arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dts:13:
-arch/arm64/boot/dts/freescale/imx93.dtsi:6:10: fatal error: imx91-93-common.dtsi: No such file or directory
-    6 | #include "imx91-93-common.dtsi"
-      |          ^~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[3]: *** [scripts/Makefile.dtbs:141: arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/freescale] Error 2
-make[2]: Target 'arch/arm64/boot/dts/freescale/imx93-phyboard-nash.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1512: freescale/imx93-phyboard-nash.dtb] Error 2
-In file included from arch/arm64/boot/dts/freescale/imx93-phycore-som.dtsi:13,
-                 from arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dts:13:
-arch/arm64/boot/dts/freescale/imx93.dtsi:6:10: fatal error: imx91-93-common.dtsi: No such file or directory
-    6 | #include "imx91-93-common.dtsi"
-      |          ^~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[3]: *** [scripts/Makefile.dtbs:141: arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/freescale] Error 2
-make[2]: Target 'arch/arm64/boot/dts/freescale/imx93-phyboard-segin.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1512: freescale/imx93-phyboard-segin.dtb] Error 2
-In file included from arch/arm64/boot/dts/freescale/imx93-kontron-osm-s.dtsi:7,
-                 from arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dts:8:
-arch/arm64/boot/dts/freescale/imx93.dtsi:6:10: fatal error: imx91-93-common.dtsi: No such file or directory
-    6 | #include "imx91-93-common.dtsi"
-      |          ^~~~~~~~~~~~~~~~~~~~~~
-compilation terminated.
-make[3]: *** [scripts/Makefile.dtbs:141: arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/freescale] Error 2
-make[2]: Target 'arch/arm64/boot/dts/freescale/imx93-kontron-bl-osm-s.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1512: freescale/imx93-kontron-bl-osm-s.dtb] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
-make: Target 'freescale/imx8dx-colibri-eval-v3.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-var-som-symphony.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-nitrogen-enc-carrier-board.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1046a-qds.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-prt8mm.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1028a-kontron-sl28.dtb' not remade because of errors.
-make: Target 'freescale/imx8qxp-tqma8xqp-mba8xx.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-beacon-kit.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-venice-gw73xx-2x.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-var-som-symphony.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-icore-mx8mp-edimm2.2.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-innocomm-wb15-evk.dtb' not remade because of errors.
-make: Target 'freescale/imx8qm-apalis-v1.1-eval.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-aristainetos3-proton2s.dtb' not remade because of errors.
-make: Target 'freescale/imx8dx-colibri-iris-v2.dtb' not remade because of errors.
-make: Target 'freescale/imx8mn-ddr3l-evk.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-icore-mx8mm-edimm2.2.dtb' not remade because of errors.
-make: Target 'freescale/imx8mn-evk.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-dhcom-pdk3.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1028a-kontron-kbox-a-230-ls.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-phyboard-polis-rdk.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-venice-gw72xx-2x.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-venice-gw7901.dtb' not remade because of errors.
-make: Target 'freescale/imx8mn-beacon-kit.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1028a-kontron-sl28-var1.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1028a-kontron-sl28-var3.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-debix-som-a-bmb-08.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-verdin-nonwifi-dahlia.dtb' not remade because of errors.
-make: Target 'freescale/imx8qxp-ai_ml.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-verdin-wifi-dev.dtb' not remade because of errors.
-make: Target 'freescale/s32v234-evb.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-skov-revb-lt6.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-phg.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-nitrogen-smarc-universal-board.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-venice-gw71xx-0x.dtb' not remade because of errors.
-make: Target 'freescale/imx8ulp-evk.dtb' not remade because of errors.
-make: Target 'freescale/imx8qxp-colibri-iris.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-emtop-baseboard.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-hummingboard-pro.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1028a-kontron-sl28-var4.dtb' not remade because of errors.
-make: Target 'freescale/imx8mq-librem5-r4.dtb' not remade because of errors.
-make: Target 'freescale/imx8dx-colibri-aster.dtb' not remade because of errors.
-make: Target 'freescale/imx8mn-rve-gateway.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-venice-gw71xx-2x.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls2080a-rdb.dtb' not remade because of errors.
-make: Target 'freescale/imx8mq-pico-pi.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-verdin-wifi-mallow.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-msc-sm2s-ep1.dtb' not remade because of errors.
-make: Target 'freescale/imx8dxl-evk.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1043a-qds.dtb' not remade because of errors.
-make: Target 'freescale/s32g399a-rdb3.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-venice-gw72xx-0x.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-verdin-wifi-ivy.dtb' not remade because of errors.
-make: Target 'freescale/imx8mn-bsh-smm-s2.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-aristainetos3-adpismarc.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-tx8p-ml81-moduline-display-106.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-verdin-nonwifi-mallow.dtb' not remade because of errors.
-make: Target 'freescale/imx8qxp-tqma8xqps-mb-smarc-2.dtb' not remade because of errors.
-make: Target 'freescale/imx8mn-dimonoff-gateway-evk.dtb' not remade because of errors.
-make: Target 'freescale/imx93-tqma9352-mba93xxca.dtb' not remade because of errors.
-make: Target 'freescale/imx8mq-tqma8mq-mba8mx.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1012a-oxalis.dtb' not remade because of errors.
-make: Target 'freescale/imx93-14x14-evk.dtb' not remade because of errors.
-make: Target 'freescale/imx8dx-colibri-iris.dtb' not remade because of errors.
-make: Target 'freescale/imx8mn-var-som-symphony.dtb' not remade because of errors.
-make: Target 'freescale/imx95-toradex-smarc-dev.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-kontron-smarc-eval-carrier.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls2080a-simu.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1046a-frwy.dtb' not remade because of errors.
-make: Target 'freescale/imx93-9x9-qsb.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-verdin-wifi-yavia.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-evk.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-verdin-nonwifi-yavia.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-verdin-wifi-mallow.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-debix-model-a.dtb' not remade because of errors.
-make: Target 'freescale/imx8qm-apalis-v1.1-ixora-v1.2.dtb' not remade because of errors.
-make: Target 'freescale/imx8mq-evk.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-icore-mx8mm-ctouch2.dtb' not remade because of errors.
-make: Target 'freescale/imx8mq-zii-ultra-rmb3.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-phygate-tauri-l.dtb' not remade because of errors.
-make: Target 'freescale/imx8qm-apalis-v1.1-eval-v1.2.dtb' not remade because of errors.
-make: Target 'freescale/fsl-lx2162a-clearfog.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-data-modul-edm-sbc.dtb' not remade because of errors.
-make: Target 'freescale/imx8mq-librem5-devkit.dtb' not remade because of errors.
-make: Target 'freescale/fsl-lx2160a-tqmlx2160a-mblx2160a.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1012a-tqmls1012al-mbls1012al-emmc.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-cubox-m.dtb' not remade because of errors.
-make: Target 'freescale/fsl-lx2160a-honeycomb.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-skov-revb-hdmi.dtb' not remade because of errors.
-make: Target 'freescale/imx8qm-apalis-eval.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-venice-gw7904.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-skov-revb-mi1010ait-1cp1.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-navqp.dtb' not remade because of errors.
-make: Target 'freescale/fsl-lx2160a-qds.dtb' not remade because of errors.
-make: Target 'freescale/fsl-lx2160a-bluebox3.dtb' not remade because of errors.
-make: Target 'freescale/imx93-var-som-symphony.dtb' not remade because of errors.
-make: Target 'freescale/imx8dxp-tqma8xdps-mb-smarc-2.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-nitrogen-r2.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1028a-kontron-sl28-var3-ads2.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1046a-rdb.dtb' not remade because of errors.
-make: Target 'freescale/imx93-tqma9352-mba91xxca.dtb' not remade because of errors.
-make: Target 'freescale/imx95-tqma9596sa-mb-smarc-2.dtb' not remade because of errors.
-make: Target 'freescale/imx8mn-ddr4-evk.dtb' not remade because of errors.
-make: Target 'freescale/imx8mn-bsh-smm-s2pro.dtb' not remade because of errors.
-make: Target 'freescale/imx8mq-phanbell.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-venice-gw7903.dtb' not remade because of errors.
-make: Target 'freescale/s32g274a-evb.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-ddr4-evk.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-dhcom-pdk2.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1012a-frdm.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1012a-qds.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1043a-rdb.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-phyboard-pollux-rdk.dtb' not remade because of errors.
-make: Target 'freescale/imx8qm-mek.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1088a-qds.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1088a-rdb.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-verdin-wifi-dev.dtb' not remade because of errors.
-make: Target 'freescale/imx8qm-apalis-v1.1-ixora-v1.1.dtb' not remade because of errors.
-make: Target 'freescale/imx91-tqma9131-mba91xxca.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-hummingboard-mate.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-venice-gw75xx-0x.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-venice-gw74xx.dtb' not remade because of errors.
-make: Target 'freescale/imx8qm-apalis-ixora-v1.1.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-aristainetos3-helios.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-skov-revc-bd500.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-prt8ml.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-verdin-nonwifi-dahlia.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-iot-gateway.dtb' not remade because of errors.
-make: Target 'freescale/imx8mq-librem5-r2.dtb' not remade because of errors.
-make: Target 'freescale/imx95-libra-rdk-fpsc.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1088a-ten64.dtb' not remade because of errors.
-make: Target 'freescale/imx8ulp-9x9-evk.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1028a-qds.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-verdin-wifi-dahlia.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-beacon-kit.dtb' not remade because of errors.
-make: Target 'freescale/imx91-phyboard-segin.dtb' not remade because of errors.
-make: Target 'freescale/fsl-lx2162a-qds.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1046a-tqmls1046a-mbls10xxa.dtb' not remade because of errors.
-make: Target 'freescale/imx91-11x11-evk.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-verdin-wifi-dahlia.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-evkb.dtb' not remade because of errors.
-make: Target 'freescale/imx93-tqma9352-mba93xxla.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-emcon-avari.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-edm-g-wb.dtb' not remade because of errors.
-make: Target 'freescale/imx93-11x11-evk.dtb' not remade because of errors.
-make: Target 'freescale/imx95-19x19-evk.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-hummingboard-ripple.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1012a-tqmls1012al-mbls1012al.dtb' not remade because of errors.
-make: Target 'freescale/fsl-lx2160a-clearfog-cx.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-tqma8mqml-mba8mx.dtb' not remade because of errors.
-make: Target 'freescale/imx95-19x19-verdin-evk.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-verdin-nonwifi-ivy.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-dhcom-drc02.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-toradex-smarc-dev.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-verdin-wifi-ivy.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-skov-revc-hdmi.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-tqma8mpql-mba8mp-ras314.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-verdin-nonwifi-yavia.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1012a-rdb.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1012a-frwy.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1028a-kontron-sl28-var2.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-verdin-nonwifi-mallow.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-venice-gw73xx-0x.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1043a-tqmls1043a-mbls10xxa.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-kontron-bl-osm-s.dtb' not remade because of errors.
-make: Target 'freescale/fsl-lx2160a-bluebox3-rev-a.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1088a-tqmls1088a-mbls10xxa.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-verdin-wifi-yavia.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-mx8menlo.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls2081a-rdb.dtb' not remade because of errors.
-make: Target 'freescale/imx8mq-mnt-reform2.dtb' not remade because of errors.
-make: Target 'freescale/imx8qxp-colibri-iris-v2.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls2088a-rdb.dtb' not remade because of errors.
-make: Target 'freescale/imx8mq-zii-ultra-zest.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-tqma8mpql-mba8mpxl.dtb' not remade because of errors.
-make: Target 'freescale/imx8qm-apalis-eval-v1.2.dtb' not remade because of errors.
-make: Target 'freescale/s32g274a-rdb2.dtb' not remade because of errors.
-make: Target 'freescale/imx93-phyboard-nash.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-verdin-nonwifi-dev.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-ultra-mach-sbc.dtb' not remade because of errors.
-make: Target 'freescale/imx8mn-tqma8mqnl-mba8mx.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-kontron-bl-osm-s.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls2080a-qds.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-verdin-nonwifi-ivy.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-data-modul-edm-sbc.dtb' not remade because of errors.
-make: Target 'freescale/imx8mq-librem5-r3.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls2088a-qds.dtb' not remade because of errors.
-make: Target 'freescale/imx8mq-kontron-pitx-imx8m.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-venice-gw7902.dtb' not remade because of errors.
-make: Target 'freescale/fsl-lx2160a-rdb.dtb' not remade because of errors.
-make: Target 'freescale/imx95-19x19-evk-sof.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-venice-gw82xx-2x.dtb' not remade because of errors.
-make: Target 'freescale/imx93-phyboard-segin.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-verdin-nonwifi-dev.dtb' not remade because of errors.
-make: Target 'freescale/imx8mm-kontron-bl.dtb' not remade because of errors.
-make: Target 'freescale/imx8dxp-tqma8xdp-mba8xx.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-hummingboard-pulse.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-skov-revc-jutouch-jt101tm023.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-libra-rdk-fpsc.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-venice-gw75xx-2x.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-evk.dtb' not remade because of errors.
-make: Target 'freescale/imx8qxp-colibri-eval-v3.dtb' not remade because of errors.
-make: Target 'freescale/imx943-evk.dtb' not remade because of errors.
-make: Target 'freescale/imx8qxp-colibri-aster.dtb' not remade because of errors.
-make: Target 'freescale/imx8mq-nitrogen.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-skov-basic.dtb' not remade because of errors.
-make: Target 'freescale/imx8mq-thor96.dtb' not remade because of errors.
-make: Target 'freescale/fsl-ls1028a-rdb.dtb' not remade because of errors.
-make: Target 'freescale/imx8mq-hummingboard-pulse.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-iota2-lumpy.dtb' not remade because of errors.
-make: Target 'freescale/imx8mn-venice-gw7902.dtb' not remade because of errors.
-make: Target 'freescale/imx8qxp-mek.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-skov-revc-tian-g07017.dtb' not remade because of errors.
-make: Target 'freescale/imx93-kontron-bl-osm-s.dtb' not remade because of errors.
-make: Target 'freescale/imx95-15x15-evk.dtb' not remade because of errors.
-make: Target 'freescale/imx8mp-dhcom-picoitx.dtb' not remade because of errors.
-
-
-
-
+>> [1]: https://en.wikipedia.org/wiki/Type_punning#C_and_C++
+>>
+>>>>>                 }
+>>>>>         }
+>>>>>         return 0;
+>>>>> @@ -1290,10 +1308,16 @@ static int get_config_chgs(struct perf_pmu *pmu, struct parse_events_terms *head
+>>>>>                 }
+>>>>>         }
+>>>>>
+>>>>> -     if (bits)
+>>>>> -             ADD_CONFIG_TERM_VAL(CFG_CHG, cfg_chg, bits, false);
+>>>>> +     if (bits) {
+>>>>> +             struct evsel_config_term *new_term;
+>>>>> +
+>>>>> +             new_term = add_config_term(EVSEL__CONFIG_TERM_CFG_CHG,
+>>>>> +                                        head_terms, false);
+>>>>> +             if (!new_term)
+>>>>> +                     return -ENOMEM;
+>>>>> +             new_term->val.cfg_chg = bits;
+>>>>> +     }
+>>>>>
+>>>>> -#undef ADD_CONFIG_TERM
+>>>>>         return 0;
+>>>>>     }
+>>>>>
+>>>>>
+>>>>
+>>
 
 
