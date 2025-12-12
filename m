@@ -4,65 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE720D43369
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 03:52:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC77AD4336B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 04:01:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZfzGhDiEnGOenmPU7WG7Pv+/Km9fbH7uerfFVXw5j2g=; b=tgXttWsOyP8d5AXRJRNIRM//Pd
-	IzHsdsHEB6kKPZNWe+33LloR3LYmdBY78UZO2PTnaW6k9EMXJLEHotwtIW07I/q/YkQFb3wsOZ2e5
-	FHLofxbrslLlrdsakqhj97f65mMXDZBxHJFJTwXGF16N0283libYcuMrVRs0dPBU1Fw4zYXzv5DQP
-	tGJt+RMH4v3UnM99GwydhQodOU2WiOCotQJKd9IhTU7QkDfZjulPABKueor3XsHKPUkhfdHl/cRKA
-	sH23HSVliYIjyzaE7Orn2CQwgBf4kM5OWIA/OGZr6lShHNeHhYcEDdLI1hp33jDfpbjYjPkdVBbtL
-	uPITkhEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tPLwoUwGjEHAvimSj8cQdy88azT+F1V9CLbQw5PbX84=; b=0N0oSOWyadnKtUFiKAkB/Adtqj
+	DCClsIYQbT/KMHRGOXHe2SV+uYfAUsLfcL8x1bo+JmUpd4mP1Dbyp33JjcvjSeO19MMS1IlCSiNgR
+	nPKGaLs8QagtrSnufDzAXHqKGCDR5R75WarQPf//unuWY6jOvgyHJGGdF1Ml/SBk7ubiCqct97KDC
+	7x0iOrnCrnphg4QdOpIFXxpGSLqJD/8xS8URV5aZJE5Ko1Q/aFrJLzF555nuk+sFpwnNmYiVv+4jC
+	fPZgyCs2hntZfJ7ItewSVzLgPihMjWvgTVUrcvq4vI6297KdlN1VBT8/HoLc8ssiwzHEJtETRv3KU
+	Vs2BYrew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTuD4-000000002b6-0wjf;
-	Fri, 12 Dec 2025 03:52:50 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vTuKv-000000002zJ-1lgw;
+	Fri, 12 Dec 2025 04:00:57 +0000
+Received: from canpmsgout03.his.huawei.com ([113.46.200.218])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTuD2-000000002aq-1rP4;
-	Fri, 12 Dec 2025 03:52:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7B8D260121;
-	Fri, 12 Dec 2025 03:52:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E70FC4CEF1;
-	Fri, 12 Dec 2025 03:52:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765511567;
-	bh=4aNjpdLHQX5WPy6vwTgIkcZd5b8rix/rORP2xiTO8Ko=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sB+P7XpkJ1Dp/PpeK2FJ2O+T82CuOhDGaBXmo7cR0B8RkuP36VrBm4Uyip/QaW3nl
-	 Nz8BbXrZzSOv2bJ2nZF/plsvKTfrPge0t49z0FlNLioys59JM9vRci5O3RXq9zE+O8
-	 yz9siG0TBbYh3amgXggAN5QqXyxwe24HBeYCJxy1iALO2RgC8itcWQy7GWzVs/e+AV
-	 sbCDJv4CSM8AGQB40OnlutDHJYA5NzA0yjQ6xPL96KNZUE8JHnLHTfIoELzgDlHAkK
-	 dmaOwrweQcn2rTWhQQGpb2a8HbGD7iyovS39KVSX3NimvFxoWz4RtGBk4N9JdDEeuK
-	 Ssab2LJW4WeFw==
-Date: Fri, 12 Dec 2025 12:52:35 +0900
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Niklas Cassel <cassel@kernel.org>
-Cc: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
-	Jingoo Han <jingoohan1@gmail.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Heiko Stuebner <heiko@sntech.de>, 
-	FUKAUMI Naoki <naoki@radxa.com>, linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-msm@vger.kernel.org
-Subject: Re: [PATCH v2] PCI: dwc: Make Link Up IRQ logic handle already
- powered on PCIe switches
-Message-ID: <pjn2gs43rqbe3odh6zvh4qaftxxl6qvdzpm6pgpadxeeid42ko@4a2qradscaqd>
-References: <20251201063634.4115762-2-cassel@kernel.org>
- <f1059d5d-3fa5-423a-8093-0e99b65d5f4c@oss.qualcomm.com>
- <aTev28wihes6iJqs@dhcp-10-89-81-223>
- <dad4957c-ca13-4742-b46d-03f0478911d5@oss.qualcomm.com>
- <aTe1bA7lcVzFD5L7@dhcp-10-89-81-223>
+	id 1vTuKs-000000002yh-2hs4
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 12 Dec 2025 04:00:56 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=tPLwoUwGjEHAvimSj8cQdy88azT+F1V9CLbQw5PbX84=;
+	b=c8LsiV1sC3ls4lji4WJcHUdAykhOZiXd4EVUNzayikuB2KRAtHW+AbS0eaSOrru3Pu5zAFwIF
+	9nK6mAjcNnJfWV7Cs69SRWPCHX4yIDwcyIYljpfL47dcwwmYhHk10+yPsDSYecPUhFcBYgm8+gS
+	u22GXj8SSPleEg4RF5NTFbw=
+Received: from mail.maildlp.com (unknown [172.19.163.174])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4dSFzk2MrkzpStQ;
+	Fri, 12 Dec 2025 11:58:10 +0800 (CST)
+Received: from dggpemf500011.china.huawei.com (unknown [7.185.36.131])
+	by mail.maildlp.com (Postfix) with ESMTPS id 3A948140121;
+	Fri, 12 Dec 2025 12:00:45 +0800 (CST)
+Received: from [10.67.109.254] (10.67.109.254) by
+ dggpemf500011.china.huawei.com (7.185.36.131) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 12 Dec 2025 12:00:43 +0800
+Message-ID: <051fe45b-f158-85be-3f8e-60c830fb47a2@huawei.com>
+Date: Fri, 12 Dec 2025 12:00:42 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.2.0
+Subject: Re: [PATCH v9 03/16] arm64/ptrace: Return early for
+ ptrace_report_syscall_entry() error
+Content-Language: en-US
+To: Kevin Brodsky <kevin.brodsky@arm.com>, <catalin.marinas@arm.com>,
+	<will@kernel.org>, <oleg@redhat.com>, <tglx@linutronix.de>,
+	<peterz@infradead.org>, <luto@kernel.org>, <shuah@kernel.org>,
+	<kees@kernel.org>, <wad@chromium.org>, <deller@gmx.de>, <macro@orcam.me.uk>,
+	<charlie@rivosinc.com>, <ldv@strace.io>, <mark.rutland@arm.com>,
+	<song@kernel.org>, <ryan.roberts@arm.com>, <ada.coupriediaz@arm.com>,
+	<anshuman.khandual@arm.com>, <broonie@kernel.org>, <pengcan@kylinos.cn>,
+	<dvyukov@google.com>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>
+References: <20251204082123.2792067-1-ruanjinjie@huawei.com>
+ <20251204082123.2792067-4-ruanjinjie@huawei.com>
+ <52f63e40-541f-4ed8-9d05-626eab4b39cb@arm.com>
+From: Jinjie Ruan <ruanjinjie@huawei.com>
+In-Reply-To: <52f63e40-541f-4ed8-9d05-626eab4b39cb@arm.com>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aTe1bA7lcVzFD5L7@dhcp-10-89-81-223>
+X-Originating-IP: [10.67.109.254]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ dggpemf500011.china.huawei.com (7.185.36.131)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251211_200055_297363_F95336A5 
+X-CRM114-Status: GOOD (  15.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,35 +88,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Dec 09, 2025 at 02:36:44PM +0900, Niklas Cassel wrote:
-> On Tue, Dec 09, 2025 at 10:57:18AM +0530, Krishna Chaitanya Chundru wrote:
-> > On 12/9/2025 10:42 AM, Niklas Cassel wrote:
-> > > 
-> > > So I don't really understand your concern with this series, at least not if
-> > > it goes on top of your series:
-> > > https://lore.kernel.org/linux-pci/20251124-pci-pwrctrl-rework-v1-0-78a72627683d@oss.qualcomm.com/
-> > Hi Niklas,
-> > 
-> > If this series goes on top of the our series i.e pwrctrl rework series, I
-> > don't have any concerns.
-> > My only concern is link up IRQ never fires if this patch goes before series.
-> > 
-> > - Krishna Chaitanya.
+
+
+On 2025/12/9 21:46, Kevin Brodsky wrote:
+> On 04/12/2025 09:21, Jinjie Ruan wrote:
+>> The generic entry abort the syscall_trace_enter() sequence if
+>> ptrace_report_syscall_entry() errors out, but arm64 not.
+>>
+>> As the ptrace_report_syscall_entry() comment said, the calling arch code
+>> should abort the system call and must prevent normal entry so no system
+>> call is made if ptrace_report_syscall_entry() return nonzero.
 > 
-> This patch missed the v6.19 merge window (and so did the pwrctrl rework
-> series), so as long as Mani queues up both for v6.20 (with the pwrctrl
-> rework series getting applied first), I think we are good.
+> This patch is now in the right position, which means that arm64 does
+> abort the syscall already without this patch. What we're changing here
+> is that the tracing sequence is interrupted. The comment you're
+> referring to says nothing about tracing so I'm not sure it helps to
+> refer to it.
+
+I think “must prevent normal entry ”means When ptrace requests
+interception, all subsequent processing, including audit and seccomp,
+should completely bypassed.
+
 > 
-
-The plan is to merge pwrctrl series to v6.20 (unless we get strong objections),
-but once that happens, Qcom doesn't need this patch.
-
-So it'd be good if you can just limit this patch to just Rockchip. Then once the
-Rockchip also moves to pwrctrl, we can revert this patch (also the whole IRQ
-based link up since the Root Port is not hotplug capable).
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+> Otherwise:
+> 
+> Reviewed-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> 
+>> In preparation for moving arm64 over to the generic entry code,
+>> return early if ptrace_report_syscall_entry() encounters an error.
+>>
+>> Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
+>> ---
+>>  arch/arm64/kernel/ptrace.c | 14 +++++++++-----
+>>  1 file changed, 9 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/arch/arm64/kernel/ptrace.c b/arch/arm64/kernel/ptrace.c
+>> index 4532e9831856..3926ce6aa268 100644
+>> --- a/arch/arm64/kernel/ptrace.c
+>> +++ b/arch/arm64/kernel/ptrace.c
+>> @@ -2346,15 +2346,18 @@ static __always_inline unsigned long ptrace_save_reg(struct pt_regs *regs,
+>>  	return saved_reg;
+>>  }
+>>  
+>> -static void report_syscall_entry(struct pt_regs *regs)
+>> +static int report_syscall_entry(struct pt_regs *regs)
+>>  {
+>>  	unsigned long saved_reg;
+>> -	int regno;
+>> +	int regno, ret;
+>>  
+>>  	saved_reg = ptrace_save_reg(regs, PTRACE_SYSCALL_ENTER, &regno);
+>> -	if (ptrace_report_syscall_entry(regs))
+>> +	ret = ptrace_report_syscall_entry(regs);
+>> +	if (ret)
+>>  		forget_syscall(regs);
+>>  	regs->regs[regno] = saved_reg;
+>> +
+>> +	return ret;
+>>  }
+>>  
+>>  static void report_syscall_exit(struct pt_regs *regs)
+>> @@ -2381,10 +2384,11 @@ static void report_syscall_exit(struct pt_regs *regs)
+>>  int syscall_trace_enter(struct pt_regs *regs)
+>>  {
+>>  	unsigned long flags = read_thread_flags();
+>> +	int ret;
+>>  
+>>  	if (flags & (_TIF_SYSCALL_EMU | _TIF_SYSCALL_TRACE)) {
+>> -		report_syscall_entry(regs);
+>> -		if (flags & _TIF_SYSCALL_EMU)
+>> +		ret = report_syscall_entry(regs);
+>> +		if (ret || (flags & _TIF_SYSCALL_EMU))
+>>  			return NO_SYSCALL;
+>>  	}
+>>  
+> 
 
