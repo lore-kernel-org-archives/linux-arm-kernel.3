@@ -4,98 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 036F4D59D78
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 16:24:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4973BD59D78
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 16:24:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Cc:Date:Message-Id:
-	Subject:Mime-Version:Content-Transfer-Encoding:Content-Type:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+nONJqjep5LEd4f09CvcjseCMGXyI1xL6ZMFEmMKLaw=; b=r46/oKkVZ6YvqtkTn/h37+a/BU
-	60KaEI8R8RVjgoUcNxuu7/ikpGmDbhrrUrGp9AY1C8Yh8vjDI5DOT6cD3cgWqa5Je01o1JLE/5L6k
-	9WaDZSEezVrQ6EJdqsfBQFgUYRlXvg9p+FwVIzAo8VQ3Th80ZSNL1n8Xq86ZWsWX26Kzhjrp5nvtc
-	7hWVrgkFYjbARuEMHNEADaKEF+AYcRhFm1TtW7ibiGIHdYYT/naLHHxyGCg+ofDgHgJY9RJQJ4zHr
-	Ny17D29xFJAGyzAIGTHLsACPiuT1pJROy/CG3lVNWfeABolo/bW8vAfnhom71WqJoTAXKGpPX35t6
-	oxqu+Exg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ezHisN3hNuE7lsmefksRYEKXF+Fk9qbud6C/kry26Lo=; b=SG4ycDhOSOWK/jtngQSVgq+9xJ
+	G7Mjg+Op2P5eI9oWZjuTyi0KVEMS4/4eCzFwSE7KPKh5IZyXs5Va6OCUNAjLLA9hSHfWKP14KhEXX
+	DcskrOcy5UiAMRlZIUdOPeo/mij9ZWJy3+Zqdg4GAyvn5PB4dGhJOFPzPaQ+tteHh5fcXN1iXjHWX
+	LGLa3eV3ypoUASeJ6T29ZMCsWl7agsl2Jqi2mCKSaYKWuPb/tu0VITANXRbMLvZHhpZr3ODf7B/Oi
+	nX5gQGM2PWoLBo5XXUskU941v8Kn6e8zDLJo55qnewCeqjTuHYQ5Lzd/cMGyjaxz+PUDXfHqXnr2h
+	ldSrZdug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU5vv-00000000pnl-2toJ;
-	Fri, 12 Dec 2025 16:23:55 +0000
-Received: from m1-out-mua-15.websupport.sk ([45.13.137.24])
+	id 1vU5wE-00000000pse-3REx;
+	Fri, 12 Dec 2025 16:24:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU5vs-00000000pnJ-3pgb;
-	Fri, 12 Dec 2025 16:23:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=probably.group;
-	s=mail; t=1765556627;
-	bh=+nONJqjep5LEd4f09CvcjseCMGXyI1xL6ZMFEmMKLaw=;
-	h=From:Subject:Date:Cc:To:From;
-	b=B+IKY976kgdpzNFohYgSqkuTAHhovcbQRC12kMyzNpArJuTWkROGd1dFBsplmqoo3
-	 BWnZlQfF6SvoZQJwDcdkODjA30KTWi1/YMIMABYKovtOXfa7WW59uM5OwjfNDe9l62
-	 TpJgEE14ceCNbqt8A+OjVbiPwIB+T4uAW45K0K/+OtP1iTFF6UDygBlzcHB4CrffDr
-	 65rl3ukvcLvtvA8rGj7dJB3/8aM3wNI7XqRCG72GAWULzHd1q0HgGhDFLB5EjVH6kv
-	 dOO7rTI8gzbhrPZdbbVUvJgpCkXZOFWpW93RMPBr/G5JUa+GlWgGgEdcXXq6wPYG16
-	 1b1x5llcZE+Dw==
-Received: from m1-u5-ing.websupport.sk (unknown [10.30.5.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	by m1-out-mua-15.websupport.sk (Postfix) with ESMTPS id 4dSZX30SCHz1N1L;
-	Fri, 12 Dec 2025 17:23:47 +0100 (CET)
-X-Authenticated-Sender: mh@probably.group
-Authentication-Results: m1-u5-ing.websupport.sk;
-	auth=pass smtp.auth=mh@probably.group smtp.mailfrom=mh@probably.group
-Received: from smtpclient.apple (unknown [109.164.127.134])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	(Authenticated sender: mh@probably.group)
-	by m1-u5-ing.websupport.sk (Postfix) with ESMTPSA id 4dSZX21BWdzGMVD;
-	Fri, 12 Dec 2025 17:23:45 +0100 (CET)
-From: =?utf-8?B?Ik1hcnRpbiBIb2xvdnNrw70gKFByb2JhYmx5IE5vdGhpbmcgcy5yLm8u?=
- =?utf-8?B?KSI=?= <mh@probably.group>
-Content-Type: text/plain;
-	charset=us-ascii
-Content-Transfer-Encoding: quoted-printable
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.200.81.1.6\))
-Subject: [PATCH] arm64: dts: rockchip: enable dual 2.5GbE on Rock 5T
-Message-Id: <96516D1F-9787-47FE-A67E-4745D11D9207@probably.group>
-Date: Fri, 12 Dec 2025 17:23:35 +0100
-Cc: Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-To: Heiko Stuebner <heiko@sntech.de>
-X-Mailer: Apple Mail (2.3864.200.81.1.6)
-X-Out-Spamd-Result: default: False [0.40 / 1000.00];
-	MV_CASE(0.50)[];
-	MIME_GOOD(-0.10)[text/plain];
-	TAGGED_RCPT(0.00)[dt];
-	RCVD_COUNT_ZERO(0.00)[0];
-	FROM_HAS_DN(0.00)[];
-	ASN(0.00)[asn:44489, ipnet:109.164.0.0/17, country:CZ];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_SEVEN(0.00)[8];
-	HAS_X_AS(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	MIME_TRACE(0.00)[0:+]
-X-Out-Rspamd-Queue-Id: 4dSZX21BWdzGMVD
-X-Rspamd-Action: no action
-X-Out-Rspamd-Server: m1-rspamd-out-5
-X-purgate-type: clean
-X-purgate-Ad: Categorized by eleven eXpurgate (R) https://www.eleven.de
-X-purgate: This mail is considered clean (visit https://www.eleven.de for further information)
-X-purgate: clean
-X-purgate-size: 2219
-X-purgate-ID: 155908::1765556627-C232F043-832C1352/0/0
+	id 1vU5wA-00000000pr3-18mc
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 12 Dec 2025 16:24:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5F82343AC8;
+	Fri, 12 Dec 2025 16:24:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34B85C4CEF1;
+	Fri, 12 Dec 2025 16:24:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765556649;
+	bh=GdsBH8+ZvQAlqwjeL41Ytv9iQZSSG1XeBSd8y2Nuj3g=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=tr/h20KlJjOfsOsPHUZWjCGxLvpm0XkUydGWD13NXIvpZVvh1VKNgG8il008IHDS5
+	 K1qfySkQU3i+Uddgkxg40cVb9NwqsrJ7TxhdFgSAvXsuGfrHaQLv4q6YBvN6vpCtpr
+	 xUPSLOmbmKENf9kW+uFRAusmSwWSdHbS975PKI4WjPnK738jlpJ80Mu508ONLrwmeF
+	 sR8OIlxe4LK/RDAWNtwQG+mjckeylT5XBlWRNxUfFwEqg3IvWhKkLiD7VghtzrSlk8
+	 szzyTNRyjXr+11LRM5ZkXXh9EXTj+kdW2WFe4RH2we4OJ/RBd/1nTilzFx3CUudNP9
+	 BgCZDQ4rr1jvg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vU5w6-0000000CHKQ-3OvS;
+	Fri, 12 Dec 2025 16:24:06 +0000
+Date: Fri, 12 Dec 2025 16:24:06 +0000
+Message-ID: <86o6o3oehl.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sascha Bischoff <Sascha.Bischoff@arm.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
+	nd <nd@arm.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	Joey Gouly
+	<Joey.Gouly@arm.com>,
+	Suzuki Poulose <Suzuki.Poulose@arm.com>,
+	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"peter.maydell@linaro.org"
+	<peter.maydell@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	Timothy Hayes <Timothy.Hayes@arm.com>
+Subject: Re: [PATCH 09/32] KVM: arm64: gic-v5: Compute GICv5 FGTs on vcpu load
+In-Reply-To: <20251212152215.675767-10-sascha.bischoff@arm.com>
+References: <20251212152215.675767-1-sascha.bischoff@arm.com>
+	<20251212152215.675767-10-sascha.bischoff@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Sascha.Bischoff@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, kvm@vger.kernel.org, nd@arm.com, oliver.upton@linux.dev, Joey.Gouly@arm.com, Suzuki.Poulose@arm.com, yuzenghui@huawei.com, peter.maydell@linaro.org, lpieralisi@kernel.org, Timothy.Hayes@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_082353_223968_991ED887 
-X-CRM114-Status: GOOD (  11.45  )
+X-CRM114-CacheID: sfid-20251212_082410_352388_B809C0D4 
+X-CRM114-Status: GOOD (  19.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,81 +97,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Radxa Rock 5T board features two RTL8125B 2.5GbE Ethernet =
-controllers
-connected via PCIe lanes pcie2x1l0 (fe170000) and pcie2x1l2 (fe190000).
-Currently only one interface is functional because the PCIe controller
-nodes lack the necessary reset GPIO configuration.
+On Fri, 12 Dec 2025 15:22:38 +0000,
+Sascha Bischoff <Sascha.Bischoff@arm.com> wrote:
+> 
+> Extend the existing FGT infrastructure to calculate and activate any
+> required GICv5 traps (ICH_HFGRTR_EL2, ICH_HFGWTR_EL2, ICH_HFGITR_EL2)
+> before entering the guest, and restore the original ICH_HFGxTR_EL2
+> contents on the return path. This ensures that the host and guest
+> behaviour remains independent.
+> 
+> As of this change, none of the GICv5 instructions or register accesses
+> are being trapped, but this will change in subsequent commits as some
+> GICv5 system registers must always be trapped (ICC_IAFFIDR_EL1,
+> ICH_PPI_HMRx_EL1).
 
-Without the reset-gpios property, the RTL8125B PHYs remain in reset =
-state
-and are not enumerated by the PCIe bus. This results in only one =
-Ethernet
-interface being detected, or none at all depending on U-Boot =
-initialization.
+nit: 90% of this patch has nothing to do with computing the FGTs at
+load time. The gist of it is actually setting up the FGT
+infrastructure, and activate/deactivate aspect is actually very
+minor. You may want to reformulate the commit message to make that
+clearer (I don't think this needs splitting though).
 
-This patch adds the missing configuration for both PCIe controllers:
-- Enables both pcie2x1l0 and pcie2x1l2 nodes (status =3D "okay")
-- Configures reset GPIOs (GPIO4_PA5 and GPIO3_PB0 respectively)
-- Adds corresponding pinctrl definitions
+[...]
 
-With this change, both 2.5GbE interfaces are properly detected and
-functional on the Rock 5T.
+> @@ -1501,7 +1585,7 @@ static void __compute_hdfgwtr(struct kvm_vcpu *vcpu)
+>  void kvm_vcpu_load_fgt(struct kvm_vcpu *vcpu)
+>  {
+>  	if (!cpus_have_final_cap(ARM64_HAS_FGT))
+> -		return;
+> +		goto skip_feat_fgt;
 
-Tested on Radxa Rock 5T v1.2 running Linux 6.12.
+How can you have GICv5, but not FGTs? I don't think this is a valid
+construct as per the architecture:
 
+	(FEAT_GCIE ==> v9Ap3)
+	(FEAT_FGT ==> v8Ap5)
+	(v9Ap3 ==> (v9Ap2 && v8Ap8))
 
----
- .../boot/dts/rockchip/rk3588-rock-5t.dts      | 23 +++++++++++++++++++
- 1 file changed, 23 insertions(+)
+>  
+>  	__compute_fgt(vcpu, HFGRTR_EL2);
+>  	__compute_hfgwtr(vcpu);
+> @@ -1511,11 +1595,19 @@ void kvm_vcpu_load_fgt(struct kvm_vcpu *vcpu)
+>  	__compute_fgt(vcpu, HAFGRTR_EL2);
+>  
+>  	if (!cpus_have_final_cap(ARM64_HAS_FGT2))
+> -		return;
+> +		goto skip_feat_fgt;
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts =
-b/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts
-index 0dd90c744380..aeb8e0d42f09 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts
-@@ -68,6 +68,20 @@ &pcie2x1l1 {
- 	status =3D "okay";
- };
-=20
-+&pcie2x1l0 {
-+	pinctrl-names =3D "default";
-+	pinctrl-0 =3D <&pcie2_0_rst>;
-+	reset-gpios =3D <&gpio4 RK_PA5 GPIO_ACTIVE_HIGH>;
-+	status =3D "okay";
-+};
-+
-+&pcie2x1l2 {
-+	pinctrl-names =3D "default";
-+	pinctrl-0 =3D <&pcie2_2_rst>;
-+	reset-gpios =3D <&gpio3 RK_PB0 GPIO_ACTIVE_HIGH>;
-+	status =3D "okay";
-+};
-+
- &pcie30phy {
- 	data-lanes =3D <1 1 2 2>;
- };
-@@ -101,6 +115,15 @@ pcie2 {
- 		pcie2_1_rst: pcie2-1-rst {
- 			rockchip,pins =3D <4 RK_PA2 RK_FUNC_GPIO =
-&pcfg_pull_none>;
- 		};
-+
-+		pcie2_0_rst: pcie2-0-rst {
-+			rockchip,pins =3D <4 RK_PA5 RK_FUNC_GPIO =
-&pcfg_pull_none>;
-+		};
-+
-+		pcie2_2_rst: pcie2-2-rst {
-+			rockchip,pins =3D <3 RK_PB0 RK_FUNC_GPIO =
-&pcfg_pull_none>;
-+		};
-+
- 		pcie2_0_vcc3v3_en: pcie2-0-vcc-en {
- 			rockchip,pins =3D <2 RK_PC0 RK_FUNC_GPIO =
-&pcfg_pull_none>;
- 		};
---=20
-2.52.0
+Even FGT2 is expected, since v9.3 is congruent to v8.8:
 
+	(FEAT_FGT2 ==> v8Ap8)
+
+>  
+>  	__compute_fgt(vcpu, HFGRTR2_EL2);
+>  	__compute_fgt(vcpu, HFGWTR2_EL2);
+>  	__compute_fgt(vcpu, HFGITR2_EL2);
+>  	__compute_fgt(vcpu, HDFGRTR2_EL2);
+>  	__compute_fgt(vcpu, HDFGWTR2_EL2);
+> +
+> +skip_feat_fgt:
+> +	if (!cpus_have_final_cap(ARM64_HAS_GICV5_CPUIF))
+> +		return;
+> +
+> +	__compute_fgt(vcpu, ICH_HFGRTR_EL2);
+> +	__compute_fgt(vcpu, ICH_HFGWTR_EL2);
+> +	__compute_fgt(vcpu, ICH_HFGITR_EL2);
+>  }
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
