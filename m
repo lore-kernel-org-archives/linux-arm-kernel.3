@@ -4,104 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B870D4922D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 14:44:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EF19D49234
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 14:46:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UHks+Tz5Tz1S6b0QtdZfqGNmwtHIR1PhIe2ld/ROsMY=; b=axdNl2mv/D4dBQrPLBn+4nwffj
-	/g0kTHO6+kzvsEH21UeWUnnqnMTlirPTPUntpu/gxzQ/gvR8OIGt8L3CGuigBxjLwyFqJQ26vaOWU
-	dSo4j0esvcTIDABDIbLhLBE4jxMPnS+rNFenlw2U30TZAfh08+aLS5gGXkaJ5XTCuND36W31xT1wM
-	VsaoxdHzTGG1TzChY1voIQKYBXlHgKl2TCKutCqXiEYWlSDd7cf7gonvbfJ3ZTq0/hxM40OekRChk
-	ZDxHvRtODmfQRfpNXPehr9KuyeiaeJnBRVE9ODsEzQ5WxuKN7A2/LRLyhHSYYUjXdsiFQDTIP1g16
-	N2eMTLyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yLCbjxHd3JePZY9d0bk2dJVpott5rtOluFwDLG0JMHY=; b=hbMD4EWpUPwuHsuNHJ/6Q/IgTB
+	lohAu42OWQYMP5qfXcBYQWyNqMrBrxT1XipL4VgNcyZ6zsLHMvH/KvonoVF95ZZCR4DO4j6iFlm6s
+	kXbdKmhLSkdJWIWlJCpj7Iq5/Az6cMhHzxaiu/QHpg5mRFYi5EWTnJA9AybT5ONok2aEEB9+D06mm
+	GYF5x0/OaPbXmXS92MxzrtPjRjlMqBnc292NS+P03txd+aDjyI5N5jhHARrfjcUDxLAYZdg8C1KKS
+	BB12LrtqD7rAZYcQc4vSMfqTGreMS2zOgkjABRwDgFwHmRtYb4O+dnRQ+FK/3VBbvYvF1pev8bi4i
+	2dw2BBMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU4NI-00000000cws-3sVD;
-	Fri, 12 Dec 2025 14:44:04 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1vU4P6-00000000d4h-1sAZ;
+	Fri, 12 Dec 2025 14:45:56 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU4NG-00000000cwN-23jo
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 14:44:04 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-b770f4accc0so226415666b.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Dec 2025 06:44:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765550640; x=1766155440; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=UHks+Tz5Tz1S6b0QtdZfqGNmwtHIR1PhIe2ld/ROsMY=;
-        b=FLB+S68CLgOLifafwSfqK8aWeEjJuYpzn6Yp8HMmH8O4QqbGpTw6dRzMziWIh84/Ox
-         RZY+y87cpbF38pTIkfuqFcwTKrzYXT1IeUEx93U9gaXs2a+fMwmhjYr9uVOZv0iIbZtp
-         j/aPz7txAgAuXc6YTjv36B3AawYw3CDtadNs8Jc/EiruHqN/qC1n6HHNnV/r5ktod3e8
-         1kiXkxkKrec4QI6sc18Dz6BmYf0lB6tIA2mjKV7Y5SDKRYtLQojfuDufYXAGPz4o4LVw
-         lcq9+zhCcV2mvOLgx4XYBG+BSvXGXV94NuQ0nsNHLrTgSmWIEmHIWKBxMj7OksBRhZ7B
-         fa5Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765550640; x=1766155440;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UHks+Tz5Tz1S6b0QtdZfqGNmwtHIR1PhIe2ld/ROsMY=;
-        b=BQ1WVfBbvGEVuKNdTfOv9gy8qQcuUPAItroSp8Uv0NKK2SsCsHtFY/Ha2EvlAL9Yq8
-         /EQEEiGlAQnkkL5775mVgbtK8zFD/C9PijYHL7ZauvnBysiAqjwwjhUnyPB3+Fvbnx4I
-         SAYNkvqrtvYJALRESby5EStpJVUJKVhqbEbjypKdYZbIeplfq+9Hk9YJlhttghjaqylJ
-         Gd9RZvxfdbyOLNz3tpaEZNyhZN6pbcB7q5nYSWw1t+uWUIO0vPWiI3iIxxWa+ODOqvkw
-         bOUwZXrzThg4Su9vzaPc1/pN2YbFYU6t6P03zfUwRXkcwTVKAAt1rC5bLoFwWkhVqWGP
-         pzfQ==
-X-Forwarded-Encrypted: i=1; AJvYcCULvhZW9d5t6+3gIt6+rqT5XJSJyDysuc259P/bYV7Js6G59/Res8UWftpzsIVmBggauhyR56sjgDJZ9jXq1Kt/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzjcS6v6MyOhQrVEsIN+q7DC3gQJQPjkeVxLQo76nsEULAzBpfi
-	2V5dQE/Zc2B0Ky54E3lFFwuhH0gJjIi9Mm3siWOBdBQNFbrqPbib5LOE7gwokKSvJJI=
-X-Gm-Gg: AY/fxX6/x0D4hM6ic2KBWOdRuqq33JBkqMFJaw3+cgtvFaARcdyLPxdUMqbZdSkWR8q
-	Bzt8K6i9VzdcclHYCoTzROK8ymOuGs8xGt/G8Dm8XgehoaSlAVWfFczDgvjteDS/XJiPThMIQQO
-	kTctirDaCNiGl76ADWKYRAe/oYEX7s50azWQFFUBL90SqXrvu2sEG4Jr+GtyffWeiR0svpv29Kp
-	f6c2Tc8UdQ+R2FBFu0D8LaY9IfbWSJabHY94t1sAwDaCU8NfWodyH1IRIeISf8gTT6xVM7VZgOD
-	n0Svh5oLo1+lv5+8Wk7uSGSD9ZLMbK612b5/ivvRgDsXLjSN1eadnd/LH3C6LIv8w1tsLMzim5P
-	yql7LNNWA4yljWdVTg6VDidl1hcpL2RJbzzUQeYv55qho8ToCd3rPNARba4PBT+6lmlBZvy6s9l
-	zgUWRNkD+z16KLeAGplBhr
-X-Google-Smtp-Source: AGHT+IE3svTtW70pxSeY9K0szvV0szRg7UnbT0HaZetFEyEZG4iGhZlbXeVU+9M6CTK3kAp5gnBY8g==
-X-Received: by 2002:a17:907:8694:b0:b73:1e09:7377 with SMTP id a640c23a62f3a-b7d23aa5631mr230371666b.58.1765550639940;
-        Fri, 12 Dec 2025 06:43:59 -0800 (PST)
-Received: from [192.168.0.108] ([130.185.218.160])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b7cfa29be92sm574681666b.10.2025.12.12.06.43.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 12 Dec 2025 06:43:59 -0800 (PST)
-Message-ID: <99e9614d-a956-40dc-a86b-a4c5aea0fe8a@linaro.org>
-Date: Fri, 12 Dec 2025 16:43:57 +0200
+	id 1vU4P4-00000000d4E-2Lol;
+	Fri, 12 Dec 2025 14:45:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1765550718; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=mLYsCPIEoEc8Cr72RwqmUED2y0IXBvLk3iq9bbiio6n2klgz6hEBIjz3kpqd7wHuZ1YcxGGeQqUFqba6E2wOQcQ0M8Rgk4paK7ECbcW9QBMJ4ywUee3U/WxHzRfjNuGcJ79pi5vf6nZKpSzvCn6BsHTi2aBvt3oAH3vjdPB/cy4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1765550718; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=yLCbjxHd3JePZY9d0bk2dJVpott5rtOluFwDLG0JMHY=; 
+	b=Pw0qhXc+MK5uCnO8utL49AHHfFeDH/mN7oFHwYjWNA8NY/s7/oDtaJdZhYdFEm65T3KtvOf2afds8WXu2hEEGVBeFfzk8XYskr5oPbgxuX54KM0JJp9Y3Z/21IbOO8AVLW0SvFZv8Ye0ad2TOM5S4kI5IZ0drHpvh8MDFJUnyvo=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765550718;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=yLCbjxHd3JePZY9d0bk2dJVpott5rtOluFwDLG0JMHY=;
+	b=WEURroe4KzFmp3qtxUJtYQ2//qLd5ebc0POtVGlpLyhvI+2Ddi4KiJCUnFY8q9Me
+	Ge2SGeJTmZkER1OsM1YUb2VMBkAN4a829RqFOmBWG/WYSSOu97vwoWQ7oURVV1Yqg2Q
+	ousABi9E/4SBqBnjXpfnbZSmw3bsoWCXUFHXAw4Q=
+Received: by mx.zohomail.com with SMTPS id 17655507158241002.007523871685;
+	Fri, 12 Dec 2025 06:45:15 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
+ Rodrigo Siqueira <siqueira@igalia.com>,
+ Alex Deucher <alexander.deucher@amd.com>,
+ Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Sandy Huang <hjc@rock-chips.com>,
+ Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Jani Nikula <jani.nikula@linux.intel.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>,
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+ Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ kernel@collabora.com, amd-gfx@lists.freedesktop.org,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org
+Subject: Re: [PATCH v5 04/17] drm/bridge: Act on the DRM color format property
+Date: Fri, 12 Dec 2025 15:45:05 +0100
+Message-ID: <2747638.atdPhlSkOF@workhorse>
+In-Reply-To: <20251212-hidden-armored-mule-66dd32@penduick>
+References: <20251128-color-format-v5-0-63e82f1db1e1@collabora.com>
+ <3772903.e9J7NaK4W3@workhorse> <20251212-hidden-armored-mule-66dd32@penduick>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/12] perf parse-events: Refactor get_config_terms()
- to remove macros
-To: Ian Rogers <irogers@google.com>
-Cc: Linux perf Profiling <linux-perf-users@vger.kernel.org>,
- linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, Peter Zijlstra <peterz@infradead.org>,
- Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
- Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
- <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>,
- Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>, leo.yan@arm.com
-References: <20251208-james-perf-config-bits-v2-0-4ac0281993b0@linaro.org>
- <20251208-james-perf-config-bits-v2-1-4ac0281993b0@linaro.org>
- <6ba6bde3-f56b-4354-b336-4739cb1edb71@linaro.org>
- <CAP-5=fV_Y5W2RyJhBgnk49JuTf8EsyisY-LfL3sVhC4TVRC_gg@mail.gmail.com>
- <d275d2fb-8670-4832-b9c4-de98376e58ad@linaro.org>
- <CAP-5=fW6_MVrezxT6ssjhWnYtF_51nvuFCCSPaHzqwYw9EK4Wg@mail.gmail.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <CAP-5=fW6_MVrezxT6ssjhWnYtF_51nvuFCCSPaHzqwYw9EK4Wg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_064402_709407_C802327A 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20251212_064554_661094_3EC590BE 
+X-CRM114-Status: GOOD (  68.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,305 +97,255 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 09/12/2025 20:09, Ian Rogers wrote:
-> On Tue, Dec 9, 2025 at 9:55 AM James Clark <james.clark@linaro.org> wrote:
->>
->> On 09/12/2025 15:58, Ian Rogers wrote:
->>> On Tue, Dec 9, 2025 at 4:48 AM James Clark <james.clark@linaro.org> wrote:
->>>>
->>>> On 08/12/2025 2:22 pm, James Clark wrote:
->>>>> The ADD_CONFIG_TERM() macros build the __type argument out of a partial
->>>>> EVSEL__CONFIG_TERM_x enum name. This means that they can't be called
->>>>> from a function where __type is a variable and it's also impossible to
->>>>> grep the codebase to find usages of these enums as they're never typed
->>>>> in full.
->>>>>
->>>>> Fix this by removing the macros and replacing them with an
->>>>> add_config_term() function. It seems the main reason these existed in
->>>>> the first place was to avoid type punning and to write to a specific
->>>>> field in the union, but the same thing can be achieved with a single
->>>>> write to a u64 'val' field.
->>>>>
->>>>> Signed-off-by: James Clark <james.clark@linaro.org>
->>>>> ---
->>>>>     tools/perf/util/evsel_config.h |   1 +
->>>>>     tools/perf/util/parse-events.c | 146 ++++++++++++++++++++++++-----------------
->>>>>     2 files changed, 86 insertions(+), 61 deletions(-)
->>>>>
->>>>> diff --git a/tools/perf/util/evsel_config.h b/tools/perf/util/evsel_config.h
->>>>> index bcd3a978f0c4..685fd8d5c4a8 100644
->>>>> --- a/tools/perf/util/evsel_config.h
->>>>> +++ b/tools/perf/util/evsel_config.h
->>>>> @@ -50,6 +50,7 @@ struct evsel_config_term {
->>>>>                 u64           cfg_chg;
->>>>>                 char          *str;
->>>>>                 int           cpu;
->>>>> +             u64           val;
->>>>>         } val;
->>>>>         bool weak;
->>>>>     };
->>>>> diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
->>>>> index 17c1c36a7bf9..d5b009b4ebab 100644
->>>>> --- a/tools/perf/util/parse-events.c
->>>>> +++ b/tools/perf/util/parse-events.c
->>>>> @@ -1116,105 +1116,107 @@ static int config_attr(struct perf_event_attr *attr,
->>>>>         return 0;
->>>>>     }
->>>>>
->>>>> -static int get_config_terms(const struct parse_events_terms *head_config,
->>>>> -                         struct list_head *head_terms)
->>>>> +static struct evsel_config_term *add_config_term(enum evsel_term_type type,
->>>>> +                                              struct list_head *head_terms,
->>>>> +                                              bool weak)
->>>>>     {
->>>>> -#define ADD_CONFIG_TERM(__type, __weak)                              \
->>>>> -     struct evsel_config_term *__t;                  \
->>>>> -                                                             \
->>>>> -     __t = zalloc(sizeof(*__t));                             \
->>>>> -     if (!__t)                                               \
->>>>> -             return -ENOMEM;                                 \
->>>>> -                                                             \
->>>>> -     INIT_LIST_HEAD(&__t->list);                             \
->>>>> -     __t->type       = EVSEL__CONFIG_TERM_ ## __type;        \
->>>>> -     __t->weak       = __weak;                               \
->>>>> -     list_add_tail(&__t->list, head_terms)
->>>>> -
->>>>> -#define ADD_CONFIG_TERM_VAL(__type, __name, __val, __weak)   \
->>>>> -do {                                                         \
->>>>> -     ADD_CONFIG_TERM(__type, __weak);                        \
->>>>> -     __t->val.__name = __val;                                \
->>>>> -} while (0)
->>>>> +     struct evsel_config_term *t;
->>>>>
->>>>> -#define ADD_CONFIG_TERM_STR(__type, __val, __weak)           \
->>>>> -do {                                                         \
->>>>> -     ADD_CONFIG_TERM(__type, __weak);                        \
->>>>> -     __t->val.str = strdup(__val);                           \
->>>>> -     if (!__t->val.str) {                                    \
->>>>> -             zfree(&__t);                                    \
->>>>> -             return -ENOMEM;                                 \
->>>>> -     }                                                       \
->>>>> -     __t->free_str = true;                                   \
->>>>> -} while (0)
->>>>> +     t = zalloc(sizeof(*t));
->>>>> +     if (!t)
->>>>> +             return NULL;
->>>>> +
->>>>> +     INIT_LIST_HEAD(&t->list);
->>>>> +     t->type = type;
->>>>> +     t->weak = weak;
->>>>> +     list_add_tail(&t->list, head_terms);
->>>>>
->>>>> +     return t;
->>>>> +}
->>>>> +
->>>>> +static int get_config_terms(const struct parse_events_terms *head_config,
->>>>> +                         struct list_head *head_terms)
->>>>> +{
->>>>>         struct parse_events_term *term;
->>>>>
->>>>>         list_for_each_entry(term, &head_config->terms, list) {
->>>>> +             struct evsel_config_term *new_term;
->>>>> +             enum evsel_term_type new_type;
->>>>> +             char *str = NULL;
->>>>> +             u64 val;
->>>>> +
->>>>>                 switch (term->type_term) {
->>>>>                 case PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD:
->>>>> -                     ADD_CONFIG_TERM_VAL(PERIOD, period, term->val.num, term->weak);
->>>>> +                     new_type = EVSEL__CONFIG_TERM_PERIOD;
->>>>> +                     val = term->val.num;
->>>>>                         break;
->>>>>                 case PARSE_EVENTS__TERM_TYPE_SAMPLE_FREQ:
->>>>> -                     ADD_CONFIG_TERM_VAL(FREQ, freq, term->val.num, term->weak);
->>>>> +                     new_type = EVSEL__CONFIG_TERM_FREQ;
->>>>> +                     val = term->val.num;
->>>>>                         break;
->>>>>                 case PARSE_EVENTS__TERM_TYPE_TIME:
->>>>> -                     ADD_CONFIG_TERM_VAL(TIME, time, term->val.num, term->weak);
->>>>> +                     new_type = EVSEL__CONFIG_TERM_TIME;
->>>>> +                     val = term->val.num;
->>>>>                         break;
->>>>>                 case PARSE_EVENTS__TERM_TYPE_CALLGRAPH:
->>>>> -                     ADD_CONFIG_TERM_STR(CALLGRAPH, term->val.str, term->weak);
->>>>> +                     new_type = EVSEL__CONFIG_TERM_CALLGRAPH;
->>>>> +                     str = term->val.str;
->>>>>                         break;
->>>>>                 case PARSE_EVENTS__TERM_TYPE_BRANCH_SAMPLE_TYPE:
->>>>> -                     ADD_CONFIG_TERM_STR(BRANCH, term->val.str, term->weak);
->>>>> +                     new_type = EVSEL__CONFIG_TERM_BRANCH;
->>>>> +                     str = term->val.str;
->>>>>                         break;
->>>>>                 case PARSE_EVENTS__TERM_TYPE_STACKSIZE:
->>>>> -                     ADD_CONFIG_TERM_VAL(STACK_USER, stack_user,
->>>>> -                                         term->val.num, term->weak);
->>>>> +                     new_type = EVSEL__CONFIG_TERM_STACK_USER;
->>>>> +                     val = term->val.num;
->>>>>                         break;
->>>>>                 case PARSE_EVENTS__TERM_TYPE_INHERIT:
->>>>> -                     ADD_CONFIG_TERM_VAL(INHERIT, inherit,
->>>>> -                                         term->val.num ? 1 : 0, term->weak);
->>>>> +                     new_type = EVSEL__CONFIG_TERM_INHERIT;
->>>>> +                     val = term->val.num ? 1 : 0;
->>>>>                         break;
->>>>>                 case PARSE_EVENTS__TERM_TYPE_NOINHERIT:
->>>>> -                     ADD_CONFIG_TERM_VAL(INHERIT, inherit,
->>>>> -                                         term->val.num ? 0 : 1, term->weak);
->>>>> +                     new_type = EVSEL__CONFIG_TERM_INHERIT;
->>>>> +                     val = term->val.num ? 0 : 1;
->>>>>                         break;
->>>>>                 case PARSE_EVENTS__TERM_TYPE_MAX_STACK:
->>>>> -                     ADD_CONFIG_TERM_VAL(MAX_STACK, max_stack,
->>>>> -                                         term->val.num, term->weak);
->>>>> +                     new_type = EVSEL__CONFIG_TERM_MAX_STACK;
->>>>> +                     val = term->val.num;
->>>>>                         break;
->>>>>                 case PARSE_EVENTS__TERM_TYPE_MAX_EVENTS:
->>>>> -                     ADD_CONFIG_TERM_VAL(MAX_EVENTS, max_events,
->>>>> -                                         term->val.num, term->weak);
->>>>> +                     new_type = EVSEL__CONFIG_TERM_MAX_EVENTS;
->>>>> +                     val = term->val.num;
->>>>>                         break;
->>>>>                 case PARSE_EVENTS__TERM_TYPE_OVERWRITE:
->>>>> -                     ADD_CONFIG_TERM_VAL(OVERWRITE, overwrite,
->>>>> -                                         term->val.num ? 1 : 0, term->weak);
->>>>> +                     new_type = EVSEL__CONFIG_TERM_OVERWRITE;
->>>>> +                     val = term->val.num ? 1 : 0;
->>>>>                         break;
->>>>>                 case PARSE_EVENTS__TERM_TYPE_NOOVERWRITE:
->>>>> -                     ADD_CONFIG_TERM_VAL(OVERWRITE, overwrite,
->>>>> -                                         term->val.num ? 0 : 1, term->weak);
->>>>> +                     new_type = EVSEL__CONFIG_TERM_OVERWRITE;
->>>>> +                     val = term->val.num ? 0 : 1;
->>>>>                         break;
->>>>>                 case PARSE_EVENTS__TERM_TYPE_DRV_CFG:
->>>>> -                     ADD_CONFIG_TERM_STR(DRV_CFG, term->val.str, term->weak);
->>>>> +                     new_type = EVSEL__CONFIG_TERM_DRV_CFG;
->>>>> +                     str = term->val.str;
->>>>>                         break;
->>>>>                 case PARSE_EVENTS__TERM_TYPE_PERCORE:
->>>>> -                     ADD_CONFIG_TERM_VAL(PERCORE, percore,
->>>>> -                                         term->val.num ? true : false, term->weak);
->>>>> +                     new_type = EVSEL__CONFIG_TERM_PERCORE;
->>>>> +                     val = term->val.num ? true : false;
->>>>>                         break;
->>>>>                 case PARSE_EVENTS__TERM_TYPE_AUX_OUTPUT:
->>>>> -                     ADD_CONFIG_TERM_VAL(AUX_OUTPUT, aux_output,
->>>>> -                                         term->val.num ? 1 : 0, term->weak);
->>>>> +                     new_type = EVSEL__CONFIG_TERM_AUX_OUTPUT;
->>>>> +                     val = term->val.num ? 1 : 0;
->>>>>                         break;
->>>>>                 case PARSE_EVENTS__TERM_TYPE_AUX_ACTION:
->>>>> -                     ADD_CONFIG_TERM_STR(AUX_ACTION, term->val.str, term->weak);
->>>>> +                     new_type = EVSEL__CONFIG_TERM_AUX_ACTION;
->>>>> +                     str = term->val.str;
->>>>>                         break;
->>>>>                 case PARSE_EVENTS__TERM_TYPE_AUX_SAMPLE_SIZE:
->>>>> -                     ADD_CONFIG_TERM_VAL(AUX_SAMPLE_SIZE, aux_sample_size,
->>>>> -                                         term->val.num, term->weak);
->>>>> +                     new_type = EVSEL__CONFIG_TERM_AUX_SAMPLE_SIZE;
->>>>> +                     val = term->val.num;
->>>>>                         break;
->>>>>                 case PARSE_EVENTS__TERM_TYPE_RATIO_TO_PREV:
->>>>> -                     ADD_CONFIG_TERM_STR(RATIO_TO_PREV, term->val.str, term->weak);
->>>>> +                     new_type = EVSEL__CONFIG_TERM_RATIO_TO_PREV;
->>>>> +                     str = term->val.str;
->>>>>                         break;
->>>>>                 case PARSE_EVENTS__TERM_TYPE_USER:
->>>>>                 case PARSE_EVENTS__TERM_TYPE_CONFIG:
->>>>> @@ -1229,7 +1231,23 @@ do {                                                           \
->>>>>                 case PARSE_EVENTS__TERM_TYPE_RAW:
->>>>>                 case PARSE_EVENTS__TERM_TYPE_CPU:
->>>>>                 default:
->>>>> -                     break;
->>>>> +                     /* Don't add a new term for these ones */
->>>>> +                     continue;
->>>>> +             }
->>>>> +
->>>>> +             new_term = add_config_term(new_type, head_terms, term->weak);
->>>>> +             if (!new_term)
->>>>> +                     return -ENOMEM;
->>>>> +
->>>>> +             if (str) {
->>>>> +                     new_term->val.str = strdup(str);
->>>>> +                     if (!new_term->val.str) {
->>>>> +                             zfree(&new_term);
->>>>> +                             return -ENOMEM;
->>>>> +                     }
->>>>> +                     new_term->free_str = true;
->>>>> +             } else {
->>>>
->>>> This will incorrectly hit the else if term->val.str is NULL. Not sure if
->>>> that can happen but will fix anyway.
->>>>
->>>>> +                     new_term->val.val = val;
->>>>
->>>> There's an uninitialized variable warning for val here on release
->>>> builds. Will fix too
->>>
->>> I'm not sure how I feel about the change, but did you check that it is
->>> ubsan clean? I worry it is introducing writes to "val" and then reads
->>> from say "period" in the evsel_config_term val union. I believe ubsan
->>> will flag this as:
->>> https://en.cppreference.com/w/cpp/language/union.html
->>> "It is undefined behavior to read from the member of the union that
->>> wasn't most recently written."
->>>
->>> Thanks,
->>> Ian
->>>
->>
->> Maybe for C++, but not for C [1]:
->>
->>     Accessing my_union.i after most recently writing to the other member,
->>     my_union.d, is an allowed form of type-punning in C, provided that the
->>     member read is not larger than the one whose value was set
->>
->> Type punning with unions is widely used in the kernel and there are a
->> couple of instances in Perf. There are tons of discussions about it on
->> the mailing lists too. I can check it with ubsan though.
+On Friday, 12 December 2025 10:50:26 Central European Standard Time Maxime Ripard wrote:
+> On Thu, Dec 11, 2025 at 08:34:22PM +0100, Nicolas Frattaroli wrote:
+> > On Tuesday, 9 December 2025 15:27:28 Central European Standard Time Maxime Ripard wrote:
+> > > On Fri, Nov 28, 2025 at 10:05:40PM +0100, Nicolas Frattaroli wrote:
+> > > > The new DRM color format property allows userspace to request a specific
+> > > > color format on a connector. In turn, this fills the connector state's
+> > > > color_format member to switch color formats.
+> > > > 
+> > > > Make drm_bridges consider the color_format set in the connector state
+> > > > during the atomic bridge check. Specifically, reject any output bus
+> > > > formats that do not correspond to the requested color format.
+> > > > 
+> > > > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > > > ---
+> > > >  drivers/gpu/drm/drm_bridge.c | 45 ++++++++++++++++++++++++++++++++++++++++++++
+> > > >  1 file changed, 45 insertions(+)
+> > > > 
+> > > > diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
+> > > > index 8f355df883d8..8aac9747f35e 100644
+> > > > --- a/drivers/gpu/drm/drm_bridge.c
+> > > > +++ b/drivers/gpu/drm/drm_bridge.c
+> > > > @@ -1052,6 +1052,47 @@ static int select_bus_fmt_recursive(struct drm_bridge *first_bridge,
+> > > >  	return ret;
+> > > >  }
+> > > >  
+> > > > +static bool __pure bus_format_is_color_fmt(u32 bus_fmt, enum drm_color_format fmt)
+> > > > +{
+> > > > +	if (fmt == DRM_COLOR_FORMAT_AUTO)
+> > > > +		return true;
+> > > > +
+> > > > +	switch (bus_fmt) {
+> > > > +	case MEDIA_BUS_FMT_FIXED:
+> > > > +		return true;
+> > > > +	case MEDIA_BUS_FMT_RGB888_1X24:
+> > > > +	case MEDIA_BUS_FMT_RGB101010_1X30:
+> > > > +	case MEDIA_BUS_FMT_RGB121212_1X36:
+> > > > +	case MEDIA_BUS_FMT_RGB161616_1X48:
+> > > > +		return fmt == DRM_COLOR_FORMAT_RGB444;
+> > > > +	case MEDIA_BUS_FMT_YUV8_1X24:
+> > > > +	case MEDIA_BUS_FMT_YUV10_1X30:
+> > > > +	case MEDIA_BUS_FMT_YUV12_1X36:
+> > > > +	case MEDIA_BUS_FMT_YUV16_1X48:
+> > > > +		return fmt == DRM_COLOR_FORMAT_YCBCR444;
+> > > > +	case MEDIA_BUS_FMT_UYVY8_1X16:
+> > > > +	case MEDIA_BUS_FMT_VYUY8_1X16:
+> > > > +	case MEDIA_BUS_FMT_YUYV8_1X16:
+> > > > +	case MEDIA_BUS_FMT_YVYU8_1X16:
+> > > > +	case MEDIA_BUS_FMT_UYVY10_1X20:
+> > > > +	case MEDIA_BUS_FMT_YUYV10_1X20:
+> > > > +	case MEDIA_BUS_FMT_VYUY10_1X20:
+> > > > +	case MEDIA_BUS_FMT_YVYU10_1X20:
+> > > > +	case MEDIA_BUS_FMT_UYVY12_1X24:
+> > > > +	case MEDIA_BUS_FMT_VYUY12_1X24:
+> > > > +	case MEDIA_BUS_FMT_YUYV12_1X24:
+> > > > +	case MEDIA_BUS_FMT_YVYU12_1X24:
+> > > > +		return fmt == DRM_COLOR_FORMAT_YCBCR422;
+> > > > +	case MEDIA_BUS_FMT_UYYVYY8_0_5X24:
+> > > > +	case MEDIA_BUS_FMT_UYYVYY10_0_5X30:
+> > > > +	case MEDIA_BUS_FMT_UYYVYY12_0_5X36:
+> > > > +	case MEDIA_BUS_FMT_UYYVYY16_0_5X48:
+> > > > +		return fmt == DRM_COLOR_FORMAT_YCBCR420;
+> > > > +	default:
+> > > > +		return false;
+> > > > +	}
+> > > > +}
+> > > > +
+> > > >  /*
+> > > >   * This function is called by &drm_atomic_bridge_chain_check() just before
+> > > >   * calling &drm_bridge_funcs.atomic_check() on all elements of the chain.
+> > > > @@ -1137,6 +1178,10 @@ drm_atomic_bridge_chain_select_bus_fmts(struct drm_bridge *bridge,
+> > > >  	}
+> > > >  
+> > > >  	for (i = 0; i < num_out_bus_fmts; i++) {
+> > > > +		if (!bus_format_is_color_fmt(out_bus_fmts[i], conn_state->color_format)) {
+> > > > +			ret = -ENOTSUPP;
+> > > > +			continue;
+> > > > +		}
+> > > 
+> > > Sorry, I'm struggling a bit to understand how this would work if a bridge both supports the bus
+> > > format selection and HDMI state helpers? Can you expand on it?
+> > 
+> > I have very little idea of whether this makes conceptual sense.
 > 
-> Thanks. I'm mostly worried about ubsan being clean. One of those
-> mailing list discussions, or sadly outside the usual trolls lack of
-> discussion, is my trying to remove a prevalent source of type punning:
-> https://lore.kernel.org/lkml/20251016205126.2882625-1-irogers@google.com/
+> .. I wasn't asking you if it makes sense, I was asking you to explain
+> how you wanted it to work.
 > 
-> Ian
+> > The hope is that by working backwards from the last bridge and only
+> > accepting either fixed formats or something that corresponds to the
+> > target color format, we don't claim that a setup can do a colour
+> > format if the whole bridge chain isn't able to do it.
+> > 
+> > Of course, format conversions along the bridge chain where one
+> > input format can be converted to a set of output formats by some
+> > bridge will throw a massive wrench into this. And this is all
+> > assuming that the bus format is in any way related to the color
+> > format that will be sent out on the wire.
+> 
+> I'm not really concerned about this. As we move more and more bridges to
+> the state helpers, we can always fix it, but it needs at the very least
+> to document how you envision the whole thing to work, and ideally have
+> bunch of tests to make sure it still does.
+
+Where should I document the intended behavior? A code comment here is
+probably not visible to people implementing new bridge drivers, so I
+imagine there's a place in the docs?
+
+On the drm-kms docs page, I see:
+
+  Note that currently the bridge chaining and interactions with
+  connectors and panels are still in-flux and not really fully
+  sorted out yet.
+
+Which means maybe adding a sub-heading for DRM bridge there might
+make sense.
+
+For a complete solution, it should probably do a graph traversal
+starting from the last bridge's output format, and then looking
+to reach the first bridge output format in the chain in any way
+possible over a DAG where edges connect from input formats of
+the next bridge to the output formats of the previous bridge,
+and the output format of each bridge connects to whichever
+of its input formats can convert to this output format.
+
+Here's a diagram of what I mean:
+
+    .-----------------------------------.
+    |       SoC Video Processor         |
+    |-----------------------------------|
+    | out rgb | out yuv444 | out yuv420 |
+    '---------|------------|------------'
+        ^
+        |
+    .---------|------.
+    | in  rgb |      |
+    |---------| MIPI |
+    |    ^    | DSI  |
+    |    |    | TX   |
+    |---------|      |
+    | out rgb |      |
+    '---------|------'
+        ^
+        |
+        '----------.
+                    |
+    .----------|---------|-----------|----------------------------.
+    |          | in  rgb | in yuv444 |               |            |
+    |----------|---------|-----------|---------------|   BOB'S    |
+    |              ^   ^    ^  ^                     |  BARGAIN   |
+    |              |   |    |  '--------------.      |  MIPI DSI  |
+    |    .---------'   |    '----.            |      |  TO HDMI   |
+    |    |          .--'         |            |      |  BRIDGE    |
+    |---------|------------|------------|------------|            |
+    | out rgb | out yuv444 | out yuv422 | out yuv420 |            |
+    '---------|------------|------------|------------|------------'
+        ^           ^            ^
+        |           |            |
+    .---------|------------|------------.
+    | in  rgb | in  yuv444 | in  yuv422 |
+    |-----------------------------------|
+    |          HDMI CONNECTOR           |
+    '-----------------------------------'
+
+In this case, the MIPI DSI to HDMI bridge isn't very good so it can
+only convert YUV444 to YUV422 and YUV420, despite being able to
+convert RGB to YUV444 as well. The important bit is that there is
+a path back from "out yuv444" on the "HDMI CONNECTOR" all the way
+to the "SoC Video Processor", even though the processor's only going
+to be outputting RGB. So setting color_format to yuv444 should be
+possible in this case.
+
+My current code doesn't handle this case. It only works if bridges
+that convert can convert to any of their output formats regardless
+of the input format. Additionally, I don't think I'd have a good
+time if the SoC's video output processor sets the bus format to
+"fixed", because if everyone along the chain says they can do
+fixed formats then the output is going to claim it can do anything,
+which isn't the case.
+
+> 
+> > In practice, I don't have any hardware where whatever counts as
+> > a "bridge" is an actually more involved setup than just the TX
+> > controller. I tried looking into getting a board with one of the
+> > supported DSI-to-HDMI bridge chips so I can at least test how it
+> > would work in such a scenario, and I got one, but I'd need to make
+> > my own flat flex PCB to adapt it to the pinout of my SBC's DSI
+> > port.
+> > 
+> > So yeah I don't know how it's supposed to work, I just know this
+> > works for the case I'm working with, and any more complex case
+> > is literally unobtanium hardware which I'm not going to bother
+> > blowing days on maybe making a cable for when I'm already touching
+> > three different GPU drivers here and the intel-gfx-ci is screaming
+> > into my inbox about vague failures in unrelated codepaths in its
+> > native language, Klingon.
+> 
+> That's uncalled for.
+> 
+> > Which is all to say: is there a virtual drm bridge driver that
+> > exists, where I can set what formats it supports on the input
+> > and on the output, so that I can actually get a feel for how this
+> > is conceptually supposed to work without needing special hardware?
+> 
+> If your question is "do we have a way to replicate and test an arbitrary
+> setup to check how it behaves?", then yes, we do, it's what we're doing
+> in kunit. But you don't seem too fond of those.
+
+Okay, I will look into virtual bridge tests in kunit.
+
+> 
+> > Better yet: do you have a specific setup in mind where you know
+> > this approach does not work?
+> 
+> Look. I was asking a genuine question. If you want to get all defensive
+> about it, go ahead. But sending a series implementing something with a
+> lot of history, complex interactions, etc. and then expecting it to be a
+> breeze that will get merged in a few revisions is not going to work.
+> 
+> Pushing back when asked to follow our documented rules, or being
+> dismissive when asked design questions is not going to help you push
+> this forward. If anything, and because it's complex, the more tests you
+> add the better because we A) know it works in a specific set of cases,
+> and B) know it will still work going forward.
+> 
+> I'm sure you know what you're doing, but so do we.
+
+I worked under the assumption that the general vagueness of the
+questions were part of some elaborate dt-bindings-esque hazing
+ritual, and not that I was literally the first person to try and
+specify how drm bridge bus format selection should work. I apologise
+for my tone in light of that.
+
+I'm not convinced unit tests that test whether a single pre-defined
+mode is valid, as the existing mode_valid one does, have any value
+though. I'll comply however and add another with a yuv420-only mode,
+and another with a yuv420-also mode. My criticism is that in a
+scenario like this where "working" vs "broken" is highly dependent
+on the result based on the input data, the coverage of taken code
+branches is mostly irrelevant, and the real information comes from
+comprehensive testing of a wide set of inputs with attention paid
+to edge cases, verifying that they match the expected outputs.
+
+Kind regards,
+Nicolas Frattaroli
+
+> 
+> Maxime
 > 
 
-No ubsan issues on any Perf tests from this, but I did forget a free in 
-the new test that I saw with asan so I'll send a new version.
 
 
->> [1]: https://en.wikipedia.org/wiki/Type_punning#C_and_C++
->>
->>>>>                 }
->>>>>         }
->>>>>         return 0;
->>>>> @@ -1290,10 +1308,16 @@ static int get_config_chgs(struct perf_pmu *pmu, struct parse_events_terms *head
->>>>>                 }
->>>>>         }
->>>>>
->>>>> -     if (bits)
->>>>> -             ADD_CONFIG_TERM_VAL(CFG_CHG, cfg_chg, bits, false);
->>>>> +     if (bits) {
->>>>> +             struct evsel_config_term *new_term;
->>>>> +
->>>>> +             new_term = add_config_term(EVSEL__CONFIG_TERM_CFG_CHG,
->>>>> +                                        head_terms, false);
->>>>> +             if (!new_term)
->>>>> +                     return -ENOMEM;
->>>>> +             new_term->val.cfg_chg = bits;
->>>>> +     }
->>>>>
->>>>> -#undef ADD_CONFIG_TERM
->>>>>         return 0;
->>>>>     }
->>>>>
->>>>>
->>>>
->>
 
 
