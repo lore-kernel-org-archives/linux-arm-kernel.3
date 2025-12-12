@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49605D44145
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 08:59:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89A8FD44149
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 09:00:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=EPA4cw3Gvq6SBCJV/vWcX38SZi8PRTPj9bVk8hJPiao=; b=MdFmUvv37nLwophwHuPaaYzelp
-	KLxZCWY+Um9sCmTCaXwF0etNLcFJ38MJLHqoGVpqn2RGxZZ8NAUX6bktTBSUiDQpPPoGpVite8ClE
-	c/qnaC/53OUByy24K/KpFvx497cy5bpO+qgDTTrdE5C6kZ3V3nQtUtikUyCqCanaw593n8eGXpgWV
-	+diG9pdpnJnIr2GgnmF/IAgmG3YXp7a71SU6KGkA8/6HHJ6MChZsSQdd7F6C7o0ca4ejMReNY6ptf
-	R18FvBuHGcHcznrFdqyo+NLGSm+3jI8+JibpcsIeRER52lTcNpu/+jiqGoJYGjQxEi8Vda09vX9L4
-	P/VAQHkA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=84P47lxHC3BLIWqL12zvfUpIKwtTk6oo/ph1IGpKWdI=; b=q51ppUUUwEtAfJRMArJqdsps/L
+	06ha9O6TKPFdGLT5nWJbtsP0ugmAM9P1SwaMWmq2YSpX3f/5oUVaRylWOv64uYJOWEpXaj2DHFfmu
+	kHtBQ+nOG/xraDR44mWQImNh0W/kql2i3KtJAK7tWk+8roZHa53A2zZzrNBf8fjiRjvAs1smp3sjM
+	JivUeWmTAJ3GKpQF0AHds65Yf07sWzJIYgIHIerUCxGO3PV3CoYvW9PvwzEFfjchw9rm8WAcsMbBO
+	CwmB9jMGmrw+Fs39cafcyMSXecbDmuXjI1Nyasd6CetQyda2NGSLq09jAoQ4grQbvPLxSySBR2DPI
+	Bt4ZMU4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTz02-00000000ICi-1DVT;
-	Fri, 12 Dec 2025 08:59:42 +0000
-Received: from mx-relay175-hz1.antispameurope.com ([94.100.132.179])
+	id 1vTz0H-00000000IFK-2a6r;
+	Fri, 12 Dec 2025 08:59:57 +0000
+Received: from mx-relay10-hz2.antispameurope.com ([83.246.65.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTyzw-00000000ICA-3FRk
+	id 1vTz0E-00000000IEG-2TXk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 08:59:40 +0000
-ARC-Authentication-Results: i=1; mx-gate175-hz1.hornetsecurity.com 1;
- spf=pass reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+	Fri, 12 Dec 2025 08:59:55 +0000
+ARC-Authentication-Results: i=1; mx-gate10-hz2.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
  smtp.mailfrom=ew.tq-group.com
  smtp.helo=hmail-p-smtp01-out03-hz1.hornetsecurity.com; dmarc=pass
  header.from=ew.tq-group.com orig.disposition=pass
 ARC-Message-Signature: a=rsa-sha256;
- bh=EPA4cw3Gvq6SBCJV/vWcX38SZi8PRTPj9bVk8hJPiao=; c=relaxed/relaxed;
+ bh=84P47lxHC3BLIWqL12zvfUpIKwtTk6oo/ph1IGpKWdI=; c=relaxed/relaxed;
  d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1765529965;
- b=Bv4Pzhe8O3Np6FPKD0XnEah2pLJ/Vg0OE55oyEKS5XMElp1K4YMx6fBj2ECtD+y+xmDBKO0S
- qf7Zb62hsoBVHKf2cb5jHMbNlLjqcawaTB+SA3hCp3O/4O/KVkU6ksV65lo/2sPbw7u9vIC8jKO
- hQHAfnzn8hpHXgJkdmKPaZ7ggiRZP0r7YEa+BsuQHqRSZFfdZWT4AKv3bIUGdZYfKCvkI/AvXEh
- tNr9ZAcNWq3Fm9/Q0jSyCHN3qyvnQEAAJhmRQb2lRnYWHalZaYbNRv6tevXFbqWlmlWy1vcd/MU
- wf/yZkZoD58kvgohJsPfWSgYJfJRFX8I/DCqxH2fivsPw==
+ t=1765529976;
+ b=czDGDF3JF+E5hXngrqtTuFfOXG1bjIH4Cy8/ncdDE+G7uEgQoVMcY6M4dPBuuyoFDOvGlthw
+ Iklyz42xZzRcJkEd+0RrULglHnXwQm8hf5MX1vbQj202w3Sz23xclZIHhqF6cfSk2Q062FHf1BD
+ oRQ8KUnuI+05zJks3b9VAaa8Lq2Tyhzww/9NXr1IijIMS5vT9S0dGReXKNMJF9SqqcnO1mEUrXI
+ lpHs4nlradLmdlN/OqTPcsCKcWilGpRTbSjbiq0esFWmCFJ+X0KUBlChhk6S9WkTCoZJTkpGA1E
+ mavrVe38LQaBlmJiAZMtrDx9HY7Pzac2+cU3RjfdRRDIw==
 ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1765529965;
- b=aMtP0Hh6Lwg03ilzSBlexfppMEDHHuAeXWH8H5SRafJSwvxFJZJ9DTkGydiOvWZY6LpavrPP
- abj9pbMLpRoo85oPlZxGjJqfShU/lgdtCueMSiODg2WohpKLJpwNtIHT4rSawDukk+1/MivhNm7
- WxZZqKXejPi/wDx6P0+DCovX7H7eoZamcWFHMJyFXsfJbaM3WFrUPieV2Qph6kHFKcQid2GV8aa
- FPvE+ohuUelWZa1yROnhqtZSJn1/Uj61/iVkt5XoUEPGZpFFbxA3D2PRTioaNPbJ86Wx3FyqORU
- ruXpcYwUybeRQzd1f97zsgenkHUlTxYhL2J5Msxh8xoLA==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay175-hz1.antispameurope.com;
- Fri, 12 Dec 2025 09:59:24 +0100
+ t=1765529976;
+ b=M5fcGje2mz5BVQ7aBa4nbKTKLlTqm/nGH7XsAOYy0BT5JyknhZMoDzqZ8y7w64K5OgqFIuhi
+ e0LPwDHzYVT4HMiG0kj8/tPGnxq8LEAV5/m9kb8TpvPuXDOiL4R0KmcjkHLHadqImiD+9ypNVrY
+ A/FLmm8+xw54h/5p9fZWUVmyVcefZ+vOkgjcSYVFXDxgnk+eLloANbldhDFYs4tyQLZH7eCHzxP
+ ahf4Sh+S4aYSleW/YzxcvNGsd3HBlHfsFfxF/rdAByKUmSt1/mAnucGvzxuLcGoG1YtdU3Khl1m
+ 0j2/q2DkT0heSiXajAJj7t8p5NjPlc9Sy9Q9+x3xpwMUA==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay10-hz2.antispameurope.com;
+ Fri, 12 Dec 2025 09:59:36 +0100
 Received: from steina-w.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
 	(Authenticated sender: alexander.stein@ew.tq-group.com)
-	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 434D5CC0CCA;
-	Fri, 12 Dec 2025 09:59:10 +0100 (CET)
+	by hmail-p-smtp01-out03-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 69CACCC0CCB;
+	Fri, 12 Dec 2025 09:59:11 +0100 (CET)
 From: Alexander Stein <alexander.stein@ew.tq-group.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -68,10 +68,12 @@ Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] dt-bindings: power: fsl,imx-gpc: Document address-cells
-Date: Fri, 12 Dec 2025 09:58:59 +0100
-Message-ID: <20251212085902.103507-1-alexander.stein@ew.tq-group.com>
+Subject: [PATCH 2/2] ARM: dts: imx6qdl: Add default GIC address cells
+Date: Fri, 12 Dec 2025 09:59:00 +0100
+Message-ID: <20251212085902.103507-2-alexander.stein@ew.tq-group.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20251212085902.103507-1-alexander.stein@ew.tq-group.com>
+References: <20251212085902.103507-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-cloud-security-sender: alexander.stein@ew.tq-group.com
@@ -80,24 +82,23 @@ X-cloud-security-crypt: load encryption module
 X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
 X-cloud-security-Mailarchivtype: outbound
 X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay175-hz1.antispameurope.com with 4dSNg273DBz2SSMs
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay10-hz2.antispameurope.com with 4dSNg41V2Cz4FKLF
 X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: fa6caea5f90cd85704070cb335c8b449
-X-cloud-security: scantime:2.182
+X-cloud-security-Digest: bb4a7dffaef21819fc1d7783b77528b3
+X-cloud-security: scantime:3.879
 DKIM-Signature: a=rsa-sha256;
- bh=EPA4cw3Gvq6SBCJV/vWcX38SZi8PRTPj9bVk8hJPiao=; c=relaxed/relaxed;
+ bh=84P47lxHC3BLIWqL12zvfUpIKwtTk6oo/ph1IGpKWdI=; c=relaxed/relaxed;
  d=ew.tq-group.com;
  h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1765529964; v=1;
- b=in1tVDAoXWC/XqmD9jykNygNDDy+A6AKTMjtEOHb9iqjN/htG7dd//mUcj8LY4wW/0kXhoCM
- xgtz3sOZPPe7rM8xwXeHPybcyH4H9PA8h+XWnlnjUGQhE262iGvCuqV59AvsvbwgOEU7k3zTm9x
- 6OoYWdqjSkPm8KfcsEfXfsq3raKxLOcQ1UR/CtOvQCZkC6rUVJKiWJjoeTv9W9xht3C61spMcsL
- wDP/QFukI7GyfP2MlZJCAJL07ZnOurUEYkhcCmY5/Q3pLsdBKiLXeXl2FVOnKBxaKoV3U6WiUvI
- adReTqUo+6nWugphqO2ztNtI/cC7w9oQDg8UMdg2alUGA==
+ t=1765529975; v=1;
+ b=OMqynqqB2HyRiq4p29kKt9EaFxjNzrTa65PlNc2e7uu9ok8+7mGsHrhutHweBWCbYK48lVny
+ /hlZVHBf4scV684AwT+2743z7DIPcrkbm5XiFZKZzrDabtQA9LAdATUwYB94JKvaf6uLSTaO3ur
+ +JnCgWKYmUk7iPcGUAn7hKuJghl0qKYWB0iqCYqyyhVWwuqUpYWO68b26ntj2AfTMI8CqX7wIXX
+ AX0EcGS2yXGYUz7tzJk/n8LsvWqTY5M1z/6FyPfBpH7Mi6fbP6mp4h7fDH0C0eKiUphr8KiopAY
+ cCIOEDhzWfqnWddraYddx3kQv2iEZz6ngBo43wMDoFK2w==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_005937_195455_88148F99 
-X-CRM114-Status: UNSURE (   9.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251212_005954_773012_EBEF5335 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,29 +113,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The GPC power controller is an interrupt controllers and can be referenced
-in interrupt-map properties, e.g. PCIe controller, thus the node should
-have address-cells property.
+Add missing address-cells 0 to GPC interrupt node to silence W=1
+warning:
+
+  imx6qdl.dtsi:281.4-284.29: Warning (interrupt_map): /soc/pcie@1ffc000:interrupt-map:
+    Missing property '#address-cells' in node /soc/bus@2000000/gpc@20dc000, using 0 as fallback
+
+Value '0' is correct because:
+1. GPC interrupt controller children are only power domains,
+2. interrupt-map property (in PCI node) consists of five components and
+   the fourth component "parent unit address", which size is defined by
+   '#address-cells' of the node pointed to by the interrupt-parent
+   component, is not used (=0)
 
 Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 ---
- Documentation/devicetree/bindings/power/fsl,imx-gpc.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+This is based on commit faf183a02ed6b ("arm64: dts: imx8mp: Add default GIC
+address cells")
 
-diff --git a/Documentation/devicetree/bindings/power/fsl,imx-gpc.yaml b/Documentation/devicetree/bindings/power/fsl,imx-gpc.yaml
-index 9de3fe73c1eb6..d49a5130b87c7 100644
---- a/Documentation/devicetree/bindings/power/fsl,imx-gpc.yaml
-+++ b/Documentation/devicetree/bindings/power/fsl,imx-gpc.yaml
-@@ -38,6 +38,9 @@ properties:
-   reg:
-     maxItems: 1
- 
-+  "#address-cells":
-+    const: 0
-+
-   interrupts:
-     maxItems: 1
- 
+ arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
+index 45bcfd7faf9db..9793feee63947 100644
+--- a/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
++++ b/arch/arm/boot/dts/nxp/imx/imx6qdl.dtsi
+@@ -875,6 +875,7 @@ src: reset-controller@20d8000 {
+ 			gpc: gpc@20dc000 {
+ 				compatible = "fsl,imx6q-gpc";
+ 				reg = <0x020dc000 0x4000>;
++				#address-cells = <0>;
+ 				interrupt-controller;
+ 				#interrupt-cells = <3>;
+ 				interrupts = <0 89 IRQ_TYPE_LEVEL_HIGH>;
 -- 
 2.43.0
 
