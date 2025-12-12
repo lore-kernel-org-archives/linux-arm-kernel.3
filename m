@@ -4,83 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20131D59D8E
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 20:28:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98B41D59D93
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 20:28:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=fzm/tsqAvW56TDo978ZmdNBfUInnyBjt6fplMac4YIM=; b=t39n06W+QggyZY
-	sT80TmJWTDCTAsF2ZCziVg00rm+GF15LZdKbnHWuIRpS5NVhDZfhW9mSmq6o1O4HNvlHK5AsPgeIa
-	/Y6y176iihrgaruGiVAPUEu0zZWAYTB6uLDMd00owYHdI+24i6Z4K2hTAL4e29atAjmGJJ3v8PqH2
-	zClGGrgrZACnW7VofD+A9CxEEmoIBPLQ+IjijJgQOo3t0PPT50vATA8drcqvo0THGyi9gDGAgVXTM
-	RpNKz/c9LsdRd+/sROE6456C8/OffLSggTi2gmpz9QOYuB6ZEg2w30+ovxFAF9aUtJH6FmSmVqruX
-	S3qSNiwKlfDtwqjIHUtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/6wtxehS7WTM819be29IyrSvXjiAjsvtwp328K/5dyE=; b=Ko9bdMnaNopD20Vd/ppPvVa0b4
+	WlAtEDm0G1seOVEQXZ1EXAqFfDhEPiq/2TyO7XXSOptyV60RbudIqOfZHuESKPrXDkNpTeHzz+gGT
+	h6BmMH2sAAmKuFJBIV+aQz0BqS2TafiiJNrPv5vqncneYFrazJsHb28PAGA+mT7Pfyt2s2VDd1a+i
+	fLoIrR66k+r+Y4OAkOjUYCrfmVvpbZcQQoNP3jXltl3fQGfHeAKn6oddfvAlgyskiIruzob9CYSLv
+	CgK3bUl4eU5VKIOsg6tDunJCRW/aninRTBZLD39jc8TmVNOkGby754A+pd3cPua4uV7Ihphy2nxR3
+	8P/JZK4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU9k0-000000012yf-44vt;
-	Fri, 12 Dec 2025 20:27:52 +0000
-Received: from mail-oi1-x24a.google.com ([2607:f8b0:4864:20::24a])
+	id 1vU9l0-00000001358-1Lkw;
+	Fri, 12 Dec 2025 20:28:54 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU9jx-000000012yB-3zvT
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 20:27:51 +0000
-Received: by mail-oi1-x24a.google.com with SMTP id 5614622812f47-450be8a012cso2112710b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Dec 2025 12:27:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1765571268; x=1766176068; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=fzm/tsqAvW56TDo978ZmdNBfUInnyBjt6fplMac4YIM=;
-        b=3UWxA1bie2hGshZL1/jOozoigl95QB6Xmae3QCkgbcFPtt5yBPEAG9BJ6ywbHrzy8s
-         Dus237VyB/zq1VS9njpnQJ1CbfuWsMOpIjmAHoNQ3IIqOTWy4mTp2thw2idEvYVJ82Ci
-         HBUkqA1Hq7eWDLBiqD+H8FUvg+mpDCHWNSHyjjkS/wjd/V5AWO4FCgGO9Fdrg9Z/DpZn
-         jv3K+hvgckT6KZuAgQPacKhTTUW/xMO/9Rc+kCgMFyyNit6FgwH5AtzpxGGkcQ1/CMFN
-         8lP+qzdQvTbFdarupu+9Jg7f8zzJN+NmucLx4qxWWyc9Wr6OqXUOqOaYWkIsHKe1Duhp
-         PH5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765571268; x=1766176068;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=fzm/tsqAvW56TDo978ZmdNBfUInnyBjt6fplMac4YIM=;
-        b=r+YZDn7H24Qk54E+7sPuOGaJSH1bFQctCgHBoj8Agge69v1TcY3ANBqGRVbbufqu57
-         I8jGKkhQRHE4DvNYTN2WU2hgGhSsnu5abLLuwcq10jdsIImJgLJb5PTGnehcQhP45sVx
-         bB22omoBHsVLt49YGS8/59UqELSr01XU1I6nfWENqJeKrPdQUWwl1OYztTWPBIVPFMzL
-         1ur84jqVdxjWLksa3rrf0m9hKGqshD7kyOZUERDg8OSwfGHakn+so66x59TcKhiz27Q/
-         k6uTa1znvvibAPFgtg5tJkafPDVQgm0YrAtRwejAHbWeifOTTtGKmLcTAquR1vdtQxar
-         BHzg==
-X-Forwarded-Encrypted: i=1; AJvYcCWer63jzy/sQSP0MP2gNev0ruq5/csTNX7A4Md0gJbvV8blDJEskLusHU7i5DixfsLqNC2E6/M83XFiKwBcE0PG@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYVwqp6+pxYZANs0Qx8UAmzzhw5KD9C9n4gFzzrj8CnL/0K/ZC
-	+e7LpsGJ+Wzdtc3AGG4mgZ/yWd+qIqvxj8zfyTI8UwK1BPzzKIsuiAhpmGHzFtL0xzfA5nz2E1p
-	eGmpCZDPN89Z2La0h7l1yrQncRw==
-X-Google-Smtp-Source: AGHT+IHtS4CSArf4CIQyXaQ3gTcwhHkWk1+dzcc15H4XApucHfZc+0GcjKfr0Sr/upH3+2NzDR6Jy4cUsIgV3mtOEg==
-X-Received: from oiks6-n2.prod.google.com ([2002:a05:6808:a606:20b0:450:c024:a4f7])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6808:4fd0:b0:44d:a0ec:d9a5 with SMTP id 5614622812f47-455ac822609mr1365623b6e.1.1765571268278;
- Fri, 12 Dec 2025 12:27:48 -0800 (PST)
-Date: Fri, 12 Dec 2025 20:27:47 +0000
-In-Reply-To: <202512110209.GjVZa9ti-lkp@intel.com> (message from kernel test
- robot on Thu, 11 Dec 2025 02:31:00 +0800)
-Mime-Version: 1.0
-Message-ID: <gsnt4ipv4f98.fsf@coltonlewis-kvm.c.googlers.com>
-Subject: Re: [PATCH v5 11/24] KVM: arm64: Writethrough trapped PMEVTYPER register
-From: Colton Lewis <coltonlewis@google.com>
-To: kernel test robot <lkp@intel.com>
-Cc: kvm@vger.kernel.org, oe-kbuild-all@lists.linux.dev, pbonzini@redhat.com, 
-	corbet@lwn.net, linux@armlinux.org.uk, catalin.marinas@arm.com, 
-	will@kernel.org, maz@kernel.org, oliver.upton@linux.dev, mizhang@google.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	mark.rutland@arm.com, skhan@linuxfoundation.org, 
-	gankulkarni@os.amperecomputing.com, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+	id 1vU9kw-0000000134W-0vKT;
+	Fri, 12 Dec 2025 20:28:51 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1765571294; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=fFRjIgit+mkRtNRzhjFrfhRSb8VO8oIGYuX4Zl+izffCfsivomL/CFcO9vSPa8ySP2Ued8YffgB9jlYeXrCQhK9Sl+GSMC6XGOZk5O36G02MxosPrtW+hhOHs9DwxZcv3/hEaJVcOVq9xXoPjPKhjveANP3TQ/U9NpP2FhvEixc=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1765571294; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=/6wtxehS7WTM819be29IyrSvXjiAjsvtwp328K/5dyE=; 
+	b=GIisIJXPPKFhGb7HUjAxu0dA0b1LzsAfH8lbuzmBfEQXBWTp9MmUCnN3pYq+fTobweK6MW4IVdezVYa+KuzLW8a5H51x90a1VUP3tle64VKSe9l7LLXMu+esj8w5+LP9R6066RPyHyubV+QE7H54o5gWT7w8sYzlnoSTF5KsEik=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765571294;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=/6wtxehS7WTM819be29IyrSvXjiAjsvtwp328K/5dyE=;
+	b=NSkxtuBZAgOYDD1SWdW3CbJLkPBSn9LktHM+iaPP52B0GtTM2371Z2ZBhWyygclw
+	nrPtg2pNbaGin1WmV8fJyEwsv7lpaCPpBKEY2LrYw3r6gE3ENS/B/e7z1i4EgxCyNsN
+	zBP1iyXGrERb+8M/60yYMuZt7+eu94uVO4woCk9I=
+Received: by mx.zohomail.com with SMTPS id 1765571293146567.238599758411;
+	Fri, 12 Dec 2025 12:28:13 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Maxime Ripard <mripard@kernel.org>, amd-gfx@lists.freedesktop.org,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
+ Rodrigo Siqueira <siqueira@igalia.com>,
+ Alex Deucher <alexander.deucher@amd.com>,
+ Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Sandy Huang <hjc@rock-chips.com>,
+ Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Jani Nikula <jani.nikula@linux.intel.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>,
+ Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+ Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ kernel@collabora.com, intel-gfx@lists.freedesktop.org,
+ intel-xe@lists.freedesktop.org
+Subject: Re: [PATCH v5 17/17] drm/tests: hdmi: Add tests for the color_format property
+Date: Fri, 12 Dec 2025 21:28:03 +0100
+Message-ID: <2819485.tdWV9SEqCh@workhorse>
+In-Reply-To: <20251212-discreet-wisteria-perch-edccad@penduick>
+References: <20251128-color-format-v5-0-63e82f1db1e1@collabora.com>
+ <20251128-color-format-v5-17-63e82f1db1e1@collabora.com>
+ <20251212-discreet-wisteria-perch-edccad@penduick>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_122750_038917_6D253A01 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20251212_122850_297373_FEA838B0 
+X-CRM114-Status: GOOD (  30.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,86 +98,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kernel test robot <lkp@intel.com> writes:
+On Friday, 12 December 2025 10:19:13 Central European Standard Time Maxime Ripard wrote:
+> On Fri, Nov 28, 2025 at 10:05:53PM +0100, Nicolas Frattaroli wrote:
+> > Add some KUnit tests to check the color_format property is working as
+> > expected with the HDMI state helper.
+> > 
+> > The added tests check that AUTO results in RGB, and the YCBCR modes
+> > result in the corresponding YUV modes. An additional test ensures that
+> > only DRM_COLOR_FORMAT_AUTO falls back to YUV420 with a YUV420-only mode,
+> > and RGB errors out instead, while explicitly asking for YUV420 still
+> > works.
+> > 
+> > This requires exporting hdmi_compute_config, so that it is accessible
+> > from the tests.
+> > 
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > ---
+> >  drivers/gpu/drm/display/drm_hdmi_state_helper.c    |   3 +-
+> >  drivers/gpu/drm/tests/drm_hdmi_state_helper_test.c | 109 +++++++++++++++++++++
+> >  include/drm/display/drm_hdmi_state_helper.h        |   4 +
+> >  3 files changed, 115 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/gpu/drm/display/drm_hdmi_state_helper.c b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> > index 1800e00b30c5..e86fb837ceaf 100644
+> > --- a/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> > +++ b/drivers/gpu/drm/display/drm_hdmi_state_helper.c
+> > @@ -641,7 +641,7 @@ hdmi_compute_format_bpc(const struct drm_connector *connector,
+> >  	return -EINVAL;
+> >  }
+> >  
+> > -static int
+> > +int
+> >  hdmi_compute_config(const struct drm_connector *connector,
+> >  		    struct drm_connector_state *conn_state,
+> >  		    const struct drm_display_mode *mode)
+> > @@ -680,6 +680,7 @@ hdmi_compute_config(const struct drm_connector *connector,
+> >  
+> >  	return ret;
+> >  }
+> > +EXPORT_SYMBOL(hdmi_compute_config);
+> 
+> I don't think we need to export hdmi_compute_config directly, and if we
+> do, it shouldn't be named that way.
+> 
+> The rest of the tests in the suite manage to test everything fine
+> without exporting it. Is there any reason you can't do it for these
+> tests?
 
-> Hi Colton,
+The only function that calls hdmi_compute_config is the exported
+drm_atomic_helper_connector_hdmi_check. While I can write tests around
+drm_atomic_helper_connector_hdmi_check, it'll mean I'll have structure
+the tests differently, and will accidentally test a lot of other things
+as well, because it derives other state from the config and has a lot
+more error paths. So checking that hdmi_compute_config fails as expected
+won't be possible anymore, just that "_connector_hdmi_check fails.
 
-> kernel test robot noticed the following build errors:
+I will rewrite the tests to do this since that appears to be the way
+to do this, but I'll need to read up on the atomic state APIs and the
+helper functions I've been using so far a bit to make sure I'm not
+writing something broken here.
 
-> [auto build test ERROR on ac3fd01e4c1efce8f2c054cdeb2ddd2fc0fb150d]
+I do share your concerns about exporting this function though, I didn't
+like doing it either. It is a side effect of unit testing not being a
+first-class citizen of the C language I guess, but maybe it is better
+to do this as an end-to-end test of the exported function rather than
+just part of the implementation anyway.
 
-> url:     
-> https://github.com/intel-lab-lkp/linux/commits/Colton-Lewis/arm64-cpufeature-Add-cpucap-for-HPMN0/20251210-055309
-> base:   ac3fd01e4c1efce8f2c054cdeb2ddd2fc0fb150d
-> patch link:     
-> https://lore.kernel.org/r/20251209205121.1871534-12-coltonlewis%40google.com
-> patch subject: [PATCH v5 11/24] KVM: arm64: Writethrough trapped  
-> PMEVTYPER register
-> config: arm64-randconfig-001-20251210  
-> (https://download.01.org/0day-ci/archive/20251211/202512110209.GjVZa9ti-lkp@intel.com/config)
-> compiler: aarch64-linux-gcc (GCC) 14.3.0
-> reproduce (this is a W=1 build):  
-> (https://download.01.org/0day-ci/archive/20251211/202512110209.GjVZa9ti-lkp@intel.com/reproduce)
+> [...]
 
-> If you fix the issue in a separate patch/commit (i.e. not just a new  
-> version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes:  
-> https://lore.kernel.org/oe-kbuild-all/202512110209.GjVZa9ti-lkp@intel.com/
+For everything I didn't directly reply to, assume I'll address it in
+the next revision with no further sobbing to convey from my side.
 
-> All errors (new ones prefixed by >>):
-
->     arch/arm64/kvm/sys_regs.c: In function 'writethrough_pmevtyper':
->>> arch/arm64/kvm/sys_regs.c:1183:34: error: implicit declaration of  
->>> function 'kvm_pmu_event_mask'; did you mean 'kvm_pmu_evtyper_mask'?  
->>> [-Wimplicit-function-declaration]
->      1183 |                 eventsel = val & kvm_pmu_event_mask(vcpu->kvm);
->           |                                  ^~~~~~~~~~~~~~~~~~
->           |                                  kvm_pmu_evtyper_mask
+Kind regards,
+Nicolas Frattaroli
 
 
-Caused by missing a stub definition for kvm_pmu_event_mask when
-reorganizing headers in patch 6: Reorganize PMU functions
-
-Fixed
-
-> vim +1183 arch/arm64/kvm/sys_regs.c
-
->    1168
->    1169	static bool writethrough_pmevtyper(struct kvm_vcpu *vcpu, struct  
-> sys_reg_params *p,
->    1170					   u64 reg, u64 idx)
->    1171	{
->    1172		u64 eventsel;
->    1173		u64 val = p->regval;
->    1174		u64 evtyper_set = ARMV8_PMU_EXCLUDE_EL0 |
->    1175			ARMV8_PMU_EXCLUDE_EL1;
->    1176		u64 evtyper_clr = ARMV8_PMU_INCLUDE_EL2;
->    1177
->    1178		__vcpu_assign_sys_reg(vcpu, reg, val);
->    1179
->    1180		if (idx == ARMV8_PMU_CYCLE_IDX)
->    1181			eventsel = ARMV8_PMUV3_PERFCTR_CPU_CYCLES;
->    1182		else
->> 1183			eventsel = val & kvm_pmu_event_mask(vcpu->kvm);
->    1184
->    1185		if (vcpu->kvm->arch.pmu_filter &&
->    1186		    !test_bit(eventsel, vcpu->kvm->arch.pmu_filter))
->    1187			val |= evtyper_set;
->    1188
->    1189		val &= ~evtyper_clr;
->    1190
->    1191		if (idx == ARMV8_PMU_CYCLE_IDX)
->    1192			write_pmccfiltr(val);
->    1193		else
->    1194			write_pmevtypern(idx, val);
->    1195
->    1196		return true;
->    1197	}
->    1198
-
-> --
-> 0-DAY CI Kernel Test Service
-> https://github.com/intel/lkp-tests/wiki
 
