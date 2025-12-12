@@ -4,57 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A68CBD49218
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 12:12:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93E18D4336F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 12:30:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M/D+0XsewLs5yoZVGAKp7iVmqyyMR/P07KATjuYekd4=; b=LwyUjlHkbQzL5+W1KkPTOm7kAz
-	KnX9t1/Md0QL64j+dtda9iUYOt9X+3bDBZYi2lEgdG1Yrfd3/QRFpY8/0eAb+2EM/mQ7RSuCrX66r
-	81jS6tfvGlnyKTtAvPyCk7nSyAvkDPwC5pABdSZoEKgKmxBGxPBbf5Tsco9EL6RQLa98oLzcvm7TC
-	ZWzmYhxximMUFgj1SjVCcY5+bA5EJxJV4/wb17/+Nm7VOQDMri+hAATAu+YHFUeFeQ7G3rFyQu4rt
-	PMqpSgwC/JeIYFvdegMAnPQ/P0AYvd7cJUbFMixHJU8DMzb6ZiTw9QI9c1xTAdPW0FSHHZdcEZFCz
-	ThKtJb7w==;
+	bh=VoKP4FvjWmj/xuLKYgy3zX1TUA438pRcKqaj3PckC3g=; b=i0ZeQkhTDTPFZaSLAnlVkwxYkw
+	iTHQMgkqV/uGVxf/mAf53a+xaLlV2GA5uUrgYiqoecNUaZILojwOD9r/hyQFydsyAKx9rhfjMLot/
+	ucWpe9FY+ci9N/58QTGwC5wCmOt/mKbKtSkeY3Mmxcwq7528DQZBe0XS8W9YVzfWRuFZIgn3eE4Kh
+	/Hza9LO31kf6f3HT3lyFFeTBbfOzbZInHnwvtsHl8Y7+1ZUn4tqX3UHQOZu79+pEJdBaCWeNfV/vu
+	pRRX6ztzTELgMixL4KkmcskYhJAB52z9J3CKaAnu7d++e+sdDubKFyxn2RcDEt3ndeghrjy9VfCxZ
+	jmTufT2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU20K-00000000Vjo-441F;
-	Fri, 12 Dec 2025 12:12:12 +0000
+	id 1vU2I7-00000000WZb-3bMd;
+	Fri, 12 Dec 2025 12:30:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU20I-00000000VjE-2Ufa
+	id 1vU2I4-00000000WZG-4ABV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 12:12:11 +0000
+	Fri, 12 Dec 2025 12:30:34 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D55C91063;
-	Fri, 12 Dec 2025 04:12:01 -0800 (PST)
-Received: from [10.57.90.205] (unknown [10.57.90.205])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 72FC53F762;
-	Fri, 12 Dec 2025 04:12:07 -0800 (PST)
-Message-ID: <b40ee164-f533-43da-a4e2-068c9ae1e771@arm.com>
-Date: Fri, 12 Dec 2025 12:12:05 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 90D60FEC;
+	Fri, 12 Dec 2025 04:30:23 -0800 (PST)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7C1E63F762;
+	Fri, 12 Dec 2025 04:30:27 -0800 (PST)
+Message-ID: <e5dfd85d-c431-490d-8946-54ebad81a0e4@arm.com>
+Date: Fri, 12 Dec 2025 12:30:26 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/10] arm64: Replace TLB invalidation preprocessor macros
- with C functions
-Content-Language: en-GB
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Mark Rutland <mark.rutland@arm.com>,
- Linus Torvalds <torvalds@linux-foundation.org>,
- Oliver Upton <oliver.upton@linux.dev>, Marc Zyngier <maz@kernel.org>
-References: <20250711161732.384-1-will@kernel.org>
- <eb583fda-cbd1-4ef2-900a-a86e08a0b5d3@arm.com>
-In-Reply-To: <eb583fda-cbd1-4ef2-900a-a86e08a0b5d3@arm.com>
+Subject: Re: [RFC PATCH 01/38] arm64: mpam: Context switch the MPAM registers
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@kernel.org>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Gavin Shan
+ <gshan@redhat.com>, rohit.mathew@arm.com, reinette.chatre@intel.com,
+ Punit Agrawal <punit.agrawal@oss.qualcomm.com>
+References: <20251205215901.17772-1-james.morse@arm.com>
+ <20251205215901.17772-2-james.morse@arm.com>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20251205215901.17772-2-james.morse@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_041210_677178_24D8B8BD 
-X-CRM114-Status: GOOD (  17.04  )
+X-CRM114-CacheID: sfid-20251212_043033_171149_0B8D4A25 
+X-CRM114-Status: GOOD (  28.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,74 +76,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/12/2025 12:29, Ryan Roberts wrote:
-> On 11/07/2025 17:17, Will Deacon wrote:
->> Hi all,
->>
->> I cooked this series following a complaint from Linus back in March
->> about our range-based TLB invalidation macro after we fixed an
->> over-invalidation bug thanks to incorrect handling of its arguments:
->>
->>   https://lore.kernel.org/all/CAHk-=wgiX0q0WCL+SFwVCYtG7JR3=2Rshse-5J3AO2Y4AgT7Jw@mail.gmail.com/
->>
->> Once I started trying to rework the range macro into a C function, I
->> spotted a few other opportunities for cleanup and so I've ended up with
->> this series.
->>
->> Testing and feedback welcome.
-> 
-> Hi Will,
-> 
-> Did this go anywhere/are you planning to post a new version? There are a couple
-> of other cleanups I'd like to do in this area, and also I'd like to add tlbip
-> support. But I don't want to spend time on it if the baseline is going to
-> drastically change.
-> 
-> If you're not planning a v2, perhaps I could have a go then extend for the
-> extras I want to do?
+Hi James,
 
-Since I didn't hear back, I've reworked the series to include Linus's suggestion
-and am currently testing. Plan to post against -rc1.
+On 12/5/25 21:58, James Morse wrote:
+> MPAM allows traffic in the SoC to be labeled by the OS, these labels
+> are used to apply policy in caches and bandwidth regulators, and to
+> monitor traffic in the SoC. The label is made up of a PARTID and PMG
+> value. The x86 equivalent calls these CLOSID and RMID, but they don't
+> map precisely.
+> 
+> MPAM has two CPU system registers that is used to hold the PARTID and PMG
+> values that traffic generated at each exception level will use. These can be
+> set per-task by the resctrl file system. (resctrl is the defacto interface
+> for controlling this stuff).
+> 
+> Add a helper to switch this.
+> 
+> struct task_struct's separate CLOSID and RMID fields are insufficient
+> to implement resctrl using MPAM, as resctrl can change the PARTID (CLOSID)
+> and PMG (sort of like the RMID) separately. On x86, the rmid is an
+> independent number, so a race that writes a mismatched  closid and rmid
+> into hardware is benign. On arm64, the pmg bits extend the partid.
+> (i.e. partid-5 has a pmg-0 that is not the same as partid-6's pmg-0).
+> In this case, mismatching the values will 'dirty' a pmg value that
+> resctrl believes is clean, and is not tracking with its 'limbo' code.
+> 
+> To avoid this, the partid and pmg are always read and written as a pair.
+> Instead of making struct task_struct's closid and rmid fields an
+> endian-unsafe union, add the value to struct thread_info and always use
+> READ_ONCE()/WRITE_ONCE() when accessing this field.
+> 
+> Resctrl allows a per-cpu 'default' value to be set, this overrides the
+> values when scheduling a task in the default control-group, which has
+> PARTID 0. The way 'code data prioritisation' gets emulated means the
+> register value for the default group needs to be a variable.
+> 
+> The current system register value is kept in a per-cpu variable to
+> avoid writing to the system register if the value isn't going to change.
+> Writes to this register may reset the hardware state for regulating
+> bandwidth.
+> 
+> Finally, there is no reason to context switch these registers unless
+> there is a driver changing the values in struct task_struct. Hide
+> the whole thing behind a static key. This also allows the driver to
+> disable MPAM in response to errors reported by hardware. Move the
+> existing static key to belong to the arch code, as in the future
+> the MPAM driver may become a loadable module.
+> 
+> All this should depend on whether there is an MPAM driver, hide
+> it behind CONFIG_MPAM.
+> 
+> CC: Amit Singh Tomar <amitsinght@marvell.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+[...]
+> +
+> +static inline void mpam_thread_switch(struct task_struct *tsk)
+> +{
+> +	u64 oldregval;
+> +	int cpu = smp_processor_id();
+> +	u64 regval = mpam_get_regval(tsk);
+> +
+> +	if (!IS_ENABLED(CONFIG_ARM64_MPAM) ||
+> +	    !static_branch_likely(&mpam_enabled))
+> +		return;
+> +
+> +	if (regval == READ_ONCE(arm64_mpam_global_default))
+> +		regval = READ_ONCE(per_cpu(arm64_mpam_default, cpu));
+> +
+> +	oldregval = READ_ONCE(per_cpu(arm64_mpam_current, cpu));
+> +	if (oldregval == regval)
+> +		return;
+> +
+> +	write_sysreg_s(regval, SYS_MPAM1_EL1);
+> +	isb();
+> +
+> +	/* Synchronising the EL0 write is left until the ERET to EL0 */
+> +	write_sysreg_s(regval, SYS_MPAM0_EL1);
 
-> 
-> Thanks,
-> Ryan
-> 
-> 
->>
->> Cheers,
->>
->> Will
->>
->> Cc: Ard Biesheuvel <ardb@kernel.org>
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Ryan Roberts <ryan.roberts@arm.com>
->> Cc: Mark Rutland <mark.rutland@arm.com>
->> Cc: Linus Torvalds <torvalds@linux-foundation.org>
->> Cc: Oliver Upton <oliver.upton@linux.dev>
->> Cc: Marc Zyngier <maz@kernel.org>
->>
->> --->8
->>
->> Will Deacon (10):
->>   arm64: mm: Introduce a C wrapper for by-level TLB invalidation helpers
->>   arm64: mm: Introduce a C wrapper for by-range TLB invalidation helpers
->>   arm64: mm: Implicitly invalidate user ASID based on TLBI operation
->>   arm64: mm: Remove unused 'tlbi_user' argument from
->>     __flush_tlb_range_op()
->>   arm64: mm: Re-implement the __tlbi_level macro in C
->>   arm64: mm: Simplify __TLBI_RANGE_NUM() macro
->>   arm64: mm: Push __TLBI_VADDR() into __tlbi_level()
->>   arm64: mm: Inline __TLBI_VADDR_RANGE() into __tlbi_range()
->>   arm64: mm: Simplify __flush_tlb_range_limit_excess()
->>   arm64: mm: Re-implement the __flush_tlb_range_op macro in C
->>
->>  arch/arm64/include/asm/tlbflush.h | 230 ++++++++++++++++++------------
->>  arch/arm64/kernel/sys_compat.c    |   2 +-
->>  arch/arm64/kvm/hyp/nvhe/mm.c      |   2 +-
->>  arch/arm64/kvm/hyp/pgtable.c      |   4 +-
->>  4 files changed, 140 insertions(+), 98 deletions(-)
->>
-> 
+SYS_MPAMSM_EL1 needs to be written here too to account for accesses
+generated by SME loads. Also, when in streaming mode, SVE and FP loads,
+stores and SVE prefetches.
+
+SYS_MPAMSM_EL1 should also be considered in initialisation code too.
+
+> +
+> +	WRITE_ONCE(per_cpu(arm64_mpam_current, cpu), regval);
+> +}
+Thanks,
+
+Ben
 
 
