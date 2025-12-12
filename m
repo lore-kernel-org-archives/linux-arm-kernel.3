@@ -4,77 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08080D43369
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 06:12:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02EAED4336B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 06:37:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tguberSfCkZI5bjsxXDvzMFEZt1a4W4d2EaDprlMu9E=; b=ZxPFM8f+nujWfMuSDTz9v5lk5+
-	M+VVOSfU1+HlzzsRTUFf3xr+eF+EdVnAKdguoA721+VoeYZp+fVNvxK0iL9LZaWuIY7Ng9tMNhfQc
-	gwPDjSJxsgodwErDGYQ19FFdp87WvagT+3ueilcSh71HX027PXDfEcvUO4qVTtPM11qwrKBeVdEUM
-	XV9G64QqwvrpqUqPCByzqDfygpgsVc8w4ER1CGaq0s9tHTJaik2GcVEgGgHULqdgQzQfKsnBRivdX
-	G1vkeEngjTtukN2Kk07ZvL2bZzg4T1pKFYhaE8FS+NoWn0Pnt6Gbi6F4HZQeK9EdQGBSaoseHzqXl
-	hRGCqBKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xN1DM2uLftBPfRhei43YEoC2eN9SErzHD9rDUf8hkgE=; b=bdhQQDZt/lwGSZczbVQTjQbkwa
+	RFSFhWWWG/SLxqVI/cMmfls/t58vmqgiwTdTCeY1E4fHRKzZZbF7XGdDuqEsx71YzmzSQpB0zI8BT
+	vEdcF9iZJqruGlKxNUivzRvuJhEkWkBpyeWSR4pNhTggeaDxqsNpS/yhvcnJ6ypC+gFn1HCi51I4X
+	C88rkKcXOEpOry7o7OD78ytomL61mDSi45/QDy2xlGGO0QlWt/KEfo/8mPE3u25Mddi9J6YBXzith
+	VYUbLgY44AhgDzf+WY0a/8wgAk2wxc+6lS5F17TeNsyjovwBD2kQHY2ZjhtFW30CkkCfYw6Hfa4NH
+	LusOdgfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTwOI-000000009Kb-1P1H;
-	Fri, 12 Dec 2025 06:12:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1vTwlu-00000000ABQ-1Nmd;
+	Fri, 12 Dec 2025 06:36:58 +0000
+Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTwOH-000000009KV-1teC
+	id 1vTwlr-00000000AAv-039j
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 06:12:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 58ECE60123;
-	Fri, 12 Dec 2025 06:12:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9964CC16AAE;
-	Fri, 12 Dec 2025 06:12:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765519952;
-	bh=tu35v5JnahKDsmp5vWzJfU95RMwm0sPSKcmBSUpkSDs=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Szdrq9GDzcfXkTz1z+U+6vV8FIPOGzAfB01ToY0aURn2Eqmimse2bmGIiuHu9i6fZ
-	 jPdpVxBN2O5t9+uT3j1gdpDRQZQZ+tAuqGdPrKrCaTCFTLomVvogf6x5myDGhBhKO7
-	 6qhV6yNRgnZ6/NCpE4fiFWVwpKRZc7S/BfrQZQYITFzeIMEERG3TYrwsMnJTQqR98k
-	 jJFvZuwRYVhjsSklsVmrbEfb0LWxxaYs02uTYnTM6rXxYPyaOGyShTPWFLMhzN53Jx
-	 tFqp/3Gak1U44YAiDTbMJZB60eVjI6ASl1i7EZnKnX+qVpM2VfEept5Nw5F1kZtns5
-	 YJDDUN+dIcHoA==
-From: Sasha Levin <sashal@kernel.org>
-To: patches@lists.linux.dev,
-	stable@vger.kernel.org
-Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Sasha Levin <sashal@kernel.org>,
-	linux@armlinux.org.uk,
-	clrkwllms@kernel.org,
-	rostedt@goodmis.org,
-	nathan@kernel.org,
-	kees@kernel.org,
-	peterz@infradead.org,
-	lumag@kernel.org,
-	richard@nod.at,
-	chrisi.schrefl@gmail.com,
-	lukas.bulwahn@redhat.com,
-	afd@ti.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rt-devel@lists.linux.dev
-Subject: [PATCH AUTOSEL 6.18-5.10] ARM: 9461/1: Disable HIGHPTE on PREEMPT_RT kernels
-Date: Fri, 12 Dec 2025 01:12:12 -0500
-Message-ID: <20251212061223.305139-2-sashal@kernel.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251212061223.305139-1-sashal@kernel.org>
-References: <20251212061223.305139-1-sashal@kernel.org>
+	Fri, 12 Dec 2025 06:36:56 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jg1lNApdYa4enaARo+p2aYsOcHEkg54bENYOR0CAVy9Wdz97KkaG80zjDpP2zlYXh3BSUKXWSodL1Oj++z5RfL024Gagb4s5NkelG61BfFqEhkpHoWVc4U9ILNXyzcijvo958VxBW+75cLTTPM+O+XN4wxy97YB+5pXmSZdBTdewRjHmg4mpyxvP42dchVtqxSQGim7Wkg+N2etb6OAGTWwEuAxg1qeiphXZYuf8Ze6hQ7kZxY1ME/Lx8tr/EfiAEZYP1W+zl+o7Y7YUAIN5OZezZTYObku0KAA9v+Afr9b0JcBIWrR1H/gRCcnkWJPisicdogEZtP/RDZTyQWhe0A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xN1DM2uLftBPfRhei43YEoC2eN9SErzHD9rDUf8hkgE=;
+ b=KPId0iYUvKEfC0BUi2dadX5w6r2TD4s4bq996A51AbiWj9lKhM54M/Ufvl6NN1zZDkP+CaZiqUTQ61oZihwREG1ZKH0kTtfsh3K0YUgm5A0swvgEzqg6CrKUMUAZfcfPxYvggV8x8T8XTWTMNH458t647AUp1V971J70kKvf1TO+UFqu//BusnyHZC872PFuwvmZBFLZTzPjSkeVZDlPBwqy4pgV87UWMD7VRzEvobOJwZdGc9Juj1nLcYvx43ok3OFvszEkS5V4PkhNruB5u4joz/J4MbWTAel3y3pbSHOlMLMbH/z4Ils6mW19liZPrlrA5NG4piN8BVAkDCDHjg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=intel.com smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xN1DM2uLftBPfRhei43YEoC2eN9SErzHD9rDUf8hkgE=;
+ b=vOAmrT65h4ONT1sv55VDzymwy3BxD2eJ+HY6QAtMSr+FZPbL5VzBD1KwdLeBy0/7/4w63x0/uvEPBP0SMlffj0uk5OEQyfZOX0SAYzHQurWpNSBPh09Vqyv670gT0S9ig+SOqlnuhAOQe5Jr80FXdP7pmRPI8ln2cx4ua2JACv0=
+Received: from BY5PR17CA0031.namprd17.prod.outlook.com (2603:10b6:a03:1b8::44)
+ by DS7PR12MB6119.namprd12.prod.outlook.com (2603:10b6:8:99::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9412.9; Fri, 12 Dec 2025 06:36:43 +0000
+Received: from SJ1PEPF00001CE6.namprd03.prod.outlook.com
+ (2603:10b6:a03:1b8:cafe::4f) by BY5PR17CA0031.outlook.office365.com
+ (2603:10b6:a03:1b8::44) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9412.9 via Frontend Transport; Fri,
+ 12 Dec 2025 06:36:44 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ SJ1PEPF00001CE6.mail.protection.outlook.com (10.167.242.22) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9388.8 via Frontend Transport; Fri, 12 Dec 2025 06:36:42 +0000
+Received: from SATLEXMB04.amd.com (10.181.40.145) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.17; Fri, 12 Dec
+ 2025 00:36:42 -0600
+Received: from satlexmb08.amd.com (10.181.42.217) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 12 Dec
+ 2025 00:36:40 -0600
+Received: from xhdlakshmis40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Thu, 11 Dec 2025 22:36:38 -0800
+From: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+To: Adrian Hunter <adrian.hunter@intel.com>, Michal Simek
+	<michal.simek@amd.com>, Ulf Hansson <ulf.hansson@linaro.org>
+CC: <linux-mmc@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <git@amd.com>, <saikrishna12468@gmail.com>,
+	Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
+Subject: [PATCH] mmc: sdhci-of-arasan: Increase CD stable timeout to 2 seconds
+Date: Fri, 12 Dec 2025 12:05:09 +0530
+Message-ID: <20251212063509.2002910-1-sai.krishna.potthuri@amd.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-X-stable: review
-X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.18
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+Received-SPF: None (SATLEXMB04.amd.com: sai.krishna.potthuri@amd.com does not
+ designate permitted sender hosts)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CE6:EE_|DS7PR12MB6119:EE_
+X-MS-Office365-Filtering-Correlation-Id: ad788aeb-3626-4897-4331-08de3948d058
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?6h/uzqWCIp+pju4WNrcLXhUzzfTlPJ6pGpbNMML0ht11qW+3Yuc5To/0/BGi?=
+ =?us-ascii?Q?A/gYNd8DS/l6BT42TPOM62ZYvDMK6n4QE4QU4kJxU/Aagli3sBaN3DVmt0Aw?=
+ =?us-ascii?Q?ArqLRT4Ehkjo3TghZKHckWC1oVBUlcUW7cp8onXIwREVSXYrT/CvAEMM1976?=
+ =?us-ascii?Q?dV/clBEFflfXhbknlFpV+F6WsbX4RmJnktNiRy2F/9qnFHevMH5MjLx7HlUC?=
+ =?us-ascii?Q?fDNjz5djSR1cPsInwRkT3nklgP2e+koHBvFdq4THqtzI/tSH1u7c/p3pLVHb?=
+ =?us-ascii?Q?LpsptjuwEr94R2Cc2W0brtqezhYLmVY2Gw5V1rSFdejprxBE8NyXiUbVsByU?=
+ =?us-ascii?Q?s7115SpLr0rQjrVoSyrnQME4YPTfCmvc/U/j6xgdReX9FTO+cJIhqldRP9P0?=
+ =?us-ascii?Q?BC3RsXuepX/vVaKjM6CQOxozWXQFVQKHTG/kfizcYFJ6etTbwF3cY2lMz1SY?=
+ =?us-ascii?Q?xq4EFhTiyyrG7zy23ggS6FVlp4jlWsA3Ft4/CqgbvU1sKriXGFNwQQDjhaQy?=
+ =?us-ascii?Q?tuZ2K41XcEitK5HmhX3bnAVRElEHuc2baHlYvZiyd6JXbErzBaLnYntgbfsg?=
+ =?us-ascii?Q?/ZI2UqF7TkYxX1KtpvQYRPt0vZWgMsi0UJqfQ2jHXNrgynHJzrEEW+seVmyz?=
+ =?us-ascii?Q?vwiPscQmazViWdNS45zScWPkK23M73JBk0Wmo9EKbZisEwRxd+4yHZKDcfAW?=
+ =?us-ascii?Q?Hs63JoqF8WJMNl9eD+7/03dHFFiMsNR9wNQJOJ4ew/sgxDGGAHSxTAmi5yFw?=
+ =?us-ascii?Q?+sK3mwKe8x1GgPfkxx9XTfL3XrSPR4Cbh9JdRQz8ZWxvFVdQTocC3YTzlPTm?=
+ =?us-ascii?Q?Q3PE6RjVCOyNyzq7yiQfK8uZRKkyKrVvIdqaSHAr+wfTW+fBOWeEXxXqdQsG?=
+ =?us-ascii?Q?f4YM7y1uFrLYajtzrj8nFDfWUawasuyEekgbGosQxUkPzb6hxEufOSaM4jdG?=
+ =?us-ascii?Q?SaHhEaAOzQgImcsA5kaQCXSq/gENEW0ZjWO6AlEqfL61qW0jC7kpIonPM27Y?=
+ =?us-ascii?Q?hdHT+11m9wO4E8gEUmABJD4wlazLKeyNi1u4jNsdrLciT0v9x928u4ir7EsD?=
+ =?us-ascii?Q?d75gBFMWYyP/tlHBaIJP8y4sNBVl2bpWA11FEpyOu1ltWL9rsKtFDBClPj+4?=
+ =?us-ascii?Q?10qGeKYUTGdUYSKIOc7vluM5S7fT7IcKgyncQmFq+K6egm8LbYapGpL8a54Y?=
+ =?us-ascii?Q?K9sBy2Dc2S7iRhHv3s3Ylc6E951QzKmxXDWTNtHy4wn10XwIxmzpdMn24rcz?=
+ =?us-ascii?Q?q/AQVaO83xljLXYBEgg4R4ZlaRHpgz3QFBa+I37Wbx6D4HM11ZZlyiBPVkuZ?=
+ =?us-ascii?Q?ysqzB/wAZadAUvJ3fbcAjMJM3YDpDlgne23gLdpEXVA9E6j8O7f3QVVS/dGC?=
+ =?us-ascii?Q?M/rBiIWpTGjm0JMK2t9MZ+htEKEuAPT89FZDp1xH5qT+VjLF2WAJyCIPZO5/?=
+ =?us-ascii?Q?Z2uuYoy6Jr2nvLkClVjvbuYslcjp7IVPVawqE4JiH5hIPo1O7mh88xLcSGGt?=
+ =?us-ascii?Q?RaA/oHGmuJiPIzKs2DKSlwZD4q/w2LKaT/wHib7kWeO7TZK/RGx+tpci1uHQ?=
+ =?us-ascii?Q?Bs5SVc5hFKdDi+59f1k=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Dec 2025 06:36:42.7714
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: ad788aeb-3626-4897-4331-08de3948d058
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CE6.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB6119
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251211_223655_083022_C1120107 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,181 +149,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+On Xilinx/AMD platforms, the CD stable bit take slightly longer than
+one second(about an additional 100ms) to assert after a host
+controller reset. Although no functional failure observed with the
+existing one second delay but to ensure reliable initialization, increase
+the CD stable timeout to 2 seconds.
 
-[ Upstream commit fedadc4137234c3d00c4785eeed3e747fe9036ae ]
-
-gup_pgd_range() is invoked with disabled interrupts and invokes
-__kmap_local_page_prot() via pte_offset_map(), gup_p4d_range().
-With HIGHPTE enabled, __kmap_local_page_prot() invokes kmap_high_get()
-which uses a spinlock_t via lock_kmap_any(). This leads to an
-sleeping-while-atomic error on PREEMPT_RT because spinlock_t becomes a
-sleeping lock and must not be acquired in atomic context.
-
-The loop in map_new_virtual() uses wait_queue_head_t for wake up which
-also is using a spinlock_t.
-
-Since HIGHPTE is rarely needed at all, turn it off for PREEMPT_RT
-to allow the use of get_user_pages_fast().
-
-[arnd: rework patch to turn off HIGHPTE instead of HAVE_PAST_GUP]
-
-Co-developed-by: Arnd Bergmann <arnd@arndb.de>
-
-Acked-by: Linus Walleij <linus.walleij@linaro.org>
-Reviewed-by: Arnd Bergmann <arnd@arndb.de>
-Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
+Fixes: e251709aaddb ("mmc: sdhci-of-arasan: Ensure CD logic stabilization before power-up")
+Signed-off-by: Sai Krishna Potthuri <sai.krishna.potthuri@amd.com>
 ---
-
-LLM Generated explanations, may be completely bogus:
-
-# Commit Analysis: ARM: 9461/1: Disable HIGHPTE on PREEMPT_RT kernels
-
-## 1. COMMIT MESSAGE ANALYSIS
-
-**Problem identified**: The commit addresses a "sleeping-while-atomic"
-bug on PREEMPT_RT ARM kernels. The issue occurs because:
-- `gup_pgd_range()` runs with interrupts disabled (atomic context)
-- With HIGHPTE enabled, the code path calls `kmap_high_get()` which
-  acquires a `spinlock_t` via `lock_kmap_any()`
-- On PREEMPT_RT, `spinlock_t` becomes a sleeping lock (mutex)
-- Attempting to acquire a sleeping lock in atomic context is a bug
-
-**Tags present**:
-- Acked-by: Linus Walleij (ARM/pinctrl maintainer)
-- Reviewed-by: Arnd Bergmann (major ARM contributor)
-- Signed-off-by: Sebastian Andrzej Siewior (PREEMPT_RT maintainer)
-- Signed-off-by: Russell King (ARM maintainer)
-
-**Missing tags**: No `Cc: stable@vger.kernel.org` or `Fixes:` tag.
-
-## 2. CODE CHANGE ANALYSIS
-
-The change is a single-line Kconfig modification:
-
-```diff
-- depends on HIGHMEM
-+       depends on HIGHMEM && !PREEMPT_RT
-```
-
-This simply prevents the `HIGHPTE` configuration option from being
-selected when `PREEMPT_RT` is enabled. The technical mechanism of the
-bug is clear:
-
-1. `get_user_pages_fast()` → `gup_pgd_range()` (runs with interrupts
-   disabled)
-2. → `pte_offset_map()` → `__kmap_local_page_prot()` → `kmap_high_get()`
-3. `kmap_high_get()` calls `lock_kmap_any()` which uses `spinlock_t`
-4. On PREEMPT_RT: `spinlock_t` = sleeping lock → BUG in atomic context
-
-The commit message notes that "HIGHPTE is rarely needed at all" - it's
-an optimization to put page tables in high memory, which is typically
-unnecessary on modern systems.
-
-## 3. CLASSIFICATION
-
-- **Bug type**: Runtime crash/BUG (sleeping-while-atomic violation)
-- **Not a new feature**: Disables a problematic configuration
-  combination
-- **Not a security fix**: No CVE or security-sensitive code
-- **Build fix category**: No, this is a runtime issue
-
-## 4. SCOPE AND RISK ASSESSMENT
-
-**Scope**:
-- 1 file changed (`arch/arm/Kconfig`)
-- 1 line modified
-- Affects only ARM + PREEMPT_RT + HIGHMEM configurations
-
-**Risk**: **Very low**
-- This is a Kconfig dependency change only
-- Users who previously had HIGHPTE enabled will now have it disabled on
-  PREEMPT_RT
-- The workaround is conservative (disable the problematic feature rather
-  than complex code fixes)
-- Cannot introduce regressions in other code paths
-
-## 5. USER IMPACT
-
-**Affected users**: ARM systems running PREEMPT_RT kernels with HIGHMEM
-(systems with >~800MB RAM on 32-bit ARM)
-
-**Severity**: High for affected users
-- `get_user_pages_fast()` is a commonly used path for I/O and memory
-  management
-- Without this fix, users would hit kernel warnings/crashes when GUP
-  fast path is used
-- This completely breaks PREEMPT_RT usability on affected configurations
-
-## 6. STABILITY INDICATORS
-
-**Review chain is strong**:
-- Sebastian Andrzej Siewior (PREEMPT_RT maintainer) developed this
-- Arnd Bergmann reworked and reviewed it
-- Linus Walleij acked it
-- Russell King (ARM maintainer) accepted it
-
-## 7. DEPENDENCY CHECK
-
-This is a standalone Kconfig change. Dependencies:
-- `PREEMPT_RT` must exist in the kernel - PREEMPT_RT was merged into
-  mainline in kernel 6.12
-- `HIGHPTE` and `HIGHMEM` options exist on ARM in all relevant kernel
-  versions
-
-The fix should apply cleanly to any stable tree with PREEMPT_RT support.
-
-## STABLE KERNEL CRITERIA EVALUATION
-
-| Criterion | Assessment |
-|-----------|------------|
-| Obviously correct | ✅ Yes - disables problematic config combination |
-| Fixes real bug | ✅ Yes - sleeping-while-atomic crash |
-| Important issue | ✅ Yes - crashes on PREEMPT_RT systems |
-| Small and contained | ✅ Yes - 1 line Kconfig change |
-| No new features | ✅ Yes - only disables an option |
-| Clean application | ✅ Yes - simple dependency addition |
-
-## CONCERNS
-
-1. **No explicit stable request**: Maintainers didn't add `Cc: stable`.
-   However, the fix is clearly appropriate for stable.
-2. **PREEMPT_RT availability**: Only relevant for kernels 6.12+ where
-   PREEMPT_RT was merged into mainline.
-
-## CONCLUSION
-
-This commit fixes a real, reproducible crash on ARM PREEMPT_RT systems.
-The fix is minimal (1 line), obviously correct (disables problematic
-feature combination), well-reviewed by relevant maintainers (ARM, RT),
-and carries essentially zero risk. While there's no explicit stable tag,
-the technical merits strongly support backporting.
-
-The sleeping-while-atomic bug would make `get_user_pages_fast()`
-unusable on affected configurations, which is a serious correctness
-issue for PREEMPT_RT users who require deterministic behavior.
-
-**YES**
-
- arch/arm/Kconfig | 2 +-
+ drivers/mmc/host/sdhci-of-arasan.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
-index 4fb985b76e97f..70cd3b5b5a059 100644
---- a/arch/arm/Kconfig
-+++ b/arch/arm/Kconfig
-@@ -1215,7 +1215,7 @@ config HIGHMEM
+diff --git a/drivers/mmc/host/sdhci-of-arasan.c b/drivers/mmc/host/sdhci-of-arasan.c
+index b97d042897ad..ab7f0ffe7b4f 100644
+--- a/drivers/mmc/host/sdhci-of-arasan.c
++++ b/drivers/mmc/host/sdhci-of-arasan.c
+@@ -99,7 +99,7 @@
+ #define HIWORD_UPDATE(val, mask, shift) \
+ 		((val) << (shift) | (mask) << ((shift) + 16))
  
- config HIGHPTE
- 	bool "Allocate 2nd-level pagetables from highmem" if EXPERT
--	depends on HIGHMEM
-+	depends on HIGHMEM && !PREEMPT_RT
- 	default y
- 	help
- 	  The VM uses one page of physical memory for each page table.
+-#define CD_STABLE_TIMEOUT_US		1000000
++#define CD_STABLE_TIMEOUT_US		2000000
+ #define CD_STABLE_MAX_SLEEP_US		10
+ 
+ /**
 -- 
-2.51.0
+2.25.1
 
 
