@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F2E9D4415B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 10:31:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60AF2D44164
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 10:46:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2JEaEdne3xE15YcaqMGzHGlnlw5wz1SFmIhhjzXpIp4=; b=KeMV57eDucb81KdrsTYbJLz8NC
-	YJQcm2hvDDziummA5RO8I7gIgUBdX8Zc+CgBFIzzUlhqh3ZoJPYYRAuQ/euTfxw6eRXU/cz+97Kkp
-	9S+hgSiQrgFiMzNZ3WlD8vFK1+lklztUZSomgaAJ+SSULdDk/cmUQu8bOBcSzswQFX2VgTfSjUa1l
-	QRTVowULcrbBur8TJMaQQhDk7jmRAN3IWxu7M6CKb0PqF3wZJshViNJDSQUSeUA/qvC3Kxz9sMMPm
-	kSymphVQnJKKPKIMEfIv+GujLb1P76SJe9p2yKTYwrIFKicEadJ5PEbZ4lG4McYlaQSyWO2z+W0DK
-	XYiezvEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vz3hgPZ5s7AumxljzgcZatN85XQ9nbtGUCZs8hJY3Zg=; b=XHFG9sv7DRC4Zr0JoiUSmtdXtK
+	BZgALMmzAjW2/bm/C0f1CL2rA2GV50KurkG7qNFyFPUoKowhqtTROLGG9ieeAAxHgNSGa3bmaFqF6
+	DO2TJH2gRjKwgH9TAZxbNUWXpVntDRDr8hSLyOOjaB8Q7R/FD1p2p+SN8alaab98o+ibgdq4VwU63
+	abvcE6t1+E1yw8S+BlDzUCLiYr180kqPzE6Kl++a8vcNSdjR91d5I1E48PbFVMmICh1USv7fc/EsU
+	2Rq4mHje0rqpnHuDSZM+6sBtwwJD5KBoanugz9iiLy0trxqEFY1HbrP25NBm1+6ZoKiTko3NmA11h
+	VD8z6+JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU0QQ-00000000Qxt-1MgO;
-	Fri, 12 Dec 2025 10:31:02 +0000
+	id 1vU0fN-00000000RTJ-30Ah;
+	Fri, 12 Dec 2025 10:46:29 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU0QN-00000000QxJ-2pon
+	id 1vU0fJ-00000000RSv-3ua4
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 10:31:00 +0000
+	Fri, 12 Dec 2025 10:46:27 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 27B621063;
-	Fri, 12 Dec 2025 02:30:51 -0800 (PST)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C88383F762;
-	Fri, 12 Dec 2025 02:30:56 -0800 (PST)
-Date: Fri, 12 Dec 2025 10:30:54 +0000
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: Will Deacon <will@kernel.org>
-Cc: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	tabba@google.com
-Subject: Re: [PATCH 1/2] KVM: arm64: Copy FGT traps to unprotected pKVM VCPU
- on VCPU load
-Message-ID: <aTvu3tbCpztzj8bm@raptor>
-References: <20251210132102.137631-1-alexandru.elisei@arm.com>
- <20251210132102.137631-2-alexandru.elisei@arm.com>
- <aTsrMUGan1AH5suO@google.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C65E7FEC;
+	Fri, 12 Dec 2025 02:46:15 -0800 (PST)
+Received: from [10.57.93.22] (unknown [10.57.93.22])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D5ACB3F762;
+	Fri, 12 Dec 2025 02:46:21 -0800 (PST)
+Message-ID: <650659ac-22f0-4fc0-ad43-8d4169cf2432@arm.com>
+Date: Fri, 12 Dec 2025 10:46:15 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aTsrMUGan1AH5suO@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH] iommu/arm-smmu-v3: Allow stream ID sharing for
+ devices behind PCIe-to-PCI bridges
+To: Jason Gunthorpe <jgg@ziepe.ca>, Nirmoy Das <nirmoyd@nvidia.com>
+Cc: will@kernel.org, joro@8bytes.org, nicolinc@nvidia.com,
+ linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20251211133933.4128100-1-nirmoyd@nvidia.com>
+ <aTu4xsAApNupRGYC@ziepe.ca>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <aTu4xsAApNupRGYC@ziepe.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_023059_837537_F794F16D 
-X-CRM114-Status: GOOD (  27.41  )
+X-CRM114-CacheID: sfid-20251212_024626_024744_F663520E 
+X-CRM114-Status: GOOD (  13.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,89 +67,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
+On 2025-12-12 6:40 am, Jason Gunthorpe wrote:
+> On Thu, Dec 11, 2025 at 05:39:33AM -0800, Nirmoy Das wrote:
+>> ASPEED BMC controllers have VGA and USB functions behind a PCIe-to-PCI
+>> bridge that causes them to share the same stream ID:
+>>
+>>    \-[0005:e0]---00.0-[e1-e2]----00.0-[e2]--+-00.0  ASPEED Graphics Family
+>>                                             \-02.0  ASPEED USB Controller
+>>
+>> Both devices get stream ID(0x5e200) due to bridge aliasing. Currently this
+>> USB controller gets rejected with "Aliasing StreamID unsupported", causing
+>> USB timeout errors. Allow stream ID sharing when both devices are on
+>> the same bus behind a PCIe-to-PCI bridge to fix this issue.
+> 
+> I don't think this is right, if you actually need stream ID sharing
+> then I seem to recall the driver needs more changes. We don't want
+> this in general.
 
-On Fri, Dec 12, 2025 at 05:36:01AM +0900, Will Deacon wrote:
-> Hey Alexandru,
-> 
-> [+Fuad as we ran into this last week]
-> 
-> On Wed, Dec 10, 2025 at 01:21:01PM +0000, Alexandru Elisei wrote:
-> > Commit fb10ddf35c1c ("KVM: arm64: Compute per-vCPU FGTs at vcpu_load()")
-> > introduced per-VCPU FGT traps. For an unprotected pKVM VCPU, the untrusted
-> > host FGT configuration is copied in pkvm_vcpu_init_traps(), which is called
-> > from __pkvm_init_vcpu(). __pkvm_init_vcpu() is called once per VCPU (when
-> > the VCPU is first run) which means that the uninitialized, zero, values for
-> > the FGT registers end up being used for the entire lifetime of the VCPU.
-> > This causes both unwanted traps (for the inverse polarity trap bits) and
-> > the guest being allowed to access registers it shouldn't.
-> > 
-> > Fix it by copying the FGT traps for unprotected pKVM VCPUs when the
-> > untrusted host loads the VCPU.
-> > 
-> > Fixes: fb10ddf35c1c ("KVM: arm64: Compute per-vCPU FGTs at vcpu_load()")
-> > Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
-> > ---
-> >  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 12 ++++++++++--
-> >  arch/arm64/kvm/hyp/nvhe/pkvm.c     |  1 -
-> >  2 files changed, 10 insertions(+), 3 deletions(-)
-> > 
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> > index 29430c031095..ee0f1343100c 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> > @@ -167,6 +167,7 @@ static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
-> >  	DECLARE_REG(unsigned int, vcpu_idx, host_ctxt, 2);
-> >  	DECLARE_REG(u64, hcr_el2, host_ctxt, 3);
-> >  	struct pkvm_hyp_vcpu *hyp_vcpu;
-> > +	struct kvm_vcpu *hyp_kvm_vcpu;
-> >  
-> >  	if (!is_protected_kvm_enabled())
-> >  		return;
-> > @@ -175,10 +176,17 @@ static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
-> >  	if (!hyp_vcpu)
-> >  		return;
-> >  
-> > +	hyp_kvm_vcpu = &hyp_vcpu->vcpu;
-> > +
-> >  	if (pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
-> >  		/* Propagate WFx trapping flags */
-> > -		hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWE | HCR_TWI);
-> > -		hyp_vcpu->vcpu.arch.hcr_el2 |= hcr_el2 & (HCR_TWE | HCR_TWI);
-> > +		hyp_kvm_vcpu->arch.hcr_el2 &= ~(HCR_TWE | HCR_TWI);
-> > +		hyp_kvm_vcpu->arch.hcr_el2 |= hcr_el2 & (HCR_TWE | HCR_TWI);
-> 
-> I don't think the 'hyp_kvm_vcpu' really makes this much clearer and it's
-> the line only ends up being a single character shorter. Just continue to
-> use 'hyp_vcpu->vcpu.'?
-
-That makes sense, I'll respin after rc1.
-
-> 
-> > +	} else {
-> > +		struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
-> > +
-> > +		memcpy(&hyp_kvm_vcpu->arch.fgt, host_vcpu->arch.fgt,
-> > +		       sizeof(hyp_kvm_vcpu->arch.fgt));
-> >  	}
-> >  }
-> >  
-> > diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> > index 43bde061b65d..05774aed09cb 100644
-> > --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> > +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> > @@ -172,7 +172,6 @@ static int pkvm_vcpu_init_traps(struct pkvm_hyp_vcpu *hyp_vcpu)
-> >  
-> >  		/* Trust the host for non-protected vcpu features. */
-> >  		vcpu->arch.hcrx_el2 = host_vcpu->arch.hcrx_el2;
-> > -		memcpy(vcpu->arch.fgt, host_vcpu->arch.fgt, sizeof(vcpu->arch.fgt));
-> >  		return 0;
-> >  	}
-> 
-> Otherwise, looks good to me:
-> 
-> Acked-by: Will Deacon <will@kernel.org>
+Yes, as I said on the last one not so long ago, we cannot simply cross 
+our fingers and hope that aliasing at the SMMU StreamID level stems from 
+something at the PCI RID level that pci_device_group() would be aware 
+of, because there is no guarantee that RID->StreamID mappings are 1:1.
 
 Thanks,
-Alex
+Robin.
+
+> IMHO ASPEED has wrong PCI config space and there isn't any actual PCI
+> bus here that would force RID aliasing to worry about. I suggest going
+> to ASPEED to find out and confirm that they don't actually share the
+> RIDs and then let's quirk the PCI devices to disable alias generation
+> in the first place.
+> 
+> Also, complain to them to fix their config space to report a PCIe bridge
+> type in future devices. :)
+> 
+> Jason
+
 
