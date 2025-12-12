@@ -4,95 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1616D59D6F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 15:41:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8246D59D6F
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 15:42:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yb0mpDrVWWr4Uchsh7e1JfdRTz6GJRCuX0Lg98K6TFs=; b=ovxPF7U/bm7M3Cx+UiaC3KFTSM
-	nQdLZVbrZ7RBaOrQVdA54KSi/y5FNgUvLZAcEN4eQUd1gpQvnunDAkk04oBftMPbduMyWV0JSXzXX
-	0YT6vzfUAqJfSFOD0An6r8NwMsKT/0eAPIRhJnkcZQQprb1Q0/aBpOGv839lFtUAj0kwEvprDR96O
-	mygtIG/Tw/CTwtwBCMhxYfMbfLekAaTxkee325t2DVn3mmEgwEomwtMmRv/1l3ARsOiwVvp22dqdq
-	1r7v8hnC/FN8qQa7xjvam6wMMuqjbjbj10GBYFJ3n55PhedcN6tyeLuoWd1RD28FF8joQjRUgtq8c
-	wgl7e5kA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Zvs0Y9fjkfpuOjqGiS1GxL1BaXlJ2gCK5y9BuiQG+A8=; b=lfQHbovj2gSpeLV6zLtku2zXG/
+	dZ1AR1mx7HaQA9+Y9UBYTKtHQk85bSp+jy0CRp+NQmZioA8+zv7OHz9KvvjfcTn4VmGnNQHc6+wIt
+	/Pv8lIqNAGNYGobkOLLDV8XHUsuSuKEISFdMyoZ66MAtY2j3NDmtJt9wBcCqaI4weVxVdT9oD86UQ
+	9Uh88/AfK4PCGMog7BprN5yN05GApNLmPd2Zlnxb5aSruEs2DZWHcOHmdYKc2CAI/EUYqnuDFNSN1
+	zZh6wOBoSDgXFW6tBjHAwaYIvntgJxs1J0HuEf8Ady5toEZqBYhK/kl47R9F5VRIdo6ket9jdhRDv
+	cDU11i4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU5H4-00000000l5R-1Fur;
-	Fri, 12 Dec 2025 15:41:42 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1vU5HR-00000000lBH-0x5W;
+	Fri, 12 Dec 2025 15:42:05 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU5H2-00000000l4x-1SX3
+	id 1vU5HN-00000000l9u-3SEA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 15:41:41 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-4779a4fb9bfso128795e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Dec 2025 07:41:38 -0800 (PST)
+	Fri, 12 Dec 2025 15:42:03 +0000
+Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-c0e7f4920aeso42024a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Dec 2025 07:42:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1765554098; x=1766158898; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=yb0mpDrVWWr4Uchsh7e1JfdRTz6GJRCuX0Lg98K6TFs=;
-        b=pOxTQnGU4dvcPPdnfVgaBZt0epdeG83QLGEa18vCuLY2Qh5tkRRYYCPDgyPphxxkJa
-         qV8B/6OtIO8kxi0e9ZrGPDNSN189TSLrdUZXsO4LKsm3fEjBE2CEw4G5bcZ3m+2mrEDE
-         yWCmew9hIV2UrvW8nc1oW8C9uAcjaOlhZgh6teKlMWLcAFa+X6QIo+m6iAQwFj4F6kv+
-         CsgQsl9WDqlno7p3ed4z/vltucmNsPBrfLJmQ95lsGP8Gq1qPrZO6Efy7qYTkfRKrRfp
-         t6UF0XdzIfwLKP/cTBcD9N/4+vVeRoZ5xXmEBP4dgc5dWJEvgsFCiyaIO+HGFZXOYNXQ
-         bhHg==
+        d=gmail.com; s=20230601; t=1765554121; x=1766158921; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Zvs0Y9fjkfpuOjqGiS1GxL1BaXlJ2gCK5y9BuiQG+A8=;
+        b=iFbJBqlHnev2ByorH9D9XrYGLvgtQcgmRXGMnVi4RtEnhLVsh4NQVkhu08Ofdj2M8E
+         I3PoJLlxRgURaOv3pXgTeqAxpf+5FYXa1ihHMvT6Gc45O+oOVp/worhqjRIlZNAVkMm4
+         IrhrPK8N2QN7nbmfnUFx1XYPPxaqdQHT1KM1CgM1vd6PR7vUIGZ4nUcz6waSunM2q+n7
+         qcpognlciETccwWxoDpgXD37/3sN3o1JHVjJbAVc4itcNRhyKHyg4TQCOxCx4MBgKDZE
+         48MYc2S/SQh6arQDpaAehz4iDfMOnYWR9KHKOiqMIhuw5bd3q345xz8+mnh6fLM+H0zp
+         4LSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765554098; x=1766158898;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=yb0mpDrVWWr4Uchsh7e1JfdRTz6GJRCuX0Lg98K6TFs=;
-        b=BH02OzyfWnxSOK7a2Uz3hXiKWiKUKluBah+zsrzZhFREMFGcqKsB/nYIMsZbZuhSAl
-         N4bXIZWRavuIRQcLk1U0sgsTc2itcJxkyWk2fT8srTEyEQoWIACFaTc3Wo5o4QKwxbzo
-         Aw5EMRdoO6b19Df9zVbBn7Ce66Ib6KHKLeof9/SjV39Ix2hIVof+K2/bXW1gSVb4Iaa1
-         lgppSccn/AZMTO7qXGsChmpMcUZgxDf7AN56Ugtx2MIGLSYqn6SGb2Si2IdRUuAu/guk
-         f1uyGMi72cvQJrNxLnvmcqUaknJgr6/LkwS1Jmn7Zmrn+7lVn7QeOIOd2I9CRwNolsvT
-         5NMA==
-X-Gm-Message-State: AOJu0YyyRO6KMN+8dTi/+8J3kiAaGzUzzAjrN9swIzyLVHIjrLOVxLSk
-	5yWNp6R2r6bXT0KnKvLRgQkLO++yDbXM4N+gWTiM9Gv2qojY8+xQRtiSRgkz/1S7Rx0PqzPBOeJ
-	h+32SDA==
-X-Gm-Gg: AY/fxX5fIj0lZKbP2W8P4cyoovvMAsvIl6Aq2/WzLhoV4VzhfI43j18crlKz8oCYGJP
-	ytKl2kIMy5FAEZuAxAAtwbjjsXZGH9dyStQJRNmtoP3eED6YTrPamvABxot3jNxWPYw8UTPOBz9
-	KFyq3Dx5YQGlbC51ez9ExTLRqCb6hS0kTBYY8Xy0y5SLM1T6taMD4OdoiURZ4S6sPIXlLmfFqUl
-	TZX5EXo9TygQ7UwNBW+tbeqa/2kPpjFLBFvE6qRZJ9VZnm3zWXSbEEYqSyE+ZJFtGyoYmNcrfJW
-	ghLGU3I+t9Ii4vIrXAPEXKDmuxZMbkIJDaqGzrWFx2wOmVcsucfFDLtowXrkOSLJdCAS3Y5lO18
-	nVqam2zTiIhyiO40jXq6iSQ/g0WAkNQ+aXpHO32zxRomD+yw/GSs5qoXsEHyOYLlEbYwNemMCF+
-	crGqTOBu+aTuNF6R2xs+wD/D4NocQ3b7rsmkcl6W1TqwzvB/XDFw==
-X-Google-Smtp-Source: AGHT+IE8Wx434r/TRdblX8cNOSB3Il2X+1GmWAuGcjE2WU7i1xwbelBfzCA/D0WahfUc0XUl/gS5rw==
-X-Received: by 2002:a05:600c:8885:b0:477:2f6f:44db with SMTP id 5b1f17b1804b1-47a8980f38emr1011225e9.5.1765554097506;
-        Fri, 12 Dec 2025 07:41:37 -0800 (PST)
-Received: from google.com (54.140.140.34.bc.googleusercontent.com. [34.140.140.54])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47a8f49da20sm36628515e9.5.2025.12.12.07.41.36
+        d=1e100.net; s=20230601; t=1765554121; x=1766158921;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Zvs0Y9fjkfpuOjqGiS1GxL1BaXlJ2gCK5y9BuiQG+A8=;
+        b=jm6ZSzel40ts/INnp94ho/FWb2pHo3K5Ps9t6KIy1rKcbKeFkNYUFToZyIZL+c0AFc
+         cHb2U8AekrGq4Flq14E1vppYBCFQDZD6378e4iit+l4aMJEFCvGNAQks0SbuQb3M4xWv
+         gDiIrwWrjLOdlcSGdS8zkxt4/0ngkMaZcrr7u6bb9kvBihlMgPU315gGyZ6zdrQXMxGb
+         c+ioyVhingCBBddA3AyPm+zmDa9hKgyCT61cfyrib7+ohZK6bWrSOUT/DQjLJn61TVbb
+         nt6KGHGI3DOwF1QbZl6sJTwXPVhm8T6QlMu9Zcv0mFiRPd1tRaCiR+nzdEOyXyokmylQ
+         e+/g==
+X-Forwarded-Encrypted: i=1; AJvYcCW3qO2i/rpLfG5GUsCnYzmtx3hm6uf4Rq3V0byvmcAJI9rVCimckskPoVTgPTvdNo/nHoCCS02HoikUmSuB1dtP@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAjcJtgqC47qukZD2Mi7hNPjtoqlL+wnPrJl4Y/15fc/08vamr
+	6NMeb2fFn5rJNJ/Kh0x9zsUhbS1BVBUqR2AJhxbN6/P8HQc1DT8S4yJg
+X-Gm-Gg: AY/fxX5jMuH12Oyfc6cIqiHd9XLk47sh7M/4GWGp9FKDklilJeFSgY413D7HaftPJ94
+	hJeLw12+u377XKobVrmS9zWykqo7x+xwx8PUPgECHN3mDf+VUvTGFccHAMbHCIX186XKKP8wHBp
+	iRWvsSl6zYq/JZuvpSX3v4SHuEwGSllbTxvRmTIdAdr99MapyKlCBJTLyV057UVVlyuruA/AntJ
+	EU41AhXCSf9FoilrIUFhrWW4RVpJrGgJlQPz1YNTXQGjQR2MakArPUjWUEUGsiLXFKqW60CoI/R
+	oW3NhWpQnh3gX4Qga7+RdJrgwB+qm3SspkJ/xlzbSFjhEK5MbTE9ST5uUUVE19bunasJTX+r1CR
+	fFD4/ytzJbWaG9O7XiW+wOYGsqm6JMv5egjhP0r41NeMeDCnHyAsTzpRutLbx3lIj7CggbWFRAp
+	jfiprrHT94yf4WFqu5mC7EkQ==
+X-Google-Smtp-Source: AGHT+IGjNBsdS6Z+owU1Z6BbP/qc6a4XyvaU3uhlw6ok1WkouJ/+QBfVTxzeOJSOKmt+ehQ/bAIRmw==
+X-Received: by 2002:a05:6a00:234c:b0:7a2:855f:f88b with SMTP id d2e1a72fcca58-7f668dc54a6mr2134871b3a.3.1765554120540;
+        Fri, 12 Dec 2025 07:42:00 -0800 (PST)
+Received: from rock-5b.. ([45.32.55.39])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7f4c237f357sm5652380b3a.6.2025.12.12.07.41.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Dec 2025 07:41:36 -0800 (PST)
-Date: Fri, 12 Dec 2025 15:41:33 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, iommu@lists.linux.dev,
-	catalin.marinas@arm.com, will@kernel.org, maz@kernel.org,
-	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, joro@8bytes.org, jean-philippe@linaro.org,
-	praan@google.com, danielmentz@google.com, mark.rutland@arm.com,
-	qperret@google.com, tabba@google.com
-Subject: Re: [PATCH v5 05/27] iommu/arm-smmu-v3: Split code with hyp
-Message-ID: <aTw3rS1Pp-Iqq7yU@google.com>
-References: <20251117184815.1027271-1-smostafa@google.com>
- <20251117184815.1027271-6-smostafa@google.com>
- <20251128164655.GB812105@ziepe.ca>
+        Fri, 12 Dec 2025 07:42:00 -0800 (PST)
+From: Jianfeng Liu <liujianfeng1994@gmail.com>
+To: linux-rockchip@lists.infradead.org
+Cc: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jianfeng Liu <liujianfeng1994@gmail.com>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+	Hans Verkuil <hverkuil@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org
+Subject: [PATCH] media: rkvdec: set ctx->image_fmt in rkvdec_s_capture_fmt
+Date: Fri, 12 Dec 2025 23:41:32 +0800
+Message-ID: <20251212154138.3042300-1-liujianfeng1994@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251128164655.GB812105@ziepe.ca>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_074140_412751_EF1E54E2 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20251212_074202_222718_8562DD6D 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,30 +105,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Nov 28, 2025 at 12:46:55PM -0400, Jason Gunthorpe wrote:
-> On Mon, Nov 17, 2025 at 06:47:52PM +0000, Mostafa Saleh wrote:
-> > The KVM SMMUv3 driver would re-use some of the cmdq code inside
-> > the hypervisor, move these functions to a new common c file that
-> > is shared between the host kernel and the hypervisor.
-> > 
-> > Signed-off-by: Mostafa Saleh <smostafa@google.com>
-> > ---
-> >  drivers/iommu/arm/arm-smmu-v3/Makefile        |   2 +-
-> >  .../arm/arm-smmu-v3/arm-smmu-v3-common-lib.c  | 114 +++++++++++++
-> >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 161 ------------------
-> >  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  61 +++++++
-> 
-> I would think these inlines should go in some -common.h instead of
-> arm-smmu-v3.h for better clarity, and ideally pkvm stuff does not
-> include arm-smmu-v3.h at all?
+ctx->image_fmt is initialized as RKVDEC_IMG_FMT_ANY at
+rkvdec_s_output_fmt, and get set at rkvdec_s_ctrl when userspace sends
+SPS info via VIDIOC_S_EXT_CTRLS. This works fine with gstreamer because
+it sends SPS info to kernel driver before requesting capture queue bufs.
 
-My thought was that we use “arm-smmu-v3.h” to avoid moving a lot of
-code and messing up the git history, but I have no strong opinion,
-splitting is fine also.
+But chromium requests capture queue bufs first and then sends SPS info
+to kernel, then rkvdec_s_ctrl will return -EBUSY, and the video is
+displayed green.
 
-Thanks,
-Mostafa
+Chromium calls VIDIOC_S_FMT to capture queue instead before requesting
+capture queue bufs, so setting ctx->image_fmt in rkvdec_s_capture_fmt
+will make rkvdec_s_ctrl return 0 when the first SPS info sent to driver.
 
-> 
-> Jason
+Signed-off-by: Jianfeng Liu <liujianfeng1994@gmail.com>
+Fixes: d35c64eccf3b1 ("media: rkvdec: Add get_image_fmt ops")
+---
+
+ drivers/media/platform/rockchip/rkvdec/rkvdec.c | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+index 5af9aa5ab353..e7939d604f64 100644
+--- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
++++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+@@ -537,6 +537,18 @@ static int rkvdec_s_capture_fmt(struct file *file, void *priv,
+ 		return ret;
+ 
+ 	ctx->decoded_fmt = *f;
++
++	u32 fourcc = f->fmt.pix_mp.pixelformat;
++
++	if (fourcc == V4L2_PIX_FMT_NV12)
++		ctx->image_fmt = RKVDEC_IMG_FMT_420_8BIT;
++	else if (fourcc == V4L2_PIX_FMT_NV15)
++		ctx->image_fmt = RKVDEC_IMG_FMT_420_10BIT;
++	else if (fourcc == V4L2_PIX_FMT_NV16)
++		ctx->image_fmt = RKVDEC_IMG_FMT_422_8BIT;
++	else if (fourcc == V4L2_PIX_FMT_NV20)
++		ctx->image_fmt = RKVDEC_IMG_FMT_422_10BIT;
++
+ 	return 0;
+ }
+ 
+-- 
+2.43.0
+
 
