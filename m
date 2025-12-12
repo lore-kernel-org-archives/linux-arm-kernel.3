@@ -4,64 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0B03D4921F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 12:44:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF418D49222
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 12:46:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZKYiBwM8t1St8n+84QzYpGj/YT5ojCQpxUi3Hsn3knw=; b=kJxVidrbwQoNU7weifj6Dmn67o
-	8uLr2wSklr9ZvJSu5GwS4Pj5QlD7PeaxH+jRYcpl8i+6X9IJ7rBSal8kGtBr9k5lBpplfRw3j2MCD
-	//JmUCKYDgHKYezFxc8Y7JngPx59zA/0y27WfKyzYaU2ZuJNa8mtiuUoDLPs0vq9pha/r8VEy9yqb
-	+O+7k0ucRUDCtK9+Pkns/m4stQKR2EkkRCX9onFnuPW9P39qpDKSyvMlEbqsLMBbhGf/t4T0l+bTp
-	YZctqQ6Ico2n1WvaAjvjihjOZwck02WJs1H7eE0nE21A2nqHXx3gxS+XqMIVHoQv+TFdDxq/CjWCa
-	FaPvqpfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NCtTFdAR550Ro/EK0CpnBBWGB4plAQMacluoc0gbQ24=; b=V2966r4IZ/9Kb3Ez06yR9GaVRg
+	cICiaMyi0ZXm4q/XYyhl4b8m1n+aQ3itt2Q3dvhIjP4+aeVN/UY+gU9Xi9M5thpPrTtx+KWZB6cXL
+	OuuPGyUvYFXHtgQf3VzsXLR/EAfZKOkFEv8oDwwcN7xu3Oq8jN9DhYqy+d3JvXLa6ZyUdYv875rxO
+	VjRhMhSB5MpQQa6r12K7yTiwNS6U7hHfoJwUn/dh1iTn3RXGpS79s/Rup633DpVHdNrssVd0pX50z
+	aCRGwaEVrDX+xF84VrwbnHCLRe17Da920/FjqB0mje7Bt3zBz9DuD8YJJdS+SvCJUyc1nF2dn7TOe
+	5PFVhIxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU2VS-00000000XGB-1mCw;
-	Fri, 12 Dec 2025 12:44:22 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU2VQ-00000000XF5-0X90
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 12:44:21 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 328EFFEC;
-	Fri, 12 Dec 2025 04:44:12 -0800 (PST)
-Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 820E23F762;
-	Fri, 12 Dec 2025 04:44:17 -0800 (PST)
-From: Leo Yan <leo.yan@arm.com>
-Date: Fri, 12 Dec 2025 12:44:04 +0000
-Subject: [PATCH 2/2] perf c2c: Update documentation for Arm SPE events
+	id 1vU2XC-00000000XZL-3FdR;
+	Fri, 12 Dec 2025 12:46:11 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vU2X9-00000000XYl-3zNz;
+	Fri, 12 Dec 2025 12:46:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1765543444; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Weu0CDwZIa4DQj4+JZX7MHkwLnD7GMhEeDpXz4JwPDXJ+UweHch98irmB8CPR62O81T234en7sTKdqH1muGOKJYGWf7qc0It4VziJ5ozii+mCR6bI0fO7BT/8fRA2e5z4g9Pno9dv1wIv0W2bJaQUuAu8Xvc/VM5HuF+tA9S9lM=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1765543444; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=NCtTFdAR550Ro/EK0CpnBBWGB4plAQMacluoc0gbQ24=; 
+	b=KSsna4+V13P+LGlIn1om0lqh6qg30/GXTjbn8HKEMH+IVBlsdFMlEJYO1Y9qxFAFq+rSPdT4kmuzmvJzZb1+dHchXqHq/fYLqqf1kjehS++1gKhHu/RllM31AeVlRaw/9K4wTN5Tb9bT2B0utx4fDrPRj69IoA1I8iPpXcyJ7PE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765543444;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=NCtTFdAR550Ro/EK0CpnBBWGB4plAQMacluoc0gbQ24=;
+	b=Y/hAqvQKLHS0IpK+77z+Oa5HaISq+OWT8kgiCPMRfk9ZhuFlyxQN9I708ZrRgHmd
+	KeELLl4Uxm8q7qeY5lBzkUREGDOJLMty6wC42IB+2RbWzEU1mGOl/Q7jrb/esrpKlQi
+	kNlTHiTDSV8hSOA/Py7ngJPYTtIf00XGdYNQI/Zk=
+Received: by mx.zohomail.com with SMTPS id 1765543441860202.14133912038153;
+	Fri, 12 Dec 2025 04:44:01 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: David Laight <david.laight.linux@gmail.com>
+Cc: Sandy Huang <hjc@rock-chips.com>,
+ Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Chaoyi Chen <chaoyi.chen@rock-chips.com>, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
+ kernel@collabora.com
+Subject: Re: [PATCH v4 1/8] drm/rockchip: vop2: Switch impossible format conditional
+ to WARN_ON
+Date: Fri, 12 Dec 2025 13:43:55 +0100
+Message-ID: <14738785.uLZWGnKmhe@workhorse>
+In-Reply-To: <20251211223822.6eeabb4d@pumpkin>
+References: <20251211-vop2-atomic-fixups-v4-0-5d50eda26bf8@collabora.com>
+ <20251211-vop2-atomic-fixups-v4-1-5d50eda26bf8@collabora.com>
+ <20251211223822.6eeabb4d@pumpkin>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 7Bit
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251212-perf_c2c_update_event-v1-2-29a26c7a949b@arm.com>
-References: <20251212-perf_c2c_update_event-v1-0-29a26c7a949b@arm.com>
-In-Reply-To: <20251212-perf_c2c_update_event-v1-0-29a26c7a949b@arm.com>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
- Namhyung Kim <namhyung@kernel.org>, Ian Rogers <irogers@google.com>, 
- James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
- Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Jiri Olsa <jolsa@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>, 
- Al Grant <al.grant@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Leo Yan <leo.yan@arm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1765543453; l=1053;
- i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
- bh=xjFry3+Qwb2If5ls7tOuCo2U0koPfIRw3LR2ftk6/dI=;
- b=gLk+Oz9sgXO0vTq5i0+d0vBbN95yxI6Har+R8p/Y7EKtJ/CGsMqtsUaBitmY4dZ5URIHp//k2
- abZPeaUXxm4DEoXtzC7gE0NvzG3txTiO3NqUpTWjMrlp0m5IsnMswNM
-X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
- pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_044420_227431_FA76B761 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251212_044608_616567_6E7B506B 
+X-CRM114-Status: GOOD (  25.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,39 +86,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Document the default Arm SPE events used by the perf c2c tool.  Make a
-minor adjustment to the PowerPC entry for formatting consistency.
+On Thursday, 11 December 2025 23:38:22 Central European Standard Time David Laight wrote:
+> On Thu, 11 Dec 2025 21:40:31 +0100
+> Nicolas Frattaroli <nicolas.frattaroli@collabora.com> wrote:
+> 
+> > From: Daniel Stone <daniels@collabora.com>
+> > 
+> > We should never be able to create a framebuffer with an unsupported
+> > format, so throw a warning if this ever happens, instead of attempting
+> > to stagger on.
+> 
+> It doesn't look like you've changed the behaviour.
 
-Suggested-by: Al Grant <al.grant@arm.com>
-Signed-off-by: Leo Yan <leo.yan@arm.com>
----
- tools/perf/Documentation/perf-c2c.txt | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+Yes, the commit message needs to be adjusted.
 
-diff --git a/tools/perf/Documentation/perf-c2c.txt b/tools/perf/Documentation/perf-c2c.txt
-index 40b0f71a2c44eb642ff3bb234631a614b7c4fc9d..b765ae2511d2418a63092fb8a90a61faa335ac91 100644
---- a/tools/perf/Documentation/perf-c2c.txt
-+++ b/tools/perf/Documentation/perf-c2c.txt
-@@ -170,11 +170,16 @@ following on AMD:
- 
-   ibs_op//
- 
--and following on PowerPC:
-+following on PowerPC:
- 
-   cpu/mem-loads/
-   cpu/mem-stores/
- 
-+following on Arm:
-+
-+  arm_spe_0/ts_enable=1,pa_enable=1,load_filter=1,min_latency=30/
-+  arm_spe_0/ts_enable=1,pa_enable=1,store_filter=1/
-+
- User can pass any 'perf record' option behind '--' mark, like (to enable
- callchains and system wide monitoring):
- 
+> Except that all the systems with PANIC_ON_WARN set will panic.
+> I believe that is somewhere over 90% of systems.
 
--- 
-2.34.1
+I also like making up statistics. Warning here is the correct move
+in my opinion because this warning being triggered indicates a bug
+in the kernel code, and with PANIC_ON_WARN the user explicitly says
+they would rather panic in such a case than treat it as an abnormal
+condition that is recoverable.
+
+The reason why this condition ever occurring should be treated as an
+abnormal condition is because the DRM subsystem should guarantee we
+don't get a framebuffer of a format we didn't explicitly declare
+support for in the first place. So this condition being hit either
+means drm_universal_plane_init is broken, or the array of formats
+that's passed to it is out of sync with the conversion code, which
+is also a bug. Or someone managed to thoroughly hose DRM's internal
+kernel-side data structures, which is precisely the kind of thing
+PANIC_ON_WARN users want to abort for.
+
+> 
+> 	David
+> 
+> > 
+> > Signed-off-by: Daniel Stone <daniels@collabora.com>
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > ---
+> >  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 3 ++-
+> >  1 file changed, 2 insertions(+), 1 deletion(-)
+> > 
+> > diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> > index 498df0ce4680..20b49209ddcd 100644
+> > --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> > +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+> > @@ -1030,7 +1030,8 @@ static int vop2_plane_atomic_check(struct drm_plane *plane,
+> >  		return 0;
+> >  
+> >  	format = vop2_convert_format(fb->format->format);
+> > -	if (format < 0)
+> > +	/* We shouldn't be able to create a fb for an unsupported format */
+> > +	if (WARN_ON(format < 0))
+> >  		return format;
+> >  
+> >  	/* Co-ordinates have now been clipped */
+> > 
+> 
+> 
+
+
+
 
 
