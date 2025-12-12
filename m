@@ -4,82 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E0FDD59D7D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 22:59:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B7E9D59F57
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 23:06:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=tBFcNzGChK01MBl7aRFxeqVQzmaQvoTyGJMrwZXP/1Q=; b=CT4YMpVDjoEhDW
-	6yJPdjyNe0x/HxITspjHFfJRcgxyM7U1ovidWBRRDGfLFxnw9YfzLjD9ZXRt80drFPB1yL40vI5bc
-	eY28kr3PvqybxugJMNosnAkDFo/CZ5OnQKfihfP5IvTqeRPBv1zTCHH+5j7HqUGARvuEucdLU+h3Y
-	MaMCmIaiOrBSE7UwdUoahsulZAguwhHHbDEQYaBHAxe+IZDJkOa2DuPxcMWGlVxSaqQsAKPenwvFK
-	jB8FmdeeXdtSDBfg/jVhrFc2kU5xJnnX1oUrtpAEbvLSnc9jYRf91sR9hqkZgXSKLBW4pMYX7tkOJ
-	/S5ieckWsKf1+su4ZGQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x5l4phBTQ5s3tak8rbu73PqDDxyijhO9BxipaFMLBH4=; b=TANJkg3ytf25jbho5NUs4bZRu2
+	BsVdnBjYFU1BujBXfEuJ5KbEHbFdMMPLiLHFz6DZb5AgZ9rfz6K4gF13N0k8sFWiHNym64cnzbo2h
+	Rl1dDvwzEbqs4XbiPzrTyycyadun0NgwjWbJzUzlZwJPaY08+NNkUi0jyPiytA7G/9I6/ztLv/ASE
+	dpOJhOjx8yza2enqwyAyCASljntlqWoA82pSHdSHYgnJFG86tNNp/n8AsDIsi9Rc+xbzE9+x+EvIc
+	5E0/LzuPTsDALE1mqm5WCV+uyF/tis25EJzM6iG7tE6KBcQpuZZtnnaPE74WFgm/Fv4teSjsQ81Pg
+	AwgbIsTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUC6M-00000001C60-2oW8;
-	Fri, 12 Dec 2025 22:59:07 +0000
-Received: from mail-oa1-x4a.google.com ([2001:4860:4864:20::4a])
+	id 1vUCDD-00000001CSF-0BHO;
+	Fri, 12 Dec 2025 23:06:11 +0000
+Received: from pi.codeconstruct.com.au ([203.29.241.158] helo=codeconstruct.com.au)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUC6K-00000001C5f-2c5n
+	id 1vUCD9-00000001CRn-3ESC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 22:59:05 +0000
-Received: by mail-oa1-x4a.google.com with SMTP id 586e51a60fabf-3f4bc7318aeso1370453fac.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Dec 2025 14:59:03 -0800 (PST)
+	Fri, 12 Dec 2025 23:06:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1765580343; x=1766185143; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=tBFcNzGChK01MBl7aRFxeqVQzmaQvoTyGJMrwZXP/1Q=;
-        b=x9Zx7dFWwwdn8O3V8CU1kUqocmDkRAk9w9KnkA4guo5vgCKJaO1qBkFdF9R2FvuZLY
-         NuL833eCleTz3JptS65l9TDh1G8SANr1tQVH78sWoS99GIGpsGFYim33vYaN79m1xYhL
-         b4+EukPCRks1bdp4D0+Kzv742V/9mrJrxPfl+TyDE1PQHQ/YQpsZK303H/gNsRkEaxoA
-         HDIwMc0wvZ+8WC9zxcpN4HAE1dOTETVzf4iUp+lPjJuf0zLNFYT16aYuupZqP8dqYE+c
-         cM/bnpE9AuIKppFmqPtRx2k5O68kpJtjNbz/scwUt3TXM9GHEDP7+NljJerHdwr3Fmdy
-         UChg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765580343; x=1766185143;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tBFcNzGChK01MBl7aRFxeqVQzmaQvoTyGJMrwZXP/1Q=;
-        b=FoKvUqligZyZSBOf/32IoBw5JXe+xNZ8HJYWV8djZE4Q01CDz8Knmz6LPgrA4egTPL
-         z2JhLU01yX6eyfyLa6XTomXusTWyprHbOkT2HCmmMNcWeDvGcJfcT68NKEgHQOVimunt
-         yubUfx1TIxHWLNEmwQgvalIzWPrUEwUoELwjjCFQpkGUPAtQ2RoubwPUtGF/1VVffbBu
-         QKIyGmpsLv8AbhPrhm2ycKBlOnD3tYShPHymgmj/VXqYyK/go+Cl1MOEAj9WYIty8Zri
-         AtOU7ZxzP3mA6HE11pe+aneHCUz5D6GOIoBPvDC7o2dtI/Yml2tgBZ597G0zoBZMdr6M
-         u7pw==
-X-Forwarded-Encrypted: i=1; AJvYcCX357YHobupTsMoRw3VXX8Ay5iMKaiK2gGJbkTl5TrrW/EaMl7z9EH3lwDHulhrZ9I7CFGoqRD628LIWU7XLjsR@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzyqb2AKyubfWONcsXvAkknqQ0WsPqpCAg6IxHZFaj73JrJ53lx
-	lWofgDmD+HI03ohtuXlh9IJWU0EJM9BCqmcIL5h52FIF2WFgjgUvUrMWDjBMyxtv/QZTJSldu5C
-	TSiwBQHlkfNuTk3jR0T6H9wS1Cg==
-X-Google-Smtp-Source: AGHT+IErW9ttpylPAKTVb6sUEZwG4YGY35EKiSdiqsCWGntNWnLEEqDhx+071F1DfXt8IYeJCob+cCIIDVfcvHekjQ==
-X-Received: from ilbbc25.prod.google.com ([2002:a05:6e02:99:b0:434:972f:bf92])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6820:1886:b0:65b:35a2:7a8b with SMTP id 006d021491bc7-65b4523911emr1339446eaf.82.1765580342788;
- Fri, 12 Dec 2025 14:59:02 -0800 (PST)
-Date: Fri, 12 Dec 2025 22:59:01 +0000
-In-Reply-To: <aTipeb2fAmUtSzzX@kernel.org> (message from Oliver Upton on Tue,
- 9 Dec 2025 14:58:01 -0800)
-Mime-Version: 1.0
-Message-ID: <gsnt5xab2toq.fsf@coltonlewis-kvm.c.googlers.com>
-Subject: Re: [PATCH v5 22/24] KVM: arm64: Add KVM_CAP to partition the PMU
-From: Colton Lewis <coltonlewis@google.com>
-To: Oliver Upton <oupton@kernel.org>
-Cc: kvm@vger.kernel.org, pbonzini@redhat.com, corbet@lwn.net, 
-	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
-	maz@kernel.org, oliver.upton@linux.dev, mizhang@google.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	mark.rutland@arm.com, shuah@kernel.org, gankulkarni@os.amperecomputing.com, 
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+	d=codeconstruct.com.au; s=2022a; t=1765580756;
+	bh=x5l4phBTQ5s3tak8rbu73PqDDxyijhO9BxipaFMLBH4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=jiFkvtOOi1rI+ninI9Q/X+ONt7F0b8K8Rtwkl/uaSOPD7NAZAPpRNpd7GPDC5TIed
+	 ITcpORYrpcHFtU2o2l+Zy1N+h6ZB2JsFmCrExwlHN4bxLny2EC+BBe262gzuKEILVs
+	 LF2Mv+hq9Y0LnLOLiBRBlK+6VIX27ZX+ch2SPWSBORcBR4lc0a/w6pmqZSFVq2TRoW
+	 2gjww3rFueIk87oOb+83aKxIDBVxL3I/IcpyOx5au3kcJTaXPvpYReuuNqW42GMeVg
+	 kRmwx2MntlwLb9dcRj9Ad6S7kznj+oalmwbE/kszNE91aXFQdGvYYBXt49KwsoKpX7
+	 j0V4K1M6Te7Cg==
+Received: from [172.16.11.106] (fpcf41bac9.tkyc510.ap.nuro.jp [207.65.186.201])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id A6D3C64DF5;
+	Sat, 13 Dec 2025 07:05:50 +0800 (AWST)
+Message-ID: <35ec28a70d360b2139742e9f04ff77e4a907cd2b.camel@codeconstruct.com.au>
+Subject: Re: [PATCH RFC 00/16] Eliminate warnings for AST2500 and AST2600
+ EVB devicetrees
+From: Andrew Jeffery <andrew@codeconstruct.com.au>
+To: Rob Herring <robh@kernel.org>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>,  Linus Walleij <linusw@kernel.org>, Joel Stanley
+ <joel@jms.id.au>, linux-hwmon@vger.kernel.org, 	devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, 	linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org, 	openbmc@lists.ozlabs.org,
+ linux-gpio@vger.kernel.org, linux-mmc@vger.kernel.org, 
+	linux-crypto@vger.kernel.org, linux-iio@vger.kernel.org
+Date: Sat, 13 Dec 2025 08:05:43 +0900
+In-Reply-To: <20251212150631.GA3997751-robh@kernel.org>
+References: <20251211-dev-dt-warnings-all-v1-0-21b18b9ada77@codeconstruct.com.au>
+	 <20251212150631.GA3997751-robh@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_145904_692527_FA7C6C88 
-X-CRM114-Status: GOOD (  16.95  )
+X-CRM114-CacheID: sfid-20251212_150608_031517_56BB8420 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,59 +78,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Oliver Upton <oupton@kernel.org> writes:
+Hi Rob,
 
-> On Tue, Dec 09, 2025 at 08:51:19PM +0000, Colton Lewis wrote:
->> +
->> +7.245 KVM_CAP_ARM_PARTITION_PMU
->> +-------------------------------------
->> +
+On Fri, 2025-12-12 at 09:06 -0600, Rob Herring wrote:
+>=20
+> Don't you see warnings for at25:
+>=20
+> =C2=A0=C2=A0=C2=A0=C2=A0 89 (atmel,at25): 'size' is a required property
+> =C2=A0=C2=A0=C2=A0=C2=A0 89 (atmel,at25): 'pagesize' is a required proper=
+ty
+> =C2=A0=C2=A0=C2=A0=C2=A0 89 (atmel,at25): 'address-width' is a required p=
+roperty
+>=20
+> These are due to using the deprecated (since 2012) at25,byte-len,=20
+> at25,addr-mode, and at25,page-size properties. I think it has been long=
+=20
+> enough you can just replace them with the new ones.
 
-> Why can't this be a vCPU attribute similar to the other vPMU controls?
-> Making the UAPI consistent will make it easier for userspace to reason
-> about it.
+I don't see them, no. The series targets only the aspeed/aspeed-
+ast2{5,6}00-evb.dts files, and neither of them contain at25 nodes. grep
+suggests its only IBM platforms:
 
-I'm confused by the inconsistency of using a vCPU attribute for
-something we want to affect the whole VM.
+   > git grep -l at2 ../arch/arm/boot/dts/aspeed/*.dts*
+   ../arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-everest.dts
+   ../arch/arm/boot/dts/aspeed/aspeed-bmc-ibm-fuji.dts
+   ../arch/arm/boot/dts/aspeed/ibm-power10-dual.dtsi
+   ../arch/arm/boot/dts/aspeed/ibm-power10-quad.dtsi
+   ../arch/arm/boot/dts/aspeed/ibm-power11-dual.dtsi
+   ../arch/arm/boot/dts/aspeed/ibm-power11-quad.dtsi
+   >
 
-But I'll do a vCPU attribute if you want.
+Once I've got the pieces of this series merged I'll encourage platform
+owners to start cleaning up their own devicetrees on the basis that
+there are no longer warnings that aren't their problem.
 
-> Better yet, we could make the UAPI such that userspace selects a PMU
-> implementation and the partitioned-ness of the PMU at the same time.
+Thanks for your feedback so far!
 
-Sounds good.
-
->> @@ -132,6 +134,16 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
->>   		}
->>   		mutex_unlock(&kvm->lock);
->>   		break;
->> +	case KVM_CAP_ARM_PARTITION_PMU:
->> +		if (kvm->created_vcpus) {
->> +			r = -EBUSY;
->> +		} else if (!kvm_pmu_partition_ready()) {
->> +			r = -EPERM;
->> +		} else {
->> +			r = 0;
->> +			kvm_pmu_partition_enable(kvm, cap->args[0]);
->> +		}
->> +		break;
->>   	default:
->>   		break;
->>   	}
->> @@ -388,6 +400,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm,  
->> long ext)
->>   	case KVM_CAP_ARM_PMU_V3:
->>   		r = kvm_supports_guest_pmuv3();
->>   		break;
->> +	case KVM_CAP_ARM_PARTITION_PMU:
->> +		r = kvm_pmu_partition_ready();
-
-> "ready" is very confusing in this context, as KVM will never be ready to
-> support the feature on a system w/o the prerequisites.
-
-That was a last minute addition. I'll change the name to something
-better.
-
-> Thanks,
-> Oliver
+Andrew
 
