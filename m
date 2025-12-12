@@ -4,111 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5858D4336B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 03:37:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6EACD3B7E2
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 03:40:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wp+vTYCjH2BpXWY0mBvRIcmV+ZSaR++Da+3qfBFMKSA=; b=N+vKVehjDEYNgD2WhE81r0Szls
-	nARbhRpAPTsGADDxjWtc/hloC7ES5kzvHnXUJGbDBLLZh0cow7jijsnS4ZTT83N0Hu+bp5aQMTH6a
-	PaIMN3XUKRRlkoa9ZCIYd7gvPQMc44HU4VE+S6x0dc2UFIT592qhcXPrEm791Cluo/CqJBoyxp2WP
-	rx7qCtafMTtGvgMawvDvIiN6rErRoIabX4ejpeUpN/utoWP/pMbumngxG07xkLOWFWP1qd9h0P+pV
-	eVXa+fKg4tCtWKCPCGpWysAchKlz8XgV9TarpdfKnwZ+/IHdIKialdQbTz8YfnxcXX9nuO+pqz3bA
-	fMgJvblw==;
+	bh=vlw2biAh27gxpCg6hQSXgZXlsXzzAsGwifRNjUZFg3g=; b=SzxDtBijDJ1qghe1TlGv2wg6cf
+	m6a3aliNlnMCbqG9u7mEqrGS4tsD8EiqMKdJ8OJTasIa5IArjc12L5452Mv3RHt75Z+micWZtB+b/
+	bbG2CIStyjV2RGtzWN4K3+X1O1dymPM0q/USa+TAKIzdd0gvVSb36AmYQ9xzu3sDTcV7PrqS9D0WF
+	zzhpq88TCZxiDQWIw/tY4zBZyx4TrC8OB9Tgn7PH6hZ080tYMq8asaJ9DqMZHB0aEwRW8Q6jNByy7
+	FPLjESenG+UZkovAXDfaR4ROCt+20VCc0EKKyBge+xuzMTwMTRG52yBOQpQW38k0mzyEUaGSDbDBl
+	INO6sDjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTtyB-000000001lS-2LFg;
-	Fri, 12 Dec 2025 03:37:27 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1vTu0f-0000000027h-2et3;
+	Fri, 12 Dec 2025 03:40:01 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTty7-000000001jd-2HWA;
-	Fri, 12 Dec 2025 03:37:26 +0000
-Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5BC3DAlB022803;
-	Fri, 12 Dec 2025 03:37:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=wp+vTY
-	CjH2BpXWY0mBvRIcmV+ZSaR++Da+3qfBFMKSA=; b=jelNWPiDEORIsc+oAdJiOb
-	o9vpR6YQf8a5zsNb+S7U+1LN6TWDH/x32WyxTBNfAnl1Z9nWm5LVLQJ2+e07vvfk
-	1Aud37a770LgBDde6RHtaNGFINSllzeyZD20SnqVTZhxUpVFkzLdBiTeHu/9QCmi
-	FupUi/zKeEkzuukr8y5PkmHkcbfwLyNwbAiq6eIrGKhvp+kLyBBl8H+A18JI81xi
-	klyHVuD692tCsTiJbORCAGQ+7Re08ju+Q2TGVS1IoCZF0ArSxq7JU32oMQXvKHD0
-	w8zYC0BW7vA9d3Dae9MwsAjcAz6liBn0NTgnyZodwATXI00cBu3L/5hge4uUea5w
-	==
-Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4avc61u8he-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 12 Dec 2025 03:37:12 +0000 (GMT)
-Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 5BC0gIQa028126;
-	Fri, 12 Dec 2025 03:37:11 GMT
-Received: from smtprelay02.dal12v.mail.ibm.com ([172.16.1.4])
-	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4avy6ya1bb-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 12 Dec 2025 03:37:11 +0000
-Received: from smtpav02.wdc07v.mail.ibm.com (smtpav02.wdc07v.mail.ibm.com [10.39.53.229])
-	by smtprelay02.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 5BC3bA1B29295108
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 12 Dec 2025 03:37:11 GMT
-Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id A50CD5805E;
-	Fri, 12 Dec 2025 03:37:10 +0000 (GMT)
-Received: from smtpav02.wdc07v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 8D58A5805B;
-	Fri, 12 Dec 2025 03:37:06 +0000 (GMT)
-Received: from jarvis.ozlabs.ibm.com (unknown [9.90.171.232])
-	by smtpav02.wdc07v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 12 Dec 2025 03:37:06 +0000 (GMT)
-Message-ID: <13664f203137541ce8aba74cac3777099992e856.camel@linux.ibm.com>
-Subject: Re: [PATCH v17 00/12] Support page table check on PowerPC
-From: Andrew Donnellan <ajd@linux.ibm.com>
-To: Pasha Tatashin <pasha.tatashin@soleen.com>,
-        Andrew Morton
-	 <akpm@linux-foundation.org>
-Cc: linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org, x86@kernel.org,
-        linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, sweettea-kernel@dorminy.me,
-        nicholas@linux.ibm.com, christophe.leroy@csgroup.eu,
-        alexghiti@rivosinc.com
-Date: Fri, 12 Dec 2025 14:37:04 +1100
-In-Reply-To: <CA+CK2bDDZi0TR9fhAuKpxz+XJU6-rOS_iM-akU=oTb5wVoVxMQ@mail.gmail.com>
-References: <20250909091335.183439-1-ajd@linux.ibm.com>
-	 <336c0402c59363956d0c4eefc1b8a059e1fcc8e4.camel@linux.ibm.com>
-	 <20250925161726.2b34890070e6d8dcf8ad3ba9@linux-foundation.org>
-	 <CA+CK2bDDZi0TR9fhAuKpxz+XJU6-rOS_iM-akU=oTb5wVoVxMQ@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
+	id 1vTu0c-00000000274-2jue
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 12 Dec 2025 03:39:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=vlw2biAh27gxpCg6hQSXgZXlsXzzAsGwifRNjUZFg3g=; b=m/s6/cZbkRS9f4QZeRi5wRrm7M
+	4uFAUEWUwfnzZZVVmeR9MemU4SXI8k3rG7WW6walFA9UPYsvVUuPQm1+EtsGrPT9ZwrlKvXwP1xSt
+	eYHOVtHAnIUYwpEz0MIfMgrnf2YXas+OlSdc6RSJR4wdVM1PEdpbTSCogDUMi+mtXCiI=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vTu0U-00Ghzh-6T; Fri, 12 Dec 2025 04:39:50 +0100
+Date: Fri, 12 Dec 2025 04:39:50 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Joseph Guo <qijian.guo@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Justin Jiang <justin.jiang@nxp.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, qijian.guo@oss.nxp.com,
+	Tom Zheng <haidong.zheng@nxp.com>,
+	Steven Yang <steven.yang@nxp.com>
+Subject: Re: [PATCH v2 2/2] arm64: dts: freescale: Add FRDM-IMX91 basic
+ support
+Message-ID: <55fa5159-768c-4785-b0ba-5553193932ab@lunn.ch>
+References: <20251212-imx91_frdm-v2-0-4dd6d289e81d@nxp.com>
+ <20251212-imx91_frdm-v2-2-4dd6d289e81d@nxp.com>
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMjA2MDAyMCBTYWx0ZWRfX+kBUVpmMzDE4
- RGj2CUtYWbrx/Of6PGswWBpTVaxGP3nwMJnxqHn9QiDDCAoiQit8W/rhik3ZjF7VM3ZQy69KSK3
- iCpfEiC49mzCq/hExQeWrtPs+FgePUlvAAkKjC9g88OB7j/3sVeUXgdsld/KQsvBbvCmyMYEn/y
- qeMU07abl6hWX4ojS+Mjks/PWvc5rqfiANkPjnyfMnd63LUykxH9T7HdI09JXvNavJML2w7/KTx
- r7m/URDYkfciRWxHUM7Ew5SBhyBEbLPpFpi81h1QgOWAtswLCHNojjMLOetW+oj+lV9FfT0+9Ro
- 5eUn+Dm4AbXk57q9B6bqFXxJtBkWN7Lj/yT993PG/odDHdAchrmCWUsV0dFxiaNdJEfzoZGUaeq
- BocxCI++N4A16CPPI0nxK81kOXp51A==
-X-Proofpoint-GUID: 0mx0bl7tMI0Ev7mDlA5PrAzvdwe37wsq
-X-Proofpoint-ORIG-GUID: 0mx0bl7tMI0Ev7mDlA5PrAzvdwe37wsq
-X-Authority-Analysis: v=2.4 cv=O/U0fR9W c=1 sm=1 tr=0 ts=693b8de8 cx=c_pps
- a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17
- a=IkcTkHD0fZMA:10 a=wP3pNCr1ah4A:10 a=VkNPw1HP01LnGYTKEx00:22
- a=VnNF1IyMAAAA:8 a=vpjFdhQh-OGVaG3VjK4A:9 a=QEXdDO2ut3YA:10 a=QYH75iMubAgA:10
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1121,Hydra:6.1.9,FMLib:17.12.100.49
- definitions=2025-12-12_01,2025-12-11_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 lowpriorityscore=0 bulkscore=0 clxscore=1011 phishscore=0
- suspectscore=0 adultscore=0 spamscore=0 malwarescore=0 priorityscore=1501
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510240000 definitions=main-2512060020
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251212-imx91_frdm-v2-2-4dd6d289e81d@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_193723_592629_247155E8 
-X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-CacheID: sfid-20251211_193958_711618_D5264DB4 
+X-CRM114-Status: UNSURE (   5.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -124,17 +78,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2025-12-12 at 12:35 +0900, Pasha Tatashin wrote:
->=20
-> Andrew Donnelan, looks like the merge window missed again, could you
-> please re-send this series so we could get it into 6.20?
->=20
+> +&fec {
+> +	phy-handle = <&ethphy2>;
+> +	phy-mode = "rgmii-id";
+> +	pinctrl-0 = <&pinctrl_fec>;
+> +	pinctrl-1 = <&pinctrl_fec_sleep>;
+> +	pinctrl-names = "default", "sleep";
+> +	fsl,magic-packet;
 
-Yes, sorry I have been busy and I am prepping this to send in the next few =
-days.
+Have you tested WoL?
 
-
---=20
-Andrew Donnellan    OzLabs, ADL Canberra
-ajd@linux.ibm.com   IBM Australia Limited
+	Andrew
 
