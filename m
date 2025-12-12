@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6430D59D67
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 15:33:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F11FD49238
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 15:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HW9vySL1eLI2H1Kn0+dJzMzzH5Eo6siVgDQRHUDflG4=; b=us+W0mMDCb4rhZzxueeaVQwugn
-	4FrOiByGabDaUUyAvsAXHuB8eiJHsUBHAjuPkY5CXuncU2TsGDkTNa6w8U6hkRBQXuoXHnQMj9bmO
-	19ecczl2NEyBP1KgRn+XqIwi9sGzeDjR4+nFeWVPyKnBORQtKo09HCQ2P0hvq6xfGWu9L4/blkLQ1
-	aFiHogl9OX19BzbLhd6Uii7ems81nWISv7pFH/gFZSAfkwB2jB8s4WoWx+hBVRYnRGzXAEG7Evmob
-	Am+Mj75BbShBjnGkhNS0E68I1BQirZGXN2KRmIgQqTtowihBd4gaZzXRPyArXxuan+7LhBw18NddI
-	086U9OIA==;
+	bh=40w1+RpiFWn7cLTaBFnZfKV4QslzhNGDu3cnJiEGNGY=; b=i3iqL5TDkb/1hYL5W2g2j9vV+s
+	8sJfRFpelenDSl+VtPAH2hcmyAQkzamsEctIHQ4hsyuUhMCxEC4BHosKGOBYMyMJPmVPK/KgUOlTb
+	5vWWuRhy8lMTpBjbNzD69L61u5nfSLgou7v/7q6ZH5Zn/YkI5ZzBUlCmFwc27OrH3oVWfptX/G0F+
+	0XWqePVS4vBMgXkPBom/ranDceBE6Opxpp02m2RCkZKdVjLP9+SBI7LM0HSzTrAfdnzvCQdSFGeXo
+	JlgBAVP5s9HRutBE+zNd3EQXuwidfJJ9NIKCJp1/jg3kj4BoM3LxlqZmr1OtPH3QyNUFy56EzDSWP
+	JQn+rsCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU58u-00000000jR9-2jsg;
-	Fri, 12 Dec 2025 15:33:16 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+	id 1vU58v-00000000jSz-3OUP;
+	Fri, 12 Dec 2025 15:33:17 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU58k-00000000jEc-3vWD
+	id 1vU58m-00000000jGh-1BV1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 15:33:08 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-b735487129fso233655066b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Dec 2025 07:33:06 -0800 (PST)
+	Fri, 12 Dec 2025 15:33:12 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-b75c7cb722aso271486666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Dec 2025 07:33:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1765553585; x=1766158385; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1765553586; x=1766158386; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=HW9vySL1eLI2H1Kn0+dJzMzzH5Eo6siVgDQRHUDflG4=;
-        b=GEDFUxox1Rh1cf1+zYPtSw5nsuNQ468AZUoiwWJ/6EUOB18yvaohTOQcqqydfJw2zh
-         0PP3BSRhJv2joh0BZAmxnvQQKD4A24kpoP6toIzgiBgZMqfzRT7WSMpyfF9h9/Xp4vc0
-         Q8tBheCb00frAIjjh/dJjrI6eNibLUh3afxeITGJDWCmkdGLQBaFyPOw8UCZZ3jlQrkV
-         0kd/N3MVcTJvfEbh2U2tkFwd8mwYT79w9fSx/76yvCZyDyVoWeiGuJ9TgPdFTKQc75az
-         HnXR8D48dZWyOnaH4GuiPbbVe54UoAgtsw2uMwdv8dyj6I+fX9Mj6Kk3KR6TlbWMGiAz
-         GuJA==
+        bh=40w1+RpiFWn7cLTaBFnZfKV4QslzhNGDu3cnJiEGNGY=;
+        b=lupkXEwoohXSLN4GSR0S+wnQfJ2kray4n8G/AvtTlVj2fVPwI9LfpAlT7wF4+XcWEX
+         B5ogyKKdfGJZf+w4pJTsNhrr8fkS+78nK9sS6wjNo6PGsO6exM4HRO5CHCiHEGCAZMVk
+         z/5ZOof1UFeGd7aRtKmRDS1442Wl3LJ5wHKydfAcV9G32KRknVwpy1B6aIYofFllzvD1
+         if0jRCjUZu2wMlGWB88Cd7Djh6gL0+KobOmvWFj8c90WA7lDxoOByWOmzETMvmmjgaK3
+         jzvDWYkTJwZEFGSVXKaad3ZlLnBDKkwmpFYlVw29nK0tWuQaezrvrA2+E1zKOoqtA2Yq
+         yEog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765553585; x=1766158385;
+        d=1e100.net; s=20230601; t=1765553586; x=1766158386;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=HW9vySL1eLI2H1Kn0+dJzMzzH5Eo6siVgDQRHUDflG4=;
-        b=YnXmfAHeWoFAHSVS2HzFPoKO8ytul+u2RwiNX7ludlEhq0f57QRITa4hskkcc0ff1Q
-         Se1ryOq62f7fPCzvjT5FMIbqlN/4VvRYT0eanC+7cUSCIcV3C/OOWK36yrEfaEaL0+iW
-         HpJWiI8p2/W1lXb3fs6n6uTM5+mFZHe0AFP7GKUN69Zd9TWIKlUzFDIOlT9yYIUOse1C
-         8USvhTtTYN6+j/hxmvk0zYjlD54Yu4D//v8Hai5ivx1Lyr/J09YONrdwEaipuqVQvZ+D
-         sPnbDQBGuxIITagm5GcMsbNwVMOcqoLt+m2019Vtw3VWyySkPWPMK0hxAhyhSW/ZphHf
-         IFzQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX3kRDIMgLuhVMNgwoPjA6GcgV2IyrtCB/2Kik5zNrsnWBHZacFduMNa/+MWJGivsvChF6FNIZl7NhC66PyLCf3@lists.infradead.org
-X-Gm-Message-State: AOJu0YxM77PvTGCbTsjy4VZ4Us6j1VDIv3VA8r7AjRj98MbzAtJyd52p
-	N4cYvEjV9DkQt/4PxLoLE/JOaIcy1oyK2CbAwTHkuWEUyk2FokNJ9SSUt5YOQ84PnBg=
-X-Gm-Gg: AY/fxX4P16rZ1anY4pPEjerH0U010CQ44iSdSXBMO4MhJo17x1RTepRYuQjwMsjkZpB
-	8+HiYzxPv55V2TQ5A2HpkuR9h4vzaOxAIOKRyAUZBOtS5t+jNqOOFVQXlGgvd327HEFJALVegJ6
-	tqsHFiySGsSM8uEQSpkg5gs33FR8CKc5DCys9kRpPGqcwaUesxhTxWgNKQIr7ITJ1COk7DShwnd
-	h07N8KLhVmQar5habFWQbWMpFLkbkmFD/C5sVhqMNkovJQ6rnLln5oEpYMndMDOX+3Wn2VCY2IH
-	By7MXeOqh2W0ErMMclCPiVtjxIPKFoB5gxC6fbpHTMy1YRwEPLpZ/rrqYDrpFiskI+bk0bNDojs
-	CSE+2sO/r8YinGoBc/DO5CJKrD/LKrc+jv9FvwkwEzbOY4C15FdKY4edb0ksZH5g3qD/VoEd6Nz
-	vpv5Izrtjllc4LieG2Bjg9
-X-Google-Smtp-Source: AGHT+IFzKlUxyQ53WXrw5hS/OfPtHid1213GH5FkblCTWns2qdDPxDDyZ/WVIFJPhZGFwV5zxjVgZA==
-X-Received: by 2002:a17:907:d22:b0:b76:b76e:112a with SMTP id a640c23a62f3a-b7d235c7f18mr229365366b.11.1765553584541;
-        Fri, 12 Dec 2025 07:33:04 -0800 (PST)
+        bh=40w1+RpiFWn7cLTaBFnZfKV4QslzhNGDu3cnJiEGNGY=;
+        b=nktWweds9cR7uRSmtOW0M3YsyPa+UhmmEZ7tXIhdMydjWgOXtLGZTxVcENCWCodLCT
+         UhJXhe2BTbWE417/uLib/CssuiXqc3Puzy/uSklc2EVRoHen5TttbziCvEjuPlwVqO3X
+         C9t7AGhmmZt5l9W5zBPMLIDXnId6UHs8L9lQv9Y9eHCu92Vp+UmfmryH3ApzpAyhgQZd
+         6BMzDl4FNZ2s45JCDs/AxbOUXlbtMRev+XD/KdI9XjCTbDIsSzEaSkG5CRDrPZlFr/mq
+         WuTgBYmAknPVCxrpi1SwZrDh8HCw934livQXBb40KynftehpuGpJWqRpVccQ+FMfjWC+
+         YVNg==
+X-Forwarded-Encrypted: i=1; AJvYcCWnQx9WG3zVIwZ9VY4QG2NrEsYG0OaEVKCu1PEj/kphIPs1AVwC3KmS77Lbj5CecG/UpwJjbA/wEK1t2oFYJA7v@lists.infradead.org
+X-Gm-Message-State: AOJu0YynsT3c2qRtFbAYNQvmPtEdGHv+Ec9cRfBQ0a9UagtT52zItwRe
+	ziP+CVntRRdWpmraaAFBZL30cwH90j+C7oIZOXoBrAL+QXlkey8xDeXL3sz/VKQ6aKUMwfCs0yj
+	+B65CM29J3T9P
+X-Gm-Gg: AY/fxX6A+5VHG2yhQZMtqGNKXeP19nxgW8Xd31rKqvdvBd2wI9DgYDP9gXhIFFcqEew
+	yfJBdAeAUBJk29onMVJgn0U3BkDKcWgNpX+CwgmBBUwPenn8OBdiJGOOSwWZ9U8vZiX0hsr0VkX
+	OdmnlinjjLGz262P8rrNnLaeUpv1KmT0qenwmHTbf7yZcwbL2tHrGAmmgVhbUNOVfUIainxXKHm
+	tTg4AlMYP/bur+Kg8FIl//Ajle5d0LrBPlJgrDrHmqx0b0MiNLX5KJ/1Zmh4EkDd2oE+TRYa3dC
+	XxWfIDnBVT/Y/ckWR9H8Mi0vUMywXUwAA6G4fxp0DKSa4ku/EKV7++n8HnToy8HsTo+efLI2yKU
+	II+x9zamfgCSeNRT//p21ebY5HxZoomX0Kq/sEIsmtKZwOK1RRXyVXMov4T00KAHlwuAQe2q8t4
+	/7fWfOnHw+B9n8aUSZTewI
+X-Google-Smtp-Source: AGHT+IGymdzTOhM5jbelcMXcQ4KMKi4yIZCo10XakrCUVGapuKUtwGCZXcqj0byfMgnvUtzZVv51aQ==
+X-Received: by 2002:a17:907:1ca1:b0:b76:bfa9:5ae7 with SMTP id a640c23a62f3a-b7d236bcc17mr232174966b.29.1765553586158;
+        Fri, 12 Dec 2025 07:33:06 -0800 (PST)
 Received: from e133063.arm.com ([130.185.218.160])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6498210ed32sm5433234a12.29.2025.12.12.07.33.02
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6498210ed32sm5433234a12.29.2025.12.12.07.33.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Dec 2025 07:33:04 -0800 (PST)
+        Fri, 12 Dec 2025 07:33:05 -0800 (PST)
 From: James Clark <james.clark@linaro.org>
-Date: Fri, 12 Dec 2025 17:32:28 +0200
-Subject: [PATCH v3 11/12] perf cs-etm: Don't hard code config attribute
- when configuring the event
+Date: Fri, 12 Dec 2025 17:32:29 +0200
+Subject: [PATCH v3 12/12] perf arm-spe: Don't hard code config attribute
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251212-james-perf-config-bits-v3-11-aa36a4846776@linaro.org>
+Message-Id: <20251212-james-perf-config-bits-v3-12-aa36a4846776@linaro.org>
 References: <20251212-james-perf-config-bits-v3-0-aa36a4846776@linaro.org>
 In-Reply-To: <20251212-james-perf-config-bits-v3-0-aa36a4846776@linaro.org>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
@@ -94,8 +94,8 @@ Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
  James Clark <james.clark@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_073307_033570_327140B1 
-X-CRM114-Status: GOOD (  19.63  )
+X-CRM114-CacheID: sfid-20251212_073308_385336_1E174568 
+X-CRM114-Status: GOOD (  12.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,160 +110,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These instances of hard coded config attributes are used for configuring
-and validating the event options. Use the config attribute that's
-published by the driver by replacing the open coded operations with
-evsel__get_config_val() and evsel__set_config_if_unset().
+Use the config attribute that's published by the driver instead of
+hard coding "attr.config".
 
 Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- tools/perf/arch/arm/util/cs-etm.c | 57 +++++++++++++++++++--------------------
- 1 file changed, 28 insertions(+), 29 deletions(-)
+ tools/perf/arch/arm64/util/arm-spe.c | 15 ++++++++-------
+ 1 file changed, 8 insertions(+), 7 deletions(-)
 
-diff --git a/tools/perf/arch/arm/util/cs-etm.c b/tools/perf/arch/arm/util/cs-etm.c
-index 4a606b1e90f227aef9915e90439b2a024eeabcfe..bfb573cb587893b7d91b92fed4c61f421392fbcf 100644
---- a/tools/perf/arch/arm/util/cs-etm.c
-+++ b/tools/perf/arch/arm/util/cs-etm.c
-@@ -103,13 +103,14 @@ static int cs_etm_validate_context_id(struct perf_pmu *cs_etm_pmu, struct evsel
- 				      struct perf_cpu cpu)
+diff --git a/tools/perf/arch/arm64/util/arm-spe.c b/tools/perf/arch/arm64/util/arm-spe.c
+index d5ec1408d0aec7e0d39a2cae7ad73694950ab67b..6c3dc97fde308cf4a1f289fab5101ead2765b140 100644
+--- a/tools/perf/arch/arm64/util/arm-spe.c
++++ b/tools/perf/arch/arm64/util/arm-spe.c
+@@ -256,7 +256,7 @@ static __u64 arm_spe_pmu__sample_period(const struct perf_pmu *arm_spe_pmu)
+ 
+ static void arm_spe_setup_evsel(struct evsel *evsel, struct perf_cpu_map *cpus)
  {
- 	int err;
--	__u64 val;
--	u64 contextid = evsel->core.attr.config &
--		(perf_pmu__format_bits(cs_etm_pmu, "contextid") |
--		 perf_pmu__format_bits(cs_etm_pmu, "contextid1") |
--		 perf_pmu__format_bits(cs_etm_pmu, "contextid2"));
-+	u64 ctxt, ctxt1, ctxt2;
-+	__u64 trcidr2;
+-	u64 bit;
++	u64 pa_enable_bit;
  
--	if (!contextid)
-+	evsel__get_config_val(cs_etm_pmu, evsel, "contextid", &ctxt);
-+	evsel__get_config_val(cs_etm_pmu, evsel, "contextid1", &ctxt1);
-+	evsel__get_config_val(cs_etm_pmu, evsel, "contextid2", &ctxt2);
-+
-+	if (!ctxt && !ctxt1 && !ctxt2)
- 		return 0;
- 
- 	/* Not supported in etmv3 */
-@@ -120,12 +121,11 @@ static int cs_etm_validate_context_id(struct perf_pmu *cs_etm_pmu, struct evsel
- 	}
- 
- 	/* Get a handle on TRCIDR2 */
--	err = cs_etm_get_ro(cs_etm_pmu, cpu, metadata_etmv4_ro[CS_ETMV4_TRCIDR2], &val);
-+	err = cs_etm_get_ro(cs_etm_pmu, cpu, metadata_etmv4_ro[CS_ETMV4_TRCIDR2], &trcidr2);
- 	if (err)
- 		return err;
- 
--	if (contextid &
--	    perf_pmu__format_bits(cs_etm_pmu, "contextid1")) {
-+	if (ctxt1) {
- 		/*
- 		 * TRCIDR2.CIDSIZE, bit [9-5], indicates whether contextID
- 		 * tracing is supported:
-@@ -133,15 +133,14 @@ static int cs_etm_validate_context_id(struct perf_pmu *cs_etm_pmu, struct evsel
- 		 *  0b00100 Maximum of 32-bit Context ID size.
- 		 *  All other values are reserved.
- 		 */
--		if (BMVAL(val, 5, 9) != 0x4) {
-+		if (BMVAL(trcidr2, 5, 9) != 0x4) {
- 			pr_err("%s: CONTEXTIDR_EL1 isn't supported, disable with %s/contextid1=0/\n",
- 			       CORESIGHT_ETM_PMU_NAME, CORESIGHT_ETM_PMU_NAME);
- 			return -EINVAL;
- 		}
- 	}
- 
--	if (contextid &
--	    perf_pmu__format_bits(cs_etm_pmu, "contextid2")) {
-+	if (ctxt2) {
- 		/*
- 		 * TRCIDR2.VMIDOPT[30:29] != 0 and
- 		 * TRCIDR2.VMIDSIZE[14:10] == 0b00100 (32bit virtual contextid)
-@@ -149,7 +148,7 @@ static int cs_etm_validate_context_id(struct perf_pmu *cs_etm_pmu, struct evsel
- 		 * virtual context id is < 32bit.
- 		 * Any value of VMIDSIZE >= 4 (i.e, > 32bit) is fine for us.
- 		 */
--		if (!BMVAL(val, 29, 30) || BMVAL(val, 10, 14) < 4) {
-+		if (!BMVAL(trcidr2, 29, 30) || BMVAL(trcidr2, 10, 14) < 4) {
- 			pr_err("%s: CONTEXTIDR_EL2 isn't supported, disable with %s/contextid2=0/\n",
- 			       CORESIGHT_ETM_PMU_NAME, CORESIGHT_ETM_PMU_NAME);
- 			return -EINVAL;
-@@ -163,10 +162,11 @@ static int cs_etm_validate_timestamp(struct perf_pmu *cs_etm_pmu, struct evsel *
- 				     struct perf_cpu cpu)
- {
- 	int err;
--	__u64 val;
-+	u64 val;
-+	__u64 trcidr0;
- 
--	if (!(evsel->core.attr.config &
--	      perf_pmu__format_bits(cs_etm_pmu, "timestamp")))
-+	evsel__get_config_val(cs_etm_pmu, evsel, "timestamp", &val);
-+	if (!val)
- 		return 0;
- 
- 	if (cs_etm_get_version(cs_etm_pmu, cpu) == CS_ETMV3) {
-@@ -176,7 +176,7 @@ static int cs_etm_validate_timestamp(struct perf_pmu *cs_etm_pmu, struct evsel *
- 	}
- 
- 	/* Get a handle on TRCIRD0 */
--	err = cs_etm_get_ro(cs_etm_pmu, cpu, metadata_etmv4_ro[CS_ETMV4_TRCIDR0], &val);
-+	err = cs_etm_get_ro(cs_etm_pmu, cpu, metadata_etmv4_ro[CS_ETMV4_TRCIDR0], &trcidr0);
- 	if (err)
- 		return err;
- 
-@@ -187,10 +187,9 @@ static int cs_etm_validate_timestamp(struct perf_pmu *cs_etm_pmu, struct evsel *
- 	 *  0b00110 Implementation supports a maximum timestamp of 48bits.
- 	 *  0b01000 Implementation supports a maximum timestamp of 64bits.
+ 	evsel->core.attr.freq = 0;
+ 	evsel->core.attr.sample_period = arm_spe_pmu__sample_period(evsel->pmu);
+@@ -288,9 +288,10 @@ static void arm_spe_setup_evsel(struct evsel *evsel, struct perf_cpu_map *cpus)
+ 	 * inform that the resulting output's SPE samples contain physical addresses
+ 	 * where applicable.
  	 */
--	val &= GENMASK(28, 24);
--	if (!val) {
-+	trcidr0 &= GENMASK(28, 24);
-+	if (!trcidr0)
- 		return -EINVAL;
--	}
- 
- 	return 0;
- }
-@@ -273,16 +272,20 @@ static int cs_etm_parse_snapshot_options(struct auxtrace_record *itr,
- 	return 0;
+-	bit = perf_pmu__format_bits(evsel->pmu, "pa_enable");
+-	if (evsel->core.attr.config & bit)
+-		evsel__set_sample_bit(evsel, PHYS_ADDR);
++
++	if (!evsel__get_config_val(evsel->pmu, evsel, "pa_enable", &pa_enable_bit))
++		if (pa_enable_bit)
++			evsel__set_sample_bit(evsel, PHYS_ADDR);
  }
  
-+/*
-+ * The sink name format "@sink_name" is used, lookup the sink by name to convert
-+ * to "sinkid=sink_hash" format.
-+ *
-+ * If the user has already manually provided a hash then "sinkid" isn't
-+ * overwritten. If neither are provided then the driver will pick the best sink.
-+ */
- static int cs_etm_set_sink_attr(struct perf_pmu *pmu,
- 				struct evsel *evsel)
- {
- 	char msg[BUFSIZ], path[PATH_MAX], *sink;
- 	struct evsel_config_term *term;
--	int ret = -EINVAL;
- 	u32 hash;
--
--	if (evsel->core.attr.config2 & GENMASK(31, 0))
--		return 0;
-+	int ret;
+ static int arm_spe_setup_aux_buffer(struct record_opts *opts)
+@@ -397,6 +398,7 @@ static int arm_spe_recording_options(struct auxtrace_record *itr,
+ 	struct perf_cpu_map *cpus = evlist->core.user_requested_cpus;
+ 	bool discard = false;
+ 	int err;
++	u64 discard_bit;
  
- 	list_for_each_entry(term, &evsel->config_terms, list) {
- 		if (term->type != EVSEL__CONFIG_TERM_DRV_CFG)
-@@ -305,14 +308,10 @@ static int cs_etm_set_sink_attr(struct perf_pmu *pmu,
- 			return ret;
+ 	sper->evlist = evlist;
+ 
+@@ -425,9 +427,8 @@ static int arm_spe_recording_options(struct auxtrace_record *itr,
+ 	evlist__for_each_entry_safe(evlist, tmp, evsel) {
+ 		if (evsel__is_aux_event(evsel)) {
+ 			arm_spe_setup_evsel(evsel, cpus);
+-			if (evsel->core.attr.config &
+-			    perf_pmu__format_bits(evsel->pmu, "discard"))
+-				discard = true;
++			if (!evsel__get_config_val(evsel->pmu, evsel, "discard", &discard_bit))
++				discard = !!discard_bit;
  		}
- 
--		evsel->core.attr.config2 |= hash;
-+		evsel__set_config_if_unset(pmu, evsel, "sinkid", hash);
- 		return 0;
  	}
- 
--	/*
--	 * No sink was provided on the command line - allow the CoreSight
--	 * system to look for a default
--	 */
- 	return 0;
- }
  
 
 -- 
