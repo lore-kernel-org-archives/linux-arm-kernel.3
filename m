@@ -4,74 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF418D49222
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 12:46:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3446BD49226
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 13:33:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NCtTFdAR550Ro/EK0CpnBBWGB4plAQMacluoc0gbQ24=; b=V2966r4IZ/9Kb3Ez06yR9GaVRg
-	cICiaMyi0ZXm4q/XYyhl4b8m1n+aQ3itt2Q3dvhIjP4+aeVN/UY+gU9Xi9M5thpPrTtx+KWZB6cXL
-	OuuPGyUvYFXHtgQf3VzsXLR/EAfZKOkFEv8oDwwcN7xu3Oq8jN9DhYqy+d3JvXLa6ZyUdYv875rxO
-	VjRhMhSB5MpQQa6r12K7yTiwNS6U7hHfoJwUn/dh1iTn3RXGpS79s/Rup633DpVHdNrssVd0pX50z
-	aCRGwaEVrDX+xF84VrwbnHCLRe17Da920/FjqB0mje7Bt3zBz9DuD8YJJdS+SvCJUyc1nF2dn7TOe
-	5PFVhIxg==;
+	bh=YWjUVnv5CTcr+GDjfb0bwkJFd0vRqz5/wKl7xHkr6Es=; b=zVLqAVIMDTwh1wm9DP5vh/7xpg
+	+NCyiyAHH2uT8v+FESwTPQOLs1dbltfEi0qqljYniO6BEohKlP6V0iBYNPGlQ02ppMM8GGVzuvWIL
+	O3yC0GPVwoiAuSFny79oBTkPhzMiXwsJgQtVlcA2yqksrBYQxqLWuhdAnhyTJivJ7BdpKyMDWEUAh
+	ZkWkXw8CH8BQjQJ2Y+w6qxmhvI9zzH3y6Ib4LxnU132Sk1HvIyn3L5HrfaI0skObbWEkCZu9WIu+5
+	qgjhbYzx5owU7qr8tzEfg6jjwP/Ae/Xtm2Xx9ltfRjdaKBPDsjP4iA2HxMnHHCj/llYLZXUWMe+wJ
+	8YI0T/QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU2XC-00000000XZL-3FdR;
-	Fri, 12 Dec 2025 12:46:11 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vU3Gp-00000000ZBB-18cZ;
+	Fri, 12 Dec 2025 13:33:19 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU2X9-00000000XYl-3zNz;
-	Fri, 12 Dec 2025 12:46:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1765543444; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Weu0CDwZIa4DQj4+JZX7MHkwLnD7GMhEeDpXz4JwPDXJ+UweHch98irmB8CPR62O81T234en7sTKdqH1muGOKJYGWf7qc0It4VziJ5ozii+mCR6bI0fO7BT/8fRA2e5z4g9Pno9dv1wIv0W2bJaQUuAu8Xvc/VM5HuF+tA9S9lM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1765543444; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=NCtTFdAR550Ro/EK0CpnBBWGB4plAQMacluoc0gbQ24=; 
-	b=KSsna4+V13P+LGlIn1om0lqh6qg30/GXTjbn8HKEMH+IVBlsdFMlEJYO1Y9qxFAFq+rSPdT4kmuzmvJzZb1+dHchXqHq/fYLqqf1kjehS++1gKhHu/RllM31AeVlRaw/9K4wTN5Tb9bT2B0utx4fDrPRj69IoA1I8iPpXcyJ7PE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765543444;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=NCtTFdAR550Ro/EK0CpnBBWGB4plAQMacluoc0gbQ24=;
-	b=Y/hAqvQKLHS0IpK+77z+Oa5HaISq+OWT8kgiCPMRfk9ZhuFlyxQN9I708ZrRgHmd
-	KeELLl4Uxm8q7qeY5lBzkUREGDOJLMty6wC42IB+2RbWzEU1mGOl/Q7jrb/esrpKlQi
-	kNlTHiTDSV8hSOA/Py7ngJPYTtIf00XGdYNQI/Zk=
-Received: by mx.zohomail.com with SMTPS id 1765543441860202.14133912038153;
-	Fri, 12 Dec 2025 04:44:01 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: David Laight <david.laight.linux@gmail.com>
-Cc: Sandy Huang <hjc@rock-chips.com>,
- Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Chaoyi Chen <chaoyi.chen@rock-chips.com>, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Daniel Stone <daniels@collabora.com>,
- kernel@collabora.com
-Subject: Re: [PATCH v4 1/8] drm/rockchip: vop2: Switch impossible format conditional
- to WARN_ON
-Date: Fri, 12 Dec 2025 13:43:55 +0100
-Message-ID: <14738785.uLZWGnKmhe@workhorse>
-In-Reply-To: <20251211223822.6eeabb4d@pumpkin>
-References: <20251211-vop2-atomic-fixups-v4-0-5d50eda26bf8@collabora.com>
- <20251211-vop2-atomic-fixups-v4-1-5d50eda26bf8@collabora.com>
- <20251211223822.6eeabb4d@pumpkin>
+	id 1vU3Gm-00000000ZAZ-2Iz2
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 12 Dec 2025 13:33:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=YWjUVnv5CTcr+GDjfb0bwkJFd0vRqz5/wKl7xHkr6Es=; b=4m6yDxHoMU2gAPCnoz6Xchn4U8
+	KHPhsZe/KvJls05qtq0Tfi6OJ+xBFeIG7OmYVQ5Srq0fKdB6+IzfbicCgVtZR7fHZb462uNM4ZzGg
+	hpVA1B+8C/GHe8td/FPRqvsGy95sT+D8mqTRl5pdpzcOLEPS7wms4s6ku/jAIMFBj6HE=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vU3GV-00Gksn-Fh; Fri, 12 Dec 2025 14:32:59 +0100
+Date: Fri, 12 Dec 2025 14:32:59 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Joseph Guo (OSS)" <qijian.guo@oss.nxp.com>
+Cc: Joseph Guo <qijian.guo@nxp.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Justin Jiang <justin.jiang@nxp.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	Tom Zheng <haidong.zheng@nxp.com>,
+	Steven Yang <steven.yang@nxp.com>
+Subject: Re: [PATCH v2 2/2] arm64: dts: freescale: Add FRDM-IMX91 basic
+ support
+Message-ID: <8334a902-fd56-4860-82c5-402e1d982fa9@lunn.ch>
+References: <20251212-imx91_frdm-v2-0-4dd6d289e81d@nxp.com>
+ <20251212-imx91_frdm-v2-2-4dd6d289e81d@nxp.com>
+ <55fa5159-768c-4785-b0ba-5553193932ab@lunn.ch>
+ <15608952-e974-4b9f-9832-e6a23860fc62@oss.nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <15608952-e974-4b9f-9832-e6a23860fc62@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_044608_616567_6E7B506B 
-X-CRM114-Status: GOOD (  25.84  )
+X-CRM114-CacheID: sfid-20251212_053316_595462_4057D6F6 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,68 +80,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thursday, 11 December 2025 23:38:22 Central European Standard Time David Laight wrote:
-> On Thu, 11 Dec 2025 21:40:31 +0100
-> Nicolas Frattaroli <nicolas.frattaroli@collabora.com> wrote:
+On Fri, Dec 12, 2025 at 02:03:03PM +0800, Joseph Guo (OSS) wrote:
 > 
-> > From: Daniel Stone <daniels@collabora.com>
+> 
+> On 12/12/2025 11:39 AM, Andrew Lunn wrote:
+> > [You don't often get email from andrew@lunn.ch. Learn why this is important at https://aka.ms/LearnAboutSenderIdentification ]
 > > 
-> > We should never be able to create a framebuffer with an unsupported
-> > format, so throw a warning if this ever happens, instead of attempting
-> > to stagger on.
-> 
-> It doesn't look like you've changed the behaviour.
-
-Yes, the commit message needs to be adjusted.
-
-> Except that all the systems with PANIC_ON_WARN set will panic.
-> I believe that is somewhere over 90% of systems.
-
-I also like making up statistics. Warning here is the correct move
-in my opinion because this warning being triggered indicates a bug
-in the kernel code, and with PANIC_ON_WARN the user explicitly says
-they would rather panic in such a case than treat it as an abnormal
-condition that is recoverable.
-
-The reason why this condition ever occurring should be treated as an
-abnormal condition is because the DRM subsystem should guarantee we
-don't get a framebuffer of a format we didn't explicitly declare
-support for in the first place. So this condition being hit either
-means drm_universal_plane_init is broken, or the array of formats
-that's passed to it is out of sync with the conversion code, which
-is also a bug. Or someone managed to thoroughly hose DRM's internal
-kernel-side data structures, which is precisely the kind of thing
-PANIC_ON_WARN users want to abort for.
-
-> 
-> 	David
-> 
+> > > +&fec {
+> > > +     phy-handle = <&ethphy2>;
+> > > +     phy-mode = "rgmii-id";
+> > > +     pinctrl-0 = <&pinctrl_fec>;
+> > > +     pinctrl-1 = <&pinctrl_fec_sleep>;
+> > > +     pinctrl-names = "default", "sleep";
+> > > +     fsl,magic-packet;
 > > 
-> > Signed-off-by: Daniel Stone <daniels@collabora.com>
-> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > ---
-> >  drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 3 ++-
-> >  1 file changed, 2 insertions(+), 1 deletion(-)
+> > Have you tested WoL?
 > > 
-> > diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> > index 498df0ce4680..20b49209ddcd 100644
-> > --- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> > +++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
-> > @@ -1030,7 +1030,8 @@ static int vop2_plane_atomic_check(struct drm_plane *plane,
-> >  		return 0;
-> >  
-> >  	format = vop2_convert_format(fb->format->format);
-> > -	if (format < 0)
-> > +	/* We shouldn't be able to create a fb for an unsupported format */
-> > +	if (WARN_ON(format < 0))
-> >  		return format;
-> >  
-> >  	/* Co-ordinates have now been clipped */
-> > 
+> >          Andrew
 > 
+> Hi Andrew,
 > 
+> Yes, already tested.
 
+Great. There is a tendency to just copy/paste this propriety without
+understanding what it implies, so i just wanted to check...
 
+For the Ethernet & PHY nodes only:
 
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
+    Andrew
 
