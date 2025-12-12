@@ -4,104 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA83BD44143
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 08:04:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59BD0D44146
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 08:20:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+U8+dNznpFslZOt3jZDGf7JqED9dm8pLESuGBInwRgU=; b=tizm6Wm5TxWEJpfAOtzIOkjper
-	Zc9dvXEd8gsrq5awdPRHpmYHtf7YKUjwHL5pWR61lVzBD0YSBeoVkyOP56K1OniBDheepdXoJFl7k
-	hE1Fh4DCE2rQt2m5UQWm1alR8pVSw0icDC43S3uRTwD508sYPPUwpPry55nnPmOGLyhdKANtgtbGl
-	e1hbL2XfVqWDURY58GObYHN3k2dwLv9qlfK7/CFCFbeCzGOTyJZ5nuor/WwkN42TqKdopBMPLFJYW
-	9RpMdUo0vu/hM3H50s3l8/CsNvY4Slmw8m18GZFA8kE7ZKXfooz4D8EtK/HaYVVXE2QVpHbOfBmYD
-	0T2eisGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fdN+Kyjcu98NsTLW2lYMu7BkNtRxx8qwYk/Zp6dRpL0=; b=MUNK4l88G4rVM8nRmjOnO6Itr6
+	zQ8tsyUP5RAkfnxScUztIWI1TcR3PoOKPN+Zaky4qXv6F/JbRRuM0Dfn9gG3ZJE0tH8jdTl65i+ra
+	T5OpnGNrYbsMKlD3DPlkhaVnuS/6Pb2X3XoMDWDnt6nxcZa9tpsoqKqAzml3q9dtjUvuCHI1PKi2k
+	UqRxlq6Hir+1WEBPy4eeYL7oVOAiLLNY98jVQXDld41uv2/BcIKToCCME8os6hVBYv5zdO4PTfVMI
+	Po2LKsHaHEunRw1nbZJEol1AJaYOK+0BLnewbYRchg1BGo/8t+nCBrltpTV3UzXnb/lRWQQ4Teu30
+	/JU335AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTy8t-00000000FCh-27Hx;
-	Fri, 12 Dec 2025 08:04:47 +0000
-Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
+	id 1vTyNe-00000000FrL-2P1c;
+	Fri, 12 Dec 2025 08:20:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTy8r-00000000FCC-2Op3
+	id 1vTyNb-00000000Fqi-3cQl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 08:04:46 +0000
-Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-4ee243b98caso804241cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Dec 2025 00:04:45 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1765526684; cv=none;
-        d=google.com; s=arc-20240605;
-        b=ig/TlKjxH3B20ORr60mrPg7OVuddoirwff2MRYGFJQKeGyJn7tIT41p5xVWj9xSFQr
-         p9JNf1819ptqwbMBUfq6rUoyuOeDdRrF4r+W2tfRAGNPeT55ClrLO6i7SXf05MxGi8D0
-         q9TJMh0unSMoDl8d50s9ENaajeLISemFpDZEBTThCkNXIMuXn3qUB/2xzQG3zpWGFEtP
-         3lEwAHCLr4cxcf2+75QefAfy2bGmmN5vszhFjFen5zX8vL/jcZg7UZucElj6dJ1uEEdy
-         n4ArhOFFSnBniNtb8bQmGnHNdXcxuUumQmXKvcF8rCtFBzr613qC6RlZtwHgACVE27Qy
-         fSEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=+U8+dNznpFslZOt3jZDGf7JqED9dm8pLESuGBInwRgU=;
-        fh=fu4lLjOusQUhUPuo0reijr1jAKDgUgWNw6tw8SH52kE=;
-        b=DkTBYJly5wsQAC4ytzYv3d2wPS7mnLS6itszJ1CqyHsXwbSQMjrzCT/xfQELvnygA1
-         OQek/g2D6q9nblwyhwxyUT5rGdYDQM/xi86y5I31XsOGwC0KRoVKxdkpufQQz1Jg2CQq
-         YRgPyGjlt1oQJEwR6ILVhII0WbuNrAH6uH74ZJIZEL/V291/YIPmOub7vqKH6ia9MUwQ
-         Z094tRa4rWnYpVaAoJZmRutMMHDzQ75bwHQIhEgsrT0hWJwMsruJ5oZN7MqIp1NPJRtd
-         0vhb6oUvlzEOJ88uYBvcy7dYr5VJUyuGkhwUh4JA+c8WV9mMk8/4+/L9csix8DGJUqDx
-         qSWA==;
-        darn=lists.infradead.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1765526684; x=1766131484; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=+U8+dNznpFslZOt3jZDGf7JqED9dm8pLESuGBInwRgU=;
-        b=ZCRdmBlgZq1iTkU5Vw48Wwedq7yvoGES/6JzrQjyQcrGyVAyKEZJj/ptiAmCAyebx+
-         chwdsVi9TW5dS0S7EuqcVEilVNVgPxOi9XgOSs0hHYQfXk1Q7Q5hkZXudPuFHunOphqo
-         2Mu/m6FBZs75Sa4sP7ihDKUpSH4u1c0Uy3SY6XmpfiC3wxk6ehGnqsDR83tmTHOD2z4s
-         6DOQO2cUWDYnjbADwELU+qr+gCApVGPibtMzkHsyj6JuTY2bk6FHG4UKk1Okqe5OajVA
-         FOMU0bJtCLoo/AafvEx/WIM/5B2JRk9OfRpISAmjWdwUhwf9K1kTQqubfj8gafRlhDH4
-         0P0Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765526684; x=1766131484;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+U8+dNznpFslZOt3jZDGf7JqED9dm8pLESuGBInwRgU=;
-        b=K5LitwtifMywX7sF5sOr1ZIqHj2gq9pthb04BJIWamGt+N2NUSH/6KJCTpWHq2iWBa
-         KMt9vR3eXrGhfOiX0UsH4ctEDbwCQI/oErxsKZq5yJ8b9ZDhNfCS+vq54ZwPWgFaA6sz
-         mMB0J6f2OyQKvVksKobcueAJN/fNTAMmCnc26eRncFcAC8xkuHAXL9chaGRWa/s8QXJA
-         Cif4MCv9/02JuCtuXPh2xokM/8SMI99c19PAMouajRGqnFWd2l2yIrpSz7aiz52B00c4
-         4gfN2BGqbVAKumo8xnERzmSYFTd0jY9fCA06XATrJKv0B0q+KvkPsXUpOjCS3yhLfuvX
-         EqFg==
-X-Forwarded-Encrypted: i=1; AJvYcCUYfBzBRFsll44VVL3m/g9G+3ldLh6UA5Zs7ZEk1yCU1Cox7GXT+k8xIhOQpIElkH4/yKenHcF3JXXsIajmaktk@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLen9lcJXiicjNdXnj8R+Y2ycNT0RljK10IWpHja9Ya4enL04z
-	opEdiXkYHehp4Nbyo9qEz64WQUke5nxPtKoJ4GLB8rff3Ef0UD0bwnjS1FCJFydzEZwQZTPvQrW
-	aaDe4zeoE1NuV92Cj/Nm6/rFQkWPZ7p3XXIXpY9UF
-X-Gm-Gg: AY/fxX7Stf1RH7CVmaUg1YoQakxkQ02ZfPISbOvbBD0paJinE/WpIJJLaHTwjDoJVVO
-	SV0fhn1/lQVb4uA7RFj0yI71b4DmE0D5ba0b3Iu2MD83SAkul+WE3DUrAFzVhIj9lxmZL2lfgbA
-	ueDIo5/9yLt+et+7RbYv1scm4q/iYcHQZit1MvLPOSHPQ/1dEfnij1jswi1xeaRHZxoqV0uk6pf
-	JFqUQJynanALEtXSxnAZioQSB7eJJcyuDBIJt4FsS2TutJsaLCRsAYbDgmMA7+piyXk8lkd
-X-Google-Smtp-Source: AGHT+IFVdi59OsP3fmwvGAVvHEYCwmSnxEeO5zTktWlzni97TuZa78q8LVRVlb3nurJBxIY+bjfeYS+tgZqGnE3/N9U=
-X-Received: by 2002:a05:622a:4d1:b0:4ed:b665:3779 with SMTP id
- d75a77b69052e-4f1bd956c90mr10154741cf.16.1765526683971; Fri, 12 Dec 2025
- 00:04:43 -0800 (PST)
+	Fri, 12 Dec 2025 08:20:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 26F5143B45;
+	Fri, 12 Dec 2025 08:19:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D8DDC4CEF1;
+	Fri, 12 Dec 2025 08:19:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765527599;
+	bh=jlMwHtPPA4m4TUifTdzUjwtNLhDFy1jJCvgxdEHIdDw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=j+++aXoTVzo2+MUUz0a3s7wMkjHxdNd8PDxjGNylI3PaGaXcmxqR0VK9rkxgAOYXV
+	 183tl8Zyk0wRyCosNMzKyYXIl7LL9GQKMB6HgnR3pmbea12RyUBNnAmBHuLC+j0wll
+	 IKnfJxwtPuwH6h0R7Bp+6gii9kI5KXL6AlJOIij0HiDQliOMqtEDXi9WC47eg/M66k
+	 QcKcoLjbY8UxHolIopj/TBfnSIdpEZxq1cM7tV6h3y8vIPBUvUO8mMOF4FXMyq/cdU
+	 lkD5VxDAVLzORl/5tVPhdqllA9N4CA+6kvHwyysUFDxzkoTLFYIO6VBpBOqNFn/nIG
+	 r1ppm1fs5CP2A==
+Message-ID: <297c2582-0879-433f-a854-211ad1d21837@kernel.org>
+Date: Fri, 12 Dec 2025 09:19:51 +0100
 MIME-Version: 1.0
-References: <20251210132102.137631-1-alexandru.elisei@arm.com> <20251210132102.137631-2-alexandru.elisei@arm.com>
-In-Reply-To: <20251210132102.137631-2-alexandru.elisei@arm.com>
-From: Fuad Tabba <tabba@google.com>
-Date: Fri, 12 Dec 2025 08:04:07 +0000
-X-Gm-Features: AQt7F2qhTzwVzsydho6e40R4qIxakCmrjVFzoPGIgOsInIjz7_T83i-YOn6fwUU
-Message-ID: <CA+EHjTxMmNrJT5-biZJDiTE4E5RaKpr+SGuj_jnpAfsbxzaR3g@mail.gmail.com>
-Subject: Re: [PATCH 1/2] KVM: arm64: Copy FGT traps to unprotected pKVM VCPU
- on VCPU load
-To: Alexandru Elisei <alexandru.elisei@arm.com>
-Cc: maz@kernel.org, oupton@kernel.org, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, qperret@google.com, 
-	will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/8] dt-bindings: gpio: Add AAEON embedded controller GPIO
+ binding
+To: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>,
+ Bartosz Golaszewski <brgl@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ =?UTF-8?B?SsOpcsOpbWllIERhdXRoZXJpYmVz?= <jeremie.dautheribes@bootlin.com>,
+ Wim Van Sebroeck <wim@linux-watchdog.org>, Guenter Roeck
+ <linux@roeck-us.net>, Lee Jones <lee@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+References: <20251212-dev-b4-aaeon-mcu-driver-v1-0-6bd65bc8ef12@bootlin.com>
+ <20251212-dev-b4-aaeon-mcu-driver-v1-2-6bd65bc8ef12@bootlin.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251212-dev-b4-aaeon-mcu-driver-v1-2-6bd65bc8ef12@bootlin.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_000445_649695_9FC08CBC 
-X-CRM114-Status: GOOD (  22.73  )
+X-CRM114-CacheID: sfid-20251212_001959_972011_5269CA45 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,84 +129,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Alexandru,
-
-On Wed, 10 Dec 2025 at 13:21, Alexandru Elisei <alexandru.elisei@arm.com> wrote:
->
-> Commit fb10ddf35c1c ("KVM: arm64: Compute per-vCPU FGTs at vcpu_load()")
-> introduced per-VCPU FGT traps. For an unprotected pKVM VCPU, the untrusted
-> host FGT configuration is copied in pkvm_vcpu_init_traps(), which is called
-> from __pkvm_init_vcpu(). __pkvm_init_vcpu() is called once per VCPU (when
-> the VCPU is first run) which means that the uninitialized, zero, values for
-> the FGT registers end up being used for the entire lifetime of the VCPU.
-> This causes both unwanted traps (for the inverse polarity trap bits) and
-> the guest being allowed to access registers it shouldn't.
->
-> Fix it by copying the FGT traps for unprotected pKVM VCPUs when the
-> untrusted host loads the VCPU.
->
-> Fixes: fb10ddf35c1c ("KVM: arm64: Compute per-vCPU FGTs at vcpu_load()")
-> Signed-off-by: Alexandru Elisei <alexandru.elisei@arm.com>
+On 12/12/2025 08:41, Thomas Perrot (Schneider Electric) wrote:
+> Add device tree binding documentation for the GPIO controller functionality
+> provided by the AAEON embedded controller. This controller provides 7 GPOs
+> and 12 GPIOs for a total of 19 GPIO lines.
+> 
+> The GPIO controller is defined as a child node of the AAEON MCU device.
+> 
+> Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
 > ---
->  arch/arm64/kvm/hyp/nvhe/hyp-main.c | 12 ++++++++++--
->  arch/arm64/kvm/hyp/nvhe/pkvm.c     |  1 -
->  2 files changed, 10 insertions(+), 3 deletions(-)
->
-> diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> index 29430c031095..ee0f1343100c 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-> @@ -167,6 +167,7 @@ static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
->         DECLARE_REG(unsigned int, vcpu_idx, host_ctxt, 2);
->         DECLARE_REG(u64, hcr_el2, host_ctxt, 3);
->         struct pkvm_hyp_vcpu *hyp_vcpu;
-> +       struct kvm_vcpu *hyp_kvm_vcpu;
->
->         if (!is_protected_kvm_enabled())
->                 return;
-> @@ -175,10 +176,17 @@ static void handle___pkvm_vcpu_load(struct kvm_cpu_context *host_ctxt)
->         if (!hyp_vcpu)
->                 return;
->
-> +       hyp_kvm_vcpu = &hyp_vcpu->vcpu;
+>  .../bindings/gpio/aaeon,srg-imx8pl-gpio.yaml       | 54 ++++++++++++++++++++++
+>  1 file changed, 54 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/gpio/aaeon,srg-imx8pl-gpio.yaml b/Documentation/devicetree/bindings/gpio/aaeon,srg-imx8pl-gpio.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..8040dc0a36ee5650488520c2218f09fd08cdf64a
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/gpio/aaeon,srg-imx8pl-gpio.yaml
+> @@ -0,0 +1,54 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/gpio/aaeon,srg-imx8pl-gpio.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
->         if (pkvm_hyp_vcpu_is_protected(hyp_vcpu)) {
->                 /* Propagate WFx trapping flags */
-> -               hyp_vcpu->vcpu.arch.hcr_el2 &= ~(HCR_TWE | HCR_TWI);
-> -               hyp_vcpu->vcpu.arch.hcr_el2 |= hcr_el2 & (HCR_TWE | HCR_TWI);
-> +               hyp_kvm_vcpu->arch.hcr_el2 &= ~(HCR_TWE | HCR_TWI);
-> +               hyp_kvm_vcpu->arch.hcr_el2 |= hcr_el2 & (HCR_TWE | HCR_TWI);
-> +       } else {
-> +               struct kvm_vcpu *host_vcpu = hyp_vcpu->host_vcpu;
+> +title: AAEON Embedded Controller GPIO
 > +
-> +               memcpy(&hyp_kvm_vcpu->arch.fgt, host_vcpu->arch.fgt,
-> +                      sizeof(hyp_kvm_vcpu->arch.fgt));
->         }
->  }
+> +maintainers:
+> +  - Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
+> +  - Thomas Perrot <thomas.perrot@bootlin.com>
+> +
+> +description: |
+> +  GPIO controller functionality provided by the AAEON embedded controller.
+> +  This controller provides 7 GPOs and 12 GPIOs.
+> +
+> +  The GPIO controller is a sub-device of the AAEON MCU and must be defined
+> +  as a child node of the MCU device.
+> +
+> +properties:
+> +  compatible:
+> +    const: aaeon,srg-imx8pl-gpio
+> +
+> +  gpio-controller: true
 
-With the fix Will mentioned (hyp-main.c never uses the variable name
-hyp_kvm_vcpu, it's vcpu for the hyp, or host_vcpu for the host's).
 
-Tested-by: Fuad Tabba <tabba@google.com>
-Reviewed-by: Fuad Tabba <tabba@google.com>
+That's not really separate node if you do not have any resources. Fold
+it into the parent.
 
-Cheers,
-/fuad
->
-> diff --git a/arch/arm64/kvm/hyp/nvhe/pkvm.c b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> index 43bde061b65d..05774aed09cb 100644
-> --- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> +++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
-> @@ -172,7 +172,6 @@ static int pkvm_vcpu_init_traps(struct pkvm_hyp_vcpu *hyp_vcpu)
->
->                 /* Trust the host for non-protected vcpu features. */
->                 vcpu->arch.hcrx_el2 = host_vcpu->arch.hcrx_el2;
-> -               memcpy(vcpu->arch.fgt, host_vcpu->arch.fgt, sizeof(vcpu->arch.fgt));
->                 return 0;
->         }
->
-> --
-> 2.52.0
->
->
+Best regards,
+Krzysztof
 
