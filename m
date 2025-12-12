@@ -4,90 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94BA3D59D94
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 20:51:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47A60D59D94
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 20:51:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rjtjqxP7XdUENHCexmCRFp1dqpJh3fEH6pKkpxM/TLo=; b=sbrHgmoESmXL1DAPNtFWWjOLPv
-	JBp34s1RMUkFDx1EOssUHK3spACZe+KxPIoVFlftAMfwJlcoIWv5kYHGhi0dWoaJxFlR2gcYoiaAc
-	6g4D7KtYKeMYu88I6TAm3CZhuy63ccWUvSm2A4b+Pp+DlsKTTckLjJH/1hJtdRiVyJ7CbCApTLI5S
-	gn59PG58MtBCbLJPL20b+uSOuB7v/mCfdqA3H6V9VadvqI9mNIZZYE9k8axnUNkSQbO+Hkzv9FWfn
-	+5tCi/P3AG5o66KoSqdtmv9UHHnzwlggKyuoUPGBGdHL4tBCJKFT6GhCEYQBBLBYMjZbO6X+rl2Eg
-	pnsoaCQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=NzWUthEm6qM67H7+l7VSfoh+naGIv34T+Myn0YzgNIE=; b=Jg59z3/lO21F7d
+	5Lmik9iQ1nhbuHUgMZLw5RK119c43Q+Hw5n+tOjn7gjW5Vn2F/XFl3Eh1/Fj34/4SYPeYI/7mezpM
+	8asPexLcIHYRnbxOiYmxURJ1NwuEbE1UTgpUohokacSQ0Fc5zDXDd/qr6cQx4XJO5bqjcJ0FcnlPV
+	OdUdcJ/sVcCxy+IfkA7k9oU+oRI9jR+Aqzqqvrz8XI1fdZ9amduVPbOxhozIMEfZ1YVBDfjbKqtmB
+	uqR5WoaMMjI3VukPv/bp75o4oS7nZ5U3Gdceko30X5WV+nImAgOG6ZkNKKhvv9dew8daiXWWIgL25
+	sFUQDI3UQKetUbJMjEtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUA6f-00000001549-0Gey;
-	Fri, 12 Dec 2025 20:51:17 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1vUA72-0000000157f-1Y7d;
+	Fri, 12 Dec 2025 20:51:42 +0000
+Received: from mail-oo1-xc49.google.com ([2607:f8b0:4864:20::c49])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUA6c-0000000153p-2QIn
+	id 1vUA6z-0000000156n-2NGT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 20:51:15 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b7636c96b9aso268894866b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Dec 2025 12:51:13 -0800 (PST)
+	Fri, 12 Dec 2025 20:51:38 +0000
+Received: by mail-oo1-xc49.google.com with SMTP id 006d021491bc7-656b3efc41aso1948369eaf.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Dec 2025 12:51:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765572673; x=1766177473; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=rjtjqxP7XdUENHCexmCRFp1dqpJh3fEH6pKkpxM/TLo=;
-        b=CgPIekOZCY+4P4W1sTbzhEJJOpCo3QCcKMuWkMHp+PXNvnk8dIJ9OSDuwF6qKQqkJO
-         m4EQ+eovQIGfXzlNuT2FA60og6v/0rNER54OVGT5eRL79Fgc4VMjjqYVUyymh4eHn9Hp
-         6a83TI1jY2xiWsULscPqCGpiJe/Zs18F96P/3Rh3SOVAcla06vVQI+LAv0qkADvvzsWr
-         5m8xln22Nlgv96rPzI2tbSQmnm22j0OZn48jxKPytZP3NITxIHbNKclaq0n/vG83qJ58
-         ScGXgGI2v6YOk+LxlxYPYDY+fcvLpwdXbmAJccZzyIppzTX7FC4J4DfiEatTtdji4PGa
-         2tbA==
+        d=google.com; s=20230601; t=1765572696; x=1766177496; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=NzWUthEm6qM67H7+l7VSfoh+naGIv34T+Myn0YzgNIE=;
+        b=cdJJ5KAClRzCrSzJ2NhLhXjAQnLWBMZLXNFqWjIhfBLdM7mRTlBj9pZOr5+LNlhyQ4
+         TSXJS8/oeEgaOFo0Wpx6deMniGnV01gIUb12qmnF6l73KgCtlcbn1NR+UtLjZCgMgHW3
+         w3TgRsvcyMz3pnCJvErV0UGNIXJMoKugjunO6LBExTLopj43hsRnKCj66+BpgLY2a36C
+         i8UAGPBOAlY8Xx0/qrHwW0Ypbd3rYOj6Z2DOoEiyWalspsHkmmstlDNaHt4pyqHaXkt3
+         Y6Y6hNlLvsm0a/Zpxw91uNjHPtLMYdzxEHNscEK6GqqB/OegMN+Mfftxoa0dDxJlh6eX
+         01AA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765572673; x=1766177473;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rjtjqxP7XdUENHCexmCRFp1dqpJh3fEH6pKkpxM/TLo=;
-        b=mcsJzjcaSK9S4poS2XobD1bRzFL27l2zqIqS7DFPiocgD3bu9kTepxMW8COUT3ebzM
-         A5o/mnEEP06rhDXn59ylj6DM4HCGJYedF2z4DoOmo2ijdYVWQYSiaIksWCaq6WU/w8Je
-         pWCjXUXDPP62Hnv53daWe0V6QOG0aiLLUidqiOFWrUlaRNGedEiDxd4sJmDndQwCCIFv
-         N9OovdMipzJIdtmrPcCLIVibaNZv97p9jeCRM5uwAj0GZvGILz2f5JMbbcPYLD+6TsQ8
-         JmipXgUuTX28lSSQgAYFVPOMLKKUl/t7qGZaIokly34gzan5yBqzVf8K0IydO+HyETkS
-         UJAA==
-X-Forwarded-Encrypted: i=1; AJvYcCVpISZwAExAfSwZz5JS4fY6EKFaa9YSYAIj578PGnGjfzHTYVTs5WrCtUh0UxecJK2c2zcglMK8RdPgh3DaoXjp@lists.infradead.org
-X-Gm-Message-State: AOJu0YyehaUCjwJUL9I1OJH3d8JaPX8g661Q7A/c0jIwDtT9hwZt2p8O
-	F+binQggsR/Gu5f8Es0G9NyjeTey20wp36CgSJ6u0eMp8r9jScb8zv2x
-X-Gm-Gg: AY/fxX6N7APBRWTO+rYore3C+8nldOV4+4OpO+Yns7WF+vvvR6DQCh59hFC+tsvPd+L
-	VMTEoUjvrpKuoExMX2RTSoZaYYvfpzUA//Ep7WG4kaSY4yVAgLGl7jshNFJRB2uXkmABGZYuDWe
-	PpuIXw+N6YJL1AjKLWkbyji4zVCe8SUMWmPq+u/sa/Cc/1oWBIp90nNNDBB4YgHdo5f42tqOBHb
-	GzV29ZlykrepuCJq73qMLHpzd+b4t2+wwevLIZzL+WAIzNwcwu+CunZXjgs3gTjBumawXR8DSqC
-	qYGdsnQkeNbADT3ed3x3d7JU0PoVKtHgFjAOTZ3EGl+8m8JDwMNbKqVkgoIBZnEyBmPiPqJz0ii
-	+YoYwFfhDzQx1lBNK5R+52Gi/GUSQgIlI1kcbOG7iqIT8fxuj4VyX2ef0NCKLLu3dHIKat0U/pM
-	PaW1bRma6Vx2fjw/c=
-X-Google-Smtp-Source: AGHT+IH0G8rGAjvaE42wch55hSIA5VimrXWt5TN/hh537MIqh383tSvfDzdlGbn8S/gXANm16as6JQ==
-X-Received: by 2002:a17:907:2d93:b0:b73:7158:d9cd with SMTP id a640c23a62f3a-b7d23a22af7mr366919966b.52.1765572672256;
-        Fri, 12 Dec 2025 12:51:12 -0800 (PST)
-Received: from osama.. ([2a02:908:1b4:dac0:1401:37b6:6a29:b0c5])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b7cfa570167sm656400366b.57.2025.12.12.12.51.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 12 Dec 2025 12:51:11 -0800 (PST)
-From: Osama Abdelkader <osama.abdelkader@gmail.com>
-To: Vinod Koul <vkoul@kernel.org>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Cc: Osama Abdelkader <osama.abdelkader@gmail.com>
-Subject: [PATCH] dmaengine: sun4i: fix resource leak on promise allocation failure
-Date: Fri, 12 Dec 2025 21:50:22 +0100
-Message-ID: <20251212205022.83482-1-osama.abdelkader@gmail.com>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+        d=1e100.net; s=20230601; t=1765572696; x=1766177496;
+        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NzWUthEm6qM67H7+l7VSfoh+naGIv34T+Myn0YzgNIE=;
+        b=C+oNxxoH++FYWvHoKaU59xawx48zzGI/l6iXsjoYcHaZINcuskbh63FBL0TStD2cVx
+         p6lHja9IgPNKvqp4UB9Cq6+VP4KQNmY0f6WaiLGcLwwgfVoGeiw+mO8GX58QnxPEEmSR
+         ZftLLjVjlws4iUVGCV6U9mPvrXuTlPjVxKFUd2RcKfx2G6UeeAn+ATARECZKHVszzF6M
+         1qQCSlAu9ko+zU/eCn3MFvn0qB624cfjRwADIRDyVaMDulnpHdPXSl06BTeHkZZRghYU
+         8nNfarCP04b+he+ATTQ3BBpU7OyOwKHTLaRKjPWzD5bnT5xEPUa0QRrO/I/eFuBhvLL6
+         sh+g==
+X-Forwarded-Encrypted: i=1; AJvYcCVBszFlCQhArytrprfWgFCn6Rd8iBxgVEwFUeuqMm5Y9brUPgADXCvqaQwcWr43iE6LJo8Uk6KBg/6IIvFUfPLE@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzcxx8pRf1gl/o5vCmTukwR5bZpTA5+q6uvBpSQVecUA5VBtVqc
+	INRWYc4fctFmg5RcyzCkIwSLUlguYWcI9VQmgwiYzCOYObqTqkqeokP/rwLAtA776uBibM3ZeoC
+	QMnSVhCWHbeRmsVeDQkZN5dkQfg==
+X-Google-Smtp-Source: AGHT+IGQzDy6EDRUx9rtYBW2j0eF+TYsJjWcSkav988OtHvTbiJ4yAnbUpXjKLkLa46xMZa50qB/G0Iw4pQoa2klIQ==
+X-Received: from ilbbs15.prod.google.com ([2002:a05:6e02:240f:b0:434:972f:bf91])
+ (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a4a:e90c:0:b0:659:9a49:8f5b with SMTP id 006d021491bc7-65b4560080dmr1608719eaf.32.1765572695916;
+ Fri, 12 Dec 2025 12:51:35 -0800 (PST)
+Date: Fri, 12 Dec 2025 20:51:34 +0000
+In-Reply-To: <aTiPvS49uMOJEBrf@kernel.org> (message from Oliver Upton on Tue,
+ 9 Dec 2025 13:08:13 -0800)
+Mime-Version: 1.0
+Message-ID: <gsnty0n72zl5.fsf@coltonlewis-kvm.c.googlers.com>
+Subject: Re: [PATCH v5 10/24] KVM: arm64: Set up FGT for Partitioned PMU
+From: Colton Lewis <coltonlewis@google.com>
+To: Oliver Upton <oupton@kernel.org>
+Cc: kvm@vger.kernel.org, pbonzini@redhat.com, corbet@lwn.net, 
+	linux@armlinux.org.uk, catalin.marinas@arm.com, will@kernel.org, 
+	maz@kernel.org, oliver.upton@linux.dev, mizhang@google.com, 
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	mark.rutland@arm.com, shuah@kernel.org, gankulkarni@os.amperecomputing.com, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-perf-users@vger.kernel.org, linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_125114_657793_E950A423 
-X-CRM114-Status: GOOD (  10.66  )
+X-CRM114-CacheID: sfid-20251212_125137_617287_BB7AC0C7 
+X-CRM114-Status: GOOD (  25.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,48 +94,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When promise allocation fails in sun4i_dma_prep_dma_cyclic() or
-sun4i_dma_prep_slave_sg(), the contract and already-allocated promises
-are not freed, causing a resource leak.
 
-Fix this by calling sun4i_dma_free_contract() to properly clean up
-all resources before returning NULL on allocation failure.
+Hi Oliver. Thanks for the speedy review.
 
-This addresses the TODO comments that asked whether we should free
-everything on error.
+Oliver Upton <oupton@kernel.org> writes:
 
-Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
----
- drivers/dma/sun4i-dma.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+> Hi Colton,
 
-diff --git a/drivers/dma/sun4i-dma.c b/drivers/dma/sun4i-dma.c
-index 00d2fd38d17f..d81e705ae91f 100644
---- a/drivers/dma/sun4i-dma.c
-+++ b/drivers/dma/sun4i-dma.c
-@@ -861,7 +861,7 @@ sun4i_dma_prep_dma_cyclic(struct dma_chan *chan, dma_addr_t buf, size_t len,
- 							plength, sconfig, dir);
- 
- 		if (!promise) {
--			/* TODO: should we free everything? */
-+			sun4i_dma_free_contract(&contract->vd);
- 			return NULL;
- 		}
- 		promise->cfg |= endpoints;
-@@ -954,8 +954,10 @@ sun4i_dma_prep_slave_sg(struct dma_chan *chan, struct scatterlist *sgl,
- 							sg_dma_len(sg),
- 							sconfig, dir);
- 
--		if (!promise)
--			return NULL; /* TODO: should we free everything? */
-+		if (!promise) {
-+			sun4i_dma_free_contract(&contract->vd);
-+			return NULL;
-+		}
- 
- 		promise->cfg |= endpoints;
- 		promise->para = para;
--- 
-2.43.0
+> On Tue, Dec 09, 2025 at 08:51:07PM +0000, Colton Lewis wrote:
+>> In order to gain the best performance benefit from partitioning the
+>> PMU, utilize fine grain traps (FEAT_FGT and FEAT_FGT2) to avoid
+>> trapping common PMU register accesses by the guest to remove that
+>> overhead.
 
+>> Untrapped:
+>> * PMCR_EL0
+>> * PMUSERENR_EL0
+>> * PMSELR_EL0
+>> * PMCCNTR_EL0
+>> * PMCNTEN_EL0
+>> * PMINTEN_EL1
+>> * PMEVCNTRn_EL0
+
+>> These are safe to untrap because writing MDCR_EL2.HPMN as this series
+>> will do limits the effect of writes to any of these registers to the
+>> partition of counters 0..HPMN-1. Reads from these registers will not
+>> leak information from between guests as all these registers are
+>> context swapped by a later patch in this series. Reads from these
+>> registers also do not leak any information about the host's hardware
+>> beyond what is promised by PMUv3.
+
+>> Trapped:
+>> * PMOVS_EL0
+>> * PMEVTYPERn_EL0
+>> * PMCCFILTR_EL0
+>> * PMICNTR_EL0
+>> * PMICFILTR_EL0
+>> * PMCEIDn_EL0
+>> * PMMIR_EL1
+
+>> PMOVS remains trapped so KVM can track overflow IRQs that will need to
+>> be injected into the guest.
+
+>> PMICNTR and PMIFILTR remain trapped because KVM is not handling them
+>> yet.
+
+>> PMEVTYPERn remains trapped so KVM can limit which events guests can
+>> count, such as disallowing counting at EL2. PMCCFILTR and PMCIFILTR
+>> are special cases of the same.
+
+>> PMCEIDn and PMMIR remain trapped because they can leak information
+>> specific to the host hardware implementation.
+
+>> NOTE: This patch temporarily forces kvm_vcpu_pmu_is_partitioned() to
+>> be false to prevent partial feature activation for easier debugging.
+
+>> Signed-off-by: Colton Lewis <coltonlewis@google.com>
+>> ---
+>>   arch/arm64/include/asm/kvm_pmu.h | 33 ++++++++++++++++++++++
+>>   arch/arm64/kvm/config.c          | 34 ++++++++++++++++++++--
+>>   arch/arm64/kvm/pmu-direct.c      | 48 ++++++++++++++++++++++++++++++++
+>>   3 files changed, 112 insertions(+), 3 deletions(-)
+
+>> diff --git a/arch/arm64/include/asm/kvm_pmu.h  
+>> b/arch/arm64/include/asm/kvm_pmu.h
+>> index 8887f39c25e60..7297a697a4a62 100644
+>> --- a/arch/arm64/include/asm/kvm_pmu.h
+>> +++ b/arch/arm64/include/asm/kvm_pmu.h
+>> @@ -96,6 +96,23 @@ u64 kvm_pmu_guest_counter_mask(struct arm_pmu *pmu);
+>>   void kvm_pmu_host_counters_enable(void);
+>>   void kvm_pmu_host_counters_disable(void);
+
+>> +#if !defined(__KVM_NVHE_HYPERVISOR__)
+>> +bool kvm_vcpu_pmu_is_partitioned(struct kvm_vcpu *vcpu);
+>> +bool kvm_vcpu_pmu_use_fgt(struct kvm_vcpu *vcpu);
+>> +#else
+>> +static inline bool kvm_vcpu_pmu_is_partitioned(struct kvm_vcpu *vcpu)
+>> +{
+>> +	return false;
+>> +}
+>> +
+>> +static inline bool kvm_vcpu_pmu_use_fgt(struct kvm_vcpu *vcpu)
+>> +{
+>> +	return false;
+>> +}
+>> +#endif
+>> +u64 kvm_pmu_fgt_bits(void);
+>> +u64 kvm_pmu_fgt2_bits(void);
+>> +
+>>   /*
+>>    * Updates the vcpu's view of the pmu events for this cpu.
+>>    * Must be called before every vcpu run after disabling interrupts, to  
+>> ensure
+>> @@ -135,6 +152,22 @@ static inline u64 kvm_pmu_get_counter_value(struct  
+>> kvm_vcpu *vcpu,
+>>   {
+>>   	return 0;
+>>   }
+>> +static inline bool kvm_vcpu_pmu_is_partitioned(struct kvm_vcpu *vcpu)
+>> +{
+>> +	return false;
+>> +}
+>> +static inline bool kvm_vcpu_pmu_use_fgt(struct kvm_vcpu *vcpu)
+>> +{
+>> +	return false;
+>> +}
+>> +static inline u64 kvm_pmu_fgt_bits(void)
+>> +{
+>> +	return 0;
+>> +}
+>> +static inline u64 kvm_pmu_fgt2_bits(void)
+>> +{
+>> +	return 0;
+>> +}
+>>   static inline void kvm_pmu_set_counter_value(struct kvm_vcpu *vcpu,
+>>   					     u64 select_idx, u64 val) {}
+>>   static inline void kvm_pmu_set_counter_value_user(struct kvm_vcpu *vcpu,
+>> diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+>> index 24bb3f36e9d59..064dc6aa06f76 100644
+>> --- a/arch/arm64/kvm/config.c
+>> +++ b/arch/arm64/kvm/config.c
+>> @@ -6,6 +6,7 @@
+
+>>   #include <linux/kvm_host.h>
+>>   #include <asm/kvm_emulate.h>
+>> +#include <asm/kvm_pmu.h>
+>>   #include <asm/kvm_nested.h>
+>>   #include <asm/sysreg.h>
+
+>> @@ -1489,12 +1490,39 @@ static void __compute_hfgwtr(struct kvm_vcpu  
+>> *vcpu)
+>>   		*vcpu_fgt(vcpu, HFGWTR_EL2) |= HFGWTR_EL2_TCR_EL1;
+>>   }
+
+>> +static void __compute_hdfgrtr(struct kvm_vcpu *vcpu)
+>> +{
+>> +	__compute_fgt(vcpu, HDFGRTR_EL2);
+>> +
+>> +	if (kvm_vcpu_pmu_use_fgt(vcpu))
+>> +		*vcpu_fgt(vcpu, HDFGRTR_EL2) |= kvm_pmu_fgt_bits();
+
+> Couple of suggestions. I'd rather see this conditioned on
+> kvm_vcpu_pmu_is_partitioned() and get rid of the FGT predicate. After
+> all, kvm_vcpu_load_fgt() already checks for the presence of FEAT_FGT
+> first.
+
+I can use that here. I'll still need the use_fgt predicate when
+programming MDCR_EL2 so I'll introduce in the later patch.
+
+> Additionally, I'd prefer that the trap configuration is inline instead
+> of done in a helper in some other file. Centralizing the FGT
+> configuration here was very much intentional.
+
+Sure I can centralize it.
+
+> The other reason for doing this is kvm_pmu_fgt_bits() assumes a
+> 'positive' trap polarity, even though there are several cases where FGTs
+> have a 'negative' priority (i.e. 0 => trap).
+
+For the bits I was concerned with they all had positive polarity, except
+for the dedicated instruction counter. (Side note: Why would ARM do
+this?)
+
+IIRC the FGT setup I plugged into in previous versions of the patch had
+some icky macros that accounted for polarity. They were confusing and I
+didn't like the effort to understand them.
+
+Is there a good reason not to adopt a convetion that 1 => trap for
+kernel code? Reversing the negative polarities immediately before write
+could be easy: Have a bitmap of the negative polarity bits to xor with
+the traps we actually want.
+
+A^0 = A (positive polarity bits)
+A^1 = ~A (negative polarity bits)
+
+> Thanks,
+> Oliver
 
