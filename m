@@ -4,83 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 762C2D59D93
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 20:30:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F42ED59D93
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 20:33:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=IMNyF6rnk7IasEWeVI8MWH21McRpJbckeB5bd8oSwWI=; b=x3vFpfDgF8UZYM
-	5SS2LinrydNAGW9YEhtdCMS9jBZG+EPeMlfwDtNItC7sg8XuNSF1kJ1FLyytnk8eMjOJswDBJyYPt
-	JiiZ5QDmYTuPAlKoN9leUAl05J4d1GYsoLFaC24HlNkmm+3syx+iNTrlZib2s9jz691foFh34asfk
-	I96zT3bfbfWlY50XjxDIWk7F2ea91uY2TcC6dz33UjcO3FZ1trZeHiBkT81Gmp6GDaQUk8j8xpN3a
-	6ml5bfZ7k0zAl2t91Nt1UNDYOKLjtesAKw9wfD68BqH+ipfuBm1zxPxZqvAR7uDz2FcrqY/TTKMZE
-	sAAOVatYlH9xa4pG3cAA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CeonyAz1Cm8R9uD6Nc7RY19ELFnckE7k/PDKGSxc6TE=; b=Vivww/1yW5j/EWn6MWQ0lE7YIM
+	ixsFr5s4DIfSFUtTYfmM0hc1CqB7EjWwscmXH8b08SjqLtz1nhnD5FBGV/0rEIGPXDD0xlXYQuj9D
+	hPxXpoI4dWJ79I5VO6GOzrRM/api8RgjQHBaV0ch4IMvLQNN4pEhVE54hzBMmL3XAiPuhwoUzF/vv
+	Nbj6qXtxH+p2O+nCTl365IfnGOt4LYZpOCqWyKa8xLF4ipap3VS4d2RpejSEa6AeYoPHuxiI8I/Vp
+	aJRxWkcX/2NW5qECphQ2xDMmAfmcuFO4ofPrFBI1eV/Rhi9jPgzbVd++c5IxbIcW7oWSIEb0GuNsE
+	6IQUjhkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU9m9-000000013Gs-1ot2;
-	Fri, 12 Dec 2025 20:30:05 +0000
-Received: from mail-oa1-x4a.google.com ([2001:4860:4864:20::4a])
+	id 1vU9p3-000000013UF-0JOm;
+	Fri, 12 Dec 2025 20:33:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU9m6-000000013Fs-3e1F
+	id 1vU9p1-000000013U1-0fQO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 20:30:04 +0000
-Received: by mail-oa1-x4a.google.com with SMTP id 586e51a60fabf-3ed1786c92cso1280533fac.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Dec 2025 12:30:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1765571401; x=1766176201; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=IMNyF6rnk7IasEWeVI8MWH21McRpJbckeB5bd8oSwWI=;
-        b=nzBhNc5cPkMlMmxV9Qqsy8Ok74q0AU5JHmfXJMTNuZO4r0hmWo0YAVpFqcaDM5fT6e
-         QP1fV2+NvC+VfUTU4w9WDooTUOD/ZIqo4mO262kAemjukmtWtouQkXgjwkvIWabE2K60
-         fJSCf+gCtMQX5xc8XTpShIvBOsGdsud+D7wiY1ZLhBYD4Lx7gCq5E+++AsnzVNNr/69X
-         cNnHskuxWC5zUTpM+H/0N+BcNKDmpnBVGpOWY0xFEvzklUOvB7l9D9fCYW4+9j/5b3Wk
-         JqCuQnyFYlwGu8DJTOaj4q6YmDsYfKOL6kShCcgK5ARjlKSNrpPEWLMgZm8If4JGp7U+
-         7bug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765571401; x=1766176201;
-        h=cc:to:from:subject:message-id:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=IMNyF6rnk7IasEWeVI8MWH21McRpJbckeB5bd8oSwWI=;
-        b=Y3gsr+v33qGxtBndFab0/4l3s8M/p41X0eewIdTeSQ0d8TrBvuzQIYFhOy1RMk7Qo8
-         MtkJULDOTr4my9wUGtHD+V066iMEiaIf+joIF/w3lgw/jAE6MyH/n2ClK4QXptYykYxU
-         T+fwyeR55UQVQtwVaU1I+/fRp6j4ttc06R3fatyGv+BkKKlRmRDTX61UuwACCBQWnLJ9
-         qT9EKDHsLb8UeDZaFnIQeOOm8qn0/N1wzApBjwgYEKyxzmn7NSt0ZIuuKXyoT4LsGC9k
-         AtHeZkNpfq53+o5E9mTIzlBWtiFbCBH943Md6L2ou2C/+/quQW7QQGAfUMTfU2/cv9W0
-         J0ZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWD4NI5Ix9lUGBtkkxg+3I3A+nBFb0iLeosRVtRSslZvnt3rofyH1rSRMWqvoTeSnhEG6sUakyCIE97SIpMIM1J@lists.infradead.org
-X-Gm-Message-State: AOJu0YxY8x956ihbvCbD/iFe1QDcbvWzBbNXMz7u+wrBVOtylXvScP0Z
-	XRjb7CCZulJ3jCHFZ4UHDPnGiZMa65PuRiMjnkzw1ncpCcsXLWFn1jxCjSdDpTiYhoOcO/q+jen
-	/Vfm/gPizsw0ka968QX1R/JyWVw==
-X-Google-Smtp-Source: AGHT+IHCc2P1hnQfNfNIerRNuvTcLdQFAWD/TzzhCNvUPfhQTb3KYPRTL0VnqSzv7pNym78BlH1sW72DFgyhEDe6qA==
-X-Received: from ilbbn5.prod.google.com ([2002:a05:6e02:3385:b0:438:15d1:5e1c])
- (user=coltonlewis job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6820:178c:b0:659:9a49:90bf with SMTP id 006d021491bc7-65b451e95f7mr1599664eaf.62.1765571400768;
- Fri, 12 Dec 2025 12:30:00 -0800 (PST)
-Date: Fri, 12 Dec 2025 20:29:59 +0000
-In-Reply-To: <202512110439.UXwb1Qh4-lkp@intel.com> (message from kernel test
- robot on Thu, 11 Dec 2025 04:21:58 +0800)
-Mime-Version: 1.0
-Message-ID: <gsnt1pkz4f5k.fsf@coltonlewis-kvm.c.googlers.com>
-Subject: Re: [PATCH v5 09/24] perf: arm_pmuv3: Keep out of guest counter partition
-From: Colton Lewis <coltonlewis@google.com>
-To: kernel test robot <lkp@intel.com>
-Cc: kvm@vger.kernel.org, oe-kbuild-all@lists.linux.dev, pbonzini@redhat.com, 
-	corbet@lwn.net, linux@armlinux.org.uk, catalin.marinas@arm.com, 
-	will@kernel.org, maz@kernel.org, oliver.upton@linux.dev, mizhang@google.com, 
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	mark.rutland@arm.com, skhan@linuxfoundation.org, 
-	gankulkarni@os.amperecomputing.com, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-perf-users@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_123002_910757_E72BA3AA 
-X-CRM114-Status: GOOD (  12.47  )
+	Fri, 12 Dec 2025 20:33:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 4309260197;
+	Fri, 12 Dec 2025 20:33:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D849DC4CEF1;
+	Fri, 12 Dec 2025 20:33:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765571582;
+	bh=oXV52+EBwnwQgsf4JQISAFcL+Q5wlGyp41ZRqonHpZ8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=KpvygYdbl+4QNc5B0uRSQKkrD3fQ8etfSezmQ9uT3E2yv1THLQROJFd6eavFCHURo
+	 xX0+3Wdd/mbarggr2WfdhfVIfznhmevgSradqiJrVjX4oATKIeQpOidzJxWfYX9UMj
+	 mvSRtL8QntugInpc1el8zgQfBM4jRQE3rjSZj38S6XHrdT28tifFqrTWrk+K4xbxZX
+	 5nKqVWjr+g6ZSc5MEPMJTzz39ERSfNQ3UnXiSbDQ2D5/EWhTKYTYPhFDVDJ89u5xok
+	 tTS1nIt0485bFcHL0AGVHkTEPjIwH7xF6ygRuyHdLliBze4vkI45jOn8PGJ1ziiTDC
+	 SMAmkG1Od/Yjg==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Geert Uytterhoeven <geert+renesas@glider.be>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Viresh Kumar <vireshk@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-renesas-soc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	soc@lists.linux.dev,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-msm@vger.kernel.org
+Subject: [PATCH] arm/arm64: dts: st: Drop unused .dtsi
+Date: Fri, 12 Dec 2025 14:32:09 -0600
+Message-ID: <20251212203226.458694-3-robh@kernel.org>
+X-Mailer: git-send-email 2.51.0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,43 +79,309 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-kernel test robot <lkp@intel.com> writes:
+These .dtsi files are not included anywhere in the tree and can't be
+tested.
 
-> Hi Colton,
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ arch/arm/boot/dts/st/spear320s.dtsi           | 24 -------
+ .../boot/dts/st/stm32mp15xxab-pinctrl.dtsi    | 57 ---------------
+ arch/arm64/boot/dts/qcom/msm8996-v3.0.dtsi    | 63 ----------------
+ arch/arm64/boot/dts/st/stm32mp21xc.dtsi       |  8 ---
+ arch/arm64/boot/dts/st/stm32mp23xc.dtsi       |  8 ---
+ arch/arm64/boot/dts/st/stm32mp25xc.dtsi       |  8 ---
+ .../boot/dts/st/stm32mp25xxal-pinctrl.dtsi    | 71 -------------------
+ 7 files changed, 239 deletions(-)
+ delete mode 100644 arch/arm/boot/dts/st/spear320s.dtsi
+ delete mode 100644 arch/arm/boot/dts/st/stm32mp15xxab-pinctrl.dtsi
+ delete mode 100644 arch/arm64/boot/dts/qcom/msm8996-v3.0.dtsi
+ delete mode 100644 arch/arm64/boot/dts/st/stm32mp21xc.dtsi
+ delete mode 100644 arch/arm64/boot/dts/st/stm32mp23xc.dtsi
+ delete mode 100644 arch/arm64/boot/dts/st/stm32mp25xc.dtsi
+ delete mode 100644 arch/arm64/boot/dts/st/stm32mp25xxal-pinctrl.dtsi
 
-> kernel test robot noticed the following build warnings:
+diff --git a/arch/arm/boot/dts/st/spear320s.dtsi b/arch/arm/boot/dts/st/spear320s.dtsi
+deleted file mode 100644
+index 133236dc190d..000000000000
+--- a/arch/arm/boot/dts/st/spear320s.dtsi
++++ /dev/null
+@@ -1,24 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-or-later
+-/*
+- * DTS file for SPEAr320s SoC
+- *
+- * Copyright 2021 Herve Codina <herve.codina@bootlin.com>
+- */
+-
+-/include/ "spear320.dtsi"
+-
+-/ {
+-	ahb {
+-		apb {
+-			gpiopinctrl: gpio@b3000000 {
+-				/*
+-				 * The "RM0321 SPEAr320s address and map
+-				 * registers" document mentions interrupt 6
+-				 * (NPGIO_INTR) for the PL_GPIO interrupt.
+-				 */
+-				interrupts = <6>;
+-				interrupt-parent = <&shirq>;
+-			};
+-		};
+-	};
+-};
+diff --git a/arch/arm/boot/dts/st/stm32mp15xxab-pinctrl.dtsi b/arch/arm/boot/dts/st/stm32mp15xxab-pinctrl.dtsi
+deleted file mode 100644
+index 328dad140e9b..000000000000
+--- a/arch/arm/boot/dts/st/stm32mp15xxab-pinctrl.dtsi
++++ /dev/null
+@@ -1,57 +0,0 @@
+-// SPDX-License-Identifier: (GPL-2.0+ OR BSD-3-Clause)
+-/*
+- * Copyright (C) STMicroelectronics 2019 - All Rights Reserved
+- * Author: Alexandre Torgue <alexandre.torgue@st.com> for STMicroelectronics.
+- */
+-
+-&pinctrl {
+-	st,package = <STM32MP_PKG_AB>;
+-
+-	gpioa: gpio@50002000 {
+-		status = "okay";
+-		ngpios = <16>;
+-		gpio-ranges = <&pinctrl 0 0 16>;
+-	};
+-
+-	gpiob: gpio@50003000 {
+-		status = "okay";
+-		ngpios = <16>;
+-		gpio-ranges = <&pinctrl 0 16 16>;
+-	};
+-
+-	gpioc: gpio@50004000 {
+-		status = "okay";
+-		ngpios = <16>;
+-		gpio-ranges = <&pinctrl 0 32 16>;
+-	};
+-
+-	gpiod: gpio@50005000 {
+-		status = "okay";
+-		ngpios = <16>;
+-		gpio-ranges = <&pinctrl 0 48 16>;
+-	};
+-
+-	gpioe: gpio@50006000 {
+-		status = "okay";
+-		ngpios = <16>;
+-		gpio-ranges = <&pinctrl 0 64 16>;
+-	};
+-
+-	gpiof: gpio@50007000 {
+-		status = "okay";
+-		ngpios = <6>;
+-		gpio-ranges = <&pinctrl 6 86 6>;
+-	};
+-
+-	gpiog: gpio@50008000 {
+-		status = "okay";
+-		ngpios = <10>;
+-		gpio-ranges = <&pinctrl 6 102 10>;
+-	};
+-
+-	gpioh: gpio@50009000 {
+-		status = "okay";
+-		ngpios = <2>;
+-		gpio-ranges = <&pinctrl 0 112 2>;
+-	};
+-};
+diff --git a/arch/arm64/boot/dts/qcom/msm8996-v3.0.dtsi b/arch/arm64/boot/dts/qcom/msm8996-v3.0.dtsi
+deleted file mode 100644
+index 929bdcd45d02..000000000000
+--- a/arch/arm64/boot/dts/qcom/msm8996-v3.0.dtsi
++++ /dev/null
+@@ -1,63 +0,0 @@
+-// SPDX-License-Identifier: BSD-3-Clause
+-/*
+- * Copyright (c) 2021, Konrad Dybcio <konrad.dybcio@somainline.org>
+- */
+-
+-#include "msm8996.dtsi"
+-
+-/ {
+-	qcom,msm-id = <246 0x30000>;
+-};
+-
+- /*
+-  * This revision seems to have differ GPU CPR
+-  * parameters, GPU frequencies and some differences
+-  * when it comes to voltage delivery to.. once again
+-  * the GPU. Funnily enough, it's simpler to make it an
+-  * overlay on top of 3.1 (the final one) than vice versa.
+-  * The differences will show here as more and more
+-  * features get enabled upstream.
+-  */
+-
+-gpu_opp_table_3_0: opp-table-gpu30 {
+-	compatible = "operating-points-v2";
+-
+-	opp-624000000 {
+-		opp-hz = /bits/ 64 <624000000>;
+-		opp-level = <7>;
+-	};
+-
+-	opp-560000000 {
+-		opp-hz = /bits/ 64 <560000000>;
+-		opp-level = <6>;
+-	};
+-
+-	opp-510000000 {
+-		opp-hz = /bits/ 64 <510000000>;
+-		opp-level = <5>;
+-	};
+-
+-	opp-401800000 {
+-		opp-hz = /bits/ 64 <401800000>;
+-		opp-level = <4>;
+-	};
+-
+-	opp-315000000 {
+-		opp-hz = /bits/ 64 <315000000>;
+-		opp-level = <3>;
+-	};
+-
+-	opp-214000000 {
+-		opp-hz = /bits/ 64 <214000000>;
+-		opp-level = <3>;
+-	};
+-
+-	opp-133000000 {
+-		opp-hz = /bits/ 64 <133000000>;
+-		opp-level = <3>;
+-	};
+-};
+-
+-&gpu {
+-	operating-points-v2 = <&gpu_opp_table_3_0>;
+-};
+diff --git a/arch/arm64/boot/dts/st/stm32mp21xc.dtsi b/arch/arm64/boot/dts/st/stm32mp21xc.dtsi
+deleted file mode 100644
+index e33b00b424e1..000000000000
+--- a/arch/arm64/boot/dts/st/stm32mp21xc.dtsi
++++ /dev/null
+@@ -1,8 +0,0 @@
+-// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
+-/*
+- * Copyright (C) STMicroelectronics 2025 - All Rights Reserved
+- * Author: Alexandre Torgue <alexandre.torgue@foss.st.com> for STMicroelectronics.
+- */
+-
+-/ {
+-};
+diff --git a/arch/arm64/boot/dts/st/stm32mp23xc.dtsi b/arch/arm64/boot/dts/st/stm32mp23xc.dtsi
+deleted file mode 100644
+index e33b00b424e1..000000000000
+--- a/arch/arm64/boot/dts/st/stm32mp23xc.dtsi
++++ /dev/null
+@@ -1,8 +0,0 @@
+-// SPDX-License-Identifier: (GPL-2.0-only OR BSD-3-Clause)
+-/*
+- * Copyright (C) STMicroelectronics 2025 - All Rights Reserved
+- * Author: Alexandre Torgue <alexandre.torgue@foss.st.com> for STMicroelectronics.
+- */
+-
+-/ {
+-};
+diff --git a/arch/arm64/boot/dts/st/stm32mp25xc.dtsi b/arch/arm64/boot/dts/st/stm32mp25xc.dtsi
+deleted file mode 100644
+index 5e83a6926485..000000000000
+--- a/arch/arm64/boot/dts/st/stm32mp25xc.dtsi
++++ /dev/null
+@@ -1,8 +0,0 @@
+-// SPDX-License-Identifier: (GPL-2.0-or-later OR BSD-3-Clause)
+-/*
+- * Copyright (C) STMicroelectronics 2023 - All Rights Reserved
+- * Author: Alexandre Torgue <alexandre.torgue@foss.st.com> for STMicroelectronics.
+- */
+-
+-/ {
+-};
+diff --git a/arch/arm64/boot/dts/st/stm32mp25xxal-pinctrl.dtsi b/arch/arm64/boot/dts/st/stm32mp25xxal-pinctrl.dtsi
+deleted file mode 100644
+index 2406e972554c..000000000000
+--- a/arch/arm64/boot/dts/st/stm32mp25xxal-pinctrl.dtsi
++++ /dev/null
+@@ -1,71 +0,0 @@
+-// SPDX-License-Identifier: (GPL-2.0-or-later OR BSD-3-Clause)
+-/*
+- * Copyright (C) STMicroelectronics 2023 - All Rights Reserved
+- * Author: Alexandre Torgue <alexandre.torgue@foss.st.com> for STMicroelectronics.
+- */
+-
+-&pinctrl {
+-	st,package = <STM32MP_PKG_AL>;
+-
+-	gpioa: gpio@44240000 {
+-		status = "okay";
+-		ngpios = <16>;
+-		gpio-ranges = <&pinctrl 0 0 16>;
+-	};
+-
+-	gpiob: gpio@44250000 {
+-		status = "okay";
+-		ngpios = <16>;
+-		gpio-ranges = <&pinctrl 0 16 16>;
+-	};
+-
+-	gpioc: gpio@44260000 {
+-		status = "okay";
+-		ngpios = <14>;
+-		gpio-ranges = <&pinctrl 0 32 14>;
+-	};
+-
+-	gpiod: gpio@44270000 {
+-		status = "okay";
+-		ngpios = <16>;
+-		gpio-ranges = <&pinctrl 0 48 16>;
+-	};
+-
+-	gpioe: gpio@44280000 {
+-		status = "okay";
+-		ngpios = <16>;
+-		gpio-ranges = <&pinctrl 0 64 16>;
+-	};
+-
+-	gpiof: gpio@44290000 {
+-		status = "okay";
+-		ngpios = <16>;
+-		gpio-ranges = <&pinctrl 0 80 16>;
+-	};
+-
+-	gpiog: gpio@442a0000 {
+-		status = "okay";
+-		ngpios = <16>;
+-		gpio-ranges = <&pinctrl 0 96 16>;
+-	};
+-
+-	gpioh: gpio@442b0000 {
+-		status = "okay";
+-		ngpios = <12>;
+-		gpio-ranges = <&pinctrl 2 114 12>;
+-	};
+-
+-	gpioi: gpio@442c0000 {
+-		status = "okay";
+-		ngpios = <12>;
+-		gpio-ranges = <&pinctrl 0 128 12>;
+-	};
+-};
+-
+-&pinctrl_z {
+-	gpioz: gpio@46200000 {
+-		status = "okay";
+-		ngpios = <10>;
+-		gpio-ranges = <&pinctrl_z 0 400 10>;
+-	};
+-};
+-- 
+2.51.0
 
-> [auto build test WARNING on ac3fd01e4c1efce8f2c054cdeb2ddd2fc0fb150d]
-
-> url:     
-> https://github.com/intel-lab-lkp/linux/commits/Colton-Lewis/arm64-cpufeature-Add-cpucap-for-HPMN0/20251210-055309
-> base:   ac3fd01e4c1efce8f2c054cdeb2ddd2fc0fb150d
-> patch link:     
-> https://lore.kernel.org/r/20251209205121.1871534-10-coltonlewis%40google.com
-> patch subject: [PATCH v5 09/24] perf: arm_pmuv3: Keep out of guest  
-> counter partition
-> config: arm64-defconfig  
-> (https://download.01.org/0day-ci/archive/20251211/202512110439.UXwb1Qh4-lkp@intel.com/config)
-> compiler: aarch64-linux-gcc (GCC) 15.1.0
-> reproduce (this is a W=1 build):  
-> (https://download.01.org/0day-ci/archive/20251211/202512110439.UXwb1Qh4-lkp@intel.com/reproduce)
-
-> If you fix the issue in a separate patch/commit (i.e. not just a new  
-> version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes:  
-> https://lore.kernel.org/oe-kbuild-all/202512110439.UXwb1Qh4-lkp@intel.com/
-
-> All warnings (new ones prefixed by >>):
-
->>> Warning: arch/arm64/kvm/pmu-direct.c:75 function parameter 'pmu' not  
->>> described in 'kvm_pmu_guest_counter_mask'
-
-Just a missing argument description in the comment. Fixed
-
-
-> --
-> 0-DAY CI Kernel Test Service
-> https://github.com/intel/lkp-tests/wiki
 
