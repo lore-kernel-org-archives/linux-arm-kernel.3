@@ -4,78 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0F62D59D6F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 16:46:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D1CED59D79
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 16:46:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cUzBJqhYDO5tEbzuZzamoZ8p2CpTScPUcBetzo+E5UY=; b=pWoRkXQq561C1/ratX8fsI7yw6
-	0R9wrVEN6geHrYRS3h3aj9c9L5nCdTWTj3ncBrIg1a3XFs5oSMRWXQaOH60V0Ghjw9qMZCnyl9Pzs
-	wUC0jFjO6JBFawphBA7DQpZO4gIq9Epu42N7piMP5P7W/cG4I3FfoaXOWxczB1uk0KRXHjUxYtVkb
-	xQm47bTIICH6nxzu391OFVzJKeSA9NHKb2egzf7u/tQ4k4sXqosN/EUCMxqCS2LJ2fNbVQ4JQhSJh
-	GWopStcFgpn04kI4GEBeNxvpjw+3tzqmJ0Q6ZdJ//b7dqhRcEGaK8IMpgBq/NOJv61k+SYc/w55PU
-	ks9l3LSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EtSFrsiqsInQhY8suA8ufd52mk3DH9DnLdnYcExkePc=; b=KO2M+etqghY1RDWaSezZmElx8q
+	VMcAcC7BM/kCFCl726uBq6F1M07nEhGch9+ZnAnETNbRp+SUzysZ/u0i/WVuvX1p03YqmLe3WM11N
+	TpZUrSHc1U7XOQVqCbhnYStqOMtKIle5jLihJjTiBNWNn7JIeIRJ/EzDsLMTxweY0QgCHRcyRrUUR
+	wH8TTpEaQUrmZjRZEZTtxzYCr5w8DafNAg9WQGdBh6NF9NxbnLCbFAfgxHuiXv7Dmb+1TJgIWOH3G
+	yS1sPsGYBYJo8CNK01TDYVRy+kOKmQkpHk3QrFLeAWIKOBZbpizdV2sibtmZGAjb1/w5alVkKUTDM
+	pzW9O2Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU6HW-00000000rDr-3JYT;
-	Fri, 12 Dec 2025 16:46:14 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vU6IC-00000000rKP-0f57;
+	Fri, 12 Dec 2025 16:46:56 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU6HS-00000000rDG-0k3A;
-	Fri, 12 Dec 2025 16:46:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1765557957; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=l6tr3X4FUMEKGypIk7ZpzCZzqUL1yaMlTdltaYOLJAHr6JzX6LvihINsg/1SX3X6ZOgGQQ/Ct4zGv3A10+TaIMF0R5JKYegJwuaPRlJ5v5TvxbRHkaH1MgWY9oK8obBQhYMrICeKTfSUpMpFloxdAEzi4elzY3a6dh/Raz02LlM=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1765557957; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=cUzBJqhYDO5tEbzuZzamoZ8p2CpTScPUcBetzo+E5UY=; 
-	b=OiJokjfBghdYyW2QkyTjK2r0EfJBCunSpL+AqF6trW9ZBuaELAC1bUr82X5yI5NHOvFtksoMvf+9NTuCv45nofHKmGpLjbbWoo331e6J8vEk0/u2UfKr1D8N/byNBmLS0WhlphikVXZrDUkKYsNUVuCVxljE1vEc7uMQWSFDGhY=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
-	dmarc=pass header.from=<detlev.casanova@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765557957;
-	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=cUzBJqhYDO5tEbzuZzamoZ8p2CpTScPUcBetzo+E5UY=;
-	b=MVO4tr0ep1kR8p+ZWCnGrDONr5sKs5/03gmOes0LBUB278ZBCEpCR9lZSXzYJ1jg
-	N4bFUN3JRIag8dewb8I/y4iPIA9qCzuG5PSJbFAXtxwWtnd1/YeOif5f87pj4jGfGf1
-	QnYrM+mz4Jb+d9RMq0XJzzxz4ob76CBYJa8qlt/U=
-Received: by mx.zohomail.com with SMTPS id 1765557954423718.2008254898692;
-	Fri, 12 Dec 2025 08:45:54 -0800 (PST)
-Message-ID: <511b524a-b573-42f6-8a11-7f0992f8f418@collabora.com>
-Date: Fri, 12 Dec 2025 11:45:50 -0500
+	id 1vU6I9-00000000rJa-3Y7h
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 12 Dec 2025 16:46:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Pbcu5ciqDyfg1izBBYJZ8YZ+XWk8jVNt5IUpTmMKrywQXfjM9F9INywwDpyqjINsDXHH4UGmLsShG7O4yKSvUIH8OiSjygJyqhAj/7nVqhbZphsmauNYDZO0eMDmar82FrqpI0uKRteToLHcuMNPSGqQvDU2st5VQNHAyjs2KimKVJgX34EIFG9VRqR1DHdCHw7Qt/aX6f20jZn61A8hI4wT7ryIQQkxJ81uv1AC8IKPpvxnq74289CvciHoSfC+Vu7E2oc7P3avGGZpz0mA/Rb16Q36213Qr0qrQV/UvWrJ2BOKDEbonH+K/EihC9PHGKbf7Y179gqapgM5w8Zxjw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EtSFrsiqsInQhY8suA8ufd52mk3DH9DnLdnYcExkePc=;
+ b=fwyLc1KDSMCh8VlcdK476XSEkN1jFtgNko7Aq5LA/a4FcneAOLLfrj6lBTAS7DIynGm4UBc6trFQg9jk8/9Ju+JnnqulomOws6LIFvR5IGz4ht8l21e4MpWurtBvBskr/ZR2+FLD295acT3/wwoujcraqn+mH8zVc+3ZdanCuvpvyu7bhFTIN0Cu/8jLVfsG9R/XTn66ZO5pzO0xrA1jOsJvys/5OmRmumyifGnf9XsKHf2n8v87aY/IudCR4nDUVk8Edxo09yZG2clryMS2sJ1QTezz9rDGOPQMVs3GnTMeojM4n9g0P+/IRyLQUhPIYyKWvI7j0l1H2583R5cwQQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EtSFrsiqsInQhY8suA8ufd52mk3DH9DnLdnYcExkePc=;
+ b=l+BjpKdipCg2B1ocKwcpX4kCtqTxFrjTbbg5M7yjqqDcxfJlnnKnYFYGWxdfc3wAG/E7rbXf5MMNb/wkrNLgcCK4phfafyzhaDPuYTqM9VncnGVNU28d9cbMJL2PWd88sVhNQi+KGh/0pUT2WGyxjOoyBZ8meRH7E3vUz8n0yuUdPFmLt29Axt9WzgC9o8DyeSpSu9PgGJ4Zx+4uPanyRETFImXC2i2It4plzCOT///itokzjZzuhazFV0SqPQ877VSsdyZzjbtmQT8xyC/IasXddwrZX2lZJ4ELTxvOWY5ujj3vuUngFtO3lT9rEj3OOuXRmlQEI6txYdbzWywauQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com (2603:10a6:10:2e2::22)
+ by PAXPR04MB9595.eurprd04.prod.outlook.com (2603:10a6:102:23d::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.10; Fri, 12 Dec
+ 2025 16:46:48 +0000
+Received: from DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196]) by DU2PR04MB8951.eurprd04.prod.outlook.com
+ ([fe80::753c:468d:266:196%4]) with mapi id 15.20.9412.005; Fri, 12 Dec 2025
+ 16:46:48 +0000
+Date: Fri, 12 Dec 2025 11:46:38 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Peng Fan <peng.fan@nxp.com>,
+	Marc Kleine-Budde <mkl@pengutronix.de>
+Subject: Re: [PATCH 0/3] arm64: dts: freescale: Use phys to replace
+ xceiver-supply
+Message-ID: <aTxG7i44To0bYpdI@lizhi-Precision-Tower-5810>
+References: <20251212-imx9-can-phy-v1-0-a421d7023e13@nxp.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251212-imx9-can-phy-v1-0-a421d7023e13@nxp.com>
+X-ClientProxiedBy: SJ0PR05CA0074.namprd05.prod.outlook.com
+ (2603:10b6:a03:332::19) To AS8PR04MB8948.eurprd04.prod.outlook.com
+ (2603:10a6:20b:42f::17)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 02/15] media: v4l2-ctrls: Add hevc_ext_sps_[ls]t_rps
- controls
-To: Nicolas Dufresne <nicolas.dufresne@collabora.com>,
- linux-kernel@vger.kernel.org
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Heiko Stuebner <heiko@sntech.de>, Ricardo Ribalda <ribalda@chromium.org>,
- Hans Verkuil <hverkuil@kernel.org>, Hans de Goede <hansg@kernel.org>,
- Yunke Cao <yunkec@google.com>, Jonathan Corbet <corbet@lwn.net>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- James Cowgill <james.cowgill@blaize.com>, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- kernel@collabora.com
-References: <20251022162459.271603-1-detlev.casanova@collabora.com>
- <20251022162459.271603-3-detlev.casanova@collabora.com>
- <3ff3c7f76e24fdc92d86be3f92b6947ef86abc25.camel@collabora.com>
-Content-Language: en-US
-From: Detlev Casanova <detlev.casanova@collabora.com>
-In-Reply-To: <3ff3c7f76e24fdc92d86be3f92b6947ef86abc25.camel@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8951:EE_|PAXPR04MB9595:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2fb968da-8cca-42d4-0e6b-08de399e0aa0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|7416014|52116014|366016|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?m0I+lWcCPpmZHLT0ubU6DPZuK3fsgoX2DoGXkSZ26e0gJhI5qr8+ZKQDHGN1?=
+ =?us-ascii?Q?SJ0vth7pFvJ3Q4DWzh+uE0acIPGid2D6SqySoymlehUAEY8ACSEhJBef8TIq?=
+ =?us-ascii?Q?n8J96Pfjl2qFVVbAcitwJarooK+1/61XwEH83RVcn+4I44oz/QTDsCr7/ucs?=
+ =?us-ascii?Q?Id11G7gb45binHsHQeRmG3KVjyqqS32U6+0XF8UaEZwnls7YZT/yVSchYqFw?=
+ =?us-ascii?Q?sUNSDHp3L8mrFTxZBGSG1zUINooXlIFVP1pOjtan1s4MiZhi6xNGMUe+La/m?=
+ =?us-ascii?Q?IcQqUYmB6Wqb85mDVjW72zQxTYr730tKNGuxlPlJjmY+ZmT3ykXp8r45uZ2H?=
+ =?us-ascii?Q?K0XYFdLyxPsN/0srAhxvA8FKd0qRQLdc+Tp7JZa8lyS+IF+omFgdIzB31VLP?=
+ =?us-ascii?Q?k2b3vIFUr8boiNhSRIenOqlx5aXXJ4idVOdBqLdDjg6rH5DO2N4XXE3juuYB?=
+ =?us-ascii?Q?vZR4v2/fRf/oJqi3Asvs3bByo7AQvz3Xj63J0CNkssVW4oZQW4kSf9Q+tlBF?=
+ =?us-ascii?Q?EHRpFahTdmgraNqq4/0Hg3d+a/1klCTaDy5aHNXwPwKnE9/DlpYlCSMxjw8H?=
+ =?us-ascii?Q?nXwRab3wAT7d7TxOZ9d1PiD0NFWQx+2bQPCmK1h0EwOaP8DOMj0e5jxQGmcb?=
+ =?us-ascii?Q?qVgZT9uI5tgm2VLXpu38PA+uGC1GCCwlbOK8O/9W3lxfnnNWK45Vf3C0lnJL?=
+ =?us-ascii?Q?vGmwteOjI9Ks2jD7EBuqF5rlDKtW6yEWluTub0xCfeLBd6TyTzyHUNL36Wic?=
+ =?us-ascii?Q?aUeUfADOiortbMyS4rm8Mz+cdLdW8fIEJ6Kb2l3KkX+xflCQMUak3q0Yq3DZ?=
+ =?us-ascii?Q?3o5tbeVITSxN0cJnMfDT/1nuzfa/IBjl+ec6w0ZVxFTWZojs/tLb5ISdxskq?=
+ =?us-ascii?Q?7FzOuzKDs2gc+PwuHdHq9UIk2d4tL0XGVJf6LA6wy2WuHLlfU4+YAb/eO4je?=
+ =?us-ascii?Q?XcR/SdAdk0ImFV+0EHANKYzxmQ0k4JqZThw56bh0woIc7ckB/5nlRq7HjfVW?=
+ =?us-ascii?Q?fmm0mBk8YKCbxDo96NMtOf4cxzFy8NeRqzd2GuvT2qLAHLp14GzYfSg/BVSi?=
+ =?us-ascii?Q?CrhqCcsyRkxoorXCd6+nuCjoo4EwqPPfFXRjR4Oiko0VmJ+BEQYYSsfNkceC?=
+ =?us-ascii?Q?wHfBwFgxLtazSy+nHlRZblvko+Owws0vmjL02F5sJQ7cVhODlFlBi18WnKar?=
+ =?us-ascii?Q?E3YwoLiJebLXI1eBJbT4wSechWAq0qfi9+FLQoX3QkdRiHvkd3FVO24ccXWo?=
+ =?us-ascii?Q?TOCnDax9Tie45nT8GgAEckDn6vCpd8LKM4eXCqAEAq8HwDwhMUxa1FHkbXR7?=
+ =?us-ascii?Q?iMLp876Fz1APZhB3Eq28qRHrWtQ3i3bUp/Z6/dlB5aeHaNcZfTQhdM2Cotkz?=
+ =?us-ascii?Q?9DWNc1DdwHab/tr3tTLl4nUqO1M61JU7nBUlRrIyLcKucD2i5G3p6fAXzLWV?=
+ =?us-ascii?Q?nX09GgjoO0FV2J4TDeQWG7f8VLFQ1NhIR+1I5ViEI3qcvynBiuDAQhqIMv5a?=
+ =?us-ascii?Q?Msi6i5sDzDzAKR0K/Yczkkc+/ddW4oAvaBY6?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8951.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(7416014)(52116014)(366016)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Bi6DPNNI7ns9mgiZ82VTTRZqvpg7tKqCARkC5do0EMhHJcQDuDbtnAG7LJv/?=
+ =?us-ascii?Q?+xK/RsAuSxYHniK4TqsC56xxCLp4s837LPSmWhcfeXh5AmQkXf4xL8mzZuAx?=
+ =?us-ascii?Q?90EXP1JnKG5qIh/hl7Z4R82CrdVuEd40hH8fqiyr5s7TWd4y69E0RAwKYrtu?=
+ =?us-ascii?Q?6rGcvB8bI8iNcFM3oBwV1VLcyyKPwXKnH5rCHRPUOlU+wvk+I0D2zvaBHFMb?=
+ =?us-ascii?Q?+PAU9IpfDHL/EW1y0YN/BbTeNB+tYIjdblPet/MkoBgNY7AeYG/2ji0pi391?=
+ =?us-ascii?Q?wn0pRT5wY0nGhvqUq5+YUbEyvmb0e8lXIy6lk7yXggy8z5EUY/JlFFQrLzg6?=
+ =?us-ascii?Q?mmNlfOU7Nl/BuKdQeUBluZIN9gGoxgA3gCSJlQkQUT8KASG+Qw6e0P/PUlVe?=
+ =?us-ascii?Q?P9ahxEsU6w+Ym+NEMqLatWpBAgPS0TY0AiAQ95GGulbupuuSv3TRQp252qBJ?=
+ =?us-ascii?Q?jixUPWunUeQXBEp4hcx0QJT9JhO13dJo3X4yPTUTiN8ZcxI/0vtxABttYXOY?=
+ =?us-ascii?Q?BeJxA3fnGub3rTx2owyBvyXRjowii6nGe31KIuLjNpQuUGnm2uPjVXj1lb7Q?=
+ =?us-ascii?Q?990ModX8d6Y3oGA1fILuj6vdDapi8DBLjla+tPCOqvqylevfXPYg9UkqJWJ+?=
+ =?us-ascii?Q?PFNz6EdB1Yg5AwtYoSs+im6PWvI9NR85qCaujM9e+M+NwK9laDpfQBSDI4bs?=
+ =?us-ascii?Q?O3M4pN0jzDwX7LuabVNYQtqlDfIB3y5D8NVck7dHV6/MHShiJOUYA1iT+78r?=
+ =?us-ascii?Q?0UKlW9rJ86TFyceZ9OXouKJkz7oAcz97F1H38lLn0DFIqkjfZpudwYKroCra?=
+ =?us-ascii?Q?TC5xyDcAoSSsTF660fEcfOJz5BI9L6efgfTrrlsGGg3Et70n5inkh2j4l7xO?=
+ =?us-ascii?Q?6ghNfmoaMKSw1iGv4KOcIVSYrUGaCbHD6BaRfSyYRptafFeh7FrHst9DOkzX?=
+ =?us-ascii?Q?lUFgd8Yn7Uu143PzDN9sFgcpoFG6ccoqV8f3vfnMRBShdJHssQ7ymo8kCIIa?=
+ =?us-ascii?Q?3w+GLmul7qLEOrQVs5gI4drN5o9dkuvf1UI1mhQLTp+NgqSXWu3YYTXGU8fr?=
+ =?us-ascii?Q?j2vhCktADii/NkQxW+gevSfq56LvqAKjMXnmYcvYYA8Ub2k6TfpeqPTDQBxJ?=
+ =?us-ascii?Q?YXLz+g+9gkPlFisCzdbFIaFkQX5O0HwFRQHU0ZeQPSAP16GhsXeH9hy9yQRx?=
+ =?us-ascii?Q?VB+RAasf81uasSBxvIZgyIJSXTLU4JuhUoUCeFdTQj8eBQ2InE/IPvpcy5L6?=
+ =?us-ascii?Q?kPcvnYG7Ji9FATpRyeQRcybh3hdry3G1VfF3InxCjYJ3pKXqlvL4hH/VAWOc?=
+ =?us-ascii?Q?7Fn9ywtql9Mn2/Yba763SYgGB7ol9988C3f25k5Jz1g8cA6183cE8/K5VSqH?=
+ =?us-ascii?Q?qIVWIJ4/9NoHXHtx1WDKCWwBZWEPfv+Su3SOy0Kc3ypDJkNNMdb+pN2TUa8s?=
+ =?us-ascii?Q?hso571KMx/oSTDh9Iak1SKe5ZZ2QnVJ1oLP/NdgnPddBSn7l0RViTTXM7LR1?=
+ =?us-ascii?Q?aNST1XN+jIa/U0gVbMUFTzUQFSke/DJ7uaQl6/o4lL8UyJpagBKEy3+7lQlr?=
+ =?us-ascii?Q?P+w3dpx7drAEBRff2A8=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2fb968da-8cca-42d4-0e6b-08de399e0aa0
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8948.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Dec 2025 16:46:48.2186
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KzDJDPSN223jnOz25afiCNNB25PmNg7L88Ma27tV1y3JwxQcS3GlKXXKvLi6K5/VJhkL1vJuPEj56wbbc595GA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9595
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_084610_304878_C45F862F 
-X-CRM114-Status: GOOD (  21.86  )
+X-CRM114-CacheID: sfid-20251212_084653_885699_3EA08C22 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,205 +163,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
-
-On 12/10/25 15:07, Nicolas Dufresne wrote:
-> Hi,
+On Fri, Dec 12, 2025 at 05:57:18PM +0800, Peng Fan (OSS) wrote:
+> This is a pick up of patch 6-8 from [1].
 >
-> Le mercredi 22 octobre 2025 à 12:22 -0400, Detlev Casanova a écrit :
->> The vdpu381 decoder found on newer Rockchip SoC need the information
->> from the long term and short term ref pic sets from the SPS.
->>
->> So far, it wasn't included in the v4l2 API, so add it with new dynamic
->> sized controls.
->>
->> Each element of the hevc_ext_sps_lt_rps array contains the long term ref
->> pic set at that index.
->> Each element of the hevc_ext_sps_st_rps contains the short term ref pic
->> set at that index, as the raw data.
->> It is the role of the drivers to calculate the reference sets values.
->>
->> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
->> ---
->>   drivers/media/v4l2-core/v4l2-ctrls-core.c | 18 +++++++
->>   drivers/media/v4l2-core/v4l2-ctrls-defs.c | 10 ++++
->>   include/uapi/linux/v4l2-controls.h        | 61 +++++++++++++++++++++++
->>   include/uapi/linux/videodev2.h            |  2 +
->>   4 files changed, 91 insertions(+)
->>
->> diff --git a/drivers/media/v4l2-core/v4l2-ctrls-core.c b/drivers/media/v4l2-core/v4l2-ctrls-core.c
->> index 85d07ef44f62..779936727505 100644
->> --- a/drivers/media/v4l2-core/v4l2-ctrls-core.c
->> +++ b/drivers/media/v4l2-core/v4l2-ctrls-core.c
->> @@ -418,6 +418,12 @@ void v4l2_ctrl_type_op_log(const struct v4l2_ctrl *ctrl)
->>   	case V4L2_CTRL_TYPE_HEVC_SLICE_PARAMS:
->>   		pr_cont("HEVC_SLICE_PARAMS");
->>   		break;
->> +	case V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS:
->> +		pr_cont("HEVC_EXT_SPS_ST_RPS");
->> +		break;
->> +	case V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS:
->> +		pr_cont("HEVC_EXT_SPS_LT_RPS");
->> +		break;
->>   	case V4L2_CTRL_TYPE_HEVC_SCALING_MATRIX:
->>   		pr_cont("HEVC_SCALING_MATRIX");
->>   		break;
->> @@ -1173,6 +1179,12 @@ static int std_validate_compound(const struct v4l2_ctrl *ctrl, u32 idx,
->>   	case V4L2_CTRL_TYPE_HEVC_SLICE_PARAMS:
->>   		break;
->>   
->> +	case V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS:
->> +		break;
->> +
->> +	case V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS:
->> +		break;
->> +
->>   	case V4L2_CTRL_TYPE_HDR10_CLL_INFO:
->>   		break;
->>   
->> @@ -1925,6 +1937,12 @@ static struct v4l2_ctrl *v4l2_ctrl_new(struct v4l2_ctrl_handler *hdl,
->>   	case V4L2_CTRL_TYPE_HEVC_SLICE_PARAMS:
->>   		elem_size = sizeof(struct v4l2_ctrl_hevc_slice_params);
->>   		break;
->> +	case V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS:
->> +		elem_size = sizeof(struct v4l2_ctrl_hevc_ext_sps_st_rps);
->> +		break;
->> +	case V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS:
->> +		elem_size = sizeof(struct v4l2_ctrl_hevc_ext_sps_lt_rps);
->> +		break;
->>   	case V4L2_CTRL_TYPE_HEVC_SCALING_MATRIX:
->>   		elem_size = sizeof(struct v4l2_ctrl_hevc_scaling_matrix);
->>   		break;
->> diff --git a/drivers/media/v4l2-core/v4l2-ctrls-defs.c b/drivers/media/v4l2-core/v4l2-ctrls-defs.c
->> index ad41f65374e2..167286c9e424 100644
->> --- a/drivers/media/v4l2-core/v4l2-ctrls-defs.c
->> +++ b/drivers/media/v4l2-core/v4l2-ctrls-defs.c
->> @@ -1233,6 +1233,8 @@ const char *v4l2_ctrl_get_name(u32 id)
->>   	case V4L2_CID_STATELESS_HEVC_DECODE_MODE:		return "HEVC Decode Mode";
->>   	case V4L2_CID_STATELESS_HEVC_START_CODE:		return "HEVC Start Code";
->>   	case V4L2_CID_STATELESS_HEVC_ENTRY_POINT_OFFSETS:	return "HEVC Entry Point Offsets";
->> +	case V4L2_CID_STATELESS_HEVC_EXT_SPS_ST_RPS:		return "HEVC Short Term Ref Sets";
->> +	case V4L2_CID_STATELESS_HEVC_EXT_SPS_LT_RPS:		return "HEVC Long Term Ref Sets";
->>   	case V4L2_CID_STATELESS_AV1_SEQUENCE:			return "AV1 Sequence Parameters";
->>   	case V4L2_CID_STATELESS_AV1_TILE_GROUP_ENTRY:		return "AV1 Tile Group Entry";
->>   	case V4L2_CID_STATELESS_AV1_FRAME:			return "AV1 Frame Parameters";
->> @@ -1578,6 +1580,14 @@ void v4l2_ctrl_fill(u32 id, const char **name, enum v4l2_ctrl_type *type,
->>   		*type = V4L2_CTRL_TYPE_U32;
->>   		*flags |= V4L2_CTRL_FLAG_DYNAMIC_ARRAY;
->>   		break;
->> +	case V4L2_CID_STATELESS_HEVC_EXT_SPS_ST_RPS:
->> +		*type = V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS;
->> +		*flags |= V4L2_CTRL_FLAG_DYNAMIC_ARRAY;
->> +		break;
->> +	case V4L2_CID_STATELESS_HEVC_EXT_SPS_LT_RPS:
->> +		*type = V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS;
->> +		*flags |= V4L2_CTRL_FLAG_DYNAMIC_ARRAY;
->> +		break;
->>   	case V4L2_CID_STATELESS_VP9_COMPRESSED_HDR:
->>   		*type = V4L2_CTRL_TYPE_VP9_COMPRESSED_HDR;
->>   		break;
->> diff --git a/include/uapi/linux/v4l2-controls.h b/include/uapi/linux/v4l2-controls.h
->> index 2d30107e047e..dd9e29afa155 100644
->> --- a/include/uapi/linux/v4l2-controls.h
->> +++ b/include/uapi/linux/v4l2-controls.h
->> @@ -2093,6 +2093,8 @@ struct v4l2_ctrl_mpeg2_quantisation {
->>   #define V4L2_CID_STATELESS_HEVC_DECODE_MODE	(V4L2_CID_CODEC_STATELESS_BASE + 405)
->>   #define V4L2_CID_STATELESS_HEVC_START_CODE	(V4L2_CID_CODEC_STATELESS_BASE + 406)
->>   #define V4L2_CID_STATELESS_HEVC_ENTRY_POINT_OFFSETS (V4L2_CID_CODEC_STATELESS_BASE + 407)
->> +#define V4L2_CID_STATELESS_HEVC_EXT_SPS_ST_RPS  (V4L2_CID_CODEC_STATELESS_BASE + 408)
->> +#define V4L2_CID_STATELESS_HEVC_EXT_SPS_LT_RPS  (V4L2_CID_CODEC_STATELESS_BASE + 409)
->>   
->>   enum v4l2_stateless_hevc_decode_mode {
->>   	V4L2_STATELESS_HEVC_DECODE_MODE_SLICE_BASED,
->> @@ -2548,6 +2550,65 @@ struct v4l2_ctrl_hevc_scaling_matrix {
->>   	__u8	scaling_list_dc_coef_32x32[2];
->>   };
->>   
->> +#define V4L2_HEVC_EXT_SPS_ST_RPS_FLAG_INTER_REF_PIC_SET_PRED	0x1
->> +
->> +/*
->> + * struct v4l2_ctrl_hevc_ext_sps_st_rps - HEVC short term RPS parameters
->> + *
->> + * Dynamic size 1-dimension array for short term RPS. The number of elements
->> + * is v4l2_ctrl_hevc_sps::num_short_term_ref_pic_sets. It can contain up to 65 elements.
->> + *
->> + * @delta_idx_minus1: Specifies the delta compare to the index. See details in section 7.4.8
->> + *                    "Short-term reference picture set semantics" of the specification.
->> + * @delta_rps_sign: Sign of the delta as specified in section 7.4.8 "Short-term reference picture
->> + *                  set semantics" of the specification.
->> + * @abs_delta_rps_minus1: Absolute delta RPS as specified in section 7.4.8 "Short-term reference
->> + *                        picture set semantics" of the specification.
->> + * @num_negative_pics: Number of short-term RPS entries that have picture order count values less
->> + *                     than the picture order count value of the current picture.
->> + * @num_positive_pics: Number of short-term RPS entries that have picture order count values
->> + *                     greater than the picture order count value of the current picture.
->> + * @used_by_curr_pic: Bit j specifies if short-term RPS j is used by the current picture.
->> + * @use_delta_flag: Bit j equals to 1 specifies that the j-th entry in the source candidate
->> + *                  short-term RPS is included in this candidate short-term RPS.
->> + * @delta_poc_s0_minus1: Specifies the negative picture order count delta for the i-th entry in
->> + *                       the short-term RPS. See details in section 7.4.8 "Short-term reference
->> + *                       picture set semantics" of the specification.
->> + * @delta_poc_s1_minus1: Specifies the positive picture order count delta for the i-th entry in
->> + *                       the short-term RPS. See details in section 7.4.8 "Short-term reference
->> + *                       picture set semantics" of the specification.
->> + * @flags: See V4L2_HEVC_EXT_SPS_ST_RPS_FLAG_{}
->> + */
->> +struct v4l2_ctrl_hevc_ext_sps_st_rps {
->> +	__u8	delta_idx_minus1;
->> +	__u8	delta_rps_sign;
->> +	__u16	abs_delta_rps_minus1;
->> +	__u8	num_negative_pics;
->> +	__u8	num_positive_pics;
->> +	__u32	used_by_curr_pic;
-> Did you run pahole ? This one does not seem to align, it starts with 16bit
-> offset. The remark is because 32bit and 64bit platform, and all compiler should
-> have the same binary representation, otherwise it will break in some ways.
-
-That's a good point. I moved abs_delta_rps_minus1 with the other __u16 
-fields and changed flags to be 16 bits too.
-
-Also changed flags to 16 bits in v4l2_ctrl_hevc_ext_sps_lt_rps.
-
-> regards,
-> Nicolas
+> The drivers changes have been picked in 6.18, just resend the dts changes.
 >
->> +	__u32	use_delta_flag;
->> +	__u16	delta_poc_s0_minus1[16];
->> +	__u16	delta_poc_s1_minus1[16];
->> +	__u8	flags;
->> +};
->> +
->> +#define V4L2_HEVC_EXT_SPS_LT_RPS_FLAG_USED_LT		0x1
->> +
->> +/*
->> + * struct v4l2_ctrl_hevc_ext_sps_lt_rps - HEVC long term RPS parameters
->> + *
->> + * Dynamic size 1-dimension array for long term RPS. The number of elements
->> + * is v4l2_ctrl_hevc_sps::num_long_term_ref_pics_sps. It can contain up to 65 elements.
->> + *
->> + * @lt_ref_pic_poc_lsb_sps: picture order count modulo MaxPicOrderCntLsb of the i-th candidate
->> + *                          long-term reference picture.
->> + * @flags: See V4L2_HEVC_EXT_SPS_LT_RPS_FLAG_{}
->> + */
->> +struct v4l2_ctrl_hevc_ext_sps_lt_rps {
->> +	__u16	lt_ref_pic_poc_lsb_sps;
->> +	__u8	flags;
->> +};
->> +
->>   /* Stateless VP9 controls */
->>   
->>   #define V4L2_VP9_LOOP_FILTER_FLAG_DELTA_ENABLED	0x1
->> diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
->> index becd08fdbddb..ae1d33fd37b7 100644
->> --- a/include/uapi/linux/videodev2.h
->> +++ b/include/uapi/linux/videodev2.h
->> @@ -1981,6 +1981,8 @@ enum v4l2_ctrl_type {
->>   	V4L2_CTRL_TYPE_HEVC_SLICE_PARAMS	= 0x0272,
->>   	V4L2_CTRL_TYPE_HEVC_SCALING_MATRIX	= 0x0273,
->>   	V4L2_CTRL_TYPE_HEVC_DECODE_PARAMS	= 0x0274,
->> +	V4L2_CTRL_TYPE_HEVC_EXT_SPS_ST_RPS	= 0x0275,
->> +	V4L2_CTRL_TYPE_HEVC_EXT_SPS_LT_RPS	= 0x0276,
->>   
->>   	V4L2_CTRL_TYPE_AV1_SEQUENCE	    = 0x280,
->>   	V4L2_CTRL_TYPE_AV1_TILE_GROUP_ENTRY = 0x281,
+> [1]https://lore.kernel.org/linux-phy/20251001-can-v7-0-fad29efc3884@nxp.com/
+
+Please add 'resend' at subject next time.
+
+Frank
+
+>
+> There are still some other device trees not converted to use phys,
+> those will be converted later.
+>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+> Peng Fan (3):
+>       arm64: dts: imx95-15x15-evk: Use phys to replace xceiver-supply
+>       arm64: dts: imx8mp-evk: Use phys to replace xceiver-supply
+>       arm64: dts: imx93-11x11-evk: Use phys to replace xceiver-supply
+>
+>  arch/arm64/boot/dts/freescale/imx8mp-evk.dts      | 43 +++++++----------------
+>  arch/arm64/boot/dts/freescale/imx93-11x11-evk.dts | 17 +++++----
+>  arch/arm64/boot/dts/freescale/imx95-15x15-evk.dts | 13 ++++---
+>  3 files changed, 27 insertions(+), 46 deletions(-)
+> ---
+> base-commit: 008d3547aae5bc86fac3eda317489169c3fda112
+> change-id: 20251212-imx9-can-phy-328c2085afc7
+>
+> Best regards,
+> --
+> Peng Fan <peng.fan@nxp.com>
+>
 
