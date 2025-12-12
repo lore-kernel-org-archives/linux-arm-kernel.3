@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59BD0D44146
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 08:20:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB696D44145
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 08:20:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fdN+Kyjcu98NsTLW2lYMu7BkNtRxx8qwYk/Zp6dRpL0=; b=MUNK4l88G4rVM8nRmjOnO6Itr6
-	zQ8tsyUP5RAkfnxScUztIWI1TcR3PoOKPN+Zaky4qXv6F/JbRRuM0Dfn9gG3ZJE0tH8jdTl65i+ra
-	T5OpnGNrYbsMKlD3DPlkhaVnuS/6Pb2X3XoMDWDnt6nxcZa9tpsoqKqAzml3q9dtjUvuCHI1PKi2k
-	UqRxlq6Hir+1WEBPy4eeYL7oVOAiLLNY98jVQXDld41uv2/BcIKToCCME8os6hVBYv5zdO4PTfVMI
-	Po2LKsHaHEunRw1nbZJEol1AJaYOK+0BLnewbYRchg1BGo/8t+nCBrltpTV3UzXnb/lRWQQ4Teu30
-	/JU335AA==;
+	bh=bx3izqpclTeCfVzaHUGIs0/GDt1YX3DUPbWkXZVyF2k=; b=TLonJopJNISa+OcUuJW7lAfGWa
+	Z84SqwmvsfWJRAgEqwlc7Abe9rU2Y43B5Quu7D1rZ+mo1SpzmiMfIzCJBrlJfdLlsfNRHTwQjS8+6
+	qzWhEYu/+RMPX0burCOBJeFXCRZ6AdCoPpCiQSm5ro4PaNeelGYRKBn85lx+vs+IYL4gl9SyCzMC1
+	bWMLOREMr1+JRvIzNMaf9xj/c2EDitFiapB2bs+nzWJo8bFY7iLo/T+E0lwHp74hcaH+J05W7G7Bn
+	3PO8abiMBIM4dfSscl6w7IuZp2MxEYaiXx+OBYqmT9ct+t5aQNDP1gCtMQueQXSMWdGV8l+QqlIrd
+	jfFRRJAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTyNe-00000000FrL-2P1c;
-	Fri, 12 Dec 2025 08:20:02 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vTyOS-00000000Fvx-48fh;
+	Fri, 12 Dec 2025 08:20:52 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTyNb-00000000Fqi-3cQl
+	id 1vTyOR-00000000Fvl-3IaS
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 08:20:01 +0000
+	Fri, 12 Dec 2025 08:20:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 26F5143B45;
-	Fri, 12 Dec 2025 08:19:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D8DDC4CEF1;
-	Fri, 12 Dec 2025 08:19:53 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E6A10600C3;
+	Fri, 12 Dec 2025 08:20:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F9A6C4CEF1;
+	Fri, 12 Dec 2025 08:20:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765527599;
-	bh=jlMwHtPPA4m4TUifTdzUjwtNLhDFy1jJCvgxdEHIdDw=;
+	s=k20201202; t=1765527650;
+	bh=Xou53jiBQo9ysRj18wzsAyfyw/eH3lkYRVNejIVVlAg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=j+++aXoTVzo2+MUUz0a3s7wMkjHxdNd8PDxjGNylI3PaGaXcmxqR0VK9rkxgAOYXV
-	 183tl8Zyk0wRyCosNMzKyYXIl7LL9GQKMB6HgnR3pmbea12RyUBNnAmBHuLC+j0wll
-	 IKnfJxwtPuwH6h0R7Bp+6gii9kI5KXL6AlJOIij0HiDQliOMqtEDXi9WC47eg/M66k
-	 QcKcoLjbY8UxHolIopj/TBfnSIdpEZxq1cM7tV6h3y8vIPBUvUO8mMOF4FXMyq/cdU
-	 lkD5VxDAVLzORl/5tVPhdqllA9N4CA+6kvHwyysUFDxzkoTLFYIO6VBpBOqNFn/nIG
-	 r1ppm1fs5CP2A==
-Message-ID: <297c2582-0879-433f-a854-211ad1d21837@kernel.org>
-Date: Fri, 12 Dec 2025 09:19:51 +0100
+	b=Dx5DDZza6H1mti9vaxZl65HrR80E8WnQIPcedB8ieEqtVqJESO22i5rTWouxXjy5Q
+	 QKMPJMl7cM32PbArkRDhgUfdbZ+BM8l+GJJjSOKKiEECOElweQwViXNbXegXtBbEVn
+	 o1paCSAmN9CdjBdevFR0kbi3G9+m6sHOCRCl5IofzscAWlfnAOmA/P3KgmkpP4y+S1
+	 bSc4R2brBCJ65c6yssDYrIP4NIuCj3YmjHfOYFwsNEVysai8VzleQlqqpvO9eW5cHo
+	 3d42huWeBykYwfW46GAkTap34ERuLhiBRZANieA1VMqM+FWCa4vNYoFqnv82ogpqQJ
+	 tNwY0hkYtFNIg==
+Message-ID: <019aa49f-fe59-488d-aff8-f07cf07ee68d@kernel.org>
+Date: Fri, 12 Dec 2025 09:20:43 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/8] dt-bindings: gpio: Add AAEON embedded controller GPIO
- binding
+Subject: Re: [PATCH 3/8] dt-bindings: watchdog: Add AAEON embedded controller
+ watchdog binding
 To: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>,
@@ -63,7 +63,7 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org,
  Thomas Petazzoni <thomas.petazzoni@bootlin.com>
 References: <20251212-dev-b4-aaeon-mcu-driver-v1-0-6bd65bc8ef12@bootlin.com>
- <20251212-dev-b4-aaeon-mcu-driver-v1-2-6bd65bc8ef12@bootlin.com>
+ <20251212-dev-b4-aaeon-mcu-driver-v1-3-6bd65bc8ef12@bootlin.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,12 +109,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251212-dev-b4-aaeon-mcu-driver-v1-2-6bd65bc8ef12@bootlin.com>
+In-Reply-To: <20251212-dev-b4-aaeon-mcu-driver-v1-3-6bd65bc8ef12@bootlin.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_001959_972011_5269CA45 
-X-CRM114-Status: GOOD (  15.34  )
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,51 +127,20 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 12/12/2025 08:41, Thomas Perrot (Schneider Electric) wrote:
-> Add device tree binding documentation for the GPIO controller functionality
-> provided by the AAEON embedded controller. This controller provides 7 GPOs
-> and 12 GPIOs for a total of 19 GPIO lines.
-> 
-> The GPIO controller is defined as a child node of the AAEON MCU device.
-> 
-> Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
-> ---
->  .../bindings/gpio/aaeon,srg-imx8pl-gpio.yaml       | 54 ++++++++++++++++++++++
->  1 file changed, 54 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/gpio/aaeon,srg-imx8pl-gpio.yaml b/Documentation/devicetree/bindings/gpio/aaeon,srg-imx8pl-gpio.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..8040dc0a36ee5650488520c2218f09fd08cdf64a
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/gpio/aaeon,srg-imx8pl-gpio.yaml
-> @@ -0,0 +1,54 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/gpio/aaeon,srg-imx8pl-gpio.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: AAEON Embedded Controller GPIO
+> +additionalProperties: false
 > +
-> +maintainers:
-> +  - Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
-> +  - Thomas Perrot <thomas.perrot@bootlin.com>
-> +
-> +description: |
-> +  GPIO controller functionality provided by the AAEON embedded controller.
-> +  This controller provides 7 GPOs and 12 GPIOs.
-> +
-> +  The GPIO controller is a sub-device of the AAEON MCU and must be defined
-> +  as a child node of the MCU device.
-> +
-> +properties:
-> +  compatible:
-> +    const: aaeon,srg-imx8pl-gpio
-> +
-> +  gpio-controller: true
+> +examples:
+> +  - |
+> +    watchdog {
+> +      compatible = "aaeon,srg-imx8pl-wdt";
 
+No, that was discussed many times on the mailing list already. Fold the
+child into the parent. Your driver model really do not matter for DT.
 
-That's not really separate node if you do not have any resources. Fold
-it into the parent.
+> +    };
+> 
+
 
 Best regards,
 Krzysztof
