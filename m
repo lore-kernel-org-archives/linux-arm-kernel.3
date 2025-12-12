@@ -4,159 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D2CD49238
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 15:31:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1A30D49238
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 15:32:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vAm7Nmbpsaq5fZ9YMnt8K+iRiEXnr3b2MMfUi0jlcYw=; b=io+mwWvbz99zjq33c9ZgvIAS1B
-	nprY2YMRw/K7cwfnDe2zrx8LSyAuqFtxgvjM9NcEq4Sl/UWs8/Si0lYL/EcL1qdYsxYrUlc7zPbEU
-	0OYorl0eKlEr0wFuMWMEibLdzBFMCGnK1cCIv8e1ZvxbZ40fxaeq9tSIPHTYKH9zXUGRz1iE3NfCf
-	ZWYcp9GXPks9ZrIvrtQlBZ70jkNN6Ac5cR0JzeVb1GVGlQ75ocv4xonTtzHQqgf12pHllOmITay4g
-	cDrDNzUi4KHhcCP1DxXymc+zep0QK8xRWgxyZtvaRKBIV9x6XFGzCm47Y6ez7cjCkb1SO6P4VzTpC
-	lV4qcDeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6wTVU0HQcML/U5Ma12iYvsQExc4mXY0n/RGu05cTBVU=; b=V2xnjsOAYqErg5
+	ymC1yhGmDINS9W1qhrXtsgYnr6erNS5Cw2lB3FlpC5bKD6rfkUFwHtl27K842oSmSzSmX1qV24hiB
+	woQKQMcCZwDP6+RKmt8F+oUFkHh300AgwUYrfwf9zyvKwM9a3jreYKAV3aubJbOOrx6qLMJJhf96W
+	546yT34fUy0vNCYUo+aSMZYWLbkxWTtINvXf4kd2z6EzIkjunvHCnNI78j7Z12fjynj2NLwZU5Abb
+	/jI+uzaJvJXKGRpsdbsoaeP1G1U3UbQbNYsxDV+x/iui94DFYCBLf1fb/R+kld33FcpjpNprsPKAK
+	BBazflZ+FSkaWJ77CPTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU570-00000000ioz-1Rdu;
-	Fri, 12 Dec 2025 15:31:18 +0000
-Received: from mail-northcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c105::7] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1vU58N-00000000j1K-0wf8;
+	Fri, 12 Dec 2025 15:32:43 +0000
+Received: from mail-ej1-x641.google.com ([2a00:1450:4864:20::641])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU56v-00000000io6-44dv
+	id 1vU58L-00000000j0J-0jy1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 15:31:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xskLFxs5WNtXZ+JDQ0X8EfK9ozUdj0dlaDMX1mV9yVHh9A9VcJjwPH4eKrCgDGOYDtMzGnLXZcCMIDipHdMbZXxs+vOgyTcDa9j2ckDY+/grKQxlX1u7PFvsGuK66kTK3MB6Wv5MpMoHjVyqMw4H+7fnuYvo4/ORZTUoqu9J0g+N9lRPfjGuQNeWKvlIbPBNs9I/SYBhB8v7CL/ts0q0PTXx+7BQ84NB8FcCrSzmAVCS+kzAoH+naV/ZPXTmODRJJ4+G7DHwHQ4fO7RMDfa+XECfWWKRPJvhazt3mpzAWowgxrYLiPRSzbWcH+zaMYgSha0dHdVCUkFbFkEFMn5j1g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vAm7Nmbpsaq5fZ9YMnt8K+iRiEXnr3b2MMfUi0jlcYw=;
- b=OU6aFjH5eniGxix1Yoq+wq87I87bquPgJZwJtOfNPajZHgRq7UDIk2HPF6wM331j/i8Wcn4rxsme+iVWLpt5DRXwT87f7VJKrDKX0G/mxWIEkuZj5d1XypBmau9LWGtVk30rkoWItZALTCdbQN8OIm/oonELv8M7JBt5HrPOU4a6UREblWBfbUANsS6xFO+B4H73JZPwb3UcnIsBeev7f1BJCnIZnSh5WnmBYF0CZ90J7S/R0/Y/piZnXrZ6s1pE+6GCJr8k1Z8H2eIy4wYO3O+cHJh0M/kHrYgIMcVUAk/YjPvwJDYCPPDSXTlRTpzNYHWiztbKExZwB3a9h4LxIQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vAm7Nmbpsaq5fZ9YMnt8K+iRiEXnr3b2MMfUi0jlcYw=;
- b=ARUDBgulfbWOKE+G1hV2xF/F/y07XF04GmFUIO+4mswzk6PqfZIF2QKsuAiOavW339hIY+5HpKlPocy1DV3RERPCTIsno3tnuU78tGtDHk3i7w8zjA5hS1W3Ix1gZvgZEUbyaLglqLMyoD2Zjjuw8yUt1wFc3cpQUFd5tHw26M5CVejSfu7zyv1BLkBxoZh8LwRtZ3322D3ro6EH5PVHP2OXxqQO6R4dLarv0qRaRWZupipICOHRcSgUNTyXIJMNoSg0MGMW6apsoyIkY9IVfl9MYOvLMX5WWaTLLwLNodHjb31sS7NGMNaDiXFxgfhFNbnP22VfTnyZFKqWl1gX9w==
-Received: from MW6PR12MB8897.namprd12.prod.outlook.com (2603:10b6:303:24a::19)
- by SA1PR12MB8886.namprd12.prod.outlook.com (2603:10b6:806:375::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.11; Fri, 12 Dec
- 2025 15:31:02 +0000
-Received: from MW6PR12MB8897.namprd12.prod.outlook.com
- ([fe80::7c55:5a45:be80:e971]) by MW6PR12MB8897.namprd12.prod.outlook.com
- ([fe80::7c55:5a45:be80:e971%7]) with mapi id 15.20.9412.005; Fri, 12 Dec 2025
- 15:31:01 +0000
-From: Matt Ochs <mochs@nvidia.com>
-To: Vedashree Vidwans <vvidwans@nvidia.com>
-CC: "salman.nabi@arm.com" <salman.nabi@arm.com>, "sudeep.holla@arm.com"
-	<sudeep.holla@arm.com>, "andre.przywara@arm.com" <andre.przywara@arm.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "mark.rutland@arm.com"
-	<mark.rutland@arm.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, Varun Wadekar <vwadekar@nvidia.com>, Shanker
- Donthineni <sdonthineni@nvidia.com>, Vikram Sethi <vsethi@nvidia.com>,
-	"linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>, "ardb@kernel.org"
-	<ardb@kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "chao.gao@intel.com"
-	<chao.gao@intel.com>
-Subject: Re: [RFC PATCH 4/5] firmware: smccc: register as platform driver
-Thread-Topic: [RFC PATCH 4/5] firmware: smccc: register as platform driver
-Thread-Index: AQHcaJAOUX9d3Y9TPE6TbrQ22fi7ebUeJ3eA
-Date: Fri, 12 Dec 2025 15:31:01 +0000
-Message-ID: <7E7A2433-67DC-4AED-94E0-E096DA9CF3EB@nvidia.com>
-References: <20251208221319.1524888-1-vvidwans@nvidia.com>
- <20251208221319.1524888-5-vvidwans@nvidia.com>
-In-Reply-To: <20251208221319.1524888-5-vvidwans@nvidia.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: MW6PR12MB8897:EE_|SA1PR12MB8886:EE_
-x-ms-office365-filtering-correlation-id: 8af46758-0ed7-4f50-0284-08de399374f6
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?at/Fv7Q4lFpmeC5UcHPX9jnXYVIQ6rVmybpTfQ7G68RJNZjY/DQLSuNB3C71?=
- =?us-ascii?Q?dLCNrEMqVLDNZWi4l/1413DYSfY6vzTd5Chzoo0Maoee6hCcQn1iTPPBQk89?=
- =?us-ascii?Q?hYWJI6fQ/0L9A/Mcwci1kNUfhpCKPAc1aFR1bkylmgJJStOalrhnChQauikA?=
- =?us-ascii?Q?/SeB2aygdMbkamRFBVdKgwqX+pJ3ApOiOgeuzU1DP4n6WLBnuvWurKM1UlOb?=
- =?us-ascii?Q?A+rr0hr1T2EqxyvOTP2/41weDnSG292maRk8xYKo/nZt5z8JznFjGCL0wrtd?=
- =?us-ascii?Q?kody9eIN9fXyehVItu+4Jby1x493yNRMs+eIe8rF7ygDe4o6OAAADm0qSj0+?=
- =?us-ascii?Q?mV5XON13QxFd3h4M02mg/ysZ8AueZZKUybC8AQJwxdbq2xLWDrlXqaL+/vsF?=
- =?us-ascii?Q?Aw7vRp063qEpzXuAFsQynB7gyZqNKtw0/bq1WyE3sptZ/64bGBttb7EXVD94?=
- =?us-ascii?Q?w138wDJzSLDKZMG7FBcD8jepzhGHOPYo3MsrCSw8jBN58hWI9wZJ9nSS3w79?=
- =?us-ascii?Q?HnEsq4W95Uq1CukyGPmx/y7xvWXS5uL+uHYCSQBkVtPXVVXFpwYSiFMW5X2f?=
- =?us-ascii?Q?X6qiaxH5zwT7zJdOwhtjew0QeM0O55wQH0KDO2yWkuClHGXpSSv9IItGMMd7?=
- =?us-ascii?Q?sT+jOXZBoE5VTlNWFK8fLswlWdPcxXk4yadw2HXvGE0khKrtLaoC6NjH0nkm?=
- =?us-ascii?Q?g4hTmPqMiSabte3flhxYx6W/Wox/b7RJkgLLL1/8npTZB89TCQurfz82jFyU?=
- =?us-ascii?Q?zfxUodfjjXGTuegVtMI6xCWaXotquPrN4G5znsJ3/u3ESgsnmClvNFRNVdkU?=
- =?us-ascii?Q?kl7aAZsaC0ej0DTuVuZpu5N4fv9Zws7ZOgXjAFlJKVAB2OxbGo9zjg4rafew?=
- =?us-ascii?Q?zTWmZMg3SWT9ytNLvYH5Ji1X+6Nmx5p8nizRxLo11k3JRDX88i7lseHu8lkW?=
- =?us-ascii?Q?nGNIQQwk7Zuuxi1MiAifuDNVfkX2Sid4lacLMjH+/trwwDfgf41GvieBslks?=
- =?us-ascii?Q?cm9ATkY40nqYJGgIY6Jx10RDw8VhK+V2jmDHUZ6xo/WbivEv3NE9NL0c8rpU?=
- =?us-ascii?Q?zkEpIze+sRB6NtFFNIfes4mQyTTbMDkJpnZGE9DtANhVNuNmfFqZhLZDZwEr?=
- =?us-ascii?Q?XKPVTbPN2G/qJ7/grK8i4ofO7YA7goO8NYCIy8DuVqu/6tdObiT7S3YCN2se?=
- =?us-ascii?Q?/2HFVNH1iVqaIfgBxicUVJhJb4+jeOjxwVc4GhxlaKkguv3RU34z3U8niUR9?=
- =?us-ascii?Q?LTjVq4L5gYs010yuXvfaVCxheVR+xgGUR/SihU3dZBii4826hQqz1xdqY8Ds?=
- =?us-ascii?Q?bLROHwqe0xjYHKTWiY8bDcLe/0zUeNvi4kBO4V0S5ZdpO1NNZ/I0xyc22kzQ?=
- =?us-ascii?Q?EmZvwkZjq9XkjanZETA7c88Wvpu4GK8mesbUX5wbdudeXrM9aGbstnKT8fME?=
- =?us-ascii?Q?r/k/H/PJsjr96I4vReK1YtpZwvbTSvBPWjH/CMnFtAgCvdLGFLstcj8Q/Z2J?=
- =?us-ascii?Q?+67lWqy35yX7uFxhvfIp4+72UGp/zV5Nn3Fp?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW6PR12MB8897.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?17C1SSjAntUBD27o85Zb5FbqRWrOPdiwqMqcfFH5OJugPryutI8+43dWJjXw?=
- =?us-ascii?Q?G5b/+gGCT2v6PPvW9pS4yqGR8QYoUpwHqrJVMN0yAIGUdOxZlpN8BQMW2EOX?=
- =?us-ascii?Q?GY6aJp6pJQEvujJ+eqkmFPxVTp98jUZuF4XQkJYZkTCRSBowEBl/1nbDHvSg?=
- =?us-ascii?Q?GfVNOgkgP2qjABCzFHgPDNzRNyusxbg3Lm7PVH9OHVyhHPW12KvHRdq+SzVE?=
- =?us-ascii?Q?KdVUb/FTqS/A1BBYOwJKs9n6Ax50A8Zxks29u42EwwyUqbSeylVdS9z8okPy?=
- =?us-ascii?Q?dSuKnauR8nvjAPRmt+4vcVvZvKR+CuR1uBRpLG+Sr+fqEE4OU4zBVXU93H/5?=
- =?us-ascii?Q?aIvruRz5n7bgIbhAjHHxu51h2kHAfe9MG6ENCAgCN29XeaQxBaGtsNJBpN31?=
- =?us-ascii?Q?AyKV1V+8MuhuLAQVdiWJcwUUAfOlzXZU36m8Bz8B3jjmCZ+jF5Itgsw8wDU6?=
- =?us-ascii?Q?UgWXZiVad8zZE0GhNzylL5Zrjwi54sxkbaV3TzqQd90CFd+b9fkIvnVAtXfR?=
- =?us-ascii?Q?ZnOJn7DH+QDKXj8YcAlqn2Y4t7AbQ20nnd1xu5nsfTBAQuPn7goG6kyIotDV?=
- =?us-ascii?Q?Xu2oGk6jvy/2ERQFKyo6i4X+Z7FiZxSzqEiJDQ9Kkk59Rv8JoPhIhbVffg+Q?=
- =?us-ascii?Q?VdOAQdNexwEoI3jyGvtkcmTerUK6+g/JsZ4F1Ckff0ScN5noxRHTDoiHZNAj?=
- =?us-ascii?Q?RyvZMi/p9zmwUJWvRut+GHQlk8fwmkwXOCJjdL1XSU/q4wcqnNqsUD7hmOHh?=
- =?us-ascii?Q?6t4h7Wg7Qyk2c2Z6tcSZt0thVjpKQpm9tVoF4h8UoQFNGWRV24LmkDBEg81h?=
- =?us-ascii?Q?c11aYDMDfU1h//6lD89rdnGDwjdYu5NP+9bYdB2SBxEQDFLnrTOSlQRCDc3y?=
- =?us-ascii?Q?I6zDSsjVAP7z4RJ83xqhwuFBBA2r1jotJ5TZ6Si+QESy5U5Q2idDz98GbXki?=
- =?us-ascii?Q?s0iR1/3wUEhfLrTKb5N0nsTM5m0EGFXklovcaQwGj7C+QmvcclDPzAOVC+hn?=
- =?us-ascii?Q?qjJvW8yCkBLASB1iKzWzxlYWndOnxLsJPGa66G6ILeCvOJ9UuvTt1Q+9AFqT?=
- =?us-ascii?Q?1kVBpgoo2cdEaFIG5RrPBjKAXpVmF9qFDgevT6CFWLrDOQ7CM3XAiB/JMt98?=
- =?us-ascii?Q?8N+EJI1nF67ajD3pmlMnTfoebZ8KFJcrCap2BocLHJ3FSaZELmiwze8nlw1I?=
- =?us-ascii?Q?4nqwJmB3G+LZgu255KcsmcTE6Ves5LvFuUkSMAmNLHd/OzGEJlqmFB4+MpI3?=
- =?us-ascii?Q?ugoIWPI0H3ibKqiZxbcntMGSXiuNYdIbMi2dml7y7Vx6CJQejnEJZstP78RD?=
- =?us-ascii?Q?xrTXvovYYFBEFwkTCE5eRa6RCDGdhKzvo2q+mQAJPbrlXi4M7Gupsjg34doY?=
- =?us-ascii?Q?JjZV8ReQaPbaVDq2ttUMAECIplXFqVBUH28VMPSKbTuI79IutxVrIf6i+6G+?=
- =?us-ascii?Q?wLgzeysgUr7wCqHhcwKZqVt9Y4NMe5bpcoj06KhF/zahXnezKA6yHr3KSNBS?=
- =?us-ascii?Q?YXn37HKh58yqx2b53wERMbkViDhPmYrKMeB0tE9l6mGpGzTkSX9hFQfB99uu?=
- =?us-ascii?Q?i19+ZZlP4N/05tNcgFxf2EFk8JfcmdR0SGJf9Vzs?=
-Content-Type: text/plain; charset="us-ascii"
-Content-ID: <DF8C46A5F8C3C84C9B3859FA14BE95F4@namprd12.prod.outlook.com>
-Content-Transfer-Encoding: quoted-printable
+	Fri, 12 Dec 2025 15:32:42 +0000
+Received: by mail-ej1-x641.google.com with SMTP id a640c23a62f3a-b728a43e410so213597666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Dec 2025 07:32:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1765553559; x=1766158359; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=6wTVU0HQcML/U5Ma12iYvsQExc4mXY0n/RGu05cTBVU=;
+        b=Zg1JFQCt4+959aiPylaW1+LYYGr86GGnw8Vv4VABmrAractLAFT8HuyZYIahJHDD7V
+         onUoxIeT/mZRXBQtxE2IDM/rHhzn2zPpuw/+/HKV3pm/3kJyRjpwTk3A/n4GdLotpFbh
+         2PTy19uPkBoDtf5I4dZ2BTkNiExlJGVQvswB6w2XSY2/c0AcG3rot2lB+TShmhY5P+//
+         KXBsnknZ44booYkO2d/+nQKKJ4jDfQdiPHdIswukakwPitkQP3a9txbw52LKrnpKo9UW
+         bEkpKT6VmPyCqsbBzR+y0VydSUQNovujXC1F4pWlltZ/oTCciyTXtV/UhoyJPZkjjX/o
+         kimw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765553559; x=1766158359;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6wTVU0HQcML/U5Ma12iYvsQExc4mXY0n/RGu05cTBVU=;
+        b=RO7tEXHZlxGLBF5WCOWPHEfMwknYNc+gOPqo80uoF9TFmDhZ+rhmHUy4oMjVxj8pW1
+         gpzpfeN14fOKCEu4ZZgzUDv4+/Gz+tScuWFhyzp2NdwTFO1dcZ/4HnjSHk3tz+KtIjOb
+         9ZIuNvzo1hd6xFqvIHj/jFuEHPklZg5BoomWNTjEIUyE1WYAQFeZcg3mnl4fYt9aeogz
+         lp7eeKbKEmZdF2bHOhT+opnDfZKXQU8E5bv49f5EFxUFuI0bb9KkFh4GY5Rgrmy4T4Js
+         tU4qnAKFeNCyWEJliS6fCScWZUaSdHIDQqwhU3d2H5bVKT7GV9usg56Eqxxz0uRQmgF7
+         ujIA==
+X-Forwarded-Encrypted: i=1; AJvYcCVR8/m+xkKCP0JSRxbJUd54REt6wYVqMaWXRHroHxtZ0kx/lvubCciH2R12GS85/o1JwaM6MyzqJyvTHhvgVdWm@lists.infradead.org
+X-Gm-Message-State: AOJu0YzslvguEC1w7raGSS+4Mp3tVVj+yYCteg1YHbq6VgV9JWfhGlNm
+	xadnDtNEevFvaTeghZ4NVVDhWeZAIhrfuqeef1wClHxWxQqvnsqMQhOXSjZdeE+PsQU=
+X-Gm-Gg: AY/fxX77lAuP0UFGrI5TrxlOH5iyblqMxZd0eT8qOLRT4m1EYgX2LCe5F4B7j2EGEe8
+	ZFtzq+ytGsU1OWNwOb/8o2Anu4c4aWAzh40muSG1koccxZejc7sKh5F+U4N78ybE6g3f+n6ylOf
+	fdVAyvTVAPX/Gso52boMojnFZYNOPcZzr5CW2C+PsQcNzgiCL5CKEc5bL3ATK/nwTwJNuRhgLUH
+	1J7IDr1bgE+2v4xil6IldtfN38lGPfv0fkpzgSJPXTZoAUsa2hXPnXMCjzfpyJPWYvFpPWNHrjy
+	D/vHZ67yuOE4yQ2Q3sjZpasKfKWUW0EchYUxb1Jsq4gAAWpuohpF/fedhroOZLgx0EINh17Z7FS
+	P2vTqm2wQnP2ObWcTWlWWe3cebEKxfRO+Hrjd0jdaJeum+0tmX1vYDf73rMO9ZZKaR481zui0+f
+	ZlA02Yhaxd3gLZcraVlQ5w
+X-Google-Smtp-Source: AGHT+IHM3bNfdM96Kzos3FUn4XqLiaZCJ92JSG8XKa4CBCiU4GR8q36GeeQKRgso6l4CDG9nSZC8CQ==
+X-Received: by 2002:a17:906:7312:b0:b76:23df:c997 with SMTP id a640c23a62f3a-b7d23cda902mr264214666b.54.1765553559136;
+        Fri, 12 Dec 2025 07:32:39 -0800 (PST)
+Received: from e133063.arm.com ([130.185.218.160])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6498210ed32sm5433234a12.29.2025.12.12.07.32.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 12 Dec 2025 07:32:37 -0800 (PST)
+From: James Clark <james.clark@linaro.org>
+Subject: [PATCH v3 00/12] perf cs-etm/arm-spe: Remove hard coded config
+ fields
+Date: Fri, 12 Dec 2025 17:32:17 +0200
+Message-Id: <20251212-james-perf-config-bits-v3-0-aa36a4846776@linaro.org>
 MIME-Version: 1.0
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: MW6PR12MB8897.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8af46758-0ed7-4f50-0284-08de399374f6
-X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Dec 2025 15:31:01.8309
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Aw2RaKoADn/20B+wEav0iINOatz73zGJYfg73NDa1NJXug5CtTiq2CxHvf/gVWxvhhDWP0t/iAvZukWn7o9AaA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8886
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAIE1PGkC/3XNQQ6CMBCF4auYrq2ZDirgynsYF7ROYYy2pCWNh
+ nB3C250wfJ/yXwzikiBKYrTZhSBEkf2Lkex3QjTNa4lybfcAgEPSimU9+ZJUfYUrDTeWW6l5iF
+ KTVQqOFqwACIf94Esvxb4cs3dcRx8eC9/kprXL4mg1sikJEhEMlrbCqA05we7JvidD62YzYS/T
+ rXqYHb2jQGsVF0XGv6caZo+BYY0pAUBAAA=
+X-Change-ID: 20251112-james-perf-config-bits-bee7106f0f00
+To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+ Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, 
+ Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, John Garry <john.g.garry@oracle.com>, 
+ Will Deacon <will@kernel.org>, Leo Yan <leo.yan@linux.dev>
+Cc: linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ James Clark <james.clark@linaro.org>, Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_073116_488827_B3B38947 
-X-CRM114-Status: UNSURE (   8.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251212_073241_418084_63028E20 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,20 +112,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> On Dec 8, 2025, at 16:13, Vedashree Vidwans <vvidwans@nvidia.com> wrote:
->=20
-> diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa=
-_fw.c
-> index 0e420cefa260..24916fc53420 100644
-> --- a/drivers/firmware/smccc/lfa_fw.c
-> +++ b/drivers/firmware/smccc/lfa_fw.c
-...
-> +
-> +static int __init lfa_probe(struct platform_device *pdev)
-> +{
+The specific config field that an event format attribute is in is
+consistently hard coded, even though the API is supposed to be that the
+driver publishes the config field name. To stop this pattern from being
+copy pasted and causing problems in the future, replace them all with
+calls to a new helper that returns the value that a user set.
 
-WARNING: modpost: vmlinux: section mismatch in reference: lfa_driver+0x0 (s=
-ection: .data) -> lfa_probe (section: .init.text)
+This reveals some issues in evsel__set_config_if_unset(). It doesn't
+work with sparse bitfields, which are an unused but documented feature.
+And it also only writes to the attr.config field. To fix it we need to
+start tracking user changes for all config fields and then use existing
+helper functions that support sparse bitfields. Some other refactoring
+was also required and a test was added.
 
-__init is not needed here, please remove.=
+Signed-off-by: James Clark <james.clark@linaro.org>
+---
+Changes in v3:
+- Fix uninitialized variable warning on GCC
+- Fix leak of evlist in test
+- Confirm no type punning issues with ubsan (Ian)
+- Link to v2: https://lore.kernel.org/r/20251208-james-perf-config-bits-v2-0-4ac0281993b0@linaro.org
+
+Changes in v2:
+- Remove macros in get_config_chgs() and some other refactoring.
+- Support sparse bitfields in evsel__set_config_if_unset().
+- Always track user changes instead of only when
+  'pmu->perf_event_attr_init_default' is set.
+- Add a test.
+- Don't bail out in cs-etm.c if any format fields are missing (Leo).
+- Rename 'guess' to 'synth' (Mike).
+- Link to v1: https://lore.kernel.org/r/20251201-james-perf-config-bits-v1-0-22ecbbf8007c@linaro.org
+
+---
+James Clark (12):
+      perf parse-events: Refactor get_config_terms() to remove macros
+      perf evsel: Support sparse fields in evsel__set_config_if_unset()
+      perf parse-events: Track all user changed config bits
+      perf evsel: apply evsel__set_config_if_unset() to all config fields
+      perf evsel: Add a helper to get the value of a config field
+      perf parse-events: Always track user config changes
+      perf tests: Test evsel__set_config_if_unset() and config change tracking
+      perf cs-etm: Make a helper to find the Coresight evsel
+      perf cs-etm: Don't use hard coded config bits when setting up ETMCR
+      perf cs-etm: Don't use hard coded config bits when setting up TRCCONFIGR
+      perf cs-etm: Don't hard code config attribute when configuring the event
+      perf arm-spe: Don't hard code config attribute
+
+ tools/perf/arch/arm/util/cs-etm.c    | 193 +++++++++++++++------------
+ tools/perf/arch/arm64/util/arm-spe.c |  15 ++-
+ tools/perf/tests/pmu.c               |  91 +++++++++++++
+ tools/perf/util/evsel.c              |   6 +-
+ tools/perf/util/evsel.h              |   2 +
+ tools/perf/util/evsel_config.h       |   7 +-
+ tools/perf/util/parse-events.c       | 248 ++++++++++++++++++++---------------
+ tools/perf/util/pmu.c                | 112 ++++++++++++++--
+ 8 files changed, 460 insertions(+), 214 deletions(-)
+---
+base-commit: 2eeb09fe1c5173b659929f92fee4461796ca8c14
+change-id: 20251112-james-perf-config-bits-bee7106f0f00
+
+Best regards,
+-- 
+James Clark <james.clark@linaro.org>
+
 
