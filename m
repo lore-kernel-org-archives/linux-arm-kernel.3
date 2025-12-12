@@ -4,66 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97724D59D77
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 17:38:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D2BED59D77
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 17:54:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+2hXAzMg48p6R/oXqTisskWAXxrhQhyyLNcBJNRfGbw=; b=w/eugBqAtHAchRi9a7q1HKQgqc
-	xWRMyyG0JAvcTi5+GR6JGD3JJONoYEuVdrc1d7e0kV1hBtBtE2OQJR97yHwI/3B3lIa3MADduBI4D
-	Mt1A41DrtmKdiIshsdzf5h2m0cG1XXfjg8leFrRUwZnMbAIz5ItKR5Mbq1KgkLpiDnOMw+5w50DTm
-	TrbCMwwjcDWRKEQaqMYsNske6AB0MP/kSnsuml6Jev15I+kXaewMgdRnHpkDtnvY3gdrkj816kLby
-	UELHkkNTFqArNHrj3HiwO30c95Hajl5hZYC8015CNgDBsQqvtQW7/nbkfqvL0plRbMpLoqcypFzww
-	4FIjg1ag==;
+	bh=pcbiXQ8Ctw/Z6jD0bVlJC1sTnTmQfiCSEdIKL7g/AfQ=; b=c3etXhqSFhGmpcrLpaSDrAPi2p
+	St/u3VMUY7bcrDkd/rGT9CNPmEHitdxWcOYTkHipiyqJuKRE7bzQSP/R8nfpJ/Qg3Sig4CR97/0+D
+	UZkLWsc2OMLVJGk5JoWiaqbt8gYmjPaFk2oJpsky/qHE+3tNHnKR3TZadNOe1J8/r6Qx+lzbYYzqr
+	EGjr4zw9vfhcfUROMgLa5E2oLT72HqBAy8HS4S7iodpf+pdPcukqc11BiK0SsRutv/uD9uRUgFxEM
+	aUyV7DguQRpKdkMmyRv+zcW24c+Hy6h30puk+cegDQlDFSJX3sPtlMsPhtwK+xXr2cneimWQQAsfr
+	8IAIJg7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU75Z-00000000tzi-1hjZ;
-	Fri, 12 Dec 2025 17:37:57 +0000
-Received: from smtpout-03.galae.net ([185.246.85.4])
+	id 1vU7L8-00000000uiv-05fP;
+	Fri, 12 Dec 2025 17:54:02 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU75V-00000000tyz-1mks
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 17:37:55 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 6F8B44E41BB4;
-	Fri, 12 Dec 2025 17:37:48 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 3824A606DF;
-	Fri, 12 Dec 2025 17:37:48 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CBEF0103C8DEA;
-	Fri, 12 Dec 2025 18:37:44 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1765561067; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=+2hXAzMg48p6R/oXqTisskWAXxrhQhyyLNcBJNRfGbw=;
-	b=ONA4zBLST0UPgrjhOK1FkmRyKgcNYBVB39ZgJDyVXUFHYUmaL4k7v0LSjjqDeXH+0DhZlN
-	NgVJTCSVmvnygDvT4Iq4aYa520G0xW5iggHttbxBT+X7X4is3qhZNUas/YNB+UUg0vgymA
-	Rt8GcKYWANQRWjlafDefvLVoTwMpcTJ1b4jEWnK01qw827ThvCvEI9/7XxHkQvTIREdF1g
-	pTQgyI0VXbEOXN79EC8cawAE32gEIcQDlErxtkuPC62CNoWMomBXkvvNilM38f2vpicnIA
-	byBPfFNaqPVuUp3bkW+SLcjLpC6ZsYu0g4tn32qSZd8VgvQfrvaeT1WJL3Yklg==
-Date: Fri, 12 Dec 2025 18:37:44 +0100
-From: Alexandre Belloni <alexandre.belloni@bootlin.com>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Russell King <linux@armlinux.org.uk>, linux-mtd@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/3] at91: Remove of_platform_default_populate() calls
-Message-ID: <202512121737447cdf2224@mail.local>
-References: <20251120-at91-probe-v2-0-8c8592f02e8e@kernel.org>
+	id 1vU7L5-00000000uiO-3JVK;
+	Fri, 12 Dec 2025 17:54:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1765562037;
+	bh=gtkyj6GVsnbIOX5ifyV1wXuJ94FHbpTY0m8F56kuYVE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=pwg7RUlXd6jlDI3QCZAwaCZFvUfjhLVxRXyz7uodRpiNmbgZc7meqjmjra/RetixY
+	 j9sO8NEsFXlZcMLZV6QVMSZzgAfu/6ZkupsmOz8dwomQl7msb7x0P9X3ENiKsRC0cb
+	 7iXbqe4h3yYtqu0FcHWAO1FL57yumqE2k8A4Q0V3jrjRl+IC+6H8qA9Eqv3WHt4oCd
+	 qrBlk6U7oBJd1FpQETRNIWilRymtHspUmEDW8qWxIN8c2bQ1rswI6f6Nmh35OK26vj
+	 yy9GMT6gbBb0tZTUGKuRKcMDj2znEe2B6vuFpNOK46xVNj7yW9OMirtIQgQyDMbth1
+	 aMoVJ8Fr84HpA==
+Received: from [IPv6:2606:6d00:17:7b4b::5ac] (unknown [IPv6:2606:6d00:17:7b4b::5ac])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E2F3C17E110C;
+	Fri, 12 Dec 2025 18:53:55 +0100 (CET)
+Message-ID: <8f24c8204984a46bad7d0bb24b78c8115906f748.camel@collabora.com>
+Subject: Re: [PATCH] media: rkvdec: set ctx->image_fmt in
+ rkvdec_s_capture_fmt
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Jianfeng Liu <liujianfeng1994@gmail.com>, 
+	linux-rockchip@lists.infradead.org
+Cc: Jonas Karlman <jonas@kwiboo.se>, Detlev Casanova	
+ <detlev.casanova@collabora.com>, Ezequiel Garcia
+ <ezequiel@vanguardiasur.com.ar>,  Hans Verkuil <hverkuil@kernel.org>, Heiko
+ Stuebner <heiko@sntech.de>, Mauro Carvalho Chehab	 <mchehab@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, 	linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org
+Date: Fri, 12 Dec 2025 12:53:53 -0500
+In-Reply-To: <20251212154138.3042300-1-liujianfeng1994@gmail.com>
+References: <20251212154138.3042300-1-liujianfeng1994@gmail.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-KGnTfVc2/BqU11O39I7Y"
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251120-at91-probe-v2-0-8c8592f02e8e@kernel.org>
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_093753_838778_3E43CB7C 
-X-CRM114-Status: GOOD (  15.62  )
+X-CRM114-CacheID: sfid-20251212_095400_006422_2FD20199 
+X-CRM114-Status: GOOD (  19.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,61 +93,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 20/11/2025 15:37:49-0600, Rob Herring (Arm) wrote:
-> This is another attempt at removing of_platform_default_populate() calls 
-> on at91 platforms. The last attempts were in 2018[1] and 2023[2]. The 
-> problems reported are PM and NAND failures. Both of these depend on SRAM 
-> pool which doesn't have any fw_devlink tracking. Also, the PM code is 
-> not a driver, so fw_devlink wouldn't help. For the NAND driver, we can 
-> simply defer probe. For the PM init, we can move it to the .late_init 
-> hook.
-> 
-> Rob
-> 
-> [1] https://lore.kernel.org/all/20180712192222.32481-1-robh@kernel.org/
-> [2] https://lore.kernel.org/all/3908fa6f-dc33-4aac-c21f-4a676a3a6b23@microchip.com/
-> 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
-For the whole series:
+--=-KGnTfVc2/BqU11O39I7Y
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Acked-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
-Tested-by: Alexandre Belloni <alexandre.belloni@bootlin.com>
+Hi,
 
-I tested on at91rm9200, at91sam9m10 and sama5d3 which is a
-representative sample of the older platforms.
+Le vendredi 12 d=C3=A9cembre 2025 =C3=A0 23:41 +0800, Jianfeng Liu a =C3=A9=
+crit=C2=A0:
+> ctx->image_fmt is initialized as RKVDEC_IMG_FMT_ANY at
+> rkvdec_s_output_fmt, and get set at rkvdec_s_ctrl when userspace sends
+> SPS info via VIDIOC_S_EXT_CTRLS. This works fine with gstreamer because
+> it sends SPS info to kernel driver before requesting capture queue bufs.
+>=20
+> But chromium requests capture queue bufs first and then sends SPS info
+> to kernel, then rkvdec_s_ctrl will return -EBUSY, and the video is
+> displayed green.
+>=20
+> Chromium calls VIDIOC_S_FMT to capture queue instead before requesting
+> capture queue bufs, so setting ctx->image_fmt in rkvdec_s_capture_fmt
+> will make rkvdec_s_ctrl return 0 when the first SPS info sent to driver.
 
-I tested suspend/resume successfully on at91sam9m10 and sama5d3.
-at91rm9200 is not waking up but this is not caused by the series.
+I'm reading you here, and reading the spec again [0], and you are saying th=
+e
+Chromium isn't following the initialization process. That means, it should =
+be
+impossible to allocate 10bit capture buffer, since the SPS in place specify=
+ the
+color depth. Other parameters in other codec can influence the reference bu=
+ffer
+size, so you could endup with the wrong allocation.
 
 
+[0] https://www.kernel.org/doc/html/latest/userspace-api/media/v4l/dev-stat=
+eless-decoder.html#initialization
+
+
+>=20
+> Signed-off-by: Jianfeng Liu <liujianfeng1994@gmail.com>
+> Fixes: d35c64eccf3b1 ("media: rkvdec: Add get_image_fmt ops")
 > ---
-> Rob Herring (1):
->       ARM: at91: Move PM init functions to .init_late hook
-> 
-> Rob Herring (Arm) (2):
->       mtd: nand: atmel: Defer probe if SRAM is missing
->       ARM: at91: remove unnecessary of_platform_default_populate calls
-> 
->  arch/arm/mach-at91/at91rm9200.c              | 12 +-----------
->  arch/arm/mach-at91/at91sam9.c                | 12 +-----------
->  arch/arm/mach-at91/sam9x60.c                 | 12 +-----------
->  arch/arm/mach-at91/sam9x7.c                  | 12 +-----------
->  arch/arm/mach-at91/sama5.c                   | 21 +++------------------
->  arch/arm/mach-at91/sama7.c                   | 11 +----------
->  drivers/mtd/nand/raw/atmel/nand-controller.c |  2 +-
->  7 files changed, 9 insertions(+), 73 deletions(-)
-> ---
-> base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
-> change-id: 20251120-at91-probe-20fbce9a6d1b
-> 
-> Best regards,
-> --  
-> Rob Herring (Arm) <robh@kernel.org>
-> 
+>=20
+> =C2=A0drivers/media/platform/rockchip/rkvdec/rkvdec.c | 12 ++++++++++++
+> =C2=A01 file changed, 12 insertions(+)
+>=20
+> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> index 5af9aa5ab353..e7939d604f64 100644
+> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+> @@ -537,6 +537,18 @@ static int rkvdec_s_capture_fmt(struct file *file, v=
+oid
+> *priv,
+> =C2=A0		return ret;
+> =C2=A0
+> =C2=A0	ctx->decoded_fmt =3D *f;
+> +
+> +	u32 fourcc =3D f->fmt.pix_mp.pixelformat;
+> +
+> +	if (fourcc =3D=3D V4L2_PIX_FMT_NV12)
+> +		ctx->image_fmt =3D RKVDEC_IMG_FMT_420_8BIT;
+> +	else if (fourcc =3D=3D V4L2_PIX_FMT_NV15)
+> +		ctx->image_fmt =3D RKVDEC_IMG_FMT_420_10BIT;
+> +	else if (fourcc =3D=3D V4L2_PIX_FMT_NV16)
+> +		ctx->image_fmt =3D RKVDEC_IMG_FMT_422_8BIT;
+> +	else if (fourcc =3D=3D V4L2_PIX_FMT_NV20)
+> +		ctx->image_fmt =3D RKVDEC_IMG_FMT_422_10BIT;
 
--- 
-Alexandre Belloni, co-owner and COO, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+You cannot accept a format that falls against the color depth in the SPS
+control, and rkvdec does not do color conversion implicitly. This can other=
+wise
+lead to letting the HW overrun the buffer (forcing 8bit with 10bit content)=
+. Can
+you check with Chromium dev if they can perhaps adhere to the spec instead =
+?
+This is all news to me, but I probably never had to test 10bit playback in
+Chromium outside of MTK (which might not be less strict, hopefully done the
+right way).
+
+regards,
+Nicolas
+
+> +
+> =C2=A0	return 0;
+> =C2=A0}
+> =C2=A0
+
+--=-KGnTfVc2/BqU11O39I7Y
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaTxWsQAKCRDZQZRRKWBy
+9MH3AQDUhY3sqERSYtPJTOv2OrLvOyQdReWs2GtPrwGsJMqh2QD+PVv2MeM6/3Va
+0A0tGbG6GO39dojfMxGwmdL9Ady4ggs=
+=sO55
+-----END PGP SIGNATURE-----
+
+--=-KGnTfVc2/BqU11O39I7Y--
 
