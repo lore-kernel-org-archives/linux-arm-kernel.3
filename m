@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B032D4415B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 09:22:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B10EFD4415B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 09:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z4vPaiUk9n/GpIxutnAk0NTSeMO9iODdip7MeYu98yA=; b=k7LlIcrMa7QmXKE49uRpLMf4KQ
-	YlFwsRWi9UBaxL1i2GxTn0fD4N7cH4xoj/rxHRjxQ2uCesmsFOFdtJyjrfiHfoMr///fN5PeFl2pd
-	2rB9KDrFpvUaIgtVxdlWmmreHSm/BlgFy8pX0sfN3ToFIsllxI6AYTQ6lU6jyDfZLjCr0amwZ60lb
-	OV2nge1CTlBF6KfZEYPW1tDaqge1Q4Dt6OPGS2HV6uKN9DSHGu+sXP2TQW40gDUpc9IEmz4Hm6lEo
-	UWYBNoVLwvfg9JolMjz0cwSyy+Mx6D+Hc9mkvSh9bvI7Xo3JM8jLixpoxmYQ8MR+KV+6fvYyrB7CZ
-	S4oT2MKQ==;
+	bh=BNmEZvj2E4J4X7wXMXz907hl9ndLNYZFhW8wantRAZE=; b=zTTRrPWal/rV804DxNFCzvRpVg
+	3zn/Dn94v/73XHUwn/76xevC1GFZDSsg7lb1VYcfjrvOGcgQwPd7arnToulTx60wHOKE9hxthSA6V
+	mV6n8QuARGnPOhjipbvaM/1HiRDgT2YSu5JCfBESjaWk3X/GZTPD4geCb7T8oAsmzMAAt05u7ijLg
+	gym3sURa6VTqALSiVuybPphtPuGEmo8c5iJgQo9bAPe8zUtJze19rMGXemQOusrBnEGuBuC0MLZOy
+	c+vz4DsB0fK1TQ+uU5JtrG3RCakGEcOnscvs85mTBy0/u3hKK8udr1JxTVZnUpiFD3nn+JPw5HKWS
+	yqGzOuUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTzLr-00000000LR1-1wUp;
-	Fri, 12 Dec 2025 09:22:15 +0000
-Received: from canpmsgout02.his.huawei.com ([113.46.200.217])
+	id 1vTzQx-00000000Lo8-3Vai;
+	Fri, 12 Dec 2025 09:27:31 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTzLn-00000000LQX-2K0q
+	id 1vTzQv-00000000LnP-1CKI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 09:22:14 +0000
+	Fri, 12 Dec 2025 09:27:30 +0000
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=z4vPaiUk9n/GpIxutnAk0NTSeMO9iODdip7MeYu98yA=;
-	b=eBZ7zu2ox8ryH+r6AugMOCYGdskTgvt4HVyTB0sNWJZuu6AwqpHtUJ674NWi8oVHhZqLLb8Fe
-	9+6XJ13bHSi7juapcNkdSCOlj5bwH+XCJogKs9+MppIMgyb9nZajKcNlh/7ZzT71idEJ7zWb7e1
-	gwacD2hwUuyP493g1H7y+vg=
-Received: from mail.maildlp.com (unknown [172.19.163.252])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4dSP686k3Dzcb0J;
-	Fri, 12 Dec 2025 17:19:12 +0800 (CST)
-Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3634E180BD0;
-	Fri, 12 Dec 2025 17:21:57 +0800 (CST)
-Received: from [10.174.178.219] (10.174.178.219) by
- kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 12 Dec 2025 17:21:55 +0800
-Subject: Re: [PATCH v4 2/3] KVM: selftests: Test for KVM_EXIT_ARM_SEA
-To: Jiaqi Yan <jiaqiyan@google.com>
-CC: <maz@kernel.org>, <oliver.upton@linux.dev>, <duenwen@google.com>,
-	<rananta@google.com>, <jthoughton@google.com>, <vsethi@nvidia.com>,
-	<jgg@nvidia.com>, <joey.gouly@arm.com>, <suzuki.poulose@arm.com>,
-	<catalin.marinas@arm.com>, <will@kernel.org>, <pbonzini@redhat.com>,
-	<corbet@lwn.net>, <shuah@kernel.org>, <kvm@vger.kernel.org>,
-	<kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>
-References: <20251013185903.1372553-1-jiaqiyan@google.com>
- <20251013185903.1372553-3-jiaqiyan@google.com>
- <3061f5f8-cef0-b7b1-c4de-f2ceea29af9a@huawei.com>
- <CACw3F51mRXCDz7Hd4Vve98NoskhB2cSc88zAGfd6Hwr4uCBxPA@mail.gmail.com>
-From: Zenghui Yu <yuzenghui@huawei.com>
-Message-ID: <dbcfb853-5853-5967-1bf9-76c6b3839717@huawei.com>
-Date: Fri, 12 Dec 2025 17:21:55 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
- Thunderbird/68.12.1
+	bh=BNmEZvj2E4J4X7wXMXz907hl9ndLNYZFhW8wantRAZE=;
+	b=0InrPM34Tj96MN7vGIfHYmQPH1kO4FehKpazmt36g+8MvTpe6BTGr9bPKsrgnCCiT5j8Q8nxc
+	aJZCAgdhyUEedyCnE9FFxuNUYOHYD3ctqclM8SxCcbO6msvcPk65q/K7V29yvfyxSOPiFxwCYLl
+	pvgb6CI/Bg81DM68YpCsjkU=
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4dSPDk35Ljz12LDc;
+	Fri, 12 Dec 2025 17:24:54 +0800 (CST)
+Received: from kwepemf200001.china.huawei.com (unknown [7.202.181.227])
+	by mail.maildlp.com (Postfix) with ESMTPS id 090FE1402CC;
+	Fri, 12 Dec 2025 17:27:11 +0800 (CST)
+Received: from [10.67.121.90] (10.67.121.90) by kwepemf200001.china.huawei.com
+ (7.202.181.227) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 12 Dec
+ 2025 17:27:10 +0800
+Message-ID: <29253319-ced9-4ab6-a58e-28afdf235cde@huawei.com>
+Date: Fri, 12 Dec 2025 17:27:09 +0800
 MIME-Version: 1.0
-In-Reply-To: <CACw3F51mRXCDz7Hd4Vve98NoskhB2cSc88zAGfd6Hwr4uCBxPA@mail.gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Language: en-US
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.174.178.219]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemk200017.china.huawei.com (7.202.194.83)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 0/3] arm64: topology: Handle AMU FIE setup on CPU
+ hotplug
+To: <catalin.marinas@arm.com>
+CC: Beata Michalska <beata.michalska@arm.com>, <will@kernel.org>,
+	<rafael@kernel.org>, <viresh.kumar@linaro.org>, <sudeep.holla@arm.com>,
+	<gregkh@linuxfoundation.org>, <dakr@kernel.org>, <ionela.voinescu@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
+	<linuxarm@huawei.com>, <jonathan.cameron@huawei.com>,
+	<vincent.guittot@linaro.org>, <zhanjie9@hisilicon.com>,
+	<lihuisong@huawei.com>, <yubowen8@huawei.com>, <zhangpengjie2@huawei.com>,
+	<wangzhi12@huawei.com>, <linhongye@h-partners.com>
+References: <20251119081356.2495290-1-zhenglifeng1@huawei.com>
+ <aS2z0EURwHbbGZab@arm.com> <9b6882dc-a91a-42d6-bf76-347338930d71@huawei.com>
+ <aS8GZOuaS1-j14MD@arm.com>
+From: "zhenglifeng (A)" <zhenglifeng1@huawei.com>
+In-Reply-To: <aS8GZOuaS1-j14MD@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.90]
+X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
+ kwepemf200001.china.huawei.com (7.202.181.227)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_012212_253314_7CC2FDDB 
-X-CRM114-Status: GOOD (  11.98  )
+X-CRM114-CacheID: sfid-20251212_012729_719836_46F82109 
+X-CRM114-Status: GOOD (  29.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,47 +86,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/12/12 9:53, Jiaqi Yan wrote:
-> On Thu, Dec 11, 2025 at 5:02 AM Zenghui Yu <yuzenghui@huawei.com> wrote:
-> >
-> > I can also hit this ASSERT with:
-> >
-> > Random seed: 0x6b8b4567
-> > # Mapped 0x40000 pages: gva=0x80000000 to gpa=0xff80000000
-> > # Before EINJect: data=0xbaadcafe
-> > # EINJ_GVA=0x81234bad, einj_gpa=0xff81234bad, einj_hva=0xffff41234bad,
-> > einj_hpa=0x2841234bad
-> > # echo 0x10 > /sys/kernel/debug/apei/einj/error_type - done
-> > # echo 0x2 > /sys/kernel/debug/apei/einj/flags - done
-> > # echo 0x2841234bad > /sys/kernel/debug/apei/einj/param1 - done
-> > # echo 0xffffffffffffffff > /sys/kernel/debug/apei/einj/param2 - done
-> > # echo 0x1 > /sys/kernel/debug/apei/einj/notrigger - done
-> > # echo 0x1 > /sys/kernel/debug/apei/einj/error_inject - done
-> > # Memory UER EINJected
-> > # Dump kvm_run info about KVM_EXIT_MMIO
-> > # kvm_run.arm_sea: esr=0xffff90ba0040, flags=0x691000
-> > # kvm_run.arm_sea: gva=0x100000008, gpa=0
-> > ==== Test Assertion Failure ====
-> >   arm64/sea_to_user.c:207: exit_reason == (41)
-> >   pid=38023 tid=38023 errno=4 - Interrupted system call
-> >      1  0x0000000000402d1b: run_vm at sea_to_user.c:207
-> >      2  0x0000000000402467: main at sea_to_user.c:330
-> >      3  0x0000ffff9122b03f: ?? ??:0
-> >      4  0x0000ffff9122b117: ?? ??:0
-> >      5  0x00000000004026ef: _start at ??:?
-> >   Wanted KVM exit reason: 41 (ARM_SEA), got: 6 (MMIO)
-> >
-> > Not sure what's wrong it..
+On 2025/12/2 23:31, Beata Michalska wrote:
+> On Tue, Dec 02, 2025 at 11:05:25AM +0800, zhenglifeng (A) wrote:
+>> On 2025/12/1 23:27, Beata Michalska wrote:
+>>> Hi,
+>>>
+>>> Apologies for the delay in reviewing this - currently in progress....
+>>> Out of curiosity: what's the cpufreq driver used for testing this series ?
+>>
+>> I used cppc_cpufreq for testing this. But with some modifications in
+>> processor_driver.c, or you'll find that the driver will fail to load with
+>> maxcpus set. The modification below is only a temporary solution. I'm still
+>> working on that.
+>>
+> Right, so overall the implementation looks good - thanks for that.
+> There are two issues though with the cppc cpufreq driver.
 > 
-> Does your test machine have SDEI or SCI enabled for host APEI? Do you
-> see any kernel log from "Memory failure:" saying hugetlb page
-> recovered, and recovered significant earlier than the KVM exit here.
-> It maybe the kernel has already unmapped hugepage in response to SDEI
-> or SCI before this test actually consumes memory error, so no SEA is
-> actually triggered.
+> One: as you have already noticed - it fails to register when
+> cpumask_present != cpumask_online.
+> 
+> Second: it will mix the sources of the freq scale if not all CPUs within the
+> policy have AMUs enabled/valid. This is due to the fact that at the time of
+> registering the driver and initializing the FIE support policy->cpus ==
+> policy->related_cpus. Assuming scenario when there are two CPUs within the
+> policy, one being offline and missing valid AMU counters,
+> the topology_set_scale_freq_source from cppc cpufreq driver will register
+> the tick handler for both CPUs, whereas AMU support will (rightly so) register
+> only for the firs one. When the second CPU comes online, the mismatch will be
+> detected and the arch callback will get cleared for the first CPU, but the
+> second one will remain unchanged.
+> 
+> That said, I do not think any of those issues is a blocker for this series.
+> But both would need fixing.
 
-No kernel log was printed when I saw this failure.
+Hi Catalin,
 
-Thanks,
-Zenghui
+I believe Beata is OK with this series. So I think we can move ahead with it
+now.
+
+Thanks.
+
+> 
+> ---
+> BR
+> Beata
+> 
+> 
+>> ---
+>> diff --git a/drivers/acpi/processor_driver.c b/drivers/acpi/processor_driver.c
+>> index 5d824435b26b..2f286a1b0b02 100644
+>> --- a/drivers/acpi/processor_driver.c
+>> +++ b/drivers/acpi/processor_driver.c
+>> @@ -33,6 +33,7 @@ MODULE_AUTHOR("Paul Diefenbaugh");
+>>  MODULE_DESCRIPTION("ACPI Processor Driver");
+>>  MODULE_LICENSE("GPL");
+>>  
+>> +static int acpi_processor_start(struct device *dev);
+>>  static int acpi_processor_stop(struct device *dev);
+>>  
+>>  static const struct acpi_device_id processor_device_ids[] = {
+>> @@ -46,6 +47,7 @@ static struct device_driver acpi_processor_driver = {
+>>  	.name = "processor",
+>>  	.bus = &cpu_subsys,
+>>  	.acpi_match_table = processor_device_ids,
+>> +	.probe = acpi_processor_start,
+>>  	.remove = acpi_processor_stop,
+>>  };
+>>  
+>> @@ -191,6 +193,21 @@ static int __acpi_processor_start(struct acpi_device *device)
+>>  	return result;
+>>  }
+>>  
+>> +static int acpi_processor_start(struct device *dev)
+>> +{
+>> +	struct acpi_device *device = ACPI_COMPANION(dev);
+>> +	int ret;
+>> +
+>> +	if (!device)
+>> +		return -ENODEV;
+>> +
+>> +	/* Protect against concurrent CPU hotplug operations */
+>> +	cpu_hotplug_disable();
+>> +	ret = __acpi_processor_start(device);
+>> +	cpu_hotplug_enable();
+>> +	return ret;
+>> +}
+>> +
+>>  static int acpi_processor_stop(struct device *dev)
+>>  {
+>>  	struct acpi_device *device = ACPI_COMPANION(dev);
+>> @@ -264,9 +281,9 @@ static int __init acpi_processor_driver_init(void)
+>>  
+>>  	acpi_processor_register_idle_driver();
+>>  
+>> -	result = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
+>> -				   "acpi/cpu-drv:online",
+>> -				   acpi_soft_cpu_online, NULL);
+>> +	result = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
+>> +					   "acpi/cpu-drv:online",
+>> +					   acpi_soft_cpu_online, NULL);
+>>  	if (result < 0)
+>>  		goto err;
+>>  	hp_online = result;
+>>
+>>>
+>>> ---
+>>> BR
+>>> Beata
+>>> On Wed, Nov 19, 2025 at 04:13:53PM +0800, Lifeng Zheng wrote:
+>>>> Solve a problem that causes CPUs Setup AMU FIE failed in a corner case,
+>>>> even though they're eligible.
+>>>>
+>>>>
+>>>
+>>
+> 
+
 
