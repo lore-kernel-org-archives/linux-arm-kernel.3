@@ -4,92 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFF45D43363
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 06:40:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DE7BD4336B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 06:41:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tFYcbK7L/fuI/GrrBDZKfrYBdADfjZp9qLIva811S+E=; b=EEZjGkZrUhhoEZPdBKyGt7Xp66
-	q1sVK/Z3PdKnd4WmL/U61Vgn7jhTtaILq7pJt9tYSkDkKMRenEcf3nqrB1l0v1Dk0QJ+EjGbNMA4U
-	kqktbTFBAJW1QnINPy2edzdv6s+r1pAMMqRYvMbYb99hWyy+wRimZyie3rk2IkJNzJ6X7D3VR3ir/
-	PqGI4wNrb04tlCs+PojZY33aGotW4yhbD/IcOjLJQamFUACcU3O8/68m2YuQyGGgXX+oEwcQktT1o
-	509pHtbb9scr7UTjoc2sUFzbOfTbBtHqS5DKFIYWsd9oMGINpkviSzsBHFhqItaqfSRqh3MVS/GNL
-	AWR2WVeQ==;
+	bh=/0dbF2KGAYM3vdkkaB9ys4HQSTDRocKJY/9bGXcOOVY=; b=oPvEa8pwKC6/cdWvvvmfoAurNg
+	RZ8dPfcoJIZ/yUGzxrdsj/nnljJ/9boQg0OoHQOOMT2IHg1MbbuFSFyJqEIz0Ut4G2/B10HdXzR6i
+	7nGP8tM9pPtJC8xvXzSNlg1HWj+fQPvG5FEhkIRzMpi54BiQCmeWQXoD85UqbXl+XIHDdfzX76iU+
+	r/2KH7QXhoa3ckOW4QDoctHi/Ozq1rSWzZ1JVSXUKt4rjTXgIRJNAz5ZJajjazJx/npokOiFHurPA
+	W++FpMtkroRKlTLU9EyaJaCYwe7Hho1IGayA2Ab2EdVlGmmpZVDvzBOqPIqWYKetvvELX9YALlt/T
+	RYpxAXMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTwp2-00000000AW9-25yh;
-	Fri, 12 Dec 2025 06:40:12 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1vTwq4-00000000Acb-3diQ;
+	Fri, 12 Dec 2025 06:41:16 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTwp0-00000000AVj-1Y08
+	id 1vTwq2-00000000Ac0-2ojo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 06:40:11 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-29d7b019e0eso11873455ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 22:40:09 -0800 (PST)
+	Fri, 12 Dec 2025 06:41:15 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-477aa218f20so5681575e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 11 Dec 2025 22:41:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1765521609; x=1766126409; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1765521672; x=1766126472; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=tFYcbK7L/fuI/GrrBDZKfrYBdADfjZp9qLIva811S+E=;
-        b=aMu+x9+LSBWhnOirrDCqk7/v37pTEsg/wGwFJPIgJwHUB9pNK7z3ajVl9y+FAJeoD5
-         YpRpoqsNGoQOHBGB5QVKjvCUYmjZw61+/pOnitU3boiE5uE/HQOMVnGVhQSQ8qOFwoWt
-         7xO5TeewSdmkp1d5Q+P6wTmmkkYcCCH/OF1wNBtdumAt4Xh8QHffy4+UZra7tHknBwSI
-         dNLvuWs6rZl+zBNWXlC1e17fz9eozwULo8ICo2GbFMq+vRQiyuLr6YeG4v2juFPLQ/G8
-         508mSO8iEz6fXxOOxwV8X25k4VfhAWE6/CMEkcQ4XFqCayhrtoWXvhOODlaprnAfDV2j
-         PKzg==
+        bh=/0dbF2KGAYM3vdkkaB9ys4HQSTDRocKJY/9bGXcOOVY=;
+        b=RQI4RmlWhr4ZsX4DOYQvdkUf8OW15UXgVv5bqW2kXI6uVuvcoGXgcwIfnbGSC38vih
+         GOkBZ8aKHKLtrxI9Gmj/5rZp988zRmNFM+ybWHzKgLIYkBl4bUta1zyI/geyodcWlZtN
+         q0DOg9UOjLT42M5U8rsMZoKgJ3Dn8rA6MJlocIzZr91iRDTh7fZQjnbHGxEB/3j6+/hI
+         puxNxhXl9g/oqY3G/CwaJFEdQhMbjlidhAWKY2SLOkO2+gzO4RpAXiLor8AjnE7chJzY
+         ievwwBMFPMa88KogAkFPsa/Z9wlKES/MRJM6i0ScY5TfrWkMCb/vbUyie6hT4cbbG+vW
+         XNwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765521609; x=1766126409;
+        d=1e100.net; s=20230601; t=1765521672; x=1766126472;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=tFYcbK7L/fuI/GrrBDZKfrYBdADfjZp9qLIva811S+E=;
-        b=GxmHgli2AQsHeV5K9WU8ICX4xQ2fNqFTKJgmJ2Lw4ExL+cV410sjn06bZ1NDOhfnYy
-         uYwfTY98MTfiRlXCUsB+t5u1lrV1EGhY7JXS3ADahZ/rK05uH/hcFP/NvglOtJmJtYGL
-         B/e6QSjfAVlCgpk3286RtIynlrimQha7SgR5CHAWBgoVR92N+23YwLU32OPEjfE4v3as
-         R8ltCGmrZ8Vo8xLXK/mqQWHjc4qAtraT++s37eOt/47PptfVGWfsGbvWqUoP0sJy0Y6Q
-         GR8y9LxqAW9t/bG3dPWyKcCWNE+8eBwlR5N4K3Kg7cKgw/zu+Ul09jPBJqmiRqLtkZCx
-         n08Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW3m/KakSPrB8X/eywgfBwRctQw+xXHtyecSsf4+xOhQyg8yIEH8teNcHAwMe/I237DtIibxh28xXgSZkYG1nez@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrPOzzaLPxPogC7hkpeqfG/3xhEO1YOpGVMbeCux1/xZe9qQH4
-	QEy1zJXoudK5Pl00EDwbliV+QPjPJKSUrRedGwxy+iegAUBLmvpcv2gEl1wlPPndQjk=
-X-Gm-Gg: AY/fxX5PQK/9t//d1zRSvI5g5WlIPXQEMm5sAFTSHS/8d7iU/p7vzsaPfdHNAAVDSUF
-	7aUzN0bt+xKn+u8qVJWNw6iluNsiIgJhRPbZyuZLKsX/Hi0oIIY2Gk9rrBttqm6UsmUnh21pVX2
-	AvEXm+bgp+lxP+D+HCSDVz8n5HhArTpIkLwPw0/eK0vWrirC677EOhVGB7HSa1UYPS5vqgBuKrz
-	thzmOvwqgrKdZQ7VYVhx+5DRm4hrQJDkoX5HZbdvO9xJtnvIL4LF7VL6pu+dy5GPSoSScqH2aMk
-	Qzaf3lybkR54jdG3q0iXdsOHqkluKmTPa0bUs9xe8kg8Q2v02ltIcnxxbY01MuJMIc46r+WMJ5q
-	n9ETN228r+veZI45KjdXwhU2KdWrXD8RtWXjrkV12A6z7k/XsdRMJaR57nB2aHJI4IsKgjiLSf9
-	TB8MqZPRUg
-X-Google-Smtp-Source: AGHT+IEPSya2f7Y38TleFBqEbmC5+occ+9/MQpEFnHQbgbfijsnQIDud3+WhbafaLoWO/lNjTfvRdg==
-X-Received: by 2002:a17:902:d508:b0:295:4d62:61a9 with SMTP id d9443c01a7336-29f23c677d7mr12001705ad.38.1765521609158;
-        Thu, 11 Dec 2025 22:40:09 -0800 (PST)
-Received: from ziepe.ca (p99249-ipoefx.ipoe.ocn.ne.jp. [153.246.134.248])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29ee9d38adcsm43786595ad.30.2025.12.11.22.40.08
+        bh=/0dbF2KGAYM3vdkkaB9ys4HQSTDRocKJY/9bGXcOOVY=;
+        b=cjyXRe992MuO+BEJfaC4FyqG0YFGM8vuBuBmj1w/n6VZFlQYJPtQs2OLRO7d+6102P
+         hjvQzddnSAQ3F24D2MHSqzRDAapi7e9+Pb1aIdiuN9cgm6VXRkrziSSULCSPmn86nRqL
+         81HrwrulA1aj2OkLk7QC/BIpsCszozemkbFXKECCc0xJHoBWHfvKDG+1kCcjCQke8gIT
+         XLAqOkXSOsyUm8TUcWt8HvJSh9MGZ0e9Kfrda+cqcQwatOKOS8hED9Hz3N0WFOeAILLF
+         AN4adIoU6ny4eVhnuIK5h/LGDTaRA+5sV4R1wxYnSRkWT0mcOxAImwPQyovK9tk5aV+6
+         q7Nw==
+X-Forwarded-Encrypted: i=1; AJvYcCUYmkugMdPqTL4++8YH091DX0MQZHzqUv+01a+Xd8Jt7QqMv7Vt9wZ6XaGEyjguZ23tBaZEqUtzItpM9lznexwA@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy57J/oDy0/b2Zr6LT9p4PnJaC1urvnS9Z/RAsk/ex3zCm/OcEM
+	DO6YzpfD1N/yhuhP+ZSJrKpWGfKISuORNJsCB3pg/tbr+CeJnylDKrXHZPI90Ps9HYA=
+X-Gm-Gg: AY/fxX4WS5hQtQwiiglZFtWsqT9QOsNGuHgaVpJkwfMBavPhNRV3PSN1EvXwI7m3ShC
+	mH4+AOx43ZaFd/W9Agp11QYYowhyq/cUCUTNmUh7SrP5nLv58IVEt5xPZ6i6+UZS1X/UgyYeoaq
+	ujDSJkLZDynEFcaJQfefuNx8r4dvq3KHcpXr6AmXUIOGNCvKdwhbWnyRfrV/2UkDOr5JtWjmqPX
+	i0LKgWwMxdnKjznYpbOQmsNT48ewyB98PySRb45m+W+I1W3AezHTo9/LY+32vcNylF6UcycnbZ/
+	IzPSebyjA6s2s+gmPu+KfbYMX4tRDee1WuoQl/vf7Y905L2kLN2LgQPB3MHzUHEsNve3SUQ7vYS
+	gBPcJgB1fDo+gGXq9bJffF4K1MFKiNUSK75inZnaqJm7KlwodVHqbkk4c7rzGRnbUtRKPq5bV7V
+	2+rLaafXdTVBv1CGVT
+X-Google-Smtp-Source: AGHT+IF5qezNkUaAJ9catHYZZtFdsT9KvXk7hbPAPFs0cPAp04mHo7MQ82wa12a1D0dIkmm73s4oQQ==
+X-Received: by 2002:a05:600c:470b:b0:479:2a09:9262 with SMTP id 5b1f17b1804b1-47a8f8c00d1mr7099105e9.9.1765521672165;
+        Thu, 11 Dec 2025 22:41:12 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-47a8f3a1b17sm5503315e9.2.2025.12.11.22.41.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 11 Dec 2025 22:40:08 -0800 (PST)
-Received: from jgg by jggl with local (Exim 4.95)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1vTwow-0001v7-37;
-	Fri, 12 Dec 2025 02:40:06 -0400
-Date: Fri, 12 Dec 2025 02:40:06 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Nirmoy Das <nirmoyd@nvidia.com>
-Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
-	nicolinc@nvidia.com, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH] iommu/arm-smmu-v3: Allow stream ID sharing for
- devices behind PCIe-to-PCI bridges
-Message-ID: <aTu4xsAApNupRGYC@ziepe.ca>
-References: <20251211133933.4128100-1-nirmoyd@nvidia.com>
+        Thu, 11 Dec 2025 22:41:11 -0800 (PST)
+Date: Fri, 12 Dec 2025 09:41:08 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Jan Petrous <jan.petrous@oss.nxp.com>, s32@nxp.com,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linaro-s32@linaro.org
+Subject: Re: [PATCH 1/4] net: stmmac: s32: use the syscon interface
+ PHY_INTF_SEL_RGMII
+Message-ID: <aTu5BB0pMfgzIodh@stanley.mountain>
+References: <cover.1764592300.git.dan.carpenter@linaro.org>
+ <6275e666a7ef78bd4c758d3f7f6fb6f30407393e.1764592300.git.dan.carpenter@linaro.org>
+ <aS3GzJljbfp2xJmW@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251211133933.4128100-1-nirmoyd@nvidia.com>
+In-Reply-To: <aS3GzJljbfp2xJmW@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_224010_410523_F8A7A75F 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20251211_224114_735956_AC68F36F 
+X-CRM114-Status: GOOD (  27.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,30 +109,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Dec 11, 2025 at 05:39:33AM -0800, Nirmoy Das wrote:
-> ASPEED BMC controllers have VGA and USB functions behind a PCIe-to-PCI
-> bridge that causes them to share the same stream ID:
+On Mon, Dec 01, 2025 at 04:48:12PM +0000, Russell King (Oracle) wrote:
+> On Mon, Dec 01, 2025 at 04:08:20PM +0300, Dan Carpenter wrote:
+> > On the s32 chipset the GMAC_0_CTRL_STS register is in GPR region.
+> > Originally, accessing this register was done in a sort of ad-hoc way,
+> > but we want to use the syscon interface to do it.
+> > 
+> > This is a little bit uglier because we to maintain backwards compatibility
+> > to the old device trees so we have to support both ways to access this
+> > register.
+> > 
+> > Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+> > ---
+> >  .../net/ethernet/stmicro/stmmac/dwmac-s32.c   | 23 +++++++++++++++----
+> >  1 file changed, 18 insertions(+), 5 deletions(-)
+> > 
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+> > index 5a485ee98fa7..20de761b7d28 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c
+> > @@ -11,12 +11,14 @@
+> >  #include <linux/device.h>
+> >  #include <linux/ethtool.h>
+> >  #include <linux/io.h>
+> > +#include <linux/mfd/syscon.h>
+> >  #include <linux/module.h>
+> >  #include <linux/of_mdio.h>
+> >  #include <linux/of_address.h>
+> >  #include <linux/phy.h>
+> >  #include <linux/phylink.h>
+> >  #include <linux/platform_device.h>
+> > +#include <linux/regmap.h>
+> >  #include <linux/stmmac.h>
+> >  
+> >  #include "stmmac_platform.h"
+> > @@ -32,6 +34,8 @@
+> >  struct s32_priv_data {
+> >  	void __iomem *ioaddr;
+> >  	void __iomem *ctrl_sts;
+> > +	struct regmap *sts_regmap;
+> > +	unsigned int sts_offset;
+> >  	struct device *dev;
+> >  	phy_interface_t *intf_mode;
+> >  	struct clk *tx_clk;
+> > @@ -40,7 +44,10 @@ struct s32_priv_data {
+> >  
+> >  static int s32_gmac_write_phy_intf_select(struct s32_priv_data *gmac)
+> >  {
+> > -	writel(S32_PHY_INTF_SEL_RGMII, gmac->ctrl_sts);
+> > +	if (gmac->ctrl_sts)
+> > +		writel(S32_PHY_INTF_SEL_RGMII, gmac->ctrl_sts);
+> > +	else
+> > +		regmap_write(gmac->sts_regmap, gmac->sts_offset, PHY_INTF_SEL_RGMII);
 > 
->   \-[0005:e0]---00.0-[e1-e2]----00.0-[e2]--+-00.0  ASPEED Graphics Family
->                                            \-02.0  ASPEED USB Controller
+> Sorry, but even if that regmap_write() is targetting the exact same
+> register, these are not identical.
 > 
-> Both devices get stream ID(0x5e200) due to bridge aliasing. Currently this
-> USB controller gets rejected with "Aliasing StreamID unsupported", causing
-> USB timeout errors. Allow stream ID sharing when both devices are on
-> the same bus behind a PCIe-to-PCI bridge to fix this issue.
+> S32_PHY_INTF_SEL_RGMII, which is a S32-specific value, takes the value 2.
+> PHY_INTF_SEL_RGMII is the dwmac specific value, and takes the value 1.
+> 
+> If this targets the same register, then by writing PHY_INTF_SEL_RGMII,
+> you are in effect writing the equivalent of S32_PHY_INTF_SEL_SGMII to
+> it. This seems like a bug.
+> 
 
-I don't think this is right, if you actually need stream ID sharing
-then I seem to recall the driver needs more changes. We don't want
-this in general.
+Yeah.  Sorry, I forward ported this, then back ported it, then forward
+ported this again and I messed up.  :(
 
-IMHO ASPEED has wrong PCI config space and there isn't any actual PCI
-bus here that would force RID aliasing to worry about. I suggest going
-to ASPEED to find out and confirm that they don't actually share the
-RIDs and then let's quirk the PCI devices to disable alias generation
-in the first place.
-
-Also, complain to them to fix their config space to report a PCIe bridge
-type in future devices. :)
-
-Jason
+regards,
+dan carpenter
 
