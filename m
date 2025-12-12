@@ -4,85 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09BA7D59D6F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 16:19:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 036F4D59D78
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 16:24:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u7CziZgx+9HCd1BDJXjJel6IzSJfW897C201ynhyS8o=; b=JPGk+iVcoJsUl7cbUGSOjkBTAS
-	15I/yQCwI8UUq5k3WQ2t2I6IS4Op5RyRWKs0AwjNpooaQ805jHo5/8CRvtS1EeW1eTfeLzGPWrPME
-	om6hZ6B2wfcg+ibtQS1zwiFK+9gBvBRenfRMiODijNzUPKkSERaQTxVMd0ICDFFbDhNc4g8EY9Bfi
-	caUOW8x9UBMq4u2vhr1O6XOuKAnK7xMGPml0OVqK1u9bgWPsgVXnRomkkARjo+YCkzbruee2/57Bz
-	t8rkNWg4VkCBZ+uytgPEGZH6uufohkwPh28sp80AFC1WT3uBgaCWnql7ID72l5yWoYHcqt8QmvwCT
-	OYY1C/pA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:Cc:Date:Message-Id:
+	Subject:Mime-Version:Content-Transfer-Encoding:Content-Type:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=+nONJqjep5LEd4f09CvcjseCMGXyI1xL6ZMFEmMKLaw=; b=r46/oKkVZ6YvqtkTn/h37+a/BU
+	60KaEI8R8RVjgoUcNxuu7/ikpGmDbhrrUrGp9AY1C8Yh8vjDI5DOT6cD3cgWqa5Je01o1JLE/5L6k
+	9WaDZSEezVrQ6EJdqsfBQFgUYRlXvg9p+FwVIzAo8VQ3Th80ZSNL1n8Xq86ZWsWX26Kzhjrp5nvtc
+	7hWVrgkFYjbARuEMHNEADaKEF+AYcRhFm1TtW7ibiGIHdYYT/naLHHxyGCg+ofDgHgJY9RJQJ4zHr
+	Ny17D29xFJAGyzAIGTHLsACPiuT1pJROy/CG3lVNWfeABolo/bW8vAfnhom71WqJoTAXKGpPX35t6
+	oxqu+Exg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU5r9-00000000pDO-2NnU;
-	Fri, 12 Dec 2025 16:18:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU5r2-00000000pBc-3wd7
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 16:18:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 81B46165C;
-	Fri, 12 Dec 2025 08:18:43 -0800 (PST)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id AC4203F762;
-	Fri, 12 Dec 2025 08:18:45 -0800 (PST)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: akpm@linux-foundation.org,
-	david@kernel.org,
-	lorenzo.stoakes@oracle.com,
-	Liam.Howlett@oracle.com,
-	vbabka@suse.cz,
-	rppt@kernel.org,
-	surenb@google.com,
-	mhocko@suse.com,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	andrii@kernel.org,
-	martin.lau@linux.dev,
-	eddyz87@gmail.com,
-	song@kernel.org,
-	yonghong.song@linux.dev,
-	john.fastabend@gmail.com,
-	kpsingh@kernel.org,
-	sdf@fomichev.me,
-	haoluo@google.com,
-	jolsa@kernel.org,
-	jackmanb@google.com,
-	hannes@cmpxchg.org,
-	ziy@nvidia.com,
-	bigeasy@linutronix.de,
-	clrkwllms@kernel.org,
-	rostedt@goodmis.org,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	ryan.roberts@arm.com,
-	kevin.brodsky@arm.com,
-	dev.jain@arm.com,
-	yang@os.amperecomputing.com
-Cc: linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH 2/2] arm64: mmu: use pagetable_alloc_nolock() while stop_machine()
-Date: Fri, 12 Dec 2025 16:18:32 +0000
-Message-Id: <20251212161832.2067134-3-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251212161832.2067134-1-yeoreum.yun@arm.com>
-References: <20251212161832.2067134-1-yeoreum.yun@arm.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	id 1vU5vv-00000000pnl-2toJ;
+	Fri, 12 Dec 2025 16:23:55 +0000
+Received: from m1-out-mua-15.websupport.sk ([45.13.137.24])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vU5vs-00000000pnJ-3pgb;
+	Fri, 12 Dec 2025 16:23:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=probably.group;
+	s=mail; t=1765556627;
+	bh=+nONJqjep5LEd4f09CvcjseCMGXyI1xL6ZMFEmMKLaw=;
+	h=From:Subject:Date:Cc:To:From;
+	b=B+IKY976kgdpzNFohYgSqkuTAHhovcbQRC12kMyzNpArJuTWkROGd1dFBsplmqoo3
+	 BWnZlQfF6SvoZQJwDcdkODjA30KTWi1/YMIMABYKovtOXfa7WW59uM5OwjfNDe9l62
+	 TpJgEE14ceCNbqt8A+OjVbiPwIB+T4uAW45K0K/+OtP1iTFF6UDygBlzcHB4CrffDr
+	 65rl3ukvcLvtvA8rGj7dJB3/8aM3wNI7XqRCG72GAWULzHd1q0HgGhDFLB5EjVH6kv
+	 dOO7rTI8gzbhrPZdbbVUvJgpCkXZOFWpW93RMPBr/G5JUa+GlWgGgEdcXXq6wPYG16
+	 1b1x5llcZE+Dw==
+Received: from m1-u5-ing.websupport.sk (unknown [10.30.5.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	by m1-out-mua-15.websupport.sk (Postfix) with ESMTPS id 4dSZX30SCHz1N1L;
+	Fri, 12 Dec 2025 17:23:47 +0100 (CET)
+X-Authenticated-Sender: mh@probably.group
+Authentication-Results: m1-u5-ing.websupport.sk;
+	auth=pass smtp.auth=mh@probably.group smtp.mailfrom=mh@probably.group
+Received: from smtpclient.apple (unknown [109.164.127.134])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	(Authenticated sender: mh@probably.group)
+	by m1-u5-ing.websupport.sk (Postfix) with ESMTPSA id 4dSZX21BWdzGMVD;
+	Fri, 12 Dec 2025 17:23:45 +0100 (CET)
+From: =?utf-8?B?Ik1hcnRpbiBIb2xvdnNrw70gKFByb2JhYmx5IE5vdGhpbmcgcy5yLm8u?=
+ =?utf-8?B?KSI=?= <mh@probably.group>
+Content-Type: text/plain;
+	charset=us-ascii
+Content-Transfer-Encoding: quoted-printable
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.200.81.1.6\))
+Subject: [PATCH] arm64: dts: rockchip: enable dual 2.5GbE on Rock 5T
+Message-Id: <96516D1F-9787-47FE-A67E-4745D11D9207@probably.group>
+Date: Fri, 12 Dec 2025 17:23:35 +0100
+Cc: Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+To: Heiko Stuebner <heiko@sntech.de>
+X-Mailer: Apple Mail (2.3864.200.81.1.6)
+X-Out-Spamd-Result: default: False [0.40 / 1000.00];
+	MV_CASE(0.50)[];
+	MIME_GOOD(-0.10)[text/plain];
+	TAGGED_RCPT(0.00)[dt];
+	RCVD_COUNT_ZERO(0.00)[0];
+	FROM_HAS_DN(0.00)[];
+	ASN(0.00)[asn:44489, ipnet:109.164.0.0/17, country:CZ];
+	ARC_NA(0.00)[];
+	RCPT_COUNT_SEVEN(0.00)[8];
+	HAS_X_AS(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	TO_DN_SOME(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	MIME_TRACE(0.00)[0:+]
+X-Out-Rspamd-Queue-Id: 4dSZX21BWdzGMVD
+X-Rspamd-Action: no action
+X-Out-Rspamd-Server: m1-rspamd-out-5
+X-purgate-type: clean
+X-purgate-Ad: Categorized by eleven eXpurgate (R) https://www.eleven.de
+X-purgate: This mail is considered clean (visit https://www.eleven.de for further information)
+X-purgate: clean
+X-purgate-size: 2219
+X-purgate-ID: 155908::1765556627-C232F043-832C1352/0/0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_081857_423044_B9EB2A8C 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20251212_082353_223968_991ED887 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,81 +110,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-linear_map_split_to_ptes() and __kpti_install_ng_mappings()
-are called as callback of stop_machine().
-That means these functions context are preemption disabled.
+The Radxa Rock 5T board features two RTL8125B 2.5GbE Ethernet =
+controllers
+connected via PCIe lanes pcie2x1l0 (fe170000) and pcie2x1l2 (fe190000).
+Currently only one interface is functional because the PCIe controller
+nodes lack the necessary reset GPIO configuration.
 
-Unfortunately, under PREEMPT_RT, the pagetable_alloc() or
-__get_free_pages() couldn't be called in this context
-since spin lock that becomes sleepable on RT,
-potentially causing a sleep during page allocation.
+Without the reset-gpios property, the RTL8125B PHYs remain in reset =
+state
+and are not enumerated by the PCIe bus. This results in only one =
+Ethernet
+interface being detected, or none at all depending on U-Boot =
+initialization.
 
-To address this, pagetable_alloc_nolock().
+This patch adds the missing configuration for both PCIe controllers:
+- Enables both pcie2x1l0 and pcie2x1l2 nodes (status =3D "okay")
+- Configures reset GPIOs (GPIO4_PA5 and GPIO3_PB0 respectively)
+- Adds corresponding pinctrl definitions
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+With this change, both 2.5GbE interfaces are properly detected and
+functional on the Rock 5T.
+
+Tested on Radxa Rock 5T v1.2 running Linux 6.12.
+
+
 ---
- arch/arm64/mm/mmu.c | 23 ++++++++++++++++++-----
- 1 file changed, 18 insertions(+), 5 deletions(-)
+ .../boot/dts/rockchip/rk3588-rock-5t.dts      | 23 +++++++++++++++++++
+ 1 file changed, 23 insertions(+)
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 2ba01dc8ef82..0e98606d8c4c 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -475,10 +475,15 @@ static void __create_pgd_mapping(pgd_t *pgdir, phys_addr_t phys,
- static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm, gfp_t gfp,
- 				       enum pgtable_type pgtable_type)
- {
--	/* Page is zeroed by init_clear_pgtable() so don't duplicate effort. */
--	struct ptdesc *ptdesc = pagetable_alloc(gfp & ~__GFP_ZERO, 0);
-+	struct ptdesc *ptdesc;
- 	phys_addr_t pa;
- 
-+	/* Page is zeroed by init_clear_pgtable() so don't duplicate effort. */
-+	if (gfpflags_allow_spinning(gfp))
-+		ptdesc  = pagetable_alloc(gfp & ~__GFP_ZERO, 0);
-+	else
-+		ptdesc  = pagetable_alloc_nolock(gfp & ~__GFP_ZERO, 0);
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts =
+b/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts
+index 0dd90c744380..aeb8e0d42f09 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dts
+@@ -68,6 +68,20 @@ &pcie2x1l1 {
+ 	status =3D "okay";
+ };
+=20
++&pcie2x1l0 {
++	pinctrl-names =3D "default";
++	pinctrl-0 =3D <&pcie2_0_rst>;
++	reset-gpios =3D <&gpio4 RK_PA5 GPIO_ACTIVE_HIGH>;
++	status =3D "okay";
++};
 +
- 	if (!ptdesc)
- 		return INVALID_PHYS_ADDR;
- 
-@@ -869,6 +874,7 @@ static int __init linear_map_split_to_ptes(void *__unused)
- 		unsigned long kstart = (unsigned long)lm_alias(_stext);
- 		unsigned long kend = (unsigned long)lm_alias(__init_begin);
- 		int ret;
-+		gfp_t gfp = IS_ENABLED(CONFIG_PREEMPT_RT) ? __GFP_HIGH : GFP_ATOMIC;
- 
- 		/*
- 		 * Wait for all secondary CPUs to be put into the waiting area.
-@@ -881,9 +887,9 @@ static int __init linear_map_split_to_ptes(void *__unused)
- 		 * PTE. The kernel alias remains static throughout runtime so
- 		 * can continue to be safely mapped with large mappings.
- 		 */
--		ret = range_split_to_ptes(lstart, kstart, GFP_ATOMIC);
-+		ret = range_split_to_ptes(lstart, kstart, gfp);
- 		if (!ret)
--			ret = range_split_to_ptes(kend, lend, GFP_ATOMIC);
-+			ret = range_split_to_ptes(kend, lend, gfp);
- 		if (ret)
- 			panic("Failed to split linear map\n");
- 		flush_tlb_kernel_range(lstart, lend);
-@@ -1207,7 +1213,14 @@ static int __init __kpti_install_ng_mappings(void *__unused)
- 	remap_fn = (void *)__pa_symbol(idmap_kpti_install_ng_mappings);
- 
- 	if (!cpu) {
--		alloc = __get_free_pages(GFP_ATOMIC | __GFP_ZERO, order);
-+		if (IS_ENABLED(CONFIG_PREEMPT_RT))
-+			alloc = (u64) pagetable_alloc_nolock(__GFP_HIGH | __GFP_ZERO, order);
-+		else
-+			alloc = __get_free_pages(GFP_ATOMIC | __GFP_ZERO, order);
++&pcie2x1l2 {
++	pinctrl-names =3D "default";
++	pinctrl-0 =3D <&pcie2_2_rst>;
++	reset-gpios =3D <&gpio3 RK_PB0 GPIO_ACTIVE_HIGH>;
++	status =3D "okay";
++};
 +
-+		if (!alloc)
-+			panic("Failed to alloc kpti_ng_pgd\n");
+ &pcie30phy {
+ 	data-lanes =3D <1 1 2 2>;
+ };
+@@ -101,6 +115,15 @@ pcie2 {
+ 		pcie2_1_rst: pcie2-1-rst {
+ 			rockchip,pins =3D <4 RK_PA2 RK_FUNC_GPIO =
+&pcfg_pull_none>;
+ 		};
 +
- 		kpti_ng_temp_pgd = (pgd_t *)(alloc + (levels - 1) * PAGE_SIZE);
- 		kpti_ng_temp_alloc = kpti_ng_temp_pgd_pa = __pa(kpti_ng_temp_pgd);
- 
--- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
++		pcie2_0_rst: pcie2-0-rst {
++			rockchip,pins =3D <4 RK_PA5 RK_FUNC_GPIO =
+&pcfg_pull_none>;
++		};
++
++		pcie2_2_rst: pcie2-2-rst {
++			rockchip,pins =3D <3 RK_PB0 RK_FUNC_GPIO =
+&pcfg_pull_none>;
++		};
++
+ 		pcie2_0_vcc3v3_en: pcie2-0-vcc-en {
+ 			rockchip,pins =3D <2 RK_PC0 RK_FUNC_GPIO =
+&pcfg_pull_none>;
+ 		};
+--=20
+2.52.0
 
 
