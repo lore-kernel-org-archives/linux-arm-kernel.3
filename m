@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B10EFD4415B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 09:27:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4821BD4415B
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 09:28:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BNmEZvj2E4J4X7wXMXz907hl9ndLNYZFhW8wantRAZE=; b=zTTRrPWal/rV804DxNFCzvRpVg
-	3zn/Dn94v/73XHUwn/76xevC1GFZDSsg7lb1VYcfjrvOGcgQwPd7arnToulTx60wHOKE9hxthSA6V
-	mV6n8QuARGnPOhjipbvaM/1HiRDgT2YSu5JCfBESjaWk3X/GZTPD4geCb7T8oAsmzMAAt05u7ijLg
-	gym3sURa6VTqALSiVuybPphtPuGEmo8c5iJgQo9bAPe8zUtJze19rMGXemQOusrBnEGuBuC0MLZOy
-	c+vz4DsB0fK1TQ+uU5JtrG3RCakGEcOnscvs85mTBy0/u3hKK8udr1JxTVZnUpiFD3nn+JPw5HKWS
-	yqGzOuUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aNWWbtRHdCuSJhDLIWy0mZbp4FuZ58c4nbWjNON5XjY=; b=1DpzwEMBdvM5NMbKn9cwE3dlkv
+	AxVcLr/qGVuBV6HcqxmtOCQ1gG//3JkEoOBBhpueG47fZD60lHa8jL8Y8b2iAsOPp6YOI/Pf6Wein
+	0eYG6KdNNKK3WW3yVaDl862mSv7tpCQXltPMFD/tV7KX0CROTGhhUtiU9ndwdGyqu/IfUhS+R68Ch
+	9/psvCx43WoCpbe73BcbUAycq125MQAIPhdVQ14SrTXYS98ZdgwPHC0n16WpDaWZeLbXaOb+jquPr
+	sqr8f21YVR/Zye0oj9vManFOqLvL1jnH0tl3wqOLrXgIpwjDT6Wda96AXwQhGf6eZEOf8sx2hymCz
+	beJfkFHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTzQx-00000000Lo8-3Vai;
-	Fri, 12 Dec 2025 09:27:31 +0000
-Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
+	id 1vTzS4-00000000Lul-16yu;
+	Fri, 12 Dec 2025 09:28:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTzQv-00000000LnP-1CKI
+	id 1vTzS1-00000000LuF-3a3N
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 09:27:30 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=BNmEZvj2E4J4X7wXMXz907hl9ndLNYZFhW8wantRAZE=;
-	b=0InrPM34Tj96MN7vGIfHYmQPH1kO4FehKpazmt36g+8MvTpe6BTGr9bPKsrgnCCiT5j8Q8nxc
-	aJZCAgdhyUEedyCnE9FFxuNUYOHYD3ctqclM8SxCcbO6msvcPk65q/K7V29yvfyxSOPiFxwCYLl
-	pvgb6CI/Bg81DM68YpCsjkU=
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4dSPDk35Ljz12LDc;
-	Fri, 12 Dec 2025 17:24:54 +0800 (CST)
-Received: from kwepemf200001.china.huawei.com (unknown [7.202.181.227])
-	by mail.maildlp.com (Postfix) with ESMTPS id 090FE1402CC;
-	Fri, 12 Dec 2025 17:27:11 +0800 (CST)
-Received: from [10.67.121.90] (10.67.121.90) by kwepemf200001.china.huawei.com
- (7.202.181.227) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 12 Dec
- 2025 17:27:10 +0800
-Message-ID: <29253319-ced9-4ab6-a58e-28afdf235cde@huawei.com>
-Date: Fri, 12 Dec 2025 17:27:09 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 0/3] arm64: topology: Handle AMU FIE setup on CPU
- hotplug
-To: <catalin.marinas@arm.com>
-CC: Beata Michalska <beata.michalska@arm.com>, <will@kernel.org>,
-	<rafael@kernel.org>, <viresh.kumar@linaro.org>, <sudeep.holla@arm.com>,
-	<gregkh@linuxfoundation.org>, <dakr@kernel.org>, <ionela.voinescu@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-pm@vger.kernel.org>,
-	<linuxarm@huawei.com>, <jonathan.cameron@huawei.com>,
-	<vincent.guittot@linaro.org>, <zhanjie9@hisilicon.com>,
-	<lihuisong@huawei.com>, <yubowen8@huawei.com>, <zhangpengjie2@huawei.com>,
-	<wangzhi12@huawei.com>, <linhongye@h-partners.com>
-References: <20251119081356.2495290-1-zhenglifeng1@huawei.com>
- <aS2z0EURwHbbGZab@arm.com> <9b6882dc-a91a-42d6-bf76-347338930d71@huawei.com>
- <aS8GZOuaS1-j14MD@arm.com>
-From: "zhenglifeng (A)" <zhenglifeng1@huawei.com>
-In-Reply-To: <aS8GZOuaS1-j14MD@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.90]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemf200001.china.huawei.com (7.202.181.227)
+	Fri, 12 Dec 2025 09:28:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 4BCCE417E1;
+	Fri, 12 Dec 2025 09:28:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2462EC4CEF1;
+	Fri, 12 Dec 2025 09:28:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765531716;
+	bh=W0rU0ZoF6KH9m1aZIblf+y0H8Wfvx3C1oFibvVqu4v0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=RotuDtiUo6aJuiOF1avUBU/UsoYG9796vH4RbeE/SUGdNbZbbhSWiTOrxZeuTwUGu
+	 DtVTfUt4Ug8l0YjTmDpC5yUjq+lIlucwd79j1J8aGjGaOzsKyf8FCxRkiqKDYm2ztM
+	 PqH3GAExY5DahWOFRiStK2fAFJthLKY19zhvwYK4FXLVtv9JLrBW6J+5RZoqmDHKvd
+	 o4/ci8WUb5pH9m7aAkwEBAFK8viEYDVm8m1Af+JRu+9lC7DTa4l+zYCaAUKN5flf6y
+	 c060QJWRAUIOUTmebE9mEKoP+TZxTmtL277Z+8zsyV3Dr5cy8kR8HZbnW7VlAURTrw
+	 Nf3gWN2JRBi/g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1vTzRx-0000000CCQb-3IyC;
+	Fri, 12 Dec 2025 09:28:33 +0000
+Date: Fri, 12 Dec 2025 09:28:33 +0000
+Message-ID: <86qzt0nj5q.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Osama Abdelkader <osama.abdelkader@gmail.com>
+Cc: Oliver Upton <oupton@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: vgic: add default case to switch statement
+In-Reply-To: <20251211224033.18079-1-osama.abdelkader@gmail.com>
+References: <20251211224033.18079-1-osama.abdelkader@gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: osama.abdelkader@gmail.com, oupton@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_012729_719836_46F82109 
-X-CRM114-Status: GOOD (  29.44  )
+X-CRM114-CacheID: sfid-20251212_012837_928726_8D0F13E1 
+X-CRM114-Status: GOOD (  18.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,120 +90,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/12/2 23:31, Beata Michalska wrote:
-> On Tue, Dec 02, 2025 at 11:05:25AM +0800, zhenglifeng (A) wrote:
->> On 2025/12/1 23:27, Beata Michalska wrote:
->>> Hi,
->>>
->>> Apologies for the delay in reviewing this - currently in progress....
->>> Out of curiosity: what's the cpufreq driver used for testing this series ?
->>
->> I used cppc_cpufreq for testing this. But with some modifications in
->> processor_driver.c, or you'll find that the driver will fail to load with
->> maxcpus set. The modification below is only a temporary solution. I'm still
->> working on that.
->>
-> Right, so overall the implementation looks good - thanks for that.
-> There are two issues though with the cppc cpufreq driver.
+On Thu, 11 Dec 2025 22:40:28 +0000,
+Osama Abdelkader <osama.abdelkader@gmail.com> wrote:
 > 
-> One: as you have already noticed - it fails to register when
-> cpumask_present != cpumask_online.
-> 
-> Second: it will mix the sources of the freq scale if not all CPUs within the
-> policy have AMUs enabled/valid. This is due to the fact that at the time of
-> registering the driver and initializing the FIE support policy->cpus ==
-> policy->related_cpus. Assuming scenario when there are two CPUs within the
-> policy, one being offline and missing valid AMU counters,
-> the topology_set_scale_freq_source from cppc cpufreq driver will register
-> the tick handler for both CPUs, whereas AMU support will (rightly so) register
-> only for the firs one. When the second CPU comes online, the mismatch will be
-> detected and the arch callback will get cleared for the first CPU, but the
-> second one will remain unchanged.
-> 
-> That said, I do not think any of those issues is a blocker for this series.
-> But both would need fixing.
+> The switch statement in vgic_validate_injection() handles all enum
+> values for irq->config, but lacked a default case. Add one to match
+> the pattern used in other switch statements in the same file and make
 
-Hi Catalin,
+News flash: there is no other switch statement in this file. This is
+the only one.
 
-I believe Beata is OK with this series. So I think we can move ahead with it
-now.
+> the defensive return explicit.
 
-Thanks.
+I'd suggest you read the code more carefully, and consider the
+following observations:
 
-> 
-> ---
-> BR
-> Beata
-> 
-> 
->> ---
->> diff --git a/drivers/acpi/processor_driver.c b/drivers/acpi/processor_driver.c
->> index 5d824435b26b..2f286a1b0b02 100644
->> --- a/drivers/acpi/processor_driver.c
->> +++ b/drivers/acpi/processor_driver.c
->> @@ -33,6 +33,7 @@ MODULE_AUTHOR("Paul Diefenbaugh");
->>  MODULE_DESCRIPTION("ACPI Processor Driver");
->>  MODULE_LICENSE("GPL");
->>  
->> +static int acpi_processor_start(struct device *dev);
->>  static int acpi_processor_stop(struct device *dev);
->>  
->>  static const struct acpi_device_id processor_device_ids[] = {
->> @@ -46,6 +47,7 @@ static struct device_driver acpi_processor_driver = {
->>  	.name = "processor",
->>  	.bus = &cpu_subsys,
->>  	.acpi_match_table = processor_device_ids,
->> +	.probe = acpi_processor_start,
->>  	.remove = acpi_processor_stop,
->>  };
->>  
->> @@ -191,6 +193,21 @@ static int __acpi_processor_start(struct acpi_device *device)
->>  	return result;
->>  }
->>  
->> +static int acpi_processor_start(struct device *dev)
->> +{
->> +	struct acpi_device *device = ACPI_COMPANION(dev);
->> +	int ret;
->> +
->> +	if (!device)
->> +		return -ENODEV;
->> +
->> +	/* Protect against concurrent CPU hotplug operations */
->> +	cpu_hotplug_disable();
->> +	ret = __acpi_processor_start(device);
->> +	cpu_hotplug_enable();
->> +	return ret;
->> +}
->> +
->>  static int acpi_processor_stop(struct device *dev)
->>  {
->>  	struct acpi_device *device = ACPI_COMPANION(dev);
->> @@ -264,9 +281,9 @@ static int __init acpi_processor_driver_init(void)
->>  
->>  	acpi_processor_register_idle_driver();
->>  
->> -	result = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
->> -				   "acpi/cpu-drv:online",
->> -				   acpi_soft_cpu_online, NULL);
->> +	result = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
->> +					   "acpi/cpu-drv:online",
->> +					   acpi_soft_cpu_online, NULL);
->>  	if (result < 0)
->>  		goto err;
->>  	hp_online = result;
->>
->>>
->>> ---
->>> BR
->>> Beata
->>> On Wed, Nov 19, 2025 at 04:13:53PM +0800, Lifeng Zheng wrote:
->>>> Solve a problem that causes CPUs Setup AMU FIE failed in a corner case,
->>>> even though they're eligible.
->>>>
->>>>
->>>
->>
-> 
+enum vgic_irq_config {
+	VGIC_CONFIG_EDGE = 0,
+	VGIC_CONFIG_LEVEL
+};
 
+struct vgic_irq {
+	[...]
+	enum vgic_irq_config config:1;	/* Level or edge */
+	[...]
+};
+
+With these two definitions in mind, let's revisit the function you are
+patching:
+
+static bool vgic_validate_injection(struct vgic_irq *irq, bool level, void *owner)
+{
+	[...]
+
+	switch (irq->config) {
+	case VGIC_CONFIG_LEVEL:
+		return irq->line_level != level;
+	case VGIC_CONFIG_EDGE:
+		return level;
+	}
+
+	return false;
+}
+
+Please explain how it is possible that the switch does not cover
+*exhaustively* all the possible values that are constraint to exactly
+One. Single. Bit? How adding a default case makes things better? The
+compiler already knows that we are covering all the possible values of
+the enum (yes, even a C compiler can achieve that), so it can *prove*
+that there is no need for a default.
+
+If anything, I'd have expected a patch dropping the last return, as it
+is remarkably pointless. But just moving it? What does it change?
+
+I'd suggest you think a bit more before posting random patches and
+wasting people's time. I spent a good 15 minutes writing this, which
+you could have used yourself to realise this change is pointless.
+
+Thanks,
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
