@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11591D4336B
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 04:27:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46BDED4336C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 04:27:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YsTI/gKXS1+wHS9HMvLrVaa5BkCT1pT09kcU0UXd/zI=; b=s5xI6tyqczly9u4rWG8oVYpxKF
-	oFj8v2L+oGynYAcMcwBskMSqfNR786DKwFpzSbEm0b9Zozn7kIv3DftlBRebYacpyo+SzeQ7we7/k
-	ImnfBDKtBc5NYp45YIagU6K7nA3BNED+NVPtHHPp174Iar/ahF4Bl4+bLhK7AyKr+9fb3ZoixHpuM
-	n1T8cLFQDw/+THRkgiVyrWTF2oyQFTyoFILa9xio9fIj7UuBZX0Q/9k+/sP1YZBFmNTRSJEs9iIpV
-	AZscKdwaGwBx3Np6FGrupywn9AJ7+TC/7KwNuKjzCVKj0bQbNKlXSkcQhIW+Mnih+p8E5dpTSsDik
-	kPZTp2Xw==;
+	bh=6U3t8kJga3SBs4c3UV1uCvapZVSDyhagjrrEPqd/kMk=; b=09v0mnxSlt5NStD2aLqXhiGyqC
+	WsizyOJ3STEgK3ree+qduUL/FA0tm7xSYrmP6uaTNAhi2jM7PG4euJdLEozPHUPsXWj/zosbm4WP0
+	Gy8Mg3go0aOUMxrsnSYP/cDecJxZcYGCgcfxZsIFsTyghmoQEK8ZHxtxkdj4xajBahHUa353UfJta
+	8zhoXlr5GTK566GeODcGn/yyvAkdWJhdVgcU13r88t/JiTqdJpziMbl1Mj48up0z9W31ApllI93QS
+	uFG+QeHvb4yX66kUIK0PqMyeOzVxPBrdyRtPK2NZhJtT303EvUXprkia/+Xux81PfsHxzxQmfx7q1
+	1GJ3mcEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTukY-000000004Aj-0Hla;
-	Fri, 12 Dec 2025 04:27:26 +0000
+	id 1vTuke-000000004Ch-17S1;
+	Fri, 12 Dec 2025 04:27:32 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTukV-0000000049c-0RxB
+	id 1vTukc-000000004BT-1MHf
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 04:27:24 +0000
+	Fri, 12 Dec 2025 04:27:31 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BCF091063;
-	Thu, 11 Dec 2025 20:27:14 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 35A821063;
+	Thu, 11 Dec 2025 20:27:21 -0800 (PST)
 Received: from MacBook-Pro.blr.arm.com (MacBook-Pro.blr.arm.com [10.164.18.59])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 23C983F762;
-	Thu, 11 Dec 2025 20:27:15 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8F0913F762;
+	Thu, 11 Dec 2025 20:27:22 -0800 (PST)
 From: Dev Jain <dev.jain@arm.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -53,17 +53,17 @@ Cc: ryan.roberts@arm.com,
 	david@kernel.org,
 	ziy@nvidia.com,
 	Dev Jain <dev.jain@arm.com>
-Subject: [RESEND RFC PATCH 1/2] mm/vmalloc: Do not align size to huge size
-Date: Fri, 12 Dec 2025 09:57:00 +0530
-Message-Id: <20251212042701.71993-2-dev.jain@arm.com>
+Subject: [RESEND RFC PATCH 2/2] arm64/mm: Enable huge-vmalloc by default
+Date: Fri, 12 Dec 2025 09:57:01 +0530
+Message-Id: <20251212042701.71993-3-dev.jain@arm.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 In-Reply-To: <20251212042701.71993-1-dev.jain@arm.com>
 References: <20251212042701.71993-1-dev.jain@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_202723_254684_8F36702E 
-X-CRM114-Status: GOOD (  19.92  )
+X-CRM114-CacheID: sfid-20251211_202730_449566_37DBFBF3 
+X-CRM114-Status: GOOD (  19.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,147 +78,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-vmalloc() consists of the following:
+For BBML2-noabort arm64 systems, enable vmalloc cont mappings and PMD
+mappings by default.
 
-(1) find empty space in the vmalloc space -> (2) get physical pages from
-the buddy system -> (3) map the pages into the pagetable.
+There is benefit to be gained in any code path which maps >= 16 pages using
+vmalloc, since any usage of that mapping will now come with reduced TLB
+pressure.
 
-It turns out that the cost of (1) and (3) is pretty insignificant. Hence,
-the cost of vmalloc becomes highly sensitive to physical memory allocation
-time.
+Currently, I am not being able to produce a reliable statistically
+significant improvement for the benchmarks which we have. I am optimistic
+that xfs benchmarks should give some benefit.
 
-Currently, if we decide to use huge mappings, apart from aligning the start
-of the target vm_struct region to the huge-alignment, we also align the
-size. This does not seem to produce any benefit (apart from simplification
-of the code), and there is a clear disadvantage - as mentioned above, the
-main cost of vmalloc comes from its interaction with the buddy system, and
-thus requesting more memory than was requested by the caller is suboptimal
-and unnecessary.
+Upon running test_vmalloc.sh, this series produces an optimization and
+some regressions. I conclude that we should ignore the results of this
+testsuite. I explain the regression in the long_busy_list_alloc_test below:
+upon running ./test_vmalloc.sh run_test_mask=4 nr_threads=1, a regression
+of approx 17% is observed (which increases to 31% if we do *not* apply the
+previous patch ("mm/vmalloc: Do not align size to huge size")).
 
-This change is also motivated due to the next patch ("arm64/mm: Enable
-vmalloc-huge by default"). Suppose that some user of vmalloc maps 17 pages,
-uses that mapping for an extremely short time, and vfree's it. That patch,
-without this patch, on arm64 will ultimately map 16 * 2 = 32 pages in a
-contiguous way. Since the mapping is used for a very short time, it is
-likely that the extra cost of mapping 15 pages defeats any benefit from
-reduced TLB pressure, and regresses that code path. 
+The long_busy_list_alloc_test first maps a lot of single pages to fragment
+the vmalloc space. Then, it does the following in a loop: map 100 pages,
+map a single page, then vfree both of them. My investigation reveals that
+the majority of time is *not* spent in finding a free space in the vmalloc
+region (which is exactly the time which the setup of this particular
+test wants to increase), but in the interaction with the physical memory
+allocator.
+
+It turns out that mapping 100 pages in a contiguous way is *faster* than
+bulk mapping 100 single pages. The regression is actually carried by
+vfree(). When we contpte map 100 pages, we get 6 * 16 = 96 pages from
+the free lists of the buddy allocator, and not the pcp lists. Then, vmalloc
+subsystem splits this page into individual pages because drivers can
+operate on individual pages, messing up the refcounts. As a result, vfree
+frees these pages as single 4k pages, freeing them into the pcp lists.
+Thus, now we have got a behaviour of taking from the freelists of the
+buddy, and freeing into the pcp lists, which forces pcp draining into the
+freelists. By playing with the following code in mm/page_alloc.c:
+
+	high = nr_pcp_high(pcp, zone, batch, free_high);
+	if (pcp->count < high)
+		return;
+The time taken by the test is highly sensitive to the value returned by
+nr_pcp_high (although, increasing the value of high does not reduce the
+regression).
+
+Summarizing, the regression is due to messing up the state of the buddy
+system by rapidly stealing from the freelists and not giving back to them.
+
+If we insert an msleep(1) just before we vfree() both the regions, the
+regression reduces. If we reduce the number of iterations in the test, the
+regression is gone. This proves that the regression is due to the unnatural
+behaviour of the test - it allocates memory, does absolutely nothing with
+that memory, and releases it. No workload is expected to map memory without
+actually utilizing it for some time. The time between vmalloc() and vfree()
+will give time for the buddy to stabilize, and the regression is
+eliminated.
+
+The optimization is observed in fix_size_alloc_test with nr_pages = 512,
+because both vmalloc() and vfree() will now operate to and from the pcp.
 
 Signed-off-by: Dev Jain <dev.jain@arm.com>
 ---
- mm/vmalloc.c | 38 ++++++++++++++++++++++++++++++--------
- 1 file changed, 30 insertions(+), 8 deletions(-)
+ arch/arm64/include/asm/vmalloc.h | 6 ++++++
+ arch/arm64/mm/pageattr.c         | 4 +---
+ include/linux/vmalloc.h          | 7 +++++++
+ mm/vmalloc.c                     | 5 ++++-
+ 4 files changed, 18 insertions(+), 4 deletions(-)
 
+diff --git a/arch/arm64/include/asm/vmalloc.h b/arch/arm64/include/asm/vmalloc.h
+index 4ec1acd3c1b3..c72ae9bd7360 100644
+--- a/arch/arm64/include/asm/vmalloc.h
++++ b/arch/arm64/include/asm/vmalloc.h
+@@ -6,6 +6,12 @@
+ 
+ #ifdef CONFIG_HAVE_ARCH_HUGE_VMAP
+ 
++#define arch_wants_vmalloc_huge_always arch_wants_vmalloc_huge_always
++static inline bool arch_wants_vmalloc_huge_always(void)
++{
++	return system_supports_bbml2_noabort();
++}
++
+ #define arch_vmap_pud_supported arch_vmap_pud_supported
+ static inline bool arch_vmap_pud_supported(pgprot_t prot)
+ {
+diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+index f0e784b963e6..eddbc202ffdd 100644
+--- a/arch/arm64/mm/pageattr.c
++++ b/arch/arm64/mm/pageattr.c
+@@ -163,8 +163,6 @@ static int change_memory_common(unsigned long addr, int numpages,
+ 	 * we are operating on does not result in such splitting.
+ 	 *
+ 	 * Let's restrict ourselves to mappings created by vmalloc (or vmap).
+-	 * Disallow VM_ALLOW_HUGE_VMAP mappings to guarantee that only page
+-	 * mappings are updated and splitting is never needed.
+ 	 *
+ 	 * So check whether the [addr, addr + size) interval is entirely
+ 	 * covered by precisely one VM area that has the VM_ALLOC flag set.
+@@ -172,7 +170,7 @@ static int change_memory_common(unsigned long addr, int numpages,
+ 	area = find_vm_area((void *)addr);
+ 	if (!area ||
+ 	    end > (unsigned long)kasan_reset_tag(area->addr) + area->size ||
+-	    ((area->flags & (VM_ALLOC | VM_ALLOW_HUGE_VMAP)) != VM_ALLOC))
++	    ((area->flags & VM_ALLOC) != VM_ALLOC))
+ 		return -EINVAL;
+ 
+ 	if (!numpages)
+diff --git a/include/linux/vmalloc.h b/include/linux/vmalloc.h
+index e8e94f90d686..59bd6ce96706 100644
+--- a/include/linux/vmalloc.h
++++ b/include/linux/vmalloc.h
+@@ -88,6 +88,13 @@ struct vmap_area {
+ 	unsigned long flags; /* mark type of vm_map_ram area */
+ };
+ 
++#ifndef arch_wants_vmalloc_huge_always
++static inline bool arch_wants_vmalloc_huge_always(void)
++{
++	return false;
++}
++#endif
++
+ /* archs that select HAVE_ARCH_HUGE_VMAP should override one or more of these */
+ #ifndef arch_vmap_p4d_supported
+ static inline bool arch_vmap_p4d_supported(pgprot_t prot)
 diff --git a/mm/vmalloc.c b/mm/vmalloc.c
-index ecbac900c35f..389225a6f7ef 100644
+index 389225a6f7ef..88004e803adc 100644
 --- a/mm/vmalloc.c
 +++ b/mm/vmalloc.c
-@@ -654,7 +654,7 @@ static int vmap_small_pages_range_noflush(unsigned long addr, unsigned long end,
- int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
- 		pgprot_t prot, struct page **pages, unsigned int page_shift)
- {
--	unsigned int i, nr = (end - addr) >> PAGE_SHIFT;
-+	unsigned int i, step, nr = (end - addr) >> PAGE_SHIFT;
- 
- 	WARN_ON(page_shift < PAGE_SHIFT);
- 
-@@ -662,7 +662,8 @@ int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
- 			page_shift == PAGE_SHIFT)
- 		return vmap_small_pages_range_noflush(addr, end, prot, pages);
- 
--	for (i = 0; i < nr; i += 1U << (page_shift - PAGE_SHIFT)) {
-+	step = 1U << (page_shift - PAGE_SHIFT);
-+	for (i = 0; i < ALIGN_DOWN(nr, step); i += step) {
- 		int err;
- 
- 		err = vmap_range_noflush(addr, addr + (1UL << page_shift),
-@@ -673,8 +674,9 @@ int __vmap_pages_range_noflush(unsigned long addr, unsigned long end,
- 
- 		addr += 1UL << page_shift;
- 	}
--
--	return 0;
-+	if (IS_ALIGNED(nr, step))
-+		return 0;
-+	return vmap_small_pages_range_noflush(addr, end, prot, pages + i);
- }
- 
- int vmap_pages_range_noflush(unsigned long addr, unsigned long end,
-@@ -3197,7 +3199,7 @@ struct vm_struct *__get_vm_area_node(unsigned long size,
- 	unsigned long requested_size = size;
- 
- 	BUG_ON(in_interrupt());
--	size = ALIGN(size, 1ul << shift);
-+	size = PAGE_ALIGN(size);
- 	if (unlikely(!size))
+@@ -4011,7 +4011,7 @@ void *__vmalloc_node_range_noprof(unsigned long size, unsigned long align,
  		return NULL;
- 
-@@ -3353,7 +3355,7 @@ static void vm_reset_perms(struct vm_struct *area)
- 	 * Find the start and end range of the direct mappings to make sure that
- 	 * the vm_unmap_aliases() flush includes the direct map.
- 	 */
--	for (i = 0; i < area->nr_pages; i += 1U << page_order) {
-+	for (i = 0; i < ALIGN_DOWN(area->nr_pages, 1U << page_order); i += (1U << page_order)) {
- 		unsigned long addr = (unsigned long)page_address(area->pages[i]);
- 
- 		if (addr) {
-@@ -3365,6 +3367,18 @@ static void vm_reset_perms(struct vm_struct *area)
- 			flush_dmap = 1;
- 		}
- 	}
-+	for (; i < area->nr_pages; ++i) {
-+		unsigned long addr = (unsigned long)page_address(area->pages[i]);
-+
-+		if (addr) {
-+			unsigned long page_size;
-+
-+			page_size = PAGE_SIZE;
-+			start = min(addr, start);
-+			end = max(addr + page_size, end);
-+			flush_dmap = 1;
-+		}
-+	}
- 
- 	/*
- 	 * Set direct map to something invalid so that it won't be cached if
-@@ -3673,6 +3687,7 @@ vm_area_alloc_pages(gfp_t gfp, int nid,
- 	 * more permissive.
- 	 */
- 	if (!order) {
-+single_page:
- 		while (nr_allocated < nr_pages) {
- 			unsigned int nr, nr_pages_request;
- 
-@@ -3704,13 +3719,18 @@ vm_area_alloc_pages(gfp_t gfp, int nid,
- 			 * If zero or pages were obtained partly,
- 			 * fallback to a single page allocator.
- 			 */
--			if (nr != nr_pages_request)
-+			if (nr != nr_pages_request) {
-+				order = 0;
- 				break;
-+			}
- 		}
  	}
  
- 	/* High-order pages or fallback path if "bulk" fails. */
- 	while (nr_allocated < nr_pages) {
-+		if (nr_pages - nr_allocated < (1UL << order)) {
-+			goto single_page;
-+		}
- 		if (!(gfp & __GFP_NOFAIL) && fatal_signal_pending(current))
- 			break;
+-	if (vmap_allow_huge && (vm_flags & VM_ALLOW_HUGE_VMAP)) {
++	if (vmap_allow_huge && ((arch_wants_vmalloc_huge_always()) || (vm_flags & VM_ALLOW_HUGE_VMAP))) {
+ 		/*
+ 		 * Try huge pages. Only try for PAGE_KERNEL allocations,
+ 		 * others like modules don't yet expect huge pages in
+@@ -4025,6 +4025,9 @@ void *__vmalloc_node_range_noprof(unsigned long size, unsigned long align,
+ 			shift = arch_vmap_pte_supported_shift(size);
  
-@@ -5179,7 +5199,9 @@ static void show_numa_info(struct seq_file *m, struct vm_struct *v,
+ 		align = max(original_align, 1UL << shift);
++
++		/* If arch wants huge by default, set flag unconditionally */
++		vm_flags |= VM_ALLOW_HUGE_VMAP;
+ 	}
  
- 	memset(counters, 0, nr_node_ids * sizeof(unsigned int));
- 
--	for (nr = 0; nr < v->nr_pages; nr += step)
-+	for (nr = 0; nr < ALIGN_DOWN(v->nr_pages, step); nr += step)
-+		counters[page_to_nid(v->pages[nr])] += step;
-+	for (; nr < v->nr_pages; ++nr)
- 		counters[page_to_nid(v->pages[nr])] += step;
- 	for_each_node_state(nr, N_HIGH_MEMORY)
- 		if (counters[nr])
+ again:
 -- 
 2.30.2
 
