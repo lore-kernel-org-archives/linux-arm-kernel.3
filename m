@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB696D44145
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 08:20:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3AEDD44146
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 08:22:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bx3izqpclTeCfVzaHUGIs0/GDt1YX3DUPbWkXZVyF2k=; b=TLonJopJNISa+OcUuJW7lAfGWa
-	Z84SqwmvsfWJRAgEqwlc7Abe9rU2Y43B5Quu7D1rZ+mo1SpzmiMfIzCJBrlJfdLlsfNRHTwQjS8+6
-	qzWhEYu/+RMPX0burCOBJeFXCRZ6AdCoPpCiQSm5ro4PaNeelGYRKBn85lx+vs+IYL4gl9SyCzMC1
-	bWMLOREMr1+JRvIzNMaf9xj/c2EDitFiapB2bs+nzWJo8bFY7iLo/T+E0lwHp74hcaH+J05W7G7Bn
-	3PO8abiMBIM4dfSscl6w7IuZp2MxEYaiXx+OBYqmT9ct+t5aQNDP1gCtMQueQXSMWdGV8l+QqlIrd
-	jfFRRJAg==;
+	bh=CIeOoV1rEulT5zVzRkYWCK39r2OiDMtGD9vgYSrvjJU=; b=GXz6CP6Qp1FZ0W9+i0THbka2Vv
+	bbOF+nlW9fBAwVTmlEyI3in9m/a64D/hVZ7ktjTHZ6xbXALtpcbW+utLVuvtiWCsYMbH3InMYqPEm
+	JCTS5TbggVJ4yYCFbBzGM1DgAE1BRX2imPpZbn46Er9a70UVO35B8Z4DmAvKK5CLXPuDp/DhSbxu2
+	omLPwm3SWZtQFhxqW/oKb2CmfpCpMZ8OapgyakkPdrQhJ67m5vv5yFUrIE47wEBPse6J4ltt8BSqQ
+	W62f+DhZ4PhEfqZzWBMI+OTJM6SvCTPh8ZoJ6SxuxTVMpu2fkxbaKDpM5/ZD2QcTnu+HiO4kILvUU
+	nBcmh/UQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTyOS-00000000Fvx-48fh;
-	Fri, 12 Dec 2025 08:20:52 +0000
+	id 1vTyPv-00000000G5X-1Wxg;
+	Fri, 12 Dec 2025 08:22:23 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTyOR-00000000Fvl-3IaS
+	id 1vTyPu-00000000G5P-189X
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 08:20:51 +0000
+	Fri, 12 Dec 2025 08:22:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E6A10600C3;
-	Fri, 12 Dec 2025 08:20:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F9A6C4CEF1;
-	Fri, 12 Dec 2025 08:20:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id AEF9D600C3;
+	Fri, 12 Dec 2025 08:22:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA22FC4CEF1;
+	Fri, 12 Dec 2025 08:22:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765527650;
-	bh=Xou53jiBQo9ysRj18wzsAyfyw/eH3lkYRVNejIVVlAg=;
+	s=k20201202; t=1765527741;
+	bh=8oDqilr9Yuyz/KLO/4N+MW/6rShPklfg64mSLOz4/K0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Dx5DDZza6H1mti9vaxZl65HrR80E8WnQIPcedB8ieEqtVqJESO22i5rTWouxXjy5Q
-	 QKMPJMl7cM32PbArkRDhgUfdbZ+BM8l+GJJjSOKKiEECOElweQwViXNbXegXtBbEVn
-	 o1paCSAmN9CdjBdevFR0kbi3G9+m6sHOCRCl5IofzscAWlfnAOmA/P3KgmkpP4y+S1
-	 bSc4R2brBCJ65c6yssDYrIP4NIuCj3YmjHfOYFwsNEVysai8VzleQlqqpvO9eW5cHo
-	 3d42huWeBykYwfW46GAkTap34ERuLhiBRZANieA1VMqM+FWCa4vNYoFqnv82ogpqQJ
-	 tNwY0hkYtFNIg==
-Message-ID: <019aa49f-fe59-488d-aff8-f07cf07ee68d@kernel.org>
-Date: Fri, 12 Dec 2025 09:20:43 +0100
+	b=uafR4QfSZiUrnDMiMddpKEkSC8tD30xPjAM49K02OT/uaJSMpiG1JlCahvhFA3cLE
+	 fnLHx9pZBu7MgPK3bxI5w9smPEBc8XGkKUSWO1ArWSsLs4lNYXh0fuUggcrZLGiWed
+	 S0cx0TPnKF33mYJrqS80wZ4O4DXizrEv7XFfy5FhsPuiVmFmRsl9IiYamtT58Wlfwb
+	 UNx50IkM7KkOy+3DGJ0YEX6TTf+xgXf9kJDGPjBOUA7zjGRdS4aGeEfWgrBpJSkeLU
+	 xuoblsociYy/bJrTeLI156How0+Pgx9yo+nCv/izWJz90x0beP7YKQOu/o0za2zEQT
+	 CDG28tegoJftw==
+Message-ID: <160d61b0-7819-4566-9543-2dabec226713@kernel.org>
+Date: Fri, 12 Dec 2025 09:22:13 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/8] dt-bindings: watchdog: Add AAEON embedded controller
- watchdog binding
+Subject: Re: [PATCH 4/8] dt-bindings: mfd: Add AAEON embedded controller
+ binding
 To: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Linus Walleij <linusw@kernel.org>,
@@ -63,7 +63,7 @@ Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-watchdog@vger.kernel.org,
  Thomas Petazzoni <thomas.petazzoni@bootlin.com>
 References: <20251212-dev-b4-aaeon-mcu-driver-v1-0-6bd65bc8ef12@bootlin.com>
- <20251212-dev-b4-aaeon-mcu-driver-v1-3-6bd65bc8ef12@bootlin.com>
+ <20251212-dev-b4-aaeon-mcu-driver-v1-4-6bd65bc8ef12@bootlin.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,9 +109,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251212-dev-b4-aaeon-mcu-driver-v1-3-6bd65bc8ef12@bootlin.com>
+In-Reply-To: <20251212-dev-b4-aaeon-mcu-driver-v1-4-6bd65bc8ef12@bootlin.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,19 +127,77 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 12/12/2025 08:41, Thomas Perrot (Schneider Electric) wrote:
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    watchdog {
-> +      compatible = "aaeon,srg-imx8pl-wdt";
+> Add device tree binding documentation for the AAEON embedded controller
+> (MCU). This microcontroller is found on AAEON embedded boards and provides
+> system features such as GPIO control, watchdog timer, and LED management.
 
-No, that was discussed many times on the mailing list already. Fold the
-child into the parent. Your driver model really do not matter for DT.
+A nit, subject: drop second/last, redundant "binding". The "dt-bindings"
+prefix is already stating that these are bindings.
+See also:
+https://elixir.bootlin.com/linux/v6.17-rc3/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
 
-> +    };
 > 
+> The MCU is connected via I2C and acts as a multi-function device with
+> GPIO and watchdog as child nodes.
+> 
+> Signed-off-by: Thomas Perrot (Schneider Electric) <thomas.perrot@bootlin.com>
+> ---
+>  .../bindings/mfd/aaeon,srg-imx8pl-mcu.yaml         | 58 ++++++++++++++++++++++
+>  1 file changed, 58 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/mfd/aaeon,srg-imx8pl-mcu.yaml b/Documentation/devicetree/bindings/mfd/aaeon,srg-imx8pl-mcu.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..680d06a7e7cb3754bdfc67a1b8c484811eba55d1
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/mfd/aaeon,srg-imx8pl-mcu.yaml
+> @@ -0,0 +1,58 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/mfd/aaeon,srg-imx8pl-mcu.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: AAEON Embedded Controller
+> +
+> +maintainers:
+> +  - Jérémie Dautheribes <jeremie.dautheribes@bootlin.com>
+> +  - Thomas Perrot <thomas.perrot@bootlin.com>
+> +
+> +description: |
+
+Do not need '|' unless you need to preserve formatting.
+
+> +  AAEON embeds a microcontroller on their embedded boards providing system
+> +  features such as GPIO control, watchdog timer, and LED management.
+> +  The MCU is connected via I2C bus.
+> +
+> +properties:
+> +  compatible:
+> +    const: aaeon,srg-imx8pl-mcu
+
+What is srg? Why isn't this explained anywhere here?
+
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  gpio:
+
+Drop the child, properties go here directly.
+
+> +    $ref: /schemas/gpio/aaeon,srg-imx8pl-gpio.yaml
+> +
+> +  watchdog:
+
+Same here
+
+> +    $ref: /schemas/watchdog/aaeon,srg-imx8pl-wdt.yaml
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+
 
 
 Best regards,
