@@ -4,56 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B87DED4415D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 09:40:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39E97D4415D
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 09:50:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qeE2YLqv0KKyO0eVbQQKbqUPBiIkCwWWviiC5hUVnVo=; b=DZlhQK3wkhMkjVwdd+NjkyWgdF
-	EM/KImXsNXT/tTFHv6UGFZPSf4IOa0L0qTl38ehrwd2p0XR4joGsXEmPRf6j8XfMAEnyEcSc+FyOo
-	Xo4oAOGto5VrWJVO5cneqvNl8J0Fy2Fb5xIDOAZpcihCGWGuyvwqKT1t9p2zBFomKqPQWDjrxhkm7
-	ubTmrCAh9mBOCef4BcsK4iUT6bRlQscZ2rsL6eiaeg6E/ynNflGg7kKQBuJns9pS8Wofruv69M1OI
-	ql9S+ezMdD3gSzFTkuG4kVxP3/5/JU4GKmdCMxZUdzeC5h3hJ6B2kNkVZNNgrwtKXuXhYxSd5kdkO
-	f8bdCdew==;
+	bh=/JoADxwTlCFlMdoVdiASROBTQXFjj7bUx5x7/f0Qoeo=; b=Uqlum2nTFPs7H/leuU54t6sKue
+	JLrMmYm5vkPeeJZCa4qrEOtMWcg4KZ3SA8Ys4q4dnUUn1mHS5NOcg4PGsqswtF2gpZx1c2ZBCXO4A
+	CPiDm25s1UyNsylkK46JFneKgnVvDHsNwJ1zL68Zkx9gjRtH5oIQVzoL7tgV/g7PBdRO9gXh12kLH
+	amE5ENj1YVr3971XenTE8D5oIAoCoxEP28oXbsBVyO3p8DbeUCMf93Apqe31kAQ9gwF7bN4TnPFTR
+	UUnY+19Qsi11bwklYU+1OoB/LW0iWfobRt1ivcAcwTPBoq3tP6pecsUjxoWMF4qeiTULDw2KbVwQa
+	eNNCdGiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTzcy-00000000Msv-2w6D;
-	Fri, 12 Dec 2025 09:39:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTzcw-00000000MsU-0xVD
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 09:39:55 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5AB9C1063;
-	Fri, 12 Dec 2025 01:39:41 -0800 (PST)
-Received: from raptor (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 99A143F73B;
-	Fri, 12 Dec 2025 01:39:46 -0800 (PST)
-Date: Fri, 12 Dec 2025 09:39:43 +0000
-From: Alexandru Elisei <alexandru.elisei@arm.com>
-To: Leo Yan <leo.yan@arm.com>
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, will@kernel.org,
-	catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, james.clark@linaro.org,
-	mark.rutland@arm.com, james.morse@arm.com
-Subject: Re: [RFC PATCH v6 01/35] arm64/sysreg: Add new SPE fields
-Message-ID: <aTvi33vLZU5S9CoM@raptor>
-References: <20251114160717.163230-1-alexandru.elisei@arm.com>
- <20251114160717.163230-2-alexandru.elisei@arm.com>
- <20251210183827.GA3920451@e132581.arm.com>
+	id 1vTznE-00000000NM2-3H40;
+	Fri, 12 Dec 2025 09:50:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vTznC-00000000NLr-3vKZ;
+	Fri, 12 Dec 2025 09:50:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C1BCE600C3;
+	Fri, 12 Dec 2025 09:50:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA246C4CEF1;
+	Fri, 12 Dec 2025 09:50:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765533029;
+	bh=BbMk3VZO8JSPX3mqFQ3xSr2dm1e9Voyl+YIkL1dgU30=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=P83BBtcwn8VRMW8mrTMtnelM8ub8sDcdXaW1Wrl+3Vnd0frCRvdKHolhpr5F1IoVU
+	 PuvKvLZg4jsnrBK851fJ44pF9CJsoiyukT/iCuHdS9Mh8+onaR23JD6gz0plDVaX+d
+	 PGEAdqiy4UzxDLpF5I+2TdGsA9OJAPdpRrFCoDX6hPuz/rvaEqx6BdtXgeMRJJ8+YH
+	 jJ3U+c2jemjYTAs1NJedrPjBYip9TLW8dFAJk/3N7Au+8bVJxxwfENwFrXXdxz2M6T
+	 bJgww4x2Lyx+IppbJyLrwVs3/cpHGzEPtgENaZ0oOHsCHB2k1dANt7oQ5ChQAl3WMB
+	 QEMERfbBkCWDQ==
+Date: Fri, 12 Dec 2025 10:50:26 +0100
+From: Maxime Ripard <mripard@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
+	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
+	Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Sandy Huang <hjc@rock-chips.com>, 
+	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, 
+	Jani Nikula <jani.nikula@linux.intel.com>, Rodrigo Vivi <rodrigo.vivi@intel.com>, 
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Rob Herring <robh@kernel.org>, kernel@collabora.com, amd-gfx@lists.freedesktop.org, 
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org
+Subject: Re: [PATCH v5 04/17] drm/bridge: Act on the DRM color format property
+Message-ID: <20251212-hidden-armored-mule-66dd32@penduick>
+References: <20251128-color-format-v5-0-63e82f1db1e1@collabora.com>
+ <20251128-color-format-v5-4-63e82f1db1e1@collabora.com>
+ <20251209-smart-oarfish-of-wind-0c1c8b@houat>
+ <3772903.e9J7NaK4W3@workhorse>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="djhkclvbsznn62pt"
 Content-Disposition: inline
-In-Reply-To: <20251210183827.GA3920451@e132581.arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_013954_312685_040C70B0 
-X-CRM114-Status: UNSURE (   9.56  )
-X-CRM114-Notice: Please train this message.
+In-Reply-To: <3772903.e9J7NaK4W3@workhorse>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,42 +85,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo,
 
-On Wed, Dec 10, 2025 at 06:38:27PM +0000, Leo Yan wrote:
-> On Fri, Nov 14, 2025 at 04:06:42PM +0000, Alexandru Elisei wrote:
-> 
-> [...]
-> 
-> >  Sysreg	PMBIDR_EL1	3	0	9	10	7
-> > -Res0	63:12
-> > +Res0	63:48
-> > +Field	47:32	MaxBuffSize
-> > +Res0	31:12
-> >  Enum	11:8	EA
-> >  	0b0000	NotDescribed
-> >  	0b0001	Ignored
-> >  	0b0010	SError
-> >  EndEnum
-> > -Res0	7:6
-> > +Enum	7:6	AddrMode
-> > +	0b00	VM_ONLY
-> > +	0b01	BOTH
-> > +	0b10	RESERVED
-> > +	0b11	nVM_ONLY
-> > +EndEnum
-> 
-> Not sure how to select the enum names, but seems names above don't match
-> well to the definitions.  How about:
-> 
->   Enum  7:6     AddrMode
->         0b00    VA_ONLY         // Virtual address only
->         0b01    VA_PA           // Virtual and physical address supported
->         0b10    RESERVED
->         0b11    VM_PA_ONLY      // Physical address only in VM
+--djhkclvbsznn62pt
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v5 04/17] drm/bridge: Act on the DRM color format property
+MIME-Version: 1.0
 
-Why not, but I would name the last value PA_ONLY.
+On Thu, Dec 11, 2025 at 08:34:22PM +0100, Nicolas Frattaroli wrote:
+> On Tuesday, 9 December 2025 15:27:28 Central European Standard Time Maxim=
+e Ripard wrote:
+> > On Fri, Nov 28, 2025 at 10:05:40PM +0100, Nicolas Frattaroli wrote:
+> > > The new DRM color format property allows userspace to request a speci=
+fic
+> > > color format on a connector. In turn, this fills the connector state's
+> > > color_format member to switch color formats.
+> > >=20
+> > > Make drm_bridges consider the color_format set in the connector state
+> > > during the atomic bridge check. Specifically, reject any output bus
+> > > formats that do not correspond to the requested color format.
+> > >=20
+> > > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > > ---
+> > >  drivers/gpu/drm/drm_bridge.c | 45 ++++++++++++++++++++++++++++++++++=
+++++++++++
+> > >  1 file changed, 45 insertions(+)
+> > >=20
+> > > diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridg=
+e.c
+> > > index 8f355df883d8..8aac9747f35e 100644
+> > > --- a/drivers/gpu/drm/drm_bridge.c
+> > > +++ b/drivers/gpu/drm/drm_bridge.c
+> > > @@ -1052,6 +1052,47 @@ static int select_bus_fmt_recursive(struct drm=
+_bridge *first_bridge,
+> > >  	return ret;
+> > >  }
+> > > =20
+> > > +static bool __pure bus_format_is_color_fmt(u32 bus_fmt, enum drm_col=
+or_format fmt)
+> > > +{
+> > > +	if (fmt =3D=3D DRM_COLOR_FORMAT_AUTO)
+> > > +		return true;
+> > > +
+> > > +	switch (bus_fmt) {
+> > > +	case MEDIA_BUS_FMT_FIXED:
+> > > +		return true;
+> > > +	case MEDIA_BUS_FMT_RGB888_1X24:
+> > > +	case MEDIA_BUS_FMT_RGB101010_1X30:
+> > > +	case MEDIA_BUS_FMT_RGB121212_1X36:
+> > > +	case MEDIA_BUS_FMT_RGB161616_1X48:
+> > > +		return fmt =3D=3D DRM_COLOR_FORMAT_RGB444;
+> > > +	case MEDIA_BUS_FMT_YUV8_1X24:
+> > > +	case MEDIA_BUS_FMT_YUV10_1X30:
+> > > +	case MEDIA_BUS_FMT_YUV12_1X36:
+> > > +	case MEDIA_BUS_FMT_YUV16_1X48:
+> > > +		return fmt =3D=3D DRM_COLOR_FORMAT_YCBCR444;
+> > > +	case MEDIA_BUS_FMT_UYVY8_1X16:
+> > > +	case MEDIA_BUS_FMT_VYUY8_1X16:
+> > > +	case MEDIA_BUS_FMT_YUYV8_1X16:
+> > > +	case MEDIA_BUS_FMT_YVYU8_1X16:
+> > > +	case MEDIA_BUS_FMT_UYVY10_1X20:
+> > > +	case MEDIA_BUS_FMT_YUYV10_1X20:
+> > > +	case MEDIA_BUS_FMT_VYUY10_1X20:
+> > > +	case MEDIA_BUS_FMT_YVYU10_1X20:
+> > > +	case MEDIA_BUS_FMT_UYVY12_1X24:
+> > > +	case MEDIA_BUS_FMT_VYUY12_1X24:
+> > > +	case MEDIA_BUS_FMT_YUYV12_1X24:
+> > > +	case MEDIA_BUS_FMT_YVYU12_1X24:
+> > > +		return fmt =3D=3D DRM_COLOR_FORMAT_YCBCR422;
+> > > +	case MEDIA_BUS_FMT_UYYVYY8_0_5X24:
+> > > +	case MEDIA_BUS_FMT_UYYVYY10_0_5X30:
+> > > +	case MEDIA_BUS_FMT_UYYVYY12_0_5X36:
+> > > +	case MEDIA_BUS_FMT_UYYVYY16_0_5X48:
+> > > +		return fmt =3D=3D DRM_COLOR_FORMAT_YCBCR420;
+> > > +	default:
+> > > +		return false;
+> > > +	}
+> > > +}
+> > > +
+> > >  /*
+> > >   * This function is called by &drm_atomic_bridge_chain_check() just =
+before
+> > >   * calling &drm_bridge_funcs.atomic_check() on all elements of the c=
+hain.
+> > > @@ -1137,6 +1178,10 @@ drm_atomic_bridge_chain_select_bus_fmts(struct=
+ drm_bridge *bridge,
+> > >  	}
+> > > =20
+> > >  	for (i =3D 0; i < num_out_bus_fmts; i++) {
+> > > +		if (!bus_format_is_color_fmt(out_bus_fmts[i], conn_state->color_fo=
+rmat)) {
+> > > +			ret =3D -ENOTSUPP;
+> > > +			continue;
+> > > +		}
+> >=20
+> > Sorry, I'm struggling a bit to understand how this would work if a brid=
+ge both supports the bus
+> > format selection and HDMI state helpers? Can you expand on it?
+>=20
+> I have very little idea of whether this makes conceptual sense.
 
-Thanks,
-Alex
+=2E. I wasn't asking you if it makes sense, I was asking you to explain
+how you wanted it to work.
+
+> The hope is that by working backwards from the last bridge and only
+> accepting either fixed formats or something that corresponds to the
+> target color format, we don't claim that a setup can do a colour
+> format if the whole bridge chain isn't able to do it.
+>=20
+> Of course, format conversions along the bridge chain where one
+> input format can be converted to a set of output formats by some
+> bridge will throw a massive wrench into this. And this is all
+> assuming that the bus format is in any way related to the color
+> format that will be sent out on the wire.
+
+I'm not really concerned about this. As we move more and more bridges to
+the state helpers, we can always fix it, but it needs at the very least
+to document how you envision the whole thing to work, and ideally have
+bunch of tests to make sure it still does.
+
+> In practice, I don't have any hardware where whatever counts as
+> a "bridge" is an actually more involved setup than just the TX
+> controller. I tried looking into getting a board with one of the
+> supported DSI-to-HDMI bridge chips so I can at least test how it
+> would work in such a scenario, and I got one, but I'd need to make
+> my own flat flex PCB to adapt it to the pinout of my SBC's DSI
+> port.
+>=20
+> So yeah I don't know how it's supposed to work, I just know this
+> works for the case I'm working with, and any more complex case
+> is literally unobtanium hardware which I'm not going to bother
+> blowing days on maybe making a cable for when I'm already touching
+> three different GPU drivers here and the intel-gfx-ci is screaming
+> into my inbox about vague failures in unrelated codepaths in its
+> native language, Klingon.
+
+That's uncalled for.
+
+> Which is all to say: is there a virtual drm bridge driver that
+> exists, where I can set what formats it supports on the input
+> and on the output, so that I can actually get a feel for how this
+> is conceptually supposed to work without needing special hardware?
+
+If your question is "do we have a way to replicate and test an arbitrary
+setup to check how it behaves?", then yes, we do, it's what we're doing
+in kunit. But you don't seem too fond of those.
+
+> Better yet: do you have a specific setup in mind where you know
+> this approach does not work?
+
+Look. I was asking a genuine question. If you want to get all defensive
+about it, go ahead. But sending a series implementing something with a
+lot of history, complex interactions, etc. and then expecting it to be a
+breeze that will get merged in a few revisions is not going to work.
+
+Pushing back when asked to follow our documented rules, or being
+dismissive when asked design questions is not going to help you push
+this forward. If anything, and because it's complex, the more tests you
+add the better because we A) know it works in a specific set of cases,
+and B) know it will still work going forward.
+
+I'm sure you know what you're doing, but so do we.
+
+Maxime
+
+--djhkclvbsznn62pt
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaTvlYQAKCRAnX84Zoj2+
+ds9AAYDpOz10nKcMKLPyibtdEtuyeNgvyiyX8WQbWHjsrkDdfOtvubUe7UL7QZyF
+z6LSrbIBfiVlJYqUrlofT80/bn/ebB/XyO+7ZvgSHoVicdQmR+HGHYkOnC9I7W5s
+3S7XAmFmBQ==
+=a739
+-----END PGP SIGNATURE-----
+
+--djhkclvbsznn62pt--
 
