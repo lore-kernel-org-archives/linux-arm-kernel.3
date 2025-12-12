@@ -4,145 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 238BCD43371
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 06:08:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08080D43369
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 06:12:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C5C7BbNbxkCycrp6WS3b6f8CAENtqWpmuc1Dj+Qmq5A=; b=ab1AOq6CGWNicB2LlKg13qoy0O
-	diFvzTLfdSgkqKWNkbUXhs2E+JxG+jAl+jQybWGIpMhDju/j5RDEtGD9H8Ft9UsjQ9NAFqPAsUmEf
-	sgNdz9N+oVuy5DnWSe8VLSx0rl9IK1FsIwKXImZTNyFgnCxfnVWcNpy7oGm7hXk9G5t40XpLPb6H1
-	hbzsAf61o1nIJ/j3HCLJvNHj3VwXUeqP0mYaYOubB04kxyEuELJ/RSxNXCtzaa2FseUNUM42Lu+SK
-	CRhRnICZW1DcBGTVGCLUe4Dg5KDYpb9f23sDIMDg8i+Dtyz058BnA4Vfu/iU7q8VjFb2dGLQ4jX1G
-	pt7jhHig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tguberSfCkZI5bjsxXDvzMFEZt1a4W4d2EaDprlMu9E=; b=ZxPFM8f+nujWfMuSDTz9v5lk5+
+	M+VVOSfU1+HlzzsRTUFf3xr+eF+EdVnAKdguoA721+VoeYZp+fVNvxK0iL9LZaWuIY7Ng9tMNhfQc
+	gwPDjSJxsgodwErDGYQ19FFdp87WvagT+3ueilcSh71HX027PXDfEcvUO4qVTtPM11qwrKBeVdEUM
+	XV9G64QqwvrpqUqPCByzqDfygpgsVc8w4ER1CGaq0s9tHTJaik2GcVEgGgHULqdgQzQfKsnBRivdX
+	G1vkeEngjTtukN2Kk07ZvL2bZzg4T1pKFYhaE8FS+NoWn0Pnt6Gbi6F4HZQeK9EdQGBSaoseHzqXl
+	hRGCqBKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTwKO-000000008fE-3kho;
-	Fri, 12 Dec 2025 06:08:32 +0000
-Received: from mail-northcentralusazon11013058.outbound.protection.outlook.com ([40.107.201.58] helo=CH4PR04CU002.outbound.protection.outlook.com)
+	id 1vTwOI-000000009Kb-1P1H;
+	Fri, 12 Dec 2025 06:12:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vTwKL-000000008cU-1N08
+	id 1vTwOH-000000009KV-1teC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 12 Dec 2025 06:08:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SuhPXyFmtFbmnjRfqXS0bOIrsNqylBqvUEGziOWxq+1jAV/5q18zm3PLuwPRT1lWueF9Dsi6vSjWj7TYdrfMH95slxPcGjiamBFaR7xujW9OTsL3vTua3ZKSDpBNOwy4/Dkmw4aK9vmbYqxwKquVuCfqy/5c8cjvQcXutNOoVOP8+7eCQF2yXxBpcwwtB5pSvPdO4RYKK/FiZijVUU8p4bIIvekpau+Vv7LKzLK0WtMAZj4ATXd3WeXe8BhbOyXAz6+z+HNxCKE+XzN1q0uIgeW+ebc8YBD0ItTKCnBE2JBeqVJjGZE8tiqaG+eLC+XhuGQUKaCoXs1EBRbowRIacg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=C5C7BbNbxkCycrp6WS3b6f8CAENtqWpmuc1Dj+Qmq5A=;
- b=HPDCNJ5619SOs8trSPlkIpAVGcc0GCl3fy0I4XtswL6j5ykcefXT2d4Z9bIfKpBZdaBbCrw81c0v1vMUcaPjFnk8QgKExu04SOZPwUTD+moVy+VKLESFYW8/8kkupjHhGkyHwvKed1TPg5Dnp1NEeYdf2tNaGnRjlsSKsVxVzl1dGq6Zro/4p9/V7Mk8YPdp6lIR1SilBwnN17Mr+XcYonE+lSRu7NzW4xGhtnv4VWndDvcouIvU4mVImdYwHbxnrhsGcuflQS2ZVDOxwk5Qb+BnRykY/0GrCenNKRXgjr7MwIk2iggFZu1XaXI3wSl7LOiEJYznD+MBuHPxtOmcWQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=C5C7BbNbxkCycrp6WS3b6f8CAENtqWpmuc1Dj+Qmq5A=;
- b=hnqvnOrgUNCCfIxLEAUvLBap0X2gY6ZM4Sl/I9BAIIMd8E9kk0KfNE+wH+SgdjfnfmdPWUctgq6X6PayjlxBGWchXmCh97Pnj1epqaoPM8JLOricbhJ4OT+zfTixFEAkT7LRykYtjITE0JAsgS8dCCTVdcBRPFJ3DAEwN4pk5j+Vzu1PtEenXwSjdJsdlo18/9vG8vSMNjF2PRl6P+1XJmdvCiVr6fZ1OAVgKhnloIxP//S9T2qJgdXZR+cJZrJU3mHeqB2JScAAbbfDX1cVKPmZ2W3DfKzBBmNIiVIgqF7zhykEIOtpC9BsXLXHRiY5VbzyQUXq0qnEXwTaLurihQ==
-Received: from BYAPR06CA0014.namprd06.prod.outlook.com (2603:10b6:a03:d4::27)
- by IA1PR12MB6577.namprd12.prod.outlook.com (2603:10b6:208:3a3::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.11; Fri, 12 Dec
- 2025 06:08:23 +0000
-Received: from SJ1PEPF00002314.namprd03.prod.outlook.com
- (2603:10b6:a03:d4:cafe::ad) by BYAPR06CA0014.outlook.office365.com
- (2603:10b6:a03:d4::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9412.9 via Frontend Transport; Fri,
- 12 Dec 2025 06:08:20 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- SJ1PEPF00002314.mail.protection.outlook.com (10.167.242.168) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9388.8 via Frontend Transport; Fri, 12 Dec 2025 06:08:22 +0000
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 11 Dec
- 2025 22:08:08 -0800
-Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail202.nvidia.com
- (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Thu, 11 Dec
- 2025 22:08:07 -0800
-Received: from build-amhetre-focal-20250825.internal (10.127.8.10) by
- mail.nvidia.com (10.129.68.7) with Microsoft SMTP Server id 15.2.2562.20 via
- Frontend Transport; Thu, 11 Dec 2025 22:08:07 -0800
-From: Ashish Mhetre <amhetre@nvidia.com>
-To: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<nicolinc@nvidia.com>
-CC: <thierry.reding@gmail.com>, <jonathanh@nvidia.com>, <vdumpa@nvidia.com>,
-	<jgg@ziepe.ca>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-tegra@vger.kernel.org>, Ashish Mhetre
-	<amhetre@nvidia.com>
-Subject: [PATCH V6 4/4] arm64: dts: nvidia: Add nodes for CMDQV
-Date: Fri, 12 Dec 2025 06:08:03 +0000
-Message-ID: <20251212060803.1712637-5-amhetre@nvidia.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20251212060803.1712637-1-amhetre@nvidia.com>
-References: <20251212060803.1712637-1-amhetre@nvidia.com>
+	Fri, 12 Dec 2025 06:12:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 58ECE60123;
+	Fri, 12 Dec 2025 06:12:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9964CC16AAE;
+	Fri, 12 Dec 2025 06:12:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765519952;
+	bh=tu35v5JnahKDsmp5vWzJfU95RMwm0sPSKcmBSUpkSDs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Szdrq9GDzcfXkTz1z+U+6vV8FIPOGzAfB01ToY0aURn2Eqmimse2bmGIiuHu9i6fZ
+	 jPdpVxBN2O5t9+uT3j1gdpDRQZQZ+tAuqGdPrKrCaTCFTLomVvogf6x5myDGhBhKO7
+	 6qhV6yNRgnZ6/NCpE4fiFWVwpKRZc7S/BfrQZQYITFzeIMEERG3TYrwsMnJTQqR98k
+	 jJFvZuwRYVhjsSklsVmrbEfb0LWxxaYs02uTYnTM6rXxYPyaOGyShTPWFLMhzN53Jx
+	 tFqp/3Gak1U44YAiDTbMJZB60eVjI6ASl1i7EZnKnX+qVpM2VfEept5Nw5F1kZtns5
+	 YJDDUN+dIcHoA==
+From: Sasha Levin <sashal@kernel.org>
+To: patches@lists.linux.dev,
+	stable@vger.kernel.org
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Sasha Levin <sashal@kernel.org>,
+	linux@armlinux.org.uk,
+	clrkwllms@kernel.org,
+	rostedt@goodmis.org,
+	nathan@kernel.org,
+	kees@kernel.org,
+	peterz@infradead.org,
+	lumag@kernel.org,
+	richard@nod.at,
+	chrisi.schrefl@gmail.com,
+	lukas.bulwahn@redhat.com,
+	afd@ti.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rt-devel@lists.linux.dev
+Subject: [PATCH AUTOSEL 6.18-5.10] ARM: 9461/1: Disable HIGHPTE on PREEMPT_RT kernels
+Date: Fri, 12 Dec 2025 01:12:12 -0500
+Message-ID: <20251212061223.305139-2-sashal@kernel.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251212061223.305139-1-sashal@kernel.org>
+References: <20251212061223.305139-1-sashal@kernel.org>
 MIME-Version: 1.0
-X-NVConfidentiality: public
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.18
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00002314:EE_|IA1PR12MB6577:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8c66b27b-f7d0-4671-b851-08de3944db05
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?zv0cOz4xopBRB8zGLCIiANBqx2ZvcAaXaZVJmZo9wo4HxId9Tf2neaxv5+nZ?=
- =?us-ascii?Q?l9pp0zuEStA5IO7TVxcb+RB8FfAaGPVGMXy9CYVZAxdsVTXLYBjKTfpwsTQF?=
- =?us-ascii?Q?doDDbss01Y0eI7yQdMAw1Y/wOMKaXzrfF82DV2HpSIdersffB46OaVuUZA78?=
- =?us-ascii?Q?wZflEyF2W4oguH2IaENJl/lHXPpMvemQCm1f9eJtIksjjfh45CZCE71OsPkD?=
- =?us-ascii?Q?Rdum6G0jsiJvm+iCOElPgxvxYRGYE9Uii2keLDBDXzBb15pcjVtSW400KLyL?=
- =?us-ascii?Q?afDsFANYeyurN82Wh1RX7yS5l2tZFzOyCbmOaHJ29PLlIchj4eJWwGmCCgKP?=
- =?us-ascii?Q?lxmD2t2dHCFExd6cixITx7wtLjAd2wOAZFs4r1RSVXRbdxGJvxCTPafFtn9W?=
- =?us-ascii?Q?l3LiXbqmDh4AX/N/HutVCIPGOAWnsREzzb0B18kkDSyr5J0AaztWZlrmeAkK?=
- =?us-ascii?Q?aLVuBi8jmrf+Zm5GmPL1XcHYuDlYzyJIVlnSKJTuolj8mw6ES5LYdwaiInQA?=
- =?us-ascii?Q?P6eIekxrOOUuY3Z60uo+Z62WkUn+qbE4yv3EO9oQO+ea9lFSe80kJz0njP18?=
- =?us-ascii?Q?jnmXyAtKoUi1Fozy1tKz874cjZj1JoNOKaTDc/RwGumF7ZJKP6orbY18YAyM?=
- =?us-ascii?Q?g2TEHT9PwnEZ0rIYHEGJqkxtli8bIOd/K17q3MRsPqUiA+D3GnV5f+eJ+agu?=
- =?us-ascii?Q?lqyDqK44Bj4QXyOpX3GF4Rp+8jaMgt8acU3yCluC7JoshYHGYdjzaaqak8bI?=
- =?us-ascii?Q?h0Q0yi0aYMUWxvrNn28t98zwSJkEstuHCiA9Lu8M658Zsys374Ubuy2v0aXp?=
- =?us-ascii?Q?DO7EseU5q7bDei+3NXB+csK5PrjZT+df3eTpzrSQyc4bLU0zlk5x9+4nmtPK?=
- =?us-ascii?Q?Lfirv+GgJzvrcPkLtSLapfsqlqU7ZATIAiFRl00UVTvdITvmcpFcDZLOTcQz?=
- =?us-ascii?Q?qXyZCYDFeEKRhL2ylj6ebAF0OurzsF2m9LKgmL8crImPc3arRXf097d9ME2X?=
- =?us-ascii?Q?vT6hdtryMwiu7JrgNH//FBXJllSEIPN90fIRMGpZ4U5wmBLsNbi2F0NthWRR?=
- =?us-ascii?Q?SQ2PtwWzy66nJUX/gOqkHzztfrxE1iYMN4hxTcXWVeoopFmAzHdF6sOfzNoT?=
- =?us-ascii?Q?13EPedAgqSHqTsJio8LYSIVID+QkHx61p1mS6joXe3kDAEtOMlYisHcmdYPy?=
- =?us-ascii?Q?FuP578AcbkphsGW9nCYjvZ4zoJpkXewAVmgUpYHL+wGA6UlOHR7rDjgK2ywq?=
- =?us-ascii?Q?ItxwSWcEVK+VcIDo2vUv8KoObqzqOkc7ctYIxiGXyUecRYV2uPrXKbevbN17?=
- =?us-ascii?Q?VI3R6MnnDrSbEi67vlfSzS5Ff9XoB7mTBeJPMO2cGSvGQb07IY79iEyesTOd?=
- =?us-ascii?Q?RMtY2BbfeSdjjo9CfAsoFd/ZFu4K0UKAxhHTMCg6jF/bi1lrWaKfi9Hk9boE?=
- =?us-ascii?Q?WvH9fwaipT+mkxu9V6MkVrmAgBBw8ph5AbI7IsBMrBHcytIYPzqtVmKx9taU?=
- =?us-ascii?Q?BkOO7yzvEpZBnHalfW59G44qvYV9KLSL2GitLL//PLGupmeYeJDWwpNcDBp7?=
- =?us-ascii?Q?lcUggDua+mUz2i0wC80=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Dec 2025 06:08:22.7013
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8c66b27b-f7d0-4671-b851-08de3944db05
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00002314.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6577
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251211_220829_366534_B4B86075 
-X-CRM114-Status: UNSURE (   9.90  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,160 +89,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Command Queue Virtualization (CMDQV) hardware is part of the
-SMMUv3 implementation on NVIDIA Tegra SoCs. It assists in
-virtualizing the command queue for the SMMU.
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 
-Update SMMU compatible strings to use nvidia,tegra264-smmu to enable
-CMDQV support. Add device tree nodes for the CMDQV hardware and enable
-them on the tegra264-p3834 platform where SMMUs are enabled. Each SMMU
-instance is paired with its corresponding CMDQV instance via the
-nvidia,cmdqv property.
+[ Upstream commit fedadc4137234c3d00c4785eeed3e747fe9036ae ]
 
-Signed-off-by: Ashish Mhetre <amhetre@nvidia.com>
+gup_pgd_range() is invoked with disabled interrupts and invokes
+__kmap_local_page_prot() via pte_offset_map(), gup_p4d_range().
+With HIGHPTE enabled, __kmap_local_page_prot() invokes kmap_high_get()
+which uses a spinlock_t via lock_kmap_any(). This leads to an
+sleeping-while-atomic error on PREEMPT_RT because spinlock_t becomes a
+sleeping lock and must not be acquired in atomic context.
+
+The loop in map_new_virtual() uses wait_queue_head_t for wake up which
+also is using a spinlock_t.
+
+Since HIGHPTE is rarely needed at all, turn it off for PREEMPT_RT
+to allow the use of get_user_pages_fast().
+
+[arnd: rework patch to turn off HIGHPTE instead of HAVE_PAST_GUP]
+
+Co-developed-by: Arnd Bergmann <arnd@arndb.de>
+
+Acked-by: Linus Walleij <linus.walleij@linaro.org>
+Reviewed-by: Arnd Bergmann <arnd@arndb.de>
+Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- .../arm64/boot/dts/nvidia/tegra264-p3834.dtsi |  8 +++
- arch/arm64/boot/dts/nvidia/tegra264.dtsi      | 50 +++++++++++++++++--
- 2 files changed, 53 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi b/arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi
-index 06795c82427a..7e2c3e66c2ab 100644
---- a/arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi
-+++ b/arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi
-@@ -23,8 +23,16 @@ iommu@5000000 {
- 			status = "okay";
- 		};
+LLM Generated explanations, may be completely bogus:
+
+# Commit Analysis: ARM: 9461/1: Disable HIGHPTE on PREEMPT_RT kernels
+
+## 1. COMMIT MESSAGE ANALYSIS
+
+**Problem identified**: The commit addresses a "sleeping-while-atomic"
+bug on PREEMPT_RT ARM kernels. The issue occurs because:
+- `gup_pgd_range()` runs with interrupts disabled (atomic context)
+- With HIGHPTE enabled, the code path calls `kmap_high_get()` which
+  acquires a `spinlock_t` via `lock_kmap_any()`
+- On PREEMPT_RT, `spinlock_t` becomes a sleeping lock (mutex)
+- Attempting to acquire a sleeping lock in atomic context is a bug
+
+**Tags present**:
+- Acked-by: Linus Walleij (ARM/pinctrl maintainer)
+- Reviewed-by: Arnd Bergmann (major ARM contributor)
+- Signed-off-by: Sebastian Andrzej Siewior (PREEMPT_RT maintainer)
+- Signed-off-by: Russell King (ARM maintainer)
+
+**Missing tags**: No `Cc: stable@vger.kernel.org` or `Fixes:` tag.
+
+## 2. CODE CHANGE ANALYSIS
+
+The change is a single-line Kconfig modification:
+
+```diff
+- depends on HIGHMEM
++       depends on HIGHMEM && !PREEMPT_RT
+```
+
+This simply prevents the `HIGHPTE` configuration option from being
+selected when `PREEMPT_RT` is enabled. The technical mechanism of the
+bug is clear:
+
+1. `get_user_pages_fast()` → `gup_pgd_range()` (runs with interrupts
+   disabled)
+2. → `pte_offset_map()` → `__kmap_local_page_prot()` → `kmap_high_get()`
+3. `kmap_high_get()` calls `lock_kmap_any()` which uses `spinlock_t`
+4. On PREEMPT_RT: `spinlock_t` = sleeping lock → BUG in atomic context
+
+The commit message notes that "HIGHPTE is rarely needed at all" - it's
+an optimization to put page tables in high memory, which is typically
+unnecessary on modern systems.
+
+## 3. CLASSIFICATION
+
+- **Bug type**: Runtime crash/BUG (sleeping-while-atomic violation)
+- **Not a new feature**: Disables a problematic configuration
+  combination
+- **Not a security fix**: No CVE or security-sensitive code
+- **Build fix category**: No, this is a runtime issue
+
+## 4. SCOPE AND RISK ASSESSMENT
+
+**Scope**:
+- 1 file changed (`arch/arm/Kconfig`)
+- 1 line modified
+- Affects only ARM + PREEMPT_RT + HIGHMEM configurations
+
+**Risk**: **Very low**
+- This is a Kconfig dependency change only
+- Users who previously had HIGHPTE enabled will now have it disabled on
+  PREEMPT_RT
+- The workaround is conservative (disable the problematic feature rather
+  than complex code fixes)
+- Cannot introduce regressions in other code paths
+
+## 5. USER IMPACT
+
+**Affected users**: ARM systems running PREEMPT_RT kernels with HIGHMEM
+(systems with >~800MB RAM on 32-bit ARM)
+
+**Severity**: High for affected users
+- `get_user_pages_fast()` is a commonly used path for I/O and memory
+  management
+- Without this fix, users would hit kernel warnings/crashes when GUP
+  fast path is used
+- This completely breaks PREEMPT_RT usability on affected configurations
+
+## 6. STABILITY INDICATORS
+
+**Review chain is strong**:
+- Sebastian Andrzej Siewior (PREEMPT_RT maintainer) developed this
+- Arnd Bergmann reworked and reviewed it
+- Linus Walleij acked it
+- Russell King (ARM maintainer) accepted it
+
+## 7. DEPENDENCY CHECK
+
+This is a standalone Kconfig change. Dependencies:
+- `PREEMPT_RT` must exist in the kernel - PREEMPT_RT was merged into
+  mainline in kernel 6.12
+- `HIGHPTE` and `HIGHMEM` options exist on ARM in all relevant kernel
+  versions
+
+The fix should apply cleanly to any stable tree with PREEMPT_RT support.
+
+## STABLE KERNEL CRITERIA EVALUATION
+
+| Criterion | Assessment |
+|-----------|------------|
+| Obviously correct | ✅ Yes - disables problematic config combination |
+| Fixes real bug | ✅ Yes - sleeping-while-atomic crash |
+| Important issue | ✅ Yes - crashes on PREEMPT_RT systems |
+| Small and contained | ✅ Yes - 1 line Kconfig change |
+| No new features | ✅ Yes - only disables an option |
+| Clean application | ✅ Yes - simple dependency addition |
+
+## CONCERNS
+
+1. **No explicit stable request**: Maintainers didn't add `Cc: stable`.
+   However, the fix is clearly appropriate for stable.
+2. **PREEMPT_RT availability**: Only relevant for kernels 6.12+ where
+   PREEMPT_RT was merged into mainline.
+
+## CONCLUSION
+
+This commit fixes a real, reproducible crash on ARM PREEMPT_RT systems.
+The fix is minimal (1 line), obviously correct (disables problematic
+feature combination), well-reviewed by relevant maintainers (ARM, RT),
+and carries essentially zero risk. While there's no explicit stable tag,
+the technical merits strongly support backporting.
+
+The sleeping-while-atomic bug would make `get_user_pages_fast()`
+unusable on affected configurations, which is a serious correctness
+issue for PREEMPT_RT users who require deterministic behavior.
+
+**YES**
+
+ arch/arm/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index 4fb985b76e97f..70cd3b5b5a059 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -1215,7 +1215,7 @@ config HIGHMEM
  
-+		cmdqv@5200000 {
-+			status = "okay";
-+		};
-+
- 		iommu@6000000 {
- 			status = "okay";
- 		};
-+
-+		cmdqv@6200000 {
-+			status = "okay";
-+		};
- 	};
- };
-diff --git a/arch/arm64/boot/dts/nvidia/tegra264.dtsi b/arch/arm64/boot/dts/nvidia/tegra264.dtsi
-index f137565da804..9eb7058e3149 100644
---- a/arch/arm64/boot/dts/nvidia/tegra264.dtsi
-+++ b/arch/arm64/boot/dts/nvidia/tegra264.dtsi
-@@ -3361,7 +3361,7 @@ bus@8100000000 {
- 			 <0x02 0x00000000 0xd0 0x00000000 0x08 0x80000000>; /* ECAM, prefetchable memory, I/O */
- 
- 		smmu1: iommu@5000000 {
--			compatible = "arm,smmu-v3";
-+			compatible = "nvidia,tegra264-smmu", "arm,smmu-v3";
- 			reg = <0x00 0x5000000 0x0 0x200000>;
- 			interrupts = <GIC_SPI 12 IRQ_TYPE_EDGE_RISING>,
- 				     <GIC_SPI 13 IRQ_TYPE_EDGE_RISING>;
-@@ -3370,10 +3370,18 @@ smmu1: iommu@5000000 {
- 
- 			#iommu-cells = <1>;
- 			dma-coherent;
-+			nvidia,cmdqv = <&cmdqv1>;
-+		};
-+
-+		cmdqv1: cmdqv@5200000 {
-+			compatible = "nvidia,tegra264-cmdqv";
-+			reg = <0x00 0x5200000 0x0 0x830000>;
-+			interrupts = <GIC_SPI 19 IRQ_TYPE_LEVEL_HIGH>;
-+			status = "disabled";
- 		};
- 
- 		smmu2: iommu@6000000 {
--			compatible = "arm,smmu-v3";
-+			compatible = "nvidia,tegra264-smmu", "arm,smmu-v3";
- 			reg = <0x00 0x6000000 0x0 0x200000>;
- 			interrupts = <GIC_SPI 1 IRQ_TYPE_EDGE_RISING>,
- 				     <GIC_SPI 2 IRQ_TYPE_EDGE_RISING>;
-@@ -3382,6 +3390,14 @@ smmu2: iommu@6000000 {
- 
- 			#iommu-cells = <1>;
- 			dma-coherent;
-+			nvidia,cmdqv = <&cmdqv2>;
-+		};
-+
-+		cmdqv2: cmdqv@6200000 {
-+			compatible = "nvidia,tegra264-cmdqv";
-+			reg = <0x00 0x6200000 0x0 0x830000>;
-+			interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
-+			status = "disabled";
- 		};
- 
- 		mc: memory-controller@8020000 {
-@@ -3437,7 +3453,7 @@ emc: external-memory-controller@8800000 {
- 		};
- 
- 		smmu0: iommu@a000000 {
--			compatible = "arm,smmu-v3";
-+			compatible = "nvidia,tegra264-smmu", "arm,smmu-v3";
- 			reg = <0x00 0xa000000 0x0 0x200000>;
- 			interrupts = <GIC_SPI 21 IRQ_TYPE_EDGE_RISING>,
- 				     <GIC_SPI 22 IRQ_TYPE_EDGE_RISING>;
-@@ -3446,10 +3462,18 @@ smmu0: iommu@a000000 {
- 
- 			#iommu-cells = <1>;
- 			dma-coherent;
-+			nvidia,cmdqv = <&cmdqv0>;
-+		};
-+
-+		cmdqv0: cmdqv@a200000 {
-+			compatible = "nvidia,tegra264-cmdqv";
-+			reg = <0x00 0xa200000 0x0 0x830000>;
-+			interrupts = <GIC_SPI 28 IRQ_TYPE_LEVEL_HIGH>;
-+			status = "disabled";
- 		};
- 
- 		smmu4: iommu@b000000 {
--			compatible = "arm,smmu-v3";
-+			compatible = "nvidia,tegra264-smmu", "arm,smmu-v3";
- 			reg = <0x00 0xb000000 0x0 0x200000>;
- 			interrupts = <GIC_SPI 30 IRQ_TYPE_EDGE_RISING>,
- 				     <GIC_SPI 31 IRQ_TYPE_EDGE_RISING>;
-@@ -3458,6 +3482,14 @@ smmu4: iommu@b000000 {
- 
- 			#iommu-cells = <1>;
- 			dma-coherent;
-+			nvidia,cmdqv = <&cmdqv4>;
-+		};
-+
-+		cmdqv4: cmdqv@b200000 {
-+			compatible = "nvidia,tegra264-cmdqv";
-+			reg = <0x00 0xb200000 0x0 0x830000>;
-+			interrupts = <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>;
-+			status = "disabled";
- 		};
- 
- 		i2c14: i2c@c410000 {
-@@ -3690,7 +3722,7 @@ bus@8800000000 {
- 		ranges = <0x00 0x00000000 0x88 0x00000000 0x01 0x00000000>;
- 
- 		smmu3: iommu@6000000 {
--			compatible = "arm,smmu-v3";
-+			compatible = "nvidia,tegra264-smmu", "arm,smmu-v3";
- 			reg = <0x00 0x6000000 0x0 0x200000>;
- 			interrupts = <GIC_SPI 225 IRQ_TYPE_EDGE_RISING>,
- 				     <GIC_SPI 226 IRQ_TYPE_EDGE_RISING>;
-@@ -3699,6 +3731,14 @@ smmu3: iommu@6000000 {
- 
- 			#iommu-cells = <1>;
- 			dma-coherent;
-+			nvidia,cmdqv = <&cmdqv3>;
-+		};
-+
-+		cmdqv3: cmdqv@6200000 {
-+			compatible = "nvidia,tegra264-cmdqv";
-+			reg = <0x00 0x6200000 0x0 0x830000>;
-+			interrupts = <GIC_SPI 232 IRQ_TYPE_LEVEL_HIGH>;
-+			status = "disabled";
- 		};
- 
- 		hda@90b0000 {
+ config HIGHPTE
+ 	bool "Allocate 2nd-level pagetables from highmem" if EXPERT
+-	depends on HIGHMEM
++	depends on HIGHMEM && !PREEMPT_RT
+ 	default y
+ 	help
+ 	  The VM uses one page of physical memory for each page table.
 -- 
-2.25.1
+2.51.0
 
 
