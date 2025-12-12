@@ -4,85 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EF19D49234
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 14:46:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43F96D49232
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 12 Dec 2025 14:51:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yLCbjxHd3JePZY9d0bk2dJVpott5rtOluFwDLG0JMHY=; b=hbMD4EWpUPwuHsuNHJ/6Q/IgTB
-	lohAu42OWQYMP5qfXcBYQWyNqMrBrxT1XipL4VgNcyZ6zsLHMvH/KvonoVF95ZZCR4DO4j6iFlm6s
-	kXbdKmhLSkdJWIWlJCpj7Iq5/Az6cMhHzxaiu/QHpg5mRFYi5EWTnJA9AybT5ONok2aEEB9+D06mm
-	GYF5x0/OaPbXmXS92MxzrtPjRjlMqBnc292NS+P03txd+aDjyI5N5jhHARrfjcUDxLAYZdg8C1KKS
-	BB12LrtqD7rAZYcQc4vSMfqTGreMS2zOgkjABRwDgFwHmRtYb4O+dnRQ+FK/3VBbvYvF1pev8bi4i
-	2dw2BBMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7sHdy2ADgTZPMkZ6aLR22PcGlzZUf/wOZQV/WRzdYkM=; b=BO4vq0sFKXzocCYJsA+j0JazJ9
+	WP3s3ZlhvUo9bIjvfzUi/e2DV0PlLOhWJreMqFUlm3pyxyVEewMDF/xP0W+cOopLfnO4AEn6fER82
+	AVuxfg6f7PxloyGaNkW1nnCdW6R8tDcLe+DJuL/4gRxlmbZUBK8bFLlQlirc8wMm9ZAy8FGWI604Q
+	/e7ufoU5LgejmXvoe+KfQq6vzlmx/PpyvuG18KEC0RO+fFfwaOu6G+JOU8HYuW7MGA9XDhozlMK8y
+	p5RahHIILSjZYudZ2QX5OJomVzgJ7zhVSeyP71ffKLrXJu9gZ47I1ksDWi1mPU9EIFGtDk86HHF7u
+	zyT0ljdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU4P6-00000000d4h-1sAZ;
-	Fri, 12 Dec 2025 14:45:56 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1vU4Tz-00000000dO7-2L7Y;
+	Fri, 12 Dec 2025 14:50:59 +0000
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vU4P4-00000000d4E-2Lol;
-	Fri, 12 Dec 2025 14:45:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1765550718; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=mLYsCPIEoEc8Cr72RwqmUED2y0IXBvLk3iq9bbiio6n2klgz6hEBIjz3kpqd7wHuZ1YcxGGeQqUFqba6E2wOQcQ0M8Rgk4paK7ECbcW9QBMJ4ywUee3U/WxHzRfjNuGcJ79pi5vf6nZKpSzvCn6BsHTi2aBvt3oAH3vjdPB/cy4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1765550718; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=yLCbjxHd3JePZY9d0bk2dJVpott5rtOluFwDLG0JMHY=; 
-	b=Pw0qhXc+MK5uCnO8utL49AHHfFeDH/mN7oFHwYjWNA8NY/s7/oDtaJdZhYdFEm65T3KtvOf2afds8WXu2hEEGVBeFfzk8XYskr5oPbgxuX54KM0JJp9Y3Z/21IbOO8AVLW0SvFZv8Ye0ad2TOM5S4kI5IZ0drHpvh8MDFJUnyvo=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1765550718;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=yLCbjxHd3JePZY9d0bk2dJVpott5rtOluFwDLG0JMHY=;
-	b=WEURroe4KzFmp3qtxUJtYQ2//qLd5ebc0POtVGlpLyhvI+2Ddi4KiJCUnFY8q9Me
-	Ge2SGeJTmZkER1OsM1YUb2VMBkAN4a829RqFOmBWG/WYSSOu97vwoWQ7oURVV1Yqg2Q
-	ousABi9E/4SBqBnjXpfnbZSmw3bsoWCXUFHXAw4Q=
-Received: by mx.zohomail.com with SMTPS id 17655507158241002.007523871685;
-	Fri, 12 Dec 2025 06:45:15 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
- Rodrigo Siqueira <siqueira@igalia.com>,
- Alex Deucher <alexander.deucher@amd.com>,
- Christian =?UTF-8?B?S8O2bmln?= <christian.koenig@amd.com>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Thomas Zimmermann <tzimmermann@suse.de>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Sandy Huang <hjc@rock-chips.com>,
- Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>,
- Andy Yan <andy.yan@rock-chips.com>,
- Jani Nikula <jani.nikula@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Tvrtko Ursulin <tursulin@ursulin.net>, Dmitry Baryshkov <lumag@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Rob Herring <robh@kernel.org>,
- kernel@collabora.com, amd-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- intel-gfx@lists.freedesktop.org, intel-xe@lists.freedesktop.org
-Subject: Re: [PATCH v5 04/17] drm/bridge: Act on the DRM color format property
-Date: Fri, 12 Dec 2025 15:45:05 +0100
-Message-ID: <2747638.atdPhlSkOF@workhorse>
-In-Reply-To: <20251212-hidden-armored-mule-66dd32@penduick>
-References: <20251128-color-format-v5-0-63e82f1db1e1@collabora.com>
- <3772903.e9J7NaK4W3@workhorse> <20251212-hidden-armored-mule-66dd32@penduick>
+	id 1vU4Tw-00000000dNk-2EbN
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 12 Dec 2025 14:50:57 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-64162c04f90so2388969a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Dec 2025 06:50:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1765551054; x=1766155854; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=7sHdy2ADgTZPMkZ6aLR22PcGlzZUf/wOZQV/WRzdYkM=;
+        b=Ts/WXU6UMpZo+F+zlSeKoKOJgYiqBMmti4/v+o1Pr9BJ1lrCEPWqGsqUgIHx7ERcZ3
+         Ff47YmWqDLyfK1IyOFwFjlhBLmN/8Pcs+xwWyU5BHBcJm7OoEse1mxr1IUNjZINmRLVl
+         EQucI+4FTyy9Bk/sZtvUSgNSDgTUhcf16RP7yvbpIH/EVktQ4uMAZihLQd6vYKJ+K3hP
+         +08m1yQelaCrIJZsFpTy5htQMZpLbLGu5xushB16ehqCMwlsZZmtQYBsSiNZ2KauZTYm
+         c6AJTjndErGhPpN6OH9wxpzdcNCh2DQ000X0YcQDaEeEIJHSBy/ZoFpwADohi6gz/9M+
+         IHjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765551054; x=1766155854;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7sHdy2ADgTZPMkZ6aLR22PcGlzZUf/wOZQV/WRzdYkM=;
+        b=DTLzlIIBLiCqZBW9RnPZwBLf6RRFbdL/iz5/5PzWz4uAguQ4BgPNu0cfgW37blh/+R
+         jt954Z6OiM0P0duicf5qYLYPhRR8UZbzjt1zJQ2qIycKgTM1Fc4/aqi7FVxugF0QlCL6
+         bF4Zs+R+wmURuESmgrhoTjAGODZaFbLzzWCMwUeFzk1Rr15J0wlJnaP4Atf7VKrEGQyl
+         W2J64RfxUsp+Vk/i9i5vAr2E+6fawaR5JvhEDALEgCZVyuYlnjqvnTydEnG5lYttazOt
+         xT0/rvKrMJis2N/WQQK3ITpJzmXXnZUGMrVZN5xMjo9wzQttSJwo3YOctqOA+sscLpFr
+         T/hw==
+X-Forwarded-Encrypted: i=1; AJvYcCXCqUgU6ImrCosvQFUbnDqRoCqReBynlPrFIjCXVGaSVhMeTuTHif0TYGi8XHVYblB3WM1l8loQXUUPHlFG42RB@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbCidh5/0aUJ04PvePth15zqiJMnCrLhSN6govS8sfhmBTg9r+
+	qY2UcQ51Nyez3iDz7QTJ2aCB7IQZOhhaGJdOmgjHyoCMRyim+YvAtPCuK4wEramCtsU=
+X-Gm-Gg: AY/fxX7nErCVDocIsoctePWYs9ApkWw2tc967lcRsB0GwC+hzCe0iAzh7qKM+okXzIP
+	8q2kI+5qRLDHGa9OGXLIvqGo8O/MyKrJJun2JYQofWv6Jom14COBKKf1La6curKZfuUob1pI8LP
+	EDvaEmY8Bz4JJpbrm5DeYu/3MMf4og6EnjAwVCbqrORFbRZAPUYW+HcZnvX8MuIldrj6BIKq+gz
+	jxuwzfovBgimZ4w+015SHXUJ3YYVVhqnQ2iiibcB97cDHu+Zq8EinvmVipP7xVoXsCx+gr4wNwm
+	IB8Rip+f83PqT+2eVImSiCpIGIuYBItoh4Kj7y5JloEER1WKBd3opFs9BCo9xDU6hoQtIQwsmjl
+	MtUPdVxCtRPeKhCrM8/WI55Jc2BjaLVl1ktdZDYj3LXcUDBkyIWhXxyyY45HWifW9lDX3FLOMdr
+	mtiRJeLy2DULWYK8iKdzbQ
+X-Google-Smtp-Source: AGHT+IHbdskdCmAkYG3vG2sMYEBW2mjhBkod6LOvZhTWtcYM3sRHnERtPgTtm3eIUz9lQUSEGEvdcw==
+X-Received: by 2002:a05:6402:35d0:b0:649:8a7f:97f8 with SMTP id 4fb4d7f45d1cf-6499b157415mr1924358a12.9.1765551054515;
+        Fri, 12 Dec 2025 06:50:54 -0800 (PST)
+Received: from [192.168.0.108] ([130.185.218.160])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-64982040fbcsm5499695a12.1.2025.12.12.06.50.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 12 Dec 2025 06:50:54 -0800 (PST)
+Message-ID: <27417fd5-902e-4474-8d60-356a94ac9590@linaro.org>
+Date: Fri, 12 Dec 2025 16:50:52 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 07/19] coresight: trbe: Refactor AUX flag setting
+To: Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
+ <mike.leach@linaro.org>, Anshuman Khandual <anshuman.khandual@arm.com>,
+ Yeoreum Yun <yeoreum.yun@arm.com>, Will Deacon <will@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Tamas Petz <tamas.petz@arm.com>,
+ Tamas Zsoldos <tamas.zsoldos@arm.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+ Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>
+References: <20251201-trbe_buffer_refactor_v1-1-v1-0-7da32b076b28@arm.com>
+ <20251201-trbe_buffer_refactor_v1-1-v1-7-7da32b076b28@arm.com>
+ <a638f74f-94bc-4052-b8e1-e940aca2d4ce@linaro.org>
+ <20251210154308.GZ724103@e132581.arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20251210154308.GZ724103@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_064554_661094_3EC590BE 
-X-CRM114-Status: GOOD (  68.49  )
+X-CRM114-CacheID: sfid-20251212_065056_626359_65EAD71C 
+X-CRM114-Status: GOOD (  30.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,255 +113,63 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday, 12 December 2025 10:50:26 Central European Standard Time Maxime Ripard wrote:
-> On Thu, Dec 11, 2025 at 08:34:22PM +0100, Nicolas Frattaroli wrote:
-> > On Tuesday, 9 December 2025 15:27:28 Central European Standard Time Maxime Ripard wrote:
-> > > On Fri, Nov 28, 2025 at 10:05:40PM +0100, Nicolas Frattaroli wrote:
-> > > > The new DRM color format property allows userspace to request a specific
-> > > > color format on a connector. In turn, this fills the connector state's
-> > > > color_format member to switch color formats.
-> > > > 
-> > > > Make drm_bridges consider the color_format set in the connector state
-> > > > during the atomic bridge check. Specifically, reject any output bus
-> > > > formats that do not correspond to the requested color format.
-> > > > 
-> > > > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > > > ---
-> > > >  drivers/gpu/drm/drm_bridge.c | 45 ++++++++++++++++++++++++++++++++++++++++++++
-> > > >  1 file changed, 45 insertions(+)
-> > > > 
-> > > > diff --git a/drivers/gpu/drm/drm_bridge.c b/drivers/gpu/drm/drm_bridge.c
-> > > > index 8f355df883d8..8aac9747f35e 100644
-> > > > --- a/drivers/gpu/drm/drm_bridge.c
-> > > > +++ b/drivers/gpu/drm/drm_bridge.c
-> > > > @@ -1052,6 +1052,47 @@ static int select_bus_fmt_recursive(struct drm_bridge *first_bridge,
-> > > >  	return ret;
-> > > >  }
-> > > >  
-> > > > +static bool __pure bus_format_is_color_fmt(u32 bus_fmt, enum drm_color_format fmt)
-> > > > +{
-> > > > +	if (fmt == DRM_COLOR_FORMAT_AUTO)
-> > > > +		return true;
-> > > > +
-> > > > +	switch (bus_fmt) {
-> > > > +	case MEDIA_BUS_FMT_FIXED:
-> > > > +		return true;
-> > > > +	case MEDIA_BUS_FMT_RGB888_1X24:
-> > > > +	case MEDIA_BUS_FMT_RGB101010_1X30:
-> > > > +	case MEDIA_BUS_FMT_RGB121212_1X36:
-> > > > +	case MEDIA_BUS_FMT_RGB161616_1X48:
-> > > > +		return fmt == DRM_COLOR_FORMAT_RGB444;
-> > > > +	case MEDIA_BUS_FMT_YUV8_1X24:
-> > > > +	case MEDIA_BUS_FMT_YUV10_1X30:
-> > > > +	case MEDIA_BUS_FMT_YUV12_1X36:
-> > > > +	case MEDIA_BUS_FMT_YUV16_1X48:
-> > > > +		return fmt == DRM_COLOR_FORMAT_YCBCR444;
-> > > > +	case MEDIA_BUS_FMT_UYVY8_1X16:
-> > > > +	case MEDIA_BUS_FMT_VYUY8_1X16:
-> > > > +	case MEDIA_BUS_FMT_YUYV8_1X16:
-> > > > +	case MEDIA_BUS_FMT_YVYU8_1X16:
-> > > > +	case MEDIA_BUS_FMT_UYVY10_1X20:
-> > > > +	case MEDIA_BUS_FMT_YUYV10_1X20:
-> > > > +	case MEDIA_BUS_FMT_VYUY10_1X20:
-> > > > +	case MEDIA_BUS_FMT_YVYU10_1X20:
-> > > > +	case MEDIA_BUS_FMT_UYVY12_1X24:
-> > > > +	case MEDIA_BUS_FMT_VYUY12_1X24:
-> > > > +	case MEDIA_BUS_FMT_YUYV12_1X24:
-> > > > +	case MEDIA_BUS_FMT_YVYU12_1X24:
-> > > > +		return fmt == DRM_COLOR_FORMAT_YCBCR422;
-> > > > +	case MEDIA_BUS_FMT_UYYVYY8_0_5X24:
-> > > > +	case MEDIA_BUS_FMT_UYYVYY10_0_5X30:
-> > > > +	case MEDIA_BUS_FMT_UYYVYY12_0_5X36:
-> > > > +	case MEDIA_BUS_FMT_UYYVYY16_0_5X48:
-> > > > +		return fmt == DRM_COLOR_FORMAT_YCBCR420;
-> > > > +	default:
-> > > > +		return false;
-> > > > +	}
-> > > > +}
-> > > > +
-> > > >  /*
-> > > >   * This function is called by &drm_atomic_bridge_chain_check() just before
-> > > >   * calling &drm_bridge_funcs.atomic_check() on all elements of the chain.
-> > > > @@ -1137,6 +1178,10 @@ drm_atomic_bridge_chain_select_bus_fmts(struct drm_bridge *bridge,
-> > > >  	}
-> > > >  
-> > > >  	for (i = 0; i < num_out_bus_fmts; i++) {
-> > > > +		if (!bus_format_is_color_fmt(out_bus_fmts[i], conn_state->color_format)) {
-> > > > +			ret = -ENOTSUPP;
-> > > > +			continue;
-> > > > +		}
-> > > 
-> > > Sorry, I'm struggling a bit to understand how this would work if a bridge both supports the bus
-> > > format selection and HDMI state helpers? Can you expand on it?
-> > 
-> > I have very little idea of whether this makes conceptual sense.
+
+
+On 10/12/2025 17:43, Leo Yan wrote:
+> On Tue, Dec 09, 2025 at 01:37:39PM +0000, James Clark wrote:
 > 
-> .. I wasn't asking you if it makes sense, I was asking you to explain
-> how you wanted it to work.
+> [...]
 > 
-> > The hope is that by working backwards from the last bridge and only
-> > accepting either fixed formats or something that corresponds to the
-> > target color format, we don't claim that a setup can do a colour
-> > format if the whole bridge chain isn't able to do it.
-> > 
-> > Of course, format conversions along the bridge chain where one
-> > input format can be converted to a set of output formats by some
-> > bridge will throw a massive wrench into this. And this is all
-> > assuming that the bus format is in any way related to the color
-> > format that will be sent out on the wire.
+>>> +	if (!is_trbe_running(trbsr))
+>>> +		perf_aux_output_flag(handle, PERF_AUX_FLAG_COLLISION);
+>>> +
+>>
+>> Do we need the complexity of COLLISION (changed to PARTIAL in a later
+>> commit) and TRUNCATED at the same time?
 > 
-> I'm not really concerned about this. As we move more and more bridges to
-> the state helpers, we can always fix it, but it needs at the very least
-> to document how you envision the whole thing to work, and ideally have
-> bunch of tests to make sure it still does.
+>>  From my understanding, TRUNCATED would be when Perf is too slow and we want
+>> to disable the event for it to catch up, and PARTIAL is when there was some
+>> buffer error so technically we don't need the event to be disabled, but Perf
+>> still needs to be notified if we want to start only resetting the decoder
+>> when a flag is set rather than on all aux records?
+> 
+> The main difference between the TRUNCATED flag and the COLLISION/PARTIAL
+> flags is that the TRUNCATED flag implicitly asks the event core layer to
+> disable the PMU event.  In contrast, the COLLISION and PARTIAL flags are
+> only stored in AUX record and no additional action in the event core
+> layer.
+> 
+> Setting the TRUNCATED flag would be a over-killer if the buffer has
+> free space, as it would run the expensive sequence of disabling both ETE
+> and TRBE and then requiring userspace to re-enable them.
+> 
+>> There is no happy path where there is a buffer error, so I'm not sure why we
+>> need the complexity of an extra case? There's no harm in disabling the event
+>> on a buffer error. Also it's hard to see what the exact scenario for PARTIAL
+>> is, because we set truncated anyway for fatal statuses. The comment in the
+>> later commit for the PARTIAL change just says "trace was stopped", but not
+>> why.
+> 
+> The trace can be stopped on Fill mode (stop on wrap) or Stop on trigger, so
+> it is not (only) about buffer error.  In these cases, even though the trace
+> unit is stopped, the buffer may still have space available, tracing can be
+> directly re-enabled in interrupt handler, thus the COLLISION/PARTIAL flags
+> are better choices.
 
-Where should I document the intended behavior? A code comment here is
-probably not visible to people implementing new bridge drivers, so I
-imagine there's a place in the docs?
+I suppose this is the bit that I don't understand. If there is space 
+left then why is the stop hit at all?
 
-On the drm-kms docs page, I see:
-
-  Note that currently the bridge chaining and interactions with
-  connectors and panels are still in-flux and not really fully
-  sorted out yet.
-
-Which means maybe adding a sub-heading for DRM bridge there might
-make sense.
-
-For a complete solution, it should probably do a graph traversal
-starting from the last bridge's output format, and then looking
-to reach the first bridge output format in the chain in any way
-possible over a DAG where edges connect from input formats of
-the next bridge to the output formats of the previous bridge,
-and the output format of each bridge connects to whichever
-of its input formats can convert to this output format.
-
-Here's a diagram of what I mean:
-
-    .-----------------------------------.
-    |       SoC Video Processor         |
-    |-----------------------------------|
-    | out rgb | out yuv444 | out yuv420 |
-    '---------|------------|------------'
-        ^
-        |
-    .---------|------.
-    | in  rgb |      |
-    |---------| MIPI |
-    |    ^    | DSI  |
-    |    |    | TX   |
-    |---------|      |
-    | out rgb |      |
-    '---------|------'
-        ^
-        |
-        '----------.
-                    |
-    .----------|---------|-----------|----------------------------.
-    |          | in  rgb | in yuv444 |               |            |
-    |----------|---------|-----------|---------------|   BOB'S    |
-    |              ^   ^    ^  ^                     |  BARGAIN   |
-    |              |   |    |  '--------------.      |  MIPI DSI  |
-    |    .---------'   |    '----.            |      |  TO HDMI   |
-    |    |          .--'         |            |      |  BRIDGE    |
-    |---------|------------|------------|------------|            |
-    | out rgb | out yuv444 | out yuv422 | out yuv420 |            |
-    '---------|------------|------------|------------|------------'
-        ^           ^            ^
-        |           |            |
-    .---------|------------|------------.
-    | in  rgb | in  yuv444 | in  yuv422 |
-    |-----------------------------------|
-    |          HDMI CONNECTOR           |
-    '-----------------------------------'
-
-In this case, the MIPI DSI to HDMI bridge isn't very good so it can
-only convert YUV444 to YUV422 and YUV420, despite being able to
-convert RGB to YUV444 as well. The important bit is that there is
-a path back from "out yuv444" on the "HDMI CONNECTOR" all the way
-to the "SoC Video Processor", even though the processor's only going
-to be outputting RGB. So setting color_format to yuv444 should be
-possible in this case.
-
-My current code doesn't handle this case. It only works if bridges
-that convert can convert to any of their output formats regardless
-of the input format. Additionally, I don't think I'd have a good
-time if the SoC's video output processor sets the bus format to
-"fixed", because if everyone along the chain says they can do
-fixed formats then the output is going to claim it can do anything,
-which isn't the case.
+For the other cases, I agree that it's overkill, but my point is that 
+doesn't matter because we don't expect it to be hit in normal cases 
+anyway. So it's worth the simplification of not doing anything different 
+than TRUNCATED.
 
 > 
-> > In practice, I don't have any hardware where whatever counts as
-> > a "bridge" is an actually more involved setup than just the TX
-> > controller. I tried looking into getting a board with one of the
-> > supported DSI-to-HDMI bridge chips so I can at least test how it
-> > would work in such a scenario, and I got one, but I'd need to make
-> > my own flat flex PCB to adapt it to the pinout of my SBC's DSI
-> > port.
-> > 
-> > So yeah I don't know how it's supposed to work, I just know this
-> > works for the case I'm working with, and any more complex case
-> > is literally unobtanium hardware which I'm not going to bother
-> > blowing days on maybe making a cable for when I'm already touching
-> > three different GPU drivers here and the intel-gfx-ci is screaming
-> > into my inbox about vague failures in unrelated codepaths in its
-> > native language, Klingon.
+> Only when the buffer is actually used out (i.e., handle->size == 0), it is
+> appropriate to set TRUNCATED flag, since at that point we must wait for
+> userspace to read out the data.
 > 
-> That's uncalled for.
-> 
-> > Which is all to say: is there a virtual drm bridge driver that
-> > exists, where I can set what formats it supports on the input
-> > and on the output, so that I can actually get a feel for how this
-> > is conceptually supposed to work without needing special hardware?
-> 
-> If your question is "do we have a way to replicate and test an arbitrary
-> setup to check how it behaves?", then yes, we do, it's what we're doing
-> in kunit. But you don't seem too fond of those.
-
-Okay, I will look into virtual bridge tests in kunit.
-
-> 
-> > Better yet: do you have a specific setup in mind where you know
-> > this approach does not work?
-> 
-> Look. I was asking a genuine question. If you want to get all defensive
-> about it, go ahead. But sending a series implementing something with a
-> lot of history, complex interactions, etc. and then expecting it to be a
-> breeze that will get merged in a few revisions is not going to work.
-> 
-> Pushing back when asked to follow our documented rules, or being
-> dismissive when asked design questions is not going to help you push
-> this forward. If anything, and because it's complex, the more tests you
-> add the better because we A) know it works in a specific set of cases,
-> and B) know it will still work going forward.
-> 
-> I'm sure you know what you're doing, but so do we.
-
-I worked under the assumption that the general vagueness of the
-questions were part of some elaborate dt-bindings-esque hazing
-ritual, and not that I was literally the first person to try and
-specify how drm bridge bus format selection should work. I apologise
-for my tone in light of that.
-
-I'm not convinced unit tests that test whether a single pre-defined
-mode is valid, as the existing mode_valid one does, have any value
-though. I'll comply however and add another with a yuv420-only mode,
-and another with a yuv420-also mode. My criticism is that in a
-scenario like this where "working" vs "broken" is highly dependent
-on the result based on the input data, the coverage of taken code
-branches is mostly irrelevant, and the real information comes from
-comprehensive testing of a wide set of inputs with attention paid
-to edge cases, verifying that they match the expected outputs.
-
-Kind regards,
-Nicolas Frattaroli
-
-> 
-> Maxime
-> 
-
-
-
+> Thanks,
+> Leo
 
 
