@@ -4,68 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05DC1D59F7D
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Dec 2025 08:49:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08424D5B152
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Dec 2025 10:11:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S9RqYk1apuuSaVqcDeaTaZWQ548F3KY11GTRUevi5ZA=; b=lC9hm8TlZhOkfGjn5Fj7lJtoH/
-	UkD4riH3QOdims60gP6C/Tj0LStuJjJWw0eOIRXET9NWLRkwuAZWpEdXqftbRwgjRXYBTMSvCGngi
-	2zAb2SiRW21UaujRYAsCPb+yieFK1FPaDrD+OQUV4AzsJEACdEkxC0wizXc1UOgf83D3cxG8mKntl
-	fM8WUWBoMQk4dGafxaugfqE8/PBEhpsSqm0bm7GqlkJijAmRb88aFIAvPoIbsRc5Mgp8Z3/QL48ek
-	TJYpynJDoWUPOqQkWy+NrOS+BZrM1va48kCi+iBIqEowhUY9m/bIjgJxxkEUGRkkgseMxcOhRNSZH
-	5/47qZ5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4cS4tVfoy6096YwcGyqnlAXaJbgf7G1c8u4VErwhrg0=; b=tNFQ0wew/jp2lRqiG1uZemRFwU
+	cULnB8a/xyEAN8B5xJuZWxnH+Ymyadk3h03tCxTFn43KnB/plYw1RmzVuVIhrGQrrgftYIV9fXjrM
+	B9tZNtRLzmkg9hwwvt2zS9kfMWx10xjyEUVn/TDQlu4is6rHdGSqWTycVNuY8MWTjFOhR5JbLDjHO
+	fvbL1nMrCeOmXXPartIouQvNkuUjw3thGnNEk4BMEDD0y26vIjPdaCggGfpzI93Sdf98Xa9wqkj1f
+	SztT2dNG6LvrD18BmVLNw8eaQyFERlTst5DKuHa0owbafvSAOOCK16pmtPhFqVVrAjOCx1e7KGxE4
+	cKufU5/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vULJq-00000001Xcj-2Cbr;
-	Sat, 13 Dec 2025 08:49:38 +0000
-Received: from smtp1.ms.mff.cuni.cz ([2001:718:1e03:801::4])
+	id 1vUMbF-00000001a16-2chk;
+	Sat, 13 Dec 2025 10:11:41 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vULJm-00000001Xc1-347m
+	id 1vUMbB-00000001a0g-4BVs
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Dec 2025 08:49:36 +0000
-X-SubmittedBy: id balejk@matfyz.cz subject /postalCode=110+2000/O=Univerzita+20Karlova/street=Ovocn+5CxC3+5CxBD+20trh+20560+5C/5/ST=Praha,+20Hlavn+5CxC3+5CxAD+20m+5CxC4+5Cx9Bsto/C=CZ/CN=Karel+20Balej/emailAddress=balejk@matfyz.cz
-	serial F5FD910E8FE2121B897F7E55B84E351D
-	issued by /C=NL/O=GEANT+20Vereniging/CN=GEANT+20Personal+20CA+204
-	auth type TLS.CUNI
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mff.cuni.cz;
-	s=submission; t=1765615745; x=1766915745;
-	bh=S9RqYk1apuuSaVqcDeaTaZWQ548F3KY11GTRUevi5ZA=; h=From;
-	b=DdbAFa9hSPUjoXS9bXykkVGBIEWHZbxM+Ib1d0uG1vcbFmmLUAzp+zN+fuHqjVrfn
-	 5IbtmafoU10o7bOb8C/hVzS5JVyDxT5M0eC/QSkWhqjWHssfLTFtflcrXPnXWj2xDD
-	 e7MPIS672KpAQFm156W8xbX/J/st+sMy+fD6jEIyzYVaeqGiJ+Y7sqVQ5m5xdqhmxQ
-	 /S/2nQ06BVVCW5O1kQdEKV/+Ms7Fl4C/TzLQVpKQkQQQ+6T9WoTuOa/bjv3IrRbrDB
-	 l5hNee6ef+6mXwUTmKWnCNpXXFTXnwqgW4w2L/zc4dcJnypoRhqdQs1sDVLaoVsELH
-	 WeJO2fjXaxm6Q==
-Received: from localhost (internet5.mraknet.com [185.200.108.250])
-	(authenticated)
-	by smtp1.ms.mff.cuni.cz (8.18.1/8.18.1) with ESMTPS id 5BD8n3tP051961
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=OK);
-	Sat, 13 Dec 2025 09:49:05 +0100 (CET)
-	(envelope-from balejk@matfyz.cz)
-From: Karel Balej <balejk@matfyz.cz>
-To: =?UTF-8?q?Duje=20Mihanovi=C4=87?= <duje@dujemihanovic.xyz>,
-        Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
-        Karel Balej <balejk@matfyz.cz>
-Subject: [PATCH v2 2/2] pmdomain: add audio power island for Marvell PXA1908 SoC
-Date: Sat, 13 Dec 2025 09:48:13 +0100
-Message-ID: <20251213084843.7491-2-balejk@matfyz.cz>
-X-Mailer: git-send-email 2.51.2
-In-Reply-To: <20251213084843.7491-1-balejk@matfyz.cz>
-References: <20251213084843.7491-1-balejk@matfyz.cz>
+	Sat, 13 Dec 2025 10:11:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1765620698; x=1797156698;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=CZ0nbq+TNEdlal6qWlcjS6ghxXVLkuG29vXwxsczpXE=;
+  b=Dgx49wfKg5vnz/ShZD0aY5TnjbwB9u45nhDD5BykCUoJj48MFVsnyqET
+   PyG0IE3kMeUm91pPGj1jyOYCPFeC7M3vh1c69grB08ocSHTncXE220W/3
+   OotP2Zd+dABFcZ3+pbP+i29eClzkQN9KwOAfKA9qZZByuBtAaNBMM7GJu
+   KeJDBYwsYZKLncCgGNXd8TraL00VzQS2V8vB9rqV6y/FirnonpmRoJQt3
+   CfSEqlytyMy2xPOMN9LciG7t8Ft6l31NW/b7omiLanm1vNeKfihTlZuwb
+   lORSisOmjaIvQIWkI0Tuv6rnIna6Ze5dvVB67rckOyLmoDCWfLjeRco4R
+   w==;
+X-CSE-ConnectionGUID: ojlE40glRByguTu9E51Khw==
+X-CSE-MsgGUID: Y1EDsXPcTcaFmbbzSQVatA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11640"; a="71456388"
+X-IronPort-AV: E=Sophos;i="6.21,146,1763452800"; 
+   d="scan'208";a="71456388"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Dec 2025 02:11:31 -0800
+X-CSE-ConnectionGUID: b0ctH/KrRUSaT01kkNxKSw==
+X-CSE-MsgGUID: rjbF0X8iS1+LSKVj5U9vFQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,146,1763452800"; 
+   d="scan'208";a="197050364"
+Received: from lkp-server01.sh.intel.com (HELO d335e3c6db51) ([10.239.97.150])
+  by orviesa009.jf.intel.com with ESMTP; 13 Dec 2025 02:11:29 -0800
+Received: from kbuild by d335e3c6db51 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vUMb0-000000007U9-2hay;
+	Sat, 13 Dec 2025 10:11:26 +0000
+Date: Sat, 13 Dec 2025 18:10:43 +0800
+From: kernel test robot <lkp@intel.com>
+To: Osama Abdelkader <osama.abdelkader@gmail.com>,
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Osama Abdelkader <osama.abdelkader@gmail.com>
+Subject: Re: [PATCH] arm64: hw_breakpoint: warn on invalid breakpoint length
+Message-ID: <202512131730.89TvJc2D-lkp@intel.com>
+References: <20251212205230.84606-1-osama.abdelkader@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251212205230.84606-1-osama.abdelkader@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251213_004935_355983_2F9238BC 
-X-CRM114-Status: GOOD (  14.07  )
+X-CRM114-CacheID: sfid-20251213_021138_081458_FDB30DCC 
+X-CRM114-Status: GOOD (  13.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,107 +91,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Define power domain which needs to be enabled in order for audio to work
-on the PXA1908-based samsung,coreprimevelte smartphone. In the
-downstream code, this power-on method is marked as specific to the ULCx
-series which is allegedly a codename of sorts with ULC1 corresponding to
-the PXA1908.
+Hi Osama,
 
-No other audio components needed for sound to work on this phone are
-currently available mainline but some successful testing was performed
-with the vendor variants of the respective drivers and with the domain
-forced always-on.
+kernel test robot noticed the following build errors:
 
-Signed-off-by: Karel Balej <balejk@matfyz.cz>
----
+[auto build test ERROR on arm64/for-next/core]
+[also build test ERROR on arm-perf/for-next/perf linus/master v6.18 next-20251212]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Notes:
-    v2:
-    - APMU_AUD_CLK -> APMU_AUDIO_CLK and group it with other register
-      definitions. (Duje)
-    - Move default function exit path inside the switch. (Duje)
-    - Modify the commit message with information provided by Duje (thanks!).
+url:    https://github.com/intel-lab-lkp/linux/commits/Osama-Abdelkader/arm64-hw_breakpoint-warn-on-invalid-breakpoint-length/20251213-045501
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
+patch link:    https://lore.kernel.org/r/20251212205230.84606-1-osama.abdelkader%40gmail.com
+patch subject: [PATCH] arm64: hw_breakpoint: warn on invalid breakpoint length
+config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20251213/202512131730.89TvJc2D-lkp@intel.com/config)
+compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251213/202512131730.89TvJc2D-lkp@intel.com/reproduce)
 
- .../marvell/pxa1908-power-controller.c        | 39 +++++++++++++++++--
- 1 file changed, 35 insertions(+), 4 deletions(-)
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512131730.89TvJc2D-lkp@intel.com/
 
-diff --git a/drivers/pmdomain/marvell/pxa1908-power-controller.c b/drivers/pmdomain/marvell/pxa1908-power-controller.c
-index ff5e6e82d3f8..543e8d33ac0c 100644
---- a/drivers/pmdomain/marvell/pxa1908-power-controller.c
-+++ b/drivers/pmdomain/marvell/pxa1908-power-controller.c
-@@ -24,12 +24,15 @@
- #define APMU_DEBUG		0x88
- #define DSI_PHY_DVM_MASK	BIT(31)
- 
-+#define APMU_AUDIO_CLK		0x80
-+#define AUDIO_ULCX_ENABLE	0x0d
-+
- #define POWER_ON_LATENCY_US	300
- #define POWER_OFF_LATENCY_US	20
- #define POWER_POLL_TIMEOUT_US	(25 * USEC_PER_MSEC)
- #define POWER_POLL_SLEEP_US	6
- 
--#define NR_DOMAINS	5
-+#define NR_DOMAINS	6
- 
- #define to_pxa1908_pd(_genpd) container_of(_genpd, struct pxa1908_pd, genpd)
- 
-@@ -59,9 +62,14 @@ static inline bool pxa1908_pd_is_on(struct pxa1908_pd *pd)
- {
- 	struct pxa1908_pd_ctrl *ctrl = pd->ctrl;
- 
--	return pd->data.id != PXA1908_POWER_DOMAIN_DSI
--		? regmap_test_bits(ctrl->base, APMU_PWR_STATUS_REG, pd->data.pwr_state)
--		: regmap_test_bits(ctrl->base, APMU_DEBUG, DSI_PHY_DVM_MASK);
-+	switch (pd->data.id) {
-+	case PXA1908_POWER_DOMAIN_AUDIO:
-+		return regmap_test_bits(ctrl->base, APMU_AUDIO_CLK, AUDIO_ULCX_ENABLE);
-+	case PXA1908_POWER_DOMAIN_DSI:
-+		return regmap_test_bits(ctrl->base, APMU_DEBUG, DSI_PHY_DVM_MASK);
-+	default:
-+		return regmap_test_bits(ctrl->base, APMU_PWR_STATUS_REG, pd->data.pwr_state);
-+	}
- }
- 
- static int pxa1908_pd_power_on(struct generic_pm_domain *genpd)
-@@ -123,6 +131,22 @@ static inline int pxa1908_dsi_power_off(struct generic_pm_domain *genpd)
- 	return regmap_clear_bits(ctrl->base, APMU_DEBUG, DSI_PHY_DVM_MASK);
- }
- 
-+static inline int pxa1908_audio_power_on(struct generic_pm_domain *genpd)
-+{
-+	struct pxa1908_pd *pd = to_pxa1908_pd(genpd);
-+	struct pxa1908_pd_ctrl *ctrl = pd->ctrl;
-+
-+	return regmap_set_bits(ctrl->base, APMU_AUDIO_CLK, AUDIO_ULCX_ENABLE);
-+}
-+
-+static inline int pxa1908_audio_power_off(struct generic_pm_domain *genpd)
-+{
-+	struct pxa1908_pd *pd = to_pxa1908_pd(genpd);
-+	struct pxa1908_pd_ctrl *ctrl = pd->ctrl;
-+
-+	return regmap_clear_bits(ctrl->base, APMU_AUDIO_CLK, AUDIO_ULCX_ENABLE);
-+}
-+
- #define DOMAIN(_id, _name, ctrl, mode, state) \
- 	[_id] = { \
- 		.data = { \
-@@ -159,6 +183,13 @@ static struct pxa1908_pd domains[NR_DOMAINS] = {
- 			.keep_on = true,
- 		},
- 	},
-+	[PXA1908_POWER_DOMAIN_AUDIO] = {
-+		.genpd = {
-+			.name = "audio",
-+			.power_on = pxa1908_audio_power_on,
-+			.power_off = pxa1908_audio_power_off,
-+		},
-+	},
- };
- 
- static void pxa1908_pd_remove(struct auxiliary_device *auxdev)
+All errors (new ones prefixed by >>):
+
+   arch/arm64/kernel/hw_breakpoint.c:483:17: warning: missing terminating '"' character [-Winvalid-pp-token]
+     483 |                         pr_warn_once("hw_breakpoint: invalid AArch64 breakpoint length %d,
+         |                                      ^
+   arch/arm64/kernel/hw_breakpoint.c:484:24: warning: missing terminating '"' character [-Winvalid-pp-token]
+     484 |                                 fixing to 4 bytes\n", hw->ctrl.len);
+         |                                                    ^
+>> arch/arm64/kernel/hw_breakpoint.c:483:4: error: unterminated function-like macro invocation
+     483 |                         pr_warn_once("hw_breakpoint: invalid AArch64 breakpoint length %d,
+         |                         ^
+   include/linux/printk.h:669:9: note: macro 'pr_warn_once' defined here
+     669 | #define pr_warn_once(fmt, ...)                                  \
+         |         ^
+>> arch/arm64/kernel/hw_breakpoint.c:1014:2: error: expected '}'
+    1014 | }
+         |  ^
+   arch/arm64/kernel/hw_breakpoint.c:476:52: note: to match this '{'
+     476 |                 } else if (hw->ctrl.len != ARM_BREAKPOINT_LEN_4) {
+         |                                                                  ^
+>> arch/arm64/kernel/hw_breakpoint.c:1014:2: error: expected '}'
+    1014 | }
+         |  ^
+   arch/arm64/kernel/hw_breakpoint.c:471:47: note: to match this '{'
+     471 |         if (hw->ctrl.type == ARM_BREAKPOINT_EXECUTE) {
+         |                                                      ^
+>> arch/arm64/kernel/hw_breakpoint.c:1014:2: error: expected '}'
+    1014 | }
+         |  ^
+   arch/arm64/kernel/hw_breakpoint.c:417:1: note: to match this '{'
+     417 | {
+         | ^
+   2 warnings and 4 errors generated.
+
+
+vim +483 arch/arm64/kernel/hw_breakpoint.c
+
+   410	
+   411	/*
+   412	 * Construct an arch_hw_breakpoint from a perf_event.
+   413	 */
+   414	static int arch_build_bp_info(struct perf_event *bp,
+   415				      const struct perf_event_attr *attr,
+   416				      struct arch_hw_breakpoint *hw)
+   417	{
+   418		/* Type */
+   419		switch (attr->bp_type) {
+   420		case HW_BREAKPOINT_X:
+   421			hw->ctrl.type = ARM_BREAKPOINT_EXECUTE;
+   422			break;
+   423		case HW_BREAKPOINT_R:
+   424			hw->ctrl.type = ARM_BREAKPOINT_LOAD;
+   425			break;
+   426		case HW_BREAKPOINT_W:
+   427			hw->ctrl.type = ARM_BREAKPOINT_STORE;
+   428			break;
+   429		case HW_BREAKPOINT_RW:
+   430			hw->ctrl.type = ARM_BREAKPOINT_LOAD | ARM_BREAKPOINT_STORE;
+   431			break;
+   432		default:
+   433			return -EINVAL;
+   434		}
+   435	
+   436		/* Len */
+   437		switch (attr->bp_len) {
+   438		case HW_BREAKPOINT_LEN_1:
+   439			hw->ctrl.len = ARM_BREAKPOINT_LEN_1;
+   440			break;
+   441		case HW_BREAKPOINT_LEN_2:
+   442			hw->ctrl.len = ARM_BREAKPOINT_LEN_2;
+   443			break;
+   444		case HW_BREAKPOINT_LEN_3:
+   445			hw->ctrl.len = ARM_BREAKPOINT_LEN_3;
+   446			break;
+   447		case HW_BREAKPOINT_LEN_4:
+   448			hw->ctrl.len = ARM_BREAKPOINT_LEN_4;
+   449			break;
+   450		case HW_BREAKPOINT_LEN_5:
+   451			hw->ctrl.len = ARM_BREAKPOINT_LEN_5;
+   452			break;
+   453		case HW_BREAKPOINT_LEN_6:
+   454			hw->ctrl.len = ARM_BREAKPOINT_LEN_6;
+   455			break;
+   456		case HW_BREAKPOINT_LEN_7:
+   457			hw->ctrl.len = ARM_BREAKPOINT_LEN_7;
+   458			break;
+   459		case HW_BREAKPOINT_LEN_8:
+   460			hw->ctrl.len = ARM_BREAKPOINT_LEN_8;
+   461			break;
+   462		default:
+   463			return -EINVAL;
+   464		}
+   465	
+   466		/*
+   467		 * On AArch64, we only permit breakpoints of length 4, whereas
+   468		 * AArch32 also requires breakpoints of length 2 for Thumb.
+   469		 * Watchpoints can be of length 1, 2, 4 or 8 bytes.
+   470		 */
+   471		if (hw->ctrl.type == ARM_BREAKPOINT_EXECUTE) {
+   472			if (is_compat_bp(bp)) {
+   473				if (hw->ctrl.len != ARM_BREAKPOINT_LEN_2 &&
+   474				    hw->ctrl.len != ARM_BREAKPOINT_LEN_4)
+   475					return -EINVAL;
+   476			} else if (hw->ctrl.len != ARM_BREAKPOINT_LEN_4) {
+   477				/*
+   478				 * Some tools (e.g. perf) incorrectly assume that
+   479				 * breakpoints should be sizeof(long). This is wrong
+   480				 * for AArch64 where breakpoints must be 4 bytes.
+   481				 * Warn the user and fix up the parameter.
+   482				 */
+ > 483				pr_warn_once("hw_breakpoint: invalid AArch64 breakpoint length %d,
+ > 484					fixing to 4 bytes\n", hw->ctrl.len);
+   485				hw->ctrl.len = ARM_BREAKPOINT_LEN_4;
+   486			}
+   487		}
+   488	
+   489		/* Address */
+   490		hw->address = attr->bp_addr;
+   491	
+   492		/*
+   493		 * Privilege
+   494		 * Note that we disallow combined EL0/EL1 breakpoints because
+   495		 * that would complicate the stepping code.
+   496		 */
+   497		if (arch_check_bp_in_kernelspace(hw))
+   498			hw->ctrl.privilege = AARCH64_BREAKPOINT_EL1;
+   499		else
+   500			hw->ctrl.privilege = AARCH64_BREAKPOINT_EL0;
+   501	
+   502		/* Enabled? */
+   503		hw->ctrl.enabled = !attr->disabled;
+   504	
+   505		return 0;
+   506	}
+   507	
+
 -- 
-2.51.2
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
