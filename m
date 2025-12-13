@@ -4,89 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79DD9D5AE41
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Dec 2025 12:38:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8562FD5B154
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Dec 2025 14:27:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kl4Py/AlZ27lPpZcAttqdENHJeAIK0qBe+Cj4N/n364=; b=BkHWtwNpnPbwYLvWU+5H0jdwgX
-	LRDhSJPa41MSymH7iRfLwLez8yhCsjz7VFYMir5gwXQNxfFlgHCiVKTz90GIkX1cCG8mRIkaSYieO
-	JJKkKxZ/zBC6Ghvtr1+LuYgWMz52HqZRUnPnVLJvPreVTRDYAyMJcwTKbPioIrvh5ioJwYDHwhe/M
-	nEJk42LiLVU+bX8f6mS9dfTWf486eVdu2eQNrLHsAWaMj6WGl2CvcBhaEecUkuxKhi98EfnBB+Dgj
-	vu8meSWKdrBhORsBTaM3mE779n3POSHMtLyHXuoYoBIqgT0XTbLvW8wGz0wxZh/14IvhZ7KL8dtm0
-	sR2XYXpA==;
+	bh=mpVof7Odug9SAbcKmOJ7g5O7rAAVK/6mGp9tsqPmEDs=; b=YMvpkWQOYx4VsQ6diTUX8/s1xG
+	eSLj6t5r0gOCpmNqEyYKP99q6bD0f578yvMivS+o1i2//r5JVW8/JrghZ8zMRDbyd7krb05MHDfgd
+	vYmRkGCOTaEk2qFc7OLZJEqlQRog4o994QavKxjij7kXbp2lIIVi2riG99mQMy4GtSbW+RmyZBuLS
+	NUwpYAemDVhWCZAOlgi8GkNDtGkYWOP6+5VI04oOA4lfUZGZ1sViB2SomPzjk0rqRJUpF9Ah19H1P
+	mwCfZZ121/CcS/zvENFElv/V7245rKyA8uu5xsFfJfzzefdSJOfG95O3V443vL1zU9M1YoqO+/uP5
+	4kSik+wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUOtc-00000001eMt-2WNu;
-	Sat, 13 Dec 2025 12:38:48 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1vUQar-00000001hLi-28ht;
+	Sat, 13 Dec 2025 14:27:33 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUOta-00000001eMS-0DTI
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Dec 2025 12:38:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1765629526; x=1797165526;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=G27+91EwFmRmbX5tFcElcFokL9SyhLTKle8C2wMwatA=;
-  b=FHcu8XhL7bVqtqjdbDNhPxwBzU/aVC3wRgsBN6B6F6cCYUvzmJVbA8mC
-   kyZhTumJrvqW1D6qbrdsVxSP3V7Wfj7rCObYAdT0gHx1ZqveJzpb1PcMw
-   LuULOwyGAQt9JdMp6XmgnJdI4XsN4oF0f2R6J9Yq1RO2i5Fyz9WCONG/o
-   SqO3ikGK8fyJs8fubPINeAStKYU/fPF6I5dfxjsB8UlOhoJIT/LGLo8Qv
-   e1az9VCPAYNuqSFzY62OY5qCtWnj26iED8NzEb++BmfxzK8l7N03A6mFy
-   4ZDpGf9GsHKCSAWUwsmsO21aWBLMO69uFXidF38zW7iaGW+K06LHeOuwP
-   w==;
-X-CSE-ConnectionGUID: zhDLTDh1Tz6fA35lYwNoFg==
-X-CSE-MsgGUID: I1EefxpeRT6szRmtM4IXQQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11641"; a="85018035"
-X-IronPort-AV: E=Sophos;i="6.21,146,1763452800"; 
-   d="scan'208";a="85018035"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Dec 2025 04:38:44 -0800
-X-CSE-ConnectionGUID: lCT32xwXSb+SwuspvsqIbw==
-X-CSE-MsgGUID: 1zp9xd16S5KiNKF0NrC5BA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,146,1763452800"; 
-   d="scan'208";a="196591578"
-Received: from lkp-server01.sh.intel.com (HELO d335e3c6db51) ([10.239.97.150])
-  by orviesa010.jf.intel.com with ESMTP; 13 Dec 2025 04:38:39 -0800
-Received: from kbuild by d335e3c6db51 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vUOtQ-000000007cL-3DKn;
-	Sat, 13 Dec 2025 12:38:36 +0000
-Date: Sat, 13 Dec 2025 20:38:29 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jie Gan <jie.gan@oss.qualcomm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-	Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	devicetree@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>
-Subject: Re: [PATCH v8 2/8] coresight: core: add a new API to retrieve the
- helper device
-Message-ID: <202512132024.rsZaNtbp-lkp@intel.com>
-References: <20251211-enable-byte-cntr-for-ctcu-v8-2-3e12ff313191@oss.qualcomm.com>
+	id 1vUQao-00000001hLC-1UNu;
+	Sat, 13 Dec 2025 14:27:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1765636043;
+	bh=mpVof7Odug9SAbcKmOJ7g5O7rAAVK/6mGp9tsqPmEDs=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=k9GIAFCLi6SOWBkvA5dekLeBmr/k3lpvQaumsL9oXYph17moLnM/X4nzmNBiBJExI
+	 K/fJuS90+GpTnal7bjf3dDOmkWx6v1c8+1VSjAtk6M3v1gETVBWKI2ccv1OQc1cyHM
+	 xa4jQGsWIdbTQ3N5RvAQ0wnHGgHq++gkMn8RMznsvh1z4lbW5OKZ2d0N6bHa2Ke6VF
+	 RCuHnScsqWER7sIfhZmP9K58XOB6BQjFxv7HGPDpXKTJOtQMQgKRbPG9VaR0eT5OI1
+	 8kXo0HPrTfnmzd8MMntrtWIuIHxoXNoNmmXq5chgjzdYoc7vCLNR+D17fJj2cWXMas
+	 b3bRb+c4gKe8g==
+Received: from [IPv6:2606:6d00:17:7b4b::5ac] (unknown [IPv6:2606:6d00:17:7b4b::5ac])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nicolas)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A199617E110D;
+	Sat, 13 Dec 2025 15:27:22 +0100 (CET)
+Message-ID: <6810b2c54369a7941d4f01d1013a641412743b62.camel@collabora.com>
+Subject: Re: [PATCH] media: rkvdec: set ctx->image_fmt in
+ rkvdec_s_capture_fmt
+From: Nicolas Dufresne <nicolas.dufresne@collabora.com>
+To: Jianfeng Liu <liujianfeng1994@gmail.com>
+Cc: detlev.casanova@collabora.com, ezequiel@vanguardiasur.com.ar, 
+	heiko@sntech.de, hverkuil@kernel.org, jonas@kwiboo.se, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	mchehab@kernel.org
+Date: Sat, 13 Dec 2025 09:27:20 -0500
+In-Reply-To: <20251213055942.3046647-1-liujianfeng1994@gmail.com>
+References: <8f24c8204984a46bad7d0bb24b78c8115906f748.camel@collabora.com>
+	 <20251213055942.3046647-1-liujianfeng1994@gmail.com>
+Autocrypt: addr=nicolas.dufresne@collabora.com; prefer-encrypt=mutual;
+ keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
+ /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
+ cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
+ CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
+ abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
+ nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
+ AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
+ smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
+ AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
+ iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
+ ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
+ bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
+Organization: Collabora Canada
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-UIrld9YNkFZl6dp2g3nc"
+User-Agent: Evolution 3.58.2 (3.58.2-1.fc43) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251211-enable-byte-cntr-for-ctcu-v8-2-3e12ff313191@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251213_043846_183638_93893412 
-X-CRM114-Status: GOOD (  10.75  )
+X-CRM114-CacheID: sfid-20251213_062730_620163_6C6FBCB4 
+X-CRM114-Status: UNSURE (   6.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,31 +93,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jie,
 
-kernel test robot noticed the following build warnings:
+--=-UIrld9YNkFZl6dp2g3nc
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-[auto build test WARNING on 47b7b5e32bb7264b51b89186043e1ada4090b558]
+Hi,
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Jie-Gan/coresight-core-Refactoring-ctcu_get_active_port-and-make-it-generic/20251211-142430
-base:   47b7b5e32bb7264b51b89186043e1ada4090b558
-patch link:    https://lore.kernel.org/r/20251211-enable-byte-cntr-for-ctcu-v8-2-3e12ff313191%40oss.qualcomm.com
-patch subject: [PATCH v8 2/8] coresight: core: add a new API to retrieve the helper device
-config: arm64-randconfig-001-20251213 (https://download.01.org/0day-ci/archive/20251213/202512132024.rsZaNtbp-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 1335a05ab8bc8339ce24be3a9da89d8c3f4e0571)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251213/202512132024.rsZaNtbp-lkp@intel.com/reproduce)
+Le samedi 13 d=C3=A9cembre 2025 =C3=A0 13:59 +0800, Jianfeng Liu a =C3=A9cr=
+it=C2=A0:
+> Chromium does follow the spec when decoding 10bit videos[1], but that is
+> still limited to hevc and vp9. For h264 and 8bit video chromium thinks
+> this is unnecessary.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512132024.rsZaNtbp-lkp@intel.com/
+thanks for the pointer, that explains a lot my surprise and slight confusio=
+n.
+Now that you mention, on relevant chromebooks, 10bit is only supported with
+HEVC/VP9 (perhaps AV1 too, not sure).
 
-All warnings (new ones prefixed by >>):
+Nicolas
 
->> Warning: drivers/hwtracing/coresight/coresight-core.c:600 function parameter 'subtype' not described in 'coresight_get_helper'
->> Warning: drivers/hwtracing/coresight/coresight-core.c:600 function parameter 'subtype' not described in 'coresight_get_helper'
+--=-UIrld9YNkFZl6dp2g3nc
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+Content-Transfer-Encoding: 7bit
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaT13yAAKCRDZQZRRKWBy
+9LN6AP9kt3JQwQSKEoywb4Qg0hb+LD5J49Oz477ei/ms73TjPAEAnpO8MiNpguWf
+xh3DAL1jT5QsvfC8HyM/OGNutc5hKgM=
+=HAJY
+-----END PGP SIGNATURE-----
+
+--=-UIrld9YNkFZl6dp2g3nc--
 
