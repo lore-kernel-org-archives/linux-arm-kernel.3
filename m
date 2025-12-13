@@ -4,89 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDA61D59F6F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Dec 2025 06:23:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87870D59F6D
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Dec 2025 06:48:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n4Zi0Cq2cNoPGA6Sc/4dV8ieFRc3hxO7Se1dqUqqJX4=; b=jSCRmBZXgCooEaC9I2btxmf6Hm
-	O3+Cow1aZqn5IPWEn+d4RUtttbhWx2S0GigNASzN0HpG5GzfMLg8oAPLQ9rTFzRiZcB/j69De0RFF
-	ZDyJPATspfoiXMe/Es+iLYMfSkvcP1O9yCnaRLF6oK4TBdwfLIIui9pN0GQ2l+Xd8MXmLPEKciIU4
-	H4ojUUj7k64x+/Eqr24YSFgA5gC0xCqw5s/Ec/GpErSaE1YSO57X5x1+vUCbyt+6F1fz1qVp5vQR7
-	BRrfwkaXjNuhK58fdamKVoO6oTOe3E2FW40OWkIEx2uVOOUSGH8+ZXk0xkOHbvM/WLs7s1qR4I3aZ
-	VTWabZig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OSPLFg4W3QR5ByFn0Z+25izVWJy4kGkKLbWih19PHZA=; b=irVkBMNKMFO6EZt+UIpPqT2xPH
+	J2+VqxV79+wPwqN8U3LoY28zrCStNA5TpDw/VZ4jDmNZ1LZoibUvwUi8rBhXtzmhSJM4wMQ0RUp3f
+	ztCHKJj/KO6v/wGsgXeuz/PfsgRsxoaAUqI9ENAWWYxasusLdTM28ifNdgN0a0TM/GsdVghuOM4/a
+	NXNEkSeZaKGxdv+AWBVQxYmwccFo07PsbxEW0FelLo0L0kFP26DE9iwnu0ZN2KzwPTIgPbC8TQ5mM
+	4j1hn6TGs9uHilmmuwhN917knyBeAoZWIUgaUT7rTzcAhKzgF2vOZ8mLvgHsPhV2WCI5AnK45xhy3
+	MnMUJQ3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUJ2D-00000001SUC-2c6s;
-	Sat, 13 Dec 2025 06:23:17 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1vUJQt-00000001TPe-3I2M;
+	Sat, 13 Dec 2025 06:48:47 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUJ2A-00000001STm-41My
+	id 1vUJQq-00000001TOo-0UEl
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Dec 2025 06:23:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1765606995; x=1797142995;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=/lblB9mHbneVuke30grVcxJBPtiroHf6vSxLBptFtwY=;
-  b=a3mZf1K6KdNw2cz6no+sWnp/9qt0pDU+zOeUCZ7nYAWzAFwWBW2S1691
-   C38AtvfhldluTBGEHzpeG0GvHICJGwtNeGzsa9HGXkuxGtbOC6pQ6P7nS
-   Yh7PZ8cJuoxeRovVjm++bpnNOaQfKhazYeyMfhPWlhA2OjUXEtj9vFNeW
-   uI9RMQLogIkstCqx+Jbnz7AW58YWJNERskqyydfq8GLXWWHZ615hyJteE
-   6jOvh8eIvQntZfj2rtFy9gtyHNHJiYOdUcL5wKFmaHOJq6ZbgdB08/M7w
-   cZDfX7ZyyvnYMSBxefgbRQTViTNfo3CUSAr2XKNdC+BwGQCuujJ4G5vNo
-   A==;
-X-CSE-ConnectionGUID: JbvxgqW+SmiRwUrxN98t5g==
-X-CSE-MsgGUID: wAJnxUGXS72r0uLwwzzzYA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11640"; a="85195471"
-X-IronPort-AV: E=Sophos;i="6.21,145,1763452800"; 
-   d="scan'208";a="85195471"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Dec 2025 22:23:13 -0800
-X-CSE-ConnectionGUID: /ArYPWWMQhODYdGKXQI2Hg==
-X-CSE-MsgGUID: 5PESpJhWRDqeRxxg82lXqg==
-X-ExtLoop1: 1
-Received: from lkp-server01.sh.intel.com (HELO d335e3c6db51) ([10.239.97.150])
-  by fmviesa003.fm.intel.com with ESMTP; 12 Dec 2025 22:23:08 -0800
-Received: from kbuild by d335e3c6db51 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vUJ21-000000007A1-3Wso;
-	Sat, 13 Dec 2025 06:23:05 +0000
-Date: Sat, 13 Dec 2025 14:22:24 +0800
-From: kernel test robot <lkp@intel.com>
-To: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Linus Walleij <linusw@kernel.org>,
-	Bartosz Golaszewski <brgl@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	=?iso-8859-1?Q?J=E9r=E9mie?= Dautheribes <jeremie.dautheribes@bootlin.com>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-watchdog@vger.kernel.org,
-	"Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
-Subject: Re: [PATCH 6/8] gpio: aaeon: Add GPIO driver for SRG-IMX8PL MCU
-Message-ID: <202512131342.1nkKkryD-lkp@intel.com>
-References: <20251212-dev-b4-aaeon-mcu-driver-v1-6-6bd65bc8ef12@bootlin.com>
+	Sat, 13 Dec 2025 06:48:45 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7b22ffa2a88so1834579b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 12 Dec 2025 22:48:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1765608523; x=1766213323; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=OSPLFg4W3QR5ByFn0Z+25izVWJy4kGkKLbWih19PHZA=;
+        b=IL6ah5sc9IFgSwz4GJehzFqEc82N2G6megZwztA5valPzbnJmnvRKxXk+hx029fQp7
+         BO8y5O0dgVK/SBfSM7bNL1D0aKl28Kr5yLSWRJuwkzg1R5yyaD+/8JrK55PNFcd0KbTc
+         evxFn0N5F01yGOswcVbPLYo5G4rL2AViiQQw0OcFEwV+UmtRh//i88d3jf13CmxBbA/1
+         cEKV33wgOrbd7AwOorrXZNVCBoz0z1vXboG5hdIfM2RWcE3G0KUOM/I3HV4r/ZDLUG2z
+         BuW7QG3aJeyOtVxapoPW293YpI3fu0k6Rrjw9M9EUfxjSnCGk10f/LFngacobO4Sv7es
+         DTow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765608523; x=1766213323;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=OSPLFg4W3QR5ByFn0Z+25izVWJy4kGkKLbWih19PHZA=;
+        b=Vm0gkDmcn6gpTAlswXmwogS8sH7gq0QL8OfoFufTxxE29t7Js2hVB9JRgr1jnSINYD
+         O1YYNIKHGHLxqhZ2O5N1T334LP7uwQnYHXR8e3FBCNq46rAUeOBw+1CKv/UqI6n8Tqua
+         8LAsgt/UVEE9eCa5EJtsgdBRIc7lpSSvqxL5RAf+ZPa7kyOub+bukvs3FJFeVK9uG4d3
+         D8vlh1PjQ56IARiDoreJdEb7eJPevjgRzIWnAdUAifEzMkYNm/70CYLV636+SWIg4Bly
+         DBzha0bFuBzvBJSbKNH7rxve7PYFTOIra+tMPRlqMta2kJZxxcAk+qTHu2hvBgMg+mUD
+         RVQg==
+X-Forwarded-Encrypted: i=1; AJvYcCUttOp8zKbeJ7LKJxMvfEyRSykkrVU8aVQ253yhsiFS94V2lw/YCwG/ul59UUHQkiZIZGae25Sf1PlWWRQXGced@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrT5ltusyEJ+L4uyE4ma3Pzc17tnYQXVKjf6ZQTpS6HfXWSQ+U
+	hlKh/Bdbnl6AY/ZHNOxfnPyQftnrR8VZkAYOmulIHje4bjrYbuHc6C0VKYPpEQfLabs=
+X-Gm-Gg: AY/fxX4Gx8/VdGbFzHoXBOqzuG4neuc8klkIBC9JzxjyRw88/ONbRrNwGSSXpuczOMz
+	gnPl1Whr0eotxUl5j2EQziP0Mm6pWtaHWi+b5VsAdzb1+RjiDtdgwB/4Tlxz4Smkwer1Jr0nVMg
+	ATSWEdXY3alYYP215qtiI6nzzDigapnH/SX4Une59JQNf+lfTo65aHuD7KErFOxFznMaELC/u7m
+	kndbJdNRMjq/DEz0g/zeY2PICjT2aSidNsO9t+264MeTWun23o8hQNaqJZwcM0Qkh9UpEZc30CU
+	xMYWDQf0kTh/SSmICrQfVHL5TWdT7DxdWiU3dXQsZmWUY6PmdWteZ64/ElwThXfLJz8IKqq1sBz
+	JRVrnvf8SGhvHeTOesfBqKdjB0uh4eJ+0TL00eoiV56YTFYPPjWfS0z+syD4nzb5HiTHNAJFBpD
+	N3lTYT2UMT7y7vD7SXQmv6z1xiQqNBs7BHBi1+9VxHZkZ2ra2xjknnJyLa87SA0w==
+X-Google-Smtp-Source: AGHT+IHwMXPg7Qn0Ef9xWbq83SFpsB1sFhZLa5C8vjkRdWjkXJZFN6bz1qhctibBoHiLjB/xaNqEfg==
+X-Received: by 2002:a05:6a00:1c99:b0:7e8:4471:ae56 with SMTP id d2e1a72fcca58-7f6694a964bmr3530338b3a.34.1765608522549;
+        Fri, 12 Dec 2025 22:48:42 -0800 (PST)
+Received: from [10.200.3.203] (p99250-ipoefx.ipoe.ocn.ne.jp. [153.246.134.249])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7f4c4ab52aasm6927000b3a.38.2025.12.12.22.48.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 12 Dec 2025 22:48:41 -0800 (PST)
+Message-ID: <bf00eec5-e9fe-41df-b758-7601815b24a0@linaro.org>
+Date: Sat, 13 Dec 2025 08:48:33 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251212-dev-b4-aaeon-mcu-driver-v1-6-6bd65bc8ef12@bootlin.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 00/26] Introduce meminspect
+To: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mm@kvack.org, tglx@linutronix.de, andersson@kernel.org,
+ pmladek@suse.com, rdunlap@infradead.org, corbet@lwn.net, david@redhat.com,
+ mhocko@suse.com
+Cc: tudor.ambarus@linaro.org, mukesh.ojha@oss.qualcomm.com,
+ linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org,
+ jonechou@google.com, rostedt@goodmis.org, linux-doc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-remoteproc@vger.kernel.org,
+ linux-arch@vger.kernel.org, tony.luck@intel.com, kees@kernel.org,
+ Trilok Soni <tsoni@quicinc.com>, Kaushal Kumar <kaushalk@qti.qualcomm.com>,
+ Shiraz Hashim <shashim@qti.qualcomm.com>,
+ Peter Griffin <peter.griffin@linaro.org>, stephen.s.brennan@oracle.com,
+ Will McVicker <willmcvicker@google.com>,
+ "stefan.schmidt@linaro.org" <stefan.schmidt@linaro.org>
+References: <20251119154427.1033475-1-eugen.hristev@linaro.org>
+From: Eugen Hristev <eugen.hristev@linaro.org>
+Content-Language: en-US
+In-Reply-To: <20251119154427.1033475-1-eugen.hristev@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_222315_064402_AE5131AD 
-X-CRM114-Status: GOOD (  18.47  )
+X-CRM114-CacheID: sfid-20251212_224844_181265_F3CA6DAD 
+X-CRM114-Status: GOOD (  24.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,191 +113,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Thomas,
 
-kernel test robot noticed the following build errors:
 
-[auto build test ERROR on d358e5254674b70f34c847715ca509e46eb81e6f]
+On 11/19/25 17:44, Eugen Hristev wrote:
+> meminspect is a mechanism which allows the kernel to mark specific memory
+> areas for memory dumping or specific inspection, statistics, usage.
+> Once regions are marked, meminspect keeps an internal list with the regions
+> in a dedicated table.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Thomas-Perrot-Schneider-Electric/dt-bindings-vendor-prefixes-Add-AAEON-vendor-prefix/20251212-154458
-base:   d358e5254674b70f34c847715ca509e46eb81e6f
-patch link:    https://lore.kernel.org/r/20251212-dev-b4-aaeon-mcu-driver-v1-6-6bd65bc8ef12%40bootlin.com
-patch subject: [PATCH 6/8] gpio: aaeon: Add GPIO driver for SRG-IMX8PL MCU
-config: arc-randconfig-r132-20251213 (https://download.01.org/0day-ci/archive/20251213/202512131342.1nkKkryD-lkp@intel.com/config)
-compiler: arc-linux-gcc (GCC) 14.3.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251213/202512131342.1nkKkryD-lkp@intel.com/reproduce)
+[...]
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512131342.1nkKkryD-lkp@intel.com/
 
-All errors (new ones prefixed by >>):
+> I will present this version at Plumbers conference in Tokyo on December 13th:
+> https://lpc.events/event/19/contributions/2080/
+> I am eager to discuss it there face to face.
 
-   `.exit.text' referenced in section `__jump_table' of lib/test_dynamic_debug.o: defined in discarded section `.exit.text' of lib/test_dynamic_debug.o
-   `.exit.text' referenced in section `__jump_table' of lib/test_dynamic_debug.o: defined in discarded section `.exit.text' of lib/test_dynamic_debug.o
-   arc-linux-ld: drivers/gpio/gpio-aaeon-mcu.o: in function `aaeon_mcu_gpio_get':
->> drivers/gpio/gpio-aaeon-mcu.c:124:(.text+0x4c): undefined reference to `aaeon_mcu_i2c_xfer'
->> arc-linux-ld: drivers/gpio/gpio-aaeon-mcu.c:124:(.text+0x4c): undefined reference to `aaeon_mcu_i2c_xfer'
-   arc-linux-ld: drivers/gpio/gpio-aaeon-mcu.o: in function `aaeon_mcu_gpio_set':
-   drivers/gpio/gpio-aaeon-mcu.c:139:(.text+0x100): undefined reference to `aaeon_mcu_i2c_xfer'
-   arc-linux-ld: drivers/gpio/gpio-aaeon-mcu.c:139:(.text+0x100): undefined reference to `aaeon_mcu_i2c_xfer'
-   arc-linux-ld: drivers/gpio/gpio-aaeon-mcu.c:150:(.text+0x172): undefined reference to `aaeon_mcu_i2c_xfer'
-   arc-linux-ld: drivers/gpio/gpio-aaeon-mcu.o:drivers/gpio/gpio-aaeon-mcu.c:150: more undefined references to `aaeon_mcu_i2c_xfer' follow
-   `.exit.text' referenced in section `__jump_table' of drivers/target/target_core_configfs.o: defined in discarded section `.exit.text' of drivers/target/target_core_configfs.o
-   `.exit.text' referenced in section `__jump_table' of drivers/target/target_core_configfs.o: defined in discarded section `.exit.text' of drivers/target/target_core_configfs.o
+Summary of the discussions at LPC talk on Dec 13th:
 
-sparse warnings: (new ones prefixed by >>)
->> drivers/gpio/gpio-aaeon-mcu.c:246:1: sparse: sparse: bad integer constant expression
-   drivers/gpio/gpio-aaeon-mcu.c:246:1: sparse: sparse: static assertion failed: "MODULE_INFO(description, ...) contains embedded NUL byte"
-   drivers/gpio/gpio-aaeon-mcu.c:247:1: sparse: sparse: bad integer constant expression
-   drivers/gpio/gpio-aaeon-mcu.c:247:1: sparse: sparse: static assertion failed: "MODULE_INFO(author, ...) contains embedded NUL byte"
-   drivers/gpio/gpio-aaeon-mcu.c:248:1: sparse: sparse: bad integer constant expression
-   drivers/gpio/gpio-aaeon-mcu.c:248:1: sparse: sparse: static assertion failed: "MODULE_INFO(file, ...) contains embedded NUL byte"
-   drivers/gpio/gpio-aaeon-mcu.c:248:1: sparse: sparse: bad integer constant expression
-   drivers/gpio/gpio-aaeon-mcu.c:248:1: sparse: sparse: static assertion failed: "MODULE_INFO(license, ...) contains embedded NUL byte"
+One main idea on the static variables annotation was to do some linker
+magic, to create a list of variables in the tree, that would be parsed
+by some script, the addresses and sizes would be then stored into the
+dedicated section at the script level, without having any C code change.
+Pros: no C code change, Cons: it would be hidden/masked from the code,
+easy to miss out, which might lead to people's variables being annotated
+without them knowing
 
-vim +124 drivers/gpio/gpio-aaeon-mcu.c
+Another idea was to have variables directly stored in a dedicated
+section which would be added to the table.
+e.g. static int __attribute(section (...)) nr_irqs;
+Pros: no more meminspect section Cons: have to keep all interesting
+variables in a separate section, which might not be okay for everyone.
 
-   110	
-   111	static int aaeon_mcu_gpio_get(struct gpio_chip *gc, unsigned int offset)
-   112	{
-   113		struct aaeon_mcu_gpio *data = gpiochip_get_data(gc);
-   114		u8 cmd[3], rsp;
-   115		int ret;
-   116	
-   117		if (offset < MAX_GPOS)
-   118			return test_bit(offset, data->gpo_state);
-   119	
-   120		cmd[0] = AAEON_MCU_READ_GPIO;
-   121		cmd[1] = offset - 7;
-   122		cmd[2] = 0x00;
-   123	
- > 124		ret = aaeon_mcu_i2c_xfer(data->mfd->i2c_client, cmd, 3, &rsp, 1);
-   125		if (ret < 0)
-   126			return ret;
-   127	
-   128		return rsp;
-   129	}
-   130	
-   131	static int aaeon_mcu_gpo_set_cmd(struct aaeon_mcu_gpio *data, unsigned int offset, int value)
-   132	{
-   133		u8 cmd[3], rsp;
-   134	
-   135		cmd[0] = AAEON_MCU_CONTROL_GPO;
-   136		cmd[1] = offset + 1;
-   137		cmd[2] = !!value;
-   138	
-   139		return aaeon_mcu_i2c_xfer(data->mfd->i2c_client, cmd, 3, &rsp, 1);
-   140	}
-   141	
-   142	static int aaeon_mcu_gpio_set_cmd(struct aaeon_mcu_gpio *data, unsigned int offset, int value)
-   143	{
-   144		u8 cmd[3], rsp;
-   145	
-   146		cmd[0] = AAEON_MCU_WRITE_GPIO;
-   147		cmd[1] = offset - 7;
-   148		cmd[2] = !!value;
-   149	
-   150		return aaeon_mcu_i2c_xfer(data->mfd->i2c_client, cmd, 3, &rsp, 1);
-   151	}
-   152	
-   153	static int aaeon_mcu_gpio_set(struct gpio_chip *gc, unsigned int offset,
-   154				      int value)
-   155	{
-   156		struct aaeon_mcu_gpio *data = gpiochip_get_data(gc);
-   157	
-   158		if (offset < MAX_GPOS) {
-   159			if (aaeon_mcu_gpo_set_cmd(data, offset, value) == 0)
-   160				assign_bit(offset, data->gpo_state, value);
-   161		} else {
-   162			return aaeon_mcu_gpio_set_cmd(data, offset, value);
-   163		}
-   164		return 0;
-   165	}
-   166	
-   167	static const struct gpio_chip aaeon_mcu_chip = {
-   168		.label			= "gpio-aaeon-mcu",
-   169		.owner			= THIS_MODULE,
-   170		.get_direction		= aaeon_mcu_gpio_get_direction,
-   171		.direction_input	= aaeon_mcu_gpio_direction_input,
-   172		.direction_output	= aaeon_mcu_gpio_direction_output,
-   173		.get			= aaeon_mcu_gpio_get,
-   174		.set			= aaeon_mcu_gpio_set,
-   175		.base			= -1,
-   176		.ngpio			= MAX_GPOS + MAX_GPIOS,
-   177		.can_sleep		= true,
-   178	};
-   179	
-   180	static void aaeon_mcu_gpio_reset(struct aaeon_mcu_gpio *data, struct device *dev)
-   181	{
-   182		unsigned int i;
-   183		int ret;
-   184	
-   185		/* Reset all GPOs */
-   186		for (i = 0; i < MAX_GPOS; i++) {
-   187			ret = aaeon_mcu_gpo_set_cmd(data, i, 0);
-   188			if (ret < 0)
-   189				dev_warn(dev, "Failed to reset GPO %u state: %d\n", i, ret);
-   190			clear_bit(i, data->dir_in);
-   191		}
-   192	
-   193		/* Reset all GPIOs */
-   194		for (i = MAX_GPOS; i < MAX_GPOS + MAX_GPIOS; i++) {
-   195			ret = aaeon_mcu_gpio_config_input_cmd(data, i);
-   196			if (ret < 0)
-   197				dev_warn(dev, "Failed to reset GPIO %u state: %d\n", i, ret);
-   198			set_bit(i, data->dir_in);
-   199		}
-   200	}
-   201	
-   202	static int aaeon_mcu_gpio_probe(struct platform_device *pdev)
-   203	{
-   204		struct aaeon_mcu_dev *mfd = dev_get_drvdata(pdev->dev.parent);
-   205		struct aaeon_mcu_gpio *data;
-   206	
-   207		data = devm_kzalloc(&pdev->dev, sizeof(*data), GFP_KERNEL);
-   208		if (!data)
-   209			return -ENOMEM;
-   210	
-   211		data->mfd = mfd;
-   212		data->gc = aaeon_mcu_chip;
-   213		data->gc.parent = &pdev->dev;
-   214	
-   215		/*
-   216		 * Reset all GPIO states to a known configuration. The MCU does not
-   217		 * reset GPIO state on soft reboot, only on power cycle (hard reboot).
-   218		 * Without this reset, GPIOs would retain their previous state across
-   219		 * reboots, which could lead to unexpected behavior.
-   220		 */
-   221		aaeon_mcu_gpio_reset(data, &pdev->dev);
-   222	
-   223		platform_set_drvdata(pdev, data);
-   224	
-   225		return devm_gpiochip_add_data(&pdev->dev, &data->gc,
-   226					      data);
-   227	}
-   228	
-   229	static const struct of_device_id aaeon_mcu_gpio_of_match[] = {
-   230		{ .compatible = "aaeon,srg-imx8pl-gpio" },
-   231		{},
-   232	};
-   233	
-   234	MODULE_DEVICE_TABLE(of, aaeon_mcu_gpio_of_match);
-   235	
-   236	static struct platform_driver aaeon_mcu_gpio_driver = {
-   237		.driver = {
-   238			.name = "aaeon-mcu-gpio",
-   239			.of_match_table = aaeon_mcu_gpio_of_match,
-   240		},
-   241		.probe = aaeon_mcu_gpio_probe,
-   242	};
-   243	
-   244	module_platform_driver(aaeon_mcu_gpio_driver);
-   245	
- > 246	MODULE_DESCRIPTION("GPIO interface for Aaeon MCU");
+On dynamic memory, the memblock flag marking did not receive any obvious
+NAKs.
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+On dynamic memory that is bigger in size than one page, as the table
+entries are registered by virtual address, this would be non-contiguous
+in physical memory. How is this solved?
+-> At the moment it's left for the consumer drivers to handle this
+situation. If the region is a VA and the size > PAGE_SIZE, then the
+driver needs to handle the way it handles it. Maybe the driver that
+parses the entry needs to convert it into multiple contiguous entries,
+or just have virtual address is enough. The inspection table does not
+enforce or limit the entries to contiguous entries only.
+
+On the traverse/notifier system, the implementation did not receive any
+obvious NAKs
+
+General comments:
+
+Trilok Soni from Qualcomm mentioned they will be using this into their
+software deliveries in production.
+
+Someone suggested to have some mechanism to block specific data from
+being added to the inspection table as being sensitive non-inspectable
+data.
+[Eugen]: Still have to figure out how that could be done. Stuff is not
+being added to the table by default.
+
+Another comment was about what use case there is in mind, is this for
+servers, or for confidential computing, because each different use case
+might have different requirements, like ignoring some regions is an
+option in one case, but bloating the table in another case might not be
+fine.
+[Eugen]: The meminspect scenario should cover all cases and not be too
+specific. If it is generic enough and customizable enough to care for
+everyone's needs then I consider it being a success. It should not
+specialize in neither of these two different cases, but rather be
+tailored by each use case to provide the mandatory requirements for that
+case.
+
+Another comment mentioned that this usecase does not apply to many
+people due to firmware or specific hardware needed.
+[Eugen]: one interesting proposed usecase is to have a pstore
+driver/implementation that would traverse the inspection table at panic
+handler time, then gather data from there to store in the pstore
+(ramoops, mtdoops or whatever backend) and have it available to the
+userspace after reboot. This would be a nice use case that does not
+require firmware nor specific hardware, just pstore backend support.
+
+Ending note was whether this implementation is going in a good direction
+and what would be the way to having it moving upstream.
+
+Thanks everyone who attended and came up with ideas and comments.
+There are a few comments which I may have missed, so please feel free to
+reply to this email to start a discussion thread on the topic you are
+interested in.
+
+Eugen
 
