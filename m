@@ -4,73 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8C65D59F5C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Dec 2025 02:59:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DF91D59F5C
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Dec 2025 03:01:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Avsz2cpuBMuIxJfDe8Exx+UdsRJos/RaUMHi5Uqgdyg=; b=rJ8IEhPsUHZnzyjhni9HEOSM8C
-	o9xcigbkrs299X62z8nU9ekca6ClubUrTpF1DQOxivw5y5zShjJRDvEMPJcIzrMLyPsPA8x5qywa6
-	M/M/6O39OWTjfwKibb10J70H8zlzposeOWMuWxmPyCjrOsGtF7G939/7EdEZ3f8RvDIMo1ge3th3R
-	4DfGvFPHXJVV8MBOvLpi9rZr4bQof2VPl8UuZkSMMMHHN39y/IUyIQemKsQXXrz5YObjRl837n/ff
-	DyKEEz5iqf4AODBzbRAEij2Sn7Acr3+yA8vQtWgyWBhTr3cSVDyhJwAmdkIsrU8A6bhUi2j2ul0VL
-	DR/Ahp0g==;
+	bh=WhJbiOUk1YqZUqHcqWZIu4FVxu1CJrAi8KQXwG6cc3o=; b=CDsCxQrLEdtU6B4q4sMK2HtfK3
+	rMBiVrCiMVZtesLfQPY2K0zRKvB9ZazcXbpNUwhqjpTxGGeJhNB4NaRBugpQyjkTB+a0mwBDWqyzH
+	QHOV1uKwfRC6fuicEdzvajnQKXD3IN4aVG0sX9SW4J4rR6AWeRC2VBNGWzihbhZXIEEeevfUbMOhV
+	Ug4ERDRUI+LTCkYkcSngwkJ868mAfqByVEoUHNM4rGE6b0OajTCW4Qx0ceSVzsWRGpUOX+JWd3dOI
+	tMZF50J32BeHDn3bSykBDsSI3JPnUesBEp40xwekwP8e2rbtILDp76KW0eO88g7yOURYLIO9MuF4u
+	IuQb9h4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUFqa-00000001LS9-3sJN;
-	Sat, 13 Dec 2025 02:59:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1vUFss-00000001Llz-2c6M;
+	Sat, 13 Dec 2025 03:01:26 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUFqZ-00000001LQw-3Pgw;
-	Sat, 13 Dec 2025 02:59:03 +0000
+	id 1vUFsq-00000001Llp-3Ir0
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 13 Dec 2025 03:01:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DBB0C600AA;
-	Sat, 13 Dec 2025 02:59:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15F6FC4CEF1;
-	Sat, 13 Dec 2025 02:58:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BEDBF600AA;
+	Sat, 13 Dec 2025 03:01:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AAD92C4CEF5;
+	Sat, 13 Dec 2025 03:01:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765594742;
-	bh=KNH4RZL5PUFyyCM7KZsz16mXm7HYj28WnHjsws4VIXw=;
+	s=k20201202; t=1765594883;
+	bh=u4uC+opD9/GDpFJsYurkfVKTjIdwkKonZMXbeLIgp5E=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NbGcO2MIOVUn/ry7gCdKnJs3l6qlwFRxPB3pgc+cbGlDEP3T0pp7H6H7vEwIyp/Gm
-	 U7LIILqAZzdtEaconNoYl1LBBtaHqeoxuJ7ns2TVlNaHG2FdNwKKAr1pvaixwrzvmk
-	 7pIMhvloTDvZTrBLAtolu4UauWO/iW/FB4SM+X2+ufjxcFUdkGrun4NPhzPSgvJAny
-	 lNbizq4d53nCtFXyevHgT2peCHFgqKyrUS8KzbK0E58HOge8bbIQir7a9525+JXlPF
-	 Z4odhM8vaBUglqdz8m4Zg15qSDTHOV12skFGdTSgKs/Je7HKZU3m8bQAvclO+TEXp7
-	 zhT8L4w2gz/CQ==
-Message-ID: <02201ae8-d705-4896-a3ff-9b2d5cf833f8@kernel.org>
-Date: Sat, 13 Dec 2025 03:58:52 +0100
+	b=G3nhlJCoMGvmOz+XiMZc/DcR6HIW5jKCvJVIs1tjc0OQBqIbqU2hRHpQOfjfRhtNF
+	 IgbI6VXcef8yOWWk5ik0IBpVRTS/+jzGGw5jDQoKUtY35IRtJNy6fmDtUAPGEjLEEq
+	 QbsjSXnjCE00gd8GzeygvC1Gdw90e4t2YrFBtERJ+AbTAP9uPM+yaP/++sibFxJcnq
+	 LPlw98k+NlL5dvbWpIzE9HQKvbWvFtvFwqUJF1Yr/4sqg0Flj90dgP1DImTese0a50
+	 QhM6qH8F/NZHqML2xcG3TLQplB754leenZbK95FHsPAo8zouQBkbLXK/ySETrb3l5B
+	 oschu81Pdykow==
+Message-ID: <eb752290-0eb3-4817-b3ca-91a4f423dac4@kernel.org>
+Date: Sat, 13 Dec 2025 04:01:17 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: Remove unused includes
+Subject: Re: [PATCH] arm/arm64: dts: st: Drop unused .dtsi
 To: "Rob Herring (Arm)" <robh@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
- Michal Simek <michal.simek@amd.com>, Vinod Koul <vkoul@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Jonathan Cameron <jic23@kernel.org>, David Lechner <dlechner@baylibre.com>,
- =?UTF-8?Q?Nuno_S=C3=A1?= <nuno.sa@analog.com>,
- Andy Shevchenko <andy@kernel.org>, Yong Wu <yong.wu@mediatek.com>,
- Peter Rosin <peda@axentia.se>, Linus Walleij <linusw@kernel.org>,
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>, Philipp Zabel
- <p.zabel@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, dmaengine@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-iio@vger.kernel.org,
- iommu@lists.linux.dev, linux-gpio@vger.kernel.org,
- linux-sunxi@lists.linux.dev, imx@lists.linux.dev, linux-sound@vger.kernel.org
-References: <20251212231203.727227-1-robh@kernel.org>
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ Magnus Damm <magnus.damm@gmail.com>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Viresh Kumar <vireshk@kernel.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ soc@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-msm@vger.kernel.org
+References: <20251212203226.458694-3-robh@kernel.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -116,7 +106,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251212231203.727227-1-robh@kernel.org>
+In-Reply-To: <20251212203226.458694-3-robh@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -133,17 +123,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/12/2025 00:11, Rob Herring (Arm) wrote:
-> Remove includes which are not referenced by either DTS files or drivers.
-> 
-> There's a few more which are new, so they are excluded for now.
+On 12/12/2025 21:32, Rob Herring (Arm) wrote:
+> These .dtsi files are not included anywhere in the tree and can't be
+> tested.
 > 
 > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+>  arch/arm/boot/dts/st/spear320s.dtsi           | 24 -------
+>  .../boot/dts/st/stm32mp15xxab-pinctrl.dtsi    | 57 ---------------
+>  arch/arm64/boot/dts/qcom/msm8996-v3.0.dtsi    | 63 ----------------
 
 
-Oh yes!
-
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+This should go to the qcom one.
 
 Best regards,
 Krzysztof
