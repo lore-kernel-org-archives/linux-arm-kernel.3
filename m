@@ -4,86 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 247B9D59F7A
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Dec 2025 08:05:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49F19D59F7A
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Dec 2025 08:49:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wRNDaAeI5HqR9GvBSy96Ik3Fc8MEF/Ll0r6pu6cWsu0=; b=dWZZcj8PDd33YrFZxV57mOXgjc
-	31LCnwmIADn1ufcOirZzyBWNhklDV8PcZEhXjUyKhthLtVdIAQb1TRSOeX9ZRGMNOCopBmoXP5TOl
-	nQoWPO5kMIxHW+hJ0pIGy5pfZoJiHTMYIb+Vh4bHIoCNxPCGagMjiHkFPbvW1l4yJ74ChfoqWGiB6
-	KeJGaNNRR7iFBqLXfqcdoZ4meuPJ/J35bcUWZEvNq1Mnnd6ALJ9ODMXFav3kLWGwYMop3K08RzcEn
-	yYsRKIQf9g0VOcu1qdb1ilJsNT0LdMIwSiPlsRd12O8xWY191gkBuKqHRqb3K1uawojgYSLI09v6P
-	dsTiuQzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MsJ/bbje7wscSwZPWlgEMlKtiOAlEmU0N4goIajw7B8=; b=N03q5JY38OayHeg6BSrav9ljoa
+	UP4JTCZvHHJYAHHnKkI+hKe54Tq3W4TYUro0br4Tqm6vvdIYsBjM2hHeRfJQuERQh/QGnWHrgmwB5
+	TohN/CT0imlYyc4XW7hgqZ+tB1eoyE+D0HXh0YJ7KY0pOOfTHKqc2bAmEhznOoqBtOrKtSg1tkYi8
+	Z3RssZ3fWFAclqfpvJx9+9bdYHmam9r8EAZ0NN0+Pt8QA01UKk9PA4bd7Scgs6ofLZG/jqbvpi25l
+	mwozmEUiubYakVF0pEgAQjI28mqUkZBiNpkhDl79UEHetLJkUIaJVQ5NAGiiiE6FDKVm9PBVEvWv5
+	8dqevh7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUKd3-00000001WKP-1vIU;
-	Sat, 13 Dec 2025 08:05:25 +0000
-Received: from mgamail.intel.com ([192.198.163.15])
+	id 1vULJq-00000001Xcn-3OS7;
+	Sat, 13 Dec 2025 08:49:38 +0000
+Received: from smtp1.ms.mff.cuni.cz ([2001:718:1e03:801::4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUKcy-00000001WJw-1z2U
+	id 1vULJm-00000001Xc0-3A2p
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Dec 2025 08:05:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1765613121; x=1797149121;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=wol9oS19c9bBdlTBpPH9ntNcDtf/6ZWS5Gp4NfQ0SYg=;
-  b=kEUFA/LBfbThBKWfcVSuBk6/vdNX/9PjG2PsGVplIArGOVtH1hwaDixk
-   G+JZiJ8zKO7+/IOyBsJ7/Kr+oP8ikey6TYiujJTm28uwnaD2Ca5mGtYHn
-   BT7eF6eUmL+dtom1ZOUrxVl/kpBAl98N/e/4dOczzb4b9Wa3TUKMs9dg5
-   La9ZuZjsdS3H/KQAs6VFmwnIetYOJfIJeluWTGgHWiafix6t1iqhOM9IV
-   aPZdcBZMEq1GLSm9Ow3uIddUzfbP0MuNfCCMez8TJXPimLy74NycWWbof
-   SqXQeWxEjgHg5R9VtvAA07Vcd34c/S/lak3415fwE4fCaQDO+GmSrZmDd
-   w==;
-X-CSE-ConnectionGUID: zz7wKttXR8Cs8hZ9unYBog==
-X-CSE-MsgGUID: VnPfjcfjS/yBCb5Jc/chWQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11640"; a="67675498"
-X-IronPort-AV: E=Sophos;i="6.21,145,1763452800"; 
-   d="scan'208";a="67675498"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Dec 2025 00:05:19 -0800
-X-CSE-ConnectionGUID: +REegi4BSZ6Pyhok8jMjiA==
-X-CSE-MsgGUID: EDrkqM7KRneDKww23KbinA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,145,1763452800"; 
-   d="scan'208";a="227937216"
-Received: from lkp-server01.sh.intel.com (HELO d335e3c6db51) ([10.239.97.150])
-  by orviesa002.jf.intel.com with ESMTP; 13 Dec 2025 00:05:15 -0800
-Received: from kbuild by d335e3c6db51 with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1vUKcq-000000007H3-3MBs;
-	Sat, 13 Dec 2025 08:05:12 +0000
-Date: Sat, 13 Dec 2025 16:05:00 +0800
-From: kernel test robot <lkp@intel.com>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, nd <nd@arm.com>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly <Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: Re: [PATCH 14/32] KVM: arm64: gic-v5: Implement GICv5 load/put and
- save/restore
-Message-ID: <202512131539.zPrweF7e-lkp@intel.com>
-References: <20251212152215.675767-15-sascha.bischoff@arm.com>
+	Sat, 13 Dec 2025 08:49:37 +0000
+X-SubmittedBy: id balejk@matfyz.cz subject /postalCode=110+2000/O=Univerzita+20Karlova/street=Ovocn+5CxC3+5CxBD+20trh+20560+5C/5/ST=Praha,+20Hlavn+5CxC3+5CxAD+20m+5CxC4+5Cx9Bsto/C=CZ/CN=Karel+20Balej/emailAddress=balejk@matfyz.cz
+	serial F5FD910E8FE2121B897F7E55B84E351D
+	issued by /C=NL/O=GEANT+20Vereniging/CN=GEANT+20Personal+20CA+204
+	auth type TLS.CUNI
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mff.cuni.cz;
+	s=submission; t=1765615742; x=1766915742;
+	bh=MsJ/bbje7wscSwZPWlgEMlKtiOAlEmU0N4goIajw7B8=; h=From;
+	b=W4plroK2aGc8coBxZGC4nza2c3SitcVOSLEzgydCidHCuBrNBvMdJusVb6S0JkMZW
+	 f9znjwQmGI8xG32cViAoN53pCDhdLse5wWjjBOz2jwFsp1vZEHAKXakXCTJt/e4Lqe
+	 mUMZ7cA4KPmmvsQkNfPlJmkuZSNFZIHKwde8GM9veZEgkn/vlmfqEFxHvYrwroKiGL
+	 RWtKVRG5KUtgapKmHrAnrJ9OjST1PhDT9t6Z7cXujlO++l7h/wu9gs/d06qmG1VUPO
+	 WxBn+pfWI2RmGIOMfa9IZ8OB1KejQtQ3l+wgolCuZvggNAIVtj4Bz40J/d7wJ2uaQ+
+	 S9sR/aobENiJA==
+Received: from localhost (internet5.mraknet.com [185.200.108.250])
+	(authenticated)
+	by smtp1.ms.mff.cuni.cz (8.18.1/8.18.1) with ESMTPS id 5BD8n1tx051949
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=OK);
+	Sat, 13 Dec 2025 09:49:02 +0100 (CET)
+	(envelope-from balejk@matfyz.cz)
+From: Karel Balej <balejk@matfyz.cz>
+To: =?UTF-8?q?Duje=20Mihanovi=C4=87?= <duje@dujemihanovic.xyz>,
+        Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, linux-pm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+Cc: ~postmarketos/upstreaming@lists.sr.ht, phone-devel@vger.kernel.org,
+        Karel Balej <balejk@matfyz.cz>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Subject: [PATCH v2 1/2] dt-bindings: power: define ID for Marvell PXA1908 audio domain
+Date: Sat, 13 Dec 2025 09:48:12 +0100
+Message-ID: <20251213084843.7491-1-balejk@matfyz.cz>
+X-Mailer: git-send-email 2.51.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251212152215.675767-15-sascha.bischoff@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251213_000522_632252_9B56F6F6 
-X-CRM114-Status: GOOD (  13.57  )
+X-CRM114-CacheID: sfid-20251213_004935_355785_1B35E188 
+X-CRM114-Status: UNSURE (   6.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,97 +81,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sascha,
+Define an identifier for the SoC's audio power island so that it can be
+referenced through device tree.
 
-kernel test robot noticed the following build errors:
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Reviewed-by: Duje Mihanović <duje@dujemihanovic.xyz>
+Signed-off-by: Karel Balej <balejk@matfyz.cz>
+---
 
-[auto build test ERROR on linus/master]
-[also build test ERROR on next-20251212]
-[cannot apply to kvmarm/next arm64/for-next/core kvm/queue kvm/next kvm/linux-next v6.18]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Notes:
+    v2:
+    - Add received trailers (thanks!).
+    - v1: https://lore.kernel.org/r/20251127190237.745-1-balejk@matfyz.cz/
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Sascha-Bischoff/KVM-arm64-Account-for-RES1-bits-in-DECLARE_FEAT_MAP-and-co/20251212-233140
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20251212152215.675767-15-sascha.bischoff%40arm.com
-patch subject: [PATCH 14/32] KVM: arm64: gic-v5: Implement GICv5 load/put and save/restore
-config: arm64-randconfig-002-20251213 (https://download.01.org/0day-ci/archive/20251213/202512131539.zPrweF7e-lkp@intel.com/config)
-compiler: clang version 22.0.0git (https://github.com/llvm/llvm-project 1335a05ab8bc8339ce24be3a9da89d8c3f4e0571)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251213/202512131539.zPrweF7e-lkp@intel.com/reproduce)
+ include/dt-bindings/power/marvell,pxa1908-power.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512131539.zPrweF7e-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from arch/arm64/kernel/asm-offsets.c:16:
-   In file included from include/linux/kvm_host.h:45:
-   In file included from arch/arm64/include/asm/kvm_host.h:36:
->> include/kvm/arm_vgic.h:392:19: error: field has incomplete type 'struct gicv5_vpe'
-     392 |         struct gicv5_vpe gicv5_vpe;
-         |                          ^
-   include/kvm/arm_vgic.h:392:9: note: forward declaration of 'struct gicv5_vpe'
-     392 |         struct gicv5_vpe gicv5_vpe;
-         |                ^
-   1 error generated.
-   make[3]: *** [scripts/Makefile.build:182: arch/arm64/kernel/asm-offsets.s] Error 1 shuffle=1891526797
-   make[3]: Target 'prepare' not remade because of errors.
-   make[2]: *** [Makefile:1314: prepare0] Error 2 shuffle=1891526797
-   make[2]: Target 'prepare' not remade because of errors.
-   make[1]: *** [Makefile:248: __sub-make] Error 2 shuffle=1891526797
-   make[1]: Target 'prepare' not remade because of errors.
-   make: *** [Makefile:248: __sub-make] Error 2 shuffle=1891526797
-   make: Target 'prepare' not remade because of errors.
-
-Kconfig warnings: (for reference only)
-   WARNING: unmet direct dependencies detected for CAN_DEV
-   Depends on [n]: NETDEVICES [=n] && CAN [=y]
-   Selected by [y]:
-   - CAN [=y] && NET [=y]
-
-
-vim +392 include/kvm/arm_vgic.h
-
-   360	
-   361	struct vgic_v5_cpu_if {
-   362		u64	vgic_apr;
-   363		u64	vgic_vmcr;
-   364	
-   365		/* PPI register state */
-   366		u64	vgic_ppi_hmr[2];
-   367		u64	vgic_ppi_dvir[2];
-   368		u64	vgic_ppi_priorityr[16];
-   369	
-   370		/* The pending state of the guest. This is merged with the exit state */
-   371		u64	vgic_ppi_pendr[2];
-   372	
-   373		/* The state flushed to the regs when entering the guest */
-   374		u64	vgic_ppi_activer_entry[2];
-   375		u64	vgic_ich_ppi_enabler_entry[2];
-   376		u64	vgic_ppi_pendr_entry[2];
-   377	
-   378		/* The saved state of the regs when leaving the guest */
-   379		u64	vgic_ppi_activer_exit[2];
-   380		u64	vgic_ich_ppi_enabler_exit[2];
-   381		u64	vgic_ppi_pendr_exit[2];
-   382	
-   383		/*
-   384		 * The ICSR is re-used across host and guest, and hence it needs to be
-   385		 * saved/restored. Only one copy is required as the host should block
-   386		 * preemption between executing GIC CDRCFG and acccessing the
-   387		 * ICC_ICSR_EL1. A guest, of course, can never guarantee this, and hence
-   388		 * it is the hyp's responsibility to keep the state constistent.
-   389		 */
-   390		u64	vgic_icsr;
-   391	
- > 392		struct gicv5_vpe gicv5_vpe;
-   393	};
-   394	
-
+diff --git a/include/dt-bindings/power/marvell,pxa1908-power.h b/include/dt-bindings/power/marvell,pxa1908-power.h
+index 19b088351af1..173f47e0e69d 100644
+--- a/include/dt-bindings/power/marvell,pxa1908-power.h
++++ b/include/dt-bindings/power/marvell,pxa1908-power.h
+@@ -13,5 +13,6 @@
+ #define PXA1908_POWER_DOMAIN_GPU2D	2
+ #define PXA1908_POWER_DOMAIN_DSI	3
+ #define PXA1908_POWER_DOMAIN_ISP	4
++#define PXA1908_POWER_DOMAIN_AUDIO	5
+ 
+ #endif
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.51.2
+
 
