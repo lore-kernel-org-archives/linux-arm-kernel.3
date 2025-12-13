@@ -4,86 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E1A6D59F6C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Dec 2025 06:00:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDA61D59F6F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 13 Dec 2025 06:23:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0ENN5a+5aZT8egsKNtej4zliGij4IIX8QhrGhQfgtkM=; b=iVHFGjNUOz1q2UO2TXSfZRKfsG
-	yCAm81GcAVg8HIppIab/a5pIzAVOGehz+9MLynSkjhVUF6QfMqG+jhpcZlKBv5lx/hBiKn0W2M2ye
-	QFo2irz2vjYqe1FblB2ndrv9hwNiCDNSuSIWQVEyz/BKBxn7lTj0Zjm1BQt0pB8H7UHBN/ORaCkAT
-	yxBY+HE1OIIQTfZrKM6R+QjXMAKfYzb1sFwkwUVST9yplfRaRg9EDFu5f8zLwj1onSLzhoZhD1Qt8
-	yyqdZiKR1W61oAroVZazeMgK7WK1pBtTlZw1Vr5ucEuYVnhutMXZRwTPcLBe7WU89dN9J4AVEiOd2
-	HlAqaoLw==;
+	bh=n4Zi0Cq2cNoPGA6Sc/4dV8ieFRc3hxO7Se1dqUqqJX4=; b=jSCRmBZXgCooEaC9I2btxmf6Hm
+	O3+Cow1aZqn5IPWEn+d4RUtttbhWx2S0GigNASzN0HpG5GzfMLg8oAPLQ9rTFzRiZcB/j69De0RFF
+	ZDyJPATspfoiXMe/Es+iLYMfSkvcP1O9yCnaRLF6oK4TBdwfLIIui9pN0GQ2l+Xd8MXmLPEKciIU4
+	H4ojUUj7k64x+/Eqr24YSFgA5gC0xCqw5s/Ec/GpErSaE1YSO57X5x1+vUCbyt+6F1fz1qVp5vQR7
+	BRrfwkaXjNuhK58fdamKVoO6oTOe3E2FW40OWkIEx2uVOOUSGH8+ZXk0xkOHbvM/WLs7s1qR4I3aZ
+	VTWabZig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUIfu-00000001RK7-0X6V;
-	Sat, 13 Dec 2025 06:00:14 +0000
-Received: from mgamail.intel.com ([198.175.65.19])
+	id 1vUJ2D-00000001SUC-2c6s;
+	Sat, 13 Dec 2025 06:23:17 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUIfr-00000001RJ1-1Dy9
+	id 1vUJ2A-00000001STm-41My
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 13 Dec 2025 06:00:12 +0000
+	Sat, 13 Dec 2025 06:23:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1765605612; x=1797141612;
+  t=1765606995; x=1797142995;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=WL4zqdjhP4eWIgWVfNrlgI8rU89YTQc1eFsnk2DTuu0=;
-  b=WlIL/cZqs8Jll5I8+p5/QbgvQTrq8unRZop6cY1dkZqQAfz5rUMZhz7+
-   ih1UiGpb9ftTzzBt5S4XPfwc4ahxUjXsJ96q2qhms0YawZKTWX4yGYVrX
-   /z2vdPb3lbFybIzThxa6DzOHm8vOY2VTlv6tsFkCtAD2JnC1SzCp18WWL
-   +NAD5SiGmsvsCzcdHd1P45mJtkyayRpMiX/nnBLyOiiV0M98XVTjfrvZ0
-   LfoycJxxUY0SvdX25FjnK1vjl5IBvKlxyBno2zr1VlRScrCmzsYXj/p01
-   i34pfLLo8CIWHghmuPbs9CCj6N6zgPg1JHKkhFSZZO+EvmFjKw81gSpJJ
-   w==;
-X-CSE-ConnectionGUID: SsLq4A6uTRG/F/Wpol/B9g==
-X-CSE-MsgGUID: ioBO10DhQJeTPt3Y2aeGNA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11640"; a="67479183"
+  bh=/lblB9mHbneVuke30grVcxJBPtiroHf6vSxLBptFtwY=;
+  b=a3mZf1K6KdNw2cz6no+sWnp/9qt0pDU+zOeUCZ7nYAWzAFwWBW2S1691
+   C38AtvfhldluTBGEHzpeG0GvHICJGwtNeGzsa9HGXkuxGtbOC6pQ6P7nS
+   Yh7PZ8cJuoxeRovVjm++bpnNOaQfKhazYeyMfhPWlhA2OjUXEtj9vFNeW
+   uI9RMQLogIkstCqx+Jbnz7AW58YWJNERskqyydfq8GLXWWHZ615hyJteE
+   6jOvh8eIvQntZfj2rtFy9gtyHNHJiYOdUcL5wKFmaHOJq6ZbgdB08/M7w
+   cZDfX7ZyyvnYMSBxefgbRQTViTNfo3CUSAr2XKNdC+BwGQCuujJ4G5vNo
+   A==;
+X-CSE-ConnectionGUID: JbvxgqW+SmiRwUrxN98t5g==
+X-CSE-MsgGUID: wAJnxUGXS72r0uLwwzzzYA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11640"; a="85195471"
 X-IronPort-AV: E=Sophos;i="6.21,145,1763452800"; 
-   d="scan'208";a="67479183"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Dec 2025 22:00:09 -0800
-X-CSE-ConnectionGUID: 0dvZTn5IRXWGLU1cN3ZoGA==
-X-CSE-MsgGUID: S/O+NmewRDKE54hVKm53Sg==
+   d="scan'208";a="85195471"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Dec 2025 22:23:13 -0800
+X-CSE-ConnectionGUID: /ArYPWWMQhODYdGKXQI2Hg==
+X-CSE-MsgGUID: 5PESpJhWRDqeRxxg82lXqg==
 X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.21,145,1763452800"; 
-   d="scan'208";a="201749910"
 Received: from lkp-server01.sh.intel.com (HELO d335e3c6db51) ([10.239.97.150])
-  by orviesa004.jf.intel.com with ESMTP; 12 Dec 2025 22:00:06 -0800
+  by fmviesa003.fm.intel.com with ESMTP; 12 Dec 2025 22:23:08 -0800
 Received: from kbuild by d335e3c6db51 with local (Exim 4.98.2)
 	(envelope-from <lkp@intel.com>)
-	id 1vUIfj-0000000078T-1bmr;
-	Sat, 13 Dec 2025 06:00:03 +0000
-Date: Sat, 13 Dec 2025 13:59:37 +0800
+	id 1vUJ21-000000007A1-3Wso;
+	Sat, 13 Dec 2025 06:23:05 +0000
+Date: Sat, 13 Dec 2025 14:22:24 +0800
 From: kernel test robot <lkp@intel.com>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, nd <nd@arm.com>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	Joey Gouly <Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>,
-	"yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	"peter.maydell@linaro.org" <peter.maydell@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	Timothy Hayes <Timothy.Hayes@arm.com>
-Subject: Re: [PATCH 14/32] KVM: arm64: gic-v5: Implement GICv5 load/put and
- save/restore
-Message-ID: <202512131338.pYhd9ptc-lkp@intel.com>
-References: <20251212152215.675767-15-sascha.bischoff@arm.com>
+To: "Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Linus Walleij <linusw@kernel.org>,
+	Bartosz Golaszewski <brgl@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	=?iso-8859-1?Q?J=E9r=E9mie?= Dautheribes <jeremie.dautheribes@bootlin.com>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>, Lee Jones <lee@kernel.org>
+Cc: oe-kbuild-all@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-watchdog@vger.kernel.org,
+	"Thomas Perrot (Schneider Electric)" <thomas.perrot@bootlin.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH 6/8] gpio: aaeon: Add GPIO driver for SRG-IMX8PL MCU
+Message-ID: <202512131342.1nkKkryD-lkp@intel.com>
+References: <20251212-dev-b4-aaeon-mcu-driver-v1-6-6bd65bc8ef12@bootlin.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251212152215.675767-15-sascha.bischoff@arm.com>
+In-Reply-To: <20251212-dev-b4-aaeon-mcu-driver-v1-6-6bd65bc8ef12@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251212_220011_414062_1B9513D4 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20251212_222315_064402_AE5131AD 
+X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,85 +101,189 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sascha,
+Hi Thomas,
 
 kernel test robot noticed the following build errors:
 
-[auto build test ERROR on linus/master]
-[also build test ERROR on next-20251212]
-[cannot apply to kvmarm/next arm64/for-next/core kvm/queue kvm/next kvm/linux-next v6.18]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+[auto build test ERROR on d358e5254674b70f34c847715ca509e46eb81e6f]
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Sascha-Bischoff/KVM-arm64-Account-for-RES1-bits-in-DECLARE_FEAT_MAP-and-co/20251212-233140
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20251212152215.675767-15-sascha.bischoff%40arm.com
-patch subject: [PATCH 14/32] KVM: arm64: gic-v5: Implement GICv5 load/put and save/restore
-config: arm64-allnoconfig (https://download.01.org/0day-ci/archive/20251213/202512131338.pYhd9ptc-lkp@intel.com/config)
-compiler: aarch64-linux-gcc (GCC) 15.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251213/202512131338.pYhd9ptc-lkp@intel.com/reproduce)
+url:    https://github.com/intel-lab-lkp/linux/commits/Thomas-Perrot-Schneider-Electric/dt-bindings-vendor-prefixes-Add-AAEON-vendor-prefix/20251212-154458
+base:   d358e5254674b70f34c847715ca509e46eb81e6f
+patch link:    https://lore.kernel.org/r/20251212-dev-b4-aaeon-mcu-driver-v1-6-6bd65bc8ef12%40bootlin.com
+patch subject: [PATCH 6/8] gpio: aaeon: Add GPIO driver for SRG-IMX8PL MCU
+config: arc-randconfig-r132-20251213 (https://download.01.org/0day-ci/archive/20251213/202512131342.1nkKkryD-lkp@intel.com/config)
+compiler: arc-linux-gcc (GCC) 14.3.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251213/202512131342.1nkKkryD-lkp@intel.com/reproduce)
 
 If you fix the issue in a separate patch/commit (i.e. not just a new version of
 the same patch/commit), kindly add following tags
 | Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202512131338.pYhd9ptc-lkp@intel.com/
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512131342.1nkKkryD-lkp@intel.com/
 
 All errors (new ones prefixed by >>):
 
-   In file included from arch/arm64/include/asm/kvm_host.h:36,
-                    from include/linux/kvm_host.h:45,
-                    from arch/arm64/kernel/asm-offsets.c:16:
->> include/kvm/arm_vgic.h:392:26: error: field 'gicv5_vpe' has incomplete type
-     392 |         struct gicv5_vpe gicv5_vpe;
-         |                          ^~~~~~~~~
-   make[3]: *** [scripts/Makefile.build:182: arch/arm64/kernel/asm-offsets.s] Error 1
-   make[3]: Target 'prepare' not remade because of errors.
-   make[2]: *** [Makefile:1314: prepare0] Error 2
-   make[2]: Target 'prepare' not remade because of errors.
-   make[1]: *** [Makefile:248: __sub-make] Error 2
-   make[1]: Target 'prepare' not remade because of errors.
-   make: *** [Makefile:248: __sub-make] Error 2
-   make: Target 'prepare' not remade because of errors.
+   `.exit.text' referenced in section `__jump_table' of lib/test_dynamic_debug.o: defined in discarded section `.exit.text' of lib/test_dynamic_debug.o
+   `.exit.text' referenced in section `__jump_table' of lib/test_dynamic_debug.o: defined in discarded section `.exit.text' of lib/test_dynamic_debug.o
+   arc-linux-ld: drivers/gpio/gpio-aaeon-mcu.o: in function `aaeon_mcu_gpio_get':
+>> drivers/gpio/gpio-aaeon-mcu.c:124:(.text+0x4c): undefined reference to `aaeon_mcu_i2c_xfer'
+>> arc-linux-ld: drivers/gpio/gpio-aaeon-mcu.c:124:(.text+0x4c): undefined reference to `aaeon_mcu_i2c_xfer'
+   arc-linux-ld: drivers/gpio/gpio-aaeon-mcu.o: in function `aaeon_mcu_gpio_set':
+   drivers/gpio/gpio-aaeon-mcu.c:139:(.text+0x100): undefined reference to `aaeon_mcu_i2c_xfer'
+   arc-linux-ld: drivers/gpio/gpio-aaeon-mcu.c:139:(.text+0x100): undefined reference to `aaeon_mcu_i2c_xfer'
+   arc-linux-ld: drivers/gpio/gpio-aaeon-mcu.c:150:(.text+0x172): undefined reference to `aaeon_mcu_i2c_xfer'
+   arc-linux-ld: drivers/gpio/gpio-aaeon-mcu.o:drivers/gpio/gpio-aaeon-mcu.c:150: more undefined references to `aaeon_mcu_i2c_xfer' follow
+   `.exit.text' referenced in section `__jump_table' of drivers/target/target_core_configfs.o: defined in discarded section `.exit.text' of drivers/target/target_core_configfs.o
+   `.exit.text' referenced in section `__jump_table' of drivers/target/target_core_configfs.o: defined in discarded section `.exit.text' of drivers/target/target_core_configfs.o
 
+sparse warnings: (new ones prefixed by >>)
+>> drivers/gpio/gpio-aaeon-mcu.c:246:1: sparse: sparse: bad integer constant expression
+   drivers/gpio/gpio-aaeon-mcu.c:246:1: sparse: sparse: static assertion failed: "MODULE_INFO(description, ...) contains embedded NUL byte"
+   drivers/gpio/gpio-aaeon-mcu.c:247:1: sparse: sparse: bad integer constant expression
+   drivers/gpio/gpio-aaeon-mcu.c:247:1: sparse: sparse: static assertion failed: "MODULE_INFO(author, ...) contains embedded NUL byte"
+   drivers/gpio/gpio-aaeon-mcu.c:248:1: sparse: sparse: bad integer constant expression
+   drivers/gpio/gpio-aaeon-mcu.c:248:1: sparse: sparse: static assertion failed: "MODULE_INFO(file, ...) contains embedded NUL byte"
+   drivers/gpio/gpio-aaeon-mcu.c:248:1: sparse: sparse: bad integer constant expression
+   drivers/gpio/gpio-aaeon-mcu.c:248:1: sparse: sparse: static assertion failed: "MODULE_INFO(license, ...) contains embedded NUL byte"
 
-vim +/gicv5_vpe +392 include/kvm/arm_vgic.h
+vim +124 drivers/gpio/gpio-aaeon-mcu.c
 
-   360	
-   361	struct vgic_v5_cpu_if {
-   362		u64	vgic_apr;
-   363		u64	vgic_vmcr;
-   364	
-   365		/* PPI register state */
-   366		u64	vgic_ppi_hmr[2];
-   367		u64	vgic_ppi_dvir[2];
-   368		u64	vgic_ppi_priorityr[16];
-   369	
-   370		/* The pending state of the guest. This is merged with the exit state */
-   371		u64	vgic_ppi_pendr[2];
-   372	
-   373		/* The state flushed to the regs when entering the guest */
-   374		u64	vgic_ppi_activer_entry[2];
-   375		u64	vgic_ich_ppi_enabler_entry[2];
-   376		u64	vgic_ppi_pendr_entry[2];
-   377	
-   378		/* The saved state of the regs when leaving the guest */
-   379		u64	vgic_ppi_activer_exit[2];
-   380		u64	vgic_ich_ppi_enabler_exit[2];
-   381		u64	vgic_ppi_pendr_exit[2];
-   382	
-   383		/*
-   384		 * The ICSR is re-used across host and guest, and hence it needs to be
-   385		 * saved/restored. Only one copy is required as the host should block
-   386		 * preemption between executing GIC CDRCFG and acccessing the
-   387		 * ICC_ICSR_EL1. A guest, of course, can never guarantee this, and hence
-   388		 * it is the hyp's responsibility to keep the state constistent.
-   389		 */
-   390		u64	vgic_icsr;
-   391	
- > 392		struct gicv5_vpe gicv5_vpe;
-   393	};
-   394	
+   110	
+   111	static int aaeon_mcu_gpio_get(struct gpio_chip *gc, unsigned int offset)
+   112	{
+   113		struct aaeon_mcu_gpio *data = gpiochip_get_data(gc);
+   114		u8 cmd[3], rsp;
+   115		int ret;
+   116	
+   117		if (offset < MAX_GPOS)
+   118			return test_bit(offset, data->gpo_state);
+   119	
+   120		cmd[0] = AAEON_MCU_READ_GPIO;
+   121		cmd[1] = offset - 7;
+   122		cmd[2] = 0x00;
+   123	
+ > 124		ret = aaeon_mcu_i2c_xfer(data->mfd->i2c_client, cmd, 3, &rsp, 1);
+   125		if (ret < 0)
+   126			return ret;
+   127	
+   128		return rsp;
+   129	}
+   130	
+   131	static int aaeon_mcu_gpo_set_cmd(struct aaeon_mcu_gpio *data, unsigned int offset, int value)
+   132	{
+   133		u8 cmd[3], rsp;
+   134	
+   135		cmd[0] = AAEON_MCU_CONTROL_GPO;
+   136		cmd[1] = offset + 1;
+   137		cmd[2] = !!value;
+   138	
+   139		return aaeon_mcu_i2c_xfer(data->mfd->i2c_client, cmd, 3, &rsp, 1);
+   140	}
+   141	
+   142	static int aaeon_mcu_gpio_set_cmd(struct aaeon_mcu_gpio *data, unsigned int offset, int value)
+   143	{
+   144		u8 cmd[3], rsp;
+   145	
+   146		cmd[0] = AAEON_MCU_WRITE_GPIO;
+   147		cmd[1] = offset - 7;
+   148		cmd[2] = !!value;
+   149	
+   150		return aaeon_mcu_i2c_xfer(data->mfd->i2c_client, cmd, 3, &rsp, 1);
+   151	}
+   152	
+   153	static int aaeon_mcu_gpio_set(struct gpio_chip *gc, unsigned int offset,
+   154				      int value)
+   155	{
+   156		struct aaeon_mcu_gpio *data = gpiochip_get_data(gc);
+   157	
+   158		if (offset < MAX_GPOS) {
+   159			if (aaeon_mcu_gpo_set_cmd(data, offset, value) == 0)
+   160				assign_bit(offset, data->gpo_state, value);
+   161		} else {
+   162			return aaeon_mcu_gpio_set_cmd(data, offset, value);
+   163		}
+   164		return 0;
+   165	}
+   166	
+   167	static const struct gpio_chip aaeon_mcu_chip = {
+   168		.label			= "gpio-aaeon-mcu",
+   169		.owner			= THIS_MODULE,
+   170		.get_direction		= aaeon_mcu_gpio_get_direction,
+   171		.direction_input	= aaeon_mcu_gpio_direction_input,
+   172		.direction_output	= aaeon_mcu_gpio_direction_output,
+   173		.get			= aaeon_mcu_gpio_get,
+   174		.set			= aaeon_mcu_gpio_set,
+   175		.base			= -1,
+   176		.ngpio			= MAX_GPOS + MAX_GPIOS,
+   177		.can_sleep		= true,
+   178	};
+   179	
+   180	static void aaeon_mcu_gpio_reset(struct aaeon_mcu_gpio *data, struct device *dev)
+   181	{
+   182		unsigned int i;
+   183		int ret;
+   184	
+   185		/* Reset all GPOs */
+   186		for (i = 0; i < MAX_GPOS; i++) {
+   187			ret = aaeon_mcu_gpo_set_cmd(data, i, 0);
+   188			if (ret < 0)
+   189				dev_warn(dev, "Failed to reset GPO %u state: %d\n", i, ret);
+   190			clear_bit(i, data->dir_in);
+   191		}
+   192	
+   193		/* Reset all GPIOs */
+   194		for (i = MAX_GPOS; i < MAX_GPOS + MAX_GPIOS; i++) {
+   195			ret = aaeon_mcu_gpio_config_input_cmd(data, i);
+   196			if (ret < 0)
+   197				dev_warn(dev, "Failed to reset GPIO %u state: %d\n", i, ret);
+   198			set_bit(i, data->dir_in);
+   199		}
+   200	}
+   201	
+   202	static int aaeon_mcu_gpio_probe(struct platform_device *pdev)
+   203	{
+   204		struct aaeon_mcu_dev *mfd = dev_get_drvdata(pdev->dev.parent);
+   205		struct aaeon_mcu_gpio *data;
+   206	
+   207		data = devm_kzalloc(&pdev->dev, sizeof(*data), GFP_KERNEL);
+   208		if (!data)
+   209			return -ENOMEM;
+   210	
+   211		data->mfd = mfd;
+   212		data->gc = aaeon_mcu_chip;
+   213		data->gc.parent = &pdev->dev;
+   214	
+   215		/*
+   216		 * Reset all GPIO states to a known configuration. The MCU does not
+   217		 * reset GPIO state on soft reboot, only on power cycle (hard reboot).
+   218		 * Without this reset, GPIOs would retain their previous state across
+   219		 * reboots, which could lead to unexpected behavior.
+   220		 */
+   221		aaeon_mcu_gpio_reset(data, &pdev->dev);
+   222	
+   223		platform_set_drvdata(pdev, data);
+   224	
+   225		return devm_gpiochip_add_data(&pdev->dev, &data->gc,
+   226					      data);
+   227	}
+   228	
+   229	static const struct of_device_id aaeon_mcu_gpio_of_match[] = {
+   230		{ .compatible = "aaeon,srg-imx8pl-gpio" },
+   231		{},
+   232	};
+   233	
+   234	MODULE_DEVICE_TABLE(of, aaeon_mcu_gpio_of_match);
+   235	
+   236	static struct platform_driver aaeon_mcu_gpio_driver = {
+   237		.driver = {
+   238			.name = "aaeon-mcu-gpio",
+   239			.of_match_table = aaeon_mcu_gpio_of_match,
+   240		},
+   241		.probe = aaeon_mcu_gpio_probe,
+   242	};
+   243	
+   244	module_platform_driver(aaeon_mcu_gpio_driver);
+   245	
+ > 246	MODULE_DESCRIPTION("GPIO interface for Aaeon MCU");
 
 -- 
 0-DAY CI Kernel Test Service
