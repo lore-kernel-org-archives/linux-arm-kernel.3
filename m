@@ -4,42 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70F51D5B16E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 22:33:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17DA2D59D99
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 22:38:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/xB0oJAXp3qEO4ENcSX3Z1/nEQf1M14DCflSGjej4+8=; b=PzuYF3H1ujSuQ4N3ERkvLFa/n3
-	31X87QFeQFORSK3xtizi1cm0k/+ISHs3bLSKCT0VVStM2V8hfyPB+yjafEoUW7RlLs9xlg2ogAR6T
-	5w71HxhScftoL/YcmmFXkMmpqVLYT1YG3TfYemoiGEMx8+JASHZEt2vSdRWpwltYckxLcjJ0J/b7C
-	1CZUABiIC0qiLK0VmH67bH6dsutYUQ75mHBqH+qi+IaAFtLFE+PUbrncN82hxlFRhB+E6yPL3IJkN
-	IJt6a31Gw3NAQb743v9i0QaQVOU8dObAlGXPA2mYsRSuIWzeQEkrNkkqmKwDuQXZhIOo1y5FjUkVz
-	8J8Kuzyw==;
+	bh=v0KaWitLNH8CPRvB1i62xqggSZjs16OVpLh8GECRSWs=; b=C57RTYwI/TuRtlottTUeZCGI6m
+	n+2WPy0ps47x0pkEpx3THiD5c69iuZS26JuUQyToFg8NV4WmXpnbFj5nBNER/YdS/KYzYwANIYfDg
+	GKgx+qjtmSg2ZP8Q/1bvAbcy9tLsCveuhXIcV3ZMc73P5Y0kZMhPCsMnq5bkDUZQ2Bwvd1eU7noRQ
+	qAvrwStslOCdCLPvaNgaG7nJeHG2q1JOfdzl2xSam47T8Eja9c0ZezIrnah7MX1hzcpOdbSpqsMtw
+	BqEiFDj8GzhoY8LwTtwtyS4xKoyHXsQbtnECAMVt2DmWRtIFKz0sr1NfpHbXy4EHOqFoEJeT0XzSI
+	b1LCDHKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUuer-00000002nWC-19qo;
-	Sun, 14 Dec 2025 22:33:41 +0000
+	id 1vUuj7-00000002nqp-1ok5;
+	Sun, 14 Dec 2025 22:38:05 +0000
 Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUuep-00000002nVk-2aB3
+	id 1vUuj5-00000002nqE-0sut
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Dec 2025 22:33:40 +0000
+	Sun, 14 Dec 2025 22:38:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=/xB0oJAXp3qEO4ENcSX3Z1/nEQf1M14DCflSGjej4+8=; b=lF
-	E+vr2NgmGXKsHZWD2ULhRLIMai7tY+0nGBkao0Z9cHgY5nS8J3NI2buROpSRKb+3xT02Fpv/wcPR/
-	0+0SD1OVNmyD9rdt7OUGL5xOyVrp2XfdvTeb249r/jXD6++7KS4A34cB19BWvkHX0B3CX9hxvEIcq
-	GPS97jZR+UJsMp4=;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=v0KaWitLNH8CPRvB1i62xqggSZjs16OVpLh8GECRSWs=; b=gMzyM24QaIAKZuw+bqykf8GWpg
+	AadUEWdwJr15GepQ0xXgZACD5HYtru9Qvse1fc0LJvfmgvPISIA0x138pJWCGMouNrYSssTfFjgBl
+	9u9SmDD3GtQXZKN2PKyZfKzudonanoWHk0/zmESJ0CUJ8Ygh338Am1Vj7aux7x/tBETg=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1vUuef-00GwbG-M1; Sun, 14 Dec 2025 23:33:29 +0100
-Date: Sun, 14 Dec 2025 23:33:29 +0100
+	id 1vUuit-00Gwcf-H9; Sun, 14 Dec 2025 23:37:51 +0100
+Date: Sun, 14 Dec 2025 23:37:51 +0100
 From: Andrew Lunn <andrew@lunn.ch>
 To: jan.petrous@oss.nxp.com
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -60,18 +59,18 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
 	imx@lists.linux.dev, devicetree@vger.kernel.org
-Subject: Re: [PATCH RFC 0/4] Support multi-channel IRQs in stmmac platform
- drivers
-Message-ID: <39430c2b-9430-46c3-8087-5381782a5b01@lunn.ch>
+Subject: Re: [PATCH RFC 4/4] stmmac: s32: enable multi irqs mode
+Message-ID: <d1eba807-c45d-434f-b272-ed0841c728bf@lunn.ch>
 References: <20251214-dwmac_multi_irq-v1-0-36562ab0e9f7@oss.nxp.com>
+ <20251214-dwmac_multi_irq-v1-4-36562ab0e9f7@oss.nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251214-dwmac_multi_irq-v1-0-36562ab0e9f7@oss.nxp.com>
+In-Reply-To: <20251214-dwmac_multi_irq-v1-4-36562ab0e9f7@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_143339_652225_E464FD97 
-X-CRM114-Status: GOOD (  16.89  )
+X-CRM114-CacheID: sfid-20251214_143803_249578_8339984A 
+X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,41 +85,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 14, 2025 at 11:15:36PM +0100, Jan Petrous via B4 Relay wrote:
-> The stmmac core supports two interrupt modes, controlled by the
-> flag STMMAC_FLAG_MULTI_MSI_EN.
-> - When the flag is set, the driver uses multi-channel IRQ mode (multi-IRQ).
-> - Otherwise, a single IRQ line is requested:
+On Sun, Dec 14, 2025 at 11:15:40PM +0100, Jan Petrous via B4 Relay wrote:
+> From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 > 
-> static int stmmac_request_irq(struct net_device *dev)
-> {
->         /* Request the IRQ lines */
->         if (priv->plat->flags & STMMAC_FLAG_MULTI_MSI_EN)
->                 ret = stmmac_request_irq_multi_msi(dev);
->         else
->                 ret = stmmac_request_irq_single(dev);
-> }
+> Signalize support for multi irq mode.
 > 
-> At present, only PCI drivers (Intel and Loongson) make use of the multi-IRQ
-> mode. This concept can be extended to DT-based embedded glue drivers
-> (dwmac-xxx.c).
+> >From now, if yoused old DT node, without channel IRQs set,
+> the driver fails to init with the following error:
 > 
-> This series adds support for reading per-channel IRQs from the DT node and
-> reuses the existing STMMAC_FLAG_MULTI_MSI_EN flag to enable multi-IRQ
-> operation in platform drivers.
-> 
-> NXP S32G2/S32G3/S32R SoCs integrate the DWMAC IP with multi-channel
-> interrupt support. The dwmac-s32.c driver change is provided as an example of
-> enabling multi-IRQ mode for non-PCI drivers.
-> 
-> An open question remains: should platform drivers support both single-IRQ
-> and multi-IRQ modes, or should multi-IRQ be required with the DT node
-> specifying all channel interrupts? The current RFC implementation follows
-> the latter approach — dwmac-s32 requires IRQs to be defined for all
-> channels.
+> [4.925420] s32-dwmac 4033c000.ethernet eth0: stmmac_request_irq_multi_msi: alloc rx-0  MSI -6 (error: -22)
 
-You need to consider backwards compatibility. Will an old DT blob
-continue to work after this change?
+Sorry, but that is not acceptable. You cannot break old DT blobs.
+
+Please reverse the logic. If you find all the needed properties in DT
+enable STMMAC_FLAG_MULTI_MSI_EN. If none of the properties are there,
+continue using one interrupt, and if only some of the needed
+properties are there but some are missing, then you can error out with
+EINVAL, because the DT blob is invalid.
 
 	Andrew
 
