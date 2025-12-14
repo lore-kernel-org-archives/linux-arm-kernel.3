@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57B20D3E787
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 11:23:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2598FD3E787
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 11:23:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FODavOV50UQ2fle0wdcQBoJzYQUSYXPQs30mluJukZ8=; b=kw5drBfilVghU2Qrfsn1gJQ7Qr
-	R6LvumwN6LB/YyONQW27MDidz5QCehCqpJNmOlM3TZoPfzBgKk4EXcZw9/i+rtj23d2ElOfMuuoR6
-	1kRQ8MsqUL9PR0h5jmhd8IbGfycBmNF93PtPM7GD7y1orPs/pfIuH/vROt2T97lvTRG8tvBDGBn7h
-	z7U8YHua8D9qVDl5ASLrQe/H5QkPTgbSdGqRIX/CWVt/Vm8/jWSM0PQEa+xLxTgB2uM8DQs63+Tjt
-	p4yu6z015raryPlCt6ynOThwrCSl2G5el6knNXNjYoQFnnm3nNhQ7kjBns4KLNkJGunR9UVpK8lTp
-	pD+iNseA==;
+	bh=EtJ6ddkQ2S6P1Qk0wc65RhIQVbjp57M+c+d4813hjd4=; b=edNmCQzjBJxAb25SKp0s+Ssw6q
+	oEfXMWnzVuMUxWsOPWfdBkA1Aa9msa6YNfkaqvLm5fW+tFSlIbsS9YZov5BcJeZXN5nssbczrQTgE
+	wPP9ULjzfIzPuDE8b75yfSnFC43W0MiZ2ZdniKpZQGpjl7mZXOnAAHcwGHZnJhDXDyPDRIdlXv5hZ
+	blFTuj8x1Sus7RX27oxNh9DVh5ANdNhEmORKdjsD0CQ8iawmXLWdZzg9zA+N2BDz6o4W6RQvbTv8f
+	CY93wwPmEKidonZoJMDrBe1Wjr0t+EA5zA4xhpa1J+IofOBDH+PPOTkg5vqZI6AR7jJfOHK4r0FeN
+	qmauWeoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUkBx-00000002Oth-2s3c;
-	Sun, 14 Dec 2025 11:23:09 +0000
+	id 1vUkC0-00000002Ow9-3M4l;
+	Sun, 14 Dec 2025 11:23:12 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUkBv-00000002Os8-0m3f
+	id 1vUkBy-00000002OuT-2mNo
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Dec 2025 11:23:08 +0000
+	Sun, 14 Dec 2025 11:23:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BF204165C;
-	Sun, 14 Dec 2025 03:22:58 -0800 (PST)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9D5CB3F73B;
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 616541063;
 	Sun, 14 Dec 2025 03:23:02 -0800 (PST)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 408853F73B;
+	Sun, 14 Dec 2025 03:23:06 -0800 (PST)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: catalin.marinas@arm.com,
 	will@kernel.org,
@@ -58,16 +58,16 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	kvm@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v11 RESEND 3/9] KVM: arm64: kselftest: set_id_regs: add test for FEAT_LSUI
-Date: Sun, 14 Dec 2025 11:22:42 +0000
-Message-Id: <20251214112248.901769-4-yeoreum.yun@arm.com>
+Subject: [PATCH v11 RESEND 4/9] arm64: Kconfig: Detect toolchain support for LSUI
+Date: Sun, 14 Dec 2025 11:22:43 +0000
+Message-Id: <20251214112248.901769-5-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251214112248.901769-1-yeoreum.yun@arm.com>
 References: <20251214112248.901769-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_032307_258912_7616A343 
+X-CRM114-CacheID: sfid-20251214_032310_772759_BB6C9426 
 X-CRM114-Status: UNSURE (   6.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -84,26 +84,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add test coverage for FEAT_LSUI.
+Since Armv9.6, FEAT_LSUI supplies the load/store instructions for
+previleged level to access to access user memory without clearing
+PSTATE.PAN bit.
+It's enough to add CONFIG_AS_HAS_LSUI only because the code for LSUI uses
+individual `.arch_extension` entries.
 
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Reviewed-by: Mark Brown <broonie@kernel.org>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 ---
- tools/testing/selftests/kvm/arm64/set_id_regs.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/Kconfig | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-index c4815d365816..0b1714aa127c 100644
---- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-+++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-@@ -125,6 +125,7 @@ static const struct reg_ftr_bits ftr_id_aa64isar2_el1[] = {
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index 93173f0a09c7..36e87a1a1b5c 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -2227,6 +2227,11 @@ config ARM64_GCS
 
- static const struct reg_ftr_bits ftr_id_aa64isar3_el1[] = {
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ISAR3_EL1, FPRCVT, 0),
-+	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ISAR3_EL1, LSUI, 0),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ISAR3_EL1, LSFE, 0),
- 	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64ISAR3_EL1, FAMINMAX, 0),
- 	REG_FTR_END,
+ endmenu # "ARMv9.4 architectural features"
+
++config AS_HAS_LSUI
++	def_bool $(as-instr,.arch_extension lsui)
++	help
++	  Supported by LLVM 20+ and binutils 2.45+.
++
+ config ARM64_SVE
+ 	bool "ARM Scalable Vector Extension support"
+ 	default y
 --
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
