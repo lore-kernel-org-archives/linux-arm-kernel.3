@@ -4,94 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CDC0D59D99
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 22:13:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5704AD59D99
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 22:16:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=KjAX9BwHMKKij7juX6bUJ6ljY0qmCqGMvx0RKdMtTs4=; b=gkmvdN6HcVX567RcIUc5q+btA1
-	pg49xrJDT3PSho9soP2y7OlWba5br2nTWS4LFXeKa3G5Tq/QLGMZRhllqdz9KsCobYa1AUNt7+Uo8
-	G2Klc+1UYGajUIEnNhxaSjyHKQlY5tas8eMOOJg52rRDN2yYG/05L701zjOGD1nvmvQ3RqcxfWEWL
-	VfbsRzlT+0aQ0VT9V+taGbGggnVh7eSpkxtKLWOEo4Vw6poxI53lWCPp8JI0adPkst7C2j3v4rzsZ
-	tWPoH5lv5tfT4GZxZr4jDQs3SjhJIu2SAU+bz7G0dSsPcbgdJGsPXbq6ZRvigcgcKSQXWQjK1glR8
-	c/vMOnjg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uupiMtXbPp1brkX85AI378HQ3Ght5tZDtfC+GjGhCN8=; b=I1/8FdhzvRZoIT0rT7prwwt6eB
+	ok7c7ACkMTjzsx2WoqUMlTYc0U3f6pTC69aMpGmD814OdUbqdbHh/YtLeOtebxQWfIQN5NLJTqbR2
+	CWHIYsFWpQymZF5cLm/E+BnuZdgXCZ3MyaRxFZy5pHlD4cPyoqV1xHuDd8gX5O8v3DFJ9uhHG0PTo
+	JReYv8YIE6ZETiBvHtFTdA9awJneTj1VUorB1iTXEYdDIWaPD0eGDS2euN6y8qyRcHfb/OFQfnPvU
+	lWMbLDNB48hbZSAIL3aNwMP/eOK1DmuuDLd5VkdtqyesV8SXTfomooN5vN10TNhZUGgi5fvUKED9Y
+	kJPsRnuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUuL9-00000002mKB-0l6g;
-	Sun, 14 Dec 2025 22:13:19 +0000
-Received: from fout-a6-smtp.messagingengine.com ([103.168.172.149])
+	id 1vUuO4-00000002mUo-13ap;
+	Sun, 14 Dec 2025 22:16:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUuL5-00000002mJk-1IfU
+	id 1vUuNg-00000002mS4-0pFs
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Dec 2025 22:13:17 +0000
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfout.phl.internal (Postfix) with ESMTP id 483BBEC05A7;
-	Sun, 14 Dec 2025 17:13:10 -0500 (EST)
-Received: from phl-imap-18 ([10.202.2.89])
-  by phl-compute-01.internal (MEProxy); Sun, 14 Dec 2025 17:13:10 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jmay.us; h=cc:cc
-	:content-transfer-encoding:content-type:content-type:date:date
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to; s=fm2; t=1765750390; x=1765836790; bh=KjAX9BwHMK
-	Kij7juX6bUJ6ljY0qmCqGMvx0RKdMtTs4=; b=T+DHlsC1/XTZO3nPUG28FbjmIj
-	fxCeRazFmSvu7CsUgKagpbDIViOn+IYSCMXr9bCGe+GRn/eMC+cA5RMH9xXCU/A1
-	AfX4JoOb5rm5g/j0ib36FFowcsP5kutI6zPM/l8WyY8JTE3+UT6nQdTKQFAJaY8I
-	5XVKqVWC0cZ6c02vsyJ8/QWv+1Z1J6rqirailWeE6DQJT3Z2TM9vDXTuWWzCBFOo
-	nWZ2JxGrzDXabilUaZNExv4EWeNFERy9Ryidv3utkTftnj9Usb7t4GcCFkK3ERtq
-	GTMO+5focUVs1En9WDNxGxF0BdKdXQDGSQCwMdnRgma3+YTvYbOoPPwwX0wQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
-	fm1; t=1765750390; x=1765836790; bh=KjAX9BwHMKKij7juX6bUJ6ljY0qm
-	CqGMvx0RKdMtTs4=; b=agiaXigBV0Wu3rUwm4viIjI08h0/lns7Z9UHV0gSVE33
-	1MdPKDrzEjWFNVtGwSxOEPXi4YQX7bobRANmIC6nwr+T09L2vxhJUdiLy8IoIXMl
-	T+syP/qDYp5lP/MXMw4Vq0h8BjNsYuOj9H8CMMIHfdyoZ58abdZ5Sp8qujI2ZrZq
-	Kg7Xgy7AMWQ9DNTrzWsOvsbmUM/58NmqsEXvS5Xfbkd5w7Bwt9Bci894sWFM0ors
-	V+8cE19I36N/iOToCTiu7mCicST3W4PSDqyW4saDhP3TMHXTag7czzSQLvwhkv7g
-	G0DL0h7oiyBToPZatSl2hzaVM6kfUhK/adeenUiq3w==
-X-ME-Sender: <xms:dTY_aTDitbpKVZnondivAeobIDEv8N2qwJC8247-JLeWvRg8zKO6IQ>
-    <xme:dTY_aUVCd-jZwWbUVSeUkhgVWy3tku91BiUVB8fmsrK-MAXI1ACY5YW4UQefuE0Ve
-    88RRPeAXYJ597LWh5MjWvJBCJRWQ2wMN3Rx0-jFi2l9vrvRTL-V1Gc>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefhedtlecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecunecujfgurhepofggfffhvfevkffutgfgsehtjeertdertd
-    dtnecuhfhrohhmpedflfhovghlucforgihfdcuoehjohgvlhdqlhhinhhugiesjhhmrgih
-    rdhusheqnecuggftrfgrthhtvghrnhepvdehfeeiuedvvefggfdtudetvdegfeettdehve
-    dtveetiedtveejgeevveejgeevnecuffhomhgrihhnpehgihhthhhusgdrtghomhenucev
-    lhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehjohgvlhdqlh
-    hinhhugiesjhhmrgihrdhushdpnhgspghrtghpthhtohephedpmhhouggvpehsmhhtphho
-    uhhtpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprh
-    gtphhtthhopegrrhhnugesrghrnhgusgdruggvpdhrtghpthhtohepfihilhhlsehkvghr
-    nhgvlhdrohhrghdprhgtphhtthhopehjrghmvghsrdgtlhgrrhhksehlihhnrghrohdroh
-    hrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhn
-    fhhrrgguvggrugdrohhrgh
-X-ME-Proxy: <xmx:dTY_aQG6hKSmhz2iilzgFD_xr-lC4G5dj9wvU4bmrfJABiBtpIVf0A>
-    <xmx:djY_aa1CLShKACpUIj8tvwCLnk0pivrvmcYOWmxIylsQ3bDGDjnyQA>
-    <xmx:djY_aaOOvneSHBFR3KOI1qehMj6uXlJINiFFFwk9XT_KWg2EdavtHQ>
-    <xmx:djY_aR6HiQx2q5fGeV0Ub53Pyo7o31wyRa-hI3OAN1LFPYz_jRqVyw>
-    <xmx:djY_aYIje0gGgTJvs8bhOJpdPFBNeN4Z-MBGpVEHzadV85VZnDVx45HA>
-Feedback-ID: i86164869:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id DD1B015C008C; Sun, 14 Dec 2025 17:13:09 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Sun, 14 Dec 2025 22:16:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5AB2C4448B;
+	Sun, 14 Dec 2025 22:15:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3A9EEC2BC9E;
+	Sun, 14 Dec 2025 22:15:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765750553;
+	bh=xAE3SdcCNhNMaf5t5SGdZjBQMk53A0jUjKIoAMv5grM=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=H/sHOgrT0Hj6npHTQ8v61Sacj5i+QD7x+pJx//Tqvjzf5p5RWL75oWgOl+FOygQcc
+	 Bg8I3omBF3PEivHu6TDKj1ns8ipOZpZrMK/pfYDwf4QlS56xdnFmFcsDpu8JS+EQ2T
+	 Mr16DJf4ntHWSLOEcLEtiNsFlzyG/RicacXGUFvCnyQNccEM8jzvfRSVyf+tpjNtfG
+	 l+Vi04uxZFotE9H4bn7zCZpkrFqg6AXMKjx57YIhMOWNVQsG835MDE6R2W2RSTpWc/
+	 Jzn0mBZTSu2AMtcOc6sNf3Pch3AxdY6UhR9zwt6j1f5++3/Durrn8kWMlIIDCya82z
+	 giF6pRhc0cIKw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 2E97AD59D99;
+	Sun, 14 Dec 2025 22:15:53 +0000 (UTC)
+From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
+Date: Sun, 14 Dec 2025 23:15:39 +0100
+Subject: [PATCH RFC 3/4] arm64: dts: s32: set Ethernet channel irqs
 MIME-Version: 1.0
-Date: Sun, 14 Dec 2025 14:12:49 -0800
-From: "Joel May" <joel-linux@jmay.us>
-To: catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, james.clark@linaro.org,
- arnd@arndb.de
-Message-Id: <b2651f20-6f3a-49f5-9cd8-3fb028b2cab5@app.fastmail.com>
-Subject: [PATCH] arm64: perf: fix syscalltbl path base
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20251214-dwmac_multi_irq-v1-3-36562ab0e9f7@oss.nxp.com>
+References: <20251214-dwmac_multi_irq-v1-0-36562ab0e9f7@oss.nxp.com>
+In-Reply-To: <20251214-dwmac_multi_irq-v1-0-36562ab0e9f7@oss.nxp.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
+ Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
+ NXP S32 Linux Team <s32@nxp.com>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, devicetree@vger.kernel.org, 
+ "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1765750551; l=3616;
+ i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
+ bh=VqRCzvT/ie24a509gKuqO+XkXlLrEXP3sOyJ2rn9ZMs=;
+ b=fOVN8vvxbJA07QMEQLWZCQaN3CxrBEzX0oc8ExuaT+WdQiyk/WwJZNL5nUH/jMcQYvafCcrig
+ 4qiXnffq76wAx/3WcyOXuxXVZrKhxhMz8PvSdKNNfeMMYjGiHG69FsB
+X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
+ pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
+X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
+ auth_id=217
+X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_141315_762528_A48EC5C6 
-X-CRM114-Status: GOOD (  12.25  )
+X-CRM114-CacheID: sfid-20251214_141604_872660_40B69A6B 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,53 +96,103 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: jan.petrous@oss.nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Joel May <joel-linux@jmay.us>
+From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 
-A fix for the Perf build process was introduced in commit bfb713ea53c74
-("perf tools: Fix arm64 build by generating unistd_64.h"), which generates
-the unistd_64.h header as necessary.  This fix works fine in some
-scenarios.
+The GMAC Ethernet controller found on S32G2/S32G3 and S32R45
+contains up to 5 RX and 5 TX channels.
+It can operate in two interrupt modes:
 
-My problem is when building Perf from tools/perf with SRCARCH=arm64, the
-path used in scripts/Makefile.asm-headers is relative to tools/perf
-instead of root directory.  This results in the build failing like so.
-This snippet is a simplified repro of the problem, see the link to the
-TrueNAS SCALE build script to see the problem in context.
+  1) Sharing irq mode: only one irq line is used
+     for all channels.
 
-  jmay@debian13-aarch64:/mnt/linux/linux-vanilla/tools/perf$ ARCH=arm64 SRCARCH=arm64 make -j1
-  ...
-  make[4]: *** No rule to make target '/mnt/linux/linux-vanilla/tools/perf/libperf/arch/arm64/include/generated/uapi/asm/unistd_64.h'.  Stop.
-  make[3]: *** [Makefile:108: uapi-asm-generic] Error 2
-  make[2]: *** [Makefile.perf:972: /mnt/linux/linux-vanilla/tools/perf/libperf/libperf.a] Error 2
+  2) Multiple irq mode: every channel uses two irq lines,
+     one for RX and second for TX.
 
-The problem is that scripts/Makefile.asm-headers is including a relative
-syscalltbl path from arch/arm64/kernel/Makefile.syscalls.  The syscalltbl
-path needs to be based on the srctree root.
+Specify all irq twins for all channels.
 
-Fixes: 7fe33e9f662c0 ("arm64: convert unistd_32.h to syscall.tbl format")
-Fixes: bfb713ea53c74 ("perf tools: Fix arm64 build by generating unistd_64.h")
-Link: https://github.com/truenas/linux/commit/91377b555a57dfa75364d7da85b5e21e41e81625#diff-831a0e8e3eaa7a5ca92599e58771b8a6b2c4bd7533f627e33138873995aac61eR147
-Signed-off-by: Joel May <joel-linux@jmay.us>
+Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
 ---
- arch/arm64/kernel/Makefile.syscalls | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/boot/dts/freescale/s32g2.dtsi | 24 ++++++++++++++++++++++--
+ arch/arm64/boot/dts/freescale/s32g3.dtsi | 24 ++++++++++++++++++++++--
+ 2 files changed, 44 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/kernel/Makefile.syscalls b/arch/arm64/kernel/Makefile.syscalls
-index 0542a718871a..958f2335ec1b 100644
---- a/arch/arm64/kernel/Makefile.syscalls
-+++ b/arch/arm64/kernel/Makefile.syscalls
-@@ -3,4 +3,4 @@
- syscall_abis_32 +=
- syscall_abis_64 += renameat rlimit memfd_secret
- 
--syscalltbl = arch/arm64/tools/syscall_%.tbl
-+syscalltbl = $(srctree)/arch/arm64/tools/syscall_%.tbl
+diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+index 51d00dac12de..ea615fc5ccd9 100644
+--- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
++++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
+@@ -732,8 +732,28 @@ gmac0: ethernet@4033c000 {
+ 			reg = <0x4033c000 0x2000>, /* gmac IP */
+ 			      <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
+ 			interrupt-parent = <&gic>;
+-			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
+-			interrupt-names = "macirq";
++			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>,
++				     /* CHN 0: tx, rx */
++				     <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>,
++				     /* CHN 1: tx, rx */
++				     <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>,
++				     /* CHN 2: tx, rx */
++				     <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>,
++				     /* CHN 3: tx, rx */
++				     <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>,
++				     /* CHN 4: tx, rx */
++				     <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "macirq",
++					  "tx-queue-0", "rx-queue-0",
++					  "tx-queue-1", "rx-queue-1",
++					  "tx-queue-2", "rx-queue-2",
++					  "tx-queue-3", "rx-queue-3",
++					  "tx-queue-4", "rx-queue-4";
+ 			snps,mtl-rx-config = <&mtl_rx_setup>;
+ 			snps,mtl-tx-config = <&mtl_tx_setup>;
+ 			status = "disabled";
+diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+index eff7673e7f34..ecbec49c7344 100644
+--- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
++++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
+@@ -809,8 +809,28 @@ gmac0: ethernet@4033c000 {
+ 			reg = <0x4033c000 0x2000>, /* gmac IP */
+ 			      <0x4007c004 0x4>;    /* GMAC_0_CTRL_STS */
+ 			interrupt-parent = <&gic>;
+-			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
+-			interrupt-names = "macirq";
++			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>,
++				     /* CHN 0: tx, rx */
++				     <GIC_SPI 58 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>,
++				     /* CHN 1: tx, rx */
++				     <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>,
++				     /* CHN 2: tx, rx */
++				     <GIC_SPI 62 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>,
++				     /* CHN 3: tx, rx */
++				     <GIC_SPI 64 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 65 IRQ_TYPE_LEVEL_HIGH>,
++				     /* CHN 4: tx, rx */
++				     <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 67 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "macirq",
++					  "tx-queue-0", "rx-queue-0",
++					  "tx-queue-1", "rx-queue-1",
++					  "tx-queue-2", "rx-queue-2",
++					  "tx-queue-3", "rx-queue-3",
++					  "tx-queue-4", "rx-queue-4";
+ 			snps,mtl-rx-config = <&mtl_rx_setup>;
+ 			snps,mtl-tx-config = <&mtl_tx_setup>;
+ 			status = "disabled";
 
-base-commit: edde060637b92607f3522252c03d64ad06369933
 -- 
-2.34.1
+2.47.0
+
 
 
