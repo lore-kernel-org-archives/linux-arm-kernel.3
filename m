@@ -4,118 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 208ECD59D99
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 12:42:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A968D59D99
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 14:42:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LmVD80YG1T9tVZYC0JWJIeBpzlU/o4V5XDcDzmQzHSA=; b=pdfvN5L7+x/LeeV1YDJ0AGK3p1
-	HV/jtBEeVabYYP69COFxxX7K36ScJZRKyEMUUvAE3S10YewMhHv3bpQeE+diHqcz6KOPO4/zNaKB/
-	BIJKqlPWLvSwFJ3DNt5ydLTO+bg+akiAKY9HAV9wAx8zFhQBKHVDjjzJyIFCOwlL6QmsNYDRjqeQt
-	w5M0wBwcexVdkg8B8XXhxf0yUmbv6tE3XrvVhA/KY3ygRLv1WlwZsC9gWr8uMUnThHOlTaEw19iD+
-	dzL2gOHG0F89PBu1a5CYt2DL0BwNu+5slRrViv0OziHEMVUQTxKHkQSKueeuWgwaGoKfypko2bFNA
-	yokiL1sw==;
+	bh=xAYIybz6RXAuMfc63mvTtUvJpNs4ZOFCF/rqWwLHNBk=; b=Cdb1g1aWsJBKx4d2ZeawwSJiE8
+	CXPvvkCmwk8ej4ZnFq5zzgUSSSSpb3n5b3Se+JqSLIYIyiW43hnZCmBL4wDIIk7SSeAMOGZM5jvJu
+	5kUuh6ncRyn0A9E/E6HebfZTyz91PXGXqlsRWtWc4ZGZ6zIcf6Vomfnf+NxIVulkFEiE+9+8VzPJG
+	/x0S/Gmy9YEsLNqTSp00JijI6WIeXzWyh3m2ZhJmKoyOtGdTC3J5FCJ7jbLPyZ8VdKLjudAu6IeE3
+	xbbPERzMLjQCyJkCHbQvUAnt/+iVO1o4UwctcN1/yDd2Zv+ypPYLkTSRjVM4XnQ+AazHfs10nBFi2
+	f4D/7H3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUlQY-00000002SUt-2ITW;
-	Sun, 14 Dec 2025 12:42:18 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1vUnIc-00000002WcI-071Q;
+	Sun, 14 Dec 2025 14:42:14 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUlQU-00000002STu-49I4;
-	Sun, 14 Dec 2025 12:42:16 +0000
-Received: from [192.168.88.20] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 0B828667;
-	Sun, 14 Dec 2025 13:42:02 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1765716124;
-	bh=RUqeGxGbNR58XqQAmEy1azzZLGmDN8xc/rZvkh5WE0k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ekidCdUGjxIM2y1pzI6YyW+3oMZkybFMCP1t+Pm5bd6JFDiXDWbK+mz734WfiNvdL
-	 DCRcup3XRZSVhj+YeCVb1Fx2TZGPEbWD79mc6e6458VZ0TbBkl/M36KyYYsKQE1xLf
-	 2D0KxO36Vay8GXDBDaXGVUZsh8p1Ll6OYxe5pyM8=
-Message-ID: <817b2358-0920-4b7a-abb1-133103d0f9fe@ideasonboard.com>
-Date: Sun, 14 Dec 2025 14:42:03 +0200
+	id 1vUnIZ-00000002Wbg-1SDs
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 14 Dec 2025 14:42:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6694043FFD
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Dec 2025 14:42:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46079C19424
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Dec 2025 14:42:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765723329;
+	bh=oD/KggYabkmpbLwMi9JfkWOU4h7CawiUNWnQZdptfFE=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=A2NEGrJ8Ca/wyaS8iRk2pzHKLF/U3QmLusVXaZzxtH9hznjnkyrH6Q/SO6I737Qxx
+	 1fnX7nPsD0UrqCV3BjIUBod3S7jfToHWUitD6rzVImFvrO0lFbm/NjP6mXRiqEI8Kg
+	 5RayiPIrLIuvSKmWEqIm/eyoTPZJzFE3Tdrcwb9QtM0xtgOQNsKcp9KV0Fv7/xm7nA
+	 hoADE0vZQgXHuxAv4KjtwdWC5e9aXv5ESFuJNjcCF23fKz1TOw51W4sNiz8JvB+kKK
+	 4m+lkZRUyp3K39p/uLOzqFgk47oFMmO68FQdxZpYgAlkCgcEpj0gVf2XDyK1bEC0dR
+	 Mp/ViGbY8qe1w==
+Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-b7697e8b01aso506570366b.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Dec 2025 06:42:09 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWJq174pFsgNVG6bk16vn7ad8Abxg30Ig+kP9pxJJr2Ea4rM1S0lEVxQb/ZDAY3+T6Y/WtLScmL6HigeuwxLfaN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3lYcD6m/c6tOy85H61+Mir3Eb6P0CcgcvJGaRBT+9vIlEOZ2U
+	BsRiQxcGJhEgAn8XBlvZ7bG7YixCQgh2ddtj+2T9NcNI4sUDxZ77ggk/3VMQ802Sa8HQfc8gZyA
+	xkOyu8w7UnXGOf7bwFO7tFjmed0gUYw==
+X-Google-Smtp-Source: AGHT+IH/UNXJVVIzYMzF70T0zT2ePS4CZo3kLeaqHyUCNx7LNUsqU6Z3vZR8gWlhInbPYIFxkyNcgz3+uHF1VkK6TAw=
+X-Received: by 2002:a17:907:3f28:b0:b73:8903:f4b9 with SMTP id
+ a640c23a62f3a-b7d23a813bdmr836277766b.24.1765723327827; Sun, 14 Dec 2025
+ 06:42:07 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/4] drm: Revert and fix enable/disable sequence
-To: Linus Walleij <linusw@kernel.org>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Andrzej Hajda <andrzej.hajda@intel.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Dmitry Baryshkov <lumag@kernel.org>, Chun-Kuang Hu
- <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Jyri Sarha <jyri.sarha@iki.fi>, dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- Aradhya Bhatia <aradhya.bhatia@linux.dev>,
- Chaoyi Chen <chaoyi.chen@rock-chips.com>, Vicente Bergas
- <vicencb@gmail.com>, Marek Vasut <marek.vasut+renesas@mailbox.org>,
- stable@vger.kernel.org
-References: <20251205-drm-seq-fix-v1-0-fda68fa1b3de@ideasonboard.com>
- <3b13c7a2-f7e6-49fd-b3bb-3e0a1fe9acf3@ideasonboard.com>
- <CAD++jLk8-0Rkh16T+R1dh6=e_f9U1i=AKOk1Y8dLGV4bxzRtFg@mail.gmail.com>
-From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Content-Language: en-US
-Autocrypt: addr=tomi.valkeinen@ideasonboard.com; keydata=
- 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
-In-Reply-To: <CAD++jLk8-0Rkh16T+R1dh6=e_f9U1i=AKOk1Y8dLGV4bxzRtFg@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20251212203226.458694-5-robh@kernel.org> <20251213181324.u32ztfblkknfpz44@pengutronix.de>
+In-Reply-To: <20251213181324.u32ztfblkknfpz44@pengutronix.de>
+From: Rob Herring <robh@kernel.org>
+Date: Sun, 14 Dec 2025 08:41:56 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqK9OREenZjBHrDh7AqsyUXYOzTOhY4e0qHGzYkX8tacWQ@mail.gmail.com>
+X-Gm-Features: AQt7F2o1cvCAKghlM7oUFNsydZljaReVAverYw-RqgPCazmU6RqIU2uWyYXg6mg
+Message-ID: <CAL_JsqK9OREenZjBHrDh7AqsyUXYOzTOhY4e0qHGzYkX8tacWQ@mail.gmail.com>
+Subject: Re: [PATCH] ARM: dts: nxp/imx6: Drop unused .dtsi
+To: Marco Felsch <m.felsch@pengutronix.de>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	imx@lists.linux.dev, barebox@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_044215_456071_EE7C4D25 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20251214_064211_446243_5E665595 
+X-CRM114-Status: GOOD (  19.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,41 +88,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On Sat, Dec 13, 2025 at 12:13=E2=80=AFPM Marco Felsch <m.felsch@pengutronix=
+.de> wrote:
+>
+> Hi Rob,
+>
+> On 25-12-12, Rob Herring (Arm) wrote:
+> > These .dtsi files are not included anywhere in the tree and can't be
+> > tested.
+>
+> not in the tree but by other projects, please see below.
+>
+> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> > ---
+> >  .../dts/nxp/imx/imx6dl-kontron-samx6i.dtsi    | 12 -----
+> >  .../dts/nxp/imx/imx6q-kontron-samx6i.dtsi     | 12 -----
+> >  .../boot/dts/nxp/imx/imx6qdl-pico-dwarf.dtsi  | 45 ----------------
+> >  .../boot/dts/nxp/imx/imx6qdl-pico-nymph.dtsi  | 54 -------------------
+> >  4 files changed, 123 deletions(-)
+> >  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6dl-kontron-samx6i.dts=
+i
+> >  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6q-kontron-samx6i.dtsi
+> >  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-pico-dwarf.dtsi
+> >  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-pico-nymph.dtsi
+> >
+> > diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-kontron-samx6i.dtsi b/arc=
+h/arm/boot/dts/nxp/imx/imx6dl-kontron-samx6i.dtsi
+> > deleted file mode 100644
+> > index 5a9b819d7ee8..000000000000
+> > --- a/arch/arm/boot/dts/nxp/imx/imx6dl-kontron-samx6i.dtsi
+> > +++ /dev/null
+> > @@ -1,12 +0,0 @@
+> > -// SPDX-License-Identifier: GPL-2.0 OR X11
+> > -/*
+> > - * Copyright 2019 (C) Pengutronix, Marco Felsch <kernel@pengutronix.de=
+>
+> > - */
+> > -
+> > -#include "imx6dl.dtsi"
+> > -#include "imx6qdl-kontron-samx6i.dtsi"
+> > -
+> > -/ {
+> > -     model =3D "Kontron SMARC-sAMX6i Dual-Lite/Solo";
+> > -     compatible =3D "kontron,imx6dl-samx6i", "fsl,imx6dl";
+> > -};
+> > diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-kontron-samx6i.dtsi b/arch=
+/arm/boot/dts/nxp/imx/imx6q-kontron-samx6i.dtsi
+> > deleted file mode 100644
+> > index e76963436079..000000000000
+> > --- a/arch/arm/boot/dts/nxp/imx/imx6q-kontron-samx6i.dtsi
+> > +++ /dev/null
+> > @@ -1,12 +0,0 @@
+> > -// SPDX-License-Identifier: GPL-2.0 OR X11
+> > -/*
+> > - * Copyright 2019 (C) Pengutronix, Marco Felsch <kernel@pengutronix.de=
+>
+> > - */
+> > -
+> > -#include "imx6q.dtsi"
+> > -#include "imx6qdl-kontron-samx6i.dtsi"
+> > -
+> > -/ {
+> > -     model =3D "Kontron SMARC-sAMX6i Quad/Dual";
+> > -     compatible =3D "kontron,imx6q-samx6i", "fsl,imx6q";
+> > -};
+>
+> I can't speak for the other two .dtsi files but both kontron .dtsi files
+> are used by barebox:
+>
+>  - https://elixir.bootlin.com/barebox/v2025.11.0/source/arch/arm/dts/imx6=
+dl-samx6i.dts#L8
+>  - https://elixir.bootlin.com/barebox/v2025.11.0/source/arch/arm/dts/imx6=
+q-samx6i.dts#L8
+>
+> Removing them here will cause a regression for barebox.
 
-On 14/12/2025 13:14, Linus Walleij wrote:
-> On Fri, Dec 12, 2025 at 3:21 PM Tomi Valkeinen
-> <tomi.valkeinen@ideasonboard.com> wrote:
->> On 05/12/2025 11:51, Tomi Valkeinen wrote:
->>> Changing the enable/disable sequence in commit c9b1150a68d9
->>> ("drm/atomic-helper: Re-order bridge chain pre-enable and post-disable")
->>> has caused regressions on multiple platforms: R-Car, MCDE, Rockchip.
->>>
->>> This is an alternate series to Linus' series:
->>>
->>> https://lore.kernel.org/all/20251202-mcde-drm-regression-thirdfix-v6-0-f1bffd4ec0fa%40kernel.org/
->>>
->>> This series first reverts the original commit and reverts a fix for
->>> mediatek which is no longer needed. It then exposes helper functions
->>> from DRM core, and finally implements the new sequence only in the tidss
->>> driver.
->>>
->>> There is one more fix in upstream for the original commit, commit
->>> 5d91394f2361 ("drm/exynos: fimd: Guard display clock control with
->>> runtime PM calls"), but I have not reverted that one as it looks like a
->>> valid patch in its own.
->>>
->>> I added Cc stable v6.17+ to all patches, but I didn't add Fixes tags, as
->>> I wasn't sure what should they point to. But I could perhaps add Fixes:
->>> <original commit> to all of these.
-> 
->> There has been no comments, so I assume this is the way to go.
->>
->> Should we merge this series as a fix for 6.18 rcs?
-> 
-> Too late now, so let's merge it as a fix for v6.19 rcs!
-Ah, right. Indeed, I meant v6.19 rcs.
+Please upstream something that uses the .dtsi. Other than the
+undocumented barebox property, no reason these can't be.
 
- Tomi
-
+Rob
 
