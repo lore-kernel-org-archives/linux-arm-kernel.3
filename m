@@ -4,112 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 139B5D5B169
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 01:23:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A09FCD5B160
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 02:44:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lgKU6yT6sm3pkAsIwWVHoi5wbS/xfJ+IxFXOAoG2rJo=; b=SRWgZZ4i81v5PSVDFj2NNGReF8
-	2hLvmphOj5DOMR2uoCULaxVRvodkDGO+f9pAuQeBzMSTVVMpyAfF5MKjhQzBZPRDpmzn5xc9Lh/WJ
-	bawkyORZyiegnr9IF3QOG2T7dPXzIjs2av9La1quhORz9TFtYk3ifszeFTd5jc69cnKummhcubs2a
-	QnbZaxzPJo0g0XQBWq8VSX/IKwIYRJ+chXxNHDuihYrTyVIm7ntAfdV91FeXDAeOT1/tDbr7WWSpr
-	MJYBWGcoi4HUylfBY1pJTzTAcly1EETEi2+5k07XQeSEuUh34949stqricYD7zHiVKONWqR9xNwTf
-	Lqt9l83w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tzC/qDcVmajsO4atkJ22J/nrUssq8U63nk/Xu3qYLpM=; b=YTotakDZHmFUgnh1cZvHs5/Ho1
+	dFkEUz/VpR8rkzGfFKpgxezn8u4kkmSa9FNDARSZgWL51T5iWdUl7zF4KfGoI9/FmH8IfdL240+7c
+	wEDUtfbPlMBOyPnImxntxLmPycPWr3mHb9nTgrFe7MxN7t5NRDDSR2smWMbH2fMVPlcIdOUdP4ORN
+	XH9hvWyrgBVvRlNsGwDULnu/fpfzh+lzrHyreeUPAoyyTAu2DjquEiAsWuh+nNoeL0nfIyJIib3fX
+	ZIaSNew5YBiFxaDZ9Mm1wbLaV/k3QbYk8uqHEJ/LdSTOo+dLBXv80nuwQL9kEbYP/z3G0d8lVRamT
+	e7CaynfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUapt-000000023yi-26pT;
-	Sun, 14 Dec 2025 01:23:45 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1vUc6K-0000000274d-44Wt;
+	Sun, 14 Dec 2025 02:44:48 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUapq-000000023yJ-1sfY
+	id 1vUc6I-0000000274I-1Fdv
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Dec 2025 01:23:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 04FE840279;
-	Sun, 14 Dec 2025 01:23:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C504C4CEF7;
-	Sun, 14 Dec 2025 01:23:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765675417;
-	bh=iTxY++bdP8TiQkzNCvYtjfGWKfxPxnjUDmS1j9BlF2Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WE74zBcvuMSv0iHpRJZOZkF6UvxChi8Hs+BSoWu0VyZAwXaeBmZWUaAzd+UuqjBZ1
-	 frp0iFXcUz/hFm6m5gLu5Hh7Gl3ISBT4inJbrzoaDwATrcDUZbvz9TYRCMr4nbXfZu
-	 Slczq88Ut2naaj9KshpPMeEA95eDASORZQxOFxgf82Y7ru80CPcyRdx+R/vu7GqdJ9
-	 2iXpmWt8Fs3b+ekDED8v9MMgQF6xLraCxsELs3U6yF4dFAxwWpbRs5QWeQ31E7epVz
-	 iKEl7D8D0yDxPLnUT7bwRE/i8XHfZhRGCmFupRbGGOa0ibw6msCEFtm3/XCbNYwbcA
-	 zT6WYLTYLC0JA==
-Message-ID: <d58e3cae-e303-4e1f-ab43-c800cf0ab2aa@kernel.org>
-Date: Sun, 14 Dec 2025 02:23:32 +0100
+	Sun, 14 Dec 2025 02:44:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1765680286; x=1797216286;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=OpZre1ZbJKF8udkzRRD8kMmJKN4XssmMfDeDAHs25MI=;
+  b=S7ANaeqwl3bKIuSUOeM97PUojf1fBPC6g6zm5M0GMNybR9QnezGDn2W5
+   fVD9ZmztiORb1Hr7ByZnwX1UAdHcu5IWmH+HnIUzfl3YORi5fdJKf3xa1
+   T2CgF+6mwnZE5Kgv4FfyJdEPECEvdL4x4w/8vN/JWpGJre4MNI5t442bf
+   gSN5AK3YHFP4dk+PJB+vmK/Qw6UOANYAOSzg7c+J9J2QthRrZ1NrcUrzl
+   MTl4xJSAiX99LGTgUmu035zfn31yWNzYFHWwialKr+iBC+h9XZv8YZXy2
+   /i2Kg/qH7v65lKeGGpSFdNjDKWOeUfbs/ugvjCYlFele+e2QEDRLrEfmU
+   w==;
+X-CSE-ConnectionGUID: J4TpTfqOQxO9JO0AU1KIYw==
+X-CSE-MsgGUID: dnQOs8GGSOeEy+H0NNTisA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11641"; a="90282322"
+X-IronPort-AV: E=Sophos;i="6.21,147,1763452800"; 
+   d="scan'208";a="90282322"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Dec 2025 18:44:44 -0800
+X-CSE-ConnectionGUID: uuVL35UCQ9i0K8VntsaC8g==
+X-CSE-MsgGUID: VhPSKb22Q9SaBgR6ilo5Sg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.21,147,1763452800"; 
+   d="scan'208";a="228491153"
+Received: from lkp-server01.sh.intel.com (HELO d335e3c6db51) ([10.239.97.150])
+  by fmviesa001.fm.intel.com with ESMTP; 13 Dec 2025 18:44:40 -0800
+Received: from kbuild by d335e3c6db51 with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1vUc69-000000008Tp-32vO;
+	Sun, 14 Dec 2025 02:44:37 +0000
+Date: Sun, 14 Dec 2025 10:44:22 +0800
+From: kernel test robot <lkp@intel.com>
+To: Pankaj Gupta <pankaj.gupta@nxp.com>, Jonathan Corbet <corbet@lwn.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: oe-kbuild-all@lists.linux.dev, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v21 3/7] firmware: imx: add driver for NXP EdgeLock
+ Enclave
+Message-ID: <202512141039.nVscnjzl-lkp@intel.com>
+References: <20251212-imx-se-if-v21-3-ee7d6052d848@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/6] arm64: dts: imx8mp-var-som: Add WiFi and Bluetooth
- support
-To: Stefano Radaelli <stefano.radaelli21@gmail.com>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Stefano Radaelli <stefano.r@variscite.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20251213230909.16810-1-stefano.r@variscite.com>
- <20251213230909.16810-5-stefano.r@variscite.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251213230909.16810-5-stefano.r@variscite.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251212-imx-se-if-v21-3-ee7d6052d848@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251213_172342_535798_5829E525 
-X-CRM114-Status: GOOD (  13.13  )
+X-CRM114-CacheID: sfid-20251213_184446_432111_4D121199 
+X-CRM114-Status: GOOD (  11.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,38 +96,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/12/2025 00:09, Stefano Radaelli wrote:
-> Add device tree nodes for the WiFi and Bluetooth module mounted on the
-> VAR-SOM-MX8MP. The module can be based on either the NXP IW612 or IW611
-> chipset, depending on the configuration chosen by the customer.
-> 
-> Regardless of the chipset used, WiFi communicates over SDIO and Bluetooth
-> over UART.
-> 
-> Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
-> ---
->  .../boot/dts/freescale/imx8mp-var-som.dtsi    | 93 +++++++++++++++++++
->  1 file changed, 93 insertions(+)
-> 
-> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
-> index 5bba91dcef17..e7f5ec10cbac 100644
-> --- a/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
-> +++ b/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
-> @@ -21,6 +21,15 @@ memory@40000000 {
->  		      <0x1 0x00000000 0 0xc0000000>;
->  	};
->  
-> +	iw61x_pwrseq: wifi-pwrseq {
-> +		compatible = "mmc-pwrseq-simple";
-> +		post-power-on-delay-ms = <100>;
-> +		power-off-delay-us = <10000>;
-> +		reset-gpios = <&gpio2 8 GPIO_ACTIVE_LOW>, /* WIFI_RESET */
-> +			      <&gpio2 19 GPIO_ACTIVE_LOW>; /* WIFI_PWR_EN */
-> +		status = "okay";
+Hi Pankaj,
 
-Did you disable it anywhere before?
+kernel test robot noticed the following build warnings:
 
+[auto build test WARNING on 4a26e7032d7d57c998598c08a034872d6f0d3945]
 
-Best regards,
-Krzysztof
+url:    https://github.com/intel-lab-lkp/linux/commits/Pankaj-Gupta/Documentation-firmware-add-imx-se-to-other_interfaces/20251212-172535
+base:   4a26e7032d7d57c998598c08a034872d6f0d3945
+patch link:    https://lore.kernel.org/r/20251212-imx-se-if-v21-3-ee7d6052d848%40nxp.com
+patch subject: [PATCH v21 3/7] firmware: imx: add driver for NXP EdgeLock Enclave
+config: powerpc-randconfig-r131-20251213 (https://download.01.org/0day-ci/archive/20251214/202512141039.nVscnjzl-lkp@intel.com/config)
+compiler: powerpc-linux-gcc (GCC) 13.4.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251214/202512141039.nVscnjzl-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202512141039.nVscnjzl-lkp@intel.com/
+
+sparse warnings: (new ones prefixed by >>)
+>> drivers/firmware/imx/ele_base_msg.c:77:52: sparse: sparse: non size-preserving pointer to integer cast
+
+vim +77 drivers/firmware/imx/ele_base_msg.c
+
+    16	
+    17	int ele_get_info(struct se_if_priv *priv, struct ele_dev_info *s_info)
+    18	{
+    19		struct se_api_msg *tx_msg = NULL;
+    20		struct se_api_msg *rx_msg = NULL;
+    21		dma_addr_t get_info_addr = 0;
+    22		u32 *get_info_data = NULL;
+    23		int ret = 0;
+    24	
+    25		if (!priv)
+    26			return -EINVAL;
+    27	
+    28		memset(s_info, 0x0, sizeof(*s_info));
+    29	
+    30		tx_msg = kzalloc(ELE_GET_INFO_REQ_MSG_SZ, GFP_KERNEL);
+    31		if (!tx_msg)
+    32			return -ENOMEM;
+    33	
+    34		rx_msg = kzalloc(ELE_GET_INFO_RSP_MSG_SZ, GFP_KERNEL);
+    35		if (!rx_msg) {
+    36			ret = -ENOMEM;
+    37			goto exit;
+    38		}
+    39	
+    40		if (priv->mem_pool)
+    41			get_info_data = gen_pool_dma_alloc(priv->mem_pool,
+    42							   ELE_GET_INFO_BUFF_SZ,
+    43							   &get_info_addr);
+    44		else
+    45			get_info_data = dma_alloc_coherent(priv->dev,
+    46							   ELE_GET_INFO_BUFF_SZ,
+    47							   &get_info_addr,
+    48							   GFP_KERNEL);
+    49		if (!get_info_data) {
+    50			dev_dbg(priv->dev,
+    51				"%s: Failed to allocate get_info_addr.", __func__);
+    52			ret = -ENOMEM;
+    53			goto exit;
+    54		}
+    55	
+    56		ret = se_fill_cmd_msg_hdr(priv, (struct se_msg_hdr *)&tx_msg->header,
+    57					  ELE_GET_INFO_REQ, ELE_GET_INFO_REQ_MSG_SZ,
+    58					  true);
+    59		if (ret)
+    60			goto exit;
+    61	
+    62		tx_msg->data[0] = upper_32_bits(get_info_addr);
+    63		tx_msg->data[1] = lower_32_bits(get_info_addr);
+    64		tx_msg->data[2] = sizeof(*s_info);
+    65		ret = ele_msg_send_rcv(priv, tx_msg, ELE_GET_INFO_REQ_MSG_SZ, rx_msg,
+    66				       ELE_GET_INFO_RSP_MSG_SZ);
+    67		if (ret < 0)
+    68			goto exit;
+    69	
+    70		ret = se_val_rsp_hdr_n_status(priv, rx_msg, ELE_GET_INFO_REQ,
+    71					      ELE_GET_INFO_RSP_MSG_SZ, true);
+    72	
+    73		memcpy(s_info, get_info_data, sizeof(*s_info));
+    74	
+    75	exit:
+    76		if (priv->mem_pool)
+  > 77			gen_pool_free(priv->mem_pool, (u64)get_info_data,
+    78				      ELE_GET_INFO_BUFF_SZ);
+    79		else
+    80			dma_free_coherent(priv->dev, ELE_GET_INFO_BUFF_SZ,
+    81					  get_info_data, get_info_addr);
+    82	
+    83		kfree(tx_msg);
+    84		kfree(rx_msg);
+    85		return ret;
+    86	}
+    87	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
