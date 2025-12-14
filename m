@@ -4,71 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7534CCFD314
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 11:23:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBF2CD5B16E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 11:52:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dY46cQrPrx5lrDM05DzCxGz7iFm3c0BXVEQVjIh9mB4=; b=3BPdJ6wAZBiOQoo3IYocD9AYwJ
-	xJ9W1FQh/3ey0SE3XUisTuWApphuBR45aVLt6lMs3tw3MT5F3EFdVy6yKseafq3nF5FijqHDyc4TX
-	oRvVg/vAc3/7Wa8wyqAjq1ijEyxPC+lqfUE3GhaaPQhGcx5ZnX85Kq7VRLdidfVhKR4IrOQjGeCks
-	7zpY+LcCKZ5bNxEAAU5lghzNaiFsM98WHq2InfXxVMcXKgV3Y2TeR1YGm5ahG7QGfzKICToPO8CFc
-	LysJ2VEq+8IOXyudbVMMA3hhFf3njWtWcJT91DbxmcSJwwePyVFm86zjjp7LjUliALk/CD/Hqc54F
-	hPe0MPpg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=jsRb0kfSSoUnU63m0oBklHJkzXlODQOoqIiIZZao5o0=; b=lF4xcF8xPvDCDq
+	f0X2/1y0qxSVJFAcOX7d1hmF8cVg1YbzFbC+nxjebjlX+QtvDAu/py0bQQw9lUXejd1Fa4tpyGQH/
+	a/s28qkVnXQQKizvO9EKq/RyFwhAfVkFgylTqwZmUiNk0+HqPz9sgfoqpZdHIcrtvawL3UkeQ/PQp
+	FtY5WJZ9MB99YBY7SoCrq5RSgD7CBKiNotyMvjb/DNmAjmxk9z3bBgQOfyIece67aM/SN+CXgMJFK
+	TRTGx/rBuOHzh4ja8s9J4sg5bCn73VodIOj3/lXoHBFL5bAN9+qAy0u16U1Q8RMhKxDoAI8P+vfum
+	TtysOoGbt0fGkGLs8KQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUkCK-00000002PEq-2bpm;
-	Sun, 14 Dec 2025 11:23:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUkCG-00000002P9h-1cxh
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Dec 2025 11:23:31 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 49B1B16F3;
-	Sun, 14 Dec 2025 03:23:20 -0800 (PST)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 31B933F73B;
-	Sun, 14 Dec 2025 03:23:24 -0800 (PST)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org,
-	maz@kernel.org,
-	broonie@kernel.org,
-	oliver.upton@linux.dev,
-	miko.lenczewski@arm.com,
-	kevin.brodsky@arm.com,
-	ardb@kernel.org,
-	suzuki.poulose@arm.com,
-	lpieralisi@kernel.org,
-	yangyicong@hisilicon.com,
-	scott@os.amperecomputing.com,
-	joey.gouly@arm.com,
-	yuzenghui@huawei.com,
-	pbonzini@redhat.com,
-	shuah@kernel.org,
-	mark.rutland@arm.com,
-	arnd@arndb.de
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v11 RESEND 9/9] arm64: armv8_deprecated: apply FEAT_LSUI for swpX emulation.
-Date: Sun, 14 Dec 2025 11:22:48 +0000
-Message-Id: <20251214112248.901769-10-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251214112248.901769-1-yeoreum.yun@arm.com>
-References: <20251214112248.901769-1-yeoreum.yun@arm.com>
+	id 1vUkdq-00000002QVL-1yWL;
+	Sun, 14 Dec 2025 11:51:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vUkdo-00000002QU3-3HkN;
+	Sun, 14 Dec 2025 11:51:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C67096001A;
+	Sun, 14 Dec 2025 11:51:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 6E45CC4CEF1;
+	Sun, 14 Dec 2025 11:51:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765713115;
+	bh=A9b5Y7XPAJ4q0XUe8bUjFOzSiI/pDmxH2l9xPh4oLjE=;
+	h=From:Subject:Date:To:Cc:From;
+	b=OFFq9KLQKCdqawPp1tT703Q4j0XqLQijvanlATZPtYXmVZ7tescSWXNeGeTl2upMF
+	 Tc7xJ5Ce0ndnlQ0eeGlRNyn74pJAtT2HW7F2crPt36bq4FQsVxjgUVNUPqhQ0bTmp5
+	 cm8WC1u0AQQ39Nx9zd9xp9ZFKtrG0EsB3lhktSuQh0LOhDJmzh73z8WowBuMP7Jr5M
+	 Gx7THo8GR+ItIxxecEO8W9Yi9m7TjxnqUC3qRcHsa5IdfmbT463ADGQlXZpj5f2nEN
+	 /Yco9zNEViWKvLIpfSNWmqfmFqCr/ib7yGXs/eZPt9HNNuhU8oJzFWCyrqnDu/5TZb
+	 XvOvJRH/wfyGg==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 59013D5B158;
+	Sun, 14 Dec 2025 11:51:55 +0000 (UTC)
+From: Sven Peter <sven@kernel.org>
+Subject: [PATCH v3 0/3] Apple Silicon Type-C PHY
+Date: Sun, 14 Dec 2025 11:51:33 +0000
+Message-Id: <20251214-b4-atcphy-v3-0-ba82b20e9459@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_032328_561157_93F9F72D 
-X-CRM114-Status: GOOD (  13.75  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAMWkPmkC/1WOzQqDMBAGX0X23JTsxp+mp75H6SHGqKHFSCKhI
+ r57oxRqj/OxM+wCwXhrAlyzBbyJNlg3JBCnDHSvhs4w2yQG4lQgR8HqnKlJj/3MmlJVWgrZ5Fh
+ Buh+9ae17b90fiXsbJufnPR1xW78VKg+ViIyz9oI1EhWt1OXtafxgXmfnO9gykX4q0vGBSEkVu
+ dYVl1QTqT91XdcPQOtkWt4AAAA=
+X-Change-ID: 20251013-b4-atcphy-d6a7c939d417
+To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
+ Neal Gompa <neal@gompa.dev>, Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-kernel@vger.kernel.org, asahi@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-hardening@vger.kernel.org, 
+ linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Hector Martin <marcan@marcan.st>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3216; i=sven@kernel.org;
+ h=from:subject:message-id;
+ bh=A9b5Y7XPAJ4q0XUe8bUjFOzSiI/pDmxH2l9xPh4oLjE=;
+ b=owGbwMvMwCHmIlirolUq95LxtFoSQ6bdkst/lq6P4gyc+M3nktzcrkdJ0QuzeOenTZIqmbwn2
+ 13kU3ZjRykLgxgHg6yYIsv2/famTx6+EVy66dJ7mDmsTCBDGLg4BWAimaEM/3R9e4t/qBib3pAT
+ LfXYuTcwqck7zzpHls/bq3C29xINXkaGne8/z1KU8c1nkTxy4dX2SI8N1ybtifynoL9Eo8MsMiy
+ EAQA=
+X-Developer-Key: i=sven@kernel.org; a=openpgp;
+ fpr=A1E3E34A2B3C820DBC4955E5993B08092F131F93
+X-Endpoint-Received: by B4 Relay for sven@kernel.org/default with
+ auth_id=407
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,130 +91,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apply the FEAT_LSUI instruction to emulate the deprecated swpX
-instruction, so that toggling of the PSTATE.PAN bit can be removed when
-LSUI-related instructions are used.
+Hi,
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+This series adds support for the combined Type-C PHY found in Apple
+Silicon machines and required for USB3, DP-AltMode, and Thunderbolt/USB4
+support. As in the previous versions, this is limited to USB3 support so
+far since the other modes need further work in different subsystems.
+With the dwc3 glue driver being upstream this is however the last part
+required for upstream USB3 support.
+
+The generic tunable support inside driver/soc/apple will also be re-used
+for Thunderbolt later but it's fine to take it through the PHY tree
+since thunderbolt will depend on that anyway.
+
+Changes in v3:
+- Link to v2: https://patch.msgid.link/20251123-b4-atcphy-v2-0-34cc7092b22a@kernel.org
+- Rebased on 6.19-rc1
+
+Changes in v2:
+- Link to v1: https://patch.msgid.link/20251026-b4-atcphy-v1-0-f81b1225f9c6@kernel.org
+- Picked up tags from Rob and Janne, thanks!
+- Added additional sanity checks for the tunables to guard against bugs
+  in our bootloader (Janne)
+- Used struct_size from overflow.h instead of open-coding it inside
+  tunables.c (Janne)
+- Fixed a bunch of typos in atc.c pointed out by Mark Kettenis via IRC
+
+Changes since v2 of the combined series:
+- Link to v2: https://lore.kernel.org/asahi/20250906-atcphy-6-17-v2-0-52c348623ef6@kernel.org/
+- atc.c:
+  - Removed a bunch of outdated safety checks from atc.c that were only
+    required in a previous version that did not rely on the dwc3-glue
+    driver
+  - Addressed Philipp's review comments:
+    - Added documentation for struct apple_atcphy (and a bunch of other
+      things while I was at it)
+    - Moved the mutex guard from atcphy_dpphy_configure to atcphy_dp_configure
+      since the first one doesn't touch any shared structures or MMIO
+- apple,atcphy.yaml:
+  - Added a generic apple,tunable definition that uses uint32-matrix
+    and refer to that one from the individual tunable properties
+  - Adjust the tunable description to make it easier to understand
+  - Limited all lines to 80 chars
+  - Used > for longer descriptions
+  - Fixed some typos
+- Picked up r-b tags (thanks!)
+
+Best,
+
+Sven
+
+Signed-off-by: Sven Peter <sven@kernel.org>
 ---
- arch/arm64/kernel/armv8_deprecated.c | 77 +++++++++++++++++++++++++---
- 1 file changed, 71 insertions(+), 6 deletions(-)
+Sven Peter (3):
+      soc: apple: Add hardware tunable support
+      dt-bindings: phy: Add Apple Type-C PHY
+      phy: apple: Add Apple Type-C PHY
 
-diff --git a/arch/arm64/kernel/armv8_deprecated.c b/arch/arm64/kernel/armv8_deprecated.c
-index d15e35f1075c..b8e6d71f766d 100644
---- a/arch/arm64/kernel/armv8_deprecated.c
-+++ b/arch/arm64/kernel/armv8_deprecated.c
-@@ -13,6 +13,7 @@
- #include <linux/uaccess.h>
+ .../devicetree/bindings/phy/apple,atcphy.yaml      |  222 ++
+ MAINTAINERS                                        |    2 +
+ drivers/phy/Kconfig                                |    1 +
+ drivers/phy/Makefile                               |    1 +
+ drivers/phy/apple/Kconfig                          |   14 +
+ drivers/phy/apple/Makefile                         |    4 +
+ drivers/phy/apple/atc.c                            | 2294 ++++++++++++++++++++
+ drivers/soc/apple/Kconfig                          |    4 +
+ drivers/soc/apple/Makefile                         |    3 +
+ drivers/soc/apple/tunable.c                        |   80 +
+ include/linux/soc/apple/tunable.h                  |   62 +
+ 11 files changed, 2687 insertions(+)
+---
+base-commit: 8f0b4cce4481fb22653697cced8d0d04027cb1e8
+change-id: 20251013-b4-atcphy-d6a7c939d417
 
- #include <asm/cpufeature.h>
-+#include <asm/lsui.h>
- #include <asm/insn.h>
- #include <asm/sysreg.h>
- #include <asm/system_misc.h>
-@@ -86,13 +87,77 @@ static unsigned int __maybe_unused aarch32_check_condition(u32 opcode, u32 psr)
-  *	   Rn  = address
-  */
+Best regards,
+-- 
+Sven Peter <sven@kernel.org>
 
-+/* Arbitrary constant to ensure forward-progress of the loop */
-+#define __SWP_LOOPS	4
-+
-+#ifdef CONFIG_AS_HAS_LSUI
-+static __always_inline int
-+__lsui_user_swp_asm(unsigned int *data, unsigned int addr)
-+{
-+	int err = 0;
-+	unsigned int temp;
-+
-+	asm volatile("// __lsui_user_swp_asm\n"
-+	__LSUI_PREAMBLE
-+	"1:	swpt		%w1, %w2, [%3]\n"
-+	"	mov		%w1, %w2\n"
-+	"2:\n"
-+	_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w0)
-+	: "+r" (err), "+r" (*data), "=&r" (temp)
-+	: "r" ((unsigned long)addr)
-+	: "memory");
-+
-+	return err;
-+}
-+
-+static __always_inline int
-+__lsui_user_swpb_asm(unsigned int *data, unsigned int addr)
-+{
-+	u8 i, idx;
-+	int err = -EAGAIN;
-+	u64 __user *addr_al;
-+	u64 oldval;
-+	union {
-+		u64 var;
-+		u8 raw[sizeof(u64)];
-+	} newval, curval;
-+
-+	idx = addr & (sizeof(u64) - 1);
-+	addr_al = (u64 __user *)ALIGN_DOWN(addr, sizeof(u64));
-+
-+	for (i = 0; i < __SWP_LOOPS; i++) {
-+		if (get_user(oldval, addr_al))
-+			return -EFAULT;
-+
-+		curval.var = newval.var = oldval;
-+		newval.raw[idx] = *data;
-+
-+		asm volatile("// __lsui_user_swpb_asm\n"
-+		__LSUI_PREAMBLE
-+		"1: cast	%x2, %x3, %1\n"
-+		"2:\n"
-+		_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %w0)
-+		: "+r" (err), "+Q" (*addr_al), "+r" (curval.var)
-+		: "r" (newval.var)
-+		: "memory");
-+
-+		if (curval.var == oldval) {
-+			err = 0;
-+			break;
-+		}
-+	}
-+
-+	if (!err)
-+		*data = curval.raw[idx];
-+
-+	return err;
-+}
-+#endif /* CONFIG_AS_HAS_LSUI */
-+
- /*
-  * Error-checking SWP macros implemented using ldxr{b}/stxr{b}
-  */
-
--/* Arbitrary constant to ensure forward-progress of the LL/SC loop */
--#define __SWP_LL_SC_LOOPS	4
--
- #define LLSC_USER_SWPX(B)					\
- static __always_inline int					\
- __llsc_user_swp##B##_asm(unsigned int *data, unsigned int addr)	\
-@@ -117,7 +182,7 @@ __llsc_user_swp##B##_asm(unsigned int *data, unsigned int addr)	\
- 	_ASM_EXTABLE_UACCESS_ERR(1b, 3b, %w0)			\
- 	: "=&r" (err), "+r" (*data), "=&r" (temp), "=&r" (temp2)\
- 	: "r" ((unsigned long)addr), "i" (-EAGAIN),		\
--	  "i" (__SWP_LL_SC_LOOPS)				\
-+	  "i" (__SWP_LOOPS)					\
- 	: "memory");						\
- 	uaccess_disable_privileged();				\
- 								\
-@@ -128,9 +193,9 @@ LLSC_USER_SWPX()
- LLSC_USER_SWPX(b)
-
- #define __user_swp_asm(data, addr) \
--	__llsc_user_swp_asm(data, addr)
-+	__lsui_llsc_body(user_swp_asm, data, addr)
- #define __user_swpb_asm(data, addr) \
--	__llsc_user_swpb_asm(data, addr)
-+	__lsui_llsc_body(user_swpb_asm, data, addr)
-
- /*
-  * Bit 22 of the instruction encoding distinguishes between
---
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
 
