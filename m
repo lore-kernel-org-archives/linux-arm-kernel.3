@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1536D59D99
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3C3ED5B16C
 	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 19:18:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,20 +12,20 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=8Qe15nyDaQI5NHkqinXh2nmZ7n1Fr8qfZ26+gvZFymo=; b=Lq7e7XaS1DDzVAyi3WfSwpDf1j
-	d21Zplacpj9aHCeItR5CWap2TnrQzt/RCiGJ/RoAiWcyyrtBoZ6FK9flmnwYp5ZHh1f6jCeRh9AA9
-	f4LqlBpu0DKwYYiIo9XsDci3yYjgOnaA8aD1wtYze5Y7K8Sh7Uff+bFHYsmTRZqDCRRwhRfzV2ga1
-	ewgkapEsRVYtQ7GKj0kBsU7IbHzEkM1V6n5382Me6afzhPwS2cCzysQfw8PMx5p39LeTiDsDz4uJP
-	CjJuvYi1pYhRSlHgK+52/S+KS+PHQaV0DJzPpveIOgxQUqIW4WPoXqIZOUb3PyagpSCe60t+AQh9R
-	5S5mU8JA==;
+	bh=8Qe15nyDaQI5NHkqinXh2nmZ7n1Fr8qfZ26+gvZFymo=; b=M1sURmnNIWrIIMgzcUWTeybpO6
+	h9+pokv1VYrS5bfOaOP9GAw0vsoFKLhkhAF3kCUp8+SpQehamesiMQw46bBYAW4OdArhm7DtOiqdI
+	+RvBHrmgQqw2Nj66GO86RU6XTYaJKJ/HDjaN3JN5UTJsSXTIGRitW/mnLHUM6wPn/1HQ6pD+4EYQE
+	WXiFqVVPEMcv6frp3diKaURHOKYseT8vRDOlPADxLM8Tv1NNgBTEx16LyJgn0ewUzzt9F5GmLTPNL
+	Z3AHb58Amm9bycvYID70NUQi+wvVm9YBu9ycgQQw3OBOo/eebQUTKw2GmuLibp2J46tLos1fVYd1a
+	wDEpMKPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUrbX-00000002gKH-1RGl;
-	Sun, 14 Dec 2025 19:18:03 +0000
+	id 1vUrbR-00000002gIh-4B7D;
+	Sun, 14 Dec 2025 19:17:57 +0000
 Received: from [50.53.43.113] (helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUrbV-00000002gJm-3GPz;
-	Sun, 14 Dec 2025 19:18:01 +0000
+	id 1vUrbP-00000002gIS-1Xfq;
+	Sun, 14 Dec 2025 19:17:55 +0000
 From: Randy Dunlap <rdunlap@infradead.org>
 To: linux-kernel@vger.kernel.org
 Cc: Randy Dunlap <rdunlap@infradead.org>,
@@ -34,8 +34,8 @@ Cc: Randy Dunlap <rdunlap@infradead.org>,
 	Michal Simek <michal.simek@amd.com>,
 	linux-arm-kernel@lists.infradead.org
 Subject: [PATCH] xilinx_hwicap: fifo_icap.c: fix all kernel-doc warnings
-Date: Sun, 14 Dec 2025 11:17:58 -0800
-Message-ID: <20251214191758.2173409-1-rdunlap@infradead.org>
+Date: Sun, 14 Dec 2025 11:17:50 -0800
+Message-ID: <20251214191750.2173225-1-rdunlap@infradead.org>
 X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
