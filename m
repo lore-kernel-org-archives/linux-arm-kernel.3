@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 344D7D59D99
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 21:53:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD4BCD5B16C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 21:53:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nRhxsDSnBcu0kxb3BQ79sAL2tYyaxkbiHw7liK1hHM4=; b=wPLvXZP+LvYx3gv4JD4aEhShiv
-	xyYTIy7FgPCOWgYLnuUvge99V7cWF9hT29G1ae88cLP3tYwDk+9w0ZsnRkqn4eVHxfkk1UqeP3h2K
-	P3p09n46RBEeX9gpK5Tfit7ITfY+nTuzXZwYTQlACCPjOV7+HSsdxi9cHdYaBJs8PCpjKlF6e8DZ9
-	vBmjdOK781cO6WziPxFYONv07rWQ/NldIicLUXab5ME8LPDrJJ5NqTUgVYizGkxGRFNXWvA4wlVmt
-	frHWsTkPX4+6Rh+nESI4/je6ssnFpn834gwTego10X0i7f1B+gE4+9Sw3R4UYnf30savppLo2DoNY
-	nMDyJ5/g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=d98j53CwylYGkDXzrv9xLEHUO5ol14s3GpQ93nPd4ok=; b=hxbmG99CNlXE/xXh4VroGDekix
+	G8c7BGCN+ovX1XjKw41D4NvBGezokskdq+lriFPqNZ1XcpEZCRTnIfRcsGgJFaGkDPldnVHLRUTGa
+	17Wfn1G8w4sJqeQm+K0Gqx9m3h50k2nVrbVt1VqGb1tbltXVMnTsnIV3/K9nvft6yzvhjDuijS8Vj
+	bQ8FFi7Ru+OOXw/C0XWCsNrOz/GTGgnhA6zCVmOziqd3Qbgad4klPtczbYczmyZHlq+XfpX7X0Ywi
+	JJBY6NmQKgnpbS5riw1+ozUkLX19pWZh4PnOVNxVV3fcJDHlNlqYMomxlkhP3oLszT8uwVMuvYBet
+	UfgEy8vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUu1X-00000002kzX-06BW;
-	Sun, 14 Dec 2025 21:53:03 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1vUu1b-00000002l1W-1Kx4;
+	Sun, 14 Dec 2025 21:53:07 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUu1V-00000002kyF-2iEf
+	id 1vUu1X-00000002kzC-2plI
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Dec 2025 21:53:02 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-47a95efd2ceso10536655e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Dec 2025 13:53:00 -0800 (PST)
+	Sun, 14 Dec 2025 21:53:05 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-42fb3801f7eso1309783f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Dec 2025 13:53:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765749179; x=1766353979; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=nRhxsDSnBcu0kxb3BQ79sAL2tYyaxkbiHw7liK1hHM4=;
-        b=mMdpO8n5o2MI4XrjGRYqROi1QdI3QfJjhKfDH7ec37VPoZncfyPm7Cjvpx2m72ASkf
-         /sXQ+zyd/XjxjYJVi9CkCbhqYIRl1FSuhFQSG1cpMG/+M31d5PJm/nEH/+2wCeLesS3u
-         m5+OK/XuiSVYr5jug5eoqW9Jm1fcTdRef1DdKhKSAOkConGavEdDiHUeDo733LWFKlew
-         BHx+YpYKTc+3B7O8Dlp2Ij2aSClCelzRaYGOedhu0T3x/hvqjmJSsZdNp/S//U452mVU
-         LWIKurLIHj3DPgZvEGUVjgHlvJAlLRHULAbqqVSKE1ys9Llf4cqPNgXWNrurNGuDfecO
-         IZmw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765749179; x=1766353979;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1765749182; x=1766353982; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=nRhxsDSnBcu0kxb3BQ79sAL2tYyaxkbiHw7liK1hHM4=;
-        b=T5RD6GoOZWIXXsshjaHfrfL01f1hMoZ0GhpS8nLAoqCqgsUPqIw4ZFhJbuC5CRDOCr
-         Mo7JRQQMoXejtPZk024Z23SMNsEKE6QmUJDbnZAxP3mDTHO90sj0wCjKZiPIlKHLTiSP
-         vynWO24jtNhdl4R+WGEXQunYLQAdu1DcqyznhopkOkoXtPjp1MD7sp/CDmwCVtYuphgv
-         BolQ+AEjYcwzNk107i8XPSxVAASmcGrSf5Vz2sBkg4+pzd3Sm1wQYbLkmmJNte3oibil
-         W/2pHDDYH3EAyX2xldvp3c/LB1Oi44lB1+yYDzu9sKGRrGF9BfcfpERfsoNsbx7ytqQy
-         ubXw==
-X-Forwarded-Encrypted: i=1; AJvYcCUKnulxikcU8irlVX+CRxhcG8v4FB5eqGuPqUhFva/cC6XUFVxRqXmTUoXG2yqvCdGcAWYHOJj2nWet8LFpuV48@lists.infradead.org
-X-Gm-Message-State: AOJu0YyK8NAZKWC6RejnI9a1aG6IE2Cx/k9QbV8l1LyB9BtFcaJ2NEI4
-	364UvQDaiBBAG4HN7CN0VdnYLaF4SSBKjHe+29vexGZfKuCZXYqf74be
-X-Gm-Gg: AY/fxX7C9uPPraLzBH+nb5Q8pGPRlrPZ9UdtQ7nkdIIfiNraSY064YeCbrfQTgtQBO/
-	2JNKBitOLuN7EtR4dCnrTDCPTbBPOg2AKRKkajheqPe9J0QV8YiWt0Cc59oaIrXk9q44TD0k7dR
-	6HtVv6IxmjMMtAktiypwZbeoYFL3pYOc1EZHHD4LEBnqZJjFKQlaCq7XzBTLrLlBchgBN4cn2OO
-	6GdQ3Fh9aQ2FQMzCNQiRUpfOfpRFbmRXIhyWQxbXYPwpnwb2bRV+qD3xnGHlOJFk/cjWZ0O3Iko
-	qYf13u8DeHveTOHERJhEijbhxGbU/zc6ht/tBARvM+5MkOhllTs9YI/UW5pN9Egv24HfA2xtpTP
-	MvCDx81iCScW7A2vVlS93q9lIIVgiUA8gyE02hEph31JPO+afjvWpOQrUVcIMlxfSTUWfQWfB1D
-	pcCqN6izRR6FFsC4dFGYzb8RdnaQhArHUvaEjdNt280/4KJ5PKAcjCcO91hAlMUnbwEwqbFIYYZ
-	/pokmaArrIA6wE=
-X-Google-Smtp-Source: AGHT+IGVF+JuPVqrMiFOoXCrZyreYbmCiKRs6E7j6+fCdSvfmBW907Gqxw2wCR/3a2VIVjaT/n59HQ==
-X-Received: by 2002:a05:600c:45c9:b0:46e:35a0:3587 with SMTP id 5b1f17b1804b1-47a8f90c516mr92963995e9.27.1765749179466;
-        Sun, 14 Dec 2025 13:52:59 -0800 (PST)
+        bh=d98j53CwylYGkDXzrv9xLEHUO5ol14s3GpQ93nPd4ok=;
+        b=csZzGFepjewDy9DLIqOjs1F9xuLANqqGyytIHmtAhGhGLrOtn8xyBE6N0Xn8AIiZz7
+         jr5NRfVTfTPxLi3LPfXL55gBYMi//tcrN7CsznE07e45uTlB7wfgD1NuGgyUUHaLhZG4
+         TK4Qjy+CxoftS7j5zOZPwXRDM12avbgM5BIdosWb2SR9s+GhUJsTljXi7W12jKQdpewj
+         fIPr4JS4nK+gmvNg0UXmspoP6z1SLsa0BOLH1BW35LffcyrRzJfvoW+zoR3L+u7PmedC
+         Adno4D5RdU3P44DwGX7/J2LcY55rYmZtzgEb9HTf+uVVGVipv03gLm3oIZR42nddK4WF
+         /K0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1765749182; x=1766353982;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=d98j53CwylYGkDXzrv9xLEHUO5ol14s3GpQ93nPd4ok=;
+        b=iyEgZTlvaqmABz97qQ/JTZgeWlekQuCa822Vsq7mtDVotsGwVTKTelEuNxt99CO5/k
+         8jsuQObeJWkO7W+7Fg7qKSMk9Vw8Bq42kOFmhkOkLaZ2ISOPS4yY9clm45glqGJmO+Wm
+         JMfnG7pHkthqB+2zuyK1Om3AHc/h6CgLc3NnlufIlPagRaZgF5Dnvyl1Bq26pFDbXUs3
+         LQgYTxbBC7BP8pwoF14qQBrr7DOAhX1lghsMiiEBRWaR4+IvkMp0Sfw412IWxEtXZGIo
+         IHeBppamMHXq+ScZWLTTtWf/POjzoiDp3VI8q+x9KbulNMNmSMuESx2FRBZ+jsnsvxiP
+         pfgQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUlQs+ut947YlzlGEQCrpjwUea2oaU5CoGiGKJda2eYXRkHhEEwmh4nW/TTc84n4ef8AEtgHTE7GyPg0ZfZp0v7@lists.infradead.org
+X-Gm-Message-State: AOJu0YyrUxK5pc7bIxrOP7pRmzlJcMnYpsTyABooMP1fp0jNcO4b1Ws5
+	dJSJzbGXtr+V7hd5UBCvyNJ1TStmlzqrYkHoU3eOKVswu4jzst6HAcG2
+X-Gm-Gg: AY/fxX654EoOfEwJ7l2upSU1wOOvdWcSbQGsxqNGGmRwNnpiomC60Lm2AWyNMBecyOM
+	goFvWKMZl9B88/7ZQ0N5csfdkqi07htZM4Va+9yoW7HjALOMlKT7VAbHoo5+gSd1Y2lv7DTXjtA
+	yeNYh6V1nOvS4ec34R78AHJBmlohBuPR0vhUgt0Nnu4ADrtKIJXIBgz3O7CR+aKrGtqXlM5/UTO
+	HXSLOTmDyStsqvlGAEwJuXlAL81JnjQNnQw4YdxpdO4pkA/lQsynMuvuoQ/FeQ4i+Fji1a+8cZM
+	TIMIR/ckNnuOPV9DQkDOxkVxL5F9USuV254qOl3ks37h8wPj4K83qpOVYlviBDDMVbTnMv+5WVC
+	ZX5sKH3TzZ1hR21ZN5w6xWEPECroCTbrINPWG8e8CkAMqbYTYQHFMWMTszG1XJcUlbkf5nPNFnR
+	qzozGiqmp9f0B80oXeARlei9ozMBsYB0QFyBNtH7iTFVXcbAW6BPoYdF1nU7kn6UdL06O1ddKdG
+	MqCy0/yWNjWKas=
+X-Google-Smtp-Source: AGHT+IF84y4pyjyyMtX/3o85XLxndY0sG21i7o5eJ/lJM3XFxdHdZGn96Mk3h3sCkTBWYc9DRKeJPw==
+X-Received: by 2002:a05:6000:402c:b0:42b:4803:75e8 with SMTP id ffacd0b85a97d-42fb490d6f1mr8699960f8f.43.1765749181465;
+        Sun, 14 Dec 2025 13:53:01 -0800 (PST)
 Received: from Lord-Beerus.station (net-5-94-28-5.cust.vodafonedsl.it. [5.94.28.5])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-430f6a42c8csm7625568f8f.16.2025.12.14.13.52.58
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-430f6a42c8csm7625568f8f.16.2025.12.14.13.53.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 Dec 2025 13:52:59 -0800 (PST)
+        Sun, 14 Dec 2025 13:53:00 -0800 (PST)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
 To: devicetree@vger.kernel.org,
@@ -84,15 +85,17 @@ Cc: Stefano Radaelli <stefano.r@variscite.com>,
 	Fabio Estevam <festevam@gmail.com>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v4 0/6] arm64: dts: imx8mp-var-som: align DTS with hardware revision
-Date: Sun, 14 Dec 2025 22:52:47 +0100
-Message-ID: <20251214215256.5812-1-stefano.r@variscite.com>
+Subject: [PATCH v4 1/6] arm64: dts: imx8mp-var-som: Move USDHC2 support to Symphony carrier
+Date: Sun, 14 Dec 2025 22:52:48 +0100
+Message-ID: <20251214215256.5812-2-stefano.r@variscite.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251214215256.5812-1-stefano.r@variscite.com>
+References: <20251214215256.5812-1-stefano.r@variscite.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_135301_701130_E483AA87 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20251214_135303_795935_9BB973B4 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,50 +110,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series aligns the VAR-SOM-MX8MP device tree with the actual
-hardware populated on the System-on-Module, and separates SOM-specific
-descriptions from carrier-board-specific ones.
+The VAR-SOM-MX8MP module does not include a microSD slot connected to
+USDHC2. The USDHC2 interface is routed only on the Symphony carrier
+board, and it may optionally be used or omitted depending on the
+customer's carrier design.
 
-The first three patches move the USDHC2 interface, the PCA9534 GPIO
-expander, and the UART2 debug console out of the SOM dtsi, as these
-components are not present on the VAR-SOM-MX8MP module itself and are
-instead routed on the Symphony carrier board. Their descriptions are
-therefore provided in the carrier board DTS, keeping the SOM device
-tree limited to on-module hardware.
+Move the USDHC2 node, its regulators, pinctrl groups and related GPIOs
+from the SOM device tree to the Symphony carrier DTS, keeping the SOM
+description limited to hardware populated on the module.
 
-The remaining patches add support for peripherals that are populated
-on the SOM and commonly used across designs, including WiFi/Bluetooth
-connectivity, the WM8904 audio codec, and the ADS7846 touchscreen
-controller.
+Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
+---
+ .../dts/freescale/imx8mp-var-som-symphony.dts | 77 +++++++++++++++++++
+ .../boot/dts/freescale/imx8mp-var-som.dtsi    | 75 ------------------
+ 2 files changed, 77 insertions(+), 75 deletions(-)
 
-Overall, this series ensures a clear separation between SOM and carrier
-board responsibilities in the device tree, avoids describing
-non-existent hardware on the module, and enables key on-module
-features.
-
-v4:
- - Change touchscreen label and compatible string to "ti,tsc2046" to
-   better match hardware revision
-v3:
- - Remove unnecessary status property
-v2:
- - Move deleted nodes from SOM dts to Symphony carrier board
-
-Stefano Radaelli (6):
-  arm64: dts: imx8mp-var-som: Move USDHC2 support to Symphony carrier
-  arm64: dts: imx8mp-var-som: Move PCA9534 GPIO expander to Symphony
-    carrier
-  arm64: dts: imx8mp-var-som: Move UART2 description to Symphony carrier
-  arm64: dts: imx8mp-var-som: Add WiFi and Bluetooth support
-  arm64: dts: imx8mp-var-som: Add support for WM8904 audio codec
-  arm64: dts: imx8mp-var-som: Add support for TSC2046 touchscreen
-
- .../dts/freescale/imx8mp-var-som-symphony.dts | 145 ++++++++
- .../boot/dts/freescale/imx8mp-var-som.dtsi    | 331 +++++++++++-------
- 2 files changed, 355 insertions(+), 121 deletions(-)
-
-
-base-commit: cb015814f8b6eebcbb8e46e111d108892c5e6821
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts b/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts
+index 36d3eb865202..ea3c193bb684 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-var-som-symphony.dts
+@@ -8,4 +8,81 @@
+ / {
+ 	model = "Variscite VAR-SOM-MX8M-PLUS on Symphony-Board";
+ 	compatible = "variscite,var-som-mx8mp-symphony", "variscite,var-som-mx8mp", "fsl,imx8mp";
++
++	reg_usdhc2_vmmc: regulator-usdhc2-vmmc {
++		compatible = "regulator-fixed";
++		regulator-name = "VSD_3V3";
++		regulator-min-microvolt = <3300000>;
++		regulator-max-microvolt = <3300000>;
++		gpios = <&gpio4 22 GPIO_ACTIVE_HIGH>;
++		enable-active-high;
++		startup-delay-us = <100>;
++		off-on-delay-us = <12000>;
++	};
++
++	reg_usdhc2_vqmmc: regulator-usdhc2-vqmmc {
++		compatible = "regulator-gpio";
++		regulator-name = "VSD_VSEL";
++		regulator-min-microvolt = <1800000>;
++		regulator-max-microvolt = <3300000>;
++		gpios = <&gpio2 12 GPIO_ACTIVE_HIGH>;
++		states = <3300000 0x0 1800000 0x1>;
++		vin-supply = <&ldo5>;
++	};
++};
++
++/* SD-card */
++&usdhc2 {
++	pinctrl-names = "default", "state_100mhz", "state_200mhz";
++	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
++	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
++	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
++	cd-gpios = <&gpio1 14 GPIO_ACTIVE_LOW>;
++	vmmc-supply = <&reg_usdhc2_vmmc>;
++	vqmmc-supply = <&reg_usdhc2_vqmmc>;
++	bus-width = <4>;
++	status = "okay";
++};
++
++&iomuxc {
++	pinctrl_usdhc2_gpio: usdhc2-gpiogrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_GPIO1_IO14__GPIO1_IO14                             0x1c4
++			MX8MP_IOMUXC_SAI2_RXC__GPIO4_IO22                               0x10
++			MX8MP_IOMUXC_SD2_CD_B__GPIO2_IO12                               0xc0
++		>;
++	};
++
++	pinctrl_usdhc2: usdhc2grp {
++		fsl,pins = <
++			MX8MP_IOMUXC_SD2_CLK__USDHC2_CLK                                0x190
++			MX8MP_IOMUXC_SD2_CMD__USDHC2_CMD                                0x1d0
++			MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0                            0x1d0
++			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1                            0x1d0
++			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2                            0x1d0
++			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3                            0x1d0
++		>;
++	};
++
++	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_SD2_CLK__USDHC2_CLK                                0x194
++			MX8MP_IOMUXC_SD2_CMD__USDHC2_CMD                                0x1d4
++			MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0                            0x1d4
++			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1                            0x1d4
++			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2                            0x1d4
++			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3                            0x1d4
++		>;
++	};
++
++	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
++		fsl,pins = <
++			MX8MP_IOMUXC_SD2_CLK__USDHC2_CLK                                0x196
++			MX8MP_IOMUXC_SD2_CMD__USDHC2_CMD                                0x1d6
++			MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0                            0x1d6
++			MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1                            0x1d6
++			MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2                            0x1d6
++			MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3                            0x1d6
++		>;
++	};
+ };
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
+index 29f080904482..949d9878f395 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
+@@ -35,27 +35,6 @@ memory@40000000 {
+ 		      <0x1 0x00000000 0 0xc0000000>;
+ 	};
+ 
+-	reg_usdhc2_vmmc: regulator-usdhc2-vmmc {
+-	        compatible = "regulator-fixed";
+-	        regulator-name = "VSD_3V3";
+-	        regulator-min-microvolt = <3300000>;
+-	        regulator-max-microvolt = <3300000>;
+-	        gpios = <&gpio4 22 GPIO_ACTIVE_HIGH>;
+-	        enable-active-high;
+-	        startup-delay-us = <100>;
+-	        off-on-delay-us = <12000>;
+-	};
+-
+-	reg_usdhc2_vqmmc: regulator-usdhc2-vqmmc {
+-		compatible = "regulator-gpio";
+-		regulator-name = "VSD_VSEL";
+-		regulator-min-microvolt = <1800000>;
+-		regulator-max-microvolt = <3300000>;
+-		gpios = <&gpio2 12 GPIO_ACTIVE_HIGH>;
+-		states = <3300000 0x0 1800000 0x1>;
+-		vin-supply = <&ldo5>;
+-	};
+-
+ 	reg_phy_supply: regulator-phy-supply {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "phy-supply";
+@@ -271,19 +250,6 @@ &uart2 {
+         status = "okay";
+ };
+ 
+-/* SD-card */
+-&usdhc2 {
+-        pinctrl-names = "default", "state_100mhz", "state_200mhz";
+-        pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
+-        pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
+-        pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
+-        cd-gpios = <&gpio1 14 GPIO_ACTIVE_LOW>;
+-        vmmc-supply = <&reg_usdhc2_vmmc>;
+-	vqmmc-supply = <&reg_usdhc2_vqmmc>;
+-        bus-width = <4>;
+-        status = "okay";
+-};
+-
+ /* eMMC */
+ &usdhc3 {
+ 	pinctrl-names = "default", "state_100mhz", "state_200mhz";
+@@ -358,47 +324,6 @@ MX8MP_IOMUXC_UART2_TXD__UART2_DCE_TX                            0x40
+ 		>;
+ 	};
+ 
+-	pinctrl_usdhc2_gpio: usdhc2-gpiogrp {
+-	        fsl,pins = <
+-	                MX8MP_IOMUXC_GPIO1_IO14__GPIO1_IO14                             0x1c4
+-	                MX8MP_IOMUXC_SAI2_RXC__GPIO4_IO22                               0x10
+-	                MX8MP_IOMUXC_SD2_CD_B__GPIO2_IO12                               0xc0
+-	        >;
+-	};
+-
+-	pinctrl_usdhc2: usdhc2grp {
+-	        fsl,pins = <
+-	                MX8MP_IOMUXC_SD2_CLK__USDHC2_CLK                                0x190
+-	                MX8MP_IOMUXC_SD2_CMD__USDHC2_CMD                                0x1d0
+-	                MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0                            0x1d0
+-	                MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1                            0x1d0
+-	                MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2                            0x1d0
+-	                MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3                            0x1d0
+-	        >;
+-	};
+-
+-	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
+-	        fsl,pins = <
+-	                MX8MP_IOMUXC_SD2_CLK__USDHC2_CLK                                0x194
+-	                MX8MP_IOMUXC_SD2_CMD__USDHC2_CMD                                0x1d4
+-	                MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0                            0x1d4
+-	                MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1                            0x1d4
+-	                MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2                            0x1d4
+-	                MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3                            0x1d4
+-	        >;
+-	};
+-
+-	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
+-	        fsl,pins = <
+-	                MX8MP_IOMUXC_SD2_CLK__USDHC2_CLK                                0x196
+-	                MX8MP_IOMUXC_SD2_CMD__USDHC2_CMD                                0x1d6
+-	                MX8MP_IOMUXC_SD2_DATA0__USDHC2_DATA0                            0x1d6
+-	                MX8MP_IOMUXC_SD2_DATA1__USDHC2_DATA1                            0x1d6
+-	                MX8MP_IOMUXC_SD2_DATA2__USDHC2_DATA2                            0x1d6
+-	                MX8MP_IOMUXC_SD2_DATA3__USDHC2_DATA3                            0x1d6
+-	        >;
+-	};
+-
+ 	pinctrl_usdhc3: usdhc3grp {
+ 		fsl,pins = <
+ 			MX8MP_IOMUXC_NAND_WE_B__USDHC3_CLK				0x190
 -- 
 2.47.3
 
