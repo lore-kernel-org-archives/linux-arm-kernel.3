@@ -4,118 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57B7AD59D99
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 22:03:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CDC0D59D99
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 22:13:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iyaP5lR+UMf82Qks9pPdWf5XfzExxxVhhBQJM/0Gj6c=; b=SkeILwJkbQjwMJnjdrk1BreIOY
-	AegZB0SMtwIDVfbbIh0Qaha9cL/A2+hiNA7bPfv/UDDXli0qOIpphJLjPOPigONTyirCeHHIHkyE/
-	PDrE5tep5wNDBKcMEpYqXmGkD/ZAmkncglRqEWtjlTpV5YZYbsDXWQmf6T5IHf0zLHZJaezIfBZoO
-	h6ghSmmxtNk9RARxHj0pMRX559ip4jOegNFX7mWoFEpAqEO4LwCq7JYqV6qNQhbI9wDWM2EvBYrTH
-	tg0QgN/poS/R4NELqJDH+xBor5Pk3cctSBVJbJ6jeiR5y1eNNcsqsOrYt3Rh99EJFHTf896iEzMM3
-	I056OFCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Subject:Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KjAX9BwHMKKij7juX6bUJ6ljY0qmCqGMvx0RKdMtTs4=; b=gkmvdN6HcVX567RcIUc5q+btA1
+	pg49xrJDT3PSho9soP2y7OlWba5br2nTWS4LFXeKa3G5Tq/QLGMZRhllqdz9KsCobYa1AUNt7+Uo8
+	G2Klc+1UYGajUIEnNhxaSjyHKQlY5tas8eMOOJg52rRDN2yYG/05L701zjOGD1nvmvQ3RqcxfWEWL
+	VfbsRzlT+0aQ0VT9V+taGbGggnVh7eSpkxtKLWOEo4Vw6poxI53lWCPp8JI0adPkst7C2j3v4rzsZ
+	tWPoH5lv5tfT4GZxZr4jDQs3SjhJIu2SAU+bz7G0dSsPcbgdJGsPXbq6ZRvigcgcKSQXWQjK1glR8
+	c/vMOnjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUuBh-00000002lta-2jbz;
-	Sun, 14 Dec 2025 22:03:33 +0000
-Received: from delivery.antispam.mailspamprotection.com ([185.56.87.12])
+	id 1vUuL9-00000002mKB-0l6g;
+	Sun, 14 Dec 2025 22:13:19 +0000
+Received: from fout-a6-smtp.messagingengine.com ([103.168.172.149])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUuBf-00000002ltF-0fa5
+	id 1vUuL5-00000002mJk-1IfU
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Dec 2025 22:03:32 +0000
-ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-k346.prod.antispam.mailspamprotection.com; s=arckey; t=1765749811;
-	 b=nYZ4pIXBCQ6fOtloghk/A8qPJv2eRtWRIZ0pJQyGllX6ttvPXDh1Jo+Lkz0I0CwmXZla83SR58
-	  3FPM2AxIXd8sPopCLHIDwfVtWgXFb0I8IKTJN94nwpdlyKFX41vjb728uVPM91ab5peMWAIhuB
-	  bxeS5bGZX2GYWHepaOeoM1RBqJpJVAzy/+npp2zUwxegirlZ+HXjnJUm7HNALEwyJCCF1O1IiW
-	  7Bis/TJUYCKZVt2nYxkOizDz9hg/8Pjjrx4K4N1PbZceV+SQJmWIslf+a0Lnc4o5qHhLv0Mkdq
-	  VHrjHRz/CgTBj1nOKNkOnniQOYPDwG2yGVR3L8HOerWmEQ==;
-ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-k346.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
-	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
-	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
-	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
-	arc=none
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-k346.prod.antispam.mailspamprotection.com; s=arckey; t=1765749811;
-	bh=cVXolmIhuEAIzMtZ7d7H4m9GWbghCHHoI5tvljqLXVQ=;
-	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
-	  From:Date:DKIM-Signature:DKIM-Signature;
-	b=Jc1mdFrzlFESxQq5ZNS9HCWvVvPxCvQzKx9irlYFDKUvMUSX2xcBKqlXs3lYmKhk+h8CbhgH1D
-	  iC/ZO+ZDOm3wP8r1IEV3Lj0xsG9qNBpW7Shot8d7pjUbENRp1gXpvPKOSyOUxfhkBTCr3mAzgQ
-	  XKUia5tD3Wah148Q+DqwlMSWh3Axo+32I94NXczAQy2xKb7S5RrUfk36jWDTsxYXE3p8HVfTYN
-	  D5R3iMWqslXNHJnh73/WWjNpFn0CYlo8qK7Ivyo24Agi0/9shypbf1U15yqjYzzzW3DOr3q11P
-	  2SxHpxB0neSZ4ZGtdGCBCD+MoM36RM0pJ+7WSR6CNnJs8g==;
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
-	:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	List-Unsubscribe:Content-Transfer-Encoding;
-	bh=iyaP5lR+UMf82Qks9pPdWf5XfzExxxVhhBQJM/0Gj6c=; b=mDJij/ZRHTILCLgFnSUWhapu6x
-	XlE3LOwHHSdP20erK3m2cNgrMAtJC2j3ClUTqtKhkEyy5YdOI7WtCjhXqBbJMnTre+dznhlwX6NKJ
-	/OzxmMJ6c+vrY9ccBBVSfsBz2b1zQBi6DF5RN9LxvJ6eFkP38brln6p7L/qk4CpzHdhk=;
-Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
-	by instance-europe-west4-k346.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.98.1)
-	(envelope-from <francesco@valla.it>)
-	id 1vUuBT-00000002juJ-29ZH
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Dec 2025 22:03:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
-	s=default; h=Subject:Cc:To:From:Date:list-help:list-unsubscribe:
-	list-subscribe:list-post:list-owner:list-archive;
-	bh=iyaP5lR+UMf82Qks9pPdWf5XfzExxxVhhBQJM/0Gj6c=; b=nwslf0FTSvzy1JPX0PEPfe95JY
-	AbhGi8R2VFfgfS4b9fiJctKkzUtkq7tFdiVpJonYeEi3op/CjnhaEJlH6fJBmP3rWch5rTf5iksra
-	ndhvnv2IT2pv2rypR3vHD7dxXa85QEBXLj1tBIzhnMhpOPGAluHXT3is/9I1zbJSd6Og=;
-Received: from [79.34.194.176] (port=59972 helo=bywater)
-	by esm19.siteground.biz with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.98.1)
-	(envelope-from <francesco@valla.it>)
-	id 1vUuBE-00000000CVM-0NDd;
-	Sun, 14 Dec 2025 22:03:04 +0000
-Date: Sun, 14 Dec 2025 23:02:58 +0100
-From: Francesco Valla <francesco@valla.it>
-To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>,
-	devicetree@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Peng Fan <peng.fan@nxp.com>
-Subject: Re: [PATCH 3/4] arm64: dts: imx91: Update file name with dash
-Message-ID: <aT80EhkC41d7BSZs@bywater>
-References: <20251212-imx91-dts-v1-0-2bb3c13762dd@nxp.com>
- <20251212-imx91-dts-v1-3-2bb3c13762dd@nxp.com>
+	Sun, 14 Dec 2025 22:13:17 +0000
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfout.phl.internal (Postfix) with ESMTP id 483BBEC05A7;
+	Sun, 14 Dec 2025 17:13:10 -0500 (EST)
+Received: from phl-imap-18 ([10.202.2.89])
+  by phl-compute-01.internal (MEProxy); Sun, 14 Dec 2025 17:13:10 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jmay.us; h=cc:cc
+	:content-transfer-encoding:content-type:content-type:date:date
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to; s=fm2; t=1765750390; x=1765836790; bh=KjAX9BwHMK
+	Kij7juX6bUJ6ljY0qmCqGMvx0RKdMtTs4=; b=T+DHlsC1/XTZO3nPUG28FbjmIj
+	fxCeRazFmSvu7CsUgKagpbDIViOn+IYSCMXr9bCGe+GRn/eMC+cA5RMH9xXCU/A1
+	AfX4JoOb5rm5g/j0ib36FFowcsP5kutI6zPM/l8WyY8JTE3+UT6nQdTKQFAJaY8I
+	5XVKqVWC0cZ6c02vsyJ8/QWv+1Z1J6rqirailWeE6DQJT3Z2TM9vDXTuWWzCBFOo
+	nWZ2JxGrzDXabilUaZNExv4EWeNFERy9Ryidv3utkTftnj9Usb7t4GcCFkK3ERtq
+	GTMO+5focUVs1En9WDNxGxF0BdKdXQDGSQCwMdnRgma3+YTvYbOoPPwwX0wQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
+	fm1; t=1765750390; x=1765836790; bh=KjAX9BwHMKKij7juX6bUJ6ljY0qm
+	CqGMvx0RKdMtTs4=; b=agiaXigBV0Wu3rUwm4viIjI08h0/lns7Z9UHV0gSVE33
+	1MdPKDrzEjWFNVtGwSxOEPXi4YQX7bobRANmIC6nwr+T09L2vxhJUdiLy8IoIXMl
+	T+syP/qDYp5lP/MXMw4Vq0h8BjNsYuOj9H8CMMIHfdyoZ58abdZ5Sp8qujI2ZrZq
+	Kg7Xgy7AMWQ9DNTrzWsOvsbmUM/58NmqsEXvS5Xfbkd5w7Bwt9Bci894sWFM0ors
+	V+8cE19I36N/iOToCTiu7mCicST3W4PSDqyW4saDhP3TMHXTag7czzSQLvwhkv7g
+	G0DL0h7oiyBToPZatSl2hzaVM6kfUhK/adeenUiq3w==
+X-ME-Sender: <xms:dTY_aTDitbpKVZnondivAeobIDEv8N2qwJC8247-JLeWvRg8zKO6IQ>
+    <xme:dTY_aUVCd-jZwWbUVSeUkhgVWy3tku91BiUVB8fmsrK-MAXI1ACY5YW4UQefuE0Ve
+    88RRPeAXYJ597LWh5MjWvJBCJRWQ2wMN3Rx0-jFi2l9vrvRTL-V1Gc>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefgedrtddtgdefhedtlecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecunecujfgurhepofggfffhvfevkffutgfgsehtjeertdertd
+    dtnecuhfhrohhmpedflfhovghlucforgihfdcuoehjohgvlhdqlhhinhhugiesjhhmrgih
+    rdhusheqnecuggftrfgrthhtvghrnhepvdehfeeiuedvvefggfdtudetvdegfeettdehve
+    dtveetiedtveejgeevveejgeevnecuffhomhgrihhnpehgihhthhhusgdrtghomhenucev
+    lhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehjohgvlhdqlh
+    hinhhugiesjhhmrgihrdhushdpnhgspghrtghpthhtohephedpmhhouggvpehsmhhtphho
+    uhhtpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprh
+    gtphhtthhopegrrhhnugesrghrnhgusgdruggvpdhrtghpthhtohepfihilhhlsehkvghr
+    nhgvlhdrohhrghdprhgtphhtthhopehjrghmvghsrdgtlhgrrhhksehlihhnrghrohdroh
+    hrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlheslhhishhtshdrihhn
+    fhhrrgguvggrugdrohhrgh
+X-ME-Proxy: <xmx:dTY_aQG6hKSmhz2iilzgFD_xr-lC4G5dj9wvU4bmrfJABiBtpIVf0A>
+    <xmx:djY_aa1CLShKACpUIj8tvwCLnk0pivrvmcYOWmxIylsQ3bDGDjnyQA>
+    <xmx:djY_aaOOvneSHBFR3KOI1qehMj6uXlJINiFFFwk9XT_KWg2EdavtHQ>
+    <xmx:djY_aR6HiQx2q5fGeV0Ub53Pyo7o31wyRa-hI3OAN1LFPYz_jRqVyw>
+    <xmx:djY_aYIje0gGgTJvs8bhOJpdPFBNeN4Z-MBGpVEHzadV85VZnDVx45HA>
+Feedback-ID: i86164869:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id DD1B015C008C; Sun, 14 Dec 2025 17:13:09 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251212-imx91-dts-v1-3-2bb3c13762dd@nxp.com>
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - esm19.siteground.biz
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - valla.it
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
-X-SGantispam-id: 7ee066d74b7c285305edf251cf57cc5f
-AntiSpam-DLS: false
-AntiSpam-DLSP: 
-AntiSpam-DLSRS: 
-AntiSpam-TS: 1.0
-CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
-CFBL-Feedback-ID: 1vUuBT-00000002juJ-29ZH-feedback@antispam.mailspamprotection.com
-Authentication-Results: outgoing.instance-europe-west4-k346.prod.antispam.mailspamprotection.com;
-	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
-	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
-	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
-	arc=none
+Date: Sun, 14 Dec 2025 14:12:49 -0800
+From: "Joel May" <joel-linux@jmay.us>
+To: catalin.marinas@arm.com, will@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, james.clark@linaro.org,
+ arnd@arndb.de
+Message-Id: <b2651f20-6f3a-49f5-9cd8-3fb028b2cab5@app.fastmail.com>
+Subject: [PATCH] arm64: perf: fix syscalltbl path base
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_140331_350866_C7F5AC13 
-X-CRM114-Status: UNSURE (   7.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251214_141315_762528_A48EC5C6 
+X-CRM114-Status: GOOD (  12.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,24 +106,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Peng,
+From: Joel May <joel-linux@jmay.us>
 
-On Fri, Dec 12, 2025 at 05:16:09PM +0800, Peng Fan (OSS) wrote:
-> From: Peng Fan <peng.fan@nxp.com>
-> 
-> Update "imx91_93_common.dtsi" to "imx91-93-common.dtsi" to align with
-> others.
-> 
-> Signed-off-by: Peng Fan <peng.fan@nxp.com>
-> ---
->  arch/arm64/boot/dts/freescale/imx91.dtsi           |    2 +-
->  arch/arm64/boot/dts/freescale/imx91_93_common.dtsi | 1187 --------------------
->  arch/arm64/boot/dts/freescale/imx93.dtsi           |    2 +-
->  3 files changed, 2 insertions(+), 1189 deletions(-)
->
+A fix for the Perf build process was introduced in commit bfb713ea53c74
+("perf tools: Fix arm64 build by generating unistd_64.h"), which generates
+the unistd_64.h header as necessary.  This fix works fine in some
+scenarios.
 
-The new (i.e., renamed) file is not there, so this is not working.
+My problem is when building Perf from tools/perf with SRCARCH=arm64, the
+path used in scripts/Makefile.asm-headers is relative to tools/perf
+instead of root directory.  This results in the build failing like so.
+This snippet is a simplified repro of the problem, see the link to the
+TrueNAS SCALE build script to see the problem in context.
 
-Francesco
+  jmay@debian13-aarch64:/mnt/linux/linux-vanilla/tools/perf$ ARCH=arm64 SRCARCH=arm64 make -j1
+  ...
+  make[4]: *** No rule to make target '/mnt/linux/linux-vanilla/tools/perf/libperf/arch/arm64/include/generated/uapi/asm/unistd_64.h'.  Stop.
+  make[3]: *** [Makefile:108: uapi-asm-generic] Error 2
+  make[2]: *** [Makefile.perf:972: /mnt/linux/linux-vanilla/tools/perf/libperf/libperf.a] Error 2
+
+The problem is that scripts/Makefile.asm-headers is including a relative
+syscalltbl path from arch/arm64/kernel/Makefile.syscalls.  The syscalltbl
+path needs to be based on the srctree root.
+
+Fixes: 7fe33e9f662c0 ("arm64: convert unistd_32.h to syscall.tbl format")
+Fixes: bfb713ea53c74 ("perf tools: Fix arm64 build by generating unistd_64.h")
+Link: https://github.com/truenas/linux/commit/91377b555a57dfa75364d7da85b5e21e41e81625#diff-831a0e8e3eaa7a5ca92599e58771b8a6b2c4bd7533f627e33138873995aac61eR147
+Signed-off-by: Joel May <joel-linux@jmay.us>
+---
+ arch/arm64/kernel/Makefile.syscalls | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/kernel/Makefile.syscalls b/arch/arm64/kernel/Makefile.syscalls
+index 0542a718871a..958f2335ec1b 100644
+--- a/arch/arm64/kernel/Makefile.syscalls
++++ b/arch/arm64/kernel/Makefile.syscalls
+@@ -3,4 +3,4 @@
+ syscall_abis_32 +=
+ syscall_abis_64 += renameat rlimit memfd_secret
+ 
+-syscalltbl = arch/arm64/tools/syscall_%.tbl
++syscalltbl = $(srctree)/arch/arm64/tools/syscall_%.tbl
+
+base-commit: edde060637b92607f3522252c03d64ad06369933
+-- 
+2.34.1
 
 
