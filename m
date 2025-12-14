@@ -4,98 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FD1BD59D99
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 21:53:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57B7AD59D99
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 22:03:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tM/GDAHbcq8iQ+ECF/3alHpWVJkwLioPe4BjvZMs1mE=; b=lkgY30nbo5kidK/5L75K4HSc79
-	I4XbsczNxCQOOTw6Dg4e3XXor0LPHvwjnaz/M+g9ZjkLPU7BYZcb23eF2xwwTdupS7NqcbfXmgpys
-	WmexKf29pfWMAzLGi962i5MNR6lyP6YTwXhilTaokNWPAeuOIzJR/lzb0CttKaMB4e9STvyjW8sn/
-	lS5CqoXyqIY1P87xqv0qHbAuZRXYvmJJyWRgyQcVY9SzPjg2I7waDV5oGwud2cebV1srRxowNE/sF
-	Hd5mm0BAQqBomrG03YiHt+9rHXwrbcGfttW7kYX3Af9oYBcq2wsz6VTrWj5COvKymFQXiTIIJKTTE
-	YiRTQeiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iyaP5lR+UMf82Qks9pPdWf5XfzExxxVhhBQJM/0Gj6c=; b=SkeILwJkbQjwMJnjdrk1BreIOY
+	AegZB0SMtwIDVfbbIh0Qaha9cL/A2+hiNA7bPfv/UDDXli0qOIpphJLjPOPigONTyirCeHHIHkyE/
+	PDrE5tep5wNDBKcMEpYqXmGkD/ZAmkncglRqEWtjlTpV5YZYbsDXWQmf6T5IHf0zLHZJaezIfBZoO
+	h6ghSmmxtNk9RARxHj0pMRX559ip4jOegNFX7mWoFEpAqEO4LwCq7JYqV6qNQhbI9wDWM2EvBYrTH
+	tg0QgN/poS/R4NELqJDH+xBor5Pk3cctSBVJbJ6jeiR5y1eNNcsqsOrYt3Rh99EJFHTf896iEzMM3
+	I056OFCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUu1t-00000002lAf-17bd;
-	Sun, 14 Dec 2025 21:53:28 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1vUuBh-00000002lta-2jbz;
+	Sun, 14 Dec 2025 22:03:33 +0000
+Received: from delivery.antispam.mailspamprotection.com ([185.56.87.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUu1g-00000002l3r-2bzh
+	id 1vUuBf-00000002ltF-0fa5
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Dec 2025 21:53:17 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-42fbab737f5so1123370f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Dec 2025 13:53:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1765749191; x=1766353991; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tM/GDAHbcq8iQ+ECF/3alHpWVJkwLioPe4BjvZMs1mE=;
-        b=FUEBv5AR5krIvqax/PwiqglQZaNpJ8ExWd5fOnN2aFcty8pcvzXCzPUaBijlTpZb7u
-         yHl/D5z4sRANCK61JeoTmjltM01Bt4rlUEbDsV3VnRqm0O4iFCwIPUA5v1mtTQrXrhcN
-         nV8VDEdCvbfniQum9CPOpFdgF9O/LxkMmszOYN+r/4uK3qD20JdtkaQUo693nDfVs/Q3
-         qlvvV+Mi/VuPRDSz7mGNGJSoXsjO0OO2fYIuyahuZZPfvLVVTUEKKCF7pN0kTOwTiJuq
-         Ep3z1J56L75GcdO4ax2Z+pCQRv0YYx5pDbIhWNAgFXl0nZP2JKqJh90LVkvT4eDYiG/q
-         KqMw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765749191; x=1766353991;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=tM/GDAHbcq8iQ+ECF/3alHpWVJkwLioPe4BjvZMs1mE=;
-        b=sg6FdeKzjELzitDlGWMCBNaMDiV0ynWC9B/CXsF9jQssekVfre4rKwds0Mgc9WRssk
-         ndMt4g0AVwvjaCd/wLe7EYCVyFWQCC0z4GEbo+m0Xbn4pFqgrU904ALGvFNtEotfOvMc
-         AEAjJlt05MQl0pPjMTWMlxdlMcNBHH8fJqPqWMy5W6T/YvQJ6vQk4sQZIWFAm2DHNQwV
-         yrcr9geT1MJuruMmSxeY6+s6TfmJOIWRRP8Wn61yPi/eMcHCw/5JsVmi/9Hsk4nXWPll
-         /AQCvdZeH19Il2k104EdLtTORy03Edxvage8WymbjDNE2pfn1sKgN0fneSNzgJiVbIp4
-         sdsA==
-X-Forwarded-Encrypted: i=1; AJvYcCUCRhf3PsLaTXJMIWY3eYYDXNckJdMqfb3ybAl7qTJarXRXxoJBMQhg2vFCWDZioVy4K6x8QCaQpLNEjrqQTVad@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTm4CLsdlhkP9+GcKn9P8EL4pspA0HvB5afaolaswHLN7cfaIq
-	xpY8BF+mZdiSSLnRqOogOogD7rYytfmh80SLcTb3dvFk+L5kSp7f0yXg
-X-Gm-Gg: AY/fxX5jdIRp2w60H5z7rSS2dZ/Nsp5VwU9gLtsF59P/KrkvmZzUsNuoIp1syakC421
-	h+y5IrrOJgjoahfrAh8YH6WuaXG3HbHMIDJ1wIdnsc+70HH5p3JMBRVnIdFUrRwV/OwK8ICOgUZ
-	/l3CVwgY/mZuuwt+7UB2VR2287XIKfvhbo0gSF2qjZUIHHX95pwkcguCP0Ftg19e7LdK/bPqTXX
-	DgaqscYwdH273VdWx3bnWaVR0x6zgkfLDfF0d63b8z60ULkp4hNrqQXi0sWZypmtHHdN+1TKjvm
-	PyN/JeRSMtzVjdq3RdmPW+oEoSHtceOHgbImZvIUv3O9GVgrH48ssHOsdjQayxO1BmvdIqX5RdB
-	b3cG6x+yesAZp8dh5oat+ZWMsRWZRBBkp3bExpczfoRSRoR0l/plcO1gH5qHySkMtNjiVRFPz2r
-	OQo6+5fN1P6ibdXCQhpkfZSzPLsTARBGIYZPvXvRxIjb3dsRp2UD3BIo74/clig+ESSGuuzY1li
-	GvY22174DKJWGw=
-X-Google-Smtp-Source: AGHT+IE0IMq/1tUZxhnQGiJzgtJjbUC5CSa+FGAkLQyEctAaGf7usWM7SccW7nJPbd0Qiddz4/h6GA==
-X-Received: by 2002:a05:6000:2908:b0:430:fcbc:dc52 with SMTP id ffacd0b85a97d-430fcbcdd84mr1760945f8f.30.1765749190606;
-        Sun, 14 Dec 2025 13:53:10 -0800 (PST)
-Received: from Lord-Beerus.station (net-5-94-28-5.cust.vodafonedsl.it. [5.94.28.5])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-430f6a42c8csm7625568f8f.16.2025.12.14.13.53.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 14 Dec 2025 13:53:09 -0800 (PST)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-X-Google-Original-From: Stefano Radaelli <stefano.r@variscite.com>
-To: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Stefano Radaelli <stefano.r@variscite.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
+	Sun, 14 Dec 2025 22:03:32 +0000
+ARC-Seal: i=1; cv=none; a=rsa-sha256; d=outgoing.instance-europe-west4-k346.prod.antispam.mailspamprotection.com; s=arckey; t=1765749811;
+	 b=nYZ4pIXBCQ6fOtloghk/A8qPJv2eRtWRIZ0pJQyGllX6ttvPXDh1Jo+Lkz0I0CwmXZla83SR58
+	  3FPM2AxIXd8sPopCLHIDwfVtWgXFb0I8IKTJN94nwpdlyKFX41vjb728uVPM91ab5peMWAIhuB
+	  bxeS5bGZX2GYWHepaOeoM1RBqJpJVAzy/+npp2zUwxegirlZ+HXjnJUm7HNALEwyJCCF1O1IiW
+	  7Bis/TJUYCKZVt2nYxkOizDz9hg/8Pjjrx4K4N1PbZceV+SQJmWIslf+a0Lnc4o5qHhLv0Mkdq
+	  VHrjHRz/CgTBj1nOKNkOnniQOYPDwG2yGVR3L8HOerWmEQ==;
+ARC-Authentication-Results: i=1; outgoing.instance-europe-west4-k346.prod.antispam.mailspamprotection.com; smtp.remote-ip=35.214.173.214;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed; d=outgoing.instance-europe-west4-k346.prod.antispam.mailspamprotection.com; s=arckey; t=1765749811;
+	bh=cVXolmIhuEAIzMtZ7d7H4m9GWbghCHHoI5tvljqLXVQ=;
+	h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:
+	  From:Date:DKIM-Signature:DKIM-Signature;
+	b=Jc1mdFrzlFESxQq5ZNS9HCWvVvPxCvQzKx9irlYFDKUvMUSX2xcBKqlXs3lYmKhk+h8CbhgH1D
+	  iC/ZO+ZDOm3wP8r1IEV3Lj0xsG9qNBpW7Shot8d7pjUbENRp1gXpvPKOSyOUxfhkBTCr3mAzgQ
+	  XKUia5tD3Wah148Q+DqwlMSWh3Axo+32I94NXczAQy2xKb7S5RrUfk36jWDTsxYXE3p8HVfTYN
+	  D5R3iMWqslXNHJnh73/WWjNpFn0CYlo8qK7Ivyo24Agi0/9shypbf1U15yqjYzzzW3DOr3q11P
+	  2SxHpxB0neSZ4ZGtdGCBCD+MoM36RM0pJ+7WSR6CNnJs8g==;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=antispam.mailspamprotection.com; s=default; h=CFBL-Feedback-ID:CFBL-Address
+	:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	List-Unsubscribe:Content-Transfer-Encoding;
+	bh=iyaP5lR+UMf82Qks9pPdWf5XfzExxxVhhBQJM/0Gj6c=; b=mDJij/ZRHTILCLgFnSUWhapu6x
+	XlE3LOwHHSdP20erK3m2cNgrMAtJC2j3ClUTqtKhkEyy5YdOI7WtCjhXqBbJMnTre+dznhlwX6NKJ
+	/OzxmMJ6c+vrY9ccBBVSfsBz2b1zQBi6DF5RN9LxvJ6eFkP38brln6p7L/qk4CpzHdhk=;
+Received: from 214.173.214.35.bc.googleusercontent.com ([35.214.173.214] helo=esm19.siteground.biz)
+	by instance-europe-west4-k346.prod.antispam.mailspamprotection.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.1)
+	(envelope-from <francesco@valla.it>)
+	id 1vUuBT-00000002juJ-29ZH
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 14 Dec 2025 22:03:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=valla.it;
+	s=default; h=Subject:Cc:To:From:Date:list-help:list-unsubscribe:
+	list-subscribe:list-post:list-owner:list-archive;
+	bh=iyaP5lR+UMf82Qks9pPdWf5XfzExxxVhhBQJM/0Gj6c=; b=nwslf0FTSvzy1JPX0PEPfe95JY
+	AbhGi8R2VFfgfS4b9fiJctKkzUtkq7tFdiVpJonYeEi3op/CjnhaEJlH6fJBmP3rWch5rTf5iksra
+	ndhvnv2IT2pv2rypR3vHD7dxXa85QEBXLj1tBIzhnMhpOPGAluHXT3is/9I1zbJSd6Og=;
+Received: from [79.34.194.176] (port=59972 helo=bywater)
+	by esm19.siteground.biz with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.1)
+	(envelope-from <francesco@valla.it>)
+	id 1vUuBE-00000000CVM-0NDd;
+	Sun, 14 Dec 2025 22:03:04 +0000
+Date: Sun, 14 Dec 2025 23:02:58 +0100
+From: Francesco Valla <francesco@valla.it>
+To: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v4 6/6] arm64: dts: imx8mp-var-som: Add support for TSC2046 touchscreen
-Date: Sun, 14 Dec 2025 22:52:53 +0100
-Message-ID: <20251214215256.5812-7-stefano.r@variscite.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251214215256.5812-1-stefano.r@variscite.com>
-References: <20251214215256.5812-1-stefano.r@variscite.com>
+	Fabio Estevam <festevam@gmail.com>, Frank Li <frank.li@nxp.com>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH 3/4] arm64: dts: imx91: Update file name with dash
+Message-ID: <aT80EhkC41d7BSZs@bywater>
+References: <20251212-imx91-dts-v1-0-2bb3c13762dd@nxp.com>
+ <20251212-imx91-dts-v1-3-2bb3c13762dd@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251212-imx91-dts-v1-3-2bb3c13762dd@nxp.com>
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - esm19.siteground.biz
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - valla.it
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-SGantispam-id: 7ee066d74b7c285305edf251cf57cc5f
+AntiSpam-DLS: false
+AntiSpam-DLSP: 
+AntiSpam-DLSRS: 
+AntiSpam-TS: 1.0
+CFBL-Address: feedback@antispam.mailspamprotection.com; report=arf
+CFBL-Feedback-ID: 1vUuBT-00000002juJ-29ZH-feedback@antispam.mailspamprotection.com
+Authentication-Results: outgoing.instance-europe-west4-k346.prod.antispam.mailspamprotection.com;
+	iprev=pass (214.173.214.35.bc.googleusercontent.com) smtp.remote-ip=35.214.173.214;
+	auth=pass (LOGIN) smtp.auth=esm19.siteground.biz;
+	dkim=pass header.d=valla.it header.s=default header.a=rsa-sha256;
+	arc=none
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_135315_164468_447D782C 
-X-CRM114-Status: GOOD (  11.00  )
+X-CRM114-CacheID: sfid-20251214_140331_350866_C7F5AC13 
+X-CRM114-Status: UNSURE (   7.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,89 +130,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The VAR-SOM-MX8MP integrates a TSC2046 resistive touchscreen controller.
-The controller is physically located on the SOM, and its signals are
-routed to the SOM pins, allowing carrier boards to make use of it.
+Hi Peng,
 
-This patch adds the TSC2046 node and the appropriate SPI controller.
+On Fri, Dec 12, 2025 at 05:16:09PM +0800, Peng Fan (OSS) wrote:
+> From: Peng Fan <peng.fan@nxp.com>
+> 
+> Update "imx91_93_common.dtsi" to "imx91-93-common.dtsi" to align with
+> others.
+> 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx91.dtsi           |    2 +-
+>  arch/arm64/boot/dts/freescale/imx91_93_common.dtsi | 1187 --------------------
+>  arch/arm64/boot/dts/freescale/imx93.dtsi           |    2 +-
+>  3 files changed, 2 insertions(+), 1189 deletions(-)
+>
 
-Signed-off-by: Stefano Radaelli <stefano.r@variscite.com>
----
- .../boot/dts/freescale/imx8mp-var-som.dtsi    | 46 +++++++++++++++++++
- 1 file changed, 46 insertions(+)
+The new (i.e., renamed) file is not there, so this is not working.
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
-index 6da5df11c44a..49467b48d0b0 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-var-som.dtsi
-@@ -100,6 +100,37 @@ &A53_3 {
- 	cpu-supply = <&buck2>;
- };
- 
-+&ecspi1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_ecspi1>;
-+	cs-gpios = <&gpio5 17 GPIO_ACTIVE_LOW>;
-+	status = "okay";
-+
-+	/* Resistive touch controller */
-+	tsc2046: touchscreen@0 {
-+		compatible = "ti,tsc2046";
-+		reg = <0>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_restouch>;
-+		interrupt-parent = <&gpio1>;
-+		interrupts = <12 IRQ_TYPE_EDGE_FALLING>;
-+		spi-max-frequency = <1500000>;
-+		pendown-gpio = <&gpio1 12 GPIO_ACTIVE_LOW>;
-+		ti,x-min = /bits/ 16 <125>;
-+		ti,x-max = /bits/ 16 <4008>;
-+		ti,y-min = /bits/ 16 <282>;
-+		ti,y-max = /bits/ 16 <3864>;
-+		ti,x-plate-ohms = /bits/ 16 <180>;
-+		ti,pressure-max = /bits/ 16 <255>;
-+		ti,debounce-max = /bits/ 16 <10>;
-+		ti,debounce-tol = /bits/ 16 <3>;
-+		ti,debounce-rep = /bits/ 16 <1>;
-+		ti,settle-delay-usec = /bits/ 16 <150>;
-+		ti,keep-vref-on;
-+		wakeup-source;
-+	};
-+};
-+
- &eqos {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_eqos>;
-@@ -347,6 +378,15 @@ MX8MP_IOMUXC_SD1_RESET_B__GPIO2_IO10                            0xc0
- 		>;
- 	};
- 
-+	pinctrl_ecspi1: ecspi1grp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_I2C1_SCL__ECSPI1_SCLK                              0x12
-+			MX8MP_IOMUXC_I2C1_SDA__ECSPI1_MOSI                              0x12
-+			MX8MP_IOMUXC_I2C2_SCL__ECSPI1_MISO                              0x12
-+			MX8MP_IOMUXC_I2C2_SDA__GPIO5_IO17                               0x12
-+		>;
-+	};
-+
- 	pinctrl_eqos: eqosgrp {
- 		fsl,pins = <
- 			MX8MP_IOMUXC_ENET_MDC__ENET_QOS_MDC				0x2
-@@ -381,6 +421,12 @@ MX8MP_IOMUXC_SPDIF_RX__GPIO5_IO04				0x1c0
- 		>;
- 	};
- 
-+	pinctrl_restouch: restouchgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_GPIO1_IO12__GPIO1_IO12                             0xc0
-+		>;
-+	};
-+
- 	pinctrl_sai3: sai3grp {
- 		fsl,pins = <
- 			MX8MP_IOMUXC_SAI3_TXFS__AUDIOMIX_SAI3_TX_SYNC                   0xd6
--- 
-2.47.3
+Francesco
 
 
