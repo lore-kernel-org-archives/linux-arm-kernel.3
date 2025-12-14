@@ -4,76 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A968D59D99
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 14:42:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C75BD5B16C
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 16:43:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xAYIybz6RXAuMfc63mvTtUvJpNs4ZOFCF/rqWwLHNBk=; b=Cdb1g1aWsJBKx4d2ZeawwSJiE8
-	CXPvvkCmwk8ej4ZnFq5zzgUSSSSpb3n5b3Se+JqSLIYIyiW43hnZCmBL4wDIIk7SSeAMOGZM5jvJu
-	5kUuh6ncRyn0A9E/E6HebfZTyz91PXGXqlsRWtWc4ZGZ6zIcf6Vomfnf+NxIVulkFEiE+9+8VzPJG
-	/x0S/Gmy9YEsLNqTSp00JijI6WIeXzWyh3m2ZhJmKoyOtGdTC3J5FCJ7jbLPyZ8VdKLjudAu6IeE3
-	xbbPERzMLjQCyJkCHbQvUAnt/+iVO1o4UwctcN1/yDd2Zv+ypPYLkTSRjVM4XnQ+AazHfs10nBFi2
-	f4D/7H3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Pg87C69KDoANHttxY5/rYmwSNvXQD1N6oOe5W7TAlAI=; b=bnribvIpubqCXX/dLVdsVRf/tI
+	KoQxNYnsm7QqzvSxAFMKKvHnL4LlzLRLgYyUOFWz5ajCLFbuCUUQ9K02wnVu2u6aCR92W/xWogcyi
+	8wFAcBaWmzgoRsf/qCVxZbDkvOhEvaAV5yWSmxO7M8bHWInuZWgIT/xh1XPpP5T8bYBkZcjkBJJlB
+	5qdCM1AxMX7vOuqwxvAfM5bElb11/DI0NFyEZD+c6t1tBXUW47h6iqoGGsB/RDjMKt8CR6rPf5OaB
+	IQfjF1gOlUIZ7An0tTrYlpm/lTcKtab0g/loDYHM37R4hTgmizKScmjIpchlb5Et7ZQVuWQz3b+uA
+	aT7fUEKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUnIc-00000002WcI-071Q;
-	Sun, 14 Dec 2025 14:42:14 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vUpCB-00000002bIJ-0BoR;
+	Sun, 14 Dec 2025 16:43:43 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUnIZ-00000002Wbg-1SDs
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Dec 2025 14:42:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6694043FFD
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Dec 2025 14:42:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46079C19424
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Dec 2025 14:42:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765723329;
-	bh=oD/KggYabkmpbLwMi9JfkWOU4h7CawiUNWnQZdptfFE=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=A2NEGrJ8Ca/wyaS8iRk2pzHKLF/U3QmLusVXaZzxtH9hznjnkyrH6Q/SO6I737Qxx
-	 1fnX7nPsD0UrqCV3BjIUBod3S7jfToHWUitD6rzVImFvrO0lFbm/NjP6mXRiqEI8Kg
-	 5RayiPIrLIuvSKmWEqIm/eyoTPZJzFE3Tdrcwb9QtM0xtgOQNsKcp9KV0Fv7/xm7nA
-	 hoADE0vZQgXHuxAv4KjtwdWC5e9aXv5ESFuJNjcCF23fKz1TOw51W4sNiz8JvB+kKK
-	 4m+lkZRUyp3K39p/uLOzqFgk47oFMmO68FQdxZpYgAlkCgcEpj0gVf2XDyK1bEC0dR
-	 Mp/ViGbY8qe1w==
-Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-b7697e8b01aso506570366b.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 14 Dec 2025 06:42:09 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCWJq174pFsgNVG6bk16vn7ad8Abxg30Ig+kP9pxJJr2Ea4rM1S0lEVxQb/ZDAY3+T6Y/WtLScmL6HigeuwxLfaN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3lYcD6m/c6tOy85H61+Mir3Eb6P0CcgcvJGaRBT+9vIlEOZ2U
-	BsRiQxcGJhEgAn8XBlvZ7bG7YixCQgh2ddtj+2T9NcNI4sUDxZ77ggk/3VMQ802Sa8HQfc8gZyA
-	xkOyu8w7UnXGOf7bwFO7tFjmed0gUYw==
-X-Google-Smtp-Source: AGHT+IH/UNXJVVIzYMzF70T0zT2ePS4CZo3kLeaqHyUCNx7LNUsqU6Z3vZR8gWlhInbPYIFxkyNcgz3+uHF1VkK6TAw=
-X-Received: by 2002:a17:907:3f28:b0:b73:8903:f4b9 with SMTP id
- a640c23a62f3a-b7d23a813bdmr836277766b.24.1765723327827; Sun, 14 Dec 2025
- 06:42:07 -0800 (PST)
+	id 1vUpC8-00000002bHg-3LQD;
+	Sun, 14 Dec 2025 16:43:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=Pg87C69KDoANHttxY5/rYmwSNvXQD1N6oOe5W7TAlAI=; b=OH22I2afa/RvDGRyP4pUNGZexE
+	s3zZ09oxoSnT2SMGDFZwpgX7vgx+7Osdl4DtoZqAYXTwpaZTLBXFLRgMBJpVp5GqhZAciNWMJLptG
+	OmtC9f9y8GFogObl0EPK/8EdOtttGgE5HO18j2oUE8pgEVWo4gUMDMVgr230kxbfKwKE=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1vUpBg-00Gvjt-F5; Sun, 14 Dec 2025 17:43:12 +0100
+Date: Sun, 14 Dec 2025 17:43:12 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Frank Wunderlich <linux@fw-web.de>
+Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Frank Wunderlich <frank-w@public-files.de>,
+	Daniel Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Mason Chang <mason-cw.chang@mediatek.com>
+Subject: Re: [RFC net-next v3 2/3] net: ethernet: mtk_eth_soc: Add RSS support
+Message-ID: <cbe399db-11b9-4176-b842-a50956df7d26@lunn.ch>
+References: <20251214110310.7009-1-linux@fw-web.de>
+ <20251214110310.7009-3-linux@fw-web.de>
 MIME-Version: 1.0
-References: <20251212203226.458694-5-robh@kernel.org> <20251213181324.u32ztfblkknfpz44@pengutronix.de>
-In-Reply-To: <20251213181324.u32ztfblkknfpz44@pengutronix.de>
-From: Rob Herring <robh@kernel.org>
-Date: Sun, 14 Dec 2025 08:41:56 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqK9OREenZjBHrDh7AqsyUXYOzTOhY4e0qHGzYkX8tacWQ@mail.gmail.com>
-X-Gm-Features: AQt7F2o1cvCAKghlM7oUFNsydZljaReVAverYw-RqgPCazmU6RqIU2uWyYXg6mg
-Message-ID: <CAL_JsqK9OREenZjBHrDh7AqsyUXYOzTOhY4e0qHGzYkX8tacWQ@mail.gmail.com>
-Subject: Re: [PATCH] ARM: dts: nxp/imx6: Drop unused .dtsi
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	imx@lists.linux.dev, barebox@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251214110310.7009-3-linux@fw-web.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_064211_446243_5E665595 
-X-CRM114-Status: GOOD (  19.07  )
+X-CRM114-CacheID: sfid-20251214_084340_858845_EBAF4EFD 
+X-CRM114-Status: UNSURE (   6.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,83 +80,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Dec 13, 2025 at 12:13=E2=80=AFPM Marco Felsch <m.felsch@pengutronix=
-.de> wrote:
->
-> Hi Rob,
->
-> On 25-12-12, Rob Herring (Arm) wrote:
-> > These .dtsi files are not included anywhere in the tree and can't be
-> > tested.
->
-> not in the tree but by other projects, please see below.
->
-> > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> > ---
-> >  .../dts/nxp/imx/imx6dl-kontron-samx6i.dtsi    | 12 -----
-> >  .../dts/nxp/imx/imx6q-kontron-samx6i.dtsi     | 12 -----
-> >  .../boot/dts/nxp/imx/imx6qdl-pico-dwarf.dtsi  | 45 ----------------
-> >  .../boot/dts/nxp/imx/imx6qdl-pico-nymph.dtsi  | 54 -------------------
-> >  4 files changed, 123 deletions(-)
-> >  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6dl-kontron-samx6i.dts=
-i
-> >  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6q-kontron-samx6i.dtsi
-> >  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-pico-dwarf.dtsi
-> >  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-pico-nymph.dtsi
-> >
-> > diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-kontron-samx6i.dtsi b/arc=
-h/arm/boot/dts/nxp/imx/imx6dl-kontron-samx6i.dtsi
-> > deleted file mode 100644
-> > index 5a9b819d7ee8..000000000000
-> > --- a/arch/arm/boot/dts/nxp/imx/imx6dl-kontron-samx6i.dtsi
-> > +++ /dev/null
-> > @@ -1,12 +0,0 @@
-> > -// SPDX-License-Identifier: GPL-2.0 OR X11
-> > -/*
-> > - * Copyright 2019 (C) Pengutronix, Marco Felsch <kernel@pengutronix.de=
->
-> > - */
-> > -
-> > -#include "imx6dl.dtsi"
-> > -#include "imx6qdl-kontron-samx6i.dtsi"
-> > -
-> > -/ {
-> > -     model =3D "Kontron SMARC-sAMX6i Dual-Lite/Solo";
-> > -     compatible =3D "kontron,imx6dl-samx6i", "fsl,imx6dl";
-> > -};
-> > diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-kontron-samx6i.dtsi b/arch=
-/arm/boot/dts/nxp/imx/imx6q-kontron-samx6i.dtsi
-> > deleted file mode 100644
-> > index e76963436079..000000000000
-> > --- a/arch/arm/boot/dts/nxp/imx/imx6q-kontron-samx6i.dtsi
-> > +++ /dev/null
-> > @@ -1,12 +0,0 @@
-> > -// SPDX-License-Identifier: GPL-2.0 OR X11
-> > -/*
-> > - * Copyright 2019 (C) Pengutronix, Marco Felsch <kernel@pengutronix.de=
->
-> > - */
-> > -
-> > -#include "imx6q.dtsi"
-> > -#include "imx6qdl-kontron-samx6i.dtsi"
-> > -
-> > -/ {
-> > -     model =3D "Kontron SMARC-sAMX6i Quad/Dual";
-> > -     compatible =3D "kontron,imx6q-samx6i", "fsl,imx6q";
-> > -};
->
-> I can't speak for the other two .dtsi files but both kontron .dtsi files
-> are used by barebox:
->
->  - https://elixir.bootlin.com/barebox/v2025.11.0/source/arch/arm/dts/imx6=
-dl-samx6i.dts#L8
->  - https://elixir.bootlin.com/barebox/v2025.11.0/source/arch/arm/dts/imx6=
-q-samx6i.dts#L8
->
-> Removing them here will cause a regression for barebox.
+>  bpi-r4.its                                  |  16 +-
 
-Please upstream something that uses the .dtsi. Other than the
-undocumented barebox property, no reason these can't be.
+I don't think this file belongs in this patch?
 
-Rob
+> +#define MTK_RX_RSS_NUM			(eth->soc->rss_num)
+> +#define MTK_RSS_HASH_KEY_DW(x)		(reg_map->pdma.rss_glo_cfg + 0x20 +	\
+> +					 ((x) * 0x4))
+> +#define MTK_RSS_INDR_TABLE_DW(x)	(reg_map->pdma.rss_glo_cfg + 0x50 +	\
+> +					 ((x) * 0x4))
+
+It is bad practice for a macro to access things not passed to it. At
+minimum, pass eth & reg_map to the macro.
+
+    Andrew
+
+---
+pw-bot: cr
 
