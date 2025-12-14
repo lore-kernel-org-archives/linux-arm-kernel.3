@@ -4,76 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7751D5B16C
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 18:58:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1536D59D99
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 19:18:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zdiQTkAOufiIvzEhYaWnGreg+5cG/Js0Yz3ZDHwcCpI=; b=Jt6nUMjtxUc7gxOMv2w8eSJHLp
-	kNwgDQN9a61VMCegRu1eg6dAeW1PZwteEcN5Z4wcXVKR1vqeVVnYA7mOfNulpYr5CJDPnKrRa1dQW
-	TjUKTpDWhQpsXmZqhrCpxozI3kpJjm0iTW9tPWOL23F8o8S70DlFzQ9wOB1qUWXWL80UHmGy5uQDM
-	o/KeefULsbvYcrETLlgq9vEqVl+W49ACp0B45JHVGFkr+RxJc2G0qSfTHsJJ4FB5g5hB1M8wGXOV2
-	59UIx84qv9FVEduzSAddIQojAtk0SBMoq/rvK0Q+zDmKEmOxXKKwwNa3LNq9hEMRosxX2vl0ud/QI
-	cOl2XFNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8Qe15nyDaQI5NHkqinXh2nmZ7n1Fr8qfZ26+gvZFymo=; b=Lq7e7XaS1DDzVAyi3WfSwpDf1j
+	d21Zplacpj9aHCeItR5CWap2TnrQzt/RCiGJ/RoAiWcyyrtBoZ6FK9flmnwYp5ZHh1f6jCeRh9AA9
+	f4LqlBpu0DKwYYiIo9XsDci3yYjgOnaA8aD1wtYze5Y7K8Sh7Uff+bFHYsmTRZqDCRRwhRfzV2ga1
+	ewgkapEsRVYtQ7GKj0kBsU7IbHzEkM1V6n5382Me6afzhPwS2cCzysQfw8PMx5p39LeTiDsDz4uJP
+	CjJuvYi1pYhRSlHgK+52/S+KS+PHQaV0DJzPpveIOgxQUqIW4WPoXqIZOUb3PyagpSCe60t+AQh9R
+	5S5mU8JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUrIi-00000002fDw-3tvz;
-	Sun, 14 Dec 2025 18:58:36 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUrIc-00000002fD4-2qba
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 14 Dec 2025 18:58:34 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vUrI0-0002HV-1N; Sun, 14 Dec 2025 19:57:52 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vUrHy-005enG-16;
-	Sun, 14 Dec 2025 19:57:50 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vUrHy-00786O-0Y;
-	Sun, 14 Dec 2025 19:57:50 +0100
-Date: Sun, 14 Dec 2025 19:57:50 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Rob Herring <robh@kernel.org>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev, barebox@lists.infradead.org,
-	frieder.schrempf@kontron.de, annette.kobou@kontron.de,
-	oualid.derouiche@kontron.de, eberhard.stoll@kontron.de
-Subject: Re: [PATCH] ARM: dts: nxp/imx6: Drop unused .dtsi
-Message-ID: <20251214185750.tzt6jf4zg5gtex63@pengutronix.de>
-References: <20251212203226.458694-5-robh@kernel.org>
- <20251213181324.u32ztfblkknfpz44@pengutronix.de>
- <CAL_JsqK9OREenZjBHrDh7AqsyUXYOzTOhY4e0qHGzYkX8tacWQ@mail.gmail.com>
+	id 1vUrbX-00000002gKH-1RGl;
+	Sun, 14 Dec 2025 19:18:03 +0000
+Received: from [50.53.43.113] (helo=bombadil.infradead.org)
+	by bombadil.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1vUrbV-00000002gJm-3GPz;
+	Sun, 14 Dec 2025 19:18:01 +0000
+From: Randy Dunlap <rdunlap@infradead.org>
+To: linux-kernel@vger.kernel.org
+Cc: Randy Dunlap <rdunlap@infradead.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Michal Simek <michal.simek@amd.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] xilinx_hwicap: fifo_icap.c: fix all kernel-doc warnings
+Date: Sun, 14 Dec 2025 11:17:58 -0800
+Message-ID: <20251214191758.2173409-1-rdunlap@infradead.org>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAL_JsqK9OREenZjBHrDh7AqsyUXYOzTOhY4e0qHGzYkX8tacWQ@mail.gmail.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_105830_794584_C33AE060 
-X-CRM114-Status: GOOD (  26.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,110 +53,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-12-14, Rob Herring wrote:
-> On Sat, Dec 13, 2025 at 12:13 PM Marco Felsch <m.felsch@pengutronix.de> wrote:
-> >
-> > Hi Rob,
-> >
-> > On 25-12-12, Rob Herring (Arm) wrote:
-> > > These .dtsi files are not included anywhere in the tree and can't be
-> > > tested.
-> >
-> > not in the tree but by other projects, please see below.
-> >
-> > > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> > > ---
-> > >  .../dts/nxp/imx/imx6dl-kontron-samx6i.dtsi    | 12 -----
-> > >  .../dts/nxp/imx/imx6q-kontron-samx6i.dtsi     | 12 -----
-> > >  .../boot/dts/nxp/imx/imx6qdl-pico-dwarf.dtsi  | 45 ----------------
-> > >  .../boot/dts/nxp/imx/imx6qdl-pico-nymph.dtsi  | 54 -------------------
-> > >  4 files changed, 123 deletions(-)
-> > >  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6dl-kontron-samx6i.dtsi
-> > >  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6q-kontron-samx6i.dtsi
-> > >  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-pico-dwarf.dtsi
-> > >  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-pico-nymph.dtsi
-> > >
-> > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-kontron-samx6i.dtsi b/arch/arm/boot/dts/nxp/imx/imx6dl-kontron-samx6i.dtsi
-> > > deleted file mode 100644
-> > > index 5a9b819d7ee8..000000000000
-> > > --- a/arch/arm/boot/dts/nxp/imx/imx6dl-kontron-samx6i.dtsi
-> > > +++ /dev/null
-> > > @@ -1,12 +0,0 @@
-> > > -// SPDX-License-Identifier: GPL-2.0 OR X11
-> > > -/*
-> > > - * Copyright 2019 (C) Pengutronix, Marco Felsch <kernel@pengutronix.de>
-> > > - */
-> > > -
-> > > -#include "imx6dl.dtsi"
-> > > -#include "imx6qdl-kontron-samx6i.dtsi"
-> > > -
-> > > -/ {
-> > > -     model = "Kontron SMARC-sAMX6i Dual-Lite/Solo";
-> > > -     compatible = "kontron,imx6dl-samx6i", "fsl,imx6dl";
-> > > -};
-> > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-kontron-samx6i.dtsi b/arch/arm/boot/dts/nxp/imx/imx6q-kontron-samx6i.dtsi
-> > > deleted file mode 100644
-> > > index e76963436079..000000000000
-> > > --- a/arch/arm/boot/dts/nxp/imx/imx6q-kontron-samx6i.dtsi
-> > > +++ /dev/null
-> > > @@ -1,12 +0,0 @@
-> > > -// SPDX-License-Identifier: GPL-2.0 OR X11
-> > > -/*
-> > > - * Copyright 2019 (C) Pengutronix, Marco Felsch <kernel@pengutronix.de>
-> > > - */
-> > > -
-> > > -#include "imx6q.dtsi"
-> > > -#include "imx6qdl-kontron-samx6i.dtsi"
-> > > -
-> > > -/ {
-> > > -     model = "Kontron SMARC-sAMX6i Quad/Dual";
-> > > -     compatible = "kontron,imx6q-samx6i", "fsl,imx6q";
-> > > -};
-> >
-> > I can't speak for the other two .dtsi files but both kontron .dtsi files
-> > are used by barebox:
-> >
-> >  - https://elixir.bootlin.com/barebox/v2025.11.0/source/arch/arm/dts/imx6dl-samx6i.dts#L8
-> >  - https://elixir.bootlin.com/barebox/v2025.11.0/source/arch/arm/dts/imx6q-samx6i.dts#L8
-> >
-> > Removing them here will cause a regression for barebox.
-> 
-> Please upstream something that uses the .dtsi. Other than the
-> undocumented barebox property, no reason these can't be.
+Modify comments in fifo_icap.c to prevent all kernel-doc warnings:
 
-My intention wasn't to point to the barebox-only
-"barebox,disable-deep-probe" property. I was refering to the include
-line.
+Warning: fifo_icap.c:51 This comment starts with '/**', but isn't a
+ kernel-doc comment.
+ * HwIcap Device Interrupt Status/Enable Registers
+Warning: fifo_icap.c:106 No description found for return value
+ of 'fifo_icap_fifo_read'
+Warning: fifo_icap.c:160 No description found for return value
+ of 'fifo_icap_get_status'
+Warning: fifo_icap.c:171 No description found for return value
+ of 'fifo_icap_busy'
+Warning: fifo_icap.c:184 No description found for return value
+ of 'fifo_icap_write_fifo_vacancy'
+Warning: fifo_icap.c:196 No description found for return value
+ of 'fifo_icap_read_fifo_occupancy'
+Warning: fifo_icap.c:207 bad line:
+Warning: fifo_icap.c:214 No description found for return value
+ of 'fifo_icap_set_configuration'
+Warning: fifo_icap.c:290 function parameter 'frame_buffer' not described
+ in 'fifo_icap_get_configuration'
+Warning: fifo_icap.c:290 function parameter 'num_words' not described
+ in 'fifo_icap_get_configuration'
+Warning: fifo_icap.c:290 No description found for return value
+ of 'fifo_icap_get_configuration'
+Warning: fifo_icap.c:357 expecting prototype for buffer_icap_reset().
+ Prototype was for fifo_icap_reset() instead
 
-The two .dtsi files we're talking about are SoM .dtsi files. We don't
-have access to the Kontron EVK baseboard which uses this SoM.
+Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+---
+Cc: Arnd Bergmann <arnd@arndb.de>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Michal Simek <michal.simek@amd.com>
+Cc: linux-arm-kernel@lists.infradead.org
+---
+ drivers/char/xilinx_hwicap/fifo_icap.c |   27 ++++++++++++++++-------
+ 1 file changed, 19 insertions(+), 8 deletions(-)
 
-I've added a few Kontron devs which may can add the missing baseboard
-support.
-
-+Cc: frieder.schrempf@kontron.de
-+Cc: annette.kobou@kontron.de
-+Cc: oualid.derouiche@kontron.de
-+Cc: eberhard.stoll@kontron.de
-
-I could also add the imx6dl-samx6i.dts and imx6q-samx6i.dts like we do
-in barebox. But as said, this would be a devicetree for a SoM which
-makes sense for the bootloader but not for the kernel.
-
-Regards,
-  Marco
-
-
-> 
-> Rob
-> 
-
--- 
-#gernperDu 
-#CallMeByMyFirstName
-
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
+--- linux-next-20251128.orig/drivers/char/xilinx_hwicap/fifo_icap.c
++++ linux-next-20251128/drivers/char/xilinx_hwicap/fifo_icap.c
+@@ -48,7 +48,7 @@
+ 
+ #define XHI_GIER_GIE_MASK 0x80000000 /* Global Interrupt enable Mask */
+ 
+-/**
++/*
+  * HwIcap Device Interrupt Status/Enable Registers
+  *
+  * Interrupt Status Register (IPISR) : This register holds the
+@@ -102,6 +102,8 @@ static inline void fifo_icap_fifo_write(
+  * @drvdata: a pointer to the drvdata.
+  *
+  * This function will silently fail if the fifo is empty.
++ *
++ * Returns: 32-bit data from the Read FIFO
+  **/
+ static inline u32 fifo_icap_fifo_read(struct hwicap_drvdata *drvdata)
+ {
+@@ -156,6 +158,8 @@ static inline void fifo_icap_start_readb
+  * D2 - Always 1
+  * D1 - Always 1
+  * D0 - Done bit
++ *
++ * Returns: the 32-bit ICAP status register
+  **/
+ u32 fifo_icap_get_status(struct hwicap_drvdata *drvdata)
+ {
+@@ -165,8 +169,11 @@ u32 fifo_icap_get_status(struct hwicap_d
+ }
+ 
+ /**
+- * fifo_icap_busy - Return true if the ICAP is still processing a transaction.
++ * fifo_icap_busy - Check the ICAP busy status.
+  * @drvdata: a pointer to the drvdata.
++ *
++ * Returns: %true if the ICAP is still processing a transaction,
++ *	otherwise %false
+  **/
+ static inline u32 fifo_icap_busy(struct hwicap_drvdata *drvdata)
+ {
+@@ -178,7 +185,7 @@ static inline u32 fifo_icap_busy(struct
+  * fifo_icap_write_fifo_vacancy - Query the write fifo available space.
+  * @drvdata: a pointer to the drvdata.
+  *
+- * Return the number of words that can be safely pushed into the write fifo.
++ * Returns: the number of words that can be safely pushed into the write fifo.
+  **/
+ static inline u32 fifo_icap_write_fifo_vacancy(
+ 		struct hwicap_drvdata *drvdata)
+@@ -190,7 +197,7 @@ static inline u32 fifo_icap_write_fifo_v
+  * fifo_icap_read_fifo_occupancy - Query the read fifo available data.
+  * @drvdata: a pointer to the drvdata.
+  *
+- * Return the number of words that can be safely read from the read fifo.
++ * Returns: the number of words that can be safely read from the read fifo.
+  **/
+ static inline u32 fifo_icap_read_fifo_occupancy(
+ 		struct hwicap_drvdata *drvdata)
+@@ -205,10 +212,12 @@ static inline u32 fifo_icap_read_fifo_oc
+  *		ICAP device.
+  * @num_words: the number of words (32 bit) to write to the ICAP
+  *		device.
+-
++ *
+  * This function writes the given user data to the Write FIFO in
+  * polled mode and starts the transfer of the data to
+  * the ICAP device.
++ *
++ * Returns: %0 on success or %-errno on failure.
+  **/
+ int fifo_icap_set_configuration(struct hwicap_drvdata *drvdata,
+ 		u32 *frame_buffer, u32 num_words)
+@@ -280,11 +289,13 @@ int fifo_icap_set_configuration(struct h
+ /**
+  * fifo_icap_get_configuration - Read configuration data from the device.
+  * @drvdata: a pointer to the drvdata.
+- * @data: Address of the data representing the partial bitstream
+- * @size: the size of the partial bitstream in 32 bit words.
++ * @frame_buffer: Address of the data representing the partial bitstream
++ * @num_words: the size of the partial bitstream in 32 bit words.
+  *
+  * This function reads the specified number of words from the ICAP device in
+  * the polled mode.
++ *
++ * Returns: %0 on success or %-errno on failure.
+  */
+ int fifo_icap_get_configuration(struct hwicap_drvdata *drvdata,
+ 		u32 *frame_buffer, u32 num_words)
+@@ -347,7 +358,7 @@ int fifo_icap_get_configuration(struct h
+ }
+ 
+ /**
+- * buffer_icap_reset - Reset the logic of the icap device.
++ * fifo_icap_reset - Reset the logic of the icap device.
+  * @drvdata: a pointer to the drvdata.
+  *
+  * This function forces the software reset of the complete HWICAP device.
 
