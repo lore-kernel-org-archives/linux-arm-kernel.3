@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5550FD59D99
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 16:50:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B80C5D59D99
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 14 Dec 2025 17:49:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QwWNAca6IA5vmr33BT6LB87k+Vr0WcFKaaVLLN0k/Nc=; b=jnq8gywhah115Y65m8tLC96UyL
-	jCUz+bEVFSxlzlcckRDjw1e1bLSGlcp4lICsHvVAMWNqgR8MKyd++hHtfUzawecNiPZjO9x3JbeVq
-	Xt6aucBYvNlu5QojmTzhqYJkIR3wlXNstWUC//rS83Eq5L3fAXiKnq2wRKX/gOKzHutSPDA8d+BmK
-	mRzdvG2hequzDX/HovV1jCZu6sU1jCIQALnekjdDTylZ+q8SKqghFHT6ufHESrDKfNF9fBJeNxveF
-	K86ipCxpEP4aqPNdrMlden56Tb4oD9y4r3UdzpOps5X/u978eChC4OIFn3pZSjq6WSQ1NHaEGDQGe
-	C7nwlZLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8bTXwwa4yWYmr7RPK5yqMVybpKLz/hsRLqe6vIgI6FU=; b=M2ygLpPcLRGNnqXU1PmvGajghS
+	Zyhrg4ZEH4lkjTs2ag4nD/wj1yMLNkMWB1npwKRcXDqaVpqlNk5pfLIoaOG1z9iOgl3BucWfHoYN4
+	rrYu8cpNbDb3hxLeNzr2urd/EDJvMgkfeEIIEp4+i6MPrRv8gdX8zBagyX0PzOos1z86pClYoqTSA
+	0fzZCWAhEt7hYHfscupl6f8Rylkb5GHkpqlpm39Tuq4N+9+KIZleZZ+ucdMKxV/ONFpjlV2zZkx+Z
+	27S95c0mudONTcelCxbn3w0EkSlw09FA+BvniZISurhjqyvv8RDhjAzz1LBNB6l2ljBzA87ms/13H
+	6qY3j2QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUpIJ-00000002bd4-1TI4;
-	Sun, 14 Dec 2025 16:50:03 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1vUqDq-00000002dIR-0vBj;
+	Sun, 14 Dec 2025 17:49:30 +0000
+Received: from smtp-17.smtpout.orange.fr ([80.12.242.17] helo=smtp.smtpout.orange.fr)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUpIH-00000002bcG-0fJa;
-	Sun, 14 Dec 2025 16:50:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=QwWNAca6IA5vmr33BT6LB87k+Vr0WcFKaaVLLN0k/Nc=; b=K6AYswP9380Ujw+zJp4aPgckjG
-	v7RaMAYynrjPlMGXf97mGism4HRCRMAeq2v8ERlKUevs9EmXSlARn1PT/e9yZlIjZdzX77gfHfdyE
-	bxvWHLdKkTe6aDBzrRoLrUrOlt8gV1JtV5ZlsfvQ5+Ps4+N4nEttU37YS3Lx3ZzWEbUo=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1vUpHz-00Gvmp-Mz; Sun, 14 Dec 2025 17:49:43 +0100
-Date: Sun, 14 Dec 2025 17:49:43 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Frank Wunderlich <linux@fw-web.de>
-Cc: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Frank Wunderlich <frank-w@public-files.de>,
-	Daniel Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Mason Chang <mason-cw.chang@mediatek.com>
-Subject: Re: [RFC net-next v3 3/3] net: ethernet: mtk_eth_soc: Add LRO support
-Message-ID: <2e00738e-6d17-4ba6-8af4-7e02783b17da@lunn.ch>
-References: <20251214110310.7009-1-linux@fw-web.de>
- <20251214110310.7009-4-linux@fw-web.de>
+	id 1vUqDi-00000002dI2-3vxi
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 14 Dec 2025 17:49:25 +0000
+Received: from fedora.home ([IPv6:2a01:cb10:785:b00:8347:f260:7456:7662])
+	by smtp.orange.fr with ESMTPA
+	id UqDZve9EWBoKRUqDZvZY3L; Sun, 14 Dec 2025 18:49:16 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
+	s=t20230301; t=1765734556;
+	bh=8bTXwwa4yWYmr7RPK5yqMVybpKLz/hsRLqe6vIgI6FU=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=Q0aUFhZlMIAYVtUpnB+Yt+5owMGpqikBvZS7AsEeLg0ZwIqPl5FDLwFkoGjxkdNmX
+	 l094Y+/3wL5Ea+GwsjU803rk7oHa/EYRxtETrOrrR45WwlvdDZ/xBHNzBJ0l5hUqJo
+	 JWY7cSecI32YgqE56n7HGKUlLnTvgnBgzSlyYquaQE93RD8ZiPFRRpsU5ZcrVglciA
+	 HHnJtn0WGrbLxYxyZrbLK+X27jcyc3miJdZbZUklHf4vJNTU9IV4qcnn49VIq+cNYn
+	 PgvZxFGi4zPiKWOA5/i/sP5ozpNyQPPF3MUnJ+jpLevSqOR0nvi1l6X72PhVno7dGd
+	 2MNYZRVzufp2A==
+X-ME-Helo: fedora.home
+X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
+X-ME-Date: Sun, 14 Dec 2025 18:49:16 +0100
+X-ME-IP: 2a01:cb10:785:b00:8347:f260:7456:7662
+From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+To: Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH] stm class: Constify struct configfs_item_operations and configfs_group_operations
+Date: Sun, 14 Dec 2025 18:49:09 +0100
+Message-ID: <b5811c1c5efdc6e9c8eb4886b8046b50b09c37f0.1765734533.git.christophe.jaillet@wanadoo.fr>
+X-Mailer: git-send-email 2.52.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251214110310.7009-4-linux@fw-web.de>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_085001_199492_F83E87BE 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251214_094923_208776_43EADE1A 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,35 +76,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->  static int mtk_hwlro_rx_init(struct mtk_eth *eth)
->  {
->  	const struct mtk_reg_map *reg_map = eth->soc->reg_map;
-> -	int i;
-> +	const struct mtk_soc_data *soc = eth->soc;
-> +	int i, val;
->  	u32 ring_ctrl_dw1 = 0, ring_ctrl_dw2 = 0, ring_ctrl_dw3 = 0;
->  	u32 lro_ctrl_dw0 = 0, lro_ctrl_dw3 = 0;
+'struct configfs_item_operations' and 'configfs_group_operations' are not
+modified in this driver.
 
-Reverse Christmas tree. It looks like it was already broken, but you
-should not make it worse, and i think you can even fix it here.
+Constifying these structures moves some data to a read-only section, so
+increases overall security, especially when the structure holds some
+function pointers.
 
-> +static int mtk_hwlro_add_ipaddr_idx(struct net_device *dev, u32 ip4dst)
-> +{
-> +	struct mtk_mac *mac = netdev_priv(dev);
-> +	struct mtk_eth *eth = mac->hw;
-> +	const struct mtk_reg_map *reg_map = eth->soc->reg_map;
-> +	u32 reg_val;
-> +	int i;
+On a x86_64, with allmodconfig, as an example:
+Before:
+======
+   text	   data	    bss	    dec	    hex	filename
+  11786	   4216	     64	  16066	   3ec2	drivers/hwtracing/stm/policy.o
 
-More Reverse Christmas tree probes. You will need to move the
-assignment to reg_map into the body of the function.
+After:
+=====
+   text	   data	    bss	    dec	    hex	filename
+  12202	   3800	     64	  16066	   3ec2	drivers/hwtracing/stm/policy.o
 
-> +#define MTK_PDMA_LRO_CTRL_DW0	(reg_map->pdma.lro_ctrl_dw0)
-> +#define MTK_PDMA_LRO_CTRL_DW1	(reg_map->pdma.lro_ctrl_dw0 + 0x04)
-> +#define MTK_PDMA_LRO_CTRL_DW2	(reg_map->pdma.lro_ctrl_dw0 + 0x08)
-> +#define MTK_PDMA_LRO_CTRL_DW3	(reg_map->pdma.lro_ctrl_dw0 + 0x0c)
+Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+---
+Compile tested only.
 
-Same comment as the previous patch.
+This change is possible since commits f2f36500a63b and f7f78098690d.
+---
+ drivers/hwtracing/stm/policy.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-	Andrew
+diff --git a/drivers/hwtracing/stm/policy.c b/drivers/hwtracing/stm/policy.c
+index 42103c3a177f..a1af8d585fc9 100644
+--- a/drivers/hwtracing/stm/policy.c
++++ b/drivers/hwtracing/stm/policy.c
+@@ -181,7 +181,7 @@ static void stp_policy_node_release(struct config_item *item)
+ 	kfree(node);
+ }
+ 
+-static struct configfs_item_operations stp_policy_node_item_ops = {
++static const struct configfs_item_operations stp_policy_node_item_ops = {
+ 	.release		= stp_policy_node_release,
+ };
+ 
+@@ -270,7 +270,7 @@ stp_policy_node_drop(struct config_group *group, struct config_item *item)
+ 	config_item_put(item);
+ }
+ 
+-static struct configfs_group_operations stp_policy_node_group_ops = {
++static const struct configfs_group_operations stp_policy_node_group_ops = {
+ 	.make_group	= stp_policy_node_make,
+ 	.drop_item	= stp_policy_node_drop,
+ };
+@@ -364,11 +364,11 @@ static void stp_policy_release(struct config_item *item)
+ 	kfree(policy);
+ }
+ 
+-static struct configfs_item_operations stp_policy_item_ops = {
++static const struct configfs_item_operations stp_policy_item_ops = {
+ 	.release		= stp_policy_release,
+ };
+ 
+-static struct configfs_group_operations stp_policy_group_ops = {
++static const struct configfs_group_operations stp_policy_group_ops = {
+ 	.make_group	= stp_policy_node_make,
+ };
+ 
+@@ -466,7 +466,7 @@ stp_policy_make(struct config_group *group, const char *name)
+ 	return ret;
+ }
+ 
+-static struct configfs_group_operations stp_policy_root_group_ops = {
++static const struct configfs_group_operations stp_policy_root_group_ops = {
+ 	.make_group	= stp_policy_make,
+ };
+ 
+-- 
+2.52.0
+
 
