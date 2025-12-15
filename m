@@ -4,144 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3BEED5B871
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 21:43:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82452D5B871
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 21:48:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n24JF2OvxWwOLG1IabA28dNDNHgQHJwMPeEGPPE2g8Q=; b=Z8Jdd61WFbNQetKibm0nk0dOf8
-	K1VndTpzjV6Hl8Ux3vw/OrQIc2UGNUS9G9pL1RS4j2ZplsAV+UXAVn6jt//uMkFTADWtaxGjGwaQk
-	+tuO/jqXGMrv6g8kbeWsjzxRkF+tfdvklMSSVR7uOGQdSfKo9ZXrS8+ptnCIVplO96e49waYj2xf4
-	jfqQD8Fq4NYkEIwFZbolIRQKWfEh/ssMkTvRFhYOTn6hcr4gucAuuVT8BXWTCPT6h15TMseQ7LBUI
-	nye3/eSOCt9wSqTlnLEqikvN3awk21ZvGp7Vih3DGKk8szl49XA0VLHiQywHCDFpzEilcjA7JoDDc
-	InV9f8rA==;
+	bh=OI1MY4kOzgLcU2iIDea7bQ2I0yRp8F1R+dwEE1LToL8=; b=dFlpuS6piT6m+HP+I6PeEDGrBW
+	NmuoPD8QTtAen+HTEujEXMPc6jAyi5pdTw4Jjsy3Vnv8lc9VmhvMY32TjGDFX5jI/odZgrAyQj+aX
+	3uEpZsRMeZA/P2Pw8ZlaCxx1Nsf1ex4UWyDyl175kOMnZ86sdsNeilxu1cl3hvXJpvdBxTLjuIHCm
+	6aXgoKTx3fcaKdjkoBMKdoHGffN6OImQvZIuRhih+RyG7O3KA0BPQpNdIBk0PxnQS/HkP4zr1R7kb
+	kyrapE9Brv69n2mOWfjFE9kI3KYpuUmyNMNKt1SCdys4y0viR7lT2iNWaTyUgzvPyKwDxuxurPIpd
+	erpVHzOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVGLZ-00000004Ju7-2iWF;
-	Mon, 15 Dec 2025 21:43:13 +0000
-Received: from mail-eastusazon11012026.outbound.protection.outlook.com ([52.101.53.26] helo=BL0PR03CU003.outbound.protection.outlook.com)
+	id 1vVGQE-00000004KVK-1vI6;
+	Mon, 15 Dec 2025 21:48:02 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVGLV-00000004Jr6-1gFa
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 21:43:12 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=T/B6JxspX+sgj8FK51npUav1t7+wOr3ZeXhg7Fm9JlpSIYB1zt1FlRHOb0uyJpU0wu40Rth3KfqbS4quOKQYH5KSh/4n5n0bi9D9X/kK6mHe/XNuqVfSZcEBYUjiueDnR/J1O2tHP1Dk0vwmIM3xlqvbIWfXnql2vKkLb1lBitt8NLqTYueiAxY6eb6+lhMQYF44wvCRBln2JWRs3w0ArNaIagQ2hkSwCrffVhCgPVrmZTI8sdnNGNDMMWTSxeFHkaFRQP/bUoAx7kSnBQlETbCAGai5nPu04crBNT9LxQUEF+Fn/StVEwfVHF7oxzIPD//gyVIc4A2B3+ox8q3cdw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=n24JF2OvxWwOLG1IabA28dNDNHgQHJwMPeEGPPE2g8Q=;
- b=RLMG4x9HyZKvsHxVjZdgTQhftXYdozbajFVB4xdwsULqUgqefpiqpFh8bLs/tSyaLlvu5iOeRXEWcAFjTfbLDjQM+TJ3N2EByuedmtrOz0D1x4+g8nT9vmEpMJgp37nGR8FIpH9WJLj01HFrJqFNFegpu5LPSFkFNToqYY+nGjbhRBm3PEOJcKV3+iFDIdJ5N4TryRHWIqkz2b/Iz3yyzkHyF96W6K5KdBPwDbTJNOriOVYmmzOQV76orlmxcSwUUSTjPy+yivPCLjVjgCc7W6AlUHNE7UwrfTYSI2LCI51NmmgIbkje/JI+5dRa43xH335IIn0Pr+Q7b3vZbhpzng==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=8bytes.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=n24JF2OvxWwOLG1IabA28dNDNHgQHJwMPeEGPPE2g8Q=;
- b=ag9X4KWF3M5yDiJ+dEwwNTiM8MgXEi3oAuAOJ0agoK9hzKuuLqz6LGfDeahLJ5UxT5UNnbYNedmkUssruk6S+tn3+GOU5t+0YJp9v9RqXVkKNfgB2ke0C62g/aCxaY9q4lvr1NaSu/62h3PhQSKm679V+VxTQmaCgLgtAUz2eaR/vzy2Er3KerYx/TBgm7ApnbZ/cGL7W9aWBO90d4z2QT2nv1zfVYdIxtcg3UOGo6agxHi51bQkph0kuQTUN2QBtHGFTq2750AfRTdOWD3gmwSJgdhJHybiBd2L6iS9bE1ijexLWwgLTNsig4zysnBuIcuYSTTzDWA/Lxu3PqqGQg==
-Received: from CH0PR03CA0273.namprd03.prod.outlook.com (2603:10b6:610:e6::8)
- by PH8PR12MB6770.namprd12.prod.outlook.com (2603:10b6:510:1c5::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Mon, 15 Dec
- 2025 21:42:49 +0000
-Received: from CH1PEPF0000AD7B.namprd04.prod.outlook.com
- (2603:10b6:610:e6:cafe::9) by CH0PR03CA0273.outlook.office365.com
- (2603:10b6:610:e6::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9412.13 via Frontend Transport; Mon,
- 15 Dec 2025 21:42:48 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- CH1PEPF0000AD7B.mail.protection.outlook.com (10.167.244.58) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9434.6 via Frontend Transport; Mon, 15 Dec 2025 21:42:48 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Mon, 15 Dec
- 2025 13:42:31 -0800
-Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Mon, 15 Dec 2025 13:42:30 -0800
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.12) by mail.nvidia.com
- (10.126.190.182) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
- Transport; Mon, 15 Dec 2025 13:42:29 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <joro@8bytes.org>
-CC: <will@kernel.org>, <robin.murphy@arm.com>, <afael@kernel.org>,
-	<lenb@kernel.org>, <bhelgaas@google.com>, <alex@shazbot.org>,
-	<jgg@nvidia.com>, <kevin.tian@intel.com>, <baolu.lu@linux.intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-pci@vger.kernel.org>, <kvm@vger.kernel.org>,
-	<patches@lists.linux.dev>, <pjaroszynski@nvidia.com>, <vsethi@nvidia.com>,
-	<helgaas@kernel.org>, <etzhao1900@gmail.com>
-Subject: [PATCH v8 2/5] iommu: Tidy domain for iommu_setup_dma_ops()
-Date: Mon, 15 Dec 2025 13:42:17 -0800
-Message-ID: <092a99f0b6d59237aa6a06f719f51fca59d7330a.1765834788.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1765834788.git.nicolinc@nvidia.com>
-References: <cover.1765834788.git.nicolinc@nvidia.com>
+	id 1vVGQC-00000004KUr-19VH;
+	Mon, 15 Dec 2025 21:48:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=OI1MY4kOzgLcU2iIDea7bQ2I0yRp8F1R+dwEE1LToL8=; b=qtsMobJ81loav8R/ZLTl3g8U1R
+	L2p+F7xhPDfocdnt+ksIho08Wf/uA8kiKZoc9oe+GmwipM8X4W/cOGhVhXb/TxLCdS44J3cbq3HdL
+	wU9DU4mrnDwLovhiHhVDAlziOkk30fvlqhYskGn2HIwN5ExSSokSJRP959789FdLPOf5MInF5i6JA
+	fbIlsb6GrPBhrRg0a+9V3ZMz1ut2RGdejRQR89FtifAaFIMNRahTtxwRJRA1gii+Bb+Z+aW+5V6Kw
+	DiRYPdNFKgnsMT+CcXTTfeZcDxTX3GMWr0x6C9zKuYQujZ+jAK+i5wS4Y/H1WOhhD4AEyturWb5eC
+	oBnGTi2Q==;
+Received: from i53875adc.versanet.de ([83.135.90.220] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1vVGQ8-0006sg-2B; Mon, 15 Dec 2025 22:47:56 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Martin =?UTF-8?B?SG9sb3Zza8O9IChQcm9iYWJseSBOb3RoaW5nIHMuci5vLiAp?=
+ <mh@probably.group>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] arm64: dts: rockchip: enable dual 2.5GbE on Rock 5T
+Date: Mon, 15 Dec 2025 22:47:55 +0100
+Message-ID: <2080394.PIDvDuAF1L@diego>
+In-Reply-To: <176580661874.1441131.12947657582985645446.b4-ty@sntech.de>
+References: <96516D1F-9787-47FE-A67E-4745D11D9207@probably.group>
+ <176580661874.1441131.12947657582985645446.b4-ty@sntech.de>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH1PEPF0000AD7B:EE_|PH8PR12MB6770:EE_
-X-MS-Office365-Filtering-Correlation-Id: e86b11ed-2132-4710-6180-08de3c22e43e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?h4Ox8G6v/jOxjqs8Kr8m6RF8psWJs1XFjAwklMXRwmblHFLW8N8z0hmtXVeo?=
- =?us-ascii?Q?LUu+avW1M9ShXqustEP3av3htkdGHWhvtl6uN/XYSxD+i0L08niG7kLj/mQr?=
- =?us-ascii?Q?MgfH0xKk612jmtVuIEAR8qdWSzOH0qTtlZBpgfyB5sLF8qf+XWIMJvUm1Mp6?=
- =?us-ascii?Q?Fd4ccohSAv2gpQUz2NS62YLK3PhECLOm0U/r0xzE2F424pC0RbbOIOoU/2Cu?=
- =?us-ascii?Q?CMrDaG13lFY+P+XYlf61mojPZ0vXA9N4TOcjEAmNaoAn3bAiFa0u6zfFBrp4?=
- =?us-ascii?Q?N7J82xiMwypR5dB3Atudkc90tNrLS/xLEZGZw0bK3swbRGlDBN7G688f5/k2?=
- =?us-ascii?Q?ANNu0EgSVu1er0HXmIVf+19UuDUyMinJfmvb+vQ7OoXlYTQJc+R2S0U4vKtr?=
- =?us-ascii?Q?P3HOFyIKFF5bDUDVBLRf37d6R2+NbnT2ofI4VfdWXGUC1BWB2PxrKMZFStrn?=
- =?us-ascii?Q?Vw/Nc/GsSo5RZdfBC8Z66jnwJFD53hQoXIDnWdIoameh0yOaNDnO2YRnCF9N?=
- =?us-ascii?Q?kp3xjgmhgUtLUFJEHE9Mdf4G6fvTJT3P6To3H8bMME696jeCagQHMmHbjIx3?=
- =?us-ascii?Q?Mr8233A2A8OusPIgNFC6ZoYAgyGcTsY3nO/tsviIeK7qgW+uQXinaMSnxuxv?=
- =?us-ascii?Q?QWaLzg9CKzefH2j4bDI6PY63jYwYiD6pW04Gg2VZzWO6CMJ83kN/kgQiYY4b?=
- =?us-ascii?Q?aC4vsDK44+MXmG5MNrEyDG7hmHYFXWIJ/JGBMqpfaigbMyfM/W0w3r1U/LfZ?=
- =?us-ascii?Q?BhVJoquPd0WKLmzZEj/4WglOu9DMX3FcoC9dVXqYtiUbbsgWG6s5jKRr4TYG?=
- =?us-ascii?Q?4PlK4fHzL2HeFLuQjjda3J/6m1qwniRQBrmb3aHmwxlXx1OpCk3KTc4ez9aT?=
- =?us-ascii?Q?7YcFH5BBeE1FG4qWc4WejhwLSv1hMEZ1FvsjnjvkSxeSnJYhHVkkPolLPhs1?=
- =?us-ascii?Q?vmaKV8nOxDc46jN4iXR5oKSKZbZnveLiqHFsmnYhJY5rp8u2J/GAu9HOMDon?=
- =?us-ascii?Q?0vQIhM9XGpDcgZsE6dc+huzfVweO7QBtBBpE3EzKrvI45y+82ah+IfMO2Je6?=
- =?us-ascii?Q?oHpQAvJxtM2Pszt0uFetXmZW7iAFKBYLJVEv+cJmEqoho/mgkmsyePjBuYkI?=
- =?us-ascii?Q?FNVlWj855uB2eA85XoOVpOBuWKcZ3frrubTb/GR2Zx91lW8Wkgd5UUALjwbP?=
- =?us-ascii?Q?yizMB3nAnK3xInklYs+rPcsre57dfTjOWTkmDXCsIu5QFq5jOMfbGXGqZo7h?=
- =?us-ascii?Q?Rag1flQVpBIspzl/HcepZiOYYeZTAYNyQhM3UZnBRJfbiKAXz/u06uRNNtYo?=
- =?us-ascii?Q?1MRAbWBvhZ4lzaYO1Y25K2zkfSFwqY0U8KVee1hFjE3powyhpJHnTPhOMlWf?=
- =?us-ascii?Q?Br579EBGvkKStuBH/8n3TYZT4yXjcuskhMNvLCXyLQxC3RGp3GbdkU1J3Ro1?=
- =?us-ascii?Q?/SIGAGYQcpmMLk5dbCUYVkqWR5uSW/OjtBqJVkZf5OVmwr8M1HvyGRfQ/6ni?=
- =?us-ascii?Q?UtI/X/bUleEO1gRbO7389Nb/BumgryvJJ2YQ6bkdC9wY1q7IyE+j7iML+zai?=
- =?us-ascii?Q?erauwhva3u5cuiq6cgc=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Dec 2025 21:42:48.7378
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e86b11ed-2132-4710-6180-08de3c22e43e
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH1PEPF0000AD7B.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6770
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_134309_454287_B4AE17DC 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20251215_134800_339635_5211B939 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,96 +73,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This function can only be called on the default_domain. Trivally pass it
-in. In all three existing cases, the default domain was just attached to
-the device.
+Am Montag, 15. Dezember 2025, 14:51:03 Mitteleurop=C3=A4ische Normalzeit sc=
+hrieb Heiko Stuebner:
+>=20
+> On Fri, 12 Dec 2025 17:23:35 +0100, "Martin Holovsk=C3=BD (Probably Nothi=
+ng s.r.o. )" wrote:
+> > The Radxa Rock 5T board features two RTL8125B 2.5GbE Ethernet controlle=
+rs
+> > connected via PCIe lanes pcie2x1l0 (fe170000) and pcie2x1l2 (fe190000).
+> > Currently only one interface is functional because the PCIe controller
+> > nodes lack the necessary reset GPIO configuration.
+> >=20
+> > Without the reset-gpios property, the RTL8125B PHYs remain in reset sta=
+te
+> > and are not enumerated by the PCIe bus. This results in only one Ethern=
+et
+> > interface being detected, or none at all depending on U-Boot initializa=
+tion.
+> >=20
+> > [...]
+>=20
+> Applied, thanks!
+>=20
+> [1/1] arm64: dts: rockchip: enable dual 2.5GbE on Rock 5T
+>       commit: 96029ffeccf677b1e4baa98f30909a83a485b6d7
+>=20
+> I've resorted both the pcie phandles as well as the pinctrl entries
+> pcie2-0 comes before pcie2-1 etc :-) .
 
-This avoids iommu_setup_dma_ops() calling iommu_get_domain_for_dev() that
-will be used by external callers.
+and dropped again.
 
-Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-Reviewed-by: Kevin Tian <kevin.tian@intel.com>
-Reviewed-by: Lu Baolu <baolu.lu@linux.intel.com>
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-Tested-by: Dheeraj Kumar Srivastava <dheerajkumar.srivastava@amd.com>
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
----
- drivers/iommu/dma-iommu.h | 5 +++--
- drivers/iommu/dma-iommu.c | 4 +---
- drivers/iommu/iommu.c     | 6 +++---
- 3 files changed, 7 insertions(+), 8 deletions(-)
+Please resend this patch with a proper Signed-off-by line, as stated
+by the developers certificate of origin.
 
-diff --git a/drivers/iommu/dma-iommu.h b/drivers/iommu/dma-iommu.h
-index eca201c1f963..040d00252563 100644
---- a/drivers/iommu/dma-iommu.h
-+++ b/drivers/iommu/dma-iommu.h
-@@ -9,7 +9,7 @@
- 
- #ifdef CONFIG_IOMMU_DMA
- 
--void iommu_setup_dma_ops(struct device *dev);
-+void iommu_setup_dma_ops(struct device *dev, struct iommu_domain *domain);
- 
- int iommu_get_dma_cookie(struct iommu_domain *domain);
- void iommu_put_dma_cookie(struct iommu_domain *domain);
-@@ -26,7 +26,8 @@ extern bool iommu_dma_forcedac;
- 
- #else /* CONFIG_IOMMU_DMA */
- 
--static inline void iommu_setup_dma_ops(struct device *dev)
-+static inline void iommu_setup_dma_ops(struct device *dev,
-+				       struct iommu_domain *domain)
- {
- }
- 
-diff --git a/drivers/iommu/dma-iommu.c b/drivers/iommu/dma-iommu.c
-index c92088855450..aeaf8fad985c 100644
---- a/drivers/iommu/dma-iommu.c
-+++ b/drivers/iommu/dma-iommu.c
-@@ -2097,10 +2097,8 @@ void dma_iova_destroy(struct device *dev, struct dma_iova_state *state,
- }
- EXPORT_SYMBOL_GPL(dma_iova_destroy);
- 
--void iommu_setup_dma_ops(struct device *dev)
-+void iommu_setup_dma_ops(struct device *dev, struct iommu_domain *domain)
- {
--	struct iommu_domain *domain = iommu_get_domain_for_dev(dev);
--
- 	if (dev_is_pci(dev))
- 		dev->iommu->pci_32bit_workaround = !iommu_dma_forcedac;
- 
-diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
-index 170e522b5bda..1e322f87b171 100644
---- a/drivers/iommu/iommu.c
-+++ b/drivers/iommu/iommu.c
-@@ -661,7 +661,7 @@ static int __iommu_probe_device(struct device *dev, struct list_head *group_list
- 	}
- 
- 	if (group->default_domain)
--		iommu_setup_dma_ops(dev);
-+		iommu_setup_dma_ops(dev, group->default_domain);
- 
- 	mutex_unlock(&group->mutex);
- 
-@@ -1949,7 +1949,7 @@ static int bus_iommu_probe(const struct bus_type *bus)
- 			return ret;
- 		}
- 		for_each_group_device(group, gdev)
--			iommu_setup_dma_ops(gdev->dev);
-+			iommu_setup_dma_ops(gdev->dev, group->default_domain);
- 		mutex_unlock(&group->mutex);
- 
- 		/*
-@@ -3155,7 +3155,7 @@ static ssize_t iommu_group_store_type(struct iommu_group *group,
- 
- 	/* Make sure dma_ops is appropriatley set */
- 	for_each_group_device(group, gdev)
--		iommu_setup_dma_ops(gdev->dev);
-+		iommu_setup_dma_ops(gdev->dev, group->default_domain);
- 
- out_unlock:
- 	mutex_unlock(&group->mutex);
--- 
-2.43.0
+Also, what is this probably nothing s.r.o?
+
+Heiko
+
 
 
