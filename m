@@ -4,79 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0684D5B86B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 19:43:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19BF9D5B866
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 19:58:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=abUQvRA+jHEqh1JKEQZz+wrimh08nBQhMEsoNkfIU24=; b=xWX0hsVpt0JMoDipPbClstHf+z
-	SzgvaR6T7HrHJjx9gor4q9LjL5XH39mH7jfidxXpRtowj/atkM3R6YR7qWHqPwFs6dCrg+7pze/nD
-	7Rn8VuuccayPUGoe0+xW/pGR/NY12Flp3tt3m/mUwbqXgY3MlwlyMhR2tMtGIP9g0ThrlDAIC9QCn
-	5Y2xmtw2cH+VcrimQP4rA/Tcx+NkNp+TUK+7LciDFr988wRjTYwqKUbjYGL23U1I4XmfACxRoGuGG
-	7EOD+nbxq2K3RjQf9jYibAOQBsmZq7oioM78BHY5ii867Fct4Suy8CbkQ7czOwbnS0c1M6ftrArO2
-	SJBFxmIg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bTlyosS7RsRPkdG1WgaA3rjvINz5FKHU/3WjkEkZApM=; b=uJalJeuGLEY2W5
+	luiiaC2jQ/0nvXlpyOD8SbDK2yWaxx19oYGX9rw9GaiHd+9TcxGRSP6ytR5juii4l6bkKxv922p4L
+	AxTt2tgmTTxBw8lHGJipI+iFXPHYxkfMJgp9L+RqZkrORTdKoDBzAlNZDIbP7BB9BaeP4WUZAodlg
+	clPTFGyybliKT6HUpsDnNv9vL5RUWZKHJF5Fw39T4wsnYMTR1T2UiwDWzI0ilW4DveukmBNw3Vvth
+	mqdqjA4scBAJWhtL/dS1Py3IZNa6tGnOeOGf86X0osKlBW5X0QMZ48SV8FF2vfKRG8FF6uYBi6MLP
+	yo5D3Z0KPVFb1SI5yxZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVETu-00000004Bp0-0VsP;
-	Mon, 15 Dec 2025 19:43:42 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1vVEi3-00000004CN3-3Pgl;
+	Mon, 15 Dec 2025 19:58:19 +0000
+Received: from mout.gmx.net ([212.227.15.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVETr-00000004BoI-2Up9
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 19:43:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 024A14171C
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 19:43:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D6FBBC19421
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 19:43:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1765827818;
-	bh=QAMKKq+/07OKE2edah45Zywl8LeTi9tuqwkGpLjZYEw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Lr1QKPfqEyJs2mElL49XB3Xk2OXVxH/EgZmIn1wn6i+z/CS3iNmUvNogoPRxnHhTG
-	 4tpin1V4wdgX80vIXVTFA5+a7wLW0de1EEDOIiiA18gH/G+5dhV2wlxJX2i+2nG/RE
-	 e1fRLGrpqBiqkjHnImlqqYrSJXwstSmrkNhEUYVShg82aj7F+268NIAAlEAxJezjwa
-	 lJ7gqnGhkg0L+8jCBtZGP54hZ1v/R+7FDUFQ8eGUOPVJnBQe9akPPWaRxc/O1X4FYe
-	 IdxSGdR9BqaZ1+tPEUIHxQTSNoQtOMKk0Ek7CExDjo5ZdJQQGL18DSq6ger/wTPxoS
-	 q19CpWhhFgK9w==
-Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-b79e7112398so783393466b.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 11:43:38 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUKYhc538JcaqSNUlAErr4SGACmC92d/weFT9odIcFvhIfWGfx/fBuFKENZyOJCm9nMiu7yT8cAdDX9bhnDTi/0@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIpU5L5NYVS3UEGdJlyuWDQQ3IX6BMmIP7nbaVQ/MwOBY031oW
-	wT9OjTAporruKPAcqsXCRRiWJ7VdcL4sRFDsymJE0YMJhpj8sF55UjKdrEbNJZH1miuUYr97Cc9
-	7J5rkDYte39Pf4cM50nV4Rfz8M2nrMQ==
-X-Google-Smtp-Source: AGHT+IHPOvW2BGVu2D4Ir+xTf+ZrZ0oTHwKdRBT3jQdNMTbk0Ko9WuWTep47Nqx4mbBndw2hB+2iEYVbKpnnkmMFsi4=
-X-Received: by 2002:a17:907:7e97:b0:b74:983b:4056 with SMTP id
- a640c23a62f3a-b7d235c8495mr1177908366b.8.1765827817406; Mon, 15 Dec 2025
- 11:43:37 -0800 (PST)
+	id 1vVEi0-00000004CMX-24lB;
+	Mon, 15 Dec 2025 19:58:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=public-files.de;
+	s=s31663417; t=1765828664; x=1766433464; i=frank-w@public-files.de;
+	bh=bTlyosS7RsRPkdG1WgaA3rjvINz5FKHU/3WjkEkZApM=;
+	h=X-UI-Sender-Class:Date:From:To:CC:Subject:Reply-to:In-Reply-To:
+	 References:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=Ojga1g/Bry3BIm5s15Yhinm4zh5pELb9MryJV7mtt9o4ESv26gsBmWYF3ojIhJE7
+	 aWLFrGg46R8w0+fENz17siVyPt+ddQWqmtzJRMHCgNMugDqXWsgR5vqdaj4/klSbj
+	 +aB6d8dIt3PxRUd1W+jGqwlbAWh+ZtDpiCLSSoDj0WtV1nj738NNYkNykH9okfNY1
+	 hKn+Stag6JcWJ1Op2EReSWbt1mi+TiXjj4vgSSl5cR4bOarqFUCLXqrHnbwdgkW3l
+	 +Z99iJA9BfbijOg6q5B2uXKb5aeaelOoxKU6tK8+BLJJnvYTbSFL5TVXFOjVQOzt+
+	 uMbzP8cb0bIX8EgddA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from ehlo.thunderbird.net ([217.61.145.36]) by mail.gmx.net
+ (mrgmx005 [212.227.17.190]) with ESMTPSA (Nemesis) id
+ 1MWRRZ-1vTlnX2S8h-00Ny9N; Mon, 15 Dec 2025 20:57:44 +0100
+Date: Mon, 15 Dec 2025 20:57:40 +0100
+From: Frank Wunderlich <frank-w@public-files.de>
+To: "Creeley, Brett" <bcreeley@amd.com>, Frank Wunderlich <linux@fw-web.de>,
+ Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Russell King <linux@armlinux.org.uk>
+CC: Daniel Golle <daniel@makrotopia.org>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org,
+ Mason Chang <mason-cw.chang@mediatek.com>
+Subject: =?US-ASCII?Q?Re=3A_=5BRFC_net-next_v3_1/3=5D_net=3A_ethernet=3A_mtk=5Fet?=
+ =?US-ASCII?Q?h=5Fsoc=3A_Add_register_definitions_for_RSS_and_LRO?=
+User-Agent: K-9 Mail for Android
+In-Reply-To: <d101cf0e-bf7c-4aa7-a444-f6b61a1854ad@amd.com>
+References: <20251214110310.7009-1-linux@fw-web.de> <20251214110310.7009-2-linux@fw-web.de> <d101cf0e-bf7c-4aa7-a444-f6b61a1854ad@amd.com>
+Message-ID: <033E8AC9-21D6-4707-AE75-37556241CC52@public-files.de>
 MIME-Version: 1.0
-References: <20251212203226.458694-5-robh@kernel.org> <20251213181324.u32ztfblkknfpz44@pengutronix.de>
- <CAL_JsqK9OREenZjBHrDh7AqsyUXYOzTOhY4e0qHGzYkX8tacWQ@mail.gmail.com> <20251214185750.tzt6jf4zg5gtex63@pengutronix.de>
-In-Reply-To: <20251214185750.tzt6jf4zg5gtex63@pengutronix.de>
-From: Rob Herring <robh@kernel.org>
-Date: Mon, 15 Dec 2025 13:43:25 -0600
-X-Gmail-Original-Message-ID: <CAL_JsqLfVemq9k3x5J1pTz--Z+VYLeEQrFdbtdS7Pc-HkRui=w@mail.gmail.com>
-X-Gm-Features: AQt7F2oiZD_a6RbSn-VyOWgON7AhmUCDA0yS1ZH9l8th1WHWsPTGvW7f6u1q7WA
-Message-ID: <CAL_JsqLfVemq9k3x5J1pTz--Z+VYLeEQrFdbtdS7Pc-HkRui=w@mail.gmail.com>
-Subject: Re: [PATCH] ARM: dts: nxp/imx6: Drop unused .dtsi
-To: Marco Felsch <m.felsch@pengutronix.de>
-Cc: Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	imx@lists.linux.dev, barebox@lists.infradead.org, frieder.schrempf@kontron.de, 
-	annette.kobou@kontron.de, oualid.derouiche@kontron.de, 
-	eberhard.stoll@kontron.de
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain;
+ charset=utf-8
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:udmE2bC0mtQBR55i/zb65Ddv20tP2/tgoQqzo35LqbG0fH1xgv3
+ z2vvMV6mZMtWhTDp1MubhOxKs2wF+ZPXTHO6qFzDfsvbKGoDsU3rygDCJx/eSPdh2l33hii
+ ifwc2XjrW8vrqZTVsJ1NVC00t+ivmfnVzWOdyuG0veBEAyoGv9FdSx7pf4B16rdPRp3fMWR
+ A04dCdHQbiPqmK/JEmP6w==
+UI-OutboundReport: notjunk:1;M01:P0:rhoYV6sbA4c=;1NRagGGJCC+H5lDG23hh1TfNk1f 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 9tOh7aCVHLcdG9Ywc70U
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_114339_683316_1691B773 
-X-CRM114-Status: GOOD (  29.00  )
+X-CRM114-CacheID: sfid-20251215_115816_843706_2BCDC09D 
+X-CRM114-Status: UNSURE (   7.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,120 +89,58 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: frank-w@public-files.de
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Dec 14, 2025 at 12:58=E2=80=AFPM Marco Felsch <m.felsch@pengutronix=
-.de> wrote:
+Am 15=2E Dezember 2025 20:28:36 MEZ schrieb "Creeley, Brett" <bcreeley@amd=
+=2Ecom>:
 >
-> On 25-12-14, Rob Herring wrote:
-> > On Sat, Dec 13, 2025 at 12:13=E2=80=AFPM Marco Felsch <m.felsch@pengutr=
-onix.de> wrote:
-> > >
-> > > Hi Rob,
-> > >
-> > > On 25-12-12, Rob Herring (Arm) wrote:
-> > > > These .dtsi files are not included anywhere in the tree and can't b=
-e
-> > > > tested.
-> > >
-> > > not in the tree but by other projects, please see below.
-> > >
-> > > > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> > > > ---
-> > > >  .../dts/nxp/imx/imx6dl-kontron-samx6i.dtsi    | 12 -----
-> > > >  .../dts/nxp/imx/imx6q-kontron-samx6i.dtsi     | 12 -----
-> > > >  .../boot/dts/nxp/imx/imx6qdl-pico-dwarf.dtsi  | 45 ---------------=
--
-> > > >  .../boot/dts/nxp/imx/imx6qdl-pico-nymph.dtsi  | 54 ---------------=
-----
-> > > >  4 files changed, 123 deletions(-)
-> > > >  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6dl-kontron-samx6i=
-.dtsi
-> > > >  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6q-kontron-samx6i.=
-dtsi
-> > > >  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-pico-dwarf.dt=
-si
-> > > >  delete mode 100644 arch/arm/boot/dts/nxp/imx/imx6qdl-pico-nymph.dt=
-si
-> > > >
-> > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6dl-kontron-samx6i.dtsi b=
-/arch/arm/boot/dts/nxp/imx/imx6dl-kontron-samx6i.dtsi
-> > > > deleted file mode 100644
-> > > > index 5a9b819d7ee8..000000000000
-> > > > --- a/arch/arm/boot/dts/nxp/imx/imx6dl-kontron-samx6i.dtsi
-> > > > +++ /dev/null
-> > > > @@ -1,12 +0,0 @@
-> > > > -// SPDX-License-Identifier: GPL-2.0 OR X11
-> > > > -/*
-> > > > - * Copyright 2019 (C) Pengutronix, Marco Felsch <kernel@pengutroni=
-x.de>
-> > > > - */
-> > > > -
-> > > > -#include "imx6dl.dtsi"
-> > > > -#include "imx6qdl-kontron-samx6i.dtsi"
-> > > > -
-> > > > -/ {
-> > > > -     model =3D "Kontron SMARC-sAMX6i Dual-Lite/Solo";
-> > > > -     compatible =3D "kontron,imx6dl-samx6i", "fsl,imx6dl";
-> > > > -};
-> > > > diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-kontron-samx6i.dtsi b/=
-arch/arm/boot/dts/nxp/imx/imx6q-kontron-samx6i.dtsi
-> > > > deleted file mode 100644
-> > > > index e76963436079..000000000000
-> > > > --- a/arch/arm/boot/dts/nxp/imx/imx6q-kontron-samx6i.dtsi
-> > > > +++ /dev/null
-> > > > @@ -1,12 +0,0 @@
-> > > > -// SPDX-License-Identifier: GPL-2.0 OR X11
-> > > > -/*
-> > > > - * Copyright 2019 (C) Pengutronix, Marco Felsch <kernel@pengutroni=
-x.de>
-> > > > - */
-> > > > -
-> > > > -#include "imx6q.dtsi"
-> > > > -#include "imx6qdl-kontron-samx6i.dtsi"
-> > > > -
-> > > > -/ {
-> > > > -     model =3D "Kontron SMARC-sAMX6i Quad/Dual";
-> > > > -     compatible =3D "kontron,imx6q-samx6i", "fsl,imx6q";
-> > > > -};
-> > >
-> > > I can't speak for the other two .dtsi files but both kontron .dtsi fi=
-les
-> > > are used by barebox:
-> > >
-> > >  - https://elixir.bootlin.com/barebox/v2025.11.0/source/arch/arm/dts/=
-imx6dl-samx6i.dts#L8
-> > >  - https://elixir.bootlin.com/barebox/v2025.11.0/source/arch/arm/dts/=
-imx6q-samx6i.dts#L8
-> > >
-> > > Removing them here will cause a regression for barebox.
-> >
-> > Please upstream something that uses the .dtsi. Other than the
-> > undocumented barebox property, no reason these can't be.
 >
-> My intention wasn't to point to the barebox-only
-> "barebox,disable-deep-probe" property. I was refering to the include
-> line.
+>On 12/14/2025 3:03 AM, Frank Wunderlich wrote:
+>> diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc=2Eh b/drivers/ne=
+t/ethernet/mediatek/mtk_eth_soc=2Eh
+>> index 0168e2fbc619=2E=2E334625814b97 100644
+>> --- a/drivers/net/ethernet/mediatek/mtk_eth_soc=2Eh
+>> +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc=2Eh
+>> @@ -1143,16 +1143,30 @@ struct mtk_reg_map {
+>>          u32     tx_irq_mask;
+>>          u32     tx_irq_status;
+>>          struct {
+>> -               u32     rx_ptr;         /* rx base pointer */
+>> -               u32     rx_cnt_cfg;     /* rx max count configuration *=
+/
+>> -               u32     pcrx_ptr;       /* rx cpu pointer */
+>> -               u32     glo_cfg;        /* global configuration */
+>> -               u32     rst_idx;        /* reset index */
+>> -               u32     delay_irq;      /* delay interrupt */
+>> -               u32     irq_status;     /* interrupt status */
+>> -               u32     irq_mask;       /* interrupt mask */
+>> +               u32     rx_ptr;                 /* rx base pointer */
+>> +               u32     rx_cnt_cfg;             /* rx max count configu=
+ration */
+>> +               u32     pcrx_ptr;               /* rx cpu pointer */
+>> +               u32     pdrx_ptr;               /* rx dma pointer */
+>> +               u32     glo_cfg;                /* global configuration=
+ */
+>> +               u32     rst_idx;                /* reset index */
+>> +               u32     rx_cfg;                 /* rx dma configuration=
+ */
+>> +               u32     delay_irq;              /* delay interrupt */
+>> +               u32     irq_status;             /* interrupt status */
+>> +               u32     irq_mask;               /* interrupt mask */
 >
-> The two .dtsi files we're talking about are SoM .dtsi files. We don't
-> have access to the Kontron EVK baseboard which uses this SoM.
->
-> I've added a few Kontron devs which may can add the missing baseboard
-> support.
->
-> +Cc: frieder.schrempf@kontron.de
-> +Cc: annette.kobou@kontron.de
-> +Cc: oualid.derouiche@kontron.de
-> +Cc: eberhard.stoll@kontron.de
->
-> I could also add the imx6dl-samx6i.dts and imx6q-samx6i.dts like we do
-> in barebox. But as said, this would be a devicetree for a SoM which
-> makes sense for the bootloader but not for the kernel.
+>Small nit - is the comment alignment really necessary?
 
-Why not? People use the kernel as a bootloader. There's also some
-discussions about splitting SoMs and baseboards into overlays for
-baseboards (and also even into SoC base DT plus overlay for boards).
+I could transform it to something like this:
 
-Rob
+<https://git=2Ekernel=2Eorg/pub/scm/linux/kernel/git/torvalds/linux=2Egit/=
+tree/drivers/net/ethernet/mediatek/mtk_eth_soc=2Eh#n921>
+
+>Thanks,
+>
+>Brett
+
+
+regards Frank
 
