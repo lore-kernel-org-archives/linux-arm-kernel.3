@@ -4,173 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6DE7D59D99
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 02:37:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 762F7D59D99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 03:50:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dMKoLdIIzTeeyB7x3vX2pTswlywQkTkH+IwHephPAyY=; b=1ZZ1HF694C7CxeCyt0aaqD7qc8
-	sE3tH314ovooRmsFD4sJz2p4brIQ9KE89pogddj8IFz5Nctu87bLe0iICBo30XPZwZyvDJdaG++CI
-	hPJmjZmXRIkRLqoqKf+YQTGRllPUbdksA/mNrYcHiJMqJC+V4Jn8Vgi1tZImGL8E+NRstqMYcEuIk
-	4NCh9LL48gVGlz9b4cYJSFQC+oeukS+oSzMQ9L/Qzvt0Wh57RpGSkDg3SoPb3l4YweiCqk3BBdwso
-	iPjcTDtaiFpb9hMmAnUCq4EsmQvCrUQBRfwqQ+WNmiVtwWzVQVTzozbw+UN9cMq84E2nHyxRB1j7Z
-	FEygrXHA==;
+	bh=BEu0cADvmhvlt4cXGyrqEIWNXYKdhwBS/LuDOiBdJdY=; b=y8ISbcyvL05Pu/A7rU1L/rMqBt
+	8vMTw/XWfgb3FxCxFbEjmZvVK/QJkOuRGOOsB/PIPgQmJTIppLxzJSjnP0R0mFR8dRZigrojrMEGK
+	+MF4urI/hob1AFI4Sul/g0Z1MIH159jd+JeEQ2FkTIxM+6i0bwvIrJNGXJWsWhofwpgROlLeiAUqf
+	KeeSfsmwxmrSmHSdEcYfl/r3Nbqce0DJ+PxuxpKtGasiPRQ+o5tzN3UMDSLWZRASQyZ5fQIu0jCOL
+	i7xus5hgxCXqNA5mZVc53RyLK9DbAGQ4ImkYWH+hQoYi1cSkshokCKopbbUtO7ZbRXNd3UEmnOBf9
+	NuXKmw5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUySS-00000002x1N-0AKy;
-	Mon, 15 Dec 2025 02:37:08 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1vUzb2-00000002zgt-2xRr;
+	Mon, 15 Dec 2025 03:50:04 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vUySP-00000002x0y-3j8l
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 02:37:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bXyDKFIuIKBkoFGzIRjTwoi802TXbHV3cJLmpMwcEQMtNfdy3fsmXxiEZH0srDaPBWDm0DeElOUjtY1iP0jjlGusd/ZjJh5D+xr1kYtB2rbm1SDXYCFaV8sjVycfgg0Y+w2p33DALE9Wdi4MR1ifxeYj5w5FfOsU8o2EjM/TZsjgDOv8OuGxY0NMxbmppuXEyozHAiYiLiMi303VMhRSnCXiAMi0hb5TRPspTyzXJfPAbK6HWelln7Tu/QIm4X8YSpNX+vzjVahvFo7UCzyqSQ6q7yvLDyLLU0BtnTVoUDhEDx/Kn2TxgMhoMbFVPq06DvsGe/fi9JrN1t/ASaNtBA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dMKoLdIIzTeeyB7x3vX2pTswlywQkTkH+IwHephPAyY=;
- b=IXgavwZdbqPNf/KHWMe/gaccs/cY4CvzCYZeUQb6/VYmxpGBUBcGOcNQhv4apKBzF4yipDpWKpEYBGhdFl37qBf/DGM0/aGl53WvM7fjXbnTERRFEd1xmC0EuCNj1dEK55FMCs+AVHjL9Jp3mlciAwoo/ynGXc4uakUJnw+39fhVtNEHyCb39EbRxcXKytvboPU9yVojreeOncIpI9ar14epwApyJdtDhIduRhJ8d/NXEn5I4/WCJTaAFZ8OMymt49c4zaU4GXrm37Gng7pMP4SibLFhgJ2Zs6u3jYw+YxxEe1wYHbHNF+QJ/G40gEESmgb66eW+7xPVIWEAKKuAag==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dMKoLdIIzTeeyB7x3vX2pTswlywQkTkH+IwHephPAyY=;
- b=ossL5U7gz6OBa0Z6gOC+krhRySfLLxx+7AJhHFJDHILgMnQiKUzs/kI+zpdxMKUzqzLA6OJZSYfTIAOJ+hmnBxmMOvC9SjdoagCfYUYWyr1cXP6fg4sZLhFDlUznvblE14f/Kv+7R8MqlUtLH17ATwnyLkUOT9+K0eowRxKh2Zt/I6k2hdezoOsRZQKFG66yPQt03I90Dfu76/e5VfwRi8tHljMB/JxKfcjRbHuJu5bfMcJaKsEmX1ijTT5D0G0kacRzG2XMyCU+mRlAusEdLgwQP/WHUOeOMasvs1O065/3i3AVZ9CNQSiZAiFPSITv3DWmIfabizEP/nvGpu6liw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from MRWPR04MB12117.eurprd04.prod.outlook.com (2603:10a6:501:97::14)
- by VI1PR04MB6960.eurprd04.prod.outlook.com (2603:10a6:803:12d::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9412.13; Mon, 15 Dec
- 2025 02:36:59 +0000
-Received: from MRWPR04MB12117.eurprd04.prod.outlook.com
- ([fe80::9a10:5b39:708:7f43]) by MRWPR04MB12117.eurprd04.prod.outlook.com
- ([fe80::9a10:5b39:708:7f43%6]) with mapi id 15.20.9412.011; Mon, 15 Dec 2025
- 02:36:59 +0000
-Message-ID: <6cd03c93-1a6d-4766-86e2-1a74d49c4789@oss.nxp.com>
-Date: Mon, 15 Dec 2025 10:36:40 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] Add FRDM i.MX 91 Development board support
-To: Francesco Valla <francesco@valla.it>, Joseph Guo <qijian.guo@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Justin Jiang <justin.jiang@nxp.com>,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- Tom Zheng <haidong.zheng@nxp.com>, Steven Yang <steven.yang@nxp.com>
-References: <20251212-imx91_frdm-v2-0-4dd6d289e81d@nxp.com>
- <aT18yj7c27_buJSe@bywater>
-Content-Language: en-US
-From: "Joseph Guo (OSS)" <qijian.guo@oss.nxp.com>
-In-Reply-To: <aT18yj7c27_buJSe@bywater>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SG2PR02CA0137.apcprd02.prod.outlook.com
- (2603:1096:4:188::17) To MRWPR04MB12117.eurprd04.prod.outlook.com
- (2603:10a6:501:97::14)
+	id 1vUzaz-00000002zdS-1B03;
+	Mon, 15 Dec 2025 03:50:02 +0000
+X-UUID: 1efa53fed96911f0a52f393f94899d25-20251214
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=BEu0cADvmhvlt4cXGyrqEIWNXYKdhwBS/LuDOiBdJdY=;
+	b=FZSQoiPDbGRwbPDFUC1bFhCitTI86mxEUTa9UqPy7l2f9fhya9vHaqzraj4uZLleV3gTcn3/y6xOm9uaFBSzO71Ga5cFJ4nk30GF/8dE4aWMPCXyoqAjGgsDvx17fVQkvXoChLAVAh7U2F84MR6sfvlBC4yD7rrhQg1SHqR3eis=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:86964f0b-6d03-4c5a-99f9-254257bd5bd5,IP:0,UR
+	L:0,TC:0,Content:0,EDM:-20,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-20
+X-CID-META: VersionHash:a9d874c,CLOUDID:c36970c6-8a73-4871-aac2-7b886d064f36,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102|836|888|898,TC:-5,Content:
+	0|15|50,EDM:1,IP:nil,URL:0,File:130,RT:0,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI
+	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 1efa53fed96911f0a52f393f94899d25-20251214
+Received: from mtkmbs09n2.mediatek.inc [(172.21.101.94)] by mailgw02.mediatek.com
+	(envelope-from <irving-ch.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 165344859; Sun, 14 Dec 2025 20:49:56 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.29; Mon, 15 Dec 2025 11:49:53 +0800
+Received: from mtksitap99.mediatek.inc (10.233.130.16) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.2562.29 via Frontend Transport; Mon, 15 Dec 2025 11:49:53 +0800
+From: irving.ch.lin <irving-ch.lin@mediatek.com>
+To: Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+	<sboyd@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Ulf Hansson
+	<ulf.hansson@linaro.org>, Richard Cochran <richardcochran@gmail.com>
+CC: Qiqi Wang <qiqi.wang@mediatek.com>, <linux-clk@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-pm@vger.kernel.org>, <netdev@vger.kernel.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	<sirius.wang@mediatek.com>, <vince-wl.liu@mediatek.com>,
+	<jh.hsu@mediatek.com>, <irving-ch.lin@mediatek.com>
+Subject: [PATCH v4 14/21] clk: mediatek: Add MT8189 mdp clock support
+Date: Mon, 15 Dec 2025 11:49:23 +0800
+Message-ID: <20251215034944.2973003-15-irving-ch.lin@mediatek.com>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20251215034944.2973003-1-irving-ch.lin@mediatek.com>
+References: <20251215034944.2973003-1-irving-ch.lin@mediatek.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MRWPR04MB12117:EE_|VI1PR04MB6960:EE_
-X-MS-Office365-Filtering-Correlation-Id: 68953e4f-d06e-447a-4b5c-08de3b82d228
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|366016|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aW5MRnlNZzFaTjVFRHF1YkY0NTNzdlRPSUREYlcrcmhsWERNVHFwRGpobUYx?=
- =?utf-8?B?T3RzSlhxRWpRMVpoZjBxdW8xaHQrTFFDSWhFWTVvTjJwZkUzSFByYnllckl0?=
- =?utf-8?B?eXpZSld1akRpbEF2UWplM25vWG9aR2R4Z0JnSGhyZ25CT2xMUjY2a2V4bDRE?=
- =?utf-8?B?dmNTVnlQZDA1N0ZvdDVFbXhiRGRFRlhDNDhMZjIxQmxOblBKVWhlRE56MXpz?=
- =?utf-8?B?c01GWEptNFRCWlBhbFlHd0tXMDNLWUpNeXR3ZkYzdHowc3hBWUNxMmNJY2VW?=
- =?utf-8?B?S0J4YmREMW11ZUFPU1Jnd2tuVTYwN0tNazRDM3FQRHF5cnhXRE5odThHSG1u?=
- =?utf-8?B?c2VUN3kwWnZwbzVldDVvVU84ZFF2cHVrWlN2c0hyUzByd3J2WTZocHZseXc0?=
- =?utf-8?B?R0NyVTNpTkt2OXpHY0JSajI4THdxZWw5cm9wZnZ1Z2dndDkza1pMZ1BVWXZI?=
- =?utf-8?B?c0lkZVdxWWJ2VXpSTUJsTjlrYjNYMU1IeHE1dW9MSVdWNDRvR2dncC9mQmxH?=
- =?utf-8?B?QXpBMWlkZ3pGc25Pc1VsWm95T2ZxbTZkMjMxRllKbS93VjhnNzhEQ1FuOHVF?=
- =?utf-8?B?dFJhbmNUNHBIdTJMSW9lOXljRjhQMjc2dGJKK0lQcGlHWVcvYmlycU0yaWVV?=
- =?utf-8?B?NmpaOURGSHZ4Z2FPNTZBVkp5cWU0Qkx2T2xQSldBaUlSSm9nOVMrTGlLR2x1?=
- =?utf-8?B?VzM0Z0xranA2aHUxYUhrN1NoUEhWZ25KbjRQa1ArY21EZ005ZkxhTHRNWHEy?=
- =?utf-8?B?YmVxL0tkdDFXVjV4ZStRaWozUzVoNEVUeWgya0ZXMHhmY2Y5NWdEMGNyNGF6?=
- =?utf-8?B?R3BteFppays3VmE2MFY5VUVWNGNwZDhjYVF4RWQ2QUlPdTd6REc2YllLS0hJ?=
- =?utf-8?B?cHhrSEF4Y2FKaXZuYTQwaFNCWkpVN2JtaVY4RUw3bWRGcFZuTzVWdXBqbWpT?=
- =?utf-8?B?ZEJSTnQvYm9wV055cTk4QmI2Sys4L1dmbEM2YUNVUzA5Nk5qUnB0Zkd1TGtM?=
- =?utf-8?B?N0ZFTFFobkdHR1prMHlWMENYSVVWenhxTnZ2TWxVNUNBN0dEeVNnNlU0QURu?=
- =?utf-8?B?cjhZZVY1aEc5Q3RtK3Q1REk0SmtHMDUxbjFDNmhpVTQ2RXorYW94OG82YU1m?=
- =?utf-8?B?M00vQzVqS0c1eFloYXIwNHRvZldWaWkwZlpKbHJqSTNpenk1eTRtR292bGZI?=
- =?utf-8?B?eUx6K3E0c1dGbTRORTB3SU5xOC9wM255V2lEZXpaQm05dTdQeFRLays0WHhP?=
- =?utf-8?B?NE04MlpXcE1RQUtGNnVnSEhieUI0WXF3WXIvWVZKb2FVWjBuc0Z1Z3VocmlI?=
- =?utf-8?B?Z0VLanNLclp2dURRNGZLTGwvempJa0sza05aZVZxOGJnalpVRjE0V0I0dDRN?=
- =?utf-8?B?UkR3dDIxSmp1R3hmbzhseHVKS3pvYWljZWlLaWNuN0M3Rk15YUlibzVtZ21N?=
- =?utf-8?B?a3Jkbkk2MzlBajJQc2xEamhzcklGc3FRM0o1a3RMWGFBVFlzNTFSOFY1dm9E?=
- =?utf-8?B?eFBhclFXdnhaQU1vcitxM1grNyt4eERZK0VBajcvYTVJbEQyajJnd2ZYU3BS?=
- =?utf-8?B?TmNIc2NWWFAvS09YZzNWdkZiN3RXdFlyUCtCeWtHQWVnVHd6ZXljb09HZllk?=
- =?utf-8?B?a1ozNGV2SlJSeFRjcXBJTENLRTZ2Y3E3VldOc2dEb2R6VGtTaldBRTNlOUs1?=
- =?utf-8?B?d3NabjhlNDF0azU4eG9XTFNkTE91dlN1alJyUXpPMmhMRFhZRmgzcDV4NStT?=
- =?utf-8?B?WEsrVlBINFFCOEYrUHo4ME5BWlJmM1RRK05vTWtwYjl4YnJpNVlRSkhCb1ZK?=
- =?utf-8?B?T2VOQmVaZk9xNnNWaDA0VXhYdHp4U0ovTUtvOFpsakd6cUdhZjZZNUhqcnZY?=
- =?utf-8?B?M3JNcnl0L1VDaDdLWXUweXcvdjdRRG5Zck5sdGQwOG5nQUZncE16TGF3dVVO?=
- =?utf-8?B?VWdtdnMrRFd2NzFFdU9nbGZWTGtBMkwwdUUvWlhodTZCeWNXK1h3ZkorUWlB?=
- =?utf-8?B?ZWlRQXdnYXFBPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MRWPR04MB12117.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?THF5UEJRdVhINnlDcU1vQWJWQlBkT21aVVpzRUZGbXpzOXE1YUZWLy96RVFy?=
- =?utf-8?B?dnBKbjhtditQM3VNcHZaRGFIL0RobStISkxmSUlXWHoyTGNnMmhvTzhTK1ZT?=
- =?utf-8?B?aFY0VEw4YnBXQmRMYmk2Y0xWR1F3RXFzcjhCUkxma2dwVExaRk91RGVhN0pR?=
- =?utf-8?B?Unprdld6S3FiL2p5Y3dXS0FLTXNxMThCTWdGUFRGMlB2VUt1cXovbWR5bWJC?=
- =?utf-8?B?eUd4eEw0QVBpYzl0VTNyZkZIL3JDNDB1YVRNRFBXbEc3SDVLZWFWejVDbzJ1?=
- =?utf-8?B?dGhhL05xbGdYQVFRaktOSmJZbVVaeHJOZFFSQlZEb3ZYa3FRdGNQdGt1NmJR?=
- =?utf-8?B?WDNLTHlTQkdUdVdmK2VTMG1UaW5jcUY1MjhEUVgrbWkwdjF4VXgxaWFEMVZ4?=
- =?utf-8?B?ZUgzTW5rdllNVVRCTWY5d1JzWEpHWGZwZFNQelVFa3dhYmdldHRLZHI4YzB0?=
- =?utf-8?B?OUcxbVlyR0E3aTQxeXdpdnJDY0pMcVhjSW5vNHBsTTNwSGdIUGdoR0N1TUI2?=
- =?utf-8?B?Q0ZDSnN5MGFleW0vckkzSjljRW9KS2ZJeDVhL1dOZi8rRHhyM0cyM1Izdld1?=
- =?utf-8?B?dkJISXk2dStIWEZxTCtLdHdBaGkrVFAwZUVXa0o4bEdsRkRZWmIxWEJpeWtv?=
- =?utf-8?B?TkVMUWEvSmdIVnFPRTlCcVhjSm9kbm9ZM1FCNjhMeFhwOFZiVEcwaWp1Yktv?=
- =?utf-8?B?M2NWSTBFdk40V0g1ckQ3cEVsTEx2YmpxSzRoVENxM3BuQzlnNHh2dk80UGpj?=
- =?utf-8?B?YTMxYVQzMlVIZFpCNmxIbXU4bTBoZUN2UzA0RmtReWZEdkNqQ2JSSVh2d3Ns?=
- =?utf-8?B?blBGdkt2ZzQ4K2FXbkF0RHFqMTE4YThYdmlCM1hGYXZRbjU4anFwNEFjaGxW?=
- =?utf-8?B?SEpkY05WQ1hzY1hQWk5SNGdEUHE1ZXhKWlMyR2ExL2phaERmUTErTlZKNHJk?=
- =?utf-8?B?UUliaCtqbnhPeGJObUpiamJmZEtGczVTR1JCZXlWYXdRaXc3QVFBVUtKc3U3?=
- =?utf-8?B?NkhuYldFdE52dHJmZnVkUnROYjFPOVVpZkIxdExqa243aG1IVHVjVThUcnQz?=
- =?utf-8?B?WjV1ckZnM20yb2VIbDBmeFh6MmtwN0NsamNyRDFYZXpEK254Z3ZzT21DZGNt?=
- =?utf-8?B?ampwemZ3WTJRdE9udTl6YUFOQzFac2pJYWdZanRZLzF4ODlyOUpxSnpramo5?=
- =?utf-8?B?NUtSckdreHplRmtDUzZqbURMa3N6cTBRUmN2WDl1S28xdVBBWTJRODVBa1FY?=
- =?utf-8?B?VVJDMUk1ZU1GRGlIQjU5MEwvUmYxVDVoenM4RnFkWHBlZW9oMjZTSDdKUk9B?=
- =?utf-8?B?SlNITnVFT2pOdzM1NjJqWUh4SUpVTUxSVTVPcE5TZVBVOG9URUlqQVFROEZn?=
- =?utf-8?B?VnBOS2dYUWZRcFlZTnVLM0NxSURPU1Vxb3E0R0tUMHVlaWJXZEh2ajVEdTIw?=
- =?utf-8?B?K2FhQnJYUzhHN3BYT2xNYVoxY2xuWVNrTmVtZHBldHU3VXBVWkVwTmprM3RV?=
- =?utf-8?B?SlJ3VW9ic2pOd2l5bkJqZW9Vak5DTDJSYzNvWm5FT0dJSlErSDZKOENiNm5x?=
- =?utf-8?B?VitZeWVYN3ZtV05RTG95NzZEa3FkSlJBZVdXWHczMGdDWWc3R1JvMjFqRHdZ?=
- =?utf-8?B?c084U3Bwbi8zVEw0ampUbGdSbGZWcEROeUQyc1A0N1lGenJnQ0Npd0FDcHVK?=
- =?utf-8?B?N1ArN05SaHVadDJKRWxyaU8waCsyeFV3TEZLcS9QdUNVbVlFNUpZallWdDhn?=
- =?utf-8?B?b2gyY1VJRnZxRXdscVN3SGYrUHQ5QTg4MDFvTnNaQkVHZzVQY1Z0TWhISWth?=
- =?utf-8?B?dVd2WU5ra0c2V3lHSmlhbGhiU3hYSEdQayt5cGVYTk40V1B2K3dVWmZ1Q3VO?=
- =?utf-8?B?NHR0bys4aXRuMzJ6SUFiQkt6cXZSSUVyMzEzZ2gxYXB1QUdzcnVzNE5ZTHB6?=
- =?utf-8?B?cjIybGFkc1ZPeUdlVXJvaFdUZVQxOXlGV3FucmtOM1Exd1M2clgzMmJSOFlw?=
- =?utf-8?B?cFo4VnlvbmErN2JUdnE2a0oxK001VVRpTmpBUFFUdTllR01aaXlaTlZnVzhx?=
- =?utf-8?B?VGdqUytjOW1oSDh2YUlUYUdIVTJHNkRRdnJKdnBZOFpHSUh1ZTVkSmFPN04z?=
- =?utf-8?Q?ALVGe4lXbbD/5U4ZwPaZjMz56?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 68953e4f-d06e-447a-4b5c-08de3b82d228
-X-MS-Exchange-CrossTenant-AuthSource: MRWPR04MB12117.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Dec 2025 02:36:59.3671
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NVGwvEiaUrLztULJNTRMva8tD6UaSVLGET+vznhcy4+AWOBdnePwzk7OzUF+3oftCFLi3CUmHEuPVrwFEX+ALg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB6960
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251214_183705_942015_741C3350 
-X-CRM114-Status: GOOD (  16.62  )
+X-CRM114-CacheID: sfid-20251214_195001_336302_F056AFDC 
+X-CRM114-Status: GOOD (  19.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,71 +94,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Irving-CH Lin <irving-ch.lin@mediatek.com>
 
+Add support for the MT8189 mdp clock controller,
+which provides clock gate control for display system.
 
-On 12/13/2025 10:48 PM, Francesco Valla wrote:
-> On Fri, Dec 12, 2025 at 11:31:32AM +0900, Joseph Guo wrote:
->> FRDM-IMX91 board is a low cost development platform based on i.MX91 SoC:
->> https://www.nxp.com/design/design-center/development-boards-and-designs/FRDM-IMX91
->>
->> Add device tree and dt-binding for FRDM-IMX91.
->>
->> Signed-off-by: Joseph Guo <qijian.guo@nxp.com>
->> ---
->> Changes in v2:
->> - rename compatible 'frdm-imx91' to 'imx91-11x11-frdm'
->> - rename 'sw-keys' to 'gpio-keys'
->> - rename 'user_btn' to 'button-k'
->> - drop lpspi3 node
->> - rename iomuxc 'grpsleep' to 'sleepgrp'
->> - move dt-binding patch before the dts patch
->> - add board page link in cover letter
->> - use CAN PHY to manage the stby gpio of flexcan2
->> - drop realtek property
->> - add pcf2131 aliase
->> - add bootph- property for nodes should be kept in bootloader phase
->> - add reset-gpio and assert for eqos and fec
->> - delete unused alias
->> - Link to v1: https://lore.kernel.org/r/20251114-imx91_frdm-v1-0-e5763bdf9336@nxp.com
->>
->> ---
->> Joseph Guo (2):
->>        dt-bindings: arm: imx Add FRDM-IMX91 board
->>        arm64: dts: freescale: Add FRDM-IMX91 basic support
->>
->>   Documentation/devicetree/bindings/arm/fsl.yaml     |   1 +
->>   arch/arm64/boot/dts/freescale/Makefile             |   1 +
->>   arch/arm64/boot/dts/freescale/imx91-11x11-frdm.dts | 904 +++++++++++++++++++++
->>   3 files changed, 906 insertions(+)
->> ---
->> base-commit: 73f1e611b076de705c2f1c26cfdfc5b8e96f4733
->> change-id: 20251114-imx91_frdm-add2b2c07e78
->>
->> Best regards,
->> -- 
->> Joseph Guo <qijian.guo@nxp.com>
->>
->>
-> 
-> Everything is in good shape, the only non-working thing is button-k3
-> (but that was expected, as a small hardware modification is required
-> to reroute the phisical button from system reset to user function).
-> Not a real issue, at least from my point of view.
-> 
-> Reviewed-by: Francesco Valla <francesco@valla.it>
-> Tested-by: Francesco Valla <francesco@valla.it>
-> 
+Signed-off-by: Irving-CH Lin <irving-ch.lin@mediatek.com>
+---
+ drivers/clk/mediatek/Kconfig             | 12 ++++
+ drivers/clk/mediatek/Makefile            |  1 +
+ drivers/clk/mediatek/clk-mt8189-mdpsys.c | 91 ++++++++++++++++++++++++
+ 3 files changed, 104 insertions(+)
+ create mode 100644 drivers/clk/mediatek/clk-mt8189-mdpsys.c
 
-Hi Francesco,
-
-Thank you for your review and test.
-
-Regards,
-Joseph
-
-> 
-> Regards,
-> Francesco
-> 
+diff --git a/drivers/clk/mediatek/Kconfig b/drivers/clk/mediatek/Kconfig
+index c0fe1aa49993..ef962f5816a8 100644
+--- a/drivers/clk/mediatek/Kconfig
++++ b/drivers/clk/mediatek/Kconfig
+@@ -894,6 +894,18 @@ config COMMON_CLK_MT8189_IMG
+ 	  are building a kernel for a device that uses the MT8189 SoC and requires
+ 	  image processing capabilities, say Y or M to include this driver.
+ 
++config COMMON_CLK_MT8189_MDPSYS
++	tristate "Clock driver for MediaTek MT8189 mdpsys"
++	depends on COMMON_CLK_MT8189
++	default COMMON_CLK_MT8189
++	help
++	  This driver supports the display system clocks on the MediaTek MT8189
++	  SoC. By enabling this option, it allows for the control of the clocks
++	  related to the display subsystem. This is crucial for the proper
++	  functionality of the display features on devices powered by the MT8189
++	  chipset, ensuring that the display system operates efficiently and
++	  effectively.
++
+ config COMMON_CLK_MT8192
+ 	tristate "Clock driver for MediaTek MT8192"
+ 	depends on ARM64 || COMPILE_TEST
+diff --git a/drivers/clk/mediatek/Makefile b/drivers/clk/mediatek/Makefile
+index a1eaf123f2f0..9b23e4c5e019 100644
+--- a/drivers/clk/mediatek/Makefile
++++ b/drivers/clk/mediatek/Makefile
+@@ -131,6 +131,7 @@ obj-$(CONFIG_COMMON_CLK_MT8189_DBGAO) += clk-mt8189-dbgao.o
+ obj-$(CONFIG_COMMON_CLK_MT8189_DVFSRC) += clk-mt8189-dvfsrc.o
+ obj-$(CONFIG_COMMON_CLK_MT8189_IIC) += clk-mt8189-iic.o
+ obj-$(CONFIG_COMMON_CLK_MT8189_IMG) += clk-mt8189-img.o
++obj-$(CONFIG_COMMON_CLK_MT8189_MDPSYS) += clk-mt8189-mdpsys.o
+ obj-$(CONFIG_COMMON_CLK_MT8192) += clk-mt8192-apmixedsys.o clk-mt8192.o
+ obj-$(CONFIG_COMMON_CLK_MT8192_AUDSYS) += clk-mt8192-aud.o
+ obj-$(CONFIG_COMMON_CLK_MT8192_CAMSYS) += clk-mt8192-cam.o
+diff --git a/drivers/clk/mediatek/clk-mt8189-mdpsys.c b/drivers/clk/mediatek/clk-mt8189-mdpsys.c
+new file mode 100644
+index 000000000000..282bfb77b47d
+--- /dev/null
++++ b/drivers/clk/mediatek/clk-mt8189-mdpsys.c
+@@ -0,0 +1,91 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (c) 2025 MediaTek Inc.
++ * Author: Qiqi Wang <qiqi.wang@mediatek.com>
++ */
++
++#include <linux/clk-provider.h>
++#include <linux/module.h>
++#include <linux/of_device.h>
++#include <linux/platform_device.h>
++
++#include "clk-mtk.h"
++#include "clk-gate.h"
++
++#include <dt-bindings/clock/mediatek,mt8189-clk.h>
++
++static const struct mtk_gate_regs mdp0_cg_regs = {
++	.set_ofs = 0x04,
++	.clr_ofs = 0x08,
++	.sta_ofs = 0x00,
++};
++
++static const struct mtk_gate_regs mdp1_cg_regs = {
++	.set_ofs = 0x14,
++	.clr_ofs = 0x18,
++	.sta_ofs = 0x10,
++};
++
++#define GATE_MDP0(_id, _name, _parent, _shift)				\
++	GATE_MTK_FLAGS(_id, _name, _parent, &mdp0_cg_regs, _shift,	\
++		       &mtk_clk_gate_ops_setclr, CLK_IGNORE_UNUSED)
++
++#define GATE_MDP1(_id, _name, _parent, _shift)				\
++	GATE_MTK_FLAGS(_id, _name, _parent, &mdp1_cg_regs, _shift,	\
++		       &mtk_clk_gate_ops_setclr, CLK_IGNORE_UNUSED)
++
++static const struct mtk_gate mdp_clks[] = {
++	/* MDP0 */
++	GATE_MDP0(CLK_MDP_MUTEX0, "mdp_mutex0", "mdp0_sel", 0),
++	GATE_MDP0(CLK_MDP_APB_BUS, "mdp_apb_bus", "mdp0_sel", 1),
++	GATE_MDP0(CLK_MDP_SMI0, "mdp_smi0", "mdp0_sel", 2),
++	GATE_MDP0(CLK_MDP_RDMA0, "mdp_rdma0", "mdp0_sel", 3),
++	GATE_MDP0(CLK_MDP_RDMA2, "mdp_rdma2", "mdp0_sel", 4),
++	GATE_MDP0(CLK_MDP_HDR0, "mdp_hdr0", "mdp0_sel", 5),
++	GATE_MDP0(CLK_MDP_AAL0, "mdp_aal0", "mdp0_sel", 6),
++	GATE_MDP0(CLK_MDP_RSZ0, "mdp_rsz0", "mdp0_sel", 7),
++	GATE_MDP0(CLK_MDP_TDSHP0, "mdp_tdshp0", "mdp0_sel", 8),
++	GATE_MDP0(CLK_MDP_COLOR0, "mdp_color0", "mdp0_sel", 9),
++	GATE_MDP0(CLK_MDP_WROT0, "mdp_wrot0", "mdp0_sel", 10),
++	GATE_MDP0(CLK_MDP_FAKE_ENG0, "mdp_fake_eng0", "mdp0_sel", 11),
++	GATE_MDP0(CLK_MDPSYS_CONFIG, "mdpsys_config", "mdp0_sel", 14),
++	GATE_MDP0(CLK_MDP_RDMA1, "mdp_rdma1", "mdp0_sel", 15),
++	GATE_MDP0(CLK_MDP_RDMA3, "mdp_rdma3", "mdp0_sel", 16),
++	GATE_MDP0(CLK_MDP_HDR1, "mdp_hdr1", "mdp0_sel", 17),
++	GATE_MDP0(CLK_MDP_AAL1, "mdp_aal1", "mdp0_sel", 18),
++	GATE_MDP0(CLK_MDP_RSZ1, "mdp_rsz1", "mdp0_sel", 19),
++	GATE_MDP0(CLK_MDP_TDSHP1, "mdp_tdshp1", "mdp0_sel", 20),
++	GATE_MDP0(CLK_MDP_COLOR1, "mdp_color1", "mdp0_sel", 21),
++	GATE_MDP0(CLK_MDP_WROT1, "mdp_wrot1", "mdp0_sel", 22),
++	GATE_MDP0(CLK_MDP_RSZ2, "mdp_rsz2", "mdp0_sel", 24),
++	GATE_MDP0(CLK_MDP_WROT2, "mdp_wrot2", "mdp0_sel", 25),
++	GATE_MDP0(CLK_MDP_RSZ3, "mdp_rsz3", "mdp0_sel", 28),
++	GATE_MDP0(CLK_MDP_WROT3, "mdp_wrot3", "mdp0_sel", 29),
++	/* MDP1 */
++	GATE_MDP1(CLK_MDP_BIRSZ0, "mdp_birsz0", "mdp0_sel", 3),
++	GATE_MDP1(CLK_MDP_BIRSZ1, "mdp_birsz1", "mdp0_sel", 4),
++};
++
++static const struct mtk_clk_desc mdp_mcd = {
++	.clks = mdp_clks,
++	.num_clks = ARRAY_SIZE(mdp_clks),
++};
++
++static const struct of_device_id of_match_clk_mt8189_mdpsys[] = {
++	{ .compatible = "mediatek,mt8189-mdpsys", .data = &mdp_mcd },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, of_match_clk_mt8189_mdpsys);
++
++static struct platform_driver clk_mt8189_mdpsys_drv = {
++	.probe = mtk_clk_simple_probe,
++	.remove = mtk_clk_simple_remove,
++	.driver = {
++		.name = "clk-mt8189-mdpsys",
++		.of_match_table = of_match_clk_mt8189_mdpsys,
++	},
++};
++
++module_platform_driver(clk_mt8189_mdpsys_drv);
++MODULE_DESCRIPTION("MediaTek MT8189 mdpsys clocks driver");
++MODULE_LICENSE("GPL");
+-- 
+2.45.2
 
 
