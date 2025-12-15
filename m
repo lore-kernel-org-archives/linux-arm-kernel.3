@@ -4,100 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE080D5B170
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 10:51:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8055D59D99
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 10:52:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=df9nR8VZxWqdoDGlAC2gMzlQG9390TwrDoFTIv4go2s=; b=EazGETRU5iDyDMLjcwlPViGvDv
-	jZMrEhyDeHArCE29Tgl1tjvmGhXMkZwlgVo5Qsk2AgE+IX6AIu9tPn2ECG6qICHM6/LgRV3zEZaTb
-	lXeqXvIqsw2sKPfdtOMA8RROeUmFCZaPDHZA1Oolm81VKDBjJeN6LYBGiqdRxPfH5Go0aTBopr8jx
-	diG4MkIjyPfTbHBOrVMbeY4hkpyvZMPi1kQaFsMTCIlKyDbt8zyupiJARegMr07mhr93RqZrKS8kT
-	HWZEuym8kvhqVX/ZfQgSb0Ms0RZ7y2ZRef/u54Bjng6lNQJ7VxsczJzeP2PLy3Bn3djezDIXEKGd3
-	tAZmYiBQ==;
+	bh=nB+RBJ6RX6T3WRpIftetkYqL3dVBw+OmqN032iLl9fI=; b=PgRL2JM+16tleJIhHNEDdsJLjP
+	jL0R60C22c1Glqltts3OqJaSMsKSa0zSk/368d/EXUsDDLbSUGx9rLa3ovVnb8zhF7RWKv+s+XU4x
+	T1kLbEDoDS4aYp8nToM2AEMYXAAEULDjb9Ret/gz19+B+9EwlehvO+jeVDt8jOE8iq2amd0TOHA/r
+	6kCZSSUZZCOCwsz/ZmIc/FhSs8HACr47M/5++QvvvVL2cUj9XzCBOmZU64UhhUBBZtK6y9QByzBsQ
+	YQvynQB+0iqNsgWl6OL2jfEAUjO78luzSdOY+RnEBGdlcGNOJKR/fPLbzuOj6R00pcoqlIlSkANxD
+	TMi0mLvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV6Ad-00000003TnS-1Rvz;
-	Mon, 15 Dec 2025 10:51:15 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1vV6Bm-00000003U0R-2zwa;
+	Mon, 15 Dec 2025 10:52:26 +0000
+Received: from mail-wr1-x443.google.com ([2a00:1450:4864:20::443])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vV6AW-00000003TlM-41Tc
+	id 1vV6Bj-00000003Tzo-3XKg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 10:51:12 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-477770019e4so32960685e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 02:51:08 -0800 (PST)
+	Mon, 15 Dec 2025 10:52:25 +0000
+Received: by mail-wr1-x443.google.com with SMTP id ffacd0b85a97d-430ff148844so266127f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 15 Dec 2025 02:52:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1765795867; x=1766400667; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=df9nR8VZxWqdoDGlAC2gMzlQG9390TwrDoFTIv4go2s=;
-        b=1YM/D9DdEav6KnJL5R+KculLsN+DNxREh+3US0tAYpFQ8BRRxmmKNZxvMgobmTetpk
-         MGccZL9DLTHQj4Fougi4W12+M06V297gmpm9DZK6AAbHgMoP/VjN4kn+5kfSf4ZlO929
-         Zfc8C2FNCDooq6LTW5CW/zkEedo9ZhNBALhmGOCdmaGYqNrHtd8TjRA7FKsMoDCzoLj7
-         jxxV46V0+ZubAUtIljWc+E4CZFlMKrapNQgM+Y3z+JamByMw/s/6T4R9CKpd00Vzj/Os
-         SE9rab16zk+pDMaud+sbAWiICY4O6pUb7uTIwrsGphWwLctkMhhuiLK7Eeh/D3IGnyUP
-         2ZuA==
+        d=linaro.org; s=google; t=1765795942; x=1766400742; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=nB+RBJ6RX6T3WRpIftetkYqL3dVBw+OmqN032iLl9fI=;
+        b=PiLZvyHwkF6l+GjgUIR4RjDaFYuoa+PzSLFcIi+2k24En5jnqroSkCkTlmt5B/udKd
+         iVG2PwIi96buzW/NCwqYLJcRzEaWHeXDeaftnMJWu2qI6KV8iMcj+/gipXECLmL3OJVJ
+         Ha6kMoPfvaBGRGEPVdi2v3zME3ItHJ8Pki0XxZ1SqorPoAV+HmxucPlw+4BZhu3oBDs1
+         BOP1oe0DRDekYuWL/FqN30Sx5gmoFfbdJUeQQK3WMugtAgFPR6qcQThASb4XBbrYtlqU
+         H5tStr6p6Nz/ha8Stb3Dy9RC445SYmhtywccIhg8dDrgbFeTg1ZYYRDdkOMQJJnHFK+8
+         1JTg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1765795867; x=1766400667;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=df9nR8VZxWqdoDGlAC2gMzlQG9390TwrDoFTIv4go2s=;
-        b=o95m285da/PFxJjxIty45YO2r7B/BTRetx9Qnp9S8x9ldO4cZ9CoDgSQNWpnjCEjRL
-         V64ENC8njaVfNbjtahnIhI0rdRUr/MVT/skoI0kq72tO8UN1V2XUn4Cc90i9Dver7uMB
-         +1GBibuEtesFX3v4v5q2JM7sWyat6pxKE3ghCQVnpYua0d1Auiq9wS+PeHwek0dGJM5z
-         mqbdBMBfx/dIdOkS9agoY0U0Teno/3wNS3IuVM6xudyQLt7+JNV4aI5PhEjKdQObj+ph
-         qKvdkcCoW4noKqdjsy2tzhAalFmSIRG4kxOBwEjJCGITkwx8UKRG03c+PkiW+BQVb9mS
-         UBZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVHdxevLzCw6vgJRE/7KfEW8+HqTMUnLMArOxIRTC4zaC+D0BVHl0h2jmjmWP+firzu+eOUOUmyuAA4tJKNiSij@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPz8fBoRfGgw68RnwqZVdyRCFfxPH8QWjOOB5U40Sf/5QpN6YS
-	Ot82BXuK1QxD/RAulnMQ7p8qYnzFxjbgOSMY9w25zVTg/Ca5rGDW1WjJ9DU0WDJQNOo=
-X-Gm-Gg: AY/fxX5fhwTXhZZ9DAlzKhYHlUYvVd3d1VSLiRCJT15QejvIqQYOo4ZGQJCqboLSPoe
-	+DzumJ0wvlr30t49+bfB74HBblhhGgUT8ZBP0fBd7O4u5D+ZMiDRidzOSrqd8nRARegemAXnhqS
-	z6K2N60HWCHfRK3tjOw3y8OCR8CvpqZMU5ZdhNMeez4ZC4frmD7SHiqfchFjx1qMzQ8BNyBZSrF
-	gKAf5EHwNPW63yRrMTuO+hAWwGF3UT/D/qQONOb8wtxT7laXTrZJ/Jhmb3zuNrsRa2YUiDs5urn
-	ZVrviRjZJe+N6amwzQvYB7jMP+ALzWakFZ/Wb/NluVGHSUAFXjZ5bn5aCxHyoy/S34ocCxXu+D1
-	mo2oZsypvgsx2T36ZzcUuJSR610q6TAQypJ56r2wiTcjA2HU9ybutcBAb0v22POzmJci/YvIRxC
-	orkqKiOQxzcBzL0klFvuuXiTNw
-X-Google-Smtp-Source: AGHT+IGQkDPSiIqBU16hW6pkKLW9N/W+yMzLNnRQRqaDZA+xNXh4rMLXjgTTwvCUQbRtUa5UMQD+Sw==
-X-Received: by 2002:a05:600c:8b6d:b0:479:3a87:2093 with SMTP id 5b1f17b1804b1-47a8f914528mr96491215e9.37.1765795866989;
-        Mon, 15 Dec 2025 02:51:06 -0800 (PST)
-Received: from toaster.baylibre.com ([2a01:e0a:3c5:5fb1:3f77:1837:bfee:f255])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-430fb078e56sm7695439f8f.21.2025.12.15.02.51.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 15 Dec 2025 02:51:06 -0800 (PST)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Chuan Liu <chuan.liu@amlogic.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, 
- Conor Dooley <conor.dooley@microchip.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>
-In-Reply-To: <20250919-add_video_clk-v6-0-fe223161fb3f@amlogic.com>
-References: <20250919-add_video_clk-v6-0-fe223161fb3f@amlogic.com>
-Subject: Re: [PATCH v6 0/3] clk: amlogic: add video-related clocks for S4
- SoC
-Message-Id: <176579586619.1510096.14461375977036233686.b4-ty@baylibre.com>
-Date: Mon, 15 Dec 2025 11:51:06 +0100
+        d=1e100.net; s=20230601; t=1765795942; x=1766400742;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nB+RBJ6RX6T3WRpIftetkYqL3dVBw+OmqN032iLl9fI=;
+        b=Axsk6XxHz+1xCf2F52Ai1P1tgEq9+iSo76NA8kdLWSlsELkTBa7c9wbZtsmNHuFXbu
+         XhTRbceU0lnfhxg4Hl+W6IFgAkfOnsREBuFUEZBRNaahPSkcbO5gtEVXEwGDSMg8FLTk
+         1aPBRMjm26hAab4J7mZ0/i14H9WAkvQi0LNG+bPooPuFneoMoj5cKP+bCUqZ9sEMPKFo
+         EQ55OXY6EpaBCUIexNvU08phUBlW8L1kcUWwEXB7tzD2/Fu0iBRVhHuIjD4fhAZcjLT3
+         WedIvw5A7SO+4l8wBX7syDIHxL8xYwkTcIJsuOfkiTmDlAybrPG0bdgd92ecWmYrwoTQ
+         nidA==
+X-Gm-Message-State: AOJu0YwW6l6Tp+Q33JAJlMqKvuO+TqJ7TRNRbmfSupQGuSXCEUH6JcEK
+	2x3bHMvPigArh6/PxSwzXxUD7iNETrGTeLIMR6tE0TFtbEphru3cWJxh3KSyF1uV510=
+X-Gm-Gg: AY/fxX4oDjnHd2+JBeILX4+yaJVb/Klxq8kt5/FIstZgrSQjbGIIZ7TUSG76oz126Mu
+	/s2tudRkUrvZaSXLIebN82UQu2POzBDS12M5cYkAVL2aoXtvgX2agleAsvM8YdsHcPAwwle9CoL
+	2Ve2S2jeXlA2EhDtDo2lOdrwmfHkc8iCTENuu8MBT6CccwdQQHm9RDz/2PWvO5/cT4kt+TP0vj1
+	w4HBuglFKFrdPP4dULHgKyoDCJZTey/ObmQp/znNBUmoBgv6U/A3dLtp8xXzuF+IM80LMpIn/Vc
+	dunKyOqUE76Mlp64oc17Xs7LtNAUS1AiQkfM7+o+hwL1Pv/wEhBEIfhNNknU/ZWQXIw8V0xbrCg
+	efWLGwVqPip15LzNWM1CNMadcFL0AVNGp6yY6yW3Qq9A75S5a3IRmgct2NzQPr4lFEv+J4kI3e1
+	zXYYHOl1l4yQ77pknVKVL3
+X-Google-Smtp-Source: AGHT+IHIejLZ8yFwsZwEEzCINtAT3WHk822OpusGi4A5ihMbhmK9XmClAvJ/IZaC+/ow4gbl8lRFxw==
+X-Received: by 2002:a05:6000:2410:b0:42b:2eb3:c92a with SMTP id ffacd0b85a97d-42fb3e65c54mr12756034f8f.12.1765795941787;
+        Mon, 15 Dec 2025 02:52:21 -0800 (PST)
+Received: from [192.168.0.108] ([130.185.218.160])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-42fbab2d3b6sm18412955f8f.23.2025.12.15.02.52.20
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 15 Dec 2025 02:52:21 -0800 (PST)
+Message-ID: <bda366b4-fa53-4feb-a7ce-ee47cfc404b5@linaro.org>
+Date: Mon, 15 Dec 2025 12:52:24 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: perf: fix syscalltbl path base
+To: Arnd Bergmann <arnd@arndb.de>, Joel May <joel-linux@jmay.us>,
+ Leo Yan <leo.yan@arm.com>, Ian Rogers <irogers@google.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+ Linux perf Profiling <linux-perf-users@vger.kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+References: <b2651f20-6f3a-49f5-9cd8-3fb028b2cab5@app.fastmail.com>
+ <fcefc3c0-541d-40cc-84e3-9c2460308bdb@linaro.org>
+ <23c07ac4-ff13-47a5-824a-e7af1d1847a3@app.fastmail.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <23c07ac4-ff13-47a5-824a-e7af1d1847a3@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_025109_024586_9E19F2F2 
-X-CRM114-Status: UNSURE (   5.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251215_025223_911198_CA73731F 
+X-CRM114-Status: GOOD (  22.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,17 +105,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Applied to clk-meson (clk-meson-next), thanks!
 
-[1/3] dt-bindings: clock: add video clock indices for Amlogic S4 SoC
-      https://github.com/BayLibre/clk-meson/commit/29c4f32095d0
-[2/3] clk: amlogic: add video-related clocks for S4 SoC
-      https://github.com/BayLibre/clk-meson/commit/c78c9dbe2bb9
-[3/3] clk: amlogic: remove potentially unsafe flags from S4 video clocks
-      https://github.com/BayLibre/clk-meson/commit/4aca7e92023c
 
-Best regards,
---
-Jerome
+On 15/12/2025 11:33, Arnd Bergmann wrote:
+> On Mon, Dec 15, 2025, at 09:47, James Clark wrote:
+>> On 15/12/2025 00:12, Joel May wrote:
+>>
+>> Hi Joel,
+>>
+>> There is a similar fix on the list here:
+>>
+>> https://lore.kernel.org/linux-perf-users/20251204-perf_fix_syscall_header-v1-1-b8e27f74ed6a@arm.com/
+>>
+>> I'm not sure if commit 1 alone will also fix your issue, or we'd need to
+>> collapse both of the commits in that set.
+>>
+>> The first commit has an older fixes: tag and also fixes some other
+>> issues so it might be better to take that one rather than this one.
+> 
+> I don't understand that other "fix", doesn't that just work around
+> the arm64 build issue by adding another special case for arm64?
+> 
+> If we want the tools directory to have a copy of the generated unistd.h
+> files instead of generating them, it should at the minimum be done
+> the same across all architectures.
+> 
+>      Arnd
+
+I don't think it's a special case, the other architectures already have 
+a copy of their syscall headers in tools/ don't they?
+
+My original commit that is reverted by Leo's patches is more of a "fix" 
+than his fix. It turned out that running the generator script for the 
+Perf build wasn't the best idea after all. Now it's obvious that we'd 
+have to keep injecting that build rule into every tool that needs it. 
+And it doesn't even respect this rule described here that tools headers 
+should be decoupled from the kernel sources:
+
+  linux/tools/include/uapi/README
+
+I don't see the benefit of manually copying over the generator script 
+and its input file and then updating every build rule to invoke it when 
+we can manually copy over the output of that script and not have to do 
+anything else.
+
+Ian makes the point that we can run the generator for doing 
+check_headers.sh. But at least that only needs to be done for one tool 
+and can be in addition to the manual copy.
+
+James
 
 
