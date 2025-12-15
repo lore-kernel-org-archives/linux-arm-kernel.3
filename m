@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66BE9D5B857
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 17:09:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2198D5B857
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 15 Dec 2025 17:10:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yHQvSRl1j8ZUcUPLByOvGqvMNE11iQ7hF5mQe6hKSlY=; b=iWumylXikEDiD4oGB7vNu9ZlNH
-	Hl3iLqiRdesBEu+Bdb3hHMk+A/p2OnvtEZXU0eucf26+Igrb//8JSOkRwHEQTGfIlAgunuowzoZHk
-	vKCLwusl9veMwisFhP9MWATfcZaTkX7dFrZIdyXnr1ymJH+E7DIGWqzMFGoPIs4CQCSdsgTgXLd26
-	JyybLwaZGTErAHYfqUwP+Q7vhzB8E3SmiwxoXeA3YUu44i+pO3g0u8EyJdBcgBtFSWKEqs6GdKxxF
-	Ps5je08QlqdmrWX1wO8EELN0z1+UqSz8mrtqaz+addlTk45/K2QW5emjIqwuXoK/sPYlu2sUSAY9p
-	S5RflS9w==;
+	bh=m7D05hHNtNjr1JLDhF9CoDjitzcR5Sdy80SNEYvGUE8=; b=T33wdMg6V8Y4G6LQ0bkU6NqjgB
+	FNXyir3ksL5biz65uYgoKnFcbXVyQ4clqqm/nzZV110cBse3A0WsSZ6bZyeo99Y87iFXbOR93dprh
+	sEg93TX+CpLDgCbvl8jFUnzdyaefMBsBXKUikdBreQoWyMCxLt1bK4guCTh+NrapMP7JwQARrvEz4
+	Sm8O/8tACDcEn8De7t5hy+zr53xkVXPZa3uTVNl5MoIx0vBq3k+AcHwTSZurhEPjbxLuGJSaQ3Owt
+	BGTw5Sg8iADS4whGezorR4f6iEF+hndPqsTnEKwB71k/kEEp6DfUzkTHfZYFHi26jCNhqYC3hBnnb
+	zCg2pVFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVC45-000000042yy-1VlY;
-	Mon, 15 Dec 2025 17:08:53 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1vVC60-000000043Lf-3JE2;
+	Mon, 15 Dec 2025 17:10:52 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1vVC42-000000042yC-2GDk
+	id 1vVC5x-000000043Ky-3h0t
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 15 Dec 2025 17:08:52 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vVC36-0007TL-5t; Mon, 15 Dec 2025 18:07:52 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vVC35-005okW-0J;
-	Mon, 15 Dec 2025 18:07:51 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1vVC34-008zRV-32;
-	Mon, 15 Dec 2025 18:07:50 +0100
-Date: Mon, 15 Dec 2025 18:07:50 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Primoz Fiser <primoz.fiser@norik.com>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, andrej.picej@norik.com,
-	c.hemp@phytec.de, s.mueller-klieser@phytec.de, n.wesp@phytec.de,
-	c.stoidner@phytec.de, linux-clk@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 2/2] arm64: dts: imx93-phyboard-segin: Add peb-av-02
- overlay
-Message-ID: <20251215170750.j2l6gnbocmhdloe6@pengutronix.de>
-References: <20251202-v6-18-topic-imx93-phyboard-segin-av-02-display-v1-0-9c14be6c7478@pengutronix.de>
- <20251202-v6-18-topic-imx93-phyboard-segin-av-02-display-v1-2-9c14be6c7478@pengutronix.de>
- <15bb2331-713a-4b6a-ae9a-4870066e84dc@norik.com>
+	Mon, 15 Dec 2025 17:10:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 15ABF4080F;
+	Mon, 15 Dec 2025 17:10:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F880C4CEF5;
+	Mon, 15 Dec 2025 17:10:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1765818648;
+	bh=cwMR/Fk5tha92MiDNpmUeFP+QNMa9XhwhgULZKix1PY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=FZMVOEwPzqZZWOFPQ6Wa00Okn6d0OJMvDCcP+Ke/6f59VpIzMzvl9yX9EQWOGXLL3
+	 k9G8gIrcVqMjIjyJBnyNy7wyFBMTpxQ0PgBtCdwsOj2DqJL8Px3KVTBbjZs3TXeW06
+	 Qx3dtmbRvVyym2X9vldBHcSErJ+2/7lD6UYGgbGCAOnvcuDB874wIsHJluhHL9uTd5
+	 sOqtEe4FkdAKX5H89+7i5gVZ2DT6GO/hRx+dS83zP5R+d9Do1kJmKi37Qxa0YRiMI7
+	 fHE3p1zn0APIXoXguSrqvXgkJamO9sentpByvn77geIUgGt2kX7MMn7Wj7+SBHZj+8
+	 XnzY4Tz4lrE2g==
+Date: Mon, 15 Dec 2025 17:10:43 +0000
+From: Simon Horman <horms@kernel.org>
+To: Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: nico@fluxnic.net, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org,
+	dongdong.deng@windriver.com, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-rt-devel@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2] smc91x: fix broken irq-context in PREEMPT_RT
+Message-ID: <aUBBE-W4kwQbsp9t@horms.kernel.org>
+References: <20251212190338.2318843-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <15bb2331-713a-4b6a-ae9a-4870066e84dc@norik.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+In-Reply-To: <20251212190338.2318843-1-yeoreum.yun@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251215_090850_737051_E3D8E3F3 
-X-CRM114-Status: GOOD (  40.58  )
+X-CRM114-CacheID: sfid-20251215_091049_977039_32DA9E48 
+X-CRM114-Status: GOOD (  20.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,273 +75,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Primoz,
-
-On 25-12-03, Primoz Fiser wrote:
-> Hi Marco,
+On Fri, Dec 12, 2025 at 07:03:38PM +0000, Yeoreum Yun wrote:
+> When smc91x.c is built with PREEMPT_RT, the following splat occurs
+> in FVP_RevC:
 > 
-> On 2. 12. 25 14:44, Marco Felsch wrote:
-> > From: Andrej Picej <andrej.picej@norik.com>
-> > 
-> > Add overlay for Audio-Video module PEB-AV-02. Add support for panel
-> > display, capacitive touchscreen and backlight.
-> > 
-> > For now the backlight is configured as a GPIO, brightness of the display
-> > can not be set. When the FLEXIO PWM driver is available this should be
-> > switched to PWM backlight driver.
-> > 
-> > Signed-off-by: Andrej Picej <andrej.picej@norik.com>
-> > [rework commit message, use local regulator, remove compatible]
-> > Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
-> > Signed-off-by: Christian Hemp <c.hemp@phytec.de>
-> > [m.felsch@pengutronix.de: cleanup downstream commit]
-> > Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
-> > ---
-> >  arch/arm64/boot/dts/freescale/Makefile             |   2 +
-> >  .../freescale/imx93-phyboard-segin-peb-av-02.dtso  | 135 +++++++++++++++++++++
-> >  2 files changed, 137 insertions(+)
-> > 
-> > diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-> > index 525ef180481d331e9c4decd092b7b831c497b67e..27e27ac29e82bc0692e86c2ba15c240dc9fbe1c6 100644
-> > --- a/arch/arm64/boot/dts/freescale/Makefile
-> > +++ b/arch/arm64/boot/dts/freescale/Makefile
-> > @@ -357,10 +357,12 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
-> >  
-> >  imx93-phyboard-nash-peb-wlbt-07-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-peb-wlbt-07.dtbo
-> > +imx93-phyboard-segin-peb-av-02-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-av-02.dtbo
-> >  imx93-phyboard-segin-peb-eval-01-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-eval-01.dtbo
-> >  imx93-phyboard-segin-peb-wlbt-05-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-wlbt-05.dtbo
-> >  imx93-phycore-rpmsg-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-segin.dtb imx93-phycore-rpmsg.dtbo
-> >  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-peb-wlbt-07.dtb
-> > +dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-av-02.dtb
+> [   13.055000] smc91x LNRO0003:00 eth0: link up, 10Mbps, half-duplex, lpa 0x0000
+> [   13.062137] BUG: workqueue leaked atomic, lock or RCU: kworker/2:1[106]
+> [   13.062137]      preempt=0x00000000 lock=0->0 RCU=0->1 workfn=mld_ifc_work
+> [   13.062266] C
+> ** replaying previous printk message **
+> [   13.062266] CPU: 2 UID: 0 PID: 106 Comm: kworker/2:1 Not tainted 6.18.0-dirty #179 PREEMPT_{RT,(full)}
+> [   13.062353] Hardware name:  , BIOS
+> [   13.062382] Workqueue: mld mld_ifc_work
+> [   13.062469] Call trace:
+> [   13.062494]  show_stack+0x24/0x40 (C)
+> [   13.062602]  __dump_stack+0x28/0x48
+> [   13.062710]  dump_stack_lvl+0x7c/0xb0
+> [   13.062818]  dump_stack+0x18/0x34
+> [   13.062926]  process_scheduled_works+0x294/0x450
+> [   13.063043]  worker_thread+0x260/0x3d8
+> [   13.063124]  kthread+0x1c4/0x228
+> [   13.063235]  ret_from_fork+0x10/0x20
 > 
-> Here you need to rebase since new commits on linux-next.
-
-Argh.. will do.
-
-> >  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-eval-01.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-wlbt-05.dtb
-> >  dtb-$(CONFIG_ARCH_MXC) += imx93-phycore-rpmsg.dtb
-> > diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..2e7074e402dc8fdeb1568d4f2d4960431e972501
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-segin-peb-av-02.dtso
-> > @@ -0,0 +1,135 @@
-> > +// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-> > +/*
-> > + * Copyright (C) 2025 PHYTEC Messtechnik GmbH
-> > + * Copyright (C) 2025 Pengutronix
-> > + *
-> > + * Author: Andrej Picej <andrej.picej@norik.com>
-> > + * Author: Marco Felsch <kernel@pengutronix.de>
-> > + */
-> > +
-> > +#include <dt-bindings/clock/imx93-clock.h>
-> > +#include <dt-bindings/gpio/gpio.h>
-> > +#include <dt-bindings/interrupt-controller/arm-gic.h>
-> > +#include "imx93-pinfunc.h"
-> > +
-> > +/dts-v1/;
-> > +/plugin/;
-> > +
-> > +&{/} {
-> > +	/* TODO: Convert to PWM backlight once the FlexIO PWM is supported */
-> > +	backlight: backlight {
-> > +		compatible = "gpio-backlight";
-> > +		pinctrl-names = "default";
-> > +		pinctrl-0 = <&pinctrl_backlight>;
-> > +		gpios = <&gpio4 28 GPIO_ACTIVE_HIGH>;
-> > +	};
-> > +
-> > +	panel {
-> > +		compatible = "edt,etm0700g0edh6";
-> > +		pinctrl-names = "default";
-> > +		pinctrl-0 = <&pinctrl_panel>;
-> > +
-> > +		backlight = <&backlight>;
-> > +		enable-gpios = <&gpio4 29 GPIO_ACTIVE_HIGH>;
-> > +		power-supply = <&reg_x71_vcc_3v3>;
-> > +
-> > +		port {
-> > +			panel_in: endpoint {
-> > +				remote-endpoint = <&dpi_to_panel>;
-> > +			};
-> > +		};
-> > +	};
-> > +
-> > +	reg_x71_vcc_3v3: regulator-x71-vcc-3v3 {
+> This happens because smc_special_trylock() disables IRQs even on PREEMPT_RT,
+> but smc_special_unlock() does not restore IRQs on PREEMPT_RT.
+> The reason is that smc_special_unlock() calls spin_unlock_irqrestore(),
+> and rcu_read_unlock_bh() in __dev_queue_xmit() cannot invoke
+> rcu_read_unlock() through __local_bh_enable_ip() when current->softirq_disable_cnt becomes zero.
 > 
-> I just checked the schematics.
+> To address this issue, replace smc_special_trylock() with spin_trylock_irqsave().
 > 
-> Can we rename this to reg_vcc_3v3_con in v2 maybe?
+> Fixes: 8ff499e43c53 ("smc91x: let smc91x work well under netpoll")
+> Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+> ---
+> This patch based on v6.18.
 > 
-> > +		compatible = "regulator-fixed";
-> > +		regulator-name = "X71-VCC3V3";
+> History
+> ========
 > 
-> And this to "VCC3V3_CON"?
-> 
-> The reasoning behind is that "X71-VCC3V3" voltage doesn't exist on the
-> schematics, while there is actually "VCC3V3_CON" voltage supplying the
-> display panel.
-
-I know that "X71-VCC3V3" doesn't exist, I also thought about
-"X71:VCC3V3" to make it clear. Why I mentioned the X71 in the first
-place was to not cause any naming conflict. I would like to keep the X71
-naming since "VCC3V3_CON" really is the "X71-VCC3V3" with some filters
-applied. Anyway, I can change this of course.
-
-> > +		regulator-max-microvolt = <3300000>;
-> > +		regulator-min-microvolt = <3300000>;
-> > +	};
-> > +};
-> > +
-> > +&dpi_bridge {
-> > +	status = "okay";
-> > +};
-> > +
-> > +&dpi_to_panel {
-> > +	remote-endpoint = <&panel_in>;
-> > +	bus-width = <18>;
-> > +};
-> > +
-> > +&lcdif {
-> > +	pinctrl-names = "default";
-> > +	pinctrl-0 = <&pinctrl_lcdif>;
-> > +	assigned-clocks = <&clk IMX93_CLK_VIDEO_PLL>;
-> > +	assigned-clock-rates = <332600000>;
-> > +	status = "okay";
-> > +};
-> > +
-> > +&lpi2c2 {
-> > +	#address-cells = <1>;
-> > +	#size-cells = <0>;
-> > +
-> > +	touchscreen@38 {
-> > +		compatible = "edt,edt-ft5406";
-> > +		reg = <0x38>;
-> > +		pinctrl-names = "default";
-> > +		pinctrl-0 = <&pinctrl_touchscreen>;
-> > +		interrupt-parent = <&gpio4>;
-> > +		interrupts = <12 IRQ_TYPE_EDGE_FALLING>;
-> > +		reset-gpios = <&gpio4 1 GPIO_ACTIVE_LOW>;
-> > +		touchscreen-size-x = <1792>;
-> > +		touchscreen-size-y = <1024>;
-> 
-> Please add "wakeup-source" property here like in the downstream commit.
-> 
-> With this in place, panel touch can be used to wake up the board from sleep.
-
-Is this a required feature? Touchscreens with no certain
-low-power mode handlig (e.g. reduced scanning time) can draw much power
-in suspend.
-
-I can add it if Phytec is aware of this fact and still wants to have
-thsi feature.
-
-> Last but not least, can you add the vcc and iovcc supply regulators here
-> like in the downstream commit:
-> 
-> vcc-supply = <&reg_vcc_3v3_con>;
-> iovcc-supply = <&reg_vcc_3v3_con>;
-> 
-> to get rid of the following warnings:
-> 
-> edt_ft5x06 1-0038: supply vcc not found, using dummy regulator
-> edt_ft5x06 1-0038: supply iovcc not found, using dummy regulator
-
-Will do.
-
-> Anyway, I tested the display on the segin board with latest linux-next
-> and your patches. Can report display, touch and backlight work as expected.
-> 
-> Thank you!
-> 
-> Tested-by: Primoz Fiser <primoz.fiser@norik.com>
-
-Regards,
-  Marco
-
-> 
-> BR,
-> Primoz
-> 
-> > +	};
-> > +};
-> > +
-> > +&media_blk_ctrl {
-> > +	status = "okay";
-> > +};
-> > +
-> > +&iomuxc {
-> > +	pinctrl_backlight: backlightgrp {
-> > +		fsl,pins = <
-> > +			MX93_PAD_CCM_CLKO3__GPIO4_IO28			0x1133e
-> > +		>;
-> > +	};
-> > +
-> > +	pinctrl_lcdif: lcdifgrp {
-> > +		fsl,pins = <
-> > +			MX93_PAD_GPIO_IO00__MEDIAMIX_DISP_CLK		0x50e
-> > +			MX93_PAD_GPIO_IO01__MEDIAMIX_DISP_DE		0x50e
-> > +			MX93_PAD_GPIO_IO02__MEDIAMIX_DISP_VSYNC		0x50e
-> > +			MX93_PAD_GPIO_IO03__MEDIAMIX_DISP_HSYNC		0x50e
-> > +			MX93_PAD_GPIO_IO04__MEDIAMIX_DISP_DATA00	0x50e
-> > +			MX93_PAD_GPIO_IO05__MEDIAMIX_DISP_DATA01	0x50e
-> > +			MX93_PAD_GPIO_IO06__MEDIAMIX_DISP_DATA02	0x50e
-> > +			MX93_PAD_GPIO_IO07__MEDIAMIX_DISP_DATA03	0x50e
-> > +			MX93_PAD_GPIO_IO08__MEDIAMIX_DISP_DATA04	0x50e
-> > +			MX93_PAD_GPIO_IO09__MEDIAMIX_DISP_DATA05	0x51e
-> > +			MX93_PAD_GPIO_IO10__MEDIAMIX_DISP_DATA06	0x50e
-> > +			MX93_PAD_GPIO_IO11__MEDIAMIX_DISP_DATA07	0x50e
-> > +			MX93_PAD_GPIO_IO12__MEDIAMIX_DISP_DATA08	0x50e
-> > +			MX93_PAD_GPIO_IO13__MEDIAMIX_DISP_DATA09	0x50e
-> > +			MX93_PAD_GPIO_IO14__MEDIAMIX_DISP_DATA10	0x50e
-> > +			MX93_PAD_GPIO_IO15__MEDIAMIX_DISP_DATA11	0x50e
-> > +			MX93_PAD_GPIO_IO16__MEDIAMIX_DISP_DATA12	0x506
-> > +			MX93_PAD_GPIO_IO17__MEDIAMIX_DISP_DATA13	0x506
-> > +			MX93_PAD_GPIO_IO18__MEDIAMIX_DISP_DATA14	0x506
-> > +			MX93_PAD_GPIO_IO19__MEDIAMIX_DISP_DATA15	0x506
-> > +			MX93_PAD_GPIO_IO20__MEDIAMIX_DISP_DATA16	0x506
-> > +			MX93_PAD_GPIO_IO21__MEDIAMIX_DISP_DATA17	0x506
-> > +		>;
-> > +	};
-> > +
-> > +	pinctrl_panel: panelgrp {
-> > +		fsl,pins = <
-> > +			MX93_PAD_CCM_CLKO4__GPIO4_IO29			0x1133e
-> > +		>;
-> > +	};
-> > +
-> > +	pinctrl_touchscreen: touchscreengrp {
-> > +		fsl,pins = <
-> > +			MX93_PAD_ENET1_MDIO__GPIO4_IO01			0x11e
-> > +			MX93_PAD_ENET1_RD2__GPIO4_IO12			0x1133e
-> > +		>;
-> > +	};
-> > +};
-> > 
-> 
-> -- 
-> Primoz Fiser
-> phone: +386-41-390-545
-> email: primoz.fiser@norik.com
-> --
-> Norik systems d.o.o.
-> Your embedded software partner
-> Slovenia, EU
-> phone: +386-41-540-545
-> email: info@norik.com
-> 
+> >From v1 to v2:
+>   - remove debug log.
+>   - https://lore.kernel.org/all/20251212185818.2209573-1-yeoreum.yun@arm.com/
 > 
 
--- 
-#gernperDu 
-#CallMeByMyFirstName
+Firstly, I'd like to note that it seems to me that the last
+non-trivial update to this driver seems to have occurred back in 2016.
+Do you know if it is still actively used?
 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | https://www.pengutronix.de/ |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-9    |
+I agree that this patch seems appropriate as a bug fix.
+But I do wonder if, as a follow-up for net-next when it re-opens,
+smc_special_*lock could be removed entirely.
+Other than being the source of this bug (which I guess is special),
+they don't seem very special anymore. Perhaps they were once,
+but that time seems to have passed.
+
+Regarding the Fixes tag. I wonder if this one, which post-dates the
+currently cited commit is correct. It seems to be when RT variants of
+these locks was introduced.
+
+Fixes: 342a93247e08 ("locking/spinlock: Provide RT variant header: <linux/spinlock_rt.h>")
+
+Lastly, for reference, when posting fixes for Networking code, please:
+
+* Target the patches at net like this:
+
+  [PATCH net] ...
+
+* Allow at least 24h to pass before posting updated patch versions
+
+More can be found here: https://docs.kernel.org/process/maintainer-netdev.html
+
+
+Reviewed-by: Simon Horman <horms@kernel.org>
 
